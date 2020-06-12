@@ -18,14 +18,15 @@ use App\Entity\Thread;
 use App\Entity\ThreadReadMarker;
 use App\Entity\User;
 use App\Exception\DynamicAjaxResetException;
+use App\Service\AdminActionHandler;
 use App\Service\CitizenHandler;
 use App\Service\ErrorHelper;
-use App\Service\AdminActionHandler;
+use App\Service\InventoryHandler;
 use App\Service\JSONRequestParser;
 use App\Service\PictoHandler;
 use App\Service\RandomGenerator;
+use App\Service\TimeKeeperService;
 use App\Service\UserFactory;
-use App\Service\InventoryHandler;
 use App\Response\AjaxResponse;
 use DateTime;
 use Doctrine\ORM\EntityManager;
@@ -62,12 +63,14 @@ class MessageController extends AbstractController
     private $trans;
     private $entityManager;
     private $inventory_handler;
+    private $time_keeper;
 
-    public function __construct(RandomGenerator $r, TranslatorInterface $t, Packages $a, EntityManagerInterface $em, InventoryHandler $ih)
+    public function __construct(RandomGenerator $r, TranslatorInterface $t, Packages $a, EntityManagerInterface $em, InventoryHandler $ih, TimeKeeperService $tk)
     {
         $this->asset = $a;
         $this->rand = $r;
         $this->trans = $t;
+        $this->time_keeper = $tk;
         $this->entityManager = $em;
         $this->inventory_handler = $ih;
     }
@@ -119,7 +122,14 @@ class MessageController extends AbstractController
             'pinned_threads' => $pinned_threads,
             'select' => $tid,
             'pages' => $pages,
-            'current_page' => $page
+            'current_page' => $page,
+            'clock' => [
+                'desc'      => $this->getUser()->getActiveCitizen() !== null ? $this->getUser()->getActiveCitizen()->getTown()->getName() : "",
+                'day'       => $this->getUser()->getActiveCitizen() !== null ? $this->getUser()->getActiveCitizen()->getTown()->getDay() : "",
+                'timestamp' => new DateTime('now'),
+                'attack'    => $this->time_keeper->secondsUntilNextAttack(null, true),
+                'towntype'  => $this->getUser()->getActiveCitizen() !== null ? $this->getUser()->getActiveCitizen()->getTown()->getType()->getName() : "",
+            ],
         ] );
     }
 
@@ -176,7 +186,14 @@ class MessageController extends AbstractController
     {
         $forum_list = $em->getRepository(Forum::class)->findForumsForUser( $this->getUser() );
         return $this->render( 'ajax/forum/list.html.twig', [
-            'forums' => $forum_list
+            'forums' => $forum_list,
+            'clock' => [
+                'desc'      => $this->getUser()->getActiveCitizen() !== null ? $this->getUser()->getActiveCitizen()->getTown()->getName() : "",
+                'day'       => $this->getUser()->getActiveCitizen() !== null ? $this->getUser()->getActiveCitizen()->getTown()->getDay() : "",
+                'timestamp' => new DateTime('now'),
+                'attack'    => $this->time_keeper->secondsUntilNextAttack(null, true),
+                'towntype'  => $this->getUser()->getActiveCitizen() !== null ? $this->getUser()->getActiveCitizen()->getTown()->getType()->getName() : "",
+            ]
         ] );
     }
 

@@ -78,6 +78,14 @@ class SoulController extends AbstractController
 
         $data["soul_tab"] = $section;
 
+        $data['clock'] = [
+            'desc'      => $this->getUser()->getActiveCitizen() !== null ? $this->getUser()->getActiveCitizen()->getTown()->getName() : "",
+            'day'       => $this->getUser()->getActiveCitizen() !== null ? $this->getUser()->getActiveCitizen()->getTown()->getDay() : "",
+            'timestamp' => new DateTime('now'),
+            'attack'    => $this->time_keeper->secondsUntilNextAttack(null, true),
+            'towntype'  => $this->getUser()->getActiveCitizen() !== null ? $this->getUser()->getActiveCitizen()->getTown()->getType()->getName() : "",
+        ];
+
         return $data;
     }
 

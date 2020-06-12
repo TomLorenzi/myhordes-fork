@@ -1,6 +1,8 @@
 {% extends "ajax/ajax.html.twig" %}
 {% block menu_text %}
-    <li class="town-news" x-ajax-href="{{ url('game_newspaper') }}">{% trans from 'game' %}Zeitung{% endtrans %}</li>
+    {% if app.user.getActiveCitizen %}
+        <li class="town-news" x-ajax-href="{{ url('game_newspaper') }}">{% trans from 'game' %}Zeitung{% endtrans %}</li>
+    {% endif %}
 {% endblock %}
 {% block menu_bar %}
     {#<ul class="user">
@@ -10,7 +12,7 @@
     {% if clock is defined %}
         <ul class="clock">
             <li>{{ clock.desc }}</li>
-            <li>{% if clock.towntype == 'panda' %}<span class="hardcore">{{'Pandämonium'|trans({}, 'game')}}</span> {% endif %}{{ 'Tag %day%'|trans({'%day%': clock.day}, 'game') }}</li>
+            <li>{% if clock.towntype == 'panda' %}<span class="hardcore">{{'Pandämonium'|trans({}, 'game')}}</span> {% endif %}{% if clock.day != "" %}{{ 'Tag %day%'|trans({'%day%': clock.day}, 'game') }}{% endif %}</li>
             <li>{{ clock.timestamp.format('G:i') }}</li>
             <li x-countdown="{{ clock.attack }}" x-countdown-no-seconds="1" x-countdown-force-hours="1"></li>
             <li><a target="_self" href="{{ path('auto_logout') }}"><img src="{{ asset('build/images/b_exit.png') }}" alt="{{ 'Logout'|trans({},'soul') }}"></a><div class="tooltip">{{ 'Logout'|trans({},'soul') }}</div></li>

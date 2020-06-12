@@ -12,6 +12,7 @@ use App\Service\ErrorHelper;
 use App\Service\GameFactory;
 use App\Service\JSONRequestParser;
 use App\Service\LogTemplateHandler;
+use App\Service\TimeKeeperService;
 use App\Service\UserHandler;
 use App\Structures\Conf;
 use App\Structures\MyHordesConf;
@@ -27,6 +28,31 @@ use Symfony\Component\Routing\Annotation\Route;
  */
 class GhostController extends AbstractController implements GhostInterfaceController
 {
+    protected $entity_manager;
+    protected $time_keeper;
+    private $user_handler;
+
+    public function __construct(EntityManagerInterface $em, UserHandler $uh, TimeKeeperService $tk)
+    {
+        $this->entity_manager = $em;
+        $this->user_handler = $uh;
+        $this->time_keeper = $tk;
+    }
+
+    protected function addDefaultTwigArgs( ?array $data = null ): array {
+        $data = $data ?? [];
+
+        $data['clock'] = [
+            'desc'      => "",
+            'day'       => "",
+            'timestamp' => new \DateTime('now'),
+            'attack'    => $this->time_keeper->secondsUntilNextAttack(null, true),
+            'towntype'  => "",
+        ];
+
+        return $data;
+    }
+
     /**
      * @Route("jx/ghost/welcome", name="ghost_welcome")
      * @param EntityManagerInterface $em
@@ -41,11 +67,11 @@ class GhostController extends AbstractController implements GhostInterfaceContro
         if ($em->getRepository(CitizenRankingProxy::class)->findNextUnconfirmedDeath($user))
             return $this->redirect($this->generateUrl( 'soul_death' ));
 
-        return $this->render( 'ajax/ghost/intro.html.twig', [
+        return $this->render( 'ajax/ghost/intro.html.twig', $this->addDefaultTwigArgs([
             'townClasses' => $em->getRepository(TownClass::class)->findAll(),
             'userCanJoin' => $this->getUserTownClassAccess($conf->getGlobalConf()),
             'canCreateTown' => $uh->hasSkill($user, 'mayor'),
-        ] );
+        ] ));
     }
 
     /**
@@ -66,9 +92,9 @@ class GhostController extends AbstractController implements GhostInterfaceContro
             return $this->redirect($this->generateUrl( 'initial_landing' ));
         }
 
-        return $this->render( 'ajax/ghost/create_town.html.twig', [
+        return $this->render( 'ajax/ghost/create_town.html.twig', $this->addDefaultTwigArgs([
             'townClasses' => $em->getRepository(TownClass::class)->findBy(['hasPreset' => true]),
-        ]);
+        ]));
     }
 
     /**
