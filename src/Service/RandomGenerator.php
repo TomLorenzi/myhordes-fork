@@ -15,6 +15,7 @@ use App\Entity\ZonePrototype;
 use App\Interfaces\RandomEntry;
 use App\Interfaces\RandomGroup;
 use App\Structures\BetweenFilter;
+use App\Structures\PropertyFilter;
 
 class RandomGenerator
 {
@@ -101,11 +102,14 @@ class RandomGenerator
         return $rd;
     }
     
-    function pickLocationBetweenFromList(array $g, int $min, int $max): ?Zone {
+    function pickLocationBetweenFromList(array $g, int $min, int $max, array $options = []): ?Zone {
         $rd = $this->getRandomDistance($min, $max);
 
         /** @var Zone[] $dist_zone_list */
         $dist_zone_list = array_filter($g, new BetweenFilter(floor($rd), ceil($rd)));
+        if (count($options) > 0) {
+            $dist_zone_list = array_filter($dist_zone_list, new PropertyFilter($options));
+        }
         shuffle($dist_zone_list);
 
         return $dist_zone_list[0] ?? null;

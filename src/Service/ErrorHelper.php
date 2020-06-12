@@ -20,7 +20,7 @@ class ErrorHelper
 
     const BaseForumErrors         = 1100;
     
-    const ErrorBannedFromFroum    = 1201;
+    const ErrorBannedFromForum    = 1201;
 
     const BaseAvatarErrors        = 1300;
 

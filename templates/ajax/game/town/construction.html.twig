@@ -28,10 +28,17 @@
         {% endif %}
     {% endif %}
 
+    {% if not voted_building is null %}
+        <div class="voted-building">
+            {{'Das folgende Bauprojekt wurde empfohlen:'|trans({}, 'game')}}<br />
+            <strong class="name">{{voted_building.prototype.label|trans({}, 'buildings')}}</strong>
+        </div>
+    {% endif %}
 
-    {% macro building_entry(building, buildable, n, dict, items, disable_all, workshopBonus, hpToAp) %}
+
+    {% macro building_entry(building, buildable, n, dict, items, disable_all, workshopBonus, hpToAp, canVote, votedBuilding) %}
         {# @var building \App\Entity\Building #}
-        <div class="row {% if not buildable %}locked{% elseif building.complete %}complete{% endif %} {% if n > 0 %}lv-{{ min(n,6) }}{% else %}root{% endif %}">
+        <div class="row {% if not buildable %}locked{% elseif building.complete %}complete{% endif %} {% if building == votedBuilding %}voted{% endif %} {% if n > 0 %}lv-{{ min(n,6) }}{% else %}root{% endif %}">
             <div class="padded cell rw-5 rw-lg-12">
                 {% if buildable %}
                     <img alt="" src="{{ asset('build/images/building/' ~ building.prototype.icon ~ '.gif' ) }}" >
@@ -47,6 +54,9 @@
                             {{ 'Diese Konstruktion kann nur einmal verwendet werden. Sie wird nach dem Angriff der Zombiehorde wieder abgerissen.'|trans({}, 'buildings') }}<br /><em>{{'Wenn ihr wollt, könnt irh sie morgen nochmal bauen.'|trans({}, 'buildings')}}</em>
                         </div>
                     </span>
+                {% endif %}
+                {% if canVote and not building.complete %}
+                    <span class="vote" x-building-id="{{ building.id }}">[ <span class="link">{{'Abstimmen'|trans({}, 'game')}}</span> ]</span>
                 {% endif %}
                 {% if (building.complete and building.defense > 0) or (not building.complete and building.prototype.defense > 0) %}
                     <div class="float-right defense{% if building.complete and building.defense != building.prototype.defense %}-broken{% endif %}">
@@ -84,8 +94,8 @@
                         </div>
                     </div>
                 {% endif %}
-
-                {% if building.ap < ((building.prototype.ap * workshopBonus)|round) %}
+                
+                {% if buildable and building.ap < ((building.prototype.ap * workshopBonus)|round) %}
                     <div class="build-req">
                         <div class="ap">{{ ((building.prototype.ap * workshopBonus)|round) - building.ap }}</div>
                     </div>
@@ -117,14 +127,24 @@
         </div>
         {% if n < 20 and dict[building.prototype.id] is not empty %}
             {% for sub_building in dict[building.prototype.id] %}
-                {{ _self.building_entry(sub_building, buildable and building.complete, n+1, dict, items, disable_all, workshopBonus, hpToAp) }}
+                {{ _self.building_entry(sub_building, buildable and building.complete, n+1, dict, items, disable_all, workshopBonus, hpToAp, canVote, votedBuilding) }}
             {% endfor %}
         {% endif %}
     {% endmacro %}
 
     {# @var root_cats \App\Entity\Building[] #}
+    <div class="hide-sm hide-md hide-lg">
+        <ul class="buildings-tabs tabs plain" x-tab-group="buildings" x-tab-control>
+            <li class="tab" x-tab-id="all"><div class="tab-link">{% trans from 'game' %}Alle{% endtrans %}</div></li>
+            {% for building in root_cats %}
+                <li class="tab" x-tab-id="type_{{ building.prototype.icon }}"><div class="tab-link">{{building.prototype.label|trans({}, 'buildings')}}</div></li>
+            {% endfor %}
+        </ul>
+    </div>
+
+
     {% for building in root_cats %}
-        <div class="buildings type_{{ building.prototype.icon }}">{{ _self.building_entry(building, true, 0, dictionary, bank, banished and not slavery, workshopBonus, hpToAp) }}</div>
+        <div x-tab-group="buildings" x-tab-id="type_{{ building.prototype.icon }}" x-tab-target class="buildings type_{{ building.prototype.icon }}">{{ _self.building_entry(building, true, 0, dictionary, bank, banished and not slavery, workshopBonus, hpToAp, canvote, voted_building) }}</div>
     {% endfor %}
 
     <div class="row">
@@ -159,8 +179,23 @@
             } );
         };
 
-        let buttons = document.querySelectorAll('[x-building-id]');
+        let buttons = document.querySelectorAll('.build-btn[x-building-id]');
         for (let i = 0; i < buttons.length; i++)
             buttons[i].addEventListener('click', function() { send_build_request( this.getAttribute('x-building-id') ); })
+
+        const send_vote_request = function(id){
+            if (!confirm('{{ 'Bestätigen?'|trans({},'global')|e('js') }}'))
+                return;
+
+            $.ajax.easySend( '{{ path('town_constructions_vote_controller') }}', {id: id},
+                function () {
+                    $.ajax.load(null, '{{ path('town_constructions') }}', true);
+            } );
+        }
+
+        let voteButtons = document.querySelectorAll('.vote[x-building-id]');
+        for(let i = 0 ; i < voteButtons.length ; i++) {
+            voteButtons[i].addEventListener('click', function(){ send_vote_request(this.getAttribute('x-building-id')); });
+        }
     </script>
 {% endblock %}

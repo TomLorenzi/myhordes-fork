@@ -7,7 +7,7 @@
       </notes>
       <segment>
         <source>Account validieren</source>
-        <target>Account validieren</target>
+        <target>Account validation</target>
       </segment>
     </unit>
     <unit id="bGFqxj8" name="Passwort zurücksetzen">
@@ -16,7 +16,7 @@
       </notes>
       <segment>
         <source>Passwort zurücksetzen</source>
-        <target>Passwort zurücksetzen</target>
+        <target>Password reset</target>
       </segment>
     </unit>
     <unit id="Yf9Z7KC" name="Hallo %user%! Willkommen bei MyHordes!">
@@ -25,7 +25,7 @@
       </notes>
       <segment>
         <source>Hallo %user%! Willkommen bei MyHordes!</source>
-        <target>Hallo %user%! Willkommen bei MyHordes!</target>
+        <target>Hello %user%! Welcome on MyHordes!</target>
       </segment>
     </unit>
     <unit id="_WvOCkO" name="Um deine Registrierung abzuschließen, benötigst du folgenden Validierungscode:">
@@ -34,7 +34,7 @@
       </notes>
       <segment>
         <source>Um deine Registrierung abzuschließen, benötigst du folgenden Validierungscode:</source>
-        <target>Um deine Registrierung abzuschließen, benötigst du folgenden Validierungscode:</target>
+        <target>To complete your registration, you need the following validation code:</target>
       </segment>
     </unit>
     <unit id="AevPeyo" name="365f8ca">
@@ -45,8 +45,8 @@
       <segment>
         <source>Du erhälst diese Mail, da du (oder jemand anderes) deine E-Mail Adresse bei der Registrierung angegeben hat.
         Wenn du dich nicht bei MyHordes registriert hast, ignoriere diese Nachricht.</source>
-        <target>Du erhälst diese Mail, da du (oder jemand anderes) deine E-Mail Adresse bei der Registrierung angegeben hat.
-        Wenn du dich nicht bei MyHordes registriert hast, ignoriere diese Nachricht.</target>
+        <target>You received this email becasue you (or someone else) provided your email address when registering.
+          If you haven't registered on MyHordes, ignore this message.</target>
       </segment>
     </unit>
     <unit id="DKEI.Ty" name="Hallo %user%!">
@@ -55,7 +55,7 @@
       </notes>
       <segment>
         <source>Hallo %user%!</source>
-        <target>Hallo %user%!</target>
+        <target>Hello %user%!</target>
       </segment>
     </unit>
     <unit id="SWaK66s" name="Um dein Passwort zurückzusetzen, besuche bitte folgenden Link :">
@@ -64,7 +64,7 @@
       </notes>
       <segment>
         <source>Um dein Passwort zurückzusetzen, besuche bitte folgenden Link :</source>
-        <target>Um dein Passwort zurückzusetzen, besuche bitte folgenden Link :</target>
+        <target>To reset your password, please visit the following link:</target>
       </segment>
     </unit>
     <unit id="WdF_yfy" name="6d2f95b">
@@ -77,9 +77,8 @@
         <source>Du erhälst diese Mail, da du (oder jemand anderes) deine E-Mail Adresse in die Passwort-Zurücksetzen-Funktion eingegeben hat.
         Wenn du dein Passwort nicht zurücksetzen willst, ignoriere diese E-Mail. Dein altes Passwort bleibt weiterhin gültig, wenn du es nicht
         durch das Anklicken des oben genannten Links änderst.</source>
-        <target>Du erhälst diese Mail, da du (oder jemand anderes) deine E-Mail Adresse in die Passwort-Zurücksetzen-Funktion eingegeben hat.
-        Wenn du dein Passwort nicht zurücksetzen willst, ignoriere diese E-Mail. Dein altes Passwort bleibt weiterhin gültig, wenn du es nicht
-        durch das Anklicken des oben genannten Links änderst.</target>
+        <target>You received this email becasue you (or someone else) entered your email address in the password reset function.
+          If you don't want to reset your password, ignore this email. Your old password remains valid unless you change it by clicking on the link above.</target>
       </segment>
     </unit>
   </file>

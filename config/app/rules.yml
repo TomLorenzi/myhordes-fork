@@ -6,7 +6,22 @@ parameters:
       well:       { min: 90, max: 180 }
       map:        { min: 25, max:  27 }
       population: { min: 40, max:  40 }
+
       ruins: 20
+      explorable_ruins: 1
+
+      explorable_ruin_params:
+        complexity: 0.9
+        convolution: 0.2
+        cruelty: 0.06
+        rooms: 10
+        room_spacing: 4
+        lock_distance: 10
+        item_fillrate: 11
+        max_distance: 10
+        zombies:
+          initial: 25
+          daily: 5
 
       initial_buildings:  []
       unlocked_buildings: []
@@ -45,6 +60,7 @@ parameters:
           transgress: false
         attack_protection: false
         carry_extra_bag: false
+        meaty_bones_within_town: false
 
       features:
         camping: true
@@ -56,6 +72,7 @@ parameters:
     small:
       map:  { min: 12, max: 14 }
       ruins: 10
+      explorable_ruins: 0
 
       initial_buildings:  ['small_refine_#00','small_door_closed_#00','item_tagger_#00']
       unlocked_buildings: ['small_gather_#02']
@@ -81,6 +98,10 @@ parameters:
       modifiers:
         infection_death_chance: 0.75
         wound_terror_penalty: 0.2
+      explorable_ruins: 2
+
+      explorable_ruin_params:
+        max_distance: 100
 
     custom:
       allow_local_conf: true

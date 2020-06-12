@@ -11,7 +11,7 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
  * @ORM\Entity(repositoryClass="App\Repository\HeroicActionPrototypeRepository")
  * @UniqueEntity("name")
  * @Table(uniqueConstraints={
- *     @UniqueConstraint(name="name_unique",columns={"name"})
+ *     @UniqueConstraint(name="heroic_action_prototype_name_unique",columns={"name"})
  * })
  */
 class HeroicActionPrototype
@@ -33,6 +33,11 @@ class HeroicActionPrototype
      * @ORM\JoinColumn(nullable=false)
      */
     private $action;
+
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $unlockable = false;
 
     public function getId(): ?int
     {
@@ -59,6 +64,18 @@ class HeroicActionPrototype
     public function setAction(?ItemAction $action): self
     {
         $this->action = $action;
+
+        return $this;
+    }
+
+    public function getUnlockable(): ?bool
+    {
+        return $this->unlockable;
+    }
+
+    public function setUnlockable(bool $unlockable): self
+    {
+        $this->unlockable = $unlockable;
 
         return $this;
     }

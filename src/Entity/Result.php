@@ -13,7 +13,7 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
  * @ORM\Entity(repositoryClass="App\Repository\ResultRepository")
  * @UniqueEntity("name")
  * @Table(uniqueConstraints={
- *     @UniqueConstraint(name="name_unique",columns={"name"})
+ *     @UniqueConstraint(name="result_name_unique",columns={"name"})
  * })
  */
 class Result
@@ -119,6 +119,11 @@ class Result
      * @ORM\ManyToOne(targetEntity="App\Entity\AffectPM")
      */
     private $pm;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=AffectMessage::class)
+     */
+    private $message;
 
     public function __construct()
     {
@@ -360,6 +365,18 @@ class Result
     public function setPm(?AffectPM $pm): self
     {
         $this->pm = $pm;
+
+        return $this;
+    }
+
+    public function getMessage(): ?AffectMessage
+    {
+        return $this->message;
+    }
+
+    public function setMessage(?AffectMessage $message): self
+    {
+        $this->message = $message;
 
         return $this;
     }

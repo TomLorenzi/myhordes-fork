@@ -376,7 +376,7 @@
       </notes>
       <segment>
         <source>Zum Spiel</source>
-        <target>Retour au jeu</target>
+        <target>Retour</target>
       </segment>
     </unit>
     <unit id="tkZocIU" name="Ausloggen">
@@ -840,8 +840,7 @@
     </unit>
     <unit id="266wx0d" name="Verbesserung des Tages">
       <notes>
-        <note>Verbesserung des Tages</note>
-        <note category="german">Town upgrades</note>
+        <note category="german">Town Upgrades</note>
       </notes>
       <segment>
         <source>Verbesserung des Tages</source>
@@ -926,7 +925,7 @@
       </notes>
       <segment>
         <source>Fett</source>
-        <target>Fett</target>
+        <target>Gras</target>
       </segment>
     </unit>
     <unit id="6XYRB0Q" name="Kursiv">
@@ -935,7 +934,7 @@
       </notes>
       <segment>
         <source>Kursiv</source>
-        <target>Kursiv</target>
+        <target>Italique</target>
       </segment>
     </unit>
     <unit id="RuL1D2i" name="Unterstreichen">
@@ -944,7 +943,7 @@
       </notes>
       <segment>
         <source>Unterstreichen</source>
-        <target>Unterstreichen</target>
+        <target>Souligné</target>
       </segment>
     </unit>
     <unit id="AsD_uy4" name="Durchstreichen">
@@ -953,7 +952,7 @@
       </notes>
       <segment>
         <source>Durchstreichen</source>
-        <target>Durchstreichen</target>
+        <target>Barré</target>
       </segment>
     </unit>
     <unit id="aZc6vxf" name="Einfache Liste">
@@ -962,7 +961,7 @@
       </notes>
       <segment>
         <source>Einfache Liste</source>
-        <target>Einfache Liste</target>
+        <target>Liste simple</target>
       </segment>
     </unit>
     <unit id="1CuRrf_" name="Nummerierte Liste">
@@ -971,7 +970,7 @@
       </notes>
       <segment>
         <source>Nummerierte Liste</source>
-        <target>Nummerierte Liste</target>
+        <target>Liste numérotée</target>
       </segment>
     </unit>
     <unit id="Sk04seo" name="Listenpunkt">
@@ -980,7 +979,7 @@
       </notes>
       <segment>
         <source>Listenpunkt</source>
-        <target>Listenpunkt</target>
+        <target>Élément de liste</target>
       </segment>
     </unit>
     <unit id="jlAJmOo" name="Spoiler">
@@ -998,7 +997,7 @@
       </notes>
       <segment>
         <source>Zitat</source>
-        <target>Zitat</target>
+        <target>Citation</target>
       </segment>
     </unit>
     <unit id="Fxoqglo" name="Ruhm">
@@ -1007,7 +1006,7 @@
       </notes>
       <segment>
         <source>Ruhm</source>
-        <target>Ruhm</target>
+        <target>Balise Glorieuse</target>
       </segment>
     </unit>
     <unit id="0OPnj4A" name="Linie">
@@ -1016,7 +1015,7 @@
       </notes>
       <segment>
         <source>Linie</source>
-        <target>Linie</target>
+        <target>Ligne</target>
       </segment>
     </unit>
     <unit id="7WQ2SM6" name="Entstauben">
@@ -1025,7 +1024,205 @@
       </notes>
       <segment>
         <source>Entstauben</source>
-        <target>Entstauben</target>
+        <target>Désarchiver</target>
+      </segment>
+    </unit>
+    <unit id="siULJza" name="Link einfügen">
+      <notes>
+        <note category="german">Link einfügen</note>
+      </notes>
+      <segment>
+        <source>Link einfügen</source>
+        <target>Insérer un lien</target>
+      </segment>
+    </unit>
+    <unit id="HqBDmKX" name="Bild einfügen">
+      <notes>
+        <note category="german">Bild einfügen</note>
+      </notes>
+      <segment>
+        <source>Bild einfügen</source>
+        <target>Insérer une image</target>
+      </segment>
+    </unit>
+    <unit id="9H7C4W9" name="Link-Text">
+      <notes>
+        <note category="german">Link-Text</note>
+      </notes>
+      <segment>
+        <source>Link-Text</source>
+        <target>Texte du lien</target>
+      </segment>
+    </unit>
+    <unit id="nE4T9Ox" name="Link-URL">
+      <notes>
+        <note category="german">Link-URL</note>
+      </notes>
+      <segment>
+        <source>Link-URL</source>
+        <target>URL du lien</target>
+      </segment>
+    </unit>
+    <unit id="d1AmbOG" name="Bildtitel">
+      <notes>
+        <note category="german">Bildtitel</note>
+      </notes>
+      <segment>
+        <source>Bildtitel</source>
+        <target>Titre de l'image</target>
+      </segment>
+    </unit>
+    <unit id="Q0tlYyY" name="Bild-URL">
+      <notes>
+        <note category="german">Bild-URL</note>
+      </notes>
+      <segment>
+        <source>Bild-URL</source>
+        <target>URL de l'image</target>
+      </segment>
+    </unit>
+    <unit id="lqB1Bvf" name="Einfügen">
+      <notes>
+        <note category="german">Einfügen</note>
+      </notes>
+      <segment>
+        <source>Einfügen</source>
+        <target>Valider</target>
+      </segment>
+    </unit>
+    <unit id="1DOwo4V" name="Dieses Thema enthält offizielle Ansagen der Website Administratoren.">
+      <notes>
+        <note category="german">Dieses Thema enthält offizielle Ansagen der Website Administratoren.</note>
+      </notes>
+      <segment>
+        <source>Dieses Thema enthält offizielle Ansagen der Website Administratoren.</source>
+        <target>Ce sujet comporte une ou plusieurs annonces officielles des administrateurs.</target>
+      </segment>
+    </unit>
+    <unit id="B75DsbE" name="Dieses Thema enthält Ansagen von Community-Vertretern.">
+      <notes>
+        <note category="german">Dieses Thema enthält Ansagen von Community-Vertretern.</note>
+      </notes>
+      <segment>
+        <source>Dieses Thema enthält Ansagen von Community-Vertretern.</source>
+        <target>Ce sujet comporte une ou plusieurs annonces de représentants de la communauté.</target>
+      </segment>
+    </unit>
+    <unit id="EOVP1fz" name="Admin Ankündigung">
+      <notes>
+        <note category="german">Admin Ankündigung</note>
+      </notes>
+      <segment>
+        <source>Admin Ankündigung</source>
+        <target>Annonce Admin</target>
+      </segment>
+    </unit>
+    <unit id="jszJ4cS" name="Mod Ankündigung">
+      <notes>
+        <note category="german">Mod Ankündigung</note>
+      </notes>
+      <segment>
+        <source>Mod Ankündigung</source>
+        <target>Annonce modérateur</target>
+      </segment>
+    </unit>
+    <unit id="eh2CqIr" name="Orakel Ankündigung">
+      <notes>
+        <note category="german">Orakel Ankündigung</note>
+      </notes>
+      <segment>
+        <source>Orakel Ankündigung</source>
+        <target>Annonce oracle</target>
+      </segment>
+    </unit>
+    <unit id="GfGOj1g" name="Dieses Thema enthält %count% Ansage(n) von Community-Vertretern:">
+      <notes>
+        <note category="german">Dieses Thema enthält %count% Ansage(n) von Community-Vertretern:</note>
+      </notes>
+      <segment>
+        <source>Dieses Thema enthält %count% Ansage(n) von Community-Vertretern:</source>
+        <target>Cette discussion comporte %count% annonce(s) de représentants de la communauté :</target>
+      </segment>
+    </unit>
+    <unit id="8_r8k2t" name="Dieses Thema enthält %count% offizielle Ansage(n) der MyHordes-Administratoren:">
+      <notes>
+        <note category="german">Dieses Thema enthält %count% offizielle Ansage(n) der MyHordes-Administratoren:</note>
+      </notes>
+      <segment>
+        <source>Dieses Thema enthält %count% offizielle Ansage(n) der MyHordes-Administratoren:</source>
+        <target>Cette discussion comporte %count% annonce(s) officielle(s) des administrateurs de MyHordes :</target>
+      </segment>
+    </unit>
+    <unit id="wg02Gq4" name="Zitieren">
+      <notes>
+        <note category="german">Zitieren</note>
+      </notes>
+      <segment>
+        <source>Zitieren</source>
+        <target>Citer</target>
+      </segment>
+    </unit>
+    <unit id="P1mgGT4" name="Du kannst keine weiteren Gegenstände senden.">
+      <notes>
+        <note category="german">Du kannst keine weiteren Gegenstände senden.</note>
+      </notes>
+      <segment>
+        <source>Du kannst keine weiteren Gegenstände senden.</source>
+        <target>Vous ne pouvez plus envoyer d'objets.</target>
+      </segment>
+    </unit>
+    <unit id="eS7iMaa" name="Rollenspiel">
+      <notes>
+        <note category="german">Rollenspiel</note>
+      </notes>
+      <segment>
+        <source>Rollenspiel</source>
+        <target>Roleplay</target>
+      </segment>
+    </unit>
+    <unit id="xtJ2E4o" name="Verräter">
+      <notes>
+        <note category="german">Verräter</note>
+      </notes>
+      <segment>
+        <source>Verräter</source>
+        <target>Traître</target>
+      </segment>
+    </unit>
+    <unit id="peFFaP2" name="Liste der Themen aktualisieren">
+      <notes>
+        <note category="german">Liste der Themen aktualisieren</note>
+      </notes>
+      <segment>
+        <source>Liste der Themen aktualisieren</source>
+        <target>Actualiser la liste des sujets</target>
+      </segment>
+    </unit>
+    <unit id="3RZ5Bd4" name="Version">
+      <notes>
+        <note category="german">Version</note>
+      </notes>
+      <segment>
+        <source>Version</source>
+        <target>Version</target>
+      </segment>
+    </unit>
+    <unit id="8qHMcfp" name="Sprache">
+      <notes>
+        <note category="german">Sprache</note>
+      </notes>
+      <segment>
+        <source>Sprache</source>
+        <target>Langue</target>
+      </segment>
+    </unit>
+    <unit id="81XajEF" name="Vertraulich">
+      <notes>
+        <note category="german">Vertraulich</note>
+      </notes>
+      <segment>
+        <source>Vertraulich</source>
+        <target>Aparté</target>
       </segment>
     </unit>
   </file>

@@ -4,11 +4,15 @@ namespace App\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
+use Doctrine\ORM\Event\LifecycleEventArgs;
+use Doctrine\ORM\Event\PreUpdateEventArgs;
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\ORM\Mapping\OrderBy;
+use Doctrine\ORM\ORMException;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\TownRepository")
+ * @ORM\HasLifecycleCallbacks()
  */
 class Town
 {
@@ -128,6 +132,26 @@ class Town
      */
     private $citizenWatches;
 
+    /**
+     * @ORM\OneToOne(targetEntity=TownRankingProxy::class, inversedBy="town", cascade={"persist"})
+     */
+    private $rankingEntry;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=AttackSchedule::class)
+     */
+    private $lastAttack;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $attackFails = 0;
+
+    /**
+     * @ORM\Column(type="string", length=90, nullable=true)
+     */
+    private $password;
+
     public function __construct()
     {
         $this->citizens = new ArrayCollection();
@@ -194,8 +218,30 @@ class Town
         return $this->getCitizens()->count();
     }
 
+    public function getAliveCitizenCount(): int {
+        $cc = 0;
+        foreach ($this->getCitizens() as $c)
+            if ($c->getAlive()) $cc++;
+            return $cc;
+    }
+
+    public function getActiveCitizenCount(): int {
+        $cc = 0;
+        foreach ($this->getCitizens() as $c)
+            if ($c->getActive()) $cc++;
+        return $cc;
+    }
+
     public function isOpen(): bool {
         return $this->getDay() === 1 && $this->getCitizenCount() < $this->getPopulation();
+    }
+
+    public function userInTown(User $user): bool {
+        foreach ($this->getCitizens() as $citizen) {
+            if($citizen->getUser() == $user)
+                return true;
+        }
+        return false;
     }
 
     /**
@@ -528,6 +574,64 @@ class Town
                 $citizenWatch->setTown(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getRankingEntry(): ?TownRankingProxy
+    {
+        return $this->rankingEntry;
+    }
+
+    public function setRankingEntry(?TownRankingProxy $rankingEntry): self
+    {
+        $this->rankingEntry = $rankingEntry;
+
+        return $this;
+    }
+
+    /**
+     * @ORM\PostPersist()
+     * @param LifecycleEventArgs $args
+     * @throws ORMException
+     */
+    public function lifeCycle_createTownRankingProxy(LifecycleEventArgs $args) {
+        $args->getEntityManager()->persist( TownRankingProxy::fromTown( $this ) );
+        $args->getEntityManager()->flush();
+    }
+
+    public function getLastAttack(): ?AttackSchedule
+    {
+        return $this->lastAttack;
+    }
+
+    public function setLastAttack(?AttackSchedule $lastAttack): self
+    {
+        $this->lastAttack = $lastAttack;
+
+        return $this;
+    }
+
+    public function getAttackFails(): ?int
+    {
+        return $this->attackFails;
+    }
+
+    public function setAttackFails(int $attackFails): self
+    {
+        $this->attackFails = $attackFails;
+
+        return $this;
+    }
+
+    public function getPassword(): ?string
+    {
+        return $this->password;
+    }
+
+    public function setPassword(?string $password): self
+    {
+        $this->password = $password;
 
         return $this;
     }

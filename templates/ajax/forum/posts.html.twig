@@ -26,10 +26,42 @@
     {% endif %}
 {% endblock %}
 
+
+{% if announces.admin|length > 0 %}
+    <div class="row">
+        <div class="cell padded rw-8 ro-2">
+            <div class="adminAnnounces announces">
+                <span class="announce">{{'Dieses Thema enthält %count% offizielle Ansage(n) der MyHordes-Administratoren:'|trans({"%count%": announces.admin|length}, 'global')}}</span>
+                <ul>
+                {% for adminannounce in announces.admin %}
+                    <li x-ajax-href="{{path('forum_viewer_jump_post_controller', {pid: adminannounce.id})}}">[{{adminannounce.date|format_datetime('medium', 'none')}}] {{adminannounce.text|striptags|slice(0, 50)}}[...]</li>
+                {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+{% endif %}
+
+{% if announces.oracle|length > 0 %}
+    <div class="row">
+        <div class="row">
+        <div class="cell padded rw-8 ro-2">
+            <div class="oracleAnnounces announces">
+                <span class="announce">{{'Dieses Thema enthält %count% Ansage(n) von Community-Vertretern:'|trans({"%count%": announces.oracle|length}, 'global')}}</span>
+                <ul>
+                {% for oracleannounce in announces.oracle %}
+                    <li x-ajax-href="{{path('forum_viewer_jump_post_controller', {pid: oracleannounce.id})}}">[{{oracleannounce.date|format_datetime('medium', 'none')}}] {{oracleannounce.text|striptags|slice(0, 50)}}[...]</li>
+                {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+    </div>
+{% endif %}
 <div class="forum-posts">
     {% for post in posts %}
         {% if not post.hidden or is_granted("ROLE_CROW") %}
-            <div class="forum-post {% if not post.hidden %}{% else %}forum-post-hidden{% endif %} {% if post.new %}forum-post-new{% endif %} {% if markedPost is defined and post.id == markedPost %}forum-post-marked{% endif %}">
+            <div class="forum-post {% if not post.hidden %}{% else %}forum-post-hidden{% endif %} {% if post.new %}forum-post-new{% endif %} {% if markedPost is defined and post.id == markedPost %}forum-post-marked{% endif %}" id="{{post.id}}">
                 <div class="forum-post-header {% if post.owner.username == 'Der Rabe' %}header-variant-crow{% elseif post.type == "DEV" %}header-variant-dev{% endif %}">
                     <i>
                         {% if post.date.format('Ymd') == today|date("Ymd") %}
@@ -67,26 +99,24 @@
                             {{ post.owner.username }}
                         {% endif %}
                     </b>
-                    {% if post.note is not null %}<div class="right post-note"><img src="{{ asset('build/images/professions/' ~ post.owner.getActiveCitizen.profession.icon ~ '.gif') }}" /> <span>{{ post.note }}</span></div>{% endif %}
+                    {% if post.note is not null %}<div class="right post-note">{{ post.note|raw }}</div>{% endif %}
                 </div>
                 <div class="forum-post-content">
                     {{ post.text|raw }}
                 </div>
-
                 <div class="forum-post-footer right">
-                    {% if not is_granted("ROLE_CROW") %}
-                        <a class="action-button" id="report_post" x-forum-action="report-post" x-post-id={{ post.id }} x-to-page={{ current_page }}>{{ 'Melden'|trans({},'global') }}</a>
-                    {% else %}
-                        <label class="mod-submenu" for="mod-submenu-toggle-{{ post.id }}">
-                            <input type="checkbox" name="mod-submenu-toggle-{{ post.id }}" id="mod-submenu-toggle-{{ post.id }}" />
-                            <ul class="mod-submenu-links">
-                                {% if not post.hidden %}
-                                    <li><a class="action-button" id="delete_post" x-forum-action="delete-post" x-post-id={{ post.id }} x-to-page={{ current_page }}>{{ 'Löschen'|trans({},'global') }}</a></li>
-                                {% endif %}
-                            </ul>
-                        </label>
-                    <a class="action-button" id="report_post" x-forum-action="report-post" x-post-id={{ post.id }} x-to-page={{ current_page }}>{{ 'Melden'|trans({},'global') }}</a>
-                    {% endif %}
+                {% if is_granted("ROLE_CROW") %}
+                    <label class="mod-submenu" for="mod-submenu-toggle-{{ post.id }}">
+                        <input type="checkbox" name="mod-submenu-toggle-{{ post.id }}" id="mod-submenu-toggle-{{ post.id }}" />
+                        <ul class="mod-submenu-links">
+                            {% if not post.hidden %}
+                                <li><a class="action-button" id="delete_post" x-forum-action="delete-post" x-post-id={{ post.id }} x-to-page={{ current_page }}>{{ 'Löschen'|trans({},'global') }}</a></li>
+                            {% endif %}
+                        </ul>
+                    </label>
+                {% endif %}
+                [ <a class="action-button" id="quote_post" x-forum-action="quote-post" x-post-id={{ post.id }} >{{ 'Zitieren'|trans({},'global') }}</a> ]
+                [ <a class="action-button" id="report_post" x-forum-action="report-post" x-post-id={{ post.id }} x-to-page={{ current_page }}>{{ 'Melden'|trans({},'global') }}</a> ]
                 </div>
             </div>
         {% endif %}
@@ -102,7 +132,7 @@
                 <div x-forum-moderator-action="unlock" class="forum-button"><img src="{{ asset('build/images/mod.png') }}" /><span>{{ 'Öffnen'|trans({},'global') }}</span></div>
             {% endif %}
         {% endif %}
-        {% if is_granted("ROLE_ADMIN")%}
+        {% if is_granted("ROLE_ADMIN") %}
             {% if not pinned %}
                 <div x-forum-moderator-action="pin" class="forum-button"><img src="{{ asset('build/images/mod.png') }}" /><span>{{ 'Anpinnen'|trans({},'global') }}</span></div>
             {% else %}
@@ -125,13 +155,41 @@
     };
     const reloadPage = function() { loadPage( {{ current_page }} ); };
 
-    let report_buttons = document.querySelectorAll('[x-forum-action="report-post"');
+    let report_buttons = document.querySelectorAll('[x-forum-action="report-post"]');
     for (let i = 0; i < report_buttons.length; i++)
         report_buttons[i].addEventListener('click', function() {
             $.ajax.easySend( '{{ url('forum_report_post_controller', { 'fid': fid, 'tid': tid}) }}', {postId: parseInt( this.getAttribute('x-post-id')), page: parseInt( this.getAttribute('x-to-page')) }, reloadPage );
         })
+
+    let quote_buttons = document.querySelectorAll('[x-forum-action="quote-post"]');
+    for (let i = 0; i < quote_buttons.length; i++)
+        quote_buttons[i].addEventListener('click', function() {
+        	let editor = document.getElementById('forum-editor');
+        	if(editor && editor.innerHTML == "") {
+            	$.ajax.no_history().load( document.getElementById('forum-editor'), '{{ path('forum_post_editor_controller', {fid: fid, tid: tid}) }}', false )
+        	}
+        	//{post: this.getAttribute('x-post-id')}
+        	setTimeout(function(){
+	    		$.ajax.easySend('{{ url('forum_post_quote', {fid: fid, tid: tid}) }}', {post: quote_buttons[i].getAttribute('x-post-id')}, function(text){
+	        		let textEditor = document.getElementById("forum-editor-text");
+	        		let newValue = textEditor.value + "\n" + text.content;
+	        		newValue = newValue.trim() + "\n";
+	        		textEditor.value = newValue;
+	        		textEditor.focus();
+	        		textEditor.setSelectionRange(textEditor.value.length,textEditor.value.length);
+	        		document.getElementById('forum-editor').scrollIntoView();
+	        		// trigger "input" event
+	        		var event = new Event('input', {
+					    bubbles: true,
+					    cancelable: true,
+					});
+
+					textEditor.dispatchEvent(event);
+	        	});
+        	}, 10);
+        })
     {% if is_granted("ROLE_CROW") %}
-        let del_buttons = document.querySelectorAll('[x-forum-action="delete-post"');
+        let del_buttons = document.querySelectorAll('[x-forum-action="delete-post"]');
         for (let i = 0; i < del_buttons.length; i++)
             del_buttons[i].addEventListener('click', function() {
                 let reason = prompt('{{ 'Grund'|trans({},'admin') }}', '');
@@ -163,6 +221,12 @@
             })
         {% endif %}
     {% endif %}
+
+    let announces = document.querySelectorAll(".announces li");
+    for (let i = 0; i < announces.length; i++)
+        announces[i].addEventListener('click', function() {
+            $.ajax.no_history().load( document.getElementById('forum-content'), '{{ path('forum_viewer_controller', {fid: fid, tid: tid}) }}', false, {page:1, firstpost: this.getAttribute('x-post-id') } );
+        })
     
     let new_post_btns = document.querySelectorAll('[x-forum-action=answer]');
     for (let i = 0; i < new_post_btns.length; i++)
@@ -177,13 +241,17 @@
             {% if editor is defined %}
                 {let c; while ((c = editor.firstChild)) editor.removeChild(c);}
             {% endif %}
-            $.ajax.no_history().load( document.getElementById('forum-content'), '{{ path('forum_viewer_controller', {fid: fid, tid: tid}) }}', false, {page: parseInt( this.getAttribute('x-to-page') )} );
-            window.scrollTo(window.top);
+            $.ajax.no_history().load( document.getElementById('forum-content'), '{{ path('forum_viewer_controller', {fid: fid, tid: tid}) }}', false, {page: parseInt( this.getAttribute('x-to-page') ) } );
+            document.querySelector('.forum-post').scrollIntoView();
         })
     {% if pages == current_page %}
         let thread_listings = document.querySelectorAll('[x-thread-id="{{ tid }}"]');
         for (let i = 0; i < thread_listings.length; i++)
             thread_listings[i].classList.remove('forum-thread-unread');
+    {% endif %}
+
+    {% if markedPost is defined and markedPost > 0 %}
+        document.getElementById({{markedPost}}).scrollIntoView();
     {% endif %}
 </script>
 

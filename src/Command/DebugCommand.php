@@ -72,6 +72,7 @@ class DebugCommand extends Command
             ->addOption('add-crow', null, InputOption::VALUE_NONE, 'Creates the crow account. Also creates 80 validated users in case there are less than 66 users.')
             ->addOption('add-debug-users', null, InputOption::VALUE_NONE, 'Creates 80 validated users.')
             ->addOption('fill-town', null, InputOption::VALUE_REQUIRED, 'Sends as much debug users as possible to a town.')
+            ->addOption('force', null, InputOption::VALUE_NONE, 'Will detach debug users when used with fill-town.')
             ->addOption('fill-bank', null, InputOption::VALUE_REQUIRED, 'Places 500 of each item type in the bank of a given town.')
             ->addOption('confirm-deaths', null, InputOption::VALUE_NONE, 'Confirms death of every account having an email ending on @localhost.')
         ;
@@ -152,17 +153,32 @@ class DebugCommand extends Command
                 return 2;
             }
             $this->trans->setLocale($town->getLanguage() ?? 'de');
-            
+
+            $force = $input->getOption('force');
+
             $professions = $this->entity_manager->getRepository( CitizenProfession::class )->findAll();
             for ($i = $town->getCitizenCount(); $i < $town->getPopulation(); $i++)
                 for ($u = 1; $u <= 80; $u++) {
                     $user_name = 'user_' . str_pad($u, 3, '0', STR_PAD_LEFT);
                     $user = $this->entity_manager->getRepository(User::class)->findOneByName( $user_name );
                     if (!$user) continue;
+                    /** @var Citizen $citizen */
+
                     $citizen = $this->entity_manager->getRepository(Citizen::class)->findActiveByUser( $user );
-                    if (!$citizen)
-                        $citizen = $this->game_factory->createCitizen($town,$user,$error);
-                    else continue;
+                    if ($citizen && $citizen->getTown() !== $town && (!$citizen->getAlive() || $force)) {
+                        $citizen->setActive(false);
+
+                        $this->entity_manager->persist($citizen);
+                        $this->entity_manager->flush();
+                        $citizen = null;
+                    }
+
+                    if (!$citizen) {
+                        $citizen = $this->entity_manager->getRepository(Citizen::class)->findInTown($user,$town);
+                        if ($citizen) $citizen->setActive(true);
+                        else $citizen = $this->game_factory->createCitizen($town,$user,$error);
+                    } else continue;
+
                     if (!$citizen) continue;
 
                     $this->entity_manager->persist($citizen);
@@ -180,6 +196,46 @@ class DebugCommand extends Command
                     $output->writeln("<comment>{$user_name}</comment> joins <comment>{$town->getName()}</comment> and fills slot {$ii}/{$town->getPopulation()} as a <comment>{$pro->getLabel()}</comment>.");
                     break;
                 }
+
+            // Ensure we still have an open town after filling it with dumb users
+
+            $openTowns = $this->entity_manager->getRepository(Town::class)->findOpenTown();
+            $count = array(
+                "fr" => array(
+                    "remote" => 0,
+                    "panda" => 0,
+                    "small" => 0
+                ),
+                "de" => array(
+                    "remote" => 0,
+                    "panda" => 0,
+                    "small" => 0
+                ),
+                "en" => array(
+                    "remote" => 0,
+                    "panda" => 0,
+                    "small" => 0
+                ),
+                "es" => array(
+                    "remote" => 0,
+                    "panda" => 0,
+                    "small" => 0
+                ),
+            );
+            foreach ($openTowns as $openTown) {
+                $count[$openTown->getLanguage()][$openTown->getType()->getName()]++;
+            }
+
+            foreach ($count as $townLang => $array) {
+                foreach ($array as $townClass => $openCount) {
+                    if($openCount < 1){
+                        $newTown = $this->game_factory->createTown(null, $townLang, null, $townClass);
+                        $this->entity_manager->persist($newTown);
+                        $this->entity_manager->flush();
+                        //$this->game_factory->createExplorableMaze($newTown);
+                    }
+                }
+            }
         }
 
         if ($tid = $input->getOption('fill-bank')) {

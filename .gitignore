@@ -24,15 +24,16 @@ yarn-error.log
 # Composer
 composer.phar
 
+*.lock
+
 # Local webpack config
 webpack.config.local.js
 
 # Local app configs
 config/packages/dev/app/*.yml
+config/packages/prod/app/*.yml
 
 # Misc
 .DS_Store
 .vscode/
-symfony.lock
-composer.lock
 .idea/

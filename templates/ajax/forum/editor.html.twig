@@ -15,86 +15,97 @@
             <div class="cell rw-8 padded">
                 <input type="text" id="forum-editor-title" />
             </div>
+            {% if type is defined and type == "changelog" %}
+            <div class="cell rw-4 padded">
+                <label for="forum-editor-version">{{ 'Version'|trans({},'global') }}</label>
+            </div>
+            <div class="cell rw-8 padded">
+                <input type="text" id="forum-editor-version" />
+            </div>
+            <div class="cell rw-4 padded">
+                <label for="forum-editor-lang">{{ 'Sprache'|trans({},'global') }}</label>
+            </div>
+            <div class="cell rw-8 padded">
+                <select id="forum-editor-lang">
+                    
+                </select>
+            </div>
+            {% endif %}
         </div>
     {% endif %}
-    <div class="row">
-        <div class="cell rw-12">
-            <ul class="tabs" x-tab-group="forum-editor" x-tab-control>
-                <li x-tab-id="classic">{% trans from 'game' %}Klassischer Editor{% endtrans %}</li>
-                <li x-tab-id="suneditor">{% trans from 'game' %}Grafischer Editor{% endtrans %}</li>
-            </ul>
+    <div class="row classic-editor">
+        <div class="padded cell rw-12">
+            <label>{{ 'Vorschau'|trans({},'global') }}</label>
+            <div id="forum-editor-preview"></div>
+            <br />
+            <label for="forum-editor-text">{{ 'Deine Nachricht'|trans({},'global') }}</label>
+            <div class="forum-button-bar">
+                <div x-forum-action="edit" x-text-wrap-node="b" class="forum-button"><i class="fa fa-bold"></i><span class="forum-button-tooltip">{{ 'Fett'|trans({},'global') }}</span></div>
+                <div x-forum-action="edit" x-text-wrap-node="i" class="forum-button"><i class="fa fa-italic"></i><span class="forum-button-tooltip">{{ 'Kursiv'|trans({},'global') }}</span></div>
+                <div x-forum-action="edit" x-text-wrap-node="u" class="forum-button"><i class="fa fa-underline"></i><span class="forum-button-tooltip">{{ 'Unterstreichen'|trans({},'global') }}</span></div>
+                <div x-forum-action="edit" x-text-wrap-node="s" class="forum-button"><i class="fa fa-strikethrough"></i><span class="forum-button-tooltip">{{ 'Durchstreichen'|trans({},'global') }}</span></div>
+                <div x-forum-action="edit" x-text-wrap-node="bad" class="forum-button"><i class="fas fa-tint"></i><span class="forum-button-tooltip">{{ 'Verräter'|trans({},'global') }}</span></div>
+                <div x-forum-action="modal" x-text-modal-node="link" class="forum-button"><i class="fa fa-link"></i><span class="forum-button-tooltip">{{ 'Link einfügen'|trans({},'global') }}</span></div>
+                {% if is_granted("ROLE_ADMIN") %}
+                    <div x-forum-action="modal" x-text-modal-node="image" class="forum-button"><i class="fa fa-image"></i><span class="forum-button-tooltip">{{ 'Bild einfügen'|trans({},'global') }}</span></div>
+                    <div x-forum-action="edit" x-text-wrap-node="admannounce" class="forum-button"><i class="fas fa-bullhorn"></i><span class="forum-button-tooltip">{{ 'Admin Ankündigung'|trans({},'global') }}</span></div>
+                {% endif %}
+                {% if is_granted("ROLE_CROW") %}
+                <div x-forum-action="edit" x-text-wrap-node="modannounce" class="forum-button"><i class="fas fa-gavel"></i><span class="forum-button-tooltip">{{ 'Mod Ankündigung'|trans({},'global') }}</span></div>
+                {% endif %}
+                {% if is_granted("ROLE_ORACLE") %}
+                <div x-forum-action="edit" x-text-wrap-node="announce" class="forum-button"><i class="fas fa-rss"></i><span class="forum-button-tooltip">{{ 'Orakel Ankündigung'|trans({},'global') }}</span></div>
+                {% endif %}
+                <div x-forum-action="edit" x-text-wrap-node="ul" class="forum-button"><i class="fa fa-list-ul"></i><span class="forum-button-tooltip">{{ 'Einfache Liste'|trans({},'global') }}</span></div>
+                <div x-forum-action="edit" x-text-wrap-node="ol" class="forum-button"><i class="fa fa-list-ol"></i><span class="forum-button-tooltip">{{ 'Nummerierte Liste'|trans({},'global') }}</span></div>
+                <div x-forum-action="edit" x-text-wrap-node="li" class="forum-button"><i class="fa fa-star-of-life"></i><span class="forum-button-tooltip">{{ 'Listenpunkt'|trans({},'global') }}</span></div>
+                <div x-forum-action="edit" x-text-wrap-node="quote" class="forum-button"><i class="fa fa-quote-left"></i><span class="forum-button-tooltip">{{ 'Zitat'|trans({},'global') }}</span></div>
+                <div x-forum-action="edit" x-text-wrap-node="spoiler" class="forum-button"><i class="fa fa-eye-slash"></i><span class="forum-button-tooltip">{{ 'Spoiler'|trans({},'global') }}</span></div>
+                <div x-forum-action="edit" x-text-wrap-node="aparte" class="forum-button"><i class="fas fa-compress-alt"></i><span class="forum-button-tooltip">{{ 'Vertraulich'|trans({},'global') }}</span></div>
+                <div x-forum-action="edit" x-text-wrap-node="glory" class="forum-button"><i class="fa fa-crown"></i><span class="forum-button-tooltip">{{ 'Ruhm'|trans({},'global') }}</span></div>
+                <div x-forum-action="edit" x-text-insert-node="hr" class="forum-button"><i class="fa fa-grip-lines"></i><span class="forum-button-tooltip">{{ 'Linie'|trans({},'global') }}</span></div>
+                <div x-forum-action="edit" x-text-wrap-node="rp" class="forum-button"><i class="fas fa-scroll"></i><span class="forum-button-tooltip">{{ 'Rollenspiel'|trans({},'global') }}</span></div>
+            </div>
         </div>
 
-    </div>
-    <div x-tab-group="forum-editor" x-tab-id="classic" x-tab-target>
-        <div class="row classic-editor">
+        <textarea id="forum-editor-text"></textarea>
+
+        <div class="row">
             <div class="padded cell rw-12">
-                <label>{{ 'Vorschau'|trans({},'global') }}</label>
-                <div id="forum-editor-preview"></div>
-                <br />
-                <label for="forum-editor-text">{{ 'Deine Nachricht'|trans({},'global') }}</label>
-                <div class="forum-button-bar">
-                    <div x-forum-action="edit" x-text-wrap-node="b" class="forum-button"><i class="fa fa-bold"></i><span class="forum-button-tooltip">{{ 'Fett'|trans({},'global') }}</span></div>
-                    <div x-forum-action="edit" x-text-wrap-node="i" class="forum-button"><i class="fa fa-italic"></i><span class="forum-button-tooltip">{{ 'Kursiv'|trans({},'global') }}</span></div>
-                    <div x-forum-action="edit" x-text-wrap-node="u" class="forum-button"><i class="fa fa-underline"></i><span class="forum-button-tooltip">{{ 'Unterstreichen'|trans({},'global') }}</span></div>
-                    <div x-forum-action="edit" x-text-wrap-node="s" class="forum-button"><i class="fa fa-strikethrough"></i><span class="forum-button-tooltip">{{ 'Durchstreichen'|trans({},'global') }}</span></div>
-                    <div x-forum-action="edit" x-text-wrap-node="ul" class="forum-button"><i class="fa fa-list-ul"></i><span class="forum-button-tooltip">{{ 'Einfache Liste'|trans({},'global') }}</span></div>
-                    <div x-forum-action="edit" x-text-wrap-node="ol" class="forum-button"><i class="fa fa-list-ol"></i><span class="forum-button-tooltip">{{ 'Nummerierte Liste'|trans({},'global') }}</span></div>
-                    <div x-forum-action="edit" x-text-wrap-node="li" class="forum-button"><i class="fa fa-star-of-life"></i><span class="forum-button-tooltip">{{ 'Listenpunkt'|trans({},'global') }}</span></div>
-                    <div x-forum-action="edit" x-text-wrap-node="spoiler" class="forum-button"><i class="fa fa-eye-slash"></i><span class="forum-button-tooltip">{{ 'Spoiler'|trans({},'global') }}</span></div>
-                    <div x-forum-action="edit" x-text-wrap-node="quote" class="forum-button"><i class="fa fa-quote-left"></i><span class="forum-button-tooltip">{{ 'Zitat'|trans({},'global') }}</span></div>
-                    <div x-forum-action="edit" x-text-wrap-node="glory" class="forum-button"><i class="fa fa-crown"></i><span class="forum-button-tooltip">{{ 'Ruhm'|trans({},'global') }}</span></div>
-                    <div x-forum-action="edit" x-text-insert-node="hr" class="forum-button"><i class="fa fa-grip-lines"></i><span class="forum-button-tooltip">{{ 'Linie'|trans({},'global') }}</span></div>
+                <ul class="tabs plain" x-tab-group="forum-classic-editor-toolbox" x-tab-control>
+                    <li class="tab" x-tab-id="emotes"><div class="tab-link"><i class="fa fa-smile"></i></div></li>
+                    <li class="tab" x-tab-id="games"><div class="tab-link"><i class="fa fa-dice"></i></div></li>
+                </ul>
+                <div class="lightbox" x-tab-group="forum-classic-editor-toolbox" x-tab-id="emotes" x-tab-target>
+                    <div class="forum-button-bar">
+                        {% for tag,url in emotes %}
+                            <div x-forum-action="edit" x-text-emote="{{ asset(url) }}" x-text-insert-emote="{{ tag }}" class="forum-button-inline"><img alt="{{ tag }}" src="{{ asset(url) }}"></div>
+                        {% endfor %}
+                    </div>
                 </div>
-
-                <textarea id="forum-editor-text"></textarea>
-
-                <div class="row">
-                    <div class="padded cell rw-12">
-                        <ul class="tabs" x-tab-group="forum-classic-editor-toolbox" x-tab-control>
-                            <li x-tab-id="emotes"><i class="fa fa-smile"></i></li>
-                            <li x-tab-id="games"><i class="fa fa-dice"></i></li>
-                        </ul>
-                        <div class="lightbox" x-tab-group="forum-classic-editor-toolbox" x-tab-id="emotes" x-tab-target>
-                            <div class="forum-button-bar">
-                                {% for tag,url in emotes %}
-                                    <div x-forum-action="edit" x-text-emote="{{ asset(url) }}" x-text-insert-emote="{{ tag }}" class="forum-button-inline"><img alt="{{ tag }}" src="{{ asset(url) }}"></div>
-                                {% endfor %}
-                            </div>
-                        </div>
-                        <div class="lightbox" x-tab-group="forum-classic-editor-toolbox" x-tab-id="games" x-tab-target>
-                            <div class="forum-button-bar">
-                                <div x-forum-action="edit" x-text-insert-node="d4" class="forum-button-inline"><img alt="" src="{{ asset('build/images/forum/dice4.png') }}"></div>
-                                <div x-forum-action="edit" x-text-insert-node="d6" class="forum-button-inline"><img alt="" src="{{ asset('build/images/forum/dice6.png') }}"></div>
-                                <div x-forum-action="edit" x-text-insert-node="d8" class="forum-button-inline"><img alt="" src="{{ asset('build/images/forum/dice8.png') }}"></div>
-                                <div x-forum-action="edit" x-text-insert-node="d10" class="forum-button-inline"><img alt="" src="{{ asset('build/images/forum/dice10.png') }}"></div>
-                                <div x-forum-action="edit" x-text-insert-node="d12" class="forum-button-inline"><img alt="" src="{{ asset('build/images/forum/dice12.png') }}"></div>
-                                <div x-forum-action="edit" x-text-insert-node="d20" class="forum-button-inline"><img alt="" src="{{ asset('build/images/forum/dice20.png') }}"></div>
-                                <div x-forum-action="edit" x-text-insert-node="d100" class="forum-button-inline"><img alt="" src="{{ asset('build/images/forum/dice100.png') }}"></div>
-                                <div x-forum-action="edit" x-text-insert-node="letter" class="forum-button-inline"><img alt="" src="{{ asset('build/images/forum/lta.png') }}"></div>
-                                <div x-forum-action="edit" x-text-insert-node="consonant" class="forum-button-inline"><img alt="" src="{{ asset('build/images/forum/ltc.png') }}"></div>
-                                <div x-forum-action="edit" x-text-insert-node="vowel" class="forum-button-inline"><img alt="" src="{{ asset('build/images/forum/ltv.png') }}"></div>
-                                <div x-forum-action="edit" x-text-insert-node="rps" class="forum-button-inline"><img alt="" src="{{ asset('build/images/forum/rps.png') }}"></div>
-                                <div x-forum-action="edit" x-text-insert-node="coin" class="forum-button-inline"><img alt="" src="{{ asset('build/images/forum/coin.png') }}"></div>
-                                <div x-forum-action="edit" x-text-insert-node="card" class="forum-button-inline"><img alt="" src="{{ asset('build/images/forum/card.png') }}"></div>
-                            </div>
-                        </div>
+                <div class="lightbox" x-tab-group="forum-classic-editor-toolbox" x-tab-id="games" x-tab-target>
+                    <div class="forum-button-bar">
+                        <div x-forum-action="edit" x-text-insert-node="d4" class="forum-button-inline"><img alt="" src="{{ asset('build/images/forum/dice4.png') }}"></div>
+                        <div x-forum-action="edit" x-text-insert-node="d6" class="forum-button-inline"><img alt="" src="{{ asset('build/images/forum/dice6.png') }}"></div>
+                        <div x-forum-action="edit" x-text-insert-node="d8" class="forum-button-inline"><img alt="" src="{{ asset('build/images/forum/dice8.png') }}"></div>
+                        <div x-forum-action="edit" x-text-insert-node="d10" class="forum-button-inline"><img alt="" src="{{ asset('build/images/forum/dice10.png') }}"></div>
+                        <div x-forum-action="edit" x-text-insert-node="d12" class="forum-button-inline"><img alt="" src="{{ asset('build/images/forum/dice12.png') }}"></div>
+                        <div x-forum-action="edit" x-text-insert-node="d20" class="forum-button-inline"><img alt="" src="{{ asset('build/images/forum/dice20.png') }}"></div>
+                        <div x-forum-action="edit" x-text-insert-node="d100" class="forum-button-inline"><img alt="" src="{{ asset('build/images/forum/dice100.png') }}"></div>
+                        <div x-forum-action="edit" x-text-insert-node="letter" class="forum-button-inline"><img alt="" src="{{ asset('build/images/forum/lta.png') }}"></div>
+                        <div x-forum-action="edit" x-text-insert-node="consonant" class="forum-button-inline"><img alt="" src="{{ asset('build/images/forum/ltc.png') }}"></div>
+                        <div x-forum-action="edit" x-text-insert-node="vowel" class="forum-button-inline"><img alt="" src="{{ asset('build/images/forum/ltv.png') }}"></div>
+                        <div x-forum-action="edit" x-text-insert-node="rps" class="forum-button-inline"><img alt="" src="{{ asset('build/images/forum/rps.png') }}"></div>
+                        <div x-forum-action="edit" x-text-insert-node="coin" class="forum-button-inline"><img alt="" src="{{ asset('build/images/forum/coin.png') }}"></div>
+                        <div x-forum-action="edit" x-text-insert-node="card" class="forum-button-inline"><img alt="" src="{{ asset('build/images/forum/card.png') }}"></div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <div x-tab-group="forum-editor" x-tab-id="suneditor" x-tab-target>
-        <div class="row modern-editor">
-            <div class="padded cell rw-12">
-                <label for="forum-suneditor-text">{{ 'Deine Nachricht'|trans({},'global') }}</label>
-                <textarea id="forum-suneditor-text"></textarea>
-            </div>
-        </div>
-    </div>
     <div class="row">
         <div class="padded cell rw-12 right">
-            {% if not pm is defined or not pm and is_granted("ROLE_CROW") %}
+            {% if forum and is_granted("ROLE_CROW") %}
                 <div id="crowpost" class="forum-checkbox">
                     <input class="forum-checkbox" type="radio" id="radio-user" name="post-type" value="USER" {% if app.user.postAsDefault != "DEV" %}checked{% endif %}>
                     <input class="forum-checkbox" type="radio" id="radio-crow" name="post-type" value="CROW">
@@ -140,20 +151,54 @@
             const parseRangeBlocks = function(elem, secondary = false) {
                 let changed = false;
                 if (elem.nodeType === Node.TEXT_NODE) {
-                    const str = elem.textContent;
-                    const regex_wrappers = !secondary ? /\[(.*?)]([\s\S]*?)\[\/\1]/gm : /(?:([^\w\s]){2})([\s\S]*?)\1{2}/gm;
+                    let str = elem.textContent;
+                    let regex_wrappers = !secondary ? /\[(.*?)(?:=([^\]]*))?]([\s\S]*?)\[\/\1]/gm : /(?:([^\w\s]){2})([\s\S]*?)\1{2}/gm;
                     let current_offset = 0;
                     let blocks = [];
+                    /*
+                    Blocks structure
+                    1 - text content,
+                    2 - HTML tag (wrapping element),
+                    3 - element class name,
+                    4 - element attributes (array, optional)
 
-                    for (const match of str.matchAll( regex_wrappers )) {
+                    Attributes structure
+                    1 - attribute name
+                    2 - attribute value
+                    ... repeat if necessary
+
+                    Examples:
+                    blocks.push( [ 'my text', 'p', null] )
+                    => <p>my text</p>
+
+                    blocks.push( [ 'my link', 'a', 'external', [ 'href', 'https://myhordes.net']] )
+                    => <a class="external" href="https://myhordes.net">my text</a>
+                     */
+
+                    for (let match of str.matchAll( regex_wrappers )) {
                         if (current_offset < match.index )
                             blocks.push(str.substr(current_offset,match.index-current_offset));
 
-                        const tag = match[1].toLowerCase();
+                        let tag = match[1].toLowerCase();
                         if (!secondary) switch (tag) {
-                            case 'b': case 'i': case 'u': case 's': case 'ul': case 'ol': case 'li': blocks.push( [ match[2], tag, null] ); changed = true; break;
-                            case 'spoiler': case 'glory': blocks.push( [ match[2], 'div', tag] ); changed = true; break;
-                            case 'quote': blocks.push( [ match[2], 'blockquote', null] ); changed = true; break;
+                            case 'b': case 'i': case 'u': case 's': case 'ul': case 'ol': case 'li': blocks.push( [ match[3], tag, null] ); changed = true; break;
+                            case 'bad': blocks.push( [ match[3], 'span', tag] ); changed = true; break;
+                            case 'spoiler': case 'glory': blocks.push( [ match[3], 'div', tag] ); changed = true; break;
+                            case 'aparte': blocks.push( [ match[3], 'div', 'sideNote'] ); changed = true; break;
+                            case 'quote': 
+                            if(match[2] !== undefined) 
+                                blocks.push( [ match[2], 'span', 'quoteauthor'] ); 
+                            blocks.push( [ match[3], 'blockquote', null] ); changed = true; break;
+                            case 'spoiler': case 'glory': blocks.push( [ match[3], 'div', tag] ); changed = true; break;
+                            case 'link': blocks.push( [ match[3], 'a', tag, [ 'href', match[2], 'target','_blank' ]] ); changed = true; break;
+                            case 'image': blocks.push( [ '', 'img', tag, [ 'src', match[2], 'alt', match[3] ]] ); changed = true; break;
+                            case 'admannounce': blocks.push( [ match[3], 'div', 'adminAnnounce'] ); changed = true; break;
+                            case 'modannounce': blocks.push( [ match[3], 'div', 'modAnnounce'] ); changed = true; break;
+                            case 'announce': blocks.push( [ match[3], 'div', 'oracleAnnounce'] ); changed = true; break;
+                            case 'rp':
+                            if(match[2] !== undefined) 
+                                blocks.push( [ match[2], 'span', 'rpauthor'] ); 
+                            blocks.push( [ match[3], 'div', 'rpText'] ); changed = true; break;
                             default: blocks.push( match[0] ); break;
                         } else switch (tag) {
                             case '*': blocks.push( [ match[2], 'b', null] ); changed = true; break;
@@ -177,12 +222,12 @@
             }
             const parseInsets = function(elem, listspace = false) {
                 if (elem.nodeType === Node.TEXT_NODE) {
-                    const str = elem.textContent;
-                    const regex_wrappers = /{([a-zA-Z]+)}|{([a-zA-Z]+),([\w,]*)}|{([a-zA-Z]+)(\d+)}/g;
+                    let str = elem.textContent;
+                    let regex_wrappers = /{([a-zA-Z]+)}|{([a-zA-Z]+),([\w,]*)}|{([a-zA-Z]+)(\d+)}/g;
                     let current_offset = 0;
                     let blocks = [];
 
-                    for (const match_r of str.matchAll( regex_wrappers )) {
+                    for (let match_r of str.matchAll( regex_wrappers )) {
 
                         let match = [match_r[0], undefined, undefined];
                         if      (match_r[1] !== undefined) match = [ match_r[0], match_r[1], undefined ];
@@ -192,7 +237,7 @@
                         if (current_offset < match_r.index )
                             blocks.push(str.substr(current_offset,match_r.index-current_offset));
 
-                        const tag = match[1].toLowerCase();
+                        let tag = match[1].toLowerCase();
                         switch (tag) {
                             case 'hr': blocks.push( [ '', tag, null] ); break;
                             case 'br': blocks.push( listspace ? null : [ '', tag, null] ); break;
@@ -235,12 +280,12 @@
 
             const parseEmotes = function(elem) {
                 if (elem.nodeType === Node.TEXT_NODE) {
-                    const str = elem.textContent;
-                    const regex_wrappers = /(?::(\w+?):)|([:;].)/g;
+                    let str = elem.textContent;
+                    let regex_wrappers = /(?::(\w+?):)|([:;].)/g;
                     let current_offset = 0;
                     let blocks = [];
 
-                    for (const match of str.matchAll( regex_wrappers )) {
+                    for (let match of str.matchAll( regex_wrappers )) {
 
                         if (current_offset < match.index )
                             blocks.push(str.substr(current_offset,match.index-current_offset));
@@ -293,14 +338,126 @@
 
         node_transfer_source.addEventListener('input', transfer_to_preview);
 
+        let closeModal = function() {
+            document.getElementById('modal-backdrop').classList.remove('active');
+            let form = document.getElementById('modal-form');
+            form.parentNode.removeChild(form);
+        };
+
+        document.getElementById('modal-close').addEventListener('click', closeModal);
+        document.getElementById('modal-button-no').addEventListener('click', closeModal);
+
+        $.html.addEventListenerAll( '[x-forum-action="modal"]', 'click', function (e,elem) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            let tag = elem.getAttribute('x-text-modal-node');
+            let content = node_transfer_source.value;
+            let s_start = node_transfer_source.selectionStart;
+            let s_end = node_transfer_source.selectionEnd;
+            let title, form, formType, label1, label2, input1, input2;
+
+            form = document.createElement('div');
+            form.setAttribute('id', 'modal-form');
+            form.classList.add('modal-form');
+            formType = document.createElement('input');
+            formType.setAttribute('id', 'form-type');
+            formType.setAttribute('type', 'hidden');
+            formType.value = tag;
+
+            if (tag === 'link') {
+                title = "{{ 'Link einfügen'|trans({},'global') }}";
+                label1 = document.createElement('label');
+                label1.setAttribute('for', 'link-text');
+                label1.innerText = "{{ 'Link-Text'|trans({},'global') }}";
+                input1 = document.createElement('input');
+                input1.setAttribute('id', 'link-text');
+                input1.setAttribute('type', 'text');
+                input1.value = content.substr( s_start, s_end - s_start );
+
+                label2 = document.createElement('label');
+                label2.setAttribute('for', 'link-link');
+                label2.innerText = "{{ 'Link-URL'|trans({},'global') }}";
+                input2 = document.createElement('input');
+                input2.setAttribute('id', 'link-link');
+                input2.setAttribute('type', 'text');
+
+            }
+            else if (tag === 'image') {
+                title = "{{ 'Bild einfügen'|trans({},'global') }}";
+                label1 = document.createElement('label');
+                label1.setAttribute('for', 'image-text');
+                label1.innerText = "{{ 'Bildtitel'|trans({},'global') }}";
+                input1 = document.createElement('input');
+                input1.setAttribute('id', 'image-text');
+                input1.setAttribute('type', 'text');
+                input1.value = content.substr( s_start, s_end - s_start );
+
+                label2 = document.createElement('label');
+                label2.setAttribute('for', 'image-link');
+                label2.innerText = "{{ 'Bild-URL'|trans({},'global') }}";
+                input2 = document.createElement('input');
+                input2.setAttribute('id', 'image-link');
+                input2.setAttribute('type', 'text');
+            }
+
+            form.append(formType, label1, input1, label2, input2);
+
+            document.getElementById('modal-title').innerText = title;
+            document.getElementById('modal-content').append(form);
+            document.getElementById('modal-backdrop').classList.add('active');
+            document.getElementById('modal-backdrop').classList.add('tag'+tag);
+
+            document.getElementById('modal-button-ok').addEventListener('click', function processModal() {
+                let submitted = document.getElementById('modal-form');
+                let type = document.getElementById('form-type');
+                let inputs = submitted.getElementsByTagName('input');
+                var tagText, tagUrl;
+                for (let i = 0; i < inputs.length; i++) {
+                    if (inputs[i].id === type.value + '-text') {
+                        let doc = new DOMParser().parseFromString(inputs[i].value, 'text/html');
+                        tagText = doc.body.textContent || "";
+                    }
+                    else if (inputs[i].id === type.value + '-link') {
+                        tagUrl = encodeURI(inputs[i].value.replace('http:', '').replace('https:', ''));
+                    }
+                }
+
+                if (tagUrl.substr(0,2) !== '//') {
+                    // Apparently not an Url.
+                    // TODO: Add error message to Url field.
+                    document.getElementById(type.value + '-link').classList.add('error');
+                    document.getElementById(type.value + '-text').classList.add('error');
+                }
+                else {
+                    document.getElementById(type.value + '-link').classList.remove('error');
+                    document.getElementById(type.value + '-text').classList.remove('error');
+                    document.getElementById('modal-backdrop').classList.remove('active');
+                    document.getElementById('modal-button-ok').removeEventListener('click', processModal);
+                    submitted.parentNode.removeChild(submitted);
+
+                    node_transfer_source.value =
+                        content.substr(0, s_start) +
+                        '[' + tag + '=' + tagUrl + ']' +
+                        tagText + '[/' + tag + ']' +
+                        content.substr(s_end);
+
+                    node_transfer_source.setSelectionRange(s_start + tag.length + 2, s_end + tag.length + 2);
+                    //window.setTimeout(function () {
+                        node_transfer_source.focus()
+                    //}, 10);
+                    transfer_to_preview();
+                }
+            });
+        } );
         $.html.addEventListenerAll( '[x-forum-action="edit"][x-text-wrap-node]', 'click', function (e,elem) {
             e.preventDefault();
             e.stopPropagation();
 
-            const tag = elem.getAttribute('x-text-wrap-node');
-            const content = node_transfer_source.value;
-            const s_start = node_transfer_source.selectionStart;
-            const s_end = node_transfer_source.selectionEnd;
+            let tag = elem.getAttribute('x-text-wrap-node');
+            let content = node_transfer_source.value;
+            let s_start = node_transfer_source.selectionStart;
+            let s_end = node_transfer_source.selectionEnd;
 
             node_transfer_source.value =
                 content.substr( 0, s_start ) +
@@ -310,17 +467,19 @@
                 content.substr( s_end );
 
             node_transfer_source.setSelectionRange( s_start + tag.length + 2, s_end + tag.length + 2 );
-            window.setTimeout( function() {node_transfer_source.focus()}, 10 )
+            //window.setTimeout( function() {
+                node_transfer_source.focus()
+            //}, 10 );
             transfer_to_preview();
         } );
         $.html.addEventListenerAll( '[x-forum-action="edit"][x-text-insert-node]', 'click', function (e,elem) {
             e.preventDefault();
             e.stopPropagation();
 
-            const tag = elem.getAttribute('x-text-insert-node');
-            const content = node_transfer_source.value;
-            const s_start = node_transfer_source.selectionStart;
-            const s_end = node_transfer_source.selectionEnd;
+            let tag = elem.getAttribute('x-text-insert-node');
+            let content = node_transfer_source.value;
+            let s_start = node_transfer_source.selectionStart;
+            let s_end = node_transfer_source.selectionEnd;
 
             node_transfer_source.value =
                 content.substr( 0, s_start ) +
@@ -328,114 +487,31 @@
                 content.substr( s_start );
 
             node_transfer_source.setSelectionRange( s_start + tag.length + 2, s_end + tag.length + 2 );
-            window.setTimeout( function() {node_transfer_source.focus()}, 10 )
+            //window.setTimeout( function() {
+                node_transfer_source.focus()
+            //}, 10 );
             transfer_to_preview();
         } );
         $.html.addEventListenerAll( '[x-forum-action="edit"][x-text-insert-emote][x-text-emote]', 'click', function (e,elem) {
             e.preventDefault();
             e.stopPropagation();
 
-            const tag = elem.getAttribute('x-text-insert-emote');
-            const content = node_transfer_source.value;
-            const s_start = node_transfer_source.selectionStart;
-            const s_end = node_transfer_source.selectionEnd;
+            let tag = elem.getAttribute('x-text-insert-emote');
+            let content = node_transfer_source.value;
+            let s_start = node_transfer_source.selectionStart;
+            let s_end = node_transfer_source.selectionEnd;
 
-            node_transfer_source.value =
-                content.substr( 0, s_start ) + tag + content.substr( s_start );
+            node_transfer_source.value = content.substr( 0, s_start ) + tag + content.substr( s_start );
 
             node_transfer_source.setSelectionRange( s_start + tag.length, s_end + tag.length );
-            window.setTimeout( function() {node_transfer_source.focus()}, 10 )
+            //window.setTimeout( function() {
+                node_transfer_source.focus()
+            //}, 10);
             transfer_to_preview();
         } );
 
-
-        const sun_editor_plugin_base = function(name, title, innerHTML, tag, classNameInternal, classNameExternal) {
-            return {
-                // @Required @Unique
-                // plugin name
-                name: name,
-                // @Required
-                // data display
-                display: 'command',
-
-                // @Options
-                title: title,
-                buttonClass: '',
-                innerHTML: innerHTML,
-
-                // @Required
-                // add function - It is called only once when the plugin is first run.
-                // This function generates HTML to append and register the event.
-                // arguments - (core : core object, targetElement : clicked button element)
-                add: function (core, targetElement) {
-                    const context = core.context;
-                    const new_tag = core.util.createElement(tag);
-                    core.util.addClass(new_tag, classNameInternal);
-                    for (let i = 0; i < classNameExternal.length; i++)
-                        core.util.addClass(new_tag, classNameExternal[i]);
-
-                    // @Required
-                    // Registering a namespace for caching as a plugin name in the context object
-                    context[name + '_command'] = {
-                        targetButton: targetElement,
-                        tag: new_tag
-                    };
-                },
-
-                // @Overriding
-                // Plugins with active methods load immediately when the editor loads.
-                // Called each time the selection is moved.
-                active: function (element) {
-                    if (!element) {
-                        this.util.removeClass(this.context[name + '_command'].targetButton, 'active');
-                    } else if (this.util.hasClass(element, classNameInternal)) {
-                        this.util.addClass(this.context[name + '_command'].targetButton, 'active');
-                        return true;
-                    }
-
-                    return false;
-                },
-            }
-        }
-        const sun_editor_range_prototype = function(name, title, innerHTML, tag, classNameInternal, classNameExternal) {
-            let base = sun_editor_plugin_base(name, title, innerHTML, tag, classNameInternal, classNameExternal);
-            base.action = function () {
-                // @Required
-                // The behavior of the "command plugin" must be defined in the "action" method.
-                const new_tag = this.util.getRangeFormatElement(this.getSelectionNode());
-
-                if (this.util.hasClass(new_tag, classNameInternal)) {
-                    this.detachRangeFormatElement(new_tag, null, null, false, false);
-                } else {
-                    this.applyRangeFormatElement(this.context[name + '_command'].tag.cloneNode(false));
-                }
-            }
-            return base;
-        }
-        const spoiler_command = sun_editor_range_prototype('spoiler','Spoiler','<i class="fas fa-carrot"></i>','div','__se__format__spoiler',['spoiler']);
-        const glory_command   = sun_editor_range_prototype('glory','Glory','<i class="fas fa-crown"></i>','div','__se__format__glory',['glory']);
-
-        const editor = SUNEDITOR.create((document.getElementById('forum-suneditor-text') || 'forum-suneditor-text'),{
-            // All of the plugins are loaded in the "window.SUNEDITOR" object in dist/suneditor.min.js file
-            plugins : {
-                spoiler_command,
-                glory_command
-            },
-            buttonList: [
-                ['undo', 'redo'],
-                ['bold', 'underline', 'italic', 'strike'],
-                ['removeFormat'],
-                ['outdent', 'indent', 'list'],
-                ['blockquote', 'link' {% if app.user.rightsElevation >= 4 %}, 'image'{% endif %}],
-                ['spoiler', 'glory'],
-            ],
-            // Insert options
-            // Language global object (default: en)
-            //lang: SUNEDITOR_LANG."{{ (app.request.locale|e('html_attr')|split('_', 2))[0] }}"
-        });
-
         // Post as crow toggle
-        {% if is_granted("ROLE_CROW") and not pm %}
+        {% if is_granted("ROLE_CROW") and forum %}
         function changeHandler(){
             switch (document.querySelector("input[name=post-type]:checked").value) {
                 case "USER":
@@ -474,16 +550,12 @@
         for (let i = 0; i < send_buttons.length; i++) {
             send_buttons[i].addEventListener('click', function() {
                 let target_url, target_payload;
-                {% if pm %}
-                    let type = null;
-                {% else %}
+                {% if forum %}
                     let type = document.querySelector("input[name=post-type]:checked") ? document.querySelector("input[name=post-type]:checked").value : null;
                 {% endif %}
 
                 // Replace proxies
-                let content_node = document.querySelector('[x-tab-id="classic"].selected')
-                    ? document.getElementById('forum-editor-preview').cloneNode(true)
-                    : document.querySelector('.sun-editor-editable').cloneNode(true);
+                let content_node = document.getElementById('forum-editor-preview').cloneNode(true);
 
                 let proxies = content_node.querySelectorAll('[x-foxy-proxy]');
                 for (let j = 0; j < proxies.length; j++) {
@@ -492,12 +564,30 @@
                     proxies[j].parentNode.removeChild(proxies[j]);
                 }
 
-                {% if pm is defined and pm %}
-                    target_url = '{{ path('town_house_send_pm_controller') }}';
+                {% if not forum %}
+                    target_url = '{{ path(target_url) }}';
                     target_payload = {
-                        'content': content_node.innerHTML, 
-                        'tid': {{ tid }}
+                        'content': content_node.innerHTML,
+                        'type': "{{ type }}",
                     };
+                    {% if tid is not null %}
+                        target_payload.tid = {{ tid }};
+                    {% else %}
+                        target_payload.title = document.getElementById('forum-editor-title').value;
+                        {% if type == 'pm' %}
+                            target_payload.recipient = document.getElementById('pmidrecipient').value;
+                            let sent_items = document.querySelectorAll("#sent-items .item");
+                            if(sent_items.length > 0) {
+                                target_payload.items = [];
+                                for (var i = 0; i < sent_items.length; i++) {
+                                    target_payload.items.push(sent_items[i].attributes['x-item-id'].value);
+                                }
+                            }
+                        {% elseif type == "changelog" %}
+                            target_payload.version = document.getElementById('forum-editor-version').value;
+                            target_payload.lang = document.getElementById('forum-editor-lang').value;
+                        {% endif %}
+                    {% endif %}
                 {% else %}
                     {% if tid is null %}
                     target_url = '{{ path('forum_new_thread_controller', {id: fid}) }}';
@@ -514,11 +604,25 @@
                     };
                     {% endif %}
                 {% endif %}
+                
                 $.ajax.easySend( target_url, target_payload,
                     function (data) {
                         $.ajax.load( null, data.url, true );
-                    } );
+                    }
+                );
             });
         }
+
+        {% if type is defined and type == "changelog" %}
+            let lang_selector = document.getElementById('forum-editor-lang');
+            if(lang_selector) {
+                for(let prop in window.c.langs) {
+                    let option = document.createElement("option");
+                    option.text = window.c.langs[prop];
+                    option.value = prop;
+                    lang_selector.add(option);
+                }
+            }
+        {% endif %}
     })();
 </script>

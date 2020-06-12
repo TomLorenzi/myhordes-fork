@@ -1,0 +1,53 @@
+{% extends "ajax/soul/shell.html.twig" %}
+{% block soul_content %}
+    <div class="row skills">
+        <div class="row skillBack">
+            <label class="button" x-ajax-href="{{ path('soul_me') }}">
+                {{'Komm zurück zu meiner Seele'|trans({}, 'game')}}
+            </label>
+        </div>
+        <div class="cell rw-12 center">
+            <div class="bar">
+                <div class="progresstext"><span class="text">{{progress|round}}%</span></div>
+                <div class="progressbar left">
+                    <img src="{{ asset('build/images/soul/heroUp_bar.gif') }}" style="width : {{progress}}%;" />
+                </div>
+            </div>
+        </div>
+        <div class="cell padded rw-4 ro-4 heroProgress">
+            {{'Du hast bisher:'|trans({}, 'game')}} <strong>{{"%days% Tage"|trans({'%days%': app.user.heroDaysSpent}, "game")}}</strong>{{'im Heldenmodus gespielt'|trans({}, 'game')}}
+        </div>
+    </div>
+    <div class="skills-history">
+        <div class="row header">
+            <div class="cell padded rw-4 center">
+                {{'Fähigkeit'|trans({}, 'game')}}
+            </div>
+            <div class="cell padded rw-8 center">
+                {{'Beschreibung'|trans({}, 'game')}}
+            </div>
+        </div>
+        <div class="skills-container">
+            {% for heroSkill in skills %}
+            <div class="row skillRow {% if heroSkill == latestSkill %}currentSkill{% endif %}">
+                <div class="cell padded rw-4 center skill">
+                    {% if heroSkill.daysNeeded <= app.user.heroDaysSpent %}
+                        <img src="{{ asset('build/images/heroskill/'~heroSkill.icon~".gif") }}" /> <strong>{{heroSkill.title|trans({}, 'game')}}</strong>
+                    {% elseif heroSkill == nextSkill %}
+                        <span class="small">{{'Nächste:'|trans({}, 'game')}}<br /><strong>{{heroSkill.title|trans({}, 'game')}}</strong></span>
+                    {% else %}
+                        <span class="small">???</span>
+                    {% endif %}
+                </div>
+                <div class="cell padded rw-8 desc">
+                    {% if heroSkill.daysNeeded <= app.user.heroDaysSpent %}
+                        <span>{{heroSkill.description|trans({}, 'game')}}</span>
+                    {% else %}
+                        <span class="small">{{'Diese Fähigkeit wurde noch nicht freigeschaltet...'|trans({}, 'game')}}</span>
+                    {% endif %}
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

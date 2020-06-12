@@ -55,11 +55,12 @@ class Picto
      */
     private $count = 0;
 
-    public function __construct()
-    {
-        $this->town = new ArrayCollection();
-        $this->user = new ArrayCollection();
-    }
+    /**
+     * @ORM\ManyToOne(targetEntity=TownRankingProxy::class, inversedBy="distributedPictos")
+     */
+    private $townEntry;
+
+    public function __construct() {}
 
     public function getId(): ?int
     {
@@ -98,6 +99,7 @@ class Picto
     public function setTown(?Town $town): self
     {
         $this->town = $town;
+        $this->setTownEntry($town ? $town->getRankingEntry() : null);
 
         return $this;
     }
@@ -122,6 +124,18 @@ class Picto
     public function setCount(int $count): self
     {
         $this->count = $count;
+
+        return $this;
+    }
+
+    public function getTownEntry(): ?TownRankingProxy
+    {
+        return $this->townEntry;
+    }
+
+    public function setTownEntry(?TownRankingProxy $townEntry): self
+    {
+        $this->townEntry = $townEntry;
 
         return $this;
     }

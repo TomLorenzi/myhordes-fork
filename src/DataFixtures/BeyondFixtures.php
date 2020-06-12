@@ -2,12 +2,15 @@
 
 namespace App\DataFixtures;
 
+use App\Entity\ItemPrototype;
+use App\Entity\RuinZonePrototype;
 use App\Entity\ZonePrototype;
 use App\Entity\ZoneTag;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
 use Doctrine\ORM\EntityManagerInterface;
+use Exception;
 use Symfony\Component\Console\Helper\ProgressBar;
 use Symfony\Component\Console\Helper\Table;
 use Symfony\Component\Console\Output\ConsoleOutput;
@@ -84,7 +87,7 @@ class BeyondFixtures extends Fixture implements DependentFixtureInterface
             array('item' => 'xanax_#00','count' => 12),
             array('item' => 'drug_#00','count' => 12),
             array('item' => 'fungus_#00','count' => 3),
-            array('item' => 'vodka_de_#00','count' => 2),
+            array('item' => 'vodka_#00','count' => 2),
         ], 'desc' => 'Die menschlichen Überreste, die in der Auffahrt liegen gehören den ehemaligen Patienten dieses improvisierten Krankenhauses. Schwer zu sagen, wie viele Menschen hier beim abendlichen Angriff gestorben sind... Wenn du die Anzahl der Arme durch zwei teilst, vielleicht bekommst du dann eine grobe Schätzung?'],
         ["label" => "Altes Flugfeld",'icon' => 'aerodrome',"camping" => 7,"min_dist" => 12, "max_dist" => 21, "chance" => 129, "drops" => [
             array('item' => 'metal_beam_#00','count' => 62),
@@ -123,7 +126,7 @@ class BeyondFixtures extends Fixture implements DependentFixtureInterface
             array('item' => 'wire_#00','count' => 6),
             array('item' => 'bagxl_#00','count' => 5),
         ], 'desc' => 'Dieses beeindruckende Gebäude erstreckt sich auf mehrere Hundert Meter. Es enthält zahlreiche Räume, die größtenteils eingestürzt sind. Die große Anzahl an Einschusslöchern in den Wänden und die improvisierten Barrikaden lassen vermuten, dass das Gebäude vor einiger Zeit Schauplatz heftiger Gefechte gewesen ist.'],
-        ["label" => "Atombunker",'icon' => 'bunker',"camping" => 15,"min_dist" => 10, "max_dist" => 19, "chance" => 499, "drops" => [
+        ["label" => "Atombunker",'icon' => 'bunker',"camping" => 15,"min_dist" => 10, "max_dist" => 13, "chance" => 499, "drops" => [
             array('item' => 'drug_hero_#00','count' => 127),
             array('item' => 'tagger_#00','count' => 66),
             array('item' => 'chest_#00','count' => 60),
@@ -149,7 +152,7 @@ class BeyondFixtures extends Fixture implements DependentFixtureInterface
             array('item' => 'rhum_#00','count' => 27),
             array('item' => 'pharma_#00','count' => 17),
             array('item' => 'drug_#00','count' => 7),
-            array('item' => 'vodka_de_#00','count' => 4),
+            array('item' => 'vodka_#00','count' => 4),
             array('item' => 'coffee_machine_part_#00','count' => 1),
         ], 'desc' => 'Das Atomic Cafe ist (oder war) der Ort, an dem man sein sollte: Ein verblichenes Plakat lädt Sie zum Sommerfest am 2. Mai 2010 ein: Hawaiianisches Thema, Preis für den bestangezogenen (halbnackten Mädchen + Jungs) DJ Dave ab 13.00 Uhr, kostenloses BBQ, Biergarten mit verbessertem Look, Partyspiele, Live-Fußball, Cocktails, £2 Flaschenbier, £2 Alcopop, £1 Tequila... Beteiligen Sie sich!'],
         ["label" => "Autobahnraststätte",'icon' => 'autobahn',"camping" => 7,"min_dist" => 8, "max_dist" => 16, "chance" => 460, "drops" => [
@@ -176,7 +179,7 @@ class BeyondFixtures extends Fixture implements DependentFixtureInterface
             array('item' => 'oilcan_#00','count' => 6),
             array('item' => 'repair_one_#00','count' => 5),
             array('item' => 'jerrycan_#00','count' => 4),
-            array('item' => 'vodka_de_#00','count' => 4),
+            array('item' => 'vodka_#00','count' => 4),
             array('item' => 'engine_part_#00','count' => 2),
             array('item' => 'rhum_#00','count' => 1),
         ], 'desc' => 'Ein Kombi, der sich in einen Kleintransporter verkeilt hat. Der großen Anzahl an verkohlten Leichen nach zu urteilen, hat hier ein Unfall eine richtig große Karambolage verursacht.'],
@@ -244,7 +247,7 @@ class BeyondFixtures extends Fixture implements DependentFixtureInterface
             array('item' => 'big_pgun_part_#00','count' => 13),
             array('item' => 'sport_elec_empty_#00','count' => 13),
             array('item' => 'radius_mk2_part_#00','count' => 9),
-            array('item' => 'vodka_de_#00','count' => 5),
+            array('item' => 'vodka_#00','count' => 5),
             array('item' => 'chest_xl_#00','count' => 1),
         ], 'desc' => 'Das Heim eines gewissen Duke R. Cooke, und wenn man der Gedenktafel an der Tür glauben darf... ein Heim für Helden... dieser Ort ist viel größer als eine Villa, es ist eine voll ausgestattete Festung !'],
         ["label" => "Dunkler Hain",'icon' => 'woods',"camping" => 7,"min_dist" => 2, "max_dist" => 7, "chance" => 70, "drops" => [
@@ -368,7 +371,7 @@ class BeyondFixtures extends Fixture implements DependentFixtureInterface
             array('item' => 'drug_random_#00','count' => 5),
             array('item' => 'bed_#00','count' => 3),
             array('item' => 'chainsaw_part_#00','count' => 3),
-            array('item' => 'vodka_de_#00','count' => 3),
+            array('item' => 'vodka_#00','count' => 3),
             array('item' => 'saw_tool_part_#00','count' => 3),
         ], 'desc' => 'Dieser riesige Haufen aus Schutt und Metall war früher mal ein hell erleuchtetes Einkaufszentrum, das vor Menschen nur so wimmelte. Das Einzige, was hier noch herumwimmelt, sind Würmer und anderes Gekreuch und Gefleuch... Du bist jedoch zuversichtlich, hier allerhand nützliche Gegenstände zu finden.'],
         ["label" => "Höhle",'icon' => 'cave2',"camping" => 7,"min_dist" => 3, "max_dist" => 9, "chance" => 73, "drops" => [
@@ -611,7 +614,7 @@ class BeyondFixtures extends Fixture implements DependentFixtureInterface
             array('item' => 'bed_#00','count' => 6),
             array('item' => 'lamp_#00','count' => 6),
             array('item' => 'carpet_#00','count' => 4),
-            array('item' => 'vodka_de_#00','count' => 3),
+            array('item' => 'vodka_#00','count' => 3),
             array('item' => 'rhum_#00','count' => 2),
             array('item' => 'pet_dog_#00','count' => 2),
         ], 'desc' => 'Jemand hat hier vor langer Zeit gelebt. Vielleicht jemand, der von einer Familie umgeben war, die ihn liebte und mit der er viele glückliche Stunden zusammen verbrachte ? Heute ist alles, was bleibt, ein wenig Staub und völlige Verwüstung... und gelegentlich eine Leiche, die mit den Zähnen knirschend auf einen zustürmt.'],
@@ -686,7 +689,7 @@ class BeyondFixtures extends Fixture implements DependentFixtureInterface
             array('item' => 'chest_citizen_#00','count' => 6),
             array('item' => 'watergun_opt_part_#00','count' => 3),
             array('item' => 'door_carpet_#00','count' => 3),
-            array('item' => 'vodka_de_#00','count' => 3),
+            array('item' => 'vodka_#00','count' => 3),
             array('item' => 'chama_tasty_#00','count' => 2),
             array('item' => 'bagxl_#00','count' => 2),
         ], 'desc' => 'Dieses Zelt macht einen wirklich soliden Eindruck und war bestimmt mal ein gutes Versteck. Derjenige, der es aufgestellt hat, wusste wie man sich vor Zombies schützt. Das Zelt verfügt über ein farblich abgestimmtes Tarnnetz, mehrere Ein- und Ausgänge, sowie über ein unterirdisches Notversteck für brenzlige Situation. Bei näherem Hinsehen entdeckst du auf der Zeltplane einen eingestickten Namen: \'Shenji\''],
@@ -710,13 +713,105 @@ class BeyondFixtures extends Fixture implements DependentFixtureInterface
             array('item' => 'drug_#00','count' => 17),
             array('item' => 'jerrycan_#00','count' => 16),
             array('item' => 'can_opener_#00','count' => 13),
-            array('item' => 'vodka_de_#00','count' => 10)
+            array('item' => 'vodka_#00','count' => 10)
         ], 'desc' => 'Es sieht eigentlich nicht mehr wie eine Bar aus, aber das halb im Sand vergrabene Schild und das Vorhandensein einiger zerbrochener Optiken lassen keinen großen Zweifel aufkommen. Die meisten Flaschen sind zerbrochen, aber Sie können hier mit ziemlicher Sicherheit etwas Nützliches finden...'],
+
+        // Explorable Ruins.
+        ["label" => "Verlassener Bunker",'icon' => 'deserted_bunker',"camping" => 1,"min_dist" => 5, "max_dist" => 100, "chance" => 0, "explorable" => true,
+            "explorable_skin" => 'bunker', "explorable_desc" => null,
+            "drops" => [
+                array('item' => 'bbplan_u_#00','count' => 13),
+                array('item' => 'bbplan_r_#00','count' => 5),
+                array('item' => 'bbplan_e_#00','count' => 6),
+                array('item' => 'water_#00','count' => 4),
+                array('item' => 'concrete_wall_#00','count' => 21),
+                array('item' => 'wood_bad_#00','count' => 4),
+                array('item' => 'kalach_#01','count' => 2),
+                array('item' => 'meca_parts_#00','count' => 11),
+                array('item' => 'wood2_#00','count' => 6),
+                array('item' => 'metal_#00','count' => 8),
+                array('item' => 'deto_#00','count' => 1),
+                array('item' => 'magneticKey_#00','count' => 9),
+                array('item' => 'money_#00','count' => 1),
+                array('item' => 'pile_#00','count' => 2),
+                array('item' => 'out_def_#00','count' => 1),
+                array('item' => 'big_pgun_empty_#00','count' => 3),
+                array('item' => 'gun_#00','count' => 5),
+                array('item' => 'wood_log_#00','count' => 8),
+                array('item' => 'water_cup_part_#00','count' => 3),
+                array('item' => 'metal_bad_#00','count' => 2),
+                array('item' => 'metal_beam_#00','count' => 3),
+                array('item' => 'electro_box_#00','count' => 1),
+                array('item' => 'machine_gun_#00','count' => 1),
+                array('item' => 'flare_#00','count' => 1),
+                array('item' => 'wood_plate_#00','count' => 1),
+        ], 'desc' => 'Diese heruntergekommene Gebäude scheint einmal ein Bunker gewesen zu sein. Du entdeckst einen Einstieg ins Gebäude, modriger Gestank schlägt dir entgegen. Du verziehst das Gesicht, aber hier könntest du mit ziemlicher Sicherheit etwas Nützliches finden...'],
+        ["label" => "Verlassenes Hotel",'icon' => 'deserted_hotel',"camping" => 1,"min_dist" => 5, "max_dist" => 100, "chance" => 0, "explorable" => true,
+            "explorable_skin" => 'hotel', "explorable_desc" => null,
+            "drops" => [
+                array('item' => 'hbplan_u_#00','count' => 3),
+                array('item' => 'hbplan_r_#00','count' => 2),
+                array('item' => 'hbplan_e_#00','count' => 1),
+                array('item' => 'water_#00','count' => 9),
+                array('item' => 'drug_random_#00','count' => 7),
+                array('item' => 'xanax_#00','count' => 5),
+                array('item' => 'cyanure_#00','count' => 4),
+                array('item' => 'disinfect_#00','count' => 4),
+                array('item' => 'bumpKey_#00','count' => 3),
+                array('item' => 'classicKey_#00','count' => 3),
+                array('item' => 'pharma_#00','count' => 3),
+                array('item' => 'water_can_3_#00','count' => 2),
+                array('item' => 'water_can_1_#00','count' => 1),
+        ], 'desc' => 'Diese heruntergekommene Gebäude scheint einmal ein Hotel gewesen zu sein. Du entdeckst einen Einstieg ins Gebäude, modriger Gestank schlägt dir entgegen. Du verziehst das Gesicht, aber hier könntest du mit ziemlicher Sicherheit etwas Nützliches finden...'],
+        ["label" => "Verlassenes Hospital",'icon' => 'deserted_hotel',"camping" => 1,"min_dist" => 5, "max_dist" => 100, "chance" => 0, "explorable" => true,
+            "explorable_skin" => 'hospital', "explorable_desc" => null,
+            "drops" => [
+                array('item' => 'mbplan_u_#00','count' => 14),
+                array('item' => 'mbplan_r_#00','count' => 8),
+                array('item' => 'mbplan_e_#00','count' => 3),
+                array('item' => 'water_#00','count' => 9),
+                array('item' => 'drug_random_#00','count' => 10),
+                array('item' => 'out_def_#00','count' => 14),
+                array('item' => 'drug_#00','count' => 3),
+                array('item' => 'xanax_#00','count' => 16),
+                array('item' => 'water_can_empty_#00','count' => 4),
+                array('item' => 'magneticKey_#00','count' => 9),
+                array('item' => 'pc_#00','count' => 2),
+                array('item' => 'drug_water_#00','count' => 3),
+                array('item' => 'vagoul_#00','count' => 2),
+                array('item' => 'distri_#00','count' => 2),
+                array('item' => 'disinfect_#00','count' => 6),
+                array('item' => 'pharma_#00','count' => 3),
+                array('item' => 'pile_#00','count' => 1),
+                array('item' => 'chainsaw_empty_#00','count' => 2),
+                array('item' => 'bureau_#00','count' => 1),
+        ], 'desc' => 'Diese heruntergekommene Gebäude scheint einmal ein Hospital gewesen zu sein. Du entdeckst einen Einstieg ins Gebäude, modriger Gestank schlägt dir entgegen. Du verziehst das Gesicht, aber hier könntest du mit ziemlicher Sicherheit etwas Nützliches finden...'],
+    ];
+
+    public static $room_prototypes = [
+        [
+            "label" => "Offene Tür"
+        ],
+        [
+            "label" => "Verschlossene Tür (Flaschenöffner)",
+            "lock_mold" => 'prints_#02',
+            "lock_item" => 'classicKey_#00',
+        ],
+        [
+            "label" => "Verschlossene Tür (Schlagschlüssel)",
+            "lock_mold" => 'prints_#01',
+            "lock_item" => 'bumpKey_#00',
+        ],
+        [
+            "label" => "Verschlossene Tür (Magnetschlüssel)",
+            "lock_mold" => 'prints_#00',
+            "lock_item" => 'magneticKey_#00',
+        ],
     ];
 
     public static $zone_tags = array(
         'none' => array(
-            'label' => '[nights]',
+            'label' => '[nichts]',
             'icon' => '',
             'ref' => ZoneTag::TagNone),
         'help' => array(
@@ -799,6 +894,45 @@ class BeyondFixtures extends Fixture implements DependentFixtureInterface
             ->setChance( $entry['chance'] )
             ->setIcon( $entry['icon'] )
             ->setDrops( FixtureHelper::createItemGroup( $manager, 'zp_drop_' . substr(md5($entry['label']),0, 24), $entry['drops'] ) )
+            ->setExplorable( $entry['explorable'] ?? 0 )
+            ->setExplorableSkin( $entry['explorable_skin'] ?? 'bunker' )
+            ->setExplorableDescription( $entry['explorable_desc'] ?? $entry['desc'] ?? null )
+            ;
+            $manager->persist( $entity );
+
+            // Set table entry
+            $progress->advance();
+        }
+
+        $manager->flush();
+        $progress->finish();
+    }
+
+    protected function insert_ruin_zone_prototypes(ObjectManager $manager, ConsoleOutputInterface $out) {
+        $out->writeln( '<comment>RuinZone prototypes: ' . count(static::$room_prototypes) . ' fixture entries available.</comment>' );
+
+        // Set up console
+        $progress = new ProgressBar( $out->section() );
+        $progress->start( count(static::$room_prototypes) );
+
+        // Iterate over all entries
+        foreach (static::$room_prototypes as $entry) {
+            // Get existing entry, or create new one
+            $entity = $this->entityManager->getRepository(RuinZonePrototype::class)->findOneByLabel( $entry['label'] );
+            if ($entity === null) $entity = new RuinZonePrototype();
+
+            // Items
+            $lock_mold = ($entry['lock_mold'] ?? null) ? $this->entityManager->getRepository(ItemPrototype::class)->findOneByName($entry['lock_mold']) : null;
+            $lock_item = ($entry['lock_item'] ?? null) ? $this->entityManager->getRepository(ItemPrototype::class)->findOneByName($entry['lock_item']) : null;
+
+            if ( !is_null($entry['lock_mold'] ?? $entry['lock_item'] ?? null) && ($lock_mold === null || $lock_item === null) )
+                throw new Exception('Lock configuration invalid.');
+
+            // Set property
+            $entity
+                ->setLabel( $entry['label'] )
+                ->setKeyImprint($lock_mold ?? null)
+                ->setKeyItem($lock_item ?? null)
             ;
             $manager->persist( $entity );
 
@@ -846,6 +980,7 @@ class BeyondFixtures extends Fixture implements DependentFixtureInterface
         $output->writeln("");
 
         $this->insert_zone_prototypes( $manager, $output );
+        $this->insert_ruin_zone_prototypes( $manager, $output );
         $this->insert_zone_tags( $manager, $output );
         $output->writeln("");
     }

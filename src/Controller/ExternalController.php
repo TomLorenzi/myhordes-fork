@@ -10,22 +10,18 @@ use App\Entity\Town;
 use App\Entity\User;
 use App\Entity\Zone;
 use App\Entity\ZonePrototype;
-use App\Exception\DynamicAjaxResetException;
 use App\Service\ActionHandler;
 use App\Service\CitizenHandler;
 use App\Service\ConfMaster;
 use App\Service\DeathHandler;
-use App\Service\ErrorHelper;
 use App\Service\GameFactory;
 use App\Service\InventoryHandler;
 use App\Service\ItemFactory;
-use App\Service\JSONRequestParser;
 use App\Service\LogTemplateHandler;
 use App\Service\PictoHandler;
 use App\Service\RandomGenerator;
 use App\Service\TimeKeeperService;
-use App\Service\UserFactory;
-use App\Response\AjaxResponse;
+use App\Service\UserHandler;
 use App\Service\ZoneHandler;
 use App\Translation\T;
 use DateTime;
@@ -33,14 +29,8 @@ use DateTimeZone;
 use Doctrine\ORM\EntityManagerInterface;
 use Exception;
 use SimpleXMLElement;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
-use Symfony\Component\Security\Core\Authentication\Token\UsernamePasswordToken;
-use Symfony\Component\Validator\Constraints;
-use Symfony\Component\Validator\ConstraintViolationInterface;
-use Symfony\Component\Validator\Validation;
 use Symfony\Contracts\Translation\TranslatorInterface;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -69,9 +59,9 @@ class ExternalController extends InventoryAwareController
      */
     public function __construct(
         EntityManagerInterface $em, InventoryHandler $ih, CitizenHandler $ch, ActionHandler $ah, TimeKeeperService $tk, DeathHandler $dh, PictoHandler $ph,
-        TranslatorInterface $translator, GameFactory $gf, RandomGenerator $rg, ItemFactory $if, LogTemplateHandler $lh, ConfMaster $conf, ZoneHandler $zh)
+        TranslatorInterface $translator, GameFactory $gf, RandomGenerator $rg, ItemFactory $if, LogTemplateHandler $lh, ConfMaster $conf, ZoneHandler $zh, UserHandler $uh)
     {
-        parent::__construct($em, $ih, $ch, $ah, $dh, $ph, $translator, $lh, $tk, $rg, $conf, $zh);
+        parent::__construct($em, $ih, $ch, $ah, $dh, $ph, $translator, $lh, $tk, $rg, $conf, $zh, $uh);
         $this->game_factory = $gf;
         $this->item_factory = $if;
         $this->zone_handler = $zh;
@@ -225,7 +215,7 @@ class ExternalController extends InventoryAwareController
     private function generateData(User $user): array
     {
         try {
-            $now = new DateTime('now', new DateTimeZone('America/New_York'));
+            $now = new DateTime('now', new DateTimeZone('Europe/Paris'));
         } catch (Exception $e) {
             $now = date('Y-m-d H:i:s');
         }
@@ -248,28 +238,22 @@ class ExternalController extends InventoryAwareController
 
         // Base data.
         $data = [
-            'hordes' => [
-                'headers' => [
-                    'attributes' => [
-                        'link' => $this->request->getRequestUri(),
-                        'iconurl' => '',
-                        'avatarurl' => '',
-                        'secure' => 0,
-                        'author' => 'MyHordes',
-                        'language' => $town->getLanguage(),
-                        'version' => '0.1',
-                        'generator' => 'symfony',
-                    ],
-                    'game' => [
-                        'attributes' => [
-                            'days' => $town->getDay(),
-                            'quarantine' => $town->getDevastated(),
-                            'datetime' => $now->format('Y-m-d H:i:s'),
-                            'id' => $town->getId(),
-                        ],
-                    ],
-                ],
-                'data' => [
+            'headers' => [
+                'link' => $this->request->getRequestUri(),
+                'iconurl' => '',
+                'avatarurl' => '',
+                'author' => 'MyHordes',
+                'language' => $town->getLanguage(),
+                'version' => '0.1',
+                'generator' => 'symfony',
+            ],
+            'game' => [
+                'days' => $town->getDay(),
+                'quarantine' => $town->getDevastated(),
+                'datetime' => $now->format('Y-m-d H:i:s'),
+                'id' => $town->getId(),
+            ],
+            'data' => [
                     'attributes' => [
                         'cache-date' => $now->format('Y-m-d H:i:s'),
                         'cache-fast' => 0,
@@ -332,7 +316,6 @@ class ExternalController extends InventoryAwareController
                         ],
                     ],
                 ],
-            ],
         ];
 
         // Add zones.
@@ -602,7 +585,7 @@ class ExternalController extends InventoryAwareController
             if ($building->getComplete()) {
                 $building_data = [
                     'attributes' => [
-                        'name' => T::__($building->getPrototype()->getLabel(), "game"),
+                        'name' => $this->translator->trans($building->getPrototype()->getLabel(), [], "game"),
                         'temporary' => $building->getPrototype()->getTemp(),
                         'id' => $building->getPrototype()->getId(),
                         'img' => $building->getPrototype()->getIcon(),
@@ -617,7 +600,7 @@ class ExternalController extends InventoryAwareController
         foreach ( $inventory->getItems() as $item ) {
             $item_data = [
                 'attributes' => [
-                    'name' => T::__($item->getPrototype()->getLabel(), "game"),
+                    'name' => $this->translator->trans($item->getPrototype()->getLabel(), [], "game"),
                     'count' => $item->getCount(),
                     'id' => $item->getPrototype()->getId(),
                     'img' => $item->getPrototype()->getIcon(),

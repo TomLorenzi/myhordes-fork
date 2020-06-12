@@ -8,6 +8,7 @@ use App\Entity\AdminDeletion;
 use App\Entity\AdminReport;
 use App\Entity\Citizen;
 use App\Entity\CauseOfDeath;
+use App\Entity\CitizenRankingProxy;
 use App\Entity\Forum;
 use App\Entity\Picto;
 use App\Entity\Post;
@@ -241,6 +242,8 @@ class AdminActionHandler
         foreach ($pendingPictosOfUser as $pendingPicto) {
             $this->entity_manager->remove($pendingPicto);
         }
+
+        CitizenRankingProxy::fromCitizen( $activeCitizen, true );
 
         $this->entity_manager->persist( $activeCitizen );
         $this->entity_manager->flush();

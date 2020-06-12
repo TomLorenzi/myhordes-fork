@@ -11,6 +11,7 @@ use App\Entity\CitizenStatus;
 use App\Entity\Town;
 use App\Entity\Zone;
 use App\Service\GameFactory;
+use App\Service\MazeMaker;
 use App\Service\NightlyHandler;
 use App\Service\TownHandler;
 use App\Service\ZoneHandler;
@@ -33,9 +34,10 @@ class TownInspectorCommand extends Command
     private $townHandler;
     private $zonehandler;
     private $nighthandler;
+    private $mazeMaker;
     private $trans;
 
-    public function __construct(EntityManagerInterface $em, GameFactory $gf, ZoneHandler $zh, TownHandler $th, NightlyHandler $nh, Translator $translator)
+    public function __construct(EntityManagerInterface $em, GameFactory $gf, ZoneHandler $zh, TownHandler $th, NightlyHandler $nh, Translator $translator, MazeMaker $maker)
     {
         $this->entityManager = $em;
         $this->gameFactory = $gf;
@@ -43,6 +45,7 @@ class TownInspectorCommand extends Command
         $this->townHandler = $th;
         $this->nighthandler = $nh;
         $this->trans = $translator;
+        $this->mazeMaker = $maker;
         parent::__construct();
     }
 
@@ -67,6 +70,7 @@ class TownInspectorCommand extends Command
             ->addOption('unveil-map', null, InputOption::VALUE_NONE, 'Uncovers the map')
             ->addOption('map-ds', null, InputOption::VALUE_REQUIRED, 'When used together with --unveil-map, sets the discovery state')
             ->addOption('map-zs', null, InputOption::VALUE_REQUIRED, 'When used together with --unveil-map, sets the zombie state')
+            ->addOption('rebuild-explorables', null, InputOption::VALUE_NONE, 'Will regenerate all explorable ruin maps')
 
             ->addOption('set-chaos', null, InputOption::VALUE_NONE, 'Enables chaos mode.')
             ->addOption('set-devastation', null, InputOption::VALUE_NONE, 'Enables chaos mode and devastation')
@@ -234,6 +238,21 @@ class TownInspectorCommand extends Command
             $this->entityManager->persist( $town );
         }
 
+        if ($input->getOption('rebuild-explorables')) {
+
+            foreach ($town->getZones() as &$zone) if ($zone->getPrototype() && $zone->getPrototype()->getExplorable()) {
+                $changes = true;
+                $this->mazeMaker->generateMaze( $zone );
+
+                foreach ($zone->getExplorerStats() as $stat) {
+                    $stat->getCitizen()->removeExplorerStat($stat);
+                    $this->entityManager->remove( $stat );
+                }
+            }
+
+            $this->entityManager->persist( $town );
+        }
+
         if ($input->getOption('set-chaos')) {
             $town->setChaos(true);
             $this->entityManager->persist( $town );
@@ -250,6 +269,7 @@ class TownInspectorCommand extends Command
         if ($input->getOption('advance-day')) {
             if ($this->nighthandler->advance_day($town) && !$input->getOption('dry')) {
                 foreach ($this->nighthandler->get_cleanup_container() as $c) $this->entityManager->remove($c);
+                $town->setAttackFails(0);
                 $this->entityManager->persist( $town );
                 $changes = true;
             }

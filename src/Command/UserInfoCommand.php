@@ -50,7 +50,9 @@ class UserInfoCommand extends Command
             ->addOption('find-all-rps', null, InputOption::VALUE_REQUIRED, 'Gives all known RP to a user in the given lang')
             ->addOption('give-all-pictos', null, InputOption::VALUE_OPTIONAL, 'Gives all pictos once to a user')
 
-            ->addOption('set-mod-level', null, InputOption::VALUE_REQUIRED, 'Sets the moderation level for a user (0 = normal user, 1 = mod, 2 = admin');
+            ->addOption('set-mod-level', null, InputOption::VALUE_REQUIRED, 'Sets the moderation level for a user (0 = normal user, 2 = oracle, 3 = mod, 4 = admin)')
+            ->addOption('set-hero-days', null, InputOption::VALUE_REQUIRED, 'Set the amount of hero days spent to a user (and the associated skills)')
+        ;
 
     }
 
@@ -59,7 +61,7 @@ class UserInfoCommand extends Command
         if ($userid = $input->getArgument('UserID')) {
             $userid = (int)$userid;
             /** @var User $user */
-            $user = $this->entityManager->getRepository(User::class)->findOneById($userid);
+            $user = $this->entityManager->getRepository(User::class)->find($userid);
 
             if (($modlv = $input->getOption('set-mod-level')) !== null) {
                 $user->setRightsElevation($modlv);
@@ -90,6 +92,7 @@ class UserInfoCommand extends Command
                     $picto->setPrototype($pictoPrototype)
                         ->setPersisted(2)
                         ->setTown(null)
+                        ->setTownEntry(null)
                         ->setUser($user)
                         ->setCount($picto->getCount()+1);
 
@@ -111,6 +114,10 @@ class UserInfoCommand extends Command
                 $this->entityManager->persist($user);
                 $this->entityManager->flush();
 
+            } elseif ($heroDaysCount = $input->getOption('set-hero-days')) {
+                $user->setHeroDaysSpent($heroDaysCount);
+                $this->entityManager->persist($user);
+                $this->entityManager->flush();
             }
         } else {
             /** @var User[] $users */

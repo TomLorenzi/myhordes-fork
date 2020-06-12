@@ -154,6 +154,16 @@ class Zone
      */
     private $tag;
 
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\RuinZone", mappedBy="zone", orphanRemoval=true, cascade={"persist", "remove"})
+     */
+    private $ruinZones;
+
+    /**
+     * @ORM\OneToMany(targetEntity=RuinExplorerStats::class, mappedBy="zone", orphanRemoval=true, cascade={"persist", "remove"})
+     */
+    private $explorerStats;
+
     public function __construct()
     {
         $this->citizens = new ArrayCollection();
@@ -161,6 +171,8 @@ class Zone
         $this->escapeTimers = new ArrayCollection();
         $this->digRuinMarkers = new ArrayCollection();
         $this->scoutVisits = new ArrayCollection();
+        $this->ruinZones = new ArrayCollection();
+        $this->explorerStats = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -553,6 +565,81 @@ class Zone
     public function setTag(?ZoneTag $tag): self
     {
         $this->tag = $tag;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|RuinZone[]
+     */
+    public function getRuinZones(): Collection
+    {
+        return $this->ruinZones;
+    }
+
+    public function addRuinZone(RuinZone $ruinZone): self
+    {
+        if (!$this->ruinZones->contains($ruinZone)) {
+            $this->ruinZones[] = $ruinZone;
+            $ruinZone->setZone($this);
+        }
+
+        return $this;
+    }
+
+    public function removeRuinZone(RuinZone $ruinZone): self
+    {
+        if ($this->ruinZones->contains($ruinZone)) {
+            $this->ruinZones->removeElement($ruinZone);
+            // set the owning side to null (unless already changed)
+            if ($ruinZone->getZone() === $this) {
+                $ruinZone->setZone(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * If a citizen is currently exploring the ruin in this zone, the relevant RuinExplorerStats object will be
+     * returned. Otherwise, null is returned.
+     * @return RuinExplorerStats|null
+     */
+    public function activeExplorerStats(): ?RuinExplorerStats {
+        if ($this->getPrototype() && $this->getPrototype()->getExplorable())
+            foreach ($this->getExplorerStats() as $explorerStat)
+                if ($explorerStat->getActive() && $this->citizens->contains( $explorerStat->getCitizen() ))
+                    return $explorerStat;
+        return null;
+    }
+
+    /**
+     * @return Collection|RuinExplorerStats[]
+     */
+    public function getExplorerStats(): Collection
+    {
+        return $this->explorerStats;
+    }
+
+    public function addExplorerStat(RuinExplorerStats $explorerStat): self
+    {
+        if (!$this->explorerStats->contains($explorerStat)) {
+            $this->explorerStats[] = $explorerStat;
+            $explorerStat->setZone($this);
+        }
+
+        return $this;
+    }
+
+    public function removeExplorerStat(RuinExplorerStats $explorerStat): self
+    {
+        if ($this->explorerStats->contains($explorerStat)) {
+            $this->explorerStats->removeElement($explorerStat);
+            // set the owning side to null (unless already changed)
+            if ($explorerStat->getZone() === $this) {
+                $explorerStat->setZone(null);
+            }
+        }
 
         return $this;
     }

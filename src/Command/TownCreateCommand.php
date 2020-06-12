@@ -78,6 +78,7 @@ class TownCreateCommand extends Command
                 $output->writeln('<error>' . $e->getMessage() . '</error>');
                 return -3;
             }
+            //$this->gameFactory->createExplorableMaze($town);
             $output->writeln('<info>OK!</info>');
             $output->writeln("<comment>Empty town '" . $town->getName() . "' was created successfully!</comment>");
         }

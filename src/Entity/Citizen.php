@@ -5,10 +5,13 @@ namespace App\Entity;
 use DateTime;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
+use Doctrine\ORM\Event\LifecycleEventArgs;
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\ORM\ORMException;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\CitizenRepository")
+ * @ORM\HasLifecycleCallbacks()
  */
 class Citizen
 {
@@ -225,6 +228,22 @@ class Citizen
      */
     private $privateMessageThreads;
 
+    /**
+     * @ORM\OneToOne(targetEntity=CitizenRankingProxy::class, inversedBy="citizen", cascade={"persist"})
+     */
+    private $rankingEntry;
+
+    /**
+     * @ORM\OneToMany(targetEntity=RuinExplorerStats::class, mappedBy="citizen", orphanRemoval=true, cascade={"persist", "remove"})
+     */
+    private $explorerStats;
+
+    /**
+     * @ORM\OneToOne(targetEntity=BuildingVote::class, mappedBy="citizen", cascade={"persist", "remove"})
+     * @ORM\JoinColumn(nullable=true)
+     */
+    private $buildingVote;
+
     public function __construct()
     {
         $this->status = new ArrayCollection();
@@ -239,6 +258,7 @@ class Citizen
         $this->disposedBy = new ArrayCollection();
         $this->citizenWatch = new ArrayCollection();
         $this->privateMessageThreads = new ArrayCollection();
+        $this->explorerStats = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -973,6 +993,98 @@ class Citizen
             if ($privateMessageThread->getRecipient() === $this) {
                 $privateMessageThread->setRecipient(null);
             }
+        }
+
+        return $this;
+    }
+
+    public function getRankingEntry(): ?CitizenRankingProxy
+    {
+        return $this->rankingEntry;
+    }
+
+    public function setRankingEntry(?CitizenRankingProxy $rankingEntry): self
+    {
+        $this->rankingEntry = $rankingEntry;
+
+        return $this;
+    }
+
+    /**
+     * @ORM\PostPersist()
+     * @param LifecycleEventArgs $args
+     * @throws ORMException
+     */
+    public function lifeCycle_createCitizenRankingProxy(LifecycleEventArgs $args) {
+        $args->getEntityManager()->persist( CitizenRankingProxy::fromCitizen($this) );
+        $args->getEntityManager()->flush();
+    }
+
+    /**
+     * If the citizen is currently exploring a ruin or has explored a ruin at this location today, the relevant
+     * RuinExplorerStats object will be returned. Otherwise, null is returned.
+     * @return RuinExplorerStats|null
+     */
+    public function currentExplorerStats(): ?RuinExplorerStats {
+        if ($this->getZone())
+            foreach ($this->getExplorerStats() as $explorerStat)
+                if ($explorerStat->getZone()->getId() === $this->getZone()->getId())
+                    return $explorerStat;
+        return null;
+    }
+
+    /**
+     * If the citizen is currently exploring a ruin, the relevant RuinExplorerStats object will be returned. Otherwise,
+     * null is returned.
+     * @return RuinExplorerStats|null
+     */
+    public function activeExplorerStats(): ?RuinExplorerStats {
+        return (($ex = $this->currentExplorerStats()) && $ex->getActive()) ? $ex : null;
+    }
+
+    /**
+     * @return Collection|RuinExplorerStats[]
+     */
+    public function getExplorerStats(): Collection
+    {
+        return $this->explorerStats;
+    }
+
+    public function addExplorerStat(RuinExplorerStats $explorerStat): self
+    {
+        if (!$this->explorerStats->contains($explorerStat)) {
+            $this->explorerStats[] = $explorerStat;
+            $explorerStat->setCitizen($this);
+        }
+
+        return $this;
+    }
+
+    public function removeExplorerStat(RuinExplorerStats $explorerStat): self
+    {
+        if ($this->explorerStats->contains($explorerStat)) {
+            $this->explorerStats->removeElement($explorerStat);
+            // set the owning side to null (unless already changed)
+            if ($explorerStat->getCitizen() === $this) {
+                $explorerStat->setCitizen(null);
+            }
+        }
+
+        return $this;
+    }
+
+    public function getBuildingVote(): ?BuildingVote
+    {
+        return $this->buildingVote;
+    }
+
+    public function setBuildingVote(BuildingVote $buildingVote): self
+    {
+        $this->buildingVote = $buildingVote;
+
+        // set the owning side of the relation if necessary
+        if ($buildingVote->getCitizen() !== $this) {
+            $buildingVote->setCitizen($this);
         }
 
         return $this;

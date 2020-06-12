@@ -73,6 +73,9 @@ class UserRepository extends ServiceEntityRepository implements UserLoaderInterf
      */
     public function loadUserByUsername(string $username)
     {
-        return $this->findOneByName($username);
+        $user = $this->findOneByName($username);
+        if (!$user && strpos($username, '@') !== false )
+            $user = $this->findOneByMail($username);
+        return $user;
     }
 }

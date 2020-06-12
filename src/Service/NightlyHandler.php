@@ -4,6 +4,7 @@ namespace App\Service;
 use App\Entity\Building;
 use App\Entity\CauseOfDeath;
 use App\Entity\Citizen;
+use App\Entity\CitizenRankingProxy;
 use App\Entity\CitizenRole;
 use App\Entity\CitizenStatus;
 use App\Entity\CitizenVote;
@@ -11,12 +12,16 @@ use App\Entity\CitizenWatch;
 use App\Entity\DigRuinMarker;
 use App\Entity\EscapeTimer;
 use App\Entity\Gazette;
+use App\Entity\HeroicActionPrototype;
 use App\Entity\Inventory;
 use App\Entity\Item;
 use App\Entity\ItemPrototype;
+use App\Entity\HeroSkill;
+use App\Entity\HeroSkillPrototype;
 use App\Entity\Picto;
 use App\Entity\PictoPrototype;
 use App\Entity\Town;
+use App\Entity\TownRankingProxy;
 use App\Entity\ZombieEstimation;
 use App\Entity\Zone;
 use App\Structures\ItemRequest;
@@ -41,10 +46,12 @@ class NightlyHandler
     private $item_factory;
     private $logTemplates;
     private $conf;
+    private $action_handler;
+    private $maze;
 
   public function __construct(EntityManagerInterface $em, LoggerInterface $log, CitizenHandler $ch, InventoryHandler $ih,
                               RandomGenerator $rg, DeathHandler $dh, TownHandler $th, ZoneHandler $zh, PictoHandler $ph,
-                              ItemFactory $if, LogTemplateHandler $lh, ConfMaster $conf)
+                              ItemFactory $if, LogTemplateHandler $lh, ConfMaster $conf, ActionHandler $ah, MazeMaker $maze)
     {
         $this->entity_manager = $em;
         $this->citizen_handler = $ch;
@@ -58,6 +65,8 @@ class NightlyHandler
         $this->log = $log;
         $this->logTemplates = $lh;
         $this->conf = $conf;
+        $this->action_handler = $ah;
+        $this->maze = $maze;
     }
 
     private function check_town(Town &$town): bool {
@@ -190,6 +199,41 @@ class NightlyHandler
         foreach ($town->getCitizens() as $citizen) {
             if (!$citizen->getAlive()) continue;
             $citizen->setSurvivedDays( $citizen->getTown()->getDay() );
+
+            // Check hero skills
+            $nextSkill = $this->entity_manager->getRepository(HeroSkillPrototype::class)->getNextUnlockable($citizen->getUser()->getHeroDaysSpent());
+            $citizen->getUser()->setHeroDaysSpent($citizen->getUser()->getHeroDaysSpent() + 1);
+            if($nextSkill !== null && $citizen->getUser()->getHeroDaysSpent() >= $nextSkill->getDaysNeeded()){
+                $this->log->debug("Citizen <info>{$citizen->getUser()->getUsername()}</info> has unlocked a new skill : <info>{$nextSkill->getTitle()}</info>");
+
+                switch($nextSkill->getName()){
+                    case "brothers":
+                        //TODO: add the heroic power
+                        break;
+                    case "largechest1":
+                    case "largechest2":
+                        $citizen->getHome()->setAdditionalStorage($citizen->getHome()->getAdditionalStorage() + 1);
+                        break;
+                    case "secondwind":
+                        $heroic_action = $this->entity_manager->getRepository(HeroicActionPrototype::class)->findOneByName("hero_generic_ap");
+                        $citizen->addHeroicAction($heroic_action);
+                        $this->entity_manager->persist($citizen);
+                        break;
+                    case "cheatdeath":
+                        $heroic_action = $this->entity_manager->getRepository(HeroicActionPrototype::class)->findOneByName("hero_generic_immune");
+                        $citizen->addHeroicAction($heroic_action);
+                        $this->entity_manager->persist($citizen);
+                        break;
+                    case 'luckyfind':
+                        $oldfind = $this->entity_manager->getRepository(HeroicActionPrototype::class)->findOneByName("hero_generic_find");
+                        if($citizen->getHeroicActions()->contains($oldfind)) {
+                            // He didn't used the Find, we replace it with the lucky find
+                            $citizen->removeHeroicAction($oldfind);
+                            $newfind = $this->entity_manager->getRepository(HeroicActionPrototype::class)->findOneByName("hero_generic_find_lucky");
+                            $citizen->removeHeroicAction($addfind);
+                        }
+                }
+            }
         }
     }
 
@@ -209,8 +253,10 @@ class NightlyHandler
 
             $reactor->setDefense($newDef);
             if($reactor->getHp() <= 0){
+                $gazette = $this->entity_manager->getRepository(Gazette::class)->findOneByTownAndDay($town, $town->getDay());
+
                 $this->entity_manager->persist($this->logTemplates->constructionsDestroy($town, $reactor->getPrototype(), $damages ));
-                $reactor->setComplete(false)->setAp(0)->setDefense(0);
+                $this->town_handler->destroy_building($town, $reactor);
 
                 $this->log->debug("The reactor is destroyed. Everybody dies !");
 
@@ -218,8 +264,11 @@ class NightlyHandler
                 $citizens = $this->town_handler->get_alive_citizens($town);
 
                 foreach ($citizens as $citizen) {
+                    $gazette->setDeaths($gazette->getDeaths() + 1);
                     $this->kill_wrap($citizen, $cod, false, 0, false, $town->getDay());
                 }
+
+                $this->entity_manager->persist($gazette);
             } else {
                 $this->entity_manager->persist($this->logTemplates->constructionsDamage($town, $reactor->getPrototype(), $damages ));
             }
@@ -310,6 +359,15 @@ class NightlyHandler
         $est = $this->entity_manager->getRepository(ZombieEstimation::class)->findOneByTown($town,$town->getDay()-1);
         $zombies = $est ? $est->getZombies() : 0;
 
+        $redSoulCount = $this->town_handler->get_red_soul_count($town);
+
+        $soulFactor = 1 + (0.04 * $redSoulCount);
+
+        if($town->getType()->getName() !== 'panda')
+            $soulFactor = min($soulFactor, 1.2);
+
+        $zombies *= $soulFactor;
+
         $gazette->setAttack($zombies);
 
         $overflow = !$town->getDoor() ? max(0, $zombies - $def) : $zombies;
@@ -340,8 +398,14 @@ class NightlyHandler
 
         $defWatchers = 0;
 
+        $has_shooting_gallery = (bool)$this->town_handler->getBuilding($town, 'small_tourello_#00', true);
+        $has_trebuchet        = (bool)$this->town_handler->getBuilding($town, 'small_catapult3_#00', true);
+        $has_ikea             = (bool)$this->town_handler->getBuilding($town, 'small_ikea_#00', true);
+        $has_armory           = (bool)$this->town_handler->getBuilding($town, 'small_armor_#00', true);
+
+        /** @var CitizenWatch[] $watchers */
         foreach ($watchers as $watcher) {
-            $def = $zeds_each_watcher == -1 ? $this->citizen_handler->getNightWatchDefense($watcher->getCitizen()) : $zeds_each_watcher;
+            $def = $zeds_each_watcher == -1 ? $this->citizen_handler->getNightWatchDefense($watcher->getCitizen(), $has_shooting_gallery, $has_trebuchet, $has_ikea, $has_armory) : $zeds_each_watcher;
 
             $defWatchers += $def;
 
@@ -360,15 +424,25 @@ class NightlyHandler
                     $this->citizen_handler->inflictWound($ctz);
                     $this->log->debug("Watcher <info>{$ctz->getUser()->getUsername()}</info> is now <info>wounded</info>");
                 } else {
-                    // Terror
-                    $this->citizen_handler->inflictStatus($ctz, $status_terror);
-                    $this->log->debug("Watcher <info>{$ctz->getUser()->getUsername()}</info> now suffers from <info>{$status_terror->getLabel()}</info>");
+                	if(!$this->town_handler->getBuilding($town, "small_catapult3_#00", true)) {
+	                    // Terror
+	                    $this->citizen_handler->inflictStatus($ctz, $status_terror);
+	                    $this->log->debug("Watcher <info>{$ctz->getUser()->getUsername()}</info> now suffers from <info>{$status_terror->getLabel()}</info>");
 
-                    $gazette->setTerror($gazette->getTerror() + 1);
+	                    $gazette->setTerror($gazette->getTerror() + 1);
+                	}
                 }
             }
 
             $this->log->debug("Watcher <info>{$watcher->getCitizen()->getUser()->getUsername()}</info> has stopped <info>$def</info> zombies from his watch");
+
+            $null = null;
+            foreach ($watcher->getCitizen()->getInventory()->getItems() as $item)
+                if ($item->getPrototype()->getNightWatchAction()) {
+                    $this->log->debug("Executing night watch action for '<info>{$item->getPrototype()->getLabel()}</info>' held by Watcher <info>{$watcher->getCitizen()->getUser()->getUsername()}</info>.");
+                    $this->action_handler->execute( $ctz, $item, $null, $item->getPrototype()->getNightWatchAction(), $msg, $r, true);
+                    foreach ($r as $rr) $this->entity_manager->remove($rr);
+                }
 
             $overflow -= $def;
         }
@@ -411,18 +485,16 @@ class NightlyHandler
 
                 if($target->getHp() <= 0){
                     $this->entity_manager->persist($this->logTemplates->constructionsDestroy($town, $target->getPrototype(), $damages ));
-                    $target->setComplete(false)->setAp(0)->setHp(0)->setDefense(0);
+
+                    $this->town_handler->destroy_building($town, $target);
                     // The target is destroy, we must destroy all its children
                     foreach ($target->getPrototype()->getChildren() as $childBuilding) {
                         $childBuilt = $this->town_handler->getBuilding($town, $childBuilding->getName(), true);
                         if (!$childBuilt) continue;
-                        // We remove it from potential targeting by the zeds
+                        // We remove it from potential targeting by the zeds (as it is destroyed)
                         if (($key = array_search($childBuilt, $targets)) !== false) {
                             unset($targets[$key]);
                         }
-                        $this->log->debug("The <info>{$childBuilding->getLabel()}</info> gets destroyed because its parent has been destroyed.");
-                        $childBuilt->setComplete(false)->setAp(0)->setHp(0)->setDefense(0);
-                        $this->entity_manager->persist($childBuilt);
                     }
                 } else {
                     $this->entity_manager->persist($this->logTemplates->constructionsDamage($town, $target->getPrototype(), $damages ));
@@ -484,7 +556,7 @@ class NightlyHandler
                 $gazette->setDeaths($gazette->getDeaths() + 1);
             }
             else {
-                $this->entity_manager->persist($this->logTemplates->citizenZombieAttackRepelled( $target, $force, $def));
+                $this->entity_manager->persist($this->logTemplates->citizenZombieAttackRepelled( $target, $def, $force));
                 if (!$has_kino && $this->random->chance( 0.75 * ($force/max(1,$def)) )) {
                     $this->citizen_handler->inflictStatus( $target, $status_terror );
                     $this->log->debug("Citizen <info>{$target->getUser()->getUsername()}</info> now suffers from <info>{$status_terror->getLabel()}</info>");
@@ -514,7 +586,7 @@ class NightlyHandler
                 // It is destroyed, let's do this !
                 $this->entity_manager->persist($this->logTemplates->constructionsDestroy($town, $fireworks->getPrototype(), 20 ));
 
-                $fireworks->setComplete(false)->setAp(0)->setHp(0)->setDefense(0);
+                $this->town_handler->destroy_building($town, $fireworks);
 
                 $this->log->debug("The fireworks are destroyed. Half of citizens in town gets infected !");
 
@@ -534,7 +606,15 @@ class NightlyHandler
                     $this->citizen_handler->inflictStatus($toInfect[$i], "infection");
                 }
 
-                //TODO: Kill zombies around the town
+                // Kill zombies around the town (all at 1km, none beyond 10km)
+                foreach ($town->getZones() as $zone) {
+                	$km = $this->zone_handler->getZoneKm($zone);
+                	if($km > 10) continue;
+
+                    $factor = 1 - max(0, (11 - $km) / 10);
+                    $zone->setZombies($zone->getZombies() * $factor);
+                }
+                
                 //TODO: Lower the attack for 2-3 days
 
             } else {
@@ -552,10 +632,10 @@ class NightlyHandler
         $status_infection = $this->entity_manager->getRepository(CitizenStatus::class)->findOneByName( 'infection' );
         $status_camping   = $this->entity_manager->getRepository(CitizenStatus::class)->findOneByName( 'camper' );
 
-        $status_clear_list = ['hasdrunk','haseaten','immune','hsurvive','drunk','drugged','healed','hungover','tg_dice','tg_cards','tg_clothes','tg_teddy','tg_guitar','tg_sbook','tg_steal','tg_home_upgrade','tg_hero','tg_chk_forum','tg_chk_active', 'tg_hide','tg_tomb', 'tg_home_clean', 'tg_home_shower', 'tg_home_heal_1', 'tg_home_heal_2', 'tg_home_defbuff', 'tg_rested', 'tg_shaman_heal', 'tg_ghoul_eat', 'tg_no_hangover'];
+        $status_clear_list = ['hasdrunk','haseaten','immune','hsurvive','drunk','drugged','healed','hungover','tg_dice','tg_cards','tg_clothes','tg_teddy','tg_guitar','tg_sbook','tg_steal','tg_home_upgrade','tg_hero','tg_chk_forum','tg_chk_active', 'tg_chk_workshop', 'tg_chk_build', 'tg_chk_movewb', 'tg_hide','tg_tomb', 'tg_home_clean', 'tg_home_shower', 'tg_home_heal_1', 'tg_home_heal_2', 'tg_home_defbuff', 'tg_rested', 'tg_shaman_heal', 'tg_ghoul_eat', 'tg_no_hangover', 'tg_ghoul_corpse', 'tg_betadrug', 'tg_build_vote'];
 
         $aliveCitizenInTown = 0;
-
+        $aliveCitizen = 0;
         foreach ($town->getCitizens() as $citizen) {
 
             if ($citizen->getDailyUpgradeVote()) {
@@ -563,8 +643,15 @@ class NightlyHandler
                 $citizen->setDailyUpgradeVote(null);
             }
 
+            if ($citizen->getBuildingVote()) {
+                $this->cleanup[] = $citizen->getBuildingVote();
+                $citizen->setBuildingVote(null);
+            }
+
             $citizen->getExpeditionRoutes()->clear();
             if (!$citizen->getAlive()) continue;
+
+            $aliveCitizenInTown++;
 
             if($citizen->getZone() === null)
                 $aliveCitizenInTown++;
@@ -624,8 +711,8 @@ class NightlyHandler
             if($town->getDevastated()){
                 $this->log->debug("Town is devastated, nothing to do.");
             } else {
-                if ($aliveCitizenInTown > 0 && $aliveCitizenInTown <= 10 && !$town->getDevastated()) {
-                    $this->log->debug("There is <info>$aliveCitizenInTown</info> citizens alive AND in town, the town is not devastated, setting the town to <info>chaos</info> mode");
+                if ($aliveCitizen > 0 && $aliveCitizen <= 10 && !$town->getDevastated()) {
+                    $this->log->debug("There is <info>$aliveCitizen</info> citizens alive, the town is not devastated, setting the town to <info>chaos</info> mode");
                     $town->setChaos(true);
                     foreach ($town->getCitizens() as $target_citizen) {
                         $target_citizen->setBanished(false);
@@ -654,6 +741,8 @@ class NightlyHandler
         $research_tower = $this->town_handler->getBuilding($town, 'small_gather_#02', true);
         $watchtower     = $this->town_handler->getBuilding($town, 'item_tagger_#00',  true);
 
+        $gazette = $this->entity_manager->getRepository(Gazette::class)->findOneByTownAndDay($town,$town->getDay());
+
         if ($watchtower) switch ($watchtower->getLevel()) {
             case 0: $discover_range  = 0;  break;
             case 1: $discover_range  = 3;  break;
@@ -676,8 +765,25 @@ class NightlyHandler
         $this->log->debug('Modifiers - <info>Search Tower</info>: <info>' . ($research_tower ? $research_tower->getLevel() : 'No') . '</info>, <info>Watch Tower</info>: <info>' . ($watchtower ? $watchtower->getLevel() : 'No') . '</info>' );
         $this->log->debug("Wind Direction is <info>{$wind}</info>." );
 
+        if ($research_tower)
+            $gazette->setWindDirection($wind);
+
+        $this->entity_manager->persist($gazette);
+
         $reco_counter = [0,0];
         foreach ($town->getZones() as $zone) {
+
+            if ($zone->getPrototype() && $zone->getPrototype()->getExplorable()) {
+                foreach ($zone->getExplorerStats() as $ex) {
+                    $ex->getCitizen()->removeExplorerStat( $ex );
+                    $this->entity_manager->remove($ex);
+                }
+                $this->maze->populateMaze(
+                    $zone,
+                    $this->conf->getTownConfiguration($town)->get(TownConf::CONF_EXPLORABLES_ZOMBIES_DAY, 5),
+                    true, true
+                );
+            }
 
             $distance = sqrt( pow($zone->getX(),2) + pow($zone->getY(),2) );
             if ($zone->getCitizens()->count() || round($distance) <= $discover_range) {
@@ -692,7 +798,7 @@ class NightlyHandler
                 $zone->setZombieStatus( Zone::ZombieStateUnknown );
             }
 
-            if ($zone->getDirection() === $wind && round($distance) > 2) {
+            if ($zone->getDirection() === $wind && (round($distance) > 2) || $town->getType()->getName() == 'small') {
                 $reco_counter[1]++;
                 if ($this->random->chance( $recovery_chance )) {
                     $digs = mt_rand(5, 10);
@@ -718,10 +824,46 @@ class NightlyHandler
         $this->log->debug("Processing <info>souls</info> mutations.");
         foreach ($this->zone_handler->getSoulZones($town) as $zone) {
             foreach ($zone->getFloor()->getItems() as $item) {
-                if(!$item->getPrototype()->getName() == 'soul_blue_#00') continue;
-                if($this->random->Chance(0.1)){
+                if($item->getPrototype()->getName() !== 'soul_blue_#00') continue;
+                if($this->random->chance(0.25)){
+                    $this->log->debug("Mutating soul in zone [<info>{$zone->getX()},{$zone->getY()}</info>].");
                     $this->inventory_handler->forceRemoveItem($item);
                     $this->inventory_handler->forceMoveItem($zone->getFloor(), $this->item_factory->createItem('soul_red_#00'));
+                    $this->entity_manager->persist($zone);
+
+                }
+            }
+        }
+
+        foreach ($town->getBank()->getItems() as $item) {
+            if($item->getPrototype()->getName() !== 'soul_blue_#00') continue;
+            // In the bank, the count is > 1, we must loop through each soul
+            for($i = 0 ; $i < $item->getCount() ; $i++) {
+                if($this->random->chance(0.1)){
+                    $this->log->debug("Mutating soul in bank.");
+                    $this->inventory_handler->forceRemoveItem($item);
+                    $this->inventory_handler->forceMoveItem($town->getBank(), $this->item_factory->createItem('soul_red_#00'));
+                }
+            }
+        }
+
+        foreach ($town->getCitizens() as $citizen) {
+            foreach ($citizen->getHome()->getChest()->getItems() as $item) {
+                if($item->getPrototype()->getName() !== 'soul_blue_#00') continue;
+                if($this->random->chance(0.1)){
+                    $this->log->debug("Mutating soul in chest of citizen <info>{$citizen->getUser()->getUsername()}</info>");
+                    $this->inventory_handler->forceRemoveItem($item);
+                    $this->inventory_handler->forceMoveItem($citizen->getHome()->getChest(), $this->item_factory->createItem('soul_red_#00'));
+                    $this->entity_manager->persist($citizen->getHome()->getChest());
+                }
+            }
+            foreach ($citizen->getInventory()->getItems() as $item) {
+                if($item->getPrototype()->getName() !== 'soul_blue_#00') continue;
+                if($this->random->chance(0.1)){
+                    $this->log->debug("Mutating soul in rucksack of citizen <info>{$citizen->getUser()->getUsername()}</info>");
+                    $this->inventory_handler->forceRemoveItem($item);
+                    $this->inventory_handler->forceMoveItem($citizen->getHome()->getChest(), $this->item_factory->createItem('soul_red_#00'));
+                    $this->entity_manager->persist($citizen->getHome()->getChest());
                 }
             }
         }
@@ -961,6 +1103,12 @@ class NightlyHandler
     }
 
     private function stage3_roles(Town &$town){
+        if($town->getChaos()) {
+            $this->log->info( "Town is in <info>Chaos</info>, no more votes." );
+            return;
+        }
+
+        $this->log->info( "Processing elections..." );
         $citizens = $town->getCitizens();
         $roles = $this->entity_manager->getRepository(CitizenRole::class)->findVotable();
         $votes = array();
@@ -1022,16 +1170,17 @@ class NightlyHandler
 
             // We give him the related status
             $winningCitizen = $this->entity_manager->getRepository(Citizen::class)->find($citizenWinnerId);
+            $this->log->info( "Citizen <info>{$winningCitizen->getUser()->getUsername()}</info> has been elected as <info>{$role->getLabel()}</info>." );
             if($winningCitizen !== null){
                 $this->citizen_handler->addRole($winningCitizen, $role);
                 $this->citizen_handler->setPM($winningCitizen, false, $this->citizen_handler->getMaxPM($winningCitizen));
                 if($role->getName() == "shaman")
-                    $this->citizen_handler->inflictStatus($winningCitizen, "tg_immune"); // Shaman is immune to red souls
+                    $this->citizen_handler->inflictStatus($winningCitizen, "tg_shaman_immune"); // Shaman is immune to red souls
                 $this->entity_manager->persist($winningCitizen);
             }
 
             // we remove the votes
-            $votes = $this->entity_manager->getRepository(CitizenVote::class)->findByRole($role);
+            $votes = $this->entity_manager->getRepository(CitizenVote::class)->findBy(['role' => $role]);
             foreach ($votes as $vote) {
                 $this->entity_manager->remove($vote);
             }
@@ -1068,6 +1217,9 @@ class NightlyHandler
         $this->stage3_zones($town);
         $this->stage3_items($town);
         $this->stage3_pictos($town);
+
+        TownRankingProxy::fromTown( $town, true );
+        foreach ($town->getCitizens() as $citizen) CitizenRankingProxy::fromCitizen( $citizen, true );
 
         $c = count($this->cleanup);
         $this->log->info("It is now <comment>Day {$town->getDay()}</comment> in <info>{$town->getName()}</info>.");

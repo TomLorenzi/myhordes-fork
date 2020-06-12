@@ -8,6 +8,7 @@ use App\Entity\Citizen;
 use App\Entity\CitizenHome;
 use App\Entity\CitizenProfession;
 use App\Entity\Inventory;
+use App\Entity\Picto;
 use App\Entity\Town;
 use App\Entity\TownClass;
 use App\Entity\User;

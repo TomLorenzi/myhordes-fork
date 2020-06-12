@@ -16,8 +16,16 @@
         {% endif %})
     </h5>
 
-    <div class="lightbox">
+    {% if hasClairvoyance %}
+        <div class="clairvoyance">
+            <img src="{{ asset('build/images/heroskill/small_view.gif') }}" /> <strong>{{'Hellseherei'|trans({},'game')}} : </strong>
+            {% if clairvoyanceLevel > 0 %}
+            {% for i in range(1, clairvoyanceLevel) %}<img src="{{ asset('build/images/small_new.gif') }}" alt="*" />{% endfor %}
+            {% endif %}
+        </div>
+    {% endif %}
 
+    <div class="lightbox">
         <div class="row">
             {% if (owner.user.avatar) %}
                 <div class="cell rw-12 hide-desktop hide-lg center">
@@ -57,12 +65,10 @@
                 {% endif %}
             </div>
         </div>
-
-
     </div>
 
     <div class="row">
-        <div class="padded cell rw-6">
+        <div class="padded cell rw-6 citizen-home">
             {% if owner.alive or owner.home.holdsBody %}
                 <h5>{% trans from 'game' %}Meine Spezialaktionen{% endtrans %}</h5>
                 {% if owner.alive %}
@@ -76,20 +82,22 @@
                             {% endif %}
                         </div>
                     {% endif %}
+                    <button x-ajax-href="{{ path('soul_visit', {id: owner.user.id}) }}"><img src="{{ asset('build/images/small_ghost_red.gif') }}" alt="" />{{'Seine Seele ansehen'|trans({}, 'game')}}</button>
+                    <button x-ajax-href="{{ path('town_house', {tab: 'messages', subtab: 'write', dest: owner.id}) }}"><img src="{{ asset('build/images/small_mail.gif') }}" alt="" />{{'Eine Nachricht hinterlassen'|trans({}, 'game')}}</button>
                     {% if not citizen.banished %}
                         {% if complaint is null or complaint.severity == 0 %}<button x-complaint-severity="1">{{ 'Anzeige erstatten'|trans({},'game') }}</button>{% endif %}
                         {% if complaint is not null and complaint.severity > 0 %}<button x-complaint-severity="0">{{ 'Anzeige zurückziehen'|trans({},'game') }}</button>{% endif %}
                         {% if complaint is not null and complaint.severity == 1 %}<button x-complaint-severity="2">{{ 'Anzeige: Todesstrafe fordern'|trans({},'game') }}</button>{% endif %}
                         {% if complaint is not null and complaint.severity == 2 %}<button x-complaint-severity="1">{{ 'Anzeige: Verbannung fordern'|trans({},'game') }}</button>{% endif %}
                     {% endif %}
-                    {% if is_shaman and not banished %}
-                        <button x-heal-citizen>{{'Nutze deine heilenden Hände'|trans({}, 'game')}} (2 <div class="pm"></div>)</button>
-                    {% endif %}
                     {% if not owner.zone %}
-                        <button x-attack-citizen {% if not can_attack %}disabled{% endif %}><img alt="" src="{{ asset('build/images/fist.gif') }}" />{{ 'Diesen Bürger angreifen!'|trans({},'game') }} (<div class="ap">5</div>)</button>
+                        <button x-attack-citizen {% if not can_attack %}disabled{% endif %}><img alt="" src="{{ asset('build/images/fist.gif') }}" /> {{ 'Diesen Bürger angreifen!'|trans({},'game') }} (<div class="ap">5</div>)</button>
                         {% if can_devour %}
-                            <button x-devour-citizen {% if not allow_devour %}disabled{% endif %}><img alt="" src="{{ asset('build/images/roles/ghoul.gif') }}" />{{ 'Diesen Bürger verspeisen!'|trans({},'game') }}</button>
+                            <button x-devour-citizen {% if not allow_devour %}disabled{% endif %}><img alt="" src="{{ asset('build/images/roles/ghoul.gif') }}" /> {{ 'Diesen Bürger verspeisen!'|trans({},'game') }}</button>
                         {% endif %}
+	                    {% if is_shaman and not banished %}
+	                        <button x-heal-citizen>{{'Nutze deine heilenden Hände'|trans({}, 'game')}} (2 <div class="pm"></div>)</button>
+	                    {% endif %}
                     {% endif %}
                 {% endif %}
                 {% if owner.home.holdsBody %}
@@ -99,7 +107,7 @@
                         <button x-disposal-id="3"><img alt="" src="{{ asset('build/images/item/item_hmeat.gif') }}" />{{ 'Leiche grillen'|trans({},'game') }}</button>
                     {% endif %}
                     {% if can_devour %}
-                        <button x-devour-citizen {% if not allow_devour %}disabled{% endif %}><img alt="" src="{{ asset('build/images/roles/ghoul.gif') }}" />{{ 'Die Leiche verspeisen!'|trans({},'game') }}</button>
+                        <button x-devour-citizen {% if not allow_devour_corpse %}disabled{% endif %}><img alt="" src="{{ asset('build/images/roles/ghoul.gif') }}" />{{ 'Die Leiche verspeisen!'|trans({},'game') }}</button>
                     {% endif %}
                 {% endif %}
             {% else %}
@@ -107,13 +115,15 @@
                 {% if owner.disposed is null %}
                     {{'Nach außen hin tot, wird %citizen% seinen Mitbürgern keine Ruhe geboten haben.'|trans({'%citizen%': "<strong>" ~ owner.user.username ~ "</strong>"}, 'game')|raw}}
                 {% elseif owner.disposed is not null and owner.disposedBy|length > 0 %}
+                <span class="disposal">
                     {% if owner.disposed == constant('App\\Entity\\Citizen::Thrown') %}
-                        {{'Es ist nicht ohne Abscheu, dass %disposing_citizen% den leblosen Körper von %citizen% losgeworden ist.'|trans({'%disposing_citizen%': "<strong>" ~ owner.disposedBy[0].user.username ~ "</strong>", '%citizen%': "<strong>" ~ owner.user.username ~ "</strong>"}, 'game')|raw}}
+                        {{'Nicht ganz ekelfrei hat %disposing_citizen% den leblosen Körper von %citizen% entsorgt.'|trans({'%disposing_citizen%': "<em>" ~ owner.disposedBy[0].user.username ~ "</em>", '%citizen%': "<em>" ~ owner.user.username ~ "</em>"}, 'game')|raw}}
                     {% elseif owner.disposed == constant('App\\Entity\\Citizen::Watered') %}
-                        {{'Dank der Bemühungen von %disposing_citizen% konnte der Körper von %citizen% auf faule Flüssigkeit reduziert werden.'|trans({'%disposing_citizen%': "<strong>" ~ owner.disposedBy[0].user.username ~ "</strong>", '%citizen%': "<strong>" ~ owner.user.username ~ "</strong>"}, 'game')|raw}}
+                        {{'Dank %disposing_citizen% hat sich der Körper von %citizen% in verfaultes Wasser verwandelt.'|trans({'%disposing_citizen%': "<em>" ~ owner.disposedBy[0].user.username ~ "</em>", '%citizen%': "<em>" ~ owner.user.username ~ "</em>"}, 'game')|raw}}
                     {% elseif owner.disposed == constant('App\\Entity\\Citizen::Cooked') %}
-                        Grâce aux efforts de <strong>{{owner.disposedBy[0].user.username}}</strong>, le corps de <strong>{{owner.user.username}}</strong> a été cuisiné en bon p'tit plat.
+                        Grâce aux efforts de <em>{{owner.disposedBy[0].user.username}}</em>, le corps de <em>{{owner.user.username}}</em> a été cuisiné en bon p'tit plat.
                     {% endif %}
+                </span>
                 {% else %}
                     {{ 'Unbekannt'|trans({}, 'game') }}
                 {% endif %}
@@ -135,7 +145,17 @@
                 {% if not has_job %}<li>{{'Dieser Bürger ist nicht in der Lage, einen Beruf zu wählen. Wir sind noch lange nicht über den Berg, das kann ich euch sagen!'|trans({}, 'game')}}</li>{% endif %}
                 {% if is_admin %}<li>{{'Dieser Bürger könnte jemand sehr Wichtiges sein. Vielleicht einer der Erschaffer?'|trans({}, 'game')}}</li>{% endif %}
             </ul>
-        {% endif %}
+            {% else %}
+                {% if owner.home.prototype.level > 1 and owner.home.recycling < 15 %}
+                <h5>{% trans from 'game' %}Meine Spezialaktionen{% endtrans %}</h5>
+                <button x-recycle-home="1">{{ 'Behausung wiederverwerten'|trans({},'game') }} (<div class="ap">1</div>)</button>
+                {% endif %}
+                {% if owner.home.recycling > 0 and owner.home.recycling < 15 %}
+                <div class="vote-bar">
+                    <div class="vote-progress" style="width: {{owner.home.recycling / 15 * 100}}%;"></div>
+                </div>
+                {% endif %}
+            {% endif %}
         </div>
         <div class="padded cell rw-6 citizen-chest">
             <h5>{{ '%citizen%s Truhe'|trans({'%citizen%': owner.user.username}, 'game') }}</h5>
@@ -247,9 +267,21 @@
                         } );
                 });
             {% endif %}
+        {% else %}
+            const recycleBtn = document.querySelectorAll('[x-recycle-home]');
+            for (let i = 0; i < recycleBtn.length; i++) {
+                recycleBtn[i].addEventListener('click', function() {
+                    if (!confirm('{{ 'Bestätigen?'|trans({},'global')|e('js') }}'))
+                        return;
+                    $.ajax.easySend( '{{ path('visit_recycle_home', {id: owner.id}) }}', {},
+                        function () {
+                            $.ajax.load(null, '{{ path('town_visit', {id: owner.id}) }}', true);
+                        } );
+                });
+            }
         {% endif %}
 
-        {% if can_devour and allow_devour %}
+        {% if can_devour and (allow_devour or allow_devour_corpse) %}
             $.html.addEventListenerAll('[x-devour-citizen]', 'click', function() {
                 if (!confirm('{{ 'Bestätigen?'|trans({},'global')|e('js') }}'))
                     return;

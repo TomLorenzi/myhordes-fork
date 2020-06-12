@@ -32,7 +32,7 @@ class PrivateMessageThread
     /**
      * @ORM\Column(type="boolean")
      */
-    private $new;
+    private $new = false;
 
     /**
      * @ORM\ManyToOne(targetEntity=Citizen::class)
@@ -184,5 +184,15 @@ class PrivateMessageThread
         $this->locked = $locked;
 
         return $this;
+    }
+
+    public function hasItems(): bool
+    {
+        foreach ($this->getMessages() as $message) {
+            if($message->getItems() != null && count($message->getItems()) > 0)
+                return true;
+        }
+
+        return false;
     }
 }

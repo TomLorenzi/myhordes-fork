@@ -1053,7 +1053,7 @@ require("latest-createjs");
 		this.timeline.addTween(cjs.Tween.get(this.instance).wait(4));
 
 		// Layer_3
-		this.text = new cjs.Text("REC", "15px 'Calibri'", "#CCCCCC");
+		this.text = new cjs.Text("REC", "15px 'OCR A Extended'", "#CCCCCC");
 		this.text.lineHeight = 18;
 		this.text.lineWidth = 143;
 		this.text.parent = this;
@@ -1064,12 +1064,12 @@ require("latest-createjs");
 
 		// Layer_4
 		var today = new Date();
-		this.h = new cjs.Text(today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds(), "15px 'Calibri'", "#CCCCCC");
+		this.h = new cjs.Text(today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds(), "15px 'OCR A Extended'", "#CCCCCC");
 		this.h.name = "h";
 		this.h.lineHeight = 18;
 		this.h.lineWidth = 182;
 		this.h.parent = this;
-		this.h.setTransform(370,90);
+		this.h.setTransform(350,90);
 		this.h.shadow = new cjs.Shadow("rgba(51,51,51,1)",0,0,5);
 
 		this.timeline.addTween(cjs.Tween.get(this.h).wait(4));

@@ -11,7 +11,7 @@ use Doctrine\ORM\Mapping\UniqueConstraint;
 /**
  * @ORM\Entity(repositoryClass="App\Repository\ZombieEstimationRepository")
  * @Table(uniqueConstraints={
- *     @UniqueConstraint(name="town_day_unique",columns={"town_id","day"})
+ *     @UniqueConstraint(name="zombie_estimation_town_day_unique",columns={"town_id","day"})
  * })
  */
 class ZombieEstimation

@@ -1,0 +1,68 @@
+{% extends "ajax/ajax.html.twig" %}
+{% block ajax %}
+    <div class="row soul">
+        <div class="cell padded header rw-12">
+            {% embed "ajax/admin/users/tabs.html.twig" %}{% endembed %}
+            <div class="row">
+                <div class="cell padded rw-12">
+                    {{ 'Auszeichnungen'|trans({}, 'admin') }}
+                </div>
+                {% if is_granted("ROLE_ADMIN") %}
+                {% set town = "" %}
+                {% set i = 0 %}
+                {% for picto in pictos %}
+                    {% if i % 3 == 0 %}
+                        DEBUT ROW
+                    {% endif %}
+                    {{ i }}
+                    {% if not picto.town is null and picto.town.name != town %}
+                        {% set i = i + 1 %}
+                        {% set town = picto.town.name %}
+                <div class="cell rw-5 rw-sm-12 distinctions">
+                    <div class="distinctions-head center">
+                        {{picto.town.name}}
+                    </div>
+                    <div class="distinctions-list center">
+                        <div class="overall">
+                            {{ '%points% Punkte'|trans({'%points%':0}, 'global') }}
+                        </div>
+                        <div class="list">
+                    {% endif %}
+                            <div class="picto{% if picto.prototype.rare %} rare{% endif %}">
+                                <img src="{{  asset('build/images/pictos/' ~ picto.prototype.icon ~ '.gif') }}" /><br />
+                                <div class="counter">
+                                {% for number in picto.count|split('') %}
+                                    <span class="count" title="{{number}}">{{number}}</span>
+                                {% endfor %}
+                                </div>
+                                <div class="tooltip">
+                                    <h1>{{ picto.prototype.label|trans({}, 'game') }}</h1>
+                                    <em>{{ picto.prototype.description|trans({}, 'game')}}</em>
+                                </div>
+                            </div>
+                    {% if loop.index0 == pictos|length - 1 or (not pictos[loop.index].town is null and pictos[loop.index].town.name != picto.town.name) %}
+                        </div>
+                    </div>
+                    <div class="distinctions-foot">
+                        &nbsp;
+                    </div>
+                </div>
+                    {% endif %}
+                    {% if i>0 and (i-1) % 3 == 2 %}
+                        FIN ROW
+                    {% endif %}
+                {% endfor %}
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    {% embed "ajax/admin/users/footer.html.twig" %}{% endembed %}
+{% endblock %}
+{% block js %}
+    {{ parent() }}
+    <script>
+        {% if is_granted("ROLE_ADMIN") %}
+
+        {% endif %}
+    </script>
+{% endblock %}

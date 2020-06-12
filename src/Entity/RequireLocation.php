@@ -11,7 +11,7 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
  * @ORM\Entity(repositoryClass="App\Repository\RequireLocationRepository")
  * @UniqueEntity("name")
  * @Table(uniqueConstraints={
- *     @UniqueConstraint(name="name_unique",columns={"name"})
+ *     @UniqueConstraint(name="require_location_name_unique",columns={"name"})
  * })
  */
 class RequireLocation
@@ -21,6 +21,9 @@ class RequireLocation
     const LocationOutsideFree = 3;
     const LocationOutsideRuin = 4;
     const LocationOutsideBuried = 5;
+
+    const LocationExploring = 6;
+    const LocationOutsideOrExploring = 7;
 
     /**
      * @ORM\Id()

@@ -51,6 +51,17 @@
             </div>
             <div class="forum-post-content">
                 {{ post.text|raw }}
+                {% if items[post.id] is defined and items[post.id]|length > 0 %}
+                    <hr />
+                    <div class="help">
+                        {% trans from 'game' %}Du hast mit dieser Nachricht folgende Gegenstände erhalten. Sie müssten sich in deiner Truhe befinden (insofern noch niemand vor dir vorbei geschaut hat... ).{% endtrans %}
+                        <ul class="linked-items">
+                        {% for item in items[post.id] %}
+                            <li><img src="{{ asset('build/images/item/item_' ~ item.icon ~ '.gif') }}" alt="{{ item.label|trans({},'items') }}"> {{ item.label|trans({},'items') }}</li>
+                        {% endfor %}
+                        </ul>
+                    </div>
+                {% endif %}
             </div>
             <div class="forum-post-footer right"></div>
         </div>
@@ -101,6 +112,6 @@
     if(replybtn) replybtn.addEventListener('click', function(e){
         e.preventDefault();
         replybtn.style.display = "none";
-        $.ajax.no_history().load( document.getElementById('forum-editor'), '{{ path('home_post_editor_controller', {tid: thread.id}) }}', false )
+        $.ajax.no_history().load( document.getElementById('forum-editor'), '{{ path('home_answer_post_editor_controller', {tid: thread.id}) }}', false )
     });
 </script>

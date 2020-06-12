@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Controller\Admin\AdminActionController;
 use App\Entity\AdminAction;
 use App\Entity\ExternalApp;
 use App\Entity\User;
@@ -56,17 +57,17 @@ class WebController extends AbstractController
             'Paul "<i>CountCount</i>" Bruhn',
             'Adrien "<i>Adri</i>" Boitelle',
             'Niklas "<i>Choreas</i>" Kosanke',
+            'Christopher "<i>Vander</i>" Chalfant',
         ];
         shuffle($devs);
 
         $apps = $this->entityManager->getRepository(ExternalApp::class)->findAll();
-        $adminActions = [['name' => $this->translator->trans('Users' ,[],'global'), 'id' => 1], ['name' => $this->translator->trans('Meldungen' ,[],'global'), 'id' => 2]];
 
         return $this->render( 'web/framework.html.twig', [
             'version' => $version, 'debug' => $is_debug_version, 'env' => $this->kernel->getEnvironment(),
             'devs' => $devs,
             'apps' => $apps,
-            'adminActions' => $adminActions,
+            'adminActions' => AdminActionController::getAdminActions(),
             'ajax_landing' => $ajax_landing
         ] );
     }

@@ -133,7 +133,7 @@
       </notes>
       <segment>
         <source>Titel</source>
-        <target>Title</target>
+        <target>Subject</target>
       </segment>
     </unit>
     <unit id="P6NlaF8" name="Deine Nachricht">
@@ -358,7 +358,7 @@
       </notes>
       <segment>
         <source>Deine Seele</source>
-        <target>Your soul</target>
+        <target>My soul</target>
       </segment>
     </unit>
     <unit id="lUcvZQo" name="Hilfe">
@@ -484,7 +484,7 @@
       </notes>
       <segment>
         <source>Dieser Spieler hat bisher noch keine Preise gewonnen...</source>
-        <target>This player didn't win any prizes yet...</target>
+        <target>This player didn't win any distinctions yet...</target>
       </segment>
     </unit>
     <unit id="ZyZ8Dxn" name="Seelenpunktzahl">
@@ -538,7 +538,7 @@
       </notes>
       <segment>
         <source>Es wurde keine Stadt gefunden...</source>
-        <target>No city was found...</target>
+        <target>No town was found...</target>
       </segment>
     </unit>
     <unit id="l.2Tpic" name="ca64199">
@@ -556,7 +556,7 @@
       </notes>
       <segment>
         <source>Du darfst für diese Seite unter keinen Umständen dein MyHordes-Passwort verwenden!</source>
-        <target>Du darfst für diese Seite unter keinen Umständen dein MyHordes-Passwort verwenden!</target>
+        <target>YOU MUST NEVER GIVE YOUR MYHORDES PASSWORD</target>
       </segment>
     </unit>
     <unit id="RVk3Tvz" name="Auch dann nicht, wenn du dazu aufgefordert wirst!">
@@ -565,7 +565,7 @@
       </notes>
       <segment>
         <source>Auch dann nicht, wenn du dazu aufgefordert wirst!</source>
-        <target>Auch dann nicht, wenn du dazu aufgefordert wirst!</target>
+        <target>even if they ask you nicely!</target>
       </segment>
     </unit>
     <unit id="gjZ3uMC" name="Wenn du Fragen oder Probleme mit der Seite hast, kontaktiere bitte %contact%.">
@@ -592,7 +592,7 @@
       </notes>
       <segment>
         <source>Du hast keine Externe ID.</source>
-        <target>Du hast keine Externe ID.</target>
+        <target>You do not have an external ID.</target>
       </segment>
     </unit>
     <unit id="Y1oTzsk" name="ee8b5a5">
@@ -601,7 +601,7 @@
       </notes>
       <segment>
         <source>Ohne diese kannst du keine externen Apps nutzen. Um eine Externe ID zu setzen, gehe in deine Seele &gt; Einstellungen und generiere eine ID.</source>
-        <target><![CDATA[Ohne diese kannst du keine externen Apps nutzen. Um eine Externe ID zu setzen, gehe in deine Seele > Einstellungen und generiere eine ID.]]></target>
+        <target><![CDATA[Without these, you cannot use external apps. To set an external ID, go into your Soul > Settings and generate an ID.]]></target>
       </segment>
     </unit>
     <unit id="SddpDzy" name="Verzeichnis">
@@ -696,12 +696,11 @@
     </unit>
     <unit id="266wx0d" name="Verbesserung des Tages">
       <notes>
-        <note>Verbesserung des Tages</note>
-        <note category="german">Town upgrades</note>
+        <note category="german">Town Upgrades</note>
       </notes>
       <segment>
         <source>Verbesserung des Tages</source>
-        <target>Town upgrades</target>
+        <target>Town Upgrades</target>
       </segment>
     </unit>
     <unit id="I8m37R7" name="In diesem Thread dreht sich alles um die geplanten Verbesserungen des Tages.">
@@ -791,7 +790,7 @@
       </notes>
       <segment>
         <source>{color} {value}</source>
-        <target>{color} {value}</target>
+        <target>{value} of {color}</target>
       </segment>
     </unit>
     <unit id="awzJBNC" name="Users">
@@ -809,7 +808,7 @@
       </notes>
       <segment>
         <source>Meldungen</source>
-        <target>Meldungen</target>
+        <target>Reports</target>
       </segment>
     </unit>
     <unit id="qyBuyhw" name="Du wurdest aus dem Forum verbannt.">
@@ -881,7 +880,7 @@
       </notes>
       <segment>
         <source>Autor</source>
-        <target>Autor</target>
+        <target>Author</target>
       </segment>
     </unit>
     <unit id="kTWILTI" name="Datum">
@@ -890,7 +889,7 @@
       </notes>
       <segment>
         <source>Datum</source>
-        <target>Datum</target>
+        <target>Date</target>
       </segment>
     </unit>
     <unit id="BGGdaRH" name="Züruck">
@@ -899,7 +898,7 @@
       </notes>
       <segment>
         <source>Züruck</source>
-        <target>Züruck</target>
+        <target>Back</target>
       </segment>
     </unit>
     <unit id="pUyN66u" name="Archivieren">
@@ -908,7 +907,7 @@
       </notes>
       <segment>
         <source>Archivieren</source>
-        <target>Archivieren</target>
+        <target>Archive</target>
       </segment>
     </unit>
     <unit id="_J8vap3" name="Fett">
@@ -917,7 +916,7 @@
       </notes>
       <segment>
         <source>Fett</source>
-        <target>Fett</target>
+        <target>Bold</target>
       </segment>
     </unit>
     <unit id="6XYRB0Q" name="Kursiv">
@@ -926,7 +925,7 @@
       </notes>
       <segment>
         <source>Kursiv</source>
-        <target>Kursiv</target>
+        <target>Italic</target>
       </segment>
     </unit>
     <unit id="RuL1D2i" name="Unterstreichen">
@@ -935,7 +934,7 @@
       </notes>
       <segment>
         <source>Unterstreichen</source>
-        <target>Unterstreichen</target>
+        <target>Underlined</target>
       </segment>
     </unit>
     <unit id="AsD_uy4" name="Durchstreichen">
@@ -944,7 +943,7 @@
       </notes>
       <segment>
         <source>Durchstreichen</source>
-        <target>Durchstreichen</target>
+        <target>Striked</target>
       </segment>
     </unit>
     <unit id="aZc6vxf" name="Einfache Liste">
@@ -953,7 +952,7 @@
       </notes>
       <segment>
         <source>Einfache Liste</source>
-        <target>Einfache Liste</target>
+        <target>Simple List</target>
       </segment>
     </unit>
     <unit id="1CuRrf_" name="Nummerierte Liste">
@@ -962,7 +961,7 @@
       </notes>
       <segment>
         <source>Nummerierte Liste</source>
-        <target>Nummerierte Liste</target>
+        <target>Numbered List</target>
       </segment>
     </unit>
     <unit id="Sk04seo" name="Listenpunkt">
@@ -971,7 +970,7 @@
       </notes>
       <segment>
         <source>Listenpunkt</source>
-        <target>Listenpunkt</target>
+        <target>Element list</target>
       </segment>
     </unit>
     <unit id="jlAJmOo" name="Spoiler">
@@ -989,7 +988,7 @@
       </notes>
       <segment>
         <source>Zitat</source>
-        <target>Zitat</target>
+        <target>Quote</target>
       </segment>
     </unit>
     <unit id="Fxoqglo" name="Ruhm">
@@ -998,7 +997,7 @@
       </notes>
       <segment>
         <source>Ruhm</source>
-        <target>Ruhm</target>
+        <target>Glory</target>
       </segment>
     </unit>
     <unit id="0OPnj4A" name="Linie">
@@ -1007,7 +1006,7 @@
       </notes>
       <segment>
         <source>Linie</source>
-        <target>Linie</target>
+        <target>Line</target>
       </segment>
     </unit>
     <unit id="7WQ2SM6" name="Entstauben">
@@ -1016,7 +1015,178 @@
       </notes>
       <segment>
         <source>Entstauben</source>
-        <target>Entstauben</target>
+        <target>Unarchive</target>
+      </segment>
+    </unit>
+    <unit id="siULJza" name="Link einfügen">
+      <notes>
+        <note category="german">Link einfügen</note>
+      </notes>
+      <segment>
+        <source>Link einfügen</source>
+        <target>Insert a link</target>
+      </segment>
+    </unit>
+    <unit id="HqBDmKX" name="Bild einfügen">
+      <notes>
+        <note category="german">Bild einfügen</note>
+      </notes>
+      <segment>
+        <source>Bild einfügen</source>
+        <target>Insert an image</target>
+      </segment>
+    </unit>
+    <unit id="9H7C4W9" name="Link-Text">
+      <notes>
+        <note category="german">Link-Text</note>
+      </notes>
+      <segment>
+        <source>Link-Text</source>
+        <target>Link text</target>
+      </segment>
+    </unit>
+    <unit id="nE4T9Ox" name="Link-URL">
+      <notes>
+        <note category="german">Link-URL</note>
+      </notes>
+      <segment>
+        <source>Link-URL</source>
+        <target>Link URL</target>
+      </segment>
+    </unit>
+    <unit id="d1AmbOG" name="Bildtitel">
+      <notes>
+        <note category="german">Bildtitel</note>
+      </notes>
+      <segment>
+        <source>Bildtitel</source>
+        <target>Image title</target>
+      </segment>
+    </unit>
+    <unit id="Q0tlYyY" name="Bild-URL">
+      <notes>
+        <note category="german">Bild-URL</note>
+      </notes>
+      <segment>
+        <source>Bild-URL</source>
+        <target>Image URL</target>
+      </segment>
+    </unit>
+    <unit id="lqB1Bvf" name="Einfügen">
+      <notes>
+        <note category="german">Einfügen</note>
+      </notes>
+      <segment>
+        <source>Einfügen</source>
+        <target>Confirm</target>
+      </segment>
+    </unit>
+    <unit id="EOVP1fz" name="Admin Ankündigung">
+      <notes>
+        <note category="german">Admin Ankündigung</note>
+      </notes>
+      <segment>
+        <source>Admin Ankündigung</source>
+        <target>Admin Announcement</target>
+      </segment>
+    </unit>
+    <unit id="jszJ4cS" name="Mod Ankündigung">
+      <notes>
+        <note category="german">Mod Ankündigung</note>
+      </notes>
+      <segment>
+        <source>Mod Ankündigung</source>
+        <target>Mod Announcement</target>
+      </segment>
+    </unit>
+    <unit id="eh2CqIr" name="Orakel Ankündigung">
+      <notes>
+        <note category="german">Orakel Ankündigung</note>
+      </notes>
+      <segment>
+        <source>Orakel Ankündigung</source>
+        <target>Oracle Announcement</target>
+      </segment>
+    </unit>
+    <unit id="8_r8k2t" name="Dieses Thema enthält %count% offizielle Ansage(n) der MyHordes-Administratoren:">
+      <notes>
+        <note category="german">Dieses Thema enthält %count% offizielle Ansage(n) der MyHordes-Administratoren:</note>
+      </notes>
+      <segment>
+        <source>Dieses Thema enthält %count% offizielle Ansage(n) der MyHordes-Administratoren:</source>
+        <target>This thread contains %count% official announcement(s) from MyHordes Administrators :</target>
+      </segment>
+    </unit>
+    <unit id="GfGOj1g" name="Dieses Thema enthält %count% Ansage(n) von Community-Vertretern:">
+      <notes>
+        <note category="german">Dieses Thema enthält %count% Ansage(n) von Community-Vertretern:</note>
+      </notes>
+      <segment>
+        <source>Dieses Thema enthält %count% Ansage(n) von Community-Vertretern:</source>
+        <target>This thread contains %count% Announcement(s) from community representatives:</target>
+      </segment>
+    </unit>
+    <unit id="1DOwo4V" name="Dieses Thema enthält offizielle Ansagen der Website Administratoren.">
+      <notes>
+        <note category="german">Dieses Thema enthält offizielle Ansagen der Website Administratoren.</note>
+      </notes>
+      <segment>
+        <source>Dieses Thema enthält offizielle Ansagen der Website Administratoren.</source>
+        <target>This thread contains announcements from MyHordes Administrators.</target>
+      </segment>
+    </unit>
+    <unit id="B75DsbE" name="Dieses Thema enthält Ansagen von Community-Vertretern.">
+      <notes>
+        <note category="german">Dieses Thema enthält Ansagen von Community-Vertretern.</note>
+      </notes>
+      <segment>
+        <source>Dieses Thema enthält Ansagen von Community-Vertretern.</source>
+        <target>This thread contains announcements from community representatives.</target>
+      </segment>
+    </unit>
+    <unit id="P1mgGT4" name="Du kannst keine weiteren Gegenstände senden.">
+      <notes>
+        <note category="german">Du kannst keine weiteren Gegenstände senden.</note>
+      </notes>
+      <segment>
+        <source>Du kannst keine weiteren Gegenstände senden.</source>
+        <target>You cannot send any more items.</target>
+      </segment>
+    </unit>
+    <unit id="xtJ2E4o" name="Verräter">
+      <notes>
+        <note category="german">Verräter</note>
+      </notes>
+      <segment>
+        <source>Verräter</source>
+        <target>Traitor</target>
+      </segment>
+    </unit>
+    <unit id="eS7iMaa" name="Rollenspiel">
+      <notes>
+        <note category="german">Rollenspiel</note>
+      </notes>
+      <segment>
+        <source>Rollenspiel</source>
+        <target>Roleplay</target>
+      </segment>
+    </unit>
+    <unit id="wg02Gq4" name="Zitieren">
+      <notes>
+        <note category="german">Zitieren</note>
+      </notes>
+      <segment>
+        <source>Zitieren</source>
+        <target>Quote</target>
+      </segment>
+    </unit>
+    <unit id="peFFaP2" name="Liste der Themen aktualisieren">
+      <notes>
+        <note category="german">Liste der Themen aktualisieren</note>
+      </notes>
+      <segment>
+        <source>Liste der Themen aktualisieren</source>
+        <target>Refresh list of Threads</target>
       </segment>
     </unit>
   </file>

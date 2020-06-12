@@ -13,9 +13,11 @@ use App\Entity\Forum;
 use App\Entity\HeroicActionPrototype;
 use App\Entity\Inventory;
 use App\Entity\Post;
+use App\Entity\RuinZone;
 use App\Entity\Thread;
 use App\Entity\Town;
 use App\Entity\TownClass;
+use App\Entity\TownRankingProxy;
 use App\Entity\User;
 use App\Entity\Zone;
 use App\Entity\ZonePrototype;
@@ -40,6 +42,7 @@ class GameFactory
     private $log;
     private $conf;
     private $translator;
+    private $maze_maker;
 
     const ErrorNone = 0;
     const ErrorTownClosed          = ErrorHelper::BaseTownSelectionErrors + 1;
@@ -50,7 +53,7 @@ class GameFactory
     public function __construct(ConfMaster $conf,
         EntityManagerInterface $em, GameValidator $v, Locksmith $l, ItemFactory $if, TownHandler $th,
         StatusFactory $sf, RandomGenerator $rg, InventoryHandler $ih, CitizenHandler $ch, ZoneHandler $zh, LogTemplateHandler $lh,
-        TranslatorInterface $translator)
+        TranslatorInterface $translator, MazeMaker $mm)
     {
         $this->entity_manager = $em;
         $this->validator = $v;
@@ -65,6 +68,7 @@ class GameFactory
         $this->log = $lh;
         $this->conf = $conf;
         $this->translator = $translator;
+        $this->maze_maker = $mm;
     }
 
     private static $town_name_snippets = [
@@ -239,6 +243,26 @@ class GameFactory
             }
         }
 
+        $spawn_explorable_ruins = $conf->get(TownConf::CONF_NUM_EXPLORABLE_RUINS, 0);
+
+        for ($i = 0; $i < $spawn_explorable_ruins; $i++) {
+            $explorable_ruins = $this->entity_manager->getRepository(ZonePrototype::class)->findBy( ['explorable' => true] );
+            shuffle($explorable_ruins);
+
+            /** @var ZonePrototype $spawning_ruin */
+            $spawning_ruin = array_shift($explorable_ruins);
+
+            $maxDistance = $conf->get(TownConf::CONF_EXPLORABLES_MAX_DISTANCE, 100);
+
+            $spawn_zone = $this->random_generator->pickLocationBetweenFromList($zone_list, $spawning_ruin->getMinDistance(), $maxDistance, ['prototype_id' => null]);
+
+            if ($spawn_zone) {
+                $spawn_zone->setPrototype($spawning_ruin);
+                $this->maze_maker->createField( $spawn_zone );
+                $this->maze_maker->generateMaze( $spawn_zone );
+            }
+        }
+
         $item_spawns = $conf->get(TownConf::CONF_DISTRIBUTED_ITEMS, []);
         $distribution = [];
         foreach ($conf->get(TownConf::CONF_DISTRIBUTION_DISTANCE, []) as $dd) {
@@ -263,7 +287,7 @@ class GameFactory
 
         $town->setForum((new Forum())->setTitle($town->getName()));
 
-        $ownerUser = $this->entity_manager->getRepository(User::class)->findOneById(66);
+        $ownerUser = $this->entity_manager->getRepository(User::class)->find(66);
 
         $threadBank = new Thread();
         $threadBank->setTitle($this->translator->trans('Bank', [], 'game'));
@@ -366,7 +390,8 @@ class GameFactory
         $this->inventory_handler->forceMoveItem( $chest, $this->item_factory->createItem( 'chest_citizen_#00' ) );
         $this->inventory_handler->forceMoveItem( $chest, $this->item_factory->createItem( 'food_bag_#00' ) );
 
-        $heroic_actions = $this->entity_manager->getRepository(HeroicActionPrototype::class)->findAll();
+        // Adding default heroic action
+        $heroic_actions = $this->entity_manager->getRepository(HeroicActionPrototype::class)->findBy(['unlockable' => false]);
         foreach ($heroic_actions as $heroic_action)
             /** @var $heroic_action HeroicActionPrototype */
             $citizen->addHeroicAction( $heroic_action );

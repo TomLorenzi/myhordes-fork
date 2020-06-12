@@ -1,90 +1,56 @@
 @import (once) "../theme";
 
-/*
-&>.row.admin-menu>.cell {
-    margin-top: 40px;
-    color: #f0d79e;
-    border: 1px solid #773939;
-    outline: 3px solid #5c2b20;
-    background: none;
-    background-color: #5c2b20;
-
-    & span.critical {
-      text-transform: uppercase;
-      color: #f86;
-      font-weight: bold;
-    }
-
-    & h4.title {
-      padding-top: 5px;
-      padding-bottom: 5px;
-      margin-top: 10px;
-      font-weight: bold;
-      text-align: center;
-      color: #afacc1;
-      background-color: #3b3249;
-      font-variant: small-caps;
-      box-shadow: none;
-
-      img {
-        vertical-align: -15%;
-        margin-right: 1em;
-      }
-    }
-
-
-    & button {
-      font-variant: small-caps;
-      font-weight: normal;
-    }
-  
-
-    .field.search {
-        color: #3b3249;
-        border: 1px solid #efdba8;
-        padding-left: 3px;
-        padding-right: 3px;
-        background-image: url("/gfx/design/form_field.jpg");
-        background-position: 0px -8px;
-        background-color: #aa9961;
-        outline: 1px solid #5c2b20;
-        
-    }
-}*/
-
 #user-list-wrapper {
   #user-list {
-    margin: 1rem;
-    display: flex;
-    width: 100%;
-    justify-content: flex-start;
-    align-items: center;
-    flex-wrap: wrap;
-    max-height: 12rem;
-    overflow: auto;
+    margin: 1rem; display: flex; width: 100%; justify-content: flex-start; align-items: center; flex-wrap: wrap;
+    max-height: 12rem; overflow: auto;
 
     .user-list-entry {
-      flex-basis: 120px;
-      margin-bottom: 4px;
-      margin-right: 4px;
-
-      button {
-        text-overflow: ellipsis;
-        cursor: pointer;
-        font-size: .8em;
-        font-variant: unset;
-        text-transform: none;
-
-      }
+      flex-basis: 120px; margin-bottom: 4px; margin-right: 4px;
+      button { text-overflow: ellipsis; cursor: pointer; font-size: .8em; font-variant: unset; text-transform: none; }
     }
   }
 
   p {
     padding: 0 1rem;
+    input#user-search { width: 10rem; display: inline; }
+  }
+}
 
-    input#user-search {
-      width: 10rem;
-      display: inline;
+.adm-exploration {
+  position: relative;
+  width: 100%;
+  min-height: 300px;
+
+  & > div {
+    position: absolute;
+    transform: translateX(150px); width: 20px; height: 20px;
+    background-size: cover; background-position: 50%;
+    background-image: url(../../img/admin/fmap/tile0.png);
+
+    &.rz-far:not(.rz-zeds) { filter: brightness(75%); }
+    &.rz-zeds:not(.rz-far) { filter: hue-rotate(290deg) }
+    &.rz-far.rz-zeds { filter: brightness(75%) hue-rotate(290deg); }
+    &.rz-locked, &.rz-unlocked {
+      &:after { content: " "; position: absolute; left: 0; top: 0; right: 0; bottom: 0; background-size: contain; }
+      &.rz-locked:after { background-image: url(../../img/admin/fmap/doorlock1.png) }
+      &.rz-unlocked:after { background-image: url(../../img/admin/fmap/doorlock2.png) }
     }
+
+    &.rz-1 { background-image: url( ../../img/admin/fmap/tile2.png ); }
+    &.rz-2 { background-image: url( ../../img/admin/fmap/tile1.png ); }
+    &.rz-3 { background-image: url( ../../img/admin/fmap/tile8.png ); }
+    &.rz-4 { background-image: url( ../../img/admin/fmap/tile3.png ); }
+    &.rz-5 { background-image: url( ../../img/admin/fmap/tile9.png ); }
+    &.rz-6 { background-image: url( ../../img/admin/fmap/tile5.png ); }
+    &.rz-7 { background-image: url( ../../img/admin/fmap/tile13.png); }
+    &.rz-8 { background-image: url( ../../img/admin/fmap/tile4.png ); }
+    &.rz-9 { background-image: url( ../../img/admin/fmap/tile6.png ); }
+    &.rz-10 { background-image: url(../../img/admin/fmap/tile11.png); }
+    &.rz-11 { background-image: url(../../img/admin/fmap/tile12.png); }
+    &.rz-12 { background-image: url(../../img/admin/fmap/tile10.png); }
+    &.rz-13 { background-image: url(../../img/admin/fmap/tile14.png); }
+    &.rz-14 { background-image: url(../../img/admin/fmap/tile15.png); }
+    &.rz-15 { background-image: url(../../img/admin/fmap/tile7.png ); }
   }
 }

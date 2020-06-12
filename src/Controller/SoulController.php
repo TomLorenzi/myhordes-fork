@@ -4,26 +4,33 @@ namespace App\Controller;
 
 use App\Entity\Avatar;
 use App\Entity\CauseOfDeath;
+use App\Entity\Changelog;
 use App\Entity\Citizen;
-use App\Entity\Town;
+use App\Entity\CitizenRankingProxy;
+use App\Entity\HeroSkillPrototype;
+use App\Entity\TownRankingProxy;
 use App\Entity\User;
 use App\Entity\Picto;
 use App\Entity\FoundRolePlayText;
 use App\Entity\RolePlayTextPage;
 use App\Exception\DynamicAjaxResetException;
+use App\Response\AjaxResponse;
 use App\Service\DeathHandler;
 use App\Service\ErrorHelper;
 use App\Service\JSONRequestParser;
 use App\Service\UserFactory;
-use App\Response\AjaxResponse;
+use App\Service\UserHandler;
 use App\Service\AdminActionHandler;
+use App\Service\TimeKeeperService;
 use DateTime;
 use Doctrine\ORM\EntityManagerInterface;
 use Error;
 use Exception;
 use Imagick;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Asset\Packages;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
 use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
@@ -43,6 +50,10 @@ use Symfony\Contracts\Translation\TranslatorInterface;
 class SoulController extends AbstractController
 {
     protected $entity_manager;
+    protected $user_factory;
+    protected $time_keeper;
+    private $user_handler;
+    private $asset;
 
     const ErrorAvatarBackendUnavailable      = ErrorHelper::BaseAvatarErrors + 1;
     const ErrorAvatarTooLarge                = ErrorHelper::BaseAvatarErrors + 2;
@@ -53,9 +64,13 @@ class SoulController extends AbstractController
     const ErrorAvatarInsufficientCompression = ErrorHelper::BaseAvatarErrors + 7;
     const ErrorUserEditPasswordIncorrect   = ErrorHelper::BaseAvatarErrors + 8;
 
-    public function __construct(EntityManagerInterface $em)
+    public function __construct(EntityManagerInterface $em, UserFactory $uf, Packages $a, UserHandler $uh, TimeKeeperService $tk)
     {
         $this->entity_manager = $em;
+        $this->user_factory = $uf;
+        $this->asset = $a;
+        $this->user_handler = $uh;
+        $this->time_keeper = $tk;
     }
 
     protected function addDefaultTwigArgs(?string $section = null, ?array $data = null ): array {
@@ -72,185 +87,52 @@ class SoulController extends AbstractController
      */
     public function soul_me(): Response
     {
+        /** @var CitizenRankingProxy $nextDeath */
+        if ($this->entity_manager->getRepository(CitizenRankingProxy::class)->findNextUnconfirmedDeath($this->getUser()))
+            return $this->redirect($this->generateUrl( 'soul_death' ));
+
         // Get all the picto & count points
         $pictos = $this->entity_manager->getRepository(Picto::class)->findNotPendingByUser($this->getUser());
-        $points = 0;
+    	$points = $this->user_handler->getPoints($this->getUser());
+        $latestSkill = $this->entity_manager->getRepository(HeroSkillPrototype::class)->getLatestUnlocked($this->getUser()->getHeroDaysSpent());
+        $nextSkill = $this->entity_manager->getRepository(HeroSkillPrototype::class)->getNextUnlockable($this->getUser()->getHeroDaysSpent());
 
-        if($this->getUser()->getSoulPoints() >= 100) {
-            $points += 13;
-        }
-        if($this->getUser()->getSoulPoints() >= 500) {
-            $points += 33;
-        }
-        if($this->getUser()->getSoulPoints() >= 1000) {
-            $points += 66;
-        }
-        if($this->getUser()->getSoulPoints() >= 2000) {
-            $points += 132;
-        }
-        if($this->getUser()->getSoulPoints() >= 3000) {
-            $points += 198;
-        }
+        $factor1 = $latestSkill !== null ? $latestSkill->getDaysNeeded() : 0;
 
-        foreach ($pictos as $picto) {
-            switch($picto["name"]){
-                case "r_heroac_#00": case "r_explor_#00":
-                    if ($picto["c"] >= 15)
-                        $points += 3.5;
-                    if ($picto["c"] >= 30)
-                        $points += 6.5;
-                    break;
-                case "r_cookr_#00": case "r_cmplst_#00": case "r_camp_#00": case "r_drgmkr_#00":
-                    if ($picto["c"] >= 10)
-                        $points += 3.5;
-                    if ($picto["c"] >= 25)
-                        $points += 6.5;
-                    break;
-                case "r_animal_#00":
-                    if ($picto["c"] >= 30)
-                        $points += 3.5;
-                    if ($picto["c"] >= 60)
-                        $points += 6.5;
-                    break;
-                case "r_chstxl_#00": case "r_ruine_#00":
-                    if ($picto["c"] >= 5)
-                        $points += 3.5;
-                    if ($picto["c"] >= 10)
-                        $points += 6.5;
-                    break;
-                case "r_build_#00":
-                    if ($picto["c"] >= 100)
-                        $points += 3.5;
-                    if ($picto["c"] >= 200)
-                        $points += 6.5;
-                    break;
-                case "status_clean_#00":
-                    if ($picto["c"] >= 20)
-                        $points += 3.5;
-                    if ($picto["c"] >= 75)
-                        $points += 6.5;
-                    break;
-                case "r_ebuild_#00":
-                    if ($picto["c"] >= 1)
-                        $points += 3.5;
-                    if ($picto["c"] >= 3)
-                        $points += 6.5;
-                    break;
-                case "r_digger_#00":
-                    if ($picto["c"] >= 50)
-                        $points += 3.5;
-                    if ($picto["c"] >= 300)
-                        $points += 6.5;
-                    break;
-                case "r_deco_#00":
-                    if ($picto["c"] >= 100)
-                        $points += 3.5;
-                    if ($picto["c"] >= 250)
-                        $points += 6.5;
-                    break;
-                case "r_explo2_#00":
-                    if ($picto["c"] >= 5)
-                        $points += 3.5;
-                    if ($picto["c"] >= 15)
-                        $points += 6.5;
-                    break;
-                case "r_guide_#00":
-                    if ($picto["c"] >= 300)
-                        $points += 3.5;
-                    if ($picto["c"] >= 1000)
-                        $points += 6.5;
-                    break;
-                case "r_theft_#00": case "r_jtamer_#00": case "r_jrangr_#00": case "r_jguard_#00": case "r_jermit_#00":
-                case "r_jtech_#00": case "r_jcolle_#00":
-                    if ($picto["c"] >= 10)
-                        $points += 3.5;
-                    if ($picto["c"] >= 30)
-                        $points += 6.5;
-                    break;
-                case "r_maso_#00": case "r_guard_#00":
-                    if ($picto["c"] >= 20)
-                        $points += 3.5;
-                    if ($picto["c"] >= 40)
-                        $points += 6.5;
-                    break;
-                case "r_surlst_#00":
-                    if ($picto["c"] >= 10)
-                        $points += 3.5;
-                    if ($picto["c"] >= 15)
-                        $points += 6.5;
-                    if ($picto["c"] >= 30)
-                        $points += 10;
-                    if ($picto["c"] >= 50)
-                        $points += 13;
-                    if ($picto["c"] >= 100)
-                        $points += 16.5;
-                    break;
-                case "r_suhard_#00":
-                    if ($picto["c"] >= 5)
-                        $points += 3.5;
-                    if ($picto["c"] >= 10)
-                        $points += 6.5;
-                    if ($picto["c"] >= 20)
-                        $points += 10;
-                    if ($picto["c"] >= 40)
-                        $points += 13;
-                    break;
-                case "r_doutsd_#00":
-                    if($picto["c"] >= 20)
-                        $points += 3.5;
-                    break;
-                case "r_door_#00":
-                    if($picto["c"] >= 1)
-                        $points += 3.5;
-                    if($picto["c"] >= 5)
-                        $points += 6.5;
-                    break;
-                case "r_wondrs_#00":
-                    if($picto["c"] >= 20)
-                        $points += 3.5;
-                    if($picto["c"] >= 50)
-                        $points += 6.5;
-                    break;
-                case "r_rp_#00":
-                    if($picto["c"] >= 5)
-                        $points += 3.5;
-                    if($picto["c"] >= 10)
-                        $points += 6.5;
-                    if($picto["c"] >= 20)
-                        $points += 10;
-                    if($picto["c"] >= 30)
-                        $points += 13;
-                    if($picto["c"] >= 40)
-                        $points += 16.5;
-                    if($picto["c"] >= 60)
-                        $points += 20;
-                    break;
-                case "r_winbas_#00":
-                    if($picto["c"] >= 2)
-                        $points += 13;
-                    if($picto["c"] >= 5)
-                        $points += 20;
-                    break;
-                case "r_wintop_#00":
-                    if($picto["c"] >= 1)
-                        $points += 20;
-                    break;
-                case "small_zombie_#00":
-                    if($picto["c"] >= 100)
-                        $points += 3.5;
-                    if($picto["c"] >= 200)
-                        $points += 6.5;
-                    if($picto["c"] >= 300)
-                        $points += 10;
-                    if($picto["c"] >= 800)
-                        $points += 13;
-                    break;
-            }
-        }
+        $progress = $nextSkill !== null ? ($this->getUser()->getHeroDaysSpent() - $factor1) / ($nextSkill->getDaysNeeded() - $factor1) * 100.0 : 0;
 
         return $this->render( 'ajax/soul/me.html.twig', $this->addDefaultTwigArgs("soul_me", [
             'pictos' => $pictos,
-            'points' => round($points, 0)
+            'points' => round($points, 0),
+            'latestSkill' => $latestSkill,
+            'progress' => floor($progress),
+        ]));
+    }
+
+    /**
+     * @Route("jx/soul/heroskill", name="soul_heroskill")
+     * @return Response
+     */
+    public function soul_heroskill(): Response
+    {
+        /** @var CitizenRankingProxy $nextDeath */
+        if ($this->entity_manager->getRepository(CitizenRankingProxy::class)->findNextUnconfirmedDeath($this->getUser()))
+            return $this->redirect($this->generateUrl( 'soul_death' ));
+
+        // Get all the picto & count points
+        $latestSkill = $this->entity_manager->getRepository(HeroSkillPrototype::class)->getLatestUnlocked($this->getUser()->getHeroDaysSpent());
+        $nextSkill = $this->entity_manager->getRepository(HeroSkillPrototype::class)->getNextUnlockable($this->getUser()->getHeroDaysSpent());
+
+        $allSkills = $this->entity_manager->getRepository(HeroSkillPrototype::class)->findAll();
+
+        $factor1 = $latestSkill !== null ? $latestSkill->getDaysNeeded() : 0;
+        $progress = $nextSkill !== null ? ($this->getUser()->getHeroDaysSpent() - $factor1) / ($nextSkill->getDaysNeeded() - $factor1) * 100.0 : 0;
+
+        return $this->render( 'ajax/soul/heroskills.html.twig', $this->addDefaultTwigArgs("soul_me", [
+            'latestSkill' => $latestSkill,
+            'nextSkill' => $nextSkill,
+            'progress' => floor($progress),
+            'skills' => $allSkills
         ]));
     }
 
@@ -260,7 +142,18 @@ class SoulController extends AbstractController
      */
     public function soul_news(): Response
     {
-        return $this->render( 'ajax/soul/news.html.twig', $this->addDefaultTwigArgs("soul_news", null) );
+        /** @var CitizenRankingProxy $nextDeath */
+        if ($this->entity_manager->getRepository(CitizenRankingProxy::class)->findNextUnconfirmedDeath($this->getUser()))
+            return $this->redirect($this->generateUrl( 'soul_death' ));
+
+        /** @var CitizenRankingProxy $nextDeath */
+        if ($this->entity_manager->getRepository(CitizenRankingProxy::class)->findNextUnconfirmedDeath($this->getUser()))
+            return $this->redirect($this->generateUrl( 'soul_death' ));
+
+        $news = $this->entity_manager->getRepository(Changelog::class)->findByLang($this->getUser()->getLanguage());
+        return $this->render( 'ajax/soul/news.html.twig', $this->addDefaultTwigArgs("soul_news", [
+            'news' => $news
+        ]) );
     }
 
     /**
@@ -269,7 +162,45 @@ class SoulController extends AbstractController
      */
     public function soul_settings(): Response
     {
+        /** @var CitizenRankingProxy $nextDeath */
+        if ($this->entity_manager->getRepository(CitizenRankingProxy::class)->findNextUnconfirmedDeath($this->getUser()))
+            return $this->redirect($this->generateUrl( 'soul_death' ));
+
+        /** @var CitizenRankingProxy $nextDeath */
+        if ($this->entity_manager->getRepository(CitizenRankingProxy::class)->findNextUnconfirmedDeath($this->getUser()))
+            return $this->redirect($this->generateUrl( 'soul_death' ));
+
         return $this->render( 'ajax/soul/settings.html.twig', $this->addDefaultTwigArgs("soul_settings", null) );
+    }
+
+    /**
+     * @Route("jx/soul/coalitions", name="soul_coalitions")
+     * @return Response
+     */
+    public function soul_coalitions(): Response
+    {
+        /** @var CitizenRankingProxy $nextDeath */
+        if ($this->entity_manager->getRepository(CitizenRankingProxy::class)->findNextUnconfirmedDeath($this->getUser()))
+            return $this->redirect($this->generateUrl( 'soul_death' ));
+
+        /** @var CitizenRankingProxy $nextDeath */
+        if ($this->entity_manager->getRepository(CitizenRankingProxy::class)->findNextUnconfirmedDeath($this->getUser()))
+            return $this->redirect($this->generateUrl( 'soul_death' ));
+
+        return $this->render( 'ajax/soul/coalitions.html.twig', $this->addDefaultTwigArgs("soul_coalitions", null) );
+    }
+
+    /**
+     * @Route("jx/soul/season", name="soul_season")
+     * @return Response
+     */
+    public function soul_season(): Response
+    {
+        /** @var CitizenRankingProxy $nextDeath */
+        if ($this->entity_manager->getRepository(CitizenRankingProxy::class)->findNextUnconfirmedDeath($this->getUser()))
+            return $this->redirect($this->generateUrl( 'soul_death' ));
+
+        return $this->render( 'ajax/soul/season.html.twig', $this->addDefaultTwigArgs("soul_season", null) );
     }
 
     /**
@@ -278,6 +209,10 @@ class SoulController extends AbstractController
      */
     public function soul_rps(): Response
     {
+        /** @var CitizenRankingProxy $nextDeath */
+        if ($this->entity_manager->getRepository(CitizenRankingProxy::class)->findNextUnconfirmedDeath($this->getUser()))
+            return $this->redirect($this->generateUrl( 'soul_death' ));
+
         $rps = $this->entity_manager->getRepository(FoundRolePlayText::class)->findByUser($this->getUser());
         return $this->render( 'ajax/soul/rps.html.twig', $this->addDefaultTwigArgs("soul_rps", array(
             'rps' => $rps
@@ -290,7 +225,11 @@ class SoulController extends AbstractController
      */
     public function soul_view_rp(int $id, int $page): Response
     {
-        $rp = $this->entity_manager->getRepository(FoundRolePlayText::class)->findOneById($id);
+        /** @var CitizenRankingProxy $nextDeath */
+        if ($this->entity_manager->getRepository(CitizenRankingProxy::class)->findNextUnconfirmedDeath($this->getUser()))
+            return $this->redirect($this->generateUrl( 'soul_death' ));
+
+        $rp = $this->entity_manager->getRepository(FoundRolePlayText::class)->find($id);
         if($rp === null || !$this->getUser()->getFoundTexts()->contains($rp)){
             return $this->redirect($this->generateUrl('soul_rps'));
         }
@@ -299,6 +238,12 @@ class SoulController extends AbstractController
             return $this->redirect($this->generateUrl('soul_rps'));
 
         $pageContent = $this->entity_manager->getRepository(RolePlayTextPage::class)->findOneByRpAndPageNumber($rp->getText(), $page);
+
+        preg_match('/%asset%([a-zA-Z0-9.\/]+)%endasset%/', $pageContent->getContent(), $matches);
+
+        if(count($matches) > 0) {
+            $pageContent->setContent(preg_replace("={$matches[0]}=", "<img src='" . $this->asset->getUrl($matches[1]) . "' alt='' />", $pageContent->getContent()));
+        }
 
         return $this->render( 'ajax/soul/view_rp.html.twig', $this->addDefaultTwigArgs("soul_rps", array(
             'page' => $pageContent,
@@ -313,7 +258,11 @@ class SoulController extends AbstractController
      */
     public function soul_view_town(int $id): Response
     {
-        $town = $this->entity_manager->getRepository(Town::class)->findOneById($id);
+        /** @var CitizenRankingProxy $nextDeath */
+        if ($this->entity_manager->getRepository(CitizenRankingProxy::class)->findNextUnconfirmedDeath($this->getUser()))
+            return $this->redirect($this->generateUrl( 'soul_death' ));
+
+        $town = $this->entity_manager->getRepository(TownRankingProxy::class)->find($id);
         if($town === null){
             return $this->redirect($this->generateUrl('soul_me'));
         }
@@ -324,21 +273,23 @@ class SoulController extends AbstractController
     }
 
     /**
-     * @Route("jx/soul/town/add_comment", name="soul_add_comment")
+     * @Route("api/soul/town/add_comment", name="soul_add_comment")
+     * @param JSONRequestParser $parser
      * @return Response
      */
     public function soul_add_comment(JSONRequestParser $parser): Response
     {
         $id = $parser->get("id");
-        $citizen = $this->entity_manager->getRepository(Citizen::class)->findOneById($id);
-        if($citizen === null){
-            return $this->redirect($this->generateUrl('soul_me'));
-        }
+        /** @var CitizenRankingProxy $citizenProxy */
+        $citizenProxy = $this->entity_manager->getRepository(CitizenRankingProxy::class)->find($id);
+        if ($citizenProxy === null || $citizenProxy->getUser() !== $this->getUser() )
+            return AjaxResponse::error(ErrorHelper::ErrorPermissionError);
 
         $comment = $parser->get("comment");
-        $citizen->setComment($comment);
+        $citizenProxy->setComment($comment);
+        if ($citizenProxy->getCitizen()) $citizenProxy->getCitizen()->setComment($comment);
 
-        $this->entity_manager->persist($citizen);
+        $this->entity_manager->persist($citizenProxy);
         $this->entity_manager->flush();
 
         return AjaxResponse::success();
@@ -692,5 +643,159 @@ class SoulController extends AbstractController
         $this->addFlash( 'notice', $trans->trans('Auf wiedersehen, %name%. Wir werden dich vermissen und hoffen, dass du vielleicht doch noch einmal zurück kommst.', ['%name%' => $name], 'login') );
         $token->setToken(null);
         return AjaxResponse::success();
+    }
+
+    /**
+     * @Route("jx/soul/{id}", name="soul_visit", requirements={"id"="\d+"})
+     * @return Response
+     */
+    public function soul_visit(int $id): Response
+    {
+        /** @var CitizenRankingProxy $nextDeath */
+        if ($this->entity_manager->getRepository(CitizenRankingProxy::class)->findNextUnconfirmedDeath($this->getUser()))
+            return $this->redirect($this->generateUrl( 'soul_death' ));
+
+    	$user = $this->entity_manager->getRepository(User::class)->find($id);
+    	if($user === null || $user === $this->getUser()){
+            return $this->redirect($this->generateUrl('soul_me'));
+        }
+
+        $pictos = $this->entity_manager->getRepository(Picto::class)->findNotPendingByUser($user);
+    	$points = $this->user_handler->getPoints($user);
+
+        return $this->render( 'ajax/soul/visit.html.twig', $this->addDefaultTwigArgs("soul_visit", [
+        	'user' => $user,
+            'pictos' => $pictos,
+            'points' => round($points, 0)
+        ]));
+    }
+
+    /**
+     * @Route("jx/soul/{id}/town/{idtown}", name="soul_view_town_foreign", requirements={"id"="\d+", "idtown"="\d+"})
+     * @param int $id
+     * @param int $idtown
+     * @return Response
+     */
+    public function soul_view_town_foreign(int $id, int $idtown): Response
+    {
+        /** @var CitizenRankingProxy $nextDeath */
+        if ($this->entity_manager->getRepository(CitizenRankingProxy::class)->findNextUnconfirmedDeath($this->getUser()))
+            return $this->redirect($this->generateUrl( 'soul_death' ));
+        
+    	$user = $this->entity_manager->getRepository(User::class)->find($id);
+    	if ($user === null) return $this->redirect($this->generateUrl('soul_me'));
+        $town = $this->entity_manager->getRepository(TownRankingProxy::class)->find($idtown);
+        if($town === null)
+            return $this->redirect($this->generateUrl('soul_visit', ['id' => $id]));
+
+        return $this->render( 'ajax/soul/view_town_foreign.html.twig', $this->addDefaultTwigArgs("soul_visit", array(
+        	'user' => $user,
+            'town' => $town,
+        )));
+    }
+
+    /**
+     * @Route("api/soul/unsubscribe", name="api_unsubscribe")
+     * @param JSONRequestParser $parser
+     * @param EntityManagerInterface $em
+     * @param SessionInterface $session
+     * @param TranslatorInterface $trans
+     * @return Response
+     */
+    public function unsubscribe_api(JSONRequestParser $parser, EntityManagerInterface $em, SessionInterface $session, TranslatorInterface $trans): Response {
+        /** @var User $user */
+        $user = $this->getUser();
+
+        /** @var CitizenRankingProxy $nextDeath */
+        $nextDeath = $this->entity_manager->getRepository(CitizenRankingProxy::class)->findNextUnconfirmedDeath($user);
+        if ($nextDeath === null || ($nextDeath->getCitizen() && $nextDeath->getCitizen()->getAlive()))
+            return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+
+
+        if ($nextDeath->getCod()->getRef() != CauseOfDeath::Poison && $nextDeath->getCod()->getRef() != CauseOfDeath::GhulEaten)
+            $last_words = $parser->get('lastwords');
+        else $last_words = $trans->trans("...der Mörder .. ist.. IST.. AAARGHhh..", [], "game");
+
+        // Here, we delete picto with persisted = 0,
+        // and definitively validate picto with persisted = 1
+        /** @var Picto[] $pendingPictosOfUser */
+        $pendingPictosOfUser = $this->entity_manager->getRepository(Picto::class)->findPendingByUser($user);
+        foreach ($pendingPictosOfUser as $pendingPicto) {
+            if($pendingPicto->getPersisted() == 0)
+                $this->entity_manager->remove($pendingPicto);
+            else {
+                $pendingPicto->setPersisted(2);
+                $this->entity_manager->persist($pendingPicto);
+            }
+        }
+
+          /** @var User|null $user */
+        if ($active = $nextDeath->getCitizen()) {
+            $active->setActive(false);
+            $active->setLastWords($last_words);
+            $nextDeath = CitizenRankingProxy::fromCitizen( $active, true );
+            $this->entity_manager->persist( $active );
+        }
+        
+        $nextDeath->setConfirmed(true)->setLastWords( $last_words );
+
+        $this->entity_manager->persist( $nextDeath );
+        $this->entity_manager->flush();
+
+        if ($session->has('_town_lang')) {
+            $session->remove('_town_lang');
+            return AjaxResponse::success()->setAjaxControl(AjaxResponse::AJAX_CONTROL_RESET);
+        } else return AjaxResponse::success();
+    }
+
+    /**
+     * @Route("jx/soul/death", name="soul_death")
+     * @return Response
+     */
+    public function soul_deathpage(): Response
+    {
+        /** @var User $user */
+        $user = $this->getUser();
+
+        /** @var CitizenRankingProxy $nextDeath */
+        $nextDeath = $this->entity_manager->getRepository(CitizenRankingProxy::class)->findNextUnconfirmedDeath($user);
+        if ($nextDeath === null || ($nextDeath->getCitizen() && $nextDeath->getCitizen()->getAlive()))
+            return $this->redirect($this->generateUrl('initial_landing'));
+
+        $pictosDuringTown = $this->entity_manager->getRepository(Picto::class)->findPictoByUserAndTown($user, $nextDeath->getTown());
+        $pictosWonDuringTown = [];
+        $pictosNotWonDuringTown = [];
+
+        foreach ($pictosDuringTown as $picto) {
+            if ($picto->getPrototype()->getName() == "r_ptame_#00") continue;
+            if ($picto->getPersisted() > 0)
+                $pictosWonDuringTown[] = $picto;
+            else
+                $pictosNotWonDuringTown[] = $picto;
+        }
+
+        $canSeeGazette = $nextDeath->getTown() !== null;
+        if($canSeeGazette){
+            $citizensAlive = false;
+            foreach ($nextDeath->getTown()->getCitizens() as $citizen) {
+                if($citizen->getCod() === null){
+                    $citizensAlive = true;
+                    break;
+                }
+            }
+            if(!$citizensAlive && $nextDeath->getCod()->getRef() != CauseOfDeath::Radiations) {
+                $canSeeGazette = false;
+            }
+        }
+
+
+        return $this->render( 'ajax/soul/death.html.twig', [
+            'citizen' => $nextDeath,
+            'sp' => $nextDeath->getPoints(),
+            'pictos' => $pictosWonDuringTown,
+            'gazette' => $canSeeGazette,
+            'denied_pictos' => $pictosNotWonDuringTown
+        ] );
     }
 }

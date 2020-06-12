@@ -1,0 +1,55 @@
+{% extends "ajax/ajax.html.twig" %}
+{% block ajax %}
+    <div class="row">
+        <div class="cell rw-12">
+            <div class="row">
+                <div class="cell padded rw-6 rw-sm-12">
+                    <span>{{ "Titel" |trans({}, 'admin') }}</span>
+                </div>
+                <div class="cell padded rw-2 rw-sm-12">
+                    <span>{{ "Version" |trans({}, 'admin') }}</span>
+                </div>
+                <div class="cell padded rw-2 rw-sm-12">
+                    <span>{{ "Sprache" |trans({}, 'admin') }}</span>
+                </div>
+            </div>
+            {% for new in news %}
+            <div class="row">
+                <div class="cell padded rw-6 rw-sm-12">
+                    {{ new.title }}
+                </div>
+                <div class="cell padded rw-2 rw-sm-12">
+                    <span>{{ new.version }}</span>
+                </div>
+                <div class="cell padded rw-2 rw-sm-12">
+                    <span>{{ new.lang }}</span>
+                </div>
+                <div class="cell padded rw-1 rw-sm-12">
+                    <button>{{ 'Gesehen'|trans({}, 'admin') }}</button>
+                </div>
+            </div>
+            {% endfor %}
+            <div class="row">
+                <div class="cell padded rw-3">
+                    <button id="new_changelog" x-ajax-target="#content" class="button">
+                        {{'Neue Update'|trans({}, 'admin')}}
+                    </button>
+                </div>
+            </div>
+
+            <div id="forum-content">
+            
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+{% block js %}
+    <script>
+    let new_changelog = document.getElementById('new_changelog');
+    if(new_changelog) new_changelog.addEventListener('click', function(e) {
+        document.getElementById("forum-content").innerHTML = "";
+        $.ajax.no_history().load( document.getElementById('forum-content'), '{{ path('admin_new_changelog_editor_controller') }}', false )
+    });
+    </script>
+{% endblock %}

@@ -55,10 +55,9 @@ export default class HTML {
             setTimeout( function(node) { node.remove(); }, 500, div );
         };
         div.addEventListener('click', f_hide);
-        const timeout_id = setTimeout( f_hide, 5000 );
+        let timeout_id = setTimeout( f_hide, 5000 );
         div.addEventListener('pointerenter', function() { clearTimeout(timeout_id); });
-
-
+        div.addEventListener('pointerleave', function() { timeout_id = setTimeout( f_hide, 5000 ); });
 
         div = document.getElementById('notifications').appendChild( div );
         setTimeout( function(node) { node.classList.add('show'); }, 100, div );
@@ -82,6 +81,9 @@ export default class HTML {
 
         const show_secs   = !element.getAttribute('x-countdown-no-seconds');
         const force_hours =  element.getAttribute('x-countdown-force-hours');
+        const custom_handler = element.getAttribute('x-countdown-handler');
+        let interval = element.getAttribute('x-countdown-interval');
+        if (!interval) interval = '1000';
 
         const draw = function() {
             const seconds = Math.floor((timeout.getTime() - (new Date()).getTime())/1000);
@@ -90,21 +92,27 @@ export default class HTML {
             const h = Math.floor(seconds/3600);
             const m = Math.floor((seconds - h*3600)/60);
             const s = seconds - h*3600 - m*60;
-            element.innerHTML =
-                ((h > 0 || force_hours) ? (h + ':') : '') +
-                ((h > 0 || force_hours) ? (m > 9 ? m : ('0' + m)) : m) +
-                (show_secs ? (':' + (s > 9 ? s : ('0' + s))) : '');
+
+            if (custom_handler === 'pre' || custom_handler === 'handle') element.dispatchEvent(new CustomEvent('countdown', {detail: [seconds, h, m, s]}));
+            if (!custom_handler || custom_handler === 'pre' || custom_handler === 'post')
+                element.innerHTML =
+                    ((h > 0 || force_hours) ? (h + ':') : '') +
+                    ((h > 0 || force_hours) ? (m > 9 ? m : ('0' + m)) : m) +
+                    (show_secs ? (':' + (s > 9 ? s : ('0' + s))) : '');
+            if (custom_handler === 'post') element.dispatchEvent(new CustomEvent('countdown', {detail: [seconds, h, m, s]}));
         };
 
         const f = function(no_chk = false) {
             if (!no_chk && !document.body.contains(element)) return;
             if ((new Date() > timeout)) {
-                element.innerHTML = '--:--';
+                if (custom_handler === 'pre' || custom_handler === 'handle') element.dispatchEvent(new CustomEvent('countdown', {detail: [-1,0,0,0]}));
+                if (!custom_handler || custom_handler === 'pre' || custom_handler === 'post') element.innerHTML = '--:--';
                 element.dispatchEvent(new Event("expire", { bubbles: true, cancelable: true }));
+                if (custom_handler === 'post') element.dispatchEvent(new CustomEvent('countdown', {detail: [-1,0,0,0]}));
             }
             else {
                 draw();
-                window.setTimeout(f,1000);
+                window.setTimeout(f,parseInt(interval));
             }
         };
 
@@ -148,7 +156,7 @@ export default class HTML {
                 element.style.left = (e.clientX - element.clientWidth - 50) + 'px';
             } else element.style.left = e.clientX + 'px';
         });
-        parent.addEventListener('pointerleave', function(e) {
+        parent.addEventListener('pointerout', function(e) {
             element.style.display = 'none';
             parent.append( element );
         });
@@ -187,7 +195,10 @@ export default class HTML {
                     hide_group( group );
                     for (let bi = 0; bi < buttons.length; bi++) buttons[bi].classList.remove('selected');
                     buttons[b].classList.add('selected');
-                    let targets = element.querySelectorAll('*[x-tab-target][x-tab-group=' + group + '][x-tab-id= ' + id + ']');
+                    let selector = '*[x-tab-target][x-tab-group=' + group + ']';
+                    if(id != 'all')
+                        selector += '[x-tab-id= ' + id + ']';
+                    let targets = element.querySelectorAll(selector);
                     for (let t = 0; t < targets.length; t++)
                         (<HTMLElement>targets[t]).style.display = null;
                     $.client.set( group, 'tabState', id, true );

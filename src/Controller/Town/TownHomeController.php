@@ -32,6 +32,7 @@ use App\Structures\ItemRequest;
 use Doctrine\ORM\EntityManagerInterface;
 use DateTime;
 use Exception;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Translation\Translator;
@@ -46,11 +47,13 @@ class TownHomeController extends TownController
     /**
      * @Route("jx/town/house/{tab?}/{subtab?}", name="town_house")
      * @param string|null $tab
+     * @param string|null $subtab
      * @param EntityManagerInterface $em
      * @param TownHandler $th
+     * @param Request $request
      * @return Response
      */
-    public function house(?string $tab, ?string $subtab, EntityManagerInterface $em, TownHandler $th): Response
+    public function house(?string $tab, ?string $subtab, EntityManagerInterface $em, TownHandler $th, Request $request): Response
     {
 
         // Get citizen, town and home objects
@@ -100,13 +103,40 @@ class TownHomeController extends TownController
         foreach ($home->getChest()->getItems() as $item)
             $deco += $item->getPrototype()->getDeco();
 
-        $can_send_global_pm = $citizen->getProfession()->getHeroic();
+        $can_send_global_pm = $citizen->getProfession()->getHeroic() && $this->user_handler->hasSkill($citizen->getUser(), 'writer');
 
         $possible_dests = [];
         foreach ($town->getCitizens() as $dest) {
             if(!$dest->getAlive()) continue;
             if($dest == $this->getActiveCitizen()) continue;
             $possible_dests[] = $dest;
+        }
+
+        $dest_id = $request->query->get('dest');
+        $destCitizen = null;
+
+        if($dest_id !== null){
+            $destCitizen = $this->entity_manager->getRepository(Citizen::class)->find($dest_id);
+        }
+
+        $nonArchivedMessages = $this->entity_manager->getRepository(PrivateMessageThread::class)->findNonArchived($citizen);
+        foreach ($nonArchivedMessages as $thread) {
+            foreach ($thread->getMessages() as $message) {
+                if($message->getRecipient() == $this->getActiveCitizen() && $message->getNew())
+                    $thread->setNew(true);
+            }
+        }
+
+        $sendable_items = [];
+
+        foreach ($citizen->getInventory()->getItems() as $item) {
+            if($item->getEssential()) continue;
+            $sendable_items[] = $item;
+        }
+
+        foreach ($home->getChest()->getItems() as $item) {
+            if($item->getEssential()) continue;
+            $sendable_items[] = $item;
         }
 
         // Render
@@ -134,9 +164,11 @@ class TownHomeController extends TownController
             'day' => $town->getDay(),
 
             'can_send_global_pm' => $can_send_global_pm,
-            'nonArchivedMessages' => $this->entity_manager->getRepository(PrivateMessageThread::class)->findNonArchived($citizen),
+            'nonArchivedMessages' => $nonArchivedMessages,
             'archivedMessages' => $this->entity_manager->getRepository(PrivateMessageThread::class)->findArchived($citizen),
             'possible_dests' => $possible_dests,
+            'dest_citizen' => $destCitizen,
+            'sendable_items' => $sendable_items,
         ]) );
     }
 
@@ -218,7 +250,7 @@ class TownHomeController extends TownController
         if (!$next) return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
 
         // Make sure the citizen is not tired
-        if ($ch->isTired( $citizen ) || $citizen->getAp() < $next->getAp()) return AjaxResponse::error( ErrorHelper::ErrorNoAP );
+        if ($ch->isTired( $citizen ) || ($citizen->getAp() + $citizen->getBp()) < $next->getAp()) return AjaxResponse::error( ErrorHelper::ErrorNoAP );
 
         // Make sure the citizen has not upgraded their home today, only if we're not in chaos
         if ($ch->hasStatusEffect($citizen, 'tg_home_upgrade') && !$town->getChaos())
@@ -239,7 +271,7 @@ class TownHomeController extends TownController
         $home->setPrototype($next);
 
         // Deduct AP and set the has-upgraded status
-        $ch->setAP($citizen, true, -$next->getAp());
+        $this->citizen_handler->deductAPBP( $citizen, $next->getAp() );
         $ch->inflictStatus( $citizen, 'tg_home_upgrade' );
 
         // Consume items
@@ -335,7 +367,7 @@ class TownHomeController extends TownController
         if (!$costs) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
         // Make sure the citizen is not tired and has enough AP
-        if ($ch->isTired( $citizen ) || $citizen->getAp() < $costs->getAp()) return AjaxResponse::error( ErrorHelper::ErrorNoAP );
+        if ($ch->isTired( $citizen ) || ($citizen->getAp() + $citizen->getBp()) < $costs->getAp()) return AjaxResponse::error( ErrorHelper::ErrorNoAP );
 
         // Fetch upgrade resources; fail if they are missing
         $items = [];
@@ -349,7 +381,7 @@ class TownHomeController extends TownController
         else $current->setLevel( $current->getLevel()+1 );
 
         // Deduct AP
-        $ch->setAP($citizen, true, -$costs->getAp());
+        $this->citizen_handler->deductAPBP( $citizen, $costs->getAp() );
 
         // Give picto
         $pictoPrototype = $em->getRepository(PictoPrototype::class)->findOneByName("r_hbuild_#00");

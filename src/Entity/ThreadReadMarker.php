@@ -9,7 +9,7 @@ use Doctrine\ORM\Mapping\UniqueConstraint;
 /**
  * @ORM\Entity(repositoryClass="App\Repository\ThreadReadMarkerRepository")
  * @Table(uniqueConstraints={
- *     @UniqueConstraint(name="assoc_unique",columns={"user_id","thread_id"})
+ *     @UniqueConstraint(name="thread_read_marker_assoc_unique",columns={"user_id","thread_id"})
  * })
  */
 class ThreadReadMarker

@@ -8,15 +8,17 @@ use Doctrine\ORM\Mapping\UniqueConstraint;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\ActionCounterRepository")
- * @Table(uniqueConstraints={@UniqueConstraint(name="assoc_unique",columns={"citizen_id","type"})})
+ * @Table(uniqueConstraints={@UniqueConstraint(name="action_counter_assoc_unique",columns={"citizen_id","type"})})
  */
 class ActionCounter
 {
-    const ActionTypeWell = 1;
+    const ActionTypeWell        = 1;
     const ActionTypeHomeKitchen = 2;
-    const ActionTypeHomeLab = 3;
-    const ActionTypeTrash = 4;
-    const ActionTypeComplaint = 5;
+    const ActionTypeHomeLab     = 3;
+    const ActionTypeTrash       = 4;
+    const ActionTypeComplaint   = 5;
+    const ActionTypeRemoveLog   = 6;
+    const ActionTypeSendPMItem  = 7;
 
     /**
      * @ORM\Id()

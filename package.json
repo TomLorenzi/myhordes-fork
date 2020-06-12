@@ -19,6 +19,7 @@
         "build": "encore production --progress"
     },
     "dependencies": {
-        "latest-createjs": "^1.0.24"
+        "latest-createjs": "^1.0.24",
+        "string.prototype.matchall": "^4.0.2"
     }
 }

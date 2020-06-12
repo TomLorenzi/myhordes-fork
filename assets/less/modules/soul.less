@@ -1,40 +1,72 @@
 .soul {
-    .tabs {
-        font-size: 1.2rem;
-        color: #ddab76;
-        border-bottom: 1px solid #ddab76;
-        background-color: #5c2b20;
 
-        h4.soul-name {
-            margin: 2px 4px;
-            display: inline-block;
-        }
-        .tab {
-            .tab-link {
-                display: block;
-                text-align: center;
-                margin: 4px 2px 0;
-                padding: 2px 4px;
-                border: 1px solid #ddab76;
-                border-bottom: none;
-                background-color: #7e4d2a;
-                cursor: pointer;
-                text-decoration: none;
-                overflow: hidden;
-                text-overflow: ellipsis;
-                line-height: 2.3rem;
-                min-height: 27px;
+    .me {
+        margin-top: -20px; // Cancel tabs margin-bottom for soul page
+    }
+
+    .header {
+        padding: 9px 4px 10px 8px !important;
+    }
+
+    .skills {
+        .bar {
+            width: 614px;
+            height: 32px;
+            margin: 0 auto;
+            margin-top: 10px;
+            .progresstext {
+                background: url('../../img/soul/heroUp_front.gif') center no-repeat;
+                height: 32px;
+                line-height: 32px;
+                width: 614px;
+                z-index: 2;
+                position: absolute;
+                color: #f0d79e;
+                text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+                .text {
+                    visibility: hidden;
+                }
             }
 
-            &.selected, &:hover {
-                .tab-link {
-                    background-color: lighten(#7e4d2a, 20%);
-                    color: white;
-                    font-weight: bold;
+            .progressbar {
+                background: url('../../img/soul/heroUp_bg.gif') center repeat-x;
+                height: 30px;
+                overflow: hidden;
+                padding-left: 25px;
+                padding-right: 5px;
+                margin-top: 2px;
+                img {
+                    height: 32px;
                 }
             }
         }
+
+        .heroProgress {
+            color: #f0d79e;
+            background-color: #4d5537;
+            border: 1px solid #ddab76;
+            outline: 2px solid #5c2b20;
+            text-align: center;
+            margin-top: 4px;
+            font-size: 1.2rem;
+            strong {
+                display: block;
+                font-size: 2rem;
+                color: white;
+            }
+        }
+
+        .skillBack {
+            padding-bottom: 10px;
+            margin-bottom: 10px;
+            border-bottom: 1px dashed #ddab76;
+            
+            label {
+                max-width: 250px;
+            }
+        }
     }
+
     .distinctions {
         max-width: 240px;
         background: url("../../img/soul/rewardsBg_header.gif") top/100% no-repeat;
@@ -139,8 +171,13 @@
         }
     }
 
-    .block {
+    .night {
+        background: url("../../img/soul/soul_night.jpg") bottom/100% no-repeat;
+        width: auto;
+        height: 197px;
+    }
 
+    .block {
     }
 
     .score, .current {
@@ -177,17 +214,27 @@
         }
     }
 
-    .town-history {
+    .town-history > .header {
+        font-size: 8pt;
+    }
+
+    .skills-history > .header {
+        font-size: 10pt;
+    }
+
+    .town-history,
+    .skills-history {
         .header {
-            font-size: 1rem;
-            font-variant: small-caps;
             font-weight: bold;
-            color: #f1ddc8;
-            border-bottom: 2px solid #ddab76;
+            font-family: "Trebuchet MS", "Arial",Verdana, sans-serif;
+            padding-bottom: 0px !important;
+            color: white;
+            border-bottom: 2px solid #f0d79e;
             background: linear-gradient(to top, #643b25 0%, rgba(100, 59, 37, 0) 50%, rgba(100, 59, 37, 0) 100%);
         }
 
-        .town-container {
+        .town-container,
+        .skills-container {
             background-color: #5c2b20;
             border-bottom: 1px solid #ddab76;
 
@@ -228,6 +275,26 @@
                 .town-name,
                 .town-days {
                     color: #f86;
+                }
+            }
+
+            &.skills-container {
+                .skillRow {
+                    border-bottom: 1px solid #7e4d2a;
+                }
+
+                .desc {    
+                    font-size: 9pt;
+                    color: #f0d79e;
+                    min-height: 34px;
+                    border-left: 1px solid #7e4d2a;
+                    border-right: 1px solid #7e4d2a;
+                }
+                .currentSkill {
+                    background: #3b3249;
+                    .desc {
+                        font-style: italic;    
+                    }
                 }
             }
         }
@@ -637,6 +704,73 @@
         .note {
             width: 24%;
             flex-basis: 24%;
+        }
+    }
+
+    .news {
+        margin: 0 15px;
+        .head {
+            background: url('../../img/underDevBanner.gif') center/contain no-repeat;
+            height: 181px;
+
+            .title {
+                padding-top: 150px;
+                text-transform: uppercase;
+                color: #fff595;
+                font-weight: bold;
+                font-size: 2rem;
+                img {
+                    vertical-align: baseline;
+                    &:first-child {
+                        margin-right: 5px;
+                    }
+
+                    &:last-child {
+                        margin-left: 5px;
+                    }
+                }
+
+                &.old {
+                    color: #f1c872;
+                }
+            }
+
+        }
+
+        .version {
+            text-align: center;
+            color: #ddab76;
+            font-weight: bold;
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        .version-list {
+            padding: 5px;
+            padding-left: 10px;
+            margin-bottom: 20px;
+            background-color: #5c2b20;
+            font-size: 1rem;
+            color: #f0d79e;
+            p {
+                margin: 0;
+            }
+        }
+
+        .forum-post {
+            background: #5c2b20;
+            padding: 10px 0 0 10px;
+            border: 1px solid #704328;
+        }
+
+        .content {
+            padding: 5px;
+            padding-left: 110px;
+            margin-bottom: 20px;
+            background: url('../../img/pipWelcome.gif') no-repeat #5c2b20;
+            color: #ddab76;
+            margin-bottom: 10px;
         }
     }
 }

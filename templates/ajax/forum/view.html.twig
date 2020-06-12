@@ -4,50 +4,77 @@
 {% macro display_thread_list( list, fid, icon, title ) %}
     <div class="forum-note">
         <b><i class="fa {{ icon }}"></i> {{ title }}</b>
-        <div class="row">
-            {% for thread in list %}
-                {# @var thread \App\Entity\Thread #}
-                <div class="cell rw-12 {% if not thread.new %}forum-thread-unread{% endif%} forum-thread" x-public-route="{{ path('forum_thread_view', {fid: fid, tid: thread.id }) }}" x-post-source="{{ path('forum_viewer_controller', {fid: fid, tid: thread.id }) }}" x-thread-id="{{ thread.id }}">
-                    {% if thread.locked %}
-                        <img alt="" src="{{ asset('build/images/lock.gif') }}" />
+        {% for thread in list %}
+        <div class="row forum-thread {% if not thread.new %}forum-thread-unread{% endif%}" x-public-route="{{ path('forum_thread_view', {fid: fid, tid: thread.id }) }}" x-post-source="{{ path('forum_viewer_controller', {fid: fid, tid: thread.id }) }}" x-thread-id="{{ thread.id }}">
+            {# @var thread \App\Entity\Thread #}
+            <div class="cell rw-1 status">
+                {% if thread.locked %}
+                    <img alt="" src="{{ asset('build/images/lock.gif') }}" />
+                {% else %}
+                    &nbsp;
+                {% endif %}
+            </div>
+            <div class="cell rw-8 title">
+                <div>
+                    {% if thread.translatable %}
+                        {{ thread.title|trans({},'global') }}
+                    {% else %}
+                        {{ thread.title }}
                     {% endif %}
-                    <div>{% if thread.posts|length > 1 %}{{ thread.posts|length - 1 }}{% endif %}</div>
-                    <b>{% if thread.translatable %}{{ thread.title|trans({},'global') }}{% else %}{{ thread.title }}{% endif %}</b><br />
-                    {% set last_post = thread.posts|length > 0 ? thread.posts[thread.posts|length-1] : null %}
-                    <i>
-                        {% if last_post and last_post.owner %}
-                            {% if last_post.owner.username == 'Der Rabe' %}
-                                {{ 'Der Rabe'|trans({},'global') }}
-                            {% else %}
-                                {{ last_post.owner.username }}
-                            {% endif %}
-                        {% elseif thread.owner %}
-                            {% if thread.owner.username == 'Der Rabe' %}
-                                {{ 'Der Rabe'|trans({},'global') }}
-                            {% else %}
-                                {{ thread.owner.username }}
-                            {% endif %}
-                        {% else %}
-                            {{ 'Der Rabe'|trans({},'global') }}
-                        {% endif %}
-                    </i>
+                    {% if thread.hasAdminAnnounce %}
+                    <span class="float-right">
+                        <img src="{{ asset('build/images/forum/adminAnnounce.png') }}" />
+                        <div class="tooltip forum-tooltip">
+                            {{'Dieses Thema enthält offizielle Ansagen der Website Administratoren.'|trans({}, 'global')}}
+                        </div>
+                    </span>
+                    {% elseif thread.hasOracleAnnounce %}
+                    <span class="float-right">
+                        <img src="{{ asset('build/images/forum/announce.png') }}" />
+                        <div class="tooltip forum-tooltip">
+                            {{'Dieses Thema enthält Ansagen von Community-Vertretern.'|trans({}, 'global')}}
+                        </div>
+                    </span>
+                    {% endif %}
                 </div>
-            {% endfor %}
+            </div>
+            <div class="cell rw-3 right count">
+                {% if thread.posts|length > 1 %}
+                    {{ thread.posts|length - 1 }}
+                {% endif %}
+                <br />
+                {% set last_post = thread.posts|length > 0 ? thread.posts[thread.posts|length-1] : null %}
+                {% if last_post and last_post.owner %}
+                    {% if last_post.owner.username == 'Der Rabe' %}
+                        {{ 'Der Rabe'|trans({},'global') }}
+                    {% else %}
+                        {{ last_post.owner.username }}
+                    {% endif %}
+                {% elseif thread.owner %}
+                    {% if thread.owner.username == 'Der Rabe' %}
+                        {{ 'Der Rabe'|trans({},'global') }}
+                    {% else %}
+                        {{ thread.owner.username }}
+                    {% endif %}
+                {% else %}
+                    {{ 'Der Rabe'|trans({},'global') }}
+                {% endif %}
+            </div>
         </div>
+        {% endfor %}
     </div>
 {% endmacro %}
 
 {% block ajax %}
     <div class="row">
         <div class="cell rw-12">
-
             <div class="row">
                 <div class="cell padded rw-4 rw-md-12">
                     <div class="forum-control">
                         <b><i class="fa fa-scroll"></i> {{ forum.title }}</b>
                         <div class="forum-button-bar">
                             <div x-ajax-href="{{ url('forum_list') }}" class="forum-button"><img src="{{ asset('build/images/forum/back.png') }}" /><div class="tooltip">{{ 'Zurück'|trans({},'global') }}</div></div>
-                            <div x-ajax-href="{{ url('forum_view', {id: forum.id}) }}" class="forum-button"><img src="{{ asset('build/images/forum/refresh.png') }}" /></div>
+                            <div x-ajax-href="{{ url('forum_view', {id: forum.id}) }}" class="forum-button"><img src="{{ asset('build/images/forum/refresh.png') }}" /><div class="tooltip">{{ 'Liste der Themen aktualisieren'|trans({},'global') }}</div></div>
                             {% if is_granted("ROLE_BANNED") %}
                                 <div class="forum-button-disabled" id="banned">{{ 'Neues Thema'|trans({},'global') }}</div>
                             {% else %}
@@ -65,9 +92,7 @@
                 </div>
 
                 <div class="cell padded rw-8 rw-md-12">
-
                     <div id="forum-content">
-
                         <div class="forum-note">
                             <b>{{ 'Bitte halte dich an die Regeln:'|trans({},'global') }}</b>
                             <ul>
@@ -76,8 +101,6 @@
                                 <li>{{ 'Werbung ist verboten (Links etc.)'|trans({},'global') }}</li>
                             </ul>
                         </div>
-
-
                     </div>
                     <div id="forum-editor">
 
@@ -104,7 +127,7 @@
                 })            
         {% endif %}
 
-        let thread_buttons = document.querySelectorAll('[x-thread-id');
+        let thread_buttons = document.querySelectorAll('[x-thread-id]');
         for (let i = 0; i < thread_buttons.length; i++)
             thread_buttons[i].addEventListener('click', function() {
                 for (let j = 0; j < thread_buttons.length; j++) thread_buttons[j].classList.remove('selected');

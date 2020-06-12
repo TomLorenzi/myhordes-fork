@@ -58,7 +58,6 @@ class CitizenFixtures extends Fixture implements DependentFixtureInterface
         ['name' => 'wound4', 'label' => 'Verwundung - Bein', 'description' => 'Du bist an deinen Beinen verletzt! Essen, trinken und Ausruhen wird dir 1AP weniger verschaffen.'],
         ['name' => 'wound5', 'label' => 'Verwundung - Auge', 'description' => 'Du bist an den Augen verletzt! Essen, trinken und Ausruhen wird dir 1AP weniger verschaffen.'],
         ['name' => 'wound6', 'label' => 'Verwundung - Fuß', 'description' => 'Du bist am Fuß verletzt! Essen, trinken und Ausruhen wird dir 1AP weniger verschaffen.'],
-        ['name' => 'ghul', 'label' => 'Ghul', 'description' => 'Endlich kannst du deine Schwiegermutter loswerden!'],
         ['name' => 'healed', 'label' => 'Bandagiert', 'description' => 'Du hast dich bereits von einer Verletzung erholt. Du kannst heute nicht erneut geheilt werden.'],
 
         ['name' => 'tg_dice' ],
@@ -74,6 +73,9 @@ class CitizenFixtures extends Fixture implements DependentFixtureInterface
         ['name' => 'tg_hero'],
         ['name' => 'tg_chk_forum'],
         ['name' => 'tg_chk_active'],
+        ['name' => 'tg_chk_workshop'],
+        ['name' => 'tg_chk_build'],
+        ['name' => 'tg_chk_movewb'],
         ['name' => 'tg_hide'],
         ['name' => 'tg_tomb'],
         ['name' => 'tg_home_clean'],
@@ -82,10 +84,13 @@ class CitizenFixtures extends Fixture implements DependentFixtureInterface
         ['name' => 'tg_home_heal_2'],
         ['name' => 'tg_home_defbuff'],
         ['name' => 'tg_rested' ],
-        ['name' => 'tg_immune' ],
+        ['name' => 'tg_shaman_immune' ],
         ['name' => 'tg_shaman_heal' ],
         ['name' => 'tg_ghoul_eat' ],
         ['name' => 'tg_no_hangover' ],
+        ['name' => 'tg_ghoul_corpse' ],
+        ['name' => 'tg_betadrug' ],
+        ['name' => 'tg_build_vote' ],
     ];
 
     public static $causes_of_death = [

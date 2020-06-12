@@ -202,6 +202,10 @@ class ExpandedPhpExtractor extends PhpExtractor
 
                 if ($messages) {
                     foreach ($messages as $message) {
+                        if(empty($message)) {
+                            echo "Empty string detected : $normalizedFilename:{$tokens[$key][2]}\n";
+                            continue;
+                        }
                         $catalog->set($message, $this->prefix.$message, $domain);
                         $metadata = $catalog->getMetadata($message, $domain) ?? [];
                         $normalizedFilename = preg_replace('{[\\\\/]+}', '/', $filename);

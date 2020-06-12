@@ -60,6 +60,11 @@ class CitizenHome
      */
     private $holdsBody = false;
 
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $recycling = 0;
+
     public function __construct()
     {
         $this->citizenHomeUpgrades = new ArrayCollection();
@@ -186,6 +191,18 @@ class CitizenHome
     public function setHoldsBody(bool $holdsBody): self
     {
         $this->holdsBody = $holdsBody;
+
+        return $this;
+    }
+
+    public function getRecycling(): ?int
+    {
+        return $this->recycling;
+    }
+
+    public function setRecycling(?int $recycling): self
+    {
+        $this->recycling = $recycling;
 
         return $this;
     }

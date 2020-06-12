@@ -10,6 +10,7 @@ use App\Entity\CitizenHomeUpgrade;
 use App\Entity\CitizenHomeUpgradePrototype;
 use App\Entity\CitizenProfession;
 use App\Entity\CitizenStatus;
+use App\Entity\HeroSkillPrototype;
 use App\Entity\Inventory;
 use App\Entity\Item;
 use App\Entity\ItemGroup;
@@ -30,18 +31,21 @@ class InventoryHandler
     private $entity_manager;
     private $item_factory;
     private $bankAbuseService;
-    public function __construct( ContainerInterface $c, EntityManagerInterface $em, ItemFactory $if, BankAntiAbuseService $bankAntiAbuseService)
+    private $user_handler;
+    public function __construct( ContainerInterface $c, EntityManagerInterface $em, ItemFactory $if, BankAntiAbuseService $bankAntiAbuseService, UserHandler $uh)
     {
         $this->entity_manager = $em;
         $this->item_factory = $if;
         $this->container = $c;
         $this->bankAbuseService = $bankAntiAbuseService;
+        $this->user_handler = $uh;
     }
 
     public function getSize( Inventory $inventory ): int {
         if ($inventory->getCitizen()) {
             $hero = $inventory->getCitizen()->getProfession() && $inventory->getCitizen()->getProfession()->getHeroic();
-            $base = 4 + $this->countEssentialItems( $inventory ) + ($hero ? 1 : 0);
+            $base = 4 + $this->countEssentialItems($inventory) + ($hero ? 1 : 0);
+
             if (
                 !empty($this->fetchSpecificItems( $inventory, [ new ItemRequest( 'bagxl_#00' ) ] )) ||
                 !empty($this->fetchSpecificItems( $inventory, [ new ItemRequest( 'cart_#00' ) ] ))
@@ -52,6 +56,9 @@ class InventoryHandler
 
             if (!empty($this->fetchSpecificItems( $inventory, [ new ItemRequest( 'pocket_belt_#00' ) ] )))
                 $base += 2;
+
+            if($hero && $this->user_handler->hasSkill($inventory->getCitizen()->getUser(), 'largerucksack1'))
+                $base += 1;
 
             return $base;
         }
@@ -282,7 +289,7 @@ class InventoryHandler
 
         // Check if the inventory belongs to a house, and if the house is owned by the citizen
         if ($inventory->getHome() && $inventory->getHome()->getId() === $citizen->getHome()->getId())
-            return $citizen_is_at_home ? self::TransferTypeHome : self::TransferTypeImpound;
+            return $citizen_is_at_home ? self::TransferTypeHome : self::TransferTypeTamer;
 
         // Check if the inventory belongs to a house, and if the house is owned by a different citizen of the same town
         if ($inventory->getHome() && $inventory->getHome()->getId() !== $citizen->getHome()->getId() && $inventory->getHome()->getCitizen()->getTown()->getId() === $citizen->getTown()->getId())
@@ -300,7 +307,22 @@ class InventoryHandler
             return self::TransferTypeEscort;
 
         // Check if the inventory belongs to the citizens current zone
-        if ($inventory->getZone() && !$citizen_is_at_home && $inventory->getZone()->getId() === $citizen->getZone()->getId())
+        if ($inventory->getZone() && !$citizen_is_at_home &&
+            $inventory->getZone()->getId() === $citizen->getZone()->getId() && !$citizen->activeExplorerStats())
+            return self::TransferTypeLocal;
+
+        // Check if the inventory belongs to the citizens current ruin zone
+        if ($inventory->getRuinZone() && !$citizen_is_at_home &&
+            $inventory->getRuinZone()->getZone()->getId() === $citizen->getZone()->getId() &&
+            ($ex = $citizen->activeExplorerStats()) && !$ex->getInRoom() &&
+            $ex->getX() === $inventory->getRuinZone()->getX() && $ex->getY() === $inventory->getRuinZone()->getY()  )
+            return self::TransferTypeLocal;
+
+        // Check if the inventory belongs to the citizens current ruin room zone
+        if ($inventory->getRuinZoneRoom() && !$citizen_is_at_home &&
+            $inventory->getRuinZoneRoom()->getZone()->getId() === $citizen->getZone()->getId() &&
+            ($ex = $citizen->activeExplorerStats()) && $ex->getInRoom() &&
+            $ex->getX() === $inventory->getRuinZoneRoom()->getX() && $ex->getY() === $inventory->getRuinZoneRoom()->getY()  )
             return self::TransferTypeLocal;
 
         //ToDo: Check escort
@@ -371,7 +393,7 @@ class InventoryHandler
         ) return self::ErrorHeavyLimitHit;
 
         // Check Soul limit
-        $soul_name = array("soul_blue_#00", "soul_blue_#01");
+        $soul_name = array("soul_blue_#00", "soul_blue_#01", "soul_red_#00");
         if($type_to === self::TransferTypeRucksack && in_array($item->getPrototype()->getName(), $soul_name) &&
             !$actor->hasRole("shaman") && 
             $this->countSpecificItems($to, $item->getPrototype()) > 0){
@@ -435,7 +457,7 @@ class InventoryHandler
     public function placeItem( Citizen $citizen, Item $item, array $inventories, bool $force = false ): ?Inventory {
         $source = null;
         foreach ($inventories as $inventory)
-            if ($this->transferItem( $citizen, $item, $source, $inventory, $force ? self::ModalityEnforcePlacement : self::ModalityNone ) == self::ErrorNone)
+            if ($inventory && $this->transferItem( $citizen, $item, $source, $inventory, $force ? self::ModalityEnforcePlacement : self::ModalityNone ) == self::ErrorNone)
                 return $inventory;
         return null;
     }
