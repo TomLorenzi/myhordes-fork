@@ -1033,7 +1033,7 @@
       </notes>
       <segment>
         <source>Du hast dich umgebracht.</source>
-        <target>Du hast dich umgebracht.</target>
+        <target>You terminated your miserable existence.</target>
       </segment>
     </unit>
     <unit id="xkgfKms" name="Du gehörst keiner Stadt an.">
@@ -1042,7 +1042,7 @@
       </notes>
       <segment>
         <source>Du gehörst keiner Stadt an.</source>
-        <target>Du gehörst keiner Stadt an.</target>
+        <target>You do not belong to a Town.</target>
       </segment>
     </unit>
     <unit id="jnQ5tRO" name="Selbstmord begehen">
@@ -1051,7 +1051,7 @@
       </notes>
       <segment>
         <source>Selbstmord begehen</source>
-        <target>Selbstmord begehen</target>
+        <target>Commit Suicide</target>
       </segment>
     </unit>
   </file>

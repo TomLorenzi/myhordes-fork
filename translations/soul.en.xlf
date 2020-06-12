@@ -624,8 +624,8 @@
       <segment>
         <source>Wähle aus, welcher Teil deines Profilbilds für die komprimierte Darstellung verwendet werden soll.
                                             Bewege den Ausschnitt mit der Maus und vergrößere oder verkleinere ihn mit dem Mausrad.</source>
-        <target>Wähle aus, welcher Teil deines Profilbilds für die komprimierte Darstellung verwendet werden soll.
-                                            Bewege den Ausschnitt mit der Maus und vergrößere oder verkleinere ihn mit dem Mausrad.</target>
+        <target>Choose which part of your profile picture should be used for the compressed display.
+                                            Move the section with the mouse and enlarge or reduce it with the mouse wheel.</target>
       </segment>
     </unit>
   </file>
