@@ -105,7 +105,7 @@ class GhostController extends AbstractController implements GhostInterfaceContro
      * @param EntityManagerInterface $em
      * @return Response
      */
-    public function process_create_town(JSONRequestParser $parser, EntityManagerInterface $em, ConfMaster $conf, UserHandler $uh): Response
+    public function process_create_town(JSONRequestParser $parser, EntityManagerInterface $em, ConfMaster $conf, UserHandler $uh, GameFactory $gf, LogTemplateHandler $log): Response
     {
         /** @var User $user */
         $user = $this->getUser();
@@ -115,10 +115,81 @@ class GhostController extends AbstractController implements GhostInterfaceContro
             return AjaxResponse::success( true, ['url' => $this->generateUrl('soul_death')] );
 
         if(!$uh->hasSkill($user, 'mayor')){
-            return AjaxResponse::success( true, ['url' => $this->generateUrl('initial_landing')] );
+            return AjaxResponse::success( false, ['url' => $this->generateUrl('initial_landing')] );
         }
 
-        
+        $townname = $parser->get('townName', '');
+        $password = $parser->get('password', '');
+        $lang = $parser->get('lang', '');
+        $townType = $parser->get('townType', '');
+        $ghoulType = $parser->get('ghoulType', '');
+        $well = $parser->get('well', '');
+        $disablexml = $parser->get('disablexml', '');
+        $rules = $parser->get('rules', '');
+        $ruins = $parser->get('ruins', '');
+        $shaman = $parser->get('shaman', '');
+        $escorts = $parser->get('escorts', '');
+        $shunned = $parser->get('shunned', '');
+        $nightmode = $parser->get('nightmode', '');
+        $camp = $parser->get('camp', '');
+        $ghouls = $parser->get('ghouls', '');
+        $buildingdamages = $parser->get('buildingdamages', '');
+        $nightwatch = $parser->get('nightwatch', '');
+        $improveddump = $parser->get('improveddump', '');
+        $attacks = $parser->get('attacks', '');
+        $allpictos = $parser->get('allpictos', '');
+        $allsoulpoints = $parser->get('allsoulpoints', '');
+
+        $customConf = [];
+        if(!empty($well) && is_numeric($well) && $well <= 300){
+            $customConf[TownConf::CONF_WELL_MIN] = $well;
+            $customConf[TownConf::CONF_WELL_MAX] = $well;
+        }
+
+        // $customConf[TownConf::CONF_FEATURE_XML] = !$disablexml;
+        // $customConf[TownConf::CONF_FEATURE_GHOUL_MODE] = $ghoulType;
+        switch($rules) {
+            case 'nobuilding':
+                $customConf[TownConf::CONF_BUILDINGS_UNLOCKED] = [];
+                break;
+            case 'poison':
+                // $customConf[TownConf::CONF_FEATURE_ALL_POISON] = true;
+                break;
+        }
+
+        $customConf[TownConf::CONF_FEATURE_NIGHTMODE] = $nightmode;
+        if (!$ruins) $customConf[TownConf::CONF_NUM_EXPLORABLE_RUINS] = 0;
+        //$customConf[TownConf::CONF_SHAMAN_ROLE] = $shaman;
+        $customConf[TownConf::CONF_FEATURE_ESCORT] = $escorts;
+        //$customConf[TownConf::CONF_FEATURE_SHUN] = $shunned;
+        $customConf[TownConf::CONF_FEATURE_NIGHTMODE] = $nightmode;
+        $customConf[TownConf::CONF_FEATURE_CAMPING] = $camp;
+        // $customConf[TownConf::CONF_FEATURE_GHOUL] = $ghouls;
+        // $customConf[TownConf::CONF_FEATURE_NIGHTWATCH] = $nightwatch;
+        // $customConf[TownConf::CONF_FEATURE_IMPROVEDDUMP] = $improveddump;
+        // $customConf[TownConf::CONF_FEATURE_ATTACKS] = $attacks;
+        // $customConf[TownConf::CONF_FEATURE_GIVE_ALL_PICTOS] = $allpictos;
+        // $customConf[TownConf::CONF_FEATURE_GIVE_SOULPOINTS] = $allsoulpoints;
+
+        $town = $gf->createTown($townname, $lang, null, 'custom', $customConf);
+        $town->setPassword($password);
+        $em->persist($town);
+
+        $citizen = $gf->createCitizen($town, $user, $error);
+        if (!$citizen) return AjaxResponse::error($error);
+        try {
+            $em->persist($citizen);
+            $em->flush();
+        } catch (Exception $e) {
+            return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
+        }
+
+        $em->persist( $log->citizenJoin( $citizen ) );
+        try {
+            $em->flush();
+        } catch (Exception $e) {
+            return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
+        }
 
         return AjaxResponse::success( true, ['url' => $this->generateUrl('game_jobs')] );
     }
@@ -196,7 +267,6 @@ class GhostController extends AbstractController implements GhostInterfaceContro
                     for($i = 0 ; $i < $minOpenTown[$townClass] - $openCount ; $i++){
                         $newTown = $factory->createTown(null, $townLang, null, $townClass);
                         $em->persist($newTown);
-                        $em->flush();
                     }
                 }
             }

@@ -46,6 +46,7 @@ class TownConf extends Conf
     const CONF_MODIFIER_BONES_IN_TOWN        = 'modifiers.meaty_bones_within_town';
 
     const CONF_FEATURE_CAMPING        = 'features.camping';
+    const CONF_FEATURE_NIGHTMODE      = 'features.nightmode';
     const CONF_FEATURE_WORDS_OF_HEROS = 'features.words_of_heros';
     const CONF_FEATURE_ESCORT         = 'features.escort.enabled';
     const CONF_FEATURE_ESCORT_SIZE    = 'features.escort.max';

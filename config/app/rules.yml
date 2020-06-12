@@ -68,6 +68,7 @@ parameters:
         escort:
           enabled: true
           max: 4
+        nightmode: true
 
     small:
       map:  { min: 12, max: 14 }

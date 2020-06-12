@@ -24,6 +24,20 @@
 
                     <div class="row">
                         <div class="cell padded rw-4 note note-lightest">
+                            <label for="lang">{{'Sprache'|trans({}, 'global')}}</label>
+                        </div>
+                        <div class="cell padded rw-8">
+                            <select name="lang" id="lang">
+                                <option value="de" {% if app.user.language == 'de' %}selected{% endif %}>{{ 'Deutsch'|trans({}, 'global') }}</option>
+                                <option value="en" {% if app.user.language == 'en' %}selected{% endif %}>{{ 'Englisch'|trans({}, 'global') }}</option>
+                                <option value="fr" {% if app.user.language == 'fr' %}selected{% endif %}>{{ 'Französisch'|trans({}, 'global') }}</option>
+                                <option value="es" {% if app.user.language == 'es' %}selected{% endif %}>{{ 'Spanisch'|trans({}, 'global') }}</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="cell padded rw-4 note note-lightest">
                             <label for="password">{{'Zugangscode'|trans({}, 'ghost')}}</label>
                         </div>
                         <div class="cell padded rw-8">
@@ -50,9 +64,9 @@
                         </div>
                         <div class="cell padded rw-8">
                             <select name="ghoulType" id="ghoulType">
-                                <option value="0" title="{{'Je nach gewähltem Stadttyp erscheinen Ghule nach den üblichen Regeln.'|trans({}, 'ghost')}}">{{'Normal'|trans({}, 'ghost')}}</option>
-                                <option value="1" title="{{'Das Auftreten von Ghulen wird nicht geändert. Allerdings kann ein Ghul seinen Hunger nur stillen, indem er einen Mitbürger verspeist.'|trans({}, 'ghost')}}">{{'Blutdurst'|trans({}, 'ghost')}}</option>
-                                <option value="2" title="{{'Es erscheint zwar kein Ghul um Mitternacht. Dafür können andere Ereignisse das Auftreten von Ghulen auslösen.'|trans({}, 'ghost')}}">{{'Stadt der Kuscheltiere'|trans({}, 'ghost')}}</option>
+                                <option value="normal" title="{{'Je nach gewähltem Stadttyp erscheinen Ghule nach den üblichen Regeln.'|trans({}, 'ghost')}}">{{'Normal'|trans({}, 'ghost')}}</option>
+                                <option value="bloodthirst" title="{{'Das Auftreten von Ghulen wird nicht geändert. Allerdings kann ein Ghul seinen Hunger nur stillen, indem er einen Mitbürger verspeist.'|trans({}, 'ghost')}}">{{'Blutdurst'|trans({}, 'ghost')}}</option>
+                                <option value="childtown" title="{{'Es erscheint zwar kein Ghul um Mitternacht. Dafür können andere Ereignisse das Auftreten von Ghulen auslösen.'|trans({}, 'ghost')}}">{{'Stadt der Kuscheltiere'|trans({}, 'ghost')}}</option>
                             </select>
                         </div>
                         <div class="cell padded rw-12">
@@ -88,7 +102,7 @@
                         </div>
                         <div class="cell padded rw-8">
                             <select id="rules" name="rules" multiple>
-                                <option value="none" title="{{'Keine Spezialregeln'|trans({}, 'ghost')}}">{{'Keine'|trans({}, 'ghost')}}</option>
+                                <option value="none" title="{{'Keine Spezialregeln'|trans({}, 'ghost')}}" selected>{{'Keine'|trans({}, 'ghost')}}</option>
                                 <option value="nobuilding" title="{{'Kein Gebäude ist zu Beginn freigeschaltet. Alle müssen in der Aussenwelt gefunden werden!'|trans({}, 'ghost')}}">{{'Keine Startgebäude'|trans({}, 'ghost')}}</option>
                                 <option value="poison" title="{{'Jedes Essen und jede Droge, die du zu dir nimmst, birgt ein geringes Infektionsrisiko.'|trans({}, 'ghost')}}">{{'Kontaminierte Zone'|trans({}, 'ghost')}}</option>
                             </select>
@@ -98,7 +112,7 @@
                     <h5>{{'Stadtmodifikationen'|trans({}, 'ghost')}}</h5>
                     <div class="row">
                         <div class="cell rw-12 mod">
-                            <input type="checkbox" name="etl" id="etl" checked/> <label for="etl"><strong>{{'Exploration:'|trans({}, 'ghost')}}</strong> {{'Begehbare Ruinen aktivieren'|trans({}, 'ghost')}}</label>
+                            <input type="checkbox" name="explorableruins" id="explorableruins" checked/> <label for="explorableruins"><strong>{{'Exploration:'|trans({}, 'ghost')}}</strong> {{'Begehbare Ruinen aktivieren'|trans({}, 'ghost')}}</label>
                         </div>
                         <div class="cell rw-12 mod">
                             <input type="checkbox" name="shaman" id="shaman" checked/> <label for="shaman"><strong>{{'Seelen & Schamane:'|trans({}, 'ghost')}}</strong> {{'Verlorene Seelen und Schamanen aktivieren'|trans({}, 'ghost')}}</label>
@@ -203,6 +217,37 @@
                 return;
 
             let payload = {};
+            {% if is_granted('ROLE_CROW') %}
+            payload.townName = document.getElementById('townname').value;
+            {% endif %}
+            payload.password        = document.getElementById("password").value;
+            payload.lang            = document.getElementById("lang").value;
+            payload.townType        = document.getElementById("type").value;
+            payload.ghoulType       = document.getElementById('ghoulType').value;
+
+            payload.well            = document.getElementById('water').value;
+
+            payload.disablexml      = document.getElementById('disablexml').checked;
+
+            payload.rules           = document.getElementById('rules').value;
+
+            payload.ruins           = document.getElementById('explorableruins').checked;
+            payload.shaman          = document.getElementById('shaman').checked;
+            payload.escorts         = document.getElementById('escorts').checked;
+            payload.shunned         = document.getElementById('shunned').checked;
+            payload.nightmode       = document.getElementById('nightmode').checked;
+            payload.camp            = document.getElementById('camp').checked;
+            payload.ghouls          = document.getElementById('ghouls').checked;
+            payload.buildingdamages = document.getElementById('buildingdamages').checked;
+            payload.nightwatch      = document.getElementById('nightwatch').checked;
+            payload.improveddump    = document.getElementById('improveddump').checked;
+
+            payload.attacks         = document.getElementById('attack').value;
+
+            {% if is_granted('ROLE_CROW') %}
+            payload.allpictos = document.getElementById('allpictos').checked;
+            payload.allsoulpoints = document.getElementById('allsoulpoints').checked;
+            {% endif %}
 
             $.ajax.send( '{{ path('ghost_process_create_town') }}', payload,
                 function () {

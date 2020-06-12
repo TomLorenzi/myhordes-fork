@@ -544,42 +544,6 @@
         <target>Langue par défaut</target>
       </segment>
     </unit>
-    <unit id="gBz_D6E" name="Deutsch">
-      <notes>
-        <note category="german">Deutsch</note>
-      </notes>
-      <segment>
-        <source>Deutsch</source>
-        <target>Allemand</target>
-      </segment>
-    </unit>
-    <unit id="vp_4VdN" name="Französisch">
-      <notes>
-        <note category="german">Französisch</note>
-      </notes>
-      <segment>
-        <source>Französisch</source>
-        <target>Français</target>
-      </segment>
-    </unit>
-    <unit id="mD6lfyI" name="Englisch">
-      <notes>
-        <note category="german">Englisch</note>
-      </notes>
-      <segment>
-        <source>Englisch</source>
-        <target>Anglais</target>
-      </segment>
-    </unit>
-    <unit id="bjgV6Xr" name="Spanisch">
-      <notes>
-        <note category="german">Spanisch</note>
-      </notes>
-      <segment>
-        <source>Spanisch</source>
-        <target>Espagnol</target>
-      </segment>
-    </unit>
     <unit id="3RZ5Bd4" name="Version">
       <notes>
         <note category="german">Version</note>

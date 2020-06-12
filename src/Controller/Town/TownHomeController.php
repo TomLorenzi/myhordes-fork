@@ -412,7 +412,6 @@ class TownHomeController extends TownController
      */
     public function suicid(AdminActionHandler $admh): Response
     {
-        file_put_contents("/tmp/dump.txt", "Let's suicide !\n");
         $message = $admh->suicid($this->getUser()->getId());
         $this->addFlash('notice', $message);
         return AjaxResponse::success();
