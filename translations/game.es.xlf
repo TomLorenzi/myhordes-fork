@@ -1885,9 +1885,9 @@
         <note>Stadt</note>
         <note category="german">Stadt</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Stadt</source>
-        <target>Stadt</target>
+        <target>Pueblo</target>
       </segment>
     </unit>
     <unit id="uq5UdLr" name="Mein Haus">

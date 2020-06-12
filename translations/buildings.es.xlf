@@ -658,7 +658,7 @@
       </notes>
       <segment state="translated">
         <source>Der Brunnen der Stadt wird einmalig um 5 Rationen Wasser aufgefüllt</source>
-        <target>Añade 5 raciones de agua al pozo (una sola vez).</target>
+        <target>Añade 20 raciones de agua al pozo (una sola vez).</target>
       </segment>
     </unit>
     <unit id="1gviUPR" name="Der Brunnen der Stadt wird einmalig um 20 Rationen Wasser aufgefüllt">
@@ -3449,7 +3449,7 @@
       <notes>
         <note category="german">Die Verteidigung der Stadt wird um 12% erhöht.</note>
       </notes>
-      <segment>
+      <segment state="translated" subState="poedit:fuzzy">
         <source>Die Verteidigung der Stadt wird um 12% erhöht.</source>
         <target>Die Verteidigung der Stadt wird um 12% erhöht.</target>
       </segment>
@@ -3458,7 +3458,7 @@
       <notes>
         <note category="german">Die Verteidigung der Stadt wird um 14% erhöht.</note>
       </notes>
-      <segment>
+      <segment state="translated" subState="poedit:fuzzy">
         <source>Die Verteidigung der Stadt wird um 14% erhöht.</source>
         <target>Die Verteidigung der Stadt wird um 14% erhöht.</target>
       </segment>
@@ -3467,7 +3467,7 @@
       <notes>
         <note category="german">Zaun (Baustellen)</note>
       </notes>
-      <segment>
+      <segment state="translated" subState="poedit:fuzzy">
         <source>Zaun (Baustellen)</source>
         <target>Zaun (Baustellen)</target>
       </segment>
@@ -3476,7 +3476,7 @@
       <notes>
         <note category="german">Die AP-Kosten aller Bauprojekte werden um 20% gesenkt. Erhöht die Effektivität von Reparaturen um einen Punkt.</note>
       </notes>
-      <segment>
+      <segment state="translated" subState="poedit:fuzzy">
         <source>Die AP-Kosten aller Bauprojekte werden um 20% gesenkt. Erhöht die Effektivität von Reparaturen um einen Punkt.</source>
         <target>Die AP-Kosten aller Bauprojekte werden um 20% gesenkt. Erhöht die Effektivität von Reparaturen um einen Punkt.</target>
       </segment>
@@ -3485,7 +3485,7 @@
       <notes>
         <note category="german">Die AP-Kosten aller Bauprojekte werden um 25% gesenkt. Erhöht die Effektivität von Reparaturen um zwei Punkte.</note>
       </notes>
-      <segment>
+      <segment state="translated" subState="poedit:fuzzy">
         <source>Die AP-Kosten aller Bauprojekte werden um 25% gesenkt. Erhöht die Effektivität von Reparaturen um zwei Punkte.</source>
         <target>Die AP-Kosten aller Bauprojekte werden um 25% gesenkt. Erhöht die Effektivität von Reparaturen um zwei Punkte.</target>
       </segment>
@@ -3494,7 +3494,7 @@
       <notes>
         <note category="german">Zaun (Haus)</note>
       </notes>
-      <segment>
+      <segment state="translated" subState="poedit:fuzzy">
         <source>Zaun (Haus)</source>
         <target>Zaun (Haus)</target>
       </segment>

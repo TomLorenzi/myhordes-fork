@@ -76,9 +76,9 @@
         <note>Du ziehst eine Karte... und stellst fest, dass du die Karte mit den Spielregeln gezogen hast! Das erheitert dich so sehr, dass du 1AP gewinnst.</note>
         <note category="german">Du ziehst eine Karte... und stellst fest, dass du die Karte mit den Spielregeln gezogen hast! Das erheitert dich so sehr, dass du 1AP gewinnst.</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Du ziehst eine Karte... und stellst fest, dass du die Karte mit den Spielregeln gezogen hast! Das erheitert dich so sehr, dass du 1AP gewinnst.</source>
-        <target>texto cartas 3</target>
+        <target>Lanzas la carta... en la cual están escritas las reglas del juego. Al menos ganas 1 PA.</target>
       </segment>
     </unit>
     <unit id="kPlE9C6" name="0460ff2">
@@ -366,9 +366,9 @@
         <note>Staubiges Buch</note>
         <note category="german">Staubiges Buch</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Staubiges Buch</source>
-        <target>Staubiges Buch</target>
+        <target>Libro empolvado</target>
       </segment>
     </unit>
     <unit id="CFknR4n" name="Matratze">
@@ -576,7 +576,7 @@
         <note>Zeltplane</note>
         <note category="german">Zeltplane</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Zeltplane</source>
         <target>Tela de carpa</target>
       </segment>
@@ -836,7 +836,7 @@
         <note>Großer Metallkoffer</note>
         <note category="german">Großer Metallkoffer</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Großer Metallkoffer</source>
         <target>Gran cofre de metal</target>
       </segment>
@@ -1876,7 +1876,7 @@
         <note>Ein Briefumschlag</note>
         <note category="german">Ein Briefumschlag</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Ein Briefumschlag</source>
         <target>Un sobre</target>
       </segment>
@@ -2306,9 +2306,9 @@
         <note>Aasbeerenbrei</note>
         <note category="german">Aasbeerenbrei</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Aasbeerenbrei</source>
-        <target>Puré de hongos</target>
+        <target>Puré de hongos carroñeros</target>
       </segment>
     </unit>
     <unit id="cbLBQdq" name="Eisengefäß mit modrigem Wasser">
@@ -2316,7 +2316,7 @@
         <note>Eisengefäß mit modrigem Wasser</note>
         <note category="german">Eisengefäß mit modrigem Wasser</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Eisengefäß mit modrigem Wasser</source>
         <target>Agua estancada</target>
       </segment>
@@ -2516,7 +2516,7 @@
         <note>Normaler Bauplan (ungewöhnlich)</note>
         <note category="german">Normaler Bauplan (ungewöhnlich)</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Normaler Bauplan (ungewöhnlich)</source>
         <target>Plano de construcción (inusual)</target>
       </segment>
@@ -3086,9 +3086,9 @@
         <note>Mutterkorn</note>
         <note category="german">Mutterkorn</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Mutterkorn</source>
-        <target>Claviceps purpurea</target>
+        <target>Claviceps Purpurea</target>
       </segment>
     </unit>
     <unit id="OPGDZvS" name="Korn-Bräu">
@@ -3256,7 +3256,7 @@
         <note>Ein Etikett</note>
         <note category="german">Ein Etikett</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Ein Etikett</source>
         <target>Una etiqueta</target>
       </segment>
@@ -3298,7 +3298,7 @@
       </notes>
       <segment state="translated">
         <source>Tarnanzug (abgelegt)</source>
-        <target>Camuflaje eliminado</target>
+        <target>Camuflaje (inactivo)</target>
       </segment>
     </unit>
     <unit id="zozlCDV" name="Kleine Schaufel">
@@ -3336,9 +3336,9 @@
         <note>Dreibeiniger Malteser (erschöpft)</note>
         <note category="german">Dreibeiniger Malteser (erschöpft)</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Dreibeiniger Malteser (erschöpft)</source>
-        <target>Bichón maltés de 3 patas</target>
+        <target>Bichón maltés cansado</target>
       </segment>
     </unit>
     <unit id="iZtaOjI" name="Survivalbuch">
@@ -3416,9 +3416,9 @@
         <note>Hierfür brauchst du eine Ration Wasser.</note>
         <note category="german">Hierfür brauchst du eine Ration Wasser.</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Hierfür brauchst du eine Ration Wasser.</source>
-        <target>Hierfür brauchst du eine Ration Wasser.</target>
+        <target>Necesitas agua pura (la de una ración de agua, por ejemplo).</target>
       </segment>
     </unit>
     <unit id="vDhaMLU" name="Öffnen">
@@ -3526,9 +3526,9 @@
         <note>Hierfür brauchst du eine Batterie.</note>
         <note category="german">Hierfür brauchst du eine Batterie.</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Hierfür brauchst du eine Batterie.</source>
-        <target>Hierfür brauchst du eine Batterie.</target>
+        <target>Para esto necesitas una pila.</target>
       </segment>
     </unit>
     <unit id="Slr2fME" name="Hierfür brauchst du einen Kanister.">
@@ -3866,9 +3866,9 @@
         <note>Losschicken</note>
         <note category="german">Losschicken</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Losschicken</source>
-        <target>texto domador 1</target>
+        <target>Enviar</target>
       </segment>
     </unit>
     <unit id="l2NsvcD" name="Du hast den {item} mit deinen Gegenständen in die Stadt geschickt.">
@@ -3876,9 +3876,9 @@
         <note>Du hast den {item} mit deinen Gegenständen in die Stadt geschickt.</note>
         <note category="german">Du hast den {item} mit deinen Gegenständen in die Stadt geschickt.</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Du hast den {item} mit deinen Gegenständen in die Stadt geschickt.</source>
-        <target>texto domador 2</target>
+        <target>Envías a {item} con dirección al pueblo llevando todo el contenido de tu mochila.</target>
       </segment>
     </unit>
     <unit id="AYQyaTb" name="Dopen">
@@ -3888,7 +3888,7 @@
       </notes>
       <segment state="translated" subState="poedit:fuzzy">
         <source>Dopen</source>
-        <target>texto domador 3</target>
+        <target>Drogar</target>
       </segment>
     </unit>
     <unit id="ok9rcgr" name="Du hast den {item} mit einem {items_consume} ordentlich aufgeputscht!">
@@ -3906,9 +3906,9 @@
         <note>Hierfür brauchst du ein Steroid.</note>
         <note category="german">Hierfür brauchst du ein Steroid.</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Hierfür brauchst du ein Steroid.</source>
-        <target>texto domador 4</target>
+        <target>Necesitas esteroides para esto.</target>
       </segment>
     </unit>
     <unit id="9Wgu8lv" name="Wasser suchen">
@@ -3936,9 +3936,9 @@
         <note>Tarnen</note>
         <note category="german">Tarnen</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Tarnen</source>
-        <target>texto explorador 1</target>
+        <target>Camuflarse con</target>
       </segment>
     </unit>
     <unit id="zSZ7bky" name="Du bist nun getarnt.">
@@ -3946,9 +3946,9 @@
         <note>Du bist nun getarnt.</note>
         <note category="german">Du bist nun getarnt.</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Du bist nun getarnt.</source>
-        <target>texto explorador 2</target>
+        <target>Ahora estás camuflado.</target>
       </segment>
     </unit>
     <unit id="1Qhkwmq" name="Äußerst erfrischend, und sogar mit einer leichten Note von Cholera.">
@@ -4326,9 +4326,9 @@
         <note>Ein altes Buch, dessen Seiten größtenteils zerrissen oder verklebt sind. Ein paar sind jedoch lesbar...</note>
         <note category="german">Ein altes Buch, dessen Seiten größtenteils zerrissen oder verklebt sind. Ein paar sind jedoch lesbar...</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Ein altes Buch, dessen Seiten größtenteils zerrissen oder verklebt sind. Ein paar sind jedoch lesbar...</source>
-        <target>texto libro empolvado</target>
+        <target>Un viejo libro cuyas páginas están rotas o pegadas entre ellas por la humedad. a veces es posible leer algo interesante entre ellas...</target>
       </segment>
     </unit>
     <unit id="DzpwuWL" name="ZZzzzz ... Quietsch ... ZZzzzz ... Quietsch">
@@ -4526,9 +4526,9 @@
         <note>Eine große, solide Zeltplane, die auch noch wasserdicht ist. Sie eignet sich bestens dazu die Löcher in deinem Hausdach zu schließen. ANMERKUNG: Dieser Gegenstand ist für die Verbesserung deines Hauses zwingend vorgeschrieben.</note>
         <note category="german">Eine große, solide Zeltplane, die auch noch wasserdicht ist. Sie eignet sich bestens dazu die Löcher in deinem Hausdach zu schließen. ANMERKUNG: Dieser Gegenstand ist für die Verbesserung deines Hauses zwingend vorgeschrieben.</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Eine große, solide Zeltplane, die auch noch wasserdicht ist. Sie eignet sich bestens dazu die Löcher in deinem Hausdach zu schließen. ANMERKUNG: Dieser Gegenstand ist für die Verbesserung deines Hauses zwingend vorgeschrieben.</source>
-        <target>texto tela de carpa</target>
+        <target>Una tela muy resistente e impermeable. Ideal pasar la noche afuera (sin olvidar los bichos, zombies, enfermedades, tormentas y el frío). Aumenta tus posibilidades de sobrevivir al acampar, debes llevarla contigo para recibir el bonus.</target>
       </segment>
     </unit>
     <unit id="GSxglCR" name="cd630c4">
@@ -4776,9 +4776,9 @@
         <note>Der Koffer ist wirklich schwer und enthält bestimmt etwas Wertvolles....Jetzt musst du nur noch das passende Werkzeug finden, denn mit deinen Zähnen bekommst du das nicht auf.</note>
         <note category="german">Der Koffer ist wirklich schwer und enthält bestimmt etwas Wertvolles....Jetzt musst du nur noch das passende Werkzeug finden, denn mit deinen Zähnen bekommst du das nicht auf.</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Der Koffer ist wirklich schwer und enthält bestimmt etwas Wertvolles....Jetzt musst du nur noch das passende Werkzeug finden, denn mit deinen Zähnen bekommst du das nicht auf.</source>
-        <target>texto gran cofre de metal</target>
+        <target>Pesa mucho y seguramente contiene algo precioso... Encuentra algo mejor que tus dientes para abrirlo.</target>
       </segment>
     </unit>
     <unit id="iL5UyHl" name="Diese alte Holzkiste enthält sicher ein paar brauchbare Kleinigkeiten...">
@@ -4788,7 +4788,7 @@
       </notes>
       <segment state="translated">
         <source>Diese alte Holzkiste enthält sicher ein paar brauchbare Kleinigkeiten...</source>
-        <target>Esta vieja caja de madera contiene seguramente cosas útiles...</target>
+        <target>Esta vieja caja de madera seguramente contiene cosas útiles...</target>
       </segment>
     </unit>
     <unit id="t3QyfRL" name="db15e81">
@@ -5709,7 +5709,7 @@
       </notes>
       <segment state="translated">
         <source>Dieser lustige Blech- und Holzverbund hat wohl einem anderen Einwohner als Schutz gedient. Den Beulen und Blutflecken nach zu urteilen, hat sie wohl nicht ganz gereicht...</source>
-        <target>Una estructura de madera y hierro que sirvió seguramente a un antiguo habitante. A juzgar por las manchas de sangre y golpes, no debió ser suficiente...</target>
+        <target>Una estructura de madera y hierro que seguramente sirvió a un antiguo habitante. A juzgar por las manchas de sangre y golpes, no debió ser suficiente...</target>
       </segment>
     </unit>
     <unit id="9TLvh0I" name="155be76">
@@ -5717,9 +5717,9 @@
         <note>Ein großer, versiegelter Briefumschlag ... Dem Tasten nach zu urteilen enthält er Papier oder doch etwas anderes?</note>
         <note category="german">Ein großer, versiegelter Briefumschlag ... Dem Tasten nach zu urteilen enthält er Papier oder doch etwas anderes?</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Ein großer, versiegelter Briefumschlag ... Dem Tasten nach zu urteilen enthält er Papier oder doch etwas anderes?</source>
-        <target>texto un sobre</target>
+        <target>Un gran sobre sellado conteniendo... papeles, tal vez.</target>
       </segment>
     </unit>
     <unit id="od7x1G6" name="f4f4ad8">
@@ -6047,9 +6047,9 @@
         <note>Dieser Brei stinkt wie die Pest, da die dafür verarbeiteten Beeren für gewöhnlich auf Kadavern wachsen. Wenn du vor einer akuten Infektion keine Angst hast könntest du ihn ja mal vorsichtig probieren. Vielleicht macht er ja satt?</note>
         <note category="german">Dieser Brei stinkt wie die Pest, da die dafür verarbeiteten Beeren für gewöhnlich auf Kadavern wachsen. Wenn du vor einer akuten Infektion keine Angst hast könntest du ihn ja mal vorsichtig probieren. Vielleicht macht er ja satt?</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Dieser Brei stinkt wie die Pest, da die dafür verarbeiteten Beeren für gewöhnlich auf Kadavern wachsen. Wenn du vor einer akuten Infektion keine Angst hast könntest du ihn ja mal vorsichtig probieren. Vielleicht macht er ja satt?</source>
-        <target>texto puré de hongos</target>
+        <target>Realmente esto apesta. Es una bola aplastada de hongos que crecieron en algún cadáver. Si no le tienes miedo a nada, ¿crees que esto podrá calmar tu hambre?</target>
       </segment>
     </unit>
     <unit id="IcBl.QP" name="d283e0f">
@@ -6057,9 +6057,9 @@
         <note>Dieser total verformte Eisenbehälter hat eine kleine Menge Wasser aufgefangen.Das Problem ist, das du es nicht trinken kannst, da es schmutzig ist. </note>
         <note category="german">Dieser total verformte Eisenbehälter hat eine kleine Menge Wasser aufgefangen.Das Problem ist, das du es nicht trinken kannst, da es schmutzig ist. </note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Dieser total verformte Eisenbehälter hat eine kleine Menge Wasser aufgefangen.Das Problem ist, das du es nicht trinken kannst, da es schmutzig ist. </source>
-        <target>texto agua estancada</target>
+        <target>Una pieza de metal oxidado ha conservado una pequeña cantidad de agua. El problema es que no es potable.</target>
       </segment>
     </unit>
     <unit id="1YNRrmV" name="4840e4e">
@@ -6317,9 +6317,9 @@
         <note>Dieser Schlüssel ist der Liebling aller Einbrecher und öffnet Türen so rasend schnell, dass man sich glatt fragt, warum man überhaupt noch normale Schlüssel benutzt. Leider ist der Schlüssel in einem so schlechten Zustand, dass er nur eine einzige Tür öffnet.</note>
         <note category="german">Dieser Schlüssel ist der Liebling aller Einbrecher und öffnet Türen so rasend schnell, dass man sich glatt fragt, warum man überhaupt noch normale Schlüssel benutzt. Leider ist der Schlüssel in einem so schlechten Zustand, dass er nur eine einzige Tür öffnet.</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Dieser Schlüssel ist der Liebling aller Einbrecher und öffnet Türen so rasend schnell, dass man sich glatt fragt, warum man überhaupt noch normale Schlüssel benutzt. Leider ist der Schlüssel in einem so schlechten Zustand, dass er nur eine einzige Tür öffnet.</source>
-        <target>texto llave de percusión</target>
+        <target>Esta llave, muy apreciada por los ladrones de casas, abre cualquier puerta en segundos. Entonces, ¿para qué sirven las llaves tradicionales? Desgraciadamente, su mal estado solo permite abrir una sola puerta.</target>
       </segment>
     </unit>
     <unit id="tXHEeaI" name="284ff3d">
@@ -6387,9 +6387,9 @@
         <note>Ein leckerer, essbarer Snack... zumindest war es das einmal. Auf dieser Brezel wurde herumgetreten, sie riecht, als würde sie in Benzin getränkt (leider zu wenig, um sie für den Panzer im Südwesten der Stadt zu verwenden - schade) und es scheint, als wäre sie als Hammer oder als Zuhause für einen Holzwurm verwendet zu sein. Auf jedenfall erinnert sie dich jetzt stark an Prinzessin Beatrices Hochzeitshut.</note>
         <note category="german">Ein leckerer, essbarer Snack... zumindest war es das einmal. Auf dieser Brezel wurde herumgetreten, sie riecht, als würde sie in Benzin getränkt (leider zu wenig, um sie für den Panzer im Südwesten der Stadt zu verwenden - schade) und es scheint, als wäre sie als Hammer oder als Zuhause für einen Holzwurm verwendet zu sein. Auf jedenfall erinnert sie dich jetzt stark an Prinzessin Beatrices Hochzeitshut.</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Ein leckerer, essbarer Snack... zumindest war es das einmal. Auf dieser Brezel wurde herumgetreten, sie riecht, als würde sie in Benzin getränkt (leider zu wenig, um sie für den Panzer im Südwesten der Stadt zu verwenden - schade) und es scheint, als wäre sie als Hammer oder als Zuhause für einen Holzwurm verwendet zu sein. Auf jedenfall erinnert sie dich jetzt stark an Prinzessin Beatrices Hochzeitshut.</source>
-        <target>texto de pretzel</target>
+        <target>Un delicioso bollo, o al menos lo fue una vez. Fue pisado, lamido y escupido y hasta usado para rascarse la espalda (algunos vellos pegados hacen pensar eso). Las larvas que le rodean se agitan, tan malo no debe ser. Alguna utilidad le encontrarás.</target>
       </segment>
     </unit>
     <unit id="2wt0mMv" name="dbc5ae1">
@@ -6519,7 +6519,7 @@
       </notes>
       <segment state="translated">
         <source>Das Kätzchen sieht ein wenig angefressen aus. Du solltest es besser nicht noch mehr reizen, es faucht ja jetzt schon.</source>
-        <target>Seguramente una mascota enguillida que logró escapar antes de ser totalmente digerida. Parece encolerizada, mejor mantener distancia.</target>
+        <target>Seguramente una mascota engullida que logró escapar antes de ser totalmente digerida. Parece encolerizada, mejor mantener distancia.</target>
       </segment>
     </unit>
     <unit id="lcMBOHL" name="8fb8264">
@@ -6637,9 +6637,9 @@
         <note>Manchmal finden wir Pilze auf Leichen nach deren Genuss man die merkwürdigsten Sachen von sich gibt. Es heißt, die Schäden am Gehirn seien irreparabel und dein aktueller Zustand könnte das sogar bestätigen...</note>
         <note category="german">Manchmal finden wir Pilze auf Leichen nach deren Genuss man die merkwürdigsten Sachen von sich gibt. Es heißt, die Schäden am Gehirn seien irreparabel und dein aktueller Zustand könnte das sogar bestätigen...</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Manchmal finden wir Pilze auf Leichen nach deren Genuss man die merkwürdigsten Sachen von sich gibt. Es heißt, die Schäden am Gehirn seien irreparabel und dein aktueller Zustand könnte das sogar bestätigen...</source>
-        <target>texto claviceps purpurea</target>
+        <target>Sobre los cadáveres suelen crecer hongos que provocan delirios muy graciosos. Dicen que su efecto es irreversible. Madre mía, a qué extremo has llegado...</target>
       </segment>
     </unit>
     <unit id="lVS8bQx" name="be2094c">
@@ -6707,9 +6707,9 @@
         <note>Bereit deine Hüften zu ein wenig Rock 'n' Roll zu schwingen? Diese Sammlung der besten Songs des King of Rock wird Stimmung in jede Party bringen.</note>
         <note category="german">Bereit deine Hüften zu ein wenig Rock 'n' Roll zu schwingen? Diese Sammlung der besten Songs des King of Rock wird Stimmung in jede Party bringen.</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Bereit deine Hüften zu ein wenig Rock 'n' Roll zu schwingen? Diese Sammlung der besten Songs des King of Rock wird Stimmung in jede Party bringen.</source>
-        <target>texto hits de elvis</target>
+        <target>¡A mover las caderas con El Rey del Rock and Roll!</target>
       </segment>
     </unit>
     <unit id="S9PlQ06" name="Beflügelt durch die Hits des Kings, bist du motivierter als jemals zuvor!">
@@ -6739,7 +6739,7 @@
       </notes>
       <segment state="translated">
         <source>Sie ist verdammt schwer und du bist dir fast sicher, dass da etwas nützliches drin ist... Aber erstmal brauchst du etwas um sie zu öffnen - zumindest etwas besseres als deine Zähne.</source>
-        <target>Es pesada y contiene seguramente algo valioso... Solo falta encontrar algo mejor que tus dientes para abrirla.</target>
+        <target>Es pesada y seguramente contiene algo valioso... Solo falta encontrar algo mejor que tus dientes para abrirla.</target>
       </segment>
     </unit>
     <unit id="xkCSr1b" name="6a0e5d7">
@@ -6787,9 +6787,9 @@
         <note>Ein Flaschenetikett... Auf der Rückseite ist es sogar beschrieben!</note>
         <note category="german">Ein Flaschenetikett... Auf der Rückseite ist es sogar beschrieben!</note>
       </notes>
-      <segment state="translated" subState="poedit:fuzzy">
+      <segment state="translated">
         <source>Ein Flaschenetikett... Auf der Rückseite ist es sogar beschrieben!</source>
-        <target>texto hoja de papel embarrada</target>
+        <target>Una etiqueta de tequila... ¡Hey, tiene algo escrito detrás!</target>
       </segment>
     </unit>
     <unit id="liDUE4L" name="811ca45">
@@ -7718,7 +7718,7 @@
       <notes>
         <note category="german">&lt;t-fail&gt;{item} kann keine schweren Gegenstände tragen...&lt;/t-fail&gt;&lt;nt-fail&gt;Du hast den {item} mit deinen Gegenständen in die Stadt geschickt.&lt;/nt-fail&gt;</note>
       </notes>
-      <segment>
+      <segment state="translated" subState="poedit:fuzzy">
         <source>&lt;t-fail&gt;{item} kann keine schweren Gegenstände tragen...&lt;/t-fail&gt;&lt;nt-fail&gt;Du hast den {item} mit deinen Gegenständen in die Stadt geschickt.&lt;/nt-fail&gt;</source>
         <target><![CDATA[<t-fail>{item} kann keine schweren Gegenstände tragen...</t-fail><nt-fail>Du hast den {item} mit deinen Gegenständen in die Stadt geschickt.</nt-fail>]]></target>
       </segment>
@@ -7727,7 +7727,7 @@
       <notes>
         <note category="german">Heilen</note>
       </notes>
-      <segment>
+      <segment state="translated" subState="poedit:fuzzy">
         <source>Heilen</source>
         <target>Heilen</target>
       </segment>
@@ -7736,7 +7736,7 @@
       <notes>
         <note category="german">Verteidigung organisieren</note>
       </notes>
-      <segment>
+      <segment state="translated" subState="poedit:fuzzy">
         <source>Verteidigung organisieren</source>
         <target>Verteidigung organisieren</target>
       </segment>
@@ -7745,7 +7745,7 @@
       <notes>
         <note category="german">Reinigen (Wasser)</note>
       </notes>
-      <segment>
+      <segment state="translated" subState="poedit:fuzzy">
         <source>Reinigen (Wasser)</source>
         <target>Reinigen (Wasser)</target>
       </segment>
@@ -7754,7 +7754,7 @@
       <notes>
         <note category="german">Reinigen (Kleidung)</note>
       </notes>
-      <segment>
+      <segment state="translated" subState="poedit:fuzzy">
         <source>Reinigen (Kleidung)</source>
         <target>Reinigen (Kleidung)</target>
       </segment>
