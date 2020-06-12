@@ -715,5 +715,50 @@
         <target>Nom de la ville</target>
       </segment>
     </unit>
+    <unit id="WLIeM8b" name="Spiel-Optionen">
+      <notes>
+        <note category="german">Spiel-Optionen</note>
+      </notes>
+      <segment>
+        <source>Spiel-Optionen</source>
+        <target>Options de jeu</target>
+      </segment>
+    </unit>
+    <unit id="7L3ndtf" name="Abstimmung aller Piktogramme:">
+      <notes>
+        <note category="german">Abstimmung aller Piktogramme:</note>
+      </notes>
+      <segment>
+        <source>Abstimmung aller Piktogramme:</source>
+        <target>Accorder tous les pictos:</target>
+      </segment>
+    </unit>
+    <unit id="WjDyWyC" name="614a449">
+      <notes>
+        <note category="german">Gibt die Gesamtheit der während der Stadt erhaltenen Piktogramme an, anstatt ein Drittel davon.</note>
+      </notes>
+      <segment>
+        <source>Gibt die Gesamtheit der während der Stadt erhaltenen Piktogramme an, anstatt ein Drittel davon.</source>
+        <target>Accorder l'intégralité des pictos obtenus durant la ville, au lieu d'un tiers.</target>
+      </segment>
+    </unit>
+    <unit id="vLYm3DY" name="Seelenpunkte vergeben:">
+      <notes>
+        <note category="german">Seelenpunkte vergeben:</note>
+      </notes>
+      <segment>
+        <source>Seelenpunkte vergeben:</source>
+        <target>Accorder les points d'âme:</target>
+      </segment>
+    </unit>
+    <unit id="Uadj6Vo" name="Gibt Ihnen Seelenpunkte.">
+      <notes>
+        <note category="german">Gibt Ihnen Seelenpunkte.</note>
+      </notes>
+      <segment>
+        <source>Gibt Ihnen Seelenpunkte.</source>
+        <target>Donne les points d'âme obtenus pendant la ville.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
