@@ -616,5 +616,17 @@
         <target>Season 15</target>
       </segment>
     </unit>
+    <unit id="EHTi.hN" name="ea67ed1">
+      <notes>
+        <note category="german">Wähle aus, welcher Teil deines Profilbilds für die komprimierte Darstellung verwendet werden soll.
+                                            Bewege den Ausschnitt mit der Maus und vergrößere oder verkleinere ihn mit dem Mausrad.</note>
+      </notes>
+      <segment>
+        <source>Wähle aus, welcher Teil deines Profilbilds für die komprimierte Darstellung verwendet werden soll.
+                                            Bewege den Ausschnitt mit der Maus und vergrößere oder verkleinere ihn mit dem Mausrad.</source>
+        <target>Wähle aus, welcher Teil deines Profilbilds für die komprimierte Darstellung verwendet werden soll.
+                                            Bewege den Ausschnitt mit der Maus und vergrößere oder verkleinere ihn mit dem Mausrad.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

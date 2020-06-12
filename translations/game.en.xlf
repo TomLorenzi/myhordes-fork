@@ -10498,7 +10498,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     </unit>
     <unit id="u6_oAsd" name="ff69301">
       <notes>
-        <note category="german">Du hast keine neue Privatnachricht erhalten. Eine Liste aller Bürger findest du im</note>
+        <note category="german">You have not received any new private messages. You can find the list of citizens in the</note>
       </notes>
       <segment>
         <source>Du hast keine neue Privatnachricht erhalten. Eine Liste aller Bürger findest du im</source>
@@ -10507,7 +10507,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     </unit>
     <unit id="4AkrdgW" name="Verzeichnis der Stadt.">
       <notes>
-        <note category="german">Verzeichnis der Stadt.</note>
+        <note category="german">town directory.</note>
       </notes>
       <segment>
         <source>Verzeichnis der Stadt.</source>
