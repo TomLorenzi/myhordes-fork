@@ -1845,7 +1845,7 @@
       </notes>
       <segment>
         <source>Das ist deine Chance - ergreife sie und fliehe! In Kürze werden die Zombies die Kontrolle über die Zone zurückerlangen. Dir verbleiden:</source>
-        <target>C'est votre chance ! Saisissez là et fuyez ! Bientôt, les zombies reprendront le contrôle de la zone. Il vous reste :</target>
+        <target>C'est votre chance ! Saisissez-la et fuyez ! Bientôt, les zombies reprendront le contrôle de la zone. Il vous reste :</target>
       </segment>
     </unit>
     <unit id="1lHHd11" name="c57da02">
