@@ -50,6 +50,7 @@ use Symfony\Contracts\Translation\TranslatorInterface;
 class SoulController extends AbstractController
 {
     protected $entity_manager;
+    protected $translator;
     protected $user_factory;
     protected $time_keeper;
     private $user_handler;
@@ -64,11 +65,12 @@ class SoulController extends AbstractController
     const ErrorAvatarInsufficientCompression = ErrorHelper::BaseAvatarErrors + 7;
     const ErrorUserEditPasswordIncorrect   = ErrorHelper::BaseAvatarErrors + 8;
 
-    public function __construct(EntityManagerInterface $em, UserFactory $uf, Packages $a, UserHandler $uh, TimeKeeperService $tk)
+    public function __construct(EntityManagerInterface $em, UserFactory $uf, Packages $a, UserHandler $uh, TimeKeeperService $tk, TranslatorInterface $translator)
     {
         $this->entity_manager = $em;
         $this->user_factory = $uf;
         $this->asset = $a;
+        $this->translator = $translator;
         $this->user_handler = $uh;
         $this->time_keeper = $tk;
     }
@@ -79,7 +81,7 @@ class SoulController extends AbstractController
         $data["soul_tab"] = $section;
 
         $data['clock'] = [
-            'desc'      => $this->getUser()->getActiveCitizen() !== null ? $this->getUser()->getActiveCitizen()->getTown()->getName() : "",
+            'desc'      => $this->getUser()->getActiveCitizen() !== null ? $this->getUser()->getActiveCitizen()->getTown()->getName() : $this->translator->trans('Worauf warten Sie noch?', [], 'ghost'),
             'day'       => $this->getUser()->getActiveCitizen() !== null ? $this->getUser()->getActiveCitizen()->getTown()->getDay() : "",
             'timestamp' => new DateTime('now'),
             'attack'    => $this->time_keeper->secondsUntilNextAttack(null, true),
@@ -584,13 +586,12 @@ class SoulController extends AbstractController
 
     /**
      * @Route("api/soul/settings/change_password", name="api_soul_change_password")
-     * @param TranslatorInterface $trans
      * @param UserPasswordEncoderInterface $passwordEncoder
      * @param JSONRequestParser $parser
      * @param TokenStorageInterface $token
      * @return Response
      */
-    public function soul_settings_change_pass(TranslatorInterface $trans, UserPasswordEncoderInterface $passwordEncoder, JSONRequestParser $parser, TokenStorageInterface $token): Response
+    public function soul_settings_change_pass(UserPasswordEncoderInterface $passwordEncoder, JSONRequestParser $parser, TokenStorageInterface $token): Response
     {
         /** @var User $user */
         $user = $this->getUser();
@@ -609,21 +610,20 @@ class SoulController extends AbstractController
         $this->entity_manager->persist($user);
         $this->entity_manager->flush();
 
-        $this->addFlash( 'notice', $trans->trans('Dein Passwort wurde erfolgreich geändert. Bitte logge dich mit deinem neuen Passwort ein.', [], 'login') );
+        $this->addFlash( 'notice', $this->$translator->trans('Dein Passwort wurde erfolgreich geändert. Bitte logge dich mit deinem neuen Passwort ein.', [], 'login') );
         $token->setToken(null);
         return AjaxResponse::success();
     }
 
     /**
      * @Route("api/soul/settings/delete_account", name="api_soul_delete_account")
-     * @param TranslatorInterface $trans
      * @param UserPasswordEncoderInterface $passwordEncoder
      * @param JSONRequestParser $parser
      * @param DeathHandler $death
      * @param TokenStorageInterface $token
      * @return Response
      */
-    public function soul_settings_delete_account(TranslatorInterface $trans, UserPasswordEncoderInterface $passwordEncoder, JSONRequestParser $parser, DeathHandler $death, TokenStorageInterface $token): Response
+    public function soul_settings_delete_account(UserPasswordEncoderInterface $passwordEncoder, JSONRequestParser $parser, DeathHandler $death, TokenStorageInterface $token): Response
     {
         /** @var User $user */
         $user = $this->getUser();
@@ -648,7 +648,7 @@ class SoulController extends AbstractController
 
         $this->entity_manager->flush();
 
-        $this->addFlash( 'notice', $trans->trans('Auf wiedersehen, %name%. Wir werden dich vermissen und hoffen, dass du vielleicht doch noch einmal zurück kommst.', ['%name%' => $name], 'login') );
+        $this->addFlash( 'notice', $this->$translator->trans('Auf wiedersehen, %name%. Wir werden dich vermissen und hoffen, dass du vielleicht doch noch einmal zurück kommst.', ['%name%' => $name], 'login') );
         $token->setToken(null);
         return AjaxResponse::success();
     }
@@ -707,10 +707,9 @@ class SoulController extends AbstractController
      * @param JSONRequestParser $parser
      * @param EntityManagerInterface $em
      * @param SessionInterface $session
-     * @param TranslatorInterface $trans
      * @return Response
      */
-    public function unsubscribe_api(JSONRequestParser $parser, EntityManagerInterface $em, SessionInterface $session, TranslatorInterface $trans): Response {
+    public function unsubscribe_api(JSONRequestParser $parser, EntityManagerInterface $em, SessionInterface $session): Response {
         /** @var User $user */
         $user = $this->getUser();
 
@@ -723,7 +722,7 @@ class SoulController extends AbstractController
 
         if ($nextDeath->getCod()->getRef() != CauseOfDeath::Poison && $nextDeath->getCod()->getRef() != CauseOfDeath::GhulEaten)
             $last_words = $parser->get('lastwords');
-        else $last_words = $trans->trans("...der Mörder .. ist.. IST.. AAARGHhh..", [], "game");
+        else $last_words = $this->translator->trans("...der Mörder .. ist.. IST.. AAARGHhh..", [], "game");
 
         // Here, we delete picto with persisted = 0,
         // and definitively validate picto with persisted = 1

@@ -22,6 +22,7 @@ use Exception;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Contracts\Translation\TranslatorInterface;
 
 /**
  * @Route("/",condition="request.isXmlHttpRequest()")
@@ -29,11 +30,13 @@ use Symfony\Component\Routing\Annotation\Route;
 class GhostController extends AbstractController implements GhostInterfaceController
 {
     protected $entity_manager;
+    protected $translator;
     protected $time_keeper;
     private $user_handler;
 
-    public function __construct(EntityManagerInterface $em, UserHandler $uh, TimeKeeperService $tk)
+    public function __construct(EntityManagerInterface $em, UserHandler $uh, TimeKeeperService $tk, TranslatorInterface $translator)
     {
+        $this->translator = $translator;
         $this->entity_manager = $em;
         $this->user_handler = $uh;
         $this->time_keeper = $tk;
@@ -43,7 +46,7 @@ class GhostController extends AbstractController implements GhostInterfaceContro
         $data = $data ?? [];
 
         $data['clock'] = [
-            'desc'      => "",
+            'desc'      => $this->translator->trans('Worauf warten Sie noch?', [], 'ghost'),
             'day'       => "",
             'timestamp' => new \DateTime('now'),
             'attack'    => $this->time_keeper->secondsUntilNextAttack(null, true),

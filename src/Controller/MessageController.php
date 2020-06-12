@@ -75,6 +75,20 @@ class MessageController extends AbstractController
         $this->inventory_handler = $ih;
     }
 
+    protected function addDefaultTwigArgs( ?array $data = null ): array {
+        $data = $data ?? [];
+
+        $data['clock'] = [
+            'desc'      => $this->getUser()->getActiveCitizen() !== null ? $this->getUser()->getActiveCitizen()->getTown()->getName() : $this->trans->trans('Worauf warten Sie noch?', [], 'ghost'),
+            'day'       => $this->getUser()->getActiveCitizen() !== null ? $this->getUser()->getActiveCitizen()->getTown()->getDay() : "",
+            'timestamp' => new DateTime('now'),
+            'attack'    => $this->time_keeper->secondsUntilNextAttack(null, true),
+            'towntype'  => $this->getUser()->getActiveCitizen() !== null ? $this->getUser()->getActiveCitizen()->getTown()->getType()->getName() : "",
+        ];
+
+        return $data;
+    }
+
     private function default_forum_renderer(int $fid, int $tid, EntityManagerInterface $em, JSONRequestParser $parser, CitizenHandler $ch): Response {
         $num_per_page = 20;
 
@@ -116,21 +130,14 @@ class MessageController extends AbstractController
             if ($marker && $thread->getLastPost() <= $marker->getPost()->getDate()) $thread->setNew();
         }
 
-        return $this->render( 'ajax/forum/view.html.twig', [
+        return $this->render( 'ajax/forum/view.html.twig', $this->addDefaultTwigArgs([
             'forum' => $forums[0],
             'threads' => $threads,
             'pinned_threads' => $pinned_threads,
             'select' => $tid,
             'pages' => $pages,
             'current_page' => $page,
-            'clock' => [
-                'desc'      => $this->getUser()->getActiveCitizen() !== null ? $this->getUser()->getActiveCitizen()->getTown()->getName() : "",
-                'day'       => $this->getUser()->getActiveCitizen() !== null ? $this->getUser()->getActiveCitizen()->getTown()->getDay() : "",
-                'timestamp' => new DateTime('now'),
-                'attack'    => $this->time_keeper->secondsUntilNextAttack(null, true),
-                'towntype'  => $this->getUser()->getActiveCitizen() !== null ? $this->getUser()->getActiveCitizen()->getTown()->getType()->getName() : "",
-            ],
-        ] );
+        ] ));
     }
 
     /**
@@ -185,16 +192,9 @@ class MessageController extends AbstractController
     public function forums(EntityManagerInterface $em): Response
     {
         $forum_list = $em->getRepository(Forum::class)->findForumsForUser( $this->getUser() );
-        return $this->render( 'ajax/forum/list.html.twig', [
+        return $this->render( 'ajax/forum/list.html.twig', $this->addDefaultTwigArgs([
             'forums' => $forum_list,
-            'clock' => [
-                'desc'      => $this->getUser()->getActiveCitizen() !== null ? $this->getUser()->getActiveCitizen()->getTown()->getName() : "",
-                'day'       => $this->getUser()->getActiveCitizen() !== null ? $this->getUser()->getActiveCitizen()->getTown()->getDay() : "",
-                'timestamp' => new DateTime('now'),
-                'attack'    => $this->time_keeper->secondsUntilNextAttack(null, true),
-                'towntype'  => $this->getUser()->getActiveCitizen() !== null ? $this->getUser()->getActiveCitizen()->getTown()->getType()->getName() : "",
-            ]
-        ] );
+        ] ));
     }
 
     private const HTML_ALLOWED = [
