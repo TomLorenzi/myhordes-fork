@@ -1225,5 +1225,32 @@
         <target>Aparté</target>
       </segment>
     </unit>
+    <unit id=".0Hr4tG" name="Diese Punkte werden für die Seelenrangliste verwendet.">
+      <notes>
+        <note category="german">Diese Punkte werden für die Seelenrangliste verwendet.</note>
+      </notes>
+      <segment>
+        <source>Diese Punkte werden für die Seelenrangliste verwendet.</source>
+        <target>Ces points servent au classement  dans l'Échelle des Âmes.</target>
+      </segment>
+    </unit>
+    <unit id="L3FSiZr" name="1eebdb6">
+      <notes>
+        <note category="german">Abhängig von der Anzahl der Tage, die du überlebt hast, erhältst du nach jeder Partie eine bestimmte Anzahl an Punkten.</note>
+      </notes>
+      <segment>
+        <source>Abhängig von der Anzahl der Tage, die du überlebt hast, erhältst du nach jeder Partie eine bestimmte Anzahl an Punkten.</source>
+        <target>Vous gagnez des points à la fin de chaque partie en fonction du nombre de jours survécus.</target>
+      </segment>
+    </unit>
+    <unit id="uEQ0dag" name="7273dec">
+      <notes>
+        <note category="german">Diese ID übergibst du der Seite oder dem Programm, dem du einen (Lese-)Zugriff auf deine Spieldaten in "MyHordes" geben möchtest. Das sind Informationen zu deiner Stadt, dem Bürgerverzeichnis, der Weltkarte etc.</note>
+      </notes>
+      <segment>
+        <source>Diese ID übergibst du der Seite oder dem Programm, dem du einen (Lese-)Zugriff auf deine Spieldaten in "MyHordes" geben möchtest. Das sind Informationen zu deiner Stadt, dem Bürgerverzeichnis, der Weltkarte etc.</source>
+        <target>Cet identifiant doit être donné au site auquel vous souhaitez donner un accès (en lecture) aux informations de jeu de votre compte MyHordes : informations sur votre ville, liste des citoyens, carte du monde...etc.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
