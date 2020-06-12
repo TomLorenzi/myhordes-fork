@@ -229,7 +229,7 @@
       </notes>
       <segment>
         <source>Zugangscode</source>
-        <target>Zugangscode</target>
+        <target>Access code</target>
       </segment>
     </unit>
     <unit id=".x7RJF5" name="Stadttyp">
@@ -238,7 +238,7 @@
       </notes>
       <segment>
         <source>Stadttyp</source>
-        <target>Stadttyp</target>
+        <target>Town type</target>
       </segment>
     </unit>
     <unit id="KOB6h9k" name="Ghule">
@@ -247,7 +247,7 @@
       </notes>
       <segment>
         <source>Ghule</source>
-        <target>Ghule</target>
+        <target>Ghoul type</target>
       </segment>
     </unit>
     <unit id="CVyYW8Q" name="Je nach gewähltem Stadttyp erscheinen Ghule nach den üblichen Regeln.">
@@ -256,7 +256,7 @@
       </notes>
       <segment>
         <source>Je nach gewähltem Stadttyp erscheinen Ghule nach den üblichen Regeln.</source>
-        <target>Je nach gewähltem Stadttyp erscheinen Ghule nach den üblichen Regeln.</target>
+        <target>The ghoul functions normally and will appear as defined by the rules of the town chosen.</target>
       </segment>
     </unit>
     <unit id="pySO60X" name="Normal">
@@ -274,7 +274,7 @@
       </notes>
       <segment>
         <source>Das Auftreten von Ghulen wird nicht geändert. Allerdings kann ein Ghul seinen Hunger nur stillen, indem er einen Mitbürger verspeist.</source>
-        <target>Das Auftreten von Ghulen wird nicht geändert. Allerdings kann ein Ghul seinen Hunger nur stillen, indem er einen Mitbürger verspeist.</target>
+        <target>The rate of appearance of the ghoul is unchanged but ghouls can only reduce their hunger by devouring a citizen.</target>
       </segment>
     </unit>
     <unit id="aQ_K79K" name="Blutdurst">
@@ -283,7 +283,7 @@
       </notes>
       <segment>
         <source>Blutdurst</source>
-        <target>Blutdurst</target>
+        <target>Bloodthirsty</target>
       </segment>
     </unit>
     <unit id="Zj_q.r8" name="f806eb4">
@@ -292,7 +292,7 @@
       </notes>
       <segment>
         <source>Es erscheint zwar kein Ghul um Mitternacht. Dafür können andere Ereignisse das Auftreten von Ghulen auslösen.</source>
-        <target>Es erscheint zwar kein Ghul um Mitternacht. Dafür können andere Ereignisse das Auftreten von Ghulen auslösen.</target>
+        <target>No ghoul appears at midnight. Other events can trigger ghouls to appear.</target>
       </segment>
     </unit>
     <unit id="iE_uBzc" name="Stadt der Kuscheltiere">
@@ -301,7 +301,7 @@
       </notes>
       <segment>
         <source>Stadt der Kuscheltiere</source>
-        <target>Stadt der Kuscheltiere</target>
+        <target>Town of cuddly toys</target>
       </segment>
     </unit>
     <unit id="ROOTy.N" name="Achtung!">
@@ -310,7 +310,7 @@
       </notes>
       <segment>
         <source>Achtung!</source>
-        <target>Achtung!</target>
+        <target>Warning!</target>
       </segment>
     </unit>
     <unit id="VItPxqY" name="Falls die Stadt night in 2 Tagen gefüllt ist, wird sie wieder negiert.">
