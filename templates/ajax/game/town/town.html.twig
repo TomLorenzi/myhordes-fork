@@ -1,10 +1,4 @@
 {% extends "ajax/game/game.html.twig" %}
-{# Replaced by overview button
-{% block menu_text %}
-    {{ parent() }}
-    <li class="town-dash" x-ajax-href="{{ url('town_dashboard') }}">{% trans from 'game' %}Stadt{% endtrans %}</li>
-{% endblock %}
-#}
 {% block ajax %}
     {{ parent() }}
     {# @var home \App\Entity\CitizenHome #}
@@ -63,12 +57,12 @@
                         <span>{{ addon[0]|trans({},'game') }}</span>
                     </div>
                 {% endfor %}
-                    {% for i in 0..5 %}
-                        <div class="town-addon town-addon-empty">
-                            <div></div>
-                            <span></span>
-                        </div>
-                    {% endfor %}
+                {% for i in 0..5 %}
+                    <div class="town-addon town-addon-empty">
+                        <div></div>
+                        <span></span>
+                    </div>
+                {% endfor %}
                 </div>
             </div>
 
