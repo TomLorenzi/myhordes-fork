@@ -36,7 +36,7 @@ class PrivateMessageThread
 
     /**
      * @ORM\ManyToOne(targetEntity=Citizen::class)
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\JoinColumn(nullable=true)
      */
     private $sender;
 

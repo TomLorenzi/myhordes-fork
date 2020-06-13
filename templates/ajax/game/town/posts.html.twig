@@ -9,12 +9,12 @@
     {% endif %}
 </div>
 
-<div class="row-table messages-list">
+<div class="row-table">
     <h5>{% trans from 'game'%}Betreff:{% endtrans %} {{thread.title}}</h5>
 
     {% for post in posts %}
         <div class="forum-post">
-            <div class="forum-post-header {% if post.owner.user.username == 'Der Rabe' %}header-variant-crow{% endif %}">
+            <div class="forum-post-header {% if not post.owner or post.owner.user.username == 'Der Rabe' %}header-variant-crow{% endif %}">
                 <i>
                     {% if post.date.format('Ymd') == today|date("Ymd") %}
                         {{ 'Heute um'|trans({},'global') }} {{ post.date|format_datetime('none', 'short') }}
@@ -24,25 +24,27 @@
                         {{ post.date|format_datetime('medium', 'short') }}
                     {% endif %}
                 </i>
-                {% if (post.owner.user.avatar) %}
-                    {% if app.user.preferSmallAvatars %}
-                        {% if post.owner.user.username == 'Der Rabe' %}
-                            <div class="avatarcrow small"><img alt="" src="{{ path('app_web_avatar', {'uid': post.owner.user.id, 'name': post.owner.user.avatar.smallName, 'ext': post.owner.user.avatar.format}) }}"></div>
-                        {% else %}
+                {% if post.owner and post.owner.user.username != 'Der Rabe' %}
+
+                    {% if (post.owner.user.avatar) %}
+                        {% if app.user.preferSmallAvatars %}
                             <div class="avatar small"><img alt="" src="{{ path('app_web_avatar', {'uid': post.owner.user.id, 'name': post.owner.user.avatar.smallName, 'ext': post.owner.user.avatar.format}) }}"></div>
-                        {% endif %}
-                    {% else %}
-                        {% if post.owner.user.username == 'Der Rabe' %}
-                            <div class="avatarcrow"><img alt="" src="{{ path('app_web_avatar', {'uid': post.owner.user.id, 'name': post.owner.user.avatar.filename, 'ext': post.owner.user.avatar.format}) }}"></div>
                         {% else %}
                             <div class="avatar"><img alt="" src="{{ path('app_web_avatar', {'uid': post.owner.user.id, 'name': post.owner.user.avatar.filename, 'ext': post.owner.user.avatar.format}) }}"></div>
                         {% endif %}
+                    {% else %}
+                        <div class="avatar small"><img alt="" src="{{ asset('build/images/empty_avatar.gif') }}"></div>
                     {% endif %}
                 {% else %}
-                    <div class="avatar small"><img alt="" src="{{ asset('build/images/empty_avatar.gif') }}"></div>
+                    {% if app.user.preferSmallAvatars %}
+                        <div class="avatarcrow small"><img alt="" src="{{ path('app_web_avatar', {'uid': post.owner.user.id, 'name': post.owner.user.avatar.smallName, 'ext': post.owner.user.avatar.format}) }}"></div>
+                    {% else %}
+                        <div class="avatarcrow"><img alt="" src="{{ path('app_web_avatar', {'uid': post.owner.user.id, 'name': post.owner.user.avatar.filename, 'ext': post.owner.user.avatar.format}) }}"></div>
+                    {% endif %}
                 {% endif %}
+
                 <b>
-                    {% if post.owner.user.username == 'Der Rabe' %}
+                    {% if not post.owner or post.owner.user.username == 'Der Rabe' %}
                         {{ 'Der Rabe'|trans({},'global') }}
                     {% else %}
                         {{ post.owner.user.username }}
@@ -67,7 +69,7 @@
         </div>
     {% endfor %}
 
-    {% if not thread.archived and not thread.locked %}
+    {% if not thread.archived and not thread.locked and post.owner %}
         <button id="replybtn">{{ 'Antworten'|trans({},'global') }}</button>
         <div id="forum-editor"></div>
     {% endif %}
