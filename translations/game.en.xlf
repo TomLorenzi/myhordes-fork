@@ -9281,15 +9281,6 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
         <target>Write to everyone</target>
       </segment>
     </unit>
-    <unit id="aUj3MMh" name="7d87462">
-      <notes>
-        <note category="german">Du hast keine neue Privatnachricht erhalten. Eine Liste aller Bürger findest du im Verzeichnis der Stadt.</note>
-      </notes>
-      <segment>
-        <source>Du hast keine neue Privatnachricht erhalten. Eine Liste aller Bürger findest du im Verzeichnis der Stadt.</source>
-        <target>You have not received any new private messages. You can find the list of citizens in the town directory.</target>
-      </segment>
-    </unit>
     <unit id="bYMK_Wv" name="Keine Nachricht gespeichert.">
       <notes>
         <note category="german">Keine Nachricht gespeichert.</note>
@@ -9647,7 +9638,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Lage</source>
-        <target>Location</target>
+        <target>Status</target>
       </segment>
     </unit>
     <unit id="0jW7cq9" name="Stadttor geöffnet">
@@ -9656,7 +9647,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Stadttor geöffnet</source>
-        <target>Town's gates opened</target>
+        <target>Gates open</target>
       </segment>
     </unit>
     <unit id="_DKPL9S" name="Wer ist draußen?">
@@ -9674,7 +9665,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Stadttor geschlossen</source>
-        <target>Town's gates closed</target>
+        <target>Gates closed</target>
       </segment>
     </unit>
     <unit id="A7ZG3D1" name="2d5f077">
@@ -10431,6 +10422,96 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       <segment>
         <source>Werkstatt (building)</source>
         <target>Works</target>
+      </segment>
+    </unit>
+    <unit id="VTcxe_c" name="Quarantäne">
+      <notes>
+        <note category="german">Quarantine</note>
+      </notes>
+      <segment>
+        <source>Quarantäne</source>
+        <target>Quarantine</target>
+      </segment>
+    </unit>
+    <unit id="CHdbLWu" name="Komm zurück zu meiner Seele">
+      <notes>
+        <note category="german">Come back to my soul</note>
+      </notes>
+      <segment>
+        <source>Komm zurück zu meiner Seele</source>
+        <target>Come back to my soul</target>
+      </segment>
+    </unit>
+    <unit id="2IRYW.2" name="06db8c8">
+      <notes>
+        <note category="german">%actor% hat bei der Plünderung von † %victim% Haus diesen Gegenstand gestohlen: %item%</note>
+      </notes>
+      <segment>
+        <source>%actor% hat bei der Plünderung von † %victim% Haus diesen Gegenstand gestohlen: %item%</source>
+        <target>%actor% hat bei der Plünderung von † %victim% Haus diesen Gegenstand gestohlen: %item%</target>
+      </segment>
+    </unit>
+    <unit id="n19gYuh" name="Das folgende Bauprojekt wurde empfohlen:">
+      <notes>
+        <note category="german">The following construction project was recommended:</note>
+      </notes>
+      <segment>
+        <source>Das folgende Bauprojekt wurde empfohlen:</source>
+        <target>The following construction project was recommended:</target>
+      </segment>
+    </unit>
+    <unit id="OAGjXFG" name="Alle">
+      <notes>
+        <note category="german">All</note>
+      </notes>
+      <segment>
+        <source>Alle</source>
+        <target>All</target>
+      </segment>
+    </unit>
+    <unit id="iita2xJ" name="83fa5e3">
+      <notes>
+        <note category="german">Private towns allow groups of friends to play easily together, or to create "theme" towns.</note>
+      </notes>
+      <segment>
+        <source>In Privatstädten kannst du gemeinsam mit Freunden oder in Städten zu bestimmten "Theen" zu spielen.</source>
+        <target>Private towns allow groups of friends to play easily together, or to create "theme" towns.</target>
+      </segment>
+    </unit>
+    <unit id="CVyYW8Q" name="Je nach gewähltem Stadttyp erscheinen Ghule nach den üblichen Regeln.">
+      <notes>
+        <note category="german">The ghoul functions normally and will appear as defined by the rules of the town chosen.</note>
+      </notes>
+      <segment>
+        <source>Je nach gewähltem Stadttyp erscheinen Ghule nach den üblichen Regeln.</source>
+        <target>The ghoul functions normally and will appear as defined by the rules of the town chosen.</target>
+      </segment>
+    </unit>
+    <unit id="1zFAtcT" name="Wasservorrat">
+      <notes>
+        <note category="german">Water supply</note>
+      </notes>
+      <segment>
+        <source>Wasservorrat</source>
+        <target>Water supply</target>
+      </segment>
+    </unit>
+    <unit id="u6_oAsd" name="ff69301">
+      <notes>
+        <note category="german">You have not received any new private messages. You can find the list of citizens in the</note>
+      </notes>
+      <segment>
+        <source>Du hast keine neue Privatnachricht erhalten. Eine Liste aller Bürger findest du im</source>
+        <target>You have not received any new private messages. You can find the list of citizens in the</target>
+      </segment>
+    </unit>
+    <unit id="4AkrdgW" name="Verzeichnis der Stadt.">
+      <notes>
+        <note category="german">town directory.</note>
+      </notes>
+      <segment>
+        <source>Verzeichnis der Stadt.</source>
+        <target>town directory.</target>
       </segment>
     </unit>
   </file>

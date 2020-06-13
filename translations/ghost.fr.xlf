@@ -253,7 +253,7 @@
       </notes>
       <segment>
         <source>Je nach gewähltem Stadttyp erscheinen Ghule nach den üblichen Regeln.</source>
-        <target>La goule a un fonctionnement normal et apparaîtra selon les règles propres au type de ville choisi.</target>
+        <target>La goule a un fonctionnement normal et apparaîtra selon les règles propres au type de ville choisie.</target>
       </segment>
     </unit>
     <unit id="pySO60X" name="Normal">
