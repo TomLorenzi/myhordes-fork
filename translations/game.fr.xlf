@@ -349,7 +349,7 @@
       </notes>
       <segment>
         <source>Das Stadttor ist geschlossen!</source>
-        <target>La porte de la ville est fermée!</target>
+        <target>La porte de la ville est fermée !</target>
       </segment>
     </unit>
     <unit id="Wevnltm" name="Deine Nachricht muss zwischen 2 und 256 Zeichen haben.">
@@ -394,7 +394,7 @@
       </notes>
       <segment>
         <source>Der Brunnen ist leer!</source>
-        <target>Le puits est vide!</target>
+        <target>Le puits est vide !</target>
       </segment>
     </unit>
     <unit id="t9s1UYK" name="Du kannst heute keine weiteren Rationen entnehmen.">
@@ -466,7 +466,7 @@
       </notes>
       <segment>
         <source>Du hast keinen Platz mehr für diesen Gegenstand!</source>
-        <target>Vous n'avez plus de place pour cet objet!</target>
+        <target>Vous n'avez plus de place pour cet objet !</target>
       </segment>
     </unit>
     <unit id="4lQ8bY." name="Du kannst keinen weiteren schweren Gegenstand tragen!">
@@ -1156,7 +1156,7 @@
       </notes>
       <segment>
         <source>Tot!</source>
-        <target>Mort!</target>
+        <target>Mort !</target>
       </segment>
     </unit>
     <unit id="fV5wxwj" name="In der Stadt">
@@ -3179,7 +3179,7 @@
       </notes>
       <segment>
         <source>%citizen% hat seinen letzten Atemzug getan: %cod%!</source>
-        <target>%citizen% nous a quitté : %cod%!</target>
+        <target>%citizen% nous a quitté : %cod% !</target>
       </segment>
     </unit>
     <unit id="gaihf5j" name="%citizen% hat das Stadtgebiet in Richtung %direction% verlassen.">
@@ -3260,7 +3260,7 @@
       </notes>
       <segment>
         <source>%zombie% ist von den Toten auferstanden und hat unanständige Nachrichten auf die Heldentafel geschrieben!</source>
-        <target>%zombie% a ressuscité et a écrit des messages incorrects sur le tableau des héros!</target>
+        <target>%zombie% a ressuscité et a écrit des messages incorrects sur le tableau des héros !</target>
       </segment>
     </unit>
     <unit id="ToXb7Kr" name="%zombie% ist von den Toten auferstanden und hat sich wieder hingelegt!">
@@ -3269,7 +3269,7 @@
       </notes>
       <segment>
         <source>%zombie% ist von den Toten auferstanden und hat sich wieder hingelegt!</source>
-        <target>%zombie% a ressuscité et se recouche!</target>
+        <target>%zombie% a ressuscité et se recouche !</target>
       </segment>
     </unit>
     <unit id="vw6w67." name="%zombie% ist von den Toten auferstanden und verlangt nach einem Kaffee!">
@@ -3287,7 +3287,7 @@
       </notes>
       <segment>
         <source>%zombie% ist von den Toten auferstanden und hat eine Runde auf dem Stadtplatz gedreht!</source>
-        <target>%zombie% a ressuscité et a fait un tour sur la place du village!</target>
+        <target>%zombie% a ressuscité et a fait un tour sur la place du village !</target>
       </segment>
     </unit>
     <unit id="GtC0MNC" name="... das OFFEN stand! %num% Zombies sind in die Stadt eingedrungen!">
@@ -3305,7 +3305,7 @@
       </notes>
       <segment>
         <source>%num% Zombies sind durch unsere Verteidigung gebrochen!</source>
-        <target>%num% Zombies ont percé nos défenses!</target>
+        <target>%num% Zombies ont percé nos défenses !</target>
       </segment>
     </unit>
     <unit id="IT1iVPi" name="Nicht ein Zombie hat die Stadt betreten!">
@@ -5096,7 +5096,7 @@
       </notes>
       <segment>
         <source>Wie viele Gegenstände möchtest du auf den Müll werfen?</source>
-        <target>Combien d'objets voulez-vous jeter à la poubelle?</target>
+        <target>Combien d'objets voulez-vous jeter à la poubelle ?</target>
       </segment>
     </unit>
     <unit id="6Ds9C1i" name="Du kannst keine Aktionen ausführen, während du dich versteckst.">
@@ -6634,7 +6634,7 @@
         <target>Les points de construction peuvent être utilisés dans l'atelier et sur les chantiers de construction,
                     où ils comptent comme des points d'action. Si possible, les points de construction sont toujours
                     utilisés en premier avant l'utilisation des points d'action. Gardez à l'esprit que les points de
-                    construction ne peuvent pas être utilisés lorsque vous êtes épuisé!</target>
+                    construction ne peuvent pas être utilisés lorsque vous êtes épuisé !</target>
       </segment>
     </unit>
     <unit id="IV3fj_Y" name="f4e28e2">
@@ -7231,7 +7231,7 @@
       </notes>
       <segment>
         <source>Nicht weit entfernt von deinem aktuellen Versteck erblickst du ein noch besseres Versteck... Hmmm...vielleicht solltest du umziehen?</source>
-        <target>Non loin de votre cachette actuelle, vous voyez une cachette encore meilleure ... Hmmm ... vous devriez peut-être déménager?</target>
+        <target>Non loin de votre cachette actuelle, vous voyez une cachette encore meilleure ... Hmmm ... vous devriez peut-être déménager ?</target>
       </segment>
     </unit>
     <unit id="ERjA3HO" name="Du erhälst einen Bauplan, wenn Du in diesem Gebäude campst.">
@@ -7348,7 +7348,7 @@
       </notes>
       <segment>
         <source>Nach einigen Anstrengungen hat deine Expedition folgendes gefunden: %item%!</source>
-        <target>Après quelques efforts, votre expédition a trouvé ce qui suit : %item%!</target>
+        <target>Après quelques efforts, votre expédition a trouvé ce qui suit : %item% !</target>
       </segment>
     </unit>
     <unit id="i5FChQj" name="Deine Eskorte">
@@ -7582,7 +7582,7 @@
       </notes>
       <segment>
         <source>Das hast du wohl nicht erwartet... Wie wäre es, wenn du dich das nächste mal an die Regeln hältst?</source>
-        <target>Vous ne vous attendiez probablement pas à ça... Et la prochaine fois, vous respecterez les règles?</target>
+        <target>Vous ne vous attendiez probablement pas à ça... Et la prochaine fois, vous respecterez les règles ?</target>
       </segment>
     </unit>
     <unit id="BGnSZ4j" name="%citizen% wurde standrechtlich erschossen. Lang lebe das Diktat!: %cod%.">
@@ -8278,7 +8278,7 @@
       </notes>
       <segment>
         <source>%citizen% wurde von %num% Zombies zerfleischt!</source>
-        <target>%citizen% a été mutilé par %num% zombies!</target>
+        <target>%citizen% a été mutilé par %num% zombies !</target>
       </segment>
     </unit>
     <unit id="0OgA2rX" name="0505799">
@@ -8449,7 +8449,7 @@
       </notes>
       <segment>
         <source>%attacker% hat %defender% gewalttätig angegriffen und verwundet!</source>
-        <target>%attacker% a violemment attaqué et blessé %defender%!</target>
+        <target>%attacker% a violemment attaqué et blessé %defender% !</target>
       </segment>
     </unit>
     <unit id="HwOTRdd" name="%attacker% hat %defender% gewalttätig angegriffen!">
@@ -8458,7 +8458,7 @@
       </notes>
       <segment>
         <source>%attacker% hat %defender% gewalttätig angegriffen!</source>
-        <target>%attacker% a violemment attaqué %defender%!</target>
+        <target>%attacker% a violemment attaqué %defender% !</target>
       </segment>
     </unit>
     <unit id="0Y6YSyp" name="c4b3caa">
@@ -8467,7 +8467,7 @@
       </notes>
       <segment>
         <source>Ein abscheuliches Verbrechen ist geschehen: %attacker% hat %defender% in seinem Haus verschlungen!</source>
-        <target>Un crime odieux s'est produit : %attacker% a dévoré %defender% chez lui!</target>
+        <target>Un crime odieux s'est produit : %attacker% a dévoré %defender% chez lui !</target>
       </segment>
     </unit>
     <unit id="8xZcKzq" name="65218d1">
@@ -8485,7 +8485,7 @@
       </notes>
       <segment>
         <source>%attacker% ist %defender% an die Gurgel gesprungen und hat ihn ohne mit der Wimper zu zucken verspeist!</source>
-        <target>%attacker% a sauté à la gorge de %defender% et l'a mangé sans battre une paupière!</target>
+        <target>%attacker% a sauté à la gorge de %defender% et l'a mangé sans battre une paupière !</target>
       </segment>
     </unit>
     <unit id="Qlh.l61" name="a9b83b9">
@@ -8494,7 +8494,7 @@
       </notes>
       <segment>
         <source>Was ist mit der Leiche passiert? Der leblose Körper ist spurlos verschwunden... Vermutlich liegt er jetzt irgendwo vor der Stadt und verrottet vor sich hin... Vielleicht kommt er euch ja in der Nacht besuchen?</source>
-        <target>Qu'est-il arrivé au corps? Le corps sans vie a disparu sans laisser de trace ... Il se trouve probablement quelque part devant la ville et pourrit ... Peut-être qu'il viendra vous rendre visite la nuit?</target>
+        <target>Qu'est-il arrivé au corps? Le corps sans vie a disparu sans laisser de trace ... Il se trouve probablement quelque part devant la ville et pourrit ... Peut-être qu'il viendra vous rendre visite la nuit ?</target>
       </segment>
     </unit>
     <unit id="oHxefYi" name="6fc4576">
@@ -8782,7 +8782,7 @@
       </notes>
       <segment>
         <source>Eine Handvoll Zombies durchbrach unsere Verteidigungsanlagen in der Nähe des nördlichen Viertels, wir haben keine Ahnung, wie... Wie es das "Glück" wollte, sind %deaths% Bürger tot, aber ihr habt seltsamerweise überlebt. ... Klingt das nicht ein wenig verdächtig?</source>
-        <target>Une poignée de zombies ont percé nos défenses près du quartier nord, nous ne savons pas comment ... Par chance, %deaths% citoyens sont morts, mais vous avez étrangement survécu. ... cela ne semble-t-il pas un peu suspect?</target>
+        <target>Une poignée de zombies ont percé nos défenses près du quartier nord, nous ne savons pas comment ... Par chance, %deaths% citoyens sont morts, mais vous avez étrangement survécu. ... cela ne semble-t-il pas un peu suspect ?</target>
       </segment>
     </unit>
     <unit id="MwOt2NN" name="05e5ac7">
@@ -8863,7 +8863,7 @@
       </notes>
       <segment>
         <source>Gut gemacht!</source>
-        <target>Bien joué!</target>
+        <target>Bien joué !</target>
       </segment>
     </unit>
     <unit id="RwOIyEr" name="Du wurdest beobachtet! Die anderen Bürger wurden gewarnt!">
@@ -9214,7 +9214,7 @@
       </notes>
       <segment>
         <source>Jeder hörte &lt;i class="dagger"&gt;†&lt;/i&gt; %cadaver1% schreien, als er von den Zombies auseinander gerissen wurde. Offensichtlich versuchte niemand zu helfen. Überlebensinstinkt. Wirst du jetzt nachts schlafen können?</source>
-        <target><![CDATA[Tout le monde a entendu <i class="dagger">†</i> %cadaver1% hurler quand les zombies les ont déchirés. De toute évidence, personne n'essayait d'aider. L'instinct de survie. Serez-vous capable de dormir la nuit maintenant?]]></target>
+        <target><![CDATA[Tout le monde a entendu <i class="dagger">†</i> %cadaver1% hurler quand les zombies les ont déchirés. De toute évidence, personne n'essayait d'aider. L'instinct de survie. Serez-vous capable de dormir la nuit maintenant ?]]></target>
       </segment>
     </unit>
     <unit id="Ad1Ruao" name="7f96ed2">
@@ -9232,7 +9232,7 @@
       </notes>
       <segment>
         <source>Einige Bürger wurden Zeugen eines seltsamen Vorfalls... Man könnte sagen, dass die Zombies gestern Abend ausschließlich für &lt;i class="dagger"&gt;†&lt;/i&gt; %cadaver1% gekommen sind. Sie trugen die Leiche den ganzen Weg zur Baustelle, bevor die Zerstückelung begann!</source>
-        <target><![CDATA[Certains citoyens ont été témoins d'un étrange incident ... On pourrait dire que les zombies sont venus hier soir uniquement pour <i class="dagger">†</i> %cadaver1% Ils ont transporté le corps jusqu'au chantier de construction avant le début du démembrement!]]></target>
+        <target><![CDATA[Certains citoyens ont été témoins d'un étrange incident ... On pourrait dire que les zombies sont venus hier soir uniquement pour <i class="dagger">†</i> %cadaver1% Ils ont transporté le corps jusqu'au chantier de construction avant le début du démembrement !]]></target>
       </segment>
     </unit>
     <unit id="VXaNsva" name="dc8e234">
@@ -9241,7 +9241,7 @@
       </notes>
       <segment>
         <source>Einige sagen, daß der Tod von &lt;i class="dagger"&gt;†&lt;/i&gt; %cadaver1% nicht dem Glück zu verdanken ist... das einzige Opfer gestern Abend... Könnte jemand unter uns seinen Tod provoziert haben?</source>
-        <target><![CDATA[Certains disent que la mort de <i class="dagger">†</i> %cadaver1% n'est pas due à la chance ... la seule victime hier soir ... Quelqu'un parmi nous aurait-il pu provoquer sa mort?]]></target>
+        <target><![CDATA[Certains disent que la mort de <i class="dagger">†</i> %cadaver1% n'est pas due à la chance ... la seule victime hier soir ... Quelqu'un parmi nous aurait-il pu provoquer sa mort ?]]></target>
       </segment>
     </unit>
     <unit id="kwKjT1z" name="d9930bb">
@@ -9799,7 +9799,7 @@
       </notes>
       <segment>
         <source>Unsere Verteidigung dürfte ausreichen, zumindest einen Teil des Angriffs heute Nacht abzuwehren.</source>
-        <target>Nos défenses devraient suffire à couvrir une partie de l'attaque de ce soir...</target>
+        <target>Nos défenses ont des chances de contenir une partie de l'attaque de ce soir.</target>
       </segment>
     </unit>
     <unit id="9cNHWGl" name="Seelenpunkte">
@@ -10286,15 +10286,6 @@
       <segment>
         <source>Solange du "Clean" bist (sprich: Du hast in der Partie noch keine Drogen zu Dir genommen.), verfügst du über einen zusätzlichen Zonenkontrollpunkt in der Außenwelt.</source>
         <target>Lorsque vous êtes dans l'état "Clair(e)" (c'est à dire, lorsque vous ne consommez pas de drogue), vous bénéficiez d'un bonus de +1 point de contrôle permanent en extérieur.</target>
-      </segment>
-    </unit>
-    <unit id="c6z8t8C" name="1eb4cfe">
-      <notes>
-        <note category="german">Schreibe auf die Tafel, die sich auf der Übersichtsseite deiner Stadt befindet. Darüberhinaus kannst du auch deinen Mitbürgern ein Bauprojekt empfehlen. Das Gebäude mit den meisten Empfehlungen wird auf der Bauseite der Stadt hervorgehoben. </note>
-      </notes>
-      <segment>
-        <source>Schreibe auf die Tafel, die sich auf der Übersichtsseite deiner Stadt befindet. Darüberhinaus kannst du auch deinen Mitbürgern ein Bauprojekt empfehlen. Das Gebäude mit den meisten Empfehlungen wird auf der Bauseite der Stadt hervorgehoben. </source>
-        <target>Schreibe auf die Tafel, die sich auf der Übersichtsseite deiner Stadt befindet. Darüberhinaus kannst du auch deinen Mitbürgern ein Bauprojekt empfehlen. Das Gebäude mit den meisten Empfehlungen wird auf der Bauseite der Stadt hervorgehoben. </target>
       </segment>
     </unit>
     <unit id="oeIpxYX" name="Alle freigeschalteten Vorteile anzeigen">
