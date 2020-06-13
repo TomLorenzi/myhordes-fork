@@ -3,6 +3,7 @@
 namespace App\Controller\Admin;
 
 use App\Entity\AdminReport;
+use App\Entity\Citizen;
 use App\Entity\Picto;
 use App\Entity\Town;
 use App\Entity\User;
@@ -233,8 +234,9 @@ class AdminUserController extends AdminActionController
     {
         $user = $this->entity_manager->getRepository(User::class)->find($id);
 
+        /** @var Citizen $citizen */
         $citizen = $user->getActiveCitizen();
-        if (isset($citizen)) {
+        if ($citizen) {
             $active = true;
             $town = $citizen->getTown();
             if ($citizen->getAlive()) {
@@ -255,6 +257,7 @@ class AdminUserController extends AdminActionController
             'active' => $active,
             'alive' => $alive,
             'user' => $user,
+            'citizen_id' => $citizen ? $citizen->getId() : -1,
         ]));        
     }
 

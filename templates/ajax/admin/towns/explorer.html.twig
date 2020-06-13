@@ -19,6 +19,7 @@
         <div class="cell padded rw-12">
             <ul class="tabs plain" x-tab-group="admin-town" x-tab-control x-tab-default="dash">
                 <li class="tab" x-tab-id="dash"><div class="tab-link">{{ 'Übersicht'|trans({},'admin') }}</div></li>
+                <li class="tab" x-tab-id="citizens"><div class="tab-link">{{ 'Bürger'|trans({},'admin') }}</div></li>
                 <li class="tab" x-tab-id="register"><div class="tab-link">{{ 'Stadtregister'|trans({},'admin') }}</div></li>
                 <li class="tab" x-tab-id="estimations"><div class="tab-link">{{ 'Admin-Wachturm'|trans({},'admin') }}</div></li>
                 {% if is_granted("ROLE_ADMIN") %}
@@ -42,6 +43,18 @@
                         {{ _self.valuelist('Zerstört'|trans({},'admin'),   town.devastated) }}
                         {{ _self.valuelist('Tor offen'|trans({},'admin'),  town.door) }}
                         {{ _self.valuelist('Brunnen'|trans({},'admin'),    town.well) }}
+                    </div>
+                </div>
+            </div>
+
+            <div x-tab-group="admin-town" x-tab-id="citizens" x-tab-target>
+                <div class="row">
+                    <div class="cell rw-8 ro-2 padded">
+                        <button id="townpm">{{ 'Rundmail als Rabe'|trans({},'admin') }}</button>
+                        <input type="hidden" id="pmidrecipient" value="{{ town.id }}">
+                        <div id="forum-content">
+
+                        </div>
                     </div>
                 </div>
             </div>
@@ -143,6 +156,12 @@
 {% block js %}
     <script>
         (function() {
+
+            document.getElementById('townpm').addEventListener('click', function(e) {
+                document.getElementById("forum-content").innerHTML = "";
+                $.ajax.no_history().load( document.getElementById('forum-content'), '{{ path('admin_pm_editor_controller', {'type': 'global'}) }}', false )
+            });
+
             let log_boxes = document.querySelectorAll('.log-container');
             for (let i = 0; i < log_boxes.length; i++) {
                 let log = log_boxes[i].querySelector( '.log' );

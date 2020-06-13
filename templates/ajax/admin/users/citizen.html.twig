@@ -3,27 +3,46 @@
     <div class="row soul">
         <div class="cell padded header rw-12">
             {% embed "ajax/admin/users/tabs.html.twig" %}{% endembed %}
+
             <div class="row">
-                <div class="cell padded rw-3 rw-sm-12">
-                    {{ 'Derzeitiges Leben'|trans({}, 'admin') }}
-                </div>
-                <div class="cell padded rw-5 rw-sm-12">
-                    <input disabled style="width: 25em;" value="{% if active %}{{ town.name }}{% if not alive %}{{ " -- " }}{{ 'TOD NICHT BESTÄTIGT'|trans({}, 'admin') }}{% endif %}{% else %}{{ "--" }}{% endif %}" />
-                </div>
-                {% if is_granted("ROLE_ADMIN") %}
-                    {% if active %}
-                        {% if alive %}
-                        <div class="cell padded ro-3 rw-2 rw-sm-12">
-                            <button id="x-headshot">{{ 'Kopfschuss'|trans({}, 'admin') }}</button>
+                <div class="cell rw-8 ro-2">
+                    <div class="row">
+                        <div class="cell padded rw-12">
+                            {{ 'Derzeitiges Leben'|trans({}, 'admin') }}
                         </div>
-                        {% else %}
-                        <div class="cell padded ro-3 rw-2 rw-sm-12">
-                            <button id="x-confirm-death">{{ 'Tod bestätigen'|trans({}, 'admin') }}</button>
+                        <div class="cell padded rw-12">
+                            <input disabled style="width: 25em;" value="{% if active %}{{ town.name }}{% if not alive %}{{ " -- " }}{{ 'TOD NICHT BESTÄTIGT'|trans({}, 'admin') }}{% endif %}{% else %}{{ "--" }}{% endif %}" />
                         </div>
+                        {% if active %}
+                            {% if alive %}
+                                <div class="cell padded rw-4">
+                                    <button id="x-headshot">{{ 'Kopfschuss'|trans({}, 'admin') }}</button>
+                                </div>
+                                <div class="cell padded rw-4">
+                                    <button id="x-pm">{{ 'PM vom Raben'|trans({}, 'admin') }}</button>
+                                </div>
+                            {% else %}
+                                {% if is_granted("ROLE_ADMIN") %}
+                                    <div class="cell padded rw-4">
+                                        <button id="x-confirm-death">{{ 'Tod bestätigen'|trans({}, 'admin') }}</button>
+                                    </div>
+                                {% endif %}
+                            {% endif %}
                         {% endif %}
-                    {% endif %}
-                {% endif %}
+                    </div>
+                    <div class="row">
+                        <div class="cell padded rw-12">
+                            <input type="hidden" id="pmidrecipient" value="{{ citizen_id }}">
+                            <div id="forum-content">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
+
+
+
         </div>
     </div>
     {% embed "ajax/admin/users/footer.html.twig" %}{% endembed %}
@@ -31,9 +50,8 @@
 {% block js %}
     {{ parent() }}
     <script>
-        {% if is_granted("ROLE_ADMIN") %}
-            {% if active %}
-                {% if alive %}
+        {% if active %}
+            {% if alive %}
                 document.getElementById('x-headshot').addEventListener('click', function(e) {
                     e.preventDefault();
                     if (confirm('{{ 'Das Leben dieses Bürgers sofort beenden?'|trans({},'admin') }}'))
@@ -42,7 +60,12 @@
                                 $.ajax.load(null, '{{ path('admin_users_citizen_view', { 'id': user.Id }) }}', true);
                             } )
                 });
-                {% else %}
+
+                document.getElementById('x-pm').addEventListener('click', function(e) {
+                    document.getElementById("forum-content").innerHTML = "";
+                    $.ajax.no_history().load( document.getElementById('forum-content'), '{{ path('admin_pm_editor_controller', {'type': 'pm'}) }}', false )
+                });
+            {% elseif is_granted("ROLE_ADMIN") %}
                 document.getElementById('x-confirm-death').addEventListener('click', function(e) {
                     e.preventDefault();
                     if (confirm('{{ 'Tod dieses Bürgers zwangsweise bestätigen?'|trans({},'admin') }}'))
@@ -51,8 +74,9 @@
                                 $.ajax.load(null, '{{ path('admin_users_citizen_view', { 'id': user.Id }) }}', true);
                             } )
                 });
-                {% endif %}
             {% endif %}
         {% endif %}
+
+
     </script>
 {% endblock %}

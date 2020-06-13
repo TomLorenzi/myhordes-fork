@@ -574,12 +574,13 @@
                         target_payload.tid = {{ tid }};
                     {% else %}
                         target_payload.title = document.getElementById('forum-editor-title').value;
-                        {% if type == 'pm' %}
-                            target_payload.recipient = document.getElementById('pmidrecipient').value;
+                        {% if type == 'pm' or type == 'global' %}
+                            const rc = document.getElementById('pmidrecipient');
+                            if (rc) target_payload.recipient = rc.value;
                             let sent_items = document.querySelectorAll("#sent-items .item");
                             if(sent_items.length > 0) {
                                 target_payload.items = [];
-                                for (var i = 0; i < sent_items.length; i++) {
+                                for (let i = 0; i < sent_items.length; i++) {
                                     target_payload.items.push(sent_items[i].attributes['x-item-id'].value);
                                 }
                             }
