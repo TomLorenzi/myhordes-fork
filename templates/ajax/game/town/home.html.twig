@@ -100,10 +100,10 @@
         <div x-tab-group="home-messages" x-tab-id="received" x-tab-target>
             <div id="nonArchivedContent">
             {% if nonArchivedMessages|length == 0 %}
-                <div class="help link" x-ajax-href="{{ path('town_citizens') }}">
+                <div class="help" x-ajax-href="{{ path('town_citizens') }}">
                 {% trans from 'game' %}
-                    Du hast keine neue Privatnachricht erhalten. Eine Liste aller Bürger findest du im Verzeichnis der Stadt.
-                {% endtrans %}
+                    Du hast keine neue Privatnachricht erhalten. Eine Liste aller Bürger findest du im {% endtrans %} <span class="link">{% trans from 'game' %}Verzeichnis der Stadt.
+                {% endtrans %}</span>
                 </div>
             {% else %}
                 <div class="row-table messages-list">
