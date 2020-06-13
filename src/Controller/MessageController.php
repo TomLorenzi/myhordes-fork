@@ -1299,44 +1299,24 @@ class MessageController extends AbstractController
     }
 
     /**
-     * @Route("api/town/house/pm/{tid<\d+>}/archive", name="home_archive_pm_controller")
+     * @Route("api/town/house/pm/{tid<\d+>}/archive/{action<\d+>}", name="home_archive_pm_controller")
      * @param int $tid
+     * @param int $action
      * @param EntityManagerInterface $em
-     * @param JSONRequestParser $parser
      * @return Response
      */
-    public function pm_archive_api(int $tid, EntityManagerInterface $em, JSONRequestParser $parser): Response {
+    public function pm_archive_api(int $tid, int $action, EntityManagerInterface $em): Response {
+        /** @var User $user */
+        $user = $this->getUser();
+
         /** @var Citizen $citizen */
-        $citizen = $this->getUser()->getActiveCitizen();
+        if (!($citizen = $user->getActiveCitizen())) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
         /** @var PrivateMessageThread $thread */
         $thread = $em->getRepository(PrivateMessageThread::class)->find( $tid );
-        if (!$thread || $thread->getRecipient()->getId() !== $citizen->getId()) return new Response('');
+        if (!$thread || $thread->getRecipient()->getId() !== $citizen->getId()) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
-        $thread->setArchived(true);
-
-        $em->persist($thread);
-        $em->flush();
-
-        return AjaxResponse::success();
-    }
-
-    /**
-     * @Route("api/town/house/pm/{tid<\d+>}/unarchive", name="home_unarchive_pm_controller")
-     * @param int $tid
-     * @param EntityManagerInterface $em
-     * @param JSONRequestParser $parser
-     * @return Response
-     */
-    public function pm_unarchive_api(int $tid, EntityManagerInterface $em, JSONRequestParser $parser): Response {
-        /** @var Citizen $citizen */
-        $citizen = $this->getUser()->getActiveCitizen();
-
-        /** @var PrivateMessageThread $thread */
-        $thread = $em->getRepository(PrivateMessageThread::class)->find( $tid );
-        if (!$thread || $thread->getRecipient()->getId() !== $citizen->getId()) return new Response('');
-
-        $thread->setArchived(false);
+        $thread->setArchived($action !== 0);
 
         $em->persist($thread);
         $em->flush();
@@ -1346,12 +1326,12 @@ class MessageController extends AbstractController
 
     /**
      * @Route("api/town/house/pm/{tid<\d+>}/editor", name="home_answer_post_editor_controller")
-     * @param int $fid
      * @param int $tid
      * @param EntityManagerInterface $em
      * @return Response
      */
     public function home_answer_editor_post_api(int $tid, EntityManagerInterface $em): Response {
+        /** @var User $user */
         $user = $this->getUser();
 
         $thread = $em->getRepository( PrivateMessageThread::class )->find( $tid );
@@ -1361,7 +1341,7 @@ class MessageController extends AbstractController
             'fid' => null,
             'tid' => $tid,
             'pid' => null,
-            'emotes' => $this->getEmotesByUser($this->getUser(),true),
+            'emotes' => $this->getEmotesByUser($user,true),
             'forum' => false,
             'type' => 'pm',
             'target_url' => 'town_house_send_pm_controller',
@@ -1375,6 +1355,7 @@ class MessageController extends AbstractController
      * @return Response
      */
     public function home_new_editor_post_api(string $type, EntityManagerInterface $em): Response {
+        /** @var User $user */
         $user = $this->getUser();
 
         $allowed_types = ['pm', 'global'];
@@ -1384,7 +1365,7 @@ class MessageController extends AbstractController
             'fid' => null,
             'tid' => null,
             'pid' => null,
-            'emotes' => $this->getEmotesByUser($this->getUser(),true),
+            'emotes' => $this->getEmotesByUser($user,true),
             'forum' => false,
             'type' => $type,
             'target_url' => 'town_house_send_pm_controller',
@@ -1397,13 +1378,14 @@ class MessageController extends AbstractController
      * @return Response
      */
     public function admin_new_changelog_editor_controller(EntityManagerInterface $em): Response {
+        /** @var User $user */
         $user = $this->getUser();
 
         return $this->render( 'ajax/forum/editor.html.twig', [
             'fid' => null,
             'tid' => null,
             'pid' => null,
-            'emotes' => $this->getEmotesByUser($this->getUser(),true),
+            'emotes' => $this->getEmotesByUser($user,true),
             'forum' => false,
             'type' => 'changelog',
             'target_url' => 'admin_changelog_new_changelog',
@@ -1414,14 +1396,15 @@ class MessageController extends AbstractController
      * @Route("api/admin/changelogs/new_changelog", name="admin_changelog_new_changelog")
      * @param EntityManagerInterface $em
      * @param JSONRequestParser $parser
-     * @param Translator $t
      * @return Response
      */
-    public function create_changelog_api(EntityManagerInterface $em, JSONRequestParser $parser, TranslatorInterface $t): Response {
+    public function create_changelog_api(EntityManagerInterface $em, JSONRequestParser $parser): Response {
         $title     = $parser->get('title', '');
         $content   = $parser->get('content', '');
         $version   = $parser->get('version', '');
         $lang      = $parser->get('lang', 'de');
+
+        /** @var User $author */
         $author    = $this->getUser();
 
         if(empty($title) || empty($content) || empty($version)) {
@@ -1432,7 +1415,7 @@ class MessageController extends AbstractController
         $change->setTitle($title)->setText($content)->setVersion($version)->setLang($lang)->setAuthor($author);
 
         $tx_len = 0;
-        if (!$this->preparePost($this->getUser(),null,$change,$tx_len))
+        if (!$this->preparePost($author,null,$change,$tx_len))
             return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
 
         $em->persist($change);
