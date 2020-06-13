@@ -1136,7 +1136,7 @@ class MessageController extends AbstractController
                 }
 
                 if(count($linked_items) > 0){
-                    if ($recipient->getIsBanned() != $sender->getIsBanned())
+                    if ($recipient->getBanished() != $sender->getBanished())
                         return AjaxResponse::error(ErrorHelper::ErrorActionNotAvailable);   
                     if ($sender->getTown()->getChaos()){
                         if($recipient->getZone())
