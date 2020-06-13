@@ -182,7 +182,7 @@
                                     <img class="icon left" alt="" src="{{ asset('build/images/planner.gif') }}" />
                                     {% trans with {'%ruin%': zone.prototype.label|trans({},'game')} from 'game'  %}%ruin% betreten{% endtrans %}
                                 </button>
-                            {% else %}
+                            {% elseif zone.buryCount == 0%}
                                 <button id="dig_ruin_button" {% if not dig_ruin or zone.buryCount > 0 %}disabled{% endif %} >
                                     {% if (zone_blocked and active_scout_mode) %}
                                         <img class="icon right" alt="" src="{{ asset('build/images/uncloak.gif') }}" />
@@ -192,8 +192,7 @@
                                     {% if zone.buryCount > 0 %}{% set ruin_label = 'Verschüttete Ruine'|trans({},'game') %}{% endif %}
                                     {% trans with {'%ruin%': ruin_label} from 'game'  %}%ruin% durchsuchen{% endtrans %}
                                 </button>
-                            {% endif %}
-                            {% if zone.buryCount > 0 %}
+                            {% else %}
                                 <button id="uncover_ruin_button">
                                     {% if (zone_blocked and active_scout_mode) %}
                                         <img class="icon right" alt="" src="{{ asset('build/images/uncloak.gif') }}" />

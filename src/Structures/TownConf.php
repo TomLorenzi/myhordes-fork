@@ -45,10 +45,22 @@ class TownConf extends Conf
     const CONF_MODIFIER_CARRY_EXTRA_BAG      = 'modifiers.carry_extra_bag';
     const CONF_MODIFIER_BONES_IN_TOWN        = 'modifiers.meaty_bones_within_town';
 
-    const CONF_FEATURE_CAMPING        = 'features.camping';
-    const CONF_FEATURE_WORDS_OF_HEROS = 'features.words_of_heros';
-    const CONF_FEATURE_ESCORT         = 'features.escort.enabled';
-    const CONF_FEATURE_ESCORT_SIZE    = 'features.escort.max';
+    const CONF_FEATURE_CAMPING         = 'features.camping';
+    const CONF_FEATURE_NIGHTMODE       = 'features.nightmode';
+    const CONF_FEATURE_SHAMAN          = 'features.shaman';
+    const CONF_FEATURE_WORDS_OF_HEROS  = 'features.words_of_heros';
+    const CONF_FEATURE_ESCORT          = 'features.escort.enabled';
+    const CONF_FEATURE_ESCORT_SIZE     = 'features.escort.max';
+    const CONF_FEATURE_XML             = 'features.xml_feed';
+    const CONF_FEATURE_GHOUL_MODE      = 'features.ghoul_mode';
+    const CONF_FEATURE_ALL_POISON      = 'features.all_poison';
+    const CONF_FEATURE_SHUN            = 'features.shun';
+    const CONF_FEATURE_GHOUL           = 'features.ghoul';
+    const CONF_FEATURE_NIGHTWATCH      = 'features.nightwatch';
+    const CONF_FEATURE_IMPROVEDDUMP    = 'features.improveddump';
+    const CONF_FEATURE_ATTACKS         = 'features.attacks';
+    const CONF_FEATURE_GIVE_ALL_PICTOS = 'features.give_all_pictos';
+    const CONF_FEATURE_GIVE_SOULPOINTS = 'features.give_soulpoints';
 
     public function __construct(array $data)
     {

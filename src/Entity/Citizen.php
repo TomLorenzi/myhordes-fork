@@ -1078,12 +1078,12 @@ class Citizen
         return $this->buildingVote;
     }
 
-    public function setBuildingVote(BuildingVote $buildingVote): self
+    public function setBuildingVote(?BuildingVote $buildingVote): self
     {
         $this->buildingVote = $buildingVote;
 
         // set the owning side of the relation if necessary
-        if ($buildingVote->getCitizen() !== $this) {
+        if ($buildingVote !== null && $buildingVote->getCitizen() !== $this) {
             $buildingVote->setCitizen($this);
         }
 

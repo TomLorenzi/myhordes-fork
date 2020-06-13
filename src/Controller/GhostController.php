@@ -12,6 +12,7 @@ use App\Service\ErrorHelper;
 use App\Service\GameFactory;
 use App\Service\JSONRequestParser;
 use App\Service\LogTemplateHandler;
+use App\Service\TimeKeeperService;
 use App\Service\UserHandler;
 use App\Structures\Conf;
 use App\Structures\MyHordesConf;
@@ -21,12 +22,40 @@ use Exception;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Contracts\Translation\TranslatorInterface;
 
 /**
  * @Route("/",condition="request.isXmlHttpRequest()")
  */
 class GhostController extends AbstractController implements GhostInterfaceController
 {
+    protected $entity_manager;
+    protected $translator;
+    protected $time_keeper;
+    private $user_handler;
+
+    public function __construct(EntityManagerInterface $em, UserHandler $uh, TimeKeeperService $tk, TranslatorInterface $translator)
+    {
+        $this->translator = $translator;
+        $this->entity_manager = $em;
+        $this->user_handler = $uh;
+        $this->time_keeper = $tk;
+    }
+
+    protected function addDefaultTwigArgs( ?array $data = null ): array {
+        $data = $data ?? [];
+
+        $data['clock'] = [
+            'desc'      => $this->translator->trans('Worauf warten Sie noch?', [], 'ghost'),
+            'day'       => "",
+            'timestamp' => new \DateTime('now'),
+            'attack'    => $this->time_keeper->secondsUntilNextAttack(null, true),
+            'towntype'  => "",
+        ];
+
+        return $data;
+    }
+
     /**
      * @Route("jx/ghost/welcome", name="ghost_welcome")
      * @param EntityManagerInterface $em
@@ -41,11 +70,11 @@ class GhostController extends AbstractController implements GhostInterfaceContro
         if ($em->getRepository(CitizenRankingProxy::class)->findNextUnconfirmedDeath($user))
             return $this->redirect($this->generateUrl( 'soul_death' ));
 
-        return $this->render( 'ajax/ghost/intro.html.twig', [
+        return $this->render( 'ajax/ghost/intro.html.twig', $this->addDefaultTwigArgs([
             'townClasses' => $em->getRepository(TownClass::class)->findAll(),
             'userCanJoin' => $this->getUserTownClassAccess($conf->getGlobalConf()),
             'canCreateTown' => $uh->hasSkill($user, 'mayor'),
-        ] );
+        ] ));
     }
 
     /**
@@ -66,9 +95,117 @@ class GhostController extends AbstractController implements GhostInterfaceContro
             return $this->redirect($this->generateUrl( 'initial_landing' ));
         }
 
-        return $this->render( 'ajax/ghost/create_town.html.twig', [
-            'townClasses' => $em->getRepository(TownClass::class)->findAll(),
-        ]);
+        return $this->render( 'ajax/ghost/create_town.html.twig', $this->addDefaultTwigArgs([
+            'townClasses' => $em->getRepository(TownClass::class)->findBy(['hasPreset' => true]),
+        ]));
+    }
+
+    /**
+     * @Route("api/ghost/create_town", name="ghost_process_create_town")
+     * @param EntityManagerInterface $em
+     * @return Response
+     */
+    public function process_create_town(JSONRequestParser $parser, EntityManagerInterface $em, ConfMaster $conf, UserHandler $uh, GameFactory $gf, LogTemplateHandler $log): Response
+    {
+        /** @var User $user */
+        $user = $this->getUser();
+
+        /** @var CitizenRankingProxy $nextDeath */
+        if ($em->getRepository(CitizenRankingProxy::class)->findNextUnconfirmedDeath($user))
+            return AjaxResponse::success( true, ['url' => $this->generateUrl('soul_death')] );
+
+        if(!$uh->hasSkill($user, 'mayor')){
+            return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable, ['url' => $this->generateUrl('initial_landing')] );
+        }
+
+        $townname = $parser->get('townName', '');
+        $password = $parser->get('password', '');
+        $lang = $parser->get('lang', '');
+        $townType = $parser->get('townType', '');
+        $ghoulType = $parser->get('ghoulType', '');
+        $well = $parser->get('well', '');
+        $disablexml = $parser->get('disablexml', '');
+        $rules = $parser->get('rules', '');
+        $ruins = boolval($parser->get('ruins', ''));
+        $shaman = boolval($parser->get('shaman', ''));
+        $escorts = boolval($parser->get('escorts', ''));
+        $shun = boolval($parser->get('shun', ''));
+        $nightmode = boolval($parser->get('nightmode', ''));
+        $camp = boolval($parser->get('camp', ''));
+        $ghouls = boolval($parser->get('ghouls', ''));
+        $buildingdamages = boolval($parser->get('buildingdamages', ''));
+        $nightwatch = boolval($parser->get('nightwatch', ''));
+        $improveddump = boolval($parser->get('improveddump', ''));
+        $attacks = $parser->get('attacks', '');
+        $allpictos = $parser->get('allpictos', '');
+        $soulpoints = $parser->get('soulpoints', '');
+
+        // Initial: Create town setting from selected type
+        $town = new Town();
+        $town
+            ->setType($em->getRepository(TownClass::class)->findOneBy(['name' => $townType]));
+
+        $conf = $conf->getTownConfiguration($town);
+
+        $customConf = $conf->getData();
+
+        /*$customConf = [
+            'features' => []
+        ];*/
+
+        if(!empty($well) && is_numeric($well) && $well <= 300){
+            $customConf['well'] = [
+                'min' => $well,
+                'max' => $well
+            ];
+        }
+
+        if(!empty($disablexml)) $customConf['features']['xml_feed'] = !$disablexml;
+        if(!empty($ghoulType)) $customConf['features']['ghoul_mode'] = $ghoulType;
+        switch($rules) {
+            case 'nobuilding':
+                $customConf['features']['unlocked_buildings'] = [];
+                break;
+            case 'poison':
+                $customConf['features']['all_poison'] = true;
+                break;
+        }
+
+        if (!$ruins) $customConf['features'][''] = 0;
+        $customConf['features']['shaman'] = $shaman;
+        $customConf['features']['escort'] = ['enabled' => $escorts];
+        $customConf['features']['shun'] = $shun;
+        $customConf['features']['nightmode'] = $nightmode;
+        $customConf['features']['camping'] = $camp;
+        $customConf['features']['ghoul'] = $ghouls;
+        $customConf['features']['nightwatch'] = $nightwatch;
+        $customConf['features']['improveddump'] = $improveddump;
+        $customConf['features']['attacks'] = $attacks;
+
+        $customConf['features']['give_all_pictos'] = $allpictos;
+        $customConf['features']['give_soulpoints'] = $soulpoints;
+
+        $town = $gf->createTown($townname, $lang, null, 'custom', $customConf);
+        $town->setPassword($password);
+        $em->persist($town);
+
+        $citizen = $gf->createCitizen($town, $user, $error);
+        if (!$citizen) return AjaxResponse::error($error);
+        try {
+            $em->persist($citizen);
+            $em->flush();
+        } catch (Exception $e) {
+            return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
+        }
+
+        $em->persist( $log->citizenJoin( $citizen ) );
+        try {
+            $em->flush();
+        } catch (Exception $e) {
+            return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
+        }
+
+        return AjaxResponse::success( true, ['url' => $this->generateUrl('game_jobs')] );
     }
 
     /**
@@ -144,8 +281,6 @@ class GhostController extends AbstractController implements GhostInterfaceContro
                     for($i = 0 ; $i < $minOpenTown[$townClass] - $openCount ; $i++){
                         $newTown = $factory->createTown(null, $townLang, null, $townClass);
                         $em->persist($newTown);
-                        $em->flush();
-                        //$factory->createExplorableMaze($newTown);
                     }
                 }
             }

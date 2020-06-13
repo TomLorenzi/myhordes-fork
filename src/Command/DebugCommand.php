@@ -223,6 +223,7 @@ class DebugCommand extends Command
                 ),
             );
             foreach ($openTowns as $openTown) {
+                if($openTown->getType()->getName() === 'custom') continue;
                 $count[$openTown->getLanguage()][$openTown->getType()->getName()]++;
             }
 
@@ -232,7 +233,6 @@ class DebugCommand extends Command
                         $newTown = $this->game_factory->createTown(null, $townLang, null, $townClass);
                         $this->entity_manager->persist($newTown);
                         $this->entity_manager->flush();
-                        //$this->game_factory->createExplorableMaze($newTown);
                     }
                 }
             }

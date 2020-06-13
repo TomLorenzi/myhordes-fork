@@ -871,7 +871,7 @@
       </notes>
       <segment>
         <source>Wenn es an der Zeit ist, etwas zu unternehmen, lässt deine Verletzung dich schreien und hält dich auf der Stelle still. Du musst dich erst selbst heilen, bevor du das tun kannst...</source>
-        <target>Wenn es an der Zeit ist, etwas zu unternehmen, lässt deine Verletzung dich schreien und hält dich auf der Stelle still. Du musst dich erst selbst heilen, bevor du das tun kannst...</target>
+        <target>When it's time to do something, your injury will make you scream and keep you still on the spot. You have to heal yourself first before you can do that ...</target>
       </segment>
     </unit>
     <unit id="BygLauq" name="Autor">
@@ -1187,6 +1187,33 @@
       <segment>
         <source>Liste der Themen aktualisieren</source>
         <target>Refresh list of Threads</target>
+      </segment>
+    </unit>
+    <unit id="3RZ5Bd4" name="Version">
+      <notes>
+        <note category="german">Version</note>
+      </notes>
+      <segment>
+        <source>Version</source>
+        <target>Version</target>
+      </segment>
+    </unit>
+    <unit id="8qHMcfp" name="Sprache">
+      <notes>
+        <note category="german">Language</note>
+      </notes>
+      <segment>
+        <source>Sprache</source>
+        <target>Language</target>
+      </segment>
+    </unit>
+    <unit id="81XajEF" name="Vertraulich">
+      <notes>
+        <note category="german">Side Note</note>
+      </notes>
+      <segment>
+        <source>Vertraulich</source>
+        <target>Side Note</target>
       </segment>
     </unit>
   </file>

@@ -37,9 +37,8 @@ class Conf
     }
 
     public function import( array $data ): self {
-        $this->complete = false;
-        if (!$this->is_complete)
-            $this->deep_merge( $this->data, $data );
+        $this->is_complete = false;
+        $this->deep_merge( $this->data, $data );
         return $this;
     }
 
@@ -53,6 +52,10 @@ class Conf
 
     public function raw(): array {
         return $this->flat;
+    }
+
+    public function getData() {
+        return $this->data;
     }
 
     public function get(string $key, $default = null) {

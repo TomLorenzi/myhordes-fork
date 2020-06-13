@@ -763,7 +763,7 @@
       </notes>
       <segment>
         <source>Version</source>
-        <target>Version</target>
+        <target>Update</target>
       </segment>
     </unit>
     <unit id="gvEcbOu" name="Neue Update">
@@ -979,7 +979,7 @@
       </notes>
       <segment>
         <source>Munition erzeugen</source>
-        <target>Generate ammunition</target>
+        <target>Generate ammunitions</target>
       </segment>
     </unit>
     <unit id="Hizwkp7" name="Admin-Berechtigung setzen">
@@ -1015,7 +1015,43 @@
       </notes>
       <segment>
         <source>Computer sagt nein.</source>
-        <target>Computer says no.</target>
+        <target>You shall not PASS !!</target>
+      </segment>
+    </unit>
+    <unit id="nq1XXly" name="Stadtregister">
+      <notes>
+        <note category="german">Town registry</note>
+      </notes>
+      <segment>
+        <source>Stadtregister</source>
+        <target>Town registry</target>
+      </segment>
+    </unit>
+    <unit id="yu8TLDr" name="Du hast dich umgebracht.">
+      <notes>
+        <note category="german">Du hast dich umgebracht.</note>
+      </notes>
+      <segment>
+        <source>Du hast dich umgebracht.</source>
+        <target>You terminated your miserable existence.</target>
+      </segment>
+    </unit>
+    <unit id="xkgfKms" name="Du gehörst keiner Stadt an.">
+      <notes>
+        <note category="german">Du gehörst keiner Stadt an.</note>
+      </notes>
+      <segment>
+        <source>Du gehörst keiner Stadt an.</source>
+        <target>You do not belong to a Town.</target>
+      </segment>
+    </unit>
+    <unit id="jnQ5tRO" name="Selbstmord begehen">
+      <notes>
+        <note category="german">Selbstmord begehen</note>
+      </notes>
+      <segment>
+        <source>Selbstmord begehen</source>
+        <target>Commit Suicide</target>
       </segment>
     </unit>
   </file>

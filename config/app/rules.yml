@@ -68,6 +68,18 @@ parameters:
         escort:
           enabled: true
           max: 4
+        nightmode: true
+        shaman: true
+        xml_feed: true
+        ghoul_mode: normal
+        all_poison: false
+        shun: true
+        ghoul: true
+        nightwatch: true
+        improveddump: true
+        attacks: normal
+        give_all_pictos: true
+        give_soulpoints: true
 
     small:
       map:  { min: 12, max: 14 }
@@ -90,6 +102,8 @@ parameters:
       features:
         camping: false
         words_of_heros: false
+        nightwatch: false
+        shaman: false
 
     remote:
 
