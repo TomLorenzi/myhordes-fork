@@ -1700,11 +1700,7 @@
       <notes>
         <note category="german">Stadt</note>
       </notes>
-<<<<<<< HEAD
-      <segment state="translated">
-=======
       <segment>
->>>>>>> 0fef236b13809731a7976963458eb412de06ef6a
         <source>Stadt</source>
         <target>Pueblo</target>
       </segment>
