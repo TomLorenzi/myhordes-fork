@@ -146,20 +146,39 @@ export default class HTML {
         parent.addEventListener('contextmenu', function(e) {
            e.preventDefault();
         }, false);
-        parent.addEventListener('pointerenter', function(e) {
+
+        const fun_tooltip_pos = function(e: PointerEvent) {
+            element.style.top  = e.clientY + 'px';
+
+            // Make sure the tooltip does not exit the screen on the right
+            // If it does, attach it left to the cursor instead of right
+            if (e.clientX + element.clientWidth + 25 > window.innerWidth) {
+
+                // Make sure the tooltip does not exit the screen on the left
+                // If it does, center it on screen below the cursor
+                if ( (e.clientX - element.clientWidth - 50) < 0 ) {
+                    element.style.left = (window.innerWidth - element.clientWidth)/2 + 'px';
+                } else element.style.left = (e.clientX - element.clientWidth - 50) + 'px';
+
+            } else element.style.left = e.clientX + 'px';
+
+        }
+
+        const fun_tooltip_show = function(e: PointerEvent) {
             element.style.display = 'block';
             container.append( element );
-        });
-        parent.addEventListener('pointermove', function(e) {
-            element.style.top  = e.clientY + 'px';
-            if (e.clientX + element.clientWidth + 25 > window.innerWidth) {
-                element.style.left = (e.clientX - element.clientWidth - 50) + 'px';
-            } else element.style.left = e.clientX + 'px';
-        });
-        parent.addEventListener('pointerout', function(e) {
+            fun_tooltip_pos(e);
+        }
+
+        const fun_tooltip_hide = function(e: PointerEvent) {
             element.style.display = 'none';
             parent.append( element );
-        });
+        }
+
+        parent.addEventListener('pointerenter', fun_tooltip_show);
+        parent.addEventListener('pointermove',  fun_tooltip_pos);
+        parent.addEventListener('pointerleave', fun_tooltip_hide);
+        parent.addEventListener('pointerup',    fun_tooltip_hide);
     };
 
     addLoadStack( num: number = 1): void {
