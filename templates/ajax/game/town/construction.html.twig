@@ -133,11 +133,21 @@
     {% endmacro %}
 
     {# @var root_cats \App\Entity\Building[] #}
-    <div class="hide-sm hide-md hide-lg">
+    <div>
         <ul class="buildings-tabs tabs plain" x-tab-group="buildings" x-tab-control>
-            <li class="tab" x-tab-id="all"><div class="tab-link">{% trans from 'game' %}Alle{% endtrans %}</div></li>
+            <li class="tab" x-tab-id="all">
+                <div class="tab-link">
+                    <img class="hide-desktop" alt="" src="{{ asset( 'build/images/small_new.gif' ) }}" >
+                    <span class="hide-lg hide-md hide-sm">{{ 'Alle'|trans({},'game') }}</span>
+                </div>
+            </li>
             {% for building in root_cats %}
-                <li class="tab" x-tab-id="type_{{ building.prototype.icon }}"><div class="tab-link">{{building.prototype.label|trans({}, 'buildings')}}</div></li>
+                <li class="tab" x-tab-id="type_{{ building.prototype.icon }}">
+                    <div class="tab-link">
+                        <img class="hide-desktop" alt="" src="{{ asset('build/images/building/' ~ building.prototype.icon ~ '.gif' ) }}" >
+                        <span class="hide-lg hide-md hide-sm">{{building.prototype.label|trans({}, 'buildings')}}</span>
+                    </div>
+                </li>
             {% endfor %}
         </ul>
     </div>
