@@ -294,7 +294,7 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
         $is_terrorised = $this->citizen_handler->hasStatusEffect($c, 'terror');
         $has_job       = $c->getProfession()->getName() != 'none';
         $is_admin      = $c->getUser()->getRightsElevation() >= User::ROLE_ADMIN;
-        $already_stolen = $this->citizen_handler->hasStatusEffect($this->getActiveCitizen(), 'tg_steal');
+        $already_stolen = $this->citizen_handler->hasStatusEffect($this->getActiveCitizen(), 'tg_steal') && !$this->getActiveCitizen()->getTown()->getChaos();
 
         $hasClairvoyance = false;
         $clairvoyanceLevel = 0;
