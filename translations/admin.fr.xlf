@@ -1072,5 +1072,23 @@
         <target>Vous n'appartenez pas à une ville.</target>
       </segment>
     </unit>
+    <unit id="sqS3JFR" name="Rundmail als Rabe">
+      <notes>
+        <note category="german">Rundmail als Rabe</note>
+      </notes>
+      <segment>
+        <source>Rundmail als Rabe</source>
+        <target>MP a tous les citoyens en tant que Corbeau</target>
+      </segment>
+    </unit>
+    <unit id="K_rzvjv" name="PM vom Raben">
+      <notes>
+        <note category="german">PM vom Raben</note>
+      </notes>
+      <segment>
+        <source>PM vom Raben</source>
+        <target>MP en tant que Corbeau</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

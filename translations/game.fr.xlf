@@ -9435,7 +9435,7 @@
     </unit>
     <unit id="kKXLpSQ" name="Schreiben Sie an alle">
       <notes>
-        <note category="german">Schreiben Sie an alle</note>
+        <note category="german">Alle anschreiben</note>
       </notes>
       <segment>
         <source>Schreiben Sie an alle</source>
@@ -10627,7 +10627,7 @@
       </notes>
       <segment>
         <source>Einrichtung</source>
-        <target>Einrichtung</target>
+        <target>Aménagements</target>
       </segment>
     </unit>
     <unit id="u6_oAsd" name="ff69301">
@@ -10646,6 +10646,42 @@
       <segment>
         <source>Verzeichnis der Stadt.</source>
         <target>l'annuaire de la ville.</target>
+      </segment>
+    </unit>
+    <unit id="aVkOGIz" name="Von einem Ghul gefressen">
+      <notes>
+        <note category="german">Von einem Ghul gefressen</note>
+      </notes>
+      <segment>
+        <source>Von einem Ghul gefressen</source>
+        <target>Dévoré(e) par une goule !</target>
+      </segment>
+    </unit>
+    <unit id="znr86lo" name="Zum Forum">
+      <notes>
+        <note category="german">Zum Forum</note>
+      </notes>
+      <segment>
+        <source>Zum Forum</source>
+        <target>Vers le forum</target>
+      </segment>
+    </unit>
+    <unit id="3lrK_qg" name="Lade Forum...">
+      <notes>
+        <note category="german">Lade Forum...</note>
+      </notes>
+      <segment>
+        <source>Lade Forum...</source>
+        <target>Chargement du forum...</target>
+      </segment>
+    </unit>
+    <unit id="Ht8hKI." name="Dies ist eine offizielle Nachricht.">
+      <notes>
+        <note category="german">Dies ist eine offizielle Nachricht.</note>
+      </notes>
+      <segment>
+        <source>Dies ist eine offizielle Nachricht.</source>
+        <target>Ceci est un message officiel.</target>
       </segment>
     </unit>
   </file>
