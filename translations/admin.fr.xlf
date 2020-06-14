@@ -286,7 +286,7 @@
       </notes>
       <segment>
         <source>Suche:</source>
-        <target>Recherche:</target>
+        <target>Recherche :</target>
       </segment>
     </unit>
     <unit id="TSuzaPk" name="Übersicht">
@@ -367,7 +367,7 @@
       </notes>
       <segment>
         <source>Validiert</source>
-        <target>Valider</target>
+        <target>Validé</target>
       </segment>
     </unit>
     <unit id="zenlipp" name="Ja">
