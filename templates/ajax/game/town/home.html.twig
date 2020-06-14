@@ -221,7 +221,7 @@
                     <div id="recipient_list">
                         <div class="list">
                             {% for citizen in possible_dests %}
-                                <span class="recipient small link" x-citizen-id="{{citizen.id}}">{{citizen.user.username}}</span>
+                                <div class="recipient small link" x-citizen-id="{{citizen.id}}">{{citizen.user.username}}</div>
                             {% endfor %}
                         </div>
                         <button id="close_list">{% trans from 'global'%}Abbrechen{% endtrans %}</button>
