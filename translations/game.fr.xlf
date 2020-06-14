@@ -9435,7 +9435,7 @@
     </unit>
     <unit id="kKXLpSQ" name="Schreiben Sie an alle">
       <notes>
-        <note category="german">Schreiben Sie an alle</note>
+        <note category="german">Alle anschreiben</note>
       </notes>
       <segment>
         <source>Schreiben Sie an alle</source>
@@ -10551,7 +10551,7 @@
     </unit>
     <unit id="VTcxe_c" name="Quarantäne">
       <notes>
-        <note category="german">Quarantäne</note>
+        <note category="german">Quarantine</note>
       </notes>
       <segment>
         <source>Quarantäne</source>
@@ -10560,7 +10560,7 @@
     </unit>
     <unit id="CHdbLWu" name="Komm zurück zu meiner Seele">
       <notes>
-        <note category="german">Komm zurück zu meiner Seele</note>
+        <note category="german">Come back to my soul</note>
       </notes>
       <segment>
         <source>Komm zurück zu meiner Seele</source>
@@ -10569,7 +10569,7 @@
     </unit>
     <unit id="OAGjXFG" name="Alle">
       <notes>
-        <note category="german">Alle</note>
+        <note category="german">All</note>
       </notes>
       <segment>
         <source>Alle</source>
@@ -10578,7 +10578,7 @@
     </unit>
     <unit id="n19gYuh" name="Das folgende Bauprojekt wurde empfohlen:">
       <notes>
-        <note category="german">Das folgende Bauprojekt wurde empfohlen:</note>
+        <note category="german">The following construction project was recommended:</note>
       </notes>
       <segment>
         <source>Das folgende Bauprojekt wurde empfohlen:</source>
@@ -10587,7 +10587,7 @@
     </unit>
     <unit id="iita2xJ" name="83fa5e3">
       <notes>
-        <note category="german">In Privatstädten kannst du gemeinsam mit Freunden oder in Städten zu bestimmten "Theen" zu spielen.</note>
+        <note category="german">Private towns allow groups of friends to play easily together, or to create "theme" towns.</note>
       </notes>
       <segment>
         <source>In Privatstädten kannst du gemeinsam mit Freunden oder in Städten zu bestimmten "Theen" zu spielen.</source>
@@ -10596,7 +10596,7 @@
     </unit>
     <unit id="CVyYW8Q" name="Je nach gewähltem Stadttyp erscheinen Ghule nach den üblichen Regeln.">
       <notes>
-        <note category="german">Je nach gewähltem Stadttyp erscheinen Ghule nach den üblichen Regeln.</note>
+        <note category="german">The ghoul functions normally and will appear as defined by the rules of the town chosen.</note>
       </notes>
       <segment>
         <source>Je nach gewähltem Stadttyp erscheinen Ghule nach den üblichen Regeln.</source>
@@ -10605,7 +10605,7 @@
     </unit>
     <unit id="1zFAtcT" name="Wasservorrat">
       <notes>
-        <note category="german">Wasservorrat</note>
+        <note category="german">Water supply</note>
       </notes>
       <segment>
         <source>Wasservorrat</source>
@@ -10646,6 +10646,42 @@
       <segment>
         <source>Verzeichnis der Stadt.</source>
         <target>l'annuaire de la ville.</target>
+      </segment>
+    </unit>
+    <unit id="aVkOGIz" name="Von einem Ghul gefressen">
+      <notes>
+        <note category="german">Von einem Ghul gefressen</note>
+      </notes>
+      <segment>
+        <source>Von einem Ghul gefressen</source>
+        <target>Von einem Ghul gefressen</target>
+      </segment>
+    </unit>
+    <unit id="znr86lo" name="Zum Forum">
+      <notes>
+        <note category="german">Zum Forum</note>
+      </notes>
+      <segment>
+        <source>Zum Forum</source>
+        <target>Zum Forum</target>
+      </segment>
+    </unit>
+    <unit id="3lrK_qg" name="Lade Forum...">
+      <notes>
+        <note category="german">Lade Forum...</note>
+      </notes>
+      <segment>
+        <source>Lade Forum...</source>
+        <target>Lade Forum...</target>
+      </segment>
+    </unit>
+    <unit id="Ht8hKI." name="Dies ist eine offizielle Nachricht.">
+      <notes>
+        <note category="german">Dies ist eine offizielle Nachricht.</note>
+      </notes>
+      <segment>
+        <source>Dies ist eine offizielle Nachricht.</source>
+        <target>Dies ist eine offizielle Nachricht.</target>
       </segment>
     </unit>
   </file>

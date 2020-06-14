@@ -1209,7 +1209,7 @@
     </unit>
     <unit id="8qHMcfp" name="Sprache">
       <notes>
-        <note category="german">Sprache</note>
+        <note category="german">Language</note>
       </notes>
       <segment>
         <source>Sprache</source>
@@ -1218,47 +1218,11 @@
     </unit>
     <unit id="81XajEF" name="Vertraulich">
       <notes>
-        <note category="german">Vertraulich</note>
+        <note category="german">Side Note</note>
       </notes>
       <segment>
         <source>Vertraulich</source>
         <target>Aparté</target>
-      </segment>
-    </unit>
-    <unit id="gBz_D6E" name="Deutsch">
-      <notes>
-        <note category="german">Deutsch</note>
-      </notes>
-      <segment>
-        <source>Deutsch</source>
-        <target>Allemand</target>
-      </segment>
-    </unit>
-    <unit id="vp_4VdN" name="Französisch">
-      <notes>
-        <note category="german">Französisch</note>
-      </notes>
-      <segment>
-        <source>Französisch</source>
-        <target>Français</target>
-      </segment>
-    </unit>
-    <unit id="mD6lfyI" name="Englisch">
-      <notes>
-        <note category="german">Englisch</note>
-      </notes>
-      <segment>
-        <source>Englisch</source>
-        <target>Anglais</target>
-      </segment>
-    </unit>
-    <unit id="bjgV6Xr" name="Spanisch">
-      <notes>
-        <note category="german">Spanisch</note>
-      </notes>
-      <segment>
-        <source>Spanisch</source>
-        <target>Espagnol</target>
       </segment>
     </unit>
     <unit id=".0Hr4tG" name="Diese Punkte werden für die Seelenrangliste verwendet.">

@@ -1038,7 +1038,7 @@
     </unit>
     <unit id="nq1XXly" name="Stadtregister">
       <notes>
-        <note category="german">Stadtregister</note>
+        <note category="german">Town registry</note>
       </notes>
       <segment>
         <source>Stadtregister</source>
@@ -1047,7 +1047,7 @@
     </unit>
     <unit id="yu8TLDr" name="Du hast dich umgebracht.">
       <notes>
-        <note category="german">Du hast dich umgebracht.</note>
+        <note category="german">You terminated your miserable existence.</note>
       </notes>
       <segment>
         <source>Du hast dich umgebracht.</source>
@@ -1056,7 +1056,7 @@
     </unit>
     <unit id="jnQ5tRO" name="Selbstmord begehen">
       <notes>
-        <note category="german">Selbstmord begehen</note>
+        <note category="german">Commit Suicide</note>
       </notes>
       <segment>
         <source>Selbstmord begehen</source>
@@ -1065,11 +1065,29 @@
     </unit>
     <unit id="xkgfKms" name="Du gehörst keiner Stadt an.">
       <notes>
-        <note category="german">Du gehörst keiner Stadt an.</note>
+        <note category="german">You do not belong to a Town.</note>
       </notes>
       <segment>
         <source>Du gehörst keiner Stadt an.</source>
         <target>Vous n'appartenez pas à une ville.</target>
+      </segment>
+    </unit>
+    <unit id="sqS3JFR" name="Rundmail als Rabe">
+      <notes>
+        <note category="german">Rundmail als Rabe</note>
+      </notes>
+      <segment>
+        <source>Rundmail als Rabe</source>
+        <target>Écrire en tant que corbeau</target>
+      </segment>
+    </unit>
+    <unit id="K_rzvjv" name="PM vom Raben">
+      <notes>
+        <note category="german">PM vom Raben</note>
+      </notes>
+      <segment>
+        <source>PM vom Raben</source>
+        <target>PM vom Raben</target>
       </segment>
     </unit>
   </file>
