@@ -8,6 +8,7 @@ use App\Entity\ActionCounter;
 use App\Entity\BankAntiAbuse;
 use App\Entity\Building;
 use App\Entity\BuildingVote;
+use App\Entity\CauseOfDeath;
 use App\Entity\Citizen;
 use App\Entity\CitizenHomePrototype;
 use App\Entity\CitizenHomeUpgrade;
@@ -61,6 +62,26 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
     const ErrorAlreadyUpgraded   = ErrorHelper::BaseTownErrors + 7;
     const ErrorComplaintLimitHit = ErrorHelper::BaseTownErrors + 8;
 
+    protected function get_needed_votes(): array {
+        $town = $this->getActiveCitizen()->getTown();
+        $roles = $this->entity_manager->getRepository(CitizenRole::class)->findVotable();
+
+        $votesNeeded = array();
+        foreach ($roles as $role)
+            $votesNeeded[$role->getName()] = ($town->getChaos() || $town->isOpen()) ? null : $role;
+
+        if(!$town->isOpen() && !$town->getChaos())
+            foreach ($roles as $role)
+                foreach ($town->getCitizens() as $citizen)
+                    if($citizen->getRoles()->contains($role)) {
+                        if ($citizen->getAlive()) $votesNeeded[$role->getName()] = false;
+                        else if ($citizen->getSurvivedDays() >= ($citizen->getTown()->getDay() - 1) && $citizen->getCauseOfDeath()->getRef() !== CauseOfDeath::NightlyAttack)
+                            $votesNeeded[$role->getName()] = false;
+                    }
+
+        return $votesNeeded;
+    }
+
     protected function addDefaultTwigArgs( ?string $section = null, ?array $data = null ): array {
         $data = $data ?? [];
 
@@ -99,23 +120,9 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
         $data['chaos'] = $town->getChaos();
         $data['town'] = $town;
 
-        if($section == "citizens") {
-            $roles = $this->entity_manager->getRepository(CitizenRole::class)->findVotable();
-            $votesNeeded = array();
-            foreach ($roles as $role) {
-                $votesNeeded[$role->getName()] = ($town->getChaos() || $town->isOpen()) ? null : $role;
-            }
+        if ($section == "citizens")
+            $data['votesNeeded'] = $this->get_needed_votes();
 
-            if(!$town->isOpen() && !$town->getChaos()) {
-                foreach ($roles as $role) {
-                    foreach ($town->getCitizens() as $citizen) {
-                        if($citizen->getRoles()->contains($role))
-                            $votesNeeded[$role->getName()] = false;
-                    }
-                }
-            }
-            $data['votesNeeded'] = $votesNeeded;
-        }
         $data["new_message"] = $this->citizen_handler->hasNewMessage($this->getActiveCitizen());
         return parent::addDefaultTwigArgs( $section, $data );
     }
@@ -178,26 +185,13 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
         }
 
         $roles = $this->entity_manager->getRepository(CitizenRole::class)->findVotable();
-        $votes_needed = array();
         $has_voted = array();
-        foreach ($roles as $role) {
-            $votes_needed[$role->getName()] = ($town->getChaos() || $town->isOpen()) ? null : $role;
-            $has_voted[$role->getName()] = false;
-        }
 
-        if(!$town->isOpen() && !$town->getChaos()) {
-            foreach ($roles as $role) {
-                foreach ($town->getCitizens() as $citizen) {
-                    if($citizen->getRoles()->contains($role)) {
-                        $votes_needed[$role->getName()] = false;
-                        break;
-                    }
-                }
+        if(!$town->isOpen() && !$town->getChaos())
+            foreach ($roles as $role)
                 $has_voted[$role->getName()] = ($this->entity_manager->getRepository(CitizenVote::class)->findOneByCitizenAndRole($this->getActiveCitizen(), $role) !== null);
-            }
-        }
 
-        $can_edit_blackboard = $this->getActiveCitizen()->getProfession()->getHeroic() && $this->user_handler->hasSkill($this->getActiveCitizen()->getUser(), 'dictator') && !$citizen->getBanished();
+        $can_edit_blackboard = $this->getActiveCitizen()->getProfession()->getHeroic() && $this->user_handler->hasSkill($this->getActiveCitizen()->getUser(), 'dictator') && !$this->getActiveCitizen()->getBanished();
 
         return $this->render( 'ajax/game/town/dashboard.html.twig', $this->addDefaultTwigArgs(null, [
             'town' => $town,
@@ -210,7 +204,7 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
             'item_def_factor' => $item_def_factor,
             'has_battlement' => $has_battlement,
             'has_watchtower' => $has_watchtower,
-            'votes_needed' => $votes_needed,
+            'votes_needed' => $this->get_needed_votes(),
             'has_voted' => $has_voted,
             'has_levelable_building' => $has_levelable_building,
             'active_citizen' => $this->getActiveCitizen(),
@@ -226,6 +220,7 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
     /**
      * @Route("jx/town/visit/{id}/headshot", name="town_visit_headshot", requirements={"id"="\d+"})
      * @param int $id
+     * @param AdminActionHandler $admh
      * @return Response
      */
     public function visitHeadshot(int $id, AdminActionHandler $admh): Response
@@ -868,6 +863,10 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
         if($role === null || $voted_citizen === null || $voted_citizen->getTown() != $citizen->getTown() || !$voted_citizen->getAlive() || $citizen == $voted_citizen || $town->getChaos()) {
             return AjaxResponse::error(ErrorHelper::ErrorActionNotAvailable);
         }
+
+        // You can only vote if your vote is needed
+        $needed = $this->get_needed_votes();
+        if (!isset($needed[$role->getName()]) || !$needed[$role->getName()]) return AjaxResponse::error(ErrorHelper::ErrorActionNotAvailable);
 
         // Add our vote !
         $citizenVote = new CitizenVote();

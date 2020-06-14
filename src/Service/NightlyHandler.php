@@ -198,7 +198,7 @@ class NightlyHandler
         $this->log->info('<info>Updating survival information</info> ...');
         foreach ($town->getCitizens() as $citizen) {
             if (!$citizen->getAlive()) continue;
-            $citizen->setSurvivedDays( $citizen->getTown()->getDay() );
+            $citizen->setSurvivedDays( $citizen->getTown()->getDay() - 1 );
 
             // Check hero skills
             $nextSkill = $this->entity_manager->getRepository(HeroSkillPrototype::class)->getNextUnlockable($citizen->getUser()->getHeroDaysSpent());
@@ -1116,8 +1116,15 @@ class NightlyHandler
         $votes = array();
 
         foreach ($roles as $role) {
-            if($this->entity_manager->getRepository(Citizen::class)->findOneByRoleAndTown($role, $town) !== null)
-                continue;
+
+            /** @var Citizen $last_one */
+            $last_one = $this->entity_manager->getRepository(Citizen::class)->findLastOneByRoleAndTown($role, $town);
+            if ($last_one &&
+                ($last_one->getAlive() ||                                                                                                               // Skip vote if the last citizen with this role is still alive
+                    ($last_one->getSurvivedDays() >= ($town->getDay()-1)) ||                                                                            // Skip vote if the last citizen with this role died during the attack
+                    ($last_one->getSurvivedDays() >= ($town->getDay()-2) && $last_one->getCauseOfDeath()->getRef() !== CauseOfDeath::NightlyAttack)     // Skip vote if the last citizen with this role died the previous day
+                )) continue;
+
             // Getting vote per role per citizen
             $votes[$role->getId()] = array();
             foreach ($citizens as $citizen) {
