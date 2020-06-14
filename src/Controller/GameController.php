@@ -101,7 +101,7 @@ class GameController extends AbstractController implements GameInterfaceControll
 
         return $this->render( 'ajax/game/log_content.html.twig', [
             'entries' => $entries,
-            'canHideEntry' => $this->getActiveCitizen()->getProfession()->getHeroic() && $this->user_handler->hasSkill($citizen !== null ? $citizen->getUser() : $this->getActiveCitizen()->getUser(), 'manipulator'),
+            'canHideEntry' => $this->getActiveCitizen()->getAlive() && $this->getActiveCitizen()->getProfession()->getHeroic() && $this->user_handler->hasSkill($citizen !== null ? $citizen->getUser() : $this->getActiveCitizen()->getUser(), 'manipulator'),
         ] );
     }
 
