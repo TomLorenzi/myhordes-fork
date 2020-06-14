@@ -32,6 +32,12 @@
         </div>
     {% endif %}
 
+    <div class="forum-preview-container fix-height hide-sm">
+        <div id="forum-content">
+            <div class="center"><i class="fa fa-spin fa-circle-notch"></i> {{ 'Lade Forum...'|trans({},'game') }}</div>
+        </div>
+    </div>
+
     <div class="row-table">
         <div class="row header">
             <div class="padded cell rw-2">
@@ -115,5 +121,10 @@
                         $.ajax.load(null, '{{ path('town_workshop') }}', true);
                     } );
             });
+
+        $.ajax.background().no_history().load( document.getElementById('forum-content'), '{{ path('forum_previewer_controller', {fid: town.forum.id, sem: constant('App\\Entity\\Thread::SEMANTIC_WORKSHOP') })|e('js') }}', false, {}, function() {
+            let container = document.querySelector('.forum-preview-container');
+            container.scrollTop = container.scrollHeight;
+        } );
     </script>
 {% endblock %}

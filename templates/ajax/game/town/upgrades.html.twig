@@ -22,6 +22,12 @@
         </div>
     {% endif %}
 
+    <div class="forum-preview-container fix-height hide-sm">
+        <div id="forum-content">
+            <div class="center"><i class="fa fa-spin fa-circle-notch"></i> {{ 'Lade Forum...'|trans({},'game') }}</div>
+        </div>
+    </div>
+
     <div class="town-upgrades">
         {% for building in buildings %}
             {# @var building \App\Entity\Building #}
@@ -77,5 +83,9 @@
                         $.ajax.load(null, '{{ path('town_upgrades') }}', true);
                     } );
             });
+        $.ajax.background().no_history().load( document.getElementById('forum-content'), '{{ path('forum_previewer_controller', {fid: town.forum.id, sem: constant('App\\Entity\\Thread::SEMANTIC_DAILYVOTE') })|e('js') }}', false, {}, function() {
+            let container = document.querySelector('.forum-preview-container');
+            container.scrollTop = container.scrollHeight;
+        } );
     </script>
 {% endblock %}

@@ -6,6 +6,7 @@ use App\Entity\Forum;
 use App\Entity\Thread;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Common\Persistence\ManagerRegistry;
+use Doctrine\ORM\NonUniqueResultException;
 use Exception;
 
 /**
@@ -30,6 +31,21 @@ class ThreadRepository extends ServiceEntityRepository
                 ->getSingleScalarResult();
         } catch (Exception $e) {
             return 0;
+        }
+    }
+
+    public function findByForumSemantic(Forum $forum, int $semantic): ?Thread
+    {
+        try {
+            return $this->createQueryBuilder('t')
+                ->andWhere('t.semantic = :semantic')->setParameter('semantic', $semantic)
+                ->andWhere('t.forum = :forum')->setParameter('forum', $forum)
+                ->orderBy('t.lastPost', 'DESC')
+                ->setMaxResults(1)
+                ->getQuery()
+                ->getOneOrNullResult();
+        } catch (Exception $e) {
+            return null;
         }
     }
 

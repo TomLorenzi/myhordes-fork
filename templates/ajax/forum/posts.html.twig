@@ -94,7 +94,7 @@
                             {{ 'Der Rabe'|trans({},'global') }}
                         {% elseif post.type == "DEV" %}
                             {{ post.owner.username }}
-                            <img src="{{ asset('build/images/small_admin.gif') }}" />
+                            <img alt="" src="{{ asset('build/images/small_admin.gif') }}" />
                         {% else %}
                             {{ post.owner.username }}
                         {% endif %}
@@ -102,7 +102,7 @@
                     {% if post.note is not null %}<div class="right post-note">{{ post.note|raw }}</div>{% endif %}
                 </div>
                 <div class="forum-post-content">
-                    {{ post.text|raw }}
+                    {{ post.translate ? (post.text|trans({},'game')|raw) : (post.text|raw) }}
                 </div>
                 <div class="forum-post-footer right">
                 {% if is_granted("ROLE_CROW") %}

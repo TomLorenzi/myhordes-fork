@@ -19,21 +19,26 @@
     </div>
 
     <div class="row">
-        <div class="padded cell rw-6 rw-md-12">
+        <div class="padded cell rw-6 rw-lg-12">
             {% embed "ajax/game/inventory.html.twig" with {'size': rucksack_size, 'items': rucksack.items} %}
                 {% block class %}rucksack{% endblock %}
                 {% block title %}{% trans from 'game' %}Rucksack{% endtrans %}{% endblock %}
             {% endembed %}
 
             <button id="drop-all-button" {% if rucksack.items|length == 0 %}disabled{% endif %}><img alt="" src="{{ asset('build/images/item/item_bag.gif') }}"> {% trans from 'game' %}Rucksack in der Bank ausleeren{% endtrans %}</button>
-        </div>
-    </div>
-    <div class="row">
-        <div class="padded cell rw-12">
+
             {% embed "ajax/game/inventory.html.twig" with {'size': 0, 'items': bank, 'bankmode': true} %}
                 {% block class %}bank{% endblock %}
                 {% block title %}{% endblock %}
             {% endembed %}
+        </div>
+
+        <div class="padded cell rw-6 rw-lg-12">
+            <div class="forum-preview-container hide-sm">
+                <div id="forum-content">
+                    <div class="center"><i class="fa fa-spin fa-circle-notch"></i> {{ 'Lade Forum...'|trans({},'game') }}</div>
+                </div>
+            </div>
         </div>
     </div>
     <div class="row">
@@ -98,5 +103,10 @@
             }
         };
         document.getElementById('banksearch').addEventListener('keyup', bankHandler);
+
+        $.ajax.background().no_history().load( document.getElementById('forum-content'), '{{ path('forum_previewer_controller', {fid: town.forum.id, sem: constant('App\\Entity\\Thread::SEMANTIC_BANK') })|e('js') }}', false, {}, function() {
+            let container = document.querySelector('.forum-preview-container');
+            container.scrollTop = container.scrollHeight;
+        } );
     </script>
 {% endblock %}

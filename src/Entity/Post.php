@@ -67,6 +67,11 @@ class Post
 
     private $new = false;
 
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $translate = false;
+
     public function __construct()
     {
         $this->adminReports = new ArrayCollection();
@@ -219,6 +224,18 @@ class Post
 
     public function setNew(): self {
         $this->new = true;
+        return $this;
+    }
+
+    public function getTranslate(): ?bool
+    {
+        return $this->translate;
+    }
+
+    public function setTranslate(bool $translate): self
+    {
+        $this->translate = $translate;
+
         return $this;
     }
 }

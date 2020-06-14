@@ -115,10 +115,11 @@ export default class Ajax {
             for (let b = 0; b < buttons.length; b++) {
                 buttons[b].addEventListener('click', function(e) {
                     e.preventDefault();
-                    let load_target = document.querySelector(buttons[b].getAttribute('x-ajax-target')) as HTMLElement;
-                    if (load_target == undefined) {
+                    let target_desc = buttons[b].getAttribute('x-ajax-target');
+                    let load_target = target_desc === 'default' ? ajax_instance.defaultNode : document.querySelector(target_desc) as HTMLElement;
+                    if (load_target == undefined)
                         load_target = target;
-                    }
+
                     ajax_instance.load( load_target, buttons[b].getAttribute('x-ajax-href'), true )
                 }, {once: true, capture: true});
                 buttons[b].addEventListener('mousedown', function(e: MouseEvent) {
@@ -169,7 +170,7 @@ export default class Ajax {
         history.pushState( url, '', url );
     }
 
-    load( target: HTMLElement, url: string, push_history: boolean = false, data: object = {} ) {
+    load( target: HTMLElement, url: string, push_history: boolean = false, data: object = {}, callback: ajaxStack|null = null ) {
         let ajax_instance = this;
 
         if (!(target = this.prepareTarget( target ))) return;
@@ -200,6 +201,8 @@ export default class Ajax {
                 const r_xml = this.responseXML;
                 ajax_instance.render_queue.push( function() { ajax_instance.render( r_url, target, r_xml, false, !no_hist ) } );
             } else ajax_instance.render( this.responseURL, target, this.responseXML, false, !no_hist );
+
+            if (callback) callback();
 
             if (!no_loader) $.html.removeLoadStack();
         });

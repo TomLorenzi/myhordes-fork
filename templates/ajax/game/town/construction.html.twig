@@ -28,13 +28,18 @@
         {% endif %}
     {% endif %}
 
+    <div class="forum-preview-container fix-height hide-sm">
+        <div id="forum-content">
+            <div class="center"><i class="fa fa-spin fa-circle-notch"></i> {{ 'Lade Forum...'|trans({},'game') }}</div>
+        </div>
+    </div>
+
     {% if not voted_building is null %}
         <div class="voted-building">
             {{'Das folgende Bauprojekt wurde empfohlen:'|trans({}, 'game')}}<br />
             <strong class="name">{{voted_building.prototype.label|trans({}, 'buildings')}}</strong>
         </div>
     {% endif %}
-
 
     {% macro building_entry(building, buildable, n, dict, items, disable_all, workshopBonus, hpToAp, canVote, votedBuilding) %}
         {# @var building \App\Entity\Building #}
@@ -207,5 +212,10 @@
         for(let i = 0 ; i < voteButtons.length ; i++) {
             voteButtons[i].addEventListener('click', function(){ send_vote_request(this.getAttribute('x-building-id')); });
         }
+
+        $.ajax.background().no_history().load( document.getElementById('forum-content'), '{{ path('forum_previewer_controller', {fid: town.forum.id, sem: constant('App\\Entity\\Thread::SEMANTIC_CONSTRUCTIONS') })|e('js') }}', false, {}, function() {
+            let container = document.querySelector('.forum-preview-container');
+            container.scrollTop = container.scrollHeight;
+        } );
     </script>
 {% endblock %}

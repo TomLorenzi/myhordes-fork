@@ -683,6 +683,37 @@ class MessageController extends AbstractController
         }
 
     /**
+     * @Route("api/forum/{sem<\d+>}/{fid<\d+>}/preview", name="forum_previewer_controller")
+     * @param int $fid
+     * @param int $sem
+     * @param EntityManagerInterface $em
+     * @return Response
+     */
+    public function small_viewer_api( int $fid, int $sem, EntityManagerInterface $em ) {
+        /** @var User $user */
+        $user = $this->getUser();
+
+        if ($sem === 0) return new Response('');
+
+        $forums = $em->getRepository(Forum::class)->findForumsForUser($user, $fid);
+        if (count($forums) !== 1)
+            return new Response('');
+
+        /** @var Thread $thread */
+        $thread = $em->getRepository(Thread::class)->findByForumSemantic( $forums[0], $sem );
+        if (!$thread || $thread->getForum()->getId() !== $fid) return new Response(' ');
+
+        $posts = $em->getRepository(Post::class)->findUnhiddenByThread($thread, 5, -5);
+
+        foreach ($posts as $post) $post->setText( $this->prepareEmotes( $post->getText() ) );
+        return $this->render( 'ajax/forum/posts_small.html.twig', [
+            'posts' => $posts,
+            'fid' => $fid,
+            'tid' => $thread->getId(),
+        ] );
+    }
+
+    /**
      * @Route("api/forum/{tid<\d+>}/{fid<\d+>}/view", name="forum_viewer_controller")
      * @param int $fid
      * @param int $tid
@@ -699,7 +730,7 @@ class MessageController extends AbstractController
         $thread = $em->getRepository(Thread::class)->find( $tid );
         if (!$thread || $thread->getForum()->getId() !== $fid) return new Response('');
 
-        $forums = $em->getRepository(Forum::class)->findForumsForUser($this->getUser(), $fid);
+        $forums = $em->getRepository(Forum::class)->findForumsForUser($user, $fid);
         if (count($forums) !== 1){
             if (!($user->getRightsElevation() >= User::ROLE_CROW && $thread->hasReportedPosts())){
                 return new Response('');

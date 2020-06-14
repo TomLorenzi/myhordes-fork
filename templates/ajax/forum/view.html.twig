@@ -21,13 +21,13 @@
             <div class="cell rw-8 title">
                 <div>
                     {% if thread.translatable %}
-                        {{ thread.title|trans({},'global') }}
+                        {{ thread.title|trans({},'game') }}
                     {% else %}
                         {{ thread.title }}
                     {% endif %}
                     {% if thread.hasAdminAnnounce %}
                     <span class="float-right">
-                        <img src="{{ asset('build/images/forum/adminAnnounce.png') }}" />
+                        <img alt="" src="{{ asset('build/images/forum/adminAnnounce.png') }}" />
                         <div class="tooltip forum-tooltip">
                             {{'Dieses Thema enthält offizielle Ansagen der Website Administratoren.'|trans({}, 'global')}}
                         </div>

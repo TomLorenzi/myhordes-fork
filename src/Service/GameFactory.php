@@ -43,6 +43,7 @@ class GameFactory
     private $conf;
     private $translator;
     private $maze_maker;
+    private $crow;
 
     const ErrorNone = 0;
     const ErrorTownClosed          = ErrorHelper::BaseTownSelectionErrors + 1;
@@ -53,7 +54,7 @@ class GameFactory
     public function __construct(ConfMaster $conf,
         EntityManagerInterface $em, GameValidator $v, Locksmith $l, ItemFactory $if, TownHandler $th,
         StatusFactory $sf, RandomGenerator $rg, InventoryHandler $ih, CitizenHandler $ch, ZoneHandler $zh, LogTemplateHandler $lh,
-        TranslatorInterface $translator, MazeMaker $mm)
+        TranslatorInterface $translator, MazeMaker $mm, CrowService $crow)
     {
         $this->entity_manager = $em;
         $this->validator = $v;
@@ -69,6 +70,7 @@ class GameFactory
         $this->conf = $conf;
         $this->translator = $translator;
         $this->maze_maker = $mm;
+        $this->crow = $crow;
     }
 
     private static $town_name_snippets = [
@@ -287,60 +289,27 @@ class GameFactory
         $this->zone_handler->dailyZombieSpawn( $town, 1, ZoneHandler::RespawnModeNone );
 
         $town->setForum((new Forum())->setTitle($town->getName()));
-
-        $ownerUser = $this->entity_manager->getRepository(User::class)->find(66);
-
-        $threadBank = new Thread();
-        $threadBank->setTitle($this->translator->trans('Bank', [], 'game'));
-        $threadBank->setPinned(true);
-        $threadBank->setOwner($ownerUser);
-        $threadBank->setLastPost(new \DateTime());
-        $postBank = new Post();
-        $postBank->setDate(new \DateTime());
-        $postBank->setOwner($ownerUser);
-        $postBank->setText($this->translator->trans('In diesem Thread dreht sich alles um die Bank.', [], 'game'));
-        $threadBank->addPost($postBank);
-
-        $town->getForum()->addThread($threadBank);
-
-        $threadDailyVote = new Thread();
-        $threadDailyVote->setTitle($this->translator->trans('Verbesserung des Tages', [], 'game'));
-        $threadDailyVote->setPinned(true);
-        $threadDailyVote->setOwner($ownerUser);
-        $threadDailyVote->setLastPost(new \DateTime());
-        $postDailyVote = new Post();
-        $postDailyVote->setDate (new \DateTime());
-        $postDailyVote->setOwner($ownerUser);
-        $postDailyVote->setText($this->translator->trans('In diesem Thread dreht sich alles um die geplanten Verbesserungen des Tages.', [], 'game'));
-        $threadDailyVote->addPost($postDailyVote);
-
-        $town->getForum()->addThread($threadDailyVote);
-
-        $threadWorkshop = new Thread();
-        $threadWorkshop->setTitle($this->translator->trans('Werkstatt', [], 'game'));
-        $threadWorkshop->setPinned(true);
-        $threadWorkshop->setOwner($ownerUser);
-        $threadWorkshop->setLastPost(new \DateTime());
-        $postWorkshop = new Post();
-        $postWorkshop->setDate (new \DateTime());
-        $postWorkshop->setOwner($ownerUser);
-        $postWorkshop->setText($this->translator->trans('In diesem Thread dreht sich alles um die Werkstatt und um Ressourcen.', [], 'game'));
-        $threadWorkshop->addPost($postWorkshop);
-
-        $town->getForum()->addThread($threadWorkshop);
-
-        $threadBuilding = new Thread();
-        $threadBuilding->setTitle($this->translator->trans('Konstruktionen', [], 'game'));
-        $threadBuilding->setPinned(true);
-        $threadBuilding->setOwner($ownerUser);
-        $threadBuilding->setLastPost(new \DateTime());
-        $postBuilding = new Post();
-        $postBuilding->setDate (new \DateTime());
-        $postBuilding->setOwner($ownerUser);
-        $postBuilding->setText($this->translator->trans('In diesem Thread dreht sich alles um zukünftige Bauprojekte.', [], 'game'));
-        $threadBuilding->addPost($postBuilding);
-
-        $town->getForum()->addThread($threadBuilding);
+        $this->crow->postToForum( $town->getForum(),
+            [
+                'In diesem Thread dreht sich alles um die Bank.',
+                'In diesem Thread dreht sich alles um die geplanten Verbesserungen des Tages.',
+                'In diesem Thread dreht sich alles um die Werkstatt und um Ressourcen.',
+                'In diesem Thread dreht sich alles um zukünftige Bauprojekte.',
+            ],
+            true, true,
+            [
+                'Bank',
+                'Verbesserung des Tages',
+                'Werkstatt',
+                'Konstruktionen'
+            ],
+            [
+                Thread::SEMANTIC_BANK,
+                Thread::SEMANTIC_DAILYVOTE,
+                Thread::SEMANTIC_WORKSHOP,
+                Thread::SEMANTIC_CONSTRUCTIONS
+            ]
+        );
 
         return $town;
     }

@@ -65,30 +65,49 @@ class PostRepository extends ServiceEntityRepository
 
     public function findByThread(Thread $thread, $number = null, $offset = null)
     {
-        $q = $this->createQueryBuilder('p')
-            ->andWhere('p.thread = :thread')->setParameter('thread', $thread)
-            ->orderBy('p.date', 'ASC');
-        if ($number !== null) $q->setMaxResults($number);
-        if ($offset !== null) $q->setFirstResult($offset);
-        return $q
-            ->getQuery()
-            ->getResult()
-            ;
+        if ($offset !== null && $offset < 0) {
+
+            return array_slice(array_reverse($this->createQueryBuilder('p')
+                ->andWhere('p.thread = :thread')->setParameter('thread', $thread)
+                ->orderBy('p.date', 'DESC')
+                ->setMaxResults(-$offset)->getQuery()->getResult()), 0, $number );
+
+        } else {
+            $q = $this->createQueryBuilder('p')
+                ->andWhere('p.thread = :thread')->setParameter('thread', $thread)
+                ->orderBy('p.date', 'ASC');
+            if ($number !== null) $q->setMaxResults($number);
+            if ($offset !== null) $q->setFirstResult($offset);
+            return $q
+                ->getQuery()
+                ->getResult()
+                ;
+        }
+
     }
 
     public function findUnhiddenByThread(Thread $thread, $number = null, $offset = null)
     {
-        $q = $this->createQueryBuilder('p')
-            ->andWhere('p.thread = :thread')
-            ->andWhere('p.hidden = false')
-            ->setParameter('thread', $thread)
-            ->orderBy('p.date', 'ASC');
-        if ($number !== null) $q->setMaxResults($number);
-        if ($offset !== null) $q->setFirstResult($offset);
-        return $q
-            ->getQuery()
-            ->getResult()
-            ;
+        if ($offset !== null && $offset < 0) {
+
+            return array_slice(array_reverse($this->createQueryBuilder('p')
+                ->andWhere('p.thread = :thread')->setParameter('thread', $thread)
+                ->andWhere('p.hidden = false')
+                ->orderBy('p.date', 'DESC')
+                ->setMaxResults(-$offset)->getQuery()->getResult()), 0, $number );
+
+        } else {
+            $q = $this->createQueryBuilder('p')
+                ->andWhere('p.thread = :thread')->setParameter('thread', $thread)
+                ->andWhere('p.hidden = false')
+                ->orderBy('p.date', 'ASC');
+            if ($number !== null) $q->setMaxResults($number);
+            if ($offset !== null) $q->setFirstResult($offset);
+            return $q
+                ->getQuery()
+                ->getResult()
+                ;
+        }
     }
 
     public function findAdminAnnounces(Thread $thread)

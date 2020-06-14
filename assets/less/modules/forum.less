@@ -437,3 +437,13 @@
     }
   }
 }
+
+
+.forum-preview-container {
+  border: 1px solid @myhordes-smalltext; padding: 3px;
+  max-height: 300px; overflow: auto;
+  &.fix-height { height: 300px; }
+
+  .forum-post-header .post-note { display: none; }
+  .forum-post-content p { margin: 2px 0; }
+}
