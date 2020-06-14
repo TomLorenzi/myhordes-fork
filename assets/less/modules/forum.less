@@ -63,7 +63,7 @@
   }
 
   .glory {
-    margin: 30px 30px 15px;  padding: 10px;
+    clear: left; margin: 30px 30px 15px;  padding: 10px;
     background-color: #301a22; border: 1px solid #fe7d00; border-top-color: #feb500;
     border-radius: 4px; box-shadow: inset 0 1px 1px #000, 0 0 2px #000; position: relative;
 
@@ -77,6 +77,8 @@
 
     & .glory { margin: 0; &:before { display: none; } }
   }
+
+  div.crowmsg { clear: left; margin: 4px 0; border: 1px solid #ddab76; background: #763939; padding: 3px; }
 
   span.rpauthor {
     background-image: url('../../img/forum/rp.png');
@@ -94,6 +96,7 @@
   }
 
   .rpText {
+    clear: left;
     margin: 30px 30px 15px; padding: 3px; background-color: #dddbd8; border: 1px solid #efefef; border-top-color: white; border-radius: 6px;
     box-shadow: 0px 0px 2px black; position: relative; font-style: italic; line-height: 18px; color: #3b4151;
     &:before {
@@ -106,6 +109,7 @@
   .oracleAnnounce,
   .modAnnounce,
   .adminAnnounce {
+    clear: left;
     margin: 0 15px;
     padding: 8px;
     padding-left: 24px;
@@ -197,7 +201,10 @@
     &>b { padding: 5px; &>img { vertical-align: revert; } }
     &>i { float: right; font-size: 0.7em; opacity: 0.5; }
     &>div.post-note { font-size: 0.8em; span { opacity: 0.5; } }
-    &>.avatar { margin: 0 5px 0 10px; float: left; z-index: 1; }
+    &>.avatar, &>.avatarcrow {
+      margin: 0 5px 0 10px; float: left; z-index: 1;
+      &:not(.small) { margin-bottom: 10px; }
+    }
     &:before, &:after {content: " "; clear: right;}
     &:before { display: table;}
     &:after {display: block; height: 0;}
@@ -429,4 +436,14 @@
       }
     }
   }
+}
+
+
+.forum-preview-container {
+  border: 1px solid @myhordes-smalltext; padding: 3px;
+  max-height: 300px; overflow: auto;
+  &.fix-height { height: 300px; }
+
+  .forum-post-header .post-note { display: none; }
+  .forum-post-content p { margin: 2px 0; }
 }

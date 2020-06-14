@@ -71,19 +71,33 @@ class CitizenRepository extends ServiceEntityRepository
         }
     }
 
-    public function findCitizenWithRole(Town $town)
+    public function findLastOneByRoleAndTown(CitizenRole $role, Town $town): ?Citizen
     {
         try {
             return $this->createQueryBuilder('c')
                 ->innerJoin('c.roles', 'r')
                 ->andWhere('c.town = :town')
-                ->andWhere('c.alive = 1')
+                ->andWhere('r = :role')
                 ->setParameter('town', $town)
+                ->setParameter('role', $role)
+                ->addOrderBy('c.survivedDays', 'DESC')
+                ->setMaxResults(1)
                 ->getQuery()
-                ->getResult();
+                ->getOneOrNullResult();
         } catch (NonUniqueResultException $e) {
             return null;
         }
+    }
+
+    public function findCitizenWithRole(Town $town)
+    {
+        return $this->createQueryBuilder('c')
+            ->innerJoin('c.roles', 'r')
+            ->andWhere('c.town = :town')
+            ->andWhere('c.alive = 1')
+            ->setParameter('town', $town)
+            ->getQuery()
+            ->getResult();
     }
 
     public function findCitizensWithStatus(CitizenStatus $status)

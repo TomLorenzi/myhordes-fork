@@ -16,6 +16,7 @@ use App\Entity\PrivateMessage;
 use App\Entity\PrivateMessageThread;
 use App\Entity\Thread;
 use App\Entity\ThreadReadMarker;
+use App\Entity\Town;
 use App\Entity\User;
 use App\Exception\DynamicAjaxResetException;
 use App\Service\AdminActionHandler;
@@ -682,6 +683,37 @@ class MessageController extends AbstractController
         }
 
     /**
+     * @Route("api/forum/{sem<\d+>}/{fid<\d+>}/preview", name="forum_previewer_controller")
+     * @param int $fid
+     * @param int $sem
+     * @param EntityManagerInterface $em
+     * @return Response
+     */
+    public function small_viewer_api( int $fid, int $sem, EntityManagerInterface $em ) {
+        /** @var User $user */
+        $user = $this->getUser();
+
+        if ($sem === 0) return new Response('');
+
+        $forums = $em->getRepository(Forum::class)->findForumsForUser($user, $fid);
+        if (count($forums) !== 1)
+            return new Response('');
+
+        /** @var Thread $thread */
+        $thread = $em->getRepository(Thread::class)->findByForumSemantic( $forums[0], $sem );
+        if (!$thread || $thread->getForum()->getId() !== $fid) return new Response(' ');
+
+        $posts = $em->getRepository(Post::class)->findUnhiddenByThread($thread, 5, -5);
+
+        foreach ($posts as $post) $post->setText( $this->prepareEmotes( $post->getText() ) );
+        return $this->render( 'ajax/forum/posts_small.html.twig', [
+            'posts' => $posts,
+            'fid' => $fid,
+            'tid' => $thread->getId(),
+        ] );
+    }
+
+    /**
      * @Route("api/forum/{tid<\d+>}/{fid<\d+>}/view", name="forum_viewer_controller")
      * @param int $fid
      * @param int $tid
@@ -698,7 +730,7 @@ class MessageController extends AbstractController
         $thread = $em->getRepository(Thread::class)->find( $tid );
         if (!$thread || $thread->getForum()->getId() !== $fid) return new Response('');
 
-        $forums = $em->getRepository(Forum::class)->findForumsForUser($this->getUser(), $fid);
+        $forums = $em->getRepository(Forum::class)->findForumsForUser($user, $fid);
         if (count($forums) !== 1){
             if (!($user->getRightsElevation() >= User::ROLE_CROW && $thread->hasReportedPosts())){
                 return new Response('');
@@ -1168,7 +1200,7 @@ class MessageController extends AbstractController
                     return AjaxResponse::error(InventoryHandler::ErrorInventoryFull);
             }
 
-            $recipients[] = $recipient;
+            if ($recipient) $recipients[] = $recipient;
 
         } else {
 
@@ -1180,6 +1212,8 @@ class MessageController extends AbstractController
             if (count($linked_items) > 0) return AjaxResponse::error(self::ErrorPMItemLimitHit);
 
         }
+
+        if (empty($recipients)) return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
 
         $success = 0;
         foreach ($recipients as $recipient) {
@@ -1255,6 +1289,8 @@ class MessageController extends AbstractController
         /** @var Citizen $citizen */
         $citizen = $this->getUser()->getActiveCitizen();
 
+        $thecrow = $em->getRepository(User::class)->find(66);
+
         /** @var PrivateMessageThread $thread */
         $thread = $em->getRepository(PrivateMessageThread::class)->find( $tid );
         if (!$thread) return new Response('');
@@ -1294,6 +1330,7 @@ class MessageController extends AbstractController
             'thread' => $thread,
             'posts' => $posts,
             'items' => $items,
+            'thecrow' => $thecrow,
             'emotes' => $this->getEmotesByUser($this->getUser(),true),
         ] );
     }
@@ -1325,7 +1362,7 @@ class MessageController extends AbstractController
     }
 
     /**
-     * @Route("api/town/house/pm/{tid<\d+>}/editor", name="home_answer_post_editor_controller")
+     * @Route("town/house/pm/{tid<\d+>}/editor", name="home_answer_post_editor_controller")
      * @param int $tid
      * @param EntityManagerInterface $em
      * @return Response
@@ -1335,7 +1372,7 @@ class MessageController extends AbstractController
         $user = $this->getUser();
 
         $thread = $em->getRepository( PrivateMessageThread::class )->find( $tid );
-        if ($thread === null) return new Response('testcase');
+        if ($thread === null) return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
 
         return $this->render( 'ajax/forum/editor.html.twig', [
             'fid' => null,
@@ -1349,7 +1386,7 @@ class MessageController extends AbstractController
     }
 
     /**
-     * @Route("api/town/house/pm/{type}/editor", name="home_new_post_editor_controller")
+     * @Route("town/house/pm/{type}/editor", name="home_new_post_editor_controller")
      * @param string $type
      * @param EntityManagerInterface $em
      * @return Response
@@ -1359,7 +1396,7 @@ class MessageController extends AbstractController
         $user = $this->getUser();
 
         $allowed_types = ['pm', 'global'];
-        if(!in_array($type, $allowed_types)) return new Response('');
+        if(!in_array($type, $allowed_types)) return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
 
         return $this->render( 'ajax/forum/editor.html.twig', [
             'fid' => null,
@@ -1371,6 +1408,31 @@ class MessageController extends AbstractController
             'target_url' => 'town_house_send_pm_controller',
         ] );
     }
+
+    /**
+     * @Route("admin/pm/{type}/editor", name="admin_pm_editor_controller")
+     * @param string $type
+     * @param EntityManagerInterface $em
+     * @return Response
+     */
+    public function admin_pm_new_editor_post_api(string $type, EntityManagerInterface $em): Response {
+        /** @var User $user */
+        $user = $this->getUser();
+
+        $allowed_types = ['pm', 'global'];
+        if(!in_array($type, $allowed_types)) return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
+
+        return $this->render( 'ajax/forum/editor.html.twig', [
+            'fid' => null,
+            'tid' => null,
+            'pid' => null,
+            'emotes' => $this->getEmotesByUser($user,true),
+            'forum' => false,
+            'type' => $type,
+            'target_url' => 'admin_send_pm_controller',
+        ] );
+    }
+
 
     /**
      * @Route("api/admin/changelogs/editor", name="admin_new_changelog_editor_controller")
@@ -1390,6 +1452,97 @@ class MessageController extends AbstractController
             'type' => 'changelog',
             'target_url' => 'admin_changelog_new_changelog',
         ] );
+    }
+
+    /**
+     * @Route("api/admin/sendpm", name="admin_send_pm_controller")
+     * @param EntityManagerInterface $em
+     * @param JSONRequestParser $parser
+     * @param TranslatorInterface $t
+     * @return Response
+     */
+    public function admin_pm_api(EntityManagerInterface $em, JSONRequestParser $parser, TranslatorInterface $t): Response {
+        $type      = $parser->get('type', "");
+        $recipient = $parser->get('recipient', '');
+        $title     = $parser->get('title', '');
+        $content   = $parser->get('content', '');
+
+        $allowed_types = ['pm', 'global'];
+
+        if(!in_array($type, $allowed_types))
+            return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+        if(empty($recipient) || empty($title) || empty($content))
+            return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+        $sender = null;
+
+        $recipients = [];
+
+        if ($type === 'pm') {
+
+            $recipient = $em->getRepository(Citizen::class)->find($recipient);
+            if ($recipient)
+                $recipients[] = $recipient;
+
+        } else {
+
+            $town = $em->getRepository( Town::class )->find( $recipient );
+            if ($town)
+                foreach ($town->getCitizens() as $citizen)
+                    $recipients[] = $citizen;
+
+        }
+
+        $success = 0;
+        foreach ($recipients as $recipient) {
+            if(!$recipient->getAlive()) continue;
+
+            $thread = new PrivateMessageThread();
+
+            $thread
+                ->setTitle($title)
+                ->setLocked(false)
+                ->setLastMessage(new DateTime('now'))
+                ->setRecipient($recipient);
+
+            $post = new PrivateMessage();
+            $post->setDate(new DateTime('now'))
+                ->setText($content)
+                ->setPrivateMessageThread($thread)
+                ->setNew(true)
+                ->setRecipient($recipient);
+
+            $tx_len = 0;
+            if (!$this->preparePost($this->getUser(),null,$post,$tx_len))
+                return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
+
+            $thread
+                ->setLastMessage($post->getDate())
+                ->addMessage($post);
+
+            $success++;
+            $em->persist($thread);
+            $em->persist($post);
+        }
+
+        $em->flush();
+
+        if ($success === 0) {
+            return AjaxResponse::error( ErrorHelper::ErrorInternalError );
+        } else {
+            // Show confirmation
+            $message = $t->trans('Deine Nachricht wurde korrekt übermittelt!', [], 'game');
+
+            $this->addFlash( 'notice',  $message);
+            return AjaxResponse::success( true, ['url' =>
+                $type === 'pm'
+                    ? $this->generateUrl('admin_users_citizen_view', ['id' => $recipients[0]->getUser()->getId()])
+                    : $this->generateUrl('admin_town_explorer', ['id' => $parser->get('recipient', '')])
+            ] );
+        }
+
+
     }
 
     /**

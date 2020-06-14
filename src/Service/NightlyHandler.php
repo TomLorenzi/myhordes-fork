@@ -198,11 +198,14 @@ class NightlyHandler
         $this->log->info('<info>Updating survival information</info> ...');
         foreach ($town->getCitizens() as $citizen) {
             if (!$citizen->getAlive()) continue;
-            $citizen->setSurvivedDays( $citizen->getTown()->getDay() );
+            $citizen->setSurvivedDays( $citizen->getTown()->getDay() - 1 );
 
             // Check hero skills
             $nextSkill = $this->entity_manager->getRepository(HeroSkillPrototype::class)->getNextUnlockable($citizen->getUser()->getHeroDaysSpent());
-            $citizen->getUser()->setHeroDaysSpent($citizen->getUser()->getHeroDaysSpent() + 1);
+
+            if ($citizen->getProfession()->getHeroic())
+                $citizen->getUser()->setHeroDaysSpent($citizen->getUser()->getHeroDaysSpent() + 1);
+
             if($nextSkill !== null && $citizen->getUser()->getHeroDaysSpent() >= $nextSkill->getDaysNeeded()){
                 $this->log->debug("Citizen <info>{$citizen->getUser()->getUsername()}</info> has unlocked a new skill : <info>{$nextSkill->getTitle()}</info>");
 
@@ -230,7 +233,7 @@ class NightlyHandler
                             // He didn't used the Find, we replace it with the lucky find
                             $citizen->removeHeroicAction($oldfind);
                             $newfind = $this->entity_manager->getRepository(HeroicActionPrototype::class)->findOneByName("hero_generic_find_lucky");
-                            $citizen->removeHeroicAction($addfind);
+                            $citizen->removeHeroicAction($newfind);
                         }
                 }
             }
@@ -382,9 +385,8 @@ class NightlyHandler
         $this->log->debug("Getting watchers for day " . $town->getDay());
         $watchers = $this->entity_manager->getRepository(CitizenWatch::class)->findWatchersOfDay($town, $town->getDay() - 1); // -1 because day has been advanced before stage2
 
-        if(count($watchers) > 0) {
-            $this->entity_manager->persist($this->logTemplates->nightlyAttackWatchers($town));
-        }
+        if(count($watchers) > 0)
+            $this->entity_manager->persist($this->logTemplates->nightlyAttackWatchers($town, $watchers));
 
         $total_watch_def = $this->town_handler->calculate_watch_def($town);
         $zeds_each_watcher = -1;
@@ -1114,8 +1116,15 @@ class NightlyHandler
         $votes = array();
 
         foreach ($roles as $role) {
-            if($this->entity_manager->getRepository(Citizen::class)->findOneByRoleAndTown($role, $town) !== null)
-                continue;
+
+            /** @var Citizen $last_one */
+            $last_one = $this->entity_manager->getRepository(Citizen::class)->findLastOneByRoleAndTown($role, $town);
+            if ($last_one &&
+                ($last_one->getAlive() ||                                                                                                               // Skip vote if the last citizen with this role is still alive
+                    ($last_one->getSurvivedDays() >= ($town->getDay()-1)) ||                                                                            // Skip vote if the last citizen with this role died during the attack
+                    ($last_one->getSurvivedDays() >= ($town->getDay()-2) && $last_one->getCauseOfDeath()->getRef() !== CauseOfDeath::NightlyAttack)     // Skip vote if the last citizen with this role died the previous day
+                )) continue;
+
             // Getting vote per role per citizen
             $votes[$role->getId()] = array();
             foreach ($citizens as $citizen) {

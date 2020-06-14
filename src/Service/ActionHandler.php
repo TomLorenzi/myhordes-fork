@@ -666,7 +666,7 @@ class ActionHandler
                     $kills = min($citizen->getZone()->getZombies(), mt_rand( $zombie_kill->getMin(), $zombie_kill->getMax() ));
                     if ($kills > 0) {
                         $citizen->getZone()->setZombies( $citizen->getZone()->getZombies() - $kills );
-                        $this->entity_manager->persist( $this->log->zombieKill( $citizen, $item->getPrototype(), $kills ) );
+                        $this->entity_manager->persist( $this->log->zombieKill( $citizen, $item ? $item->getPrototype() : null, $kills ) );
                         $this->picto_handler->give_picto($citizen, 'r_killz_#00', $kills);
                     }
                 }

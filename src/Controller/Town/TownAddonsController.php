@@ -396,7 +396,7 @@ class TownAddonsController extends TownController
         $free_dumps = $th->getBuilding( $town, 'small_trashclean_#00', true ) !== null;
 
         // Check if citizen has enough AP
-        if (!$free_dumps && $citizen->getAp() <= $ap)
+        if (!$free_dumps && $citizen->getAp() < $ap)
             return AjaxResponse::error( ErrorHelper::ErrorNoAP );
 
         // Check if items are available

@@ -11,6 +11,12 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Thread
 {
+
+    const SEMANTIC_BANK = 1;
+    const SEMANTIC_DAILYVOTE = 2;
+    const SEMANTIC_WORKSHOP = 3;
+    const SEMANTIC_CONSTRUCTIONS = 4;
+
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()
@@ -60,6 +66,11 @@ class Thread
      * @ORM\Column(type="boolean")
      */
     private $pinned = false;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $semantic = 0;
 
     public function __construct()
     {
@@ -229,5 +240,17 @@ class Thread
         }
 
         return false;
+    }
+
+    public function getSemantic(): ?int
+    {
+        return $this->semantic;
+    }
+
+    public function setSemantic(int $semantic): self
+    {
+        $this->semantic = $semantic;
+
+        return $this;
     }
 }

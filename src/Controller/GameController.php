@@ -101,7 +101,7 @@ class GameController extends AbstractController implements GameInterfaceControll
 
         return $this->render( 'ajax/game/log_content.html.twig', [
             'entries' => $entries,
-            'canHideEntry' => $this->getActiveCitizen()->getProfession()->getHeroic() && $this->user_handler->hasSkill($citizen !== null ? $citizen->getUser() : $this->getActiveCitizen()->getUser(), 'manipulator'),
+            'canHideEntry' => $this->getActiveCitizen()->getAlive() && $this->getActiveCitizen()->getProfession()->getHeroic() && $this->user_handler->hasSkill($citizen !== null ? $citizen->getUser() : $this->getActiveCitizen()->getUser(), 'manipulator'),
         ] );
     }
 
@@ -430,22 +430,6 @@ class GameController extends AbstractController implements GameInterfaceControll
     public function log_newspaper_api(JSONRequestParser $parser): Response {
         return $this->renderLog((int)$parser->get('day', -1), null, false, null, null);
     }
-
-    /**
-     * @Route("api/game/raventimes/debugtest", name="game_debugtest")
-     * @param JSONRequestParser $parser
-     * @return Response
-     */
-    public function debug_test(JSONRequestParser $parser, LogTemplateHandler $lth): Response {
-        $user = $this->getUser();
-        $citizen = $user->getActiveCitizen();
-        $town = $citizen->getTown();
-
-        $this->entity_manager->persist($lth->nightlyAttackWatchers($town));
-        $this->entity_manager->flush();
-        return $this->newspaper();
-    }
-
 
     /**
      * @Route("jx/game/jobcenter", name="game_jobs")

@@ -37,9 +37,9 @@
                     {% endif %}
                 {% else %}
                     {% if app.user.preferSmallAvatars %}
-                        <div class="avatarcrow small"><img alt="" src="{{ path('app_web_avatar', {'uid': post.owner.user.id, 'name': post.owner.user.avatar.smallName, 'ext': post.owner.user.avatar.format}) }}"></div>
+                        <div class="avatarcrow small"><img alt="" src="{{ path('app_web_avatar', {'uid': thecrow.id, 'name': thecrow.avatar.smallName, 'ext': thecrow.avatar.format}) }}"></div>
                     {% else %}
-                        <div class="avatarcrow"><img alt="" src="{{ path('app_web_avatar', {'uid': post.owner.user.id, 'name': post.owner.user.avatar.filename, 'ext': post.owner.user.avatar.format}) }}"></div>
+                        <div class="avatarcrow"><img alt="" src="{{ path('app_web_avatar', {'uid': thecrow.id, 'name': thecrow.avatar.filename, 'ext': thecrow.avatar.format}) }}"></div>
                     {% endif %}
                 {% endif %}
 
@@ -52,6 +52,9 @@
                 </b>
             </div>
             <div class="forum-post-content">
+                {% if not post.owner %}
+                    <div class="crowmsg">{{ 'Dies ist eine offizielle Nachricht.'|trans({},'game') }}</div>
+                {% endif %}
                 {{ post.text|raw }}
                 {% if items[post.id] is defined and items[post.id]|length > 0 %}
                     <hr />
@@ -88,7 +91,7 @@
     let backbtn = document.getElementById("backbtn");
     if(backbtn) backbtn.addEventListener('click', function(e){
         e.preventDefault();
-        var dest = "{% if thread.archived %}{{ path('town_house', {'tab': 'messages', 'subtab': 'archived'}) }}{% else %}{{ path('town_house', {'tab': 'messages', 'subtab': 'received'}) }}{% endif %}";
+        const dest = "{% if thread.archived %}{{ path('town_house', {'tab': 'messages', 'subtab': 'archived'}) }}{% else %}{{ path('town_house', {'tab': 'messages', 'subtab': 'received'}) }}{% endif %}";
         $.ajax.load(null, dest, true);
     });
 
