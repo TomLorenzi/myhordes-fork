@@ -20,8 +20,8 @@ parameters:
         item_fillrate: 11
         max_distance: 10
         zombies:
-          initial: 25
-          daily: 5
+          initial: 10
+          daily: 3
 
       initial_buildings:  []
       unlocked_buildings: []
