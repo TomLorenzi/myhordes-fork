@@ -68,11 +68,7 @@
       <notes>
         <note category="german">Du ziehst eine Karte... und stellst fest, dass du die Karte mit den Spielregeln gezogen hast! Das erheitert dich so sehr, dass du 1AP gewinnst.</note>
       </notes>
-<<<<<<< HEAD
-      <segment state="translated">
-=======
       <segment>
->>>>>>> 0fef236b13809731a7976963458eb412de06ef6a
         <source>Du ziehst eine Karte... und stellst fest, dass du die Karte mit den Spielregeln gezogen hast! Das erheitert dich so sehr, dass du 1AP gewinnst.</source>
         <target>Lanzas la carta... en la cual están escritas las reglas del juego. Al menos ganas 1 PA.</target>
       </segment>
@@ -333,11 +329,7 @@
       <notes>
         <note category="german">Staubiges Buch</note>
       </notes>
-<<<<<<< HEAD
-      <segment state="translated">
-=======
       <segment>
->>>>>>> 0fef236b13809731a7976963458eb412de06ef6a
         <source>Staubiges Buch</source>
         <target>Libro empolvado</target>
       </segment>
@@ -526,11 +518,7 @@
       <notes>
         <note category="german">Zeltplane</note>
       </notes>
-<<<<<<< HEAD
-      <segment state="translated">
-=======
       <segment>
->>>>>>> 0fef236b13809731a7976963458eb412de06ef6a
         <source>Zeltplane</source>
         <target>Tela de carpa</target>
       </segment>
@@ -764,11 +752,7 @@
       <notes>
         <note category="german">Großer Metallkoffer</note>
       </notes>
-<<<<<<< HEAD
-      <segment state="translated">
-=======
       <segment>
->>>>>>> 0fef236b13809731a7976963458eb412de06ef6a
         <source>Großer Metallkoffer</source>
         <target>Gran cofre de metal</target>
       </segment>
@@ -1704,11 +1688,7 @@
       <notes>
         <note category="german">Ein Briefumschlag</note>
       </notes>
-<<<<<<< HEAD
-      <segment state="translated">
-=======
       <segment>
->>>>>>> 0fef236b13809731a7976963458eb412de06ef6a
         <source>Ein Briefumschlag</source>
         <target>Un sobre</target>
       </segment>
@@ -2095,11 +2075,7 @@
       <notes>
         <note category="german">Aasbeerenbrei</note>
       </notes>
-<<<<<<< HEAD
-      <segment state="translated">
-=======
       <segment>
->>>>>>> 0fef236b13809731a7976963458eb412de06ef6a
         <source>Aasbeerenbrei</source>
         <target>Puré de hongos carroñeros</target>
       </segment>
@@ -2108,11 +2084,7 @@
       <notes>
         <note category="german">Eisengefäß mit modrigem Wasser</note>
       </notes>
-<<<<<<< HEAD
-      <segment state="translated">
-=======
       <segment>
->>>>>>> 0fef236b13809731a7976963458eb412de06ef6a
         <source>Eisengefäß mit modrigem Wasser</source>
         <target>Agua estancada</target>
       </segment>
@@ -2292,11 +2264,7 @@
       <notes>
         <note category="german">Normaler Bauplan (ungewöhnlich)</note>
       </notes>
-<<<<<<< HEAD
-      <segment state="translated">
-=======
       <segment>
->>>>>>> 0fef236b13809731a7976963458eb412de06ef6a
         <source>Normaler Bauplan (ungewöhnlich)</source>
         <target>Plano de construcción (inusual)</target>
       </segment>
@@ -2809,11 +2777,7 @@
       <notes>
         <note category="german">Mutterkorn</note>
       </notes>
-<<<<<<< HEAD
-      <segment state="translated">
-=======
       <segment>
->>>>>>> 0fef236b13809731a7976963458eb412de06ef6a
         <source>Mutterkorn</source>
         <target>Claviceps Purpurea</target>
       </segment>
@@ -2966,11 +2930,7 @@
       <notes>
         <note category="german">Ein Etikett</note>
       </notes>
-<<<<<<< HEAD
-      <segment state="translated">
-=======
       <segment>
->>>>>>> 0fef236b13809731a7976963458eb412de06ef6a
         <source>Ein Etikett</source>
         <target>Una etiqueta</target>
       </segment>
@@ -3042,11 +3002,7 @@
       <notes>
         <note category="german">Dreibeiniger Malteser (erschöpft)</note>
       </notes>
-<<<<<<< HEAD
-      <segment state="translated">
-=======
       <segment>
->>>>>>> 0fef236b13809731a7976963458eb412de06ef6a
         <source>Dreibeiniger Malteser (erschöpft)</source>
         <target>Bichón maltés cansado</target>
       </segment>
@@ -3118,11 +3074,7 @@
       <notes>
         <note category="german">Hierfür brauchst du eine Ration Wasser.</note>
       </notes>
-<<<<<<< HEAD
-      <segment state="translated">
-=======
       <segment>
->>>>>>> 0fef236b13809731a7976963458eb412de06ef6a
         <source>Hierfür brauchst du eine Ration Wasser.</source>
         <target>Necesitas agua pura (la de una ración de agua, por ejemplo).</target>
       </segment>
@@ -3221,11 +3173,7 @@
       <notes>
         <note category="german">Hierfür brauchst du eine Batterie.</note>
       </notes>
-<<<<<<< HEAD
-      <segment state="translated">
-=======
       <segment>
->>>>>>> 0fef236b13809731a7976963458eb412de06ef6a
         <source>Hierfür brauchst du eine Batterie.</source>
         <target>Para esto necesitas una pila.</target>
       </segment>
@@ -3531,11 +3479,7 @@
       <notes>
         <note category="german">Losschicken</note>
       </notes>
-<<<<<<< HEAD
-      <segment state="translated">
-=======
       <segment>
->>>>>>> 0fef236b13809731a7976963458eb412de06ef6a
         <source>Losschicken</source>
         <target>Enviar</target>
       </segment>
@@ -3544,11 +3488,7 @@
       <notes>
         <note category="german">Du hast den {item} mit deinen Gegenständen in die Stadt geschickt.</note>
       </notes>
-<<<<<<< HEAD
-      <segment state="translated">
-=======
       <segment>
->>>>>>> 0fef236b13809731a7976963458eb412de06ef6a
         <source>Du hast den {item} mit deinen Gegenständen in die Stadt geschickt.</source>
         <target>Envías a {item} con dirección al pueblo llevando todo el contenido de tu mochila.</target>
       </segment>
@@ -3575,11 +3515,7 @@
       <notes>
         <note category="german">Hierfür brauchst du ein Steroid.</note>
       </notes>
-<<<<<<< HEAD
-      <segment state="translated">
-=======
       <segment>
->>>>>>> 0fef236b13809731a7976963458eb412de06ef6a
         <source>Hierfür brauchst du ein Steroid.</source>
         <target>Necesitas esteroides para esto.</target>
       </segment>
@@ -3606,11 +3542,7 @@
       <notes>
         <note category="german">Tarnen</note>
       </notes>
-<<<<<<< HEAD
-      <segment state="translated">
-=======
       <segment>
->>>>>>> 0fef236b13809731a7976963458eb412de06ef6a
         <source>Tarnen</source>
         <target>Camuflarse con</target>
       </segment>
@@ -3619,11 +3551,7 @@
       <notes>
         <note category="german">Du bist nun getarnt.</note>
       </notes>
-<<<<<<< HEAD
-      <segment state="translated">
-=======
       <segment>
->>>>>>> 0fef236b13809731a7976963458eb412de06ef6a
         <source>Du bist nun getarnt.</source>
         <target>Ahora estás camuflado.</target>
       </segment>
@@ -3965,11 +3893,7 @@
       <notes>
         <note category="german">Ein altes Buch, dessen Seiten größtenteils zerrissen oder verklebt sind. Ein paar sind jedoch lesbar...</note>
       </notes>
-<<<<<<< HEAD
-      <segment state="translated">
-=======
       <segment>
->>>>>>> 0fef236b13809731a7976963458eb412de06ef6a
         <source>Ein altes Buch, dessen Seiten größtenteils zerrissen oder verklebt sind. Ein paar sind jedoch lesbar...</source>
         <target>Un viejo libro cuyas páginas están rotas o pegadas entre ellas por la humedad. a veces es posible leer algo interesante entre ellas...</target>
       </segment>
@@ -4149,11 +4073,7 @@
       <notes>
         <note category="german">Eine große, solide Zeltplane, die auch noch wasserdicht ist. Sie eignet sich bestens dazu die Löcher in deinem Hausdach zu schließen. ANMERKUNG: Dieser Gegenstand ist für die Verbesserung deines Hauses zwingend vorgeschrieben.</note>
       </notes>
-<<<<<<< HEAD
-      <segment state="translated">
-=======
       <segment>
->>>>>>> 0fef236b13809731a7976963458eb412de06ef6a
         <source>Eine große, solide Zeltplane, die auch noch wasserdicht ist. Sie eignet sich bestens dazu die Löcher in deinem Hausdach zu schließen. ANMERKUNG: Dieser Gegenstand ist für die Verbesserung deines Hauses zwingend vorgeschrieben.</source>
         <target>Una tela muy resistente e impermeable. Ideal pasar la noche afuera (sin olvidar los bichos, zombies, enfermedades, tormentas y el frío). Aumenta tus posibilidades de sobrevivir al acampar, debes llevarla contigo para recibir el bonus.</target>
       </segment>
@@ -4378,11 +4298,7 @@
       <notes>
         <note category="german">Der Koffer ist wirklich schwer und enthält bestimmt etwas Wertvolles....Jetzt musst du nur noch das passende Werkzeug finden, denn mit deinen Zähnen bekommst du das nicht auf.</note>
       </notes>
-<<<<<<< HEAD
-      <segment state="translated">
-=======
       <segment>
->>>>>>> 0fef236b13809731a7976963458eb412de06ef6a
         <source>Der Koffer ist wirklich schwer und enthält bestimmt etwas Wertvolles....Jetzt musst du nur noch das passende Werkzeug finden, denn mit deinen Zähnen bekommst du das nicht auf.</source>
         <target>Pesa mucho y seguramente contiene algo precioso... Encuentra algo mejor que tus dientes para abrirlo.</target>
       </segment>
@@ -5229,11 +5145,7 @@
       <notes>
         <note category="german">Ein großer, versiegelter Briefumschlag ... Dem Tasten nach zu urteilen enthält er Papier oder doch etwas anderes?</note>
       </notes>
-<<<<<<< HEAD
-      <segment state="translated">
-=======
       <segment>
->>>>>>> 0fef236b13809731a7976963458eb412de06ef6a
         <source>Ein großer, versiegelter Briefumschlag ... Dem Tasten nach zu urteilen enthält er Papier oder doch etwas anderes?</source>
         <target>Un gran sobre sellado conteniendo... papeles, tal vez.</target>
       </segment>
@@ -5530,11 +5442,7 @@
       <notes>
         <note category="german">Dieser Brei stinkt wie die Pest, da die dafür verarbeiteten Beeren für gewöhnlich auf Kadavern wachsen. Wenn du vor einer akuten Infektion keine Angst hast könntest du ihn ja mal vorsichtig probieren. Vielleicht macht er ja satt?</note>
       </notes>
-<<<<<<< HEAD
-      <segment state="translated">
-=======
       <segment>
->>>>>>> 0fef236b13809731a7976963458eb412de06ef6a
         <source>Dieser Brei stinkt wie die Pest, da die dafür verarbeiteten Beeren für gewöhnlich auf Kadavern wachsen. Wenn du vor einer akuten Infektion keine Angst hast könntest du ihn ja mal vorsichtig probieren. Vielleicht macht er ja satt?</source>
         <target>Realmente esto apesta. Es una bola aplastada de hongos que crecieron en algún cadáver. Si no le tienes miedo a nada, ¿crees que esto podrá calmar tu hambre?</target>
       </segment>
@@ -5543,11 +5451,7 @@
       <notes>
         <note category="german">Dieser total verformte Eisenbehälter hat eine kleine Menge Wasser aufgefangen.Das Problem ist, das du es nicht trinken kannst, da es schmutzig ist. </note>
       </notes>
-<<<<<<< HEAD
-      <segment state="translated">
-=======
       <segment>
->>>>>>> 0fef236b13809731a7976963458eb412de06ef6a
         <source>Dieser total verformte Eisenbehälter hat eine kleine Menge Wasser aufgefangen.Das Problem ist, das du es nicht trinken kannst, da es schmutzig ist. </source>
         <target>Una pieza de metal oxidado ha conservado una pequeña cantidad de agua. El problema es que no es potable.</target>
       </segment>
@@ -5781,11 +5685,7 @@
       <notes>
         <note category="german">Dieser Schlüssel ist der Liebling aller Einbrecher und öffnet Türen so rasend schnell, dass man sich glatt fragt, warum man überhaupt noch normale Schlüssel benutzt. Leider ist der Schlüssel in einem so schlechten Zustand, dass er nur eine einzige Tür öffnet.</note>
       </notes>
-<<<<<<< HEAD
-      <segment state="translated">
-=======
       <segment>
->>>>>>> 0fef236b13809731a7976963458eb412de06ef6a
         <source>Dieser Schlüssel ist der Liebling aller Einbrecher und öffnet Türen so rasend schnell, dass man sich glatt fragt, warum man überhaupt noch normale Schlüssel benutzt. Leider ist der Schlüssel in einem so schlechten Zustand, dass er nur eine einzige Tür öffnet.</source>
         <target>Esta llave, muy apreciada por los ladrones de casas, abre cualquier puerta en segundos. Entonces, ¿para qué sirven las llaves tradicionales? Desgraciadamente, su mal estado solo permite abrir una sola puerta.</target>
       </segment>
@@ -5848,11 +5748,7 @@
       <notes>
         <note category="german">Ein leckerer, essbarer Snack... zumindest war es das einmal. Auf dieser Brezel wurde herumgetreten, sie riecht, als würde sie in Benzin getränkt (leider zu wenig, um sie für den Panzer im Südwesten der Stadt zu verwenden - schade) und es scheint, als wäre sie als Hammer oder als Zuhause für einen Holzwurm verwendet zu sein. Auf jedenfall erinnert sie dich jetzt stark an Prinzessin Beatrices Hochzeitshut.</note>
       </notes>
-<<<<<<< HEAD
-      <segment state="translated">
-=======
       <segment>
->>>>>>> 0fef236b13809731a7976963458eb412de06ef6a
         <source>Ein leckerer, essbarer Snack... zumindest war es das einmal. Auf dieser Brezel wurde herumgetreten, sie riecht, als würde sie in Benzin getränkt (leider zu wenig, um sie für den Panzer im Südwesten der Stadt zu verwenden - schade) und es scheint, als wäre sie als Hammer oder als Zuhause für einen Holzwurm verwendet zu sein. Auf jedenfall erinnert sie dich jetzt stark an Prinzessin Beatrices Hochzeitshut.</source>
         <target>Un delicioso bollo, o al menos lo fue una vez. Fue pisado, lamido y escupido y hasta usado para rascarse la espalda (algunos vellos pegados hacen pensar eso). Las larvas que le rodean se agitan, tan malo no debe ser. Alguna utilidad le encontrarás.</target>
       </segment>
@@ -6077,11 +5973,7 @@
       <notes>
         <note category="german">Manchmal finden wir Pilze auf Leichen nach deren Genuss man die merkwürdigsten Sachen von sich gibt. Es heißt, die Schäden am Gehirn seien irreparabel und dein aktueller Zustand könnte das sogar bestätigen...</note>
       </notes>
-<<<<<<< HEAD
-      <segment state="translated">
-=======
       <segment>
->>>>>>> 0fef236b13809731a7976963458eb412de06ef6a
         <source>Manchmal finden wir Pilze auf Leichen nach deren Genuss man die merkwürdigsten Sachen von sich gibt. Es heißt, die Schäden am Gehirn seien irreparabel und dein aktueller Zustand könnte das sogar bestätigen...</source>
         <target>Sobre los cadáveres suelen crecer hongos que provocan delirios muy graciosos. Dicen que su efecto es irreversible. Madre mía, a qué extremo has llegado...</target>
       </segment>
@@ -6144,11 +6036,7 @@
       <notes>
         <note category="german">Bereit deine Hüften zu ein wenig Rock 'n' Roll zu schwingen? Diese Sammlung der besten Songs des King of Rock wird Stimmung in jede Party bringen.</note>
       </notes>
-<<<<<<< HEAD
-      <segment state="translated">
-=======
       <segment>
->>>>>>> 0fef236b13809731a7976963458eb412de06ef6a
         <source>Bereit deine Hüften zu ein wenig Rock 'n' Roll zu schwingen? Diese Sammlung der besten Songs des King of Rock wird Stimmung in jede Party bringen.</source>
         <target>¡A mover las caderas con El Rey del Rock and Roll!</target>
       </segment>
@@ -6220,11 +6108,7 @@
       <notes>
         <note category="german">Ein Flaschenetikett... Auf der Rückseite ist es sogar beschrieben!</note>
       </notes>
-<<<<<<< HEAD
-      <segment state="translated">
-=======
       <segment>
->>>>>>> 0fef236b13809731a7976963458eb412de06ef6a
         <source>Ein Flaschenetikett... Auf der Rückseite ist es sogar beschrieben!</source>
         <target>Una etiqueta de tequila... ¡Hey, tiene algo escrito detrás!</target>
       </segment>

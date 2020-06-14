@@ -10621,5 +10621,32 @@
         <target>Voir la liste des citoyens inscrits.</target>
       </segment>
     </unit>
+    <unit id="97Bucqq" name="Einrichtung">
+      <notes>
+        <note category="german">Einrichtung</note>
+      </notes>
+      <segment>
+        <source>Einrichtung</source>
+        <target>Einrichtung</target>
+      </segment>
+    </unit>
+    <unit id="u6_oAsd" name="ff69301">
+      <notes>
+        <note category="german">You have not received any new private messages. You can find the list of citizens in the</note>
+      </notes>
+      <segment>
+        <source>Du hast keine neue Privatnachricht erhalten. Eine Liste aller Bürger findest du im</source>
+        <target>Vous n'avez pas reçu de nouveau message privé. Vous trouverez la liste des citoyens dans</target>
+      </segment>
+    </unit>
+    <unit id="4AkrdgW" name="Verzeichnis der Stadt.">
+      <notes>
+        <note category="german">town directory.</note>
+      </notes>
+      <segment>
+        <source>Verzeichnis der Stadt.</source>
+        <target>l'annuaire de la ville.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
