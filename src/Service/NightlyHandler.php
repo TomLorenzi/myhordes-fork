@@ -233,7 +233,7 @@ class NightlyHandler
                             // He didn't used the Find, we replace it with the lucky find
                             $citizen->removeHeroicAction($oldfind);
                             $newfind = $this->entity_manager->getRepository(HeroicActionPrototype::class)->findOneByName("hero_generic_find_lucky");
-                            $citizen->removeHeroicAction($addfind);
+                            $citizen->removeHeroicAction($newfind);
                         }
                 }
             }
