@@ -912,11 +912,20 @@ div.defense-broken { .icon_div("../img/small_def_broken.gif", middle, 2px); colo
 
 .jobs-choice {
   border: 1px solid #7e4d2a; width: 100%; opacity: .6;
+  input[type='radio'] {
+    display: none;
+  }
   &:hover { border:1px dotted #ddab76; cursor: pointer; }
-  &:focus-within { border:1px solid #f0d79e; color: white; opacity: 1.0; }
   &>.text {
     color: #b37c4a; font-weight: bold; font-variant: small-caps;
-    &:focus-within { color: white; }
+  }
+  &.selected {
+    border:1px solid #f0d79e;
+    color: white;
+    opacity: 1.0;
+    &>.text {
+      color: white;
+    }
   }
 }
 
