@@ -96,6 +96,7 @@ class PictoRepository extends ServiceEntityRepository
             ->andWhere('i.persisted = 2')
             ->orderBy('pp.rare', 'DESC')
             ->addOrderBy('c', 'DESC')
+            ->addOrderBy('pp.id', 'DESC')
             ->leftJoin('i.prototype', 'pp')
             ->groupBy("i.prototype")
             ->getQuery()->getResult();
