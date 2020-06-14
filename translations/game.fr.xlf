@@ -10663,7 +10663,7 @@
       </notes>
       <segment>
         <source>Zum Forum</source>
-        <target>Zum Forum</target>
+        <target>Voir le forum</target>
       </segment>
     </unit>
     <unit id="3lrK_qg" name="Lade Forum...">
@@ -10672,7 +10672,7 @@
       </notes>
       <segment>
         <source>Lade Forum...</source>
-        <target>Lade Forum...</target>
+        <target>Chargement...</target>
       </segment>
     </unit>
     <unit id="Ht8hKI." name="Dies ist eine offizielle Nachricht.">
