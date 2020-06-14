@@ -32,15 +32,15 @@
             <div class="row">
                 {% for job in professions %}
                     {# @var job \App\Entity\CitizenProfession #}
-                    <div class="padded cell rw-4 rw-lg-6">
+                    <div class="jobs-choice padded cell rw-4 rw-lg-6">
                         <label for="jb_{{ job.name }}">
-                            <img style="width: 100%; opacity: .6;" alt="{{ job.label|trans({}, 'game') }}" src="{{ asset('build/images/professions/select/' ~ job.icon ~ '.gif') }}">
+                            <img alt="{{ job.label|trans({}, 'game') }}" src="{{ asset('build/images/professions/select/' ~ job.icon ~ '.gif') }}">
                         </label>
-                        <div>
+                        <div class="text">
                             <input type="radio" id="jb_{{ job.name }}" name="job" value="{{ job.id }}">
                             <label for="jb_{{ job.name }}">
                                     <img src="{{ asset('build/images/professions/' ~ job.icon ~ '.gif') }}">
-                                <b>{{ job.label|trans({}, 'game') }}</b>
+                                {{ job.label|trans({}, 'game') }}
                             </label>
                         </div>
                     </div>

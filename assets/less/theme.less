@@ -910,6 +910,16 @@ div.ox      { .icon_div("../img/oxygen_small.gif", middle, 0); }
 div.defense { .icon_div("../img/small_def.gif", middle, 2px);font-weight: bold; }
 div.defense-broken { .icon_div("../img/small_def_broken.gif", middle, 2px); color:#f18766;font-weight: bold; }
 
+.jobs-choice {
+  border: 1px solid #7e4d2a; width: 100%; opacity: .6;
+  &:hover { border:1px dotted #ddab76; cursor: pointer; }
+  &:focus-within { border:1px solid #f0d79e; color: white; opacity: 1.0; }
+  &>.text {
+    color: #b37c4a; font-weight: bold; font-variant: small-caps;
+    &:focus-within { color: white; }
+  }
+}
+
 .tabs {
   font-size: 1.2rem; color: #ddab76; border-bottom: 1px solid #ddab76;
   margin-bottom: 20px; padding: 0 5px; position: relative; top: -2px; margin-left: -2px;

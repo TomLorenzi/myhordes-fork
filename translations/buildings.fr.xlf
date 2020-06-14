@@ -781,7 +781,7 @@
       </notes>
       <segment>
         <source>Die Stadt erhält nach dem nächsten Angriff einmalig 2 gewöhnliche und 2 ungewöhnliche Baupläne sowie - möglicherweise - eine nette Überraschung.</source>
-        <target>La ville obtiendra 2 plans communs, 2 plans inhabituels (peut-être aussi une surprise?) après l'attaque.</target>
+        <target>La ville obtiendra 2 plans communs, 2 plans inhabituels après l'attaque (et une surprise?)</target>
       </segment>
     </unit>
     <unit id="4TGJ0Dx" name="ec0b7ad">
@@ -790,7 +790,7 @@
       </notes>
       <segment>
         <source>Die Stadt erhält nach dem nächsten Angriff einmalig 2 ungewöhnliche und 2 seltene Baupläne sowie - möglicherweise - eine nette Überraschung.</source>
-        <target>La ville obtiendra 2 plans inhabituels, 2 plans rares (peut-être aussi une surprise?) après l'attaque.</target>
+        <target>La ville obtiendra 2 plans inhabituels, 2 plans rares après l'attaque (et une surprise?)</target>
       </segment>
     </unit>
     <unit id="erBRQsV" name="Baustellenbuch">
