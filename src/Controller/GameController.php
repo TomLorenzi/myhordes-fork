@@ -553,7 +553,7 @@ class GameController extends AbstractController implements GameInterfaceControll
         $citizen = $this->getActiveCitizen();
         $counter = $citizen->getSpecificActionCounter(ActionCounter::ActionTypeRemoveLog);
 
-        if(!$citizen->getProfession()->getHeroic() || !$this->user_handler->hasSkill($citizen->getUser(), 'manipulator')){
+        if(!$citizen->getAlive() || !$citizen->getProfession()->getHeroic() || !$this->user_handler->hasSkill($citizen->getUser(), 'manipulator')){
             return AjaxResponse::error(ErrorHelper::ErrorActionNotAvailable);
         }
 
@@ -564,6 +564,9 @@ class GameController extends AbstractController implements GameInterfaceControll
         if($log->getHidden()){
             return AjaxResponse::error(ErrorHelper::ErrorActionNotAvailable);
         }
+
+        if($log->getTown() !== $citizen->getTown())
+            return AjaxResponse::error(ErrorHelper::ErrorActionNotAvailable);
 
         $limit = 0;
         if($this->user_handler->hasSkill($citizen->getUser(), 'manipulator'))
