@@ -382,9 +382,8 @@ class NightlyHandler
         $this->log->debug("Getting watchers for day " . $town->getDay());
         $watchers = $this->entity_manager->getRepository(CitizenWatch::class)->findWatchersOfDay($town, $town->getDay() - 1); // -1 because day has been advanced before stage2
 
-        if(count($watchers) > 0) {
-            $this->entity_manager->persist($this->logTemplates->nightlyAttackWatchers($town));
-        }
+        if(count($watchers) > 0)
+            $this->entity_manager->persist($this->logTemplates->nightlyAttackWatchers($town, $watchers));
 
         $total_watch_def = $this->town_handler->calculate_watch_def($town);
         $zeds_each_watcher = -1;

@@ -10,6 +10,7 @@ use App\Entity\Citizen;
 use App\Entity\CitizenHome;
 use App\Entity\CitizenHomePrototype;
 use App\Entity\CitizenProfession;
+use App\Entity\CitizenWatch;
 use App\Entity\Complaint;
 use App\Entity\Item;
 use App\Entity\ItemGroup;
@@ -731,9 +732,9 @@ class LogTemplateHandler
             ->setTimestamp( new DateTime('now') );
     }
 
-    public function nightlyAttackWatchers( Town $town ): TownLogEntry {
+    public function nightlyAttackWatchers( Town $town, $watchers ): TownLogEntry {
         $citizenList = [];
-        foreach ($town->getCitizenWatches() as $watcher) {
+        foreach ($watchers as $watcher) {
             $citizenList[] = array('id' => $watcher->getCitizen()->getId());
         }
         $variables = array('citizens' => $citizenList);
