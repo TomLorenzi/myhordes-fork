@@ -163,7 +163,7 @@ class InventoryAwareController extends AbstractController implements GameInterfa
             }
         return $this->render( 'ajax/game/log_content.html.twig', [
             'entries' => $entries,
-            'canHideEntry' => $this->getActiveCitizen()->getProfession()->getHeroic() && $this->user_handler->hasSkill($this->getActiveCitizen()->getUser(), 'manipulator') && $this->getActiveCitizen()->getZone() === null,
+            'canHideEntry' => $this->getActiveCitizen()->getAlive() && $this->getActiveCitizen()->getProfession()->getHeroic() && $this->user_handler->hasSkill($this->getActiveCitizen()->getUser(), 'manipulator') && $this->getActiveCitizen()->getZone() === null,
         ] );
     }
 
