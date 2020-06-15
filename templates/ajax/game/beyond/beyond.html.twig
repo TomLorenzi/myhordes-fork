@@ -71,7 +71,17 @@
                 {% if tired %}
                     <div class="help">
                         {{'Du bist %status%'|trans({'%status%': '<img src="' ~ asset('build/images/status/status_tired.gif') ~ '" /> Erschöpft'}, 'game')|raw}}<br />
-                        <span class="small">{{'Ratschlag:'|trans({}, 'game')}}</span> {% if status_info.can_drink and status_info.can_eat %}{{'Iss ODER trink etwas Wasser.'|trans({}, 'game')}}{% elseif status_info.can_drink and not status_info.can_eat %}{{'Du kannst eine Ration Wasser trinken.'|trans({}, 'game')}}{% elseif status_info.can_eat and not status_info.can_drink %}Du kannst essen.{% else %}Du kannst ein Droge nehmen.{% endif %}
+                        <span class="small">
+                            {{'Ratschlag:'|trans({}, 'game')}}</span>
+                            {% if status_info.can_drink and status_info.can_eat %}
+                                {{'Iss ODER trink etwas Wasser.'|trans({}, 'game')}}
+                            {% elseif status_info.can_drink and not status_info.can_eat %}
+                                {{'Du kannst eine Ration Wasser trinken.'|trans({}, 'game')}}
+                            {% elseif status_info.can_eat and not status_info.can_drink %}
+                                {{'Du kannst etwas essen, um deine Erschöpfung zu lindern.'|trans({}, 'game')}}
+                            {% else %}
+                                {{'Du hast bereits etwas gegessen und getrunken. Dir bleiben nur noch Drogen und Alkohol!'|trans({}, 'game')}}
+                            {% endif %}
                     </div>
                 {% endif %}
             </div>
