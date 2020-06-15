@@ -688,16 +688,16 @@ class SoulController extends AbstractController
         if ($this->entity_manager->getRepository(CitizenRankingProxy::class)->findNextUnconfirmedDeath($user))
             return $this->redirect($this->generateUrl( 'soul_death' ));
 
-    	$user = $this->entity_manager->getRepository(User::class)->find($id);
-    	if($user === null || $user === $user){
+    	$selected_user = $this->entity_manager->getRepository(User::class)->find($id);
+    	if ($selected_user === null || $selected_user === $user || $id === 66)
             return $this->redirect($this->generateUrl('soul_me'));
-        }
+
 
         $pictos = $this->entity_manager->getRepository(Picto::class)->findNotPendingByUser($user);
     	$points = $this->user_handler->getPoints($user);
 
         return $this->render( 'ajax/soul/visit.html.twig', $this->addDefaultTwigArgs("soul_visit", [
-        	'user' => $user,
+        	'user' => $selected_user,
             'pictos' => $pictos,
             'points' => round($points, 0)
         ]));
