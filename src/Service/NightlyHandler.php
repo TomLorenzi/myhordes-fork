@@ -661,7 +661,7 @@ class NightlyHandler
             $citizen->getExpeditionRoutes()->clear();
             if (!$citizen->getAlive()) continue;
 
-            $aliveCitizenInTown++;
+            $aliveCitizen++;
 
             if($citizen->getZone() === null)
                 $aliveCitizenInTown++;
@@ -718,9 +718,11 @@ class NightlyHandler
         }
 
         if($town->getDay() > 3) {
+        	$this->log->debug("Town has passed 3 days, let's check its own status change");
             if($town->getDevastated()){
                 $this->log->debug("Town is devastated, nothing to do.");
             } else {
+            	$this->log->debug("Town is not yet devastated, and has <info>$aliveCitizen</info> alive citizens (including <info>$aliveCitizenInTown</info> in town)");
                 if ($aliveCitizen > 0 && $aliveCitizen <= 10 && !$town->getDevastated()) {
                     $this->log->debug("There is <info>$aliveCitizen</info> citizens alive, the town is not devastated, setting the town to <info>chaos</info> mode");
                     $town->setChaos(true);

@@ -21,7 +21,18 @@
             <div class="row">
                 <div class="padded cell rw-2">{{citizen.day}}</div>
                 <div class="padded cell rw-1 town-points bold">+{{sp}}</div>
-                <div class="padded cell rw-2"><span class="link" x-ajax-href="{{ path('soul_visit', {id: citizen.user.id}) }}">{{citizen.user.username}}</span></div>
+                <div class="padded cell rw-2">
+                    {% if not last_user_standing is null and last_user_standing == citizen.user %}
+                    <span>
+                        <img src="{{ asset('build/images/pictos/r_surlst.gif') }}" />
+                        <div class="tooltip help">
+                            {{'Der letzte Tote in dieser Stadt!'|trans({}, 'game')}}
+                            <p>{{'Achtung!'|trans({}, 'ghost')}} <strong>{{'Der letzte Tote erhält nur dann eine Belohnung, wenn er 5 volle Tage überlebt hat.'|trans({}, 'game')}}</strong></p>
+                        </div>
+                    </span>
+                    {% endif %}
+                    <span class="link" x-ajax-href="{{ path('soul_visit', {id: citizen.user.id}) }}">{{citizen.user.username}}</span>
+                </div>
                 <div class="padded cell rw-4">
                     {{citizen.cod.label|trans({}, 'game')}}
                     {% if not citizen.lastWords is empty %}
