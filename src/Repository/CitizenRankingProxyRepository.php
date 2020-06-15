@@ -42,8 +42,8 @@ class CitizenRankingProxyRepository extends ServiceEntityRepository
             ->join('c.town', 't')
             ->andWhere('c.user = :user')
             ->setParameter('user', $user)
-            ->orderBy('c.day', 'DESC')
-            ->orderBy('c.id', 'DESC');
+            ->addOrderBy('c.day', 'DESC')
+            ->addOrderBy('c.id', 'DESC');
 
         if($season !== null)
             $query->andWhere('t.season = :season')
