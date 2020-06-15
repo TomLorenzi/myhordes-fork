@@ -13,10 +13,12 @@ use Doctrine\ORM\Mapping as ORM;
 class PrivateMessage
 {
 
-    const TEMPLATE_CROW_COMPLAINT_ON  = 1;
-    const TEMPLATE_CROW_COMPLAINT_OFF = 2;
-    const TEMPLATE_CROW_TERROR        = 3;
-    const TEMPLATE_CROW_THEFT         = 4;
+    const TEMPLATE_CROW_COMPLAINT_ON       = 1;
+    const TEMPLATE_CROW_COMPLAINT_OFF      = 2;
+    const TEMPLATE_CROW_TERROR             = 3;
+    const TEMPLATE_CROW_THEFT              = 4;
+    const TEMPLATE_CROW_AGGRESSION_FAIL    = 5;
+    const TEMPLATE_CROW_AGGRESSION_SUCCESS = 6;
 
     /**
      * @ORM\Id()

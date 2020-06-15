@@ -6,13 +6,15 @@ use App\Entity\Avatar;
 use App\Entity\CauseOfDeath;
 use App\Entity\Changelog;
 use App\Entity\CitizenRankingProxy;
+use App\Entity\FoundRolePlayText;
 use App\Entity\HeroSkillPrototype;
+use App\Entity\Town;
 use App\Entity\TownRankingProxy;
 use App\Entity\User;
 use App\Entity\Picto;
 use App\Entity\PictoPrototype;
-use App\Entity\FoundRolePlayText;
 use App\Entity\RolePlayTextPage;
+use App\Entity\Season;
 use App\Response\AjaxResponse;
 use App\Service\DeathHandler;
 use App\Service\ErrorHelper;
@@ -112,6 +114,7 @@ class SoulController extends AbstractController
             'points' => round($points, 0),
             'latestSkill' => $latestSkill,
             'progress' => floor($progress),
+            'seasons' => $this->entity_manager->getRepository(Season::class)->findAll()
         ]));
     }
 
@@ -704,9 +707,10 @@ class SoulController extends AbstractController
     	$points = $this->user_handler->getPoints($user);
 
         return $this->render( 'ajax/soul/visit.html.twig', $this->addDefaultTwigArgs("soul_visit", [
-        	'user' => $selected_user,
+        	'user' => $user,
             'pictos' => $pictos,
-            'points' => round($points, 0)
+            'points' => round($points, 0),
+            'seasons' => $this->entity_manager->getRepository(Season::class)->findAll()
         ]));
     }
 
@@ -845,5 +849,25 @@ class SoulController extends AbstractController
             'gazette' => $canSeeGazette,
             'denied_pictos' => $pictosNotWonDuringTown
         ] );
+    }
+
+    /**
+     * @Route("api/soul/{user_id}/towns_all", name="soul_get_towns")
+     * @param JSONRequestParser $parser
+     * @return Response
+     */
+    public function soul_town_list(int $user_id, JSONRequestParser $parser): Response {
+        /** @var User $user */
+        $user = $this->entity_manager->getRepository(User::class)->find($user_id);
+        if($user === null) return "";
+
+        $season_id = $parser->get('season', '');
+        if(empty($season_id)) return new Response("");
+
+        $season = $this->entity_manager->getRepository(Season::class)->findOneBy(['id' => $season_id]);
+
+        $limit = boolval($parser->get('limit10', true));
+
+        return $this->render( 'ajax/soul/town_list.html.twig', ['towns' => $this->entity_manager->getRepository(CitizenRankingProxy::class)->findAllByUserAndSeason($user, $season, $limit)]);
     }
 }

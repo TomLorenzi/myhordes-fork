@@ -1,0 +1,43 @@
+{#@var incarnation CitizenRankingProxy #}
+{% for incarnation in towns %}
+    <div class="row{% if incarnation.town.type.name == 'panda' %} hardcore{% endif %}">
+        <div class="cell padded rw-2 center">
+            {% if incarnation.town.season is null %}
+                --
+            {% else %}
+                {{ incarnation.town.season.number }}
+            {% endif %}
+        </div>
+        <div class="cell padded rw-6 center town-name">
+            <div x-ajax-href="{{ path('soul_view_town', {id: incarnation.town.id}) }}" x-ajax-target="default">{% if incarnation.town.type.name == 'panda' %}<img src="{{ asset('build/images/soul/r_cannib.gif') }}" alt="" /> {% endif %}{{ incarnation.town.name }}</div>
+            <div x-town-id="{{ incarnation.id }}" class="comment"><em>{% if not incarnation.comment is empty %}{{incarnation.comment}}{% elseif incarnation.user == app.user %}<span class="add-comment">{{'Einen Kommentar hinzufügen'|trans({}, 'soul')}}</span>{% endif %}</em></div>
+        </div>
+        <div class="cell padded rw-2 center town-days bold">
+            {{ incarnation.day }}
+            {% if incarnation.town.town is not null and incarnation.town.town.aliveCitizen %}
+                <span>
+                    <img src="{{asset('build/images/small_new.gif')}}" />
+                    <div class="tooltip">
+                        {{ 'Es sind in dieser Stadt noch ein paar Bürger übrig...'|trans({}, 'soul') }}
+                    </div>
+                </span>
+            {% endif %}
+        </div>
+        <div class="cell padded rw-2 center town-points bold">
+            +{{incarnation.points}}
+        </div>
+    </div>
+{% else %}
+    <div class="row">
+        <div class="empty">
+            {{'Es wurde keine Stadt gefunden...'|trans({}, 'global')}}
+        </div>
+    </div>
+{% endfor %}
+
+<script>
+    let towns = document.querySelectorAll('[x-ajax-href]');
+    for(var i = 0 ; i < towns.length ; i++) {
+
+    }
+</script>
