@@ -93,22 +93,22 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
         foreach ($town->getBuildings() as $b) if ($b->getComplete()) {
 
             if ($b->getPrototype()->getMaxLevel() > 0)
-                $addons['upgrade']  = [T::__('Verbesserung des Tages (building)', 'game'), 'town_upgrades'];
+                $addons['upgrade']  = [T::__('Verbesserung des Tages (building)', 'game'), 'town_upgrades', 0];
 
             if ($b->getPrototype()->getName() === 'item_tagger_#00')
-                $addons['watchtower'] = [T::__('Wachturm', 'game'), 'town_watchtower'];
+                $addons['watchtower'] = [T::__('Wachturm', 'game'), 'town_watchtower', 1];
 
             if ($b->getPrototype()->getName() === 'small_refine_#00')
-                $addons['workshop'] = [T::__('Werkstatt (building)', 'game'), 'town_workshop'];
+                $addons['workshop'] = [T::__('Werkstatt (building)', 'game'), 'town_workshop', 2];
 
             if ($b->getPrototype()->getName() === 'small_round_path_#00' && $this->getTownConf()->get(TownConf::CONF_FEATURE_NIGHTWATCH, true))
-                $addons['battlement'] = [T::__('Wächt', 'game'), 'town_nightwatch'];
+                $addons['battlement'] = [T::__('Wächt', 'game'), 'town_nightwatch', 3];
 
             if ($b->getPrototype()->getName() === 'small_trash_#00')
-                $addons['dump'] = [T::__('Müllhalde', 'game'), 'town_dump'];
+                $addons['dump'] = [T::__('Müllhalde', 'game'), 'town_dump', 4];
 
             if ($b->getPrototype()->getName() === 'item_courroie_#00')
-                $addons['catapult'] = [T::__('Katapult', 'game'), 'town_dashboard'];
+                $addons['catapult'] = [T::__('Katapult', 'game'), 'town_dashboard', 5];
             
 
             $data["builtbuildings"][] = $b;
