@@ -10684,5 +10684,50 @@
         <target>Dies ist eine offizielle Nachricht.</target>
       </segment>
     </unit>
+    <unit id="98qlXbX" name="Du bist %status%">
+      <notes>
+        <note category="german">Du bist %status%</note>
+      </notes>
+      <segment>
+        <source>Du bist %status%</source>
+        <target>Du bist %status%</target>
+      </segment>
+    </unit>
+    <unit id="Pzhs1Mo" name="Ratschlag:">
+      <notes>
+        <note category="german">Ratschlag:</note>
+      </notes>
+      <segment>
+        <source>Ratschlag:</source>
+        <target>Ratschlag:</target>
+      </segment>
+    </unit>
+    <unit id="iHdJZPx" name="Iss ODER trink etwas Wasser.">
+      <notes>
+        <note category="german">Iss ODER trink etwas Wasser.</note>
+      </notes>
+      <segment>
+        <source>Iss ODER trink etwas Wasser.</source>
+        <target>Iss ODER trink etwas Wasser.</target>
+      </segment>
+    </unit>
+    <unit id="hhKj9e1" name="Du kannst eine Ration Wasser trinken.">
+      <notes>
+        <note category="german">Du kannst eine Ration Wasser trinken.</note>
+      </notes>
+      <segment>
+        <source>Du kannst eine Ration Wasser trinken.</source>
+        <target>Du kannst eine Ration Wasser trinken.</target>
+      </segment>
+    </unit>
+    <unit id="00Lc7om" name="73a703f">
+      <notes>
+        <note category="german">Du bist in einer Privatstadt. Für diese Art von Stadt gelten einige Sonderregeln.</note>
+      </notes>
+      <segment>
+        <source>Du bist in einer Privatstadt. Für diese Art von Stadt gelten einige Sonderregeln.</source>
+        <target>Vous êtes dans une ville privée. Certaines règles spéciales s'appliquent à ce type de ville.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

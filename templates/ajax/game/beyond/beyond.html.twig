@@ -2,86 +2,92 @@
 {% block ajax %}
     {{ parent() }}
     <div class="row">
-            {% if map_data is defined %}
-                <div class="padded-small cell rw-4 rw-lg-6 rw-md-12">
-                    {% embed "ajax/game/map.html.twig" with {
-                        'default_zoom': 0,
-                        'default_show_zone': true,
-                        'allow_zone_view': true,
-                        'move': allow_movement,
-                        'in_town': false,
-                        'is_shaman': is_shaman,
-                        'map': map_data
-                    } %}{% endembed %}
-                    <div class="zone-info">
-                <div class="row zone-cp note note-light">
-                    <div class="cell rw-5 left"><img src="{{ asset('build/images/small_human.gif') }}" alt="CP" /> <span>{{ zone_cp }} {% trans from 'game' %}Punkt(e){% endtrans %}</span></div>
-                    <div class="cell rw-2 center">
-                        {% if zone_cp < zone_zombies %}
-                            <img src="{{ asset("build/images/beyond/less.gif") }}" alt="" />
-                        {% elseif zone_cp > zone_zombies %}
-                            <img src="{{ asset("build/images/beyond/more.gif") }}" alt="" />
-                        {% else %}
-                            <img src="{{ asset("build/images/beyond/equal.gif") }}" alt="" />
-                        {% endif %}
-                    </div>
-                    <div class="cell rw-5 right"><span>{{ zone_zombies }} {% trans from 'game' %}Punkt(e){% endtrans %}</span> <img src="{{ asset('build/images/small_zombie.gif') }}" alt="ZP" /></div>
-                </div>
-                {% if zone.x != 0 or zone.y != 0 %}
-                    <div class="row zone-dist note note-light">
-                        {% if scout_level is not null %}
-                            <div class="row zone-scout">
-                                <div class="padded cell rw-12">
-                                    {% if scout_level == 0 %}
-                                        <img alt="" src="{{ asset('build/images/scout_lv0.gif') }}" /><span class="warning">&nbsp;{{ 'Kaum erforschte Zone'|trans({},'game') }}</span>
-                                    {% elseif scout_level == 1 %}
-                                        <img alt="" src="{{ asset('build/images/scout_lv1.gif') }}" /><span>&nbsp;{{ 'Die Zone wurde teilweise erforscht'|trans({},'game') }}</span>
-                                    {% elseif scout_level == 2 %}
-                                        <img alt="" src="{{ asset('build/images/scout_lv2.gif') }}" /><span>&nbsp;{{ 'Die Zone wurde erforscht'|trans({},'game') }}</span>
-                                    {% else %}
-                                        <img alt="" src="{{ asset('build/images/scout_lv3.gif') }}" /><span>&nbsp;{{ 'Die Zone wurde voll und ganz erforscht und kartographiert'|trans({},'game') }}</span>
-                                    {% endif %}
-                                </div>
-                            </div>
-                        {% endif %}
-                        <div class="cell rw-12 center">
-                            {% set dir = "" %}
-                            {% if zone.getDirection == constant('App\\Entity\\Zone::DirectionNorthWest') %}
-                                {% set dir = "Südosten"|trans({},'game') %}
-                            {% elseif zone.getDirection == constant('App\\Entity\\Zone::DirectionNorth') %}
-                                {% set dir = "Süden"|trans({},'game') %}
-                            {% elseif zone.getDirection == constant('App\\Entity\\Zone::DirectionNorthEast') %}
-                                {% set dir = "Südwesten"|trans({},'game') %}
-                            {% elseif zone.getDirection == constant('App\\Entity\\Zone::DirectionWest') %}
-                                {% set dir = "Osten"|trans({},'game') %}
-                            {% elseif zone.getDirection == constant('App\\Entity\\Zone::DirectionEast') %}
-                                {% set dir = "Westen"|trans({},'game') %}
-                            {% elseif zone.getDirection == constant('App\\Entity\\Zone::DirectionSouthWest') %}
-                                {% set dir = "Nordosten"|trans({},'game') %}
-                            {% elseif zone.getDirection == constant('App\\Entity\\Zone::DirectionSouth') %}
-                                {% set dir = "Norden"|trans({},'game') %}
-                            {% elseif zone.getDirection == constant('App\\Entity\\Zone::DirectionSouthEast') %}
-                                {% set dir = 'Nordwesten'|trans({},'game') %}
+        {% if map_data is defined %}
+            <div class="padded-small cell rw-4 rw-lg-6 rw-md-12">
+                {% embed "ajax/game/map.html.twig" with {
+                    'default_zoom': 0,
+                    'default_show_zone': true,
+                    'allow_zone_view': true,
+                    'move': allow_movement,
+                    'in_town': false,
+                    'is_shaman': is_shaman,
+                    'map': map_data
+                } %}{% endembed %}
+                <div class="zone-info">
+                    <div class="row zone-cp note note-light">
+                        <div class="cell rw-5 left"><img src="{{ asset('build/images/small_human.gif') }}" alt="CP" /> <span>{{ zone_cp }} {% trans from 'game' %}Punkt(e){% endtrans %}</span></div>
+                        <div class="cell rw-2 center">
+                            {% if zone_cp < zone_zombies %}
+                                <img src="{{ asset("build/images/beyond/less.gif") }}" alt="" />
+                            {% elseif zone_cp > zone_zombies %}
+                                <img src="{{ asset("build/images/beyond/more.gif") }}" alt="" />
+                            {% else %}
+                                <img src="{{ asset("build/images/beyond/equal.gif") }}" alt="" />
                             {% endif %}
-                            {{ 'Stadt im %direction% in %km% Entfernung'|trans({'%km%': '<b>' ~ km ~ 'km</b>', '%direction%': dir|lower},'game')|raw }}&nbsp;&nbsp;(<div class="ap">{{ town_ap }}</div>)
                         </div>
+                        <div class="cell rw-5 right"><span>{{ zone_zombies }} {% trans from 'game' %}Punkt(e){% endtrans %}</span> <img src="{{ asset('build/images/small_zombie.gif') }}" alt="ZP" /></div>
+                    </div>
+                    {% if zone.x != 0 or zone.y != 0 %}
+                        <div class="row zone-dist note note-light">
+                            {% if scout_level is not null %}
+                                <div class="row zone-scout">
+                                    <div class="padded cell rw-12">
+                                        {% if scout_level == 0 %}
+                                            <img alt="" src="{{ asset('build/images/scout_lv0.gif') }}" /><span class="warning">&nbsp;{{ 'Kaum erforschte Zone'|trans({},'game') }}</span>
+                                        {% elseif scout_level == 1 %}
+                                            <img alt="" src="{{ asset('build/images/scout_lv1.gif') }}" /><span>&nbsp;{{ 'Die Zone wurde teilweise erforscht'|trans({},'game') }}</span>
+                                        {% elseif scout_level == 2 %}
+                                            <img alt="" src="{{ asset('build/images/scout_lv2.gif') }}" /><span>&nbsp;{{ 'Die Zone wurde erforscht'|trans({},'game') }}</span>
+                                        {% else %}
+                                            <img alt="" src="{{ asset('build/images/scout_lv3.gif') }}" /><span>&nbsp;{{ 'Die Zone wurde voll und ganz erforscht und kartographiert'|trans({},'game') }}</span>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            {% endif %}
+                            <div class="cell rw-12 center">
+                                {% set dir = "" %}
+                                {% if zone.getDirection == constant('App\\Entity\\Zone::DirectionNorthWest') %}
+                                    {% set dir = "Südosten"|trans({},'game') %}
+                                {% elseif zone.getDirection == constant('App\\Entity\\Zone::DirectionNorth') %}
+                                    {% set dir = "Süden"|trans({},'game') %}
+                                {% elseif zone.getDirection == constant('App\\Entity\\Zone::DirectionNorthEast') %}
+                                    {% set dir = "Südwesten"|trans({},'game') %}
+                                {% elseif zone.getDirection == constant('App\\Entity\\Zone::DirectionWest') %}
+                                    {% set dir = "Osten"|trans({},'game') %}
+                                {% elseif zone.getDirection == constant('App\\Entity\\Zone::DirectionEast') %}
+                                    {% set dir = "Westen"|trans({},'game') %}
+                                {% elseif zone.getDirection == constant('App\\Entity\\Zone::DirectionSouthWest') %}
+                                    {% set dir = "Nordosten"|trans({},'game') %}
+                                {% elseif zone.getDirection == constant('App\\Entity\\Zone::DirectionSouth') %}
+                                    {% set dir = "Norden"|trans({},'game') %}
+                                {% elseif zone.getDirection == constant('App\\Entity\\Zone::DirectionSouthEast') %}
+                                    {% set dir = 'Nordwesten'|trans({},'game') %}
+                                {% endif %}
+                                {{ 'Stadt im %direction% in %km% Entfernung'|trans({'%km%': '<b>' ~ km ~ 'km</b>', '%direction%': dir|lower},'game')|raw }}&nbsp;&nbsp;(<div class="ap">{{ town_ap }}</div>)
+                            </div>
+                        </div>
+                    {% endif %}
+                </div>
+                {% if tired %}
+                    <div class="help">
+                        {{'Du bist %status%'|trans({'%status%': '<img src="' ~ asset('build/images/status/status_tired.gif') ~ '" /> Erschöpft'}, 'game')|raw}}<br />
+                        <span class="small">{{'Ratschlag:'|trans({}, 'game')}}</span> {% if status_info.can_drink and status_info.can_eat %}{{'Iss ODER trink etwas Wasser.'|trans({}, 'game')}}{% elseif status_info.can_drink and not status_info.can_eat %}{{'Du kannst eine Ration Wasser trinken.'|trans({}, 'game')}}{% elseif status_info.can_eat and not status_info.can_drink %}Du kannst essen.{% else %}Du kannst ein Droge nehmen.{% endif %}
                     </div>
                 {% endif %}
             </div>
-                </div>
-            {% endif %}
-            {% if ruin_map_data is defined %}
-                <div class="padded-small cell rw-4 rw-lg-6 rw-md-12">
-                    {% embed "ajax/game/ruin_map.html.twig" with {
-                        'map': ruin_map_data
-                    } %}{% endembed %}
-                </div>
-            {% endif %}
-            <div class="padded cell rw-8 rw-lg-6 rw-md-12">
-                {% block content %}
-                {% endblock %}
+        {% endif %}
+        {% if ruin_map_data is defined %}
+            <div class="padded-small cell rw-4 rw-lg-6 rw-md-12">
+                {% embed "ajax/game/ruin_map.html.twig" with {
+                    'map': ruin_map_data
+                } %}{% endembed %}
             </div>
+        {% endif %}
+        <div class="padded cell rw-8 rw-lg-6 rw-md-12">
+            {% block content %}
+            {% endblock %}
         </div>
+    </div>
 {% endblock %}
 {% block js %}
     {{ parent() }}
