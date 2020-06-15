@@ -5,6 +5,7 @@ namespace App\Repository;
 
 
 use App\Entity\Award;
+use App\Entity\AwardPrototype;
 use App\Entity\User;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Common\Persistence\ManagerRegistry;
@@ -28,5 +29,19 @@ class AwardRepository extends ServiceEntityRepository {
             ->setParameter('val', $user)
             ->getQuery()
             ->getResult();
+    }
+
+    public function hasAward(User $user, AwardPrototype $award): ?bool {
+        try {
+            return ($this->createQueryBuilder('a')
+                    ->andWhere('a.user = :valUser')
+                    ->setParameter('valUser', $user)
+                    ->andWhere('a.prototype = :valProto')
+                    ->setParameter('valProto', $award)
+                    ->getQuery()
+                    ->getOneOrNullResult() != null);
+        } catch (NonUniqueResultException $e) {
+            return true;
+        }
     }
 }
