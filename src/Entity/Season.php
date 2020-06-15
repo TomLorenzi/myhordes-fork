@@ -38,6 +38,11 @@ class Season
      */
     private $rankedTowns;
 
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $current = false;
+
     public function __construct()
     {
         $this->towns = new ArrayCollection();
@@ -131,6 +136,18 @@ class Season
                 $rankedTown->setSeason(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getCurrent(): ?bool
+    {
+        return $this->current;
+    }
+
+    public function setCurrent(bool $current): self
+    {
+        $this->current = $current;
 
         return $this;
     }

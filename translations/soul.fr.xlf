@@ -564,7 +564,7 @@
     </unit>
     <unit id="lJGEo3w" name="Koalition">
       <notes>
-        <note category="german">Coalition</note>
+        <note category="german">Koalition</note>
       </notes>
       <segment>
         <source>Koalition</source>
@@ -573,7 +573,7 @@
     </unit>
     <unit id="svF8aFT" name="Saison 15">
       <notes>
-        <note category="german">Season 15</note>
+        <note category="german">Saison 15</note>
       </notes>
       <segment>
         <source>Saison 15</source>
@@ -582,14 +582,32 @@
     </unit>
     <unit id="EHTi.hN" name="ea67ed1">
       <notes>
-        <note category="german">Choose which part of your profile picture should be used for the compressed display.
-                                            Move the section with the mouse and enlarge or reduce it with the mouse wheel.</note>
+        <note category="german">Wähle aus, welcher Teil deines Profilbilds für die komprimierte Darstellung verwendet werden soll.
+                                            Bewege den Ausschnitt mit der Maus und vergrößere oder verkleinere ihn mit dem Mausrad.</note>
       </notes>
       <segment>
         <source>Wähle aus, welcher Teil deines Profilbilds für die komprimierte Darstellung verwendet werden soll.
                                             Bewege den Ausschnitt mit der Maus und vergrößere oder verkleinere ihn mit dem Mausrad.</source>
         <target>Choisissez la partie de votre photo de profil à utiliser pour l'affichage compressé.
                                             Déplacez la section avec la souris et agrandissez-la ou réduisez-la avec la molette de la souris.</target>
+      </segment>
+    </unit>
+    <unit id="x3_4s4O" name="Alte Städte">
+      <notes>
+        <note category="german">Alte Städte</note>
+      </notes>
+      <segment>
+        <source>Alte Städte</source>
+        <target>Vieilles villes</target>
+      </segment>
+    </unit>
+    <unit id="hU1AUQF" name="Nur 10 Städte anzeigen">
+      <notes>
+        <note category="german">Nur 10 Städte anzeigen</note>
+      </notes>
+      <segment>
+        <source>Nur 10 Städte anzeigen</source>
+        <target>Limiter l'affichage à 10 villes</target>
       </segment>
     </unit>
   </file>
