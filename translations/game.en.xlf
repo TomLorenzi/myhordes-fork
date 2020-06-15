@@ -61,7 +61,7 @@
       </notes>
       <segment>
         <source>%citizen% hat an dem Bauprojekt %plan% mitgearbeitet und dabei %ap% ausgegeben.</source>
-        <target>%citizen% worked on the project %plan% and spent %ap%.</target>
+        <target>%citizen% worked on constructing the %plan% and spent %ap%.</target>
       </segment>
     </unit>
     <unit id="XyE6HNd" name="4d6306a">
@@ -4073,7 +4073,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Grüße von Brainbox aus der Vergangenheit, der am 22.02.2020 vor seinem PC sitzt und diesen Text schreibt.</source>
-        <target>Hello from Kitsune at 8AM the 08.05.2020, with his morning coffee :D !</target>
+        <target>You couldn't stand in this town and its citizens anymore that you decided to shorten your existence by yourself. What a courageous Admin... Meh.</target>
       </segment>
     </unit>
     <unit id="Cp7etpd" name="Kopfschuss">
@@ -4712,7 +4712,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Du gräbst schon seit einiger Zeit und hast mehrere Gegenstände gefunden.</source>
-        <target>Du gräbst schon seit einiger Zeit und hast mehrere Gegenstände gefunden.</target>
+        <target>You have been digging for some time and have found several items.</target>
       </segment>
     </unit>
     <unit id="7Xw94D3" name="Du kannst nur einen Behälter auf einmal tragen.">
@@ -4721,7 +4721,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Du kannst nur einen Behälter auf einmal tragen.</source>
-        <target>Du kannst nur einen Behälter auf einmal tragen.</target>
+        <target>You can only carry one container at a time.</target>
       </segment>
     </unit>
     <unit id="GrndoXV" name="859c709">
@@ -8018,7 +8018,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>%citizen% hat einen Bauplan für %plan% gefunden.</source>
-        <target>%citizen% hat einen Bauplan für %plan% gefunden.</target>
+        <target>%citizen% has discovered the blueprints for the %plan%!</target>
       </segment>
     </unit>
     <unit id="2jSPgup" name="c7e40ad">
@@ -8027,7 +8027,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>%citizen% hat einen Bauplan für %plan% gefunden. Dafür ist das Bauprojekt %parent% nötig.</source>
-        <target>%citizen% hat einen Bauplan für %plan% gefunden. Dafür ist das Bauprojekt %parent% nötig.</target>
+        <target>%citizen% has discovered the blueprints for the %plan%! This required the construction of the %parent%.</target>
       </segment>
     </unit>
     <unit id="_VJJKap" name="%num% Zombies haben vergeblich versucht, in das Haus von %citizen% einzudringen.">
@@ -8045,7 +8045,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>%citizen% wurde von %num% Zombies zerfleischt!</source>
-        <target>%citizen% wurde von %num% Zombies zerfleischt!</target>
+        <target>%citizen% was devoured by %num% Zombies!</target>
       </segment>
     </unit>
     <unit id="0OgA2rX" name="0505799">
@@ -8054,7 +8054,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>%citizen% hat folgendes hergestellt: %list2%; dabei wurden folgende Gegenstände verbraucht: %list1%.</source>
-        <target>%citizen% hat folgendes hergestellt: %list2%; dabei wurden folgende Gegenstände verbraucht: %list1%.</target>
+        <target>%citizen% has produced one %list2% at the Workshop (from the %list1%).</target>
       </segment>
     </unit>
     <unit id="1c66H6u" name="85ec328">
@@ -8063,7 +8063,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Der Bau des Gebäudes Alles oder nichts hat der Stadt %def% vorübergehende Verteidungspunkte eingebracht. Allerdings wurde dabei der gesamte Inhalt der Bank zerstört! Hoffen wir, dass es das wert war...</source>
-        <target>Der Bau des Gebäudes Alles oder nichts hat der Stadt %def% vorübergehende Verteidungspunkte eingebracht. Allerdings wurde dabei der gesamte Inhalt der Bank zerstört! Hoffen wir, dass es das wert war...</target>
+        <target>Building the All or Nothing has brought %def% temporary defence points to your town, but everything in the bank was destroyed. Here's hoping that it's enough...</target>
       </segment>
     </unit>
     <unit id="vdpIvG7" name="6b9d94e">
@@ -8117,7 +8117,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>%attacker% hat %defender% gewalttätig angegriffen!</source>
-        <target>%attacker% hat %defender% gewalttätig angegriffen!</target>
+        <target>%attacker% has violently attacked %defender%!</target>
       </segment>
     </unit>
     <unit id="0Y6YSyp" name="c4b3caa">
@@ -9274,7 +9274,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     </unit>
     <unit id="kKXLpSQ" name="Schreiben Sie an alle">
       <notes>
-        <note category="german">Schreiben Sie an alle</note>
+        <note category="german">Alle anschreiben</note>
       </notes>
       <segment>
         <source>Schreiben Sie an alle</source>
@@ -10512,6 +10512,60 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       <segment>
         <source>Verzeichnis der Stadt.</source>
         <target>town directory.</target>
+      </segment>
+    </unit>
+    <unit id="97Bucqq" name="Einrichtung">
+      <notes>
+        <note category="german">Einrichtung</note>
+      </notes>
+      <segment>
+        <source>Einrichtung</source>
+        <target>Einrichtung</target>
+      </segment>
+    </unit>
+    <unit id="Ht8hKI." name="Dies ist eine offizielle Nachricht.">
+      <notes>
+        <note category="german">Dies ist eine offizielle Nachricht.</note>
+      </notes>
+      <segment>
+        <source>Dies ist eine offizielle Nachricht.</source>
+        <target>Dies ist eine offizielle Nachricht.</target>
+      </segment>
+    </unit>
+    <unit id="N1KK_ks" name="Die Liste der eingeschriebenen Spieler ansehen.">
+      <notes>
+        <note category="german">Die Liste der eingeschriebenen Spieler ansehen.</note>
+      </notes>
+      <segment>
+        <source>Die Liste der eingeschriebenen Spieler ansehen.</source>
+        <target>Die Liste der eingeschriebenen Spieler ansehen.</target>
+      </segment>
+    </unit>
+    <unit id="aVkOGIz" name="Von einem Ghul gefressen">
+      <notes>
+        <note category="german">Von einem Ghul gefressen</note>
+      </notes>
+      <segment>
+        <source>Von einem Ghul gefressen</source>
+        <target>Eaten by a Ghoul</target>
+      </segment>
+    </unit>
+    <unit id="znr86lo" name="Zum Forum">
+      <notes>
+        <note category="german">Zum Forum</note>
+      </notes>
+      <segment>
+        <source>Zum Forum</source>
+        <target>More Forums!</target>
+      </segment>
+    </unit>
+    <unit id="3lrK_qg" name="Lade Forum...">
+      <notes>
+        <note category="german">Lade Forum...</note>
+      </notes>
+      <segment>
+        <source>Lade Forum...</source>
+        <target>Loading forum ...</target>
       </segment>
     </unit>
   </file>

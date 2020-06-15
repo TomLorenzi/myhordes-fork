@@ -903,7 +903,7 @@
     </unit>
     <unit id="eFGF2zF" name="Dieser Login ist ausschließlich für Administratoren gedacht.">
       <notes>
-        <note category="german">This login is only for Administrators.</note>
+        <note category="german">Dieser Login ist ausschließlich für Administratoren gedacht.</note>
       </notes>
       <segment>
         <source>Dieser Login ist ausschließlich für Administratoren gedacht.</source>
@@ -921,7 +921,7 @@
     </unit>
     <unit id="aZibx3x" name="Server-Log herunterladen">
       <notes>
-        <note category="german">Download Server logs</note>
+        <note category="german">Server-Log herunterladen</note>
       </notes>
       <segment>
         <source>Server-Log herunterladen</source>
@@ -930,7 +930,7 @@
     </unit>
     <unit id="yvg6S11" name="Server-Log ansehen">
       <notes>
-        <note category="german">View Server logs</note>
+        <note category="german">Server-Log ansehen</note>
       </notes>
       <segment>
         <source>Server-Log ansehen</source>
@@ -939,7 +939,7 @@
     </unit>
     <unit id="UYFKH.u" name="Server-Log löschen">
       <notes>
-        <note category="german">Clear Server logs</note>
+        <note category="german">Server-Log löschen</note>
       </notes>
       <segment>
         <source>Server-Log löschen</source>
@@ -948,7 +948,7 @@
     </unit>
     <unit id="LzfXrql" name="Geplante Angriffe">
       <notes>
-        <note category="german">Planned Attacks</note>
+        <note category="german">Geplante Angriffe</note>
       </notes>
       <segment>
         <source>Geplante Angriffe</source>
@@ -957,7 +957,7 @@
     </unit>
     <unit id="5HWWJl3" name="Überfällig seit %s% Sekunden!">
       <notes>
-        <note category="german">Overdue for %s% seconds!</note>
+        <note category="german">Überfällig seit %s% Sekunden!</note>
       </notes>
       <segment>
         <source>Überfällig seit %s% Sekunden!</source>
@@ -966,7 +966,7 @@
     </unit>
     <unit id=".vvAKHY" name="Soldatenberuf freischalten">
       <notes>
-        <note category="german">Unlock military profession</note>
+        <note category="german">Soldatenberuf freischalten</note>
       </notes>
       <segment>
         <source>Soldatenberuf freischalten</source>
@@ -975,7 +975,7 @@
     </unit>
     <unit id="rhc00FL" name="999 AP zuweisen">
       <notes>
-        <note category="german">Give 999 AP</note>
+        <note category="german">999 AP zuweisen</note>
       </notes>
       <segment>
         <source>999 AP zuweisen</source>
@@ -984,7 +984,7 @@
     </unit>
     <unit id="hkxRxBa" name="Munition erzeugen">
       <notes>
-        <note category="german">Generate ammunition</note>
+        <note category="german">Munition erzeugen</note>
       </notes>
       <segment>
         <source>Munition erzeugen</source>
@@ -993,7 +993,7 @@
     </unit>
     <unit id="Hizwkp7" name="Admin-Berechtigung setzen">
       <notes>
-        <note category="german">Set Admin authorization</note>
+        <note category="german">Admin-Berechtigung setzen</note>
       </notes>
       <segment>
         <source>Admin-Berechtigung setzen</source>
@@ -1002,7 +1002,7 @@
     </unit>
     <unit id="zbkR0H6" name="+ 9999 Seelenpunkte">
       <notes>
-        <note category="german">+ 9999 Soul points</note>
+        <note category="german">+ 9999 Seelenpunkte</note>
       </notes>
       <segment>
         <source>+ 9999 Seelenpunkte</source>
@@ -1011,7 +1011,7 @@
     </unit>
     <unit id="WgSXz1." name="Geheime Saison freischalten">
       <notes>
-        <note category="german">Unlock Secret Season</note>
+        <note category="german">Geheime Saison freischalten</note>
       </notes>
       <segment>
         <source>Geheime Saison freischalten</source>
@@ -1020,11 +1020,65 @@
     </unit>
     <unit id="B6BJJfF" name="Computer sagt nein.">
       <notes>
-        <note category="german">Computer says no.</note>
+        <note category="german">Computer sagt nein.</note>
       </notes>
       <segment>
         <source>Computer sagt nein.</source>
         <target>Computer sagt nein.</target>
+      </segment>
+    </unit>
+    <unit id="yu8TLDr" name="Du hast dich umgebracht.">
+      <notes>
+        <note category="german">You terminated your miserable existence.</note>
+      </notes>
+      <segment>
+        <source>Du hast dich umgebracht.</source>
+        <target>Du hast dich umgebracht.</target>
+      </segment>
+    </unit>
+    <unit id="xkgfKms" name="Du gehörst keiner Stadt an.">
+      <notes>
+        <note category="german">You do not belong to a Town.</note>
+      </notes>
+      <segment>
+        <source>Du gehörst keiner Stadt an.</source>
+        <target>Du gehörst keiner Stadt an.</target>
+      </segment>
+    </unit>
+    <unit id="jnQ5tRO" name="Selbstmord begehen">
+      <notes>
+        <note category="german">Commit Suicide</note>
+      </notes>
+      <segment>
+        <source>Selbstmord begehen</source>
+        <target>Selbstmord begehen</target>
+      </segment>
+    </unit>
+    <unit id="K_rzvjv" name="PM vom Raben">
+      <notes>
+        <note category="german">PM vom Raben</note>
+      </notes>
+      <segment>
+        <source>PM vom Raben</source>
+        <target>PM vom Raben</target>
+      </segment>
+    </unit>
+    <unit id="nq1XXly" name="Stadtregister">
+      <notes>
+        <note category="german">Town registry</note>
+      </notes>
+      <segment>
+        <source>Stadtregister</source>
+        <target>Stadtregister</target>
+      </segment>
+    </unit>
+    <unit id="sqS3JFR" name="Rundmail als Rabe">
+      <notes>
+        <note category="german">Rundmail als Rabe</note>
+      </notes>
+      <segment>
+        <source>Rundmail als Rabe</source>
+        <target>Rundmail als Rabe</target>
       </segment>
     </unit>
   </file>

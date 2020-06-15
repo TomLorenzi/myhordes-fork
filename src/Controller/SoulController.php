@@ -698,13 +698,13 @@ class SoulController extends AbstractController
     	$user = $this->entity_manager->getRepository(User::class)->find($id);
     	if($user === null || $user === $current_user){
             return $this->redirect($this->generateUrl('soul_me'));
-        }
+
 
         $pictos = $this->entity_manager->getRepository(Picto::class)->findNotPendingByUser($user);
     	$points = $this->user_handler->getPoints($user);
 
         return $this->render( 'ajax/soul/visit.html.twig', $this->addDefaultTwigArgs("soul_visit", [
-        	'user' => $user,
+        	'user' => $selected_user,
             'pictos' => $pictos,
             'points' => round($points, 0)
         ]));

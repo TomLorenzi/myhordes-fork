@@ -9228,7 +9228,7 @@
     </unit>
     <unit id="kKXLpSQ" name="Schreiben Sie an alle">
       <notes>
-        <note category="german">Schreiben Sie an alle</note>
+        <note category="german">Alle anschreiben</note>
       </notes>
       <segment>
         <source>Schreiben Sie an alle</source>
@@ -10344,7 +10344,7 @@
     </unit>
     <unit id="gwaSbiX" name="Niemand">
       <notes>
-        <note category="german">Niemand</note>
+        <note category="german">Keiner</note>
       </notes>
       <segment>
         <source>Niemand</source>
@@ -10443,7 +10443,7 @@
     </unit>
     <unit id="Zc9wwO7" name="Verbesserung des Tages (building)">
       <notes>
-        <note category="german">Proj.</note>
+        <note category="german">Verbesserung des Tages (building)</note>
       </notes>
       <segment>
         <source>Verbesserung des Tages (building)</source>
@@ -10452,11 +10452,209 @@
     </unit>
     <unit id="AKS0zA3" name="Werkstatt (building)">
       <notes>
-        <note category="german">Works</note>
+        <note category="german">Werkstatt (building)</note>
       </notes>
       <segment>
         <source>Werkstatt (building)</source>
         <target>Werkstatt (building)</target>
+      </segment>
+    </unit>
+    <unit id="aVkOGIz" name="Von einem Ghul gefressen">
+      <notes>
+        <note category="german">Von einem Ghul gefressen</note>
+      </notes>
+      <segment>
+        <source>Von einem Ghul gefressen</source>
+        <target>Von einem Ghul gefressen</target>
+      </segment>
+    </unit>
+    <unit id="2IRYW.2" name="06db8c8">
+      <notes>
+        <note category="german">%actor% hat bei der Plünderung von † %victim% Haus diesen Gegenstand gestohlen: %item%</note>
+      </notes>
+      <segment>
+        <source>%actor% hat bei der Plünderung von † %victim% Haus diesen Gegenstand gestohlen: %item%</source>
+        <target>%actor% hat bei der Plünderung von † %victim% Haus diesen Gegenstand gestohlen: %item%</target>
+      </segment>
+    </unit>
+    <unit id="znr86lo" name="Zum Forum">
+      <notes>
+        <note category="german">Zum Forum</note>
+      </notes>
+      <segment>
+        <source>Zum Forum</source>
+        <target>Zum Forum</target>
+      </segment>
+    </unit>
+    <unit id="W3jTpt9" name="Isolierte Zombies">
+      <notes>
+        <note category="german">Isolierte Zombies</note>
+      </notes>
+      <segment>
+        <source>Isolierte Zombies</source>
+        <target>Isolierte Zombies</target>
+      </segment>
+    </unit>
+    <unit id="Yc0dhV4" name="Die Zombies verstümmeln">
+      <notes>
+        <note category="german">Die Zombies verstümmeln</note>
+      </notes>
+      <segment>
+        <source>Die Zombies verstümmeln</source>
+        <target>Die Zombies verstümmeln</target>
+      </segment>
+    </unit>
+    <unit id="c8SXj_R" name="Horde der Zombies">
+      <notes>
+        <note category="german">Horde der Zombies</note>
+      </notes>
+      <segment>
+        <source>Horde der Zombies</source>
+        <target>Horde der Zombies</target>
+      </segment>
+    </unit>
+    <unit id="BtRmkSS" name="Mark.">
+      <notes>
+        <note category="german">Mark.</note>
+      </notes>
+      <segment>
+        <source>Mark.</source>
+        <target>Mark.</target>
+      </segment>
+    </unit>
+    <unit id="00Lc7om" name="73a703f">
+      <notes>
+        <note category="german">Du bist in einer Privatstadt. Für diese Art von Stadt gelten einige Sonderregeln.</note>
+      </notes>
+      <segment>
+        <source>Du bist in einer Privatstadt. Für diese Art von Stadt gelten einige Sonderregeln.</source>
+        <target>Du bist in einer Privatstadt. Für diese Art von Stadt gelten einige Sonderregeln.</target>
+      </segment>
+    </unit>
+    <unit id="97Bucqq" name="Einrichtung">
+      <notes>
+        <note category="german">Einrichtung</note>
+      </notes>
+      <segment>
+        <source>Einrichtung</source>
+        <target>Einrichtung</target>
+      </segment>
+    </unit>
+    <unit id="u6_oAsd" name="ff69301">
+      <notes>
+        <note category="german">You have not received any new private messages. You can find the list of citizens in the</note>
+      </notes>
+      <segment>
+        <source>Du hast keine neue Privatnachricht erhalten. Eine Liste aller Bürger findest du im</source>
+        <target>Du hast keine neue Privatnachricht erhalten. Eine Liste aller Bürger findest du im</target>
+      </segment>
+    </unit>
+    <unit id="4AkrdgW" name="Verzeichnis der Stadt.">
+      <notes>
+        <note category="german">town directory.</note>
+      </notes>
+      <segment>
+        <source>Verzeichnis der Stadt.</source>
+        <target>Verzeichnis der Stadt.</target>
+      </segment>
+    </unit>
+    <unit id="Ht8hKI." name="Dies ist eine offizielle Nachricht.">
+      <notes>
+        <note category="german">Dies ist eine offizielle Nachricht.</note>
+      </notes>
+      <segment>
+        <source>Dies ist eine offizielle Nachricht.</source>
+        <target>Dies ist eine offizielle Nachricht.</target>
+      </segment>
+    </unit>
+    <unit id="3lrK_qg" name="Lade Forum...">
+      <notes>
+        <note category="german">Lade Forum...</note>
+      </notes>
+      <segment>
+        <source>Lade Forum...</source>
+        <target>Lade Forum...</target>
+      </segment>
+    </unit>
+    <unit id="n19gYuh" name="Das folgende Bauprojekt wurde empfohlen:">
+      <notes>
+        <note category="german">The following construction project was recommended:</note>
+      </notes>
+      <segment>
+        <source>Das folgende Bauprojekt wurde empfohlen:</source>
+        <target>Das folgende Bauprojekt wurde empfohlen:</target>
+      </segment>
+    </unit>
+    <unit id="OAGjXFG" name="Alle">
+      <notes>
+        <note category="german">All</note>
+      </notes>
+      <segment>
+        <source>Alle</source>
+        <target>Alle</target>
+      </segment>
+    </unit>
+    <unit id="98qlXbX" name="Du bist %status%">
+      <notes>
+        <note category="german">Du bist %status%</note>
+      </notes>
+      <segment>
+        <source>Du bist %status%</source>
+        <target>Du bist %status%</target>
+      </segment>
+    </unit>
+    <unit id="Pzhs1Mo" name="Ratschlag:">
+      <notes>
+        <note category="german">Ratschlag:</note>
+      </notes>
+      <segment>
+        <source>Ratschlag:</source>
+        <target>Ratschlag:</target>
+      </segment>
+    </unit>
+    <unit id="iHdJZPx" name="Iss ODER trink etwas Wasser.">
+      <notes>
+        <note category="german">Iss ODER trink etwas Wasser.</note>
+      </notes>
+      <segment>
+        <source>Iss ODER trink etwas Wasser.</source>
+        <target>Iss ODER trink etwas Wasser.</target>
+      </segment>
+    </unit>
+    <unit id="hhKj9e1" name="Du kannst eine Ration Wasser trinken.">
+      <notes>
+        <note category="german">Du kannst eine Ration Wasser trinken.</note>
+      </notes>
+      <segment>
+        <source>Du kannst eine Ration Wasser trinken.</source>
+        <target>Du kannst eine Ration Wasser trinken.</target>
+      </segment>
+    </unit>
+    <unit id="N1KK_ks" name="Die Liste der eingeschriebenen Spieler ansehen.">
+      <notes>
+        <note category="german">Die Liste der eingeschriebenen Spieler ansehen.</note>
+      </notes>
+      <segment>
+        <source>Die Liste der eingeschriebenen Spieler ansehen.</source>
+        <target>Die Liste der eingeschriebenen Spieler ansehen.</target>
+      </segment>
+    </unit>
+    <unit id="VTcxe_c" name="Quarantäne">
+      <notes>
+        <note category="german">Quarantine</note>
+      </notes>
+      <segment>
+        <source>Quarantäne</source>
+        <target>Quarantäne</target>
+      </segment>
+    </unit>
+    <unit id="CHdbLWu" name="Komm zurück zu meiner Seele">
+      <notes>
+        <note category="german">Come back to my soul</note>
+      </notes>
+      <segment>
+        <source>Komm zurück zu meiner Seele</source>
+        <target>Komm zurück zu meiner Seele</target>
       </segment>
     </unit>
   </file>

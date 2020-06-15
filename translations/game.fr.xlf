@@ -10551,7 +10551,7 @@
     </unit>
     <unit id="VTcxe_c" name="Quarantäne">
       <notes>
-        <note category="german">Quarantine</note>
+        <note category="german">Quarantäne</note>
       </notes>
       <segment>
         <source>Quarantäne</source>
@@ -10560,7 +10560,7 @@
     </unit>
     <unit id="CHdbLWu" name="Komm zurück zu meiner Seele">
       <notes>
-        <note category="german">Come back to my soul</note>
+        <note category="german">Komm zurück zu meiner Seele</note>
       </notes>
       <segment>
         <source>Komm zurück zu meiner Seele</source>
@@ -10569,7 +10569,7 @@
     </unit>
     <unit id="OAGjXFG" name="Alle">
       <notes>
-        <note category="german">All</note>
+        <note category="german">Alle</note>
       </notes>
       <segment>
         <source>Alle</source>
@@ -10578,7 +10578,7 @@
     </unit>
     <unit id="n19gYuh" name="Das folgende Bauprojekt wurde empfohlen:">
       <notes>
-        <note category="german">The following construction project was recommended:</note>
+        <note category="german">Das folgende Bauprojekt wurde empfohlen:</note>
       </notes>
       <segment>
         <source>Das folgende Bauprojekt wurde empfohlen:</source>
@@ -10587,7 +10587,7 @@
     </unit>
     <unit id="iita2xJ" name="83fa5e3">
       <notes>
-        <note category="german">Private towns allow groups of friends to play easily together, or to create "theme" towns.</note>
+        <note category="german">In Privatstädten kannst du gemeinsam mit Freunden oder in Städten zu bestimmten "Theen" zu spielen.</note>
       </notes>
       <segment>
         <source>In Privatstädten kannst du gemeinsam mit Freunden oder in Städten zu bestimmten "Theen" zu spielen.</source>
@@ -10596,7 +10596,7 @@
     </unit>
     <unit id="CVyYW8Q" name="Je nach gewähltem Stadttyp erscheinen Ghule nach den üblichen Regeln.">
       <notes>
-        <note category="german">The ghoul functions normally and will appear as defined by the rules of the town chosen.</note>
+        <note category="german">Je nach gewähltem Stadttyp erscheinen Ghule nach den üblichen Regeln.</note>
       </notes>
       <segment>
         <source>Je nach gewähltem Stadttyp erscheinen Ghule nach den üblichen Regeln.</source>
@@ -10605,7 +10605,7 @@
     </unit>
     <unit id="1zFAtcT" name="Wasservorrat">
       <notes>
-        <note category="german">Water supply</note>
+        <note category="german">Wasservorrat</note>
       </notes>
       <segment>
         <source>Wasservorrat</source>
@@ -10627,7 +10627,7 @@
       </notes>
       <segment>
         <source>Einrichtung</source>
-        <target>Einrichtung</target>
+        <target>Aménagements</target>
       </segment>
     </unit>
     <unit id="u6_oAsd" name="ff69301">
@@ -10654,7 +10654,7 @@
       </notes>
       <segment>
         <source>Von einem Ghul gefressen</source>
-        <target>Von einem Ghul gefressen</target>
+        <target>Dévoré(e) par une goule !</target>
       </segment>
     </unit>
     <unit id="znr86lo" name="Zum Forum">
@@ -10663,7 +10663,7 @@
       </notes>
       <segment>
         <source>Zum Forum</source>
-        <target>Voir le forum</target>
+        <target>Vers le forum</target>
       </segment>
     </unit>
     <unit id="3lrK_qg" name="Lade Forum...">
@@ -10672,7 +10672,7 @@
       </notes>
       <segment>
         <source>Lade Forum...</source>
-        <target>Chargement...</target>
+        <target>Chargement du forum...</target>
       </segment>
     </unit>
     <unit id="Ht8hKI." name="Dies ist eine offizielle Nachricht.">
@@ -10681,52 +10681,7 @@
       </notes>
       <segment>
         <source>Dies ist eine offizielle Nachricht.</source>
-        <target>Dies ist eine offizielle Nachricht.</target>
-      </segment>
-    </unit>
-    <unit id="98qlXbX" name="Du bist %status%">
-      <notes>
-        <note category="german">Du bist %status%</note>
-      </notes>
-      <segment>
-        <source>Du bist %status%</source>
-        <target>Du bist %status%</target>
-      </segment>
-    </unit>
-    <unit id="Pzhs1Mo" name="Ratschlag:">
-      <notes>
-        <note category="german">Ratschlag:</note>
-      </notes>
-      <segment>
-        <source>Ratschlag:</source>
-        <target>Ratschlag:</target>
-      </segment>
-    </unit>
-    <unit id="iHdJZPx" name="Iss ODER trink etwas Wasser.">
-      <notes>
-        <note category="german">Iss ODER trink etwas Wasser.</note>
-      </notes>
-      <segment>
-        <source>Iss ODER trink etwas Wasser.</source>
-        <target>Iss ODER trink etwas Wasser.</target>
-      </segment>
-    </unit>
-    <unit id="hhKj9e1" name="Du kannst eine Ration Wasser trinken.">
-      <notes>
-        <note category="german">Du kannst eine Ration Wasser trinken.</note>
-      </notes>
-      <segment>
-        <source>Du kannst eine Ration Wasser trinken.</source>
-        <target>Du kannst eine Ration Wasser trinken.</target>
-      </segment>
-    </unit>
-    <unit id="00Lc7om" name="73a703f">
-      <notes>
-        <note category="german">Du bist in einer Privatstadt. Für diese Art von Stadt gelten einige Sonderregeln.</note>
-      </notes>
-      <segment>
-        <source>Du bist in einer Privatstadt. Für diese Art von Stadt gelten einige Sonderregeln.</source>
-        <target>Vous êtes dans une ville privée. Certaines règles spéciales s'appliquent à ce type de ville.</target>
+        <target>Ceci est un message officiel.</target>
       </segment>
     </unit>
     <unit id="icxLMof" name="Der letzte Tote in dieser Stadt!">
