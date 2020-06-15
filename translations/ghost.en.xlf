@@ -324,7 +324,7 @@
     </unit>
     <unit id="T206xUy" name="Worauf warten Sie noch?">
       <notes>
-        <note category="german">Worauf warten Sie noch?</note>
+        <note category="german">What are you waiting for?</note>
       </notes>
       <segment>
         <source>Worauf warten Sie noch?</source>
@@ -333,7 +333,7 @@
     </unit>
     <unit id="L4_Jvrm" name="Privatstadt gründen">
       <notes>
-        <note category="german">Privatstadt gründen</note>
+        <note category="german">Create a private town</note>
       </notes>
       <segment>
         <source>Privatstadt gründen</source>
@@ -342,7 +342,7 @@
     </unit>
     <unit id="iita2xJ" name="83fa5e3">
       <notes>
-        <note category="german">In Privatstädten kannst du gemeinsam mit Freunden oder in Städten zu bestimmten "Theen" zu spielen.</note>
+        <note category="german">Private towns allow groups of friends to play easily together, or to create "theme" towns.</note>
       </notes>
       <segment>
         <source>In Privatstädten kannst du gemeinsam mit Freunden oder in Städten zu bestimmten "Theen" zu spielen.</source>
@@ -351,7 +351,7 @@
     </unit>
     <unit id="KAAmbDC" name="Name der Stadt">
       <notes>
-        <note category="german">Name der Stadt</note>
+        <note category="german">Town Name</note>
       </notes>
       <segment>
         <source>Name der Stadt</source>
@@ -360,7 +360,7 @@
     </unit>
     <unit id="1zFAtcT" name="Wasservorrat">
       <notes>
-        <note category="german">Wasservorrat</note>
+        <note category="german">Water supply</note>
       </notes>
       <segment>
         <source>Wasservorrat</source>
@@ -369,7 +369,7 @@
     </unit>
     <unit id="oix8aY3" name="5d9dd6d">
       <notes>
-        <note category="german">Normale Werte liegen zwischen 100 und 180. Wert ist in Pandämonium-Städten reduziert. Maximum ist 300</note>
+        <note category="german">(Whole number between 100 and 180). Value reduced by a third for Pandemonium towns.</note>
       </notes>
       <segment>
         <source>Normale Werte liegen zwischen 100 und 180. Wert ist in Pandämonium-Städten reduziert. Maximum ist 300</source>
@@ -378,7 +378,7 @@
     </unit>
     <unit id="9XUKXXI" name="Einstellungen">
       <notes>
-        <note category="german">Einstellungen</note>
+        <note category="german">Settings</note>
       </notes>
       <segment>
         <source>Einstellungen</source>
@@ -387,7 +387,7 @@
     </unit>
     <unit id="0beSyHH" name="XML Feed für diese Stadt deaktivieren">
       <notes>
-        <note category="german">XML Feed für diese Stadt deaktivieren</note>
+        <note category="german">Deactivate the XML feed for this town (deactivates addons).</note>
       </notes>
       <segment>
         <source>XML Feed für diese Stadt deaktivieren</source>
@@ -396,7 +396,7 @@
     </unit>
     <unit id="QI93AMS" name="Event-Stadt">
       <notes>
-        <note category="german">Event-Stadt</note>
+        <note category="german">Event Towns</note>
       </notes>
       <segment>
         <source>Event-Stadt</source>
@@ -405,7 +405,7 @@
     </unit>
     <unit id="_GOkdZm" name="Spezialregeln">
       <notes>
-        <note category="german">Spezialregeln</note>
+        <note category="german">Game rules</note>
       </notes>
       <segment>
         <source>Spezialregeln</source>
@@ -414,7 +414,7 @@
     </unit>
     <unit id="9qD2u0I" name="Keine Spezialregeln">
       <notes>
-        <note category="german">Keine Spezialregeln</note>
+        <note category="german">No special rules</note>
       </notes>
       <segment>
         <source>Keine Spezialregeln</source>
@@ -423,7 +423,7 @@
     </unit>
     <unit id="ilcgFcS" name="Keine">
       <notes>
-        <note category="german">Keine</note>
+        <note category="german">None</note>
       </notes>
       <segment>
         <source>Keine</source>
@@ -432,7 +432,7 @@
     </unit>
     <unit id="LDmQN2V" name="94fc68e">
       <notes>
-        <note category="german">Kein Gebäude ist zu Beginn freigeschaltet. Alle müssen in der Aussenwelt gefunden werden!</note>
+        <note category="german">No building is unlocked at the beginning. All must be found in the World Beyond!</note>
       </notes>
       <segment>
         <source>Kein Gebäude ist zu Beginn freigeschaltet. Alle müssen in der Aussenwelt gefunden werden!</source>
@@ -441,7 +441,7 @@
     </unit>
     <unit id="KzRE1mD" name="Keine Startgebäude">
       <notes>
-        <note category="german">Keine Startgebäude</note>
+        <note category="german">No starting buildings</note>
       </notes>
       <segment>
         <source>Keine Startgebäude</source>
@@ -450,7 +450,7 @@
     </unit>
     <unit id="lU_pn2u" name="528f88a">
       <notes>
-        <note category="german">Jedes Essen und jede Droge, die du zu dir nimmst, birgt ein geringes Infektionsrisiko.</note>
+        <note category="german">Every food and drug you consume has a low risk of infection.</note>
       </notes>
       <segment>
         <source>Jedes Essen und jede Droge, die du zu dir nimmst, birgt ein geringes Infektionsrisiko.</source>
@@ -459,7 +459,7 @@
     </unit>
     <unit id="gQkxXIB" name="Kontaminierte Zone">
       <notes>
-        <note category="german">Kontaminierte Zone</note>
+        <note category="german">Contamined Zone</note>
       </notes>
       <segment>
         <source>Kontaminierte Zone</source>
@@ -468,7 +468,7 @@
     </unit>
     <unit id="w9rtgEq" name="Stadtmodifikationen">
       <notes>
-        <note category="german">Stadtmodifikationen</note>
+        <note category="german">Town modifications</note>
       </notes>
       <segment>
         <source>Stadtmodifikationen</source>
@@ -486,7 +486,7 @@
     </unit>
     <unit id="i9uL7bg" name="Begehbare Ruinen aktivieren">
       <notes>
-        <note category="german">Begehbare Ruinen aktivieren</note>
+        <note category="german">Activate explorable ruins</note>
       </notes>
       <segment>
         <source>Begehbare Ruinen aktivieren</source>
@@ -495,7 +495,7 @@
     </unit>
     <unit id="DxyIzHy" name="Seelen &amp; Schamane:">
       <notes>
-        <note category="german">Seelen &amp; Schamane:</note>
+        <note category="german">Souls &amp; Shamans:</note>
       </notes>
       <segment>
         <source>Seelen &amp; Schamane:</source>
@@ -504,7 +504,7 @@
     </unit>
     <unit id="k2SkMiM" name="Verlorene Seelen und Schamanen aktivieren">
       <notes>
-        <note category="german">Verlorene Seelen und Schamanen aktivieren</note>
+        <note category="german">Activate Lost Souls and Shamans</note>
       </notes>
       <segment>
         <source>Verlorene Seelen und Schamanen aktivieren</source>
@@ -513,7 +513,7 @@
     </unit>
     <unit id="KwchNgg" name="Eskorte:">
       <notes>
-        <note category="german">Eskorte:</note>
+        <note category="german">Escort:</note>
       </notes>
       <segment>
         <source>Eskorte:</source>
@@ -522,7 +522,7 @@
     </unit>
     <unit id="siVFR7b" name="Eskorten aktivieren">
       <notes>
-        <note category="german">Eskorten aktivieren</note>
+        <note category="german">Activate escorts</note>
       </notes>
       <segment>
         <source>Eskorten aktivieren</source>
@@ -531,7 +531,7 @@
     </unit>
     <unit id="M7KjFnf" name="Verbannung:">
       <notes>
-        <note category="german">Verbannung:</note>
+        <note category="german">Shunning:</note>
       </notes>
       <segment>
         <source>Verbannung:</source>
@@ -540,7 +540,7 @@
     </unit>
     <unit id="QosET96" name="Verbannung aktivieren">
       <notes>
-        <note category="german">Verbannung aktivieren</note>
+        <note category="german">Activate shunning</note>
       </notes>
       <segment>
         <source>Verbannung aktivieren</source>
@@ -549,7 +549,7 @@
     </unit>
     <unit id="hR9OXtO" name="Nachtmodus:">
       <notes>
-        <note category="german">Nachtmodus:</note>
+        <note category="german">Night Mode:</note>
       </notes>
       <segment>
         <source>Nachtmodus:</source>
@@ -558,7 +558,7 @@
     </unit>
     <unit id="3lbcc06" name="Nachtmodus aktivieren (schwerer)">
       <notes>
-        <note category="german">Nachtmodus aktivieren (schwerer)</note>
+        <note category="german">Activate Night Mode (harder)</note>
       </notes>
       <segment>
         <source>Nachtmodus aktivieren (schwerer)</source>
@@ -576,7 +576,7 @@
     </unit>
     <unit id="PWZojkF" name="Camping in der Wildnis aktivieren">
       <notes>
-        <note category="german">Camping in der Wildnis aktivieren</note>
+        <note category="german">Activate camping in the wild</note>
       </notes>
       <segment>
         <source>Camping in der Wildnis aktivieren</source>
@@ -585,7 +585,7 @@
     </unit>
     <unit id="8h7b0Dd" name="Ghule:">
       <notes>
-        <note category="german">Ghule:</note>
+        <note category="german">Ghoul:</note>
       </notes>
       <segment>
         <source>Ghule:</source>
@@ -594,7 +594,7 @@
     </unit>
     <unit id="Rsw_o_o" name="Ghule aktivieren">
       <notes>
-        <note category="german">Ghule aktivieren</note>
+        <note category="german">Activate Ghouls</note>
       </notes>
       <segment>
         <source>Ghule aktivieren</source>
@@ -603,7 +603,7 @@
     </unit>
     <unit id="rBxUVmT" name="Gebäudeschaden:">
       <notes>
-        <note category="german">Gebäudeschaden:</note>
+        <note category="german">Building damage:</note>
       </notes>
       <segment>
         <source>Gebäudeschaden:</source>
@@ -612,7 +612,7 @@
     </unit>
     <unit id="k.ofzD6" name="Gebäudeschaden aktivieren">
       <notes>
-        <note category="german">Gebäudeschaden aktivieren</note>
+        <note category="german">Activate building damage</note>
       </notes>
       <segment>
         <source>Gebäudeschaden aktivieren</source>
@@ -621,16 +621,16 @@
     </unit>
     <unit id="BZ2yast" name="Nachtwache:">
       <notes>
-        <note category="german">Nachtwache:</note>
+        <note category="german">Night Watch:</note>
       </notes>
       <segment>
         <source>Nachtwache:</source>
-        <target>Watchmen:</target>
+        <target>Night Watch:</target>
       </segment>
     </unit>
     <unit id="85ixbKa" name="Nachtwache aktivieren">
       <notes>
-        <note category="german">Nachtwache aktivieren</note>
+        <note category="german">Activate Watchmen</note>
       </notes>
       <segment>
         <source>Nachtwache aktivieren</source>
@@ -639,7 +639,7 @@
     </unit>
     <unit id="aOW2H78" name="Verbesserte Müllhalde:">
       <notes>
-        <note category="german">Verbesserte Müllhalde:</note>
+        <note category="german">Improved Dump:</note>
       </notes>
       <segment>
         <source>Verbesserte Müllhalde:</source>
@@ -648,7 +648,7 @@
     </unit>
     <unit id="ZqzbCRl" name="Verbesserte Müllhalde aktivieren">
       <notes>
-        <note category="german">Verbesserte Müllhalde aktivieren</note>
+        <note category="german">Activate improved Dump</note>
       </notes>
       <segment>
         <source>Verbesserte Müllhalde aktivieren</source>
@@ -657,7 +657,7 @@
     </unit>
     <unit id="0B82Z13" name="Aktiviere/deaktiviere Spielmodifikationen spezifisch für diese Stadt">
       <notes>
-        <note category="german">Aktiviere/deaktiviere Spielmodifikationen spezifisch für diese Stadt</note>
+        <note category="german">Activate / deactivate game modifications specific to this Town</note>
       </notes>
       <segment>
         <source>Aktiviere/deaktiviere Spielmodifikationen spezifisch für diese Stadt</source>
@@ -666,7 +666,7 @@
     </unit>
     <unit id="BpFg4zU" name="Angriffe">
       <notes>
-        <note category="german">Angriffe</note>
+        <note category="german">Attacks</note>
       </notes>
       <segment>
         <source>Angriffe</source>
@@ -675,7 +675,7 @@
     </unit>
     <unit id="0AcV_6s" name="Stärke der Angriffe">
       <notes>
-        <note category="german">Stärke der Angriffe</note>
+        <note category="german">Strength of Attacks</note>
       </notes>
       <segment>
         <source>Stärke der Angriffe</source>
@@ -684,7 +684,7 @@
     </unit>
     <unit id="mkXpu2_" name="Leiche Angriffe">
       <notes>
-        <note category="german">Leiche Angriffe</note>
+        <note category="german">Weak Attacks</note>
       </notes>
       <segment>
         <source>Leiche Angriffe</source>
@@ -693,7 +693,7 @@
     </unit>
     <unit id="MKxsVor" name="Schwere Angriffe">
       <notes>
-        <note category="german">Schwere Angriffe</note>
+        <note category="german">Severe Attacks</note>
       </notes>
       <segment>
         <source>Schwere Angriffe</source>
@@ -702,7 +702,7 @@
     </unit>
     <unit id="WLIeM8b" name="Spiel-Optionen">
       <notes>
-        <note category="german">Spiel-Optionen</note>
+        <note category="german">Game Options</note>
       </notes>
       <segment>
         <source>Spiel-Optionen</source>
@@ -711,7 +711,7 @@
     </unit>
     <unit id="7L3ndtf" name="Abstimmung aller Piktogramme:">
       <notes>
-        <note category="german">Abstimmung aller Piktogramme:</note>
+        <note category="german">Reward all Distinctions:</note>
       </notes>
       <segment>
         <source>Abstimmung aller Piktogramme:</source>
@@ -720,7 +720,7 @@
     </unit>
     <unit id="WjDyWyC" name="614a449">
       <notes>
-        <note category="german">Gibt die Gesamtheit der während der Stadt erhaltenen Piktogramme an, anstatt ein Drittel davon.</note>
+        <note category="german">Gives the total of the Distinctions received during the Town, instead of a third of them.</note>
       </notes>
       <segment>
         <source>Gibt die Gesamtheit der während der Stadt erhaltenen Piktogramme an, anstatt ein Drittel davon.</source>
@@ -729,7 +729,7 @@
     </unit>
     <unit id="vLYm3DY" name="Seelenpunkte vergeben:">
       <notes>
-        <note category="german">Seelenpunkte vergeben:</note>
+        <note category="german">Reward soul points:</note>
       </notes>
       <segment>
         <source>Seelenpunkte vergeben:</source>
@@ -738,7 +738,7 @@
     </unit>
     <unit id="Uadj6Vo" name="Gibt Ihnen Seelenpunkte.">
       <notes>
-        <note category="german">Gibt Ihnen Seelenpunkte.</note>
+        <note category="german">Gives you Soul Points.</note>
       </notes>
       <segment>
         <source>Gibt Ihnen Seelenpunkte.</source>
@@ -747,7 +747,7 @@
     </unit>
     <unit id="qakF4ad" name="Diese Stadt gründen">
       <notes>
-        <note category="german">Diese Stadt gründen</note>
+        <note category="german">Create this Town</note>
       </notes>
       <segment>
         <source>Diese Stadt gründen</source>
@@ -756,7 +756,7 @@
     </unit>
     <unit id="ijucPI." name="Platzreservierung">
       <notes>
-        <note category="german">Platzreservierung</note>
+        <note category="german">Reserve places</note>
       </notes>
       <segment>
         <source>Platzreservierung</source>
@@ -765,7 +765,7 @@
     </unit>
     <unit id="JmzKQyu" name="ba95582">
       <notes>
-        <note category="german">Beginne ein neues Leben in der Welt der Verdammten une versuche, so lang wie möglich zu überleben. Wer weiß, ws dich in dieser neuen Stadt erwarten wird?</note>
+        <note category="german">You can now be reincarnated in the world of Die2Nite to try and survive once more. Who knows what is waiting for you in this new life?</note>
       </notes>
       <segment>
         <source>Beginne ein neues Leben in der Welt der Verdammten une versuche, so lang wie möglich zu überleben. Wer weiß, ws dich in dieser neuen Stadt erwarten wird?</source>
