@@ -203,8 +203,10 @@ class NightlyHandler
             // Check hero skills
             $nextSkill = $this->entity_manager->getRepository(HeroSkillPrototype::class)->getNextUnlockable($citizen->getUser()->getHeroDaysSpent());
 
-            if ($citizen->getProfession()->getHeroic())
-                $citizen->getUser()->setHeroDaysSpent($citizen->getUser()->getHeroDaysSpent() + 1);
+            if (!$citizen->getProfession()->getHeroic())
+                continue;
+            
+            $citizen->getUser()->setHeroDaysSpent($citizen->getUser()->getHeroDaysSpent() + 1);
 
             if($nextSkill !== null && $citizen->getUser()->getHeroDaysSpent() >= $nextSkill->getDaysNeeded()){
                 $this->log->debug("Citizen <info>{$citizen->getUser()->getUsername()}</info> has unlocked a new skill : <info>{$nextSkill->getTitle()}</info>");
@@ -233,7 +235,7 @@ class NightlyHandler
                             // He didn't used the Find, we replace it with the lucky find
                             $citizen->removeHeroicAction($oldfind);
                             $newfind = $this->entity_manager->getRepository(HeroicActionPrototype::class)->findOneByName("hero_generic_find_lucky");
-                            $citizen->removeHeroicAction($newfind);
+                            $citizen->addHeroicAction($newfind);
                         }
                 }
             }
@@ -721,7 +723,25 @@ class NightlyHandler
                     }
                 } else if ($aliveCitizenInTown == 0) {
                     $this->log->debug("There is <info>$aliveCitizenInTown</info> citizens alive AND in town, setting the town to <info>devastated</info> mode and to <info>chaos</info> mode");
-                    // TODO: give Last Man Standing to one of the citizens that has died IN TOWN
+                    if($town->getDay() >= 5){
+                        $this->log->debug('Town has lived for 5 days or more, we give the <info>Last Man Standing</info> picto to a lucky citizen that died in town');
+                        $citizen_eligible = [];
+                        foreach ($town->getCitizens() as $citizen) {
+                            if($citizen->getAlive() || $citizen->getZone())
+                                continue;
+                            if($citizen->getSurvivedDays() < $town->getDay() || $citizen->getCauseOfDeath()->getRef() !== CauseOfDeath::NightlyAttack)
+                                continue;
+                            $citizen_eligible[] = $citizen;
+                        }
+
+                        $winner = $this->random->pick($citizen_eligible);
+
+                        $picto = $town->getType()->getName() == 'panda' ? 'r_suhard_#00' : 'r_surlst_#00';
+
+                        $this->log->debug("We give the picto <info>$picto</info> to the lucky citizen {$winner->getUser()->getUsername()}");
+
+                        $this->picto_handler->give_validated_picto($winner, $picto);
+                    }
                     $town->setDevastated(true);
 		            $town->setChaos(true);
 		            $town->setDoor(true);

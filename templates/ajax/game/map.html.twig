@@ -61,6 +61,16 @@
                                             </div>
                                         {% endfor %}
                                     {% endif %}
+                                    {% if map.zones[x][y].zombies > 0 and map.zones[x][y].zombies <= 2 %}
+                                        {{'Isolierte Zombies'|trans({}, 'game')}}
+                                    {% elseif map.zones[x][y].zombies > 2 and map.zones[x][y].zombies <= 5 %}
+                                        {{'Die Zombies verstümmeln'|trans({}, 'game')}}
+                                    {% elseif map.zones[x][y].zombies > 5 %}
+                                        {{'Horde der Zombies'|trans({}, 'game')}}
+                                    {% endif %}
+                                    {% if not map.zones[x][y].tag is null and map.zones[x][y].tag.ref > 0 %}
+                                        {{map.zones[x][y].tag.label|trans({}, 'game')}}
+                                    {% endif %}
                                 </div>
 
                         </div>
@@ -217,6 +227,7 @@
                     <button x-control="minus"  {% if default_zoom == 0 %}disabled{% endif %} class="small inline"><i class="fa fa-minus"></i></button>
                 </div>
                 <div class="cell rw-6 right">
+                    <button x-control="tags" class="small inline hide-tags">{% trans from 'game' %}Mark.{% endtrans %}</button>
                     {% if map.routes|length > 0 %}
                         <button x-control="routes" class="small inline">{% trans from 'game' %}Routen{% endtrans %}</button>
                     {% endif %}

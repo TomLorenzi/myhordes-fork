@@ -70,6 +70,12 @@
             jobSelect[i].addEventListener('click', function () {
                 jobConfirm.removeAttribute('disabled')
                 selected_profession = parseInt(this.value);
+                let previous = document.querySelectorAll('.jobs-choice.selected');
+                for (var i = previous.length - 1; i >= 0; i--) {
+                	previous[i].classList.remove('selected');
+                }
+                let div = this.closest('.jobs-choice');
+                if(div) div.classList.add('selected')
             });
 
         jobConfirm.addEventListener('click', function(e) {

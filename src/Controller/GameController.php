@@ -492,7 +492,7 @@ class GameController extends AbstractController implements GameInterfaceControll
                         $citizen->getHome()->setAdditionalStorage($citizen->getHome()->getAdditionalStorage() + 1);
                         break;
                     case "secondwind":
-                        $heroic_action = $this->entity_manager->getRepository(HeroicActionPrototype::class)->findOneByName("hero_generic_ap");
+                        $heroic_action = $this->entity_manager->getRepository(HeroicActionPrototype::class)->findOneBy(['name' => "hero_generic_ap"]);
                         $citizen->addHeroicAction($heroic_action);
                         $this->entity_manager->persist($citizen);
                         break;
@@ -503,7 +503,7 @@ class GameController extends AbstractController implements GameInterfaceControll
                         $invh->forceMoveItem( $citizen->getHome()->getChest(), $if->createItem( 'disinfect_#00' ) );
                         break;
                     case "cheatdeath":
-                        $heroic_action = $this->entity_manager->getRepository(HeroicActionPrototype::class)->findOneByName("hero_generic_immune");
+                        $heroic_action = $this->entity_manager->getRepository(HeroicActionPrototype::class)->findOneBy(['name' => "hero_generic_immune"]);
                         $citizen->addHeroicAction($heroic_action);
                         $this->entity_manager->persist($citizen);
                         break;
@@ -511,10 +511,10 @@ class GameController extends AbstractController implements GameInterfaceControll
                         $invh->forceMoveItem( $citizen->getHome()->getChest(), $if->createItem( 'bplan_c_#00' ) );
                         break;
                     case 'luckyfind':
-                        $oldfind = $this->entity_manager->getRepository(HeroicActionPrototype::class)->findOneByName("hero_generic_find");
+                        $oldfind = $this->entity_manager->getRepository(HeroicActionPrototype::class)->findOneBy(['name' => "hero_generic_find"]);
                         $citizen->removeHeroicAction($oldfind);
-                        $newfind = $this->entity_manager->getRepository(HeroicActionPrototype::class)->findOneByName("hero_generic_find_lucky");
-                        $citizen->removeHeroicAction($newfind);
+                        $newfind = $this->entity_manager->getRepository(HeroicActionPrototype::class)->findOneBy(['name' => "hero_generic_find_lucky"]);
+                        $citizen->addHeroicAction($newfind);
                         break;
                 }
             }
@@ -553,7 +553,7 @@ class GameController extends AbstractController implements GameInterfaceControll
         $citizen = $this->getActiveCitizen();
         $counter = $citizen->getSpecificActionCounter(ActionCounter::ActionTypeRemoveLog);
 
-        if(!$citizen->getProfession()->getHeroic() || !$this->user_handler->hasSkill($citizen->getUser(), 'manipulator')){
+        if(!$citizen->getAlive() || !$citizen->getProfession()->getHeroic() || !$this->user_handler->hasSkill($citizen->getUser(), 'manipulator')){
             return AjaxResponse::error(ErrorHelper::ErrorActionNotAvailable);
         }
 
@@ -564,6 +564,9 @@ class GameController extends AbstractController implements GameInterfaceControll
         if($log->getHidden()){
             return AjaxResponse::error(ErrorHelper::ErrorActionNotAvailable);
         }
+
+        if($log->getTown() !== $citizen->getTown())
+            return AjaxResponse::error(ErrorHelper::ErrorActionNotAvailable);
 
         $limit = 0;
         if($this->user_handler->hasSkill($citizen->getUser(), 'manipulator'))

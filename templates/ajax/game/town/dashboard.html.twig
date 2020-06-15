@@ -56,6 +56,14 @@
         </div>
     </div>
 
+    {% if town.type.name == 'custom' %}
+    <div class="help">
+    	{% trans from 'game' %}
+    		Du bist in einer Privatstadt. Für diese Art von Stadt gelten einige Sonderregeln.
+    	{% endtrans %}
+    </div>
+	{% endif %}
+
     <div class="row">
         <div class="padded cell {% if conf.get(constant('App\\Structures\\TownConf::CONF_FEATURE_WORDS_OF_HEROS'),false) %}rw-6{% else %}rw-12{% endif%} rw-lg-12">
             <h5>{{ 'Meine täglichen Aufgaben'|trans({}, 'game')}} </h5>

@@ -51,7 +51,7 @@
             </div>
             <div class="row">
                 <div class="cell padded-small rw-12 town-addons">
-                {% for name, addon in addons %}
+                {% for name, addon in addons|sort((a, b) => a[2] <=> b[2]) %}
                     <div x-ajax-href="{{ path(addon[1]) }}" class="town-addon {% if menu_section == name %}selected{% endif %} town-addon-{{ name }}">
                         <div></div>
                         <span>{{ addon[0]|trans({},'game') }}</span>

@@ -48,6 +48,11 @@ class Complaint
      */
     private $severity;
 
+    /**
+     * @ORM\Column(type="text", nullable=true)
+     */
+    private $reason;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -97,6 +102,18 @@ class Complaint
     public function setSeverity(int $severity): self
     {
         $this->severity = $severity;
+
+        return $this;
+    }
+
+    public function getReason(): ?string
+    {
+        return $this->reason;
+    }
+
+    public function setReason(?string $reason): self
+    {
+        $this->reason = $reason;
 
         return $this;
     }
