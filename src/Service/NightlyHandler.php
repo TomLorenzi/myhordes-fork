@@ -20,6 +20,7 @@ use App\Entity\HeroSkill;
 use App\Entity\HeroSkillPrototype;
 use App\Entity\Picto;
 use App\Entity\PictoPrototype;
+use App\Entity\PrivateMessage;
 use App\Entity\Town;
 use App\Entity\TownRankingProxy;
 use App\Entity\ZombieEstimation;
@@ -48,10 +49,12 @@ class NightlyHandler
     private $conf;
     private $action_handler;
     private $maze;
+    private $crow;
 
   public function __construct(EntityManagerInterface $em, LoggerInterface $log, CitizenHandler $ch, InventoryHandler $ih,
                               RandomGenerator $rg, DeathHandler $dh, TownHandler $th, ZoneHandler $zh, PictoHandler $ph,
-                              ItemFactory $if, LogTemplateHandler $lh, ConfMaster $conf, ActionHandler $ah, MazeMaker $maze)
+                              ItemFactory $if, LogTemplateHandler $lh, ConfMaster $conf, ActionHandler $ah, MazeMaker $maze,
+                              CrowService $crow)
     {
         $this->entity_manager = $em;
         $this->citizen_handler = $ch;
@@ -67,6 +70,7 @@ class NightlyHandler
         $this->conf = $conf;
         $this->action_handler = $ah;
         $this->maze = $maze;
+        $this->crow = $crow;
     }
 
     private function check_town(Town &$town): bool {
@@ -564,6 +568,8 @@ class NightlyHandler
                 if (!$has_kino && $this->random->chance( 0.75 * ($force/max(1,$def)) )) {
                     $this->citizen_handler->inflictStatus( $target, $status_terror );
                     $this->log->debug("Citizen <info>{$target->getUser()->getUsername()}</info> now suffers from <info>{$status_terror->getLabel()}</info>");
+
+                    $this->crow->postAsPM( $target, '', '', PrivateMessage::TEMPLATE_CROW_THEFT, $force );
 
                     $gazette->setTerror($gazette->getTerror() + 1);
                 }

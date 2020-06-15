@@ -493,6 +493,7 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
         $existing_complaint = $em->getRepository( Complaint::class )->findByCitizens($author, $culprit);
         $severity_before = $existing_complaint ? $existing_complaint->getSeverity() : 0;
 
+        $complaint_level = 0;
         if (!$existing_complaint) {
             $counter = $this->getActiveCitizen()->getSpecificActionCounter(ActionCounter::ActionTypeComplaint);
             if ($counter->getCount() >= 4)
@@ -506,13 +507,30 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
             $culprit->addComplaint( $existing_complaint );
             $counter->increment();
             $this->entity_manager->persist($counter);
-        } else $existing_complaint->setSeverity( $severity );
+
+            $complaint_level = ($severity > Complaint::SeverityNone) ? 1 : 0;
+
+        } else {
+
+            if ($existing_complaint->getSeverity() > Complaint::SeverityNone && $severity === Complaint::SeverityNone)
+                $complaint_level = -1;
+            else if ($existing_complaint->getSeverity() === Complaint::SeverityNone && $severity > Complaint::SeverityNone)
+                $complaint_level = 1;
+
+            $existing_complaint->setSeverity( $severity );
+        }
 
         try {
             if ($severity !== $severity_before && ($severity === 0 || $severity_before === 0)) $em->persist( $this->log->citizenComplaint( $existing_complaint ) );
             $em->persist($culprit);
             $em->persist($existing_complaint);
             $em->flush();
+
+            if ($complaint_level != 0) {
+                $this->crow->postAsPM( $culprit, '', '', $complaint_level > 0 ? PrivateMessage::TEMPLATE_CROW_COMPLAINT_ON : PrivateMessage::TEMPLATE_CROW_COMPLAINT_OFF, $existing_complaint->getId() );
+                $em->flush();
+            }
+
         } catch (Exception $e) {
             return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
         }
