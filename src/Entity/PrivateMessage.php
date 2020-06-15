@@ -12,6 +12,12 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class PrivateMessage
 {
+
+    const TEMPLATE_CROW_COMPLAINT_ON  = 1;
+    const TEMPLATE_CROW_COMPLAINT_OFF = 2;
+    const TEMPLATE_CROW_TERROR        = 3;
+    const TEMPLATE_CROW_THEFT         = 4;
+
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()
@@ -56,6 +62,16 @@ class PrivateMessage
      * @ORM\Column(type="array", nullable=true)
      */
     private $items = [];
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $template = 0;
+
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $foreignID;
 
     public function __construct()
     {
@@ -146,6 +162,30 @@ class PrivateMessage
     public function setItems(?array $items): self
     {
         $this->items = $items;
+
+        return $this;
+    }
+
+    public function getTemplate(): ?int
+    {
+        return $this->template;
+    }
+
+    public function setTemplate(int $template): self
+    {
+        $this->template = $template;
+
+        return $this;
+    }
+
+    public function getForeignID(): ?int
+    {
+        return $this->foreignID;
+    }
+
+    public function setForeignID(?int $foreignID): self
+    {
+        $this->foreignID = $foreignID;
 
         return $this;
     }

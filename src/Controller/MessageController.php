@@ -7,6 +7,7 @@ use App\Entity\AdminReport;
 use App\Entity\Award;
 use App\Entity\Changelog;
 use App\Entity\Citizen;
+use App\Entity\Complaint;
 use App\Entity\Emotes;
 use App\Entity\Forum;
 use App\Entity\Item;
@@ -1282,12 +1283,14 @@ class MessageController extends AbstractController
      * @Route("api/town/house/pm/{tid<\d+>}/view", name="home_view_thread_controller")
      * @param int $tid
      * @param EntityManagerInterface $em
-     * @param JSONRequestParser $parser
      * @return Response
      */
-    public function pm_viewer_api(int $tid, EntityManagerInterface $em, JSONRequestParser $parser): Response {
+    public function pm_viewer_api(int $tid, EntityManagerInterface $em): Response {
+        /** @var User $user */
+        $user = $this->getUser();
+
         /** @var Citizen $citizen */
-        $citizen = $this->getUser()->getActiveCitizen();
+        $citizen = $user->getActiveCitizen();
 
         $thecrow = $em->getRepository(User::class)->find(66);
 
@@ -1296,10 +1299,9 @@ class MessageController extends AbstractController
         if (!$thread) return new Response('');
 
         $valid = false;
-        foreach ($thread->getMessages() as $message) {
-            if($message->getRecipient() === $citizen)
+        foreach ($thread->getMessages() as $message)
+            if ($message->getRecipient() === $citizen)
                 $valid = true;
-        }
 
         if(!$valid) return new Response('');
 
@@ -1324,14 +1326,41 @@ class MessageController extends AbstractController
                     $items[$post->getId()][] = $em->getRepository(ItemPrototype::class)->find($proto_id);
                 }
             }
-            $post->setText($this->prepareEmotes($post->getText()));
+
+            switch ($post->getTemplate()) {
+
+                case PrivateMessage::TEMPLATE_CROW_COMPLAINT_ON:
+                    $complaint = $this->entityManager->getRepository(Complaint::class)->find( $post->getForeignID() );
+                    $thread->setTitle( $this->trans->trans('Anonyme Beschwerde', [], 'game') );
+                    $post->setText( $this->prepareEmotes($post->getText()) . $this->trans->trans( 'Es wurde eine neue anonyme Beschwerde gegen dich eingelegt: "%reason%"', ['%reason%' => $this->trans->trans( $complaint ? $complaint->getReason() : '', [], 'game' )], 'game' ) );
+                    break;
+                case PrivateMessage::TEMPLATE_CROW_COMPLAINT_OFF:
+                    $complaint = $this->entityManager->getRepository(Complaint::class)->find( $post->getForeignID() );
+                    $thread->setTitle( $this->trans->trans('Beschwerde zurückgezogen', [], 'game') );
+                    $post->setText( $this->prepareEmotes($post->getText()) . $this->trans->trans( 'Es gibt gute Nachrichten! Folgende Beschwerde wurde zurückgezogen: "%reason%"', ['%reason%' => $this->trans->trans( $complaint ? $complaint->getReason() : '', [], 'game' )], 'game' ) );
+                    break;
+                case PrivateMessage::TEMPLATE_CROW_TERROR:
+                    $thread->setTitle( $this->trans->trans('Du bist vor Angst erstarrt!!', [], 'game') );
+                    $post->setText( $this->prepareEmotes($post->getText()) . $this->trans->trans( 'Wir haben zwei Neuigkeiten für dich. Eine gute und eine schlechte. Zuerst die gute: Trotz ihrer hartnäckigen Versuche, ist es den %num% Zombie(s) nicht gelungen, dich aufzufressen. Du hast dich wacker geschlagen. Bravo! Die schlechte: Das Erlebnis war so schlimm, dass du in eine Angststarre verfallen bist. So etwas möchtest du nicht wieder erleben...', ['%num%' => $post->getForeignID()], 'game' ) );
+                    break;
+                case PrivateMessage::TEMPLATE_CROW_THEFT:
+                    /** @var ItemPrototype $item */
+                    $item = $this->entityManager->getRepository(ItemPrototype::class)->find( $post->getForeignID() );
+                    $thread->setTitle( $this->trans->trans('Haltet den Dieb!', [], 'game') );
+                    $post->setText( $this->prepareEmotes($post->getText()) . $this->trans->trans( 'Es scheint so, als ob ein anderer Bürger Gefallen an deinem Inventar gefunden hätte... Dir wurde folgendes gestohlen: <img src=\'' . $this->asset->getUrl('build/images/item/item_' . ($item ? $item->getIcon() : 'none') . '.gif') . '\' alt=\'\' /> %item%', ['%item%' => $this->trans->trans( $item ? $item->getLabel() : '', [], 'items' )], 'game' ) );
+                    break;
+                default:
+                    $post->setText($this->prepareEmotes($post->getText()));
+            }
+
         }
+
         return $this->render( 'ajax/game/town/posts.html.twig', [
             'thread' => $thread,
             'posts' => $posts,
             'items' => $items,
             'thecrow' => $thecrow,
-            'emotes' => $this->getEmotesByUser($this->getUser(),true),
+            'emotes' => $this->getEmotesByUser($user,true),
         ] );
     }
 
@@ -1351,7 +1380,7 @@ class MessageController extends AbstractController
 
         /** @var PrivateMessageThread $thread */
         $thread = $em->getRepository(PrivateMessageThread::class)->find( $tid );
-        if (!$thread || $thread->getRecipient()->getId() !== $citizen->getId()) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+        if (!$thread || !$thread->getSender() || ($thread->getRecipient()->getId() !== $citizen->getId() && $thread->getSender()->getId() !== $citizen->getId())) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
         $thread->setArchived($action !== 0);
 

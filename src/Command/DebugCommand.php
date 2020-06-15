@@ -157,7 +157,7 @@ class DebugCommand extends Command
             $force = $input->getOption('force');
 
             $professions = $this->entity_manager->getRepository( CitizenProfession::class )->findAll();
-            for ($i = $town->getCitizenCount(); $i < $town->getPopulation(); $i++)
+            for ($i = 0; $i < $town->getPopulation(); $i++)
                 for ($u = 1; $u <= 80; $u++) {
                     $user_name = 'user_' . str_pad($u, 3, '0', STR_PAD_LEFT);
                     $user = $this->entity_manager->getRepository(User::class)->findOneByName( $user_name );

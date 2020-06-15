@@ -6,6 +6,8 @@ use App\Entity\BankAntiAbuse;
 use App\Entity\Citizen;
 use App\Entity\Forum;
 use App\Entity\Post;
+use App\Entity\PrivateMessage;
+use App\Entity\PrivateMessageThread;
 use App\Entity\Thread;
 use App\Entity\User;
 use App\Structures\TownConf;
@@ -71,4 +73,32 @@ class CrowService {
         $this->em->persist( $post );
     }
 
+
+    public function postAsPM( Citizen $receiver, string $title, string $text, int $template = 0, ?int $foreign = null ) {
+
+        $thread = new PrivateMessageThread();
+
+        $thread
+            ->setTitle($title)
+            ->setLocked(false)
+            ->setLastMessage(new DateTime('now'))
+            ->setRecipient($receiver);
+
+        $post = new PrivateMessage();
+        $post->setDate(new DateTime('now'))
+            ->setText($text)
+            ->setPrivateMessageThread($thread)
+            ->setNew(true)
+            ->setRecipient($receiver)
+            ->setTemplate( $template )
+            ->setForeignID( $foreign );
+
+        $thread
+            ->setLastMessage($post->getDate())
+            ->addMessage($post);
+
+        $this->em->persist($thread);
+        $this->em->persist($post);
+
+    }
 }

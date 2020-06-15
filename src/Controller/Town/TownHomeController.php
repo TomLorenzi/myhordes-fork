@@ -54,7 +54,7 @@ class TownHomeController extends TownController
      * @param Request $request
      * @return Response
      */
-    public function house(?string $tab, ?string $subtab, EntityManagerInterface $em, TownHandler $th, Request $request): Response
+    public function house(?string $tab, ?string $subtab, EntityManagerInterface $em, TownHandler $th, Request $request, TranslatorInterface $trans): Response
     {
 
         // Get citizen, town and home objects
@@ -125,6 +125,23 @@ class TownHomeController extends TownController
             foreach ($thread->getMessages() as $message) {
                 if($message->getRecipient() == $this->getActiveCitizen() && $message->getNew())
                     $thread->setNew(true);
+
+                switch ($message->getTemplate()) {
+
+                    case PrivateMessage::TEMPLATE_CROW_COMPLAINT_ON:
+                        $thread->setTitle( $trans->trans('Anonyme Beschwerde', [], 'game') );
+                        break;
+                    case PrivateMessage::TEMPLATE_CROW_COMPLAINT_OFF:
+                        $thread->setTitle( $trans->trans('Beschwerde zurückgezogen', [], 'game') );
+                        break;
+                    case PrivateMessage::TEMPLATE_CROW_TERROR:
+                        $thread->setTitle( $trans->trans('Du bist vor Angst erstarrt!!', [], 'game') );
+                        break;
+                    case PrivateMessage::TEMPLATE_CROW_THEFT:
+                        $thread->setTitle( $trans->trans('Haltet den Dieb!', [], 'game') );
+                        break;
+                    default: break;
+                }
             }
         }
 
