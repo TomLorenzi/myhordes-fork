@@ -10729,5 +10729,59 @@
         <target>Vous êtes dans une ville privée. Certaines règles spéciales s'appliquent à ce type de ville.</target>
       </segment>
     </unit>
+    <unit id="icxLMof" name="Der letzte Tote in dieser Stadt!">
+      <notes>
+        <note category="german">Der letzte Tote in dieser Stadt!</note>
+      </notes>
+      <segment>
+        <source>Der letzte Tote in dieser Stadt!</source>
+        <target>Mort ultime pour cette ville !</target>
+      </segment>
+    </unit>
+    <unit id="SWca3Zo" name="089f4e0">
+      <notes>
+        <note category="german">Der letzte Tote erhält nur dann eine Belohnung, wenn er 5 volle Tage überlebt hat.</note>
+      </notes>
+      <segment>
+        <source>Der letzte Tote erhält nur dann eine Belohnung, wenn er 5 volle Tage überlebt hat.</source>
+        <target>cette mort ultime ne donne pas lieu à une récompense si ce joueur est mort au jour 5 ou moins, ou s'il n'est pas mort lors de l'attaque.</target>
+      </segment>
+    </unit>
+    <unit id="W3jTpt9" name="Isolierte Zombies">
+      <notes>
+        <note category="german">Isolierte Zombies</note>
+      </notes>
+      <segment>
+        <source>Isolierte Zombies</source>
+        <target>Zombies isolés</target>
+      </segment>
+    </unit>
+    <unit id="Yc0dhV4" name="Die Zombies verstümmeln">
+      <notes>
+        <note category="german">Die Zombies verstümmeln</note>
+      </notes>
+      <segment>
+        <source>Die Zombies verstümmeln</source>
+        <target>Meute de zombies</target>
+      </segment>
+    </unit>
+    <unit id="c8SXj_R" name="Horde der Zombies">
+      <notes>
+        <note category="german">Horde der Zombies</note>
+      </notes>
+      <segment>
+        <source>Horde der Zombies</source>
+        <target>Horde de zombie</target>
+      </segment>
+    </unit>
+    <unit id="BtRmkSS" name="Mark.">
+      <notes>
+        <note category="german">Mark.</note>
+      </notes>
+      <segment>
+        <source>Mark.</source>
+        <target>Marqueurs</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

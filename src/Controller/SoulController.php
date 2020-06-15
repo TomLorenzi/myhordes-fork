@@ -10,6 +10,7 @@ use App\Entity\HeroSkillPrototype;
 use App\Entity\TownRankingProxy;
 use App\Entity\User;
 use App\Entity\Picto;
+use App\Entity\PictoPrototype;
 use App\Entity\FoundRolePlayText;
 use App\Entity\RolePlayTextPage;
 use App\Response\AjaxResponse;
@@ -296,8 +297,14 @@ class SoulController extends AbstractController
             return $this->redirect($this->generateUrl('soul_me'));
         }
 
+        $picto = $town->getType()->getName() == 'panda' ? 'r_suhard_#00' : 'r_surlst_#00';
+        $proto = $this->entity_manager->getRepository(PictoPrototype::class)->findOneBy(['name' => $picto]);
+
+        $pictoMu = $this->entity_manager->getRepository(Picto::class)->findOneBy(['townEntry' => $town, 'prototype' => $proto]);
+
         return $this->render( 'ajax/soul/view_town.html.twig', $this->addDefaultTwigArgs("soul_me", array(
             'town' => $town,
+            'last_user_standing' => $pictoMu !== null ? $pictoMu->getUser() : null
         )));
     }
 
