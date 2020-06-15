@@ -696,7 +696,7 @@ class SoulController extends AbstractController
             return $this->redirect($this->generateUrl( 'soul_death' ));
 
     	$user = $this->entity_manager->getRepository(User::class)->find($id);
-    	if($user === null || $user === $current_user){
+    	if($user === null || $user === $current_user) 
             return $this->redirect($this->generateUrl('soul_me'));
 
 
