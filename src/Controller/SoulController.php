@@ -691,6 +691,10 @@ class SoulController extends AbstractController
         /** @var User $user */
         $current_user = $this->getUser();
 
+        /** @var CitizenRankingProxy $nextDeath */
+        if ($this->entity_manager->getRepository(CitizenRankingProxy::class)->findNextUnconfirmedDeath($current_user))
+            return $this->redirect($this->generateUrl( 'soul_death' ));
+
     	$user = $this->entity_manager->getRepository(User::class)->find($id);
     	if($user === null || $user === $current_user){
             return $this->redirect($this->generateUrl('soul_me'));
