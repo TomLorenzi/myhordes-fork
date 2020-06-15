@@ -1018,6 +1018,8 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
             $th->triggerBuildingCompletion( $town, $building );
             $votes = $building->getBuildingVotes();
             foreach ($votes as $vote) {
+                $vote->getCitizen()->setBuildingVote(null);
+                $vote->getBuilding()->removeBuildingVote($vote);
                 $this->entity_manager->remove($vote);
             }
         } else if ($was_completed) {
