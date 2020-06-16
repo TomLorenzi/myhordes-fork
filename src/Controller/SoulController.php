@@ -10,11 +10,10 @@ use App\Entity\Changelog;
 use App\Entity\CitizenRankingProxy;
 use App\Entity\FoundRolePlayText;
 use App\Entity\HeroSkillPrototype;
+use App\Entity\Picto;
 use App\Entity\PictoPrototype;
 use App\Entity\TownRankingProxy;
 use App\Entity\User;
-use App\Entity\Picto;
-use App\Entity\PictoPrototype;
 use App\Entity\RolePlayTextPage;
 use App\Entity\Season;
 use App\Response\AjaxResponse;
@@ -741,7 +740,6 @@ class SoulController extends AbstractController
         $proto = $this->entity_manager->getRepository(PictoPrototype::class)->findOneBy(['name' => $pictoname]);
 
         $picto = $this->entity_manager->getRepository(Picto::class)->findOneBy(['townEntry' => $town, 'prototype' => $proto]);
-
 
         return $this->render( 'ajax/soul/view_town_foreign.html.twig', $this->addDefaultTwigArgs("soul_visit", array(
         	'user' => $user,
