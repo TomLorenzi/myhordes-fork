@@ -184,4 +184,15 @@ class PictoRepository extends ServiceEntityRepository
             return 0;
         }
     }
+
+    public function getAllByUserAndPicto(User $user, PictoPrototype $proto) {
+        return $this->createQueryBuilder('a')
+            ->andWhere('a.user = :valUser')
+            ->setParameter('valUser', $user)
+            ->andWhere('a.prototype = :valProto')
+            ->setParameter('valProto', $proto)
+            ->andWhere('a.persisted = 2')
+            ->getQuery()
+            ->getResult();
+    }
 }
