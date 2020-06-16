@@ -41,4 +41,16 @@ class AwardPrototypeRepository extends ServiceEntityRepository {
             return null;
         }
     }
+
+    public function getAwardByTitle(string $value): ?AwardPrototype {
+        try {
+            return $this->createQueryBuilder('a')
+                ->andWhere('a.title = :val')
+                ->setParameter('val', $value)
+                ->getQuery()
+                ->getOneOrNullResult();
+        } catch(NonUniqueResultException $e) {
+            return null;
+        }
+    }
 }
