@@ -133,7 +133,7 @@ class AwardFixtures extends Fixture {
         ['title'=>'Durazell', 'unlockquantity'=>15, 'associatedtag'=>':batgun:', 'associatedpicto'=>'Batteriewerferfabrikant', 'iconpath'=>'build/images/pictos/r_batgun.gif','titlehovertext'=>'Batteriewerferfabrikant x15'],
         ['title'=>'Hüter der Heiligen Batterie', 'unlockquantity'=>25, 'associatedtag'=>':batgun:', 'associatedpicto'=>'Batteriewerferfabrikant', 'iconpath'=>'build/images/pictos/r_batgun.gif','titlehovertext'=>'Batteriewerferfabrikant x25'],
         ['title'=>'Maurerlehrling', 'unlockquantity'=>100, 'associatedtag'=>':build:', 'associatedpicto'=>'Baustellen', 'iconpath'=>'build/images/pictos/r_buildr.gif','titlehovertext'=>'Baustellen x100'],
-        ['title'=>'Maurer', 'unlockquantity'=>100, 'associatedtag'=>':build:', 'associatedpicto'=>'Baustellen', 'iconpath'=>'build/images/pictos/r_buildr.gif','titlehovertext'=>'Baustellen x200'],
+        ['title'=>'Maurer', 'unlockquantity'=>200, 'associatedtag'=>':build:', 'associatedpicto'=>'Baustellen', 'iconpath'=>'build/images/pictos/r_buildr.gif','titlehovertext'=>'Baustellen x200'],
         ['title'=>'Polier', 'unlockquantity'=>400, 'associatedtag'=>':build:', 'associatedpicto'=>'Baustellen', 'iconpath'=>'build/images/pictos/r_buildr.gif','titlehovertext'=>'Baustellen x400'],
         ['title'=>'Baustellenleiter', 'unlockquantity'=>700, 'associatedtag'=>':build:', 'associatedpicto'=>'Baustellen', 'iconpath'=>'build/images/pictos/r_buildr.gif','titlehovertext'=>'Baustellen x700'],
         ['title'=>'Architekt', 'unlockquantity'=>1300, 'associatedtag'=>':build:', 'associatedpicto'=>'Baustellen', 'iconpath'=>'build/images/pictos/r_buildr.gif','titlehovertext'=>'Baustellen x1300'],
@@ -244,7 +244,7 @@ class AwardFixtures extends Fixture {
         $progress->start( count(static::$award_data) );
 
        foreach(static::$award_data as $entry) {
-            $entity = $this->entityManager->getRepository(AwardPrototype::class)->getIndividualAward($entry['associatedpicto'], $entry['unlockquantity']);
+            $entity = $this->entityManager->getRepository(AwardPrototype::class)->getAwardByTitle($entry['title']);
 
             if($entity === null) {
                 $entity = new AwardPrototype();
@@ -273,7 +273,7 @@ class AwardFixtures extends Fixture {
         $output->writeln( '<info>Installing fixtures: AwardPrototype Database</info>' );
         $output->writeln("");
 
-        //$this->insertAwards($manager, $output);
+        $this->insertAwards($manager, $output);
         $output->writeln("");
     }
 }

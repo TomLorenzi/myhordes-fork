@@ -892,7 +892,7 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             'egg_#00'             => [ 'eat_7ap'],
             'apple_#00'           => [ 'eat_7ap'],
 
-            'disinfect_#00'       => [ 'drug_par_1', 'drug_par_2' ],
+            'disinfect_#00'       => [ 'drug_par_1', 'drug_par_2', 'drug_par_3', 'drug_par_4' ],
             'drug_#00'            => [ 'drug_6ap_1', 'drug_6ap_2' ],
             'drug_hero_#00'       => [ 'drug_8ap_1', 'drug_8ap_2' ],
             'drug_random_#00'     => [ 'drug_rand_1', 'drug_rand_2' ],
