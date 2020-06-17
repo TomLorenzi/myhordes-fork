@@ -74,6 +74,9 @@
                 <ul class="tabs plain" x-tab-group="forum-classic-editor-toolbox" x-tab-control>
                     <li class="tab" x-tab-id="emotes"><div class="tab-link"><i class="fa fa-smile"></i></div></li>
                     <li class="tab" x-tab-id="games"><div class="tab-link"><i class="fa fa-dice"></i></div></li>
+                    {% if town_controls %}
+                        <li class="tab" x-tab-id="rp_player"><div class="tab-link"><i class="fa fa-user"></i></div></li>
+                    {% endif %}
                 </ul>
                 <div class="lightbox" x-tab-group="forum-classic-editor-toolbox" x-tab-id="emotes" x-tab-target>
                     <div class="forum-button-bar">
@@ -99,6 +102,51 @@
                         <div x-forum-action="edit" x-text-insert-node="card" class="forum-button-inline"><img alt="" src="{{ asset('build/images/forum/card.png') }}"></div>
                     </div>
                 </div>
+                {% if town_controls %}
+                    <div class="lightbox" x-tab-group="forum-classic-editor-toolbox" x-tab-id="rp_player" x-tab-target>
+                        <div class="row">
+                            <div class="cell rw-11 rw-lg-10 rw-sm-8">
+                                <div class="forum-button-bar">
+                                    <div x-forum-action="edit" x-text-insert-node="rnduser,any" class="forum-button-inline"><img alt="" src="{{ asset('build/images/small_human.gif') }}"></div>
+                                    <div x-forum-action="edit" x-text-insert-node="rnduser,hero" class="forum-button-inline"><img alt="" src="{{ asset('build/images/professions/hero.gif') }}"></div>
+                                    <div x-forum-action="edit" x-text-insert-node="rnduser,dead" class="forum-button-inline"><img alt="" src="{{ asset('build/images/professions/death.gif') }}"></div>
+                                    <div x-forum-action="edit" x-text-insert-node="rnduser,basic" class="forum-button-inline"><img alt="" src="{{ asset('build/images/professions/basic.gif') }}"></div>
+                                    <div x-forum-action="edit" x-text-insert-node="rnduser,scout" class="forum-button-inline"><img alt="" src="{{ asset('build/images/professions/vest.gif') }}"></div>
+                                    <div x-forum-action="edit" x-text-insert-node="rnduser,collec" class="forum-button-inline"><img alt="" src="{{ asset('build/images/professions/dig.gif') }}"></div>
+                                    <div x-forum-action="edit" x-text-insert-node="rnduser,guardian" class="forum-button-inline"><img alt="" src="{{ asset('build/images/professions/shield.gif') }}"></div>
+                                    <div x-forum-action="edit" x-text-insert-node="rnduser,survivalist" class="forum-button-inline"><img alt="" src="{{ asset('build/images/professions/book.gif') }}"></div>
+                                    <div x-forum-action="edit" x-text-insert-node="rnduser,tamer" class="forum-button-inline"><img alt="" src="{{ asset('build/images/professions/tamer.gif') }}"></div>
+                                    <div x-forum-action="edit" x-text-insert-node="rnduser,tech" class="forum-button-inline"><img alt="" src="{{ asset('build/images/professions/tech.gif') }}"></div>
+                                    <div x-forum-action="edit" x-text-insert-node="rnduser,shaman" class="forum-button-inline"><img alt="" src="{{ asset('build/images/professions/shaman.gif') }}"></div>
+                                    <div x-forum-action="edit" x-text-insert-node="rnduser,none" class="forum-button-inline"><img alt="" src="{{ asset('build/images/professions/looser.gif') }}"></div>
+                                </div>
+                            </div>
+                            <div class="cell rw-1 rw-lg-2 rw-sm-4">
+                                <a class="help-button">{{ 'Hilfe'|trans({},'global') }}
+                                    <div class="tooltip help">
+                                        <h1>{{ 'Zufälliger Bürger'|trans({},'game') }}</h1>
+                                        <em>
+                                            {% trans from 'game' %}
+                                                Hiermit kannst du den Namen eines zufälligen Bürgers in deinen Post anfügen.
+                                                Bei Bedarf kannst du die Auswahl auf bestimmte Berufe, Helden oder bereits gestorbene Bürger eingrenzen.
+                                            {% endtrans %}
+                                        </em>
+                                        <em>
+                                            {% trans from 'game' %}
+                                                Wenn zu den gleichen zufällig gewählten Bürger mehrfach in deinem Text verwenden willst, kannst du ihm eine Nummer zuweisen, beispielsweise:
+                                            {% endtrans %}<code>{rnduser,tamer,1}</code>
+                                        </em>
+
+                                    </div>
+
+                                </a>
+                            </div>
+                        </div>
+
+
+                        </div>
+                    </div>
+                {% endif %}
             </div>
         </div>
     </div>
@@ -109,7 +157,7 @@
                     <input class="forum-checkbox" type="radio" id="radio-user" name="post-type" value="USER" {% if app.user.postAsDefault != "DEV" %}checked{% endif %}>
                     <input class="forum-checkbox" type="radio" id="radio-crow" name="post-type" value="CROW">
                     {% if is_granted("ROLE_ADMIN") %}
-                        <input class="forum-checkbox" type="radio" id="radio-dev" name="post-type" value="DEV"{% if app.user.postAsDefault == "DEV" %}checked{% endif %}>
+                        <input class="forum-checkbox" type="radio" id="radio-dev" name="post-type" value="DEV" {% if app.user.postAsDefault == "DEV" %}checked{% endif %}>
                     {% endif %}
                     <span id="crow_answer_content">{% if app.user.postAsDefault != "DEV" %}{{ app.user.username }}{% else %}{{ 'Dev'|trans({},'global') }}{% endif %}</span>
                 </div>
