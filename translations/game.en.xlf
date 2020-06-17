@@ -6755,7 +6755,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Dieser Bürger ist ernsthaft verletzt.</source>
-        <target>Dieser Bürger ist ernsthaft verletzt.</target>
+        <target>This citizen is seriously injured.</target>
       </segment>
     </unit>
     <unit id="w5JoDMX" name="29edb8e">
@@ -8108,7 +8108,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>%attacker% hat %defender% gewalttätig angegriffen und verwundet!</source>
-        <target>%attacker% hat %defender% gewalttätig angegriffen und verwundet!</target>
+        <target>%attacker% has violently attacked and wounded %defender%!</target>
       </segment>
     </unit>
     <unit id="HwOTRdd" name="%attacker% hat %defender% gewalttätig angegriffen!">
@@ -10178,7 +10178,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Dieser Registereintrag wurde durchgestrichen und ist nicht mehr lesbar! Wer wollte damit etwas verbergen?</source>
-        <target>Dieser Registereintrag wurde durchgestrichen und ist nicht mehr lesbar! Wer wollte damit etwas verbergen?</target>
+        <target>This entry has been falsified: it is now completely illegible! What could they be trying to hide...?</target>
       </segment>
     </unit>
     <unit id="QSPR33z" name="a72b313">
@@ -10426,7 +10426,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     </unit>
     <unit id="VTcxe_c" name="Quarantäne">
       <notes>
-        <note category="german">Quarantine</note>
+        <note category="german">Quarantäne</note>
       </notes>
       <segment>
         <source>Quarantäne</source>
@@ -10435,7 +10435,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     </unit>
     <unit id="CHdbLWu" name="Komm zurück zu meiner Seele">
       <notes>
-        <note category="german">Come back to my soul</note>
+        <note category="german">Komm zurück zu meiner Seele</note>
       </notes>
       <segment>
         <source>Komm zurück zu meiner Seele</source>
@@ -10453,7 +10453,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     </unit>
     <unit id="n19gYuh" name="Das folgende Bauprojekt wurde empfohlen:">
       <notes>
-        <note category="german">The following construction project was recommended:</note>
+        <note category="german">Das folgende Bauprojekt wurde empfohlen:</note>
       </notes>
       <segment>
         <source>Das folgende Bauprojekt wurde empfohlen:</source>
@@ -10462,7 +10462,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     </unit>
     <unit id="OAGjXFG" name="Alle">
       <notes>
-        <note category="german">All</note>
+        <note category="german">Alle</note>
       </notes>
       <segment>
         <source>Alle</source>
@@ -10498,7 +10498,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     </unit>
     <unit id="u6_oAsd" name="ff69301">
       <notes>
-        <note category="german">You have not received any new private messages. You can find the list of citizens in the</note>
+        <note category="german">Du hast keine neue Privatnachricht erhalten. Eine Liste aller Bürger findest du im</note>
       </notes>
       <segment>
         <source>Du hast keine neue Privatnachricht erhalten. Eine Liste aller Bürger findest du im</source>
@@ -10507,7 +10507,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     </unit>
     <unit id="4AkrdgW" name="Verzeichnis der Stadt.">
       <notes>
-        <note category="german">town directory.</note>
+        <note category="german">Verzeichnis der Stadt.</note>
       </notes>
       <segment>
         <source>Verzeichnis der Stadt.</source>
@@ -10520,7 +10520,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Einrichtung</source>
-        <target>Einrichtung</target>
+        <target>Home Improvements</target>
       </segment>
     </unit>
     <unit id="Ht8hKI." name="Dies ist eine offizielle Nachricht.">
@@ -10529,7 +10529,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Dies ist eine offizielle Nachricht.</source>
-        <target>Dies ist eine offizielle Nachricht.</target>
+        <target>This is an official message.</target>
       </segment>
     </unit>
     <unit id="N1KK_ks" name="Die Liste der eingeschriebenen Spieler ansehen.">
@@ -10566,6 +10566,186 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       <segment>
         <source>Lade Forum...</source>
         <target>Loading forum ...</target>
+      </segment>
+    </unit>
+    <unit id="z3Y3jVt" name="Anonyme Beschwerde">
+      <notes>
+        <note category="german">Anonyme Beschwerde</note>
+      </notes>
+      <segment>
+        <source>Anonyme Beschwerde</source>
+        <target>Anonymous Complaint</target>
+      </segment>
+    </unit>
+    <unit id="tlOTwnM" name="Es wurde eine neue anonyme Beschwerde gegen dich eingelegt: &quot;%reason%&quot;">
+      <notes>
+        <note category="german">Es wurde eine neue anonyme Beschwerde gegen dich eingelegt: "%reason%"</note>
+      </notes>
+      <segment>
+        <source>Es wurde eine neue anonyme Beschwerde gegen dich eingelegt: "%reason%"</source>
+        <target>You have received a new anonymous complaint: "%reason%"</target>
+      </segment>
+    </unit>
+    <unit id="1VFuVbv" name="Beschwerde zurückgezogen">
+      <notes>
+        <note category="german">Beschwerde zurückgezogen</note>
+      </notes>
+      <segment>
+        <source>Beschwerde zurückgezogen</source>
+        <target>Complaint Withdrawn</target>
+      </segment>
+    </unit>
+    <unit id="xllGfth" name="Es gibt gute Nachrichten! Folgende Beschwerde wurde zurückgezogen: &quot;%reason%&quot;">
+      <notes>
+        <note category="german">Es gibt gute Nachrichten! Folgende Beschwerde wurde zurückgezogen: "%reason%"</note>
+      </notes>
+      <segment>
+        <source>Es gibt gute Nachrichten! Folgende Beschwerde wurde zurückgezogen: "%reason%"</source>
+        <target>Good news! The following complaint has been withdrawn: "%reason%"</target>
+      </segment>
+    </unit>
+    <unit id="d7mV6VK" name="Du bist vor Angst erstarrt!!">
+      <notes>
+        <note category="german">Du bist vor Angst erstarrt!!</note>
+      </notes>
+      <segment>
+        <source>Du bist vor Angst erstarrt!!</source>
+        <target>Terrorised!!</target>
+      </segment>
+    </unit>
+    <unit id="k9lty2j" name="6fedae5">
+      <notes>
+        <note category="german">Wir haben zwei Neuigkeiten für dich. Eine gute und eine schlechte. Zuerst die gute: Trotz ihrer hartnäckigen Versuche, ist es den %num% Zombie(s) nicht gelungen, dich aufzufressen. Du hast dich wacker geschlagen. Bravo! Die schlechte: Das Erlebnis war so schlimm, dass du in eine Angststarre verfallen bist. So etwas möchtest du nicht wieder erleben...</note>
+      </notes>
+      <segment>
+        <source>Wir haben zwei Neuigkeiten für dich. Eine gute und eine schlechte. Zuerst die gute: Trotz ihrer hartnäckigen Versuche, ist es den %num% Zombie(s) nicht gelungen, dich aufzufressen. Du hast dich wacker geschlagen. Bravo! Die schlechte: Das Erlebnis war so schlimm, dass du in eine Angststarre verfallen bist. So etwas möchtest du nicht wieder erleben...</source>
+        <target>OK. We've got good news and bad news. The good news is that despite the best efforts of %num% Zombies to devour you, you got through it! The bad news is that the experience really shook you up, so you are now terrorised by the idea of having to go through that again...</target>
+      </segment>
+    </unit>
+    <unit id="Efbc_qn" name="Haltet den Dieb!">
+      <notes>
+        <note category="german">Haltet den Dieb!</note>
+      </notes>
+      <segment>
+        <source>Haltet den Dieb!</source>
+        <target>Robbery!</target>
+      </segment>
+    </unit>
+    <unit id="98qlXbX" name="Du bist %status%">
+      <notes>
+        <note category="german">Du bist %status%</note>
+      </notes>
+      <segment>
+        <source>Du bist %status%</source>
+        <target>Du bist %status%</target>
+      </segment>
+    </unit>
+    <unit id="Pzhs1Mo" name="Ratschlag:">
+      <notes>
+        <note category="german">Ratschlag:</note>
+      </notes>
+      <segment>
+        <source>Ratschlag:</source>
+        <target>Recommended:</target>
+      </segment>
+    </unit>
+    <unit id="iHdJZPx" name="Iss ODER trink etwas Wasser.">
+      <notes>
+        <note category="german">Iss ODER trink etwas Wasser.</note>
+      </notes>
+      <segment>
+        <source>Iss ODER trink etwas Wasser.</source>
+        <target>Eat OR drink some water.</target>
+      </segment>
+    </unit>
+    <unit id="hhKj9e1" name="Du kannst eine Ration Wasser trinken.">
+      <notes>
+        <note category="german">Du kannst eine Ration Wasser trinken.</note>
+      </notes>
+      <segment>
+        <source>Du kannst eine Ration Wasser trinken.</source>
+        <target>You can drink a ration of water.</target>
+      </segment>
+    </unit>
+    <unit id="uSGlEhQ" name="Du kannst etwas essen, um deine Erschöpfung zu lindern.">
+      <notes>
+        <note category="german">Du kannst etwas essen, um deine Erschöpfung zu lindern.</note>
+      </notes>
+      <segment>
+        <source>Du kannst etwas essen, um deine Erschöpfung zu lindern.</source>
+        <target>You can eat something to relieve your exhaustion.</target>
+      </segment>
+    </unit>
+    <unit id="CjT0_7R" name="4d90a81">
+      <notes>
+        <note category="german">Du hast bereits etwas gegessen und getrunken. Dir bleiben nur noch Drogen und Alkohol!</note>
+      </notes>
+      <segment>
+        <source>Du hast bereits etwas gegessen und getrunken. Dir bleiben nur noch Drogen und Alkohol!</source>
+        <target>You have already eaten and drunk something. You only have drugs and alcohol left!</target>
+      </segment>
+    </unit>
+    <unit id="00Lc7om" name="73a703f">
+      <notes>
+        <note category="german">Du bist in einer Privatstadt. Für diese Art von Stadt gelten einige Sonderregeln.</note>
+      </notes>
+      <segment>
+        <source>Du bist in einer Privatstadt. Für diese Art von Stadt gelten einige Sonderregeln.</source>
+        <target>You are in a Private Town. There are some special rules for this type of city.</target>
+      </segment>
+    </unit>
+    <unit id="W3jTpt9" name="Isolierte Zombies">
+      <notes>
+        <note category="german">Isolierte Zombies</note>
+      </notes>
+      <segment>
+        <source>Isolierte Zombies</source>
+        <target>Isolated Zombies</target>
+      </segment>
+    </unit>
+    <unit id="Yc0dhV4" name="Die Zombies verstümmeln">
+      <notes>
+        <note category="german">Die Zombies verstümmeln</note>
+      </notes>
+      <segment>
+        <source>Die Zombies verstümmeln</source>
+        <target>Mutilate the zombies</target>
+      </segment>
+    </unit>
+    <unit id="c8SXj_R" name="Horde der Zombies">
+      <notes>
+        <note category="german">Horde der Zombies</note>
+      </notes>
+      <segment>
+        <source>Horde der Zombies</source>
+        <target>Horde of Zombies</target>
+      </segment>
+    </unit>
+    <unit id="BtRmkSS" name="Mark.">
+      <notes>
+        <note category="german">Mark.</note>
+      </notes>
+      <segment>
+        <source>Mark.</source>
+        <target>Mark.</target>
+      </segment>
+    </unit>
+    <unit id="icxLMof" name="Der letzte Tote in dieser Stadt!">
+      <notes>
+        <note category="german">Der letzte Tote in dieser Stadt!</note>
+      </notes>
+      <segment>
+        <source>Der letzte Tote in dieser Stadt!</source>
+        <target>The last dead man in this city!</target>
+      </segment>
+    </unit>
+    <unit id="SWca3Zo" name="089f4e0">
+      <notes>
+        <note category="german">Der letzte Tote erhält nur dann eine Belohnung, wenn er 5 volle Tage überlebt hat.</note>
+      </notes>
+      <segment>
+        <source>Der letzte Tote erhält nur dann eine Belohnung, wenn er 5 volle Tage überlebt hat.</source>
+        <target>The last dead person will only receive a reward if they have survived 5 full days.</target>
       </segment>
     </unit>
   </file>

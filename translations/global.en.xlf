@@ -1200,7 +1200,7 @@
     </unit>
     <unit id="8qHMcfp" name="Sprache">
       <notes>
-        <note category="german">Language</note>
+        <note category="german">Sprache</note>
       </notes>
       <segment>
         <source>Sprache</source>
@@ -1209,7 +1209,7 @@
     </unit>
     <unit id="81XajEF" name="Vertraulich">
       <notes>
-        <note category="german">Side Note</note>
+        <note category="german">Vertraulich</note>
       </notes>
       <segment>
         <source>Vertraulich</source>
