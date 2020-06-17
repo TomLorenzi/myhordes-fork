@@ -549,12 +549,13 @@ class TownAddonsController extends TownController
                 }
             }
 
-            if ($watcher->getCitizen()->hasRole('ghoul')) $watchers[$watcher->getId()]['status'][] = array(
-                'icon' => 'ghoul',
-                'label' => 'Ghul',
-                'defImpact' => 0,
-                'deathImpact' => -5
-            );
+            if ($watcher->getCitizen()->hasRole('ghoul')) 
+                $watchers[$watcher->getId()]['status'][] = array(
+                    'icon' => 'ghoul',
+                    'label' => 'Ghul',
+                    'defImpact' => 0,
+                    'deathImpact' => -5
+                );
 
             foreach ($watcher->getCitizen()->getInventory()->getItems() as $item) {
                 if($item->getPrototype()->getName() == 'chkspk_#00')

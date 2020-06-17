@@ -190,7 +190,7 @@ class GameController extends AbstractController implements GameInterfaceControll
                 // TODO: Turn into LogEntryTemplate
                 $text = "<p>" . $this->translator->trans('Heute Morgen ist kein Artikel erschienen...', [], 'game') . "</p>";
                 if ($town->isOpen()){
-                    $text .= "<p>" . $this->translator->trans('Die Stadt wird erst starten, wenn sie <strong>{$town->getPopulation()} Bürger</strong> hat.', [], 'game') . "</p>";
+                    $text .= "<p>" . $this->translator->trans("Die Stadt wird erst starten, wenn sie <strong>{$town->getPopulation()} Bürger</strong> hat.", [], 'game') . "</p>";
                 } else {
                     // TODO: translate 'Start clenching citizens, the zombies will attack tonight at midnight!'
                     $text .= "Start clenching citizens, the zombies will attack tonight at midnight!";
