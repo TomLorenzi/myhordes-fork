@@ -43,9 +43,36 @@
                         {{ _self.valuelist('Zerstört'|trans({},'admin'),   town.devastated) }}
                         {{ _self.valuelist('Tor offen'|trans({},'admin'),  town.door) }}
                         {{ _self.valuelist('Brunnen'|trans({},'admin'),    town.well) }}
+                        {{ _self.valuelist('Quarantäne'|trans({},'game'),  town.attackFails >= 3) }}
+
+                        <div class="row">
+                            <div class="cell rw-4"><b><label for="administer-town">{{ 'Stadt administrieren'|trans({},'admin') }}</label></b></div>
+                            <div class="cell rw-8">
+                                <select id="administer-town">
+                                    <option value="">-</option>
+                                    {% if is_granted("ROLE_ADMIN") %}
+                                        <optgroup label="{{ 'Nächtlicher Angriff'|trans({},'admin') }}">
+                                            {% if town.attackFails >= 3 %}
+                                                <option value="{{ url('admin_town_manage', {action: 'release', id: town.id}) }}">{{ 'Quarantäne aufheben'|trans({},'admin') }}</option>
+                                            {% else %}
+                                                <option value="{{ url('admin_town_manage', {action: 'quarantine', id: town.id}) }}">{{ 'Unter Quarantäne stellen'|trans({},'admin') }}</option>
+                                            {% endif %}
+                                            {% if not town.open %}
+                                                <option value="{{ url('admin_town_manage', {action: 'advance', id: town.id}) }}">{{ 'Manueller Tageswechsel'|trans({},'admin') }}</option>
+                                            {% endif %}
+                                        </optgroup>
+                                    {% endif %}
+                                </select>
+                                <div id="execute_button" class="button inline small">{{ 'Ausführen'|trans({},'admin') }}</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cell padded rw-9 rw-sm-12">
+
                     </div>
                 </div>
             </div>
+
 
             <div x-tab-group="admin-town" x-tab-id="citizens" x-tab-target>
                 <div class="row">
@@ -60,8 +87,8 @@
             </div>
 
             <div x-tab-group="admin-town" x-tab-id="register" x-tab-target>
-            {% embed "ajax/game/log.html.twig" with {'log_content': log, 'log_source': path('admin_newspaper_log_controller') } %}
-            {% endembed %}
+                {% embed "ajax/game/log.html.twig" with {'log_content': log, 'log_source': path('admin_newspaper_log_controller') } %}
+                {% endembed %}
             </div>
 
             <div x-tab-group="admin-town" x-tab-id="estimations" x-tab-target>
@@ -156,6 +183,14 @@
 {% block js %}
     <script>
         (function() {
+
+            document.getElementById('execute_button').addEventListener('click', function() {
+                if (!document.getElementById('administer-town').value) return;
+                $.ajax.easySend( document.getElementById('administer-town').value, {},
+                    function () {
+                        $.ajax.load(null, '{{ path('admin_town_explorer', {id: town.id}) }}', true);
+                    } );
+            });
 
             document.getElementById('townpm').addEventListener('click', function(e) {
                 document.getElementById("forum-content").innerHTML = "";
