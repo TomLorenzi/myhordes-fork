@@ -188,12 +188,12 @@ class GameController extends AbstractController implements GameInterfaceControll
             // No Gazette texts! Let's generate some...
             if ($day == 1) {
                 // TODO: Turn into LogEntryTemplate
-                $text = "<p>Heute Morgen ist kein Artikel erschienen...</p>";
+                $text = "<p>" . $this->translator->trans('Heute Morgen ist kein Artikel erschienen...', [], 'game') . "</p>";
                 if ($town->isOpen()){
-                    $text .= "<p>Die Stadt wird erst starten, wenn sie <strong>40 Bürger</strong> hat.</p>";
+                    $text .= "<p>" . $this->translator->trans('Die Stadt wird erst starten, wenn sie <strong>{$town->getPopulation()} Bürger</strong> hat.', [], 'game') . "</p>";
                 } else {
-                    // Serrez les fesses, citoyens, les zombies nous attaqueront ce soir à minuit !
-                    $text .= "";
+                    // TODO: translate 'Start clenching citizens, the zombies will attack tonight at midnight!'
+                    $text .= "Start clenching citizens, the zombies will attack tonight at midnight!";
                 }
             } else {
                 // 1. TOWN
@@ -380,7 +380,7 @@ class GameController extends AbstractController implements GameInterfaceControll
         $attack = $gazette->getAttack();
         $defense = $gazette->getDefense();
 
-        $citizenWithRole = $this->entity_manager->getRepository(Citizen::class)->findCitizenWithRole($town);
+        $citizensWithRole = $this->entity_manager->getRepository(Citizen::class)->findCitizenWithRole($town);
 
         $gazette_info = [
             'season_version' => 0,
@@ -411,7 +411,7 @@ class GameController extends AbstractController implements GameInterfaceControll
             'day' => $town->getDay(),
             'log' => $show_register ? $this->renderLog( -1, null, false, null, 50 )->getContent() : "",
             'gazette' => $gazette_info,
-            'citizenWithRole' => $citizenWithRole,
+            'citizensWithRole' => $citizensWithRole,
             'clock' => [
                 'desc'      => $this->getActiveCitizen()->getTown()->getName(),
                 'day'       => $this->getActiveCitizen()->getTown()->getDay(),
