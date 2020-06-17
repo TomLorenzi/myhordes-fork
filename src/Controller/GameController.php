@@ -78,8 +78,6 @@ class GameController extends AbstractController implements GameInterfaceControll
                 if (!$template)
                     continue;
                 $entityVariables = $entity->getVariables();
-                if (!$entityVariables)
-                    continue;
                 $entries[$idx]['timestamp'] = $entity->getTimestamp();
                 $entries[$idx]['class'] = $template->getClass();
                 $entries[$idx]['type'] = $template->getType();

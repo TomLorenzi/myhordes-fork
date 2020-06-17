@@ -73,7 +73,7 @@ class NightlyHandler
         $this->crow = $crow;
     }
 
-    private function check_town(Town &$town): bool {
+    private function check_town(Town $town): bool {
         if ($town->isOpen()) {
             $this->log->debug('The town lobby is <comment>open</comment>!');
             $this->entity_manager->persist($this->logTemplates->nightlyAttackCancelled($town));
@@ -1191,7 +1191,7 @@ class NightlyHandler
         }
     }
 
-    public function advance_day(Town &$town): bool {
+    public function advance_day(Town $town): bool {
         $this->skip_reanimation = [];
 
         $this->log->info( "Nightly attack request received for town <info>{$town->getId()}</info> (<info>{$town->getName()}</info>)." );

@@ -149,8 +149,6 @@ class InventoryAwareController extends AbstractController implements GameInterfa
                 if (!$template)
                     continue;
                 $entityVariables = $entity->getVariables();
-                if (!$entityVariables)
-                    continue;
                 if($citizen !== null && $entity->getHidden())
                     continue;
                 $entries[$idx]['timestamp'] = $entity->getTimestamp();
