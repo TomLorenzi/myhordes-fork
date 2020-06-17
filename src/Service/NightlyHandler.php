@@ -76,6 +76,7 @@ class NightlyHandler
     private function check_town(Town &$town): bool {
         if ($town->isOpen()) {
             $this->log->debug('The town lobby is <comment>open</comment>!');
+            $this->entity_manager->persist($this->logTemplates->nightlyAttackCancelled($town));
             return false;
         }
 
@@ -376,6 +377,7 @@ class NightlyHandler
             $soulFactor = min($soulFactor, 1.2);
 
         $zombies *= $soulFactor;
+        $zombies = round($zombies);
 
         $gazette->setAttack($zombies);
 
@@ -742,13 +744,16 @@ class NightlyHandler
                             $citizen_eligible[] = $citizen;
                         }
 
-                        $winner = $this->random->pick($citizen_eligible);
+                        if(count($citizen_eligible) > 0) {
+                            $winner = $this->random->pick($citizen_eligible);
 
-                        $picto = $town->getType()->getName() == 'panda' ? 'r_suhard_#00' : 'r_surlst_#00';
+                            $picto = $town->getType()->getName() == 'panda' ? 'r_suhard_#00' : 'r_surlst_#00';
 
-                        $this->log->debug("We give the picto <info>$picto</info> to the lucky citizen {$winner->getUser()->getUsername()}");
+                            $this->log->debug("We give the picto <info>$picto</info> to the lucky citizen {$winner->getUser()->getUsername()}");
 
-                        $this->picto_handler->give_validated_picto($winner, $picto);
+                            $this->picto_handler->give_validated_picto($winner, $picto);
+                        }
+
                     }
                     $town->setDevastated(true);
 		            $town->setChaos(true);

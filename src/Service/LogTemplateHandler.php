@@ -697,6 +697,18 @@ class LogTemplateHandler
             ->setCitizen( $zombie );
     }
 
+    public function nightlyAttackCancelled( Town $town ): TownLogEntry {
+        $variables = array();
+        $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneByName('nightlyAttackCancelled');
+
+        return (new TownLogEntry())
+            ->setLogEntryTemplate($template)
+            ->setVariables($variables)
+            ->setTown( $town )
+            ->setDay( $town->getDay() )
+            ->setTimestamp( new DateTime('now') );
+    }
+
     public function nightlyAttackBegin( Town $town, int $num_zombies ): TownLogEntry {
         $variables = array('num' => $num_zombies);
         $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneByName('nightlyAttackBegin');
