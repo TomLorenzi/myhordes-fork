@@ -56,9 +56,8 @@
                 {% if is_granted("ROLE_ORACLE") %}
                 <div x-forum-action="edit" x-text-wrap-node="announce" class="forum-button"><i class="fas fa-rss"></i><span class="forum-button-tooltip">{{ 'Orakel Ankündigung'|trans({},'global') }}</span></div>
                 {% endif %}
-                <div x-forum-action="edit" x-text-wrap-node="ul" class="forum-button"><i class="fa fa-list-ul"></i><span class="forum-button-tooltip">{{ 'Einfache Liste'|trans({},'global') }}</span></div>
-                <div x-forum-action="edit" x-text-wrap-node="ol" class="forum-button"><i class="fa fa-list-ol"></i><span class="forum-button-tooltip">{{ 'Nummerierte Liste'|trans({},'global') }}</span></div>
-                <div x-forum-action="edit" x-text-wrap-node="li" class="forum-button"><i class="fa fa-star-of-life"></i><span class="forum-button-tooltip">{{ 'Listenpunkt'|trans({},'global') }}</span></div>
+                <div x-forum-action="edit" x-text-insert-list-node="*" class="forum-button"><i class="fa fa-star-of-life"></i><span class="forum-button-tooltip">{{ 'Listenpunkt'|trans({},'global') }}</span></div>
+                <div x-forum-action="edit" x-text-insert-list-node="0" class="forum-button"><i class="fa fa-list-ol"></i><span class="forum-button-tooltip">{{ 'Num. Listenpunkt'|trans({},'global') }}</span></div>
                 <div x-forum-action="edit" x-text-wrap-node="quote" class="forum-button"><i class="fa fa-quote-left"></i><span class="forum-button-tooltip">{{ 'Zitat'|trans({},'global') }}</span></div>
                 <div x-forum-action="edit" x-text-wrap-node="spoiler" class="forum-button"><i class="fa fa-eye-slash"></i><span class="forum-button-tooltip">{{ 'Spoiler'|trans({},'global') }}</span></div>
                 <div x-forum-action="edit" x-text-wrap-node="aparte" class="forum-button"><i class="fas fa-compress-alt"></i><span class="forum-button-tooltip">{{ 'Vertraulich'|trans({},'global') }}</span></div>
@@ -273,9 +272,7 @@
                 content.substr( s_end );
 
             node_transfer_source.setSelectionRange( s_start + tag.length + 2, s_end + tag.length + 2 );
-            //window.setTimeout( function() {
-                node_transfer_source.focus()
-            //}, 10 );
+            node_transfer_source.focus();
             transfer_to_preview();
         } );
         $.html.addEventListenerAll( '[x-forum-action="edit"][x-text-insert-node]', 'click', function (e,elem) {
@@ -293,9 +290,25 @@
                 content.substr( s_start );
 
             node_transfer_source.setSelectionRange( s_start + tag.length + 2, s_end + tag.length + 2 );
-            //window.setTimeout( function() {
-                node_transfer_source.focus()
-            //}, 10 );
+            node_transfer_source.focus();
+            transfer_to_preview();
+        } );
+        $.html.addEventListenerAll( '[x-forum-action="edit"][x-text-insert-list-node]', 'click', function (e,elem) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            let tag = elem.getAttribute('x-text-insert-list-node');
+            let content = node_transfer_source.value;
+            let s_start = node_transfer_source.selectionStart;
+            let s_end = node_transfer_source.selectionEnd;
+
+            node_transfer_source.value =
+                content.substr( 0, s_start ) +
+                '\n[' + tag + ']' +
+                content.substr( s_start );
+
+            node_transfer_source.setSelectionRange( s_start + tag.length + 3, s_end + tag.length + 3 );
+            node_transfer_source.focus()
             transfer_to_preview();
         } );
         $.html.addEventListenerAll( '[x-forum-action="edit"][x-text-insert-emote][x-text-emote]', 'click', function (e,elem) {

@@ -876,83 +876,6 @@ class MessageController extends AbstractController
         ] );
     }
 
-    public function convert_bbcode(?DOMNode $node){
-        $content = "";
-        $precision = "";
-        foreach ($node->childNodes as $child) {
-            if(isset($child->tagName)) {
-                switch ($child->tagName) {
-                    case 'br':
-                        $content .= "\n";
-                        break;
-                    case 'hr':
-                        $content .= "{hr}";
-                        break;
-                    case 'div':
-                    case 'span':
-                    	if($child->tagName == "span" && $child->attributes['class']->value == "rpauthor")
-							$precision = $child->textContent;
-                        else if(!empty($child->attributes['class']) && !empty($child->attributes['class']->value) && in_array($child->attributes['class']->value, ['adminAnnounce','modAnnounce','oracleAnnounce','glory','spoiler', 'bad', 'rpText'])) {
-                            $class = $child->attributes['class']->value;
-                            switch ($class) {
-                                case 'adminAnnounce':
-                                    $class = "admannounce";
-                                    break;
-                                case 'modAnnounce':
-                                    $class = "modannounce";
-                                    break;
-                                case 'oracleAnnounce':
-                                    $class = "announce";
-                                    break;
-                                case 'rpText':
-                                	$class = 'rp';
-                                	break;
-                            }
-
-                            $content .= "[$class";
-                            if(!empty($precision)) {
-                            	$content .= "=$precision";
-                            	$precision = "";
-                            }
-                            $content .= "]" . $this->convert_bbcode($child) . "[/$class]";
-                        }
-                        else
-                            $content .= $child->textContent;
-                        break;
-                    case "p":
-                        $content .= $this->convert_bbcode($child);
-                        break;
-                    case "img":
-                        $content .= "[image={$child->attributes[0]->value}]{$child->attributes[1]->value}[/image]";
-                        break;
-                    case "a":
-                        $content .= "[link={$child->attributes[0]->value}]". $this->convert_bbcode($child) ."[/link]";
-                        break;
-                    case "b":
-                    case "i":
-                    case "u":
-                    case "s":
-                    case "ul":
-                    case "ol":
-                    case "li":
-                        $content .= "[{$child->tagName}]" . $this->convert_bbcode($child) . "[/{$child->tagName}]";
-                        break;
-                    case "blockquote":
-                        //$content .= "[quote]" . $this->convert_bbcode($child) . "[/quote]";
-                        //We remove inner quotes
-                        break;
-                    default:
-                        $content .= $child->textContent;
-                        break;
-                }
-            } else {
-                $content .= $child->textContent;
-            }
-        }
-
-        return $content;
-    }
-
     /**
      * @Route("api/forum/{fid<\d+>}/{tid<\d+>}/editor", name="forum_post_editor_controller")
      * @param int $fid
@@ -1051,51 +974,6 @@ class MessageController extends AbstractController
             $this->addFlash('notice', $message);
             return AjaxResponse::success( );
         }
-
-    /**
-     * @Route("api/forum/{fid<\d+>}/{tid<\d+>}/quote_post", name="forum_post_quote")
-     * @param JSONRequestParser $parser
-     * @param EntityManagerInterface $em
-     * @return Response
-     */
-    public function forum_post_quote_api(int $fid, int $tid, EntityManagerInterface $em, JSONRequestParser $parser): Response {
-        $user = $this->getUser();
-
-        $thread = $em->getRepository( Thread::class )->find( $tid );
-        if ($thread === null || $thread->getForum()->getId() !== $fid) return new Response('');
-
-        $forums = $em->getRepository(Forum::class)->findForumsForUser($user, $fid);
-        if (count($forums) !== 1){
-            if (!($user->getRightsElevation() >= User::ROLE_CROW && $thread->hasReportedPosts())){
-                return new Response('');
-            }      
-        }
-
-        if($parser->has('post')){
-            $post_id = $parser->get('post');
-
-            $post = $em->getRepository(Post::class)->find($post_id);
-            $content = "";
-            if($post->getThread() == $thread) {
-                // We replace the HTML content with the Twinoid-like syntax
-                $dom = new DOMDocument();
-                libxml_use_internal_errors(true);
-                $dom->loadHTML( '<?xml encoding="utf-8" ?>' . $post->getText() );
-                $body = $dom->getElementsByTagName('body');
-                $tx_len = 0;
-                if (!$body || $body->length > 1) {
-                    $content = null;
-                }
-                else if (!$this->htmlValidator($this->getAllowedHTML(), $body->item(0), $tx_len)) {
-                    $content = null;
-                } else {
-                    $content = "[quote={$post->getOwner()->getUsername()}]".$this->convert_bbcode($body->item(0))."[/quote]\n";
-                }
-
-            }
-        }
-        return AjaxResponse::success( true, ['content' => $content ?? ""] );
-    }
 
     /**
      * @Route("api/town/house/sendpm", name="town_house_send_pm_controller")

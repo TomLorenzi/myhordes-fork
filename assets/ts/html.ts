@@ -32,7 +32,7 @@ export default class HTML {
                 data[node_name] = input_fields[i].value;
             }
             if (node_name && input_fields[i].getAttribute('type') == 'checkbox') {
-                data[node_name] = input_fields[i].checked ? true : false;
+                data[node_name] = input_fields[i].checked;
             }
         }
 

@@ -23,7 +23,7 @@ class TwinoInterimBlock {
 
     hasClass(cls: string): boolean { return this.nodeClasses.indexOf( cls ) !== -1; }
     getAttribute(attrib: string): string|null {
-        let a = this.nodeClasses.find( e => e[0] === attrib );
+        let a = this.nodeAttribs.find( e => e[0] === attrib );
         return a ? a[1] : null;
     }
 }
@@ -39,17 +39,17 @@ class TwinoRegexResult {
     private static readonly TypeInsetB = 32;
     private static readonly TypeInsetC = 33;
 
-    private readonly type;
-    private readonly match;
+    private readonly type:  number;
+    private readonly match: RegExpMatchArray|Array<string>;
 
     public readonly index:  number;
     public readonly length: number;
 
-    private constructor(type: number, match: RegExpMatchArray) {
+    private constructor(type: number, match: RegExpMatchArray|Array<string>, index: number = -1) {
         this.type = type;
         this.match = match;
 
-        this.index  = match.index;
+        this.index  = (match as RegExpMatchArray).index ?? index;
         this.length = match[0].length;
 
         if (this.type === TwinoRegexResult.TypeInset) {
@@ -65,7 +65,6 @@ class TwinoRegexResult {
     private static getRegex(type: number): RegExp {
 
         switch (type) {
-            case TwinoRegexResult.TypeBB:      return /\[(.*?)(?:=([^\]]*))?]([\s\S]*?)\[\/\1]/gm;
             case TwinoRegexResult.TypeShortBB: return /(?:([^\w\s]){2})([\s\S]*?)\1{2}/gm;
             case TwinoRegexResult.TypeInset:   return /{([a-zA-Z]+)}|{([a-zA-Z]+),([\w,]*)}|{([a-zA-Z]+)(\d+)}/g;
             case TwinoRegexResult.TypeEmote:   return /(?::(\w+?):)|([:;].)/g;
@@ -76,9 +75,56 @@ class TwinoRegexResult {
 
     static create( type: number, s: string ): Array<TwinoRegexResult> {
         let results: Array<TwinoRegexResult> = [];
-        for (let m of s.matchAll( this.getRegex( type ) ))
-            results.push( new TwinoRegexResult( type, m )  )
+
+        // New fancy syntactic parser for range blocks
+        if (type === TwinoRegexResult.TypeBB) {
+
+            // The first RegEx is looking for the start tag
+            let startMatchRegex = /\[([^\/].*?)(?:=([^\]]*))?]/gm
+            let result: Array<string>;
+
+            // Look for potential start tags
+            while ( (result = startMatchRegex.exec( s )) !== null ) {
+
+                // We have found a potential start tag; get the node name
+                const node = result[1];
+
+                // Create a new RegEx that looks for more instances if this tag, either as a starting tag or closing tag
+                // The new RegEx should start at the position of the outer RegEx, so we set lastIndex
+                let innerMatchRegex = new RegExp('(\\[' + node + '(?:=(?:[^\\]]*))?])|(\\[\\/' + node + '\])', 'gm');
+                innerMatchRegex.lastIndex = startMatchRegex.lastIndex;
+                let inner: Array<string>;
+
+                // Counter for new starting tags
+                let stack = 0;
+
+                // Look for further tags
+                while ( (inner = innerMatchRegex.exec( s )) !== null ) {
+
+                    // If the first group matches, we found another starting tag - increase stack counter
+                    if (inner[1]) stack++;
+
+                    // If the second group matches while the stack counter is 0, we have found a complete tag and can create a result
+                    if (inner[2] && stack === 0) {
+                        let full_match  = result[0] + s.substr( startMatchRegex.lastIndex, (innerMatchRegex.lastIndex - startMatchRegex.lastIndex) );
+                        let inner_match = s.substr( startMatchRegex.lastIndex, (innerMatchRegex.lastIndex - startMatchRegex.lastIndex - inner[2].length) );
+
+                        results.push( new TwinoRegexResult( type, [ full_match, result[1], result[2] ?? null, inner_match ], startMatchRegex.lastIndex - result[0].length ) );
+                        startMatchRegex.lastIndex = innerMatchRegex.lastIndex;
+                    }
+
+                    // If the second group matches, we found a ending tag - decrease stack counter
+                    else if (inner[2]) stack--;
+                }
+            }
+
+        } else
+            // Old purely RegEx parser for non-range blocks
+            for (let m of s.matchAll( this.getRegex( type ) ))
+                results.push( new TwinoRegexResult( type, m )  )
+
         return results;
+
     }
 
     raw(): string { return this.match[0]; }
@@ -141,7 +187,7 @@ class TwinoConverterToBlocks {
             case '**': blocks.push( new TwinoInterimBlock(match.nodeContent(), 'b') ); changed = true; break;
             case '//': blocks.push( new TwinoInterimBlock(match.nodeContent(), 'i') ); changed = true; break;
             case '--': blocks.push( new TwinoInterimBlock(match.nodeContent(), 's') ); changed = true; break;
-            case 'spoiler': blocks.push( new TwinoInterimBlock(match.nodeContent(), 'span', match.nodeType()) ); changed = true; break;
+            case 'spoiler': blocks.push( new TwinoInterimBlock(match.nodeContent(), 'div', match.nodeType()) ); changed = true; break;
             case 'quote':
                 if ( match.nodeInfo() )
                     blocks.push( new TwinoInterimBlock(match.nodeInfo(), 'span', 'quoteauthor') );
@@ -163,13 +209,13 @@ class TwinoConverterToBlocks {
                 blocks.push( new TwinoInterimBlock(match.nodeContent(), 'a', match.nodeType(), [ ['href', match.nodeInfo()], ['target', '_blank'], ['x-raw','1'] ]) );
                 changed = true;
                 break;
-            case 'bad': case 'glory':
+            case 'bad':
                 if (nested) blocks.push( new TwinoInterimBlock(match.nodeContent()) )
                 else blocks.push( new TwinoInterimBlock(match.nodeContent(), 'span', match.nodeType(), [['x-nested','1']]) );
                 changed = true; break;
             case 'aparte':
                 if (nested) blocks.push( new TwinoInterimBlock(match.nodeContent()) )
-                else blocks.push( new TwinoInterimBlock(match.nodeContent(), 'span', 'sideNote', [['x-nested','1']]) );
+                else blocks.push( new TwinoInterimBlock(match.nodeContent(), 'div', 'sideNote', [['x-nested','1']]) );
                 changed = true; break;
             case 'admannounce':
                 if (nested) blocks.push( new TwinoInterimBlock(match.nodeContent()) )
@@ -182,6 +228,10 @@ class TwinoConverterToBlocks {
             case 'announce':
                 if (nested) blocks.push( new TwinoInterimBlock(match.nodeContent()) )
                 else blocks.push( new TwinoInterimBlock(match.nodeContent(), 'div', 'oracleAnnounce', [['x-nested','1']]) );
+                changed = true; break;
+            case 'glory':
+                if (nested) blocks.push( new TwinoInterimBlock(match.nodeContent()) )
+                else blocks.push( new TwinoInterimBlock(match.nodeContent(), 'div', 'glory', [['x-nested','1']]) );
                 changed = true; break;
             case 'rp':
                 if (nested) blocks.push( new TwinoInterimBlock(match.nodeContent()) )
@@ -246,45 +296,80 @@ class HTMLConverterFromBlocks {
 
     public static anyBlocks( blocks: Array<TwinoInterimBlock> ): string {
 
+        console.log(blocks);
+
         let cursor = 0;
         let nextBlock = function(): TwinoInterimBlock {
-            return blocks.length > (cursor+1) ? blocks[cursor++] : null;
+            return blocks.length > cursor ? blocks[cursor++] : null;
         }
         let peekBlock = function(): TwinoInterimBlock {
-            return blocks.length > (cursor+1) ? blocks[cursor+1] : null;
+            return blocks.length > cursor ? blocks[cursor] : null;
         }
 
         let ret = '';
 
         let block: TwinoInterimBlock;
         while (block = nextBlock()) {
+
             if (block.isEmpty()) continue;
             const peek = peekBlock();
 
             if (block.isPlainText()) ret += block.nodeText;
             else switch (block.nodeName) {
+                case 'br':
+                    ret += "\n";
+                    break;
+                case 'hr':
+                    ret += '{hr}';
+                    break;
                 case 'b': case 'strong':
                     ret += HTMLConverterFromBlocks.wrapBlock( block, 'b' );
                     break;
+                case 'a':
+                    const link_href = block.getAttribute('href');
+                    ret += (link_href ? HTMLConverterFromBlocks.wrapBlock( block, 'link', link_href ) : block.nodeText);
+                    break;
                 case 'i': case 'u': case 's': case 'ul': case 'ol': case 'li':
+                    console.log(block);
                     ret += HTMLConverterFromBlocks.wrapBlock( block, block.nodeName );
                     break;
                 case 'span':
-                    if (block.hasClass('spoiler'))
-                        ret += HTMLConverterFromBlocks.wrapBlock( block, 'spoiler' )
-                    else if (block.hasClass('quoteauthor')) {
-                        if (peek.nodeName === 'blockquote') {
+                    if (block.hasClass('quoteauthor')) {
+                        if (peek && peek.nodeName === 'blockquote') {
                             ret += HTMLConverterFromBlocks.wrapBlock( nextBlock(), 'quote', block.nodeText )
                         }
+                    } else if (block.hasClass('rpauthor')) {
+                        if (peek && peek.nodeName === 'div' && peek.hasClass('rpText')) {
+                            ret += HTMLConverterFromBlocks.wrapBlock( nextBlock(), 'rp', block.nodeText )
+                        }
                     }
+                    else if (block.hasClass('bad'))
+                        ret += HTMLConverterFromBlocks.wrapBlock( block, 'bad' );
+                    else ret += block.nodeText;
+                    break;
+                case 'div':
+                    if (block.hasClass('spoiler'))
+                        ret += HTMLConverterFromBlocks.wrapBlock( block, 'spoiler' )
+                    else if (block.hasClass('sideNote'))
+                        ret += HTMLConverterFromBlocks.wrapBlock( block, 'aparte' );
+                    else if (block.hasClass('adminAnnounce'))
+                        ret += HTMLConverterFromBlocks.wrapBlock( block, 'admannounce' );
+                    else if (block.hasClass('modAnnounce'))
+                        ret += HTMLConverterFromBlocks.wrapBlock( block, 'modannounce' );
+                    else if (block.hasClass('oracleAnnounce'))
+                        ret += HTMLConverterFromBlocks.wrapBlock( block, 'announce' );
+                    else if (block.hasClass('rpText'))
+                        ret += HTMLConverterFromBlocks.wrapBlock( block, 'rp' );
+                    else if (block.hasClass('glory'))
+                        ret += HTMLConverterFromBlocks.wrapBlock(block, 'glory');
+                    else ret += block.nodeText;
                     break;
                 case 'blockquote':
                     ret += HTMLConverterFromBlocks.wrapBlock( block, 'quote' );
                     break;
                 case 'img':
-                    let src = block.getAttribute('src');
                     let alt = block.getAttribute('alt') ?? '';
-                    if (src) ret += HTMLConverterFromBlocks.rangeBlock( alt, 'img', src );
+                    if (alt) ret += alt;
                     break;
                 case 'link':
                     let href = block.getAttribute('href');
@@ -351,13 +436,14 @@ export default class TwinoAlikeParser {
             for (let i = 0; i < children.length; i++) {
 
                 let skip = false;
+                let add_nested = nested;
                 if (children[i].nodeType === Node.ELEMENT_NODE) {
                     let node = (children[i]) as HTMLElement;
                     if (node.hasAttribute( 'x-raw' )) skip = true;
-                    if (node.hasAttribute( 'x-nested' )) nested = true;
+                    if (node.hasAttribute( 'x-nested' )) add_nested = true;
                 }
 
-                if (!skip) changed = changed || TwinoAlikeParser.parseRangeBlocks(children[i] as HTMLElement,secondary, nested);
+                if (!skip) changed = changed || TwinoAlikeParser.parseRangeBlocks(children[i] as HTMLElement,secondary, add_nested);
             }
 
         }
@@ -399,7 +485,6 @@ export default class TwinoAlikeParser {
     private static parseEmotes(elem: HTMLElement, resolver: emoteResolver) {
         if (elem.nodeType === Node.TEXT_NODE) {
             let str = elem.textContent;
-            let regex_wrappers = /(?::(\w+?):)|([:;].)/g;
             let current_offset = 0;
             let blocks: Array<TwinoInterimBlock> = [];
 
@@ -426,10 +511,46 @@ export default class TwinoAlikeParser {
         }
     }
 
+    private static preprocessText( s: string ): string {
+        let lines: Array<string> = s.split( '\n' );
+
+        let m: Array<string>;
+
+        let ulmode = false, olmode = false;
+
+        for (let i = 0; i < lines.length; i++) {
+
+            //UL
+            if ((m = lines[i].match(/^\s*?\[\*]\s*(.*?)$/gm))) {
+                if (olmode) { lines.splice(i,0,'[/ol]'); olmode = false; i++ }
+                lines[i] = '[li]' + m[0].substr(3) + '[/li]';
+                if (!ulmode) { lines.splice(i,0,'[ul]'); ulmode = true; i++ }
+                continue;
+            } else if (ulmode) { lines.splice(i,0,'[/ul]'); ulmode = false; i++; }
+
+            //OL
+            if ((m = lines[i].match(/^\s*?\[0]\s*(.*?)$/gm))) {
+                lines[i] = '[li]' + m[0].substr(3) + '[/li]';
+                if (!olmode) { lines.splice(i,0,'[ol]'); olmode = true; i++ }
+                continue;
+            } else if (olmode) { lines.splice(i,0,'[/ol]'); olmode = false; i++; }
+
+            if (i < (lines.length - 1)) lines[i] = lines[i] + '{br}';
+        }
+
+        if (ulmode) lines.push('[/ul]');
+        if (olmode) lines.push('[/ol]');
+
+        s = '';
+        for (let i = 0; i < lines.length; i++)
+            s += lines[i];
+        return s;
+    }
+
     parseTo( text: string, target: HTMLElement, resolver: emoteResolver ): void {
 
         let container_node = document.createElement('p');
-        container_node.innerText = text.replace(/(\r\n|\n|\r)/gm,'{br}');
+        container_node.innerText = TwinoAlikeParser.preprocessText( text );
 
         let changed = true;
         while (changed) changed = changed && TwinoAlikeParser.parseRangeBlocks(container_node,false);
@@ -453,7 +574,7 @@ export default class TwinoAlikeParser {
             target.appendChild(c);
     }
 
-    private static parsePlainBlock( elem: HTMLElement ): TwinoInterimBlock {
+    private static parsePlainBlock( elem: HTMLElement, content: string|null = null ): TwinoInterimBlock {
 
         if (elem.nodeType === Node.ELEMENT_NODE) {
 
@@ -463,11 +584,11 @@ export default class TwinoAlikeParser {
             let attribs: Array<[string,string]> = [];
             for (let a = 0; a < elem.attributes.length; a++) attribs.push( [ elem.attributes.item(a).name, elem.attributes.item(a).value ] )
 
-            return new TwinoInterimBlock( elem.innerText, elem.tagName, classes, attribs );
+            return new TwinoInterimBlock( content ?? elem.innerText, elem.tagName.toLowerCase(), classes, attribs );
 
         }
 
-        if (elem.nodeType === Node.TEXT_NODE)
+        if (elem.nodeType === Node.TEXT_NODE && elem.textContent.indexOf("\n") === -1)
             return new TwinoInterimBlock( elem.textContent );
 
         return new TwinoInterimBlock( );
@@ -488,17 +609,19 @@ export default class TwinoAlikeParser {
                     if (elem.childNodes[i].childNodes[j].nodeType === Node.ELEMENT_NODE) simple = false;
 
                 if (simple) blocks.push( TwinoAlikeParser.parsePlainBlock( elem.childNodes[i] as HTMLElement ) );
-                else blocks.push( new TwinoInterimBlock( TwinoAlikeParser.parseNestedBlock(elem.childNodes[i] as HTMLElement) ) );
+                else blocks.push(new TwinoInterimBlock(TwinoAlikeParser.parseNestedBlock(elem.childNodes[i] as HTMLElement)));
             }
 
-            return HTMLConverterFromBlocks.anyBlocks( blocks );
+            return HTMLConverterFromBlocks.anyBlocks([
+                TwinoAlikeParser.parsePlainBlock( elem as HTMLElement, HTMLConverterFromBlocks.anyBlocks( blocks.filter( block => !block.isEmpty() ) ) )
+            ]);
         }
 
         return '';
 
     }
 
-    parseFrom( htmlText: string, resolver: emoteResolver ): string {
+    parseFrom( htmlText: string ): string {
 
         let container_node = document.createElement('p');
         container_node.innerHTML = htmlText;
