@@ -1075,46 +1075,6 @@ class NightlyHandler
             if(!$citizen->getAlive())
                 continue;
 
-            // Fetching picto obtained today
-            $pendingPictosOfUser = $this->entity_manager->getRepository(Picto::class)->findTodayPictoByUserAndTown($citizen->getUser(), $citizen->getTown());
-            foreach ($pendingPictosOfUser as $pendingPicto) {
-                $this->log->info("Citizen <info>{$citizen->getUser()->getUsername()}</info> has earned picto <info>{$pendingPicto->getPrototype()->getLabel()}</info>. It has persistance <info>{$pendingPicto->getPersisted()}</info>");
-
-                $persistPicto = false;
-                // In Small Towns, if the user has 100 soul points or more, he must survive at least 8 days or die from the attack during day 7 to 8
-                // to validate the picto (set them as persisted)
-                if($town->getType()->getName() == "small" && $citizen->getUser()->getSoulPoints() >= 100) {
-                    $this->log->debug("This is a small town, and <info>{$citizen->getUser()->getUsername()}</info> has more that 100 soul points, we use the day 8 rule");
-                    if($town->getDay() == 8 && $citizen->getCauseOfDeath() != null && $citizen->getCauseOfDeath()->getRef() == CauseOfDeath::NightlyAttack){
-                        $persistPicto = true;
-                    } else if ($town->getDay() > 8) {
-                        $persistPicto = true;
-                    }
-                } else {
-                    $this->log->debug("This is not a small town, we persist the pictos earned the previous days");
-                    $persistPicto = true;
-                }
-
-                if(!$persistPicto)
-                    continue;
-
-                // We check if this picto has already been earned previously (such as Heroic Action, 1 per day)
-                $pendingPreviousPicto = $this->entity_manager->getRepository(Picto::class)->findPreviousDaysPictoByUserAndTownAndPrototype($citizen->getUser(), $citizen->getTown(), $pendingPicto->getPrototype());
-                if($pendingPreviousPicto === null) {
-                    $this->log->info("Setting persisted to 1");
-                    // We do not have it, we set it as earned
-                    $pendingPicto->setPersisted(1);
-                    $this->entity_manager->persist($pendingPicto);
-                } else {
-                    // We have it, we add the count to the previously earned
-                    // And remove the picto from today
-                    $this->log->info("Merging with previously earned picto");
-                    $pendingPreviousPicto->setCount($pendingPreviousPicto->getCount() + $pendingPicto->getCount());
-                    $this->entity_manager->persist($pendingPreviousPicto);
-                    $this->entity_manager->remove($pendingPicto);
-                }
-            }
-
             // Giving picto camper if he camped
             if ($citizen->getStatus()->contains($status_camping)) {
                 if ($town->getDevastated() && $town->getDay() >= 10){
@@ -1129,6 +1089,8 @@ class NightlyHandler
             if($watch !== null){
                 $this->picto_handler->give_picto($citizen, $picto_nightwatch);
             }
+
+            $this->picto_handler->nightly_validate_picto( $citizen );
         }
     }
 

@@ -206,13 +206,11 @@ class DeathHandler
                 break;
         }
 
-        if($pictoDeath !== null) {
+        if($pictoDeath !== null)
             $this->picto_handler->give_validated_picto($citizen, $pictoDeath);
-        }
 
-        if($pictoDeath2 !== null) {
+        if($pictoDeath2 !== null)
             $this->picto_handler->give_validated_picto($citizen, $pictoDeath2);
-        }
 
         $this->picto_handler->give_validated_picto($citizen, "r_ptame_#00", $this->citizen_handler->getSoulpoints($citizen));
 
