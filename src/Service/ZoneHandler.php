@@ -89,7 +89,7 @@ class ZoneHandler
         $cp = 0;
 
         foreach ($zone->getCitizens() as $citizen) {
-            $timer = $this->entity_manager->getRepository(DigTimer::class)->findActiveByCitizen( $citizen );
+            $timer = $citizen->getCurrentDigTimer();
             if ($timer && !$timer->getPassive() && $timer->getTimestamp() < $up_to)
                 $dig_timers[] = $timer;
             $cp += $this->citizen_handler->getCP( $citizen );
@@ -101,7 +101,7 @@ class ZoneHandler
                 $timer->setPassive(true);
                 $this->entity_manager->persist($timer);
             }
-            $this->entity_manager->flush();
+
             return null;
         }
 
@@ -216,7 +216,6 @@ class ZoneHandler
 
         if ($zone_update) $this->entity_manager->persist($zone);
         foreach ($dig_timers as $timer) $this->entity_manager->persist( $timer );
-        $this->entity_manager->flush();
 
         if ($chances_by_player > 0) {
             if (empty($found_by_player)){
@@ -343,7 +342,7 @@ class ZoneHandler
     public function handleCitizenCountUpdate(&$zone, $cp_ok_before) {
         // If no citizens remain in a zone, invalidate all associated escape timers and clear the log
         if (!count($zone->getCitizens())) {
-            foreach ($this->entity_manager->getRepository(EscapeTimer::class)->findAllByZone($zone) as $et)
+            foreach ($zone->getEscapeTimers() as $et)
                 $this->entity_manager->remove( $et );
             foreach ($this->entity_manager->getRepository(TownLogEntry::class)->findByFilter( $zone->getTown(), null, null, $zone, null, null ) as $entry)
                 /** @var TownLogEntry $entry */

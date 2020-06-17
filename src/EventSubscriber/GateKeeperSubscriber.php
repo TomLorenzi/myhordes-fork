@@ -83,7 +83,8 @@ class GateKeeperSubscriber implements EventSubscriberInterface
 
             /** @var $citizen Citizen */
             $this->current_lock = $this->locksmith->waitForLock( 'game-' . $citizen->getTown()->getId() );
-            $this->townHandler->triggerAlways( $citizen->getTown(), true );
+            if ($this->townHandler->triggerAlways( $citizen->getTown() ))
+                $this->em->persist( $citizen->getTown() );
 
             if ($controller instanceof GameAliveInterfaceController) {
                 // This is a game action controller; it is not available to players who are dead
@@ -115,8 +116,8 @@ class GateKeeperSubscriber implements EventSubscriberInterface
             }
 
             $citizen->setLastActionTimestamp(time());
-
             $this->em->persist($citizen);
+
             $this->em->flush();
 
             // Execute before() on HookedControllers

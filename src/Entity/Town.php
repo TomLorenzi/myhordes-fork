@@ -502,6 +502,13 @@ class Town
         return $this;
     }
 
+    public function findGazette( int $day ): ?Gazette {
+        foreach ($this->getGazettes() as $gazette)
+            if ($gazette->getDay() === $day)
+                return $gazette;
+        return null;
+    }
+
     public function getConf(): ?array
     {
         return $this->conf;

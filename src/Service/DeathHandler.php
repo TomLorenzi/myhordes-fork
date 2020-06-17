@@ -72,7 +72,7 @@ class DeathHandler
                 $this->inventory_handler->forceMoveItem($floor, $item);
 
 
-        foreach ($this->entity_manager->getRepository(DigTimer::class)->findAllByCitizen($citizen) as $dt)
+        foreach ($citizen->getDigTimers() as $dt)
             $remove[] = $dt;
         foreach ($this->entity_manager->getRepository(EscapeTimer::class)->findAllByCitizen($citizen) as $et)
             $remove[] = $et;

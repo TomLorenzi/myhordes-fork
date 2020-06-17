@@ -562,7 +562,7 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
             }
 
             // Disable the dig timer
-            if ($dig_timer = $this->entity_manager->getRepository(DigTimer::class)->findActiveByCitizen($mover)) {
+            if ($dig_timer = $mover->getCurrentDigTimer()) {
                 $dig_timer->setPassive(true);
                 $this->entity_manager->persist( $dig_timer );
             }
@@ -614,7 +614,7 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
             return AjaxResponse::error( ErrorHelper::ErrorNoAP );
 
         // Entering a ruin disables the dig timer
-        if ($dig_timer = $this->entity_manager->getRepository(DigTimer::class)->findActiveByCitizen($citizen)) {
+        if ($dig_timer = $citizen->getCurrentDigTimer()) {
             $dig_timer->setPassive(true);
             $this->entity_manager->persist( $dig_timer );
         }
@@ -705,7 +705,7 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
         foreach ($movers as $mover) {
 
             // Moving disables the dig timer
-            if ($dig_timer = $this->entity_manager->getRepository(DigTimer::class)->findActiveByCitizen($mover)) {
+            if ($dig_timer = $mover->getCurrentDigTimer()) {
                 $dig_timer->setPassive(true);
                 $this->entity_manager->persist( $dig_timer );
             }
@@ -1054,7 +1054,7 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
 
         foreach ($target_citizens as $target_citizen)
             try {
-                $timer = $this->entity_manager->getRepository(DigTimer::class)->findActiveByCitizen( $target_citizen );
+                $timer = $target_citizen->getCurrentDigTimer();
                 if (!$timer) $timer = (new DigTimer())->setZone( $zone )->setCitizen( $target_citizen );
                 else if (!$allow_redig || $timer->getTimestamp() > new DateTime()) {
                     if (count($target_citizens) === 1)

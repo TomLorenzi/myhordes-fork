@@ -941,7 +941,7 @@ class ActionHandler
                         $this->zone_handler->updateZone( $zone );
                         $cp_ok = $this->zone_handler->check_cp( $zone );
 
-                        if ($dig_timer = $this->entity_manager->getRepository(DigTimer::class)->findActiveByCitizen($jumper)) {
+                        if ($dig_timer = $jumper->getCurrentDigTimer()) {
                             $dig_timer->setPassive(true);
                             $this->entity_manager->persist( $dig_timer );
                         }

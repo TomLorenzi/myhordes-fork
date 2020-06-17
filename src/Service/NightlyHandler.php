@@ -263,7 +263,7 @@ class NightlyHandler
 
             $reactor->setDefense($newDef);
             if($reactor->getHp() <= 0){
-                $gazette = $this->entity_manager->getRepository(Gazette::class)->findOneByTownAndDay($town, $town->getDay());
+                $gazette = $town->findGazette( $town->getDay() );
 
                 $this->entity_manager->persist($this->logTemplates->constructionsDestroy($town, $reactor->getPrototype(), $damages ));
                 $this->town_handler->destroy_building($town, $reactor);
@@ -355,7 +355,7 @@ class NightlyHandler
 
         // Day already advanced, let's get today's gazette!
         /** @var Gazette $gazette */
-        $gazette = $this->entity_manager->getRepository(Gazette::class)->findOneByTownAndDay($town,$town->getDay());
+        $gazette = $town->findGazette( $town->getDay() );
 
         $gazette->setDoor($town->getDoor());
 
@@ -776,7 +776,7 @@ class NightlyHandler
         $research_tower = $this->town_handler->getBuilding($town, 'small_gather_#02', true);
         $watchtower     = $this->town_handler->getBuilding($town, 'item_tagger_#00',  true);
 
-        $gazette = $this->entity_manager->getRepository(Gazette::class)->findOneByTownAndDay($town,$town->getDay());
+        $gazette = $town->findGazette($town->getDay());
 
         if ($watchtower) switch ($watchtower->getLevel()) {
             case 0: $discover_range  = 0;  break;

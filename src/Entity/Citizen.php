@@ -489,6 +489,14 @@ class Citizen
         return $this;
     }
 
+    public function getCurrentDigTimer(): ?DigTimer {
+        if (!$this->getZone()) return null;
+        foreach ($this->getDigTimers() as $digTimer)
+            if ($digTimer->getZone() === $this->getZone())
+                return $digTimer;
+        return null;
+    }
+
     public function getDailyUpgradeVote(): ?DailyUpgradeVote
     {
         return $this->dailyUpgradeVote;

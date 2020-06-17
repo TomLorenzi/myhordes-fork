@@ -154,7 +154,7 @@ class GameController extends AbstractController implements GameInterfaceControll
         $death_outside = $death_inside = [];
 
         /** @var Gazette $gazette */
-        $gazette = $this->entity_manager->getRepository(Gazette::class)->findOneByTownAndDay($town, $day);
+        $gazette = $town->findGazette( $day );
         if (!$gazette) {
             $gazette = new Gazette();
             $gazette->setTown($town)->setDay($town->getDay());

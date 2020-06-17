@@ -58,7 +58,7 @@ class TownHandler
         return $b;
     }
 
-    public function triggerAlways( Town $town, bool $flush = false ) {
+    public function triggerAlways( Town $town ): bool {
         $changed = false;
 
         if ( $town->getDoor() && !$town->getDevastated() && (($s = $this->timeKeeper->secondsUntilNextAttack(null, true)) <= 1800) ) {
@@ -80,10 +80,7 @@ class TownHandler
 
         }
 
-        if ($changed) {
-            $this->entity_manager->persist( $town );
-            if ($flush) $this->entity_manager->flush();
-        }
+        return $changed;
     }
 
     public function triggerBuildingCompletion( Town &$town, Building $building ) {
@@ -441,21 +438,15 @@ class TownHandler
             }
     }
 
-    public function check_gazettes(Town &$town) {
-        $gazette_old = $this->entity_manager->getRepository(Gazette::class)->findOneByTownAndDay($town, $town->getDay());
-        if (!$gazette_old) {
-            $town->addGazette((new Gazette())->setDay($town->getDay()));
-        }
-        $gazette_now = $this->entity_manager->getRepository(Gazette::class)->findOneByTownAndDay($town, $town->getDay() + 1);
-        if (!$gazette_now) {
-            $town->addGazette((new Gazette())->setDay($town->getDay() + 1));
-        }
-        $gazette_new = $this->entity_manager->getRepository(Gazette::class)->findOneByTownAndDay($town, $town->getDay() + 2);
-        if (!$gazette_new) {
-            $town->addGazette((new Gazette())->setDay($town->getDay() + 2));
-        }
-        $this->entity_manager->persist($town);
-        $this->entity_manager->flush();
+    public function check_gazettes(Town $town) {
+        $need = [ $town->getDay() => true, $town->getDay() + 1 => true, $town->getDay() + 2 => true ];
+
+        foreach ($town->getGazettes() as $gazette)
+            if (isset($need[$gazette->getDay()])) $need[$gazette->getDay()] = false;
+
+        foreach ($need as $day => $create)
+            if ($create) $town->addGazette((new Gazette())->setDay($day));
+
     }
 
     public function get_alive_citizens(Town &$town){
