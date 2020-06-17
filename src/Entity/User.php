@@ -490,6 +490,23 @@ class User implements UserInterface, EquatableInterface
         return $this;
     }
 
+    /**
+     * @param int $persisted
+     * @param PictoPrototype $prototype
+     * @param Town|TownLogEntry $town
+     * @return Picto|null
+     */
+    public function findPicto( int $persisted, PictoPrototype $prototype, $town ): ?Picto {
+        foreach ($this->getPictos() as $picto)
+            /** @var Picto $picto */
+            if (
+                $picto->getPersisted() === $persisted &&
+                $picto->getPrototype() === $prototype &&
+                (($town instanceof Town) ? ($picto->getTown() === $town) : ($picto->getTownEntry() === $town)))
+                return $picto;
+        return null;
+    }
+
     public function getAvatar(): ?Avatar
     {
         return $this->avatar;

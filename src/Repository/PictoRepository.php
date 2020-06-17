@@ -70,22 +70,6 @@ class PictoRepository extends ServiceEntityRepository
 
     /**
      * @param User $user
-     * @param PictoPrototype $prototype
-     * @return Picto[]
-     */
-    public function findPendingByUserAndPrototype(User $user, PictoPrototype $prototype)
-    {
-        return $this->createQueryBuilder('i')
-            ->andWhere('i.user = :val')
-            ->andWhere('i.prototype =  :prototype')
-            ->andWhere('i.persisted < 2')
-            ->setParameter('prototype', $prototype)
-            ->setParameter('val', $user)
-            ->getQuery()->getResult();
-    }
-
-    /**
-     * @param User $user
      * @return Picto[]
      */
     public function findNotPendingByUser(User $user)
@@ -113,62 +97,6 @@ class PictoRepository extends ServiceEntityRepository
             ->andWhere('i.user = :val')->setParameter('val', $user)
             ->andWhere(($town !== null && $town instanceof Town) ? 'i.town = :town' : 'i.townEntry = :town')->setParameter('town', $town)
             ->getQuery()->getResult();
-    }
-
-    /**
-     * @param User $user
-     * @param Town|TownRankingProxy|null $town
-     * @return Picto[]
-     */
-    public function findTodayPictoByUserAndTown(User $user, $town)
-    {
-        return $this->createQueryBuilder('i')
-            ->andWhere('i.user = :user')->setParameter('user', $user)
-            ->andWhere(($town !== null && $town instanceof Town) ? 'i.town = :town' : 'i.townEntry = :town')->setParameter('town', $town)
-            ->andWhere('i.persisted = 0')
-            ->getQuery()->getResult();
-    }
-
-    /**
-     * @param User $user
-     * @param Town|TownRankingProxy|null $town
-     * @param PictoPrototype $prototype
-     * @return Picto|null
-     */
-    public function findPreviousDaysPictoByUserAndTownAndPrototype(User $user, $town, PictoPrototype $prototype)
-    {
-        try {
-            return $this->createQueryBuilder('i')
-                ->andWhere('i.user = :val')->setParameter('val', $user)
-                ->andWhere(($town !== null && $town instanceof Town) ? 'i.town = :town' : 'i.townEntry = :town')->setParameter('town', $town)
-                ->andWhere('i.prototype =  :prototype')->setParameter('prototype', $prototype)
-                ->andWhere('i.persisted = 1')
-                ->getQuery()
-                ->getOneOrNullResult();
-        } catch (NonUniqueResultException $e) {
-            return null;
-        }
-    }
-
-    /**
-     * @param User $user
-     * @param Town|TownRankingProxy|null $town
-     * @param PictoPrototype $prototype
-     * @return Picto|null
-     */
-    public function findTodayPictoByUserAndTownAndPrototype(User $user, $town, PictoPrototype $prototype)
-    {
-        try {
-            return $this->createQueryBuilder('i')
-                ->andWhere('i.user = :val')->setParameter('val', $user)
-                ->andWhere(($town !== null && $town instanceof Town) ? 'i.town = :town' : 'i.townEntry = :town')->setParameter('town', $town)
-                ->andWhere('i.prototype =  :prototype')->setParameter('prototype', $prototype)
-                ->andWhere('i.persisted = 0')
-                ->getQuery()
-                ->getOneOrNullResult();
-        } catch (NonUniqueResultException $e) {
-            return null;
-        }
     }
 
     /**

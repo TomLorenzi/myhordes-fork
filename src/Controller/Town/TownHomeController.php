@@ -299,18 +299,7 @@ class TownHomeController extends TownController
         }
 
         // Give picto
-        $pictoHouseImprovment = $this->entity_manager->getRepository(PictoPrototype::class)->findOneByName("r_homeup_#00");
-        if($pictoHouseImprovment !== null) {
-            $picto = $this->entity_manager->getRepository(Picto::class)->findTodayPictoByUserAndTownAndPrototype($citizen->getUser(), $town, $pictoHouseImprovment);
-            if($picto === null) $picto = new Picto();
-            $picto->setPrototype($pictoHouseImprovment)
-                ->setPersisted(0)
-                ->setTown($citizen->getTown())
-                ->setUser($citizen->getUser())
-                ->setCount($picto->getCount()+1);
-
-            $this->entity_manager->persist($picto);
-        }
+        $this->picto_handler->give_picto( $citizen, "r_homeup_#00" );
 
         // Create log & persist
         try {
