@@ -108,6 +108,7 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
         $this->zone_handler->updateRuinZone( $this->getActiveCitizen()->getZone()->activeExplorerStats() );
         $str = $this->zone_handler->updateZone( $this->getActiveCitizen()->getZone(), null, $this->getActiveCitizen() );
         if ($str) $this->addFlash( 'notice', $str );
+        $this->entity_manager->flush();
     }
 
     public function before(): bool
