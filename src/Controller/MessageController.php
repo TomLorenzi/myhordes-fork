@@ -1347,7 +1347,10 @@ class MessageController extends AbstractController
                     /** @var ItemPrototype $item */
                     $item = $this->entityManager->getRepository(ItemPrototype::class)->find( $post->getForeignID() );
                     $thread->setTitle( $this->trans->trans('Haltet den Dieb!', [], 'game') );
-                    $post->setText( $this->prepareEmotes($post->getText()) . $this->trans->trans( 'Es scheint so, als ob ein anderer Bürger Gefallen an deinem Inventar gefunden hätte... Dir wurde folgendes gestohlen: <img src=\'' . $this->asset->getUrl('build/images/item/item_' . ($item ? $item->getIcon() : 'none') . '.gif') . '\' alt=\'\' /> %item%', ['%item%' => $this->trans->trans( $item ? $item->getLabel() : '', [], 'items' )], 'game' ) );
+
+                    $img = "<img src='{$this->asset->getUrl('build/images/item/item_' . ($item ? $item->getIcon() : 'none') . '.gif')}' alt='' />";
+                    $name = $this->trans->trans( $item ? $item->getLabel() : '', [], 'items' );
+                    $post->setText( $this->prepareEmotes($post->getText()) . $this->trans->trans( 'Es scheint so, als ob ein anderer Bürger Gefallen an deinem Inventar gefunden hätte... Dir wurde folgendes gestohlen: %icon% %item%', ['%icon%' => $img, '%item%' => $name], 'game' ) );
                     break;
                 default:
                     $post->setText($this->prepareEmotes($post->getText()));
