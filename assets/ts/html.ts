@@ -1,12 +1,17 @@
 import {Global} from "./defaults";
 
+import TwinoAlikeParser from "./twino"
+
 declare var $: Global;
 
 interface eventListener { (e: Event, element: HTMLElement, index: number): void }
 
+
 export default class HTML {
 
-    constructor() {}
+    twinoParser: TwinoAlikeParser;
+
+    constructor() { this.twinoParser = new TwinoAlikeParser(); }
 
     addEventListenerAll(query: string, event: string, handler: eventListener ): number {
         const elements = <NodeListOf<HTMLElement>>document.querySelectorAll(query);
@@ -27,7 +32,7 @@ export default class HTML {
                 data[node_name] = input_fields[i].value;
             }
             if (node_name && input_fields[i].getAttribute('type') == 'checkbox') {
-                data[node_name] = input_fields[i].checked ? true : false;
+                data[node_name] = input_fields[i].checked;
             }
         }
 
