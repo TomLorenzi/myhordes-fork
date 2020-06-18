@@ -10744,7 +10744,7 @@
       </notes>
       <segment>
         <source>Anonyme Beschwerde</source>
-        <target>Anonyme Beschwerde</target>
+        <target>Plainte anonyme</target>
       </segment>
     </unit>
     <unit id="tlOTwnM" name="Es wurde eine neue anonyme Beschwerde gegen dich eingelegt: &quot;%reason%&quot;">
@@ -10753,7 +10753,7 @@
       </notes>
       <segment>
         <source>Es wurde eine neue anonyme Beschwerde gegen dich eingelegt: "%reason%"</source>
-        <target>Es wurde eine neue anonyme Beschwerde gegen dich eingelegt: "%reason%"</target>
+        <target>Vous avez reçu une nouvelle plainte anonyme : « %reason% ».</target>
       </segment>
     </unit>
     <unit id="1VFuVbv" name="Beschwerde zurückgezogen">
@@ -10762,7 +10762,7 @@
       </notes>
       <segment>
         <source>Beschwerde zurückgezogen</source>
-        <target>Beschwerde zurückgezogen</target>
+        <target>Plainte retirée</target>
       </segment>
     </unit>
     <unit id="xllGfth" name="Es gibt gute Nachrichten! Folgende Beschwerde wurde zurückgezogen: &quot;%reason%&quot;">
@@ -10771,7 +10771,7 @@
       </notes>
       <segment>
         <source>Es gibt gute Nachrichten! Folgende Beschwerde wurde zurückgezogen: "%reason%"</source>
-        <target>Es gibt gute Nachrichten! Folgende Beschwerde wurde zurückgezogen: "%reason%"</target>
+        <target>Bonne nouvelle ! La plainte suivante a été retirée : « %reason% ».</target>
       </segment>
     </unit>
     <unit id="d7mV6VK" name="Du bist vor Angst erstarrt!!">
@@ -10789,7 +10789,7 @@
       </notes>
       <segment>
         <source>Wir haben zwei Neuigkeiten für dich. Eine gute und eine schlechte. Zuerst die gute: Trotz ihrer hartnäckigen Versuche, ist es den %num% Zombie(s) nicht gelungen, dich aufzufressen. Du hast dich wacker geschlagen. Bravo! Die schlechte: Das Erlebnis war so schlimm, dass du in eine Angststarre verfallen bist. So etwas möchtest du nicht wieder erleben...</source>
-        <target>Wir haben zwei Neuigkeiten für dich. Eine gute und eine schlechte. Zuerst die gute: Trotz ihrer hartnäckigen Versuche, ist es den %num% Zombie(s) nicht gelungen, dich aufzufressen. Du hast dich wacker geschlagen. Bravo! Die schlechte: Das Erlebnis war so schlimm, dass du in eine Angststarre verfallen bist. So etwas möchtest du nicht wieder erleben...</target>
+        <target>Nous avons deux nouvelles à vous annoncer. La bonne : malgré les tentatives de %num% zombie(s) pour vous dévorer, vous avez tenu bon ! La mauvaise : l'expérience ayant été terrifiante, vous êtes désormais terrorisé(e) à l'idée d'avoir à vivre cela une seconde fois...</target>
       </segment>
     </unit>
     <unit id="Efbc_qn" name="Haltet den Dieb!">
@@ -10798,7 +10798,7 @@
       </notes>
       <segment>
         <source>Haltet den Dieb!</source>
-        <target>Haltet den Dieb!</target>
+        <target>Au vol !</target>
       </segment>
     </unit>
     <unit id="98qlXbX" name="Du bist %status%">
@@ -10807,7 +10807,7 @@
       </notes>
       <segment>
         <source>Du bist %status%</source>
-        <target>Du bist %status%</target>
+        <target>Vous êtes %status%</target>
       </segment>
     </unit>
     <unit id="Pzhs1Mo" name="Ratschlag:">
@@ -10816,7 +10816,7 @@
       </notes>
       <segment>
         <source>Ratschlag:</source>
-        <target>Ratschlag:</target>
+        <target>Conseil :</target>
       </segment>
     </unit>
     <unit id="iHdJZPx" name="Iss ODER trink etwas Wasser.">
@@ -10825,7 +10825,7 @@
       </notes>
       <segment>
         <source>Iss ODER trink etwas Wasser.</source>
-        <target>Iss ODER trink etwas Wasser.</target>
+        <target>Mangez OU buvez de l'eau.</target>
       </segment>
     </unit>
     <unit id="hhKj9e1" name="Du kannst eine Ration Wasser trinken.">
@@ -10834,7 +10834,7 @@
       </notes>
       <segment>
         <source>Du kannst eine Ration Wasser trinken.</source>
-        <target>Du kannst eine Ration Wasser trinken.</target>
+        <target>Vous pouvez boire une ration d'eau.</target>
       </segment>
     </unit>
     <unit id="uSGlEhQ" name="Du kannst etwas essen, um deine Erschöpfung zu lindern.">
@@ -10843,7 +10843,7 @@
       </notes>
       <segment>
         <source>Du kannst etwas essen, um deine Erschöpfung zu lindern.</source>
-        <target>Du kannst etwas essen, um deine Erschöpfung zu lindern.</target>
+        <target>Vous pouvez manger quelque chose pour soulager votre épuisement.</target>
       </segment>
     </unit>
     <unit id="CjT0_7R" name="4d90a81">
@@ -10852,7 +10852,7 @@
       </notes>
       <segment>
         <source>Du hast bereits etwas gegessen und getrunken. Dir bleiben nur noch Drogen und Alkohol!</source>
-        <target>Du hast bereits etwas gegessen und getrunken. Dir bleiben nur noch Drogen und Alkohol!</target>
+        <target>Vous avez déjà mangé et bu quelque chose. Il ne vous reste que de la drogue et de l'alcool !</target>
       </segment>
     </unit>
     <unit id="00Lc7om" name="73a703f">
@@ -10861,7 +10861,7 @@
       </notes>
       <segment>
         <source>Du bist in einer Privatstadt. Für diese Art von Stadt gelten einige Sonderregeln.</source>
-        <target>Du bist in einer Privatstadt. Für diese Art von Stadt gelten einige Sonderregeln.</target>
+        <target>Vous êtes dans une ville privée. Il existe des règles spéciales pour ce type de ville.</target>
       </segment>
     </unit>
   </file>
