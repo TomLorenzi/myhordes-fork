@@ -3,6 +3,7 @@
 namespace App\Controller\Admin;
 
 use App\Entity\AttackSchedule;
+use App\Entity\LogEntryTemplate;
 use App\Entity\User;
 use App\Entity\Town;
 use App\Entity\TownLogEntry;
@@ -68,8 +69,6 @@ class AdminActionController extends AbstractController
                 if (!$template)
                     continue;
                 $entityVariables = $entity->getVariables();
-                if (!$entityVariables)
-                    continue;
                 $entries[$idx]['timestamp'] = $entity->getTimestamp();
                 $entries[$idx]['class'] = $template->getClass();
                 $entries[$idx]['type'] = $template->getType();

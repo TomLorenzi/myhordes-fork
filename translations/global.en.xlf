@@ -1200,7 +1200,7 @@
     </unit>
     <unit id="8qHMcfp" name="Sprache">
       <notes>
-        <note category="german">Language</note>
+        <note category="german">Sprache</note>
       </notes>
       <segment>
         <source>Sprache</source>
@@ -1209,11 +1209,38 @@
     </unit>
     <unit id="81XajEF" name="Vertraulich">
       <notes>
-        <note category="german">Side Note</note>
+        <note category="german">Vertraulich</note>
       </notes>
       <segment>
         <source>Vertraulich</source>
         <target>Side Note</target>
+      </segment>
+    </unit>
+    <unit id="uEQ0dag" name="7273dec">
+      <notes>
+        <note category="german">Diese ID übergibst du der Seite oder dem Programm, dem du einen (Lese-)Zugriff auf deine Spieldaten in "MyHordes" geben möchtest. Das sind Informationen zu deiner Stadt, dem Bürgerverzeichnis, der Weltkarte etc.</note>
+      </notes>
+      <segment>
+        <source>Diese ID übergibst du der Seite oder dem Programm, dem du einen (Lese-)Zugriff auf deine Spieldaten in "MyHordes" geben möchtest. Das sind Informationen zu deiner Stadt, dem Bürgerverzeichnis, der Weltkarte etc.</source>
+        <target>This identifier must be supplied to any sites which you wish to allow to access (read-only) to game information held in your Die2Nite account : Information on your town, list of citizens, map of the world, etc...</target>
+      </segment>
+    </unit>
+    <unit id=".0Hr4tG" name="Diese Punkte werden für die Seelenrangliste verwendet.">
+      <notes>
+        <note category="german">Diese Punkte werden für die Seelenrangliste verwendet.</note>
+      </notes>
+      <segment>
+        <source>Diese Punkte werden für die Seelenrangliste verwendet.</source>
+        <target>These points decide your classification in the Soul Rankings.</target>
+      </segment>
+    </unit>
+    <unit id="L3FSiZr" name="1eebdb6">
+      <notes>
+        <note category="german">Abhängig von der Anzahl der Tage, die du überlebt hast, erhältst du nach jeder Partie eine bestimmte Anzahl an Punkten.</note>
+      </notes>
+      <segment>
+        <source>Abhängig von der Anzahl der Tage, die du überlebt hast, erhältst du nach jeder Partie eine bestimmte Anzahl an Punkten.</source>
+        <target>You gain points at the end of each game depending on the number of days you survived for.</target>
       </segment>
     </unit>
   </file>

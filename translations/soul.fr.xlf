@@ -592,5 +592,23 @@
                                             Déplacez la section avec la souris et agrandissez-la ou réduisez-la avec la molette de la souris.</target>
       </segment>
     </unit>
+    <unit id="x3_4s4O" name="Alte Städte">
+      <notes>
+        <note category="german">Alte Städte</note>
+      </notes>
+      <segment>
+        <source>Alte Städte</source>
+        <target>Vieilles villes</target>
+      </segment>
+    </unit>
+    <unit id="hU1AUQF" name="Nur 10 Städte anzeigen">
+      <notes>
+        <note category="german">Nur 10 Städte anzeigen</note>
+      </notes>
+      <segment>
+        <source>Nur 10 Städte anzeigen</source>
+        <target>Limiter l'affichage à 10 villes</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

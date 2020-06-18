@@ -56,9 +56,8 @@
                 {% if is_granted("ROLE_ORACLE") %}
                 <div x-forum-action="edit" x-text-wrap-node="announce" class="forum-button"><i class="fas fa-rss"></i><span class="forum-button-tooltip">{{ 'Orakel Ankündigung'|trans({},'global') }}</span></div>
                 {% endif %}
-                <div x-forum-action="edit" x-text-wrap-node="ul" class="forum-button"><i class="fa fa-list-ul"></i><span class="forum-button-tooltip">{{ 'Einfache Liste'|trans({},'global') }}</span></div>
-                <div x-forum-action="edit" x-text-wrap-node="ol" class="forum-button"><i class="fa fa-list-ol"></i><span class="forum-button-tooltip">{{ 'Nummerierte Liste'|trans({},'global') }}</span></div>
-                <div x-forum-action="edit" x-text-wrap-node="li" class="forum-button"><i class="fa fa-star-of-life"></i><span class="forum-button-tooltip">{{ 'Listenpunkt'|trans({},'global') }}</span></div>
+                <div x-forum-action="edit" x-text-insert-list-node="*" class="forum-button"><i class="fa fa-star-of-life"></i><span class="forum-button-tooltip">{{ 'Listenpunkt'|trans({},'global') }}</span></div>
+                <div x-forum-action="edit" x-text-insert-list-node="0" class="forum-button"><i class="fa fa-list-ol"></i><span class="forum-button-tooltip">{{ 'Num. Listenpunkt'|trans({},'global') }}</span></div>
                 <div x-forum-action="edit" x-text-wrap-node="quote" class="forum-button"><i class="fa fa-quote-left"></i><span class="forum-button-tooltip">{{ 'Zitat'|trans({},'global') }}</span></div>
                 <div x-forum-action="edit" x-text-wrap-node="spoiler" class="forum-button"><i class="fa fa-eye-slash"></i><span class="forum-button-tooltip">{{ 'Spoiler'|trans({},'global') }}</span></div>
                 <div x-forum-action="edit" x-text-wrap-node="aparte" class="forum-button"><i class="fas fa-compress-alt"></i><span class="forum-button-tooltip">{{ 'Vertraulich'|trans({},'global') }}</span></div>
@@ -75,6 +74,9 @@
                 <ul class="tabs plain" x-tab-group="forum-classic-editor-toolbox" x-tab-control>
                     <li class="tab" x-tab-id="emotes"><div class="tab-link"><i class="fa fa-smile"></i></div></li>
                     <li class="tab" x-tab-id="games"><div class="tab-link"><i class="fa fa-dice"></i></div></li>
+                    {% if town_controls %}
+                        <li class="tab" x-tab-id="rp_player"><div class="tab-link"><i class="fa fa-user"></i></div></li>
+                    {% endif %}
                 </ul>
                 <div class="lightbox" x-tab-group="forum-classic-editor-toolbox" x-tab-id="emotes" x-tab-target>
                     <div class="forum-button-bar">
@@ -100,6 +102,51 @@
                         <div x-forum-action="edit" x-text-insert-node="card" class="forum-button-inline"><img alt="" src="{{ asset('build/images/forum/card.png') }}"></div>
                     </div>
                 </div>
+                {% if town_controls %}
+                    <div class="lightbox" x-tab-group="forum-classic-editor-toolbox" x-tab-id="rp_player" x-tab-target>
+                        <div class="row">
+                            <div class="cell rw-11 rw-lg-10 rw-sm-8">
+                                <div class="forum-button-bar">
+                                    <div x-forum-action="edit" x-text-insert-node="rnduser,any" class="forum-button-inline"><img alt="" src="{{ asset('build/images/small_human.gif') }}"></div>
+                                    <div x-forum-action="edit" x-text-insert-node="rnduser,hero" class="forum-button-inline"><img alt="" src="{{ asset('build/images/professions/hero.gif') }}"></div>
+                                    <div x-forum-action="edit" x-text-insert-node="rnduser,dead" class="forum-button-inline"><img alt="" src="{{ asset('build/images/professions/death.gif') }}"></div>
+                                    <div x-forum-action="edit" x-text-insert-node="rnduser,basic" class="forum-button-inline"><img alt="" src="{{ asset('build/images/professions/basic.gif') }}"></div>
+                                    <div x-forum-action="edit" x-text-insert-node="rnduser,scout" class="forum-button-inline"><img alt="" src="{{ asset('build/images/professions/vest.gif') }}"></div>
+                                    <div x-forum-action="edit" x-text-insert-node="rnduser,collec" class="forum-button-inline"><img alt="" src="{{ asset('build/images/professions/dig.gif') }}"></div>
+                                    <div x-forum-action="edit" x-text-insert-node="rnduser,guardian" class="forum-button-inline"><img alt="" src="{{ asset('build/images/professions/shield.gif') }}"></div>
+                                    <div x-forum-action="edit" x-text-insert-node="rnduser,survivalist" class="forum-button-inline"><img alt="" src="{{ asset('build/images/professions/book.gif') }}"></div>
+                                    <div x-forum-action="edit" x-text-insert-node="rnduser,tamer" class="forum-button-inline"><img alt="" src="{{ asset('build/images/professions/tamer.gif') }}"></div>
+                                    <div x-forum-action="edit" x-text-insert-node="rnduser,tech" class="forum-button-inline"><img alt="" src="{{ asset('build/images/professions/tech.gif') }}"></div>
+                                    <div x-forum-action="edit" x-text-insert-node="rnduser,shaman" class="forum-button-inline"><img alt="" src="{{ asset('build/images/professions/shaman.gif') }}"></div>
+                                    <div x-forum-action="edit" x-text-insert-node="rnduser,none" class="forum-button-inline"><img alt="" src="{{ asset('build/images/professions/looser.gif') }}"></div>
+                                </div>
+                            </div>
+                            <div class="cell rw-1 rw-lg-2 rw-sm-4">
+                                <a class="help-button">{{ 'Hilfe'|trans({},'global') }}
+                                    <div class="tooltip help">
+                                        <h1>{{ 'Zufälliger Bürger'|trans({},'game') }}</h1>
+                                        <em>
+                                            {% trans from 'game' %}
+                                                Hiermit kannst du den Namen eines zufälligen Bürgers in deinen Post anfügen.
+                                                Bei Bedarf kannst du die Auswahl auf bestimmte Berufe, Helden oder bereits gestorbene Bürger eingrenzen.
+                                            {% endtrans %}
+                                        </em>
+                                        <em>
+                                            {% trans from 'game' %}
+                                                Wenn zu den gleichen zufällig gewählten Bürger mehrfach in deinem Text verwenden willst, kannst du ihm eine Nummer zuweisen, beispielsweise:
+                                            {% endtrans %}<code>{rnduser,tamer,1}</code>
+                                        </em>
+
+                                    </div>
+
+                                </a>
+                            </div>
+                        </div>
+
+
+                        </div>
+                    </div>
+                {% endif %}
             </div>
         </div>
     </div>
@@ -110,7 +157,7 @@
                     <input class="forum-checkbox" type="radio" id="radio-user" name="post-type" value="USER" {% if app.user.postAsDefault != "DEV" %}checked{% endif %}>
                     <input class="forum-checkbox" type="radio" id="radio-crow" name="post-type" value="CROW">
                     {% if is_granted("ROLE_ADMIN") %}
-                        <input class="forum-checkbox" type="radio" id="radio-dev" name="post-type" value="DEV"{% if app.user.postAsDefault == "DEV" %}checked{% endif %}>
+                        <input class="forum-checkbox" type="radio" id="radio-dev" name="post-type" value="DEV" {% if app.user.postAsDefault == "DEV" %}checked{% endif %}>
                     {% endif %}
                     <span id="crow_answer_content">{% if app.user.postAsDefault != "DEV" %}{{ app.user.username }}{% else %}{{ 'Dev'|trans({},'global') }}{% endif %}</span>
                 </div>
@@ -125,215 +172,21 @@
 
         let node_transfer_source = document.getElementById('forum-editor-text');
         let node_transfer_target = document.getElementById('forum-editor-preview');
+
         const transfer_to_preview = function() {
 
-            let container_node = document.createElement('p');
-            container_node.innerText = node_transfer_source.value.replace(/(\r\n|\n|\r)/gm,'{br}');
-
-            const lego = function(blocks,elem) {
-                for (let i = 0; i < blocks.length; i++) {
-                    if (!blocks[i]) continue;
-                    let node = null;
-                    if (typeof blocks[i] === 'string')
-                        node = document.createTextNode( blocks[i] );
-                    if (typeof blocks[i] === 'object') {
-                        node = document.createElement( blocks[i][1] );
-                        node.appendChild( document.createTextNode( blocks[i][0] ) );
-                        if (blocks[i][2]) node.classList.add(blocks[i][2]);
-                        if (blocks[i][3]) for (let j = 0; j < blocks[i][3].length; j += 2)
-                            node.setAttribute(blocks[i][3][j], blocks[i][3][j+1]);
-                    }
-                    if (node) elem.parentNode.insertBefore(node, elem);
+            $.html.twinoParser.parseTo( node_transfer_source.value, node_transfer_target, function(s) {
+                switch (s) {
+                    case ':)': s = ':smile:';    break;
+                    case ':D': s = ':lol:';      break;
+                    case ':(': s = ':sad:';      break;
+                    case ';)': s = ':smile:';    break;
+                    case ':O': s = ':surprise:'; break;
                 }
-                elem.parentNode.removeChild(elem);
-            }
 
-            const parseRangeBlocks = function(elem, secondary = false) {
-                let changed = false;
-                if (elem.nodeType === Node.TEXT_NODE) {
-                    let str = elem.textContent;
-                    let regex_wrappers = !secondary ? /\[(.*?)(?:=([^\]]*))?]([\s\S]*?)\[\/\1]/gm : /(?:([^\w\s]){2})([\s\S]*?)\1{2}/gm;
-                    let current_offset = 0;
-                    let blocks = [];
-                    /*
-                    Blocks structure
-                    1 - text content,
-                    2 - HTML tag (wrapping element),
-                    3 - element class name,
-                    4 - element attributes (array, optional)
-
-                    Attributes structure
-                    1 - attribute name
-                    2 - attribute value
-                    ... repeat if necessary
-
-                    Examples:
-                    blocks.push( [ 'my text', 'p', null] )
-                    => <p>my text</p>
-
-                    blocks.push( [ 'my link', 'a', 'external', [ 'href', 'https://myhordes.net']] )
-                    => <a class="external" href="https://myhordes.net">my text</a>
-                     */
-
-                    for (let match of str.matchAll( regex_wrappers )) {
-                        if (current_offset < match.index )
-                            blocks.push(str.substr(current_offset,match.index-current_offset));
-
-                        let tag = match[1].toLowerCase();
-                        if (!secondary) switch (tag) {
-                            case 'b': case 'i': case 'u': case 's': case 'ul': case 'ol': case 'li': blocks.push( [ match[3], tag, null] ); changed = true; break;
-                            case 'bad': blocks.push( [ match[3], 'span', tag] ); changed = true; break;
-                            case 'spoiler': case 'glory': blocks.push( [ match[3], 'div', tag] ); changed = true; break;
-                            case 'aparte': blocks.push( [ match[3], 'div', 'sideNote'] ); changed = true; break;
-                            case 'quote': 
-                            if(match[2] !== undefined) 
-                                blocks.push( [ match[2], 'span', 'quoteauthor'] ); 
-                            blocks.push( [ match[3], 'blockquote', null] ); changed = true; break;
-                            case 'spoiler': case 'glory': blocks.push( [ match[3], 'div', tag] ); changed = true; break;
-                            case 'link': blocks.push( [ match[3], 'a', tag, [ 'href', match[2], 'target','_blank' ]] ); changed = true; break;
-                            case 'image': blocks.push( [ '', 'img', tag, [ 'src', match[2], 'alt', match[3] ]] ); changed = true; break;
-                            case 'admannounce': blocks.push( [ match[3], 'div', 'adminAnnounce'] ); changed = true; break;
-                            case 'modannounce': blocks.push( [ match[3], 'div', 'modAnnounce'] ); changed = true; break;
-                            case 'announce': blocks.push( [ match[3], 'div', 'oracleAnnounce'] ); changed = true; break;
-                            case 'rp':
-                            if(match[2] !== undefined) 
-                                blocks.push( [ match[2], 'span', 'rpauthor'] ); 
-                            blocks.push( [ match[3], 'div', 'rpText'] ); changed = true; break;
-                            default: blocks.push( match[0] ); break;
-                        } else switch (tag) {
-                            case '*': blocks.push( [ match[2], 'b', null] ); changed = true; break;
-                            case '/': blocks.push( [ match[2], 'i', null] ); changed = true; break;
-                            case '-': blocks.push( [ match[2], 's', null] ); changed = true; break;
-                            default: blocks.push( match[0] ); break;
-                        }
-                        current_offset = (match[0].length + match.index);
-                    }
-
-                    if (blocks.length === 0) blocks.push( str );
-                    else if (current_offset < str.length) blocks.push( str.substr( current_offset ) );
-
-                    lego(blocks,elem);
-                } else if (elem.nodeType === Node.ELEMENT_NODE) {
-                    let children = elem.childNodes;
-                    for (let i = 0; i < children.length; i++)
-                        changed |= parseRangeBlocks(children[i],secondary);
-                }
-                return changed;
-            }
-            const parseInsets = function(elem, listspace = false) {
-                if (elem.nodeType === Node.TEXT_NODE) {
-                    let str = elem.textContent;
-                    let regex_wrappers = /{([a-zA-Z]+)}|{([a-zA-Z]+),([\w,]*)}|{([a-zA-Z]+)(\d+)}/g;
-                    let current_offset = 0;
-                    let blocks = [];
-
-                    for (let match_r of str.matchAll( regex_wrappers )) {
-
-                        let match = [match_r[0], undefined, undefined];
-                        if      (match_r[1] !== undefined) match = [ match_r[0], match_r[1], undefined ];
-                        else if (match_r[2] !== undefined) match = [ match_r[0], match_r[2], match_r[3] ];
-                        else if (match_r[4] !== undefined) match = [ match_r[0], match_r[4], match_r[5] ];
-
-                        if (current_offset < match_r.index )
-                            blocks.push(str.substr(current_offset,match_r.index-current_offset));
-
-                        let tag = match[1].toLowerCase();
-                        switch (tag) {
-                            case 'hr': blocks.push( [ '', tag, null] ); break;
-                            case 'br': blocks.push( listspace ? null : [ '', tag, null] ); break;
-                            case 'dice': case 'dc': case 'de': case 'des': case 'd': case 'w':
-                                if (["4","6","8","10","12","20","100"].indexOf( match[2] ) !== -1) blocks.push( [ '???', 'div', 'dice-' + match[2]] );
-                                else blocks.push( match[0] );
-                                break;
-                            case 'letter': case 'lettre': blocks.push( [ '???', 'div', 'letter-a'] ); break;
-                            case 'consonant': case 'consonne': blocks.push( [ '???', 'div', 'letter-c'] ); break;
-                            case 'vowel': case 'voyelle': blocks.push( [ '???', 'div', 'letter-v'] ); break;
-                            case 'pfc': case 'rps': case 'ssp': blocks.push( [ '???', 'div', 'rps'] ); break;
-                            case 'flip': case 'coin': case 'ht': case 'pf': case 'mw': blocks.push( [ '???', 'div', 'coin'] ); break;
-                            case 'carte': case 'card': case 'skat': case 'blatt': blocks.push( [ '???', 'div', 'card'] ); break;
-                            case 'citizen': case 'rnduser': case 'user': case 'spieler':
-                                let attribs = match[2] ? match[2].split(',') : [];
-                                if (!attribs[0]) attribs[0] = 'any';
-                                if (!attribs[1]) attribs[1] = '0';
-                                blocks.push( [ attribs[1] === '0' ? '???' : '??? [' + attribs[1] + ']', 'div', 'citizen', ['x-a', attribs[0], 'x-b', attribs[1]]] );
-                                break;
-                            default: blocks.push( match[0] ); break;
-                        }
-                        current_offset = (match[0].length + match_r.index);
-                    }
-
-                    if (blocks.length === 0) blocks.push( str );
-                    else {
-                        changed = true;
-                        if (current_offset < str.length) blocks.push( str.substr( current_offset ) );
-                    }
-
-                    lego(blocks,elem);
-                } else {
-                    let is_list_wrapper = ['UL','OL'].indexOf(elem.tagName) !== -1;
-                    let is_list_entry   = ['LI'].indexOf(elem.tagName) !== -1;
-                    let children = elem.childNodes;
-                    for (let i = 0; i < children.length; i++)
-                        parseInsets(children[i], (listspace || is_list_wrapper) && !is_list_entry);
-                }
-            }
-
-            const parseEmotes = function(elem) {
-                if (elem.nodeType === Node.TEXT_NODE) {
-                    let str = elem.textContent;
-                    let regex_wrappers = /(?::(\w+?):)|([:;].)/g;
-                    let current_offset = 0;
-                    let blocks = [];
-
-                    for (let match of str.matchAll( regex_wrappers )) {
-
-                        if (current_offset < match.index )
-                            blocks.push(str.substr(current_offset,match.index-current_offset));
-
-                        let tag = null;
-                        if (match[1])
-                            tag = match[0].toLowerCase();
-                        else if (match[2])
-                            switch (match[0]) {
-                                case ':)': tag = ':smile:';    break;
-                                case ':D': tag = ':lol:';      break;
-                                case ':(': tag = ':sad:';      break;
-                                case ';)': tag = ':smile:';    break;
-                                case ':O': tag = ':surprise:'; break;
-                            }
-
-                        let ctrl = tag ? document.querySelector('[x-text-emote][x-text-insert-emote="' + tag + '"]') : null;
-                        if (ctrl)
-                            blocks.push( [ '', 'img', null, ['src', ctrl.getAttribute('x-text-emote'), 'x-foxy-proxy', tag]] );
-                        else blocks.push( match[0] );
-                        current_offset = (match[0].length + match.index);
-                    }
-
-                    if (blocks.length === 0) blocks.push( str );
-                    else if (current_offset < str.length) blocks.push( str.substr( current_offset ) );
-
-                    lego(blocks,elem);
-                } else {
-                    let children = elem.childNodes;
-                    for (let i = 0; i < children.length; i++)
-                        parseEmotes(children[i]);
-                }
-            }
-
-            let changed = true;
-            while (changed) changed &= parseRangeBlocks(container_node,false);
-            parseInsets(container_node);
-            parseEmotes(container_node);
-
-            changed = true;
-            while (changed) changed &= parseRangeBlocks(container_node,true);
-
-            let c = null;
-            while ((c = node_transfer_target.lastChild))
-                node_transfer_target.removeChild(c)
-
-            while ((c = container_node.firstChild))
-                node_transfer_target.appendChild(c);
+                let n = document.querySelector('[x-text-emote][x-text-insert-emote="' + s + '"]');
+                return n ? n.getAttribute('x-text-emote') : null;
+            } );
         }
 
         node_transfer_source.addEventListener('input', transfer_to_preview);
@@ -412,7 +265,7 @@
                 let submitted = document.getElementById('modal-form');
                 let type = document.getElementById('form-type');
                 let inputs = submitted.getElementsByTagName('input');
-                var tagText, tagUrl;
+                let tagText, tagUrl;
                 for (let i = 0; i < inputs.length; i++) {
                     if (inputs[i].id === type.value + '-text') {
                         let doc = new DOMParser().parseFromString(inputs[i].value, 'text/html');
@@ -467,9 +320,7 @@
                 content.substr( s_end );
 
             node_transfer_source.setSelectionRange( s_start + tag.length + 2, s_end + tag.length + 2 );
-            //window.setTimeout( function() {
-                node_transfer_source.focus()
-            //}, 10 );
+            node_transfer_source.focus();
             transfer_to_preview();
         } );
         $.html.addEventListenerAll( '[x-forum-action="edit"][x-text-insert-node]', 'click', function (e,elem) {
@@ -487,9 +338,25 @@
                 content.substr( s_start );
 
             node_transfer_source.setSelectionRange( s_start + tag.length + 2, s_end + tag.length + 2 );
-            //window.setTimeout( function() {
-                node_transfer_source.focus()
-            //}, 10 );
+            node_transfer_source.focus();
+            transfer_to_preview();
+        } );
+        $.html.addEventListenerAll( '[x-forum-action="edit"][x-text-insert-list-node]', 'click', function (e,elem) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            let tag = elem.getAttribute('x-text-insert-list-node');
+            let content = node_transfer_source.value;
+            let s_start = node_transfer_source.selectionStart;
+            let s_end = node_transfer_source.selectionEnd;
+
+            node_transfer_source.value =
+                content.substr( 0, s_start ) +
+                '\n[' + tag + ']' +
+                content.substr( s_start );
+
+            node_transfer_source.setSelectionRange( s_start + tag.length + 3, s_end + tag.length + 3 );
+            node_transfer_source.focus()
             transfer_to_preview();
         } );
         $.html.addEventListenerAll( '[x-forum-action="edit"][x-text-insert-emote][x-text-emote]', 'click', function (e,elem) {

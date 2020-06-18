@@ -17,6 +17,7 @@ use App\Entity\RuinZone;
 use App\Entity\Town;
 use App\Entity\TownLogEntry;
 use App\Entity\Zone;
+use App\Structures\TownConf;
 use App\Translation\T;
 use DateTime;
 use Doctrine\ORM\EntityManagerInterface;
@@ -35,11 +36,13 @@ class ZoneHandler
     private $picto_handler;
     private $trans;
     private $log;
+    private $conf;
     private $asset;
 
     public function __construct(
         EntityManagerInterface $em, ItemFactory $if, LogTemplateHandler $lh, TranslatorInterface $t,
-        StatusFactory $sf, RandomGenerator $rg, InventoryHandler $ih, CitizenHandler $ch, PictoHandler $ph, Packages $a)
+        StatusFactory $sf, RandomGenerator $rg, InventoryHandler $ih, CitizenHandler $ch, PictoHandler $ph, Packages $a,
+        ConfMaster $conf)
     {
         $this->entity_manager = $em;
         $this->item_factory = $if;
@@ -51,6 +54,7 @@ class ZoneHandler
         $this->trans = $t;
         $this->log = $lh;
         $this->asset = $a;
+        $this->conf = $conf;
     }
 
     public function updateRuinZone(?RuinExplorerStats $ex) {
@@ -89,7 +93,7 @@ class ZoneHandler
         $cp = 0;
 
         foreach ($zone->getCitizens() as $citizen) {
-            $timer = $this->entity_manager->getRepository(DigTimer::class)->findActiveByCitizen( $citizen );
+            $timer = $citizen->getCurrentDigTimer();
             if ($timer && !$timer->getPassive() && $timer->getTimestamp() < $up_to)
                 $dig_timers[] = $timer;
             $cp += $this->citizen_handler->getCP( $citizen );
@@ -101,7 +105,7 @@ class ZoneHandler
                 $timer->setPassive(true);
                 $this->entity_manager->persist($timer);
             }
-            $this->entity_manager->flush();
+
             return null;
         }
 
@@ -127,6 +131,8 @@ class ZoneHandler
                 return "<span><img alt='' src='{$this->asset->getUrl( "build/images/item/item_{$p->getIcon()}.gif" )}'> {$this->trans->trans($p->getLabel(), [], 'items')}</span>";
             }, $a));
         };
+
+        $conf = $this->conf->getTownConfiguration( $zone->getTown() );
 
         $zone_update = false;
         $not_up_to_date = !empty($dig_timers);
@@ -192,7 +198,9 @@ class ZoneHandler
                         $timer->setTimestamp(
                             (new DateTime())->setTimestamp(
                                 $timer->getTimestamp()->getTimestamp()
-                            )->modify($timer->getCitizen()->getProfession()->getName() === 'collec' ? '+1hour30min' : '+2hour') );
+                            )->modify($conf->get( $timer->getCitizen()->getProfession()->getName() === 'collec' ?
+                                TownConf::CONF_TIMES_DIG_COLLEC :
+                                TownConf::CONF_TIMES_DIG_NORMAL, '+2hour')) );
 
                     } catch (Exception $e) {
                         $timer->setTimestamp( new DateTime('+1min') );
@@ -216,7 +224,6 @@ class ZoneHandler
 
         if ($zone_update) $this->entity_manager->persist($zone);
         foreach ($dig_timers as $timer) $this->entity_manager->persist( $timer );
-        $this->entity_manager->flush();
 
         if ($chances_by_player > 0) {
             if (empty($found_by_player)){
@@ -343,7 +350,7 @@ class ZoneHandler
     public function handleCitizenCountUpdate(&$zone, $cp_ok_before) {
         // If no citizens remain in a zone, invalidate all associated escape timers and clear the log
         if (!count($zone->getCitizens())) {
-            foreach ($this->entity_manager->getRepository(EscapeTimer::class)->findAllByZone($zone) as $et)
+            foreach ($zone->getEscapeTimers() as $et)
                 $this->entity_manager->remove( $et );
             foreach ($this->entity_manager->getRepository(TownLogEntry::class)->findByFilter( $zone->getTown(), null, null, $zone, null, null ) as $entry)
                 /** @var TownLogEntry $entry */

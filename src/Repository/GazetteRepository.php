@@ -22,19 +22,6 @@ class GazetteRepository extends ServiceEntityRepository
         parent::__construct($registry, Gazette::class);
     }
 
-    public function findOneByTownAndDay(Town $town, int $day): ?Gazette
-    {
-        try {
-            return $this->createQueryBuilder('g')
-                ->andWhere('g.town = :t')->setParameter('t', $town)
-                ->andWhere('g.day = :d')->setParameter('d', $day)
-                ->getQuery()
-                ->getOneOrNullResult();
-        } catch (Exception $e) {
-            return null;
-        }
-    }
-
     // /**
     //  * @return Gazette[] Returns an array of Gazette objects
     //  */

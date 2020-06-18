@@ -489,6 +489,14 @@ class Citizen
         return $this;
     }
 
+    public function getCurrentDigTimer(): ?DigTimer {
+        if (!$this->getZone()) return null;
+        foreach ($this->getDigTimers() as $digTimer)
+            if ($digTimer->getZone() === $this->getZone())
+                return $digTimer;
+        return null;
+    }
+
     public function getDailyUpgradeVote(): ?DailyUpgradeVote
     {
         return $this->dailyUpgradeVote;
@@ -1064,6 +1072,8 @@ class Citizen
     {
         if ($this->explorerStats->contains($explorerStat)) {
             $this->explorerStats->removeElement($explorerStat);
+            $explorerStat->getZone()->getExplorerStats()->removeElement($explorerStat);
+
             // set the owning side to null (unless already changed)
             if ($explorerStat->getCitizen() === $this) {
                 $explorerStat->setCitizen(null);

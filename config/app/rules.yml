@@ -28,6 +28,14 @@ parameters:
 
       bank_abuse_limit: 5
 
+      times:
+        digging:
+          normal: '+2hour'
+          collec: '+1hour30min'
+        exploration:
+          normal: '+5min'
+          collec: '+7min30sec'
+
       initial_chest: ['beta_drug_#00']
       distribute_items: ['bplan_box_e_#00', 'bplan_box_e_#00', 'bplan_box_#00', 'bplan_box_#00', 'bplan_box_#00', 'bplan_box_#00', 'bplan_box_#00', 'firework_powder_#00','firework_tube_#00','firework_box_#00']
 
@@ -109,10 +117,16 @@ parameters:
 
     panda:
       well: { min: 60, max: 90 }
+
       modifiers:
         infection_death_chance: 0.75
         wound_terror_penalty: 0.2
       explorable_ruins: 2
+
+      times:
+        exploration:
+          normal: '+3min30sec'
+          collec: '+5min15sec'
 
       explorable_ruin_params:
         max_distance: 100

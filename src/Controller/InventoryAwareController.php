@@ -18,6 +18,7 @@ use App\Entity\ItemPrototype;
 use App\Entity\ItemTargetDefinition;
 use App\Entity\LogEntryTemplate;
 use App\Entity\PictoPrototype;
+use App\Entity\PrivateMessage;
 use App\Entity\Recipe;
 use App\Entity\TownLogEntry;
 use App\Entity\User;
@@ -27,6 +28,7 @@ use App\Response\AjaxResponse;
 use App\Service\ActionHandler;
 use App\Service\CitizenHandler;
 use App\Service\ConfMaster;
+use App\Service\CrowService;
 use App\Service\DeathHandler;
 use App\Service\ErrorHelper;
 use App\Service\InventoryHandler;
@@ -65,12 +67,14 @@ class InventoryAwareController extends AbstractController implements GameInterfa
     protected $logTemplateHandler;
     protected $user_handler;
     protected $cache_active_citizen = null;
+    protected $crow;
 
     private $town_conf;
 
     public function __construct(
         EntityManagerInterface $em, InventoryHandler $ih, CitizenHandler $ch, ActionHandler $ah, DeathHandler $dh, PictoHandler $ph,
-        TranslatorInterface $translator, LogTemplateHandler $lt, TimeKeeperService $tk, RandomGenerator $rd, ConfMaster $conf, ZoneHandler $zh, UserHandler $uh)
+        TranslatorInterface $translator, LogTemplateHandler $lt, TimeKeeperService $tk, RandomGenerator $rd, ConfMaster $conf,
+        ZoneHandler $zh, UserHandler $uh, CrowService $armbrust)
     {
         $this->entity_manager = $em;
         $this->inventory_handler = $ih;
@@ -86,6 +90,7 @@ class InventoryAwareController extends AbstractController implements GameInterfa
         $this->death_handler = $dh;
         $this->logTemplateHandler = $lt;
         $this->user_handler = $uh;
+        $this->crow = $armbrust;
     }
 
     protected function getTownConf() {
@@ -144,7 +149,7 @@ class InventoryAwareController extends AbstractController implements GameInterfa
                 if (!$template)
                     continue;
                 $entityVariables = $entity->getVariables();
-                if (!$entityVariables)
+                if($citizen !== null && $entity->getHidden())
                     continue;
                 $entries[$idx]['timestamp'] = $entity->getTimestamp();
                 $entries[$idx]['class'] = $template->getClass();
@@ -639,6 +644,8 @@ class InventoryAwareController extends AbstractController implements GameInterfa
                                 $this->entity_manager->persist( $this->log->townSteal( $victim_home->getCitizen(), null, $current_item->getPrototype(), $steal_up, false, $current_item->getBroken() ) );
                                 $this->addFlash( 'notice', $this->translator->trans('Sehr gut, niemand hat dich bei deinem Einbruch bei %victim% beobachtet.', ['%victim%' => $victim_home->getCitizen()->getUser()->getUsername()], 'game') );
                             }
+
+                            $this->crow->postAsPM( $victim_home->getCitizen(), '', '', PrivateMessage::TEMPLATE_CROW_THEFT, $current_item->getPrototype()->getId() );
                         }
                         if(!$floor_up && $hide) {
                             $current_item->setHidden(true);

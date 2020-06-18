@@ -4,7 +4,7 @@
     <div class="cell padded rw-3"><button id="backbtn"><img src="{{ asset("build/images/small_back.gif") }}" /> {% trans from 'global' %}Züruck{% endtrans %}</button></div>
     {% if thread.archived %}
     <div class="cell padded rw-3"><button id="unarchivebtn"><img src="{{ asset("build/images/small_archive.gif") }}" /> {% trans from 'global' %}Entstauben{% endtrans %}</button></div>
-    {% else %}
+    {% elseif thread.sender %}
     <div class="cell padded rw-3"><button id="archivebtn"><img src="{{ asset("build/images/small_archive.gif") }}" /> {% trans from 'global' %}Archivieren{% endtrans %}</button></div>
     {% endif %}
 </div>

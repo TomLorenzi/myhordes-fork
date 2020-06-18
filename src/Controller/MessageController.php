@@ -7,6 +7,7 @@ use App\Entity\AdminReport;
 use App\Entity\Award;
 use App\Entity\Changelog;
 use App\Entity\Citizen;
+use App\Entity\Complaint;
 use App\Entity\Emotes;
 use App\Entity\Forum;
 use App\Entity\Item;
@@ -348,7 +349,10 @@ class MessageController extends AbstractController
         else return false;
     }
 
-    private function preparePost(User $user, ?Forum $forum, &$post, int &$tx_len): bool {
+    private function preparePost(User $user, ?Forum $forum, $post, int &$tx_len, ?Town $town = null): bool {
+        if (!$town && $forum && $forum->getTown())
+            $town = $forum->getTown();
+
         $dom = new DOMDocument();
         libxml_use_internal_errors(true);
         $dom->loadHTML( '<?xml encoding="utf-8" ?>' . $post->getText() );
@@ -380,12 +384,12 @@ class MessageController extends AbstractController
                 $s_value = $value < 9 ? ('' . ($value+2)) : [$this->trans->trans('Bube',[],'items'),$this->trans->trans('Dame',[],'items'),$this->trans->trans('König',[],'items'),$this->trans->trans('Ass',[],'items')][$value-9];
                 $d->nodeValue = $this->trans->trans('{color} {value}', ['{color}' => $s_color, '{value}' => $s_value], 'global');
             },
-            '//div[@class=\'citizen\']'   => function (DOMNode $d) use ($user,$forum,&$cache) {
+            '//div[@class=\'citizen\']'   => function (DOMNode $d) use ($user,$town,&$cache) {
                 $profession = $d->attributes->getNamedItem('x-a') ? $d->attributes->getNamedItem('x-a')->nodeValue : null;
                 if ($profession === 'any') $profession = null;
                 $group      = is_numeric($d->attributes->getNamedItem('x-b')->nodeValue) ? (int)$d->attributes->getNamedItem('x-b')->nodeValue : null;
 
-                if ($forum === null || !$forum->getTown()) {
+                if ($town === null) {
                     $d->nodeValue = '???';
                     return;
                 }
@@ -393,7 +397,7 @@ class MessageController extends AbstractController
                 if ($group === null || $group <= 0) $group = null;
                 elseif (!isset( $cache['citizen'][$group] )) $cache['citizen'][$group] = null;
 
-                $valid = array_filter( $forum->getTown()->getCitizens()->getValues(), function(Citizen $c) use ($profession,$group,&$cache) {
+                $valid = array_filter( $town->getCitizens()->getValues(), function(Citizen $c) use ($profession,$group,&$cache) {
                     if (!$c->getAlive() && ($profession !== 'dead')) return false;
                     if ( $c->getAlive() && ($profession === 'dead')) return false;
 
@@ -450,7 +454,7 @@ class MessageController extends AbstractController
                     }
                     // <img src="{{ asset('build/images/professions/' ~ post.owner.getActiveCitizen.profession.icon ~ '.gif') }}" />
                     // return "<img alt='' src='{$this->asset->getUrl( "build/images/item/item_{$obj->getPrototype()->getIcon()}.gif" )}' /> {$this->trans->trans($obj->getPrototype()->getLabel(), [], 'items')} <i>x {$obj->getChance()}</i>";
-                    $post->setNote("<img src='{$this->asset->getUrl("build/images/professions/{$citizen->getProfession()->getIcon()}.gif")}' /> <img src='{$this->asset->getUrl('build/images/item_map.gif')}' /> <span>$note</span>");
+                    $post->setNote("<img alt='' src='{$this->asset->getUrl("build/images/professions/{$citizen->getProfession()->getIcon()}.gif")}' /> <img alt='' src='{$this->asset->getUrl('build/images/item_map.gif')}' /> <span>$note</span>");
                 }
             }
 
@@ -862,6 +866,7 @@ class MessageController extends AbstractController
      * @return Response
      */
     public function editor_thread_api(int $id, EntityManagerInterface $em): Response {
+        /** @var Forum[] $forums */
         $forums = $em->getRepository(Forum::class)->findForumsForUser($this->getUser(), $id);
         if (count($forums) !== 1) return new Response('');
 
@@ -872,84 +877,8 @@ class MessageController extends AbstractController
             'emotes' => $this->getEmotesByUser($this->getUser(),true),
             'username' => $this->getUser()->getUsername(),
             'forum' => true,
+            'town_controls' => $forums[0]->getTown() !== null,
         ] );
-    }
-
-    public function convert_bbcode(?DOMNode $node){
-        $content = "";
-        $precision = "";
-        foreach ($node->childNodes as $child) {
-            if(isset($child->tagName)) {
-                switch ($child->tagName) {
-                    case 'br':
-                        $content .= "\n";
-                        break;
-                    case 'hr':
-                        $content .= "{hr}";
-                        break;
-                    case 'div':
-                    case 'span':
-                    	if($child->tagName == "span" && $child->attributes['class']->value == "rpauthor")
-							$precision = $child->textContent;
-                        else if(!empty($child->attributes['class']) && !empty($child->attributes['class']->value) && in_array($child->attributes['class']->value, ['adminAnnounce','modAnnounce','oracleAnnounce','glory','spoiler', 'bad', 'rpText'])) {
-                            $class = $child->attributes['class']->value;
-                            switch ($class) {
-                                case 'adminAnnounce':
-                                    $class = "admannounce";
-                                    break;
-                                case 'modAnnounce':
-                                    $class = "modannounce";
-                                    break;
-                                case 'oracleAnnounce':
-                                    $class = "announce";
-                                    break;
-                                case 'rpText':
-                                	$class = 'rp';
-                                	break;
-                            }
-
-                            $content .= "[$class";
-                            if(!empty($precision)) {
-                            	$content .= "=$precision";
-                            	$precision = "";
-                            }
-                            $content .= "]" . $this->convert_bbcode($child) . "[/$class]";
-                        }
-                        else
-                            $content .= $child->textContent;
-                        break;
-                    case "p":
-                        $content .= $this->convert_bbcode($child);
-                        break;
-                    case "img":
-                        $content .= "[image={$child->attributes[0]->value}]{$child->attributes[1]->value}[/image]";
-                        break;
-                    case "a":
-                        $content .= "[link={$child->attributes[0]->value}]". $this->convert_bbcode($child) ."[/link]";
-                        break;
-                    case "b":
-                    case "i":
-                    case "u":
-                    case "s":
-                    case "ul":
-                    case "ol":
-                    case "li":
-                        $content .= "[{$child->tagName}]" . $this->convert_bbcode($child) . "[/{$child->tagName}]";
-                        break;
-                    case "blockquote":
-                        //$content .= "[quote]" . $this->convert_bbcode($child) . "[/quote]";
-                        //We remove inner quotes
-                        break;
-                    default:
-                        $content .= $child->textContent;
-                        break;
-                }
-            } else {
-                $content .= $child->textContent;
-            }
-        }
-
-        return $content;
     }
 
     /**
@@ -959,7 +888,7 @@ class MessageController extends AbstractController
      * @param EntityManagerInterface $em
      * @return Response
      */
-    public function editor_post_api(int $fid, int $tid, EntityManagerInterface $em, JSONRequestParser $parser): Response {
+    public function editor_post_api(int $fid, int $tid, EntityManagerInterface $em): Response {
         $user = $this->getUser();
 
         $thread = $em->getRepository( Thread::class )->find( $tid );
@@ -977,7 +906,8 @@ class MessageController extends AbstractController
             'tid' => $tid,
             'pid' => null,
             'emotes' => $this->getEmotesByUser($this->getUser(),true),
-            'forum' => true
+            'forum' => true,
+            'town_controls' => $forums[0]->getTown() !== null,
         ] );
     }
 
@@ -1050,51 +980,6 @@ class MessageController extends AbstractController
             $this->addFlash('notice', $message);
             return AjaxResponse::success( );
         }
-
-    /**
-     * @Route("api/forum/{fid<\d+>}/{tid<\d+>}/quote_post", name="forum_post_quote")
-     * @param JSONRequestParser $parser
-     * @param EntityManagerInterface $em
-     * @return Response
-     */
-    public function forum_post_quote_api(int $fid, int $tid, EntityManagerInterface $em, JSONRequestParser $parser): Response {
-        $user = $this->getUser();
-
-        $thread = $em->getRepository( Thread::class )->find( $tid );
-        if ($thread === null || $thread->getForum()->getId() !== $fid) return new Response('');
-
-        $forums = $em->getRepository(Forum::class)->findForumsForUser($user, $fid);
-        if (count($forums) !== 1){
-            if (!($user->getRightsElevation() >= User::ROLE_CROW && $thread->hasReportedPosts())){
-                return new Response('');
-            }      
-        }
-
-        if($parser->has('post')){
-            $post_id = $parser->get('post');
-
-            $post = $em->getRepository(Post::class)->find($post_id);
-            $content = "";
-            if($post->getThread() == $thread) {
-                // We replace the HTML content with the Twinoid-like syntax
-                $dom = new DOMDocument();
-                libxml_use_internal_errors(true);
-                $dom->loadHTML( '<?xml encoding="utf-8" ?>' . $post->getText() );
-                $body = $dom->getElementsByTagName('body');
-                $tx_len = 0;
-                if (!$body || $body->length > 1) {
-                    $content = null;
-                }
-                else if (!$this->htmlValidator($this->getAllowedHTML(), $body->item(0), $tx_len)) {
-                    $content = null;
-                } else {
-                    $content = "[quote={$post->getOwner()->getUsername()}]".$this->convert_bbcode($body->item(0))."[/quote]\n";
-                }
-
-            }
-        }
-        return AjaxResponse::success( true, ['content' => $content ?? ""] );
-    }
 
     /**
      * @Route("api/town/house/sendpm", name="town_house_send_pm_controller")
@@ -1248,7 +1133,7 @@ class MessageController extends AbstractController
             $post->setItems($items_prototype);
 
             $tx_len = 0;
-            if (!$this->preparePost($this->getUser(),null,$post,$tx_len))
+            if (!$this->preparePost($this->getUser(),null,$post,$tx_len, $recipient->getTown()))
                 return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
 
             $thread
@@ -1282,12 +1167,14 @@ class MessageController extends AbstractController
      * @Route("api/town/house/pm/{tid<\d+>}/view", name="home_view_thread_controller")
      * @param int $tid
      * @param EntityManagerInterface $em
-     * @param JSONRequestParser $parser
      * @return Response
      */
-    public function pm_viewer_api(int $tid, EntityManagerInterface $em, JSONRequestParser $parser): Response {
+    public function pm_viewer_api(int $tid, EntityManagerInterface $em): Response {
+        /** @var User $user */
+        $user = $this->getUser();
+
         /** @var Citizen $citizen */
-        $citizen = $this->getUser()->getActiveCitizen();
+        $citizen = $user->getActiveCitizen();
 
         $thecrow = $em->getRepository(User::class)->find(66);
 
@@ -1296,10 +1183,9 @@ class MessageController extends AbstractController
         if (!$thread) return new Response('');
 
         $valid = false;
-        foreach ($thread->getMessages() as $message) {
-            if($message->getRecipient() === $citizen)
+        foreach ($thread->getMessages() as $message)
+            if ($message->getRecipient() === $citizen)
                 $valid = true;
-        }
 
         if(!$valid) return new Response('');
 
@@ -1324,14 +1210,44 @@ class MessageController extends AbstractController
                     $items[$post->getId()][] = $em->getRepository(ItemPrototype::class)->find($proto_id);
                 }
             }
-            $post->setText($this->prepareEmotes($post->getText()));
+
+            switch ($post->getTemplate()) {
+
+                case PrivateMessage::TEMPLATE_CROW_COMPLAINT_ON:
+                    $complaint = $this->entityManager->getRepository(Complaint::class)->find( $post->getForeignID() );
+                    $thread->setTitle( $this->trans->trans('Anonyme Beschwerde', [], 'game') );
+                    $post->setText( $this->prepareEmotes($post->getText()) . $this->trans->trans( 'Es wurde eine neue anonyme Beschwerde gegen dich eingelegt: "%reason%"', ['%reason%' => $this->trans->trans( $complaint ? $complaint->getReason() : '', [], 'game' )], 'game' ) );
+                    break;
+                case PrivateMessage::TEMPLATE_CROW_COMPLAINT_OFF:
+                    $complaint = $this->entityManager->getRepository(Complaint::class)->find( $post->getForeignID() );
+                    $thread->setTitle( $this->trans->trans('Beschwerde zurückgezogen', [], 'game') );
+                    $post->setText( $this->prepareEmotes($post->getText()) . $this->trans->trans( 'Es gibt gute Nachrichten! Folgende Beschwerde wurde zurückgezogen: "%reason%"', ['%reason%' => $this->trans->trans( $complaint ? $complaint->getReason() : '', [], 'game' )], 'game' ) );
+                    break;
+                case PrivateMessage::TEMPLATE_CROW_TERROR:
+                    $thread->setTitle( $this->trans->trans('Du bist vor Angst erstarrt!!', [], 'game') );
+                    $post->setText( $this->prepareEmotes($post->getText()) . $this->trans->trans( 'Wir haben zwei Neuigkeiten für dich. Eine gute und eine schlechte. Zuerst die gute: Trotz ihrer hartnäckigen Versuche, ist es den %num% Zombie(s) nicht gelungen, dich aufzufressen. Du hast dich wacker geschlagen. Bravo! Die schlechte: Das Erlebnis war so schlimm, dass du in eine Angststarre verfallen bist. So etwas möchtest du nicht wieder erleben...', ['%num%' => $post->getForeignID()], 'game' ) );
+                    break;
+                case PrivateMessage::TEMPLATE_CROW_THEFT:
+                    /** @var ItemPrototype $item */
+                    $item = $this->entityManager->getRepository(ItemPrototype::class)->find( $post->getForeignID() );
+                    $thread->setTitle( $this->trans->trans('Haltet den Dieb!', [], 'game') );
+
+                    $img = "<img src='{$this->asset->getUrl('build/images/item/item_' . ($item ? $item->getIcon() : 'none') . '.gif')}' alt='' />";
+                    $name = $this->trans->trans( $item ? $item->getLabel() : '', [], 'items' );
+                    $post->setText( $this->prepareEmotes($post->getText()) . $this->trans->trans( 'Es scheint so, als ob ein anderer Bürger Gefallen an deinem Inventar gefunden hätte... Dir wurde folgendes gestohlen: %icon% %item%', ['%icon%' => $img, '%item%' => $name], 'game' ) );
+                    break;
+                default:
+                    $post->setText($this->prepareEmotes($post->getText()));
+            }
+
         }
+
         return $this->render( 'ajax/game/town/posts.html.twig', [
             'thread' => $thread,
             'posts' => $posts,
             'items' => $items,
             'thecrow' => $thecrow,
-            'emotes' => $this->getEmotesByUser($this->getUser(),true),
+            'emotes' => $this->getEmotesByUser($user,true),
         ] );
     }
 
@@ -1351,7 +1267,7 @@ class MessageController extends AbstractController
 
         /** @var PrivateMessageThread $thread */
         $thread = $em->getRepository(PrivateMessageThread::class)->find( $tid );
-        if (!$thread || $thread->getRecipient()->getId() !== $citizen->getId()) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+        if (!$thread || !$thread->getSender() || ($thread->getRecipient()->getId() !== $citizen->getId() && $thread->getSender()->getId() !== $citizen->getId())) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
         $thread->setArchived($action !== 0);
 
@@ -1382,6 +1298,7 @@ class MessageController extends AbstractController
             'forum' => false,
             'type' => 'pm',
             'target_url' => 'town_house_send_pm_controller',
+            'town_controls' => true,
         ] );
     }
 
@@ -1406,6 +1323,7 @@ class MessageController extends AbstractController
             'forum' => false,
             'type' => $type,
             'target_url' => 'town_house_send_pm_controller',
+            'town_controls' => true,
         ] );
     }
 
@@ -1430,6 +1348,7 @@ class MessageController extends AbstractController
             'forum' => false,
             'type' => $type,
             'target_url' => 'admin_send_pm_controller',
+            'town_controls' => true,
         ] );
     }
 
@@ -1451,6 +1370,7 @@ class MessageController extends AbstractController
             'forum' => false,
             'type' => 'changelog',
             'target_url' => 'admin_changelog_new_changelog',
+            'town_controls' => false
         ] );
     }
 
@@ -1514,7 +1434,7 @@ class MessageController extends AbstractController
                 ->setRecipient($recipient);
 
             $tx_len = 0;
-            if (!$this->preparePost($this->getUser(),null,$post,$tx_len))
+            if (!$this->preparePost($this->getUser(),null,$post,$tx_len, $recipient->getTown()))
                 return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
 
             $thread

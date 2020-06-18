@@ -16,7 +16,7 @@
         {% endif %})
     </h5>
 
-    {% if hasClairvoyance %}
+    {% if hasClairvoyance and owner.alive %}
         <div class="clairvoyance">
             <img src="{{ asset('build/images/heroskill/small_view.gif') }}" /> <strong>{{'Hellseherei'|trans({},'game')}} : </strong>
             {% if clairvoyanceLevel > 0 %}

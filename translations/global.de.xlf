@@ -1153,5 +1153,59 @@
         <target>Zitieren</target>
       </segment>
     </unit>
+    <unit id="3RZ5Bd4" name="Version">
+      <notes>
+        <note category="german">Version</note>
+      </notes>
+      <segment>
+        <source>Version</source>
+        <target>Version</target>
+      </segment>
+    </unit>
+    <unit id="8qHMcfp" name="Sprache">
+      <notes>
+        <note category="german">Language</note>
+      </notes>
+      <segment>
+        <source>Sprache</source>
+        <target>Sprache</target>
+      </segment>
+    </unit>
+    <unit id="81XajEF" name="Vertraulich">
+      <notes>
+        <note category="german">Side Note</note>
+      </notes>
+      <segment>
+        <source>Vertraulich</source>
+        <target>Vertraulich</target>
+      </segment>
+    </unit>
+    <unit id="uEQ0dag" name="7273dec">
+      <notes>
+        <note category="german">Diese ID übergibst du der Seite oder dem Programm, dem du einen (Lese-)Zugriff auf deine Spieldaten in "MyHordes" geben möchtest. Das sind Informationen zu deiner Stadt, dem Bürgerverzeichnis, der Weltkarte etc.</note>
+      </notes>
+      <segment>
+        <source>Diese ID übergibst du der Seite oder dem Programm, dem du einen (Lese-)Zugriff auf deine Spieldaten in "MyHordes" geben möchtest. Das sind Informationen zu deiner Stadt, dem Bürgerverzeichnis, der Weltkarte etc.</source>
+        <target>Diese ID übergibst du der Seite oder dem Programm, dem du einen (Lese-)Zugriff auf deine Spieldaten in "MyHordes" geben möchtest. Das sind Informationen zu deiner Stadt, dem Bürgerverzeichnis, der Weltkarte etc.</target>
+      </segment>
+    </unit>
+    <unit id=".0Hr4tG" name="Diese Punkte werden für die Seelenrangliste verwendet.">
+      <notes>
+        <note category="german">Diese Punkte werden für die Seelenrangliste verwendet.</note>
+      </notes>
+      <segment>
+        <source>Diese Punkte werden für die Seelenrangliste verwendet.</source>
+        <target>Diese Punkte werden für die Seelenrangliste verwendet.</target>
+      </segment>
+    </unit>
+    <unit id="L3FSiZr" name="1eebdb6">
+      <notes>
+        <note category="german">Abhängig von der Anzahl der Tage, die du überlebt hast, erhältst du nach jeder Partie eine bestimmte Anzahl an Punkten.</note>
+      </notes>
+      <segment>
+        <source>Abhängig von der Anzahl der Tage, die du überlebt hast, erhältst du nach jeder Partie eine bestimmte Anzahl an Punkten.</source>
+        <target>Abhängig von der Anzahl der Tage, die du überlebt hast, erhältst du nach jeder Partie eine bestimmte Anzahl an Punkten.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

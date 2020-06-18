@@ -249,22 +249,26 @@ class GhostController extends AbstractController implements GhostInterfaceContro
             "fr" => array(
                 "remote" => 0,
                 "panda" => 0,
-                "small" => 0
+                "small" => 0,
+                'custom' => 0
             ),
             "de" => array(
                 "remote" => 0,
                 "panda" => 0,
-                "small" => 0
+                "small" => 0,
+                'custom' => 0
             ),
             "en" => array(
                 "remote" => 0,
                 "panda" => 0,
-                "small" => 0
+                "small" => 0,
+                'custom' => 0
             ),
             "es" => array(
                 "remote" => 0,
                 "panda" => 0,
-                "small" => 0
+                "small" => 0,
+                'custom' => 0
             ),
         );
         foreach ($openTowns as $openTown) {

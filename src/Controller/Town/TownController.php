@@ -93,22 +93,22 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
         foreach ($town->getBuildings() as $b) if ($b->getComplete()) {
 
             if ($b->getPrototype()->getMaxLevel() > 0)
-                $addons['upgrade']  = [T::__('Verbesserung des Tages (building)', 'game'), 'town_upgrades'];
+                $addons['upgrade']  = [T::__('Verbesserung des Tages (building)', 'game'), 'town_upgrades', 0];
 
             if ($b->getPrototype()->getName() === 'item_tagger_#00')
-                $addons['watchtower'] = [T::__('Wachturm', 'game'), 'town_watchtower'];
+                $addons['watchtower'] = [T::__('Wachturm', 'game'), 'town_watchtower', 1];
 
             if ($b->getPrototype()->getName() === 'small_refine_#00')
-                $addons['workshop'] = [T::__('Werkstatt (building)', 'game'), 'town_workshop'];
+                $addons['workshop'] = [T::__('Werkstatt (building)', 'game'), 'town_workshop', 2];
 
             if ($b->getPrototype()->getName() === 'small_round_path_#00' && $this->getTownConf()->get(TownConf::CONF_FEATURE_NIGHTWATCH, true))
-                $addons['battlement'] = [T::__('Wächt', 'game'), 'town_nightwatch'];
+                $addons['battlement'] = [T::__('Wächt', 'game'), 'town_nightwatch', 3];
 
             if ($b->getPrototype()->getName() === 'small_trash_#00')
-                $addons['dump'] = [T::__('Müllhalde', 'game'), 'town_dump'];
+                $addons['dump'] = [T::__('Müllhalde', 'game'), 'town_dump', 4];
 
             if ($b->getPrototype()->getName() === 'item_courroie_#00')
-                $addons['catapult'] = [T::__('Katapult', 'game'), 'town_dashboard'];
+                $addons['catapult'] = [T::__('Katapult', 'game'), 'town_dashboard', 5];
             
 
             $data["builtbuildings"][] = $b;
@@ -294,7 +294,7 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
         $is_terrorised = $this->citizen_handler->hasStatusEffect($c, 'terror');
         $has_job       = $c->getProfession()->getName() != 'none';
         $is_admin      = $c->getUser()->getRightsElevation() >= User::ROLE_ADMIN;
-        $already_stolen = $this->citizen_handler->hasStatusEffect($this->getActiveCitizen(), 'tg_steal');
+        $already_stolen = $this->citizen_handler->hasStatusEffect($this->getActiveCitizen(), 'tg_steal') && !$this->getActiveCitizen()->getTown()->getChaos();
 
         $hasClairvoyance = false;
         $clairvoyanceLevel = 0;
@@ -493,6 +493,7 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
         $existing_complaint = $em->getRepository( Complaint::class )->findByCitizens($author, $culprit);
         $severity_before = $existing_complaint ? $existing_complaint->getSeverity() : 0;
 
+        $complaint_level = 0;
         if (!$existing_complaint) {
             $counter = $this->getActiveCitizen()->getSpecificActionCounter(ActionCounter::ActionTypeComplaint);
             if ($counter->getCount() >= 4)
@@ -506,13 +507,30 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
             $culprit->addComplaint( $existing_complaint );
             $counter->increment();
             $this->entity_manager->persist($counter);
-        } else $existing_complaint->setSeverity( $severity );
+
+            $complaint_level = ($severity > Complaint::SeverityNone) ? 1 : 0;
+
+        } else {
+
+            if ($existing_complaint->getSeverity() > Complaint::SeverityNone && $severity === Complaint::SeverityNone)
+                $complaint_level = -1;
+            else if ($existing_complaint->getSeverity() === Complaint::SeverityNone && $severity > Complaint::SeverityNone)
+                $complaint_level = 1;
+
+            $existing_complaint->setSeverity( $severity );
+        }
 
         try {
             if ($severity !== $severity_before && ($severity === 0 || $severity_before === 0)) $em->persist( $this->log->citizenComplaint( $existing_complaint ) );
             $em->persist($culprit);
             $em->persist($existing_complaint);
             $em->flush();
+
+            if ($complaint_level != 0) {
+                $this->crow->postAsPM( $culprit, '', '', $complaint_level > 0 ? PrivateMessage::TEMPLATE_CROW_COMPLAINT_ON : PrivateMessage::TEMPLATE_CROW_COMPLAINT_OFF, $existing_complaint->getId() );
+                $em->flush();
+            }
+
         } catch (Exception $e) {
             return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
         }
@@ -1018,6 +1036,8 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
             $th->triggerBuildingCompletion( $town, $building );
             $votes = $building->getBuildingVotes();
             foreach ($votes as $vote) {
+                $vote->getCitizen()->setBuildingVote(null);
+                $vote->getBuilding()->removeBuildingVote($vote);
                 $this->entity_manager->remove($vote);
             }
         } else if ($was_completed) {

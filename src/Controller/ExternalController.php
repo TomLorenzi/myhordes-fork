@@ -13,6 +13,7 @@ use App\Entity\ZonePrototype;
 use App\Service\ActionHandler;
 use App\Service\CitizenHandler;
 use App\Service\ConfMaster;
+use App\Service\CrowService;
 use App\Service\DeathHandler;
 use App\Service\GameFactory;
 use App\Service\InventoryHandler;
@@ -59,9 +60,9 @@ class ExternalController extends InventoryAwareController
      */
     public function __construct(
         EntityManagerInterface $em, InventoryHandler $ih, CitizenHandler $ch, ActionHandler $ah, TimeKeeperService $tk, DeathHandler $dh, PictoHandler $ph,
-        TranslatorInterface $translator, GameFactory $gf, RandomGenerator $rg, ItemFactory $if, LogTemplateHandler $lh, ConfMaster $conf, ZoneHandler $zh, UserHandler $uh)
+        TranslatorInterface $translator, GameFactory $gf, RandomGenerator $rg, ItemFactory $if, LogTemplateHandler $lh, ConfMaster $conf, ZoneHandler $zh, UserHandler $uh, CrowService $armbrust)
     {
-        parent::__construct($em, $ih, $ch, $ah, $dh, $ph, $translator, $lh, $tk, $rg, $conf, $zh, $uh);
+        parent::__construct($em, $ih, $ch, $ah, $dh, $ph, $translator, $lh, $tk, $rg, $conf, $zh, $uh, $armbrust);
         $this->game_factory = $gf;
         $this->item_factory = $if;
         $this->zone_handler = $zh;

@@ -225,7 +225,7 @@
     </unit>
     <unit id="pUImk8L" name="Zugangscode">
       <notes>
-        <note category="german">Access code</note>
+        <note category="german">Zugangscode</note>
       </notes>
       <segment>
         <source>Zugangscode</source>
@@ -234,7 +234,7 @@
     </unit>
     <unit id=".x7RJF5" name="Stadttyp">
       <notes>
-        <note category="german">Town type</note>
+        <note category="german">Stadttyp</note>
       </notes>
       <segment>
         <source>Stadttyp</source>
@@ -243,7 +243,7 @@
     </unit>
     <unit id="KOB6h9k" name="Ghule">
       <notes>
-        <note category="german">Ghoul type</note>
+        <note category="german">Ghule</note>
       </notes>
       <segment>
         <source>Ghule</source>
@@ -252,7 +252,7 @@
     </unit>
     <unit id="CVyYW8Q" name="Je nach gewähltem Stadttyp erscheinen Ghule nach den üblichen Regeln.">
       <notes>
-        <note category="german">The ghoul functions normally and will appear as defined by the rules of the town chosen.</note>
+        <note category="german">Je nach gewähltem Stadttyp erscheinen Ghule nach den üblichen Regeln.</note>
       </notes>
       <segment>
         <source>Je nach gewähltem Stadttyp erscheinen Ghule nach den üblichen Regeln.</source>
@@ -270,7 +270,7 @@
     </unit>
     <unit id="jNQMs2P" name="fead058">
       <notes>
-        <note category="german">The rate of appearance of the ghoul is unchanged but ghouls can only reduce their hunger by devouring a citizen.</note>
+        <note category="german">Das Auftreten von Ghulen wird nicht geändert. Allerdings kann ein Ghul seinen Hunger nur stillen, indem er einen Mitbürger verspeist.</note>
       </notes>
       <segment>
         <source>Das Auftreten von Ghulen wird nicht geändert. Allerdings kann ein Ghul seinen Hunger nur stillen, indem er einen Mitbürger verspeist.</source>
@@ -279,7 +279,7 @@
     </unit>
     <unit id="aQ_K79K" name="Blutdurst">
       <notes>
-        <note category="german">Bloodthirsty</note>
+        <note category="german">Blutdurst</note>
       </notes>
       <segment>
         <source>Blutdurst</source>
@@ -288,7 +288,7 @@
     </unit>
     <unit id="Zj_q.r8" name="f806eb4">
       <notes>
-        <note category="german">No ghoul appears at midnight. Other events can trigger ghouls to appear.</note>
+        <note category="german">Es erscheint zwar kein Ghul um Mitternacht. Dafür können andere Ereignisse das Auftreten von Ghulen auslösen.</note>
       </notes>
       <segment>
         <source>Es erscheint zwar kein Ghul um Mitternacht. Dafür können andere Ereignisse das Auftreten von Ghulen auslösen.</source>
@@ -297,7 +297,7 @@
     </unit>
     <unit id="iE_uBzc" name="Stadt der Kuscheltiere">
       <notes>
-        <note category="german">Town of cuddly toys</note>
+        <note category="german">Stadt der Kuscheltiere</note>
       </notes>
       <segment>
         <source>Stadt der Kuscheltiere</source>
@@ -306,7 +306,7 @@
     </unit>
     <unit id="ROOTy.N" name="Achtung!">
       <notes>
-        <note category="german">Warning!</note>
+        <note category="german">Achtung!</note>
       </notes>
       <segment>
         <source>Achtung!</source>
@@ -315,7 +315,7 @@
     </unit>
     <unit id="VItPxqY" name="Falls die Stadt night in 2 Tagen gefüllt ist, wird sie wieder negiert.">
       <notes>
-        <note category="german">If the city is not filled in 2 days, it will be cancelled.</note>
+        <note category="german">Falls die Stadt night in 2 Tagen gefüllt ist, wird sie wieder negiert.</note>
       </notes>
       <segment>
         <source>Falls die Stadt night in 2 Tagen gefüllt ist, wird sie wieder negiert.</source>
@@ -625,7 +625,7 @@
       </notes>
       <segment>
         <source>Nachtwache:</source>
-        <target>Watchmen:</target>
+        <target>Night Watch:</target>
       </segment>
     </unit>
     <unit id="85ixbKa" name="Nachtwache aktivieren">
@@ -738,7 +738,7 @@
     </unit>
     <unit id="Uadj6Vo" name="Gibt Ihnen Seelenpunkte.">
       <notes>
-        <note category="german">Gibt Ihnen Seelenpunkte.</note>
+        <note category="german">Gibt dir Seelenpunkte.</note>
       </notes>
       <segment>
         <source>Gibt Ihnen Seelenpunkte.</source>

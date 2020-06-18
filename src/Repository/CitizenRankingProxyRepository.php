@@ -3,6 +3,7 @@
 namespace App\Repository;
 
 use App\Entity\CitizenRankingProxy;
+use App\Entity\Season;
 use App\Entity\User;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\ORM\NonUniqueResultException;
@@ -34,6 +35,52 @@ class CitizenRankingProxyRepository extends ServiceEntityRepository
         } catch (Exception $e) {
             return null;
         }
+    }
+
+    public function findAllByUserAndSeason(User $user, ?Season $season, $limit10) {
+        $query = $this->createQueryBuilder('c')
+            ->join('c.town', 't')
+            ->andWhere('c.user = :user')
+            ->setParameter('user', $user)
+            ->addOrderBy('c.day', 'DESC')
+            ->addOrderBy('c.id', 'DESC');
+
+        if($season !== null)
+            $query->andWhere('t.season = :season')
+            ->setParameter('season', $season);
+        else
+            $query->andWhere('t.season IS NULL');
+
+        if($limit10)
+            $query->setMaxResults(10);
+        
+        return $query->getQuery()
+            ->getResult()
+        ;
+    }
+
+    public function findPastByUserAndSeason(User $user, ?Season $season, $limit10) {
+        $query = $this->createQueryBuilder('c')
+            ->join('c.town', 't')
+            ->andWhere('c.user = :user')
+            ->andWhere('c.end IS NOT NULL')
+            ->andWhere('c.confirmed = true')
+            ->setParameter('user', $user)
+            ->addOrderBy('c.day', 'DESC')
+            ->addOrderBy('c.id', 'DESC');
+
+        if($season !== null)
+            $query->andWhere('t.season = :season')
+            ->setParameter('season', $season);
+        else
+            $query->andWhere('t.season IS NULL');
+
+        if($limit10)
+            $query->setMaxResults(10);
+        
+        return $query->getQuery()
+            ->getResult()
+        ;
     }
 
     // /**

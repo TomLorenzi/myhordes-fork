@@ -753,7 +753,7 @@
     </unit>
     <unit id="Uadj6Vo" name="Gibt Ihnen Seelenpunkte.">
       <notes>
-        <note category="german">Gibt Ihnen Seelenpunkte.</note>
+        <note category="german">Gibt dir Seelenpunkte.</note>
       </notes>
       <segment>
         <source>Gibt Ihnen Seelenpunkte.</source>

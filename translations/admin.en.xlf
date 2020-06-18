@@ -1020,7 +1020,7 @@
     </unit>
     <unit id="nq1XXly" name="Stadtregister">
       <notes>
-        <note category="german">Town registry</note>
+        <note category="german">Stadtregister</note>
       </notes>
       <segment>
         <source>Stadtregister</source>
@@ -1052,6 +1052,24 @@
       <segment>
         <source>Selbstmord begehen</source>
         <target>Commit Suicide</target>
+      </segment>
+    </unit>
+    <unit id="sqS3JFR" name="Rundmail als Rabe">
+      <notes>
+        <note category="german">Rundmail als Rabe</note>
+      </notes>
+      <segment>
+        <source>Rundmail als Rabe</source>
+        <target>Message as Crow</target>
+      </segment>
+    </unit>
+    <unit id="K_rzvjv" name="PM vom Raben">
+      <notes>
+        <note category="german">PM vom Raben</note>
+      </notes>
+      <segment>
+        <source>PM vom Raben</source>
+        <target>PM from The Crow</target>
       </segment>
     </unit>
   </file>

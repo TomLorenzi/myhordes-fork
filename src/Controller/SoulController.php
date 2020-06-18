@@ -3,15 +3,19 @@
 namespace App\Controller;
 
 use App\Entity\Avatar;
+use App\Entity\Award;
+use App\Entity\AwardPrototype;
 use App\Entity\CauseOfDeath;
 use App\Entity\Changelog;
 use App\Entity\CitizenRankingProxy;
+use App\Entity\FoundRolePlayText;
 use App\Entity\HeroSkillPrototype;
+use App\Entity\Picto;
+use App\Entity\PictoPrototype;
 use App\Entity\TownRankingProxy;
 use App\Entity\User;
-use App\Entity\Picto;
-use App\Entity\FoundRolePlayText;
 use App\Entity\RolePlayTextPage;
+use App\Entity\Season;
 use App\Response\AjaxResponse;
 use App\Service\DeathHandler;
 use App\Service\ErrorHelper;
@@ -111,6 +115,7 @@ class SoulController extends AbstractController
             'points' => round($points, 0),
             'latestSkill' => $latestSkill,
             'progress' => floor($progress),
+            'seasons' => $this->entity_manager->getRepository(Season::class)->findAll()
         ]));
     }
 
@@ -296,8 +301,14 @@ class SoulController extends AbstractController
             return $this->redirect($this->generateUrl('soul_me'));
         }
 
+        $pictoname = $town->getType()->getName() == 'panda' ? 'r_suhard_#00' : 'r_surlst_#00';
+        $proto = $this->entity_manager->getRepository(PictoPrototype::class)->findOneBy(['name' => $pictoname]);
+
+        $picto = $this->entity_manager->getRepository(Picto::class)->findOneBy(['townEntry' => $town, 'prototype' => $proto]);
+
         return $this->render( 'ajax/soul/view_town.html.twig', $this->addDefaultTwigArgs("soul_me", array(
             'town' => $town,
+            'last_user_standing' => $picto !== null ? $picto->getUser() : null
         )));
     }
 
@@ -682,16 +693,16 @@ class SoulController extends AbstractController
     public function soul_visit(int $id): Response
     {
         /** @var User $user */
-        $user = $this->getUser();
+        $current_user = $this->getUser();
 
         /** @var CitizenRankingProxy $nextDeath */
-        if ($this->entity_manager->getRepository(CitizenRankingProxy::class)->findNextUnconfirmedDeath($user))
+        if ($this->entity_manager->getRepository(CitizenRankingProxy::class)->findNextUnconfirmedDeath($current_user))
             return $this->redirect($this->generateUrl( 'soul_death' ));
 
     	$user = $this->entity_manager->getRepository(User::class)->find($id);
-    	if($user === null || $user === $user){
+    	if($user === null || $user === $current_user) 
             return $this->redirect($this->generateUrl('soul_me'));
-        }
+
 
         $pictos = $this->entity_manager->getRepository(Picto::class)->findNotPendingByUser($user);
     	$points = $this->user_handler->getPoints($user);
@@ -699,7 +710,8 @@ class SoulController extends AbstractController
         return $this->render( 'ajax/soul/visit.html.twig', $this->addDefaultTwigArgs("soul_visit", [
         	'user' => $user,
             'pictos' => $pictos,
-            'points' => round($points, 0)
+            'points' => round($points, 0),
+            'seasons' => $this->entity_manager->getRepository(Season::class)->findAll()
         ]));
     }
 
@@ -724,9 +736,15 @@ class SoulController extends AbstractController
         if($town === null)
             return $this->redirect($this->generateUrl('soul_visit', ['id' => $id]));
 
+        $pictoname = $town->getType()->getName() == 'panda' ? 'r_suhard_#00' : 'r_surlst_#00';
+        $proto = $this->entity_manager->getRepository(PictoPrototype::class)->findOneBy(['name' => $pictoname]);
+
+        $picto = $this->entity_manager->getRepository(Picto::class)->findOneBy(['townEntry' => $town, 'prototype' => $proto]);
+
         return $this->render( 'ajax/soul/view_town_foreign.html.twig', $this->addDefaultTwigArgs("soul_visit", array(
         	'user' => $user,
             'town' => $town,
+            'last_user_standing' => $picto !== null ? $picto->getUser() : null
         )));
     }
 
@@ -764,6 +782,13 @@ class SoulController extends AbstractController
             }
         }
 
+        $awardRepo = $this->entity_manager->getRepository(AwardPrototype::class);
+        foreach ($pendingPictosOfUser as $pendingPicto) {
+            if($awardRepo->getAwardsByPicto($pendingPicto->getPrototype()->getLabel()) != null) {
+                $this->checkAwards($user, $pendingPicto->getPrototype()->getLabel());
+            }
+        }
+
           /** @var User|null $user */
         if ($active = $nextDeath->getCitizen()) {
             $active->setActive(false);
@@ -782,6 +807,29 @@ class SoulController extends AbstractController
             return AjaxResponse::success()->setAjaxControl(AjaxResponse::AJAX_CONTROL_RESET);
         } else return AjaxResponse::success();
     }
+
+    private function checkAwards(User $user, string $award) {
+        $repo = $this->entity_manager->getRepository(Award::class);
+        $awardList = $this->entity_manager->getRepository(AwardPrototype::class)->getAwardsByPicto($award);
+        $pictoPrototype = $this->entity_manager->getRepository(PictoPrototype::class)->findOneByLabel($award);
+        $numPicto = 0;
+
+        foreach($this->entity_manager->getRepository(Picto::class)->getAllByUserAndPicto($user, $pictoPrototype) as $item) {
+            /** @var Picto $item */
+            $numPicto += $item->getCount();
+        }
+
+        foreach($awardList as $item) {
+            /** @var AwardPrototype $item */
+            if($numPicto >= $item->getUnlockQuantity() && !$repo->hasAward($user, $item)) {
+                $newAward = new Award();
+                $newAward->setUser($user);
+                $newAward->setPrototype($item);
+                $this->entity_manager->persist($newAward);
+            }
+        }
+    }
+
 
     /**
      * @Route("jx/soul/death", name="soul_death")
@@ -831,5 +879,25 @@ class SoulController extends AbstractController
             'gazette' => $canSeeGazette,
             'denied_pictos' => $pictosNotWonDuringTown
         ] );
+    }
+
+    /**
+     * @Route("api/soul/{user_id}/towns_all", name="soul_get_towns")
+     * @param JSONRequestParser $parser
+     * @return Response
+     */
+    public function soul_town_list(int $user_id, JSONRequestParser $parser): Response {
+        /** @var User $user */
+        $user = $this->entity_manager->getRepository(User::class)->find($user_id);
+        if($user === null) return "";
+
+        $season_id = $parser->get('season', '');
+        if(empty($season_id)) return new Response("");
+
+        $season = $this->entity_manager->getRepository(Season::class)->findOneBy(['id' => $season_id]);
+
+        $limit = boolval($parser->get('limit10', true));
+
+        return $this->render( 'ajax/soul/town_list.html.twig', ['towns' => $this->entity_manager->getRepository(CitizenRankingProxy::class)->findPastByUserAndSeason($user, $season, $limit)]);
     }
 }

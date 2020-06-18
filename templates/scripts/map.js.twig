@@ -219,6 +219,7 @@ for (let i = 0; i < scroll_areas.length; i++) {
         let center_button = map_controls.querySelector('[x-control="center"]');
 
         let map_button  = map_controls.querySelector('[x-control="map"]');
+        let tags_button  = map_controls.querySelector('[x-control="tags"]');
         let zone_button = map_controls.querySelector('[x-control="zone"]');
         let route_button = map_controls.querySelector('[x-control="routes"]');
 
@@ -266,6 +267,18 @@ for (let i = 0; i < scroll_areas.length; i++) {
             map_button.addEventListener('click', function() {
                 map.classList.remove('zone-viewer-mode');
             })
+        if (tags_button) 
+            tags_button.addEventListener('click', function() {
+                if(map_area.classList.contains('show-tags')) {
+                    map_area.classList.remove('show-tags');
+                    this.classList.remove('show-tags');
+                    this.classList.add('hide-tags');
+                } else {
+                    map_area.classList.add('show-tags');
+                    this.classList.remove('hide-tags');
+                    this.classList.add('show-tags');
+                }
+            });
     }
 
     let route_selectors = route_plane.querySelectorAll('[x-route-id]');

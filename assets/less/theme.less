@@ -822,7 +822,7 @@ div.game-menu-area {
 
       &.clock {
         position: absolute; background: url("../img/clock.png"); width: 280px; height: 97px;
-        top: -130px; right: 0;
+        top: -130px; right: 0px;
         &>li { display: block; position: absolute; }
         &>li:nth-child(1) { font-size: 1rem; color: @myhordes-smalltext; text-align: right; height: 12px; top: 9px; left: 0; right: 75px; font-variant: small-caps }
         &>li:nth-child(2) {
@@ -912,11 +912,20 @@ div.defense-broken { .icon_div("../img/small_def_broken.gif", middle, 2px); colo
 
 .jobs-choice {
   border: 1px solid #7e4d2a; width: 100%; opacity: .6;
+  input[type='radio'] {
+    display: none;
+  }
   &:hover { border:1px dotted #ddab76; cursor: pointer; }
-  &:focus-within { border:1px solid #f0d79e; color: white; opacity: 1.0; }
   &>.text {
     color: #b37c4a; font-weight: bold; font-variant: small-caps;
-    &:focus-within { color: white; }
+  }
+  &.selected {
+    border:1px solid #f0d79e;
+    color: white;
+    opacity: 1.0;
+    &>.text {
+      color: white;
+    }
   }
 }
 
@@ -1099,6 +1108,9 @@ div.tooltip {
       border: none;
       text-align: left;
       margin: 0;
+    }
+    strong {
+      color: #edcda9;
     }
   }
 
@@ -1284,4 +1296,5 @@ select {
   border: 1px solid #ddab76;
   outline: 1px solid black;
   cursor: pointer;
+  width: 100%;
 }

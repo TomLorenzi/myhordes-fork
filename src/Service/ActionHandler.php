@@ -515,13 +515,15 @@ class ActionHandler
 
                 if ($status->getRole() !== null && $status->getRoleAdd() !== null) {
                     if ($status->getRoleAdd()) {
-                        $this->citizen_handler->addRole( $citizen, $status->getRole() );
-                        $tags[] = 'role-up';
-                        $tags[] = "role-up-{$status->getRole()->getName()}";
+                        if ($this->citizen_handler->addRole( $citizen, $status->getRole() )) {
+                            $tags[] = 'role-up';
+                            $tags[] = "role-up-{$status->getRole()->getName()}";
+                        }
                     } else {
-                        $this->citizen_handler->removeRole( $citizen, $status->getRole() );
-                        $tags[] = 'role-down';
-                        $tags[] = "role-down-{$status->getRole()->getName()}";
+                        if ($this->citizen_handler->removeRole( $citizen, $status->getRole() )) {
+                            $tags[] = 'role-down';
+                            $tags[] = "role-down-{$status->getRole()->getName()}";
+                        }
                     }
                 }
 
@@ -608,7 +610,6 @@ class ActionHandler
             }
 
             if ($target && $target_result = $result->getTarget()) {
-
                 if (is_a($target, Item::class)) {
                     if ($execute_info_cache['item_target_morph'][0] === null) $execute_info_cache['item_target_morph'][0] = $target->getPrototype();
                     if ($target_result->getConsume()) {
@@ -638,7 +639,7 @@ class ActionHandler
                     if ($proto) $tags[] = 'spawned';
 
                     if ($proto && $this->inventory_handler->placeItem( $citizen, $this->item_factory->createItem( $proto ),
-                            [ $floor_inventory, $citizen->getZone() ? null : $citizen->getTown()->getBank() ]
+                            [ $citizen->getInventory(), $floor_inventory, $citizen->getZone() ? null : $citizen->getTown()->getBank() ]
                             , true)) $execute_info_cache['items_spawn'][] = $proto;
                 }
             }
@@ -941,7 +942,7 @@ class ActionHandler
                         $this->zone_handler->updateZone( $zone );
                         $cp_ok = $this->zone_handler->check_cp( $zone );
 
-                        if ($dig_timer = $this->entity_manager->getRepository(DigTimer::class)->findActiveByCitizen($jumper)) {
+                        if ($dig_timer = $jumper->getCurrentDigTimer()) {
                             $dig_timer->setPassive(true);
                             $this->entity_manager->persist( $dig_timer );
                         }

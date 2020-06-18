@@ -20,6 +20,7 @@ use App\Entity\HeroSkill;
 use App\Entity\HeroSkillPrototype;
 use App\Entity\Picto;
 use App\Entity\PictoPrototype;
+use App\Entity\PrivateMessage;
 use App\Entity\Town;
 use App\Entity\TownRankingProxy;
 use App\Entity\ZombieEstimation;
@@ -48,10 +49,12 @@ class NightlyHandler
     private $conf;
     private $action_handler;
     private $maze;
+    private $crow;
 
   public function __construct(EntityManagerInterface $em, LoggerInterface $log, CitizenHandler $ch, InventoryHandler $ih,
                               RandomGenerator $rg, DeathHandler $dh, TownHandler $th, ZoneHandler $zh, PictoHandler $ph,
-                              ItemFactory $if, LogTemplateHandler $lh, ConfMaster $conf, ActionHandler $ah, MazeMaker $maze)
+                              ItemFactory $if, LogTemplateHandler $lh, ConfMaster $conf, ActionHandler $ah, MazeMaker $maze,
+                              CrowService $crow)
     {
         $this->entity_manager = $em;
         $this->citizen_handler = $ch;
@@ -67,11 +70,13 @@ class NightlyHandler
         $this->conf = $conf;
         $this->action_handler = $ah;
         $this->maze = $maze;
+        $this->crow = $crow;
     }
 
-    private function check_town(Town &$town): bool {
+    private function check_town(Town $town): bool {
         if ($town->isOpen()) {
             $this->log->debug('The town lobby is <comment>open</comment>!');
+            $this->entity_manager->persist($this->logTemplates->nightlyAttackCancelled($town));
             return false;
         }
 
@@ -203,8 +208,10 @@ class NightlyHandler
             // Check hero skills
             $nextSkill = $this->entity_manager->getRepository(HeroSkillPrototype::class)->getNextUnlockable($citizen->getUser()->getHeroDaysSpent());
 
-            if ($citizen->getProfession()->getHeroic())
-                $citizen->getUser()->setHeroDaysSpent($citizen->getUser()->getHeroDaysSpent() + 1);
+            if (!$citizen->getProfession()->getHeroic())
+                continue;
+            
+            $citizen->getUser()->setHeroDaysSpent($citizen->getUser()->getHeroDaysSpent() + 1);
 
             if($nextSkill !== null && $citizen->getUser()->getHeroDaysSpent() >= $nextSkill->getDaysNeeded()){
                 $this->log->debug("Citizen <info>{$citizen->getUser()->getUsername()}</info> has unlocked a new skill : <info>{$nextSkill->getTitle()}</info>");
@@ -233,7 +240,7 @@ class NightlyHandler
                             // He didn't used the Find, we replace it with the lucky find
                             $citizen->removeHeroicAction($oldfind);
                             $newfind = $this->entity_manager->getRepository(HeroicActionPrototype::class)->findOneByName("hero_generic_find_lucky");
-                            $citizen->removeHeroicAction($newfind);
+                            $citizen->addHeroicAction($newfind);
                         }
                 }
             }
@@ -256,7 +263,7 @@ class NightlyHandler
 
             $reactor->setDefense($newDef);
             if($reactor->getHp() <= 0){
-                $gazette = $this->entity_manager->getRepository(Gazette::class)->findOneByTownAndDay($town, $town->getDay());
+                $gazette = $town->findGazette( $town->getDay() );
 
                 $this->entity_manager->persist($this->logTemplates->constructionsDestroy($town, $reactor->getPrototype(), $damages ));
                 $this->town_handler->destroy_building($town, $reactor);
@@ -348,7 +355,7 @@ class NightlyHandler
 
         // Day already advanced, let's get today's gazette!
         /** @var Gazette $gazette */
-        $gazette = $this->entity_manager->getRepository(Gazette::class)->findOneByTownAndDay($town,$town->getDay());
+        $gazette = $town->findGazette( $town->getDay() );
 
         $gazette->setDoor($town->getDoor());
 
@@ -370,6 +377,7 @@ class NightlyHandler
             $soulFactor = min($soulFactor, 1.2);
 
         $zombies *= $soulFactor;
+        $zombies = round($zombies);
 
         $gazette->setAttack($zombies);
 
@@ -563,6 +571,8 @@ class NightlyHandler
                     $this->citizen_handler->inflictStatus( $target, $status_terror );
                     $this->log->debug("Citizen <info>{$target->getUser()->getUsername()}</info> now suffers from <info>{$status_terror->getLabel()}</info>");
 
+                    $this->crow->postAsPM( $target, '', '', PrivateMessage::TEMPLATE_CROW_THEFT, $force );
+
                     $gazette->setTerror($gazette->getTerror() + 1);
                 }
             }
@@ -634,6 +644,8 @@ class NightlyHandler
         $status_infection = $this->entity_manager->getRepository(CitizenStatus::class)->findOneByName( 'infection' );
         $status_camping   = $this->entity_manager->getRepository(CitizenStatus::class)->findOneByName( 'camper' );
 
+        $status_wound_infection = $this->entity_manager->getRepository(CitizenStatus::class)->findOneByName( 'tg_meta_winfect' );
+
         $status_clear_list = ['hasdrunk','haseaten','immune','hsurvive','drunk','drugged','healed','hungover','tg_dice','tg_cards','tg_clothes','tg_teddy','tg_guitar','tg_sbook','tg_steal','tg_home_upgrade','tg_hero','tg_chk_forum','tg_chk_active', 'tg_chk_workshop', 'tg_chk_build', 'tg_chk_movewb', 'tg_hide','tg_tomb', 'tg_home_clean', 'tg_home_shower', 'tg_home_heal_1', 'tg_home_heal_2', 'tg_home_defbuff', 'tg_rested', 'tg_shaman_heal', 'tg_ghoul_eat', 'tg_no_hangover', 'tg_ghoul_corpse', 'tg_betadrug', 'tg_build_vote'];
 
         $aliveCitizenInTown = 0;
@@ -653,7 +665,7 @@ class NightlyHandler
             $citizen->getExpeditionRoutes()->clear();
             if (!$citizen->getAlive()) continue;
 
-            $aliveCitizenInTown++;
+            $aliveCitizen++;
 
             if($citizen->getZone() === null)
                 $aliveCitizenInTown++;
@@ -668,7 +680,7 @@ class NightlyHandler
                 }
                 if (!$citizen->getStatus()->contains($status_infection) && $this->citizen_handler->isWounded( $citizen )) {
                     $this->log->debug("Citizen <info>{$citizen->getUser()->getUsername()}</info> is <info>wounded</info>. Adding an <info>infection</info>.");
-                    $this->citizen_handler->inflictStatus($citizen, $status_infection);
+                    $this->citizen_handler->inflictStatus($citizen, $status_wound_infection);
                 }
             }
 
@@ -710,9 +722,11 @@ class NightlyHandler
         }
 
         if($town->getDay() > 3) {
+        	$this->log->debug("Town has passed 3 days, let's check its own status change");
             if($town->getDevastated()){
                 $this->log->debug("Town is devastated, nothing to do.");
             } else {
+            	$this->log->debug("Town is not yet devastated, and has <info>$aliveCitizen</info> alive citizens (including <info>$aliveCitizenInTown</info> in town)");
                 if ($aliveCitizen > 0 && $aliveCitizen <= 10 && !$town->getDevastated()) {
                     $this->log->debug("There is <info>$aliveCitizen</info> citizens alive, the town is not devastated, setting the town to <info>chaos</info> mode");
                     $town->setChaos(true);
@@ -721,7 +735,28 @@ class NightlyHandler
                     }
                 } else if ($aliveCitizenInTown == 0) {
                     $this->log->debug("There is <info>$aliveCitizenInTown</info> citizens alive AND in town, setting the town to <info>devastated</info> mode and to <info>chaos</info> mode");
-                    // TODO: give Last Man Standing to one of the citizens that has died IN TOWN
+                    if($town->getDay() >= 5){
+                        $this->log->debug('Town has lived for 5 days or more, we give the <info>Last Man Standing</info> picto to a lucky citizen that died in town');
+                        $citizen_eligible = [];
+                        foreach ($town->getCitizens() as $citizen) {
+                            if($citizen->getAlive() || $citizen->getZone())
+                                continue;
+                            if($citizen->getSurvivedDays() < $town->getDay() || $citizen->getCauseOfDeath()->getRef() !== CauseOfDeath::NightlyAttack)
+                                continue;
+                            $citizen_eligible[] = $citizen;
+                        }
+
+                        if(count($citizen_eligible) > 0) {
+                            $winner = $this->random->pick($citizen_eligible);
+
+                            $picto = $town->getType()->getName() == 'panda' ? 'r_suhard_#00' : 'r_surlst_#00';
+
+                            $this->log->debug("We give the picto <info>$picto</info> to the lucky citizen {$winner->getUser()->getUsername()}");
+
+                            $this->picto_handler->give_validated_picto($winner, $picto);
+                        }
+
+                    }
                     $town->setDevastated(true);
 		            $town->setChaos(true);
 		            $town->setDoor(true);
@@ -743,7 +778,7 @@ class NightlyHandler
         $research_tower = $this->town_handler->getBuilding($town, 'small_gather_#02', true);
         $watchtower     = $this->town_handler->getBuilding($town, 'item_tagger_#00',  true);
 
-        $gazette = $this->entity_manager->getRepository(Gazette::class)->findOneByTownAndDay($town,$town->getDay());
+        $gazette = $town->findGazette($town->getDay());
 
         if ($watchtower) switch ($watchtower->getLevel()) {
             case 0: $discover_range  = 0;  break;
@@ -879,13 +914,17 @@ class NightlyHandler
 
         $inventories[] = $town->getBank();
 
-        foreach ($town->getCitizens() as &$citizen) {
+        foreach ($town->getCitizens() as $citizen) {
             $inventories[] = $citizen->getInventory();
             $inventories[] = $citizen->getHome()->getChest();
         }
 
-        foreach ($town->getZones() as &$zone) {
+        foreach ($town->getZones() as $zone) {
             $inventories[] = $zone->getFloor();
+            foreach ($zone->getRuinZones() as $ruinZone) {
+                $inventories[] = $ruinZone->getFloor();
+                $inventories[] = $ruinZone->getRoomFloor();
+            }
         }
 
         $c = count($inventories);
@@ -897,6 +936,8 @@ class NightlyHandler
             'radio_on_#00' => $this->entity_manager->getRepository(ItemPrototype::class)->findOneByName('radio_off_#00'),
             'tamed_pet_off_#00'  => $this->entity_manager->getRepository(ItemPrototype::class)->findOneByName('tamed_pet_#00'),
             'tamed_pet_drug_#00' => $this->entity_manager->getRepository(ItemPrototype::class)->findOneByName('tamed_pet_#00'),
+            'maglite_2_#00' => $this->entity_manager->getRepository(ItemPrototype::class)->findOneByName('maglite_1_#00'),
+            'maglite_1_#00' => $this->entity_manager->getRepository(ItemPrototype::class)->findOneByName('maglite_off_#00'),
         ];
 
         foreach ($morph as $source => $target) {
@@ -1047,46 +1088,6 @@ class NightlyHandler
             if(!$citizen->getAlive())
                 continue;
 
-            // Fetching picto obtained today
-            $pendingPictosOfUser = $this->entity_manager->getRepository(Picto::class)->findTodayPictoByUserAndTown($citizen->getUser(), $citizen->getTown());
-            foreach ($pendingPictosOfUser as $pendingPicto) {
-                $this->log->info("Citizen <info>{$citizen->getUser()->getUsername()}</info> has earned picto <info>{$pendingPicto->getPrototype()->getLabel()}</info>. It has persistance <info>{$pendingPicto->getPersisted()}</info>");
-
-                $persistPicto = false;
-                // In Small Towns, if the user has 100 soul points or more, he must survive at least 8 days or die from the attack during day 7 to 8
-                // to validate the picto (set them as persisted)
-                if($town->getType()->getName() == "small" && $citizen->getUser()->getSoulPoints() >= 100) {
-                    $this->log->debug("This is a small town, and <info>{$citizen->getUser()->getUsername()}</info> has more that 100 soul points, we use the day 8 rule");
-                    if($town->getDay() == 8 && $citizen->getCauseOfDeath() != null && $citizen->getCauseOfDeath()->getRef() == CauseOfDeath::NightlyAttack){
-                        $persistPicto = true;
-                    } else if ($town->getDay() > 8) {
-                        $persistPicto = true;
-                    }
-                } else {
-                    $this->log->debug("This is not a small town, we persist the pictos earned the previous days");
-                    $persistPicto = true;
-                }
-
-                if(!$persistPicto)
-                    continue;
-
-                // We check if this picto has already been earned previously (such as Heroic Action, 1 per day)
-                $pendingPreviousPicto = $this->entity_manager->getRepository(Picto::class)->findPreviousDaysPictoByUserAndTownAndPrototype($citizen->getUser(), $citizen->getTown(), $pendingPicto->getPrototype());
-                if($pendingPreviousPicto === null) {
-                    $this->log->info("Setting persisted to 1");
-                    // We do not have it, we set it as earned
-                    $pendingPicto->setPersisted(1);
-                    $this->entity_manager->persist($pendingPicto);
-                } else {
-                    // We have it, we add the count to the previously earned
-                    // And remove the picto from today
-                    $this->log->info("Merging with previously earned picto");
-                    $pendingPreviousPicto->setCount($pendingPreviousPicto->getCount() + $pendingPicto->getCount());
-                    $this->entity_manager->persist($pendingPreviousPicto);
-                    $this->entity_manager->remove($pendingPicto);
-                }
-            }
-
             // Giving picto camper if he camped
             if ($citizen->getStatus()->contains($status_camping)) {
                 if ($town->getDevastated() && $town->getDay() >= 10){
@@ -1101,6 +1102,8 @@ class NightlyHandler
             if($watch !== null){
                 $this->picto_handler->give_picto($citizen, $picto_nightwatch);
             }
+
+            $this->picto_handler->nightly_validate_picto( $citizen );
         }
     }
 
@@ -1196,7 +1199,7 @@ class NightlyHandler
         }
     }
 
-    public function advance_day(Town &$town): bool {
+    public function advance_day(Town $town): bool {
         $this->skip_reanimation = [];
 
         $this->log->info( "Nightly attack request received for town <info>{$town->getId()}</info> (<info>{$town->getName()}</info>)." );
