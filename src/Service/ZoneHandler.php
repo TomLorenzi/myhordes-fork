@@ -17,6 +17,7 @@ use App\Entity\RuinZone;
 use App\Entity\Town;
 use App\Entity\TownLogEntry;
 use App\Entity\Zone;
+use App\Structures\TownConf;
 use App\Translation\T;
 use DateTime;
 use Doctrine\ORM\EntityManagerInterface;
@@ -35,11 +36,13 @@ class ZoneHandler
     private $picto_handler;
     private $trans;
     private $log;
+    private $conf;
     private $asset;
 
     public function __construct(
         EntityManagerInterface $em, ItemFactory $if, LogTemplateHandler $lh, TranslatorInterface $t,
-        StatusFactory $sf, RandomGenerator $rg, InventoryHandler $ih, CitizenHandler $ch, PictoHandler $ph, Packages $a)
+        StatusFactory $sf, RandomGenerator $rg, InventoryHandler $ih, CitizenHandler $ch, PictoHandler $ph, Packages $a,
+        ConfMaster $conf)
     {
         $this->entity_manager = $em;
         $this->item_factory = $if;
@@ -51,6 +54,7 @@ class ZoneHandler
         $this->trans = $t;
         $this->log = $lh;
         $this->asset = $a;
+        $this->conf = $conf;
     }
 
     public function updateRuinZone(?RuinExplorerStats $ex) {
@@ -128,6 +132,8 @@ class ZoneHandler
             }, $a));
         };
 
+        $conf = $this->conf->getTownConfiguration( $zone->getTown() );
+
         $zone_update = false;
         $not_up_to_date = !empty($dig_timers);
         while ($not_up_to_date) {
@@ -192,7 +198,9 @@ class ZoneHandler
                         $timer->setTimestamp(
                             (new DateTime())->setTimestamp(
                                 $timer->getTimestamp()->getTimestamp()
-                            )->modify($timer->getCitizen()->getProfession()->getName() === 'collec' ? '+1hour30min' : '+2hour') );
+                            )->modify($conf->get( $timer->getCitizen()->getProfession()->getName() === 'collec' ?
+                                TownConf::CONF_TIMES_DIG_COLLEC :
+                                TownConf::CONF_TIMES_DIG_NORMAL, '+2hour')) );
 
                     } catch (Exception $e) {
                         $timer->setTimestamp( new DateTime('+1min') );
