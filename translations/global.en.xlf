@@ -1243,5 +1243,14 @@
         <target>You gain points at the end of each game depending on the number of days you survived for.</target>
       </segment>
     </unit>
+    <unit id="33mt65B" name="Num. Listenpunkt">
+      <notes>
+        <note category="german">Num. Listenpunkt</note>
+      </notes>
+      <segment>
+        <source>Num. Listenpunkt</source>
+        <target>Num. Listenpunkt</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
