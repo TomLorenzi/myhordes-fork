@@ -62,7 +62,7 @@
     {% for post in posts %}
         {% if not post.hidden or is_granted("ROLE_CROW") %}
             {% set author_name = (post.owner.username == 'Der Rabe') ? 'Der Rabe'|trans({},'global') : post.owner.username %}
-            <div class="forum-post {% if not post.hidden %}{% else %}forum-post-hidden{% endif %} {% if post.new %}forum-post-new{% endif %} {% if markedPost is defined and post.id == markedPost %}forum-post-marked{% endif %}" id="{{post.id}}">
+            <div class="forum-post {% if not post.hidden %}{% else %}forum-post-hidden{% endif %} {% if post.new %}forum-post-new{% endif %} {% if markedPost is defined and post.id == markedPost %}forum-post-marked{% endif %}">
                 <div class="forum-post-header {% if post.owner.username == 'Der Rabe' %}header-variant-crow{% elseif post.type == "DEV" %}header-variant-dev{% endif %}">
                     <i>
                         {% if post.date.format('Ymd') == today|date("Ymd") %}
@@ -239,7 +239,7 @@
     {% endif %}
 
     {% if markedPost is defined and markedPost > 0 %}
-        document.getElementById("{{markedPost}}").scrollIntoView();
+        document.querySelector('[x-post-content-id="{{markedPost}}"]').parentElement
     {% endif %}
 </script>
 
