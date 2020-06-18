@@ -132,9 +132,10 @@ class TwinoRegexResult {
     nodeType(): string {
         switch (this.type) {
             case TwinoRegexResult.TypeBB:
-            case TwinoRegexResult.TypeShortBB:
             case TwinoRegexResult.TypeInsetA:
                 return this.match[1].toLowerCase();
+            case TwinoRegexResult.TypeShortBB:
+                return this.match[1].toLowerCase() + this.match[1].toLowerCase();
             case TwinoRegexResult.TypeInsetB:
                 return this.match[2].toLowerCase();
             case TwinoRegexResult.TypeInsetC:
@@ -151,7 +152,7 @@ class TwinoRegexResult {
             case TwinoRegexResult.TypeBB:
                 return this.match[3];
             case TwinoRegexResult.TypeShortBB:
-                return (this.match[2] + this.match[2]);
+                return this.match[2];
             default:
                 throw new Error('Attempt to access node content of a TRR not representing a block node.');
         }
