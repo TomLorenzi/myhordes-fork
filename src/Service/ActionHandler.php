@@ -608,7 +608,6 @@ class ActionHandler
             }
 
             if ($target && $target_result = $result->getTarget()) {
-
                 if (is_a($target, Item::class)) {
                     if ($execute_info_cache['item_target_morph'][0] === null) $execute_info_cache['item_target_morph'][0] = $target->getPrototype();
                     if ($target_result->getConsume()) {
@@ -638,7 +637,7 @@ class ActionHandler
                     if ($proto) $tags[] = 'spawned';
 
                     if ($proto && $this->inventory_handler->placeItem( $citizen, $this->item_factory->createItem( $proto ),
-                            [ $floor_inventory, $citizen->getZone() ? null : $citizen->getTown()->getBank() ]
+                            [ $citizen->getInventory(), $floor_inventory, $citizen->getZone() ? null : $citizen->getTown()->getBank() ]
                             , true)) $execute_info_cache['items_spawn'][] = $proto;
                 }
             }
