@@ -10754,7 +10754,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Heute Morgen ist kein Artikel erschienen...</source>
-        <target>Heute Morgen ist kein Artikel erschienen...</target>
+        <target>No news today...</target>
       </segment>
     </unit>
     <unit id="DiWxu8O" name="9a7499d">
@@ -10763,7 +10763,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Es scheint so, als ob ein anderer Bürger Gefallen an deinem Inventar gefunden hätte... Dir wurde folgendes gestohlen: %icon% %item%</source>
-        <target>Es scheint so, als ob ein anderer Bürger Gefallen an deinem Inventar gefunden hätte... Dir wurde folgendes gestohlen: %icon% %item%</target>
+        <target>Apparently, one of your fellow citizens really liked the contents of your inventory... Someone has pinched your: %icon% %item%</target>
       </segment>
     </unit>
     <unit id="RrPwAW." name="Zufälliger Bürger">
@@ -10772,7 +10772,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Zufälliger Bürger</source>
-        <target>Zufälliger Bürger</target>
+        <target>Random Citizen</target>
       </segment>
     </unit>
     <unit id="dTDcH8R" name="c8e86c4">
@@ -10783,8 +10783,8 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       <segment>
         <source>Hiermit kannst du den Namen eines zufälligen Bürgers in deinen Post anfügen.
                                                 Bei Bedarf kannst du die Auswahl auf bestimmte Berufe, Helden oder bereits gestorbene Bürger eingrenzen.</source>
-        <target>Hiermit kannst du den Namen eines zufälligen Bürgers in deinen Post anfügen.
-                                                Bei Bedarf kannst du die Auswahl auf bestimmte Berufe, Helden oder bereits gestorbene Bürger eingrenzen.</target>
+        <target>You can use this to add the name of a random citizen to your post.
+                                                If necessary, you can limit the selection to certain professions, heroes or citizens who have already died.</target>
       </segment>
     </unit>
     <unit id="lpSEXvf" name="71134d2">
@@ -10793,7 +10793,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Wenn zu den gleichen zufällig gewählten Bürger mehrfach in deinem Text verwenden willst, kannst du ihm eine Nummer zuweisen, beispielsweise:</source>
-        <target>Wenn zu den gleichen zufällig gewählten Bürger mehrfach in deinem Text verwenden willst, kannst du ihm eine Nummer zuweisen, beispielsweise:</target>
+        <target>If you want to use the same randomly chosen citizen more than once in your text, you can assign it a number, for example:</target>
       </segment>
     </unit>
   </file>

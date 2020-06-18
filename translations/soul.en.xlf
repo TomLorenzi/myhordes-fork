@@ -634,7 +634,7 @@
       </notes>
       <segment>
         <source>Alte Städte</source>
-        <target>Alte Städte</target>
+        <target>My game history</target>
       </segment>
     </unit>
     <unit id="hU1AUQF" name="Nur 10 Städte anzeigen">
@@ -643,7 +643,7 @@
       </notes>
       <segment>
         <source>Nur 10 Städte anzeigen</source>
-        <target>Nur 10 Städte anzeigen</target>
+        <target>Only display 10 towns</target>
       </segment>
     </unit>
   </file>
