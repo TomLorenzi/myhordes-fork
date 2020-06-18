@@ -122,9 +122,18 @@ class CitizenHandler
         // Prevent thirst and infection for ghouls
         if ((   $status->getName() === 'thirst1' ||
                 $status->getName() === 'thirst2' ||
-                $status->getName() === 'infection'
+                $status->getName() === 'infection' ||
+                $status->getName() === 'tg_meta_winfect'
             ) && $citizen->hasRole('ghoul'))
             return false;
+
+        // Prevent a normal infection when immune
+        if ( $status->getName() === 'infection' && $this->hasStatusEffect( $citizen, 'immune' ) )
+            return false;
+
+        // Convert wound infection into normal infection
+        if ( $status->getName() === 'tg_meta_winfect')
+            $status = $this->entity_manager->getRepository(CitizenStatus::class)->findOneByName('infection');
 
         // Prevent terror when holding a zen booklet
         if ($status->getName() === 'terror' && $this->inventory_handler->countSpecificItems(
@@ -275,6 +284,7 @@ class CitizenHandler
                 $this->removeStatus($citizen, 'thirst1');
                 $this->removeStatus($citizen, 'thirst2');
                 $this->removeStatus($citizen, 'infection');
+                $this->removeStatus($citizen, 'tg_meta_winfect');
                 $citizen->setWalkingDistance(0);
             }
 
