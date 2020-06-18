@@ -31,6 +31,11 @@ class TownConf extends Conf
     const CONF_EXPLORABLES_ZOMBIES_INI  = 'explorable_ruin_params.zombies.initial';
     const CONF_EXPLORABLES_ZOMBIES_DAY  = 'explorable_ruin_params.zombies.daily';
 
+    const CONF_TIMES_DIG_NORMAL     = 'times.digging.normal';
+    const CONF_TIMES_DIG_COLLEC     = 'times.digging.collec';
+    const CONF_TIMES_EXPLORE_NORMAL = 'times.exploration.normal';
+    const CONF_TIMES_EXPLORE_COLLEC = 'times.exploration.collec';
+
     const CONF_BANK_ABUSE_LIMIT = 'bank_abuse_limit';
 
     const CONF_MODIFIER_POISON_STACK         = 'modifiers.poison.stack_poisoned_items';
