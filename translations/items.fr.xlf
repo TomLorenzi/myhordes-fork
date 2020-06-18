@@ -2410,7 +2410,7 @@
       </notes>
       <segment>
         <source>Hotel-Bauplan (ungewöhnlich)</source>
-        <target>Plan de chantier (inhabituel) (Hôtel abandonné)</target>
+        <target>Plan de chantier (inhabituel)</target>
       </segment>
     </unit>
     <unit id="QVhzGbs" name="Hotel-Bauplan (selten)">
@@ -2419,7 +2419,7 @@
       </notes>
       <segment>
         <source>Hotel-Bauplan (selten)</source>
-        <target>Plan de chantier (rare) (Hôtel abandonné)</target>
+        <target>Plan de chantier (rare)</target>
       </segment>
     </unit>
     <unit id="p2EcHS1" name="Hotel-Bauplan (sehr selten!)">
@@ -2428,7 +2428,7 @@
       </notes>
       <segment>
         <source>Hotel-Bauplan (sehr selten!)</source>
-        <target>Plan de chantier (très rare !) (Hôtel abandonné)</target>
+        <target>Plan de chantier (très rare !)</target>
       </segment>
     </unit>
     <unit id="sq2H4GP" name="Bunker-Bauplan (ungewöhnlich)">
@@ -2437,7 +2437,7 @@
       </notes>
       <segment>
         <source>Bunker-Bauplan (ungewöhnlich)</source>
-        <target>Plan de chantier (inhabituel) (Bunker abandonné)</target>
+        <target>Plan de chantier (inhabituel)</target>
       </segment>
     </unit>
     <unit id="0v4ai6K" name="Bunker-Bauplan (selten)">
@@ -2446,7 +2446,7 @@
       </notes>
       <segment>
         <source>Bunker-Bauplan (selten)</source>
-        <target>Plan de chantier (rare) (Hôtel abandonné)</target>
+        <target>Plan de chantier (rare)</target>
       </segment>
     </unit>
     <unit id="CwcMCMu" name="Bunker-Bauplan (sehr selten!)">
@@ -2455,7 +2455,7 @@
       </notes>
       <segment>
         <source>Bunker-Bauplan (sehr selten!)</source>
-        <target>Plan de chantier (très rare !) (Hôtel abandonné)</target>
+        <target>Plan de chantier (très rare !)</target>
       </segment>
     </unit>
     <unit id="n6ABeIO" name="Hospital-Bauplan (ungewöhnlich)">
@@ -2464,7 +2464,7 @@
       </notes>
       <segment>
         <source>Hospital-Bauplan (ungewöhnlich)</source>
-        <target>Plan de chantier (inhabituel) (Hôpital abandonné)</target>
+        <target>Plan de chantier (inhabituel)</target>
       </segment>
     </unit>
     <unit id="50BbdKV" name="Hospital-Bauplan (selten)">
@@ -2473,7 +2473,7 @@
       </notes>
       <segment>
         <source>Hospital-Bauplan (selten)</source>
-        <target>Plan de chantier (rare) (Hôpital abandonné)</target>
+        <target>Plan de chantier (rare)</target>
       </segment>
     </unit>
     <unit id="EVSrLeF" name="Hospital-Bauplan (sehr selten!)">
@@ -2482,7 +2482,7 @@
       </notes>
       <segment>
         <source>Hospital-Bauplan (sehr selten!)</source>
-        <target>Plan de chantier (très rare !) (Hôpital abandonné)</target>
+        <target>Plan de chantier (très rare !)</target>
       </segment>
     </unit>
     <unit id="dy9JAOu" name="Verirrte Seele">
