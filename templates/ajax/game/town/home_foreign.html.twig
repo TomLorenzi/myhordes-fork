@@ -2,7 +2,7 @@
 {% block content %}
     {% set hour = "now"|date("G") %}
     <div class="row">
-        <div class="cell rw-12 town-banner town-banner-visit time-{{ hour }} {% if hour < 7 or hour > 18 %}night{% endif %}"></div>
+        <div class="cell rw-12 town-banner town-banner-visit time-{{ hour }} {% if town.isNight %}night{% endif %}"></div>
     </div>
 
     {# @var \App\Entity\Citizen owner #}
