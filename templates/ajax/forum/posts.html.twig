@@ -61,7 +61,8 @@
 <div class="forum-posts">
     {% for post in posts %}
         {% if not post.hidden or is_granted("ROLE_CROW") %}
-            <div class="forum-post {% if not post.hidden %}{% else %}forum-post-hidden{% endif %} {% if post.new %}forum-post-new{% endif %} {% if markedPost is defined and post.id == markedPost %}forum-post-marked{% endif %}" id="{{post.id}}">
+            {% set author_name = (post.owner.username == 'Der Rabe') ? 'Der Rabe'|trans({},'global') : post.owner.username %}
+            <div class="forum-post {% if not post.hidden %}{% else %}forum-post-hidden{% endif %} {% if post.new %}forum-post-new{% endif %} {% if markedPost is defined and post.id == markedPost %}forum-post-marked{% endif %}">
                 <div class="forum-post-header {% if post.owner.username == 'Der Rabe' %}header-variant-crow{% elseif post.type == "DEV" %}header-variant-dev{% endif %}">
                     <i>
                         {% if post.date.format('Ymd') == today|date("Ymd") %}
@@ -89,19 +90,10 @@
                     {% else %}
                         <div class="avatar small"><img alt="" src="{{ asset('build/images/empty_avatar.gif') }}"></div>
                     {% endif %}
-                    <b>
-                        {% if post.owner.username == 'Der Rabe' %}
-                            {{ 'Der Rabe'|trans({},'global') }}
-                        {% elseif post.type == "DEV" %}
-                            {{ post.owner.username }}
-                            <img alt="" src="{{ asset('build/images/small_admin.gif') }}" />
-                        {% else %}
-                            {{ post.owner.username }}
-                        {% endif %}
-                    </b>
+                    <b>{{ author_name }}</b>
                     {% if post.note is not null %}<div class="right post-note">{{ post.note|raw }}</div>{% endif %}
                 </div>
-                <div class="forum-post-content">
+                <div class="forum-post-content" x-post-content-id="{{ post.id }}" x-post-content-author="{{ author_name }}">
                     {{ post.translate ? (post.text|trans({},'game')|raw) : (post.text|raw) }}
                 </div>
                 <div class="forum-post-footer right">
@@ -165,28 +157,17 @@
     for (let i = 0; i < quote_buttons.length; i++)
         quote_buttons[i].addEventListener('click', function() {
         	let editor = document.getElementById('forum-editor');
-        	if(editor && editor.innerHTML == "") {
-            	$.ajax.no_history().load( document.getElementById('forum-editor'), '{{ path('forum_post_editor_controller', {fid: fid, tid: tid}) }}', false )
-        	}
-        	//{post: this.getAttribute('x-post-id')}
-        	setTimeout(function(){
-	    		$.ajax.easySend('{{ url('forum_post_quote', {fid: fid, tid: tid}) }}', {post: quote_buttons[i].getAttribute('x-post-id')}, function(text){
-	        		let textEditor = document.getElementById("forum-editor-text");
-	        		let newValue = textEditor.value + "\n" + text.content;
-	        		newValue = newValue.trim() + "\n";
-	        		textEditor.value = newValue;
-	        		textEditor.focus();
-	        		textEditor.setSelectionRange(textEditor.value.length,textEditor.value.length);
-	        		document.getElementById('forum-editor').scrollIntoView();
-	        		// trigger "input" event
-	        		var event = new Event('input', {
-					    bubbles: true,
-					    cancelable: true,
-					});
+        	if (editor && editor.innerHTML === "") {
+            	$.ajax.no_history().load( document.getElementById('forum-editor'), '{{ path('forum_post_editor_controller', {fid: fid, tid: tid}) }}', false, {}, function () {
 
-					textEditor.dispatchEvent(event);
-	        	});
-        	}, 10);
+            	    let content = document.querySelector('[x-post-content-id="' + quote_buttons[i].getAttribute('x-post-id') + '"]');
+                    let author = content.getAttribute('x-post-content-author');
+                    let textEditor = document.getElementById("forum-editor-text");
+                    textEditor.value = (author ? ('[quote=' + author + ']') : '[quote]') + $.html.twinoParser.parseFrom( content.innerHTML ) + '[/quote]';
+                    textEditor.dispatchEvent(new Event('input', {bubbles: true,cancelable: true}));
+
+                } )
+        	}
         })
     {% if is_granted("ROLE_CROW") %}
         let del_buttons = document.querySelectorAll('[x-forum-action="delete-post"]');

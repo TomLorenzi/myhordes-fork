@@ -103,8 +103,9 @@
             </div>
             <div id="gazette-switcher"><label class="button" for="gazette-switch">{{ 'Umdrehen'|trans({}, 'game') }}</label></div>
             
+            {% if citizensWithRole|length > 0 %}
             <div id="gazette-role-list">
-            {% for citizenWithRole in citizenWithRole %}
+            {% for citizenWithRole in citizensWithRole %}
                 {% for role in citizenWithRole.roles %}
                     {% if not role.secret and not role.hidden %}
                         <p><img alt="" src="{{ asset('build/images/small_middot.gif') }}" />{{ "Der %rolename% der Stadt ist %username%"|trans({'%rolename%': "<strong>" ~ role.label|trans({}, 'game') ~ "</strong>", '%username%': "<strong>" ~ citizenWithRole.user.username ~ "</strong>"} , 'game')|raw }}</p>
@@ -112,6 +113,7 @@
                 {% endfor %}
             {% endfor %}
             </div>
+            {% endif %}
             
             <h5>{{ 'Stadtregister'|trans({},'game') }}</h5>
             {% if show_register %}

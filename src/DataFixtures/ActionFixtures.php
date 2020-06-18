@@ -184,7 +184,7 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             'must_have_hammam'     => [ 'type' => Requirement::HideOnFail, 'collection' => [ 'building' => [ 'prototype' => 'small_spa4souls_#00', 'complete' => true  ] ]],
 
             'must_have_lab'         => [ 'type' => Requirement::HideOnFail, 'collection' => [ 'building' => [ 'prototype' => 'item_acid_#00', 'complete' => true  ] ]],
-            'must_not_have_lab'     => [ 'type' => Requirement::HideOnFail, 'collection' => [ 'building' => [ 'prototype' => 'item_acid_#00', 'complete' => false  ] ]],
+            'must_not_have_lab'     => [ 'type' => Requirement::MessageOnFail, 'collection' => [ 'building' => [ 'prototype' => 'item_acid_#00', 'complete' => false  ] ], 'text' => 'Vielleicht solltest du stattdessen dein Labor benutzen...' ],
             'must_have_canteen'     => [ 'type' => Requirement::HideOnFail, 'collection' => [ 'building' => [ 'prototype' => 'small_cafet_#01', 'complete' => true  ] ]],
             'must_not_have_canteen' => [ 'type' => Requirement::HideOnFail, 'collection' => [ 'building' => [ 'prototype' => 'small_cafet_#01', 'complete' => false  ] ]],
 
@@ -892,7 +892,7 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             'egg_#00'             => [ 'eat_7ap'],
             'apple_#00'           => [ 'eat_7ap'],
 
-            'disinfect_#00'       => [ 'drug_par_1', 'drug_par_2' ],
+            'disinfect_#00'       => [ 'drug_par_1', 'drug_par_2', 'drug_par_3', 'drug_par_4' ],
             'drug_#00'            => [ 'drug_6ap_1', 'drug_6ap_2' ],
             'drug_hero_#00'       => [ 'drug_8ap_1', 'drug_8ap_2' ],
             'drug_random_#00'     => [ 'drug_rand_1', 'drug_rand_2' ],

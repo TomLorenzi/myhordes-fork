@@ -108,6 +108,7 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
         $this->zone_handler->updateRuinZone( $this->getActiveCitizen()->getZone()->activeExplorerStats() );
         $str = $this->zone_handler->updateZone( $this->getActiveCitizen()->getZone(), null, $this->getActiveCitizen() );
         if ($str) $this->addFlash( 'notice', $str );
+        $this->entity_manager->flush();
     }
 
     public function before(): bool
@@ -562,7 +563,7 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
             }
 
             // Disable the dig timer
-            if ($dig_timer = $this->entity_manager->getRepository(DigTimer::class)->findActiveByCitizen($mover)) {
+            if ($dig_timer = $mover->getCurrentDigTimer()) {
                 $dig_timer->setPassive(true);
                 $this->entity_manager->persist( $dig_timer );
             }
@@ -614,7 +615,7 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
             return AjaxResponse::error( ErrorHelper::ErrorNoAP );
 
         // Entering a ruin disables the dig timer
-        if ($dig_timer = $this->entity_manager->getRepository(DigTimer::class)->findActiveByCitizen($citizen)) {
+        if ($dig_timer = $citizen->getCurrentDigTimer()) {
             $dig_timer->setPassive(true);
             $this->entity_manager->persist( $dig_timer );
         }
@@ -628,7 +629,12 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
         // Begin the exploration!
         $this->picto_handler->give_picto($citizen, 'r_ruine_#00', 1);
         $this->citizen_handler->setAP( $citizen, true, -1 );
-        $citizen->addExplorerStat((new RuinExplorerStats())->setActive(true)->setTimeout( (new DateTime())->modify( $citizen->getProfession()->getName() === 'collec' ? '+7min30sec' : '+5min' ) ));
+
+        $citizen->addExplorerStat((new RuinExplorerStats())->setActive(true)->setTimeout( (new DateTime())->modify(
+            $this->getTownConf()->get($citizen->getProfession()->getName() === 'collec' ?
+                TownConf::CONF_TIMES_EXPLORE_COLLEC :
+                TownConf::CONF_TIMES_EXPLORE_NORMAL, '+5min')
+        ) ));
         $this->entity_manager->persist($citizen);
         try {
             $this->entity_manager->flush();
@@ -705,7 +711,7 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
         foreach ($movers as $mover) {
 
             // Moving disables the dig timer
-            if ($dig_timer = $this->entity_manager->getRepository(DigTimer::class)->findActiveByCitizen($mover)) {
+            if ($dig_timer = $mover->getCurrentDigTimer()) {
                 $dig_timer->setPassive(true);
                 $this->entity_manager->persist( $dig_timer );
             }
@@ -1054,7 +1060,7 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
 
         foreach ($target_citizens as $target_citizen)
             try {
-                $timer = $this->entity_manager->getRepository(DigTimer::class)->findActiveByCitizen( $target_citizen );
+                $timer = $target_citizen->getCurrentDigTimer();
                 if (!$timer) $timer = (new DigTimer())->setZone( $zone )->setCitizen( $target_citizen );
                 else if (!$allow_redig || $timer->getTimestamp() > new DateTime()) {
                     if (count($target_citizens) === 1)

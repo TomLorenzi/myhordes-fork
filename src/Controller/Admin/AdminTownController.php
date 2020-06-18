@@ -11,6 +11,7 @@ use App\Response\AjaxResponse;
 use App\Service\AdminActionHandler;
 use App\Service\ErrorHelper;
 use App\Service\JSONRequestParser;
+use App\Service\NightlyHandler;
 use App\Service\UserFactory;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -62,5 +63,51 @@ class AdminTownController extends AdminActionController
             'log' => $this->renderLog( -1, $town, false, null, null )->getContent(),
             'day' => $town->getDay()
         ]);
+    }
+
+    /**
+     * @Route("api/admin/town/{id}/do/{action}", name="admin_town_manage", requirements={"id"="\d+"})
+     * @param int $id
+     * @param string $action
+     * @param JSONRequestParser $parser
+     * @param UserFactory $uf
+     * @return Response
+     */
+    public function town_manager(int $id, string $action, NightlyHandler $night): Response
+    {
+        /** @var Town $town */
+        $town = $this->entity_manager->getRepository(Town::class)->find($id);
+        if (!$town) return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
+
+        if (in_array($action, [ 'release', 'quarantine', 'advance' ]) && !$this->isGranted('ROLE_ADMIN'))
+            return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
+
+        switch ($action) {
+            case 'release':
+                $town->setAttackFails(0);
+                $this->entity_manager->persist($town);
+                break;
+            case 'quarantine':
+                $town->setAttackFails(3);
+                $this->entity_manager->persist($town);
+                break;
+            case 'advance':
+                if ($night->advance_day($town)) {
+                    foreach ($night->get_cleanup_container() as $c) $this->entity_manager->remove($c);
+                    $town->setAttackFails(0);
+                    $this->entity_manager->persist( $town );
+                }
+                break;
+
+            default: return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
+        }
+
+        try {
+            $this->entity_manager->flush();
+        } catch (\Exception $e) {
+            return AjaxResponse::error( ErrorHelper::ErrorDatabaseException );
+        }
+
+        return AjaxResponse::success();
     }
 }

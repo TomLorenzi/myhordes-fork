@@ -53,7 +53,7 @@ class AdminUserController extends AdminActionController
     }
 
     /**
-     * @Route("api/admin/users/{id}/account/do/{action}", name="admin_users_account_manage", requirements={"id"="\d+", "sid"="\d+"})
+     * @Route("api/admin/users/{id}/account/do/{action}", name="admin_users_account_manage", requirements={"id"="\d+"})
      * @param int $id
      * @param string $action
      * @param JSONRequestParser $parser

@@ -20,7 +20,7 @@ class AwardPrototypeRepository extends ServiceEntityRepository {
         Parent::__construct($registry, AwardPrototype::class);
     }
 
-    public function getAwardsByPicto(string  $value) {
+    public function getAwardsByPicto(string $value) {
         return $this->createQueryBuilder('a')
             ->andWhere('a.associatedPicto = :val')
             ->setParameter('val', $value)
@@ -35,6 +35,18 @@ class AwardPrototypeRepository extends ServiceEntityRepository {
                 ->setParameter('picto', $picto)
                 ->andWhere('a.unlockQuantity = :amount')
                 ->setParameter('amount', $amount)
+                ->getQuery()
+                ->getOneOrNullResult();
+        } catch(NonUniqueResultException $e) {
+            return null;
+        }
+    }
+
+    public function getAwardByTitle(string $value): ?AwardPrototype {
+        try {
+            return $this->createQueryBuilder('a')
+                ->andWhere('a.title = :val')
+                ->setParameter('val', $value)
                 ->getQuery()
                 ->getOneOrNullResult();
         } catch(NonUniqueResultException $e) {

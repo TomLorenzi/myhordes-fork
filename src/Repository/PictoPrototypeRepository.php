@@ -33,6 +33,19 @@ class PictoPrototypeRepository extends ServiceEntityRepository
         }
     }
 
+    public function findOneByLabel(string $value): ?PictoPrototype
+    {
+        try {
+            return $this->createQueryBuilder('i')
+                ->andWhere('i.label = :val')
+                ->setParameter('val', $value)
+                ->getQuery()
+                ->getOneOrNullResult();
+        } catch (NonUniqueResultException $e) {
+            return null;
+        }
+    }
+
     // /**
     //  * @return PictoPrototype[] Returns an array of PictoPrototype objects
     //  */
