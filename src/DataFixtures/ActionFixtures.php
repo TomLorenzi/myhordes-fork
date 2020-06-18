@@ -184,7 +184,7 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             'must_have_hammam'     => [ 'type' => Requirement::HideOnFail, 'collection' => [ 'building' => [ 'prototype' => 'small_spa4souls_#00', 'complete' => true  ] ]],
 
             'must_have_lab'         => [ 'type' => Requirement::HideOnFail, 'collection' => [ 'building' => [ 'prototype' => 'item_acid_#00', 'complete' => true  ] ]],
-            'must_not_have_lab'     => [ 'type' => Requirement::HideOnFail, 'collection' => [ 'building' => [ 'prototype' => 'item_acid_#00', 'complete' => false  ] ]],
+            'must_not_have_lab'     => [ 'type' => Requirement::MessageOnFail, 'collection' => [ 'building' => [ 'prototype' => 'item_acid_#00', 'complete' => false  ] ], 'text' => 'Vielleicht solltest du stattdessen dein Labor benutzen...' ],
             'must_have_canteen'     => [ 'type' => Requirement::HideOnFail, 'collection' => [ 'building' => [ 'prototype' => 'small_cafet_#01', 'complete' => true  ] ]],
             'must_not_have_canteen' => [ 'type' => Requirement::HideOnFail, 'collection' => [ 'building' => [ 'prototype' => 'small_cafet_#01', 'complete' => false  ] ]],
 
