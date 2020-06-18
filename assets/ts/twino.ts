@@ -297,8 +297,6 @@ class HTMLConverterFromBlocks {
 
     public static anyBlocks( blocks: Array<TwinoInterimBlock> ): string {
 
-        console.log(blocks);
-
         let cursor = 0;
         let nextBlock = function(): TwinoInterimBlock {
             return blocks.length > cursor ? blocks[cursor++] : null;
@@ -331,7 +329,6 @@ class HTMLConverterFromBlocks {
                     ret += (link_href ? HTMLConverterFromBlocks.wrapBlock( block, 'link', link_href ) : block.nodeText);
                     break;
                 case 'i': case 'u': case 's': case 'ul': case 'ol': case 'li':
-                    console.log(block);
                     ret += HTMLConverterFromBlocks.wrapBlock( block, block.nodeName );
                     break;
                 case 'span':

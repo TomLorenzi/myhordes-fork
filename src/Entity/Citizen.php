@@ -1072,6 +1072,8 @@ class Citizen
     {
         if ($this->explorerStats->contains($explorerStat)) {
             $this->explorerStats->removeElement($explorerStat);
+            $explorerStat->getZone()->getExplorerStats()->removeElement($explorerStat);
+
             // set the owning side to null (unless already changed)
             if ($explorerStat->getCitizen() === $this) {
                 $explorerStat->setCitizen(null);

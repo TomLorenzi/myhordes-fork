@@ -134,8 +134,14 @@ class DebugCommand extends Command
             $statusThirst = $this->entity_manager->getRepository(CitizenStatus::class)->findOneByName("thirst1");
             $statusDehydrated = $this->entity_manager->getRepository(CitizenStatus::class)->findOneByName("thirst2");
 
+            if (!$town) {
+                $output->writeln('<error>Town not found!</error>');
+                return 2;
+            }
+
             $citizens = $town->getCitizens();
             foreach ($citizens as $citizen) {
+                if(!$citizen->getAlive()) continue;
                 $citizen->addStatus($statusHasDrunk);
                 $citizen->removeStatus($statusThirst);
                 $citizen->removeStatus($statusDehydrated);
