@@ -515,13 +515,15 @@ class ActionHandler
 
                 if ($status->getRole() !== null && $status->getRoleAdd() !== null) {
                     if ($status->getRoleAdd()) {
-                        $this->citizen_handler->addRole( $citizen, $status->getRole() );
-                        $tags[] = 'role-up';
-                        $tags[] = "role-up-{$status->getRole()->getName()}";
+                        if ($this->citizen_handler->addRole( $citizen, $status->getRole() )) {
+                            $tags[] = 'role-up';
+                            $tags[] = "role-up-{$status->getRole()->getName()}";
+                        }
                     } else {
-                        $this->citizen_handler->removeRole( $citizen, $status->getRole() );
-                        $tags[] = 'role-down';
-                        $tags[] = "role-down-{$status->getRole()->getName()}";
+                        if ($this->citizen_handler->removeRole( $citizen, $status->getRole() )) {
+                            $tags[] = 'role-down';
+                            $tags[] = "role-down-{$status->getRole()->getName()}";
+                        }
                     }
                 }
 
