@@ -221,18 +221,18 @@
     <div class="controls">
         <div class="tilemap_controls">
             <div class="row">
-                <div class="cell rw-6">
+                <div class="float-left">
                     <button x-control="plus"   class="small inline"><i class="fa fa-plus"></i></button>
                     <button x-control="center" {% if default_zoom == 0 %}disabled{% endif %} class="small inline"><i class="fa fa-map-marker-alt"></i></button>
                     <button x-control="minus"  {% if default_zoom == 0 %}disabled{% endif %} class="small inline"><i class="fa fa-minus"></i></button>
                 </div>
-                <div class="cell rw-6 right">
+                <div class="float-right">
                     <button x-control="tags" class="small inline hide-tags">{% trans from 'game' %}Mark.{% endtrans %}</button>
                     {% if map.routes|length > 0 %}
                         <button x-control="routes" class="small inline">{% trans from 'game' %}Routen{% endtrans %}</button>
                     {% endif %}
                     {% if allow_zone_view %}
-                        <button x-control="zone" class="small inline">{% trans from 'game' %}Zone{% endtrans %}</button>
+                        <button x-control="zone" class="small inline"><i class="fa fa-compress-arrows-alt"></i></button>
                     {% endif %}
                 </div>
             </div>
