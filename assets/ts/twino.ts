@@ -519,16 +519,16 @@ export default class TwinoAlikeParser {
         for (let i = 0; i < lines.length; i++) {
 
             //UL
-            if ((m = lines[i].match(/^\s*?\[\*]\s*(.*?)$/gm))) {
+            if ((m = lines[i].match(/^\s*?(?:\[\*]|\s\*\s)\s*(.*?)$/m))) {
                 if (olmode) { lines.splice(i,0,'[/ol]'); olmode = false; i++ }
-                lines[i] = '[li]' + m[0].substr(3) + '[/li]';
+                lines[i] = '[li]' + m[1] + '[/li]';
                 if (!ulmode) { lines.splice(i,0,'[ul]'); ulmode = true; i++ }
                 continue;
             } else if (ulmode) { lines.splice(i,0,'[/ul]'); ulmode = false; i++; }
 
             //OL
-            if ((m = lines[i].match(/^\s*?\[0]\s*(.*?)$/gm))) {
-                lines[i] = '[li]' + m[0].substr(3) + '[/li]';
+            if ((m = lines[i].match(/^\s*?\[0]\s*(.*?)$/m))) {
+                lines[i] = '[li]' + m[1] + '[/li]';
                 if (!olmode) { lines.splice(i,0,'[ol]'); olmode = true; i++ }
                 continue;
             } else if (olmode) { lines.splice(i,0,'[/ol]'); olmode = false; i++; }
