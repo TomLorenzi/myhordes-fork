@@ -265,6 +265,10 @@ class CitizenHandler
         if (!$role) return false;
 
         if (!$citizen->getRoles()->contains($role)) {
+
+            if ($role->getName() === 'ghoul' && $this->hasStatusEffect($citizen, 'immune'))
+                return false;
+
             $citizen->addRole($role);
 
             if ($role->getName() === 'ghoul') {

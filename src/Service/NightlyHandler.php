@@ -912,13 +912,17 @@ class NightlyHandler
 
         $inventories[] = $town->getBank();
 
-        foreach ($town->getCitizens() as &$citizen) {
+        foreach ($town->getCitizens() as $citizen) {
             $inventories[] = $citizen->getInventory();
             $inventories[] = $citizen->getHome()->getChest();
         }
 
-        foreach ($town->getZones() as &$zone) {
+        foreach ($town->getZones() as $zone) {
             $inventories[] = $zone->getFloor();
+            foreach ($zone->getRuinZones() as $ruinZone) {
+                $inventories[] = $ruinZone->getFloor();
+                $inventories[] = $ruinZone->getRoomFloor();
+            }
         }
 
         $c = count($inventories);
@@ -930,6 +934,8 @@ class NightlyHandler
             'radio_on_#00' => $this->entity_manager->getRepository(ItemPrototype::class)->findOneByName('radio_off_#00'),
             'tamed_pet_off_#00'  => $this->entity_manager->getRepository(ItemPrototype::class)->findOneByName('tamed_pet_#00'),
             'tamed_pet_drug_#00' => $this->entity_manager->getRepository(ItemPrototype::class)->findOneByName('tamed_pet_#00'),
+            'maglite_2_#00' => $this->entity_manager->getRepository(ItemPrototype::class)->findOneByName('maglite_1_#00'),
+            'maglite_1_#00' => $this->entity_manager->getRepository(ItemPrototype::class)->findOneByName('maglite_off_#00'),
         ];
 
         foreach ($morph as $source => $target) {
