@@ -707,11 +707,16 @@ class SoulController extends AbstractController
         $pictos = $this->entity_manager->getRepository(Picto::class)->findNotPendingByUser($user);
     	$points = $this->user_handler->getPoints($user);
 
+        $referer = $request->headers->get('referer'); // get the referer, it can be empty!
+        $returnUrl = $this->generateUrl('soul_me');
+        //TODO: get referer, generate URL to return to it
+
         return $this->render( 'ajax/soul/visit.html.twig', $this->addDefaultTwigArgs("soul_visit", [
         	'user' => $user,
             'pictos' => $pictos,
             'points' => round($points, 0),
-            'seasons' => $this->entity_manager->getRepository(Season::class)->findAll()
+            'seasons' => $this->entity_manager->getRepository(Season::class)->findAll(),
+            'returnUrl' => $returnUrl,
         ]));
     }
 
