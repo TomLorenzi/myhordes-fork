@@ -178,12 +178,11 @@
             $.html.twinoParser.parseTo( node_transfer_source.value, node_transfer_target, function(s) {
                 switch (s) {
                     case ':)': s = ':smile:';    break;
-                    case ':D': s = ':lol:';      break;
+                    case ':d': s = ':lol:';      break;
                     case ':(': s = ':sad:';      break;
                     case ';)': s = ':smile:';    break;
-                    case ':O': s = ':surprise:'; break;
+                    case ':o': s = ':surprise:'; break;
                 }
-
                 let n = document.querySelector('[x-text-emote][x-text-insert-emote="' + s + '"]');
                 return n ? n.getAttribute('x-text-emote') : null;
             } );
