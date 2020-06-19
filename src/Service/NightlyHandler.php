@@ -923,7 +923,7 @@ class NightlyHandler
             $inventories[] = $zone->getFloor();
             foreach ($zone->getRuinZones() as $ruinZone) {
                 $inventories[] = $ruinZone->getFloor();
-                $inventories[] = $ruinZone->getRoomFloor();
+                if ($ruinZone->getRoomFloor()) $inventories[] = $ruinZone->getRoomFloor();
             }
         }
 
