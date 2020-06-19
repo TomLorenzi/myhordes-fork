@@ -7138,5 +7138,14 @@
         <target>Votre {item} fait rapidement effet. La fièvre s'estompe, votre coeur se remet à battre à un rythme quasi normal... Vous n'êtes pas passé(e) loin d'une mort atroce.</target>
       </segment>
     </unit>
+    <unit id="HpUrD8S" name="Vielleicht solltest du stattdessen dein Labor benutzen...">
+      <notes>
+        <note category="german">Vielleicht solltest du stattdessen dein Labor benutzen...</note>
+      </notes>
+      <segment>
+        <source>Vielleicht solltest du stattdessen dein Labor benutzen...</source>
+        <target>Vielleicht solltest du stattdessen dein Labor benutzen...</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

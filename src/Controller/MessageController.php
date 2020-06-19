@@ -655,10 +655,10 @@ class MessageController extends AbstractController
         }
 
         $post = (new Post())
-        ->setOwner( $user )
-        ->setText( $text )
-        ->setDate( new DateTime('now') )
-        ->setType($type);
+            ->setOwner( $user )
+            ->setText( $text )
+            ->setDate( new DateTime('now') )
+            ->setType($type);
 
         $tx_len = 0;
         if (!$this->preparePost($user,$forum,$post,$tx_len))
