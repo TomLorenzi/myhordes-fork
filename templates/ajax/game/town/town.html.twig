@@ -8,7 +8,7 @@
 	           <div class="header-menu-chaos"></div>
             {% endif %}
             {% set hour = "now"|date("G") %}
-            <div class="row town-menu {% if hour < 7 or hour > 18 %}night{% endif %}">
+            <div class="row town-menu {% if town.isNight %}night{% endif %}">
                 <div class="padded-small cell rw-12 town-overview {% if menu_section == '' %}selected{% endif %}">
                     <div x-ajax-href="{{ url('town_dashboard') }}"><img src="{{asset('build/images/small_view.gif')}}" alt =""/>{% trans from 'game' %}Übersicht{% endtrans %}</div>
                 </div>

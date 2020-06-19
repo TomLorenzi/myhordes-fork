@@ -610,5 +610,14 @@
         <target>Limiter l'affichage à 10 villes</target>
       </segment>
     </unit>
+    <unit id="1vjIGbE" name="Kartei schließen">
+      <notes>
+        <note category="german">Kartei schließen</note>
+      </notes>
+      <segment>
+        <source>Kartei schließen</source>
+        <target>Kartei schließen</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

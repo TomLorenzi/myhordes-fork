@@ -163,11 +163,18 @@
             	    let content = document.querySelector('[x-post-content-id="' + quote_buttons[i].getAttribute('x-post-id') + '"]');
                     let author = content.getAttribute('x-post-content-author');
                     let textEditor = document.getElementById("forum-editor-text");
-                    textEditor.value = (author ? ('[quote=' + author + ']') : '[quote]') + $.html.twinoParser.parseFrom( content.innerHTML ) + '[/quote]';
+                    textEditor.value = (author ? ('[quote=' + author + ']') : '[quote]') + $.html.twinoParser.parseFrom( content.innerHTML ) + '[/quote]' + "\n";
                     textEditor.dispatchEvent(new Event('input', {bubbles: true,cancelable: true}));
-
+                    textEditor.focus();
                 } )
-        	}
+        	} else {
+                let content = document.querySelector('[x-post-content-id="' + quote_buttons[i].getAttribute('x-post-id') + '"]');
+                let author = content.getAttribute('x-post-content-author');
+                let textEditor = document.getElementById("forum-editor-text");
+                textEditor.value += (author ? ('[quote=' + author + ']') : '[quote]') + $.html.twinoParser.parseFrom( content.innerHTML ) + '[/quote]' + "\n";
+                textEditor.dispatchEvent(new Event('input', {bubbles: true,cancelable: true}));
+                textEditor.focus();
+            }
         })
     {% if is_granted("ROLE_CROW") %}
         let del_buttons = document.querySelectorAll('[x-forum-action="delete-post"]');
@@ -232,7 +239,7 @@
     {% endif %}
 
     {% if markedPost is defined and markedPost > 0 %}
-        document.getElementById({{markedPost}}).scrollIntoView();
+        document.querySelector('[x-post-content-id="{{markedPost}}"]').parentElement
     {% endif %}
 </script>
 

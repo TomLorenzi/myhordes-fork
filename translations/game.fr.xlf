@@ -10686,7 +10686,7 @@
     </unit>
     <unit id="icxLMof" name="Der letzte Tote in dieser Stadt!">
       <notes>
-        <note category="german">Der letzte Tote in dieser Stadt!</note>
+        <note category="german">The last dead man in this city!</note>
       </notes>
       <segment>
         <source>Der letzte Tote in dieser Stadt!</source>
@@ -10695,7 +10695,7 @@
     </unit>
     <unit id="SWca3Zo" name="089f4e0">
       <notes>
-        <note category="german">Der letzte Tote erhält nur dann eine Belohnung, wenn er 5 volle Tage überlebt hat.</note>
+        <note category="german">The last dead person will only receive a reward if they have survived 5 full days.</note>
       </notes>
       <segment>
         <source>Der letzte Tote erhält nur dann eine Belohnung, wenn er 5 volle Tage überlebt hat.</source>
@@ -10740,7 +10740,7 @@
     </unit>
     <unit id="z3Y3jVt" name="Anonyme Beschwerde">
       <notes>
-        <note category="german">Anonyme Beschwerde</note>
+        <note category="german">Anonymous Complaint</note>
       </notes>
       <segment>
         <source>Anonyme Beschwerde</source>
@@ -10749,7 +10749,7 @@
     </unit>
     <unit id="tlOTwnM" name="Es wurde eine neue anonyme Beschwerde gegen dich eingelegt: &quot;%reason%&quot;">
       <notes>
-        <note category="german">Es wurde eine neue anonyme Beschwerde gegen dich eingelegt: "%reason%"</note>
+        <note category="german">You have received a new anonymous complaint: "%reason%"</note>
       </notes>
       <segment>
         <source>Es wurde eine neue anonyme Beschwerde gegen dich eingelegt: "%reason%"</source>
@@ -10758,7 +10758,7 @@
     </unit>
     <unit id="1VFuVbv" name="Beschwerde zurückgezogen">
       <notes>
-        <note category="german">Beschwerde zurückgezogen</note>
+        <note category="german">Complaint Withdrawn</note>
       </notes>
       <segment>
         <source>Beschwerde zurückgezogen</source>
@@ -10767,7 +10767,7 @@
     </unit>
     <unit id="xllGfth" name="Es gibt gute Nachrichten! Folgende Beschwerde wurde zurückgezogen: &quot;%reason%&quot;">
       <notes>
-        <note category="german">Es gibt gute Nachrichten! Folgende Beschwerde wurde zurückgezogen: "%reason%"</note>
+        <note category="german">Good news! The following complaint has been withdrawn: "%reason%"</note>
       </notes>
       <segment>
         <source>Es gibt gute Nachrichten! Folgende Beschwerde wurde zurückgezogen: "%reason%"</source>
@@ -10776,7 +10776,7 @@
     </unit>
     <unit id="d7mV6VK" name="Du bist vor Angst erstarrt!!">
       <notes>
-        <note category="german">Du bist vor Angst erstarrt!!</note>
+        <note category="german">Terrorised!!</note>
       </notes>
       <segment>
         <source>Du bist vor Angst erstarrt!!</source>
@@ -10785,7 +10785,7 @@
     </unit>
     <unit id="k9lty2j" name="6fedae5">
       <notes>
-        <note category="german">Wir haben zwei Neuigkeiten für dich. Eine gute und eine schlechte. Zuerst die gute: Trotz ihrer hartnäckigen Versuche, ist es den %num% Zombie(s) nicht gelungen, dich aufzufressen. Du hast dich wacker geschlagen. Bravo! Die schlechte: Das Erlebnis war so schlimm, dass du in eine Angststarre verfallen bist. So etwas möchtest du nicht wieder erleben...</note>
+        <note category="german">OK. We've got good news and bad news. The good news is that despite the best efforts of %num% Zombies to devour you, you got through it! The bad news is that the experience really shook you up, so you are now terrorised by the idea of having to go through that again...</note>
       </notes>
       <segment>
         <source>Wir haben zwei Neuigkeiten für dich. Eine gute und eine schlechte. Zuerst die gute: Trotz ihrer hartnäckigen Versuche, ist es den %num% Zombie(s) nicht gelungen, dich aufzufressen. Du hast dich wacker geschlagen. Bravo! Die schlechte: Das Erlebnis war so schlimm, dass du in eine Angststarre verfallen bist. So etwas möchtest du nicht wieder erleben...</source>
@@ -10794,7 +10794,7 @@
     </unit>
     <unit id="Efbc_qn" name="Haltet den Dieb!">
       <notes>
-        <note category="german">Haltet den Dieb!</note>
+        <note category="german">Robbery!</note>
       </notes>
       <segment>
         <source>Haltet den Dieb!</source>
@@ -10839,7 +10839,7 @@
     </unit>
     <unit id="uSGlEhQ" name="Du kannst etwas essen, um deine Erschöpfung zu lindern.">
       <notes>
-        <note category="german">Du kannst etwas essen, um deine Erschöpfung zu lindern.</note>
+        <note category="german">You can eat something to relieve your exhaustion.</note>
       </notes>
       <segment>
         <source>Du kannst etwas essen, um deine Erschöpfung zu lindern.</source>
@@ -10848,7 +10848,7 @@
     </unit>
     <unit id="CjT0_7R" name="4d90a81">
       <notes>
-        <note category="german">Du hast bereits etwas gegessen und getrunken. Dir bleiben nur noch Drogen und Alkohol!</note>
+        <note category="german">You have already eaten and drunk something. You only have drugs and alcohol left!</note>
       </notes>
       <segment>
         <source>Du hast bereits etwas gegessen und getrunken. Dir bleiben nur noch Drogen und Alkohol!</source>
@@ -10862,6 +10862,63 @@
       <segment>
         <source>Du bist in einer Privatstadt. Für diese Art von Stadt gelten einige Sonderregeln.</source>
         <target>Vous êtes dans une ville privée. Il existe des règles spéciales pour ce type de ville.</target>
+      </segment>
+    </unit>
+    <unit id="54fCkFO" name="7a97c74">
+      <notes>
+        <note category="german">Es sind nicht mehr genügend Einwohner in der Stadt. Der Zombieangriff und die Wiederherstellung der AP wurden auf morgen Abend verschoben.</note>
+      </notes>
+      <segment>
+        <source>Es sind nicht mehr genügend Einwohner in der Stadt. Der Zombieangriff und die Wiederherstellung der AP wurden auf morgen Abend verschoben.</source>
+        <target>Es sind nicht mehr genügend Einwohner in der Stadt. Der Zombieangriff und die Wiederherstellung der AP wurden auf morgen Abend verschoben.</target>
+      </segment>
+    </unit>
+    <unit id="mjwvinZ" name="Heute Morgen ist kein Artikel erschienen...">
+      <notes>
+        <note category="german">Heute Morgen ist kein Artikel erschienen...</note>
+      </notes>
+      <segment>
+        <source>Heute Morgen ist kein Artikel erschienen...</source>
+        <target>Heute Morgen ist kein Artikel erschienen...</target>
+      </segment>
+    </unit>
+    <unit id="DiWxu8O" name="9a7499d">
+      <notes>
+        <note category="german">Es scheint so, als ob ein anderer Bürger Gefallen an deinem Inventar gefunden hätte... Dir wurde folgendes gestohlen: %icon% %item%</note>
+      </notes>
+      <segment>
+        <source>Es scheint so, als ob ein anderer Bürger Gefallen an deinem Inventar gefunden hätte... Dir wurde folgendes gestohlen: %icon% %item%</source>
+        <target>Es scheint so, als ob ein anderer Bürger Gefallen an deinem Inventar gefunden hätte... Dir wurde folgendes gestohlen: %icon% %item%</target>
+      </segment>
+    </unit>
+    <unit id="RrPwAW." name="Zufälliger Bürger">
+      <notes>
+        <note category="german">Zufälliger Bürger</note>
+      </notes>
+      <segment>
+        <source>Zufälliger Bürger</source>
+        <target>Zufälliger Bürger</target>
+      </segment>
+    </unit>
+    <unit id="dTDcH8R" name="c8e86c4">
+      <notes>
+        <note category="german">Hiermit kannst du den Namen eines zufälligen Bürgers in deinen Post anfügen.
+                                                Bei Bedarf kannst du die Auswahl auf bestimmte Berufe, Helden oder bereits gestorbene Bürger eingrenzen.</note>
+      </notes>
+      <segment>
+        <source>Hiermit kannst du den Namen eines zufälligen Bürgers in deinen Post anfügen.
+                                                Bei Bedarf kannst du die Auswahl auf bestimmte Berufe, Helden oder bereits gestorbene Bürger eingrenzen.</source>
+        <target>Hiermit kannst du den Namen eines zufälligen Bürgers in deinen Post anfügen.
+                                                Bei Bedarf kannst du die Auswahl auf bestimmte Berufe, Helden oder bereits gestorbene Bürger eingrenzen.</target>
+      </segment>
+    </unit>
+    <unit id="lpSEXvf" name="71134d2">
+      <notes>
+        <note category="german">Wenn zu den gleichen zufällig gewählten Bürger mehrfach in deinem Text verwenden willst, kannst du ihm eine Nummer zuweisen, beispielsweise:</note>
+      </notes>
+      <segment>
+        <source>Wenn zu den gleichen zufällig gewählten Bürger mehrfach in deinem Text verwenden willst, kannst du ihm eine Nummer zuweisen, beispielsweise:</source>
+        <target>Wenn zu den gleichen zufällig gewählten Bürger mehrfach in deinem Text verwenden willst, kannst du ihm eine Nummer zuweisen, beispielsweise:</target>
       </segment>
     </unit>
   </file>

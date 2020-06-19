@@ -1252,5 +1252,14 @@
         <target>Cet identifiant doit être donné au site auquel vous souhaitez donner un accès (en lecture) aux informations de jeu de votre compte MyHordes : informations sur votre ville, liste des citoyens, carte du monde...etc.</target>
       </segment>
     </unit>
+    <unit id="33mt65B" name="Num. Listenpunkt">
+      <notes>
+        <note category="german">Num. Listenpunkt</note>
+      </notes>
+      <segment>
+        <source>Num. Listenpunkt</source>
+        <target>Liste numérotée</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

@@ -111,7 +111,7 @@
                                     <div x-forum-action="edit" x-text-insert-node="rnduser,hero" class="forum-button-inline"><img alt="" src="{{ asset('build/images/professions/hero.gif') }}"></div>
                                     <div x-forum-action="edit" x-text-insert-node="rnduser,dead" class="forum-button-inline"><img alt="" src="{{ asset('build/images/professions/death.gif') }}"></div>
                                     <div x-forum-action="edit" x-text-insert-node="rnduser,basic" class="forum-button-inline"><img alt="" src="{{ asset('build/images/professions/basic.gif') }}"></div>
-                                    <div x-forum-action="edit" x-text-insert-node="rnduser,scout" class="forum-button-inline"><img alt="" src="{{ asset('build/images/professions/vest.gif') }}"></div>
+                                    <div x-forum-action="edit" x-text-insert-node="rnduser,hunter" class="forum-button-inline"><img alt="" src="{{ asset('build/images/professions/vest.gif') }}"></div>
                                     <div x-forum-action="edit" x-text-insert-node="rnduser,collec" class="forum-button-inline"><img alt="" src="{{ asset('build/images/professions/dig.gif') }}"></div>
                                     <div x-forum-action="edit" x-text-insert-node="rnduser,guardian" class="forum-button-inline"><img alt="" src="{{ asset('build/images/professions/shield.gif') }}"></div>
                                     <div x-forum-action="edit" x-text-insert-node="rnduser,survivalist" class="forum-button-inline"><img alt="" src="{{ asset('build/images/professions/book.gif') }}"></div>
@@ -178,12 +178,11 @@
             $.html.twinoParser.parseTo( node_transfer_source.value, node_transfer_target, function(s) {
                 switch (s) {
                     case ':)': s = ':smile:';    break;
-                    case ':D': s = ':lol:';      break;
+                    case ':d': s = ':lol:';      break;
                     case ':(': s = ':sad:';      break;
-                    case ';)': s = ':smile:';    break;
-                    case ':O': s = ':surprise:'; break;
+                    case ';)': s = ':wink:';    break;
+                    case ':o': s = ':surprise:'; break;
                 }
-
                 let n = document.querySelector('[x-text-emote][x-text-insert-emote="' + s + '"]');
                 return n ? n.getAttribute('x-text-emote') : null;
             } );
