@@ -6415,7 +6415,7 @@
       </notes>
       <segment>
         <source>"Grab" schaufeln (mittelmäßiger vorübergehender Bonus, 1AP)</source>
-        <target>Look for a "tomb" (temporary medium bonus, 1PA )</target>
+        <target>Look for a "tomb" (temporary medium bonus, 1AP )</target>
       </segment>
     </unit>
     <unit id="P15D.zw" name="Du hast Dir Dein eigenes Grab geschaufelt. Oh welche Ironie!">
