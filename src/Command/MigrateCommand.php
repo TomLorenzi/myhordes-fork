@@ -190,7 +190,7 @@ class MigrateCommand extends Command
                 $output->writeln("Disabling maintenance mode in <info>{$i}</info> seconds....");
                 sleep(1);
             }
-            if (!$this->capsule( "app:migrate --maintenance off", $output, 'Enable maintenance mode... ', true )) return -1;
+            if (!$this->capsule( "app:migrate --maintenance off", $output, 'Disable maintenance mode... ', true )) return -1;
         }
 
         if ($input->getOption('update-db')) {
