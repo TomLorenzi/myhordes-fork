@@ -80,7 +80,7 @@ module.exports = {
 ```
 
 ## If you have found an untranslatable string
-Add `T::__('text','domain')` in the PHP file you found it, or `{{ 'text'|trans({},'domain')` , then run the `bin/console app:migrate -t fr` cmdlet to update FR location (available languages : fr, en, de, es)
+Add `T::__('text','domain')` in the PHP file you found it, or `{{ 'text'|trans({},'domain')` , then run the `bin/console app:migrate -t fr` cmdlet to update FR location (available languages : fr, en, de, es and 'all' to update all languages at once)
 
 ## How to add a missing RP text
 Go to your soul, and go read the first page of the RP text. Then, open your Web Console (CTRL+MAJ+I).
@@ -133,7 +133,7 @@ bin/console doctrine:fixtures:load --append
 php composer.phar update
 
 # Update database
-bin/console app:migrate -u
+bin/console app:migrate -u -r
 
 # Update yarn
 yarn install

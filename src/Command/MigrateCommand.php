@@ -38,6 +38,7 @@ use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\BufferedOutput;
 use Symfony\Component\Console\Output\NullOutput;
 use Symfony\Component\Console\Output\OutputInterface;
+use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
 use Symfony\Component\HttpKernel\KernelInterface;
 
 class MigrateCommand extends Command
@@ -53,8 +54,11 @@ class MigrateCommand extends Command
     private $inventory_handler;
     private $conf;
     private $maze;
+    private $param;
 
-    public function __construct(KernelInterface $kernel, GameFactory $gf, EntityManagerInterface $em, RandomGenerator $rg, CitizenHandler $ch, InventoryHandler $ih, ConfMaster $conf, MazeMaker $maze)
+    public function __construct(KernelInterface $kernel, GameFactory $gf, EntityManagerInterface $em,
+                                RandomGenerator $rg, CitizenHandler $ch, InventoryHandler $ih, ConfMaster $conf,
+                                MazeMaker $maze, ParameterBagInterface $params)
     {
         $this->kernel = $kernel;
 
@@ -65,6 +69,7 @@ class MigrateCommand extends Command
         $this->inventory_handler = $ih;
         $this->conf = $conf;
         $this->maze = $maze;
+        $this->param = $params;
 
         parent::__construct();
     }
@@ -76,6 +81,8 @@ class MigrateCommand extends Command
             ->setHelp('Migrations.')
 
             ->addOption('update-db', 'u', InputOption::VALUE_NONE, 'Creates and performs a doctrine migration, updates fixtures.')
+            ->addOption('recover', 'r',   InputOption::VALUE_NONE, 'When used together with --update-db, will clear all previous migrations and try again after an error.')
+
             ->addOption('update-trans', 't', InputOption::VALUE_REQUIRED, 'Updates all translation files for a single language')
 
             ->addOption('assign-heroic-actions-all', null, InputOption::VALUE_NONE, 'Resets the heroic actions for all citizens in all towns.')
@@ -91,76 +98,82 @@ class MigrateCommand extends Command
         ;
     }
 
+    protected function capsule( string $command, OutputInterface $output ): bool {
+        $run_command = "php bin/console $command 2>&1";
+
+        $output->write("<info>Executing encapsulated command \"<comment>$command</comment>\"... </info>");
+        $process_handle = popen( $run_command, 'r' );//exec( $command, $out, $ret );
+
+        $lines = [];
+        while (($line = fgets( $process_handle )) !== false)
+            $lines[] = $line;
+
+        if (($ret = pclose($process_handle)) !== 0) {
+            $output->writeln('');
+            foreach ($lines as $line) $output->write( "> {$line}" );
+            $output->writeln("<error>Command exited with error code {$ret}</error>");
+        } else $output->writeln("<info>Ok.</info>");
+
+        return $ret === 0;
+    }
+
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         if ($input->getOption('update-db')) {
 
-            $made_migration = true;
-            $db_is_current  = true;
-
-            $command = $this->getApplication()->find('doctrine:migrations:diff');
-            try {
-                $args = new ArrayInput([
-                    '--allow-empty-diff' => true,
-                ]);
-                $args->setInteractive(false);
-                $command->run($args, $output);
-            } catch (Exception $e) {
-                $output->writeln("Unable to create a migration: <error>{$e->getMessage()}</error>");
-                $made_migration = false;
+            if (!$this->capsule( 'doctrine:migrations:diff --allow-empty-diff --formatted --no-interaction', $output )) {
+                $output->writeln("<error>Unable to create a migration.</error>");
+                return 1;
             }
 
-            if ($made_migration) {
-                $command = $this->getApplication()->find('doctrine:migrations:migrate');
-                try {
-                    $args = new ArrayInput([
-                        '--all-or-nothing' => true,
-                        '--allow-no-migration' => true,
-                    ]);
-                    $args->setInteractive(false);
-                    $command->run($args, $output);
-                } catch (Exception $e) {
-                    $output->writeln("Unable to migrate: <error>{$e->getMessage()}</error>");
-                    $db_is_current = false;
+            if (!$this->capsule( 'doctrine:migrations:migrate --all-or-nothing --allow-no-migration --no-interaction', $output )) {
+
+                if ($input->getOption('recover')) {
+                    $output->writeln("<warning>Unable to migrate database, attempting recovery.</warning>");
+
+                    $source = "{$this->param->get('kernel.project_dir')}/src/Migrations";
+                    foreach (scandir( $source ) as $file)
+                        if ($file && $file[0] !== '.') {
+                            $output->write("\tDeleting \"<comment>{$file}</comment>\"... ");
+                            unlink( "$source/$file" );
+                            $output->writeln('<info>Ok!</info>');
+                        }
+
+                    if (!$this->capsule( 'doctrine:migrations:version --all --delete --no-interaction', $output )) {
+                        $output->writeln("<error>Unable to clean migrations.</error>");
+                        return 4;
+                    }
+
+                    if (!$this->capsule( 'doctrine:migrations:diff --allow-empty-diff --formatted --no-interaction', $output )) {
+                        $output->writeln("<error>Unable to create a migration.</error>");
+                        return 1;
+                    }
+
+                    if (!$this->capsule( 'doctrine:migrations:migrate --all-or-nothing --allow-no-migration --no-interaction', $output )) {
+                        $output->writeln("<error>Unable to migrate database.</error>");
+                        return 2;
+                    }
+                } else {
+                    $output->writeln("<error>Unable to migrate database.</error>");
+                    return 2;
                 }
+
+
             }
 
-            if ($db_is_current) {
-                $command = $this->getApplication()->find('doctrine:fixtures:load');
-                try {
-                    $command->run(new ArrayInput([
-                        '--append' => true,
-                    ]), $output);
-                } catch (Exception $e) {
-                    $output->writeln("Unable to insert fixtures: <error>{$e->getMessage()}</error>");
-                    return 1;
-                }
+            if (!$this->capsule( 'doctrine:fixtures:load --append', $output )) {
+                $output->writeln("<error>Unable to update fixtures.</error>");
+                return 3;
             }
 
-            return 0;
         }
 
         if ($lang = $input->getOption('update-trans')) {
 
-            $command = $this->getApplication()->find('translation:update');
+            $langs = ($lang === 'all') ? ['de','en','fr','es'] : [$lang];
+            foreach ($langs as $current_lang)
+                $this->capsule("translation:update $current_lang --force --sort asc --output-format xlf2 --prefix ''", $output);
 
-            $output->writeln("Now working on translations for <info>{$lang}</info>...");
-            $input = new ArrayInput([
-                'locale' => $lang,
-                '--force' => true,
-                '--sort' => 'asc',
-                '--output-format' => 'xlf2',
-                '--prefix' => '',
-            ]);
-            $input->setInteractive(false);
-            try {
-                $command->run($input, new NullOutput());
-            } catch (Exception $e) {
-                $output->writeln("Error: <error>{$e->getMessage()}</error>");
-                return 1;
-            }
-
-            $output->writeln('Done!');
             return 0;
         }
 
