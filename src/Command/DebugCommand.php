@@ -130,9 +130,9 @@ class DebugCommand extends Command
         if ($tid = $input->getOption('everyone-drink')) {
             /** @var Town $town */
             $town = $this->entity_manager->getRepository(Town::class)->find( $tid );
-            $statusHasDrunk = $this->entity_manager->getRepository(CitizenStatus::class)->findOneByName("hasdrunk");
-            $statusThirst = $this->entity_manager->getRepository(CitizenStatus::class)->findOneByName("thirst1");
-            $statusDehydrated = $this->entity_manager->getRepository(CitizenStatus::class)->findOneByName("thirst2");
+            $statusHasDrunk = $this->entity_manager->getRepository(CitizenStatus::class)->findOneBy(['name' => "hasdrunk"]);
+            $statusThirst = $this->entity_manager->getRepository(CitizenStatus::class)->findOneBy(['name' => "thirst1"]);
+            $statusDehydrated = $this->entity_manager->getRepository(CitizenStatus::class)->findOneBy(['name' => "thirst2"]);
 
             if (!$town) {
                 $output->writeln('<error>Town not found!</error>');
@@ -163,10 +163,10 @@ class DebugCommand extends Command
             $force = $input->getOption('force');
 
             $professions = $this->entity_manager->getRepository( CitizenProfession::class )->findAll();
-            for ($i = 0; $i < $town->getPopulation(); $i++)
+            for ($i = 0; $i < $town->getPopulation() - $town->getCitizenCount(); $i++)
                 for ($u = 1; $u <= 80; $u++) {
                     $user_name = 'user_' . str_pad($u, 3, '0', STR_PAD_LEFT);
-                    $user = $this->entity_manager->getRepository(User::class)->findOneByName( $user_name );
+                    $user = $this->entity_manager->getRepository(User::class)->findOneBy( ['name' => $user_name] );
                     if (!$user) continue;
                     /** @var Citizen $citizen */
 

@@ -214,6 +214,7 @@ class TownInspectorCommand extends Command
                     if(!$building->getComplete()) {
                         $building->setAP($building->getPrototype()->getAP());
                         $building->setComplete(true);
+                        $building->setHP($building->getPrototype()->getHP());
                         $this->townHandler->triggerBuildingCompletion($town, $building);
                         $changed = true;
                         $changes = true;
