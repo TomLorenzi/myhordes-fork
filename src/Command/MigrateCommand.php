@@ -82,10 +82,11 @@ class MigrateCommand extends Command
 
             ->addOption('maintenance', 'm', InputOption::VALUE_REQUIRED, 'Enables (on) or disables (off) maintenance mode')
 
-            ->addOption('from-git', 'g', InputOption::VALUE_REQUIRED, 'Switches to the given git branch and updates everything.')
-            ->addOption('remote', null,  InputOption::VALUE_REQUIRED, 'Sets the git remote for --from-git')
-            ->addOption('branch', null,  InputOption::VALUE_REQUIRED, 'Sets the git branch for --from-git')
-            ->addOption('env', null,     InputOption::VALUE_REQUIRED, 'Sets the symfony environment to build assets for')
+            ->addOption('from-git', 'g',    InputOption::VALUE_NONE, 'Switches to the given git branch and updates everything.')
+            ->addOption('remote', null,     InputOption::VALUE_REQUIRED, 'Sets the git remote for --from-git')
+            ->addOption('branch', null,     InputOption::VALUE_REQUIRED, 'Sets the git branch for --from-git')
+            ->addOption('environment', null,InputOption::VALUE_REQUIRED, 'Sets the symfony environment to build assets for')
+            ->addOption('phar', null,InputOption::VALUE_REQUIRED, 'If set, composer will be invoked using a composer.phar file')
 
             ->addOption('update-db', 'u', InputOption::VALUE_NONE, 'Creates and performs a doctrine migration, updates fixtures.')
             ->addOption('recover', 'r',   InputOption::VALUE_NONE, 'When used together with --update-db, will clear all previous migrations and try again after an error.')
@@ -111,7 +112,7 @@ class MigrateCommand extends Command
      * @param bool|false $detach
      * @return string[]
      */
-    protected function bin( string $command, ?int &$ret = &null, bool $detach = false  ): array {
+    protected function bin( string $command, ?int &$ret = null, bool $detach = false  ): array {
         $process_handle = popen( $command, 'r' );
 
         $lines = [];
@@ -158,7 +159,7 @@ class MigrateCommand extends Command
 
             $remote = $input->getOption('remote');
             $branch = $input->getOption('branch');
-            $env    = $input->getOption('env');
+            $env    = $input->getOption('environment');
 
             if (!$this->capsule( "app:migrate --maintenance on", $output, 'Enable maintenance mode... ', true )) return -1;
 
@@ -170,13 +171,13 @@ class MigrateCommand extends Command
             if (!$this->capsule( "git fetch {$remote} {$branch}", $output, 'Retrieving updates from repository... ', false )) return 1;
             if (!$this->capsule( "git reset --hard {$remote}/{$branch}", $output, 'Applying changes to filesystem... ', false )) return 2;
             if ($env === 'dev') {
-                if (!$this->capsule( "php composer.phar update", $output, 'Updating composer dependencies...', false )) return 3;
-            } else if (!$this->capsule( "php composer.phar update --no-dev --optimize-autoloader", $output, 'Updating composer production dependencies... ', false )) return 4;
+                if (!$this->capsule( ($input->getOption('phar') ? 'php composer.phar' : 'composer') . " update", $output, 'Updating composer dependencies...', false )) return 3;
+            } else if (!$this->capsule( ($input->getOption('phar') ? 'php composer.phar' : 'composer') . " update --no-dev --optimize-autoloader", $output, 'Updating composer production dependencies... ', false )) return 4;
 
             if (!$this->capsule( "yarn install", $output, 'Updating yarn dependencies... ', false )) return 5;
             if (!$this->capsule( "yarn encore {$env}}", $output, 'Building web assets... ', false )) return 6;
 
-            $version_lines = $this->bin( 'git describe --tags' );
+            $version_lines = $this->bin( 'git describe --tags', $ret );
             if (count($version_lines) >= 1) {
                 file_put_contents( 'VERSION', $version_lines[0] );
                 $output->writeln("Updated MyHordes to version <info>{$version_lines[0]}</info>");
