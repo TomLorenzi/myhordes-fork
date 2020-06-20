@@ -188,9 +188,10 @@ class TownHandler
         }
 
         // If this is a child of fundament, give a picto
-        if($building->getPrototype()->getParent() != null && $building->getPrototype()->getParent()->getName() == 'small_building_#00'){
+        if($building->getPrototype()->getParent() !== null && $building->getPrototype()->getParent()->getName() === 'small_building_#00'){
             $pictos[] = $this->entity_manager->getRepository(PictoPrototype::class)->findOneBy(['name' => "r_wondrs_#00"]);
         }
+
         foreach ($town->getCitizens() as $target_citizen) {
             if (!$target_citizen->getAlive()) continue;
 
