@@ -85,7 +85,7 @@ class MigrateCommand extends Command
             ->addOption('from-git', 'g', InputOption::VALUE_REQUIRED, 'Switches to the given git branch and updates everything.')
             ->addOption('remote', null,  InputOption::VALUE_REQUIRED, 'Sets the git remote for --from-git')
             ->addOption('branch', null,  InputOption::VALUE_REQUIRED, 'Sets the git branch for --from-git')
-            ->addOption('env', null,     InputOption::VALUE_REQUIRED, 'Sets the symfony environment to build assets for')
+            //->addOption('env', null,     InputOption::VALUE_REQUIRED, 'Sets the symfony environment to build assets for')
 
             ->addOption('update-db', 'u', InputOption::VALUE_NONE, 'Creates and performs a doctrine migration, updates fixtures.')
             ->addOption('recover', 'r',   InputOption::VALUE_NONE, 'When used together with --update-db, will clear all previous migrations and try again after an error.')
@@ -111,7 +111,7 @@ class MigrateCommand extends Command
      * @param bool|false $detach
      * @return string[]
      */
-    protected function bin( string $command, ?int &$ret = &null, bool $detach = false  ): array {
+    protected function bin( string $command, ?int &$ret = null, bool $detach = false  ): array {
         $process_handle = popen( $command, 'r' );
 
         $lines = [];
