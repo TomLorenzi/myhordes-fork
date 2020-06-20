@@ -9673,7 +9673,7 @@
       </notes>
       <segment>
         <source>in der Stadt oder am Stadttor</source>
-        <target>En ville ou aux portes</target>
+        <target>en ville ou aux portes</target>
       </segment>
     </unit>
     <unit id="fICCxje" name="Seine Seele ansehen">
@@ -10870,7 +10870,7 @@
       </notes>
       <segment>
         <source>Es sind nicht mehr genügend Einwohner in der Stadt. Der Zombieangriff und die Wiederherstellung der AP wurden auf morgen Abend verschoben.</source>
-        <target>Es sind nicht mehr genügend Einwohner in der Stadt. Der Zombieangriff und die Wiederherstellung der AP wurden auf morgen Abend verschoben.</target>
+        <target>Il n'y a pas assez de citoyens en ville, l'attaque et la récupération des PA sont donc reportées à demain soir.</target>
       </segment>
     </unit>
     <unit id="mjwvinZ" name="Heute Morgen ist kein Artikel erschienen...">
@@ -10879,7 +10879,7 @@
       </notes>
       <segment>
         <source>Heute Morgen ist kein Artikel erschienen...</source>
-        <target>Heute Morgen ist kein Artikel erschienen...</target>
+        <target>Aucun article ce matin...</target>
       </segment>
     </unit>
     <unit id="DiWxu8O" name="9a7499d">
@@ -10888,7 +10888,7 @@
       </notes>
       <segment>
         <source>Es scheint so, als ob ein anderer Bürger Gefallen an deinem Inventar gefunden hätte... Dir wurde folgendes gestohlen: %icon% %item%</source>
-        <target>Es scheint so, als ob ein anderer Bürger Gefallen an deinem Inventar gefunden hätte... Dir wurde folgendes gestohlen: %icon% %item%</target>
+        <target>Apparemment, votre inventaire a beaucoup plu à un de vos concitoyens... Quelqu'un vous a subtilisé : %icon% %item% .</target>
       </segment>
     </unit>
     <unit id="RrPwAW." name="Zufälliger Bürger">
@@ -10897,7 +10897,7 @@
       </notes>
       <segment>
         <source>Zufälliger Bürger</source>
-        <target>Zufälliger Bürger</target>
+        <target>Citoyen aléatoire</target>
       </segment>
     </unit>
     <unit id="dTDcH8R" name="c8e86c4">
@@ -10908,8 +10908,8 @@
       <segment>
         <source>Hiermit kannst du den Namen eines zufälligen Bürgers in deinen Post anfügen.
                                                 Bei Bedarf kannst du die Auswahl auf bestimmte Berufe, Helden oder bereits gestorbene Bürger eingrenzen.</source>
-        <target>Hiermit kannst du den Namen eines zufälligen Bürgers in deinen Post anfügen.
-                                                Bei Bedarf kannst du die Auswahl auf bestimmte Berufe, Helden oder bereits gestorbene Bürger eingrenzen.</target>
+        <target>Vous pouvez l'utiliser pour ajouter le nom d'un citoyen aléatoire à votre message.
+                                                Si nécessaire, vous pouvez limiter la sélection à certaines professions, héros ou citoyens déjà décédés.</target>
       </segment>
     </unit>
     <unit id="lpSEXvf" name="71134d2">
@@ -10918,7 +10918,7 @@
       </notes>
       <segment>
         <source>Wenn zu den gleichen zufällig gewählten Bürger mehrfach in deinem Text verwenden willst, kannst du ihm eine Nummer zuweisen, beispielsweise:</source>
-        <target>Wenn zu den gleichen zufällig gewählten Bürger mehrfach in deinem Text verwenden willst, kannst du ihm eine Nummer zuweisen, beispielsweise:</target>
+        <target>Si vous souhaitez utiliser le même citoyen choisi au hasard plus d'une fois dans votre texte, vous pouvez lui attribuer un numéro, par exemple :</target>
       </segment>
     </unit>
   </file>
