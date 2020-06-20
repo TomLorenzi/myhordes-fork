@@ -244,6 +244,11 @@ class Citizen
      */
     private $buildingVote;
 
+    /**
+     * @ORM\ManyToMany(targetEntity=HelpNotificationMarker::class)
+     */
+    private $helpNotifications;
+
     public function __construct()
     {
         $this->status = new ArrayCollection();
@@ -259,6 +264,7 @@ class Citizen
         $this->citizenWatch = new ArrayCollection();
         $this->privateMessageThreads = new ArrayCollection();
         $this->explorerStats = new ArrayCollection();
+        $this->helpNotifications = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -1095,6 +1101,32 @@ class Citizen
         // set the owning side of the relation if necessary
         if ($buildingVote !== null && $buildingVote->getCitizen() !== $this) {
             $buildingVote->setCitizen($this);
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|HelpNotificationMarker[]
+     */
+    public function getHelpNotifications(): Collection
+    {
+        return $this->helpNotifications;
+    }
+
+    public function addHelpNotification(HelpNotificationMarker $helpNotification): self
+    {
+        if (!$this->helpNotifications->contains($helpNotification)) {
+            $this->helpNotifications[] = $helpNotification;
+        }
+
+        return $this;
+    }
+
+    public function removeHelpNotification(HelpNotificationMarker $helpNotification): self
+    {
+        if ($this->helpNotifications->contains($helpNotification)) {
+            $this->helpNotifications->removeElement($helpNotification);
         }
 
         return $this;

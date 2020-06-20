@@ -10,6 +10,7 @@ use App\Entity\CitizenHomeUpgradePrototype;
 use App\Entity\CitizenProfession;
 use App\Entity\CitizenRole;
 use App\Entity\CitizenStatus;
+use App\Entity\HelpNotificationMarker;
 use App\Entity\ItemGroup;
 use App\Entity\ItemGroupEntry;
 use App\Entity\ItemPrototype;
@@ -160,6 +161,10 @@ class CitizenFixtures extends Fixture implements DependentFixtureInterface
         ['label' => 'Schamane'                    , 'vote' => true,  'icon' => 'shaman', 'name'=>'shaman', 'hidden' => false, 'secret' => false ],
         ['label' => 'Reiseleiter in der Außenwelt', 'vote' => true,  'icon' => 'guide',  'name'=>'guide' , 'hidden' => false, 'secret' => false ],
         ['label' => 'Ghul',                         'vote' => false, 'icon' => 'ghoul',  'name'=>'ghoul' , 'hidden' => false, 'secret' => true, 'message' => 'Du hast dich in einen Ghul verwandelt!' ],
+    ];
+
+    public static $notificationMarkers = [
+        'ghul',
     ];
 
     private $entityManager;
@@ -442,6 +447,18 @@ class CitizenFixtures extends Fixture implements DependentFixtureInterface
         $progress->finish();
     }
 
+    protected function insert_hnm(ObjectManager $manager, ConsoleOutputInterface $out) {
+        $out->writeln( '<comment>Help notification markers: ' . count(static::$notificationMarkers) . ' fixture entries available.</comment>' );
+
+        // Iterate over all entries
+        foreach (static::$notificationMarkers as $entry) {
+
+            if (!$manager->getRepository(HelpNotificationMarker::class)->findOneByName($entry))
+                $manager->persist( (new HelpNotificationMarker())->setName( $entry ) );
+
+        }
+    }
+
 
     public function load(ObjectManager $manager) {
         $output = new ConsoleOutput();
@@ -463,6 +480,9 @@ class CitizenFixtures extends Fixture implements DependentFixtureInterface
             $output->writeln("");
 
             $this->insert_cod($manager, $output);
+            $output->writeln("");
+            $this->insert_hnm($manager, $output);
+
         } catch (Exception $e) {
             $output->writeln('<error>' . $e->getMessage() . '</error>');
         }
