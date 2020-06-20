@@ -4,12 +4,10 @@ namespace App\DataFixtures;
 
 use App\Entity\RolePlayText;
 use App\Entity\RolePlayTextPage;
-use App\Entity\TownClass;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\Persistence\ObjectManager;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Console\Helper\ProgressBar;
-use Symfony\Component\Console\Helper\Table;
 use Symfony\Component\Console\Output\ConsoleOutput;
 use Symfony\Component\Console\Output\ConsoleOutputInterface;
 
@@ -31,7 +29,7 @@ class TextFixtures extends Fixture
             'title' => 'Auslosung',
             'author' => 'Stravingo',
             'content' => [
-                '<quote>Zufluchtsort der verlorenen Hoffnungen, 19. Februar</quote><p>Wir haben schon seit Wochen nichts mehr zu essen. Wir sind hungrig, so hungrig wie in unserem Leben nie zuvor. Der Hunger nagt an uns, presst uns die Gedärme, doch wir können die Stadt nicht verlassen.</p><p>Jenseits unserer schäbigen Verteidigungen lauern sie uns auf... Ich kann nicht mehr. Ich habe keine Kraft mehr. Ich kann den Holzkohlegeruch des Kremato-Cue schon riechen.</p><p>Heute morgen haben wir jemanden ausgelost. Das Los fiel auf mich, aber das ist mir egal. Meine Mitbürger sind dreckige Heuchler, die sich mitleidig geben. Um mir "Trost" zu spenden, sagten Sie, dass ich fast nichts spüren würde. Sie hätten mir eine Flasche Bier aufgehoben - elendige Lügner! Es gibt kein Bier mehr!! Ich hab die letzte Flasche gestern Abend ausgesoffen! Ha!</p><p><em>Stravingo</em></p>'
+                '<blockquote>Zufluchtsort der verlorenen Hoffnungen, 19. Februar</blockquote><p>Wir haben schon seit Wochen nichts mehr zu essen. Wir sind hungrig, so hungrig wie in unserem Leben nie zuvor. Der Hunger nagt an uns, presst uns die Gedärme, doch wir können die Stadt nicht verlassen.</p><p>Jenseits unserer schäbigen Verteidigungen lauern sie uns auf... Ich kann nicht mehr. Ich habe keine Kraft mehr. Ich kann den Holzkohlegeruch des Kremato-Cue schon riechen.</p><p>Heute morgen haben wir jemanden ausgelost. Das Los fiel auf mich, aber das ist mir egal. Meine Mitbürger sind dreckige Heuchler, die sich mitleidig geben. Um mir "Trost" zu spenden, sagten Sie, dass ich fast nichts spüren würde. Sie hätten mir eine Flasche Bier aufgehoben - elendige Lügner! Es gibt kein Bier mehr!! Ich hab die letzte Flasche gestern Abend ausgesoffen! Ha!</p><p><em>Stravingo</em></p>'
             ],
             'lang' => 'de',
             'design' => 'written',
@@ -41,7 +39,7 @@ class TextFixtures extends Fixture
             'title' => 'Befehl',
             'author' => 'Nobbz',
             'content' => [
-                '<quote>Befehl</quote><p>Morgen um AG YQ AG AG Zulu wird der Welpe an die Garage im Baum geliefert. Der Dosenöffner nimmt die Route über die A KL. Es wird eine Abschätzung des Kartoffel Gemüse erbeten.</p>'
+                '<blockquote>Befehl</blockquote><p>Morgen um AG YQ AG AG Zulu wird der Welpe an die Garage im Baum geliefert. Der Dosenöffner nimmt die Route über die A KL. Es wird eine Abschätzung des Kartoffel Gemüse erbeten.</p>'
             ],
             'lang' => 'de',
             'design' => 'typed',
@@ -59,9 +57,16 @@ class TextFixtures extends Fixture
             'title' => 'Bekanntmachung: Abtrünnige',
             'author' => 'Sigma',
             'content' => [
-                ''
+                '<br/><br/><br/><b>ÖFFENTLICHE BEKANNTMACHUNG</b><br /><br />
+                Ein Gruppe Abtrünniger hat vor zwei Tagen die
+                Stadt verlassen, um sich in der Höhle südlich
+                der Stadt zu verstecken. Ein Aufklärer meinte,
+                sie hätten komplett den Verstand verloren, oder
+                besser gesagt: Ihre Köpfe.'
             ],
-            'lang' => 'de'
+            'lang' => 'de',
+            'design' => 'typed',
+            'background' => 'carton',
         ],
         'bwas' => [
             'title' => 'Bekanntmachung: Wasser',
@@ -157,7 +162,13 @@ class TextFixtures extends Fixture
             'title' => 'Coctails Tagebuch Teil 2',
             'author' => 'coctail',
             'content' => [
-                ''
+                '<p>Schmerzerfüllt öffnete ich meine Augen.</p><p>Pantokrat hatte mir ein feuchtes Wickeltuch auf die Stirn gelegt. Ich lag im Schatten und beschloss meine Augen erneut zu schließen. Nur noch ein paar Minuten diese angenehme Kühle genießen...</p><p>Einfach nur ausgestreckt daliegen und den Sonnenuntergang beobachten... Ich hätte nie gedacht, dass das mal so entspannend sein kann...</p><p>Die Sonne! Sie ist gleich weg! Sie sind gleich da! Wir müssen uns verstecken!</p>',
+                '<p>- "Er ist jetzt wach.", rief Pantokrat hinter sich.</p><p>- "Umso besser, dann soll er gleich mal mitanpacken. Wir müssen diesen Kühlschrank vor dieses Fenster schieben!", antwortete Zoby mit ruhiger Stimme.</p><p>Wir hatten das gesamte Erdgeschoss mit allen noch brauchbaren Möbeln verbarrikadiert, doch es wartete noch ein Haufen Arbeit auf uns. Ehe nicht alles hunderprozentig dicht war, konnten wir uns keine Pause gönnen.</p><p>Pantokrat und Zoby erzählten mir, wie sie mich gegen die Zombies stürmen sehen hatten. Ich hätte einen nach dem anderen zerlegt. Vor lauter Anstrengung bin ich dann zusammengeklappt. Anschließend hätten sie mich bis hierher geschleppt.</p>',
+                '<p>Selbst Wasser hatten sie gefunden! Als sie das Bad betraten lag noch jemand in der Badewanne. Glücklicherweise ist er dann zum Sterben rausgegangen... Seine Leiche liegt noch immer neben dem Waschbecken. Selbstverständlich kommt aus den Wasserhähnen kein Wasser! Von Strom brauchen wir gar nicht erst reden.</p><p>Angesichts meines geschwächten Zustands, überließen mir Pantokrat und Zoby das kaputte Sofa. Pantokrat würde heute Nacht mit seinem Batteriewerfer Wache schieben.</p><p>Am nächsten Morgen wurde ich von Zoby unsanft geweckt. Pantokrat, der ja eigentlich die Nacht auf uns aufpassen sollte, bekam einen Fußtritt verpasst... Der Helligkeit nach zu urteilen, stand die Sonne schon hoch am Himmel... gar nicht gut.</p><p>So erschöpft wie wir gestern waren, sind wir alle drei sofort eingeschlafen und haben nichts mehr gehört. Das ist wirklich erstaunlich, denn die Beulen und Kratzspuren an den Wänden deuten auf eine massive Gewalteinwirkung hin.</p>',
+                '<p> Die Biester wollten es gestern Nacht wirklich wissen... Vorsichtig verließen wir unsere Schlafstätte. Es sah so aus, als ob sich die Zombiehorde von gestern Nacht zurückgezogen hätte.</p><p>Da wir den ganzen letzten Abend damit verbracht hatten uns einzubunkern, waren uns die Autowracks von nebenan gar nicht augefallen.</p><p>Die Autos waren vom Rost regelrecht zerfressen.. als ob sie schon seit Jahrzehnten hier verrotten würden. Alles um uns herum schien in letzter Zeit noch schneller zu verfallen...</p><p>Wir versuchten eines nach dem anderen zu starten. Es war total sinnlos... plötzlich hörte ich ein lautes Brummen. Ich rannte zum anderen Ende des Schrottplatzes und sah Zoby neben einem Fahrzeug stehen. Himmel, war das ein Motor! Zoby hatte doch tatsächlich ein militärisches Kettenfahrzeug zum Laufen gebracht! Als er mich erblickte, schaltete er den Motor aus und stieg aus seiner Fahrerkabine.</p><p>Breit grinsend stand er vor mir und wollte mir etwas erzählen, als hinter ihm auch schon weiße Rauchschwaden aus der Motorhaube stiegen...</p>',
+                '<p>Pantokrat kam auf uns zugelaufen. Er erzählt uns, dass er ein eingestürztes Gebäude unter dem Sand entdeckt hatte.</p><p>Daraufhin beschlossen wir uns die Arbeit aufzuteilen. Während ich mit meiner "Reibe" graben sollte, kümmerte sich Pantokrat um die Autoblechverkleidungen. Zoby hatte hingegen eine Werkzeugkiste gefunden und machte sich daran, das Kettenfahrzeug auszuschlachten.</p><p>Das Graben war eine richtige Scheißarbeit. Zum Glück brachte mir Pantokrat nach ein paar Stunden eine richtige Schaufel, denn meine Hände waren vom Graben schon komplett aufgeschürft.</p>Am Abend haben wir uns dann in unseren selbst fabrizierten Metallkasten eingesperrt. Pantokrat hatte alle Motorhauben eingesammelt, die er finden konnte. Anschließend haben wir alle Fenster damit abgedeckt. Um ganz auf Nummer sicher zu gehen, haben wir noch einen Kleintransporter vor die Haupttür geschoben.<p></p>',
+                '<p>Auch Zoby war fleißig gewesen: Er hatte diesen riesigen Kettenfahrzeugmotor wieder zum Laufen gebracht, die Benzintanks der anderen Fahrzeuge leergesaugt und das Benzin in Kanister abgefüllt. </p><p>Wir mussten uns nun entscheiden, ob wir weiter in unserer Festung bleiben oder ob wir vor Sonnenuntergang aufbrechen würden. Nach einem kurzen Wortwechsel richteten sich die Blicke plötzlich auf mich. Ich war der einzige, der noch nichts gesagt hatte.</p><p>Ich grinste sie stumm an, verzog mich dann aber sofort in den Nebenraum. Dabei nahme ich die Bierflasche mit, die ich zuvor im Bauschutt gefunden hat.</p><p>Pantokrator und Zoby folgten mir wortlos. Das Bier wurde brüderlich geteilt. Zwei Verschlusskappen pro Nase... wir waren nicht mal beschwippst, aber für uns war es etwas besonderes.</p>',
+                '<p>Zoby und Panto schliefen nach ein paar Minuten friedlich ein. Dabei ratzten sie so laut, dass ich das Gefühl hatte, sie würden einen Wald zerlegen.</p><p>Ich stieg in den ersten Stock und schaute mir durch ein kaputtes Fenster den Mond an. Die Zombies würde es nicht schaffen hier hochzuklettern, also machte es auch keinen Sinn die Etagenfenster zu verbarrikadieren.</p>',
             ],
             'lang' => 'de',
             'design' => 'written',
@@ -169,7 +180,7 @@ class TextFixtures extends Fixture
             'content' => [
                 '<p>Ich starrte auf die Autoantenne unter mir, als ich sie hören kam. Sie gaben gutturale Laute von sich und bewegten sich langsam auf unser Gebäude zu. Bald würden sie hier sein und mit ihnen dieser strenge Madengeruch.</p><p>Die ersten Male musste ich mich übergeben, aber man gewöhnt sich an alles. Der menschliche Körper kann sich an vieles gewöhnen... selbst an Zombies...</p><p>Wie von Sinnen hämmerten sie gegen die Autohauben. Pantokrats genialer Einfall zahlt sich jetzt aus: Die Blechhauben hielten stand. Allerdings veursachten sie einen Höllenlärm, an Schlaf war diese Nacht nicht zu denken.</p>',
                 '<p>Ich blieb die ganze Nacht lang auf. Kurz vor Sonnenaufgang jagte mir so ein Biest eine verdammte Angst ein! Ich war nur einen kurzen Moment unachtsam. Als ich wieder zum Fenster sah tauchte ein Kopf vor mir auf. Er hatte keinen Kiefer mehr und seine Augen waren blutrot angelaufen. Ich schrie so laut ich konnte und griff reflexartig nach meiner Reibe.</p><p>Dieses etwas kratzte mit seinen Händen gegen das Fenster und gab stöhnenden Bärenlaute von sich.</p><p>Die anderen waren zwischenzeitlich von meinem Geschrei wach geworden. Zoby stürmte ins Zimmer und fuchtelte wild mit seinen Armen.</p><p>Vor lauter Schreck hatte ich gar nicht bemerkt, dass vier Zombies eingedrungen waren. Wir mussten sie aufhalten, denn weitere Viecher würden ihnen bald folgen!</p>',
-                '<p>Zoby brüllte mich an: <quote>"Die Tür, die Tür!!"</quote></p><p>Blitzartig schaute ich nach links. Die Eingangstür schwang auf und zu! Panto und Zoby stemmten sich mit aller Kraft gegen sie und versuchten sie irgendwie zu schließen, aber es gelang ihnen nicht. Hals über Kopf rannte ich los, um etwas zu finden, womit wir sie blockieren konnten.</p><quote>"Das Sofa, das Sofa! Hol das verdammte Sofa!!", schrie mich Panto an.</quote><p>Die Couch vor mich herschiebend, konnte ich aus dem Wohnzimmer bereits sehen, dass die Haustür zu splittern begann und nicht mehr lang standhalten würde.</p><p>Ich weiß nicht wie, aber ich habe die Couch ganz allein vor die Eingangstür geschleppt.</p><p>Zoby kam mir sofort zur Hilfe, sodass wir den Eingangsbereich blockieren konnten. Wir hatten ein Riesenglück, die Couch füllte den Raum zwischen Haustür und gegenüberliegender Wand passgenau. Ich glaube, dass hat uns das Leben gerettet...</p><p>Die Zombies belagerten uns noch ein paar Stunden, ohne dass es ihnen gelang einzudringen. Als wieder Ruhe herrschte, verließ Ich mit Zoby vorsichtig das Haus. Wir stellten fest, dass die Zombies den Kleintransporter genutzt hatten, um sich ihren Weg ins Haus zu bahnen. Ich dachte mir: "Das kann doch wohl nicht wahr sein! Was für eine Scheißidee, die Eingangstür mit einem Wagen zu versperren...".</p>',
+                '<p>Zoby brüllte mich an: <blockquote>"Die Tür, die Tür!!"</blockquote></p><p>Blitzartig schaute ich nach links. Die Eingangstür schwang auf und zu! Panto und Zoby stemmten sich mit aller Kraft gegen sie und versuchten sie irgendwie zu schließen, aber es gelang ihnen nicht. Hals über Kopf rannte ich los, um etwas zu finden, womit wir sie blockieren konnten.</p><blockquote>"Das Sofa, das Sofa! Hol das verdammte Sofa!!", schrie mich Panto an.</blockquote><p>Die Couch vor mich herschiebend, konnte ich aus dem Wohnzimmer bereits sehen, dass die Haustür zu splittern begann und nicht mehr lang standhalten würde.</p><p>Ich weiß nicht wie, aber ich habe die Couch ganz allein vor die Eingangstür geschleppt.</p><p>Zoby kam mir sofort zur Hilfe, sodass wir den Eingangsbereich blockieren konnten. Wir hatten ein Riesenglück, die Couch füllte den Raum zwischen Haustür und gegenüberliegender Wand passgenau. Ich glaube, dass hat uns das Leben gerettet...</p><p>Die Zombies belagerten uns noch ein paar Stunden, ohne dass es ihnen gelang einzudringen. Als wieder Ruhe herrschte, verließ Ich mit Zoby vorsichtig das Haus. Wir stellten fest, dass die Zombies den Kleintransporter genutzt hatten, um sich ihren Weg ins Haus zu bahnen. Ich dachte mir: "Das kann doch wohl nicht wahr sein! Was für eine Scheißidee, die Eingangstür mit einem Wagen zu versperren...".</p>',
                 '<p>Panto stieß zu uns und kletterte in den Transporter, um ihn nach ein paar Sekunden wieder zu verlassen. Er war ganz blass. Panto war sowieso schon die ganze Zeit bleich, die ganzen Sonnenstiche und Sonnenbrände hatten ihm ziemlich zugesetzt, doch diesmal stammelte er etwas vor sich. Ein paar Zombies hätten es bis in der ersten Stock geschafft. Wir mussten handeln.</p><p>Ohne ein Wort zu sagen zog ich los, um die Alkoholflasche zu holen. Dann gönnte ich mir einen vollen Schluck und stieg auf das Dach des Kleintransporters. Pantokrat warf mir sein Feuerzeug zu.</p><p>Das Gebrüll der brennenden Zombies war noch ein paar Stunden zu hören.</p>',
                 '<p>Am Abend zogen wir dann Bilanz. Pantokrat hatte das Gebäude nochmal verstärkt und den Kleintransporter vom Eingang weggeschoben. Zoby hatte auf der Lade des Kettenfahrzeugs eine Metallkabine gebaut und ich hatte noch einmal das gesamte Gebäude nach brauchbaren Gegenständen abgesucht. Ich habe dann noch ein paar Kisten gefunden. Nachts wollten wir sie aufmachen.</p>'
             ],
@@ -205,7 +216,7 @@ class TextFixtures extends Fixture
             'title' => 'Ein Schmierzettel',
             'author' => null,
             'content' => [
-                '<p>Der Typ hatte recht. Koordinaten (ungefähr): <strike>210</strike>125 Nord 210 West. </p><p>To do:</p><ul><li>Fahrzeug (Parkplatz im Norden absuchen)</li><li>Wasser (15 Liter)</li><li>Nahrung (bei Bretov besorgen; keine infiziertes Zeug andrehen lassen)</li><li>"Zitadelle" ? Was ist das??</li></ul><p>Ich muss die <strong>B 74</strong> finden.</p><p>Der Rabe???!? Wer ist das? Rausfinden und UMBRINGEN</p><quote>Termin um 16h !!!<strong>!!!!</strong></quote><p><strong>ZITADELLE</strong> finden</p>'
+                '<p>Der Typ hatte recht. Koordinaten (ungefähr): <s>210</s>125 Nord 210 West. </p><p>To do:</p><ul><li>Fahrzeug (Parkplatz im Norden absuchen)</li><li>Wasser (15 Liter)</li><li>Nahrung (bei Bretov besorgen; keine infiziertes Zeug andrehen lassen)</li><li>"Zitadelle" ? Was ist das??</li></ul><p>Ich muss die <strong>B 74</strong> finden.</p><p>Der Rabe???!? Wer ist das? Rausfinden und UMBRINGEN</p><blockquote>Termin um 16h !!!<strong>!!!!</strong></blockquote><p><strong>ZITADELLE</strong> finden</p>'
             ],
             'lang' => 'de',
             'design' => 'small',
@@ -304,9 +315,12 @@ class TextFixtures extends Fixture
             'title' => 'Frys Erlebnis',
             'author' => 'Sardock4r',
             'content' => [
-                ''
+                '<div class="content"><em>Liebe Anne,</em><br><br><p>Du glaubst ja nicht, was mir vor ein paar Tagen widerfahren ist.Ich saß ihn meiner kleinen Ruheecke und versuchte mich von dieser missglückten Medikamenteeinnahme zu erholen.</p><p>Stärker als meine Bauchschmerzen, war jedoch mein Wunsch eine Beschwerde gegen diesen gottesfürchtigen, frömmelnden Typen zu schreiben, der die Weisheit mit dem Zahnstocher gefressen hat... (der Typ gehört gleich gehängt wenn du mich fragst...).</p><p>Müde in die Zeilen blickend und schon fast im Schlafe nickend, hört ich plötzlich leise klopfen. Leise, doch vernehmlich klopfen... Der kalte Schauer lief mir den Rücken runter!</p><p>Ich dachte meine letzte Stunde hätte geschlagen (Du erinnerst dich an die mysteriösen Todesfälle?) und sprang auf, um meine Hütte zu verlassen... doch meine Neugier war stärker... und so blieb ich angewurzelt stehen.</p></div>',
+                '<p>Das Fenster barst. Ich konnte meinen Augen und meinem Verstand nicht glauben.Flog da ein riesiger Vogel ins Zimmer und krallte sich meine Schreibblätter und meinen Bleistift. Zwei Augenblinzler später war er weg.</p><p>Heute morgen fand ich dann genau die gleichen Blätter samt Bleistift vor meiner Tür wieder.</p><p>Nun möchte ich deinen Rat haben: Meinst du es ist eine gute Idee den Vorfall in der nächsten Stadtsitzung anzusprechen. Lässt sich das irgendwie wissenschaftlich erklären ? Ein Vogel, der mir mein Schreibzeug klaut und nach drei Tagen wieder vor die Tür legt ?!</p><p>Hoffe bald von dir zu hören,</p><br>Dein Fry'
             ],
-            'lang' => 'de'
+            'lang' => 'de',
+            'design' => 'typedsmall',
+            'background' => 'letter',
         ],
         'todg' => [
             'title' => 'Gedanken eines Togeweihten',
@@ -347,9 +361,11 @@ class TextFixtures extends Fixture
             'title' => 'Gewinnlos',
             'author' => null,
             'content' => [
-                ''
+                '<p>Dieses Zigarettenpäckchen ist ein GEWINNLOS!</p><br /><p>Um ihren Preis zu erhalten müssen Sie dieses Etikett zusammen mit einer Zahlungsquittung an folgende Adresse senden:</p><br /><p>Klezma Cigarettenwerke GmbH,<br />Max-Bürger-Straße 44.<br />22760, Hamburg</p><br /><p>Hinweis: Mit diesem Gewinnetikett haben Sie zusätzlich Anspruch auf einen KOSTENLOSEN Rundum-Gesundheitscheck. Unser Kunde ist alles für uns - Klezma.</p>'
             ],
-            'lang' => 'de'
+            'lang' => 'de',
+            'design' => 'typed',
+            'background' => 'letter',
         ],
         'ilh' => [
             'title' => 'Ich liebe sie',
@@ -458,9 +474,17 @@ class TextFixtures extends Fixture
             'title' => 'Mitteilung',
             'author' => 'DBDevil',
             'content' => [
-                ''
+                '<br/><br/><br/><b>Mitteilung</b><br /><br />
+                Hiermit werden die Strafen für Diebstahl
+                verschärft. Die Verbrecher werden ab sofort im
+                Kremato-Cue verbrannt. Um weitere Unfälle zu
+                verhindern, bleiben Haustiere als
+                Diebstahlschutz weiterhin verboten und sind beim
+                Metzger abzuliefern.<br/><br/>- Die Bürgerversammlung'
             ],
-            'lang' => 'de'
+            'lang' => 'de',
+            'design' => 'typed',
+            'background' => 'carton',
         ],
         'morse2' => [
             'title' => 'Morsecode (21.Juni)',
@@ -508,11 +532,11 @@ class TextFixtures extends Fixture
             'title' => 'Post-It',
             'author' => 'Sunsky',
             'content' => [
-                ''
+                '<p>Omi du schläft schon seit drei tagen.</p><p>Mir is kalt und du antworst nicht!</p><p>Am Abend sind immer Leute da die Lärm machen. Ich frag sie ob sie mit mir Ball spilen wollen.</p>'
             ],
             'lang' => 'de',
-            'design' => 'written',
-            'background' => 'blood',
+            'design' => 'small',
+            'background' => 'postit',
         ],
         'profi1' => [
             'title' => 'Profits Tagebuch',
@@ -540,13 +564,13 @@ class TextFixtures extends Fixture
             'content' => [
                 '<h1>Sitzungsprotokoll vom 7. November:<small>(Protokollführer: Liior, Redakteur)</small></h1>
                 <p>Bürgermeister Merkal verkündete den Baubeginn eines neuen Projekts, welches das Überleben aller Stadtbürger garantieren würde:</p>
-                <quote>"Zugegeben, es handelt sich um eine wahnsinnige Unternehmung, die nur geringe Erfolgschancen verspricht, aber wir müssen es versuchen. <p>Wenn es klappt, könnte dieses neue Gebäude uns allen das Leben retten. Wir haben in den letzten Tagen das Optimum aus dieser Stadt herausgeholt: Ein Katapult wurde gebaut, ein Graben wurde angelegt, Zombiefallen wurde innerhalb und außerhalb der Stadt aufgestellt [...]</p>
-                </quote>',
+                <blockquote>"Zugegeben, es handelt sich um eine wahnsinnige Unternehmung, die nur geringe Erfolgschancen verspricht, aber wir müssen es versuchen. <p>Wenn es klappt, könnte dieses neue Gebäude uns allen das Leben retten. Wir haben in den letzten Tagen das Optimum aus dieser Stadt herausgeholt: Ein Katapult wurde gebaut, ein Graben wurde angelegt, Zombiefallen wurde innerhalb und außerhalb der Stadt aufgestellt [...]</p>
+                </blockquote>',
                 '<p>- jede einzelne Maßnahme war ein gewaltiger Kraftakt, doch jetzt ist der Zeitpunkt gekommen, an dem wir uns etwas Neues einfallen lassen mussten. 
                 </p><p>Ich habe mit unseren Helden gestern Nacht schon darüber gesprochen und wir sind einstimmig zur Überzeugung gelangt, dass wir eine "Falsche Stadt" bauen müssen.</p>
                 <p>Es hört sich verrückt an, aber wir denken, dass die Zombies den Unterschied nicht merken werden. Wenn es uns gelingt eine möglichst originalgetreue Stadt nachzubauen, könnten wir die Angriffslast von dieser Stadt nehmen und so langfristig unser Überleben sichern."</p>',
                 '<p>Die Versammlung reagierte skeptisch: </p>
-                <quote>"Eine \'falsche Stadt\'? Und das soll funktionieren?", fragten sich einige Bürger sichtlich echauffiert.</quote>
+                <blockquote>"Eine \'falsche Stadt\'? Und das soll funktionieren?", fragten sich einige Bürger sichtlich echauffiert.</blockquote>
                 <p>Es scheint, als ob diese Stadt ihre Hoffnung schon aufgegeben hätte...</p>'
             ],
             'lang' => 'de',
@@ -579,9 +603,14 @@ class TextFixtures extends Fixture
             'title' => 'Richards Tagebuch',
             'author' => 'Cronos',
             'content' => [
-                ''
+                '<p>7. September<br>...wir haben weitere überlebende gefunden, der alte Schulbus den Frank fährt (er sagt die ganzen schreienden Kinder hätten ihn früher immer genervt doch jetzt würde er die Lebenslust der kleinen Racker vermissen) ist voll, gut 35 Leute sind hier, in meinem alten Leben hasste ich überfüllte Busse, heute freue ich mich über jede weitere Person die einsteigt...</p><p>8. September<br>...keine gute Nachrichten, ein Unfall. Frank ist dabei um\'s Leben gekommen. Er war übermüdet gegen einen großen Felsen gefahren, hätte er sich nur angeschnallt. Wir haben ihn begraben und ein Kreuz aufgestellt, es wurden sogar ein paar Worte gesprochen, dann zogen wir alle weiter...</p>',
+                '<p>11. September<br>...eine verlassene Stadt, feste Mauern und sogar ein alter Brunnen. Das alles haben wir heute gefunden, allerdings haben wir letzte Nacht beim Zelten in dieser elenden Einöde Stephen,Peter,Roger und Francine verloren, wir haben sie begraben, für eine anständige Zeremonie blieb leider keine Zeit. Wir hungern, tun aber alle unser bestes...</p><p>14. September<br>3 Tage seit meinem letzten Eintrag. Eine Stadtmauer steht, eigentlich läuft alles gut ok bis auf die 8 weiteren Armen Seelen die gestorben sind 3 waren Junkies und haben den kalten Entzug nicht verkraftet die anderen 5 naja tot aber leider wieder auf den Beinen...</p><p>15. September<br>...seit gestern keine Vorkommnisse...außer eine Sache, es scheinen Ressourcen, und was schlimmer ist, Nahrungsmittel zu verschwinden. Ich werde dem auf den Grund gehen...</p>',
+                '<p>17. September<br>...hahaha heute hab ich ihn erwischt, den miesen Dieb und ihn zusammen mit den anderen verbliebenen gehängt, auf dem platz direkt neben dem Brunnen, yeaha hat er verdient die Ratte...</p><p>19. September<br>...ich hab das Gefühl jedes mal wenn ich in der Stadt umher spaziere gucken mich die anderen so seltsam an, ich kenne diesen Blick, sie haben so auch den Dieb angesehen, bevor sie ihn eiskalt gehängt haben, am besten ich bleibe einfach in meinem Haus und hol mir nur meine tägliche Ration...</p><p>21. September<br>...wusste es doch die andern, Milliard, George und Roy, verdächtigen mich aber ich bin ihnen zuvor gekommen hab mir alles geschnappt was mich am leben halten kann und mich verbarrikadiert, sollen die heute Nacht doch sehen wo sie bleiben...</p>',
+                '<p>23. September<br>...die andern, alle die gestorben sind, sie sind da draußen, Nachts kratzen und Klopfen sie an meine Türen und Fenster. Ich bin alleine, alle Bücher bereits gelesen, die Batterien des Kassettenrekorder leer. Wenn die Nächte wenigstens ruhiger wären...</p><p>29. September<br>...letzte Nacht war Georg an der Tür er hat zu mir gesprochen, also ich meine wenn er nicht grad vor Hunger stöhnte aber Hunger haben wir doch alle. Er sagte sie sind mir nicht böse das ich mich versteckt habe, sie verstehen das, ich könne aber jetzt raus kommen. Er sagte, alle Zombies sind irgendwie gestorben, bestimmt am Hunger. Wenn Georg heute Nacht wieder kommt bitte ich ihn rein um genaueres zu erfahren...</p>'
             ],
-            'lang' => 'de'
+            'lang' => 'de',
+            'design' => 'small',
+            'background' => 'notepad',
         ],
         'dv_031' => [
             'title' => 'Schmerzengels Überlebensregeln',
@@ -644,9 +673,26 @@ class TextFixtures extends Fixture
             'title' => 'Seite 62 eines Buches',
             'author' => 'kozi',
             'content' => [
-                ''
+                    'Die Fragen 3, 4 und 5 hänge von deiner jeweiligen Situation ab,
+                    die Fragen 1 und 2 sind von entscheidender Bedeutung
+                    <p><b>4. Elektrische Werkzeuge</b></p>
+                    Die Unterhaltungsliteratur hat uns die Ehrfurcht gebietende,
+                    brutale Macht der Motorsäge gezeigt. Mit ihren blitzschnell
+                    rotierenden Zähnen kann sie mühelos durch Fleisch und Knochen
+                    schneiden und macht Kraft und Geschick, die für die Bedienung
+                    manueller Waffen erforderlich sind, überflüssig. Außerdem kann
+                    ihre Lautstärke dem Benutzer einen dringend erforderlichen
+                    psychologischen Vorteil geben - ein Gefühl von Macht in einer
+                    Situation, in der Todesangst vorherrschend ist. Wie viel
+                    Horror-Filme hast du gesehen, in denen diese industriell
+                    Killermaschine allem und jedem, das sie berührte, den Untergang
+                    brachte? In Wirklichkeit jedoch nehmen Motorsägen und ähnliche
+                    elektrische Geräte einen extrem niedrigen Platz in der
+                    Rangordnung praktischer Waffen zum Töten von Zombies ein. [...]'
             ],
-            'lang' => 'de'
+            'lang' => 'de',
+            'design' => 'typed',
+            'background' => 'white',
         ],
         'refabr_de' => [
             'title' => 'Sicherer Unterschlupf',
@@ -727,7 +773,7 @@ class TextFixtures extends Fixture
             'title' => 'Verstanden!',
             'author' => 'NobbZ',
             'content' => [
-                '<quote>Befehl</quote>
+                '<blockquote>Befehl</blockquote>
                 <p>Verstanden! Rasenmäher wird entsand um die Kartoffeln zu Frikadelle, gegenwärtige Gemüse ist etwa HJ AG AG</p>'
             ],
             'lang' => 'de',
@@ -792,9 +838,11 @@ class TextFixtures extends Fixture
             'title' => 'Zahlen',
             'author' => 'Nomad',
             'content' => [
-                ''
+                '<p>44 69 65 20 54 6f 72 65 20 73 63 68 6c 69 65 c3 9f 65 6e 20 75 6d 20 32 33 3a 34 30 20 55 68 72 2e 0d 0a 42 45 45 49 4c 20 44 49 43 48 21</p>'
             ],
-            'lang' => 'de'
+            'lang' => 'de',
+            'design' => 'typed',
+            'background' => 'printer',
         ],
         'binary' => [
             'title' => 'Zerknitterter Programmausdruck',
@@ -804,7 +852,7 @@ class TextFixtures extends Fixture
                 <p>01000011 01100101 01100011 01101001 00100000 01100101 01110011 01110100 00100000 01110101 01101110 00100000 01101101 01100101 01110011 01110011 01100001 01100111 01100101 00100000 01100100 01100101 00100000 01100100 11101001 01110100 01110010 01100101 01110011 01110011 01100101 00100000 01010011 01010100 01001111 01010000 00101110 00100000 01001101 00100111 01100101 01101110 01110100 01100101 01101110 01100100 01100101 01111010 00101101 01110110 01101111 01110101 01110011 00100000 01010011 01010100 01001111 01010000 00101110 00100000 01000001 01101100 01101100 01101111 00100000 01010011 01010100 01001111 01010000 00101110 00100000 01011001 00100000 01100001 00100000</p>',
                 '<p>01110001 01110101 01100101 01101100 01110001 01110101 00100111 01110101 01101110 00100000 01010011 01010100 01001111 01010000 00101110 00100000 01010000 01101001 01110100 01101001 11101001 00101100 00100000 01100001 01101001 01100100 01100101 01111010 00100000 01101101 01101111 01101001 00100000 01000110 01001001 01001110 00101110</p>
                 <p><small>[Ende der Übertragung]</small></p>
-                <p><small>ETR: 01/04 23h16 - An error has occurred: corrupt data - status : <strike>IGNORED</strike></small></p>'
+                <p><small>ETR: 01/04 23h16 - An error has occurred: corrupt data - status : <s>IGNORED</s></small></p>'
             ],
             'lang' => 'de',
             'design' => 'typed',
@@ -1036,8 +1084,8 @@ class TextFixtures extends Fixture
             "author" => "Liior",
             "content" => [
                 '<div class="hr"></div>
-                <p>Citoyens du village ! Il est temps de se remuer. Ce n\'est pas une chasse aux sorcières que je propose, mais une chasse au TRAÎTRE. Un citoyen non identifié pour l\'instant s\'est permis de voler des ressources rares dans la banque, telles de des piles, des tubes de <strike>métal</strike> cuivre et des vis et écrous. Le tout dans un but non connu pour l\'instant. Bref, après inspection du registre, nous avons surpris les agissements de 3 de nos concitoyens depuis 2 ou 3 jours. Cela va du vol de simple nourriture, au vol de Vis et Écrous, ce qui est impardonnable. La rumeur traine déjà dans le village : prenez cet avis comme une confirmation. </p>
-                <p>Un débat aura lieu à <strike>11H</strike> 13H pour savoir si la pendaison est nécessaire.</p>'
+                <p>Citoyens du village ! Il est temps de se remuer. Ce n\'est pas une chasse aux sorcières que je propose, mais une chasse au TRAÎTRE. Un citoyen non identifié pour l\'instant s\'est permis de voler des ressources rares dans la banque, telles de des piles, des tubes de <s>métal</s> cuivre et des vis et écrous. Le tout dans un but non connu pour l\'instant. Bref, après inspection du registre, nous avons surpris les agissements de 3 de nos concitoyens depuis 2 ou 3 jours. Cela va du vol de simple nourriture, au vol de Vis et Écrous, ce qui est impardonnable. La rumeur traine déjà dans le village : prenez cet avis comme une confirmation. </p>
+                <p>Un débat aura lieu à <s>11H</s> 13H pour savoir si la pendaison est nécessaire.</p>'
             ],
             "lang" => "fr",
             "background" => "carton",
@@ -1065,9 +1113,9 @@ class TextFixtures extends Fixture
             "content" => [
                 '<h1>Réunion du village du 7 novembre :<small>(Retranscrit par le citoyen Liior, en charge de la Gazette)</small></h1>
                 <p>Le chef explique que nous avons entamé une construction énorme, qui peut-être nous "sauvera la vie" :</p>
-                <quote>"C\'est un projet totalement insensé ! Mais cela pourrait marcher. Nous avons déjà mis beaucoup d\'énergie à ranger le village d\'une manière plus efficace pour lutter contre ces créatures, mais nous avons encore un effort à faire. J\'ai pensé que peut-être, si on créait un leurre gigantesque, les zombies ne viendraient plus.. Il faut que nous construisions une fausse ville.. Cela peut paraitre bizarre, mais je pense que les zombies sont incapables de faire la différence entre notre village, et un autre.."</quote>',
+                <blockquote>"C\'est un projet totalement insensé ! Mais cela pourrait marcher. Nous avons déjà mis beaucoup d\'énergie à ranger le village d\'une manière plus efficace pour lutter contre ces créatures, mais nous avons encore un effort à faire. J\'ai pensé que peut-être, si on créait un leurre gigantesque, les zombies ne viendraient plus.. Il faut que nous construisions une fausse ville.. Cela peut paraitre bizarre, mais je pense que les zombies sont incapables de faire la différence entre notre village, et un autre.."</blockquote>',
                 '<p>L\'assemblée semble dubitative : </p>
-                <quote>"Une fausse ville ? Et ça duperait les zombie&nbsp;?", semblent se demander les autres citoyens dans un brouhaha incompréhensible.</quote>
+                <blockquote>"Une fausse ville ? Et ça duperait les zombie&nbsp;?", semblent se demander les autres citoyens dans un brouhaha incompréhensible.</blockquote>
                 <p>L\'assemblée a pourtant voté pour ce projet.. Il faut croire qu\'il ne reste pas beaucoup d\'espoirs..</p>'
             ],
             "lang" => "fr",
@@ -1082,7 +1130,7 @@ class TextFixtures extends Fixture
                 <h1>Aussi le <strong>Comité du Bonheur</strong> des Désolations Putréfiées a décidé d\'organiser un grand buffet collectif sur la place du Puits.</h1>
                 <p>Si vous disposez de rations comestibles, de drogues ou de réserves d\'eau potable, n\'hésitez pas à vous joindre à la fête !</p>
                 <p>Le comité en profite pour signaler que si nous disposons d\'un <strong>crémato-cue</strong> d\'ici demain, nous pourrons également organiser un grand méchoui à l\'occasion de ce rare moment de liesse.</p>
-                <small>L\'accès au buffet est soumis à condition : les citoyens ne proposant aucun apport ne pourront se joindre<strike>nt</strike> aux festivités. <strong>Des plaintes seront établies à l\'encontre des trouble-fêtes</strong>.</small>
+                <small>L\'accès au buffet est soumis à condition : les citoyens ne proposant aucun apport ne pourront se joindre<s>nt</s> aux festivités. <strong>Des plaintes seront établies à l\'encontre des trouble-fêtes</strong>.</small>
                 <h1><em>Faites passer le mot !</em></h1>'
             ],
             "lang" => "fr",
@@ -1262,7 +1310,7 @@ class TextFixtures extends Fixture
             "author" => "Liior",
             "content" => [
                 '<h2>Le 15 juillet :</h2>
-                <p>Le puits se mit à déborder, la joie était au rendez-vous ! C\'était un projet dont personne ne pensait qu\'il pouvait fonctionner. Il a fallu faire beaucoup d\'efforts. Cela faisait maintenant 2 jours que la ville était au travail : Creuser, monter des structures, des <strike>trous</strike> déviations, préparer des charges explosives, de la tuyauterie. Tout le monde s\'y était mis, et personne ne sortit dans le désert, car nous avions besoin de toutes les mains pour ce projet. Ce matin, à 10 :00 précise, les charges ont sauté. Un bruit sourd suivi d\'un tremblement terrifiant. Puis, une deuxième explosion, et les déviations jouaient leur rôle : Rapatrier l\'eau vers le puits. Ce projet portait le nom de Projet <strike>Aid</strike>Eden. Nous ne nous inquiétons plus pour l\'eau.. Enfin pour les quelques jours à venir.</p>'
+                <p>Le puits se mit à déborder, la joie était au rendez-vous ! C\'était un projet dont personne ne pensait qu\'il pouvait fonctionner. Il a fallu faire beaucoup d\'efforts. Cela faisait maintenant 2 jours que la ville était au travail : Creuser, monter des structures, des <s>trous</s> déviations, préparer des charges explosives, de la tuyauterie. Tout le monde s\'y était mis, et personne ne sortit dans le désert, car nous avions besoin de toutes les mains pour ce projet. Ce matin, à 10 :00 précise, les charges ont sauté. Un bruit sourd suivi d\'un tremblement terrifiant. Puis, une deuxième explosion, et les déviations jouaient leur rôle : Rapatrier l\'eau vers le puits. Ce projet portait le nom de Projet <s>Aid</s>Eden. Nous ne nous inquiétons plus pour l\'eau.. Enfin pour les quelques jours à venir.</p>'
             ],
             "lang" => "fr",
             "background" => "noteup",
@@ -1307,18 +1355,18 @@ class TextFixtures extends Fixture
             "content" => [
                 '<p>J\'arrivais avec mon maigre baluchon sur l\'épaule.</p>
                 <p>11H00 du matin. Je fais partie des 12 explorateurs désignés contre mon gré. Les portes s\'ouvrirent. Le froid du désert me frappa le visage.</p>
-                <quote>-Allez-y.</quote>
+                <blockquote>-Allez-y.</blockquote>
                 <p>Un des douze explorateurs m\'interpella  sèchement.</p>
-                <quote>-Melie ! Où vas-tu ?</quote>
-                <quote>-Nord, répondis-je d\'un ton acerbe.</quote>
+                <blockquote>-Melie ! Où vas-tu ?</blockquote>
+                <blockquote>-Nord, répondis-je d\'un ton acerbe.</blockquote>
                 <p>Armée de mon pistolet à eau chargé, je m\'avançai la première. Les autres me suivirent. Je creusai avec mes mains. Rien. Quelques autres citoyens eurent plus de chance : des planches tordues, et même de la ferraille. Nous nous avançâmes. Pas de zombie.</p>',
                 '<p>Ca ne me rassurait pas : ils nous attendaient sûrement plus loin. Cette fois, j\'ai trouvé une souche de bois pourrie. On pourra la transformer à l\'atelier !</p>
-                <p>Plusieurs heures passèrent,  la <strike>peur</strike> fatigue me gagne. Je m\'écroule par terre, ne pouvant plus avancer. 5 zombies m\'entouraient. A travers mes yeux entrouverts, j\'apercevais mes compagnons m\'abandonner lentement... Ils avaient eu la force de manger pour repartir.</p>
-                <quote>-Ne partez pas ! Non !</quote>
+                <p>Plusieurs heures passèrent,  la <s>peur</s> fatigue me gagne. Je m\'écroule par terre, ne pouvant plus avancer. 5 zombies m\'entouraient. A travers mes yeux entrouverts, j\'apercevais mes compagnons m\'abandonner lentement... Ils avaient eu la force de manger pour repartir.</p>
+                <blockquote>-Ne partez pas ! Non !</blockquote>
                 <p>Je ne parlais pas, je balbutiais. Le soir tombait.</p>',
                 '<div class="hr"></div>
                 <p>19H30. Cette fois, c\'est la fin. Je suis seule. J\'arrive à peine à sortir mon pistolet de mon sac.</p>
-                <p>Je ne peux même pas espérer fuir... Les <strike>mort-vi</strike> morts-vivants me bloquent le passage.</p>',
+                <p>Je ne peux même pas espérer fuir... Les <s>mort-vi</s> morts-vivants me bloquent le passage.</p>',
                 '<div class="hr"></div>
                 <p>22H00. Je n\'étais pourtant pas si loin de la ville... Je vois presque les portes derrière moi. Je crie, je hurle, mais personne ne vient.</p>
                 <p>Une dernière image du désert, des zombies, puis le noir.</p>'
@@ -1388,9 +1436,9 @@ class TextFixtures extends Fixture
             "title" => "Dégénérescence",
             "author" => "Fabien08",
             "content" => [
-                '<p>C\'est étrange je suis <strike>crev</strike>mort mais je vie<strike>s</strike>, je ne sen<strike>s</strike> plus rien et pourtant mon corps est ensanglante<strike>r  </strike> ... J\'était un <strike>ho</strike>citoyen<strike>s</strike> avant ... avant <strike>le</strike> l\'attaque ...</p>
-                <p>Je suis des leurs ! <strike> Je </strike></p>
-                <p>Je ne sais pas comment c\'est possible mais je pense<strike>nt</strike> encore, j\'écri<strike>t</strike>s et je suis sur<strike>r</strike> que je pourrais parl<strike>lrlrioo</strike>er si il ne m\'avait pas dévorer la moite<strike>r</strike> du visage. Je profite de <strike>ce tr</strike>"don" pour m\'excuser de <strike>se</strike> ce que je vai fair, <strike>on</strike> je le sais <strike>je</strike> un jour<strike>s </strike> je vais devoir vous dévorer ... dans <strike>ma</strike> tête je doit <strike>lut</strike> luter san cesse et je ne <strike>vais</strike>pas suporter encore <strike>clon</strike>lontemp  ... Je vous mengerai<strike>s</strike> qe je <strike>le</strike> veuille ou non ! <strike> j</strike>e</p>'
+                '<p>C\'est étrange je suis <s>crev</s>mort mais je vie<s>s</s>, je ne sen<s>s</s> plus rien et pourtant mon corps est ensanglante<s>r  </s> ... J\'était un <s>ho</s>citoyen<s>s</s> avant ... avant <s>le</s> l\'attaque ...</p>
+                <p>Je suis des leurs ! <s> Je </s></p>
+                <p>Je ne sais pas comment c\'est possible mais je pense<s>nt</s> encore, j\'écri<s>t</s>s et je suis sur<s>r</s> que je pourrais parl<s>lrlrioo</s>er si il ne m\'avait pas dévorer la moite<s>r</s> du visage. Je profite de <s>ce tr</s>"don" pour m\'excuser de <s>se</s> ce que je vai fair, <s>on</s> je le sais <s>je</s> un jour<s>s </s> je vais devoir vous dévorer ... dans <s>ma</s> tête je doit <s>lut</s> luter san cesse et je ne <s>vais</s>pas suporter encore <s>clon</s>lontemp  ... Je vous mengerai<s>s</s> qe je <s>le</s> veuille ou non ! <s> j</s>e</p>'
             ],
             "lang" => "fr",
             "background" => "blood",
@@ -1712,30 +1760,30 @@ class TextFixtures extends Fixture
             "content" => [
                 '<h1>Le chasseur et le Mort-vivant</h1>
                 <p><strong>Bravo à notre gagnant qui se voit attribuer, en plus de sa parution dans notre journal, un lot de babioles en tout genre : ferrailles, planches de bois, vis et écrous... Merci aux autres citoyens participants.</strong></p>
-                <quote>
+                <blockquote>
                 <p>Au loin, un corps décomposé</p>
                 <p>S\'approche lentement pour vous dévorer.</p>
                 <p>Marchant d\'un pas timide,</p>
                 <p>Le cerveau complètement vide,</p>
                 <p>Il n\'hésitera surement pas,</p>
                 <p>A te choper le bras.</p>
-                </quote>',
-                '<quote>
+                </blockquote>',
+                '<blockquote>
                 <p>Mais sur son cheval blanc,</p>
                 <p>Le chasseur dans la nuit,</p>
                 <p>S\'élance sur ces morts-vivants.</p>
                 <p>D\'un coup de sabre et de cure-dent,</p>
                 <p>Il coupe et pique tout.</p>
                 <p>Et toi, tu deviens complètement fou.</p>
-                </quote>',
-                '<quote>
+                </blockquote>',
+                '<blockquote>
                 <p>Soudain, un monstre surgit,</p>
                 <p>Et toi, tu ris.</p>
                 <p>Tu tentes de le tuer à l\'aide d\'une carotte,</p>
                 <p>Mais tu ris, on te chatouille la glotte.</p>
                 <p>Tout est fini, tout s\'arrête...</p>
                 <p>Il t\'a bouffé la tête.</p>
-                </quote>
+                </blockquote>
                 <p>Mr.PapyL (08/12/2003)</p>'
             ],
             "lang" => "fr",
@@ -1774,7 +1822,7 @@ class TextFixtures extends Fixture
                 <ul>
                 <li>Half, dit "Half 666"</li>
                 <li>Whitetigle</li>
-                <li>Nu<strike>itnoir</strike>e <span class="other">mort hier !!</span></li>
+                <li>Nu<s>itnoir</s>e <span class="other">mort hier !!</span></li>
                 <li>Laurenzio, dit "le malodorant"</li>
                 </ul>
                 <small>Merci aux <strong>patriotes</strong> qui auront pris la peine d\'enquêter puis de montrer du doigt la fange agonisante qui se tapit dans l\'ombre de nos ruelles.</small>'
@@ -1918,13 +1966,13 @@ class TextFixtures extends Fixture
             "title" => "Journal d'un citoyen : Doriss",
             "author" => "Arma",
             "content" => [
-                 '<p>Mal dormi... <strike>J\'ai.</strike>.. Comment bien dormir ? Les hurlements des non-morts... l\'agonie des proches... Toute la nuit ! À n\'en jamais finir ! Jamais !</p>
-                <p>Les événements s\'enchaînent, nous ne sommes plus que <strike>huit</strike>sept... Hier, dix-huit. Aujourd\'hui sept !</p>
-                <p>Il y avait beaucoup de sang... <strike>Ce qui</strike> Des morceaux de chair jonchent le sol...</p>
+                 '<p>Mal dormi... <s>J\'ai.</s>.. Comment bien dormir ? Les hurlements des non-morts... l\'agonie des proches... Toute la nuit ! À n\'en jamais finir ! Jamais !</p>
+                <p>Les événements s\'enchaînent, nous ne sommes plus que <s>huit</s>sept... Hier, dix-huit. Aujourd\'hui sept !</p>
+                <p>Il y avait beaucoup de sang... <s>Ce qui</s> Des morceaux de chair jonchent le sol...</p>
                 <p>Pourquoi les Zombies partaient-ils chaque nuit ? Pourquoi ne les tuaient-ils pas tous ? Pour les faire souffrir encore plus ? Malgré leur apparence, les Morts-vivants semblaient lucides... Et cruels, abominablement cruels !</p>
                 <p>J\'ai peur.</p>',
-                '<p>Arma est revenu, mon meilleur ami... I<strike>ls ont</strike> Il avait disparu. Dehors&nbsp;! Il est venu me rendre visite... J\'aurais voulu ne plus le voir, pas dans cet état...</p>
-                <p>Puis il s\'est éloigné... Il reviendra cette nuit... Et je repartirai<strike>s</strike> avec lui... Pour toujours...</p>'
+                '<p>Arma est revenu, mon meilleur ami... I<s>ls ont</s> Il avait disparu. Dehors&nbsp;! Il est venu me rendre visite... J\'aurais voulu ne plus le voir, pas dans cet état...</p>
+                <p>Puis il s\'est éloigné... Il reviendra cette nuit... Et je repartirai<s>s</s> avec lui... Pour toujours...</p>'
             ],
             "lang" => "fr",
             "background" => "notepad",
@@ -1954,7 +2002,7 @@ class TextFixtures extends Fixture
                 <h2>Jour 27, 23h49.</h2>
                 <p>Ma lampe me permet d\'écrire. Nous sommes tous cloîtré chez nous. Sauf un que nous avons sortis dehors, il avait tenté de prendre nos réserves de planches pour sa barricader. Cela faisait 8 minutes que nous n\'entendions plus ses pardons, ils avaient été remplacé par des cris puis des gargouillis sanglant. Maintenant plus rien.</p>',
                 '<h2>Jour 28 ??</h2>
-                <p>Je ne sais pas quelle heure il est, ma montre s\'est arrêtée à 00h12, je me suis réveillé. Des bruits se font entendre dans toute la ville, des gens hurlent. J\'ai peur. Oh mon dieu j\'ai peur. Un cauchemar<strike>s</strike>, il faudrait que ce soit un cauchemar. Ils sont en train de tuer des citoyens, et ils se rapprochent<strike> de l</strike>. Je ne veux pas qu\'ils me trouvent. J\'ai peur. Oh, putain oui, j\'ai peur de crever, <strike>j\'ai</strike>je veux <strike>pas crever comm Il</strike>s sont là je les entends, ILS SONT LA. Ils tournent autour de la maison. J\'ai</p>'
+                <p>Je ne sais pas quelle heure il est, ma montre s\'est arrêtée à 00h12, je me suis réveillé. Des bruits se font entendre dans toute la ville, des gens hurlent. J\'ai peur. Oh mon dieu j\'ai peur. Un cauchemar<s>s</s>, il faudrait que ce soit un cauchemar. Ils sont en train de tuer des citoyens, et ils se rapprochent<s> de l</s>. Je ne veux pas qu\'ils me trouvent. J\'ai peur. Oh, putain oui, j\'ai peur de crever, <s>j\'ai</s>je veux <s>pas crever comm Il</s>s sont là je les entends, ILS SONT LA. Ils tournent autour de la maison. J\'ai</p>'
             ],
             "lang" => "fr",
             "background" => "noteup",
@@ -1996,10 +2044,10 @@ class TextFixtures extends Fixture
                 <p>Je fis un bond. Le soleil !</p>
                 <p>Le soleil se couchait !</p>',
                 '<p>Ils allaient arriver ! Il fallait se cacher !</p>
-                <quote>
+                <blockquote>
                 <p>- « Il est réveillé », cria Pantocrat derrière lui.</p>
                 <p>- « Tant mieux, alors, qu’il m’aide à pousser ce réfrigérateur devant cette fenêtre ! », répondit la douce voix de Zoby.</p>
-                </quote>
+                </blockquote>
                 <p>Nous finîmes de barricader le rez-de-chaussée avec les quelques meubles encore solides que nous trouvions.</p>
                 <p>Nous ne nous arrêtions pas avant que la nuit soit complète. Pantocrat et Zoby me racontèrent qu’ils m’avaient vu courir vers les zombies et les découper un après un. Après quoi je m’étais évanoui. Ils m’avaient traîné jusqu’ici.</p>',
                 '<p>Ils avaient même trouvé de l’eau. Lorsque ça s’était produit, quelqu’un prenait probablement un bain. Heureusement qu’il avait eu la bonne idée de sortir avant de mourir. Nous avions retrouvé son squelette à côté du lavabo vide. Evidemment, les robinets ne donnaient plus d’eau et il n’y avait encore moins d’électricité.</p>
@@ -2065,7 +2113,7 @@ class TextFixtures extends Fixture
                 '<p>Je pris la mitrailleuse lourde en main et en testais l’équilibre. Je savais bien qu’il s’agissait d’une cache de matériel militaire.</p>
                 <p>Je posais l’arme au sol et fis une accolade à mes amis.</p>
                 <p>Je sautais de joie dans le salon jusqu’à ce que Zoby lance amèrement :</p>
-                <quote>- « ‘manque plus que des munitions... »</quote>
+                <blockquote>- « ‘manque plus que des munitions... »</blockquote>
                 <p>Il n’y eut pas d’attaque cette nuit-là.</p>',
                 '<p>La journée suivante fut consacrée à déblayer frénétiquement la cache.</p>
                 <p>La suivante aussi.</p>
@@ -2101,7 +2149,7 @@ class TextFixtures extends Fixture
                 '<div class="hr"></div>
                 <p><strong>4 septembre :</strong> rien ne va ! Certains ont commencé à vouloir construire une pompe pour avoir plus d\'eau. Après avoir fait un peu de porte-à-porte (ou plutôt, tente-à-tente) et rassemblé de bonnes volontés, nous les avons bannis, afin de rappeler les règles essentielles.</p>',
                 '<p><strong>5 septembre :</strong> encore une journée laborieuse en perspective : je suis allé faire un tour dans le désert aujourd\'hui, je rentre ce soir, et je constate qu\'il ont commencé à construire un nouveau bâtiment. J\'ignore ce qu\'ils veulent en faire, ces amateurs sont vraiment touchants. Mais ce n\'est pas cette construction qui va nous défendre contre les zombies à mon avis, surtout quand on voit leur façon de faire des noeuds.</p>
-                <p class="other">6 septembre : ci-gît Pi<strike>erre</strike> Na<strike>cimo</strike> Ta<strike>varez</strike>., le noeud qui l\'a pendu a été plus coulant que lui. </p>'
+                <p class="other">6 septembre : ci-gît Pi<s>erre</s> Na<s>cimo</s> Ta<s>varez</s>., le noeud qui l\'a pendu a été plus coulant que lui. </p>'
             ],
             "lang" => "fr",
             "background" => "notepad",
@@ -2165,7 +2213,7 @@ class TextFixtures extends Fixture
             "title" => "La clope du condamné",
             "author" => "Amnesia",
             "content" => [
-                '<p>Et merde... La prochaine fois que je <strike>parti</strike>ferais gaffe avant de me précipiter dans un terrain découvert où trainent deux pauvres cactus et une bonne quinzaine de putrides, la bave aux lèvres en sachant pertinemment qu\'ils vont peut être pouvoir se tailler un bon tartare avec quelques morceaux d\'os, des bouts de cigarettes et des lambeaux de tissus, le tout accompagné de sa sauce sanglante aux poussières du désert... Appétissant n\'est pas ? </p>',
+                '<p>Et merde... La prochaine fois que je <s>parti</s>ferais gaffe avant de me précipiter dans un terrain découvert où trainent deux pauvres cactus et une bonne quinzaine de putrides, la bave aux lèvres en sachant pertinemment qu\'ils vont peut être pouvoir se tailler un bon tartare avec quelques morceaux d\'os, des bouts de cigarettes et des lambeaux de tissus, le tout accompagné de sa sauce sanglante aux poussières du désert... Appétissant n\'est pas ? </p>',
                 '<p>Maintenant j\'ai plus qu\'à attendre que quelqu\'un vienne ou que la nuit tombe, en me fumant les dernières clopes de ce paquet sur lequel je suis en train d\'écrire des inepties pour passer le temps, c\'est assez désolant, surtout que j\'ai presque plus d\'allumettes. Au pire je pourrais leur demander si ils en veulent pas une, aux râleurs là bas, peut être que c\'étaient des rastas avant de clamser...</p>
                 <small>Le reste du message est assez illisible à cause de la poussière, mais au vu du pavé de petites lettres qui entoure le reste du paquet, vous vous doutez que l\'auteur n\'avait rien d\'autre à faire pendant un long moment... Nul ne sait qui il est, ni s\'il a réussi à rentrer en ville ou s\'il est mort ici, mais comme il reste encore une cigarette dans le paquet, autant en profiter.</small>'
             ],
@@ -2584,8 +2632,8 @@ class TextFixtures extends Fixture
             "author" => "anonyme",
             "content" => [
                 '<h1>AVIS À LA POPULATION</h1>
-                <p>Devant la <strike>recrue</strike> recrudes<strike>s</strike>cence des actes de tortures animales, le <strong>Comité<strike>e</strike> de Soutien des Animaux</strong> de notre ville de Frontières de l\'automne cinglant, composé de courageux citoyens <strong>responsables</strong> et <strong>anonymes</strong>, a décidé de mener une action de repression "coup de poing".</p>
-                <p>Il est demandé aux citoyens responsables de ces actes de barbarie de cesser immédiatement leurs agissements odieux, sous peine de subir notre <strong>vendetta sanglante</strong> dans les <strike>proch</strike> jours à venir.</p>
+                <p>Devant la <s>recrue</s> recrudes<s>s</s>cence des actes de tortures animales, le <strong>Comité<s>e</s> de Soutien des Animaux</strong> de notre ville de Frontières de l\'automne cinglant, composé de courageux citoyens <strong>responsables</strong> et <strong>anonymes</strong>, a décidé de mener une action de repression "coup de poing".</p>
+                <p>Il est demandé aux citoyens responsables de ces actes de barbarie de cesser immédiatement leurs agissements odieux, sous peine de subir notre <strong>vendetta sanglante</strong> dans les <s>proch</s> jours à venir.</p>
                 <h1>Assassins, vos têtes tomberont !</h1>
                 <h1><em>La paix dans vos coeurs.</em></h1>'
             ],
@@ -2806,7 +2854,7 @@ class TextFixtures extends Fixture
                 '<p>Je reste optimiste, malgré tout. Peut-être que je mourrais sans souffrir, hein ? Et puis, je devrais apprécier ma chance : je dois être l\'un des rares êtres vivants des environs à voir ce magnifique coucher de soleil, insouciant de mon sort. N\'est-ce pas Léon ?</p>
                 <p>Vous ai-je dit que je n\'avais pas achevé Léon ? Ah, il s\'agite. J\'ai beau être assis sur son dos et utiliser sa tête poisseuse comme un repose-pieds, il lui manque peut-être un bras et </p>',
                 '<p>tout ce qui se trouve sous son bassin, il continue à s\'agiter pour me dévorer. Il est mignon, n\'est-ce pas ?</p>
-                <p>La nuit tombe, et je crois apercevoir d\'autres compagnons de jeu<strike>x</strike> approcher. Eh bien, qu\'il en soit ainsi ! Sur ce, je vous laisse, j\'ai des gens à aller tuer. Et après, peut-être que j\'aurai la chance de vous dévorer, qui sait ?</p>'
+                <p>La nuit tombe, et je crois apercevoir d\'autres compagnons de jeu<s>x</s> approcher. Eh bien, qu\'il en soit ainsi ! Sur ce, je vous laisse, j\'ai des gens à aller tuer. Et après, peut-être que j\'aurai la chance de vous dévorer, qui sait ?</p>'
             ],
             "lang" => "fr",
             "background" => "tinystamp",
@@ -2865,7 +2913,7 @@ class TextFixtures extends Fixture
             "title" => "Note pour les prochains promeneurs",
             "author" => "coctail",
             "content" => [
-                '<p>Coctail, Pantocrat et Zoby sont passés ici. Cette zone ne contient plus rien d\'utile. Attention aux zo<strike>m</strike>b<strike>ie</strike>s cachés sous le sable. Danger de mort.</p>
+                '<p>Coctail, Pantocrat et Zoby sont passés ici. Cette zone ne contient plus rien d\'utile. Attention aux zo<s>m</s>b<s>ie</s>s cachés sous le sable. Danger de mort.</p>
                 <div class="other">&nbsp;c\'est bon, j\'ai fait le ménage !!</div>
                 <div class="other">&nbsp;&nbsp;&nbsp;- half</div>'
             ],
@@ -2914,7 +2962,7 @@ class TextFixtures extends Fixture
                 <p>Je suis seul, maintenant. Enfin, si on oublie les grattements réguliers sur la porte en bois. Ils sont là, dehors, devenant plus insistants heure après heure. Mes compagnons d\'infortune en font peut-être partie, qui sait ? Blessé aux jambes, incapable de bouger, je leur ai dit de partir. L\'un d\'eux ... Jon je crois, je ne sais pas, je ne sais plus ; m\'a laissé un pistolet. « Deux balles dedans. Une pour eux, une pour toi. » </p>
                 <p>Il a toujours été franc, Jon.</p>
                 <p>Le froid devient horrible alors que la nuit tombe. Les grattements deviennent des coups répétés, et la porte va bientôt céder, mais qu\'importe. Je compresse comme je peux la blessure de ma jambe, mais le sang ne semble pas vouloir s\'arrêter de couler. Tant pis.</p>
-                <p>Lecteur hypothétique, toi qui es perdu ici-bas, je laisserai<strike>s</strike> cette dernière balle pour toi. Ils ne nous auront pas vivants.</p>'
+                <p>Lecteur hypothétique, toi qui es perdu ici-bas, je laisserai<s>s</s> cette dernière balle pour toi. Ils ne nous auront pas vivants.</p>'
             ],
             "lang" => "fr",
             "background" => "blood",
@@ -2936,9 +2984,9 @@ class TextFixtures extends Fixture
             "content" => [
                 '<p>retourna lentement.</p>
                 <p>Le sergent fixait le soldat à sa radio. Il venait de déchiffrer le message en morse : « Etat major à tranchée n°12 : ravitaillement coupé, passage tenu par l\'ennemi. Impossible de reprendre le secteur. Tenez position le plus longtemps possible. Dieu vous garde ». Le radio regardait le sergent. De grosses gouttes de sueur coulaient à son front.</p>
-                <quote>- « Il faut avertir les autres mon sergent... Nous allons tous mourir.&nbsp;»</quote>
+                <blockquote>- « Il faut avertir les autres mon sergent... Nous allons tous mourir.&nbsp;»</blockquote>
                 <p>Un coup de feu retentit. Le sergent sortit de la tente, le pistolet encore fumant et cria : </p>
-                <quote>- « Soldats, tâchez de surveiller vos nerfs. Le radio vient de se suicider. Bon, le ravitaillement va tarder un peu? va falloir compter vos balles maintenant. »</quote>'
+                <blockquote>- « Soldats, tâchez de surveiller vos nerfs. Le radio vient de se suicider. Bon, le ravitaillement va tarder un peu? va falloir compter vos balles maintenant. »</blockquote>'
             ],
             "lang" => "fr",
             "background" => "old",
@@ -2962,7 +3010,7 @@ class TextFixtures extends Fixture
                 '<div class="hr"></div>
                 <center>
                 <big>Terres de l\'abîme.</big>
-                <div>4<strike>0 hab</strike>itants.</div>
+                <div>4<s>0 hab</s>itants.</div>
                 <div class="other"><strong>Ville zombie, PAS de survivant. Fouillée et hantée. DANGER !!!</strong></div>
                 </center>'
             ],
@@ -2974,12 +3022,12 @@ class TextFixtures extends Fixture
             "title" => "Paroles d'un condamné",
             "author" => "Arma",
             "content" => [
-                '<p>J\'ai froid, la nuit vient de tomber et je suis toujours à l\'extérieur de la ville, je crois que ma jambe est cassée... De toute façon je suis perdu, les <strike>cadav</strike>Morts-vivants m\'ont poussé vers des dunes lointaines...</p>
+                '<p>J\'ai froid, la nuit vient de tomber et je suis toujours à l\'extérieur de la ville, je crois que ma jambe est cassée... De toute façon je suis perdu, les <s>cadav</s>Morts-vivants m\'ont poussé vers des dunes lointaines...</p>
                 <p>Je vais mourir... Ma famille me manque...</p>
                 <p>Toi, qui lis ces mots, dis leur que je les aime et que j\'ai toujours pensé à eux...</p>
                 <p>Ils sont partout, et pourtant, ils m\'observent, sans bouger. Ils... attendent ?</p>
-                <p>Périr est... réconfortant. La vie n\'est qu\'un éternel stress devant la multitude de chemins que le <strike>futu</strike>Destin nous dessine...Je crois...</p>
-                <p>Je n\'ai plus le choix, <strike>je d</strike>il ne me reste plus qu\'une route à suivre. Peut-être la meilleure de toutes?</p>
+                <p>Périr est... réconfortant. La vie n\'est qu\'un éternel stress devant la multitude de chemins que le <s>futu</s>Destin nous dessine...Je crois...</p>
+                <p>Je n\'ai plus le choix, <s>je d</s>il ne me reste plus qu\'une route à suivre. Peut-être la meilleure de toutes?</p>
                 <p>J\'entends au loin les douze coups de minuit. C\'est fini...</p>
                 <p>Ne m\'oubliez pas.</p>'
             ],
@@ -3173,7 +3221,7 @@ class TextFixtures extends Fixture
             "title" => "Pêche",
             "author" => "Irmins",
             "content" => [
-                '<p><strong>Registre de la Ville: Espoirs Retrouvés, le 11 novembre<strike> 1966</strike></strong></p>
+                '<p><strong>Registre de la Ville: Espoirs Retrouvés, le 11 novembre<s> 1966</s></strong></p>
                 <p>Depuis hier, nous regagnons l\'espoir de survivre ! Les créatures déferlent les unes après les autres sur les portes de la ville, chaque jours plus nombreuses ... Nous avons foré les nappes phréatiques, et notre puis nous permettra de tenir plus de 3 mois sans problèmes d\'eau ... Nos canons a eau fonctionnent a plein régime <em>[...]</em> de moins en moins nombreux <em>[...]</em>.</p>
                 <p>Hier, nos éclaireurs sont partis avec leurs motos en direction de l\'Est <em>[...]</em> Grande découverte <em>[...]</em> changera nos vies a tout jamais ! Après plusieurs jours de progression dans l\'outre monde, ils ont trouvés <em>[...]</em> d\'eau, <em>[...]</em>possibilité de construire un bateau <em>[...]</em> système de pompage et de filtrage <em>[...]</em></p>
                 <p>Nous nous interrogeons sur l\'état des poissons... Sont ils vivants et comestibles, ou se sont ils transformés en Zombie également ? Dans le premier cas, un bon bain de mer et du poisson frit nous remonteraient le moral ! Dans le deuxième <em>[...]</em> </p>'
@@ -3275,7 +3323,7 @@ class TextFixtures extends Fixture
             "content" => [
                 '<h1>Décès récents</h1>
                 <p><strong>Mardi</strong> : Raph, JeanMi, Ynohtna, Titoflo</p>
-                <p><strong>Mercredi</strong> : Molly, Meuton, Ebola, Whi<strike>tetigl</strike>e <span class="other">(ah non...)</span></p>
+                <p><strong>Mercredi</strong> : Molly, Meuton, Ebola, Whi<s>tetigl</s>e <span class="other">(ah non...)</span></p>
                 <p><strong>Jeudi</strong> : Whitetigle <span class="other">(saleté d\'infection)</span></p>
                 <p><strong>Vendredi</strong> : Morkai, Amorphis, Denz</p>'
             ],
@@ -3524,10 +3572,10 @@ class TextFixtures extends Fixture
             "title" => "Tirage au sort",
             "author" => "stravingo",
             "content" => [
-                '<quote>Refuge des illusions perdues, le 19 février</quote>
-                <p>Cela fait des <strike>jour</strike>semaines que nous n\'avons plus de nourriture. La faim nous tenaille mais nous ne pouvons pas sortir<strike>e</strike>. Au-delà de nos maigres barricades, les créatures sont maintenant beaucoup trop nombreuses. Je n\'en peux plus. Je n\'ai plus la force.</p>
-                <p>Ce matin, nous avons tiré au sort. C\'est tombé sur moi mais je m\'en fiche. Les autres m\'ont presque envié. Je sens à l\'odeur du charbon de bois qu\'ils ont allumé le crématocue. Ils m\'ont dit que je ne sentirai <strike>presque</strike> rien, qu\'ils m\'ont réservé toute une bouteille de vodka. Mais je sais qu\'ils mentent. </p>
-                <p>J\'avais volé la dernière<strike>..</strike></p>
+                '<blockquote>Refuge des illusions perdues, le 19 février</blockquote>
+                <p>Cela fait des <s>jour</s>semaines que nous n\'avons plus de nourriture. La faim nous tenaille mais nous ne pouvons pas sortir<s>e</s>. Au-delà de nos maigres barricades, les créatures sont maintenant beaucoup trop nombreuses. Je n\'en peux plus. Je n\'ai plus la force.</p>
+                <p>Ce matin, nous avons tiré au sort. C\'est tombé sur moi mais je m\'en fiche. Les autres m\'ont presque envié. Je sens à l\'odeur du charbon de bois qu\'ils ont allumé le crématocue. Ils m\'ont dit que je ne sentirai <s>presque</s> rien, qu\'ils m\'ont réservé toute une bouteille de vodka. Mais je sais qu\'ils mentent. </p>
+                <p>J\'avais volé la dernière<s>..</s></p>
                 <p><em>Stravingo</em></p>'
             ],
             "lang" => "fr",
@@ -3580,17 +3628,17 @@ class TextFixtures extends Fixture
             "title" => "Un brouillon",
             "author" => "anonyme",
             "content" => [
-                '<p><strike>ce ty</strike>pe disait sûrement vrai. Coordonnées possibles vers <strike>210</strike>125 nord 210 ouest. </p>
+                '<p><s>ce ty</s>pe disait sûrement vrai. Coordonnées possibles vers <s>210</s>125 nord 210 ouest. </p>
                 <p>à faire :</p>
                 <ul>
                 <li>véhicule (fouiller le parking au nord)</li>
-                <li>e<strike>au (15 litres)</strike></li>
-                <li>provisions (chez Bretov<strike>ff</strike>, gaffe à l\'infection)</li>
+                <li>e<s>au (15 litres)</s></li>
+                <li>provisions (chez Bretov<s>ff</s>, gaffe à l\'infection)</li>
                 <li>la "Citadelle" ? c\'est quoi au juste&nbsp;??</li>
                 </ul>
-                <p>Il faut <strong>trouver la route <strike>17 </strike>71</strong>.</p>
-                <p>le cor<strike>be</strike>au ???!? qui c\'est ? <strike>trouver qui c\'est</strike> FAUT LE BUTER</p>
-                <quote><strike>rendR</strike>DV 16h !!!<strong>!!!!</strong></quote>
+                <p>Il faut <strong>trouver la route <s>17 </s>71</strong>.</p>
+                <p>le cor<s>be</s>au ???!? qui c\'est ? <s>trouver qui c\'est</s> FAUT LE BUTER</p>
+                <blockquote><s>rendR</s>DV 16h !!!<strong>!!!!</strong></blockquote>
                 <p>trouver <strong>CITADELLE</strong></p>'
             ],
             "lang" => "fr",
@@ -4344,8 +4392,8 @@ class TextFixtures extends Fixture
                 <p>Somos tan sólo un puñado de hombres, no quiero morir, quiero tener una familia, casarme, poder tener nietos, la vida de una persona normal... Ahora dudo que eso sea posible, el objetivo típico de una persona se ha vuelto un sueño utópico.</p>',
                 '<p>Organicé las porquerías que hay en mi pequeña vivienda, espero salir en unas horas con un grupo de vecinos a buscar recursos en el desierto, ahora he escuchado que le llaman Ultramundo, qué desidia...</p>
                 <p>Tenía el reloj de un tipo muerto, deben ser las seis de la tarde. Encontrarás mi cuerpo sin vida, a medio devorar, fui un idiota, y tu morirás también, tu familia. ¡Todos morirán, no habrá nadie más!</p><br>
-                <p><small>-Arkham<strike>Stranger </strike></small></p><strike>
-                </strike>'
+                <p><small>-Arkham<s>Stranger </s></small></p><s>
+                </s>'
             ],
             "lang" => "es",
             "background" => "notepad",
@@ -4426,8 +4474,8 @@ class TextFixtures extends Fixture
                 <p>Nunca lo hubiera imaginado hace dos días, cuando regresé al pueblo después de haber encontrado en el desierto un plano poco común. Todos mis compañeros me felicitaron, en sus ojos brillaba la ilusión, y yo me sentí orgulloso de poder contribuir a lo que podría ser la salvación del pueblo.</p>',
                 '♠<p>Cuando se terminó la construcción, descubrimos que ese plano servía para crear un matadero con el que podríamos distraer a los zombies, a la vez que nos permitiría librarnos de los habitantes antisociales del pueblo. Estos, por venganza, me denunciaron, aunque entonces no le di importancia porque sabía que el resto de mis compañeros valoraba mi aportación y mi esfuerzo.</p>
                 <p>Pero hoy los zombies superarán nuestras defensas, y los constructores no tendrán tiempo de levantar otras nuevas antes del anochecer. Al salir de casa, mis camaradas evitaban mirarme a los ojos, y ni siquiera me he atrevido a despedirme. Tengo siete denuncias. Antes de que acabe el día, alguien no podrá resistirse al miedo y realizará la octava, la que me condenará a morir a las puertas del pueblo para que mis compañeros resistan al menos un día más.</p><br>
-                <p><small>-Camarada<strike>Ndomo </strike></small></p><strike>
-                </strike>'
+                <p><small>-Camarada<s>Ndomo </s></small></p><s>
+                </s>'
             ],
             "lang" => "es",
             "background" => "notepad",
@@ -4577,7 +4625,7 @@ class TextFixtures extends Fixture
             "content" => [
                 '<p>Lo acabo de ver, uno de los habitantes mordió un trozo de carne y algo que sucedió, no se que fue pero de repente me miró de una manera que solo haría un zombie, seguía teniendo la misma apariencia de siempre pero era un zombie con conciencia.</p>
                 <p>Me intentó morder, logré escapar y llegué hasta una casa abandonada me encerré y bloqueé la única entrada.</p>',
-                '<p>Abandono toda esperanza de sobrevivir, mi corazón late muy fuerte, antes de que entre quiero avisarles que el "hombre zombie" está más cerca de lo que creen y no es nada más ni menos qu__<strike>.</strike></p><strike>'
+                '<p>Abandono toda esperanza de sobrevivir, mi corazón late muy fuerte, antes de que entre quiero avisarles que el "hombre zombie" está más cerca de lo que creen y no es nada más ni menos qu__<s>.</s></p><s>'
             ],
             "lang" => "es",
             "background" => "postit",
@@ -5003,19 +5051,19 @@ class TextFixtures extends Fixture
             "title" => "Rough Draft",
             "author" => null,
             "content" => [
-                '<p>The guy was sure<strike>ly right</strike>. Coordinates (approx): <strike>210</strike>125 North 210 West. </p>
+                '<p>The guy was sure<s>ly right</s>. Coordinates (approx): <s>210</s>125 North 210 West. </p>
                 <p>To do:</p>
                 <ul>
                 <li>vehicle (search the parking lot in the north)</li>
-                <li>wa<strike>ter (15 litres)</strike></li>
+                <li>wa<s>ter (15 litres)</s></li>
                 <li>provisions (find Bretov\'s house; watch out for infection)</li>
                 <li>"Citadel" ? What is this ??</li>
                 </ul>
-                <p>Need to find the <strong>I-40</strong>...<strike>that IS</strike>the way.</p>
-                <p>the r<strike>av</strike>en???!? Who is the ra<strike>ve</strike>n ? <strike>find out who they are</strike>MUST KILL<strike></strike></p><strike>
-                <quote>Meeting @ 16h !!!</quote>
+                <p>Need to find the <strong>I-40</strong>...<s>that IS</s>the way.</p>
+                <p>the r<s>av</s>en???!? Who is the ra<s>ve</s>n ? <s>find out who they are</s>MUST KILL<s></s></p><s>
+                <blockquote>Meeting @ 16h !!!</blockquote>
                 <p>find <strong>CITADEL</strong></p>
-                </strike>'
+                </s>'
             ],
             "lang" => "en",
             "background" => "secret",
@@ -5136,6 +5184,7 @@ class TextFixtures extends Fixture
         $progress->finish();
     }
 
+    /** @noinspection PhpHierarchyChecksInspection */
     public function load(ObjectManager $manager) {
         $output = new ConsoleOutput();
         $output->writeln( '<info>Installing fixtures: Texts</info>' );

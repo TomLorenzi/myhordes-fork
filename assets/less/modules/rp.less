@@ -1,0 +1,260 @@
+@import "../theme";
+
+.soul .view-rp {
+    .rp-content {
+        height: 420px; overflow: auto; padding-top: 25px;
+        padding-left: 45px; padding-right: 45px; width: 575px;
+        color: black; cursor: pointer;
+        sup { color: black; }
+        .hr { margin-top: 70px; }
+        h1 {
+            text-align: center; color: #5c2b20; margin-bottom: 10px;text-transform: uppercase; letter-spacing: 1px;
+            font-size: 2.3rem;
+            small { display: block; font-size: 1rem; }
+        }
+
+        h2 {font-size: 1.5rem; text-transform: uppercase; color: #5c2b20; margin: 0; padding: 10px 0 3px 0; }
+        p { padding: 0; text-align: justify; margin: 0; }
+
+        small {
+            display: block; line-height: 1.3rem; font-size: 1.1rem;
+            strong { text-decoration: underline; }
+        }
+
+        img { width: 100%; }
+
+        &.design-typed {
+            font-family: @myhordes-fixed-font;
+            color: #3b3249;
+            h2 {
+                border-bottom: 1px dashed #684742;
+                &:first-letter {
+                    color: black;
+                }
+            }
+            p {
+                &:first-letter {
+                    font-weight: bold;
+                }
+
+                &.other {
+                    font-family: @myhordes-sans-serif-font;
+                    color: #b16567;
+                    font-style: italic;
+                }
+            }
+            strong {
+                color: black;
+                text-transform: none;
+            }
+        }
+
+        &.design-typedsmall {
+            font-family: @myhordes-fixed-font;
+            color: #3b3249;
+            font-size: 1.5rem;
+        }
+
+        &.design-written,
+        &.design-small,
+        &.design-postit {
+            font-family: @myhordes-sans-serif-font;
+            font-style: italic;
+            color: #5c2b20;
+            font-size: 1.5rem;
+            line-height: 2rem;
+            &.design-written {
+                font-weight: bold;
+                h1 {
+                    strong {
+                        text-decoration: underline;
+                    }
+                }
+            }
+            p:first-line,
+            p:first-letter {
+                color: black;
+            }
+            blockquote {
+                margin-left: 15px;
+                margin-bottom: 15px;
+                padding-left: 10px;
+                display: block;
+            }
+            em {
+                font-size: 1.25rem;
+            }
+            strong {
+                color: #5c2b20;
+                font-weight: bolder;
+            }
+            big {
+                font-size: 5rem;
+            }
+
+            .other {
+                strong {
+                    color:#992626;
+                    font-size: 2rem;
+                    font-weight: bold;
+                }
+            }
+        }
+
+        &.design-classic {
+            font-family: @myhordes-serif-font;
+            color: #5c2b20;
+            font-size: 1.5rem;
+            h2 {
+                font-size: 2rem;
+                padding: 10px 0 0 0;
+                margin: 0;
+                text-transform: uppercase;
+            }
+            em {
+                color: #684742;
+                font-size: 1.3rem;
+            }
+        }
+
+        &.design-modern {
+            color: #44302B;
+            h2 {
+                font-size: 1.5rem;
+                padding: 10px 0 0 0;
+                margin: 0;
+                text-transform: uppercase;
+            }
+            small {
+                display: block;
+                font-size: 1rem;
+            }
+            blockquote {
+                display: block;
+                padding: 10px;
+                margin: 10px;
+                color: #464738;
+                border: 2px solid #464738;
+            }
+        }
+
+        &.design-ad {
+            font-variant: small-caps;
+            font-weight: bold;
+            line-height: 1.5rem;
+            font-size: 1.5rem;
+            font-style: italic;
+            color: #773939;
+            h1 {
+                color: #3b3249;
+                &:first-letter {
+                    color: #5c2b20;
+                }
+            }
+        }
+
+        &.design-stamp {
+            padding: 60px 110px 40px 120px;
+            h1 {
+                color: #696486;
+                font-size: 3rem;
+                letter-spacing: 0rem;
+            }
+            p, strong {
+                font-size: 1.75rem;
+            }
+            strong {
+                color: #3b3249;
+            }
+            small {
+                strong {
+                    font-size: inherit;
+                }
+            }
+        }
+
+        &.design-news {
+            color: #6f7159;
+            font-family: @myhordes-serif-font;
+            h1 {
+                color: #8c9070;
+                font-family: @myhordes-sans-serif-font;
+            }
+            strong {
+                color: #707056;
+            }
+            hr {
+                color: #8c9070;
+                border: none;
+                border-bottom: 1px solid #adb09d;
+            }
+            p:first-letter {
+                font-weight: bold;
+            }
+        }
+
+        &.design-poem {
+            font-style: italic;
+            padding-left: 100px;
+            font-size: 1.2rem;
+            div.hr {
+                margin-top: 5px;
+            }
+            h2 {
+                padding: 0;
+            }
+        }
+
+        .pages {
+            font-size: 1rem;
+            font-weight: bold;
+        }
+
+        strike {
+            color: #893232;
+            background: url('../../img/books/scratch.gif') repeat-x center;
+        }
+    }
+
+    .rp-background(@url) { background: url(@url) no-repeat; width: 600px; height: 420px; }
+
+    .carton  { .rp-background('../../img/books/carton.gif')  }
+    .blood   { .rp-background('../../img/books/blood.gif')   }
+    .noteup  { .rp-background('../../img/books/noteup.gif')  }
+    .white   { .rp-background('../../img/books/white.gif')   }
+    .old     { .rp-background('../../img/books/old.gif')     }
+    .notepad { .rp-background('../../img/books/notepad.gif') }
+    .stamp   { .rp-background('../../img/books/stamp.gif')   }
+    .secret  { .rp-background('../../img/books/secret.gif')  }
+    .grid    { .rp-background('../../img/books/grid.gif')    }
+    .letter  { .rp-background('../../img/books/letter.gif')  }
+    .printer { .rp-background('../../img/books/printer.gif') }
+    .manual  { .rp-background('../../img/books/manual.gif')  }
+
+    .money {
+        .rp-background('../../img/books/money.gif');
+        .rp-content {
+            padding-left: 120px; padding-top: 120px;
+            color: #544224;
+            p::first-line{ color: inherit; }
+            p::first-letter { color: black; }
+        }
+    }
+
+    .news {
+        .rp-background('../../img/books/news.gif');
+        .rp-content { margin-left: 60px; padding-right: 60px; padding-top: 50px; width: 555px; }
+    }
+
+    .postit {
+        .rp-background('../../img/books/postit.gif');
+        .rp-content { margin-left: 120px; padding-top: 80px; width: 360px; }
+    }
+
+    .tinystamp {
+        .rp-background('../../img/books/tinystamp.gif');
+        .rp-content { margin-left: 130px; padding-top: 40px; width: 340px; }
+    }
+
+    .author { color: #ddab76; font-style: italic; font-size: 1rem; }
+}
