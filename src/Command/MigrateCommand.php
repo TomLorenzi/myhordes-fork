@@ -175,7 +175,7 @@ class MigrateCommand extends Command
             } else if (!$this->capsule( ($input->getOption('phar') ? 'php composer.phar' : 'composer') . " update --no-dev --optimize-autoloader", $output, 'Updating composer production dependencies... ', false )) return 4;
 
             if (!$this->capsule( "yarn install", $output, 'Updating yarn dependencies... ', false )) return 5;
-            if (!$this->capsule( "yarn encore {$env}}", $output, 'Building web assets... ', false )) return 6;
+            if (!$this->capsule( "yarn encore {$env}", $output, 'Building web assets... ', false )) return 6;
 
             $version_lines = $this->bin( 'git describe --tags', $ret );
             if (count($version_lines) >= 1) {
