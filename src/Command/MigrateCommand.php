@@ -80,6 +80,13 @@ class MigrateCommand extends Command
             ->setDescription('Performs migrations to update content after a version update.')
             ->setHelp('Migrations.')
 
+            ->addOption('maintenance', 'm', InputOption::VALUE_REQUIRED, 'Enables (on) or disables (off) maintenance mode')
+
+            ->addOption('from-git', 'g', InputOption::VALUE_REQUIRED, 'Switches to the given git branch and updates everything.')
+            ->addOption('remote', null,  InputOption::VALUE_REQUIRED, 'Sets the git remote for --from-git')
+            ->addOption('branch', null,  InputOption::VALUE_REQUIRED, 'Sets the git branch for --from-git')
+            ->addOption('env', null,     InputOption::VALUE_REQUIRED, 'Sets the symfony environment to build assets for')
+
             ->addOption('update-db', 'u', InputOption::VALUE_NONE, 'Creates and performs a doctrine migration, updates fixtures.')
             ->addOption('recover', 'r',   InputOption::VALUE_NONE, 'When used together with --update-db, will clear all previous migrations and try again after an error.')
 
@@ -98,18 +105,31 @@ class MigrateCommand extends Command
         ;
     }
 
-    protected function capsule( string $command, OutputInterface $output ): bool {
-        $run_command = "php bin/console $command 2>&1";
-
-        $output->write("<info>Executing encapsulated command \"<comment>$command</comment>\"... </info>");
-        $process_handle = popen( $run_command, 'r' );//exec( $command, $out, $ret );
+    /**
+     * @param string $command
+     * @param int|null $ret
+     * @param bool|false $detach
+     * @return string[]
+     */
+    protected function bin( string $command, ?int &$ret = &null, bool $detach = false  ): array {
+        $process_handle = popen( $command, 'r' );
 
         $lines = [];
-        while (($line = fgets( $process_handle )) !== false)
+        if (!$detach) while (($line = fgets( $process_handle )) !== false)
             $lines[] = $line;
+        $ret = pclose($process_handle);
+        return $lines;
+    }
 
-        if (($ret = pclose($process_handle)) !== 0) {
+    protected function capsule( string $command, OutputInterface $output, ?string $note = null, bool $bin_console = true ): bool {
+        $run_command = $bin_console ? "php bin/console $command 2>&1" : "$command 2>&1";
+
+        $output->write($note !== null ? $note : ("<info>Executing " . ($bin_console ? 'encapsulated' : '') . " command \"<comment>$command</comment>\"... </info>"));
+        $lines = $this->bin( $run_command, $ret );
+
+        if ($ret !== 0) {
             $output->writeln('');
+            if ($note !== null) $output->writeln("<info>Command was \"<comment>{$run_command}</comment>\"</info>");
             foreach ($lines as $line) $output->write( "> {$line}" );
             $output->writeln("<error>Command exited with error code {$ret}</error>");
         } else $output->writeln("<info>Ok.</info>");
@@ -119,6 +139,59 @@ class MigrateCommand extends Command
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
+        if ($m = $input->getOption('maintenance')) {
+
+            $file = "{$this->param->get('kernel.project_dir')}/public/maintenance/.active";
+            if ($m === 'on') file_put_contents($file, "");
+            else if ($m === 'off') unlink( $file );
+            else {
+                $output->writeln("<error>Unknown command: '$m'.</error>");
+                return 1;
+            }
+
+            $output->writeln("Ok.");
+            return 0;
+
+        }
+
+        if ($input->getOption('from-git')) {
+
+            $remote = $input->getOption('remote');
+            $branch = $input->getOption('branch');
+            $env    = $input->getOption('env');
+
+            if (!$this->capsule( "app:migrate --maintenance on", $output, 'Enable maintenance mode... ', true )) return -1;
+
+            for ($i = 10; $i > 0; --$i) {
+                $output->writeln("Beginning update in <info>{$i}</info> seconds....");
+                sleep(1);
+            }
+
+            if (!$this->capsule( "git fetch {$remote} {$branch}", $output, 'Retrieving updates from repository... ', false )) return 1;
+            if (!$this->capsule( "git reset --hard {$remote}/{$branch}", $output, 'Applying changes to filesystem... ', false )) return 2;
+            if ($env === 'dev') {
+                if (!$this->capsule( "php composer.phar update", $output, 'Updating composer dependencies...', false )) return 3;
+            } else if (!$this->capsule( "php composer.phar update --no-dev --optimize-autoloader", $output, 'Updating composer production dependencies... ', false )) return 4;
+
+            if (!$this->capsule( "yarn install", $output, 'Updating yarn dependencies... ', false )) return 5;
+            if (!$this->capsule( "yarn encore {$env}}", $output, 'Building web assets... ', false )) return 6;
+
+            $version_lines = $this->bin( 'git describe --tags' );
+            if (count($version_lines) >= 1) {
+                file_put_contents( 'VERSION', $version_lines[0] );
+                $output->writeln("Updated MyHordes to version <info>{$version_lines[0]}</info>");
+            }
+
+            if (!$this->capsule( "cache:clear", $output, 'Clearing cache... ', true )) return 7;
+            if (!$this->capsule( "app:migrate -u -r", $output, 'Updating database... ', true )) return 8;
+
+            for ($i = 10; $i > 0; --$i) {
+                $output->writeln("Disabling maintenance mode in <info>{$i}</info> seconds....");
+                sleep(1);
+            }
+            if (!$this->capsule( "app:migrate --maintenance on", $output, 'Enable maintenance mode... ', true )) return -1;
+        }
+
         if ($input->getOption('update-db')) {
 
             if (!$this->capsule( 'doctrine:migrations:diff --allow-empty-diff --formatted --no-interaction', $output )) {
