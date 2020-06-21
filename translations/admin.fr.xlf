@@ -1078,7 +1078,7 @@
       </notes>
       <segment>
         <source>Rundmail als Rabe</source>
-        <target>Écrire en tant que corbeau</target>
+        <target>Écrire en tant que Corbeau</target>
       </segment>
     </unit>
     <unit id="K_rzvjv" name="PM vom Raben">
@@ -1088,6 +1088,51 @@
       <segment>
         <source>PM vom Raben</source>
         <target>MP en tant que Corbeau</target>
+      </segment>
+    </unit>
+    <unit id="l2_e9hX" name="Stadt administrieren">
+      <notes>
+        <note category="german">Stadt administrieren</note>
+      </notes>
+      <segment>
+        <source>Stadt administrieren</source>
+        <target>Stadt administrieren</target>
+      </segment>
+    </unit>
+    <unit id="Enh.KhP" name="Nächtlicher Angriff">
+      <notes>
+        <note category="german">Nächtlicher Angriff</note>
+      </notes>
+      <segment>
+        <source>Nächtlicher Angriff</source>
+        <target>Nächtlicher Angriff</target>
+      </segment>
+    </unit>
+    <unit id="YBKE35r" name="Quarantäne aufheben">
+      <notes>
+        <note category="german">Quarantäne aufheben</note>
+      </notes>
+      <segment>
+        <source>Quarantäne aufheben</source>
+        <target>Quarantäne aufheben</target>
+      </segment>
+    </unit>
+    <unit id="ZG32Cjn" name="Unter Quarantäne stellen">
+      <notes>
+        <note category="german">Unter Quarantäne stellen</note>
+      </notes>
+      <segment>
+        <source>Unter Quarantäne stellen</source>
+        <target>Unter Quarantäne stellen</target>
+      </segment>
+    </unit>
+    <unit id="akWsVTF" name="Manueller Tageswechsel">
+      <notes>
+        <note category="german">Manueller Tageswechsel</note>
+      </notes>
+      <segment>
+        <source>Manueller Tageswechsel</source>
+        <target>Manueller Tageswechsel</target>
       </segment>
     </unit>
   </file>

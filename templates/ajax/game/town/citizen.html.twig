@@ -3,13 +3,13 @@
     {# @var citizen \App\Entity\Citizen #}
     {% set hour = "now"|date("G") %}
     <div class="row">
-        <div class="cell rw-12 town-banner town-banner-houses time-{{ hour }} {% if hour < 7 or hour > 18 %}night{% endif %}"></div>
+        <div class="cell rw-12 town-banner town-banner-houses time-{{ hour }} {% if town.isNight %}night{% endif %}"></div>
     </div>
     <ul class="tabs plain">
         <li class="tab selected">
             <div class="tab-link" x-ajax-href="{{ path('town_citizens') }}">{% trans from 'game' %}Bürger{% endtrans %}</div>
         </li>
-        {% if not citizen.town.chaos %}
+        {% if not town.chaos %}
             {% for name,role in votesNeeded %}
                 {% if role %}
                 <li class="tab">

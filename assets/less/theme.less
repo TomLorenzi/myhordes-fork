@@ -9,6 +9,7 @@
 @import (once) "modules/forum";
 @import (once) "modules/ghost";
 @import (once) "modules/soul";
+@import (once) "modules/rp";
 @import (once) "modules/admin";
 
 @import (css) url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,700;1,400;1,700&display=swap');
@@ -138,95 +139,62 @@ x-message {
   transition: opacity 0.2s ease-in-out; opacity: 1;
   &[x-stack="0"] { opacity: 0; pointer-events: none; }
 }
+
 #modal-backdrop {
   opacity: 0;
   pointer-events: none;
   position: fixed; left: 0; top: 0; width: 100vw; height: 100vh; z-index: 99999;
-  background: linear-gradient(0deg, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.6) 70%, rgba(0,0,0,1) 100%);
-  display: flex; align-items: center; justify-content: center;
+  background: linear-gradient(0deg, rgba(107, 32, 17,0.2) 0%, rgba(107, 32, 17,0.4) 70%, rgba(0,0,0,0.7) 100%);
+  display: flex; align-items: center; justify-content: center; transition: opacity 0.2s ease-in-out;
   &.active {
     opacity: 1; pointer-events: initial;
   }
   &>div#modal {
-    color: wheat; min-width: 320px; width: auto; max-width: 80%;
-    min-height: 100px;
-    background-color: #804d2f;
-    border: 1px solid wheat;
-    outline: 1px solid black;
-    position: relative;
-
-    div#modal-close {
-      width: 3rem;
-      height: 3rem;
-      position: absolute;
-      font-size: 2rem;
-      line-height: 3rem;
-      text-align: center;
-      color: #333;
-      top: 0;
-      right: 0;
-      cursor: pointer;
-      transition: 200ms color;
-
-      &:hover {
-        color: #c00;
-      }
-    }
+    color: wheat; min-width: 200px; width: auto; max-width: 500px; background-color: #5c2b20;
+    border: 1px solid #b37c4a; outline: 2px solid black; position: relative;
 
     div#modal-title {
-      height: 3rem;
-      line-height: 3rem;
-      background-color: rgba(0,0,0,.25);
-      font-weight: bold;
-      font-size: 1.8rem;
+      height: 3rem; line-height: 3rem; background-color: rgba(0,0,0,.25); font-weight: bold; font-size: 1.8rem;
       padding: 0 4rem 0 1rem;
+      &:empty {display: none}
     }
 
     div#modal-content {
-      min-height: 5rem;
+      min-height: 5rem; padding: 1rem;
 
       .modal-form {
-        padding: 1rem;
-
-        label {
-          &.error {
-            color: #c00;
-          }
-        }
+        label.error { color: #c00; }
 
         input {
           margin-bottom: 1rem;
-
-          &.error {
-            outline: 2px solid #c00;
-          }
+          &.error { outline: 2px solid #c00; }
         }
       }
     }
 
     div#modal-actions {
-      height: 3rem;
-      background-color: rgba(0,0,0,.25);
-      text-align: center;
+      text-align: left; padding: 3px;
+    }
 
-      div.modal-button {
-        line-height: 2.4rem;
-        margin: .3rem .5rem;
-        background-color: rgba(0,0,0,.25);
-        cursor: pointer;
-        display: inline-block;
-        width: auto;
-        font-size: 1.2rem;
-        padding: 0 .6rem;
-        transition: 200ms background-color;
+    &.popup-ghoul {
 
-        &#modal-button-ok:hover { background-color: #0c0; }
-        &#modal-button-no:hover { background-color: #c00; }
+      background: #79393a;
+      &>div#modal-content {
+        padding: 0; font-size: 0.8em;
+        &>.inner-notification-header  {
+          background: #3d3149; padding: 5px;
+          &>img { margin: 0 10px 10px 0; border: 2px solid black; }
+        }
+        &>.inner-notification-content { color: white; padding: 10px; }
+        & p { margin: 14px 0;  text-align: justify }
+        & ul.bluelist {
+          background: #3d3149;
+          &>li { list-style: url(../img/small_dot.gif); padding: 2px 10px 2px 2px; text-align: justify; }
+        }
       }
+
     }
   }
-  transition: opacity 0.2s ease-in-out;
-
 }
 
 #wrapper {
@@ -566,11 +534,11 @@ div.lightbox {
   span.highlight { color: @myhordes-span-color; &:first-letter { font-size: 1.4rem; font-weight: bold; } }
 }
 
-button, *.button {
+button, *.button, *.modal-button {
   min-height: 25px; background: @myhordes-button-background center/cover no-repeat; color: @myhordes-button-color; font-weight: bold;
   border: 1px solid @myhordes-button-border; border-bottom-width: 2px; outline: 1px solid rgba(0,0,0,0);
   transition: outline-color 0.5s; box-shadow: 0 0 2px black; padding: 0 8px 0;
-  text-align: left;
+  text-align: left; cursor: pointer;
   font-variant: small-caps;
 
   &:hover,&:focus { outline-color: @myhordes-button-color; color: lighten(@myhordes-button-color, 50%); }
@@ -579,7 +547,7 @@ button, *.button {
   &:not(.inline) { display: block; width: 100%; }
 
   &.small {
-    background: @myhordes-button-static-background; font-size: 1rem; padding: 2px 6px; display: inline-block; min-height: 0;
+    font-size: 1rem; padding: 2px 6px; display: inline-block; min-height: 0;
   }
 
   &:not(.small) {

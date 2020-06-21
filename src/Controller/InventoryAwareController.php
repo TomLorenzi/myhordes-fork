@@ -8,6 +8,7 @@ use App\Entity\Citizen;
 use App\Entity\CitizenHomeUpgrade;
 use App\Entity\CitizenHomeUpgradePrototype;
 use App\Entity\ExpeditionRoute;
+use App\Entity\HelpNotificationMarker;
 use App\Entity\HeroicActionPrototype;
 use App\Entity\HomeActionPrototype;
 use App\Entity\Inventory;
@@ -50,7 +51,8 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
-class InventoryAwareController extends AbstractController implements GameInterfaceController, GameProfessionInterfaceController, GameAliveInterfaceController
+class InventoryAwareController extends AbstractController
+    implements GameInterfaceController, GameProfessionInterfaceController, GameAliveInterfaceController, HookedInterfaceController
 {
     protected $entity_manager;
     protected $inventory_handler;
@@ -91,6 +93,17 @@ class InventoryAwareController extends AbstractController implements GameInterfa
         $this->logTemplateHandler = $lt;
         $this->user_handler = $uh;
         $this->crow = $armbrust;
+    }
+
+    public function before(): bool
+    {
+        if ($this->citizen_handler->hasRole($this->getActiveCitizen(), 'ghoul') && !$this->getActiveCitizen()->hasSeenHelpNotification('ghoul')) {
+            $this->addFlash('popup-ghoul', $this->renderView('ajax/game/notifications/ghoul.html.twig'));
+            $this->getActiveCitizen()->addHelpNotification( $this->entity_manager->getRepository(HelpNotificationMarker::class)->findOneByName('ghoul') );
+            $this->entity_manager->persist($this->getActiveCitizen());
+            $this->entity_manager->flush();
+        }
+        return true;
     }
 
     protected function getTownConf() {

@@ -38,6 +38,7 @@ use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\BufferedOutput;
 use Symfony\Component\Console\Output\NullOutput;
 use Symfony\Component\Console\Output\OutputInterface;
+use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
 use Symfony\Component\HttpKernel\KernelInterface;
 
 class MigrateCommand extends Command
@@ -53,8 +54,11 @@ class MigrateCommand extends Command
     private $inventory_handler;
     private $conf;
     private $maze;
+    private $param;
 
-    public function __construct(KernelInterface $kernel, GameFactory $gf, EntityManagerInterface $em, RandomGenerator $rg, CitizenHandler $ch, InventoryHandler $ih, ConfMaster $conf, MazeMaker $maze)
+    public function __construct(KernelInterface $kernel, GameFactory $gf, EntityManagerInterface $em,
+                                RandomGenerator $rg, CitizenHandler $ch, InventoryHandler $ih, ConfMaster $conf,
+                                MazeMaker $maze, ParameterBagInterface $params)
     {
         $this->kernel = $kernel;
 
@@ -65,6 +69,7 @@ class MigrateCommand extends Command
         $this->inventory_handler = $ih;
         $this->conf = $conf;
         $this->maze = $maze;
+        $this->param = $params;
 
         parent::__construct();
     }
@@ -75,7 +80,17 @@ class MigrateCommand extends Command
             ->setDescription('Performs migrations to update content after a version update.')
             ->setHelp('Migrations.')
 
+            ->addOption('maintenance', 'm', InputOption::VALUE_REQUIRED, 'Enables (on) or disables (off) maintenance mode')
+
+            ->addOption('from-git', 'g',    InputOption::VALUE_NONE, 'Switches to the given git branch and updates everything.')
+            ->addOption('remote', null,     InputOption::VALUE_REQUIRED, 'Sets the git remote for --from-git')
+            ->addOption('branch', null,     InputOption::VALUE_REQUIRED, 'Sets the git branch for --from-git')
+            ->addOption('environment', null,InputOption::VALUE_REQUIRED, 'Sets the symfony environment to build assets for')
+            ->addOption('phar', null,InputOption::VALUE_REQUIRED, 'If set, composer will be invoked using a composer.phar file')
+
             ->addOption('update-db', 'u', InputOption::VALUE_NONE, 'Creates and performs a doctrine migration, updates fixtures.')
+            ->addOption('recover', 'r',   InputOption::VALUE_NONE, 'When used together with --update-db, will clear all previous migrations and try again after an error.')
+
             ->addOption('update-trans', 't', InputOption::VALUE_REQUIRED, 'Updates all translation files for a single language')
 
             ->addOption('assign-heroic-actions-all', null, InputOption::VALUE_NONE, 'Resets the heroic actions for all citizens in all towns.')
@@ -91,50 +106,138 @@ class MigrateCommand extends Command
         ;
     }
 
+    /**
+     * @param string $command
+     * @param int|null $ret
+     * @param bool|false $detach
+     * @return string[]
+     */
+    protected function bin( string $command, ?int &$ret = null, bool $detach = false  ): array {
+        $process_handle = popen( $command, 'r' );
+
+        $lines = [];
+        if (!$detach) while (($line = fgets( $process_handle )) !== false)
+            $lines[] = $line;
+        $ret = pclose($process_handle);
+        return $lines;
+    }
+
+    protected function capsule( string $command, OutputInterface $output, ?string $note = null, bool $bin_console = true ): bool {
+        $run_command = $bin_console ? "php bin/console $command 2>&1" : "$command 2>&1";
+
+        $output->write($note !== null ? $note : ("<info>Executing " . ($bin_console ? 'encapsulated' : '') . " command \"<comment>$command</comment>\"... </info>"));
+        $lines = $this->bin( $run_command, $ret );
+
+        if ($ret !== 0) {
+            $output->writeln('');
+            if ($note !== null) $output->writeln("<info>Command was \"<comment>{$run_command}</comment>\"</info>");
+            foreach ($lines as $line) $output->write( "> {$line}" );
+            $output->writeln("<error>Command exited with error code {$ret}</error>");
+        } else $output->writeln("<info>Ok.</info>");
+
+        return $ret === 0;
+    }
+
     protected function execute(InputInterface $input, OutputInterface $output)
     {
+        if ($m = $input->getOption('maintenance')) {
+
+            $file = "{$this->param->get('kernel.project_dir')}/public/maintenance/.active";
+            if ($m === 'on') file_put_contents($file, "");
+            else if ($m === 'off') unlink( $file );
+            else {
+                $output->writeln("<error>Unknown command: '$m'.</error>");
+                return 1;
+            }
+
+            $output->writeln("Ok.");
+            return 0;
+
+        }
+
+        if ($input->getOption('from-git')) {
+
+            $remote = $input->getOption('remote');
+            $branch = $input->getOption('branch');
+            $env    = $input->getOption('environment');
+
+            if (!$this->capsule( "app:migrate --maintenance on", $output, 'Enable maintenance mode... ', true )) return -1;
+
+            for ($i = 10; $i > 0; --$i) {
+                $output->writeln("Beginning update in <info>{$i}</info> seconds....");
+                sleep(1);
+            }
+
+            if (!$this->capsule( "git fetch {$remote} {$branch}", $output, 'Retrieving updates from repository... ', false )) return 1;
+            if (!$this->capsule( "git reset --hard {$remote}/{$branch}", $output, 'Applying changes to filesystem... ', false )) return 2;
+            if ($env === 'dev') {
+                if (!$this->capsule( ($input->getOption('phar') ? 'php composer.phar' : 'composer') . " update", $output, 'Updating composer dependencies...', false )) return 3;
+            } else if (!$this->capsule( ($input->getOption('phar') ? 'php composer.phar' : 'composer') . " update --no-dev --optimize-autoloader", $output, 'Updating composer production dependencies... ', false )) return 4;
+
+            if (!$this->capsule( "yarn install", $output, 'Updating yarn dependencies... ', false )) return 5;
+            if (!$this->capsule( "yarn encore {$env}", $output, 'Building web assets... ', false )) return 6;
+
+            $version_lines = $this->bin( 'git describe --tags', $ret );
+            if (count($version_lines) >= 1) {
+                file_put_contents( 'VERSION', $version_lines[0] );
+                $output->writeln("Updated MyHordes to version <info>{$version_lines[0]}</info>");
+            }
+
+            if (!$this->capsule( "cache:clear", $output, 'Clearing cache... ', true )) return 7;
+            if (!$this->capsule( "app:migrate -u -r", $output, 'Updating database... ', true )) return 8;
+
+            for ($i = 10; $i > 0; --$i) {
+                $output->writeln("Disabling maintenance mode in <info>{$i}</info> seconds....");
+                sleep(1);
+            }
+            if (!$this->capsule( "app:migrate --maintenance off", $output, 'Disable maintenance mode... ', true )) return -1;
+        }
+
         if ($input->getOption('update-db')) {
 
-            $made_migration = true;
-            $db_is_current  = true;
-
-            $command = $this->getApplication()->find('doctrine:migrations:diff');
-            try {
-                $args = new ArrayInput([
-                    '--allow-empty-diff' => true,
-                ]);
-                $args->setInteractive(false);
-                $command->run($args, $output);
-            } catch (Exception $e) {
-                $output->writeln("Unable to create a migration: <error>{$e->getMessage()}</error>");
-                $made_migration = false;
+            if (!$this->capsule( 'doctrine:migrations:diff --allow-empty-diff --formatted --no-interaction', $output )) {
+                $output->writeln("<error>Unable to create a migration.</error>");
+                return 1;
             }
 
-            if ($made_migration) {
-                $command = $this->getApplication()->find('doctrine:migrations:migrate');
-                try {
-                    $args = new ArrayInput([
-                        '--all-or-nothing' => true,
-                        '--allow-no-migration' => true,
-                    ]);
-                    $args->setInteractive(false);
-                    $command->run($args, $output);
-                } catch (Exception $e) {
-                    $output->writeln("Unable to migrate: <error>{$e->getMessage()}</error>");
-                    $db_is_current = false;
+            if (!$this->capsule( 'doctrine:migrations:migrate --all-or-nothing --allow-no-migration --no-interaction', $output )) {
+
+                if ($input->getOption('recover')) {
+                    $output->writeln("<warning>Unable to migrate database, attempting recovery.</warning>");
+
+                    $source = "{$this->param->get('kernel.project_dir')}/src/Migrations";
+                    foreach (scandir( $source ) as $file)
+                        if ($file && $file[0] !== '.') {
+                            $output->write("\tDeleting \"<comment>{$file}</comment>\"... ");
+                            unlink( "$source/$file" );
+                            $output->writeln('<info>Ok!</info>');
+                        }
+
+                    if (!$this->capsule( 'doctrine:migrations:version --all --delete --no-interaction', $output )) {
+                        $output->writeln("<error>Unable to clean migrations.</error>");
+                        return 4;
+                    }
+
+                    if (!$this->capsule( 'doctrine:migrations:diff --allow-empty-diff --formatted --no-interaction', $output )) {
+                        $output->writeln("<error>Unable to create a migration.</error>");
+                        return 1;
+                    }
+
+                    if (!$this->capsule( 'doctrine:migrations:migrate --all-or-nothing --allow-no-migration --no-interaction', $output )) {
+                        $output->writeln("<error>Unable to migrate database.</error>");
+                        return 2;
+                    }
+                } else {
+                    $output->writeln("<error>Unable to migrate database.</error>");
+                    return 2;
                 }
+
+
             }
 
-            if ($db_is_current) {
-                $command = $this->getApplication()->find('doctrine:fixtures:load');
-                try {
-                    $command->run(new ArrayInput([
-                        '--append' => true,
-                    ]), $output);
-                } catch (Exception $e) {
-                    $output->writeln("Unable to insert fixtures: <error>{$e->getMessage()}</error>");
-                    return 1;
-                }
+            if (!$this->capsule( 'doctrine:fixtures:load --append', $output )) {
+                $output->writeln("<error>Unable to update fixtures.</error>");
+                return 3;
             }
 
             return 0;
@@ -142,25 +245,10 @@ class MigrateCommand extends Command
 
         if ($lang = $input->getOption('update-trans')) {
 
-            $command = $this->getApplication()->find('translation:update');
+            $langs = ($lang === 'all') ? ['de','en','fr','es'] : [$lang];
+            foreach ($langs as $current_lang)
+                $this->capsule("translation:update $current_lang --force --sort asc --output-format xlf2 --prefix ''", $output);
 
-            $output->writeln("Now working on translations for <info>{$lang}</info>...");
-            $input = new ArrayInput([
-                'locale' => $lang,
-                '--force' => true,
-                '--sort' => 'asc',
-                '--output-format' => 'xlf2',
-                '--prefix' => '',
-            ]);
-            $input->setInteractive(false);
-            try {
-                $command->run($input, new NullOutput());
-            } catch (Exception $e) {
-                $output->writeln("Error: <error>{$e->getMessage()}</error>");
-                return 1;
-            }
-
-            $output->writeln('Done!');
             return 0;
         }
 

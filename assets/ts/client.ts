@@ -1,6 +1,36 @@
+interface confSetter<T> { (T): void }
+interface confGetter<T> { (): T }
+interface conf<T> { set: confSetter<T>, get: confGetter<T> }
+
+class Config {
+
+    private client: Client;
+
+    public notificationAsPopup: conf<boolean>;
+
+    constructor(c:Client) {
+        this.client = c;
+
+        this.notificationAsPopup = this.makeConf<boolean>('notifAsPopup', false);
+    }
+
+    public get<T>(s:string): conf<T> {
+        return (this[s] ?? null) as conf<T>;
+    }
+
+    private makeConf<T>(name: string, initial: T): conf<T> {
+        return {
+            set: (v:T):void => this.client.set( name, 'config', v, false ) as null,
+            get: ():T       => this.client.get( name, 'config', initial )
+        }
+    }
+}
+
 export default class Client {
 
-    constructor() {}
+    public config: Config;
+
+    constructor() { this.config = new Config(this); }
 
     private static key( name: string, group: string|null ): string {
         return 'myh.' + (group === null ? 'default' : group) + '.' + name;
