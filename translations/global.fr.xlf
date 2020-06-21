@@ -1279,5 +1279,14 @@
         <target>Remarque : Tous les messages écrits ici seront perdus si tous les citoyens quittent la zone.</target>
       </segment>
     </unit>
+    <unit id="H5.W95P" name="7a92ff6">
+      <notes>
+        <note category="german">Falls sich dieser Zustand auch um Mitternacht noch nicht geändert hat, findet kein Zombieangriff statt. Der Tag wird dann künstlich verlängert.</note>
+      </notes>
+      <segment>
+        <source>Falls sich dieser Zustand auch um Mitternacht noch nicht geändert hat, findet kein Zombieangriff statt. Der Tag wird dann künstlich verlängert.</source>
+        <target>Si cette condition n'a pas changé à minuit, il n'y a pas d'attaque nocturne. La journée se prolonge alors artificiellement.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
