@@ -1261,5 +1261,23 @@
         <target>Liste numérotée</target>
       </segment>
     </unit>
+    <unit id="QuMXv7I" name="a023548">
+      <notes>
+        <note category="german">Der Markierer ist auf der Karte für ALLE Bürger sichtbar. Benutze ihn, um der Gemeinschaft Informationen über eine bestimmte Zone mitzuteilen.</note>
+      </notes>
+      <segment>
+        <source>Der Markierer ist auf der Karte für ALLE Bürger sichtbar. Benutze ihn, um der Gemeinschaft Informationen über eine bestimmte Zone mitzuteilen.</source>
+        <target>Le marqueur est visible sur la carte pour TOUS les citoyens. Utilisez-le pour partager des informations sur une zone spécifique avec la communauté.</target>
+      </segment>
+    </unit>
+    <unit id="51m8lm3" name="7ef672f">
+      <notes>
+        <note category="german">Beachte: Alle hier geschriebenen Nachrichten gehen verloren, wenn alle Bürger die Zone verlassen.</note>
+      </notes>
+      <segment>
+        <source>Beachte: Alle hier geschriebenen Nachrichten gehen verloren, wenn alle Bürger die Zone verlassen.</source>
+        <target>Remarque : Tous les messages écrits ici seront perdus si tous les citoyens quittent la zone.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
