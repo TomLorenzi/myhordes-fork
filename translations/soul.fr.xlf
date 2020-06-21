@@ -138,7 +138,7 @@
     </unit>
     <unit id="MCPpLdD" name="Redakteur:">
       <notes>
-        <note category="german">Redakteur:</note>
+        <note category="german">Autor:</note>
       </notes>
       <segment>
         <source>Redakteur:</source>
@@ -616,7 +616,43 @@
       </notes>
       <segment>
         <source>Kartei schließen</source>
-        <target>Kartei schließen</target>
+        <target>Fermer cette fiche</target>
+      </segment>
+    </unit>
+    <unit id="XqSrbwp" name="Browser-Einstellungen">
+      <notes>
+        <note category="german">Browser-Einstellungen</note>
+      </notes>
+      <segment>
+        <source>Browser-Einstellungen</source>
+        <target>Paramètres du navigateur</target>
+      </segment>
+    </unit>
+    <unit id="ZSg.7.l" name="9c781e6">
+      <notes>
+        <note category="german">Die folgenden Einstellungen werden in deinem Browser gespeichert und sind damit nur für dein aktuelles Gerät und deinen aktuellen Browser gültig.</note>
+      </notes>
+      <segment>
+        <source>Die folgenden Einstellungen werden in deinem Browser gespeichert und sind damit nur für dein aktuelles Gerät und deinen aktuellen Browser gültig.</source>
+        <target>Les paramètres suivants sont enregistrés dans votre navigateur et ne sont donc valables que pour votre appareil actuel et votre navigateur actuel.</target>
+      </segment>
+    </unit>
+    <unit id="_rP15cP" name="Benachrichtigungen als Popups anzeigen">
+      <notes>
+        <note category="german">Benachrichtigungen als Popups anzeigen</note>
+      </notes>
+      <segment>
+        <source>Benachrichtigungen als Popups anzeigen</source>
+        <target>Afficher les notifications sous forme de fenêtres</target>
+      </segment>
+    </unit>
+    <unit id="cSCIhqi" name="Deine Einstellung wurde gespeichert.">
+      <notes>
+        <note category="german">Deine Einstellung wurde gespeichert.</note>
+      </notes>
+      <segment>
+        <source>Deine Einstellung wurde gespeichert.</source>
+        <target>Vos réglages ont étés enregistrés.</target>
       </segment>
     </unit>
   </file>
