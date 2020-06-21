@@ -64,11 +64,54 @@
                 </div>
             </div>
 
+            {% if app.user.language is defined %}
+                {% set preferredLanguage = app.user.language %}
+            {% else %}
+                {% set preferredLanguage = 'de' %}
+            {% endif %}
+            <h5>{{ 'Standardsprache'|trans({},'soul') }}</h5>
+            <div class="row">
+                <div class="padded cell rw-12">
+                    <div class="language-picker">
+                        <div class="note note-lightest">
+                            <input x-lang-setting {% if preferredLanguage == 'de' %}checked{% endif%} value="de" type="radio" name="setting_preferred_language" id="setting_preferred_language_de">&nbsp;<label for="setting_preferred_language_de">{{ 'Deutsch'|trans({}, 'global') }}</label>
+                        </div>
+                        <div class="note note-lightest">
+                            <input x-lang-setting {% if preferredLanguage == 'fr' %}checked{% endif%} value="fr" type="radio" name="setting_preferred_language" id="setting_preferred_language_fr">&nbsp;<label for="setting_preferred_language_fr">{{ 'Französisch'|trans({}, 'global') }}</label>
+                        </div>
+                        <div class="note note-lightest">
+                            <input x-lang-setting {% if preferredLanguage == 'en' %}checked{% endif%} value="en" type="radio" name="setting_preferred_language" id="setting_preferred_language_en">&nbsp;<label for="setting_preferred_language_en">{{ 'Englisch'|trans({}, 'global') }}</label>
+                        </div>
+                        <div class="note note-lightest">
+                            <input x-lang-setting {% if preferredLanguage == 'es' %}checked{% endif%} value="es" type="radio" name="setting_preferred_language" id="setting_preferred_language_es">&nbsp;<label for="setting_preferred_language_es">{{ 'Spanisch'|trans({}, 'global') }}</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <h5>{{ 'Darstellung'|trans({},'soul') }}</h5>
             <div class="row">
                 <div class="padded cell rw-12">
                     <div class="note note-lightest">
                         <input x-setting {% if app.user.preferSmallAvatars %}checked{% endif%} type="checkbox" id="setting_prefer_classic_avatars">&nbsp;<label for="setting_prefer_classic_avatars">{{ 'Bevorzugt komprimierte Profilbilder anzeigen'|trans({}, 'soul') }}</label>
+                    </div>
+                </div>
+            </div>
+
+            <h5>{{ 'Browser-Einstellungen'|trans({},'soul') }}</h5>
+            <div class="row">
+                <div class="padded cell rw-12">
+                    <div class="help">
+                        {% trans from 'soul' %}
+                            Die folgenden Einstellungen werden in deinem Browser gespeichert und sind damit nur für dein aktuelles Gerät und deinen aktuellen Browser gültig.
+                        {% endtrans %}
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="padded cell rw-12">
+                    <div class="note note-lightest">
+                        <input x-browser-setting="notificationAsPopup" type="checkbox" id="setting_browser_notificationStyle">&nbsp;<label for="setting_browser_notificationStyle">{{ 'Benachrichtigungen als Popups anzeigen'|trans({}, 'soul') }}</label>
                     </div>
                 </div>
             </div>
@@ -107,30 +150,6 @@
 
                 </div>
             </div>
-            {% if app.user.language is defined %}
-                {% set preferredLanguage = app.user.language %}
-            {% else %}
-                {% set preferredLanguage = 'de' %}
-            {% endif %}
-            <h5>{{ 'Standardsprache'|trans({},'soul') }}</h5>
-            <div class="row">
-                <div class="padded cell rw-12">
-                    <div class="language-picker">
-                        <div class="note note-lightest">
-                            <input x-lang-setting {% if preferredLanguage == 'de' %}checked{% endif%} value="de" type="radio" name="setting_preferred_language" id="setting_preferred_language_de">&nbsp;<label for="setting_preferred_language_de">{{ 'Deutsch'|trans({}, 'global') }}</label>
-                        </div>
-                        <div class="note note-lightest">
-                            <input x-lang-setting {% if preferredLanguage == 'fr' %}checked{% endif%} value="fr" type="radio" name="setting_preferred_language" id="setting_preferred_language_fr">&nbsp;<label for="setting_preferred_language_fr">{{ 'Französisch'|trans({}, 'global') }}</label>
-                        </div>
-                        <div class="note note-lightest">
-                            <input x-lang-setting {% if preferredLanguage == 'en' %}checked{% endif%} value="en" type="radio" name="setting_preferred_language" id="setting_preferred_language_en">&nbsp;<label for="setting_preferred_language_en">{{ 'Englisch'|trans({}, 'global') }}</label>
-                        </div>
-                        <div class="note note-lightest">
-                            <input x-lang-setting {% if preferredLanguage == 'es' %}checked{% endif%} value="es" type="radio" name="setting_preferred_language" id="setting_preferred_language_es">&nbsp;<label for="setting_preferred_language_es">{{ 'Spanisch'|trans({}, 'global') }}</label>
-                        </div>
-                    </div>
-                </div>
-            </div>
 
             <h5>{{ 'Externe Anwendungen'|trans({},'soul') }}</h5>
             <div class="row">
@@ -159,6 +178,25 @@
 {% block js %}
     {{ parent() }}
     <script>
+
+        const confirmConig = function() {
+            $.html.notice('{{ 'Deine Einstellung wurde gespeichert.'|trans({},'soul')|e('js') }}')
+        }
+
+        Array.from(document.querySelectorAll('input[x-browser-setting]')).forEach(function(e) {
+            console.log(e);
+            switch (e.getAttribute('type')) {
+                case 'checkbox':
+                    e.checked = $.client.config.get(e.getAttribute('x-browser-setting')).get();
+                    e.addEventListener('change', function() {
+                        $.client.config.get(e.getAttribute('x-browser-setting')).set(e.checked);
+                        confirmConig();
+                    } );
+                    break;
+                default: return;
+            }
+        })
+
         document.getElementById('acc_del_btn').addEventListener('click', function(e) {
             e.preventDefault();
             const pw = document.getElementById('acc_del_input').value;
