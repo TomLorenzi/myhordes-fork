@@ -97,14 +97,9 @@
 </div>
 <div id="modal-backdrop">
     <div id="modal">
-        <div id="modal-close" class="modal-cancel"><i class="far fa-window-close"></i></div>
         <div id="modal-title"></div>
-        <div id="modal-content">
-        </div>
-        <div id="modal-actions">
-            <div class="modal-button" id="modal-button-ok">{{ 'Einfügen'|trans({},'global') }}</div>
-            <div class="modal-button modal-cancel" id="modal-button-no">{{ 'Abbrechen'|trans({},'global') }}</div>
-        </div>
+        <div id="modal-content"></div>
+        <div id="modal-actions"></div>
     </div>
 </div>
 
@@ -151,6 +146,9 @@
                 'en': '{{ 'Englisch'|trans({},'global') }}',
                 'fr': '{{ 'Französisch'|trans({},'global') }}',
                 'es': '{{ 'Spanisch'|trans({},'global') }}',
+            },
+            'label': {
+                'confirm': '{{ 'Bestätigen'|trans({},'global') }}'
             }
         };
     })();
