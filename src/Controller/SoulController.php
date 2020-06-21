@@ -707,7 +707,7 @@ class SoulController extends AbstractController
         $pictos = $this->entity_manager->getRepository(Picto::class)->findNotPendingByUser($user);
     	$points = $this->user_handler->getPoints($user);
 
-        $referer = $request->headers->get('referer'); // get the referer, it can be empty!
+        $referer = null; // get the referer, it can be empty!
         $returnUrl = $this->generateUrl('soul_me');
         //TODO: get referer, generate URL to return to it
 

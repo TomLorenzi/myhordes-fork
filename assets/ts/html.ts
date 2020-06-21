@@ -56,9 +56,11 @@ export default class HTML {
 
     message(label: string, msg: string ): void {
 
-        if ($.client.config.notificationAsPopup.get()) {
+        const is_popup = label.substr(0, 6) === 'popup-';
 
-            this.popup('',msg, 'popup-' + label, [
+        if ($.client.config.notificationAsPopup.get() || is_popup) {
+
+            this.popup('',msg, 'popup-' + (is_popup ? label.substr(6) : label), [
                 [window['c'].label.confirm, [['click', (e,elem) => $.html.triggerPopupPop(elem)]]]
             ]);
 
