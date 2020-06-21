@@ -1288,5 +1288,14 @@
         <target>Si cette condition n'a pas changé à minuit, il n'y a pas d'attaque nocturne. La journée se prolonge alors artificiellement.</target>
       </segment>
     </unit>
+    <unit id="jsMx6ao" name="a848169">
+      <notes>
+        <note category="german">Wenn du nichts zur Hand hast, um deine Erschöpfung zu lindern, dann bitte im Forum um Hilfe...</note>
+      </notes>
+      <segment>
+        <source>Wenn du nichts zur Hand hast, um deine Erschöpfung zu lindern, dann bitte im Forum um Hilfe...</source>
+        <target>Si vous n'avez rien sous la main pour soulager votre fatigue, rendez-vous sur le forum pour obtenir de l'aide...</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
