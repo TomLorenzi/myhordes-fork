@@ -1074,7 +1074,7 @@
     </unit>
     <unit id="l2_e9hX" name="Stadt administrieren">
       <notes>
-        <note category="german">Stadt administrieren</note>
+        <note category="german">Town administration</note>
       </notes>
       <segment>
         <source>Stadt administrieren</source>
@@ -1083,7 +1083,7 @@
     </unit>
     <unit id="Enh.KhP" name="Nächtlicher Angriff">
       <notes>
-        <note category="german">Nächtlicher Angriff</note>
+        <note category="german">Night attack</note>
       </notes>
       <segment>
         <source>Nächtlicher Angriff</source>
@@ -1092,7 +1092,7 @@
     </unit>
     <unit id="YBKE35r" name="Quarantäne aufheben">
       <notes>
-        <note category="german">Quarantäne aufheben</note>
+        <note category="german">Remove quarantine</note>
       </notes>
       <segment>
         <source>Quarantäne aufheben</source>
@@ -1101,7 +1101,7 @@
     </unit>
     <unit id="ZG32Cjn" name="Unter Quarantäne stellen">
       <notes>
-        <note category="german">Unter Quarantäne stellen</note>
+        <note category="german">Put under Quarantine</note>
       </notes>
       <segment>
         <source>Unter Quarantäne stellen</source>
@@ -1110,7 +1110,7 @@
     </unit>
     <unit id="akWsVTF" name="Manueller Tageswechsel">
       <notes>
-        <note category="german">Manueller Tageswechsel</note>
+        <note category="german">Manual change of Day</note>
       </notes>
       <segment>
         <source>Manueller Tageswechsel</source>

@@ -10750,7 +10750,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     </unit>
     <unit id="mjwvinZ" name="Heute Morgen ist kein Artikel erschienen...">
       <notes>
-        <note category="german">Heute Morgen ist kein Artikel erschienen...</note>
+        <note category="german">No news today...</note>
       </notes>
       <segment>
         <source>Heute Morgen ist kein Artikel erschienen...</source>
@@ -10759,7 +10759,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     </unit>
     <unit id="DiWxu8O" name="9a7499d">
       <notes>
-        <note category="german">Es scheint so, als ob ein anderer Bürger Gefallen an deinem Inventar gefunden hätte... Dir wurde folgendes gestohlen: %icon% %item%</note>
+        <note category="german">Apparently, one of your fellow citizens really liked the contents of your inventory... Someone has pinched your: %icon% %item%</note>
       </notes>
       <segment>
         <source>Es scheint so, als ob ein anderer Bürger Gefallen an deinem Inventar gefunden hätte... Dir wurde folgendes gestohlen: %icon% %item%</source>
@@ -10768,7 +10768,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     </unit>
     <unit id="RrPwAW." name="Zufälliger Bürger">
       <notes>
-        <note category="german">Zufälliger Bürger</note>
+        <note category="german">Random Citizen</note>
       </notes>
       <segment>
         <source>Zufälliger Bürger</source>
@@ -10777,8 +10777,8 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     </unit>
     <unit id="dTDcH8R" name="c8e86c4">
       <notes>
-        <note category="german">Hiermit kannst du den Namen eines zufälligen Bürgers in deinen Post anfügen.
-                                                Bei Bedarf kannst du die Auswahl auf bestimmte Berufe, Helden oder bereits gestorbene Bürger eingrenzen.</note>
+        <note category="german">You can use this to add the name of a random citizen to your post.
+                                                If necessary, you can limit the selection to certain professions, heroes or citizens who have already died.</note>
       </notes>
       <segment>
         <source>Hiermit kannst du den Namen eines zufälligen Bürgers in deinen Post anfügen.
@@ -10789,11 +10789,107 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     </unit>
     <unit id="lpSEXvf" name="71134d2">
       <notes>
-        <note category="german">Wenn zu den gleichen zufällig gewählten Bürger mehrfach in deinem Text verwenden willst, kannst du ihm eine Nummer zuweisen, beispielsweise:</note>
+        <note category="german">If you want to use the same randomly chosen citizen more than once in your text, you can assign it a number, for example:</note>
       </notes>
       <segment>
         <source>Wenn zu den gleichen zufällig gewählten Bürger mehrfach in deinem Text verwenden willst, kannst du ihm eine Nummer zuweisen, beispielsweise:</source>
         <target>If you want to use the same randomly chosen citizen more than once in your text, you can assign it a number, for example:</target>
+      </segment>
+    </unit>
+    <unit id="54fCkFO" name="7a97c74">
+      <notes>
+        <note category="german">Es sind nicht mehr genügend Einwohner in der Stadt. Der Zombieangriff und die Wiederherstellung der AP wurden auf morgen Abend verschoben.</note>
+      </notes>
+      <segment>
+        <source>Es sind nicht mehr genügend Einwohner in der Stadt. Der Zombieangriff und die Wiederherstellung der AP wurden auf morgen Abend verschoben.</source>
+        <target>Es sind nicht mehr genügend Einwohner in der Stadt. Der Zombieangriff und die Wiederherstellung der AP wurden auf morgen Abend verschoben.</target>
+      </segment>
+    </unit>
+    <unit id="2fBmxk8" name="Du hast dich soeben in einen Ghul verandelt!">
+      <notes>
+        <note category="german">Du hast dich soeben in einen Ghul verandelt!</note>
+      </notes>
+      <segment>
+        <source>Du hast dich soeben in einen Ghul verandelt!</source>
+        <target>Du hast dich soeben in einen Ghul verandelt!</target>
+      </segment>
+    </unit>
+    <unit id="nu14DUW" name="f8cbaf5">
+      <notes>
+        <note category="german">Du hättest die kleinen bräunlichen Hautverfärbungen etwas ernster nehmen sollen. Nein, das war kein kleiner Sonnenbrand und kein exotischer Hautpilz!
+            Jetzt ist es zu spät... Einige wenige Augenblicke später haben sich alle deine Zweifel in Luft aufgelöst und ein unkontrollierbarer Appetit nach
+            Menschenfleisch übermannt sich... Hmmm... Du solltest deinen Hunger SCHNELLSTENS stillen, oder willst du krepieren?!</note>
+      </notes>
+      <segment>
+        <source>Du hättest die kleinen bräunlichen Hautverfärbungen etwas ernster nehmen sollen. Nein, das war kein kleiner Sonnenbrand und kein exotischer Hautpilz!
+            Jetzt ist es zu spät... Einige wenige Augenblicke später haben sich alle deine Zweifel in Luft aufgelöst und ein unkontrollierbarer Appetit nach
+            Menschenfleisch übermannt sich... Hmmm... Du solltest deinen Hunger SCHNELLSTENS stillen, oder willst du krepieren?!</source>
+        <target>Du hättest die kleinen bräunlichen Hautverfärbungen etwas ernster nehmen sollen. Nein, das war kein kleiner Sonnenbrand und kein exotischer Hautpilz!
+            Jetzt ist es zu spät... Einige wenige Augenblicke später haben sich alle deine Zweifel in Luft aufgelöst und ein unkontrollierbarer Appetit nach
+            Menschenfleisch übermannt sich... Hmmm... Du solltest deinen Hunger SCHNELLSTENS stillen, oder willst du krepieren?!</target>
+      </segment>
+    </unit>
+    <unit id="1VZ526R" name="Du bist ab sofort ein Ghul!">
+      <notes>
+        <note category="german">Du bist ab sofort ein Ghul!</note>
+      </notes>
+      <segment>
+        <source>Du bist ab sofort ein Ghul!</source>
+        <target>Du bist ab sofort ein Ghul!</target>
+      </segment>
+    </unit>
+    <unit id="kUcqlQB" name="bce0dfd">
+      <notes>
+        <note category="german">Ab sofort solltest du deine Spielweise ändern: Deine einstigen Nachbarn und Freunde sind jetzt zweibeinige Nahrung, die du durch List und Trug erlegen musst.</note>
+      </notes>
+      <segment>
+        <source>Ab sofort solltest du deine Spielweise ändern: Deine einstigen Nachbarn und Freunde sind jetzt zweibeinige Nahrung, die du durch List und Trug erlegen musst.</source>
+        <target>Ab sofort solltest du deine Spielweise ändern: Deine einstigen Nachbarn und Freunde sind jetzt zweibeinige Nahrung, die du durch List und Trug erlegen musst.</target>
+      </segment>
+    </unit>
+    <unit id="Lou1e47" name="Hier noch ein paar wichtige Überlebenstipps:">
+      <notes>
+        <note category="german">Hier noch ein paar wichtige Überlebenstipps:</note>
+      </notes>
+      <segment>
+        <source>Hier noch ein paar wichtige Überlebenstipps:</source>
+        <target>Hier noch ein paar wichtige Überlebenstipps:</target>
+      </segment>
+    </unit>
+    <unit id="SJd1LN1" name="3fbdb60">
+      <notes>
+        <note category="german">Sag niemandem, dass du ein Ghul bist! Du würdest von deinen Mitbürgern sehr wahrscheinlich sofort erschlagen.</note>
+      </notes>
+      <segment>
+        <source>Sag niemandem, dass du ein Ghul bist! Du würdest von deinen Mitbürgern sehr wahrscheinlich sofort erschlagen.</source>
+        <target>Sag niemandem, dass du ein Ghul bist! Du würdest von deinen Mitbürgern sehr wahrscheinlich sofort erschlagen.</target>
+      </segment>
+    </unit>
+    <unit id="dIAkbPP" name="c3a93ff">
+      <notes>
+        <note category="german">Behalte deine Hungerleiste stets im Auge. Sie befindet sich bei deiner Gesundheitsanzeige.</note>
+      </notes>
+      <segment>
+        <source>Behalte deine Hungerleiste stets im Auge. Sie befindet sich bei deiner Gesundheitsanzeige.</source>
+        <target>Behalte deine Hungerleiste stets im Auge. Sie befindet sich bei deiner Gesundheitsanzeige.</target>
+      </segment>
+    </unit>
+    <unit id="baFbBy0" name="ff17216">
+      <notes>
+        <note category="german">Um deinen Heißhunger zu stillen, solltest du möglichst bald einen Mitbürger verschlingen. Das machst du am besten in der Wüste, da fällt es nicht so auf.</note>
+      </notes>
+      <segment>
+        <source>Um deinen Heißhunger zu stillen, solltest du möglichst bald einen Mitbürger verschlingen. Das machst du am besten in der Wüste, da fällt es nicht so auf.</source>
+        <target>Um deinen Heißhunger zu stillen, solltest du möglichst bald einen Mitbürger verschlingen. Das machst du am besten in der Wüste, da fällt es nicht so auf.</target>
+      </segment>
+    </unit>
+    <unit id="tUvA6.D" name="9ee8e2e">
+      <notes>
+        <note category="german">Auch der Verzehr von kaltem Menschenfleisch senkt deinen Hunger, allerdings nicht so stark wie Frischfleisch...</note>
+      </notes>
+      <segment>
+        <source>Auch der Verzehr von kaltem Menschenfleisch senkt deinen Hunger, allerdings nicht so stark wie Frischfleisch...</source>
+        <target>Auch der Verzehr von kaltem Menschenfleisch senkt deinen Hunger, allerdings nicht so stark wie Frischfleisch...</target>
       </segment>
     </unit>
   </file>
