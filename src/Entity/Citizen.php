@@ -1114,6 +1114,12 @@ class Citizen
         return $this->helpNotifications;
     }
 
+    public function hasSeenHelpNotification(string $name) {
+        foreach ($this->getHelpNotifications() as $notification)
+            if ($notification->getName() === $name) return true;
+        return false;
+    }
+
     public function addHelpNotification(HelpNotificationMarker $helpNotification): self
     {
         if (!$this->helpNotifications->contains($helpNotification)) {
