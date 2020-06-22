@@ -1267,7 +1267,7 @@
       </notes>
       <segment>
         <source>Bestätigen</source>
-        <target>Bestätigen</target>
+        <target>Confirmer</target>
       </segment>
     </unit>
     <unit id="QuMXv7I" name="a023548">
@@ -1304,15 +1304,6 @@
       <segment>
         <source>Wenn du nichts zur Hand hast, um deine Erschöpfung zu lindern, dann bitte im Forum um Hilfe...</source>
         <target>Si vous n'avez rien sous la main pour soulager votre fatigue, rendez-vous sur le forum pour obtenir de l'aide...</target>
-      </segment>
-    </unit>
-    <unit id="FbY7TeM" name="Bestätigen">
-      <notes>
-        <note category="german">Bestätigen</note>
-      </notes>
-      <segment>
-        <source>Bestätigen</source>
-        <target>Confirmer</target>
       </segment>
     </unit>
   </file>
