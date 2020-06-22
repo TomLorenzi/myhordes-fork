@@ -1072,5 +1072,50 @@
         <target>PM from The Crow</target>
       </segment>
     </unit>
+    <unit id="l2_e9hX" name="Stadt administrieren">
+      <notes>
+        <note category="german">Town administration</note>
+      </notes>
+      <segment>
+        <source>Stadt administrieren</source>
+        <target>Town administration</target>
+      </segment>
+    </unit>
+    <unit id="Enh.KhP" name="Nächtlicher Angriff">
+      <notes>
+        <note category="german">Night attack</note>
+      </notes>
+      <segment>
+        <source>Nächtlicher Angriff</source>
+        <target>Night attack</target>
+      </segment>
+    </unit>
+    <unit id="YBKE35r" name="Quarantäne aufheben">
+      <notes>
+        <note category="german">Remove quarantine</note>
+      </notes>
+      <segment>
+        <source>Quarantäne aufheben</source>
+        <target>Remove quarantine</target>
+      </segment>
+    </unit>
+    <unit id="ZG32Cjn" name="Unter Quarantäne stellen">
+      <notes>
+        <note category="german">Put under Quarantine</note>
+      </notes>
+      <segment>
+        <source>Unter Quarantäne stellen</source>
+        <target>Put under Quarantine</target>
+      </segment>
+    </unit>
+    <unit id="akWsVTF" name="Manueller Tageswechsel">
+      <notes>
+        <note category="german">Manual change of Day</note>
+      </notes>
+      <segment>
+        <source>Manueller Tageswechsel</source>
+        <target>Manual change of Day</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

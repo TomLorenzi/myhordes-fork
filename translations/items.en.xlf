@@ -6415,7 +6415,7 @@
       </notes>
       <segment>
         <source>"Grab" schaufeln (mittelmäßiger vorübergehender Bonus, 1AP)</source>
-        <target>Look for a "tomb" (temporary medium bonus, 1PA )</target>
+        <target>Look for a "tomb" (temporary medium bonus, 1AP )</target>
       </segment>
     </unit>
     <unit id="P15D.zw" name="Du hast Dir Dein eigenes Grab geschaufelt. Oh welche Ironie!">
@@ -7187,6 +7187,33 @@
       <segment>
         <source>&lt;nt-any-escape&gt;Ein stumpfes Klicken ertönt und ein wenig grünlicher Rauch entschwebt der {item} ...&lt;/nt-any-escape&gt;&lt;t-escape&gt;Du setzt {item} in Gang. Ein gewaltiger Blitz schießt heraus und blendet die Zombies! Geblendet stolpern sie umher und sind nicht länger in der Lage, dich zu finden.&lt;/t-escape&gt;&lt;t-reverse-escape&gt;Du setzt {item} in Gang. Ein gewaltiger Blitz schießt heraus, mitten in die Reihen der Zombies! Geblendet ergreifen {zombies} Zombies die Flucht.&lt;/t-reverse-escape&gt;</source>
         <target><![CDATA[<nt-any-escape>Ein stumpfes Klicken ertönt und ein wenig grünlicher Rauch entschwebt der {item} ...</nt-any-escape><t-escape>Du setzt {item} in Gang. Ein gewaltiger Blitz schießt heraus und blendet die Zombies! Geblendet stolpern sie umher und sind nicht länger in der Lage, dich zu finden.</t-escape><t-reverse-escape>Du setzt {item} in Gang. Ein gewaltiger Blitz schießt heraus, mitten in die Reihen der Zombies! Geblendet ergreifen {zombies} Zombies die Flucht.</t-reverse-escape>]]></target>
+      </segment>
+    </unit>
+    <unit id="zvBNa7R" name="c3f47db">
+      <notes>
+        <note category="german">&lt;t-stat-up-tg_meta_wound&gt;Diese Katze ist unglaublich! Sie scheint keine Angst zu haben, nicht einmal vor dir. Das Tier springt dir an die Kehle und vergräbt seine Krallen tief in deinem Fleisch.&lt;/t-stat-up-tg_meta_wound&gt;&lt;t-kills&gt;Diese Katze ist unglaublich! Sie scheint keine Angst zu haben, nicht einmal vor dem abartigen Gestank der Zombies. Mit mehr Zerstörungskraft als der Duracell-Hase und das Killer-Kaninchen von Caerbannog hat sie die Zone komplett bereinigt.&lt;/t-kills&gt;</note>
+      </notes>
+      <segment>
+        <source>&lt;t-stat-up-tg_meta_wound&gt;Diese Katze ist unglaublich! Sie scheint keine Angst zu haben, nicht einmal vor dir. Das Tier springt dir an die Kehle und vergräbt seine Krallen tief in deinem Fleisch.&lt;/t-stat-up-tg_meta_wound&gt;&lt;t-kills&gt;Diese Katze ist unglaublich! Sie scheint keine Angst zu haben, nicht einmal vor dem abartigen Gestank der Zombies. Mit mehr Zerstörungskraft als der Duracell-Hase und das Killer-Kaninchen von Caerbannog hat sie die Zone komplett bereinigt.&lt;/t-kills&gt;</source>
+        <target><![CDATA[<t-stat-up-tg_meta_wound>Diese Katze ist unglaublich! Sie scheint keine Angst zu haben, nicht einmal vor dir. Das Tier springt dir an die Kehle und vergräbt seine Krallen tief in deinem Fleisch.</t-stat-up-tg_meta_wound><t-kills>Diese Katze ist unglaublich! Sie scheint keine Angst zu haben, nicht einmal vor dem abartigen Gestank der Zombies. Mit mehr Zerstörungskraft als der Duracell-Hase und das Killer-Kaninchen von Caerbannog hat sie die Zone komplett bereinigt.</t-kills>]]></target>
+      </segment>
+    </unit>
+    <unit id="HpUrD8S" name="Vielleicht solltest du stattdessen dein Labor benutzen...">
+      <notes>
+        <note category="german">Vielleicht solltest du stattdessen dein Labor benutzen...</note>
+      </notes>
+      <segment>
+        <source>Vielleicht solltest du stattdessen dein Labor benutzen...</source>
+        <target>Maybe you should use your laboratory instead ...</target>
+      </segment>
+    </unit>
+    <unit id="ybdsMNt" name="2c3d069">
+      <notes>
+        <note category="german">Das {item} beginnt rasch zu wirken. Das Fieber klingt ab, dein Herz beginnt wieder in einem halbwegs normalen Takt zu schlagen... Du warst nicht weit von einem schrecklichen Tod entfernt.</note>
+      </notes>
+      <segment>
+        <source>Das {item} beginnt rasch zu wirken. Das Fieber klingt ab, dein Herz beginnt wieder in einem halbwegs normalen Takt zu schlagen... Du warst nicht weit von einem schrecklichen Tod entfernt.</source>
+        <target>Das {item} beginnt rasch zu wirken. Das Fieber klingt ab, dein Herz beginnt wieder in einem halbwegs normalen Takt zu schlagen... Du warst nicht weit von einem schrecklichen Tod entfernt.</target>
       </segment>
     </unit>
   </file>
