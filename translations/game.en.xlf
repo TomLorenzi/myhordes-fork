@@ -10802,7 +10802,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Es sind nicht mehr genügend Einwohner in der Stadt. Der Zombieangriff und die Wiederherstellung der AP wurden auf morgen Abend verschoben.</source>
-        <target>Es sind nicht mehr genügend Einwohner in der Stadt. Der Zombieangriff und die Wiederherstellung der AP wurden auf morgen Abend verschoben.</target>
+        <target>There are no longer enough residents in the city. The zombie attack and AP restoration have been postponed until tomorrow.</target>
       </segment>
     </unit>
     <unit id="2fBmxk8" name="Du hast dich soeben in einen Ghul verandelt!">
@@ -10811,7 +10811,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Du hast dich soeben in einen Ghul verandelt!</source>
-        <target>Du hast dich soeben in einen Ghul verandelt!</target>
+        <target>You have been transformed into a Ghoul!</target>
       </segment>
     </unit>
     <unit id="nu14DUW" name="f8cbaf5">
@@ -10824,9 +10824,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
         <source>Du hättest die kleinen bräunlichen Hautverfärbungen etwas ernster nehmen sollen. Nein, das war kein kleiner Sonnenbrand und kein exotischer Hautpilz!
             Jetzt ist es zu spät... Einige wenige Augenblicke später haben sich alle deine Zweifel in Luft aufgelöst und ein unkontrollierbarer Appetit nach
             Menschenfleisch übermannt sich... Hmmm... Du solltest deinen Hunger SCHNELLSTENS stillen, oder willst du krepieren?!</source>
-        <target>Du hättest die kleinen bräunlichen Hautverfärbungen etwas ernster nehmen sollen. Nein, das war kein kleiner Sonnenbrand und kein exotischer Hautpilz!
-            Jetzt ist es zu spät... Einige wenige Augenblicke später haben sich alle deine Zweifel in Luft aufgelöst und ein unkontrollierbarer Appetit nach
-            Menschenfleisch übermannt sich... Hmmm... Du solltest deinen Hunger SCHNELLSTENS stillen, oder willst du krepieren?!</target>
+        <target>The appearance of small brownish marks on your body should have given you cause for concern, but you naively supposed you had some kind of benign infection from being out in the sun all the time. Any remaining doubt has been erased by the uncontrollable hunger for human flesh which now grips you... A terrifying need which you must satisfy QUICKLY. Or die.</target>
       </segment>
     </unit>
     <unit id="1VZ526R" name="Du bist ab sofort ein Ghul!">
@@ -10835,7 +10833,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Du bist ab sofort ein Ghul!</source>
-        <target>Du bist ab sofort ein Ghul!</target>
+        <target>You are now a Ghoul.</target>
       </segment>
     </unit>
     <unit id="kUcqlQB" name="bce0dfd">
@@ -10844,7 +10842,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Ab sofort solltest du deine Spielweise ändern: Deine einstigen Nachbarn und Freunde sind jetzt zweibeinige Nahrung, die du durch List und Trug erlegen musst.</source>
-        <target>Ab sofort solltest du deine Spielweise ändern: Deine einstigen Nachbarn und Freunde sind jetzt zweibeinige Nahrung, die du durch List und Trug erlegen musst.</target>
+        <target>A new horizon is open to you : your neighbours and former allies have become your prey.</target>
       </segment>
     </unit>
     <unit id="Lou1e47" name="Hier noch ein paar wichtige Überlebenstipps:">
@@ -10853,7 +10851,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Hier noch ein paar wichtige Überlebenstipps:</source>
-        <target>Hier noch ein paar wichtige Überlebenstipps:</target>
+        <target>Some survival tips :</target>
       </segment>
     </unit>
     <unit id="SJd1LN1" name="3fbdb60">
@@ -10862,7 +10860,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Sag niemandem, dass du ein Ghul bist! Du würdest von deinen Mitbürgern sehr wahrscheinlich sofort erschlagen.</source>
-        <target>Sag niemandem, dass du ein Ghul bist! Du würdest von deinen Mitbürgern sehr wahrscheinlich sofort erschlagen.</target>
+        <target>don't tell anyone about it! You will be killed,</target>
       </segment>
     </unit>
     <unit id="dIAkbPP" name="c3a93ff">
@@ -10871,7 +10869,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Behalte deine Hungerleiste stets im Auge. Sie befindet sich bei deiner Gesundheitsanzeige.</source>
-        <target>Behalte deine Hungerleiste stets im Auge. Sie befindet sich bei deiner Gesundheitsanzeige.</target>
+        <target>keep an eye on your Hunger gauge, which can be seen alongside your health status,</target>
       </segment>
     </unit>
     <unit id="baFbBy0" name="ff17216">
@@ -10880,7 +10878,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Um deinen Heißhunger zu stillen, solltest du möglichst bald einen Mitbürger verschlingen. Das machst du am besten in der Wüste, da fällt es nicht so auf.</source>
-        <target>Um deinen Heißhunger zu stillen, solltest du möglichst bald einen Mitbürger verschlingen. Das machst du am besten in der Wüste, da fällt es nicht so auf.</target>
+        <target>devour a fellow citizen (preferably outside the town) to decrease your Hunger,</target>
       </segment>
     </unit>
     <unit id="tUvA6.D" name="9ee8e2e">
@@ -10889,7 +10887,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Auch der Verzehr von kaltem Menschenfleisch senkt deinen Hunger, allerdings nicht so stark wie Frischfleisch...</source>
-        <target>Auch der Verzehr von kaltem Menschenfleisch senkt deinen Hunger, allerdings nicht so stark wie Frischfleisch...</target>
+        <target>eat human flesh to reduce your Hunger slightly.</target>
       </segment>
     </unit>
   </file>
