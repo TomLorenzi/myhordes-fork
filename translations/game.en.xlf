@@ -3388,7 +3388,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Leiche aus der Stadt ziehen</source>
-        <target>Sortir le cadavre</target>
+        <target>Drag it out of Town</target>
       </segment>
     </unit>
     <unit id="hXIZAOO" name="Leiche mit Wasser übergießen">
@@ -3397,7 +3397,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Leiche mit Wasser übergießen</source>
-        <target>Arroser le cadavre</target>
+        <target>Water the corpse</target>
       </segment>
     </unit>
     <unit id="4hCJabi" name="Leiche grillen">
@@ -3559,7 +3559,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Es ist kein Bürger in der Nähe...</source>
-        <target>Es ist kein Bürger in der Nähe...</target>
+        <target>There is no citizen nearby ...</target>
       </segment>
     </unit>
     <unit id="25G93ga" name="Durch die Lüftungsschächte klettern">
@@ -3568,7 +3568,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Durch die Lüftungsschächte klettern</source>
-        <target>Durch die Lüftungsschächte klettern</target>
+        <target>Climb through the Ventilation</target>
       </segment>
     </unit>
     <unit id="f1TzhOn" name="Gammler">
@@ -5279,7 +5279,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Der Körper verflüssigte sich zu einer ekelerregenden, übel riechenden Pfütze. Deine Schuhe haben ganz schön was abgekriegt, das steht fest...</source>
-        <target>Der Körper verflüssigte sich zu einer ekelerregenden, übel riechenden Pfütze. Deine Schuhe haben ganz schön was abgekriegt, das steht fest...</target>
+        <target>The body liquified into a sickeningly vile puddle. Your shoes got the worst of it, that's for sure...</target>
       </segment>
     </unit>
     <unit id="rJRa84E" name="4a1e54c">
@@ -7781,7 +7781,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Was ist mit ihm geschehen?</source>
-        <target>What happened to him?</target>
+        <target>What happened to the body?</target>
       </segment>
     </unit>
     <unit id="56g324h" name="Nach außen hin tot, wird %citizen% seinen Mitbürgern keine Ruhe geboten haben.">
@@ -7790,7 +7790,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Nach außen hin tot, wird %citizen% seinen Mitbürgern keine Ruhe geboten haben.</source>
-        <target>Nach außen hin tot, wird %citizen% seinen Mitbürgern keine Ruhe geboten haben.</target>
+        <target>By dying outside the town, %citizen% has not left their fellow citizens in peace... yet.</target>
       </segment>
     </unit>
     <unit id="zeR3KvL" name="8c2d7df">
@@ -7799,7 +7799,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Es ist nicht ohne Abscheu, dass %disposing_citizen% den leblosen Körper von %citizen% losgeworden ist.</source>
-        <target>Es ist nicht ohne Abscheu, dass %disposing_citizen% den leblosen Körper von %citizen% losgeworden ist.</target>
+        <target>The way %disposing_citizen% got rid of the lifeless body of %citizen% was pretty disgusting.</target>
       </segment>
     </unit>
     <unit id="g69lh6D" name="a22eaa2">
@@ -10196,7 +10196,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Dank %disposing_citizen% hat sich der Körper von %citizen% in verfaultes Wasser verwandelt.</source>
-        <target>Dank %disposing_citizen% hat sich der Körper von %citizen% in verfaultes Wasser verwandelt.</target>
+        <target>Thanks to the best efforts of %disposing_citizen%, %citizen%'s corpse has been reduced to a putrid liquid.</target>
       </segment>
     </unit>
     <unit id="v432R4L" name="Du hast bisher:">
