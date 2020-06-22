@@ -26,6 +26,8 @@ class PictoHandler
     }
 
     public function give_picto(Citizen $citizen, $pictoPrototype, $count = 1){
+        if($count == 0) return;
+
         if(is_string($pictoPrototype)){
             $pictoPrototype = $this->entity_manager->getRepository(PictoPrototype::class)->findOneBy(['name' => $pictoPrototype]);
             if($pictoPrototype === null)
@@ -52,6 +54,8 @@ class PictoHandler
     }
 
     public function give_validated_picto(Citizen $citizen, $pictoPrototype, $count = 1){
+        if($count == 0) return;
+        
         if(is_string($pictoPrototype)){
             $pictoPrototype = $this->entity_manager->getRepository(PictoPrototype::class)->findOneBy(['name' => $pictoPrototype]);
             if($pictoPrototype === null)
