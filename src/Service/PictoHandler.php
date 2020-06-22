@@ -32,12 +32,20 @@ class PictoHandler
                 return;
         }
 
-        $picto = $citizen->getUser()->findPicto( 0, $pictoPrototype, $citizen->getTown() ) ?? (new Picto());
+        $is_new = false;
+        $picto = $citizen->getUser()->findPicto( 0, $pictoPrototype, $citizen->getTown() );
+        if($picto === null){
+            $picto = new Picto();
+            $is_new = true;
+        }
         $picto->setPrototype($pictoPrototype)
             ->setPersisted(0)
             ->setTown($citizen->getTown())
             ->setUser($citizen->getUser())
             ->setCount($picto->getCount()+$count);
+        
+        if($is_new)
+            $citizen->getUser()->addPicto($picto);
 
         $this->entity_manager->persist($picto);
 
@@ -50,12 +58,21 @@ class PictoHandler
                 return;
         }
         
-        $picto = $citizen->getUser()->findPicto( 1, $pictoPrototype, $citizen->getTown() ) ?? (new Picto());
+        $is_new = false;
+        $picto = $citizen->getUser()->findPicto( 1, $pictoPrototype, $citizen->getTown() );
+        if($picto === null){
+            $picto = new Picto();
+            $is_new = true;
+        }
+
         $picto->setPrototype($pictoPrototype)
             ->setPersisted(1)
             ->setTown($citizen->getTown())
             ->setUser($citizen->getUser())
             ->setCount($picto->getCount()+$count);
+        
+        if($is_new)
+            $citizen->getUser()->addPicto($picto);
 
         $this->entity_manager->persist($picto);
     }
