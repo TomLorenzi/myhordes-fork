@@ -34,6 +34,7 @@ window.$ = $;
 
 document.addEventListener('DOMContentLoaded', function() {
     $.ajax.setDefaultNode( document.getElementById('content') );
+    $.html.init();
     $.ajax.no_loader().load( null, document.documentElement.getAttribute('x-ajax-landing'), true );
 }, {once: true, passive: true});
 

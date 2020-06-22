@@ -6,17 +6,20 @@ declare var $: Global;
 
 interface eventListener { (e: Event, element: HTMLElement, index: number): void }
 
-
 export default class HTML {
 
     twinoParser: TwinoAlikeParser;
 
     constructor() { this.twinoParser = new TwinoAlikeParser(); }
 
+    init(): void {
+        document.getElementById('modal-backdrop').addEventListener('pop', () => this.nextPopup())
+    }
+
     addEventListenerAll(query: string, event: string, handler: eventListener ): number {
         const elements = <NodeListOf<HTMLElement>>document.querySelectorAll(query);
         for (let i = 0; i < elements.length; i++)
-            elements[i].addEventListener( event, function(e) { handler(e,elements[i],i) } );
+            elements[i].addEventListener( event, e => handler(e,elements[i],i) );
         return elements.length;
     }
 
@@ -52,20 +55,33 @@ export default class HTML {
     }
 
     message(label: string, msg: string ): void {
-        let div = document.createElement('div');
-        div.innerHTML = msg;
-        div.classList.add( label );
-        const f_hide = function() {
-            div.classList.remove('show');
-            setTimeout( function(node) { node.remove(); }, 500, div );
-        };
-        div.addEventListener('click', f_hide);
-        let timeout_id = setTimeout( f_hide, 5000 );
-        div.addEventListener('pointerenter', function() { clearTimeout(timeout_id); });
-        div.addEventListener('pointerleave', function() { timeout_id = setTimeout( f_hide, 5000 ); });
 
-        div = document.getElementById('notifications').appendChild( div );
-        setTimeout( function(node) { node.classList.add('show'); }, 100, div );
+        const is_popup = label.substr(0, 6) === 'popup-';
+
+        if ($.client.config.notificationAsPopup.get() || is_popup) {
+
+            this.popup('',msg, 'popup-' + (is_popup ? label.substr(6) : label), [
+                [window['c'].label.confirm, [['click', (e,elem) => $.html.triggerPopupPop(elem)]]]
+            ]);
+
+        } else {
+            let div = document.createElement('div');
+            div.innerHTML = msg;
+            div.classList.add( label );
+            const f_hide = function() {
+                div.classList.remove('show');
+                setTimeout( node => node.remove(), 500, div );
+            };
+            div.addEventListener('click', f_hide);
+            let timeout_id = setTimeout( f_hide, 5000 );
+            div.addEventListener('pointerenter', () => clearTimeout(timeout_id) );
+            div.addEventListener('pointerleave', () => timeout_id = setTimeout( f_hide, 5000 ) );
+
+            div = document.getElementById('notifications').appendChild( div );
+            setTimeout( node => node.classList.add('show'), 100, div );
+        }
+
+
     }
 
     error(msg: string): void {
@@ -78,6 +94,67 @@ export default class HTML {
 
     notice(msg: string): void {
         this.message('notice',msg);
+    }
+
+    private popupStack: Array<[string,string|HTMLElement,string|null,Array<[string,Array<[string,eventListener]>]>]> = [];
+    private popupOpen: boolean = false;
+
+
+    triggerPopupPop( e: HTMLElement ) {
+        e.dispatchEvent(new Event('pop', { bubbles: true, cancelable: false } ));
+    }
+
+    private nextPopup():void {
+        let elem_modal    = document.getElementById('modal');
+        let elem_title    = document.getElementById('modal-title');
+        let elem_content  = document.getElementById('modal-content');
+        let elem_backdrop = document.getElementById('modal-backdrop');
+        let elem_actions  = document.getElementById('modal-actions');
+
+        elem_title.innerHTML = elem_content.innerHTML = elem_actions.innerHTML = elem_modal.className = '' ;
+
+        if (this.popupStack.length === 0) {
+            elem_backdrop.classList.remove('active');
+            elem_modal.classList.add('hidden');
+            this.popupOpen = false;
+        } else {
+            elem_backdrop.classList.add('active');
+            this.popupOpen = true;
+
+            let title: string, msg: string|HTMLElement, css: string|null = null, buttons: Array<[string,Array<[string,eventListener]>]>;
+            [title,msg,css,buttons] = this.popupStack.shift();
+
+            elem_title.innerText = title;
+            if (typeof msg === "string") elem_content.innerHTML = msg;
+            else elem_content.append(msg);
+            elem_backdrop.classList.add('active');
+
+            if (css) elem_modal.classList.add(css);
+
+            for (const button of buttons) {
+                let elem_button = document.createElement('div');
+                elem_button.classList.add('modal-button', 'small', 'inline')
+                elem_button.innerHTML = button[0];
+
+                let c = 0;
+                for (const listener of button[1])
+                    elem_button.addEventListener( listener[0], e => listener[1]( e, elem_button, c++ )  );
+
+                elem_actions.appendChild(elem_button);
+            }
+        }
+    }
+
+    popup(title: string, msg: string|HTMLElement, css: string|null = null, buttons: Array<[string,Array<[string,eventListener]>]>): void {
+        this.popupStack.push( [title,msg,css,buttons] );
+        if (!this.popupOpen) this.nextPopup();
+    }
+
+    private maxZ(): number {
+        return Math.max.apply(null,
+            Array.from( document.querySelectorAll<HTMLElement>('body *') )
+                .map(function (e: HTMLElement): number { const z = parseFloat(window.getComputedStyle(e).zIndex); return isNaN(z) ? 0 : z })
+        );
     }
 
     handleCountdown( element: Element ): void {

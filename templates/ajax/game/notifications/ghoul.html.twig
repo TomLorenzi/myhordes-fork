@@ -1,0 +1,26 @@
+<div class="inner-notification-header">
+    <img class="float-left" alt="" src="{{ asset('build/images/feist.gif') }}">
+    <strong>{{ 'Du hast dich soeben in einen Ghul verandelt!'|trans({},'game') }}</strong>
+</div>
+<div class="inner-notification-content">
+    <p class="small">
+        {% trans from 'game' %}
+            Du hättest die kleinen bräunlichen Hautverfärbungen etwas ernster nehmen sollen. Nein, das war kein kleiner Sonnenbrand und kein exotischer Hautpilz!
+            Jetzt ist es zu spät... Einige wenige Augenblicke später haben sich alle deine Zweifel in Luft aufgelöst und ein unkontrollierbarer Appetit nach
+            Menschenfleisch übermannt sich... Hmmm... Du solltest deinen Hunger SCHNELLSTENS stillen, oder willst du krepieren?!
+        {% endtrans %}
+    </p>
+    <p>
+        <b>{{ 'Du bist ab sofort ein Ghul!'|trans({},'game') }}</b>
+        {% trans from 'game' %}
+            Ab sofort solltest du deine Spielweise ändern: Deine einstigen Nachbarn und Freunde sind jetzt zweibeinige Nahrung, die du durch List und Trug erlegen musst.
+        {% endtrans %}
+    </p>
+    <p>{{ 'Hier noch ein paar wichtige Überlebenstipps:'|trans({},'game') }}</p>
+    <ul class="bluelist">
+        <li>{{ 'Sag niemandem, dass du ein Ghul bist! Du würdest von deinen Mitbürgern sehr wahrscheinlich sofort erschlagen.'|trans({},'game') }}</li>
+        <li>{{ 'Behalte deine Hungerleiste stets im Auge. Sie befindet sich bei deiner Gesundheitsanzeige.'|trans({},'game') }}</li>
+        <li>{{ 'Um deinen Heißhunger zu stillen, solltest du möglichst bald einen Mitbürger verschlingen. Das machst du am besten in der Wüste, da fällt es nicht so auf.'|trans({},'game') }}</li>
+        <li>{{ 'Auch der Verzehr von kaltem Menschenfleisch senkt deinen Hunger, allerdings nicht so stark wie Frischfleisch...'|trans({},'game') }}</li>
+    </ul>
+</div>

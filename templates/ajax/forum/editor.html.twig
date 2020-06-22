@@ -196,9 +196,6 @@
             form.parentNode.removeChild(form);
         };
 
-        document.getElementById('modal-close').addEventListener('click', closeModal);
-        document.getElementById('modal-button-no').addEventListener('click', closeModal);
-
         $.html.addEventListenerAll( '[x-forum-action="modal"]', 'click', function (e,elem) {
             e.preventDefault();
             e.stopPropagation();
@@ -255,38 +252,24 @@
 
             form.append(formType, label1, input1, label2, input2);
 
-            document.getElementById('modal-title').innerText = title;
-            document.getElementById('modal-content').append(form);
-            document.getElementById('modal-backdrop').classList.add('active');
-            document.getElementById('modal-backdrop').classList.add('tag'+tag);
-
-            document.getElementById('modal-button-ok').addEventListener('click', function processModal() {
+            const processModal = function(e,elem) {
                 let submitted = document.getElementById('modal-form');
-                let type = document.getElementById('form-type');
-                let inputs = submitted.getElementsByTagName('input');
                 let tagText, tagUrl;
-                for (let i = 0; i < inputs.length; i++) {
-                    if (inputs[i].id === type.value + '-text') {
-                        let doc = new DOMParser().parseFromString(inputs[i].value, 'text/html');
-                        tagText = doc.body.textContent || "";
-                    }
-                    else if (inputs[i].id === type.value + '-link') {
-                        tagUrl = encodeURI(inputs[i].value.replace('http:', '').replace('https:', ''));
-                    }
-                }
+
+                let doc = new DOMParser().parseFromString(input1.value, 'text/html');
+                tagText = doc.body.textContent || "";
+                tagUrl = encodeURI(input2.value.replace('http:', '').replace('https:', ''));
 
                 if (tagUrl.substr(0,2) !== '//') {
                     // Apparently not an Url.
                     // TODO: Add error message to Url field.
-                    document.getElementById(type.value + '-link').classList.add('error');
-                    document.getElementById(type.value + '-text').classList.add('error');
+                    input1.classList.add('error');
+                    input2.classList.add('error');
                 }
                 else {
-                    document.getElementById(type.value + '-link').classList.remove('error');
-                    document.getElementById(type.value + '-text').classList.remove('error');
-                    document.getElementById('modal-backdrop').classList.remove('active');
-                    document.getElementById('modal-button-ok').removeEventListener('click', processModal);
-                    submitted.parentNode.removeChild(submitted);
+                    $.html.triggerPopupPop(elem);
+                    input1.classList.remove('error');
+                    input2.classList.remove('error');
 
                     node_transfer_source.value =
                         content.substr(0, s_start) +
@@ -295,12 +278,15 @@
                         content.substr(s_end);
 
                     node_transfer_source.setSelectionRange(s_start + tag.length + 2, s_end + tag.length + 2);
-                    //window.setTimeout(function () {
-                        node_transfer_source.focus()
-                    //}, 10);
+                    node_transfer_source.focus()
                     transfer_to_preview();
                 }
-            });
+            }
+
+            $.html.popup(title, form, 'tag'+tag, [
+                [ '{{ 'Einfügen'|trans({},'global')|e('js') }}',  [ ['click', processModal] ] ],
+                [ '{{ 'Abbrechen'|trans({},'global')|e('js') }}', [ ['click', (e,elem) => $.html.triggerPopupPop(elem)] ] ]
+            ] );
         } );
         $.html.addEventListenerAll( '[x-forum-action="edit"][x-text-wrap-node]', 'click', function (e,elem) {
             e.preventDefault();

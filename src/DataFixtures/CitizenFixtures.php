@@ -164,7 +164,7 @@ class CitizenFixtures extends Fixture implements DependentFixtureInterface
     ];
 
     public static $notificationMarkers = [
-        'ghul',
+        'ghoul',
     ];
 
     private $entityManager;
@@ -457,6 +457,8 @@ class CitizenFixtures extends Fixture implements DependentFixtureInterface
                 $manager->persist( (new HelpNotificationMarker())->setName( $entry ) );
 
         }
+
+        $manager->flush();
     }
 
 

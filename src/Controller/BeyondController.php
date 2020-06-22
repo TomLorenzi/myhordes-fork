@@ -53,7 +53,7 @@ use Symfony\Contracts\Translation\TranslatorInterface;
 /**
  * @Route("/",condition="request.isXmlHttpRequest()")
  */
-class BeyondController extends InventoryAwareController implements BeyondInterfaceController, HookedInterfaceController
+class BeyondController extends InventoryAwareController implements BeyondInterfaceController
 {
 
     const ErrorNoReturnFromHere     = ErrorHelper::BaseBeyondErrors + 1;
@@ -113,8 +113,10 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
 
     public function before(): bool
     {
-        $this->deferZoneUpdate();
-        return true;
+        if (parent::before()) {
+            $this->deferZoneUpdate();
+            return true;
+        } else return false;
     }
 
     protected function addDefaultTwigArgs( ?string $section = null, ?array $data = null ): array {
