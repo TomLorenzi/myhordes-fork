@@ -98,7 +98,8 @@ export default class Ajax {
         let flash_source = result_document.querySelectorAll('x-message');
 
         // Get the ajax intention; assume "native" if no intention is given
-        let ajax_intention = result_document.querySelector('html').getAttribute('x-ajax-intention');
+        let ajax_html_elem = result_document.querySelector('html');
+        let ajax_intention = ajax_html_elem ? ajax_html_elem.getAttribute('x-ajax-intention') : 'inline';
         ajax_intention = ajax_intention ? ajax_intention :  'native';
 
         // Clear the target
@@ -180,7 +181,7 @@ export default class Ajax {
         const no_loader  = this.fetch_no_loader();
         if (push_history) history.pushState( url, '', url );
 
-        if (!no_loader) $.html.addLoadStack();
+        if (!no_loader) $.html.addLoadStack(); console.log((new Error).stack);
         let request = new XMLHttpRequest();
         request.responseType = 'document';
         request.addEventListener('load', function(e) {
