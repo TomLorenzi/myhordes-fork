@@ -246,8 +246,28 @@ class MigrateCommand extends Command
         if ($lang = $input->getOption('update-trans')) {
 
             $langs = ($lang === 'all') ? ['de','en','fr','es'] : [$lang];
-            foreach ($langs as $current_lang)
-                $this->capsule("translation:update $current_lang --force --sort asc --output-format xlf2 --prefix ''", $output);
+            if (count($langs) === 1) {
+
+                $command = $this->getApplication()->find('translation:update');
+
+                $output->writeln("Now working on translations for <info>{$lang}</info>...");
+                $input = new ArrayInput([
+                    'locale' => $lang,
+                    '--force' => true,
+                    '--sort' => 'asc',
+                    '--output-format' => 'xlf2',
+                    '--prefix' => '',
+                ]);
+                $input->setInteractive(false);
+                try {
+                    $command->run($input, new NullOutput());
+                } catch (Exception $e) {
+                    $output->writeln("Error: <error>{$e->getMessage()}</error>");
+                    return 1;
+                }
+
+            } else foreach ($langs as $current_lang)
+                $this->capsule("app:migrate -t $current_lang", $output);
 
             return 0;
         }

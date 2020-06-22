@@ -1261,5 +1261,50 @@
         <target>Liste numérotée</target>
       </segment>
     </unit>
+    <unit id="FbY7TeM" name="Bestätigen">
+      <notes>
+        <note category="german">Bestätigen</note>
+      </notes>
+      <segment>
+        <source>Bestätigen</source>
+        <target>Confirmer</target>
+      </segment>
+    </unit>
+    <unit id="QuMXv7I" name="a023548">
+      <notes>
+        <note category="german">Der Markierer ist auf der Karte für ALLE Bürger sichtbar. Benutze ihn, um der Gemeinschaft Informationen über eine bestimmte Zone mitzuteilen.</note>
+      </notes>
+      <segment>
+        <source>Der Markierer ist auf der Karte für ALLE Bürger sichtbar. Benutze ihn, um der Gemeinschaft Informationen über eine bestimmte Zone mitzuteilen.</source>
+        <target>Le marqueur est visible sur la carte pour TOUS les citoyens. Utilisez-le pour partager des informations sur une zone spécifique avec la communauté.</target>
+      </segment>
+    </unit>
+    <unit id="51m8lm3" name="7ef672f">
+      <notes>
+        <note category="german">Beachte: Alle hier geschriebenen Nachrichten gehen verloren, wenn alle Bürger die Zone verlassen.</note>
+      </notes>
+      <segment>
+        <source>Beachte: Alle hier geschriebenen Nachrichten gehen verloren, wenn alle Bürger die Zone verlassen.</source>
+        <target>Remarque : Tous les messages écrits ici seront perdus si tous les citoyens quittent la zone.</target>
+      </segment>
+    </unit>
+    <unit id="H5.W95P" name="7a92ff6">
+      <notes>
+        <note category="german">Falls sich dieser Zustand auch um Mitternacht noch nicht geändert hat, findet kein Zombieangriff statt. Der Tag wird dann künstlich verlängert.</note>
+      </notes>
+      <segment>
+        <source>Falls sich dieser Zustand auch um Mitternacht noch nicht geändert hat, findet kein Zombieangriff statt. Der Tag wird dann künstlich verlängert.</source>
+        <target>Si cette condition n'a pas changé à minuit, il n'y a pas d'attaque nocturne. La journée se prolonge alors artificiellement.</target>
+      </segment>
+    </unit>
+    <unit id="jsMx6ao" name="a848169">
+      <notes>
+        <note category="german">Wenn du nichts zur Hand hast, um deine Erschöpfung zu lindern, dann bitte im Forum um Hilfe...</note>
+      </notes>
+      <segment>
+        <source>Wenn du nichts zur Hand hast, um deine Erschöpfung zu lindern, dann bitte im Forum um Hilfe...</source>
+        <target>Si vous n'avez rien sous la main pour soulager votre fatigue, rendez-vous sur le forum pour obtenir de l'aide...</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

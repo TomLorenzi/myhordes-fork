@@ -9673,7 +9673,7 @@
       </notes>
       <segment>
         <source>in der Stadt oder am Stadttor</source>
-        <target>En ville ou aux portes</target>
+        <target>en ville ou aux portes</target>
       </segment>
     </unit>
     <unit id="fICCxje" name="Seine Seele ansehen">
@@ -10686,7 +10686,7 @@
     </unit>
     <unit id="icxLMof" name="Der letzte Tote in dieser Stadt!">
       <notes>
-        <note category="german">The last dead man in this city!</note>
+        <note category="german">Der letzte Tote in dieser Stadt!</note>
       </notes>
       <segment>
         <source>Der letzte Tote in dieser Stadt!</source>
@@ -10695,11 +10695,11 @@
     </unit>
     <unit id="SWca3Zo" name="089f4e0">
       <notes>
-        <note category="german">The last dead person will only receive a reward if they have survived 5 full days.</note>
+        <note category="german">Der letzte Tote erhält nur dann eine Belohnung, wenn er 5 volle Tage überlebt hat.</note>
       </notes>
       <segment>
         <source>Der letzte Tote erhält nur dann eine Belohnung, wenn er 5 volle Tage überlebt hat.</source>
-        <target>cette mort ultime ne donne pas lieu à une récompense si ce joueur est mort au jour 5 ou moins, ou s'il n'est pas mort lors de l'attaque.</target>
+        <target>Cette mort ultime ne donne pas lieu à une récompense si ce joueur est mort au jour 5 ou moins, ou s'il n'est pas mort lors de l'attaque.</target>
       </segment>
     </unit>
     <unit id="W3jTpt9" name="Isolierte Zombies">
@@ -10740,7 +10740,7 @@
     </unit>
     <unit id="z3Y3jVt" name="Anonyme Beschwerde">
       <notes>
-        <note category="german">Anonymous Complaint</note>
+        <note category="german">Anonyme Beschwerde</note>
       </notes>
       <segment>
         <source>Anonyme Beschwerde</source>
@@ -10749,7 +10749,7 @@
     </unit>
     <unit id="tlOTwnM" name="Es wurde eine neue anonyme Beschwerde gegen dich eingelegt: &quot;%reason%&quot;">
       <notes>
-        <note category="german">You have received a new anonymous complaint: "%reason%"</note>
+        <note category="german">Es wurde eine neue anonyme Beschwerde gegen dich eingelegt: "%reason%"</note>
       </notes>
       <segment>
         <source>Es wurde eine neue anonyme Beschwerde gegen dich eingelegt: "%reason%"</source>
@@ -10758,7 +10758,7 @@
     </unit>
     <unit id="1VFuVbv" name="Beschwerde zurückgezogen">
       <notes>
-        <note category="german">Complaint Withdrawn</note>
+        <note category="german">Beschwerde zurückgezogen</note>
       </notes>
       <segment>
         <source>Beschwerde zurückgezogen</source>
@@ -10767,7 +10767,7 @@
     </unit>
     <unit id="xllGfth" name="Es gibt gute Nachrichten! Folgende Beschwerde wurde zurückgezogen: &quot;%reason%&quot;">
       <notes>
-        <note category="german">Good news! The following complaint has been withdrawn: "%reason%"</note>
+        <note category="german">Es gibt gute Nachrichten! Folgende Beschwerde wurde zurückgezogen: "%reason%"</note>
       </notes>
       <segment>
         <source>Es gibt gute Nachrichten! Folgende Beschwerde wurde zurückgezogen: "%reason%"</source>
@@ -10776,7 +10776,7 @@
     </unit>
     <unit id="d7mV6VK" name="Du bist vor Angst erstarrt!!">
       <notes>
-        <note category="german">Terrorised!!</note>
+        <note category="german">Du bist vor Angst erstarrt!!</note>
       </notes>
       <segment>
         <source>Du bist vor Angst erstarrt!!</source>
@@ -10785,7 +10785,7 @@
     </unit>
     <unit id="k9lty2j" name="6fedae5">
       <notes>
-        <note category="german">OK. We've got good news and bad news. The good news is that despite the best efforts of %num% Zombies to devour you, you got through it! The bad news is that the experience really shook you up, so you are now terrorised by the idea of having to go through that again...</note>
+        <note category="german">Wir haben zwei Neuigkeiten für dich. Eine gute und eine schlechte. Zuerst die gute: Trotz ihrer hartnäckigen Versuche, ist es den %num% Zombie(s) nicht gelungen, dich aufzufressen. Du hast dich wacker geschlagen. Bravo! Die schlechte: Das Erlebnis war so schlimm, dass du in eine Angststarre verfallen bist. So etwas möchtest du nicht wieder erleben...</note>
       </notes>
       <segment>
         <source>Wir haben zwei Neuigkeiten für dich. Eine gute und eine schlechte. Zuerst die gute: Trotz ihrer hartnäckigen Versuche, ist es den %num% Zombie(s) nicht gelungen, dich aufzufressen. Du hast dich wacker geschlagen. Bravo! Die schlechte: Das Erlebnis war so schlimm, dass du in eine Angststarre verfallen bist. So etwas möchtest du nicht wieder erleben...</source>
@@ -10794,7 +10794,7 @@
     </unit>
     <unit id="Efbc_qn" name="Haltet den Dieb!">
       <notes>
-        <note category="german">Robbery!</note>
+        <note category="german">Haltet den Dieb!</note>
       </notes>
       <segment>
         <source>Haltet den Dieb!</source>
@@ -10839,7 +10839,7 @@
     </unit>
     <unit id="uSGlEhQ" name="Du kannst etwas essen, um deine Erschöpfung zu lindern.">
       <notes>
-        <note category="german">You can eat something to relieve your exhaustion.</note>
+        <note category="german">Du kannst etwas essen, um deine Erschöpfung zu lindern.</note>
       </notes>
       <segment>
         <source>Du kannst etwas essen, um deine Erschöpfung zu lindern.</source>
@@ -10848,7 +10848,7 @@
     </unit>
     <unit id="CjT0_7R" name="4d90a81">
       <notes>
-        <note category="german">You have already eaten and drunk something. You only have drugs and alcohol left!</note>
+        <note category="german">Du hast bereits etwas gegessen und getrunken. Dir bleiben nur noch Drogen und Alkohol!</note>
       </notes>
       <segment>
         <source>Du hast bereits etwas gegessen und getrunken. Dir bleiben nur noch Drogen und Alkohol!</source>
@@ -10870,7 +10870,7 @@
       </notes>
       <segment>
         <source>Es sind nicht mehr genügend Einwohner in der Stadt. Der Zombieangriff und die Wiederherstellung der AP wurden auf morgen Abend verschoben.</source>
-        <target>Es sind nicht mehr genügend Einwohner in der Stadt. Der Zombieangriff und die Wiederherstellung der AP wurden auf morgen Abend verschoben.</target>
+        <target>Il n'y a pas assez de citoyens en ville, l'attaque et la récupération des PA sont donc reportées à demain soir.</target>
       </segment>
     </unit>
     <unit id="mjwvinZ" name="Heute Morgen ist kein Artikel erschienen...">
@@ -10879,7 +10879,7 @@
       </notes>
       <segment>
         <source>Heute Morgen ist kein Artikel erschienen...</source>
-        <target>Heute Morgen ist kein Artikel erschienen...</target>
+        <target>Aucun article ce matin...</target>
       </segment>
     </unit>
     <unit id="DiWxu8O" name="9a7499d">
@@ -10888,7 +10888,7 @@
       </notes>
       <segment>
         <source>Es scheint so, als ob ein anderer Bürger Gefallen an deinem Inventar gefunden hätte... Dir wurde folgendes gestohlen: %icon% %item%</source>
-        <target>Es scheint so, als ob ein anderer Bürger Gefallen an deinem Inventar gefunden hätte... Dir wurde folgendes gestohlen: %icon% %item%</target>
+        <target>Apparemment, votre inventaire a beaucoup plu à un de vos concitoyens... Quelqu'un vous a subtilisé : %icon% %item% .</target>
       </segment>
     </unit>
     <unit id="RrPwAW." name="Zufälliger Bürger">
@@ -10897,7 +10897,7 @@
       </notes>
       <segment>
         <source>Zufälliger Bürger</source>
-        <target>Zufälliger Bürger</target>
+        <target>Citoyen aléatoire</target>
       </segment>
     </unit>
     <unit id="dTDcH8R" name="c8e86c4">
@@ -10908,8 +10908,8 @@
       <segment>
         <source>Hiermit kannst du den Namen eines zufälligen Bürgers in deinen Post anfügen.
                                                 Bei Bedarf kannst du die Auswahl auf bestimmte Berufe, Helden oder bereits gestorbene Bürger eingrenzen.</source>
-        <target>Hiermit kannst du den Namen eines zufälligen Bürgers in deinen Post anfügen.
-                                                Bei Bedarf kannst du die Auswahl auf bestimmte Berufe, Helden oder bereits gestorbene Bürger eingrenzen.</target>
+        <target>Vous pouvez l'utiliser pour ajouter le nom d'un citoyen aléatoire à votre message.
+                                                Si nécessaire, vous pouvez limiter la sélection à certaines professions, héros ou citoyens déjà décédés.</target>
       </segment>
     </unit>
     <unit id="lpSEXvf" name="71134d2">
@@ -10918,7 +10918,92 @@
       </notes>
       <segment>
         <source>Wenn zu den gleichen zufällig gewählten Bürger mehrfach in deinem Text verwenden willst, kannst du ihm eine Nummer zuweisen, beispielsweise:</source>
-        <target>Wenn zu den gleichen zufällig gewählten Bürger mehrfach in deinem Text verwenden willst, kannst du ihm eine Nummer zuweisen, beispielsweise:</target>
+        <target>Si vous souhaitez utiliser le même citoyen choisi au hasard plus d'une fois dans votre texte, vous pouvez lui attribuer un numéro, par exemple :</target>
+      </segment>
+    </unit>
+    <unit id="2fBmxk8" name="Du hast dich soeben in einen Ghul verandelt!">
+      <notes>
+        <note category="german">Du hast dich soeben in einen Ghul verandelt!</note>
+      </notes>
+      <segment>
+        <source>Du hast dich soeben in einen Ghul verandelt!</source>
+        <target>Vous avez été transformé(e) en Goule !</target>
+      </segment>
+    </unit>
+    <unit id="nu14DUW" name="f8cbaf5">
+      <notes>
+        <note category="german">Du hättest die kleinen bräunlichen Hautverfärbungen etwas ernster nehmen sollen. Nein, das war kein kleiner Sonnenbrand und kein exotischer Hautpilz!
+            Jetzt ist es zu spät... Einige wenige Augenblicke später haben sich alle deine Zweifel in Luft aufgelöst und ein unkontrollierbarer Appetit nach
+            Menschenfleisch übermannt sich... Hmmm... Du solltest deinen Hunger SCHNELLSTENS stillen, oder willst du krepieren?!</note>
+      </notes>
+      <segment>
+        <source>Du hättest die kleinen bräunlichen Hautverfärbungen etwas ernster nehmen sollen. Nein, das war kein kleiner Sonnenbrand und kein exotischer Hautpilz!
+            Jetzt ist es zu spät... Einige wenige Augenblicke später haben sich alle deine Zweifel in Luft aufgelöst und ein unkontrollierbarer Appetit nach
+            Menschenfleisch übermannt sich... Hmmm... Du solltest deinen Hunger SCHNELLSTENS stillen, oder willst du krepieren?!</source>
+        <target>L'apparition de petites tâches brunâtres sur votre corps aurait dû vous alarmer, mais vous avez naïvement supposé qu'il s'agissait d'une petite infection bénigne dû au soleil. Les doutes ont étés balayés lorsqu'un désir incontrôlable de goûter la chair humaine a pris le pas dans votre esprit... Un besoin effroyable qu'il vous assouvir RAPIDEMENT. Ou mourir.</target>
+      </segment>
+    </unit>
+    <unit id="1VZ526R" name="Du bist ab sofort ein Ghul!">
+      <notes>
+        <note category="german">Du bist ab sofort ein Ghul!</note>
+      </notes>
+      <segment>
+        <source>Du bist ab sofort ein Ghul!</source>
+        <target>Vous êtes maintenant une goule.</target>
+      </segment>
+    </unit>
+    <unit id="kUcqlQB" name="bce0dfd">
+      <notes>
+        <note category="german">Ab sofort solltest du deine Spielweise ändern: Deine einstigen Nachbarn und Freunde sind jetzt zweibeinige Nahrung, die du durch List und Trug erlegen musst.</note>
+      </notes>
+      <segment>
+        <source>Ab sofort solltest du deine Spielweise ändern: Deine einstigen Nachbarn und Freunde sind jetzt zweibeinige Nahrung, die du durch List und Trug erlegen musst.</source>
+        <target>Un nouvel horizon s'ouvre à vous : vos voisins et alliés de naguère sont maintenant vos proies.</target>
+      </segment>
+    </unit>
+    <unit id="Lou1e47" name="Hier noch ein paar wichtige Überlebenstipps:">
+      <notes>
+        <note category="german">Hier noch ein paar wichtige Überlebenstipps:</note>
+      </notes>
+      <segment>
+        <source>Hier noch ein paar wichtige Überlebenstipps:</source>
+        <target>Quelques conseils pour survivre :</target>
+      </segment>
+    </unit>
+    <unit id="SJd1LN1" name="3fbdb60">
+      <notes>
+        <note category="german">Sag niemandem, dass du ein Ghul bist! Du würdest von deinen Mitbürgern sehr wahrscheinlich sofort erschlagen.</note>
+      </notes>
+      <segment>
+        <source>Sag niemandem, dass du ein Ghul bist! Du würdest von deinen Mitbürgern sehr wahrscheinlich sofort erschlagen.</source>
+        <target>N'en parlez à personne ! Vous seriez immédiatement abbatu(e).</target>
+      </segment>
+    </unit>
+    <unit id="dIAkbPP" name="c3a93ff">
+      <notes>
+        <note category="german">Behalte deine Hungerleiste stets im Auge. Sie befindet sich bei deiner Gesundheitsanzeige.</note>
+      </notes>
+      <segment>
+        <source>Behalte deine Hungerleiste stets im Auge. Sie befindet sich bei deiner Gesundheitsanzeige.</source>
+        <target>Surveillez votre jauge de VORACITÉ, visible en haut près de vos états de santé.</target>
+      </segment>
+    </unit>
+    <unit id="baFbBy0" name="ff17216">
+      <notes>
+        <note category="german">Um deinen Heißhunger zu stillen, solltest du möglichst bald einen Mitbürger verschlingen. Das machst du am besten in der Wüste, da fällt es nicht so auf.</note>
+      </notes>
+      <segment>
+        <source>Um deinen Heißhunger zu stillen, solltest du möglichst bald einen Mitbürger verschlingen. Das machst du am besten in der Wüste, da fällt es nicht so auf.</source>
+        <target>Dévorez un concitoyen (dehors de préférence) pour réduire votre Voracité.</target>
+      </segment>
+    </unit>
+    <unit id="tUvA6.D" name="9ee8e2e">
+      <notes>
+        <note category="german">Auch der Verzehr von kaltem Menschenfleisch senkt deinen Hunger, allerdings nicht so stark wie Frischfleisch...</note>
+      </notes>
+      <segment>
+        <source>Auch der Verzehr von kaltem Menschenfleisch senkt deinen Hunger, allerdings nicht so stark wie Frischfleisch...</source>
+        <target>Consommez de la chair humaine pour diminuer légèrement votre Voracité.</target>
       </segment>
     </unit>
   </file>

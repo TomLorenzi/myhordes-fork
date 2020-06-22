@@ -402,7 +402,7 @@
     </unit>
     <unit id="MCPpLdD" name="Redakteur:">
       <notes>
-        <note category="german">Redakteur:</note>
+        <note category="german">Autor:</note>
       </notes>
       <segment>
         <source>Redakteur:</source>
@@ -591,8 +591,8 @@
     </unit>
     <unit id="EHTi.hN" name="ea67ed1">
       <notes>
-        <note category="german">Choose which part of your profile picture should be used for the compressed display.
-                                            Move the section with the mouse and enlarge or reduce it with the mouse wheel.</note>
+        <note category="german">Wähle aus, welcher Teil deines Profilbilds für die komprimierte Darstellung verwendet werden soll.
+                                            Bewege den Ausschnitt mit der Maus und vergrößere oder verkleinere ihn mit dem Mausrad.</note>
       </notes>
       <segment>
         <source>Wähle aus, welcher Teil deines Profilbilds für die komprimierte Darstellung verwendet werden soll.
@@ -603,7 +603,7 @@
     </unit>
     <unit id="lJGEo3w" name="Koalition">
       <notes>
-        <note category="german">Coalition</note>
+        <note category="german">Koalition</note>
       </notes>
       <segment>
         <source>Koalition</source>
@@ -612,11 +612,74 @@
     </unit>
     <unit id="svF8aFT" name="Saison 15">
       <notes>
-        <note category="german">Season 15</note>
+        <note category="german">Saison 15</note>
       </notes>
       <segment>
         <source>Saison 15</source>
         <target>Saison 15</target>
+      </segment>
+    </unit>
+    <unit id="XqSrbwp" name="Browser-Einstellungen">
+      <notes>
+        <note category="german">Browser Settings</note>
+      </notes>
+      <segment>
+        <source>Browser-Einstellungen</source>
+        <target>Browser-Einstellungen</target>
+      </segment>
+    </unit>
+    <unit id="ZSg.7.l" name="9c781e6">
+      <notes>
+        <note category="german">The following settings are saved in your browser and are therefore only valid for your current device and your current browser.</note>
+      </notes>
+      <segment>
+        <source>Die folgenden Einstellungen werden in deinem Browser gespeichert und sind damit nur für dein aktuelles Gerät und deinen aktuellen Browser gültig.</source>
+        <target>Die folgenden Einstellungen werden in deinem Browser gespeichert und sind damit nur für dein aktuelles Gerät und deinen aktuellen Browser gültig.</target>
+      </segment>
+    </unit>
+    <unit id="_rP15cP" name="Benachrichtigungen als Popups anzeigen">
+      <notes>
+        <note category="german">Show notifications as Popups</note>
+      </notes>
+      <segment>
+        <source>Benachrichtigungen als Popups anzeigen</source>
+        <target>Benachrichtigungen als Popups anzeigen</target>
+      </segment>
+    </unit>
+    <unit id="cSCIhqi" name="Deine Einstellung wurde gespeichert.">
+      <notes>
+        <note category="german">Your settings has been saved.</note>
+      </notes>
+      <segment>
+        <source>Deine Einstellung wurde gespeichert.</source>
+        <target>Deine Einstellung wurde gespeichert.</target>
+      </segment>
+    </unit>
+    <unit id="x3_4s4O" name="Alte Städte">
+      <notes>
+        <note category="german">My game history</note>
+      </notes>
+      <segment>
+        <source>Alte Städte</source>
+        <target>Alte Städte</target>
+      </segment>
+    </unit>
+    <unit id="hU1AUQF" name="Nur 10 Städte anzeigen">
+      <notes>
+        <note category="german">Only display 10 towns</note>
+      </notes>
+      <segment>
+        <source>Nur 10 Städte anzeigen</source>
+        <target>Nur 10 Städte anzeigen</target>
+      </segment>
+    </unit>
+    <unit id="1vjIGbE" name="Kartei schließen">
+      <notes>
+        <note category="german">Kartei schließen</note>
+      </notes>
+      <segment>
+        <source>Kartei schließen</source>
+        <target>Kartei schließen</target>
       </segment>
     </unit>
   </file>
