@@ -1,51 +1,51 @@
-{# @var posts \App\Entity\Post[] #}
+{% extends "ajax/ajax_plain.html.twig" %}
+{% block ajax_base %}
+    {# @var posts \App\Entity\Post[] #}
 
-{% set today = date() %}
-{% set yesterday = date('-1days') %}
+    {% set today = date() %}
+    {% set yesterday = date('-1days') %}
 
-<div class="forum-posts">
-    {% for post in posts %}
-        {% if not post.hidden or is_granted("ROLE_CROW") %}
-            <div class="forum-post {% if not post.hidden %}{% else %}forum-post-hidden{% endif %} {% if post.new %}forum-post-new{% endif %} {% if markedPost is defined and post.id == markedPost %}forum-post-marked{% endif %}" id="{{post.id}}">
-                <div class="forum-post-header {% if post.owner.username == 'Der Rabe' %}header-variant-crow{% elseif post.type == "DEV" %}header-variant-dev{% endif %}">
-                    <i>
-                        {% if post.date.format('Ymd') == today|date("Ymd") %}
-                            {{ 'Heute um'|trans({},'global') }} {{ post.date|format_datetime('none', 'short') }}
-                        {% elseif post.date.format('Ymd') == yesterday|date("Ymd") %}
-                            {{ 'Gestern um'|trans({},'global') }} {{ post.date|format_datetime('none', 'short') }}
+    <div class="forum-posts">
+        {% for post in posts %}
+            {% if not post.hidden or is_granted("ROLE_CROW") %}
+                <div class="forum-post {% if not post.hidden %}{% else %}forum-post-hidden{% endif %} {% if post.new %}forum-post-new{% endif %} {% if markedPost is defined and post.id == markedPost %}forum-post-marked{% endif %}" id="{{post.id}}">
+                    <div class="forum-post-header {% if post.owner.username == 'Der Rabe' %}header-variant-crow{% elseif post.type == "DEV" %}header-variant-dev{% endif %}">
+                        <i>
+                            {% if post.date.format('Ymd') == today|date("Ymd") %}
+                                {{ 'Heute um'|trans({},'global') }} {{ post.date|format_datetime('none', 'short') }}
+                            {% elseif post.date.format('Ymd') == yesterday|date("Ymd") %}
+                                {{ 'Gestern um'|trans({},'global') }} {{ post.date|format_datetime('none', 'short') }}
+                            {% else %}
+                                {{ post.date|format_datetime('medium', 'short') }}
+                            {% endif %}
+                        </i>
+                        {% if (post.owner.avatar) %}
+                            {% if post.owner.username == 'Der Rabe' %}
+                                <div class="avatarcrow small"><img alt="" src="{{ path('app_web_avatar', {'uid': post.owner.id, 'name': post.owner.avatar.smallName, 'ext': post.owner.avatar.format}) }}"></div>
+                            {% else %}
+                                <div class="avatar small"><img alt="" src="{{ path('app_web_avatar', {'uid': post.owner.id, 'name': post.owner.avatar.smallName, 'ext': post.owner.avatar.format}) }}"></div>
+                            {% endif %}
                         {% else %}
-                            {{ post.date|format_datetime('medium', 'short') }}
+                            <div class="avatar small"><img alt="" src="{{ asset('build/images/empty_avatar.gif') }}"></div>
                         {% endif %}
-                    </i>
-                    {% if (post.owner.avatar) %}
-                        {% if post.owner.username == 'Der Rabe' %}
-                            <div class="avatarcrow small"><img alt="" src="{{ path('app_web_avatar', {'uid': post.owner.id, 'name': post.owner.avatar.smallName, 'ext': post.owner.avatar.format}) }}"></div>
-                        {% else %}
-                            <div class="avatar small"><img alt="" src="{{ path('app_web_avatar', {'uid': post.owner.id, 'name': post.owner.avatar.smallName, 'ext': post.owner.avatar.format}) }}"></div>
-                        {% endif %}
-                    {% else %}
-                        <div class="avatar small"><img alt="" src="{{ asset('build/images/empty_avatar.gif') }}"></div>
-                    {% endif %}
-                    <b>
-                        {% if post.owner.username == 'Der Rabe' %}
-                            {{ 'Der Rabe'|trans({},'global') }}
-                        {% elseif post.type == "DEV" %}
-                            {{ post.owner.username }}
-                            <img alt="" src="{{ asset('build/images/small_admin.gif') }}" />
-                        {% else %}
-                            {{ post.owner.username }}
-                        {% endif %}
-                    </b>
-                    {% if post.note is not null %}<div class="right post-note">{{ post.note|raw }}</div>{% endif %}
+                        <b>
+                            {% if post.owner.username == 'Der Rabe' %}
+                                {{ 'Der Rabe'|trans({},'global') }}
+                            {% elseif post.type == "DEV" %}
+                                {{ post.owner.username }}
+                                <img alt="" src="{{ asset('build/images/small_admin.gif') }}" />
+                            {% else %}
+                                {{ post.owner.username }}
+                            {% endif %}
+                        </b>
+                        {% if post.note is not null %}<div class="right post-note">{{ post.note|raw }}</div>{% endif %}
+                    </div>
+                    <div class="forum-post-content">
+                        {{ post.translate ? (post.text|trans({},'game')|raw) : (post.text|raw) }}
+                    </div>
                 </div>
-                <div class="forum-post-content">
-                    {{ post.translate ? (post.text|trans({},'game')|raw) : (post.text|raw) }}
-                </div>
-            </div>
-        {% endif %}
-    {% endfor %}
-    <div class="right"><span class="small pointer" x-ajax-target="default" x-ajax-href="{{ url('forum_thread_view', {fid: fid, tid: tid}) }}">{{ 'Zum Forum'|trans({},'game') }}</span></div>
-</div>
-<script>
-
-</script>
+            {% endif %}
+        {% endfor %}
+        <div class="right"><span class="small pointer" x-ajax-target="default" x-ajax-href="{{ url('forum_thread_view', {fid: fid, tid: tid}) }}">{{ 'Zum Forum'|trans({},'game') }}</span></div>
+    </div>
+{% endblock %}

@@ -184,7 +184,7 @@
                     case ':o': s = ':surprise:'; break;
                 }
                 let n = document.querySelector('[x-text-emote][x-text-insert-emote="' + s + '"]');
-                return n ? n.getAttribute('x-text-emote') : null;
+                return [n ? n.getAttribute('x-text-emote') : null, s];
             } );
         }
 

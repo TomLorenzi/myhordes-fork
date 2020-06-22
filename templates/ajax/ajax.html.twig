@@ -1,55 +1,54 @@
-<!DOCTYPE html>
-<html lang="{{ app.request.locale }}" x-ajax-intention="inline">
-    <body>
-        <div id="gma" class="game-menu-area">
-            <div class="game-bar">
-                {% block text_menu_content %}
-                    <ul class="text-menu">
-                        <li class="burger-button"><i class="fa fa-bars"></i></li>
-                        {% if is_granted('ROLE_USER') %}
-                            <li class="forum" x-ajax-href="{{ url('forum_town_redirect') }}">{{ 'Forum'|trans({},'global') }}</li>
-                        {% endif %}
-                        {% block menu_text %}
-                            {% if app.user %}
-                                {% if app.user.activeCitizen %}
-                                    <li class="town-dash" x-ajax-href="{{ url('game_landing') }}">{{ 'Zum Spiel'|trans({},'global') }}</li>
-                                {% else %}
-                                    <li class="town-dash" x-ajax-href="{{ url('ghost_welcome') }}">{% trans from 'global' %}Spiel{% endtrans %}</li>
-                                {% endif %}
+{% extends "ajax/ajax_plain.html.twig" %}
+{% block ajax_base %}
+    <div id="gma" class="game-menu-area">
+        <div class="game-bar">
+            {% block text_menu_content %}
+                <ul class="text-menu">
+                    <li class="burger-button"><i class="fa fa-bars"></i></li>
+                    {% if is_granted('ROLE_USER') %}
+                        <li class="forum" x-ajax-href="{{ url('forum_town_redirect') }}">{{ 'Forum'|trans({},'global') }}</li>
+                    {% endif %}
+                    {% block menu_text %}
+                        {% if app.user %}
+                            {% if app.user.activeCitizen %}
+                                <li class="town-dash" x-ajax-href="{{ url('game_landing') }}">{{ 'Zum Spiel'|trans({},'global') }}</li>
+                            {% else %}
+                                <li class="town-dash" x-ajax-href="{{ url('ghost_welcome') }}">{% trans from 'global' %}Spiel{% endtrans %}</li>
                             {% endif %}
-                        {% endblock %}
-                        {% if is_granted('ROLE_USER') %}
-                            <li class="soul" x-ajax-href="{{ url('soul_me') }}">{% trans from 'global' %}Deine Seele{% endtrans %}</li>
                         {% endif %}
-                        <li class="help">{{ 'Hilfe'|trans({},'global') }}</li>
-                    </ul>
-                {% endblock %}
-                {% block menu_bar %}{% endblock %}
-            </div>
-            <div class="game-dropdown hidden" style="height: 0">
-                {{ block('text_menu_content') }}
-            </div>
+                    {% endblock %}
+                    {% if is_granted('ROLE_USER') %}
+                        <li class="soul" x-ajax-href="{{ url('soul_me') }}">{% trans from 'global' %}Deine Seele{% endtrans %}</li>
+                    {% endif %}
+                    <li class="help">{{ 'Hilfe'|trans({},'global') }}</li>
+                </ul>
+            {% endblock %}
+            {% block menu_bar %}{% endblock %}
         </div>
-        {% block ajax %}
-        {% endblock %}
-    </body>
+        <div class="game-dropdown hidden" style="height: 0">
+            {{ block('text_menu_content') }}
+        </div>
+    </div>
+    {% block ajax %}
+    {% endblock %}
+{% endblock %}
+{% block js %}
+    {{ parent() }}
     {% for label, messages in app.flashes %}
         {% for message in messages %}
             <x-message x-label="{{ label }}">{{ message|raw }}</x-message>
         {% endfor %}
     {% endfor %}
-    {% block js %}
-        <script>
-            document.querySelector('#gma>.game-bar .burger-button').addEventListener('click', function() {
-                let dropdown = document.querySelector('#gma>.game-dropdown');
-                dropdown.classList.toggle('hidden');
-                if (dropdown.classList.contains('hidden'))
-                    dropdown.style.height = '0px';
-                else {
-                    const target_height = document.querySelector('#gma .game-dropdown > ul.text-menu').getBoundingClientRect().height;
-                    dropdown.style.height = Math.ceil(target_height) + 'px';
-                }
-            });
-        </script>
-    {% endblock %}
-</html>
+    <script>
+        document.querySelector('#gma>.game-bar .burger-button').addEventListener('click', function() {
+            let dropdown = document.querySelector('#gma>.game-dropdown');
+            dropdown.classList.toggle('hidden');
+            if (dropdown.classList.contains('hidden'))
+                dropdown.style.height = '0px';
+            else {
+                const target_height = document.querySelector('#gma .game-dropdown > ul.text-menu').getBoundingClientRect().height;
+                dropdown.style.height = Math.ceil(target_height) + 'px';
+            }
+        });
+    </script>
+{% endblock %}

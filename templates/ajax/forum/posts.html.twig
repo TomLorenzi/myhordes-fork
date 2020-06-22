@@ -1,182 +1,191 @@
-{# @var posts \App\Entity\Post[] #}
+{% extends "ajax/ajax_plain.html.twig" %}
+{% block ajax_base %}
+    {# @var posts \App\Entity\Post[] #}
+    {% set today = date() %}
+    {% set yesterday = date('-1days') %}
+    {% block pagenav %}
+        {% if pages > 1 %}
+            <div class="row">
+                <div class="cell rw-12 padded center">
+                    {% if current_page > 1 %}
+                        <div class="forum-button" x-forum-action="post-pager" x-to-page="1"><i class="fa fa-fast-backward"></i></div>
+                        <div class="forum-button" x-forum-action="post-pager" x-to-page="{{ current_page - 1 }}"><i class="fa fa-backward"></i></div>
+                    {% else %}
+                        <div class="forum-button-disabled"><i class="fa fa-fast-backward"></i></div>
+                        <div class="forum-button-disabled"><i class="fa fa-backward"></i></div>
+                    {% endif %}
+                    <div class="forum-button">{{ 'Seite %page%/%pages%'|trans({'%page%': current_page, '%pages%': pages},'global') }}</div>
+                    {% if current_page < pages %}
+                        <div class="forum-button" x-forum-action="post-pager" x-to-page="{{ current_page + 1 }}"><i class="fa fa-forward"></i></div>
+                        <div class="forum-button" x-forum-action="post-pager" x-to-page="{{ pages }}"><i class="fa fa-fast-forward"></i></div>
+                    {% else %}
+                        <div class="forum-button-disabled"><i class="fa fa-forward"></i></div>
+                        <div class="forum-button-disabled"><i class="fa fa-fast-forward"></i></div>
+                    {% endif %}
+                </div>
+            </div>
+        {% endif %}
+    {% endblock %}
 
-{% set today = date() %}
-{% set yesterday = date('-1days') %}
-{% block pagenav %}
-    {% if pages > 1 %}
+
+    {% if announces.admin|length > 0 %}
         <div class="row">
-            <div class="cell rw-12 padded center">
-                {% if current_page > 1 %}
-                    <div class="forum-button" x-forum-action="post-pager" x-to-page="1"><i class="fa fa-fast-backward"></i></div>
-                    <div class="forum-button" x-forum-action="post-pager" x-to-page="{{ current_page - 1 }}"><i class="fa fa-backward"></i></div>
-                {% else %}
-                    <div class="forum-button-disabled"><i class="fa fa-fast-backward"></i></div>
-                    <div class="forum-button-disabled"><i class="fa fa-backward"></i></div>
-                {% endif %}
-                <div class="forum-button">{{ 'Seite %page%/%pages%'|trans({'%page%': current_page, '%pages%': pages},'global') }}</div>
-                {% if current_page < pages %}
-                    <div class="forum-button" x-forum-action="post-pager" x-to-page="{{ current_page + 1 }}"><i class="fa fa-forward"></i></div>
-                    <div class="forum-button" x-forum-action="post-pager" x-to-page="{{ pages }}"><i class="fa fa-fast-forward"></i></div>
-                {% else %}
-                    <div class="forum-button-disabled"><i class="fa fa-forward"></i></div>
-                    <div class="forum-button-disabled"><i class="fa fa-fast-forward"></i></div>
-                {% endif %}
+            <div class="cell padded rw-8 ro-2">
+                <div class="adminAnnounces announces">
+                    <span class="announce">{{'Dieses Thema enthält %count% offizielle Ansage(n) der MyHordes-Administratoren:'|trans({"%count%": announces.admin|length}, 'global')}}</span>
+                    <ul>
+                        {% for adminannounce in announces.admin %}
+                            <li x-ajax-href="{{path('forum_viewer_jump_post_controller', {pid: adminannounce.id})}}">[{{adminannounce.date|format_datetime('medium', 'none')}}] {{adminannounce.text|striptags|slice(0, 50)}}[...]</li>
+                        {% endfor %}
+                    </ul>
+                </div>
             </div>
         </div>
     {% endif %}
-{% endblock %}
 
-
-{% if announces.admin|length > 0 %}
-    <div class="row">
-        <div class="cell padded rw-8 ro-2">
-            <div class="adminAnnounces announces">
-                <span class="announce">{{'Dieses Thema enthält %count% offizielle Ansage(n) der MyHordes-Administratoren:'|trans({"%count%": announces.admin|length}, 'global')}}</span>
-                <ul>
-                {% for adminannounce in announces.admin %}
-                    <li x-ajax-href="{{path('forum_viewer_jump_post_controller', {pid: adminannounce.id})}}">[{{adminannounce.date|format_datetime('medium', 'none')}}] {{adminannounce.text|striptags|slice(0, 50)}}[...]</li>
-                {% endfor %}
-                </ul>
-            </div>
-        </div>
-    </div>
-{% endif %}
-
-{% if announces.oracle|length > 0 %}
-    <div class="row">
+    {% if announces.oracle|length > 0 %}
         <div class="row">
-        <div class="cell padded rw-8 ro-2">
-            <div class="oracleAnnounces announces">
-                <span class="announce">{{'Dieses Thema enthält %count% Ansage(n) von Community-Vertretern:'|trans({"%count%": announces.oracle|length}, 'global')}}</span>
-                <ul>
-                {% for oracleannounce in announces.oracle %}
-                    <li x-ajax-href="{{path('forum_viewer_jump_post_controller', {pid: oracleannounce.id})}}">[{{oracleannounce.date|format_datetime('medium', 'none')}}] {{oracleannounce.text|striptags|slice(0, 50)}}[...]</li>
-                {% endfor %}
-                </ul>
+            <div class="row">
+                <div class="cell padded rw-8 ro-2">
+                    <div class="oracleAnnounces announces">
+                        <span class="announce">{{'Dieses Thema enthält %count% Ansage(n) von Community-Vertretern:'|trans({"%count%": announces.oracle|length}, 'global')}}</span>
+                        <ul>
+                            {% for oracleannounce in announces.oracle %}
+                                <li x-ajax-href="{{path('forum_viewer_jump_post_controller', {pid: oracleannounce.id})}}">[{{oracleannounce.date|format_datetime('medium', 'none')}}] {{oracleannounce.text|striptags|slice(0, 50)}}[...]</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-    </div>
-{% endif %}
-<div class="forum-posts">
-    {% for post in posts %}
-        {% if not post.hidden or is_granted("ROLE_CROW") %}
-            {% set author_name = (post.owner.username == 'Der Rabe') ? 'Der Rabe'|trans({},'global') : post.owner.username %}
-            <div class="forum-post {% if not post.hidden %}{% else %}forum-post-hidden{% endif %} {% if post.new %}forum-post-new{% endif %} {% if markedPost is defined and post.id == markedPost %}forum-post-marked{% endif %}">
-                <div class="forum-post-header {% if post.owner.username == 'Der Rabe' %}header-variant-crow{% elseif post.type == "DEV" %}header-variant-dev{% endif %}">
-                    <i>
-                        {% if post.date.format('Ymd') == today|date("Ymd") %}
-                            {{ 'Heute um'|trans({},'global') }} {{ post.date|format_datetime('none', 'short') }}
-                        {% elseif post.date.format('Ymd') == yesterday|date("Ymd") %}
-                            {{ 'Gestern um'|trans({},'global') }} {{ post.date|format_datetime('none', 'short') }}
-                        {% else %}
-                            {{ post.date|format_datetime('medium', 'short') }}
-                        {% endif %}
-                    </i>
-                    {% if (post.owner.avatar) %}
-                        {% if app.user.preferSmallAvatars %}
-                            {% if post.owner.username == 'Der Rabe' %}
-                                <div class="avatarcrow small"><img alt="" src="{{ path('app_web_avatar', {'uid': post.owner.id, 'name': post.owner.avatar.smallName, 'ext': post.owner.avatar.format}) }}"></div>
+    {% endif %}
+    <div class="forum-posts">
+        {% for post in posts %}
+            {% if not post.hidden or is_granted("ROLE_CROW") %}
+                {% set author_name = (post.owner.username == 'Der Rabe') ? 'Der Rabe'|trans({},'global') : post.owner.username %}
+                <div class="forum-post {% if not post.hidden %}{% else %}forum-post-hidden{% endif %} {% if post.new %}forum-post-new{% endif %} {% if markedPost is defined and post.id == markedPost %}forum-post-marked{% endif %}">
+                    <div class="forum-post-header {% if post.owner.username == 'Der Rabe' %}header-variant-crow{% elseif post.type == "DEV" %}header-variant-dev{% endif %}">
+                        <i>
+                            {% if post.date.format('Ymd') == today|date("Ymd") %}
+                                {{ 'Heute um'|trans({},'global') }} {{ post.date|format_datetime('none', 'short') }}
+                            {% elseif post.date.format('Ymd') == yesterday|date("Ymd") %}
+                                {{ 'Gestern um'|trans({},'global') }} {{ post.date|format_datetime('none', 'short') }}
                             {% else %}
-                                <div class="avatar small"><img alt="" src="{{ path('app_web_avatar', {'uid': post.owner.id, 'name': post.owner.avatar.smallName, 'ext': post.owner.avatar.format}) }}"></div>
+                                {{ post.date|format_datetime('medium', 'short') }}
+                            {% endif %}
+                        </i>
+                        {% if (post.owner.avatar) %}
+                            {% if app.user.preferSmallAvatars %}
+                                {% if post.owner.username == 'Der Rabe' %}
+                                    <div class="avatarcrow small"><img alt="" src="{{ path('app_web_avatar', {'uid': post.owner.id, 'name': post.owner.avatar.smallName, 'ext': post.owner.avatar.format}) }}"></div>
+                                {% else %}
+                                    <div class="avatar small"><img alt="" src="{{ path('app_web_avatar', {'uid': post.owner.id, 'name': post.owner.avatar.smallName, 'ext': post.owner.avatar.format}) }}"></div>
+                                {% endif %}
+                            {% else %}
+                                {% if post.owner.username == 'Der Rabe' %}
+                                    <div class="avatarcrow"><img alt="" src="{{ path('app_web_avatar', {'uid': post.owner.id, 'name': post.owner.avatar.filename, 'ext': post.owner.avatar.format}) }}"></div>
+                                {% else %}
+                                    <div class="avatar"><img alt="" src="{{ path('app_web_avatar', {'uid': post.owner.id, 'name': post.owner.avatar.filename, 'ext': post.owner.avatar.format}) }}"></div>
+                                {% endif %}
                             {% endif %}
                         {% else %}
-                            {% if post.owner.username == 'Der Rabe' %}
-                                <div class="avatarcrow"><img alt="" src="{{ path('app_web_avatar', {'uid': post.owner.id, 'name': post.owner.avatar.filename, 'ext': post.owner.avatar.format}) }}"></div>
-                            {% else %}
-                                <div class="avatar"><img alt="" src="{{ path('app_web_avatar', {'uid': post.owner.id, 'name': post.owner.avatar.filename, 'ext': post.owner.avatar.format}) }}"></div>
-                            {% endif %}
+                            <div class="avatar small"><img alt="" src="{{ asset('build/images/empty_avatar.gif') }}"></div>
                         {% endif %}
-                    {% else %}
-                        <div class="avatar small"><img alt="" src="{{ asset('build/images/empty_avatar.gif') }}"></div>
-                    {% endif %}
-                    <b>{{ author_name }}</b>
-                    {% if post.note is not null %}<div class="right post-note">{{ post.note|raw }}</div>{% endif %}
+                        <b>{{ author_name }}</b>
+                        {% if post.note is not null %}<div class="right post-note">{{ post.note|raw }}</div>{% endif %}
+                    </div>
+                    <div class="forum-post-content" x-post-content-id="{{ post.id }}" x-post-content-author="{{ author_name }}">
+                        {{ post.translate ? (post.text|trans({},'game')|raw) : (post.text|raw) }}
+                    </div>
+                    <div class="forum-post-footer right">
+                        {% if is_granted("ROLE_CROW") %}
+                            <label class="mod-submenu" for="mod-submenu-toggle-{{ post.id }}">
+                                <input type="checkbox" name="mod-submenu-toggle-{{ post.id }}" id="mod-submenu-toggle-{{ post.id }}" />
+                                <ul class="mod-submenu-links">
+                                    {% if not post.hidden %}
+                                        <li><a class="action-button" id="delete_post" x-forum-action="delete-post" x-post-id={{ post.id }} x-to-page={{ current_page }}>{{ 'Löschen'|trans({},'global') }}</a></li>
+                                    {% endif %}
+                                </ul>
+                            </label>
+                        {% endif %}
+                        [ <a class="action-button" id="quote_post" x-forum-action="quote-post" x-post-id={{ post.id }} >{{ 'Zitieren'|trans({},'global') }}</a> ]
+                        [ <a class="action-button" id="report_post" x-forum-action="report-post" x-post-id={{ post.id }} x-to-page={{ current_page }}>{{ 'Melden'|trans({},'global') }}</a> ]
+                    </div>
                 </div>
-                <div class="forum-post-content" x-post-content-id="{{ post.id }}" x-post-content-author="{{ author_name }}">
-                    {{ post.translate ? (post.text|trans({},'game')|raw) : (post.text|raw) }}
-                </div>
-                <div class="forum-post-footer right">
-                {% if is_granted("ROLE_CROW") %}
-                    <label class="mod-submenu" for="mod-submenu-toggle-{{ post.id }}">
-                        <input type="checkbox" name="mod-submenu-toggle-{{ post.id }}" id="mod-submenu-toggle-{{ post.id }}" />
-                        <ul class="mod-submenu-links">
-                            {% if not post.hidden %}
-                                <li><a class="action-button" id="delete_post" x-forum-action="delete-post" x-post-id={{ post.id }} x-to-page={{ current_page }}>{{ 'Löschen'|trans({},'global') }}</a></li>
-                            {% endif %}
-                        </ul>
-                    </label>
-                {% endif %}
-                [ <a class="action-button" id="quote_post" x-forum-action="quote-post" x-post-id={{ post.id }} >{{ 'Zitieren'|trans({},'global') }}</a> ]
-                [ <a class="action-button" id="report_post" x-forum-action="report-post" x-post-id={{ post.id }} x-to-page={{ current_page }}>{{ 'Melden'|trans({},'global') }}</a> ]
-                </div>
-            </div>
-        {% endif %}
-    {% endfor %}
-</div>
+            {% endif %}
+        {% endfor %}
+    </div>
     <div class="row">
         <div class="cell padded rw-6 left">
-        {% if is_granted("ROLE_CROW")%}
-            {% if not locked %}
-                <div x-forum-moderator-action="lock" class="forum-button"><img src="{{ asset('build/images/lock.gif') }}" /><span>{{ 'Schließen'|trans({},'global') }}</span></div>
+            {% if is_granted("ROLE_CROW")%}
+                {% if not locked %}
+                    <div x-forum-moderator-action="lock" class="forum-button"><img src="{{ asset('build/images/lock.gif') }}" /><span>{{ 'Schließen'|trans({},'global') }}</span></div>
+                {% endif %}
+                {% if locked %}
+                    <div x-forum-moderator-action="unlock" class="forum-button"><img src="{{ asset('build/images/mod.png') }}" /><span>{{ 'Öffnen'|trans({},'global') }}</span></div>
+                {% endif %}
             {% endif %}
-            {% if locked %}
-                <div x-forum-moderator-action="unlock" class="forum-button"><img src="{{ asset('build/images/mod.png') }}" /><span>{{ 'Öffnen'|trans({},'global') }}</span></div>
+            {% if is_granted("ROLE_ADMIN") %}
+                {% if not pinned %}
+                    <div x-forum-moderator-action="pin" class="forum-button"><img src="{{ asset('build/images/mod.png') }}" /><span>{{ 'Anpinnen'|trans({},'global') }}</span></div>
+                {% else %}
+                    <div x-forum-moderator-action="unpin" class="forum-button"><img src="{{ asset('build/images/mod.png') }}" /><span>{{ 'Loslösen'|trans({},'global') }}</span></div>
+                {% endif %}
             {% endif %}
-        {% endif %}
-        {% if is_granted("ROLE_ADMIN") %}
-            {% if not pinned %}
-                <div x-forum-moderator-action="pin" class="forum-button"><img src="{{ asset('build/images/mod.png') }}" /><span>{{ 'Anpinnen'|trans({},'global') }}</span></div>
-            {% else %}
-                <div x-forum-moderator-action="unpin" class="forum-button"><img src="{{ asset('build/images/mod.png') }}" /><span>{{ 'Loslösen'|trans({},'global') }}</span></div>
-            {% endif %}
-        {% endif %}
         </div>
         <div class="cell padded rw-6 right">
-        {% if not locked and not is_granted("ROLE_BANNED") %}            
-            <div x-forum-action="answer" class="forum-button"><span>{{ 'Antworten'|trans({},'global') }}</span></div>
-        {% else %}
-            <div class="forum-button-disabled"><img src="{{ asset('build/images/lock.gif') }}" /><span>{{ 'Antworten'|trans({},'global') }}</span></div>
-        {% endif %}
+            {% if not locked and not is_granted("ROLE_BANNED") %}
+                <div x-forum-action="answer" class="forum-button"><span>{{ 'Antworten'|trans({},'global') }}</span></div>
+            {% else %}
+                <div class="forum-button-disabled"><img src="{{ asset('build/images/lock.gif') }}" /><span>{{ 'Antworten'|trans({},'global') }}</span></div>
+            {% endif %}
         </div>
     </div>
-{{ block('pagenav') }}
-<script>
-    const loadPage = function(page) {
-        $.ajax.no_history().load( document.getElementById('forum-content'), '{{ path('forum_viewer_controller', {fid: fid, tid: tid}) }}', false, {page: page } );
-    };
-    const reloadPage = function() { loadPage( {{ current_page }} ); };
+    {{ block('pagenav') }}
+{% endblock %}
+{% block js %}
+    {{ parent() }}
+    {% for label, messages in app.flashes %}
+        {% for message in messages %}
+            <x-message x-label="{{ label }}">{{ message|raw }}</x-message>
+        {% endfor %}
+    {% endfor %}
+    <script>
+        const loadPage = function(page) {
+            $.ajax.no_history().load( document.getElementById('forum-content'), '{{ path('forum_viewer_controller', {fid: fid, tid: tid}) }}', false, {page: page } );
+        };
+        const reloadPage = function() { loadPage( {{ current_page }} ); };
 
-    let report_buttons = document.querySelectorAll('[x-forum-action="report-post"]');
-    for (let i = 0; i < report_buttons.length; i++)
-        report_buttons[i].addEventListener('click', function() {
-            $.ajax.easySend( '{{ url('forum_report_post_controller', { 'fid': fid, 'tid': tid}) }}', {postId: parseInt( this.getAttribute('x-post-id')), page: parseInt( this.getAttribute('x-to-page')) }, reloadPage );
-        })
+        let report_buttons = document.querySelectorAll('[x-forum-action="report-post"]');
+        for (let i = 0; i < report_buttons.length; i++)
+            report_buttons[i].addEventListener('click', function() {
+                $.ajax.easySend( '{{ url('forum_report_post_controller', { 'fid': fid, 'tid': tid}) }}', {postId: parseInt( this.getAttribute('x-post-id')), page: parseInt( this.getAttribute('x-to-page')) }, reloadPage );
+            })
 
-    let quote_buttons = document.querySelectorAll('[x-forum-action="quote-post"]');
-    for (let i = 0; i < quote_buttons.length; i++)
-        quote_buttons[i].addEventListener('click', function() {
-        	let editor = document.getElementById('forum-editor');
-        	if (editor && editor.innerHTML === "") {
-            	$.ajax.no_history().load( document.getElementById('forum-editor'), '{{ path('forum_post_editor_controller', {fid: fid, tid: tid}) }}', false, {}, function () {
+        let quote_buttons = document.querySelectorAll('[x-forum-action="quote-post"]');
+        for (let i = 0; i < quote_buttons.length; i++)
+            quote_buttons[i].addEventListener('click', function() {
+                let editor = document.getElementById('forum-editor');
+                if (editor && editor.innerHTML === "") {
+                    $.ajax.no_history().load( document.getElementById('forum-editor'), '{{ path('forum_post_editor_controller', {fid: fid, tid: tid}) }}', false, {}, function () {
 
-            	    let content = document.querySelector('[x-post-content-id="' + quote_buttons[i].getAttribute('x-post-id') + '"]');
+                        let content = document.querySelector('[x-post-content-id="' + quote_buttons[i].getAttribute('x-post-id') + '"]');
+                        let author = content.getAttribute('x-post-content-author');
+                        let textEditor = document.getElementById("forum-editor-text");
+                        textEditor.value = (author ? ('[quote=' + author + ']') : '[quote]') + $.html.twinoParser.parseFrom( content.innerHTML ) + '[/quote]' + "\n";
+                        textEditor.dispatchEvent(new Event('input', {bubbles: true,cancelable: true}));
+                        textEditor.focus();
+                    } )
+                } else {
+                    let content = document.querySelector('[x-post-content-id="' + quote_buttons[i].getAttribute('x-post-id') + '"]');
                     let author = content.getAttribute('x-post-content-author');
                     let textEditor = document.getElementById("forum-editor-text");
-                    textEditor.value = (author ? ('[quote=' + author + ']') : '[quote]') + $.html.twinoParser.parseFrom( content.innerHTML ) + '[/quote]' + "\n";
+                    textEditor.value += (author ? ('[quote=' + author + ']') : '[quote]') + $.html.twinoParser.parseFrom( content.innerHTML ) + '[/quote]' + "\n";
                     textEditor.dispatchEvent(new Event('input', {bubbles: true,cancelable: true}));
                     textEditor.focus();
-                } )
-        	} else {
-                let content = document.querySelector('[x-post-content-id="' + quote_buttons[i].getAttribute('x-post-id') + '"]');
-                let author = content.getAttribute('x-post-content-author');
-                let textEditor = document.getElementById("forum-editor-text");
-                textEditor.value += (author ? ('[quote=' + author + ']') : '[quote]') + $.html.twinoParser.parseFrom( content.innerHTML ) + '[/quote]' + "\n";
-                textEditor.dispatchEvent(new Event('input', {bubbles: true,cancelable: true}));
-                textEditor.focus();
-            }
-        })
-    {% if is_granted("ROLE_CROW") %}
+                }
+            })
+        {% if is_granted("ROLE_CROW") %}
         let del_buttons = document.querySelectorAll('[x-forum-action="delete-post"]');
         for (let i = 0; i < del_buttons.length; i++)
             del_buttons[i].addEventListener('click', function() {
@@ -185,66 +194,61 @@
                     $.ajax.easySend( '{{ url('forum_thread_mod_controller', { 'fid': fid, 'tid': tid, mod: 'delete'}) }}', {reason: reason, postId: parseInt( this.getAttribute('x-post-id')) }, reloadPage );
             })
         {% if not locked %}
-            let lock_button = document.querySelector('[x-forum-moderator-action=lock]');
-            lock_button.addEventListener('click', function() {
-                $.ajax.easySend( '{{ url('forum_thread_mod_controller', {fid: fid, tid: tid, mod: 'lock'}) }}', {}, reloadPage );
-            })
+        let lock_button = document.querySelector('[x-forum-moderator-action=lock]');
+        lock_button.addEventListener('click', function() {
+            $.ajax.easySend( '{{ url('forum_thread_mod_controller', {fid: fid, tid: tid, mod: 'lock'}) }}', {}, reloadPage );
+        })
         {% else %}
-            let unlock_button = document.querySelector('[x-forum-moderator-action=unlock]');
-            unlock_button.addEventListener('click', function() {
-                $.ajax.easySend( '{{ url('forum_thread_mod_controller', {fid: fid, tid: tid, mod: 'unlock'}) }}', {}, reloadPage );
-            })
+        let unlock_button = document.querySelector('[x-forum-moderator-action=unlock]');
+        unlock_button.addEventListener('click', function() {
+            $.ajax.easySend( '{{ url('forum_thread_mod_controller', {fid: fid, tid: tid, mod: 'unlock'}) }}', {}, reloadPage );
+        })
         {% endif %}
-    {% endif %}
-    {% if is_granted("ROLE_ADMIN") %}
+        {% endif %}
+        {% if is_granted("ROLE_ADMIN") %}
         {% if not pinned %}
-            let pin_button = document.querySelector('[x-forum-moderator-action=pin]');
-            pin_button.addEventListener('click', function() {
-                $.ajax.easySend( '{{ url('forum_thread_mod_controller', {fid: fid, tid: tid, mod: 'pin'}) }}', {}, reloadPage );
-            })
+        let pin_button = document.querySelector('[x-forum-moderator-action=pin]');
+        pin_button.addEventListener('click', function() {
+            $.ajax.easySend( '{{ url('forum_thread_mod_controller', {fid: fid, tid: tid, mod: 'pin'}) }}', {}, reloadPage );
+        })
         {% else %}
-            let unpin_button = document.querySelector('[x-forum-moderator-action=unpin]');
-            unpin_button.addEventListener('click', function() {
-                $.ajax.easySend( '{{ url('forum_thread_mod_controller', {fid: fid, tid: tid, mod: 'unpin'}) }}', {}, reloadPage );
-            })
+        let unpin_button = document.querySelector('[x-forum-moderator-action=unpin]');
+        unpin_button.addEventListener('click', function() {
+            $.ajax.easySend( '{{ url('forum_thread_mod_controller', {fid: fid, tid: tid, mod: 'unpin'}) }}', {}, reloadPage );
+        })
         {% endif %}
-    {% endif %}
+        {% endif %}
 
-    let announces = document.querySelectorAll(".announces li");
-    for (let i = 0; i < announces.length; i++)
-        announces[i].addEventListener('click', function() {
-            $.ajax.no_history().load( document.getElementById('forum-content'), '{{ path('forum_viewer_controller', {fid: fid, tid: tid}) }}', false, {page:1, firstpost: this.getAttribute('x-post-id') } );
-        })
-    
-    let new_post_btns = document.querySelectorAll('[x-forum-action=answer]');
-    for (let i = 0; i < new_post_btns.length; i++)
-        new_post_btns[i].addEventListener('click', function() {
-            new_post_btns[i].parentNode.removeChild(new_post_btns[i]);
-            $.ajax.no_history().load( document.getElementById('forum-editor'), '{{ path('forum_post_editor_controller', {fid: fid, tid: tid}) }}', false )
-        })
-    let nav_buttons =  document.querySelectorAll('[x-forum-action="post-pager"][x-to-page]');
-    for (let i = 0; i < nav_buttons.length; i++)
-        nav_buttons[i].addEventListener('click', function() {
-            let editor = document.getElementById('forum-editor');
-            {% if editor is defined %}
+        let announces = document.querySelectorAll(".announces li");
+        for (let i = 0; i < announces.length; i++)
+            announces[i].addEventListener('click', function() {
+                $.ajax.no_history().load( document.getElementById('forum-content'), '{{ path('forum_viewer_controller', {fid: fid, tid: tid}) }}', false, {page:1, firstpost: this.getAttribute('x-post-id') } );
+            })
+
+        let new_post_btns = document.querySelectorAll('[x-forum-action=answer]');
+        for (let i = 0; i < new_post_btns.length; i++)
+            new_post_btns[i].addEventListener('click', function() {
+                new_post_btns[i].parentNode.removeChild(new_post_btns[i]);
+                $.ajax.no_history().load( document.getElementById('forum-editor'), '{{ path('forum_post_editor_controller', {fid: fid, tid: tid}) }}', false )
+            })
+        let nav_buttons =  document.querySelectorAll('[x-forum-action="post-pager"][x-to-page]');
+        for (let i = 0; i < nav_buttons.length; i++)
+            nav_buttons[i].addEventListener('click', function() {
+                let editor = document.getElementById('forum-editor');
+                {% if editor is defined %}
                 {let c; while ((c = editor.firstChild)) editor.removeChild(c);}
-            {% endif %}
-            $.ajax.no_history().load( document.getElementById('forum-content'), '{{ path('forum_viewer_controller', {fid: fid, tid: tid}) }}', false, {page: parseInt( this.getAttribute('x-to-page') ) } );
-            document.querySelector('.forum-post').scrollIntoView();
-        })
-    {% if pages == current_page %}
+                {% endif %}
+                $.ajax.no_history().load( document.getElementById('forum-content'), '{{ path('forum_viewer_controller', {fid: fid, tid: tid}) }}', false, {page: parseInt( this.getAttribute('x-to-page') ) } );
+                document.querySelector('.forum-post').scrollIntoView();
+            })
+        {% if pages == current_page %}
         let thread_listings = document.querySelectorAll('[x-thread-id="{{ tid }}"]');
         for (let i = 0; i < thread_listings.length; i++)
             thread_listings[i].classList.remove('forum-thread-unread');
-    {% endif %}
+        {% endif %}
 
-    {% if markedPost is defined and markedPost > 0 %}
+        {% if markedPost is defined and markedPost > 0 %}
         document.querySelector('[x-post-content-id="{{markedPost}}"]').parentElement
-    {% endif %}
-</script>
-
-{% for label, messages in app.flashes %}
-    {% for message in messages %}
-        <x-message x-label="{{ label }}">{{ message|raw }}</x-message>
-    {% endfor %}
-{% endfor %}
+        {% endif %}
+    </script>
+{% endblock %}
