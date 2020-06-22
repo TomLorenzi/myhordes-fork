@@ -10921,5 +10921,92 @@
         <target>Si vous souhaitez utiliser le même citoyen choisi au hasard plus d'une fois dans votre texte, vous pouvez lui attribuer un numéro, par exemple :</target>
       </segment>
     </unit>
+    <unit id="2fBmxk8" name="Du hast dich soeben in einen Ghul verandelt!">
+      <notes>
+        <note category="german">Du hast dich soeben in einen Ghul verandelt!</note>
+      </notes>
+      <segment>
+        <source>Du hast dich soeben in einen Ghul verandelt!</source>
+        <target>Du hast dich soeben in einen Ghul verandelt!</target>
+      </segment>
+    </unit>
+    <unit id="nu14DUW" name="f8cbaf5">
+      <notes>
+        <note category="german">Du hättest die kleinen bräunlichen Hautverfärbungen etwas ernster nehmen sollen. Nein, das war kein kleiner Sonnenbrand und kein exotischer Hautpilz!
+            Jetzt ist es zu spät... Einige wenige Augenblicke später haben sich alle deine Zweifel in Luft aufgelöst und ein unkontrollierbarer Appetit nach
+            Menschenfleisch übermannt sich... Hmmm... Du solltest deinen Hunger SCHNELLSTENS stillen, oder willst du krepieren?!</note>
+      </notes>
+      <segment>
+        <source>Du hättest die kleinen bräunlichen Hautverfärbungen etwas ernster nehmen sollen. Nein, das war kein kleiner Sonnenbrand und kein exotischer Hautpilz!
+            Jetzt ist es zu spät... Einige wenige Augenblicke später haben sich alle deine Zweifel in Luft aufgelöst und ein unkontrollierbarer Appetit nach
+            Menschenfleisch übermannt sich... Hmmm... Du solltest deinen Hunger SCHNELLSTENS stillen, oder willst du krepieren?!</source>
+        <target>Du hättest die kleinen bräunlichen Hautverfärbungen etwas ernster nehmen sollen. Nein, das war kein kleiner Sonnenbrand und kein exotischer Hautpilz!
+            Jetzt ist es zu spät... Einige wenige Augenblicke später haben sich alle deine Zweifel in Luft aufgelöst und ein unkontrollierbarer Appetit nach
+            Menschenfleisch übermannt sich... Hmmm... Du solltest deinen Hunger SCHNELLSTENS stillen, oder willst du krepieren?!</target>
+      </segment>
+    </unit>
+    <unit id="1VZ526R" name="Du bist ab sofort ein Ghul!">
+      <notes>
+        <note category="german">Du bist ab sofort ein Ghul!</note>
+      </notes>
+      <segment>
+        <source>Du bist ab sofort ein Ghul!</source>
+        <target>Du bist ab sofort ein Ghul!</target>
+      </segment>
+    </unit>
+    <unit id="kUcqlQB" name="bce0dfd">
+      <notes>
+        <note category="german">Ab sofort solltest du deine Spielweise ändern: Deine einstigen Nachbarn und Freunde sind jetzt zweibeinige Nahrung, die du durch List und Trug erlegen musst.</note>
+      </notes>
+      <segment>
+        <source>Ab sofort solltest du deine Spielweise ändern: Deine einstigen Nachbarn und Freunde sind jetzt zweibeinige Nahrung, die du durch List und Trug erlegen musst.</source>
+        <target>Ab sofort solltest du deine Spielweise ändern: Deine einstigen Nachbarn und Freunde sind jetzt zweibeinige Nahrung, die du durch List und Trug erlegen musst.</target>
+      </segment>
+    </unit>
+    <unit id="Lou1e47" name="Hier noch ein paar wichtige Überlebenstipps:">
+      <notes>
+        <note category="german">Hier noch ein paar wichtige Überlebenstipps:</note>
+      </notes>
+      <segment>
+        <source>Hier noch ein paar wichtige Überlebenstipps:</source>
+        <target>Hier noch ein paar wichtige Überlebenstipps:</target>
+      </segment>
+    </unit>
+    <unit id="SJd1LN1" name="3fbdb60">
+      <notes>
+        <note category="german">Sag niemandem, dass du ein Ghul bist! Du würdest von deinen Mitbürgern sehr wahrscheinlich sofort erschlagen.</note>
+      </notes>
+      <segment>
+        <source>Sag niemandem, dass du ein Ghul bist! Du würdest von deinen Mitbürgern sehr wahrscheinlich sofort erschlagen.</source>
+        <target>Sag niemandem, dass du ein Ghul bist! Du würdest von deinen Mitbürgern sehr wahrscheinlich sofort erschlagen.</target>
+      </segment>
+    </unit>
+    <unit id="dIAkbPP" name="c3a93ff">
+      <notes>
+        <note category="german">Behalte deine Hungerleiste stets im Auge. Sie befindet sich bei deiner Gesundheitsanzeige.</note>
+      </notes>
+      <segment>
+        <source>Behalte deine Hungerleiste stets im Auge. Sie befindet sich bei deiner Gesundheitsanzeige.</source>
+        <target>Behalte deine Hungerleiste stets im Auge. Sie befindet sich bei deiner Gesundheitsanzeige.</target>
+      </segment>
+    </unit>
+    <unit id="baFbBy0" name="ff17216">
+      <notes>
+        <note category="german">Um deinen Heißhunger zu stillen, solltest du möglichst bald einen Mitbürger verschlingen. Das machst du am besten in der Wüste, da fällt es nicht so auf.</note>
+      </notes>
+      <segment>
+        <source>Um deinen Heißhunger zu stillen, solltest du möglichst bald einen Mitbürger verschlingen. Das machst du am besten in der Wüste, da fällt es nicht so auf.</source>
+        <target>Um deinen Heißhunger zu stillen, solltest du möglichst bald einen Mitbürger verschlingen. Das machst du am besten in der Wüste, da fällt es nicht so auf.</target>
+      </segment>
+    </unit>
+    <unit id="tUvA6.D" name="9ee8e2e">
+      <notes>
+        <note category="german">Auch der Verzehr von kaltem Menschenfleisch senkt deinen Hunger, allerdings nicht so stark wie Frischfleisch...</note>
+      </notes>
+      <segment>
+        <source>Auch der Verzehr von kaltem Menschenfleisch senkt deinen Hunger, allerdings nicht so stark wie Frischfleisch...</source>
+        <target>Auch der Verzehr von kaltem Menschenfleisch senkt deinen Hunger, allerdings nicht so stark wie Frischfleisch...</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
