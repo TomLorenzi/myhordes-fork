@@ -1261,5 +1261,14 @@
         <target>Liste numérotée</target>
       </segment>
     </unit>
+    <unit id="FbY7TeM" name="Bestätigen">
+      <notes>
+        <note category="german">Bestätigen</note>
+      </notes>
+      <segment>
+        <source>Bestätigen</source>
+        <target>Bestätigen</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

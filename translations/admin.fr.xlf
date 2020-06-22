@@ -1096,7 +1096,7 @@
       </notes>
       <segment>
         <source>Stadt administrieren</source>
-        <target>Stadt administrieren</target>
+        <target>Administrer la ville</target>
       </segment>
     </unit>
     <unit id="Enh.KhP" name="Nächtlicher Angriff">
@@ -1105,7 +1105,7 @@
       </notes>
       <segment>
         <source>Nächtlicher Angriff</source>
-        <target>Nächtlicher Angriff</target>
+        <target>Attaque nocturne</target>
       </segment>
     </unit>
     <unit id="YBKE35r" name="Quarantäne aufheben">
@@ -1114,7 +1114,7 @@
       </notes>
       <segment>
         <source>Quarantäne aufheben</source>
-        <target>Quarantäne aufheben</target>
+        <target>Supprimer la quarantaine</target>
       </segment>
     </unit>
     <unit id="ZG32Cjn" name="Unter Quarantäne stellen">
@@ -1123,7 +1123,7 @@
       </notes>
       <segment>
         <source>Unter Quarantäne stellen</source>
-        <target>Unter Quarantäne stellen</target>
+        <target>Mettre en quarantaine</target>
       </segment>
     </unit>
     <unit id="akWsVTF" name="Manueller Tageswechsel">
@@ -1132,7 +1132,7 @@
       </notes>
       <segment>
         <source>Manueller Tageswechsel</source>
-        <target>Manueller Tageswechsel</target>
+        <target>Changement de jour manuel</target>
       </segment>
     </unit>
   </file>

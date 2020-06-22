@@ -9673,7 +9673,7 @@
       </notes>
       <segment>
         <source>in der Stadt oder am Stadttor</source>
-        <target>En ville ou aux portes</target>
+        <target>en ville ou aux portes</target>
       </segment>
     </unit>
     <unit id="fICCxje" name="Seine Seele ansehen">
@@ -10870,7 +10870,7 @@
       </notes>
       <segment>
         <source>Es sind nicht mehr genügend Einwohner in der Stadt. Der Zombieangriff und die Wiederherstellung der AP wurden auf morgen Abend verschoben.</source>
-        <target>Es sind nicht mehr genügend Einwohner in der Stadt. Der Zombieangriff und die Wiederherstellung der AP wurden auf morgen Abend verschoben.</target>
+        <target>Il n'y a pas assez de citoyens en ville, l'attaque et la récupération des PA sont donc reportées à demain soir.</target>
       </segment>
     </unit>
     <unit id="mjwvinZ" name="Heute Morgen ist kein Artikel erschienen...">
@@ -10879,7 +10879,7 @@
       </notes>
       <segment>
         <source>Heute Morgen ist kein Artikel erschienen...</source>
-        <target>Heute Morgen ist kein Artikel erschienen...</target>
+        <target>Aucun article ce matin...</target>
       </segment>
     </unit>
     <unit id="DiWxu8O" name="9a7499d">
@@ -10888,7 +10888,7 @@
       </notes>
       <segment>
         <source>Es scheint so, als ob ein anderer Bürger Gefallen an deinem Inventar gefunden hätte... Dir wurde folgendes gestohlen: %icon% %item%</source>
-        <target>Es scheint so, als ob ein anderer Bürger Gefallen an deinem Inventar gefunden hätte... Dir wurde folgendes gestohlen: %icon% %item%</target>
+        <target>Apparemment, votre inventaire a beaucoup plu à un de vos concitoyens... Quelqu'un vous a subtilisé : %icon% %item% .</target>
       </segment>
     </unit>
     <unit id="RrPwAW." name="Zufälliger Bürger">
@@ -10897,7 +10897,7 @@
       </notes>
       <segment>
         <source>Zufälliger Bürger</source>
-        <target>Zufälliger Bürger</target>
+        <target>Citoyen aléatoire</target>
       </segment>
     </unit>
     <unit id="dTDcH8R" name="c8e86c4">
@@ -10908,8 +10908,8 @@
       <segment>
         <source>Hiermit kannst du den Namen eines zufälligen Bürgers in deinen Post anfügen.
                                                 Bei Bedarf kannst du die Auswahl auf bestimmte Berufe, Helden oder bereits gestorbene Bürger eingrenzen.</source>
-        <target>Hiermit kannst du den Namen eines zufälligen Bürgers in deinen Post anfügen.
-                                                Bei Bedarf kannst du die Auswahl auf bestimmte Berufe, Helden oder bereits gestorbene Bürger eingrenzen.</target>
+        <target>Vous pouvez l'utiliser pour ajouter le nom d'un citoyen aléatoire à votre message.
+                                                Si nécessaire, vous pouvez limiter la sélection à certaines professions, héros ou citoyens déjà décédés.</target>
       </segment>
     </unit>
     <unit id="lpSEXvf" name="71134d2">
@@ -10918,7 +10918,94 @@
       </notes>
       <segment>
         <source>Wenn zu den gleichen zufällig gewählten Bürger mehrfach in deinem Text verwenden willst, kannst du ihm eine Nummer zuweisen, beispielsweise:</source>
-        <target>Wenn zu den gleichen zufällig gewählten Bürger mehrfach in deinem Text verwenden willst, kannst du ihm eine Nummer zuweisen, beispielsweise:</target>
+        <target>Si vous souhaitez utiliser le même citoyen choisi au hasard plus d'une fois dans votre texte, vous pouvez lui attribuer un numéro, par exemple :</target>
+      </segment>
+    </unit>
+    <unit id="2fBmxk8" name="Du hast dich soeben in einen Ghul verandelt!">
+      <notes>
+        <note category="german">Du hast dich soeben in einen Ghul verandelt!</note>
+      </notes>
+      <segment>
+        <source>Du hast dich soeben in einen Ghul verandelt!</source>
+        <target>Du hast dich soeben in einen Ghul verandelt!</target>
+      </segment>
+    </unit>
+    <unit id="nu14DUW" name="f8cbaf5">
+      <notes>
+        <note category="german">Du hättest die kleinen bräunlichen Hautverfärbungen etwas ernster nehmen sollen. Nein, das war kein kleiner Sonnenbrand und kein exotischer Hautpilz!
+            Jetzt ist es zu spät... Einige wenige Augenblicke später haben sich alle deine Zweifel in Luft aufgelöst und ein unkontrollierbarer Appetit nach
+            Menschenfleisch übermannt sich... Hmmm... Du solltest deinen Hunger SCHNELLSTENS stillen, oder willst du krepieren?!</note>
+      </notes>
+      <segment>
+        <source>Du hättest die kleinen bräunlichen Hautverfärbungen etwas ernster nehmen sollen. Nein, das war kein kleiner Sonnenbrand und kein exotischer Hautpilz!
+            Jetzt ist es zu spät... Einige wenige Augenblicke später haben sich alle deine Zweifel in Luft aufgelöst und ein unkontrollierbarer Appetit nach
+            Menschenfleisch übermannt sich... Hmmm... Du solltest deinen Hunger SCHNELLSTENS stillen, oder willst du krepieren?!</source>
+        <target>Du hättest die kleinen bräunlichen Hautverfärbungen etwas ernster nehmen sollen. Nein, das war kein kleiner Sonnenbrand und kein exotischer Hautpilz!
+            Jetzt ist es zu spät... Einige wenige Augenblicke später haben sich alle deine Zweifel in Luft aufgelöst und ein unkontrollierbarer Appetit nach
+            Menschenfleisch übermannt sich... Hmmm... Du solltest deinen Hunger SCHNELLSTENS stillen, oder willst du krepieren?!</target>
+      </segment>
+    </unit>
+    <unit id="1VZ526R" name="Du bist ab sofort ein Ghul!">
+      <notes>
+        <note category="german">Du bist ab sofort ein Ghul!</note>
+      </notes>
+      <segment>
+        <source>Du bist ab sofort ein Ghul!</source>
+        <target>Du bist ab sofort ein Ghul!</target>
+      </segment>
+    </unit>
+    <unit id="kUcqlQB" name="bce0dfd">
+      <notes>
+        <note category="german">Ab sofort solltest du deine Spielweise ändern: Deine einstigen Nachbarn und Freunde sind jetzt zweibeinige Nahrung, die du durch List und Trug erlegen musst.</note>
+      </notes>
+      <segment>
+        <source>Ab sofort solltest du deine Spielweise ändern: Deine einstigen Nachbarn und Freunde sind jetzt zweibeinige Nahrung, die du durch List und Trug erlegen musst.</source>
+        <target>Ab sofort solltest du deine Spielweise ändern: Deine einstigen Nachbarn und Freunde sind jetzt zweibeinige Nahrung, die du durch List und Trug erlegen musst.</target>
+      </segment>
+    </unit>
+    <unit id="Lou1e47" name="Hier noch ein paar wichtige Überlebenstipps:">
+      <notes>
+        <note category="german">Hier noch ein paar wichtige Überlebenstipps:</note>
+      </notes>
+      <segment>
+        <source>Hier noch ein paar wichtige Überlebenstipps:</source>
+        <target>Hier noch ein paar wichtige Überlebenstipps:</target>
+      </segment>
+    </unit>
+    <unit id="SJd1LN1" name="3fbdb60">
+      <notes>
+        <note category="german">Sag niemandem, dass du ein Ghul bist! Du würdest von deinen Mitbürgern sehr wahrscheinlich sofort erschlagen.</note>
+      </notes>
+      <segment>
+        <source>Sag niemandem, dass du ein Ghul bist! Du würdest von deinen Mitbürgern sehr wahrscheinlich sofort erschlagen.</source>
+        <target>Sag niemandem, dass du ein Ghul bist! Du würdest von deinen Mitbürgern sehr wahrscheinlich sofort erschlagen.</target>
+      </segment>
+    </unit>
+    <unit id="dIAkbPP" name="c3a93ff">
+      <notes>
+        <note category="german">Behalte deine Hungerleiste stets im Auge. Sie befindet sich bei deiner Gesundheitsanzeige.</note>
+      </notes>
+      <segment>
+        <source>Behalte deine Hungerleiste stets im Auge. Sie befindet sich bei deiner Gesundheitsanzeige.</source>
+        <target>Behalte deine Hungerleiste stets im Auge. Sie befindet sich bei deiner Gesundheitsanzeige.</target>
+      </segment>
+    </unit>
+    <unit id="baFbBy0" name="ff17216">
+      <notes>
+        <note category="german">Um deinen Heißhunger zu stillen, solltest du möglichst bald einen Mitbürger verschlingen. Das machst du am besten in der Wüste, da fällt es nicht so auf.</note>
+      </notes>
+      <segment>
+        <source>Um deinen Heißhunger zu stillen, solltest du möglichst bald einen Mitbürger verschlingen. Das machst du am besten in der Wüste, da fällt es nicht so auf.</source>
+        <target>Um deinen Heißhunger zu stillen, solltest du möglichst bald einen Mitbürger verschlingen. Das machst du am besten in der Wüste, da fällt es nicht so auf.</target>
+      </segment>
+    </unit>
+    <unit id="tUvA6.D" name="9ee8e2e">
+      <notes>
+        <note category="german">Auch der Verzehr von kaltem Menschenfleisch senkt deinen Hunger, allerdings nicht so stark wie Frischfleisch...</note>
+      </notes>
+      <segment>
+        <source>Auch der Verzehr von kaltem Menschenfleisch senkt deinen Hunger, allerdings nicht so stark wie Frischfleisch...</source>
+        <target>Auch der Verzehr von kaltem Menschenfleisch senkt deinen Hunger, allerdings nicht so stark wie Frischfleisch...</target>
       </segment>
     </unit>
   </file>

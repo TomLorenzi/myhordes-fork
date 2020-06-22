@@ -247,7 +247,7 @@ class MigrateCommand extends Command
 
             $langs = ($lang === 'all') ? ['de','en','fr','es'] : [$lang];
             foreach ($langs as $current_lang)
-                $this->capsule("translation:update $current_lang --force --sort asc --output-format xlf2 --prefix ''", $output);
+                $this->capsule("translation:update $current_lang --force --sort asc --output-format xlf2", $output);
 
             return 0;
         }
