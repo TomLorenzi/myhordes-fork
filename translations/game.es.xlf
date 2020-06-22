@@ -9222,7 +9222,7 @@
     </unit>
     <unit id="kKXLpSQ" name="Schreiben Sie an alle">
       <notes>
-        <note category="german">Schreiben Sie an alle</note>
+        <note category="german">Alle anschreiben</note>
       </notes>
       <segment>
         <source>Schreiben Sie an alle</source>
@@ -10451,6 +10451,447 @@
       <segment>
         <source>Werkstatt (building)</source>
         <target>Werkstatt (building)</target>
+      </segment>
+    </unit>
+    <unit id="aVkOGIz" name="Von einem Ghul gefressen">
+      <notes>
+        <note category="german">Von einem Ghul gefressen</note>
+      </notes>
+      <segment>
+        <source>Von einem Ghul gefressen</source>
+        <target>Von einem Ghul gefressen</target>
+      </segment>
+    </unit>
+    <unit id="2IRYW.2" name="06db8c8">
+      <notes>
+        <note category="german">%actor% hat bei der Plünderung von † %victim% Haus diesen Gegenstand gestohlen: %item%</note>
+      </notes>
+      <segment>
+        <source>%actor% hat bei der Plünderung von † %victim% Haus diesen Gegenstand gestohlen: %item%</source>
+        <target>%actor% hat bei der Plünderung von † %victim% Haus diesen Gegenstand gestohlen: %item%</target>
+      </segment>
+    </unit>
+    <unit id="54fCkFO" name="7a97c74">
+      <notes>
+        <note category="german">Es sind nicht mehr genügend Einwohner in der Stadt. Der Zombieangriff und die Wiederherstellung der AP wurden auf morgen Abend verschoben.</note>
+      </notes>
+      <segment>
+        <source>Es sind nicht mehr genügend Einwohner in der Stadt. Der Zombieangriff und die Wiederherstellung der AP wurden auf morgen Abend verschoben.</source>
+        <target>Es sind nicht mehr genügend Einwohner in der Stadt. Der Zombieangriff und die Wiederherstellung der AP wurden auf morgen Abend verschoben.</target>
+      </segment>
+    </unit>
+    <unit id="mjwvinZ" name="Heute Morgen ist kein Artikel erschienen...">
+      <notes>
+        <note category="german">Heute Morgen ist kein Artikel erschienen...</note>
+      </notes>
+      <segment>
+        <source>Heute Morgen ist kein Artikel erschienen...</source>
+        <target>Heute Morgen ist kein Artikel erschienen...</target>
+      </segment>
+    </unit>
+    <unit id="z3Y3jVt" name="Anonyme Beschwerde">
+      <notes>
+        <note category="german">Anonyme Beschwerde</note>
+      </notes>
+      <segment>
+        <source>Anonyme Beschwerde</source>
+        <target>Anonyme Beschwerde</target>
+      </segment>
+    </unit>
+    <unit id="tlOTwnM" name="Es wurde eine neue anonyme Beschwerde gegen dich eingelegt: &quot;%reason%&quot;">
+      <notes>
+        <note category="german">Es wurde eine neue anonyme Beschwerde gegen dich eingelegt: "%reason%"</note>
+      </notes>
+      <segment>
+        <source>Es wurde eine neue anonyme Beschwerde gegen dich eingelegt: "%reason%"</source>
+        <target>Es wurde eine neue anonyme Beschwerde gegen dich eingelegt: "%reason%"</target>
+      </segment>
+    </unit>
+    <unit id="1VFuVbv" name="Beschwerde zurückgezogen">
+      <notes>
+        <note category="german">Beschwerde zurückgezogen</note>
+      </notes>
+      <segment>
+        <source>Beschwerde zurückgezogen</source>
+        <target>Beschwerde zurückgezogen</target>
+      </segment>
+    </unit>
+    <unit id="xllGfth" name="Es gibt gute Nachrichten! Folgende Beschwerde wurde zurückgezogen: &quot;%reason%&quot;">
+      <notes>
+        <note category="german">Es gibt gute Nachrichten! Folgende Beschwerde wurde zurückgezogen: "%reason%"</note>
+      </notes>
+      <segment>
+        <source>Es gibt gute Nachrichten! Folgende Beschwerde wurde zurückgezogen: "%reason%"</source>
+        <target>Es gibt gute Nachrichten! Folgende Beschwerde wurde zurückgezogen: "%reason%"</target>
+      </segment>
+    </unit>
+    <unit id="d7mV6VK" name="Du bist vor Angst erstarrt!!">
+      <notes>
+        <note category="german">Du bist vor Angst erstarrt!!</note>
+      </notes>
+      <segment>
+        <source>Du bist vor Angst erstarrt!!</source>
+        <target>Du bist vor Angst erstarrt!!</target>
+      </segment>
+    </unit>
+    <unit id="k9lty2j" name="6fedae5">
+      <notes>
+        <note category="german">Wir haben zwei Neuigkeiten für dich. Eine gute und eine schlechte. Zuerst die gute: Trotz ihrer hartnäckigen Versuche, ist es den %num% Zombie(s) nicht gelungen, dich aufzufressen. Du hast dich wacker geschlagen. Bravo! Die schlechte: Das Erlebnis war so schlimm, dass du in eine Angststarre verfallen bist. So etwas möchtest du nicht wieder erleben...</note>
+      </notes>
+      <segment>
+        <source>Wir haben zwei Neuigkeiten für dich. Eine gute und eine schlechte. Zuerst die gute: Trotz ihrer hartnäckigen Versuche, ist es den %num% Zombie(s) nicht gelungen, dich aufzufressen. Du hast dich wacker geschlagen. Bravo! Die schlechte: Das Erlebnis war so schlimm, dass du in eine Angststarre verfallen bist. So etwas möchtest du nicht wieder erleben...</source>
+        <target>Wir haben zwei Neuigkeiten für dich. Eine gute und eine schlechte. Zuerst die gute: Trotz ihrer hartnäckigen Versuche, ist es den %num% Zombie(s) nicht gelungen, dich aufzufressen. Du hast dich wacker geschlagen. Bravo! Die schlechte: Das Erlebnis war so schlimm, dass du in eine Angststarre verfallen bist. So etwas möchtest du nicht wieder erleben...</target>
+      </segment>
+    </unit>
+    <unit id="Efbc_qn" name="Haltet den Dieb!">
+      <notes>
+        <note category="german">Haltet den Dieb!</note>
+      </notes>
+      <segment>
+        <source>Haltet den Dieb!</source>
+        <target>Haltet den Dieb!</target>
+      </segment>
+    </unit>
+    <unit id="DiWxu8O" name="9a7499d">
+      <notes>
+        <note category="german">Es scheint so, als ob ein anderer Bürger Gefallen an deinem Inventar gefunden hätte... Dir wurde folgendes gestohlen: %icon% %item%</note>
+      </notes>
+      <segment>
+        <source>Es scheint so, als ob ein anderer Bürger Gefallen an deinem Inventar gefunden hätte... Dir wurde folgendes gestohlen: %icon% %item%</source>
+        <target>Es scheint so, als ob ein anderer Bürger Gefallen an deinem Inventar gefunden hätte... Dir wurde folgendes gestohlen: %icon% %item%</target>
+      </segment>
+    </unit>
+    <unit id="RrPwAW." name="Zufälliger Bürger">
+      <notes>
+        <note category="german">Zufälliger Bürger</note>
+      </notes>
+      <segment>
+        <source>Zufälliger Bürger</source>
+        <target>Zufälliger Bürger</target>
+      </segment>
+    </unit>
+    <unit id="dTDcH8R" name="c8e86c4">
+      <notes>
+        <note category="german">Hiermit kannst du den Namen eines zufälligen Bürgers in deinen Post anfügen.
+                                                Bei Bedarf kannst du die Auswahl auf bestimmte Berufe, Helden oder bereits gestorbene Bürger eingrenzen.</note>
+      </notes>
+      <segment>
+        <source>Hiermit kannst du den Namen eines zufälligen Bürgers in deinen Post anfügen.
+                                                Bei Bedarf kannst du die Auswahl auf bestimmte Berufe, Helden oder bereits gestorbene Bürger eingrenzen.</source>
+        <target>Hiermit kannst du den Namen eines zufälligen Bürgers in deinen Post anfügen.
+                                                Bei Bedarf kannst du die Auswahl auf bestimmte Berufe, Helden oder bereits gestorbene Bürger eingrenzen.</target>
+      </segment>
+    </unit>
+    <unit id="lpSEXvf" name="71134d2">
+      <notes>
+        <note category="german">Wenn zu den gleichen zufällig gewählten Bürger mehrfach in deinem Text verwenden willst, kannst du ihm eine Nummer zuweisen, beispielsweise:</note>
+      </notes>
+      <segment>
+        <source>Wenn zu den gleichen zufällig gewählten Bürger mehrfach in deinem Text verwenden willst, kannst du ihm eine Nummer zuweisen, beispielsweise:</source>
+        <target>Wenn zu den gleichen zufällig gewählten Bürger mehrfach in deinem Text verwenden willst, kannst du ihm eine Nummer zuweisen, beispielsweise:</target>
+      </segment>
+    </unit>
+    <unit id="znr86lo" name="Zum Forum">
+      <notes>
+        <note category="german">Zum Forum</note>
+      </notes>
+      <segment>
+        <source>Zum Forum</source>
+        <target>Zum Forum</target>
+      </segment>
+    </unit>
+    <unit id="2fBmxk8" name="Du hast dich soeben in einen Ghul verandelt!">
+      <notes>
+        <note category="german">Du hast dich soeben in einen Ghul verandelt!</note>
+      </notes>
+      <segment>
+        <source>Du hast dich soeben in einen Ghul verandelt!</source>
+        <target>Du hast dich soeben in einen Ghul verandelt!</target>
+      </segment>
+    </unit>
+    <unit id="nu14DUW" name="f8cbaf5">
+      <notes>
+        <note category="german">Du hättest die kleinen bräunlichen Hautverfärbungen etwas ernster nehmen sollen. Nein, das war kein kleiner Sonnenbrand und kein exotischer Hautpilz!
+            Jetzt ist es zu spät... Einige wenige Augenblicke später haben sich alle deine Zweifel in Luft aufgelöst und ein unkontrollierbarer Appetit nach
+            Menschenfleisch übermannt sich... Hmmm... Du solltest deinen Hunger SCHNELLSTENS stillen, oder willst du krepieren?!</note>
+      </notes>
+      <segment>
+        <source>Du hättest die kleinen bräunlichen Hautverfärbungen etwas ernster nehmen sollen. Nein, das war kein kleiner Sonnenbrand und kein exotischer Hautpilz!
+            Jetzt ist es zu spät... Einige wenige Augenblicke später haben sich alle deine Zweifel in Luft aufgelöst und ein unkontrollierbarer Appetit nach
+            Menschenfleisch übermannt sich... Hmmm... Du solltest deinen Hunger SCHNELLSTENS stillen, oder willst du krepieren?!</source>
+        <target>Du hättest die kleinen bräunlichen Hautverfärbungen etwas ernster nehmen sollen. Nein, das war kein kleiner Sonnenbrand und kein exotischer Hautpilz!
+            Jetzt ist es zu spät... Einige wenige Augenblicke später haben sich alle deine Zweifel in Luft aufgelöst und ein unkontrollierbarer Appetit nach
+            Menschenfleisch übermannt sich... Hmmm... Du solltest deinen Hunger SCHNELLSTENS stillen, oder willst du krepieren?!</target>
+      </segment>
+    </unit>
+    <unit id="1VZ526R" name="Du bist ab sofort ein Ghul!">
+      <notes>
+        <note category="german">Du bist ab sofort ein Ghul!</note>
+      </notes>
+      <segment>
+        <source>Du bist ab sofort ein Ghul!</source>
+        <target>Du bist ab sofort ein Ghul!</target>
+      </segment>
+    </unit>
+    <unit id="kUcqlQB" name="bce0dfd">
+      <notes>
+        <note category="german">Ab sofort solltest du deine Spielweise ändern: Deine einstigen Nachbarn und Freunde sind jetzt zweibeinige Nahrung, die du durch List und Trug erlegen musst.</note>
+      </notes>
+      <segment>
+        <source>Ab sofort solltest du deine Spielweise ändern: Deine einstigen Nachbarn und Freunde sind jetzt zweibeinige Nahrung, die du durch List und Trug erlegen musst.</source>
+        <target>Ab sofort solltest du deine Spielweise ändern: Deine einstigen Nachbarn und Freunde sind jetzt zweibeinige Nahrung, die du durch List und Trug erlegen musst.</target>
+      </segment>
+    </unit>
+    <unit id="Lou1e47" name="Hier noch ein paar wichtige Überlebenstipps:">
+      <notes>
+        <note category="german">Hier noch ein paar wichtige Überlebenstipps:</note>
+      </notes>
+      <segment>
+        <source>Hier noch ein paar wichtige Überlebenstipps:</source>
+        <target>Hier noch ein paar wichtige Überlebenstipps:</target>
+      </segment>
+    </unit>
+    <unit id="SJd1LN1" name="3fbdb60">
+      <notes>
+        <note category="german">Sag niemandem, dass du ein Ghul bist! Du würdest von deinen Mitbürgern sehr wahrscheinlich sofort erschlagen.</note>
+      </notes>
+      <segment>
+        <source>Sag niemandem, dass du ein Ghul bist! Du würdest von deinen Mitbürgern sehr wahrscheinlich sofort erschlagen.</source>
+        <target>Sag niemandem, dass du ein Ghul bist! Du würdest von deinen Mitbürgern sehr wahrscheinlich sofort erschlagen.</target>
+      </segment>
+    </unit>
+    <unit id="dIAkbPP" name="c3a93ff">
+      <notes>
+        <note category="german">Behalte deine Hungerleiste stets im Auge. Sie befindet sich bei deiner Gesundheitsanzeige.</note>
+      </notes>
+      <segment>
+        <source>Behalte deine Hungerleiste stets im Auge. Sie befindet sich bei deiner Gesundheitsanzeige.</source>
+        <target>Behalte deine Hungerleiste stets im Auge. Sie befindet sich bei deiner Gesundheitsanzeige.</target>
+      </segment>
+    </unit>
+    <unit id="baFbBy0" name="ff17216">
+      <notes>
+        <note category="german">Um deinen Heißhunger zu stillen, solltest du möglichst bald einen Mitbürger verschlingen. Das machst du am besten in der Wüste, da fällt es nicht so auf.</note>
+      </notes>
+      <segment>
+        <source>Um deinen Heißhunger zu stillen, solltest du möglichst bald einen Mitbürger verschlingen. Das machst du am besten in der Wüste, da fällt es nicht so auf.</source>
+        <target>Um deinen Heißhunger zu stillen, solltest du möglichst bald einen Mitbürger verschlingen. Das machst du am besten in der Wüste, da fällt es nicht so auf.</target>
+      </segment>
+    </unit>
+    <unit id="tUvA6.D" name="9ee8e2e">
+      <notes>
+        <note category="german">Auch der Verzehr von kaltem Menschenfleisch senkt deinen Hunger, allerdings nicht so stark wie Frischfleisch...</note>
+      </notes>
+      <segment>
+        <source>Auch der Verzehr von kaltem Menschenfleisch senkt deinen Hunger, allerdings nicht so stark wie Frischfleisch...</source>
+        <target>Auch der Verzehr von kaltem Menschenfleisch senkt deinen Hunger, allerdings nicht so stark wie Frischfleisch...</target>
+      </segment>
+    </unit>
+    <unit id="W3jTpt9" name="Isolierte Zombies">
+      <notes>
+        <note category="german">Isolierte Zombies</note>
+      </notes>
+      <segment>
+        <source>Isolierte Zombies</source>
+        <target>Isolierte Zombies</target>
+      </segment>
+    </unit>
+    <unit id="Yc0dhV4" name="Die Zombies verstümmeln">
+      <notes>
+        <note category="german">Die Zombies verstümmeln</note>
+      </notes>
+      <segment>
+        <source>Die Zombies verstümmeln</source>
+        <target>Die Zombies verstümmeln</target>
+      </segment>
+    </unit>
+    <unit id="c8SXj_R" name="Horde der Zombies">
+      <notes>
+        <note category="german">Horde der Zombies</note>
+      </notes>
+      <segment>
+        <source>Horde der Zombies</source>
+        <target>Horde der Zombies</target>
+      </segment>
+    </unit>
+    <unit id="BtRmkSS" name="Mark.">
+      <notes>
+        <note category="german">Mark.</note>
+      </notes>
+      <segment>
+        <source>Mark.</source>
+        <target>Mark.</target>
+      </segment>
+    </unit>
+    <unit id="00Lc7om" name="73a703f">
+      <notes>
+        <note category="german">Du bist in einer Privatstadt. Für diese Art von Stadt gelten einige Sonderregeln.</note>
+      </notes>
+      <segment>
+        <source>Du bist in einer Privatstadt. Für diese Art von Stadt gelten einige Sonderregeln.</source>
+        <target>Du bist in einer Privatstadt. Für diese Art von Stadt gelten einige Sonderregeln.</target>
+      </segment>
+    </unit>
+    <unit id="97Bucqq" name="Einrichtung">
+      <notes>
+        <note category="german">Einrichtung</note>
+      </notes>
+      <segment>
+        <source>Einrichtung</source>
+        <target>Einrichtung</target>
+      </segment>
+    </unit>
+    <unit id="u6_oAsd" name="ff69301">
+      <notes>
+        <note category="german">Du hast keine neue Privatnachricht erhalten. Eine Liste aller Bürger findest du im</note>
+      </notes>
+      <segment>
+        <source>Du hast keine neue Privatnachricht erhalten. Eine Liste aller Bürger findest du im</source>
+        <target>Du hast keine neue Privatnachricht erhalten. Eine Liste aller Bürger findest du im</target>
+      </segment>
+    </unit>
+    <unit id="4AkrdgW" name="Verzeichnis der Stadt.">
+      <notes>
+        <note category="german">Verzeichnis der Stadt.</note>
+      </notes>
+      <segment>
+        <source>Verzeichnis der Stadt.</source>
+        <target>Verzeichnis der Stadt.</target>
+      </segment>
+    </unit>
+    <unit id="Ht8hKI." name="Dies ist eine offizielle Nachricht.">
+      <notes>
+        <note category="german">Dies ist eine offizielle Nachricht.</note>
+      </notes>
+      <segment>
+        <source>Dies ist eine offizielle Nachricht.</source>
+        <target>Dies ist eine offizielle Nachricht.</target>
+      </segment>
+    </unit>
+    <unit id="3lrK_qg" name="Lade Forum...">
+      <notes>
+        <note category="german">Lade Forum...</note>
+      </notes>
+      <segment>
+        <source>Lade Forum...</source>
+        <target>Lade Forum...</target>
+      </segment>
+    </unit>
+    <unit id="n19gYuh" name="Das folgende Bauprojekt wurde empfohlen:">
+      <notes>
+        <note category="german">Das folgende Bauprojekt wurde empfohlen:</note>
+      </notes>
+      <segment>
+        <source>Das folgende Bauprojekt wurde empfohlen:</source>
+        <target>Das folgende Bauprojekt wurde empfohlen:</target>
+      </segment>
+    </unit>
+    <unit id="OAGjXFG" name="Alle">
+      <notes>
+        <note category="german">Alle</note>
+      </notes>
+      <segment>
+        <source>Alle</source>
+        <target>Alle</target>
+      </segment>
+    </unit>
+    <unit id="98qlXbX" name="Du bist %status%">
+      <notes>
+        <note category="german">Du bist %status%</note>
+      </notes>
+      <segment>
+        <source>Du bist %status%</source>
+        <target>Du bist %status%</target>
+      </segment>
+    </unit>
+    <unit id="Pzhs1Mo" name="Ratschlag:">
+      <notes>
+        <note category="german">Ratschlag:</note>
+      </notes>
+      <segment>
+        <source>Ratschlag:</source>
+        <target>Ratschlag:</target>
+      </segment>
+    </unit>
+    <unit id="iHdJZPx" name="Iss ODER trink etwas Wasser.">
+      <notes>
+        <note category="german">Iss ODER trink etwas Wasser.</note>
+      </notes>
+      <segment>
+        <source>Iss ODER trink etwas Wasser.</source>
+        <target>Iss ODER trink etwas Wasser.</target>
+      </segment>
+    </unit>
+    <unit id="hhKj9e1" name="Du kannst eine Ration Wasser trinken.">
+      <notes>
+        <note category="german">Du kannst eine Ration Wasser trinken.</note>
+      </notes>
+      <segment>
+        <source>Du kannst eine Ration Wasser trinken.</source>
+        <target>Du kannst eine Ration Wasser trinken.</target>
+      </segment>
+    </unit>
+    <unit id="uSGlEhQ" name="Du kannst etwas essen, um deine Erschöpfung zu lindern.">
+      <notes>
+        <note category="german">Du kannst etwas essen, um deine Erschöpfung zu lindern.</note>
+      </notes>
+      <segment>
+        <source>Du kannst etwas essen, um deine Erschöpfung zu lindern.</source>
+        <target>Du kannst etwas essen, um deine Erschöpfung zu lindern.</target>
+      </segment>
+    </unit>
+    <unit id="CjT0_7R" name="4d90a81">
+      <notes>
+        <note category="german">Du hast bereits etwas gegessen und getrunken. Dir bleiben nur noch Drogen und Alkohol!</note>
+      </notes>
+      <segment>
+        <source>Du hast bereits etwas gegessen und getrunken. Dir bleiben nur noch Drogen und Alkohol!</source>
+        <target>Du hast bereits etwas gegessen und getrunken. Dir bleiben nur noch Drogen und Alkohol!</target>
+      </segment>
+    </unit>
+    <unit id="N1KK_ks" name="Die Liste der eingeschriebenen Spieler ansehen.">
+      <notes>
+        <note category="german">Die Liste der eingeschriebenen Spieler ansehen.</note>
+      </notes>
+      <segment>
+        <source>Die Liste der eingeschriebenen Spieler ansehen.</source>
+        <target>Die Liste der eingeschriebenen Spieler ansehen.</target>
+      </segment>
+    </unit>
+    <unit id="VTcxe_c" name="Quarantäne">
+      <notes>
+        <note category="german">Quarantäne</note>
+      </notes>
+      <segment>
+        <source>Quarantäne</source>
+        <target>Quarantäne</target>
+      </segment>
+    </unit>
+    <unit id="icxLMof" name="Der letzte Tote in dieser Stadt!">
+      <notes>
+        <note category="german">Der letzte Tote in dieser Stadt!</note>
+      </notes>
+      <segment>
+        <source>Der letzte Tote in dieser Stadt!</source>
+        <target>Der letzte Tote in dieser Stadt!</target>
+      </segment>
+    </unit>
+    <unit id="SWca3Zo" name="089f4e0">
+      <notes>
+        <note category="german">Der letzte Tote erhält nur dann eine Belohnung, wenn er 5 volle Tage überlebt hat.</note>
+      </notes>
+      <segment>
+        <source>Der letzte Tote erhält nur dann eine Belohnung, wenn er 5 volle Tage überlebt hat.</source>
+        <target>Der letzte Tote erhält nur dann eine Belohnung, wenn er 5 volle Tage überlebt hat.</target>
+      </segment>
+    </unit>
+    <unit id="CHdbLWu" name="Komm zurück zu meiner Seele">
+      <notes>
+        <note category="german">Komm zurück zu meiner Seele</note>
+      </notes>
+      <segment>
+        <source>Komm zurück zu meiner Seele</source>
+        <target>Komm zurück zu meiner Seele</target>
       </segment>
     </unit>
   </file>

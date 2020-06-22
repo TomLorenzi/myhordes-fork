@@ -1162,5 +1162,113 @@
         <target>Zitieren</target>
       </segment>
     </unit>
+    <unit id="H5.W95P" name="7a92ff6">
+      <notes>
+        <note category="german">Falls sich dieser Zustand auch um Mitternacht noch nicht geändert hat, findet kein Zombieangriff statt. Der Tag wird dann künstlich verlängert.</note>
+      </notes>
+      <segment>
+        <source>Falls sich dieser Zustand auch um Mitternacht noch nicht geändert hat, findet kein Zombieangriff statt. Der Tag wird dann künstlich verlängert.</source>
+        <target>Falls sich dieser Zustand auch um Mitternacht noch nicht geändert hat, findet kein Zombieangriff statt. Der Tag wird dann künstlich verlängert.</target>
+      </segment>
+    </unit>
+    <unit id="FbY7TeM" name="Bestätigen">
+      <notes>
+        <note category="german">Bestätigen</note>
+      </notes>
+      <segment>
+        <source>Bestätigen</source>
+        <target>Bestätigen</target>
+      </segment>
+    </unit>
+    <unit id="3RZ5Bd4" name="Version">
+      <notes>
+        <note category="german">Version</note>
+      </notes>
+      <segment>
+        <source>Version</source>
+        <target>Version</target>
+      </segment>
+    </unit>
+    <unit id="8qHMcfp" name="Sprache">
+      <notes>
+        <note category="german">Sprache</note>
+      </notes>
+      <segment>
+        <source>Sprache</source>
+        <target>Sprache</target>
+      </segment>
+    </unit>
+    <unit id="33mt65B" name="Num. Listenpunkt">
+      <notes>
+        <note category="german">Num. Listenpunkt</note>
+      </notes>
+      <segment>
+        <source>Num. Listenpunkt</source>
+        <target>Num. Listenpunkt</target>
+      </segment>
+    </unit>
+    <unit id="81XajEF" name="Vertraulich">
+      <notes>
+        <note category="german">Vertraulich</note>
+      </notes>
+      <segment>
+        <source>Vertraulich</source>
+        <target>Vertraulich</target>
+      </segment>
+    </unit>
+    <unit id="jsMx6ao" name="a848169">
+      <notes>
+        <note category="german">Wenn du nichts zur Hand hast, um deine Erschöpfung zu lindern, dann bitte im Forum um Hilfe...</note>
+      </notes>
+      <segment>
+        <source>Wenn du nichts zur Hand hast, um deine Erschöpfung zu lindern, dann bitte im Forum um Hilfe...</source>
+        <target>Wenn du nichts zur Hand hast, um deine Erschöpfung zu lindern, dann bitte im Forum um Hilfe...</target>
+      </segment>
+    </unit>
+    <unit id="QuMXv7I" name="a023548">
+      <notes>
+        <note category="german">Der Markierer ist auf der Karte für ALLE Bürger sichtbar. Benutze ihn, um der Gemeinschaft Informationen über eine bestimmte Zone mitzuteilen.</note>
+      </notes>
+      <segment>
+        <source>Der Markierer ist auf der Karte für ALLE Bürger sichtbar. Benutze ihn, um der Gemeinschaft Informationen über eine bestimmte Zone mitzuteilen.</source>
+        <target>Der Markierer ist auf der Karte für ALLE Bürger sichtbar. Benutze ihn, um der Gemeinschaft Informationen über eine bestimmte Zone mitzuteilen.</target>
+      </segment>
+    </unit>
+    <unit id="51m8lm3" name="7ef672f">
+      <notes>
+        <note category="german">Beachte: Alle hier geschriebenen Nachrichten gehen verloren, wenn alle Bürger die Zone verlassen.</note>
+      </notes>
+      <segment>
+        <source>Beachte: Alle hier geschriebenen Nachrichten gehen verloren, wenn alle Bürger die Zone verlassen.</source>
+        <target>Beachte: Alle hier geschriebenen Nachrichten gehen verloren, wenn alle Bürger die Zone verlassen.</target>
+      </segment>
+    </unit>
+    <unit id="uEQ0dag" name="7273dec">
+      <notes>
+        <note category="german">Diese ID übergibst du der Seite oder dem Programm, dem du einen (Lese-)Zugriff auf deine Spieldaten in "MyHordes" geben möchtest. Das sind Informationen zu deiner Stadt, dem Bürgerverzeichnis, der Weltkarte etc.</note>
+      </notes>
+      <segment>
+        <source>Diese ID übergibst du der Seite oder dem Programm, dem du einen (Lese-)Zugriff auf deine Spieldaten in "MyHordes" geben möchtest. Das sind Informationen zu deiner Stadt, dem Bürgerverzeichnis, der Weltkarte etc.</source>
+        <target>Diese ID übergibst du der Seite oder dem Programm, dem du einen (Lese-)Zugriff auf deine Spieldaten in "MyHordes" geben möchtest. Das sind Informationen zu deiner Stadt, dem Bürgerverzeichnis, der Weltkarte etc.</target>
+      </segment>
+    </unit>
+    <unit id=".0Hr4tG" name="Diese Punkte werden für die Seelenrangliste verwendet.">
+      <notes>
+        <note category="german">Diese Punkte werden für die Seelenrangliste verwendet.</note>
+      </notes>
+      <segment>
+        <source>Diese Punkte werden für die Seelenrangliste verwendet.</source>
+        <target>Diese Punkte werden für die Seelenrangliste verwendet.</target>
+      </segment>
+    </unit>
+    <unit id="L3FSiZr" name="1eebdb6">
+      <notes>
+        <note category="german">Abhängig von der Anzahl der Tage, die du überlebt hast, erhältst du nach jeder Partie eine bestimmte Anzahl an Punkten.</note>
+      </notes>
+      <segment>
+        <source>Abhängig von der Anzahl der Tage, die du überlebt hast, erhältst du nach jeder Partie eine bestimmte Anzahl an Punkten.</source>
+        <target>Abhängig von der Anzahl der Tage, die du überlebt hast, erhältst du nach jeder Partie eine bestimmte Anzahl an Punkten.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
