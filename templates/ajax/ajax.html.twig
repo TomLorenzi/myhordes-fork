@@ -12,7 +12,7 @@
                         {% block menu_text %}
                             {% if app.user %}
                                 {% if app.user.activeCitizen %}
-                                    <li class="town-dash" x-ajax-href="{{ url('game_landing') }}">{{ 'Zum Spiel'|trans({},'global') }}</li>
+                                    <li class="back-dash" x-ajax-href="{{ url('game_landing') }}">{{ 'Zum Spiel'|trans({},'global') }}</li>
                                 {% else %}
                                     <li class="town-dash" x-ajax-href="{{ url('ghost_welcome') }}">{% trans from 'global' %}Spiel{% endtrans %}</li>
                                 {% endif %}

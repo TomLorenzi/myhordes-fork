@@ -1,7 +1,12 @@
 {% extends "ajax/game/game.html.twig" %}
 {% block menu_text %}
-    {{ parent() }}
-    <li class="town-dash" x-ajax-href="{{ url('game_landing') }}">{{ 'Zum Spiel'|trans({},'global') }}</li>
+    {% if app.user %}
+        {% if app.user.activeCitizen %}
+            <li class="back-dash" x-ajax-href="{{ url('game_landing') }}">{{ 'Zum Spiel'|trans({},'global') }}</li>
+        {% else %}
+            <li class="town-dash" x-ajax-href="{{ url('ghost_welcome') }}">{% trans from 'global' %}Spiel{% endtrans %}</li>
+        {% endif %}
+    {% endif %}
 {% endblock %}
 
 {# @var forum \App\Entity\Forum #}
