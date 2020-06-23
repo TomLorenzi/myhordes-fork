@@ -10448,7 +10448,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>%actor% hat bei der Plünderung von † %victim% Haus diesen Gegenstand gestohlen: %item%</source>
-        <target>%actor% hat bei der Plünderung von † %victim% Haus diesen Gegenstand gestohlen: %item%</target>
+        <target>%actor% aquired the %item% during the pillaging of † %victim%'s house!</target>
       </segment>
     </unit>
     <unit id="n19gYuh" name="Das folgende Bauprojekt wurde empfohlen:">
