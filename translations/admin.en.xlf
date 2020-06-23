@@ -1060,7 +1060,7 @@
       </notes>
       <segment>
         <source>Rundmail als Rabe</source>
-        <target>Message as Crow</target>
+        <target>Global Message as Crow</target>
       </segment>
     </unit>
     <unit id="K_rzvjv" name="PM vom Raben">
@@ -1074,7 +1074,7 @@
     </unit>
     <unit id="l2_e9hX" name="Stadt administrieren">
       <notes>
-        <note category="german">Town administration</note>
+        <note category="german">Stadt administrieren</note>
       </notes>
       <segment>
         <source>Stadt administrieren</source>
@@ -1083,7 +1083,7 @@
     </unit>
     <unit id="Enh.KhP" name="Nächtlicher Angriff">
       <notes>
-        <note category="german">Night attack</note>
+        <note category="german">Nächtlicher Angriff</note>
       </notes>
       <segment>
         <source>Nächtlicher Angriff</source>
@@ -1092,7 +1092,7 @@
     </unit>
     <unit id="YBKE35r" name="Quarantäne aufheben">
       <notes>
-        <note category="german">Remove quarantine</note>
+        <note category="german">Quarantäne aufheben</note>
       </notes>
       <segment>
         <source>Quarantäne aufheben</source>
@@ -1101,7 +1101,7 @@
     </unit>
     <unit id="ZG32Cjn" name="Unter Quarantäne stellen">
       <notes>
-        <note category="german">Put under Quarantine</note>
+        <note category="german">Unter Quarantäne stellen</note>
       </notes>
       <segment>
         <source>Unter Quarantäne stellen</source>
@@ -1110,7 +1110,7 @@
     </unit>
     <unit id="akWsVTF" name="Manueller Tageswechsel">
       <notes>
-        <note category="german">Manual change of Day</note>
+        <note category="german">Manueller Tageswechsel</note>
       </notes>
       <segment>
         <source>Manueller Tageswechsel</source>

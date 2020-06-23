@@ -3388,7 +3388,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Leiche aus der Stadt ziehen</source>
-        <target>Sortir le cadavre</target>
+        <target>Drag it out of Town</target>
       </segment>
     </unit>
     <unit id="hXIZAOO" name="Leiche mit Wasser übergießen">
@@ -3397,7 +3397,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Leiche mit Wasser übergießen</source>
-        <target>Arroser le cadavre</target>
+        <target>Water the corpse</target>
       </segment>
     </unit>
     <unit id="4hCJabi" name="Leiche grillen">
@@ -3559,7 +3559,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Es ist kein Bürger in der Nähe...</source>
-        <target>Es ist kein Bürger in der Nähe...</target>
+        <target>There is no citizen nearby ...</target>
       </segment>
     </unit>
     <unit id="25G93ga" name="Durch die Lüftungsschächte klettern">
@@ -3568,7 +3568,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Durch die Lüftungsschächte klettern</source>
-        <target>Durch die Lüftungsschächte klettern</target>
+        <target>Climb through the Ventilation</target>
       </segment>
     </unit>
     <unit id="f1TzhOn" name="Gammler">
@@ -5225,7 +5225,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Du kannst helfen und dich der heutigen Nachtwache anschließen!</source>
-        <target>Du kannst helfen und dich der heutigen Nachtwache anschließen!</target>
+        <target>You can help by joining the watchmen tonight!</target>
       </segment>
     </unit>
     <unit id="ZvXc1po" name="Am Ende der Schlacht zerfiel das Gebäude %buildingName% zu Staub.">
@@ -5270,7 +5270,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Du hast die Leiche von %disposed% außerhalb der Stadt entsorgt. Eine gute Sache, die Sie getan haben!</source>
-        <target>Du hast die Leiche von %disposed% außerhalb der Stadt entsorgt. Eine gute Sache, die Sie getan haben!</target>
+        <target>You have dragged %disposed% corpse out of town. A good job well done!</target>
       </segment>
     </unit>
     <unit id="eZQzCp7" name="d80a050">
@@ -5279,7 +5279,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Der Körper verflüssigte sich zu einer ekelerregenden, übel riechenden Pfütze. Deine Schuhe haben ganz schön was abgekriegt, das steht fest...</source>
-        <target>Der Körper verflüssigte sich zu einer ekelerregenden, übel riechenden Pfütze. Deine Schuhe haben ganz schön was abgekriegt, das steht fest...</target>
+        <target>The body liquified into a sickeningly vile puddle. Your shoes got the worst of it, that's for sure...</target>
       </segment>
     </unit>
     <unit id="rJRa84E" name="4a1e54c">
@@ -6872,7 +6872,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>%citizen% wurde standrechtlich erschossen. Lang lebe das Diktat!</source>
-        <target>%citizen% wurde standrechtlich erschossen. Lang lebe das Diktat!</target>
+        <target>%citizen% was shot under civil law. Long live the Dictatorship!</target>
       </segment>
     </unit>
     <unit id="NjgYbEj" name="cae5333">
@@ -7664,7 +7664,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Unsere Verteidigung ist nicht stark genug, um dem Angriff heute Nacht standzuhalten.</source>
-        <target>Unsere Verteidigung ist nicht stark genug, um dem Angriff heute Nacht standzuhalten.</target>
+        <target>Our defences won’t stand up to tonight’s attack!</target>
       </segment>
     </unit>
     <unit id="dGfxw4F" name="2242ddb">
@@ -7781,7 +7781,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Was ist mit ihm geschehen?</source>
-        <target>What happened to him?</target>
+        <target>What happened to the body?</target>
       </segment>
     </unit>
     <unit id="56g324h" name="Nach außen hin tot, wird %citizen% seinen Mitbürgern keine Ruhe geboten haben.">
@@ -7790,7 +7790,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Nach außen hin tot, wird %citizen% seinen Mitbürgern keine Ruhe geboten haben.</source>
-        <target>Nach außen hin tot, wird %citizen% seinen Mitbürgern keine Ruhe geboten haben.</target>
+        <target>By dying outside the town, %citizen% has not left their fellow citizens in peace... yet.</target>
       </segment>
     </unit>
     <unit id="zeR3KvL" name="8c2d7df">
@@ -7799,7 +7799,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Es ist nicht ohne Abscheu, dass %disposing_citizen% den leblosen Körper von %citizen% losgeworden ist.</source>
-        <target>Es ist nicht ohne Abscheu, dass %disposing_citizen% den leblosen Körper von %citizen% losgeworden ist.</target>
+        <target>The way %disposing_citizen% got rid of the lifeless body of %citizen% was pretty disgusting.</target>
       </segment>
     </unit>
     <unit id="g69lh6D" name="a22eaa2">
@@ -9674,7 +9674,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Unsere Verteidigung dürfte ausreichen, zumindest einen Teil des Angriffs heute Nacht abzuwehren.</source>
-        <target>Unsere Verteidigung dürfte ausreichen, zumindest einen Teil des Angriffs heute Nacht abzuwehren.</target>
+        <target>Our defences may be able to withstand part of the coming attack.</target>
       </segment>
     </unit>
     <unit id="9cNHWGl" name="Seelenpunkte">
@@ -9755,7 +9755,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Und wieder 'ne Leiche weniger! %citizen% wurde von † %disposed% entsorgt!</source>
-        <target>Und wieder 'ne Leiche weniger! %citizen% wurde von † %disposed% entsorgt!</target>
+        <target>That's one body less! † %disposed% has been thrown out by %citizen%!</target>
       </segment>
     </unit>
     <unit id="E0yx4Bm" name="%citizen% hat mit etwas Wasser † %disposed% &quot;verbrannt&quot;.">
@@ -9764,7 +9764,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>%citizen% hat mit etwas Wasser † %disposed% "verbrannt".</source>
-        <target>%citizen% hat mit etwas Wasser † %disposed% "verbrannt".</target>
+        <target>%citizen% has used water to burn † %disposed%'s corpse.</target>
       </segment>
     </unit>
     <unit id="aKJtN4V" name="Tipp-Ex">
@@ -10187,7 +10187,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Nicht ganz ekelfrei hat %disposing_citizen% den leblosen Körper von %citizen% entsorgt.</source>
-        <target>Nicht ganz ekelfrei hat %disposing_citizen% den leblosen Körper von %citizen% entsorgt.</target>
+        <target>The way %disposing_citizen% got rid of the lifeless body of %citizen% was pretty disgusting.</target>
       </segment>
     </unit>
     <unit id="8xTkhGN" name="3ccf312">
@@ -10196,7 +10196,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Dank %disposing_citizen% hat sich der Körper von %citizen% in verfaultes Wasser verwandelt.</source>
-        <target>Dank %disposing_citizen% hat sich der Körper von %citizen% in verfaultes Wasser verwandelt.</target>
+        <target>Thanks to the best efforts of %disposing_citizen%, %citizen%'s corpse has been reduced to a putrid liquid.</target>
       </segment>
     </unit>
     <unit id="v432R4L" name="Du hast bisher:">
@@ -10448,7 +10448,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>%actor% hat bei der Plünderung von † %victim% Haus diesen Gegenstand gestohlen: %item%</source>
-        <target>%actor% hat bei der Plünderung von † %victim% Haus diesen Gegenstand gestohlen: %item%</target>
+        <target>%actor% aquired the %item% during the pillaging of † %victim%'s house!</target>
       </segment>
     </unit>
     <unit id="n19gYuh" name="Das folgende Bauprojekt wurde empfohlen:">
@@ -10570,7 +10570,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     </unit>
     <unit id="z3Y3jVt" name="Anonyme Beschwerde">
       <notes>
-        <note category="german">Anonymous Complaint</note>
+        <note category="german">Anonyme Beschwerde</note>
       </notes>
       <segment>
         <source>Anonyme Beschwerde</source>
@@ -10579,7 +10579,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     </unit>
     <unit id="tlOTwnM" name="Es wurde eine neue anonyme Beschwerde gegen dich eingelegt: &quot;%reason%&quot;">
       <notes>
-        <note category="german">You have received a new anonymous complaint: "%reason%"</note>
+        <note category="german">Es wurde eine neue anonyme Beschwerde gegen dich eingelegt: "%reason%"</note>
       </notes>
       <segment>
         <source>Es wurde eine neue anonyme Beschwerde gegen dich eingelegt: "%reason%"</source>
@@ -10588,7 +10588,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     </unit>
     <unit id="1VFuVbv" name="Beschwerde zurückgezogen">
       <notes>
-        <note category="german">Complaint Withdrawn</note>
+        <note category="german">Beschwerde zurückgezogen</note>
       </notes>
       <segment>
         <source>Beschwerde zurückgezogen</source>
@@ -10597,7 +10597,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     </unit>
     <unit id="xllGfth" name="Es gibt gute Nachrichten! Folgende Beschwerde wurde zurückgezogen: &quot;%reason%&quot;">
       <notes>
-        <note category="german">Good news! The following complaint has been withdrawn: "%reason%"</note>
+        <note category="german">Es gibt gute Nachrichten! Folgende Beschwerde wurde zurückgezogen: "%reason%"</note>
       </notes>
       <segment>
         <source>Es gibt gute Nachrichten! Folgende Beschwerde wurde zurückgezogen: "%reason%"</source>
@@ -10606,7 +10606,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     </unit>
     <unit id="d7mV6VK" name="Du bist vor Angst erstarrt!!">
       <notes>
-        <note category="german">Terrorised!!</note>
+        <note category="german">Du bist vor Angst erstarrt!!</note>
       </notes>
       <segment>
         <source>Du bist vor Angst erstarrt!!</source>
@@ -10615,7 +10615,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     </unit>
     <unit id="k9lty2j" name="6fedae5">
       <notes>
-        <note category="german">OK. We've got good news and bad news. The good news is that despite the best efforts of %num% Zombies to devour you, you got through it! The bad news is that the experience really shook you up, so you are now terrorised by the idea of having to go through that again...</note>
+        <note category="german">Wir haben zwei Neuigkeiten für dich. Eine gute und eine schlechte. Zuerst die gute: Trotz ihrer hartnäckigen Versuche, ist es den %num% Zombie(s) nicht gelungen, dich aufzufressen. Du hast dich wacker geschlagen. Bravo! Die schlechte: Das Erlebnis war so schlimm, dass du in eine Angststarre verfallen bist. So etwas möchtest du nicht wieder erleben...</note>
       </notes>
       <segment>
         <source>Wir haben zwei Neuigkeiten für dich. Eine gute und eine schlechte. Zuerst die gute: Trotz ihrer hartnäckigen Versuche, ist es den %num% Zombie(s) nicht gelungen, dich aufzufressen. Du hast dich wacker geschlagen. Bravo! Die schlechte: Das Erlebnis war so schlimm, dass du in eine Angststarre verfallen bist. So etwas möchtest du nicht wieder erleben...</source>
@@ -10624,7 +10624,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     </unit>
     <unit id="Efbc_qn" name="Haltet den Dieb!">
       <notes>
-        <note category="german">Robbery!</note>
+        <note category="german">Haltet den Dieb!</note>
       </notes>
       <segment>
         <source>Haltet den Dieb!</source>
@@ -10669,7 +10669,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     </unit>
     <unit id="uSGlEhQ" name="Du kannst etwas essen, um deine Erschöpfung zu lindern.">
       <notes>
-        <note category="german">You can eat something to relieve your exhaustion.</note>
+        <note category="german">Du kannst etwas essen, um deine Erschöpfung zu lindern.</note>
       </notes>
       <segment>
         <source>Du kannst etwas essen, um deine Erschöpfung zu lindern.</source>
@@ -10678,7 +10678,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     </unit>
     <unit id="CjT0_7R" name="4d90a81">
       <notes>
-        <note category="german">You have already eaten and drunk something. You only have drugs and alcohol left!</note>
+        <note category="german">Du hast bereits etwas gegessen und getrunken. Dir bleiben nur noch Drogen und Alkohol!</note>
       </notes>
       <segment>
         <source>Du hast bereits etwas gegessen und getrunken. Dir bleiben nur noch Drogen und Alkohol!</source>
@@ -10732,7 +10732,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     </unit>
     <unit id="icxLMof" name="Der letzte Tote in dieser Stadt!">
       <notes>
-        <note category="german">The last dead man in this city!</note>
+        <note category="german">Der letzte Tote in dieser Stadt!</note>
       </notes>
       <segment>
         <source>Der letzte Tote in dieser Stadt!</source>
@@ -10741,7 +10741,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     </unit>
     <unit id="SWca3Zo" name="089f4e0">
       <notes>
-        <note category="german">The last dead person will only receive a reward if they have survived 5 full days.</note>
+        <note category="german">Der letzte Tote erhält nur dann eine Belohnung, wenn er 5 volle Tage überlebt hat.</note>
       </notes>
       <segment>
         <source>Der letzte Tote erhält nur dann eine Belohnung, wenn er 5 volle Tage überlebt hat.</source>
@@ -10750,7 +10750,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     </unit>
     <unit id="mjwvinZ" name="Heute Morgen ist kein Artikel erschienen...">
       <notes>
-        <note category="german">No news today...</note>
+        <note category="german">Heute Morgen ist kein Artikel erschienen...</note>
       </notes>
       <segment>
         <source>Heute Morgen ist kein Artikel erschienen...</source>
@@ -10759,7 +10759,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     </unit>
     <unit id="DiWxu8O" name="9a7499d">
       <notes>
-        <note category="german">Apparently, one of your fellow citizens really liked the contents of your inventory... Someone has pinched your: %icon% %item%</note>
+        <note category="german">Es scheint so, als ob ein anderer Bürger Gefallen an deinem Inventar gefunden hätte... Dir wurde folgendes gestohlen: %icon% %item%</note>
       </notes>
       <segment>
         <source>Es scheint so, als ob ein anderer Bürger Gefallen an deinem Inventar gefunden hätte... Dir wurde folgendes gestohlen: %icon% %item%</source>
@@ -10768,7 +10768,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     </unit>
     <unit id="RrPwAW." name="Zufälliger Bürger">
       <notes>
-        <note category="german">Random Citizen</note>
+        <note category="german">Zufälliger Bürger</note>
       </notes>
       <segment>
         <source>Zufälliger Bürger</source>
@@ -10777,8 +10777,8 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     </unit>
     <unit id="dTDcH8R" name="c8e86c4">
       <notes>
-        <note category="german">You can use this to add the name of a random citizen to your post.
-                                                If necessary, you can limit the selection to certain professions, heroes or citizens who have already died.</note>
+        <note category="german">Hiermit kannst du den Namen eines zufälligen Bürgers in deinen Post anfügen.
+                                                Bei Bedarf kannst du die Auswahl auf bestimmte Berufe, Helden oder bereits gestorbene Bürger eingrenzen.</note>
       </notes>
       <segment>
         <source>Hiermit kannst du den Namen eines zufälligen Bürgers in deinen Post anfügen.
@@ -10789,7 +10789,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     </unit>
     <unit id="lpSEXvf" name="71134d2">
       <notes>
-        <note category="german">If you want to use the same randomly chosen citizen more than once in your text, you can assign it a number, for example:</note>
+        <note category="german">Wenn zu den gleichen zufällig gewählten Bürger mehrfach in deinem Text verwenden willst, kannst du ihm eine Nummer zuweisen, beispielsweise:</note>
       </notes>
       <segment>
         <source>Wenn zu den gleichen zufällig gewählten Bürger mehrfach in deinem Text verwenden willst, kannst du ihm eine Nummer zuweisen, beispielsweise:</source>
@@ -10802,7 +10802,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Es sind nicht mehr genügend Einwohner in der Stadt. Der Zombieangriff und die Wiederherstellung der AP wurden auf morgen Abend verschoben.</source>
-        <target>Es sind nicht mehr genügend Einwohner in der Stadt. Der Zombieangriff und die Wiederherstellung der AP wurden auf morgen Abend verschoben.</target>
+        <target>There are no longer enough residents in the city. The zombie attack and AP restoration have been postponed until tomorrow.</target>
       </segment>
     </unit>
     <unit id="2fBmxk8" name="Du hast dich soeben in einen Ghul verandelt!">
@@ -10811,7 +10811,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Du hast dich soeben in einen Ghul verandelt!</source>
-        <target>Du hast dich soeben in einen Ghul verandelt!</target>
+        <target>You have been transformed into a Ghoul!</target>
       </segment>
     </unit>
     <unit id="nu14DUW" name="f8cbaf5">
@@ -10824,9 +10824,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
         <source>Du hättest die kleinen bräunlichen Hautverfärbungen etwas ernster nehmen sollen. Nein, das war kein kleiner Sonnenbrand und kein exotischer Hautpilz!
             Jetzt ist es zu spät... Einige wenige Augenblicke später haben sich alle deine Zweifel in Luft aufgelöst und ein unkontrollierbarer Appetit nach
             Menschenfleisch übermannt sich... Hmmm... Du solltest deinen Hunger SCHNELLSTENS stillen, oder willst du krepieren?!</source>
-        <target>Du hättest die kleinen bräunlichen Hautverfärbungen etwas ernster nehmen sollen. Nein, das war kein kleiner Sonnenbrand und kein exotischer Hautpilz!
-            Jetzt ist es zu spät... Einige wenige Augenblicke später haben sich alle deine Zweifel in Luft aufgelöst und ein unkontrollierbarer Appetit nach
-            Menschenfleisch übermannt sich... Hmmm... Du solltest deinen Hunger SCHNELLSTENS stillen, oder willst du krepieren?!</target>
+        <target>The appearance of small brownish marks on your body should have given you cause for concern, but you naively supposed you had some kind of benign infection from being out in the sun all the time. Any remaining doubt has been erased by the uncontrollable hunger for human flesh which now grips you... A terrifying need which you must satisfy QUICKLY. Or die.</target>
       </segment>
     </unit>
     <unit id="1VZ526R" name="Du bist ab sofort ein Ghul!">
@@ -10835,7 +10833,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Du bist ab sofort ein Ghul!</source>
-        <target>Du bist ab sofort ein Ghul!</target>
+        <target>You are now a Ghoul.</target>
       </segment>
     </unit>
     <unit id="kUcqlQB" name="bce0dfd">
@@ -10844,7 +10842,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Ab sofort solltest du deine Spielweise ändern: Deine einstigen Nachbarn und Freunde sind jetzt zweibeinige Nahrung, die du durch List und Trug erlegen musst.</source>
-        <target>Ab sofort solltest du deine Spielweise ändern: Deine einstigen Nachbarn und Freunde sind jetzt zweibeinige Nahrung, die du durch List und Trug erlegen musst.</target>
+        <target>A new horizon is open to you : your neighbours and former allies have become your prey.</target>
       </segment>
     </unit>
     <unit id="Lou1e47" name="Hier noch ein paar wichtige Überlebenstipps:">
@@ -10853,7 +10851,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Hier noch ein paar wichtige Überlebenstipps:</source>
-        <target>Hier noch ein paar wichtige Überlebenstipps:</target>
+        <target>Some survival tips :</target>
       </segment>
     </unit>
     <unit id="SJd1LN1" name="3fbdb60">
@@ -10862,7 +10860,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Sag niemandem, dass du ein Ghul bist! Du würdest von deinen Mitbürgern sehr wahrscheinlich sofort erschlagen.</source>
-        <target>Sag niemandem, dass du ein Ghul bist! Du würdest von deinen Mitbürgern sehr wahrscheinlich sofort erschlagen.</target>
+        <target>don't tell anyone about it! You will be killed,</target>
       </segment>
     </unit>
     <unit id="dIAkbPP" name="c3a93ff">
@@ -10871,7 +10869,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Behalte deine Hungerleiste stets im Auge. Sie befindet sich bei deiner Gesundheitsanzeige.</source>
-        <target>Behalte deine Hungerleiste stets im Auge. Sie befindet sich bei deiner Gesundheitsanzeige.</target>
+        <target>keep an eye on your Hunger gauge, which can be seen alongside your health status,</target>
       </segment>
     </unit>
     <unit id="baFbBy0" name="ff17216">
@@ -10880,7 +10878,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Um deinen Heißhunger zu stillen, solltest du möglichst bald einen Mitbürger verschlingen. Das machst du am besten in der Wüste, da fällt es nicht so auf.</source>
-        <target>Um deinen Heißhunger zu stillen, solltest du möglichst bald einen Mitbürger verschlingen. Das machst du am besten in der Wüste, da fällt es nicht so auf.</target>
+        <target>devour a fellow citizen (preferably outside the town) to decrease your Hunger,</target>
       </segment>
     </unit>
     <unit id="tUvA6.D" name="9ee8e2e">
@@ -10889,7 +10887,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Auch der Verzehr von kaltem Menschenfleisch senkt deinen Hunger, allerdings nicht so stark wie Frischfleisch...</source>
-        <target>Auch der Verzehr von kaltem Menschenfleisch senkt deinen Hunger, allerdings nicht so stark wie Frischfleisch...</target>
+        <target>eat human flesh to reduce your Hunger slightly.</target>
       </segment>
     </unit>
   </file>
