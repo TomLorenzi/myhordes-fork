@@ -709,7 +709,7 @@ div.game-menu-area {
   }
 
   &>div.game-bar {
-   width: 100%; height: 35px; background: url("../img/bg_menu.jpg");
+   width: 100%; height: 32px; background: url("../img/bg_menu.jpg");
     box-shadow: 0 0 5px black; position: relative; z-index: 20;
     border-top: 1px solid black; border-bottom: 1px solid black;
 
@@ -737,18 +737,22 @@ div.game-menu-area {
         }
       }
 
-    &>div.ulcont { display: inline-block; padding: 0; margin: 0; float: right }
-    &>ul,&>div.ulcont>ul {
-      display: inline-block; padding: 0; margin: 3px;
-      &>li {display: inline-block; list-style: none;}
+    &>div.ulcont {
+      display: inline-block; padding: 0; margin: 0; float: right;
+    }
+
+    &>ul,&>div.ulcont {
+      display: inline-block; padding: 0; margin: 0 3px;
+      & li {display: inline-block; list-style: none;}
       &.text-menu {
         &>li {
           padding: 2px 8px; background: rgba(0,0,0,0.3); font-weight: bold; color: @myhordes-smalltext;
           box-shadow: inset 0 0 4px rgba(0,0,0,0.6); border-radius: 4px; border: 1px solid rgba(0,0,0,0.3);
           cursor: pointer;
           &:hover {color: white}
+          &.burger-button { margin-top: 2px; }
           &.forum,&.town-dash,&.town-news,&.soul,&.help {
-            filter: brightness(100%); width: 84px; margin-top: 10px; text-transform:uppercase; font-size: 1.0rem;
+            filter: brightness(100%); width: 84px; margin-top: 7px; text-transform:uppercase; font-size: 1.0rem;
             font-weight: bold; color: #FFFFCA; text-align: center;
             &:hover { filter: brightness(140%); color: #FFFFCA; position: relative }
             &:after {
@@ -814,13 +818,27 @@ div.game-menu-area {
         &>li:nth-child(3) { font-size: 1rem; text-align: center; top: 32px; left: 215px; right: 25px; }
         &>li:nth-child(4) { color: #5e0000; font-size: 1rem; text-align: center; font-weight: bold; top: 58px; left: 215px; right: 25px; }
         .hardcore {
-          color: lighten(#7C2727, 10%);
+          color: lighten(#7c2727, 10%);
           font-variant: small-caps;
         }
         &>li:nth-child(5) { top: -5px; right: -3px; }
       }
 
-      &.status, &.rucksack, &.ap, &.bp, &.pm, &.civil {
+      &.ulcont {
+        margin-top: 5px; background-color: #483927; padding: 1px 3px;  border: 1px solid #be9766; float: right; font-size: 0.7em;
+        ul {
+          margin: 0; padding: 0;
+
+          li {
+            b.red { color: #ff5f5f
+            }
+            list-style: none; color: @myhordes-smalltext; padding: 0;
+            &:before { line-height: 0; vertical-align: top; margin-right: 4px; }
+          }
+        }
+      }
+
+      &.status, &.rucksack {
         position: relative; padding: 3px 8px; font-weight: bold;
         color: @myhordes-smalltext; box-shadow: inset 0 0 4px rgba(0,0,0,0.9); border-radius: 4px; background: rgba(0,0,0,.5);
         float: right; font-size: .2rem;
@@ -1258,12 +1276,9 @@ div.daily-attack {
   &>.ghoul-hunger-indicator {
     position: absolute; background: red; height: 4px; width: 3px; top: -4px;
   }
-  &>.message {
-    text-transform: uppercase;
-    font-size: 0.7rem;
-    position: absolute;
-  }
+
 }
+.ghoul-message { text-transform: uppercase; font-size: 0.7rem; display: block; color: #ff5f5f; }
 
 select {
   font-size: 1.2rem;
