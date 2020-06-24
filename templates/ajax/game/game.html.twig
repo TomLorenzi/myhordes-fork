@@ -1,9 +1,5 @@
 {% extends "ajax/ajax.html.twig" %}
-{% block menu_text %}
-    {% if app.user.getActiveCitizen %}
-        <li class="town-news" x-ajax-href="{{ url('game_newspaper') }}">{% trans from 'game' %}Zeitung{% endtrans %}</li>
-    {% endif %}
-{% endblock %}
+
 {% block menu_bar %}
     {#<ul class="user">
         <li>{{ username }}</li>

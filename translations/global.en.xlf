@@ -1243,5 +1243,59 @@
         <target>You gain points at the end of each game depending on the number of days you survived for.</target>
       </segment>
     </unit>
+    <unit id="33mt65B" name="Num. Listenpunkt">
+      <notes>
+        <note category="german">Num. Listenpunkt</note>
+      </notes>
+      <segment>
+        <source>Num. Listenpunkt</source>
+        <target>Numbered List</target>
+      </segment>
+    </unit>
+    <unit id="FbY7TeM" name="Bestätigen">
+      <notes>
+        <note category="german">Bestätigen</note>
+      </notes>
+      <segment>
+        <source>Bestätigen</source>
+        <target>Confirm</target>
+      </segment>
+    </unit>
+    <unit id="H5.W95P" name="7a92ff6">
+      <notes>
+        <note category="german">Falls sich dieser Zustand auch um Mitternacht noch nicht geändert hat, findet kein Zombieangriff statt. Der Tag wird dann künstlich verlängert.</note>
+      </notes>
+      <segment>
+        <source>Falls sich dieser Zustand auch um Mitternacht noch nicht geändert hat, findet kein Zombieangriff statt. Der Tag wird dann künstlich verlängert.</source>
+        <target>Falls sich dieser Zustand auch um Mitternacht noch nicht geändert hat, findet kein Zombieangriff statt. Der Tag wird dann künstlich verlängert.</target>
+      </segment>
+    </unit>
+    <unit id="jsMx6ao" name="a848169">
+      <notes>
+        <note category="german">Wenn du nichts zur Hand hast, um deine Erschöpfung zu lindern, dann bitte im Forum um Hilfe...</note>
+      </notes>
+      <segment>
+        <source>Wenn du nichts zur Hand hast, um deine Erschöpfung zu lindern, dann bitte im Forum um Hilfe...</source>
+        <target>Wenn du nichts zur Hand hast, um deine Erschöpfung zu lindern, dann bitte im Forum um Hilfe...</target>
+      </segment>
+    </unit>
+    <unit id="QuMXv7I" name="a023548">
+      <notes>
+        <note category="german">Der Markierer ist auf der Karte für ALLE Bürger sichtbar. Benutze ihn, um der Gemeinschaft Informationen über eine bestimmte Zone mitzuteilen.</note>
+      </notes>
+      <segment>
+        <source>Der Markierer ist auf der Karte für ALLE Bürger sichtbar. Benutze ihn, um der Gemeinschaft Informationen über eine bestimmte Zone mitzuteilen.</source>
+        <target>Der Markierer ist auf der Karte für ALLE Bürger sichtbar. Benutze ihn, um der Gemeinschaft Informationen über eine bestimmte Zone mitzuteilen.</target>
+      </segment>
+    </unit>
+    <unit id="51m8lm3" name="7ef672f">
+      <notes>
+        <note category="german">Beachte: Alle hier geschriebenen Nachrichten gehen verloren, wenn alle Bürger die Zone verlassen.</note>
+      </notes>
+      <segment>
+        <source>Beachte: Alle hier geschriebenen Nachrichten gehen verloren, wenn alle Bürger die Zone verlassen.</source>
+        <target>Beachte: Alle hier geschriebenen Nachrichten gehen verloren, wenn alle Bürger die Zone verlassen.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

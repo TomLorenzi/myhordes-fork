@@ -39,10 +39,12 @@ class PublicController extends AbstractController
     protected function addDefaultTwigArgs( ?array $data = null ): array {
         $data = $data ?? [];
 
-        $deadCitizenCount = count($this->entity_manager->getRepository(Citizen::class)->findByAlive(0));
-        $pictoKillZombies = $this->entity_manager->getRepository(PictoPrototype::class)->findOneByName('r_killz_#00');
+        $deadCitizenCount = count($this->entity_manager->getRepository(Citizen::class)->findBy(['alive' => 0]));
+        
+        $pictoKillZombies = $this->entity_manager->getRepository(PictoPrototype::class)->findOneBy(['name' => 'r_killz_#00']);
         $zombiesKilled = $this->entity_manager->getRepository(Picto::class)->countPicto($pictoKillZombies);
-        $pictoCanibal = $this->entity_manager->getRepository(PictoPrototype::class)->findOneByName('r_cannib_#00');
+
+        $pictoCanibal = $this->entity_manager->getRepository(PictoPrototype::class)->findOneBy(['name' => 'r_cannib_#00']);
         $canibalismCount = $this->entity_manager->getRepository(Picto::class)->countPicto($pictoCanibal);
 
         $data['deadCitizenCount'] = $deadCitizenCount;

@@ -26,36 +26,57 @@ class PictoHandler
     }
 
     public function give_picto(Citizen $citizen, $pictoPrototype, $count = 1){
+        if($count == 0) return;
+
         if(is_string($pictoPrototype)){
             $pictoPrototype = $this->entity_manager->getRepository(PictoPrototype::class)->findOneBy(['name' => $pictoPrototype]);
             if($pictoPrototype === null)
                 return;
         }
 
-        $picto = $citizen->getUser()->findPicto( 0, $pictoPrototype, $citizen->getTown() ) ?? (new Picto());
+        $is_new = false;
+        $picto = $citizen->getUser()->findPicto( 0, $pictoPrototype, $citizen->getTown() );
+        if($picto === null){
+            $picto = new Picto();
+            $is_new = true;
+        }
         $picto->setPrototype($pictoPrototype)
             ->setPersisted(0)
             ->setTown($citizen->getTown())
             ->setUser($citizen->getUser())
             ->setCount($picto->getCount()+$count);
+        
+        if($is_new)
+            $citizen->getUser()->addPicto($picto);
 
         $this->entity_manager->persist($picto);
 
     }
 
     public function give_validated_picto(Citizen $citizen, $pictoPrototype, $count = 1){
+        if($count == 0) return;
+        
         if(is_string($pictoPrototype)){
             $pictoPrototype = $this->entity_manager->getRepository(PictoPrototype::class)->findOneBy(['name' => $pictoPrototype]);
             if($pictoPrototype === null)
                 return;
         }
         
-        $picto = $citizen->getUser()->findPicto( 1, $pictoPrototype, $citizen->getTown() ) ?? (new Picto());
+        $is_new = false;
+        $picto = $citizen->getUser()->findPicto( 1, $pictoPrototype, $citizen->getTown() );
+        if($picto === null){
+            $picto = new Picto();
+            $is_new = true;
+        }
+
         $picto->setPrototype($pictoPrototype)
             ->setPersisted(1)
             ->setTown($citizen->getTown())
             ->setUser($citizen->getUser())
             ->setCount($picto->getCount()+$count);
+        
+        if($is_new)
+            $citizen->getUser()->addPicto($picto);
 
         $this->entity_manager->persist($picto);
     }

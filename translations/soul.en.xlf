@@ -138,7 +138,7 @@
     </unit>
     <unit id="MCPpLdD" name="Redakteur:">
       <notes>
-        <note category="german">Redakteur:</note>
+        <note category="german">Autor:</note>
       </notes>
       <segment>
         <source>Redakteur:</source>
@@ -634,7 +634,7 @@
       </notes>
       <segment>
         <source>Alte Städte</source>
-        <target>Alte Städte</target>
+        <target>My game history</target>
       </segment>
     </unit>
     <unit id="hU1AUQF" name="Nur 10 Städte anzeigen">
@@ -643,7 +643,52 @@
       </notes>
       <segment>
         <source>Nur 10 Städte anzeigen</source>
-        <target>Nur 10 Städte anzeigen</target>
+        <target>Only display 10 towns</target>
+      </segment>
+    </unit>
+    <unit id="1vjIGbE" name="Kartei schließen">
+      <notes>
+        <note category="german">Kartei schließen</note>
+      </notes>
+      <segment>
+        <source>Kartei schließen</source>
+        <target>Kartei schließen</target>
+      </segment>
+    </unit>
+    <unit id="XqSrbwp" name="Browser-Einstellungen">
+      <notes>
+        <note category="german">Browser-Einstellungen</note>
+      </notes>
+      <segment>
+        <source>Browser-Einstellungen</source>
+        <target>Browser Settings</target>
+      </segment>
+    </unit>
+    <unit id="ZSg.7.l" name="9c781e6">
+      <notes>
+        <note category="german">Die folgenden Einstellungen werden in deinem Browser gespeichert und sind damit nur für dein aktuelles Gerät und deinen aktuellen Browser gültig.</note>
+      </notes>
+      <segment>
+        <source>Die folgenden Einstellungen werden in deinem Browser gespeichert und sind damit nur für dein aktuelles Gerät und deinen aktuellen Browser gültig.</source>
+        <target>The following settings are saved in your browser and are therefore only valid for your current device and your current browser.</target>
+      </segment>
+    </unit>
+    <unit id="_rP15cP" name="Benachrichtigungen als Popups anzeigen">
+      <notes>
+        <note category="german">Benachrichtigungen als Popups anzeigen</note>
+      </notes>
+      <segment>
+        <source>Benachrichtigungen als Popups anzeigen</source>
+        <target>Show notifications as Popups</target>
+      </segment>
+    </unit>
+    <unit id="cSCIhqi" name="Deine Einstellung wurde gespeichert.">
+      <notes>
+        <note category="german">Deine Einstellung wurde gespeichert.</note>
+      </notes>
+      <segment>
+        <source>Deine Einstellung wurde gespeichert.</source>
+        <target>Your settings has been saved.</target>
       </segment>
     </unit>
   </file>

@@ -162,20 +162,20 @@ class TownHandler
                 $this->entity_manager->persist( $this->log->constructionsBuildingCompleteAllOrNothing($town, $destroyedItems ) );
                 break;
             case "small_castle_#00":
-                $pictos[] = $this->entity_manager->getRepository(PictoPrototype::class)->findOneByName("r_ebcstl_#00");
-                $pictos[] = $this->entity_manager->getRepository(PictoPrototype::class)->findOneByName("r_ebuild_#00");
+                $pictos[] = $this->entity_manager->getRepository(PictoPrototype::class)->findOneBy(['name' => "r_ebcstl_#00"]);
+                $pictos[] = $this->entity_manager->getRepository(PictoPrototype::class)->findOneBy(['name' => "r_ebuild_#00"]);
                 break;
             case "small_pmvbig_#00":
-                $pictos[] = $this->entity_manager->getRepository(PictoPrototype::class)->findOneByName("r_ebpmv_#00");
-                $pictos[] = $this->entity_manager->getRepository(PictoPrototype::class)->findOneByName("r_ebuild_#00");
+                $pictos[] = $this->entity_manager->getRepository(PictoPrototype::class)->findOneBy(['name' => "r_ebpmv_#00"]);
+                $pictos[] = $this->entity_manager->getRepository(PictoPrototype::class)->findOneBy(['name' => "r_ebuild_#00"]);
                 break;
             case "small_wheel_#00":
-                $pictos[] = $this->entity_manager->getRepository(PictoPrototype::class)->findOneByName("r_ebgros_#00");
-                $pictos[] = $this->entity_manager->getRepository(PictoPrototype::class)->findOneByName("r_ebuild_#00");
+                $pictos[] = $this->entity_manager->getRepository(PictoPrototype::class)->findOneBy(['name' => "r_ebgros_#00"]);
+                $pictos[] = $this->entity_manager->getRepository(PictoPrototype::class)->findOneBy(['name' => "r_ebuild_#00"]);
                 break;
             case "small_crow_#00":
-                $pictos[] = $this->entity_manager->getRepository(PictoPrototype::class)->findOneByName("r_ebcrow_#00");
-                $pictos[] = $this->entity_manager->getRepository(PictoPrototype::class)->findOneByName("r_ebuild_#00");
+                $pictos[] = $this->entity_manager->getRepository(PictoPrototype::class)->findOneBy(['name' => "r_ebcrow_#00"]);
+                $pictos[] = $this->entity_manager->getRepository(PictoPrototype::class)->findOneBy(['name' => "r_ebuild_#00"]);
                 break;
             case "item_electro_#00":
                 $zones = $town->getZones();
@@ -188,9 +188,10 @@ class TownHandler
         }
 
         // If this is a child of fundament, give a picto
-        if($building->getPrototype()->getParent() != null && $building->getPrototype()->getParent()->getName() == 'small_building_#00'){
-            $pictos[] = $this->entity_manager->getRepository(PictoPrototype::class)->findOneByName("r_wondrs_#00");
+        if($building->getPrototype()->getParent() !== null && $building->getPrototype()->getParent()->getName() === 'small_building_#00'){
+            $pictos[] = $this->entity_manager->getRepository(PictoPrototype::class)->findOneBy(['name' => "r_wondrs_#00"]);
         }
+
         foreach ($town->getCitizens() as $target_citizen) {
             if (!$target_citizen->getAlive()) continue;
 

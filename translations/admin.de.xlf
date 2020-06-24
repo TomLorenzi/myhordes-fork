@@ -1029,7 +1029,7 @@
     </unit>
     <unit id="yu8TLDr" name="Du hast dich umgebracht.">
       <notes>
-        <note category="german">You terminated your miserable existence.</note>
+        <note category="german">Du hast dich umgebracht.</note>
       </notes>
       <segment>
         <source>Du hast dich umgebracht.</source>
@@ -1038,7 +1038,7 @@
     </unit>
     <unit id="xkgfKms" name="Du gehörst keiner Stadt an.">
       <notes>
-        <note category="german">You do not belong to a Town.</note>
+        <note category="german">Du gehörst keiner Stadt an.</note>
       </notes>
       <segment>
         <source>Du gehörst keiner Stadt an.</source>
@@ -1047,7 +1047,7 @@
     </unit>
     <unit id="jnQ5tRO" name="Selbstmord begehen">
       <notes>
-        <note category="german">Commit Suicide</note>
+        <note category="german">Selbstmord begehen</note>
       </notes>
       <segment>
         <source>Selbstmord begehen</source>
@@ -1065,7 +1065,7 @@
     </unit>
     <unit id="nq1XXly" name="Stadtregister">
       <notes>
-        <note category="german">Town registry</note>
+        <note category="german">Stadtregister</note>
       </notes>
       <segment>
         <source>Stadtregister</source>
@@ -1079,6 +1079,51 @@
       <segment>
         <source>Rundmail als Rabe</source>
         <target>Rundmail als Rabe</target>
+      </segment>
+    </unit>
+    <unit id="l2_e9hX" name="Stadt administrieren">
+      <notes>
+        <note category="german">Town administration</note>
+      </notes>
+      <segment>
+        <source>Stadt administrieren</source>
+        <target>Stadt administrieren</target>
+      </segment>
+    </unit>
+    <unit id="Enh.KhP" name="Nächtlicher Angriff">
+      <notes>
+        <note category="german">Night attack</note>
+      </notes>
+      <segment>
+        <source>Nächtlicher Angriff</source>
+        <target>Nächtlicher Angriff</target>
+      </segment>
+    </unit>
+    <unit id="YBKE35r" name="Quarantäne aufheben">
+      <notes>
+        <note category="german">Remove quarantine</note>
+      </notes>
+      <segment>
+        <source>Quarantäne aufheben</source>
+        <target>Quarantäne aufheben</target>
+      </segment>
+    </unit>
+    <unit id="ZG32Cjn" name="Unter Quarantäne stellen">
+      <notes>
+        <note category="german">Put under Quarantine</note>
+      </notes>
+      <segment>
+        <source>Unter Quarantäne stellen</source>
+        <target>Unter Quarantäne stellen</target>
+      </segment>
+    </unit>
+    <unit id="akWsVTF" name="Manueller Tageswechsel">
+      <notes>
+        <note category="german">Manual change of Day</note>
+      </notes>
+      <segment>
+        <source>Manueller Tageswechsel</source>
+        <target>Manueller Tageswechsel</target>
       </segment>
     </unit>
   </file>

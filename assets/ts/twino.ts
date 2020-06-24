@@ -1,4 +1,4 @@
-interface emoteResolver { (name: string): string|null }
+interface emoteResolver { (name: string): [string|null,string] }
 
 class TwinoInterimBlock {
 
@@ -491,9 +491,9 @@ export default class TwinoAlikeParser {
                 if (current_offset < match.index )
                     blocks.push( new TwinoInterimBlock( str.substr(current_offset,match.index-current_offset ) ));
 
-                let ctrl = resolver( match.nodeType() );
+                let [ctrl,proxy] = resolver( match.nodeType() );
                 if (ctrl)
-                    blocks.push( new TwinoInterimBlock( '', 'img', [], [['src', ctrl], ['x-foxy-proxy', match.nodeType()]]) );
+                    blocks.push( new TwinoInterimBlock( '', 'img', [], [['src', ctrl], ['x-foxy-proxy', proxy]]) );
                 else blocks.push( new TwinoInterimBlock( match.raw() ) );
                 current_offset = (match.length + match.index);
             }

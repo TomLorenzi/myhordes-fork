@@ -7153,7 +7153,7 @@
       </notes>
       <segment>
         <source>&lt;t-stat-up-tg_meta_wound&gt;Diese Katze ist unglaublich! Sie scheint keine Angst zu haben, nicht einmal vor dir. Das Tier springt dir an die Kehle und vergräbt seine Krallen tief in deinem Fleisch.&lt;/t-stat-up-tg_meta_wound&gt;&lt;t-kills&gt;Diese Katze ist unglaublich! Sie scheint keine Angst zu haben, nicht einmal vor dem abartigen Gestank der Zombies. Mit mehr Zerstörungskraft als der Duracell-Hase und das Killer-Kaninchen von Caerbannog hat sie die Zone komplett bereinigt.&lt;/t-kills&gt;</source>
-        <target><![CDATA[''<t-stat-up-tg_meta_wound>Ce chaton est incroyable, peur de rien, pas même de vous ! Il saute à votre gorge et enfouit délicatement ses griffes au plus profond de votre chair.</t-stat-up-tg_meta_wound><t-kills>Ce chaton est incroyable, peur de rien, même pas de l'odeur infâme des zombies. Plus fort que les lapins Duracell et des Monty Python réunis, il a complètement dégagé la zone.</t-kills>]]></target>
+        <target><![CDATA[<t-stat-up-tg_meta_wound>Ce chaton est incroyable, peur de rien, pas même de vous ! Il saute à votre gorge et enfouit délicatement ses griffes au plus profond de votre chair.</t-stat-up-tg_meta_wound><t-kills>Ce chaton est incroyable, peur de rien, même pas de l'odeur infâme des zombies. Plus fort que les lapins Duracell et des Monty Python réunis, il a complètement dégagé la zone.</t-kills>]]></target>
       </segment>
     </unit>
   </file>
