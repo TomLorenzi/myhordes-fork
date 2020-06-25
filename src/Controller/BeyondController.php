@@ -136,7 +136,7 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
         }
 
         $scout_movement = $this->inventory_handler->countSpecificItems(
-            $this->getActiveCitizen()->getInventory(), $this->entity_manager->getRepository(ItemPrototype::class)->findOneByName('vest_on_#00')
+            $this->getActiveCitizen()->getInventory(), $this->entity_manager->getRepository(ItemPrototype::class)->findOneBy(['name' => 'vest_on_#00'])
         ) > 0;
 
         $trash_count = ($this->getActiveCitizen()->getBanished() || $this->getActiveCitizen()->getTown()->getDevastated()) ? $this->getActiveCitizen()->getSpecificActionCounterValue(ActionCounter::ActionTypeTrash) : 0;
@@ -192,7 +192,7 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
     public function uncoverHunter(Citizen $c): bool {
         $prot = $this->inventory_handler->fetchSpecificItems( $c->getInventory(), [new ItemRequest('vest_on_#00')] );
         if ($prot) {
-            $prot[0]->setPrototype( $this->entity_manager->getRepository( ItemPrototype::class )->findOneByName( 'vest_off_#00' ) );
+            $prot[0]->setPrototype( $this->entity_manager->getRepository( ItemPrototype::class )->findOneBy(['name' => 'vest_off_#00']) );
             return true;
         } else return false;
     }
@@ -374,8 +374,8 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
     protected function activeCitizenIsNotCamping() {
         $c = $this->getActiveCitizen();
         return
-            !$c->getStatus()->contains($this->entity_manager->getRepository(CitizenStatus::class)->findOneByName( 'tg_hide' )) &&
-            !$c->getStatus()->contains($this->entity_manager->getRepository(CitizenStatus::class)->findOneByName( 'tg_tomb' ));
+            !$c->getStatus()->contains($this->entity_manager->getRepository(CitizenStatus::class)->findOneBy(['name' => 'tg_hide'])) &&
+            !$c->getStatus()->contains($this->entity_manager->getRepository(CitizenStatus::class)->findOneBy(['name' => 'tg_tomb']));
     }
 
     protected function activeCitizenCanAct() {
@@ -665,7 +665,7 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
 
         $cp_ok = $this->zone_handler->check_cp( $zone );
         $scout_movement = $this->inventory_handler->countSpecificItems(
-            $this->getActiveCitizen()->getInventory(), $this->entity_manager->getRepository(ItemPrototype::class)->findOneByName('vest_on_#00')
+            $this->getActiveCitizen()->getInventory(), $this->entity_manager->getRepository(ItemPrototype::class)->findOneBy(['name' => 'vest_on_#00'])
         ) > 0;
 
         if (abs($px - $zone->getX()) + abs($py - $zone->getY()) !== 1) return AjaxResponse::error( self::ErrorNotReachableFromHere );
@@ -697,7 +697,7 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
 
             // Check if citizen moves as a scout
             $scouts[$mover->getId()] = $this->inventory_handler->countSpecificItems(
-                    $mover->getInventory(), $this->entity_manager->getRepository(ItemPrototype::class)->findOneByName('vest_on_#00')
+                    $mover->getInventory(), $this->entity_manager->getRepository(ItemPrototype::class)->findOneBy(['name' => 'vest_on_#00'])
                 ) > 0;
 
             // Check if citizen can move (zone not blocked and enough AP)
@@ -730,7 +730,7 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
 
             // Get them clothes dirty!
             $clothes = $this->inventory_handler->fetchSpecificItems($mover->getInventory(),[new ItemRequest('basic_suit_#00')]);
-            if (!empty($clothes)) $clothes[0]->setPrototype( $this->entity_manager->getRepository( ItemPrototype::class )->findOneByName( 'basic_suit_dirt_#00' ) );
+            if (!empty($clothes)) $clothes[0]->setPrototype( $this->entity_manager->getRepository( ItemPrototype::class )->findOneBy(['name' => 'basic_suit_dirt_#00']) );
 
             // Actually move to the new zone
             $zone->removeCitizen( $mover );
@@ -959,7 +959,7 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
             return AjaxResponse::error( self::ErrorZoneUnderControl );
 
         if ($this->inventory_handler->countSpecificItems(
-            $this->getActiveCitizen()->getInventory(), $this->entity_manager->getRepository(ItemPrototype::class)->findOneByName('vest_on_#00')
+            $this->getActiveCitizen()->getInventory(), $this->entity_manager->getRepository(ItemPrototype::class)->findOneBy(['name' => 'vest_on_#00'])
         ) > 0)
             return AjaxResponse::error( self::ErrorZoneUnderControl );
 
@@ -998,7 +998,7 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
             return AjaxResponse::error( self::ErrorZoneUnderControl );
 
         if ($this->inventory_handler->countSpecificItems(
-            $this->getActiveCitizen()->getInventory(), $this->entity_manager->getRepository(ItemPrototype::class)->findOneByName('vest_on_#00')
+            $this->getActiveCitizen()->getInventory(), $this->entity_manager->getRepository(ItemPrototype::class)->findOneBy(['name' => 'vest_on_#00'])
         ) > 0)
             return AjaxResponse::error( self::ErrorZoneUnderControl );
 
@@ -1010,10 +1010,10 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
                 $zone->setZombies( $zone->getZombies() - 1 );
                 $this->entity_manager->persist( $this->log->zombieKill($citizen, null, 1));
                 // Add the picto Bare hands
-	            $picto = $this->entity_manager->getRepository(PictoPrototype::class)->findOneByName("r_wrestl_#00");
+	            $picto = $this->entity_manager->getRepository(PictoPrototype::class)->findOneBy(['name' => 'r_wrestl_#00']);
                 $this->picto_handler->give_picto($citizen, $picto);
                 // Add the picto zed kill
-                $picto = $this->entity_manager->getRepository(PictoPrototype::class)->findOneByName("r_killz_#00");
+                $picto = $this->entity_manager->getRepository(PictoPrototype::class)->findOneBy(['name' => 'r_killz_#00']);
                 $this->picto_handler->give_picto($citizen, $picto);
             }
 
@@ -1101,7 +1101,7 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
             return AjaxResponse::error( self::ErrorNotDiggable );
 
         //$scout = $this->inventory_handler->countSpecificItems(
-        //    $this->getActiveCitizen()->getInventory(), $this->entity_manager->getRepository(ItemPrototype::class)->findOneByName('vest_on_#00')
+        //    $this->getActiveCitizen()->getInventory(), $this->entity_manager->getRepository(ItemPrototype::class)->findOneBy(['name' => 'vest_on_#00'])
         //) > 0;
 
         //if (!$this->zone_handler->check_cp( $zone ) && !$scout)
