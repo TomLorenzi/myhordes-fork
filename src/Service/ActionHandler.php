@@ -759,7 +759,7 @@ class ActionHandler
                     $citizen->getUser()->getFoundTexts()->add($foundrp);
 
                     $this->entity_manager->persist($foundrp);
-                    $pictoPrototype = $this->entity_manager->getRepository(PictoPrototype::class)->findOneByName("r_rp_#00");
+                    $pictoPrototype = $this->entity_manager->getRepository(PictoPrototype::class)->findOneBy(['name' => 'r_rp_#00']);
                     $this->picto_handler->give_picto($citizen, $pictoPrototype);
                 }
             }
@@ -877,7 +877,7 @@ class ActionHandler
                             $tags[] = 'fail';
                         } else {
                             if ($item->getPrototype()->getName() === 'tamed_pet_#00' || $item->getPrototype()->getName() === 'tamed_pet_drug_#00' )
-                                $item->setPrototype( $this->entity_manager->getRepository(ItemPrototype::class)->findOneByName('tamed_pet_off_#00') );
+                                $item->setPrototype( $this->entity_manager->getRepository(ItemPrototype::class)->findOneBy(['name' => 'tamed_pet_off_#00']) );
                             foreach ( $citizen->getInventory()->getItems() as $target_item )
                                 $this->inventory_handler->transferItem($citizen,$target_item,$source,$bank, InventoryHandler::ModalityTamer);
                         }
@@ -1019,11 +1019,11 @@ class ActionHandler
                     case 14: {
 
                         $trans = [
-                            'watergun_empty_#00' => $this->entity_manager->getRepository(ItemPrototype::class)->findOneByName( 'watergun_3_#00' ),
-                            'watergun_opt_empty_#00' => $this->entity_manager->getRepository(ItemPrototype::class)->findOneByName( 'watergun_opt_5_#00' ),
-                            'grenade_empty_#00' => $this->entity_manager->getRepository(ItemPrototype::class)->findOneByName( 'grenade_#00' ),
-                            'bgrenade_empty_#00' => $this->entity_manager->getRepository(ItemPrototype::class)->findOneByName( 'bgrenade_#00' ),
-                            'kalach_#01' => $this->entity_manager->getRepository(ItemPrototype::class)->findOneByName( 'kalach_#00' ),
+                            'watergun_empty_#00' => $this->entity_manager->getRepository(ItemPrototype::class)->findOneBy(['name' => 'watergun_3_#00']),
+                            'watergun_opt_empty_#00' => $this->entity_manager->getRepository(ItemPrototype::class)->findOneBy(['name' => 'watergun_opt_5_#00']),
+                            'grenade_empty_#00' => $this->entity_manager->getRepository(ItemPrototype::class)->findOneBy(['name' => 'grenade_#00']),
+                            'bgrenade_empty_#00' => $this->entity_manager->getRepository(ItemPrototype::class)->findOneBy(['name' => 'bgrenade_#00']),
+                            'kalach_#01' => $this->entity_manager->getRepository(ItemPrototype::class)->findOneBy(['name' => 'kalach_#00']),
                         ];
 
                         foreach ($citizen->getInventory()->getItems() as $i) if (isset($trans[$i->getPrototype()->getName()])) $i->setPrototype( $trans[$i->getPrototype()->getName()] );
@@ -1148,7 +1148,7 @@ class ActionHandler
         $remove = [];
 
         if ($recipe->getType() === Recipe::WorkshopType) {
-            $have_saw  = $this->inventory_handler->countSpecificItems( $c_inv, $this->entity_manager->getRepository( ItemPrototype::class )->findOneByName( 'saw_tool_#00' ) ) > 0;
+            $have_saw  = $this->inventory_handler->countSpecificItems( $c_inv, $this->entity_manager->getRepository( ItemPrototype::class )->findOneBy(['name' => 'saw_tool_#00']) ) > 0;
             $have_manu = $this->town_handler->getBuilding($town, 'small_factory_#00', true) !== null;
 
             $ap = 3 - ($have_saw ? 1 : 0) - ($have_manu ? 1 : 0);

@@ -410,7 +410,7 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
         $inv_target = $citizen->getInventory();
         $inv_source = null;
 
-        $item_group = $this->entity_manager->getRepository(ItemGroup::class)->findOneByName($this->random_generator->chance(0.125) ? 'trash_good' : 'trash_bad');
+        $item_group = $this->entity_manager->getRepository(ItemGroup::class)->findOneBy(['name' => $this->random_generator->chance(0.125) ? 'trash_good' : 'trash_bad']);
         $proto = $this->random_generator->pickItemPrototypeFromGroup( $item_group );
         if (!$proto)
             return AjaxResponse::error(ErrorHelper::ErrorInternalError);
@@ -1143,7 +1143,7 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
                     $pictoName = "r_explo2_#00";
                 }
                 if($pictoName != ""){
-                    $picto = $this->entity_manager->getRepository(PictoPrototype::class)->findOneByName($pictoName);
+                    $picto = $this->entity_manager->getRepository(PictoPrototype::class)->findOneBy(['name' => $pictoName]);
                     $this->picto_handler->give_picto($citizen, $picto);
                 }
                 $this->addFlash( 'notice', $this->translator->trans( 'Nach einigen Anstrengungen hast du folgendes gefunden: %item%!', [
@@ -1203,7 +1203,7 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
         if(!empty($str))
             $this->addFlash( 'notice', implode("<hr />", $str) );
 
-        $picto = $this->entity_manager->getRepository(PictoPrototype::class)->findOneByName("r_digger_#00");
+        $picto = $this->entity_manager->getRepository(PictoPrototype::class)->findOneBy(['name' => 'r_digger_#00']);
         $this->picto_handler->give_picto($citizen, $picto);
 
         try {
@@ -1465,7 +1465,7 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
             return AjaxResponse::error(ErrorHelper::ErrorActionNotAvailable);
         }
 
-        $tag = $this->entity_manager->getRepository(ZoneTag::class)->findOneByRef($tagRef);
+        $tag = $this->entity_manager->getRepository(ZoneTag::class)->findOneBy(['ref' => $tagRef]);
 
         if(!$tag){
             return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
