@@ -738,7 +738,6 @@ class NightlyHandler
                     if($town->getDay() >= 5){
                         $this->log->debug('Town has lived for 5 days or more, we give the <info>Last Man Standing</info> picto to a lucky citizen that died in town');
                         $citizen_eligible = [];
-                        $citizen_last_line = []
                         foreach ($town->getCitizens() as $citizen) {
                             if($citizen->getAlive() || $citizen->getZone())
                                 continue;
@@ -746,8 +745,6 @@ class NightlyHandler
                             if($citizen->getSurvivedDays() < $town->getDay())
                                 continue;
                             
-                            $citizen_last_line[] = $citizen;
-
                             if($citizen->getCauseOfDeath()->getRef() !== CauseOfDeath::NightlyAttack)
                                 continue;
                             $citizen_eligible[] = $citizen;
@@ -763,7 +760,7 @@ class NightlyHandler
                             $this->picto_handler->give_validated_picto($winner, $picto);
                         }
 
-                        foreach ($citizen_last_line as $citizen) {
+                        foreach ($citizen_eligible as $citizen) {
                             $this->picto_handler->give_validated_picto($winner, "r_surgrp_#00");
                         }
 
