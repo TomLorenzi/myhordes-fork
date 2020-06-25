@@ -840,8 +840,9 @@ class ActionHandler
                             // Don't give AP to dead citizen 
                             if(!$target_citizen->getAlive())
                                 continue;
+
+                            $this->citizen_handler->inflictStatus( $target_citizen, 'tg_guitar' );
                             
-                            $this->citizen_handler->inflictStatus( $citizen, 'tg_guitar' );
                             if ($target_citizen->getZone()) 
                                 continue;
 
