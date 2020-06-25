@@ -887,7 +887,7 @@ class ActionHandler
                     // Survivalist
                     case 6:case 7: {
                         $drink = $result->getCustom() === 6;
-                        $chances = max(0.1, 1 - ($citizen->getTown()->getDay() * 0.025));
+                        $chances = $citizen->getTown()->getDay() <= 3 ? 1 : max(0.1, 1 - ($citizen->getTown()->getDay() * 0.025));
                         if( $citizen->getTown()->getDevastated() ) $chances = max(0.1, $chances - 0.2);
 
                         $give_ap = false;

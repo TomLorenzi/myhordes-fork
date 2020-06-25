@@ -1,9 +1,5 @@
 {% extends "ajax/ajax.html.twig" %}
-{% block menu_text %}
-    {% if app.user.getActiveCitizen %}
-        <li class="town-news" x-ajax-href="{{ url('game_newspaper') }}">{% trans from 'game' %}Zeitung{% endtrans %}</li>
-    {% endif %}
-{% endblock %}
+
 {% block menu_bar %}
     {#<ul class="user">
         <li>{{ username }}</li>
@@ -57,69 +53,81 @@
             {% endfor %}
         </ul>
     {% endif %}
-    {% if ap is defined and max_ap is defined %}
-        <div class="ulcont">
-            <ul class="ap">
-                <li>{{ ap }}<em>/{{ max_ap }}</em></li>
-            </ul>
-            <div class="tooltip help">
-                <h1>{{ 'Aktionspunkte'|trans({},'game') }}</h1>
-                <em>{% trans from 'game' %}
-                    Für viele Aktionen, wie beispielsweise die Erkundung der Aussenwelt oder der Arbeit auf einer Baustelle,
-                    benötigst du Aktionspunkte. Deine Aktionspunkte werden jede Nacht nach dem Angriff aufgefüllt. Außerdem
-                    kannst du sie durch den Einsatz bestimmter Gegenstände sowie einmal pro Tag durch Essen und Trinken neu
-                    auffüllen.
-                {% endtrans %}</em>
+
+    <div class="ulcont">
+        {% if ap is defined and max_ap is defined %}
+            <div>
+                <ul class="ap">
+                    <li><b class="{{ ap == 0 ? 'red' : '' }}">{{ ap }}</b><em>/{{ max_ap }}</em></li>
+                </ul>
+                <div class="tooltip help">
+                    <h1>{{ 'Aktionspunkte'|trans({},'game') }}</h1>
+                    <em>{% trans from 'game' %}
+                            Für viele Aktionen, wie beispielsweise die Erkundung der Aussenwelt oder der Arbeit auf einer Baustelle,
+                            benötigst du Aktionspunkte. Deine Aktionspunkte werden jede Nacht nach dem Angriff aufgefüllt. Außerdem
+                            kannst du sie durch den Einsatz bestimmter Gegenstände sowie einmal pro Tag durch Essen und Trinken neu
+                            auffüllen.
+                        {% endtrans %}</em>
+                </div>
             </div>
-        </div>
-    {% endif %}
-    {% if bp is defined and max_bp is defined and max_bp > 0 %}
-        <div class="ulcont">
-            <ul class="bp">
-                <li>{{ bp }}<em>/{{ max_bp }}</em></li>
-            </ul>
-            <div class="tooltip help">
-                <h1>{{ 'Baupunkte'|trans({},'game') }}</h1>
-                <em>{% trans from 'game' %}
-                    Baupunkte können in der Werkstatt und auf Baustellen verwendet werden, wo sie wie Aktionspunkte
-                    zählen. Wenn möglich werden immer zuerst Baupunkte verbraucht, bevor Aktionspunkte eingesetzt
-                    werden. Bedenke, dass Baupunkte nicht eingesetzt werden können wenn du erschöpft bist!
-                {% endtrans %}</em>
+        {% endif %}
+        {% if bp is defined and max_bp is defined and max_bp > 0 %}
+            <div>
+                <ul class="bp">
+                    <li><b class="{{ bp == 0 ? 'red' : '' }}">{{ bp }}</b><em>/{{ max_bp }}</em></li>
+                </ul>
+                <div class="tooltip help">
+                    <h1>{{ 'Baupunkte'|trans({},'game') }}</h1>
+                    <em>{% trans from 'game' %}
+                            Baupunkte können in der Werkstatt und auf Baustellen verwendet werden, wo sie wie Aktionspunkte
+                            zählen. Wenn möglich werden immer zuerst Baupunkte verbraucht, bevor Aktionspunkte eingesetzt
+                            werden. Bedenke, dass Baupunkte nicht eingesetzt werden können wenn du erschöpft bist!
+                        {% endtrans %}</em>
+                </div>
             </div>
-        </div>
-    {% endif %}
-    {% if pm is defined and max_pm is defined and max_pm > 0 %}
-        <div class="ulcont">
-            <ul class="pm">
-                <li>{{ pm }}<em>/{{ max_pm }}</em></li>
-            </ul>
-            <div class="tooltip help">
-                <h1>{{ 'Mystic-Punkte'|trans({},'game') }}</h1>
-                <em>{% trans from 'game' %}
-                    Diese Punkte sind exklusiv für den Schamanen reserviert.
-                {% endtrans %}</em>
+        {% endif %}
+        {% if pm is defined and max_pm is defined and max_pm > 0 %}
+            <div>
+                <ul class="pm">
+                    <li><b class="{{ pm == 0 ? 'red' : '' }}">{{ pm }}</b><em>/{{ max_pm }}</em></li>
+                </ul>
+                <div class="tooltip help">
+                    <h1>{{ 'Mystic-Punkte'|trans({},'game') }}</h1>
+                    <em>{% trans from 'game' %}
+                            Diese Punkte sind exklusiv für den Schamanen reserviert.
+                        {% endtrans %}</em>
+                </div>
             </div>
-        </div>
-    {% endif %}
+        {% endif %}
+
+    </div>
     {% if (banished is defined and banished) or (roles is defined and roles|length > 0) %}
-        <ul class="civil">
+        <ul class="ulcont">
             {% for role in roles %}
                 {# @var role \App\Entity\CitizenRole #}
                 {% if not role.hidden %}
                     <li class="status">
                         <img src="{{ asset('build/images/roles/' ~ role.icon ~ '.gif') }}" alt="{{ role.label|trans({},'game') }}">
                         {% if role.name == 'ghoul' %}
-                            <div class="ghoul-hunger-container">
+                            <div class="ghoul-hunger-container hide-md hide-sm">
                                 <div class="ghoul-hunger-background"></div>
                                 <div class="ghoul-hunger-bar {% if hunger > 40 %}warning{% endif %}" style="width: {{ min(100,hunger) }}%"></div>
                                 <div class="ghoul-hunger-indicator" style="left: 40%"></div>
-                                {% if hunger > 40 %}
-                                    <span class="message">{{"Du wirst heute Nacht sterben!"|trans({}, 'game')}}</span>
-                                {% endif %}
                             </div>
+                            {% if hunger > 40 %}
+                                <div class="ghoul-message">{{"Du wirst heute Nacht sterben!"|trans({}, 'game')}}</div>
+                            {% endif %}
                         {% endif %}
                         <div class="tooltip">
                             {{ (role.message ?? 'Du bist der %rolename% dieser Stadt.')|trans({'%rolename%': role.label|trans({}, 'game')}, 'game')}}
+                            <div class="ghoul-hunger-container hide-lg hide-desktop">
+                                <div class="ghoul-hunger-background"></div>
+                                <div class="ghoul-hunger-bar {% if hunger > 40 %}warning{% endif %}" style="width: {{ min(100,hunger) }}%"></div>
+                                <div class="ghoul-hunger-indicator" style="left: 40%"></div>
+                            </div>
+                            {% if hunger > 400 %}
+                                <div class="ghoul-message hide-lg hide-desktop">{{"Du wirst heute Nacht sterben!"|trans({}, 'game')}}</div>
+                            {% endif %}
                         </div>
                     </li>
                 {% endif %}
