@@ -745,7 +745,7 @@ class NightlyHandler
                             if($citizen->getSurvivedDays() < $town->getDay())
                                 continue;
                             
-                            if($citizen->getCauseOfDeath()->getRef() !== CauseOfDeath::NightlyAttack)
+                            if($citizen->getCauseOfDeath()->getRef() !== CauseOfDeath::NightlyAttack && $citizen->getCauseOfDeath()->getRef() !== CauseOfDeath::Radiations)
                                 continue;
                             $citizen_eligible[] = $citizen;
                         }
