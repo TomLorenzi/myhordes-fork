@@ -16,7 +16,7 @@
       </notes>
       <segment>
         <source>Mist, dein Einbruch bei %victim% ist aufgeflogen...</source>
-        <target>Dang, your burglary at %victim%'s was noticed...' </target>
+        <target>Dang, your burglary at %victim%'s was noticed...</target>
       </segment>
     </unit>
     <unit id="w4JJj.q" name="Sehr gut, niemand hat dich bei deinem Einbruch bei %victim% beobachtet.">
@@ -7763,7 +7763,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Dieser Bürger hat keine letzten Worte hinterlassen ...</source>
-        <target>Dieser Bürger hat keine letzten Worte hinterlassen ...</target>
+        <target>This citizen didn't leave any last words...</target>
       </segment>
     </unit>
     <unit id="O9RB2q8" name="Letzte Worte:">
@@ -9746,7 +9746,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Behausung wiederverwerten</source>
-        <target>Behausung wiederverwerten</target>
+        <target>Recycle</target>
       </segment>
     </unit>
     <unit id="oeQUUdA" name="Und wieder 'ne Leiche weniger! %citizen% wurde von † %disposed% entsorgt!">
@@ -10637,7 +10637,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Du bist %status%</source>
-        <target>Du bist %status%</target>
+        <target>DYou are %status%</target>
       </segment>
     </unit>
     <unit id="Pzhs1Mo" name="Ratschlag:">
