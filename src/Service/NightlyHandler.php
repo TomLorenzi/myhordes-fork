@@ -707,9 +707,9 @@ class NightlyHandler
             if ($citizen->getEscortSettings()) $this->entity_manager->remove($citizen->getEscortSettings());
             $citizen->setEscortSettings(null);
             
-            foreach ($this->entity_manager->getRepository( EscapeTimer::class )->findBy( ['citizen' => $citizen] ) as $et)
+            foreach ($this->entity_manager->getRepository( EscapeTimer::class )->findAllByCitizen( $citizen ) as $et)
                 $this->cleanup[] = $et;
-            foreach ($this->entity_manager->getRepository( DigRuinMarker::class )->findBy( ['citizen' => $citizen] ) as $drm)
+            foreach ($this->entity_manager->getRepository( DigRuinMarker::class )->findAllByCitizen( $citizen ) as $drm)
                 $this->cleanup[] = $drm;
             $add_hangover = ($this->citizen_handler->hasStatusEffect($citizen, 'drunk') && !$this->citizen_handler->hasStatusEffect($citizen, 'tg_no_hangover'));
             foreach ($citizen->getStatus() as $st)
