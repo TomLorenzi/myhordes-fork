@@ -639,12 +639,12 @@ class NightlyHandler
     private function stage3_status(Town &$town) {
         $this->log->info('<info>Processing status changes</info> ...');
 
-        $status_survive   = $this->entity_manager->getRepository(CitizenStatus::class)->findOneByName( 'hsurvive' );
-        $status_hasdrunk  = $this->entity_manager->getRepository(CitizenStatus::class)->findOneByName( 'hasdrunk' );
-        $status_infection = $this->entity_manager->getRepository(CitizenStatus::class)->findOneByName( 'infection' );
-        $status_camping   = $this->entity_manager->getRepository(CitizenStatus::class)->findOneByName( 'camper' );
+        $status_survive   = $this->entity_manager->getRepository(CitizenStatus::class)->findOneBy( ['name' => 'hsurvive'] );
+        $status_hasdrunk  = $this->entity_manager->getRepository(CitizenStatus::class)->findOneBy( ['name' => 'hasdrunk'] );
+        $status_infection = $this->entity_manager->getRepository(CitizenStatus::class)->findOneBy( ['name' => 'infection'] );
+        $status_camping   = $this->entity_manager->getRepository(CitizenStatus::class)->findOneBy( ['name' => 'camper'] );
 
-        $status_wound_infection = $this->entity_manager->getRepository(CitizenStatus::class)->findOneByName( 'tg_meta_winfect' );
+        $status_wound_infection = $this->entity_manager->getRepository(CitizenStatus::class)->findOneBy( ['name' => 'tg_meta_winfect'] );
 
         $status_clear_list = ['hasdrunk','haseaten','immune','hsurvive','drunk','drugged','healed','hungover','tg_dice','tg_cards','tg_clothes','tg_teddy','tg_guitar','tg_sbook','tg_steal','tg_home_upgrade','tg_hero','tg_chk_forum','tg_chk_active', 'tg_chk_workshop', 'tg_chk_build', 'tg_chk_movewb', 'tg_hide','tg_tomb', 'tg_home_clean', 'tg_home_shower', 'tg_home_heal_1', 'tg_home_heal_2', 'tg_home_defbuff', 'tg_rested', 'tg_shaman_heal', 'tg_ghoul_eat', 'tg_no_hangover', 'tg_ghoul_corpse', 'tg_betadrug', 'tg_build_vote'];
 
@@ -707,9 +707,9 @@ class NightlyHandler
             if ($citizen->getEscortSettings()) $this->entity_manager->remove($citizen->getEscortSettings());
             $citizen->setEscortSettings(null);
             
-            foreach ($this->entity_manager->getRepository( EscapeTimer::class )->findAllByCitizen( $citizen ) as $et)
+            foreach ($this->entity_manager->getRepository( EscapeTimer::class )->findBy( ['citizen' => $citizen] ) as $et)
                 $this->cleanup[] = $et;
-            foreach ($this->entity_manager->getRepository( DigRuinMarker::class )->findAllByCitizen( $citizen ) as $drm)
+            foreach ($this->entity_manager->getRepository( DigRuinMarker::class )->findBy( ['citizen' => $citizen] ) as $drm)
                 $this->cleanup[] = $drm;
             $add_hangover = ($this->citizen_handler->hasStatusEffect($citizen, 'drunk') && !$this->citizen_handler->hasStatusEffect($citizen, 'tg_no_hangover'));
             foreach ($citizen->getStatus() as $st)
