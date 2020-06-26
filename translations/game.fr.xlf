@@ -11006,5 +11006,20 @@
         <target>Consommez de la chair humaine pour diminuer légèrement votre Voracité.</target>
       </segment>
     </unit>
+    <unit id="NAC.Ln5" name="c85efc4">
+      <notes>
+        <note category="german">Baupunkte können in der Werkstatt und auf Baustellen verwendet werden, wo sie wie Aktionspunkte
+                            zählen. Wenn möglich werden immer zuerst Baupunkte verbraucht, bevor Aktionspunkte eingesetzt
+                            werden. Bedenke, dass Baupunkte nicht eingesetzt werden können wenn du erschöpft bist!</note>
+      </notes>
+      <segment>
+        <source>Baupunkte können in der Werkstatt und auf Baustellen verwendet werden, wo sie wie Aktionspunkte
+                            zählen. Wenn möglich werden immer zuerst Baupunkte verbraucht, bevor Aktionspunkte eingesetzt
+                            werden. Bedenke, dass Baupunkte nicht eingesetzt werden können wenn du erschöpft bist!</source>
+        <target>Baupunkte können in der Werkstatt und auf Baustellen verwendet werden, wo sie wie Aktionspunkte
+                            zählen. Wenn möglich werden immer zuerst Baupunkte verbraucht, bevor Aktionspunkte eingesetzt
+                            werden. Bedenke, dass Baupunkte nicht eingesetzt werden können wenn du erschöpft bist!</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

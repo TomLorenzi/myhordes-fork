@@ -417,5 +417,14 @@
         <target>Ce compte est déjà en attente d'une réinitialisation du mot de passe.</target>
       </segment>
     </unit>
+    <unit id="LRrjhiE" name="Angemeldet bleiben">
+      <notes>
+        <note category="german">Angemeldet bleiben</note>
+      </notes>
+      <segment>
+        <source>Angemeldet bleiben</source>
+        <target>Rester connecté</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
