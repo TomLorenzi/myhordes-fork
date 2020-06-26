@@ -70,7 +70,7 @@
                 </div>
                 {% if tired %}
                     <div class="help">
-                        {{'Du bist %status%'|trans({'%status%': '<img src="' ~ asset('build/images/status/status_tired.gif') ~ '" /> Erschöpft'}, 'game')|raw}} <a class="help-button"><div class="tooltip help">{{ 'Wenn du nichts zur Hand hast, um deine Erschöpfung zu lindern, dann bitte im Forum um Hilfe...'|trans({},'global') }}</div>{{ 'Hilfe'|trans({},'global') }}</a><br />
+                        {{'Du bist'|trans({}, 'game')}} <img src="{{asset('build/images/status/status_tired.gif')}}" /> <strong>{{'Erschöpft'|trans({}, 'game')}}</strong> <a class="help-button"><div class="tooltip help">{{ 'Wenn du nichts zur Hand hast, um deine Erschöpfung zu lindern, dann bitte im Forum um Hilfe...'|trans({},'global') }}</div>{{ 'Hilfe'|trans({},'global') }}</a><br />
                         <span class="small">
                             {{'Ratschlag:'|trans({}, 'game')}}</span>
                             {% if status_info.can_drink and status_info.can_eat %}

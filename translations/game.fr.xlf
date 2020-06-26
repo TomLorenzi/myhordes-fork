@@ -10801,13 +10801,13 @@
         <target>Au vol !</target>
       </segment>
     </unit>
-    <unit id="98qlXbX" name="Du bist %status%">
+    <unit id="GQ3Gt_t" name="Du bist">
       <notes>
-        <note category="german">Du bist %status%</note>
+        <note category="german">Du bist</note>
       </notes>
       <segment>
-        <source>Du bist %status%</source>
-        <target>Vous êtes %status%</target>
+        <source>Du bist</source>
+        <target>Vous êtes</target>
       </segment>
     </unit>
     <unit id="Pzhs1Mo" name="Ratschlag:">
@@ -11019,6 +11019,15 @@
         <target>Baupunkte können in der Werkstatt und auf Baustellen verwendet werden, wo sie wie Aktionspunkte
                             zählen. Wenn möglich werden immer zuerst Baupunkte verbraucht, bevor Aktionspunkte eingesetzt
                             werden. Bedenke, dass Baupunkte nicht eingesetzt werden können wenn du erschöpft bist!</target>
+      </segment>
+    </unit>
+    <unit id="swizrYC" name="Erschöpft">
+      <notes>
+        <note category="german">Erschöpft</note>
+      </notes>
+      <segment>
+        <source>Erschöpft</source>
+        <target>Épuisé</target>
       </segment>
     </unit>
   </file>

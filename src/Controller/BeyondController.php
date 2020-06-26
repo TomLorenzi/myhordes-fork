@@ -178,7 +178,7 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
                 !$blocked && !$zone->activeExplorerStats() && !$this->getActiveCitizen()->currentExplorerStats(),
             'tired' => $this->citizen_handler->isTired($this->getActiveCitizen()),
             'status_info' => [
-                'can_drink' => !$this->citizen_handler->hasStatusEffect($this->getActiveCitizen(), 'hasdrink'),
+                'can_drink' => !$this->citizen_handler->hasStatusEffect($this->getActiveCitizen(), 'hasdrunk'),
                 'can_eat' => !$this->citizen_handler->hasStatusEffect($this->getActiveCitizen(), 'haseaten')
             ]
         ], $data, $this->get_map_blob()) );
