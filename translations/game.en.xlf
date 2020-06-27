@@ -10902,10 +10902,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
                             benötigst du Aktionspunkte. Deine Aktionspunkte werden jede Nacht nach dem Angriff aufgefüllt. Außerdem
                             kannst du sie durch den Einsatz bestimmter Gegenstände sowie einmal pro Tag durch Essen und Trinken neu
                             auffüllen.</source>
-        <target>Für viele Aktionen, wie beispielsweise die Erkundung der Aussenwelt oder der Arbeit auf einer Baustelle,
-                            benötigst du Aktionspunkte. Deine Aktionspunkte werden jede Nacht nach dem Angriff aufgefüllt. Außerdem
-                            kannst du sie durch den Einsatz bestimmter Gegenstände sowie einmal pro Tag durch Essen und Trinken neu
-                            auffüllen.</target>
+        <target>These are used for many actions, such as exploring the outside world or working on a construction site. Your action points are replenished every night after the attack. You can also refill them by using certain items and once a day by eating and drinking.</target>
       </segment>
     </unit>
     <unit id="NAC.Ln5" name="c85efc4">
@@ -10918,9 +10915,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
         <source>Baupunkte können in der Werkstatt und auf Baustellen verwendet werden, wo sie wie Aktionspunkte
                             zählen. Wenn möglich werden immer zuerst Baupunkte verbraucht, bevor Aktionspunkte eingesetzt
                             werden. Bedenke, dass Baupunkte nicht eingesetzt werden können wenn du erschöpft bist!</source>
-        <target>Baupunkte können in der Werkstatt und auf Baustellen verwendet werden, wo sie wie Aktionspunkte
-                            zählen. Wenn möglich werden immer zuerst Baupunkte verbraucht, bevor Aktionspunkte eingesetzt
-                            werden. Bedenke, dass Baupunkte nicht eingesetzt werden können wenn du erschöpft bist!</target>
+        <target>Building points can be used in the workshop and on construction sites, where they count like action points. If possible, building points are always used first before action points are used. Keep in mind that building points cannot be used when you are exhausted!</target>
       </segment>
     </unit>
   </file>
