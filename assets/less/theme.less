@@ -748,9 +748,13 @@ div.game-menu-area {
           cursor: pointer;
           &:hover {color: white}
           &.forum,&.town-dash,&.town-news,&.soul,&.help {
-            filter: brightness(100%); width: 84px; margin-top: 10px; text-transform:uppercase; font-size: 1.0rem;
+            filter: brightness(100%); -webkit-filter: brightness(100%); -moz-filter: brightness(100%); -o-filter: brightness(100%); -ms-filter: brightness(100%);
+            width: 84px; margin-top: 10px; text-transform:uppercase; font-size: 1.0rem;
             font-weight: bold; color: #FFFFCA; text-align: center;
-            &:hover { filter: brightness(140%); color: #FFFFCA; position: relative }
+            &:hover { 
+            filter: brightness(140%); -webkit-filter: brightness(140%); -moz-filter: brightness(140%); -o-filter: brightness(140%); -ms-filter: brightness(140%);
+            color: #FFFFCA; position: relative 
+            }
             &:after {
               filter: drop-shadow(0 0 2px black);
               content: " "; display: block; position: absolute; left: 0; right: 0; height: 45px;
@@ -811,8 +815,8 @@ div.game-menu-area {
           left: 0;
           right: 85px;
         }
-        &>li:nth-child(3) { font-size: 1rem; text-align: center; top: 32px; left: 215px; right: 25px; }
-        &>li:nth-child(4) { color: #5e0000; font-size: 1rem; text-align: center; font-weight: bold; top: 58px; left: 215px; right: 25px; }
+        &>li:nth-child(3) { font-size: 1rem; text-align: center; top: 32px; left: 215px; right: 25px; cursor: help; }
+        &>li:nth-child(4) { color: #5e0000; font-size: 1rem; text-align: center; font-weight: bold; top: 58px; left: 215px; right: 25px; cursor: help; }
         .hardcore {
           color: lighten(#7C2727, 10%);
           font-variant: small-caps;
