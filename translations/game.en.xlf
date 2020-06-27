@@ -8819,7 +8819,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Tote in der Stadt</source>
-        <target>Tote in der Stadt</target>
+        <target>Deaths in town</target>
       </segment>
     </unit>
     <unit id="wvs954U" name="Niemand!">
@@ -8837,7 +8837,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Sonstige Opfer</source>
-        <target>Sonstige Opfer</target>
+        <target>Other Victims</target>
       </segment>
     </unit>
     <unit id="kxeEpoF" name="Opfer">
@@ -8846,7 +8846,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Opfer</source>
-        <target>Opfer</target>
+        <target>Victims</target>
       </segment>
     </unit>
     <unit id="w60IHjv" name="Keine Opfer">
@@ -9539,7 +9539,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Zombies sind eingedrungen.</source>
-        <target>Zombies have invaded.</target>
+        <target>zombies got through!</target>
       </segment>
     </unit>
     <unit id="ojehKlj" name="vor Angst erstarrt">
