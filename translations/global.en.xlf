@@ -349,7 +349,7 @@
       </notes>
       <segment>
         <source>Forum</source>
-        <target>Forum</target>
+        <target>Forums</target>
       </segment>
     </unit>
     <unit id="BNcLxkK" name="Deine Seele">
@@ -376,7 +376,7 @@
       </notes>
       <segment>
         <source>Zum Spiel</source>
-        <target>Game</target>
+        <target>Back to site</target>
       </segment>
     </unit>
     <unit id="tkZocIU" name="Ausloggen">
