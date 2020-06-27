@@ -3118,7 +3118,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Hat jemand in letzter Zeit von %citizen% gehört? Er scheint verschwunden zu sein ...</source>
-        <target>Hat jemand in letzter Zeit von %citizen% gehört? Er scheint verschwunden zu sein ...</target>
+        <target>Has anyone heard of %citizen% lately? He seems to have disappeared ...</target>
       </segment>
     </unit>
     <unit id="HNlT.7E" name="caf9c12">
@@ -3154,7 +3154,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>%citizen% hat seinen letzten Atemzug getan: %cod%!</source>
-        <target>%citizen% nous a quitté : %cod%!</target>
+        <target>%citizen% left us : %cod%!</target>
       </segment>
     </unit>
     <unit id="gaihf5j" name="%citizen% hat das Stadtgebiet in Richtung %direction% verlassen.">
@@ -3280,7 +3280,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>%num% Zombies sind durch unsere Verteidigung gebrochen!</source>
-        <target>%num% Zombies have broken through our defences!</target>
+        <target>%num% Zombies made it into the town!</target>
       </segment>
     </unit>
     <unit id="IT1iVPi" name="Nicht ein Zombie hat die Stadt betreten!">
@@ -3289,7 +3289,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Nicht ein Zombie hat die Stadt betreten!</source>
-        <target>No Zombie was able to enter the Town !</target>
+        <target>No zombies managed to make it into town!</target>
       </segment>
     </unit>
     <unit id="qdFcLMD" name="%citizen% hat die Leiche von %disposed% aus der Stadt gezerrt.">
@@ -7475,7 +7475,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Tapfere Bürger haben auf den Stadtmauern Stellung bezogen : %citizens%</source>
-        <target>Tapfere Bürger haben auf den Stadtmauern Stellung bezogen : %citizens%</target>
+        <target>Last night, these watchmen showed incredible courage: : %citizens%</target>
       </segment>
     </unit>
     <unit id="Tx6ACHr" name="Schreiend und fuchtelnd hat %citizen% %kills% Zombies getötet.">
@@ -8072,7 +8072,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Resigniert und untröstlich sahen die Bürger, wie eine Horde von %num% Zombies sich in Richtung Stadt bewegte... Wie aus dem Nichts stand die Meute auf einmal vor dem Stadttor...</source>
-        <target>Resigniert und untröstlich sahen die Bürger, wie eine Horde von %num% Zombies sich in Richtung Stadt bewegte... Wie aus dem Nichts stand die Meute auf einmal vor dem Stadttor...</target>
+        <target>The now visibly agitated citizens watched a horde of %num% zombies heading for the town!</target>
       </segment>
     </unit>
     <unit id="OVTYzwK" name="%sender%: %message%">
@@ -10888,6 +10888,39 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       <segment>
         <source>Auch der Verzehr von kaltem Menschenfleisch senkt deinen Hunger, allerdings nicht so stark wie Frischfleisch...</source>
         <target>eat human flesh to reduce your Hunger slightly.</target>
+      </segment>
+    </unit>
+    <unit id="5MeFkca" name="c328ebf">
+      <notes>
+        <note category="german">Für viele Aktionen, wie beispielsweise die Erkundung der Aussenwelt oder der Arbeit auf einer Baustelle,
+                            benötigst du Aktionspunkte. Deine Aktionspunkte werden jede Nacht nach dem Angriff aufgefüllt. Außerdem
+                            kannst du sie durch den Einsatz bestimmter Gegenstände sowie einmal pro Tag durch Essen und Trinken neu
+                            auffüllen.</note>
+      </notes>
+      <segment>
+        <source>Für viele Aktionen, wie beispielsweise die Erkundung der Aussenwelt oder der Arbeit auf einer Baustelle,
+                            benötigst du Aktionspunkte. Deine Aktionspunkte werden jede Nacht nach dem Angriff aufgefüllt. Außerdem
+                            kannst du sie durch den Einsatz bestimmter Gegenstände sowie einmal pro Tag durch Essen und Trinken neu
+                            auffüllen.</source>
+        <target>Für viele Aktionen, wie beispielsweise die Erkundung der Aussenwelt oder der Arbeit auf einer Baustelle,
+                            benötigst du Aktionspunkte. Deine Aktionspunkte werden jede Nacht nach dem Angriff aufgefüllt. Außerdem
+                            kannst du sie durch den Einsatz bestimmter Gegenstände sowie einmal pro Tag durch Essen und Trinken neu
+                            auffüllen.</target>
+      </segment>
+    </unit>
+    <unit id="NAC.Ln5" name="c85efc4">
+      <notes>
+        <note category="german">Baupunkte können in der Werkstatt und auf Baustellen verwendet werden, wo sie wie Aktionspunkte
+                            zählen. Wenn möglich werden immer zuerst Baupunkte verbraucht, bevor Aktionspunkte eingesetzt
+                            werden. Bedenke, dass Baupunkte nicht eingesetzt werden können wenn du erschöpft bist!</note>
+      </notes>
+      <segment>
+        <source>Baupunkte können in der Werkstatt und auf Baustellen verwendet werden, wo sie wie Aktionspunkte
+                            zählen. Wenn möglich werden immer zuerst Baupunkte verbraucht, bevor Aktionspunkte eingesetzt
+                            werden. Bedenke, dass Baupunkte nicht eingesetzt werden können wenn du erschöpft bist!</source>
+        <target>Baupunkte können in der Werkstatt und auf Baustellen verwendet werden, wo sie wie Aktionspunkte
+                            zählen. Wenn möglich werden immer zuerst Baupunkte verbraucht, bevor Aktionspunkte eingesetzt
+                            werden. Bedenke, dass Baupunkte nicht eingesetzt werden können wenn du erschöpft bist!</target>
       </segment>
     </unit>
   </file>
