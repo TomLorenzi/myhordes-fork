@@ -6,21 +6,50 @@
                 <ul class="text-menu">
                     <li class="burger-button"><i class="fa fa-bars"></i></li>
                     {% if is_granted('ROLE_USER') %}
-                        <li class="forum" x-ajax-href="{{ url('forum_town_redirect') }}">{{ 'Forum'|trans({},'global') }}</li>
+                        <li class="forum" x-ajax-href="{{ url('forum_town_redirect') }}">
+                        <div class="tooltip help">
+                    		<p>{% trans from 'game' %}Mit den anderen Bürgern reden... {% endtrans %}</p>
+                        	<p style="color: #f0d79e;"><em>{% trans from 'game' %}Lesen und Nutzen des Forums sind in 'MyHordes' überlebensnotwendig! Die wichtigen Entscheidungen der Stadt werden hier gemeinsam von der Community getroffen.{% endtrans %}</em></p>
+                		</div>
+						{{ 'Forum'|trans({},'global') }}</li>
                     {% endif %}
                     {% block menu_text %}
                         {% if app.user %}
                             {% if app.user.activeCitizen %}
-                                <li class="town-news" x-ajax-href="{{ url('game_newspaper') }}">{% trans from 'game' %}Zeitung{% endtrans %}</li>
+                                <li class="town-news" x-ajax-href="{{ url('game_newspaper') }}">
+                                	<div class="tooltip help">
+                    					<p>{% trans from 'game' %}Das Leichsblatt: Hier findet ihr alle Neuigkeiten, über das, was gestern in der Stadt passiert ist...{% endtrans %}</p>
+                        				<p style="color: #f0d79e;"><em>{% trans from 'game' %}Schaut am besten jeden Tag einmal rein!{% endtrans %}</em></p>
+                					</div>
+                                	{{ 'Zeitung'|trans({},'game') }}
+                                </li>
                             {% else %}
-                                <li class="town-dash" x-ajax-href="{{ url('ghost_welcome') }}">{% trans from 'global' %}Spiel{% endtrans %}</li>
+                                <li class="town-dash" x-ajax-href="{{ url('ghost_welcome') }}">
+                                	<div class="tooltip help">
+                    					<p>{{ 'Starten Sie eine Stadt'|trans({},'game') }}</p>
+                        				<p style="color: #f0d79e;"><em>{% trans from 'game' %}Es ist Zeit, sich seinen Mitmenschen in der Hölle anschließen!{% endtrans %}</em></p>
+                					</div>
+                                	{{ 'Spiel'|trans({},'global') }}
+                                </li>
                             {% endif %}
                         {% endif %}
                     {% endblock %}
                     {% if is_granted('ROLE_USER') %}
-                        <li class="soul" x-ajax-href="{{ url('soul_me') }}">{% trans from 'global' %}Deine Seele{% endtrans %}</li>
+                        <li class="soul" x-ajax-href="{{ url('soul_me') }}">
+                        	<div class="tooltip help">
+                    			<p>{{ 'Deine Seele'|trans({},'global') }}</p>
+                        		<p style="color: #f0d79e;"><em>{% trans from 'game' %}Deine gesamte Geschichte basiert auf deinen zuvor gespielten Städten...{% endtrans %}</em></p>
+                			</div>
+                        	{{ 'Deine Seele'|trans({},'global') }}
+                        </li>
                     {% endif %}
-                    <li class="help">{{ 'Hilfe'|trans({},'global') }}</li>
+                    <li class="help">
+                    	<div class="tooltip help">
+                    		<p>{{ 'Spielhilfe aufrufen.'|trans({},'game') }}</p>
+                        	<p style="color: #f0d79e;"><em>{% trans from 'game' %}Hast du schon unter "Wie wird gespielt" nachgeschaut? Du findest den Link darauf unter der Karte der Stadt.{% endtrans %}</em></p>
+                		</div>
+                    	{{ 'Hilfe'|trans({},'global') }}
+                    </li>
                 </ul>
             {% endblock %}
             {% block menu_bar %}{% endblock %}
