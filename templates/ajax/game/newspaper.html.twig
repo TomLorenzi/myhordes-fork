@@ -104,11 +104,12 @@
             <div id="gazette-switcher"><label class="button" for="gazette-switch">{{ 'Umdrehen'|trans({}, 'game') }}</label></div>
             
             {% if citizensWithRole|length > 0 %}
+            <h5>{{ 'Stadtrat'|trans({}, 'game') }}</h5>
             <div id="gazette-role-list">
             {% for citizenWithRole in citizensWithRole %}
                 {% for role in citizenWithRole.roles %}
                     {% if not role.secret and not role.hidden %}
-                        <p><img alt="" src="{{ asset('build/images/small_middot.gif') }}" />{{ "Der %rolename% der Stadt ist %username%"|trans({'%rolename%': "<strong>" ~ role.label|trans({}, 'game') ~ "</strong>", '%username%': "<strong>" ~ citizenWithRole.user.username ~ "</strong>"} , 'game')|raw }}</p>
+                        <p><img alt="•" src="{{ asset('build/images/small_middot.gif') }}" />{{ "Der %rolename% der Stadt ist %username%"|trans({'%rolename%': "<strong>" ~ role.label|trans({}, 'game') ~ "</strong>", '%username%': "<strong>" ~ citizenWithRole.user.username ~ "</strong>"} , 'game')|raw }}</p>
                     {% endif %}
                 {% endfor %}
             {% endfor %}
@@ -120,11 +121,7 @@
                 {% embed "ajax/game/log.html.twig" with {'log_content': log, 'log_source': path('game_newspaper_log_controller') } %}
                 {% endembed %}
             {% else %}
-            <div class="note">
-                {% trans from 'game' %}
-                    Das Stadtregister steht nicht zur Verfügung.
-                {% endtrans %}
-            </div>
+            <div class="note">{{ 'Das Stadtregister steht nicht zur Verfügung.'|trans({}, 'game') }}</div>
             {% endif %}
         </div>
     </div>

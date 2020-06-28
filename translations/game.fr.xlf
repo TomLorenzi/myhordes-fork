@@ -11114,5 +11114,14 @@
         <target> citoyens s'y seront inscrits.</target>
       </segment>
     </unit>
+    <unit id="ANGnefx" name="Stadtrat">
+      <notes>
+        <note category="german">Stadtrat</note>
+      </notes>
+      <segment>
+        <source>Stadtrat</source>
+        <target>Conseil de Ville</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
