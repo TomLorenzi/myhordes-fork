@@ -26,6 +26,11 @@
                     <li class="free"></li>
                 {% endfor %}
             {% endif %}
+            {% if rucksack_size > 7 %}
+                <li class="more">
+                    <img src="{{ asset("build/images/small_more2.gif") }}" alt="+" />
+                </li>
+            {% endif %}
         </ul>
     {% endif %}
 

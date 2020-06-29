@@ -844,10 +844,19 @@ div.game-menu-area {
         }
 
         &.rucksack {
-        	width: 195px;
+        	width: 195px; height: 28px;
         	overflow: hidden;
+        	.more {
+        		width: 18px;
+        		position: absolute;
+        		top: 7px;
+        		right: 0px;
+        	}
         	&:hover {
-        		overflow: visible;
+        		overflow: visible; height: 56px;
+        		.more {
+        			display: none;
+        		}
         	}
 
         }
