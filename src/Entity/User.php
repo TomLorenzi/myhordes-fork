@@ -84,7 +84,7 @@ class User implements UserInterface, EquatableInterface
     private $soulPoints = 0;
     
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Picto", mappedBy="user")
+     * @ORM\OneToMany(targetEntity="App\Entity\Picto", mappedBy="user", cascade={"persist", "remove"})
      */
     private $pictos;
 

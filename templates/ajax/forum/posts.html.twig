@@ -3,6 +3,34 @@
     {# @var posts \App\Entity\Post[] #}
     {% set today = date() %}
     {% set yesterday = date('-1days') %}
+    {% block buttons %}
+        <div class="row">
+            <div class="cell padded rw-6 left">
+                {% if is_granted("ROLE_CROW")%}
+                    {% if not locked %}
+                        <div x-forum-moderator-action="lock" class="forum-button"><img src="{{ asset('build/images/lock.gif') }}" /><span>{{ 'Schließen'|trans({},'global') }}</span></div>
+                    {% endif %}
+                    {% if locked %}
+                        <div x-forum-moderator-action="unlock" class="forum-button"><img src="{{ asset('build/images/mod.png') }}" /><span>{{ 'Öffnen'|trans({},'global') }}</span></div>
+                    {% endif %}
+                {% endif %}
+                {% if is_granted("ROLE_ADMIN") %}
+                    {% if not pinned %}
+                        <div x-forum-moderator-action="pin" class="forum-button"><img src="{{ asset('build/images/mod.png') }}" /><span>{{ 'Anpinnen'|trans({},'global') }}</span></div>
+                    {% else %}
+                        <div x-forum-moderator-action="unpin" class="forum-button"><img src="{{ asset('build/images/mod.png') }}" /><span>{{ 'Loslösen'|trans({},'global') }}</span></div>
+                    {% endif %}
+                {% endif %}
+            </div>
+            <div class="cell padded rw-6 right">
+                {% if not locked and not is_granted("ROLE_BANNED") %}
+                    <div x-forum-action="answer" class="forum-button"><span>{{ 'Antworten'|trans({},'global') }}</span></div>
+                {% else %}
+                    <div class="forum-button-disabled"><img src="{{ asset('build/images/lock.gif') }}" /><span>{{ 'Antworten'|trans({},'global') }}</span></div>
+                {% endif %}
+            </div>
+        </div>
+    {% endblock %}
     {% block pagenav %}
         {% if pages > 1 %}
             <div class="row">
@@ -26,7 +54,7 @@
             </div>
         {% endif %}
     {% endblock %}
-
+    
 
     {% if announces.admin|length > 0 %}
         <div class="row">
@@ -115,32 +143,7 @@
             {% endif %}
         {% endfor %}
     </div>
-    <div class="row">
-        <div class="cell padded rw-6 left">
-            {% if is_granted("ROLE_CROW")%}
-                {% if not locked %}
-                    <div x-forum-moderator-action="lock" class="forum-button"><img src="{{ asset('build/images/lock.gif') }}" /><span>{{ 'Schließen'|trans({},'global') }}</span></div>
-                {% endif %}
-                {% if locked %}
-                    <div x-forum-moderator-action="unlock" class="forum-button"><img src="{{ asset('build/images/mod.png') }}" /><span>{{ 'Öffnen'|trans({},'global') }}</span></div>
-                {% endif %}
-            {% endif %}
-            {% if is_granted("ROLE_ADMIN") %}
-                {% if not pinned %}
-                    <div x-forum-moderator-action="pin" class="forum-button"><img src="{{ asset('build/images/mod.png') }}" /><span>{{ 'Anpinnen'|trans({},'global') }}</span></div>
-                {% else %}
-                    <div x-forum-moderator-action="unpin" class="forum-button"><img src="{{ asset('build/images/mod.png') }}" /><span>{{ 'Loslösen'|trans({},'global') }}</span></div>
-                {% endif %}
-            {% endif %}
-        </div>
-        <div class="cell padded rw-6 right">
-            {% if not locked and not is_granted("ROLE_BANNED") %}
-                <div x-forum-action="answer" class="forum-button"><span>{{ 'Antworten'|trans({},'global') }}</span></div>
-            {% else %}
-                <div class="forum-button-disabled"><img src="{{ asset('build/images/lock.gif') }}" /><span>{{ 'Antworten'|trans({},'global') }}</span></div>
-            {% endif %}
-        </div>
-    </div>
+    {{ block('buttons') }}
     {{ block('pagenav') }}
 {% endblock %}
 {% block js %}
@@ -228,9 +231,12 @@
         let new_post_btns = document.querySelectorAll('[x-forum-action=answer]');
         for (let i = 0; i < new_post_btns.length; i++)
             new_post_btns[i].addEventListener('click', function() {
-                new_post_btns[i].parentNode.removeChild(new_post_btns[i]);
-                $.ajax.no_history().load( document.getElementById('forum-editor'), '{{ path('forum_post_editor_controller', {fid: fid, tid: tid}) }}', false )
+                for (let j = 0 ; j < new_post_btns.length ; j++)
+                    new_post_btns[j].parentNode.removeChild(new_post_btns[j]);
+                $.ajax.no_history().load( document.getElementById('forum-editor'), '{{ path('forum_post_editor_controller', {fid: fid, tid: tid}) }}', false );
+                document.getElementById("forum-editor").scrollIntoView();
             })
+
         let nav_buttons =  document.querySelectorAll('[x-forum-action="post-pager"][x-to-page]');
         for (let i = 0; i < nav_buttons.length; i++)
             nav_buttons[i].addEventListener('click', function() {
