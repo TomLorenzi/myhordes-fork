@@ -10389,7 +10389,7 @@
     </unit>
     <unit id="oeQUUdA" name="Und wieder 'ne Leiche weniger! %citizen% wurde von † %disposed% entsorgt!">
       <notes>
-        <note category="german">Und wieder 'ne Leiche weniger! %citizen% wurde von † %disposed% entsorgt!</note>
+        <note category="german">Und wieder 'ne Leiche weniger! %disposed% wurde von † %citizen% entsorgt!</note>
       </notes>
       <segment>
         <source>Und wieder 'ne Leiche weniger! %citizen% wurde von † %disposed% entsorgt!</source>
@@ -11016,9 +11016,10 @@
         <source>Baupunkte können in der Werkstatt und auf Baustellen verwendet werden, wo sie wie Aktionspunkte
                             zählen. Wenn möglich werden immer zuerst Baupunkte verbraucht, bevor Aktionspunkte eingesetzt
                             werden. Bedenke, dass Baupunkte nicht eingesetzt werden können wenn du erschöpft bist!</source>
-        <target>Baupunkte können in der Werkstatt und auf Baustellen verwendet werden, wo sie wie Aktionspunkte
-                            zählen. Wenn möglich werden immer zuerst Baupunkte verbraucht, bevor Aktionspunkte eingesetzt
-                            werden. Bedenke, dass Baupunkte nicht eingesetzt werden können wenn du erschöpft bist!</target>
+        <target>Les Points de Chantiers peuvent être utilisés à l'Atelier et pour la construction des Chantiers, 
+                            où ils comptent comme des points d'action. Si possible, les points de chantiers sont toujours 
+                            utilisés à la place des points d'action. Gardez à l'esprit que les points de 
+                            chantiers ne peuvent pas être utilisés lorsque vous êtes épuisé !</target>
       </segment>
     </unit>
     <unit id="swizrYC" name="Erschöpft">
@@ -11120,24 +11121,6 @@
         <target>Il est temps de rejoindre vos congénères en enfer !</target>
       </segment>
     </unit>
-    <unit id="KTYT41p" name="Die Stadt wird erst starten, wenn sie">
-      <notes>
-        <note category="german">Die Stadt wird erst starten, wenn sie</note>
-      </notes>
-      <segment>
-        <source>Die Stadt wird erst starten, wenn sie</source>
-        <target>La ville ne démarrera que lorsque</target>
-      </segment>
-    </unit>
-    <unit id="akGlYqP" name=" Bürger hat.">
-      <notes>
-        <note category="german"> Bürger hat.</note>
-      </notes>
-      <segment>
-        <source> Bürger hat.</source>
-        <target> citoyens s'y seront inscrits.</target>
-      </segment>
-    </unit>
     <unit id="ANGnefx" name="Stadtrat">
       <notes>
         <note category="german">Stadtrat</note>
@@ -11145,6 +11128,27 @@
       <segment>
         <source>Stadtrat</source>
         <target>Conseil de Ville</target>
+      </segment>
+    </unit>
+    <unit id="wn0c1Kw" name="Die Stadt wird erst starten, wenn sie &lt;strong&gt;%population% Bürger hat&lt;/strong&gt;.">
+      <notes>
+        <note category="german">Die Stadt wird erst starten, wenn sie &lt;strong&gt;%population% Bürger hat&lt;/strong&gt;.</note>
+      </notes>
+      <segment>
+        <source>Die Stadt wird erst starten, wenn sie &lt;strong&gt;%population% Bürger hat&lt;/strong&gt;.</source>
+        <target><![CDATA[La ville ne démarrera que lorsque <strong>%population% citoyens</strong> s'y seront inscrits.]]></target>
+      </segment>
+    </unit>
+    <unit id="uL_3bHQ" name="2d4f0c6">
+      <notes>
+        <note category="german">Hiermit kannst du den Namen eines zufälligen Bürgers in deinen Post anfügen.
+                                                    Bei Bedarf kannst du die Auswahl auf bestimmte Berufe, Helden oder bereits gestorbene Bürger eingrenzen.</note>
+      </notes>
+      <segment>
+        <source>Hiermit kannst du den Namen eines zufälligen Bürgers in deinen Post anfügen.
+                                                    Bei Bedarf kannst du die Auswahl auf bestimmte Berufe, Helden oder bereits gestorbene Bürger eingrenzen.</source>
+        <target>Vous pouvez l'utiliser pour ajouter le nom d'un citoyen aléatoire à votre message.
+                                                    Si nécessaire, vous pouvez limiter la sélection à certaines professions, héros ou citoyens déjà décédés.</target>
       </segment>
     </unit>
   </file>
