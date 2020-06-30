@@ -26,6 +26,10 @@
                     <div class="cell padded-small rw-6 rw-md-12"><input name="login_pass" id="login-password" type="password" /></div>
                 </div>
                 <div class="row">
+                    <div class="cell padded-small rw-6 rw-md-12"><b><label for="remember_me">{% trans from 'login' %}Angemeldet bleiben{% endtrans %}</label></b></div>
+                    <div class="cell padded-small rw-6 rw-md-12"><input type="checkbox" id="remember_me" name="_remember_me" checked/></div>
+                </div>
+                <div class="row">
                     <div class="cell padded-small rw-6 ro-6 rw-md-12 ro-md-0">
                         <button id="login_button">{% trans from 'login' %}Einloggen{% endtrans %}</button>
                     </div>

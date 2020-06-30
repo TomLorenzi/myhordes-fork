@@ -524,6 +524,7 @@ div.help {
   .box(@myhordes-help-color); padding: 5px 5px 5px 26px; font-size: 1.2rem; margin: 5px 0; text-align: justify; position: relative;
   &>p:first-child { margin-top: 0 }
   &>p:last-child { margin-bottom: 0 }
+  strong { color: #e2d890; }
 }
 
 @myhordes-box-color: #966437;
@@ -752,9 +753,13 @@ div.game-menu-area {
           &:hover {color: white}
           &.burger-button { margin-top: 2px; }
           &.forum,&.town-dash,&.town-news,&.soul,&.help {
-            filter: brightness(100%); width: 84px; margin-top: 7px; text-transform:uppercase; font-size: 1.0rem;
+            filter: brightness(100%); -webkit-filter: brightness(100%); -moz-filter: brightness(100%); -o-filter: brightness(100%); -ms-filter: brightness(100%);
+            width: 84px; margin-top: 7px; text-transform:uppercase; font-size: 1.0rem;
             font-weight: bold; color: #FFFFCA; text-align: center;
-            &:hover { filter: brightness(140%); color: #FFFFCA; position: relative }
+            &:hover {
+            filter: brightness(140%); -webkit-filter: brightness(140%); -moz-filter: brightness(140%); -o-filter: brightness(140%); -ms-filter: brightness(140%);
+            color: #FFFFCA; position: relative
+            }
             &:after {
               filter: drop-shadow(0 0 2px black);
               content: " "; display: block; position: absolute; left: 0; right: 0; height: 45px;
@@ -815,8 +820,8 @@ div.game-menu-area {
           left: 0;
           right: 85px;
         }
-        &>li:nth-child(3) { font-size: 1rem; text-align: center; top: 32px; left: 215px; right: 25px; }
-        &>li:nth-child(4) { color: #5e0000; font-size: 1rem; text-align: center; font-weight: bold; top: 58px; left: 215px; right: 25px; }
+        &>li:nth-child(3) { font-size: 1rem; text-align: center; top: 32px; left: 215px; right: 25px; cursor: help; }
+        &>li:nth-child(4) { color: #5e0000; font-size: 1rem; text-align: center; font-weight: bold; top: 58px; left: 215px; right: 25px; cursor: help; }
         .hardcore {
           color: lighten(#7c2727, 10%);
           font-variant: small-caps;
@@ -858,7 +863,7 @@ div.game-menu-area {
         }
 
         &.rucksack {
-        	width: 195px;
+        	width: 195px; height: 28px;
         	overflow: hidden;
         	.more {
         		width: 18px;
@@ -867,7 +872,7 @@ div.game-menu-area {
         		right: 0px;
         	}
         	&:hover {
-        		overflow: visible;
+        		overflow: visible; height: 56px;
         		.more {
         			display: none;
         		}

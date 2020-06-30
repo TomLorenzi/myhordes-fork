@@ -1,381 +1,381 @@
-<div class="forum-editor">
-    <div class="forum-editor-header">
-        {% if tid is null %}
-            <i>{{ 'Neuer Thread'|trans({},'global') }}</i>
-        {% else %}
-            <i>{{ 'Neuer Post'|trans({},'global') }}</i>
-        {% endif %}
-        <b>{{ app.user.username }}</b>
-    </div>
-    {% if tid is null %}
-        <div class="row">
-            <div class="cell rw-4 padded">
-                <label for="forum-editor-title">{{ 'Titel'|trans({},'global') }}</label>
-            </div>
-            <div class="cell rw-8 padded">
-                <input type="text" id="forum-editor-title" />
-            </div>
-            {% if type is defined and type == "changelog" %}
-            <div class="cell rw-4 padded">
-                <label for="forum-editor-version">{{ 'Version'|trans({},'global') }}</label>
-            </div>
-            <div class="cell rw-8 padded">
-                <input type="text" id="forum-editor-version" />
-            </div>
-            <div class="cell rw-4 padded">
-                <label for="forum-editor-lang">{{ 'Sprache'|trans({},'global') }}</label>
-            </div>
-            <div class="cell rw-8 padded">
-                <select id="forum-editor-lang">
-                    
-                </select>
-            </div>
+{% extends "ajax/ajax_plain.html.twig" %}
+{% block ajax_base %}
+    <div class="forum-editor">
+        <div class="forum-editor-header">
+            {% if tid is null %}
+                <i>{{ 'Neuer Thread'|trans({},'global') }}</i>
+            {% else %}
+                <i>{{ 'Neuer Post'|trans({},'global') }}</i>
             {% endif %}
+            <b>{{ app.user.username }}</b>
         </div>
-    {% endif %}
-    <div class="row classic-editor">
-        <div class="padded cell rw-12">
-            <label>{{ 'Vorschau'|trans({},'global') }}</label>
-            <div id="forum-editor-preview"></div>
-            <br />
-            <label for="forum-editor-text">{{ 'Deine Nachricht'|trans({},'global') }}</label>
-            <div class="forum-button-bar">
-                <div x-forum-action="edit" x-text-wrap-node="b" class="forum-button"><i class="fa fa-bold"></i><span class="forum-button-tooltip">{{ 'Fett'|trans({},'global') }}</span></div>
-                <div x-forum-action="edit" x-text-wrap-node="i" class="forum-button"><i class="fa fa-italic"></i><span class="forum-button-tooltip">{{ 'Kursiv'|trans({},'global') }}</span></div>
-                <div x-forum-action="edit" x-text-wrap-node="u" class="forum-button"><i class="fa fa-underline"></i><span class="forum-button-tooltip">{{ 'Unterstreichen'|trans({},'global') }}</span></div>
-                <div x-forum-action="edit" x-text-wrap-node="s" class="forum-button"><i class="fa fa-strikethrough"></i><span class="forum-button-tooltip">{{ 'Durchstreichen'|trans({},'global') }}</span></div>
-                <div x-forum-action="edit" x-text-wrap-node="bad" class="forum-button"><i class="fas fa-tint"></i><span class="forum-button-tooltip">{{ 'Verräter'|trans({},'global') }}</span></div>
-                <div x-forum-action="modal" x-text-modal-node="link" class="forum-button"><i class="fa fa-link"></i><span class="forum-button-tooltip">{{ 'Link einfügen'|trans({},'global') }}</span></div>
-                {% if is_granted("ROLE_ADMIN") %}
-                    <div x-forum-action="modal" x-text-modal-node="image" class="forum-button"><i class="fa fa-image"></i><span class="forum-button-tooltip">{{ 'Bild einfügen'|trans({},'global') }}</span></div>
-                    <div x-forum-action="edit" x-text-wrap-node="admannounce" class="forum-button"><i class="fas fa-bullhorn"></i><span class="forum-button-tooltip">{{ 'Admin Ankündigung'|trans({},'global') }}</span></div>
+        {% if tid is null %}
+            <div class="row">
+                <div class="cell rw-4 padded">
+                    <label for="forum-editor-title">{{ 'Titel'|trans({},'global') }}</label>
+                </div>
+                <div class="cell rw-8 padded">
+                    <input type="text" id="forum-editor-title" />
+                </div>
+                {% if type is defined and type == "changelog" %}
+                    <div class="cell rw-4 padded">
+                        <label for="forum-editor-version">{{ 'Version'|trans({},'global') }}</label>
+                    </div>
+                    <div class="cell rw-8 padded">
+                        <input type="text" id="forum-editor-version" />
+                    </div>
+                    <div class="cell rw-4 padded">
+                        <label for="forum-editor-lang">{{ 'Sprache'|trans({},'global') }}</label>
+                    </div>
+                    <div class="cell rw-8 padded">
+                        <select id="forum-editor-lang">
+
+                        </select>
+                    </div>
                 {% endif %}
-                {% if is_granted("ROLE_CROW") %}
-                <div x-forum-action="edit" x-text-wrap-node="modannounce" class="forum-button"><i class="fas fa-gavel"></i><span class="forum-button-tooltip">{{ 'Mod Ankündigung'|trans({},'global') }}</span></div>
-                {% endif %}
-                {% if is_granted("ROLE_ORACLE") %}
-                <div x-forum-action="edit" x-text-wrap-node="announce" class="forum-button"><i class="fas fa-rss"></i><span class="forum-button-tooltip">{{ 'Orakel Ankündigung'|trans({},'global') }}</span></div>
-                {% endif %}
-                <div x-forum-action="edit" x-text-insert-list-node="*" class="forum-button"><i class="fa fa-star-of-life"></i><span class="forum-button-tooltip">{{ 'Listenpunkt'|trans({},'global') }}</span></div>
-                <div x-forum-action="edit" x-text-insert-list-node="0" class="forum-button"><i class="fa fa-list-ol"></i><span class="forum-button-tooltip">{{ 'Num. Listenpunkt'|trans({},'global') }}</span></div>
-                <div x-forum-action="edit" x-text-wrap-node="quote" class="forum-button"><i class="fa fa-quote-left"></i><span class="forum-button-tooltip">{{ 'Zitat'|trans({},'global') }}</span></div>
-                <div x-forum-action="edit" x-text-wrap-node="spoiler" class="forum-button"><i class="fa fa-eye-slash"></i><span class="forum-button-tooltip">{{ 'Spoiler'|trans({},'global') }}</span></div>
-                <div x-forum-action="edit" x-text-wrap-node="aparte" class="forum-button"><i class="fas fa-compress-alt"></i><span class="forum-button-tooltip">{{ 'Vertraulich'|trans({},'global') }}</span></div>
-                <div x-forum-action="edit" x-text-wrap-node="glory" class="forum-button"><i class="fa fa-crown"></i><span class="forum-button-tooltip">{{ 'Ruhm'|trans({},'global') }}</span></div>
-                <div x-forum-action="edit" x-text-insert-node="hr" class="forum-button"><i class="fa fa-grip-lines"></i><span class="forum-button-tooltip">{{ 'Linie'|trans({},'global') }}</span></div>
-                <div x-forum-action="edit" x-text-wrap-node="rp" class="forum-button"><i class="fas fa-scroll"></i><span class="forum-button-tooltip">{{ 'Rollenspiel'|trans({},'global') }}</span></div>
             </div>
-        </div>
-
-        <textarea id="forum-editor-text"></textarea>
-
-        <div class="row">
+        {% endif %}
+        <div class="row classic-editor">
             <div class="padded cell rw-12">
-                <ul class="tabs plain" x-tab-group="forum-classic-editor-toolbox" x-tab-control>
-                    <li class="tab" x-tab-id="emotes"><div class="tab-link"><i class="fa fa-smile"></i></div></li>
-                    <li class="tab" x-tab-id="games"><div class="tab-link"><i class="fa fa-dice"></i></div></li>
-                    {% if town_controls %}
-                        <li class="tab" x-tab-id="rp_player"><div class="tab-link"><i class="fa fa-user"></i></div></li>
+                <label>{{ 'Vorschau'|trans({},'global') }}</label>
+                <div id="forum-editor-preview"></div>
+                <br />
+                <label for="forum-editor-text">{{ 'Deine Nachricht'|trans({},'global') }}</label>
+                <div class="forum-button-bar">
+                    <div x-forum-action="edit" x-text-wrap-node="b" class="forum-button"><i class="fa fa-bold"></i><span class="forum-button-tooltip">{{ 'Fett'|trans({},'global') }}</span></div>
+                    <div x-forum-action="edit" x-text-wrap-node="i" class="forum-button"><i class="fa fa-italic"></i><span class="forum-button-tooltip">{{ 'Kursiv'|trans({},'global') }}</span></div>
+                    <div x-forum-action="edit" x-text-wrap-node="u" class="forum-button"><i class="fa fa-underline"></i><span class="forum-button-tooltip">{{ 'Unterstreichen'|trans({},'global') }}</span></div>
+                    <div x-forum-action="edit" x-text-wrap-node="s" class="forum-button"><i class="fa fa-strikethrough"></i><span class="forum-button-tooltip">{{ 'Durchstreichen'|trans({},'global') }}</span></div>
+                    <div x-forum-action="edit" x-text-wrap-node="bad" class="forum-button"><i class="fas fa-tint"></i><span class="forum-button-tooltip">{{ 'Verräter'|trans({},'global') }}</span></div>
+                    <div x-forum-action="modal" x-text-modal-node="link" class="forum-button"><i class="fa fa-link"></i><span class="forum-button-tooltip">{{ 'Link einfügen'|trans({},'global') }}</span></div>
+                    {% if is_granted("ROLE_ADMIN") %}
+                        <div x-forum-action="modal" x-text-modal-node="image" class="forum-button"><i class="fa fa-image"></i><span class="forum-button-tooltip">{{ 'Bild einfügen'|trans({},'global') }}</span></div>
+                        <div x-forum-action="edit" x-text-wrap-node="admannounce" class="forum-button"><i class="fas fa-bullhorn"></i><span class="forum-button-tooltip">{{ 'Admin Ankündigung'|trans({},'global') }}</span></div>
                     {% endif %}
-                </ul>
-                <div class="lightbox" x-tab-group="forum-classic-editor-toolbox" x-tab-id="emotes" x-tab-target>
-                    <div class="forum-button-bar">
-                        {% for tag,url in emotes %}
-                            <div x-forum-action="edit" x-text-emote="{{ asset(url) }}" x-text-insert-emote="{{ tag }}" class="forum-button-inline"><img alt="{{ tag }}" src="{{ asset(url) }}"></div>
-                        {% endfor %}
-                    </div>
+                    {% if is_granted("ROLE_CROW") %}
+                        <div x-forum-action="edit" x-text-wrap-node="modannounce" class="forum-button"><i class="fas fa-gavel"></i><span class="forum-button-tooltip">{{ 'Mod Ankündigung'|trans({},'global') }}</span></div>
+                    {% endif %}
+                    {% if is_granted("ROLE_ORACLE") %}
+                        <div x-forum-action="edit" x-text-wrap-node="announce" class="forum-button"><i class="fas fa-rss"></i><span class="forum-button-tooltip">{{ 'Orakel Ankündigung'|trans({},'global') }}</span></div>
+                    {% endif %}
+                    <div x-forum-action="edit" x-text-insert-list-node="*" class="forum-button"><i class="fa fa-star-of-life"></i><span class="forum-button-tooltip">{{ 'Listenpunkt'|trans({},'global') }}</span></div>
+                    <div x-forum-action="edit" x-text-insert-list-node="0" class="forum-button"><i class="fa fa-list-ol"></i><span class="forum-button-tooltip">{{ 'Num. Listenpunkt'|trans({},'global') }}</span></div>
+                    <div x-forum-action="edit" x-text-wrap-node="quote" class="forum-button"><i class="fa fa-quote-left"></i><span class="forum-button-tooltip">{{ 'Zitat'|trans({},'global') }}</span></div>
+                    <div x-forum-action="edit" x-text-wrap-node="spoiler" class="forum-button"><i class="fa fa-eye-slash"></i><span class="forum-button-tooltip">{{ 'Spoiler'|trans({},'global') }}</span></div>
+                    <div x-forum-action="edit" x-text-wrap-node="aparte" class="forum-button"><i class="fas fa-compress-alt"></i><span class="forum-button-tooltip">{{ 'Vertraulich'|trans({},'global') }}</span></div>
+                    <div x-forum-action="edit" x-text-wrap-node="glory" class="forum-button"><i class="fa fa-crown"></i><span class="forum-button-tooltip">{{ 'Ruhm'|trans({},'global') }}</span></div>
+                    <div x-forum-action="edit" x-text-insert-node="hr" class="forum-button"><i class="fa fa-grip-lines"></i><span class="forum-button-tooltip">{{ 'Linie'|trans({},'global') }}</span></div>
+                    <div x-forum-action="edit" x-text-wrap-node="rp" class="forum-button"><i class="fas fa-scroll"></i><span class="forum-button-tooltip">{{ 'Rollenspiel'|trans({},'global') }}</span></div>
                 </div>
-                <div class="lightbox" x-tab-group="forum-classic-editor-toolbox" x-tab-id="games" x-tab-target>
-                    <div class="forum-button-bar">
-                        <div x-forum-action="edit" x-text-insert-node="d4" class="forum-button-inline"><img alt="" src="{{ asset('build/images/forum/dice4.png') }}"></div>
-                        <div x-forum-action="edit" x-text-insert-node="d6" class="forum-button-inline"><img alt="" src="{{ asset('build/images/forum/dice6.png') }}"></div>
-                        <div x-forum-action="edit" x-text-insert-node="d8" class="forum-button-inline"><img alt="" src="{{ asset('build/images/forum/dice8.png') }}"></div>
-                        <div x-forum-action="edit" x-text-insert-node="d10" class="forum-button-inline"><img alt="" src="{{ asset('build/images/forum/dice10.png') }}"></div>
-                        <div x-forum-action="edit" x-text-insert-node="d12" class="forum-button-inline"><img alt="" src="{{ asset('build/images/forum/dice12.png') }}"></div>
-                        <div x-forum-action="edit" x-text-insert-node="d20" class="forum-button-inline"><img alt="" src="{{ asset('build/images/forum/dice20.png') }}"></div>
-                        <div x-forum-action="edit" x-text-insert-node="d100" class="forum-button-inline"><img alt="" src="{{ asset('build/images/forum/dice100.png') }}"></div>
-                        <div x-forum-action="edit" x-text-insert-node="letter" class="forum-button-inline"><img alt="" src="{{ asset('build/images/forum/lta.png') }}"></div>
-                        <div x-forum-action="edit" x-text-insert-node="consonant" class="forum-button-inline"><img alt="" src="{{ asset('build/images/forum/ltc.png') }}"></div>
-                        <div x-forum-action="edit" x-text-insert-node="vowel" class="forum-button-inline"><img alt="" src="{{ asset('build/images/forum/ltv.png') }}"></div>
-                        <div x-forum-action="edit" x-text-insert-node="rps" class="forum-button-inline"><img alt="" src="{{ asset('build/images/forum/rps.png') }}"></div>
-                        <div x-forum-action="edit" x-text-insert-node="coin" class="forum-button-inline"><img alt="" src="{{ asset('build/images/forum/coin.png') }}"></div>
-                        <div x-forum-action="edit" x-text-insert-node="card" class="forum-button-inline"><img alt="" src="{{ asset('build/images/forum/card.png') }}"></div>
+            </div>
+
+            <textarea id="forum-editor-text"></textarea>
+
+            <div class="row">
+                <div class="padded cell rw-12">
+                    <ul class="tabs plain" x-tab-group="forum-classic-editor-toolbox" x-tab-control>
+                        <li class="tab" x-tab-id="emotes"><div class="tab-link"><i class="fa fa-smile"></i></div></li>
+                        <li class="tab" x-tab-id="games"><div class="tab-link"><i class="fa fa-dice"></i></div></li>
+                        {% if town_controls %}
+                            <li class="tab" x-tab-id="rp_player"><div class="tab-link"><i class="fa fa-user"></i></div></li>
+                        {% endif %}
+                    </ul>
+                    <div class="lightbox" x-tab-group="forum-classic-editor-toolbox" x-tab-id="emotes" x-tab-target>
+                        <div class="forum-button-bar">
+                            {% for tag,url in emotes %}
+                                <div x-forum-action="edit" x-text-emote="{{ asset(url) }}" x-text-insert-emote="{{ tag }}" class="forum-button-inline"><img alt="{{ tag }}" src="{{ asset(url) }}"></div>
+                            {% endfor %}
+                        </div>
                     </div>
-                </div>
-                {% if town_controls %}
-                    <div class="lightbox" x-tab-group="forum-classic-editor-toolbox" x-tab-id="rp_player" x-tab-target>
-                        <div class="row">
-                            <div class="cell rw-11 rw-lg-10 rw-sm-8">
-                                <div class="forum-button-bar">
-                                    <div x-forum-action="edit" x-text-insert-node="rnduser,any" class="forum-button-inline"><img alt="" src="{{ asset('build/images/small_human.gif') }}"></div>
-                                    <div x-forum-action="edit" x-text-insert-node="rnduser,hero" class="forum-button-inline"><img alt="" src="{{ asset('build/images/professions/hero.gif') }}"></div>
-                                    <div x-forum-action="edit" x-text-insert-node="rnduser,dead" class="forum-button-inline"><img alt="" src="{{ asset('build/images/professions/death.gif') }}"></div>
-                                    <div x-forum-action="edit" x-text-insert-node="rnduser,basic" class="forum-button-inline"><img alt="" src="{{ asset('build/images/professions/basic.gif') }}"></div>
-                                    <div x-forum-action="edit" x-text-insert-node="rnduser,hunter" class="forum-button-inline"><img alt="" src="{{ asset('build/images/professions/vest.gif') }}"></div>
-                                    <div x-forum-action="edit" x-text-insert-node="rnduser,collec" class="forum-button-inline"><img alt="" src="{{ asset('build/images/professions/dig.gif') }}"></div>
-                                    <div x-forum-action="edit" x-text-insert-node="rnduser,guardian" class="forum-button-inline"><img alt="" src="{{ asset('build/images/professions/shield.gif') }}"></div>
-                                    <div x-forum-action="edit" x-text-insert-node="rnduser,survivalist" class="forum-button-inline"><img alt="" src="{{ asset('build/images/professions/book.gif') }}"></div>
-                                    <div x-forum-action="edit" x-text-insert-node="rnduser,tamer" class="forum-button-inline"><img alt="" src="{{ asset('build/images/professions/tamer.gif') }}"></div>
-                                    <div x-forum-action="edit" x-text-insert-node="rnduser,tech" class="forum-button-inline"><img alt="" src="{{ asset('build/images/professions/tech.gif') }}"></div>
-                                    <div x-forum-action="edit" x-text-insert-node="rnduser,shaman" class="forum-button-inline"><img alt="" src="{{ asset('build/images/professions/shaman.gif') }}"></div>
-                                    <div x-forum-action="edit" x-text-insert-node="rnduser,none" class="forum-button-inline"><img alt="" src="{{ asset('build/images/professions/looser.gif') }}"></div>
+                    <div class="lightbox" x-tab-group="forum-classic-editor-toolbox" x-tab-id="games" x-tab-target>
+                        <div class="forum-button-bar">
+                            <div x-forum-action="edit" x-text-insert-node="d4" class="forum-button-inline"><img alt="" src="{{ asset('build/images/forum/dice4.png') }}"></div>
+                            <div x-forum-action="edit" x-text-insert-node="d6" class="forum-button-inline"><img alt="" src="{{ asset('build/images/forum/dice6.png') }}"></div>
+                            <div x-forum-action="edit" x-text-insert-node="d8" class="forum-button-inline"><img alt="" src="{{ asset('build/images/forum/dice8.png') }}"></div>
+                            <div x-forum-action="edit" x-text-insert-node="d10" class="forum-button-inline"><img alt="" src="{{ asset('build/images/forum/dice10.png') }}"></div>
+                            <div x-forum-action="edit" x-text-insert-node="d12" class="forum-button-inline"><img alt="" src="{{ asset('build/images/forum/dice12.png') }}"></div>
+                            <div x-forum-action="edit" x-text-insert-node="d20" class="forum-button-inline"><img alt="" src="{{ asset('build/images/forum/dice20.png') }}"></div>
+                            <div x-forum-action="edit" x-text-insert-node="d100" class="forum-button-inline"><img alt="" src="{{ asset('build/images/forum/dice100.png') }}"></div>
+                            <div x-forum-action="edit" x-text-insert-node="letter" class="forum-button-inline"><img alt="" src="{{ asset('build/images/forum/lta.png') }}"></div>
+                            <div x-forum-action="edit" x-text-insert-node="consonant" class="forum-button-inline"><img alt="" src="{{ asset('build/images/forum/ltc.png') }}"></div>
+                            <div x-forum-action="edit" x-text-insert-node="vowel" class="forum-button-inline"><img alt="" src="{{ asset('build/images/forum/ltv.png') }}"></div>
+                            <div x-forum-action="edit" x-text-insert-node="rps" class="forum-button-inline"><img alt="" src="{{ asset('build/images/forum/rps.png') }}"></div>
+                            <div x-forum-action="edit" x-text-insert-node="coin" class="forum-button-inline"><img alt="" src="{{ asset('build/images/forum/coin.png') }}"></div>
+                            <div x-forum-action="edit" x-text-insert-node="card" class="forum-button-inline"><img alt="" src="{{ asset('build/images/forum/card.png') }}"></div>
+                        </div>
+                    </div>
+                    {% if town_controls %}
+                        <div class="lightbox" x-tab-group="forum-classic-editor-toolbox" x-tab-id="rp_player" x-tab-target>
+                            <div class="row">
+                                <div class="cell rw-11 rw-lg-10 rw-sm-8">
+                                    <div class="forum-button-bar">
+                                        <div x-forum-action="edit" x-text-insert-node="rnduser,any" class="forum-button-inline"><img alt="" src="{{ asset('build/images/small_human.gif') }}"></div>
+                                        <div x-forum-action="edit" x-text-insert-node="rnduser,hero" class="forum-button-inline"><img alt="" src="{{ asset('build/images/professions/hero.gif') }}"></div>
+                                        <div x-forum-action="edit" x-text-insert-node="rnduser,dead" class="forum-button-inline"><img alt="" src="{{ asset('build/images/professions/death.gif') }}"></div>
+                                        <div x-forum-action="edit" x-text-insert-node="rnduser,basic" class="forum-button-inline"><img alt="" src="{{ asset('build/images/professions/basic.gif') }}"></div>
+                                        <div x-forum-action="edit" x-text-insert-node="rnduser,hunter" class="forum-button-inline"><img alt="" src="{{ asset('build/images/professions/vest.gif') }}"></div>
+                                        <div x-forum-action="edit" x-text-insert-node="rnduser,collec" class="forum-button-inline"><img alt="" src="{{ asset('build/images/professions/dig.gif') }}"></div>
+                                        <div x-forum-action="edit" x-text-insert-node="rnduser,guardian" class="forum-button-inline"><img alt="" src="{{ asset('build/images/professions/shield.gif') }}"></div>
+                                        <div x-forum-action="edit" x-text-insert-node="rnduser,survivalist" class="forum-button-inline"><img alt="" src="{{ asset('build/images/professions/book.gif') }}"></div>
+                                        <div x-forum-action="edit" x-text-insert-node="rnduser,tamer" class="forum-button-inline"><img alt="" src="{{ asset('build/images/professions/tamer.gif') }}"></div>
+                                        <div x-forum-action="edit" x-text-insert-node="rnduser,tech" class="forum-button-inline"><img alt="" src="{{ asset('build/images/professions/tech.gif') }}"></div>
+                                        <div x-forum-action="edit" x-text-insert-node="rnduser,shaman" class="forum-button-inline"><img alt="" src="{{ asset('build/images/professions/shaman.gif') }}"></div>
+                                        <div x-forum-action="edit" x-text-insert-node="rnduser,none" class="forum-button-inline"><img alt="" src="{{ asset('build/images/professions/looser.gif') }}"></div>
+                                    </div>
+                                </div>
+                                <div class="cell rw-1 rw-lg-2 rw-sm-4">
+                                    <a class="help-button">{{ 'Hilfe'|trans({},'global') }}
+                                        <div class="tooltip help">
+                                            <h1>{{ 'Zufälliger Bürger'|trans({},'game') }}</h1>
+                                            <em>
+                                                {% trans from 'game' %}
+                                                    Hiermit kannst du den Namen eines zufälligen Bürgers in deinen Post anfügen.
+                                                    Bei Bedarf kannst du die Auswahl auf bestimmte Berufe, Helden oder bereits gestorbene Bürger eingrenzen.
+                                                {% endtrans %}
+                                            </em>
+                                            <em>
+                                                {% trans from 'game' %}
+                                                Wenn zu den gleichen zufällig gewählten Bürger mehrfach in deinem Text verwenden willst, kannst du ihm eine Nummer zuweisen, beispielsweise:
+                                                {% endtrans %}<code>{rnduser,tamer,1}</code>
+                                            </em>
+
+                                        </div>
+
+                                    </a>
                                 </div>
                             </div>
-                            <div class="cell rw-1 rw-lg-2 rw-sm-4">
-                                <a class="help-button">{{ 'Hilfe'|trans({},'global') }}
-                                    <div class="tooltip help">
-                                        <h1>{{ 'Zufälliger Bürger'|trans({},'game') }}</h1>
-                                        <em>
-                                            {% trans from 'game' %}
-                                                Hiermit kannst du den Namen eines zufälligen Bürgers in deinen Post anfügen.
-                                                Bei Bedarf kannst du die Auswahl auf bestimmte Berufe, Helden oder bereits gestorbene Bürger eingrenzen.
-                                            {% endtrans %}
-                                        </em>
-                                        <em>
-                                            {% trans from 'game' %}
-                                                Wenn zu den gleichen zufällig gewählten Bürger mehrfach in deinem Text verwenden willst, kannst du ihm eine Nummer zuweisen, beispielsweise:
-                                            {% endtrans %}<code>{rnduser,tamer,1}</code>
-                                        </em>
-
-                                    </div>
-
-                                </a>
-                            </div>
                         </div>
-
-
-                        </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="padded cell rw-12 right">
+                {% if forum and is_granted("ROLE_CROW") %}
+                    <div id="crowpost" class="forum-checkbox">
+                        <input class="forum-checkbox" type="radio" id="radio-user" name="post-type" value="USER" {% if app.user.postAsDefault != "DEV" %}checked{% endif %}>
+                        <input class="forum-checkbox" type="radio" id="radio-crow" name="post-type" value="CROW">
+                        {% if is_granted("ROLE_ADMIN") %}
+                            <input class="forum-checkbox" type="radio" id="radio-dev" name="post-type" value="DEV" {% if app.user.postAsDefault == "DEV" %}checked{% endif %}>
+                        {% endif %}
+                        <span id="crow_answer_content">{% if app.user.postAsDefault != "DEV" %}{{ app.user.username }}{% else %}{{ 'Dev'|trans({},'global') }}{% endif %}</span>
                     </div>
                 {% endif %}
+                <div x-forum-action="send" class="forum-button">{{ 'Absenden'|trans({},'global') }}</div>
             </div>
         </div>
     </div>
-    <div class="row">
-        <div class="padded cell rw-12 right">
-            {% if forum and is_granted("ROLE_CROW") %}
-                <div id="crowpost" class="forum-checkbox">
-                    <input class="forum-checkbox" type="radio" id="radio-user" name="post-type" value="USER" {% if app.user.postAsDefault != "DEV" %}checked{% endif %}>
-                    <input class="forum-checkbox" type="radio" id="radio-crow" name="post-type" value="CROW">
-                    {% if is_granted("ROLE_ADMIN") %}
-                        <input class="forum-checkbox" type="radio" id="radio-dev" name="post-type" value="DEV" {% if app.user.postAsDefault == "DEV" %}checked{% endif %}>
-                    {% endif %}
-                    <span id="crow_answer_content">{% if app.user.postAsDefault != "DEV" %}{{ app.user.username }}{% else %}{{ 'Dev'|trans({},'global') }}{% endif %}</span>
-                </div>
-            {% endif %}
-            <div x-forum-action="send" class="forum-button">{{ 'Absenden'|trans({},'global') }}</div>
-        </div>
-    </div>
+{% endblock %}
+{% block js %}
+    <script>
+        (function() {
 
-</div>
-<script>
-    (function() {
+            let node_transfer_source = document.getElementById('forum-editor-text');
+            let node_transfer_target = document.getElementById('forum-editor-preview');
 
-        let node_transfer_source = document.getElementById('forum-editor-text');
-        let node_transfer_target = document.getElementById('forum-editor-preview');
+            const transfer_to_preview = function() {
 
-        const transfer_to_preview = function() {
+                $.html.twinoParser.parseTo( node_transfer_source.value, node_transfer_target, function(s) {
+                    switch (s) {
+                        case ':)': s = ':smile:';    break;
+                        case ':d': s = ':lol:';      break;
+                        case ':(': s = ':sad:';      break;
+                        case ';)': s = ':wink:';    break;
+                        case ':o': s = ':surprise:'; break;
+                    }
+                    let n = document.querySelector('[x-text-emote][x-text-insert-emote="' + s + '"]');
+                    return [n ? n.getAttribute('x-text-emote') : null, s];
+                } );
+            }
 
-            $.html.twinoParser.parseTo( node_transfer_source.value, node_transfer_target, function(s) {
-                switch (s) {
-                    case ':)': s = ':smile:';    break;
-                    case ':d': s = ':lol:';      break;
-                    case ':(': s = ':sad:';      break;
-                    case ';)': s = ':wink:';    break;
-                    case ':o': s = ':surprise:'; break;
+            node_transfer_source.addEventListener('input', transfer_to_preview);
+
+            let closeModal = function() {
+                document.getElementById('modal-backdrop').classList.remove('active');
+                let form = document.getElementById('modal-form');
+                form.parentNode.removeChild(form);
+            };
+
+            $.html.addEventListenerAll( '[x-forum-action="modal"]', 'click', function (e,elem) {
+                e.preventDefault();
+                e.stopPropagation();
+
+                let tag = elem.getAttribute('x-text-modal-node');
+                let content = node_transfer_source.value;
+                let s_start = node_transfer_source.selectionStart;
+                let s_end = node_transfer_source.selectionEnd;
+                let title, form, formType, label1, label2, input1, input2;
+
+                form = document.createElement('div');
+                form.setAttribute('id', 'modal-form');
+                form.classList.add('modal-form');
+                formType = document.createElement('input');
+                formType.setAttribute('id', 'form-type');
+                formType.setAttribute('type', 'hidden');
+                formType.value = tag;
+
+                if (tag === 'link') {
+                    title = "{{ 'Link einfügen'|trans({},'global') }}";
+                    label1 = document.createElement('label');
+                    label1.setAttribute('for', 'link-text');
+                    label1.innerText = "{{ 'Link-Text'|trans({},'global') }}";
+                    input1 = document.createElement('input');
+                    input1.setAttribute('id', 'link-text');
+                    input1.setAttribute('type', 'text');
+                    input1.value = content.substr( s_start, s_end - s_start );
+
+                    label2 = document.createElement('label');
+                    label2.setAttribute('for', 'link-link');
+                    label2.innerText = "{{ 'Link-URL'|trans({},'global') }}";
+                    input2 = document.createElement('input');
+                    input2.setAttribute('id', 'link-link');
+                    input2.setAttribute('type', 'text');
+
                 }
-                let n = document.querySelector('[x-text-emote][x-text-insert-emote="' + s + '"]');
-                return [n ? n.getAttribute('x-text-emote') : null, s];
+                else if (tag === 'image') {
+                    title = "{{ 'Bild einfügen'|trans({},'global') }}";
+                    label1 = document.createElement('label');
+                    label1.setAttribute('for', 'image-text');
+                    label1.innerText = "{{ 'Bildtitel'|trans({},'global') }}";
+                    input1 = document.createElement('input');
+                    input1.setAttribute('id', 'image-text');
+                    input1.setAttribute('type', 'text');
+                    input1.value = content.substr( s_start, s_end - s_start );
+
+                    label2 = document.createElement('label');
+                    label2.setAttribute('for', 'image-link');
+                    label2.innerText = "{{ 'Bild-URL'|trans({},'global') }}";
+                    input2 = document.createElement('input');
+                    input2.setAttribute('id', 'image-link');
+                    input2.setAttribute('type', 'text');
+                }
+
+                form.append(formType, label1, input1, label2, input2);
+
+                const processModal = function(e,elem) {
+                    let submitted = document.getElementById('modal-form');
+                    let tagText, tagUrl;
+
+                    let doc = new DOMParser().parseFromString(input1.value, 'text/html');
+                    tagText = doc.body.textContent || "";
+                    tagUrl = encodeURI(input2.value.replace('http:', '').replace('https:', ''));
+
+                    if (tagUrl.substr(0,2) !== '//') {
+                        // Apparently not an Url.
+                        // TODO: Add error message to Url field.
+                        input1.classList.add('error');
+                        input2.classList.add('error');
+                    }
+                    else {
+                        $.html.triggerPopupPop(elem);
+                        input1.classList.remove('error');
+                        input2.classList.remove('error');
+
+                        node_transfer_source.value =
+                            content.substr(0, s_start) +
+                            '[' + tag + '=' + tagUrl + ']' +
+                            tagText + '[/' + tag + ']' +
+                            content.substr(s_end);
+
+                        node_transfer_source.setSelectionRange(s_start + tag.length + 2, s_end + tag.length + 2);
+                        node_transfer_source.focus()
+                        transfer_to_preview();
+                    }
+                }
+
+                $.html.popup(title, form, 'tag'+tag, [
+                    [ '{{ 'Einfügen'|trans({},'global')|e('js') }}',  [ ['click', processModal] ] ],
+                    [ '{{ 'Abbrechen'|trans({},'global')|e('js') }}', [ ['click', (e,elem) => $.html.triggerPopupPop(elem)] ] ]
+                ] );
             } );
-        }
+            $.html.addEventListenerAll( '[x-forum-action="edit"][x-text-wrap-node]', 'click', function (e,elem) {
+                e.preventDefault();
+                e.stopPropagation();
 
-        node_transfer_source.addEventListener('input', transfer_to_preview);
+                let tag = elem.getAttribute('x-text-wrap-node');
+                let content = node_transfer_source.value;
+                let s_start = node_transfer_source.selectionStart;
+                let s_end = node_transfer_source.selectionEnd;
 
-        let closeModal = function() {
-            document.getElementById('modal-backdrop').classList.remove('active');
-            let form = document.getElementById('modal-form');
-            form.parentNode.removeChild(form);
-        };
+                node_transfer_source.value =
+                    content.substr( 0, s_start ) +
+                    '[' + tag + ']' +
+                    content.substr( s_start, s_end - s_start ) +
+                    '[/' + tag + ']' +
+                    content.substr( s_end );
 
-        $.html.addEventListenerAll( '[x-forum-action="modal"]', 'click', function (e,elem) {
-            e.preventDefault();
-            e.stopPropagation();
+                node_transfer_source.setSelectionRange( s_start + tag.length + 2, s_end + tag.length + 2 );
+                node_transfer_source.focus();
+                transfer_to_preview();
+            } );
+            $.html.addEventListenerAll( '[x-forum-action="edit"][x-text-insert-node]', 'click', function (e,elem) {
+                e.preventDefault();
+                e.stopPropagation();
 
-            let tag = elem.getAttribute('x-text-modal-node');
-            let content = node_transfer_source.value;
-            let s_start = node_transfer_source.selectionStart;
-            let s_end = node_transfer_source.selectionEnd;
-            let title, form, formType, label1, label2, input1, input2;
+                let tag = elem.getAttribute('x-text-insert-node');
+                let content = node_transfer_source.value;
+                let s_start = node_transfer_source.selectionStart;
+                let s_end = node_transfer_source.selectionEnd;
 
-            form = document.createElement('div');
-            form.setAttribute('id', 'modal-form');
-            form.classList.add('modal-form');
-            formType = document.createElement('input');
-            formType.setAttribute('id', 'form-type');
-            formType.setAttribute('type', 'hidden');
-            formType.value = tag;
+                node_transfer_source.value =
+                    content.substr( 0, s_start ) +
+                    '{' + tag + '}' +
+                    content.substr( s_start );
 
-            if (tag === 'link') {
-                title = "{{ 'Link einfügen'|trans({},'global') }}";
-                label1 = document.createElement('label');
-                label1.setAttribute('for', 'link-text');
-                label1.innerText = "{{ 'Link-Text'|trans({},'global') }}";
-                input1 = document.createElement('input');
-                input1.setAttribute('id', 'link-text');
-                input1.setAttribute('type', 'text');
-                input1.value = content.substr( s_start, s_end - s_start );
+                node_transfer_source.setSelectionRange( s_start + tag.length + 2, s_end + tag.length + 2 );
+                node_transfer_source.focus();
+                transfer_to_preview();
+            } );
+            $.html.addEventListenerAll( '[x-forum-action="edit"][x-text-insert-list-node]', 'click', function (e,elem) {
+                e.preventDefault();
+                e.stopPropagation();
 
-                label2 = document.createElement('label');
-                label2.setAttribute('for', 'link-link');
-                label2.innerText = "{{ 'Link-URL'|trans({},'global') }}";
-                input2 = document.createElement('input');
-                input2.setAttribute('id', 'link-link');
-                input2.setAttribute('type', 'text');
+                let tag = elem.getAttribute('x-text-insert-list-node');
+                let content = node_transfer_source.value;
+                let s_start = node_transfer_source.selectionStart;
+                let s_end = node_transfer_source.selectionEnd;
 
-            }
-            else if (tag === 'image') {
-                title = "{{ 'Bild einfügen'|trans({},'global') }}";
-                label1 = document.createElement('label');
-                label1.setAttribute('for', 'image-text');
-                label1.innerText = "{{ 'Bildtitel'|trans({},'global') }}";
-                input1 = document.createElement('input');
-                input1.setAttribute('id', 'image-text');
-                input1.setAttribute('type', 'text');
-                input1.value = content.substr( s_start, s_end - s_start );
+                node_transfer_source.value =
+                    content.substr( 0, s_start ) +
+                    '\n[' + tag + ']' +
+                    content.substr( s_start );
 
-                label2 = document.createElement('label');
-                label2.setAttribute('for', 'image-link');
-                label2.innerText = "{{ 'Bild-URL'|trans({},'global') }}";
-                input2 = document.createElement('input');
-                input2.setAttribute('id', 'image-link');
-                input2.setAttribute('type', 'text');
-            }
-
-            form.append(formType, label1, input1, label2, input2);
-
-            const processModal = function(e,elem) {
-                let submitted = document.getElementById('modal-form');
-                let tagText, tagUrl;
-
-                let doc = new DOMParser().parseFromString(input1.value, 'text/html');
-                tagText = doc.body.textContent || "";
-                tagUrl = encodeURI(input2.value.replace('http:', '').replace('https:', ''));
-
-                if (tagUrl.substr(0,2) !== '//') {
-                    // Apparently not an Url.
-                    // TODO: Add error message to Url field.
-                    input1.classList.add('error');
-                    input2.classList.add('error');
-                }
-                else {
-                    $.html.triggerPopupPop(elem);
-                    input1.classList.remove('error');
-                    input2.classList.remove('error');
-
-                    node_transfer_source.value =
-                        content.substr(0, s_start) +
-                        '[' + tag + '=' + tagUrl + ']' +
-                        tagText + '[/' + tag + ']' +
-                        content.substr(s_end);
-
-                    node_transfer_source.setSelectionRange(s_start + tag.length + 2, s_end + tag.length + 2);
-                    node_transfer_source.focus()
-                    transfer_to_preview();
-                }
-            }
-
-            $.html.popup(title, form, 'tag'+tag, [
-                [ '{{ 'Einfügen'|trans({},'global')|e('js') }}',  [ ['click', processModal] ] ],
-                [ '{{ 'Abbrechen'|trans({},'global')|e('js') }}', [ ['click', (e,elem) => $.html.triggerPopupPop(elem)] ] ]
-            ] );
-        } );
-        $.html.addEventListenerAll( '[x-forum-action="edit"][x-text-wrap-node]', 'click', function (e,elem) {
-            e.preventDefault();
-            e.stopPropagation();
-
-            let tag = elem.getAttribute('x-text-wrap-node');
-            let content = node_transfer_source.value;
-            let s_start = node_transfer_source.selectionStart;
-            let s_end = node_transfer_source.selectionEnd;
-
-            node_transfer_source.value =
-                content.substr( 0, s_start ) +
-                '[' + tag + ']' +
-                content.substr( s_start, s_end - s_start ) +
-                '[/' + tag + ']' +
-                content.substr( s_end );
-
-            node_transfer_source.setSelectionRange( s_start + tag.length + 2, s_end + tag.length + 2 );
-            node_transfer_source.focus();
-            transfer_to_preview();
-        } );
-        $.html.addEventListenerAll( '[x-forum-action="edit"][x-text-insert-node]', 'click', function (e,elem) {
-            e.preventDefault();
-            e.stopPropagation();
-
-            let tag = elem.getAttribute('x-text-insert-node');
-            let content = node_transfer_source.value;
-            let s_start = node_transfer_source.selectionStart;
-            let s_end = node_transfer_source.selectionEnd;
-
-            node_transfer_source.value =
-                content.substr( 0, s_start ) +
-                '{' + tag + '}' +
-                content.substr( s_start );
-
-            node_transfer_source.setSelectionRange( s_start + tag.length + 2, s_end + tag.length + 2 );
-            node_transfer_source.focus();
-            transfer_to_preview();
-        } );
-        $.html.addEventListenerAll( '[x-forum-action="edit"][x-text-insert-list-node]', 'click', function (e,elem) {
-            e.preventDefault();
-            e.stopPropagation();
-
-            let tag = elem.getAttribute('x-text-insert-list-node');
-            let content = node_transfer_source.value;
-            let s_start = node_transfer_source.selectionStart;
-            let s_end = node_transfer_source.selectionEnd;
-
-            node_transfer_source.value =
-                content.substr( 0, s_start ) +
-                '\n[' + tag + ']' +
-                content.substr( s_start );
-
-            node_transfer_source.setSelectionRange( s_start + tag.length + 3, s_end + tag.length + 3 );
-            node_transfer_source.focus()
-            transfer_to_preview();
-        } );
-        $.html.addEventListenerAll( '[x-forum-action="edit"][x-text-insert-emote][x-text-emote]', 'click', function (e,elem) {
-            e.preventDefault();
-            e.stopPropagation();
-
-            let tag = elem.getAttribute('x-text-insert-emote');
-            let content = node_transfer_source.value;
-            let s_start = node_transfer_source.selectionStart;
-            let s_end = node_transfer_source.selectionEnd;
-
-            node_transfer_source.value = content.substr( 0, s_start ) + tag + content.substr( s_start );
-
-            node_transfer_source.setSelectionRange( s_start + tag.length, s_end + tag.length );
-            //window.setTimeout( function() {
+                node_transfer_source.setSelectionRange( s_start + tag.length + 3, s_end + tag.length + 3 );
                 node_transfer_source.focus()
-            //}, 10);
-            transfer_to_preview();
-        } );
+                transfer_to_preview();
+            } );
+            $.html.addEventListenerAll( '[x-forum-action="edit"][x-text-insert-emote][x-text-emote]', 'click', function (e,elem) {
+                e.preventDefault();
+                e.stopPropagation();
 
-        // Post as crow toggle
-        {% if is_granted("ROLE_CROW") and forum %}
-        function changeHandler(){
-            switch (document.querySelector("input[name=post-type]:checked").value) {
-                case "USER":
-                    document.getElementById("radio-crow").checked = true;
-                    document.getElementById("radio-user").checked = false;
+                let tag = elem.getAttribute('x-text-insert-emote');
+                let content = node_transfer_source.value;
+                let s_start = node_transfer_source.selectionStart;
+                let s_end = node_transfer_source.selectionEnd;
+
+                node_transfer_source.value = content.substr( 0, s_start ) + tag + content.substr( s_start );
+
+                node_transfer_source.setSelectionRange( s_start + tag.length, s_end + tag.length );
+                //window.setTimeout( function() {
+                node_transfer_source.focus()
+                //}, 10);
+                transfer_to_preview();
+            } );
+
+            // Post as crow toggle
+            {% if is_granted("ROLE_CROW") and forum %}
+            function changeHandler(){
+                switch (document.querySelector("input[name=post-type]:checked").value) {
+                    case "USER":
+                        document.getElementById("radio-crow").checked = true;
+                        document.getElementById("radio-user").checked = false;
                     {% if is_granted("ROLE_ADMIN") %}
                         document.getElementById("radio-dev").checked = false;
                     {% endif %}
-                    document.getElementById('crow_answer_content').innerHTML = "{{ 'Rabe'|trans({},'global') }}";
-                    break;
-                case "CROW":
-                    document.getElementById("radio-crow").checked = false;
+                        document.getElementById('crow_answer_content').innerHTML = "{{ 'Rabe'|trans({},'global') }}";
+                        break;
+                    case "CROW":
+                        document.getElementById("radio-crow").checked = false;
                     {% if is_granted("ROLE_ADMIN") %}
                         document.getElementById("radio-user").checked = false;
                         document.getElementById("radio-dev").checked = true;
@@ -384,64 +384,64 @@
                         document.getElementById("radio-user").checked = true;
                         document.getElementById('crow_answer_content').innerHTML = "{{ app.user.username }}";
                     {% endif %}
-                    break;
-                case "DEV":
-                    document.getElementById("radio-crow").checked = false;
-                    document.getElementById("radio-user").checked = true;
+                        break;
+                    case "DEV":
+                        document.getElementById("radio-crow").checked = false;
+                        document.getElementById("radio-user").checked = true;
                     {% if is_granted("ROLE_ADMIN") %}
                         document.getElementById("radio-dev").checked = false;
                     {% endif %}
-                    document.getElementById('crow_answer_content').innerHTML = "{{ app.user.username }}";
-                    break;
-            }
-        }
-        document.getElementById('crowpost').addEventListener('click', changeHandler);
-        {% endif %}
-
-        let send_buttons = document.querySelectorAll('[x-forum-action=send]');
-        for (let i = 0; i < send_buttons.length; i++) {
-            send_buttons[i].addEventListener('click', function() {
-                let target_url, target_payload;
-                {% if forum %}
-                    let type = document.querySelector("input[name=post-type]:checked") ? document.querySelector("input[name=post-type]:checked").value : null;
-                {% endif %}
-
-                // Replace proxies
-                let content_node = document.getElementById('forum-editor-preview').cloneNode(true);
-
-                let proxies = content_node.querySelectorAll('[x-foxy-proxy]');
-                for (let j = 0; j < proxies.length; j++) {
-                    if (!proxies[j].parentNode) continue;
-                    proxies[j].parentNode.insertBefore(document.createTextNode(proxies[j].getAttribute('x-foxy-proxy')), proxies[j]);
-                    proxies[j].parentNode.removeChild(proxies[j]);
+                        document.getElementById('crow_answer_content').innerHTML = "{{ app.user.username }}";
+                        break;
                 }
+            }
+            document.getElementById('crowpost').addEventListener('click', changeHandler);
+            {% endif %}
 
-                {% if not forum %}
+            let send_buttons = document.querySelectorAll('[x-forum-action=send]');
+            for (let i = 0; i < send_buttons.length; i++) {
+                send_buttons[i].addEventListener('click', function() {
+                    let target_url, target_payload;
+                    {% if forum %}
+                    let type = document.querySelector("input[name=post-type]:checked") ? document.querySelector("input[name=post-type]:checked").value : null;
+                    {% endif %}
+
+                    // Replace proxies
+                    let content_node = document.getElementById('forum-editor-preview').cloneNode(true);
+
+                    let proxies = content_node.querySelectorAll('[x-foxy-proxy]');
+                    for (let j = 0; j < proxies.length; j++) {
+                        if (!proxies[j].parentNode) continue;
+                        proxies[j].parentNode.insertBefore(document.createTextNode(proxies[j].getAttribute('x-foxy-proxy')), proxies[j]);
+                        proxies[j].parentNode.removeChild(proxies[j]);
+                    }
+
+                    {% if not forum %}
                     target_url = '{{ path(target_url) }}';
                     target_payload = {
                         'content': content_node.innerHTML,
                         'type': "{{ type }}",
                     };
                     {% if tid is not null %}
-                        target_payload.tid = {{ tid }};
+                    target_payload.tid = {{ tid }};
                     {% else %}
-                        target_payload.title = document.getElementById('forum-editor-title').value;
-                        {% if type == 'pm' or type == 'global' %}
-                            const rc = document.getElementById('pmidrecipient');
-                            if (rc) target_payload.recipient = rc.value;
-                            let sent_items = document.querySelectorAll("#sent-items .item");
-                            if(sent_items.length > 0) {
-                                target_payload.items = [];
-                                for (let i = 0; i < sent_items.length; i++) {
-                                    target_payload.items.push(sent_items[i].attributes['x-item-id'].value);
-                                }
-                            }
-                        {% elseif type == "changelog" %}
-                            target_payload.version = document.getElementById('forum-editor-version').value;
-                            target_payload.lang = document.getElementById('forum-editor-lang').value;
-                        {% endif %}
+                    target_payload.title = document.getElementById('forum-editor-title').value;
+                    {% if type == 'pm' or type == 'global' %}
+                    const rc = document.getElementById('pmidrecipient');
+                    if (rc) target_payload.recipient = rc.value;
+                    let sent_items = document.querySelectorAll("#sent-items .item");
+                    if(sent_items.length > 0) {
+                        target_payload.items = [];
+                        for (let i = 0; i < sent_items.length; i++) {
+                            target_payload.items.push(sent_items[i].attributes['x-item-id'].value);
+                        }
+                    }
+                    {% elseif type == "changelog" %}
+                    target_payload.version = document.getElementById('forum-editor-version').value;
+                    target_payload.lang = document.getElementById('forum-editor-lang').value;
                     {% endif %}
-                {% else %}
+                    {% endif %}
+                    {% else %}
                     {% if tid is null %}
                     target_url = '{{ path('forum_new_thread_controller', {id: fid}) }}';
                     target_payload = {
@@ -456,17 +456,17 @@
                         type: type,
                     };
                     {% endif %}
-                {% endif %}
-                
-                $.ajax.easySend( target_url, target_payload,
-                    function (data) {
-                        $.ajax.load( null, data.url, true );
-                    }
-                );
-            });
-        }
+                    {% endif %}
 
-        {% if type is defined and type == "changelog" %}
+                    $.ajax.easySend( target_url, target_payload,
+                        function (data) {
+                            $.ajax.load( null, data.url, true );
+                        }
+                    );
+                });
+            }
+
+            {% if type is defined and type == "changelog" %}
             let lang_selector = document.getElementById('forum-editor-lang');
             if(lang_selector) {
                 for(let prop in window.c.langs) {
@@ -476,6 +476,7 @@
                     lang_selector.add(option);
                 }
             }
-        {% endif %}
-    })();
-</script>
+            {% endif %}
+        })();
+    </script>
+{% endblock %}

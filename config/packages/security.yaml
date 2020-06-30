@@ -19,6 +19,10 @@ security:
             guard:
                 authenticators:
                     - App\Security\AjaxAuthenticator
+            remember_me:
+                secret: '%kernel.secret%'
+                lifetime: 2629800 # 1 month
+                path: /
 
             # activate different ways to authenticate
             # https://symfony.com/doc/current/security.html#firewalls-authentication

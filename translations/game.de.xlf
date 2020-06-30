@@ -9520,7 +9520,7 @@
       </notes>
       <segment>
         <source>Und wieder 'ne Leiche weniger! %citizen% wurde von † %disposed% entsorgt!</source>
-        <target>Und wieder 'ne Leiche weniger! %citizen% wurde von † %disposed% entsorgt!</target>
+        <target>Und wieder 'ne Leiche weniger! %disposed% wurde von † %citizen% entsorgt!</target>
       </segment>
     </unit>
     <unit id="E0yx4Bm" name="%citizen% hat mit etwas Wasser † %disposed% &quot;verbrannt&quot;.">
