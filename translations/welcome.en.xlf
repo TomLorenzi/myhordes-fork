@@ -19,29 +19,29 @@
         <target>Welcome to MyHordes</target>
       </segment>
     </unit>
-    <unit id="Sq5rAhc" name="99de2c1">
+    <unit id="Cny3Jgk" name="a072781">
       <notes>
         <note category="german">MyHordes ist eine von der Community entwickelte offene Implementierung des Browser-Spiels
-                    "Die Verdammten" von %motiontwin%.</note>
+                    "Die Verdammten" und seine anderen Versionen von %motiontwin%.</note>
       </notes>
       <segment>
         <source>MyHordes ist eine von der Community entwickelte offene Implementierung des Browser-Spiels
-                    "Die Verdammten" von %motiontwin%.</source>
-        <target>MyHordes is an open implementation of the browser game "Die2Nite"
+                    "Die Verdammten" und seine anderen Versionen von %motiontwin%.</source>
+        <target>MyHordes is an open implementation of the browser game "Die2Nite" and its other versions
           by %motiontwin% and developed by the community.</target>
       </segment>
     </unit>
-    <unit id="yIFGZLw" name="2fac8f1">
+    <unit id="wuuGs9i" name="5a029cc">
       <notes>
-        <note category="german">Ziel des Projektes ist es, einer Version von "Die Verdammten" zu erschaffen, die nicht nur nach der
+        <note category="german">Ziel des Projektes ist es, eine Version von "Die Verdammten" und seinen anderen Versionen zu erschaffen, die nicht nur nach der
                     Flash-Abschaltung im Jahr 2020 funktionsfähig ist, sondern auch weiterentwickelt und mit neuen
                     Inhalten versorgt werden kann.</note>
       </notes>
       <segment>
-        <source>Ziel des Projektes ist es, einer Version von "Die Verdammten" zu erschaffen, die nicht nur nach der
+        <source>Ziel des Projektes ist es, eine Version von "Die Verdammten" und seinen anderen Versionen zu erschaffen, die nicht nur nach der
                     Flash-Abschaltung im Jahr 2020 funktionsfähig ist, sondern auch weiterentwickelt und mit neuen
                     Inhalten versorgt werden kann.</source>
-        <target>The aim of this project is to create a version of "Die2Nite", that will
+        <target>The aim of this project is to create a version of "Die2Nite" and its other versions, that will
           not only work after the removal of Flash support in common browsers,
           but will also be developed beyond the original and receive new content.</target>
       </segment>
@@ -73,15 +73,15 @@
         <target>Login</target>
       </segment>
     </unit>
-    <unit id="RVQn34R" name="dfabf06">
+    <unit id="RaJYSbq" name="c85228c">
       <notes>
-        <note category="german">Alle Grafiken stammen, wenn nicht ausdrücklich anders angegeben, ebenfalls aus "Die Verdammten" und sind
+        <note category="german">Alle Grafiken stammen, wenn nicht ausdrücklich anders angegeben, ebenfalls aus "Die Verdammten" und seine anderen Versionen und sind
                     damit Eigentum von %motiontwin%.</note>
       </notes>
       <segment>
-        <source>Alle Grafiken stammen, wenn nicht ausdrücklich anders angegeben, ebenfalls aus "Die Verdammten" und sind
+        <source>Alle Grafiken stammen, wenn nicht ausdrücklich anders angegeben, ebenfalls aus "Die Verdammten" und seine anderen Versionen und sind
                     damit Eigentum von %motiontwin%.</source>
-        <target>All graphical assets are taken from Die2Nite if not stated otherwise and therefore are property of %motiontwin%.</target>
+        <target>All graphical assets are taken from Die2Nite and its other versions if not stated otherwise and therefore are property of %motiontwin%.</target>
       </segment>
     </unit>
     <unit id="lHIUXzm" name="Bürger gestorben">
