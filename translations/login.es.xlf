@@ -418,5 +418,14 @@
         <target>Dein Passwort wurde geändert. Du kannst dich nun mit deinem neuen Passwort einloggen.</target>
       </segment>
     </unit>
+    <unit id="LRrjhiE" name="Angemeldet bleiben">
+      <notes>
+        <note category="german">Angemeldet bleiben</note>
+      </notes>
+      <segment>
+        <source>Angemeldet bleiben</source>
+        <target>Angemeldet bleiben</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
