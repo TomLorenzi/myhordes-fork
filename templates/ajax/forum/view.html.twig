@@ -132,15 +132,25 @@
         {% endif %}
 
         let thread_buttons = document.querySelectorAll('[x-thread-id]');
-        for (let i = 0; i < thread_buttons.length; i++)
-            thread_buttons[i].addEventListener('click', function() {
+        for (let i = 0; i < thread_buttons.length; i++) {
+            thread_buttons[i].addEventListener('click', function () {
                 for (let j = 0; j < thread_buttons.length; j++) thread_buttons[j].classList.remove('selected');
                 this.classList.add('selected');
                 let editor = document.getElementById('forum-editor');
-                {let c; while ((c = editor.firstChild)) editor.removeChild(c);}
-                $.ajax.no_history().load( document.getElementById('forum-content'), this.getAttribute('x-post-source'), false )
-                $.ajax.push_history( this.getAttribute('x-public-route') );
-            })
+                {
+                    let c;
+                    while ((c = editor.firstChild)) editor.removeChild(c);
+                }
+                $.ajax.no_history().load(document.getElementById('forum-content'), this.getAttribute('x-post-source'), false)
+                $.ajax.push_history(this.getAttribute('x-public-route'));
+            });
+            thread_buttons[i].addEventListener('mousedown', function (e) {
+                if (e.button === 1) {
+                    e.preventDefault();
+                    window.open(this.getAttribute('x-public-route'), '_blank');
+                }
+            });
+        }
         let selection_target = document.querySelector('[x-thread-id="{{ select }}"]');
         if (selection_target) selection_target.click();
 
