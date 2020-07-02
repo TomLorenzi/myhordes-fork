@@ -10930,8 +10930,8 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       <segment>
         <source>Hiermit kannst du den Namen eines zufälligen Bürgers in deinen Post anfügen.
                                                     Bei Bedarf kannst du die Auswahl auf bestimmte Berufe, Helden oder bereits gestorbene Bürger eingrenzen.</source>
-        <target>Hiermit kannst du den Namen eines zufälligen Bürgers in deinen Post anfügen.
-                                                    Bei Bedarf kannst du die Auswahl auf bestimmte Berufe, Helden oder bereits gestorbene Bürger eingrenzen.</target>
+        <target>You can use this to add the name of a random citizen to your post.
+                                                     If necessary, you can limit the selection to certain professions, heroes or citizens who have already died.</target>
       </segment>
     </unit>
     <unit id="GQ3Gt_t" name="Du bist">
@@ -10940,7 +10940,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Du bist</source>
-        <target>Du bist</target>
+        <target>You are</target>
       </segment>
     </unit>
     <unit id="swizrYC" name="Erschöpft">
@@ -10949,7 +10949,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Erschöpft</source>
-        <target>Erschöpft</target>
+        <target>Exhausted</target>
       </segment>
     </unit>
     <unit id="ANGnefx" name="Stadtrat">
@@ -10958,7 +10958,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Stadtrat</source>
-        <target>Stadtrat</target>
+        <target>Town Council</target>
       </segment>
     </unit>
     <unit id="UEL2oHO" name="Spielzeit">
@@ -10967,7 +10967,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Spielzeit</source>
-        <target>Spielzeit</target>
+        <target>Playtime</target>
       </segment>
     </unit>
     <unit id="RbJEkic" name="Mit den anderen Bürgern reden...">
@@ -10976,7 +10976,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Mit den anderen Bürgern reden...</source>
-        <target>Mit den anderen Bürgern reden...</target>
+        <target>Talk to the other citizens...</target>
       </segment>
     </unit>
     <unit id="_EDDh5L" name="9f36678">
@@ -10985,7 +10985,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Lesen und Nutzen des Forums sind in 'MyHordes' überlebensnotwendig! Die wichtigen Entscheidungen der Stadt werden hier gemeinsam von der Community getroffen.</source>
-        <target>Lesen und Nutzen des Forums sind in 'MyHordes' überlebensnotwendig! Die wichtigen Entscheidungen der Stadt werden hier gemeinsam von der Community getroffen.</target>
+        <target>Reading and using the forum are essential for survival in 'MyHordes'! The important decisions of the city are made here by the community.</target>
       </segment>
     </unit>
     <unit id="esKM3_t" name="Deine gesamte Geschichte basiert auf deinen zuvor gespielten Städten...">
@@ -10994,7 +10994,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Deine gesamte Geschichte basiert auf deinen zuvor gespielten Städten...</source>
-        <target>Deine gesamte Geschichte basiert auf deinen zuvor gespielten Städten...</target>
+        <target>Your entire story is based on your previously played towns ...</target>
       </segment>
     </unit>
     <unit id="K382mbj" name="Spielhilfe aufrufen.">
@@ -11012,7 +11012,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Hast du schon unter "Wie wird gespielt" nachgeschaut? Du findest den Link darauf unter der Karte der Stadt.</source>
-        <target>Hast du schon unter "Wie wird gespielt" nachgeschaut? Du findest den Link darauf unter der Karte der Stadt.</target>
+        <target>Have you looked under "How to play"? You can find the link under the city map.</target>
       </segment>
     </unit>
     <unit id="25Kvu55" name="8937cea">
@@ -11039,7 +11039,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Starten Sie eine Stadt</source>
-        <target>Starten Sie eine Stadt</target>
+        <target>Start a Town</target>
       </segment>
     </unit>
     <unit id="tl3wxZA" name="Es ist Zeit, sich seinen Mitmenschen in der Hölle anschließen!">

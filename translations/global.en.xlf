@@ -259,7 +259,7 @@
       </notes>
       <segment>
         <source>Gestern um</source>
-        <target>Yeasterday at</target>
+        <target>Yesterday at</target>
       </segment>
     </unit>
     <unit id="Et.Ao0w" name="Antworten">
@@ -1294,7 +1294,7 @@
       </notes>
       <segment>
         <source>Beachte: Alle hier geschriebenen Nachrichten gehen verloren, wenn alle Bürger die Zone verlassen.</source>
-        <target>Beachte: Alle hier geschriebenen Nachrichten gehen verloren, wenn alle Bürger die Zone verlassen.</target>
+        <target>Note: All messages written here will be lost if all citizens leave the zone.</target>
       </segment>
     </unit>
   </file>
