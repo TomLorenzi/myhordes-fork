@@ -11,14 +11,14 @@
         {% for thread in list %}
         <div class="row forum-thread {% if not thread.new %}forum-thread-unread{% endif%}" x-public-route="{{ path('forum_thread_view', {fid: fid, tid: thread.id }) }}" x-post-source="{{ path('forum_viewer_controller', {fid: fid, tid: thread.id }) }}" x-thread-id="{{ thread.id }}">
             {# @var thread \App\Entity\Thread #}
-            <div class="cell rw-1 status">
+            <div class="cell rw-1 status" style="padding: 5px;">
                 {% if thread.locked %}
                     <img alt="" src="{{ asset('build/images/lock.gif') }}" />
                 {% else %}
                     &nbsp;
                 {% endif %}
             </div>
-            <div class="cell rw-8 title">
+            <div class="cell rw-8 title" style="padding: 5px;">
                 <div>
                     {% if thread.translatable %}
                         {{ thread.title|trans({},'game') }}
@@ -42,7 +42,7 @@
                     {% endif %}
                 </div>
             </div>
-            <div class="cell rw-3 right count">
+            <div class="cell rw-3 right count" style="background: #593223; padding: 5px;">
                 {% if thread.posts|length > 1 %}
                     {{ thread.posts|length - 1 }}
                 {% endif %}
