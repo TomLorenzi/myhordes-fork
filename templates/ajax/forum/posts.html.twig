@@ -169,24 +169,19 @@
         for (let i = 0; i < quote_buttons.length; i++)
             quote_buttons[i].addEventListener('click', function() {
                 let editor = document.getElementById('forum-editor');
-                if (editor && editor.innerHTML === "") {
-                    $.ajax.no_history().load( document.getElementById('forum-editor'), '{{ path('forum_post_editor_controller', {fid: fid, tid: tid}) }}', false, {}, function () {
 
-                        let content = document.querySelector('[x-post-content-id="' + quote_buttons[i].getAttribute('x-post-id') + '"]');
-                        let author = content.getAttribute('x-post-content-author');
-                        let textEditor = document.getElementById("forum-editor-text");
-                        textEditor.value = (author ? ('[quote=' + author + ']') : '[quote]') + $.html.twinoParser.parseFrom( content.innerHTML ) + '[/quote]' + "\n";
-                        textEditor.dispatchEvent(new Event('input', {bubbles: true,cancelable: true}));
-                        textEditor.focus();
-                    } )
-                } else {
+                let fun_quote = function() {
                     let content = document.querySelector('[x-post-content-id="' + quote_buttons[i].getAttribute('x-post-id') + '"]');
                     let author = content.getAttribute('x-post-content-author');
                     let textEditor = document.getElementById("forum-editor-text");
-                    textEditor.value += (author ? ('[quote=' + author + ']') : '[quote]') + $.html.twinoParser.parseFrom( content.innerHTML ) + '[/quote]' + "\n";
+                    textEditor.value = (author ? ('[quote=' + author + ']') : '[quote]') + $.html.twinoParser.parseFrom( content.innerHTML, true ) + '[/quote]' + "\n";
                     textEditor.dispatchEvent(new Event('input', {bubbles: true,cancelable: true}));
                     textEditor.focus();
-                }
+                };
+
+                if (editor && editor.innerHTML === "") {
+                    $.ajax.no_history().load( document.getElementById('forum-editor'), '{{ path('forum_post_editor_controller', {fid: fid, tid: tid}) }}', false, {}, fun_quote )
+                } else fun_quote();
             })
         {% if is_granted("ROLE_CROW") %}
         let del_buttons = document.querySelectorAll('[x-forum-action="delete-post"]');
