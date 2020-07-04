@@ -25,7 +25,7 @@
                         {% endtrans %}
                     </span>
                     <div class="row">
-                        <div class="padded-small cell rw-6"><button id="escape-btn"><img alt="" src="{{ asset('build/images/small_sprint.gif') }}" />{% trans from 'game' %}Flüchten{% endtrans %}</button></div>
+                        <div class="padded-small cell rw-6"><button id="escape-btn"><img alt="" src="{{ asset('build/images/icons/small_sprint.gif') }}" />{% trans from 'game' %}Flüchten{% endtrans %}</button></div>
                     </div>
                 </div>
             </div>
@@ -42,7 +42,7 @@
                 {% if zone.x == 0 and zone.y == 0 %}
                     <br />
                     <button id="exit_ruin_button"  >
-                        <img class="icon left" alt="" src="{{ asset('build/images/exit.gif') }}" />
+                        <img class="icon left" alt="" src="{{ asset('build/images/icons/exit.gif') }}" />
                         {% trans from 'game' %}Gebäude verlassen{% endtrans %}
                     </button>
                 {% endif %}
@@ -53,9 +53,9 @@
                         <br />
                         <button {% if not scavenge %}disabled{% endif%} id="scavenge_button">
                             {% if scavenge %}
-                                <img class="icon left" alt="" src="{{ asset('build/images/small_view.gif') }}" />
+                                <img class="icon left" alt="" src="{{ asset('build/images/icons/small_view.gif') }}" />
                             {% else %}
-                                <img class="icon left" alt="" src="{{ asset('build/images/lock.gif') }}" />
+                                <img class="icon left" alt="" src="{{ asset('build/images/icons/lock.gif') }}" />
                             {% endif %}
                             {{ 'Raum durchsuchen'|trans({},'game') }}
                         </button>
@@ -63,9 +63,9 @@
                     <br />
                     <button {% if (zone_zombies > 0 and not escaping) or (zone.locked and not shifted) %}disabled{% endif %} id="{{ shifted ? 'unshift_button' : 'shift_button' }}"  >
                         {% if ((zone_zombies <= 0 or escaping) and not zone.locked) or shifted %}
-                            <img class="icon left" alt="" src="{{ asset('build/images/small_enter.gif') }}" />
+                            <img class="icon left" alt="" src="{{ asset('build/images/icons/small_enter.gif') }}" />
                         {% else %}
-                            <img class="icon left" alt="" src="{{ asset('build/images/lock.gif') }}" />
+                            <img class="icon left" alt="" src="{{ asset('build/images/icons/lock.gif') }}" />
                         {% endif %}
                         {% if shifted %}
                             {{ 'Raum verlassen'|trans({},'game') }}

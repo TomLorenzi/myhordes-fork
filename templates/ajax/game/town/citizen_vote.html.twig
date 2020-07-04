@@ -37,7 +37,7 @@
                 <div class="padded cell rw-3 rw-md-6 small">
                     <span>
                         {% if citizen.banished %}
-                            <img alt="" src="{{ asset('build/images/banished.gif') }}" />
+                            <img alt="" src="{{ asset('build/images/icons/banished.gif') }}" />
                         {% elseif citizen.profession.heroic %}
                             <img alt="" src="{{ asset('build/images/professions/hero.gif') }}" />
                         {% else %}
@@ -55,7 +55,7 @@
                                 {{'Klicke hier, um für diesen Bürger zu stimmen.'|trans({}, 'game')}}
                             </div>
                         {% elseif vote != null and vote.votedCitizen.id == citizen.id %}
-                            <img src="{{ asset('build/images/small_action.gif') }}" alt="" />
+                            <img src="{{ asset('build/images/icons/icons/small_action.gif') }}" alt="" />
                             <div class="tooltip">
                                 {{'Du hast für diesen Bürger gestimmt.'|trans({}, 'game')}}
                             </div>

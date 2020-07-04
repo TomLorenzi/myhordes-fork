@@ -37,38 +37,38 @@
 
 @myhordes-font: "Nunito", "Century Gothic", "Arial", "Trebuchet MS", Verdana, 'Open Sans',sans-serif;
 
-@myhordes-background: url(../img/bg_colored.jpg) fixed top no-repeat, #100C0B;
-@myhordes-background-online: url(../img/bg_gray.jpg) fixed top no-repeat, #100C0B;
+@myhordes-background: url(../img/background/bg_colored.jpg) fixed top no-repeat, #100C0B;
+@myhordes-background-online: url(../img/background/bg_gray.jpg) fixed top no-repeat, #100C0B;
 
 @myhordes-content-width: 950px;
-@myhordes-content-background: url(../img/bg_content.jpg) left repeat-y;
+@myhordes-content-background: url(../img/background/bg_content.jpg) left repeat-y;
 @myhordes-left-padding: 19px;
 
-@myhordes-content-header-background: url(../img/bg_content_header.jpg) left no-repeat;
+@myhordes-content-header-background: url(../img/background/bg_content_header.jpg) left no-repeat;
 @myhordes-content-header-height: 305px;
 @myhordes-content-header-margin: -95px;
 
-@myhordes-content-footer-background: url(../img/bg_content_footer.gif) left no-repeat;
+@myhordes-content-footer-background: url(../img/background/bg_content_footer.gif) left no-repeat;
 @myhordes-content-footer-height: 15px;
 @myhordes-content-footer-margin: 15px;
 
 @myhordes-panel-color: white;
 @myhordes-panel-bg: #7e4d2a;
-@myhordes-panel-border: url("../img/panel_00.gif") top left no-repeat, url("../img/panel_02.gif") top right no-repeat,
-                        url("../img/panel_20.gif") bottom left no-repeat, url("../img/panel_22.gif") bottom right no-repeat,
-                        url("../img/panel_01.gif") top left repeat-x, url("../img/panel_10.gif") top left repeat-y,
-                        url("../img/panel_12.gif") top right repeat-y, url("../img/panel_21.gif") bottom left repeat-x;
+@myhordes-panel-border: url("../img/background/box/panel_00.gif") top left no-repeat, url("../img/background/box/panel_02.gif") top right no-repeat,
+                        url("../img/background/box/panel_20.gif") bottom left no-repeat, url("../img/background/box/panel_22.gif") bottom right no-repeat,
+                        url("../img/background/box/panel_01.gif") top left repeat-x, url("../img/background/box/panel_10.gif") top left repeat-y,
+                        url("../img/background/box/panel_12.gif") top right repeat-y, url("../img/background/box/panel_21.gif") bottom left repeat-x;
 
 @myhordes-cell-header-background-color: #3e2417;
 @myhordes-cell-header-text-color: #f0d79e;
 
-@myhordes-button-background: url('../img/bg_button.gif');
+@myhordes-button-background: url('../img/background/bg_button.gif');
 @myhordes-button-static-background: #a5381b;
 @myhordes-button-color: #F0D79E;
 @myhordes-button-border: black;
 
-@myhordes-input-background: url('../img/bg_input.jpg') bottom center repeat;
-@myhordes-input-text-background: url('../img/form_textarea.gif') bottom center repeat;
+@myhordes-input-background: url('../img/background/bg_input.jpg') bottom center repeat;
+@myhordes-input-text-background: url('../img/background/form_textarea.gif') bottom center repeat;
 @myhordes-input-color: #3B3249;
 @myhordes-input-border: #EFDBA8;
 
@@ -187,7 +187,7 @@ x-message {
         & p { margin: 14px 0;  text-align: justify }
         & ul.bluelist {
           background: #3d3149;
-          &>li { list-style: url(../img/small_dot.gif); padding: 2px 10px 2px 2px; text-align: justify; }
+          &>li { list-style: url(../img/icons/small_dot.gif); padding: 2px 10px 2px 2px; text-align: justify; }
         }
       }
 
@@ -484,11 +484,11 @@ div.town-header {
 
 div.town-header {
   &:before {
-    background: url("../img/sign_header.jpg") center/cover no-repeat;
+    background: url("../img/background/town/sign_header.jpg") center/cover no-repeat;
   }
   &.hardcore {
     &:before {
-      background: url("../img/sign_header_hardcore.jpg") center/cover no-repeat;
+      background: url("../img/background/town/sign_header_hardcore.jpg") center/cover no-repeat;
     }
   }
 }
@@ -498,7 +498,7 @@ div.note {
   .box(); padding: 5px; font-size: 1.2rem; margin: 5px 0;
   &.note-warning {
     .box( #820000 ); color: white; position: relative; padding: 5px 5px 5px 26px;
-    &:before { content: " "; position: absolute; display: block; top: 5px; left: 5px; width: 16px; height: 16px; background: url('../img/small_warning.gif') no-repeat; }
+    &:before { content: " "; position: absolute; display: block; top: 5px; left: 5px; width: 16px; height: 16px; background: url('../img/icons/small_warning.gif') no-repeat; }
   }
   &.note-light {
     background-color: #5c2b20;
@@ -518,7 +518,7 @@ div.small-note {
 }
 
 div.help {
-  &:before { content: " "; position: absolute; display: block; top: 5px; left: 5px; width: 16px; height: 16px; background: url('../img/small_help.gif') no-repeat; }
+  &:before { content: " "; position: absolute; display: block; top: 5px; left: 5px; width: 16px; height: 16px; background: url('../img/icons/small_help.gif') no-repeat; }
   .box(@myhordes-help-color); padding: 5px 5px 5px 26px; font-size: 1.2rem; margin: 5px 0; text-align: justify; position: relative;
   &>p:first-child { margin-top: 0 }
   &>p:last-child { margin-bottom: 0 }
@@ -603,12 +603,12 @@ ul.inventory {
 
     }
   }
-  &.rucksack { background: url("../img/inv_bag.gif") no-repeat top left;}
+  &.rucksack { background: url("../img/background/inventory/inv_bag.gif") no-repeat top left;}
   &.rucksack-escort { background: rgba(0,0,0,0.1); border: 1px solid @myhordes-cell-header-background-color; margin: 0; }
-  &.desert, &.desert-escort { background: url("../img/inv_ground.gif") repeat top left;}
+  &.desert, &.desert-escort { background: url("../img/background/inventory/inv_ground.gif") repeat top left;}
   &.desert-escort { border: 1px solid @myhordes-cell-header-background-color; }
-  &.chest { background: url("../img/inv_home.gif") repeat center;}
-  &.bank { background: url("../img/inv_bank.gif") repeat center; min-height: 100px;}
+  &.chest { background: url("../img/background/inventory/inv_home.gif") repeat center;}
+  &.bank { background: url("../img/background/inventory/inv_bank.gif") repeat center; min-height: 100px;}
 }
 
 ul.actions, ul.special_actions, ul.heroic_actions {
@@ -670,17 +670,17 @@ ul.camping_actions {
 }
 
 div.well {
-  width: 100%; padding-top: 118.699187%; background: url("../img/well_bg.gif") no-repeat center/cover;
+  width: 100%; padding-top: 118.699187%; background: url("../img/background/town/well_bg.gif") no-repeat center/cover;
   position: relative;
   &>.water {
-    &::after { position: absolute; content: " "; background: url('../img/well_line.gif') no-repeat center; height: 4px; top: -4px; width: 100%; }
+    &::after { position: absolute; content: " "; background: url('../img/background/town/well_line.gif') no-repeat center; height: 4px; top: -4px; width: 100%; }
     overflow: visible;
     position: absolute; bottom: 0; left: 0; width: 100%; height: 100%;
-    background: url('../img/well_water.gif') no-repeat bottom center/cover;
+    background: url('../img/background/town/well_water.gif') no-repeat bottom center/cover;
   }
   &>.mask {
     position: absolute; bottom: 0; left: 0; width: 100%; height: 100%;
-    background: url('../img/well_mask.gif') no-repeat center/cover;
+    background: url('../img/background/town/well_mask.gif') no-repeat center/cover;
   }
   &>.overlay {
     position: absolute; top: 50%; width: 100%; text-align: center; font-weight: bold; font-size: 1.1rem;
@@ -708,7 +708,7 @@ div.game-menu-area {
   }
 
   &>div.game-bar {
-   width: 100%; height: 32px; background: url("../img/bg_menu.jpg");
+   width: 100%; height: 32px; background: url("../img/background/bg_menu.jpg");
     box-shadow: 0 0 5px black; position: relative; z-index: 20;
     border-top: 1px solid black; border-bottom: 1px solid black;
 
@@ -804,7 +804,7 @@ div.game-menu-area {
       }
 
       &.clock {
-        position: absolute; background: url("../img/clock.png"); width: 280px; height: 97px;
+        position: absolute; background: url("../img/background/clock.png"); width: 280px; height: 97px;
         top: -130px; right: 0px;
         &>li { display: block; position: absolute; }
         &>li:nth-child(1) { font-size: 1rem; color: @myhordes-smalltext; text-align: right; height: 12px; top: 9px; left: 0; right: 75px; font-variant: small-caps }
@@ -861,7 +861,7 @@ div.game-menu-area {
         }
 
         &.rucksack {
-        	width: 195px; height: 28px;
+        	width: 195px; height: 30px;
         	overflow: hidden;
         	.more {
         		width: 18px;
@@ -900,12 +900,12 @@ div.game-menu-area {
   }
 }
 
-div.ap      { .icon_div("../img/ap_small.gif", middle, 0); }
-div.bp      { .icon_div("../img/bp_small.gif", middle, 0); }
-div.pm      { .icon_div("../img/pm_small.gif", middle, 0); }
-div.ox      { .icon_div("../img/oxygen_small.gif", middle, 0); }
-div.defense { .icon_div("../img/small_def.gif", middle, 2px);font-weight: bold; }
-div.defense-broken { .icon_div("../img/small_def_broken.gif", middle, 2px); color:#f18766;font-weight: bold; }
+div.ap      { .icon_div("../img/icons/ap_small.gif", middle, 0); }
+div.bp      { .icon_div("../img/icons/bp_small.gif", middle, 0); }
+div.pm      { .icon_div("../img/icons/pm_small.gif", middle, 0); }
+div.ox      { .icon_div("../img/icons/oxygen_small.gif", middle, 0); }
+div.defense { .icon_div("../img/icons/small_def.gif", middle, 2px);font-weight: bold; }
+div.defense-broken { .icon_div("../img/icons/small_def_broken.gif", middle, 2px); color:#f18766;font-weight: bold; }
 
 .jobs-choice {
   border: 1px solid #7e4d2a; width: 100%; opacity: .6;
@@ -930,10 +930,10 @@ div.defense-broken { .icon_div("../img/small_def_broken.gif", middle, 2px); colo
   font-size: 1.2rem; color: #ddab76; border-bottom: 1px solid #ddab76;
   margin-bottom: 20px; padding: 0 5px; position: relative; top: -2px; margin-left: -2px;
   &:not(.plain) {
-    background: url(../img/panel_00.png) -6px -7px no-repeat, url(../img/panel_02.png) right -4px top -7px no-repeat, url(../img/tabs-header.jpg) left / cover;
-    &::after { position: absolute; content: " "; top: 0; left: 27px; right: 28px; height: 3px; background: url(../img/panel_01.png) 0 -6px repeat-x; }
+    background: url(../img/background/box/panel_00.png) -6px -7px no-repeat, url(../img/background/box/panel_02.png) right -4px top -7px no-repeat, url(../img/background/tabs-header.jpg) left / cover;
+    &::after { position: absolute; content: " "; top: 0; left: 27px; right: 28px; height: 3px; background: url(../img/background/box/panel_01.png) 0 -6px repeat-x; }
   }
-  &.plain { background: url(../img/tabs-header-plain.gif) bottom left no-repeat; }
+  &.plain { background: url(../img/background/tabs-header-plain.gif) bottom left no-repeat; }
 
   min-height: 34px;
 
@@ -955,7 +955,7 @@ div.defense-broken { .icon_div("../img/small_def_broken.gif", middle, 2px); colo
 
     .tab-link {
       float: right; height: 21px; margin-right: 0px; margin-left: 2px;
-      margin-top: 3px; white-space: nowrap; background-image: url(../img/tab.gif);
+      margin-top: 3px; white-space: nowrap; background-image: url(../img/background/tab.gif);
       background-position: top left; background-repeat: no-repeat;
       border-left: 1px solid #694023; border-right: 1px solid #694023;
       cursor: pointer;
@@ -969,7 +969,7 @@ div.defense-broken { .icon_div("../img/small_def_broken.gif", middle, 2px); colo
       position: relative; top: 2px;
       .tab-link {
         text-decoration: none;
-        color: white; background-image: url(../img/tab_active.gif);
+        color: white; background-image: url(../img/background/tab_active.gif);
       }
     }
   }
@@ -994,7 +994,7 @@ ul.summary {
 }
 
 div.death_header {
-  background: url("../img/deathHeader.gif") no-repeat center bottom/contain;
+  background: url("../img/background/deathHeader.gif") no-repeat center bottom/contain;
   min-height: 55px; margin-top: 24px; text-align: center;
   &>div:first-child {
     color: @myhordes-smalltext; font-variant: small-caps; font-size: 1.6rem; margin-bottom: 6px;
@@ -1066,7 +1066,7 @@ div.rebirth {
 }
 
 a.help-button {
-    background-image: url("../img/helpTooltip.gif"); background-repeat: no-repeat; 
+    background-image: url("../img/help/helpTooltip.gif"); background-repeat: no-repeat; 
     color: #E7D1B2; border: 1px solid #5e3d17; text-transform: uppercase; font-size: 0.85rem;
     padding-left: 3px; padding-right: 3px; cursor: help; height: 100%; width: 100%;
     &:hover { outline: 1px solid white; }

@@ -11,14 +11,14 @@ div.map_area {
       pointer-events: none;
     }
     &:before {background: radial-gradient(circle, rgba(0,0,0,0) 0%, rgba(0,0,0,0.1) 30%, rgba(0,0,0,0.7) 100%); z-index: 3; pointer-events: none }
-    &:after {background: url("../../img/noise.gif") repeat; opacity: 0.04; z-index: 5; pointer-events: none }
+    &:after {background: url("../../img/anims/noise.gif") repeat; opacity: 0.04; z-index: 5; pointer-events: none }
     &>.zone-plane, &>.zone-plane-controls {
       transition: opacity 0.25s ease, transform 0.25s ease, top 1.25s ease, left 1.25s ease; pointer-events: none; position: absolute;
       opacity: 0;
     }
     &>.zone-plane {
       transform: scale(0.25);
-      background: url("../../img/bg_zone_map.jpg") top left/20% repeat, black; z-index: 2;
+      background: url("../../img/background/bg_zone_map.jpg") top left/20% repeat, black; z-index: 2;
       top: -200%; left: -200%; width: 500%; height: 500%; font-size: 0;
       &>.zone-sub-container {
         position: absolute; top: 0; left: 0; width: 100%; height: 100%;
@@ -43,8 +43,8 @@ div.map_area {
               animation: glitch-actor-3 4s infinite linear alternate;
             }
             &:before { position: absolute; content: " "; width: 24px; height: 24px; left: -12px; top: -12px; }
-            &.citizen:before { background: url("../../img/map_icon_citizen.png") center/contain no-repeat; }
-            &.zombie:before { background:  url("../../img/map_icon_zombie.png") center/contain no-repeat; }
+            &.citizen:before { background: url("../../img/icons/map/map_icon_citizen.png") center/contain no-repeat; }
+            &.zombie:before { background:  url("../../img/icons/map/map_icon_zombie.png") center/contain no-repeat; }
           }
         }
       }
@@ -55,7 +55,7 @@ div.map_area {
           left: 25%;
           width: 50%;
           height: 50%;
-          background: url("../../img/bg_zone_map.jpg") top left/20% repeat, black;
+          background: url("../../img/background/bg_zone_map.jpg") top left/20% repeat, black;
           z-index: 0;
 
           &:nth-child(1) {
@@ -106,17 +106,17 @@ div.map_area {
       &>.scout-sense-east , &>.scavenger-sense-east  { top: 43%; bottom: 43%; left: 87%; right: 8% }
       &>.scout-sense-north, &>.scavenger-sense-north { top: 8%; bottom: 87%; left: 43%; right: 43% }
       &>.scout-sense-south, &>.scavenger-sense-south { top: 87%; bottom: 8%; left: 43%; right: 43% }
-      &>.scavenger-sense-0 { background: url("../../img/Small_broken.gif") center no-repeat }
-      &>.scavenger-sense-1 { background: url("../../img/small_gather.gif") center no-repeat }
+      &>.scavenger-sense-0 { background: url("../../img/icons/Small_broken.gif") center no-repeat }
+      &>.scavenger-sense-1 { background: url("../../img/icons/small_gather.gif") center no-repeat }
 
       &>.action-move {
-        background: url(../../img/227.svg) 50% / contain no-repeat, url(../../img/226.svg) 50% / contain no-repeat;
+        background: url(../../img/icons/map/227.svg) 50% / contain no-repeat, url(../../img/icons/map/226.svg) 50% / contain no-repeat;
         width: 81px; height: 81px;
         transform-origin: center;
         top: auto; bottom: auto; left: auto; right: auto;
 
         &:hover {
-          background: url(../../img/228.svg) 50% no-repeat;
+          background: url(../../img/icons/map/228.svg) 50% no-repeat;
         }
         &.action-move-north {
           top: -5%; left: 50%; transform: translateX(-50%);
@@ -131,7 +131,7 @@ div.map_area {
           top: 50%; left: -5%; transform: translateY(-50%) rotate(270deg);
         }
       }
-      &>.marker-direction  { top: 0; bottom: 0; left:  0; right: 0; background: url("../../img/map_move_marker.svg") center/contain no-repeat; }
+      &>.marker-direction  { top: 0; bottom: 0; left:  0; right: 0; background: url("../../img/icons/map/map_move_marker.svg") center/contain no-repeat; }
       &>.current-location  { position: absolute;bottom: 5px;top: auto;right: 5px;left: auto;display: block;z-index: 10;color: #d7ff5b;font-size: 1.25rem;text-shadow: 0px 0px 5px #d7ff5b;font-family: "visitor2";letter-spacing: 0.1rem;
         animation: glitch-anim-text 4s infinite linear alternate;
 
@@ -245,12 +245,12 @@ div.map_area {
         &:nth-child(3n+1)>div.soul-area span { animation-duration: 19s; }
         &:nth-child(7n+5)>div.soul-area span { animation-duration: 16s; }
 
-        &.town:not(.devast)>div.icon { background: url("../../img/map_zone_town.svg") center/contain no-repeat; }
-        &.town.devast>div.icon { background: url("../../img/map_zone_town_devast.svg") center/contain no-repeat; }
-        &.ruin:not(.buried)>div.icon { background: url("../../img/map_zone_ruin.svg") center/contain no-repeat; }
-        &.ruin.buried>div.icon { background: url("../../img/map_zone_buried.svg") center/contain no-repeat; }
-        &.past   >div.icon { background: url("../../img/map_zone_past.svg") center/contain no-repeat; }
-        &.unknown>div.icon { background-image: url("../../img/map_zone_unknown.png"); background-repeat: no-repeat; background-position: center; }
+        &.town:not(.devast)>div.icon { background: url("../../img/icons/map/map_zone_town.svg") center/contain no-repeat; }
+        &.town.devast>div.icon { background: url("../../img/icons/map/map_zone_town_devast.svg") center/contain no-repeat; }
+        &.ruin:not(.buried)>div.icon { background: url("../../img/icons/map/map_zone_ruin.svg") center/contain no-repeat; }
+        &.ruin.buried>div.icon { background: url("../../img/icons/map/map_zone_buried.svg") center/contain no-repeat; }
+        &.past   >div.icon { background: url("../../img/icons/map/map_zone_past.svg") center/contain no-repeat; }
+        &.unknown>div.icon { background-image: url("../../img/icons/map/map_zone_unknown.png"); background-repeat: no-repeat; background-position: center; }
       }
     }
 
@@ -287,7 +287,7 @@ div.map_area {
       left: 0;
       width: 100%;
       height: 100%;
-      background: url("../../img/noise.gif") top left/20% repeat;
+      background: url("../../img/anims/noise.gif") top left/20% repeat;
       z-index: 5;
       pointer-events: none;
       opacity: 0.04;
@@ -340,10 +340,10 @@ div.map_area {
       background-size: auto;
     }
     .hide-tags {
-      background-image: url('../../img/tickOff.gif');
+      background-image: url('../../img/icons/tickOff.gif');
     }
     .show-tags {
-      background-image: url('../../img/tickOn.gif');
+      background-image: url('../../img/icons/tickOn.gif');
     }
   }
 
@@ -364,7 +364,7 @@ div.map_area {
 .tooltip.tooltip-map {
   border: 1px solid #b4da4c; background: fade(@myhordes-map-background,80%); color: #b4da4c;
   &:after { content: " "; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-    background: url("../../img/noise.gif") repeat; opacity: 0.02; }
+    background: url("../../img/anims/noise.gif") repeat; opacity: 0.02; }
 }
 
 
