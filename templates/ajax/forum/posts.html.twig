@@ -176,11 +176,11 @@
             $.ajax.easySend( '{{ url('forum_report_post_controller', { 'fid': fid, 'tid': tid}) }}', {postId: parseInt( elem.getAttribute('x-post-id')), page: parseInt( elem.getAttribute('x-to-page')) }, reloadPage );
         });
 
-        $.html.addEventListenerAll('[x-forum-action="quote-post"]', 'click', function() {
+        $.html.addEventListenerAll('[x-forum-action="quote-post"]', 'click', function(e,elem) {
             let editor = document.getElementById('forum-editor');
 
             let fun_quote = function() {
-                let content = document.querySelector('[x-post-content-id="' + quote_buttons[i].getAttribute('x-post-id') + '"]');
+                let content = document.querySelector('[x-post-content-id="' + elem.getAttribute('x-post-id') + '"]');
                 let author = content.getAttribute('x-post-content-author');
                 let textEditor = document.getElementById("forum-editor-text");
                 textEditor.value = (author ? ('[quote=' + author + ']') : '[quote]') + $.html.twinoParser.parseFrom( content.innerHTML, true ) + '[/quote]' + "\n";
