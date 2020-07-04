@@ -1315,5 +1315,23 @@
         <target>Bloquer un message inapproprié</target>
       </segment>
     </unit>
+    <unit id="pqMtvFY" name="Link">
+      <notes>
+        <note category="german">Link</note>
+      </notes>
+      <segment>
+        <source>Link</source>
+        <target>Lien</target>
+      </segment>
+    </unit>
+    <unit id="6ih6_9H" name="Permanenter Link zu diesem Post:">
+      <notes>
+        <note category="german">Permanenter Link zu diesem Post:</note>
+      </notes>
+      <segment>
+        <source>Permanenter Link zu diesem Post:</source>
+        <target>Lien permanent vers ce message :</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
