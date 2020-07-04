@@ -136,11 +136,11 @@
                                 </ul>
                             </label>
                         {% endif %}
+                        [ <a class="action-button" id="link_post" x-forum-action="link-post" x-post-id={{ post.id }}>{{ 'Link'|trans({},'global') }}</a> ]
                         {% if not locked %}
                             [ <a class="action-button" id="quote_post" x-forum-action="quote-post" x-post-id={{ post.id }} >{{ 'Zitieren'|trans({},'global') }}</a> ]
                         {% endif %}
                         [ <a class="action-button" id="report_post" x-forum-action="report-post" x-post-id={{ post.id }} x-to-page={{ current_page }}>{{ 'Melden'|trans({},'global') }}</a> ]
-                        [ <a class="action-button" id="link_post" x-forum-action="link-post" x-post-id={{ post.id }}>{{ 'Link'|trans({},'global') }}</a> ]
                         <div class="small hidden" id="link-post-{{ post.id }}">
                             <div class="float-left"><i>{{ 'Permanenter Link zu diesem Post:'|trans({},'global') }}</i></div>
                             <div class="float-right">{{ url('forum_jump_view', {pid: post.id}) }}</div>
@@ -169,7 +169,7 @@
         $.html.addEventListenerAll('[x-forum-action="link-post"]', 'click', function(e,elem) {
             let link = document.getElementById('link-post-' + elem.getAttribute('x-post-id'));
             if (link.classList.contains('hidden')) link.classList.remove('hidden');
-            else link.classList.remove('hidden');
+            else link.classList.add('hidden');
         });
 
         $.html.addEventListenerAll('[x-forum-action="report-post"]', 'click', function(e,elem) {
