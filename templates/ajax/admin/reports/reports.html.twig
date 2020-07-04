@@ -32,7 +32,7 @@
                 {% for post in posts %}
                     <div class="row">
                         <div class="cell padded rw-3 rw-sm-12">
-                            <a href="#" x-forum-url="{{ path('forum_viewer_jump_post_controller', {pid: post['post'].id }) }}">{{ post['post'].thread.forum.title }}</a>
+                            <a href="#" x-forum-url="{{ path('forum_viewer_controller', {fid: post['post'].thread.forum.id, tid: post['post'].thread.id, pid: post['post'].id }) }}">{{ post['post'].thread.forum.title }}</a>
                         </div>
                         <div class="cell padded rw-2 rw-sm-12">
                             <span>{{ post['post'].owner.username }}</span>
