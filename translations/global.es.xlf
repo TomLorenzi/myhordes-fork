@@ -1270,5 +1270,14 @@
         <target>Abhängig von der Anzahl der Tage, die du überlebt hast, erhältst du nach jeder Partie eine bestimmte Anzahl an Punkten.</target>
       </segment>
     </unit>
+    <unit id="OP_adtd" name="Unangemessene Nachricht blockieren">
+      <notes>
+        <note category="german">Unangemessene Nachricht blockieren</note>
+      </notes>
+      <segment>
+        <source>Unangemessene Nachricht blockieren</source>
+        <target>Unangemessene Nachricht blockieren</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

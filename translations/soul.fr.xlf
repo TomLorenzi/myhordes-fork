@@ -655,5 +655,14 @@
         <target>Vos réglages ont été enregistrés.</target>
       </segment>
     </unit>
+    <unit id="TP_RyxL" name="Haus besuchen">
+      <notes>
+        <note category="german">Haus besuchen</note>
+      </notes>
+      <segment>
+        <source>Haus besuchen</source>
+        <target>Visiter sa maison</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
