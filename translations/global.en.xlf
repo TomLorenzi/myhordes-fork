@@ -259,7 +259,7 @@
       </notes>
       <segment>
         <source>Gestern um</source>
-        <target>Yeasterday at</target>
+        <target>Yesterday at</target>
       </segment>
     </unit>
     <unit id="Et.Ao0w" name="Antworten">
@@ -349,7 +349,7 @@
       </notes>
       <segment>
         <source>Forum</source>
-        <target>Forum</target>
+        <target>Forums</target>
       </segment>
     </unit>
     <unit id="BNcLxkK" name="Deine Seele">
@@ -376,7 +376,7 @@
       </notes>
       <segment>
         <source>Zum Spiel</source>
-        <target>Game</target>
+        <target>Back to site</target>
       </segment>
     </unit>
     <unit id="tkZocIU" name="Ausloggen">
@@ -1294,7 +1294,7 @@
       </notes>
       <segment>
         <source>Beachte: Alle hier geschriebenen Nachrichten gehen verloren, wenn alle Bürger die Zone verlassen.</source>
-        <target>Beachte: Alle hier geschriebenen Nachrichten gehen verloren, wenn alle Bürger die Zone verlassen.</target>
+        <target>Note: All messages written here will be lost if all citizens leave the zone.</target>
       </segment>
     </unit>
   </file>
