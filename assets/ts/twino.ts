@@ -177,10 +177,19 @@ class TwinoRegexResult {
 
 class TwinoConverterToBlocks {
 
-    public static rangeBlocks( match: TwinoRegexResult, nested: boolean = false ): [boolean,Array<TwinoInterimBlock>] {
+    public static rangeBlocks( match: TwinoRegexResult, parents: Array<HTMLElement> ): [boolean,Array<TwinoInterimBlock>] {
 
         let changed: boolean = false;
         let blocks: Array<TwinoInterimBlock> = [];
+
+        let quotespace = false;
+        let nested = false;
+        for (let i = 0; i < parents.length; i++) {
+            if (!quotespace && (parents[i].tagName === 'BLOCKQUOTE'))
+                quotespace = true;
+
+            if (!nested && parents[i].hasAttribute( 'x-nested' )) nested = true;
+        }
 
         switch (match.nodeType()) {
             case 'b': case 'i': case 'u': case 's': case 'ul': case 'ol': case 'li':
@@ -190,10 +199,14 @@ class TwinoConverterToBlocks {
             case '--': blocks.push( new TwinoInterimBlock(match.nodeContent(), 's') ); changed = true; break;
             case 'spoiler': blocks.push( new TwinoInterimBlock(match.nodeContent(), 'div', match.nodeType()) ); changed = true; break;
             case 'quote':
-                if ( match.nodeInfo() )
-                    blocks.push( new TwinoInterimBlock(match.nodeInfo(), 'span', 'quoteauthor') );
-                blocks.push( new TwinoInterimBlock(match.nodeContent(), 'blockquote') );
-                changed = true; break;
+                if (!quotespace) {
+                    if ( match.nodeInfo() )
+                        blocks.push( new TwinoInterimBlock(match.nodeInfo(), 'span', 'quoteauthor') );
+                    blocks.push( new TwinoInterimBlock(match.nodeContent(), 'blockquote') );
+                    changed = true;
+                }
+
+                break;
             case 'image':
                 if ( !match.nodeInfo() ) {
                     blocks.push( new TwinoInterimBlock(match.raw()) );
@@ -248,8 +261,17 @@ class TwinoConverterToBlocks {
         return [changed,blocks];
     }
 
-    public static insets( match: TwinoRegexResult, listspace: boolean ): Array<TwinoInterimBlock> {
+    public static insets( match: TwinoRegexResult, parents: Array<HTMLElement> ): Array<TwinoInterimBlock> {
         let blocks: Array<TwinoInterimBlock> = [];
+
+        let listspace = false;
+        for (let i = 0; i < parents.length; i++) {
+
+            if (!listspace && ['UL', 'OL'].indexOf(parents[i].tagName) !== -1)
+                listspace = true;
+            else if (listspace && parents[i].tagName === 'LI')
+                listspace = false;
+        }
 
         switch ( match.nodeType() ) {
             case 'hr': blocks.push( new TwinoInterimBlock( '', match.nodeType()) ); break;
@@ -295,7 +317,7 @@ class HTMLConverterFromBlocks {
         return HTMLConverterFromBlocks.rangeBlock(b.nodeText, t, a);
     }
 
-    public static anyBlocks( blocks: Array<TwinoInterimBlock> ): string {
+    public static anyBlocks( blocks: Array<TwinoInterimBlock>, parent: HTMLElement|null ): string {
 
         let cursor = 0;
         let nextBlock = function(): TwinoInterimBlock {
@@ -303,6 +325,14 @@ class HTMLConverterFromBlocks {
         }
         let peekBlock = function(): TwinoInterimBlock {
             return blocks.length > cursor ? blocks[cursor] : null;
+        }
+
+        let quotespace = false;
+        let cp = parent;
+        while (cp) {
+            if (cp.nodeType === Node.ELEMENT_NODE && (cp.tagName === 'BLOCKQUOTE' || cp.classList.contains('no-quote')))
+                quotespace = true;
+            cp = cp.parentNode as HTMLElement;
         }
 
         let ret = '';
@@ -334,7 +364,7 @@ class HTMLConverterFromBlocks {
                 case 'span':
                     if (block.hasClass('quoteauthor')) {
                         if (peek && peek.nodeName === 'blockquote') {
-                            ret += HTMLConverterFromBlocks.wrapBlock( nextBlock(), 'quote', block.nodeText )
+                            ret += quotespace ? '' : HTMLConverterFromBlocks.wrapBlock( nextBlock(), 'quote', block.nodeText )
                         }
                     } else if (block.hasClass('rpauthor')) {
                         if (peek && peek.nodeName === 'div' && peek.hasClass('rpText')) {
@@ -363,7 +393,7 @@ class HTMLConverterFromBlocks {
                     else ret += block.nodeText;
                     break;
                 case 'blockquote':
-                    ret += HTMLConverterFromBlocks.wrapBlock( block, 'quote' );
+                    ret += quotespace ? '' : HTMLConverterFromBlocks.wrapBlock( block, 'quote' );
                     break;
                 case 'img':
                     let alt = block.getAttribute('alt') ?? '';
@@ -404,7 +434,7 @@ export default class TwinoAlikeParser {
         elem.parentNode.removeChild(elem);
     }
 
-    private static parseRangeBlocks(elem: HTMLElement, secondary: boolean = false, nested: boolean = false): boolean {
+    private static parseRangeBlocks(elem: HTMLElement, secondary: boolean = false, parents: Array<HTMLElement> = []): boolean {
         let changed = false;
         if (elem.nodeType === Node.TEXT_NODE) {
             let str = elem.textContent;
@@ -416,7 +446,7 @@ export default class TwinoAlikeParser {
                 if (current_offset < match.index )
                     blocks.push( new TwinoInterimBlock( str.substr(current_offset,match.index-current_offset) ) );
 
-                const conversion = TwinoConverterToBlocks.rangeBlocks( match, nested );
+                const conversion = TwinoConverterToBlocks.rangeBlocks( match, parents );
                 changed = changed || conversion[0];
                 for (const result of conversion[1])
                     blocks.push( result );
@@ -434,21 +464,21 @@ export default class TwinoAlikeParser {
             for (let i = 0; i < children.length; i++) {
 
                 let skip = false;
-                let add_nested = nested;
+                let new_parents = [...parents];
                 if (children[i].nodeType === Node.ELEMENT_NODE) {
                     let node = (children[i]) as HTMLElement;
                     if (node.hasAttribute( 'x-raw' )) skip = true;
-                    if (node.hasAttribute( 'x-nested' )) add_nested = true;
+                    new_parents.push(node);
                 }
 
-                if (!skip) changed = changed || TwinoAlikeParser.parseRangeBlocks(children[i] as HTMLElement,secondary, add_nested);
+                if (!skip) changed = changed || TwinoAlikeParser.parseRangeBlocks(children[i] as HTMLElement,secondary, new_parents);
             }
 
         }
         return changed;
     }
 
-    private static parseInsets(elem: HTMLElement, listspace: boolean = false) {
+    private static parseInsets(elem: HTMLElement, parents: Array<HTMLElement> = []) {
         if (elem.nodeType === Node.TEXT_NODE) {
             let str = elem.textContent;
             let current_offset = 0;
@@ -459,7 +489,7 @@ export default class TwinoAlikeParser {
                 if (current_offset < match.index )
                     blocks.push( new TwinoInterimBlock( str.substr(current_offset,match.index-current_offset ) ));
 
-                for (const result of TwinoConverterToBlocks.insets( match, listspace ))
+                for (const result of TwinoConverterToBlocks.insets( match, parents ))
                     blocks.push( result );
 
                 current_offset = (match.length + match.index);
@@ -470,12 +500,9 @@ export default class TwinoAlikeParser {
 
             TwinoAlikeParser.lego(blocks,elem);
         } else {
-
-            let is_list_wrapper = ['UL','OL'].indexOf(elem.tagName) !== -1;
-            let is_list_entry   = ['LI'].indexOf(elem.tagName) !== -1;
             let children = elem.childNodes;
             for (let i = 0; i < children.length; i++)
-                TwinoAlikeParser.parseInsets(children[i] as HTMLElement, (listspace || is_list_wrapper) && !is_list_entry);
+                TwinoAlikeParser.parseInsets(children[i] as HTMLElement, [...parents,elem]);
 
         }
     }
@@ -586,8 +613,8 @@ export default class TwinoAlikeParser {
 
         }
 
-        if (elem.nodeType === Node.TEXT_NODE && elem.textContent.indexOf("\n") === -1)
-            return new TwinoInterimBlock( elem.textContent );
+        if (elem.nodeType === Node.TEXT_NODE)
+            return new TwinoInterimBlock(elem.textContent.replace(/\s{2,}/,' '));
 
         return new TwinoInterimBlock( );
     }
@@ -611,17 +638,18 @@ export default class TwinoAlikeParser {
             }
 
             return HTMLConverterFromBlocks.anyBlocks([
-                TwinoAlikeParser.parsePlainBlock( elem as HTMLElement, HTMLConverterFromBlocks.anyBlocks( blocks.filter( block => !block.isEmpty() ) ) )
-            ]);
+                TwinoAlikeParser.parsePlainBlock( elem as HTMLElement, HTMLConverterFromBlocks.anyBlocks( blocks.filter( block => !block.isEmpty() ), elem as HTMLElement ) )
+            ], elem.parentNode as HTMLElement);
         }
 
         return '';
 
     }
 
-    parseFrom( htmlText: string ): string {
+    parseFrom( htmlText: string, isQuoted: boolean ): string {
 
         let container_node = document.createElement('p');
+        if (isQuoted) container_node.classList.add('no-quote');
         container_node.innerHTML = htmlText;
 
         return TwinoAlikeParser.parseNestedBlock( container_node );

@@ -181,7 +181,7 @@ export default class Ajax {
         const no_loader  = this.fetch_no_loader();
         if (push_history) history.pushState( url, '', url );
 
-        if (!no_loader) $.html.addLoadStack(); console.log((new Error).stack);
+        if (!no_loader) $.html.addLoadStack();
         let request = new XMLHttpRequest();
         request.responseType = 'document';
         request.addEventListener('load', function(e) {
