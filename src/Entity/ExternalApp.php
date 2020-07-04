@@ -62,7 +62,12 @@ class ExternalApp
     /**
      * @ORM\Column(type="boolean", nullable=true)
      */
-    private $testing;
+    private $testing = false;
+
+    /**
+     * @ORM\Column(type="boolean", nullable=true)
+     */
+    private $linkOnly = false;
 
 
     public function getId(): ?int
@@ -162,6 +167,18 @@ class ExternalApp
     public function setTesting(?bool $testing): self
     {
         $this->testing = $testing;
+
+        return $this;
+    }
+
+    public function getLinkOnly(): ?bool
+    {
+        return $this->linkOnly;
+    }
+
+    public function setLinkOnly(?bool $linkOnly): self
+    {
+        $this->linkOnly = $linkOnly;
 
         return $this;
     }
