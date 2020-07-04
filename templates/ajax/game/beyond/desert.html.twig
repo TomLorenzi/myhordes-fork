@@ -369,18 +369,18 @@
                                 {% if other_citizen.escortSettings.allowInventoryAccess %}
                                     {% for escort_action in escort_actions[other_citizen.id] %}
                                         {# @var \App\Structures\EscortItemActionSet escort_action #}
-                                        <button {% if not escort_action.hasAvailableActions %}disabled{% endif%} class="small inline" x-escort-meta-group x-escort-meta-action="{{ escort_action.group.id }}" x-citizen="{{ other_citizen.id }}" ><img alt="" src="{{ asset('build/images/actions/' ~ escort_action.group.icon ~ '.gif') }}"></button>
+                                        <button {% if not escort_action.hasAvailableActions %}disabled{% endif%} class="small inline" x-escort-meta-group x-escort-meta-action="{{ escort_action.group.id }}" x-citizen="{{ other_citizen.id }}" ><img alt="" src="{{ asset('build/images/actions/' ~ escort_action.group.icon ~ '.gif') }}" style="margin-right: 0px;" /></button>
                                     {% endfor %}
                                 {% endif %}
                                 {% if zone.x != 0 or zone.y != 0 %}
-                                    <button {% if other_citizen.digging or zone_blocked or other_citizen.digTimeout > 0 %}disabled{% else %}x-remote-action x-escort-control-endpoint="{{ path('beyond_desert_dig_controller', {ext: other_citizen.id}) }}"{% endif %} class="small inline" ><img alt="" src="{{ asset('build/images/icons/small_gather.gif') }}"></button>
+                                    <button {% if other_citizen.digging or zone_blocked or other_citizen.digTimeout > 0 %}disabled{% else %}x-remote-action x-escort-control-endpoint="{{ path('beyond_desert_dig_controller', {ext: other_citizen.id}) }}"{% endif %} class="small inline" ><img alt="" src="{{ asset('build/images/icons/small_gather.gif') }}" style="margin-right: 0px;" /></button>
                                 {% endif %}
 
-                                <button {% if not can_attack_citizen %}disabled{% endif %} x-attack-citizen="{{ path('beyond_desert_attack_citizen_controller', {cid: other_citizen.id}) }}" class="small inline"><img alt="" src="{{ asset('build/images/icons/fist.gif') }}" /></button>
+                                <button {% if not can_attack_citizen %}disabled{% endif %} x-attack-citizen="{{ path('beyond_desert_attack_citizen_controller', {cid: other_citizen.id}) }}" class="small inline"><img alt="" src="{{ asset('build/images/icons/fist.gif') }}" style="margin-right: 0px;"/></button>
                                 {% if can_devour_citizen %}
-                                    <button {% if not allow_devour_citizen %}disabled{% endif %} x-devour-citizen="{{ path('beyond_desert_devour_citizen_controller', {cid: other_citizen.id}) }}" class="small inline"><img alt="" src="{{ asset('build/images/roles/ghoul.gif') }}" /></button>
+                                    <button {% if not allow_devour_citizen %}disabled{% endif %} x-devour-citizen="{{ path('beyond_desert_devour_citizen_controller', {cid: other_citizen.id}) }}" class="small inline"><img alt="" src="{{ asset('build/images/roles/ghoul.gif') }}" style="margin-right: 0px;" /></button>
                                 {% endif %}
-                                <button x-toggle-escort="0" x-escort-control-endpoint="{{ path('beyond_desert_escort_controller', {cid: other_citizen.id}) }}" class="small inline" ><img alt="" src="{{ asset('build/images/icons/escort_off.gif') }}"></button>
+                                <button x-toggle-escort="0" x-escort-control-endpoint="{{ path('beyond_desert_escort_controller', {cid: other_citizen.id}) }}" class="small inline" ><img alt="" src="{{ asset('build/images/icons/escort_off.gif') }}" style="margin-right: 0px;" /></button>
 
                                 {% if escort_actions[other_citizen.id] is defined %}
                                 {% for escort_action in escort_actions[other_citizen.id] %}
@@ -430,9 +430,9 @@
                         </div>
                         <div class="padded cell rw-8 right">
                             {% if not_digging > 1 and (zone.x != 0 or zone.y != 0) %}
-                                <button {% if zone_blocked %}disabled{% else %}x-remote-action x-escort-control-endpoint="{{ path('beyond_desert_dig_controller', {ext: 'all'}) }}"{% endif %} class="small inline" ><img alt="" src="{{ asset('build/images/icons/small_gather.gif') }}"></button>
+                                <button {% if zone_blocked %}disabled{% else %}x-remote-action x-escort-control-endpoint="{{ path('beyond_desert_dig_controller', {ext: 'all'}) }}"{% endif %} class="small inline" ><img alt="" src="{{ asset('build/images/icons/small_gather.gif') }}" style="margin-right: 0px;" /></button>
                             {% endif %}
-                            <button x-remote-action x-escort-control-endpoint="{{ path('beyond_desert_escort_drop_controller') }}" class="small inline" ><img alt="" src="{{ asset('build/images/icons/escort_off.gif') }}"></button>
+                            <button x-remote-action x-escort-control-endpoint="{{ path('beyond_desert_escort_drop_controller') }}" class="small inline" ><img alt="" src="{{ asset('build/images/icons/escort_off.gif') }}" style="margin-right: 0px;" /></button>
                         </div>
                     </div>
                 {% endif %}
