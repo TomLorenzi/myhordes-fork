@@ -63,7 +63,7 @@
                     <span class="announce">{{'Dieses Thema enthält %count% offizielle Ansage(n) der MyHordes-Administratoren:'|trans({"%count%": announces.admin|length}, 'global')}}</span>
                     <ul>
                         {% for adminannounce in announces.admin %}
-                            <li x-ajax-href="{{path('forum_viewer_jump_post_controller', {pid: adminannounce.id})}}">[{{adminannounce.date|format_datetime('medium', 'none')}}] {{adminannounce.text|striptags|slice(0, 50)}}[...]</li>
+                            <li x-ajax-target="#content" x-ajax-href="{{path('forum_jump_view', {pid: adminannounce.id})}}">[{{adminannounce.date|format_datetime('medium', 'none')}}] {{adminannounce.text|striptags|slice(0, 50)}}[...]</li>
                         {% endfor %}
                     </ul>
                 </div>
@@ -79,7 +79,7 @@
                         <span class="announce">{{'Dieses Thema enthält %count% Ansage(n) von Community-Vertretern:'|trans({"%count%": announces.oracle|length}, 'global')}}</span>
                         <ul>
                             {% for oracleannounce in announces.oracle %}
-                                <li x-ajax-href="{{path('forum_viewer_jump_post_controller', {pid: oracleannounce.id})}}">[{{oracleannounce.date|format_datetime('medium', 'none')}}] {{oracleannounce.text|striptags|slice(0, 50)}}[...]</li>
+                                <li x-ajax-target="#content" x-ajax-href="{{path('forum_jump_view', {pid: oracleannounce.id})}}">[{{oracleannounce.date|format_datetime('medium', 'none')}}] {{oracleannounce.text|striptags|slice(0, 50)}}[...]</li>
                             {% endfor %}
                         </ul>
                     </div>
@@ -140,6 +140,11 @@
                             [ <a class="action-button" id="quote_post" x-forum-action="quote-post" x-post-id={{ post.id }} >{{ 'Zitieren'|trans({},'global') }}</a> ]
                         {% endif %}
                         [ <a class="action-button" id="report_post" x-forum-action="report-post" x-post-id={{ post.id }} x-to-page={{ current_page }}>{{ 'Melden'|trans({},'global') }}</a> ]
+                        [ <a class="action-button" id="link_post" x-forum-action="link-post" x-post-id={{ post.id }}>{{ 'Link'|trans({},'global') }}</a> ]
+                        <div class="small hidden" id="link-post-{{ post.id }}">
+                            <div class="float-left"><i>{{ 'Permanenter Link zu diesem Post:'|trans({},'global') }}</i></div>
+                            <div class="float-right">{{ url('forum_jump_view', {pid: post.id}) }}</div>
+                        </div>
                     </div>
                 </div>
             {% endif %}
@@ -161,30 +166,33 @@
         };
         const reloadPage = function() { loadPage( {{ current_page }} ); };
 
-        let report_buttons = document.querySelectorAll('[x-forum-action="report-post"]');
-        for (let i = 0; i < report_buttons.length; i++)
-            report_buttons[i].addEventListener('click', function() {
-                $.ajax.easySend( '{{ url('forum_report_post_controller', { 'fid': fid, 'tid': tid}) }}', {postId: parseInt( this.getAttribute('x-post-id')), page: parseInt( this.getAttribute('x-to-page')) }, reloadPage );
-            })
+        $.html.addEventListenerAll('[x-forum-action="link-post"]', 'click', function(e,elem) {
+            let link = document.getElementById('link-post-' + elem.getAttribute('x-post-id'));
+            if (link.classList.contains('hidden')) link.classList.remove('hidden');
+            else link.classList.remove('hidden');
+        });
 
-        let quote_buttons = document.querySelectorAll('[x-forum-action="quote-post"]');
-        for (let i = 0; i < quote_buttons.length; i++)
-            quote_buttons[i].addEventListener('click', function() {
-                let editor = document.getElementById('forum-editor');
+        $.html.addEventListenerAll('[x-forum-action="report-post"]', 'click', function(e,elem) {
+            $.ajax.easySend( '{{ url('forum_report_post_controller', { 'fid': fid, 'tid': tid}) }}', {postId: parseInt( elem.getAttribute('x-post-id')), page: parseInt( elem.getAttribute('x-to-page')) }, reloadPage );
+        });
 
-                let fun_quote = function() {
-                    let content = document.querySelector('[x-post-content-id="' + quote_buttons[i].getAttribute('x-post-id') + '"]');
-                    let author = content.getAttribute('x-post-content-author');
-                    let textEditor = document.getElementById("forum-editor-text");
-                    textEditor.value = (author ? ('[quote=' + author + ']') : '[quote]') + $.html.twinoParser.parseFrom( content.innerHTML, true ) + '[/quote]' + "\n";
-                    textEditor.dispatchEvent(new Event('input', {bubbles: true,cancelable: true}));
-                    textEditor.focus();
-                };
+        $.html.addEventListenerAll('[x-forum-action="quote-post"]', 'click', function() {
+            let editor = document.getElementById('forum-editor');
 
-                if (editor && editor.innerHTML === "") {
-                    $.ajax.no_history().load( document.getElementById('forum-editor'), '{{ path('forum_post_editor_controller', {fid: fid, tid: tid}) }}', false, {}, fun_quote )
-                } else fun_quote();
-            })
+            let fun_quote = function() {
+                let content = document.querySelector('[x-post-content-id="' + quote_buttons[i].getAttribute('x-post-id') + '"]');
+                let author = content.getAttribute('x-post-content-author');
+                let textEditor = document.getElementById("forum-editor-text");
+                textEditor.value = (author ? ('[quote=' + author + ']') : '[quote]') + $.html.twinoParser.parseFrom( content.innerHTML, true ) + '[/quote]' + "\n";
+                textEditor.dispatchEvent(new Event('input', {bubbles: true,cancelable: true}));
+                textEditor.focus();
+            };
+
+            if (editor && editor.innerHTML === "") {
+                $.ajax.no_history().load( document.getElementById('forum-editor'), '{{ path('forum_post_editor_controller', {fid: fid, tid: tid}) }}', false, {}, fun_quote )
+            } else fun_quote();
+        });
+
         {% if is_granted("ROLE_CROW") %}
             $.html.addEventListenerAll( '[x-forum-moderator-action="delete-post"]', 'click', function(e,elem) {
                 let reason = prompt('{{ 'Grund'|trans({},'admin')|e('js') }}', '');
