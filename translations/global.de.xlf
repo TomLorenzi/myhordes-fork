@@ -1218,7 +1218,7 @@
     </unit>
     <unit id="FbY7TeM" name="Bestätigen">
       <notes>
-        <note category="german">Confirm</note>
+        <note category="german">Bestätigen</note>
       </notes>
       <segment>
         <source>Bestätigen</source>
@@ -1227,7 +1227,7 @@
     </unit>
     <unit id="33mt65B" name="Num. Listenpunkt">
       <notes>
-        <note category="german">Numbered List</note>
+        <note category="german">Num. Listenpunkt</note>
       </notes>
       <segment>
         <source>Num. Listenpunkt</source>

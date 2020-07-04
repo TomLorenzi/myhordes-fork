@@ -19,29 +19,29 @@
         <target>Bienvenido a MyHordes</target>
       </segment>
     </unit>
-    <unit id="Sq5rAhc" name="99de2c1">
+    <unit id="Cny3Jgk" name="a072781">
       <notes>
         <note category="german">MyHordes ist eine von der Community entwickelte offene Implementierung des Browser-Spiels
-                    "Die Verdammten" von %motiontwin%.</note>
+                    "Die Verdammten" und seine anderen Versionen von %motiontwin%.</note>
       </notes>
       <segment>
         <source>MyHordes ist eine von der Community entwickelte offene Implementierung des Browser-Spiels
-                    "Die Verdammten" von %motiontwin%.</source>
-        <target>MyHordes es una implementación abierta del juego de navegador "Zombinoia" de %motiontwin%,
+                    "Die Verdammten" und seine anderen Versionen von %motiontwin%.</source>
+        <target>MyHordes es una implementación abierta del juego de navegador "Zombinoia" y sus otras versiones de %motiontwin%,
 					desarrollada por la comunidad.</target>
       </segment>
     </unit>
-    <unit id="yIFGZLw" name="2fac8f1">
+    <unit id="wuuGs9i" name="5a029cc">
       <notes>
-        <note category="german">Ziel des Projektes ist es, einer Version von "Die Verdammten" zu erschaffen, die nicht nur nach der
+        <note category="german">Ziel des Projektes ist es, eine Version von "Die Verdammten" und seinen anderen Versionen zu erschaffen, die nicht nur nach der
                     Flash-Abschaltung im Jahr 2020 funktionsfähig ist, sondern auch weiterentwickelt und mit neuen
                     Inhalten versorgt werden kann.</note>
       </notes>
       <segment>
-        <source>Ziel des Projektes ist es, einer Version von "Die Verdammten" zu erschaffen, die nicht nur nach der
+        <source>Ziel des Projektes ist es, eine Version von "Die Verdammten" und seinen anderen Versionen zu erschaffen, die nicht nur nach der
                     Flash-Abschaltung im Jahr 2020 funktionsfähig ist, sondern auch weiterentwickelt und mit neuen
                     Inhalten versorgt werden kann.</source>
-        <target>El objetivo de este proyecto es crear una versión de "Zombinoia" que no solo funcione
+        <target>El objetivo de este proyecto es crear una versión de "Zombinoia" y sus otras versiones que no solo funcione
 					luego del cese de soporte de Flash Player para exploradores, sino que
 					también siga siendo desarrollado y recibiendo nuevas actualizaciones.</target>
       </segment>
@@ -73,15 +73,15 @@
         <target>Ingresar</target>
       </segment>
     </unit>
-    <unit id="RVQn34R" name="dfabf06">
+    <unit id="RaJYSbq" name="c85228c">
       <notes>
-        <note category="german">Alle Grafiken stammen, wenn nicht ausdrücklich anders angegeben, ebenfalls aus "Die Verdammten" und sind
+        <note category="german">Alle Grafiken stammen, wenn nicht ausdrücklich anders angegeben, ebenfalls aus "Die Verdammten" und seine anderen Versionen und sind
                     damit Eigentum von %motiontwin%.</note>
       </notes>
       <segment>
-        <source>Alle Grafiken stammen, wenn nicht ausdrücklich anders angegeben, ebenfalls aus "Die Verdammten" und sind
+        <source>Alle Grafiken stammen, wenn nicht ausdrücklich anders angegeben, ebenfalls aus "Die Verdammten" und seine anderen Versionen und sind
                     damit Eigentum von %motiontwin%.</source>
-        <target>Todos los gráficos fueron tomados de Zombinoia a menos que se indique lo contrario y por lo tanto son propiedad de %motiontwin%.</target>
+        <target>Todos los gráficos fueron tomados de Zombinoia y sus otras versiones a menos que se indique lo contrario y por lo tanto son propiedad de %motiontwin%.</target>
       </segment>
     </unit>
     <unit id="lHIUXzm" name="Bürger gestorben">
