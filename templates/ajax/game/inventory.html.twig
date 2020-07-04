@@ -21,7 +21,7 @@
             {% endfor %}
         {% endif %}
         {% if plus is defined and plus %}
-            <li class="item plus" {% if escort is not null%}x-escort-id="{{ escort }}"{% endif%} ><img alt="+" src="{{ asset('build/images/small_more.gif') }}" /></li>
+            <li class="item plus" {% if escort is not null%}x-escort-id="{{ escort }}"{% endif%} ><img alt="+" src="{{ asset('build/images/icons/small_more.gif') }}" /></li>
         {% endif %}
     {% else %}
         {% for category,list in items %}

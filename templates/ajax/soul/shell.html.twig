@@ -13,7 +13,7 @@
                             <div class="avatar small"><img alt="" src="{{ path('app_web_avatar', {'uid': app.user.id, 'name': app.user.avatar.smallName, 'ext': app.user.avatar.format}) }}"></div>
                         {% endif %}
                         <h4 class="soul-name">
-                            <img src="{{ asset('build/images/small_ghost_red.gif') }}" alt="{{'Held'|trans({}, 'game')}}" /> {{ app.user.username }}
+                            <img src="{{ asset('build/images/icons/small_ghost_red.gif') }}" alt="{{'Held'|trans({}, 'game')}}" /> {{ app.user.username }}
                         </h4>
                     </div>
                     <div class="tab tab-floater">
@@ -21,19 +21,19 @@
                             <div class="tab-link" x-ajax-href="{{ path('soul_settings') }}"><img src="{{ asset('build/images/item/item_screw.gif') }}" alt="{{'Held'|trans({}, 'game')}}" /><span class="hide-sm"> {% trans from 'soul' %}Einstellungen{% endtrans %}</span></div>
                         </div>
                         <div class="tab{% if soul_tab == "soul_coalitions" %} selected{% endif %}">
-                            <div class="tab-link" x-ajax-href="{{ path('soul_coalitions') }}"><img src="{{ asset('build/images/escort_on.gif') }}"/><span class="hide-sm"> {% trans from 'soul' %}Koalition{% endtrans %}</span></div>
+                            <div class="tab-link" x-ajax-href="{{ path('soul_coalitions') }}"><img src="{{ asset('build/images/icons/escort_on.gif') }}"/><span class="hide-sm"> {% trans from 'soul' %}Koalition{% endtrans %}</span></div>
                         </div>
                         <div class="tab{% if soul_tab == "soul_rps" %} selected{% endif %}">
-                            <div class="tab-link" x-ajax-href="{{ path('soul_rps') }}"><img src="{{ asset('build/images/small_rp.gif') }}" /><span class="hide-sm"> {% trans from 'soul' %}Schriften{% endtrans %}</span></div>
+                            <div class="tab-link" x-ajax-href="{{ path('soul_rps') }}"><img src="{{ asset('build/images/icons/small_rp.gif') }}" /><span class="hide-sm"> {% trans from 'soul' %}Schriften{% endtrans %}</span></div>
                         </div>
                         <div class="tab{% if soul_tab == "soul_news" %} selected{% endif %}">
-                            <div class="tab-link" x-ajax-href="{{ path('soul_news') }}"><img src="{{ asset('build/images/small_world.gif') }}" /><span class="hide-sm"> {% trans from 'soul' %}News{% endtrans %}</span></div>
+                            <div class="tab-link" x-ajax-href="{{ path('soul_news') }}"><img src="{{ asset('build/images/icons/small_world.gif') }}" /><span class="hide-sm"> {% trans from 'soul' %}News{% endtrans %}</span></div>
                         </div>
                         <div class="tab{% if soul_tab == "soul_season" %} selected{% endif %}">
                             <div class="tab-link" x-ajax-href="{{ path('soul_season') }}"><img src="{{ asset('build/images/soul/small_score.gif') }}"/><span class="hide-sm"> {% trans from 'soul' %}Saison 15{% endtrans %}</span></div>
                         </div>
                         <div class="tab{% if soul_tab == "soul_me" %} selected{% endif %}">
-                            <div class="tab-link" x-ajax-href="{{ path('soul_me') }}"><img src="{{ asset('build/images/small_ghost_blue.gif') }}" alt="{{'Held'|trans({}, 'game')}}" /><span class="hide-sm"> {% trans from 'soul' %}Seele{% endtrans %}</span></div>
+                            <div class="tab-link" x-ajax-href="{{ path('soul_me') }}"><img src="{{ asset('build/images/icons/small_ghost_blue.gif') }}" alt="{{'Held'|trans({}, 'game')}}" /><span class="hide-sm"> {% trans from 'soul' %}Seele{% endtrans %}</span></div>
                         </div>
                     </div>
                 </div>

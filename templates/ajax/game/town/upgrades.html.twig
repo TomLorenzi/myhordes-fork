@@ -60,7 +60,7 @@
                     {% elseif building.level < building.prototype.maxLevel %}
                         {% trans from 'game' %}Stimmen:{% endtrans %} {{ building.dailyUpgradeVotes|length }}
                         {% if building.dailyUpgradeVotes|length == max_votes %}
-                            <div class="float-right"><img alt="!" src="{{ asset('build/images/star.gif') }}" /></div>
+                            <div class="float-right"><img alt="!" src="{{ asset('build/images/icons/star.gif') }}" /></div>
                         {% endif %}
                         <div class="vote-bar">
                             <div class="vote-progress" style="width: {{building.dailyUpgradeVotes|length / total_votes * 100}}%;"></div>

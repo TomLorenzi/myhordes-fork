@@ -1,11 +1,11 @@
 {% set today = date() %}
 {% set yesterday = date('-1days') %}
 <div class="row">
-    <div class="cell padded rw-3"><button id="backbtn"><img src="{{ asset("build/images/small_back.gif") }}" /> {% trans from 'global' %}Züruck{% endtrans %}</button></div>
+    <div class="cell padded rw-3"><button id="backbtn"><img src="{{ asset("build/images/icons/small_back.gif") }}" /> {% trans from 'global' %}Züruck{% endtrans %}</button></div>
     {% if thread.archived %}
-    <div class="cell padded rw-3"><button id="unarchivebtn"><img src="{{ asset("build/images/small_archive.gif") }}" /> {% trans from 'global' %}Entstauben{% endtrans %}</button></div>
+    <div class="cell padded rw-3"><button id="unarchivebtn"><img src="{{ asset("build/images/icons/small_archive.gif") }}" /> {% trans from 'global' %}Entstauben{% endtrans %}</button></div>
     {% elseif thread.sender %}
-    <div class="cell padded rw-3"><button id="archivebtn"><img src="{{ asset("build/images/small_archive.gif") }}" /> {% trans from 'global' %}Archivieren{% endtrans %}</button></div>
+    <div class="cell padded rw-3"><button id="archivebtn"><img src="{{ asset("build/images/icons/small_archive.gif") }}" /> {% trans from 'global' %}Archivieren{% endtrans %}</button></div>
     {% endif %}
 </div>
 
@@ -33,7 +33,7 @@
                             <div class="avatar"><img alt="" src="{{ path('app_web_avatar', {'uid': post.owner.user.id, 'name': post.owner.user.avatar.filename, 'ext': post.owner.user.avatar.format}) }}"></div>
                         {% endif %}
                     {% else %}
-                        <div class="avatar small"><img alt="" src="{{ asset('build/images/empty_avatar.gif') }}"></div>
+                        <div class="avatar small"><img alt="" src="{{ asset('build/images/forum/empty_avatar.gif') }}"></div>
                     {% endif %}
                 {% else %}
                     {% if app.user.preferSmallAvatars %}

@@ -26,14 +26,14 @@
                                 <div class="avatar small"><img alt="" src="{{ path('app_web_avatar', {'uid': post.owner.id, 'name': post.owner.avatar.smallName, 'ext': post.owner.avatar.format}) }}"></div>
                             {% endif %}
                         {% else %}
-                            <div class="avatar small"><img alt="" src="{{ asset('build/images/empty_avatar.gif') }}"></div>
+                            <div class="avatar small"><img alt="" src="{{ asset('build/images/forum/empty_avatar.gif') }}"></div>
                         {% endif %}
                         <b>
                             {% if post.owner.username == 'Der Rabe' %}
                                 {{ 'Der Rabe'|trans({},'global') }}
                             {% elseif post.type == "DEV" %}
                                 {{ post.owner.username }}
-                                <img alt="" src="{{ asset('build/images/small_admin.gif') }}" />
+                                <img alt="" src="{{ asset('build/images/icons/small_admin.gif') }}" />
                             {% else %}
                                 {{ post.owner.username }}
                             {% endif %}

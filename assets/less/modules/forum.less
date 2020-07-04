@@ -2,17 +2,17 @@
 
 .forum-preview {
   font-weight: bold; font-size: 1.1em; padding: 10px; border-radius: 10px; margin: 10px;
-  background: url("../../img/forum.png") top center repeat-x; cursor: pointer;
+  background: url("../../img/forum/forum.png") top center repeat-x; cursor: pointer;
   box-shadow: 0 0 10px rgba(0,0,0,0.5); background-position-y: -2px; border: 2px solid #7e4d2b;
   transition: border-color 0.5s ease-in-out, box-shadow 0.25s ease-in-out;
 
   &:hover { border-color: @myhordes-smalltext; box-shadow: 0 0 10px rgba(0,0,0,0.8); }
 
   &:not(.forum-preview-town) {
-    background: linear-gradient(45deg,  #7e4d2b 65%, #a73a1f 80%), url("../../img/forum.png") top center repeat-x; /* FF3.6-15 */
+    background: linear-gradient(45deg,  #7e4d2b 65%, #a73a1f 80%), url("../../img/forum/forum.png") top center repeat-x; /* FF3.6-15 */
 
     &::after {
-      content: ''; background: transparent url('../../img/globe.png') 50% / contain no-repeat;
+      content: ''; background: transparent url('../../img/forum/globe.png') 50% / contain no-repeat;
       line-height: 26px; width: 26px; height: 26px; margin-right: 1em; float: right;
     }
   }
@@ -68,7 +68,7 @@
     border-radius: 4px; box-shadow: inset 0 1px 1px #000, 0 0 2px #000; position: relative;
 
     &:before {
-      content: ''; display: block; background-image: url('../../img/gloryhordes.png');
+      content: ''; display: block; background-image: url('../../img/forum/gloryhordes.png');
       background-size: 100% 22px; background-position: 50% 0; background-repeat: no-repeat;
       position: absolute; top: -22px; left: 0; width: 100%; height: 22px;
     }
@@ -154,18 +154,18 @@
   div.coin     { background: url("../../img/forum/coin.png")    left center no-repeat, #3B3249 }
   div.card     { background: url("../../img/forum/card.png")    left center no-repeat, #3B3249 }
   div.citizen  {
-    background: url("../../img/small_human.gif") left center no-repeat, #3B3249;
-    &[x-a=none]        { background: url("../../img/small_human.gif") left center no-repeat, url("../../img/professions/looser.gif") left 16px center no-repeat #3B3249; padding-left: 35px }
-    &[x-a=basic]       { background: url("../../img/small_human.gif") left center no-repeat, url("../../img/professions/basic.gif") left 16px center no-repeat #3B3249; padding-left: 35px }
-    &[x-a=collec]      { background: url("../../img/small_human.gif") left center no-repeat, url("../../img/professions/dig.gif") left 16px center no-repeat #3B3249; padding-left: 35px }
-    &[x-a=guardian]    { background: url("../../img/small_human.gif") left center no-repeat, url("../../img/professions/shield.gif") left 16px center no-repeat #3B3249; padding-left: 35px }
-    &[x-a=hunter]      { background: url("../../img/small_human.gif") left center no-repeat, url("../../img/professions/vest.gif") left 16px center no-repeat #3B3249; padding-left: 35px }
-    &[x-a=tamer]       { background: url("../../img/small_human.gif") left center no-repeat, url("../../img/professions/tamer.gif") left 16px center no-repeat #3B3249; padding-left: 35px }
-    &[x-a=tech]        { background: url("../../img/small_human.gif") left center no-repeat, url("../../img/professions/tech.gif") left 16px center no-repeat #3B3249; padding-left: 35px }
-    &[x-a=shaman]      { background: url("../../img/small_human.gif") left center no-repeat, url("../../img/professions/shaman.gif") left 16px center no-repeat #3B3249; padding-left: 35px }
-    &[x-a=survivalist] { background: url("../../img/small_human.gif") left center no-repeat, url("../../img/professions/book.gif") left 16px center no-repeat #3B3249; padding-left: 35px }
-    &[x-a=hero]        { background: url("../../img/small_human.gif") left center no-repeat, url("../../img/professions/hero.gif") left 16px center no-repeat #3B3249; padding-left: 35px }
-    &[x-a=dead]        { background: url("../../img/small_human.gif") left center no-repeat, url("../../img/professions/death.gif") left 16px center no-repeat #3B3249; padding-left: 35px }
+    background: url("../../img/icons/small_human.gif") left center no-repeat, #3B3249;
+    &[x-a=none]        { background: url("../../img/icons/small_human.gif") left center no-repeat, url("../../img/professions/looser.gif") left 16px center no-repeat #3B3249; padding-left: 35px }
+    &[x-a=basic]       { background: url("../../img/icons/small_human.gif") left center no-repeat, url("../../img/professions/basic.gif") left 16px center no-repeat #3B3249; padding-left: 35px }
+    &[x-a=collec]      { background: url("../../img/icons/small_human.gif") left center no-repeat, url("../../img/professions/dig.gif") left 16px center no-repeat #3B3249; padding-left: 35px }
+    &[x-a=guardian]    { background: url("../../img/icons/small_human.gif") left center no-repeat, url("../../img/professions/shield.gif") left 16px center no-repeat #3B3249; padding-left: 35px }
+    &[x-a=hunter]      { background: url("../../img/icons/small_human.gif") left center no-repeat, url("../../img/professions/vest.gif") left 16px center no-repeat #3B3249; padding-left: 35px }
+    &[x-a=tamer]       { background: url("../../img/icons/small_human.gif") left center no-repeat, url("../../img/professions/tamer.gif") left 16px center no-repeat #3B3249; padding-left: 35px }
+    &[x-a=tech]        { background: url("../../img/icons/small_human.gif") left center no-repeat, url("../../img/professions/tech.gif") left 16px center no-repeat #3B3249; padding-left: 35px }
+    &[x-a=shaman]      { background: url("../../img/icons/small_human.gif") left center no-repeat, url("../../img/professions/shaman.gif") left 16px center no-repeat #3B3249; padding-left: 35px }
+    &[x-a=survivalist] { background: url("../../img/icons/small_human.gif") left center no-repeat, url("../../img/professions/book.gif") left 16px center no-repeat #3B3249; padding-left: 35px }
+    &[x-a=hero]        { background: url("../../img/icons/small_human.gif") left center no-repeat, url("../../img/professions/hero.gif") left 16px center no-repeat #3B3249; padding-left: 35px }
+    &[x-a=dead]        { background: url("../../img/icons/small_human.gif") left center no-repeat, url("../../img/professions/death.gif") left 16px center no-repeat #3B3249; padding-left: 35px }
   }
 }
 
@@ -233,7 +233,7 @@
 
     .mod-submenu {
       display: inline-block; position: relative; width: 16px; height: 16px; line-height: 16px;
-      vertical-align: middle; background-image: url('../../img/mod.png');
+      vertical-align: middle; background-image: url('../../img/icons/mod.png');
       margin-left: 1rem; cursor: pointer;
 
       input { display: none; }
@@ -283,7 +283,7 @@
 
 .forum-button, .forum-button-disabled {
   font-size: 1.4rem; line-height: 16px;
-  background: url('../../img/bg_button.gif') center / cover no-repeat;
+  background: url('../../img/background/bg_button.gif') center / cover no-repeat;
   border: 1px solid @myhordes-forum-button-border;
   color: #f0d79e; font-weight: bold; cursor: pointer; display: inline-flex; justify-content: center;
   align-items: center; height: 25px; padding: 7px 7px; vertical-align: middle; border-radius: 2px;
@@ -297,7 +297,7 @@
     }
   }
   &.forum-button-disabled {
-    background: @myhordes-forum-disabled-button-color url('../../img/bg_button_grey.gif') no-repeat;
+    background: @myhordes-forum-disabled-button-color url('../../img/background/bg_button_grey.gif') no-repeat;
     border: 1px solid @myhordes-forum-disabled-button-color; color: #f0d79e;
   }
 }
