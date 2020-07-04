@@ -68,6 +68,16 @@ class ExternalFixtures extends Fixture
             'owner' => 'Xemaro',
             'key' => 'b4af912cbe75debe',
         ],
+        [
+            'name' => 'The Argordien',
+            'active' => 1,
+            'url' => 'https://argordien.dev.ctruillet.eu/',
+            'icon' => 'null',
+            'contact' => '',
+            'owner' => 'Teasch',
+            'key' => null,
+            'linkOnly' => true,
+        ],
     ];
 
     private $entityManager;
@@ -100,6 +110,7 @@ class ExternalFixtures extends Fixture
                 ->setUrl($entry['url'])
                 ->setIcon($entry['icon'])
                 ->setContact($entry['contact'])
+                ->setLinkOnly($entry['linkOnly'] ?? false)
                 //->setOwner($entity = $this->entityManager->getRepository(ExternalApp::class)->findOneByName($entry['owner']) ?? null)
                 ->setSecret($entry['key'] != '' ? $entry['key'] : substr(sha1(mt_rand() . $entry['url'] . time()), 0, 16))
             ;

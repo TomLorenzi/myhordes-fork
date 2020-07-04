@@ -14,18 +14,23 @@
                         Du darfst für diese Seite unter keinen Umständen dein MyHordes-Passwort verwenden!
                     {% endtrans %}</span> ({% trans from 'global' %}Auch dann nicht, wenn du dazu aufgefordert wirst!{% endtrans %})
                 </li>
+                {% if ex.contact is not empty %}
+
                 <li>
                     {% trans with { '%contact%': '<a href="mailto:' ~ ex.contact ~ '">' ~ ex.contact ~ '</a>' } from 'global' %}
                         Wenn du Fragen oder Probleme mit der Seite hast, kontaktiere bitte %contact%.
                     {% endtrans %}
                 </li>
+                {% endif %}
             </ul>
 
-            {% if key != '' %}
-            <form action="{{ ex.url }}" method="post" target="_self">
-                <input type="hidden" name="key" value="{{ key }}">
-                <button type="submit" class="button">{{ 'Weiter zu'|trans({}, 'global') }}: '{{ ex.name }}'</button>
-            </form>
+            {% if (key is not empty) or ex.linkOnly %}
+                <form action="{{ ex.url }}" method="post" target="_self">
+                    {% if not ex.linkOnly %}
+                        <input type="hidden" name="key" value="{{ key }}">
+                    {% endif %}
+                    <button type="submit" class="button">{{ 'Weiter zu'|trans({}, 'global') }}: '{{ ex.name }}'</button>
+                </form>
             {% else %}
                 <button disabled="disabled" class="button">{{ 'Weiter zu'|trans({}, 'global') }}: '{{ ex.name }}'</button>
                 <p><span class="critical">{% trans from 'global' %}Du hast keine Externe ID.{% endtrans %}</span> {% trans from 'global' %}Ohne diese kannst du keine externen Apps nutzen. Um eine Externe ID zu setzen, gehe in deine Seele > Einstellungen und generiere eine ID.{% endtrans %}</p>
