@@ -8,17 +8,17 @@
             <div class="cell padded rw-6 left">
                 {% if is_granted("ROLE_CROW")%}
                     {% if not locked %}
-                        <div x-forum-moderator-action="lock" class="forum-button"><img src="{{ asset('build/images/lock.gif') }}" /><span>{{ 'Schließen'|trans({},'global') }}</span></div>
+                        <div x-forum-moderator-action="lock" x-forum-api-endpoint="{{ url('forum_thread_mod_controller', {fid: fid, tid: tid, mod: 'lock'}) }}" class="forum-button"><img alt="" src="{{ asset('build/images/lock.gif') }}" /><span>{{ 'Schließen'|trans({},'global') }}</span></div>
                     {% endif %}
                     {% if locked %}
-                        <div x-forum-moderator-action="unlock" class="forum-button"><img src="{{ asset('build/images/mod.png') }}" /><span>{{ 'Öffnen'|trans({},'global') }}</span></div>
+                        <div x-forum-moderator-action="unlock" x-forum-api-endpoint="{{ url('forum_thread_mod_controller', {fid: fid, tid: tid, mod: 'unlock'}) }}" class="forum-button"><img alt="" src="{{ asset('build/images/mod.png') }}" /><span>{{ 'Öffnen'|trans({},'global') }}</span></div>
                     {% endif %}
                 {% endif %}
                 {% if is_granted("ROLE_ADMIN") %}
                     {% if not pinned %}
-                        <div x-forum-moderator-action="pin" class="forum-button"><img src="{{ asset('build/images/mod.png') }}" /><span>{{ 'Anpinnen'|trans({},'global') }}</span></div>
+                        <div x-forum-moderator-action="pin" x-forum-api-endpoint="{{ url('forum_thread_mod_controller', {fid: fid, tid: tid, mod: 'pin'}) }}" class="forum-button"><img alt="" src="{{ asset('build/images/mod.png') }}" /><span>{{ 'Anpinnen'|trans({},'global') }}</span></div>
                     {% else %}
-                        <div x-forum-moderator-action="unpin" class="forum-button"><img src="{{ asset('build/images/mod.png') }}" /><span>{{ 'Loslösen'|trans({},'global') }}</span></div>
+                        <div x-forum-moderator-action="unpin" x-forum-api-endpoint="{{ url('forum_thread_mod_controller', {fid: fid, tid: tid, mod: 'unpin'}) }}" class="forum-button"><img alt="" src="{{ asset('build/images/mod.png') }}" /><span>{{ 'Loslösen'|trans({},'global') }}</span></div>
                     {% endif %}
                 {% endif %}
             </div>
@@ -26,7 +26,7 @@
                 {% if not locked and not is_granted("ROLE_BANNED") %}
                     <div x-forum-action="answer" class="forum-button"><span>{{ 'Antworten'|trans({},'global') }}</span></div>
                 {% else %}
-                    <div class="forum-button-disabled"><img src="{{ asset('build/images/lock.gif') }}" /><span>{{ 'Antworten'|trans({},'global') }}</span></div>
+                    <div class="forum-button-disabled"><img alt="" src="{{ asset('build/images/lock.gif') }}" /><span>{{ 'Antworten'|trans({},'global') }}</span></div>
                 {% endif %}
             </div>
         </div>
@@ -131,12 +131,14 @@
                                 <input type="checkbox" name="mod-submenu-toggle-{{ post.id }}" id="mod-submenu-toggle-{{ post.id }}" />
                                 <ul class="mod-submenu-links">
                                     {% if not post.hidden %}
-                                        <li><a class="action-button" id="delete_post" x-forum-action="delete-post" x-post-id={{ post.id }} x-to-page={{ current_page }}>{{ 'Löschen'|trans({},'global') }}</a></li>
+                                        <li><a class="action-button" id="delete_post" x-forum-moderator-action="delete-post" x-post-id={{ post.id }} x-to-page={{ current_page }}>{{ 'Löschen'|trans({},'global') }}</a></li>
                                     {% endif %}
                                 </ul>
                             </label>
                         {% endif %}
-                        [ <a class="action-button" id="quote_post" x-forum-action="quote-post" x-post-id={{ post.id }} >{{ 'Zitieren'|trans({},'global') }}</a> ]
+                        {% if not locked %}
+                            [ <a class="action-button" id="quote_post" x-forum-action="quote-post" x-post-id={{ post.id }} >{{ 'Zitieren'|trans({},'global') }}</a> ]
+                        {% endif %}
                         [ <a class="action-button" id="report_post" x-forum-action="report-post" x-post-id={{ post.id }} x-to-page={{ current_page }}>{{ 'Melden'|trans({},'global') }}</a> ]
                     </div>
                 </div>
@@ -184,72 +186,45 @@
                 } else fun_quote();
             })
         {% if is_granted("ROLE_CROW") %}
-        let del_buttons = document.querySelectorAll('[x-forum-action="delete-post"]');
-        for (let i = 0; i < del_buttons.length; i++)
-            del_buttons[i].addEventListener('click', function() {
-                let reason = prompt('{{ 'Grund'|trans({},'admin') }}', '');
+            $.html.addEventListenerAll( '[x-forum-moderator-action="delete-post"]', 'click', function(e,elem) {
+                let reason = prompt('{{ 'Grund'|trans({},'admin')|e('js') }}', '');
                 if (reason !== null)
-                    $.ajax.easySend( '{{ url('forum_thread_mod_controller', { 'fid': fid, 'tid': tid, mod: 'delete'}) }}', {reason: reason, postId: parseInt( this.getAttribute('x-post-id')) }, reloadPage );
-            })
-        {% if not locked %}
-        let lock_button = document.querySelector('[x-forum-moderator-action=lock]');
-        lock_button.addEventListener('click', function() {
-            $.ajax.easySend( '{{ url('forum_thread_mod_controller', {fid: fid, tid: tid, mod: 'lock'}) }}', {}, reloadPage );
-        })
-        {% else %}
-        let unlock_button = document.querySelector('[x-forum-moderator-action=unlock]');
-        unlock_button.addEventListener('click', function() {
-            $.ajax.easySend( '{{ url('forum_thread_mod_controller', {fid: fid, tid: tid, mod: 'unlock'}) }}', {}, reloadPage );
-        })
-        {% endif %}
-        {% endif %}
-        {% if is_granted("ROLE_ADMIN") %}
-        {% if not pinned %}
-        let pin_button = document.querySelector('[x-forum-moderator-action=pin]');
-        pin_button.addEventListener('click', function() {
-            $.ajax.easySend( '{{ url('forum_thread_mod_controller', {fid: fid, tid: tid, mod: 'pin'}) }}', {}, reloadPage );
-        })
-        {% else %}
-        let unpin_button = document.querySelector('[x-forum-moderator-action=unpin]');
-        unpin_button.addEventListener('click', function() {
-            $.ajax.easySend( '{{ url('forum_thread_mod_controller', {fid: fid, tid: tid, mod: 'unpin'}) }}', {}, reloadPage );
-        })
-        {% endif %}
+                    $.ajax.easySend( '{{ url('forum_thread_mod_controller', { 'fid': fid, 'tid': tid, mod: 'delete'}) }}', {reason: reason, postId: parseInt( elem.getAttribute('x-post-id')) }, reloadPage );
+            } );
+            $.html.addEventListenerAll( '[x-forum-moderator-action][x-forum-api-endpoint]', 'click', function(e,elem) {
+                $.ajax.easySend( elem.getAttribute('x-forum-api-endpoint'), {}, reloadPage );
+            } );
         {% endif %}
 
-        let announces = document.querySelectorAll(".announces li");
-        for (let i = 0; i < announces.length; i++)
-            announces[i].addEventListener('click', function() {
-                $.ajax.no_history().load( document.getElementById('forum-content'), '{{ path('forum_viewer_controller', {fid: fid, tid: tid}) }}', false, {page:1, firstpost: this.getAttribute('x-post-id') } );
-            })
+        $.html.addEventListenerAll( '.announces li', 'click', function(e,elem) {
+            $.ajax.no_history().load( document.getElementById('forum-content'), '{{ path('forum_viewer_controller', {fid: fid, tid: tid}) }}', false, {page:1, firstpost: elem.getAttribute('x-post-id') } );
+        } );
 
-        let new_post_btns = document.querySelectorAll('[x-forum-action=answer]');
-        for (let i = 0; i < new_post_btns.length; i++)
-            new_post_btns[i].addEventListener('click', function() {
-                for (let j = 0 ; j < new_post_btns.length ; j++)
-                    new_post_btns[j].parentNode.removeChild(new_post_btns[j]);
-                $.ajax.no_history().load( document.getElementById('forum-editor'), '{{ path('forum_post_editor_controller', {fid: fid, tid: tid}) }}', false );
+        $.html.addEventListenerAll( '[x-forum-action="answer"]', 'click', function(e,elem) {
+            $.html.forEach('[x-forum-action="answer"]', e => e.remove());
+            $.ajax.no_history().load( document.getElementById('forum-editor'), '{{ path('forum_post_editor_controller', {fid: fid, tid: tid}) }}', false, {}, function() {
                 document.getElementById("forum-editor").scrollIntoView();
-            })
+                document.getElementById("forum-editor-text").focus();
+            } );
 
-        let nav_buttons =  document.querySelectorAll('[x-forum-action="post-pager"][x-to-page]');
-        for (let i = 0; i < nav_buttons.length; i++)
-            nav_buttons[i].addEventListener('click', function() {
-                let editor = document.getElementById('forum-editor');
-                {% if editor is defined %}
+        } );
+
+        $.html.addEventListenerAll( '[x-forum-action="post-pager"][x-to-page]', 'click', function(e,elem) {
+            let editor = document.getElementById('forum-editor');
+            {% if editor is defined %}
                 {let c; while ((c = editor.firstChild)) editor.removeChild(c);}
-                {% endif %}
-                $.ajax.no_history().load( document.getElementById('forum-content'), '{{ path('forum_viewer_controller', {fid: fid, tid: tid}) }}', false, {page: parseInt( this.getAttribute('x-to-page') ) } );
-                document.querySelector('.forum-post').scrollIntoView();
-            })
+            {% endif %}
+            $.ajax.no_history().load( document.getElementById('forum-content'), '{{ path('forum_viewer_controller', {fid: fid, tid: tid}) }}', false, {page: parseInt( elem.getAttribute('x-to-page') ) },
+                () => document.querySelector('.forum-post:last-child').scrollIntoView()
+            );
+        } );
+
         {% if pages == current_page %}
-        let thread_listings = document.querySelectorAll('[x-thread-id="{{ tid }}"]');
-        for (let i = 0; i < thread_listings.length; i++)
-            thread_listings[i].classList.remove('forum-thread-unread');
+            $.html.forEach( '[x-thread-id="{{ tid }}"]', e => e.classList.remove('forum-thread-unread') );
         {% endif %}
 
         {% if markedPost is defined and markedPost > 0 %}
-        document.querySelector('[x-post-content-id="{{markedPost}}"]').parentElement
+            document.querySelector('[x-post-content-id="{{markedPost}}"]').parentElement.scrollIntoView();
         {% endif %}
     </script>
 {% endblock %}
