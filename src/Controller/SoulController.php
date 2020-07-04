@@ -692,17 +692,17 @@ class SoulController extends AbstractController
      */
     public function soul_visit(int $id): Response
     {
-        /** @var User $user */
+        /** @var User $current_user */
         $current_user = $this->getUser();
 
         /** @var CitizenRankingProxy $nextDeath */
         if ($this->entity_manager->getRepository(CitizenRankingProxy::class)->findNextUnconfirmedDeath($current_user))
             return $this->redirect($this->generateUrl( 'soul_death' ));
 
+        /** @var User $user */
     	$user = $this->entity_manager->getRepository(User::class)->find($id);
     	if($user === null || $user === $current_user) 
             return $this->redirect($this->generateUrl('soul_me'));
-
 
         $pictos = $this->entity_manager->getRepository(Picto::class)->findNotPendingByUser($user);
     	$points = $this->user_handler->getPoints($user);
@@ -711,12 +711,17 @@ class SoulController extends AbstractController
         $returnUrl = $this->generateUrl('soul_me');
         //TODO: get referer, generate URL to return to it
 
+        $cac = $current_user->getActiveCitizen();
+        $uac = $user->getActiveCitizen();
+        $citizen_id = ($cac && $uac && $cac->getAlive() && !$cac->getZone() && $cac->getTown() === $uac->getTown()) ? $uac->getId() : null;
+
         return $this->render( 'ajax/soul/visit.html.twig', $this->addDefaultTwigArgs("soul_visit", [
         	'user' => $user,
             'pictos' => $pictos,
             'points' => round($points, 0),
             'seasons' => $this->entity_manager->getRepository(Season::class)->findAll(),
             'returnUrl' => $returnUrl,
+            'citizen_id' => $citizen_id,
         ]));
     }
 

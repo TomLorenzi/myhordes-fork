@@ -128,8 +128,17 @@
                         </div>
                     </div>
                 </div>
+
             </div>
+            {% if citizen_id is not null %}
+                <div class="row">
+                    <div class="padded cell rw-4 rw-md-6 rw-sm-12">
+                        <button x-ajax-href="{{ path('town_visit', {'id': citizen_id}) }}"><img alt="" src="{{ asset('build/images/home.gif') }}">{{ 'Haus besuchen'|trans({},'soul') }}</button>
+                    </div>
+                </div>
+            {% endif %}
         </div>
+
     </div>
 {% endblock %}
 {% block js %}
