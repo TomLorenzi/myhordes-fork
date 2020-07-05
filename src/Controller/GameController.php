@@ -122,6 +122,26 @@ class GameController extends AbstractController implements GameInterfaceControll
     }
 
     /**
+     * @Route("jx/help", name="help_me")
+     * @return Response
+     */
+    public function help_me(): Response
+    {
+        /** @var User $user */
+        $user = $this->getUser();
+
+        /** @var CitizenRankingProxy $nextDeath */
+        if ($this->entity_manager->getRepository(CitizenRankingProxy::class)->findNextUnconfirmedDeath($user))
+            return $this->redirect($this->generateUrl( 'soul_death' ));
+
+        /** @var CitizenRankingProxy $nextDeath */
+        if ($this->entity_manager->getRepository(CitizenRankingProxy::class)->findNextUnconfirmedDeath($user))
+            return $this->redirect($this->generateUrl( 'soul_death' ));
+
+        return $this->render( 'ajax/help/shell.html.twig');
+    }
+
+    /**
      * @Route("jx/game/landing", name="game_landing")
      * @return Response
      */
