@@ -72,7 +72,7 @@ class ExternalFixtures extends Fixture
             'name' => 'The Argordien',
             'active' => 1,
             'url' => 'https://argordien.dev.ctruillet.eu/',
-            'icon' => 'null',
+            'icon' => 'argordien',
             'contact' => '',
             'owner' => 'Teasch',
             'key' => null,
