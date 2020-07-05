@@ -9007,7 +9007,7 @@
       </notes>
       <segment>
         <source>Zombies sind eingedrungen.</source>
-        <target>Les zombies sont entrés.</target>
+        <target>zombies sont entrés.</target>
       </segment>
     </unit>
     <unit id="MUX.0UN" name="terrorisiert">
