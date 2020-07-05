@@ -126,7 +126,7 @@
             </div>
             <div class="padded cell rw-1 rw-lg-2 rw-sm-12 right">
                 {% if buildable and (building.ap < ((building.prototype.ap * workshopBonus)|round) or not building.complete) or (building.complete and building.hp < building.prototype.hp) %}
-                    <button class="inline build-btn" {% if (not res_ok) or disable_all %}disabled{% else %}x-building-id="{{ building.id }}"{% endif %}>{% if not building.complete %}<i class="fa fa-plus"></i>{% else %}<img src="{{ asset('build/images/icons/small_refine.gif') }}" />{% endif %}</button>
+                    <button class="inline build-btn" {% if (not res_ok) or disable_all %}disabled{% else %}x-building-id="{{ building.id }}"{% endif %}>{% if not building.complete %}<i class="fa fa-plus"></i>{% else %}<img src="{{ asset('build/images/icons/small_refine.gif') }}" alt="" style="margin-right: 0px;" />{% endif %}</button>
                 {% endif %}
             </div>
         </div>
