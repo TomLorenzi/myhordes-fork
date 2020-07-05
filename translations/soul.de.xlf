@@ -682,5 +682,14 @@
         <target>Kartei schließen</target>
       </segment>
     </unit>
+    <unit id="TP_RyxL" name="Haus besuchen">
+      <notes>
+        <note category="german">Haus besuchen</note>
+      </notes>
+      <segment>
+        <source>Haus besuchen</source>
+        <target>Haus besuchen</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

@@ -1261,5 +1261,32 @@
         <target>Beachte: Alle hier geschriebenen Nachrichten gehen verloren, wenn alle Bürger die Zone verlassen.</target>
       </segment>
     </unit>
+    <unit id="OP_adtd" name="Unangemessene Nachricht blockieren">
+      <notes>
+        <note category="german">Unangemessene Nachricht blockieren</note>
+      </notes>
+      <segment>
+        <source>Unangemessene Nachricht blockieren</source>
+        <target>Unangemessene Nachricht blockieren</target>
+      </segment>
+    </unit>
+    <unit id="pqMtvFY" name="Link">
+      <notes>
+        <note category="german">Link</note>
+      </notes>
+      <segment>
+        <source>Link</source>
+        <target>Link</target>
+      </segment>
+    </unit>
+    <unit id="6ih6_9H" name="Permanenter Link zu diesem Post:">
+      <notes>
+        <note category="german">Permanenter Link zu diesem Post:</note>
+      </notes>
+      <segment>
+        <source>Permanenter Link zu diesem Post:</source>
+        <target>Permanenter Link zu diesem Post:</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

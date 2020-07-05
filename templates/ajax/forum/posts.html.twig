@@ -140,7 +140,7 @@
                         {% if not locked %}
                             [ <a class="action-button" id="quote_post" x-forum-action="quote-post" x-post-id={{ post.id }} >{{ 'Zitieren'|trans({},'global') }}</a> ]
                         {% endif %}
-                        [ <a class="action-button" id="report_post" x-forum-action="report-post" x-post-id={{ post.id }} x-to-page={{ current_page }}>{{ 'Melden'|trans({},'global') }}</a> ]
+                        [ <a class="action-button" id="report_post" x-forum-action="report-post" x-post-id={{ post.id }} x-to-page={{ current_page }}><img alt="!" src="{{ asset('build/images/forum/warning.png') }}"><div class="tooltip forum-tooltip">{{'Unangemessene Nachricht blockieren'|trans({}, 'global')}}</div></a> ]
                         <div class="small hidden" id="link-post-{{ post.id }}">
                             <div class="float-left"><i>{{ 'Permanenter Link zu diesem Post:'|trans({},'global') }}</i></div>
                             <div class="float-right">{{ url('forum_jump_view', {pid: post.id}) }}</div>
