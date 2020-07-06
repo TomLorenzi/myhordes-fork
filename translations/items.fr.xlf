@@ -70,7 +70,7 @@
       </notes>
       <segment>
         <source>Du ziehst eine Karte... und stellst fest, dass du die Karte mit den Spielregeln gezogen hast! Das erheitert dich so sehr, dass du 1AP gewinnst.</source>
-        <target>Vous tirez la carte ... sur laquelle sont inscrites les règles du jeu. Ca vous fait tellement rire que vous gagnez 1 PA.</target>
+        <target>Vous tirez la carte ... sur laquelle sont inscrites les règles du jeu. Ça vous fait tellement rire que vous gagnez 1 PA.</target>
       </segment>
     </unit>
     <unit id="kPlE9C6" name="0460ff2">
@@ -1276,7 +1276,7 @@
       </notes>
       <segment>
         <source>Unvollständiges Kartenspiel</source>
-        <target>jeu de cartes incomplet</target>
+        <target>Jeu de cartes incomplet</target>
       </segment>
     </unit>
     <unit id="rkpAWb5" name="Gesellschaftsspiel">
