@@ -33,6 +33,7 @@ use Symfony\Component\Asset\Packages;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 use Symfony\Contracts\Translation\TranslatorInterface;
@@ -190,6 +191,62 @@ class SoulController extends AbstractController
             return $this->redirect($this->generateUrl( 'soul_death' ));
 
         return $this->render( 'ajax/soul/settings.html.twig', $this->addDefaultTwigArgs("soul_settings", null) );
+    }
+
+    /**
+     * @Route("jx/soul/import/{state}/{code}", name="soul_import")
+     * @param string $state
+     * @param string $code
+     * @return Response
+     */
+    public function soul_import(string $state = '', string $code = ''): Response
+    {
+        /** @var User $user */
+        $user = $this->getUser();
+
+        return $this->render( 'ajax/soul/import.html.twig', $this->addDefaultTwigArgs("soul_settings", [
+            'state' => $state, 'code' => $code,
+        ]) );
+    }
+
+    /**
+     * @Route("api/soul/import/{code}", name="soul_import_api")
+     * @param string $code
+     * @param JSONRequestParser $json
+     * @return Response
+     */
+    public function soul_import_loader(string $code, JSONRequestParser $json): Response
+    {
+        /** @var User $user */
+        $user = $this->getUser();
+
+        $scope = $json->get('scope');
+        $sk    = $json->get('sk');
+        $app   = (int)$json->get('app');
+
+        if (!$sk || $app <= 0 || !in_array($scope, ['www.hordes.fr','www.die2nite.com','www.dieverdammten.de','www.zombinoia.es']))
+            return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+        $token_response = json_decode(file_get_contents('https://twinoid.com/oauth/token', false, stream_context_create([
+            'http' => [
+                'method' => "POST",
+                'header' => 'Content-type: application/x-www-form-urlencoded',
+                'content' => http_build_query($form = [
+                    'client_id'         => "$app",
+                    'client_secret'     => "$sk",
+                    'redirect_uri'      => $this->generateUrl('app_web_framework_import', [], UrlGeneratorInterface::ABSOLUTE_URL),
+                    'code'              => "$code",
+                    'grant_type'        => 'authorization_code',
+                ])
+            ]
+        ])), true);
+
+        if (isset($token_response["error"]) || !isset($token_response["access_token"])) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest, ['request' => $form, 'response' => $token_response]);
+
+        $api_call = "http://$scope/tid/graph/me?access_token={$token_response["access_token"]}&fields=name,playedMaps.fields(mapId,survival,mapName,season,v1,score,dtype,msg,comment)";
+        $data = json_decode(file_get_contents($api_call),true);
+
+        return AjaxResponse::success(true, ['call' => $api_call, 'response' => $data]);
     }
 
     /**

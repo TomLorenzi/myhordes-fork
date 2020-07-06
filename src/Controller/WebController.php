@@ -7,6 +7,7 @@ use App\Entity\AdminAction;
 use App\Entity\ExternalApp;
 use App\Entity\User;
 use App\Service\AdminActionHandler;
+use App\Service\JSONRequestParser;
 use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\EntityManagerInterface;
 use Exception;
@@ -79,6 +80,18 @@ class WebController extends AbstractController
     public function framework(): Response
     {
         return $this->render_web_framework($this->generateUrl('initial_landing'));
+    }
+
+    /**
+     * @Route("/import")
+     * @return Response
+     */
+    public function framework_import(): Response
+    {
+        $request = Request::createFromGlobals();
+        $state = $request->query->get('state');
+        $code = $request->query->get('code');
+        return $this->render_web_framework($this->generateUrl('soul_import', ['state' => $state, 'code' => $code]));
     }
 
     /**

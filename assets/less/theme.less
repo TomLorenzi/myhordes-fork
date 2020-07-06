@@ -556,6 +556,16 @@ button, *.button, *.modal-button {
       &.right { float: right; &+img.right { margin-right: 2px; } }
     }
   }
+
+  &.bigbutton {
+    background: url(../img/background/bg_big_button.gif) center no-repeat; width: 268px; height: 47px; display: inline-block;
+    border: none; text-align: center; font-size: 1.1em; position: relative;
+    &>* {position: relative; }
+    &:active {
+      background: url(../img/background/bg_big_button2.gif) center no-repeat;
+      &>* {top: 2px;}
+    }
+  }
 }
 
 input[type='text'],input[type='password'],input[type='email'],textarea {
