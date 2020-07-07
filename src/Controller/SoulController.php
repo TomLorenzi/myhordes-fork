@@ -910,4 +910,16 @@ class SoulController extends AbstractController
 
         return $this->render( 'ajax/soul/town_list.html.twig', ['towns' => $this->entity_manager->getRepository(CitizenRankingProxy::class)->findPastByUserAndSeason($user, $season, $limit)]);
     }
+
+    /**
+     * @Route("jx/help", name="help_me")
+     * @return Response
+     */
+    public function help_me(): Response
+    {
+        /** @var User $user */
+        $user = $this->getUser();
+
+        return $this->render( 'ajax/help/shell.html.twig');
+    }
 }
