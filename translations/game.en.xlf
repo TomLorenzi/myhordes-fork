@@ -3316,7 +3316,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>%citizen% hat aus der Leiche von %disposed% eine leckere Mahlzeit gegrillt. Die Stadt hat %items% erhalten.</source>
-        <target>%citizen% hat aus der Leiche von %disposed% eine leckere Mahlzeit gegrillt. Die Stadt hat %items% erhalten.</target>
+        <target>%citizen% decided to take %disposed% to the cremato-cue. They have been turned into %items% for the town...</target>
       </segment>
     </unit>
     <unit id="d3G_QIz" name="%citizen% hat die Leiche von %disposed% vernichtet.">
@@ -5280,15 +5280,6 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       <segment>
         <source>Der Körper verflüssigte sich zu einer ekelerregenden, übel riechenden Pfütze. Deine Schuhe haben ganz schön was abgekriegt, das steht fest...</source>
         <target>The body liquified into a sickeningly vile puddle. Your shoes got the worst of it, that's for sure...</target>
-      </segment>
-    </unit>
-    <unit id="rJRa84E" name="4a1e54c">
-      <notes>
-        <note category="german">Sie brachten die Leiche von %disposed% zum Kremato-Cue. Man bekommt vier Rationen davon...  Aber zu welchem Preis?</note>
-      </notes>
-      <segment>
-        <source>Sie brachten die Leiche von %disposed% zum Kremato-Cue. Man bekommt vier Rationen davon...  Aber zu welchem Preis?</source>
-        <target>Sie brachten die Leiche von %disposed% zum Kremato-Cue. Man bekommt vier Rationen davon...  Aber zu welchem Preis?</target>
       </segment>
     </unit>
     <unit id="zpZa.52" name="Ein nicht freigeschaufeltes Gebäude.">
@@ -7430,7 +7421,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Sie brachten die Leiche von %disposed% zum Kremato-Cue. Man bekommt %ration% Rationen davon...  Aber zu welchem Preis?</source>
-        <target>Sie brachten die Leiche von %disposed% zum Kremato-Cue. Man bekommt %ration% Rationen davon...  Aber zu welchem Preis?</target>
+        <target>You have brought %disposed%'s corpse to the cremato-cue. You manage to get %ration% rations out of it... but at what price ?</target>
       </segment>
     </unit>
     <unit id="I8m37R7" name="In diesem Thread dreht sich alles um die geplanten Verbesserungen des Tages.">
@@ -11026,7 +11017,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Das Leichsblatt: Hier findet ihr alle Neuigkeiten, über das, was gestern in der Stadt passiert ist...</source>
-        <target>Das Leichsblatt: Hier findet ihr alle Neuigkeiten, über das, was gestern in der Stadt passiert ist...</target>
+        <target>The News Corpse: if you want to know everything that went on in town last night...</target>
       </segment>
     </unit>
     <unit id="55LsCVW" name="Schaut am besten jeden Tag einmal rein!">
@@ -11035,7 +11026,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Schaut am besten jeden Tag einmal rein!</source>
-        <target>Schaut am besten jeden Tag einmal rein!</target>
+        <target>Make sure to check it every day! Loads of useful information is to be found here.</target>
       </segment>
     </unit>
     <unit id="6lr5Awl" name="Starten Sie eine Stadt">
