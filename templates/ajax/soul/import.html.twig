@@ -29,7 +29,7 @@
                         <option value="www.hordes.fr">Hordes</option>
                         <option value="www.die2nite.com">Die2Nite</option>
                         <option value="www.dieverdammten.de">Die Verdammten</option>
-                        <option value="www.zombinoia.es">Zombinoia</option>
+                        <option value="www.zombinoia.com">Zombinoia</option>
                     </select>
                 </div>
             </div>
@@ -57,8 +57,8 @@
 
                 $.ajax.easySend('{{ url('soul_import_api', {'code': code}) }}', {
                     'app': tconf[0], 'sk': tconf[1], 'scope': tconf[2]
-                }, function(data) {
-                    console.log(data);
+                }, function() {
+                    $.ajax.load(null, '{{ url('soul_import') }}', true, );
                 })
 
             } else $.html.error('{{ 'Allgemeiner Fehler.'|trans({},'global')|e('js') }}')

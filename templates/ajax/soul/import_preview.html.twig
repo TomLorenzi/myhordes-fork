@@ -1,0 +1,69 @@
+{% extends "ajax/soul/shell.html.twig" %}
+{% block soul_content %}
+    <div class="row">
+        <div class="cell rw-12 padded">
+            <h5>{{ 'Vorschau'|trans({},'soul') }}</h5>
+            <div class="note">
+                <b>{{ 'Hurra, wir haben dein Profil heruntergeladen!'|trans({},'soul') }}</b>
+                {{ 'Bitte prüfe die unten angegebenen Daten und bestätige den Import, wenn alles OK ist.'|trans({},'soul') }}
+            </div>
+
+            {# @var payload \App\Structures\TwinoidPayload #}
+            <div class="row">
+                <div class="padded cell rw-4"><b>{{ 'Twinoid-Profil'|trans({},'soul') }}</b></div>
+                <div class="padded cell rw-8">{{ payload.twinoidName }}</div>
+                <div class="padded cell ro-4 rw-8"><a target="_blank" href="https://twinoid.com/user/{{ payload.twinoidId }}"><i class="fa fa-external-link-alt"></i> {{ 'Profil ansehen'|trans({},'soul') }}</a></div>
+                <div class="padded cell rw-4"><b>{{ 'Seelen-ID'|trans({},'soul') }}</b></div>
+                <div class="padded cell rw-8">{{ payload.scopeId }}</div>
+            </div>
+
+
+            <div class="row-table">
+                <div class="row header">
+                    <div class="padded cell rw-1">{{ 'Saison'|trans({},'soul') }}</div>
+                    <div class="padded cell rw-2">{{ 'Tag'|trans({},'soul') }}</div>
+                    <div class="padded cell rw-4">{{ 'Stadtname'|trans({},'soul') }}</div>
+                    <div class="padded cell rw-4">{{ 'Nachrichten'|trans({},'soul') }}</div>
+                    <div class="padded cell rw-1">{{ 'Punkte'|trans({},'soul') }}</div>
+                </div>
+                {% for town in payload.pastTowns %}
+                    <div class="row">
+                        <div class="padded cell rw-1">{{ town.season }}</div>
+                        <div class="padded cell rw-2">
+                            {{ town.day }}
+                            {% if town.day != town.survivedDays %}
+                                <br />( <i>{{ '%d% überlebt'|trans({'%d%': town.survivedDays},'soul') }}</i> )
+                            {% endif %}
+                        </div>
+                        <div class="padded cell rw-4">{{ town.name }}</div>
+                        <div class="padded cell rw-4">
+                            {% if town.message is not empty %}
+                                {{ 'Letzte Worte'|trans({},'soul') }}: <i class="small">"{{ town.message }}"</i>
+                            {% endif %}
+                            {% if town.message is not empty and town.comment is not empty %}<br />{% endif %}
+                            {% if town.comment is not empty %}
+                                {{ 'Kommentar'|trans({},'soul') }}: <i class="small">"{{ town.comment }}"</i>
+                            {% endif %}
+                            {% if town.message is empty and town.comment is empty %}&nbsp;{% endif %}
+                        </div>
+                        <div class="padded cell rw-1">{{ town.score }}</div>
+                    </div>
+                {% endfor %}
+            </div>
+
+            <div class="row">
+                <div class="cell padded rw-4 rw-sm-12">
+                    <button id="begin_import_can_btn">{{ 'Abbrechen'|trans({},'global') }}</button>
+                </div>
+                <div class="cell padded rw-4 ro-4 ro-sm-0 rw-sm-12">
+                    <button id="begin_import_con_btn">{{ 'Import bestätigen'|trans({},'soul') }}</button>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block js %}
+    {{ parent() }}
+    <script>
+    </script>
+{% endblock %}

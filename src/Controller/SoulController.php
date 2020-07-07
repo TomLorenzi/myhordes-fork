@@ -13,6 +13,7 @@ use App\Entity\HeroSkillPrototype;
 use App\Entity\Picto;
 use App\Entity\PictoPrototype;
 use App\Entity\TownRankingProxy;
+use App\Entity\TwinoidImportPreview;
 use App\Entity\User;
 use App\Entity\RolePlayTextPage;
 use App\Entity\Season;
@@ -50,14 +51,18 @@ class SoulController extends AbstractController
     private $user_handler;
     private $asset;
 
-    const ErrorAvatarBackendUnavailable      = ErrorHelper::BaseAvatarErrors + 1;
-    const ErrorAvatarTooLarge                = ErrorHelper::BaseAvatarErrors + 2;
-    const ErrorAvatarFormatUnsupported       = ErrorHelper::BaseAvatarErrors + 3;
-    const ErrorAvatarImageBroken             = ErrorHelper::BaseAvatarErrors + 4;
-    const ErrorAvatarResolutionUnacceptable  = ErrorHelper::BaseAvatarErrors + 5;
-    const ErrorAvatarProcessingFailed        = ErrorHelper::BaseAvatarErrors + 6;
-    const ErrorAvatarInsufficientCompression = ErrorHelper::BaseAvatarErrors + 7;
-    const ErrorUserEditPasswordIncorrect   = ErrorHelper::BaseAvatarErrors + 8;
+    const ErrorAvatarBackendUnavailable      = ErrorHelper::BaseAvatarErrors +  1;
+    const ErrorAvatarTooLarge                = ErrorHelper::BaseAvatarErrors +  2;
+    const ErrorAvatarFormatUnsupported       = ErrorHelper::BaseAvatarErrors +  3;
+    const ErrorAvatarImageBroken             = ErrorHelper::BaseAvatarErrors +  4;
+    const ErrorAvatarResolutionUnacceptable  = ErrorHelper::BaseAvatarErrors +  5;
+    const ErrorAvatarProcessingFailed        = ErrorHelper::BaseAvatarErrors +  6;
+    const ErrorAvatarInsufficientCompression = ErrorHelper::BaseAvatarErrors +  7;
+    const ErrorUserEditPasswordIncorrect     = ErrorHelper::BaseAvatarErrors +  8;
+    const ErrorTwinImportInvalidResponse     = ErrorHelper::BaseAvatarErrors +  9;
+    const ErrorTwinImportNoToken             = ErrorHelper::BaseAvatarErrors + 10;
+    const ErrorTwinImportProfileMismatch     = ErrorHelper::BaseAvatarErrors + 11;
+    const ErrorTwinImportProfileInUse        = ErrorHelper::BaseAvatarErrors + 12;
 
     public function __construct(EntityManagerInterface $em, UserFactory $uf, Packages $a, UserHandler $uh, TimeKeeperService $tk, TranslatorInterface $translator)
     {
@@ -204,7 +209,13 @@ class SoulController extends AbstractController
         /** @var User $user */
         $user = $this->getUser();
 
-        return $this->render( 'ajax/soul/import.html.twig', $this->addDefaultTwigArgs("soul_settings", [
+        if ($cache = $this->entity_manager->getRepository(TwinoidImportPreview::class)->findOneBy(['user' => $user])) {
+
+            return $this->render( 'ajax/soul/import_preview.html.twig', $this->addDefaultTwigArgs("soul_settings", [
+                'payload' => $cache->getData(),
+            ]) );
+
+        } else return $this->render( 'ajax/soul/import.html.twig', $this->addDefaultTwigArgs("soul_settings", [
             'state' => $state, 'code' => $code,
         ]) );
     }
@@ -220,11 +231,14 @@ class SoulController extends AbstractController
         /** @var User $user */
         $user = $this->getUser();
 
+        if ($this->entity_manager->getRepository(TwinoidImportPreview::class)->findOneBy(['user' => $user]))
+            return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
+
         $scope = $json->get('scope');
         $sk    = $json->get('sk');
         $app   = (int)$json->get('app');
 
-        if (!$sk || $app <= 0 || !in_array($scope, ['www.hordes.fr','www.die2nite.com','www.dieverdammten.de','www.zombinoia.es']))
+        if (!$sk || $app <= 0 || !in_array($scope, ['www.hordes.fr','www.die2nite.com','www.dieverdammten.de','www.zombinoia.com']))
             return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
         $token_response = json_decode(file_get_contents('https://twinoid.com/oauth/token', false, stream_context_create([
@@ -241,12 +255,39 @@ class SoulController extends AbstractController
             ]
         ])), true);
 
-        if (isset($token_response["error"]) || !isset($token_response["access_token"])) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest, ['request' => $form, 'response' => $token_response]);
+        if (isset($token_response["error"]) || !isset($token_response["access_token"]))
+            return AjaxResponse::error(self::ErrorTwinImportNoToken, ['response' => $token_response]);
 
-        $api_call = "http://$scope/tid/graph/me?access_token={$token_response["access_token"]}&fields=name,playedMaps.fields(mapId,survival,mapName,season,v1,score,dtype,msg,comment)";
+        $api_call = "http://$scope/tid/graph/me?access_token={$token_response["access_token"]}&fields=name,twinId,playedMaps.fields(mapId,survival,mapName,season,v1,score,dtype,msg,comment,cleanup)";
         $data = json_decode(file_get_contents($api_call),true);
 
-        return AjaxResponse::success(true, ['call' => $api_call, 'response' => $data]);
+        $twin_id = (int)($data['twinId'] ?? 0);
+        if (!$twin_id) return AjaxResponse::error(self::ErrorTwinImportInvalidResponse, ['response' => $data]);
+
+        if ($user->getTwinoidID() === null) {
+
+            if (
+                $this->entity_manager->getRepository(User::class)->findOneBy(['twinoidID' => $twin_id]) ||
+                $this->entity_manager->getRepository(TwinoidImportPreview::class)->findOneBy(['twinoidID' => $twin_id])
+            ) return AjaxResponse::error(self::ErrorTwinImportProfileInUse);
+
+        } elseif ($user->getTwinoidID() !== $twin_id)
+            return AjaxResponse::error(self::ErrorTwinImportProfileMismatch);
+
+        $user->setTwinoidImportPreview( (new TwinoidImportPreview())
+            ->setTwinoidID($twin_id)
+            ->setCreated(new DateTime())
+            ->setScope($scope)
+            ->setPayload($data) );
+
+        try {
+            $this->entity_manager->persist($user);
+            $this->entity_manager->flush();
+        } catch (Exception $e) {
+            return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
+        }
+
+        return AjaxResponse::success();
     }
 
     /**

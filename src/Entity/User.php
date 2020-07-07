@@ -19,7 +19,8 @@ use Symfony\Component\Security\Core\User\UserInterface;
  *     name="`user`",
  *     uniqueConstraints={
  *         @UniqueConstraint(name="email_unique",columns={"email"}),
- *         @UniqueConstraint(name="user_name_unique",columns={"name"})
+ *         @UniqueConstraint(name="user_name_unique",columns={"name"}),
+ *         @UniqueConstraint(name="user_twinoid_unique",columns={"twinoid_id"})
  *     }
  * )
  */
@@ -143,6 +144,16 @@ class User implements UserInterface, EquatableInterface
      * @ORM\Column(type="integer")
      */
     private $heroDaysSpent = 0;
+
+    /**
+     * @ORM\OneToOne(targetEntity=TwinoidImportPreview::class, mappedBy="user", cascade={"persist", "remove"})
+     */
+    private $twinoidImportPreview;
+
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $twinoidID;
 
     public function __construct()
     {
@@ -607,6 +618,35 @@ class User implements UserInterface, EquatableInterface
     public function setHeroDaysSpent(int $heroDaysSpent): self
     {
         $this->heroDaysSpent = $heroDaysSpent;
+
+        return $this;
+    }
+
+    public function getTwinoidImportPreview(): ?TwinoidImportPreview
+    {
+        return $this->twinoidImportPreview;
+    }
+
+    public function setTwinoidImportPreview(TwinoidImportPreview $twinoidImportPreview): self
+    {
+        $this->twinoidImportPreview = $twinoidImportPreview;
+
+        // set the owning side of the relation if necessary
+        if ($twinoidImportPreview->getUser() !== $this) {
+            $twinoidImportPreview->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function getTwinoidID(): ?int
+    {
+        return $this->twinoidID;
+    }
+
+    public function setTwinoidID(?int $twinoidID): self
+    {
+        $this->twinoidID = $twinoidID;
 
         return $this;
     }
