@@ -72,7 +72,7 @@ class ExternalFixtures extends Fixture
             'name' => 'Test',
             'active' => 1,
             'testing' => true,
-            'url' => 'localhost:8888/',
+            'url' => 'http://localhost:8888/',
             'icon' => 'null',
             'contact' => '',
             'owner' => 'devwwm',
