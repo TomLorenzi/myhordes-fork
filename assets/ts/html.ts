@@ -4,6 +4,7 @@ import TwinoAlikeParser from "./twino"
 
 declare var $: Global;
 
+interface elementHandler { (element: HTMLElement, index: number): void }
 interface eventListener { (e: Event, element: HTMLElement, index: number): void }
 
 export default class HTML {
@@ -16,11 +17,14 @@ export default class HTML {
         document.getElementById('modal-backdrop').addEventListener('pop', () => this.nextPopup())
     }
 
-    addEventListenerAll(query: string, event: string, handler: eventListener ): number {
+    forEach( query: string, handler: elementHandler ): number {
         const elements = <NodeListOf<HTMLElement>>document.querySelectorAll(query);
-        for (let i = 0; i < elements.length; i++)
-            elements[i].addEventListener( event, e => handler(e,elements[i],i) );
+        for (let i = 0; i < elements.length; i++) handler(elements[i],i);
         return elements.length;
+    }
+
+    addEventListenerAll(query: string, event: string, handler: eventListener ): number {
+        return this.forEach( query, (elem, i) => elem.addEventListener( event, e => handler(e,elem,i) ) )
     }
 
     serializeForm(form: ParentNode): object {

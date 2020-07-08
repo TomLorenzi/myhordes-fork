@@ -48,12 +48,12 @@
                 {% if buildable %}
                     <img alt="" src="{{ asset('build/images/building/' ~ building.prototype.icon ~ '.gif' ) }}" >
                 {% else %}
-                    <img alt="" src="{{ asset('build/images/lock.gif' ) }}" >
+                    <img alt="" src="{{ asset('build/images/icons/lock.gif' ) }}" >
                 {% endif %}
                 <span>{{ building.prototype.label|trans({},'buildings') }}</span>
                 {% if building.prototype.temp %}
                     <span>
-                        <img alt="(!)" src="{{ asset('build/images/small_warning.gif') }}" />
+                        <img alt="(!)" src="{{ asset('build/images/icons/small_warning.gif') }}" />
                         <div class="tooltip temp-building">
                             <h1>{{ 'Temporäre Konstruktion!'|trans({}, 'buildings') }}</h1>
                             {{ 'Diese Konstruktion kann nur einmal verwendet werden. Sie wird nach dem Angriff der Zombiehorde wieder abgerissen.'|trans({}, 'buildings') }}<br /><em>{{'Wenn ihr wollt, könnt irh sie morgen nochmal bauen.'|trans({}, 'buildings')}}</em>
@@ -126,7 +126,7 @@
             </div>
             <div class="padded cell rw-1 rw-lg-2 rw-sm-12 right">
                 {% if buildable and (building.ap < ((building.prototype.ap * workshopBonus)|round) or not building.complete) or (building.complete and building.hp < building.prototype.hp) %}
-                    <button class="inline build-btn" {% if (not res_ok) or disable_all %}disabled{% else %}x-building-id="{{ building.id }}"{% endif %}>{% if not building.complete %}<i class="fa fa-plus"></i>{% else %}<img src="{{ asset('build/images/small_refine.gif') }}" />{% endif %}</button>
+                    <button class="inline build-btn" {% if (not res_ok) or disable_all %}disabled{% else %}x-building-id="{{ building.id }}"{% endif %}>{% if not building.complete %}<i class="fa fa-plus"></i>{% else %}<img src="{{ asset('build/images/icons/small_refine.gif') }}" />{% endif %}</button>
                 {% endif %}
             </div>
         </div>
@@ -142,7 +142,7 @@
         <ul class="buildings-tabs tabs plain" x-tab-group="buildings" x-tab-control>
             <li class="tab" x-tab-id="all">
                 <div class="tab-link">
-                    <img class="hide-desktop" alt="" src="{{ asset( 'build/images/small_new.gif' ) }}" >
+                    <img class="hide-desktop" alt="*" src="{{ asset( 'build/images/icons/small_new.gif' ) }}" >
                     <span class="hide-lg hide-md hide-sm">{{ 'Alle'|trans({},'game') }}</span>
                 </div>
             </li>

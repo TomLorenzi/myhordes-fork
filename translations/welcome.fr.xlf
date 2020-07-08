@@ -19,29 +19,29 @@
         <target>Bienvenue sur MyHordes</target>
       </segment>
     </unit>
-    <unit id="Sq5rAhc" name="99de2c1">
+    <unit id="Cny3Jgk" name="a072781">
       <notes>
         <note category="german">MyHordes ist eine von der Community entwickelte offene Implementierung des Browser-Spiels
-                    "Die Verdammten" von %motiontwin%.</note>
+                    "Die Verdammten" und seine anderen Versionen von %motiontwin%.</note>
       </notes>
       <segment>
         <source>MyHordes ist eine von der Community entwickelte offene Implementierung des Browser-Spiels
-                    "Die Verdammten" von %motiontwin%.</source>
+                    "Die Verdammten" und seine anderen Versionen von %motiontwin%.</source>
         <target>MyHordes est une implémentation libre développée par la communauté du jeu
-                    "Hordes.fr" de %motiontwin%.</target>
+                    "Hordes.fr" et de ses autres versions de %motiontwin%.</target>
       </segment>
     </unit>
-    <unit id="yIFGZLw" name="2fac8f1">
+    <unit id="wuuGs9i" name="5a029cc">
       <notes>
-        <note category="german">Ziel des Projektes ist es, einer Version von "Die Verdammten" zu erschaffen, die nicht nur nach der
+        <note category="german">Ziel des Projektes ist es, eine Version von "Die Verdammten" und seinen anderen Versionen zu erschaffen, die nicht nur nach der
                     Flash-Abschaltung im Jahr 2020 funktionsfähig ist, sondern auch weiterentwickelt und mit neuen
                     Inhalten versorgt werden kann.</note>
       </notes>
       <segment>
-        <source>Ziel des Projektes ist es, einer Version von "Die Verdammten" zu erschaffen, die nicht nur nach der
+        <source>Ziel des Projektes ist es, eine Version von "Die Verdammten" und seinen anderen Versionen zu erschaffen, die nicht nur nach der
                     Flash-Abschaltung im Jahr 2020 funktionsfähig ist, sondern auch weiterentwickelt und mit neuen
                     Inhalten versorgt werden kann.</source>
-        <target>Le but de ce projet est de créer une version de "Hordes.fr" qui soit fonctionnelle
+        <target>Le but de ce projet est de créer une version de "Hordes.fr" et de ses autres versions qui soit fonctionnelle
                     malgré l'arrêt de Flash en 2020, mais aussi de la faire évoluer avec
                     du nouveau contenu.</target>
       </segment>
@@ -73,15 +73,15 @@
         <target>Se connecter</target>
       </segment>
     </unit>
-    <unit id="RVQn34R" name="dfabf06">
+    <unit id="RaJYSbq" name="c85228c">
       <notes>
-        <note category="german">Alle Grafiken stammen, wenn nicht ausdrücklich anders angegeben, ebenfalls aus "Die Verdammten" und sind
+        <note category="german">Alle Grafiken stammen, wenn nicht ausdrücklich anders angegeben, ebenfalls aus "Die Verdammten" und seine anderen Versionen und sind
                     damit Eigentum von %motiontwin%.</note>
       </notes>
       <segment>
-        <source>Alle Grafiken stammen, wenn nicht ausdrücklich anders angegeben, ebenfalls aus "Die Verdammten" und sind
+        <source>Alle Grafiken stammen, wenn nicht ausdrücklich anders angegeben, ebenfalls aus "Die Verdammten" und seine anderen Versionen und sind
                     damit Eigentum von %motiontwin%.</source>
-        <target>Sauf indication contraire, tous les éléments graphiques proviennent de "Hordes.fr" et
+        <target>Sauf indication contraire, tous les éléments graphiques proviennent de "Hordes.fr" et de ses autres versions et
                     sont la propriété de %motiontwin%.</target>
       </segment>
     </unit>

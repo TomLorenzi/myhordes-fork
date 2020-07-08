@@ -9516,7 +9516,7 @@
     </unit>
     <unit id="oeQUUdA" name="Und wieder 'ne Leiche weniger! %citizen% wurde von † %disposed% entsorgt!">
       <notes>
-        <note category="german">Und wieder 'ne Leiche weniger! %citizen% wurde von † %disposed% entsorgt!</note>
+        <note category="german">Und wieder 'ne Leiche weniger! %disposed% wurde von † %citizen% entsorgt!</note>
       </notes>
       <segment>
         <source>Und wieder 'ne Leiche weniger! %citizen% wurde von † %disposed% entsorgt!</source>
@@ -10668,7 +10668,7 @@
     </unit>
     <unit id="mjwvinZ" name="Heute Morgen ist kein Artikel erschienen...">
       <notes>
-        <note category="german">No news today...</note>
+        <note category="german">Heute Morgen ist kein Artikel erschienen...</note>
       </notes>
       <segment>
         <source>Heute Morgen ist kein Artikel erschienen...</source>
@@ -10677,7 +10677,7 @@
     </unit>
     <unit id="z3Y3jVt" name="Anonyme Beschwerde">
       <notes>
-        <note category="german">Anonymous Complaint</note>
+        <note category="german">Anonyme Beschwerde</note>
       </notes>
       <segment>
         <source>Anonyme Beschwerde</source>
@@ -10686,7 +10686,7 @@
     </unit>
     <unit id="tlOTwnM" name="Es wurde eine neue anonyme Beschwerde gegen dich eingelegt: &quot;%reason%&quot;">
       <notes>
-        <note category="german">You have received a new anonymous complaint: "%reason%"</note>
+        <note category="german">Es wurde eine neue anonyme Beschwerde gegen dich eingelegt: "%reason%"</note>
       </notes>
       <segment>
         <source>Es wurde eine neue anonyme Beschwerde gegen dich eingelegt: "%reason%"</source>
@@ -10695,7 +10695,7 @@
     </unit>
     <unit id="1VFuVbv" name="Beschwerde zurückgezogen">
       <notes>
-        <note category="german">Complaint Withdrawn</note>
+        <note category="german">Beschwerde zurückgezogen</note>
       </notes>
       <segment>
         <source>Beschwerde zurückgezogen</source>
@@ -10704,7 +10704,7 @@
     </unit>
     <unit id="xllGfth" name="Es gibt gute Nachrichten! Folgende Beschwerde wurde zurückgezogen: &quot;%reason%&quot;">
       <notes>
-        <note category="german">Good news! The following complaint has been withdrawn: "%reason%"</note>
+        <note category="german">Es gibt gute Nachrichten! Folgende Beschwerde wurde zurückgezogen: "%reason%"</note>
       </notes>
       <segment>
         <source>Es gibt gute Nachrichten! Folgende Beschwerde wurde zurückgezogen: "%reason%"</source>
@@ -10713,7 +10713,7 @@
     </unit>
     <unit id="d7mV6VK" name="Du bist vor Angst erstarrt!!">
       <notes>
-        <note category="german">Terrorised!!</note>
+        <note category="german">Du bist vor Angst erstarrt!!</note>
       </notes>
       <segment>
         <source>Du bist vor Angst erstarrt!!</source>
@@ -10722,7 +10722,7 @@
     </unit>
     <unit id="k9lty2j" name="6fedae5">
       <notes>
-        <note category="german">OK. We've got good news and bad news. The good news is that despite the best efforts of %num% Zombies to devour you, you got through it! The bad news is that the experience really shook you up, so you are now terrorised by the idea of having to go through that again...</note>
+        <note category="german">Wir haben zwei Neuigkeiten für dich. Eine gute und eine schlechte. Zuerst die gute: Trotz ihrer hartnäckigen Versuche, ist es den %num% Zombie(s) nicht gelungen, dich aufzufressen. Du hast dich wacker geschlagen. Bravo! Die schlechte: Das Erlebnis war so schlimm, dass du in eine Angststarre verfallen bist. So etwas möchtest du nicht wieder erleben...</note>
       </notes>
       <segment>
         <source>Wir haben zwei Neuigkeiten für dich. Eine gute und eine schlechte. Zuerst die gute: Trotz ihrer hartnäckigen Versuche, ist es den %num% Zombie(s) nicht gelungen, dich aufzufressen. Du hast dich wacker geschlagen. Bravo! Die schlechte: Das Erlebnis war so schlimm, dass du in eine Angststarre verfallen bist. So etwas möchtest du nicht wieder erleben...</source>
@@ -10731,7 +10731,7 @@
     </unit>
     <unit id="Efbc_qn" name="Haltet den Dieb!">
       <notes>
-        <note category="german">Robbery!</note>
+        <note category="german">Haltet den Dieb!</note>
       </notes>
       <segment>
         <source>Haltet den Dieb!</source>
@@ -10740,7 +10740,7 @@
     </unit>
     <unit id="DiWxu8O" name="9a7499d">
       <notes>
-        <note category="german">Apparently, one of your fellow citizens really liked the contents of your inventory... Someone has pinched your: %icon% %item%</note>
+        <note category="german">Es scheint so, als ob ein anderer Bürger Gefallen an deinem Inventar gefunden hätte... Dir wurde folgendes gestohlen: %icon% %item%</note>
       </notes>
       <segment>
         <source>Es scheint so, als ob ein anderer Bürger Gefallen an deinem Inventar gefunden hätte... Dir wurde folgendes gestohlen: %icon% %item%</source>
@@ -10749,7 +10749,7 @@
     </unit>
     <unit id="RrPwAW." name="Zufälliger Bürger">
       <notes>
-        <note category="german">Random Citizen</note>
+        <note category="german">Zufälliger Bürger</note>
       </notes>
       <segment>
         <source>Zufälliger Bürger</source>
@@ -10758,8 +10758,8 @@
     </unit>
     <unit id="dTDcH8R" name="c8e86c4">
       <notes>
-        <note category="german">You can use this to add the name of a random citizen to your post.
-                                                If necessary, you can limit the selection to certain professions, heroes or citizens who have already died.</note>
+        <note category="german">Hiermit kannst du den Namen eines zufälligen Bürgers in deinen Post anfügen.
+                                                Bei Bedarf kannst du die Auswahl auf bestimmte Berufe, Helden oder bereits gestorbene Bürger eingrenzen.</note>
       </notes>
       <segment>
         <source>Hiermit kannst du den Namen eines zufälligen Bürgers in deinen Post anfügen.
@@ -10770,7 +10770,7 @@
     </unit>
     <unit id="lpSEXvf" name="71134d2">
       <notes>
-        <note category="german">If you want to use the same randomly chosen citizen more than once in your text, you can assign it a number, for example:</note>
+        <note category="german">Wenn zu den gleichen zufällig gewählten Bürger mehrfach in deinem Text verwenden willst, kannst du ihm eine Nummer zuweisen, beispielsweise:</note>
       </notes>
       <segment>
         <source>Wenn zu den gleichen zufällig gewählten Bürger mehrfach in deinem Text verwenden willst, kannst du ihm eine Nummer zuweisen, beispielsweise:</source>
@@ -10866,7 +10866,7 @@
     </unit>
     <unit id="uSGlEhQ" name="Du kannst etwas essen, um deine Erschöpfung zu lindern.">
       <notes>
-        <note category="german">You can eat something to relieve your exhaustion.</note>
+        <note category="german">Du kannst etwas essen, um deine Erschöpfung zu lindern.</note>
       </notes>
       <segment>
         <source>Du kannst etwas essen, um deine Erschöpfung zu lindern.</source>
@@ -10875,7 +10875,7 @@
     </unit>
     <unit id="CjT0_7R" name="4d90a81">
       <notes>
-        <note category="german">You have already eaten and drunk something. You only have drugs and alcohol left!</note>
+        <note category="german">Du hast bereits etwas gegessen und getrunken. Dir bleiben nur noch Drogen und Alkohol!</note>
       </notes>
       <segment>
         <source>Du hast bereits etwas gegessen und getrunken. Dir bleiben nur noch Drogen und Alkohol!</source>
@@ -10884,7 +10884,7 @@
     </unit>
     <unit id="icxLMof" name="Der letzte Tote in dieser Stadt!">
       <notes>
-        <note category="german">The last dead man in this city!</note>
+        <note category="german">Der letzte Tote in dieser Stadt!</note>
       </notes>
       <segment>
         <source>Der letzte Tote in dieser Stadt!</source>
@@ -10893,11 +10893,182 @@
     </unit>
     <unit id="SWca3Zo" name="089f4e0">
       <notes>
-        <note category="german">The last dead person will only receive a reward if they have survived 5 full days.</note>
+        <note category="german">Der letzte Tote erhält nur dann eine Belohnung, wenn er 5 volle Tage überlebt hat.</note>
       </notes>
       <segment>
         <source>Der letzte Tote erhält nur dann eine Belohnung, wenn er 5 volle Tage überlebt hat.</source>
         <target>Der letzte Tote erhält nur dann eine Belohnung, wenn er 5 volle Tage überlebt hat.</target>
+      </segment>
+    </unit>
+    <unit id="wn0c1Kw" name="Die Stadt wird erst starten, wenn sie &lt;strong&gt;%population% Bürger hat&lt;/strong&gt;.">
+      <notes>
+        <note category="german">Die Stadt wird erst starten, wenn sie &lt;strong&gt;%population% Bürger hat&lt;/strong&gt;.</note>
+      </notes>
+      <segment>
+        <source>Die Stadt wird erst starten, wenn sie &lt;strong&gt;%population% Bürger hat&lt;/strong&gt;.</source>
+        <target><![CDATA[Die Stadt wird erst starten, wenn sie <strong>%population% Bürger hat</strong>.]]></target>
+      </segment>
+    </unit>
+    <unit id="RbJEkic" name="Mit den anderen Bürgern reden...">
+      <notes>
+        <note category="german">Mit den anderen Bürgern reden...</note>
+      </notes>
+      <segment>
+        <source>Mit den anderen Bürgern reden...</source>
+        <target>Mit den anderen Bürgern reden...</target>
+      </segment>
+    </unit>
+    <unit id="_EDDh5L" name="9f36678">
+      <notes>
+        <note category="german">Lesen und Nutzen des Forums sind in 'MyHordes' überlebensnotwendig! Die wichtigen Entscheidungen der Stadt werden hier gemeinsam von der Community getroffen.</note>
+      </notes>
+      <segment>
+        <source>Lesen und Nutzen des Forums sind in 'MyHordes' überlebensnotwendig! Die wichtigen Entscheidungen der Stadt werden hier gemeinsam von der Community getroffen.</source>
+        <target>Lesen und Nutzen des Forums sind in 'MyHordes' überlebensnotwendig! Die wichtigen Entscheidungen der Stadt werden hier gemeinsam von der Community getroffen.</target>
+      </segment>
+    </unit>
+    <unit id="esKM3_t" name="Deine gesamte Geschichte basiert auf deinen zuvor gespielten Städten...">
+      <notes>
+        <note category="german">Deine gesamte Geschichte basiert auf deinen zuvor gespielten Städten...</note>
+      </notes>
+      <segment>
+        <source>Deine gesamte Geschichte basiert auf deinen zuvor gespielten Städten...</source>
+        <target>Deine gesamte Geschichte basiert auf deinen zuvor gespielten Städten...</target>
+      </segment>
+    </unit>
+    <unit id="K382mbj" name="Spielhilfe aufrufen.">
+      <notes>
+        <note category="german">Spielhilfe aufrufen.</note>
+      </notes>
+      <segment>
+        <source>Spielhilfe aufrufen.</source>
+        <target>Spielhilfe aufrufen.</target>
+      </segment>
+    </unit>
+    <unit id="aBzVCJL" name="479d11d">
+      <notes>
+        <note category="german">Hast du schon unter "Wie wird gespielt" nachgeschaut? Du findest den Link darauf unter der Karte der Stadt.</note>
+      </notes>
+      <segment>
+        <source>Hast du schon unter "Wie wird gespielt" nachgeschaut? Du findest den Link darauf unter der Karte der Stadt.</source>
+        <target>Hast du schon unter "Wie wird gespielt" nachgeschaut? Du findest den Link darauf unter der Karte der Stadt.</target>
+      </segment>
+    </unit>
+    <unit id="25Kvu55" name="8937cea">
+      <notes>
+        <note category="german">Das Leichsblatt: Hier findet ihr alle Neuigkeiten, über das, was gestern in der Stadt passiert ist...</note>
+      </notes>
+      <segment>
+        <source>Das Leichsblatt: Hier findet ihr alle Neuigkeiten, über das, was gestern in der Stadt passiert ist...</source>
+        <target>Das Leichsblatt: Hier findet ihr alle Neuigkeiten, über das, was gestern in der Stadt passiert ist...</target>
+      </segment>
+    </unit>
+    <unit id="55LsCVW" name="Schaut am besten jeden Tag einmal rein!">
+      <notes>
+        <note category="german">Schaut am besten jeden Tag einmal rein!</note>
+      </notes>
+      <segment>
+        <source>Schaut am besten jeden Tag einmal rein!</source>
+        <target>Schaut am besten jeden Tag einmal rein!</target>
+      </segment>
+    </unit>
+    <unit id="6lr5Awl" name="Starten Sie eine Stadt">
+      <notes>
+        <note category="german">Starten Sie eine Stadt</note>
+      </notes>
+      <segment>
+        <source>Starten Sie eine Stadt</source>
+        <target>Starten Sie eine Stadt</target>
+      </segment>
+    </unit>
+    <unit id="tl3wxZA" name="Es ist Zeit, sich seinen Mitmenschen in der Hölle anschließen!">
+      <notes>
+        <note category="german">Es ist Zeit, sich seinen Mitmenschen in der Hölle anschließen!</note>
+      </notes>
+      <segment>
+        <source>Es ist Zeit, sich seinen Mitmenschen in der Hölle anschließen!</source>
+        <target>Es ist Zeit, sich seinen Mitmenschen in der Hölle anschließen!</target>
+      </segment>
+    </unit>
+    <unit id="uL_3bHQ" name="2d4f0c6">
+      <notes>
+        <note category="german">Hiermit kannst du den Namen eines zufälligen Bürgers in deinen Post anfügen.
+                                                    Bei Bedarf kannst du die Auswahl auf bestimmte Berufe, Helden oder bereits gestorbene Bürger eingrenzen.</note>
+      </notes>
+      <segment>
+        <source>Hiermit kannst du den Namen eines zufälligen Bürgers in deinen Post anfügen.
+                                                    Bei Bedarf kannst du die Auswahl auf bestimmte Berufe, Helden oder bereits gestorbene Bürger eingrenzen.</source>
+        <target>Hiermit kannst du den Namen eines zufälligen Bürgers in deinen Post anfügen.
+                                                    Bei Bedarf kannst du die Auswahl auf bestimmte Berufe, Helden oder bereits gestorbene Bürger eingrenzen.</target>
+      </segment>
+    </unit>
+    <unit id="GQ3Gt_t" name="Du bist">
+      <notes>
+        <note category="german">Du bist</note>
+      </notes>
+      <segment>
+        <source>Du bist</source>
+        <target>Du bist</target>
+      </segment>
+    </unit>
+    <unit id="swizrYC" name="Erschöpft">
+      <notes>
+        <note category="german">Erschöpft</note>
+      </notes>
+      <segment>
+        <source>Erschöpft</source>
+        <target>Erschöpft</target>
+      </segment>
+    </unit>
+    <unit id="UEL2oHO" name="Spielzeit">
+      <notes>
+        <note category="german">Spielzeit</note>
+      </notes>
+      <segment>
+        <source>Spielzeit</source>
+        <target>Spielzeit</target>
+      </segment>
+    </unit>
+    <unit id="5MeFkca" name="c328ebf">
+      <notes>
+        <note category="german">Für viele Aktionen, wie beispielsweise die Erkundung der Aussenwelt oder der Arbeit auf einer Baustelle,
+                            benötigst du Aktionspunkte. Deine Aktionspunkte werden jede Nacht nach dem Angriff aufgefüllt. Außerdem
+                            kannst du sie durch den Einsatz bestimmter Gegenstände sowie einmal pro Tag durch Essen und Trinken neu
+                            auffüllen.</note>
+      </notes>
+      <segment>
+        <source>Für viele Aktionen, wie beispielsweise die Erkundung der Aussenwelt oder der Arbeit auf einer Baustelle,
+                            benötigst du Aktionspunkte. Deine Aktionspunkte werden jede Nacht nach dem Angriff aufgefüllt. Außerdem
+                            kannst du sie durch den Einsatz bestimmter Gegenstände sowie einmal pro Tag durch Essen und Trinken neu
+                            auffüllen.</source>
+        <target>Für viele Aktionen, wie beispielsweise die Erkundung der Aussenwelt oder der Arbeit auf einer Baustelle,
+                            benötigst du Aktionspunkte. Deine Aktionspunkte werden jede Nacht nach dem Angriff aufgefüllt. Außerdem
+                            kannst du sie durch den Einsatz bestimmter Gegenstände sowie einmal pro Tag durch Essen und Trinken neu
+                            auffüllen.</target>
+      </segment>
+    </unit>
+    <unit id="NAC.Ln5" name="c85efc4">
+      <notes>
+        <note category="german">Baupunkte können in der Werkstatt und auf Baustellen verwendet werden, wo sie wie Aktionspunkte
+                            zählen. Wenn möglich werden immer zuerst Baupunkte verbraucht, bevor Aktionspunkte eingesetzt
+                            werden. Bedenke, dass Baupunkte nicht eingesetzt werden können wenn du erschöpft bist!</note>
+      </notes>
+      <segment>
+        <source>Baupunkte können in der Werkstatt und auf Baustellen verwendet werden, wo sie wie Aktionspunkte
+                            zählen. Wenn möglich werden immer zuerst Baupunkte verbraucht, bevor Aktionspunkte eingesetzt
+                            werden. Bedenke, dass Baupunkte nicht eingesetzt werden können wenn du erschöpft bist!</source>
+        <target>Baupunkte können in der Werkstatt und auf Baustellen verwendet werden, wo sie wie Aktionspunkte
+                            zählen. Wenn möglich werden immer zuerst Baupunkte verbraucht, bevor Aktionspunkte eingesetzt
+                            werden. Bedenke, dass Baupunkte nicht eingesetzt werden können wenn du erschöpft bist!</target>
+      </segment>
+    </unit>
+    <unit id="ANGnefx" name="Stadtrat">
+      <notes>
+        <note category="german">Stadtrat</note>
+      </notes>
+      <segment>
+        <source>Stadtrat</source>
+        <target>Stadtrat</target>
       </segment>
     </unit>
   </file>

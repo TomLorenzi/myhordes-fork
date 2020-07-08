@@ -8,7 +8,7 @@
                         <div class="avatar small"><img alt="" src="{{ path('app_web_avatar', {'uid': user.id, 'name': user.avatar.smallName, 'ext': user.avatar.format}) }}"></div>
                     {% endif %}
                     <h4 class="soul-name">
-                        <img src="{{ asset('build/images/small_ghost_red.gif') }}" alt="{{'Held'|trans({}, 'game')}}" /> {{ user.username }}
+                        <img src="{{ asset('build/images/icons/small_ghost_red.gif') }}" alt="{{'Held'|trans({}, 'game')}}" /> {{ user.username }}
                     </h4>
                 </div>
                 <div class="float-right">
@@ -94,7 +94,7 @@
                                         {{ incarnation.day }}
                                         {% if incarnation.town.town is not null and incarnation.town.town.hasAliveCitizen %}
                                             <span>
-                                                <img alt="" src="{{asset('build/images/small_new.gif')}}" />
+                                                <img alt="*" src="{{asset('build/images/icons/small_new.gif')}}" />
                                                 <div class="tooltip">
                                                     {{ 'Es sind in dieser Stadt noch ein paar Bürger übrig...'|trans({}, 'soul') }}
                                                 </div>
@@ -128,8 +128,17 @@
                         </div>
                     </div>
                 </div>
+
             </div>
+            {% if citizen_id is not null %}
+                <div class="row">
+                    <div class="padded cell rw-4 rw-md-6 rw-sm-12">
+                        <button x-ajax-href="{{ path('town_visit', {'id': citizen_id}) }}"><img alt="" src="{{ asset('build/images/home.gif') }}">{{ 'Haus besuchen'|trans({},'soul') }}</button>
+                    </div>
+                </div>
+            {% endif %}
         </div>
+
     </div>
 {% endblock %}
 {% block js %}
