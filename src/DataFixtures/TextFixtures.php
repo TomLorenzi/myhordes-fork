@@ -2489,7 +2489,14 @@ class TextFixtures extends Fixture
             "title" => "Lettre au Père Noël",
             "author" => "zhack",
             "content" => [
-                ''
+               '<p>Bonjour papa noël,</p>
+			   <p>Cette année j\'ai été super sage parce que maman elle est tout le temps triste vu que papa il est parti faire la guerre aux méchants.</p>
+			   <p>D\'ailleurs les méchants, ils arrêtent pas d\'attaquer le campement donc on a du mal a dormir.</p>
+			   <p>Si tu pouvais envoyer des cadeaux à mon papa, je serais super contente, car il me manque papa et je veux qu\'il aille bien. Donc envoie lui plein de cadeaux et ma lettre car je sais pas où il est et maman veut pas me le dire. (Papa je t\'aime fort !!)</p>',
+			   '<p>L\'année dernière j\'ai pas reçu ma barbie poney magique mais je t\'en veux pas car on avait dû déménager et que tu pouvais pas le savoir et finalement je la veux plus. J\'aimerai bien un Aquasplash pour que maman elle puisse nous défendre quand les méchants arrivent parce que dans le village, on est de moins en moins et je veux pas que les méchants nous emmènent dans leurs prisons (maman m\'a dit qu\'ils sont vraiment méchants et qu\'en plus ils nous privent de desserts quand on est pas sage).</p>
+				<p>C\'est tout ce que je voudrais pour cette année, je t\'aime fort papa noël et je te remercie pour tout.</p>
+				<p> Je sais que c\'est idiot de commander un pistolet à eau mais maman dit qu\'ils sont encore plus idiot de craindre l\'eau (ils doivent pas prendre beaucoup de douches).</p>
+				<p>Elise.</p>'
             ],
             "lang" => "fr",
             "background" => "letter",
@@ -2602,7 +2609,17 @@ class TextFixtures extends Fixture
             "title" => "Message à la commission",
             "author" => "Gizmonster",
             "content" => [
-                ''
+               '<blockquote>
+			   <h2>Rapport n°1121 adressé à la commission de gestion des incinérateurs</h2>
+			   <h2>Jeudi 14 janvier</h2>
+			   </blockquote>
+			   <p><strong>Objet : défaillance système.</strong></p>
+			   <p>Chers agrégés de la commission,</p>
+			   <p>Nous souhaitions vous faire part de la panne de l\'incinérateur n°4 survenue ce matin, et nous empêchant de brûler 12 tonnes de cadavres potentiellement infectés à 80 %. Nous avons pu démarrer l\'incinérateur de secours à temps pour brûler 3,6 tonnes de cadavres mais l\'excédent ne pourra pas être brûlé avant minuit... </p>',
+			   '<p>La sécurisation du four est en cours pour contenir les zombies qui se relèveront ce soir, mais le blindage n\'est pas sûr sachant qu\'ils le cognent et le grattent jusqu\'à en perdre les doigts. Pour cela nous réclamons un soutien logistique de toute urgence, par sécurité les infrastructures ont été évacuées pour la nuit, mais on ne sait pas ce qu\'il adviendra demain matin.</p>
+				<p>En attendant une réponse, veuillez recevoir l\'expression de mes sentiments distingués,</p>
+				<div class="hr"></div>
+				<p><strong>Kad Havre</strong>, responsable du complexe Ouest </p>'
             ],
             "lang" => "fr",
             "background" => "old",
@@ -3547,7 +3564,14 @@ class TextFixtures extends Fixture
             "title" => "Ticket gagnant",
             "author" => "anonyme",
             "content" => [
-                ''
+                '<h1><small>Ce paquet de cigarettes est</small> GAGNANT&nbsp;!</h1>
+				<p>Pour recevoir votre lot, envoyez cette étiquette ainsi qu\'un justificatif d\'achat à :</p>
+				<blockquote>
+				<p>Good\'ol Chuck CC,</p>
+				<p>Brown &amp; Williamson Sq.</p>
+				<p>WC2H 7LA, London</p>
+				</blockquote>
+				<small>Note : cette étiquette gagnante donne également droit à un bilan de santé complet GRATUIT, car Good\'ol Chuck sait prendre soin de ses clients.</small>'
             ],
             "lang" => "fr",
             "background" => "tinystamp",
