@@ -10,6 +10,7 @@
         "ext-json": "*",
         "clue/graph": "^0.9.1",
         "doctrine/doctrine-fixtures-bundle": "^3.3",
+        "doctrine/migrations": "^3.0",
         "gedmo/doctrine-extensions": "^2.4",
         "graphp/algorithms": "^0.8.2",
         "laminas/laminas-code": "^3.4",
