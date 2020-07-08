@@ -3899,7 +3899,7 @@
       </notes>
       <segment>
         <source>Einen Blick ins Forum werfen.</source>
-        <target>Jeter un oeil au forum de votre ville.</target>
+        <target>Jeter un œil au forum de votre ville.</target>
       </segment>
     </unit>
     <unit id=".vMt2eO" name="Meine Ration Wasser im Brunnen entnehmen (optional).">
@@ -4169,7 +4169,7 @@
       </notes>
       <segment>
         <source>Mord</source>
-        <target>Dévoré par une goule</target>
+        <target>Dévoré(e) par une goule</target>
       </segment>
     </unit>
     <unit id="7AlBdeZ" name="Aggression">
@@ -4304,7 +4304,7 @@
       </notes>
       <segment>
         <source>Sorglos hast du dieses Produkt runtergeschluckt... Das darin enthaltene Gift hat nur wenige Sekunden gebraucht, um über dein Blutkreislaufsystem zum Herzen zu gelangen. Du hast dein Bewusstsein verloren. Atemstillstand und Herzversagen haben dir dann den Rest gegeben. Du wurdest vergifet!! Wie hinterhältig!</source>
-        <target>Vous avez avalé ce produit sans même vous poser de question… Il n'a pas fallu quelques secondes avant que le poison qu'il contenait ne passe dans votre sang, provoquant quasi immédiatement une dilatation de vos vaisseaux sanguins. Vous avez d'abord perdu connaissance, tandis que votre corps s'agitait de spasmes nerveux. Puis votre coeur a lâché. Vous avez été assassiné(e) !</target>
+        <target>Vous avez avalé ce produit sans même vous poser de question… Il n'a pas fallu quelques secondes avant que le poison qu'il contenait ne passe dans votre sang, provoquant quasi immédiatement une dilatation de vos vaisseaux sanguins. Vous avez d'abord perdu connaissance, tandis que votre corps s'agitait de spasmes nerveux. Puis votre cœur a lâché. Vous avez été assassiné(e) !</target>
       </segment>
     </unit>
     <unit id="THDibIm" name="f6ab154">
@@ -8080,7 +8080,7 @@
       </notes>
       <segment>
         <source>Während du die Worte des Schamanen vernommen hast, dachtest du nie, dass er es ernst meinte. Nichts ist 100%ig sicher in dieser Wüste und der Trank, den er dir gegeben hat... Nun, er hat nicht funktioniert. Die gequälte Seele, der du zu helfen versuchtest, hat sich an dich geklammert und deine ungeschützte Seele mit Leichtigkeit überwältigt. Ihre Gewalt und Wut hinterließen nichts von dir als eine leere Hülle, dazu verdammt, von der Horde verschlungen zu werden.</source>
-        <target>Votre Chaman vous l'avait pourtant précisé, rien n'est 100% sur dans la vie... Et sa potion n'a pas su contrer la violence de cette âme torturée. Elle s'est emparée de vous, esprit faible, et à aisément terrassé le peu de volonté restante, vous laissant mourrir à l'agonie dans le désert.</target>
+        <target>Votre Chaman vous l'avait pourtant précisé, rien n'est 100% sûr dans la vie... Et sa potion n'a pas su contrer la violence de cette âme torturée. Elle s'est emparée de vous, esprit faible, et à aisément terrassé le peu de volonté restante, vous laissant mourrir a l'agonie dans le désert.</target>
       </segment>
     </unit>
     <unit id="yr4_Nez" name="Du bist der Schamane dieser Stadt.">
@@ -9529,7 +9529,7 @@
       </notes>
       <segment>
         <source>Einige gesundheitliche Askekte deines Opfers sind auf dich übergegangen ...</source>
-        <target>Einige gesundheitliche Askekte deines Opfers sind auf dich übergegangen ...</target>
+        <target>Vous avez hérité de certains traits de santé de votre victime !</target>
       </segment>
     </unit>
     <unit id="SKbA9D2" name="2a20efa">
