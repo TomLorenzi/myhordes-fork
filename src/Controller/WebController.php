@@ -61,7 +61,7 @@ class WebController extends AbstractController
         ];
         shuffle($devs);
 
-        $apps = $this->entityManager->getRepository(ExternalApp::class)->findAll();
+        $apps = $this->entityManager->getRepository(ExternalApp::class)->findBy(['testing' => false]);
 
         return $this->render( 'web/framework.html.twig', [
             'version' => $version, 'debug' => $is_debug_version, 'env' => $this->kernel->getEnvironment(),
