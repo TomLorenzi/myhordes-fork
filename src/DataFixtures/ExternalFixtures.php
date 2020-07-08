@@ -68,6 +68,16 @@ class ExternalFixtures extends Fixture
             'owner' => 'Xemaro',
             'key' => 'b4af912cbe75debe',
         ],
+        [
+            'name' => 'Test',
+            'active' => 1,
+            'testing' => true,
+            'url' => 'localhost:8888/',
+            'icon' => 'null',
+            'contact' => '',
+            'owner' => 'devwwm',
+            'key' => '8e7015b69abe9b90',
+        ],
     ];
 
     private $entityManager;
@@ -100,6 +110,7 @@ class ExternalFixtures extends Fixture
                 ->setUrl($entry['url'])
                 ->setIcon($entry['icon'])
                 ->setContact($entry['contact'])
+                ->setTesting($entry['testing'] ?? false)
                 //->setOwner($entity = $this->entityManager->getRepository(ExternalApp::class)->findOneByName($entry['owner']) ?? null)
                 ->setSecret($entry['key'] != '' ? $entry['key'] : substr(sha1(mt_rand() . $entry['url'] . time()), 0, 16))
             ;
