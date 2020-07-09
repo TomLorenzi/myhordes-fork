@@ -1120,7 +1120,7 @@ class TextFixtures extends Fixture
             ],
             "lang" => "fr",
             "background" => "white",
-            "design" => "white"
+            "design" => "typed"
         ],
         "xmasad" => [
             "title" => "Buffet de Noël",
@@ -1498,7 +1498,24 @@ class TextFixtures extends Fixture
             "title" => "Emission radiophonique d'origine inconnue",
             "author" => "pepitou",
             "content" => [
-                ''
+                '<div class="hr"></div>
+                <small>La texte suivant est la transcription d\'une transmission radiophonique interceptée sur les fréquences courtes par le centre d\'écoute de Morne-Vallée. Son origine est inconnue, l\'auteur se présente sous le nom de Docteur K. Lepetit.</small>
+                <small>Reçu le 19.08</small>',
+                '<quote>
+                <small>[Début de transcription]</small>
+                <p>J\'ai soulevé un point important lors mes dernières expérimentations.</p>
+                <p>Un corps humain (Zombie ou Non) passé au Sani-Broyeur fournit près de 70% de sa masse en eau pure. Voir document 9108.94:1 rev0.1 : Vue d\'artiste représentant la quantité d\'eau présente dans le corps humain.</p>
+                <p>Sachant qu\'un humain mort devient zombie la nuit venue. Selon la théorie du réveil, présenté en  1969 par mon feu mon père le grand professeur K.</p>
+                <p>ET</p>
+                <p>Sachant qu\'un zombie craint l\'eau pure. Concept soulevé en 1998 par le scientifique Russe Mosionne Twhine.</p>
+                </quote>',
+                '<quote>
+                <p>ALORS...</p>
+                <p>...</p>
+                <p>ALORS...</p>
+                <p>... Non, oubliez ceci. Le cerveau humain n\'est pas capable de diviser par 0.</p><p></p>
+                </quote>
+                <small>[Fin de transcription]</small>'
             ],
             "lang" => "fr",
             "background" => "white",
@@ -2338,7 +2355,45 @@ class TextFixtures extends Fixture
             "title" => "Le CID de Pierre Corbeau",
             "author" => "bartock",
             "content" => [
-                ''
+                '>
+                <h1>Le CID de Pierre Corbeau</h1>
+                <p>Vers nous donc cette troupe s\'avance,<br>
+                Et grogne sur un ton d’un râle d\'abondance.<br>
+                Nous partîmes quarante ; mais par un prompt débord<br>
+                Nous ne sommes plus que dix en arrivant au fort,<br>
+                Tant, à nous voir marcher avec un tel visage,<br>
+                Les plus intrépides perdaient de leur courage !<br>
+                Je cache les cadavres, aussitôt qu\'arrivés,<br>,
+                </p>',
+                'Dans le fond des tombeaux qui lors furent creusés ;<br>
+                Le reste, dont le nombre baissait heure après heure,<br>
+                Pleurant d’épouvante, autour de moi demeure,<br>
+                Se couche contre terre, et sans faire aucun bruit<br>
+                S’apitoie sur lui-même tout au long de la nuit.<br>
+                Par mes lamentations je fais aussi de même,<br>
+                Et me tenant caché, le visage vraiment blême ;<br>
+                Et je feins hardiment d\'avoir reçu des coups<br>
+                Pour me cacher derrière, ce à l’insu de tous.<br>',
+                'Cette obscure clarté qui tombe des étoiles<br>
+                Enfin minuit sonnant leurs visages nous dévoilent ;<br>
+                Des furoncles partout, et puant la malemort<br>
+                Les zombies tels une mer montent jusque au fort.<br>
+                On les laisse passer ; tout leur paraît tranquille ;<br>
+                Point de gardiens aux tours, point aux murs de la ville.<br>
+                Notre profond silence abuse-t-il leurs esprits ?<br>
+                Nous croyons par notre ruse les avoir bien mépris :<br>
+                Ils abordent sans peur, ils défoncent, ils pourfendent,<br>
+                Et courent pour bâfrer les corps qui les attendent.<br>',
+                'Nous nous levons alors, et tous en même temps<br>
+                Poussons jusques au ciel mille cris gémissants.<br>
+                Les zombies, à ces cris, de la rue nous répondent ;<br>
+                Ils paraissent affamés, et nous, âmes moribondes,<br>
+                L\'épouvante nous prend nous voilà éperdus ;<br>
+                Avant que de combattre nous nous savons perdus.<br>
+                Ils couraient au diner, et arrivent au dessert ;<br>
+                Nous courons, nous fuyons, certains vers le désert ,<br>
+                Et voyons courir des ruisseaux de notre sang,<br>
+                Car nul homme ne résiste aux zombies tout puissants.<br>'
             ],
             "lang" => "fr",
             "background" => "carton",
@@ -2581,7 +2636,13 @@ class TextFixtures extends Fixture
             "title" => "Maison à vendre",
             "author" => "Pyrolis",
             "content" => [
-                ''
+                '>
+                <h1>Offre exceptionnelle</h1>
+                <p>Vend studio, plain-pied, 4m² avec fenêtre explosée plein sud.<br>
+                WC extérieurs, cuisine sommaire mais fonctionnelle. Mobilier fourni : une grosse pierre qu’on peut transformer en lit comme en table, très pratique pour les grandes réceptions.<br>
+                Jardin spacieux, ne nécessite pas d’entretien.<br>
+                Très calme : les voisins sont morts. Néanmoins, tapage nocturne fréquent. Quartier dit « sensible ». Mais le supermarché pillé est à deux pas, idéal pour faire ses courses.<br>
+                Et mon prix défie toute concurrence : pour un jambon-beurre seulement ce loft confortable est à vous.</p>'
             ],
             "lang" => "fr",
             "background" => "notepad",
@@ -2881,7 +2942,27 @@ class TextFixtures extends Fixture
             "title" => "Mort ultime",
             "author" => "IIdrill",
             "content" => [
-                ''
+                '<p>Ce matin, il sort de ces quatre planches qui lui servent de taudis.</p>
+                <p>Toute la ville est silencieuse.</p>
+                <p>Il se dirige vers la tente voisine. Il soulève le pendant de tissu, et empoigne le bras de son ancienne compagne. Il commence à traîner son corps vers les portes.</p>
+                <p>Un objet tombe du corps inanimé. Une feuille de papier en mauvais état, qu\'elle avait sûrement trouvée lors de pillages des maisons d\'autres victimes, accompagnée d\'une mine de crayon pas plus longue qu\'un ongle.</p>
+                <p>Il s\'assied, et lit.</p>',
+                '<quote>
+                <p>« Je sais que mon heure est arrivée, c\'est pourquoi je me suis décidée à utiliser cette précieuse mine de crayon.</p>
+                <p>Mais je n\'ai pas peur.</p>
+                <p>Je les entends. J\'entends la nuit. Le vent vient de s\'engouffrer dans notre cité. Alors comme ça, les portes ont cédé. Alors comme ça, c\'est l\'effet que ça fait, lorsque les portes cèdent. Alors comme ça, ils sont entrés.</p>
+                <p>L\'air est frais, son odeur est très agréable, ce soir. Je le sens me caresser la nuque, un frisson parcours mon dos. La nuit éclaire un peu ma tente, laisse entrevoir ma couverture et mes pieds gelés.</p>
+                <p>J\'aimerais bien m\'endormir, et rêver.</p>
+                <p>Mais j\'ai peur.</p>
+                </quote>',
+                '<quote>
+                <p>Je les entends. Je les entends dans la nuit. L\'un d\'entre eux vient de s\'engouffrer dans la tente de mon voisin. Alors comme ça, il va partir. Alors comme ça, c\'est l\'effet que ça fait, lorsqu\'un des leurs nous dévore. Alors comme ça, il est mort.</p>
+                <p>Je l\'entends. C\'est mon tour. »</p>
+                </quote>
+                <p>Il se relève, empoigne à nouveau les bras de ce corps sans vie, et continue ce qu\'il avait commencé.</p>
+                <p>Il est seul, il est le dernier.</p>
+                <p>Demain, il ne sera certainement plus là.</p>
+                <p>Il sait que dans d\'autres cités, l\'on parlera de lui comme d\'un héros. Il va vivre ce que les anciens appellent aujourd\'hui la «&nbsp;Mort Ultime&nbsp;».</p>'
             ],
             "lang" => "fr",
             "background" => "printer",
@@ -2989,7 +3070,34 @@ class TextFixtures extends Fixture
             "title" => "Ode aux corbeaux",
             "author" => "Firenz",
             "content" => [
-                ''
+                '>
+				<h1>Boulimie de Plumes</h1>
+				<p>Corbeaux, Jeunes Corbeaux,<br>
+				Volatiles nécrophages,<br>
+				Vous si lointains, là haut,<br>
+				Perchés dans les nuages,<br>
+				<br>
+				Gardez vous de gouter<br>
+				La chaire encore rose<br>
+				des restes déposés<br>
+				Sur l\'autel de la prose.<br>
+				<br>
+				Les vieux ne sont pas morts<br>
+				Ils sommeillent simplement.<br>
+				Poitrines médaillées d\'or<br>
+				Mais gardiens vigilants.<br>
+				<br>
+				</p>',
+				'Vous aimez à tâter<br>
+				Leur vieille peau tannée<br>
+				mais à trop picorer<br>
+				Les voilà dépecés...<br>
+				<br>
+				O affamés jabots,<br>
+				Cessez donc de faucher<br>
+				Un à un nos plus beaux<br>
+				Trublions du passé !
+				<p></p>'
             ],
             "lang" => "fr",
             "background" => "notepad",
@@ -3173,12 +3281,12 @@ class TextFixtures extends Fixture
             "author" => "sanka",
             "content" => [
                 '<p>Vous en avez assez de trouver tous vos tournevis cassés ? Marre de devoir emprunter la tondeuse du voisin car la votre est toujours en panne ?</p>
-<p>Et bien tout ceci est enfin terminé grace à votre nouveau&nbsp;:</p>
-<h1>BRICO-TOUT<small>7 place des Molineux</small></h1>
-<small>Pour l\'occasion, une journée portes ouvertes est prévue le 15 juin avec 25% de réduction sur tous les articles pour les 50 premiers clients alors surtout ne traînez pas!!! </small>
-<h1>Pillez-nous avant que d\'autres ne s\'en chargent pour vous !</h1>
-<div class="hr"></div>
-<small>Ne pas jeter sur la voie publique.</small>'
+                <p>Et bien tout ceci est enfin terminé grace à votre nouveau&nbsp;:</p>
+                <h1>BRICO-TOUT<small>7 place des Molineux</small></h1>
+                <small>Pour l\'occasion, une journée portes ouvertes est prévue le 15 juin avec 25% de réduction sur tous les articles pour les 50 premiers clients alors surtout ne traînez pas!!! </small>
+                <h1>Pillez-nous avant que d\'autres ne s\'en chargent pour vous !</h1>
+                <div class="hr"></div>
+                <small>Ne pas jeter sur la voie publique.</small>'
             ],
             "lang" => "fr",
             "background" => "manual",
@@ -3251,7 +3359,14 @@ class TextFixtures extends Fixture
             "title" => "Rapport d'opération Nov-46857-A",
             "author" => "zhack",
             "content" => [
-                ''
+                '<h1>Rapport d\'opération Nov-46857-A</h1>
+				<p><strong>11 novembre  23h30</strong></p>
+				<p>L\'armée vient de nous déposer ici? On ne sait pas trop pourquoi ni dans quel but? Beaucoup de rumeurs circulent , pour certains c\'est une super rage, pour d\'autre c\'est la fin du monde? Pour ma part, je m\'en moque un peu : l\'armée nous sauvera le cul comme d\'hab? Après un rapide tour du camp, j\'ai pu récupérer trois, quatre affaires qui  pourraient m\'être utile.</p>',
+				'<p><strong>12 novembre  15h45</strong></p>
+				<p>A priori c\'est beaucoup plus grave que ce que l\'on pensait : une vieille a été virée du camp suite au fait qu\'elle s\'est mise à mordre toutes les personnes qui passait à sa portée. L\'armée nous a dit de ne pas nous inquiéter? Sauf que l\'armée vient de nous abandonner en nous laissant quelques vivres.</p>
+				<p><strong>13 novembre 00h15</strong></p>
+				<p>Je sais pas trop ce qui se passe. J\'entend des cris dehors? Je me suis barricadé comme je le pouvais avec ce que j\'ai pu mais je sais pas si ça sera suffisant? Ça  se rapproche mais</p>
+				<p><small>Le reste est illisible. Vous apercevez quelques taches de sang sur la feuille</small></p>'
             ],
             "lang" => "fr",
             "background" => "printer",
@@ -3261,7 +3376,11 @@ class TextFixtures extends Fixture
             "title" => "Rapport d'une unité de soutien",
             "author" => "sanka",
             "content" => [
-                ''
+                '<h2>Transcription d\'une communication radio militaire, Colline 122, 00:15 :</h2>
+				<p>Notre Blackhawk approche de la cible, nous pouvons apercevoir l\'antenne médicale et le personnel de la Croix Rouge en train de s\'affairer autour des derniers malades arrivés. Nous survolons les environs un petit moment à la recherche de zombies potentiels mais avec cette obscurité il est très difficile de distinguer quoi que ce soit, et la faible lueur des projecteurs placés tout autour du camp n\'offre guère qu\'une portée de 10m...</p>
+				<p>Soudain la radio de bord crépite : "Eagle One, le camp est infecté, je répète le camp est infecté". Je regarde mes collègues, dépité, cependant les ordres sont très clairs à ce sujet. </p>',
+				'<p>J\'arme la mitrailleuse M60 de bord, fais sauter le cran de sûreté, vise le camp et ferme les yeux un instant, le temps pour le pilote de se placer en vol stationnaire. </p>
+				<p>Je rouvre l\'oeil droit et j\'aperçois, 30m en contrebas, les malades et le personnel soignant en train de s\'entre-dévorer. Finalement j\'appuie sur la détente et déclenche le déluge de balles traçantes sur les petites tentes de toiles et les cibles mouvantes.... saloperie...</p>'
             ],
             "lang" => "fr",
             "background" => "printer",
@@ -3271,7 +3390,9 @@ class TextFixtures extends Fixture
             "title" => "Rapport de combat 1",
             "author" => "sanka",
             "content" => [
-                ''
+                '<h2>Route départementale 26, 00:05 :</h2>
+                <p>Notre colonne de blindés roule depuis maintenant plus de 2h sans rencontrer aucune âme qui vive quand soudain le chemin se trouve barré par 2 vieilles voitures encastrées. Nous demandons à une dizaine d\'hommes de sortir afin de dégager la route. Au bout de 2 min la celle-ci est déjà dégagée. Les hommes se précipitent vers les camions quand soudain de nombreuses ombres apparaissent dans les fourrés environnants et se jettent sur l\'escouade. S\'en suit un échange de coups de feux dans toutes les directions, les zombies sont tellement nombreux que nous en sommes réduits à abattre nos propres hommes.</p>',
+                '<p>Le capitaine Willard nous donne l\'ordre de sortir de là. Nous démarrons les blindés et continuons notre chemin par la route désormais libre tout en laissant la poignée d\'hommes encore en vie aux mains des contaminés...</p>'
             ],
             "lang" => "fr",
             "background" => "printer",
@@ -3624,7 +3745,16 @@ class TextFixtures extends Fixture
             "title" => "Tout est donc fini.",
             "author" => "CeluiQuOnNeNommePas",
             "content" => [
-                ''
+                '<p>Tout est donc fini.</p>
+				<p>Est-ce vraiment ainsi qu\'un homme doive passer de vie à trépas ? En connaitre le jour exact, la cause ?</p>
+				<p>Mes deux derniers compagnons d\'infortune n\'ont plus supporté l\'épée de Damoclès au-dessus de leurs têtes.</p>
+				<p>En pleine journée, le plus jeune n\'a pas répondu alors que je l\'invitais à partager le peu de nourriture qu\'il nous restait. Il était allongé sur son lit de camps, digne, les yeux encore ouverts fixant son plafond éventré la veille au soir. Seule l\'écume aux coins des lèvres nous aura fait comprendre qui avait subtilisé la dose de cyanure disparue mystérieusement deux jours auparavant.</p>',
+				'<p>Le doyen de la ville, un chef respecté et écouté, m\'a simplement serré la main en sortant dans l\'Outre-Monde. Incrédule, j\'allais lui proposer ma gourde quand son sourire ainsi que la crosse de son précieux revolver m\'ont fait comprendre qu\'il s\'agissait d\'un « Adieu ». Vingt minutes après l\'avoir perdu de vue, huit détonations se firent entendre. Puis le silence revint sur ce paysage de désolation.</p>
+				<p>J\'ai passé le reste de ma journée à fixer des planches et des barbelés, mécaniquement. En vérifiant mes travaux, je me suis rendu compte que tout était bien solidifié... sauf qu\'aucune fixation ne retenait l\'ensemble au sol sableux. Je crois que je me suis mis à rire, nerveusement.</p>',
+				'<p>Ce sont là mes derniers écrits. Mon journal de bord, commencé le jour où j\'avais trouvé refuge dans cette construction de misère, au milieu de cette communauté se sachant condamnée à l\'avance, a disparu la nuit dernière. Comme présage que notre passage dans ce monde n\'est qu\'illusion.</p>
+				<p>Cette nuit, je ne vais pas me rendre sans combattre. Parce que la vie est un combat perpétuel et qu\'arriver au bout du chemin, on cherche encore et toujours un échappatoire.</p>
+				<p>Je regarde une dernière fois à l\'horizon. Je dois fermer les Portes.</p>
+				<p>La mort n\'est pas une fin, juste un commencement...</p>'
             ],
             "lang" => "fr",
             "background" => "blood",
@@ -4235,7 +4365,7 @@ class TextFixtures extends Fixture
              "title" => "Manifeste",
              "author" => "NabOleon",
              "content" => [
-                '&gt;
+                '>
                 <h1>Manifeste pour un monde sans piles broyées</h1>
                 <p>Citoyens, Citoyennes !<br>
                 Pensez à votre propre avenir : Respectez le monde que vous lèguerez aux zombies.<br>
