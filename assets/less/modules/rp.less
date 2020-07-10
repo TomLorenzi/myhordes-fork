@@ -3,7 +3,7 @@
 .soul .view-rp {
     .rp-content {
         height: 420px; overflow: auto; padding-top: 25px;
-        padding-left: 45px; padding-right: 45px; width: 600px;
+        padding-left: 45px; padding-right: 45px; max-width: 600px;
         color: black; cursor: pointer;
         sup { color: black; }
         .hr { margin-top: 70px; }
@@ -21,7 +21,7 @@
             strong { text-decoration: underline; }
         }
 
-        img { width: 95%; }
+        img { max-width: 95%; }
 
         &.design-typed {
             font-family: @myhordes-fixed-font;
@@ -219,7 +219,7 @@
         }
     }
 
-    .rp-background(@url) { background: url(@url) no-repeat; width: 600px; height: 420px; }
+    .rp-background(@url) { background: url(@url) no-repeat; max-width: 600px; height: 420px; }
 
     .carton  {
         .rp-background('../../img/books/carton.gif');
@@ -260,18 +260,18 @@
 
     .news {
         .rp-background('../../img/books/news.gif');
-        .rp-content { margin-left: 60px; padding-right: 60px; padding-top: 50px; width: 555px; }
+        .rp-content { margin-left: 60px; padding-right: 60px; padding-top: 50px; max-width: 555px; }
     }
 
     .postit {
         .rp-background('../../img/books/postit.gif');
-        .rp-content { margin-left: 120px; padding-top: 80px; width: 360px; }
+        .rp-content { margin-left: 120px; padding-top: 80px; max-width: 360px; }
     }
 
     .tinystamp {
         .rp-background('../../img/books/tinystamp.gif');
         .rp-content {
-            margin-left: 130px; width: 340px;
+            margin-left: 130px; max-width: 340px;
             p { font-weight: bold; text-align: left; }
             blockquote {
                 padding: 10px;
