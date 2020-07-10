@@ -1107,6 +1107,25 @@ class TextFixtures extends Fixture
              "background" => "notepad",
              "design" => "written"
          ],
+        "ombre" => [
+            "title" => "Bon appétit",
+            "author" => "egal",
+            "content" => [
+                '>
+				<p>Tapi dans l’omBre, il était là.</p>
+				<p>Je l’avais repéré depuis le premier jour. Sa réputation n’était plus à faire mais c’était un modèle de discrétion. On aurAit pu croire au citoyen modèle.</p>
+				<p>Les autres se doutaient-ils de ce qu’il tramait ? Sans doute pas…Je devais donc l’arrêter avant qu’il ne décime la ville entière sanS qu’aucun le soupçonne.
+				L’occasion pris la forme d’un cadavre de voyageur.</p>
+				<p>Je l’ai dévoré avec un plaisir inégalé. Sa chair était tendre,seS os robustes mais il est probable que ce sera mon dernier repas.
+				J’imagine la têTe de nos concitoyens lorsqu’il découvrIront ce qu’il emportait avec lui : nombrE bandages, drogues, alcools, chaines et barricades.
+				De quoi résister eNcore une fois plus longtemps que tous.</p>',
+                '<p>Mais ça ne sera pas pour cette fois.</p>
+				<p>Quant à moi ils me tuerons sans aucun doute, les ingrats, savent-ils que je viens de leur sauver la vie ?</p>'
+            ],
+            "lang" => "fr",
+            "background" => "white",
+            "design" => "written"
+        ],
         "bilan" => [
             "title" => "Bilan de la réunion du 7 novembre",
             "author" => "Liior",
@@ -1830,6 +1849,32 @@ class TextFixtures extends Fixture
             "background" => "money",
             "design" => "written"
         ],
+        "vagabo" => [
+            "title" => "Histoire d'un vagabond",
+            "author" => "stayingpower",
+            "content" => [
+                '>
+				<h1>Un vagabond solitaire</h1>
+				<p>J17</p>
+				<p>
+				Ça fait maintenant 10 jours que je me promène parmi les vivants. Ils ne sont pas très futés.
+				Les zombies m\'ont reconnu dès le premier jour comme étant un ennemi, mais pas la ville. J\'ai pu grignoter quelques restes de mes anciens confrères et quelques cadavres...
+				</p>
+				<p>
+				J\'AI FAIM
+				</p>
+				<p>
+				La ville ne tient qu\'à un fil. Tous leurs espoirs reposent sur leur chef. Il dirige d\'une main de fer: chantiers, expéditions, ateliers, votes.
+				Tout est minutieusement calculé. Ça serait dommage que...
+				</p>
+				<p>
+				J\'AI FAIM!
+				</p>'
+            ],
+            "lang" => "fr",
+            "background" => "notepad",
+            "design" => "written"
+        ],
         "infect" => [
             "title" => "Infection",
             "author" => "anonyme",
@@ -1868,6 +1913,21 @@ class TextFixtures extends Fixture
             "lang" => "fr",
             "background" => "grid",
             "design" => "modern"
+        ],
+        "verni" => [
+            "title" => "Invitation au vernissage",
+            "author" => "durith",
+            "content" => [
+                '>
+				<h3>Information</h3>
+				<p>La soirée porte ouverte a été une trop grande réussite.<br>
+				Il y avait plus de 200 invités pour seulement 37 couverts.<br>
+				Malgré cette réussite je ne pense pas que l\'on renouvellera l\'expérience.<br>
+				</p>'
+            ],
+            "lang" => "fr",
+            "background" => "notepad",
+            "design" => "classic"
         ],
         "market_fr" => [
              "title" => "J'aime les supermarchés",
@@ -2292,6 +2352,32 @@ class TextFixtures extends Fixture
             "background" => "letter",
             "design" => "typed"
         ],
+        "survi2" => [
+             "title" => "La drogue c'est tabou, on en viendra tous à bout !",
+             "author" => "Mhyeah",
+             "content" => [
+                '>
+				<p>Longtemps après l\'apocalypse, le peu de scientifiques survivants se sont posés la questions suivante:
+				les drogues nous aideront-t-elles à survivre face aux zombies?
+				C\'est afin d\'y répondre qu\'un scientifique, moktuss, fit construire une ville qui acceuila une moitié de "junkies" et une moitié de "cleans".
+				Ce papier est peut-être le dernier résidus de cette expérience désastreuse...
+				Les drogues sont pires que les zombies. Les camés d\'abord ratissèrent le désert, a la recherche de cette substance, puis y consacrèrent le reste de leur courte vie.
+				Rapidement, ils moururent de leur dépendance, leurs orifices affamés de substances chimiques restés béants.',
+				'Les survivants espérèrent que leur cadavres bleuâtres empoisonneraient les zombies, mais évidemment, ils n\'eurent aucun effet.
+				Et alors commença l\'exode qui nous conduira tous à une mort au milieu des étendues de sable.
+				Nous retournerons à la poussière... Alors que j\'écrit ces lignes, moi, mhyeah, clean, regarde une drogue.
+				Le "top du top" à ce qu\'on dit. La seule qui n\'entraîne aucune addiction. Et qui, pourtant, guérit de tous les maux. Son nom? c-a--re, certaines lettres sont invisibles...
+				<p></p>
+				<p>
+				"CARE"?
+				Heureusement, j\'ai appris à ne pas me fier aux apparences, mais ma raison pourra-t-elle dominer mes impulsions?
+				...peut-être...
+				</p>'
+             ],
+             "lang" => "fr",
+             "background" => "secret",
+             "design" => "written"
+         ],
         "marche_fr" => [
              "title" => "La marche",
              "author" => "Layoreth",
@@ -2631,6 +2717,20 @@ class TextFixtures extends Fixture
             "lang" => "fr",
             "background" => "letter",
             "design" => "typed"
+        ],
+        "binary" => [
+            "title" => "Listing froissé",
+            "author" => null,
+            "content" => [
+                '<p><small>[Début de transmission]</small></p>
+                <p>01000011 01100101 01100011 01101001 00100000 01100101 01110011 01110100 00100000 01110101 01101110 00100000 01101101 01100101 01110011 01110011 01100001 01100111 01100101 00100000 01100100 01100101 00100000 01100100 11101001 01110100 01110010 01100101 01110011 01110011 01100101 00100000 01010011 01010100 01001111 01010000 00101110 00100000 01001101 00100111 01100101 01101110 01110100 01100101 01101110 01100100 01100101 01111010 00101101 01110110 01101111 01110101 01110011 00100000 01010011 01010100 01001111 01010000 00101110 00100000 01000001 01101100 01101100 01101111 00100000 01010011 01010100 01001111 01010000 00101110 00100000 01011001 00100000 01100001 00100000</p>',
+                '<p>01110001 01110101 01100101 01101100 01110001 01110101 00100111 01110101 01101110 00100000 01010011 01010100 01001111 01010000 00101110 00100000 01010000 01101001 01110100 01101001 11101001 00101100 00100000 01100001 01101001 01100100 01100101 01111010 00100000 01101101 01101111 01101001 00100000 01000110 01001001 01001110 00101110</p>
+                <p><small>[Fin de transmission]</small></p>
+				<p><small>ETR: 27/07 23h16 - Erreur : données corrompues - Statut : <s>IGNORÉ</s></small></p>'
+            ],
+            "lang" => "fr",
+            "design" => "typed",
+            "background" => "printer",
         ],
         "offrex" => [
             "title" => "Maison à vendre",
@@ -2981,6 +3081,32 @@ class TextFixtures extends Fixture
             "background" => "blood",
             "design" => "written"
         ],
+        "noguid" => [
+            "title" => "Non guide du survivant",
+            "author" => "Balthy",
+            "content" => [
+                '>
+				<h1>Notice d\'accueil malhonnête pour nouveaux arrivants</h1>
+				<p>Les premiers conseils pour que votre existence dure plus longtemps</p>
+				<p>
+				Dès le crépuscule, dans le désert, au choix :<br>
+				Fouillez soigneusement le désert à la recherche d\'une zone où il y a d\'autres campeurs. Plus il y en a, mieux c\'est.<br>
+				Entrez dans la ruine, et étanchez enfin votre soif.<br>
+				</p>
+				<p>
+				Vers minuit, en ville, au choix :<br>
+				Dirigez vous en veille avec une bonne gueule de bois et une radio allumée, ça vous rendra plus fort.<br>
+				Ouvrez les portes, il faut aérer la ville pour éloigner le danger.<br>
+				</p>
+				<p>
+				En toutes circonstances :
+				Rien ne vaut la construction d\'un bon réacteur nucléaire. Puis, courir loin.
+				</p>'
+            ],
+            "lang" => "fr",
+            "background" => "notepad",
+            "design" => "written"
+        ],
         "teia" => [
             "title" => "Note d'un citoyen banni",
             "author" => "Teia",
@@ -3005,6 +3131,33 @@ class TextFixtures extends Fixture
             ],
             "lang" => "fr",
             "background" => "letter",
+            "design" => "written"
+        ],
+        "notesu" => [
+            "title" => "Note suspecte",
+            "author" => "kukrapok",
+            "content" => [
+                '>
+				<em>Note suspecte</em>
+				<p>Je suis Faucha, de la planète Tritis.<br>
+				J\'ai des difficultés à écrire car je n\'ai pas de doigts au bout de mes membres supérieurs, mais mon plumage est doux et soyeux.</p>
+				<p>
+				Dans la vie, j\'aime guetter les survivants, du haut de ma branche morte, et leur foncer dessus quand ils déblatèrent des idioties. Ce sont des proies juteuses.
+				Des fois c\'est le buffet, on appelle ça un Crocus avec mes congénères.
+				Les mettre au sol, les picorer jusqu\'à la mort, puis dévorer leur foie, c\'est notre passion.
+				</p>
+				<p>
+				Si vous trouvez cette note, vous êtes déjà mort...
+				</p>
+				<p>
+				Je suis là !
+				</p>
+				<p>
+				Crôôôâaaa !
+				</p>'
+            ],
+            "lang" => "fr",
+            "background" => "secret",
             "design" => "written"
         ],
         "ie" => [
@@ -3355,6 +3508,28 @@ class TextFixtures extends Fixture
             "background" => "secret",
             "design" => "smallé"
         ],
+        "exp1" => [
+            "title" => "Rapport d'expérience, origine inconnue",
+            "author" => "zhack",
+            "content" => [
+                '<h1>Test de la souche n°128</h1>
+				<p>Le sujet a montré une nette régression du virus pendant 2 heure, mais hélas, le virus a développé une immunité extrêmement rapidement et a conduit le sujet à une crise cardiaque.</p>
+				<h1>Test de la souche n°129</h1>
+				<p>Le sujet n\'a pas survécu à la souche : l\'afflux sanguin a augmenté de façon exponentielle dans certains membres.</p>
+				<h1>Test de la souche n°130</h1>
+				<p>Pneumothorax.</p>',
+				'<h1>Test de la souche n°131</h1>
+				<p>1/ La souche n°131 semble avoir marché. Effet secondaire : les fonctions cérébrales sont réduites aux cortex primitif et le sujet semble manifester une grande peur face à de l\'eau.  Je laisse le sujet en observation.</p>
+				<p>2/ L\'épiderme du sujet ne semble plus supporter l\'eau mais plus étrange encore, le sujet ne semble plus avoir besoin de s\'hydrater.</p>
+				<p>Concl : J\'envoie le sujet au docteur Dalek pour la phase 2. Je continue les tests sur cette souche.</p>',
+				'<h1>Test de la souche n°131 bis</h1>
+				<p>1/Cette souche est miraculeuse, elle semble résister à la plupart des maladies. La contrepartie semble être une hausse de l\'agressivité lors de l\'absence de lumière et toujours cette vulnérabilité à l\'eau. Nous sommes assurément dans la bonne voie pour le projet  VU.</p>
+				<p>Auteur : zhack</p>'
+            ],
+            "lang" => "fr",
+            "background" => "secret",
+            "design" => "typed"
+        ],
         "army1" => [
             "title" => "Rapport d'opération Nov-46857-A",
             "author" => "zhack",
@@ -3410,6 +3585,25 @@ class TextFixtures extends Fixture
             "lang" => "fr",
             "background" => "letter",
             "design" => "small"
+        ],
+        "recet" => [
+            "title" => "Recette",
+            "author" => "Paranoid",
+            "content" => [
+                '>
+				<h1>RECETTE DE RAGOUT DE ZOMBIE</h1>
+				<h3>pour 6 personnes</h3>
+				<p>Prendre 1 kilo de viande de zombie ( je vous conseille une cuisse bien "fraîche" ),
+				la faire saisir sur feu vif dans une marmite, ajouter une poignée de sciure (elle sert à lier la sauce),
+				ajouter 3 légumes suspects émincés, 1 doigt de "debout-les-morts". Recouvrir d\'eau, pure ou non, ou si défaut, du sang bien frais.
+				Touiller avec un os charnu, et servir bien chaud. N\'hésitez pas à y ajouter ce que vous voulez, mais faites attention quand même.</p>
+				<p>
+				pincez-vous le nez, et bon appétit !
+				</p>'
+            ],
+            "lang" => "fr",
+            "background" => "notepad",
+            "design" => "written"
         ],
         "refabr" => [
             "title" => "Refuge Abrité",
@@ -3468,6 +3662,17 @@ class TextFixtures extends Fixture
             "lang" => "fr",
             "background" => "carton",
             "design" => "small"
+        ],
+        "ana" => [
+            "title" => "Ruine blockhaus abandonné - 6km ESE",
+            "author" => "Ana147",
+            "content" => [
+                '>
+				%asset%build/images/fanart/worldmap05.jpg%endasset%'
+            ],
+            "lang" => "fr",
+            "background" => "carton",
+            "design" => "written"
         ],
         "cutleg" => [
             "title" => "Récit d'un habitant",
@@ -4178,7 +4383,7 @@ class TextFixtures extends Fixture
              "content" => [
                 '>
                 %asset%build/images/fanart/worldmap04.png%endasset%'
-                     ],
+             ],
              "lang" => "fr",
              "background" => "carton",
              "design" => "written"
