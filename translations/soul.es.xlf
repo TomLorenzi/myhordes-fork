@@ -691,5 +691,239 @@
         <target>Haus besuchen</target>
       </segment>
     </unit>
+    <unit id="q4I8gVL" name="Eine neue Seele importieren">
+      <notes>
+        <note category="german">Eine neue Seele importieren</note>
+      </notes>
+      <segment>
+        <source>Eine neue Seele importieren</source>
+        <target>Eine neue Seele importieren</target>
+      </segment>
+    </unit>
+    <unit id="Oh71xYO" name="Twinoid Application ID">
+      <notes>
+        <note category="german">Twinoid Application ID</note>
+      </notes>
+      <segment>
+        <source>Twinoid Application ID</source>
+        <target>Twinoid Application ID</target>
+      </segment>
+    </unit>
+    <unit id="GT7Cwam" name="Twinoid Secret Key">
+      <notes>
+        <note category="german">Twinoid Secret Key</note>
+      </notes>
+      <segment>
+        <source>Twinoid Secret Key</source>
+        <target>Twinoid Secret Key</target>
+      </segment>
+    </unit>
+    <unit id="SWMx7X8" name="Seele auswählen">
+      <notes>
+        <note category="german">Seele auswählen</note>
+      </notes>
+      <segment>
+        <source>Seele auswählen</source>
+        <target>Seele auswählen</target>
+      </segment>
+    </unit>
+    <unit id="KVqdEan" name="Import starten">
+      <notes>
+        <note category="german">Import starten</note>
+      </notes>
+      <segment>
+        <source>Import starten</source>
+        <target>Import starten</target>
+      </segment>
+    </unit>
+    <unit id="WeNNcNG" name="Deine importierten Seelen">
+      <notes>
+        <note category="german">Deine importierten Seelen</note>
+      </notes>
+      <segment>
+        <source>Deine importierten Seelen</source>
+        <target>Deine importierten Seelen</target>
+      </segment>
+    </unit>
+    <unit id="aTN.bek" name="Vorschau">
+      <notes>
+        <note category="german">Vorschau</note>
+      </notes>
+      <segment>
+        <source>Vorschau</source>
+        <target>Vorschau</target>
+      </segment>
+    </unit>
+    <unit id="pGqYh1Z" name="Hurra, wir haben dein Profil heruntergeladen!">
+      <notes>
+        <note category="german">Hurra, wir haben dein Profil heruntergeladen!</note>
+      </notes>
+      <segment>
+        <source>Hurra, wir haben dein Profil heruntergeladen!</source>
+        <target>Hurra, wir haben dein Profil heruntergeladen!</target>
+      </segment>
+    </unit>
+    <unit id="j_qDUZ2" name="39b14b5">
+      <notes>
+        <note category="german">Bitte prüfe die unten angegebenen Daten und bestätige den Import, wenn alles OK ist.</note>
+      </notes>
+      <segment>
+        <source>Bitte prüfe die unten angegebenen Daten und bestätige den Import, wenn alles OK ist.</source>
+        <target>Bitte prüfe die unten angegebenen Daten und bestätige den Import, wenn alles OK ist.</target>
+      </segment>
+    </unit>
+    <unit id="HwA4Kx3" name="Twinoid-Profil">
+      <notes>
+        <note category="german">Twinoid-Profil</note>
+      </notes>
+      <segment>
+        <source>Twinoid-Profil</source>
+        <target>Twinoid-Profil</target>
+      </segment>
+    </unit>
+    <unit id="22.0Wcj" name="Profil ansehen">
+      <notes>
+        <note category="german">Profil ansehen</note>
+      </notes>
+      <segment>
+        <source>Profil ansehen</source>
+        <target>Profil ansehen</target>
+      </segment>
+    </unit>
+    <unit id="heTnD9H" name="Seelen-ID">
+      <notes>
+        <note category="german">Seelen-ID</note>
+      </notes>
+      <segment>
+        <source>Seelen-ID</source>
+        <target>Seelen-ID</target>
+      </segment>
+    </unit>
+    <unit id="fmZlI_I" name="Saison">
+      <notes>
+        <note category="german">Saison</note>
+      </notes>
+      <segment>
+        <source>Saison</source>
+        <target>Saison</target>
+      </segment>
+    </unit>
+    <unit id="FQORaiq" name="Tag">
+      <notes>
+        <note category="german">Tag</note>
+      </notes>
+      <segment>
+        <source>Tag</source>
+        <target>Tag</target>
+      </segment>
+    </unit>
+    <unit id="Bfb7kn4" name="Stadtname">
+      <notes>
+        <note category="german">Stadtname</note>
+      </notes>
+      <segment>
+        <source>Stadtname</source>
+        <target>Stadtname</target>
+      </segment>
+    </unit>
+    <unit id="H9ZffoW" name="Nachrichten">
+      <notes>
+        <note category="german">Nachrichten</note>
+      </notes>
+      <segment>
+        <source>Nachrichten</source>
+        <target>Nachrichten</target>
+      </segment>
+    </unit>
+    <unit id="hn7LsRJ" name="Punkte">
+      <notes>
+        <note category="german">Punkte</note>
+      </notes>
+      <segment>
+        <source>Punkte</source>
+        <target>Punkte</target>
+      </segment>
+    </unit>
+    <unit id="bRng7VP" name="%d% überlebt">
+      <notes>
+        <note category="german">%d% überlebt</note>
+      </notes>
+      <segment>
+        <source>%d% überlebt</source>
+        <target>%d% überlebt</target>
+      </segment>
+    </unit>
+    <unit id="rD2ZHAN" name="Letzte Worte">
+      <notes>
+        <note category="german">Letzte Worte</note>
+      </notes>
+      <segment>
+        <source>Letzte Worte</source>
+        <target>Letzte Worte</target>
+      </segment>
+    </unit>
+    <unit id="N5nG16_" name="Import bestätigen">
+      <notes>
+        <note category="german">Import bestätigen</note>
+      </notes>
+      <segment>
+        <source>Import bestätigen</source>
+        <target>Import bestätigen</target>
+      </segment>
+    </unit>
+    <unit id="Asz_NPm" name="Hast du ein Seele bei %hordes%, %dv%, %d2n% oder %zn%?">
+      <notes>
+        <note category="german">Hast du ein Seele bei %hordes%, %dv%, %d2n% oder %zn%?</note>
+      </notes>
+      <segment>
+        <source>Hast du ein Seele bei %hordes%, %dv%, %d2n% oder %zn%?</source>
+        <target>Hast du ein Seele bei %hordes%, %dv%, %d2n% oder %zn%?</target>
+      </segment>
+    </unit>
+    <unit id="VVu6KAH" name="Seele importieren">
+      <notes>
+        <note category="german">Seele importieren</note>
+      </notes>
+      <segment>
+        <source>Seele importieren</source>
+        <target>Seele importieren</target>
+      </segment>
+    </unit>
+    <unit id="CezJVcA" name="Dein Profil konnte nicht geladen werden, da Twinoid die Anfrage abgelehnt hat.">
+      <notes>
+        <note category="german">Dein Profil konnte nicht geladen werden, da Twinoid die Anfrage abgelehnt hat.</note>
+      </notes>
+      <segment>
+        <source>Dein Profil konnte nicht geladen werden, da Twinoid die Anfrage abgelehnt hat.</source>
+        <target>Dein Profil konnte nicht geladen werden, da Twinoid die Anfrage abgelehnt hat.</target>
+      </segment>
+    </unit>
+    <unit id="q3h_whw" name="1260b6c">
+      <notes>
+        <note category="german">Dein Profil konnte nicht geladen werden, da die Datenverarbeitung fehlgeschlagen ist.</note>
+      </notes>
+      <segment>
+        <source>Dein Profil konnte nicht geladen werden, da die Datenverarbeitung fehlgeschlagen ist.</source>
+        <target>Dein Profil konnte nicht geladen werden, da die Datenverarbeitung fehlgeschlagen ist.</target>
+      </segment>
+    </unit>
+    <unit id="oF2e3r3" name="3bce6e7">
+      <notes>
+        <note category="german">Das angegebene Profil kann nicht importiert werden, da es bereits einem anderen MyHordes-Spieler zugeordnet ist.</note>
+      </notes>
+      <segment>
+        <source>Das angegebene Profil kann nicht importiert werden, da es bereits einem anderen MyHordes-Spieler zugeordnet ist.</source>
+        <target>Das angegebene Profil kann nicht importiert werden, da es bereits einem anderen MyHordes-Spieler zugeordnet ist.</target>
+      </segment>
+    </unit>
+    <unit id="VYR1ULC" name="5cf3dce">
+      <notes>
+        <note category="german">Das angegebene Profil kann nicht importiert werden, da es einem fremden Twinoid-Konto zugeordnet ist.</note>
+      </notes>
+      <segment>
+        <source>Das angegebene Profil kann nicht importiert werden, da es einem fremden Twinoid-Konto zugeordnet ist.</source>
+        <target>Das angegebene Profil kann nicht importiert werden, da es einem fremden Twinoid-Konto zugeordnet ist.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
