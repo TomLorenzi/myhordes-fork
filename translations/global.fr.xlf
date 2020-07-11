@@ -1333,5 +1333,176 @@
         <target>Lien permanent vers ce message :</target>
       </segment>
     </unit>
+    <unit id="WyLb36J" name="Deinen Rucksack umklammern">
+      <notes>
+        <note category="german">Deinen Rucksack umklammern</note>
+      </notes>
+      <segment>
+        <source>Deinen Rucksack umklammern</source>
+        <target>Se cramponner à son sac à dos</target>
+      </segment>
+    </unit>
+    <unit id="My.PxrH" name="Schreien">
+      <notes>
+        <note category="german">Schreien</note>
+      </notes>
+      <segment>
+        <source>Schreien</source>
+        <target>Hurler</target>
+      </segment>
+    </unit>
+    <unit id="pBxprfI" name="Rotz und Wasser heulen">
+      <notes>
+        <note category="german">Rotz und Wasser heulen</note>
+      </notes>
+      <segment>
+        <source>Rotz und Wasser heulen</source>
+        <target>Vociférer comme un dément</target>
+      </segment>
+    </unit>
+    <unit id="0GmUL4e" name="Die Zähne zusammenbeißen">
+      <notes>
+        <note category="german">Die Zähne zusammenbeißen</note>
+      </notes>
+      <segment>
+        <source>Die Zähne zusammenbeißen</source>
+        <target>Claquer des dents</target>
+      </segment>
+    </unit>
+    <unit id="VgN.Hot" name="Eine Gitarre umarmen">
+      <notes>
+        <note category="german">Eine Gitarre umarmen</note>
+      </notes>
+      <segment>
+        <source>Eine Gitarre umarmen</source>
+        <target>Se cramponner à un bout de bois</target>
+      </segment>
+    </unit>
+    <unit id="PeITDbg" name="Nervös weinen">
+      <notes>
+        <note category="german">Nervös weinen</note>
+      </notes>
+      <segment>
+        <source>Nervös weinen</source>
+        <target>Pleurer nerveusement</target>
+      </segment>
+    </unit>
+    <unit id="Qi1mhHC" name="In Panik ausbrechen">
+      <notes>
+        <note category="german">In Panik ausbrechen</note>
+      </notes>
+      <segment>
+        <source>In Panik ausbrechen</source>
+        <target>Crier et paniquer</target>
+      </segment>
+    </unit>
+    <unit id="BCykX16" name="Hinter dem Wrack verstecken">
+      <notes>
+        <note category="german">Hinter dem Wrack verstecken</note>
+      </notes>
+      <segment>
+        <source>Hinter dem Wrack verstecken</source>
+        <target>Se planquer derrière des déchets</target>
+      </segment>
+    </unit>
+    <unit id="ho1chRn" name="Die Tür zuhalten">
+      <notes>
+        <note category="german">Die Tür zuhalten</note>
+      </notes>
+      <segment>
+        <source>Die Tür zuhalten</source>
+        <target>Tenir la porte</target>
+      </segment>
+    </unit>
+    <unit id="7ajXkGq" name="Unter der Decke verstecken">
+      <notes>
+        <note category="german">Unter der Decke verstecken</note>
+      </notes>
+      <segment>
+        <source>Unter der Decke verstecken</source>
+        <target>Attendre sous les draps</target>
+      </segment>
+    </unit>
+    <unit id="F87Kxz9" name="Nach Hilfe schreien">
+      <notes>
+        <note category="german">Nach Hilfe schreien</note>
+      </notes>
+      <segment>
+        <source>Nach Hilfe schreien</source>
+        <target>Appeler à l'aide</target>
+      </segment>
+    </unit>
+    <unit id="UC2Xq1w" name="&quot;Hilfe&quot; schreien">
+      <notes>
+        <note category="german">"Hilfe" schreien</note>
+      </notes>
+      <segment>
+        <source>"Hilfe" schreien</source>
+        <target>Brailler "Au secours"</target>
+      </segment>
+    </unit>
+    <unit id="IzxXFRY" name="Unter einem Karton verstecken">
+      <notes>
+        <note category="german">Unter einem Karton verstecken</note>
+      </notes>
+      <segment>
+        <source>Unter einem Karton verstecken</source>
+        <target>Ramper sous un carton</target>
+      </segment>
+    </unit>
+    <unit id="68aHwRD" name="Unter dem Bett verstecken">
+      <notes>
+        <note category="german">Unter dem Bett verstecken</note>
+      </notes>
+      <segment>
+        <source>Unter dem Bett verstecken</source>
+        <target>Se cacher sous le lit</target>
+      </segment>
+    </unit>
+    <unit id=".md5gGf" name="Ruhig bleiben...">
+      <notes>
+        <note category="german">Ruhig bleiben...</note>
+      </notes>
+      <segment>
+        <source>Ruhig bleiben...</source>
+        <target>Attendre calmement...</target>
+      </segment>
+    </unit>
+    <unit id="LxIgZj7" name="In die Fötusstellung zusammenrollen">
+      <notes>
+        <note category="german">In die Fötusstellung zusammenrollen</note>
+      </notes>
+      <segment>
+        <source>In die Fötusstellung zusammenrollen</source>
+        <target>Pleurer en position fœtale</target>
+      </segment>
+    </unit>
+    <unit id="1uUvkyM" name="Alleine laut singen">
+      <notes>
+        <note category="german">Alleine laut singen</note>
+      </notes>
+      <segment>
+        <source>Alleine laut singen</source>
+        <target>Ségosiller tout seul chez soi</target>
+      </segment>
+    </unit>
+    <unit id="V3ZrObm" name="Um dein Leben beten">
+      <notes>
+        <note category="german">Um dein Leben beten</note>
+      </notes>
+      <segment>
+        <source>Um dein Leben beten</source>
+        <target>Prier pour sa vie</target>
+      </segment>
+    </unit>
+    <unit id="0HFdAAh" name="Die Backen halten">
+      <notes>
+        <note category="german">Die Backen halten</note>
+      </notes>
+      <segment>
+        <source>Die Backen halten</source>
+        <target>Serrer les fesses</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

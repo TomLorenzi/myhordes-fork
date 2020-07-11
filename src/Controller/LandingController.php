@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Citizen;
 use App\Entity\CitizenRankingProxy;
 use App\Entity\User;
+use App\Service\RandomGenerator;
 use App\Service\TimeKeeperService;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -46,12 +47,12 @@ class LandingController extends AbstractController
      * @param TimeKeeperService $tk
      * @return Response
      */
-    public function maintenance_attack(EntityManagerInterface $em, TimeKeeperService $tk): Response
+    public function maintenance_attack(EntityManagerInterface $em, TimeKeeperService $tk, RandomGenerator $rand): Response
     {
         if (!$tk->isDuringAttack())
             return $this->redirect($this->generateUrl('initial_landing'));
 
-        return $this->render( 'ajax/public/maintenance_attack.html.twig', [] );
+        return $this->render( 'ajax/public/maintenance_attack.html.twig', ['rand' => $rand] );
     }
 
 
