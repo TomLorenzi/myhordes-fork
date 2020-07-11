@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\TwinoidImportPreviewRepository;
 use App\Structures\TwinoidPayload;
+use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\ORM\Mapping\Table;
 use Doctrine\ORM\Mapping\UniqueConstraint;
@@ -60,7 +61,7 @@ class TwinoidImportPreview
         return $this->user;
     }
 
-    public function setUser(User $user): self
+    public function setUser(?User $user): self
     {
         $this->user = $user;
 
@@ -115,7 +116,7 @@ class TwinoidImportPreview
         return $this;
     }
 
-    public function getData(): TwinoidPayload {
-        return new TwinoidPayload($this->getPayload());
+    public function getData(EntityManagerInterface $em): TwinoidPayload {
+        return new TwinoidPayload($this->getPayload(), $em);
     }
 }

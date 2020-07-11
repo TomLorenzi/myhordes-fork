@@ -2,12 +2,18 @@
 {% block soul_content %}
     <div class="row">
         <div class="cell rw-12 padded">
-            <h5>{{ 'Vorschau'|trans({},'soul') }}</h5>
+
             <div class="note">
                 <b>{{ 'Hurra, wir haben dein Profil heruntergeladen!'|trans({},'soul') }}</b>
                 {{ 'Bitte prüfe die unten angegebenen Daten und bestätige den Import, wenn alles OK ist.'|trans({},'soul') }}
             </div>
 
+            <h5>{{ 'Informationen über dein Twinoid-Konto'|trans({},'soul') }}</h5>
+            <div class="help">
+                {{ 'Bitte stelle sicher, dass du das korrekte Twinoid-Konto mit deinem MyHordes-Account verbindest.'|trans({},'soul') }}
+                <b>{{ 'Einmal bestätigt, kann die Verknüpfung nicht mehr aufgehoben werden und du kannst kein anderes Twinoid-Konto mehr verknüpfen.' }}</b>
+                {{ 'Du kannst natürlich weiterhin Konten von Hordes, DieVerdammten, Die2Nite und Zombinoia importieren, welche mit dem selben Twinoid-Konto verbunden sind.' }}
+            </div>
             {# @var payload \App\Structures\TwinoidPayload #}
             <div class="row">
                 <div class="padded cell rw-4"><b>{{ 'Twinoid-Profil'|trans({},'soul') }}</b></div>
@@ -17,38 +23,135 @@
                 <div class="padded cell rw-8">{{ payload.scopeId }}</div>
             </div>
 
-
-            <div class="row-table">
-                <div class="row header">
-                    <div class="padded cell rw-1">{{ 'Saison'|trans({},'soul') }}</div>
-                    <div class="padded cell rw-2">{{ 'Tag'|trans({},'soul') }}</div>
-                    <div class="padded cell rw-4">{{ 'Stadtname'|trans({},'soul') }}</div>
-                    <div class="padded cell rw-4">{{ 'Nachrichten'|trans({},'soul') }}</div>
-                    <div class="padded cell rw-1">{{ 'Punkte'|trans({},'soul') }}</div>
-                </div>
-                {% for town in payload.pastTowns %}
-                    <div class="row">
-                        <div class="padded cell rw-1">{{ town.season }}</div>
-                        <div class="padded cell rw-2">
-                            {{ town.day }}
-                            {% if town.day != town.survivedDays %}
-                                <br />( <i>{{ '%d% überlebt'|trans({'%d%': town.survivedDays},'soul') }}</i> )
-                            {% endif %}
-                        </div>
-                        <div class="padded cell rw-4">{{ town.name }}</div>
-                        <div class="padded cell rw-4">
-                            {% if town.message is not empty %}
-                                {{ 'Letzte Worte'|trans({},'soul') }}: <i class="small">"{{ town.message }}"</i>
-                            {% endif %}
-                            {% if town.message is not empty and town.comment is not empty %}<br />{% endif %}
-                            {% if town.comment is not empty %}
-                                {{ 'Kommentar'|trans({},'soul') }}: <i class="small">"{{ town.comment }}"</i>
-                            {% endif %}
-                            {% if town.message is empty and town.comment is empty %}&nbsp;{% endif %}
-                        </div>
-                        <div class="padded cell rw-1">{{ town.score }}</div>
+            <h5>{{ 'Vergangene Städte'|trans({},'soul') }}</h5>
+            <div class="help">
+                {{ 'Hier werden die Städte angezeigt, die du in der vergangenheit gespielt hast. Wenn du dich aktuell in einer Stadt befindest, wird diese hier nicht angezeigt und auch nicht importiert.'|trans({},'soul') }}
+            </div>
+            <div class="note">
+                {% set town_num = 0 %}
+                <div class="row-table" id="data_towns">
+                    <div class="row header">
+                        <div class="padded cell rw-1">{{ 'Saison'|trans({},'soul') }}</div>
+                        <div class="padded cell rw-1">{{ 'Tag'|trans({},'soul') }}</div>
+                        <div class="padded cell rw-4">{{ 'Stadtname'|trans({},'soul') }}</div>
+                        <div class="padded cell rw-5">{{ 'Infos'|trans({},'soul') }}</div>
+                        <div class="padded cell rw-1">{{ 'Punkte'|trans({},'soul') }}</div>
                     </div>
-                {% endfor %}
+                    {% for town in payload.pastTowns %}
+                        {% set town_num = town_num + 1 %}
+                        <div class="row {% if town_num > 5 %}hidden{% endif %}">
+                            <div class="padded cell rw-1">{{ town.season }}</div>
+                            <div class="padded cell rw-1">{{ town.day }}</div>
+                            <div class="padded cell rw-4">{{ town.name }}</div>
+                            <div class="padded cell rw-5">
+                                {% if town.death != 0 %}
+                                    <div>
+                                        {{ 'Todesart'|trans({},'soul') }}:
+                                        <i class="small">
+                                            {{ town.convertDeath.label|trans({},'game') }}
+                                            {% if town.convertDeath.ref == 0 %}
+                                                ({{ town.death }})
+                                            {% endif %}
+                                        </i>
+
+                                    </div>
+                                {% endif %}
+                                {% if town.day != town.survivedDays %}
+                                    <div>{{ 'Überlebt'|trans({},'soul') }}: <i class="small">{{ '%d% Tage'|trans({'%d%': town.survivedDays},'soul') }}</i></div>
+                                {% endif %}
+                                {% if town.message is not empty %}
+                                    <div>{{ 'Letzte Worte'|trans({},'soul') }}: <i class="small">"{{ town.message }}"</i></div>
+                                {% endif %}
+                                {% if town.comment is not empty %}
+                                    <div>{{ 'Kommentar'|trans({},'soul') }}: <i class="small">"{{ town.comment }}"</i></div>
+                                {% endif %}
+                            </div>
+                            <div class="padded cell rw-1">{{ town.score }}</div>
+                        </div>
+                    {% endfor %}
+                </div>
+                {% if town_num > 5 %}
+                    <div class="center"><span id="more_towns_btn" class="small pointer">{{ 'Mehr anzeigen'|trans({},'global') }}</span></div>
+                {% endif %}
+            </div>
+
+            <h5>{{ 'Auszeichnungen'|trans({},'soul') }}</h5>
+            <div class="help">
+                {{ 'Hier werden dir die Auszeichnungen angezeigt, welche du im Laufe der Zeit verdient hast.'|trans({},'soul') }}
+            </div>
+            <div class="note">
+                {% set picto_num = 0 %}
+                <div class="row-table" id="data_pictos">
+                    <div class="row header">
+                        <div class="padded cell rw-6">{{ 'Auszeichnung'|trans({},'soul') }}</div>
+                        <div class="padded cell rw-6">{{ 'Anzahl'|trans({},'soul') }}</div>
+                    </div>
+                    {% for picto in payload.pictos %}
+                        {% set picto_num = picto_num + 1 %}
+                        <div class="row {% if picto_num > 5 %}hidden{% endif %}">
+                            <div class="padded cell rw-6">
+                                {# @var pp \App\Entity\PictoPrototype #}
+                                {% set pp = picto.convertPicto %}
+                                {% if pp %}
+                                    <img alt="" src="{{ asset('build/images/pictos/' ~ pp.icon ~ '.gif') }}" />
+                                    {{ pp.label|trans({},'game') }}
+                                {% else %}
+                                    <b>{{ 'Unbekannte Auszeichnung' }}</b><br /><i class="small">"{{ picto.name }}" - {{ picto.id }}</i>
+                                {% endif %}
+                            </div>
+                            <div class="padded cell rw-6">
+                                {{ picto.count }}
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+                {% if picto_num > 5 %}
+                    <div class="center"><span id="more_pictos_btn" class="small pointer">{{ 'Mehr anzeigen'|trans({},'global') }}</span></div>
+                {% endif %}
+            </div>
+
+            <h5>{{ 'Freischaltbares'|trans({},'soul') }}</h5>
+            <div class="help">
+                {{ 'Hier siehst du deine Titel und Icons.'|trans({},'soul') }}
+            </div>
+            <div class="note">
+                {% set ach_num = 0 %}
+                <div class="row-table" id="data_ach">
+                    <div class="row header">
+                        <div class="padded cell rw-1">{{ 'Typ'|trans({},'soul') }}</div>
+                        <div class="padded cell rw-4">{{ 'Name & Infos'|trans({},'soul') }}</div>
+                        <div class="padded cell rw-4">{{ 'Wert'|trans({},'soul') }}</div>
+                        <div class="padded cell rw-3">{{ 'Datum'|trans({},'soul') }}</div>
+                    </div>
+                    {% for ach in payload.unlockables %}
+                        {% set ach_num = ach_num + 1 %}
+                        <div class="row {% if ach_num > 5 %}hidden{% endif %}">
+                            <div class="padded cell rw-1">{{ ach.niceType|trans({},'soul') }}</div>
+                            <div class="padded cell rw-4">
+                                <div>{{ ach.name }}</div>
+                                {# @var pp \App\Entity\PictoPrototype #}
+                                {% set pp = ach.convertPicto %}
+                                {% if pp %}
+                                    <div class="small">
+                                        <img alt="" src="{{ asset('build/images/pictos/' ~ pp.icon ~ '.gif') }}" />
+                                        {{ pp.label|trans({},'game') }} x <b>{{ ach.count }}</b>
+                                    </div>
+                                {% endif %}
+                            </div>
+                            <div class="padded cell rw-4">
+                                {% if ach.type == 'icon' %}
+                                    <img src="{{ ach.data }}" alt="" />
+                                {% else %}
+                                    <b>{{ ach.data }}</b>
+                                {% endif %}
+                            </div>
+                            <div class="padded cell rw-3">{{ ach.date|format_datetime('medium', 'medium') }}</div>
+                        </div>
+                    {% endfor %}
+                </div>
+                {% if ach_num > 5 %}
+                    <div class="center"><span id="more_ach_btn" class="small pointer">{{ 'Mehr anzeigen'|trans({},'global') }}</span></div>
+                {% endif %}
             </div>
 
             <div class="row">
@@ -65,5 +168,43 @@
 {% block js %}
     {{ parent() }}
     <script>
+        
+        document.getElementById('begin_import_can_btn').addEventListener('click', function() {
+            $.ajax.easySend( '{{ path('soul_import_cancel_api') }}', {},
+                function () {
+                    $.ajax.load(null, '{{ path('soul_settings') }}', true);
+                } )
+        });
+
+        let town_more_btn = document.getElementById('more_towns_btn');
+        if (town_more_btn) town_more_btn.addEventListener('click', function() {
+            let town_list = document.getElementById( 'data_towns' );
+            let hidden_entries = town_list.querySelectorAll('.row.hidden');
+            for (let i = 0; i < Math.min(10,hidden_entries.length); i++)
+                hidden_entries[i].classList.remove('hidden');
+            if (hidden_entries.length <= 10)
+                town_more_btn.classList.add('hidden');
+        });
+
+        let picto_more_btn = document.getElementById('more_pictos_btn');
+        if (picto_more_btn) picto_more_btn.addEventListener('click', function() {
+            let picto_list = document.getElementById( 'data_pictos' );
+            let hidden_entries = picto_list.querySelectorAll('.row.hidden');
+            for (let i = 0; i < Math.min(10,hidden_entries.length); i++)
+                hidden_entries[i].classList.remove('hidden');
+            if (hidden_entries.length <= 10)
+                picto_more_btn.classList.add('hidden');
+        });
+
+        let ach_more_btn = document.getElementById('more_ach_btn');
+        if (ach_more_btn) ach_more_btn.addEventListener('click', function() {
+            let ach_list = document.getElementById( 'data_ach' );
+            let hidden_entries = ach_list.querySelectorAll('.row.hidden');
+            for (let i = 0; i < Math.min(10,hidden_entries.length); i++)
+                hidden_entries[i].classList.remove('hidden');
+            if (hidden_entries.length <= 10)
+                ach_more_btn.classList.add('hidden');
+        });
+
     </script>
 {% endblock %}

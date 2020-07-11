@@ -3,23 +3,24 @@
     <div class="row">
         <div class="cell rw-12 padded">
             <h5>{{ 'Eine neue Seele importieren'|trans({},'soul') }}</h5>
-
-            <div class="row">
-                <div class="cell padded rw-4 rw-sm-12">
-                    <label for="twin_id">{{ 'Twinoid Application ID'|trans({},'soul') }}</label>
+            {% if need_sk %}
+                <div class="row">
+                    <div class="cell padded rw-4 rw-sm-12">
+                        <label for="twin_id">{{ 'Twinoid Application ID'|trans({},'soul') }}</label>
+                    </div>
+                    <div class="cell padded rw-8 rw-sm-12">
+                        <input id="twin_id" type="text">
+                    </div>
                 </div>
-                <div class="cell padded rw-8 rw-sm-12">
-                    <input id="twin_id" type="text">
+                <div class="row">
+                    <div class="cell padded rw-4 rw-sm-12">
+                        <label for="twin_sk">{{ 'Twinoid Secret Key'|trans({},'soul') }}</label>
+                    </div>
+                    <div class="cell padded rw-8 rw-sm-12">
+                        <input id="twin_sk" type="password">
+                    </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="cell padded rw-4 rw-sm-12">
-                    <label for="twin_sk">{{ 'Twinoid Secret Key'|trans({},'soul') }}</label>
-                </div>
-                <div class="cell padded rw-8 rw-sm-12">
-                    <input id="twin_sk" type="password">
-                </div>
-            </div>
+            {% endif %}
             <div class="row">
                 <div class="cell padded rw-4 rw-sm-12">
                     <label for="twin_scope">{{ 'Seele auswählen'|trans({},'soul') }}</label>
@@ -48,15 +49,17 @@
     {{ parent() }}
     <script>
         const tconf = $.client.config.twinoidImport.get();
-        if (tconf[0] > 0) document.getElementById('twin_id').value = tconf[0];
-        if (tconf[1])     document.getElementById('twin_sk').value = tconf[1];
-        if (tconf[2])     document.getElementById('twin_scope').querySelector('option[value="' + tconf[2] + '"]').setAttribute('selected','selected');
+        {% if need_sk %}
+            if (tconf[0] > 0) document.getElementById('twin_id').value = tconf[0];
+            if (tconf[1])     document.getElementById('twin_sk').value = tconf[1];
+        {% endif %}
+        if (tconf[2]) document.getElementById('twin_scope').querySelector('option[value="' + tconf[2] + '"]').setAttribute('selected','selected');
 
         {% if code is not empty %}
-            if (tconf[0] > 0 && tconf[1] && tconf[2]) {
+            if ({% if need_sk %}tconf[0] > 0 && tconf[1] && {% endif %} tconf[2]) {
 
                 $.ajax.easySend('{{ url('soul_import_api', {'code': code}) }}', {
-                    'app': tconf[0], 'sk': tconf[1], 'scope': tconf[2]
+                    {% if need_sk %}'app': tconf[0], 'sk': tconf[1],{% endif %} 'scope': tconf[2]
                 }, function() {
                     $.ajax.load(null, '{{ url('soul_import') }}', true, );
                 })
@@ -65,22 +68,39 @@
         {% endif %}
 
         document.getElementById('begin_import_btn').addEventListener('click', function() {
-            const id = document.getElementById('twin_id').value;
-            const sk = document.getElementById('twin_sk').value;
+            {% if need_sk %}
+                const id = document.getElementById('twin_id').value;
+                const sk = document.getElementById('twin_sk').value;
+            {% endif %}
             const sc = document.getElementById('twin_scope').value;
 
-            $.client.config.twinoidImport.set([id,sk,sc]);
+            {% if need_sk %}
+                $.client.config.twinoidImport.set([id,sk,sc]);
+            {% else %}
+                $.client.config.twinoidImport.set([0,'',sc]);
+            {% endif %}
 
-            const url =
-                'https://twinoid.com/oauth/auth' +
-                '?response_type=code' +
-                '&client_id=' + id +
-                '&redirect_uri={{ url('app_web_framework_import') }}' +
-                '&scope=' + sc +
-                '&state=user' +
-                '&access_type=online'
-            ;
-            window.location.replace(url);
+            $.ajax.easySend('{{ url('soul_import_turl_api', {'code': code}) }}', {
+                {% if need_sk %}'app': id, 'sk': sk,{% endif %} 'scope': sc
+            }, function(d) {
+                const url = d.goto;
+                if (url) {
+                    $.html.addLoadStack();
+                    window.location.replace(url);
+                }
+                else $.html.error('{{ 'Allgemeiner Fehler.'|trans({},'global')|e('js') }}');
+            })
+
+            //const url =
+            //    'https://twinoid.com/oauth/auth' +
+            //    '?response_type=code' +
+            //    '&client_id=' + id +
+            //    '&redirect_uri=' +
+            //    '&scope=' + sc +
+            //    '&state=user' +
+            //    '&access_type=online'
+            //;
+            //window.location.replace(url);
         });
     </script>
 {% endblock %}

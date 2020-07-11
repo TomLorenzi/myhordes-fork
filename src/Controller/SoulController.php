@@ -21,6 +21,7 @@ use App\Response\AjaxResponse;
 use App\Service\DeathHandler;
 use App\Service\ErrorHelper;
 use App\Service\JSONRequestParser;
+use App\Service\TwinoidHandler;
 use App\Service\UserFactory;
 use App\Service\UserHandler;
 use App\Service\AdminActionHandler;
@@ -199,12 +200,11 @@ class SoulController extends AbstractController
     }
 
     /**
-     * @Route("jx/soul/import/{state}/{code}", name="soul_import")
-     * @param string $state
+     * @Route("jx/soul/import/{code}", name="soul_import")
      * @param string $code
      * @return Response
      */
-    public function soul_import(string $state = '', string $code = ''): Response
+    public function soul_import(string $code = '', TwinoidHandler $twin): Response
     {
         /** @var User $user */
         $user = $this->getUser();
@@ -212,57 +212,87 @@ class SoulController extends AbstractController
         if ($cache = $this->entity_manager->getRepository(TwinoidImportPreview::class)->findOneBy(['user' => $user])) {
 
             return $this->render( 'ajax/soul/import_preview.html.twig', $this->addDefaultTwigArgs("soul_settings", [
-                'payload' => $cache->getData(),
+                'payload' => $cache->getData($this->entity_manager),
             ]) );
 
         } else return $this->render( 'ajax/soul/import.html.twig', $this->addDefaultTwigArgs("soul_settings", [
-            'state' => $state, 'code' => $code,
+            'code' => $code, 'need_sk' => !$twin->hasBuiltInTwinoidAccess(),
         ]) );
+    }
+
+    private function validate_twin_json_request(JSONRequestParser $json, TwinoidHandler $twin, ?string &$sc = null, ?string &$sk = null, ?int &$app = null): bool {
+        $sc = $json->get('scope', null);
+        if (!in_array($sc, ['www.hordes.fr','www.die2nite.com','www.dieverdammten.de','www.zombinoia.com']))
+            return false;
+
+        $sk    = $json->get('sk');
+        $app   = (int)$json->get('app');
+
+        if (!$twin->hasBuiltInTwinoidAccess()) {
+            if ($app <= 0 || empty($sk))
+                return false;
+            $twin->setFallbackAccess($app,$sk);
+        }
+
+        return true;
+    }
+
+    /**
+     * @Route("api/soul/import_turl", name="soul_import_turl_api")
+     * @param JSONRequestParser $json
+     * @param TwinoidHandler $twin
+     * @return Response
+     */
+    public function soul_import_twinoid_endpoint(JSONRequestParser $json, TwinoidHandler $twin): Response
+    {
+        if (!$this->validate_twin_json_request( $json, $twin, $scope ))
+            return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+        return AjaxResponse::success(true, ['goto' => $twin->getTwinoidAuthURL('import',$scope)]);
     }
 
     /**
      * @Route("api/soul/import/{code}", name="soul_import_api")
      * @param string $code
      * @param JSONRequestParser $json
+     * @param TwinoidHandler $twin
      * @return Response
      */
-    public function soul_import_loader(string $code, JSONRequestParser $json): Response
+    public function soul_import_loader(string $code, JSONRequestParser $json, TwinoidHandler $twin): Response
     {
         /** @var User $user */
         $user = $this->getUser();
 
+        if ($this->isGranted('ROLE_DUMMY'))
+            return AjaxResponse::error(ErrorHelper::ErrorPermissionError);
+
         if ($this->entity_manager->getRepository(TwinoidImportPreview::class)->findOneBy(['user' => $user]))
             return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
 
-        $scope = $json->get('scope');
-        $sk    = $json->get('sk');
-        $app   = (int)$json->get('app');
-
-        if (!$sk || $app <= 0 || !in_array($scope, ['www.hordes.fr','www.die2nite.com','www.dieverdammten.de','www.zombinoia.com']))
+        if (!$this->validate_twin_json_request( $json, $twin, $scope ))
             return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
-        $token_response = json_decode(file_get_contents('https://twinoid.com/oauth/token', false, stream_context_create([
-            'http' => [
-                'method' => "POST",
-                'header' => 'Content-type: application/x-www-form-urlencoded',
-                'content' => http_build_query($form = [
-                    'client_id'         => "$app",
-                    'client_secret'     => "$sk",
-                    'redirect_uri'      => $this->generateUrl('app_web_framework_import', [], UrlGeneratorInterface::ABSOLUTE_URL),
-                    'code'              => "$code",
-                    'grant_type'        => 'authorization_code',
-                ])
+        $twin->setCode( $code );
+
+        $data1 = $twin->getData("$scope/tid",'me', [
+            'name','twinId',
+            'playedMaps' => [ 'mapId','survival','mapName','season','v1','score','dtype','msg','comment','cleanup' ]
+        ], $error);
+
+        if ($error || isset($data1['error'])) return AjaxResponse::error(self::ErrorTwinImportInvalidResponse, ['response' => $data1]);
+
+        $twin_id = (int)($data1['twinId'] ?? 0);
+        if (!$twin_id) return AjaxResponse::error(self::ErrorTwinImportInvalidResponse, ['response' => $data1]);
+
+        $data2 = $twin->getData('twinoid.com',"site?host={$scope}", [
+            'me' => [ 'points','npoints',
+                'stats' => [ 'id','score','name','rare','social' ],
+                'achievements' => [ 'id','name','stat','score','points','npoints','date','index',
+                    'data' => ['type','title','url','prefix','suffix']
+                ]
             ]
-        ])), true);
+        ], $error);
 
-        if (isset($token_response["error"]) || !isset($token_response["access_token"]))
-            return AjaxResponse::error(self::ErrorTwinImportNoToken, ['response' => $token_response]);
-
-        $api_call = "http://$scope/tid/graph/me?access_token={$token_response["access_token"]}&fields=name,twinId,playedMaps.fields(mapId,survival,mapName,season,v1,score,dtype,msg,comment,cleanup)";
-        $data = json_decode(file_get_contents($api_call),true);
-
-        $twin_id = (int)($data['twinId'] ?? 0);
-        if (!$twin_id) return AjaxResponse::error(self::ErrorTwinImportInvalidResponse, ['response' => $data]);
+        if ($error || isset($data2['error'])) return AjaxResponse::error(self::ErrorTwinImportInvalidResponse, ['response' => $data2]);
 
         if ($user->getTwinoidID() === null) {
 
@@ -278,10 +308,36 @@ class SoulController extends AbstractController
             ->setTwinoidID($twin_id)
             ->setCreated(new DateTime())
             ->setScope($scope)
-            ->setPayload($data) );
+            ->setPayload(array_merge($data1,$data2['me'])) );
 
         try {
             $this->entity_manager->persist($user);
+            $this->entity_manager->flush();
+        } catch (Exception $e) {
+            return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
+        }
+
+        return AjaxResponse::success();
+    }
+
+    /**
+     * @Route("api/soul/import-cancel", name="soul_import_cancel_api")
+     * @param JSONRequestParser $json
+     * @return Response
+     */
+    public function soul_import_cancel(JSONRequestParser $json): Response
+    {
+        /** @var User $user */
+        $user = $this->getUser();
+
+        $pending = $this->entity_manager->getRepository(TwinoidImportPreview::class)->findOneBy(['user' => $user]);
+        if (!$pending) return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
+
+        $user->setTwinoidImportPreview(null);
+        $pending->setUser(null);
+
+        try {
+            $this->entity_manager->remove($pending);
             $this->entity_manager->flush();
         } catch (Exception $e) {
             return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);

@@ -83,15 +83,25 @@ class WebController extends AbstractController
     }
 
     /**
-     * @Route("/import")
+     * @Route("/twinoid", name="twinoid_auth_endpoint")
      * @return Response
      */
     public function framework_import(): Response
     {
         $request = Request::createFromGlobals();
         $state = $request->query->get('state');
-        $code = $request->query->get('code');
-        return $this->render_web_framework($this->generateUrl('soul_import', ['state' => $state, 'code' => $code]));
+        $code  = $request->query->get('code');
+        $error = $request->query->get('error');
+
+        if ($error) return new Response('Error: No code obtained! Reported error is "' . htmlentities($error) . '".');
+        if (empty( $code )) return new Response('Error: No code obtained!');
+
+        switch ($state) {
+            case 'import': return $this->render_web_framework($this->generateUrl('soul_import', ['code' => $code]));
+            default: return new Response('Error: Invalid state, can\'t redirect!');
+        }
+
+
     }
 
     /**

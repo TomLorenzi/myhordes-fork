@@ -627,12 +627,12 @@ class User implements UserInterface, EquatableInterface
         return $this->twinoidImportPreview;
     }
 
-    public function setTwinoidImportPreview(TwinoidImportPreview $twinoidImportPreview): self
+    public function setTwinoidImportPreview(?TwinoidImportPreview $twinoidImportPreview): self
     {
         $this->twinoidImportPreview = $twinoidImportPreview;
 
         // set the owning side of the relation if necessary
-        if ($twinoidImportPreview->getUser() !== $this) {
+        if ($twinoidImportPreview !== null && $twinoidImportPreview->getUser() !== $this) {
             $twinoidImportPreview->setUser($this);
         }
 
