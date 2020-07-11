@@ -34,7 +34,11 @@
 
         <div class="right">
             <br />
+            {% if is_granted('ROLE_CROW') %}
             <span class="small pointer" x-ajax-href="{{ path('admin_dashboard') }}">{{ 'Admin Dashboard'|trans({},'admin') }}</span>
+            {% else %}
+            <span style="cursor: default; opacity: 0;" class="small pointer" x-ajax-href="{{ path('admin_dashboard') }}">{{ 'Admin Dashboard'|trans({},'admin') }}</span>
+            {% endif %}
         </div>
     </div>
 {% endblock %}
