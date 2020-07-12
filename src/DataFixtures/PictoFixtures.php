@@ -228,7 +228,7 @@ class PictoFixtures extends Fixture
             'label' => 'Event-Auszeichnungen',
             'description' => 'Auszeichnung für die Teilnahme an Events bei \'Die Verdammten\'.',
             'icon' => 'r_bgum',
-            'rare' => false
+            'rare' => true
         ],
         [
             'label' => 'Wunderwerk: Sandschloss',
