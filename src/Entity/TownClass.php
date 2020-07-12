@@ -19,8 +19,9 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 class TownClass
 {
 
-    const EASY = 'small';
-    const HARD = 'panda';
+    const EASY    = 'small';
+    const DEFAULT = 'remote';
+    const HARD    = 'panda';
 
     /**
      * @ORM\Id()

@@ -5,7 +5,15 @@ namespace App\Service;
 
 
 
+use App\Entity\CitizenRankingProxy;
+use App\Entity\Picto;
+use App\Entity\Season;
+use App\Entity\TownClass;
+use App\Entity\TownRankingProxy;
+use App\Entity\User;
 use App\Structures\MyHordesConf;
+use App\Structures\TwinoidPayload;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 
 class TwinoidHandler
@@ -13,15 +21,17 @@ class TwinoidHandler
 
     private $conf;
     private $generator;
+    private $em;
 
     private $fallback_sk = null;
     private $fallback_id = null;
     private $code = null;
     private $token = null;
 
-    public function __construct( ConfMaster $confMaster, UrlGeneratorInterface $generator ) {
+    public function __construct( ConfMaster $confMaster, UrlGeneratorInterface $generator, EntityManagerInterface $em ) {
         $this->conf = $confMaster->getGlobalConf();
         $this->generator = $generator;
+        $this->em = $em;
     }
 
     public function hasBuiltInTwinoidAccess(): bool {
@@ -144,5 +154,108 @@ class TwinoidHandler
         }
 
         return $data;
+    }
+
+    private function getScopeLanguage( string $scope ): ?string {
+        //['www.hordes.fr','www.die2nite.com','www.dieverdammten.de','www.zombinoia.com']
+        switch ($scope) {
+            case 'www.hordes.fr':        return 'fr';
+            case 'www.die2nite.com':     return 'en';
+            case 'www.dieverdammten.de': return 'de';
+            case 'www.zombinoia.com':    return 'es';
+            default: return null;
+        }
+    }
+
+    function clearImportedData( User $user, ?string $scope, bool $isPrimary ) {
+        $lang = $scope === null ? null : $this->getScopeLanguage($scope);
+
+        // Remove towns
+        foreach ($user->getPastLifes() as $past) {
+            if ($past->getTown()->getImported() && ($scope === null || $past->getTown()->getLanguage() === $lang)) {
+                $user->removePastLife($past);
+                $this->em->remove( $past );
+            }
+        }
+
+        if ($isPrimary) {
+
+            // Remove pictos
+            foreach ($this->em->getRepository(Picto::class)->findBy(['imported' => true, 'user' => $user]) as $picto) {
+                $user->removePicto($picto);
+                $this->em->remove( $picto );
+            }
+
+        }
+    }
+
+    function importData( User $user, string $scope, TwinoidPayload $data, bool $isPrimary ): bool {
+        if (($lang = $this->getScopeLanguage($scope)) === null) return false;
+
+        // Get existing towns
+        $tid_list = [];
+        foreach ($data->getPastTowns() as $town) $tid_list[$town->getID()] = false;
+
+        foreach ($user->getPastLifes() as $past) {
+            if ($past->getTown()->getImported() && $past->getTown()->getLanguage() === $lang ) {
+
+                // The town is not in the list of imported towns; remove citizen
+                if (!isset($tid_list[$past->getTown()->getBaseID()])) {
+                    $user->removePastLife($past);
+                    $this->em->remove( $past );
+                } else {
+
+                    $tid_list[$past->getTown()->getBaseID()] = true;
+                }
+
+            }
+        }
+
+        $default_town_type = $this->em->getRepository(TownClass::class)->findOneBy(['name' => TownClass::DEFAULT]);
+
+        $seasons = [];
+        foreach ($data->getPastTowns() as $town) if ($tid_list[$town->getID()] == false) {
+
+            if (!isset($seasons[$town->getSeason()])) {
+
+                $seasons[$town->getSeason()] = $this->em->getRepository(Season::class)->findOneBy(['number' => 0, 'subNumber' => $town->getSeason()]);
+                if ($seasons[$town->getSeason()] === null) {
+                    $seasons[$town->getSeason()] = (new Season())
+                        ->setNumber(0)->setSubNumber($town->getSeason());
+                    $this->em->persist( $seasons[$town->getSeason()] );
+                }
+
+            }
+
+            $entry = $this->em->getRepository(TownRankingProxy::class)->findOneBy( ['imported' => true, 'baseID' => $town->getID(), 'language' => $lang] );
+            if ($entry === null)
+                $entry = (new TownRankingProxy())
+                    ->setName( $town->getName() )
+                    ->setBaseID( $town->getID() )
+                    ->setImported( true )
+                    ->setLanguage( $lang )
+                    ->setType( $default_town_type )
+                    ->setSeason( $seasons[$town->getSeason()] )
+                    ->setDays( $town->getDay() )
+                    ->setPopulation( 40 );
+            else $entry->setDays( max( $entry->getDays(), $town->getDay() ) );
+
+            $entry->addCitizen(
+                (new CitizenRankingProxy())
+                    ->setBaseID( $user->getId() )
+                    ->setImportID( $town->getID() )
+                    ->setUser( $user )
+                    ->setCod( $town->convertDeath() )
+                    ->setComment( $town->getComment() )
+                    ->setLastWords( $town->getMessage() )
+                    ->setDay( $town->getDay() )
+                    ->setConfirmed( true )
+                    ->setPoints( $town->getScore() )
+            );
+
+            $this->em->persist( $entry );
+        }
+
+        return true;
     }
 }

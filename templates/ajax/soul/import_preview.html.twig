@@ -11,8 +11,8 @@
             <h5>{{ 'Informationen über dein Twinoid-Konto'|trans({},'soul') }}</h5>
             <div class="help">
                 {{ 'Bitte stelle sicher, dass du das korrekte Twinoid-Konto mit deinem MyHordes-Account verbindest.'|trans({},'soul') }}
-                <b>{{ 'Einmal bestätigt, kann die Verknüpfung nicht mehr aufgehoben werden und du kannst kein anderes Twinoid-Konto mehr verknüpfen.' }}</b>
-                {{ 'Du kannst natürlich weiterhin Konten von Hordes, DieVerdammten, Die2Nite und Zombinoia importieren, welche mit dem selben Twinoid-Konto verbunden sind.' }}
+                <b>{{ 'Einmal bestätigt, kann die Verknüpfung nicht mehr aufgehoben werden und du kannst kein anderes Twinoid-Konto mehr verknüpfen.'|trans({},'soul') }}</b>
+                {{ 'Du kannst natürlich weiterhin Konten von Hordes, DieVerdammten, Die2Nite und Zombinoia importieren, welche mit dem selben Twinoid-Konto verbunden sind.'|trans({},'soul') }}
             </div>
             {# @var payload \App\Structures\TwinoidPayload #}
             <div class="row">
@@ -289,6 +289,14 @@
         document.getElementById('begin_import_can_btn').addEventListener('click', function() {
             $.ajax.easySend( '{{ path('soul_import_cancel_api') }}', {},
                 function () {
+                    $.ajax.load(null, '{{ path('soul_settings') }}', true);
+                } )
+        });
+
+        document.getElementById('begin_import_con_btn').addEventListener('click', function() {
+            $.ajax.easySend( '{{ path('soul_import_confirm_api') }}', {},
+                function () {
+                    $.html.notice( '{{ 'Deine Seele wurde erfolgreich importiert!'|trans({},'soul')|e('js') }}' )
                     $.ajax.load(null, '{{ path('soul_settings') }}', true);
                 } )
         });

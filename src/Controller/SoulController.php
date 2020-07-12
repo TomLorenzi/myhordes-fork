@@ -347,6 +347,35 @@ class SoulController extends AbstractController
     }
 
     /**
+     * @Route("api/soul/import-confirm", name="soul_import_confirm_api")
+     * @param JSONRequestParser $json
+     * @return Response
+     */
+    public function soul_import_confirm(JSONRequestParser $json, TwinoidHandler $twin): Response
+    {
+        /** @var User $user */
+        $user = $this->getUser();
+
+        $pending = $this->entity_manager->getRepository(TwinoidImportPreview::class)->findOneBy(['user' => $user]);
+        if (!$pending) return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
+
+        if ($twin->importData( $user, $pending->getScope(), $pending->getData($this->entity_manager), false )) {
+            $user->setTwinoidImportPreview(null);
+            $pending->setUser(null);
+
+            try {
+                $this->entity_manager->remove($pending);
+                $this->entity_manager->flush();
+            } catch (Exception $e) {
+                return AjaxResponse::error(ErrorHelper::ErrorDatabaseException, ['msg' => $e->getMessage()]);
+            }
+
+            return AjaxResponse::success();
+        } else return AjaxResponse::error(ErrorHelper::ErrorInternalError);
+
+    }
+
+    /**
      * @Route("jx/soul/coalitions", name="soul_coalitions")
      * @return Response
      */
@@ -1053,14 +1082,14 @@ class SoulController extends AbstractController
     public function soul_town_list(int $user_id, JSONRequestParser $parser): Response {
         /** @var User $user */
         $user = $this->entity_manager->getRepository(User::class)->find($user_id);
-        if($user === null) return "";
+        if ($user === null) return new Response("");
 
         $season_id = $parser->get('season', '');
         if(empty($season_id)) return new Response("");
 
         $season = $this->entity_manager->getRepository(Season::class)->findOneBy(['id' => $season_id]);
 
-        $limit = boolval($parser->get('limit10', true));
+        $limit = (bool)$parser->get('limit10', true);
 
         return $this->render( 'ajax/soul/town_list.html.twig', ['towns' => $this->entity_manager->getRepository(CitizenRankingProxy::class)->findPastByUserAndSeason($user, $season, $limit)]);
     }

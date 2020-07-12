@@ -60,6 +60,11 @@ class Picto
      */
     private $townEntry;
 
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $imported = false;
+
     public function __construct() {}
 
     public function getId(): ?int
@@ -136,6 +141,18 @@ class Picto
     public function setTownEntry(?TownRankingProxy $townEntry): self
     {
         $this->townEntry = $townEntry;
+
+        return $this;
+    }
+
+    public function getImported(): ?bool
+    {
+        return $this->imported;
+    }
+
+    public function setImported(bool $imported): self
+    {
+        $this->imported = $imported;
 
         return $this;
     }

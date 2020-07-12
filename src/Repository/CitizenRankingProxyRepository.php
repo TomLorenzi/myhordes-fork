@@ -63,8 +63,7 @@ class CitizenRankingProxyRepository extends ServiceEntityRepository
         $query = $this->createQueryBuilder('c')
             ->join('c.town', 't')
             ->andWhere('c.user = :user')
-            ->andWhere('c.end IS NOT NULL')
-            ->andWhere('c.confirmed = true')
+            ->andWhere('(c.end IS NOT NULL OR c.confirmed = true)')
             ->setParameter('user', $user)
             ->addOrderBy('c.day', 'DESC')
             ->addOrderBy('c.id', 'DESC');
