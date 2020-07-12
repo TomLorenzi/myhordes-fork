@@ -26,7 +26,7 @@
             <h5>{{ 'Zusammenfassung'|trans({},'soul') }}</h5>
             <div class="dashboard">
                 <div class="row">
-                    <div class="padded cell rw-6 center">
+                    <div class="padded cell rw-6 rw-sm-12 center">
 
                         {% if payload.pastTowns|length > 0 %}
                             <div class="counter">{{ '%c% Städte'|trans({'%c%': payload.pastTowns|length}, 'soul') }}</div>
@@ -61,7 +61,7 @@
                             <div class="counter">{{ 'Keine Städte'|trans({}, 'soul') }}</div>
                         {% endif %}
                     </div>
-                    <div class="padded cell rw-6 center">
+                    <div class="padded cell rw-6 rw-sm-12 center">
                         {% if payload.unlockables|length > 0 %}
                             {% set title   = 0 %}
                             {% set icon    = 0 %}
@@ -92,10 +92,10 @@
 
             <div class="dashboard">
                 <div class="row">
-                    <div class="padded cell rw-4 center">
+                    <div class="padded cell rw-4 rw-lg-12 center">
                         <div class="counter">{{ '%c% Seelenpunkte'|trans({'%c%': payload.summarySoulPoints}, 'soul') }}</div>
                     </div>
-                    <div class="padded cell rw-4 center">
+                    <div class="padded cell rw-4 rw-lg-12 center">
                         {% if payload.pictos|length > 0 %}
                             {% set num     = 0 %}
                             {% set rare    = 0 %}
@@ -125,7 +125,7 @@
                             <div class="counter">{{ 'Keine Auszeichnungen'|trans({}, 'soul') }}</div>
                         {% endif %}
                     </div>
-                    <div class="padded cell rw-4 center">
+                    <div class="padded cell rw-4 rw-lg-12 center">
                         <div class="counter">{{ '%c% Tage als Held'|trans({'%c%': payload.summaryHeroDays}, 'soul') }}</div>
                         {% if payload.summaryHeroDays > 0 or payload.pastTowns|length > 0 %}
                             <div><em>{{ 'Dieser Wert ist geschätzt und kann vom tatsächlichen Wert abweichen. Dies lässt sich leider nicht vermeiden.'|trans({},'soul') }}</em></div>
@@ -143,19 +143,19 @@
                     {% set town_num = 0 %}
                     <div class="row-table" id="data_towns">
                         <div class="row header">
-                            <div class="padded cell rw-1">{{ 'Saison'|trans({},'soul') }}</div>
-                            <div class="padded cell rw-1">{{ 'Tag'|trans({},'soul') }}</div>
-                            <div class="padded cell rw-4">{{ 'Stadtname'|trans({},'soul') }}</div>
-                            <div class="padded cell rw-5">{{ 'Infos'|trans({},'soul') }}</div>
-                            <div class="padded cell rw-1">{{ 'Punkte'|trans({},'soul') }}</div>
+                            <div class="padded cell rw-1 hide-md hide-sm">{{ 'Saison'|trans({},'soul') }}</div>
+                            <div class="padded cell rw-1 rw-sm-2">{{ 'Tag'|trans({},'soul') }}</div>
+                            <div class="padded cell rw-4 rw-sm-8">{{ 'Stadtname'|trans({},'soul') }}</div>
+                            <div class="padded cell rw-5 hide-sm">{{ 'Infos'|trans({},'soul') }}</div>
+                            <div class="padded cell rw-1 rw-md-2">{{ 'Punkte'|trans({},'soul') }}</div>
                         </div>
                         {% for town in payload.pastTowns %}
                             {% set town_num = town_num + 1 %}
                             <div class="row {% if town_num > 5 %}hidden{% endif %}">
-                                <div class="padded cell rw-1">{{ town.season }}</div>
-                                <div class="padded cell rw-1">{{ town.day }}</div>
-                                <div class="padded cell rw-4">{{ town.name }}</div>
-                                <div class="padded cell rw-5">
+                                <div class="padded cell rw-1 hide-md hide-sm">{{ town.season }}</div>
+                                <div class="padded cell rw-1 rw-sm-2">{{ town.day }}</div>
+                                <div class="padded cell rw-4 rw-sm-8">{{ town.name }}</div>
+                                <div class="padded cell rw-5 hide-sm">
                                     {% if town.death != 0 %}
                                         <div>
                                             {{ 'Todesart'|trans({},'soul') }}:
@@ -178,7 +178,7 @@
                                         <div>{{ 'Kommentar'|trans({},'soul') }}: <i class="small">"{{ town.comment }}"</i></div>
                                     {% endif %}
                                 </div>
-                                <div class="padded cell rw-1">{{ town.score }}</div>
+                                <div class="padded cell rw-1 rw-md-2">{{ town.score }}</div>
                             </div>
                         {% endfor %}
                     </div>
@@ -197,13 +197,13 @@
                     {% set picto_num = 0 %}
                     <div class="row-table" id="data_pictos">
                         <div class="row header">
-                            <div class="padded cell rw-6">{{ 'Auszeichnung'|trans({},'soul') }}</div>
-                            <div class="padded cell rw-6">{{ 'Anzahl'|trans({},'soul') }}</div>
+                            <div class="padded cell rw-6 rw-lg-7 rw-md-8 rw-sm-10">{{ 'Auszeichnung'|trans({},'soul') }}</div>
+                            <div class="padded cell rw-6 rw-lg-5 rw-md-4 rw-sm-2 ">{{ 'Anzahl'|trans({},'soul') }}</div>
                         </div>
                         {% for picto in payload.pictos %}
                             {% set picto_num = picto_num + 1 %}
                             <div class="row {% if picto_num > 5 %}hidden{% endif %}">
-                                <div class="padded cell rw-6">
+                                <div class="padded cell rw-6 rw-lg-7 rw-md-8 rw-sm-10">
                                     {# @var pp \App\Entity\PictoPrototype #}
                                     {% set pp = picto.convertPicto %}
                                     {% if pp %}
@@ -213,7 +213,7 @@
                                         <b>{{ 'Unbekannte Auszeichnung' }}</b><br /><i class="small">"{{ picto.name }}" - {{ picto.id }}</i>
                                     {% endif %}
                                 </div>
-                                <div class="padded cell rw-6">
+                                <div class="padded cell rw-6 rw-lg-5 rw-md-4 rw-sm-2">
                                     {{ picto.count }}
                                 </div>
                             </div>
@@ -234,16 +234,16 @@
                     {% set ach_num = 0 %}
                     <div class="row-table" id="data_ach">
                         <div class="row header">
-                            <div class="padded cell rw-1">{{ 'Typ'|trans({},'soul') }}</div>
-                            <div class="padded cell rw-4">{{ 'Name & Infos'|trans({},'soul') }}</div>
-                            <div class="padded cell rw-4">{{ 'Wert'|trans({},'soul') }}</div>
-                            <div class="padded cell rw-3">{{ 'Datum'|trans({},'soul') }}</div>
+                            <div class="padded cell rw-1 rw-md-2 hide-sm">{{ 'Typ'|trans({},'soul') }}</div>
+                            <div class="padded cell rw-4 rw-md-5 rw-sm-6">{{ 'Name & Infos'|trans({},'soul') }}</div>
+                            <div class="padded cell rw-4 rw-md-5 rw-sm-6">{{ 'Wert'|trans({},'soul') }}</div>
+                            <div class="padded cell rw-3 hide-md hide-sm">{{ 'Datum'|trans({},'soul') }}</div>
                         </div>
                         {% for ach in payload.unlockables %}
                             {% set ach_num = ach_num + 1 %}
                             <div class="row {% if ach_num > 5 %}hidden{% endif %}">
-                                <div class="padded cell rw-1">{{ ach.niceType|trans({},'soul') }}</div>
-                                <div class="padded cell rw-4">
+                                <div class="padded cell rw-1 rw-md-2 hide-sm">{{ ach.niceType|trans({},'soul') }}</div>
+                                <div class="padded cell rw-4 rw-md-5 rw-sm-6">
                                     <div>{{ ach.name }}</div>
                                     {# @var pp \App\Entity\PictoPrototype #}
                                     {% set pp = ach.convertPicto %}
@@ -254,14 +254,14 @@
                                         </div>
                                     {% endif %}
                                 </div>
-                                <div class="padded cell rw-4">
+                                <div class="padded cell rw-4 rw-md-5 rw-sm-6">
                                     {% if ach.type == 'icon' %}
                                         <img src="{{ ach.data }}" alt="" />
                                     {% else %}
                                         <b>{{ ach.data }}</b>
                                     {% endif %}
                                 </div>
-                                <div class="padded cell rw-3">{{ ach.date|format_datetime('medium', 'medium') }}</div>
+                                <div class="padded cell rw-3 hide-md hide-sm">{{ ach.date|format_datetime('medium', 'medium') }}</div>
                             </div>
                         {% endfor %}
                     </div>
