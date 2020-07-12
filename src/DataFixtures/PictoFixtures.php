@@ -477,12 +477,6 @@ class PictoFixtures extends Fixture
             'rare' => true
         ],
         [
-            'label' => 'Schamane',
-            'description' => 'Tagelang wurde an den Seelen der Toten herumgepfuscht.',
-            'icon' => 'r_chaman',
-            'rare' => true
-        ],
-        [
             'label' => 'Zeuge von Harmagedon',
             'description' => 'Eine äußerst seltene Auszeichnung, die den Seelen vorbehalten ist, die das große Harmagedon des Universums von Die Verdammten erlebt haben!',
             'icon' => 'r_armag',
@@ -500,6 +494,97 @@ class PictoFixtures extends Fixture
             'icon' => 'r_ptame',
             'rare' => true
         ],
+        [
+            'label' => 'Schamane',
+            'description' => 'Anzahl der Tage, die du als Schamane gespielt hast.',
+            'icon' => 'r_jsham',
+            'rare' => false
+        ],
+        [
+            'label' => 'Reicher Guru',
+            'description' => 'Anzahl der Bürger, die du dazu bringen konntest, bei Die Verdammten zu sterben UND dafür zu bezahlen.',
+            'icon' => 'r_rrefer',
+            'rare' => true
+        ],
+        [
+            'label' => 'Verdammt in Saarbrücken',
+            'description' => 'Teilnehmer beim Community-Treffen in Saarbrücken am 6. November 2011',
+            'icon' => 'r_fjvani',
+            'rare' => true
+        ],
+        [
+            'label' => 'Video Game Festival 2010',
+            'description' => 'Du warst beim Video Game Festival 2010 in Paris dabei: Danke!',
+            'icon' => 'r_fjv2',
+            'rare' => true
+        ],
+        [
+            'label' => 'FJV\'08 Kanonenfutter',
+            'description' => 'Der Besitzer dieses Abzeichens hat an der Schnitzeljagt beim Video Game Festival 2008 teilgenommen.',
+            'icon' => 'r_fjv',
+            'rare' => true
+        ],
+        [
+            'label' => 'Community-Auszeichnung',
+            'description' => 'Auszeichnung für außergewöhnliche Verdienste um die Community von Die Verdammten.',
+            'icon' => 'r_comu',
+            'rare' => true
+        ],
+        [
+            'label' => 'Clash CEO',
+            'description' => 'Für die Community-Organisatoren und Entwickler des Clash of the Titans Events. Die Gemeinschaft sagt Danke!',
+            'icon' => 'r_comu2',
+            'rare' => true
+        ],
+        [
+            'label' => 'Schlachtenbummler',
+            'description' => 'Diese seltene Auszeichnung haben nur jene Verdammten erhalten, die an der Schlacht der Berufe teilgenommen haben.',
+            'icon' => 'r_cott',
+            'rare' => true
+        ],
+        [
+            'label' => 'Shock of heroes',
+            'description' => 'Ehrenpreis für die Teilname am Shock of Heroes Event!',
+            'icon' => 'r_cdh',
+            'rare' => false
+        ],
+        [
+            'label' => 'Ultimativer Tod des SoH',
+            'description' => 'Auszeichnung für den größten Helden, der während des Shock of Heroes Events am längsten überlebt hat. Du bist nun eine Legende der Außenwelt!',
+            'icon' => 'r_derwin',
+            'rare' => true
+        ],
+        [
+            'label' => 'Triumphator',
+            'description' => 'Diese seltene Auszeichnung wurde den Einsiedlern verliehen, die mit ihrer Stadt die Schlacht der Berufe gewonnen haben. Respekt!',
+            'icon' => 'r_ermwin',
+            'rare' => true
+        ],
+        [
+            'label' => 'Aufklärer - Gewinner des SoH',
+            'description' => 'Sieg für die Aufklärer beim Shock of Heroes Event!',
+            'icon' => 'r_cdhwin',
+            'rare' => true
+        ],
+        [
+            'label' => 'Shock of Heroes Champion',
+            'description' => 'Sieg für die Wächter beim Shock of Heroes Event!',
+            'icon' => 'r_defwin',
+            'rare' => true
+        ],
+        [
+            'label' => 'Bewohner Koh-Lambdas',
+            'description' => 'Dieser Bürger war bei der Wiedervereinigung (letzte Runde) von Koh-Lambda dabei!',
+            'icon' => 'r_kohlmb',
+            'rare' => true
+        ],
+        [
+            'label' => 'Der Kobold hat dich erwischt',
+            'description' => 'Anzahl der Gegenstände, die du von deinen Freunden gestohlen hast',
+            'icon' => 'r_lepre',
+            'rare' => true
+        ],
+
     ];
 
     private $entityManager;
