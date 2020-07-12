@@ -210,7 +210,7 @@
                                         <img alt="" src="{{ asset('build/images/pictos/' ~ pp.icon ~ '.gif') }}" />
                                         {{ pp.label|trans({},'game') }}
                                     {% else %}
-                                        <b>{{ 'Unbekannte Auszeichnung' }}</b><br /><i class="small">"{{ picto.name }}" - {{ picto.id }}</i>
+                                        <b>{{ 'Unbekannte Auszeichnung'|trans({},'soul') }}</b><br /><i class="small">"{{ picto.name }}" - {{ picto.id }}</i>
                                     {% endif %}
                                 </div>
                                 <div class="padded cell rw-6 rw-lg-5 rw-md-4 rw-sm-2">

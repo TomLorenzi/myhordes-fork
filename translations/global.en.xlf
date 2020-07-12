@@ -1324,5 +1324,14 @@
         <target>Permanenter Link zu diesem Post:</target>
       </segment>
     </unit>
+    <unit id="5m866jG" name="Mehr anzeigen">
+      <notes>
+        <note category="german">Mehr anzeigen</note>
+      </notes>
+      <segment>
+        <source>Mehr anzeigen</source>
+        <target>Show more</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

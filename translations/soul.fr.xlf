@@ -850,7 +850,7 @@
       </notes>
       <segment>
         <source>Hast du ein Seele bei %hordes%, %dv%, %d2n% oder %zn%?</source>
-        <target>Avez-vous une âme sur %hordes%, %dv%, %d2n% ou %zn%?</target>
+        <target>Vous avez une âme sur %hordes%, %d2n%, %dv%, ou %zn% ?</target>
       </segment>
     </unit>
     <unit id="VVu6KAH" name="Seele importieren">
@@ -896,6 +896,411 @@
       <segment>
         <source>Das angegebene Profil kann nicht importiert werden, da es einem fremden Twinoid-Konto zugeordnet ist.</source>
         <target>Le profil spécifié ne peut pas être importé car il est affecté à un compte Twinoid étranger.</target>
+      </segment>
+    </unit>
+    <unit id="D24hLqy" name="Informationen über dein Twinoid-Konto">
+      <notes>
+        <note category="german">Informationen über dein Twinoid-Konto</note>
+      </notes>
+      <segment>
+        <source>Informationen über dein Twinoid-Konto</source>
+        <target>Informations sur votre compte Twinoid</target>
+      </segment>
+    </unit>
+    <unit id="1tzbb8." name="3d4c753">
+      <notes>
+        <note category="german">Bitte stelle sicher, dass du das korrekte Twinoid-Konto mit deinem MyHordes-Account verbindest.</note>
+      </notes>
+      <segment>
+        <source>Bitte stelle sicher, dass du das korrekte Twinoid-Konto mit deinem MyHordes-Account verbindest.</source>
+        <target>Veuillez vous assurer de connecter le bon compte Twinoid à votre compte MyHordes.</target>
+      </segment>
+    </unit>
+    <unit id="nVicoPO" name="Zusammenfassung">
+      <notes>
+        <note category="german">Zusammenfassung</note>
+      </notes>
+      <segment>
+        <source>Zusammenfassung</source>
+        <target>Résumé</target>
+      </segment>
+    </unit>
+    <unit id="iDRsxF8" name="%c% Städte">
+      <notes>
+        <note category="german">%c% Städte</note>
+      </notes>
+      <segment>
+        <source>%c% Städte</source>
+        <target>%c% Villes</target>
+      </segment>
+    </unit>
+    <unit id="URb5dXE" name="zwischen Saison %smin% und %smax%">
+      <notes>
+        <note category="german">zwischen Saison %smin% und %smax%</note>
+      </notes>
+      <segment>
+        <source>zwischen Saison %smin% und %smax%</source>
+        <target>entre la saison %smin% et %smax%</target>
+      </segment>
+    </unit>
+    <unit id="tZke4d7" name="%num% Städte zw. Saison %smin% und %smax%">
+      <notes>
+        <note category="german">%num% Städte zw. Saison %smin% und %smax%</note>
+      </notes>
+      <segment>
+        <source>%num% Städte zw. Saison %smin% und %smax%</source>
+        <target>%num% villes entre les saisons %smin% et %smax%</target>
+      </segment>
+    </unit>
+    <unit id=".j1I3aE" name="aus vergangener Zeit">
+      <notes>
+        <note category="german">aus vergangener Zeit</note>
+      </notes>
+      <segment>
+        <source>aus vergangener Zeit</source>
+        <target>des temps passés</target>
+      </segment>
+    </unit>
+    <unit id="uHHqmXL" name="%num% Städte aus vergangener Zeit">
+      <notes>
+        <note category="german">%num% Städte aus vergangener Zeit</note>
+      </notes>
+      <segment>
+        <source>%num% Städte aus vergangener Zeit</source>
+        <target>%num% Villes d'antan</target>
+      </segment>
+    </unit>
+    <unit id="vGn3Jql" name="Keine Städte">
+      <notes>
+        <note category="german">Keine Städte</note>
+      </notes>
+      <segment>
+        <source>Keine Städte</source>
+        <target>Pas de villes</target>
+      </segment>
+    </unit>
+    <unit id="3Nam8Wg" name="%c% Titel &amp; Icons">
+      <notes>
+        <note category="german">%c% Titel &amp; Icons</note>
+      </notes>
+      <segment>
+        <source>%c% Titel &amp; Icons</source>
+        <target><![CDATA[%c% Titres & Icônes]]></target>
+      </segment>
+    </unit>
+    <unit id="VDr4lbM" name="%c% Titel, %cc% Icons">
+      <notes>
+        <note category="german">%c% Titel, %cc% Icons</note>
+      </notes>
+      <segment>
+        <source>%c% Titel, %cc% Icons</source>
+        <target>%c% Titres, %cc% Icônes</target>
+      </segment>
+    </unit>
+    <unit id="xhN5lts" name="%num% unbekannte Objekte!">
+      <notes>
+        <note category="german">%num% unbekannte Objekte!</note>
+      </notes>
+      <segment>
+        <source>%num% unbekannte Objekte!</source>
+        <target>%num% objets inconnus !</target>
+      </segment>
+    </unit>
+    <unit id="tJ5C7kL" name="Keine Freischaltungen">
+      <notes>
+        <note category="german">Keine Freischaltungen</note>
+      </notes>
+      <segment>
+        <source>Keine Freischaltungen</source>
+        <target>Pas d'activations</target>
+      </segment>
+    </unit>
+    <unit id="DW8tL5I" name="%c% Seelenpunkte">
+      <notes>
+        <note category="german">%c% Seelenpunkte</note>
+      </notes>
+      <segment>
+        <source>%c% Seelenpunkte</source>
+        <target>%c% Points d'âme</target>
+      </segment>
+    </unit>
+    <unit id="_GxcfFk" name="%c% Auszeichnungen">
+      <notes>
+        <note category="german">%c% Auszeichnungen</note>
+      </notes>
+      <segment>
+        <source>%c% Auszeichnungen</source>
+        <target>%c% Distinctions</target>
+      </segment>
+    </unit>
+    <unit id="v2GNzO7" name="%c% Auszeichnungs-Typen, %cc% davon selten">
+      <notes>
+        <note category="german">%c% Auszeichnungs-Typen, %cc% davon selten</note>
+      </notes>
+      <segment>
+        <source>%c% Auszeichnungs-Typen, %cc% davon selten</source>
+        <target>%c% Types de distinctions, %cc% rares</target>
+      </segment>
+    </unit>
+    <unit id="2lB01ka" name="%c% Auszeichnungs-Typen">
+      <notes>
+        <note category="german">%c% Auszeichnungs-Typen</note>
+      </notes>
+      <segment>
+        <source>%c% Auszeichnungs-Typen</source>
+        <target>%c% Types de distinctions</target>
+      </segment>
+    </unit>
+    <unit id="mgoVWcN" name="%num% unbekannte Auszeichnungen!">
+      <notes>
+        <note category="german">%num% unbekannte Auszeichnungen!</note>
+      </notes>
+      <segment>
+        <source>%num% unbekannte Auszeichnungen!</source>
+        <target>%num% distinction(s) inconnue(s) !</target>
+      </segment>
+    </unit>
+    <unit id="304pJcq" name="Keine Auszeichnungen">
+      <notes>
+        <note category="german">Keine Auszeichnungen</note>
+      </notes>
+      <segment>
+        <source>Keine Auszeichnungen</source>
+        <target>Pas de distinctions</target>
+      </segment>
+    </unit>
+    <unit id="8p1rMBE" name="%c% Tage als Held">
+      <notes>
+        <note category="german">%c% Tage als Held</note>
+      </notes>
+      <segment>
+        <source>%c% Tage als Held</source>
+        <target>%c% Jours passés en Héros</target>
+      </segment>
+    </unit>
+    <unit id="WE..GeJ" name="95cf6e6">
+      <notes>
+        <note category="german">Dieser Wert ist geschätzt und kann vom tatsächlichen Wert abweichen. Dies lässt sich leider nicht vermeiden.</note>
+      </notes>
+      <segment>
+        <source>Dieser Wert ist geschätzt und kann vom tatsächlichen Wert abweichen. Dies lässt sich leider nicht vermeiden.</source>
+        <target>Cette valeur est estimée et peut différer de la valeur réelle. Malheureusement, cela ne peut être évité.</target>
+      </segment>
+    </unit>
+    <unit id="Bg3kbdW" name="Vergangene Städte">
+      <notes>
+        <note category="german">Vergangene Städte</note>
+      </notes>
+      <segment>
+        <source>Vergangene Städte</source>
+        <target>Villes passées</target>
+      </segment>
+    </unit>
+    <unit id="gNXU40u" name="98f9be8">
+      <notes>
+        <note category="german">Hier werden die Städte angezeigt, die du in der vergangenheit gespielt hast. Wenn du dich aktuell in einer Stadt befindest, wird diese hier nicht angezeigt und auch nicht importiert.</note>
+      </notes>
+      <segment>
+        <source>Hier werden die Städte angezeigt, die du in der vergangenheit gespielt hast. Wenn du dich aktuell in einer Stadt befindest, wird diese hier nicht angezeigt und auch nicht importiert.</source>
+        <target>Cela montre les villes que vous avez jouées dans le passé. Si vous êtes actuellement dans une ville, elle ne sera pas affichée ici et ne sera pas importée.</target>
+      </segment>
+    </unit>
+    <unit id="qrK4heb" name="Infos">
+      <notes>
+        <note category="german">Infos</note>
+      </notes>
+      <segment>
+        <source>Infos</source>
+        <target>Infos</target>
+      </segment>
+    </unit>
+    <unit id="y.oO3aD" name="Todesart">
+      <notes>
+        <note category="german">Todesart</note>
+      </notes>
+      <segment>
+        <source>Todesart</source>
+        <target>Mort</target>
+      </segment>
+    </unit>
+    <unit id="hYONYc." name="Überlebt">
+      <notes>
+        <note category="german">Überlebt</note>
+      </notes>
+      <segment>
+        <source>Überlebt</source>
+        <target>Survécu</target>
+      </segment>
+    </unit>
+    <unit id="ymT9mze" name="%d% Tage">
+      <notes>
+        <note category="german">%d% Tage</note>
+      </notes>
+      <segment>
+        <source>%d% Tage</source>
+        <target>%d% Jours</target>
+      </segment>
+    </unit>
+    <unit id="fcC4_EM" name="Auszeichnungen">
+      <notes>
+        <note category="german">Auszeichnungen</note>
+      </notes>
+      <segment>
+        <source>Auszeichnungen</source>
+        <target>Distinctions</target>
+      </segment>
+    </unit>
+    <unit id="D8ATKTz" name="bf9c5fb">
+      <notes>
+        <note category="german">Hier werden dir die Auszeichnungen angezeigt, welche du im Laufe der Zeit verdient hast.</note>
+      </notes>
+      <segment>
+        <source>Hier werden dir die Auszeichnungen angezeigt, welche du im Laufe der Zeit verdient hast.</source>
+        <target>Ici, vous pouvez voir les distinctions que vous avez gagnées au fil du temps.</target>
+      </segment>
+    </unit>
+    <unit id="mxKbILU" name="Auszeichnung">
+      <notes>
+        <note category="german">Auszeichnung</note>
+      </notes>
+      <segment>
+        <source>Auszeichnung</source>
+        <target>Distinctions</target>
+      </segment>
+    </unit>
+    <unit id="cXTeIrr" name="Anzahl">
+      <notes>
+        <note category="german">Anzahl</note>
+      </notes>
+      <segment>
+        <source>Anzahl</source>
+        <target>Nombre</target>
+      </segment>
+    </unit>
+    <unit id="42T5e3_" name="Freischaltbares">
+      <notes>
+        <note category="german">Freischaltbares</note>
+      </notes>
+      <segment>
+        <source>Freischaltbares</source>
+        <target>Déverrouillables</target>
+      </segment>
+    </unit>
+    <unit id="8xUTLg1" name="Hier siehst du deine Titel und Icons.">
+      <notes>
+        <note category="german">Hier siehst du deine Titel und Icons.</note>
+      </notes>
+      <segment>
+        <source>Hier siehst du deine Titel und Icons.</source>
+        <target>Ici, vous pouvez voir vos titres et icônes.</target>
+      </segment>
+    </unit>
+    <unit id="GwJBg8s" name="Typ">
+      <notes>
+        <note category="german">Typ</note>
+      </notes>
+      <segment>
+        <source>Typ</source>
+        <target>Type</target>
+      </segment>
+    </unit>
+    <unit id="cTrAfF8" name="Name &amp; Infos">
+      <notes>
+        <note category="german">Name &amp; Infos</note>
+      </notes>
+      <segment>
+        <source>Name &amp; Infos</source>
+        <target><![CDATA[Nom & Infos]]></target>
+      </segment>
+    </unit>
+    <unit id="fjR9ql7" name="Wert">
+      <notes>
+        <note category="german">Wert</note>
+      </notes>
+      <segment>
+        <source>Wert</source>
+        <target>Valeur</target>
+      </segment>
+    </unit>
+    <unit id="kTWILTI" name="Datum">
+      <notes>
+        <note category="german">Datum</note>
+      </notes>
+      <segment>
+        <source>Datum</source>
+        <target>Date</target>
+      </segment>
+    </unit>
+    <unit id="4wcEbqc" name="132563f">
+      <notes>
+        <note category="german">Einmal bestätigt, kann die Verknüpfung nicht mehr aufgehoben werden und du kannst kein anderes Twinoid-Konto mehr verknüpfen.</note>
+      </notes>
+      <segment>
+        <source>Einmal bestätigt, kann die Verknüpfung nicht mehr aufgehoben werden und du kannst kein anderes Twinoid-Konto mehr verknüpfen.</source>
+        <target>Une fois confirmé, l'association ne peut plus être rompue et vous ne pouvez plus lier un autre compte Twinoid.</target>
+      </segment>
+    </unit>
+    <unit id="tyVSys4" name="227ba37">
+      <notes>
+        <note category="german">Du kannst natürlich weiterhin Konten von Hordes, DieVerdammten, Die2Nite und Zombinoia importieren, welche mit dem selben Twinoid-Konto verbunden sind.</note>
+      </notes>
+      <segment>
+        <source>Du kannst natürlich weiterhin Konten von Hordes, DieVerdammten, Die2Nite und Zombinoia importieren, welche mit dem selben Twinoid-Konto verbunden sind.</source>
+        <target>Vous pouvez bien sûr toujours importer des âmes depuis Hordes, DieVammammammte, Die2Nite et Zombinoia, qui sont connectés au même compte Twinoid.</target>
+      </segment>
+    </unit>
+    <unit id="fz.4cY3" name="Deine Seele wurde erfolgreich importiert!">
+      <notes>
+        <note category="german">Deine Seele wurde erfolgreich importiert!</note>
+      </notes>
+      <segment>
+        <source>Deine Seele wurde erfolgreich importiert!</source>
+        <target>Votre âme a été importée avec succès !</target>
+      </segment>
+    </unit>
+    <unit id="p3Cx_go" name="Saison %n%">
+      <notes>
+        <note category="german">Saison %n%</note>
+      </notes>
+      <segment>
+        <source>Saison %n%</source>
+        <target>Saison %n%</target>
+      </segment>
+    </unit>
+    <unit id="yoZbT75" name="Gute Alte Zeit">
+      <notes>
+        <note category="german">Gute Alte Zeit</note>
+      </notes>
+      <segment>
+        <source>Gute Alte Zeit</source>
+        <target>Bon vieux temps</target>
+      </segment>
+    </unit>
+    <unit id="c9falYV" name="Dann musst du nicht von Vorne beginnen!">
+      <notes>
+        <note category="german">Dann musst du nicht von Vorne beginnen!</note>
+      </notes>
+      <segment>
+        <source>Dann musst du nicht von Vorne beginnen!</source>
+        <target>Ensuite, vous n'avez pas à recommencer !</target>
+      </segment>
+    </unit>
+    <unit id="Av6Ro2b" name="Importiere deine Seele und mache dort weiter, wo du aufgehört hast.">
+      <notes>
+        <note category="german">Importiere deine Seele und mache dort weiter, wo du aufgehört hast.</note>
+      </notes>
+      <segment>
+        <source>Importiere deine Seele und mache dort weiter, wo du aufgehört hast.</source>
+        <target>Importez votre âme et continuez là où vous vous étiez arrêté.</target>
+      </segment>
+    </unit>
+    <unit id="kRUPFo6" name="Unbekannte Auszeichnung">
+      <notes>
+        <note category="german">Unbekannte Auszeichnung</note>
+      </notes>
+      <segment>
+        <source>Unbekannte Auszeichnung</source>
+        <target>Distinction inconnue</target>
       </segment>
     </unit>
   </file>
