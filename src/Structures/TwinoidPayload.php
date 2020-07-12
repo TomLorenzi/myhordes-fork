@@ -49,6 +49,35 @@ class TwinoidPayload
         return $this->_data['id'];
     }
 
+    private $_cache_sp = null;
+    public function getSummarySoulPoints() {
+        if ($this->_cache_sp !== null) return $this->_cache_sp;
+        $s1 = 0; $s2 = 0;
+        foreach ($this->getPastTowns() as $town) $s1 += $town->getScore();
+        foreach ($this->getPictos() as $picto) if ($picto->getID() === 'ptame') $s2 += $picto->getCount();
+
+        return ($this->_cache_sp = max($s1,$s2));
+    }
+
+    private $_cache_hd = null;
+    public function getSummaryHeroDays() {
+        if ($this->_cache_hd !== null) return $this->_cache_hd;
+        $h = 0; $d = 0; $c = 0; $rd = 0;
+        foreach ($this->getPictos() as $picto) {
+            if (in_array($picto->getID(),['jtamer','jrangr','jermit','jcolle','jguard','jtech','jsham'])) $h += $picto->getCount();
+            if ($picto->getID() === 'dcity') $rd++;
+        }
+        foreach ($this->getPastTowns() as $town) {
+            $c += 1;
+            $d += $town->getSurvivedDays();
+        }
+
+        $hd_rate = $d <= 0 ? 0 : max(0.0, min($h/$d, 1.0));
+        $loss = $c - $rd;
+
+        return ($this->_cache_hd = floor($h + ($loss * $hd_rate)));
+    }
+
     public function getPastTowns() {
 
         return new class($this->_data['playedMaps'] ?? $this->_data['cadavers'], $this) implements \Iterator {
