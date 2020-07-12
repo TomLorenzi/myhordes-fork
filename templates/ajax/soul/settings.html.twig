@@ -125,7 +125,7 @@
                             {{ 'Hast du ein Seele bei %hordes%, %dv%, %d2n% oder %zn%?'|trans({
                                 '%hordes%': '<i>Hordes</i>', '%dv%': '<i>Die Verdammten</i>', '%d2n%': '<i>Die2Nite</i>', '%zn%': '<i>Zombinoia</i>'
                             },'soul')|raw }}
-                            <b>{{ 'Dann musst du nicht von Vorne beginnen!' }}</b> {{ 'Importiere deine Seele und mache dort weiter, wo du aufgehört hast.' }}
+                            <b>{{ 'Dann musst du nicht von Vorne beginnen!'|trans({},'soul') }}</b> {{ 'Importiere deine Seele und mache dort weiter, wo du aufgehört hast.'|trans({},'soul') }}
                         </p>
                         <button class="bigbutton" x-ajax-href="{{ url('soul_import') }}">
                             <img class="float-left" alt="" src="{{ asset('build/images/icons/small_ghost_blue.gif') }}">
