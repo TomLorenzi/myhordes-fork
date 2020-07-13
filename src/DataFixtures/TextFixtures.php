@@ -3886,9 +3886,24 @@ class TextFixtures extends Fixture
             "background" => "grid",
             "design" => "modern"
         ],
+        "wincar" => [
+            "title" => "Ticket d'Or",
+            "author" => null,
+            "content" => [
+                '<h1><small>Ce paquet de cigarettes est</small> GAGNANT&nbsp;!</h1>
+                <p>Pour recevoir votre lot, envoyez cette étiquette ainsi qu\'un justificatif d\'achat sur la messagerie privée :</p>
+                <blockquote>
+                <p>Epoq</p>
+                </blockquote>
+                <small>Note : cette étiquette gagnante donne droit 3 jours héros gratuit dans l\'outre-monde !</small>'
+            ],
+            "lang" => "fr",
+            "background" => "tinystamp",
+            "design" => "classic"
+        ],
         "wintck" => [
             "title" => "Ticket gagnant",
-            "author" => "anonyme",
+            "author" => null,
             "content" => [
                 '<h1><small>Ce paquet de cigarettes est</small> GAGNANT&nbsp;!</h1>
 				<p>Pour recevoir votre lot, envoyez cette étiquette ainsi qu\'un justificatif d\'achat à :</p>
@@ -3905,7 +3920,7 @@ class TextFixtures extends Fixture
         ],
         "lostck" => [
             "title" => "Ticket perdant",
-            "author" => "anonyme",
+            "author" => null,
             "content" => [
                 '<h1>Vous n\'avez pas gagné !</h1>
                 <blockquote>
@@ -4092,11 +4107,16 @@ class TextFixtures extends Fixture
             "title" => "Une nuit dehors",
             "author" => "mrtee50",
             "content" => [
-                ''
+                '<p>Une foutue nuit dehors, voila ce qui m\'attend. On m\'avait prévenue avant de sortir." Prend de quoi te défendre ou on te reverra pas ce soir". Thomas, le mec le plus méprisable de cette ville, avait même lancé un "c\'est moi qui prend ce qui reste dans son coffre!" avant même que je sois partie. Chouette ambiance. J\'ai pas pris d\'arme, j\'en voyais pas l\'utilité. Sauf que y\'a eu un hic, comme qui dirait. Je me suis retrouvée nez à nez avec une petite meute de siphonnés de la cervelle.</p>
+                <p>Pas commode du tout ces types la. J\'ai même cru reconnaitre un ancien pote du village, Romain, sauf que c\'était pas vraiment lui. Il lui manquait un oeil et je crois que le seul truc qu\'il voulait c\'était de me bouffer le bras.</p>',
+                '<div class="hr"></div>
+                <p>J\'ai du fuir. Mauvaise idée. Me v\'la avec un trou dans l\'pied.</p>
+                <p>Je peux plus rentrer maintenant. Me reste plus qu\'à prier l\'bon samaritain pour que ce soit rapide et sans douleur.</p>
+                <p>A la rigueur, j\'préfère que ce soit Romain qui me bouffe, entre potes on s\'entraide. </p>'
             ],
             "lang" => "fr",
             "background" => "blood",
-            "design" => "blood"
+            "design" => "small"
         ],
         "jay" => [
             "title" => "Une pile de post-its",
