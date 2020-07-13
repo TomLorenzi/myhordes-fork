@@ -234,7 +234,9 @@ class AwardFixtures extends Fixture {
         ['title'=>'Berühmter Veteran', 'unlockquantity'=>20, 'associatedtag'=>':ranked:', 'associatedpicto'=>'Gerankte Stadt', 'iconpath'=>'build/images/pictos/r_winbas.gif','titlehovertext'=>'Gerankte Stadt x20'],
         ['title'=>'Lebender Mythos', 'unlockquantity'=>1, 'associatedtag'=>':legend:', 'associatedpicto'=>'Legendäre Stadt', 'iconpath'=>'build/images/pictos/r_wintop.gif','titlehovertext'=>'Legendäre Stadt x1'],
         ['title'=>'Ich bin eine Legende', 'unlockquantity'=>2, 'associatedtag'=>':legend:', 'associatedpicto'=>'Legendäre Stadt', 'iconpath'=>'build/images/pictos/r_wintop.gif','titlehovertext'=>'Legendäre Stadt x2'],
-        ['title'=>'Hör auf mich, wenn du überleben möchtest', 'unlockquantity'=>3, 'associatedtag'=>':legend:', 'associatedpicto'=>'Legendäre Stadt', 'iconpath'=>'build/images/pictos/r_wintop.gif','titlehovertext'=>'Legendäre Stadt x3']
+        ['title'=>'Hör auf mich, wenn du überleben möchtest', 'unlockquantity'=>3, 'associatedtag'=>':legend:', 'associatedpicto'=>'Legendäre Stadt', 'iconpath'=>'build/images/pictos/r_wintop.gif','titlehovertext'=>'Legendäre Stadt x3'],
+        ['title'=>'Netter Kerl', 'unlockquantity'=>1, 'associatedtag'=>':goodg:', 'associatedpicto'=>'Netter Kerl', 'iconpath'=>'build/images/pictos/r_goodg.gif','titlehovertext'=>'Netter Kerl x1'],
+        ['title'=>'Zeuge der großen Verseuchung', 'unlockquantity'=>1, 'associatedtag'=>':ginfect:', 'associatedpicto'=>'Zeuge der großen Verseuchung', 'iconpath'=>'build/images/pictos/r_ginfect.gif','titlehovertext'=>'Zeuge der großen Verseuchung x1']
     ];
 
     private function insertAwards(ObjectManager $manager, ConsoleOutputInterface $out) {
