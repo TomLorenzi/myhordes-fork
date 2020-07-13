@@ -111,12 +111,12 @@ class SoulController extends AbstractController
         // Get all the picto & count points
         $pictos = $this->entity_manager->getRepository(Picto::class)->findNotPendingByUser($user);
     	$points = $this->user_handler->getPoints($user);
-        $latestSkill = $this->entity_manager->getRepository(HeroSkillPrototype::class)->getLatestUnlocked($user->getHeroDaysSpent());
-        $nextSkill = $this->entity_manager->getRepository(HeroSkillPrototype::class)->getNextUnlockable($user->getHeroDaysSpent());
+        $latestSkill = $this->entity_manager->getRepository(HeroSkillPrototype::class)->getLatestUnlocked($user->getAllHeroDaysSpent());
+        $nextSkill = $this->entity_manager->getRepository(HeroSkillPrototype::class)->getNextUnlockable($user->getAllHeroDaysSpent());
 
         $factor1 = $latestSkill !== null ? $latestSkill->getDaysNeeded() : 0;
 
-        $progress = $nextSkill !== null ? ($user->getHeroDaysSpent() - $factor1) / ($nextSkill->getDaysNeeded() - $factor1) * 100.0 : 0;
+        $progress = $nextSkill !== null ? ($user->getAllHeroDaysSpent() - $factor1) / ($nextSkill->getDaysNeeded() - $factor1) * 100.0 : 0;
 
         return $this->render( 'ajax/soul/me.html.twig', $this->addDefaultTwigArgs("soul_me", [
             'pictos' => $pictos,
@@ -141,13 +141,13 @@ class SoulController extends AbstractController
             return $this->redirect($this->generateUrl( 'soul_death' ));
 
         // Get all the picto & count points
-        $latestSkill = $this->entity_manager->getRepository(HeroSkillPrototype::class)->getLatestUnlocked($user->getHeroDaysSpent());
-        $nextSkill = $this->entity_manager->getRepository(HeroSkillPrototype::class)->getNextUnlockable($user->getHeroDaysSpent());
+        $latestSkill = $this->entity_manager->getRepository(HeroSkillPrototype::class)->getLatestUnlocked($user->getAllHeroDaysSpent());
+        $nextSkill = $this->entity_manager->getRepository(HeroSkillPrototype::class)->getNextUnlockable($user->getAllHeroDaysSpent());
 
         $allSkills = $this->entity_manager->getRepository(HeroSkillPrototype::class)->findAll();
 
         $factor1 = $latestSkill !== null ? $latestSkill->getDaysNeeded() : 0;
-        $progress = $nextSkill !== null ? ($user->getHeroDaysSpent() - $factor1) / ($nextSkill->getDaysNeeded() - $factor1) * 100.0 : 0;
+        $progress = $nextSkill !== null ? ($user->getAllHeroDaysSpent() - $factor1) / ($nextSkill->getDaysNeeded() - $factor1) * 100.0 : 0;
 
         return $this->render( 'ajax/soul/heroskills.html.twig', $this->addDefaultTwigArgs("soul_me", [
             'latestSkill' => $latestSkill,

@@ -51,7 +51,7 @@
                     </div>
                 </div>
                 <div class="cell padded rw-7 rw-sm-12">
-                    <div class="score"><img src="{{ asset('build/images/soul/small_score.gif') }}" alt="" /> {{ 'Seelenpunktzahl'|trans({}, 'global') }} : <strong>{{ '%points% Punkte'|trans({'%points%': user.soulPoints}, 'global') }}</strong></div>
+                    <div class="score"><img src="{{ asset('build/images/soul/small_score.gif') }}" alt="" /> {{ 'Seelenpunktzahl'|trans({}, 'global') }} : <strong>{{ '%points% Punkte'|trans({'%points%': user.allSoulPoints}, 'global') }}</strong></div>
                     {# @var user \App\Entity\User #}
                     {% for incarnation in user.pastLifes %}
                         {% if incarnation.end is null and incarnation.confirmed == false %}

@@ -160,6 +160,16 @@ class User implements UserInterface, EquatableInterface
      */
     private $twinoidImports;
 
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $importedSoulPoints;
+
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $importedHeroDaysSpent;
+
     public function __construct()
     {
         $this->citizens = new ArrayCollection();
@@ -416,6 +426,10 @@ class User implements UserInterface, EquatableInterface
         return $this;
     }
 
+    public function getAllSoulPoints(): int {
+        return ($this->getSoulPoints() ?? 0) + ($this->getImportedSoulPoints() ?? 0);
+    }
+
     public function getSoulPoints(): ?int
     {
         return $this->soulPoints;
@@ -616,6 +630,11 @@ class User implements UserInterface, EquatableInterface
         return $this;
     }
 
+    public function getAllHeroDaysSpent(): int
+    {
+        return ($this->getHeroDaysSpent() ?? 0) + ($this->getImportedHeroDaysSpent() ?? 0);
+    }
+
     public function getHeroDaysSpent(): ?int
     {
         return $this->heroDaysSpent;
@@ -684,6 +703,30 @@ class User implements UserInterface, EquatableInterface
                 $twinoidImport->setUser(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getImportedSoulPoints(): ?int
+    {
+        return $this->importedSoulPoints;
+    }
+
+    public function setImportedSoulPoints(?int $importedSoulPoints): self
+    {
+        $this->importedSoulPoints = $importedSoulPoints;
+
+        return $this;
+    }
+
+    public function getImportedHeroDaysSpent(): ?int
+    {
+        return $this->importedHeroDaysSpent;
+    }
+
+    public function setImportedHeroDaysSpent(?int $importedHeroDaysSpent): self
+    {
+        $this->importedHeroDaysSpent = $importedHeroDaysSpent;
 
         return $this;
     }

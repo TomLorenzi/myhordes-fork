@@ -22,19 +22,19 @@ class UserHandler
         $pictos = $this->entity_manager->getRepository(Picto::class)->findNotPendingByUser($user);
         $points = 0;
 
-        if($user->getSoulPoints() >= 100) {
+        if($user->getAllSoulPoints() >= 100) {
             $points += 13;
         }
-        if($user->getSoulPoints() >= 500) {
+        if($user->getAllSoulPoints() >= 500) {
             $points += 33;
         }
-        if($user->getSoulPoints() >= 1000) {
+        if($user->getAllSoulPoints() >= 1000) {
             $points += 66;
         }
-        if($user->getSoulPoints() >= 2000) {
+        if($user->getAllSoulPoints() >= 2000) {
             $points += 132;
         }
-        if($user->getSoulPoints() >= 3000) {
+        if($user->getAllSoulPoints() >= 3000) {
             $points += 198;
         }
 
@@ -204,7 +204,7 @@ class UserHandler
                 return false;
         }
 
-        $skills = $this->entity_manager->getRepository(HeroSkillPrototype::class)->getUnlocked($user->getHeroDaysSpent());
+        $skills = $this->entity_manager->getRepository(HeroSkillPrototype::class)->getUnlocked($user->getAllHeroDaysSpent());
         return in_array($skill, $skills);
     }
 }

@@ -192,6 +192,7 @@ class TwinoidHandler
     function importData( User $user, string $scope, TwinoidPayload $data, bool $isPrimary ): bool {
         if (($lang = $this->getScopeLanguage($scope)) === null) return false;
 
+        //<editor-fold desc="Town Import">
         // Get existing towns
         $tid_list = [];
         foreach ($data->getPastTowns() as $town) $tid_list[$town->getID()] = false;
@@ -203,11 +204,8 @@ class TwinoidHandler
                 if (!isset($tid_list[$past->getTown()->getBaseID()])) {
                     $user->removePastLife($past);
                     $this->em->remove( $past );
-                } else {
-
+                } else
                     $tid_list[$past->getTown()->getBaseID()] = true;
-                }
-
             }
         }
 
@@ -255,6 +253,40 @@ class TwinoidHandler
 
             $this->em->persist( $entry );
         }
+        //</editor-fold>
+
+        //<editor-fold desc="Picto Import">
+        // Get existing pictos
+        $pid_list = [];
+        foreach ($data->getPictos() as $picto)
+            if ($picto->convertPicto())
+                $pid_list[$picto->convertPicto()->getID()] = true;
+
+        foreach ($this->em->getRepository(Picto::class)->findBy(['imported' => true, 'user' => $user]) as $picto) {
+
+            // The picto is not in the list of imported pictos; remove it
+            if (!isset($pid_list[$picto->getPrototype()->getId()])) {
+                $user->removePicto($picto);
+                $this->em->remove($picto);
+            }
+        }
+
+        foreach ($data->getPictos() as $picto) if ($picto->convertPicto()) {
+
+            $entry = $this->em->getRepository(Picto::class)->findOneBy( ['imported' => true, 'user' => $user, 'prototype' => $picto->convertPicto()] );
+            if ($entry === null)
+                $entry = (new Picto())
+                    ->setUser($user)
+                    ->setImported(true)
+                    ->setPersisted(2)
+                    ->setPrototype($picto->convertPicto());
+            $entry->setCount($picto->getCount());
+            $this->em->persist( $entry );
+        }
+        //</editor-fold>
+
+        $user->setImportedSoulPoints( $data->getSummarySoulPoints() );
+        $user->setImportedHeroDaysSpent( $data->getSummaryHeroDays() );
 
         return true;
     }

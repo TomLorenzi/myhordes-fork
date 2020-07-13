@@ -104,7 +104,7 @@ class PictoHandler
 
                 $persistPicto = true;
 
-            } else if ($citizen->getTown()->getType()->getName() == "small" && $citizen->getUser()->getSoulPoints() >= 100) {
+            } else if ($citizen->getTown()->getType()->getName() == "small" && $citizen->getUser()->getAllSoulPoints() >= 100) {
 
                 if($citizen->getSurvivedDays() == 8 && $citizen->getCauseOfDeath() !== null && $citizen->getCauseOfDeath()->getRef() == CauseOfDeath::NightlyAttack)
                     $persistPicto = true;
