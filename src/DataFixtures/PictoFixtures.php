@@ -584,6 +584,12 @@ class PictoFixtures extends Fixture
             'icon' => 'r_lepre',
             'rare' => true
         ],
+        [
+            'label' => 'Netter Kerl',
+            'description' => 'Du bist einer der am besten integrierten Spieler in Die Verdammten und verhälst dich immer fair, nicht nur aus Prinzip, sondern aus Überzeugung.',
+            'icon' => 'r_goodg',
+            'rare' => true
+        ],
 
     ];
 

@@ -11308,5 +11308,23 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
         <target>Number of your friends' items you have stolen.</target>
       </segment>
     </unit>
+    <unit id="tkedsOI" name="Netter Kerl">
+      <notes>
+        <note category="german">Netter Kerl</note>
+      </notes>
+      <segment>
+        <source>Netter Kerl</source>
+        <target>Good Guy</target>
+      </segment>
+    </unit>
+    <unit id="9WkYS9d" name="e18094c">
+      <notes>
+        <note category="german">Du bist einer der am besten integrierten Spieler in Die Verdammten und verhälst dich immer fair, nicht nur aus Prinzip, sondern aus Überzeugung.</note>
+      </notes>
+      <segment>
+        <source>Du bist einer der am besten integrierten Spieler in Die Verdammten und verhälst dich immer fair, nicht nur aus Prinzip, sondern aus Überzeugung.</source>
+        <target>You are one of the most integrated players in Die2Nite, fair play, more than a principle, it is a state of mind.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
