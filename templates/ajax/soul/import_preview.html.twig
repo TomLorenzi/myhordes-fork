@@ -2,27 +2,28 @@
 {% block soul_content %}
     <div class="row">
         <div class="cell rw-12 padded">
-
-            <div class="note">
-                <b>{{ 'Hurra, wir haben dein Profil heruntergeladen!'|trans({},'soul') }}</b>
-                {{ 'Bitte prüfe die unten angegebenen Daten und bestätige den Import, wenn alles OK ist.'|trans({},'soul') }}
-            </div>
-
-            <h5>{{ 'Informationen über dein Twinoid-Konto'|trans({},'soul') }}</h5>
-            <div class="help">
-                {{ 'Bitte stelle sicher, dass du das korrekte Twinoid-Konto mit deinem MyHordes-Account verbindest.'|trans({},'soul') }}
-                <b>{{ 'Einmal bestätigt, kann die Verknüpfung nicht mehr aufgehoben werden und du kannst kein anderes Twinoid-Konto mehr verknüpfen.'|trans({},'soul') }}</b>
-                {{ 'Du kannst natürlich weiterhin Konten von Hordes, DieVerdammten, Die2Nite und Zombinoia importieren, welche mit dem selben Twinoid-Konto verbunden sind.'|trans({},'soul') }}
-            </div>
             {# @var payload \App\Structures\TwinoidPayload #}
-            <div class="row">
-                <div class="padded cell rw-4"><b>{{ 'Twinoid-Profil'|trans({},'soul') }}</b></div>
-                <div class="padded cell rw-8">{{ payload.twinoidName }}</div>
-                <div class="padded cell ro-4 rw-8"><a target="_blank" href="https://twinoid.com/user/{{ payload.twinoidId }}"><i class="fa fa-external-link-alt"></i> {{ 'Profil ansehen'|trans({},'soul') }}</a></div>
-                <div class="padded cell rw-4"><b>{{ 'Seelen-ID'|trans({},'soul') }}</b></div>
-                <div class="padded cell rw-8">{{ payload.scopeId }}</div>
-            </div>
+            {% if preview %}
+                <div class="note">
+                    <b>{{ 'Hurra, wir haben dein Profil heruntergeladen!'|trans({},'soul') }}</b>
+                    {{ 'Bitte prüfe die unten angegebenen Daten und bestätige den Import, wenn alles OK ist.'|trans({},'soul') }}
+                </div>
 
+                <h5>{{ 'Informationen über dein Twinoid-Konto'|trans({},'soul') }}</h5>
+                <div class="help">
+                    {{ 'Bitte stelle sicher, dass du das korrekte Twinoid-Konto mit deinem MyHordes-Account verbindest.'|trans({},'soul') }}
+                    <b>{{ 'Einmal bestätigt, kann die Verknüpfung nicht mehr aufgehoben werden und du kannst kein anderes Twinoid-Konto mehr verknüpfen.'|trans({},'soul') }}</b>
+                    {{ 'Du kannst natürlich weiterhin Konten von Hordes, DieVerdammten, Die2Nite und Zombinoia importieren, welche mit dem selben Twinoid-Konto verbunden sind.'|trans({},'soul') }}
+                </div>
+
+                <div class="row">
+                    <div class="padded cell rw-4"><b>{{ 'Twinoid-Profil'|trans({},'soul') }}</b></div>
+                    <div class="padded cell rw-8">{{ payload.twinoidName }}</div>
+                    <div class="padded cell ro-4 rw-8"><a target="_blank" href="https://twinoid.com/user/{{ payload.twinoidId }}"><i class="fa fa-external-link-alt"></i> {{ 'Profil ansehen'|trans({},'soul') }}</a></div>
+                    <div class="padded cell rw-4"><b>{{ 'Seelen-ID'|trans({},'soul') }}</b></div>
+                    <div class="padded cell rw-8">{{ payload.scopeId }}</div>
+                </div>
+            {% endif %}
             <h5>{{ 'Zusammenfassung'|trans({},'soul') }}</h5>
             <div class="dashboard">
                 <div class="row">
@@ -136,9 +137,11 @@
 
             {% if payload.pastTowns|length > 0 %}
                 <h5>{{ 'Vergangene Städte'|trans({},'soul') }}</h5>
-                <div class="help">
-                    {{ 'Hier werden die Städte angezeigt, die du in der vergangenheit gespielt hast. Wenn du dich aktuell in einer Stadt befindest, wird diese hier nicht angezeigt und auch nicht importiert.'|trans({},'soul') }}
-                </div>
+                {% if preview %}
+                    <div class="help">
+                        {{ 'Hier werden die Städte angezeigt, die du in der vergangenheit gespielt hast. Wenn du dich aktuell in einer Stadt befindest, wird diese hier nicht angezeigt und auch nicht importiert.'|trans({},'soul') }}
+                    </div>
+                {% endif %}
                 <div class="note">
                     {% set town_num = 0 %}
                     <div class="row-table" id="data_towns">
@@ -190,9 +193,11 @@
 
             {% if payload.pictos|length > 0 %}
                 <h5>{{ 'Auszeichnungen'|trans({},'soul') }}</h5>
-                <div class="help">
-                    {{ 'Hier werden dir die Auszeichnungen angezeigt, welche du im Laufe der Zeit verdient hast.'|trans({},'soul') }}
-                </div>
+                {% if preview %}
+                    <div class="help">
+                        {{ 'Hier werden dir die Auszeichnungen angezeigt, welche du im Laufe der Zeit verdient hast.'|trans({},'soul') }}
+                    </div>
+                {% endif %}
                 <div class="note">
                     {% set picto_num = 0 %}
                     <div class="row-table" id="data_pictos">
@@ -227,9 +232,11 @@
 
             {% if payload.unlockables|length > 0 %}
                 <h5>{{ 'Freischaltbares'|trans({},'soul') }}</h5>
-                <div class="help">
-                    {{ 'Hier siehst du deine Titel und Icons.'|trans({},'soul') }}
-                </div>
+                {% if preview %}
+                    <div class="help">
+                        {{ 'Hier siehst du deine Titel und Icons.'|trans({},'soul') }}
+                    </div>
+                {% endif %}
                 <div class="note">
                     {% set ach_num = 0 %}
                     <div class="row-table" id="data_ach">
@@ -271,35 +278,46 @@
                 </div>
             {% endif %}
 
+
             <div class="row">
-                <div class="cell padded rw-4 rw-sm-12">
-                    <button id="begin_import_can_btn">{{ 'Abbrechen'|trans({},'global') }}</button>
-                </div>
-                <div class="cell padded rw-4 ro-4 ro-sm-0 rw-sm-12">
-                    <button id="begin_import_con_btn">{{ 'Import bestätigen'|trans({},'soul') }}</button>
-                </div>
+                {% if preview %}
+                    <div class="cell padded rw-4 rw-sm-12">
+                        <button id="begin_import_can_btn">{{ 'Abbrechen'|trans({},'global') }}</button>
+                    </div>
+                    <div class="cell padded rw-4 ro-4 ro-sm-0 rw-sm-12">
+                        <button id="begin_import_con_btn">{{ 'Import bestätigen'|trans({},'soul') }}</button>
+                    </div>
+                {% else %}
+                    <div class="cell padded rw-4 rw-sm-12">
+                        <button x-ajax-href="{{ path('soul_import') }}" >{{ 'Zurück'|trans({},'global') }}</button>
+                    </div>
+                {% endif %}
             </div>
+
+
+
         </div>
     </div>
 {% endblock %}
 {% block js %}
     {{ parent() }}
     <script>
-        
-        document.getElementById('begin_import_can_btn').addEventListener('click', function() {
-            $.ajax.easySend( '{{ path('soul_import_cancel_api') }}', {},
-                function () {
-                    $.ajax.load(null, '{{ path('soul_settings') }}', true);
-                } )
-        });
+        {% if preview %}
+            document.getElementById('begin_import_can_btn').addEventListener('click', function() {
+                $.ajax.easySend( '{{ path('soul_import_cancel_api') }}', {},
+                    function () {
+                        $.ajax.load(null, '{{ path('soul_settings') }}', true);
+                    } )
+            });
 
-        document.getElementById('begin_import_con_btn').addEventListener('click', function() {
-            $.ajax.easySend( '{{ path('soul_import_confirm_api') }}', {},
-                function () {
-                    $.html.notice( '{{ 'Deine Seele wurde erfolgreich importiert!'|trans({},'soul')|e('js') }}' )
-                    $.ajax.load(null, '{{ path('soul_settings') }}', true);
-                } )
-        });
+            document.getElementById('begin_import_con_btn').addEventListener('click', function() {
+                $.ajax.easySend( '{{ path('soul_import_confirm_api') }}', {},
+                    function () {
+                        $.html.notice( '{{ 'Deine Seele wurde erfolgreich importiert!'|trans({},'soul')|e('js') }}' )
+                        $.ajax.load(null, '{{ path('soul_settings') }}', true);
+                    } )
+            });
+        {% endif %}
 
         let town_more_btn = document.getElementById('more_towns_btn');
         if (town_more_btn) town_more_btn.addEventListener('click', function() {

@@ -27,10 +27,9 @@
                 </div>
                 <div class="cell padded rw-8 rw-sm-12">
                     <select id="twin_scope">
-                        <option value="www.hordes.fr">Hordes</option>
-                        <option value="www.die2nite.com">Die2Nite</option>
-                        <option value="www.dieverdammten.de">Die Verdammten</option>
-                        <option value="www.zombinoia.com">Zombinoia</option>
+                        {% for url,service in services %}
+                            <option value="{{ url }}">{{ service }}</option>
+                        {% endfor %}
                     </select>
                 </div>
             </div>
@@ -41,6 +40,35 @@
             </div>
 
             <h5>{{ 'Deine importierten Seelen'|trans({},'soul') }}</h5>
+            {% if souls|length == 0 %}
+                <div class="note">{{ 'Du hast bisher keine Seelen importiert.'|trans({},'soul') }}</div>
+            {% else %}
+                {% for soul in souls %}
+                    {# @var soul \App\Entity\TwinoidImport #}
+                    <div class="note">
+                        <img alt="{{ soul.scope }}" src="{{ asset('build/images/favicon.ico') }}"> <b>{{ services[soul.scope] }}</b>
+                        <div class="small"><i>
+                                {{ 'Angelegt: %d%'|trans({'%d%': soul.created|format_datetime('medium', 'medium') },'soul') }}
+                                {% if soul.created != soul.updated %} / {{ 'Letztes Update: %d%'|trans({'%d%': soul.updated|format_datetime('medium', 'medium') },'soul') }}{% endif %}
+                        </i></div>
+                        <hr/>
+                        {% if not need_sk %}
+                            <button x-fast-update="{{ soul.scope }}" class="inline small">
+                                {{ 'Daten aktualisieren'|trans({},'soul') }}
+                                <div class="tooltip">{{ 'Ruft deine Seele erneut von Twinoid ab und aktualisiert die gespeicherten Informationen. Bevor die neuen Daten gespeichert werden, wird dir eine Vorschau angezeigt.'|trans({},'soul') }}</div>
+                            </button>
+                        {% endif %}
+                        <button x-ajax-href="{{ path('soul_import_viewer', {id: soul.id}) }}" class="inline small">
+                            {{ 'Daten ansehen'|trans({},'soul') }}
+                            <div class="tooltip">{{ 'Zeigt die zuletzt importierten Informationen an.'|trans({},'soul') }}</div>
+                        </button>
+                        <button x-redo-import="{{ path('soul_import_confirm_api', {id: soul.id}) }}" class="inline small">
+                            {{ 'Erneut importieren'|trans({},'soul') }}
+                            <div class="tooltip">{{ 'Führt den Import-Vorgang erneut durch, ohne frische Daten von Twinoid abzurufen. Dies ist nützlich, wenn die importierten Daten durch ein MyHordes-Update nun besser verarbeitet werden können als dies beim letzten Import der Fall war. Diese Funktion wird auch nach der Abschaltung von Twinoid weiter zur Verfügung stehen.'|trans({},'soul') }}</div>
+                        </button>
+                    </div>
+                {% endfor %}
+            {% endif %}
 
         </div>
     </div>
@@ -80,7 +108,7 @@
                 $.client.config.twinoidImport.set([0,'',sc]);
             {% endif %}
 
-            $.ajax.easySend('{{ url('soul_import_turl_api', {'code': code}) }}', {
+            $.ajax.easySend('{{ url('soul_import_turl_api') }}', {
                 {% if need_sk %}'app': id, 'sk': sk,{% endif %} 'scope': sc
             }, function(d) {
                 const url = d.goto;
@@ -90,17 +118,31 @@
                 }
                 else $.html.error('{{ 'Allgemeiner Fehler.'|trans({},'global')|e('js') }}');
             })
+        });
 
-            //const url =
-            //    'https://twinoid.com/oauth/auth' +
-            //    '?response_type=code' +
-            //    '&client_id=' + id +
-            //    '&redirect_uri=' +
-            //    '&scope=' + sc +
-            //    '&state=user' +
-            //    '&access_type=online'
-            //;
-            //window.location.replace(url);
+        {% if not need_sk %}
+            $.html.addEventListenerAll('[x-fast-update]','click', function (e,elem) {
+                const sc = elem.getAttribute('x-fast-update');
+                $.client.config.twinoidImport.set([0,'',sc]);
+                $.ajax.easySend('{{ url('soul_import_turl_api') }}', {
+                    'scope': sc
+                }, function(d) {
+                    const url = d.goto;
+                    if (url) {
+                        $.html.addLoadStack();
+                        window.location.replace(url);
+                    }
+                    else $.html.error('{{ 'Allgemeiner Fehler.'|trans({},'global')|e('js') }}');
+                })
+            });
+        {% endif %}
+
+        $.html.addEventListenerAll('[x-redo-import]','click',function (e,elem) {
+            $.ajax.easySend( elem.getAttribute('x-redo-import'), {},
+                function () {
+                    $.html.notice( '{{ 'Deine Seele wurde erfolgreich importiert!'|trans({},'soul')|e('js') }}' )
+                    $.ajax.load(null, '{{ path('soul_import') }}', true);
+                } )
         });
     </script>
 {% endblock %}

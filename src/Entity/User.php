@@ -155,6 +155,11 @@ class User implements UserInterface, EquatableInterface
      */
     private $twinoidID;
 
+    /**
+     * @ORM\OneToMany(targetEntity=TwinoidImport::class, mappedBy="user", orphanRemoval=true, cascade={"persist", "remove"})
+     */
+    private $twinoidImports;
+
     public function __construct()
     {
         $this->citizens = new ArrayCollection();
@@ -162,6 +167,7 @@ class User implements UserInterface, EquatableInterface
         $this->pictos = new ArrayCollection();
         $this->bannings = new ArrayCollection();
         $this->pastLifes = new ArrayCollection();
+        $this->twinoidImports = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -647,6 +653,37 @@ class User implements UserInterface, EquatableInterface
     public function setTwinoidID(?int $twinoidID): self
     {
         $this->twinoidID = $twinoidID;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|TwinoidImport[]
+     */
+    public function getTwinoidImports(): Collection
+    {
+        return $this->twinoidImports;
+    }
+
+    public function addTwinoidImport(TwinoidImport $twinoidImport): self
+    {
+        if (!$this->twinoidImports->contains($twinoidImport)) {
+            $this->twinoidImports[] = $twinoidImport;
+            $twinoidImport->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeTwinoidImport(TwinoidImport $twinoidImport): self
+    {
+        if ($this->twinoidImports->contains($twinoidImport)) {
+            $this->twinoidImports->removeElement($twinoidImport);
+            // set the owning side to null (unless already changed)
+            if ($twinoidImport->getUser() === $this) {
+                $twinoidImport->setUser(null);
+            }
+        }
 
         return $this;
     }

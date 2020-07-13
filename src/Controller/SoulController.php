@@ -13,6 +13,7 @@ use App\Entity\HeroSkillPrototype;
 use App\Entity\Picto;
 use App\Entity\PictoPrototype;
 use App\Entity\TownRankingProxy;
+use App\Entity\TwinoidImport;
 use App\Entity\TwinoidImportPreview;
 use App\Entity\User;
 use App\Entity\RolePlayTextPage;
@@ -201,10 +202,11 @@ class SoulController extends AbstractController
 
     /**
      * @Route("jx/soul/import/{code}", name="soul_import")
+     * @param TwinoidHandler $twin
      * @param string $code
      * @return Response
      */
-    public function soul_import(string $code = '', TwinoidHandler $twin): Response
+    public function soul_import(TwinoidHandler $twin, string $code = ''): Response
     {
         /** @var User $user */
         $user = $this->getUser();
@@ -212,11 +214,31 @@ class SoulController extends AbstractController
         if ($cache = $this->entity_manager->getRepository(TwinoidImportPreview::class)->findOneBy(['user' => $user])) {
 
             return $this->render( 'ajax/soul/import_preview.html.twig', $this->addDefaultTwigArgs("soul_settings", [
-                'payload' => $cache->getData($this->entity_manager),
+                'payload' => $cache->getData($this->entity_manager), 'preview' => true
             ]) );
 
         } else return $this->render( 'ajax/soul/import.html.twig', $this->addDefaultTwigArgs("soul_settings", [
+            'services' => ['www.hordes.fr' => 'Hordes','www.die2nite.com' => 'Die2Nite','www.dieverdammten.de' => 'Die Verdammten','www.zombinoia.com' => 'Zombinoia'],
             'code' => $code, 'need_sk' => !$twin->hasBuiltInTwinoidAccess(),
+            'souls' => $this->entity_manager->getRepository(TwinoidImport::class)->findBy(['user' => $user], ['created' => 'DESC'])
+        ]) );
+    }
+
+    /**
+     * @Route("jx/soul/import/view/{id}", name="soul_import_viewer")
+     * @param int $id
+     * @return Response
+     */
+    public function soul_import_viewer(int $id): Response
+    {
+        /** @var User $user */
+        $user = $this->getUser();
+
+        $import = $this->entity_manager->getRepository(TwinoidImport::class)->find( $id );
+        if (!$import || $import->getUser() !== $user) return $this->redirect($this->generateUrl('soul_import'));
+
+        return $this->render( 'ajax/soul/import_preview.html.twig', $this->addDefaultTwigArgs("soul_settings", [
+            'payload' => $import->getData($this->entity_manager), 'preview' => false
         ]) );
     }
 
@@ -347,24 +369,47 @@ class SoulController extends AbstractController
     }
 
     /**
-     * @Route("api/soul/import-confirm", name="soul_import_confirm_api")
+     * @Route("api/soul/import-confirm/{id}", name="soul_import_confirm_api")
      * @param JSONRequestParser $json
+     * @param TwinoidHandler $twin
+     * @param int $id
      * @return Response
      */
-    public function soul_import_confirm(JSONRequestParser $json, TwinoidHandler $twin): Response
+    public function soul_import_confirm(JSONRequestParser $json, TwinoidHandler $twin, int $id = -1): Response
     {
         /** @var User $user */
         $user = $this->getUser();
 
-        $pending = $this->entity_manager->getRepository(TwinoidImportPreview::class)->findOneBy(['user' => $user]);
-        if (!$pending) return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
+        $pending = null;
 
-        if ($twin->importData( $user, $pending->getScope(), $pending->getData($this->entity_manager), false )) {
-            $user->setTwinoidImportPreview(null);
-            $pending->setUser(null);
+        if ($id < 0) {
+            $pending = $this->entity_manager->getRepository(TwinoidImportPreview::class)->findOneBy(['user' => $user]);
+            if (!$pending) return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
+            $scope = $pending->getScope();
+            $data = $pending->getData($this->entity_manager);
+        } else {
+            $selected = $this->entity_manager->getRepository(TwinoidImport::class)->find($id);
+            if (!$selected || $selected->getUser() !== $user) return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
+            $scope = $selected->getScope();
+            $data = $selected->getData($this->entity_manager);
+        }
+
+        if ($twin->importData( $user, $scope, $data, false )) {
+
+            if ($id < 0) {
+                $import_ds = $this->entity_manager->getRepository(TwinoidImport::class)->findOneBy(['user' => $user, 'scope' => $scope]);
+                if ($import_ds === null) $user->addTwinoidImport( $import_ds = new TwinoidImport() );
+
+                $import_ds->fromPreview( $pending );
+
+                $user->setTwinoidImportPreview(null);
+                $pending->setUser(null);
+
+                $this->entity_manager->persist( $user );
+                $this->entity_manager->remove($pending);
+            }
 
             try {
-                $this->entity_manager->remove($pending);
                 $this->entity_manager->flush();
             } catch (Exception $e) {
                 return AjaxResponse::error(ErrorHelper::ErrorDatabaseException, ['msg' => $e->getMessage()]);
@@ -372,7 +417,6 @@ class SoulController extends AbstractController
 
             return AjaxResponse::success();
         } else return AjaxResponse::error(ErrorHelper::ErrorInternalError);
-
     }
 
     /**
