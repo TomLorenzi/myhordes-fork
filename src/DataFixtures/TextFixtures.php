@@ -5122,6 +5122,95 @@ class TextFixtures extends Fixture
             "background" => "tinystamp",
             "design" => "classic"
         ],
+        "letann_es" => [
+            "title" => "Cartas para Ana",
+            "author" => null,
+            "content" => [
+                '<p>Ana,</p>
+                <p>Siempre me dijiste de no correr riesgos, que no me separe de ti. Pero ya ves, terco como soy y queriéndome hacer siempre el valiente para nunca perderte. Te llevo conmigo, no temas. Ayuda en lo que puedas a los demás. Ahora debo esconderme de nuevo, una tormenta de arena azota el Ultramundo y la carpa no es tan fuerte como creí.</p>
+                <p>Te amo.</p>',
+                '<p>Ana,</p>
+                <p>Hoy no nos falta nada. Agua, comida y algunas armas improvisadas. Esperamos encontrar algo que nos permita volver al pueblo con materiales para reforzar nuestra casita.</p>
+                <p>No olvides beber agua.</p>
+                <p>Tu novio, el valiente.</p>',
+                '<p>Ana,</p>
+                <p>Sal del pueblo de inmediato. Me dicen que dentro del pueblo alguien está contaminado con esa porquería de bacteria zombie. Huye. En esta inmensidad de arena no podríamos encontrarnos, solo corre.
+                </p>
+                <p>Seguiré luchando y al volver al pueblo te esperaré cada día en el portal... Rezo por ti.</p>
+                <p>Pase lo que pase, piensa en los bonitos días de campo que compartíamos allá en el sur. Siempre te amaré. Siempre.</p>'
+            ],
+            "lang" => "es",
+            "background" => "letter",
+            "design" => "typed"
+        ],
+        "monsmc_es" => [
+            "title" => "El Monstruo Manos de Cuchilla",
+            "author" => "Caballero-KANON",
+            "content" => [
+                '<p>Estoy atrapado, encerrado. Se me agotan las opciones... Y ese monstruo sigue buscándome allá afuera. </p>
+                <p>No saldré vivo de aquí, lo sé, pero quien encuentre esto, debe saber que hay algo mas que solo zombies.. Mucho cuidado, pues no están solos. </p>
+                <p>El monstruo tiene cara desfigurada, y sus manos son como cuchillas...</p>
+                <p>Vuelve y refuerza las defensas de tu pueblo, corre, no queda mucho tiempo.</p>'
+            ],
+            "lang" => "es",
+            "background" => "letter",
+            "design" => "typed"
+        ],
+        "miamiz_es" => [
+            "title" => "Mi amigo, el zombie",
+            "author" => "Znarf",
+            "content" => [
+                '<h1>Mi amigo, el zombie</h1>
+                <p>Estábamos reunidos en una noche clara del Ultramundo, frotándonos las manos y los pies para no morir de frío.</p>
+                <p>De pronto vimos una silueta acercarse a nosotros. Pensamos que era un habitante perdido, pero no.</p>
+                <p>Era un zombie que resultó herido por las armas del pueblo. Sus sollozos eran tan profundos que no me dieron miedo, más bien sentí compasión.</p>
+                <p>Mis compañeros, sin armas a la mano, quisieron atacarle con sus propias vestimentas. Yo les detuve y me abandonáron gritándome "loco" y "traidor".</p>',
+                '<p>Ya llevo 2 noches junto a este monstruo herido, sus ojos entristecidos me hacen pensar en tantos amigos que perdí.</p>
+                <p>No sé hasta qué punto este compañero pueda ser inofensivo. Hasta ahora no me ha atacado y recibe sin quejarse las pocas migajas de comida que le doy.</p>
+                <p>No sé realmente qué hacer, irme, matarlo, seguir con él...</p>'
+            ],
+            "lang" => "es",
+            "background" => "letter",
+            "design" => "written"
+        ],
+        "navid1_es" => [
+            "title" => "Navidad en medio de este desastre",
+            "author" => "Iterrance",
+            "content" => [
+                '<p>Aún recuerdo las navidades cuando era menor, obviamente después de que estos come-cesos hayan aparecido es todo muy diferente.</p>
+                <p>Antes podía ver el árbol navideño con sus luces resaltar en casa. Ahora sólo puedo ver el raro color de las raciones del pueblo.</p>
+                <p>Antes podía ver la caza adornada y todas sus luces, ahora sólo puedo ver mi cuchitril de madera apolillada.</p>
+                <p>Antes me contaban sobre que Santa se metería en la chimenea y dejaría regalos, pero ahora solo veo zombis metiéndose en las defensas y dejando más victimas. </p>
+                <p>Lo único que puedo agradecer es que sigo vivo, quizá la navidad me de una muerte sin dolor.</p>'
+            ],
+            "lang" => "es",
+            "background" => "grid",
+            "design" => "written"
+        ],
+        "soled1_es" => [
+            "title" => "Soledad",
+            "author" => "Sercobra",
+            "content" => [
+                '<p>Siete días han pasado desde que estoy en este pueblo con treinta y nueve personas más pero... ahora solo quedo yo. </p>
+                <p>La muerte me acecha y los cuervos me revolotean, dejo lo que será mi último recuerdo como vivo... antes de dejarlo en manos de los zombies.</p>'
+            ],
+            "lang" => "es",
+            "background" => "grid",
+            "design" => "written"
+        ],
+        "navid3_es" => [
+            "title" => "Viejos recuerdos",
+            "author" => null,
+            "content" => [
+                '<p>Mis recuerdos son borrosos, tanto tiempo vagando sin conocimiento. Pasando de un pueblo a otro… en cada pueblo, mis mejores amigos mueren. Mientras los vagos sin oficio solo esperan la muerte, recuerdo esta época hace tantos años atrás… donde todo era felicidad con la familia.</p>
+                <p>Nos sentábamos a hablar a medianoche, con comida en la mesa, contar nuestros pequeños logros de ese año… reír a carcajadas cuando todos estábamos ebrios, y finalmente dormir esperando un día mejor… ahora, en este mundo tan corrompido por la oscuridad… se siente como si no fuéramos a ningún lado. </p>',
+                '<p>Aun así, seguimos moviéndonos. Mi muerte está tocando la puerta, aquel que encuentre esto… y recuerden esos momentos alegres. Feliz Navidad.</p>
+                <p>1<s>Shadow</s>1</p>'
+            ],
+            "lang" => "es",
+            "background" => "white",
+            "design" => "typed"
+        ],
     ];
 
     private $entityManager;
