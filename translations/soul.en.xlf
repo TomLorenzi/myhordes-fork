@@ -1339,5 +1339,86 @@
         <target>Unbekannte Auszeichnung</target>
       </segment>
     </unit>
+    <unit id="Pu6LW8D" name="Du hast bisher keine Seelen importiert.">
+      <notes>
+        <note category="german">Du hast bisher keine Seelen importiert.</note>
+      </notes>
+      <segment>
+        <source>Du hast bisher keine Seelen importiert.</source>
+        <target>Du hast bisher keine Seelen importiert.</target>
+      </segment>
+    </unit>
+    <unit id="xroX___" name="Angelegt: %d%">
+      <notes>
+        <note category="german">Angelegt: %d%</note>
+      </notes>
+      <segment>
+        <source>Angelegt: %d%</source>
+        <target>Angelegt: %d%</target>
+      </segment>
+    </unit>
+    <unit id="wgHBoF8" name="Letztes Update: %d%">
+      <notes>
+        <note category="german">Letztes Update: %d%</note>
+      </notes>
+      <segment>
+        <source>Letztes Update: %d%</source>
+        <target>Letztes Update: %d%</target>
+      </segment>
+    </unit>
+    <unit id="eJBYptN" name="Daten aktualisieren">
+      <notes>
+        <note category="german">Daten aktualisieren</note>
+      </notes>
+      <segment>
+        <source>Daten aktualisieren</source>
+        <target>Daten aktualisieren</target>
+      </segment>
+    </unit>
+    <unit id="DlYgqsn" name="ac4aa86">
+      <notes>
+        <note category="german">Ruft deine Seele erneut von Twinoid ab und aktualisiert die gespeicherten Informationen. Bevor die neuen Daten gespeichert werden, wird dir eine Vorschau angezeigt.</note>
+      </notes>
+      <segment>
+        <source>Ruft deine Seele erneut von Twinoid ab und aktualisiert die gespeicherten Informationen. Bevor die neuen Daten gespeichert werden, wird dir eine Vorschau angezeigt.</source>
+        <target>Ruft deine Seele erneut von Twinoid ab und aktualisiert die gespeicherten Informationen. Bevor die neuen Daten gespeichert werden, wird dir eine Vorschau angezeigt.</target>
+      </segment>
+    </unit>
+    <unit id="lNxrHuq" name="Daten ansehen">
+      <notes>
+        <note category="german">Daten ansehen</note>
+      </notes>
+      <segment>
+        <source>Daten ansehen</source>
+        <target>Daten ansehen</target>
+      </segment>
+    </unit>
+    <unit id="XlXtL3B" name="Zeigt die zuletzt importierten Informationen an.">
+      <notes>
+        <note category="german">Zeigt die zuletzt importierten Informationen an.</note>
+      </notes>
+      <segment>
+        <source>Zeigt die zuletzt importierten Informationen an.</source>
+        <target>Zeigt die zuletzt importierten Informationen an.</target>
+      </segment>
+    </unit>
+    <unit id="ExfqGAW" name="Erneut importieren">
+      <notes>
+        <note category="german">Erneut importieren</note>
+      </notes>
+      <segment>
+        <source>Erneut importieren</source>
+        <target>Erneut importieren</target>
+      </segment>
+    </unit>
+    <unit id="YhqHcco" name="a48eb2e">
+      <notes>
+        <note category="german">Führt den Import-Vorgang erneut durch, ohne frische Daten von Twinoid abzurufen. Dies ist nützlich, wenn die importierten Daten durch ein MyHordes-Update nun besser verarbeitet werden können als dies beim letzten Import der Fall war. Diese Funktion wird auch nach der Abschaltung von Twinoid weiter zur Verfügung stehen.</note>
+      </notes>
+      <segment>
+        <source>Führt den Import-Vorgang erneut durch, ohne frische Daten von Twinoid abzurufen. Dies ist nützlich, wenn die importierten Daten durch ein MyHordes-Update nun besser verarbeitet werden können als dies beim letzten Import der Fall war. Diese Funktion wird auch nach der Abschaltung von Twinoid weiter zur Verfügung stehen.</source>
+        <target>Führt den Import-Vorgang erneut durch, ohne frische Daten von Twinoid abzurufen. Dies ist nützlich, wenn die importierten Daten durch ein MyHordes-Update nun besser verarbeitet werden können als dies beim letzten Import der Fall war. Diese Funktion wird auch nach der Abschaltung von Twinoid weiter zur Verfügung stehen.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

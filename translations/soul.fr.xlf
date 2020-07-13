@@ -670,7 +670,7 @@
       </notes>
       <segment>
         <source>Eine neue Seele importieren</source>
-        <target>mportez une nouvelle âme</target>
+        <target>Importez une nouvelle âme</target>
       </segment>
     </unit>
     <unit id="Oh71xYO" name="Twinoid Application ID">
@@ -1301,6 +1301,88 @@
       <segment>
         <source>Unbekannte Auszeichnung</source>
         <target>Distinction inconnue</target>
+      </segment>
+    </unit>
+    <unit id="Pu6LW8D" name="Du hast bisher keine Seelen importiert.">
+      <notes>
+        <note category="german">Du hast bisher keine Seelen importiert.</note>
+      </notes>
+      <segment>
+        <source>Du hast bisher keine Seelen importiert.</source>
+        <target>Vous n'avez pas encore importé d'âmes.</target>
+      </segment>
+    </unit>
+    <unit id="xroX___" name="Angelegt: %d%">
+      <notes>
+        <note category="german">Angelegt: %d%</note>
+      </notes>
+      <segment>
+        <source>Angelegt: %d%</source>
+        <target>Effectué le : %d%</target>
+      </segment>
+    </unit>
+    <unit id="wgHBoF8" name="Letztes Update: %d%">
+      <notes>
+        <note category="german">Letztes Update: %d%</note>
+      </notes>
+      <segment>
+        <source>Letztes Update: %d%</source>
+        <target>Dernière mise à jour : %d%</target>
+      </segment>
+    </unit>
+    <unit id="eJBYptN" name="Daten aktualisieren">
+      <notes>
+        <note category="german">Daten aktualisieren</note>
+      </notes>
+      <segment>
+        <source>Daten aktualisieren</source>
+        <target>Mettre à jour les données</target>
+      </segment>
+    </unit>
+    <unit id="DlYgqsn" name="ac4aa86">
+      <notes>
+        <note category="german">Ruft deine Seele erneut von Twinoid ab und aktualisiert die gespeicherten Informationen. Bevor die neuen Daten gespeichert werden, wird dir eine Vorschau angezeigt.</note>
+      </notes>
+      <segment>
+        <source>Ruft deine Seele erneut von Twinoid ab und aktualisiert die gespeicherten Informationen. Bevor die neuen Daten gespeichert werden, wird dir eine Vorschau angezeigt.</source>
+        <target>Récupère votre âme de Twinoid et met à jour les informations stockées. Avant d'enregistrer les nouvelles données, vous verrez un aperçu.</target>
+      </segment>
+    </unit>
+    <unit id="lNxrHuq" name="Daten ansehen">
+      <notes>
+        <note category="german">Daten ansehen</note>
+      </notes>
+      <segment>
+        <source>Daten ansehen</source>
+        <target>Afficher les données</target>
+      </segment>
+    </unit>
+    <unit id="XlXtL3B" name="Zeigt die zuletzt importierten Informationen an.">
+      <notes>
+        <note category="german">Zeigt die zuletzt importierten Informationen an.</note>
+      </notes>
+      <segment>
+        <source>Zeigt die zuletzt importierten Informationen an.</source>
+        <target>Affiche les informations les plus récemment importées.</target>
+      </segment>
+    </unit>
+    <unit id="ExfqGAW" name="Erneut importieren">
+      <notes>
+        <note category="german">Erneut importieren</note>
+      </notes>
+      <segment>
+        <source>Erneut importieren</source>
+        <target>Importer à nouveau</target>
+      </segment>
+    </unit>
+    <unit id="YhqHcco" name="a48eb2e">
+      <notes>
+        <note category="german">Führt den Import-Vorgang erneut durch, ohne frische Daten von Twinoid abzurufen. Dies ist nützlich, wenn die importierten Daten durch ein MyHordes-Update nun besser verarbeitet werden können als dies beim letzten Import der Fall war. Diese Funktion wird auch nach der Abschaltung von Twinoid weiter zur Verfügung stehen.</note>
+      </notes>
+      <segment>
+        <source>Führt den Import-Vorgang erneut durch, ohne frische Daten von Twinoid abzurufen. Dies ist nützlich, wenn die importierten Daten durch ein MyHordes-Update nun besser verarbeitet werden können als dies beim letzten Import der Fall war. Diese Funktion wird auch nach der Abschaltung von Twinoid weiter zur Verfügung stehen.</source>
+        <target>Répète le processus d'importation sans obtenir de nouvelles données de Twinoid. Cela est utile si les données importées peuvent désormais être mieux traitées par une mise à jour de MyHordes, qui n'était pas en place lors de la dernière importation. Cette fonction continuera d'être disponible même après la désactivation de Twinoid.
+</target>
       </segment>
     </unit>
   </file>

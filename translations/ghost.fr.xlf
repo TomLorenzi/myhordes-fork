@@ -142,7 +142,7 @@
       </notes>
       <segment>
         <source>Möchtest du die schreckliche Welt der Verdammten als Bürge der Stadt %town_name% betreten</source>
-        <target>Rejoindre le monde terrifiant de Hordes en tant que citoyen de %town_name%</target>
+        <target>Rejoindre le monde terrifiant de MyHordes en tant que citoyen de %town_name%</target>
       </segment>
     </unit>
     <unit id="uwIFRKe" name="Deine Seele genügt den Anforderungen für diesen Stadttypen.">
@@ -658,7 +658,7 @@
       </notes>
       <segment>
         <source>Beginne ein neues Leben in der Welt der Verdammten une versuche, so lang wie möglich zu überleben. Wer weiß, ws dich in dieser neuen Stadt erwarten wird?</source>
-        <target>Vous pouvez dès à présent vous incarner dans le monde de Hordes pour tenter de survivre à nouveau. Qui sait ce qui vous attend dans cette nouvelle vie ?</target>
+        <target>Vous pouvez dès à présent vous incarner dans le monde de MyHordes pour tenter de survivre à nouveau. Qui sait ce qui vous attend dans cette nouvelle vie ?</target>
       </segment>
     </unit>
     <unit id="iita2xJ" name="83fa5e3">
