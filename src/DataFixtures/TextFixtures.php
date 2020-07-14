@@ -1008,9 +1008,9 @@ class TextFixtures extends Fixture
             "author" => "anonyme",
             "content" => [
                 '<small>(début de l\'article en page 1)</small>
-<p>[...] Le couple retrouvé mort dans leur cuisine portait en effet des blessures évoquant des "morsures" selon une source proche des autorités.</p>
-<p>Ce drame porte le nombre de cas à 9 dans notre région, soit 16 personnes retrouvées mortes dans des circonstances similaires. Si la thèse du tueur en série reste la plus probable, certains confrères n\'hésitent plus à relayer la théorie d\'une attaque de bête : les premières analyses auraient en effet révélé la présence d\'ADN humain sous une forme altérée. Ce dernier fait restant pour l\'heure à confirmer, les autorités ayant démenti ces informations.</p>
-<h1>La course aux ressources de l\'Arctique</h1>'
+                <p>[...] Le couple retrouvé mort dans leur cuisine portait en effet des blessures évoquant des "morsures" selon une source proche des autorités.</p>
+                <p>Ce drame porte le nombre de cas à 9 dans notre région, soit 16 personnes retrouvées mortes dans des circonstances similaires. Si la thèse du tueur en série reste la plus probable, certains confrères n\'hésitent plus à relayer la théorie d\'une attaque de bête : les premières analyses auraient en effet révélé la présence d\'ADN humain sous une forme altérée. Ce dernier fait restant pour l\'heure à confirmer, les autorités ayant démenti ces informations.</p>
+                <h1>La course aux ressources de l\'Arctique</h1>'
             ],
             "lang" => "fr",
             "background" => "news",
@@ -1844,6 +1844,21 @@ class TextFixtures extends Fixture
                 '<p>&nbsp;Je ne voulais pas !</p>
                 <p>&nbsp;&nbsp;Ma fille, ma pauvre petite fille...</p>
                 <p>Mais nous avions si faim.</p>'
+            ],
+            "lang" => "fr",
+            "background" => "money",
+            "design" => "written"
+        ],
+        "haiku2" => [
+            "title" => "Haïku 2",
+            "author" => "Fodwolf",
+            "content" => [
+                '>
+                <h1>Haïku</h1>
+                <p>Je pensais au bien de la ville,<br>
+                Jouer de l\'aqua splash m\'a bien fait rire,<br>
+                Mais pas autant que d\'être banni.<br>
+                </p>'
             ],
             "lang" => "fr",
             "background" => "money",
@@ -2786,6 +2801,29 @@ class TextFixtures extends Fixture
             "background" => "old",
             "design" => "small"
         ],
+        "vigen1" => [
+             "title" => "Message codé n°1",
+             "author" => "enneitis",
+             "content" => [
+                '>
+                <h2>Relevé des communications militaires secteur de l’apocalypse</h2>
+                <p>15/07 STFXINC SW WACHG RPATFWE UCTTPQ UAIVGS GT LNEWXECQGS . DRDH. QAA GGMMJT TINXB OATQ AWW MPZCDPQ HGRT CCOBCCJP .WTDD GT QGC.
+                28/08 DE MPZCDTC HWQBAS CVZGG WZOAIGE .DRDH. QAAOFED CGJINI RCND JTK VUTG GT LEGWWSTBV PLQHSRTH .GVOA. NPJ QEHITE OC HWGUGWVE OCBSRDT
+                OWTZPXKETXCP DPNAGCEG IPIECH SJIC UCRLLIAV CPZOE .DRDH IT UWP. 30/08 HTCG NMOASPTPQ TEIUISU .SEME. ESIIWG HZKBWW BASUSPQ .HLSP. QZGSDSGWW SJDGRQGRAILASU :
+                STKEDIMTBV MZPSMW OJ UTIQDTK .WTDD GT QGC. 01/09 TPEHGGS ZLI USNIFCCEC AS QAAOFIP .QIGT. MPZCDPQ PYVEHGGR YMH KSIVBCNE .QIGT. MTRGCTL RZIF P SVE XMGVY .SICR
+                EE DXF.02/09 GAIOUTCMEZI
+                </p>',
+                '.SICR. VTJAW IN EZGIY AWSSS .HHQP. XYASHEH STRPLI VENH FWE .DRDH. HEGBKECC EWVSDBPED QPARE SCKVPLI KI TTFTEC.QIGT. RTUKMPLI S
+                ITT RGCTKT HER CCU MLJPVIS .HHQP. LJAGRS CCWS CCUMKITF FAYQ QMRKTF CTZKXIYE PJGC CCHLI RTUKMPLI .KXOE SV FTL. 10/09 QMRKTF UUMG UGVTT OVTLOJW .WTDD.
+                RLFQ TF TLJG XIZJTFX .SICR. MZPPD HEH VQMXCH SY PAIU BLQ .HLSP. GOVIZLH SZAGWGE OMCFINI ACL OC KWRTGS .UTZN. RZENRSU DP QJJZIT GK SZSIAINI OGRTCC KSUH DGU .DRDH IT UWP
+                12/09 NZQ BGVTH GG RPJTNINI .GVOA. A TKX LP TKN .DRDH IT UWP.
+                <p></p>
+                <p>CLEF : il s\'agit du chiffrement Vigenère portant pour clé le mot apocalypse. la ponctuation est respectée.</p>'
+             ],
+             "lang" => "fr",
+             "background" => "white",
+             "design" => "written"
+         ],
         "vigen2_fr" => [
              "title" => "Message codé n°2",
              "author" => "Mwak",
@@ -3834,6 +3872,22 @@ class TextFixtures extends Fixture
              "background" => "notepad",
              "design" => "written"
          ],
+         "souven_fr" => [
+             "title" => "Souvenir de Mirek",
+             "author" => "Zanari",
+             "content" => [
+                '>
+                <h1>une note recouverte par le sable…</h1>
+                <p>Mirek, ses yeux la mer, ses cheveux, le soleil, Mirek ton fils à toi, pauvre loque cernée, affaissée dans la poussière.
+                Mirek qui courait dans le sable, Mirek, qui glissait de petits os dans sa poche. Mirek qui avait huit ans et en aurait eu neuf bientôt, s\'il avait vécu, oh, s\'il était seulement né avant...
+                Tu as été sublime, autrefois, la main de ton fils dans la tienne. Que ta peau est pâle, maintenant... Les morts ont pris ton fils, ton esprit l\'a accompagné avant ton corps ne lâche finalement.
+                </p>
+                <p>Le Vent emporte ce mot, le Temps se souvienne de toi au côté de notre enfant, je t\'ai aimé…</p>'
+             ],
+             "lang" => "fr",
+             "background" => "notepad",
+             "design" => "written"
+         ],
         "surviv" => [
             "title" => "Survivre",
             "author" => "Liior",
@@ -3860,6 +3914,18 @@ class TextFixtures extends Fixture
             "lang" => "fr",
             "background" => "notepad",
             "design" => "written"
+        ],
+        "sos1" => [
+            "title" => "S.O.S.",
+            "author" => "ChrisCool",
+            "content" => [
+                '<div class="hr"></div>
+                <p>Ceci est un message à l\'aide ! Je suis situé dans la ville de la <strong>Toundra<s>s</s> du nord</strong> ! Si quelqu\'un reçoit <s>mon</s>ce message, QU\'IL VIENNE M\'APPORTER UN <s>PM</s>PETIT MANCHE VIBRANT, c\'est une question<s>s</s> de VIE OU DE MORT !</p>
+                </div>'
+            ],
+            "lang" => "fr",
+            "background" => "carton",
+            "design" => "postit"
         ],
         "theor1" => [
             "title" => "Théories nocturnes 1",
@@ -4116,7 +4182,7 @@ class TextFixtures extends Fixture
             ],
             "lang" => "fr",
             "background" => "blood",
-            "design" => "small"
+            "design" => "written"
         ],
         "jay" => [
             "title" => "Une pile de post-its",
