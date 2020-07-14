@@ -15,29 +15,29 @@
         </li>
         <li class="tab" x-tab-id="dash">
             <div class="tab-link">
-                <img class="hide-desktop" alt="" src="{{ asset('build/images/home.gif') }}">
+                <img class="hide-desktop" alt="" src="{{ asset('build/images/icons/home.gif') }}">
                 <span class="hide-lg hide-md hide-sm">{{ 'Truhe und Aktionen'|trans({},'game') }}</span>
             </div>
         </li>
         <li class="tab" x-tab-id="messages">
             <div class="tab-link">
                 {% if new_message %}
-                    <img alt="" src="{{ asset('build/images/anim_icon_mail.gif') }}" />
+                    <img alt="" src="{{ asset('build/images/icons/anim_icon_mail.gif') }}" />
                 {% else %}
-                    <img class="hide-desktop" alt="" src="{{ asset('build/images/small_mail.gif') }}" />
+                    <img class="hide-desktop" alt="" src="{{ asset('build/images/icons/small_mail.gif') }}" />
                 {% endif %}
                 <span class="hide-lg hide-md hide-sm">{{ 'Nachrichten'|trans({},'game') }}</span>
             </div>
         </li>
         <li class="tab" x-tab-id="build">
             <div class="tab-link">
-                <img alt="" src="{{ asset('build/images/small_home_up.gif') }}">
+                <img alt="" src="{{ asset('build/images/icons/small_home_up.gif') }}">
                 <span class="hide-lg hide-md hide-sm">{{ 'Bauarbeiten'|trans({},'game') }}</span>
             </div>
         </li>
         <li class="tab" x-tab-id="values">
             <div class="tab-link">
-                <img class="hide-desktop" alt="" src="{{ asset('build/images/small_more2.gif') }}">
+                <img class="hide-desktop" alt="+" src="{{ asset('build/images/icons/small_more2.gif') }}">
                 <span class="hide-lg hide-md hide-sm">{{ 'Einrichtung'|trans({}, 'game') }}</span>
             </div>
         </li>
@@ -48,11 +48,11 @@
             <div class="row">
                 <div class="padded cell rw-4 rw-lg-6 center">
                     <em>{{ 'Verteidigung'|trans({}, 'game') }}</em><br />
-                    <span class="counter">{{ def.sum }} <img src="{{ asset('build/images/small_def.gif') }}" alt="" /></span>
+                    <span class="counter">{{ def.sum }} <img src="{{ asset('build/images/icons/small_def.gif') }}" alt="" /></span>
                 </div>
                 <div class="padded cell rw-4 rw-lg-6 center deco-estimation">
                     <em>{{ 'Dekoration'|trans({}, 'game') }}</em><br />
-                    <span class="counter">{{ deco }} <img src="{{ asset('build/images/small_deco.gif') }}" alt="" /></span>
+                    <span class="counter">{{ deco }} <img src="{{ asset('build/images/icons/small_deco.gif') }}" alt="" /></span>
                 </div>
                 <div class="padded cell rw-4 rw-lg-12 left medium">
                     <input id="desc_edit" type="text" maxlength="64" placeholder="{{ 'Dein Beschreibungstext'|trans({},'game') }}" value="{{ home.description }}">
@@ -119,26 +119,26 @@
         <ul class="tabs plain" x-tab-group="home-messages" x-tab-control x-tab-default="{{ subtab }}">
             <li class="tab" x-tab-id="received" id='received_tab'>
                 <div class="tab-link">
-                    <img alt="" class="hide-desktop" src="{{ asset('build/images/small_view.gif') }}">
+                    <img alt="" class="hide-desktop" src="{{ asset('build/images/icons/small_view.gif') }}">
                     <span class="hide-lg hide-md hide-sm">{{ 'Erhaltene Nachrichten'|trans({},'game') }}</span>
                 </div>
             </li>
             <li class="tab" x-tab-id="archives" id='archives_tab'>
                 <div class="tab-link">
-                    <img  src="{{ asset("build/images/small_archive.gif") }}" alt="" />
+                    <img  src="{{ asset("build/images/icons/small_archive.gif") }}" alt="" />
                     <span class="hide-lg hide-md hide-sm">{{ 'Archiv'|trans({},'game') }}</span>
                 </div>
             </li>
             <li class="tab" x-tab-id="write" id="new_pm_tab">
                 <div class="tab-link">
-                    <img src="{{ asset("build/images/small_mail.gif") }}" alt="" />
+                    <img src="{{ asset("build/images/icons/small_mail.gif") }}" alt="" />
                     <span class="hide-lg hide-md hide-sm">{{ 'Eine Nachricht schreiben'|trans({},'game') }}</span>
                 </div>
             </li>
             {% if can_send_global_pm %}
                 <li class="tab" x-tab-id="write-to-all" id="new_global_pm_tab">
                     <div class="tab-link">
-                        <img src="{{ asset("build/images/star.gif") }}" alt="" />
+                        <img src="{{ asset("build/images/icons/star.gif") }}" alt="" />
                         <span class="hide-lg hide-md hide-sm">{{ 'Schreiben Sie an alle'|trans({},'game') }}</span>
                     </div>
                 </li>
@@ -162,7 +162,7 @@
                     </div>
                     {% for thread in nonArchivedMessages %}
                         <div class="row small link {% if thread.new %}new{% endif %}" x-thread-id="{{ thread.id }}" x-pm-source="{{ path('home_view_thread_controller', {tid: thread.id }) }}">
-                            <div class="padded cell rw-6">{% if thread.new %}<img src="{{ asset("build/images/small_new.gif") }}" alt="" /> {% endif %}{% if thread.hasItems %}<img src="{{ asset("build/images/small_attach.gif") }}" alt="" /> {% endif %} {{ thread.title }}</div>
+                            <div class="padded cell rw-6">{% if thread.new %}<img src="{{ asset("build/images/icons/small_new.gif") }}" alt="*" /> {% endif %}{% if thread.hasItems %}<img src="{{ asset("build/images/icons/small_attach.gif") }}" alt="" /> {% endif %} {{ thread.title }}</div>
                             <div class="padded cell rw-2">{{ thread.sender ? thread.sender.user.username : ('Der Rabe'|trans({},'global')) }}</div>
                             <div class="padded cell rw-1">{{ thread.messages|length }}</div>
                             <div class="padded cell rw-3">{{ thread.lastMessage|format_datetime('short', 'short') }}</div>
@@ -190,7 +190,7 @@
                     </div>
                     {% for thread in archivedMessages %}
                         <div class="row small link {% if thread.new %}new{% endif %}" x-archived-thread-id="{{ thread.id }}" x-pm-source="{{ path('home_view_thread_controller', {tid: thread.id }) }}">
-                            <div class="padded cell rw-6">{% if thread.hasItems %}<img src="{{ asset("build/images/small_attach.gif") }}" alt="" /> {% endif %} {{ thread.title }}</div>
+                            <div class="padded cell rw-6">{% if thread.hasItems %}<img src="{{ asset("build/images/icons/small_attach.gif") }}" alt="" /> {% endif %} {{ thread.title }}</div>
                             <div class="padded cell rw-2">{{ thread.sender ? thread.sender.user.username : ('Der Rabe'|trans({},'global')) }}</div>
                             <div class="padded cell rw-1">{{ thread.messages|length }}</div>
                             <div class="padded cell rw-3">{{ thread.lastMessage|format_datetime('short', 'short') }}</div>
@@ -211,7 +211,7 @@
                 {% if dest_citizen is null %}
                 <div class="cell padded rw-1">
                     <span class="link">
-                        <img src="{{ asset('build/images/small_human.gif') }}" id="show_list" />
+                        <img src="{{ asset('build/images/icons/small_human.gif') }}" id="show_list" />
                         <div class="tooltip">
                             {% trans from 'game'%}
                                 Bürgerverzeichnis anszeigen
@@ -231,7 +231,7 @@
             </div>
             <div class="row">
                 <div class="cell padded">
-                    <span class="small link" id="send-item-btn"><img src="{{ asset("build/images/small_attach.gif") }}" alt="" /> {% trans from 'game'%}Dieser Nachricht Gegenstände beifügen{% endtrans %}</span>
+                    <span class="small link" id="send-item-btn"><img src="{{ asset("build/images/icons/small_attach.gif") }}" alt="" /> {% trans from 'game'%}Dieser Nachricht Gegenstände beifügen{% endtrans %}</span>
                 </div>
             </div>
             <div id="rows-send">
@@ -277,14 +277,14 @@
             <div class="padded cell rw-6 rw-md-12">
                 <ul class="summary">
                     <li>
-                        {{ 'Verteidigung'|trans({},'game') }} <span><img alt="" src="{{ asset('build/images/def.gif') }}"> <b>{{ def.sum }}</b></span>
+                        {{ 'Verteidigung'|trans({},'game') }} <span><img alt="" src="{{ asset('build/images/icons/def.gif') }}"> <b>{{ def.sum }}</b></span>
                         <ul>
-                            <li>{{ 'durch Haus'|trans({},'game') }} <span><img alt="" src="{{ asset('build/images/def.gif') }}"> {{ def.house_defense }}</span></li>
+                            <li>{{ 'durch Haus'|trans({},'game') }} <span><img alt="" src="{{ asset('build/images/icons/def.gif') }}"> {{ def.house_defense }}</span></li>
                             {% if home.citizen.profession.heroic %}
-                                <li>{{ 'durch Beruf'|trans({},'game') }} <span><img alt="" src="{{ asset('build/images/def.gif') }}"> {{ def.job_defense }}</span></li>
-                                <li>{{ 'durch Ausbauten'|trans({},'game') }} <span><img alt="" src="{{ asset('build/images/def.gif') }}"> {{ def.upgrades_defense }}</span></li>
+                                <li>{{ 'durch Beruf'|trans({},'game') }} <span><img alt="" src="{{ asset('build/images/icons/def.gif') }}"> {{ def.job_defense }}</span></li>
+                                <li>{{ 'durch Ausbauten'|trans({},'game') }} <span><img alt="" src="{{ asset('build/images/icons/def.gif') }}"> {{ def.upgrades_defense }}</span></li>
                             {% endif %}
-                            <li>{{ 'durch Gegenstände'|trans({},'game') }} <span><img alt="" src="{{ asset('build/images/def.gif') }}"> {{ def.item_defense }}</span></li>
+                            <li>{{ 'durch Gegenstände'|trans({},'game') }} <span><img alt="" src="{{ asset('build/images/icons/def.gif') }}"> {{ def.item_defense }}</span></li>
                         </ul>
                     </li>
                 </ul>
@@ -292,9 +292,9 @@
             <div class="padded cell rw-6 rw-md-12">
                 <ul class="summary">
                     <li>
-                        {{ 'Dekoration'|trans({},'game') }} <span><img alt="" src="{{ asset('build/images/deco.gif') }}"> <b>{{ deco }}</b></span>
+                        {{ 'Dekoration'|trans({},'game') }} <span><img alt="" src="{{ asset('build/images/icons/deco.gif') }}"> <b>{{ deco }}</b></span>
                         <ul>
-                            <li>{{ 'durch Gegenstände'|trans({},'game') }} <span><img alt="" src="{{ asset('build/images/deco.gif') }}"> {{ deco }}</span></li>
+                            <li>{{ 'durch Gegenstände'|trans({},'game') }} <span><img alt="" src="{{ asset('build/images/icons/deco.gif') }}"> {{ deco }}</span></li>
                         </ul>
                     </li>
                 </ul>
@@ -312,12 +312,12 @@
                     </div>
                     <div class="padded cell rw-4 right">
                         {% if item.prototype.deco != 0 %}
-                            <span><img alt="{{ 'Dekoration'|trans({},'game') }}" src="{{ asset('build/images/deco.gif') }}"> {{ item.prototype.deco }}</span>
+                            <span><img alt="{{ 'Dekoration'|trans({},'game') }}" src="{{ asset('build/images/icons/deco.gif') }}"> {{ item.prototype.deco }}</span>
                         {% endif %}
                         {% for prop in item.prototype.properties %}
                             {# @var prop \App\Entity\ItemProperty #}
                             {% if prop.name == 'defence' %}
-                                <span><img alt="{{ 'Verteidigung'|trans({},'game') }}" src="{{ asset('build/images/def.gif') }}"> 1</span>
+                                <span><img alt="{{ 'Verteidigung'|trans({},'game') }}" src="{{ asset('build/images/icons/def.gif') }}"> 1</span>
                             {% endif %}
                         {% endfor %}
                     </div>
@@ -381,7 +381,7 @@
             <div class="row">
                 <div class="padded cell rw-5 rw-md-12">
                     <button id="upgrade_home_level">
-                        <img alt="" src="{{ asset('build/images/home.gif') }}" />
+                        <img alt="" src="{{ asset('build/images/icons/home.gif') }}" />
                         {% trans from 'game' %}Bauen{% endtrans %}: <b>{{ next_level.label|trans({}, 'buildings') }}</b>
                         {% if (next_level.ap > 0) %}(<div class="ap">{{ next_level.ap }}</div>){% endif %}
                     </button>

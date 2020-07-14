@@ -91,7 +91,7 @@ class MessageController extends AbstractController
         return $data;
     }
 
-    private function default_forum_renderer(int $fid, int $tid, EntityManagerInterface $em, JSONRequestParser $parser, CitizenHandler $ch): Response {
+    private function default_forum_renderer(int $fid, int $tid, int $pid, EntityManagerInterface $em, JSONRequestParser $parser, CitizenHandler $ch): Response {
         $num_per_page = 20;
 
         /** @var User $user */
@@ -137,6 +137,7 @@ class MessageController extends AbstractController
             'threads' => $threads,
             'pinned_threads' => $pinned_threads,
             'select' => $tid,
+            'jump' => $pid,
             'pages' => $pages,
             'current_page' => $page,
         ] ));
@@ -169,7 +170,7 @@ class MessageController extends AbstractController
      */
     public function forum(int $id, EntityManagerInterface $em, JSONRequestParser $p, CitizenHandler $ch): Response
     {
-        return $this->default_forum_renderer($id,-1,$em, $p, $ch);
+        return $this->default_forum_renderer($id,-1,-1,$em, $p, $ch);
     }
 
     /**
@@ -183,7 +184,23 @@ class MessageController extends AbstractController
      */
     public function forum_thread(int $fid, int $tid, EntityManagerInterface $em, JSONRequestParser $p, CitizenHandler $ch): Response
     {
-        return $this->default_forum_renderer($fid,$tid,$em,$p,$ch);
+        return $this->default_forum_renderer($fid,$tid,-1,$em,$p,$ch);
+    }
+
+    /**
+     * @Route("jx/forum/jump/{pid<\d+>}", name="forum_jump_view")
+     * @param int $pid
+     * @param EntityManagerInterface $em
+     * @param JSONRequestParser $p
+     * @param CitizenHandler $ch
+     * @return Response
+     */
+    public function forum_jump_post(int $pid, EntityManagerInterface $em, JSONRequestParser $p, CitizenHandler $ch): Response
+    {
+        /** @var Post $post */
+        $post = $this->entityManager->getRepository(Post::class)->find($pid);
+
+        return $this->default_forum_renderer($post ? $post->getThread()->getForum()->getId() : -1,$post ? $post->getThread()->getId() : -1,$post ? $pid : -1,$em,$p,$ch);
     }
 
     /**
@@ -454,7 +471,7 @@ class MessageController extends AbstractController
                     }
                     // <img src="{{ asset('build/images/professions/' ~ post.owner.getActiveCitizen.profession.icon ~ '.gif') }}" />
                     // return "<img alt='' src='{$this->asset->getUrl( "build/images/item/item_{$obj->getPrototype()->getIcon()}.gif" )}' /> {$this->trans->trans($obj->getPrototype()->getLabel(), [], 'items')} <i>x {$obj->getChance()}</i>";
-                    $post->setNote("<img alt='' src='{$this->asset->getUrl("build/images/professions/{$citizen->getProfession()->getIcon()}.gif")}' /> <img alt='' src='{$this->asset->getUrl('build/images/item_map.gif')}' /> <span>$note</span>");
+                    $post->setNote("<img alt='' src='{$this->asset->getUrl("build/images/professions/{$citizen->getProfession()->getIcon()}.gif")}' /> <img alt='' src='{$this->asset->getUrl('build/images/icons/item_map.gif')}' /> <span>$note</span>");
                 }
             }
 
@@ -718,14 +735,14 @@ class MessageController extends AbstractController
     }
 
     /**
-     * @Route("api/forum/{tid<\d+>}/{fid<\d+>}/view", name="forum_viewer_controller")
+     * @Route("api/forum/{tid<\d+>}/{fid<\d+>}/view/{pid<\d+>}", name="forum_viewer_controller")
      * @param int $fid
      * @param int $tid
      * @param EntityManagerInterface $em
      * @param JSONRequestParser $parser
      * @return Response
      */
-    public function viewer_api(int $fid, int $tid, EntityManagerInterface $em, JSONRequestParser $parser): Response {
+    public function viewer_api(int $fid, int $tid, EntityManagerInterface $em, JSONRequestParser $parser, int $pid = -1): Response {
         $num_per_page = 10;
         /** @var User $user */
         $user = $this->getUser();
@@ -739,7 +756,10 @@ class MessageController extends AbstractController
             if (!($user->getRightsElevation() >= User::ROLE_CROW && $thread->hasReportedPosts())){
                 return new Response('');
             }      
-        } 
+        }
+
+        $jump_post = ($pid > 0) ? $em->getRepository(Post::class)->find( $pid ) : null;
+        if ($jump_post && $jump_post->getThread() !== $thread) return new Response('');
 
         $marker = $em->getRepository(ThreadReadMarker::class)->findByThreadAndUser( $user, $thread );
         if (!$marker) $marker = (new ThreadReadMarker())->setUser($user)->setThread($thread);
@@ -749,7 +769,9 @@ class MessageController extends AbstractController
         else
             $pages = floor(max(0,$em->getRepository(Post::class)->countUnhiddenByThread($thread)-1) / $num_per_page) + 1;
 
-        if ($parser->has('page'))
+        if ($jump_post)
+            $page = min($pages,1 + floor((1+$em->getRepository(Post::class)->getOffsetOfPostByThread( $thread, $jump_post )) / $num_per_page));
+        elseif ($parser->has('page'))
             $page = min(max(1,$parser->get('page', 1)), $pages);
         elseif (!$marker->getPost()) $page = 1;
         else $page = min($pages,1 + floor((1+$em->getRepository(Post::class)->getOffsetOfPostByThread( $thread, $marker->getPost() )) / $num_per_page));
@@ -797,65 +819,8 @@ class MessageController extends AbstractController
             'tid' => $tid,
             'current_page' => $page,
             'pages' => $pages,
-            'announces' => $announces
-        ] );
-    }
-
-    /**
-     * @Route("api/forum/jump/{pid<\d+>}", name="forum_viewer_jump_post_controller")
-     * @param int $pid
-     * @param EntityManagerInterface $em
-     * @return Response
-     */
-    public function jumpToPost_api(int $pid, EntityManagerInterface $em): Response {
-        $num_per_page = 10;
-        /** @var User $user */
-        $user = $this->getUser();
-
-        $jumpPost = $em->getRepository(Post::class)->find( $pid );
-
-        $thread = $jumpPost->getThread();
-        if (!$thread) return new Response('');
-
-        $forum = $thread->getForum();
-
-        $forums = $em->getRepository(Forum::class)->findForumsForUser($this->getUser(), $forum->getId());
-        if (count($forums) !== 1){
-            if (!($user->getRightsElevation() >= User::ROLE_CROW && $thread->hasReportedPosts())){
-                return new Response('');
-            }      
-        } 
-
-        if ($user->getRightsElevation() >= User::ROLE_CROW)
-            $pages = floor(max(0,$em->getRepository(Post::class)->countByThread($thread)-1) / $num_per_page) + 1;
-        else
-            $pages = floor(max(0,$em->getRepository(Post::class)->countUnhiddenByThread($thread)-1) / $num_per_page) + 1;
-
-        $page = min($pages,1 + floor((1+$em->getRepository(Post::class)->getOffsetOfPostByThread( $thread, $jumpPost )) / $num_per_page));
-
-        if ($user->getRightsElevation() >= User::ROLE_CROW)
-            $posts = $em->getRepository(Post::class)->findByThread($thread, $num_per_page, ($page-1)*$num_per_page);
-        else
-            $posts = $em->getRepository(Post::class)->findUnhiddenByThread($thread, $num_per_page, ($page-1)*$num_per_page);
-
-        $announces = [
-            'admin' => [],
-            'oracle' => []
-        ];
-
-        $announces['admin'] = $em->getRepository(Post::class)->findAdminAnnounces($thread);
-        $announces['oracle'] = $em->getRepository(Post::class)->findOracleAnnounces($thread);
-
-        return $this->render( 'ajax/forum/posts.html.twig', [
-            'posts' => $posts,
-            'locked' => $thread->getLocked(),
-            'pinned' => $thread->getPinned(),
-            'fid' => $forum->getId(),
-            'tid' => $thread->getId(),
-            'current_page' => $page,
-            'pages' => $pages,
-            'markedPost' => $pid,
             'announces' => $announces,
+            'markedPost' => $pid,
         ] );
     }
 

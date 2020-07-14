@@ -397,7 +397,7 @@
       </notes>
       <segment>
         <source>Dieses Konto wartet bereits auf eine Passwortzurücksetzung.</source>
-        <target>Dieses Konto wartet bereits auf eine Passwortzurücksetzung.</target>
+        <target>Esta cuenta ya está esperando por un restablecimiento de la contraseña.</target>
       </segment>
     </unit>
     <unit id="axBQZ1o" name="d8a5e1e">
@@ -406,7 +406,7 @@
       </notes>
       <segment>
         <source>Wenn deine eingegebene E-Mail Adresse korrekt war, wurde dir soeben ein Link zum Zurücksetzen deines Passwortes geschickt.</source>
-        <target>Wenn deine eingegebene E-Mail Adresse korrekt war, wurde dir soeben ein Link zum Zurücksetzen deines Passwortes geschickt.</target>
+        <target>Si la dirección de correo electrónico que has introducido es correcta, recibirás un enlace para restablecer tu contraseña.</target>
       </segment>
     </unit>
     <unit id="w6NXTHc" name="0e5133b">
@@ -415,7 +415,16 @@
       </notes>
       <segment>
         <source>Dein Passwort wurde geändert. Du kannst dich nun mit deinem neuen Passwort einloggen.</source>
-        <target>Dein Passwort wurde geändert. Du kannst dich nun mit deinem neuen Passwort einloggen.</target>
+        <target>Tu contraseña ha sido cambiada. Ahora puedes iniciar sesión con tu nueva contraseña.</target>
+      </segment>
+    </unit>
+    <unit id="LRrjhiE" name="Angemeldet bleiben">
+      <notes>
+        <note category="german">Angemeldet bleiben</note>
+      </notes>
+      <segment>
+        <source>Angemeldet bleiben</source>
+        <target>No cerrar sesión</target>
       </segment>
     </unit>
   </file>

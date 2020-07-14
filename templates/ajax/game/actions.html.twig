@@ -39,7 +39,7 @@
                     <li class="action" {% if entry.crossed %}disabled{% elseif entry.targets is null %}x-action-id="{{ entry.id }}" {% if entry.action.confirm %}x-action-confirm="1"{% endif %} x-provoking-id="{{ entry.item.id }}"{% else %}x-target-definition="{{ entry.id }}--{{ entry.item.id }}"{% endif %}>
                         <img src="{{ asset('build/images/item/item_' ~ entry.item.prototype.icon ~ '.gif') }}" alt="{{ entry.item.prototype.label|trans({},'items') }}">
                         {% if scout and entry.action.keepsCover %}
-                            <img class="float-right" src="{{ asset('build/images/small_stealthy.gif') }}" alt="">
+                            <img class="float-right" src="{{ asset('build/images/icons/small_stealthy.gif') }}" alt="">
                         {% endif %}
                         <span>{{ '%action%: %item%'|trans({'%action%': entry.action.label|trans({},'items')|e('html'), '%item%': '<b>' ~ entry.item.prototype.label|trans({},'items')|e('html') ~ '</b>'},'items')|raw }}</span>
                         {% if entry.targets is not null and not entry.crossed %}
@@ -58,7 +58,7 @@
                         {# @var recipe \App\Entity\Recipe #}
                         {% if recipe.result.entries.count == 1 %}
                             {#{% if scout %}
-                                <img class="float-right" src="{{ asset('build/images/uncloak.gif') }}" alt="">
+                                <img class="float-right" src="{{ asset('build/images/icons/uncloak.gif') }}" alt="">
                             {% endif %}#}
                             {% if recipe.source and not conf.get(constant('App\\Structures\\TownConf::CONF_MODIFIER_PRE_ASSEMBLY'),false) %}
                                 <span>{{ 'Zusammenbauen'|trans({},'game') }}:
@@ -88,7 +88,7 @@
                         {% else %}
                             {% if recipe.source %}
                                 {% if scout %}
-                                    <img class="float-right" src="{{ asset('build/images/uncloak.gif') }}" alt="">
+                                    <img class="float-right" src="{{ asset('build/images/icons/uncloak.gif') }}" alt="">
                                 {% endif %}
                                 <span>
                                     {{ 'Kombinieren'|trans({},'game') }}:
@@ -142,13 +142,13 @@
     {% endif %}
 
     {% if heroic_action_list is defined and heroic_action_list|length > 0 %}
-        <button x-heroic-toggle="1"><img src="{{ asset('build/images/star.gif') }}" alt="">{{ 'Heldentaten'|trans({},'items')  }}</button>
+        <button x-heroic-toggle="1"><img src="{{ asset('build/images/icons/star.gif') }}" alt="">{{ 'Heldentaten'|trans({},'items')  }}</button>
         <ul class="heroic_actions">
             {% for entry in heroic_action_list %}
                 <li class="heroic_action" {% if entry.crossed %}disabled{% elseif entry.targets is null %}x-action-id="{{ entry.id }}" x-action-confirm="1" {% else %}x-target-definition="{{ entry.id }}--hero"{% endif %}>
-                    <img src="{{ asset('build/images/star.gif') }}" alt="">
+                    <img src="{{ asset('build/images/icons/star.gif') }}" alt="">
                     {% if scout and entry.action.keepsCover %}
-                        <img class="float-right" src="{{ asset('build/images/small_stealthy.gif') }}" alt="">
+                        <img class="float-right" src="{{ asset('build/images/icons/small_stealthy.gif') }}" alt="">
                     {% endif %}
                     <span><b>{{ entry.action.label|trans({},'items') }}</b></span>
                     {% if entry.targets is not null and not entry.crossed %}

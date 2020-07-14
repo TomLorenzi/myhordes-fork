@@ -80,17 +80,16 @@ class ExternalController extends InventoryAwareController
      */
     public function disclaimer(Request $request, int $id): Response {
         $app = $this->entity_manager->getRepository(ExternalApp::class)->find($id);
-        if (!$app) {
-            $error = true;
-        }
+        if (!$app || $app->getTesting())
+            return $this->redirect($this->generateUrl( 'initial_landing' ));
+
         /** @var User $user */
         $user = $this->getUser();
         $key = $user->getExternalId();
 
         return $this->render( 'ajax/public/disclaimer.html.twig', [
             'ex' => $app,
-            'key' => $key,
-            'error' => $error ?? false,
+            'key' => $key
         ] );
     }
 
@@ -142,7 +141,15 @@ class ExternalController extends InventoryAwareController
         // All fine, let's populate the response.
         switch ($type) {
             case 'town':
-                $data = $this->generateData($user);
+                if($user->getActiveCitizen()) {
+                    $data = $this->generateData($user);
+                } else {
+                    $data = [
+                        'Error' => "Access denied",
+                        'ErrorCode' => "403",
+                        'ErrorMessage' => "No incarnate user found."
+                    ];
+                }
                 break;
 
             case 'items':
@@ -409,6 +416,16 @@ class ExternalController extends InventoryAwareController
                                 'items' => [],
                             ],
                         ];
+                        if($myzone->getPrototype()) {
+                            $building = $myzone->getPrototype();
+                            $data['hordes']['headers']['owner']['myZone']['attributes']['building'] = [
+                                'dried' => $myzone->getRuinDigs() > 0 ? 1 : 0,
+                                'id' => $building->getId(),
+                                'label' => $building->getLabel()
+                            ];
+                        } else {
+                            $data['hordes']['headers']['owner']['myZone']['attributes']['building'] = false;
+                        }
                         $inventory = $myzone->getFloor();
                         foreach ( $inventory->getItems() as $item ) {
                             $item_data = [

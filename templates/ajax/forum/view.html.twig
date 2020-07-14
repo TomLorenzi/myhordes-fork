@@ -5,66 +5,72 @@
 {% endblock %}
 
 {# @var forum \App\Entity\Forum #}
-{% macro display_thread_list( list, fid, icon, title ) %}
+{% macro display_thread_list( list, fid, icon, title, select, jump ) %}
     <div class="forum-note">
         <b><i class="fa {{ icon }}"></i> {{ title }}</b>
         {% for thread in list %}
-        <div class="row forum-thread {% if not thread.new %}forum-thread-unread{% endif%}" x-public-route="{{ path('forum_thread_view', {fid: fid, tid: thread.id }) }}" x-post-source="{{ path('forum_viewer_controller', {fid: fid, tid: thread.id }) }}" x-thread-id="{{ thread.id }}">
-            {# @var thread \App\Entity\Thread #}
-            <div class="cell rw-1 status">
-                {% if thread.locked %}
-                    <img alt="" src="{{ asset('build/images/lock.gif') }}" />
-                {% else %}
-                    &nbsp;
-                {% endif %}
-            </div>
-            <div class="cell rw-8 title">
-                <div>
-                    {% if thread.translatable %}
-                        {{ thread.title|trans({},'game') }}
+            {% set postUrl = path('forum_viewer_controller', {fid: fid, tid: thread.id }) %}
+            {% if thread.id == select and jump > 0 %}
+                {% set postUrlFg = path('forum_viewer_controller', {fid: fid, tid: thread.id, pid: jump }) %}
+            {% else %}
+                {% set postUrlFg = postUrl %}
+            {% endif %}
+            <div class="row forum-thread {% if not thread.new %}forum-thread-unread{% endif%}" x-public-route="{{ path('forum_thread_view', {fid: fid, tid: thread.id }) }}" {% if postUrl != postUrlFg %}x-post-source-next="{{ postUrlFg }}"{% endif%} x-post-source="{{ postUrl }}" x-thread-id="{{ thread.id }}">
+                {# @var thread \App\Entity\Thread #}
+                <div class="cell rw-1 status" style="padding: 5px;">
+                    {% if thread.locked %}
+                        <img alt="" src="{{ asset('build/images/icons/lock.gif') }}" />
                     {% else %}
-                        {{ thread.title }}
+                        &nbsp;
                     {% endif %}
-                    {% if thread.hasAdminAnnounce %}
-                    <span class="float-right">
-                        <img alt="" src="{{ asset('build/images/forum/adminAnnounce.png') }}" />
-                        <div class="tooltip forum-tooltip">
-                            {{'Dieses Thema enthält offizielle Ansagen der Website Administratoren.'|trans({}, 'global')}}
-                        </div>
-                    </span>
-                    {% elseif thread.hasOracleAnnounce %}
-                    <span class="float-right">
-                        <img src="{{ asset('build/images/forum/announce.png') }}" />
-                        <div class="tooltip forum-tooltip">
-                            {{'Dieses Thema enthält Ansagen von Community-Vertretern.'|trans({}, 'global')}}
-                        </div>
-                    </span>
+                </div>
+                <div class="cell rw-8 title"  style="padding: 5px;">
+                    <div>
+                        {% if thread.translatable %}
+                            {{ thread.title|trans({},'game') }}
+                        {% else %}
+                            {{ thread.title }}
+                        {% endif %}
+                        {% if thread.hasAdminAnnounce %}
+                        <span class="float-right">
+                            <img alt="" src="{{ asset('build/images/forum/adminAnnounce.png') }}" />
+                            <div class="tooltip forum-tooltip">
+                                {{'Dieses Thema enthält offizielle Ansagen der Website Administratoren.'|trans({}, 'global')}}
+                            </div>
+                        </span>
+                        {% elseif thread.hasOracleAnnounce %}
+                        <span class="float-right">
+                            <img src="{{ asset('build/images/forum/announce.png') }}" />
+                            <div class="tooltip forum-tooltip">
+                                {{'Dieses Thema enthält Ansagen von Community-Vertretern.'|trans({}, 'global')}}
+                            </div>
+                        </span>
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="cell rw-3 right count" style="background:#593223; padding: 5px;">
+                    {% if thread.posts|length > 1 %}
+                        {{ thread.posts|length - 1 }}
+                    {% endif %}
+                    <br />
+                    {% set last_post = thread.posts|length > 0 ? thread.posts[thread.posts|length-1] : null %}
+                    {% if last_post and last_post.owner %}
+                        {% if last_post.owner.username == 'Der Rabe' %}
+                            {{ 'Der Rabe'|trans({},'global') }}
+                        {% else %}
+                            {{ last_post.owner.username }}
+                        {% endif %}
+                    {% elseif thread.owner %}
+                        {% if thread.owner.username == 'Der Rabe' %}
+                            {{ 'Der Rabe'|trans({},'global') }}
+                        {% else %}
+                            {{ thread.owner.username }}
+                        {% endif %}
+                    {% else %}
+                        {{ 'Der Rabe'|trans({},'global') }}
                     {% endif %}
                 </div>
             </div>
-            <div class="cell rw-3 right count">
-                {% if thread.posts|length > 1 %}
-                    {{ thread.posts|length - 1 }}
-                {% endif %}
-                <br />
-                {% set last_post = thread.posts|length > 0 ? thread.posts[thread.posts|length-1] : null %}
-                {% if last_post and last_post.owner %}
-                    {% if last_post.owner.username == 'Der Rabe' %}
-                        {{ 'Der Rabe'|trans({},'global') }}
-                    {% else %}
-                        {{ last_post.owner.username }}
-                    {% endif %}
-                {% elseif thread.owner %}
-                    {% if thread.owner.username == 'Der Rabe' %}
-                        {{ 'Der Rabe'|trans({},'global') }}
-                    {% else %}
-                        {{ thread.owner.username }}
-                    {% endif %}
-                {% else %}
-                    {{ 'Der Rabe'|trans({},'global') }}
-                {% endif %}
-            </div>
-        </div>
         {% endfor %}
     </div>
 {% endmacro %}
@@ -88,11 +94,11 @@
                     </div>
                     <br />
                     {% if pinned_threads %}
-                        {{ _self.display_thread_list(pinned_threads, forum.id, 'fa-thumbtack', 'Sticky'|trans({}, 'global')) }}
+                        {{ _self.display_thread_list(pinned_threads, forum.id, 'fa-thumbtack', 'Sticky'|trans({}, 'global'), select, jump) }}
                         <br />
                     {% endif %}
 
-                    {{ _self.display_thread_list(threads, forum.id, 'fa-scroll', forum.title) }}
+                    {{ _self.display_thread_list(threads, forum.id, 'fa-scroll', forum.title, select, jump) }}
                 </div>
 
                 <div class="cell padded rw-8 rw-md-12">
@@ -141,7 +147,14 @@
                     let c;
                     while ((c = editor.firstChild)) editor.removeChild(c);
                 }
-                $.ajax.no_history().load(document.getElementById('forum-content'), this.getAttribute('x-post-source'), false)
+
+                let load_url = this.getAttribute('x-post-source');
+                if (this.getAttribute('x-post-source-next')) {
+                    load_url = this.getAttribute('x-post-source-next');
+                    this.setAttribute('x-post-source-next','');
+                }
+
+                $.ajax.no_history().load(document.getElementById('forum-content'), load_url, false)
                 $.ajax.push_history(this.getAttribute('x-public-route'));
             });
             thread_buttons[i].addEventListener('mousedown', function (e) {
@@ -151,6 +164,7 @@
                 }
             });
         }
+
         let selection_target = document.querySelector('[x-thread-id="{{ select }}"]');
         if (selection_target) selection_target.click();
 

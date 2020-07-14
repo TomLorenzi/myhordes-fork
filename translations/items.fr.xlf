@@ -3067,7 +3067,7 @@
       </notes>
       <segment>
         <source>Du hast eine {items_consume} in dein/e/n {item_from} gefüllt und {item_to} erhalten!</source>
-        <target>Vous avez rempli un {items_consume} dans votre {item_from} et reçu {item_to}!</target>
+        <target>Vous avez rempli un {items_consume} dans votre {item_from} et reçu {item_to} !</target>
       </segment>
     </unit>
     <unit id="foW8fmN" name="Hierfür brauchst du eine Ration Wasser.">
@@ -3166,7 +3166,7 @@
       </notes>
       <segment>
         <source>Du hast eine {items_consume} in dein/e/n {item_from} eingelegt und {item_to} erhalten!</source>
-        <target>Vous avez inséré une {items_consume} dans votre {item_from} et reçu {item_to}!</target>
+        <target>Vous avez inséré une {items_consume} dans votre {item_from} et reçu {item_to} !</target>
       </segment>
     </unit>
     <unit id="80ooJ7d" name="Hierfür brauchst du eine Batterie.">
@@ -3382,7 +3382,7 @@
       </notes>
       <segment>
         <source>Du hast {target} mit {item} vergiftet!</source>
-        <target>Vous avez empoisonné {target} avec {item}!</target>
+        <target>Vous avez empoisonné {target} avec {item} !</target>
       </segment>
     </unit>
     <unit id="6qvzljH" name="Mithilfe des {item} hast du die Umgebung gescannt.">
@@ -3418,7 +3418,7 @@
       </notes>
       <segment>
         <source>Mithilfe der {item} hast du dir etwas Zeit erkauft ... du solltest diesen Ort schnell verlassen!</source>
-        <target>Avec le {item} vous vous êtes acheté du temps ... vous devriez quitter cet endroit rapidement!</target>
+        <target>Avec le {item} vous vous êtes acheté du temps ... vous devriez quitter cet endroit rapidement !</target>
       </segment>
     </unit>
     <unit id="InvhyVo" name="Knuddeln">
@@ -3436,7 +3436,7 @@
       </notes>
       <segment>
         <source>Du drückst den {item} eng an deine Brust... &lt;t-stat-down-terror&gt;Tränen laufen über deine Wange, als du an die Hölle denkst, in der du lebst. Nach ein paar Minuten fühlst du dich besser!&lt;/t-stat-down-terror&gt;&lt;nt-stat-down-terror&gt;Aber nichts geschieht!&lt;/nt-stat-down-terror&gt;</source>
-        <target><![CDATA[Vous appuyez {item} près de votre poitrine... <t-stat-down-terror>Des larmes coulent sur vos joues en pensant à l'enfer dans lequel vous vivez. Après quelques minutes, vous vous sentirez mieux!</t-stat-down-terror><nt-stat-down-terror>Mais rien ne se passe!</nt-stat-down-terror>]]></target>
+        <target><![CDATA[Vous appuyez {item} près de votre poitrine... <t-stat-down-terror>Des larmes coulent sur vos joues en pensant à l'enfer dans lequel vous vivez. Après quelques minutes, vous vous sentirez mieux !</t-stat-down-terror><nt-stat-down-terror>Mais rien ne se passe!</nt-stat-down-terror>]]></target>
       </segment>
     </unit>
     <unit id="4TKj72Z" name="ba451af">
@@ -3445,7 +3445,7 @@
       </notes>
       <segment>
         <source>Du drückst den {item} eng an deine Brust... &lt;t-stat-up-terror&gt;Panik steigt in dir auf!&lt;/t-stat-up-terror&gt;&lt;nt-stat-up-terror&gt;Aber nichts geschieht!&lt;/nt-stat-up-terror&gt;</source>
-        <target><![CDATA[Vous appuyez {item} près de votre poitrine... <t-stat-up-terror>La panique surgit en vous!</t-stat-up-terror><nt-stat-up-terror>Mais rien ne se passe!</nt-stat-up-terror>]]></target>
+        <target><![CDATA[Vous appuyez {item} près de votre poitrine... <t-stat-up-terror>La panique surgit en vous !</t-stat-up-terror><nt-stat-up-terror>Mais rien ne se passe!</nt-stat-up-terror>]]></target>
       </segment>
     </unit>
     <unit id="kp6Ik3m" name="Rauchen">
@@ -4426,7 +4426,7 @@
       </notes>
       <segment>
         <source> Wenn wirklich gar nichts mehr geht, schluckst du diese Kapsel mit einem großen Glas Wasser. Danach einfach warten und sich mit einem zufriedenen Grinsen von dieser Welt verabschieden.</source>
-        <target> Quand rien ne va plus, une petite capsule de cyanure, un grand verre d'eau et on attend que ça passe avec un sourire apaisé.</target>
+        <target>Quand rien ne va plus, une petite capsule de cyanure, un grand verre d'eau et on attend que ça passe avec un sourire apaisé.</target>
       </segment>
     </unit>
     <unit id="fzJgcMX" name="9d29de4">
@@ -4480,7 +4480,7 @@
       </notes>
       <segment>
         <source>Die Aqua-Splash-Kanone ist die Lieblingswaffe aller Wüstenwanderer! Nicht geeignet für Kinder unter 8 Jahren.</source>
-        <target>L'Aqua-Splash est un fusil à eau surpuissant pour toute personne en balade dans l'Outre-Monde ! Ne convient pas à un enfant de moins 8 ans. </target>
+        <target>L'Aqua-Splash est un fusil à eau surpuissant pour toute personne en balade dans l'Outre-Monde ! Ne convient pas à un enfant de moins 8 ans.</target>
       </segment>
     </unit>
     <unit id="5MqdOSf" name="445e515">
@@ -5587,7 +5587,7 @@
       </notes>
       <segment>
         <source>Es handelt sich um eine bekannte Rauchgranatenmarke, die herzlich frisch nach Tannenzapfen riecht. BEACHTE: Dieser Gegenstand löscht drei Minuten lange alle Registereinträge. Die letzte Bewegungsaktion wird gelöscht, wenn sie spätestens eine Minute nach Benutzung der Rauchgranate erfolgt. ACHTUNG: Die Rauchgranate bitte erst NACH deiner Verheimlichungsaktion werfen.</source>
-        <target> Un modèle très courant de fumigènes, celui-ci ayant la particularité de sentir le conifère. NOTE : cet objet efface les entrées du registre des 3 dernières minutes. Il dissimule aussi votre prochain mouvement s'il est effectué au plus tard 1 minute après l'utilisation du fumigène. ATTENTION : utilisez cet objet APRÈS avoir réalisé les actions que vous souhaitez masquer...</target>
+        <target>Un modèle très courant de fumigènes, celui-ci ayant la particularité de sentir le conifère. NOTE : cet objet efface les entrées du registre des 3 dernières minutes. Il dissimule aussi votre prochain mouvement s'il est effectué au plus tard 1 minute après l'utilisation du fumigène. ATTENTION : utilisez cet objet APRÈS avoir réalisé les actions que vous souhaitez masquer...</target>
       </segment>
     </unit>
     <unit id="ZpQFDiH" name="954de21">
@@ -5614,7 +5614,7 @@
       </notes>
       <segment>
         <source>Dieser Koffer enthält mehrere Dokumente und obskure Gegenstände (Bleistift, Kompass, Plastiklineale,...). Nichts was dir irgendwie helfen würde, in der Wüste zu überleben. ...zumindest auf den ersten Blick.</source>
-        <target>Ce coffre contient nombre de documents obscurs et d'ustensiles désuets (crayons, compas, règles en plastique...). Rien qui ne vous servira à survivre dans le désert... A première vue.</target>
+        <target>Ce coffre contient nombre de documents obscurs et d'ustensiles désuets (crayons, compas, règles en plastique...). Rien qui ne vous servira à survivre dans le désert... À première vue.</target>
       </segment>
     </unit>
     <unit id="yDTEmRX" name="b69341f">
@@ -5686,7 +5686,7 @@
       </notes>
       <segment>
         <source>Einige der Zimmer sind wahre Flaschenhälse. Darum ist das das perfekte Werkzeug, um sich Zutritt zu verschaffen und den einen oder anderen nützlichen Gegenstand herauszuholen! Leider ist der Flaschenöffner in einem so schlechten Zustand, dass er nur eine einzige Tür öffnet.</source>
-        <target>Certaines pièces sont de vrais boîtes de conserve, rien de mieux qu'un outil approprié pour aller à la pêche aux objets utiles ! Malheureusement, étant en piteux état, ce décapsuleur ne pourra ouvrir qu'une seule porte. </target>
+        <target>Certaines pièces sont de vraies boîtes de conserve, rien de mieux qu'un outil approprié pour aller à la pêche aux objets utiles ! Malheureusement, étant en piteux état, ce décapsuleur ne pourra ouvrir qu'une seule porte.</target>
       </segment>
     </unit>
     <unit id="vclIZyk" name="33638dc">
@@ -5713,7 +5713,7 @@
       </notes>
       <segment>
         <source>Eine Schwache Seele. Einmal in der Bank abgelegt, kann ein Schamane sie nehmen und in eine starke Seele umwandeln. Sie kann einen Schamanen noch in vielen anderen Situationen nützen.</source>
-        <target>Vous rencontrez une forme vaporeuse qui semble se lamenter sur place, peut-être pourriez vous la récupérer et en trouver une quelconque utilité.</target>
+        <target>Vous rencontrez une forme vaporeuse qui semble se lamenter sur place, peut-être pourriez-vous la récupérer et en trouver une quelconque utilité.</target>
       </segment>
     </unit>
     <unit id="doGsSie" name="2e1e3f5">
@@ -5749,7 +5749,7 @@
       </notes>
       <segment>
         <source>Der einzige in diesem gottverlassenen Ort, der dir wirklich Liebe schenken kann, ohne dir danach deine Pillen zu stehlen. Soweit du dich mit Hunden auskennst, sieht er ziemlich seltsam aus, aber er ist treu, hat scharfe Zähne und kann wunderbar knurren. Und sollte es doch mal zum schlimmsten Fall kommen, wird sich der Metzger sicher freuen, sich um ihn zu "kümmern"...</source>
-        <target>Le seul être qui pourra vraiment vous donner de l'amour dans ce maudit enfer. Pour autant que vous soyez familier avec les chiens, celui-ci est fidèle, avec des mâchoires acérées et peut grogner à merveille. Dans le pire des cas, le boucher se fera un plaisir de "prendre soin" de de ce "chien-saucisse"...</target>
+        <target>Le seul être qui pourra vraiment vous donner de l'amour dans ce maudit enfer. Pour autant que vous soyez familier avec les chiens, celui-ci est fidèle, avec des mâchoires acérées et peut grogner à merveille. Dans le pire des cas, le boucher se fera un plaisir de "prendre soin" de ce "chien-saucisse"...</target>
       </segment>
     </unit>
     <unit id="tHLOoYh" name="3c2b71c">
@@ -5758,7 +5758,7 @@
       </notes>
       <segment>
         <source>Der Pfahlwerfer kann dazu verwendet werden, Barrikaden zu verstärken oder jede Art von Gegner abzuwehren. Leider ist nur noch ein Pfahl übrig...</source>
-        <target>Un lance-pieu qui a du servir pour renforcer les barricades sommaires des hôtels, des bunkers ou encore à lutter contre n'importe quel type de créatures. Il ne reste malheureusement qu'un seul pieu dans l'appareil.</target>
+        <target>Un lance-pieux qui a dû servir pour renforcer les barricades sommaires des hôtels, des bunkers ou encore à lutter contre n'importe quel type de créatures. Il ne reste malheureusement qu'un seul pieu dans l'appareil.</target>
       </segment>
     </unit>
     <unit id="6XdodLe" name="66391c4">
@@ -5776,7 +5776,7 @@
       </notes>
       <segment>
         <source>Dieser wackelige Tisch wurde offensichtlich in Eile gebaut. Doch könnte er, von den Barrikaden geworfen, bestimmt gut einige Zombies zerquetschen.</source>
-        <target>Ce bureau monté approximativement est bancal et peu elegant. Laché du haut d'un rempart, il pourra se rendre utile en écrasant des zombies.</target>
+        <target>Ce bureau monté approximativement est bancal et peu élégant. Lâché du haut d'un rempart, il pourra se rendre utile en écrasant des zombies.</target>
       </segment>
     </unit>
     <unit id="2goA6JI" name="cd7f656">
@@ -5785,7 +5785,7 @@
       </notes>
       <segment>
         <source>Ich weiß was du denkst: "Kann dieser Automat nicht 20 Rationen Wasser und 50 Tüten Chips enthalten?!?" Dummerweise sieht das nicht so aus...aber immerhin ist er sehr klotzig und enthält ein paar Knochen.</source>
-        <target>Ce distributeur n'a plus aucune utilité depuis la fin des pillages, il peut faire cependant des ravages une fois balancé du haut d'un rempart. </target>
+        <target>Ce distributeur n'a plus aucune utilité depuis la fin des pillages, il peut faire cependant des ravages une fois balancé du haut d'un rempart.</target>
       </segment>
     </unit>
     <unit id="143H2cZ" name="c37fc5e">
@@ -5794,7 +5794,7 @@
       </notes>
       <segment>
         <source>Es gab eine Zeit, da waren diese edlen Tiere legendär. Naja...diese Zeiten sind zwar vorbei, aber edel sind sie trotzdem noch.</source>
-        <target>Il faut un temps où l'on associait ce bel animal à des légendes merveilleuses… Ce temps est bien révolu, il a désormais une toute autre utilité.</target>
+        <target>Il fut un temps où l'on associait ce bel animal à des légendes merveilleuses… Ce temps est bien révolu, il a désormais une tout autre utilité.</target>
       </segment>
     </unit>
     <unit id="UuhpHIu" name="86ec8bc">
@@ -5803,7 +5803,7 @@
       </notes>
       <segment>
         <source>Ein weitgehend verschimmeltes Osterei. Sein fauliger Gestank erinnert ein wenig an Schießpulver. Hat der Schimmel etwa seine physikalischen Eigenschaften verändert? Könnte sich lohnen, auf einen Zombie zu werfen.</source>
-        <target>Un oeuf de pâques largement moisi, son odeur putride rapelle celle de la poudre, ce pourrait-il que la moisissure ait changé ses propriétés physique ? Ca vaut le coup d'essayer sur des zombies.</target>
+        <target>Un oeuf de pâques largement moisi, son odeur putride rapelle celle de la poudre, ce pourrait-il que la moisissure ait changé ses propriétés physiques ? Ça vaut le coup d'essayer sur des zombies.</target>
       </segment>
     </unit>
     <unit id="5vtPi6E" name="d5ea829">
@@ -5839,7 +5839,7 @@
       </notes>
       <segment>
         <source> Ab und an finden wir diese Behälter leer in der Wüste - meistens an der Seite einer Leiche. Wann lernen die Leute endlich, dass man Motoröl nicht trinken kann?</source>
-        <target>On trouve de temps en temps des bidons d'huile vides dans le désert, souvent accompagné d'un cadavre. Quand est ce que les citoyens comprendront que l'huile, ça ne se boit pas …</target>
+        <target>On trouve de temps en temps des bidons d'huile vides dans le désert, souvent accompagné d'un cadavre. Quand est-ce que les citoyens comprendront que l'huile, ça ne se boit pas …</target>
       </segment>
     </unit>
     <unit id="ZIo5wGX" name="f4b4b0e">
@@ -5929,7 +5929,7 @@
       </notes>
       <segment>
         <source>Nichts sagt "Willkommen zuhause" mehr als eine spontane Fußamputation.</source>
-        <target>Une bien belle manière d'inviter les invités comme les non-invités chez soi, une bombe sous le paillasson, pourquoi n'y avons nous pas pensé plus tôt !</target>
+        <target>Une bien belle manière d'inviter les invités comme les non invités chez soi, une bombe sous le paillasson, pourquoi n'y avons-nous pas pensé plus tôt !</target>
       </segment>
     </unit>
     <unit id="AXX0tVc" name="9f0cbb1">
@@ -5938,7 +5938,7 @@
       </notes>
       <segment>
         <source>Der Geist von Chuck lebt in dieser Figur. Nichts kann ihr schaden und sie wird noch lange nach deinem Tod hier sein, stets unerschrocken im Angesicht der Zombies.</source>
-        <target>L'esprit du grand Chuck habite cette figurine, rien ne peux lui arriver, et même après votre mort, elle restera là, sans craindre les hordes.</target>
+        <target>L'esprit du grand Chuck habite cette figurine, rien ne peut lui arriver, et même après votre mort, elle restera là, sans craindre les hordes.</target>
       </segment>
     </unit>
     <unit id="WYHUH_F" name="abca93d">
@@ -6028,7 +6028,7 @@
       </notes>
       <segment>
         <source>Bereit deine Hüften zu ein wenig Rock 'n' Roll zu schwingen? Diese Sammlung der besten Songs des King of Rock wird Stimmung in jede Party bringen.</source>
-        <target>Prêt à bouger votre corps suintant au rythm du rock n' roll ? Cette compilation du légendaire king of rock va mettre le feu à la scène !</target>
+        <target>Prêt à bouger votre corps suintant au rythme du rock n' roll ? Cette compilation du légendaire King of rock va mettre le feu à la scène !</target>
       </segment>
     </unit>
     <unit id="S9PlQ06" name="Beflügelt durch die Hits des Kings, bist du motivierter als jemals zuvor!">
@@ -6523,7 +6523,7 @@
       </notes>
       <segment>
         <source>Du hast Dir Dein eigenes Grab geschaufelt. Oh welche Ironie!</source>
-        <target>Vous avez creusé votre propre tombe. Oh quelle ironie!</target>
+        <target>Vous avez creusé votre propre tombe. Oh quelle ironie !</target>
       </segment>
     </unit>
     <unit id="nv.FYHK" name="Versteck verlassen">
@@ -6559,7 +6559,7 @@
       </notes>
       <segment>
         <source>Du hast Dein Grab verlassen. Die schöne Arbeit umsonst!</source>
-        <target>Vous quittez la tombe que vous aviez creusé. Que de labeur gâché!</target>
+        <target>Vous quittez la tombe que vous aviez creusé. Que de labeur gâché !</target>
       </segment>
     </unit>
     <unit id="5OR30sk" name="01df5c7">
@@ -6577,7 +6577,7 @@
       </notes>
       <segment>
         <source>Der Metzger hat sich gut um {item} gekümmert... Dafür hast du nun {items_spawn} erhalten. Auf wiedersehen, mein Freund!</source>
-        <target>Le boucher a bien pris soin de {item}... Vous avez maintenant reçu {items_spawn} pour cela. Au revoir, mon ami!</target>
+        <target>Le boucher a bien pris soin de {item}... Vous avez maintenant reçu {items_spawn} pour cela. Au revoir, mon ami !</target>
       </segment>
     </unit>
     <unit id="OeuOyF4" name="Haus aufräumen und putzen">
@@ -6658,7 +6658,7 @@
       </notes>
       <segment>
         <source>&lt;t-zone&gt;Du hast eine neue Ruine auf {zone} entdeckt!&lt;/t-zone&gt;&lt;nt-zone&gt;Es scheint, als gäbe es nichts mehr zu entdecken ...&lt;/nt-zone&gt;</source>
-        <target><![CDATA[<t-zone>Vous avez découvert une nouvelle ruine sur {zone}!</t-zone><nt-zone>Il semble qu'il n'y ait plus rien à découvrir...</nt-zone>]]></target>
+        <target><![CDATA[<t-zone>Vous avez découvert une nouvelle ruine sur {zone} !</t-zone><nt-zone>Il semble qu'il n'y ait plus rien à découvrir...</nt-zone>]]></target>
       </segment>
     </unit>
     <unit id="zI0j8nd" name="Wasserwaffen füllen">

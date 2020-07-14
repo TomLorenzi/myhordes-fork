@@ -502,7 +502,7 @@
       </notes>
       <segment>
         <source>Aktuelles Leben</source>
-        <target>Current life</target>
+        <target>Current incarnation</target>
       </segment>
     </unit>
     <unit id="fmZlI_I" name="Saison">
@@ -583,7 +583,7 @@
       </notes>
       <segment>
         <source>Weiter zu</source>
-        <target>Weiter zu</target>
+        <target>Proceed to</target>
       </segment>
     </unit>
     <unit id="WoxxQuM" name="Du hast keine Externe ID.">
@@ -1267,7 +1267,7 @@
       </notes>
       <segment>
         <source>Falls sich dieser Zustand auch um Mitternacht noch nicht geändert hat, findet kein Zombieangriff statt. Der Tag wird dann künstlich verlängert.</source>
-        <target>Falls sich dieser Zustand auch um Mitternacht noch nicht geändert hat, findet kein Zombieangriff statt. Der Tag wird dann künstlich verlängert.</target>
+        <target>If, by midnight, this condition has not been satisfied, the attack will not take place and the day will be artificially prolonged.</target>
       </segment>
     </unit>
     <unit id="jsMx6ao" name="a848169">
@@ -1285,7 +1285,7 @@
       </notes>
       <segment>
         <source>Der Markierer ist auf der Karte für ALLE Bürger sichtbar. Benutze ihn, um der Gemeinschaft Informationen über eine bestimmte Zone mitzuteilen.</source>
-        <target>Der Markierer ist auf der Karte für ALLE Bürger sichtbar. Benutze ihn, um der Gemeinschaft Informationen über eine bestimmte Zone mitzuteilen.</target>
+        <target>The marker is visible on EVERY citizen's map. Use it to share information on the zone with the community.</target>
       </segment>
     </unit>
     <unit id="51m8lm3" name="7ef672f">
@@ -1294,7 +1294,7 @@
       </notes>
       <segment>
         <source>Beachte: Alle hier geschriebenen Nachrichten gehen verloren, wenn alle Bürger die Zone verlassen.</source>
-        <target>Note: All messages written here will be lost if all citizens leave the zone.</target>
+        <target>Note: Messages written here will be lost if all the citizens leave the zone.</target>
       </segment>
     </unit>
   </file>
