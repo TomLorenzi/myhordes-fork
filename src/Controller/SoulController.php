@@ -210,17 +210,20 @@ class SoulController extends AbstractController
     {
         /** @var User $user */
         $user = $this->getUser();
+        $main = $this->entity_manager->getRepository(TwinoidImport::class)->findOneBy(['user' => $user, 'main' => true]);
 
         if ($cache = $this->entity_manager->getRepository(TwinoidImportPreview::class)->findOneBy(['user' => $user])) {
 
             return $this->render( 'ajax/soul/import_preview.html.twig', $this->addDefaultTwigArgs("soul_settings", [
-                'payload' => $cache->getData($this->entity_manager), 'preview' => true
+                'payload' => $cache->getData($this->entity_manager), 'preview' => true,
+                'main_soul' => $main !== null && $main->getScope() === $cache->getScope(), 'select_main_soul' => $main === null,
             ]) );
 
         } else return $this->render( 'ajax/soul/import.html.twig', $this->addDefaultTwigArgs("soul_settings", [
             'services' => ['www.hordes.fr' => 'Hordes','www.die2nite.com' => 'Die2Nite','www.dieverdammten.de' => 'Die Verdammten','www.zombinoia.com' => 'Zombinoia'],
             'code' => $code, 'need_sk' => !$twin->hasBuiltInTwinoidAccess(),
-            'souls' => $this->entity_manager->getRepository(TwinoidImport::class)->findBy(['user' => $user], ['created' => 'DESC'])
+            'souls' => $this->entity_manager->getRepository(TwinoidImport::class)->findBy(['user' => $user], ['created' => 'DESC']),
+            'select_main_soul' => $main === null
         ]) );
     }
 
@@ -237,8 +240,11 @@ class SoulController extends AbstractController
         $import = $this->entity_manager->getRepository(TwinoidImport::class)->find( $id );
         if (!$import || $import->getUser() !== $user) return $this->redirect($this->generateUrl('soul_import'));
 
+        $main = $this->entity_manager->getRepository(TwinoidImport::class)->findOneBy(['user' => $user, 'main' => true]);
+
         return $this->render( 'ajax/soul/import_preview.html.twig', $this->addDefaultTwigArgs("soul_settings", [
-            'payload' => $import->getData($this->entity_manager), 'preview' => false
+            'payload' => $import->getData($this->entity_manager), 'preview' => false,
+            'main_soul' => $main !== null && $main->getScope() === $import->getScope(), 'select_main_soul' => $main === null,
         ]) );
     }
 
@@ -380,7 +386,8 @@ class SoulController extends AbstractController
         /** @var User $user */
         $user = $this->getUser();
 
-        $pending = null;
+        $to_main = (bool)$json->get('main', false);
+        $pending = null; $selected = null;
 
         if ($id < 0) {
             $pending = $this->entity_manager->getRepository(TwinoidImportPreview::class)->findOneBy(['user' => $user]);
@@ -394,20 +401,32 @@ class SoulController extends AbstractController
             $data = $selected->getData($this->entity_manager);
         }
 
-        if ($twin->importData( $user, $scope, $data, false )) {
+        $main = $this->entity_manager->getRepository(TwinoidImport::class)->findOneBy(['user' => $user, 'main' => true]);
+
+        if ($main !== null && $main->getScope() !== $scope && $to_main)
+            return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
+
+        if ($main !== null && $main->getScope() === $scope)
+            $to_main = true;
+
+        if ($twin->importData( $user, $scope, $data, $to_main )) {
 
             if ($id < 0) {
                 $import_ds = $this->entity_manager->getRepository(TwinoidImport::class)->findOneBy(['user' => $user, 'scope' => $scope]);
                 if ($import_ds === null) $user->addTwinoidImport( $import_ds = new TwinoidImport() );
 
                 $import_ds->fromPreview( $pending );
+                $import_ds->setMain( $to_main );
 
+                $user->setTwinoidID( $pending->getTwinoidID() );
                 $user->setTwinoidImportPreview(null);
                 $pending->setUser(null);
 
-                $this->entity_manager->persist( $user );
+
                 $this->entity_manager->remove($pending);
-            }
+            } else $selected->setMain($to_main);
+
+            $this->entity_manager->persist( $user );
 
             try {
                 $this->entity_manager->flush();

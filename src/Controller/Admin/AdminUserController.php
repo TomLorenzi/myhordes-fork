@@ -6,12 +6,15 @@ use App\Entity\AdminReport;
 use App\Entity\Citizen;
 use App\Entity\Picto;
 use App\Entity\Town;
+use App\Entity\TwinoidImport;
+use App\Entity\TwinoidImportPreview;
 use App\Entity\User;
 use App\Entity\UserPendingValidation;
 use App\Response\AjaxResponse;
 use App\Service\AdminActionHandler;
 use App\Service\ErrorHelper;
 use App\Service\JSONRequestParser;
+use App\Service\TwinoidHandler;
 use App\Service\UserFactory;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -58,15 +61,19 @@ class AdminUserController extends AdminActionController
      * @param string $action
      * @param JSONRequestParser $parser
      * @param UserFactory $uf
+     * @param TwinoidHandler $twin
      * @return Response
      */
-    public function user_account_manager(int $id, string $action, JSONRequestParser $parser, UserFactory $uf): Response
+    public function user_account_manager(int $id, string $action, JSONRequestParser $parser, UserFactory $uf, TwinoidHandler $twin): Response
     {
         /** @var User $user */
         $user = $this->entity_manager->getRepository(User::class)->find($id);
         if (!$user) return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
 
-        if (in_array($action, [ 'delete_token', 'invalidate', 'validate' ]) && !$this->isGranted('ROLE_ADMIN'))
+        if (in_array($action, [ 'delete_token', 'invalidate', 'validate', 'twin_full_reset', 'twin_main_reset' ]) && !$this->isGranted('ROLE_ADMIN'))
+            return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
+
+        if ($this->isGranted( 'ROLE_CROW', $user ) && !$this->isGranted('ROLE_ADMIN'))
             return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
 
         switch ($action) {
@@ -110,6 +117,35 @@ class AdminUserController extends AdminActionController
                     return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
                 $this->entity_manager->remove($pv);
                 break;
+
+            case 'twin_full_reset'://, 'twin_main_reset'
+                foreach ($user->getTwinoidImports() as $import) {
+                    $user->removeTwinoidImport($import);
+                    $this->entity_manager->remove($import);
+                }
+
+                $pending = $this->entity_manager->getRepository(TwinoidImportPreview::class)->findOneBy(['user' => $user]);
+                if ($pending) {
+                    $pending->setUser(null);
+                    $this->entity_manager->remove($pending);
+                }
+
+                $twin->clearImportedData( $user, null, true );
+                $user->setTwinoidID(null);
+                $this->entity_manager->persist($user);
+                break;
+
+            case 'twin_main_reset':
+
+                $main = $this->entity_manager->getRepository(TwinoidImport::class)->findOneBy(['user' => $user, 'main' => true]);
+                if ($main) {
+                    $twin->clearPrimaryImportedData( $user );
+                    $main->setMain( false );
+                    $this->entity_manager->persist($main);
+                }
+
+                break;
+
             default: return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
         }
 

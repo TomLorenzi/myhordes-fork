@@ -178,15 +178,18 @@ class TwinoidHandler
             }
         }
 
-        if ($isPrimary) {
+        if ($isPrimary) $this->clearPrimaryImportedData($user);
+    }
 
-            // Remove pictos
-            foreach ($this->em->getRepository(Picto::class)->findBy(['imported' => true, 'user' => $user]) as $picto) {
-                $user->removePicto($picto);
-                $this->em->remove( $picto );
-            }
-
+    function clearPrimaryImportedData( User $user ) {
+        // Remove pictos
+        foreach ($this->em->getRepository(Picto::class)->findBy(['imported' => true, 'user' => $user]) as $picto) {
+            $user->removePicto($picto);
+            $this->em->remove( $picto );
         }
+
+        $user->setImportedSoulPoints( 0 );
+        $user->setImportedHeroDaysSpent( 0 );
     }
 
     function importData( User $user, string $scope, TwinoidPayload $data, bool $isPrimary ): bool {
@@ -255,38 +258,40 @@ class TwinoidHandler
         }
         //</editor-fold>
 
-        //<editor-fold desc="Picto Import">
-        // Get existing pictos
-        $pid_list = [];
-        foreach ($data->getPictos() as $picto)
-            if ($picto->convertPicto())
-                $pid_list[$picto->convertPicto()->getID()] = true;
+        if ($isPrimary) {
+            //<editor-fold desc="Picto Import">
+            // Get existing pictos
+            $pid_list = [];
+            foreach ($data->getPictos() as $picto)
+                if ($picto->convertPicto())
+                    $pid_list[$picto->convertPicto()->getID()] = true;
 
-        foreach ($this->em->getRepository(Picto::class)->findBy(['imported' => true, 'user' => $user]) as $picto) {
+            foreach ($this->em->getRepository(Picto::class)->findBy(['imported' => true, 'user' => $user]) as $picto) {
 
-            // The picto is not in the list of imported pictos; remove it
-            if (!isset($pid_list[$picto->getPrototype()->getId()])) {
-                $user->removePicto($picto);
-                $this->em->remove($picto);
+                // The picto is not in the list of imported pictos; remove it
+                if (!isset($pid_list[$picto->getPrototype()->getId()])) {
+                    $user->removePicto($picto);
+                    $this->em->remove($picto);
+                }
             }
+
+            foreach ($data->getPictos() as $picto) if ($picto->convertPicto()) {
+
+                $entry = $this->em->getRepository(Picto::class)->findOneBy( ['imported' => true, 'user' => $user, 'prototype' => $picto->convertPicto()] );
+                if ($entry === null)
+                    $entry = (new Picto())
+                        ->setUser($user)
+                        ->setImported(true)
+                        ->setPersisted(2)
+                        ->setPrototype($picto->convertPicto());
+                $entry->setCount($picto->getCount());
+                $this->em->persist( $entry );
+            }
+            //</editor-fold>
+
+            $user->setImportedSoulPoints( $data->getSummarySoulPoints() );
+            $user->setImportedHeroDaysSpent( $data->getSummaryHeroDays() );
         }
-
-        foreach ($data->getPictos() as $picto) if ($picto->convertPicto()) {
-
-            $entry = $this->em->getRepository(Picto::class)->findOneBy( ['imported' => true, 'user' => $user, 'prototype' => $picto->convertPicto()] );
-            if ($entry === null)
-                $entry = (new Picto())
-                    ->setUser($user)
-                    ->setImported(true)
-                    ->setPersisted(2)
-                    ->setPrototype($picto->convertPicto());
-            $entry->setCount($picto->getCount());
-            $this->em->persist( $entry );
-        }
-        //</editor-fold>
-
-        $user->setImportedSoulPoints( $data->getSummarySoulPoints() );
-        $user->setImportedHeroDaysSpent( $data->getSummaryHeroDays() );
 
         return true;
     }

@@ -91,7 +91,29 @@
 
             </div>
 
-            <div class="dashboard">
+            <div class="green-note">
+                {% if not select_main_soul and main_soul %}
+                    <b>{{ 'Dies ist deine Hauptseele.'|trans({},'soul') }}</b> {{ 'Seelenpunkte, Auszeichnungen und Heldenerfahrung von dieser Seele können in dein MyHordes-Profil importiert werden.'|trans({},'soul') }}
+                {% elseif not select_main_soul and not main_soul %}
+                    <b>{{ 'Dies ist nicht deine Hauptseele.'|trans({},'soul') }}</b> {{ 'Seelenpunkte, Auszeichnungen und Heldenerfahrung können nur von deiner Hauptseele in dein MyHordes-Profil importiert werden.'|trans({},'soul') }}
+                {% else %}
+                    <img alt="" src="{{ asset('build/images/icons/small_hero_up.gif') }}">  <b>{{ 'Möchtest du diese Seele zu deiner Hauptseele erklären?'|trans({},'soul') }}</b>
+                    <p>{{ 'Seelenpunkte, Auszeichnungen und Heldenerfahrung können nur von einer Seele importiert werden - deiner Hauptseele. Überlege dir deine Entscheidung gut, denn du kannst die Wahl deiner Hauptseele später nicht mehr ändern!'|trans({},'soul') }}</p>
+
+                    {% if preview %}
+                        <p>{{ 'Du musst diese Entscheidung nicht jetzt treffen, sondern kannst diese Seele auch nachträglich noch zu deiner Hauptseele erklären - solange du inzwischen nicht bereits eine andere Seele als Hauptseele gewählt hast.'|trans({},'soul') }}</p>
+                        <label><input type="checkbox" id="chk_make_main"> {{ 'Diese Seele zu meiner Hauptseele machen!' }}</label>
+                    {% else %}
+                        <p>{{ 'Um diese Seele zu deiner Hauptseele zu machen, verwende die Schaltfläche auf der vorherigen Seite.' }}</p>
+                    {% endif %}
+
+                    <p>{{ 'Unabhängig davon, ob du diese Seele zu deiner Hauptseele machst oder nicht, kannst du ihre Daten bei Bedarf selbstverständlich erneut mit Twinoid abgleichen und ihre Daten aktualisieren.'|trans({},'soul') }}</p>
+
+
+                {% endif %}
+            </div>
+
+            <div class="dashboard" x-only-main="1" {% if not main_soul %}disabled="disabled"{% endif %}>
                 <div class="row">
                     <div class="padded cell rw-4 rw-lg-12 center">
                         <div class="counter">{{ '%c% Seelenpunkte'|trans({'%c%': payload.summarySoulPoints}, 'soul') }}</div>
@@ -196,6 +218,13 @@
                 {% if preview %}
                     <div class="help">
                         {{ 'Hier werden dir die Auszeichnungen angezeigt, welche du im Laufe der Zeit verdient hast.'|trans({},'soul') }}
+                        {% if not main_soul %}
+                            <p x-only-main="1" class="critical"><img src="{{ asset('build/images/icons/small_warning.gif') }}" alt="!"> {{ 'Diese Daten können nur von deiner Hauptseele importiert werden.' }}</p>
+                        {% endif %}
+                    </div>
+                {% elseif not main_soul %}
+                    <div class="help">
+                        <p class="critical"><img src="{{ asset('build/images/icons/small_warning.gif') }}" alt="!"> {{ 'Diese Daten können nur von deiner Hauptseele importiert werden.' }}</p>
                     </div>
                 {% endif %}
                 <div class="note">
@@ -311,12 +340,25 @@
             });
 
             document.getElementById('begin_import_con_btn').addEventListener('click', function() {
-                $.ajax.easySend( '{{ path('soul_import_confirm_api') }}', {},
+                const set_as_main = {% if select_main_soul %}document.getElementById('chk_make_main').checked{% else %}false{% endif %};
+
+                if (set_as_main && !confirm('{{ 'Bist du sicher, dass du diese Seele als deine Hauptseele festlegen willst. Dieser Vorgang kann nicht rückgängig gemacht werden!'|trans({},'soul')|e('js') }}'))
+                    return;
+
+                $.ajax.easySend( '{{ path('soul_import_confirm_api') }}', {main: set_as_main},
                     function () {
                         $.html.notice( '{{ 'Deine Seele wurde erfolgreich importiert!'|trans({},'soul')|e('js') }}' )
                         $.ajax.load(null, '{{ path('soul_settings') }}', true);
                     } )
             });
+        {% endif %}
+
+        {% if select_main_soul %}
+            document.getElementById('chk_make_main').addEventListener('change', function() {
+                if (document.getElementById('chk_make_main').checked)
+                    $.html.forEach('[x-only-main]', element => { if (element.classList.contains('dashboard')) element.removeAttribute('disabled'); else element.classList.add('hidden') } );
+                else $.html.forEach('[x-only-main]', element => { if (element.classList.contains('dashboard')) element.setAttribute('disabled','disabled'); else element.classList.remove('hidden') } );
+            })
         {% endif %}
 
         let town_more_btn = document.getElementById('more_towns_btn');

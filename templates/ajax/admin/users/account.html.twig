@@ -22,6 +22,25 @@
                 {% endif %}
 
                 <div class="cell padded rw-3 rw-sm-12">
+                    <b>{{ 'Twinoid-Konto'|trans({}, 'admin') }}</b>
+                </div>
+                <div class="cell padded rw-9 rw-sm-12">
+                    {% set has_main_soul = false %}
+                    {% if user.twinoidID is not null %}
+                        <a target="_blank" href="https://twinoid.com/user/{{ user.twinoidID }}"><i class="fa fa-external-link-alt"></i> {{ user.twinoidID }}</a><br />
+                        {% for soul in user.twinoidImports %}
+                            {% if soul.main %}
+                                {% set has_main_soul = true %}
+                                <div><i class="fa fa-arrow-right"></i> <img alt="" src="{{ asset('build/images/icons/small_hero_up.gif') }}"> <b>{{ soul.scope }}</b></div>
+                            {% else %}
+                                <div><i class="fa fa-arrow-right"></i> <i>{{ soul.scope }}</i></div>
+                            {% endif %}
+                        {% endfor %}
+                    {% else %} - {% endif %}
+                </div>
+
+
+                <div class="cell padded rw-3 rw-sm-12">
                     <b>{{ 'Validiert'|trans({}, 'admin') }}</b>
                 </div>
                 <div class="cell padded rw-9 rw-sm-12">
@@ -33,6 +52,7 @@
                 </div>
                 <div class="cell padded rw-9 rw-sm-12">
                     {% if     user.rightsElevation == 0 %} {{ 'Spieler'|trans({}, 'admin') }}
+                    {% elseif user.rightsElevation == 2 %} {{ 'Orakel'|trans({}, 'admin') }}
                     {% elseif user.rightsElevation == 3 %} {{ 'Krähe'|trans({}, 'admin') }}
                     {% elseif user.rightsElevation == 4 %} {{ 'Admin'|trans({}, 'admin') }}
                     {% else                             %} {{ user.rightsElevation }} {% endif %}
@@ -60,29 +80,42 @@
                     <b><label for="administer-user">{{ 'User administrieren'|trans({}, 'admin') }}</label></b>
                 </div>
                 <div class="cell padded rw-9 rw-sm-12">
-                    <select id="administer-user">
-                        <option value="">-</option>
-                        <optgroup label="{{ 'Validierung'|trans({},'admin') }}">
-                            {% if is_granted("ROLE_ADMIN") %}
-                                {% if user.validated %}
-                                    <option value="{{ url('admin_users_account_manage', {action: 'invalidate', id: user.id}) }}">{{ 'Erneute Validierung erzwingen'|trans({},'admin') }}</option>
-                                {% else %}
-                                    <option value="{{ url('admin_users_account_manage', {action: 'validate', id: user.id}) }}">{{ 'Manuell validieren'|trans({},'admin') }}</option>
+                    {% if is_granted("ROLE_ADMIN") or not is_granted("ROLE_CROW",user) %}
+                        <select id="administer-user">
+                            <option value="">-</option>
+                            <optgroup label="{{ 'Validierung'|trans({},'admin') }}">
+                                {% if is_granted("ROLE_ADMIN") %}
+                                    {% if user.validated %}
+                                        <option value="{{ url('admin_users_account_manage', {action: 'invalidate', id: user.id}) }}">{{ 'Erneute Validierung erzwingen'|trans({},'admin') }}</option>
+                                    {% else %}
+                                        <option value="{{ url('admin_users_account_manage', {action: 'validate', id: user.id}) }}">{{ 'Manuell validieren'|trans({},'admin') }}</option>
+                                    {% endif %}
                                 {% endif %}
-                            {% endif %}
-                            {% if not is_granted("ROLE_ADMIN") or validations|length > 0 %}
-                                <option value="{{ url('admin_users_account_manage', {action: 'refresh_tokens', id: user.id}) }}">{{ 'Offene Token erneut ankündigen'|trans({},'admin') }}</option>
-                                <option value="{{ url('admin_users_account_manage', {action: 'regen_tokens', id: user.id}) }}">{{ 'Offene Token regenerieren'|trans({},'admin') }}</option>
-                            {% endif %}
-                        </optgroup>
-                        {% if is_granted("ROLE_ADMIN") %}
-                            <optgroup label="{{ 'Sicherheit'|trans({},'admin') }}">
-                                <option value="{{ url('admin_users_account_manage', {action: 'initiate_pw_reset', id: user.id}) }}">{{ 'Passwort-Reset auslösen'|trans({},'admin') }}</option>
-                                <option value="{{ url('admin_users_account_manage', {action: 'enforce_pw_reset', id: user.id}) }}">{{ 'Passwort-Reset erzwingen'|trans({},'admin') }}</option>
+                                {% if not is_granted("ROLE_ADMIN") or validations|length > 0 %}
+                                    <option value="{{ url('admin_users_account_manage', {action: 'refresh_tokens', id: user.id}) }}">{{ 'Offene Token erneut ankündigen'|trans({},'admin') }}</option>
+                                    <option value="{{ url('admin_users_account_manage', {action: 'regen_tokens', id: user.id}) }}">{{ 'Offene Token regenerieren'|trans({},'admin') }}</option>
+                                {% endif %}
                             </optgroup>
-                        {% endif %}
-                    </select>
-                    <div id="execute_button" class="button inline small">{{ 'Ausführen'|trans({},'admin') }}</div>
+                            {% if is_granted("ROLE_ADMIN") %}
+                                <optgroup label="{{ 'Sicherheit'|trans({},'admin') }}">
+                                    <option value="{{ url('admin_users_account_manage', {action: 'initiate_pw_reset', id: user.id}) }}">{{ 'Passwort-Reset auslösen'|trans({},'admin') }}</option>
+                                    <option value="{{ url('admin_users_account_manage', {action: 'enforce_pw_reset', id: user.id}) }}">{{ 'Passwort-Reset erzwingen'|trans({},'admin') }}</option>
+                                </optgroup>
+                                {% if user.twinoidID is not null %}
+                                    <optgroup label="{{ 'Twinoid-Integration'|trans({},'admin') }}">
+                                        <option value="{{ url('admin_users_account_manage', {action: 'twin_full_reset', id: user.id}) }}">{{ 'Integrationen löschen'|trans({},'admin') }}</option>
+                                        {% if has_main_soul %}
+                                            <option value="{{ url('admin_users_account_manage', {action: 'twin_main_reset', id: user.id}) }}">{{ 'Hauptseele zurücksetzen'|trans({},'admin') }}</option>
+                                        {% endif %}
+                                    </optgroup>
+                                {% endif %}
+
+                            {% endif %}
+                        </select>
+                        <div id="execute_button" class="button inline small">{{ 'Ausführen'|trans({},'admin') }}</div>
+                    {% else %}
+                        <span class="critical">{{ 'Du hast keine Berechtigung, diesen Benutzer zu administrieren!'|trans({},'admin') }}</span>
+                    {% endif %}
                 </div>
             </div>
         </div>
