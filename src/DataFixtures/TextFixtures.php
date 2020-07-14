@@ -2100,6 +2100,28 @@ class TextFixtures extends Fixture
             "background" => "noteup",
             "design" => "small"
         ],
+        "log3" => [
+            "title" => "Journal d'un citoyen inconnu 2",
+            "author" => "ChrisCool",
+            "content" => [
+                '<h1>Premier jour</h1>
+                <p>J\'ouvre les yeux. Où suis-je ? Je ne me souviens de rien... Autour de moi, d\'autres personnes, l\'air tout aussi hagardes, errent. J\'ai l\'impression d\'être dans un petit village entouré de planches vermoulues. J\'entends des grognements étranges au loin. Un vent chaud chargé de sable me brûle le visage. Que faire ? Déjà, d\'autres personnes s\'activent pour rajouter des planches autour de la ville, mais pourquoi ...</p>
+                <h1>Deuxième jour</h1>
+                <p>J\'ai peur. Terriblement peur.</p>
+                <p>Cette nuit, des monstres affreux sont venus s\'étaler devant la grande porte. Ils ressemblaient à des humains, mais leurs membres partaient en lambeaux, une odeur de charogne à vomir accompagnait leur marche... Aujourd\'hui j\'ai tout mis en oeuvre pour renforcer notre ville par tous les moyens. Je ne pourrais supporter longtemps ces... êtres, ou plutôt, choses...</p>',
+                '<h1>Troisième jour</h1>
+                <p>Toujours en ...survie...</p>
+                <p>Certains souffrent  de la soif, d\'autres encore ont choppé de vilaines infections. Je ne suis pas médecin, mais je devine déjà les souffrances qu\'ils vont endurer...</p>
+                <p>Nous sommes de moins en moins nombreux. A l\'intérieur de nos murs, du moins...</p>
+                <p>Nos anciens compagnons viennent grossir leurs rangs dès le trépas. J\'ai peur de mes voisins maintenant...</p>',
+                '<h1>Quatrième jour</h1>
+                <p>I.I.Ils sont revenus cette nuit... Ils ont tenté de me d.d.d.dévorer vivant, c\'était terrifiant. J\'ai fracassé le crâne de l\'un d.d.d.d\'entre eux HAAAAvec une vieille lampe de chevet qui traînait dans un coin-coin. Je dois tenir, à tous prix...</p>
+                <p>Je rédige ces l.l.lignes ce soir, je les entends déjà rôder, qui sait si <s>ils</s></p>'
+            ],
+            "lang" => "fr",
+            "background" => "noteup",
+            "design" => "small"
+        ],
         "coctl1" => [
             "title" => "Journal de Coctail, partie 1",
             "author" => "coctail",
@@ -2290,6 +2312,25 @@ class TextFixtures extends Fixture
             "lang" => "fr",
             "background" => "old",
             "design" => "written"
+        ],
+        "kraky" => [
+            "title" => "Kraky, sa vie, son oeuvre",
+            "author" => "Krakynou",
+            "content" => [
+                '>
+                <h1>Kraky, La vie d\'un Prophète</h1>
+                <p>Ils me prennent pour un fou !<br>
+                Ils me traitent au même titre que les zombis, excepté que je peux rentrer en ville.<br>
+                Tout cela à cause de ma religion. Ils ne croient pas au pouvoir du grand Poulpe.<br>
+                Au loin ça parle de construire un bûcher. S’ils savaient… Aujourd’hui dans le désert j’ai trouvé les restes d’un compagnon.<br>
+                Nul doute qu’en croquer un morceau m’aidera à me contaminer.<br>
+                J’ai voulu les purifier par mes paroles en prêchant celle de Poulpe, cela n’a pas suffi.<br>
+                Il me faut désormais purifier par les actes. Ils mourront.
+                </p>'
+             ],
+            "lang" => "fr",
+            "background" => "notepad",
+            "design" => "small"
         ],
         "cenhyd" => [
             "title" => "La centrale hydraulique",
