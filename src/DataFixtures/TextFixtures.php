@@ -2477,6 +2477,23 @@ class TextFixtures extends Fixture
             "background" => "grid",
             "design" => "typed"
         ],
+        "docte" => [
+            "title" => "La vie de Docteurhache",
+            "author" => "Docteurhache",
+            "content" => [
+                '&gt;
+                <h2>Extrait du journal de Docteurhache</h2>
+                <p>La ville semble bien calme à l\'aube d\'une attaque dévastatrice.
+                Les citoyens gardent peu d\'espoir dans un lendemain. Les maisons sont construites, le King résonne dans les venelles et Chuck trône fièrement au sommet de la muraille.
+                Seul l’ultime trophée, cet assemblage d’or qui fait tant rêver, manque pour parfaire le décor. Tout se joue maintenant, car demain nombreux seront les macchabées.
+                Chacun veut être à l\'honneur pour l\'attaque létale et devenir l’incontestable favori des zombies.
+                Tous attendent, parés de leurs plus beaux atours, sous les feux de bougies donnant à l\'atmosphère une enivrante quiétude à l\'aube de la mort.
+                </p>'
+            ],
+            "lang" => "fr",
+            "background" => "white",
+            "design" => "written"
+        ],
         "canula_fr" => [
              "title" => "Le Bal de Charité",
              "author" => "Shyranui",
@@ -3586,6 +3603,34 @@ class TextFixtures extends Fixture
             "lang" => "fr",
             "background" => "secret",
             "design" => "smallé"
+        ],
+        "raleg" => [
+            "title" => "Râles goulifiques",
+            "author" => "Selcota",
+            "content" => [
+                '>
+                <h2>Râles goulifiques</h2>
+                <p>Visage pâle qui me contemple<br>
+                D\'un vil sourire ample,<br>
+                Immaculée de sang<br>
+                Agonisant.
+                </p>
+                <p>
+                Convulsant<br>
+                Au parfum alléchant<br>
+                De quelques chairs tuméfiées<br>
+                Qu\'une main innocente approchée<br>
+                </p>
+                <p>
+                Gigotait<br>
+                Comme un hochet<br>
+                À l\'abord des canines<br>
+                De l\'animal sans discipline.
+                </p>'
+            ],
+            "lang" => "fr",
+            "background" => "old",
+            "design" => "poem"
         ],
         "exp1" => [
             "title" => "Rapport d'expérience, origine inconnue",
