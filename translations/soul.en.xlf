@@ -277,7 +277,7 @@
       </notes>
       <segment>
         <source>Neues Profilbild hochladen</source>
-        <target>Send a new profile avatar</target>
+        <target>Set a new profile avatar</target>
       </segment>
     </unit>
     <unit id="uBrCxGO" name="Profilbild löschen">
@@ -689,6 +689,15 @@
       <segment>
         <source>Deine Einstellung wurde gespeichert.</source>
         <target>Your settings has been saved.</target>
+      </segment>
+    </unit>
+    <unit id="TP_RyxL" name="Haus besuchen">
+      <notes>
+        <note category="german">Haus besuchen</note>
+      </notes>
+      <segment>
+        <source>Haus besuchen</source>
+        <target>Haus besuchen</target>
       </segment>
     </unit>
   </file>

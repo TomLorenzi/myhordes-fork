@@ -10892,7 +10892,10 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     </unit>
     <unit id="5MeFkca" name="c328ebf">
       <notes>
-        <note category="german">These are used for many actions, such as exploring the outside world or working on a construction site. Your action points are replenished every night after the attack. You can also refill them by using certain items and once a day by eating and drinking.</note>
+        <note category="german">Für viele Aktionen, wie beispielsweise die Erkundung der Aussenwelt oder der Arbeit auf einer Baustelle,
+                            benötigst du Aktionspunkte. Deine Aktionspunkte werden jede Nacht nach dem Angriff aufgefüllt. Außerdem
+                            kannst du sie durch den Einsatz bestimmter Gegenstände sowie einmal pro Tag durch Essen und Trinken neu
+                            auffüllen.</note>
       </notes>
       <segment>
         <source>Für viele Aktionen, wie beispielsweise die Erkundung der Aussenwelt oder der Arbeit auf einer Baustelle,
@@ -10904,7 +10907,9 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     </unit>
     <unit id="NAC.Ln5" name="c85efc4">
       <notes>
-        <note category="german">Building points can be used in the workshop and on construction sites, where they count like action points. If possible, building points are always used first before action points are used. Keep in mind that building points cannot be used when you are exhausted!</note>
+        <note category="german">Baupunkte können in der Werkstatt und auf Baustellen verwendet werden, wo sie wie Aktionspunkte
+                            zählen. Wenn möglich werden immer zuerst Baupunkte verbraucht, bevor Aktionspunkte eingesetzt
+                            werden. Bedenke, dass Baupunkte nicht eingesetzt werden können wenn du erschöpft bist!</note>
       </notes>
       <segment>
         <source>Baupunkte können in der Werkstatt und auf Baustellen verwendet werden, wo sie wie Aktionspunkte
