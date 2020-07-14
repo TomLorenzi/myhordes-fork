@@ -5411,6 +5411,50 @@ class TextFixtures extends Fixture
             "background" => "letter",
             "design" => "written"
         ],
+        "bopkn1" => [
+            "title" => "Book of Poetry. Page 5.",
+            "author" => 'kean4311',
+            "content" => [
+                '<p>Darkest night,</p>
+                <p>in world beyond.</p>
+                <p>Magic charm</p>
+                <p>from magic wand.</p>
+                <p>Tightens chest.</p>
+                <p>Sweetness fond.</p>
+                <p>Tied to you,</p>
+                <p>in lovers bond.</p>
+                <br>
+                <p>I know my sweet heart</p>
+                <p>Needs a cuddle.</p>
+                <p>Arguments,</p>
+                <p>leaves mind in muddle.</p>
+                <p>Turns self esteems</p>
+                <p>to muddy puddle</p>
+                <p>Alone in hovel,</p>
+                <p>knees to chest,</p>
+                <p>You huddle.</p>',
+                '<p>On desert roads</p>
+                <p>through dangers travel.</p>
+                <p>Challenges faced,</p>
+                <p>Pains do addle.</p>
+                <p>Love should smooth</p>
+                <p>not grate like gavel.</p>
+                <p>but lovers bonds</p>
+                <p>Will not unravel.</p>
+                <br>
+                <p>Its not easy</p>
+                <p>to say alive.</p>
+                <p>All these years</p>
+                <p>I payed my tithe.</p>
+                <p>Mistakes are made</p>
+                <p>but on we strive</p>
+                <p>so the love we have</p>
+                <p>just might survive.</p>'
+            ],
+            "lang" => "en",
+            "background" => "old",
+            "design" => "poem"
+        ],
         "stval3_en" => [
             "title" => "D2N Valentines Day",
             "author" => null,
@@ -5532,6 +5576,31 @@ class TextFixtures extends Fixture
             "background" => "carton",
             "design" => "typed"
         ],
+        "citya5" => [
+            "title" => "Happy Harry's Horoscope: 5",
+            "author" => "TheMentalist",
+            "content" => [
+                '<div class="hr"></div>
+                <h1>Libra</h1>
+                <p>If you heard your friends say about you what you say about them, you\'d be devastated. And they do. You\'re just a bit-part in their lives.</p>
+                </div>'
+            ],
+            "lang" => "en",
+            "background" => "carton",
+            "design" => "typed"
+        ],
+        "cityb1" => [
+            "title" => "Happy Harry's Horoscope: 6",
+            "author" => "TheMentalist",
+            "content" => [
+                '<div class="hr"></div>
+                <h1>Leo</h1>
+                <p>You\'ll look back and regret wasting so much time. You\'re basically doing nothing you\'ll wish you\'d done when you die.</p>'
+            ],
+            "lang" => "en",
+            "background" => "carton",
+            "design" => "typed"
+        ],
         "code1_en" => [
             "title" => "Illegible Note",
             "author" => null,
@@ -5610,6 +5679,38 @@ class TextFixtures extends Fixture
             "lang" => "en",
             "background" => "letter",
             "design" => "written"
+        ],
+        "gbhor1" => [
+            "title" => "Lost Horizons",
+            "author" => "Hopkins, D. (1961-1993)",
+            "content" => [
+                '<br><p>Maybe I could use you to reassure myself,</p><br>
+                <p>I wouldn\'t wish this indecision on anybody else,</p><br>
+                <p>Drink enough of anything to make this world look new again,</p><br>
+                <p>And when the sin smiles how could it be wrong </p><br>
+                <p>The last horizons I could see are now resigned to memories</p><br>
+                <p>I never thought I\'d still be here today...</p><br>
+                <p>Drink enough of anything to make myself look new again</p><br>
+                <p>Drunk drunk drunk in the gardens and the graves</p><br>'
+            ],
+            "lang" => "en",
+            "background" => "old",
+            "design" => "poem"
+        ],
+        "bilan_en" => [
+            "title" => "Minutes of the meeting of 24th August",
+            "author" => "Liior",
+            "content" => [
+                '<h1>Town meeting: 24th August:<small>(Retranscribed by Liior, The Chronicle)</small></h1>
+                <p>The chief explained that we had undertaken a huge construction project, which just might "save our lives" :</p>
+                <quote>"It\'s an extreme project, (some would say crazy)! But it just might work. We have already invested lots of time and energy organising the town and increase anti-zombie efficiency, but there is still work to be done. I had the idea that maybe if we created an enormous decoy, the zombies would stop coming... We must build a false town... It might seem odd, but I am pretty sure the zombies can\'t tell the difference between this town and any other...  "</quote>',
+                '<p>The body of the hall seemed sceptical :</p>
+                <quote>"A fake town? That will fool the zombies? the other citizens seemed to ask one another in an incomprehensible rabble".</quote>
+                <p>Nonetheless, the project was voted in... I don\'t think much hope remains...</p>'
+            ],
+            "lang" => "en",
+            "background" => "white",
+            "design" => "typed"
         ],
         "mjtjrs_en" => [
             "title" => "Miserable Junctions Journal",
@@ -5711,6 +5812,20 @@ class TextFixtures extends Fixture
             "background" => "secret",
             "design" => "small"
         ],
+        "coloc_en" => [
+            "title" => "Small Ad",
+            "author" => null,
+            "content" => [
+                '<h1>Flatmate Wanted</h1>
+                <p>Male citizen seeks flatmate for houseshare in barricaded property in the north of the town. Quiet area, far from the construction site, next to the <strong>Well</strong> and commodities.</p>
+                <p>Shunned or unmotivated citizens need not apply.</p><p>Please come laden with rations, pharms and water.</p>
+                <p>Houseshare does not mean sharing resources.</p>
+                <p>Contact: Nick Voleur</p>'
+            ],
+            "lang" => "en",
+            "background" => "carton",
+            "design" => "written"
+        ],
         "stprd5_en" => [
             "title" => "The 3rd Limerick",
             "author" => null,
@@ -5790,6 +5905,38 @@ class TextFixtures extends Fixture
             "lang" => "en",
             "background" => "tinystamp",
             "design" => "classic"
+        ],
+        "wstal1" => [
+            "title" => "Workshop's Tale - Part 1",
+            "author" => "R3dd3r",
+            "content" => [
+                '<h1>Workshop\'s Tale - Part 1</h1>
+                <p>Our hero was born into the world without much fuss and came to rest in the Nasty Hideout of Losers, a town whose name he would not let be a stain on his life.
+                Of a young age he worked tirelessly in the construction yard, diligently making sure his town would survive the undead horde, who come nightfall attacked without mercy.</p>
+                <p>Each night when the shambling masses came and all his fellow citizens were huddling under their covers our Hero was in the workshop busily pulling apart broken electronic devices and tinkering with the odd flat pack furniture to keep his mind sharp.
+                All this gave our hero nimble fingers and quick as a flash anything not nailed down would be his, torn apart and remade into something to defend the town.</p>',
+                '<br>
+                <br>
+                <p>Our Hero could not relax, consumed with worry, night after night when all his fellow citizens where around the camp fire swapping stories our hero would be counting out the correct number of nuts and bolts needed for the next day’s defence against the ever swelling horde.
+                He was no coward and though he lived in the workshop he also went forth through the gates many times.</p> <p>In the wasteland our hero was ever searching for that glint of sheet metal or an old crate lid he could drag back to town and assemble to protect his friends.</p>',
+                '<br>
+                <br>
+                <br>
+                <p>Some found our hero hard to relate to, often cursing him and calling him rude, however our hero knew they had just been in the wasteland too long that it was just the alcohol, dehydration and drugs talking that was the problem, they would be ok in the morning he thought.
+                But in the morning our hero was in for a surprise for a great mass of murderous zombies had been growing outside and now stretched as far as the towns scouts could see from the top of the watchtower.</p>
+                <p>They cried "There is no hope"</p>',
+                '<br>
+                <br>
+                <p>Suppressing his Fears our hero stood strong. Hammering, sawing, fusing and combining all he could find into weapons and defences.</p>
+                <p>"I can save this town" he muttered almost mantra like as he worked day and night.</p>
+                <br>
+                <br>
+                <br>
+                <p>To be continued...</p>'
+            ],
+            "lang" => "en",
+            "background" => "white",
+            "design" => "typed"
         ],
     ];
 
