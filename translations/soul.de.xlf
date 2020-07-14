@@ -1546,5 +1546,14 @@
         <target>Diese Daten können nur von deiner Hauptseele importiert werden.</target>
       </segment>
     </unit>
+    <unit id="p2vFHLe" name="Es ist deine Hauptseele">
+      <notes>
+        <note category="german">Es ist deine Hauptseele</note>
+      </notes>
+      <segment>
+        <source>Es ist deine Hauptseele</source>
+        <target>Es ist deine Hauptseele</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

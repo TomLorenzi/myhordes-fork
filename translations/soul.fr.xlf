@@ -1520,5 +1520,14 @@
         <target>Ces données ne peuvent être importées que depuis votre âme principale.</target>
       </segment>
     </unit>
+    <unit id="p2vFHLe" name="Es ist deine Hauptseele">
+      <notes>
+        <note category="german">Es ist deine Hauptseele</note>
+      </notes>
+      <segment>
+        <source>Es ist deine Hauptseele</source>
+        <target>C'est votre âme principale</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

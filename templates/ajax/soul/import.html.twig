@@ -46,7 +46,7 @@
                 {% for soul in souls %}
                     {# @var soul \App\Entity\TwinoidImport #}
                     <div class="note">
-                        <img alt="{{ soul.scope }}" src="{{ asset('build/images/favicon.ico') }}"> {% if soul.main %}<img alt="" src="{{ asset('build/images/icons/small_hero_up.gif') }}" />{% endif%} <b>{{ services[soul.scope] }}</b>
+                        <img alt="{{ soul.scope }}" src="{{ asset('build/images/favicon.ico') }}"> {% if soul.main %}<img alt="" src="{{ asset('build/images/icons/small_hero_up.gif') }}" /><div class="tooltip">{{ 'Es ist deine Hauptseele'|trans({},'soul') }}</div>{% endif%} <b>{{ services[soul.scope] }}</b>
                         <div class="small"><i>
                                 {{ 'Angelegt: %d%'|trans({'%d%': soul.created|format_datetime('medium', 'medium') },'soul') }}
                                 {% if soul.created != soul.updated %} / {{ 'Letztes Update: %d%'|trans({'%d%': soul.updated|format_datetime('medium', 'medium') },'soul') }}{% endif %}
