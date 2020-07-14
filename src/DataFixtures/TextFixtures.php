@@ -2839,6 +2839,26 @@ class TextFixtures extends Fixture
             "background" => "noteup",
             "design" => "typed"
         ],
+        "memori" => [
+            "title" => "Mémoire d'une ruine",
+            "author" => "Aramirdar",
+            "content" => [
+               '&gt;
+				<p>Des murs transpirant une odeur atroce de pourriture humaine,<br>
+				Des couloirs reflètant les ombres des enfers,<br>
+				Des chambres aux draps décorés de sang coagulé,<br>
+				Pas de doutes, un hopital abandonné.<br>
+				...<br>
+				J\'ai trouvé une carte magnétique, Diego, excité, me dit qu\'elle ouvre LA porte<br>
+				...<br>
+				Nous l\'avons cherchée, en vain, je sais qu\'aujourd'hui j'aurais pu la trouver si je n\'avais cette maudite jambe cassée qui ralentit chacun de mes pas<br>
+				<br>
+				Le soleil se couche. Je suis seul, étendu à l\'arrière d\'une ambulance éventrée. Peut-être demain, qu\'une fois des leurs, j\'irai contempler ce trésor tant fantasmé</p>'
+            ],
+            "lang" => "fr",
+            "background" => "notepad",
+            "design" => "written"
+        ],
         "messagecommiss" => [
             "title" => "Message à la commission",
             "author" => "Gizmonster",
@@ -3940,6 +3960,22 @@ class TextFixtures extends Fixture
             "background" => "blood",
             "design" => "blood"
         ],
+        "ensole" => [
+             "title" => "Souvenirs d'un survivant perdu",
+             "author" => "Drozera",
+             "content" => [
+                '>
+				<h1>6 juin</h1>
+				<p>... histoire comme la nôtre, d’aucuns diraient qu\'il est rare que des couples survivent aussi longtemps,
+				et pourtant nous l’avons fait ! Moi, après avoir raté mes études d\'enseignante, j\'avais gagné le concours Miss Epi de Maïs, une fierté, et j\'écumais les salons,
+				ça payait bien et lui, infirmier de nuit, était aux premières loges quand tout a commencé.
+				C\'est peut-être ce qui l\'a sauvé d’ailleurs, il a su avant tout le monde que le moment était venu de fuir.
+				Nous étions déjà loin quand l’armée a perdu le contrôle et que les premières grandes villes ont été submergées ...</p>'
+             ],
+             "lang" => "fr",
+             "background" => "notepad",
+             "design" => "written"
+         ],
         "souven_fr" => [
              "title" => "Souvenirs d'un survivant perdu",
              "author" => "Selcota",
@@ -3958,7 +3994,7 @@ class TextFixtures extends Fixture
              "background" => "notepad",
              "design" => "written"
          ],
-         "souven_fr" => [
+         "mirek" => [
              "title" => "Souvenir de Mirek",
              "author" => "Zanari",
              "content" => [
