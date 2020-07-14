@@ -1411,5 +1411,140 @@
         <target>Führt den Import-Vorgang erneut durch, ohne frische Daten von Twinoid abzurufen. Dies ist nützlich, wenn die importierten Daten durch ein MyHordes-Update nun besser verarbeitet werden können als dies beim letzten Import der Fall war. Diese Funktion wird auch nach der Abschaltung von Twinoid weiter zur Verfügung stehen.</target>
       </segment>
     </unit>
+    <unit id="DBQkWUr" name="Als Hauptseele wählen">
+      <notes>
+        <note category="german">Als Hauptseele wählen</note>
+      </notes>
+      <segment>
+        <source>Als Hauptseele wählen</source>
+        <target>Als Hauptseele wählen</target>
+      </segment>
+    </unit>
+    <unit id="ltYAKjD" name="338e6bd">
+      <notes>
+        <note category="german">Legt diese Seele als Hauptseele fest und importiert Seelenpunkte und Heldenerfahrung.</note>
+      </notes>
+      <segment>
+        <source>Legt diese Seele als Hauptseele fest und importiert Seelenpunkte und Heldenerfahrung.</source>
+        <target>Legt diese Seele als Hauptseele fest und importiert Seelenpunkte und Heldenerfahrung.</target>
+      </segment>
+    </unit>
+    <unit id="NBJR5jI" name="2c9ce98">
+      <notes>
+        <note category="german">Bist du sicher, dass du diese Seele als deine Hauptseele festlegen willst. Dieser Vorgang kann nicht rückgängig gemacht werden!</note>
+      </notes>
+      <segment>
+        <source>Bist du sicher, dass du diese Seele als deine Hauptseele festlegen willst. Dieser Vorgang kann nicht rückgängig gemacht werden!</source>
+        <target>Bist du sicher, dass du diese Seele als deine Hauptseele festlegen willst. Dieser Vorgang kann nicht rückgängig gemacht werden!</target>
+      </segment>
+    </unit>
+    <unit id="fA1pnvC" name="Diese Seele wurde erfolgreich als deine Hauptseele registriert!">
+      <notes>
+        <note category="german">Diese Seele wurde erfolgreich als deine Hauptseele registriert!</note>
+      </notes>
+      <segment>
+        <source>Diese Seele wurde erfolgreich als deine Hauptseele registriert!</source>
+        <target>Diese Seele wurde erfolgreich als deine Hauptseele registriert!</target>
+      </segment>
+    </unit>
+    <unit id="a7xlwVJ" name="Dies ist deine Hauptseele.">
+      <notes>
+        <note category="german">Dies ist deine Hauptseele.</note>
+      </notes>
+      <segment>
+        <source>Dies ist deine Hauptseele.</source>
+        <target>Dies ist deine Hauptseele.</target>
+      </segment>
+    </unit>
+    <unit id="uFlUkcE" name="8798d28">
+      <notes>
+        <note category="german">Seelenpunkte, Auszeichnungen und Heldenerfahrung von dieser Seele können in dein MyHordes-Profil importiert werden.</note>
+      </notes>
+      <segment>
+        <source>Seelenpunkte, Auszeichnungen und Heldenerfahrung von dieser Seele können in dein MyHordes-Profil importiert werden.</source>
+        <target>Seelenpunkte, Auszeichnungen und Heldenerfahrung von dieser Seele können in dein MyHordes-Profil importiert werden.</target>
+      </segment>
+    </unit>
+    <unit id=".NldYpW" name="Dies ist nicht deine Hauptseele.">
+      <notes>
+        <note category="german">Dies ist nicht deine Hauptseele.</note>
+      </notes>
+      <segment>
+        <source>Dies ist nicht deine Hauptseele.</source>
+        <target>Dies ist nicht deine Hauptseele.</target>
+      </segment>
+    </unit>
+    <unit id="mtD8S3s" name="ab7a6b2">
+      <notes>
+        <note category="german">Seelenpunkte, Auszeichnungen und Heldenerfahrung können nur von deiner Hauptseele in dein MyHordes-Profil importiert werden.</note>
+      </notes>
+      <segment>
+        <source>Seelenpunkte, Auszeichnungen und Heldenerfahrung können nur von deiner Hauptseele in dein MyHordes-Profil importiert werden.</source>
+        <target>Seelenpunkte, Auszeichnungen und Heldenerfahrung können nur von deiner Hauptseele in dein MyHordes-Profil importiert werden.</target>
+      </segment>
+    </unit>
+    <unit id="ujVgB2r" name="Möchtest du diese Seele zu deiner Hauptseele erklären?">
+      <notes>
+        <note category="german">Möchtest du diese Seele zu deiner Hauptseele erklären?</note>
+      </notes>
+      <segment>
+        <source>Möchtest du diese Seele zu deiner Hauptseele erklären?</source>
+        <target>Möchtest du diese Seele zu deiner Hauptseele erklären?</target>
+      </segment>
+    </unit>
+    <unit id="NC78n6U" name="7eac7ed">
+      <notes>
+        <note category="german">Seelenpunkte, Auszeichnungen und Heldenerfahrung können nur von einer Seele importiert werden - deiner Hauptseele. Überlege dir deine Entscheidung gut, denn du kannst die Wahl deiner Hauptseele später nicht mehr ändern!</note>
+      </notes>
+      <segment>
+        <source>Seelenpunkte, Auszeichnungen und Heldenerfahrung können nur von einer Seele importiert werden - deiner Hauptseele. Überlege dir deine Entscheidung gut, denn du kannst die Wahl deiner Hauptseele später nicht mehr ändern!</source>
+        <target>Seelenpunkte, Auszeichnungen und Heldenerfahrung können nur von einer Seele importiert werden - deiner Hauptseele. Überlege dir deine Entscheidung gut, denn du kannst die Wahl deiner Hauptseele später nicht mehr ändern!</target>
+      </segment>
+    </unit>
+    <unit id="DJ.7w.9" name="8ccb170">
+      <notes>
+        <note category="german">Du musst diese Entscheidung nicht jetzt treffen, sondern kannst diese Seele auch nachträglich noch zu deiner Hauptseele erklären - solange du inzwischen nicht bereits eine andere Seele als Hauptseele gewählt hast.</note>
+      </notes>
+      <segment>
+        <source>Du musst diese Entscheidung nicht jetzt treffen, sondern kannst diese Seele auch nachträglich noch zu deiner Hauptseele erklären - solange du inzwischen nicht bereits eine andere Seele als Hauptseele gewählt hast.</source>
+        <target>Du musst diese Entscheidung nicht jetzt treffen, sondern kannst diese Seele auch nachträglich noch zu deiner Hauptseele erklären - solange du inzwischen nicht bereits eine andere Seele als Hauptseele gewählt hast.</target>
+      </segment>
+    </unit>
+    <unit id="1MRAxNt" name="3ad4558">
+      <notes>
+        <note category="german">Unabhängig davon, ob du diese Seele zu deiner Hauptseele machst oder nicht, kannst du ihre Daten bei Bedarf selbstverständlich erneut mit Twinoid abgleichen und ihre Daten aktualisieren.</note>
+      </notes>
+      <segment>
+        <source>Unabhängig davon, ob du diese Seele zu deiner Hauptseele machst oder nicht, kannst du ihre Daten bei Bedarf selbstverständlich erneut mit Twinoid abgleichen und ihre Daten aktualisieren.</source>
+        <target>Unabhängig davon, ob du diese Seele zu deiner Hauptseele machst oder nicht, kannst du ihre Daten bei Bedarf selbstverständlich erneut mit Twinoid abgleichen und ihre Daten aktualisieren.</target>
+      </segment>
+    </unit>
+    <unit id="eoeG3zx" name="Diese Seele zu meiner Hauptseele machen!">
+      <notes>
+        <note category="german">Diese Seele zu meiner Hauptseele machen!</note>
+      </notes>
+      <segment>
+        <source>Diese Seele zu meiner Hauptseele machen!</source>
+        <target>Diese Seele zu meiner Hauptseele machen!</target>
+      </segment>
+    </unit>
+    <unit id="s9icea7" name="b46b9e2">
+      <notes>
+        <note category="german">Um diese Seele zu deiner Hauptseele zu machen, verwende die Schaltfläche auf der vorherigen Seite.</note>
+      </notes>
+      <segment>
+        <source>Um diese Seele zu deiner Hauptseele zu machen, verwende die Schaltfläche auf der vorherigen Seite.</source>
+        <target>Um diese Seele zu deiner Hauptseele zu machen, verwende die Schaltfläche auf der vorherigen Seite.</target>
+      </segment>
+    </unit>
+    <unit id="nrZhqLF" name="Diese Daten können nur von deiner Hauptseele importiert werden.">
+      <notes>
+        <note category="german">Diese Daten können nur von deiner Hauptseele importiert werden.</note>
+      </notes>
+      <segment>
+        <source>Diese Daten können nur von deiner Hauptseele importiert werden.</source>
+        <target>Diese Daten können nur von deiner Hauptseele importiert werden.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

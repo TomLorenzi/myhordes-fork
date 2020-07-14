@@ -1135,5 +1135,59 @@
         <target>Changement de jour manuel</target>
       </segment>
     </unit>
+    <unit id="w84b5LJ" name="Twinoid-Konto">
+      <notes>
+        <note category="german">Twinoid-Konto</note>
+      </notes>
+      <segment>
+        <source>Twinoid-Konto</source>
+        <target>Compte Twinoid</target>
+      </segment>
+    </unit>
+    <unit id="BCS.RQ1" name="Orakel">
+      <notes>
+        <note category="german">Orakel</note>
+      </notes>
+      <segment>
+        <source>Orakel</source>
+        <target>Oracle</target>
+      </segment>
+    </unit>
+    <unit id="HkzsKIz" name="Twinoid-Integration">
+      <notes>
+        <note category="german">Twinoid-Integration</note>
+      </notes>
+      <segment>
+        <source>Twinoid-Integration</source>
+        <target>Intégration Twinoid</target>
+      </segment>
+    </unit>
+    <unit id="p2lp75S" name="Integrationen löschen">
+      <notes>
+        <note category="german">Integrationen löschen</note>
+      </notes>
+      <segment>
+        <source>Integrationen löschen</source>
+        <target>Supprimer les intégrations</target>
+      </segment>
+    </unit>
+    <unit id="oL3B9wW" name="Hauptseele zurücksetzen">
+      <notes>
+        <note category="german">Hauptseele zurücksetzen</note>
+      </notes>
+      <segment>
+        <source>Hauptseele zurücksetzen</source>
+        <target>Réinitialiser l'âme principale</target>
+      </segment>
+    </unit>
+    <unit id="Le1sVIR" name="Du hast keine Berechtigung, diesen Benutzer zu administrieren!">
+      <notes>
+        <note category="german">Du hast keine Berechtigung, diesen Benutzer zu administrieren!</note>
+      </notes>
+      <segment>
+        <source>Du hast keine Berechtigung, diesen Benutzer zu administrieren!</source>
+        <target>Vous n'avez aucune autorisation pour administrer cet utilisateur !</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
