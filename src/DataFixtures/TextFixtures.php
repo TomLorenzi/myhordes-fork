@@ -5350,6 +5350,22 @@ class TextFixtures extends Fixture
             "background" => "printer",
             "design" => "typed"
         ],
+        "docgsw" => [
+            "title" => "Based on a true story",
+            "author" => 'Workshop',
+            "content" => [
+                '<p>Pitiless Bay of the Banished, day 4</p>
+                <p>Bam! scratch scratch... Crrrrrrrr...</p>
+                <p>What\'s going on? Thedoc1337 opens a careful eye.</p>
+                <p>Noise... it sounds like it\'s coming from the workshop. Or maybe the bank ...at this time of the night?</p>
+                <p></p>We survived the attack. No zombie got in: the gazette can\'t be wrong. The Crow can\'t be wrong!<p></p>
+                <p>So what of it? Thedoc grabs a log and sneaks around... Gasp! A burglar! Shock! Terror!
+                Thedoc wields his mighty log and hits the intruder on the head only to realise he had an accomplice. Right behind him! With a gun! And what\'s this: bullets? Where did they come from... By the Almighty Crow!!?</p>'
+            ],
+            "lang" => "en",
+            "background" => "letter",
+            "design" => "written"
+        ],
         "stval3_en" => [
             "title" => "D2N Valentines Day",
             "author" => null,
@@ -5375,6 +5391,25 @@ class TextFixtures extends Fixture
                 <p>The colours of the desert look sharper, the heat feels more intense but more bearable - like a searing hot bath, at once too hot and satisfyingly cleansing. I can feel the blood pulsing in my head, like the beat of the nightclubs used to be before... before what? Before the blood and the death and the drugs and the sweet oblivion that spares us the pain of knowing genuine oblivion is just around the corner. I haul myself to my feet, get the battery launcher out of my bag and prepare to waste some of those monsters.</p>',
                 '<p></p>
                 <p>I crest the hill and I see the guy who called for help, Rob. I don’t know him well, I don’t know any of them well, but I’ve seen him around. Good guy, helped build the workshop, but if he’s out here in the desert alone he can’t be that bright. He’s fending off six zombies, desperately forcing them back with some old bit of pipe he found. The twinoid takes me and I... I start to dance to the beat. I’m dancing and singing and I can’t help it, the drug’s like a force driving my body to actions I never thought it would perform again... <strong>[contd...]</strong></p>'
+            ],
+            "lang" => "en",
+            "background" => "white",
+            "design" => "written"
+        ],
+        "drdiar" => [
+            "title" => "Dear Diary",
+            "author" => 'ISteinier',
+            "content" => [
+                '<h1>Dear diary,</h1>
+                <p>The weirdest thing happened today. I think I\'ve already written about the day Daddy went outside and when he came back he was all green and Mommy put him in the cellar with chain around his neck, didn\'t I?</p>
+                <p>Well, from that day on he never spoke to me or Mommy and he was always screaming and making weird sounds and pulling at his chains to get free. I want to get his chains off sometimes, but I don\'t because Mommy says I can\'t. So, today I was doing like Mommy does sometimes. Sometimes she goes to see him and she talks to him and all he does is scream back. So, sometimes I do the same thing. I tell Daddy what Mommy thought me today or I tell him about what I found in the desert...</p>',
+                '<p>So, I was doing it today too. I was just telling him that I had found out that Ness-Quick can not only kill weeds but that it works on buildings covered with sand too, and then I realised why Daddy didn\'t talk normally. You know how it can be hard to talk if your mouth is dry?</p>
+                <p></p>
+                <p>Well, I think Daddy has a severe case of mouthdryness, so to make him better again, I went to the well and I took some water (there was just enough to fill a water ration) and then I wanted to give it to Daddy, but then I realised Mommy told me not to take of his chains and so I poured it in his mouth and then Daddy was screaming even more than before and the water was litterally going through his body like it was acid or something.</p>',
+                '<p></p>
+                <p>And now everybody\'s mad at me, for taking water they said I didn\'t need, and mad at Mommy because they said it she was doing something irresponsible and she said it was still her husband after all and now the Sherrif wanted was looking for a rusty chain or something, so he could take care of the situation and I don\'t get what happened and nobody listens to me and now Mommy is crying and saying goodbye but I don\'t think we\'re going on holiday so I don\'t get what\'s going on...</p>
+                <p>Dear diary, could you please remember me to ask Mommy what this is all about? Thank you. But now I have to sleep, because otherwise I\'ll be very tired tommorrow.</p>
+                <p>Good night, my dear diary.</p>'
             ],
             "lang" => "en",
             "background" => "white",
@@ -5421,7 +5456,26 @@ class TextFixtures extends Fixture
             "background" => "white",
             "design" => "typed"
         ],
-        "citya2_en" => [
+        "stpat1" => [
+            "title" => "Happy for you, blind man !",
+            "author" => "Traditional Irish",
+            "content" => [
+                '<br><br><br>
+                <p>Happy for you, blind man, who see nothing of women! </p>
+                <p>Ah, if you saw what I see you would be sick even as I am.</p>
+                <p>Would God I had been blind before I saw her curling hair, her white flanked splendid snowy body; ah, my life is distressful to me.</p>
+                <p>I pitied blind men until my peril grew beyond all sorrow, I have changed my pity, though pitiful, to envy; I am ensnared by the maid of the curling locks.</p>',
+                '<br>
+                <br>
+                <p>Alas for him who has seen her, and alas for him who does not see her every day; alas for those trapped in her love, and alas for those who are set free!</p>
+                <p>Alas for him who goes to meet her, and alas for him who does not meet her always, alas for him who was with her, and alas for him who is not with her!</p>
+                <p>-Irish, Uilliam Ruadh; 16th Century</p> '
+            ],
+            "lang" => "en",
+            "background" => "old",
+            "design" => "typed"
+        ],
+        "stpat2" => [
             "title" => "Happy Harry's Horoscope: 2",
             "author" => "TheMentalist",
             "content" => [
@@ -5481,6 +5535,23 @@ class TextFixtures extends Fixture
             "background" => "old",
             "design" => "letter"
         ],
+        "noel_en" => [
+            "title" => "Letter To Father Christmas",
+            "author" => "zhack",
+            "content" => [
+                '<p>Dear Father Christmas,</p>
+                <p>This year I have been extra special good because Mummy was sad all the time since daddy went to war with the monsters.</p>
+                <p>It\'s hard to sleep because the monsters attack the camp all the time.</p>
+                <p>If you could send some presents to daddy, I\'d be really happy, because I miss him, and I hope he\'s ok. Please send him lots of presents and my letter because I don\'t know where he is and mummy won\'t tell me. (Love you lots daddy !!)</p>',
+                '<p>Last year I didn\'t get my Barbie magic pony but I\'m not annoyed at you because we had to move and you couldn\'t have known, and I don\'t want it any more anyway. I\'d really like an Aquasplash so that mummy can defend us against the monsters, because there are less and less of us in the village, and I don\'t want the monsters to put us in their prisons (mummy told me that they are really bad and don\'t give you any dessert if you misbehave).</p>
+                <p>That\'s all I want this year. Lots of love Father Christmas and thanks for everything</p>
+                <p>I know it\'s stupid to ask for a water pistol but that they are even more stupid because they are afraid of water (they probably don\'t take many showers).</p>
+                <p>Elisa.</p>'
+            ],
+            "lang" => "en",
+            "background" => "letter",
+            "design" => "written"
+        ],
         "nelly_en" => [
             "title" => "Letter to Nelly",
             "author" => "aera10",
@@ -5511,7 +5582,47 @@ class TextFixtures extends Fixture
                 <p>-Rassalon</p>'
             ],
             "lang" => "en",
+            "background" => "letter",
+            "design" => "written"
+        ],
+        "motrao" => [
+            "title" => "Motherhood - Part 2",
+            "author" => "Raindragon16",
+            "content" => [
+                '<br><br>
+                <p>...She missed being social, so long ago; she was in her summer dress, her son was helping her bake cookies while she walked back and forth around the TV listening to the news update about quarantine zones.  Sprinkles fell on white icing like dust; she smiled at her son, holding the doorway with a creaking hard grip.</p>
+                <p></p>Knocking feet, banging fists, the breaking window, shot her up from bed, into her thick slippers, down the hall, turning on no lights and into her son’s room.  She saw lights flicking on in other houses, the monsters wailed towards the signs of fresh life, screams followed.<p></p>',
+                '<br>
+                <p></p>The picket fences were grey, porches dark under dim desert stars, the car already packed with ten gallons of water, a few clothes, first aid kit and a small stash of dry and canned food; she was prepared.  He was still asleep in his dinosaur pjs, his brown hair all messed up, nostrils flaring with his breath; all she needed to do was pick him up, grab the cars keys and drive as fast as she could in her blue pickup to somewhere.<p></p>
+                <p></p>The son ran through the dirt, the big shoes flopping, laces untied, to the workshop straight to one of the men, he was an older, short and grey in the eyes, but the small boy brought some light into his eyes.<p></p>',
+                '<p>The boy was the only child there in the camp, not many survived the trek through the desert, arriving dead in their parent’s arms.  Some parents didn’t live long after; a rope, a knife, cyanide missing from the bank, their eyes always empty.   “Hey.  I’m here to work.”  The boy smiled wide, his canteen slapping his thigh, too long pants dragging in the dirt with the oversized shoes, “How’s your mom?”  The man asked.</p>
+                <p></p>The boy’s eyes flashed with worry, he tried to cover with a smile, “Tired.”  <p></p>
+                <p></p>He nodded his head, taking the boy by the shoulder over to a workbench covered in planks and nails.  The boy hopped up on a stool and held a plank in place, the man smiled, “You just think yah know what I want eh?”...<p></p>'
+            ],
+            "lang" => "en",
             "background" => "old",
+            "design" => "typed"
+        ],
+        "jgoul2" => [
+            "title" => "My friend the Gouhl - Part 2",
+            "author" => "ninjaja",
+            "content" => [
+                '<h2>My friend the Ghoul - Part Two</h2>
+                <p>Day One:</p>
+                <p>So we got here... We didn\'t all go through the gates at the same time - basic security precaution.
+                The town is buzzing. It looks like loads of the people already know each other. Surely there other grups just like us.</p>
+                <p>One man seemed to be standing out from the melee, giving orders.
+                We\'d come to call him Sir N.
+                "Sir" for respect for his work and his tenacity.
+                "N." out of decency, given what we were about to put him though.
+                </p>',
+                '<p>Barely in the door, we started to get ready to set off into the desert.</p>
+                <p>Mr Mido had vanished. he had heard about an armory on the outer limits of the exploration zone.
+                He was already on it. We\'d only see him rarely from then on, this former interior designer was focused on stripping the area of every last shiny object.
+                My other friends set off calmly to explore the immediate surroundings, and I started making my way towards a freshly discovered ruin.</p>'
+            ],
+            "lang" => "en",
+            "background" => "secret",
             "design" => "written"
         ],
         "pcrsh1_en" => [
@@ -5569,6 +5680,33 @@ class TextFixtures extends Fixture
             "lang" => "en",
             "background" => "tinystamp",
             "design" => "classic"
+        ],
+        "recip1_en" => [
+            "title" => "THE HANDFASTING OF APRIL 5, 2013",
+            "author" => "Pocky & Soradobi",
+            "content" => [
+                '<p>What\'s the deal with the cord?</p>
+                <p>The handfasting ceremony has ancient celtic roots and it is from this custom that the phrase "tying the knot" comes from.</p>
+                <p>This is because the ritual actually involves joining the couple with cords that are fastened around their wrists.</p>
+                <p>Soradobi and Pocky have incorporated this into their wedding ceremony to show they are united as one...</p>
+                <p>or perhaps to keep the groom from running away!</p>'
+            ],
+            "lang" => "en",
+            "background" => "noteup",
+            "design" => "typed"
+        ],
+        "cave1_en" => [
+            "title" => "Torn Note",
+            "author" => "gangster",
+            "content" => [
+                '<p>The bastards have got me... I\'m in my cellar and they\'re banging on the door their muted groans are echoing in my head, my back is burning, not good times...</p>
+                <p>They got everyone else too, they were all eaten alive, I\'ve only managed to survive for a few hours more, but  I know the end is nigh, I\'ve been bitten on the calf...</p>
+                <p>Escape is impossible, it\'s not even a question of minutes now, the door is definitely going to give way... these things are strong... no longer human.</p>
+                <p>I\'d rather die than become one of them...</p>'
+            ],
+            "lang" => "en",
+            "background" => "blood",
+            "design" => "written"
         ],
         "recip1_en" => [
             "title" => "Twinoid Label",
