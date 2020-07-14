@@ -2481,7 +2481,7 @@ class TextFixtures extends Fixture
             "title" => "La vie de Docteurhache",
             "author" => "Docteurhache",
             "content" => [
-                '&gt;
+                '>
                 <h2>Extrait du journal de Docteurhache</h2>
                 <p>La ville semble bien calme à l\'aube d\'une attaque dévastatrice.
                 Les citoyens gardent peu d\'espoir dans un lendemain. Les maisons sont construites, le King résonne dans les venelles et Chuck trône fièrement au sommet de la muraille.
@@ -2843,7 +2843,7 @@ class TextFixtures extends Fixture
             "title" => "Mémoire d'une ruine",
             "author" => "Aramirdar",
             "content" => [
-               '&gt;
+               '>
 				<p>Des murs transpirant une odeur atroce de pourriture humaine,<br>
 				Des couloirs reflètant les ombres des enfers,<br>
 				Des chambres aux draps décorés de sang coagulé,<br>
@@ -2851,7 +2851,7 @@ class TextFixtures extends Fixture
 				...<br>
 				J\'ai trouvé une carte magnétique, Diego, excité, me dit qu\'elle ouvre LA porte<br>
 				...<br>
-				Nous l\'avons cherchée, en vain, je sais qu\'aujourd'hui j'aurais pu la trouver si je n\'avais cette maudite jambe cassée qui ralentit chacun de mes pas<br>
+				Nous l\'avons cherchée, en vain, je sais qu\'aujourd\'hui j\'aurais pu la trouver si je n\'avais cette maudite jambe cassée qui ralentit chacun de mes pas<br>
 				<br>
 				Le soleil se couche. Je suis seul, étendu à l\'arrière d\'une ambulance éventrée. Peut-être demain, qu\'une fois des leurs, j\'irai contempler ce trésor tant fantasmé</p>'
             ],
