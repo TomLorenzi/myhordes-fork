@@ -34,9 +34,10 @@ class RolePlayTextRepository extends ServiceEntityRepository
     }
 
     /**
-    * @return RolePlayText[] Returns an array of RolePlayText objects
-    */
-    public function findAllByLang($lang)
+     * @param string $lang
+     * @return RolePlayText[] Returns an array of RolePlayText objects
+     */
+    public function findAllByLang(string $lang)
     {
         return $this->createQueryBuilder('r')
             ->andWhere('r.language = :val')

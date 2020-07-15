@@ -6,7 +6,9 @@ namespace App\Service;
 
 
 use App\Entity\CitizenRankingProxy;
+use App\Entity\FoundRolePlayText;
 use App\Entity\Picto;
+use App\Entity\RolePlayText;
 use App\Entity\Season;
 use App\Entity\TownClass;
 use App\Entity\TownRankingProxy;
@@ -22,16 +24,18 @@ class TwinoidHandler
     private $conf;
     private $generator;
     private $em;
+    private $rand;
 
     private $fallback_sk = null;
     private $fallback_id = null;
     private $code = null;
     private $token = null;
 
-    public function __construct( ConfMaster $confMaster, UrlGeneratorInterface $generator, EntityManagerInterface $em ) {
+    public function __construct( ConfMaster $confMaster, UrlGeneratorInterface $generator, EntityManagerInterface $em, RandomGenerator $rand ) {
         $this->conf = $confMaster->getGlobalConf();
         $this->generator = $generator;
         $this->em = $em;
+        $this->rand = $rand;
     }
 
     public function hasBuiltInTwinoidAccess(): bool {
@@ -188,6 +192,12 @@ class TwinoidHandler
             $this->em->remove( $picto );
         }
 
+        // Remove unlocked RP texts
+        foreach ($this->em->getRepository(FoundRolePlayText::class)->findBy(['imported' => true, 'user' => $user]) as $rp) {
+            $user->removeFoundText( $rp );
+            $this->em->remove( $rp );
+        }
+
         $user->setImportedSoulPoints( 0 );
         $user->setImportedHeroDaysSpent( 0 );
     }
@@ -260,11 +270,17 @@ class TwinoidHandler
 
         if ($isPrimary) {
             //<editor-fold desc="Picto Import">
+
+            $rps = 0;
+
             // Get existing pictos
             $pid_list = [];
             foreach ($data->getPictos() as $picto)
-                if ($picto->convertPicto())
+                if ($picto->convertPicto()) {
                     $pid_list[$picto->convertPicto()->getID()] = true;
+                    if ($picto->convertPicto()->getName() === 'r_rp_#00')
+                        $rps += $picto->getCount();
+                }
 
             foreach ($this->em->getRepository(Picto::class)->findBy(['imported' => true, 'user' => $user]) as $picto) {
 
@@ -289,8 +305,35 @@ class TwinoidHandler
             }
             //</editor-fold>
 
+            $existing_rps = $this->em->getRepository(FoundRolePlayText::class)->findBy(['imported' => true, 'user' => $user]);
+            if (count($existing_rps) < $rps) {
+                // We need to unlock new RPs
+
+                $all_texts = $this->em->getRepository(RolePlayText::class)->findAllByLang($lang);
+                foreach ($existing_rps as $existing_rp)
+                    /** @var $existing_rp FoundRolePlayText */
+                    if (($key = array_search( $existing_rp->getText(), $all_texts )) !== false)
+                        unset($all_texts[$key]);
+
+                $picks = $this->rand->pick( $all_texts, $rps - count($existing_rps), true );
+                foreach ($picks as $pick)
+                    $user->getFoundTexts()->add((new FoundRolePlayText())
+                        ->setUser($user)
+                        ->setText($pick)
+                        ->setImported(true));
+
+            } elseif (count($existing_rps) > $rps) {
+                // We need to remove RPs
+                $picks = $this->rand->pick( $existing_rps, count($existing_rps) - $rps, true );
+                foreach ($picks as $pick) {
+                    $user->removeFoundText( $pick );
+                    $this->em->remove( $pick );
+                }
+            }
+
             $user->setImportedSoulPoints( $data->getSummarySoulPoints() );
             $user->setImportedHeroDaysSpent( $data->getSummaryHeroDays() );
+            $this->em->persist($user);
         }
 
         return true;

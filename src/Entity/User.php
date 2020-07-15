@@ -75,7 +75,7 @@ class User implements UserInterface, EquatableInterface
     private $bannings;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\FoundRolePlayText", mappedBy="user")
+     * @ORM\OneToMany(targetEntity="App\Entity\FoundRolePlayText", mappedBy="user", cascade={"persist", "remove"})
      */
     private $foundTexts;
 
@@ -401,14 +401,14 @@ class User implements UserInterface, EquatableInterface
     }
 
     /**
-     * @return Collection|RolePlayText[]
+     * @return Collection|FoundRolePlayText[]
      */
     public function getFoundTexts(): Collection
     {
         return $this->foundTexts;
     }
 
-    public function addFoundText(RolePlayText $foundText): self
+    public function addFoundText(FoundRolePlayText $foundText): self
     {
         if (!$this->foundTexts->contains($foundText)) {
             $this->foundTexts[] = $foundText;
@@ -417,7 +417,7 @@ class User implements UserInterface, EquatableInterface
         return $this;
     }
 
-    public function removeFoundText(RolePlayText $foundText): self
+    public function removeFoundText(FoundRolePlayText $foundText): self
     {
         if ($this->foundTexts->contains($foundText)) {
             $this->foundTexts->removeElement($foundText);
