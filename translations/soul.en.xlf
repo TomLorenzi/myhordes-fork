@@ -1564,5 +1564,14 @@
         <target>Es ist deine Hauptseele</target>
       </segment>
     </unit>
+    <unit id="WPvMZd7" name="52d83c2">
+      <notes>
+        <note category="german">Du kannst nur eine deiner Seelen als Hauptseele festlegen und diese Auswahl auch nicht mehr ändern! Wähle also weise...</note>
+      </notes>
+      <segment>
+        <source>Du kannst nur eine deiner Seelen als Hauptseele festlegen und diese Auswahl auch nicht mehr ändern! Wähle also weise...</source>
+        <target>Du kannst nur eine deiner Seelen als Hauptseele festlegen und diese Auswahl auch nicht mehr ändern! Wähle also weise...</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

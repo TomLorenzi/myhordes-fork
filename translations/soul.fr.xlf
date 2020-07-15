@@ -1529,5 +1529,14 @@
         <target>C'est votre âme principale</target>
       </segment>
     </unit>
+    <unit id="WPvMZd7" name="52d83c2">
+      <notes>
+        <note category="german">Du kannst nur eine deiner Seelen als Hauptseele festlegen und diese Auswahl auch nicht mehr ändern! Wähle also weise...</note>
+      </notes>
+      <segment>
+        <source>Du kannst nur eine deiner Seelen als Hauptseele festlegen und diese Auswahl auch nicht mehr ändern! Wähle also weise...</source>
+        <target>Vous ne pouvez définir qu'une de vos âmes comme âme principale et vous ne pouvez plus modifier cette sélection ! Alors choisissez judicieusement...</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
