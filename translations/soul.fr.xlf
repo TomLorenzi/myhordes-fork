@@ -1538,5 +1538,86 @@
         <target>Vous ne pouvez définir qu'une de vos âmes comme âme principale et vous ne pouvez plus modifier cette sélection ! Alors choisissez judicieusement...</target>
       </segment>
     </unit>
+    <unit id="59PnafP" name="Administrator">
+      <notes>
+        <note category="german">Administrator</note>
+      </notes>
+      <segment>
+        <source>Administrator</source>
+        <target>Administrateur</target>
+      </segment>
+    </unit>
+    <unit id="Ij9qHqJ" name="65633af">
+      <notes>
+        <note category="german">Diese Karteikarte gehört einem Administrator. Wenn ihr darauf komische, abnormale oder gar furchteinflößende Dinge entdeckt: Das ist völlig normal. Macht euch keine Sorgen, er weiß wahrscheinlich schon Bescheid :).</note>
+      </notes>
+      <segment>
+        <source>Diese Karteikarte gehört einem Administrator. Wenn ihr darauf komische, abnormale oder gar furchteinflößende Dinge entdeckt: Das ist völlig normal. Macht euch keine Sorgen, er weiß wahrscheinlich schon Bescheid :).</source>
+        <target>Cet onglet appartient à un Administrateur. Si vous y trouvez des choses étranges, anormales ou même effrayantes : c'est tout à fait normal. Ne vous inquiétez pas, il le sait probablement déjà :)</target>
+      </segment>
+    </unit>
+    <unit id="Oxu558J" name="Der Rabe">
+      <notes>
+        <note category="german">Der Rabe</note>
+      </notes>
+      <segment>
+        <source>Der Rabe</source>
+        <target>Le Corbeau</target>
+      </segment>
+    </unit>
+    <unit id="YKiLytV" name="29f69eb">
+      <notes>
+        <note category="german">Diese Karteikarte gehört einem Raben. Du solltest sie lieber wieder zurücklegen... langsam und ohne plötzliche Bewegungen.</note>
+      </notes>
+      <segment>
+        <source>Diese Karteikarte gehört einem Raben. Du solltest sie lieber wieder zurücklegen... langsam und ohne plötzliche Bewegungen.</source>
+        <target>Cette fiche appartient à un Corbeau. Vous feriez mieux de la remettre ... lentement et sans mouvements brusques.</target>
+      </segment>
+    </unit>
+    <unit id="BCS.RQ1" name="Orakel">
+      <notes>
+        <note category="german">Orakel</note>
+      </notes>
+      <segment>
+        <source>Orakel</source>
+        <target>Oracle</target>
+      </segment>
+    </unit>
+    <unit id="GMmC34." name="fa5585a">
+      <notes>
+        <note category="german">Diese Karteikarte gehört einem Orakel. Orakel sind Bindeglieder zwischen der Community und den Entwicklern. Du kannst dich bei Fragen und Problemen vertrauensvoll an sie wenden.</note>
+      </notes>
+      <segment>
+        <source>Diese Karteikarte gehört einem Orakel. Orakel sind Bindeglieder zwischen der Community und den Entwicklern. Du kannst dich bei Fragen und Problemen vertrauensvoll an sie wenden.</source>
+        <target>Cette fiche appartient à un Oracle. Les Oracles sont des liens entre la Communauté et les Développeurs. Vous pouvez les contacter en toute confiance si vous avez des questions ou des problèmes.</target>
+      </segment>
+    </unit>
+    <unit id="qPDF80G" name="Irgend etwas erscheint an dieser Karteikarte merkwürdig...">
+      <notes>
+        <note category="german">Irgend etwas erscheint an dieser Karteikarte merkwürdig...</note>
+      </notes>
+      <segment>
+        <source>Irgend etwas erscheint an dieser Karteikarte merkwürdig...</source>
+        <target>Quelque chose semble étrange sur cette fiche...</target>
+      </segment>
+    </unit>
+    <unit id="KmttAsi" name="39e1986">
+      <notes>
+        <note category="german">Dieser Spieler hat mindestens eine Seele von Twinoid importiert. Wir feuen uns, ihn bei MyHordes begrüßen zu dürfen!</note>
+      </notes>
+      <segment>
+        <source>Dieser Spieler hat mindestens eine Seele von Twinoid importiert. Wir feuen uns, ihn bei MyHordes begrüßen zu dürfen!</source>
+        <target>Ce joueur a importé au moins une âme de Twinoid. Nous avons hâte de l'accueillir sur MyHordes !</target>
+      </segment>
+    </unit>
+    <unit id="BvaERjQ" name="Twinoid-Nutzer">
+      <notes>
+        <note category="german">Twinoid-Nutzer</note>
+      </notes>
+      <segment>
+        <source>Twinoid-Nutzer</source>
+        <target>Utilisateur Twinoid</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
