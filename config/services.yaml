@@ -8,6 +8,10 @@ parameters:
 imports:
     - { resource: 'app/*.yml' }
 
+twig:
+    globals:
+        user_handler: '@App\Service\UserHandler'
+
 services:
     # default configuration for services in *this* file
     _defaults:
@@ -24,6 +28,8 @@ services:
     App\Service\CitizenHandler:
         public: true
     App\Service\DeathHandler:
+        public: true
+    App\Service\UserHandler:
         public: true
 
     # controllers are imported separately to make sure services can be injected

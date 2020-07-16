@@ -1,7 +1,7 @@
 {% extends "ajax/soul/shell.html.twig" %}
 {% block soul_content %}
     <div class="row me">
-        <div class="cell rw-12 center night hide-md hide-lg hide-sm"></div>
+        {% include 'ajax/soul/badges.html.twig' with {badger: app.user} %}
         <div class="cell rw-12 center skills">
             <div class="bar">
                 <div class="hide-lg hide-sm hide-md">

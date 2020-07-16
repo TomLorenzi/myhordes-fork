@@ -8,6 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
 use Doctrine\ORM\Mapping\Table;
 use Doctrine\ORM\Mapping\UniqueConstraint;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\Security\Core\User\EquatableInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
 
@@ -31,6 +32,7 @@ class User implements UserInterface, EquatableInterface
     const ROLE_ORACLE    =  2;
     const ROLE_CROW      =  3;
     const ROLE_ADMIN     =  4;
+    const ROLE_SUPER     =  5;
 
     /**
      * @ORM\Id()
@@ -278,14 +280,20 @@ class User implements UserInterface, EquatableInterface
     {
         $roles = [];
         if ($this->pass === null) return $roles;
-        if ($this->rightsElevation >= 4) $roles[] = 'ROLE_ADMIN';
-        if ($this->rightsElevation >= 3) $roles[] = 'ROLE_CROW';
-        if ($this->rightsElevation >= 2) $roles[] = 'ROLE_ORACLE';
+
+        if     ($this->rightsElevation >= self::ROLE_SUPER)  $roles[] = 'ROLE_SUPER';
+        elseif ($this->rightsElevation >= self::ROLE_ADMIN)  $roles[] = 'ROLE_ADMIN';
+        elseif ($this->rightsElevation >= self::ROLE_CROW)   $roles[] = 'ROLE_CROW';
+        elseif ($this->rightsElevation >= self::ROLE_ORACLE) $roles[] = 'ROLE_ORACLE';
+
         if (strstr($this->email, "@localhost") === "@localhost") $roles[] = 'ROLE_DUMMY';
+        if ($this->email === 'crow') $roles[] = 'ROLE_CROW';
+
         if ($this->validated) $roles[] = 'ROLE_USER';
         else $roles[] = 'ROLE_REGISTERED';
+
         if ($this->getIsBanned()) $roles[] = 'ROLE_BANNED';
-        return $roles;
+        return array_unique($roles);
     }
 
     /**

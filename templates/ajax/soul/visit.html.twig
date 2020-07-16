@@ -15,7 +15,8 @@
                     <button x-ajax-href='{{returnUrl}}' style="margin-top: 4px;">{{ "Kartei schließen"|trans({}, 'soul') }}</button>
                 </div>
             </div>
-            <div class="row">
+            <div class="row me">
+                {% include 'ajax/soul/badges.html.twig' with {badger: user} %}
                 <div class="cell rw-5 rw-sm-12 distinctions">
                     <div class="distinctions-head center">
                         {{ 'Statistiken'|trans({}, 'global') }}

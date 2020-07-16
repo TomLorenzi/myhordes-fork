@@ -16,6 +16,7 @@ use App\Service\ErrorHelper;
 use App\Service\JSONRequestParser;
 use App\Service\TwinoidHandler;
 use App\Service\UserFactory;
+use App\Service\UserHandler;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
@@ -62,9 +63,10 @@ class AdminUserController extends AdminActionController
      * @param JSONRequestParser $parser
      * @param UserFactory $uf
      * @param TwinoidHandler $twin
+     * @param UserHandler $userHandler
      * @return Response
      */
-    public function user_account_manager(int $id, string $action, JSONRequestParser $parser, UserFactory $uf, TwinoidHandler $twin): Response
+    public function user_account_manager(int $id, string $action, JSONRequestParser $parser, UserFactory $uf, TwinoidHandler $twin, UserHandler $userHandler): Response
     {
         /** @var User $user */
         $user = $this->entity_manager->getRepository(User::class)->find($id);
@@ -73,7 +75,10 @@ class AdminUserController extends AdminActionController
         if (in_array($action, [ 'delete_token', 'invalidate', 'validate', 'twin_full_reset', 'twin_main_reset' ]) && !$this->isGranted('ROLE_ADMIN'))
             return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
 
-        if ($this->isGranted( 'ROLE_CROW', $user ) && !$this->isGranted('ROLE_ADMIN'))
+        if ($userHandler->hasRole($user,'ROLE_CROW') && !$this->isGranted('ROLE_ADMIN'))
+            return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
+
+        if ($userHandler->hasRole($user,'ROLE_ADMIN') && !$this->isGranted('ROLE_SUPER'))
             return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
 
         switch ($action) {

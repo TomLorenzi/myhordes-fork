@@ -55,6 +55,7 @@
                     {% elseif user.rightsElevation == 2 %} {{ 'Orakel'|trans({}, 'admin') }}
                     {% elseif user.rightsElevation == 3 %} {{ 'Krähe'|trans({}, 'admin') }}
                     {% elseif user.rightsElevation == 4 %} {{ 'Admin'|trans({}, 'admin') }}
+                    {% elseif user.rightsElevation == 5 %} {{ 'Admin'|trans({}, 'admin') }}[+]
                     {% else                             %} {{ user.rightsElevation }} {% endif %}
                 </div>
 
@@ -80,7 +81,7 @@
                     <b><label for="administer-user">{{ 'User administrieren'|trans({}, 'admin') }}</label></b>
                 </div>
                 <div class="cell padded rw-9 rw-sm-12">
-                    {% if is_granted("ROLE_ADMIN") or not is_granted("ROLE_CROW",user) %}
+                    {% if (is_granted("ROLE_ADMIN") or not user_handler.hasRole(user,"ROLE_CROW")) and (is_granted("ROLE_SUPER") or not user_handler.hasRole(user,"ROLE_ADMIN")) %}
                         <select id="administer-user">
                             <option value="">-</option>
                             <optgroup label="{{ 'Validierung'|trans({},'admin') }}">

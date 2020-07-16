@@ -8,14 +8,17 @@ use App\Entity\User;
 use DateTime;
 use Doctrine\ORM\EntityManagerInterface;
 use Exception;
+use Symfony\Component\Security\Core\Role\RoleHierarchyInterface;
 
 class UserHandler
 {
     private $entity_manager;
+    private $roles;
 
-    public function __construct( EntityManagerInterface $em)
+    public function __construct( EntityManagerInterface $em, RoleHierarchyInterface $roles)
     {
         $this->entity_manager = $em;
+        $this->roles = $roles;
     }
 
     public function getPoints(User $user){
@@ -206,5 +209,9 @@ class UserHandler
 
         $skills = $this->entity_manager->getRepository(HeroSkillPrototype::class)->getUnlocked($user->getAllHeroDaysSpent());
         return in_array($skill, $skills);
+    }
+
+    public function hasRole(User $user, string $role) {
+        return in_array( $role, $this->roles->getReachableRoleNames( $user->getRoles() ) );
     }
 }
