@@ -12,17 +12,20 @@
 
     .skills {
         .bar {
-            width: 614px;
+            max-width: 614px;
             height: 32px;
             margin: 10px auto 0;
+            padding-left: 3px;
+            padding-right: 3px;
 
             .progresstext {
-                background: url('../../img/soul/heroUp_front.gif') center no-repeat;
+                background: url('../../img/soul/heroUp_front.gif');
+                background-repeat: round;
+                max-width: 614px;
                 height: 32px;
                 line-height: 32px;
-                width: 614px;
                 z-index: 2;
-                position: absolute;
+                position: relative;
                 color: #f0d79e;
                 text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
                 .text {
@@ -31,12 +34,14 @@
             }
 
             .progressbar {
-                background: url('../../img/soul/heroUp_bg.gif') center repeat-x;
+                background: url('../../img/soul/heroUp_bg.gif');
+                background-repeat: round;
+                max-width: 614px;
                 height: 30px;
                 overflow: hidden;
                 padding-left: 25px;
                 padding-right: 5px;
-                margin-top: 2px;
+                margin-top: -31px;
                 img {
                     height: 32px;
                 }
@@ -177,7 +182,10 @@
     .night {
         background: url("../../img/soul/soul_night.jpg") bottom/100% no-repeat;
         width: auto;
-        height: 197px;
+        height: 230px;
+        background-repeat: no-repeat;
+        background-position: right top;
+        background-size: cover;
     }
 
     .block {
