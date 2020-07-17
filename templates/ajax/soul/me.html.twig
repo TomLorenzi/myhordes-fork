@@ -90,7 +90,7 @@
                     {#@var incarnation CitizenRankingProxy #}
                     {% for incarnation in app.user.pastLifes|filter(incarnation => incarnation.end is not null)|sort((a,b) => a.day < b.day)|slice(0, 10) %}
                         <div class="row{% if incarnation.town.type.name == 'panda' %} hardcore{% endif %}">
-                            <div class="cell padded rw-2 center">
+                            <div class="cell padded rw-2 center season">
                                 {% if incarnation.town.season is null %}
                                     --
                                 {% else %}
