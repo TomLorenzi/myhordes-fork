@@ -1,5 +1,19 @@
 @import "../theme";
 
+#users-list-soul {
+        #users-list {
+            margin: 1rem; display: flex; width: 100%; justify-content: flex-start; align-items: center; flex-wrap: wrap;
+            max-height: 12rem; overflow: auto;
+
+            .users-list-entry {
+                flex-basis: 120px; margin-bottom: 4px; margin-right: 4px;
+                button { text-overflow: ellipsis; cursor: pointer; font-size: .8em; font-variant: unset; text-transform: none; }
+            }
+        }
+
+            input#users-search { width: 20rem; display: inline; }
+    }
+
 .soul {
 
     .me {

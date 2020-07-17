@@ -120,6 +120,23 @@ class SoulController extends AbstractController
     }
 
     /**
+     * @Route("jx/soul/fuzzyfind", name="users_fuzzyfind")
+     * @param JSONRequestParser $parser
+     * @param EntityManagerInterface $em
+     * @return Response
+     */
+    public function users_fuzzyfind(JSONRequestParser $parser, EntityManagerInterface $em): Response
+    {
+        if (!$parser->has_all(['name'], true))
+            return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+        $searchName = $parser->get('name');
+        $users = $em->getRepository(User::class)->findByNameContains($searchName);
+
+        return $this->render( 'ajax/soul/users_list.html.twig', [ 'users' => $users ]);
+    }
+
+
+    /**
      * @Route("jx/soul/heroskill", name="soul_heroskill")
      * @return Response
      */
