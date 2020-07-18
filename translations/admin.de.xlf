@@ -1180,5 +1180,77 @@
         <target>Du hast keine Berechtigung, diesen Benutzer zu administrieren!</target>
       </segment>
     </unit>
+    <unit id="4mfTQ4I" name="Profil">
+      <notes>
+        <note category="german">Profil</note>
+      </notes>
+      <segment>
+        <source>Profil</source>
+        <target>Profil</target>
+      </segment>
+    </unit>
+    <unit id="dbuAR1O" name="Neuen Namen eingeben.">
+      <notes>
+        <note category="german">Neuen Namen eingeben.</note>
+      </notes>
+      <segment>
+        <source>Neuen Namen eingeben.</source>
+        <target>Neuen Namen eingeben.</target>
+      </segment>
+    </unit>
+    <unit id="g_B_0fN" name="Umbenennen">
+      <notes>
+        <note category="german">Umbenennen</note>
+      </notes>
+      <segment>
+        <source>Umbenennen</source>
+        <target>Umbenennen</target>
+      </segment>
+    </unit>
+    <unit id="bC01IWH" name="Löschen">
+      <notes>
+        <note category="german">Löschen</note>
+      </notes>
+      <segment>
+        <source>Löschen</source>
+        <target>Löschen</target>
+      </segment>
+    </unit>
+    <unit id="A2t0n2E" name="Berechtigungen">
+      <notes>
+        <note category="german">Berechtigungen</note>
+      </notes>
+      <segment>
+        <source>Berechtigungen</source>
+        <target>Berechtigungen</target>
+      </segment>
+    </unit>
+    <unit id="E4Jlo35" name="Gewähren: %role%">
+      <notes>
+        <note category="german">Gewähren: %role%</note>
+      </notes>
+      <segment>
+        <source>Gewähren: %role%</source>
+        <target>Gewähren: %role%</target>
+      </segment>
+    </unit>
+    <unit id="BiuEB.T" name="Berechtigungsstufe zurücksetzen">
+      <notes>
+        <note category="german">Berechtigungsstufe zurücksetzen</note>
+      </notes>
+      <segment>
+        <source>Berechtigungsstufe zurücksetzen</source>
+        <target>Berechtigungsstufe zurücksetzen</target>
+      </segment>
+    </unit>
+    <unit id="EHG8mpy" name="Bitte bestätige folgende Aktion:">
+      <notes>
+        <note category="german">Bitte bestätige folgende Aktion:</note>
+      </notes>
+      <segment>
+        <source>Bitte bestätige folgende Aktion:</source>
+        <target>Bitte bestätige folgende Aktion:</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
