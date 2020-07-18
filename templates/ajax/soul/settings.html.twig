@@ -289,7 +289,7 @@
                 lang: document.querySelector("input[name=setting_preferred_language]:checked").value
                 },
                 function () {
-                    $.ajax.load(null, '{{ path('soul_settings') }}', true);
+                    window.location.href = '{{ url('soul_settings') }}';
                 } )
         });
 

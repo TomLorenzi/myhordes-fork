@@ -1450,7 +1450,7 @@ class MessageController extends AbstractController
         }
 
         $change = new Changelog();
-        $change->setTitle($title)->setText($content)->setVersion($version)->setLang($lang)->setAuthor($author);
+        $change->setTitle($title)->setText($content)->setVersion($version)->setLang($lang)->setAuthor($author)->setDate(new DateTime());
 
         $tx_len = 0;
         if (!$this->preparePost($author,null,$change,$tx_len))

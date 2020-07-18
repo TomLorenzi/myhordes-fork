@@ -3,23 +3,23 @@
     {{ parent() }}
 {% endblock %}
 {% block soul_content %}
-    {% if news|length == 0 %}
+    {% if selected is null %}
         COMING SOON
     {% else %}
     <div class="news">
         <div class="head">
-            <div class="title center"><img src="{{ asset('build/images/log/build.gif') }}" /><span class="title-content">{{news[0].title}}</span><img src="{{ asset('build/images/log/build.gif') }}" /></div>
+            <div class="title center"><img alt="" src="{{ asset('build/images/log/build.gif') }}" /><span class="title-content">{{news[0].title}}</span><img src="{{ asset('build/images/log/build.gif') }}" /></div>
         </div>
         <div class="version">
-            {{"Version"|trans({}, 'soul')}} {{news[0].version}}
+            {{"Version"|trans({}, 'soul')}} {{selected.version}}
         </div>
         {% if news|length > 1 %}
         <div class="row">
             <div class="center version-list">
-                <p>{{'Hier findet ihr alle vorangegangenen Updates:'|trans({}, 'soul')}}</p>
+                <p><label for="change_version">{{'Hier findet ihr alle vorangegangenen Updates:'|trans({}, 'soul')}}</label></p>
                 <select id="change_version">
                     {% for new in news %}
-                        <option value="{{new.id}}">{{new.version}} - {{new.title}}</option>
+                        <option {% if selected.id == new.id %}selected="selected"{% endif%} value="{{ path('soul_news', {id: new.id}) }}">{{"Version"|trans({}, 'soul')}} {{new.version}} - {{new.title}}</option>
                     {% endfor %}
                 </select>
             </div>
@@ -27,9 +27,17 @@
         {% endif %}
         <div class="row forum-post">
             <div class="forum-post-content content">
-                {{news[0].text|raw}}
+                {{selected.text|raw}}
             </div>
         </div>
     </div>
     {% endif %}
+{% endblock %}
+{% block js %}
+    {{parent()}}
+    <script>
+        $.html.addEventListenerAll('#change_version', 'change', function (e,elem) {
+            $.ajax.load(null, elem.value);
+        });
+    </script>
 {% endblock %}

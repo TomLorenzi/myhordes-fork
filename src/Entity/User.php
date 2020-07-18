@@ -172,6 +172,11 @@ class User implements UserInterface, EquatableInterface
      */
     private $importedHeroDaysSpent;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Changelog::class)
+     */
+    private $latestChangelog;
+
     public function __construct()
     {
         $this->citizens = new ArrayCollection();
@@ -735,6 +740,18 @@ class User implements UserInterface, EquatableInterface
     public function setImportedHeroDaysSpent(?int $importedHeroDaysSpent): self
     {
         $this->importedHeroDaysSpent = $importedHeroDaysSpent;
+
+        return $this;
+    }
+
+    public function getLatestChangelog(): ?Changelog
+    {
+        return $this->latestChangelog;
+    }
+
+    public function setLatestChangelog(?Changelog $latestChangelog): self
+    {
+        $this->latestChangelog = $latestChangelog;
 
         return $this;
     }

@@ -38,7 +38,7 @@ services:
         resource: '../src/Controller'
         tags: ['controller.service_arguments']
 
-    # Scheduler Command needs the fully featured translator class instead of
+    # Some classes need the fully featured translator class instead of
     # just the interface, in order to set a locale
     App\Command\SchedulerCommand:
         arguments:

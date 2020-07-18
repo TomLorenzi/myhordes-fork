@@ -50,7 +50,14 @@ class PictoPrototype
      */
     private $rare;
 
-    public function __construct() {
+    /**
+     * @ORM\OneToMany(targetEntity=AwardPrototype::class, mappedBy="associatedPicto", orphanRemoval=true)
+     */
+    private $awards;
+
+    public function __construct()
+    {
+        $this->awards = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -114,6 +121,37 @@ class PictoPrototype
     public function setRare(bool $rare): self
     {
         $this->rare = $rare;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|AwardPrototype[]
+     */
+    public function getAwards(): Collection
+    {
+        return $this->awards;
+    }
+
+    public function addAward(AwardPrototype $award): self
+    {
+        if (!$this->awards->contains($award)) {
+            $this->awards[] = $award;
+            $award->setAssociatedPicto($this);
+        }
+
+        return $this;
+    }
+
+    public function removeAward(AwardPrototype $award): self
+    {
+        if ($this->awards->contains($award)) {
+            $this->awards->removeElement($award);
+            // set the owning side to null (unless already changed)
+            if ($award->getAssociatedPicto() === $this) {
+                $award->setAssociatedPicto(null);
+            }
+        }
 
         return $this;
     }

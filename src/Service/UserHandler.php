@@ -3,6 +3,7 @@
 namespace App\Service;
 
 use App\Entity\CauseOfDeath;
+use App\Entity\Changelog;
 use App\Entity\HeroSkillPrototype;
 use App\Entity\Picto;
 use App\Entity\User;
@@ -213,6 +214,28 @@ class UserHandler
 
         $skills = $this->entity_manager->getRepository(HeroSkillPrototype::class)->getUnlocked($user->getAllHeroDaysSpent());
         return in_array($skill, $skills);
+    }
+
+    public function hasSeenLatestChangelog(User $user, ?string $fallback_lang): bool {
+
+        $lang = $user->getLanguage() ?? $fallback_lang ?? 'de';
+        $latest_cl = $this->entity_manager->getRepository(Changelog::class)->findBy(['lang' => $lang], ['date' => 'DESC'], 1);
+        if (empty($latest_cl)) return true;
+
+        $seen_cl = $user->getLatestChangelog();
+        if ($seen_cl === null) return false;
+
+        return $latest_cl[0] === $seen_cl;
+    }
+
+    public function setSeenLatestChangelog(User $user, ?string $fallback_lang) {
+
+        $lang = $user->getLanguage() ?? $fallback_lang ?? 'de';
+        $latest_cl = $this->entity_manager->getRepository(Changelog::class)->findBy(['lang' => $lang], ['date' => 'DESC'], 1);
+        if (empty($latest_cl)) return;
+
+        $user->setLatestChangelog($latest_cl[0]);
+        $this->entity_manager->persist($user);
     }
 
     public function deleteUser(User $user) {

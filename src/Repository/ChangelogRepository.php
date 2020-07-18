@@ -5,6 +5,7 @@ namespace App\Repository;
 use App\Entity\Changelog;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
+use Exception;
 
 /**
  * @method Changelog|null find($id, $lockMode = null, $lockVersion = null)
@@ -22,7 +23,7 @@ class ChangelogRepository extends ServiceEntityRepository
     public function findAll(){
         try {
             return $this->createQueryBuilder('c')
-                ->orderBy('c.version', 'DESC')
+                ->orderBy('c.date', 'DESC')
                 ->orderBy('c.lang')
                 ->getQuery()
                 ->getResult();
@@ -36,7 +37,7 @@ class ChangelogRepository extends ServiceEntityRepository
             return $this->createQueryBuilder('c')
                 ->andWhere('c.lang = :lang')
                 ->setParameter('lang', $lang)
-                ->orderBy('c.version', 'DESC')
+                ->orderBy('c.date', 'DESC')
                 ->getQuery()
                 ->getResult();
         } catch (Exception $e) {

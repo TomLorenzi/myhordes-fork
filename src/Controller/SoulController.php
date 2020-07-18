@@ -33,6 +33,7 @@ use Exception;
 use Imagick;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Asset\Packages;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\Routing\Annotation\Route;
@@ -175,25 +176,32 @@ class SoulController extends AbstractController
     }
 
     /**
-     * @Route("jx/soul/news", name="soul_news")
+     * @Route("jx/soul/news/{id}", name="soul_news")
+     * @param Request $request
      * @return Response
      */
-    public function soul_news(): Response
+    public function soul_news(Request $request, UserHandler $userHandler, int $id = 0): Response
     {
         /** @var User $user */
         $user = $this->getUser();
 
-        /** @var CitizenRankingProxy $nextDeath */
         if ($this->entity_manager->getRepository(CitizenRankingProxy::class)->findNextUnconfirmedDeath($user))
             return $this->redirect($this->generateUrl( 'soul_death' ));
 
-        /** @var CitizenRankingProxy $nextDeath */
-        if ($this->entity_manager->getRepository(CitizenRankingProxy::class)->findNextUnconfirmedDeath($user))
-            return $this->redirect($this->generateUrl( 'soul_death' ));
+        $lang = $user->getLanguage() ?? $request->getLocale() ?? 'de';
+        $news = $this->entity_manager->getRepository(Changelog::class)->findByLang($lang);
 
-        $news = $this->entity_manager->getRepository(Changelog::class)->findByLang($user->getLanguage());
+        $selected = $id > 0 ? $this->entity_manager->getRepository(Changelog::class)->find($id) : null;
+        if ($selected === null)
+            $selected = $news[0] ?? null;
+
+        try {
+            $userHandler->setSeenLatestChangelog( $user, $lang );
+            $this->entity_manager->flush();
+        } catch (Exception $e) {}
+
         return $this->render( 'ajax/soul/news.html.twig', $this->addDefaultTwigArgs("soul_news", [
-            'news' => $news
+            'news' => $news, 'selected' => $selected
         ]) );
     }
 
@@ -615,7 +623,7 @@ class SoulController extends AbstractController
         $entityManager->persist( $user );
         $entityManager->flush();
 
-        return new AjaxResponse( ['success' => true] );
+        return AjaxResponse::success();
     }
 
     /**
@@ -633,7 +641,7 @@ class SoulController extends AbstractController
         $entityManager->persist( $user );
         $entityManager->flush();
 
-        return new AjaxResponse( ['success' => true] );
+        return AjaxResponse::success();
     }
 
     /**
@@ -649,15 +657,18 @@ class SoulController extends AbstractController
         $this->entity_manager->persist( $user );
         $this->entity_manager->flush();
 
-        return new AjaxResponse( ['success' => true] );
+        return AjaxResponse::success();
     }
 
     /**
      * @Route("api/soul/settings/setlanguage", name="api_soul_set_language")
      * @param JSONRequestParser $parser
+     * @param Request $request
+     * @param UserHandler $userHandler
+     * @param SessionInterface $session
      * @return Response
      */
-    public function soul_settings_set_language(JSONRequestParser $parser): Response {
+    public function soul_settings_set_language(JSONRequestParser $parser, Request $request, UserHandler $userHandler, SessionInterface $session): Response {
         /** @var User $user */
         $user = $this->getUser();
 
@@ -669,11 +680,20 @@ class SoulController extends AbstractController
         if (!in_array($lang, $validLanguages))
             return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
 
+        // Check if the user has seen all news in the previous language
+        $previous_lang = $user->getLanguage() ?? $request->getLocale() ?? 'de';
+        $seen_news = $userHandler->hasSeenLatestChangelog($user, $previous_lang);
+
         $user->setLanguage( $lang );
+        $session->set('_user_lang',$lang);
+
+        if ($seen_news) $userHandler->setSeenLatestChangelog($user, $lang);
+        else $user->setLatestChangelog(null);
+
         $this->entity_manager->persist( $user );
         $this->entity_manager->flush();
 
-        return new AjaxResponse( ['success' => true] );
+        return AjaxResponse::success();
     }
 
     /**
@@ -687,7 +707,7 @@ class SoulController extends AbstractController
 
         $asDev = $parser->get('dev', false);
         if ($admh->setDefaultRoleDev($user->getId(), $asDev))
-            return new AjaxResponse( ['success' => true] );
+            return AjaxResponse::success();
 
         return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
     }
