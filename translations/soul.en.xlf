@@ -1654,5 +1654,23 @@
         <target>Twinoid-Nutzer</target>
       </segment>
     </unit>
+    <unit id="1xiOB2G" name="Seele suchen">
+      <notes>
+        <note category="german">Seele suchen</note>
+      </notes>
+      <segment>
+        <source>Seele suchen</source>
+        <target>Seele suchen</target>
+      </segment>
+    </unit>
+    <unit id="XRr8eU." name="Gib den Pseudo des Bürgers ein.">
+      <notes>
+        <note category="german">Gib den Pseudo des Bürgers ein.</note>
+      </notes>
+      <segment>
+        <source>Gib den Pseudo des Bürgers ein.</source>
+        <target>Gib den Pseudo des Bürgers ein.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

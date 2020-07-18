@@ -128,6 +128,23 @@ class SoulController extends AbstractController
     }
 
     /**
+     * @Route("jx/soul/fuzzyfind", name="users_fuzzyfind")
+     * @param JSONRequestParser $parser
+     * @param EntityManagerInterface $em
+     * @return Response
+     */
+    public function users_fuzzyfind(JSONRequestParser $parser, EntityManagerInterface $em): Response
+    {
+        if (!$parser->has_all(['name'], true))
+            return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+        $searchName = $parser->get('name');
+        $users = $em->getRepository(User::class)->findByNameContains($searchName);
+
+        return $this->render( 'ajax/soul/users_list.html.twig', [ 'users' => $users ]);
+    }
+
+
+    /**
      * @Route("jx/soul/heroskill", name="soul_heroskill")
      * @return Response
      */
@@ -1145,5 +1162,17 @@ class SoulController extends AbstractController
         $limit = (bool)$parser->get('limit10', true);
 
         return $this->render( 'ajax/soul/town_list.html.twig', ['towns' => $this->entity_manager->getRepository(CitizenRankingProxy::class)->findPastByUserAndSeason($user, $season, $limit)]);
+    }
+
+    /**
+     * @Route("jx/help", name="help_me")
+     * @return Response
+     */
+    public function help_me(): Response
+    {
+        /** @var User $user */
+        $user = $this->getUser();
+
+        return $this->render( 'ajax/help/shell.html.twig');
     }
 }

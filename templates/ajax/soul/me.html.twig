@@ -4,12 +4,10 @@
         {% include 'ajax/soul/badges.html.twig' with {badger: app.user} %}
         <div class="cell rw-12 center skills">
             <div class="bar">
-                <div class="hide-lg hide-sm hide-md">
-                    <div class="progresstext"><span class="text">{{progress}}%</span></div>
-                    <div class="progressbar left">
-                        <img src="{{ asset('build/images/soul/heroUp_bar.gif') }}" style="width : {{progress}}%;" />
-                    </div>
-                </div>
+                <div class="progresstext"><span class="text">{{progress}}%</span></div>
+                <div class="progressbar left">
+                    <img src="{{ asset('build/images/soul/heroUp_bar.gif') }}" style="width : {{progress}}%;" />
+            </div>
 
             </div>
             <div class="rp-context">
@@ -122,18 +120,49 @@
                 </div>
             </div>
         </div>
+    <div class="row">
+    <div class="cell padded rw-12 rw-sm-12">
+        <div id="users-list-soul">
+        	<h5>{{'Seele suchen'|trans({}, "soul")}}</h5>
+            <div><input type="text" id="users-search" style="margin-top: 5px" /><div class="tooltip help">{{ 'Gib den Pseudo des Bürgers ein.'|trans({},'soul') }}</div></div>
+            <div id="users-list"></div>
+        </div>
     </div>
-    {% endblock %}
-    {% block js %}
-        {{parent()}}
-        <script>
-            let season_select = document.getElementById('season');
-            $.ajax.no_history().load( document.getElementById('town-list'), '{{ path('soul_get_towns', {user_id: app.user.id}) }}', false, {season: season_select.value, limit10: document.getElementById("limit-10").checked } );
-            if (season)
-                season_select.addEventListener('change', function(e) { $.ajax.no_history().load( document.getElementById('town-list'), '{{ path('soul_get_towns', {user_id: app.user.id}) }}', false, {season: this.value, limit10: document.getElementById("limit-10").checked } ) } );
+{% endblock %}
+{% block js %}
+    {{parent()}}
+    <script>
+        let season_select = document.getElementById('season');
+        $.ajax.no_history().load( document.getElementById('town-list'), '{{ path('soul_get_towns', {user_id: app.user.id}) }}', false, {season: season_select.value, limit10: document.getElementById("limit-10").checked } );
+        if (season)
+            season_select.addEventListener('change', function(e) { $.ajax.no_history().load( document.getElementById('town-list'), '{{ path('soul_get_towns', {user_id: app.user.id}) }}', false, {season: this.value, limit10: document.getElementById("limit-10").checked } ) } );
 
-            let limit_checkbox = document.getElementById('limit-10');
-            if (season)
-                limit_checkbox.addEventListener('change', function(e) { $.ajax.no_history().load( document.getElementById('town-list'), '{{ path('soul_get_towns', {user_id: app.user.id}) }}', false, {season: document.getElementById('season').value, limit10: this.checked } ) } );
-            </script>
-    {% endblock %}
+    let limit_checkbox = document.getElementById('limit-10');
+    if (season)
+        limit_checkbox.addEventListener('change', function(e) { $.ajax.no_history().load( document.getElementById('town-list'), '{{ path('soul_get_towns', {user_id: app.user.id}) }}', false, {season: document.getElementById('season').value, limit10: this.checked } ) } );
+
+    let typingTimer, doneTypingInterval = 500;
+    let searchBox = document.getElementById('users-search');
+
+    const userSearchHandler = function() {
+        $.ajax.background().load(
+            document.getElementById('users-list'),
+            '{{ path('users_fuzzyfind') }}',
+            false,
+            {'name': searchBox.value}
+        );
+    };
+
+    const userSearchHandlerUp = function () {
+        clearTimeout(typingTimer);
+        typingTimer = setTimeout(userSearchHandler, doneTypingInterval);
+    };
+
+    const userSearchHandlerDown = function () {
+        clearTimeout(typingTimer);
+    };
+
+    searchBox.addEventListener('keyup', userSearchHandlerUp);
+    searchBox.addEventListener('keydown', userSearchHandlerDown);
+    </script>
+{% endblock %}

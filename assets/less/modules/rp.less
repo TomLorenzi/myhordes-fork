@@ -1,9 +1,10 @@
 @import "../theme";
 
 .soul .view-rp {
+    margin-left: 3px;
     .rp-content {
         height: 420px; overflow: auto; padding-top: 25px;
-        padding-left: 45px; padding-right: 45px; width: 575px;
+        padding-left: 45px; padding-right: 45px; max-width: 600px;
         color: black; cursor: pointer;
         sup { color: black; }
         .hr { margin-top: 70px; }
@@ -21,26 +22,28 @@
             strong { text-decoration: underline; }
         }
 
-        img { width: 100%; }
+        img { max-width: 96%; }
 
         &.design-typed {
             font-family: @myhordes-fixed-font;
             color: #3b3249;
+            font-size: 1.7rem;
+            h1 { font-size: 1.9rem; }
             h2 {
                 border-bottom: 1px dashed #684742;
-                &:first-letter {
-                    color: black;
-                }
+                &:first-letter { color: black; }
             }
             p {
-                &:first-letter {
-                    font-weight: bold;
-                }
+                text-align:left;
+                margin-bottom: 8px;
+                &:first-letter { font-weight: bold; }
 
                 &.other {
                     font-family: @myhordes-sans-serif-font;
                     color: #b16567;
                     font-style: italic;
+                    margin-left: 10px;
+                    margin-right: 40px;
                 }
             }
             strong {
@@ -53,6 +56,11 @@
             font-family: @myhordes-fixed-font;
             color: #3b3249;
             font-size: 1.5rem;
+            h2 {border-bottom: 1px dashed #684742;}
+            p { 
+                text-align: left;
+                &:first-letter { font-weight: bold; }
+            }
         }
 
         &.design-written,
@@ -60,37 +68,38 @@
         &.design-postit {
             font-family: @myhordes-sans-serif-font;
             font-style: italic;
+            font-weight: bold;
             color: #5c2b20;
-            font-size: 1.5rem;
+            font-size: 1.55rem;
             line-height: 2rem;
             &.design-written {
-                font-weight: bold;
                 h1 {
                     strong {
                         text-decoration: underline;
+                        font-size: 1.9rem;
                     }
                 }
+                p { margin-bottom: 15px;}
             }
-            p:first-line,
-            p:first-letter {
-                color: black;
+            p {
+            	text-align: left; text-indent: 7px; margin-bottom: 8px;
+            	&:first-line, &:first-letter { color: black; }
             }
+            
             blockquote {
                 margin-left: 15px;
                 margin-bottom: 15px;
                 padding-left: 10px;
                 display: block;
             }
-            em {
-                font-size: 1.25rem;
-            }
+
+            em { font-size: 1.25rem; }
+
             strong {
                 color: #5c2b20;
                 font-weight: bolder;
             }
-            big {
-                font-size: 5rem;
-            }
+            big { font-size: 4rem; }
 
             .other {
                 strong {
@@ -115,6 +124,7 @@
                 color: #684742;
                 font-size: 1.3rem;
             }
+            p { margin-bottom: 8px; }
         }
 
         &.design-modern {
@@ -147,6 +157,8 @@
             color: #773939;
             h1 {
                 color: #3b3249;
+                text-align: center; 
+                border-bottom: 2px solid #afacc1;
                 &:first-letter {
                     color: #5c2b20;
                 }
@@ -158,14 +170,11 @@
             h1 {
                 color: #696486;
                 font-size: 3rem;
+                text-transform: uppercase;
                 letter-spacing: 0rem;
             }
-            p, strong {
-                font-size: 1.75rem;
-            }
-            strong {
-                color: #3b3249;
-            }
+            p, strong { font-size: 1.75rem; }
+            strong { color: #3b3249; }
             small {
                 strong {
                     font-size: inherit;
@@ -179,46 +188,52 @@
             h1 {
                 color: #8c9070;
                 font-family: @myhordes-sans-serif-font;
+                &:first-letter { color: #898c6f; }
             }
-            strong {
-                color: #707056;
-            }
+            strong { color: #707056; }
             hr {
                 color: #8c9070;
                 border: none;
                 border-bottom: 1px solid #adb09d;
             }
-            p:first-letter {
-                font-weight: bold;
-            }
+            p:first-letter { font-weight: bold; }
         }
 
         &.design-poem {
             font-style: italic;
             padding-left: 100px;
-            font-size: 1.2rem;
-            div.hr {
-                margin-top: 5px;
-            }
-            h2 {
-                padding: 0;
-            }
+            font-size: 1.25rem;
+            div.hr { margin-top: 10px; }
+            h1 { font-size: 1.9rem; }
+            h2 { padding: 0; }
         }
 
         .pages {
             font-size: 1rem;
             font-weight: bold;
+            font-style: italic;
         }
 
-        strike {
+        s {
             color: #893232;
             background: url('../../img/books/scratch.gif') repeat-x center;
         }
     }
 
-    .rp-background(@url) { background: url(@url) no-repeat; width: 600px; height: 420px; }
+    .rp-background(@url) { background: url(@url) no-repeat; max-width: 600px; height: 420px; }
 
-    .carton  { .rp-background('../../img/books/carton.gif')  }
+    .carton  {
+        .rp-background('../../img/books/carton.gif');
+        .rp-content {
+            p {
+                &.other {
+                    color: #992626;
+                    font-size: 130%;
+                    text-align: center;
+                }
+            }
+        }
+    }
     .blood   { .rp-background('../../img/books/blood.gif')   }
     .noteup  { .rp-background('../../img/books/noteup.gif')  }
     .white   { .rp-background('../../img/books/white.gif')   }
@@ -236,25 +251,41 @@
         .rp-content {
             padding-left: 120px; padding-top: 120px;
             color: #544224;
-            p::first-line{ color: inherit; }
-            p::first-letter { color: black; }
+            p {
+                color: #504227; font-weight: bold;
+                &:first-line{ color: inherit; }
+                &:first-letter { color: black; }
+            }
         }
     }
 
     .news {
         .rp-background('../../img/books/news.gif');
-        .rp-content { margin-left: 60px; padding-right: 60px; padding-top: 50px; width: 555px; }
+        .rp-content { margin-left: 60px; padding-right: 60px; padding-top: 50px; max-width: 555px; }
     }
 
     .postit {
         .rp-background('../../img/books/postit.gif');
-        .rp-content { margin-left: 120px; padding-top: 80px; width: 360px; }
+        .rp-content { margin-left: 120px; padding-top: 80px; max-width: 360px; }
     }
 
     .tinystamp {
         .rp-background('../../img/books/tinystamp.gif');
-        .rp-content { margin-left: 130px; padding-top: 40px; width: 340px; }
+        .rp-content {
+            margin-left: 130px; max-width: 340px;
+            p { font-weight: bold; text-align: left; }
+            blockquote {
+                padding: 10px;
+                margin: 10px;
+                color: #464738;
+                font-style: normal;
+                border: 2px solid #464738;
+            }
+        }
     }
 
-    .author { color: #ddab76; font-style: italic; font-size: 1rem; }
+    .author {
+        color: #ddab76; font-style: italic; font-size: 1rem;
+        img { vertical-align: -35%; }
+    }
 }

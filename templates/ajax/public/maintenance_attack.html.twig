@@ -1,3 +1,6 @@
+{% set attack_texts = [ 'Deinen Rucksack umklammern'|trans({},'global') , 'Schreien'|trans({},'global') , 'Rotz und Wasser heulen'|trans({},'global') , 'Die Zähne zusammenbeißen'|trans({},'global') , 'Eine Gitarre umarmen'|trans({},'global') , 'Nervös weinen'|trans({},'global') , 'In Panik ausbrechen'|trans({},'global') , 'Hinter dem Wrack verstecken'|trans({},'global') , 'Die Tür zuhalten'|trans({},'global') , 'Unter der Decke verstecken'|trans({},'global') , 'Nach Hilfe schreien'|trans({},'global') , '"Hilfe" schreien'|trans({},'global') , 'Unter einem Karton verstecken'|trans({},'global') , 'Unter dem Bett verstecken'|trans({},'global') , 'Ruhig bleiben...'|trans({},'global') , 'In die Fötusstellung zusammenrollen'|trans({},'global') , 'Alleine laut singen'|trans({},'global') , 'Um dein Leben beten'|trans({},'global') , 'Die Backen halten'|trans({},'global') ] %}
+{% set displayed_text = rand.pick(attack_texts) %}
+
 {% extends "ajax/ajax.html.twig" %}
 {% block text_menu_content %}
 {% endblock %}
@@ -21,7 +24,7 @@
                     </p>
                 {% endtrans %}
             </p>
-            <button x-ajax-href="{{ path('initial_landing') }}">{{ 'Seite neu laden'|trans({},'global') }}</button>
+            <button x-ajax-href="{{ path('initial_landing') }}">{{ displayed_text }}</button>
         </div>
 
         <div class="infos">
@@ -34,7 +37,11 @@
 
         <div class="right">
             <br />
+            {% if is_granted('ROLE_CROW') %}
             <span class="small pointer" x-ajax-href="{{ path('admin_dashboard') }}">{{ 'Admin Dashboard'|trans({},'admin') }}</span>
+            {% else %}
+            <span style="cursor: default; opacity: 0;" class="small pointer" x-ajax-href="{{ path('admin_dashboard') }}">{{ 'Admin Dashboard'|trans({},'admin') }}</span>
+            {% endif %}
         </div>
     </div>
 {% endblock %}

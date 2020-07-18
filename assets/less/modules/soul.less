@@ -7,6 +7,20 @@ div.tooltip.badge-tooltip {
     &>b { display: block; font-size: 1.2em; border-bottom: 1px solid wheat; color: wheat; margin-bottom: 3px; }
 }
 
+#users-list-soul {
+        #users-list {
+            margin: 1rem; display: flex; width: 100%; justify-content: flex-start; align-items: center; flex-wrap: wrap;
+            max-height: 12rem; overflow: auto;
+
+            .users-list-entry {
+                flex-basis: 120px; margin-bottom: 4px; margin-right: 4px;
+                button { text-overflow: ellipsis; cursor: pointer; font-size: .8em; font-variant: unset; text-transform: none; }
+            }
+        }
+
+        input#users-search { width: 20rem; display: inline; }
+    }
+
 .soul {
 
     .me {
@@ -19,17 +33,20 @@ div.tooltip.badge-tooltip {
 
     .skills {
         .bar {
-            width: 614px;
+            max-width: 614px;
             height: 32px;
             margin: 10px auto 0;
+            padding-left: 3px;
+            padding-right: 3px;
 
             .progresstext {
-                background: url('../../img/soul/heroUp_front.gif') center no-repeat;
+                background: url('../../img/soul/heroUp_front.gif');
+                background-repeat: round;
+                max-width: 614px;
                 height: 32px;
                 line-height: 32px;
-                width: 614px;
                 z-index: 2;
-                position: absolute;
+                position: relative;
                 color: #f0d79e;
                 text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
                 .text {
@@ -38,12 +55,14 @@ div.tooltip.badge-tooltip {
             }
 
             .progressbar {
-                background: url('../../img/soul/heroUp_bg.gif') center repeat-x;
+                background: url('../../img/soul/heroUp_bg.gif');
+                background-repeat: round;
+                max-width: 614px;
                 height: 30px;
                 overflow: hidden;
                 padding-left: 25px;
                 padding-right: 5px;
-                margin-top: 2px;
+                margin-top: -31px;
                 img {
                     height: 32px;
                 }
@@ -77,9 +96,10 @@ div.tooltip.badge-tooltip {
     }
 
     .distinctions {
-        max-width: 240px;
+        max-width: 270px;
         background: url("../../img/soul/rewardsBg_header.gif") top/100% no-repeat;
         padding-bottom: 0 !important;
+        margin-left: 3px;
 
         .distinctions-head {
             padding-top: 45px;
@@ -121,7 +141,7 @@ div.tooltip.badge-tooltip {
                 margin-top: -10px;
 
                 .count {
-                    background: url("../../img/fontBitmap.png") no-repeat;
+                    background: url("../../fonts/fontBitmap.png") no-repeat;
                     line-height: 0;
                     font-size: 0;
                     width: 5px;
@@ -151,7 +171,10 @@ div.tooltip.badge-tooltip {
 
     .night {
         background: url("../../img/soul/soul_night.jpg") bottom/100% no-repeat;
-        width: auto; height: 197px; position: relative; font-size: 0;
+        width: auto; height: 230px; position: relative; font-size: 0;
+        background-repeat: no-repeat;
+        background-position: right top;
+        background-size: cover;
 
         &>.badge {
             top: 30px;
@@ -233,6 +256,9 @@ div.tooltip.badge-tooltip {
             .town-name {
                 font-size: 1.2rem;
                 cursor: pointer;
+                border-left: 1px solid #7e4d2a;
+                border-right: 1px solid #7e4d2a;
+                border-bottom: 1px solid #7e4d2a;
                 .comment {
                     color: #ddab76;
                     font-size: 1.1rem;
@@ -245,12 +271,23 @@ div.tooltip.badge-tooltip {
                 }
             }
 
+            .season {
+                height: 42px;
+                font-weight: bold;
+                border-bottom: 1px solid #7e4d2a;
+            }
+
             .town-days {
                 color: #f0d79e;
+                height: 42px;
+                border-right: 1px solid #7e4d2a;
+                border-bottom: 1px solid #7e4d2a;
             }
 
             .town-points {
                 color: #afacc1;
+                height: 42px;
+                border-bottom: 1px solid #7e4d2a;
             }
 
             .empty {
@@ -275,11 +312,14 @@ div.tooltip.badge-tooltip {
                     border-bottom: 1px solid #7e4d2a;
                 }
 
-                .desc {    
+                .skill {
+                    border-right: 1px solid #7e4d2a;
+                }
+
+                .desc {
                     font-size: 9pt;
                     color: #f0d79e;
                     min-height: 34px;
-                    border-left: 1px solid #7e4d2a;
                     border-right: 1px solid #7e4d2a;
                 }
                 .currentSkill {

@@ -39,11 +39,11 @@ class AwardFixtures extends Fixture {
         ['title'=>'Wüstenwurmzüchter', 'unlockquantity'=>150, 'associatedtag'=>':prosurv:', 'associatedpicto'=>'Einsiedler', 'iconpath'=>'build/images/pictos/r_jermit.gif','titlehovertext'=>'Einsiedler x150'],
         ['title'=>'Ich brauche niemanden!', 'unlockquantity'=>300, 'associatedtag'=>':prosurv:', 'associatedpicto'=>'Einsiedler', 'iconpath'=>'build/images/pictos/r_jermit.gif','titlehovertext'=>'Einsiedler x300'],
         ['title'=>'Heraklit der Außenwelt', 'unlockquantity'=>800, 'associatedtag'=>':prosurv:', 'associatedpicto'=>'Einsiedler', 'iconpath'=>'build/images/pictos/r_jermit.gif','titlehovertext'=>'Einsiedler x800'],
-        ['title'=>'Diplomierter Scharlatan', 'unlockquantity'=>10, 'associatedtag'=>':prosham:', 'associatedpicto'=>'Schamane', 'iconpath'=>'build/images/pictos/r_chaman.gif','titlehovertext'=>'Schamane x10'],
-        ['title'=>'Schlimmer Finger', 'unlockquantity'=>25, 'associatedtag'=>':prosham:', 'associatedpicto'=>'Schamane', 'iconpath'=>'build/images/pictos/r_chaman.gif','titlehovertext'=>'Schamane x25'],
-        ['title'=>'Seelenverwerter', 'unlockquantity'=>75, 'associatedtag'=>':prosham:', 'associatedpicto'=>'Schamane', 'iconpath'=>'build/images/pictos/r_chaman.gif','titlehovertext'=>'Schamane x75'],
-        ['title'=>'Mystischer Seher', 'unlockquantity'=>150, 'associatedtag'=>':prosham:', 'associatedpicto'=>'Schamane', 'iconpath'=>'build/images/pictos/r_chaman.gif','titlehovertext'=>'Schamane x150'],
-        ['title'=>'Voodoo Sorceror', 'unlockquantity'=>300, 'associatedtag'=>':prosham:', 'associatedpicto'=>'Schamane', 'iconpath'=>'build/images/pictos/r_chaman.gif','titlehovertext'=>'Schamane x300'],
+        ['title'=>'Diplomierter Scharlatan', 'unlockquantity'=>10, 'associatedtag'=>':prosham:', 'associatedpicto'=>'Schamane', 'iconpath'=>'build/images/pictos/r_jsham.gif','titlehovertext'=>'Schamane x10'],
+        ['title'=>'Schlimmer Finger', 'unlockquantity'=>25, 'associatedtag'=>':prosham:', 'associatedpicto'=>'Schamane', 'iconpath'=>'build/images/pictos/r_jsham.gif','titlehovertext'=>'Schamane x25'],
+        ['title'=>'Seelenverwerter', 'unlockquantity'=>75, 'associatedtag'=>':prosham:', 'associatedpicto'=>'Schamane', 'iconpath'=>'build/images/pictos/r_jsham.gif','titlehovertext'=>'Schamane x75'],
+        ['title'=>'Mystischer Seher', 'unlockquantity'=>150, 'associatedtag'=>':prosham:', 'associatedpicto'=>'Schamane', 'iconpath'=>'build/images/pictos/r_jsham.gif','titlehovertext'=>'Schamane x150'],
+        ['title'=>'Voodoo Sorceror', 'unlockquantity'=>300, 'associatedtag'=>':prosham:', 'associatedpicto'=>'Schamane', 'iconpath'=>'build/images/pictos/r_jsham.gif','titlehovertext'=>'Schamane x300'],
         ['title'=>'Yo, wir schaffen das!', 'unlockquantity'=>10, 'associatedtag'=>':protech:', 'associatedpicto'=>'Techniker', 'iconpath'=>'build/images/pictos/r_jtech.gif','titlehovertext'=>'Techniker x10'],
         ['title'=>'Kleiner Schraubendreher', 'unlockquantity'=>25, 'associatedtag'=>':protech:', 'associatedpicto'=>'Techniker', 'iconpath'=>'build/images/pictos/r_jtech.gif','titlehovertext'=>'Techniker x25'],
         ['title'=>'Schweizer Taschenmesser', 'unlockquantity'=>75, 'associatedtag'=>':protech:', 'associatedpicto'=>'Techniker', 'iconpath'=>'build/images/pictos/r_jtech.gif','titlehovertext'=>'Techniker x75'],
@@ -234,7 +234,9 @@ class AwardFixtures extends Fixture {
         ['title'=>'Berühmter Veteran', 'unlockquantity'=>20, 'associatedtag'=>':ranked:', 'associatedpicto'=>'Gerankte Stadt', 'iconpath'=>'build/images/pictos/r_winbas.gif','titlehovertext'=>'Gerankte Stadt x20'],
         ['title'=>'Lebender Mythos', 'unlockquantity'=>1, 'associatedtag'=>':legend:', 'associatedpicto'=>'Legendäre Stadt', 'iconpath'=>'build/images/pictos/r_wintop.gif','titlehovertext'=>'Legendäre Stadt x1'],
         ['title'=>'Ich bin eine Legende', 'unlockquantity'=>2, 'associatedtag'=>':legend:', 'associatedpicto'=>'Legendäre Stadt', 'iconpath'=>'build/images/pictos/r_wintop.gif','titlehovertext'=>'Legendäre Stadt x2'],
-        ['title'=>'Hör auf mich, wenn du überleben möchtest', 'unlockquantity'=>3, 'associatedtag'=>':legend:', 'associatedpicto'=>'Legendäre Stadt', 'iconpath'=>'build/images/pictos/r_wintop.gif','titlehovertext'=>'Legendäre Stadt x3']
+        ['title'=>'Hör auf mich, wenn du überleben möchtest', 'unlockquantity'=>3, 'associatedtag'=>':legend:', 'associatedpicto'=>'Legendäre Stadt', 'iconpath'=>'build/images/pictos/r_wintop.gif','titlehovertext'=>'Legendäre Stadt x3'],
+        ['title'=>'Netter Kerl', 'unlockquantity'=>1, 'associatedtag'=>':goodg:', 'associatedpicto'=>'Netter Kerl', 'iconpath'=>'build/images/pictos/r_goodg.gif','titlehovertext'=>'Netter Kerl x1'],
+        ['title'=>'Zeuge der großen Verseuchung', 'unlockquantity'=>1, 'associatedtag'=>':ginfect:', 'associatedpicto'=>'Zeuge der großen Verseuchung', 'iconpath'=>'build/images/pictos/r_ginfect.gif','titlehovertext'=>'Zeuge der großen Verseuchung x1']
     ];
 
     private function insertAwards(ObjectManager $manager, ConsoleOutputInterface $out) {

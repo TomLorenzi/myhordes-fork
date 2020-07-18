@@ -1,0 +1,9 @@
+{% block ajax %}
+    {% for user in users %}
+        <div class="users-list-entry">
+        <button x-ajax-href="{{ url('soul_visit', {id: user.id}) }}" x-ajax-target="#content" class="button">
+            {{ user.username }}
+        </button>
+        </div>
+    {% endfor %}
+{% endblock %}
