@@ -204,6 +204,10 @@ class Zone
         return $this;
     }
 
+    public function getDistance(): float {
+        return sqrt( pow($this->getX(),2) + pow($this->getY(),2) );
+    }
+
     public function getZombies(): ?int
     {
         return $this->zombies;
