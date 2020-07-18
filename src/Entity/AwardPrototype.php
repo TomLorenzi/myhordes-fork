@@ -41,21 +41,10 @@ class AwardPrototype {
     private $associatedTag;
 
     /**
-     * This field matches to the name field of Picto
-     * @ORM\Column(type="string", length=64)
+     * @ORM\ManyToOne(targetEntity=PictoPrototype::class, inversedBy="awards")
+     * @ORM\JoinColumn(nullable=false)
      */
     private $associatedPicto;
-
-    /**
-     * @ORM\Column(type="string", length=32)
-     */
-    private $iconPath;
-
-    /**
-     * This is the text that displays when the mouse hovers over the title, I.E. "Thefts x10"
-     * @ORM\Column(type="string", length=65)
-     */
-    private $titleHoverText;
 
     public function __construct() {
     }
@@ -76,40 +65,31 @@ class AwardPrototype {
         return $this->associatedTag;
     }
 
-    public function getAssociatedPicto(): ?string {
+    public function getAssociatedPicto(): ?PictoPrototype {
         return $this->associatedPicto;
     }
 
-    public function getIconPath(): ?string {
-        return $this->iconPath;
-    }
-
-    public function getTitleHoverText(): ?string {
-        return $this->titleHoverText;
-    }
-
-    public function setTitle(string $value) {
+    public function setTitle(string $value): self {
         $this->title = $value;
+
+        return $this;
     }
 
     public function setUnlockQuantity(int $value) {
         $this->unlockQuantity = $value;
     }
 
-    public function setAssociatedTag(string $value) {
+    public function setAssociatedTag(string $value): self {
         $this->associatedTag = $value;
+
+        return $this;
     }
 
-    public function setAssociatedPicto(string $value) {
-        $this->associatedPicto = $value;
-    }
+    public function setAssociatedPicto(?PictoPrototype $associatedPicto): self
+    {
+        $this->associatedPicto = $associatedPicto;
 
-    public function setIconPath(string $value) {
-        $this->iconPath = $value;
-    }
-
-    public function setTitleHoverText(string $value) {
-        $this->titleHoverText = $value;
+        return $this;
     }
 
 }

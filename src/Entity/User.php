@@ -8,6 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
 use Doctrine\ORM\Mapping\Table;
 use Doctrine\ORM\Mapping\UniqueConstraint;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\Security\Core\User\EquatableInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
 
@@ -19,7 +20,8 @@ use Symfony\Component\Security\Core\User\UserInterface;
  *     name="`user`",
  *     uniqueConstraints={
  *         @UniqueConstraint(name="email_unique",columns={"email"}),
- *         @UniqueConstraint(name="user_name_unique",columns={"name"})
+ *         @UniqueConstraint(name="user_name_unique",columns={"name"}),
+ *         @UniqueConstraint(name="user_twinoid_unique",columns={"twinoid_id"})
  *     }
  * )
  */
@@ -30,6 +32,7 @@ class User implements UserInterface, EquatableInterface
     const ROLE_ORACLE    =  2;
     const ROLE_CROW      =  3;
     const ROLE_ADMIN     =  4;
+    const ROLE_SUPER     =  5;
 
     /**
      * @ORM\Id()
@@ -74,7 +77,7 @@ class User implements UserInterface, EquatableInterface
     private $bannings;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\FoundRolePlayText", mappedBy="user")
+     * @ORM\OneToMany(targetEntity="App\Entity\FoundRolePlayText", mappedBy="user", cascade={"persist", "remove"})
      */
     private $foundTexts;
 
@@ -144,6 +147,36 @@ class User implements UserInterface, EquatableInterface
      */
     private $heroDaysSpent = 0;
 
+    /**
+     * @ORM\OneToOne(targetEntity=TwinoidImportPreview::class, mappedBy="user", cascade={"persist", "remove"})
+     */
+    private $twinoidImportPreview;
+
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $twinoidID;
+
+    /**
+     * @ORM\OneToMany(targetEntity=TwinoidImport::class, mappedBy="user", orphanRemoval=true, cascade={"persist", "remove"})
+     */
+    private $twinoidImports;
+
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $importedSoulPoints;
+
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $importedHeroDaysSpent;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=Changelog::class)
+     */
+    private $latestChangelog;
+
     public function __construct()
     {
         $this->citizens = new ArrayCollection();
@@ -151,6 +184,7 @@ class User implements UserInterface, EquatableInterface
         $this->pictos = new ArrayCollection();
         $this->bannings = new ArrayCollection();
         $this->pastLifes = new ArrayCollection();
+        $this->twinoidImports = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -251,14 +285,20 @@ class User implements UserInterface, EquatableInterface
     {
         $roles = [];
         if ($this->pass === null) return $roles;
-        if ($this->rightsElevation >= 4) $roles[] = 'ROLE_ADMIN';
-        if ($this->rightsElevation >= 3) $roles[] = 'ROLE_CROW';
-        if ($this->rightsElevation >= 2) $roles[] = 'ROLE_ORACLE';
+
+        if     ($this->rightsElevation >= self::ROLE_SUPER)  $roles[] = 'ROLE_SUPER';
+        elseif ($this->rightsElevation >= self::ROLE_ADMIN)  $roles[] = 'ROLE_ADMIN';
+        elseif ($this->rightsElevation >= self::ROLE_CROW)   $roles[] = 'ROLE_CROW';
+        elseif ($this->rightsElevation >= self::ROLE_ORACLE) $roles[] = 'ROLE_ORACLE';
+
         if (strstr($this->email, "@localhost") === "@localhost") $roles[] = 'ROLE_DUMMY';
+        if ($this->email === 'crow') $roles[] = 'ROLE_CROW';
+
         if ($this->validated) $roles[] = 'ROLE_USER';
         else $roles[] = 'ROLE_REGISTERED';
+
         if ($this->getIsBanned()) $roles[] = 'ROLE_BANNED';
-        return $roles;
+        return array_unique($roles);
     }
 
     /**
@@ -374,14 +414,14 @@ class User implements UserInterface, EquatableInterface
     }
 
     /**
-     * @return Collection|RolePlayText[]
+     * @return Collection|FoundRolePlayText[]
      */
     public function getFoundTexts(): Collection
     {
         return $this->foundTexts;
     }
 
-    public function addFoundText(RolePlayText $foundText): self
+    public function addFoundText(FoundRolePlayText $foundText): self
     {
         if (!$this->foundTexts->contains($foundText)) {
             $this->foundTexts[] = $foundText;
@@ -390,13 +430,17 @@ class User implements UserInterface, EquatableInterface
         return $this;
     }
 
-    public function removeFoundText(RolePlayText $foundText): self
+    public function removeFoundText(FoundRolePlayText $foundText): self
     {
         if ($this->foundTexts->contains($foundText)) {
             $this->foundTexts->removeElement($foundText);
         }
 
         return $this;
+    }
+
+    public function getAllSoulPoints(): int {
+        return ($this->getSoulPoints() ?? 0) + ($this->getImportedSoulPoints() ?? 0);
     }
 
     public function getSoulPoints(): ?int
@@ -599,6 +643,11 @@ class User implements UserInterface, EquatableInterface
         return $this;
     }
 
+    public function getAllHeroDaysSpent(): int
+    {
+        return ($this->getHeroDaysSpent() ?? 0) + ($this->getImportedHeroDaysSpent() ?? 0);
+    }
+
     public function getHeroDaysSpent(): ?int
     {
         return $this->heroDaysSpent;
@@ -607,6 +656,102 @@ class User implements UserInterface, EquatableInterface
     public function setHeroDaysSpent(int $heroDaysSpent): self
     {
         $this->heroDaysSpent = $heroDaysSpent;
+
+        return $this;
+    }
+
+    public function getTwinoidImportPreview(): ?TwinoidImportPreview
+    {
+        return $this->twinoidImportPreview;
+    }
+
+    public function setTwinoidImportPreview(?TwinoidImportPreview $twinoidImportPreview): self
+    {
+        $this->twinoidImportPreview = $twinoidImportPreview;
+
+        // set the owning side of the relation if necessary
+        if ($twinoidImportPreview !== null && $twinoidImportPreview->getUser() !== $this) {
+            $twinoidImportPreview->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function getTwinoidID(): ?int
+    {
+        return $this->twinoidID;
+    }
+
+    public function setTwinoidID(?int $twinoidID): self
+    {
+        $this->twinoidID = $twinoidID;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|TwinoidImport[]
+     */
+    public function getTwinoidImports(): Collection
+    {
+        return $this->twinoidImports;
+    }
+
+    public function addTwinoidImport(TwinoidImport $twinoidImport): self
+    {
+        if (!$this->twinoidImports->contains($twinoidImport)) {
+            $this->twinoidImports[] = $twinoidImport;
+            $twinoidImport->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeTwinoidImport(TwinoidImport $twinoidImport): self
+    {
+        if ($this->twinoidImports->contains($twinoidImport)) {
+            $this->twinoidImports->removeElement($twinoidImport);
+            // set the owning side to null (unless already changed)
+            if ($twinoidImport->getUser() === $this) {
+                $twinoidImport->setUser(null);
+            }
+        }
+
+        return $this;
+    }
+
+    public function getImportedSoulPoints(): ?int
+    {
+        return $this->importedSoulPoints;
+    }
+
+    public function setImportedSoulPoints(?int $importedSoulPoints): self
+    {
+        $this->importedSoulPoints = $importedSoulPoints;
+
+        return $this;
+    }
+
+    public function getImportedHeroDaysSpent(): ?int
+    {
+        return $this->importedHeroDaysSpent;
+    }
+
+    public function setImportedHeroDaysSpent(?int $importedHeroDaysSpent): self
+    {
+        $this->importedHeroDaysSpent = $importedHeroDaysSpent;
+
+        return $this;
+    }
+
+    public function getLatestChangelog(): ?Changelog
+    {
+        return $this->latestChangelog;
+    }
+
+    public function setLatestChangelog(?Changelog $latestChangelog): self
+    {
+        $this->latestChangelog = $latestChangelog;
 
         return $this;
     }

@@ -7,20 +7,23 @@ class Config {
     private client: Client;
 
     public notificationAsPopup: conf<boolean>;
+    public twinoidImport:       conf<[number,string,string]>;
 
     constructor(c:Client) {
         this.client = c;
 
         this.notificationAsPopup = this.makeConf<boolean>('notifAsPopup', false);
+
+        this.twinoidImport       = this.makeConf<[number,string,string]>('twinImport', [0,'',''], true);
     }
 
     public get<T>(s:string): conf<T> {
         return (this[s] ?? null) as conf<T>;
     }
 
-    private makeConf<T>(name: string, initial: T): conf<T> {
+    private makeConf<T>(name: string, initial: T, session: boolean = false): conf<T> {
         return {
-            set: (v:T):void => this.client.set( name, 'config', v, false ) as null,
+            set: (v:T):void => this.client.set( name, 'config', v, session ) as null,
             get: ():T       => this.client.get( name, 'config', initial )
         }
     }

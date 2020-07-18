@@ -13,6 +13,8 @@ use App\Entity\HeroSkillPrototype;
 use App\Entity\Picto;
 use App\Entity\PictoPrototype;
 use App\Entity\TownRankingProxy;
+use App\Entity\TwinoidImport;
+use App\Entity\TwinoidImportPreview;
 use App\Entity\User;
 use App\Entity\RolePlayTextPage;
 use App\Entity\Season;
@@ -20,6 +22,7 @@ use App\Response\AjaxResponse;
 use App\Service\DeathHandler;
 use App\Service\ErrorHelper;
 use App\Service\JSONRequestParser;
+use App\Service\TwinoidHandler;
 use App\Service\UserFactory;
 use App\Service\UserHandler;
 use App\Service\AdminActionHandler;
@@ -30,9 +33,11 @@ use Exception;
 use Imagick;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Asset\Packages;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 use Symfony\Contracts\Translation\TranslatorInterface;
@@ -49,14 +54,18 @@ class SoulController extends AbstractController
     private $user_handler;
     private $asset;
 
-    const ErrorAvatarBackendUnavailable      = ErrorHelper::BaseAvatarErrors + 1;
-    const ErrorAvatarTooLarge                = ErrorHelper::BaseAvatarErrors + 2;
-    const ErrorAvatarFormatUnsupported       = ErrorHelper::BaseAvatarErrors + 3;
-    const ErrorAvatarImageBroken             = ErrorHelper::BaseAvatarErrors + 4;
-    const ErrorAvatarResolutionUnacceptable  = ErrorHelper::BaseAvatarErrors + 5;
-    const ErrorAvatarProcessingFailed        = ErrorHelper::BaseAvatarErrors + 6;
-    const ErrorAvatarInsufficientCompression = ErrorHelper::BaseAvatarErrors + 7;
-    const ErrorUserEditPasswordIncorrect   = ErrorHelper::BaseAvatarErrors + 8;
+    const ErrorAvatarBackendUnavailable      = ErrorHelper::BaseAvatarErrors +  1;
+    const ErrorAvatarTooLarge                = ErrorHelper::BaseAvatarErrors +  2;
+    const ErrorAvatarFormatUnsupported       = ErrorHelper::BaseAvatarErrors +  3;
+    const ErrorAvatarImageBroken             = ErrorHelper::BaseAvatarErrors +  4;
+    const ErrorAvatarResolutionUnacceptable  = ErrorHelper::BaseAvatarErrors +  5;
+    const ErrorAvatarProcessingFailed        = ErrorHelper::BaseAvatarErrors +  6;
+    const ErrorAvatarInsufficientCompression = ErrorHelper::BaseAvatarErrors +  7;
+    const ErrorUserEditPasswordIncorrect     = ErrorHelper::BaseAvatarErrors +  8;
+    const ErrorTwinImportInvalidResponse     = ErrorHelper::BaseAvatarErrors +  9;
+    const ErrorTwinImportNoToken             = ErrorHelper::BaseAvatarErrors + 10;
+    const ErrorTwinImportProfileMismatch     = ErrorHelper::BaseAvatarErrors + 11;
+    const ErrorTwinImportProfileInUse        = ErrorHelper::BaseAvatarErrors + 12;
 
     public function __construct(EntityManagerInterface $em, UserFactory $uf, Packages $a, UserHandler $uh, TimeKeeperService $tk, TranslatorInterface $translator)
     {
@@ -103,12 +112,12 @@ class SoulController extends AbstractController
         // Get all the picto & count points
         $pictos = $this->entity_manager->getRepository(Picto::class)->findNotPendingByUser($user);
     	$points = $this->user_handler->getPoints($user);
-        $latestSkill = $this->entity_manager->getRepository(HeroSkillPrototype::class)->getLatestUnlocked($user->getHeroDaysSpent());
-        $nextSkill = $this->entity_manager->getRepository(HeroSkillPrototype::class)->getNextUnlockable($user->getHeroDaysSpent());
+        $latestSkill = $this->entity_manager->getRepository(HeroSkillPrototype::class)->getLatestUnlocked($user->getAllHeroDaysSpent());
+        $nextSkill = $this->entity_manager->getRepository(HeroSkillPrototype::class)->getNextUnlockable($user->getAllHeroDaysSpent());
 
         $factor1 = $latestSkill !== null ? $latestSkill->getDaysNeeded() : 0;
 
-        $progress = $nextSkill !== null ? ($user->getHeroDaysSpent() - $factor1) / ($nextSkill->getDaysNeeded() - $factor1) * 100.0 : 0;
+        $progress = $nextSkill !== null ? ($user->getAllHeroDaysSpent() - $factor1) / ($nextSkill->getDaysNeeded() - $factor1) * 100.0 : 0;
 
         return $this->render( 'ajax/soul/me.html.twig', $this->addDefaultTwigArgs("soul_me", [
             'pictos' => $pictos,
@@ -150,13 +159,13 @@ class SoulController extends AbstractController
             return $this->redirect($this->generateUrl( 'soul_death' ));
 
         // Get all the picto & count points
-        $latestSkill = $this->entity_manager->getRepository(HeroSkillPrototype::class)->getLatestUnlocked($user->getHeroDaysSpent());
-        $nextSkill = $this->entity_manager->getRepository(HeroSkillPrototype::class)->getNextUnlockable($user->getHeroDaysSpent());
+        $latestSkill = $this->entity_manager->getRepository(HeroSkillPrototype::class)->getLatestUnlocked($user->getAllHeroDaysSpent());
+        $nextSkill = $this->entity_manager->getRepository(HeroSkillPrototype::class)->getNextUnlockable($user->getAllHeroDaysSpent());
 
         $allSkills = $this->entity_manager->getRepository(HeroSkillPrototype::class)->findAll();
 
         $factor1 = $latestSkill !== null ? $latestSkill->getDaysNeeded() : 0;
-        $progress = $nextSkill !== null ? ($user->getHeroDaysSpent() - $factor1) / ($nextSkill->getDaysNeeded() - $factor1) * 100.0 : 0;
+        $progress = $nextSkill !== null ? ($user->getAllHeroDaysSpent() - $factor1) / ($nextSkill->getDaysNeeded() - $factor1) * 100.0 : 0;
 
         return $this->render( 'ajax/soul/heroskills.html.twig', $this->addDefaultTwigArgs("soul_me", [
             'latestSkill' => $latestSkill,
@@ -167,25 +176,32 @@ class SoulController extends AbstractController
     }
 
     /**
-     * @Route("jx/soul/news", name="soul_news")
+     * @Route("jx/soul/news/{id}", name="soul_news")
+     * @param Request $request
      * @return Response
      */
-    public function soul_news(): Response
+    public function soul_news(Request $request, UserHandler $userHandler, int $id = 0): Response
     {
         /** @var User $user */
         $user = $this->getUser();
 
-        /** @var CitizenRankingProxy $nextDeath */
         if ($this->entity_manager->getRepository(CitizenRankingProxy::class)->findNextUnconfirmedDeath($user))
             return $this->redirect($this->generateUrl( 'soul_death' ));
 
-        /** @var CitizenRankingProxy $nextDeath */
-        if ($this->entity_manager->getRepository(CitizenRankingProxy::class)->findNextUnconfirmedDeath($user))
-            return $this->redirect($this->generateUrl( 'soul_death' ));
+        $lang = $user->getLanguage() ?? $request->getLocale() ?? 'de';
+        $news = $this->entity_manager->getRepository(Changelog::class)->findByLang($lang);
 
-        $news = $this->entity_manager->getRepository(Changelog::class)->findByLang($user->getLanguage());
+        $selected = $id > 0 ? $this->entity_manager->getRepository(Changelog::class)->find($id) : null;
+        if ($selected === null)
+            $selected = $news[0] ?? null;
+
+        try {
+            $userHandler->setSeenLatestChangelog( $user, $lang );
+            $this->entity_manager->flush();
+        } catch (Exception $e) {}
+
         return $this->render( 'ajax/soul/news.html.twig', $this->addDefaultTwigArgs("soul_news", [
-            'news' => $news
+            'news' => $news, 'selected' => $selected
         ]) );
     }
 
@@ -207,6 +223,244 @@ class SoulController extends AbstractController
             return $this->redirect($this->generateUrl( 'soul_death' ));
 
         return $this->render( 'ajax/soul/settings.html.twig', $this->addDefaultTwigArgs("soul_settings", null) );
+    }
+
+    /**
+     * @Route("jx/soul/import/{code}", name="soul_import")
+     * @param TwinoidHandler $twin
+     * @param string $code
+     * @return Response
+     */
+    public function soul_import(TwinoidHandler $twin, string $code = ''): Response
+    {
+        /** @var User $user */
+        $user = $this->getUser();
+        $main = $this->entity_manager->getRepository(TwinoidImport::class)->findOneBy(['user' => $user, 'main' => true]);
+
+        if ($cache = $this->entity_manager->getRepository(TwinoidImportPreview::class)->findOneBy(['user' => $user])) {
+
+            return $this->render( 'ajax/soul/import_preview.html.twig', $this->addDefaultTwigArgs("soul_settings", [
+                'payload' => $cache->getData($this->entity_manager), 'preview' => true,
+                'main_soul' => $main !== null && $main->getScope() === $cache->getScope(), 'select_main_soul' => $main === null,
+            ]) );
+
+        } else return $this->render( 'ajax/soul/import.html.twig', $this->addDefaultTwigArgs("soul_settings", [
+            'services' => ['www.hordes.fr' => 'Hordes','www.die2nite.com' => 'Die2Nite','www.dieverdammten.de' => 'Die Verdammten','www.zombinoia.com' => 'Zombinoia'],
+            'code' => $code, 'need_sk' => !$twin->hasBuiltInTwinoidAccess(),
+            'souls' => $this->entity_manager->getRepository(TwinoidImport::class)->findBy(['user' => $user], ['created' => 'DESC']),
+            'select_main_soul' => $main === null
+        ]) );
+    }
+
+    /**
+     * @Route("jx/soul/import/view/{id}", name="soul_import_viewer")
+     * @param int $id
+     * @return Response
+     */
+    public function soul_import_viewer(int $id): Response
+    {
+        /** @var User $user */
+        $user = $this->getUser();
+
+        $import = $this->entity_manager->getRepository(TwinoidImport::class)->find( $id );
+        if (!$import || $import->getUser() !== $user) return $this->redirect($this->generateUrl('soul_import'));
+
+        $main = $this->entity_manager->getRepository(TwinoidImport::class)->findOneBy(['user' => $user, 'main' => true]);
+
+        return $this->render( 'ajax/soul/import_preview.html.twig', $this->addDefaultTwigArgs("soul_settings", [
+            'payload' => $import->getData($this->entity_manager), 'preview' => false,
+            'main_soul' => $main !== null && $main->getScope() === $import->getScope(), 'select_main_soul' => $main === null,
+        ]) );
+    }
+
+    private function validate_twin_json_request(JSONRequestParser $json, TwinoidHandler $twin, ?string &$sc = null, ?string &$sk = null, ?int &$app = null): bool {
+        $sc = $json->get('scope', null);
+        if (!in_array($sc, ['www.hordes.fr','www.die2nite.com','www.dieverdammten.de','www.zombinoia.com']))
+            return false;
+
+        $sk    = $json->get('sk');
+        $app   = (int)$json->get('app');
+
+        if (!$twin->hasBuiltInTwinoidAccess()) {
+            if ($app <= 0 || empty($sk))
+                return false;
+            $twin->setFallbackAccess($app,$sk);
+        }
+
+        return true;
+    }
+
+    /**
+     * @Route("api/soul/import_turl", name="soul_import_turl_api")
+     * @param JSONRequestParser $json
+     * @param TwinoidHandler $twin
+     * @return Response
+     */
+    public function soul_import_twinoid_endpoint(JSONRequestParser $json, TwinoidHandler $twin): Response
+    {
+        if (!$this->validate_twin_json_request( $json, $twin, $scope ))
+            return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+        return AjaxResponse::success(true, ['goto' => $twin->getTwinoidAuthURL('import',$scope)]);
+    }
+
+    /**
+     * @Route("api/soul/import/{code}", name="soul_import_api")
+     * @param string $code
+     * @param JSONRequestParser $json
+     * @param TwinoidHandler $twin
+     * @return Response
+     */
+    public function soul_import_loader(string $code, JSONRequestParser $json, TwinoidHandler $twin): Response
+    {
+        /** @var User $user */
+        $user = $this->getUser();
+
+        if ($this->isGranted('ROLE_DUMMY'))
+            return AjaxResponse::error(ErrorHelper::ErrorPermissionError);
+
+        if ($this->entity_manager->getRepository(TwinoidImportPreview::class)->findOneBy(['user' => $user]))
+            return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
+
+        if (!$this->validate_twin_json_request( $json, $twin, $scope ))
+            return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+        $twin->setCode( $code );
+
+        $data1 = $twin->getData("$scope/tid",'me', [
+            'name','twinId',
+            'playedMaps' => [ 'mapId','survival','mapName','season','v1','score','dtype','msg','comment','cleanup' ]
+        ], $error);
+
+        if ($error || isset($data1['error'])) return AjaxResponse::error(self::ErrorTwinImportInvalidResponse, ['response' => $data1]);
+
+        $twin_id = (int)($data1['twinId'] ?? 0);
+        if (!$twin_id) return AjaxResponse::error(self::ErrorTwinImportInvalidResponse, ['response' => $data1]);
+
+        $data2 = $twin->getData('twinoid.com',"site?host={$scope}", [
+            'me' => [ 'points','npoints',
+                'stats' => [ 'id','score','name','rare','social' ],
+                'achievements' => [ 'id','name','stat','score','points','npoints','date','index',
+                    'data' => ['type','title','url','prefix','suffix']
+                ]
+            ]
+        ], $error);
+
+        if ($error || isset($data2['error'])) return AjaxResponse::error(self::ErrorTwinImportInvalidResponse, ['response' => $data2]);
+
+        if ($user->getTwinoidID() === null) {
+
+            if (
+                $this->entity_manager->getRepository(User::class)->findOneBy(['twinoidID' => $twin_id]) ||
+                $this->entity_manager->getRepository(TwinoidImportPreview::class)->findOneBy(['twinoidID' => $twin_id])
+            ) return AjaxResponse::error(self::ErrorTwinImportProfileInUse);
+
+        } elseif ($user->getTwinoidID() !== $twin_id)
+            return AjaxResponse::error(self::ErrorTwinImportProfileMismatch);
+
+        $user->setTwinoidImportPreview( (new TwinoidImportPreview())
+            ->setTwinoidID($twin_id)
+            ->setCreated(new DateTime())
+            ->setScope($scope)
+            ->setPayload(array_merge($data1,$data2['me'])) );
+
+        try {
+            $this->entity_manager->persist($user);
+            $this->entity_manager->flush();
+        } catch (Exception $e) {
+            return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
+        }
+
+        return AjaxResponse::success();
+    }
+
+    /**
+     * @Route("api/soul/import-cancel", name="soul_import_cancel_api")
+     * @param JSONRequestParser $json
+     * @return Response
+     */
+    public function soul_import_cancel(JSONRequestParser $json): Response
+    {
+        /** @var User $user */
+        $user = $this->getUser();
+
+        $pending = $this->entity_manager->getRepository(TwinoidImportPreview::class)->findOneBy(['user' => $user]);
+        if (!$pending) return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
+
+        $user->setTwinoidImportPreview(null);
+        $pending->setUser(null);
+
+        try {
+            $this->entity_manager->remove($pending);
+            $this->entity_manager->flush();
+        } catch (Exception $e) {
+            return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
+        }
+
+        return AjaxResponse::success();
+    }
+
+    /**
+     * @Route("api/soul/import-confirm/{id}", name="soul_import_confirm_api")
+     * @param JSONRequestParser $json
+     * @param TwinoidHandler $twin
+     * @param int $id
+     * @return Response
+     */
+    public function soul_import_confirm(JSONRequestParser $json, TwinoidHandler $twin, int $id = -1): Response
+    {
+        /** @var User $user */
+        $user = $this->getUser();
+
+        $to_main = (bool)$json->get('main', false);
+        $pending = null; $selected = null;
+
+        if ($id < 0) {
+            $pending = $this->entity_manager->getRepository(TwinoidImportPreview::class)->findOneBy(['user' => $user]);
+            if (!$pending) return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
+            $scope = $pending->getScope();
+            $data = $pending->getData($this->entity_manager);
+        } else {
+            $selected = $this->entity_manager->getRepository(TwinoidImport::class)->find($id);
+            if (!$selected || $selected->getUser() !== $user) return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
+            $scope = $selected->getScope();
+            $data = $selected->getData($this->entity_manager);
+        }
+
+        $main = $this->entity_manager->getRepository(TwinoidImport::class)->findOneBy(['user' => $user, 'main' => true]);
+
+        if ($main !== null && $main->getScope() !== $scope && $to_main)
+            return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
+
+        if ($main !== null && $main->getScope() === $scope)
+            $to_main = true;
+
+        if ($twin->importData( $user, $scope, $data, $to_main )) {
+
+            if ($id < 0) {
+                $import_ds = $this->entity_manager->getRepository(TwinoidImport::class)->findOneBy(['user' => $user, 'scope' => $scope]);
+                if ($import_ds === null) $user->addTwinoidImport( $import_ds = new TwinoidImport() );
+
+                $import_ds->fromPreview( $pending );
+                $import_ds->setMain( $to_main );
+
+                $user->setTwinoidID( $pending->getTwinoidID() );
+                $user->setTwinoidImportPreview(null);
+                $pending->setUser(null);
+
+
+                $this->entity_manager->remove($pending);
+            } else $selected->setMain($to_main);
+
+            $this->entity_manager->persist( $user );
+
+            try {
+                $this->entity_manager->flush();
+            } catch (Exception $e) {
+                return AjaxResponse::error(ErrorHelper::ErrorDatabaseException, ['msg' => $e->getMessage()]);
+            }
+
+            return AjaxResponse::success();
+        } else return AjaxResponse::error(ErrorHelper::ErrorInternalError);
     }
 
     /**
@@ -369,7 +623,7 @@ class SoulController extends AbstractController
         $entityManager->persist( $user );
         $entityManager->flush();
 
-        return new AjaxResponse( ['success' => true] );
+        return AjaxResponse::success();
     }
 
     /**
@@ -387,7 +641,7 @@ class SoulController extends AbstractController
         $entityManager->persist( $user );
         $entityManager->flush();
 
-        return new AjaxResponse( ['success' => true] );
+        return AjaxResponse::success();
     }
 
     /**
@@ -403,15 +657,18 @@ class SoulController extends AbstractController
         $this->entity_manager->persist( $user );
         $this->entity_manager->flush();
 
-        return new AjaxResponse( ['success' => true] );
+        return AjaxResponse::success();
     }
 
     /**
      * @Route("api/soul/settings/setlanguage", name="api_soul_set_language")
      * @param JSONRequestParser $parser
+     * @param Request $request
+     * @param UserHandler $userHandler
+     * @param SessionInterface $session
      * @return Response
      */
-    public function soul_settings_set_language(JSONRequestParser $parser): Response {
+    public function soul_settings_set_language(JSONRequestParser $parser, Request $request, UserHandler $userHandler, SessionInterface $session): Response {
         /** @var User $user */
         $user = $this->getUser();
 
@@ -423,11 +680,20 @@ class SoulController extends AbstractController
         if (!in_array($lang, $validLanguages))
             return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
 
+        // Check if the user has seen all news in the previous language
+        $previous_lang = $user->getLanguage() ?? $request->getLocale() ?? 'de';
+        $seen_news = $userHandler->hasSeenLatestChangelog($user, $previous_lang);
+
         $user->setLanguage( $lang );
+        $session->set('_user_lang',$lang);
+
+        if ($seen_news) $userHandler->setSeenLatestChangelog($user, $lang);
+        else $user->setLatestChangelog(null);
+
         $this->entity_manager->persist( $user );
         $this->entity_manager->flush();
 
-        return new AjaxResponse( ['success' => true] );
+        return AjaxResponse::success();
     }
 
     /**
@@ -441,7 +707,7 @@ class SoulController extends AbstractController
 
         $asDev = $parser->get('dev', false);
         if ($admh->setDefaultRoleDev($user->getId(), $asDev))
-            return new AjaxResponse( ['success' => true] );
+            return AjaxResponse::success();
 
         return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
     }
@@ -646,7 +912,7 @@ class SoulController extends AbstractController
         /** @var User $user */
         $user = $this->getUser();
 
-        if ($this->isGranted('ROLE_DUMMY'))
+        if ($this->isGranted('ROLE_DUMMY') && !$this->isGranted( 'ROLE_CROW' ))
             return AjaxResponse::error(ErrorHelper::ErrorPermissionError);
 
         $new_pw = $parser->trimmed('pw_new', '');
@@ -673,7 +939,7 @@ class SoulController extends AbstractController
      * @param TokenStorageInterface $token
      * @return Response
      */
-    public function soul_settings_delete_account(UserPasswordEncoderInterface $passwordEncoder, JSONRequestParser $parser, DeathHandler $death, TokenStorageInterface $token): Response
+    public function soul_settings_delete_account(UserPasswordEncoderInterface $passwordEncoder, JSONRequestParser $parser, UserHandler $userhandler, TokenStorageInterface $token): Response
     {
         /** @var User $user */
         $user = $this->getUser();
@@ -685,17 +951,7 @@ class SoulController extends AbstractController
             return AjaxResponse::error(self::ErrorUserEditPasswordIncorrect );
 
         $name = $user->getUsername();
-        $user->setEmail("$ deleted <{$user->getId()}>")->setName("$ deleted <{$user->getId()}>")->setPassword(null)->setRightsElevation(0);
-        if ($user->getAvatar()) {
-            $this->entity_manager->remove($user->getAvatar());
-            $user->setAvatar(null);
-        }
-        $citizen = $user->getActiveCitizen();
-        if ($citizen) {
-            $death->kill( $citizen, CauseOfDeath::Headshot, $r );
-            foreach ($r as $re) $this->entity_manager->remove($re);
-        }
-
+        $userhandler->deleteUser($user);
         $this->entity_manager->flush();
 
         $this->addFlash( 'notice', $this->translator->trans('Auf wiedersehen, %name%. Wir werden dich vermissen und hoffen, dass du vielleicht doch noch einmal zurück kommst.', ['%name%' => $name], 'login') );
@@ -916,14 +1172,14 @@ class SoulController extends AbstractController
     public function soul_town_list(int $user_id, JSONRequestParser $parser): Response {
         /** @var User $user */
         $user = $this->entity_manager->getRepository(User::class)->find($user_id);
-        if($user === null) return "";
+        if ($user === null) return new Response("");
 
         $season_id = $parser->get('season', '');
         if(empty($season_id)) return new Response("");
 
         $season = $this->entity_manager->getRepository(Season::class)->findOneBy(['id' => $season_id]);
 
-        $limit = boolval($parser->get('limit10', true));
+        $limit = (bool)$parser->get('limit10', true);
 
         return $this->render( 'ajax/soul/town_list.html.twig', ['towns' => $this->entity_manager->getRepository(CitizenRankingProxy::class)->findPastByUserAndSeason($user, $season, $limit)]);
     }

@@ -192,8 +192,16 @@ export default class Ajax {
             }
 
             if (this.status >= 400) {
-                alert('Error loading page (' + this.status + ')');
-                window.location.href = ajax_instance.base;
+
+                switch (this.status) {
+                    case 403: window.location.href = ajax_instance.base; break;
+                    case 500: break;
+                    default:
+                        alert('Error loading page (' + this.status + ')');
+                        window.location.href = ajax_instance.base;
+                        break;
+                }
+
                 return;
             }
 

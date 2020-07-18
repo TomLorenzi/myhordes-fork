@@ -8,6 +8,10 @@ parameters:
 imports:
     - { resource: 'app/*.yml' }
 
+twig:
+    globals:
+        user_handler: '@App\Service\UserHandler'
+
 services:
     # default configuration for services in *this* file
     _defaults:
@@ -25,6 +29,8 @@ services:
         public: true
     App\Service\DeathHandler:
         public: true
+    App\Service\UserHandler:
+        public: true
 
     # controllers are imported separately to make sure services can be injected
     # as action arguments even if you don't extend any base controller class
@@ -32,7 +38,7 @@ services:
         resource: '../src/Controller'
         tags: ['controller.service_arguments']
 
-    # Scheduler Command needs the fully featured translator class instead of
+    # Some classes need the fully featured translator class instead of
     # just the interface, in order to set a locale
     App\Command\SchedulerCommand:
         arguments:

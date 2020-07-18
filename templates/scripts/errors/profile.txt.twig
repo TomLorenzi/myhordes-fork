@@ -11,3 +11,8 @@
 {{ constant('App\\Controller\\SoulController::ErrorAvatarTooLarge') }}:               '{{'Die Datei ist zu groß.'|trans({},'soul')|e('js')}}',
 {{ constant('App\\Controller\\SoulController::ErrorAvatarResolutionUnacceptable') }}: '{{'Die Auflösung des Bildes ist nicht geeignet, um es als Profilbild zu verwenden.'|trans({},'soul')|e('js')}}',
 {{ constant('App\\Controller\\SoulController::ErrorUserEditPasswordIncorrect') }}:  '{{'Dein eingegebenes Passwort ist nicht korrekt. Du benötigst dein aktuelles Passwort, um deinen Account zu bearbeiten.'|trans({},'soul')|e('js')}}',
+
+{{ constant('App\\Controller\\SoulController::ErrorTwinImportNoToken') }}:  '{{'Dein Profil konnte nicht geladen werden, da Twinoid die Anfrage abgelehnt hat.'|trans({},'soul')|e('js')}}',
+{{ constant('App\\Controller\\SoulController::ErrorTwinImportInvalidResponse') }}:  '{{'Dein Profil konnte nicht geladen werden, da die Datenverarbeitung fehlgeschlagen ist.'|trans({},'soul')|e('js')}}',
+{{ constant('App\\Controller\\SoulController::ErrorTwinImportProfileInUse') }}:  '{{'Das angegebene Profil kann nicht importiert werden, da es bereits einem anderen MyHordes-Spieler zugeordnet ist.'|trans({},'soul')|e('js')}}',
+{{ constant('App\\Controller\\SoulController::ErrorTwinImportProfileMismatch') }}:  '{{'Das angegebene Profil kann nicht importiert werden, da es einem fremden Twinoid-Konto zugeordnet ist.'|trans({},'soul')|e('js')}}',

@@ -5,9 +5,14 @@ namespace App\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\ORM\Mapping\Table;
+use Doctrine\ORM\Mapping\UniqueConstraint;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\SeasonRepository")
+ * @Table(uniqueConstraints={
+ *     @UniqueConstraint(name="season_unique",columns={"number","sub_number"})
+ * })
  */
 class Season
 {
@@ -24,7 +29,7 @@ class Season
     private $number;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=190, nullable=true)
      */
     private $name;
 
@@ -42,6 +47,11 @@ class Season
      * @ORM\Column(type="boolean")
      */
     private $current = false;
+
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $subNumber;
 
     public function __construct()
     {
@@ -148,6 +158,18 @@ class Season
     public function setCurrent(bool $current): self
     {
         $this->current = $current;
+
+        return $this;
+    }
+
+    public function getSubNumber(): ?int
+    {
+        return $this->subNumber;
+    }
+
+    public function setSubNumber(?int $subNumber): self
+    {
+        $this->subNumber = $subNumber;
 
         return $this;
     }

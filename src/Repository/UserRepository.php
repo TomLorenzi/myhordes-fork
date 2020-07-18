@@ -40,6 +40,17 @@ class UserRepository extends ServiceEntityRepository implements UserLoaderInterf
     }
     */
 
+    /**
+     * @param int $level
+     * @return User[] Returns an array of User objects
+     */
+    public function findByLeastElevationLevel(int $level)
+    {
+        return $this->createQueryBuilder('u')
+            ->andWhere('u.rightsElevation >= :val')->setParameter('val', $level)
+            ->getQuery()->getResult();
+    }
+
     public function findOneByName(string $value): ?User
     {
         try {

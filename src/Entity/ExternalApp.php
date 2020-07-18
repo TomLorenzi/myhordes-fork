@@ -62,6 +62,11 @@ class ExternalApp
     /**
      * @ORM\Column(type="boolean", nullable=true)
      */
+    private $testing = false;
+
+    /**
+     * @ORM\Column(type="boolean", nullable=true)
+     */
     private $linkOnly = false;
 
 
@@ -106,7 +111,7 @@ class ExternalApp
         return $this;
     }
 
-    public function getSecret(): string
+    public function getSecret(): ?string
     {
         return $this->secret;
     }
@@ -150,6 +155,18 @@ class ExternalApp
     public function setContact(string $contact): self
     {
         $this->contact = $contact;
+
+        return $this;
+    }
+
+    public function getTesting(): ?bool
+    {
+        return $this->testing;
+    }
+
+    public function setTesting(?bool $testing): self
+    {
+        $this->testing = $testing;
 
         return $this;
     }

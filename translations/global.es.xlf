@@ -1468,5 +1468,14 @@
         <target>Die Backen halten</target>
       </segment>
     </unit>
+    <unit id="5m866jG" name="Mehr anzeigen">
+      <notes>
+        <note category="german">Mehr anzeigen</note>
+      </notes>
+      <segment>
+        <source>Mehr anzeigen</source>
+        <target>Mehr anzeigen</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

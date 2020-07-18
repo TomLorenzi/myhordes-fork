@@ -268,7 +268,7 @@
       </notes>
       <segment>
         <source>Durch die Verbesserung von %building% hat die Stadt folgende Gegenstände erhalten: %items%</source>
-        <target>By upgrading the construction %building% , the town received : %items%</target>
+        <target>By upgrading the construction %building% , the town received: %items%</target>
       </segment>
     </unit>
     <unit id="icmQw3h" name="07277f1">
@@ -277,7 +277,7 @@
       </notes>
       <segment>
         <source>Was für ein Glück! Kurz nach dem Angriff wurde ein Bauplan in die Stadt geweht. Ihr erhaltet: %item%</source>
-        <target>What a luck ! A construction plan appeared in the bank after the attack. You received : %item%</target>
+        <target>%item% has been discovered thanks to the Architect's Study. It has been deposited in the bank.</target>
       </segment>
     </unit>
     <unit id="v7qhwcN" name="Heute Nacht wurden von %building% folgende Gegenstände produziert: %items%">
@@ -286,7 +286,7 @@
       </notes>
       <segment>
         <source>Heute Nacht wurden von %building% folgende Gegenstände produziert: %items%</source>
-        <target>The construction %building% produced : %items%</target>
+        <target>The construction %building% produced: %items%</target>
       </segment>
     </unit>
     <unit id="ThZ6eEv" name="55b2af4">
@@ -295,7 +295,7 @@
       </notes>
       <segment>
         <source>Die letzte Anzeige hat das Fass zum Überlaufen gebracht. %citizen% wurde von den Bürgern der Stadt verbannt!</source>
-        <target>The last complaint was the too-much one. %citizen% has been shunned from the town !</target>
+        <target>The last complaint was the too-much one. %citizen% has been shunned from the town!</target>
       </segment>
     </unit>
     <unit id="gaDgdbl" name="Du kannst die Stadt von hier aus nicht betreten.">
@@ -322,7 +322,7 @@
       </notes>
       <segment>
         <source>Zombies blockieren deine Zone!</source>
-        <target>We are suffering an excess of zombies !</target>
+        <target>We are suffering an excess of zombies!</target>
       </segment>
     </unit>
     <unit id="eDXR6Le" name="a506be7">
@@ -619,7 +619,7 @@
       </notes>
       <segment>
         <source>Bitte wähle einen Gegenstand:</source>
-        <target>Choose an object :</target>
+        <target>Choose an object:</target>
       </segment>
     </unit>
     <unit id="m.LKoYd" name="Du verfügst über keine geeigneten Gegenstände">
@@ -763,7 +763,7 @@
       </notes>
       <segment>
         <source>Qualität der Abschätzung</source>
-        <target>Estimation quality :</target>
+        <target>Estimation quality:</target>
       </segment>
     </unit>
     <unit id="GHVvmus" name="Abschätzung verbessern">
@@ -799,7 +799,7 @@
       </notes>
       <segment>
         <source>Morgiger Angriff :</source>
-        <target>Tomorrow's Attack :</target>
+        <target>Tomorrow's Attack:</target>
       </segment>
     </unit>
     <unit id="ZI5NoYl" name="Tag %day%">
@@ -1072,7 +1072,7 @@
       </notes>
       <segment>
         <source>Um dein Haus weiter auszubauen, muss die Stadt über folgendes Gebäude verfügen:</source>
-        <target>To upgarde your home, the Town need the following construction :</target>
+        <target>To upgarde your home, the Town need the following construction:</target>
       </segment>
     </unit>
     <unit id="N6UlT0G" name="Für diesen Ausbau benötigst du folgende Gegenstände:">
@@ -1081,7 +1081,7 @@
       </notes>
       <segment>
         <source>Für diesen Ausbau benötigst du folgende Gegenstände:</source>
-        <target>This upgrade require the following ressources :</target>
+        <target>This upgrade require the following ressources:</target>
       </segment>
     </unit>
     <unit id="1XZ6TGN" name="Für diesen Ausbau werden keine Gegenstände benötigt.">
@@ -1354,7 +1354,7 @@
       </notes>
       <segment>
         <source>Anzeige: Todesstrafe fordern</source>
-        <target>Complaint : Call for Death penalty</target>
+        <target>Complaint: Call for Death penalty</target>
       </segment>
     </unit>
     <unit id="WwHdsjz" name="Anzeige: Verbannung fordern">
@@ -1363,7 +1363,7 @@
       </notes>
       <segment>
         <source>Anzeige: Verbannung fordern</source>
-        <target>Complaint : Call for Shunning</target>
+        <target>Complaint: Call for Shunning</target>
       </segment>
     </unit>
     <unit id="ZU0JC0f" name="%citizen%s Register">
@@ -1399,7 +1399,7 @@
       </notes>
       <segment>
         <source>Einmal pro Tag können bestimmte Konstruktionen umsonst verbessert werden (ohne Einsatz von AP oder Ressourcen). Das nennt sich die Verbesserung des Tages. Jede Verbesserung bringt verschiedene Vorteile mit sich (Verteidigung, Wasser, spezielle Fähigkeiten...). Es ist eure Aufgabe die Verbesserung des Tages zu wählen, die euch am geeignetsten scheint.</source>
-        <target>Once per day, certain construction sites can be upgraded free of charge (without AP or resources) : this is called the project of the day.
+        <target>Once per day, certain construction sites can be upgraded free of charge (without AP or resources): this is called the project of the day.
 Each upgrade brings various advantages (defence, water, special skills...).It's up to you to choose the project of the day by voting for what you think is the most appropriate.</target>
       </segment>
     </unit>
@@ -1418,7 +1418,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Du hast bereits für folgendes Projekt abgestimmt:</source>
-        <target>You have voted for the project :</target>
+        <target>You have voted for the project:</target>
       </segment>
     </unit>
     <unit id="HDgwb1i" name="Aktuelles Level:">
@@ -1427,7 +1427,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Aktuelles Level:</source>
-        <target>Current :</target>
+        <target>Current:</target>
       </segment>
     </unit>
     <unit id="tSHIOru" name="Nächstes Level:">
@@ -1436,7 +1436,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Nächstes Level:</source>
-        <target>Next level :</target>
+        <target>Next level:</target>
       </segment>
     </unit>
     <unit id="vihCVqO" name="Max. Level">
@@ -1472,7 +1472,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Stimmen:</source>
-        <target>Vote(s) :</target>
+        <target>Vote(s):</target>
       </segment>
     </unit>
     <unit id="qOmfTuV" name="87bbdc8">
@@ -1481,7 +1481,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>In der Werkstatt können Materialien zu brauchbaren Hilfsmitteln verarbeitet werden, die für bestimmte Gebäude und Konstruktionen in der Stadt notwendig sind. Alle zu bearbeitenden Gegenstände müssen direkt in der Bank deponiert werden.</source>
-        <target>The workshop lets you manufacture advanced construction materials, which are necessary for certain construction sites. Objects to be transformed should be placed in the Bank. Each transformation has a basic cost : 3AP (certain objects can reduce this cost).</target>
+        <target>The workshop lets you manufacture advanced construction materials, which are necessary for certain construction sites. Objects to be transformed should be placed in the Bank. Each transformation has a basic cost: 3AP (certain objects can reduce this cost).</target>
       </segment>
     </unit>
     <unit id="pOcBXgj" name="Du wurdest verbannt und kannst daher nicht länger in der Werkstatt arbeiten.">
@@ -1962,7 +1962,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Du hast hier bereits vor Kurzem gegraben. Die nächste Ausgrabung ist möglich in:</source>
-        <target>You have already searched this sector. The next possible search is available in :</target>
+        <target>You have already searched this sector. The next possible search is available in:</target>
       </segment>
     </unit>
     <unit id="IUt.xlO" name="In dieser Zone graben">
@@ -1980,7 +1980,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Nächste automatische Ausgrabung:</source>
-        <target>Next auto-search :</target>
+        <target>Next auto-search:</target>
       </segment>
     </unit>
     <unit id="GwPmPsr" name="%ruin% durchsuchen">
@@ -2079,7 +2079,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Du hast folgende Auszeichnungen verliehen bekommen:</source>
-        <target>You have earned the following distinctions :</target>
+        <target>You have earned the following distinctions:</target>
       </segment>
     </unit>
     <unit id="RcinBjy" name="Begrüße den Tod wie es sich gehört...">
@@ -3154,7 +3154,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>%citizen% hat seinen letzten Atemzug getan: %cod%!</source>
-        <target>%citizen% left us : %cod%!</target>
+        <target>%citizen% left us: %cod%!</target>
       </segment>
     </unit>
     <unit id="gaihf5j" name="%citizen% hat das Stadtgebiet in Richtung %direction% verlassen.">
@@ -3947,7 +3947,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Stück für Stück hat dich die Krankheit von innen her aufgefressen... Die Infektionssymptome waren auch nicht mehr zu übersehen: eiternde Wunden, Hematome, faulendes Fleisch... Nach mehreren Stunden Leiden hast du den Tod schließlich als Erleichterung empfunden.</source>
-        <target>Little by little, the illness spreads inside you... Quickly, the signs of the infection start to show on your body : wounds, bruising, decomposing flesh... Up until the final agony, which lasts several hours. Death is now almost a relief.</target>
+        <target>Little by little, the illness spreads inside you... Quickly, the signs of the infection start to show on your body: wounds, bruising, decomposing flesh... Up until the final agony, which lasts several hours. Death is now almost a relief.</target>
       </segment>
     </unit>
     <unit id="pVtld9L" name="Zyanid">
@@ -4118,7 +4118,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Manche Fehler enden zwangsläufig tödlich. Nehmt als Beispiel diese Höhle. Stellt euch vor, ihr werdet von einer Zombiemeute verfolgt und eilt überstürzt in eine Höhle, um Schutz zu suchen. Ihr werdet dann folgendes Problem haben: Wie kommt ihr heil wieder raus, wenn die Biester euch gefolgt sind? Der zerfledderte Typ an der Wand dort hinten scheint dies nicht bedacht zu haben...</source>
-        <target>Some actions cannot be forgiven. Take, for example, the case of the cavern : your group are being followed and you stupidly rush into a cave to hide. For how long can you cry while you wait for your pursuers to catch up ? The guy lagging behind, who is half-blind, didn't have to cry for long....</target>
+        <target>Some actions cannot be forgiven. Take, for example, the case of the cavern: your group are being followed and you stupidly rush into a cave to hide. For how long can you cry while you wait for your pursuers to catch up ? The guy lagging behind, who is half-blind, didn't have to cry for long....</target>
       </segment>
     </unit>
     <unit id="bnTVKZv" name="e90b5fa">
@@ -4190,7 +4190,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Das Atomic Cafe ist (oder war) der Ort, an dem man sein sollte: Ein verblichenes Plakat lädt Sie zum Sommerfest am 2. Mai 2010 ein: Hawaiianisches Thema, Preis für den bestangezogenen (halbnackten Mädchen + Jungs) DJ Dave ab 13.00 Uhr, kostenloses BBQ, Biergarten mit verbessertem Look, Partyspiele, Live-Fußball, Cocktails, £2 Flaschenbier, £2 Alcopop, £1 Tequila... Beteiligen Sie sich!</source>
-        <target>The Atomic Cafe is (or was) the place to be : A faded poster invites you to come to the summer party on 2 May 2010: Hawaiian Theme, Prize for Best Dressed (Half Naked Girls + Guys) DJ Dave from 1pm, Free BBQ, Improved Look Beer Garden, Party Games, Live Football, Cocktails, £2 Bottled Beer, £2 Alcopop, £1 Tequila... Get Involved !</target>
+        <target>The Atomic Cafe is (or was) the place to be: A faded poster invites you to come to the summer party on 2 May 2010: Hawaiian Theme, Prize for Best Dressed (Half Naked Girls + Guys) DJ Dave from 1pm, Free BBQ, Improved Look Beer Garden, Party Games, Live Football, Cocktails, £2 Bottled Beer, £2 Alcopop, £1 Tequila... Get Involved !</target>
       </segment>
     </unit>
     <unit id="gINGGfh" name="defa5f9">
@@ -4226,7 +4226,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Der Baumarkt ist das zweite Zuhause eines jeden Handwerkers. In dieser Welt avanciert er jedoch zu einem wahren Paradies! Gegenstände von unschätzbarem Wert warten nur darauf von dir entdeckt zu werden... Der Werbespruch auf dem Dach hat zudem nichts von seiner Aktualität eingebüßt: 'Plündern Sie uns bevor es andere tun!'</source>
-        <target>A veritable Mecca for the DIY enthusiast. A paradise full of invaluable treasures for a world like ours... Their advertising slogan is even more appropriate nowadays : Pillage our store before someone else beats you to it !</target>
+        <target>A veritable Mecca for the DIY enthusiast. A paradise full of invaluable treasures for a world like ours... Their advertising slogan is even more appropriate nowadays: Pillage our store before someone else beats you to it !</target>
       </segment>
     </unit>
     <unit id="bhwk0Sz" name="63b8c04">
@@ -4280,7 +4280,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Diese Mineralienabbauzone trägt alle Merkmale eines schrecklichen Unglücks : der Hang scheint auf die Arbeiter, Maschinen und Gebäude darunter eingestürzt zu sein.</source>
-        <target>This mineral extraction zone bears all the hallmarks of a terrible accident : the hillside seems to have collapsed onto the workers, machins and buildings below.</target>
+        <target>This mineral extraction zone bears all the hallmarks of a terrible accident: the hillside seems to have collapsed onto the workers, machins and buildings below.</target>
       </segment>
     </unit>
     <unit id=".cft5Zt" name="7d986ca">
@@ -4298,7 +4298,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>E-KEA : Diese riesigen Geschäfte gab es früher in jeder Stadt (immer ziemlich ärgerlich am Stadtrand gelegen). Sie spezialisierten sich auf die Herstellung und den Verkauf von Billigmöbeln, denen meist ein Bolzen / Schraube / Verbindungselement fehlte. Es wird gesagt, dass die schlechte Qualität ihrer Produkte einer der Gründe für den Niedergang der Gesellschaft war...</source>
-        <target>PI-KEYA : These enormous stores used to be in every city (always rather annoyingly situated on the outskirts). They specialised in the manufacture and sale of cheap furniture, usually with one bolt / screw / fastener missing. It is said that the poor quality of their products was one of the reasons for society going to ruin...</target>
+        <target>PI-KEYA: These enormous stores used to be in every city (always rather annoyingly situated on the outskirts). They specialised in the manufacture and sale of cheap furniture, usually with one bolt / screw / fastener missing. It is said that the poor quality of their products was one of the reasons for society going to ruin...</target>
       </segment>
     </unit>
     <unit id="tcRgABK" name="8fcd3b6">
@@ -4451,7 +4451,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Die hier stationierten Soldaten waren auf alles vorbereitet: Waffen, Vorräte und eine 150 m lange Sicherheitszone. Auf alles, außer darauf, dass ihr Leutnant sie während der Nacht verspeiste. Spaß beiseite, mit einer soliden Mauer und einer gesunden Diktatur gibt es (unter dem Gesichtspunkt des Überlebens) nichts Vergleichbares !</source>
-        <target>The soldiers stationed here were prepared for anything : weapons, supplies, and a 150m security perimeter. Anything except their lieutenant eating them during the night. Joking aside, with a solid wall and a healthy dictatorship, (from a survival point of view) there's nothing like it !</target>
+        <target>The soldiers stationed here were prepared for anything: weapons, supplies, and a 150m security perimeter. Anything except their lieutenant eating them during the night. Joking aside, with a solid wall and a healthy dictatorship, (from a survival point of view) there's nothing like it !</target>
       </segment>
     </unit>
     <unit id=".bMEBv6" name="9af8819">
@@ -5180,7 +5180,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Du schätzt, dass deine Überlebenschancen hier korrekt sind. Jetzt heißt's nur noch Daumen drücken!</source>
-        <target>You reckon your chances of surviving here are decent : you just have to hope for the best!</target>
+        <target>You reckon your chances of surviving here are decent: you just have to hope for the best!</target>
       </segment>
     </unit>
     <unit id="kqluhpf" name="effb08c">
@@ -7466,7 +7466,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Tapfere Bürger haben auf den Stadtmauern Stellung bezogen : %citizens%</source>
-        <target>Last night, these watchmen showed incredible courage: : %citizens%</target>
+        <target>Last night, these watchmen showed incredible courage: %citizens%</target>
       </segment>
     </unit>
     <unit id="Tx6ACHr" name="Schreiend und fuchtelnd hat %citizen% %kills% Zombies getötet.">
@@ -8081,7 +8081,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>%citizen% hat %target_citizen% überzeugt, ihm zu folgen.</source>
-        <target>%citizen% hat %target_citizen% überzeugt, ihm zu folgen.</target>
+        <target>%citizen% has convinced %target_citizen% to follow them.</target>
       </segment>
     </unit>
     <unit id="XTPqDbX" name="%citizen% hat %target_citizen% aus der Eskorte entlassen.">
@@ -8090,7 +8090,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>%citizen% hat %target_citizen% aus der Eskorte entlassen.</source>
-        <target>%citizen% hat %target_citizen% aus der Eskorte entlassen.</target>
+        <target>Finally, %citizen% decided to leave %target_citizen% there.</target>
       </segment>
     </unit>
     <unit id="Eh4g78_" name="%attacker% hat %defender% gewalttätig angegriffen und verwundet!">
@@ -9206,7 +9206,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Beschädigte Verteidigung: %defense% / %max%</source>
-        <target>Damaged defences : %defense% / %max%</target>
+        <target>Damaged defences: %defense% / %max%</target>
       </segment>
     </unit>
     <unit id="1EzQJxv" name="Zustand:">
@@ -9296,7 +9296,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Empfänger:</source>
-        <target>Write to :</target>
+        <target>Write to:</target>
       </segment>
     </unit>
     <unit id="Z14T1QO" name="Bürgerverzeichnis anszeigen">
@@ -10196,7 +10196,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Du hast bisher:</source>
-        <target>You have amassed :</target>
+        <target>You have amassed:</target>
       </segment>
     </unit>
     <unit id="4dxmR7l" name="%days% Tage">
@@ -10241,7 +10241,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Nächste:</source>
-        <target>Next :</target>
+        <target>Next:</target>
       </segment>
     </unit>
     <unit id="luCuBtM" name="Diese Fähigkeit wurde noch nicht freigeschaltet...">
@@ -10259,7 +10259,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Letzter freigeschalteter Heldenvorteil:</source>
-        <target>Last power earned :</target>
+        <target>Last power earned:</target>
       </segment>
     </unit>
     <unit id="gwaSbiX" name="Niemand">
@@ -10426,7 +10426,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     </unit>
     <unit id="CHdbLWu" name="Komm zurück zu meiner Seele">
       <notes>
-        <note category="german">Komm zurück zu meiner Seele</note>
+        <note category="german">Zurück zu meiner Seele</note>
       </notes>
       <segment>
         <source>Komm zurück zu meiner Seele</source>
@@ -10833,7 +10833,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Ab sofort solltest du deine Spielweise ändern: Deine einstigen Nachbarn und Freunde sind jetzt zweibeinige Nahrung, die du durch List und Trug erlegen musst.</source>
-        <target>A new horizon is open to you : your neighbours and former allies have become your prey.</target>
+        <target>A new horizon is open to you: your neighbours and former allies have become your prey.</target>
       </segment>
     </unit>
     <unit id="Lou1e47" name="Hier noch ein paar wichtige Überlebenstipps:">
@@ -10842,7 +10842,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Hier noch ein paar wichtige Überlebenstipps:</source>
-        <target>Some survival tips :</target>
+        <target>Some survival tips:</target>
       </segment>
     </unit>
     <unit id="SJd1LN1" name="3fbdb60">
@@ -10915,7 +10915,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Die Stadt wird erst starten, wenn sie &lt;strong&gt;%population% Bürger hat&lt;/strong&gt;.</source>
-        <target><![CDATA[Die Stadt wird erst starten, wenn sie <strong>%population% Bürger hat</strong>.]]></target>
+        <target><![CDATA[The town will only begin once <strong>%population% citizens</strong> have joined it.]]></target>
       </segment>
     </unit>
     <unit id="uL_3bHQ" name="2d4f0c6">
@@ -10963,7 +10963,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Spielzeit</source>
-        <target>Playtime</target>
+        <target>Game time</target>
       </segment>
     </unit>
     <unit id="RbJEkic" name="Mit den anderen Bürgern reden...">
@@ -10972,7 +10972,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Mit den anderen Bürgern reden...</source>
-        <target>Talk to the other citizens...</target>
+        <target>Speak to the other citizens in your town and get organized if you want to survive...</target>
       </segment>
     </unit>
     <unit id="_EDDh5L" name="9f36678">
@@ -10981,7 +10981,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Lesen und Nutzen des Forums sind in 'MyHordes' überlebensnotwendig! Die wichtigen Entscheidungen der Stadt werden hier gemeinsam von der Community getroffen.</source>
-        <target>Reading and using the forum are essential for survival in 'MyHordes'! The important decisions of the city are made here by the community.</target>
+        <target>Reading and chatting on the forums is critical in 'MyHordes'! That's where all the important decisions are made, by the community itself.</target>
       </segment>
     </unit>
     <unit id="esKM3_t" name="Deine gesamte Geschichte basiert auf deinen zuvor gespielten Städten...">
@@ -10990,7 +10990,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Deine gesamte Geschichte basiert auf deinen zuvor gespielten Städten...</source>
-        <target>Your entire story is based on your previously played towns ...</target>
+        <target>Your personal story built from all your previous lives ...</target>
       </segment>
     </unit>
     <unit id="K382mbj" name="Spielhilfe aufrufen.">
@@ -10999,7 +10999,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Spielhilfe aufrufen.</source>
-        <target>Spielhilfe aufrufen.</target>
+        <target>Check the online game guide for 'MyHordes'.</target>
       </segment>
     </unit>
     <unit id="aBzVCJL" name="479d11d">
@@ -11008,7 +11008,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Hast du schon unter "Wie wird gespielt" nachgeschaut? Du findest den Link darauf unter der Karte der Stadt.</source>
-        <target>Have you looked under "How to play"? You can find the link under the city map.</target>
+        <target>Have you looked under "How to play"? You can find the link under the town map.</target>
       </segment>
     </unit>
     <unit id="25Kvu55" name="8937cea">
@@ -11026,7 +11026,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Schaut am besten jeden Tag einmal rein!</source>
-        <target>Make sure to check it every day! Loads of useful information is to be found here.</target>
+        <target>Make sure to check it every day! Loads of useful information is to be found there.</target>
       </segment>
     </unit>
     <unit id="6lr5Awl" name="Starten Sie eine Stadt">

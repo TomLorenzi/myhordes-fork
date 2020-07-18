@@ -6,13 +6,17 @@ use App\Entity\AdminReport;
 use App\Entity\Citizen;
 use App\Entity\Picto;
 use App\Entity\Town;
+use App\Entity\TwinoidImport;
+use App\Entity\TwinoidImportPreview;
 use App\Entity\User;
 use App\Entity\UserPendingValidation;
 use App\Response\AjaxResponse;
 use App\Service\AdminActionHandler;
 use App\Service\ErrorHelper;
 use App\Service\JSONRequestParser;
+use App\Service\TwinoidHandler;
 use App\Service\UserFactory;
+use App\Service\UserHandler;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
@@ -20,6 +24,7 @@ use Symfony\Component\HttpFoundation\Response;
 
 /**
  * @Route("/",condition="request.isXmlHttpRequest()")
+ * @method User getUser
  */
 class AdminUserController extends AdminActionController
 {
@@ -53,21 +58,33 @@ class AdminUserController extends AdminActionController
     }
 
     /**
-     * @Route("api/admin/users/{id}/account/do/{action}", name="admin_users_account_manage", requirements={"id"="\d+"})
+     * @Route("api/admin/users/{id}/account/do/{action}/{param}", name="admin_users_account_manage", requirements={"id"="\d+"})
      * @param int $id
      * @param string $action
      * @param JSONRequestParser $parser
      * @param UserFactory $uf
+     * @param TwinoidHandler $twin
+     * @param UserHandler $userHandler
      * @return Response
      */
-    public function user_account_manager(int $id, string $action, JSONRequestParser $parser, UserFactory $uf): Response
+    public function user_account_manager(int $id, string $action, JSONRequestParser $parser, UserFactory $uf, TwinoidHandler $twin, UserHandler $userHandler, string $param = ''): Response
     {
         /** @var User $user */
         $user = $this->entity_manager->getRepository(User::class)->find($id);
         if (!$user) return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
 
-        if (in_array($action, [ 'delete_token', 'invalidate', 'validate' ]) && !$this->isGranted('ROLE_ADMIN'))
+        if (empty($param)) $param = $parser->get('param', '');
+
+        if (in_array($action, [ 'delete_token', 'invalidate', 'validate', 'twin_full_reset', 'twin_main_reset', 'delete', 'rename' ]) && !$this->isGranted('ROLE_ADMIN'))
             return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
+
+        if ($action === 'grant' && $param !== 'NONE' && !$userHandler->admin_canGrant( $this->getUser(), $param ))
+            return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
+
+        if ($action === 'grant' && $param === 'NONE' && !$this->isGranted('ROLE_ADMIN'))
+            return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
+
+        if (!$userHandler->admin_canAdminister( $this->getUser(), $user )) return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
 
         switch ($action) {
             case 'validate':
@@ -110,6 +127,70 @@ class AdminUserController extends AdminActionController
                     return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
                 $this->entity_manager->remove($pv);
                 break;
+
+            case 'twin_full_reset'://, 'twin_main_reset'
+                foreach ($user->getTwinoidImports() as $import) {
+                    $user->removeTwinoidImport($import);
+                    $this->entity_manager->remove($import);
+                }
+
+                $pending = $this->entity_manager->getRepository(TwinoidImportPreview::class)->findOneBy(['user' => $user]);
+                if ($pending) {
+                    $pending->setUser(null);
+                    $this->entity_manager->remove($pending);
+                }
+
+                $twin->clearImportedData( $user, null, true );
+                $user->setTwinoidID(null);
+                $this->entity_manager->persist($user);
+                break;
+
+            case 'twin_main_reset':
+
+                $main = $this->entity_manager->getRepository(TwinoidImport::class)->findOneBy(['user' => $user, 'main' => true]);
+                if ($main) {
+                    $twin->clearPrimaryImportedData( $user );
+                    $main->setMain( false );
+                    $this->entity_manager->persist($main);
+                }
+
+                break;
+
+            case 'rename':
+                if (empty($param)) return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
+                $user->setName( $param );
+                $this->entity_manager->persist($user);
+                break;
+
+            case 'delete':
+                $userHandler->deleteUser($user);
+                $this->entity_manager->persist($user);
+                break;
+
+            case 'grant':
+                switch ($param) {
+                    case 'NONE':
+                        $user->setRightsElevation( User::ROLE_USER );
+                        break;
+                    case 'ROLE_ORACLE':
+                        if ( $user->getRightsElevation() === User::ROLE_CROW )
+                            $user->setRightsElevation( User::ROLE_ORACLE );
+                        else $user->setRightsElevation( max($user->getRightsElevation(), User::ROLE_ORACLE) );
+                        break;
+                    case 'ROLE_CROW':
+                        $user->setRightsElevation( max($user->getRightsElevation(), User::ROLE_CROW) );
+                        break;
+                    case 'ROLE_ADMIN':
+                        $user->setRightsElevation( max($user->getRightsElevation(), User::ROLE_ADMIN) );
+                        break;
+                    case 'ROLE_SUPER':
+                        $user->setRightsElevation( max($user->getRightsElevation(), User::ROLE_SUPER) );
+                        break;
+                    default: breaK;
+                }
+                $this->entity_manager->persist($user);
+                break;
+
             default: return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
         }
 

@@ -11,7 +11,7 @@ use Doctrine\ORM\Mapping\UniqueConstraint;
 /**
  * @ORM\Entity(repositoryClass="App\Repository\PictoRepository")
  * @Table(uniqueConstraints={
- *     @UniqueConstraint(name="picto_unique",columns={"prototype_id","town_id", "user_id", "persisted"})
+ *     @UniqueConstraint(name="picto_unique",columns={"prototype_id","town_entry_id", "user_id", "persisted", "imported"})
  * })
  */
 class Picto
@@ -59,6 +59,11 @@ class Picto
      * @ORM\ManyToOne(targetEntity=TownRankingProxy::class, inversedBy="distributedPictos")
      */
     private $townEntry;
+
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $imported = false;
 
     public function __construct() {}
 
@@ -109,7 +114,7 @@ class Picto
         return $this->user;
     }
 
-    public function setUser(User $user): self
+    public function setUser(?User $user): self
     {
         $this->user = $user;
 
@@ -136,6 +141,18 @@ class Picto
     public function setTownEntry(?TownRankingProxy $townEntry): self
     {
         $this->townEntry = $townEntry;
+
+        return $this;
+    }
+
+    public function getImported(): ?bool
+    {
+        return $this->imported;
+    }
+
+    public function setImported(bool $imported): self
+    {
+        $this->imported = $imported;
 
         return $this;
     }

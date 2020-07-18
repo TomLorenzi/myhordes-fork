@@ -75,6 +75,7 @@
 @myhordes-smalltext: #ddab76;
 
 @myhordes-help-color: #524053;
+@myhordes-green-color: #414a31;
 
 html { font-size: 10px; }
 
@@ -466,6 +467,7 @@ footer {
 
 .box(@color: @myhordes-cell-header-background-color) {
   background: @color; border: 1px solid @myhordes-input-border;
+  hr { color: @myhordes-input-border; border-width: 0; border-top-width: 1px; }
 }
 
 div.town-header {
@@ -525,6 +527,13 @@ div.help {
   strong { color: #e2d890; }
 }
 
+div.green-note {
+  .box(@myhordes-green-color); padding: 5px 5px 5px 26px; font-size: 1.2rem; margin: 5px 0; text-align: justify; position: relative;
+  &>p:first-child { margin-top: 0 }
+  &>p:last-child { margin-bottom: 0 }
+  strong { color: #e2d890; }
+}
+
 @myhordes-box-color: #966437;
 @myhordes-span-color: @myhordes-smalltext;
 
@@ -554,6 +563,16 @@ button, *.button, *.modal-button {
     >img {
       &:not(.right) { float: left; &+img:not(.right) { margin-left: 2px; } }
       &.right { float: right; &+img.right { margin-right: 2px; } }
+    }
+  }
+
+  &.bigbutton {
+    background: url(../img/background/bg_big_button.gif) center no-repeat; width: 268px; height: 47px; display: inline-block;
+    border: none; text-align: center; font-size: 1.1em; position: relative;
+    &>* {position: relative; }
+    &:active {
+      background: url(../img/background/bg_big_button2.gif) center no-repeat;
+      &>* {top: 2px;}
     }
   }
 }

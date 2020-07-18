@@ -23,8 +23,9 @@ class FoundRolePlayTextRepository extends ServiceEntityRepository
     }
 
     /**
-      * @return FoundRolePlayText[] Returns an array of FoundRolePlayText objects
-      */
+     * @param User $user
+     * @return FoundRolePlayText[] Returns an array of FoundRolePlayText objects
+     */
     public function findByUser(User $user)
     {
         return $this->createQueryBuilder('f')
@@ -38,8 +39,11 @@ class FoundRolePlayTextRepository extends ServiceEntityRepository
     }
 
     /**
-      * @return FoundRolePlayText[] Returns an array of FoundRolePlayText objects
-      */
+     * @param User $user
+     * @param RolePlayText $text
+     * @return FoundRolePlayText[] Returns an array of FoundRolePlayText objects
+     * @throws NonUniqueResultException
+     */
     public function findByUserAndText(User $user, RolePlayText $text)
     {
         return $this->createQueryBuilder('f')
