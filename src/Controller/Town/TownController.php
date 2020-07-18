@@ -348,6 +348,7 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
             'hidden' => $hidden,
             'hasClairvoyance' => $hasClairvoyance,
             'clairvoyanceLevel' => $clairvoyanceLevel,
+            'attackAP' => $this->getTownConf()->get( TownConf::CONF_MODIFIER_ATTACK_AP, 4 )
         ]) );
     }
 

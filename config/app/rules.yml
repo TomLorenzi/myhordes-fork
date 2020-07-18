@@ -66,7 +66,10 @@ parameters:
         poison:
           stack_poisoned_items: false
           transgress: false
-        attack_protection: false
+        citizen_attack:
+          ap: 4
+          injury: 0.5
+          protection: false
         carry_extra_bag: false
         meaty_bones_within_town: false
         building_attack_damage: false
@@ -106,7 +109,9 @@ parameters:
 
       modifiers:
         watchtower_estimation_threshold: 0
-        attack_protection: true
+        citizen_attack:
+          protection: true
+
 
       features:
         camping: false
@@ -123,6 +128,9 @@ parameters:
         infection_death_chance: 0.75
         wound_terror_penalty: 0.2
         building_attack_damage: true
+        citizen_attack:
+          ap: 5
+          injury: 0.6
 
       explorable_ruins: 2
 
