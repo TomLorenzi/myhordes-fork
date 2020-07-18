@@ -1095,7 +1095,7 @@ div.tooltip {
   display: none;
   pointer-events: none;
   font-size: 1rem;
-  max-width: 250px;
+  width: 250px; // Do not replace this with max-width, it breaks tooltips with cells in them!
   padding: 4px;
   position: fixed;
   z-index: 2000;
