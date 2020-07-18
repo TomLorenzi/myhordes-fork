@@ -5877,7 +5877,7 @@ class TextFixtures extends Fixture
             "background" => "tinystamp",
             "design" => "classic"
         ],
-        "recip1_en" => [
+        "pswed1" => [
             "title" => "THE HANDFASTING OF APRIL 5, 2013",
             "author" => "Pocky & Soradobi",
             "content" => [
