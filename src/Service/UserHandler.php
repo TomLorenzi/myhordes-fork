@@ -2,22 +2,26 @@
 
 namespace App\Service;
 
+use App\Entity\CauseOfDeath;
 use App\Entity\HeroSkillPrototype;
 use App\Entity\Picto;
 use App\Entity\User;
 use DateTime;
 use Doctrine\ORM\EntityManagerInterface;
 use Exception;
+use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\Security\Core\Role\RoleHierarchyInterface;
 
 class UserHandler
 {
     private $entity_manager;
     private $roles;
+    private $container;
 
-    public function __construct( EntityManagerInterface $em, RoleHierarchyInterface $roles)
+    public function __construct( EntityManagerInterface $em, RoleHierarchyInterface $roles,ContainerInterface $c)
     {
         $this->entity_manager = $em;
+        $this->container = $c;
         $this->roles = $roles;
     }
 
@@ -211,7 +215,98 @@ class UserHandler
         return in_array($skill, $skills);
     }
 
+    public function deleteUser(User $user) {
+        $user->setEmail("$ deleted <{$user->getId()}>")->setName("$ deleted <{$user->getId()}>")->setPassword(null)->setRightsElevation(0);
+        if ($user->getAvatar()) {
+            $this->entity_manager->remove($user->getAvatar());
+            $user->setAvatar(null);
+        }
+        $citizen = $user->getActiveCitizen();
+        if ($citizen) {
+            $this->container->get(DeathHandler::class)->kill( $citizen, CauseOfDeath::Headshot, $r );
+            foreach ($r as $re) $this->entity_manager->remove($re);
+        }
+    }
+
+    /**
+     * Checks if the given user has specified roles. The relation type is controlled by $any. If $roles is an empty
+     * array, this function will return true in AND mode and false in OR mode.
+     * @param User $user User to check
+     * @param array $roles Roles to check for
+     * @param bool $any Set true to check if any of the given roles apply (OR); set false to check if all roles apply
+     * (AND).
+     * @return bool
+     */
+    public function hasRoles(User $user, array $roles, bool $any = false): bool {
+        $effectiveRoles = $this->roles->getReachableRoleNames( $user->getRoles() );
+        foreach ($roles as $role) if ($any === in_array( $role, $effectiveRoles )) return $any;
+        return !$any;
+    }
+
+    /**
+     * Checks if the user has a specific role.
+     * @param User $user User to check
+     * @param string $role Role to check for
+     * @return bool True if the user has the given role; false otherwise.
+     */
     public function hasRole(User $user, string $role) {
         return in_array( $role, $this->roles->getReachableRoleNames( $user->getRoles() ) );
+    }
+
+    /**
+     * Returns a list of grant-able roles
+     * @return string[]
+     */
+    public function admin_validRoles(): array {
+        return ['ROLE_ORACLE', 'ROLE_CROW', 'ROLE_ADMIN', 'ROLE_SUPER'];
+    }
+
+    /**
+     * Checks if a principal user can perform administrative actions on a specific user account
+     * @param User $principal User to perform the administrative action
+     * @param User $target User to be administered
+     * @return bool
+     */
+    public function admin_canAdminister( User $principal, User $target ): bool {
+        // Only crows and admins can administer
+        if (!$this->hasRoles( $principal, ['ROLE_CROW','ROLE_ADMIN'], true )) return false;
+
+        // Crows / Admins can administer themselves
+        if ($principal === $target) return true;
+
+        // Nobody can administer a super admin
+        if ($this->hasRole( $target, 'ROLE_SUPER' )) return false;
+
+        // Only super admins can administer admins
+        if ($this->hasRole( $target, 'ROLE_ADMIN' ) && !$this->hasRole( $principal, 'ROLE_SUPER')) return false;
+
+        // Only admins can administer crows
+        if ($this->hasRole( $target, 'ROLE_CROW' ) && !$this->hasRole( $principal, 'ROLE_ADMIN')) return false;
+
+        return true;
+    }
+
+    /**
+     * Checks if the given user can grant a specific role
+     * @param User $principal
+     * @param string $role
+     * @return bool
+     */
+    public function admin_canGrant( User $principal, string $role ): bool {
+        // Only admins can grant roles
+        if (!$this->hasRole( $principal, 'ROLE_ADMIN' )) return false;
+
+        // Make sure only valid roles can be granted
+        if (!in_array($role, $this->admin_validRoles())) return false;
+
+        // Only super admins can grant admin role
+        if ($role === 'ROLE_ADMIN' && !$this->hasRole( $principal, 'ROLE_SUPER' )) return false;
+
+        // Super admin role can be granted by admins only if no super admin exists yet
+        if ($role === 'ROLE_SUPER' &&  !$this->hasRole( $principal, 'ROLE_SUPER' ) &&
+            $this->entity_manager->getRepository(User::class)->findByLeastElevationLevel(User::ROLE_SUPER)
+        ) return false;
+
+        return true;
     }
 }

@@ -81,7 +81,7 @@
                     <b><label for="administer-user">{{ 'User administrieren'|trans({}, 'admin') }}</label></b>
                 </div>
                 <div class="cell padded rw-9 rw-sm-12">
-                    {% if (is_granted("ROLE_ADMIN") or not user_handler.hasRole(user,"ROLE_CROW")) and (is_granted("ROLE_SUPER") or not user_handler.hasRole(user,"ROLE_ADMIN")) %}
+                    {% if (user_handler.admin_canAdminister(app.user,user)) %}
                         <select id="administer-user">
                             <option value="">-</option>
                             <optgroup label="{{ 'Validierung'|trans({},'admin') }}">
@@ -98,9 +98,23 @@
                                 {% endif %}
                             </optgroup>
                             {% if is_granted("ROLE_ADMIN") %}
+                                <optgroup label="{{ 'Profil'|trans({},'admin') }}">
+                                    <option value="{{ url('admin_users_account_manage', {action: 'rename', id: user.id}) }}" x-confirm="RENAME" x-query="{{ 'Neuen Namen eingeben.'|trans({},'admin') }}">{{ 'Umbenennen'|trans({},'admin') }}</option>
+                                    <option value="{{ url('admin_users_account_manage', {action: 'delete', id: user.id}) }}" x-confirm="DELETE">{{ 'Löschen'|trans({},'admin') }}</option>
+                                </optgroup>
                                 <optgroup label="{{ 'Sicherheit'|trans({},'admin') }}">
                                     <option value="{{ url('admin_users_account_manage', {action: 'initiate_pw_reset', id: user.id}) }}">{{ 'Passwort-Reset auslösen'|trans({},'admin') }}</option>
                                     <option value="{{ url('admin_users_account_manage', {action: 'enforce_pw_reset', id: user.id}) }}">{{ 'Passwort-Reset erzwingen'|trans({},'admin') }}</option>
+                                </optgroup>
+                                <optgroup label="{{ 'Berechtigungen'|trans({},'admin') }}">
+                                    {% for role in user_handler.admin_validRoles %}
+                                        {% if user_handler.admin_canGrant(app.user,role) and not user_handler.hasRole( user,role ) %}
+                                            <option value="{{ url('admin_users_account_manage', {action: 'grant', id: user.id, param: role}) }}">{{ 'Gewähren: %role%'|trans({'%role%': role},'admin') }}</option>
+                                        {% endif %}
+                                    {% endfor %}
+                                    {% if user.rightsElevation > 0 %}
+                                        <option value="{{ url('admin_users_account_manage', {action: 'grant', id: user.id, param: 'NONE'}) }}">{{ 'Berechtigungsstufe zurücksetzen'|trans({},'admin') }}</option>
+                                    {% endif %}
                                 </optgroup>
                                 {% if user.twinoidID is not null %}
                                     <optgroup label="{{ 'Twinoid-Integration'|trans({},'admin') }}">
@@ -126,13 +140,30 @@
 {% block js %}
     {{ parent() }}
     <script>
-        document.getElementById('execute_button').addEventListener('click', function() {
-            if (!document.getElementById('administer-user').value) return;
-            $.ajax.easySend( document.getElementById('administer-user').value, {},
-                function () {
-                    $.ajax.load(null, '{{ path('admin_users_account_view', {id: user.id}) }}', true);
-                } );
-        });
+        {% if (user_handler.admin_canAdminister(app.user,user)) %}
+            document.getElementById('execute_button').addEventListener('click', function() {
+                const dropdown = document.getElementById('administer-user');
+                const option = dropdown.querySelector('option:checked');
+                if (!dropdown.value) return;
+
+                const confirmation = option.getAttribute('x-confirm');
+                const query        = option.getAttribute('x-query');
+
+                let q_param = null;
+                if (query) {
+                    q_param = prompt(query, '');
+                    if (q_param === null) return;
+                }
+
+                if (confirmation && !confirm( "{{ 'Bitte bestätige folgende Aktion:'|trans({},'admin')|e('js') }}\n" + confirmation + ( q_param === null ? '' : ("\n" + q_param) ) ))
+                    return;
+
+                $.ajax.easySend( document.getElementById('administer-user').value, {param: q_param},
+                    function () {
+                        $.ajax.load(null, '{{ path('admin_users_account_view', {id: user.id}) }}', true);
+                    } );
+            });
+        {% endif %}
 
         {% if is_granted("ROLE_ADMIN") %}
             $.html.addEventListenerAll('[x-delete-token]', 'click', function(e,elem) {

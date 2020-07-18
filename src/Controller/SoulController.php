@@ -875,7 +875,7 @@ class SoulController extends AbstractController
         /** @var User $user */
         $user = $this->getUser();
 
-        if ($this->isGranted('ROLE_DUMMY'))
+        if ($this->isGranted('ROLE_DUMMY') && !$this->isGranted( 'ROLE_CROW' ))
             return AjaxResponse::error(ErrorHelper::ErrorPermissionError);
 
         $new_pw = $parser->trimmed('pw_new', '');
@@ -902,7 +902,7 @@ class SoulController extends AbstractController
      * @param TokenStorageInterface $token
      * @return Response
      */
-    public function soul_settings_delete_account(UserPasswordEncoderInterface $passwordEncoder, JSONRequestParser $parser, DeathHandler $death, TokenStorageInterface $token): Response
+    public function soul_settings_delete_account(UserPasswordEncoderInterface $passwordEncoder, JSONRequestParser $parser, UserHandler $userhandler, TokenStorageInterface $token): Response
     {
         /** @var User $user */
         $user = $this->getUser();
@@ -914,17 +914,7 @@ class SoulController extends AbstractController
             return AjaxResponse::error(self::ErrorUserEditPasswordIncorrect );
 
         $name = $user->getUsername();
-        $user->setEmail("$ deleted <{$user->getId()}>")->setName("$ deleted <{$user->getId()}>")->setPassword(null)->setRightsElevation(0);
-        if ($user->getAvatar()) {
-            $this->entity_manager->remove($user->getAvatar());
-            $user->setAvatar(null);
-        }
-        $citizen = $user->getActiveCitizen();
-        if ($citizen) {
-            $death->kill( $citizen, CauseOfDeath::Headshot, $r );
-            foreach ($r as $re) $this->entity_manager->remove($re);
-        }
-
+        $userhandler->deleteUser($user);
         $this->entity_manager->flush();
 
         $this->addFlash( 'notice', $this->translator->trans('Auf wiedersehen, %name%. Wir werden dich vermissen und hoffen, dass du vielleicht doch noch einmal zurück kommst.', ['%name%' => $name], 'login') );
