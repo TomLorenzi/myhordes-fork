@@ -49,6 +49,7 @@ class TownConf extends Conf
     const CONF_MODIFIER_ATTACK_PROTECT       = 'modifiers.attack_protection';
     const CONF_MODIFIER_CARRY_EXTRA_BAG      = 'modifiers.carry_extra_bag';
     const CONF_MODIFIER_BONES_IN_TOWN        = 'modifiers.meaty_bones_within_town';
+    const CONF_MODIFIER_BUILDING_DAMAGE      = 'modifiers.building_attack_damage';
 
     const CONF_FEATURE_CAMPING         = 'features.camping';
     const CONF_FEATURE_NIGHTMODE       = 'features.nightmode';

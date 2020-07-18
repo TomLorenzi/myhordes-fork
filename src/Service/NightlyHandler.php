@@ -253,7 +253,7 @@ class NightlyHandler
         $reactor = $this->town_handler->getBuilding($town, 'small_arma_#00', true);
         $cod = $this->entity_manager->getRepository(CauseOfDeath::class)->findOneByRef(CauseOfDeath::Radiations);
 
-        if($reactor){
+        if ($reactor) {
             $damages = mt_rand(50, 125);
             $reactor->setHp(max(0, $reactor->getHp() - $damages));
 
@@ -457,32 +457,33 @@ class NightlyHandler
             $overflow -= $def;
         }
 
-        if ($town->getType()->getName() == "panda") {
-            // In panda, built buildings get damaged everynight
+        if ($this->conf->getTownConfiguration($town)->get(TownConf::CONF_MODIFIER_BUILDING_DAMAGE)) {
+            // In panda, built buildings get damaged every night
             $damageInflicted = $zombies;
-            if($overflow > 0)
-                $damageInflicted -= $defWatchers;
+            //if($overflow > 0)
+            //    $damageInflicted -= $defWatchers;
 
-            $this->log->debug("Inflicting <info>$damageInflicted</info> to the buildings in town...");
             // Only 10% of the attack is inflicted to buildings
             $damageInflicted = round($damageInflicted * 0.1, 0);
+
+            $this->log->debug("Inflicting <info>$damageInflicted</info> damage to the buildings in town...");
 
             $targets = [];
 
             foreach ($town->getBuildings() as $building) {
                 // Only built buildings AND buildings with HP can get damaged
-                if(!$building->getComplete() || $building->getPrototype()->getHp() == 0) continue;
+                if (!$building->getComplete() || $building->getPrototype()->getHp() == 0 || $building->getPrototype()->getImpervious()) continue;
                 $targets[] = $building;
             }
 
             shuffle($targets);
 
-            while($damageInflicted > 0 && count($targets) > 0){
-                $target = $targets[0];
+            while ($damageInflicted > 0 && !empty($targets)) {
+                $target = array_pop($targets);
 
-                $damages = min($damageInflicted, min($target->getHp(), mt_rand(0, $target->getPrototype()->getHp() * 0.7)));
+                $damages = min($damageInflicted, min($target->getHp(), mt_rand(0, ceil($target->getPrototype()->getHp() * 0.7))));
 
-                if ($damages == 0) continue;
+                if ($damages <= 0) continue;
 
                 $this->log->debug("The <info>{$target->getPrototype()->getLabel()}</info> has taken <info>$damages</info> damages.");
                 $target->setHp(max(0, $target->getHp() - $damages));
@@ -495,23 +496,12 @@ class NightlyHandler
 
                 if($target->getHp() <= 0){
                     $this->entity_manager->persist($this->logTemplates->constructionsDestroy($town, $target->getPrototype(), $damages ));
-
                     $this->town_handler->destroy_building($town, $target);
-                    // The target is destroy, we must destroy all its children
-                    foreach ($target->getPrototype()->getChildren() as $childBuilding) {
-                        $childBuilt = $this->town_handler->getBuilding($town, $childBuilding->getName(), true);
-                        if (!$childBuilt) continue;
-                        // We remove it from potential targeting by the zeds (as it is destroyed)
-                        if (($key = array_search($childBuilt, $targets)) !== false) {
-                            unset($targets[$key]);
-                        }
-                    }
                 } else {
                     $this->entity_manager->persist($this->logTemplates->constructionsDamage($town, $target->getPrototype(), $damages ));
                 }
 
                 $damageInflicted -= $damages;
-                array_shift($targets);
             }
         }
 

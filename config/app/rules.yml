@@ -69,6 +69,7 @@ parameters:
         attack_protection: false
         carry_extra_bag: false
         meaty_bones_within_town: false
+        building_attack_damage: false
 
       features:
         camping: true
@@ -121,6 +122,8 @@ parameters:
       modifiers:
         infection_death_chance: 0.75
         wound_terror_penalty: 0.2
+        building_attack_damage: true
+
       explorable_ruins: 2
 
       times:
