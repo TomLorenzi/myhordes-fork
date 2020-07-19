@@ -158,7 +158,7 @@ class LogTemplateHandler
                     else
                         $transParams['%'.$typeEntry['name'].'%'] = "null";
                 }
-                elseif ($typeEntry['type'] === 'num') {
+                elseif ($typeEntry['type'] === 'num' || $typeEntry['type'] === 'string') {
                     $transParams['%'.$typeEntry['name'].'%'] = $this->wrap($variables[$typeEntry['name']]);
                 }
                 elseif ($typeEntry['type'] === 'transString') {
@@ -1196,8 +1196,8 @@ class LogTemplateHandler
             ->setCitizen( $citizen );
     }
 
-    public function heroicRescueLog( Citizen $hero, Citizen $citizen, ?Zone $zone ): TownLogEntry {
-        $variables = array('hero' => $hero->getId(), 'citizen' => $citizen->getId());
+    public function heroicRescueLog( Citizen $hero, Citizen $citizen, Zone $zone ): TownLogEntry {
+        $variables = array('hero' => $hero->getId(), 'citizen' => $citizen->getId(), 'pos' => "[{$zone->getX()},{$zone->getY()}]");
         $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneByName('heroRescue');
 
         return (new TownLogEntry())
@@ -1205,7 +1205,7 @@ class LogTemplateHandler
             ->setVariables($variables)
             ->setTown( $hero->getTown() )
             ->setDay( $hero->getTown()->getDay() )
-            ->setZone( $zone )
+            ->setZone( null )
             ->setTimestamp( new DateTime('now') )
             ->setCitizen( $hero )
             ->setSecondaryCitizen( $citizen );

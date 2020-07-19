@@ -34,6 +34,10 @@ class PictoHandler
                 return;
         }
 
+        // Do not give the Emancipation of the Banished picto to non-banned citizen
+        if ($pictoPrototype->getName() === 'r_solban_#00' && !$citizen->getBanished())
+            return;
+
         $is_new = false;
         $picto = $citizen->getUser()->findPicto( 0, $pictoPrototype, $citizen->getTown() );
         if($picto === null){

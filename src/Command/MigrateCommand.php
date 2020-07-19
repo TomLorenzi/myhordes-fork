@@ -110,14 +110,18 @@ class MigrateCommand extends Command
      * @param string $command
      * @param int|null $ret
      * @param bool|false $detach
+     * @param OutputInterface|null $output
      * @return string[]
      */
-    protected function bin( string $command, ?int &$ret = null, bool $detach = false  ): array {
+    protected function bin( string $command, ?int &$ret = null, bool $detach = false, ?OutputInterface $output = null ): array {
         $process_handle = popen( $command, 'r' );
 
         $lines = [];
-        if (!$detach) while (($line = fgets( $process_handle )) !== false)
+        if (!$detach) while (($line = fgets( $process_handle )) !== false) {
+            if ($output) $output->write( "> {$line}" );
             $lines[] = $line;
+        }
+
         $ret = pclose($process_handle);
         return $lines;
     }
@@ -125,13 +129,15 @@ class MigrateCommand extends Command
     protected function capsule( string $command, OutputInterface $output, ?string $note = null, bool $bin_console = true ): bool {
         $run_command = $bin_console ? "php bin/console $command 2>&1" : "$command 2>&1";
 
+        $verbose = $output->getVerbosity() >= OutputInterface::VERBOSITY_VERBOSE;
+
         $output->write($note !== null ? $note : ("<info>Executing " . ($bin_console ? 'encapsulated' : '') . " command \"<comment>$command</comment>\"... </info>"));
-        $lines = $this->bin( $run_command, $ret );
+        $lines = $this->bin( $run_command, $ret, false, $verbose ? $output : null );
 
         if ($ret !== 0) {
             $output->writeln('');
             if ($note !== null) $output->writeln("<info>Command was \"<comment>{$run_command}</comment>\"</info>");
-            foreach ($lines as $line) $output->write( "> {$line}" );
+            if (!$verbose) foreach ($lines as $line) $output->write( "> {$line}" );
             $output->writeln("<error>Command exited with error code {$ret}</error>");
         } else $output->writeln("<info>Ok.</info>");
 
