@@ -986,10 +986,13 @@ class ActionHandler
 
                         if ( $zone->getX() !== 0 || $zone->getY() !== 0 ) {
                             $zero_zone = $this->entity_manager->getRepository(Zone::class)->findOneByPosition( $zone->getTown(), 0, 0 );
+
                             if ($others_are_here) $this->entity_manager->persist( $this->log->outsideMove( $jumper, $zone, $zero_zone, true ) );
                             $this->entity_manager->persist( $this->log->outsideMove( $jumper, $zero_zone, $zone, false ) );
                         }
-                        $this->entity_manager->persist( $this->log->doorPass( $jumper, true ) );
+                        if ( $result->getCustom() === 9 )
+                            $this->entity_manager->persist( $this->log->heroicRescueLog( $citizen, $jumper, null ) );
+                        else $this->entity_manager->persist( $this->log->doorPass( $jumper, true ) );
                         $this->zone_handler->handleCitizenCountUpdate( $zone, $cp_ok );
 
                         break;

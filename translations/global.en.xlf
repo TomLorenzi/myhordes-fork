@@ -1297,8 +1297,6 @@
         <target>Note: Messages written here will be lost if all the citizens leave the zone.</target>
       </segment>
     </unit>
-<<<<<<< HEAD
-=======
     <unit id="OP_adtd" name="Unangemessene Nachricht blockieren">
       <notes>
         <note category="german">Unangemessene Nachricht blockieren</note>
@@ -1308,7 +1306,6 @@
         <target>Unangemessene Nachricht blockieren</target>
       </segment>
     </unit>
->>>>>>> 4e8e8a4e5e2435a8e1bb747777f4ec3ed6c980fd
     <unit id="pqMtvFY" name="Link">
       <notes>
         <note category="german">Link</note>
@@ -1324,10 +1321,7 @@
       </notes>
       <segment>
         <source>Permanenter Link zu diesem Post:</source>
-<<<<<<< HEAD
         <target>Permanent Link to this Post:</target>
-=======
-        <target>Permanent link to this post :</target>
       </segment>
     </unit>
     <unit id="WyLb36J" name="Deinen Rucksack umklammern">
@@ -1526,7 +1520,6 @@
       <segment>
         <source>Schön hier im Warmen bleiben</source>
         <target>Schön hier im Warmen bleiben</target>
->>>>>>> 4e8e8a4e5e2435a8e1bb747777f4ec3ed6c980fd
       </segment>
     </unit>
   </file>
