@@ -313,14 +313,14 @@ class RecipeFixtures extends Fixture implements DependentFixtureInterface
 
         'com020' => ['type' => Recipe::ManualAnywhere, 'out' => 'cart_#00',               'provoking' => 'cart_part_#00',          'in' => ['cart_part_#00', 'rustine_#00', 'metal_#00', 'tube_#00' ] ],
         'com021' => ['type' => Recipe::ManualAnywhere, 'out' => 'poison_#00',             'provoking' => 'poison_part_#00',        'in' => ['poison_part_#00', 'pile_#00', 'pharma_#00' ] ],
-        'com022' => ['type' => Recipe::ManualAnywhere, 'out' => 'flesh_#00',              'provoking' => 'flesh_part_#00',         'in' => ['flesh_part_#00', 'flesh_part_#00' ] ],
+        'com022' => ['type' => Recipe::ManualAnywhere, 'out' => 'flesh_#00',              'provoking' => 'flesh_part_#00',         'in' => ['flesh_part_#00', 'flesh_part_#00' ], "picto"=> "r_solban_#00" ],
         'com023' => ['type' => Recipe::ManualAnywhere, 'out' => 'saw_tool_#00',           'provoking' => 'saw_tool_part_#00',      'in' => ['saw_tool_part_#00', 'rustine_#00', 'meca_parts_#00' ] ],
         'com024' => ['type' => Recipe::ManualAnywhere, 'out' => 'engine_#00',             'provoking' => 'engine_part_#00',        'in' => ['engine_part_#00', 'rustine_#00', 'meca_parts_#00', 'metal_#00', 'deto_#00', 'bone_#00' ] ],
         'com025' => ['type' => Recipe::ManualAnywhere, 'out' => 'repair_kit_#00',         'provoking' => 'repair_kit_part_raw_#00','in' => ['repair_kit_part_raw_#00', 'rustine_#00', 'meca_parts_#00', 'wood2_#00' ] ],
-        'com026' => ['type' => Recipe::ManualAnywhere, 'out' => 'fruit_part_#00',         'provoking' => 'fruit_sub_part_#00',     'in' => ['fruit_sub_part_#00', 'fruit_sub_part_#00' ] ],
+        'com026' => ['type' => Recipe::ManualAnywhere, 'out' => 'fruit_part_#00',         'provoking' => 'fruit_sub_part_#00',     'in' => ['fruit_sub_part_#00', 'fruit_sub_part_#00' ], "picto"=> "r_solban_#00" ],
 
         'com027' => ['type' => Recipe::ManualAnywhere, 'out' => ['drug_#00', 'xanax_#00', 'drug_random_#00', 'drug_water_#00', 'water_cleaner_#00', 'drug_hero_#00'], 'provoking' => 'pharma_#00', 'in' => ['pharma_#00', 'pharma_#00' ] ],
-        'com028' => ['type' => Recipe::ManualAnywhere, 'out' => ['drug_#00', 'drug_random_#00', 'drug_water_#00', 'water_cleaner_#00', 'pharma_#00'], 'provoking' => 'pharma_part_#00', 'in' => ['pharma_part_#00', 'pharma_part_#00' ] ],
+        'com028' => ['type' => Recipe::ManualAnywhere, 'out' => ['drug_#00', 'drug_random_#00', 'drug_water_#00', 'water_cleaner_#00', 'pharma_#00'], 'provoking' => 'pharma_part_#00', 'in' => ['pharma_part_#00', 'pharma_part_#00' ], "picto"=> "r_solban_#00" ],
 
         'com029' => ['type' => Recipe::ManualAnywhere, 'out' => 'trapma_#00',     'provoking' => ['claymo_#00','door_carpet_#00'],'in' => ['claymo_#00','door_carpet_#00'] ],
         'com030' => ['type' => Recipe::ManualAnywhere, 'out' => 'claymo_#00',     'provoking' => ['wire_#00','explo_#00'],'in' => ['wire_#00','explo_#00', 'meca_parts_#00', 'rustine_#00'] ],

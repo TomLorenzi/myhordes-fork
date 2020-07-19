@@ -410,7 +410,9 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
         $inv_target = $citizen->getInventory();
         $inv_source = null;
 
-        $item_group = $this->entity_manager->getRepository(ItemGroup::class)->findOneBy(['name' => $this->random_generator->chance(0.125) ? 'trash_good' : 'trash_bad']);
+        $good = $this->random_generator->chance(0.125);
+
+        $item_group = $this->entity_manager->getRepository(ItemGroup::class)->findOneBy(['name' => $good ? 'trash_good' : 'trash_bad']);
         $proto = $this->random_generator->pickItemPrototypeFromGroup( $item_group );
         if (!$proto)
             return AjaxResponse::error(ErrorHelper::ErrorInternalError);
@@ -423,7 +425,6 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
         )) === InventoryHandler::ErrorNone) {
 
             $trashlock->increment();
-            if ($citizen->getBanished()) $this->picto_handler->give_picto( $citizen, 'r_solban_#00' );
             $this->citizen_handler->setAP($citizen, true, -1);
             $this->addFlash( 'notice', $this->translator->trans( 'Nach einigen Anstrengungen hast du folgendes gefunden: %item%!', [
                 '%item%' => "<span> {$this->translator->trans($item->getPrototype()->getLabel(), [], 'items')}</span>"
