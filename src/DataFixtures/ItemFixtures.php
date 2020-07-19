@@ -837,7 +837,7 @@ class ItemFixtures extends Fixture
         'food_bag_#00'         => [ 'hero_find' ],
         'rsc_pack_3_#00'       => [ 'hero_find_lucky' ],
         'rsc_pack_2_#00'       => [ 'hero_find' ],
-        'bretz_#00'            => [ 'food', 'esc_fixed' ],
+        'bretz_#00'            => [ 'food', 'esc_fixed', 'can_cook' ],
         'undef_#00'            => [ 'food', 'can_cook' ],
         'dish_#00'             => [ 'food' ],
         'chama_#00'            => [ 'can_cook' ],

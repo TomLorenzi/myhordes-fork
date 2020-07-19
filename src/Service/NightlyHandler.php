@@ -128,7 +128,7 @@ class NightlyHandler
                     else {
                         $citizen->setCampingCounter($citizen->getCampingCounter() + 1);
                         // Grant blueprint if first camping on a ruin.
-                        if ($citizen->getZone()->getBlueprint() === Zone::BlueprintAvailable) {
+                        if ($citizen->getZone()->getBlueprint() === Zone::BlueprintAvailable && $citizen->getZone()->getBuryCount() <= 0) {
                             // Spawn BP.
                             $bp_name = ($this->zone_handler->getZoneKm($citizen->getZone()) < 10)
                                 ? 'bplan_u_#00'
@@ -696,7 +696,7 @@ class NightlyHandler
             $citizen->setWalkingDistance(0);
             $this->citizen_handler->setAP($citizen,false,$this->citizen_handler->getMaxAP( $citizen ),0);
             $this->citizen_handler->setBP($citizen,false,$this->citizen_handler->getMaxBP( $citizen ),0);
-            $this->citizen_handler->setPM($citizen,false,$this->citizen_handler->getMaxPM( $citizen ),0);
+            $this->citizen_handler->setPM($citizen,false,$this->citizen_handler->getMaxPM( $citizen ));
             $citizen->getActionCounters()->clear();
             $citizen->getDigTimers()->clear();
             if ($citizen->getEscortSettings()) $this->entity_manager->remove($citizen->getEscortSettings());

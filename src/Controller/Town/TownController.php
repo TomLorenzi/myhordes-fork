@@ -494,20 +494,22 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
         $existing_complaint = $em->getRepository( Complaint::class )->findByCitizens($author, $culprit);
         $severity_before = $existing_complaint ? $existing_complaint->getSeverity() : 0;
 
-        $complaint_level = 0;
-        if (!$existing_complaint) {
+        if ($severity > Complaint::SeverityNone) {
             $counter = $this->getActiveCitizen()->getSpecificActionCounter(ActionCounter::ActionTypeComplaint);
             if ($counter->getCount() >= 4)
                 return AjaxResponse::error(self::ErrorComplaintLimitHit );
+            $counter->increment();
+            $this->entity_manager->persist($counter);
+        }
 
+        $complaint_level = 0;
+        if (!$existing_complaint) {
             $existing_complaint = (new Complaint())
                 ->setAutor( $author )
                 ->setCulprit( $culprit )
                 ->setSeverity( $severity )
                 ->setCount( ($author->getProfession()->getHeroic() && $th->getBuilding( $town, 'small_court_#00', true )) ? 2 : 1 );
             $culprit->addComplaint( $existing_complaint );
-            $counter->increment();
-            $this->entity_manager->persist($counter);
 
             $complaint_level = ($severity > Complaint::SeverityNone) ? 1 : 0;
 

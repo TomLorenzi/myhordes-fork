@@ -157,11 +157,7 @@
 {% endblock %}
 {% block js %}
     {{ parent() }}
-    {% for label, messages in app.flashes %}
-        {% for message in messages %}
-            <x-message x-label="{{ label }}">{{ message|raw }}</x-message>
-        {% endfor %}
-    {% endfor %}
+    {{ include('ajax/flash.html.twig') }}
     <script>
         const loadPage = function(page) {
             $.ajax.no_history().load( document.getElementById('forum-content'), '{{ path('forum_viewer_controller', {fid: fid, tid: tid}) }}', false, {page: page } );

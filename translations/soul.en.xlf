@@ -277,7 +277,7 @@
       </notes>
       <segment>
         <source>Neues Profilbild hochladen</source>
-        <target>Send a new profile avatar</target>
+        <target>Set a new profile avatar</target>
       </segment>
     </unit>
     <unit id="uBrCxGO" name="Profilbild löschen">

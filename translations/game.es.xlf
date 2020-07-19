@@ -11353,5 +11353,68 @@
         <target>%dogname%, der stinkende Köter von %citizen%, hat folgendes in die Bank gebracht: %item%</target>
       </segment>
     </unit>
+    <unit id="Xrxxr_C" name="%citizen% hat seinen Hund mit %count% Gegenständen in die Stadt geschickt.">
+      <notes>
+        <note category="german">%citizen% hat seinen Hund mit %count% Gegenständen in die Stadt geschickt.</note>
+      </notes>
+      <segment>
+        <source>%citizen% hat seinen Hund mit %count% Gegenständen in die Stadt geschickt.</source>
+        <target>%citizen% hat seinen Hund mit %count% Gegenständen in die Stadt geschickt.</target>
+      </segment>
+    </unit>
+    <unit id="z_kMoFO" name="%hero% hat %citizen% auf heldenhafte Weise zurück in die Stadt gebracht.">
+      <notes>
+        <note category="german">%hero% hat %citizen% auf heldenhafte Weise zurück in die Stadt gebracht.</note>
+      </notes>
+      <segment>
+        <source>%hero% hat %citizen% auf heldenhafte Weise zurück in die Stadt gebracht.</source>
+        <target>%hero% hat %citizen% auf heldenhafte Weise zurück in die Stadt gebracht.</target>
+      </segment>
+    </unit>
+    <unit id="ALk3xHN" name="a65f146">
+      <notes>
+        <note category="german">Du hast heimlich einen Eintrag im Register unkenntlich gemacht... Du kannst das noch %times% mal tun.</note>
+      </notes>
+      <segment>
+        <source>Du hast heimlich einen Eintrag im Register unkenntlich gemacht... Du kannst das noch %times% mal tun.</source>
+        <target>Du hast heimlich einen Eintrag im Register unkenntlich gemacht... Du kannst das noch %times% mal tun.</target>
+      </segment>
+    </unit>
+    <unit id="FjeaId." name="Du hast %item_list% in der Werkstatt geöffnet und erhälst %item%.">
+      <notes>
+        <note category="german">Du hast %item_list% in der Werkstatt geöffnet und erhälst %item%.</note>
+      </notes>
+      <segment>
+        <source>Du hast %item_list% in der Werkstatt geöffnet und erhälst %item%.</source>
+        <target>Du hast %item_list% in der Werkstatt geöffnet und erhälst %item%.</target>
+      </segment>
+    </unit>
+    <unit id="lbMpVVT" name="Du hast %item_list% in der Werkstatt zu %item% zerlegt.">
+      <notes>
+        <note category="german">Du hast %item_list% in der Werkstatt zu %item% zerlegt.</note>
+      </notes>
+      <segment>
+        <source>Du hast %item_list% in der Werkstatt zu %item% zerlegt.</source>
+        <target>Du hast %item_list% in der Werkstatt zu %item% zerlegt.</target>
+      </segment>
+    </unit>
+    <unit id="4NEM2QG" name="Du hast %item_list% in der Werkstatt zu %item% umgewandelt.">
+      <notes>
+        <note category="german">Du hast %item_list% in der Werkstatt zu %item% umgewandelt.</note>
+      </notes>
+      <segment>
+        <source>Du hast %item_list% in der Werkstatt zu %item% umgewandelt.</source>
+        <target>Du hast %item_list% in der Werkstatt zu %item% umgewandelt.</target>
+      </segment>
+    </unit>
+    <unit id="go91k6z" name="Du hast %item_list% zu %item% umgewandelt.">
+      <notes>
+        <note category="german">Du hast %item_list% zu %item% umgewandelt.</note>
+      </notes>
+      <segment>
+        <source>Du hast %item_list% zu %item% umgewandelt.</source>
+        <target>Du hast %item_list% zu %item% umgewandelt.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

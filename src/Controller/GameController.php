@@ -151,6 +151,16 @@ class GameController extends AbstractController implements GameInterfaceControll
         $day = $town->getDay();
         $death_outside = $death_inside = [];
 
+        $has_living_citizens = false;
+        foreach ( $town->getCitizens() as $c )
+            if ($c->getAlive()) {
+                $has_living_citizens = true;
+                break;
+            }
+
+        if (!$has_living_citizens)
+            return $this->redirect($this->generateUrl('game_landing'));
+
         /** @var Gazette $gazette */
         $gazette = $town->findGazette( $day );
         if (!$gazette) {
@@ -577,6 +587,7 @@ class GameController extends AbstractController implements GameInterfaceControll
         }
 
         $log->setHidden(true);
+        $this->addFlash( 'notice', $this->translator->trans('Du hast heimlich einen Eintrag im Register unkenntlich gemacht... Du kannst das noch %times% mal tun.', ['%times%' => $limit - $counter->getCount()], 'game') );
 
         try {
             $this->entity_manager->persist( $log );
@@ -584,13 +595,6 @@ class GameController extends AbstractController implements GameInterfaceControll
             $this->entity_manager->flush();
         } catch (Exception $e) {
             return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
-        }
-
-        try {
-            $this->entity_manager->persist( $chest );
-            $this->entity_manager->flush();
-        } catch (Exception $e) {
-            
         }
 
         return AjaxResponse::success();

@@ -29,6 +29,7 @@ use App\Entity\Zone;
 use App\Structures\EscortItemActionSet;
 use App\Structures\ItemRequest;
 use App\Structures\TownConf;
+use App\Translation\T;
 use DateTime;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Contracts\Translation\TranslatorInterface;
@@ -877,7 +878,7 @@ class ActionHandler
                         $bank = ($result->getCustom() === 4 || $result->getCustom() === 5) ? $citizen->getTown()->getBank() : $citizen->getHome()->getChest();
 
                         $heavy_break = false;
-                        $item_count = 0;
+                        $item_count = 0; $success_count = 0;
                         if (!$heavy)
                             foreach ( $citizen->getInventory()->getItems() as $target_item ) {
                                 if ($target_item !== $item) $item_count++;
@@ -897,10 +898,13 @@ class ActionHandler
                             foreach ( $citizen->getInventory()->getItems() as $target_item ) if ($target_item !== $item) {
 
                                 if ($this->inventory_handler->transferItem($citizen, $target_item, $source, $bank, InventoryHandler::ModalityTamer) === InventoryHandler::ErrorNone) {
+                                    $success_count++;
                                     if ($create_log) $this->entity_manager->persist($this->log->bankItemTamerLog($citizen, $target_item->getPrototype(), $target_item->getBroken()));
                                 }
 
                             }
+
+                            if ($success_count > 0) $this->entity_manager->persist($this->log->beyondTamerSendLog($citizen, $success_count));
                         }
 
                         break;
@@ -983,10 +987,13 @@ class ActionHandler
 
                         if ( $zone->getX() !== 0 || $zone->getY() !== 0 ) {
                             $zero_zone = $this->entity_manager->getRepository(Zone::class)->findOneByPosition( $zone->getTown(), 0, 0 );
+
                             if ($others_are_here) $this->entity_manager->persist( $this->log->outsideMove( $jumper, $zone, $zero_zone, true ) );
                             $this->entity_manager->persist( $this->log->outsideMove( $jumper, $zero_zone, $zone, false ) );
                         }
-                        $this->entity_manager->persist( $this->log->doorPass( $jumper, true ) );
+                        if ( $result->getCustom() === 9 )
+                            $this->entity_manager->persist( $this->log->heroicRescueLog( $citizen, $jumper, null ) );
+                        else $this->entity_manager->persist( $this->log->doorPass( $jumper, true ) );
                         $this->zone_handler->handleCitizenCountUpdate( $zone, $cp_ok );
 
                         break;
@@ -1208,20 +1215,20 @@ class ActionHandler
             case Recipe::WorkshopType:
               switch($recipe->getAction()) {
                 case "Öffnen":
-                  $base = 'Du hast %item_list% in der Werkstatt geöffnet und erhälst %item%.';
+                  $base = T::__('Du hast %item_list% in der Werkstatt geöffnet und erhälst %item%.', 'game');
                   break;
                 case "Zerlegen":
-                  $base = 'Du hast %item_list% in der Werkstatt zu %item% zerlegt.';
+                  $base = T::__('Du hast %item_list% in der Werkstatt zu %item% zerlegt.', 'game');
                   break;
 
                 default:
-                  $base = 'Du hast %item_list% in der Werkstatt zu %item% umgewandelt.';
+                  $base = T::__('Du hast %item_list% in der Werkstatt zu %item% umgewandelt.', 'game');
               }
               $pictoPrototype = $this->entity_manager->getRepository(PictoPrototype::class)->findOneByName("r_refine_#00");
               $this->picto_handler->give_picto($citizen, $pictoPrototype);
               break;
             case Recipe::ManualOutside:case Recipe::ManualInside:case Recipe::ManualAnywhere:default:
-                $base = 'Du hast %item_list% zu %item% umgewandelt.';
+                $base = T::__('Du hast %item_list% zu %item% umgewandelt.', 'game');
                 if ($recipe->getPictoPrototype()) {
                     $this->picto_handler->give_picto($citizen, $recipe->getPictoPrototype());
                 }
