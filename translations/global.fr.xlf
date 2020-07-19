@@ -1519,7 +1519,7 @@
       </notes>
       <segment>
         <source>Bist du sicher, dass du diesen Post an die Moderatoren melden willst?</source>
-        <target>Bist du sicher, dass du diesen Post an die Moderatoren melden willst?</target>
+        <target>Voulez-vous vraiment signaler ce message aux modérateurs ?</target>
       </segment>
     </unit>
     <unit id="H_X7U1o" name="Schön hier im Warmen bleiben">
@@ -1528,7 +1528,7 @@
       </notes>
       <segment>
         <source>Schön hier im Warmen bleiben</source>
-        <target>Schön hier im Warmen bleiben</target>
+        <target>Rester bien au chaud</target>
       </segment>
     </unit>
   </file>
