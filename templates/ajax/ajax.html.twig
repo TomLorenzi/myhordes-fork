@@ -63,11 +63,7 @@
 {% endblock %}
 {% block js %}
     {{ parent() }}
-    {% for label, messages in app.flashes %}
-        {% for message in messages %}
-            <x-message x-label="{{ label }}">{{ message|raw }}</x-message>
-        {% endfor %}
-    {% endfor %}
+    {{ include('ajax/flash.html.twig') }}
     <script>
         document.querySelector('#gma>.game-bar .burger-button').addEventListener('click', function() {
             let dropdown = document.querySelector('#gma>.game-dropdown');

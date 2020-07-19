@@ -587,6 +587,7 @@ class GameController extends AbstractController implements GameInterfaceControll
         }
 
         $log->setHidden(true);
+        $this->addFlash( 'notice', $this->translator->trans('Du hast heimlich einen Eintrag im Register unkenntlich gemacht... Du kannst das noch %times% mal tun.', ['%times%' => $limit - $counter->getCount()], 'game') );
 
         try {
             $this->entity_manager->persist( $log );
@@ -594,13 +595,6 @@ class GameController extends AbstractController implements GameInterfaceControll
             $this->entity_manager->flush();
         } catch (Exception $e) {
             return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
-        }
-
-        try {
-            $this->entity_manager->persist( $chest );
-            $this->entity_manager->flush();
-        } catch (Exception $e) {
-            
         }
 
         return AjaxResponse::success();
