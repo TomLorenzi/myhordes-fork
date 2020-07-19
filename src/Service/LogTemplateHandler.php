@@ -216,6 +216,21 @@ class LogTemplateHandler
             ->setCitizen( $citizen );
     }
 
+    public function beyondTamerSendLog( Citizen $citizen, int $items ): TownLogEntry {
+
+        $variables = array('citizen' => $citizen->getId(), 'count' => $items);
+        $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneByName('beyondTamerSend');
+
+        return (new TownLogEntry())
+            ->setLogEntryTemplate($template)
+            ->setVariables($variables)
+            ->setTown( $citizen->getTown() )
+            ->setDay( $citizen->getTown()->getDay() )
+            ->setZone( $citizen->getZone() )
+            ->setTimestamp( new DateTime('now') )
+            ->setCitizen( $citizen );
+    }
+
     public function beyondItemLog( Citizen $citizen, ItemPrototype $item, bool $toFloor, bool $broken = false ): TownLogEntry {
         $variables = array('citizen' => $citizen->getId(), 'item' => $item->getId(), 'broken' => $broken);
         if ($toFloor)

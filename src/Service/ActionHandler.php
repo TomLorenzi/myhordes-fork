@@ -877,7 +877,7 @@ class ActionHandler
                         $bank = ($result->getCustom() === 4 || $result->getCustom() === 5) ? $citizen->getTown()->getBank() : $citizen->getHome()->getChest();
 
                         $heavy_break = false;
-                        $item_count = 0;
+                        $item_count = 0; $success_count = 0;
                         if (!$heavy)
                             foreach ( $citizen->getInventory()->getItems() as $target_item ) {
                                 if ($target_item !== $item) $item_count++;
@@ -897,10 +897,13 @@ class ActionHandler
                             foreach ( $citizen->getInventory()->getItems() as $target_item ) if ($target_item !== $item) {
 
                                 if ($this->inventory_handler->transferItem($citizen, $target_item, $source, $bank, InventoryHandler::ModalityTamer) === InventoryHandler::ErrorNone) {
+                                    $success_count++;
                                     if ($create_log) $this->entity_manager->persist($this->log->bankItemTamerLog($citizen, $target_item->getPrototype(), $target_item->getBroken()));
                                 }
 
                             }
+
+                            if ($success_count > 0) $this->entity_manager->persist($this->log->beyondTamerSendLog($citizen, $success_count));
                         }
 
                         break;
