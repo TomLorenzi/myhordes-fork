@@ -277,7 +277,7 @@
       </notes>
       <segment>
         <source>Neues Profilbild hochladen</source>
-        <target>Send a new profile avatar</target>
+        <target>Set a new profile avatar</target>
       </segment>
     </unit>
     <unit id="uBrCxGO" name="Profilbild löschen">
@@ -700,6 +700,8 @@
         <target>Haus besuchen</target>
       </segment>
     </unit>
+<<<<<<< HEAD
+=======
     <unit id="q4I8gVL" name="Eine neue Seele importieren">
       <notes>
         <note category="german">Eine neue Seele importieren</note>
@@ -1672,5 +1674,6 @@
         <target>Gib den Pseudo des Bürgers ein.</target>
       </segment>
     </unit>
+>>>>>>> 4e8e8a4e5e2435a8e1bb747777f4ec3ed6c980fd
   </file>
 </xliff>
