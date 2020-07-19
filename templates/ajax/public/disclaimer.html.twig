@@ -35,6 +35,7 @@
                 <button disabled="disabled" class="button">{{ 'Weiter zu'|trans({}, 'global') }}: '{{ ex.name }}'</button>
                 <p><span class="critical">{% trans from 'global' %}Du hast keine Externe ID.{% endtrans %}</span> {% trans from 'global' %}Ohne diese kannst du keine externen Apps nutzen. Um eine Externe ID zu setzen, gehe in deine Seele > Einstellungen und generiere eine ID.{% endtrans %}</p>
            {% endif %}
+            <button x-ajax-href="{{ path('initial_landing') }}" class="button">{{ 'Schön hier im Warmen bleiben'|trans({}, 'global') }}</button>
         </div>
     </div>
 {% endblock %}
