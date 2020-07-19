@@ -49,6 +49,7 @@ class TownLogEntryRepository extends ServiceEntityRepository
         elseif ($zone !== null) $q->andWhere('t.zone = :zone')->setParameter('zone', $zone);
 
         if ($type !== null) {
+
             if (is_array($type)) $applicableEntryTemplates = $this->_em->getRepository(LogEntryTemplate::class)->findByTypes($type);
             else                 $applicableEntryTemplates = $this->_em->getRepository(LogEntryTemplate::class)->findByType($type);
 

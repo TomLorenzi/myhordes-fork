@@ -162,7 +162,8 @@ class TownAddonsController extends TownController
             return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
 
         $c = 1;
-        if ($th->getBuilding($town, 'item_tagger_#01', true)) $c++;
+        if ($th->getBuilding($town, 'item_tagger_#01', true)) $c *= 2;
+        if ($this->inventory_handler->countSpecificItems($town->getBank(), 'scope_#00') > 0) $c *= 2;
 
         for ($i = 0; $i < $c; $i++)
             if ($est->getOffsetMin() + $est->getOffsetMax() > 10) {
@@ -176,12 +177,6 @@ class TownAddonsController extends TownController
             // If we are calculating for tomorrow, we also add that this citizen estimated for today
             $est_current = $this->entity_manager->getRepository(ZombieEstimation::class)->findOneByTown($town,$town->getDay());
             if(!$est_current->getCitizens()->contains($this->getActiveCitizen())) {
-                for ($i = 0; $i < $c; $i++)
-                    if ($est_current->getOffsetMin() + $est_current->getOffsetMax() > 10) {
-                        $increase_min = $rg->chance( $est_current->getOffsetMin() / ($est_current->getOffsetMin() + $est_current->getOffsetMax()) );
-                        if ($increase_min) $est_current->setOffsetMin( $est_current->getOffsetMin() - 1);
-                        else $est_current->setOffsetMax( $est_current->getOffsetMax() - 1);
-                    }
                 $est_current->addCitizen($this->getActiveCitizen());
                 $this->entity_manager->persist($est_current);    
             }

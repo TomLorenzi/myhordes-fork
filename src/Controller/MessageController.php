@@ -918,6 +918,8 @@ class MessageController extends AbstractController
         $postId = $parser->get('postId');
 
         $post = $em->getRepository( Post::class )->find( $postId );
+        if ($post->getTranslate()) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
         $targetUser = $post->getOwner();
         if ($targetUser->getUsername() === "Der Rabe" ) {
             $message = $ti->trans('Das ist keine gute Idee, das ist dir doch wohl klar!', [], 'game');

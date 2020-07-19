@@ -16,7 +16,6 @@ use App\Entity\Soul;
 use App\Entity\TownRankingProxy;
 use App\Structures\TownConf;
 use Doctrine\ORM\EntityManagerInterface;
-use App\Structures\BetweenFilter;
 
 class DeathHandler
 {
