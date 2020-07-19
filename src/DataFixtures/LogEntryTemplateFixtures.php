@@ -119,7 +119,7 @@ class LogEntryTemplateFixtures extends Fixture
         ['text'=>'Das Bauwerk %plan% hat %damage% Punkte Schaden genommen.', 'name'=>'constructionsDamage', 'type'=>LogEntryTemplate::TypeNightly, 'class'=>LogEntryTemplate::ClassWarning, 'secondaryType'=>null, 'variableTypes'=>array(['type'=>"plan",'name'=>'plan'],['type'=>"num",'name'=>'damage'])],
         ['text'=>'Das Bauwerk %plan% hat %damage% Punkte Schaden genommen und wurde daraufhin von den Zombies vollständig zerstört.', 'name'=>'constructionsDestroy', 'type'=>LogEntryTemplate::TypeNightly, 'class'=>LogEntryTemplate::ClassCritical, 'secondaryType'=>null, 'variableTypes'=>array(['type'=>"plan",'name'=>'plan'],['type'=>"num",'name'=>'damage'])],
 
-        ['text'=>'%hero% hat %citizen% auf heldenhafte Weise zurück in die Stadt gebracht.', 'name'=>'heroRescue', 'type'=>LogEntryTemplate::TypeDoor, 'class'=>LogEntryTemplate::ClassInfo, 'secondaryType'=>null, 'variableTypes'=>array(['type'=>"citizen",'name'=>'hero'],['type'=>"citizen",'name'=>'citizen'])],
+        ['text'=>'Niemand weiß, wie ein solches Wunder möglich ist, aber %hero% hat %citizen% (der sich auf %pos% befand), auf seinen Schultern heim getragen. Lang leben unsere Helden!', 'name'=>'heroRescue', 'type'=>LogEntryTemplate::TypeDoor, 'class'=>LogEntryTemplate::ClassInfo, 'secondaryType'=>null, 'variableTypes'=>array(['type'=>"citizen",'name'=>'hero'],['type'=>"citizen",'name'=>'citizen'],['type'=>"string",'name'=>'pos'])],
 
         // Gazette: Fun Texts
         ['text'=>'Gestern war ein unbedeutender Tag. Einem Gerücht zufolge wurden %citizen1% und %citizen2% dabei beobachtet, wie sie zusammen im Brunnen badeten. Wenn morgen alle mit einer Pilzinfektion flach liegen, ist ja wohl klar, an wem das lag.',

@@ -992,7 +992,7 @@ class ActionHandler
                             $this->entity_manager->persist( $this->log->outsideMove( $jumper, $zero_zone, $zone, false ) );
                         }
                         if ( $result->getCustom() === 9 )
-                            $this->entity_manager->persist( $this->log->heroicRescueLog( $citizen, $jumper, null ) );
+                            $this->entity_manager->persist( $this->log->heroicRescueLog( $citizen, $jumper, $zone ) );
                         else $this->entity_manager->persist( $this->log->doorPass( $jumper, true ) );
                         $this->zone_handler->handleCitizenCountUpdate( $zone, $cp_ok );
 
