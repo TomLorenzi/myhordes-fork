@@ -104,8 +104,9 @@ class DebugCommand extends Command
                     $output->writeln('<error>User 66 is not a debug user. Will not proceed.</error>');
                     return -1;
                 }
-                $crow->setName("Der Rabe");
-                $crow->setEmail("crow");
+                $crow
+                    ->setName("Der Rabe")
+                    ->setEmail("crow");
                 $crow->setPassword( $this->encoder->encodePassword($crow, '5%[9Wqc@"px.&er{thxCt)7Un^-.~K~B;E7b`,#L0"3?3Mcu:x$|8\-h.3JQ*$') );
                 $this->entity_manager->persist($crow);
                 $this->entity_manager->flush();               

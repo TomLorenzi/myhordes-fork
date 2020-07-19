@@ -14,7 +14,6 @@ use App\Entity\Zone;
 use App\Entity\ZonePrototype;
 use App\Interfaces\RandomEntry;
 use App\Interfaces\RandomGroup;
-use App\Structures\BetweenFilter;
 use App\Structures\PropertyFilter;
 
 class RandomGenerator
@@ -91,28 +90,18 @@ class RandomGenerator
         return $r;
     }
 
-    // Get a random distance from normal distribution
-    function getRandomDistance(int $min, int $max): int {
-        $range = $max - $min + 1;
-        $mean = $min + $range / 2;
-        $sd = $range / 8;
-        $x = mt_rand() / mt_getrandmax();
-        $y = mt_rand() / mt_getrandmax();
-        $rd = round(sqrt(-2 * log($x)) * cos(2 * pi() * $y) * $sd + $mean);
-        return $rd;
-    }
-    
-    function pickLocationBetweenFromList(array $g, int $min, int $max, array $options = []): ?Zone {
-        $rd = $this->getRandomDistance($min, $max);
+    function pickLocationBetweenFromList(array $zone_list, int $min, int $max, array $options = []): ?Zone {
+        $zone_list = array_filter( $zone_list, function (Zone $z) use ($min,$max) {
+            $d = $z->getDistance();
+            return $d >= $min && $d <= $max;
+        } );
 
-        /** @var Zone[] $dist_zone_list */
-        $dist_zone_list = array_filter($g, new BetweenFilter(floor($rd), ceil($rd)));
-        if (count($options) > 0) {
-            $dist_zone_list = array_filter($dist_zone_list, new PropertyFilter($options));
-        }
-        shuffle($dist_zone_list);
+        if (count($options) > 0)
+            $zone_list = array_filter($zone_list, new PropertyFilter($options));
 
-        return $dist_zone_list[0] ?? null;
+        shuffle($zone_list);
+
+        return $zone_list[0] ?? null;
     }
 
 }

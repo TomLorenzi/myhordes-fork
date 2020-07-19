@@ -32,8 +32,10 @@ security:
 
     role_hierarchy:
         ROLE_USER:  ROLE_REGISTERED
+        ROLE_ORACLE: ROLE_USER
         ROLE_CROW:  ROLE_USER
-        ROLE_ADMIN: ROLE_CROW
+        ROLE_ADMIN: [ROLE_CROW, ROLE_ORACLE]
+        ROLE_SUPER: ROLE_ADMIN
 
     # Easy way to control access for large sections of your site
     # Note: Only the *first* access control that matches will be used

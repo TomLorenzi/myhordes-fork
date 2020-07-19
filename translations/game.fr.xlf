@@ -3899,7 +3899,7 @@
       </notes>
       <segment>
         <source>Einen Blick ins Forum werfen.</source>
-        <target>Jeter un oeil au forum de votre ville.</target>
+        <target>Jeter un œil au forum de votre ville.</target>
       </segment>
     </unit>
     <unit id=".vMt2eO" name="Meine Ration Wasser im Brunnen entnehmen (optional).">
@@ -4169,7 +4169,7 @@
       </notes>
       <segment>
         <source>Mord</source>
-        <target>Dévoré par une goule</target>
+        <target>Dévoré(e) par une goule</target>
       </segment>
     </unit>
     <unit id="7AlBdeZ" name="Aggression">
@@ -4304,7 +4304,7 @@
       </notes>
       <segment>
         <source>Sorglos hast du dieses Produkt runtergeschluckt... Das darin enthaltene Gift hat nur wenige Sekunden gebraucht, um über dein Blutkreislaufsystem zum Herzen zu gelangen. Du hast dein Bewusstsein verloren. Atemstillstand und Herzversagen haben dir dann den Rest gegeben. Du wurdest vergifet!! Wie hinterhältig!</source>
-        <target>Vous avez avalé ce produit sans même vous poser de question… Il n'a pas fallu quelques secondes avant que le poison qu'il contenait ne passe dans votre sang, provoquant quasi immédiatement une dilatation de vos vaisseaux sanguins. Vous avez d'abord perdu connaissance, tandis que votre corps s'agitait de spasmes nerveux. Puis votre coeur a lâché. Vous avez été assassiné(e) !</target>
+        <target>Vous avez avalé ce produit sans même vous poser de question… Il n'a pas fallu quelques secondes avant que le poison qu'il contenait ne passe dans votre sang, provoquant quasi immédiatement une dilatation de vos vaisseaux sanguins. Vous avez d'abord perdu connaissance, tandis que votre corps s'agitait de spasmes nerveux. Puis votre cœur a lâché. Vous avez été assassiné(e) !</target>
       </segment>
     </unit>
     <unit id="THDibIm" name="f6ab154">
@@ -6532,11 +6532,11 @@
     </unit>
     <unit id="jt.ezbv" name="7d0bc2b">
       <notes>
-        <note category="german">Dies ist eine äußert seltene Auszeichnung, die den ersten Spielern von 'MyHordes' vorbehalten ist.</note>
+        <note category="german">Dies ist eine äußert seltene Auszeichnung, die den ersten Spielern von 'Die Verdammten' vorbehalten ist.</note>
       </notes>
       <segment>
         <source>Dies ist eine äußert seltene Auszeichnung, die den ersten Spielern von 'MyHordes' vorbehalten ist.</source>
-        <target>Distinction rarissime réservée aux tout premiers citoyens de 'MyHordes'.</target>
+        <target>Distinction rarissime réservée aux tout premiers citoyens de 'Hordes'.</target>
       </segment>
     </unit>
     <unit id="eAodZt." name="Sandbälle! Yeah!">
@@ -8080,7 +8080,7 @@
       </notes>
       <segment>
         <source>Während du die Worte des Schamanen vernommen hast, dachtest du nie, dass er es ernst meinte. Nichts ist 100%ig sicher in dieser Wüste und der Trank, den er dir gegeben hat... Nun, er hat nicht funktioniert. Die gequälte Seele, der du zu helfen versuchtest, hat sich an dich geklammert und deine ungeschützte Seele mit Leichtigkeit überwältigt. Ihre Gewalt und Wut hinterließen nichts von dir als eine leere Hülle, dazu verdammt, von der Horde verschlungen zu werden.</source>
-        <target>Votre Chaman vous l'avait pourtant précisé, rien n'est 100% sur dans la vie... Et sa potion n'a pas su contrer la violence de cette âme torturée. Elle s'est emparée de vous, esprit faible, et à aisément terrassé le peu de volonté restante, vous laissant mourrir à l'agonie dans le désert.</target>
+        <target>Votre Chaman vous l'avait pourtant précisé, rien n'est 100% sûr dans la vie... Et sa potion n'a pas su contrer la violence de cette âme torturée. Elle s'est emparée de vous, esprit faible, et à aisément terrassé le peu de volonté restante, vous laissant mourrir a l'agonie dans le désert.</target>
       </segment>
     </unit>
     <unit id="yr4_Nez" name="Du bist der Schamane dieser Stadt.">
@@ -9007,7 +9007,7 @@
       </notes>
       <segment>
         <source>Zombies sind eingedrungen.</source>
-        <target>Les zombies sont entrés.</target>
+        <target>zombies sont entrés.</target>
       </segment>
     </unit>
     <unit id="MUX.0UN" name="terrorisiert">
@@ -9529,7 +9529,7 @@
       </notes>
       <segment>
         <source>Einige gesundheitliche Askekte deines Opfers sind auf dich übergegangen ...</source>
-        <target>Einige gesundheitliche Askekte deines Opfers sind auf dich übergegangen ...</target>
+        <target>Vous avez hérité de certains traits de santé de votre victime !</target>
       </segment>
     </unit>
     <unit id="SKbA9D2" name="2a20efa">
@@ -10560,7 +10560,7 @@
     </unit>
     <unit id="CHdbLWu" name="Komm zurück zu meiner Seele">
       <notes>
-        <note category="german">Komm zurück zu meiner Seele</note>
+        <note category="german">Zurück zu meiner Seele</note>
       </notes>
       <segment>
         <source>Komm zurück zu meiner Seele</source>
@@ -11149,6 +11149,294 @@
                                                     Bei Bedarf kannst du die Auswahl auf bestimmte Berufe, Helden oder bereits gestorbene Bürger eingrenzen.</source>
         <target>Vous pouvez l'utiliser pour ajouter le nom d'un citoyen aléatoire à votre message.
                                                     Si nécessaire, vous pouvez limiter la sélection à certaines professions, héros ou citoyens déjà décédés.</target>
+      </segment>
+    </unit>
+    <unit id="EEkc8Fs" name="Anzahl der Tage, die du als Schamane gespielt hast.">
+      <notes>
+        <note category="german">Anzahl der Tage, die du als Schamane gespielt hast.</note>
+      </notes>
+      <segment>
+        <source>Anzahl der Tage, die du als Schamane gespielt hast.</source>
+        <target>Jours passés à trafiquer l'âme des morts.</target>
+      </segment>
+    </unit>
+    <unit id="BINrrr7" name="Reicher Guru">
+      <notes>
+        <note category="german">Reicher Guru</note>
+      </notes>
+      <segment>
+        <source>Reicher Guru</source>
+        <target>Riche gourou</target>
+      </segment>
+    </unit>
+    <unit id="02E6SZ7" name="1639b76">
+      <notes>
+        <note category="german">Anzahl der Bürger, die du dazu bringen konntest, bei Die Verdammten zu sterben UND dafür zu bezahlen.</note>
+      </notes>
+      <segment>
+        <source>Anzahl der Bürger, die du dazu bringen konntest, bei Die Verdammten zu sterben UND dafür zu bezahlen.</source>
+        <target>Nombre de nouveaux citoyens que vous avez convaincu de mourir ET de payer pour ça.</target>
+      </segment>
+    </unit>
+    <unit id="zrGYjJm" name="Verdammt in Saarbrücken">
+      <notes>
+        <note category="german">Verdammt in Saarbrücken</note>
+      </notes>
+      <segment>
+        <source>Verdammt in Saarbrücken</source>
+        <target>Traqueur de geeks</target>
+      </segment>
+    </unit>
+    <unit id="AcfgdpB" name="Teilnehmer beim Community-Treffen in Saarbrücken am 6. November 2011">
+      <notes>
+        <note category="german">Teilnehmer beim Community-Treffen in Saarbrücken am 6. November 2011</note>
+      </notes>
+      <segment>
+        <source>Teilnehmer beim Community-Treffen in Saarbrücken am 6. November 2011</source>
+        <target>Marque rarissime réservée aux animateurs présents au stand Motion Twin du Festival du Jeu Vidéo 2008 à Paris !</target>
+      </segment>
+    </unit>
+    <unit id="LXPchjh" name="Video Game Festival 2010">
+      <notes>
+        <note category="german">Video Game Festival 2010</note>
+      </notes>
+      <segment>
+        <source>Video Game Festival 2010</source>
+        <target>Festival du Jeu Vidéo 2010</target>
+      </segment>
+    </unit>
+    <unit id="pYfbEIR" name="Du warst beim Video Game Festival 2010 in Paris dabei: Danke!">
+      <notes>
+        <note category="german">Du warst beim Video Game Festival 2010 in Paris dabei: Danke!</note>
+      </notes>
+      <segment>
+        <source>Du warst beim Video Game Festival 2010 in Paris dabei: Danke!</source>
+        <target>Vous étiez présent(e) au Festival du Jeu Vidéo à Paris en 2010 : merci !</target>
+      </segment>
+    </unit>
+    <unit id="oIAROod" name="FJV'08 Kanonenfutter">
+      <notes>
+        <note category="german">FJV'08 Kanonenfutter</note>
+      </notes>
+      <segment>
+        <source>FJV'08 Kanonenfutter</source>
+        <target>Chair à canon du FJV'08</target>
+      </segment>
+    </unit>
+    <unit id="RGR6EuT" name="c411fe7">
+      <notes>
+        <note category="german">Der Besitzer dieses Abzeichens hat an der Schnitzeljagt beim Video Game Festival 2008 teilgenommen.</note>
+      </notes>
+      <segment>
+        <source>Der Besitzer dieses Abzeichens hat an der Schnitzeljagt beim Video Game Festival 2008 teilgenommen.</source>
+        <target>Le porteur de cette marque a participé à la grande chasse organisée au Festival du Jeu Vidéo 2008.</target>
+      </segment>
+    </unit>
+    <unit id="Qx0jopB" name="Community-Auszeichnung">
+      <notes>
+        <note category="german">Community-Auszeichnung</note>
+      </notes>
+      <segment>
+        <source>Community-Auszeichnung</source>
+        <target>Organisation du Choc</target>
+      </segment>
+    </unit>
+    <unit id="B3DWLs5" name="7de2808">
+      <notes>
+        <note category="german">Auszeichnung für außergewöhnliche Verdienste um die Community von Die Verdammten.</note>
+      </notes>
+      <segment>
+        <source>Auszeichnung für außergewöhnliche Verdienste um die Community von Die Verdammten.</source>
+        <target>Votre organisation sans faille lors du choc des héros a permis de créer un évènement dont on parlera encore longtemps !</target>
+      </segment>
+    </unit>
+    <unit id="S72AAG5" name="Clash CEO">
+      <notes>
+        <note category="german">Clash CEO</note>
+      </notes>
+      <segment>
+        <source>Clash CEO</source>
+        <target>PDG du Choc</target>
+      </segment>
+    </unit>
+    <unit id="_q_zIoZ" name="6c74b28">
+      <notes>
+        <note category="german">Für die Community-Organisatoren und Entwickler des Clash of the Titans Events. Die Gemeinschaft sagt Danke!</note>
+      </notes>
+      <segment>
+        <source>Für die Community-Organisatoren und Entwickler des Clash of the Titans Events. Die Gemeinschaft sagt Danke!</source>
+        <target>Décerné pour être l'un des organisateurs ou développeurs de la communauté dans le choc des héros. Notre communauté vous remercie !</target>
+      </segment>
+    </unit>
+    <unit id="ejbkJBk" name="Schlachtenbummler">
+      <notes>
+        <note category="german">Schlachtenbummler</note>
+      </notes>
+      <segment>
+        <source>Schlachtenbummler</source>
+        <target>Titan du Choc</target>
+      </segment>
+    </unit>
+    <unit id="kdojgNO" name="a8d189f">
+      <notes>
+        <note category="german">Diese seltene Auszeichnung haben nur jene Verdammten erhalten, die an der Schlacht der Berufe teilgenommen haben.</note>
+      </notes>
+      <segment>
+        <source>Diese seltene Auszeichnung haben nur jene Verdammten erhalten, die an der Schlacht der Berufe teilgenommen haben.</source>
+        <target>Une distinction très rare, décernée uniquement aux quelques intrépides qui ont participé au tout premier Choc des Héros.</target>
+      </segment>
+    </unit>
+    <unit id="jgy_VVR" name="Shock of heroes">
+      <notes>
+        <note category="german">Shock of heroes</note>
+      </notes>
+      <segment>
+        <source>Shock of heroes</source>
+        <target>Choc des héros</target>
+      </segment>
+    </unit>
+    <unit id="W7M12k6" name="Ehrenpreis für die Teilname am Shock of Heroes Event!">
+      <notes>
+        <note category="german">Ehrenpreis für die Teilname am Shock of Heroes Event!</note>
+      </notes>
+      <segment>
+        <source>Ehrenpreis für die Teilname am Shock of Heroes Event!</source>
+        <target>Récompense honorifique pour une participation au Choc des Héros !</target>
+      </segment>
+    </unit>
+    <unit id="3fdrfcN" name="Ultimativer Tod des SoH">
+      <notes>
+        <note category="german">Ultimativer Tod des SoH</note>
+      </notes>
+      <segment>
+        <source>Ultimativer Tod des SoH</source>
+        <target>Mort Ultime du CDH</target>
+      </segment>
+    </unit>
+    <unit id="wUWp3zG" name="f54ad37">
+      <notes>
+        <note category="german">Auszeichnung für den größten Helden, der während des Shock of Heroes Events am längsten überlebt hat. Du bist nun eine Legende der Außenwelt!</note>
+      </notes>
+      <segment>
+        <source>Auszeichnung für den größten Helden, der während des Shock of Heroes Events am längsten überlebt hat. Du bist nun eine Legende der Außenwelt!</source>
+        <target>Distinction du plus grand héros ayant survécu le plus longtemps lors du choc des héros, vous faîtes désormais parti de la légende de l'outre-monde !</target>
+      </segment>
+    </unit>
+    <unit id="74NqrNr" name="Triumphator">
+      <notes>
+        <note category="german">Triumphator</note>
+      </notes>
+      <segment>
+        <source>Triumphator</source>
+        <target>Champion du Choc des héros</target>
+      </segment>
+    </unit>
+    <unit id="Ycwc7kf" name="d8bdf81">
+      <notes>
+        <note category="german">Diese seltene Auszeichnung wurde den Einsiedlern verliehen, die mit ihrer Stadt die Schlacht der Berufe gewonnen haben. Respekt!</note>
+      </notes>
+      <segment>
+        <source>Diese seltene Auszeichnung wurde den Einsiedlern verliehen, die mit ihrer Stadt die Schlacht der Berufe gewonnen haben. Respekt!</source>
+        <target>Victoire en tant qu'Ermite lors du Choc des Héros !</target>
+      </segment>
+    </unit>
+    <unit id="2M7Hmok" name="Aufklärer - Gewinner des SoH">
+      <notes>
+        <note category="german">Aufklärer - Gewinner des SoH</note>
+      </notes>
+      <segment>
+        <source>Aufklärer - Gewinner des SoH</source>
+        <target>Fouineur gagnant du CDH</target>
+      </segment>
+    </unit>
+    <unit id="cp2pUF_" name="Sieg für die Aufklärer beim Shock of Heroes Event!">
+      <notes>
+        <note category="german">Sieg für die Aufklärer beim Shock of Heroes Event!</note>
+      </notes>
+      <segment>
+        <source>Sieg für die Aufklärer beim Shock of Heroes Event!</source>
+        <target>Victoire en tant que Fouineur lors du Choc des Héros !</target>
+      </segment>
+    </unit>
+    <unit id="z03nP6t" name="Shock of Heroes Champion">
+      <notes>
+        <note category="german">Shock of Heroes Champion</note>
+      </notes>
+      <segment>
+        <source>Shock of Heroes Champion</source>
+        <target>Champion du Choc des héros</target>
+      </segment>
+    </unit>
+    <unit id="GGz46PZ" name="Sieg für die Wächter beim Shock of Heroes Event!">
+      <notes>
+        <note category="german">Sieg für die Wächter beim Shock of Heroes Event!</note>
+      </notes>
+      <segment>
+        <source>Sieg für die Wächter beim Shock of Heroes Event!</source>
+        <target>Victoire en tant que Gardien lors du Choc des Héros !</target>
+      </segment>
+    </unit>
+    <unit id="53Rhzgi" name="Bewohner Koh-Lambdas">
+      <notes>
+        <note category="german">Bewohner Koh-Lambdas</note>
+      </notes>
+      <segment>
+        <source>Bewohner Koh-Lambdas</source>
+        <target>Citoyen Koh-Lambdais</target>
+      </segment>
+    </unit>
+    <unit id="Cj99pau" name="8bbd682">
+      <notes>
+        <note category="german">Dieser Bürger war bei der Wiedervereinigung (letzte Runde) von Koh-Lambda dabei!</note>
+      </notes>
+      <segment>
+        <source>Dieser Bürger war bei der Wiedervereinigung (letzte Runde) von Koh-Lambda dabei!</source>
+        <target>Ce citoyen était présent lors de la Réunification (dernier round) du Koh-Lambda !</target>
+      </segment>
+    </unit>
+    <unit id="1S2CbVP" name="Der Kobold hat dich erwischt">
+      <notes>
+        <note category="german">Der Kobold hat dich erwischt</note>
+      </notes>
+      <segment>
+        <source>Der Kobold hat dich erwischt</source>
+        <target>Le lutin t'a bien eu</target>
+      </segment>
+    </unit>
+    <unit id="3FbjOB1" name="Anzahl der Gegenstände, die du von deinen Freunden gestohlen hast">
+      <notes>
+        <note category="german">Anzahl der Gegenstände, die du von deinen Freunden gestohlen hast</note>
+      </notes>
+      <segment>
+        <source>Anzahl der Gegenstände, die du von deinen Freunden gestohlen hast</source>
+        <target>Nombre d'objets de vos amis que vous avez volés.</target>
+      </segment>
+    </unit>
+    <unit id="tkedsOI" name="Netter Kerl">
+      <notes>
+        <note category="german">Netter Kerl</note>
+      </notes>
+      <segment>
+        <source>Netter Kerl</source>
+        <target>Good Guy</target>
+      </segment>
+    </unit>
+    <unit id="9WkYS9d" name="e18094c">
+      <notes>
+        <note category="german">Du bist einer der am besten integrierten Spieler in Die Verdammten und verhälst dich immer fair, nicht nur aus Prinzip, sondern aus Überzeugung.</note>
+      </notes>
+      <segment>
+        <source>Du bist einer der am besten integrierten Spieler in Die Verdammten und verhälst dich immer fair, nicht nur aus Prinzip, sondern aus Überzeugung.</source>
+        <target>Vous faites partis des joueurs les plus intégres de Hordes, le fair-play, plus qu'un principe, c'est un état d'esprit.</target>
+      </segment>
+    </unit>
+    <unit id="XGrBqHH" name="0e1dfc0">
+      <notes>
+        <note category="german">%dogname%, der stinkende Köter von %citizen%, hat folgendes in die Bank gebracht: %item%</note>
+      </notes>
+      <segment>
+        <source>%dogname%, der stinkende Köter von %citizen%, hat folgendes in die Bank gebracht: %item%</source>
+        <target>%dogname%, der stinkende Köter von %citizen%, hat folgendes in die Bank gebracht: %item%</target>
       </segment>
     </unit>
   </file>

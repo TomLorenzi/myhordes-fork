@@ -18,7 +18,7 @@ parameters:
         room_spacing: 4
         lock_distance: 10
         item_fillrate: 11
-        max_distance: 10
+        max_distance: 12
         zombies:
           initial: 10
           daily: 3
@@ -66,9 +66,13 @@ parameters:
         poison:
           stack_poisoned_items: false
           transgress: false
-        attack_protection: false
+        citizen_attack:
+          ap: 4
+          injury: 0.5
+          protection: false
         carry_extra_bag: false
         meaty_bones_within_town: false
+        building_attack_damage: false
 
       features:
         camping: true
@@ -105,7 +109,9 @@ parameters:
 
       modifiers:
         watchtower_estimation_threshold: 0
-        attack_protection: true
+        citizen_attack:
+          protection: true
+
 
       features:
         camping: false
@@ -121,6 +127,11 @@ parameters:
       modifiers:
         infection_death_chance: 0.75
         wound_terror_penalty: 0.2
+        building_attack_damage: true
+        citizen_attack:
+          ap: 5
+          injury: 0.6
+
       explorable_ruins: 2
 
       times:

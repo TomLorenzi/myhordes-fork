@@ -99,7 +99,6 @@ class ExternalController extends InventoryAwareController
      */
     public function api_json($type = 'town'): Response
     {
-
         $request = Request::createFromGlobals();
         $this->request = $request;
 

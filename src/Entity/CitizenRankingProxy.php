@@ -10,7 +10,7 @@ use Doctrine\ORM\Mapping\UniqueConstraint;
 /**
  * @ORM\Entity(repositoryClass=CitizenRankingProxyRepository::class)
  * @Table(uniqueConstraints={
- *     @UniqueConstraint(name="citizen_ranking_proxy_id_unique",columns={"base_id"})
+ *     @UniqueConstraint(name="citizen_ranking_proxy_id_unique",columns={"base_id", "import_id"})
  * })
  */
 class CitizenRankingProxy
@@ -49,7 +49,7 @@ class CitizenRankingProxy
     private $cod;
 
     /**
-     * @ORM\Column(type="datetime")
+     * @ORM\Column(type="datetime", nullable=true)
      */
     private $begin;
 
@@ -83,6 +83,11 @@ class CitizenRankingProxy
      * @ORM\Column(type="boolean")
      */
     private $confirmed;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $importID = 0;
 
     public function getId(): ?int
     {
@@ -255,6 +260,18 @@ class CitizenRankingProxy
     public function setConfirmed(bool $confirmed): self
     {
         $this->confirmed = $confirmed;
+
+        return $this;
+    }
+
+    public function getImportID(): ?int
+    {
+        return $this->importID;
+    }
+
+    public function setImportID(int $importID): self
+    {
+        $this->importID = $importID;
 
         return $this;
     }

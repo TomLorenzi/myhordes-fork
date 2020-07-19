@@ -3316,7 +3316,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>%citizen% hat aus der Leiche von %disposed% eine leckere Mahlzeit gegrillt. Die Stadt hat %items% erhalten.</source>
-        <target>%citizen% hat aus der Leiche von %disposed% eine leckere Mahlzeit gegrillt. Die Stadt hat %items% erhalten.</target>
+        <target>%citizen% decided to take %disposed% to the cremato-cue. They have been turned into %items% for the town...</target>
       </segment>
     </unit>
     <unit id="d3G_QIz" name="%citizen% hat die Leiche von %disposed% vernichtet.">
@@ -5282,15 +5282,6 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
         <target>The body liquified into a sickeningly vile puddle. Your shoes got the worst of it, that's for sure...</target>
       </segment>
     </unit>
-    <unit id="rJRa84E" name="4a1e54c">
-      <notes>
-        <note category="german">Sie brachten die Leiche von %disposed% zum Kremato-Cue. Man bekommt vier Rationen davon...  Aber zu welchem Preis?</note>
-      </notes>
-      <segment>
-        <source>Sie brachten die Leiche von %disposed% zum Kremato-Cue. Man bekommt vier Rationen davon...  Aber zu welchem Preis?</source>
-        <target>Sie brachten die Leiche von %disposed% zum Kremato-Cue. Man bekommt vier Rationen davon...  Aber zu welchem Preis?</target>
-      </segment>
-    </unit>
     <unit id="zpZa.52" name="Ein nicht freigeschaufeltes Gebäude.">
       <notes>
         <note category="german">Ein nicht freigeschaufeltes Gebäude.</note>
@@ -6562,11 +6553,11 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     </unit>
     <unit id="jt.ezbv" name="7d0bc2b">
       <notes>
-        <note category="german">Dies ist eine äußert seltene Auszeichnung, die den ersten Spielern von 'MyHordes' vorbehalten ist.</note>
+        <note category="german">Dies ist eine äußert seltene Auszeichnung, die den ersten Spielern von 'Die Verdammten' vorbehalten ist.</note>
       </notes>
       <segment>
         <source>Dies ist eine äußert seltene Auszeichnung, die den ersten Spielern von 'MyHordes' vorbehalten ist.</source>
-        <target>An extremely rare distinction, awarded only to the very earliest citizens of 'MyHordes'.</target>
+        <target>An extremely rare distinction, awarded only to the very earliest citizens of 'Die2Nite'.</target>
       </segment>
     </unit>
     <unit id="eAodZt." name="Sandbälle! Yeah!">
@@ -7430,7 +7421,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Sie brachten die Leiche von %disposed% zum Kremato-Cue. Man bekommt %ration% Rationen davon...  Aber zu welchem Preis?</source>
-        <target>Sie brachten die Leiche von %disposed% zum Kremato-Cue. Man bekommt %ration% Rationen davon...  Aber zu welchem Preis?</target>
+        <target>You have brought %disposed%'s corpse to the cremato-cue. You manage to get %ration% rations out of it... but at what price ?</target>
       </segment>
     </unit>
     <unit id="I8m37R7" name="In diesem Thread dreht sich alles um die geplanten Verbesserungen des Tages.">
@@ -10435,7 +10426,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     </unit>
     <unit id="CHdbLWu" name="Komm zurück zu meiner Seele">
       <notes>
-        <note category="german">Komm zurück zu meiner Seele</note>
+        <note category="german">Zurück zu meiner Seele</note>
       </notes>
       <segment>
         <source>Komm zurück zu meiner Seele</source>
@@ -11054,6 +11045,294 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       <segment>
         <source>Es ist Zeit, sich seinen Mitmenschen in der Hölle anschließen!</source>
         <target>Es ist Zeit, sich seinen Mitmenschen in der Hölle anschließen!</target>
+      </segment>
+    </unit>
+    <unit id="EEkc8Fs" name="Anzahl der Tage, die du als Schamane gespielt hast.">
+      <notes>
+        <note category="german">Anzahl der Tage, die du als Schamane gespielt hast.</note>
+      </notes>
+      <segment>
+        <source>Anzahl der Tage, die du als Schamane gespielt hast.</source>
+        <target>Days spent trafficking the souls of the dead.</target>
+      </segment>
+    </unit>
+    <unit id="BINrrr7" name="Reicher Guru">
+      <notes>
+        <note category="german">Reicher Guru</note>
+      </notes>
+      <segment>
+        <source>Reicher Guru</source>
+        <target>Golden Child</target>
+      </segment>
+    </unit>
+    <unit id="02E6SZ7" name="1639b76">
+      <notes>
+        <note category="german">Anzahl der Bürger, die du dazu bringen konntest, bei Die Verdammten zu sterben UND dafür zu bezahlen.</note>
+      </notes>
+      <segment>
+        <source>Anzahl der Bürger, die du dazu bringen konntest, bei Die Verdammten zu sterben UND dafür zu bezahlen.</source>
+        <target>The number of new citizens you have convinced to come to die2nite.com AND to pay for the privilege.</target>
+      </segment>
+    </unit>
+    <unit id="zrGYjJm" name="Verdammt in Saarbrücken">
+      <notes>
+        <note category="german">Verdammt in Saarbrücken</note>
+      </notes>
+      <segment>
+        <source>Verdammt in Saarbrücken</source>
+        <target>Geeks tracker</target>
+      </segment>
+    </unit>
+    <unit id="AcfgdpB" name="Teilnehmer beim Community-Treffen in Saarbrücken am 6. November 2011">
+      <notes>
+        <note category="german">Teilnehmer beim Community-Treffen in Saarbrücken am 6. November 2011</note>
+      </notes>
+      <segment>
+        <source>Teilnehmer beim Community-Treffen in Saarbrücken am 6. November 2011</source>
+        <target>Extremely rare brand reserved for animators present at the Motion Twin stand of the 2008 Video Game Festival in Paris !</target>
+      </segment>
+    </unit>
+    <unit id="LXPchjh" name="Video Game Festival 2010">
+      <notes>
+        <note category="german">Video Game Festival 2010</note>
+      </notes>
+      <segment>
+        <source>Video Game Festival 2010</source>
+        <target>Video Game Festival 2010</target>
+      </segment>
+    </unit>
+    <unit id="pYfbEIR" name="Du warst beim Video Game Festival 2010 in Paris dabei: Danke!">
+      <notes>
+        <note category="german">Du warst beim Video Game Festival 2010 in Paris dabei: Danke!</note>
+      </notes>
+      <segment>
+        <source>Du warst beim Video Game Festival 2010 in Paris dabei: Danke!</source>
+        <target>You were present at the Video Game Festival in Paris in 2010 : thank you !</target>
+      </segment>
+    </unit>
+    <unit id="oIAROod" name="FJV'08 Kanonenfutter">
+      <notes>
+        <note category="german">FJV'08 Kanonenfutter</note>
+      </notes>
+      <segment>
+        <source>FJV'08 Kanonenfutter</source>
+        <target>FJV'08 cannon fodder</target>
+      </segment>
+    </unit>
+    <unit id="RGR6EuT" name="c411fe7">
+      <notes>
+        <note category="german">Der Besitzer dieses Abzeichens hat an der Schnitzeljagt beim Video Game Festival 2008 teilgenommen.</note>
+      </notes>
+      <segment>
+        <source>Der Besitzer dieses Abzeichens hat an der Schnitzeljagt beim Video Game Festival 2008 teilgenommen.</source>
+        <target>The bearer of this brand participated in the big hunt organized at the 2008 Video Game Festival.</target>
+      </segment>
+    </unit>
+    <unit id="Qx0jopB" name="Community-Auszeichnung">
+      <notes>
+        <note category="german">Community-Auszeichnung</note>
+      </notes>
+      <segment>
+        <source>Community-Auszeichnung</source>
+        <target>Clash Team</target>
+      </segment>
+    </unit>
+    <unit id="B3DWLs5" name="7de2808">
+      <notes>
+        <note category="german">Auszeichnung für außergewöhnliche Verdienste um die Community von Die Verdammten.</note>
+      </notes>
+      <segment>
+        <source>Auszeichnung für außergewöhnliche Verdienste um die Community von Die Verdammten.</source>
+        <target>Awarded for being part of the event team in the Clash of the Titans. Reporters, Video Makers, Town Leaders, we salute you.</target>
+      </segment>
+    </unit>
+    <unit id="S72AAG5" name="Clash CEO">
+      <notes>
+        <note category="german">Clash CEO</note>
+      </notes>
+      <segment>
+        <source>Clash CEO</source>
+        <target>Clash CEO</target>
+      </segment>
+    </unit>
+    <unit id="_q_zIoZ" name="6c74b28">
+      <notes>
+        <note category="german">Für die Community-Organisatoren und Entwickler des Clash of the Titans Events. Die Gemeinschaft sagt Danke!</note>
+      </notes>
+      <segment>
+        <source>Für die Community-Organisatoren und Entwickler des Clash of the Titans Events. Die Gemeinschaft sagt Danke!</source>
+        <target>Awarded for being one of the community organizers or developers in the Clash of the Titans. Our community thanks you !</target>
+      </segment>
+    </unit>
+    <unit id="ejbkJBk" name="Schlachtenbummler">
+      <notes>
+        <note category="german">Schlachtenbummler</note>
+      </notes>
+      <segment>
+        <source>Schlachtenbummler</source>
+        <target>Clash Titan</target>
+      </segment>
+    </unit>
+    <unit id="kdojgNO" name="a8d189f">
+      <notes>
+        <note category="german">Diese seltene Auszeichnung haben nur jene Verdammten erhalten, die an der Schlacht der Berufe teilgenommen haben.</note>
+      </notes>
+      <segment>
+        <source>Diese seltene Auszeichnung haben nur jene Verdammten erhalten, die an der Schlacht der Berufe teilgenommen haben.</source>
+        <target>Une distinction très rare, décernée uniquement aux quelques intrépides qui ont participé au tout premier Clash of the Titans.</target>
+      </segment>
+    </unit>
+    <unit id="jgy_VVR" name="Shock of heroes">
+      <notes>
+        <note category="german">Shock of heroes</note>
+      </notes>
+      <segment>
+        <source>Shock of heroes</source>
+        <target>Shock of heroes</target>
+      </segment>
+    </unit>
+    <unit id="W7M12k6" name="Ehrenpreis für die Teilname am Shock of Heroes Event!">
+      <notes>
+        <note category="german">Ehrenpreis für die Teilname am Shock of Heroes Event!</note>
+      </notes>
+      <segment>
+        <source>Ehrenpreis für die Teilname am Shock of Heroes Event!</source>
+        <target>Honorary reward for participating in the Shock of heroes !</target>
+      </segment>
+    </unit>
+    <unit id="3fdrfcN" name="Ultimativer Tod des SoH">
+      <notes>
+        <note category="german">Ultimativer Tod des SoH</note>
+      </notes>
+      <segment>
+        <source>Ultimativer Tod des SoH</source>
+        <target>Clash Colossus</target>
+      </segment>
+    </unit>
+    <unit id="wUWp3zG" name="f54ad37">
+      <notes>
+        <note category="german">Auszeichnung für den größten Helden, der während des Shock of Heroes Events am längsten überlebt hat. Du bist nun eine Legende der Außenwelt!</note>
+      </notes>
+      <segment>
+        <source>Auszeichnung für den größten Helden, der während des Shock of Heroes Events am längsten überlebt hat. Du bist nun eine Legende der Außenwelt!</source>
+        <target>Distinction of the greatest hero having survived the longest during the Shock of heroes, you are now part of the legend of the World Beyond !</target>
+      </segment>
+    </unit>
+    <unit id="74NqrNr" name="Triumphator">
+      <notes>
+        <note category="german">Triumphator</note>
+      </notes>
+      <segment>
+        <source>Triumphator</source>
+        <target>Clash Champion</target>
+      </segment>
+    </unit>
+    <unit id="Ycwc7kf" name="d8bdf81">
+      <notes>
+        <note category="german">Diese seltene Auszeichnung wurde den Einsiedlern verliehen, die mit ihrer Stadt die Schlacht der Berufe gewonnen haben. Respekt!</note>
+      </notes>
+      <segment>
+        <source>Diese seltene Auszeichnung wurde den Einsiedlern verliehen, die mit ihrer Stadt die Schlacht der Berufe gewonnen haben. Respekt!</source>
+        <target>Gewinner des Clash Of The Titans: Survivalist</target>
+      </segment>
+    </unit>
+    <unit id="2M7Hmok" name="Aufklärer - Gewinner des SoH">
+      <notes>
+        <note category="german">Aufklärer - Gewinner des SoH</note>
+      </notes>
+      <segment>
+        <source>Aufklärer - Gewinner des SoH</source>
+        <target>Scavenger winner of the SoH</target>
+      </segment>
+    </unit>
+    <unit id="cp2pUF_" name="Sieg für die Aufklärer beim Shock of Heroes Event!">
+      <notes>
+        <note category="german">Sieg für die Aufklärer beim Shock of Heroes Event!</note>
+      </notes>
+      <segment>
+        <source>Sieg für die Aufklärer beim Shock of Heroes Event!</source>
+        <target>Victory as a Scavenger during the Shock of Heroes !</target>
+      </segment>
+    </unit>
+    <unit id="z03nP6t" name="Shock of Heroes Champion">
+      <notes>
+        <note category="german">Shock of Heroes Champion</note>
+      </notes>
+      <segment>
+        <source>Shock of Heroes Champion</source>
+        <target>Shock of Heroes Champion</target>
+      </segment>
+    </unit>
+    <unit id="GGz46PZ" name="Sieg für die Wächter beim Shock of Heroes Event!">
+      <notes>
+        <note category="german">Sieg für die Wächter beim Shock of Heroes Event!</note>
+      </notes>
+      <segment>
+        <source>Sieg für die Wächter beim Shock of Heroes Event!</source>
+        <target>Victory as a Guardian during the Shock of heroes !</target>
+      </segment>
+    </unit>
+    <unit id="53Rhzgi" name="Bewohner Koh-Lambdas">
+      <notes>
+        <note category="german">Bewohner Koh-Lambdas</note>
+      </notes>
+      <segment>
+        <source>Bewohner Koh-Lambdas</source>
+        <target>Citizen Koh-Lambdais</target>
+      </segment>
+    </unit>
+    <unit id="Cj99pau" name="8bbd682">
+      <notes>
+        <note category="german">Dieser Bürger war bei der Wiedervereinigung (letzte Runde) von Koh-Lambda dabei!</note>
+      </notes>
+      <segment>
+        <source>Dieser Bürger war bei der Wiedervereinigung (letzte Runde) von Koh-Lambda dabei!</source>
+        <target>This citizen was present during the Reunification (last round) of Koh-Lambda !</target>
+      </segment>
+    </unit>
+    <unit id="1S2CbVP" name="Der Kobold hat dich erwischt">
+      <notes>
+        <note category="german">Der Kobold hat dich erwischt</note>
+      </notes>
+      <segment>
+        <source>Der Kobold hat dich erwischt</source>
+        <target>The leprechaun got you good</target>
+      </segment>
+    </unit>
+    <unit id="3FbjOB1" name="Anzahl der Gegenstände, die du von deinen Freunden gestohlen hast">
+      <notes>
+        <note category="german">Anzahl der Gegenstände, die du von deinen Freunden gestohlen hast</note>
+      </notes>
+      <segment>
+        <source>Anzahl der Gegenstände, die du von deinen Freunden gestohlen hast</source>
+        <target>Number of your friends' items you have stolen.</target>
+      </segment>
+    </unit>
+    <unit id="tkedsOI" name="Netter Kerl">
+      <notes>
+        <note category="german">Netter Kerl</note>
+      </notes>
+      <segment>
+        <source>Netter Kerl</source>
+        <target>Good Guy</target>
+      </segment>
+    </unit>
+    <unit id="9WkYS9d" name="e18094c">
+      <notes>
+        <note category="german">Du bist einer der am besten integrierten Spieler in Die Verdammten und verhälst dich immer fair, nicht nur aus Prinzip, sondern aus Überzeugung.</note>
+      </notes>
+      <segment>
+        <source>Du bist einer der am besten integrierten Spieler in Die Verdammten und verhälst dich immer fair, nicht nur aus Prinzip, sondern aus Überzeugung.</source>
+        <target>You are one of the most integrated players in Die2Nite, fair play, more than a principle, it is a state of mind.</target>
+      </segment>
+    </unit>
+    <unit id="XGrBqHH" name="0e1dfc0">
+      <notes>
+        <note category="german">%dogname%, der stinkende Köter von %citizen%, hat folgendes in die Bank gebracht: %item%</note>
+      </notes>
+      <segment>
+        <source>%dogname%, der stinkende Köter von %citizen%, hat folgendes in die Bank gebracht: %item%</source>
+        <target>%dogname%, der stinkende Köter von %citizen%, hat folgendes in die Bank gebracht: %item%</target>
       </segment>
     </unit>
   </file>

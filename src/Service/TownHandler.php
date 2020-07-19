@@ -391,15 +391,11 @@ class TownHandler
         $est = $this->entity_manager->getRepository(ZombieEstimation::class)->findOneByTown($town,$town->getDay()+$future);
         if (!$est) return 0;
 
-        $has_scope = false;
-        if($this->inventory_handler->countSpecificItems($town->getBank(), 'scope_#00') > 0)
-            $has_scope = true;
-
         $offsetMin = $est->getOffsetMin();
         $offsetMax = $est->getOffsetMax();
 
-        $min = round($est->getZombies() - ($est->getZombies() * $offsetMin / 100) / ($has_scope+1)*1);
-        $max = round($est->getZombies() + ($est->getZombies() * $offsetMax / 100) / ($has_scope+1)*1);
+        $min = round($est->getZombies() - ($est->getZombies() * $offsetMin / 100));
+        $max = round($est->getZombies() + ($est->getZombies() * $offsetMax / 100));
 
         $soulFactor = 1;
 
@@ -413,7 +409,7 @@ class TownHandler
         $min = round($min * $soulFactor, 0);
         $max = round($max * $soulFactor, 0);
 
-        return min((1 - (($offsetMin + $offsetMax) - 10) / 24) * ($has_scope+1)*1, 1);
+        return min((1 - (($offsetMin + $offsetMax) - 10) / 24), 1);
     }
 
     public function calculate_zombie_attacks(Town &$town, int $future = 2) {

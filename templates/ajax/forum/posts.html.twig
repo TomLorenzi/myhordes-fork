@@ -140,7 +140,9 @@
                         {% if not locked %}
                             [ <a class="action-button" id="quote_post" x-forum-action="quote-post" x-post-id={{ post.id }} >{{ 'Zitieren'|trans({},'global') }}</a> ]
                         {% endif %}
-                        [ <a class="action-button" id="report_post" x-forum-action="report-post" x-post-id={{ post.id }} x-to-page={{ current_page }}>{{ 'Melden'|trans({},'global') }}</a> ]
+                        {% if not post.translate %}
+                            [ <a class="action-button" id="report_post" x-forum-action="report-post" x-post-id={{ post.id }} x-to-page={{ current_page }}><img alt="!" src="{{ asset('build/images/forum/warning.png') }}"><div class="tooltip forum-tooltip">{{'Unangemessene Nachricht blockieren'|trans({}, 'global')}}</div></a> ]
+                        {% endif %}
                         <div class="small hidden" id="link-post-{{ post.id }}">
                             <div class="float-left"><i>{{ 'Permanenter Link zu diesem Post:'|trans({},'global') }}</i></div>
                             <div class="float-right">{{ url('forum_jump_view', {pid: post.id}) }}</div>
@@ -173,7 +175,8 @@
         });
 
         $.html.addEventListenerAll('[x-forum-action="report-post"]', 'click', function(e,elem) {
-            $.ajax.easySend( '{{ url('forum_report_post_controller', { 'fid': fid, 'tid': tid}) }}', {postId: parseInt( elem.getAttribute('x-post-id')), page: parseInt( elem.getAttribute('x-to-page')) }, reloadPage );
+            if (confirm('{{ 'Bist du sicher, dass du diesen Post an die Moderatoren melden willst?'|trans({},'global')|e('js') }}'))
+                $.ajax.easySend( '{{ url('forum_report_post_controller', { 'fid': fid, 'tid': tid}) }}', {postId: parseInt( elem.getAttribute('x-post-id')), page: parseInt( elem.getAttribute('x-to-page')) }, reloadPage );
         });
 
         $.html.addEventListenerAll('[x-forum-action="quote-post"]', 'click', function(e,elem) {

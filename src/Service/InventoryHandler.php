@@ -80,8 +80,11 @@ class InventoryHandler
             return $base;
         }
 
-
         return 0;
+    }
+
+    public function getFreeSize( Inventory $inv ): int {
+        return ($max = $this->getSize($inv)) > 0 ? ($max - count($inv->getItems())) : PHP_INT_MAX;
     }
 
     public function findStackPrototype( Inventory $inv, Item $item ): ?Item {

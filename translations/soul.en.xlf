@@ -700,5 +700,980 @@
         <target>Haus besuchen</target>
       </segment>
     </unit>
+<<<<<<< HEAD
+=======
+    <unit id="q4I8gVL" name="Eine neue Seele importieren">
+      <notes>
+        <note category="german">Eine neue Seele importieren</note>
+      </notes>
+      <segment>
+        <source>Eine neue Seele importieren</source>
+        <target>Eine neue Seele importieren</target>
+      </segment>
+    </unit>
+    <unit id="Oh71xYO" name="Twinoid Application ID">
+      <notes>
+        <note category="german">Twinoid Application ID</note>
+      </notes>
+      <segment>
+        <source>Twinoid Application ID</source>
+        <target>Twinoid Application ID</target>
+      </segment>
+    </unit>
+    <unit id="GT7Cwam" name="Twinoid Secret Key">
+      <notes>
+        <note category="german">Twinoid Secret Key</note>
+      </notes>
+      <segment>
+        <source>Twinoid Secret Key</source>
+        <target>Twinoid Secret Key</target>
+      </segment>
+    </unit>
+    <unit id="SWMx7X8" name="Seele auswählen">
+      <notes>
+        <note category="german">Seele auswählen</note>
+      </notes>
+      <segment>
+        <source>Seele auswählen</source>
+        <target>Seele auswählen</target>
+      </segment>
+    </unit>
+    <unit id="KVqdEan" name="Import starten">
+      <notes>
+        <note category="german">Import starten</note>
+      </notes>
+      <segment>
+        <source>Import starten</source>
+        <target>Import starten</target>
+      </segment>
+    </unit>
+    <unit id="WeNNcNG" name="Deine importierten Seelen">
+      <notes>
+        <note category="german">Deine importierten Seelen</note>
+      </notes>
+      <segment>
+        <source>Deine importierten Seelen</source>
+        <target>Deine importierten Seelen</target>
+      </segment>
+    </unit>
+    <unit id="aTN.bek" name="Vorschau">
+      <notes>
+        <note category="german">Vorschau</note>
+      </notes>
+      <segment>
+        <source>Vorschau</source>
+        <target>Vorschau</target>
+      </segment>
+    </unit>
+    <unit id="pGqYh1Z" name="Hurra, wir haben dein Profil heruntergeladen!">
+      <notes>
+        <note category="german">Hurra, wir haben dein Profil heruntergeladen!</note>
+      </notes>
+      <segment>
+        <source>Hurra, wir haben dein Profil heruntergeladen!</source>
+        <target>Hurra, wir haben dein Profil heruntergeladen!</target>
+      </segment>
+    </unit>
+    <unit id="j_qDUZ2" name="39b14b5">
+      <notes>
+        <note category="german">Bitte prüfe die unten angegebenen Daten und bestätige den Import, wenn alles OK ist.</note>
+      </notes>
+      <segment>
+        <source>Bitte prüfe die unten angegebenen Daten und bestätige den Import, wenn alles OK ist.</source>
+        <target>Bitte prüfe die unten angegebenen Daten und bestätige den Import, wenn alles OK ist.</target>
+      </segment>
+    </unit>
+    <unit id="HwA4Kx3" name="Twinoid-Profil">
+      <notes>
+        <note category="german">Twinoid-Profil</note>
+      </notes>
+      <segment>
+        <source>Twinoid-Profil</source>
+        <target>Twinoid-Profil</target>
+      </segment>
+    </unit>
+    <unit id="22.0Wcj" name="Profil ansehen">
+      <notes>
+        <note category="german">Profil ansehen</note>
+      </notes>
+      <segment>
+        <source>Profil ansehen</source>
+        <target>Profil ansehen</target>
+      </segment>
+    </unit>
+    <unit id="heTnD9H" name="Seelen-ID">
+      <notes>
+        <note category="german">Seelen-ID</note>
+      </notes>
+      <segment>
+        <source>Seelen-ID</source>
+        <target>Seelen-ID</target>
+      </segment>
+    </unit>
+    <unit id="fmZlI_I" name="Saison">
+      <notes>
+        <note category="german">Saison</note>
+      </notes>
+      <segment>
+        <source>Saison</source>
+        <target>Saison</target>
+      </segment>
+    </unit>
+    <unit id="FQORaiq" name="Tag">
+      <notes>
+        <note category="german">Tag</note>
+      </notes>
+      <segment>
+        <source>Tag</source>
+        <target>Tag</target>
+      </segment>
+    </unit>
+    <unit id="Bfb7kn4" name="Stadtname">
+      <notes>
+        <note category="german">Stadtname</note>
+      </notes>
+      <segment>
+        <source>Stadtname</source>
+        <target>Stadtname</target>
+      </segment>
+    </unit>
+    <unit id="H9ZffoW" name="Nachrichten">
+      <notes>
+        <note category="german">Nachrichten</note>
+      </notes>
+      <segment>
+        <source>Nachrichten</source>
+        <target>Nachrichten</target>
+      </segment>
+    </unit>
+    <unit id="hn7LsRJ" name="Punkte">
+      <notes>
+        <note category="german">Punkte</note>
+      </notes>
+      <segment>
+        <source>Punkte</source>
+        <target>Punkte</target>
+      </segment>
+    </unit>
+    <unit id="bRng7VP" name="%d% überlebt">
+      <notes>
+        <note category="german">%d% überlebt</note>
+      </notes>
+      <segment>
+        <source>%d% überlebt</source>
+        <target>%d% überlebt</target>
+      </segment>
+    </unit>
+    <unit id="rD2ZHAN" name="Letzte Worte">
+      <notes>
+        <note category="german">Letzte Worte</note>
+      </notes>
+      <segment>
+        <source>Letzte Worte</source>
+        <target>Letzte Worte</target>
+      </segment>
+    </unit>
+    <unit id="N5nG16_" name="Import bestätigen">
+      <notes>
+        <note category="german">Import bestätigen</note>
+      </notes>
+      <segment>
+        <source>Import bestätigen</source>
+        <target>Import bestätigen</target>
+      </segment>
+    </unit>
+    <unit id="Asz_NPm" name="Hast du ein Seele bei %hordes%, %dv%, %d2n% oder %zn%?">
+      <notes>
+        <note category="german">Hast du ein Seele bei %hordes%, %dv%, %d2n% oder %zn%?</note>
+      </notes>
+      <segment>
+        <source>Hast du ein Seele bei %hordes%, %dv%, %d2n% oder %zn%?</source>
+        <target>Hast du ein Seele bei %hordes%, %dv%, %d2n% oder %zn%?</target>
+      </segment>
+    </unit>
+    <unit id="VVu6KAH" name="Seele importieren">
+      <notes>
+        <note category="german">Seele importieren</note>
+      </notes>
+      <segment>
+        <source>Seele importieren</source>
+        <target>Seele importieren</target>
+      </segment>
+    </unit>
+    <unit id="CezJVcA" name="Dein Profil konnte nicht geladen werden, da Twinoid die Anfrage abgelehnt hat.">
+      <notes>
+        <note category="german">Dein Profil konnte nicht geladen werden, da Twinoid die Anfrage abgelehnt hat.</note>
+      </notes>
+      <segment>
+        <source>Dein Profil konnte nicht geladen werden, da Twinoid die Anfrage abgelehnt hat.</source>
+        <target>Dein Profil konnte nicht geladen werden, da Twinoid die Anfrage abgelehnt hat.</target>
+      </segment>
+    </unit>
+    <unit id="q3h_whw" name="1260b6c">
+      <notes>
+        <note category="german">Dein Profil konnte nicht geladen werden, da die Datenverarbeitung fehlgeschlagen ist.</note>
+      </notes>
+      <segment>
+        <source>Dein Profil konnte nicht geladen werden, da die Datenverarbeitung fehlgeschlagen ist.</source>
+        <target>Dein Profil konnte nicht geladen werden, da die Datenverarbeitung fehlgeschlagen ist.</target>
+      </segment>
+    </unit>
+    <unit id="oF2e3r3" name="3bce6e7">
+      <notes>
+        <note category="german">Das angegebene Profil kann nicht importiert werden, da es bereits einem anderen MyHordes-Spieler zugeordnet ist.</note>
+      </notes>
+      <segment>
+        <source>Das angegebene Profil kann nicht importiert werden, da es bereits einem anderen MyHordes-Spieler zugeordnet ist.</source>
+        <target>Das angegebene Profil kann nicht importiert werden, da es bereits einem anderen MyHordes-Spieler zugeordnet ist.</target>
+      </segment>
+    </unit>
+    <unit id="VYR1ULC" name="5cf3dce">
+      <notes>
+        <note category="german">Das angegebene Profil kann nicht importiert werden, da es einem fremden Twinoid-Konto zugeordnet ist.</note>
+      </notes>
+      <segment>
+        <source>Das angegebene Profil kann nicht importiert werden, da es einem fremden Twinoid-Konto zugeordnet ist.</source>
+        <target>Das angegebene Profil kann nicht importiert werden, da es einem fremden Twinoid-Konto zugeordnet ist.</target>
+      </segment>
+    </unit>
+    <unit id="D24hLqy" name="Informationen über dein Twinoid-Konto">
+      <notes>
+        <note category="german">Informationen über dein Twinoid-Konto</note>
+      </notes>
+      <segment>
+        <source>Informationen über dein Twinoid-Konto</source>
+        <target>Informationen über dein Twinoid-Konto</target>
+      </segment>
+    </unit>
+    <unit id="1tzbb8." name="3d4c753">
+      <notes>
+        <note category="german">Bitte stelle sicher, dass du das korrekte Twinoid-Konto mit deinem MyHordes-Account verbindest.</note>
+      </notes>
+      <segment>
+        <source>Bitte stelle sicher, dass du das korrekte Twinoid-Konto mit deinem MyHordes-Account verbindest.</source>
+        <target>Bitte stelle sicher, dass du das korrekte Twinoid-Konto mit deinem MyHordes-Account verbindest.</target>
+      </segment>
+    </unit>
+    <unit id="nVicoPO" name="Zusammenfassung">
+      <notes>
+        <note category="german">Zusammenfassung</note>
+      </notes>
+      <segment>
+        <source>Zusammenfassung</source>
+        <target>Zusammenfassung</target>
+      </segment>
+    </unit>
+    <unit id="iDRsxF8" name="%c% Städte">
+      <notes>
+        <note category="german">%c% Städte</note>
+      </notes>
+      <segment>
+        <source>%c% Städte</source>
+        <target>%c% Städte</target>
+      </segment>
+    </unit>
+    <unit id="URb5dXE" name="zwischen Saison %smin% und %smax%">
+      <notes>
+        <note category="german">zwischen Saison %smin% und %smax%</note>
+      </notes>
+      <segment>
+        <source>zwischen Saison %smin% und %smax%</source>
+        <target>zwischen Saison %smin% und %smax%</target>
+      </segment>
+    </unit>
+    <unit id="tZke4d7" name="%num% Städte zw. Saison %smin% und %smax%">
+      <notes>
+        <note category="german">%num% Städte zw. Saison %smin% und %smax%</note>
+      </notes>
+      <segment>
+        <source>%num% Städte zw. Saison %smin% und %smax%</source>
+        <target>%num% Städte zw. Saison %smin% und %smax%</target>
+      </segment>
+    </unit>
+    <unit id=".j1I3aE" name="aus vergangener Zeit">
+      <notes>
+        <note category="german">aus vergangener Zeit</note>
+      </notes>
+      <segment>
+        <source>aus vergangener Zeit</source>
+        <target>aus vergangener Zeit</target>
+      </segment>
+    </unit>
+    <unit id="uHHqmXL" name="%num% Städte aus vergangener Zeit">
+      <notes>
+        <note category="german">%num% Städte aus vergangener Zeit</note>
+      </notes>
+      <segment>
+        <source>%num% Städte aus vergangener Zeit</source>
+        <target>%num% Städte aus vergangener Zeit</target>
+      </segment>
+    </unit>
+    <unit id="vGn3Jql" name="Keine Städte">
+      <notes>
+        <note category="german">Keine Städte</note>
+      </notes>
+      <segment>
+        <source>Keine Städte</source>
+        <target>Keine Städte</target>
+      </segment>
+    </unit>
+    <unit id="3Nam8Wg" name="%c% Titel &amp; Icons">
+      <notes>
+        <note category="german">%c% Titel &amp; Icons</note>
+      </notes>
+      <segment>
+        <source>%c% Titel &amp; Icons</source>
+        <target><![CDATA[%c% Titel & Icons]]></target>
+      </segment>
+    </unit>
+    <unit id="VDr4lbM" name="%c% Titel, %cc% Icons">
+      <notes>
+        <note category="german">%c% Titel, %cc% Icons</note>
+      </notes>
+      <segment>
+        <source>%c% Titel, %cc% Icons</source>
+        <target>%c% Titel, %cc% Icons</target>
+      </segment>
+    </unit>
+    <unit id="xhN5lts" name="%num% unbekannte Objekte!">
+      <notes>
+        <note category="german">%num% unbekannte Objekte!</note>
+      </notes>
+      <segment>
+        <source>%num% unbekannte Objekte!</source>
+        <target>%num% unbekannte Objekte!</target>
+      </segment>
+    </unit>
+    <unit id="tJ5C7kL" name="Keine Freischaltungen">
+      <notes>
+        <note category="german">Keine Freischaltungen</note>
+      </notes>
+      <segment>
+        <source>Keine Freischaltungen</source>
+        <target>Keine Freischaltungen</target>
+      </segment>
+    </unit>
+    <unit id="DW8tL5I" name="%c% Seelenpunkte">
+      <notes>
+        <note category="german">%c% Seelenpunkte</note>
+      </notes>
+      <segment>
+        <source>%c% Seelenpunkte</source>
+        <target>%c% Seelenpunkte</target>
+      </segment>
+    </unit>
+    <unit id="_GxcfFk" name="%c% Auszeichnungen">
+      <notes>
+        <note category="german">%c% Auszeichnungen</note>
+      </notes>
+      <segment>
+        <source>%c% Auszeichnungen</source>
+        <target>%c% Auszeichnungen</target>
+      </segment>
+    </unit>
+    <unit id="v2GNzO7" name="%c% Auszeichnungs-Typen, %cc% davon selten">
+      <notes>
+        <note category="german">%c% Auszeichnungs-Typen, %cc% davon selten</note>
+      </notes>
+      <segment>
+        <source>%c% Auszeichnungs-Typen, %cc% davon selten</source>
+        <target>%c% Auszeichnungs-Typen, %cc% davon selten</target>
+      </segment>
+    </unit>
+    <unit id="2lB01ka" name="%c% Auszeichnungs-Typen">
+      <notes>
+        <note category="german">%c% Auszeichnungs-Typen</note>
+      </notes>
+      <segment>
+        <source>%c% Auszeichnungs-Typen</source>
+        <target>%c% Auszeichnungs-Typen</target>
+      </segment>
+    </unit>
+    <unit id="mgoVWcN" name="%num% unbekannte Auszeichnungen!">
+      <notes>
+        <note category="german">%num% unbekannte Auszeichnungen!</note>
+      </notes>
+      <segment>
+        <source>%num% unbekannte Auszeichnungen!</source>
+        <target>%num% unbekannte Auszeichnungen!</target>
+      </segment>
+    </unit>
+    <unit id="304pJcq" name="Keine Auszeichnungen">
+      <notes>
+        <note category="german">Keine Auszeichnungen</note>
+      </notes>
+      <segment>
+        <source>Keine Auszeichnungen</source>
+        <target>Keine Auszeichnungen</target>
+      </segment>
+    </unit>
+    <unit id="8p1rMBE" name="%c% Tage als Held">
+      <notes>
+        <note category="german">%c% Tage als Held</note>
+      </notes>
+      <segment>
+        <source>%c% Tage als Held</source>
+        <target>%c% Tage als Held</target>
+      </segment>
+    </unit>
+    <unit id="WE..GeJ" name="95cf6e6">
+      <notes>
+        <note category="german">Dieser Wert ist geschätzt und kann vom tatsächlichen Wert abweichen. Dies lässt sich leider nicht vermeiden.</note>
+      </notes>
+      <segment>
+        <source>Dieser Wert ist geschätzt und kann vom tatsächlichen Wert abweichen. Dies lässt sich leider nicht vermeiden.</source>
+        <target>Dieser Wert ist geschätzt und kann vom tatsächlichen Wert abweichen. Dies lässt sich leider nicht vermeiden.</target>
+      </segment>
+    </unit>
+    <unit id="Bg3kbdW" name="Vergangene Städte">
+      <notes>
+        <note category="german">Vergangene Städte</note>
+      </notes>
+      <segment>
+        <source>Vergangene Städte</source>
+        <target>Vergangene Städte</target>
+      </segment>
+    </unit>
+    <unit id="gNXU40u" name="98f9be8">
+      <notes>
+        <note category="german">Hier werden die Städte angezeigt, die du in der vergangenheit gespielt hast. Wenn du dich aktuell in einer Stadt befindest, wird diese hier nicht angezeigt und auch nicht importiert.</note>
+      </notes>
+      <segment>
+        <source>Hier werden die Städte angezeigt, die du in der vergangenheit gespielt hast. Wenn du dich aktuell in einer Stadt befindest, wird diese hier nicht angezeigt und auch nicht importiert.</source>
+        <target>Hier werden die Städte angezeigt, die du in der vergangenheit gespielt hast. Wenn du dich aktuell in einer Stadt befindest, wird diese hier nicht angezeigt und auch nicht importiert.</target>
+      </segment>
+    </unit>
+    <unit id="qrK4heb" name="Infos">
+      <notes>
+        <note category="german">Infos</note>
+      </notes>
+      <segment>
+        <source>Infos</source>
+        <target>Infos</target>
+      </segment>
+    </unit>
+    <unit id="y.oO3aD" name="Todesart">
+      <notes>
+        <note category="german">Todesart</note>
+      </notes>
+      <segment>
+        <source>Todesart</source>
+        <target>Todesart</target>
+      </segment>
+    </unit>
+    <unit id="hYONYc." name="Überlebt">
+      <notes>
+        <note category="german">Überlebt</note>
+      </notes>
+      <segment>
+        <source>Überlebt</source>
+        <target>Überlebt</target>
+      </segment>
+    </unit>
+    <unit id="ymT9mze" name="%d% Tage">
+      <notes>
+        <note category="german">%d% Tage</note>
+      </notes>
+      <segment>
+        <source>%d% Tage</source>
+        <target>%d% Tage</target>
+      </segment>
+    </unit>
+    <unit id="fcC4_EM" name="Auszeichnungen">
+      <notes>
+        <note category="german">Auszeichnungen</note>
+      </notes>
+      <segment>
+        <source>Auszeichnungen</source>
+        <target>Auszeichnungen</target>
+      </segment>
+    </unit>
+    <unit id="D8ATKTz" name="bf9c5fb">
+      <notes>
+        <note category="german">Hier werden dir die Auszeichnungen angezeigt, welche du im Laufe der Zeit verdient hast.</note>
+      </notes>
+      <segment>
+        <source>Hier werden dir die Auszeichnungen angezeigt, welche du im Laufe der Zeit verdient hast.</source>
+        <target>Hier werden dir die Auszeichnungen angezeigt, welche du im Laufe der Zeit verdient hast.</target>
+      </segment>
+    </unit>
+    <unit id="mxKbILU" name="Auszeichnung">
+      <notes>
+        <note category="german">Auszeichnung</note>
+      </notes>
+      <segment>
+        <source>Auszeichnung</source>
+        <target>Auszeichnung</target>
+      </segment>
+    </unit>
+    <unit id="cXTeIrr" name="Anzahl">
+      <notes>
+        <note category="german">Anzahl</note>
+      </notes>
+      <segment>
+        <source>Anzahl</source>
+        <target>Anzahl</target>
+      </segment>
+    </unit>
+    <unit id="42T5e3_" name="Freischaltbares">
+      <notes>
+        <note category="german">Freischaltbares</note>
+      </notes>
+      <segment>
+        <source>Freischaltbares</source>
+        <target>Freischaltbares</target>
+      </segment>
+    </unit>
+    <unit id="8xUTLg1" name="Hier siehst du deine Titel und Icons.">
+      <notes>
+        <note category="german">Hier siehst du deine Titel und Icons.</note>
+      </notes>
+      <segment>
+        <source>Hier siehst du deine Titel und Icons.</source>
+        <target>Hier siehst du deine Titel und Icons.</target>
+      </segment>
+    </unit>
+    <unit id="GwJBg8s" name="Typ">
+      <notes>
+        <note category="german">Typ</note>
+      </notes>
+      <segment>
+        <source>Typ</source>
+        <target>Typ</target>
+      </segment>
+    </unit>
+    <unit id="cTrAfF8" name="Name &amp; Infos">
+      <notes>
+        <note category="german">Name &amp; Infos</note>
+      </notes>
+      <segment>
+        <source>Name &amp; Infos</source>
+        <target><![CDATA[Name & Infos]]></target>
+      </segment>
+    </unit>
+    <unit id="fjR9ql7" name="Wert">
+      <notes>
+        <note category="german">Wert</note>
+      </notes>
+      <segment>
+        <source>Wert</source>
+        <target>Wert</target>
+      </segment>
+    </unit>
+    <unit id="kTWILTI" name="Datum">
+      <notes>
+        <note category="german">Datum</note>
+      </notes>
+      <segment>
+        <source>Datum</source>
+        <target>Datum</target>
+      </segment>
+    </unit>
+    <unit id="4wcEbqc" name="132563f">
+      <notes>
+        <note category="german">Einmal bestätigt, kann die Verknüpfung nicht mehr aufgehoben werden und du kannst kein anderes Twinoid-Konto mehr verknüpfen.</note>
+      </notes>
+      <segment>
+        <source>Einmal bestätigt, kann die Verknüpfung nicht mehr aufgehoben werden und du kannst kein anderes Twinoid-Konto mehr verknüpfen.</source>
+        <target>Einmal bestätigt, kann die Verknüpfung nicht mehr aufgehoben werden und du kannst kein anderes Twinoid-Konto mehr verknüpfen.</target>
+      </segment>
+    </unit>
+    <unit id="tyVSys4" name="227ba37">
+      <notes>
+        <note category="german">Du kannst natürlich weiterhin Konten von Hordes, DieVerdammten, Die2Nite und Zombinoia importieren, welche mit dem selben Twinoid-Konto verbunden sind.</note>
+      </notes>
+      <segment>
+        <source>Du kannst natürlich weiterhin Konten von Hordes, DieVerdammten, Die2Nite und Zombinoia importieren, welche mit dem selben Twinoid-Konto verbunden sind.</source>
+        <target>Du kannst natürlich weiterhin Konten von Hordes, DieVerdammten, Die2Nite und Zombinoia importieren, welche mit dem selben Twinoid-Konto verbunden sind.</target>
+      </segment>
+    </unit>
+    <unit id="fz.4cY3" name="Deine Seele wurde erfolgreich importiert!">
+      <notes>
+        <note category="german">Deine Seele wurde erfolgreich importiert!</note>
+      </notes>
+      <segment>
+        <source>Deine Seele wurde erfolgreich importiert!</source>
+        <target>Deine Seele wurde erfolgreich importiert!</target>
+      </segment>
+    </unit>
+    <unit id="p3Cx_go" name="Saison %n%">
+      <notes>
+        <note category="german">Saison %n%</note>
+      </notes>
+      <segment>
+        <source>Saison %n%</source>
+        <target>Saison %n%</target>
+      </segment>
+    </unit>
+    <unit id="yoZbT75" name="Gute Alte Zeit">
+      <notes>
+        <note category="german">Gute Alte Zeit</note>
+      </notes>
+      <segment>
+        <source>Gute Alte Zeit</source>
+        <target>Gute Alte Zeit</target>
+      </segment>
+    </unit>
+    <unit id="c9falYV" name="Dann musst du nicht von Vorne beginnen!">
+      <notes>
+        <note category="german">Dann musst du nicht von Vorne beginnen!</note>
+      </notes>
+      <segment>
+        <source>Dann musst du nicht von Vorne beginnen!</source>
+        <target>Dann musst du nicht von Vorne beginnen!</target>
+      </segment>
+    </unit>
+    <unit id="Av6Ro2b" name="Importiere deine Seele und mache dort weiter, wo du aufgehört hast.">
+      <notes>
+        <note category="german">Importiere deine Seele und mache dort weiter, wo du aufgehört hast.</note>
+      </notes>
+      <segment>
+        <source>Importiere deine Seele und mache dort weiter, wo du aufgehört hast.</source>
+        <target>Importiere deine Seele und mache dort weiter, wo du aufgehört hast.</target>
+      </segment>
+    </unit>
+    <unit id="kRUPFo6" name="Unbekannte Auszeichnung">
+      <notes>
+        <note category="german">Unbekannte Auszeichnung</note>
+      </notes>
+      <segment>
+        <source>Unbekannte Auszeichnung</source>
+        <target>Unbekannte Auszeichnung</target>
+      </segment>
+    </unit>
+    <unit id="Pu6LW8D" name="Du hast bisher keine Seelen importiert.">
+      <notes>
+        <note category="german">Du hast bisher keine Seelen importiert.</note>
+      </notes>
+      <segment>
+        <source>Du hast bisher keine Seelen importiert.</source>
+        <target>Du hast bisher keine Seelen importiert.</target>
+      </segment>
+    </unit>
+    <unit id="xroX___" name="Angelegt: %d%">
+      <notes>
+        <note category="german">Angelegt: %d%</note>
+      </notes>
+      <segment>
+        <source>Angelegt: %d%</source>
+        <target>Angelegt: %d%</target>
+      </segment>
+    </unit>
+    <unit id="wgHBoF8" name="Letztes Update: %d%">
+      <notes>
+        <note category="german">Letztes Update: %d%</note>
+      </notes>
+      <segment>
+        <source>Letztes Update: %d%</source>
+        <target>Letztes Update: %d%</target>
+      </segment>
+    </unit>
+    <unit id="eJBYptN" name="Daten aktualisieren">
+      <notes>
+        <note category="german">Daten aktualisieren</note>
+      </notes>
+      <segment>
+        <source>Daten aktualisieren</source>
+        <target>Daten aktualisieren</target>
+      </segment>
+    </unit>
+    <unit id="DlYgqsn" name="ac4aa86">
+      <notes>
+        <note category="german">Ruft deine Seele erneut von Twinoid ab und aktualisiert die gespeicherten Informationen. Bevor die neuen Daten gespeichert werden, wird dir eine Vorschau angezeigt.</note>
+      </notes>
+      <segment>
+        <source>Ruft deine Seele erneut von Twinoid ab und aktualisiert die gespeicherten Informationen. Bevor die neuen Daten gespeichert werden, wird dir eine Vorschau angezeigt.</source>
+        <target>Ruft deine Seele erneut von Twinoid ab und aktualisiert die gespeicherten Informationen. Bevor die neuen Daten gespeichert werden, wird dir eine Vorschau angezeigt.</target>
+      </segment>
+    </unit>
+    <unit id="lNxrHuq" name="Daten ansehen">
+      <notes>
+        <note category="german">Daten ansehen</note>
+      </notes>
+      <segment>
+        <source>Daten ansehen</source>
+        <target>Daten ansehen</target>
+      </segment>
+    </unit>
+    <unit id="XlXtL3B" name="Zeigt die zuletzt importierten Informationen an.">
+      <notes>
+        <note category="german">Zeigt die zuletzt importierten Informationen an.</note>
+      </notes>
+      <segment>
+        <source>Zeigt die zuletzt importierten Informationen an.</source>
+        <target>Zeigt die zuletzt importierten Informationen an.</target>
+      </segment>
+    </unit>
+    <unit id="ExfqGAW" name="Erneut importieren">
+      <notes>
+        <note category="german">Erneut importieren</note>
+      </notes>
+      <segment>
+        <source>Erneut importieren</source>
+        <target>Erneut importieren</target>
+      </segment>
+    </unit>
+    <unit id="YhqHcco" name="a48eb2e">
+      <notes>
+        <note category="german">Führt den Import-Vorgang erneut durch, ohne frische Daten von Twinoid abzurufen. Dies ist nützlich, wenn die importierten Daten durch ein MyHordes-Update nun besser verarbeitet werden können als dies beim letzten Import der Fall war. Diese Funktion wird auch nach der Abschaltung von Twinoid weiter zur Verfügung stehen.</note>
+      </notes>
+      <segment>
+        <source>Führt den Import-Vorgang erneut durch, ohne frische Daten von Twinoid abzurufen. Dies ist nützlich, wenn die importierten Daten durch ein MyHordes-Update nun besser verarbeitet werden können als dies beim letzten Import der Fall war. Diese Funktion wird auch nach der Abschaltung von Twinoid weiter zur Verfügung stehen.</source>
+        <target>Führt den Import-Vorgang erneut durch, ohne frische Daten von Twinoid abzurufen. Dies ist nützlich, wenn die importierten Daten durch ein MyHordes-Update nun besser verarbeitet werden können als dies beim letzten Import der Fall war. Diese Funktion wird auch nach der Abschaltung von Twinoid weiter zur Verfügung stehen.</target>
+      </segment>
+    </unit>
+    <unit id="DBQkWUr" name="Als Hauptseele wählen">
+      <notes>
+        <note category="german">Als Hauptseele wählen</note>
+      </notes>
+      <segment>
+        <source>Als Hauptseele wählen</source>
+        <target>Als Hauptseele wählen</target>
+      </segment>
+    </unit>
+    <unit id="ltYAKjD" name="338e6bd">
+      <notes>
+        <note category="german">Legt diese Seele als Hauptseele fest und importiert Seelenpunkte und Heldenerfahrung.</note>
+      </notes>
+      <segment>
+        <source>Legt diese Seele als Hauptseele fest und importiert Seelenpunkte und Heldenerfahrung.</source>
+        <target>Legt diese Seele als Hauptseele fest und importiert Seelenpunkte und Heldenerfahrung.</target>
+      </segment>
+    </unit>
+    <unit id="NBJR5jI" name="2c9ce98">
+      <notes>
+        <note category="german">Bist du sicher, dass du diese Seele als deine Hauptseele festlegen willst. Dieser Vorgang kann nicht rückgängig gemacht werden!</note>
+      </notes>
+      <segment>
+        <source>Bist du sicher, dass du diese Seele als deine Hauptseele festlegen willst. Dieser Vorgang kann nicht rückgängig gemacht werden!</source>
+        <target>Bist du sicher, dass du diese Seele als deine Hauptseele festlegen willst. Dieser Vorgang kann nicht rückgängig gemacht werden!</target>
+      </segment>
+    </unit>
+    <unit id="fA1pnvC" name="Diese Seele wurde erfolgreich als deine Hauptseele registriert!">
+      <notes>
+        <note category="german">Diese Seele wurde erfolgreich als deine Hauptseele registriert!</note>
+      </notes>
+      <segment>
+        <source>Diese Seele wurde erfolgreich als deine Hauptseele registriert!</source>
+        <target>Diese Seele wurde erfolgreich als deine Hauptseele registriert!</target>
+      </segment>
+    </unit>
+    <unit id="a7xlwVJ" name="Dies ist deine Hauptseele.">
+      <notes>
+        <note category="german">Dies ist deine Hauptseele.</note>
+      </notes>
+      <segment>
+        <source>Dies ist deine Hauptseele.</source>
+        <target>Dies ist deine Hauptseele.</target>
+      </segment>
+    </unit>
+    <unit id="uFlUkcE" name="8798d28">
+      <notes>
+        <note category="german">Seelenpunkte, Auszeichnungen und Heldenerfahrung von dieser Seele können in dein MyHordes-Profil importiert werden.</note>
+      </notes>
+      <segment>
+        <source>Seelenpunkte, Auszeichnungen und Heldenerfahrung von dieser Seele können in dein MyHordes-Profil importiert werden.</source>
+        <target>Seelenpunkte, Auszeichnungen und Heldenerfahrung von dieser Seele können in dein MyHordes-Profil importiert werden.</target>
+      </segment>
+    </unit>
+    <unit id=".NldYpW" name="Dies ist nicht deine Hauptseele.">
+      <notes>
+        <note category="german">Dies ist nicht deine Hauptseele.</note>
+      </notes>
+      <segment>
+        <source>Dies ist nicht deine Hauptseele.</source>
+        <target>Dies ist nicht deine Hauptseele.</target>
+      </segment>
+    </unit>
+    <unit id="mtD8S3s" name="ab7a6b2">
+      <notes>
+        <note category="german">Seelenpunkte, Auszeichnungen und Heldenerfahrung können nur von deiner Hauptseele in dein MyHordes-Profil importiert werden.</note>
+      </notes>
+      <segment>
+        <source>Seelenpunkte, Auszeichnungen und Heldenerfahrung können nur von deiner Hauptseele in dein MyHordes-Profil importiert werden.</source>
+        <target>Seelenpunkte, Auszeichnungen und Heldenerfahrung können nur von deiner Hauptseele in dein MyHordes-Profil importiert werden.</target>
+      </segment>
+    </unit>
+    <unit id="ujVgB2r" name="Möchtest du diese Seele zu deiner Hauptseele erklären?">
+      <notes>
+        <note category="german">Möchtest du diese Seele zu deiner Hauptseele erklären?</note>
+      </notes>
+      <segment>
+        <source>Möchtest du diese Seele zu deiner Hauptseele erklären?</source>
+        <target>Möchtest du diese Seele zu deiner Hauptseele erklären?</target>
+      </segment>
+    </unit>
+    <unit id="NC78n6U" name="7eac7ed">
+      <notes>
+        <note category="german">Seelenpunkte, Auszeichnungen und Heldenerfahrung können nur von einer Seele importiert werden - deiner Hauptseele. Überlege dir deine Entscheidung gut, denn du kannst die Wahl deiner Hauptseele später nicht mehr ändern!</note>
+      </notes>
+      <segment>
+        <source>Seelenpunkte, Auszeichnungen und Heldenerfahrung können nur von einer Seele importiert werden - deiner Hauptseele. Überlege dir deine Entscheidung gut, denn du kannst die Wahl deiner Hauptseele später nicht mehr ändern!</source>
+        <target>Seelenpunkte, Auszeichnungen und Heldenerfahrung können nur von einer Seele importiert werden - deiner Hauptseele. Überlege dir deine Entscheidung gut, denn du kannst die Wahl deiner Hauptseele später nicht mehr ändern!</target>
+      </segment>
+    </unit>
+    <unit id="DJ.7w.9" name="8ccb170">
+      <notes>
+        <note category="german">Du musst diese Entscheidung nicht jetzt treffen, sondern kannst diese Seele auch nachträglich noch zu deiner Hauptseele erklären - solange du inzwischen nicht bereits eine andere Seele als Hauptseele gewählt hast.</note>
+      </notes>
+      <segment>
+        <source>Du musst diese Entscheidung nicht jetzt treffen, sondern kannst diese Seele auch nachträglich noch zu deiner Hauptseele erklären - solange du inzwischen nicht bereits eine andere Seele als Hauptseele gewählt hast.</source>
+        <target>Du musst diese Entscheidung nicht jetzt treffen, sondern kannst diese Seele auch nachträglich noch zu deiner Hauptseele erklären - solange du inzwischen nicht bereits eine andere Seele als Hauptseele gewählt hast.</target>
+      </segment>
+    </unit>
+    <unit id="1MRAxNt" name="3ad4558">
+      <notes>
+        <note category="german">Unabhängig davon, ob du diese Seele zu deiner Hauptseele machst oder nicht, kannst du ihre Daten bei Bedarf selbstverständlich erneut mit Twinoid abgleichen und ihre Daten aktualisieren.</note>
+      </notes>
+      <segment>
+        <source>Unabhängig davon, ob du diese Seele zu deiner Hauptseele machst oder nicht, kannst du ihre Daten bei Bedarf selbstverständlich erneut mit Twinoid abgleichen und ihre Daten aktualisieren.</source>
+        <target>Unabhängig davon, ob du diese Seele zu deiner Hauptseele machst oder nicht, kannst du ihre Daten bei Bedarf selbstverständlich erneut mit Twinoid abgleichen und ihre Daten aktualisieren.</target>
+      </segment>
+    </unit>
+    <unit id="eoeG3zx" name="Diese Seele zu meiner Hauptseele machen!">
+      <notes>
+        <note category="german">Diese Seele zu meiner Hauptseele machen!</note>
+      </notes>
+      <segment>
+        <source>Diese Seele zu meiner Hauptseele machen!</source>
+        <target>Diese Seele zu meiner Hauptseele machen!</target>
+      </segment>
+    </unit>
+    <unit id="s9icea7" name="b46b9e2">
+      <notes>
+        <note category="german">Um diese Seele zu deiner Hauptseele zu machen, verwende die Schaltfläche auf der vorherigen Seite.</note>
+      </notes>
+      <segment>
+        <source>Um diese Seele zu deiner Hauptseele zu machen, verwende die Schaltfläche auf der vorherigen Seite.</source>
+        <target>Um diese Seele zu deiner Hauptseele zu machen, verwende die Schaltfläche auf der vorherigen Seite.</target>
+      </segment>
+    </unit>
+    <unit id="nrZhqLF" name="Diese Daten können nur von deiner Hauptseele importiert werden.">
+      <notes>
+        <note category="german">Diese Daten können nur von deiner Hauptseele importiert werden.</note>
+      </notes>
+      <segment>
+        <source>Diese Daten können nur von deiner Hauptseele importiert werden.</source>
+        <target>Diese Daten können nur von deiner Hauptseele importiert werden.</target>
+      </segment>
+    </unit>
+    <unit id="p2vFHLe" name="Es ist deine Hauptseele">
+      <notes>
+        <note category="german">Es ist deine Hauptseele</note>
+      </notes>
+      <segment>
+        <source>Es ist deine Hauptseele</source>
+        <target>Es ist deine Hauptseele</target>
+      </segment>
+    </unit>
+    <unit id="WPvMZd7" name="52d83c2">
+      <notes>
+        <note category="german">Du kannst nur eine deiner Seelen als Hauptseele festlegen und diese Auswahl auch nicht mehr ändern! Wähle also weise...</note>
+      </notes>
+      <segment>
+        <source>Du kannst nur eine deiner Seelen als Hauptseele festlegen und diese Auswahl auch nicht mehr ändern! Wähle also weise...</source>
+        <target>Du kannst nur eine deiner Seelen als Hauptseele festlegen und diese Auswahl auch nicht mehr ändern! Wähle also weise...</target>
+      </segment>
+    </unit>
+    <unit id="59PnafP" name="Administrator">
+      <notes>
+        <note category="german">Administrator</note>
+      </notes>
+      <segment>
+        <source>Administrator</source>
+        <target>Administrator</target>
+      </segment>
+    </unit>
+    <unit id="Ij9qHqJ" name="65633af">
+      <notes>
+        <note category="german">Diese Karteikarte gehört einem Administrator. Wenn ihr darauf komische, abnormale oder gar furchteinflößende Dinge entdeckt: Das ist völlig normal. Macht euch keine Sorgen, er weiß wahrscheinlich schon Bescheid :).</note>
+      </notes>
+      <segment>
+        <source>Diese Karteikarte gehört einem Administrator. Wenn ihr darauf komische, abnormale oder gar furchteinflößende Dinge entdeckt: Das ist völlig normal. Macht euch keine Sorgen, er weiß wahrscheinlich schon Bescheid :).</source>
+        <target>Diese Karteikarte gehört einem Administrator. Wenn ihr darauf komische, abnormale oder gar furchteinflößende Dinge entdeckt: Das ist völlig normal. Macht euch keine Sorgen, er weiß wahrscheinlich schon Bescheid :).</target>
+      </segment>
+    </unit>
+    <unit id="Oxu558J" name="Der Rabe">
+      <notes>
+        <note category="german">Der Rabe</note>
+      </notes>
+      <segment>
+        <source>Der Rabe</source>
+        <target>Der Rabe</target>
+      </segment>
+    </unit>
+    <unit id="YKiLytV" name="29f69eb">
+      <notes>
+        <note category="german">Diese Karteikarte gehört einem Raben. Du solltest sie lieber wieder zurücklegen... langsam und ohne plötzliche Bewegungen.</note>
+      </notes>
+      <segment>
+        <source>Diese Karteikarte gehört einem Raben. Du solltest sie lieber wieder zurücklegen... langsam und ohne plötzliche Bewegungen.</source>
+        <target>Diese Karteikarte gehört einem Raben. Du solltest sie lieber wieder zurücklegen... langsam und ohne plötzliche Bewegungen.</target>
+      </segment>
+    </unit>
+    <unit id="BCS.RQ1" name="Orakel">
+      <notes>
+        <note category="german">Orakel</note>
+      </notes>
+      <segment>
+        <source>Orakel</source>
+        <target>Orakel</target>
+      </segment>
+    </unit>
+    <unit id="GMmC34." name="fa5585a">
+      <notes>
+        <note category="german">Diese Karteikarte gehört einem Orakel. Orakel sind Bindeglieder zwischen der Community und den Entwicklern. Du kannst dich bei Fragen und Problemen vertrauensvoll an sie wenden.</note>
+      </notes>
+      <segment>
+        <source>Diese Karteikarte gehört einem Orakel. Orakel sind Bindeglieder zwischen der Community und den Entwicklern. Du kannst dich bei Fragen und Problemen vertrauensvoll an sie wenden.</source>
+        <target>Diese Karteikarte gehört einem Orakel. Orakel sind Bindeglieder zwischen der Community und den Entwicklern. Du kannst dich bei Fragen und Problemen vertrauensvoll an sie wenden.</target>
+      </segment>
+    </unit>
+    <unit id="qPDF80G" name="Irgend etwas erscheint an dieser Karteikarte merkwürdig...">
+      <notes>
+        <note category="german">Irgend etwas erscheint an dieser Karteikarte merkwürdig...</note>
+      </notes>
+      <segment>
+        <source>Irgend etwas erscheint an dieser Karteikarte merkwürdig...</source>
+        <target>Irgend etwas erscheint an dieser Karteikarte merkwürdig...</target>
+      </segment>
+    </unit>
+    <unit id="KmttAsi" name="39e1986">
+      <notes>
+        <note category="german">Dieser Spieler hat mindestens eine Seele von Twinoid importiert. Wir feuen uns, ihn bei MyHordes begrüßen zu dürfen!</note>
+      </notes>
+      <segment>
+        <source>Dieser Spieler hat mindestens eine Seele von Twinoid importiert. Wir feuen uns, ihn bei MyHordes begrüßen zu dürfen!</source>
+        <target>Dieser Spieler hat mindestens eine Seele von Twinoid importiert. Wir feuen uns, ihn bei MyHordes begrüßen zu dürfen!</target>
+      </segment>
+    </unit>
+    <unit id="BvaERjQ" name="Twinoid-Nutzer">
+      <notes>
+        <note category="german">Twinoid-Nutzer</note>
+      </notes>
+      <segment>
+        <source>Twinoid-Nutzer</source>
+        <target>Twinoid-Nutzer</target>
+      </segment>
+    </unit>
+    <unit id="1xiOB2G" name="Seele suchen">
+      <notes>
+        <note category="german">Seele suchen</note>
+      </notes>
+      <segment>
+        <source>Seele suchen</source>
+        <target>Seele suchen</target>
+      </segment>
+    </unit>
+    <unit id="XRr8eU." name="Gib den Pseudo des Bürgers ein.">
+      <notes>
+        <note category="german">Gib den Namen des Bürgers ein.</note>
+      </notes>
+      <segment>
+        <source>Gib den Pseudo des Bürgers ein.</source>
+        <target>Gib den Pseudo des Bürgers ein.</target>
+      </segment>
+    </unit>
+>>>>>>> 4e8e8a4e5e2435a8e1bb747777f4ec3ed6c980fd
   </file>
 </xliff>

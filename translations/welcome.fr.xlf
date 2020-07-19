@@ -121,5 +121,14 @@
         <target>et ça ne va pas en s'améliorant...</target>
       </segment>
     </unit>
+    <unit id="ksm96Ek" name="Willkommen bei MyHordes!">
+      <notes>
+        <note category="german">Willkommen bei MyHordes!</note>
+      </notes>
+      <segment>
+        <source>Willkommen bei MyHordes!</source>
+        <target>Bienvenue sur MyHordes !</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

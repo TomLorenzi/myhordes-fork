@@ -12,7 +12,7 @@ use Doctrine\ORM\Mapping\UniqueConstraint;
 /**
  * @ORM\Entity(repositoryClass=TownRankingProxyRepository::class)
  * @Table(uniqueConstraints={
- *     @UniqueConstraint(name="town_ranking_proxy_id_unique",columns={"base_id"})
+ *     @UniqueConstraint(name="town_ranking_proxy_id_unique",columns={"base_id", "imported", "language"})
  * })
  */
 class TownRankingProxy
@@ -60,7 +60,7 @@ class TownRankingProxy
     private $baseID;
 
     /**
-     * @ORM\OneToMany(targetEntity=CitizenRankingProxy::class, mappedBy="town", orphanRemoval=true)
+     * @ORM\OneToMany(targetEntity=CitizenRankingProxy::class, mappedBy="town", orphanRemoval=true, cascade={"persist"})
      */
     private $citizens;
 
@@ -70,7 +70,7 @@ class TownRankingProxy
     private $town;
 
     /**
-     * @ORM\OneToMany(targetEntity=Picto::class, mappedBy="townEntry")
+     * @ORM\OneToMany(targetEntity=Picto::class, mappedBy="townEntry", cascade={"persist"})
      */
     private $distributedPictos;
 
@@ -84,6 +84,11 @@ class TownRankingProxy
      * @ORM\ManyToOne(targetEntity=Season::class, inversedBy="rankedTowns")
      */
     private $season;
+
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $imported = false;
 
     public function __construct()
     {
@@ -302,6 +307,18 @@ class TownRankingProxy
     public function setSeason(?Season $season): self
     {
         $this->season = $season;
+
+        return $this;
+    }
+
+    public function getImported(): ?bool
+    {
+        return $this->imported;
+    }
+
+    public function setImported(bool $imported): self
+    {
+        $this->imported = $imported;
 
         return $this;
     }

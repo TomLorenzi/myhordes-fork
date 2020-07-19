@@ -1,0 +1,1085 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:2.0" version="2.0" srcLang="de" trgLang="fr">
+  <file id="names.fr">
+    <unit id="Kor6bKF" name="TDG_PRE_00_">
+      <notes>
+        <note category="german">TDG_PRE_00_</note>
+      </notes>
+      <segment>
+        <source>TDG_PRE_00_</source>
+        <target>TDG_PRE_00_</target>
+      </segment>
+    </unit>
+    <unit id="zOGKq_2" name="TDG_PRE_10_">
+      <notes>
+        <note category="german">TDG_PRE_10_</note>
+      </notes>
+      <segment>
+        <source>TDG_PRE_10_</source>
+        <target>TDG_PRE_10_</target>
+      </segment>
+    </unit>
+    <unit id="HMDlY4O" name="TDG_PRE_20_">
+      <notes>
+        <note category="german">TDG_PRE_20_</note>
+      </notes>
+      <segment>
+        <source>TDG_PRE_20_</source>
+        <target>TDG_PRE_20_</target>
+      </segment>
+    </unit>
+    <unit id="GHjEnoN" name="TDG_PRE_30_">
+      <notes>
+        <note category="german">TDG_PRE_30_</note>
+      </notes>
+      <segment>
+        <source>TDG_PRE_30_</source>
+        <target>TDG_PRE_30_</target>
+      </segment>
+    </unit>
+    <unit id="jcOVVEq" name="TDG_PRE_40_">
+      <notes>
+        <note category="german">TDG_PRE_40_</note>
+      </notes>
+      <segment>
+        <source>TDG_PRE_40_</source>
+        <target>TDG_PRE_40_</target>
+      </segment>
+    </unit>
+    <unit id="_CBKiCi" name="TDG_PRE_50_">
+      <notes>
+        <note category="german">TDG_PRE_50_</note>
+      </notes>
+      <segment>
+        <source>TDG_PRE_50_</source>
+        <target>TDG_PRE_50_</target>
+      </segment>
+    </unit>
+    <unit id="2JyIOZy" name="TDG_PRE_01_">
+      <notes>
+        <note category="german">TDG_PRE_01_</note>
+      </notes>
+      <segment>
+        <source>TDG_PRE_01_</source>
+        <target>TDG_PRE_01_</target>
+      </segment>
+    </unit>
+    <unit id="ZNmZO0a" name="TDG_PRE_11_">
+      <notes>
+        <note category="german">TDG_PRE_11_</note>
+      </notes>
+      <segment>
+        <source>TDG_PRE_11_</source>
+        <target>TDG_PRE_11_</target>
+      </segment>
+    </unit>
+    <unit id="ORZuZNv" name="TDG_PRE_21_">
+      <notes>
+        <note category="german">TDG_PRE_21_</note>
+      </notes>
+      <segment>
+        <source>TDG_PRE_21_</source>
+        <target>TDG_PRE_21_</target>
+      </segment>
+    </unit>
+    <unit id="t4OuSv5" name="TDG_PRE_31_">
+      <notes>
+        <note category="german">TDG_PRE_31_</note>
+      </notes>
+      <segment>
+        <source>TDG_PRE_31_</source>
+        <target>TDG_PRE_31_</target>
+      </segment>
+    </unit>
+    <unit id="z3cy5Fo" name="TDG_PRE_41_">
+      <notes>
+        <note category="german">TDG_PRE_41_</note>
+      </notes>
+      <segment>
+        <source>TDG_PRE_41_</source>
+        <target>TDG_PRE_41_</target>
+      </segment>
+    </unit>
+    <unit id="jpIi2BH" name="TDG_PRE_51_">
+      <notes>
+        <note category="german">TDG_PRE_51_</note>
+      </notes>
+      <segment>
+        <source>TDG_PRE_51_</source>
+        <target>TDG_PRE_51_</target>
+      </segment>
+    </unit>
+    <unit id="T6HCO9Y" name="TDG_PRE_02_">
+      <notes>
+        <note category="german">TDG_PRE_02_</note>
+      </notes>
+      <segment>
+        <source>TDG_PRE_02_</source>
+        <target>TDG_PRE_02_</target>
+      </segment>
+    </unit>
+    <unit id="sAnRDq_" name="TDG_PRE_12_">
+      <notes>
+        <note category="german">TDG_PRE_12_</note>
+      </notes>
+      <segment>
+        <source>TDG_PRE_12_</source>
+        <target>TDG_PRE_12_</target>
+      </segment>
+    </unit>
+    <unit id="Xum2rGo" name="TDG_PRE_22_">
+      <notes>
+        <note category="german">TDG_PRE_22_</note>
+      </notes>
+      <segment>
+        <source>TDG_PRE_22_</source>
+        <target>TDG_PRE_22_</target>
+      </segment>
+    </unit>
+    <unit id="I_5r0dW" name="TDG_PRE_32_">
+      <notes>
+        <note category="german">TDG_PRE_32_</note>
+      </notes>
+      <segment>
+        <source>TDG_PRE_32_</source>
+        <target>TDG_PRE_32_</target>
+      </segment>
+    </unit>
+    <unit id="a4XrZva" name="TDG_PRE_42_">
+      <notes>
+        <note category="german">TDG_PRE_42_</note>
+      </notes>
+      <segment>
+        <source>TDG_PRE_42_</source>
+        <target>TDG_PRE_42_</target>
+      </segment>
+    </unit>
+    <unit id="ktBJ4Jo" name="TDG_PRE_52_">
+      <notes>
+        <note category="german">TDG_PRE_52_</note>
+      </notes>
+      <segment>
+        <source>TDG_PRE_52_</source>
+        <target>TDG_PRE_52_</target>
+      </segment>
+    </unit>
+    <unit id="mwzJb7N" name="TDG_PRE_03_">
+      <notes>
+        <note category="german">TDG_PRE_03_</note>
+      </notes>
+      <segment>
+        <source>TDG_PRE_03_</source>
+        <target>TDG_PRE_03_</target>
+      </segment>
+    </unit>
+    <unit id="evPlYrJ" name="TDG_PRE_13_">
+      <notes>
+        <note category="german">TDG_PRE_13_</note>
+      </notes>
+      <segment>
+        <source>TDG_PRE_13_</source>
+        <target>TDG_PRE_13_</target>
+      </segment>
+    </unit>
+    <unit id="HEMrDtY" name="TDG_PRE_23_">
+      <notes>
+        <note category="german">TDG_PRE_23_</note>
+      </notes>
+      <segment>
+        <source>TDG_PRE_23_</source>
+        <target>TDG_PRE_23_</target>
+      </segment>
+    </unit>
+    <unit id="W.nSwh9" name="TDG_PRE_33_">
+      <notes>
+        <note category="german">TDG_PRE_33_</note>
+      </notes>
+      <segment>
+        <source>TDG_PRE_33_</source>
+        <target>TDG_PRE_33_</target>
+      </segment>
+    </unit>
+    <unit id="hkFN2yJ" name="TDG_PRE_43_">
+      <notes>
+        <note category="german">TDG_PRE_43_</note>
+      </notes>
+      <segment>
+        <source>TDG_PRE_43_</source>
+        <target>TDG_PRE_43_</target>
+      </segment>
+    </unit>
+    <unit id="EV7B1sM" name="TDG_PRE_53_">
+      <notes>
+        <note category="german">TDG_PRE_53_</note>
+      </notes>
+      <segment>
+        <source>TDG_PRE_53_</source>
+        <target>TDG_PRE_53_</target>
+      </segment>
+    </unit>
+    <unit id="OeaSh.8" name="TDG_PRE_04_">
+      <notes>
+        <note category="german">TDG_PRE_04_</note>
+      </notes>
+      <segment>
+        <source>TDG_PRE_04_</source>
+        <target>TDG_PRE_04_</target>
+      </segment>
+    </unit>
+    <unit id="OuNujK5" name="TDG_PRE_14_">
+      <notes>
+        <note category="german">TDG_PRE_14_</note>
+      </notes>
+      <segment>
+        <source>TDG_PRE_14_</source>
+        <target>TDG_PRE_14_</target>
+      </segment>
+    </unit>
+    <unit id="0GxMni4" name="TDG_PRE_24_">
+      <notes>
+        <note category="german">TDG_PRE_24_</note>
+      </notes>
+      <segment>
+        <source>TDG_PRE_24_</source>
+        <target>TDG_PRE_24_</target>
+      </segment>
+    </unit>
+    <unit id="uKRVZ9Z" name="TDG_PRE_34_">
+      <notes>
+        <note category="german">TDG_PRE_34_</note>
+      </notes>
+      <segment>
+        <source>TDG_PRE_34_</source>
+        <target>TDG_PRE_34_</target>
+      </segment>
+    </unit>
+    <unit id="T5SsuPv" name="TDG_PRE_44_">
+      <notes>
+        <note category="german">TDG_PRE_44_</note>
+      </notes>
+      <segment>
+        <source>TDG_PRE_44_</source>
+        <target>TDG_PRE_44_</target>
+      </segment>
+    </unit>
+    <unit id="kbpZ3wV" name="TDG_PRE_54_">
+      <notes>
+        <note category="german">TDG_PRE_54_</note>
+      </notes>
+      <segment>
+        <source>TDG_PRE_54_</source>
+        <target>TDG_PRE_54_</target>
+      </segment>
+    </unit>
+    <unit id="B1ImxqT" name="TDG_PRE_05_">
+      <notes>
+        <note category="german">TDG_PRE_05_</note>
+      </notes>
+      <segment>
+        <source>TDG_PRE_05_</source>
+        <target>TDG_PRE_05_</target>
+      </segment>
+    </unit>
+    <unit id="9hozjGF" name="TDG_PRE_15_">
+      <notes>
+        <note category="german">TDG_PRE_15_</note>
+      </notes>
+      <segment>
+        <source>TDG_PRE_15_</source>
+        <target>TDG_PRE_15_</target>
+      </segment>
+    </unit>
+    <unit id="lSV.Ma1" name="TDG_PRE_25_">
+      <notes>
+        <note category="german">TDG_PRE_25_</note>
+      </notes>
+      <segment>
+        <source>TDG_PRE_25_</source>
+        <target>TDG_PRE_25_</target>
+      </segment>
+    </unit>
+    <unit id="5qRTdpy" name="TDG_PRE_35_">
+      <notes>
+        <note category="german">TDG_PRE_35_</note>
+      </notes>
+      <segment>
+        <source>TDG_PRE_35_</source>
+        <target>TDG_PRE_35_</target>
+      </segment>
+    </unit>
+    <unit id="1aqoClA" name="TDG_PRE_45_">
+      <notes>
+        <note category="german">TDG_PRE_45_</note>
+      </notes>
+      <segment>
+        <source>TDG_PRE_45_</source>
+        <target>TDG_PRE_45_</target>
+      </segment>
+    </unit>
+    <unit id="4tqnamR" name="TDG_PRE_55_">
+      <notes>
+        <note category="german">TDG_PRE_55_</note>
+      </notes>
+      <segment>
+        <source>TDG_PRE_55_</source>
+        <target>TDG_PRE_55_</target>
+      </segment>
+    </unit>
+    <unit id="MG26Dx9" name="TDG_PRE_06_">
+      <notes>
+        <note category="german">TDG_PRE_06_</note>
+      </notes>
+      <segment>
+        <source>TDG_PRE_06_</source>
+        <target>TDG_PRE_06_</target>
+      </segment>
+    </unit>
+    <unit id="6kJqoBe" name="TDG_PRE_16_">
+      <notes>
+        <note category="german">TDG_PRE_16_</note>
+      </notes>
+      <segment>
+        <source>TDG_PRE_16_</source>
+        <target>TDG_PRE_16_</target>
+      </segment>
+    </unit>
+    <unit id="pXUzDEV" name="TDG_PRE_26_">
+      <notes>
+        <note category="german">TDG_PRE_26_</note>
+      </notes>
+      <segment>
+        <source>TDG_PRE_26_</source>
+        <target>TDG_PRE_26_</target>
+      </segment>
+    </unit>
+    <unit id="vC7qATe" name="TDG_PRE_36_">
+      <notes>
+        <note category="german">TDG_PRE_36_</note>
+      </notes>
+      <segment>
+        <source>TDG_PRE_36_</source>
+        <target>TDG_PRE_36_</target>
+      </segment>
+    </unit>
+    <unit id="M0RY5x_" name="TDG_PRE_46_">
+      <notes>
+        <note category="german">TDG_PRE_46_</note>
+      </notes>
+      <segment>
+        <source>TDG_PRE_46_</source>
+        <target>TDG_PRE_46_</target>
+      </segment>
+    </unit>
+    <unit id="U12HYrS" name="TDG_PRE_56_">
+      <notes>
+        <note category="german">TDG_PRE_56_</note>
+      </notes>
+      <segment>
+        <source>TDG_PRE_56_</source>
+        <target>TDG_PRE_56_</target>
+      </segment>
+    </unit>
+    <unit id="zUOfW9f" name="TDG_PRE_07_">
+      <notes>
+        <note category="german">TDG_PRE_07_</note>
+      </notes>
+      <segment>
+        <source>TDG_PRE_07_</source>
+        <target>TDG_PRE_07_</target>
+      </segment>
+    </unit>
+    <unit id="9OBzMjG" name="TDG_PRE_17_">
+      <notes>
+        <note category="german">TDG_PRE_17_</note>
+      </notes>
+      <segment>
+        <source>TDG_PRE_17_</source>
+        <target>TDG_PRE_17_</target>
+      </segment>
+    </unit>
+    <unit id="Dvz4aKQ" name="TDG_PRE_27_">
+      <notes>
+        <note category="german">TDG_PRE_27_</note>
+      </notes>
+      <segment>
+        <source>TDG_PRE_27_</source>
+        <target>TDG_PRE_27_</target>
+      </segment>
+    </unit>
+    <unit id="0._.Yw2" name="TDG_PRE_37_">
+      <notes>
+        <note category="german">TDG_PRE_37_</note>
+      </notes>
+      <segment>
+        <source>TDG_PRE_37_</source>
+        <target>TDG_PRE_37_</target>
+      </segment>
+    </unit>
+    <unit id="ET17Miq" name="TDG_PRE_47_">
+      <notes>
+        <note category="german">TDG_PRE_47_</note>
+      </notes>
+      <segment>
+        <source>TDG_PRE_47_</source>
+        <target>TDG_PRE_47_</target>
+      </segment>
+    </unit>
+    <unit id="ZdJeBTf" name="TDG_PRE_57_">
+      <notes>
+        <note category="german">TDG_PRE_57_</note>
+      </notes>
+      <segment>
+        <source>TDG_PRE_57_</source>
+        <target>TDG_PRE_57_</target>
+      </segment>
+    </unit>
+    <unit id="SJpLpyq" name="TDG_PRE_08_">
+      <notes>
+        <note category="german">TDG_PRE_08_</note>
+      </notes>
+      <segment>
+        <source>TDG_PRE_08_</source>
+        <target>TDG_PRE_08_</target>
+      </segment>
+    </unit>
+    <unit id="i_t.Yp7" name="TDG_PRE_18_">
+      <notes>
+        <note category="german">TDG_PRE_18_</note>
+      </notes>
+      <segment>
+        <source>TDG_PRE_18_</source>
+        <target>TDG_PRE_18_</target>
+      </segment>
+    </unit>
+    <unit id="n48PM80" name="TDG_PRE_28_">
+      <notes>
+        <note category="german">TDG_PRE_28_</note>
+      </notes>
+      <segment>
+        <source>TDG_PRE_28_</source>
+        <target>TDG_PRE_28_</target>
+      </segment>
+    </unit>
+    <unit id="KW5Jimz" name="TDG_PRE_38_">
+      <notes>
+        <note category="german">TDG_PRE_38_</note>
+      </notes>
+      <segment>
+        <source>TDG_PRE_38_</source>
+        <target>TDG_PRE_38_</target>
+      </segment>
+    </unit>
+    <unit id="zNDIpLe" name="TDG_PRE_48_">
+      <notes>
+        <note category="german">TDG_PRE_48_</note>
+      </notes>
+      <segment>
+        <source>TDG_PRE_48_</source>
+        <target>TDG_PRE_48_</target>
+      </segment>
+    </unit>
+    <unit id="uhtgnuw" name="TDG_PRE_58_">
+      <notes>
+        <note category="german">TDG_PRE_58_</note>
+      </notes>
+      <segment>
+        <source>TDG_PRE_58_</source>
+        <target>TDG_PRE_58_</target>
+      </segment>
+    </unit>
+    <unit id="e735vyD" name="TDG_PRE_09_">
+      <notes>
+        <note category="german">TDG_PRE_09_</note>
+      </notes>
+      <segment>
+        <source>TDG_PRE_09_</source>
+        <target>TDG_PRE_09_</target>
+      </segment>
+    </unit>
+    <unit id="FNiLMCL" name="TDG_PRE_19_">
+      <notes>
+        <note category="german">TDG_PRE_19_</note>
+      </notes>
+      <segment>
+        <source>TDG_PRE_19_</source>
+        <target>TDG_PRE_19_</target>
+      </segment>
+    </unit>
+    <unit id=".y.T78W" name="TDG_PRE_29_">
+      <notes>
+        <note category="german">TDG_PRE_29_</note>
+      </notes>
+      <segment>
+        <source>TDG_PRE_29_</source>
+        <target>TDG_PRE_29_</target>
+      </segment>
+    </unit>
+    <unit id="v2JWeCV" name="TDG_PRE_39_">
+      <notes>
+        <note category="german">TDG_PRE_39_</note>
+      </notes>
+      <segment>
+        <source>TDG_PRE_39_</source>
+        <target>TDG_PRE_39_</target>
+      </segment>
+    </unit>
+    <unit id=".a6QmsN" name="TDG_PRE_49_">
+      <notes>
+        <note category="german">TDG_PRE_49_</note>
+      </notes>
+      <segment>
+        <source>TDG_PRE_49_</source>
+        <target>TDG_PRE_49_</target>
+      </segment>
+    </unit>
+    <unit id="4gQQ6WT" name="TDG_PRE_59_">
+      <notes>
+        <note category="german">TDG_PRE_59_</note>
+      </notes>
+      <segment>
+        <source>TDG_PRE_59_</source>
+        <target>TDG_PRE_59_</target>
+      </segment>
+    </unit>
+    <unit id="F1eQTaZ" name="TDG_SUF_00">
+      <notes>
+        <note category="german">TDG_SUF_00</note>
+      </notes>
+      <segment>
+        <source>TDG_SUF_00</source>
+        <target>TDG_SUF_00</target>
+      </segment>
+    </unit>
+    <unit id="W8Pw5fM" name="TDG_SUF_10">
+      <notes>
+        <note category="german">TDG_SUF_10</note>
+      </notes>
+      <segment>
+        <source>TDG_SUF_10</source>
+        <target>TDG_SUF_10</target>
+      </segment>
+    </unit>
+    <unit id="dDsF_bs" name="TDG_SUF_20">
+      <notes>
+        <note category="german">TDG_SUF_20</note>
+      </notes>
+      <segment>
+        <source>TDG_SUF_20</source>
+        <target>TDG_SUF_20</target>
+      </segment>
+    </unit>
+    <unit id="GhpZOpY" name="TDG_SUF_30">
+      <notes>
+        <note category="german">TDG_SUF_30</note>
+      </notes>
+      <segment>
+        <source>TDG_SUF_30</source>
+        <target>TDG_SUF_30</target>
+      </segment>
+    </unit>
+    <unit id="0o5JtjM" name="TDG_SUF_40">
+      <notes>
+        <note category="german">TDG_SUF_40</note>
+      </notes>
+      <segment>
+        <source>TDG_SUF_40</source>
+        <target>TDG_SUF_40</target>
+      </segment>
+    </unit>
+    <unit id="ahfoKKB" name="TDG_SUF_50">
+      <notes>
+        <note category="german">TDG_SUF_50</note>
+      </notes>
+      <segment>
+        <source>TDG_SUF_50</source>
+        <target>TDG_SUF_50</target>
+      </segment>
+    </unit>
+    <unit id="i_jdecg" name="TDG_SUF_01">
+      <notes>
+        <note category="german">TDG_SUF_01</note>
+      </notes>
+      <segment>
+        <source>TDG_SUF_01</source>
+        <target>TDG_SUF_01</target>
+      </segment>
+    </unit>
+    <unit id="DSPQFbn" name="TDG_SUF_11">
+      <notes>
+        <note category="german">TDG_SUF_11</note>
+      </notes>
+      <segment>
+        <source>TDG_SUF_11</source>
+        <target>TDG_SUF_11</target>
+      </segment>
+    </unit>
+    <unit id="iVrqb08" name="TDG_SUF_21">
+      <notes>
+        <note category="german">TDG_SUF_21</note>
+      </notes>
+      <segment>
+        <source>TDG_SUF_21</source>
+        <target>TDG_SUF_21</target>
+      </segment>
+    </unit>
+    <unit id="hnyAuYM" name="TDG_SUF_31">
+      <notes>
+        <note category="german">TDG_SUF_31</note>
+      </notes>
+      <segment>
+        <source>TDG_SUF_31</source>
+        <target>TDG_SUF_31</target>
+      </segment>
+    </unit>
+    <unit id="LQjojRU" name="TDG_SUF_41">
+      <notes>
+        <note category="german">TDG_SUF_41</note>
+      </notes>
+      <segment>
+        <source>TDG_SUF_41</source>
+        <target>TDG_SUF_41</target>
+      </segment>
+    </unit>
+    <unit id="LPuAIE7" name="TDG_SUF_51">
+      <notes>
+        <note category="german">TDG_SUF_51</note>
+      </notes>
+      <segment>
+        <source>TDG_SUF_51</source>
+        <target>TDG_SUF_51</target>
+      </segment>
+    </unit>
+    <unit id="MuyHMQw" name="TDG_SUF_02">
+      <notes>
+        <note category="german">TDG_SUF_02</note>
+      </notes>
+      <segment>
+        <source>TDG_SUF_02</source>
+        <target>TDG_SUF_02</target>
+      </segment>
+    </unit>
+    <unit id="f0UsFjd" name="TDG_SUF_12">
+      <notes>
+        <note category="german">TDG_SUF_12</note>
+      </notes>
+      <segment>
+        <source>TDG_SUF_12</source>
+        <target>TDG_SUF_12</target>
+      </segment>
+    </unit>
+    <unit id="wrqju0K" name="TDG_SUF_22">
+      <notes>
+        <note category="german">TDG_SUF_22</note>
+      </notes>
+      <segment>
+        <source>TDG_SUF_22</source>
+        <target>TDG_SUF_22</target>
+      </segment>
+    </unit>
+    <unit id="dq_Up_0" name="TDG_SUF_32">
+      <notes>
+        <note category="german">TDG_SUF_32</note>
+      </notes>
+      <segment>
+        <source>TDG_SUF_32</source>
+        <target>TDG_SUF_32</target>
+      </segment>
+    </unit>
+    <unit id="0skQYlK" name="TDG_SUF_42">
+      <notes>
+        <note category="german">TDG_SUF_42</note>
+      </notes>
+      <segment>
+        <source>TDG_SUF_42</source>
+        <target>TDG_SUF_42</target>
+      </segment>
+    </unit>
+    <unit id="Vocs9mg" name="TDG_SUF_52">
+      <notes>
+        <note category="german">TDG_SUF_52</note>
+      </notes>
+      <segment>
+        <source>TDG_SUF_52</source>
+        <target>TDG_SUF_52</target>
+      </segment>
+    </unit>
+    <unit id="WVpRtxd" name="TDG_SUF_03">
+      <notes>
+        <note category="german">TDG_SUF_03</note>
+      </notes>
+      <segment>
+        <source>TDG_SUF_03</source>
+        <target>TDG_SUF_03</target>
+      </segment>
+    </unit>
+    <unit id="VLnabWd" name="TDG_SUF_13">
+      <notes>
+        <note category="german">TDG_SUF_13</note>
+      </notes>
+      <segment>
+        <source>TDG_SUF_13</source>
+        <target>TDG_SUF_13</target>
+      </segment>
+    </unit>
+    <unit id="6vFMvSY" name="TDG_SUF_23">
+      <notes>
+        <note category="german">TDG_SUF_23</note>
+      </notes>
+      <segment>
+        <source>TDG_SUF_23</source>
+        <target>TDG_SUF_23</target>
+      </segment>
+    </unit>
+    <unit id="z83cqFI" name="TDG_SUF_33">
+      <notes>
+        <note category="german">TDG_SUF_33</note>
+      </notes>
+      <segment>
+        <source>TDG_SUF_33</source>
+        <target>TDG_SUF_33</target>
+      </segment>
+    </unit>
+    <unit id="Kl8a0T4" name="TDG_SUF_43">
+      <notes>
+        <note category="german">TDG_SUF_43</note>
+      </notes>
+      <segment>
+        <source>TDG_SUF_43</source>
+        <target>TDG_SUF_43</target>
+      </segment>
+    </unit>
+    <unit id="zYERnAM" name="TDG_SUF_53">
+      <notes>
+        <note category="german">TDG_SUF_53</note>
+      </notes>
+      <segment>
+        <source>TDG_SUF_53</source>
+        <target>TDG_SUF_53</target>
+      </segment>
+    </unit>
+    <unit id="3bqNk.9" name="TDG_SUF_04">
+      <notes>
+        <note category="german">TDG_SUF_04</note>
+      </notes>
+      <segment>
+        <source>TDG_SUF_04</source>
+        <target>TDG_SUF_04</target>
+      </segment>
+    </unit>
+    <unit id="IYJdTPk" name="TDG_SUF_14">
+      <notes>
+        <note category="german">TDG_SUF_14</note>
+      </notes>
+      <segment>
+        <source>TDG_SUF_14</source>
+        <target>TDG_SUF_14</target>
+      </segment>
+    </unit>
+    <unit id="pxkq9NE" name="TDG_SUF_24">
+      <notes>
+        <note category="german">TDG_SUF_24</note>
+      </notes>
+      <segment>
+        <source>TDG_SUF_24</source>
+        <target>TDG_SUF_24</target>
+      </segment>
+    </unit>
+    <unit id="aNOyve6" name="TDG_SUF_34">
+      <notes>
+        <note category="german">TDG_SUF_34</note>
+      </notes>
+      <segment>
+        <source>TDG_SUF_34</source>
+        <target>TDG_SUF_34</target>
+      </segment>
+    </unit>
+    <unit id="yG66zo5" name="TDG_SUF_44">
+      <notes>
+        <note category="german">TDG_SUF_44</note>
+      </notes>
+      <segment>
+        <source>TDG_SUF_44</source>
+        <target>TDG_SUF_44</target>
+      </segment>
+    </unit>
+    <unit id="Ii4fxc0" name="TDG_SUF_54">
+      <notes>
+        <note category="german">TDG_SUF_54</note>
+      </notes>
+      <segment>
+        <source>TDG_SUF_54</source>
+        <target>TDG_SUF_54</target>
+      </segment>
+    </unit>
+    <unit id="TuI4WCS" name="TDG_SUF_05">
+      <notes>
+        <note category="german">TDG_SUF_05</note>
+      </notes>
+      <segment>
+        <source>TDG_SUF_05</source>
+        <target>TDG_SUF_05</target>
+      </segment>
+    </unit>
+    <unit id=".v8Ct7X" name="TDG_SUF_15">
+      <notes>
+        <note category="german">TDG_SUF_15</note>
+      </notes>
+      <segment>
+        <source>TDG_SUF_15</source>
+        <target>TDG_SUF_15</target>
+      </segment>
+    </unit>
+    <unit id="UMaGPSr" name="TDG_SUF_25">
+      <notes>
+        <note category="german">TDG_SUF_25</note>
+      </notes>
+      <segment>
+        <source>TDG_SUF_25</source>
+        <target>TDG_SUF_25</target>
+      </segment>
+    </unit>
+    <unit id="sG2FI6c" name="TDG_SUF_35">
+      <notes>
+        <note category="german">TDG_SUF_35</note>
+      </notes>
+      <segment>
+        <source>TDG_SUF_35</source>
+        <target>TDG_SUF_35</target>
+      </segment>
+    </unit>
+    <unit id="JfVZ4lj" name="TDG_SUF_45">
+      <notes>
+        <note category="german">TDG_SUF_45</note>
+      </notes>
+      <segment>
+        <source>TDG_SUF_45</source>
+        <target>TDG_SUF_45</target>
+      </segment>
+    </unit>
+    <unit id="GjFWIQk" name="TDG_SUF_55">
+      <notes>
+        <note category="german">TDG_SUF_55</note>
+      </notes>
+      <segment>
+        <source>TDG_SUF_55</source>
+        <target>TDG_SUF_55</target>
+      </segment>
+    </unit>
+    <unit id="DV.bNOF" name="TDG_SUF_06">
+      <notes>
+        <note category="german">TDG_SUF_06</note>
+      </notes>
+      <segment>
+        <source>TDG_SUF_06</source>
+        <target>TDG_SUF_06</target>
+      </segment>
+    </unit>
+    <unit id="PEAucBk" name="TDG_SUF_16">
+      <notes>
+        <note category="german">TDG_SUF_16</note>
+      </notes>
+      <segment>
+        <source>TDG_SUF_16</source>
+        <target>TDG_SUF_16</target>
+      </segment>
+    </unit>
+    <unit id="PZmAQOg" name="TDG_SUF_26">
+      <notes>
+        <note category="german">TDG_SUF_26</note>
+      </notes>
+      <segment>
+        <source>TDG_SUF_26</source>
+        <target>TDG_SUF_26</target>
+      </segment>
+    </unit>
+    <unit id="k2IRFpU" name="TDG_SUF_36">
+      <notes>
+        <note category="german">TDG_SUF_36</note>
+      </notes>
+      <segment>
+        <source>TDG_SUF_36</source>
+        <target>TDG_SUF_36</target>
+      </segment>
+    </unit>
+    <unit id="LRCrVlW" name="TDG_SUF_46">
+      <notes>
+        <note category="german">TDG_SUF_46</note>
+      </notes>
+      <segment>
+        <source>TDG_SUF_46</source>
+        <target>TDG_SUF_46</target>
+      </segment>
+    </unit>
+    <unit id="Bdph4cc" name="TDG_SUF_56">
+      <notes>
+        <note category="german">TDG_SUF_56</note>
+      </notes>
+      <segment>
+        <source>TDG_SUF_56</source>
+        <target>TDG_SUF_56</target>
+      </segment>
+    </unit>
+    <unit id="1t17Kz3" name="TDG_SUF_07">
+      <notes>
+        <note category="german">TDG_SUF_07</note>
+      </notes>
+      <segment>
+        <source>TDG_SUF_07</source>
+        <target>TDG_SUF_07</target>
+      </segment>
+    </unit>
+    <unit id="AV6PtfF" name="TDG_SUF_17">
+      <notes>
+        <note category="german">TDG_SUF_17</note>
+      </notes>
+      <segment>
+        <source>TDG_SUF_17</source>
+        <target>TDG_SUF_17</target>
+      </segment>
+    </unit>
+    <unit id="i1g19Ly" name="TDG_SUF_27">
+      <notes>
+        <note category="german">TDG_SUF_27</note>
+      </notes>
+      <segment>
+        <source>TDG_SUF_27</source>
+        <target>TDG_SUF_27</target>
+      </segment>
+    </unit>
+    <unit id="b1Ii.gd" name="TDG_SUF_37">
+      <notes>
+        <note category="german">TDG_SUF_37</note>
+      </notes>
+      <segment>
+        <source>TDG_SUF_37</source>
+        <target>TDG_SUF_37</target>
+      </segment>
+    </unit>
+    <unit id="zqMSQA3" name="TDG_SUF_47">
+      <notes>
+        <note category="german">TDG_SUF_47</note>
+      </notes>
+      <segment>
+        <source>TDG_SUF_47</source>
+        <target>TDG_SUF_47</target>
+      </segment>
+    </unit>
+    <unit id="pZGO9KE" name="TDG_SUF_57">
+      <notes>
+        <note category="german">TDG_SUF_57</note>
+      </notes>
+      <segment>
+        <source>TDG_SUF_57</source>
+        <target>TDG_SUF_57</target>
+      </segment>
+    </unit>
+    <unit id="5dCuvYy" name="TDG_SUF_08">
+      <notes>
+        <note category="german">TDG_SUF_08</note>
+      </notes>
+      <segment>
+        <source>TDG_SUF_08</source>
+        <target>TDG_SUF_08</target>
+      </segment>
+    </unit>
+    <unit id="9rCBeqH" name="TDG_SUF_18">
+      <notes>
+        <note category="german">TDG_SUF_18</note>
+      </notes>
+      <segment>
+        <source>TDG_SUF_18</source>
+        <target>TDG_SUF_18</target>
+      </segment>
+    </unit>
+    <unit id="iTt2A9w" name="TDG_SUF_28">
+      <notes>
+        <note category="german">TDG_SUF_28</note>
+      </notes>
+      <segment>
+        <source>TDG_SUF_28</source>
+        <target>TDG_SUF_28</target>
+      </segment>
+    </unit>
+    <unit id="7sn7yBa" name="TDG_SUF_38">
+      <notes>
+        <note category="german">TDG_SUF_38</note>
+      </notes>
+      <segment>
+        <source>TDG_SUF_38</source>
+        <target>TDG_SUF_38</target>
+      </segment>
+    </unit>
+    <unit id="p0jFyVn" name="TDG_SUF_48">
+      <notes>
+        <note category="german">TDG_SUF_48</note>
+      </notes>
+      <segment>
+        <source>TDG_SUF_48</source>
+        <target>TDG_SUF_48</target>
+      </segment>
+    </unit>
+    <unit id="VtjS5JY" name="TDG_SUF_58">
+      <notes>
+        <note category="german">TDG_SUF_58</note>
+      </notes>
+      <segment>
+        <source>TDG_SUF_58</source>
+        <target>TDG_SUF_58</target>
+      </segment>
+    </unit>
+    <unit id="LKVS6Sf" name="TDG_SUF_09">
+      <notes>
+        <note category="german">TDG_SUF_09</note>
+      </notes>
+      <segment>
+        <source>TDG_SUF_09</source>
+        <target>TDG_SUF_09</target>
+      </segment>
+    </unit>
+    <unit id="afwbimK" name="TDG_SUF_19">
+      <notes>
+        <note category="german">TDG_SUF_19</note>
+      </notes>
+      <segment>
+        <source>TDG_SUF_19</source>
+        <target>TDG_SUF_19</target>
+      </segment>
+    </unit>
+    <unit id="ZJ6BD3k" name="TDG_SUF_29">
+      <notes>
+        <note category="german">TDG_SUF_29</note>
+      </notes>
+      <segment>
+        <source>TDG_SUF_29</source>
+        <target>TDG_SUF_29</target>
+      </segment>
+    </unit>
+    <unit id="3n6Cp3Y" name="TDG_SUF_39">
+      <notes>
+        <note category="german">TDG_SUF_39</note>
+      </notes>
+      <segment>
+        <source>TDG_SUF_39</source>
+        <target>TDG_SUF_39</target>
+      </segment>
+    </unit>
+    <unit id="vZEdEPU" name="TDG_SUF_49">
+      <notes>
+        <note category="german">TDG_SUF_49</note>
+      </notes>
+      <segment>
+        <source>TDG_SUF_49</source>
+        <target>TDG_SUF_49</target>
+      </segment>
+    </unit>
+    <unit id="ZdLqWcm" name="TDG_SUF_59">
+      <notes>
+        <note category="german">TDG_SUF_59</note>
+      </notes>
+      <segment>
+        <source>TDG_SUF_59</source>
+        <target>TDG_SUF_59</target>
+      </segment>
+    </unit>
+  </file>
+</xliff>

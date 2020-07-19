@@ -4,6 +4,9 @@ parameters:
     fatalmail:
       target: ~
       source: ~
+    twinoid:
+      sk: ~
+      id: ~
     soulpoints:
       limits:
         remote: 0 # 100

@@ -70,7 +70,7 @@
       </notes>
       <segment>
         <source>Du ziehst eine Karte... und stellst fest, dass du die Karte mit den Spielregeln gezogen hast! Das erheitert dich so sehr, dass du 1AP gewinnst.</source>
-        <target>Vous tirez la carte ... sur laquelle sont inscrites les règles du jeu. Ca vous fait tellement rire que vous gagnez 1 PA.</target>
+        <target>Vous tirez la carte ... sur laquelle sont inscrites les règles du jeu. Ça vous fait tellement rire que vous gagnez 1 PA.</target>
       </segment>
     </unit>
     <unit id="kPlE9C6" name="0460ff2">
@@ -1276,7 +1276,7 @@
       </notes>
       <segment>
         <source>Unvollständiges Kartenspiel</source>
-        <target>jeu de cartes incomplet</target>
+        <target>Jeu de cartes incomplet</target>
       </segment>
     </unit>
     <unit id="rkpAWb5" name="Gesellschaftsspiel">
@@ -7154,6 +7154,15 @@
       <segment>
         <source>&lt;t-stat-up-tg_meta_wound&gt;Diese Katze ist unglaublich! Sie scheint keine Angst zu haben, nicht einmal vor dir. Das Tier springt dir an die Kehle und vergräbt seine Krallen tief in deinem Fleisch.&lt;/t-stat-up-tg_meta_wound&gt;&lt;t-kills&gt;Diese Katze ist unglaublich! Sie scheint keine Angst zu haben, nicht einmal vor dem abartigen Gestank der Zombies. Mit mehr Zerstörungskraft als der Duracell-Hase und das Killer-Kaninchen von Caerbannog hat sie die Zone komplett bereinigt.&lt;/t-kills&gt;</source>
         <target><![CDATA[<t-stat-up-tg_meta_wound>Ce chaton est incroyable, peur de rien, pas même de vous ! Il saute à votre gorge et enfouit délicatement ses griffes au plus profond de votre chair.</t-stat-up-tg_meta_wound><t-kills>Ce chaton est incroyable, peur de rien, même pas de l'odeur infâme des zombies. Plus fort que les lapins Duracell et des Monty Python réunis, il a complètement dégagé la zone.</t-kills>]]></target>
+      </segment>
+    </unit>
+    <unit id="SJ.JIzZ" name="5e75224">
+      <notes>
+        <note category="german">&lt;t-fail&gt;&lt;t-no-room&gt;Du hast nicht genug Platz für diese Gegenstände...&lt;/t-no-room&gt;&lt;t-door-closed&gt;Das Stadttor ist geschlossen...&lt;/t-door-closed&gt;&lt;t-too-heavy&gt;{item} kann keine schweren Gegenstände tragen...&lt;/t-too-heavy&gt;&lt;/t-fail&gt;&lt;nt-fail&gt;Du hast den {item} mit deinen Gegenständen in die Stadt geschickt.&lt;/nt-fail&gt;</note>
+      </notes>
+      <segment>
+        <source>&lt;t-fail&gt;&lt;t-no-room&gt;Du hast nicht genug Platz für diese Gegenstände...&lt;/t-no-room&gt;&lt;t-door-closed&gt;Das Stadttor ist geschlossen...&lt;/t-door-closed&gt;&lt;t-too-heavy&gt;{item} kann keine schweren Gegenstände tragen...&lt;/t-too-heavy&gt;&lt;/t-fail&gt;&lt;nt-fail&gt;Du hast den {item} mit deinen Gegenständen in die Stadt geschickt.&lt;/nt-fail&gt;</source>
+        <target><![CDATA[<t-fail><t-no-room>Du hast nicht genug Platz für diese Gegenstände...</t-no-room><t-door-closed>Das Stadttor ist geschlossen...</t-door-closed><t-too-heavy>{item} kann keine schweren Gegenstände tragen...</t-too-heavy></t-fail><nt-fail>Du hast den {item} mit deinen Gegenständen in die Stadt geschickt.</nt-fail>]]></target>
       </segment>
     </unit>
   </file>

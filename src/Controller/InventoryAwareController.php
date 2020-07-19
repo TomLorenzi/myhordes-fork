@@ -471,7 +471,8 @@ class InventoryAwareController extends AbstractController
                 return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
         }
 
-        if ($this->citizen_handler->isTired($aggressor) || $aggressor->getAp() < 5)
+        $ap = $this->getTownConf()->get(TownConf::CONF_MODIFIER_ATTACK_AP, 4);
+        if ($this->citizen_handler->isTired($aggressor) || $aggressor->getAp() < $ap)
             return AjaxResponse::error( ErrorHelper::ErrorNoAP );
 
         $attack_protect = $this->getTownConf()->get(TownConf::CONF_MODIFIER_ATTACK_PROTECT, false);
@@ -503,7 +504,7 @@ class InventoryAwareController extends AbstractController
         } else {
 
             $this->citizen_handler->setAP( $aggressor, true, -5 );
-            $wound = $this->random_generator->chance( 0.5 );
+            $wound = $this->random_generator->chance( $this->getTownConf()->get(TownConf::CONF_MODIFIER_ATTACK_CHANCE, 0.5) );
             $this->entity_manager->persist($this->log->citizenAttack($aggressor, $defender, $wound));
             if ($wound) {
                 $this->addFlash('notice',

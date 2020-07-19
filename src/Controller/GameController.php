@@ -468,7 +468,7 @@ class GameController extends AbstractController implements GameInterfaceControll
         $this->citizen_handler->applyProfession( $citizen, $new_profession );
 
         if($new_profession->getHeroic()) {
-            $skills = $this->entity_manager->getRepository(HeroSkillPrototype::class)->getUnlocked($citizen->getUser()->getHeroDaysSpent());
+            $skills = $this->entity_manager->getRepository(HeroSkillPrototype::class)->getUnlocked($citizen->getUser()->getAllHeroDaysSpent());
             $inventory = $citizen->getInventory();
             $item = $if->createItem( "photo_3_#00" );
             $item->setEssential(true);

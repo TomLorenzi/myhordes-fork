@@ -89,32 +89,54 @@
                 </div>
             </div>
 
-            <h5>{{ 'Darstellung'|trans({},'soul') }}</h5>
             <div class="row">
-                <div class="padded cell rw-12">
-                    <div class="note note-lightest">
-                        <input x-setting {% if app.user.preferSmallAvatars %}checked{% endif%} type="checkbox" id="setting_prefer_classic_avatars">&nbsp;<label for="setting_prefer_classic_avatars">{{ 'Bevorzugt komprimierte Profilbilder anzeigen'|trans({}, 'soul') }}</label>
+                <div class="cell rw-6 rw-lg-12">
+                    <h5>{{ 'Darstellung'|trans({},'soul') }}</h5>
+                    <div class="row">
+                        <div class="padded cell rw-12">
+                            <div class="note note-lightest">
+                                <input x-setting {% if app.user.preferSmallAvatars %}checked{% endif%} type="checkbox" id="setting_prefer_classic_avatars">&nbsp;<label for="setting_prefer_classic_avatars">{{ 'Bevorzugt komprimierte Profilbilder anzeigen'|trans({}, 'soul') }}</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h5>{{ 'Browser-Einstellungen'|trans({},'soul') }}</h5>
+                    <div class="row">
+                        <div class="padded cell rw-12">
+                            <div class="help">
+                                {% trans from 'soul' %}
+                                    Die folgenden Einstellungen werden in deinem Browser gespeichert und sind damit nur für dein aktuelles Gerät und deinen aktuellen Browser gültig.
+                                {% endtrans %}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="padded cell rw-12">
+                            <div class="note note-lightest">
+                                <input x-browser-setting="notificationAsPopup" type="checkbox" id="setting_browser_notificationStyle">&nbsp;<label for="setting_browser_notificationStyle">{{ 'Benachrichtigungen als Popups anzeigen'|trans({}, 'soul') }}</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="cell rw-6 rw-lg-12">
+                    <div class="importSoulBanner">
+                        <h4>{{ 'Willkommen bei MyHordes!'|trans({},'welcome') }}</h4>
+                        <p>
+                            {{ 'Hast du ein Seele bei %hordes%, %dv%, %d2n% oder %zn%?'|trans({
+                                '%hordes%': '<i>Hordes</i>', '%dv%': '<i>Die Verdammten</i>', '%d2n%': '<i>Die2Nite</i>', '%zn%': '<i>Zombinoia</i>'
+                            },'soul')|raw }}
+                            <b>{{ 'Dann musst du nicht von Vorne beginnen!'|trans({},'soul') }}</b> {{ 'Importiere deine Seele und mache dort weiter, wo du aufgehört hast.'|trans({},'soul') }}
+                        </p>
+                        <button class="bigbutton" x-ajax-href="{{ url('soul_import') }}">
+                            <img class="float-left" alt="" src="{{ asset('build/images/icons/small_ghost_blue.gif') }}">
+                            <span>{{ 'Seele importieren'|trans({},'soul') }}</span>
+                            <img class="right" alt="" src="{{ asset('build/images/icons/small_ghost_blue.gif') }}">
+                        </button>
                     </div>
                 </div>
             </div>
 
-            <h5>{{ 'Browser-Einstellungen'|trans({},'soul') }}</h5>
-            <div class="row">
-                <div class="padded cell rw-12">
-                    <div class="help">
-                        {% trans from 'soul' %}
-                            Die folgenden Einstellungen werden in deinem Browser gespeichert und sind damit nur für dein aktuelles Gerät und deinen aktuellen Browser gültig.
-                        {% endtrans %}
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="padded cell rw-12">
-                    <div class="note note-lightest">
-                        <input x-browser-setting="notificationAsPopup" type="checkbox" id="setting_browser_notificationStyle">&nbsp;<label for="setting_browser_notificationStyle">{{ 'Benachrichtigungen als Popups anzeigen'|trans({}, 'soul') }}</label>
-                    </div>
-                </div>
-            </div>
+
 
             {% if is_granted("ROLE_ADMIN") %}
                 <h5>{{ 'Standardrolle im Forum'|trans({},'soul') }}</h5>
@@ -267,7 +289,7 @@
                 lang: document.querySelector("input[name=setting_preferred_language]:checked").value
                 },
                 function () {
-                    $.ajax.load(null, '{{ path('soul_settings') }}', true);
+                    window.location.href = '{{ url('soul_settings') }}';
                 } )
         });
 

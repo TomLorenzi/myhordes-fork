@@ -4,6 +4,8 @@
         <div class="cell padded rw-2 center">
             {% if incarnation.town.season is null %}
                 --
+            {% elseif incarnation.town.season.number == 0 %}
+                {{ incarnation.town.language|upper }}-{{ incarnation.town.season.subNumber }}
             {% else %}
                 {{ incarnation.town.season.number }}
             {% endif %}
@@ -36,8 +38,26 @@
 {% endfor %}
 
 <script>
-    let towns = document.querySelectorAll('[x-ajax-href]');
-    for(var i = 0 ; i < towns.length ; i++) {
+    (function() {
+        const add_comment = function(id) {
+            let comment = null;
+            let valid = false;
+            comment = window.prompt("{{ 'Was sagst du dazu?'|trans({},'game')|e('js') }}", "");
+            if (comment === null) valid = false;
+            else {
+                valid = !(comment === "")
+            }
 
-    }
+            if (!valid) return;
+
+            $.ajax.easySend( '{{ path('soul_add_comment') }}', {id: id, comment: comment},
+                function () {
+                    $.ajax.load(null, '{{ path('soul_me') }}', true);
+                } );
+        };
+
+        let buttons = document.querySelectorAll('[x-town-id]');
+        for (let i = 0; i < buttons.length; i++)
+            buttons[i].addEventListener('click', function(e) { e.preventDefault(); e.stopPropagation(); add_comment( this.getAttribute('x-town-id') ); });
+    })();
 </script>

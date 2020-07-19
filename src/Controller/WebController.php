@@ -7,6 +7,7 @@ use App\Entity\AdminAction;
 use App\Entity\ExternalApp;
 use App\Entity\User;
 use App\Service\AdminActionHandler;
+use App\Service\JSONRequestParser;
 use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\EntityManagerInterface;
 use Exception;
@@ -79,6 +80,28 @@ class WebController extends AbstractController
     public function framework(): Response
     {
         return $this->render_web_framework($this->generateUrl('initial_landing'));
+    }
+
+    /**
+     * @Route("/twinoid", name="twinoid_auth_endpoint")
+     * @return Response
+     */
+    public function framework_import(): Response
+    {
+        $request = Request::createFromGlobals();
+        $state = $request->query->get('state');
+        $code  = $request->query->get('code');
+        $error = $request->query->get('error');
+
+        if ($error) return new Response('Error: No code obtained! Reported error is "' . htmlentities($error) . '".');
+        if (empty( $code )) return new Response('Error: No code obtained!');
+
+        switch ($state) {
+            case 'import': return $this->render_web_framework($this->generateUrl('soul_import', ['code' => $code]));
+            default: return new Response('Error: Invalid state, can\'t redirect!');
+        }
+
+
     }
 
     /**

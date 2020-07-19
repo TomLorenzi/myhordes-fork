@@ -100,6 +100,11 @@ class BuildingPrototype
      */
     private $hp;
 
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $impervious;
+
     public function __construct()
     {
         $this->children = new ArrayCollection();
@@ -305,6 +310,18 @@ class BuildingPrototype
     public function setHp(int $hp): self
     {
         $this->hp = $hp;
+
+        return $this;
+    }
+
+    public function getImpervious(): ?bool
+    {
+        return $this->impervious;
+    }
+
+    public function setImpervious(bool $impervious): self
+    {
+        $this->impervious = $impervious;
 
         return $this;
     }

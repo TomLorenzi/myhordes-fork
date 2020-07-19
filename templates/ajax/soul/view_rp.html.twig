@@ -24,10 +24,10 @@
                 <div class="padded cell rw-12 center">
                     <div class="pages center">{{'Seite %page%/%pages%'|trans({"%page%": current, "%pages%": rp.text.pages|length}, 'global')}}<br />
                         {% if current > 1 %}
-                            <button class="inline" x-ajax-href="{{path('soul_rp', {id: rp.id, page: current-1})}}"> {{'Vorherige Seite'|trans({}, 'soul')}}</button>
+                            <button class="inline" x-ajax-href="{{path('soul_rp', {id: rp.id, page: current-1})}}"><img src="{{asset('build/images/icons/small_prev.gif')}}" alt ="<-" /> {{'Vorherige Seite'|trans({}, 'soul')}}</button>
                         {% endif %}
                         {% if current < rp.text.pages|length %}
-                            <button class="inline" x-ajax-href="{{path('soul_rp', {id: rp.id, page: current+1})}}"> {{'Nächste Seite'|trans({}, 'soul')}}</button>
+                            <button class="inline" x-ajax-href="{{path('soul_rp', {id: rp.id, page: current+1})}}"><img src="{{asset('build/images/icons/small_next.gif')}}" alt ="->" /> {{'Nächste Seite'|trans({}, 'soul')}}</button>
                         {% endif %}
                     </div>
                 </div>
