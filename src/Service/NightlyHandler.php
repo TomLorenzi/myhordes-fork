@@ -459,9 +459,7 @@ class NightlyHandler
 
                 $overflow -= $def;
             }
-
         }
-
 
 
         if ($this->conf->getTownConfiguration($town)->get(TownConf::CONF_MODIFIER_BUILDING_DAMAGE)) {

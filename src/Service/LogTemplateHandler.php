@@ -19,6 +19,7 @@ use App\Entity\LogEntryTemplate;
 use App\Entity\Town;
 use App\Entity\TownLogEntry;
 use App\Entity\Zone;
+use App\Translation\T;
 use DateTime;
 use DateTimeInterface;
 use Doctrine\ORM\EntityManagerInterface;
@@ -157,6 +158,34 @@ class LogTemplateHandler
             $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneByName('bankGive');
         else
             $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneByName('bankTake');
+
+        return (new TownLogEntry())
+            ->setLogEntryTemplate($template)
+            ->setVariables($variables)
+            ->setTown( $citizen->getTown() )
+            ->setDay( $citizen->getTown()->getDay() )
+            ->setTimestamp( new DateTime('now') )
+            ->setCitizen( $citizen );
+    }
+
+    public function bankItemTamerLog( Citizen $citizen, ItemPrototype $item, bool $broken = false ): TownLogEntry {
+
+        $dog_names = [
+            T::__('TAMER_DOGNAME_01','game'),
+            T::__('TAMER_DOGNAME_02','game'),
+            T::__('TAMER_DOGNAME_03','game'),
+            T::__('TAMER_DOGNAME_04','game'),
+            T::__('TAMER_DOGNAME_05','game'),
+            T::__('TAMER_DOGNAME_06','game'),
+            T::__('TAMER_DOGNAME_07','game'),
+            T::__('TAMER_DOGNAME_08','game'),
+            T::__('TAMER_DOGNAME_09','game'),
+            T::__('TAMER_DOGNAME_10','game'),
+        ];
+
+        $variables = array('citizen' => $citizen->getId(), 'item' => $item->getId(), 'broken' => $broken,
+            'dogname' => $dog_names[ $citizen->getId() % count($dog_names) ]);
+        $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneByName('bankGiveTamer');
 
         return (new TownLogEntry())
             ->setLogEntryTemplate($template)

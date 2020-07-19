@@ -862,24 +862,45 @@ class ActionHandler
 
                     // Tamer
                     case 4:case 5:case 16:case 17: {
+
+                        // The tamer does not work if the door is closed
+                        if (!$citizen->getTown()->getDoor()) {
+                            $tags[] = 'fail';
+                            $tags[] = 'door-closed';
+                            break;
+                        }
+
                         $heavy = $result->getCustom() === 5 || $result->getCustom() === 17;
 
                         $source = $citizen->getInventory();
+                        $create_log = ($result->getCustom() === 4 || $result->getCustom() === 5);
                         $bank = ($result->getCustom() === 4 || $result->getCustom() === 5) ? $citizen->getTown()->getBank() : $citizen->getHome()->getChest();
 
                         $heavy_break = false;
+                        $item_count = 0;
                         if (!$heavy)
-                            foreach ( $citizen->getInventory()->getItems() as $target_item )
+                            foreach ( $citizen->getInventory()->getItems() as $target_item ) {
+                                if ($target_item !== $item) $item_count++;
                                 if ($target_item->getPrototype()->getHeavy())
                                     $heavy_break = true;
+                            }
 
                         if ($heavy_break) {
                             $tags[] = 'fail';
+                            $tags[] = 'too-heavy';
+                        } elseif ($this->inventory_handler->getFreeSize( $bank ) < $item_count) {
+                            $tags[] = 'fail';
+                            $tags[] = 'no-room';
                         } else {
                             if ($item->getPrototype()->getName() === 'tamed_pet_#00' || $item->getPrototype()->getName() === 'tamed_pet_drug_#00' )
                                 $item->setPrototype( $this->entity_manager->getRepository(ItemPrototype::class)->findOneBy(['name' => 'tamed_pet_off_#00']) );
-                            foreach ( $citizen->getInventory()->getItems() as $target_item )
-                                $this->inventory_handler->transferItem($citizen,$target_item,$source,$bank, InventoryHandler::ModalityTamer);
+                            foreach ( $citizen->getInventory()->getItems() as $target_item ) if ($target_item !== $item) {
+
+                                if ($this->inventory_handler->transferItem($citizen, $target_item, $source, $bank, InventoryHandler::ModalityTamer) === InventoryHandler::ErrorNone) {
+                                    if ($create_log) $this->entity_manager->persist($this->log->bankItemTamerLog($citizen, $target_item->getPrototype(), $target_item->getBroken()));
+                                }
+
+                            }
                         }
 
                         break;
