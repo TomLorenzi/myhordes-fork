@@ -423,6 +423,7 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
         )) === InventoryHandler::ErrorNone) {
 
             $trashlock->increment();
+            if ($citizen->getBanished()) $this->picto_handler->give_picto( $citizen, 'r_solban_#00' );
             $this->citizen_handler->setAP($citizen, true, -1);
             $this->addFlash( 'notice', $this->translator->trans( 'Nach einigen Anstrengungen hast du folgendes gefunden: %item%!', [
                 '%item%' => "<span> {$this->translator->trans($item->getPrototype()->getLabel(), [], 'items')}</span>"
