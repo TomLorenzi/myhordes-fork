@@ -11436,7 +11436,7 @@
       </notes>
       <segment>
         <source>%dogname%, der stinkende Köter von %citizen%, hat folgendes in die Bank gebracht: %item%</source>
-        <target>%dogname%, der stinkende Köter von %citizen%, hat folgendes in die Bank gebracht: %item%</target>
+        <target>%dogname%, le cabot malodorant de %citizen%, a ramené %item% en ville !</target>
       </segment>
     </unit>
   </file>
