@@ -29,6 +29,7 @@ use App\Entity\Zone;
 use App\Structures\EscortItemActionSet;
 use App\Structures\ItemRequest;
 use App\Structures\TownConf;
+use App\Translation\T;
 use DateTime;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Contracts\Translation\TranslatorInterface;
@@ -1214,20 +1215,20 @@ class ActionHandler
             case Recipe::WorkshopType:
               switch($recipe->getAction()) {
                 case "Öffnen":
-                  $base = 'Du hast %item_list% in der Werkstatt geöffnet und erhälst %item%.';
+                  $base = T::__('Du hast %item_list% in der Werkstatt geöffnet und erhälst %item%.', 'game');
                   break;
                 case "Zerlegen":
-                  $base = 'Du hast %item_list% in der Werkstatt zu %item% zerlegt.';
+                  $base = T::__('Du hast %item_list% in der Werkstatt zu %item% zerlegt.', 'game');
                   break;
 
                 default:
-                  $base = 'Du hast %item_list% in der Werkstatt zu %item% umgewandelt.';
+                  $base = T::__('Du hast %item_list% in der Werkstatt zu %item% umgewandelt.', 'game');
               }
               $pictoPrototype = $this->entity_manager->getRepository(PictoPrototype::class)->findOneByName("r_refine_#00");
               $this->picto_handler->give_picto($citizen, $pictoPrototype);
               break;
             case Recipe::ManualOutside:case Recipe::ManualInside:case Recipe::ManualAnywhere:default:
-                $base = 'Du hast %item_list% zu %item% umgewandelt.';
+                $base = T::__('Du hast %item_list% zu %item% umgewandelt.', 'game');
                 if ($recipe->getPictoPrototype()) {
                     $this->picto_handler->give_picto($citizen, $recipe->getPictoPrototype());
                 }
