@@ -11511,14 +11511,5 @@
         <target>Personne ne sait comment un tel miracle est possible, mais %hero% est revenu avec %citizen% (qui était à %pos%), sur ses épaules ! Vive nos héros !</target>
       </segment>
     </unit>
-    <unit id="UCMPjGO" name="45fbaf0">
-      <notes>
-        <note category="german">Niemand weiß, wie ein solches Wunder möglich ist, aber %hero% hat %citizen% (der sich auf %pos% befand), auf seinen Schultern heim getragen. Lang leben unsere Helden!</note>
-      </notes>
-      <segment>
-        <source>Niemand weiß, wie ein solches Wunder möglich ist, aber %hero% hat %citizen% (der sich auf %pos% befand), auf seinen Schultern heim getragen. Lang leben unsere Helden!</source>
-        <target>Niemand weiß, wie ein solches Wunder möglich ist, aber %hero% hat %citizen% (der sich auf %pos% befand), auf seinen Schultern heim getragen. Lang leben unsere Helden!</target>
-      </segment>
-    </unit>
   </file>
 </xliff>
