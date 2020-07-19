@@ -1204,7 +1204,7 @@
       </notes>
       <segment>
         <source>Neuen Namen eingeben.</source>
-        <target>Neuen Namen eingeben.</target>
+        <target>Entrez un nouveau nom.</target>
       </segment>
     </unit>
     <unit id="g_B_0fN" name="Umbenennen">
@@ -1213,7 +1213,7 @@
       </notes>
       <segment>
         <source>Umbenennen</source>
-        <target>Umbenennen</target>
+        <target>Renommer</target>
       </segment>
     </unit>
     <unit id="bC01IWH" name="Löschen">
@@ -1222,7 +1222,7 @@
       </notes>
       <segment>
         <source>Löschen</source>
-        <target>Löschen</target>
+        <target>Clair</target>
       </segment>
     </unit>
     <unit id="A2t0n2E" name="Berechtigungen">
@@ -1231,7 +1231,7 @@
       </notes>
       <segment>
         <source>Berechtigungen</source>
-        <target>Berechtigungen</target>
+        <target>Autorisations</target>
       </segment>
     </unit>
     <unit id="E4Jlo35" name="Gewähren: %role%">
@@ -1240,7 +1240,7 @@
       </notes>
       <segment>
         <source>Gewähren: %role%</source>
-        <target>Gewähren: %role%</target>
+        <target>Accorder : %role%</target>
       </segment>
     </unit>
     <unit id="BiuEB.T" name="Berechtigungsstufe zurücksetzen">
@@ -1249,7 +1249,7 @@
       </notes>
       <segment>
         <source>Berechtigungsstufe zurücksetzen</source>
-        <target>Berechtigungsstufe zurücksetzen</target>
+        <target>Réinitialiser le niveau d'autorisation</target>
       </segment>
     </unit>
     <unit id="EHG8mpy" name="Bitte bestätige folgende Aktion:">
@@ -1258,7 +1258,7 @@
       </notes>
       <segment>
         <source>Bitte bestätige folgende Aktion:</source>
-        <target>Bitte bestätige folgende Aktion:</target>
+        <target>Veuillez confirmer l'action suivante :</target>
       </segment>
     </unit>
   </file>
