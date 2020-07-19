@@ -151,6 +151,16 @@ class GameController extends AbstractController implements GameInterfaceControll
         $day = $town->getDay();
         $death_outside = $death_inside = [];
 
+        $has_living_citizens = false;
+        foreach ( $town->getCitizens() as $c )
+            if ($c->getAlive()) {
+                $has_living_citizens = true;
+                break;
+            }
+
+        if (!$has_living_citizens)
+            return $this->redirect($this->generateUrl('game_landing'));
+
         /** @var Gazette $gazette */
         $gazette = $town->findGazette( $day );
         if (!$gazette) {
