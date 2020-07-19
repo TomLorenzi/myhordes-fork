@@ -11430,5 +11430,14 @@
         <target>Vous faites partis des joueurs les plus intégres de Hordes, le fair-play, plus qu'un principe, c'est un état d'esprit.</target>
       </segment>
     </unit>
+    <unit id="XGrBqHH" name="0e1dfc0">
+      <notes>
+        <note category="german">%dogname%, der stinkende Köter von %citizen%, hat folgendes in die Bank gebracht: %item%</note>
+      </notes>
+      <segment>
+        <source>%dogname%, der stinkende Köter von %citizen%, hat folgendes in die Bank gebracht: %item%</source>
+        <target>%dogname%, der stinkende Köter von %citizen%, hat folgendes in die Bank gebracht: %item%</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

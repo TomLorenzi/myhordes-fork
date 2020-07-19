@@ -109,6 +109,37 @@ class LogTemplateHandler
         return $object;
     }
 
+    public function generateDogName(int $numeric): string {
+        $dog_names_prefix = [
+            T::__('TDG_PRE_00_','names'), T::__('TDG_PRE_10_','names'),T::__('TDG_PRE_20_','names'), T::__('TDG_PRE_30_','names'),T::__('TDG_PRE_40_','names'), T::__('TDG_PRE_50_','names'),
+            T::__('TDG_PRE_01_','names'), T::__('TDG_PRE_11_','names'),T::__('TDG_PRE_21_','names'), T::__('TDG_PRE_31_','names'),T::__('TDG_PRE_41_','names'), T::__('TDG_PRE_51_','names'),
+            T::__('TDG_PRE_02_','names'), T::__('TDG_PRE_12_','names'),T::__('TDG_PRE_22_','names'), T::__('TDG_PRE_32_','names'),T::__('TDG_PRE_42_','names'), T::__('TDG_PRE_52_','names'),
+            T::__('TDG_PRE_03_','names'), T::__('TDG_PRE_13_','names'),T::__('TDG_PRE_23_','names'), T::__('TDG_PRE_33_','names'),T::__('TDG_PRE_43_','names'), T::__('TDG_PRE_53_','names'),
+            T::__('TDG_PRE_04_','names'), T::__('TDG_PRE_14_','names'),T::__('TDG_PRE_24_','names'), T::__('TDG_PRE_34_','names'),T::__('TDG_PRE_44_','names'), T::__('TDG_PRE_54_','names'),
+            T::__('TDG_PRE_05_','names'), T::__('TDG_PRE_15_','names'),T::__('TDG_PRE_25_','names'), T::__('TDG_PRE_35_','names'),T::__('TDG_PRE_45_','names'), T::__('TDG_PRE_55_','names'),
+            T::__('TDG_PRE_06_','names'), T::__('TDG_PRE_16_','names'),T::__('TDG_PRE_26_','names'), T::__('TDG_PRE_36_','names'),T::__('TDG_PRE_46_','names'), T::__('TDG_PRE_56_','names'),
+            T::__('TDG_PRE_07_','names'), T::__('TDG_PRE_17_','names'),T::__('TDG_PRE_27_','names'), T::__('TDG_PRE_37_','names'),T::__('TDG_PRE_47_','names'), T::__('TDG_PRE_57_','names'),
+            T::__('TDG_PRE_08_','names'), T::__('TDG_PRE_18_','names'),T::__('TDG_PRE_28_','names'), T::__('TDG_PRE_38_','names'),T::__('TDG_PRE_48_','names'), T::__('TDG_PRE_58_','names'),
+            T::__('TDG_PRE_09_','names'), T::__('TDG_PRE_19_','names'),T::__('TDG_PRE_29_','names'), T::__('TDG_PRE_39_','names'),T::__('TDG_PRE_49_','names'), T::__('TDG_PRE_59_','names'),
+        ];
+
+        $dog_names_suffix = [
+            T::__('TDG_SUF_00','names'), T::__('TDG_SUF_10','names'),T::__('TDG_SUF_20','names'), T::__('TDG_SUF_30','names'),T::__('TDG_SUF_40','names'), T::__('TDG_SUF_50','names'),
+            T::__('TDG_SUF_01','names'), T::__('TDG_SUF_11','names'),T::__('TDG_SUF_21','names'), T::__('TDG_SUF_31','names'),T::__('TDG_SUF_41','names'), T::__('TDG_SUF_51','names'),
+            T::__('TDG_SUF_02','names'), T::__('TDG_SUF_12','names'),T::__('TDG_SUF_22','names'), T::__('TDG_SUF_32','names'),T::__('TDG_SUF_42','names'), T::__('TDG_SUF_52','names'),
+            T::__('TDG_SUF_03','names'), T::__('TDG_SUF_13','names'),T::__('TDG_SUF_23','names'), T::__('TDG_SUF_33','names'),T::__('TDG_SUF_43','names'), T::__('TDG_SUF_53','names'),
+            T::__('TDG_SUF_04','names'), T::__('TDG_SUF_14','names'),T::__('TDG_SUF_24','names'), T::__('TDG_SUF_34','names'),T::__('TDG_SUF_44','names'), T::__('TDG_SUF_54','names'),
+            T::__('TDG_SUF_05','names'), T::__('TDG_SUF_15','names'),T::__('TDG_SUF_25','names'), T::__('TDG_SUF_35','names'),T::__('TDG_SUF_45','names'), T::__('TDG_SUF_55','names'),
+            T::__('TDG_SUF_06','names'), T::__('TDG_SUF_16','names'),T::__('TDG_SUF_26','names'), T::__('TDG_SUF_36','names'),T::__('TDG_SUF_46','names'), T::__('TDG_SUF_56','names'),
+            T::__('TDG_SUF_07','names'), T::__('TDG_SUF_17','names'),T::__('TDG_SUF_27','names'), T::__('TDG_SUF_37','names'),T::__('TDG_SUF_47','names'), T::__('TDG_SUF_57','names'),
+            T::__('TDG_SUF_08','names'), T::__('TDG_SUF_18','names'),T::__('TDG_SUF_28','names'), T::__('TDG_SUF_38','names'),T::__('TDG_SUF_48','names'), T::__('TDG_SUF_58','names'),
+            T::__('TDG_SUF_09','names'), T::__('TDG_SUF_19','names'),T::__('TDG_SUF_29','names'), T::__('TDG_SUF_39','names'),T::__('TDG_SUF_49','names'), T::__('TDG_SUF_59','names'),
+        ];
+
+        list(,$preID,$sufID) = unpack('l2', md5("dog-for-{$numeric}", true));
+        return "{$this->trans->trans($dog_names_prefix[abs($preID % count($dog_names_prefix))],[],'names')}{$this->trans->trans($dog_names_suffix[abs($sufID % count($dog_names_suffix))],[],'names')}";
+    }
+    
     public function parseTransParams (array $variableTypes, array $variables): ?array {
         $transParams = [];
         foreach ($variableTypes as $typeEntry) {
@@ -133,6 +164,9 @@ class LogTemplateHandler
                 elseif ($typeEntry['type'] === 'transString') {
                     $transParams['%'.$typeEntry['name'].'%'] = $this->wrap( $this->trans->trans($variables[$typeEntry['name']], [], 'game') );
                 }
+                elseif ($typeEntry['type'] === 'dogname') {
+                    $transParams['%'.$typeEntry['name'].'%'] = $this->wrap( $this->generateDogName((int)$variables[$typeEntry['name']]) );
+                }
                 elseif ($typeEntry['type'] === 'ap') {
                     $ap = $variables[$typeEntry['name']];
                     $transParams['%'.$typeEntry['name'].'%'] = "<div class='ap'>{$ap}</div>";
@@ -145,7 +179,7 @@ class LogTemplateHandler
                 }
             }
             catch (Exception $e) {
-                $transParams['%'.$typeEntry['name'].'%'] = "null";
+                $transParams['%'.$typeEntry['name'].'%'] = "_error_";
             }
         }
 
@@ -170,21 +204,7 @@ class LogTemplateHandler
 
     public function bankItemTamerLog( Citizen $citizen, ItemPrototype $item, bool $broken = false ): TownLogEntry {
 
-        $dog_names = [
-            T::__('TAMER_DOGNAME_01','game'),
-            T::__('TAMER_DOGNAME_02','game'),
-            T::__('TAMER_DOGNAME_03','game'),
-            T::__('TAMER_DOGNAME_04','game'),
-            T::__('TAMER_DOGNAME_05','game'),
-            T::__('TAMER_DOGNAME_06','game'),
-            T::__('TAMER_DOGNAME_07','game'),
-            T::__('TAMER_DOGNAME_08','game'),
-            T::__('TAMER_DOGNAME_09','game'),
-            T::__('TAMER_DOGNAME_10','game'),
-        ];
-
-        $variables = array('citizen' => $citizen->getId(), 'item' => $item->getId(), 'broken' => $broken,
-            'dogname' => $dog_names[ $citizen->getId() % count($dog_names) ]);
+        $variables = array('citizen' => $citizen->getId(), 'item' => $item->getId(), 'broken' => $broken, 'dogname' => $citizen->getId());
         $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneByName('bankGiveTamer');
 
         return (new TownLogEntry())

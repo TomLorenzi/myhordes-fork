@@ -1468,5 +1468,23 @@
         <target>Die Backen halten</target>
       </segment>
     </unit>
+    <unit id="GgZ6pgy" name="Bist du sicher, dass du diesen Post an die Moderatoren melden willst?">
+      <notes>
+        <note category="german">Bist du sicher, dass du diesen Post an die Moderatoren melden willst?</note>
+      </notes>
+      <segment>
+        <source>Bist du sicher, dass du diesen Post an die Moderatoren melden willst?</source>
+        <target>Bist du sicher, dass du diesen Post an die Moderatoren melden willst?</target>
+      </segment>
+    </unit>
+    <unit id="H_X7U1o" name="Schön hier im Warmen bleiben">
+      <notes>
+        <note category="german">Schön hier im Warmen bleiben</note>
+      </notes>
+      <segment>
+        <source>Schön hier im Warmen bleiben</source>
+        <target>Schön hier im Warmen bleiben</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

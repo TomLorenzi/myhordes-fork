@@ -11326,5 +11326,14 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
         <target>You are one of the most integrated players in Die2Nite, fair play, more than a principle, it is a state of mind.</target>
       </segment>
     </unit>
+    <unit id="XGrBqHH" name="0e1dfc0">
+      <notes>
+        <note category="german">%dogname%, der stinkende Köter von %citizen%, hat folgendes in die Bank gebracht: %item%</note>
+      </notes>
+      <segment>
+        <source>%dogname%, der stinkende Köter von %citizen%, hat folgendes in die Bank gebracht: %item%</source>
+        <target>%dogname%, der stinkende Köter von %citizen%, hat folgendes in die Bank gebracht: %item%</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

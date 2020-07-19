@@ -1665,7 +1665,7 @@
     </unit>
     <unit id="XRr8eU." name="Gib den Pseudo des Bürgers ein.">
       <notes>
-        <note category="german">Gib den Pseudo des Bürgers ein.</note>
+        <note category="german">Gib den Namen des Bürgers ein.</note>
       </notes>
       <segment>
         <source>Gib den Pseudo des Bürgers ein.</source>
