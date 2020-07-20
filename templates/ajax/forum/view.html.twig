@@ -99,6 +99,17 @@
                     {% endif %}
 
                     {{ _self.display_thread_list(threads, forum.id, 'fa-scroll', forum.title, select, jump) }}
+                    {% if pages > 1 %}
+                        <div class="row">
+                            <div class="cell rw-12 padded center">
+                                <div class="forum-button" x-forum-action="thread-pager" x-to-page="1"><i class="fa fa-fast-backward"></i></div>
+                                <div class="forum-button" x-forum-action="thread-pager" x-to-page="{{ current_page - 1 }}"><i class="fa fa-backward"></i></div>
+                                <div class="forum-button">{{ 'Seite %page%/%pages%'|trans({'%page%': current_page, '%pages%': pages},'global') }}</div>
+                                <div class="forum-button" x-forum-action="thread-pager" x-to-page="{{ current_page + 1 }}"><i class="fa fa-forward"></i></div>
+                                <div class="forum-button" x-forum-action="thread-pager" x-to-page="{{ pages }}"><i class="fa fa-fast-forward"></i></div>
+                            </div>
+                        </div>
+                    {% endif %}
                 </div>
 
                 <div class="cell padded rw-8 rw-md-12">
