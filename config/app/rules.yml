@@ -26,7 +26,11 @@ parameters:
       initial_buildings:  []
       unlocked_buildings: []
 
-      bank_abuse_limit: 5
+      bank_abuse:
+        limit: 5
+        chaos_limit: 10
+        base_range_min: 5
+        lock_range_min: 15
 
       times:
         digging:

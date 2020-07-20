@@ -36,7 +36,10 @@ class TownConf extends Conf
     const CONF_TIMES_EXPLORE_NORMAL = 'times.exploration.normal';
     const CONF_TIMES_EXPLORE_COLLEC = 'times.exploration.collec';
 
-    const CONF_BANK_ABUSE_LIMIT = 'bank_abuse_limit';
+    const CONF_BANK_ABUSE_LIMIT       = 'bank_abuse.limit';
+    const CONF_BANK_ABUSE_LIMIT_CHAOS = 'bank_abuse.chaos_limit';
+    const CONF_BANK_ABUSE_BASE        = 'bank_abuse.base_range_min';
+    const CONF_BANK_ABUSE_LOCK        = 'bank_abuse.lock_range_min';
 
     const CONF_MODIFIER_POISON_STACK         = 'modifiers.poison.stack_poisoned_items';
     const CONF_MODIFIER_POISON_TRANS         = 'modifiers.poison.transgress';

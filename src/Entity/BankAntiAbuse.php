@@ -56,8 +56,7 @@ class BankAntiAbuse
 
     public function increaseNbItemTaken(): self
     {
-        $this->nbItemTaken++;
-
+        $this->setNbItemTaken( $this->getNbItemTaken() + 1 );
         return $this;
     }
 
