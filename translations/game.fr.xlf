@@ -11448,15 +11448,6 @@
         <target>%citizen% a renvoyé son animal de compagnie en direction de la ville avec %count% objet(s) sur le dos.</target>
       </segment>
     </unit>
-    <unit id="z_kMoFO" name="%hero% hat %citizen% auf heldenhafte Weise zurück in die Stadt gebracht.">
-      <notes>
-        <note category="german">%hero% hat %citizen% auf heldenhafte Weise zurück in die Stadt gebracht.</note>
-      </notes>
-      <segment>
-        <source>%hero% hat %citizen% auf heldenhafte Weise zurück in die Stadt gebracht.</source>
-        <target>%hero% hat %citizen% auf heldenhafte Weise zurück in die Stadt gebracht.</target>
-      </segment>
-    </unit>
     <unit id="ALk3xHN" name="a65f146">
       <notes>
         <note category="german">Du hast heimlich einen Eintrag im Register unkenntlich gemacht... Du kannst das noch %times% mal tun.</note>
@@ -11517,7 +11508,7 @@
       </notes>
       <segment>
         <source>Nach einem harten Kampf gelingt es dir schließlich, einen Zombie gegen einen Felsen fallen zu lassen... Sein Kopf explodiert buchstäblich und sein Inhalt spritz auf deine Schuhe! Du taumelst zurück, außer Atem: einer weniger...</source>
-        <target>Nach einem harten Kampf gelingt es dir schließlich, einen Zombie gegen einen Felsen fallen zu lassen... Sein Kopf explodiert buchstäblich und sein Inhalt spritz auf deine Schuhe! Du taumelst zurück, außer Atem: einer weniger...</target>
+        <target>Au terme d'un effroyable affrontement, vous avez finalement réussi à faire chuter un zombie contre un rocher... Sa tête a littéralement explosé et son contenu s'est répandu sur vos chaussures ! Vous reculez en titubant, essouflé(e) : un de moins... Han ... han ...</target>
       </segment>
     </unit>
     <unit id="uQ9iqg9" name="21d4990">
@@ -11526,7 +11517,7 @@
       </notes>
       <segment>
         <source>Du schlägst mehrmals mit aller Kraft auf einen Zombie ein, aber es scheint ihm nichts auszumachen!</source>
-        <target>Du schlägst mehrmals mit aller Kraft auf einen Zombie ein, aber es scheint ihm nichts auszumachen!</target>
+        <target>Vous frappez un zombie de toutes vos forces, plusieurs fois, mais celui-ci ne s'effrondre pas sous vos coups !</target>
       </segment>
     </unit>
     <unit id="rJtk9d5" name="Die Abschätzung wird durch den Scanner verbessert.">
@@ -11535,7 +11526,7 @@
       </notes>
       <segment>
         <source>Die Abschätzung wird durch den Scanner verbessert.</source>
-        <target>Die Abschätzung wird durch den Scanner verbessert.</target>
+        <target>L'estimation est améliorée par le Scanner.</target>
       </segment>
     </unit>
     <unit id="pc7dbFT" name="Dank der Rechenmaschine kannst du den morgigen Angriff abschätzen.">
@@ -11544,7 +11535,7 @@
       </notes>
       <segment>
         <source>Dank der Rechenmaschine kannst du den morgigen Angriff abschätzen.</source>
-        <target>Dank der Rechenmaschine kannst du den morgigen Angriff abschätzen.</target>
+        <target>Grâce au Planificateur, vous pouvez estimer l'attaque de demain.</target>
       </segment>
     </unit>
   </file>

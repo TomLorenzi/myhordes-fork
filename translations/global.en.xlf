@@ -1510,7 +1510,7 @@
       </notes>
       <segment>
         <source>Bist du sicher, dass du diesen Post an die Moderatoren melden willst?</source>
-        <target>Bist du sicher, dass du diesen Post an die Moderatoren melden willst?</target>
+        <target>Are you sure you want to report this post to the Moderators ?</target>
       </segment>
     </unit>
     <unit id="H_X7U1o" name="Schön hier im Warmen bleiben">
@@ -1519,7 +1519,7 @@
       </notes>
       <segment>
         <source>Schön hier im Warmen bleiben</source>
-        <target>Schön hier im Warmen bleiben</target>
+        <target>Stay in the warmth</target>
       </segment>
     </unit>
     <unit id="VpbGnR1" name="Spamschutz: Du musst eine Weile warten, bis du wieder schreiben kannst.">
@@ -1528,7 +1528,7 @@
       </notes>
       <segment>
         <source>Spamschutz: Du musst eine Weile warten, bis du wieder schreiben kannst.</source>
-        <target>Spamschutz: Du musst eine Weile warten, bis du wieder schreiben kannst.</target>
+        <target>Spam protection : You have to wait a while before you can write again.</target>
       </segment>
     </unit>
   </file>

@@ -11362,15 +11362,6 @@
         <target>%citizen% hat seinen Hund mit %count% Gegenständen in die Stadt geschickt.</target>
       </segment>
     </unit>
-    <unit id="z_kMoFO" name="%hero% hat %citizen% auf heldenhafte Weise zurück in die Stadt gebracht.">
-      <notes>
-        <note category="german">%hero% hat %citizen% auf heldenhafte Weise zurück in die Stadt gebracht.</note>
-      </notes>
-      <segment>
-        <source>%hero% hat %citizen% auf heldenhafte Weise zurück in die Stadt gebracht.</source>
-        <target>%hero% hat %citizen% auf heldenhafte Weise zurück in die Stadt gebracht.</target>
-      </segment>
-    </unit>
     <unit id="ALk3xHN" name="a65f146">
       <notes>
         <note category="german">Du hast heimlich einen Eintrag im Register unkenntlich gemacht... Du kannst das noch %times% mal tun.</note>
