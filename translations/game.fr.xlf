@@ -11445,7 +11445,7 @@
       </notes>
       <segment>
         <source>%citizen% hat seinen Hund mit %count% Gegenständen in die Stadt geschickt.</source>
-        <target>%citizen% hat seinen Hund mit %count% Gegenständen in die Stadt geschickt.</target>
+        <target>%citizen% a renvoyé son animal de compagnie en direction de la ville avec %count% objet(s) sur le dos.</target>
       </segment>
     </unit>
     <unit id="z_kMoFO" name="%hero% hat %citizen% auf heldenhafte Weise zurück in die Stadt gebracht.">
@@ -11463,7 +11463,7 @@
       </notes>
       <segment>
         <source>Du hast heimlich einen Eintrag im Register unkenntlich gemacht... Du kannst das noch %times% mal tun.</source>
-        <target>Du hast heimlich einen Eintrag im Register unkenntlich gemacht... Du kannst das noch %times% mal tun.</target>
+        <target>Vous avez discrètement falsifié une ligne du registre... Vous pouvez encore faire ceci %times% fois.</target>
       </segment>
     </unit>
     <unit id="FjeaId." name="Du hast %item_list% in der Werkstatt geöffnet und erhälst %item%.">
@@ -11472,7 +11472,7 @@
       </notes>
       <segment>
         <source>Du hast %item_list% in der Werkstatt geöffnet und erhälst %item%.</source>
-        <target>Du hast %item_list% in der Werkstatt geöffnet und erhälst %item%.</target>
+        <target>Vous avez ouvert %item_list% et vous obtenez %item% grâce à l'Atelier.</target>
       </segment>
     </unit>
     <unit id="lbMpVVT" name="Du hast %item_list% in der Werkstatt zu %item% zerlegt.">
@@ -11481,7 +11481,7 @@
       </notes>
       <segment>
         <source>Du hast %item_list% in der Werkstatt zu %item% zerlegt.</source>
-        <target>Du hast %item_list% in der Werkstatt zu %item% zerlegt.</target>
+        <target>Vous avez démonté %item_list% et obtenu %item% grâce à l'Atelier.</target>
       </segment>
     </unit>
     <unit id="4NEM2QG" name="Du hast %item_list% in der Werkstatt zu %item% umgewandelt.">
@@ -11490,7 +11490,7 @@
       </notes>
       <segment>
         <source>Du hast %item_list% in der Werkstatt zu %item% umgewandelt.</source>
-        <target>Du hast %item_list% in der Werkstatt zu %item% umgewandelt.</target>
+        <target>Vous avez transformé %item_list% en %item% dans l'Atelier.</target>
       </segment>
     </unit>
     <unit id="go91k6z" name="Du hast %item_list% zu %item% umgewandelt.">
@@ -11499,7 +11499,7 @@
       </notes>
       <segment>
         <source>Du hast %item_list% zu %item% umgewandelt.</source>
-        <target>Du hast %item_list% zu %item% umgewandelt.</target>
+        <target>Vous avez fabriqué %item% en combinant %item_list%.</target>
       </segment>
     </unit>
     <unit id="UCMPjGO" name="45fbaf0">
@@ -11508,7 +11508,7 @@
       </notes>
       <segment>
         <source>Niemand weiß, wie ein solches Wunder möglich ist, aber %hero% hat %citizen% (der sich auf %pos% befand), auf seinen Schultern heim getragen. Lang leben unsere Helden!</source>
-        <target>Niemand weiß, wie ein solches Wunder möglich ist, aber %hero% hat %citizen% (der sich auf %pos% befand), auf seinen Schultern heim getragen. Lang leben unsere Helden!</target>
+        <target>Personne ne sait comment un tel miracle est possible, mais %hero% est revenu avec %citizen% (qui était à %pos%), sur ses épaules ! Vive nos héros !</target>
       </segment>
     </unit>
   </file>
