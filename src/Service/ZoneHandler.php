@@ -135,15 +135,25 @@ class ZoneHandler
         $conf = $this->conf->getTownConfiguration( $zone->getTown() );
 
         $zone_update = false;
-        $not_up_to_date = !empty($dig_timers);
+
+        $active_dig_timers = $active ? array_filter($dig_timers, function(DigTimer $t) use ($active) {
+            return $active === $t->getCitizen() || ($t->getCitizen()->getEscortSettings() && $t->getCitizen()->getEscortSettings()->getLeader() === $active);
+        }) : $dig_timers;
+
+        $not_up_to_date = !empty($active_dig_timers);
         while ($not_up_to_date) {
 
-            usort( $dig_timers, $sort_func );
+            usort( $active_dig_timers, $sort_func );
 
-            foreach ($dig_timers as &$timer)
+
+
+            foreach ($active_dig_timers as &$timer)
                 if ($timer->getTimestamp() <= $up_to) {
 
                     $current_citizen = $timer->getCitizen();
+
+                    if ($active && $active !== $current_citizen && $current_citizen->getEscortSettings() && $current_citizen->getEscortSettings()->getLeader() !== $active)
+                        continue;
 
                     $factor = 1.0;
                     if ($timer->getCitizen()->getProfession()->getName() === 'collec') $factor += 0.3;
@@ -160,7 +170,7 @@ class ZoneHandler
                             $found_by_player[] = $item_prototype;
                     }
 
-                    if ($current_citizen->getEscortSettings() && $current_citizen->getEscortSettings()->getLeader() && $current_citizen->getEscortSettings()->getLeader()->getId() === $active->getId()) {
+                    if ($active && $current_citizen->getEscortSettings() && $current_citizen->getEscortSettings()->getLeader() && $current_citizen->getEscortSettings()->getLeader()->getId() === $active->getId()) {
                         $chances_by_escorts++;
                         if ($item_prototype)
                             $found_by_escorts[] = $item_prototype;
@@ -177,9 +187,9 @@ class ZoneHandler
                         if ($inventoryDest = $this->inventory_handler->placeItem( $current_citizen, $item, [ $current_citizen->getInventory(), $timer->getZone()->getFloor() ] )) {
                             if($inventoryDest->getId() === $timer->getZone()->getFloor()->getId()){
                                 $this->entity_manager->persist($this->log->beyondItemLog($current_citizen, $item->getPrototype(), true));
-                                if ($current_citizen->getEscortSettings() && $current_citizen->getEscortSettings()->getLeader() && $current_citizen->getEscortSettings()->getLeader()->getId() === $active->getId())
+                                if ($active && $current_citizen->getEscortSettings() && $current_citizen->getEscortSettings()->getLeader() && $current_citizen->getEscortSettings()->getLeader() === $active)
                                     $ret_str[] = $this->trans->trans('Er kann den Gegenstand momentan nicht aufnehmen und hat ihn auf dem Boden abgelegt.', [], 'game');
-                                else
+                                elseif ($active && $current_citizen === $active)
                                     $ret_str[] = $this->trans->trans('Der Gegenstand, den du soeben gefunden hast, passt nicht in deinen Rucksack, darum bleibt er erstmal am Boden...', [], 'game');
                             }
                             $this->entity_manager->persist( $item );
@@ -219,7 +229,7 @@ class ZoneHandler
                         }
                     }
                 }
-            $not_up_to_date = $dig_timers[0]->getTimestamp() < $up_to;
+            $not_up_to_date = $active_dig_timers[0]->getTimestamp() < $up_to;
         }
 
         if ($zone_update) $this->entity_manager->persist($zone);
@@ -227,9 +237,9 @@ class ZoneHandler
 
         if ($chances_by_player > 0) {
             if (empty($found_by_player)){
-                if ($this->citizen_handler->hasStatusEffect( $timer->getCitizen(), 'wound5' ))
+                if ($this->citizen_handler->hasStatusEffect( $active, 'wound5' ))
                     array_unshift($ret_str, $this->trans->trans( 'Deine Verletzung am Auge macht dir die Suche nicht gerade leichter.', [], 'game'));
-                if ($this->citizen_handler->hasStatusEffect( $timer->getCitizen(), 'drunk' ))
+                if ($this->citizen_handler->hasStatusEffect( $active, 'drunk' ))
                     array_unshift($ret_str, $this->trans->trans( 'Deine Trunkenheit macht dir die Suche nicht gerade leichter.', [], 'game'));
 
                 array_unshift($ret_str, $this->trans->trans( 'Trotz all deiner Anstrengungen hast du hier leider nichts gefunden ...', [], 'game' ));
