@@ -893,8 +893,6 @@ class ActionHandler
                             $tags[] = 'fail';
                             $tags[] = 'no-room';
                         } else {
-                            if ($item->getPrototype()->getName() === 'tamed_pet_#00' || $item->getPrototype()->getName() === 'tamed_pet_drug_#00' )
-                                $item->setPrototype( $this->entity_manager->getRepository(ItemPrototype::class)->findOneBy(['name' => 'tamed_pet_off_#00']) );
                             foreach ( $citizen->getInventory()->getItems() as $target_item ) if ($target_item !== $item) {
 
                                 if ($this->inventory_handler->transferItem($citizen, $target_item, $source, $bank, InventoryHandler::ModalityTamer) === InventoryHandler::ErrorNone) {
@@ -904,7 +902,11 @@ class ActionHandler
 
                             }
 
-                            if ($success_count > 0) $this->entity_manager->persist($this->log->beyondTamerSendLog($citizen, $success_count));
+                            if ($success_count > 0) {
+                                if ($item->getPrototype()->getName() === 'tamed_pet_#00' || $item->getPrototype()->getName() === 'tamed_pet_drug_#00' )
+                                    $item->setPrototype( $this->entity_manager->getRepository(ItemPrototype::class)->findOneBy(['name' => 'tamed_pet_off_#00']) );
+                                $this->entity_manager->persist($this->log->beyondTamerSendLog($citizen, $success_count));
+                            } else $tags[] = 'fail';
                         }
 
                         break;
