@@ -1015,9 +1015,13 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
                 $this->picto_handler->give_picto($citizen, 'r_wrestl_#00');
                 // Add the picto zed kill
                 $this->picto_handler->give_picto($citizen, 'r_killz_#00');
-            }
 
-            try {
+                $this->addFlash('notice', $this->translator->trans('Nach einem harten Kampf gelingt es dir schließlich, einen Zombie gegen einen Felsen fallen zu lassen... Sein Kopf explodiert buchstäblich und sein Inhalt spritz auf deine Schuhe! Du taumelst zurück, außer Atem: einer weniger...', [], 'game'));
+
+            } else $this->addFlash('notice', $this->translator->trans('Du schlägst mehrmals mit aller Kraft auf einen Zombie ein, aber es scheint ihm nichts auszumachen!', [], 'game'));
+
+
+        try {
                 $this->entity_manager->persist( $citizen );
                 $this->entity_manager->persist( $zone );
                 $this->entity_manager->flush();
