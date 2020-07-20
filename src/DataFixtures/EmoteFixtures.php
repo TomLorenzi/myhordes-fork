@@ -135,7 +135,7 @@ class EmoteFixtures extends Fixture {
         ['tag'=>':trash:', 'path'=>'build/images/emotes/trash.gif', 'isactive'=> true, 'requiresunlock'=> true],
         ['tag'=>':watch:', 'path'=>'build/images/emotes/watch.gif', 'isactive'=> true, 'requiresunlock'=> true],
         ['tag'=>':goodg:', 'path'=>'build/images/emotes/goodg.gif', 'isactive'=> true, 'requiresunlock'=> true],
-        ['tag'=>':ginfect:', 'path'=>'build/images/emotes/ginfect.gif', 'isactive'=> true, 'requiresunlock'=> true],
+        ['tag'=>':ginfec:', 'path'=>'build/images/emotes/ginfec.gif', 'isactive'=> true, 'requiresunlock'=> true],
     ];
 
     private function insertEmotes(ObjectManager $manager, ConsoleOutputInterface $out) {

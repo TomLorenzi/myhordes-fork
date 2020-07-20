@@ -240,7 +240,7 @@ class AwardFixtures extends Fixture implements DependentFixtureInterface {
         ['title'=>'Ich bin eine Legende', 'unlockquantity'=>2, 'associatedtag'=>':legend:', 'associatedpicto'=>'r_wintop_#00'],
         ['title'=>'Hör auf mich, wenn du überleben möchtest', 'unlockquantity'=>3, 'associatedtag'=>':legend:', 'associatedpicto'=>'r_wintop_#00'],
         ['title'=>'Netter Kerl', 'unlockquantity'=>1, 'associatedtag'=>':goodg:', 'associatedpicto'=>'r_goodg_#00'],
-        ['title'=>'Zeuge der großen Verseuchung', 'unlockquantity'=>1, 'associatedtag'=>':ginfect:', 'associatedpicto'=>'r_ginfect_#00']
+        ['title'=>'Zeuge der großen Verseuchung', 'unlockquantity'=>1, 'associatedtag'=>':ginfec:', 'associatedpicto'=>'r_ginfec_#00']
     ];
 
     private function insertAwards(ObjectManager $manager, ConsoleOutputInterface $out) {
