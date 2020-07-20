@@ -1176,7 +1176,7 @@ class ActionHandler
         $remove = [];
 
         if ($recipe->getType() === Recipe::WorkshopType) {
-            $have_saw  = $this->inventory_handler->countSpecificItems( $c_inv, $this->entity_manager->getRepository( ItemPrototype::class )->findOneBy(['name' => 'saw_tool_#00']) ) > 0;
+            $have_saw  = $this->inventory_handler->countSpecificItems( $c_inv, $this->entity_manager->getRepository( ItemPrototype::class )->findOneBy(['name' => 'saw_tool_#00']), false, false ) > 0;
             $have_manu = $this->town_handler->getBuilding($town, 'small_factory_#00', true) !== null;
 
             $ap = 3 - ($have_saw ? 1 : 0) - ($have_manu ? 1 : 0);

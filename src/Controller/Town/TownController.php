@@ -171,7 +171,7 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
                 $has_levelable_building = true;
         }
 
-        $item_def_count = $this->inventory_handler->countSpecificItems($town->getBank(),$this->inventory_handler->resolveItemProperties( 'defence' ));
+        $item_def_count = $this->inventory_handler->countSpecificItems($town->getBank(),$this->inventory_handler->resolveItemProperties( 'defence' ), false, false);
 
         $est0 = $this->entity_manager->getRepository(ZombieEstimation::class)->findOneByTown($town,$town->getDay());
         $has_estimated = $est0 && ($est0->getCitizens()->contains($this->getActiveCitizen()) || $th->get_zombie_estimation_quality($town) >= 1.0);
@@ -747,7 +747,7 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
             'def' => $th->calculate_town_def($town, $defSummary),
             'item_defense' => $defSummary->item_defense,
             'item_def_factor' => $item_def_factor,
-            'item_def_count' => $this->inventory_handler->countSpecificItems($town->getBank(),$this->inventory_handler->resolveItemProperties( 'defence' )),
+            'item_def_count' => $this->inventory_handler->countSpecificItems($town->getBank(),$this->inventory_handler->resolveItemProperties( 'defence' ), false, false),
             'bank' => $this->renderInventoryAsBank( $town->getBank() ),
             'log' => $this->renderLog( -1, null, false, TownLogEntry::TypeBank, 10 )->getContent(),
             'day' => $town->getDay()
@@ -1121,9 +1121,9 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
             $dict[ $building->getPrototype()->getId() ] = [];
             if (!$building->getPrototype()->getParent()) $root[] = $building;
             if (!$building->getComplete() && !empty($building->getPrototype()->getResources()))
-                foreach ($building->getPrototype()->getResources()->getEntries() as $ressource)
-                    if (!isset($items[$ressource->getPrototype()->getId()]))
-                        $items[$ressource->getPrototype()->getId()] = $this->inventory_handler->countSpecificItems( $this->getActiveCitizen()->getTown()->getBank(), $ressource->getPrototype() );
+                foreach ($building->getPrototype()->getResources()->getEntries() as $resource)
+                    if (!isset($items[$resource->getPrototype()->getId()]))
+                        $items[$resource->getPrototype()->getId()] = $this->inventory_handler->countSpecificItems( $this->getActiveCitizen()->getTown()->getBank(), $resource->getPrototype(), false, false );
         }
 
         $votedBuilding = null; $max_votes = -1;

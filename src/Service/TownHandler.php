@@ -267,7 +267,7 @@ class TownHandler
 
 
         $summary->item_defense = $this->inventory_handler->countSpecificItems( $home->getChest(),
-            $this->inventory_handler->resolveItemProperties( 'defence' )
+            $this->inventory_handler->resolveItemProperties( 'defence' ), false, false
         );
 
         $summary->item_defense += $this->inventory_handler->countSpecificItems( $home->getChest(),
@@ -347,7 +347,7 @@ class TownHandler
 
 
         $summary->item_defense = floor($this->inventory_handler->countSpecificItems( $town->getBank(),
-            $this->inventory_handler->resolveItemProperties( 'defence' )
+            $this->inventory_handler->resolveItemProperties( 'defence' ), false, false
         ) * $item_def_factor);
 
         if ($summary->item_defense > 500)

@@ -163,7 +163,7 @@ class TownAddonsController extends TownController
 
         $c = 1;
         if ($th->getBuilding($town, 'item_tagger_#01', true)) $c *= 2;
-        if ($this->inventory_handler->countSpecificItems($town->getBank(), 'scope_#00') > 0) $c *= 2;
+        if ($this->inventory_handler->countSpecificItems($town->getBank(), 'scope_#00', false, false) > 0) $c *= 2;
 
         for ($i = 0; $i < $c; $i++)
             if ($est->getOffsetMin() + $est->getOffsetMax() > 10) {
@@ -207,7 +207,7 @@ class TownAddonsController extends TownController
         if (!$th->getBuilding($town, 'small_refine_#00', true))
             return $this->redirect($this->generateUrl('town_dashboard'));
 
-        $have_saw  = $iv->countSpecificItems( $c_inv, $this->entity_manager->getRepository( ItemPrototype::class )->findOneByName( 'saw_tool_#00' ) ) > 0;
+        $have_saw  = $iv->countSpecificItems( $c_inv, $this->entity_manager->getRepository( ItemPrototype::class )->findOneByName( 'saw_tool_#00' ), false, false ) > 0;
         $have_manu = $th->getBuilding($town, 'small_factory_#00', true) !== null;
 
         $recipes = $this->entity_manager->getRepository(Recipe::class)->findByType( Recipe::WorkshopType );
@@ -216,11 +216,11 @@ class TownAddonsController extends TownController
             /** @var Recipe $recipe */
             $min_s = $min_r = PHP_INT_MAX;
             foreach ($recipe->getProvoking() as $proto)
-                $min_s = min($min_s, $iv->countSpecificItems( $t_inv, $proto ));
+                $min_s = min($min_s, $iv->countSpecificItems( $t_inv, $proto, false, false ));
             $source_db[ $recipe->getId() ] = $min_s === PHP_INT_MAX ? 0 : $min_s;
 
             foreach ($recipe->getResult()->getEntries() as $entry)
-                $min_r = min($min_r, $iv->countSpecificItems( $t_inv, $entry->getPrototype() ));
+                $min_r = min($min_r, $iv->countSpecificItems( $t_inv, $entry->getPrototype(), false, false ));
             $result_db[ $recipe->getId() ] = $min_r === PHP_INT_MAX ? 0 : $min_r;
         }
 
