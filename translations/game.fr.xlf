@@ -11511,5 +11511,41 @@
         <target>Personne ne sait comment un tel miracle est possible, mais %hero% est revenu avec %citizen% (qui était à %pos%), sur ses épaules ! Vive nos héros !</target>
       </segment>
     </unit>
+    <unit id="9AyM3bj" name="85e8238">
+      <notes>
+        <note category="german">Nach einem harten Kampf gelingt es dir schließlich, einen Zombie gegen einen Felsen fallen zu lassen... Sein Kopf explodiert buchstäblich und sein Inhalt spritz auf deine Schuhe! Du taumelst zurück, außer Atem: einer weniger...</note>
+      </notes>
+      <segment>
+        <source>Nach einem harten Kampf gelingt es dir schließlich, einen Zombie gegen einen Felsen fallen zu lassen... Sein Kopf explodiert buchstäblich und sein Inhalt spritz auf deine Schuhe! Du taumelst zurück, außer Atem: einer weniger...</source>
+        <target>Nach einem harten Kampf gelingt es dir schließlich, einen Zombie gegen einen Felsen fallen zu lassen... Sein Kopf explodiert buchstäblich und sein Inhalt spritz auf deine Schuhe! Du taumelst zurück, außer Atem: einer weniger...</target>
+      </segment>
+    </unit>
+    <unit id="uQ9iqg9" name="21d4990">
+      <notes>
+        <note category="german">Du schlägst mehrmals mit aller Kraft auf einen Zombie ein, aber es scheint ihm nichts auszumachen!</note>
+      </notes>
+      <segment>
+        <source>Du schlägst mehrmals mit aller Kraft auf einen Zombie ein, aber es scheint ihm nichts auszumachen!</source>
+        <target>Du schlägst mehrmals mit aller Kraft auf einen Zombie ein, aber es scheint ihm nichts auszumachen!</target>
+      </segment>
+    </unit>
+    <unit id="rJtk9d5" name="Die Abschätzung wird durch den Scanner verbessert.">
+      <notes>
+        <note category="german">Die Abschätzung wird durch den Scanner verbessert.</note>
+      </notes>
+      <segment>
+        <source>Die Abschätzung wird durch den Scanner verbessert.</source>
+        <target>Die Abschätzung wird durch den Scanner verbessert.</target>
+      </segment>
+    </unit>
+    <unit id="pc7dbFT" name="Dank der Rechenmaschine kannst du den morgigen Angriff abschätzen.">
+      <notes>
+        <note category="german">Dank der Rechenmaschine kannst du den morgigen Angriff abschätzen.</note>
+      </notes>
+      <segment>
+        <source>Dank der Rechenmaschine kannst du den morgigen Angriff abschätzen.</source>
+        <target>Dank der Rechenmaschine kannst du den morgigen Angriff abschätzen.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
