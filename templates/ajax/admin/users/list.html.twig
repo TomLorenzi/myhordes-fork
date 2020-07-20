@@ -1,8 +1,8 @@
 {% block ajax %}
     {% for user in users %}
         <div class="user-list-entry">
-        <button x-ajax-href="{{ url('admin_users_citizen_view', {id: user.id}) }}" x-ajax-target="#content" class="button">
-            {{ user.username }}
+        <button x-ajax-href="{{ url('admin_users_citizen_view', {id: user.id}) }}" x-ajax-target="#content" class="button" style="background: transparent; max-width: 225px; box-shadow: 0 0 5px black;">
+            <div class="avatar small"><img alt="" src="{{ user.avatar ? user.avatar : asset('build/images/forum/empty_avatar.gif') }}" style="margin-right: 0px;"></div> {{ user.username }}
         </button>
         </div>
     {% endfor %}
