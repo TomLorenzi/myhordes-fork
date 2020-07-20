@@ -124,7 +124,7 @@
     <div class="cell padded rw-12 rw-sm-12">
         <div id="users-list-soul">
         	<h5>{{'Seele suchen'|trans({}, "soul")}}</h5>
-            <div><input type="text" id="users-search" style="margin-top: 5px" /><div class="tooltip help">{{ 'Gib den Pseudo des Bürgers ein.'|trans({},'soul') }}</div></div>
+            <div><label><input type="text" id="users-search" style="margin-top: 5px" /></label><div class="tooltip help">{{ 'Gib den Pseudo des Bürgers ein.'|trans({},'soul') }}</div></div>
             <div id="users-list"></div>
         </div>
     </div>
@@ -145,12 +145,13 @@
     let searchBox = document.getElementById('users-search');
 
     const userSearchHandler = function() {
-        $.ajax.background().load(
-            document.getElementById('users-list'),
-            '{{ path('users_fuzzyfind') }}',
-            false,
-            {'name': searchBox.value}
-        );
+        if (searchBox.value.length >= 3)
+            $.ajax.background().load(
+                document.getElementById('users-list'),
+                '{{ path('users_fuzzyfind') }}',
+                false,
+                {'name': searchBox.value}
+            );
     };
 
     const userSearchHandlerUp = function () {

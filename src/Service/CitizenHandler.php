@@ -609,7 +609,7 @@ class CitizenHandler
             $this->entity_manager->getRepository(ItemPrototype::class)->findOneByName( 'smelly_meat_#00' ),
             $this->entity_manager->getRepository(ItemPrototype::class)->findOneByName( 'sheet_#00' ),
         ];
-        $camping_values['campitems'] = $this->inventory_handler->countSpecificItems($citizen->getInventory(), $campitems);
+        $camping_values['campitems'] = $this->inventory_handler->countSpecificItems($citizen->getInventory(), $campitems, false, false);
 
         // Grab
         $camping_values['tomb'] = 0;
@@ -760,7 +760,7 @@ class CitizenHandler
             $c->getHome(),
             $this->entity_manager->getRepository(CitizenHomeUpgradePrototype::class)->findOneByName( 'lock' ) ))
             return true;
-        if ($this->inventory_handler->countSpecificItems( $c->getHome()->getChest(), 'lock', true ) > 0)
+        if ($this->inventory_handler->countSpecificItems( $c->getHome()->getChest(), 'lock', true, false ) > 0)
             return true;
         return false;
     }

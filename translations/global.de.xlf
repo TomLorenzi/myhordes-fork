@@ -1486,5 +1486,14 @@
         <target>Schön hier im Warmen bleiben</target>
       </segment>
     </unit>
+    <unit id="VpbGnR1" name="Spamschutz: Du musst eine Weile warten, bis du wieder schreiben kannst.">
+      <notes>
+        <note category="german">Spamschutz: Du musst eine Weile warten, bis du wieder schreiben kannst.</note>
+      </notes>
+      <segment>
+        <source>Spamschutz: Du musst eine Weile warten, bis du wieder schreiben kannst.</source>
+        <target>Spamschutz: Du musst eine Weile warten, bis du wieder schreiben kannst.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

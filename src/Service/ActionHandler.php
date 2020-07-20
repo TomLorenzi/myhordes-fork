@@ -893,8 +893,6 @@ class ActionHandler
                             $tags[] = 'fail';
                             $tags[] = 'no-room';
                         } else {
-                            if ($item->getPrototype()->getName() === 'tamed_pet_#00' || $item->getPrototype()->getName() === 'tamed_pet_drug_#00' )
-                                $item->setPrototype( $this->entity_manager->getRepository(ItemPrototype::class)->findOneBy(['name' => 'tamed_pet_off_#00']) );
                             foreach ( $citizen->getInventory()->getItems() as $target_item ) if ($target_item !== $item) {
 
                                 if ($this->inventory_handler->transferItem($citizen, $target_item, $source, $bank, InventoryHandler::ModalityTamer) === InventoryHandler::ErrorNone) {
@@ -904,7 +902,11 @@ class ActionHandler
 
                             }
 
-                            if ($success_count > 0) $this->entity_manager->persist($this->log->beyondTamerSendLog($citizen, $success_count));
+                            if ($success_count > 0) {
+                                if ($item->getPrototype()->getName() === 'tamed_pet_#00' || $item->getPrototype()->getName() === 'tamed_pet_drug_#00' )
+                                    $item->setPrototype( $this->entity_manager->getRepository(ItemPrototype::class)->findOneBy(['name' => 'tamed_pet_off_#00']) );
+                                $this->entity_manager->persist($this->log->beyondTamerSendLog($citizen, $success_count));
+                            } else $tags[] = 'fail';
                         }
 
                         break;
@@ -1176,7 +1178,7 @@ class ActionHandler
         $remove = [];
 
         if ($recipe->getType() === Recipe::WorkshopType) {
-            $have_saw  = $this->inventory_handler->countSpecificItems( $c_inv, $this->entity_manager->getRepository( ItemPrototype::class )->findOneBy(['name' => 'saw_tool_#00']) ) > 0;
+            $have_saw  = $this->inventory_handler->countSpecificItems( $c_inv, $this->entity_manager->getRepository( ItemPrototype::class )->findOneBy(['name' => 'saw_tool_#00']), false, false ) > 0;
             $have_manu = $this->town_handler->getBuilding($town, 'small_factory_#00', true) !== null;
 
             $ap = 3 - ($have_saw ? 1 : 0) - ($have_manu ? 1 : 0);

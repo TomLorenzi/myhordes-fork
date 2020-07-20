@@ -19,7 +19,6 @@ use App\Entity\Thread;
 use App\Entity\ThreadReadMarker;
 use App\Entity\Town;
 use App\Entity\User;
-use App\Exception\DynamicAjaxResetException;
 use App\Service\AdminActionHandler;
 use App\Service\CitizenHandler;
 use App\Service\ErrorHelper;
@@ -28,10 +27,8 @@ use App\Service\JSONRequestParser;
 use App\Service\PictoHandler;
 use App\Service\RandomGenerator;
 use App\Service\TimeKeeperService;
-use App\Service\UserFactory;
 use App\Response\AjaxResponse;
 use DateTime;
-use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\EntityManagerInterface;
 use DOMDocument;
 use DOMNode;
@@ -42,16 +39,12 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Asset\Packages;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
-use Symfony\Component\Security\Core\Authentication\Token\UsernamePasswordToken;
-use Symfony\Component\Validator\Constraints;
-use Symfony\Component\Validator\ConstraintViolationInterface;
-use Symfony\Component\Validator\Validation;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
 /**
  * @Route("/",condition="request.isXmlHttpRequest()")
  * @IsGranted("ROLE_USER")
+ * @method User getUser
  */
 class MessageController extends AbstractController
 {
@@ -59,6 +52,7 @@ class MessageController extends AbstractController
     const ErrorPostTextLength   = ErrorHelper::BaseForumErrors + 2;
     const ErrorPostTitleLength  = ErrorHelper::BaseForumErrors + 3;
     const ErrorPMItemLimitHit   = ErrorHelper::BaseForumErrors + 4;
+    const ErrorForumLimitHit    = ErrorHelper::BaseForumErrors + 5;
 
     private $rand;
     private $asset;
@@ -94,7 +88,6 @@ class MessageController extends AbstractController
     private function default_forum_renderer(int $fid, int $tid, int $pid, EntityManagerInterface $em, JSONRequestParser $parser, CitizenHandler $ch): Response {
         $num_per_page = 20;
 
-        /** @var User $user */
         $user = $this->getUser();
 
         /** @var Forum[] $forums */
@@ -150,7 +143,6 @@ class MessageController extends AbstractController
      */
     public function forum_redirector(EntityManagerInterface $em): Response
     {
-        /** @var User $user */
         $user = $this->getUser();
         /** @var Citizen $citizen */
         $citizen = $em->getRepository(Citizen::class)->findActiveByUser( $user );
@@ -237,7 +229,6 @@ class MessageController extends AbstractController
         'span' => [ 'class' ],
         'a' => [ 'href', 'title' ],
         'figure' => [ 'style' ],
-        'span' => ['class'],
     ];
 
     private const HTML_ALLOWED_ADMIN = [
@@ -278,7 +269,6 @@ class MessageController extends AbstractController
     private function getAllowedHTML(): array {
         $r = self::HTML_ALLOWED;
         $a = self::HTML_ATTRIB_ALLOWED;
-        /** @var User $user */
         $user = $this->getUser();
 
         if ($user->getRightsElevation() >= User::ROLE_ADMIN) {
@@ -560,13 +550,14 @@ class MessageController extends AbstractController
         /** @var Forum $forum */
         $forum = $forums[0];
 
-        /** @var User $user */
         $user = $this->getUser();
         if ($user->getIsBanned())
             return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
 
         if (!$parser->has_all(['title','text'], true))
             return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+
 
         $title = $parser->trimmed('title');
         $text  = $parser->trimmed('text');
@@ -626,19 +617,30 @@ class MessageController extends AbstractController
      * @param int $tid
      * @param JSONRequestParser $parser
      * @param EntityManagerInterface $em
+     * @param AdminActionHandler $admh
+     * @param PictoHandler $ph
      * @return Response
      */
     public function new_post_api(int $fid, int $tid, JSONRequestParser $parser, EntityManagerInterface $em, AdminActionHandler $admh, PictoHandler $ph): Response {
-        /** @var User $user */
         $user = $this->getUser();
         if ($user->getIsBanned())
             return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
-
 
         $thread = $em->getRepository(Thread::class)->find( $tid );
         if (!$thread || $thread->getForum()->getId() !== $fid) return AjaxResponse::error( self::ErrorForumNotFound );
         if ($thread->getLocked())
             return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
+
+        // Check the last 4 threads; if they were all made by the same user, they must wait 4h before they can post again
+        if (!$this->isGranted('ROLE_CROW') && !$this->isGranted('ROLE_ORACLE')) {
+            $last_posts = $this->entityManager->getRepository(Post::class)->findBy(['thread' => $thread], ['date' => 'DESC'], 4);
+            if (count($last_posts) === 4) {
+                $all_by_user = true;
+                foreach ($last_posts as $last_post) $all_by_user = $all_by_user && ($last_post->getOwner() === $user);
+                if ($all_by_user && $last_posts[0]->getDate()->getTimestamp() > (time() - 14400) )
+                    return AjaxResponse::error( self::ErrorForumLimitHit );
+            }
+        }
 
         $forums = $em->getRepository(Forum::class)->findForumsForUser($user, $fid);
         if (count($forums) !== 1){
@@ -711,7 +713,6 @@ class MessageController extends AbstractController
      * @return Response
      */
     public function small_viewer_api( int $fid, int $sem, EntityManagerInterface $em ) {
-        /** @var User $user */
         $user = $this->getUser();
 
         if ($sem === 0) return new Response('');
@@ -744,7 +745,6 @@ class MessageController extends AbstractController
      */
     public function viewer_api(int $fid, int $tid, EntityManagerInterface $em, JSONRequestParser $parser, int $pid = -1): Response {
         $num_per_page = 10;
-        /** @var User $user */
         $user = $this->getUser();
 
         /** @var Thread $thread */
@@ -913,12 +913,11 @@ class MessageController extends AbstractController
             return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
         }
 
-        /** @var User $user */
         $user = $this->getUser();
         $postId = $parser->get('postId');
 
         $post = $em->getRepository( Post::class )->find( $postId );
-        if ($post->getTranslate()) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+        if ($post->getTranslate() || $post->getThread()->getId() !== $tid || $post->getThread()->getForum()->getId() !== $fid) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
         $targetUser = $post->getOwner();
         if ($targetUser->getUsername() === "Der Rabe" ) {
@@ -1137,7 +1136,6 @@ class MessageController extends AbstractController
      * @return Response
      */
     public function pm_viewer_api(int $tid, EntityManagerInterface $em): Response {
-        /** @var User $user */
         $user = $this->getUser();
 
         /** @var Citizen $citizen */
@@ -1226,7 +1224,6 @@ class MessageController extends AbstractController
      * @return Response
      */
     public function pm_archive_api(int $tid, int $action, EntityManagerInterface $em): Response {
-        /** @var User $user */
         $user = $this->getUser();
 
         /** @var Citizen $citizen */
@@ -1251,7 +1248,6 @@ class MessageController extends AbstractController
      * @return Response
      */
     public function home_answer_editor_post_api(int $tid, EntityManagerInterface $em): Response {
-        /** @var User $user */
         $user = $this->getUser();
 
         $thread = $em->getRepository( PrivateMessageThread::class )->find( $tid );
@@ -1272,11 +1268,9 @@ class MessageController extends AbstractController
     /**
      * @Route("town/house/pm/{type}/editor", name="home_new_post_editor_controller")
      * @param string $type
-     * @param EntityManagerInterface $em
      * @return Response
      */
-    public function home_new_editor_post_api(string $type, EntityManagerInterface $em): Response {
-        /** @var User $user */
+    public function home_new_editor_post_api(string $type): Response {
         $user = $this->getUser();
 
         $allowed_types = ['pm', 'global'];
@@ -1297,11 +1291,9 @@ class MessageController extends AbstractController
     /**
      * @Route("admin/pm/{type}/editor", name="admin_pm_editor_controller")
      * @param string $type
-     * @param EntityManagerInterface $em
      * @return Response
      */
-    public function admin_pm_new_editor_post_api(string $type, EntityManagerInterface $em): Response {
-        /** @var User $user */
+    public function admin_pm_new_editor_post_api(string $type): Response {
         $user = $this->getUser();
 
         $allowed_types = ['pm', 'global'];
@@ -1322,11 +1314,9 @@ class MessageController extends AbstractController
 
     /**
      * @Route("api/admin/changelogs/editor", name="admin_new_changelog_editor_controller")
-     * @param EntityManagerInterface $em
      * @return Response
      */
-    public function admin_new_changelog_editor_controller(EntityManagerInterface $em): Response {
-        /** @var User $user */
+    public function admin_new_changelog_editor_controller(): Response {
         $user = $this->getUser();
 
         return $this->render( 'ajax/forum/editor.html.twig', [
@@ -1444,7 +1434,6 @@ class MessageController extends AbstractController
         $version   = $parser->get('version', '');
         $lang      = $parser->get('lang', 'de');
 
-        /** @var User $author */
         $author    = $this->getUser();
 
         if(empty($title) || empty($content) || empty($version)) {

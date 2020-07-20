@@ -126,21 +126,23 @@ class InventoryHandler
      * @param Inventory|Inventory[] $inventory
      * @param ItemPrototype|ItemPrototype[]|string $prototype
      * @param bool $is_property
+     * @param bool|null $broken Filter for broken (true) or unbroken (false) items; disable by setting to null (default)
      * @return int
      */
-    public function countSpecificItems($inventory, $prototype, bool $is_property = false): int {
+    public function countSpecificItems($inventory, $prototype, bool $is_property = false, ?bool $broken = null): int {
         if (is_string( $prototype )) $prototype = $is_property
             ? $this->entity_manager->getRepository(ItemProperty::class)->findOneByName( $prototype )->getItemPrototypes()->getValues()
             : $this->entity_manager->getRepository(ItemPrototype::class)->findOneByName( $prototype );
         if (!is_array($prototype)) $prototype = [$prototype];
         if (!is_array($inventory)) $inventory = [$inventory];
         try {
-            return (int)$this->entity_manager->createQueryBuilder()
+            $qb = $this->entity_manager->createQueryBuilder()
                 ->select('SUM(i.count)')->from('App:Item', 'i')
                 ->leftJoin('App:ItemPrototype', 'p', Join::WITH, 'i.prototype = p.id')
                 ->where('i.inventory IN (:inv)')->setParameter('inv', $inventory)
-                ->andWhere('p.id IN (:type)')->setParameter('type', $prototype)
-                ->getQuery()->getSingleScalarResult();
+                ->andWhere('p.id IN (:type)')->setParameter('type', $prototype);
+            if ($broken !== null) $qb->andWhere('i.broken = :broken')->setParameter('broken', $broken);
+            return (int)$qb->getQuery()->getSingleScalarResult();
         } catch (NoResultException $e) {
             return 0;
         } catch (NonUniqueResultException $e) {
