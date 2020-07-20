@@ -125,6 +125,8 @@ class TownAddonsController extends TownController
             'z1' => [ $has_zombie_est_tomorrow, $z_q1 >= 1, $z_tomorrow_min, $z_tomorrow_max, round($z_q2*100) ],
             'z0_av' => $est0 && !$est0->getCitizens()->contains( $this->getActiveCitizen() ),
             'z1_av' => $est1 && !$est1->getCitizens()->contains( $this->getActiveCitizen() ),
+            'has_scanner' => !empty($th->getBuilding($town, 'item_tagger_#01')),
+            'has_calc'    => $has_zombie_est_tomorrow,
         ]) );
     }
 

@@ -5,6 +5,14 @@
         {% trans from 'game' %}
             Mithilfe des Wachturms kann die Stärke des nächtlichen Angriffs abgeschätzt werden. Je mehr Bürger sich an der Abschätzung beteiligen, desto genauer wird das Ergebnis.
         {% endtrans %}
+        {% if has_scanner %}
+            <hr />
+            {{ 'Die Abschätzung wird durch den Scanner verbessert.'|trans({},'game') }}
+        {% endif %}
+        {% if has_calc %}
+            <hr />
+            {{ 'Dank der Rechenmaschine kannst du den morgigen Angriff abschätzen.'|trans({},'game') }}
+        {% endif %}
     </div>
 
     <h5>{{ 'Wachturm'|trans({},'buildings') }}</h5>
