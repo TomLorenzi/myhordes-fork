@@ -151,7 +151,7 @@
       </notes>
       <segment>
         <source>Ein neuer Bürger ist in der Stadt angekommen: %citizen%.</source>
-        <target>Un nouveau citoyen est arrivé en ville : %citizen%.</target>
+        <target>Un nouveau citoyen est arrivé : %citizen%.</target>
       </segment>
     </unit>
     <unit id="uTUmYsJ" name="%citizen% hat seine neue Berufung als %profession% gefunden.">
@@ -187,7 +187,7 @@
       </notes>
       <segment>
         <source>%citizen% hat seine Behausung in ein(e,n) %home% verwandelt...</source>
-        <target>%citizen% a amélioré sa maison en %home%...</target>
+        <target>%citizen% a décidé d'améliorer sa maison en %home%...</target>
       </segment>
     </unit>
     <unit id="0uk_Ijd" name="8121de7">
@@ -205,7 +205,7 @@
       </notes>
       <segment>
         <source>%zombie% ist von den Toten auferstanden und hat %victim% zerfleischt!</source>
-        <target>%zombie% a ressuscité et a dévoré %victim% !</target>
+        <target>%zombie% s'est relevé et a dévoré %victim% !</target>
       </segment>
     </unit>
     <unit id="Wqb2b8u" name="219fbe6">
@@ -214,7 +214,7 @@
       </notes>
       <segment>
         <source>%zombie% ist von den Toten auferstanden und hat die Baustelle für %building% verwüstet!</source>
-        <target>%zombie% a ressuscité et le bâtiment %building% a été détruit !</target>
+        <target>%zombie% s'est relevé et le bâtiment %building% a été détruit !</target>
       </segment>
     </unit>
     <unit id="kWsuJms" name="b46b79f">
@@ -223,7 +223,7 @@
       </notes>
       <segment>
         <source>%zombie% ist von den Toten auferstanden und hat den Brunnen kontaminiert! Das kostet uns %num% Rationen Wasser!</source>
-        <target>%zombie% a ressuscité et a contaminé le puits ! Cela nous a côté %num% ration(s) d'eau !</target>
+        <target>%zombie% s'est relevé et a contaminé le puits ! Cela nous a côté %num% ration(s) d'eau !</target>
       </segment>
     </unit>
     <unit id="XX6_Va3" name="%num% Zombies attackieren die Stadtbewohner!">
@@ -3260,7 +3260,7 @@
       </notes>
       <segment>
         <source>%zombie% ist von den Toten auferstanden und hat unanständige Nachrichten auf die Heldentafel geschrieben!</source>
-        <target>%zombie% a ressuscité et a écrit des messages incorrects sur le tableau des héros !</target>
+        <target>%zombie% s'est relevé et a écrit des messages incorrects sur le tableau des héros !</target>
       </segment>
     </unit>
     <unit id="ToXb7Kr" name="%zombie% ist von den Toten auferstanden und hat sich wieder hingelegt!">
@@ -3269,7 +3269,7 @@
       </notes>
       <segment>
         <source>%zombie% ist von den Toten auferstanden und hat sich wieder hingelegt!</source>
-        <target>%zombie% a ressuscité et se recouche !</target>
+        <target>%zombie% s'est relevé et se recouche !</target>
       </segment>
     </unit>
     <unit id="vw6w67." name="%zombie% ist von den Toten auferstanden und verlangt nach einem Kaffee!">
@@ -3278,7 +3278,7 @@
       </notes>
       <segment>
         <source>%zombie% ist von den Toten auferstanden und verlangt nach einem Kaffee!</source>
-        <target>%zombie% a ressuscité et veut du café!</target>
+        <target>%zombie% s'est relevé et veut du café!</target>
       </segment>
     </unit>
     <unit id="vlEPrgk" name="b2b2ccc">
@@ -3287,7 +3287,7 @@
       </notes>
       <segment>
         <source>%zombie% ist von den Toten auferstanden und hat eine Runde auf dem Stadtplatz gedreht!</source>
-        <target>%zombie% a ressuscité et a fait un tour sur la place du village !</target>
+        <target>%zombie% s'est relevé et a fait un tour sur la place du village !</target>
       </segment>
     </unit>
     <unit id="GtC0MNC" name="... das OFFEN stand! %num% Zombies sind in die Stadt eingedrungen!">
@@ -3305,7 +3305,7 @@
       </notes>
       <segment>
         <source>%num% Zombies sind durch unsere Verteidigung gebrochen!</source>
-        <target>%num% Zombies ont percé nos défenses !</target>
+        <target>%num% zombies ont percé nos défenses !</target>
       </segment>
     </unit>
     <unit id="IT1iVPi" name="Nicht ein Zombie hat die Stadt betreten!">
@@ -3314,7 +3314,7 @@
       </notes>
       <segment>
         <source>Nicht ein Zombie hat die Stadt betreten!</source>
-        <target>Aucun Zombie n'a pu rentrer en ville !</target>
+        <target>Aucun zombie n'a pu rentrer en ville !</target>
       </segment>
     </unit>
     <unit id="qdFcLMD" name="%citizen% hat die Leiche von %disposed% aus der Stadt gezerrt.">
@@ -3323,7 +3323,7 @@
       </notes>
       <segment>
         <source>%citizen% hat die Leiche von %disposed% aus der Stadt gezerrt.</source>
-        <target>%citizen% s'est débarrasé du corps de %disposed%.</target>
+        <target>%citizen% s'est débarrassé du corps de %disposed%.</target>
       </segment>
     </unit>
     <unit id="33.BZ8y" name="3f16555">

@@ -1246,7 +1246,7 @@
       </notes>
       <segment>
         <source>Du kannst natürlich weiterhin Konten von Hordes, DieVerdammten, Die2Nite und Zombinoia importieren, welche mit dem selben Twinoid-Konto verbunden sind.</source>
-        <target>Vous pouvez bien sûr toujours importer des âmes depuis Hordes, DieVammammammte, Die2Nite et Zombinoia, qui sont connectés au même compte Twinoid.</target>
+        <target>Vous pouvez bien sûr toujours importer des âmes depuis Hordes, DieVerdammten, Die2Nite et Zombinoia, qui sont connectés au même compte Twinoid.</target>
       </segment>
     </unit>
     <unit id="fz.4cY3" name="Deine Seele wurde erfolgreich importiert!">
@@ -1282,7 +1282,7 @@
       </notes>
       <segment>
         <source>Dann musst du nicht von Vorne beginnen!</source>
-        <target>Ensuite, vous n'avez pas à recommencer !</target>
+        <target>Alors vous n'avez pas à recommencer !</target>
       </segment>
     </unit>
     <unit id="Av6Ro2b" name="Importiere deine Seele und mache dort weiter, wo du aufgehört hast.">
@@ -1553,7 +1553,7 @@
       </notes>
       <segment>
         <source>Diese Karteikarte gehört einem Administrator. Wenn ihr darauf komische, abnormale oder gar furchteinflößende Dinge entdeckt: Das ist völlig normal. Macht euch keine Sorgen, er weiß wahrscheinlich schon Bescheid :).</source>
-        <target>Cet onglet appartient à un Administrateur. Si vous y trouvez des choses étranges, anormales ou même effrayantes : c'est tout à fait normal. Ne vous inquiétez pas, il le sait probablement déjà :)</target>
+        <target>Cette fiche appartient à un Administrateur. Si vous y trouvez des choses étranges, anormales ou même effrayantes : c'est tout à fait normal. Ne vous inquiétez pas, il le sait probablement déjà :)</target>
       </segment>
     </unit>
     <unit id="Oxu558J" name="Der Rabe">
