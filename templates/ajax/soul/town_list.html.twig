@@ -1,7 +1,7 @@
 {#@var incarnation CitizenRankingProxy #}
 {% for incarnation in towns %}
     <div class="row{% if incarnation.town.type.name == 'panda' %} hardcore{% endif %}">
-        <div class="cell padded rw-2 center">
+        <div class="cell padded rw-2 center season bold">
             {% if incarnation.town.season is null %}
                 --
             {% elseif incarnation.town.season.number == 0 %}

@@ -9,8 +9,8 @@ div.tooltip.badge-tooltip {
 
 #users-list-soul {
         #users-list {
-            margin: 1rem; display: flex; width: 100%; justify-content: flex-start; align-items: center; flex-wrap: wrap;
-            max-height: 12rem; overflow: auto;
+            margin: 1rem; display: block; width: 100%; justify-content: flex-start; align-items: center; flex-wrap: wrap;
+            max-width:300px; max-height: 12rem; overflow: auto;
 
             .users-list-entry {
                 flex-basis: 120px; margin-bottom: 4px; margin-right: 4px;
@@ -254,6 +254,7 @@ div.tooltip.badge-tooltip {
             border-bottom: 1px solid #ddab76;
 
             .town-name {
+            	height: 42px;
                 font-size: 1.2rem;
                 cursor: pointer;
                 border-left: 1px solid #7e4d2a;
@@ -273,7 +274,6 @@ div.tooltip.badge-tooltip {
 
             .season {
                 height: 42px;
-                font-weight: bold;
                 border-bottom: 1px solid #7e4d2a;
             }
 
@@ -312,15 +312,11 @@ div.tooltip.badge-tooltip {
                     border-bottom: 1px solid #7e4d2a;
                 }
 
-                .skill {
-                    border-right: 1px solid #7e4d2a;
-                }
-
                 .desc {
                     font-size: 9pt;
                     color: #f0d79e;
                     min-height: 34px;
-                    border-right: 1px solid #7e4d2a;
+                    border-left: 1px solid #7e4d2a;
                 }
                 .currentSkill {
                     background: #3b3249;
