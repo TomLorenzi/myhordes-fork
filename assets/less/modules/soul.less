@@ -7,25 +7,23 @@ div.tooltip.badge-tooltip {
     &>b { display: block; font-size: 1.2em; border-bottom: 1px solid wheat; color: wheat; margin-bottom: 3px; }
 }
 
-
-
 #users-list-soul {
-        position: relative; overflow: visible;
-        #users-list {
-            position: absolute; margin: 0; display: block; background: @myhordes-cell-header-background-color;
-            width:300px; max-height: 200px; overflow: auto; z-index: 1; border: 1px solid @myhordes-smalltext;
-            outline: 1px solid black; box-shadow: 0 0 3px black;
-            &:empty { visibility: hidden; }
+    position: relative; overflow: visible;
+    #users-list {
+        position: absolute; margin: 0; display: block; background: @myhordes-cell-header-background-color;
+        width:300px; max-height: 200px; overflow: auto; z-index: 1; border: 1px solid @myhordes-smalltext;
+        outline: 1px solid black; box-shadow: 0 0 3px black;
+        &:empty { visibility: hidden; }
 
-            .users-list-entry {
-                margin-bottom: 4px; margin-right: 4px; cursor: pointer;
-                &:hover { background: rgba(255,255,255,0.2); }
-                div { text-overflow: ellipsis; cursor: pointer; font-size: .8em; font-variant: unset; text-transform: none; }
-            }
+        .users-list-entry {
+            margin-bottom: 4px; margin-right: 4px; cursor: pointer;
+            &:hover { background: rgba(255,255,255,0.2); }
+            div { text-overflow: ellipsis; cursor: pointer; font-size: .8em; font-variant: unset; text-transform: none; }
         }
-
-        input#users-search { width: 20rem; display: inline; }
     }
+
+    input#users-search { width: 20rem; display: inline; }
+}
 
 .soul {
 
