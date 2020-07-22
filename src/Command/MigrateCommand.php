@@ -188,7 +188,7 @@ class MigrateCommand extends Command
 
             if (!$this->capsule( "yarn encore {$env}", $output, 'Building web assets... ', false )) return 6;
 
-            $version_lines = $this->bin( 'git describe --tags', $ret );
+            $version_lines = $this->bin( 'git describe --tags --first-parent', $ret );
             if (count($version_lines) >= 1) {
                 file_put_contents( 'VERSION', $version_lines[0] );
                 $output->writeln("Updated MyHordes to version <info>{$version_lines[0]}</info>");
