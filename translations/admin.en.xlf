@@ -790,7 +790,7 @@
       </notes>
       <segment>
         <source>Ruinenscanner</source>
-        <target>Ruins scanner</target>
+        <target>Ruins Scanner</target>
       </segment>
     </unit>
     <unit id="bQMa8Q2" name="Position">
@@ -907,7 +907,7 @@
       </notes>
       <segment>
         <source>Dieser Login ist ausschließlich für Administratoren gedacht.</source>
-        <target>This login is only for Administrators.</target>
+        <target>This login is only for Administrators!</target>
       </segment>
     </unit>
     <unit id="aZibx3x" name="Server-Log herunterladen">
@@ -970,7 +970,7 @@
       </notes>
       <segment>
         <source>999 AP zuweisen</source>
-        <target>Give 999 AP</target>
+        <target>Give unlimited AP</target>
       </segment>
     </unit>
     <unit id="hkxRxBa" name="Munition erzeugen">
@@ -1123,7 +1123,7 @@
       </notes>
       <segment>
         <source>Twinoid-Konto</source>
-        <target>Twinoid-Konto</target>
+        <target>Twinoid Account</target>
       </segment>
     </unit>
     <unit id="BCS.RQ1" name="Orakel">
@@ -1132,7 +1132,7 @@
       </notes>
       <segment>
         <source>Orakel</source>
-        <target>Orakel</target>
+        <target>Oracle</target>
       </segment>
     </unit>
     <unit id="HkzsKIz" name="Twinoid-Integration">
@@ -1141,7 +1141,7 @@
       </notes>
       <segment>
         <source>Twinoid-Integration</source>
-        <target>Twinoid-Integration</target>
+        <target>Twinoid Integration</target>
       </segment>
     </unit>
     <unit id="p2lp75S" name="Integrationen löschen">
@@ -1150,7 +1150,7 @@
       </notes>
       <segment>
         <source>Integrationen löschen</source>
-        <target>Integrationen löschen</target>
+        <target>Delete integrations</target>
       </segment>
     </unit>
     <unit id="oL3B9wW" name="Hauptseele zurücksetzen">
@@ -1159,7 +1159,7 @@
       </notes>
       <segment>
         <source>Hauptseele zurücksetzen</source>
-        <target>Hauptseele zurücksetzen</target>
+        <target>Reset Main Soul</target>
       </segment>
     </unit>
     <unit id="Le1sVIR" name="Du hast keine Berechtigung, diesen Benutzer zu administrieren!">
@@ -1168,7 +1168,7 @@
       </notes>
       <segment>
         <source>Du hast keine Berechtigung, diesen Benutzer zu administrieren!</source>
-        <target>Du hast keine Berechtigung, diesen Benutzer zu administrieren!</target>
+        <target>Wow, wow, wow ! What are you trying lol?</target>
       </segment>
     </unit>
     <unit id="4mfTQ4I" name="Profil">
@@ -1177,7 +1177,7 @@
       </notes>
       <segment>
         <source>Profil</source>
-        <target>Profil</target>
+        <target>Profile</target>
       </segment>
     </unit>
     <unit id="dbuAR1O" name="Neuen Namen eingeben.">
@@ -1186,7 +1186,7 @@
       </notes>
       <segment>
         <source>Neuen Namen eingeben.</source>
-        <target>Neuen Namen eingeben.</target>
+        <target>Enter new Name.</target>
       </segment>
     </unit>
     <unit id="g_B_0fN" name="Umbenennen">
@@ -1195,7 +1195,7 @@
       </notes>
       <segment>
         <source>Umbenennen</source>
-        <target>Umbenennen</target>
+        <target>Rename</target>
       </segment>
     </unit>
     <unit id="bC01IWH" name="Löschen">
@@ -1204,7 +1204,7 @@
       </notes>
       <segment>
         <source>Löschen</source>
-        <target>Löschen</target>
+        <target>Clear</target>
       </segment>
     </unit>
     <unit id="A2t0n2E" name="Berechtigungen">
@@ -1213,7 +1213,7 @@
       </notes>
       <segment>
         <source>Berechtigungen</source>
-        <target>Berechtigungen</target>
+        <target>Permissions</target>
       </segment>
     </unit>
     <unit id="E4Jlo35" name="Gewähren: %role%">
@@ -1222,7 +1222,7 @@
       </notes>
       <segment>
         <source>Gewähren: %role%</source>
-        <target>Gewähren: %role%</target>
+        <target>Allow: %role%</target>
       </segment>
     </unit>
     <unit id="BiuEB.T" name="Berechtigungsstufe zurücksetzen">
@@ -1231,7 +1231,7 @@
       </notes>
       <segment>
         <source>Berechtigungsstufe zurücksetzen</source>
-        <target>Berechtigungsstufe zurücksetzen</target>
+        <target>Reset Authorization level</target>
       </segment>
     </unit>
     <unit id="EHG8mpy" name="Bitte bestätige folgende Aktion:">
@@ -1240,7 +1240,7 @@
       </notes>
       <segment>
         <source>Bitte bestätige folgende Aktion:</source>
-        <target>Bitte bestätige folgende Aktion:</target>
+        <target>Please confirm the following Action:</target>
       </segment>
     </unit>
   </file>
