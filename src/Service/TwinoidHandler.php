@@ -305,12 +305,13 @@ class TwinoidHandler
             }
             //</editor-fold>
 
-            $existing_rps = $this->em->getRepository(FoundRolePlayText::class)->findBy(['imported' => true, 'user' => $user]);
+            $existing_rps    = $this->em->getRepository(FoundRolePlayText::class)->findBy(['imported' => true,  'user' => $user]);
             if (count($existing_rps) < $rps) {
                 // We need to unlock new RPs
+                $existing_mh_all = $this->em->getRepository(FoundRolePlayText::class)->findBy(['user' => $user]);
 
                 $all_texts = $this->em->getRepository(RolePlayText::class)->findAllByLang($lang);
-                foreach ($existing_rps as $existing_rp)
+                foreach ($existing_mh_all as $existing_rp)
                     /** @var $existing_rp FoundRolePlayText */
                     if (($key = array_search( $existing_rp->getText(), $all_texts )) !== false)
                         unset($all_texts[$key]);
