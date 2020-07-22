@@ -322,9 +322,6 @@
                     </div>
                 {% endif %}
             </div>
-
-
-
         </div>
     </div>
 {% endblock %}
@@ -351,19 +348,20 @@
                         $.ajax.load(null, '{{ path('soul_settings') }}', true);
                     } )
             });
-        {% endif %}
 
-        {% if select_main_soul %}
-            document.getElementById('chk_make_main').addEventListener('change', function() {
-                if (document.getElementById('chk_make_main').checked)
-                    $.html.forEach('[x-only-main]', element => { if (element.classList.contains('dashboard')) element.removeAttribute('disabled'); else element.classList.add('hidden') } );
-                else $.html.forEach('[x-only-main]', element => { if (element.classList.contains('dashboard')) element.setAttribute('disabled','disabled'); else element.classList.remove('hidden') } );
-            })
+            {% if select_main_soul %}
+                document.getElementById('chk_make_main').addEventListener('change', function() {
+                    if (document.getElementById('chk_make_main').checked)
+                        $.html.forEach('[x-only-main]', element => { if (element.classList.contains('dashboard')) element.removeAttribute('disabled'); else element.classList.add('hidden') } );
+                    else $.html.forEach('[x-only-main]', element => { if (element.classList.contains('dashboard')) element.setAttribute('disabled','disabled'); else element.classList.remove('hidden') } );
+                })
+            {% endif %}
         {% endif %}
 
         let town_more_btn = document.getElementById('more_towns_btn');
         if (town_more_btn) town_more_btn.addEventListener('click', function() {
             let town_list = document.getElementById( 'data_towns' );
+            if (!town_list) return;
             let hidden_entries = town_list.querySelectorAll('.row.hidden');
             for (let i = 0; i < Math.min(50,hidden_entries.length); i++)
                 hidden_entries[i].classList.remove('hidden');
@@ -374,6 +372,7 @@
         let picto_more_btn = document.getElementById('more_pictos_btn');
         if (picto_more_btn) picto_more_btn.addEventListener('click', function() {
             let picto_list = document.getElementById( 'data_pictos' );
+            if (!picto_list) return;
             let hidden_entries = picto_list.querySelectorAll('.row.hidden');
             for (let i = 0; i < Math.min(50,hidden_entries.length); i++)
                 hidden_entries[i].classList.remove('hidden');

@@ -427,12 +427,11 @@ class SoulController extends AbstractController
         }
 
         $main = $this->entity_manager->getRepository(TwinoidImport::class)->findOneBy(['user' => $user, 'main' => true]);
-
-        if ($main !== null && $main->getScope() !== $scope && $to_main)
-            return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
-
-        if ($main !== null && $main->getScope() === $scope)
-            $to_main = true;
+        if ($main !== null) {
+            if ($main->getScope() !== $scope && $to_main)
+                return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
+            elseif ($main->getScope() === $scope) $to_main = true;
+        }
 
         if ($twin->importData( $user, $scope, $data, $to_main )) {
 
@@ -446,7 +445,6 @@ class SoulController extends AbstractController
                 $user->setTwinoidID( $pending->getTwinoidID() );
                 $user->setTwinoidImportPreview(null);
                 $pending->setUser(null);
-
 
                 $this->entity_manager->remove($pending);
             } else $selected->setMain($to_main);
