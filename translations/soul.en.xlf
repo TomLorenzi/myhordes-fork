@@ -697,7 +697,7 @@
       </notes>
       <segment>
         <source>Haus besuchen</source>
-        <target>Haus besuchen</target>
+        <target>Visit Home</target>
       </segment>
     </unit>
     <unit id="q4I8gVL" name="Eine neue Seele importieren">
@@ -706,7 +706,7 @@
       </notes>
       <segment>
         <source>Eine neue Seele importieren</source>
-        <target>Eine neue Seele importieren</target>
+        <target>Import a new Soul</target>
       </segment>
     </unit>
     <unit id="Oh71xYO" name="Twinoid Application ID">
@@ -733,7 +733,7 @@
       </notes>
       <segment>
         <source>Seele auswählen</source>
-        <target>Seele auswählen</target>
+        <target>Select Soul</target>
       </segment>
     </unit>
     <unit id="KVqdEan" name="Import starten">
@@ -742,7 +742,7 @@
       </notes>
       <segment>
         <source>Import starten</source>
-        <target>Import starten</target>
+        <target>Start import</target>
       </segment>
     </unit>
     <unit id="WeNNcNG" name="Deine importierten Seelen">
@@ -751,7 +751,7 @@
       </notes>
       <segment>
         <source>Deine importierten Seelen</source>
-        <target>Deine importierten Seelen</target>
+        <target>Your imported Souls</target>
       </segment>
     </unit>
     <unit id="aTN.bek" name="Vorschau">
@@ -760,7 +760,7 @@
       </notes>
       <segment>
         <source>Vorschau</source>
-        <target>Vorschau</target>
+        <target>Preview</target>
       </segment>
     </unit>
     <unit id="pGqYh1Z" name="Hurra, wir haben dein Profil heruntergeladen!">
@@ -769,7 +769,7 @@
       </notes>
       <segment>
         <source>Hurra, wir haben dein Profil heruntergeladen!</source>
-        <target>Hurra, wir haben dein Profil heruntergeladen!</target>
+        <target>Hooray, we have downloaded your Profile!</target>
       </segment>
     </unit>
     <unit id="j_qDUZ2" name="39b14b5">
@@ -778,7 +778,7 @@
       </notes>
       <segment>
         <source>Bitte prüfe die unten angegebenen Daten und bestätige den Import, wenn alles OK ist.</source>
-        <target>Bitte prüfe die unten angegebenen Daten und bestätige den Import, wenn alles OK ist.</target>
+        <target>Please check the data below and confirm the import if everything is OK.</target>
       </segment>
     </unit>
     <unit id="HwA4Kx3" name="Twinoid-Profil">
@@ -787,7 +787,7 @@
       </notes>
       <segment>
         <source>Twinoid-Profil</source>
-        <target>Twinoid-Profil</target>
+        <target>Twinoid Profile</target>
       </segment>
     </unit>
     <unit id="22.0Wcj" name="Profil ansehen">
@@ -796,7 +796,7 @@
       </notes>
       <segment>
         <source>Profil ansehen</source>
-        <target>Profil ansehen</target>
+        <target>View profile</target>
       </segment>
     </unit>
     <unit id="heTnD9H" name="Seelen-ID">
@@ -805,7 +805,7 @@
       </notes>
       <segment>
         <source>Seelen-ID</source>
-        <target>Seelen-ID</target>
+        <target>Soul-ID</target>
       </segment>
     </unit>
     <unit id="fmZlI_I" name="Saison">
@@ -814,7 +814,7 @@
       </notes>
       <segment>
         <source>Saison</source>
-        <target>Saison</target>
+        <target>Season</target>
       </segment>
     </unit>
     <unit id="FQORaiq" name="Tag">
@@ -823,7 +823,7 @@
       </notes>
       <segment>
         <source>Tag</source>
-        <target>Tag</target>
+        <target>Day</target>
       </segment>
     </unit>
     <unit id="Bfb7kn4" name="Stadtname">
@@ -832,7 +832,7 @@
       </notes>
       <segment>
         <source>Stadtname</source>
-        <target>Stadtname</target>
+        <target>Town name</target>
       </segment>
     </unit>
     <unit id="H9ZffoW" name="Nachrichten">
@@ -841,7 +841,7 @@
       </notes>
       <segment>
         <source>Nachrichten</source>
-        <target>Nachrichten</target>
+        <target>News</target>
       </segment>
     </unit>
     <unit id="hn7LsRJ" name="Punkte">
@@ -850,7 +850,7 @@
       </notes>
       <segment>
         <source>Punkte</source>
-        <target>Punkte</target>
+        <target>Points</target>
       </segment>
     </unit>
     <unit id="bRng7VP" name="%d% überlebt">
@@ -859,7 +859,7 @@
       </notes>
       <segment>
         <source>%d% überlebt</source>
-        <target>%d% überlebt</target>
+        <target>%d% survived</target>
       </segment>
     </unit>
     <unit id="rD2ZHAN" name="Letzte Worte">
@@ -868,7 +868,7 @@
       </notes>
       <segment>
         <source>Letzte Worte</source>
-        <target>Letzte Worte</target>
+        <target>Last Words</target>
       </segment>
     </unit>
     <unit id="N5nG16_" name="Import bestätigen">
@@ -877,7 +877,7 @@
       </notes>
       <segment>
         <source>Import bestätigen</source>
-        <target>Import bestätigen</target>
+        <target>Confirm import</target>
       </segment>
     </unit>
     <unit id="Asz_NPm" name="Hast du ein Seele bei %hordes%, %dv%, %d2n% oder %zn%?">
@@ -886,7 +886,7 @@
       </notes>
       <segment>
         <source>Hast du ein Seele bei %hordes%, %dv%, %d2n% oder %zn%?</source>
-        <target>Hast du ein Seele bei %hordes%, %dv%, %d2n% oder %zn%?</target>
+        <target>Do you have a Soul on %hordes%, %dv%, %d2n% or %zn%?</target>
       </segment>
     </unit>
     <unit id="VVu6KAH" name="Seele importieren">
@@ -895,7 +895,7 @@
       </notes>
       <segment>
         <source>Seele importieren</source>
-        <target>Seele importieren</target>
+        <target>Import soul</target>
       </segment>
     </unit>
     <unit id="CezJVcA" name="Dein Profil konnte nicht geladen werden, da Twinoid die Anfrage abgelehnt hat.">
@@ -904,7 +904,7 @@
       </notes>
       <segment>
         <source>Dein Profil konnte nicht geladen werden, da Twinoid die Anfrage abgelehnt hat.</source>
-        <target>Dein Profil konnte nicht geladen werden, da Twinoid die Anfrage abgelehnt hat.</target>
+        <target>Your profile could not be loaded because Twinoid rejected the request.</target>
       </segment>
     </unit>
     <unit id="q3h_whw" name="1260b6c">
@@ -913,7 +913,7 @@
       </notes>
       <segment>
         <source>Dein Profil konnte nicht geladen werden, da die Datenverarbeitung fehlgeschlagen ist.</source>
-        <target>Dein Profil konnte nicht geladen werden, da die Datenverarbeitung fehlgeschlagen ist.</target>
+        <target>Your profile could not be loaded because data processing failed.</target>
       </segment>
     </unit>
     <unit id="oF2e3r3" name="3bce6e7">
@@ -922,7 +922,7 @@
       </notes>
       <segment>
         <source>Das angegebene Profil kann nicht importiert werden, da es bereits einem anderen MyHordes-Spieler zugeordnet ist.</source>
-        <target>Das angegebene Profil kann nicht importiert werden, da es bereits einem anderen MyHordes-Spieler zugeordnet ist.</target>
+        <target>The specified Profile cannot be imported because it is already assigned to another MyHordes Player.</target>
       </segment>
     </unit>
     <unit id="VYR1ULC" name="5cf3dce">
@@ -931,7 +931,7 @@
       </notes>
       <segment>
         <source>Das angegebene Profil kann nicht importiert werden, da es einem fremden Twinoid-Konto zugeordnet ist.</source>
-        <target>Das angegebene Profil kann nicht importiert werden, da es einem fremden Twinoid-Konto zugeordnet ist.</target>
+        <target>The specified Profile cannot be imported because it is assigned to a foreign Twinoid Account.</target>
       </segment>
     </unit>
     <unit id="D24hLqy" name="Informationen über dein Twinoid-Konto">
@@ -940,7 +940,7 @@
       </notes>
       <segment>
         <source>Informationen über dein Twinoid-Konto</source>
-        <target>Informationen über dein Twinoid-Konto</target>
+        <target>Information about your Twinoid account</target>
       </segment>
     </unit>
     <unit id="1tzbb8." name="3d4c753">
@@ -949,7 +949,7 @@
       </notes>
       <segment>
         <source>Bitte stelle sicher, dass du das korrekte Twinoid-Konto mit deinem MyHordes-Account verbindest.</source>
-        <target>Bitte stelle sicher, dass du das korrekte Twinoid-Konto mit deinem MyHordes-Account verbindest.</target>
+        <target>Please make sure you link the correct Twinoid account to your MyHordes account.</target>
       </segment>
     </unit>
     <unit id="nVicoPO" name="Zusammenfassung">
@@ -958,7 +958,7 @@
       </notes>
       <segment>
         <source>Zusammenfassung</source>
-        <target>Zusammenfassung</target>
+        <target>Summary</target>
       </segment>
     </unit>
     <unit id="iDRsxF8" name="%c% Städte">
@@ -967,7 +967,7 @@
       </notes>
       <segment>
         <source>%c% Städte</source>
-        <target>%c% Städte</target>
+        <target>%c% Towns</target>
       </segment>
     </unit>
     <unit id="URb5dXE" name="zwischen Saison %smin% und %smax%">
@@ -976,7 +976,7 @@
       </notes>
       <segment>
         <source>zwischen Saison %smin% und %smax%</source>
-        <target>zwischen Saison %smin% und %smax%</target>
+        <target>between Season %smin% and %smax%</target>
       </segment>
     </unit>
     <unit id="tZke4d7" name="%num% Städte zw. Saison %smin% und %smax%">
@@ -985,7 +985,7 @@
       </notes>
       <segment>
         <source>%num% Städte zw. Saison %smin% und %smax%</source>
-        <target>%num% Städte zw. Saison %smin% und %smax%</target>
+        <target>%num% Towns between Season %smin% and %smax%</target>
       </segment>
     </unit>
     <unit id=".j1I3aE" name="aus vergangener Zeit">
@@ -994,7 +994,7 @@
       </notes>
       <segment>
         <source>aus vergangener Zeit</source>
-        <target>aus vergangener Zeit</target>
+        <target>from Past Times</target>
       </segment>
     </unit>
     <unit id="uHHqmXL" name="%num% Städte aus vergangener Zeit">
@@ -1003,7 +1003,7 @@
       </notes>
       <segment>
         <source>%num% Städte aus vergangener Zeit</source>
-        <target>%num% Städte aus vergangener Zeit</target>
+        <target>%num% Towns from Past Times</target>
       </segment>
     </unit>
     <unit id="vGn3Jql" name="Keine Städte">
@@ -1012,7 +1012,7 @@
       </notes>
       <segment>
         <source>Keine Städte</source>
-        <target>Keine Städte</target>
+        <target>No Towns</target>
       </segment>
     </unit>
     <unit id="3Nam8Wg" name="%c% Titel &amp; Icons">
@@ -1021,7 +1021,7 @@
       </notes>
       <segment>
         <source>%c% Titel &amp; Icons</source>
-        <target><![CDATA[%c% Titel & Icons]]></target>
+        <target><![CDATA[%c% Titles & Icons]]></target>
       </segment>
     </unit>
     <unit id="VDr4lbM" name="%c% Titel, %cc% Icons">
@@ -1030,7 +1030,7 @@
       </notes>
       <segment>
         <source>%c% Titel, %cc% Icons</source>
-        <target>%c% Titel, %cc% Icons</target>
+        <target>%c% Titles, %cc% Icons</target>
       </segment>
     </unit>
     <unit id="xhN5lts" name="%num% unbekannte Objekte!">
@@ -1039,7 +1039,7 @@
       </notes>
       <segment>
         <source>%num% unbekannte Objekte!</source>
-        <target>%num% unbekannte Objekte!</target>
+        <target>%num% unknown Objects!</target>
       </segment>
     </unit>
     <unit id="tJ5C7kL" name="Keine Freischaltungen">
@@ -1048,7 +1048,7 @@
       </notes>
       <segment>
         <source>Keine Freischaltungen</source>
-        <target>Keine Freischaltungen</target>
+        <target>No Activations</target>
       </segment>
     </unit>
     <unit id="DW8tL5I" name="%c% Seelenpunkte">
@@ -1057,7 +1057,7 @@
       </notes>
       <segment>
         <source>%c% Seelenpunkte</source>
-        <target>%c% Seelenpunkte</target>
+        <target>%c% Soul Points</target>
       </segment>
     </unit>
     <unit id="_GxcfFk" name="%c% Auszeichnungen">
@@ -1066,7 +1066,7 @@
       </notes>
       <segment>
         <source>%c% Auszeichnungen</source>
-        <target>%c% Auszeichnungen</target>
+        <target>%c% Awards</target>
       </segment>
     </unit>
     <unit id="v2GNzO7" name="%c% Auszeichnungs-Typen, %cc% davon selten">
@@ -1075,7 +1075,7 @@
       </notes>
       <segment>
         <source>%c% Auszeichnungs-Typen, %cc% davon selten</source>
-        <target>%c% Auszeichnungs-Typen, %cc% davon selten</target>
+        <target>%c% Award Types, and %cc% which are rare</target>
       </segment>
     </unit>
     <unit id="2lB01ka" name="%c% Auszeichnungs-Typen">
@@ -1084,7 +1084,7 @@
       </notes>
       <segment>
         <source>%c% Auszeichnungs-Typen</source>
-        <target>%c% Auszeichnungs-Typen</target>
+        <target>%c% Award Types</target>
       </segment>
     </unit>
     <unit id="mgoVWcN" name="%num% unbekannte Auszeichnungen!">
@@ -1093,7 +1093,7 @@
       </notes>
       <segment>
         <source>%num% unbekannte Auszeichnungen!</source>
-        <target>%num% unbekannte Auszeichnungen!</target>
+        <target>%num% unknown Awards!</target>
       </segment>
     </unit>
     <unit id="304pJcq" name="Keine Auszeichnungen">
@@ -1102,7 +1102,7 @@
       </notes>
       <segment>
         <source>Keine Auszeichnungen</source>
-        <target>Keine Auszeichnungen</target>
+        <target>No Awards</target>
       </segment>
     </unit>
     <unit id="8p1rMBE" name="%c% Tage als Held">
@@ -1111,7 +1111,7 @@
       </notes>
       <segment>
         <source>%c% Tage als Held</source>
-        <target>%c% Tage als Held</target>
+        <target>%c% Days as a Hero</target>
       </segment>
     </unit>
     <unit id="WE..GeJ" name="95cf6e6">
@@ -1120,7 +1120,7 @@
       </notes>
       <segment>
         <source>Dieser Wert ist geschätzt und kann vom tatsächlichen Wert abweichen. Dies lässt sich leider nicht vermeiden.</source>
-        <target>Dieser Wert ist geschätzt und kann vom tatsächlichen Wert abweichen. Dies lässt sich leider nicht vermeiden.</target>
+        <target>This value is estimated and may differ from the actual value. Unfortunately, this cannot be avoided.</target>
       </segment>
     </unit>
     <unit id="Bg3kbdW" name="Vergangene Städte">
@@ -1129,7 +1129,7 @@
       </notes>
       <segment>
         <source>Vergangene Städte</source>
-        <target>Vergangene Städte</target>
+        <target>Past Towns</target>
       </segment>
     </unit>
     <unit id="gNXU40u" name="98f9be8">
@@ -1138,7 +1138,7 @@
       </notes>
       <segment>
         <source>Hier werden die Städte angezeigt, die du in der vergangenheit gespielt hast. Wenn du dich aktuell in einer Stadt befindest, wird diese hier nicht angezeigt und auch nicht importiert.</source>
-        <target>Hier werden die Städte angezeigt, die du in der vergangenheit gespielt hast. Wenn du dich aktuell in einer Stadt befindest, wird diese hier nicht angezeigt und auch nicht importiert.</target>
+        <target>This shows the Towns you have played in the past. If you are currently in a Town, it will not be shown here and will not be imported.</target>
       </segment>
     </unit>
     <unit id="qrK4heb" name="Infos">
@@ -1156,7 +1156,7 @@
       </notes>
       <segment>
         <source>Todesart</source>
-        <target>Todesart</target>
+        <target>Cause of death</target>
       </segment>
     </unit>
     <unit id="hYONYc." name="Überlebt">
@@ -1165,7 +1165,7 @@
       </notes>
       <segment>
         <source>Überlebt</source>
-        <target>Überlebt</target>
+        <target>Survived</target>
       </segment>
     </unit>
     <unit id="ymT9mze" name="%d% Tage">
@@ -1174,7 +1174,7 @@
       </notes>
       <segment>
         <source>%d% Tage</source>
-        <target>%d% Tage</target>
+        <target>%d% Days</target>
       </segment>
     </unit>
     <unit id="fcC4_EM" name="Auszeichnungen">
@@ -1183,7 +1183,7 @@
       </notes>
       <segment>
         <source>Auszeichnungen</source>
-        <target>Auszeichnungen</target>
+        <target>Awards</target>
       </segment>
     </unit>
     <unit id="D8ATKTz" name="bf9c5fb">
@@ -1192,7 +1192,7 @@
       </notes>
       <segment>
         <source>Hier werden dir die Auszeichnungen angezeigt, welche du im Laufe der Zeit verdient hast.</source>
-        <target>Hier werden dir die Auszeichnungen angezeigt, welche du im Laufe der Zeit verdient hast.</target>
+        <target>Here you can see the awards you have earned over time.</target>
       </segment>
     </unit>
     <unit id="mxKbILU" name="Auszeichnung">
@@ -1201,7 +1201,7 @@
       </notes>
       <segment>
         <source>Auszeichnung</source>
-        <target>Auszeichnung</target>
+        <target>Award</target>
       </segment>
     </unit>
     <unit id="cXTeIrr" name="Anzahl">
@@ -1210,7 +1210,7 @@
       </notes>
       <segment>
         <source>Anzahl</source>
-        <target>Anzahl</target>
+        <target>Number</target>
       </segment>
     </unit>
     <unit id="42T5e3_" name="Freischaltbares">
@@ -1219,7 +1219,7 @@
       </notes>
       <segment>
         <source>Freischaltbares</source>
-        <target>Freischaltbares</target>
+        <target>Unlockable</target>
       </segment>
     </unit>
     <unit id="8xUTLg1" name="Hier siehst du deine Titel und Icons.">
@@ -1228,7 +1228,7 @@
       </notes>
       <segment>
         <source>Hier siehst du deine Titel und Icons.</source>
-        <target>Hier siehst du deine Titel und Icons.</target>
+        <target>Here you can see your Titles and Icons.</target>
       </segment>
     </unit>
     <unit id="GwJBg8s" name="Typ">
@@ -1237,7 +1237,7 @@
       </notes>
       <segment>
         <source>Typ</source>
-        <target>Typ</target>
+        <target>Type</target>
       </segment>
     </unit>
     <unit id="cTrAfF8" name="Name &amp; Infos">
@@ -1255,7 +1255,7 @@
       </notes>
       <segment>
         <source>Wert</source>
-        <target>Wert</target>
+        <target>Value</target>
       </segment>
     </unit>
     <unit id="kTWILTI" name="Datum">
@@ -1264,7 +1264,7 @@
       </notes>
       <segment>
         <source>Datum</source>
-        <target>Datum</target>
+        <target>Date</target>
       </segment>
     </unit>
     <unit id="4wcEbqc" name="132563f">
@@ -1273,7 +1273,7 @@
       </notes>
       <segment>
         <source>Einmal bestätigt, kann die Verknüpfung nicht mehr aufgehoben werden und du kannst kein anderes Twinoid-Konto mehr verknüpfen.</source>
-        <target>Einmal bestätigt, kann die Verknüpfung nicht mehr aufgehoben werden und du kannst kein anderes Twinoid-Konto mehr verknüpfen.</target>
+        <target>Once confirmed, the link can no longer be broken and you can no longer link another Twinoid account.</target>
       </segment>
     </unit>
     <unit id="tyVSys4" name="227ba37">
@@ -1282,7 +1282,7 @@
       </notes>
       <segment>
         <source>Du kannst natürlich weiterhin Konten von Hordes, DieVerdammten, Die2Nite und Zombinoia importieren, welche mit dem selben Twinoid-Konto verbunden sind.</source>
-        <target>Du kannst natürlich weiterhin Konten von Hordes, DieVerdammten, Die2Nite und Zombinoia importieren, welche mit dem selben Twinoid-Konto verbunden sind.</target>
+        <target>You can of course still import accounts from Hordes, DieVerdammten, Die2Nite and Zombinoia, which are linked to the same Twinoid account.</target>
       </segment>
     </unit>
     <unit id="fz.4cY3" name="Deine Seele wurde erfolgreich importiert!">
@@ -1291,7 +1291,7 @@
       </notes>
       <segment>
         <source>Deine Seele wurde erfolgreich importiert!</source>
-        <target>Deine Seele wurde erfolgreich importiert!</target>
+        <target>Your Soul was imported successfully!</target>
       </segment>
     </unit>
     <unit id="p3Cx_go" name="Saison %n%">
@@ -1300,7 +1300,7 @@
       </notes>
       <segment>
         <source>Saison %n%</source>
-        <target>Saison %n%</target>
+        <target>Season %n%</target>
       </segment>
     </unit>
     <unit id="yoZbT75" name="Gute Alte Zeit">
@@ -1309,7 +1309,7 @@
       </notes>
       <segment>
         <source>Gute Alte Zeit</source>
-        <target>Gute Alte Zeit</target>
+        <target>Good Old Times</target>
       </segment>
     </unit>
     <unit id="c9falYV" name="Dann musst du nicht von Vorne beginnen!">
@@ -1318,7 +1318,7 @@
       </notes>
       <segment>
         <source>Dann musst du nicht von Vorne beginnen!</source>
-        <target>Dann musst du nicht von Vorne beginnen!</target>
+        <target>Then you don't have to start over!</target>
       </segment>
     </unit>
     <unit id="Av6Ro2b" name="Importiere deine Seele und mache dort weiter, wo du aufgehört hast.">
@@ -1327,7 +1327,7 @@
       </notes>
       <segment>
         <source>Importiere deine Seele und mache dort weiter, wo du aufgehört hast.</source>
-        <target>Importiere deine Seele und mache dort weiter, wo du aufgehört hast.</target>
+        <target>Import your Soul and continue where you left off.</target>
       </segment>
     </unit>
     <unit id="kRUPFo6" name="Unbekannte Auszeichnung">
@@ -1336,7 +1336,7 @@
       </notes>
       <segment>
         <source>Unbekannte Auszeichnung</source>
-        <target>Unbekannte Auszeichnung</target>
+        <target>Unknown Award</target>
       </segment>
     </unit>
     <unit id="Pu6LW8D" name="Du hast bisher keine Seelen importiert.">
@@ -1345,7 +1345,7 @@
       </notes>
       <segment>
         <source>Du hast bisher keine Seelen importiert.</source>
-        <target>Du hast bisher keine Seelen importiert.</target>
+        <target>You haven't imported Souls yet.</target>
       </segment>
     </unit>
     <unit id="xroX___" name="Angelegt: %d%">
@@ -1354,7 +1354,7 @@
       </notes>
       <segment>
         <source>Angelegt: %d%</source>
-        <target>Angelegt: %d%</target>
+        <target>Created: %d%</target>
       </segment>
     </unit>
     <unit id="wgHBoF8" name="Letztes Update: %d%">
@@ -1363,7 +1363,7 @@
       </notes>
       <segment>
         <source>Letztes Update: %d%</source>
-        <target>Letztes Update: %d%</target>
+        <target>Last Update: %d%</target>
       </segment>
     </unit>
     <unit id="eJBYptN" name="Daten aktualisieren">
@@ -1372,7 +1372,7 @@
       </notes>
       <segment>
         <source>Daten aktualisieren</source>
-        <target>Daten aktualisieren</target>
+        <target>Update data</target>
       </segment>
     </unit>
     <unit id="DlYgqsn" name="ac4aa86">
@@ -1381,7 +1381,7 @@
       </notes>
       <segment>
         <source>Ruft deine Seele erneut von Twinoid ab und aktualisiert die gespeicherten Informationen. Bevor die neuen Daten gespeichert werden, wird dir eine Vorschau angezeigt.</source>
-        <target>Ruft deine Seele erneut von Twinoid ab und aktualisiert die gespeicherten Informationen. Bevor die neuen Daten gespeichert werden, wird dir eine Vorschau angezeigt.</target>
+        <target>Retrieves your Soul from Twinoid and updates the stored information. Before the new data is saved, you will see a preview.</target>
       </segment>
     </unit>
     <unit id="lNxrHuq" name="Daten ansehen">
@@ -1390,7 +1390,7 @@
       </notes>
       <segment>
         <source>Daten ansehen</source>
-        <target>Daten ansehen</target>
+        <target>View data</target>
       </segment>
     </unit>
     <unit id="XlXtL3B" name="Zeigt die zuletzt importierten Informationen an.">
@@ -1399,7 +1399,7 @@
       </notes>
       <segment>
         <source>Zeigt die zuletzt importierten Informationen an.</source>
-        <target>Zeigt die zuletzt importierten Informationen an.</target>
+        <target>Displays the most recently imported information.</target>
       </segment>
     </unit>
     <unit id="ExfqGAW" name="Erneut importieren">
@@ -1408,7 +1408,7 @@
       </notes>
       <segment>
         <source>Erneut importieren</source>
-        <target>Erneut importieren</target>
+        <target>Import again</target>
       </segment>
     </unit>
     <unit id="YhqHcco" name="a48eb2e">
@@ -1417,7 +1417,7 @@
       </notes>
       <segment>
         <source>Führt den Import-Vorgang erneut durch, ohne frische Daten von Twinoid abzurufen. Dies ist nützlich, wenn die importierten Daten durch ein MyHordes-Update nun besser verarbeitet werden können als dies beim letzten Import der Fall war. Diese Funktion wird auch nach der Abschaltung von Twinoid weiter zur Verfügung stehen.</source>
-        <target>Führt den Import-Vorgang erneut durch, ohne frische Daten von Twinoid abzurufen. Dies ist nützlich, wenn die importierten Daten durch ein MyHordes-Update nun besser verarbeitet werden können als dies beim letzten Import der Fall war. Diese Funktion wird auch nach der Abschaltung von Twinoid weiter zur Verfügung stehen.</target>
+        <target>Repeats the import process without getting fresh data from Twinoid. This is useful if the imported data can now be processed better by a MyHordes update than was the case with the last import. This function will continue to be available even after Twinoid has been shut down.</target>
       </segment>
     </unit>
     <unit id="DBQkWUr" name="Als Hauptseele wählen">
@@ -1426,7 +1426,7 @@
       </notes>
       <segment>
         <source>Als Hauptseele wählen</source>
-        <target>Als Hauptseele wählen</target>
+        <target>Choose as Main Soul</target>
       </segment>
     </unit>
     <unit id="ltYAKjD" name="338e6bd">
@@ -1435,7 +1435,7 @@
       </notes>
       <segment>
         <source>Legt diese Seele als Hauptseele fest und importiert Seelenpunkte und Heldenerfahrung.</source>
-        <target>Legt diese Seele als Hauptseele fest und importiert Seelenpunkte und Heldenerfahrung.</target>
+        <target>Sets this Soul as the Main Soul and imports Soul Points and Hero Experience.</target>
       </segment>
     </unit>
     <unit id="NBJR5jI" name="2c9ce98">
@@ -1444,7 +1444,7 @@
       </notes>
       <segment>
         <source>Bist du sicher, dass du diese Seele als deine Hauptseele festlegen willst. Dieser Vorgang kann nicht rückgängig gemacht werden!</source>
-        <target>Bist du sicher, dass du diese Seele als deine Hauptseele festlegen willst. Dieser Vorgang kann nicht rückgängig gemacht werden!</target>
+        <target>Are you sure you want to set this Soul as your Main Soul? This action can not be undone!</target>
       </segment>
     </unit>
     <unit id="fA1pnvC" name="Diese Seele wurde erfolgreich als deine Hauptseele registriert!">
@@ -1453,7 +1453,7 @@
       </notes>
       <segment>
         <source>Diese Seele wurde erfolgreich als deine Hauptseele registriert!</source>
-        <target>Diese Seele wurde erfolgreich als deine Hauptseele registriert!</target>
+        <target>This Soul was successfully registered as your Main Soul!</target>
       </segment>
     </unit>
     <unit id="a7xlwVJ" name="Dies ist deine Hauptseele.">
@@ -1462,7 +1462,7 @@
       </notes>
       <segment>
         <source>Dies ist deine Hauptseele.</source>
-        <target>Dies ist deine Hauptseele.</target>
+        <target>This is your Main Soul.</target>
       </segment>
     </unit>
     <unit id="uFlUkcE" name="8798d28">
@@ -1471,7 +1471,7 @@
       </notes>
       <segment>
         <source>Seelenpunkte, Auszeichnungen und Heldenerfahrung von dieser Seele können in dein MyHordes-Profil importiert werden.</source>
-        <target>Seelenpunkte, Auszeichnungen und Heldenerfahrung von dieser Seele können in dein MyHordes-Profil importiert werden.</target>
+        <target>Soul Points, Awards and Hero Experience from this Soul can be imported into your MyHordes Profile.</target>
       </segment>
     </unit>
     <unit id=".NldYpW" name="Dies ist nicht deine Hauptseele.">
@@ -1480,7 +1480,7 @@
       </notes>
       <segment>
         <source>Dies ist nicht deine Hauptseele.</source>
-        <target>Dies ist nicht deine Hauptseele.</target>
+        <target>This is not your Main Soul.</target>
       </segment>
     </unit>
     <unit id="mtD8S3s" name="ab7a6b2">
@@ -1489,7 +1489,7 @@
       </notes>
       <segment>
         <source>Seelenpunkte, Auszeichnungen und Heldenerfahrung können nur von deiner Hauptseele in dein MyHordes-Profil importiert werden.</source>
-        <target>Seelenpunkte, Auszeichnungen und Heldenerfahrung können nur von deiner Hauptseele in dein MyHordes-Profil importiert werden.</target>
+        <target>Soul Points, Awards and Hero Experience can only be imported from your Main Soul into your MyHordes Profile.</target>
       </segment>
     </unit>
     <unit id="ujVgB2r" name="Möchtest du diese Seele zu deiner Hauptseele erklären?">
@@ -1498,7 +1498,7 @@
       </notes>
       <segment>
         <source>Möchtest du diese Seele zu deiner Hauptseele erklären?</source>
-        <target>Möchtest du diese Seele zu deiner Hauptseele erklären?</target>
+        <target>Do you want to declare this Soul as your Main Soul?</target>
       </segment>
     </unit>
     <unit id="NC78n6U" name="7eac7ed">
@@ -1507,7 +1507,7 @@
       </notes>
       <segment>
         <source>Seelenpunkte, Auszeichnungen und Heldenerfahrung können nur von einer Seele importiert werden - deiner Hauptseele. Überlege dir deine Entscheidung gut, denn du kannst die Wahl deiner Hauptseele später nicht mehr ändern!</source>
-        <target>Seelenpunkte, Auszeichnungen und Heldenerfahrung können nur von einer Seele importiert werden - deiner Hauptseele. Überlege dir deine Entscheidung gut, denn du kannst die Wahl deiner Hauptseele später nicht mehr ändern!</target>
+        <target>Soul Points, Awards and Hero Experience can only be imported by one Soul - your Main Soul. Think carefully about your decision, because you cannot change the choice of your main soul later!</target>
       </segment>
     </unit>
     <unit id="DJ.7w.9" name="8ccb170">
@@ -1516,7 +1516,7 @@
       </notes>
       <segment>
         <source>Du musst diese Entscheidung nicht jetzt treffen, sondern kannst diese Seele auch nachträglich noch zu deiner Hauptseele erklären - solange du inzwischen nicht bereits eine andere Seele als Hauptseele gewählt hast.</source>
-        <target>Du musst diese Entscheidung nicht jetzt treffen, sondern kannst diese Seele auch nachträglich noch zu deiner Hauptseele erklären - solange du inzwischen nicht bereits eine andere Seele als Hauptseele gewählt hast.</target>
+        <target>You do not have to make this decision now, but you can also subsequently declare this Soul as your Main Soul - as long as you have not already chosen another Soul as the Main Soul.</target>
       </segment>
     </unit>
     <unit id="1MRAxNt" name="3ad4558">
@@ -1525,7 +1525,7 @@
       </notes>
       <segment>
         <source>Unabhängig davon, ob du diese Seele zu deiner Hauptseele machst oder nicht, kannst du ihre Daten bei Bedarf selbstverständlich erneut mit Twinoid abgleichen und ihre Daten aktualisieren.</source>
-        <target>Unabhängig davon, ob du diese Seele zu deiner Hauptseele machst oder nicht, kannst du ihre Daten bei Bedarf selbstverständlich erneut mit Twinoid abgleichen und ihre Daten aktualisieren.</target>
+        <target>Regardless of whether you make this Soul your Main Soul or not, you can of course reconcile your data with Twinoid and update your data if necessary.</target>
       </segment>
     </unit>
     <unit id="eoeG3zx" name="Diese Seele zu meiner Hauptseele machen!">
@@ -1534,7 +1534,7 @@
       </notes>
       <segment>
         <source>Diese Seele zu meiner Hauptseele machen!</source>
-        <target>Diese Seele zu meiner Hauptseele machen!</target>
+        <target>Make this soul my Main Soul!</target>
       </segment>
     </unit>
     <unit id="s9icea7" name="b46b9e2">
@@ -1543,7 +1543,7 @@
       </notes>
       <segment>
         <source>Um diese Seele zu deiner Hauptseele zu machen, verwende die Schaltfläche auf der vorherigen Seite.</source>
-        <target>Um diese Seele zu deiner Hauptseele zu machen, verwende die Schaltfläche auf der vorherigen Seite.</target>
+        <target>To make this Soul your Main Soul, use the button on the previous page.</target>
       </segment>
     </unit>
     <unit id="nrZhqLF" name="Diese Daten können nur von deiner Hauptseele importiert werden.">
@@ -1552,7 +1552,7 @@
       </notes>
       <segment>
         <source>Diese Daten können nur von deiner Hauptseele importiert werden.</source>
-        <target>Diese Daten können nur von deiner Hauptseele importiert werden.</target>
+        <target>This data can only be imported from your Main Soul.</target>
       </segment>
     </unit>
     <unit id="p2vFHLe" name="Es ist deine Hauptseele">
@@ -1561,7 +1561,7 @@
       </notes>
       <segment>
         <source>Es ist deine Hauptseele</source>
-        <target>Es ist deine Hauptseele</target>
+        <target>It is your Main Soul</target>
       </segment>
     </unit>
     <unit id="WPvMZd7" name="52d83c2">
@@ -1570,7 +1570,7 @@
       </notes>
       <segment>
         <source>Du kannst nur eine deiner Seelen als Hauptseele festlegen und diese Auswahl auch nicht mehr ändern! Wähle also weise...</source>
-        <target>Du kannst nur eine deiner Seelen als Hauptseele festlegen und diese Auswahl auch nicht mehr ändern! Wähle also weise...</target>
+        <target>You can only set one of your Souls as the Main Soul and you cannot change this selection afterward! So choose wisely ...</target>
       </segment>
     </unit>
     <unit id="59PnafP" name="Administrator">
@@ -1588,7 +1588,7 @@
       </notes>
       <segment>
         <source>Diese Karteikarte gehört einem Administrator. Wenn ihr darauf komische, abnormale oder gar furchteinflößende Dinge entdeckt: Das ist völlig normal. Macht euch keine Sorgen, er weiß wahrscheinlich schon Bescheid :).</source>
-        <target>Diese Karteikarte gehört einem Administrator. Wenn ihr darauf komische, abnormale oder gar furchteinflößende Dinge entdeckt: Das ist völlig normal. Macht euch keine Sorgen, er weiß wahrscheinlich schon Bescheid :).</target>
+        <target>This badge belongs to an Administrator. If you find strange, abnormal, or even scary things on it: this is completely normal. Don't worry, he probably already knows :).</target>
       </segment>
     </unit>
     <unit id="Oxu558J" name="Der Rabe">
@@ -1597,7 +1597,7 @@
       </notes>
       <segment>
         <source>Der Rabe</source>
-        <target>Der Rabe</target>
+        <target>The Crow</target>
       </segment>
     </unit>
     <unit id="YKiLytV" name="29f69eb">
@@ -1606,7 +1606,7 @@
       </notes>
       <segment>
         <source>Diese Karteikarte gehört einem Raben. Du solltest sie lieber wieder zurücklegen... langsam und ohne plötzliche Bewegungen.</source>
-        <target>Diese Karteikarte gehört einem Raben. Du solltest sie lieber wieder zurücklegen... langsam und ohne plötzliche Bewegungen.</target>
+        <target>This badge belongs to a Crow. You'd better put it back ... slowly and without sudden movements.</target>
       </segment>
     </unit>
     <unit id="BCS.RQ1" name="Orakel">
@@ -1615,7 +1615,7 @@
       </notes>
       <segment>
         <source>Orakel</source>
-        <target>Orakel</target>
+        <target>Oracle</target>
       </segment>
     </unit>
     <unit id="GMmC34." name="fa5585a">
@@ -1624,7 +1624,7 @@
       </notes>
       <segment>
         <source>Diese Karteikarte gehört einem Orakel. Orakel sind Bindeglieder zwischen der Community und den Entwicklern. Du kannst dich bei Fragen und Problemen vertrauensvoll an sie wenden.</source>
-        <target>Diese Karteikarte gehört einem Orakel. Orakel sind Bindeglieder zwischen der Community und den Entwicklern. Du kannst dich bei Fragen und Problemen vertrauensvoll an sie wenden.</target>
+        <target>This badge belongs to an oracle. Oracles are links between the community and the developers. You can contact them with confidence if you have any questions or problems.</target>
       </segment>
     </unit>
     <unit id="qPDF80G" name="Irgend etwas erscheint an dieser Karteikarte merkwürdig...">
@@ -1633,7 +1633,7 @@
       </notes>
       <segment>
         <source>Irgend etwas erscheint an dieser Karteikarte merkwürdig...</source>
-        <target>Irgend etwas erscheint an dieser Karteikarte merkwürdig...</target>
+        <target>Something seems strange on badge ...</target>
       </segment>
     </unit>
     <unit id="KmttAsi" name="39e1986">
@@ -1642,7 +1642,7 @@
       </notes>
       <segment>
         <source>Dieser Spieler hat mindestens eine Seele von Twinoid importiert. Wir feuen uns, ihn bei MyHordes begrüßen zu dürfen!</source>
-        <target>Dieser Spieler hat mindestens eine Seele von Twinoid importiert. Wir feuen uns, ihn bei MyHordes begrüßen zu dürfen!</target>
+        <target>This player imported at least one soul from Twinoid. We look forward to welcome him to MyHordes!</target>
       </segment>
     </unit>
     <unit id="BvaERjQ" name="Twinoid-Nutzer">
@@ -1651,7 +1651,7 @@
       </notes>
       <segment>
         <source>Twinoid-Nutzer</source>
-        <target>Twinoid-Nutzer</target>
+        <target>Twinoid User</target>
       </segment>
     </unit>
     <unit id="1xiOB2G" name="Seele suchen">
@@ -1660,7 +1660,7 @@
       </notes>
       <segment>
         <source>Seele suchen</source>
-        <target>Seele suchen</target>
+        <target>Search Soul</target>
       </segment>
     </unit>
     <unit id="XRr8eU." name="Gib den Pseudo des Bürgers ein.">
@@ -1669,7 +1669,7 @@
       </notes>
       <segment>
         <source>Gib den Pseudo des Bürgers ein.</source>
-        <target>Gib den Pseudo des Bürgers ein.</target>
+        <target>Enter the citizen's name.</target>
       </segment>
     </unit>
   </file>
