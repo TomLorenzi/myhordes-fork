@@ -16,9 +16,7 @@ use App\Entity\HeroicActionPrototype;
 use App\Entity\Inventory;
 use App\Entity\Item;
 use App\Entity\ItemPrototype;
-use App\Entity\HeroSkill;
 use App\Entity\HeroSkillPrototype;
-use App\Entity\Picto;
 use App\Entity\PictoPrototype;
 use App\Entity\PrivateMessage;
 use App\Entity\Town;
@@ -97,7 +95,7 @@ class NightlyHandler
         return true;
     }
 
-    private function kill_wrap( Citizen &$citizen, CauseOfDeath &$cod, bool $skip_reanimation = false, int $zombies = 0, $skip_log = false, ?int $day = null ) {
+    private function kill_wrap( Citizen &$citizen, CauseOfDeath $cod, bool $skip_reanimation = false, int $zombies = 0, $skip_log = false, ?int $day = null ) {
         $this->log->debug("Citizen <info>{$citizen->getUser()->getUsername()}</info> dies of <info>{$cod->getLabel()}</info>.");
         $this->death_handler->kill($citizen,$cod,$rr);
 
@@ -106,7 +104,7 @@ class NightlyHandler
         if ($skip_reanimation) $this->skip_reanimation[] = $citizen->getId();
     }
 
-    private function stage1_vanish(Town &$town) {
+    private function stage1_vanish(Town $town) {
         $this->log->info('<info>Vanishing citizens</info> ...');
         $cod = $this->entity_manager->getRepository(CauseOfDeath::class)->findOneByRef(CauseOfDeath::Vanished);
 
@@ -149,7 +147,7 @@ class NightlyHandler
             }
     }
 
-    private function stage1_status(Town &$town) {
+    private function stage1_status(Town $town) {
         $this->log->info('<info>Processing status-related deaths</info> ...');
         $cod_thirst = $this->entity_manager->getRepository(CauseOfDeath::class)->findOneByRef(CauseOfDeath::Dehydration);
         $cod_addict = $this->entity_manager->getRepository(CauseOfDeath::class)->findOneByRef(CauseOfDeath::Addiction);
@@ -199,7 +197,7 @@ class NightlyHandler
         }
     }
 
-    private function stage2_day(Town &$town) {
+    private function stage2_day(Town $town) {
         $this->log->info('<info>Updating survival information</info> ...');
         foreach ($town->getCitizens() as $citizen) {
             if (!$citizen->getAlive()) continue;
@@ -285,7 +283,7 @@ class NightlyHandler
         }
     }
 
-    private function stage2_surprise_attack(Town &$town) {
+    private function stage2_surprise_attack(Town $town) {
         $this->log->info('<info>Awakening the dead</info> ...');
         /** @var Citizen[] $houses */
         $houses = [];
@@ -631,7 +629,7 @@ class NightlyHandler
         }
     }
 
-    private function stage3_status(Town &$town) {
+    private function stage3_status(Town $town) {
         $this->log->info('<info>Processing status changes</info> ...');
 
         $status_survive   = $this->entity_manager->getRepository(CitizenStatus::class)->findOneBy( ['name' => 'hsurvive'] );
@@ -749,15 +747,12 @@ class NightlyHandler
                             $winner = $this->random->pick($citizen_eligible);
 
                             $picto = $town->getType()->getName() == 'panda' ? 'r_suhard_#00' : 'r_surlst_#00';
-
                             $this->log->debug("We give the picto <info>$picto</info> to the lucky citizen {$winner->getUser()->getUsername()}");
-
                             $this->picto_handler->give_validated_picto($winner, $picto);
                         }
 
-                        foreach ($citizen_eligible as $citizen) {
-                            $this->picto_handler->give_validated_picto($winner, "r_surgrp_#00");
-                        }
+                        foreach ($citizen_eligible as $citizen)
+                            $this->picto_handler->give_validated_picto($citizen, "r_surgrp_#00");
 
                     }
                     $town->setDevastated(true);
@@ -909,7 +904,7 @@ class NightlyHandler
         }
     }
 
-    private function stage3_items(Town &$town) {
+    private function stage3_items(Town $town) {
         $this->log->info('<info>Processing item changes</info> ...');
 
         /** @var Inventory[] $inventories */
@@ -949,12 +944,12 @@ class NightlyHandler
             $c = count($items);
             $this->log->debug( "Morphing <info>{$c}</info> items to type '<info>{$target->getLabel()}</info>'." );
 
-            foreach ($items as &$item)
+            foreach ($items as $item)
                 $item->setPrototype( $target );
         }
     }
 
-    private function stage3_buildings(Town &$town) {
+    private function stage3_buildings(Town $town) {
         $this->log->info('<info>Processing building functions</info> ...');
 
         $buildings = []; $max_votes = -1;
@@ -1076,7 +1071,7 @@ class NightlyHandler
         }
     }
 
-    private function stage3_pictos(Town &$town){
+    private function stage3_pictos(Town $town){
 
         $status_camping           = $this->entity_manager->getRepository(CitizenStatus::class)->findOneByName( 'camper' );
         $picto_camping            = $this->entity_manager->getRepository(PictoPrototype::class)->findOneByName( 'r_camp_#00' );
@@ -1110,7 +1105,7 @@ class NightlyHandler
         }
     }
 
-    private function stage3_roles(Town &$town){
+    private function stage3_roles(Town $town){
         if($town->getChaos()) {
             $this->log->info( "Town is in <info>Chaos</info>, no more votes." );
             return;
@@ -1163,7 +1158,6 @@ class NightlyHandler
                 if(!$voted) {
                     // He has not voted, let's give his vote to someone who has votes
                     $vote_for_id = $this->random->pick(array_keys($votes[$role->getId()]), 1);
-                    $voted_citizen = $this->entity_manager->getRepository(Citizen::class)->find($vote_for_id);
 
                     if(isset($votes[$role->getId()][$vote_for_id]))
                         $votes[$role->getId()][$vote_for_id]++;
