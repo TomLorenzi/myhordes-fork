@@ -484,7 +484,7 @@
       </notes>
       <segment>
         <source>Dieser Spieler hat bisher noch keine Preise gewonnen...</source>
-        <target>This player didn't win any distinctions yet...</target>
+        <target>This player didn't win any Distinctions yet...</target>
       </segment>
     </unit>
     <unit id="ZyZ8Dxn" name="Seelenpunktzahl">
@@ -1303,7 +1303,7 @@
       </notes>
       <segment>
         <source>Unangemessene Nachricht blockieren</source>
-        <target>Block an inappropriate message</target>
+        <target>Block an inappropriate Message</target>
       </segment>
     </unit>
     <unit id="pqMtvFY" name="Link">

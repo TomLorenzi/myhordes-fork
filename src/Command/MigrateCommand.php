@@ -176,7 +176,7 @@ class MigrateCommand extends Command
                 sleep(1);
             }
 
-            if (!$this->capsule( "git fetch {$remote} {$branch}", $output, 'Retrieving updates from repository... ', false )) return 1;
+            if (!$this->capsule( "git fetch --tags {$remote} {$branch}", $output, 'Retrieving updates from repository... ', false )) return 1;
             if (!$this->capsule( "git reset --hard {$remote}/{$branch}", $output, 'Applying changes to filesystem... ', false )) return 2;
 
             if (!$input->getOption('fast')) {
