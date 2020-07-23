@@ -11332,7 +11332,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>%dogname%, der stinkende Köter von %citizen%, hat folgendes in die Bank gebracht: %item%</source>
-        <target>%dogname%, der stinkende Köter von %citizen%, hat folgendes in die Bank gebracht: %item%</target>
+        <target>%dogname%, the stinking dog from %citizen% has brought the following to the bank: %item%</target>
       </segment>
     </unit>
     <unit id="Xrxxr_C" name="%citizen% hat seinen Hund mit %count% Gegenständen in die Stadt geschickt.">
@@ -11341,7 +11341,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>%citizen% hat seinen Hund mit %count% Gegenständen in die Stadt geschickt.</source>
-        <target>%citizen% hat seinen Hund mit %count% Gegenständen in die Stadt geschickt.</target>
+        <target>%citizen% sent his dog to town with %count% items.</target>
       </segment>
     </unit>
     <unit id="ALk3xHN" name="a65f146">
@@ -11359,7 +11359,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Du hast %item_list% in der Werkstatt geöffnet und erhälst %item%.</source>
-        <target>Du hast %item_list% in der Werkstatt geöffnet und erhälst %item%.</target>
+        <target>You opened %item_list% in the Workshop and received %item%.</target>
       </segment>
     </unit>
     <unit id="lbMpVVT" name="Du hast %item_list% in der Werkstatt zu %item% zerlegt.">
@@ -11368,7 +11368,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Du hast %item_list% in der Werkstatt zu %item% zerlegt.</source>
-        <target>Du hast %item_list% in der Werkstatt zu %item% zerlegt.</target>
+        <target>You split %item_list% into %item% in the Workshop.</target>
       </segment>
     </unit>
     <unit id="4NEM2QG" name="Du hast %item_list% in der Werkstatt zu %item% umgewandelt.">
@@ -11377,7 +11377,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Du hast %item_list% in der Werkstatt zu %item% umgewandelt.</source>
-        <target>Du hast %item_list% in der Werkstatt zu %item% umgewandelt.</target>
+        <target>You converted %item_list% to %item% in the Workshop.</target>
       </segment>
     </unit>
     <unit id="go91k6z" name="Du hast %item_list% zu %item% umgewandelt.">
@@ -11386,7 +11386,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Du hast %item_list% zu %item% umgewandelt.</source>
-        <target>Du hast %item_list% zu %item% umgewandelt.</target>
+        <target>You have converted %item_list% to %item%.</target>
       </segment>
     </unit>
     <unit id="UCMPjGO" name="45fbaf0">
@@ -11422,7 +11422,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Die Abschätzung wird durch den Scanner verbessert.</source>
-        <target>Die Abschätzung wird durch den Scanner verbessert.</target>
+        <target>The estimation is improved by the scanner.</target>
       </segment>
     </unit>
     <unit id="pc7dbFT" name="Dank der Rechenmaschine kannst du den morgigen Angriff abschätzen.">
@@ -11431,7 +11431,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Dank der Rechenmaschine kannst du den morgigen Angriff abschätzen.</source>
-        <target>Dank der Rechenmaschine kannst du den morgigen Angriff abschätzen.</target>
+        <target>Thanks to the calculator, you can estimate tomorrow's attack.</target>
       </segment>
     </unit>
   </file>
