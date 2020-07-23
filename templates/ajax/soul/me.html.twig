@@ -152,6 +152,7 @@
                 false,
                 {'name': searchBox.value}
             );
+        else document.getElementById('users-list').innerHTML = '';
     };
 
     const userSearchHandlerUp = function () {
@@ -165,5 +166,7 @@
 
     searchBox.addEventListener('keyup', userSearchHandlerUp);
     searchBox.addEventListener('keydown', userSearchHandlerDown);
+    searchBox.addEventListener('focus', () => userSearchHandler());
+    searchBox.addEventListener('blur', () => setTimeout( () => document.getElementById('users-list').innerHTML = '', 100));
     </script>
 {% endblock %}
