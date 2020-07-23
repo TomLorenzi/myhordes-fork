@@ -241,7 +241,7 @@
       </notes>
       <segment>
         <source>%num% Zombies attackieren die Stadtbewohner!</source>
-        <target>%num% zombies attacked the citizens !</target>
+        <target>%num% zombies attacked the citizens!</target>
       </segment>
     </unit>
     <unit id="eJyeGor" name="82478bf">
@@ -268,7 +268,7 @@
       </notes>
       <segment>
         <source>Durch die Verbesserung von %building% hat die Stadt folgende Gegenstände erhalten: %items%</source>
-        <target>By upgrading the construction %building% , the town received: %items%</target>
+        <target>By upgrading the construction %building%, the town received: %items%</target>
       </segment>
     </unit>
     <unit id="icmQw3h" name="07277f1">
@@ -4316,7 +4316,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Aus diesem Gebäude strömt ein entsetzlicher Gestank von verwesenden Leichen : Die Fleischvorräte haben sich in ekelerregende Hügel aus schimmeligem, weißem Fleisch verwandelt, aus denen eine dicke, scharfe Flüssigkeit austritt, die nun den Boden bedeckt und sogar begonnen hat, aus der Tür zu laufen...</source>
-        <target>Aus diesem Gebäude strömt ein entsetzlicher Gestank von verwesenden Leichen : Die Fleischvorräte haben sich in ekelerregende Hügel aus schimmeligem, weißem Fleisch verwandelt, aus denen eine dicke, scharfe Flüssigkeit austritt, die nun den Boden bedeckt und sogar begonnen hat, aus der Tür zu laufen...</target>
+        <target>There is a horrendous stench of decaying bodies coming from this building: The stocks of meat have transformed into disgusting mounds of mouldy white flesh which are leaking a thick pungent liquid which now covers the floor and has even started to run out the door...</target>
       </segment>
     </unit>
     <unit id="TkIE5Fb" name="5e26a9f">
@@ -4496,7 +4496,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>In diesem Geschäft konnte man früher allerlei Produkte des täglichen Bedarfs kaufen: Lebensmittel, Getränke, Reinigungsmittel... An der Tür steht: Rund um die Uhr geöffnet (auch am Wochenende). In der Tat, das klaffenden Loch in der Mauer bestätigt dies.</source>
-        <target>In diesem Geschäft konnte man früher allerlei Produkte des täglichen Bedarfs kaufen: Lebensmittel, Getränke, Reinigungsmittel... An der Tür steht: Rund um die Uhr geöffnet (auch am Wochenende). In der Tat, das klaffenden Loch in der Mauer bestätigt dies.</target>
+        <target>This small convenience store sold pretty much all the day-to-day necessities: Food, drinks, cleaning products... Open 24/7 365 days a year if you believe the printing on the window. The gaping hole in said window makes this statement 100% correct!</target>
       </segment>
     </unit>
     <unit id="ViudDKu" name="6ef9ce1">
@@ -4514,7 +4514,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Es handelt sich um einen Transportlaster der sowjetischen Firma Transtwinï. Die Fahrerkabine hat sich komplett in einem Baum verkeilt. Der aufgeschlitzte Fahrersitz, sowie die großflächigen Blutspuren an den Wänden, lassen darauf schließen, dass der Unfall nicht die Todesursache war...</source>
-        <target>Es handelt sich um einen Transportlaster der sowjetischen Firma Transtwinï. Die Fahrerkabine hat sich komplett in einem Baum verkeilt. Der aufgeschlitzte Fahrersitz, sowie die großflächigen Blutspuren an den Wänden, lassen darauf schließen, dass der Unfall nicht die Todesursache war...</target>
+        <target>A soviet transporter from the 'Trastwin' corporation. The driver's cab is wrapped round a tree, but the slashes in the seat and the blood-soaked interior would suggest that the crash was not the cause of death...</target>
       </segment>
     </unit>
     <unit id="k6o0Mpp" name="d69b6ca">
@@ -8504,7 +8504,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Horizont</source>
-        <target>Horizont</target>
+        <target>Horizon</target>
       </segment>
     </unit>
     <unit id="fbPbjvi" name="a7ecbdc">
@@ -8513,7 +8513,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Du kannst diesen Bürger nicht angreifen... er riecht nicht wie die anderen. Moment... Dieser Bürger ist ein Ghul, genau wie du!</source>
-        <target>Du kannst diesen Bürger nicht angreifen... er riecht nicht wie die anderen. Moment... Dieser Bürger ist ein Ghul, genau wie du!</target>
+        <target>You cannot attack this citizen... They seem to smell different like others. Just a minute... They're a Ghoul, just like you!</target>
       </segment>
     </unit>
     <unit id="vX7Ir3N" name="4c875cf">
@@ -8522,7 +8522,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Mit weit aufgerissenem Maul stürzt du dich auf %citizen%. Unter der Wucht deiner brutalen Schläge und Tritte sackt er ziemlich schnell zusammen.</source>
-        <target>Mit weit aufgerissenem Maul stürzt du dich auf %citizen%. Unter der Wucht deiner brutalen Schläge und Tritte sackt er ziemlich schnell zusammen.</target>
+        <target>Without a moment's hesitation you throw yourself at %citizen%, teeth bared! Leaving them no time to react, your barrage of blows quickly cause them to lose consciousness.</target>
       </segment>
     </unit>
     <unit id="bGpi8xS" name="20f2e47">
@@ -8531,7 +8531,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Mit ein paar unschönen Tritten gegen seinen Kopf vergewisserst du dich, dass er garantiert nicht mehr aufstehen wird. Na los! Bring deinen Job zuende und verspeise ihn!</source>
-        <target>Mit ein paar unschönen Tritten gegen seinen Kopf vergewisserst du dich, dass er garantiert nicht mehr aufstehen wird. Na los! Bring deinen Job zuende und verspeise ihn!</target>
+        <target>When you are finally sure that your victim isn't getting up, you finish the job by eating them.</target>
       </segment>
     </unit>
     <unit id="wzmYlE_" name="Gut gemacht!">
@@ -8540,7 +8540,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Gut gemacht!</source>
-        <target>Gut gemacht!</target>
+        <target>There you have it, it's done.</target>
       </segment>
     </unit>
     <unit id="RwOIyEr" name="Du wurdest beobachtet! Die anderen Bürger wurden gewarnt!">
@@ -8549,7 +8549,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Du wurdest beobachtet! Die anderen Bürger wurden gewarnt!</source>
-        <target>Du wurdest beobachtet! Die anderen Bürger wurden gewarnt!</target>
+        <target>You were spotted! The citizens have been warned!</target>
       </segment>
     </unit>
     <unit id="YYOxts0" name="ad6045f">
@@ -8558,7 +8558,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Nicht so appetitlich wie frisches Menschenfleisch, aber es stillt nichtsdestotrotz deinen Hunger... zumindest ein bisschen. Wenigstens war das Fleisch noch halbwegs zart.</source>
-        <target>Nicht so appetitlich wie frisches Menschenfleisch, aber es stillt nichtsdestotrotz deinen Hunger... zumindest ein bisschen. Wenigstens war das Fleisch noch halbwegs zart.</target>
+        <target>It's not as appetising as a nice, fresh, wriggling human, but it does the job and makes your voracity subside... a little. Fortunately, the meat way quite gamey, this meal would have been dreadful otherwise.</target>
       </segment>
     </unit>
     <unit id="VMYfBZH" name="c75511e">
@@ -8567,7 +8567,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Mit aller Gewalt greifst du %citizen% an! Du hast den Überraschungsmoment auf deiner Seite und am Ende trägt %citizen% eine schwere Verletzung davon.</source>
-        <target>Mit aller Gewalt greifst du %citizen% an! Du hast den Überraschungsmoment auf deiner Seite und am Ende trägt %citizen% eine schwere Verletzung davon.</target>
+        <target>You violently attacked %citizen%! The fight degenerated rapidly and resulted in you seriously wounding the other citizen!</target>
       </segment>
     </unit>
     <unit id="ibp3W.L" name="2c77f85">
@@ -8576,7 +8576,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Plötzlich sackt %citizen% in sich zusammen, seine Augen drehen sich nach hinten, und mit einem schauerhaften Gurgeln löst sich sein ganzer Körper vor deinen Augen auf und hinterlässt nur den üblen Geruch von Tod und Verwesung! Es gibt keinen Zweifel mehr: %citizen% war ein Ghul!!</source>
-        <target>Plötzlich sackt %citizen% in sich zusammen, seine Augen drehen sich nach hinten, und mit einem schauerhaften Gurgeln löst sich sein ganzer Körper vor deinen Augen auf und hinterlässt nur den üblen Geruch von Tod und Verwesung! Es gibt keinen Zweifel mehr: %citizen% war ein Ghul!!</target>
+        <target>Unexpectedly, %citizen% collapsed with a ungodly gurgle, their eyes rolling back in their head... Their body is literally decomposing in places and the smell of death fills the air! The horrible truth slaps you in the face: %citizen% was a ghoul!!</target>
       </segment>
     </unit>
     <unit id="9goEXWW" name="ba579b2">
@@ -8585,7 +8585,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Bleib mal ganz geschmeidig! In dieser Stadt gibt es keine Ghule, also solltest du auch nicht herumlaufen und grundlos Leute verprügeln. M'Kay?</source>
-        <target>Bleib mal ganz geschmeidig! In dieser Stadt gibt es keine Ghule, also solltest du auch nicht herumlaufen und grundlos Leute verprügeln. M'Kay?</target>
+        <target>Steady on there, by all accounts there are no ghouls in town, so there's no need to go smacking people. Mmkay pumpkin?</target>
       </segment>
     </unit>
     <unit id="i2Ptm8n" name="%citizen% ist bereits verletzt; ihn erneut anzugreifen wird dir nichts bringen.">
@@ -8603,7 +8603,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Mit aller Gewalt greifst du %citizen% an! Ihr tauscht für eine Weile Schläge aus, bis ihr euch schließlich größtenteils unverletzt voneinander trennt.</source>
-        <target>Mit aller Gewalt greifst du %citizen% an! Ihr tauscht für eine Weile Schläge aus, bis ihr euch schließlich größtenteils unverletzt voneinander trennt.</target>
+        <target>With all your might you attack %citizen%! You exchange blows for a while, until you finally separate from each other mostly unharmed.</target>
       </segment>
     </unit>
     <unit id="y09QGB5" name="08e53f6">
@@ -8612,7 +8612,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Es gibt nichts Besseres als die Furcht, um eine Angststarre zu heilen. Man nimmt die Schamanenmaske ab und bläst dem Patienten ein selbst hergestelltes halluzinogenes Pulver auf das Gesicht, um einen schlafwandelnden Zustand herbeizuführen. Das provoziert schnell "pavor nocturnus". Als %citizen% wieder erwacht, scheint er von seiner Angststarre befreit zu sein.</source>
-        <target>Es gibt nichts Besseres als die Furcht, um eine Angststarre zu heilen. Man nimmt die Schamanenmaske ab und bläst dem Patienten ein selbst hergestelltes halluzinogenes Pulver auf das Gesicht, um einen schlafwandelnden Zustand herbeizuführen. Das provoziert schnell "pavor nocturnus". Als %citizen% wieder erwacht, scheint er von seiner Angststarre befreit zu sein.</target>
+        <target>There's nothing better than fear to vanquish terror. You remove your Shaman mask and gently blow a home-made hallucinogenic powder onto their face, to induce a sleep-walking state. Your tete-a-tete quickly provokes "pavor nocturnus". When they reawaken %citizen% seems to have been relieved from their terrorized state.</target>
       </segment>
     </unit>
     <unit id="RTU8pgm" name="b4a7495">
@@ -8621,7 +8621,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Allerdings hat dich der Anblick dieses bis aufs Mark verängstigen Bürgers selbst in eine Angststarre versetzt.</source>
-        <target>Allerdings hat dich der Anblick dieses bis aufs Mark verängstigen Bürgers selbst in eine Angststarre versetzt.</target>
+        <target>However, simply seeing this citizen in such a state of utter terror has terrorized you.</target>
       </segment>
     </unit>
     <unit id="yKYNmZu" name="356ee99">
@@ -8630,7 +8630,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Nichts... du fühlst nichts, keine Energie, kein Fluss auf den du dich verlassen könntest. Das Risiko, %citizen% umzubringen ist zu hoch...</source>
-        <target>Nichts... du fühlst nichts, keine Energie, kein Fluss auf den du dich verlassen könntest. Das Risiko, %citizen% umzubringen ist zu hoch...</target>
+        <target>That's impossible... you don't feel anything, no energy, no flow to guide you. The risk of killing  %citizen% is too great...</target>
       </segment>
     </unit>
     <unit id="8c5KAcV" name="8760dc7">
@@ -8639,7 +8639,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Du hebst dein heiliges Messer aus der Scheide und beginnst, dich nach einer gut eingeübten Abfolge ritueller Bewegungen "vorzubereiten". Der Energiefluss leitet dich, und ohne zu zögern machst du einen Einschnitt an der Basis des infizierten Körperteils. Der Entgiftungsprozess ist im Gange, wenn auch langsam.</source>
-        <target>Du hebst dein heiliges Messer aus der Scheide und beginnst, dich nach einer gut eingeübten Abfolge ritueller Bewegungen "vorzubereiten". Der Energiefluss leitet dich, und ohne zu zögern machst du einen Einschnitt an der Basis des infizierten Körperteils. Der Entgiftungsprozess ist im Gange, wenn auch langsam.</target>
+        <target>You unsheath your sacred knife and begin to «prepare» following a well-practised sequence of ritualistic movements. The energy flow guides you and without hesitation you make an incision at the base of the infected limb. The decontamination process is underway, albeit slowly.</target>
       </segment>
     </unit>
     <unit id="vU0kRt8" name="38c2470">
@@ -8648,7 +8648,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Plötzlich platzt eine infizierte Eiterblase auf. Deine bereits verbrannte Haut bricht schnell in offene Wunden aus, und die infektiösen Keime beschließen, diese zu ihrem Zuhause zu machen.</source>
-        <target>Plötzlich platzt eine infizierte Eiterblase auf. Deine bereits verbrannte Haut bricht schnell in offene Wunden aus, und die infektiösen Keime beschließen, diese zu ihrem Zuhause zu machen.</target>
+        <target>Suddenly an infected blister bursts. Your already scorched skin quickly breaks out in open sores and infectious germs decide to make them their home.</target>
       </segment>
     </unit>
     <unit id="4ghkz8M" name="625a63d">
@@ -8657,7 +8657,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Du hebst dein heiliges Messer aus der Scheide und beginnst, dich nach einer gut eingeübten Abfolge ritueller Bewegungen "vorzubereiten". Der Energiefluss leitet dich, und ohne zu zögern machst du einen Einschnitt nahe der Leber. %citizen% ist aus den Krallen des Alkohols befreit.</source>
-        <target>Du hebst dein heiliges Messer aus der Scheide und beginnst, dich nach einer gut eingeübten Abfolge ritueller Bewegungen "vorzubereiten". Der Energiefluss leitet dich, und ohne zu zögern machst du einen Einschnitt nahe der Leber. %citizen% ist aus den Krallen des Alkohols befreit.</target>
+        <target>You unsheath your sacred knife and begin to «prepare» following a well-practised sequence of ritualistic movements. The energy flow guides you and without hesitation you make an incision just beside the liver. As a clear liquid leaks from their freshly mutilated body, %citizen% is freed from the clutches of alcohol.</target>
       </segment>
     </unit>
     <unit id="_GYzBvg" name="f2ccdc7">
@@ -8666,7 +8666,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Du hebst dein heiliges Messer aus der Scheide und beginnst, dich nach einer gut eingeübten Abfolge ritueller Bewegungen "vorzubereiten". Der Energiefluss leitet dich, und ohne zu zögern machst du einen Einschnitt nahe der rechten Lunge. So sehr du auch versuchst, den Kräften zu widerstehen, die dich führen, kannst du nicht verhindern, dass deine Klinge tief in %citizen% eindringt und eine klare Flüssigkeit aus seinem frisch verstümmelten Körper austritt.</source>
-        <target>Du hebst dein heiliges Messer aus der Scheide und beginnst, dich nach einer gut eingeübten Abfolge ritueller Bewegungen "vorzubereiten". Der Energiefluss leitet dich, und ohne zu zögern machst du einen Einschnitt nahe der rechten Lunge. So sehr du auch versuchst, den Kräften zu widerstehen, die dich führen, kannst du nicht verhindern, dass deine Klinge tief in %citizen% eindringt und eine klare Flüssigkeit aus seinem frisch verstümmelten Körper austritt.</target>
+        <target>You unsheath your sacred knife and begin to «prepare» following a well-practised sequence of ritualistic movements. The energy flow guides you and without hesitation you make an incision just beside the right lung. Try as you may to resist the forces guiding you, you cannot stop your blade from plunging deep into %citizen%, causing a clear liquid to leak from their freshly mutilated body.</target>
       </segment>
     </unit>
     <unit id="7K7nTLN" name="In deinem aktuellen Zustand kannst du diese Aktion nicht ausführen.">
@@ -8675,7 +8675,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>In deinem aktuellen Zustand kannst du diese Aktion nicht ausführen.</source>
-        <target>In deinem aktuellen Zustand kannst du diese Aktion nicht ausführen.</target>
+        <target>You cannot perform this action in your current state.</target>
       </segment>
     </unit>
     <unit id="owwwxrQ" name="4363ae3">
@@ -8684,7 +8684,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Du kannst diesen Bürger nicht heilen. Entweder bedarf er keiner Heilung, ist nicht in der Stadt oder hat heute bereits eine mystische Heilung erfahren.</source>
-        <target>Du kannst diesen Bürger nicht heilen. Entweder bedarf er keiner Heilung, ist nicht in der Stadt oder hat heute bereits eine mystische Heilung erfahren.</target>
+        <target>You cannot heal this citizen. Their status either cannot be healed, or someone has already tried to heal them today.</target>
       </segment>
     </unit>
     <unit id="L0KmARN" name="Deine Verletzung am Auge macht dir die Suche nicht gerade leichter.">
