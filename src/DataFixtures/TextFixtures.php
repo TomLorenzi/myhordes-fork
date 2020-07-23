@@ -1700,7 +1700,13 @@ class TextFixtures extends Fixture
             "title" => "Expédition alpha",
             "author" => "Shogoki",
             "content" => [
-                ''
+                '<div class="hr"></div>
+				<h1>Journal de route de l\'expédition alpha</h1>',
+				'<p>Jour 5 - 12h, le groupe a découvert un ancien restaurant abandonné, nous avons trouvé beaucoup de nourriture et espérons rentrer à temps pour pouvoir réapprovisionner la cambuse de la ville qui a notre départ était vide... Nous en profitons pour nous reposer et l\'ambiance festive s\'installant, nous commençons à creuser dans les environs espérant découvrir encore d\'autres conserves.</p>
+				<p>Jour 5 - 13h, un membre fait la remarque judicieuse, nous ne disposons d\'aucun ouvre-boite, ni en ville, ni parmi les membres du groupe, si la chance ne tourne pas, en remerciement pour sa présence d\'esprit, on avisera de manger autre chose que les conserves.</p>',
+				'<p>Jour 5 - 20h, nous n\'avons pas pu trouver d\'ouvre boite. En revanche, des os sculptés se sont révélés de très bons outils et nous avons finalement pu festoyer dans la joie et la bonne humeur avec la <em>plupart</em> des membres de l\'expédition. Les restes des compagnons sur qui nous avons dû <em>prélever</em> ces os nous mettent parfois un peu mal à l\'aise... mais qu\'importe. Ce repas nous permettra de tenir encore un peu avant de leur prendre un peu plus que leurs seuls os.</p>
+				<p>Jour 6 - 22h, l\'expédition est un succès, le sacrifice d\'hier est vite oublié. Je réveillerai plus tard les hommes, qui profitent pour l\'heure d\'un repos bien mérité.</p>
+				<p>Nous nous hâterons de prendre la direction de la ville, je ne saurais exprimer ma satisfaction d\'entendre leurs estomacs grogner de plaisir et...</p>'
             ],
             "lang" => "fr",
             "background" => "noteup",
@@ -3954,11 +3960,17 @@ class TextFixtures extends Fixture
             "title" => "Shuny : Témoignage des derniers jours",
             "author" => "Shuny",
             "content" => [
-                ''
+                '<div class="hr"></div>
+				<h1>Shuny : Témoignage des derniers jours d\'un homme au coeur de l\'Outre-Monde</h1>
+				<h2>16 août, 0h14.</h2>',
+				'<p>Les zombies frappent sans relâche. Alors que les Hordes ont débarqués sur le Comté Noir, j\'espère pouvoir leur échapper un jour de plus grâce au Taudis construit peu de temps avant l\'attaque. Qui sait, peut-être ne sont-ils pas assez nombreux pour briser la solide paroi qui me sépare d\'eux.</p>
+				<p>Recroquevillé derrière ma table en bois, j\'écoute avec horreur les hurlements désespérés de mes anciens voisins appelant à l\'aide dans un dernier souffle de vie. Terrifié, je me lève, lentement, et regarde le spectacle sanglant qui se déroule à l\'extérieur. Un habitant lutte avec son réfrigérateur et neutralise 3 zombies. C\'était sans compter la fragilité de l\'objet, qui cède sous le choc et lui enlève toute protection.</p>
+				<p>Un zombie se jette alors sur lui, et lui arrache un bout de gorge avec les dents.</p>',
+				'<p>Sonné par cette boucherie, je m\'évanouis. Réveillé, je ne sais combien de minutes ai-je passé inconscient mais le bruit de mon corps contre le sol semble avoir attiré les zombies. Ils sont une centaine. Ils frappent de plus belle contre mon taudis, les fenêtres cassent, la mort est à ma porte, ...</p>'
             ],
             "lang" => "fr",
             "background" => "blood",
-            "design" => "blood"
+            "design" => "written"
         ],
         "ensole" => [
              "title" => "Souvenirs d'un survivant perdu",
