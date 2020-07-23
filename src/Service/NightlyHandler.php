@@ -211,7 +211,7 @@ class NightlyHandler
             if (!$citizen->getProfession()->getHeroic())
                 continue;
             
-            $citizen->getUser()->setHeroDaysSpent($citizen->getUser()->getAllHeroDaysSpent() + 1);
+            $citizen->getUser()->setHeroDaysSpent($citizen->getUser()->getHeroDaysSpent() + 1);
 
             if($nextSkill !== null && $citizen->getUser()->getAllHeroDaysSpent() >= $nextSkill->getDaysNeeded()){
                 $this->log->debug("Citizen <info>{$citizen->getUser()->getUsername()}</info> has unlocked a new skill : <info>{$nextSkill->getTitle()}</info>");
