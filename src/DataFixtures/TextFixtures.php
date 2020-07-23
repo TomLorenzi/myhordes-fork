@@ -6033,6 +6033,44 @@ class TextFixtures extends Fixture
             "background" => "white",
             "design" => "typed"
         ],
+        "wintk1_es" => [
+            "title" => "El suertudo Juan",
+            "author" => null,
+            "content" => [
+                '<p>Mientras silbaba una canción de Bob Marley, el habitante llamado Juan encontró un papelito que decía:</p>
+                <blockquote>
+                <p>Mala hierba.</p>
+                <p>Sólo hierba en mal lugar.</p>
+                </blockquote>
+                <p>Entonces entendió que no debería conformarse con solo huir. ¿Qué se sentirá ser un héroe? Apretó bien los dientes, corrió hacia la horda de zombies, y el resto es historia...</p>'
+            ],
+            "lang" => "es",
+            "background" => "tinystamp",
+            "design" => "classic"
+        ],
+        "herr_es" => [
+            "title" => "Pueblo Herrero: Relato de Ryan",
+            "author" => "RyanOliver",
+            "content" => [
+                '<p>Hola querido lector:</p>
+                <p>Si lees esto, tal vez encuentres mis restos a unos pocos metros de donde estás. Mi Nombre es Ryan. Y te contaré lo que pasa en ese pueblo. Empecemos en orden: </p>
+                <h2>Día 1</h2>
+                <p>En total somos 40 personas, la gran mayoría, incluyéndome, estamos asustados desde que avisaron que una infección se había propagado y está convirtiendo a la gente que es mordida en caníbales sin razonamiento...</p>
+                <p>El de la torre nos dice que hay 35 zombies en la zona.</p>',
+                '<p>Están construyendo una especie de muro. Iré a sacar agua y ayudaré con la construcción.</p>
+                <p>Acaban de cerrar el portón pero veo a nuestra gente aún afuera, ¿será mi imaginacion?</p>
+                <h2>Día 2</h2>
+                <p>Fue terrible. Había 7 personas llorando y tocando el portón. Les quería abrir pero me detuvieron los otros habitantes. Me dijeron que los zombies entrarían si lo hacía. Fue muy duro ver que los zombies los devoraran. Alguien agonizando, gritando de dolor nos dijo: ¡Acuerd...ense de mi, si me convierto en eso... los ma...taré... a todos¡</p>
+                <p>Después de lo que pasó, mucha gente entró en las casas de los fallecidos y robaron sus cosas.</p>',
+                '<p>Hice un amigo en el pueblo, su nombre es Oliver. Me dice: "Sé fuerte o terminarás entre las mandíbulas zombies".</p>
+                <p>El de la torre nos dice que ahora ve a 50 zombies acercándose. Las construcciones continúan.</p>
+                <p>Alguien trajo carne. Se ve rara y Oliver me dice que no la toque, mejor, comeremos estas galletas secas... </p>
+                <p>Continuará</p>'
+            ],
+            "lang" => "es",
+            "background" => "stamp",
+            "design" => "typed"
+        ],
         "wstal1" => [
             "title" => "Workshop's Tale - Part 1",
             "author" => "R3dd3r",
@@ -6063,6 +6101,19 @@ class TextFixtures extends Fixture
             ],
             "lang" => "en",
             "background" => "white",
+            "design" => "typed"
+        ],
+        "morse2_en" => [
+            "title" => "Communication in morse code (dated 31 August)",
+            "author" => null,
+            "content" => [
+                '<small>31 August, ETA: 23:30</small>
+                <small>[Start of transmission]</small>
+                <p>. - .- - / -- .- .--- --- .-. / / - .-. .- -. -.-. .... . / -. .---- ..--- / / .-. .- ...- .. - .- .. .-.. .-.. . -- . -. - / -.-. --- ..- .--. --..-- / .--. .- ... ... .- --. . / - . -. ..- / .--. .- .-. / .-.. .----. . -. -. . -- .. .-.-.- / .. -- .--. --- ... ... .. -... .-.. . / -.. . / .-. . .--. .-. . -. -.. .-. . / .-.. . / ... . -.-. - . ..- .-. .-.-.- / - . -. . --.. / .--. --- ... .. - .. --- -. / .-.. . / .--. .-.. ..- ... / .-.. --- -. --. - . -- .--. ... / .--. --- ... ... .. -... .-.. . .-.-.- / -.. .. . ..- / ...- --- ..- ... / --. .- .-. -.. . </p>
+                <small>[End of transmission]</small>'
+            ],
+            "lang" => "en",
+            "background" => "blood",
             "design" => "typed"
         ],
     ];
