@@ -6,13 +6,16 @@
     {% block buttons %}
         <div class="row">
             <div class="cell padded rw-6 left">
-                {% if is_granted("ROLE_CROW")%}
+                {% if is_granted("ROLE_CROW") or owned %}
                     {% if not locked %}
                         <div x-forum-moderator-action="lock" x-forum-api-endpoint="{{ url('forum_thread_mod_controller', {fid: fid, tid: tid, mod: 'lock'}) }}" class="forum-button"><img alt="" src="{{ asset('build/images/icons/lock.gif') }}" /><span>{{ 'Schließen'|trans({},'global') }}</span></div>
                     {% endif %}
-                    {% if locked %}
-                        <div x-forum-moderator-action="unlock" x-forum-api-endpoint="{{ url('forum_thread_mod_controller', {fid: fid, tid: tid, mod: 'unlock'}) }}" class="forum-button"><img alt="" src="{{ asset('build/images/icons/mod.png') }}" /><span>{{ 'Öffnen'|trans({},'global') }}</span></div>
+                    {% if is_granted("ROLE_CROW")%}
+                        {% if locked %}
+                            <div x-forum-moderator-action="unlock" x-forum-api-endpoint="{{ url('forum_thread_mod_controller', {fid: fid, tid: tid, mod: 'unlock'}) }}" class="forum-button"><img alt="" src="{{ asset('build/images/icons/mod.png') }}" /><span>{{ 'Öffnen'|trans({},'global') }}</span></div>
+                        {% endif %}
                     {% endif %}
+
                 {% endif %}
                 {% if is_granted("ROLE_ADMIN") %}
                     {% if not pinned %}
@@ -91,7 +94,7 @@
         {% for post in posts %}
             {% if not post.hidden or is_granted("ROLE_CROW") %}
                 {% set author_name = (post.owner.username == 'Der Rabe') ? 'Der Rabe'|trans({},'global') : post.owner.username %}
-                <div class="forum-post {% if not post.hidden %}{% else %}forum-post-hidden{% endif %} {% if post.new %}forum-post-new{% endif %} {% if markedPost is defined and post.id == markedPost %}forum-post-marked{% endif %}">
+                <div x-post-wrapper-id="{{ post.id }}" class="forum-post {% if not post.hidden %}{% else %}forum-post-hidden{% endif %} {% if post.new %}forum-post-new{% endif %} {% if markedPost is defined and post.id == markedPost %}forum-post-marked{% endif %}">
                     <div class="forum-post-header {% if post.owner.username == 'Der Rabe' %}header-variant-crow{% elseif post.type == "DEV" %}header-variant-dev{% endif %}">
                         <i>
                             {% if post.date.format('Ymd') == today|date("Ymd") %}
@@ -125,27 +128,37 @@
                     <div class="forum-post-content" x-post-content-id="{{ post.id }}" x-post-content-author="{{ author_name }}">
                         {{ post.translate ? (post.text|trans({},'game')|raw) : (post.text|raw) }}
                     </div>
-                    <div class="forum-post-footer right">
-                        {% if is_granted("ROLE_CROW") %}
-                            <label class="mod-submenu" for="mod-submenu-toggle-{{ post.id }}">
-                                <input type="checkbox" name="mod-submenu-toggle-{{ post.id }}" id="mod-submenu-toggle-{{ post.id }}" />
-                                <ul class="mod-submenu-links">
-                                    {% if not post.hidden %}
-                                        <li><a class="action-button" id="delete_post" x-forum-moderator-action="delete-post" x-post-id={{ post.id }} x-to-page={{ current_page }}>{{ 'Löschen'|trans({},'global') }}</a></li>
-                                    {% endif %}
-                                </ul>
-                            </label>
-                        {% endif %}
-                        [ <a class="action-button" id="link_post" x-forum-action="link-post" x-post-id={{ post.id }}>{{ 'Link'|trans({},'global') }}</a> ]
-                        {% if not locked %}
-                            [ <a class="action-button" id="quote_post" x-forum-action="quote-post" x-post-id={{ post.id }} >{{ 'Zitieren'|trans({},'global') }}</a> ]
-                        {% endif %}
-                        {% if not post.translate %}
-                            [ <a class="action-button" id="report_post" x-forum-action="report-post" x-post-id={{ post.id }} x-to-page={{ current_page }}><img alt="!" src="{{ asset('build/images/forum/warning.png') }}"><div class="tooltip forum-tooltip">{{'Unangemessene Nachricht blockieren'|trans({}, 'global')}}</div></a> ]
-                        {% endif %}
-                        <div class="small hidden" id="link-post-{{ post.id }}">
-                            <div class="float-left"><i>{{ 'Permanenter Link zu diesem Post:'|trans({},'global') }}</i></div>
-                            <div class="float-right">{{ url('forum_jump_view', {pid: post.id}) }}</div>
+                    <div class="forum-post-footer">
+                        <div class="float-left small">
+                            {% if post.edited is not null %}
+                                {{ 'Zuletzt bearbeitet: %date%'|trans({'%date%': post.edited|format_datetime('medium', 'short')},'game') }}
+                            {% endif %}
+                        </div>
+                        <div class="float-right">
+                            {% if is_granted("ROLE_CROW") %}
+                                <label class="mod-submenu" for="mod-submenu-toggle-{{ post.id }}">
+                                    <input type="checkbox" name="mod-submenu-toggle-{{ post.id }}" id="mod-submenu-toggle-{{ post.id }}" />
+                                    <ul class="mod-submenu-links">
+                                        {% if not post.hidden %}
+                                            <li><a class="action-button" id="delete_post" x-forum-moderator-action="delete-post" x-post-id={{ post.id }} x-to-page={{ current_page }}>{{ 'Löschen'|trans({},'global') }}</a></li>
+                                        {% endif %}
+                                    </ul>
+                                </label>
+                            {% endif %}
+                            [ <a class="action-button" id="link_post" x-forum-action="link-post" x-post-id={{ post.id }}>{{ 'Link'|trans({},'global') }}</a> ]
+                            {% if not locked %}
+                                [ <a class="action-button" id="quote_post" x-forum-action="quote-post" x-post-id={{ post.id }} >{{ 'Zitieren'|trans({},'global') }}</a> ]
+                                {% if (post.owner == app.user or (post.owner.id == 66 and is_granted("ROLE_CROW"))) and post.editable %}
+                                    [ <a class="action-button" id="edit_post"  x-forum-action="edit-post"  x-post-id={{ post.id }} ><img alt="!" src="{{ asset('build/images/forum/edit.png') }}"><div class="tooltip forum-tooltip">{{'Bearbeiten'|trans({}, 'global')}}</div></a> ]
+                                {% endif %}
+                            {% endif %}
+                            {% if not post.translate %}
+                                [ <a class="action-button" id="report_post" x-forum-action="report-post" x-post-id={{ post.id }} x-to-page={{ current_page }}><img alt="!" src="{{ asset('build/images/forum/warning.png') }}"><div class="tooltip forum-tooltip">{{'Unangemessene Nachricht blockieren'|trans({}, 'global')}}</div></a> ]
+                            {% endif %}
+                            <div class="small hidden" id="link-post-{{ post.id }}">
+                                <div class="float-left"><i>{{ 'Permanenter Link zu diesem Post:'|trans({},'global') }}</i></div>
+                                <div class="float-right">{{ url('forum_jump_view', {pid: post.id}) }}</div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -192,16 +205,44 @@
             } else fun_quote();
         });
 
+        $.html.addEventListenerAll('[x-forum-action="edit-post"]', 'click', function(e,elem) {
+            let editor = document.getElementById('forum-editor');
+
+            let fun_edit = function() {
+                let content = document.querySelector('[x-post-content-id="' + elem.getAttribute('x-post-id') + '"]');
+                let textEditor = document.getElementById("forum-editor-text");
+                if (!textEditor) return;
+                textEditor.value = $.html.twinoParser.parseFrom( content.innerHTML, false );
+                textEditor.dispatchEvent(new Event('input', {bubbles: true,cancelable: true}));
+                textEditor.focus();
+            };
+
+            let wrapper = document.querySelector('[x-post-wrapper-id="' + elem.getAttribute('x-post-id') + '"]');
+            if (wrapper && editor) wrapper.parentNode.insertBefore( editor, wrapper.nextSibling );
+
+            $.html.forEach('[x-forum-action="answer"]', e => e.classList.add('hidden'));
+
+            if (editor) {
+                editor.innerHTML = '';
+                $.html.forEach( '[x-post-wrapper-id].hidden-by-editor', e => e.classList.remove('hidden','hidden-by-editor') )
+                $.ajax.no_history().load( document.getElementById('forum-editor'), '{{ path('forum_post_editor_controller', {fid: fid, tid: tid}) }}', false, {pid: parseInt(elem.getAttribute('x-post-id'))},
+                    () => {
+                    if (wrapper) wrapper.classList.add('hidden','hidden-by-editor');
+                    fun_edit();
+                });
+            }
+        });
+
         {% if is_granted("ROLE_CROW") %}
             $.html.addEventListenerAll( '[x-forum-moderator-action="delete-post"]', 'click', function(e,elem) {
                 let reason = prompt('{{ 'Grund'|trans({},'admin')|e('js') }}', '');
                 if (reason !== null)
                     $.ajax.easySend( '{{ url('forum_thread_mod_controller', { 'fid': fid, 'tid': tid, mod: 'delete'}) }}', {reason: reason, postId: parseInt( elem.getAttribute('x-post-id')) }, reloadPage );
             } );
-            $.html.addEventListenerAll( '[x-forum-moderator-action][x-forum-api-endpoint]', 'click', function(e,elem) {
-                $.ajax.easySend( elem.getAttribute('x-forum-api-endpoint'), {}, reloadPage );
-            } );
         {% endif %}
+        $.html.addEventListenerAll( '[x-forum-moderator-action][x-forum-api-endpoint]', 'click', function(e,elem) {
+            $.ajax.easySend( elem.getAttribute('x-forum-api-endpoint'), {}, reloadPage );
+        } );
 
         $.html.addEventListenerAll( '.announces li', 'click', function(e,elem) {
             $.ajax.no_history().load( document.getElementById('forum-content'), '{{ path('forum_viewer_controller', {fid: fid, tid: tid}) }}', false, {page:1, firstpost: elem.getAttribute('x-post-id') } );

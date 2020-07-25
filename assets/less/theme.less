@@ -872,29 +872,22 @@ div.game-menu-area {
           &:not(.civil) { min-width: 64px; background: url("../img/game-bar/panel_tl.png") 0 0 no-repeat,url("../img/game-bar/panel_tr.png") 100% 0 no-repeat,url("../img/game-bar/panel_bl.png") 0 100% no-repeat,url("../img/game-bar/panel_br.png") 100% 100% no-repeat,url("../img/game-bar/panel_t.png") 0 0 repeat-x,url("../img/game-bar/panel_l.png") 0 0 repeat-y,url("../img/game-bar/panel_r.png") 100% 0 repeat-y,url("../img/game-bar/panel_b.png") 0 100% repeat-x,url("../img/game-bar/background_sq.png"); };
           &>li:not(.text) {
             height: 18px; margin-top: 6px; vertical-align: bottom;
-            &.free,&.item {border: 1px solid @myhordes-smalltext; width: 18px;}
-            &.item { border-color: transparent; }
-            &.item.broken { border: 1px dotted #ff0000; }
-            & + li { margin-right: 1px; }
+            &.free,&.item {width: 16px;}
+            &.free { background: url("../img/small_empty_inv.gif") }
+            &.item.broken { outline: 1px dotted #ff0000; }
           }
         }
 
         &.rucksack {
-        	width: 195px;
-        	overflow: hidden;
-        	.more {
-        		width: 18px;
-        		position: absolute;
-        		top: 7px;
-        		right: 0px;
-        	}
-        	&:hover {
-        		overflow: visible; height: 56px;
-        		.more {
-        			display: none;
-        		}
-        	}
-
+          max-width: 176px; overflow: hidden; font-size: 0;
+          &.expanded {
+            .more { width: 18px; position: absolute; top: 7px; right: 0px; }
+            &:hover {
+              overflow: visible; height: 56px;
+              .more { display: none; }
+            }
+          }
+          &:not(.expanded) .more { display: none }
         }
 
         /*&.rucksack:before*/

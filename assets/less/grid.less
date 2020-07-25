@@ -6,6 +6,11 @@
 @myhordes-grid-padsize: 5px;
 @myhordes-grid-padsize-small: 2px;
 
+@myhordes-flex-columns: 12;
+
+@myhordes-flex-size-increment:  1;
+@myhordes-flex-size-max:       10;
+
 // Grid Classes
 * {
   box-sizing: border-box;
@@ -39,9 +44,9 @@
   &::after {display: block; height: 0;}
   >.cell,.cell-small {
     display: inline-block; float: left; position: relative;
-    &.padded {padding: @myhordes-grid-padsize;}
+    &.padded       {padding: @myhordes-grid-padsize;}
     &.padded-small {padding: @myhordes-grid-padsize-small;}
-    &.padded-none {padding: 0}
+    &.padded-none  {padding: 0}
     &::before, &::after {clear: both;}
     &::before {content: " "; display: table;}
   }
@@ -61,3 +66,66 @@
 }
 
 .note .row-table>.row.header { background: none; }
+
+.flex-sizing(@n;@class:'';@i:0) when (@i <= @n) and (@class = '') {
+  &.shrink-@{i} { flex-shrink: @i }
+  &.grow-@{i}   { flex-grow: @i }
+  .flex-sizing(@n, @class, @i+1 )
+}
+
+.flex-sizing(@n;@class:'';@i:0) when (@i <= @n) and not (@class = '') {
+  &.shrink-@{class}-@{i} { flex-shrink: @i }
+  &.grow-@{class}-@{i}   { flex-grow: @i }
+  .flex-sizing(@n, @class, @i+1 )
+}
+
+.flex-grid(@n;@class:'';@i:0) when (@i = 0) and (@class = '') {
+  &.rw-@{i} {display: none}
+  .grid(@n, @class, (@i + 1))
+}
+.flex-grid(@n;@class:'';@i:0) when (@i <= @n) and (@class = '') {
+  &.rw-@{i} {flex-basis: (@i * 100% / @n);}
+  .grid(@n, @class, (@i + 1))
+}
+.flex-grid(@n;@class:'';@i:0) when (@i = 0) and not (@class = '') {
+  &.rw-@{class}-@{i} {display: none}
+  .grid(@n, @class, (@i + 1))
+}
+.flex-grid(@n;@class:'';@i:0) when (@i <= @n) and not (@class = '') {
+  &.rw-@{class}-@{i} {flex-basis: (@i * 100% / @n);}
+  .grid(@n, @class, (@i + 1))
+}
+
+.row-flex {
+  &:not(.inline) {display: flex; }
+  &.inline {display: inline-flex;}
+
+  &:not(.wrap):not(.wrap-inverse) { flex-wrap: nowrap; }
+  &.wrap { flex-wrap: wrap; }
+  &.wrap-inverse { flex-wrap: wrap-reverse; }
+
+  &.h-center { justify-content: center; }
+  &.left     { justify-content: flex-start; }
+  &.right    { justify-content: flex-end; }
+  &.v-center { align-items: center; }
+  &.top      { align-items: flex-start; }
+  &.bottom   { align-items: flex-end; }
+  &.stretch  { align-items: stretch; }
+
+  &:not(inverse):not(.vertical) { flex-direction: row; }
+  &.inverse:not(.vertical)      { flex-direction: row-reverse; }
+  &:not(inverse).vertical       { flex-direction: column; }
+  &.inverse.vertical            { flex-direction: column-reverse; }
+
+  >.cell, >.cell-small { .flex-sizing(@myhordes-flex-size-max); }
+  >.cell {.flex-grid(@myhordes-flex-columns)}
+  >.cell-small {.flex-grid(@myhordes-flex-columns * 2)}
+}
+
+.row, .row-flex {
+  &>.cell,.cell-small {
+    &.padded       {padding: @myhordes-grid-padsize;}
+    &.padded-small {padding: @myhordes-grid-padsize-small;}
+    &.padded-none  {padding: 0}
+  }
+}

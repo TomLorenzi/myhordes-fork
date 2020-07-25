@@ -39,7 +39,7 @@ class HeroSkillFixtures extends Fixture {
         ['name' => 'medicine1', 'title' => 'Erfahrener Junkie', 'description' => 'Du beginnst jede neue Stadt mit einer Ration Paracetoid 7g in deinem Rucksack.', 'icon' => 'item_disinfect', 'daysNeeded' => 361],
         ['name' => 'mayor', 'title' => 'Bürgermeister', 'description' => 'Du kannst Privatstädte gründen (nach deinem nächsten Tod, auf der Seite "Spielen").', 'icon' => 'item_map', 'daysNeeded' => 541],
         ['name' => 'architect', 'title' => 'Architekt', 'description' => 'Du beginnst jede Stadt mit einem Gebäudeplan.', 'icon' => 'item_bplan_c', 'daysNeeded' => 721],
-        ['name' => 'prowatch', 'title' => 'Profiwächter', 'description' => 'Du hast permanent um 5% bessere Chancen auf der Nachtwache.', 'icon' => 'item_shield', 'daysNeeded' => 1001],
+        ['name' => 'prowatch', 'title' => 'Profiwächter', 'description' => 'Du hast permanent um 5% bessere Chancen auf der Nachtwache.', 'icon' => 'r_guard', 'daysNeeded' => 1001],
     ];
 
     private function insertHeroSkills(ObjectManager $manager, ConsoleOutputInterface $out) {
