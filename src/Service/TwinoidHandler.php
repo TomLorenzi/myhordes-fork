@@ -255,6 +255,7 @@ class TwinoidHandler
                 (new CitizenRankingProxy())
                     ->setBaseID( $user->getId() )
                     ->setImportID( $town->getID() )
+                    ->setImportLang( $lang )
                     ->setUser( $user )
                     ->setCod( $town->convertDeath() )
                     ->setComment( $town->getComment() )

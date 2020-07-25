@@ -27,7 +27,7 @@ class ExpeditionRoute
     private $data = [];
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Citizen", inversedBy="expeditionRoutes")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Citizen", inversedBy="expeditionRoutes", cascade={"persist"})
      * @ORM\JoinColumn(nullable=false)
      */
     private $owner;
