@@ -11,6 +11,10 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Post
 {
+    const EditorLocked = 0;
+    const EditorTimed = 1;
+    const EditorPerpetual = 2;
+
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()
@@ -71,6 +75,11 @@ class Post
      * @ORM\Column(type="boolean")
      */
     private $translate = false;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $editingMode;
 
     public function __construct()
     {
@@ -237,5 +246,27 @@ class Post
         $this->translate = $translate;
 
         return $this;
+    }
+
+    public function getEditingMode(): ?int
+    {
+        return $this->editingMode;
+    }
+
+    public function setEditingMode(int $editingMode): self
+    {
+        $this->editingMode = $editingMode;
+
+        return $this;
+    }
+
+    public function isEditable(): bool {
+        if ($this->getTranslate()) return false;
+        switch ($this->getEditingMode()) {
+            case self::EditorTimed: return (time() - $this->getDate()->getTimestamp()) < 300;
+            case self::EditorPerpetual: return true;
+
+            default: return false;
+        }
     }
 }
