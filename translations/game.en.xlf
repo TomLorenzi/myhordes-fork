@@ -8693,7 +8693,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Deine Verletzung am Auge macht dir die Suche nicht gerade leichter.</source>
-        <target>Deine Verletzung am Auge macht dir die Suche nicht gerade leichter.</target>
+        <target>Your eye injury doesn't exactly make your search easier.</target>
       </segment>
     </unit>
     <unit id="gk3I32J" name="Deine Trunkenheit macht dir die Suche nicht gerade leichter.">
@@ -8702,7 +8702,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Deine Trunkenheit macht dir die Suche nicht gerade leichter.</source>
-        <target>Deine Trunkenheit macht dir die Suche nicht gerade leichter.</target>
+        <target>Your drunkenness doesn't exactly make the search easier for you.</target>
       </segment>
     </unit>
     <unit id="UhCUwjo" name="Du kannst heute keine weiteren Beschwerden vorbringen.">
@@ -8711,7 +8711,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Du kannst heute keine weiteren Beschwerden vorbringen.</source>
-        <target>Du kannst heute keine weiteren Beschwerden vorbringen.</target>
+        <target>You cannot make any further complaints today.</target>
       </segment>
     </unit>
     <unit id="JYO69lS" name="Von diesem Gegenstand will sich der Bürger nicht trennen.">
@@ -8720,7 +8720,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Von diesem Gegenstand will sich der Bürger nicht trennen.</source>
-        <target>Von diesem Gegenstand will sich der Bürger nicht trennen.</target>
+        <target>The citizen does not want to drop this object.</target>
       </segment>
     </unit>
     <unit id="TH1rJgR" name="Das kannst du mit einem Berufsgegenstand nicht tun.">
@@ -8729,7 +8729,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Das kannst du mit einem Berufsgegenstand nicht tun.</source>
-        <target>Das kannst du mit einem Berufsgegenstand nicht tun.</target>
+        <target>You cannot do that with a professional tool.</target>
       </segment>
     </unit>
     <unit id="dyUt3up" name="Aus der Stadt schleichen">
@@ -8738,7 +8738,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Aus der Stadt schleichen</source>
-        <target>Aus der Stadt schleichen</target>
+        <target>Sneak out of the Town</target>
       </segment>
     </unit>
     <unit id="GulZlLD" name="Nutze deine heilenden Hände">
@@ -8774,7 +8774,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Die Leiche verspeisen!</source>
-        <target>Die Leiche verspeisen!</target>
+        <target>Eat the corpse!</target>
       </segment>
     </unit>
     <unit id="isIvO1g" name="In die Stadt schleichen">
@@ -8855,7 +8855,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Umdrehen</source>
-        <target>Umdrehen</target>
+        <target>Turn around</target>
       </segment>
     </unit>
     <unit id="1tKXRRi" name="Der %rolename% der Stadt ist %username%">
@@ -11404,7 +11404,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Nach einem harten Kampf gelingt es dir schließlich, einen Zombie gegen einen Felsen fallen zu lassen... Sein Kopf explodiert buchstäblich und sein Inhalt spritz auf deine Schuhe! Du taumelst zurück, außer Atem: einer weniger...</source>
-        <target>Nach einem harten Kampf gelingt es dir schließlich, einen Zombie gegen einen Felsen fallen zu lassen... Sein Kopf explodiert buchstäblich und sein Inhalt spritz auf deine Schuhe! Du taumelst zurück, außer Atem: einer weniger...</target>
+        <target>During an frightful encounter, you finally managed to throw a zombie against a rock... Its head literally exploded and the contents splattered onto your shoes ! Breathless, you stagger backwards : that's one more down...one...less...</target>
       </segment>
     </unit>
     <unit id="uQ9iqg9" name="21d4990">
@@ -11413,7 +11413,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Du schlägst mehrmals mit aller Kraft auf einen Zombie ein, aber es scheint ihm nichts auszumachen!</source>
-        <target>Du schlägst mehrmals mit aller Kraft auf einen Zombie ein, aber es scheint ihm nichts auszumachen!</target>
+        <target>You grab one of the wretched automatons with both hands, touching the sticky, putrefied flesh... it's unbearable... You wrestle with it, trying to force it back, but it's not happening... It tries unsuccessfully to bite you several times ! You retreat, out of breath and demoralised...</target>
       </segment>
     </unit>
     <unit id="rJtk9d5" name="Die Abschätzung wird durch den Scanner verbessert.">
