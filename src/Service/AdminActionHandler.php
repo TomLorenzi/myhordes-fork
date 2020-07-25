@@ -161,6 +161,7 @@ class AdminActionHandler
             ->setOwner( $theCrow )
             ->setText( $text )
             ->setDate( new DateTime('now') )
+            ->setEditingMode( Post::EditorPerpetual )
             ->setType("CROW");
             
         $thread->addPost($post)->setLastPost( $post->getDate() );

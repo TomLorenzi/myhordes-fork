@@ -552,30 +552,45 @@ class SoulController extends AbstractController
         )));
     }
 
+
     /**
-     * @Route("jx/soul/town/{id}", name="soul_view_town", requirements={"id"="\d+"})
+     * @Route("jx/soul/{sid}/town/{idtown}", name="soul_view_town")
+     * @param string $sid
+     * @param int $idtown
      * @return Response
      */
-    public function soul_view_town(int $id): Response
+    public function soul_view_town(int $idtown, $sid = 'me'): Response
     {
         /** @var User $user */
         $user = $this->getUser();
+
+        if ($sid !== 'me' && !is_numeric($sid))
+            return $this->redirect($this->generateUrl('soul_me'));
+
+        $id = $sid === 'me' ? -1 : (int)$sid;
+        if ($id === $user->getId())
+            return $this->redirect($this->generateUrl( 'soul_view_town', ['idtown' => $idtown] ));
 
         /** @var CitizenRankingProxy $nextDeath */
         if ($this->entity_manager->getRepository(CitizenRankingProxy::class)->findNextUnconfirmedDeath($user))
             return $this->redirect($this->generateUrl( 'soul_death' ));
 
-        $town = $this->entity_manager->getRepository(TownRankingProxy::class)->find($id);
-        if($town === null){
-            return $this->redirect($this->generateUrl('soul_me'));
-        }
+        $target_user = $this->entity_manager->getRepository(User::class)->find($id);
+        if($target_user === null && $id !== -1)  return $this->redirect($this->generateUrl('soul_me'));
+
+        $town = $this->entity_manager->getRepository(TownRankingProxy::class)->find($idtown);
+        if($town === null)
+            return $target_user === null ? $this->redirect($this->generateUrl('soul_me')) : $this->redirect($this->generateUrl('soul_visit', ['id' => $id]));
+
+        if ($target_user === null) $target_user = $user;
 
         $pictoname = $town->getType()->getName() == 'panda' ? 'r_suhard_#00' : 'r_surlst_#00';
         $proto = $this->entity_manager->getRepository(PictoPrototype::class)->findOneBy(['name' => $pictoname]);
 
         $picto = $this->entity_manager->getRepository(Picto::class)->findOneBy(['townEntry' => $town, 'prototype' => $proto]);
 
-        return $this->render( 'ajax/soul/view_town.html.twig', $this->addDefaultTwigArgs("soul_me", array(
+        return $this->render(  $user === $target_user ? 'ajax/soul/view_town.html.twig' : 'ajax/soul/view_town_foreign.html.twig', $this->addDefaultTwigArgs("soul_visit", array(
+            'user' => $target_user,
             'town' => $town,
             'last_user_standing' => $picto !== null ? $picto->getUser() : null
         )));
@@ -609,6 +624,7 @@ class SoulController extends AbstractController
 
     /**
      * @Route("api/soul/settings/generateid", name="api_soul_settings_generateid")
+     * @param EntityManagerInterface $entityManager
      * @return Response
      */
     public function soul_settings_generateid(EntityManagerInterface $entityManager): Response {
@@ -994,39 +1010,6 @@ class SoulController extends AbstractController
             'returnUrl' => $returnUrl,
             'citizen_id' => $citizen_id,
         ]));
-    }
-
-    /**
-     * @Route("jx/soul/{id}/town/{idtown}", name="soul_view_town_foreign", requirements={"id"="\d+", "idtown"="\d+"})
-     * @param int $id
-     * @param int $idtown
-     * @return Response
-     */
-    public function soul_view_town_foreign(int $id, int $idtown): Response
-    {
-        /** @var User $user */
-        $user = $this->getUser();
-
-        /** @var CitizenRankingProxy $nextDeath */
-        if ($this->entity_manager->getRepository(CitizenRankingProxy::class)->findNextUnconfirmedDeath($user))
-            return $this->redirect($this->generateUrl( 'soul_death' ));
-        
-    	$user = $this->entity_manager->getRepository(User::class)->find($id);
-    	if ($user === null) return $this->redirect($this->generateUrl('soul_me'));
-        $town = $this->entity_manager->getRepository(TownRankingProxy::class)->find($idtown);
-        if($town === null)
-            return $this->redirect($this->generateUrl('soul_visit', ['id' => $id]));
-
-        $pictoname = $town->getType()->getName() == 'panda' ? 'r_suhard_#00' : 'r_surlst_#00';
-        $proto = $this->entity_manager->getRepository(PictoPrototype::class)->findOneBy(['name' => $pictoname]);
-
-        $picto = $this->entity_manager->getRepository(Picto::class)->findOneBy(['townEntry' => $town, 'prototype' => $proto]);
-
-        return $this->render( 'ajax/soul/view_town_foreign.html.twig', $this->addDefaultTwigArgs("soul_visit", array(
-        	'user' => $user,
-            'town' => $town,
-            'last_user_standing' => $picto !== null ? $picto->getUser() : null
-        )));
     }
 
     /**

@@ -30,64 +30,28 @@
     padding-bottom: 75%;
 
     .newspage {
-      width: 90%;
-      height: 0;
-      margin: 0;
-      display: block;
-      vertical-align: top;
-      position: absolute;
-      padding-bottom: 75%;
-      background-size: cover;
-      transform-style: preserve-3d;
-      transition: all 1.0s linear;
-      backface-visibility: hidden;
-      left: 5%;
-      z-index: 0;
+      width: 90%; height: 0; margin: 0; display: block; vertical-align: top; position: absolute; padding-bottom: 75%;
+      background-size: cover; transform-style: preserve-3d; transition: all 1.0s linear; backface-visibility: hidden;
+      left: 5%; z-index: 0;
 
       &#newspage-front {
         margin-left: 0;
-
-        div#gazette-content {
-          font-size: 2.5vw;
-        }
-
-        div#gazette-headline {
-          font-size: 3.2vw;
-          top: 13%;
-        }
-
-        div#gazette-signature {
-          font-size: 2.5vw;
-        }
-
-        div#gazette-deaths {
-          font-size: 3vw;
-        }
+        div#gazette-content { font-size: 2.5vw; }
+        div#gazette-headline { font-size: 3.2vw; top: 13%; }
+        div#gazette-signature { font-size: 2.5vw; }
+        div#gazette-deaths { font-size: 3vw; }
       }
       &#newspage-back {
-        width: 90%;
-        margin-left: 0;
-        transform: rotateY(-180deg);
-        z-index: 1;
-
-        .nightstat {
-          font-size: 3vw;
-        }
+        width: 90%; margin-left: 0; transform: rotateY(-180deg); z-index: 1;
+        .nightstat { font-size: 3vw; }
       }
     }
   }
-  #gazette-switcher {
-    display: block;
-    margin: auto;
-    padding: 1rem;
-  }
+  #gazette-switcher { display: block; margin: auto; padding: 1rem; }
   #gazette-switch:checked + #gazette {
     .newspage {
       transform: rotateY(-180deg);
-
-      &#newspage-back {
-        transform: rotateY(-360deg);
-      }
+      &#newspage-back { transform: rotateY(-360deg); }
     }
   }
 }
@@ -169,11 +133,28 @@
 .postfix(@threshold, @postfix) {
   @media (max-width: (@threshold - 1)) {
     .row {
-      >.cell{.grid(12,@postfix)}>.cell-small{.grid(24,@postfix)}
-      >.cell, >.cell-small {
-        &.padded-@{postfix} {padding: 5px;}
-        &.smallpad-@{postfix} {padding: 2px;}
-        &.nopad-@{postfix} {padding: 0}
+      >.cell{.grid(@myhordes-grid-columns,@postfix)}
+      >.cell-small{.grid(@myhordes-grid-columns*2,@postfix)}
+    }
+    .row-flex {
+      &>.cell, &>.cell-small { .flex-sizing(@myhordes-flex-size-max, @postfix); }
+      >.cell {.flex-grid(@myhordes-flex-columns,@postfix)}
+      >.cell-small {.flex-grid(@myhordes-flex-columns * 2,@postfix)}
+
+      &.h-center-@{postfix} { justify-content: center; }
+      &.left-@{postfix}     { justify-content: flex-start; }
+      &.right-@{postfix}    { justify-content: flex-end; }
+      &.v-center-@{postfix} { align-items: center; }
+      &.top-@{postfix}      { align-items: flex-start; }
+      &.bottom-@{postfix}   { align-items: flex-end; }
+      &.stretch-@{postfix}  { align-items: stretch; }
+    }
+
+    .row, .row-flex {
+      &>.cell,.cell-small {
+        &.padded-@{postfix}       {padding: @myhordes-grid-padsize;}
+        &.padded-small-@{postfix} {padding: @myhordes-grid-padsize-small;}
+        &.padded-none-@{postfix}  {padding: 0}
       }
     }
   }
