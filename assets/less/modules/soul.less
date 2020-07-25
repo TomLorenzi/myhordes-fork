@@ -31,153 +31,79 @@ div.tooltip.badge-tooltip {
         margin-top: -21px; // Cancel tabs margin-bottom for soul page
     }
 
-    .header:not(.row) {
+    .header:not(.row):not(.row-flex) {
         padding: 9px 4px 10px 8px !important;
     }
 
     .skills {
         .bar {
-            max-width: 614px;
-            height: 32px;
-            margin: 10px auto 0;
-            padding-left: 3px;
-            padding-right: 3px;
+            max-width: 614px; height: 32px; margin: 10px auto 0; padding-left: 3px; padding-right: 3px;
 
             .progresstext {
-                background: url('../../img/soul/heroUp_front.gif');
-                background-repeat: round;
-                max-width: 614px;
-                height: 32px;
-                line-height: 32px;
-                z-index: 2;
-                position: relative;
-                color: #f0d79e;
-                text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
-                .text {
-                    visibility: hidden;
-                }
+                background: url('../../img/soul/heroUp_front.gif') round;
+                max-width: 614px; height: 32px; line-height: 32px; z-index: 2; position: relative;
+                color: #f0d79e; text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+                .text { visibility: hidden; }
             }
 
             .progressbar {
-                background: url('../../img/soul/heroUp_bg.gif');
-                background-repeat: round;
-                max-width: 614px;
-                height: 30px;
-                overflow: hidden;
-                padding-left: 25px;
-                padding-right: 5px;
-                margin-top: -31px;
-                img {
-                    height: 32px;
-                }
+                background: url('../../img/soul/heroUp_bg.gif') round;
+                max-width: 614px; height: 30px; overflow: hidden; padding-left: 25px; padding-right: 5px; margin-top: -31px;
+                img { height: 32px; }
             }
         }
 
         .heroProgress {
-            color: #f0d79e;
-            background-color: #4d5537;
-            border: 1px solid #ddab76;
-            outline: 2px solid #5c2b20;
-            text-align: center;
-            margin-top: 4px;
-            font-size: 1.2rem;
-            strong {
-                display: block;
-                font-size: 2rem;
-                color: white;
-            }
+            color: #f0d79e; background-color: #4d5537; border: 1px solid #ddab76; outline: 2px solid #5c2b20;
+            text-align: center; margin-top: 4px; font-size: 1.2rem;
+            strong { display: block; font-size: 2rem; color: white; }
         }
 
         .skillBack {
-            padding-bottom: 10px;
-            margin-bottom: 10px;
-            border-bottom: 1px dashed #ddab76;
-            
-            label {
-                max-width: 250px;
-            }
+            padding-bottom: 10px; margin-bottom: 10px; border-bottom: 1px dashed #ddab76;
+            label { max-width: 250px; }
         }
     }
 
     .distinctions {
-        max-width: 270px;
-        background: url("../../img/soul/rewardsBg_header.gif") top/100% no-repeat;
-        padding-bottom: 0 !important;
-        margin-left: 3px;
+        max-width: 270px; background: url("../../img/soul/rewardsBg_header.gif") top/100% no-repeat;
+        padding-bottom: 0 !important; margin-left: 3px;
 
         .distinctions-head {
-            padding-top: 45px;
-            color: #f0d79e;
-            font-variant: small-caps;
-            font-weight: bold;
-            font-size: 2rem;
+            padding-top: 45px; color: #f0d79e; font-variant: small-caps; font-weight: bold; font-size: 2rem;
         }
 
         .distinctions-list {
-            padding: 0 10px;
-            min-height: 100px;
-            .overall {
-                color: #FF8866;
-                font-size: 2.4rem;
-                margin-top: 5px;
-            }
+            padding: 0 10px; min-height: 100px;
+            .overall { color: #FF8866; font-size: 2.4rem; margin-top: 5px; }
 
             .empty {
-                border: 1px dashed #823D2D;
-                color: #FF8866;
-                padding: 10px;
-                font-size: 1.2rem;
-                font-style: italic;
+                border: 1px dashed #823D2D; color: #FF8866; padding: 10px; font-size: 1.2rem; font-style: italic;
                 margin-top: 10px;
             }
 
-            .picto {
-                display: inline-block;
-                width: 32px;
-                height: 32px;
-                font-size: 1rem;
-                padding-top: 3px;
-            }
-
+            .picto { display: inline-block; width: 32px; height: 32px; font-size: 1rem; padding-top: 3px; }
             .rare { background: url("../../img/pictos/rewardBg_rare.gif") no-repeat; }
 
             .counter {
                 margin-top: -10px;
-
                 .count {
-                    background: url("../../fonts/fontBitmap.png") no-repeat;
-                    line-height: 0;
-                    font-size: 0;
-                    width: 5px;
-                    height: 8px;
-                    display: inline-block;
+                    background: url("../../fonts/fontBitmap.png") no-repeat; line-height: 0; font-size: 0; width: 5px; height: 8px; display: inline-block;
+                    .pictoBitmapFont(@o:0px;@m:9;@i:0) when (@i = 1) { &[title="@{i}"]{ background-position: -@o 0;} .pictoBitmapFont(@o+4,@m,@i+1); }
+                    .pictoBitmapFont(@o:0px;@m:9;@i:0) when (@i <= @m) and not (@i = 1) { &[title="@{i}"]{ background-position: -@o 0;} .pictoBitmapFont(@o+5,@m,@i+1); }
+                    .pictoBitmapFont();
                 }
-
-                .count[title="0"]{ background-position: 0 0; }
-                .count[title="1"]{ background-position: -5px 0; }
-                .count[title="2"]{ background-position: -9px 0; }
-                .count[title="3"]{ background-position: -14px 0; }
-                .count[title="4"]{ background-position: -19px 0; }
-                .count[title="5"]{ background-position: -24px 0; }
-                .count[title="6"]{ background-position: -29px 0; }
-                .count[title="7"]{ background-position: -34px 0; }
-                .count[title="8"]{ background-position: -39px 0; }
-                .count[title="9"]{ background-position: -44px 0; }
             }
         }
 
         .distinctions-foot {
-            background: url("../../img/soul/rewardsBg_footer.gif") bottom/100% no-repeat;
-            height: 44px;
+            background: url("../../img/soul/rewardsBg_footer.gif") bottom/100% no-repeat; height: 44px;
             margin-top: -22px;
         }
     }
 
     .night {
-        background: url("../../img/soul/soul_night.jpg") bottom/100% no-repeat;
-        width: auto; height: 230px; position: relative; font-size: 0;
-        background-repeat: no-repeat;
-        background-position: right top;
+        width: auto; height: 230px; position: relative; font-size: 0; background: url("../../img/soul/soul_night.jpg") no-repeat right top;
         background-size: cover;
 
         &>.badge {
@@ -200,46 +126,24 @@ div.tooltip.badge-tooltip {
     }
 
     .score, .current {
-        margin-top: 6px;
-        margin-bottom: 10px;
-        padding: 3px;
-        font-weight: bold;
-        background-color: #5c2b20;
-        border: 1px solid #ddab76;
-        font-size: 1.2rem;
-        strong {
-            color: #f0d79e;
-        }
+        margin-top: 6px; margin-bottom: 10px; padding: 3px; font-weight: bold; background-color: #5c2b20;
+        border: 1px solid #ddab76; font-size: 1.2rem;
+        strong { color: #f0d79e; }
     }
 
     .score {
-        color: #ddab76;
-        font-variant: small-caps;
-        strong {
-            font-size: 1.4rem;
-        }
+        color: #ddab76; font-variant: small-caps;
+        strong { font-size: 1.4rem; }
     }
 
     .current {
         color: #f0d79e;
-        em {
-            color: #ddab76;
-            font-style: normal;
-            font-size: 1rem;
-        }
-        strong {
-            color: #f0d79e;
-            font-variant: small-caps;
-        }
+        em { color: #ddab76; font-style: normal; font-size: 1rem; }
+        strong { color: #f0d79e; font-variant: small-caps; }
     }
 
-    .town-history > .header {
-        font-size: 8pt;
-    }
-
-    .skills-history > .header {
-        font-size: 10pt;
-    }
+    .town-history .header { font-size: 8pt; }
+    .skills-history > .header { font-size: 10pt; }
 
     .town-history,
     .skills-history {
@@ -258,75 +162,36 @@ div.tooltip.badge-tooltip {
             border-bottom: 1px solid #ddab76;
 
             .town-name {
-            	height: 42px;
-                font-size: 1.2rem;
-                cursor: pointer;
-                border-left: 1px solid #7e4d2a;
-                border-right: 1px solid #7e4d2a;
-                border-bottom: 1px solid #7e4d2a;
+                font-size: 1.2rem; cursor: pointer;
+                border-left: 1px solid #7e4d2a; border-right: 1px solid #7e4d2a; border-bottom: 1px solid #7e4d2a;
                 .comment {
-                    color: #ddab76;
-                    font-size: 1.1rem;
-                    .add-comment {
-                        text-decoration: underline;
-                    }
-                    &:hover {
-                        color: white;
-                    }
+                    color: #ddab76; font-size: 1.1rem;
+                    .add-comment { text-decoration: underline; }
+                    &:hover { color: white; }
                 }
             }
 
-            .season {
-                height: 42px;
-                border-bottom: 1px solid #7e4d2a;
-            }
+            .season { border-bottom: 1px solid #7e4d2a; }
 
-            .town-days {
-                color: #f0d79e;
-                height: 42px;
-                border-right: 1px solid #7e4d2a;
-                border-bottom: 1px solid #7e4d2a;
-            }
-
-            .town-points {
-                color: #afacc1;
-                height: 42px;
-                border-bottom: 1px solid #7e4d2a;
-            }
+            .town-days { color: #f0d79e; border-right: 1px solid #7e4d2a; border-bottom: 1px solid #7e4d2a; }
+            .town-points { color: #afacc1; border-bottom: 1px solid #7e4d2a; }
 
             .empty {
-                font-size: 1.2rem;
-                margin-top: 5px;
-                padding: 5px;
-                font-variant: small-caps;
-                color: #f86;
-                font-weight: bold;
+                font-size: 1.2rem; margin-top: 5px; padding: 5px; font-variant: small-caps;
+                color: #f86; font-weight: bold;
             }
 
             .hardcore {
                 background-color:#773939;
-                .town-name,
-                .town-days {
-                    color: #f86;
-                }
+                .town-name, .town-days { color: #f86; }
             }
 
             &.skills-container {
-                .skillRow {
-                    border-bottom: 1px solid #7e4d2a;
-                }
-
-                .desc {
-                    font-size: 9pt;
-                    color: #f0d79e;
-                    min-height: 34px;
-                    border-left: 1px solid #7e4d2a;
-                }
+                .skillRow { border-bottom: 1px solid #7e4d2a; }
+                .desc { font-size: 9pt; color: #f0d79e; min-height: 34px; border-left: 1px solid #7e4d2a; }
                 .currentSkill {
                     background: #3b3249;
-                    .desc {
-                        font-style: italic;    
-                    }
+                    .desc { font-style: italic; }
                 }
             }
         }
@@ -334,34 +199,17 @@ div.tooltip.badge-tooltip {
 
     .rp-list {
         .rp-head {
-            .rp-context {
-                margin-top: 10px;
-            }
-            h5 {
-                color: white;
-            }
+            .rp-context { margin-top: 10px; }
+            h5 { color: white; }
         }
         .rp-row {
-            font-size: 1.3rem;
-            background: #5c2b20;
-            border-right: 1px solid #7e4d2a;
-            border-bottom: 1px solid #7e4d2a;
-            cursor: pointer;
-            text-decoration: underline;
-            &:hover {
-                color: lighten(@myhordes-smalltext, 20%);
-                background: #965C36;
-            }
+            font-size: 1.3rem; background: #5c2b20; border-right: 1px solid #7e4d2a; border-bottom: 1px solid #7e4d2a;
+            cursor: pointer; text-decoration: underline;
+            &:hover { color: lighten(@myhordes-smalltext, 20%); background: #965C36; }
                 
             .rp-text {
-                .title {
-                    color: #f0d79e;
-                }
-
-                em {
-                    font-size: 1.2rem;
-                    color: @myhordes-smalltext;
-                }
+                .title { color: #f0d79e; }
+                em { font-size: 1.2rem; color: @myhordes-smalltext; }
             }
         }
     }
@@ -369,24 +217,14 @@ div.tooltip.badge-tooltip {
     .view-town {
         .citizens-list {
             font-size: 1.2rem;
-            .header {
-                font-size: 1.4rem
-            }
-            .town-points {
-                color: #afacc1;
-                font-size: 2rem;
-            }
+            .header { font-size: 1.4rem }
+            .town-points { color: #afacc1; font-size: 2rem; }
         }
     }
 
     .language-picker {
-        display: flex;
-        justify-content: space-between;
-
-        .note {
-            width: 24%;
-            flex-basis: 24%;
-        }
+        display: flex; justify-content: space-between;
+        .note { width: 24%; flex-basis: 24%; }
     }
 
     .news {
@@ -396,60 +234,32 @@ div.tooltip.badge-tooltip {
             height: 181px;
 
             .title {
-                padding-top: 150px;
-                text-transform: uppercase;
-                color: #fff595;
-                font-weight: bold;
+                padding-top: 150px; text-transform: uppercase; color: #fff595; font-weight: bold;
                 font-size: 2rem;
                 img {
                     vertical-align: baseline;
-                    &:first-child {
-                        margin-right: 5px;
-                    }
-
-                    &:last-child {
-                        margin-left: 5px;
-                    }
+                    &:first-child { margin-right: 5px; }
+                    &:last-child { margin-left: 5px; }
                 }
-
-                &.old {
-                    color: #f1c872;
-                }
+                &.old { color: #f1c872; }
             }
 
         }
 
         .version {
-            text-align: center;
-            color: #ddab76;
-            font-weight: bold;
-            font-size: 1.2rem;
-            text-transform: uppercase;
+            text-align: center; color: #ddab76; font-weight: bold; font-size: 1.2rem; text-transform: uppercase;
             margin-bottom: 10px;
         }
 
         .version-list {
-            padding: 5px 5px 5px 10px;
-            margin-bottom: 20px;
-            background-color: #5c2b20;
-            font-size: 1rem;
-            color: #f0d79e;
-            p {
-                margin: 0;
-            }
+            padding: 5px 5px 5px 10px; margin-bottom: 20px; background-color: #5c2b20; font-size: 1rem; color: #f0d79e;
+            p { margin: 0; }
         }
 
-        .forum-post {
-            background: #5c2b20;
-            padding: 10px 0 0 10px;
-            border: 1px solid #704328;
-        }
-
+        .forum-post { background: #5c2b20; padding: 10px 0 0 10px; border: 1px solid #704328; }
         .content {
-            padding: 5px 5px 5px 110px;
-            background: url('../../img/help/pipWelcome.gif') no-repeat #5c2b20;
-            color: #ddab76;
-            margin-bottom: 10px;
+            padding: 5px 5px 5px 110px; background: url('../../img/help/pipWelcome.gif') no-repeat #5c2b20;
+            color: #ddab76; margin-bottom: 10px;
         }
     }
 }
