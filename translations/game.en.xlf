@@ -11404,7 +11404,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Nach einem harten Kampf gelingt es dir schließlich, einen Zombie gegen einen Felsen fallen zu lassen... Sein Kopf explodiert buchstäblich und sein Inhalt spritz auf deine Schuhe! Du taumelst zurück, außer Atem: einer weniger...</source>
-        <target>Nach einem harten Kampf gelingt es dir schließlich, einen Zombie gegen einen Felsen fallen zu lassen... Sein Kopf explodiert buchstäblich und sein Inhalt spritz auf deine Schuhe! Du taumelst zurück, außer Atem: einer weniger...</target>
+        <target>During an frightful encounter, you finally managed to throw a zombie against a rock... Its head literally exploded and the contents splattered onto your shoes ! Breathless, you stagger backwards : that's one more down...one...less...</target>
       </segment>
     </unit>
     <unit id="uQ9iqg9" name="21d4990">
@@ -11413,7 +11413,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Du schlägst mehrmals mit aller Kraft auf einen Zombie ein, aber es scheint ihm nichts auszumachen!</source>
-        <target>Du schlägst mehrmals mit aller Kraft auf einen Zombie ein, aber es scheint ihm nichts auszumachen!</target>
+        <target>You grab one of the wretched automatons with both hands, touching the sticky, putrefied flesh... it's unbearable... You wrestle with it, trying to force it back, but it's not happening... It tries unsuccessfully to bite you several times ! You retreat, out of breath and demoralised...</target>
       </segment>
     </unit>
     <unit id="rJtk9d5" name="Die Abschätzung wird durch den Scanner verbessert.">
