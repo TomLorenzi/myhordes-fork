@@ -7493,7 +7493,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>%citizen% hat sich ein paar Minuten Zeit genommen, um sein Versteck zu verbessern.</source>
-        <target>%citizen% hat sich ein paar Minuten Zeit genommen, um sein Versteck zu verbessern.</target>
+        <target>%citizen% spent some time upgrading their hiding place with anything and everything they could get their hands on.</target>
       </segment>
     </unit>
     <unit id="yqBYbyO" name="%citizen% hat %item% aufgestellt, um das Versteck zu verbessern.">
@@ -7502,7 +7502,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>%citizen% hat %item% aufgestellt, um das Versteck zu verbessern.</source>
-        <target>%citizen% hat %item% aufgestellt, um das Versteck zu verbessern.</target>
+        <target>%citizen% has upgraded their hiding place using their %item%.</target>
       </segment>
     </unit>
     <unit id="3cYOuAW" name="%citizen% hat sich für heute Nacht ein Versteck gesucht ...">
@@ -7511,7 +7511,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>%citizen% hat sich für heute Nacht ein Versteck gesucht ...</source>
-        <target>%citizen% hat sich für heute Nacht ein Versteck gesucht ...</target>
+        <target>%citizen% decided to find a place to hide in tonight. Which them good luck!</target>
       </segment>
     </unit>
     <unit id="HyDSnff" name="%citizen% hat sein Versteck verlassen.">
@@ -7520,7 +7520,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>%citizen% hat sein Versteck verlassen.</source>
-        <target>%citizen% hat sein Versteck verlassen.</target>
+        <target>%citizen% has left their hiding place...</target>
       </segment>
     </unit>
     <unit id="7P4jtds" name="%citizen% hat beschlossen auf einen Eskortenanführer zu warten...">
@@ -7547,7 +7547,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>%citizen% a convaincu %target_citizen% de le suivre.</source>
-        <target>%citizen% a convaincu %target_citizen% de le suivre.</target>
+        <target>%citizen% has convinced %target_citizen% to follow them.</target>
       </segment>
     </unit>
     <unit id="VlmfWWl" name="Finalement, %citizen% a décidé de planter %target_citizen% là...">
@@ -7556,7 +7556,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Finalement, %citizen% a décidé de planter %target_citizen% là...</source>
-        <target>Finalement, %citizen% a décidé de planter %target_citizen% là...</target>
+        <target>Finally, %citizen% decided to leave %target_citizen% there...</target>
       </segment>
     </unit>
     <unit id="KYKuCCa" name="0570887">
