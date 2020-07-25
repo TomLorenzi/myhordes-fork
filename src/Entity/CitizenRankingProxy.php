@@ -10,7 +10,7 @@ use Doctrine\ORM\Mapping\UniqueConstraint;
 /**
  * @ORM\Entity(repositoryClass=CitizenRankingProxyRepository::class)
  * @Table(uniqueConstraints={
- *     @UniqueConstraint(name="citizen_ranking_proxy_id_unique",columns={"base_id", "import_id"})
+ *     @UniqueConstraint(name="citizen_ranking_proxy_id_unique",columns={"base_id", "import_id", "import_lang"})
  * })
  */
 class CitizenRankingProxy
@@ -88,6 +88,11 @@ class CitizenRankingProxy
      * @ORM\Column(type="integer")
      */
     private $importID = 0;
+
+    /**
+     * @ORM\Column(type="string", length=16, nullable=true)
+     */
+    private $importLang;
 
     public function getId(): ?int
     {
@@ -272,6 +277,18 @@ class CitizenRankingProxy
     public function setImportID(int $importID): self
     {
         $this->importID = $importID;
+
+        return $this;
+    }
+
+    public function getImportLang(): ?string
+    {
+        return $this->importLang;
+    }
+
+    public function setImportLang(?string $importLang): self
+    {
+        $this->importLang = $importLang;
 
         return $this;
     }
