@@ -883,5 +883,230 @@
         <target>The CSRF token is invalid. Please try to resubmit the form.</target>
       </segment>
     </unit>
+    <unit id="eo1zeih" name="This value is not a valid HTML5 color.">
+      <notes>
+        <note category="german">Dieser Wert ist keine gültige HTML5 Farbe.</note>
+      </notes>
+      <segment>
+        <source>This value is not a valid HTML5 color.</source>
+        <target>This value is not a valid HTML5 color.</target>
+      </segment>
+    </unit>
+    <unit id="dN.ZVc0" name="Please enter a valid birthdate.">
+      <notes>
+        <note category="german">Please enter a valid birthdate.</note>
+      </notes>
+      <segment>
+        <source>Please enter a valid birthdate.</source>
+        <target>Please enter a valid birthdate.</target>
+      </segment>
+    </unit>
+    <unit id="OPymPfZ" name="The selected choice is invalid.">
+      <notes>
+        <note category="german">The selected choice is invalid.</note>
+      </notes>
+      <segment>
+        <source>The selected choice is invalid.</source>
+        <target>The selected choice is invalid.</target>
+      </segment>
+    </unit>
+    <unit id="GUH6TYE" name="The collection is invalid.">
+      <notes>
+        <note category="german">The collection is invalid.</note>
+      </notes>
+      <segment>
+        <source>The collection is invalid.</source>
+        <target>The collection is invalid.</target>
+      </segment>
+    </unit>
+    <unit id="14il0ha" name="Please select a valid color.">
+      <notes>
+        <note category="german">Please select a valid color.</note>
+      </notes>
+      <segment>
+        <source>Please select a valid color.</source>
+        <target>Please select a valid color.</target>
+      </segment>
+    </unit>
+    <unit id="4AJRUCC" name="Please select a valid country.">
+      <notes>
+        <note category="german">Please select a valid country.</note>
+      </notes>
+      <segment>
+        <source>Please select a valid country.</source>
+        <target>Please select a valid country.</target>
+      </segment>
+    </unit>
+    <unit id="xAI5mrh" name="Please select a valid currency.">
+      <notes>
+        <note category="german">Please select a valid currency.</note>
+      </notes>
+      <segment>
+        <source>Please select a valid currency.</source>
+        <target>Please select a valid currency.</target>
+      </segment>
+    </unit>
+    <unit id="c6v9ASZ" name="Please choose a valid date interval.">
+      <notes>
+        <note category="german">Please choose a valid date interval.</note>
+      </notes>
+      <segment>
+        <source>Please choose a valid date interval.</source>
+        <target>Please choose a valid date interval.</target>
+      </segment>
+    </unit>
+    <unit id="2BR60Jg" name="Please enter a valid date and time.">
+      <notes>
+        <note category="german">Please enter a valid date and time.</note>
+      </notes>
+      <segment>
+        <source>Please enter a valid date and time.</source>
+        <target>Please enter a valid date and time.</target>
+      </segment>
+    </unit>
+    <unit id="ofLBhv0" name="Please enter a valid date.">
+      <notes>
+        <note category="german">Please enter a valid date.</note>
+      </notes>
+      <segment>
+        <source>Please enter a valid date.</source>
+        <target>Please enter a valid date.</target>
+      </segment>
+    </unit>
+    <unit id="Xsmm6Mc" name="Please select a valid file.">
+      <notes>
+        <note category="german">Please select a valid file.</note>
+      </notes>
+      <segment>
+        <source>Please select a valid file.</source>
+        <target>Please select a valid file.</target>
+      </segment>
+    </unit>
+    <unit id="Fka0cZD" name="The hidden field is invalid.">
+      <notes>
+        <note category="german">The hidden field is invalid.</note>
+      </notes>
+      <segment>
+        <source>The hidden field is invalid.</source>
+        <target>The hidden field is invalid.</target>
+      </segment>
+    </unit>
+    <unit id="69ux5Ml" name="Please enter an integer.">
+      <notes>
+        <note category="german">Please enter an integer.</note>
+      </notes>
+      <segment>
+        <source>Please enter an integer.</source>
+        <target>Please enter an integer.</target>
+      </segment>
+    </unit>
+    <unit id="TQbat_9" name="Please select a valid language.">
+      <notes>
+        <note category="german">Please select a valid language.</note>
+      </notes>
+      <segment>
+        <source>Please select a valid language.</source>
+        <target>Please select a valid language.</target>
+      </segment>
+    </unit>
+    <unit id="vpa7l8w" name="Please select a valid locale.">
+      <notes>
+        <note category="german">Please select a valid locale.</note>
+      </notes>
+      <segment>
+        <source>Please select a valid locale.</source>
+        <target>Please select a valid locale.</target>
+      </segment>
+    </unit>
+    <unit id="Gz8pWER" name="Please enter a valid money amount.">
+      <notes>
+        <note category="german">Please enter a valid money amount.</note>
+      </notes>
+      <segment>
+        <source>Please enter a valid money amount.</source>
+        <target>Please enter a valid money amount.</target>
+      </segment>
+    </unit>
+    <unit id="PRxiOhB" name="Please enter a number.">
+      <notes>
+        <note category="german">Please enter a number.</note>
+      </notes>
+      <segment>
+        <source>Please enter a number.</source>
+        <target>Please enter a number.</target>
+      </segment>
+    </unit>
+    <unit id="seAdKJo" name="The password is invalid.">
+      <notes>
+        <note category="german">The password is invalid.</note>
+      </notes>
+      <segment>
+        <source>The password is invalid.</source>
+        <target>The password is invalid.</target>
+      </segment>
+    </unit>
+    <unit id="A5k0Q20" name="Please enter a percentage value.">
+      <notes>
+        <note category="german">Please enter a percentage value.</note>
+      </notes>
+      <segment>
+        <source>Please enter a percentage value.</source>
+        <target>Please enter a percentage value.</target>
+      </segment>
+    </unit>
+    <unit id="rH6V.WA" name="The values do not match.">
+      <notes>
+        <note category="german">The values do not match.</note>
+      </notes>
+      <segment>
+        <source>The values do not match.</source>
+        <target>The values do not match.</target>
+      </segment>
+    </unit>
+    <unit id="Eopl1Sm" name="Please enter a valid time.">
+      <notes>
+        <note category="german">Please enter a valid time.</note>
+      </notes>
+      <segment>
+        <source>Please enter a valid time.</source>
+        <target>Please enter a valid time.</target>
+      </segment>
+    </unit>
+    <unit id="ll14Sm9" name="Please select a valid timezone.">
+      <notes>
+        <note category="german">Please select a valid timezone.</note>
+      </notes>
+      <segment>
+        <source>Please select a valid timezone.</source>
+        <target>Please select a valid timezone.</target>
+      </segment>
+    </unit>
+    <unit id="1xP1kmd" name="Please enter a valid URL.">
+      <notes>
+        <note category="german">Please enter a valid URL.</note>
+      </notes>
+      <segment>
+        <source>Please enter a valid URL.</source>
+        <target>Please enter a valid URL.</target>
+      </segment>
+    </unit>
+    <unit id="iMmAsrC" name="Please enter a valid search term.">
+      <notes>
+        <note category="german">Please enter a valid search term.</note>
+      </notes>
+      <segment>
+        <source>Please enter a valid search term.</source>
+        <target>Please enter a valid search term.</target>
+      </segment>
+    </unit>
+    <unit id="GRMTXRX" name="Please provide a valid phone number.">
+      <notes>
+        <note category="german">Please provide a valid phone number.</note>
+      </notes>
+      <segment>
+        <source>Please provide a valid phone number.</source>
+        <target>Please provide a valid phone number.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

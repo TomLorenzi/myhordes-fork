@@ -1917,7 +1917,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Es muss noch aufgeräumt werden</source>
-        <target>Reste à déblayer</target>
+        <target>Still to clear</target>
       </segment>
     </unit>
     <unit id="tJrpqeH" name="Ruine">
@@ -3676,7 +3676,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Jemand hat eine anonyme Anzeige gegen %citizen% vorgebracht!</source>
-        <target>Jemand hat eine anonyme Anzeige gegen %citizen% vorgebracht!</target>
+        <target>Someone sent an anonyous complaint on %citizen%!</target>
       </segment>
     </unit>
     <unit id="6S5k6T1" name="Jemand hat seine anonyme Anzeige gegen %citizen% zurückgezogen.">
@@ -3685,7 +3685,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Jemand hat seine anonyme Anzeige gegen %citizen% zurückgezogen.</source>
-        <target>Jemand hat seine anonyme Anzeige gegen %citizen% zurückgezogen.</target>
+        <target>Someone withdrawed his complaint on %citizen%.</target>
       </segment>
     </unit>
     <unit id="vv.mZRz" name="Wir haben noch nicht die Technologie, um den morgigen Angriff zu beurteilen.">
@@ -8567,7 +8567,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Mit aller Gewalt greifst du %citizen% an! Du hast den Überraschungsmoment auf deiner Seite und am Ende trägt %citizen% eine schwere Verletzung davon.</source>
-        <target>You violently attacked %citizen%! The fight degenerated rapidly and resulted in you seriously wounding the other citizen!</target>
+        <target>You violently attacked %citizen%! The fight degenerated rapidly and resulted in you seriously wounding %citizen%!</target>
       </segment>
     </unit>
     <unit id="ibp3W.L" name="2c77f85">
