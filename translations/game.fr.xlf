@@ -11538,5 +11538,14 @@
         <target>Grâce au Planificateur, vous pouvez estimer l'attaque de demain.</target>
       </segment>
     </unit>
+    <unit id="BU8ToEO" name="Zuletzt bearbeitet: %date%">
+      <notes>
+        <note category="german">Zuletzt bearbeitet: %date%</note>
+      </notes>
+      <segment>
+        <source>Zuletzt bearbeitet: %date%</source>
+        <target>Zuletzt bearbeitet: %date%</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
