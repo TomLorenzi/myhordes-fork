@@ -40,7 +40,6 @@ class AdminActionHandler
         'unpinThread' => 'ROLE_ADMIN',
         'setDefaultRoleDev' => 'ROLE_ADMIN',
 
-        'crowPost' => 'ROLE_CROW',
         'lockThread' => 'ROLE_CROW',
         'unlockThread' => 'ROLE_CROW',
         'liftAllBans' => 'ROLE_CROW',
@@ -143,36 +142,6 @@ class AdminActionHandler
         $this->entity_manager->persist($thread);
         $this->entity_manager->flush();
         return true;
-    }
-
-    public function crowPost(int $sourceUser, Forum $forum, ?Thread $thread, string $text, ?string $title): ?Thread
-    {
-        if(!$this->hasRights($sourceUser, 'crowPost'))
-            return null;
-
-        $theCrow = $this->entity_manager->getRepository(User::class)->find(66);
-
-        if (!isset($thread)){
-            $thread = (new Thread())->setTitle( $title )->setOwner($theCrow);
-            $forum->addThread($thread);
-        }
-               
-        $post = (new Post())
-            ->setOwner( $theCrow )
-            ->setText( $text )
-            ->setDate( new DateTime('now') )
-            ->setEditingMode( Post::EditorPerpetual )
-            ->setType("CROW");
-            
-        $thread->addPost($post)->setLastPost( $post->getDate() );
-        try {
-            $this->entity_manager->persist($thread);
-            $this->entity_manager->persist($forum);
-            $this->entity_manager->flush();
-        } catch (Exception $e) {
-            return null;
-        }
-        return $thread;
     }
 
     public function liftAllBans(int $sourceUser, int $targetUser): bool

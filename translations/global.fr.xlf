@@ -1540,5 +1540,14 @@
         <target>Protection anti-spam : vous devez attendre un moment avant de pouvoir réécrire.</target>
       </segment>
     </unit>
+    <unit id="1C4wDLS" name="Ursprünglichen Text anzeigen">
+      <notes>
+        <note category="german">Ursprünglichen Text anzeigen</note>
+      </notes>
+      <segment>
+        <source>Ursprünglichen Text anzeigen</source>
+        <target>Ursprünglichen Text anzeigen</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
