@@ -7007,7 +7007,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Du stehst unter dem Einfluss von ziemlich starkem Alkohol... Du kannst vorerst keinen weiteren Alkohol zu dir nehmen.</source>
-        <target>Du stehst unter dem Einfluss von ziemlich starkem Alkohol... Du kannst vorerst keinen weiteren Alkohol zu dir nehmen.</target>
+        <target>You are under the influence of potent alcohol... You can't drink any other types of alcohol for the time being.</target>
       </segment>
     </unit>
     <unit id="n2cxTOK" name="63e4f16">

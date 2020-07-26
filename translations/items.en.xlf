@@ -3130,7 +3130,7 @@
       </notes>
       <segment>
         <source>Du hast dein {item} ausgepackt und {items_spawn} erhalten!</source>
-        <target>Du hast dein {item} ausgepackt und {items_spawn} erhalten!</target>
+        <target>You unpacked your {item} and received {items_spawn}!</target>
       </segment>
     </unit>
     <unit id="v4TehoJ" name="Du hast die {item} geöffnet und darin {items_spawn} gefunden!">
@@ -3148,7 +3148,7 @@
       </notes>
       <segment>
         <source>&lt;nt-spawned&gt;Trotz aller Anstrengungen ist es dir nicht gelungen, den {item} zu öffnen...&lt;/nt-spawned&gt;&lt;t-spawned&gt;Du hast die {item} geöffnet und darin {items_spawn} gefunden!&lt;/t-spawned&gt;</source>
-        <target><![CDATA[<nt-spawned>Trotz aller Anstrengungen ist es dir nicht gelungen, den {item} zu öffnen...</nt-spawned><t-spawned>Du hast die {item} geöffnet und darin {items_spawn} gefunden!</t-spawned>]]></target>
+        <target><![CDATA[<nt-spawned>TYou waste precious time looking for the combination to the {item}...</nt-spawned><t-spawned>Nice one! You have found the secret combination for the {item}! The code was 4715... You find the {items_spawn} inside.</t-spawned>]]></target>
       </segment>
     </unit>
     <unit id="ANXSLZW" name="Laden">
