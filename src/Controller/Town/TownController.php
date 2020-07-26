@@ -724,6 +724,7 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
 
     /**
      * @Route("jx/town/bank", name="town_bank")
+     * @param TownHandler $th
      * @return Response
      */
     public function bank(TownHandler $th): Response
@@ -828,16 +829,16 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
         $citizen = $this->getActiveCitizen();
         $town = $citizen->getTown();
 
-        if($town->getChaos()){
+        if ($town->getChaos()){
             // No vote possible in chaos
             return $this->redirect($this->generateUrl('town_citizens'));
         }
 
+        $needed_roles = $this->get_needed_votes();
+        /** @var CitizenRole $role */
         $role = $this->entity_manager->getRepository(CitizenRole::class)->find($roleId);
-
-        if($role === null) {
+        if($role === null || !isset($needed_roles[$role->getName()]) || !$needed_roles[$role->getName()])
             return $this->redirect($this->generateUrl('town_citizens'));
-        }
 
         $vote = $this->entity_manager->getRepository(CitizenVote::class)->findOneByCitizenAndRole($this->getActiveCitizen(), $role);
 
@@ -873,9 +874,8 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
         // and if town is not in chaos
         $role = $this->entity_manager->getRepository(CitizenRole::class)->find($role_id);
         $voted_citizen = $this->entity_manager->getRepository(Citizen::class)->find($voted_citizen_id);
-        if($role === null || $voted_citizen === null || $voted_citizen->getTown() != $citizen->getTown() || !$voted_citizen->getAlive() || $citizen == $voted_citizen || $town->getChaos()) {
+        if($role === null || $voted_citizen === null || $voted_citizen->getTown() != $citizen->getTown() || !$voted_citizen->getAlive() || $citizen === $voted_citizen || $town->getChaos())
             return AjaxResponse::error(ErrorHelper::ErrorActionNotAvailable);
-        }
 
         // You can only vote if your vote is needed
         $needed = $this->get_needed_votes();

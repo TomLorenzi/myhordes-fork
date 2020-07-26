@@ -55,11 +55,11 @@
 }
 
 .row-table {
-  &>.row.header {
+  &>.row.header, &>.row-flex.header {
     font-variant: small-caps; font-weight: bold;
     background: linear-gradient(to top, #643b25 0%, rgba(100, 59, 37, 0) 50%, rgba(100, 59, 37, 0) 100%);
   }
-  &>.row:not(.header) {
+  &>.row:not(.header), &>.row-flex:not(.header) {
     &:nth-child(2n+0) { background: #5c2b20; }
     &:nth-child(2n+1) { background: #663024; }
   }
@@ -70,12 +70,14 @@
 .flex-sizing(@n;@class:'';@i:0) when (@i <= @n) and (@class = '') {
   &.shrink-@{i} { flex-shrink: @i }
   &.grow-@{i}   { flex-grow: @i }
+  &.factor-@{i}   { flex-shrink: @i; flex-grow: @i }
   .flex-sizing(@n, @class, @i+1 )
 }
 
 .flex-sizing(@n;@class:'';@i:0) when (@i <= @n) and not (@class = '') {
   &.shrink-@{class}-@{i} { flex-shrink: @i }
   &.grow-@{class}-@{i}   { flex-grow: @i }
+  &.factor-@{class}-@{i}   { flex-shrink: @i; flex-grow: @i }
   .flex-sizing(@n, @class, @i+1 )
 }
 
