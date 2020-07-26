@@ -249,7 +249,7 @@ class MessageController extends AbstractController
 
     private const HTML_ATTRIB_ALLOWED_CROW = [ 
         'div.class' => [ 
-            'modAnnounce'
+            'modAnnounce', 'html'
         ]
     ];
 
@@ -269,9 +269,8 @@ class MessageController extends AbstractController
     private function getAllowedHTML(): array {
         $r = self::HTML_ALLOWED;
         $a = self::HTML_ATTRIB_ALLOWED;
-        $user = $this->getUser();
 
-        if ($user->getRightsElevation() >= User::ROLE_ADMIN) {
+        if ($this->isGranted("ROLE_ADMIN")) {
             foreach (self::HTML_ALLOWED_ADMIN as $key => $value) {
                 if(isset($r[$key])) {
                     $r[$key] = array_merge($r[$key], self::HTML_ALLOWED_ADMIN[$key]);
@@ -289,7 +288,7 @@ class MessageController extends AbstractController
             }
         }
 
-        if ($user->getRightsElevation() >= User::ROLE_CROW) {
+        if ($this->isGranted("ROLE_CROW")) {
             foreach (self::HTML_ATTRIB_ALLOWED_CROW as $key => $value) {
                 if(isset($a[$key])) {
                     $a[$key] = array_merge($a[$key], self::HTML_ATTRIB_ALLOWED_CROW[$key]);
@@ -298,7 +297,7 @@ class MessageController extends AbstractController
                 }
             }
         }
-        if ($user->getRightsElevation() >= User::ROLE_ORACLE) {
+        if ($this->isGranted("ROLE_ORACLE")) {
             foreach (self::HTML_ATTRIB_ALLOWED_ORACLE as $key => $value) {
                 if(isset($a[$key])) {
                     $a[$key] = array_merge($a[$key], self::HTML_ATTRIB_ALLOWED_ORACLE[$key]);
@@ -436,11 +435,38 @@ class MessageController extends AbstractController
                 if ($group !== null) $cache['citizen'][$group] = $cc->getId();
                 $d->nodeValue = $cc->getUser()->getUsername();
             },
+
+            // This MUST be the last element!
+            '//div[@class=\'html\']'   => function (DOMNode $d) {
+                //foreach ($d->childNodes as $childNode)
+                //    $d->parentNode->insertBefore( $childNode, $d );
+                while ($d->hasChildNodes())
+                    $d->parentNode->insertBefore($d->firstChild,$d);
+                $d->parentNode->removeChild($d);
+            },
         ];
 
         foreach ($handlers as $query => $handler)
-            foreach ( (new DOMXPath($dom))->query($query, $body->item(0)) as $node )
-                $handler($node);
+            foreach ( (new DOMXPath($dom))->query($query, $body->item(0)) as $node ) {
+                /** @var DOMNode $node */
+                $p = $node->parentNode;
+                $in_html = false;
+
+                while ($p) {
+                    if ($attribs = $p->attributes) {
+                        $class_attrib = $attribs->getNamedItem('class');
+                        if (in_array( 'html', $class_attrib ? explode( ' ', $class_attrib->nodeValue ) : [] )) {
+                            $in_html = true;
+                            break;
+                        }
+                    }
+
+                    $p = $p->parentNode;
+                }
+
+                if (!$in_html) $handler($node);
+            }
+
 
         $tmp_str = "";
         foreach ($body->item(0)->childNodes as $child)
@@ -740,17 +766,19 @@ class MessageController extends AbstractController
 
 
         if ((
-            ($post->getOwner() !== $user) &&
+            ($post->getOwner() !== $user && !$this->isGranted("ROLE_CROW")) &&
             !($post->getOwner()->getId() === 66 || $this->isGranted("ROLE_CROW")))
 
-            || !$post->isEditable())
+            ||
+
+            (!$post->isEditable() && !$this->isGranted("ROLE_CROW")))
             return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
 
         $thread = $em->getRepository(Thread::class)->find( $tid );
         if (!$thread || $thread->getForum()->getId() !== $fid || $post->getThread() !== $thread)
             return AjaxResponse::error( self::ErrorForumNotFound );
 
-        if ($thread->getLocked())
+        if ($thread->getLocked() && !$this->isGranted("ROLE_CROW"))
             return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
 
         /** @var Forum $forum */
@@ -764,6 +792,9 @@ class MessageController extends AbstractController
         $post
             ->setText( $text )
             ->setEdited( new DateTime() );
+
+        if ($user !== $post->getOwner())
+            $post->setEditingMode(Post::EditorLocked);
 
         $tx_len = 0;
         if (!$this->preparePost($user,$forum,$post,$tx_len, null, $edit))
@@ -942,7 +973,7 @@ class MessageController extends AbstractController
 
         $forums = $em->getRepository(Forum::class)->findForumsForUser($user, $fid);
         if (count($forums) !== 1){
-            if (!($user->getRightsElevation() >= User::ROLE_CROW && $thread->hasReportedPosts())){
+            if (!($this->isGranted("ROLE_CROW") && $thread->hasReportedPosts())){
                 return new Response('');
             }      
         }
@@ -950,8 +981,8 @@ class MessageController extends AbstractController
         $pid = $parser->get('pid', null);
         if ($pid !== null) {
             $post = $em->getRepository(Post::class)->find((int)$pid);
-            if (!$post || !$post->isEditable() || $post->getThread() !== $thread || (
-                ($post->getOwner() !== $user && !($this->isGranted("ROLE_CROW") && $post->getOwner()->getId() === 66))
+            if (!$post || (!$post->isEditable() && !$this->isGranted("ROLE_CROW")) || $post->getThread() !== $thread || (
+                (($post->getOwner() !== $user && !$this->isGranted("ROLE_CROW")) && !($this->isGranted("ROLE_CROW") && $post->getOwner()->getId() === 66))
             )) return new Response('');
         }
 

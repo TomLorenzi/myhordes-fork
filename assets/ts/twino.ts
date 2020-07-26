@@ -7,9 +7,12 @@ class TwinoInterimBlock {
     public readonly nodeClasses: Array<string>;
     public readonly nodeAttribs: Array<[string,string]>;
 
-    constructor(text: string = '', name: string|null = null, classes: string|Array<string> = [], attribs: Array<[string,string]> = []) {
+    public readonly rawText: string;
+
+    constructor(text: string = '', name: string|null = null, classes: string|Array<string> = [], attribs: Array<[string,string]> = [], raw: string|null = null) {
         this.nodeText = text;
         this.nodeName = name;
+        this.rawText = raw;
 
         if (name !== null) {
             this.nodeClasses = (typeof classes === 'string') ? [classes] : classes;
@@ -255,6 +258,9 @@ class TwinoConverterToBlocks {
                     blocks.push( new TwinoInterimBlock(match.nodeContent(), 'div', 'rpText', [['x-nested','1']]) );
                 }
                 changed = true; break;
+            case 'html':
+                blocks.push( new TwinoInterimBlock(match.nodeContent(), 'html') );
+                break;
             default: blocks.push( new TwinoInterimBlock(match.raw()) ); break;
         }
 
@@ -328,8 +334,14 @@ class HTMLConverterFromBlocks {
         }
 
         let quotespace = false;
+        let raw_fallback = false;
         let cp = parent;
         while (cp) {
+            if (cp.nodeType === Node.ELEMENT_NODE) {
+                if (!quotespace   && (cp.tagName === 'BLOCKQUOTE' || cp.classList.contains('no-quote'))) quotespace = true;
+                if (!raw_fallback && cp.classList.contains('raw-fallback')) raw_fallback = true;
+            }
+
             if (cp.nodeType === Node.ELEMENT_NODE && (cp.tagName === 'BLOCKQUOTE' || cp.classList.contains('no-quote')))
                 quotespace = true;
             cp = cp.parentNode as HTMLElement;
@@ -390,7 +402,7 @@ class HTMLConverterFromBlocks {
                         ret += HTMLConverterFromBlocks.wrapBlock( block, 'rp' );
                     else if (block.hasClass('glory'))
                         ret += HTMLConverterFromBlocks.wrapBlock(block, 'glory');
-                    else ret += block.nodeText;
+                    else ret += raw_fallback ? HTMLConverterFromBlocks.rangeBlock( block.rawText, 'html' ) : block.nodeText;;
                     break;
                 case 'blockquote':
                     ret += quotespace ? '' : HTMLConverterFromBlocks.wrapBlock( block, 'quote' );
@@ -403,8 +415,11 @@ class HTMLConverterFromBlocks {
                     let href = block.getAttribute('href');
                     if (href) ret += HTMLConverterFromBlocks.wrapBlock( block, 'link', href );
                     break;
-                default:
+                case 'p':
                     ret += block.nodeText;
+                    break;
+                default:
+                    ret += raw_fallback ? HTMLConverterFromBlocks.rangeBlock( block.rawText, 'html' ) : block.nodeText;
                     break;
             }
         }
@@ -416,20 +431,30 @@ class HTMLConverterFromBlocks {
 
 export default class TwinoAlikeParser {
 
+    public readonly OpModeRaw   = 0x1;
+    public readonly OpModeQuote = 0x2;
+
     private static lego(blocks: Array<TwinoInterimBlock>, elem: HTMLElement): void {
         for (let i = 0; i < blocks.length; i++) {
             if (blocks[i].isEmpty()) continue;
 
-            let node = null;
+            let nodes = [];
             if ( blocks[i].isPlainText() )
-                node = document.createTextNode( blocks[i].nodeText );
-            else {
-                node = document.createElement( blocks[i].nodeName );
-                node.appendChild( document.createTextNode( blocks[i].nodeText ) );
-                for (let nodeClass of blocks[i].nodeClasses) node.classList.add( nodeClass );
-                for (let nodeAttribTuple of blocks[i].nodeAttribs) node.setAttribute( nodeAttribTuple[0], nodeAttribTuple[1]);
+                nodes.push(document.createTextNode( blocks[i].nodeText ));
+            else if (blocks[i].nodeName === 'html') {
+                let build = document.createElement( 'div' );
+                build.classList.add( 'html' );
+                build.innerHTML = blocks[i].nodeText;
+                nodes.push( build );
             }
-            elem.parentNode.insertBefore(node, elem);
+            else {
+                let build = document.createElement( blocks[i].nodeName );
+                build.appendChild( document.createTextNode( blocks[i].nodeText ) );
+                for (let nodeClass of blocks[i].nodeClasses) build.classList.add( nodeClass );
+                for (let nodeAttribTuple of blocks[i].nodeAttribs) build.setAttribute( nodeAttribTuple[0], nodeAttribTuple[1]);
+                nodes.push(build);
+            }
+            for (let node of nodes) elem.parentNode.insertBefore(node, elem);
         }
         elem.parentNode.removeChild(elem);
     }
@@ -609,7 +634,7 @@ export default class TwinoAlikeParser {
             let attribs: Array<[string,string]> = [];
             for (let a = 0; a < elem.attributes.length; a++) attribs.push( [ elem.attributes.item(a).name, elem.attributes.item(a).value ] )
 
-            return new TwinoInterimBlock( content ?? elem.innerText, elem.tagName.toLowerCase(), classes, attribs );
+            return new TwinoInterimBlock( content ?? elem.innerText, elem.tagName.toLowerCase(), classes, attribs, elem.outerHTML );
 
         }
 
@@ -646,10 +671,11 @@ export default class TwinoAlikeParser {
 
     }
 
-    parseFrom( htmlText: string, isQuoted: boolean ): string {
+    parseFrom( htmlText: string, opmode: number ): string {
 
         let container_node = document.createElement('p');
-        if (isQuoted) container_node.classList.add('no-quote');
+        if (opmode & this.OpModeQuote) container_node.classList.add('no-quote');
+        if (opmode & this.OpModeRaw)   container_node.classList.add('raw-fallback');
         container_node.innerHTML = htmlText;
 
         return TwinoAlikeParser.parseNestedBlock( container_node );
