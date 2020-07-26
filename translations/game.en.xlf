@@ -11440,7 +11440,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Zuletzt bearbeitet: %date%</source>
-        <target>Zuletzt bearbeitet: %date%</target>
+        <target>Last edited: %date%</target>
       </segment>
     </unit>
     <unit id="ZN8qU6R" name="Von einem Moderator bearbeitet.">
@@ -11449,7 +11449,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Von einem Moderator bearbeitet.</source>
-        <target>Von einem Moderator bearbeitet.</target>
+        <target>Edited by a Moderator.</target>
       </segment>
     </unit>
   </file>
