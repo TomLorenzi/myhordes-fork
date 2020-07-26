@@ -450,20 +450,13 @@ div.town-banner {
 }
 
 .citizen-box {
-  border-left: 1px solid #7e4d2a;
-  border-bottom: 1px solid #7e4d2a;
+  border-left: 1px solid #7e4d2a; border-bottom: 1px solid #7e4d2a; overflow: hidden; text-overflow: ellipsis;
+  .link {color: wheat;}
 }
 
-.citizen-box-name {
-  background-color: #b37c4a;
-  color: white !important;
-}
-
-.citizen-box-name-me {
-  background-color: #b37c4a;
-  color: white !important;
-  background-color: #696288;
-}
+.citizen-box-name { background-color: #b37c4a; }
+.citizen-box-name-me { background-color: #696288; }
+.citizen-box-name, .citizen-box-name-me {color: white !important;}
 
 .citizen-box-name > span > .citizen-name {
   text-decoration: underline;

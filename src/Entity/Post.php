@@ -81,6 +81,16 @@ class Post
      */
     private $editingMode;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=User::class)
+     */
+    private $lastAdminActionBy;
+
+    /**
+     * @ORM\Column(type="text", nullable=true)
+     */
+    private $originalText;
+
     public function __construct()
     {
         $this->adminReports = new ArrayCollection();
@@ -263,10 +273,34 @@ class Post
     public function isEditable(): bool {
         if ($this->getTranslate()) return false;
         switch ($this->getEditingMode()) {
-            case self::EditorTimed: return (time() - $this->getDate()->getTimestamp()) < 300;
+            case self::EditorTimed: return (time() - $this->getDate()->getTimestamp()) < 600;
             case self::EditorPerpetual: return true;
 
             default: return false;
         }
+    }
+
+    public function getLastAdminActionBy(): ?User
+    {
+        return $this->lastAdminActionBy;
+    }
+
+    public function setLastAdminActionBy(?User $lastAdminActionBy): self
+    {
+        $this->lastAdminActionBy = $lastAdminActionBy;
+
+        return $this;
+    }
+
+    public function getOriginalText(): ?string
+    {
+        return $this->originalText;
+    }
+
+    public function setOriginalText(?string $originalText): self
+    {
+        $this->originalText = $originalText;
+
+        return $this;
     }
 }

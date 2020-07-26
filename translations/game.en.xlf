@@ -11444,5 +11444,14 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
         <target>Last edited: %date%</target>
       </segment>
     </unit>
+    <unit id="ZN8qU6R" name="Von einem Moderator bearbeitet.">
+      <notes>
+        <note category="german">Von einem Moderator bearbeitet.</note>
+      </notes>
+      <segment>
+        <source>Von einem Moderator bearbeitet.</source>
+        <target>Edited by a moderator.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
