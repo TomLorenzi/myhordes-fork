@@ -322,7 +322,7 @@
       </notes>
       <segment>
         <source>Achtung</source>
-        <target>Attention</target>
+        <target>Warning</target>
       </segment>
     </unit>
     <unit id="fDDOLlJ" name="Bist du sicher?">

@@ -1836,7 +1836,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>%z% Zombies kontrollieren diese Zone!</source>
-        <target>%z% control the zone!</target>
+        <target>%z% zombies control the zone!</target>
       </segment>
     </unit>
     <unit id="5GwqUxA" name="d4294d0">
@@ -1854,7 +1854,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Dank deiner Tarnung kannst du dich dennoch bewegen - werde nur nicht zu übermütig...</source>
-        <target>Votre Tenue de camouflage vous permet de vous déplacer sans être vu(e).</target>
+        <target>Your  Camouflage Suit allows you to move around undetected.</target>
       </segment>
     </unit>
     <unit id="DJhmFr9" name="Bestimmte Aktionen können deine Tarnung auffliegen lassen!">
@@ -1863,7 +1863,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Bestimmte Aktionen können deine Tarnung auffliegen lassen!</source>
-        <target>toute action sur la zone vous fera perdre votre camouflage (les actions marquées d'une icône indiquent celles faisant perdre le camouflage) !</target>
+        <target>many actions, if carried out in this zone will make you lose your camouflage (only actions marked with the  icon can be used)!</target>
       </segment>
     </unit>
     <unit id="Zkh813p" name="c9643dc">
@@ -1935,7 +1935,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Diese Zone ist leergesucht. Du wirst hier keine wertvollen Gegenstände mehr finden können.</source>
-        <target>The zone is depleted.</target>
+        <target>This zone is depleted, all that remains to be found here are poor-quality resources...</target>
       </segment>
     </unit>
     <unit id="M8h1dhU" name="Stadt betreten">
@@ -2016,7 +2016,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Wenn du einen Gegenstand aufnimmst oder ablegst, verlierst du deine Tarnung!</source>
-        <target>Si vous ramassez ou laissez tomber un objet, vous perdez votre camouflage !</target>
+        <target>If you take or drop an object, you will lose your camouflage!</target>
       </segment>
     </unit>
     <unit id="AcukbqL" name="Zonenregister">
@@ -7340,7 +7340,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Du hast einen Teil des Sektors freigelegt, aber es gibt immer noch eine beträchtliche Menge an Trümmern, die den Weg versperren...</source>
-        <target>Du hast einen Teil des Sektors freigelegt, aber es gibt immer noch eine beträchtliche Menge an Trümmern, die den Weg versperren...</target>
+        <target>You have uncovered some of the sector, but there is still a substantial amount of debris blocking the way...</target>
       </segment>
     </unit>
     <unit id="AL6LzU0" name="9a476a3">
@@ -7349,7 +7349,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Herzlichen Glückwunsch, die Zone ist vollständig freigelegt worden! Du kannst nun mit der Suche nach Gegenständen im: %ruin% beginnen!</source>
-        <target>Herzlichen Glückwunsch, die Zone ist vollständig freigelegt worden! Du kannst nun mit der Suche nach Gegenständen im: %ruin% beginnen!</target>
+        <target>Congratulations, the zone has been completely uncovered! You can now start to search for items in the: %ruin%!</target>
       </segment>
     </unit>
     <unit id="RbYmYJb" name="Du hast %count% Aktionspunkt(e) benutzt.">
@@ -7358,7 +7358,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Du hast %count% Aktionspunkt(e) benutzt.</source>
-        <target>Du hast %count% Aktionspunkt(e) benutzt.</target>
+        <target>You have used %count% action point(s).</target>
       </segment>
     </unit>
     <unit id="gLkZ8wY" name="0e83286">
