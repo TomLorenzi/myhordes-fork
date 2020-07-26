@@ -3217,7 +3217,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>%citizen% hat etwas Schutt entfernt.</source>
-        <target>%citizen% a déplayé quelques débris.</target>
+        <target>%citizen% has cleared part of the zone...</target>
       </segment>
     </unit>
     <unit id="WmDHw.1" name="%citizen% hat diese Ruine freigelegt. Es handelt sich um %type%. Hurra!">
@@ -3226,7 +3226,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>%citizen% hat diese Ruine freigelegt. Es handelt sich um %type%. Hurra!</source>
-        <target>%citizen% a déterré le bâtiment, révélant %type%. Hourra !</target>
+        <target>Thanks to %citizen%, the zone has been completely cleared, revealing a: %type%. Hourra !</target>
       </segment>
     </unit>
     <unit id="zTh0a4e" name="a30f81a">
@@ -4523,7 +4523,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Die fröhlichen Kinderzeichnungen an den Wänden stehen im starken Kontrast zu den nicht identifizierbaren menschlichen Überresten am Boden. Du hast das Gefühl, ein dunkles Kichern aus dem Bauschutt zu hören.</source>
-        <target>Die fröhlichen Kinderzeichnungen an den Wänden stehen im starken Kontrast zu den nicht identifizierbaren menschlichen Überresten am Boden. Du hast das Gefühl, ein dunkles Kichern aus dem Bauschutt zu hören.</target>
+        <target>The childish drawings painted on the charred walls provide a stark contrast to the vaguely human remains strewn here and there. At times, you believe you can hear sinister laughter coming from beneath the rubble.</target>
       </segment>
     </unit>
     <unit id="Ct60IzG" name="3ed88f6">
@@ -4532,7 +4532,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>In dieses schöne Gebäude gingen die Menschen früher zur Arbeit. Pünktlichkeit und Dresscode waren Pflicht. Die tägliche Routine bestand darin, mit einer Gruppe unbekannter Kollegen Zielvorgaben zu erreichen und um sein eigenes Überleben zu kämpfen... Hhmmm, wenn du so drüber nachdenkst: So viel hat sich gar nicht geändert - bis auf den Dresscode vielleicht.</source>
-        <target>In dieses schöne Gebäude gingen die Menschen früher zur Arbeit. Pünktlichkeit und Dresscode waren Pflicht. Die tägliche Routine bestand darin, mit einer Gruppe unbekannter Kollegen Zielvorgaben zu erreichen und um sein eigenes Überleben zu kämpfen... Hhmmm, wenn du so drüber nachdenkst: So viel hat sich gar nicht geändert - bis auf den Dresscode vielleicht.</target>
+        <target>A nice office building where people used to get on with their work, starting early in the morning, surrounded by anonymous colleagues, trying to finish who knows what project but with one clear goal : their own survival. You think to yourself that maybe things haven't really changed all that much...</target>
       </segment>
     </unit>
     <unit id="uy1WNX." name="70d717e">
@@ -4541,7 +4541,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Jemand hat hier vor langer Zeit gelebt. Vielleicht jemand, der von einer Familie umgeben war, die ihn liebte und mit der er viele glückliche Stunden zusammen verbrachte ? Heute ist alles, was bleibt, ein wenig Staub und völlige Verwüstung... und gelegentlich eine Leiche, die mit den Zähnen knirschend auf einen zustürmt.</source>
-        <target>Jemand hat hier vor langer Zeit gelebt. Vielleicht jemand, der von einer Familie umgeben war, die ihn liebte und mit der er viele glückliche Stunden zusammen verbrachte ? Heute ist alles, was bleibt, ein wenig Staub und völlige Verwüstung... und gelegentlich eine Leiche, die mit den Zähnen knirschend auf einen zustürmt.</target>
+        <target>Someone lived here a LONG time ago. Perhaps someone who was surrounded by a family who loved them and with whom they spent many happy hours together ? Today, all that remains is a little dust and utter desolation... and the occasional corpse who trudges towards you, gnashing its teeth.</target>
       </segment>
     </unit>
     <unit id="Mk_nOE9" name="e91d960">
@@ -4550,7 +4550,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Soll das eine Schule, ein Parkhaus oder vielleicht ein Kaufhaus sein? Du kannst es nicht erkennen... Das einzige, was von diesem geheimnisvollen Projekt noch übrig ist, sind ein paar verrostete Metallstrukturen.</source>
-        <target>Soll das eine Schule, ein Parkhaus oder vielleicht ein Kaufhaus sein? Du kannst es nicht erkennen... Das einzige, was von diesem geheimnisvollen Projekt noch übrig ist, sind ein paar verrostete Metallstrukturen.</target>
+        <target>It's impossible to guess what they were wanting to build here. It could have been a school, a car park, a department store... The rusting metal supports are the only remaining evidence of whatever mysterious project was underway here.</target>
       </segment>
     </unit>
     <unit id="bVAo.cx" name="181707c">
@@ -4559,7 +4559,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Wow - das ist ein verdammtes Geschenk des Himmels! Ein Brunnen, der immer noch funktioniert ! Völlig verloren in der Mitte von Nirgendwo gibt es hier niemanden mit seinem Regelwerk, der Ihnen sagt: 'Tun Sie dies nicht, tun Sie das nicht, nehmen Sie nicht zu viel Wasser, bla bla bla bla...'. Na los, nimm einen Drink, es wird unser kleines Geheimnis sein...</source>
-        <target>Wow - das ist ein verdammtes Geschenk des Himmels! Ein Brunnen, der immer noch funktioniert ! Völlig verloren in der Mitte von Nirgendwo gibt es hier niemanden mit seinem Regelwerk, der Ihnen sagt: 'Tun Sie dies nicht, tun Sie das nicht, nehmen Sie nicht zu viel Wasser, bla bla bla bla...'. Na los, nimm einen Drink, es wird unser kleines Geheimnis sein...</target>
+        <target>Wow - this is a bloody godsend ! A well which still works ! Completely lost in the middle of nowhere there is nobody here with their rulebook to tell you 'Don't do this, don't do that, don't take too much water, blah blah blah...' Go on, take a drink, it'll be our little secret...</target>
       </segment>
     </unit>
     <unit id="nIZoj0r" name="1e1578a">
@@ -4568,7 +4568,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Ursprünglich zur Lagerung von Getreide konstruiert, aber als die Zeit verging und das Getreide knapp wurde, füllten sich die Tanks mit Regenwasser (und einer toten Ratte). Sie brauchen allerdings den richtigen Bausatz, um sie zu benutzen...</source>
-        <target>Ursprünglich zur Lagerung von Getreide konstruiert, aber als die Zeit verging und das Getreide knapp wurde, füllten sich die Tanks mit Regenwasser (und einer toten Ratte). Sie brauchen allerdings den richtigen Bausatz, um sie zu benutzen...</target>
+        <target>Originally constructed for storing grain, but as time passed and the grain ran out, the tanks filled with rainwater (and a dead rat). You'll need the right kit to make use of it though...</target>
       </segment>
     </unit>
     <unit id="icD0mRG" name="ee8c0bb">
@@ -4604,7 +4604,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Das Schiebetor dieses Supermarktlagers hat allen Plünderungsversuchen erfolgreich getrotzt. Durch einen etwas versteckten Seiteneingang gelangst du ins Innere und machst dich sofort auf die Suche nach Dingen, die du noch gebrauchen kannst...</source>
-        <target>Das Schiebetor dieses Supermarktlagers hat allen Plünderungsversuchen erfolgreich getrotzt. Durch einen etwas versteckten Seiteneingang gelangst du ins Innere und machst dich sofort auf die Suche nach Dingen, die du noch gebrauchen kannst...</target>
+        <target>The door to this supermarket stockroom has thus far resisted would-be pillagers... surely there must be something tasty inside worth having...</target>
       </segment>
     </unit>
     <unit id="qSSpkKa" name="d12e0e7">
@@ -4613,7 +4613,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Dieses Zelt macht einen wirklich soliden Eindruck und war bestimmt mal ein gutes Versteck. Derjenige, der es aufgestellt hat, wusste wie man sich vor Zombies schützt. Das Zelt verfügt über ein farblich abgestimmtes Tarnnetz, mehrere Ein- und Ausgänge, sowie über ein unterirdisches Notversteck für brenzlige Situation. Bei näherem Hinsehen entdeckst du auf der Zeltplane einen eingestickten Namen: 'Shenji'</source>
-        <target>Dieses Zelt macht einen wirklich soliden Eindruck und war bestimmt mal ein gutes Versteck. Derjenige, der es aufgestellt hat, wusste wie man sich vor Zombies schützt. Das Zelt verfügt über ein farblich abgestimmtes Tarnnetz, mehrere Ein- und Ausgänge, sowie über ein unterirdisches Notversteck für brenzlige Situation. Bei näherem Hinsehen entdeckst du auf der Zeltplane einen eingestickten Namen: 'Shenji'</target>
+        <target>A good hideout, that's for sure. Whoever put this up certainly knew how to keep his ass well away from zombie clutches : natural camouflage, good all-round visibility, multiple exits and even a hole to hide underground if need be. The name 'C. Norris' has been written on the canvas in unicorn's tears.</target>
       </segment>
     </unit>
     <unit id="SXiUP6e" name="b293b36">
@@ -4622,7 +4622,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Mitten in der Wüste entdeckst du eine kleine Stadtviertelapotheke – grotesk! Ein unbeschreibbarer Gestank liegt in der Luft und es riecht nach allem möglichen, außer nach Gesundheit.</source>
-        <target>Mitten in der Wüste entdeckst du eine kleine Stadtviertelapotheke – grotesk! Ein unbeschreibbarer Gestank liegt in der Luft und es riecht nach allem möglichen, außer nach Gesundheit.</target>
+        <target>A small local pharmacy... serving the erm... middle of the desert apparently. The unmentionable smells make you think of everything except medicines.</target>
       </segment>
     </unit>
     <unit id="rcbYTzS" name="28bcbbd">
@@ -4631,7 +4631,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Es sieht eigentlich nicht mehr wie eine Bar aus, aber das halb im Sand vergrabene Schild und das Vorhandensein einiger zerbrochener Optiken lassen keinen großen Zweifel aufkommen. Die meisten Flaschen sind zerbrochen, aber Sie können hier mit ziemlicher Sicherheit etwas Nützliches finden...</source>
-        <target>Es sieht eigentlich nicht mehr wie eine Bar aus, aber das halb im Sand vergrabene Schild und das Vorhandensein einiger zerbrochener Optiken lassen keinen großen Zweifel aufkommen. Die meisten Flaschen sind zerbrochen, aber Sie können hier mit ziemlicher Sicherheit etwas Nützliches finden...</target>
+        <target>It doesn't really look like a bar any more, but the sign that is half-buried in the sand and the presence of some broken optics don't leave you in much doubt. Most of the bottles are broken, but you can almost certainly find something useful here...</target>
       </segment>
     </unit>
     <unit id="nLW7mkF" name="Die Anwesenheit von ein paar Zombies in dieser Umgebung beunruhigt dich etwas...">
@@ -7955,7 +7955,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Akteneinsicht wird beantragt...</source>
-        <target>Akteneinsicht wird beantragt...</target>
+        <target>Access to the file is requested ...</target>
       </segment>
     </unit>
     <unit id="wbSNK79" name="Protokolle werden analysiert...">
@@ -7973,7 +7973,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Überwachungsapparat wird ausgewertet...</source>
-        <target>Überwachungsapparat wird ausgewertet...</target>
+        <target>Monitoring system is being evaluated ...</target>
       </segment>
     </unit>
     <unit id="fqyccF." name="Belastende Beweise werden übermittelt...">
@@ -7982,7 +7982,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Belastende Beweise werden übermittelt...</source>
-        <target>Belastende Beweise werden übermittelt...</target>
+        <target>Evidence is being conveyed ...</target>
       </segment>
     </unit>
     <unit id="EKpWan5" name="Was sagst du dazu?">
@@ -8027,7 +8027,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>%num% Zombies haben vergeblich versucht, in das Haus von %citizen% einzudringen.</source>
-        <target>%num% Zombies haben vergeblich versucht, in das Haus von %citizen% einzudringen.</target>
+        <target>%num% Zombies have unsuccessfully tried to enter %citizen%'s house.</target>
       </segment>
     </unit>
     <unit id="mxKAfZX" name="%citizen% wurde von %num% Zombies zerfleischt!">
@@ -8117,7 +8117,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Ein abscheuliches Verbrechen ist geschehen: %attacker% hat %defender% in seinem Haus verschlungen!</source>
-        <target>Ein abscheuliches Verbrechen ist geschehen: %attacker% hat %defender% in seinem Haus verschlungen!</target>
+        <target>An abominable crime has been committed: %attacker% was seen devouring %defender% in their house!</target>
       </segment>
     </unit>
     <unit id="8xZcKzq" name="65218d1">
@@ -8144,7 +8144,8 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Was ist mit der Leiche passiert? Der leblose Körper ist spurlos verschwunden... Vermutlich liegt er jetzt irgendwo vor der Stadt und verrottet vor sich hin... Vielleicht kommt er euch ja in der Nacht besuchen?</source>
-        <target>Was ist mit der Leiche passiert? Der leblose Körper ist spurlos verschwunden... Vermutlich liegt er jetzt irgendwo vor der Stadt und verrottet vor sich hin... Vielleicht kommt er euch ja in der Nacht besuchen?</target>
+        <target>WHAT HAPPENED TO THE BODY?
+No idea! The body has disappeared without trace...They must be rotting somewhere outside... Perhaps they'll get back up and visit you during the night.</target>
       </segment>
     </unit>
     <unit id=".vM_crK" name="7733da4">
@@ -10700,7 +10701,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Die Zombies verstümmeln</source>
-        <target>Mutilate the zombies</target>
+        <target>Pack of Zombies</target>
       </segment>
     </unit>
     <unit id="c8SXj_R" name="Horde der Zombies">
@@ -11432,6 +11433,15 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       <segment>
         <source>Dank der Rechenmaschine kannst du den morgigen Angriff abschätzen.</source>
         <target>Thanks to the calculator, you can estimate tomorrow's attack.</target>
+      </segment>
+    </unit>
+    <unit id="BU8ToEO" name="Zuletzt bearbeitet: %date%">
+      <notes>
+        <note category="german">Zuletzt bearbeitet: %date%</note>
+      </notes>
+      <segment>
+        <source>Zuletzt bearbeitet: %date%</source>
+        <target>Last edited: %date%</target>
       </segment>
     </unit>
   </file>

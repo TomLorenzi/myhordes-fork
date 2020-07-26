@@ -6226,7 +6226,7 @@
       </notes>
       <segment>
         <source>Verteidigungsgegenstand</source>
-        <target>Verteidigungsgegenstand</target>
+        <target>Defense Object</target>
       </segment>
     </unit>
     <unit id="HRMX4o6" name="Waffe">
