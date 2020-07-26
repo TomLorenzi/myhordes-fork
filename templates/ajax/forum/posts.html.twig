@@ -122,7 +122,11 @@
                         {% else %}
                             <div class="avatar small"><img alt="" src="{{ asset('build/images/forum/empty_avatar.gif') }}"></div>
                         {% endif %}
+                        {% if post.translate %}
                         <b>{{ author_name }}</b>
+                        {% else %}
+                        <a class="link" href="{{ path('soul_visit', {id: post.owner.id}) }}"><b>{{ author_name }}</b></a>
+                        {% endif %}
                         {% if post.note is not null %}<div class="right post-note">{{ post.note|raw }}</div>{% endif %}
                     </div>
                     <div class="forum-post-content" x-post-content-id="{{ post.id }}" x-post-content-author="{{ author_name }}">
