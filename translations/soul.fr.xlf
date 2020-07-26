@@ -1553,7 +1553,7 @@
       </notes>
       <segment>
         <source>Diese Karteikarte gehört einem Administrator. Wenn ihr darauf komische, abnormale oder gar furchteinflößende Dinge entdeckt: Das ist völlig normal. Macht euch keine Sorgen, er weiß wahrscheinlich schon Bescheid :).</source>
-        <target>Cette fiche appartient à un Administrateur. Si vous y trouvez des choses étranges, anormales ou même effrayantes : c'est tout à fait normal. Ne vous inquiétez pas, il le sait probablement déjà :)</target>
+        <target>Cette fiche est celle d'un Administrateur. Si vous y lisez des choses étranges, anormales voire effrayantes, c'est tout à fait normal. Ne vous inquiétez pas, les administrateurs sont probablement déjà au courant :).</target>
       </segment>
     </unit>
     <unit id="Oxu558J" name="Der Rabe">
@@ -1571,7 +1571,7 @@
       </notes>
       <segment>
         <source>Diese Karteikarte gehört einem Raben. Du solltest sie lieber wieder zurücklegen... langsam und ohne plötzliche Bewegungen.</source>
-        <target>Cette fiche appartient à un Corbeau. Vous feriez mieux de la remettre ... lentement et sans mouvements brusques.</target>
+        <target>Cette fiche est celle d'un Corbeau. Vous feriez mieux de la remettre ... lentement et sans mouvements brusques.</target>
       </segment>
     </unit>
     <unit id="BCS.RQ1" name="Orakel">
@@ -1589,7 +1589,7 @@
       </notes>
       <segment>
         <source>Diese Karteikarte gehört einem Orakel. Orakel sind Bindeglieder zwischen der Community und den Entwicklern. Du kannst dich bei Fragen und Problemen vertrauensvoll an sie wenden.</source>
-        <target>Cette fiche appartient à un Oracle. Les Oracles sont des liens entre la Communauté et les Développeurs. Vous pouvez les contacter en toute confiance si vous avez des questions ou des problèmes.</target>
+        <target>Cette fiche est celle d'un Oracle. Les Oracles sont des liens entre la Communauté et les Développeurs. Vous pouvez les contacter en toute confiance si vous avez des questions ou des problèmes.</target>
       </segment>
     </unit>
     <unit id="qPDF80G" name="Irgend etwas erscheint an dieser Karteikarte merkwürdig...">
@@ -1643,7 +1643,7 @@
       </notes>
       <segment>
         <source>Diese Stadt wurde von %host% importiert. Die angezeigten Informationen sind möglicherweise unvollständig.</source>
-        <target>Cette ville a été importée depuis %host%. Die angezeigten Informationen sind möglicherweise unvollständig.</target>
+        <target>Cette ville a été importée depuis %host%. Les informations affichées peuvent être incomplètes.</target>
       </segment>
     </unit>
     <unit id="Z3DDGf9" name="Tage">
