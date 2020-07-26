@@ -1504,5 +1504,14 @@
         <target>Spamschutz: Du musst eine Weile warten, bis du wieder schreiben kannst.</target>
       </segment>
     </unit>
+    <unit id="1C4wDLS" name="Ursprünglichen Text anzeigen">
+      <notes>
+        <note category="german">Ursprünglichen Text anzeigen</note>
+      </notes>
+      <segment>
+        <source>Ursprünglichen Text anzeigen</source>
+        <target>Ursprünglichen Text anzeigen</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

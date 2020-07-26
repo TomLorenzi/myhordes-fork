@@ -1531,5 +1531,14 @@
         <target>Spam protection: You have to wait a while before you can write again.</target>
       </segment>
     </unit>
+    <unit id="1C4wDLS" name="Ursprünglichen Text anzeigen">
+      <notes>
+        <note category="german">Ursprünglichen Text anzeigen</note>
+      </notes>
+      <segment>
+        <source>Ursprünglichen Text anzeigen</source>
+        <target>Ursprünglichen Text anzeigen</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

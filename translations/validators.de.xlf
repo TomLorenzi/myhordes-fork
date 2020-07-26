@@ -883,5 +883,14 @@
         <target>Der CSRF-Token ist ungültig. Versuchen Sie bitte das Formular erneut zu senden.</target>
       </segment>
     </unit>
+    <unit id="eo1zeih" name="This value is not a valid HTML5 color.">
+      <notes>
+        <note category="german">Dieser Wert ist keine gültige HTML5 Farbe.</note>
+      </notes>
+      <segment>
+        <source>This value is not a valid HTML5 color.</source>
+        <target>Dieser Wert ist keine gültige HTML5 Farbe.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

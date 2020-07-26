@@ -11461,5 +11461,14 @@
         <target>Zuletzt bearbeitet: %date%</target>
       </segment>
     </unit>
+    <unit id="ZN8qU6R" name="Von einem Moderator bearbeitet.">
+      <notes>
+        <note category="german">Von einem Moderator bearbeitet.</note>
+      </notes>
+      <segment>
+        <source>Von einem Moderator bearbeitet.</source>
+        <target>Von einem Moderator bearbeitet.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
