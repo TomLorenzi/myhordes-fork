@@ -4640,7 +4640,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Die Anwesenheit von ein paar Zombies in dieser Umgebung beunruhigt dich etwas...</source>
-        <target>Die Anwesenheit von ein paar Zombies in dieser Umgebung beunruhigt dich etwas...</target>
+        <target>The presence of several zombies in surrounding zones is particularly worrying...</target>
       </segment>
     </unit>
     <unit id="GtXqaDO" name="25208d0">
@@ -6755,7 +6755,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Dieser Bürger hat eventuell schon seit einer Weile Blut gehustet... Einige reden von einer Infektion.</source>
-        <target>Dieser Bürger hat eventuell schon seit einer Weile Blut gehustet... Einige reden von einer Infektion.</target>
+        <target>was seen coughing up blood a moment ago... Some are talking about an infection.</target>
       </segment>
     </unit>
     <unit id="0LaQbDJ" name="a261410">
