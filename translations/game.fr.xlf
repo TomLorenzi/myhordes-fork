@@ -11544,7 +11544,7 @@
       </notes>
       <segment>
         <source>Zuletzt bearbeitet: %date%</source>
-        <target>Zuletzt bearbeitet: %date%</target>
+        <target>Dernière édition : %date%</target>
       </segment>
     </unit>
   </file>

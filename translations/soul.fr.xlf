@@ -1643,7 +1643,7 @@
       </notes>
       <segment>
         <source>Diese Stadt wurde von %host% importiert. Die angezeigten Informationen sind möglicherweise unvollständig.</source>
-        <target>Diese Stadt wurde von %host% importiert. Die angezeigten Informationen sind möglicherweise unvollständig.</target>
+        <target>Cette ville a été importée depuis %host%. Die angezeigten Informationen sind möglicherweise unvollständig.</target>
       </segment>
     </unit>
     <unit id="Z3DDGf9" name="Tage">
@@ -1652,7 +1652,7 @@
       </notes>
       <segment>
         <source>Tage</source>
-        <target>Tage</target>
+        <target>Jours</target>
       </segment>
     </unit>
   </file>
