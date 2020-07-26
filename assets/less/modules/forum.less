@@ -23,6 +23,19 @@
 @myhordes-forum-disabled-button-color:  grey;
 @myhordes-forum-disabled-button-border: grey;
 
+.modOrigText {
+  clear: left; margin: 0 15px;
+  position: relative;
+  background-color: #005c14;
+  border: 1px solid #004702;
+  padding: 2px 2px 2px 8px;
+  &>span:first-child { font-size: 0.6em; color: #a4ff96 }
+  &:not(.pointer)>span:first-child { display: none; }
+  &.pointer>div:last-child { display: none }
+
+  &+.forum-post-content {border-top: none !important;}
+}
+
 .forum-content-format() {
   b, strong { color: #afb3cf; text-transform: initial; opacity: .8; }
   i, em { color: #f0d79e; opacity: .7; }
@@ -101,14 +114,22 @@
 
   .oracleAnnounce,
   .modAnnounce,
-  .adminAnnounce {
+  .adminAnnounce, .modOrigText {
     clear: left;
     margin: 0 15px;
-    padding: 8px;
-    padding-left: 24px;
+    padding: 8px 8px 8px 24px;
     background-repeat: no-repeat;
     border-radius: 4px;
     position: relative;
+
+    &.modOrigText {
+      background-color: #005c14;
+      border: 1px solid #004702;
+      padding: 2px 2px 2px 8px;
+      &>span:first-child { font-size: 0.6em; color: #a4ff96 }
+      &.pointer>div:last-child { display: none }
+    }
+
     &.oracleAnnounce {
       background-image: url('../../img/forum/announceBg.png');
       background-position: bottom left;

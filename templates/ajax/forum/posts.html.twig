@@ -125,13 +125,30 @@
                         <b>{{ author_name }}</b>
                         {% if post.note is not null %}<div class="right post-note">{{ post.note|raw }}</div>{% endif %}
                     </div>
+                    {% if is_granted("ROLE_ADMIN") and post.originalText is not null %}
+                        <div class="modOrigText pointer">
+                            <span>{{ 'Ursprünglichen Text anzeigen'|trans({},'global') }}</span>
+                            <div>{{ post.originalText|raw }}</div>
+                        </div>
+                    {% endif %}
                     <div class="forum-post-content" x-post-content-id="{{ post.id }}" x-post-content-author="{{ author_name }}">
                         {{ post.translate ? (post.text|trans({},'game')|raw) : (post.text|raw) }}
                     </div>
                     <div class="forum-post-footer">
                         <div class="float-left small">
-                            {% if post.edited is not null %}
-                                {{ 'Zuletzt bearbeitet: %date%'|trans({'%date%': post.edited|format_datetime('medium', 'short')},'game') }}
+                            {% if not is_granted('ROLE_ADMIN') %}
+                                {% if post.edited is not null and post.lastAdminActionBy is null %}
+                                    {{ 'Zuletzt bearbeitet: %date%'|trans({'%date%': post.edited|format_datetime('medium', 'short')},'game') }}
+                                {% elseif post.edited is not null and post.lastAdminActionBy is not null %}
+                                    {{ 'Von einem Moderator bearbeitet.'|trans({},'game') }}
+                                {% endif %}
+                            {% elseif is_granted('ROLE_ADMIN') %}
+                                {% if post.lastAdminActionBy is not null and post.edited is not null %}
+                                    {{ 'Zuletzt bearbeitet: %date%'|trans({'%date%': post.edited|format_datetime('medium', 'short')},'game') }}
+                                    {{ ' ~ MOD: ' ~ post.lastAdminActionBy.username }}
+                                {% elseif post.lastAdminActionBy is not null and post.edited is null %}
+                                    {{ 'MOD: ' ~ post.lastAdminActionBy.username }}
+                                {% endif %}
                             {% endif %}
                         </div>
                         <div class="float-right">
@@ -196,6 +213,7 @@
                 let content = document.querySelector('[x-post-content-id="' + elem.getAttribute('x-post-id') + '"]');
                 let author = content.getAttribute('x-post-content-author');
                 let textEditor = document.getElementById("forum-editor-text");
+
                 textEditor.value = (author ? ('[quote=' + author + ']') : '[quote]') + $.html.twinoParser.parseFrom( content.innerHTML, $.html.twinoParser.OpModeQuote ) + '[/quote]' + "\n";
                 textEditor.dispatchEvent(new Event('input', {bubbles: true,cancelable: true}));
                 textEditor.focus();
@@ -237,6 +255,9 @@
         $.html.addEventListenerAll('[x-forum-action="edit-post"]', 'click', (e,elem) => fun_inline_edit('{{ path('forum_post_editor_controller', {fid: fid, tid: tid}) }}', elem.getAttribute('x-post-id'), 0));
 
         {% if is_granted("ROLE_CROW") %}
+
+            $.html.addEventListenerAll('.modOrigText.pointer', 'click', (e,elem) => { elem.classList.remove('pointer'); } )
+
             $.html.addEventListenerAll( '[x-forum-moderator-action="delete-post"]', 'click', function(e,elem) {
                 let reason = prompt('{{ 'Grund'|trans({},'admin')|e('js') }}', '');
                 if (reason !== null)

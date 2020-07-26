@@ -590,36 +590,21 @@ class MessageController extends AbstractController
         $title = $parser->trimmed('title');
         $text  = $parser->trimmed('text');
 
-        if ($user->getRightsElevation() >= User::ROLE_CROW) {
-            $type  = $parser->get('type');
-        }
-        else {
-            $type = "USER";
-        }
+        $type = $this->isGranted("ROLE_CROW") ? $parser->get('type') : 'USER';
+        if (!in_array($type, ['DEV','CROW','USER'])) $type = 'USER';
 
         if (mb_strlen($title) < 3 || mb_strlen($title) > 64)   return AjaxResponse::error( self::ErrorPostTitleLength );
-
-        if ($type === "CROW") {
-            $thread = $admh->crowPost($user->getId(), $forum, null, $text, $title);
-            if (isset($thread))
-                return AjaxResponse::success( true, ['url' => $this->generateUrl('forum_thread_view', ['fid' => $id, 'tid' => $thread->getId()])] );
-            else return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
-        }
-
-        if ($type !== "DEV") {
-            $type = "USER";
-        }
-
         if (mb_strlen($text) < 2 || mb_strlen($text) > 16384) return AjaxResponse::error( self::ErrorPostTextLength );
 
         $thread = (new Thread())->setTitle( $title )->setOwner($user);
 
         $post = (new Post())
-        ->setOwner( $user )
-        ->setText( $text )
-        ->setDate( new DateTime('now') )
-        ->setType($type)
-        ->setEditingMode( Post::EditorPerpetual );
+            ->setOwner( $type === "CROW" ? $this->entityManager->getRepository(User::class)->find(66) : $user )
+            ->setText( $text )
+            ->setDate( new DateTime('now') )
+            ->setType($type)
+            ->setEditingMode( Post::EditorPerpetual )
+            ->setLastAdminActionBy($type === "CROW" ? $user : null);
 
         $tx_len = 0;
         if (!$this->preparePost($user,$forum,$post,$tx_len, null, $edit))
@@ -689,31 +674,16 @@ class MessageController extends AbstractController
 
         $text = $parser->get('text');
 
-        if ($user->getRightsElevation() >= User::ROLE_CROW) {
-            $type  = $parser->get('type');
-        }
-        else {
-            $type = "USER";
-        }
-
-        if ($type === "CROW"){
-            if ($admh->crowPost($user->getId(), $forum, $thread, $text, null))
-                return AjaxResponse::success( true, ['url' => $mod_post
-                    ? $this->generateUrl('admin_reports')
-                    : $this->generateUrl('forum_thread_view', ['fid' => $fid, 'tid' => $tid])
-                ] );
-            else return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
-        }
-        if ($type !== "DEV") {
-            $type = "USER";
-        }
+        $type = $this->isGranted("ROLE_CROW") ? $parser->get('type') : 'USER';
+        if (!in_array($type, ['DEV','CROW','USER'])) $type = 'USER';
 
         $post = (new Post())
-            ->setOwner( $user )
+            ->setOwner( $type === "CROW" ? $this->entityManager->getRepository(User::class)->find(66) : $user )
             ->setText( $text )
             ->setDate( new DateTime('now') )
             ->setType($type)
-            ->setEditingMode( $type !== "USER" ? Post::EditorPerpetual : Post::EditorTimed );
+            ->setEditingMode( $type !== "USER" ? Post::EditorPerpetual : Post::EditorTimed )
+            ->setLastAdminActionBy($type === "CROW" ? $user : null);
 
         $tx_len = 0;
         if (!$this->preparePost($user,$forum,$post,$tx_len, null, $edit))
@@ -774,6 +744,8 @@ class MessageController extends AbstractController
             (!$post->isEditable() && !$this->isGranted("ROLE_CROW")))
             return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
 
+        if ($post->getTranslate()) return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
+
         $thread = $em->getRepository(Thread::class)->find( $tid );
         if (!$thread || $thread->getForum()->getId() !== $fid || $post->getThread() !== $thread)
             return AjaxResponse::error( self::ErrorForumNotFound );
@@ -789,12 +761,19 @@ class MessageController extends AbstractController
 
         $text = $parser->get('text');
 
+        $old_text = $post->getText();
         $post
             ->setText( $text )
             ->setEdited( new DateTime() );
 
-        if ($user !== $post->getOwner())
-            $post->setEditingMode(Post::EditorLocked);
+        if ($user !== $post->getOwner()) {
+            $post
+                ->setEditingMode(Post::EditorLocked)
+                ->setLastAdminActionBy($user);
+            if ($post->getOriginalText() === null && $post->getOwner()->getId() !== 66)
+                $post->setOriginalText($old_text);
+        }
+
 
         $tx_len = 0;
         if (!$this->preparePost($user,$forum,$post,$tx_len, null, $edit))
