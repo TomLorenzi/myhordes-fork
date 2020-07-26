@@ -11434,5 +11434,14 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
         <target>Thanks to the calculator, you can estimate tomorrow's attack.</target>
       </segment>
     </unit>
+    <unit id="BU8ToEO" name="Zuletzt bearbeitet: %date%">
+      <notes>
+        <note category="german">Zuletzt bearbeitet: %date%</note>
+      </notes>
+      <segment>
+        <source>Zuletzt bearbeitet: %date%</source>
+        <target>Zuletzt bearbeitet: %date%</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

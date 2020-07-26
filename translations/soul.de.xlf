@@ -1663,5 +1663,23 @@
         <target>Twinoid-Nutzer</target>
       </segment>
     </unit>
+    <unit id="stLn0.b" name="97e820f">
+      <notes>
+        <note category="german">Diese Stadt wurde von %host% importiert. Die angezeigten Informationen sind möglicherweise unvollständig.</note>
+      </notes>
+      <segment>
+        <source>Diese Stadt wurde von %host% importiert. Die angezeigten Informationen sind möglicherweise unvollständig.</source>
+        <target>Diese Stadt wurde von %host% importiert. Die angezeigten Informationen sind möglicherweise unvollständig.</target>
+      </segment>
+    </unit>
+    <unit id="Z3DDGf9" name="Tage">
+      <notes>
+        <note category="german">Tage</note>
+      </notes>
+      <segment>
+        <source>Tage</source>
+        <target>Tage</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

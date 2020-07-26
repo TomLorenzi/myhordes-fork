@@ -11452,5 +11452,14 @@
         <target>Dank der Rechenmaschine kannst du den morgigen Angriff abschätzen.</target>
       </segment>
     </unit>
+    <unit id="BU8ToEO" name="Zuletzt bearbeitet: %date%">
+      <notes>
+        <note category="german">Zuletzt bearbeitet: %date%</note>
+      </notes>
+      <segment>
+        <source>Zuletzt bearbeitet: %date%</source>
+        <target>Zuletzt bearbeitet: %date%</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

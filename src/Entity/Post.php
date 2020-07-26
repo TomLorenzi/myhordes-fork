@@ -273,7 +273,7 @@ class Post
     public function isEditable(): bool {
         if ($this->getTranslate()) return false;
         switch ($this->getEditingMode()) {
-            case self::EditorTimed: return (time() - $this->getDate()->getTimestamp()) < 300;
+            case self::EditorTimed: return (time() - $this->getDate()->getTimestamp()) < 600;
             case self::EditorPerpetual: return true;
 
             default: return false;

@@ -122,7 +122,11 @@
                         {% else %}
                             <div class="avatar small"><img alt="" src="{{ asset('build/images/forum/empty_avatar.gif') }}"></div>
                         {% endif %}
+                        {% if post.translate %}
                         <b>{{ author_name }}</b>
+                        {% else %}
+                        <a class="link" href="{{ path('soul_visit', {id: post.owner.id}) }}"><b>{{ author_name }}</b></a>
+                        {% endif %}
                         {% if post.note is not null %}<div class="right post-note">{{ post.note|raw }}</div>{% endif %}
                     </div>
                     {% if is_granted("ROLE_ADMIN") and post.originalText is not null %}
@@ -163,12 +167,14 @@
                                     </ul>
                                 </label>
                             {% endif %}
+                            {% if not locked %}
+                            {% if (post.owner == app.user or (post.owner.id == 66 and is_granted("ROLE_CROW"))) and post.editable %}
+                                    [ <a class="action-button" id="edit_post"  x-forum-action="edit-post"  x-post-id={{ post.id }} ><img alt="" src="{{ asset('build/images/forum/edit.png') }}"><div class="tooltip forum-tooltip">{{'Bearbeiten'|trans({}, 'global')}}</div></a> ]
+                                {% endif %}
+                            {% endif %}
                             [ <a class="action-button" id="link_post" x-forum-action="link-post" x-post-id={{ post.id }}>{{ 'Link'|trans({},'global') }}</a> ]
                             {% if not locked %}
                                 [ <a class="action-button" id="quote_post" x-forum-action="quote-post" x-post-id={{ post.id }} >{{ 'Zitieren'|trans({},'global') }}</a> ]
-                                {% if (post.owner == app.user or (post.owner.id == 66 and is_granted("ROLE_CROW"))) and post.editable %}
-                                    [ <a class="action-button" id="edit_post"  x-forum-action="edit-post"  x-post-id={{ post.id }} ><img alt="!" src="{{ asset('build/images/forum/edit.png') }}"><div class="tooltip forum-tooltip">{{'Bearbeiten'|trans({}, 'global')}}</div></a> ]
-                                {% endif %}
                             {% endif %}
                             {% if not post.translate %}
                                 [ <a class="action-button" id="report_post" x-forum-action="report-post" x-post-id={{ post.id }} x-to-page={{ current_page }}><img alt="!" src="{{ asset('build/images/forum/warning.png') }}"><div class="tooltip forum-tooltip">{{'Unangemessene Nachricht blockieren'|trans({}, 'global')}}</div></a> ]
