@@ -16,7 +16,7 @@
     {% endif %}
     
     {% if rucksack is defined %}
-        <ul class="rucksack">
+        <ul class="rucksack {% if rucksack_size > 10 %}expanded{% endif %}">
             <li class="text">{{'Rucksack'|trans({}, 'game')}}</li>
             {% for item in rucksack.items %}
                 {% embed "ajax/game/item.html.twig" with {'item': item, 'no_id': true} %}{% endembed %}
@@ -26,11 +26,9 @@
                     <li class="free"></li>
                 {% endfor %}
             {% endif %}
-            {% if rucksack_size > 7 %}
-                <li class="more">
-                    <img src="{{ asset("build/images/icons/small_more2.gif") }}" alt="+" />
-                </li>
-            {% endif %}
+            <li class="more">
+                <img src="{{ asset("build/images/icons/small_more2.gif") }}" alt="+" />
+            </li>
         </ul>
     {% endif %}
 

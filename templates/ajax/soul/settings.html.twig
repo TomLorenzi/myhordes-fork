@@ -179,7 +179,7 @@
                     <label for="app_ext">{% trans from 'soul' %}Externe ID für Apps{% endtrans %}</label> <a class="help-button"><div class="tooltip help">{{ 'Diese ID übergibst du der Seite oder dem Programm, dem du einen (Lese-)Zugriff auf deine Spieldaten in "MyHordes" geben möchtest. Das sind Informationen zu deiner Stadt, dem Bürgerverzeichnis, der Weltkarte etc.'|trans({},'global') }}</div>{{ 'Hilfe'|trans({},'global') }}</a>
                 </div>
                 <div class="cell padded rw-4 rw-sm-12">
-                    <input id="app_ext" type="text" disabled value="{% if app.user.externalId != '' %}{{ app.user.externalId }}{% else %}not set{% endif %}" />
+                    <input id="app_ext" type="text" readonly value="{% if app.user.externalId != '' %}{{ app.user.externalId }}{% else %}not set{% endif %}" />
                 </div>
                 <div class="cell padded rw-4 rw-sm-12">
                     <button id="generate-external-id">{{ 'Neue ID generieren'|trans({}, 'soul') }}</button>

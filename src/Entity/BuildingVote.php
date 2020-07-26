@@ -23,7 +23,7 @@ class BuildingVote
     private $building;
 
     /**
-     * @ORM\OneToOne(targetEntity=Citizen::class, inversedBy="buildingVote", cascade={"persist", "remove"})
+     * @ORM\OneToOne(targetEntity=Citizen::class, inversedBy="buildingVote", cascade={"persist"})
      * @ORM\JoinColumn(nullable=false)
      */
     private $citizen;

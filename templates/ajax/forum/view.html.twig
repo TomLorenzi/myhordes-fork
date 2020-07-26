@@ -123,9 +123,8 @@
                             </ul>
                         </div>
                     </div>
-                    <div id="forum-editor">
-
-                    </div>
+                    <div id="forum-editor"></div>
+                    <div id="forum-editor-anchor"></div>
 
                 </div>
             </div>
@@ -137,6 +136,17 @@
     {{ parent() }}
     <script>
 
+        function get_forum_editor() {
+            let editor = document.getElementById('forum-editor');
+            if (!editor) {
+                editor = document.createElement('div');
+                editor.setAttribute('id', 'forum-editor');
+                let anchor = document.getElementById('forum-editor-anchor');
+                anchor.parentNode.insertBefore(editor, anchor);
+            }
+            return editor;
+        }
+
         {% if not is_granted("ROLE_BANNED") %}
             let new_post_btns = document.querySelectorAll('[x-forum-action=new]');
             for (let i = 0; i < new_post_btns.length; i++)
@@ -144,7 +154,7 @@
                     for (let j = 0; j < thread_buttons.length; j++) thread_buttons[j].classList.remove('selected');
                     let viewer = document.getElementById('forum-content');
                     {let c; while ((c = viewer.firstChild)) viewer.removeChild(c);}
-                    $.ajax.no_history().load( document.getElementById('forum-editor'), '{{ url('forum_thread_editor_controller', {id: forum.id}) }}', false )
+                    $.ajax.no_history().load( get_forum_editor(), '{{ url('forum_thread_editor_controller', {id: forum.id}) }}', false )
                 })            
         {% endif %}
 
@@ -153,7 +163,7 @@
             thread_buttons[i].addEventListener('click', function () {
                 for (let j = 0; j < thread_buttons.length; j++) thread_buttons[j].classList.remove('selected');
                 this.classList.add('selected');
-                let editor = document.getElementById('forum-editor');
+                let editor = get_forum_editor();
                 {
                     let c;
                     while ((c = editor.firstChild)) editor.removeChild(c);
@@ -165,7 +175,7 @@
                     this.setAttribute('x-post-source-next','');
                 }
 
-                $.ajax.no_history().load(document.getElementById('forum-content'), load_url, false)
+                $.ajax.no_history().load(document.getElementById('forum-content'), load_url, false, {}, get_forum_editor)
                 $.ajax.push_history(this.getAttribute('x-public-route'));
             });
             thread_buttons[i].addEventListener('mousedown', function (e) {

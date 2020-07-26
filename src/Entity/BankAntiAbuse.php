@@ -19,7 +19,7 @@ class BankAntiAbuse
     private $id;
 
     /**
-     * @ORM\OneToOne(targetEntity="App\Entity\Citizen", inversedBy="bankAntiAbuse", orphanRemoval=true)
+     * @ORM\OneToOne(targetEntity="App\Entity\Citizen", inversedBy="bankAntiAbuse")
      * @ORM\JoinColumn(nullable=false)
      */
     private $citizen;

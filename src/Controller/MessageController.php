@@ -356,9 +356,11 @@ class MessageController extends AbstractController
         else return false;
     }
 
-    private function preparePost(User $user, ?Forum $forum, $post, int &$tx_len, ?Town $town = null): bool {
+    private function preparePost(User $user, ?Forum $forum, $post, int &$tx_len, ?Town $town = null, ?bool &$editable = null): bool {
         if (!$town && $forum && $forum->getTown())
             $town = $forum->getTown();
+
+        $editable = true;
 
         $dom = new DOMDocument();
         libxml_use_internal_errors(true);
@@ -373,25 +375,26 @@ class MessageController extends AbstractController
             'citizen' => [],
         ];
         $handlers = [
-            '//div[@class=\'dice-4\']'   => function (DOMNode $d) { $d->nodeValue = mt_rand(1,4); },
-            '//div[@class=\'dice-6\']'   => function (DOMNode $d) { $d->nodeValue = mt_rand(1,6); },
-            '//div[@class=\'dice-8\']'   => function (DOMNode $d) { $d->nodeValue = mt_rand(1,8); },
-            '//div[@class=\'dice-10\']'  => function (DOMNode $d) { $d->nodeValue = mt_rand(1,10); },
-            '//div[@class=\'dice-12\']'  => function (DOMNode $d) { $d->nodeValue = mt_rand(1,12); },
-            '//div[@class=\'dice-20\']'  => function (DOMNode $d) { $d->nodeValue = mt_rand(1,20); },
-            '//div[@class=\'dice-100\']' => function (DOMNode $d) { $d->nodeValue = mt_rand(1,100); },
-            '//div[@class=\'letter-a\']' => function (DOMNode $d) { $l = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'; $d->nodeValue = $l[mt_rand(0,strlen($l)-1)]; },
-            '//div[@class=\'letter-c\']' => function (DOMNode $d) { $l = 'BCDFGHJKLMNPQRSTVWXZ'; $d->nodeValue = $l[mt_rand(0,strlen($l)-1)]; },
-            '//div[@class=\'letter-v\']' => function (DOMNode $d) { $l = 'AEIOUY'; $d->nodeValue = $l[mt_rand(0,strlen($l)-1)]; },
-            '//div[@class=\'rps\']'      => function (DOMNode $d) { $d->nodeValue = $this->rand->pick([$this->trans->trans('Schere',[],'global'),$this->trans->trans('Stein',[],'global'),$this->trans->trans('Papier',[],'global')]); },
-            '//div[@class=\'coin\']'     => function (DOMNode $d) { $d->nodeValue = $this->rand->pick([$this->trans->trans('Kopf',[],'global'),$this->trans->trans('Zahl',[],'global')]); },
-            '//div[@class=\'card\']'     => function (DOMNode $d) {
+            '//div[@class=\'dice-4\']'   => function (DOMNode $d) use(&$editable) { $editable = false; $d->nodeValue = mt_rand(1,4); },
+            '//div[@class=\'dice-6\']'   => function (DOMNode $d) use(&$editable) { $editable = false; $d->nodeValue = mt_rand(1,6); },
+            '//div[@class=\'dice-8\']'   => function (DOMNode $d) use(&$editable) { $editable = false; $d->nodeValue = mt_rand(1,8); },
+            '//div[@class=\'dice-10\']'  => function (DOMNode $d) use(&$editable) { $editable = false; $d->nodeValue = mt_rand(1,10); },
+            '//div[@class=\'dice-12\']'  => function (DOMNode $d) use(&$editable) { $editable = false; $d->nodeValue = mt_rand(1,12); },
+            '//div[@class=\'dice-20\']'  => function (DOMNode $d) use(&$editable) { $editable = false; $d->nodeValue = mt_rand(1,20); },
+            '//div[@class=\'dice-100\']' => function (DOMNode $d) use(&$editable) { $editable = false; $d->nodeValue = mt_rand(1,100); },
+            '//div[@class=\'letter-a\']' => function (DOMNode $d) use(&$editable) { $editable = false; $l = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'; $d->nodeValue = $l[mt_rand(0,strlen($l)-1)]; },
+            '//div[@class=\'letter-c\']' => function (DOMNode $d) use(&$editable) { $editable = false; $l = 'BCDFGHJKLMNPQRSTVWXZ'; $d->nodeValue = $l[mt_rand(0,strlen($l)-1)]; },
+            '//div[@class=\'letter-v\']' => function (DOMNode $d) use(&$editable) { $editable = false; $l = 'AEIOUY'; $d->nodeValue = $l[mt_rand(0,strlen($l)-1)]; },
+            '//div[@class=\'rps\']'      => function (DOMNode $d) use(&$editable) { $editable = false; $d->nodeValue = $this->rand->pick([$this->trans->trans('Schere',[],'global'),$this->trans->trans('Stein',[],'global'),$this->trans->trans('Papier',[],'global')]); },
+            '//div[@class=\'coin\']'     => function (DOMNode $d) use(&$editable) { $editable = false; $d->nodeValue = $this->rand->pick([$this->trans->trans('Kopf',[],'global'),$this->trans->trans('Zahl',[],'global')]); },
+            '//div[@class=\'card\']'     => function (DOMNode $d) use(&$editable) { $editable = false;
                 $s_color = $this->rand->pick([$this->trans->trans('Kreuz',[],'items'),$this->trans->trans('Pik',[],'items'),$this->trans->trans('Herz',[],'items'),$this->trans->trans('Karo',[],'items')]);
                 $value = mt_rand(1,12);
                 $s_value = $value < 9 ? ('' . ($value+2)) : [$this->trans->trans('Bube',[],'items'),$this->trans->trans('Dame',[],'items'),$this->trans->trans('König',[],'items'),$this->trans->trans('Ass',[],'items')][$value-9];
                 $d->nodeValue = $this->trans->trans('{color} {value}', ['{color}' => $s_color, '{value}' => $s_value], 'global');
             },
-            '//div[@class=\'citizen\']'   => function (DOMNode $d) use ($user,$town,&$cache) {
+            '//div[@class=\'citizen\']'   => function (DOMNode $d) use ($user,$town,&$cache,&$editable) {
+                $editable = false;
                 $profession = $d->attributes->getNamedItem('x-a') ? $d->attributes->getNamedItem('x-a')->nodeValue : null;
                 if ($profession === 'any') $profession = null;
                 $group      = is_numeric($d->attributes->getNamedItem('x-b')->nodeValue) ? (int)$d->attributes->getNamedItem('x-b')->nodeValue : null;
@@ -558,7 +561,6 @@ class MessageController extends AbstractController
             return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
 
-
         $title = $parser->trimmed('title');
         $text  = $parser->trimmed('text');
 
@@ -570,7 +572,6 @@ class MessageController extends AbstractController
         }
 
         if (mb_strlen($title) < 3 || mb_strlen($title) > 64)   return AjaxResponse::error( self::ErrorPostTitleLength );
-
 
         if ($type === "CROW") {
             $thread = $admh->crowPost($user->getId(), $forum, null, $text, $title);
@@ -591,12 +592,16 @@ class MessageController extends AbstractController
         ->setOwner( $user )
         ->setText( $text )
         ->setDate( new DateTime('now') )
-        ->setType($type);
+        ->setType($type)
+        ->setEditingMode( Post::EditorPerpetual );
 
         $tx_len = 0;
-        if (!$this->preparePost($user,$forum,$post,$tx_len))
+        if (!$this->preparePost($user,$forum,$post,$tx_len, null, $edit))
             return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
         if ($tx_len < 2) return AjaxResponse::error( self::ErrorPostTextLength );
+
+        if (!$edit) $post->setEditingMode( Post::EditorLocked );
+
         $thread->addPost($post)->setLastPost( $post->getDate() );
         $forum->addThread($thread);
 
@@ -642,11 +647,12 @@ class MessageController extends AbstractController
             }
         }
 
+        $mod_post = false;
         $forums = $em->getRepository(Forum::class)->findForumsForUser($user, $fid);
         if (count($forums) !== 1){
             if (!($user->getRightsElevation() >= User::ROLE_CROW && $thread->hasReportedPosts())){
                 return AjaxResponse::error( self::ErrorForumNotFound );
-            }      
+            } else $mod_post = true;
         } 
 
         /** @var Forum $forum */
@@ -666,7 +672,10 @@ class MessageController extends AbstractController
 
         if ($type === "CROW"){
             if ($admh->crowPost($user->getId(), $forum, $thread, $text, null))
-                return AjaxResponse::success( true, ['url' => $this->generateUrl('forum_thread_view', ['fid' => $fid, 'tid' => $tid])] );
+                return AjaxResponse::success( true, ['url' => $mod_post
+                    ? $this->generateUrl('admin_reports')
+                    : $this->generateUrl('forum_thread_view', ['fid' => $fid, 'tid' => $tid])
+                ] );
             else return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
         }
         if ($type !== "DEV") {
@@ -677,13 +686,16 @@ class MessageController extends AbstractController
             ->setOwner( $user )
             ->setText( $text )
             ->setDate( new DateTime('now') )
-            ->setType($type);
+            ->setType($type)
+            ->setEditingMode( $type !== "USER" ? Post::EditorPerpetual : Post::EditorTimed );
 
         $tx_len = 0;
-        if (!$this->preparePost($user,$forum,$post,$tx_len))
+        if (!$this->preparePost($user,$forum,$post,$tx_len, null, $edit))
             return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
 
         if ($tx_len < 2) return AjaxResponse::error( self::ErrorPostTextLength );
+
+        if (!$edit) $post->setEditingMode(Post::EditorLocked);
 
         $thread->addPost($post)->setLastPost( $post->getDate() );
         if ($forum->getTown()) {
@@ -692,18 +704,85 @@ class MessageController extends AbstractController
                     // Give picto if the post is in the town forum
                     $ph->give_picto($citizen, 'r_forum_#00');
                 }
-            }
-
-            try {
-                $em->persist($thread);
-                $em->persist($forum);
-                $em->flush();
-            } catch (Exception $e) {
-                return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
-            }
-
-            return AjaxResponse::success( true, ['url' => $this->generateUrl('forum_thread_view', ['fid' => $fid, 'tid' => $tid])] );
         }
+
+        try {
+            $em->persist($thread);
+            $em->persist($forum);
+            $em->flush();
+        } catch (Exception $e) {
+            return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
+        }
+
+        return AjaxResponse::success( true, ['url' => $mod_post
+            ? $this->generateUrl('admin_reports')
+            : $this->generateUrl('forum_thread_view', ['fid' => $fid, 'tid' => $tid])
+        ] );
+    }
+
+    /**
+     * @Route("api/forum/{fid<\d+>}/{tid<\d+>}/{pid<\d+>}/edit", name="forum_edit_post_controller")
+     * @param int $fid
+     * @param int $tid
+     * @param int $pid
+     * @param JSONRequestParser $parser
+     * @param EntityManagerInterface $em
+     * @param AdminActionHandler $admh
+     * @param PictoHandler $ph
+     * @return Response
+     */
+    public function edit_post_api(int $fid, int $tid, int $pid, JSONRequestParser $parser, EntityManagerInterface $em, AdminActionHandler $admh, PictoHandler $ph): Response {
+        $user = $this->getUser();
+        if ($user->getIsBanned()) return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
+
+        $post = $em->getRepository(Post::class)->find($pid);
+        if (!$post) return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
+
+
+        if ((
+            ($post->getOwner() !== $user) &&
+            !($post->getOwner()->getId() === 66 || $this->isGranted("ROLE_CROW")))
+
+            || !$post->isEditable())
+            return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
+
+        $thread = $em->getRepository(Thread::class)->find( $tid );
+        if (!$thread || $thread->getForum()->getId() !== $fid || $post->getThread() !== $thread)
+            return AjaxResponse::error( self::ErrorForumNotFound );
+
+        if ($thread->getLocked())
+            return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
+
+        /** @var Forum $forum */
+        $forum = $thread->getForum();
+
+        if (!$parser->has_all(['text'], true))
+            return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+        $text = $parser->get('text');
+
+        $post
+            ->setText( $text )
+            ->setEdited( new DateTime() );
+
+        $tx_len = 0;
+        if (!$this->preparePost($user,$forum,$post,$tx_len, null, $edit))
+            return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
+
+        if ($tx_len < 2) return AjaxResponse::error( self::ErrorPostTextLength );
+
+        if (!$edit) $post->setEditingMode(Post::EditorLocked);
+
+        try {
+            $em->persist($post);
+            $em->flush();
+        } catch (Exception $e) {
+            return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
+        }
+
+        return AjaxResponse::success( true, ['url' => $this->generateUrl('forum_jump_view', ['pid' => $pid])] );
+    }
+
 
     /**
      * @Route("api/forum/{sem<\d+>}/{fid<\d+>}/preview", name="forum_previewer_controller")
@@ -813,6 +892,7 @@ class MessageController extends AbstractController
         foreach ($posts as &$post) $post->setText( $this->prepareEmotes( $post->getText() ) );
         return $this->render( 'ajax/forum/posts.html.twig', [
             'posts' => $posts,
+            'owned' => $thread->getOwner() === $user,
             'locked' => $thread->getLocked(),
             'pinned' => $thread->getPinned(),
             'fid' => $fid,
@@ -851,9 +931,10 @@ class MessageController extends AbstractController
      * @param int $fid
      * @param int $tid
      * @param EntityManagerInterface $em
+     * @param JSONRequestParser $parser
      * @return Response
      */
-    public function editor_post_api(int $fid, int $tid, EntityManagerInterface $em): Response {
+    public function editor_post_api(int $fid, int $tid, EntityManagerInterface $em, JSONRequestParser $parser): Response {
         $user = $this->getUser();
 
         $thread = $em->getRepository( Thread::class )->find( $tid );
@@ -866,13 +947,21 @@ class MessageController extends AbstractController
             }      
         }
 
+        $pid = $parser->get('pid', null);
+        if ($pid !== null) {
+            $post = $em->getRepository(Post::class)->find((int)$pid);
+            if (!$post || !$post->isEditable() || $post->getThread() !== $thread || (
+                ($post->getOwner() !== $user && !($this->isGranted("ROLE_CROW") && $post->getOwner()->getId() === 66))
+            )) return new Response('');
+        }
+
         return $this->render( 'ajax/forum/editor.html.twig', [
             'fid' => $fid,
             'tid' => $tid,
-            'pid' => null,
+            'pid' => $pid,
             'emotes' => $this->getEmotesByUser($this->getUser(),true),
             'forum' => true,
-            'town_controls' => $forums[0]->getTown() !== null,
+            'town_controls' => isset($forums[0]) ? $forums[0]->getTown() !== null : null,
         ] );
     }
 
@@ -881,14 +970,29 @@ class MessageController extends AbstractController
      * @param int $fid
      * @param int $tid
      * @param string $mod
+     * @param JSONRequestParser $parser
      * @param AdminActionHandler $admh
      * @return Response
      */
     public function lock_thread_api(int $fid, int $tid, string $mod, JSONRequestParser $parser, AdminActionHandler $admh): Response {
         $success = false;
         $uid = $this->getUser()->getId();
+
         switch ($mod) {
-            case 'lock':   $success = $admh->lockThread($uid, $fid, $tid); break;
+            case 'lock':
+                $thread = $this->entityManager->getRepository(Thread::class)->find($tid);
+                if ($thread && $thread->getOwner() === $this->getUser()) {
+                    $thread->setLocked(true);
+                    try {
+                        $this->entityManager->persist($thread);
+                        $this->entityManager->flush();
+                        $success = true;
+                    } catch (Exception $e) {
+                        $success = false;
+                    }
+                }
+                else $success = $admh->lockThread($uid, $fid, $tid); break;
+
             case 'unlock': $success = $admh->unlockThread($uid, $fid, $tid); break;
             case 'pin':    $success = $admh->pinThread($uid, $fid, $tid); break;
             case 'unpin':  $success = $admh->unpinThread($uid, $fid, $tid); break;

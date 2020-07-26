@@ -8,52 +8,7 @@
                     <button class='inline' x-ajax-href="{{path('soul_visit', {id: user.id})}}"><img src="{{asset('build/images/soul/small_back.gif')}}" alt ="" /> {{'Zurück'|trans({}, 'global')}}</button>
                 </div>
             </div>
-            <div class="view-town">
-                <h5>{{town.name}}</h5>
-                <div class="row-table citizens-list">
-                    <div class="row header">
-                        <div class="padded cell rw-2">{{'Überlebte Tage'|trans({}, 'soul')}}</div>
-                        <div class="padded cell rw-1">{{'Ergebnis'|trans({}, 'soul')}}</div>
-                        <div class="padded cell rw-2">{{'Bürger'|trans({}, 'soul')}}</div>
-                        <div class="padded cell rw-4">{{'Todesursache'|trans({}, 'soul')}}</div>
-                        <div class="padded cell rw-3">{{'Kommentar'|trans({}, 'soul')}}</div>
-                    </div>
-
-                    {% for citizen in town.citizens|filter(c => c.end is not null)|sort((a,b) => b.day <=> a.day) %}
-                        {# @var citizen \App\Entity\CitizenRankingProxy #}
-                        <div class="row">
-                            <div class="padded cell rw-2">{{citizen.day}}</div>
-                            <div class="padded cell rw-1 town-points bold">+{{citizen.points}}</div>
-                            <div class="padded cell rw-2">
-                                 {% if not last_user_standing is null and last_user_standing == citizen.user %}
-                                <span>
-                                    <img src="{{ asset('build/images/pictos/r_surlst.gif') }}" />
-                                    <div class="tooltip help">
-                                        {{'Der letzte Tote in dieser Stadt!'|trans({}, 'game')}}
-                                        <p>{{'Achtung!'|trans({}, 'ghost')}} <strong>{{'Der letzte Tote erhält nur dann eine Belohnung, wenn er 5 volle Tage überlebt hat.'|trans({}, 'game')}}</strong></p>
-                                    </div>
-                                </span>
-                                {% endif %}
-                                <span class="link" x-ajax-href="{{ path('soul_visit', {id: citizen.user.id}) }}">{{citizen.user.username}}</span>
-                            </div>
-                            <div class="padded cell rw-4">
-                                {{citizen.cod.label|trans({}, 'game')}}
-                                {% if not citizen.lastWords is empty %}
-                                    <img alt="" src="{{asset('build/images/log/chat.gif')}}" />
-                                {% endif %}
-                                <div class="tooltip">
-                                    {% if citizen.lastWords is empty %}
-                                        <span>{{ 'Dieser Bürger hat keine letzten Worte hinterlassen ...'|trans({}, 'game') }}</span>
-                                    {% else %}
-                                        <b>{{"Letzte Worte:"|trans({}, 'game')}}</b> {{ citizen.lastWords }}
-                                    {% endif %}
-                                </div>
-                            </div>
-                            <div class="padded cell rw-3 comment">{{citizen.comment}}</div>
-                        </div>
-                    {% endfor %}
-                </div>
-            </div>
+            {% include 'ajax/soul/view_town_content.html.twig' %}
         </div>
     </div>
 {% endblock %}

@@ -484,7 +484,7 @@
       </notes>
       <segment>
         <source>Dieser Spieler hat bisher noch keine Preise gewonnen...</source>
-        <target>This player didn't win any distinctions yet...</target>
+        <target>This player didn't win any Distinctions yet...</target>
       </segment>
     </unit>
     <unit id="ZyZ8Dxn" name="Seelenpunktzahl">
@@ -1276,7 +1276,7 @@
       </notes>
       <segment>
         <source>Wenn du nichts zur Hand hast, um deine Erschöpfung zu lindern, dann bitte im Forum um Hilfe...</source>
-        <target>Wenn du nichts zur Hand hast, um deine Erschöpfung zu lindern, dann bitte im Forum um Hilfe...</target>
+        <target>If you can't do anything to recover from your tiredness, you can always call for help on the forum...</target>
       </segment>
     </unit>
     <unit id="QuMXv7I" name="a023548">
@@ -1303,7 +1303,7 @@
       </notes>
       <segment>
         <source>Unangemessene Nachricht blockieren</source>
-        <target>Unangemessene Nachricht blockieren</target>
+        <target>Block an inappropriate Message</target>
       </segment>
     </unit>
     <unit id="pqMtvFY" name="Link">
@@ -1528,7 +1528,7 @@
       </notes>
       <segment>
         <source>Spamschutz: Du musst eine Weile warten, bis du wieder schreiben kannst.</source>
-        <target>Spam protection : You have to wait a while before you can write again.</target>
+        <target>Spam protection: You have to wait a while before you can write again.</target>
       </segment>
     </unit>
   </file>

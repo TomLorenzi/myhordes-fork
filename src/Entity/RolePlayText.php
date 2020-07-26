@@ -60,6 +60,11 @@ class RolePlayText
      */
     private $design;
 
+    /**
+     * @ORM\Column(type="boolean", nullable=true)
+     */
+    private $unlockable;
+
     public function __construct(){
         $this->pages = new ArrayCollection();
     }
@@ -168,6 +173,18 @@ class RolePlayText
     public function setDesign(string $design): self
     {
         $this->design = $design;
+
+        return $this;
+    }
+
+    public function getUnlockable(): ?bool
+    {
+        return $this->unlockable;
+    }
+
+    public function setUnlockable(?bool $unlockable): self
+    {
+        $this->unlockable = $unlockable;
 
         return $this;
     }

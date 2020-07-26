@@ -2,6 +2,7 @@
 
 namespace App\Repository;
 
+use App\Entity\FoundRolePlayText;
 use App\Entity\RolePlayText;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Common\Persistence\ManagerRegistry;
@@ -34,18 +35,39 @@ class RolePlayTextRepository extends ServiceEntityRepository
     }
 
     /**
-     * @param string $lang
+     * @param string|null $lang
+     * @param bool $include_non_unlockable
      * @return RolePlayText[] Returns an array of RolePlayText objects
      */
-    public function findAllByLang(string $lang)
+    public function findAllByLang(?string $lang, bool $include_non_unlockable = false)
     {
-        return $this->createQueryBuilder('r')
-            ->andWhere('r.language = :val')
-            ->setParameter('val', $lang)
-            ->orderBy('r.id', 'ASC')
-            ->getQuery()
-            ->getResult()
-        ;
+        return $this->findAllByLangExcept($lang, [], $include_non_unlockable);
+    }
+
+    /**
+     * @param string|null $lang
+     * @param RolePlayText[]|FoundRolePlayText[]|string $except
+     * @param bool $include_non_unlockable
+     * @return RolePlayText[] Returns an array of RolePlayText objects
+     */
+    public function findAllByLangExcept(?string $lang, array $except, bool $include_non_unlockable = false)
+    {
+        $id_list = $name_list = [];
+        foreach ($except as $entry) {
+            if (is_a($entry, RolePlayText::class)) $id_list[] = $entry->getId() ?? 0;
+            if (is_a($entry, FoundRolePlayText::class)) $id_list[] = $entry->getText()->getId() ?? 0;
+            if (is_string( $entry )) $name_list[] = $entry;
+        }
+
+        $qb = $this->createQueryBuilder('r')->orderBy('r.id', 'ASC');
+
+        if (!empty($id_list)) $qb->andWhere('r.id NOT IN (:black1)')->setParameter('black1', $id_list);
+        if (!empty($name_list)) $qb->andWhere('r.name NOT IN (:black2)')->setParameter('black2', $name_list);
+
+        if ($lang !== null) $qb->andWhere('r.language = :val')->setParameter('val', $lang);
+        if (!$include_non_unlockable) $qb->andWhere('r.unlockable = :unlockable')->setParameter('unlockable', true);
+
+        return $qb->getQuery()->getResult();
     }
 
     // /**

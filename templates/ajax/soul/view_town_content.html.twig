@@ -1,0 +1,86 @@
+{# @var town \App\Entity\TownRankingProxy #}
+<div class="view-town">
+    <h5>
+        {% if town.language is not null %}
+            <img src="{{ asset("build/images/lang/" ~ town.language ~".png") }}" alt="{{ town.language }}" />
+        {% endif %}
+        {{town.name}}
+    </h5>
+    {% if town.imported %}
+        <div class="row">
+            <div class="cell rw-12 padded">
+                <div class="green-note">
+                    <img width="auto" height="16px" alt="" src="{{ asset('build/images/badges/twinoid.png') }}">
+                    {% if town.language == 'de' %}{% set host = '<b>Die Verdammten</b>' %}
+                    {% elseif town.language == 'en' %}{% set host = '<b>Die2Nite</b>' %}
+                    {% elseif town.language == 'fr' %}{% set host = '<b>Hordes</b>' %}
+                    {% elseif town.language == 'es' %}{% set host = '<b>Zombinoia</b>' %}
+                    {% else %}{% set host = '<b>Twinoid</b>' %}
+                    {% endif %}
+                    {{ 'Diese Stadt wurde von %host% importiert. Die angezeigten Informationen sind möglicherweise unvollständig.'|trans({'%host%': host},'soul')|raw }}
+                </div>
+            </div>
+        </div>
+
+    {% endif %}
+    <div class="row-table citizens-list">
+        <div class="row header">
+            <div class="padded cell rw-1 rw-lg-2 rw-md-3 rw-sm-4">{{'Tage'|trans({}, 'soul')}}</div>
+            <div class="padded cell rw-1 rw-lg-2 rw-md-3 rw-sm-4">{{'Ergebnis'|trans({}, 'soul')}}</div>
+            <div class="padded cell rw-2 rw-md-3 rw-sm-4">{{'Bürger'|trans({}, 'soul')}}</div>
+            <div class="padded cell rw-4 rw-lg-3 hide-sm">{{'Todesursache'|trans({}, 'soul')}}</div>
+            <div class="padded cell rw-4 rw-lg-3 hide-md hide-sm">{{'Kommentar'|trans({}, 'soul')}}</div>
+        </div>
+        {% for citizen in town.citizens|filter(c => c.end is not null or c.confirmed == true)|sort((a,b) => b.day <=> a.day) %}
+            {% set days = citizen.day %}
+            {% set sp = days * ( days + 1 ) / 2 %}
+        <div class="row">
+            <div class="padded cell rw-1 rw-lg-2 rw-md-3 rw-sm-4">{{citizen.day}}</div>
+            <div class="padded cell rw-1 rw-lg-2 rw-md-3 rw-sm-4 town-points bold">+{{sp}}</div>
+            <div class="padded cell rw-2 rw-md-3 rw-sm-4">
+                {% if not last_user_standing is null and last_user_standing == citizen.user %}
+                <span>
+                    <img src="{{ asset('build/images/pictos/r_surlst.gif') }}" />
+                    <div class="tooltip help">
+                        {{'Der letzte Tote in dieser Stadt!'|trans({}, 'game')}}
+                        <p>{{'Achtung!'|trans({}, 'ghost')}} <strong>{{'Der letzte Tote erhält nur dann eine Belohnung, wenn er 5 volle Tage überlebt hat.'|trans({}, 'game')}}</strong></p>
+                    </div>
+                </span>
+                {% endif %}
+                <span class="link" x-ajax-href="{{ path('soul_visit', {id: citizen.user.id}) }}">{{citizen.user.username}}</span>
+            </div>
+            <div class="padded cell rw-4 rw-lg-3 hide-sm ">
+                {% if citizen.cod is not null %}
+                    {{citizen.cod.label|trans({}, 'game')}}
+                {% else %}
+                    {{'Unbekannte Todesursache'|trans({}, 'game')}}
+                {% endif %}
+                {% if not citizen.lastWords is empty %}
+                <img src="{{asset('build/images/log/chat.gif')}}"  alt=""/>
+                {% endif %}
+                <div class="tooltip">
+                    {% if citizen.lastWords is empty %}
+                        <span>{{ 'Dieser Bürger hat keine letzten Worte hinterlassen ...'|trans({}, 'game') }}</span>
+                    {% else %}
+                        <b>{{"Letzte Worte:"|trans({}, 'game')}}</b> {{ citizen.lastWords }}
+                    {% endif %}
+                </div>
+            </div>
+            <div class="padded cell rw-4 rw-lg-3 rw-md-12 hide-sm hidden-empty comment">{{citizen.comment}}</div>
+            <div class="padded cell rw-12 hide-desktop hide-lg hide-md comment">
+                {% if citizen.cod is not null %}
+                    <i>{{citizen.cod.label|trans({}, 'game')}}</i>
+                {% else %}
+                    <i>{{'Unbekannte Todesursache'|trans({}, 'game')}}</i>
+                {% endif %}
+                {% if not citizen.lastWords is empty %}
+                    : <span class="small">"{{ citizen.lastWords }}"</span>
+                {% endif %}
+                {% if citizen.comment is not empty %}
+                    <br />{{citizen.comment}}
+                {% endif %}
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
