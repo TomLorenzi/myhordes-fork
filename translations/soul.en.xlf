@@ -652,7 +652,7 @@
       </notes>
       <segment>
         <source>Kartei schließen</source>
-        <target>Kartei schließen</target>
+        <target>Close this page</target>
       </segment>
     </unit>
     <unit id="XqSrbwp" name="Browser-Einstellungen">
@@ -1678,7 +1678,7 @@
       </notes>
       <segment>
         <source>Diese Stadt wurde von %host% importiert. Die angezeigten Informationen sind möglicherweise unvollständig.</source>
-        <target>Diese Stadt wurde von %host% importiert. Die angezeigten Informationen sind möglicherweise unvollständig.</target>
+        <target>This Town was imported from %host%. The information displayed may be incomplete.</target>
       </segment>
     </unit>
     <unit id="Z3DDGf9" name="Tage">
@@ -1687,7 +1687,25 @@
       </notes>
       <segment>
         <source>Tage</source>
-        <target>Tage</target>
+        <target>Days</target>
+      </segment>
+    </unit>
+    <unit id="stLn0.b" name="97e820f">
+      <notes>
+        <note category="german">Diese Stadt wurde von %host% importiert. Die angezeigten Informationen sind möglicherweise unvollständig.</note>
+      </notes>
+      <segment>
+        <source>Diese Stadt wurde von %host% importiert. Die angezeigten Informationen sind möglicherweise unvollständig.</source>
+        <target>This town has been imported from %host%. The information on this page may be incomplete.</target>
+      </segment>
+    </unit>
+    <unit id="Z3DDGf9" name="Tage">
+      <notes>
+        <note category="german">Tage</note>
+      </notes>
+      <segment>
+        <source>Tage</source>
+        <target>Days</target>
       </segment>
     </unit>
   </file>
