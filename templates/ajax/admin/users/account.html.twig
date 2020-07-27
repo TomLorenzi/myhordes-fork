@@ -82,7 +82,7 @@
                 </div>
                 <div class="cell padded rw-9 rw-sm-12">
                     {% if (user_handler.admin_canAdminister(app.user,user)) %}
-                        <select id="administer-user">
+                        <select id="administer-user" style="width: 30rem;">
                             <option value="">-</option>
                             <optgroup label="{{ 'Validierung'|trans({},'admin') }}">
                                 {% if is_granted("ROLE_ADMIN") %}
