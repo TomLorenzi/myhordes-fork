@@ -3370,7 +3370,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>%citizen% hat mit dem Gegenstand %item% %kills% Zombie(s) getötet.</source>
-        <target>%citizen% a tué %kills% zombie(s) avec %item%.</target>
+        <target>%citizen% has annihilated %kills% zombie(s) with their %item%.</target>
       </segment>
     </unit>
     <unit id="41pWf5b" name="%citizen% hat %kills% Zombies getötet.">
@@ -3379,7 +3379,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>%citizen% hat %kills% Zombies getötet.</source>
-        <target>%citizen% a tué %kills% zombies.</target>
+        <target>%citizen% has annihilated %kills% zombies.</target>
       </segment>
     </unit>
     <unit id="TxkwDJh" name="Leiche aus der Stadt ziehen">
@@ -6629,7 +6629,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Beim Durchsuchen der Ruine merkst du, dass es nichts mehr zu finden gibt. Leider...</source>
-        <target>Beim Durchsuchen der Ruine merkst du, dass es nichts mehr zu finden gibt. Leider...</target>
+        <target>After a sneaky scout around the building, you are sure there is nothing left to recover. Shame...</target>
       </segment>
     </unit>
     <unit id="X.DT38w" name="9c938c9">
@@ -7837,8 +7837,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       <segment>
         <source>Solange du einem anderen Bürger folgst, sind deine Handlungsmöglichkeiten eingeschränkt.
                     Du kannst weder die Karte benutzen, noch sonst eine Aktion durchführen, die im Freien möglich ist.</source>
-        <target>Solange du einem anderen Bürger folgst, sind deine Handlungsmöglichkeiten eingeschränkt.
-                    Du kannst weder die Karte benutzen, noch sonst eine Aktion durchführen, die im Freien möglich ist.</target>
+        <target>The map and all actions generally available when you are outside the town are deactivated when you are following another citizen.</target>
       </segment>
     </unit>
     <unit id="8c.i3q2" name="Zone reinigen">
