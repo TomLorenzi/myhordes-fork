@@ -79,7 +79,7 @@ class Post
     /**
      * @ORM\Column(type="integer")
      */
-    private $editingMode;
+    private $editingMode = 0;
 
     /**
      * @ORM\ManyToOne(targetEntity=User::class)
