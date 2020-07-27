@@ -1863,7 +1863,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Bestimmte Aktionen können deine Tarnung auffliegen lassen!</source>
-        <target>many actions, if carried out in this zone will make you lose your camouflage (only actions marked with the  icon can be used)!</target>
+        <target>Many actions, if carried out in this zone will make you lose your camouflage (only actions marked with the  icon can be used)!</target>
       </segment>
     </unit>
     <unit id="Zkh813p" name="c9643dc">
@@ -3685,7 +3685,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Jemand hat seine anonyme Anzeige gegen %citizen% zurückgezogen.</source>
-        <target>Someone withdrawed his complaint on %citizen%.</target>
+        <target>Someone withdrew their complaint on %citizen%.</target>
       </segment>
     </unit>
     <unit id="vv.mZRz" name="Wir haben noch nicht die Technologie, um den morgigen Angriff zu beurteilen.">
@@ -11449,7 +11449,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Von einem Moderator bearbeitet.</source>
-        <target>Edited by a moderator.</target>
+        <target>Edited by a Moderator.</target>
       </segment>
     </unit>
   </file>

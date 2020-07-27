@@ -1,544 +1,594 @@
 <?php
+    namespace App\Controller;
 
-namespace App\Controller;
+    use App\Entity\BuildingPrototype;
+    use App\Entity\Citizen;
+    use App\Entity\ExternalApp;
+    use App\Entity\ItemPrototype;
+    use App\Entity\Town;
+    use App\Entity\User;
+    use App\Entity\Zone;
+    use App\Entity\ZonePrototype;
+    use App\Service\ActionHandler;
+    use App\Service\CitizenHandler;
+    use App\Service\ConfMaster;
+    use App\Service\CrowService;
+    use App\Service\DeathHandler;
+    use App\Service\GameFactory;
+    use App\Service\InventoryHandler;
+    use App\Service\ItemFactory;
+    use App\Service\LogTemplateHandler;
+    use App\Service\PictoHandler;
+    use App\Service\RandomGenerator;
+    use App\Service\TimeKeeperService;
+    use App\Service\UserHandler;
+    use App\Service\ZoneHandler;
+    use App\Translation\T;
+    use DateTime;
+    use DateTimeZone;
+    use Doctrine\ORM\EntityManagerInterface;
+    use Exception;
+    use SimpleXMLElement;
+    use Symfony\Component\HttpFoundation\Response;
+    use Symfony\Component\Routing\Annotation\Route;
+    use Symfony\Contracts\Translation\TranslatorInterface;
+    use Symfony\Component\HttpFoundation\Request;
 
-use App\Entity\BuildingPrototype;
-use App\Entity\Citizen;
-use App\Entity\ExternalApp;
-use App\Entity\ItemPrototype;
-use App\Entity\Town;
-use App\Entity\User;
-use App\Entity\Zone;
-use App\Entity\ZonePrototype;
-use App\Service\ActionHandler;
-use App\Service\CitizenHandler;
-use App\Service\ConfMaster;
-use App\Service\CrowService;
-use App\Service\DeathHandler;
-use App\Service\GameFactory;
-use App\Service\InventoryHandler;
-use App\Service\ItemFactory;
-use App\Service\LogTemplateHandler;
-use App\Service\PictoHandler;
-use App\Service\RandomGenerator;
-use App\Service\TimeKeeperService;
-use App\Service\UserHandler;
-use App\Service\ZoneHandler;
-use App\Translation\T;
-use DateTime;
-use DateTimeZone;
-use Doctrine\ORM\EntityManagerInterface;
-use Exception;
-use SimpleXMLElement;
-use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Contracts\Translation\TranslatorInterface;
-use Symfony\Component\HttpFoundation\Request;
+    class ExternalController extends InventoryAwareController {
+        protected $game_factory;
+        protected $zone_handler;
+        protected $item_factory;
+        protected $death_handler;
+        protected $entity_manager;
 
-class ExternalController extends InventoryAwareController
-{
-    protected $game_factory;
-    protected $zone_handler;
-    protected $item_factory;
-    protected $death_handler;
-    protected $entity_manager;
+        /**
+         * BeyondController constructor.
+         * @param EntityManagerInterface $em
+         * @param InventoryHandler $ih
+         * @param CitizenHandler $ch
+         * @param ActionHandler $ah
+         * @param TimeKeeperService $tk
+         * @param DeathHandler $dh
+         * @param TranslatorInterface $translator
+         * @param GameFactory $gf
+         * @param RandomGenerator $rg
+         * @param ItemFactory $if
+         * @param ZoneHandler $zh
+         * @param LogTemplateHandler $lh
+         */
 
-    /**
-     * BeyondController constructor.
-     * @param EntityManagerInterface $em
-     * @param InventoryHandler $ih
-     * @param CitizenHandler $ch
-     * @param ActionHandler $ah
-     * @param TimeKeeperService $tk
-     * @param DeathHandler $dh
-     * @param TranslatorInterface $translator
-     * @param GameFactory $gf
-     * @param RandomGenerator $rg
-     * @param ItemFactory $if
-     * @param ZoneHandler $zh
-     * @param LogTemplateHandler $lh
-     */
-    public function __construct(
-        EntityManagerInterface $em, InventoryHandler $ih, CitizenHandler $ch, ActionHandler $ah, TimeKeeperService $tk, DeathHandler $dh, PictoHandler $ph,
-        TranslatorInterface $translator, GameFactory $gf, RandomGenerator $rg, ItemFactory $if, LogTemplateHandler $lh, ConfMaster $conf, ZoneHandler $zh, UserHandler $uh, CrowService $armbrust)
-    {
-        parent::__construct($em, $ih, $ch, $ah, $dh, $ph, $translator, $lh, $tk, $rg, $conf, $zh, $uh, $armbrust);
-        $this->game_factory = $gf;
-        $this->item_factory = $if;
-        $this->zone_handler = $zh;
-        $this->entity_manager = $em;
-    }
-
-    /**
-     * @var Request
-     */
-    private $request;
-
-    /**
-     * @Route("/jx/disclaimer/{id}", name="disclaimer", condition="request.isXmlHttpRequest()")
-     * @return Response
-     */
-    public function disclaimer(Request $request, int $id): Response {
-        $app = $this->entity_manager->getRepository(ExternalApp::class)->find($id);
-        if (!$app || $app->getTesting())
-            return $this->redirect($this->generateUrl( 'initial_landing' ));
-
-        /** @var User $user */
-        $user = $this->getUser();
-        $key = $user->getExternalId();
-
-        return $this->render( 'ajax/public/disclaimer.html.twig', [
-            'ex' => $app,
-            'key' => $key
-        ] );
-    }
-
-    /**
-     * @Route("/api/x/json/{type}", name="api_x_json", defaults={"_format"="json"}, methods={"POST"})
-     * @return Response
-     */
-    public function api_json($type = 'town'): Response
-    {
-        $request = Request::createFromGlobals();
-        $this->request = $request;
-
-        // Try POST data
-        $app_key = $request->request->get('appkey');
-        $user_key = $request->request->get('userkey');
-
-        // Symfony 5 has a bug on treating request data.
-        // If POST didn't work, access GET data.
-        if (trim($app_key) == '') {
-            $app_key = $request->query->get('appkey');
-        }
-        if (trim($user_key) == '') {
-            $user_key = $request->query->get('userkey');
+        public function __construct( EntityManagerInterface $em, InventoryHandler $ih, CitizenHandler $ch,
+                                     ActionHandler $ah, TimeKeeperService $tk, DeathHandler $dh,
+                                     PictoHandler $ph, TranslatorInterface $translator, GameFactory $gf,
+                                     RandomGenerator $rg, ItemFactory $if, LogTemplateHandler $lh,
+                                     ConfMaster $conf, ZoneHandler $zh, UserHandler $uh,
+                                     CrowService $armbrust ) {
+            parent::__construct($em, $ih, $ch, $ah, $dh, $ph, $translator, $lh, $tk, $rg, $conf, $zh, $uh, $armbrust);
+            $this->game_factory = $gf;
+            $this->item_factory = $if;
+            $this->zone_handler = $zh;
+            $this->entity_manager = $em;
         }
 
-        // If still no key, none was sent correctly.
-        if (trim($app_key) == '') {
-            return $this->json(['Error' => 'Access denied', 'ErrorCode' => '403', 'ErrorMessage' => 'No app key found in request.']);
-        }
-        if (trim($app_key) == '') {
-            return $this->json(['Error' => 'Access denied', 'ErrorCode' => '403', 'ErrorMessage' => 'No user key found in request.']);
-        }
+        /**
+         * @var Request
+         */
+        private $request;
 
-        // Get the app.
-        /** @var ExternalApp $app */
-        $app = $this->entity_manager->getRepository(ExternalApp::class)->findOneBy(['secret' => $app_key]);
-        if (!$app) {
-            return $this->json(['Error' => 'Access denied', 'ErrorCode' => '403', 'ErrorMessage' => 'Access not allowed for application.']);
-        }
+        /**
+         * @var SURLLobj
+         */
+        private $SURLLobj;
 
-        // Get the user.
-        /** @var User $user */
-        $user = $this->entity_manager->getRepository(User::class)->findOneBy(['externalId' => $user_key]);
-        if (!$user) {
-            return $this->json(['Error' => 'Access denied', 'ErrorCode' => '403', 'ErrorMessage' => 'Access not allowed by user.']);
-        }
+        /**
+         * @Route("/jx/disclaimer/{id}", name="disclaimer", condition="request.isXmlHttpRequest()")
+         * @return Response
+         */
+        public function disclaimer(Request $request, int $id): Response {
+            $app = $this->entity_manager->getRepository(ExternalApp::class)->find($id);
+            if(!$app||$app->getTesting())
+                return $this->redirect($this->generateUrl('initial_landing'));
+            /** @var User $user */
+            $user = $this->getUser();
+            $key = $user->getExternalId();
 
-        // All fine, let's populate the response.
-        switch ($type) {
-            case 'town':
-                if($user->getActiveCitizen()) {
-                    $data = $this->generateData($user);
-                } else {
-                    $data = [
-                        'Error' => "Access denied",
-                        'ErrorCode' => "403",
-                        'ErrorMessage' => "No incarnate user found."
-                    ];
-                }
-                break;
-
-            case 'items':
-                $data = $this->getItemsData();
-                break;
-
-            case 'constructions':
-                $data = $this->getConstructionsData();
-                break;
-
-            case 'ruins':
-                $data = $this->getRuinsData();
-                break;
-        }
-        return $this->json( $data );
-    }
-
-    private function generateData(User $user): array
-    {
-        try {
-            $now = new DateTime('now', new DateTimeZone('Europe/Paris'));
-        } catch (Exception $e) {
-            $now = date('Y-m-d H:i:s');
+            return $this->render('ajax/public/disclaimer.html.twig', [
+                'ex' => $app,
+                'key' => $key
+            ]);
         }
 
-        /** @var Citizen $citizen */
-        $citizen = $user->getActiveCitizen();
-        /** @var Town $town */
-        $town = $citizen->getTown();
-        /** @var Zone $citizen_zone */
-        $citizen_zone = $citizen->getZone();
-
-        $x_min = $x_max = $y_min = $y_max = 0;
-        foreach ( $town->getZones() as $zone ) {
-            /** @var Zone $zone */
-            $x_min = min($zone->getX(), $x_min);
-            $x_max = max($zone->getX(), $x_max);
-            $y_min = min($zone->getY(), $y_min);
-            $y_max = max($zone->getY(), $y_max);
+        /**
+         * @Route("/jx/docs", name="docs", condition="request.isXmlHttpRequest()")
+         * @return Response
+         */
+        public function documentation(Request $request): Response {
+            return $this->render('ajax/public/apidocs.html.twig', []);
         }
 
-        // Base data.
-        $data = [
-            'headers' => [
-                'link' => $this->request->getRequestUri(),
-                'iconurl' => '',
-                'avatarurl' => '',
-                'author' => 'MyHordes',
-                'language' => $town->getLanguage(),
-                'version' => '0.1',
-                'generator' => 'symfony',
-            ],
-            'game' => [
-                'days' => $town->getDay(),
-                'quarantine' => $town->getDevastated(),
-                'datetime' => $now->format('Y-m-d H:i:s'),
-                'id' => $town->getId(),
-            ],
-            'data' => [
-                    'attributes' => [
-                        'cache-date' => $now->format('Y-m-d H:i:s'),
-                        'cache-fast' => 0,
-                    ],
-                    'city' => [
-                        'attributes' => [
-                            'city' => $town->getName(),
-                            'door' => $town->getDoor(),
-                            'hard' => $town->getType()->getId() == 3 ? 1 : 0,
-                            'water' => $town->getWell(),
-                            'chaos' => $town->getChaos(),
-                            'devast' => $town->getDevastated(),
-                            'x' => 0,
-                            'y' => 0,
-                        ],
-                        'list' => [
-                            'name' => 'building',
-                            'items' => [],
-                        ],
-                        'defense' => [
-                            'attributes' => [],
-                        ],
-                    ],
-                    'bank' => [
-                        'list' => [
-                            'name' => 'item',
-                            'items' => [],
-                        ],
-                    ],
-                    'expeditions' => [],
-                    'citizens' => [
-                        'list' => [
-                            'name' => 'citizen',
-                            'items' => [],
-                        ],
-                    ],
-                    'cadavers' => [
-                        'list' => [
-                            'name' => 'cadaver',
-                            'items' => [],
-                        ],
-                    ],
-                    'map' => [
-                        'attributes' => [
-                        ],
-                        'list' => [
-                            'name' => 'zone',
-                            'items' => [],
-                        ],
-                    ],
-                    'upgrades' => [
-                        'attributes' => [
-                            'total' => 0,
-                        ],
-                    ],
-                    'estimations' => [
-                        'list' => [
-                            'name' => 'e',
-                            'items' => [],
-                        ],
-                    ],
-                ],
-        ];
 
-        // Add zones.
-        foreach ( $town->getZones() as $zone ) {
-            /** @var Zone $zone */
-            $attributes = $this->zone_handler->getZoneAttributes($zone);
-            $zone_data = [
-                'attributes' => [
-                    'x' => $zone->getX(),
-                    'y' => $zone->getY(),
-                    'nvt' => $zone->getDiscoveryStatus(),
-                ],
-            ];
-            if (array_key_exists('danger', $attributes)) {
-                $zone_data['attributes']['danger'] = $attributes['danger'];
+        /**
+         * @Route("/api/x/json/{type}", methods={"GET", "POST"})
+         * @return Response
+        */
+        public function api_json($type = ''): Response {
+
+            $APP_KEY = $this->getRequestParam('appkey');
+            if($APP_KEY===false) {
+                $data = ["error" => "invalid_appkey"];
+                $type = 'internalerror';
             }
-            if (array_key_exists('building', $attributes)) {
-                $zone_data['building'] = [ 'attributes' => $attributes['building'] ];
+
+            /** @var ExternalApp $app */
+            $app = $this->entity_manager->getRepository(ExternalApp::class)->findOneBy(['secret' => $APP_KEY]);
+
+            if(!$app) {
+                $data = ["error" => "invalid_appkey"];
+                $type = 'internalerror';
             }
-            $data['hordes']['data']['map']['list']['items'][] = $zone_data;
-        }
-        $data['hordes']['data']['map']['attributes']['hei'] = abs($y_min) + abs($y_max) + 1;
-        $data['hordes']['data']['map']['attributes']['wid'] = abs($x_min) + abs($x_max) + 1;
-        $data['hordes']['data']['map']['attributes']['offsety'] = abs($y_min);
-        $data['hordes']['data']['map']['attributes']['offsetx'] = abs($x_min);
 
-        // Add buildings.
-        foreach ( $town->getBuildings() as $building ) {
-            if ($building->getComplete()) {
-                $building_data = [
-                    'attributes' => [
-                        'name' => $building->getPrototype()->getLabel(),
-                        'temporary' => $building->getPrototype()->getTemp(),
-                        'id' => $building->getPrototype()->getId(),
-                        'img' => $building->getPrototype()->getIcon(),
-                    ],
-                ];
-                $data['hordes']['data']['city']['list']['items'][] = $building_data;
-            }
-        }
-
-        // Add bank items.
-        $inventory = $town->getBank();
-        foreach ( $inventory->getItems() as $item ) {
-            $item_data = [
-                'attributes' => [
-                    'name' => $item->getPrototype()->getLabel(),
-                    'count' => $item->getCount(),
-                    'id' => $item->getPrototype()->getId(),
-                    'img' => $item->getPrototype()->getIcon(),
-                    'cat' => $item->getPrototype()->getCategory()->getLabel(),
-                    'broken' => $item->getBroken(),
-                ],
-            ];
-            $data['hordes']['data']['bank']['list']['items'][] = $item_data;
-        }
-
-        // Add citizens.
-        foreach ( $town->getCitizens() as $citizen ) {
-            if ($citizen->getAlive()) {
-                $citizen_data = [
-                    'attributes' => [
-                        'dead' => 0,
-                        'hero' => $citizen->getProfession()->getHeroic(),
-                        'name' => $citizen->getUser()->getUsername(),
-                        'avatar' => '',
-                        'x' => !is_null($citizen->getZone()) ? $citizen->getZone()->getX() : 0,
-                        'y' => !is_null($citizen->getZone()) ? $citizen->getZone()->getY() : 0,
-                        'id' => $citizen->getId(),
-                        'ban' => $citizen->getBanished(),
-                        'job' => $citizen->getProfession()->getName(),
-                        'out' => !is_null($citizen->getZone()),
-                        'baseDef' => 0,
-                    ],
-                ];
-                $data['hordes']['data']['citizens']['list']['items'][] = $citizen_data;
-                if ($citizen == $user->getActiveCitizen()) {
-                    $data['hordes']['headers']['owner'] = [
-                        'citizen' => $citizen_data,
-                    ];
-                    if ($citizen->getZone()) {
-                        $myzone = $citizen->getZone();
-                        $data['hordes']['headers']['owner']['myZone'] = [
-                            'attributes' => [
-                                'dried' => $myzone->getDigs() > 0 ? 0 : 1,
-                                'z' => $myzone->getZombies(),
-                            ],
-                            'list' => [
-                                'name' => 'item',
-                                'items' => [],
-                            ],
+            switch(true) {
+                case $type === 'internalerror':
+                    if(!isset($data)) {
+                        $data = [
+                            "error" => "server_error",
+                            "error_description" => "UnknownAction(default)"
                         ];
-                        if($myzone->getPrototype()) {
-                            $building = $myzone->getPrototype();
-                            $data['hordes']['headers']['owner']['myZone']['attributes']['building'] = [
-                                'dried' => $myzone->getRuinDigs() > 0 ? 1 : 0,
-                                'id' => $building->getId(),
-                                'label' => $building->getLabel()
-                            ];
+                    }
+                break;
+                case $type === '':
+                    $data = [
+                        "error" => "server_error",
+                        "error_description" => "UnknownAction(default)"
+                    ];
+                break;
+                case $type === 'status':
+                    $data = [
+                        "attack" => false,
+                        "maintain" => false
+                    ];
+                break;
+                case $type === 'items':
+                    $SURLL_request = ['items' => [
+                        'langues' => ['de', 'en', 'es', 'fr'],
+                        'fields' => [
+                            'img',
+                            'name'
+                        ]
+                    ]];
+
+                    $fields = $this->getRequestParam('fields');
+                    $filter = $this->getRequestParam('filters');
+                    $langue = $this->getRequestParam('langues');
+
+                    
+                    if($fields!=false) {
+                        $SURLL_request['items']['fields'] = $this->SURLL_preparser($fields);
+                    }
+                    if($filter!=false) {
+                        $SURLL_request['items']['filters'] = $this->SURLL_preparser($filter);
+                    }
+                    if($langue!=false) {
+                        $SURLL_request['items']['langues'] = $this->SURLL_preparser($langue);
+                    }
+
+                    $data = $this->getItemsData($SURLL_request);
+                break;
+                case $type === 'debug': $data = $this->getDebugdata(); break;
+                default:
+                    $USER_KEY = $this->getRequestParam('userkey');
+                    if($USER_KEY===false) {
+                        $data = ["error" => "invalid_userkey"];
+                    } else {
+                        $user = $this->entity_manager->getRepository(User::class)->findOneBy(['externalId' => $USER_KEY]);
+                        if (!$user) {
+                            $data = ["error" => "invalid_userkey"];
                         } else {
-                            $data['hordes']['headers']['owner']['myZone']['attributes']['building'] = false;
+                            switch(true) {
+                                case $type==="me":
+                                    $SURLL_request = ['user' => [
+                                        'filters' => $user->getId(),
+                                        'langues' => ['de', 'en', 'es', 'fr'],
+                                        'fields' => [
+                                            'id',
+                                            'isGhost'
+                                        ]
+                                    ]];
+
+                                    $fields = $this->getRequestParam('fields');
+                                    $langue = $this->getRequestParam('langues');
+
+                                    if($fields!=false) {
+                                        $SURLL_request['user']['fields'] = $this->SURLL_preparser($fields);
+                                    }
+                                    if($langue!=false) {
+                                        $SURLL_request['user']['langues'] = $this->SURLL_preparser($langue);
+                                    }
+
+                                    $data = $this->getUserData($SURLL_request, $user->getId());
+                                break;
+                                case $type==="user":
+                                    $user_id = intval($this->getRequestParam('id'));
+                                    if($user_id!=false||$user_id>0) {
+                                        $SURLL_request = ['user' => [
+                                            'filters' => $user_id,
+                                            'langues' => ['de', 'en', 'es', 'fr'],
+                                            'fields' => [
+                                                'id',
+                                                'isGhost'
+                                            ]
+                                        ]];
+
+                                        $fields = $this->getRequestParam('fields');
+                                        $langue = $this->getRequestParam('langues');
+                                        
+                                        if($fields!=false) {
+                                            $SURLL_request['user']['fields'] = $this->SURLL_preparser($fields);
+                                        }
+                                        if($langue!=false) {
+                                            $SURLL_request['user']['langues'] = $this->SURLL_preparser($langue);
+                                        }
+
+                                        $data = $this->getUserData($SURLL_request, $user->getId());
+                                    } else {
+                                        $data = ["error" => "invalid_userid"];
+                                    }
+                                break;
+                                case $type==="map":
+                                    $map_id = intval($this->getRequestParam('mapId'));
+                                    if($map_id!=false||$map_id>0) {
+                                        $SURLL_request = ['map' => [
+                                            'filters' => $map_id,
+                                            'langues' => ['de', 'en', 'es', 'fr'],
+                                            'fields' => ['date', 'days', 'season', 'id', 'hei', 'wid', 'bonusPts', 'conspiracy', 'custom']
+                                        ]];
+
+                                        $fields = $this->getRequestParam('fields');
+                                        $langue = $this->getRequestParam('langues');
+
+                                        if($fields!=false) {
+                                            $SURLL_request['map']['fields'] = $this->SURLL_preparser($fields);
+                                        }
+                                        if($langue!=false) {
+                                            $SURLL_request['map']['langues'] = $this->SURLL_preparser($langue);
+                                        }
+
+                                        $data = $this->getMapData($SURLL_request, $user->getId());
+                                    } else {
+                                        $data = ["error" => "invalid_mapid"];
+                                    }
+                                break;
+                            }
                         }
-                        $inventory = $myzone->getFloor();
-                        foreach ( $inventory->getItems() as $item ) {
-                            $item_data = [
-                                'attributes' => [
-                                    'name' => $item->getPrototype()->getLabel(),
-                                    'count' => $item->getCount(),
-                                    'id' => $item->getPrototype()->getId(),
-                                    'img' => $item->getPrototype()->getIcon(),
-                                    'cat' => $item->getPrototype()->getCategory()->getLabel(),
-                                    'broken' => $item->getBroken(),
-                                ],
-                            ];
-                            $data['hordes']['headers']['owner']['myZone']['list']['items'][] = $item_data;
+                    }
+            }
+            return $this->json( $data );
+        }
+
+        private function getRequestParam($param) {
+            $request = Request::createFromGlobals();
+            $this->request = $request;
+
+            $val = $request->request->get($param);
+            if(trim($val)==='') {
+                $val = $request->query->get($param);
+            }
+
+            if(trim($val)==='') {
+                return false;
+            } else {
+                return $val;
+            }
+        }
+
+        private function SURLL_preparser($surll_str): array {
+            preg_match_all('/\.[a-z0-9\-]+|[a-z0-9\-]+|\(|\)/i', $surll_str, $surll_arr);
+            $this->SURLLobj = $surll_arr[0];
+            return $this->SURLL_parser();
+        }
+
+        private function SURLL_parser(): array {
+            $parsed = [];
+            while(count($this->SURLLobj)>0) {
+                $surll_item = array_shift($this->SURLLobj);
+                if($surll_item==="(") {
+                    continue;
+                } else if($surll_item===")") {
+                    return $parsed;
+                } else if($surll_item[0]===".") {
+                    $last_surll_item = array_pop($parsed);
+                    $name = "";
+                    if(is_string($last_surll_item)) {
+                        $name = $last_surll_item;
+                        $last_surll_item = [];
+                        $last_surll_item[$name] = [];
+                    } else {
+                        $name = array_keys($last_surll_item)[0];
+                    }
+                    $last_surll_item[$name][substr($surll_item, 1)] = $this->SURLL_parser($this->SURLLobj);
+                    $parsed[] = $last_surll_item;
+                } else {
+                    $parsed[] = $surll_item;
+                }
+            }
+            return $parsed;
+        }
+
+        private function getItemVal(ItemPrototype $item, $key) {
+            switch(true) {
+                case $key==="name":
+                    return $item->getLabel();
+                case $key==="desc":
+                    return $item->getDescription();
+                case $key==="cat":
+                    return $item->getCategory()->getLabel();
+                //case $key==="parent_category":
+                    //return $item->getCategory()->getParent() ? $item->getCategory()->getParent()->getLabel() : false;
+                default:
+                    return false;
+            }
+        }
+
+        private function getItemsData($SURLL_request): array {
+            $data = [];
+            if(isset($SURLL_request['items']['filters'])&&is_array($SURLL_request['items']['filters'])) {
+                $filters = [];
+                foreach($SURLL_request['items']['filters'] as $key => $val) {
+                    if(is_string($val)) {
+                        $filters[] = $val;
+                    }
+                }
+                $items = $this->entity_manager->getRepository(ItemPrototype::class)->findBy(['icon' => $filters]);
+            } else {
+                $items = $this->entity_manager->getRepository(ItemPrototype::class)->findAll();
+            }
+            /** @var ItemPrototype $ItemProto */
+            foreach ( $items as $ItemProto ) {
+                $icon = $ItemProto->getIcon();
+                $item = [];
+                foreach($SURLL_request['items']['fields'] as $field) {
+                    switch(true) {
+                        case $field==='hid':
+                            $item['hid']= $ItemProto->getId();
+                        break; 
+                        case $field==='img':
+                            $item['img']= $icon;
+                        break;
+                        case $field==='uid':
+                            $item['uid']= $icon;
+                        break;
+                        case $field==='heavy':
+                            $item['heavy']= $ItemProto->getHeavy();
+                        break;
+                        case $field==='deco':
+                            $item['deco']= $ItemProto->getDeco();
+                        break;
+                        case $field==='guard':
+                            $item['guard']= $ItemProto->getWatchpoint();
+                        break;
+                    }
+                }
+                foreach($SURLL_request['items']['langues'] as $lang) {
+                    if(!is_string($lang)||strlen($lang)!=2) continue;
+                    foreach($SURLL_request['items']['fields'] as $field) {
+                        $field_val = $this->getItemVal($ItemProto, $field);
+                        if($field_val!=false) {
+                            if(!isset($item[$field])) $item[$field]= [];
+                            $item[$field][$lang]= $this->translator->trans($field_val, [], 'items', $lang);
                         }
                     }
                 }
+                $data[$icon] = $item;
             }
-            else {
-                $citizen_data = [
-                    'attributes' => [
-                        'name' => $citizen->getUser()->getUsername(),
-                        'id' => $citizen->getId(),
-                        'dtype' => $citizen->getCauseOfDeath()->getId(),
-                        'day' => $citizen->getSurvivedDays(),
-                    ],
+            return $data;
+        }
+
+        private function getUserData($SURLL_request, $originalUserID): array {
+            $user= $this->entity_manager->getRepository(User::class)->findOneBy(['id' => $SURLL_request['user']['filters']]);
+            if (!$user) {
+                return ["error" => "UnknownUser"];
+            }
+            $current_citizen= $user->getActiveCitizen();
+            $user_data = [];
+            foreach($SURLL_request['user']['fields'] as $field) {
+                switch(true) {
+                    case $field==="id":
+                        $user_data['id']= $user->getId();
+                    break;
+                    case $field==="name":
+                        $user_data['name']= $user->getUsername();
+                    break;
+                    case $field==="avatar":
+                        $has_avatar = $user->getAvatar();
+                        if($has_avatar) {
+                            $user_data['avatar']= $this->generateUrl('avatar', ['name' => $has_avatar->getFilename(), 'ext' => $has_avatar->getFormat()]);
+                        } else $user_data['avatar'] = false;
+                    break;
+                    //case $field==="homeMessage": // It's a future feature because isn't existe now
+                    //  $user_data['homeMessage']= $user->getHomeMessage();
+                    //break;
+                    case $field==="isGhost":
+                        $user_data['isGhost']= ($current_citizen === null);
+                    break;
+                    case ($current_citizen && $field==="hero"):
+                        $user_data['hero']= $current_citizen->getProfession()->getId()>0 ? true : false;
+                    break;
+                    case ($current_citizen && $field==="dead"):
+                        $user_data['dead']= $current_citizen->getAlive();
+                    break;
+                    case ($current_citizen && $field==="job"):
+                        $user_data['job']= $current_citizen->getProfession()->getName();
+                    break;
+                    case ($current_citizen && $field==="out"):
+                        $user_data['out']= $current_citizen->getWalkingDistance()>0 ? true : false;
+                    break;
+                    case ($current_citizen && $field==="baseDef"):
+                        $user_data['baseDef']= $current_citizen->getHome()->getAdditionalDefense();
+                    break;
+                    case ($current_citizen && $field==="ban"):
+                        $user_data['ban']= $current_citizen->getBanished();
+                    break;
+                    case ($current_citizen && $field==="x"):
+                        $zone = $current_citizen->getZone();
+                        $user_data['x']= $zone ? $zone->getX() : 0;
+                    break;
+                    case ($current_citizen && $field==="y"):
+                        $zone = $current_citizen->getZone();
+                        $user_data['y']= $zone ? $zone->getY() : 0;
+                    break;
+                    case ($current_citizen && $field==="map"):
+                        $user_data['map']= $this->getMapData(['map' => [
+                            'filters' => $current_citizen->getTown()->getId(),
+                            'langues' => ['de', 'en', 'es', 'fr'],
+                            'fields' => ['date', 'days', 'season', 'id', 'hei', 'wid', 'bonusPts', 'conspiracy', 'custom']
+                        ]], $originalUserID);
+                    break;
+                    case ($user->getId()===$originalUserID && $field==="playedMaps"):
+                        $user_data['playedMaps']= "playedMaps";
+                    break;
+                    default:
+                        if(is_array($field)) {
+                            foreach($field as $ProtoFieldName => $ProtoFieldValue) {
+                                switch(true) {
+                                    case ($current_citizen && $ProtoFieldName==="map"):
+                                        if(!isset($ProtoFieldValue['langues'])) $ProtoFieldValue['langues']= ['fr','en','de','es'];
+                                        if(!isset($ProtoFieldValue['fields'])) $ProtoFieldValue['fields']= ['date', 'days', 'season', 'id', 'hei', 'wid', 'bonusPts', 'conspiracy', 'custom'];
+                                        $ProtoFieldValue['filters']= $current_citizen->getTown()->getId();
+                                        $user_data['map']= $this->getMapData($ProtoFieldValue, $originalUserID);
+                                    break;
+                                }
+                            }
+                        }
+                }
+            }
+            return $user_data;
+        }
+
+        private function getMapData($SURLL_request, $originalUserID): array {
+            $user= $this->entity_manager->getRepository(User::class)->findOneBy(['id' => $originalUserID]);
+            $town= $this->entity_manager->getRepository(Town::class)->findOneBy(['id' => $SURLL_request['map']['filters']]);
+            if (!$town) {
+                return ["error" => "UnknownMap"];
+            }
+
+            $x_min = $x_max = $y_min = $y_max = 0;
+            foreach ( $town->getZones() as $zone ) {
+                /** @var Zone $zone */
+                $x_min = min($zone->getX(), $x_min);
+                $x_max = max($zone->getX(), $x_max);
+                $y_min = min($zone->getY(), $y_min);
+                $y_max = max($zone->getY(), $y_max);
+            }
+
+            $data = [];
+            foreach($SURLL_request['map']['fields'] as $field) {
+                switch(true) {
+                    case $field==="id":
+                        $data['id']= $town->getId();
+                    break;
+                    case $field==="date":
+                        $now = new \DateTime();
+                        $data['date']= $now->format('Y-m-d H:m:s');
+                    break;
+                    case $field==="wid":
+                        $data['wid']= abs($x_min) + abs($x_max) + 1;
+                    break;
+                    case $field==="hei":
+                        $data['hei']= abs($y_min) + abs($y_max) + 1;
+                    break;
+                    case $field==="conspiracy": //insurection
+                    break;
+                    case $field==="days":
+                        $data['days']= $town->getDay();
+                    break;
+                }
+            }
+            return $data;
+        }
+
+        private function getDebugdata(): array {
+            $town_id = intval($this->getRequestParam('tid'));
+            if($town_id!=false||$town_id>0) {
+                $town = $this->entity_manager->getRepository(Town::class)->findOneBy(['id' => $town_id]);
+                if($town) {
+                    $towns = [ $town ];
+                } else {
+                    $towns = $this->entity_manager->getRepository(Town::class)->findOpenTown();
+                }
+            } else {
+                $towns = $this->entity_manager->getRepository(Town::class)->findOpenTown();
+            }
+            $data = [];
+            /** @var Town $town */
+            foreach($towns as $town) {
+                $x_min = $x_max = $y_min = $y_max = 0;
+                /** @var Zone $zone */
+                foreach ( $town->getZones() as $zone ) {
+                    $x_min = min($zone->getX(), $x_min);
+                    $x_max = max($zone->getX(), $x_max);
+                    $y_min = min($zone->getY(), $y_min);
+                    $y_max = max($zone->getY(), $y_max);
+                }
+                $town_data = [
+                    'id' => $town->getId(),
+                    'name' => $town->getName(),
+                    'day' => $town->getDay(),
+                    'height' => abs($y_min)+abs($y_max)+1,
+                    'width' => abs($x_min)+abs($x_max)+1,
+                    'type' => ['','RNE','RE','PANDE'][$town->getType()->getId()],
+                    'language' => $town->getLanguage(),
+                    'zone' => []
                 ];
-                $data['hordes']['data']['cadavers']['list']['items'][] = $citizen_data;
+                /** @var Zone $zone */
+                foreach ( $town->getZones() as $zone ) {
+                    $zone_data = [
+                        'x' => $zone->getX()-$x_min,
+                        'y' => $y_max-$zone->getY(),
+                        'km' => $this->zone_handler->getZoneKm($zone),
+                        'remaining_excavation' => $zone->getDigs(),
+                        'zombies' => $zone->getZombies(),
+                        'is_town' => $zone->getDistance()<1,
+                        'items' => false,
+                        'building' => false
+                    ];
+                    $item_buffer = [];
+                    foreach ($zone->getFloor()->getItems() as $item) {
+                        $item_uid = implode('_', [
+                            $item->getPrototype()->getIcon(),
+                            $item->getPoison(),
+                            $item->getBroken()
+                        ]);
+                        if(!isset($item_buffer[$item_uid])) {
+                            $item_buffer[$item_uid] = [
+                                'uid' => $item->getPrototype()->getIcon(),
+                                'poison' => $item->getPoison(),
+                                'broken' => $item->getBroken(),
+                                'count' => 1
+                            ];
+                        } else {
+                            $item_buffer[$item_uid]['count']++;
+                        }
+                    }
+                    foreach ($item_buffer as $item) {
+                        if($zone_data['items']===false) {
+                            $zone_data['items'] = [];
+                        } $zone_data['items'][]= $item;
+                    }
+                    if($zone->getPrototype()) {
+                        $zone_data['building'] = [
+                            'name' => $this->translator->trans($zone->getPrototype()->getLabel(), [], "game", $town->getLanguage()),
+                            'type' => $zone->getPrototype()->getId(),
+                            'sandpile' => $zone->getBuryCount(),
+                            'remaining_blueprint' => $zone->getBlueprint(),
+                            'remaining_excavation' => $zone->getRuinDigs()
+                        ];
+                    }
+                    $town_data['zone'][] = $zone_data;
+                }
+                $data[]= $town_data;
             }
+            return $data;
         }
 
-        return $data ?? [];
     }
-
-    private function getItemsData(): array
-    {
-        // Base data.
-        $data = [];
-
-        // Add items.
-        $items = $this->entity_manager->getRepository(ItemPrototype::class)->findAll();
-        /** @var ItemPrototype $item */
-        foreach ( $items as $item ) {
-            $item_data = [
-                'all' => [
-                    'id' => $item->getId(),
-                    'name' => $item->getName(),
-                    'icon' => $item->getIcon(),
-                    'category' => $item->getCategory()->getName(),
-                    'parent_category' => $item->getCategory()->getParent() ? $item->getCategory()->getParent()->getName() : null,
-                    'heavy' => $item->getHeavy(),
-                    'decoration' => $item->getDeco(),
-                    'nightwatch' => $item->getWatchpoint(),
-
-                ],
-                'de' => [
-                    'label' => $item->getLabel(),
-                    'description' => $item->getDescription(),
-                    'category' => $item->getCategory()->getLabel(),
-                    'parent_category' => $item->getCategory()->getParent() ? $item->getCategory()->getParent()->getLabel() : null,
-                ],
-                'fr' => [
-                    'label' => $this->translator->trans($item->getLabel(), [], 'items', 'fr'),
-                    'description' => $this->translator->trans($item->getDescription(), [], 'items', 'fr'),
-                    'category' => $this->translator->trans($item->getCategory()->getLabel(), [], 'items', 'fr'),
-                    'parent_category' => $item->getCategory()->getParent() ? $this->translator->trans($item->getCategory()->getParent()->getLabel(), [], 'items', 'fr') : null,
-                ],
-                'en' => [
-                    'label' => $this->translator->trans($item->getLabel(), [], 'items', 'en'),
-                    'description' => $this->translator->trans($item->getDescription(), [], 'items', 'en'),
-                    'category' => $this->translator->trans($item->getCategory()->getLabel(), [], 'items', 'en'),
-                    'parent_category' => $item->getCategory()->getParent() ? $this->translator->trans($item->getCategory()->getParent()->getLabel(), [], 'items', 'en') : null,
-                ],
-                'es' => [
-                    'label' => $this->translator->trans($item->getLabel(), [], 'items', 'es'),
-                    'description' => $this->translator->trans($item->getDescription(), [], 'items', 'es'),
-                    'category' => $this->translator->trans($item->getCategory()->getLabel(), [], 'items', 'es'),
-                    'parent_category' => $item->getCategory()->getParent() ? $this->translator->trans($item->getCategory()->getParent()->getLabel(), [], 'items', 'es') : null,
-                ],
-            ];
-            $data[$item->getId()] = $item_data;
-        }
-
-        return $data ?? [];
-    }
-
-    private function getConstructionsData(): array
-    {
-        // Base data.
-        $data = [];
-
-        // Add constructions.
-        $constructions = $this->entity_manager->getRepository(BuildingPrototype::class)->findAll();
-        /** @var BuildingPrototype $item */
-        foreach ( $constructions as $item ) {
-            $item_data = [
-                'all' => [
-                    'id' => $item->getId(),
-                    'name' => $item->getName(),
-                    'icon' => $item->getIcon(),
-                    'blueprint' => $item->getBlueprint(),
-                    'ap' => $item->getAp(),
-                    'defense' => $item->getDefense(),
-                    'temporary' => $item->getTemp(),
-                    'max_level' => $item->getMaxLevel(),
-                    'parent_id' => $item->getParent() ? $item->getParent()->getId() : null,
-
-                ],
-                'de' => [
-                    'label' => $item->getLabel(),
-                    'description' => $item->getDescription(),
-                ],
-                'fr' => [
-                    'label' => $this->translator->trans($item->getLabel(), [], 'buildings', 'fr'),
-                    'description' => $this->translator->trans($item->getDescription(), [], 'buildings', 'fr'),
-                ],
-                'en' => [
-                    'label' => $this->translator->trans($item->getLabel(), [], 'buildings', 'en'),
-                    'description' => $this->translator->trans($item->getDescription(), [], 'buildings', 'en'),
-                ],
-                'es' => [
-                    'label' => $this->translator->trans($item->getLabel(), [], 'buildings', 'es'),
-                    'description' => $this->translator->trans($item->getDescription(), [], 'buildings', 'es'),
-                ],
-            ];
-            $data[$item->getId()] = $item_data;
-        }
-
-        return $data ?? [];
-    }
-
-    private function getRuinsData(): array
-    {
-        // Base data.
-        $data = [];
-
-        // Add ruins.
-        $ruins = $this->entity_manager->getRepository(ZonePrototype::class)->findAll();
-        /** @var ZonePrototype $item */
-        foreach ( $ruins as $item ) {
-            $item_data = [
-                'all' => [
-                    'id' => $item->getId(),
-                    'icon' => $item->getIcon(),
-                    'camping_level' => $item->getCampingLevel(),
-                    'min_distance' => $item->getMinDistance(),
-                    'max_distance' => $item->getMaxDistance(),
-                ],
-                'de' => [
-                    'label' => $item->getLabel(),
-                    'description' => $item->getDescription(),
-                ],
-                'fr' => [
-                    'label' => $this->translator->trans($item->getLabel(), [], 'game', 'fr'),
-                    'description' => $this->translator->trans($item->getDescription(), [], 'game', 'fr'),
-                ],
-                'en' => [
-                    'label' => $this->translator->trans($item->getLabel(), [], 'game', 'en'),
-                    'description' => $this->translator->trans($item->getDescription(), [], 'game', 'en'),
-                ],
-                'es' => [
-                    'label' => $this->translator->trans($item->getLabel(), [], 'game', 'es'),
-                    'description' => $this->translator->trans($item->getDescription(), [], 'game', 'es'),
-                ],
-            ];
-            $data[$item->getId()] = $item_data;
-        }
-
-        return $data ?? [];
-    }
-}
+?>
