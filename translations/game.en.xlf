@@ -8125,7 +8125,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Du erblickst mehrere großflächige getrocknete Blutpfützen. Das ist soviel Blut... Es scheint, als ob hier jemand von irgend etwas oder irgend jemandem zerstückelt wurde... Vielleicht war es ja ein Ghul?</source>
-        <target>Du erblickst mehrere großflächige getrocknete Blutpfützen. Das ist soviel Blut... Es scheint, als ob hier jemand von irgend etwas oder irgend jemandem zerstückelt wurde... Vielleicht war es ja ein Ghul?</target>
+        <target>You see several large, dried puddles of blood. This is so much blood ... It seems as if someone here has been dismembered by something or someone ... Maybe it was a ghoul?</target>
       </segment>
     </unit>
     <unit id="o9GCPjs" name="c5c21d9">
@@ -8134,7 +8134,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>%attacker% ist %defender% an die Gurgel gesprungen und hat ihn ohne mit der Wimper zu zucken verspeist!</source>
-        <target>%attacker% ist %defender% an die Gurgel gesprungen und hat ihn ohne mit der Wimper zu zucken verspeist!</target>
+        <target>%attacker% jumped on %defender% on the throat and ate them without batting an eyelid</target>
       </segment>
     </unit>
     <unit id="Qlh.l61" name="a9b83b9">

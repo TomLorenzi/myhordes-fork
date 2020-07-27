@@ -886,7 +886,7 @@
       </notes>
       <segment>
         <source>Hast du ein Seele bei %hordes%, %dv%, %d2n% oder %zn%?</source>
-        <target>Do you have a Soul on %hordes%, %dv%, %d2n% or %zn%?</target>
+        <target>Do you have a Soul on %d2n%, %hordes%, %dv%, or %zn%?</target>
       </segment>
     </unit>
     <unit id="VVu6KAH" name="Seele importieren">
