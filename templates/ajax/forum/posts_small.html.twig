@@ -30,12 +30,16 @@
                         {% endif %}
                         <b>
                             {% if post.owner.username == 'Der Rabe' %}
-                                {{ 'Der Rabe'|trans({},'global') }}
+                            	{% if post.translate %}
+                        			{{ 'Der Rabe'|trans({},'global') }}
+                        		{% else %}
+                        			<a class="link" href="{{ path('soul_visit', {id: post.owner.id}) }}">{{ 'Der Rabe'|trans({},'global') }}</a>
+                        		{% endif %}
                             {% elseif post.type == "DEV" %}
-                                {{ post.owner.username }}
+                                <a class="link" href="{{ path('soul_visit', {id: post.owner.id}) }}">{{ post.owner.username }}</a>
                                 <img alt="" src="{{ asset('build/images/icons/small_admin.gif') }}" />
                             {% else %}
-                                {{ post.owner.username }}
+                                <a class="link" href="{{ path('soul_visit', {id: post.owner.id}) }}">{{ post.owner.username }}</a>
                             {% endif %}
                         </b>
                         {% if post.note is not null %}<div class="right post-note">{{ post.note|raw }}</div>{% endif %}
