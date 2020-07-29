@@ -31,10 +31,10 @@
                                     {{'Niemand!'|trans({}, 'game')}}
                                 {% else %}
                                     {% for citizen in gazette.death_inside %}
-                                        <span>
+                                    <span>
                                         <span x-ajax-href="{{ path('town_visit', {id: citizen.id}) }}" style="cursor: pointer; text-decoration: underline;">{{citizen.user.username}}</span>,
                                         <div class="tooltip normal">
-                                            <h1>Todesursache</h1>
+                                            <h1>{{'Todesursache'|trans({}, 'game')}}</h1>
                                             {{citizen.causeOfDeath.label|trans({}, 'game')}}
                                         </div>
                                     </span>
@@ -47,10 +47,10 @@
                                         {{'Sonstige Opfer'|trans({}, 'game')}} ({{ gazette.death_outside|length }}):
                                     </div>
                                     {% for citizen in gazette.death_outside %}
-                                        <span>
-                                        <a x-ajax-href="{{ path('town_visit', {id: citizen.id}) }}" style="cursor: pointer; text-decoration: underline;">{{citizen.user.username}}</a>,
+                                    <span>
+                                        <span x-ajax-href="{{ path('town_visit', {id: citizen.id}) }}" style="cursor: pointer; text-decoration: underline;">{{citizen.user.username}}</span>,
                                         <div class="tooltip normal">
-                                            <h1>Todesursache</h1>
+                                            <h1>{{'Todesursache'|trans({}, 'game')}}</h1>
                                             {{citizen.causeOfDeath.label|trans({}, 'game')}}
                                         </div>
                                     </span>
