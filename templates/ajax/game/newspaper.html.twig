@@ -32,8 +32,9 @@
                                 {% else %}
                                     {% for citizen in gazette.death_inside %}
                                         <span>
-                                        {{citizen.user.username}}
-                                        <div class="tooltip">
+                                        <span x-ajax-href="{{ path('town_visit', {id: citizen.id}) }}" style="cursor: pointer; text-decoration: underline;">{{citizen.user.username}}</span>,
+                                        <div class="tooltip normal">
+                                            <h1>Todesursache</h1>
                                             {{citizen.causeOfDeath.label|trans({}, 'game')}}
                                         </div>
                                     </span>
@@ -47,8 +48,9 @@
                                     </div>
                                     {% for citizen in gazette.death_outside %}
                                         <span>
-                                        {{citizen.user.username}}
-                                        <div class="tooltip">
+                                        <a x-ajax-href="{{ path('town_visit', {id: citizen.id}) }}" style="cursor: pointer; text-decoration: underline;">{{citizen.user.username}}</a>,
+                                        <div class="tooltip normal">
+                                            <h1>Todesursache</h1>
                                             {{citizen.causeOfDeath.label|trans({}, 'game')}}
                                         </div>
                                     </span>

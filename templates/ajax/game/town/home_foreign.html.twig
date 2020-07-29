@@ -39,31 +39,29 @@
                     {% endif %}
                 </div>
             {% endif %}
-            <div class="cell rw-9 rw-lg-8 rw-md-12">
-                <div class="row">
-                    <div class="cell rw-5 rw-lg-6"><span class="highlight">{{ 'Haus'|trans({},'game') }}:</span></div>
-                    <div class="cell rw-7 rw-lg-6"><img alt="" src="{{ asset('build/images/home/' ~ owner.home.prototype.icon ~ '.gif') }}"> {{ owner.home.prototype.label|trans({},'buildings') }}</div>
-                </div>
-                {% if owner.alive %}
-                    <div class="row">
-                        <div class="cell rw-5 rw-lg-6"><span class="highlight">{{ 'Verteidigung'|trans({},'game') }} :</span></div>
-                        <div class="cell rw-7 rw-lg-6"><img alt="" src="{{ asset('build/images/icons/def.gif') }}"> {{ def.sum }}</div>
-                    </div>
-                    <div class="row">
-                        <div class="cell rw-5 rw-lg-6"><span class="highlight">{{ 'Dekoration'|trans({},'game') }} :</span></div>
-                        <div class="cell rw-7 rw-lg-6"><img alt="" src="{{ asset('build/images/icons/deco.gif') }}"> {{ deco }}</div>
-                    </div>
-                {% else %}
-                    <div class="row">
-                        <div class="cell rw-5 rw-lg-6"><span class="highlight">{{ 'Todesursache'|trans({},'game') }} :</span></div>
-                        <div class="cell rw-7 rw-lg-6">{{ owner.causeOfDeath.label|trans({},'game') }}</div>
-                    </div>
-                    <div class="row">
-                        <div class="cell rw-5 rw-lg-6"><span class="highlight">{{ 'Letzte Worte:'|trans({},'game') }}</span></div>
-                        <div class="cell rw-7 rw-lg-6"> {{ owner.lastWords }}</div>
-                    </div>
-                {% endif %}
+            <div class="row">
+                <div class="cell rw-5 rw-lg-6"><span class="highlight">{{ 'Haus'|trans({},'game') }} :</span></div>
+                <div class="cell rw-7 rw-lg-6"><img alt="" src="{{ asset('build/images/home/' ~ owner.home.prototype.icon ~ '.gif') }}"> {{ owner.home.prototype.label|trans({},'buildings') }}</div>
             </div>
+            {% if owner.alive %}
+                <div class="row">
+                    <div class="cell rw-5 rw-lg-6"><span class="highlight">{{ 'Verteidigung'|trans({},'game') }} :</span></div>
+                    <div class="cell rw-7 rw-lg-6"><img alt="" src="{{ asset('build/images/icons/def.gif') }}"> {{ def.sum }}</div>
+                </div>
+                <div class="row">
+                    <div class="cell rw-5 rw-lg-6"><span class="highlight">{{ 'Dekoration'|trans({},'game') }} :</span></div>
+                    <div class="cell rw-7 rw-lg-6"><img alt="" src="{{ asset('build/images/icons/deco.gif') }}"> {{ deco }}</div>
+                </div>
+            {% else %}
+                <div class="row">
+                    <div class="cell rw-5 rw-lg-6"><span class="highlight">{{ 'Todesursache'|trans({},'game') }} :</span></div>
+                    <div class="cell rw-7 rw-lg-6">{{ owner.causeOfDeath.label|trans({},'game') }} (<a x-ajax-href="{{ path('soul_visit', {id: owner.user.id}) }}" style="cursor: pointer; text-decoration: underline;"><img src="{{ asset('build/images/icons/small_ghost_red.gif') }}" alt=""/> {{'Seine Seele ansehen'|trans({}, 'game')}}</a>)</div>
+                </div>
+                <div class="row">
+                    <div class="cell rw-5 rw-lg-6"><span class="highlight">{{ 'Letzte Worte:'|trans({},'game') }}</span></div>
+                    <div class="cell rw-7 rw-lg-6"> {{ owner.lastWords }}</div>
+                </div>
+            {% endif %}
         </div>
     </div>
 
