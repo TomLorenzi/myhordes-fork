@@ -11470,5 +11470,14 @@
         <target>Von einem Moderator bearbeitet.</target>
       </segment>
     </unit>
+    <unit id="a5Hokue" name="Nur altgediente Helden können auf die Wandtafel schreiben">
+      <notes>
+        <note category="german">Nur altgediente Helden können auf die Wandtafel schreiben</note>
+      </notes>
+      <segment>
+        <source>Nur altgediente Helden können auf die Wandtafel schreiben</source>
+        <target>Nur altgediente Helden können auf die Wandtafel schreiben</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

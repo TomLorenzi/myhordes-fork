@@ -11452,5 +11452,14 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
         <target>Edited by a Moderator.</target>
       </segment>
     </unit>
+    <unit id="a5Hokue" name="Nur altgediente Helden können auf die Wandtafel schreiben">
+      <notes>
+        <note category="german">Nur altgediente Helden können auf die Wandtafel schreiben</note>
+      </notes>
+      <segment>
+        <source>Nur altgediente Helden können auf die Wandtafel schreiben</source>
+        <target>Only veteran heroes can write on the chalkboard</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

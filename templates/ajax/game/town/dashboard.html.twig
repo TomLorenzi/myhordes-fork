@@ -97,8 +97,8 @@
                         </div>
                         <div class="edit"><a href="#" id="edit-wordsofheroes">{{'Bearbeiten'|trans({}, 'global')}}</a></div>
                         <div class="cancel hidden"><a href="#" id="saveedit-wordsofheroes">{{ 'Speichern'|trans({},'global') }}</a> - <a href="#" id="canceledit-wordsofheroes">{{'Abbrechen'|trans({}, 'global')}}</a></div>
-                    {% elseif citizen.getBanished %}
-                        <div class="edit disabled">{{'Bearbeiten'|trans({}, 'global')}}</div>
+                    {% elseif citizen.getBanished or not can_edit_blackboard %}
+                        <div class="edit disabled">{{'Bearbeiten'|trans({}, 'global')}}<div class="tooltip help">{{ 'Nur altgediente Helden können auf die Wandtafel schreiben'|trans({},'game') }}</div></div>
                     {% endif %}
                 </div>
         </div>
