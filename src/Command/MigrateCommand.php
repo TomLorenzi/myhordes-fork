@@ -203,7 +203,7 @@ class MigrateCommand extends Command
                     sleep(1);
                 }
                 if (!$this->capsule( "app:migrate --maintenance off", $output, 'Disable maintenance mode... ', true )) return -1;
-            } $output->writeln("Maintenance is kept active. Disable with '<info>app:migrate --maintenance off</info>'");
+            } else $output->writeln("Maintenance is kept active. Disable with '<info>app:migrate --maintenance off</info>'");
 
         }
 
