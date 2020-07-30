@@ -3334,7 +3334,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>HALTET DEN DIEB! %actor% ist bei %victim% eingebrochen und hat %item% gestohlen!</source>
-        <target>HALTET DEN DIEB! %actor% ist bei %victim% eingebrochen und hat %item% gestohlen!</target>
+        <target>%actor% was seen stealing the %item% from %victim%!</target>
       </segment>
     </unit>
     <unit id="4N3qfX_" name="3dc5d36">
