@@ -7475,7 +7475,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Schreiend und fuchtelnd hat %citizen% %kills% Zombies getötet.</source>
-        <target>Schreiend und fuchtelnd hat %citizen% %kills% Zombies getötet.</target>
+        <target>Using their Heroic powers, %citizen% has exterminated %kills% with their bare hands, screaming like a banshee!</target>
       </segment>
     </unit>
     <unit id="pYjjICz" name="e210a83">
