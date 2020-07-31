@@ -32,6 +32,7 @@
                                 <option value="en" {% if app.user.language == 'en' %}selected{% endif %}>{{ 'Englisch'|trans({}, 'global') }}</option>
                                 <option value="fr" {% if app.user.language == 'fr' %}selected{% endif %}>{{ 'Französisch'|trans({}, 'global') }}</option>
                                 <option value="es" {% if app.user.language == 'es' %}selected{% endif %}>{{ 'Spanisch'|trans({}, 'global') }}</option>
+                                <option value="multi">{{ 'Mehrsprachig'|trans({}, 'global') }}</option>
                             </select>
                         </div>
                     </div>

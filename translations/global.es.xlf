@@ -1513,5 +1513,14 @@
         <target>Ursprünglichen Text anzeigen</target>
       </segment>
     </unit>
+    <unit id="HsL9Oin" name="Mehrsprachig">
+      <notes>
+        <note category="german">Mehrsprachig</note>
+      </notes>
+      <segment>
+        <source>Mehrsprachig</source>
+        <target>Mehrsprachig</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
