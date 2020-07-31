@@ -48,7 +48,8 @@ class UserInfoCommand extends Command
             ->addOption('set-password', null, InputOption::VALUE_REQUIRED, 'Changes the user password; set to "auto" to auto-generate.', null)
 
             ->addOption('find-all-rps', null, InputOption::VALUE_REQUIRED, 'Gives all known RP to a user in the given lang')
-            ->addOption('give-all-pictos', null, InputOption::VALUE_OPTIONAL, 'Gives all pictos once to a user')
+            ->addOption('give-all-pictos', null, InputOption::VALUE_REQUIRED, 'Gives all pictos once to a user')
+            ->addOption('remove-all-pictos', null, InputOption::VALUE_REQUIRED, 'Remove all pictos once to a user')
 
             ->addOption('set-mod-level', null, InputOption::VALUE_REQUIRED, 'Sets the moderation level for a user (0 = normal user, 2 = oracle, 3 = mod, 4 = admin)')
             ->addOption('set-hero-days', null, InputOption::VALUE_REQUIRED, 'Set the amount of hero days spent to a user (and the associated skills)')
@@ -94,14 +95,30 @@ class UserInfoCommand extends Command
                         ->setTown(null)
                         ->setTownEntry(null)
                         ->setUser($user)
-                        ->setCount($picto->getCount()+1);
+                        ->setCount($picto->getCount()+$count);
 
                     $this->entityManager->persist($picto);
                 }
-                echo "Added pictos to user {$user->getUsername()}\n";
+                echo "+ $count to all pictos of user {$user->getUsername()}\n";
                 $this->entityManager->persist($user);
                 $this->entityManager->flush();
+            } elseif ($count = $input->getOption('remove-all-pictos')) {
+                $pictoPrototypes = $this->entityManager->getRepository(PictoPrototype::class)->findAll();
+                foreach ($pictoPrototypes as $pictoPrototype) {
+                    $picto = $this->entityManager->getRepository(Picto::class)->findByUserAndTownAndPrototype($user, null, $pictoPrototype);
+                    if($picto === null) $picto = new Picto();
+                    $picto->setPrototype($pictoPrototype)
+                        ->setPersisted(2)
+                        ->setTown(null)
+                        ->setTownEntry(null)
+                        ->setUser($user)
+                        ->setCount($picto->getCount()-$count);
 
+                    $this->entityManager->persist($picto);
+                }
+                echo "- $count to all pictos of user {$user->getUsername()}\n";
+                $this->entityManager->persist($user);
+                $this->entityManager->flush();
             } elseif ($newpw = $input->getOption('set-password')) {
                 if ($newpw === 'auto') {
                     $newpw = '';
