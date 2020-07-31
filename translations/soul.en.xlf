@@ -652,7 +652,7 @@
       </notes>
       <segment>
         <source>Kartei schließen</source>
-        <target>Kartei schließen</target>
+        <target>Close this page</target>
       </segment>
     </unit>
     <unit id="XqSrbwp" name="Browser-Einstellungen">
@@ -886,7 +886,7 @@
       </notes>
       <segment>
         <source>Hast du ein Seele bei %hordes%, %dv%, %d2n% oder %zn%?</source>
-        <target>Do you have a Soul on %hordes%, %dv%, %d2n% or %zn%?</target>
+        <target>Do you have a Soul on %d2n%, %hordes%, %dv%, or %zn%?</target>
       </segment>
     </unit>
     <unit id="VVu6KAH" name="Seele importieren">
@@ -1588,7 +1588,7 @@
       </notes>
       <segment>
         <source>Diese Karteikarte gehört einem Administrator. Wenn ihr darauf komische, abnormale oder gar furchteinflößende Dinge entdeckt: Das ist völlig normal. Macht euch keine Sorgen, er weiß wahrscheinlich schon Bescheid :).</source>
-        <target>This badge belongs to an Administrator. If you find strange, abnormal, or even scary things on it: this is completely normal. Don't worry, he probably already knows :).</target>
+        <target>This profile belongs to an Administrator. If you find strange, abnormal, or even scary things on it: this is completely normal. Don't worry, he probably already knows :).</target>
       </segment>
     </unit>
     <unit id="Oxu558J" name="Der Rabe">
@@ -1606,7 +1606,7 @@
       </notes>
       <segment>
         <source>Diese Karteikarte gehört einem Raben. Du solltest sie lieber wieder zurücklegen... langsam und ohne plötzliche Bewegungen.</source>
-        <target>This badge belongs to a Crow. You'd better put it back ... slowly and without sudden movements.</target>
+        <target>This profile belongs to a Crow. You'd better put it back ... slowly and without sudden movements.</target>
       </segment>
     </unit>
     <unit id="BCS.RQ1" name="Orakel">
@@ -1624,7 +1624,7 @@
       </notes>
       <segment>
         <source>Diese Karteikarte gehört einem Orakel. Orakel sind Bindeglieder zwischen der Community und den Entwicklern. Du kannst dich bei Fragen und Problemen vertrauensvoll an sie wenden.</source>
-        <target>This badge belongs to an oracle. Oracles are links between the community and the developers. You can contact them with confidence if you have any questions or problems.</target>
+        <target>This profile belongs to an oracle. Oracles are links between the community and the developers. You can contact them with confidence if you have any questions or problems.</target>
       </segment>
     </unit>
     <unit id="qPDF80G" name="Irgend etwas erscheint an dieser Karteikarte merkwürdig...">
@@ -1678,7 +1678,7 @@
       </notes>
       <segment>
         <source>Diese Stadt wurde von %host% importiert. Die angezeigten Informationen sind möglicherweise unvollständig.</source>
-        <target>Diese Stadt wurde von %host% importiert. Die angezeigten Informationen sind möglicherweise unvollständig.</target>
+        <target>This town has been imported from %host%. The information on this page may be incomplete.</target>
       </segment>
     </unit>
     <unit id="Z3DDGf9" name="Tage">
@@ -1687,7 +1687,7 @@
       </notes>
       <segment>
         <source>Tage</source>
-        <target>Tage</target>
+        <target>Days</target>
       </segment>
     </unit>
   </file>
