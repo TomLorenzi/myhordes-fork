@@ -7457,7 +7457,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>%citizen% starb, als er auf lächerliche Weise von der Mauer fiel!</source>
-        <target>%citizen% starb, als er auf lächerliche Weise von der Mauer fiel!</target>
+        <target>%citizen% died when he fell ridiculously off the wall!</target>
       </segment>
     </unit>
     <unit id="6PEMPdF" name="Tapfere Bürger haben auf den Stadtmauern Stellung bezogen : %citizens%">
@@ -7484,7 +7484,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>%citizen% hat es regnen lassen! Ihm habt ihr %num% Rationen reinen Wassers im Brunnen zu verdanken!</source>
-        <target>%citizen% hat es regnen lassen! Ihm habt ihr %num% Rationen reinen Wassers im Brunnen zu verdanken!</target>
+        <target>%citizen% made it rain baby! made it rain baby! Thanks to them the well has gained %num% rations of clean water!</target>
       </segment>
     </unit>
     <unit id="nLA31ML" name="ea40151">
@@ -8792,7 +8792,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Diese Bürger hat hier bereits vor Kurzem gegraben. Die nächste Ausgrabung ist erst morgen wieder möglich.</source>
-        <target>Diese Bürger hat hier bereits vor Kurzem gegraben. Die nächste Ausgrabung ist erst morgen wieder möglich.</target>
+        <target>This citizen has recently dug here. The next excavation will only be possible tomorrow.</target>
       </segment>
     </unit>
     <unit id="r.ZcCRS" name="Dieser Bürger wird aktuell von %leader% eskortiert.">
@@ -8801,7 +8801,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Dieser Bürger wird aktuell von %leader% eskortiert.</source>
-        <target>Dieser Bürger wird aktuell von %leader% eskortiert.</target>
+        <target>This citizen is currently being escorted by %leader%.</target>
       </segment>
     </unit>
     <unit id="8fTcb5D" name="Tote in der Stadt">
@@ -9008,7 +9008,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Eine äußerst seltene Auszeichnung, die den Seelen vorbehalten ist, die das große Harmagedon des Universums von Die Verdammten erlebt haben!</source>
-        <target>Eine äußerst seltene Auszeichnung, die den Seelen vorbehalten ist, die das große Harmagedon des Universums von Die Verdammten erlebt haben!</target>
+        <target>An extremely rare distinction reserved for souls who have experienced the great Armageddon of Die2Nite!</target>
       </segment>
     </unit>
     <unit id="i.fN8wb" name="Zeuge der großen Verseuchung">
@@ -9035,7 +9035,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>&lt;i class="dagger"&gt;†&lt;/i&gt; %cadaver1% hatte gestern Abend kein Glück. Abgesehen davon war es eine ruhige Nacht in der Stadt...</source>
-        <target><![CDATA[<i class="dagger">†</i> %cadaver1% hatte gestern Abend kein Glück. Abgesehen davon war es eine ruhige Nacht in der Stadt...]]></target>
+        <target><![CDATA[<i class="dagger">†</i> %cadaver1% ran out of luck last night. That aside, it was a tranquil night in town...]]></target>
       </segment>
     </unit>
     <unit id="9Sqg4cw" name="953d15e">
@@ -9044,7 +9044,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Alle scheinen sich still und leise über den Tod von &lt;i class="dagger"&gt;†&lt;/i&gt; %cadaver1% gestern Abend zu freuen... Allerdings hat niemand erklärt, warum. %citizen1% kommentierte: "Seine Mutter war ein Hamster, und sein Vater roch nach Holunderbeeren".</source>
-        <target><![CDATA[Alle scheinen sich still und leise über den Tod von <i class="dagger">†</i> %cadaver1% gestern Abend zu freuen... Allerdings hat niemand erklärt, warum. %citizen1% kommentierte: "Seine Mutter war ein Hamster, und sein Vater roch nach Holunderbeeren".]]></target>
+        <target><![CDATA[Everybody seems to be silently rejoicing following the death of <i class="dagger">†</i> %cadaver1% last night... However, nobody has explained why. %citizen1% commented: "their mother was hamster, and their father smelt of elderberries".]]></target>
       </segment>
     </unit>
     <unit id="IshvSDg" name="3920ab5">
@@ -9053,7 +9053,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Jeder hörte &lt;i class="dagger"&gt;†&lt;/i&gt; %cadaver1% schreien, als er von den Zombies auseinander gerissen wurde. Offensichtlich versuchte niemand zu helfen. Überlebensinstinkt. Wirst du jetzt nachts schlafen können?</source>
-        <target><![CDATA[Jeder hörte <i class="dagger">†</i> %cadaver1% schreien, als er von den Zombies auseinander gerissen wurde. Offensichtlich versuchte niemand zu helfen. Überlebensinstinkt. Wirst du jetzt nachts schlafen können?]]></target>
+        <target><![CDATA[Everyone heard <i class="dagger">†</i> %cadaver1% screaming when they were being torn apart by the zombies. Evidently nobody tried to help. Survival instinct. Will you be able to sleep at night now?]]></target>
       </segment>
     </unit>
     <unit id="Ad1Ruao" name="7f96ed2">
@@ -9062,7 +9062,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Ich bin sicher, dass nicht nur ich der Meinung bin, dass wir eine Rechnung mit &lt;i class="dagger"&gt;†&lt;/i&gt; %cadaver1% zu begleichen hatten. Letztendlich scheint es also Karma gewesen zu sein, dass ausgerechnet er heute Nacht ums Leben kam.</source>
-        <target><![CDATA[Ich bin sicher, dass nicht nur ich der Meinung bin, dass wir eine Rechnung mit <i class="dagger">†</i> %cadaver1% zu begleichen hatten. Letztendlich scheint es also Karma gewesen zu sein, dass ausgerechnet er heute Nacht ums Leben kam.]]></target>
+        <target><![CDATA[I'm sure it's not just me who thinks we have a score to settle with <i class="dagger">†</i> %cadaver1% who "forgot" to close the gates after having opened them. It's ultimately down to you guys though...]]></target>
       </segment>
     </unit>
     <unit id="DhrsCwD" name="26dc6d1">
@@ -9071,7 +9071,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Einige Bürger wurden Zeugen eines seltsamen Vorfalls... Man könnte sagen, dass die Zombies gestern Abend ausschließlich für &lt;i class="dagger"&gt;†&lt;/i&gt; %cadaver1% gekommen sind. Sie trugen die Leiche den ganzen Weg zur Baustelle, bevor die Zerstückelung begann!</source>
-        <target><![CDATA[Einige Bürger wurden Zeugen eines seltsamen Vorfalls... Man könnte sagen, dass die Zombies gestern Abend ausschließlich für <i class="dagger">†</i> %cadaver1% gekommen sind. Sie trugen die Leiche den ganzen Weg zur Baustelle, bevor die Zerstückelung begann!]]></target>
+        <target><![CDATA[Some citizens witnessed a strange event... It could be said that the zombies came exclusively for <i class="dagger">†</i> %cadaver1% last night. They carried the body all the way to the construction site before the dismembering began !]]></target>
       </segment>
     </unit>
     <unit id="VXaNsva" name="dc8e234">
@@ -9080,7 +9080,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Einige sagen, daß der Tod von &lt;i class="dagger"&gt;†&lt;/i&gt; %cadaver1% nicht dem Glück zu verdanken ist... das einzige Opfer gestern Abend... Könnte jemand unter uns seinen Tod provoziert haben?</source>
-        <target><![CDATA[Einige sagen, daß der Tod von <i class="dagger">†</i> %cadaver1% nicht dem Glück zu verdanken ist... das einzige Opfer gestern Abend... Könnte jemand unter uns seinen Tod provoziert haben?]]></target>
+        <target><![CDATA[Some say that the death of <i class="dagger">†</i> %cadaver1% nwas not down to luck... the only victim last night... Could someone among us have provoked their death?]]></target>
       </segment>
     </unit>
     <unit id="kwKjT1z" name="d9930bb">
@@ -9107,7 +9107,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>%citizen% hat das Gebäude %plan% repariert und dabei %ap% ausgegeben.</source>
-        <target>%citizen% hat das Gebäude %plan% repariert und dabei %ap% ausgegeben.</target>
+        <target>%citizen% repaired the %plan% building and spent %ap%.</target>
       </segment>
     </unit>
     <unit id="RrBPp.5" name="743000a">
