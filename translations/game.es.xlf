@@ -11479,5 +11479,14 @@
         <target>Nur altgediente Helden können auf die Wandtafel schreiben</target>
       </segment>
     </unit>
+    <unit id="TWStSip" name="425f1c1">
+      <notes>
+        <note category="german">Dies ist eine äußert seltene Auszeichnung, die den ersten Spielern von 'MyHordes' vorbehalten ist. Drogen sind nicht gut.</note>
+      </notes>
+      <segment>
+        <source>Dies ist eine äußert seltene Auszeichnung, die den ersten Spielern von 'MyHordes' vorbehalten ist. Drogen sind nicht gut.</source>
+        <target>Dies ist eine äußert seltene Auszeichnung, die den ersten Spielern von 'MyHordes' vorbehalten ist. Drogen sind nicht gut.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

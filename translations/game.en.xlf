@@ -11461,5 +11461,14 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
         <target>Only veteran heroes can write on the chalkboard</target>
       </segment>
     </unit>
+    <unit id="TWStSip" name="425f1c1">
+      <notes>
+        <note category="german">Dies ist eine äußert seltene Auszeichnung, die den ersten Spielern von 'MyHordes' vorbehalten ist. Drogen sind nicht gut.</note>
+      </notes>
+      <segment>
+        <source>Dies ist eine äußert seltene Auszeichnung, die den ersten Spielern von 'MyHordes' vorbehalten ist. Drogen sind nicht gut.</source>
+        <target>An extremely rare distinction, awarded only to the very earliest citizens of 'MyHordes'. Drugs are not good</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

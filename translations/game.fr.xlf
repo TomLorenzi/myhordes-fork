@@ -11562,7 +11562,16 @@
       </notes>
       <segment>
         <source>Nur altgediente Helden können auf die Wandtafel schreiben</source>
-        <target>Nur altgediente Helden können auf die Wandtafel schreiben</target>
+        <target>Seuls les héros vétérans peuvent écrire sur le tableau noir</target>
+      </segment>
+    </unit>
+    <unit id="TWStSip" name="425f1c1">
+      <notes>
+        <note category="german">Dies ist eine äußert seltene Auszeichnung, die den ersten Spielern von 'MyHordes' vorbehalten ist. Drogen sind nicht gut.</note>
+      </notes>
+      <segment>
+        <source>Dies ist eine äußert seltene Auszeichnung, die den ersten Spielern von 'MyHordes' vorbehalten ist. Drogen sind nicht gut.</source>
+        <target>Distinction rarissime réservée aux tout premiers citoyens de 'MyHordes'. Les drogues c'est pas bien.</target>
       </segment>
     </unit>
   </file>
