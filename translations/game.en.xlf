@@ -11233,7 +11233,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Diese seltene Auszeichnung wurde den Einsiedlern verliehen, die mit ihrer Stadt die Schlacht der Berufe gewonnen haben. Respekt!</source>
-        <target>Gewinner des Clash Of The Titans: Survivalist</target>
+        <target>This rare award was given to the Survivalists who won the battle of the professions with their Town. Respect!</target>
       </segment>
     </unit>
     <unit id="2M7Hmok" name="Aufklärer - Gewinner des SoH">
@@ -11242,7 +11242,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Aufklärer - Gewinner des SoH</source>
-        <target>Scavenger winner of the SoH</target>
+        <target>Scavenger - Winner of the SoH</target>
       </segment>
     </unit>
     <unit id="cp2pUF_" name="Sieg für die Aufklärer beim Shock of Heroes Event!">
