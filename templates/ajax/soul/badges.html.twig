@@ -1,5 +1,5 @@
 {#  @var bagder \App\Entity\User #}
-<div class="cell rw-12 center night hide-md hide-lg hide-sm">
+<div class="cell rw-12 center night">
     {% if user_handler.hasRole(badger, "ROLE_ADMIN") %}
         <div class="badge {{ user_handler.hasRole(badger, "ROLE_SUPER") ? 'badge-admin-master' : 'badge-admin' }}">
             <div><i class="fa fa-hammer"></i></div>
