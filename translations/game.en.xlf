@@ -9161,7 +9161,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Aufgrund deiner Verletzung bist du gestolpert. So ein Ärger...</source>
-        <target>Aufgrund deiner Verletzung bist du gestolpert. So ein Ärger...</target>
+        <target>You stumbled because of your injury. Such trouble ...</target>
       </segment>
     </unit>
     <unit id="o2TNGvz" name="Deine Nachricht wurde korrekt übermittelt!">
@@ -9188,7 +9188,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Das Bauwerk %plan% hat %damage% Punkte Schaden genommen.</source>
-        <target>Le bâtiment %plan% a subi %damage% points de dégâts.</target>
+        <target>The building %plan% received %damage% damage points.</target>
       </segment>
     </unit>
     <unit id="nlQ1fJZ" name="919f19a">
@@ -9197,7 +9197,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Das Bauwerk %plan% hat %damage% Punkte Schaden genommen und wurde daraufhin von den Zombies vollständig zerstört.</source>
-        <target>Le bâtiment %plan% a subi %damage% points de dégâts et a été totalement dévasté par les zombies !.</target>
+        <target>The building %plan% received %damage% damage points and was totally destroyed by the zombies.</target>
       </segment>
     </unit>
     <unit id="3oU90MF" name="Beschädigte Verteidigung: %defense% / %max%">
@@ -9692,7 +9692,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Der Bürger %citizen% hat ein geheimes Versteck gefunden (vermutlich das eines verbannten Mitbürgers)! Es enthielt %items%.</source>
-        <target>Der Bürger %citizen% hat ein geheimes Versteck gefunden (vermutlich das eines verbannten Mitbürgers)! Es enthielt %items%.</target>
+        <target>The citizen %citizen% found a secret hiding place (presumably that of an exiled fellow citizen)! It contained %items%..</target>
       </segment>
     </unit>
     <unit id="UWWvoug" name="e164c18">
@@ -9701,7 +9701,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Du brauchst eine Weile, bis du alle Gegenstände versteckt hast, die du bei dir trägst... Ha Ha... Du hast 2 Aktionspunkte verbraucht.</source>
-        <target>Du brauchst eine Weile, bis du alle Gegenstände versteckt hast, die du bei dir trägst... Ha Ha... Du hast 2 Aktionspunkte verbraucht.</target>
+        <target>It will take you a while to hide all the items you carry with you ... Ha Ha ... You used up 2 action points.</target>
       </segment>
     </unit>
     <unit id="ZgukXzf" name="Deine Nachricht und deine ausgewählten Gegenstände wurden überbracht.">
@@ -9719,7 +9719,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Beim Graben bist du auf eine Art... geheimes Versteck mit %items% gestoßen! Es wurde vermutlich von einem verbannten Mitbürger angelegt...</source>
-        <target>Beim Graben bist du auf eine Art... geheimes Versteck mit %items% gestoßen! Es wurde vermutlich von einem verbannten Mitbürger angelegt...</target>
+        <target>When digging you came across a kind of ... secret hiding place with %items%! It was probably created by an exiled fellow citizen ...</target>
       </segment>
     </unit>
     <unit id="29AAorN" name="Rucksack verstecken">
