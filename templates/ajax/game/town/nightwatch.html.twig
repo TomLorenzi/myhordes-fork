@@ -73,9 +73,9 @@
                 </div>
             </div>
         {% endfor %}
-        <div class="row small total">
-            <div class="cell padded rw-8">{{'Gesamtzahl der Zombies, die heute Nacht sterben könnten:'|trans({}, 'game')}}</div>
-            <div class="cell padded rw-4">{{total_def}}</div>
+        <div class="row small total" style="border-bottom: 1px solid #f0d79e;">
+            <div class="cell padded rw-8" style="border-bottom: 1px solid transparent;">{{'Gesamtzahl der Zombies, die heute Nacht sterben könnten:'|trans({}, 'game')}}</div>
+            <div class="cell padded rw-4" style="border-bottom: 1px solid transparent;">{{total_def}}</div>
         </div>
     </div>
 {% endblock %}
