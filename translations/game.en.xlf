@@ -6899,7 +6899,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Du hast heute bereits getrunken. Eine weitere Essensration erlaubt dir heute nicht weitere AP.</source>
-        <target>You have drank today. Another water ration won't allow you to restore any more Small pa.gif today.</target>
+        <target>You have drank today. Another water ration won't allow you to restore any more AP today.</target>
       </segment>
     </unit>
     <unit id="9hu_P2F" name="f13ed10">
