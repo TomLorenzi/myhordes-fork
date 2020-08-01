@@ -31,7 +31,7 @@
                                             <div class="padded cell rw-2">{{ town.citizens|length }}/{{ town.population }}</div>
                                             <div class="padded cell rw-1 center"><img x-town-details="{{ town.id }}" x-town-toggle="{{ town.id }}" class="pointer" alt="+" src="{{ asset('build/images/icons/small_more.gif') }}" /><div class="tooltip help">{{ 'Die Liste der eingeschriebenen Spieler ansehen.'|trans({},'game') }}</div></div>
                                             <div class="padded cell rw-3"><button {% if joinable %}x-town-lang="{{ town.getLanguage }}" x-town-id="{{ town.id }}" x-town-name="{{ town.getName }}"{% else %}disabled="disabled" title="{{ 'Deine Seele genügt den Anforderungen für diesen Stadttypen.'|trans({}, 'ghost') }}"{% endif %}>{% trans from 'ghost' %}Beitreten{% endtrans %}</button></div>
-                                            <div x-town-details="{{ town.id }}" class="padded cell rw-12 hidden">
+                                            <div x-town-details="{{ town.id }}" class="padded cell rw-12 hidden" style="background-color: #3b3249;">
                                                 <ul class="citizen-list">
                                                     {% for denizen in town.citizens %}
                                                         {# @var denizen \App\Entity\Citizen #}
@@ -41,7 +41,7 @@
                                                             {% else %}
                                                                 <img src="{{ asset('build/images/professions/death.gif') }}" alt="{{ denizen.profession.label|trans({},'game') }}" />
                                                             {% endif %}
-                                                            {{ denizen.user.username }}
+                                                            <a class="link" href="{{ path('soul_visit', {id: denizen.user.id}) }}">{{ denizen.user.username }}</a>
                                                         </li>
                                                     {% endfor %}
                                                 </ul>
@@ -87,7 +87,6 @@
                 const town_lang_rep = window.c.langs[town_lang.split('_')[0]] ? window.c.langs[town_lang.split('_')[0]] : town_lang;
                 let message =
                     ('{{ 'Die Sprache der gewählten Stadt ist %lang_town%. Deine aktuelle Spracheinstellung ist %lang_user%.'|trans({},'ghost')|e('js') }}' + "\n\n" +
-                    '{{ 'Wenn du dieser Stadt beitrittst, wird die Sprache von MyHordes für die Dauer der Stadt auf %lang_town% festgelegt.'|trans({},'ghost')|e('js') }}'  + "\n\n" +
                     '{{ 'Kommunikation ist wichtig in MyHordes. Bitte betritt keine Stadt, deren Sprache du nicht beherrscht. Möchtest du fortfahren?'|trans({},'ghost')|e('js') }}')
                     .replace(/%lang_user%/g, user_lang_rep).replace(/%lang_town%/g, town_lang_rep);
 
