@@ -270,6 +270,12 @@ class GhostController extends AbstractController implements GhostInterfaceContro
                 "small" => 0,
                 'custom' => 0
             ),
+            "multi" => array(
+                "remote" => 100,
+                "panda" => 100,
+                "small" => 100,
+                'custom' => 100
+            ),
         );
         foreach ($openTowns as $openTown) {
             $count[$openTown->getLanguage()][$openTown->getType()->getName()]++;

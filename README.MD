@@ -22,7 +22,7 @@ yarn encore dev
 # Create the crow account (plus 80 debug accounts in case there are none)
 bin/console app:debug --add-crow
 
-# Create a new town (available languages de, en, fr)
+# Create a new town (available languages : fr, en, de, es, multi)
 bin/console app:create-town remote 40 de
 
 # Add debug users (password = username)

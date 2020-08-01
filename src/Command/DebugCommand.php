@@ -228,6 +228,11 @@ class DebugCommand extends Command
                     "panda" => 0,
                     "small" => 0
                 ),
+                "multi" => array(
+                    "remote" => 100,
+                    "panda" => 100,
+                    "small" => 100
+                ),
             );
             foreach ($openTowns as $openTown) {
                 if($openTown->getType()->getName() === 'custom') continue;
