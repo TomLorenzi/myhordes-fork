@@ -3676,7 +3676,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Jemand hat eine anonyme Anzeige gegen %citizen% vorgebracht!</source>
-        <target>Someone sent an anonyous complaint on %citizen%!</target>
+        <target>Someone sent an anonymous complaint on %citizen%!</target>
       </segment>
     </unit>
     <unit id="6S5k6T1" name="Jemand hat seine anonyme Anzeige gegen %citizen% zurückgezogen.">
