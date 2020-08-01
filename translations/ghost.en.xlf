@@ -109,15 +109,6 @@
         <target>The language of the selected town is %lang_town%. Your current language setting is %lang_user%.</target>
       </segment>
     </unit>
-    <unit id="5jsjI47" name="977e42c">
-      <notes>
-        <note category="german">Wenn du dieser Stadt beitrittst, wird die Sprache von MyHordes für die Dauer der Stadt auf %lang_town% festgelegt.</note>
-      </notes>
-      <segment>
-        <source>Wenn du dieser Stadt beitrittst, wird die Sprache von MyHordes für die Dauer der Stadt auf %lang_town% festgelegt.</source>
-        <target>If you join this town, MyHordes' language will be set to %lang_town% for the duration of the town.</target>
-      </segment>
-    </unit>
     <unit id="0C3XaFv" name="321754f">
       <notes>
         <note category="german">Kommunikation ist wichtig in MyHordes. Bitte betritt keine Stadt, deren Sprache du nicht beherrscht. Möchtest du fortfahren?</note>
