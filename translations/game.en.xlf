@@ -6998,7 +6998,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Eine furchtbare Krankheit brennt sich durch dein Innerstes... Vielleicht eine Art Infektion? Das beste, was du jetzt tun kannst, ist die richtige Medizin einzunehmen... Wenn du hingegen nichts tust, hast du eine 50/50 Chance, morgen tot aufzuwachen.</source>
-        <target>Eine furchtbare Krankheit brennt sich durch dein Innerstes... Vielleicht eine Art Infektion? Das beste, was du jetzt tun kannst, ist die richtige Medizin einzunehmen... Wenn du hingegen nichts tust, hast du eine 50/50 Chance, morgen tot aufzuwachen.</target>
+        <target>A terrible disease rages inside you... Some sort of plague maybe? The most effective way to combat the sickness is to take the correct drugs... If you do nothing, you have a 50% chance of waking up dead in the morning.</target>
       </segment>
     </unit>
     <unit id="J1MlEZA" name="4c8ec9e">
@@ -7025,7 +7025,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Du wurdest ernsthaft verletzt! Essen, trinken und Ausruhen wird dir 1AP weniger verschaffen.</source>
-        <target>Du wurdest ernsthaft verletzt! Essen, trinken und Ausruhen wird dir 1AP weniger verschaffen.</target>
+        <target>You have been seriously injured ! You will restore 1AP less whenever you drink, eat or rest.</target>
       </segment>
     </unit>
     <unit id="E6vRFnM" name="Endlich kannst du deine Schwiegermutter loswerden!">
@@ -7079,7 +7079,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Dazu hast Du kein Recht.</source>
-        <target>Dazu hast Du kein Recht.</target>
+        <target>You have no right to do that.</target>
       </segment>
     </unit>
     <unit id="0i49zPL" name="In diesem Thread dreht sich alles um die Bank.">
@@ -7115,7 +7115,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Du hast die Nachricht von %username% dem Raben gemeldet. Wer weiß, vielleicht wird %username% heute Nacht stääärben...</source>
-        <target>You have reported this post from %username% to the raven. Who knows, maybe %username% will die tonight... caaaw caaaw!</target>
+        <target>You have reported this post from %username% to The Crow. Who knows, maybe %username% will die tonight... caaaw caaaw!</target>
       </segment>
     </unit>
     <unit id="Ci7U3L." name="Aktualisierung">
@@ -7169,7 +7169,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Stadt im %direction% in %km% Entfernung</source>
-        <target>The town is %km% to %direction%</target>
+        <target>The Town is %km% to %direction%</target>
       </segment>
     </unit>
     <unit id="jqa.16L" name="da1981d">
@@ -7286,7 +7286,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Nicht weit entfernt von deinem aktuellen Versteck erblickst du ein noch besseres Versteck... Hmmm...vielleicht solltest du umziehen?</source>
-        <target>Nicht weit entfernt von deinem aktuellen Versteck erblickst du ein noch besseres Versteck... Hmmm...vielleicht solltest du umziehen?</target>
+        <target>Not far from your current hiding place you see an even better hiding place ... Hmmm ... maybe you should move?</target>
       </segment>
     </unit>
     <unit id="ERjA3HO" name="Du erhälst einen Bauplan, wenn Du in diesem Gebäude campst.">
@@ -7313,7 +7313,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>%citizen% will zurück zur Stadt und wird dir nicht in diese Richtung folgen.</source>
-        <target>%citizen% will zurück zur Stadt und wird dir nicht in diese Richtung folgen.</target>
+        <target>%citizen% wants to go back to the Town and will not follow you in this direction.</target>
       </segment>
     </unit>
     <unit id="KnJXiGc" name="Die Tarnung von %name% ist aufgeflogen!">
@@ -7322,7 +7322,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Die Tarnung von %name% ist aufgeflogen!</source>
-        <target>Die Tarnung von %name% ist aufgeflogen!</target>
+        <target>%name%'s camouflage has been blown!</target>
       </segment>
     </unit>
     <unit id="jIaT.gH" name="b043aa1">
@@ -7367,7 +7367,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Du führst einen mystischen Tanz auf und bittest den Himmel um Regen, der diese Zone von bösen Geistern befreien wird.</source>
-        <target>Du führst einen mystischen Tanz auf und bittest den Himmel um Regen, der diese Zone von bösen Geistern befreien wird.</target>
+        <target>You perform a mystical dance and ask the sky for rain that will clear this zone of evil spirits.</target>
       </segment>
     </unit>
     <unit id="qNbi2jZ" name="f202f15">
@@ -7376,7 +7376,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Nichts passiert. Wenn dich jemand gesehen hätte, würde er dich sicherlich für den schlechtesten Amateur aller Zeiten halten. Und Blasen hast du jetzt auch noch an den Füßen...</source>
-        <target>Nichts passiert. Wenn dich jemand gesehen hätte, würde er dich sicherlich für den schlechtesten Amateur aller Zeiten halten. Und Blasen hast du jetzt auch noch an den Füßen...</target>
+        <target>Nothing happens. If someone had seen you, he would surely consider you the worst amateur ever. And now you have blisters on your feet ...</target>
       </segment>
     </unit>
     <unit id="ROlGH4i" name="7e84046">
@@ -7403,7 +7403,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Das ist keine gute Idee, das ist dir doch wohl klar!</source>
-        <target>Das ist keine gute Idee, das ist dir doch wohl klar!</target>
+        <target>This is not a good idea, you must be clear about it!</target>
       </segment>
     </unit>
     <unit id="396xkzr" name="...der Mörder .. ist.. IST.. AAARGHhh..">
@@ -7565,7 +7565,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Er kann den Gegenstand momentan nicht aufnehmen und hat ihn auf dem Boden abgelegt.</source>
-        <target>Er kann den Gegenstand momentan nicht aufnehmen und hat ihn auf dem Boden abgelegt.</target>
+        <target>This citizen is currently unable to pick up the item and has placed it on the floor.</target>
       </segment>
     </unit>
     <unit id="J2aR_r9" name="ed375df">
@@ -7583,7 +7583,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Trotz all seiner Anstrengungen hat dein Freund hier leider nichts gefunden...</source>
-        <target>Trotz all seiner Anstrengungen hat dein Freund hier leider nichts gefunden...</target>
+        <target>Despite all their efforts, your friend has unfortunately not found anything here ...</target>
       </segment>
     </unit>
     <unit id="ldDJ4DB" name="5617aca">
@@ -7592,7 +7592,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Trotz all ihrer Anstrengungen hat deine Expedition hier leider nichts gefunden...</source>
-        <target>Trotz all ihrer Anstrengungen hat deine Expedition hier leider nichts gefunden...</target>
+        <target>Despite all your efforts, your expedition has unfortunately found nothing here ...</target>
       </segment>
     </unit>
     <unit id="GEnmf7k" name="Nach einigen Anstrengungen hat dein Freund folgendes gefunden: %item%!">
@@ -7601,7 +7601,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Nach einigen Anstrengungen hat dein Freund folgendes gefunden: %item%!</source>
-        <target>Nach einigen Anstrengungen hat dein Freund folgendes gefunden: %item%!</target>
+        <target>After a few efforts, your friend found the following: %item%!</target>
       </segment>
     </unit>
     <unit id="YuDVKDs" name="Nach einigen Anstrengungen hat deine Expedition folgendes gefunden: %item%!">
@@ -7610,7 +7610,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Nach einigen Anstrengungen hat deine Expedition folgendes gefunden: %item%!</source>
-        <target>Nach einigen Anstrengungen hat deine Expedition folgendes gefunden: %item%!</target>
+        <target>After some effort, your expedition found the following: %item%!</target>
       </segment>
     </unit>
     <unit id="G9pK1NS" name="Du kannst keinen weiteren Bürger eskortieren.">
@@ -7619,7 +7619,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Du kannst keinen weiteren Bürger eskortieren.</source>
-        <target>Du kannst keinen weiteren Bürger eskortieren.</target>
+        <target>You cannot escort another citizen.</target>
       </segment>
     </unit>
     <unit id="v2VHWkl" name="Dieser Bürger hat kein AP mehr.">
@@ -7628,7 +7628,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Dieser Bürger hat kein AP mehr.</source>
-        <target>Dieser Bürger hat kein AP mehr.</target>
+        <target>This citizen no longer has AP.</target>
       </segment>
     </unit>
     <unit id="ZLNo.4B" name="Position:">
@@ -7718,7 +7718,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Die Anwesenheit des Geistigen Beistands unter den Nachtwächtern gibt ihnen jeweils einen Boost von 20 Verteidigung.</source>
-        <target>Die Anwesenheit des Geistigen Beistands unter den Nachtwächtern gibt ihnen jeweils einen Boost von 20 Verteidigung.</target>
+        <target>The presence of Psychadelic Spiritual Counsel among the Watchmen gives them a 20 defense boost each.</target>
       </segment>
     </unit>
     <unit id="nusxEDS" name="Benutzte Waffe">
@@ -7799,7 +7799,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Dank der Bemühungen von %disposing_citizen% konnte der Körper von %citizen% auf faule Flüssigkeit reduziert werden.</source>
-        <target>Dank der Bemühungen von %disposing_citizen% konnte der Körper von %citizen% auf faule Flüssigkeit reduziert werden.</target>
+        <target>Thanks to the bests efforts of %disposing_citizen%, %citizen%'s corpse has been reduced to putrid liquid.</target>
       </segment>
     </unit>
     <unit id="nyOAas." name="Klicke hier, um für diesen Bürger zu stimmen.">

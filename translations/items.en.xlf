@@ -6595,7 +6595,7 @@
       </notes>
       <segment>
         <source>Der Metzger hat sich gut um {item} gekümmert... Dafür hast du nun {items_spawn} erhalten. Auf wiedersehen, mein Freund!</source>
-        <target>The butcher took great care of {item} ... You now have {items_spawn} erhalten. Goodbye dear friend!</target>
+        <target>The butcher took great care of {item} ... You now have {items_spawn}. Goodbye dear friend!</target>
       </segment>
     </unit>
     <unit id="OeuOyF4" name="Haus aufräumen und putzen">
