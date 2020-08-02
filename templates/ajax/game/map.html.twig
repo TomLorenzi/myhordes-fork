@@ -62,14 +62,22 @@
                                         {% endfor %}
                                     {% endif %}
                                     {% if map.zones[x][y].zombies > 0 and map.zones[x][y].zombies <= 2 %}
-                                        {{'Isolierte Zombies'|trans({}, 'game')}}
+                                        <div class="row">
+                                            {{'Isolierte Zombies'|trans({}, 'game')}}
+                                        </div>
                                     {% elseif map.zones[x][y].zombies > 2 and map.zones[x][y].zombies <= 5 %}
-                                        {{'Die Zombies verstümmeln'|trans({}, 'game')}}
+                                        <div class="row">
+                                            {{'Die Zombies verstümmeln'|trans({}, 'game')}}
+                                        </div>
                                     {% elseif map.zones[x][y].zombies > 5 %}
-                                        {{'Horde der Zombies'|trans({}, 'game')}}
+                                        <div class="row">
+                                            {{'Horde der Zombies'|trans({}, 'game')}}
+                                        </div>
                                     {% endif %}
                                     {% if not map.zones[x][y].tag is null and map.zones[x][y].tag.ref > 0 %}
-                                        {{map.zones[x][y].tag.label|trans({}, 'game')}}
+                                        <div class="row">
+                                            {{map.zones[x][y].tag.label|trans({}, 'game')}}
+                                        </div>
                                     {% endif %}
                                 </div>
 
