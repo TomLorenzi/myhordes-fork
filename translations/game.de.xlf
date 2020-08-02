@@ -6489,20 +6489,20 @@
     </unit>
     <unit id="VEVB_Sc" name="Ehemaliger Beta-Tester">
       <notes>
-        <note category="german">Ehemaliger Beta-Tester</note>
+        <note category="german">Ehemaliger BETA-Tester</note>
       </notes>
       <segment>
         <source>Ehemaliger Beta-Tester</source>
-        <target>Ehemaliger Beta-Tester</target>
+        <target>Ehemaliger BETA-Tester</target>
       </segment>
     </unit>
     <unit id="jt.ezbv" name="7d0bc2b">
       <notes>
-        <note category="german">Dies ist eine äußert seltene Auszeichnung, die den ersten Spielern von 'Die Verdammten' vorbehalten ist.</note>
+        <note category="german">Dies ist eine äußerst seltene Auszeichnung, die den ersten Spielern von 'Die Verdammten' vorbehalten ist.</note>
       </notes>
       <segment>
         <source>Dies ist eine äußert seltene Auszeichnung, die den ersten Spielern von 'MyHordes' vorbehalten ist.</source>
-        <target>Dies ist eine äußert seltene Auszeichnung, die den ersten Spielern von 'Die Verdammten' vorbehalten ist.</target>
+        <target>Dies ist eine äußerst seltene Auszeichnung, die den ersten Spielern von 'Die Verdammten' vorbehalten ist.</target>
       </segment>
     </unit>
     <unit id="eAodZt." name="Sandbälle! Yeah!">

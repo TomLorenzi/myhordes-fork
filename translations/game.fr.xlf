@@ -6523,7 +6523,7 @@
     </unit>
     <unit id="VEVB_Sc" name="Ehemaliger Beta-Tester">
       <notes>
-        <note category="german">Ehemaliger Beta-Tester</note>
+        <note category="german">Ehemaliger BETA-Tester</note>
       </notes>
       <segment>
         <source>Ehemaliger Beta-Tester</source>
@@ -6532,7 +6532,7 @@
     </unit>
     <unit id="jt.ezbv" name="7d0bc2b">
       <notes>
-        <note category="german">Dies ist eine äußert seltene Auszeichnung, die den ersten Spielern von 'Die Verdammten' vorbehalten ist.</note>
+        <note category="german">Dies ist eine äußerst seltene Auszeichnung, die den ersten Spielern von 'Die Verdammten' vorbehalten ist.</note>
       </notes>
       <segment>
         <source>Dies ist eine äußert seltene Auszeichnung, die den ersten Spielern von 'MyHordes' vorbehalten ist.</source>
@@ -9223,7 +9223,7 @@
       </notes>
       <segment>
         <source>Ich bin sicher, dass nicht nur ich der Meinung bin, dass wir eine Rechnung mit &lt;i class="dagger"&gt;†&lt;/i&gt; %cadaver1% zu begleichen hatten. Letztendlich scheint es also Karma gewesen zu sein, dass ausgerechnet er heute Nacht ums Leben kam.</source>
-        <target><![CDATA[Ich bin sicher, dass nicht nur ich der Meinung bin, dass wir eine Rechnung mit <i class="dagger">†</i> %cadaver1% zu begleichen hatten. Letztendlich scheint es also Karma gewesen zu sein, dass ausgerechnet er heute Nacht ums Leben kam.]]></target>
+        <target><![CDATA[Je suis sûr que ce n'est pas seulement moi qui pense que nous avons un compte à régler avec <i class="dagger">†</i> %cadaver1% qui a "oublié" de fermer les portes après les avoir ouvertes. En fin de compte, il semble que ce soit du karma qu'il soit mort ce soir.]]></target>
       </segment>
     </unit>
     <unit id="DhrsCwD" name="26dc6d1">
@@ -9232,7 +9232,7 @@
       </notes>
       <segment>
         <source>Einige Bürger wurden Zeugen eines seltsamen Vorfalls... Man könnte sagen, dass die Zombies gestern Abend ausschließlich für &lt;i class="dagger"&gt;†&lt;/i&gt; %cadaver1% gekommen sind. Sie trugen die Leiche den ganzen Weg zur Baustelle, bevor die Zerstückelung begann!</source>
-        <target><![CDATA[Certains citoyens ont été témoins d'un étrange incident ... On pourrait dire que les zombies sont venus hier soir uniquement pour <i class="dagger">†</i> %cadaver1% Ils ont transporté le corps jusqu'au chantier de construction avant le début du démembrement !]]></target>
+        <target><![CDATA[Certains citoyens ont été témoins d'un étrange incident ... On pourrait dire que les zombies sont venus hier soir uniquement pour <i class="dagger">†</i> %cadaver1%. Ils ont transporté le corps jusqu'au chantier de construction avant le début du démembrement !]]></target>
       </segment>
     </unit>
     <unit id="VXaNsva" name="dc8e234">
@@ -9314,15 +9314,6 @@
       <segment>
         <source>vor Angst erstarrt</source>
         <target>Terrorisés</target>
-      </segment>
-    </unit>
-    <unit id="rwDppIW" name="9bd8c94">
-      <notes>
-        <note category="german">Äußerst seltene Marke, die für Seelen reserviert ist, die die Große Kontamination von Die Verdammten erlebt haben!!</note>
-      </notes>
-      <segment>
-        <source>Äußerst seltene Marke, die für Seelen reserviert ist, die die Große Kontamination von Die Verdammten erlebt haben!!</source>
-        <target>Marque extrêmement rare réservée aux âmes qui ont connu la Grande Contamination de Hordes !!</target>
       </segment>
     </unit>
     <unit id="n5cNvq4" name="%citizen% hat das Gebäude %plan% repariert und dabei %ap% ausgegeben.">
