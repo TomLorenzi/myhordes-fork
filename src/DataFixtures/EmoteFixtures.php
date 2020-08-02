@@ -136,6 +136,12 @@ class EmoteFixtures extends Fixture {
         ['tag'=>':watch:', 'path'=>'build/images/emotes/watch.gif', 'isactive'=> true, 'requiresunlock'=> true],
         ['tag'=>':goodg:', 'path'=>'build/images/emotes/goodg.gif', 'isactive'=> true, 'requiresunlock'=> true],
         ['tag'=>':ginfec:', 'path'=>'build/images/emotes/ginfec.gif', 'isactive'=> true, 'requiresunlock'=> true],
+        ['tag'=>':share:', 'path'=>'build/images/emotes/share.gif', 'isactive'=> true, 'requiresunlock'=> true],
+        ['tag'=>':bgum:', 'path'=>'build/images/emotes/bgum.gif', 'isactive'=> true, 'requiresunlock'=> true],
+        ['tag'=>':ptame:', 'path'=>'build/images/emotes/ptame.gif', 'isactive'=> true, 'requiresunlock'=> true],
+        ['tag'=>':ermwin:', 'path'=>'build/images/emotes/ermwin.gif', 'isactive'=> true, 'requiresunlock'=> true],
+        ['tag'=>':cdhwin:', 'path'=>'build/images/emotes/cdhwin.gif', 'isactive'=> true, 'requiresunlock'=> true],
+        ['tag'=>':defwin:', 'path'=>'build/images/emotes/defwin.gif', 'isactive'=> true, 'requiresunlock'=> true],
     ];
 
     private function insertEmotes(ObjectManager $manager, ConsoleOutputInterface $out) {
