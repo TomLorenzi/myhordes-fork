@@ -3343,7 +3343,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>VERDAMMT! Es scheint, jemand ist bei %victim% eingebrochen und hat %item% gestohlen...</source>
-        <target>VERDAMMT! Es scheint, jemand ist bei %victim% eingebrochen und hat %item% gestohlen...</target>
+        <target>It seems someone broke into %victim% and stole %item%...</target>
       </segment>
     </unit>
     <unit id="xFPnTgQ" name="%actor% ist bei %victim% eingebrochen und hat %item% hinterlassen...">
@@ -3712,7 +3712,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>In der Stadt wohnen @citizens Bürger.</source>
-        <target>In der Stadt wohnen @citizens Bürger.</target>
+        <target>@Citizens citizens live in the Town.</target>
       </segment>
     </unit>
     <unit id="fUbvGiO" name="Leere Truhe">
@@ -6548,7 +6548,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Ehemaliger Beta-Tester</source>
-        <target>Ex BETA-Tester</target>
+        <target>In with the bricks</target>
       </segment>
     </unit>
     <unit id="jt.ezbv" name="7d0bc2b">
