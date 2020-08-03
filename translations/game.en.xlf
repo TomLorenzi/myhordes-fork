@@ -5261,7 +5261,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Hättest du mehr als %day% Tage überlebt, würdest du zusätzlich noch folgendes erhalten:</source>
-        <target>Hättest du mehr als %day% Tage überlebt, würdest du zusätzlich noch folgendes erhalten:</target>
+        <target>If you had survived %day% more days, you would also receive the following:</target>
       </segment>
     </unit>
     <unit id="5NecEOg" name="28b7953">
@@ -5450,7 +5450,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Anzahl der Verstümmelungen und Gliedabtrennungen, die dich das Leben gekostet haben.</source>
-        <target>  Number of mutilations or dismemberments which didn't quite cost your life.</target>
+        <target>Number of mutilations or dismemberments which didn't quite cost your life.</target>
       </segment>
     </unit>
     <unit id="sfHZK3y" name="Hausmannskost">
@@ -6071,7 +6071,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Anzahl der Tage, die du als Buddler gespielt hast.</source>
-        <target>Anzahl der Tage, die du als Buddler gespielt hast.</target>
+        <target>Days spent as a scavenger foraging around.</target>
       </segment>
     </unit>
     <unit id="9itIyey" name="Anzahl der Tage, die du als Wächter gespielt hast.">
@@ -6152,7 +6152,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Tod durch Entzug</source>
-        <target>Tod durch Entzug</target>
+        <target>Deaths from withdrawal</target>
       </segment>
     </unit>
     <unit id="TCaWV7i" name="d76eefd">
@@ -6161,7 +6161,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Die Anzahl der Male, in denen dein unfreiwilliger 'cold turkey' gescheitert ist...</source>
-        <target>Die Anzahl der Male, in denen dein unfreiwilliger 'cold turkey' gescheitert ist...</target>
+        <target>Nights you didn't see the other side of, due to lack of drugs.</target>
       </segment>
     </unit>
     <unit id="2yZmTqb" name="Letzter Toter">
@@ -6188,7 +6188,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Letzter Toter in einer Pandämoniumstadt</source>
-        <target>Letzter Toter in einer Pandämoniumstadt</target>
+        <target>Last Man Standing - Hardcore!</target>
       </segment>
     </unit>
     <unit id="G_vOQBw" name="Du bist der oder die Letzte, die in einer Pandämoniumstadt draufgeht!">
@@ -6197,7 +6197,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Du bist der oder die Letzte, die in einer Pandämoniumstadt draufgeht!</source>
-        <target>Du bist der oder die Letzte, die in einer Pandämoniumstadt draufgeht!</target>
+        <target>you were the last to bite the bullet in a Hardcore town!</target>
       </segment>
     </unit>
     <unit id="c02o7DF" name="Mystic">
@@ -6260,7 +6260,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Hängend</source>
-        <target>Hängend</target>
+        <target>Hanging</target>
       </segment>
     </unit>
     <unit id="XILVSQ3" name="Anzahl der Städte, in denen Sie nicht mehr unterstützt werden konnten.">
@@ -6269,7 +6269,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Anzahl der Städte, in denen Sie nicht mehr unterstützt werden konnten.</source>
-        <target>Anzahl der Städte, in denen Sie nicht mehr unterstützt werden konnten.</target>
+        <target>Number of towns which, in the end, just couldn't put up with your crap anymore.</target>
       </segment>
     </unit>
     <unit id="4iul8w7" name="Häuserplünderungen">
@@ -6377,7 +6377,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Anzahl deiner toten Freunde, die du außerhalb der Stadt entsorgt hast.</source>
-        <target>  The number of dead friends you've dragged out of town.</target>
+        <target>The number of dead friends you've dragged out of town.</target>
       </segment>
     </unit>
     <unit id="tsZVejd" name="Batteriewerferfabrikant">
