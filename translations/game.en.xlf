@@ -5549,7 +5549,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Wasserkanonen</source>
-        <target>Wasserkanonen</target>
+        <target>Water Guns</target>
       </segment>
     </unit>
     <unit id="zu27xBQ" name="Anzahl an großen Wasserwaffen, die du gebaut hast.">
@@ -5558,7 +5558,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Anzahl an großen Wasserwaffen, die du gebaut hast.</source>
-        <target>Anzahl an großen Wasserwaffen, die du gebaut hast.</target>
+        <target>The number of water-based toys you have built.</target>
       </segment>
     </unit>
     <unit id="g01ynP2" name="Glückspilz">
@@ -5666,7 +5666,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Grillmeister</source>
-        <target>Grillmeister</target>
+        <target>Extreme BBQ Chef</target>
       </segment>
     </unit>
     <unit id="8KNXbhW" name="Anzahl deiner Alten Freunde, die du im Kremato-Cue gegrillt hast.">
@@ -5675,7 +5675,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Anzahl deiner Alten Freunde, die du im Kremato-Cue gegrillt hast.</source>
-        <target>Anzahl deiner Alten Freunde, die du im Kremato-Cue gegrillt hast.</target>
+        <target>The number of former friends and fellow residents you have cooked and eaten.</target>
       </segment>
     </unit>
     <unit id="1CYXYFJ" name="Ausgrabungsarbeiten">
@@ -6026,7 +6026,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Nachrichten</source>
-        <target>Private Messages</target>
+        <target>Messages</target>
       </segment>
     </unit>
     <unit id="Gp8QV9S" name="11324ce">
@@ -6224,7 +6224,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Wüstenausflüge</source>
-        <target>Wüstenausflüge</target>
+        <target>Night in the desert</target>
       </segment>
     </unit>
     <unit id="DAHe8Qg" name="a229cab">
@@ -6233,7 +6233,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Die Auszeichnung spiegelt die Anzahl der Wüstenausflüge wieder, von denen du nicht mehr zurückgekehrt bist.</source>
-        <target>Die Auszeichnung spiegelt die Anzahl der Wüstenausflüge wieder, von denen du nicht mehr zurückgekehrt bist.</target>
+        <target>Little walks you took outside from which you never returned.</target>
       </segment>
     </unit>
     <unit id="jD.DiPe" name="Geöffnete Tür">
@@ -6278,7 +6278,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Häuserplünderungen</source>
-        <target>Häuserplünderungen</target>
+        <target>Pillages</target>
       </segment>
     </unit>
     <unit id="OLsJBll" name="fb9ae4d">
@@ -6287,7 +6287,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Anzahl der Gegenstände, die du deinen noch verreckenden Freunden entrissen hast.</source>
-        <target>Anzahl der Gegenstände, die du deinen noch verreckenden Freunden entrissen hast.</target>
+        <target>Objects prised from the still-warm clutches of your former friends.</target>
       </segment>
     </unit>
     <unit id="qGiYEyp" name="Absurde Projekte">
@@ -6404,7 +6404,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Überlebende der Hölle!</source>
-        <target>Überlebende der Hölle!</target>
+        <target>Survivor of Hell!</target>
       </segment>
     </unit>
     <unit id="BanibAx" name="Sie sind ein wahrer Überlebenskünstler der Hölle.">
@@ -6413,7 +6413,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Sie sind ein wahrer Überlebenskünstler der Hölle.</source>
-        <target>Sie sind ein wahrer Überlebenskünstler der Hölle.</target>
+        <target>You are a true survivor of hell.</target>
       </segment>
     </unit>
     <unit id="J105.gK" name="Hausarbeiten">
@@ -6422,7 +6422,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Hausarbeiten</source>
-        <target>Hausarbeiten</target>
+        <target>Homemaker</target>
       </segment>
     </unit>
     <unit id="ZWwqduJ" name="Anzahl der Ausbauten, die du an deinem Haus vorgenommen hast.">
@@ -6431,7 +6431,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Anzahl der Ausbauten, die du an deinem Haus vorgenommen hast.</source>
-        <target>Anzahl der Ausbauten, die du an deinem Haus vorgenommen hast.</target>
+        <target>Number of upgrades you have made to your place (improvements).</target>
       </segment>
     </unit>
     <unit id="r6xncsj" name="Kettensägen">
@@ -6458,7 +6458,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Stadtwächter</source>
-        <target>Stadtwächter</target>
+        <target>Watchman</target>
       </segment>
     </unit>
     <unit id="fEL0FCq" name="Anzahl der Nächte, die du als Stadtwächter überlebt hast.">
@@ -6467,7 +6467,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Anzahl der Nächte, die du als Stadtwächter überlebt hast.</source>
-        <target>Anzahl der Nächte, die du als Stadtwächter überlebt hast.</target>
+        <target>The number of nights survived as a watchman.</target>
       </segment>
     </unit>
     <unit id="I2LHLA6" name="Gerankte Stadt">
@@ -6512,7 +6512,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Teilnehmende Stadt</source>
-        <target>Teilnehmende Stadt</target>
+        <target>Participating Town</target>
       </segment>
     </unit>
     <unit id="xKwHsnM" name="b6bc05c">
@@ -6521,7 +6521,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Anzahl der Städte, die in der Top-35-Rangliste einer vergangenen Saison vertreten waren.</source>
-        <target>Anzahl der Städte, die in der Top-35-Rangliste einer vergangenen Saison vertreten waren.</target>
+        <target>Number of towns represented in the top 35 rankings of a past season.</target>
       </segment>
     </unit>
     <unit id="Y90upo5" name="Getötete Zombies">
@@ -6584,7 +6584,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Kreuzigung</source>
-        <target>Kreuzigung</target>
+        <target>Crucifixion</target>
       </segment>
     </unit>
     <unit id="weKTlex" name="Freuen Sie sich, Sie hätten nicht laufen müssen.">
@@ -6593,7 +6593,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Freuen Sie sich, Sie hätten nicht laufen müssen.</source>
-        <target>Freuen Sie sich, Sie hätten nicht laufen müssen.</target>
+        <target>Rejoice you didn't have to walk.</target>
       </segment>
     </unit>
     <unit id="CWUGXbC" name="Den Weihnachtsmann gibt es nicht">
@@ -6638,7 +6638,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Dank deines Kostüms konntest du %item% von %victim% stehlen, ohne erkannt zu werden</source>
-        <target>Dank deines Kostüms konntest du %item% von %victim% stehlen, ohne erkannt zu werden</target>
+        <target>Thanks to your costume, you could steal %item% from %victim% without being recognized</target>
       </segment>
     </unit>
     <unit id="xHllIMc" name="Stunde(n)">
@@ -6719,7 +6719,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Dieser Bürger wurde noch nie gesehen...</source>
-        <target>This citizen has never been seen ...</target>
+        <target>this citizen has never been seen ...</target>
       </segment>
     </unit>
     <unit id="n3JcKxK" name="Der Bürger wurde zuletzt %time% gesehen.">
@@ -8999,7 +8999,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Zeuge von Harmagedon</source>
-        <target>Witness of Armageddon</target>
+        <target>Armageddon Witness</target>
       </segment>
     </unit>
     <unit id="VdVwoAS" name="76effd8">
