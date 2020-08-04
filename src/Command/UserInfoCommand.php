@@ -132,13 +132,22 @@ class UserInfoCommand extends Command
             } elseif ($count = $input->getOption('remove-all-pictos')) {
                 $pictoPrototypes = $this->entityManager->getRepository(PictoPrototype::class)->findAll();
                 foreach ($pictoPrototypes as $pictoPrototype) {
-                    $picto = $this->entityManager->getRepository(Picto::class)->findByUserAndTownAndPrototype($user, null, $pictoPrototype);
-                    if($picto !== null) {
-                        $picto->setCount($picto->getCount()-$count);
-                        if($picto->getCount() <= 0)
-                            $this->entityManager->remove($picto);
-                        else
-                            $this->entityManager->persist($picto);
+                    $pictos = $this->entityManager->getRepository(Picto::class)->findBy(["user" => $user, 'prototype' => $pictoPrototype]);
+                    if(count($pictos) > 0) {
+                        $toRemove = $count;
+                        for($i = 0; $i < count($pictos) && $toRemove > 0 ; $i++) {
+                            $picto = $pictos[$i];
+                            if($picto->getCount() - $toRemove <= 0) {
+                                $toRemove -= $picto->getCount();
+                                $user->removePicto($picto);
+                                $this->entityManager->remove($picto);
+                            }
+                            else {
+                                $picto->setCount($picto->getCount() - $toRemove);
+                                $toRemove = 0;
+                                $this->entityManager->persist($picto);
+                            }
+                        }
                     }
                 }
                 echo "- $count to all pictos of user {$user->getUsername()}\n";
