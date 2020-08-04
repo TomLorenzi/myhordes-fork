@@ -110,7 +110,6 @@ class AwardFixtures extends Fixture implements DependentFixtureInterface {
         ['title'=>'Entsorgungsfachmann', 'unlockquantity'=>200, 'associatedtag'=>':drag:', 'associatedpicto'=>'r_cgarb_#00'],
         ['title'=>'SM Anhänger', 'unlockquantity'=>20, 'associatedtag'=>':maso:', 'associatedpicto'=>'r_maso_#00'],
         ['title'=>'SM Spezialist', 'unlockquantity'=>40, 'associatedtag'=>':maso:', 'associatedpicto'=>'r_maso_#00'],
-        ['title'=>'Nenn mich Herrin', 'unlockquantity'=>60, 'associatedtag'=>':maso:', 'associatedpicto'=>'r_maso_#00'],
         ['title'=>'Ich möchte dein Objekt sein.', 'unlockquantity'=>100, 'associatedtag'=>':maso:', 'associatedpicto'=>'r_maso_#00'],
         ['title'=>'Stadtmetzger', 'unlockquantity'=>30, 'associatedtag'=>':butcher:', 'associatedpicto'=>'r_animal_#00'],
         ['title'=>'Spezialität: Hundesteaks', 'unlockquantity'=>60, 'associatedtag'=>':butcher:', 'associatedpicto'=>'r_animal_#00'],
