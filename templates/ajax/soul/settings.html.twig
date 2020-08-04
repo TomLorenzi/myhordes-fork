@@ -206,7 +206,6 @@
         }
 
         Array.from(document.querySelectorAll('input[x-browser-setting]')).forEach(function(e) {
-            console.log(e);
             switch (e.getAttribute('type')) {
                 case 'checkbox':
                     e.checked = $.client.config.get(e.getAttribute('x-browser-setting')).get();
@@ -324,7 +323,7 @@
 
             let reader = new FileReader();
             reader.onload = function(e) {
-                $.ajax.easySend( '{{ path('api_soul_avatar') }}', {up: 1, image: btoa(e.target.result)},
+                $.ajax.easySend( '{{ path('api_soul_avatar') }}', {up: 1, mime: type_info[1], image: btoa(e.target.result)},
                     function () {
                         $.ajax.load(null, '{{ path('soul_settings') }}', true);
                     } )
