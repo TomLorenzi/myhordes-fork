@@ -45,12 +45,20 @@ class PictoRepository extends ServiceEntityRepository
     public function findByUserAndTownAndPrototype(User $user, $town, PictoPrototype $prototype)
     {
         try {
-            return $this->createQueryBuilder('i')
+            $qb = $this->createQueryBuilder('i')
                 ->andWhere('i.user = :user')->setParameter('user', $user)
-                ->andWhere(($town !== null && $town instanceof Town) ? 'i.town = :town' : 'i.townEntry = :town')->setParameter('town', $town)
-                ->andWhere('i.prototype =  :prototype')->setParameter('prototype', $prototype)
-                ->getQuery()
-                ->getOneOrNullResult();
+                ->andWhere('i.prototype =  :prototype')->setParameter('prototype', $prototype);
+            if($town !== null){
+                if ($town instanceof Town)
+                    $qb->andWhere("i.town = :town");
+                else
+                    $qb->andWhere("i.townEntry = :town");
+                $qb->setParameter('town', $town);
+            } else {
+                $qb->andWhere("i.town IS NULL");
+            }
+            return $qb->getQuery()
+                        ->getOneOrNullResult();
         } catch (NonUniqueResultException $e) {
             return null;
         }
