@@ -22,48 +22,48 @@ use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 class UserInfoCommand extends Command
 {
     protected static $defaultName = 'app:users';
-
+    
     private $entityManager;
     private $pwenc;
-
+    
     public function __construct(EntityManagerInterface $em, UserPasswordEncoderInterface $passwordEncoder)
     {
         $this->entityManager = $em;
         $this->pwenc = $passwordEncoder;
         parent::__construct();
     }
-
+    
     protected function configure()
     {
         $this
-            ->setDescription('Lists information about users.')
-            ->setHelp('This command allows you list users, or get information about a specific user.')
-
-            ->addArgument('UserID', InputArgument::OPTIONAL, 'The user ID')
-
-            ->addOption('validation-pending', 'v0', InputOption::VALUE_NONE, 'Only list users with pending validation.')
-            ->addOption('validated', 'v1', InputOption::VALUE_NONE, 'Only list validated users.')
-            ->addOption('mods', 'm', InputOption::VALUE_NONE, 'Only list users with elevated permissions.')
-
-            ->addOption('set-password', null, InputOption::VALUE_REQUIRED, 'Changes the user password; set to "auto" to auto-generate.', null)
-
-            ->addOption('find-all-rps', null, InputOption::VALUE_REQUIRED, 'Gives all known RP to a user in the given lang')
-            ->addOption('give-all-pictos', null, InputOption::VALUE_REQUIRED, 'Gives all pictos once to a user')
-            ->addOption('remove-all-pictos', null, InputOption::VALUE_REQUIRED, 'Remove all pictos once to a user')
-
-            ->addOption('set-mod-level', null, InputOption::VALUE_REQUIRED, 'Sets the moderation level for a user (0 = normal user, 2 = oracle, 3 = mod, 4 = admin)')
-            ->addOption('set-hero-days', null, InputOption::VALUE_REQUIRED, 'Set the amount of hero days spent to a user (and the associated skills)')
+        ->setDescription('Lists information about users.')
+        ->setHelp('This command allows you list users, or get information about a specific user.')
+        
+        ->addArgument('UserID', InputArgument::OPTIONAL, 'The user ID')
+        
+        ->addOption('validation-pending', 'v0', InputOption::VALUE_NONE, 'Only list users with pending validation.')
+        ->addOption('validated', 'v1', InputOption::VALUE_NONE, 'Only list validated users.')
+        ->addOption('mods', 'm', InputOption::VALUE_NONE, 'Only list users with elevated permissions.')
+        
+        ->addOption('set-password', null, InputOption::VALUE_REQUIRED, 'Changes the user password; set to "auto" to auto-generate.', null)
+        
+        ->addOption('find-all-rps', null, InputOption::VALUE_REQUIRED, 'Gives all known RP to a user in the given lang')
+        ->addOption('give-all-pictos', null, InputOption::VALUE_REQUIRED, 'Gives all pictos once to a user')
+        ->addOption('remove-all-pictos', null, InputOption::VALUE_REQUIRED, 'Remove all pictos once to a user')
+        
+        ->addOption('set-mod-level', null, InputOption::VALUE_REQUIRED, 'Sets the moderation level for a user (0 = normal user, 2 = oracle, 3 = mod, 4 = admin)')
+        ->addOption('set-hero-days', null, InputOption::VALUE_REQUIRED, 'Set the amount of hero days spent to a user (and the associated skills)')
         ;
-
+        
     }
-
+    
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         if ($userid = $input->getArgument('UserID')) {
             $userid = (int)$userid;
             /** @var User $user */
             $user = $this->entityManager->getRepository(User::class)->find($userid);
-
+            
             if (($modlv = $input->getOption('set-mod-level')) !== null) {
                 $user->setRightsElevation($modlv);
                 $this->entityManager->persist($user);
@@ -74,12 +74,12 @@ class UserInfoCommand extends Command
                 foreach ($rps as $rp) {
                     $alreadyfound = $this->entityManager->getRepository(FoundRolePlayText::class)->findByUserAndText($user, $rp);
                     if ($alreadyfound !== null)
-                        continue;
+                    continue;
                     $count++;
                     $foundrp = new FoundRolePlayText();
                     $foundrp->setUser($user)->setText($rp);
                     $user->getFoundTexts()->add($foundrp);
-
+                    
                     $this->entityManager->persist($foundrp);
                 }
                 echo "Added $count RPs to user {$user->getUsername()}\n";
@@ -92,13 +92,13 @@ class UserInfoCommand extends Command
                     if($picto === null) {
                         $picto = new Picto();
                         $picto->setPrototype($pictoPrototype)
-                            ->setPersisted(2)
-                            ->setTown(null)
-                            ->setTownEntry(null)
-                            ->setUser($user);
+                        ->setPersisted(2)
+                        ->setTown(null)
+                        ->setTownEntry(null)
+                        ->setUser($user);
                     }
                     $picto->setCount($picto->getCount()+$count);
-
+                    
                     $this->entityManager->persist($picto);
                 }
                 echo "+ $count to all pictos of user {$user->getUsername()}\n";
@@ -113,8 +113,8 @@ class UserInfoCommand extends Command
                         if($picto->getCount() <= 0)
                             $this->entityManager->remove($picto);
                         else
-                    		$this->entityManager->persist($picto);
-		    }
+                            $this->entityManager->persist($picto);
+                    }
                 }
                 echo "- $count to all pictos of user {$user->getUsername()}\n";
                 $this->entityManager->persist($user);
@@ -125,12 +125,12 @@ class UserInfoCommand extends Command
                     $source = 'AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz0123456789-_$';
                     for ($i = 0; $i < 9; $i++) $newpw .= $source[ mt_rand(0, strlen($source) - 1) ];
                 }
-
+                
                 $user->setPassword($this->pwenc->encodePassword( $user,$newpw ));
                 $output->writeln("New password set: <info>$newpw</info>");
                 $this->entityManager->persist($user);
                 $this->entityManager->flush();
-
+                
             } elseif ($heroDaysCount = $input->getOption('set-hero-days')) {
                 $user->setHeroDaysSpent($heroDaysCount);
                 $this->entityManager->persist($user);
@@ -139,17 +139,17 @@ class UserInfoCommand extends Command
         } else {
             /** @var User[] $users */
             $users = array_filter( $this->entityManager->getRepository(User::class)->findAll(), function(User $user) use ($input) {
-
+                
                 if ($input->getOption( 'validation-pending' ) && $user->getValidated()) return false;
                 if ($input->getOption( 'validated' ) && !$user->getValidated()) return false;
                 if ($input->getOption( 'mods' ) && !$user->getRightsElevation() >= User::ROLE_CROW) return false;
-
+                
                 return true;
             } );
-
+            
             $table = new Table( $output );
             $table->setHeaders( ['ID', 'Name', 'Mail', 'Validated?', 'Mod?', 'ActCitID.','ValTkn.'] );
-
+            
             foreach ($users as $user) {
                 $activeCitizen = $this->entityManager->getRepository(Citizen::class)->findActiveByUser( $user );
                 $pendingValidation = $user->getPendingValidation();
@@ -158,13 +158,14 @@ class UserInfoCommand extends Command
                     $user->getRightsElevation() >= User::ROLE_CROW ? '1' : '0',
                     $activeCitizen ? $activeCitizen->getId() : '-',
                     $pendingValidation ? "{$pendingValidation->getPkey()} ({$pendingValidation->getType()})" : '-'
-                ] );
+                    ] );
+                }
+                
+                $table->render();
+                $output->writeln('Found a total of <info>' . count($users) . '</info> users.');
             }
-
-            $table->render();
-            $output->writeln('Found a total of <info>' . count($users) . '</info> users.');
+            
+            return 0;
         }
-
-        return 0;
     }
-}
+    
