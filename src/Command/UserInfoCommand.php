@@ -36,23 +36,25 @@ class UserInfoCommand extends Command
     protected function configure()
     {
         $this
-        ->setDescription('Lists information about users.')
-        ->setHelp('This command allows you list users, or get information about a specific user.')
-        
-        ->addArgument('UserID', InputArgument::OPTIONAL, 'The user ID')
-        
-        ->addOption('validation-pending', 'v0', InputOption::VALUE_NONE, 'Only list users with pending validation.')
-        ->addOption('validated', 'v1', InputOption::VALUE_NONE, 'Only list validated users.')
-        ->addOption('mods', 'm', InputOption::VALUE_NONE, 'Only list users with elevated permissions.')
-        
-        ->addOption('set-password', null, InputOption::VALUE_REQUIRED, 'Changes the user password; set to "auto" to auto-generate.', null)
-        
-        ->addOption('find-all-rps', null, InputOption::VALUE_REQUIRED, 'Gives all known RP to a user in the given lang')
-        ->addOption('give-all-pictos', null, InputOption::VALUE_REQUIRED, 'Gives all pictos once to a user')
-        ->addOption('remove-all-pictos', null, InputOption::VALUE_REQUIRED, 'Remove all pictos once to a user')
-        
-        ->addOption('set-mod-level', null, InputOption::VALUE_REQUIRED, 'Sets the moderation level for a user (0 = normal user, 2 = oracle, 3 = mod, 4 = admin)')
-        ->addOption('set-hero-days', null, InputOption::VALUE_REQUIRED, 'Set the amount of hero days spent to a user (and the associated skills)')
+            ->setDescription('Lists information about users.')
+            ->setHelp('This command allows you list users, or get information about a specific user.')
+
+            ->addArgument('UserID', InputArgument::OPTIONAL, 'The user ID')
+
+            ->addOption('validation-pending', 'v0', InputOption::VALUE_NONE, 'Only list users with pending validation.')
+            ->addOption('validated', 'v1', InputOption::VALUE_NONE, 'Only list validated users.')
+            ->addOption('mods', 'm', InputOption::VALUE_NONE, 'Only list users with elevated permissions.')
+
+            ->addOption('set-password', null, InputOption::VALUE_REQUIRED, 'Changes the user password; set to "auto" to auto-generate.', null)
+
+            ->addOption('find-all-rps', null, InputOption::VALUE_REQUIRED, 'Gives all known RP to an user in the given lang')
+            ->addOption('give-all-pictos', null, InputOption::VALUE_REQUIRED, 'Gives all pictos once to an user')
+            ->addOption('give-one-picto', null, InputOption::VALUE_REQUIRED, 'Gives one specific picto to an user')
+            ->addOption('remove-all-pictos', null, InputOption::VALUE_REQUIRED, 'Remove all pictos once to an user')
+            ->addOption('remove-one-picto', null, InputOption::VALUE_REQUIRED, 'Remove one specific picto once to an user')
+
+            ->addOption('set-mod-level', null, InputOption::VALUE_REQUIRED, 'Sets the moderation level for an user (0 = normal user, 2 = oracle, 3 = mod, 4 = admin)')
+            ->addOption('set-hero-days', null, InputOption::VALUE_REQUIRED, 'Set the amount of hero days spent to an user (and the associated skills)')
         ;
         
     }
@@ -102,6 +104,29 @@ class UserInfoCommand extends Command
                     $this->entityManager->persist($picto);
                 }
                 echo "+ $count to all pictos of user {$user->getUsername()}\n";
+                $this->entityManager->persist($user);
+                $this->entityManager->flush();
+            } elseif ($pictoName = $input->getOption('give-one-picto')) {
+                $pictoPrototype = $this->entityManager->getRepository(PictoPrototype::class)->findOneBy(['name' => $pictoName]);
+                if($pictoPrototype === null) {
+                    echo "$pictoName is not a valid picto !\n";
+                    return 1;
+                }
+                $picto = $this->entityManager->getRepository(Picto::class)->findByUserAndTownAndPrototype($user, null, $pictoPrototype);
+                if ($picto === null) {
+                    $picto = new Picto();
+                    $picto->setPrototype($pictoPrototype)
+                        ->setPersisted(2)
+                        ->setTown(null)
+                        ->setTownEntry(null)
+                        ->setUser($user);
+                    $user->addPicto($picto);
+                }
+
+                $picto->setCount($picto->getCount()+1);
+                echo "Picto $pictoName gived to user {$user->getUsername()}\n";
+
+                $this->entityManager->persist($picto);
                 $this->entityManager->persist($user);
                 $this->entityManager->flush();
             } elseif ($count = $input->getOption('remove-all-pictos')) {
