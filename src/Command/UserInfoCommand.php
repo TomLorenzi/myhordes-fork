@@ -121,13 +121,13 @@ class UserInfoCommand extends Command
                         ->setTownEntry(null)
                         ->setUser($user);
                     $user->addPicto($picto);
+                    $this->entityManager->persist($user);
                 }
 
                 $picto->setCount($picto->getCount()+1);
                 echo "Picto $pictoName gived to user {$user->getUsername()}\n";
 
                 $this->entityManager->persist($picto);
-                $this->entityManager->persist($user);
                 $this->entityManager->flush();
             } elseif ($count = $input->getOption('remove-all-pictos')) {
                 $pictoPrototypes = $this->entityManager->getRepository(PictoPrototype::class)->findAll();
