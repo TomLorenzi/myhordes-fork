@@ -89,13 +89,15 @@ class UserInfoCommand extends Command
                 $pictoPrototypes = $this->entityManager->getRepository(PictoPrototype::class)->findAll();
                 foreach ($pictoPrototypes as $pictoPrototype) {
                     $picto = $this->entityManager->getRepository(Picto::class)->findByUserAndTownAndPrototype($user, null, $pictoPrototype);
-                    if($picto === null) $picto = new Picto();
-                    $picto->setPrototype($pictoPrototype)
-                        ->setPersisted(2)
-                        ->setTown(null)
-                        ->setTownEntry(null)
-                        ->setUser($user)
-                        ->setCount($picto->getCount()+$count);
+                    if($picto === null) {
+                        $picto = new Picto();
+                        $picto->setPrototype($pictoPrototype)
+                            ->setPersisted(2)
+                            ->setTown(null)
+                            ->setTownEntry(null)
+                            ->setUser($user);
+                    }
+                    $picto->setCount($picto->getCount()+$count);
 
                     $this->entityManager->persist($picto);
                 }
@@ -106,15 +108,13 @@ class UserInfoCommand extends Command
                 $pictoPrototypes = $this->entityManager->getRepository(PictoPrototype::class)->findAll();
                 foreach ($pictoPrototypes as $pictoPrototype) {
                     $picto = $this->entityManager->getRepository(Picto::class)->findByUserAndTownAndPrototype($user, null, $pictoPrototype);
-                    if($picto === null) $picto = new Picto();
-                    $picto->setPrototype($pictoPrototype)
-                        ->setPersisted(2)
-                        ->setTown(null)
-                        ->setTownEntry(null)
-                        ->setUser($user)
-                        ->setCount($picto->getCount()-$count);
-
-                    $this->entityManager->persist($picto);
+                    if($picto !== null) {
+                        $picto->setCount($picto->getCount()-$count);
+                        if($picto->getCount() <= 0)
+                            $this->entityManager->remove($picto);
+                        else
+                    		$this->entityManager->persist($picto);
+		    }
                 }
                 echo "- $count to all pictos of user {$user->getUsername()}\n";
                 $this->entityManager->persist($user);
