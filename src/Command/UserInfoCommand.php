@@ -7,6 +7,7 @@ namespace App\Command;
 use App\Entity\Citizen;
 use App\Entity\FoundRolePlayText;
 use App\Entity\RolePlayText;
+use App\Entity\Town;
 use App\Entity\User;
 use App\Entity\Picto;
 use App\Entity\PictoPrototype;
@@ -17,6 +18,7 @@ use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
+use Symfony\Component\Console\Question\Question;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 class UserInfoCommand extends Command
@@ -65,6 +67,8 @@ class UserInfoCommand extends Command
             $userid = (int)$userid;
             /** @var User $user */
             $user = $this->entityManager->getRepository(User::class)->find($userid);
+
+            $helper = $this->getHelper('question');
             
             if (($modlv = $input->getOption('set-mod-level')) !== null) {
                 $user->setRightsElevation($modlv);
@@ -88,15 +92,25 @@ class UserInfoCommand extends Command
                 $this->entityManager->persist($user);
                 $this->entityManager->flush();
             } elseif ($count = $input->getOption('give-all-pictos')) {
+                $question = new Question("Please enter a town ID to bind the pictos to (default: none): ");
+                $town = null;
+                $townId = $helper->ask($input, $output, $question);
+                if($townId !== null) {
+                    $town = $this->entityManager->getRepository(Town::class)->find($townId);
+                    if($town === null) {
+                        echo "$townId is not a valid town\n";
+                        return 1;
+                    }
+                }
                 $pictoPrototypes = $this->entityManager->getRepository(PictoPrototype::class)->findAll();
                 foreach ($pictoPrototypes as $pictoPrototype) {
-                    $picto = $this->entityManager->getRepository(Picto::class)->findByUserAndTownAndPrototype($user, null, $pictoPrototype);
+                    $picto = $this->entityManager->getRepository(Picto::class)->findByUserAndTownAndPrototype($user, $town, $pictoPrototype);
                     if($picto === null) {
                         $picto = new Picto();
                         $picto->setPrototype($pictoPrototype)
                         ->setPersisted(2)
-                        ->setTown(null)
-                        ->setTownEntry(null)
+                        ->setTown($town)
+                        ->setTownEntry($town !== null ? $town->getRankingEntry() : null)
                         ->setUser($user);
                     }
                     $picto->setCount($picto->getCount()+$count);
@@ -112,13 +126,23 @@ class UserInfoCommand extends Command
                     echo "$pictoName is not a valid picto !\n";
                     return 1;
                 }
-                $picto = $this->entityManager->getRepository(Picto::class)->findByUserAndTownAndPrototype($user, null, $pictoPrototype);
+                $question = new Question("Please enter a town ID to bind the picto to (default: none): ");
+                $town = null;
+                $townId = $helper->ask($input, $output, $question);
+                if($townId !== null) {
+                    $town = $this->entityManager->getRepository(Town::class)->find($townId);
+                    if($town === null) {
+                        echo "$townId is not a valid town\n";
+                        return 1;
+                    }
+                }
+                $picto = $this->entityManager->getRepository(Picto::class)->findByUserAndTownAndPrototype($user, $town, $pictoPrototype);
                 if ($picto === null) {
                     $picto = new Picto();
                     $picto->setPrototype($pictoPrototype)
                         ->setPersisted(2)
-                        ->setTown(null)
-                        ->setTownEntry(null)
+                        ->setTown($town)
+                        ->setTownEntry($town !== null ? $town->getRankingEntry() : null)
                         ->setUser($user);
                     $user->addPicto($picto);
                     $this->entityManager->persist($user);
@@ -130,9 +154,20 @@ class UserInfoCommand extends Command
                 $this->entityManager->persist($picto);
                 $this->entityManager->flush();
             } elseif ($count = $input->getOption('remove-all-pictos')) {
+                $question = new Question("Please enter a town ID to remove the picto from (default: all): ", 'all');
+                $town = null;
+                $townId = $helper->ask($input, $output, $question);
+                if($townId !== null) {
+                    $town = $this->entityManager->getRepository(Town::class)->find($townId);
+                    if($town === null) {
+                        echo "$townId is not a valid town\n";
+                        return 1;
+                    }
+                }
+
                 $pictoPrototypes = $this->entityManager->getRepository(PictoPrototype::class)->findAll();
                 foreach ($pictoPrototypes as $pictoPrototype) {
-                    $pictos = $this->entityManager->getRepository(Picto::class)->findBy(["user" => $user, 'prototype' => $pictoPrototype]);
+                    $pictos = $this->entityManager->getRepository(Picto::class)->findBy(["user" => $user, 'prototype' => $pictoPrototype, 'town' => $town]);
                     if(count($pictos) > 0) {
                         $toRemove = $count;
                         for($i = 0; $i < count($pictos) && $toRemove > 0 ; $i++) {
@@ -151,6 +186,49 @@ class UserInfoCommand extends Command
                     }
                 }
                 echo "- $count to all pictos of user {$user->getUsername()}\n";
+                $this->entityManager->persist($user);
+                $this->entityManager->flush();
+            } elseif ($pictoName = $input->getOption('remove-one-pictos')) {
+                $pictoPrototype = $this->entityManager->getRepository(PictoPrototype::class)->findOneBy(['name' => $pictoName]);
+                if($pictoPrototype === null) {
+                    echo "$pictoName is not a valid picto !\n";
+                    return 1;
+                }
+
+                $question = new Question("Please enter a town ID to remove the picto from (default: all): ", 'all');
+                $town = null;
+                $townId = $helper->ask($input, $output, $question);
+                if($townId !== null && $townId !== 'all') {
+                    $town = $this->entityManager->getRepository(Town::class)->find($townId);
+                    if($town === null) {
+                        echo "$townId is not a valid town\n";
+                        return 1;
+                    }
+                }
+
+                $filter = ["user" => $user, 'prototype' => $pictoPrototype];
+
+                if($town !== null)
+                    $filter['town'] = $town;
+
+                $pictos = $this->entityManager->getRepository(Picto::class)->findBy($filter);
+                if(count($pictos) > 0) {
+                    $toRemove = $count;
+                    for($i = 0; $i < count($pictos) && $toRemove > 0 ; $i++) {
+                        $picto = $pictos[$i];
+                        if($picto->getCount() - $toRemove <= 0) {
+                            $toRemove -= $picto->getCount();
+                            $user->removePicto($picto);
+                            $this->entityManager->remove($picto);
+                        }
+                        else {
+                            $picto->setCount($picto->getCount() - $toRemove);
+                            $toRemove = 0;
+                            $this->entityManager->persist($picto);
+                        }
+                    }
+                }
+                echo "- $count to the picto $pictoName of user {$user->getUsername()}\n";
                 $this->entityManager->persist($user);
                 $this->entityManager->flush();
             } elseif ($newpw = $input->getOption('set-password')) {
