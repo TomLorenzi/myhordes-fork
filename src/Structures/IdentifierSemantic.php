@@ -36,9 +36,12 @@ class IdentifierSemantic
         $added = false;
         $class = get_class($e);
         while ($class) {
-            $a = $this->internalAddResult($class, $strength, $property, $e);
-            $added = $added || $a;
+            if (strpos($class, 'Proxies\__CG__\\') !== 0) {
+                $a = $this->internalAddResult($class, $strength, $property, $e);
+                $added = $added || $a;
+            }
             $class = get_parent_class($class);
+            if (strpos($class, 'Proxies') === 0) die;
         }
         return $added;
     }
