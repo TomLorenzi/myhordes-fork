@@ -211,7 +211,7 @@ class UserInfoCommand extends Command
                 echo "- {$count} to all pictos of user {$user->getUsername()}\n";
                 $this->entityManager->persist($user);
                 $this->entityManager->flush();
-            } elseif ($pictoName = $input->getOption('remove-one-pictos')) {
+            } elseif ($pictoName = $input->getOption('remove-one-picto')) {
                 $pictoPrototype = $this->entityManager->getRepository(PictoPrototype::class)->findOneBy(['name' => $pictoName]);
                 if (null === $pictoPrototype) {
                     echo "{$pictoName} is not a valid picto !\n";
