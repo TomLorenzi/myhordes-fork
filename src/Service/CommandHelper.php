@@ -32,7 +32,11 @@ class CommandHelper
     }
 
     public function printObject(object $e): string {
-        switch (get_class($e)) {
+        $class = get_class($e);
+        while (strpos($class, 'Proxies\__CG__\\') === 0)
+            $class = get_parent_class($class);
+
+        switch ($class) {
             case User::class:
                 /** @var User $e */
                 return "User #{$e->getId()} <comment>{$e->getUsername()}</comment> ({$e->getEmail()})";
@@ -51,9 +55,19 @@ class CommandHelper
             case Town::class:
                 /** @var Town $e */
                 return "Town #{$e->getId()} <comment>{$e->getName()}</comment> ({$e->getLanguage()}, Day {$e->getDay()})";
+            case Inventory::class:
+                /** @var Inventory $e */
+                if ($e->getTown())              return "Inventory #{$e->getId()} (Bank of {$e->getTown()->getName()})";
+                else if ($e->getHome())         return "Inventory #{$e->getId()} (Home of {$e->getHome()->getCitizen()->getUser()->getUsername()} in {$e->getHome()->getCitizen()->getTown()->getName()})";
+                else if ($e->getCitizen())      return "Inventory #{$e->getId()} (Rucksack of {$e->getCitizen()->getUser()->getUsername()} in {$e->getCitizen()->getTown()->getName()})";
+                else if ($e->getZone())         return "Inventory #{$e->getId()} (Floor of {$e->getZone()->getX()}/{$e->getZone()->getY()} in {$e->getZone()->getTown()->getName()})";
+                else if ($e->getRuinZone())     return "Inventory #{$e->getId()} (Ruin Floor of {$e->getRuinZone()->getX()}/{$e->getRuinZone()->getY()} at {$e->getRuinZone()->getZone()->getX()}/{$e->getRuinZone()->getZone()->getY()} in {$e->getRuinZone()->getZone()->getTown()->getName()})";
+                else if ($e->getRuinZoneRoom()) return "Inventory #{$e->getId()} (Room Floor of {$e->getRuinZoneRoom()->getX()}/{$e->getRuinZoneRoom()->getY()} at {$e->getRuinZoneRoom()->getZone()->getX()}/{$e->getRuinZoneRoom()->getZone()->getY()} in {$e->getRuinZoneRoom()->getZone()->getTown()->getName()})";
+                else return "Inventory #{$e->getId()} (unknown)";
             default:
                 $cls_ex = explode('\\', get_class($e));
                 $niceName =  preg_replace('/(\w)([ABCDEFGHIJKLMNOPQRSTUVWXYZ\d])/', '$1 $2', array_pop($cls_ex));
+                $niceName = get_class($e);
                 if (is_a($e, NamedEntity::class))
                     return "$niceName #{$e->getId()} <comment>{$e->getLabel()}</comment> ({$e->getName()})";
                 else return "$niceName #{$e->getId()}";
@@ -155,6 +169,7 @@ class CommandHelper
                             case 'rucksack':case 'ruck':case 'sack':case 'inventory':case 'inv': return $base->getActiveCitizen()->getInventory();
                             case 'home':case 'house':case 'chest': return $base->getActiveCitizen()->getHome()->getChest();
                             case 'bank':case 'town': return $base->getActiveCitizen()->getTown()->getBank();
+                            case 'zone':case 'floor': return $base->getActiveCitizen()->getZone() ? $base->getActiveCitizen()->getZone()->getFloor() : null;
                             default: return null;
                         }
                     default: null;
@@ -172,10 +187,10 @@ class CommandHelper
 
             if (is_a($e = $base->getMatchedObject($match), $class))
                 $final->addResult($e, $base->getMatchedStrength($match), $base->getMatchedProperty($match));
-            elseif ($base->getMatchedStrength($match) > IdentifierSemantic::GuessMatch) {
+            elseif ($base->getMatchedStrength($match) >= IdentifierSemantic::GuessMatch) {
                 $derived = $this->semantic_resolve($e, $class, $hint);
                 if ($derived !== null && is_a($derived, $class))
-                    $final->addResult($derived, $base->getMatchedStrength($match) - 1, 'semantics');
+                    $final->addResult($derived, max(1,$base->getMatchedStrength($match) - 1), 'semantics');
             }
         }
 
@@ -186,6 +201,7 @@ class CommandHelper
     /**
      * @param string $id
      * @param string $class
+     * @param string $label
      * @param QuestionHelper|null $qh
      * @param InputInterface|null $in
      * @param OutputInterface|null $out
@@ -218,6 +234,13 @@ class CommandHelper
             foreach ( $sem->getMatches() as $match ) {
                 $o = $sem->getMatchedObject($match);
                 $l[$this->printObject($o)] = $o;
+            }
+
+            if (empty($l)) {
+                if ($hint)
+                    $out->writeln("<error>Your query '$id' ('$hint') for $label did not yield any results.</error>");
+                else $out->writeln("<error>Your query '$id' for $label did not yield any results.</error>");
+                return null;
             }
 
             $result = $qh->ask($in, $out, new ChoiceQuestion(
