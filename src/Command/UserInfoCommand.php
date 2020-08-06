@@ -54,8 +54,7 @@ class UserInfoCommand extends Command
             ->addOption('remove-one-picto', null, InputOption::VALUE_REQUIRED, 'Remove one specific picto once to an user')
 
             ->addOption('set-mod-level', null, InputOption::VALUE_REQUIRED, 'Sets the moderation level for an user (0 = normal user, 2 = oracle, 3 = mod, 4 = admin)')
-            ->addOption('set-hero-days', null, InputOption::VALUE_REQUIRED, 'Set the amount of hero days spent to an user (and the associated skills)')
-        ;
+            ->addOption('set-hero-days', null, InputOption::VALUE_REQUIRED, 'Set the amount of hero days spent to an user (and the associated skills)');
     }
 
     protected function execute(InputInterface $input, OutputInterface $output)
@@ -110,8 +109,7 @@ class UserInfoCommand extends Command
                             ->setPersisted(2)
                             ->setTown($town)
                             ->setTownEntry(null !== $town ? $town->getRankingEntry() : null)
-                            ->setUser($user)
-                        ;
+                            ->setUser($user);
                     }
                     $picto->setCount($picto->getCount() + $count);
 
@@ -138,6 +136,13 @@ class UserInfoCommand extends Command
                         return 1;
                     }
                 }
+
+                $question = new Question('How many picto should we remove ? (1) ', 1);
+                $count = $helper->ask($input, $output, $question);
+                if (intval($count) <= 0) {
+                    $count = 1;
+                }
+
                 $picto = $this->entityManager->getRepository(Picto::class)->findByUserAndTownAndPrototype($user, $town, $pictoPrototype);
                 if (null === $picto) {
                     $picto = new Picto();
@@ -145,14 +150,13 @@ class UserInfoCommand extends Command
                         ->setPersisted(2)
                         ->setTown($town)
                         ->setTownEntry(null !== $town ? $town->getRankingEntry() : null)
-                        ->setUser($user)
-                    ;
+                        ->setUser($user);
                     $user->addPicto($picto);
                     $this->entityManager->persist($user);
                 }
 
-                $picto->setCount($picto->getCount() + 1);
-                echo "Picto {$pictoName} gived to user {$user->getUsername()}\n";
+                $picto->setCount($picto->getCount() + $count);
+                echo "$count picto {$pictoName} gived to user {$user->getUsername()}\n";
 
                 $this->entityManager->persist($picto);
                 $this->entityManager->flush();
@@ -209,6 +213,12 @@ class UserInfoCommand extends Command
 
                         return 1;
                     }
+                }
+
+                $question = new Question('How many picto should we remove ? (1) ', 1);
+                $count = $helper->ask($input, $output, $question);
+                if (intval($count) <= 0) {
+                    $count = 1;
                 }
 
                 $filter = ['user' => $user, 'prototype' => $pictoPrototype];
@@ -285,7 +295,7 @@ class UserInfoCommand extends Command
             }
 
             $table->render();
-            $output->writeln('Found a total of <info>'.count($users).'</info> users.');
+            $output->writeln('Found a total of <info>' . count($users) . '</info> users.');
         }
 
         return 0;
