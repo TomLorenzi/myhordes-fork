@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use App\Interfaces\NamedEntity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
@@ -16,7 +17,7 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
  *     @UniqueConstraint(name="escort_action_group_name_unique",columns={"name"})
  * })
  */
-class EscortActionGroup
+class EscortActionGroup implements NamedEntity
 {
     /**
      * @ORM\Id()

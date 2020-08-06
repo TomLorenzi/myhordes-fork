@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use App\Interfaces\NamedEntity;
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\ORM\Mapping\Table;
 use Doctrine\ORM\Mapping\UniqueConstraint;
@@ -14,7 +15,7 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
  *     @UniqueConstraint(name="citizen_home_upgrade_prototype_name_unique",columns={"name"})
  * })
  */
-class CitizenHomeUpgradePrototype
+class CitizenHomeUpgradePrototype implements NamedEntity
 {
     /**
      * @ORM\Id()
