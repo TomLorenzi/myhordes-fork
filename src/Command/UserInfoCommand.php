@@ -1,15 +1,14 @@
 <?php
 
-
 namespace App\Command;
-
 
 use App\Entity\Citizen;
 use App\Entity\FoundRolePlayText;
-use App\Entity\RolePlayText;
-use App\Entity\User;
 use App\Entity\Picto;
 use App\Entity\PictoPrototype;
+use App\Entity\RolePlayText;
+use App\Entity\Town;
+use App\Entity\User;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Helper\Table;
@@ -17,6 +16,7 @@ use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
+use Symfony\Component\Console\Question\Question;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 class UserInfoCommand extends Command
@@ -56,17 +56,18 @@ class UserInfoCommand extends Command
             ->addOption('set-mod-level', null, InputOption::VALUE_REQUIRED, 'Sets the moderation level for an user (0 = normal user, 2 = oracle, 3 = mod, 4 = admin)')
             ->addOption('set-hero-days', null, InputOption::VALUE_REQUIRED, 'Set the amount of hero days spent to an user (and the associated skills)')
         ;
-
     }
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         if ($userid = $input->getArgument('UserID')) {
-            $userid = (int)$userid;
+            $userid = (int) $userid;
             /** @var User $user */
             $user = $this->entityManager->getRepository(User::class)->find($userid);
 
-            if (($modlv = $input->getOption('set-mod-level')) !== null) {
+            $helper = $this->getHelper('question');
+
+            if (null !== ($modlv = $input->getOption('set-mod-level'))) {
                 $user->setRightsElevation($modlv);
                 $this->entityManager->persist($user);
                 $this->entityManager->flush();
@@ -75,81 +76,179 @@ class UserInfoCommand extends Command
                 $count = 0;
                 foreach ($rps as $rp) {
                     $alreadyfound = $this->entityManager->getRepository(FoundRolePlayText::class)->findByUserAndText($user, $rp);
-                    if ($alreadyfound !== null)
+                    if (null !== $alreadyfound) {
                         continue;
-                    $count++;
+                    }
+                    ++$count;
                     $foundrp = new FoundRolePlayText();
                     $foundrp->setUser($user)->setText($rp);
                     $user->getFoundTexts()->add($foundrp);
 
                     $this->entityManager->persist($foundrp);
                 }
-                echo "Added $count RPs to user {$user->getUsername()}\n";
+                echo "Added {$count} RPs to user {$user->getUsername()}\n";
                 $this->entityManager->persist($user);
                 $this->entityManager->flush();
             } elseif ($count = $input->getOption('give-all-pictos')) {
+                $question = new Question('Please enter a town ID to bind the pictos to (default: none): ');
+                $town = null;
+                $townId = $helper->ask($input, $output, $question);
+                if (null !== $townId) {
+                    $town = $this->entityManager->getRepository(Town::class)->find($townId);
+                    if (null === $town) {
+                        echo "{$townId} is not a valid town\n";
+
+                        return 1;
+                    }
+                }
                 $pictoPrototypes = $this->entityManager->getRepository(PictoPrototype::class)->findAll();
                 foreach ($pictoPrototypes as $pictoPrototype) {
-                    $picto = $this->entityManager->getRepository(Picto::class)->findByUserAndTownAndPrototype($user, null, $pictoPrototype);
-                    if($picto === null) {
+                    $picto = $this->entityManager->getRepository(Picto::class)->findByUserAndTownAndPrototype($user, $town, $pictoPrototype);
+                    if (null === $picto) {
                         $picto = new Picto();
                         $picto->setPrototype($pictoPrototype)
                             ->setPersisted(2)
-                            ->setTown(null)
-                            ->setTownEntry(null)
-                            ->setUser($user);
+                            ->setTown($town)
+                            ->setTownEntry(null !== $town ? $town->getRankingEntry() : null)
+                            ->setUser($user)
+                        ;
                     }
-                    $picto->setCount($picto->getCount()+$count);
+                    $picto->setCount($picto->getCount() + $count);
 
                     $this->entityManager->persist($picto);
                 }
-                echo "+ $count to all pictos of user {$user->getUsername()}\n";
+                echo "+ {$count} to all pictos of user {$user->getUsername()}\n";
                 $this->entityManager->persist($user);
                 $this->entityManager->flush();
-            } elseif ($count = $input->getOption('give-one-picto')) {
-                $pictoPrototype = $this->entityManager->getRepository(PictoPrototype::class)->findOneByName($count);
-                    if($pictoPrototype != null) {
-                    	$picto = $this->entityManager->getRepository(Picto::class)->findByUserAndTownAndPrototype($user, null, $pictoPrototype);
-                        $picto = new Picto();
-                        $picto->setPrototype($pictoPrototype)
-                            ->setPersisted(2)
-                            ->setTown(null)
-                            ->setTownEntry(null)
-                            ->setUser($user);
-                    $picto->setCount($picto->getCount()+1);
+            } elseif ($pictoName = $input->getOption('give-one-picto')) {
+                $pictoPrototype = $this->entityManager->getRepository(PictoPrototype::class)->findOneBy(['name' => $pictoName]);
+                if (null === $pictoPrototype) {
+                    echo "{$pictoName} is not a valid picto !\n";
 
-                    $this->entityManager->persist($picto);
+                    return 1;
                 }
-                echo "$count gived to user {$user->getUsername()}\n";
-                $this->entityManager->persist($user);
+                $question = new Question('Please enter a town ID to bind the picto to (default: none): ');
+                $town = null;
+                $townId = $helper->ask($input, $output, $question);
+                if (null !== $townId) {
+                    $town = $this->entityManager->getRepository(Town::class)->find($townId);
+                    if (null === $town) {
+                        echo "{$townId} is not a valid town\n";
+
+                        return 1;
+                    }
+                }
+                $picto = $this->entityManager->getRepository(Picto::class)->findByUserAndTownAndPrototype($user, $town, $pictoPrototype);
+                if (null === $picto) {
+                    $picto = new Picto();
+                    $picto->setPrototype($pictoPrototype)
+                        ->setPersisted(2)
+                        ->setTown($town)
+                        ->setTownEntry(null !== $town ? $town->getRankingEntry() : null)
+                        ->setUser($user)
+                    ;
+                    $user->addPicto($picto);
+                    $this->entityManager->persist($user);
+                }
+
+                $picto->setCount($picto->getCount() + 1);
+                echo "Picto {$pictoName} gived to user {$user->getUsername()}\n";
+
+                $this->entityManager->persist($picto);
                 $this->entityManager->flush();
             } elseif ($count = $input->getOption('remove-all-pictos')) {
+                $question = new Question('Please enter a town ID to remove the picto from (default: all): ', 'all');
+                $town = null;
+                $townId = $helper->ask($input, $output, $question);
+                if (null !== $townId) {
+                    $town = $this->entityManager->getRepository(Town::class)->find($townId);
+                    if (null === $town) {
+                        echo "{$townId} is not a valid town\n";
+
+                        return 1;
+                    }
+                }
+
                 $pictoPrototypes = $this->entityManager->getRepository(PictoPrototype::class)->findAll();
                 foreach ($pictoPrototypes as $pictoPrototype) {
-                    $picto = $this->entityManager->getRepository(Picto::class)->findByUserAndTownAndPrototype($user, null, $pictoPrototype);
-                    if($picto !== null) {
-                        $picto->setCount($picto->getCount()-$count);
-                        if($picto->getCount() <= 0)
-                            $this->entityManager->remove($picto);
-                        else
-                    		$this->entityManager->persist($picto);
-		    }
+                    $pictos = $this->entityManager->getRepository(Picto::class)->findBy(['user' => $user, 'prototype' => $pictoPrototype, 'town' => $town]);
+                    if (count($pictos) > 0) {
+                        $toRemove = $count;
+                        for ($i = 0; $i < count($pictos) && $toRemove > 0; ++$i) {
+                            $picto = $pictos[$i];
+                            if ($picto->getCount() - $toRemove <= 0) {
+                                $toRemove -= $picto->getCount();
+                                $user->removePicto($picto);
+                                $this->entityManager->remove($picto);
+                            } else {
+                                $picto->setCount($picto->getCount() - $toRemove);
+                                $toRemove = 0;
+                                $this->entityManager->persist($picto);
+                            }
+                        }
+                    }
                 }
-                echo "- $count to all pictos of user {$user->getUsername()}\n";
+                echo "- {$count} to all pictos of user {$user->getUsername()}\n";
+                $this->entityManager->persist($user);
+                $this->entityManager->flush();
+            } elseif ($pictoName = $input->getOption('remove-one-pictos')) {
+                $pictoPrototype = $this->entityManager->getRepository(PictoPrototype::class)->findOneBy(['name' => $pictoName]);
+                if (null === $pictoPrototype) {
+                    echo "{$pictoName} is not a valid picto !\n";
+
+                    return 1;
+                }
+
+                $question = new Question('Please enter a town ID to remove the picto from (default: all): ', 'all');
+                $town = null;
+                $townId = $helper->ask($input, $output, $question);
+                if (null !== $townId && 'all' !== $townId) {
+                    $town = $this->entityManager->getRepository(Town::class)->find($townId);
+                    if (null === $town) {
+                        echo "{$townId} is not a valid town\n";
+
+                        return 1;
+                    }
+                }
+
+                $filter = ['user' => $user, 'prototype' => $pictoPrototype];
+
+                if (null !== $town) {
+                    $filter['town'] = $town;
+                }
+
+                $pictos = $this->entityManager->getRepository(Picto::class)->findBy($filter);
+                if (count($pictos) > 0) {
+                    $toRemove = $count;
+                    for ($i = 0; $i < count($pictos) && $toRemove > 0; ++$i) {
+                        $picto = $pictos[$i];
+                        if ($picto->getCount() - $toRemove <= 0) {
+                            $toRemove -= $picto->getCount();
+                            $user->removePicto($picto);
+                            $this->entityManager->remove($picto);
+                        } else {
+                            $picto->setCount($picto->getCount() - $toRemove);
+                            $toRemove = 0;
+                            $this->entityManager->persist($picto);
+                        }
+                    }
+                }
+                echo "- {$count} to the picto {$pictoName} of user {$user->getUsername()}\n";
                 $this->entityManager->persist($user);
                 $this->entityManager->flush();
             } elseif ($newpw = $input->getOption('set-password')) {
-                if ($newpw === 'auto') {
+                if ('auto' === $newpw) {
                     $newpw = '';
                     $source = 'AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz0123456789-_$';
-                    for ($i = 0; $i < 9; $i++) $newpw .= $source[ mt_rand(0, strlen($source) - 1) ];
+                    for ($i = 0; $i < 9; ++$i) {
+                        $newpw .= $source[mt_rand(0, strlen($source) - 1)];
+                    }
                 }
 
-                $user->setPassword($this->pwenc->encodePassword( $user,$newpw ));
-                $output->writeln("New password set: <info>$newpw</info>");
+                $user->setPassword($this->pwenc->encodePassword($user, $newpw));
+                $output->writeln("New password set: <info>{$newpw}</info>");
                 $this->entityManager->persist($user);
                 $this->entityManager->flush();
-
             } elseif ($heroDaysCount = $input->getOption('set-hero-days')) {
                 $user->setHeroDaysSpent($heroDaysCount);
                 $this->entityManager->persist($user);
@@ -157,31 +256,36 @@ class UserInfoCommand extends Command
             }
         } else {
             /** @var User[] $users */
-            $users = array_filter( $this->entityManager->getRepository(User::class)->findAll(), function(User $user) use ($input) {
-
-                if ($input->getOption( 'validation-pending' ) && $user->getValidated()) return false;
-                if ($input->getOption( 'validated' ) && !$user->getValidated()) return false;
-                if ($input->getOption( 'mods' ) && !$user->getRightsElevation() >= User::ROLE_CROW) return false;
+            $users = array_filter($this->entityManager->getRepository(User::class)->findAll(), function (User $user) use ($input) {
+                if ($input->getOption('validation-pending') && $user->getValidated()) {
+                    return false;
+                }
+                if ($input->getOption('validated') && !$user->getValidated()) {
+                    return false;
+                }
+                if ($input->getOption('mods') && !$user->getRightsElevation() >= User::ROLE_CROW) {
+                    return false;
+                }
 
                 return true;
-            } );
+            });
 
-            $table = new Table( $output );
-            $table->setHeaders( ['ID', 'Name', 'Mail', 'Validated?', 'Mod?', 'ActCitID.','ValTkn.'] );
+            $table = new Table($output);
+            $table->setHeaders(['ID', 'Name', 'Mail', 'Validated?', 'Mod?', 'ActCitID.', 'ValTkn.']);
 
             foreach ($users as $user) {
-                $activeCitizen = $this->entityManager->getRepository(Citizen::class)->findActiveByUser( $user );
+                $activeCitizen = $this->entityManager->getRepository(Citizen::class)->findActiveByUser($user);
                 $pendingValidation = $user->getPendingValidation();
-                $table->addRow( [
+                $table->addRow([
                     $user->getId(), $user->getUsername(), $user->getEmail(), $user->getValidated() ? '1' : '0',
                     $user->getRightsElevation() >= User::ROLE_CROW ? '1' : '0',
                     $activeCitizen ? $activeCitizen->getId() : '-',
-                    $pendingValidation ? "{$pendingValidation->getPkey()} ({$pendingValidation->getType()})" : '-'
-                ] );
+                    $pendingValidation ? "{$pendingValidation->getPkey()} ({$pendingValidation->getType()})" : '-',
+                ]);
             }
 
             $table->render();
-            $output->writeln('Found a total of <info>' . count($users) . '</info> users.');
+            $output->writeln('Found a total of <info>'.count($users).'</info> users.');
         }
 
         return 0;
