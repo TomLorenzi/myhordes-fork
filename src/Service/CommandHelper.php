@@ -223,11 +223,11 @@ class CommandHelper
         $sem = $this->resolve_as($id, $class, $hint);
 
         if (count($sem->getMatches(IdentifierSemantic::LikelyMatch)) === 1)
-            return $sem->getMatchedObject($sem->getMatches(IdentifierSemantic::LikelyMatch)[0]);
+            return $sem->getMatchedObject(array_values($sem->getMatches(IdentifierSemantic::LikelyMatch))[0]);
         elseif (count($sem->getMatches(IdentifierSemantic::PerfectMatch)) === 1)
-            return $sem->getMatchedObject($sem->getMatches(IdentifierSemantic::PerfectMatch)[0]);
+            return $sem->getMatchedObject(array_values($sem->getMatches(IdentifierSemantic::PerfectMatch))[0]);
         elseif (count($sem->getMatches(IdentifierSemantic::StrongMatch)) === 1)
-            return $sem->getMatchedObject($sem->getMatches(IdentifierSemantic::StrongMatch)[0]);
+            return $sem->getMatchedObject(array_values($sem->getMatches(IdentifierSemantic::StrongMatch))[0]);
         elseif ($qh !== null && $in !== null && $out !== null) {
 
             $l = [];
