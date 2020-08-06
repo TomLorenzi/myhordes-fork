@@ -58,47 +58,13 @@ class ResolveCommand extends Command
             if (empty($matches)) return;
 
             $output->writeln("<info>$label</info>");
-            foreach ($matches as $match) {
-                $e = $result->getMatchedObject($match);
-                $match_info = "<comment>matched by '{$result->getMatchedProperty($match)}'</comment>";
-                $id_info = "[$match]";
+            foreach ($matches as $match)
+                $output->writeln("\t" . implode(', ', [
+                    $this->helper->printObject($result->getMatchedObject($match)),
+                    "[$match]",
+                    "<comment>matched by '{$result->getMatchedProperty($match)}'</comment>"
+                ]));
 
-                switch (get_class($e)) {
-                    case User::class:
-                        /** @var User $e */
-                        $out = ["User #{$e->getId()} <comment>{$e->getUsername()}</comment> ({$e->getEmail()})",$id_info,$match_info];
-                        break;
-                    case Citizen::class:
-                        /** @var Citizen $e */
-                        $out = ["Citizen #{$e->getId()} <comment>{$e->getUser()->getUsername()}</comment> ({$e->getProfession()->getLabel()} in {$e->getTown()->getName()})",$id_info,$match_info];
-                        break;
-                    case ItemPrototype::class:
-                        /** @var ItemPrototype $e */
-                        $out = ["Item Type #{$e->getId()} <comment>{$e->getLabel()}</comment> ({$e->getName()})",$id_info,$match_info];
-                        break;
-                    case PictoPrototype::class:
-                        /** @var PictoPrototype $e */
-                        $out = ["Picto Type #{$e->getId()} <comment>{$e->getLabel()}</comment> ({$e->getName()})",$id_info,$match_info];
-                        break;
-                    case BuildingPrototype::class:
-                        /** @var BuildingPrototype $e */
-                        $out = ["Building Type #{$e->getId()} <comment>{$e->getLabel()}</comment> ({$e->getName()})",$id_info,$match_info];
-                        break;
-                    case Town::class:
-                        /** @var Town $e */
-                        $out = ["Town #{$e->getId()} <comment>{$e->getName()}</comment> ({$e->getLanguage()}, Day {$e->getDay()})",$id_info,$match_info];
-                        break;
-                    default:
-                        $cls_ex = explode('\\', get_class($e));
-                        $niceName =  preg_replace('/(\w)([ABCDEFGHIJKLMNOPQRSTUVWXYZ\d])/', '$1 $2', array_pop($cls_ex));
-                        if (is_a($e, NamedEntity::class)) {
-                            $out = ["$niceName #{$e->getId()} <comment>{$e->getLabel()}</comment> ({$e->getName()})",$id_info,$match_info]; break;
-                        } else
-                            $out = [$id_info,$match_info]; break;
-                }
-
-                $output->writeln("\t" . implode(', ', $out));
-            }
             $output->writeln("");
         };
 

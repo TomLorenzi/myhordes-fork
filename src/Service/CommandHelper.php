@@ -14,6 +14,10 @@ use App\Interfaces\NamedEntity;
 use App\Structures\IdentifierSemantic;
 use DirectoryIterator;
 use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Component\Console\Helper\QuestionHelper;
+use Symfony\Component\Console\Input\InputInterface;
+use Symfony\Component\Console\Output\OutputInterface;
+use Symfony\Component\Console\Question\ChoiceQuestion;
 use Symfony\Component\HttpKernel\KernelInterface;
 
 class CommandHelper
@@ -25,6 +29,35 @@ class CommandHelper
     public function __construct(EntityManagerInterface $em, KernelInterface $kernel) {
         $this->entity_manager = $em;
         $this->app = $kernel;
+    }
+
+    public function printObject(object $e): string {
+        switch (get_class($e)) {
+            case User::class:
+                /** @var User $e */
+                return "User #{$e->getId()} <comment>{$e->getUsername()}</comment> ({$e->getEmail()})";
+            case Citizen::class:
+                /** @var Citizen $e */
+                return "Citizen #{$e->getId()} <comment>{$e->getUser()->getUsername()}</comment> ({$e->getProfession()->getLabel()} in {$e->getTown()->getName()})";
+            case ItemPrototype::class:
+                /** @var ItemPrototype $e */
+                return "Item Type #{$e->getId()} <comment>{$e->getLabel()}</comment> ({$e->getName()})";
+            case PictoPrototype::class:
+                /** @var PictoPrototype $e */
+                return "Picto Type #{$e->getId()} <comment>{$e->getLabel()}</comment> ({$e->getName()})";
+            case BuildingPrototype::class:
+                /** @var BuildingPrototype $e */
+                return "Building Type #{$e->getId()} <comment>{$e->getLabel()}</comment> ({$e->getName()})";
+            case Town::class:
+                /** @var Town $e */
+                return "Town #{$e->getId()} <comment>{$e->getName()}</comment> ({$e->getLanguage()}, Day {$e->getDay()})";
+            default:
+                $cls_ex = explode('\\', get_class($e));
+                $niceName =  preg_replace('/(\w)([ABCDEFGHIJKLMNOPQRSTUVWXYZ\d])/', '$1 $2', array_pop($cls_ex));
+                if (is_a($e, NamedEntity::class))
+                    return "$niceName #{$e->getId()} <comment>{$e->getLabel()}</comment> ({$e->getName()})";
+                else return "$niceName #{$e->getId()}";
+        }
     }
 
     private function resolverDatabase(): array {
@@ -148,5 +181,53 @@ class CommandHelper
 
         $final->sortResults();
         return $final;
+    }
+
+    /**
+     * @param string $id
+     * @param string $class
+     * @param QuestionHelper|null $qh
+     * @param InputInterface|null $in
+     * @param OutputInterface|null $out
+     * @return object|null
+     */
+    public function resolve_string(string $id, string $class, string $label = 'Principal Object', ?QuestionHelper $qh = null, ?InputInterface $in = null, ?OutputInterface $out = null): ?object {
+
+        $sem = explode(':', $id);
+        $hint = null;
+        if (count($sem) > 1) {
+            $hint = array_pop($sem);
+            if (preg_match('/^\w*$/', $hint) !== false) {
+                $id = implode(':', $sem);
+            } else $hint = null;
+
+            if ($hint === 'auto') $hint = null;
+        }
+
+        $sem = $this->resolve_as($id, $class, $hint);
+
+        if (count($sem->getMatches(IdentifierSemantic::LikelyMatch)) === 1)
+            return $sem->getMatchedObject($sem->getMatches(IdentifierSemantic::LikelyMatch)[0]);
+        elseif (count($sem->getMatches(IdentifierSemantic::PerfectMatch)) === 1)
+            return $sem->getMatchedObject($sem->getMatches(IdentifierSemantic::PerfectMatch)[0]);
+        elseif (count($sem->getMatches(IdentifierSemantic::StrongMatch)) === 1)
+            return $sem->getMatchedObject($sem->getMatches(IdentifierSemantic::StrongMatch)[0]);
+        elseif ($qh !== null && $in !== null && $out !== null) {
+
+            $l = [];
+            foreach ( $sem->getMatches() as $match ) {
+                $o = $sem->getMatchedObject($match);
+                $l[$this->printObject($o)] = $o;
+            }
+
+            $result = $qh->ask($in, $out, new ChoiceQuestion(
+                "Your input for '$label' is ambiguous. Please select an option from the list below:",
+                array_keys($l)
+            ) );
+
+            return $l[$result];
+        }
+        else return null;
+
     }
 }
