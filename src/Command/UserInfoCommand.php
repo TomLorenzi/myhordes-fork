@@ -11,6 +11,7 @@ use App\Entity\RolePlayText;
 use App\Entity\User;
 use App\Entity\Picto;
 use App\Entity\PictoPrototype;
+use App\Service\CommandHelper;
 use App\Service\UserHandler;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Console\Command\Command;
@@ -28,12 +29,14 @@ class UserInfoCommand extends Command
     private $entityManager;
     private $user_handler;
     private $pwenc;
+    private $helper;
 
-    public function __construct(EntityManagerInterface $em, UserPasswordEncoderInterface $passwordEncoder, UserHandler $uh)
+    public function __construct(EntityManagerInterface $em, UserPasswordEncoderInterface $passwordEncoder, UserHandler $uh, CommandHelper $ch)
     {
         $this->entityManager = $em;
         $this->pwenc = $passwordEncoder;
         $this->user_handler = $uh;
+        $this->helper = $ch;
         parent::__construct();
     }
 
@@ -73,15 +76,7 @@ class UserInfoCommand extends Command
         if ($userid = $input->getArgument('UserID')) {
 
             /** @var User $user */
-            $user = null;
-            if (is_numeric($userid))
-                $user = $this->entityManager->getRepository(User::class)->find((int)$userid);
-
-            if ($user === null && mb_strpos($userid, '@'))
-                $user = $this->entityManager->getRepository(User::class)->findOneBy(['email' => $userid]);
-
-            if ($user === null)
-                $user = $this->entityManager->getRepository(User::class)->findOneBy(['name' => $userid]);
+            $user = $this->helper->resolve_string($userid, User::class, 'User', $this->getHelper('question'), $input, $output);
 
             if ($user === null) throw new \Exception('User not found.');
 

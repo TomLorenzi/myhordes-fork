@@ -10,6 +10,7 @@ use App\Entity\Citizen;
 use App\Entity\CitizenStatus;
 use App\Entity\Town;
 use App\Entity\Zone;
+use App\Service\CommandHelper;
 use App\Service\GameFactory;
 use App\Service\MazeMaker;
 use App\Service\NightlyHandler;
@@ -36,8 +37,9 @@ class TownInspectorCommand extends Command
     private $nighthandler;
     private $mazeMaker;
     private $trans;
+    private $helper;
 
-    public function __construct(EntityManagerInterface $em, GameFactory $gf, ZoneHandler $zh, TownHandler $th, NightlyHandler $nh, Translator $translator, MazeMaker $maker)
+    public function __construct(EntityManagerInterface $em, GameFactory $gf, ZoneHandler $zh, TownHandler $th, NightlyHandler $nh, Translator $translator, MazeMaker $maker, CommandHelper $ch)
     {
         $this->entityManager = $em;
         $this->gameFactory = $gf;
@@ -46,6 +48,7 @@ class TownInspectorCommand extends Command
         $this->nighthandler = $nh;
         $this->trans = $translator;
         $this->mazeMaker = $maker;
+        $this->helper = $ch;
         parent::__construct();
     }
 
@@ -157,7 +160,7 @@ class TownInspectorCommand extends Command
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         /** @var Town $town */
-        $town = $this->entityManager->getRepository(Town::class)->find( (int)$input->getArgument('TownID') );
+        $town = $this->helper->resolve_string($input->getArgument('TownID'), Town::class, 'Town', $this->getHelper('question'), $input, $output);
         if (!$town) {
             $output->writeln("<error>The given town ID is not valid.</error>");
             return -1;
