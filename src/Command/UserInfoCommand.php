@@ -2,13 +2,15 @@
 
 namespace App\Command;
 
+
+use App\Entity\Avatar;
 use App\Entity\Citizen;
 use App\Entity\FoundRolePlayText;
 use App\Entity\Picto;
 use App\Entity\PictoPrototype;
-use App\Entity\RolePlayText;
-use App\Entity\Town;
 use App\Entity\User;
+use App\Service\CommandHelper;
+use App\Service\UserHandler;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Helper\Table;
@@ -24,12 +26,16 @@ class UserInfoCommand extends Command
     protected static $defaultName = 'app:users';
 
     private $entityManager;
+    private $user_handler;
     private $pwenc;
+    private $helper;
 
-    public function __construct(EntityManagerInterface $em, UserPasswordEncoderInterface $passwordEncoder)
+    public function __construct(EntityManagerInterface $em, UserPasswordEncoderInterface $passwordEncoder, UserHandler $uh, CommandHelper $ch)
     {
         $this->entityManager = $em;
         $this->pwenc = $passwordEncoder;
+        $this->user_handler = $uh;
+        $this->helper = $ch;
         parent::__construct();
     }
 
@@ -52,17 +58,27 @@ class UserInfoCommand extends Command
             ->addOption('give-one-picto', null, InputOption::VALUE_REQUIRED, 'Gives one specific picto to an user')
             ->addOption('remove-all-pictos', null, InputOption::VALUE_REQUIRED, 'Remove all pictos once to an user')
             ->addOption('remove-one-picto', null, InputOption::VALUE_REQUIRED, 'Remove one specific picto once to an user')
+            ->addOption('find-all-rps', null, InputOption::VALUE_REQUIRED, 'Gives all known RP to a user in the given lang')
 
-            ->addOption('set-mod-level', null, InputOption::VALUE_REQUIRED, 'Sets the moderation level for an user (0 = normal user, 2 = oracle, 3 = mod, 4 = admin)')
-            ->addOption('set-hero-days', null, InputOption::VALUE_REQUIRED, 'Set the amount of hero days spent to an user (and the associated skills)');
+            ->addOption('set-mod-level', null, InputOption::VALUE_REQUIRED, 'Sets the moderation level for a user (0 = normal user, 2 = oracle, 3 = mod, 4 = admin)')
+            ->addOption('set-hero-days', null, InputOption::VALUE_REQUIRED, 'Set the amount of hero days spent to a user (and the associated skills)')
+
+            ->addOption('set-avatar',   'a',   InputOption::VALUE_REQUIRED, 'Enter a local file name to use as an avatar for this user.')
+            ->addOption('remove-avatar', null,  InputOption::VALUE_NONE,  'Removes a user avatar.')
+            ->addOption('avatar-ext',   null,  InputOption::VALUE_OPTIONAL, 'Specify the file extension for --set-avatar. If omitted, the extension will be automatically determined.')
+            ->addOption('avatar-small', null,  InputOption::VALUE_NONE,     'If used with --set-avatar, the given avatar will be used as small avatar if a normal avatar is already set. If used with --remove-avatar, only the small avatar will be deleted.')
+            ->addOption('avatar-x',     null,  InputOption::VALUE_REQUIRED, 'Sets the image width. Should be set when Imagick is not available. Has no effect when uploading a small avatar.')
+            ->addOption('avatar-y',     null,  InputOption::VALUE_REQUIRED, 'Sets the image height. Should be set when Imagick is not available. Has no effect when uploading a small avatar.')
+            ->addOption('avatar-magick', null,  InputOption::VALUE_REQUIRED, 'When setting an avatar, "auto" will attempt to use Imagick (default), "force" will enforce Imagick and "raw" will disable Imagick.');
     }
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         if ($userid = $input->getArgument('UserID')) {
-            $userid = (int) $userid;
             /** @var User $user */
-            $user = $this->entityManager->getRepository(User::class)->find($userid);
+            $user = $this->helper->resolve_string($userid, User::class, 'User', $this->getHelper('question'), $input, $output);
+
+            if ($user === null) throw new \Exception('User not found.');
 
             $helper = $this->getHelper('question');
 
@@ -261,6 +277,52 @@ class UserInfoCommand extends Command
                 $this->entityManager->flush();
             } elseif ($heroDaysCount = $input->getOption('set-hero-days')) {
                 $user->setHeroDaysSpent($heroDaysCount);
+                $output->writeln("Hero Days updated.");
+                $this->entityManager->persist($user);
+                $this->entityManager->flush();
+            } elseif ($input->getOption('remove-avatar')) {
+
+                $a = $user->getAvatar();
+                if ($a !== null) {
+
+                    if ($input->getOption('avatar-small')) {
+                        $a->setSmallImage(null)->setSmallName($a->getFilename());
+                        $this->entityManager->persist($a);
+                        $output->writeln('Small avatar has been reset.');
+                    } else {
+                        $user->setAvatar(null);
+                        $this->entityManager->remove($a);
+                        $output->writeln('Avatar has been deleted.');
+                    }
+
+                    $this->entityManager->flush();
+                } else $output->writeln('User does not have an avatar.');
+            } elseif ($avatar = $input->getOption('set-avatar')) {
+
+                if (!file_exists($avatar))
+                    throw new \Exception('File not found.');
+
+                $m = $input->getOption('avatar-magick');
+                switch ($m) {
+                    case "force":
+                        $m = UserHandler::ImageProcessingForceImagick;
+                        break;
+                    case "raw":
+                        $m = UserHandler::ImageProcessingDisableImagick;
+                        break;
+                    default:
+                        $m = UserHandler::ImageProcessingPreferImagick;
+                        break;
+                }
+
+                $ext = strtolower($input->getOption('avatar-ext') ?: pathinfo($avatar, PATHINFO_EXTENSION));
+                $error = $input->getOption('avatar-small')
+                    ? $this->user_handler->setUserSmallAvatar($user, file_get_contents($avatar))
+                    : $this->user_handler->setUserBaseAvatar($user, file_get_contents($avatar), $m, $ext, (int)$input->getOption('avatar-x'), (int)$input->getOption('avatar-y'));
+
+                if ($error !== UserHandler::NoError) throw new \Exception("Error: $error");
+
+                $output->writeln("Avatar updated.");
                 $this->entityManager->persist($user);
                 $this->entityManager->flush();
             }

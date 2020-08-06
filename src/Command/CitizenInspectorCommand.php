@@ -8,6 +8,7 @@ use App\Entity\Citizen;
 use App\Entity\CitizenRole;
 use App\Entity\CitizenStatus;
 use App\Service\CitizenHandler;
+use App\Service\CommandHelper;
 use App\Service\InventoryHandler;
 use App\Service\ItemFactory;
 use App\Service\StatusFactory;
@@ -28,14 +29,16 @@ class CitizenInspectorCommand extends Command
     private $itemFactory;
     private $inventoryHandler;
     private $citizenHandler;
+    private $helper;
 
-    public function __construct(EntityManagerInterface $em, StatusFactory $sf, ItemFactory $if, InventoryHandler $ih, CitizenHandler $ch)
+    public function __construct(EntityManagerInterface $em, StatusFactory $sf, ItemFactory $if, InventoryHandler $ih, CitizenHandler $ch, CommandHelper $comh)
     {
         $this->entityManager = $em;
         $this->statusFactory = $sf;
         $this->inventoryHandler = $ih;
         $this->itemFactory = $if;
         $this->citizenHandler = $ch;
+        $this->helper = $comh;
         parent::__construct();
     }
 
@@ -87,7 +90,7 @@ class CitizenInspectorCommand extends Command
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         /** @var Citizen $citizen */
-        $citizen = $this->entityManager->getRepository(Citizen::class)->find( (int)$input->getArgument('CitizenID') );
+        $citizen = $this->helper->resolve_string($input->getArgument('CitizenID'), Citizen::class, 'Citizen', $this->getHelper('question'), $input, $output);
 
         $updated = false;
 
@@ -119,7 +122,8 @@ class CitizenInspectorCommand extends Command
 
         if ($new_status = $input->getOption('add-status')) {
 
-            $status = $this->statusFactory->createStatus( $new_status );
+            /** @var CitizenStatus $status */
+            $status = $this->helper->resolve_string($new_status, CitizenStatus::class, 'NewStatus', $this->getHelper('question'), $input, $output);
             if (!$status) {
                 $output->writeln("<error>The selected status could not be found.</error>");
                 return 1;
@@ -133,7 +137,8 @@ class CitizenInspectorCommand extends Command
 
         if ($rem_status = $input->getOption('remove-status')) {
 
-            $status = $this->statusFactory->createStatus( $rem_status );
+            /** @var CitizenStatus $status */
+            $status = $this->helper->resolve_string($rem_status, CitizenStatus::class, 'RemoveStatus', $this->getHelper('question'), $input, $output);
             if (!$status) {
                 $output->writeln("<error>The selected status could not be found.</error>");
                 return 1;
@@ -147,7 +152,8 @@ class CitizenInspectorCommand extends Command
 
         if ($new_role = $input->getOption('add-role')) {
 
-            $role = $this->entityManager->getRepository(CitizenRole::class)->findOneByName( $new_role );
+            /** @var CitizenRole $role */
+            $role = $this->helper->resolve_string($new_role, CitizenRole::class, 'NewRole', $this->getHelper('question'), $input, $output);
             if (!$role) {
                 $output->writeln("<error>The selected role could not be found.</error>");
                 return 1;
@@ -156,7 +162,7 @@ class CitizenInspectorCommand extends Command
             $output->writeln( "Adding role '<info>{$role->getName()}</info>'.\n" );
             $citizen->addRole( $role );
 
-            if($new_role === 'shaman') {
+            if($role->getName() === 'shaman') {
                 $status = $this->entityManager->getRepository(CitizenStatus::class)->findOneByName("tg_shaman_immune");
                 $citizen->addStatus( $status );
             }
@@ -166,7 +172,9 @@ class CitizenInspectorCommand extends Command
 
         if ($rem_role = $input->getOption('remove-role')) {
 
-            $role = $this->entityManager->getRepository(CitizenRole::class)->findOneByName( $rem_role );
+            /** @var CitizenRole $role */
+            $role = $this->helper->resolve_string($rem_role, CitizenRole::class, 'RemoveRole', $this->getHelper('question'), $input, $output);
+
             if (!$role) {
                 $output->writeln("<error>The selected role could not be found.</error>");
                 return 1;
@@ -175,7 +183,7 @@ class CitizenInspectorCommand extends Command
             $output->writeln( "Removing role '<info>{$role->getName()}</info>'.\n" );
             $citizen->removeRole( $role );
 
-            if($rem_role === 'shaman') {
+            if($role->getName() === 'shaman') {
                 $status = $this->entityManager->getRepository(CitizenStatus::class)->findOneByName("tg_shaman_immune");
                 $citizen->removeStatus( $status );
             }
