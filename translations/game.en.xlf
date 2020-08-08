@@ -892,15 +892,6 @@
         <target>Complaints can lead to your exile or even execution. Maybe you should improve the relationship between yourself and the rest of the Town ...</target>
       </segment>
     </unit>
-    <unit id="2zVOnFs" name="14e2896">
-      <notes>
-        <note category="german">In der linken Spalte werden alle Aktionen und Handlungen dargestellt, die du mit deinen Gegenständen ausführen kannst. In der rechten Spalte kannst du den Inhalt deines Rucksacks und deiner Truhe ansehen.</note>
-      </notes>
-      <segment>
-        <source>In der linken Spalte werden alle Aktionen und Handlungen dargestellt, die du mit deinen Gegenständen ausführen kannst. In der rechten Spalte kannst du den Inhalt deines Rucksacks und deiner Truhe ansehen.</source>
-        <target>The column on the left lists the actions associated with your objects. The one on the right shows the contents of your rucksack and your personal chest.</target>
-      </segment>
-    </unit>
     <unit id="mvdJ1gZ" name="Meine Spezialaktionen">
       <notes>
         <note category="german">Meine Spezialaktionen</note>
@@ -1581,15 +1572,6 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       <segment>
         <source>Bankregister</source>
         <target>Bank</target>
-      </segment>
-    </unit>
-    <unit id="TygUMhY" name="c03baa1">
-      <notes>
-        <note category="german">In diesem Bereich kannst du an der Errichtung neuer Gebäude und Bauprojekte mitarbeiten. Dazu musst du zunächst die dafür notwendigen Materialien in der Wüste einsammeln (Holz, Metall,...). Anschließend kannst du deine Aktionspunkte (AP) für das Gebäude ausgeben, das dich am meisten interessiert.</note>
-      </notes>
-      <segment>
-        <source>In diesem Bereich kannst du an der Errichtung neuer Gebäude und Bauprojekte mitarbeiten. Dazu musst du zunächst die dafür notwendigen Materialien in der Wüste einsammeln (Holz, Metall,...). Anschließend kannst du deine Aktionspunkte (AP) für das Gebäude ausgeben, das dich am meisten interessiert.</source>
-        <target>This area allows you to participate in the construction of new buildings. Start by collecting materials in the desert (wood, metal...), then use your Action Points (AP) to help construct whichever building you choose.</target>
       </segment>
     </unit>
     <unit id="yrqg0t2" name="62c5444">
@@ -10485,24 +10467,6 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       <segment>
         <source>Wasservorrat</source>
         <target>Water supply</target>
-      </segment>
-    </unit>
-    <unit id="u6_oAsd" name="ff69301">
-      <notes>
-        <note category="german">Du hast keine neue Privatnachricht erhalten. Eine Liste aller Bürger findest du im</note>
-      </notes>
-      <segment>
-        <source>Du hast keine neue Privatnachricht erhalten. Eine Liste aller Bürger findest du im</source>
-        <target>You have not received any new private messages. You can find the list of citizens in the</target>
-      </segment>
-    </unit>
-    <unit id="4AkrdgW" name="Verzeichnis der Stadt.">
-      <notes>
-        <note category="german">Verzeichnis der Stadt.</note>
-      </notes>
-      <segment>
-        <source>Verzeichnis der Stadt.</source>
-        <target>town directory.</target>
       </segment>
     </unit>
     <unit id="97Bucqq" name="Einrichtung">

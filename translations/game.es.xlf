@@ -883,15 +883,6 @@
         <target>Anzeigen können zu deiner Verbannung oder sogar Hinrichtung führen. Vielleicht solltest du das Verhältnis zwischen dir und dem Rest der Stadt verbessern ...</target>
       </segment>
     </unit>
-    <unit id="2zVOnFs" name="14e2896">
-      <notes>
-        <note category="german">In der linken Spalte werden alle Aktionen und Handlungen dargestellt, die du mit deinen Gegenständen ausführen kannst. In der rechten Spalte kannst du den Inhalt deines Rucksacks und deiner Truhe ansehen.</note>
-      </notes>
-      <segment>
-        <source>In der linken Spalte werden alle Aktionen und Handlungen dargestellt, die du mit deinen Gegenständen ausführen kannst. In der rechten Spalte kannst du den Inhalt deines Rucksacks und deiner Truhe ansehen.</source>
-        <target>La columna de la izquierda presenta las acciones que puedes realizar. La de la derecha muestra el contenido de tu mochila y del baúl de tu casa.</target>
-      </segment>
-    </unit>
     <unit id="mvdJ1gZ" name="Meine Spezialaktionen">
       <notes>
         <note category="german">Meine Spezialaktionen</note>
@@ -1573,15 +1564,6 @@
       <segment>
         <source>Bankregister</source>
         <target>Almacén</target>
-      </segment>
-    </unit>
-    <unit id="TygUMhY" name="c03baa1">
-      <notes>
-        <note category="german">In diesem Bereich kannst du an der Errichtung neuer Gebäude und Bauprojekte mitarbeiten. Dazu musst du zunächst die dafür notwendigen Materialien in der Wüste einsammeln (Holz, Metall,...). Anschließend kannst du deine Aktionspunkte (AP) für das Gebäude ausgeben, das dich am meisten interessiert.</note>
-      </notes>
-      <segment>
-        <source>In diesem Bereich kannst du an der Errichtung neuer Gebäude und Bauprojekte mitarbeiten. Dazu musst du zunächst die dafür notwendigen Materialien in der Wüste einsammeln (Holz, Metall,...). Anschließend kannst du deine Aktionspunkte (AP) für das Gebäude ausgeben, das dich am meisten interessiert.</source>
-        <target>Construid las defensas y diversas cosas que prolonguen la vida del pueblo. En el desierto encontrarás materiales (madera, metal...). Participa en las obras donando Puntos de Acción (PA) a la construcción más útil.</target>
       </segment>
     </unit>
     <unit id="yrqg0t2" name="62c5444">
@@ -9229,15 +9211,6 @@
         <target>Schreiben Sie an alle</target>
       </segment>
     </unit>
-    <unit id="aUj3MMh" name="7d87462">
-      <notes>
-        <note category="german">Du hast keine neue Privatnachricht erhalten. Eine Liste aller Bürger findest du im Verzeichnis der Stadt.</note>
-      </notes>
-      <segment>
-        <source>Du hast keine neue Privatnachricht erhalten. Eine Liste aller Bürger findest du im Verzeichnis der Stadt.</source>
-        <target>Du hast keine neue Privatnachricht erhalten. Eine Liste aller Bürger findest du im Verzeichnis der Stadt.</target>
-      </segment>
-    </unit>
     <unit id="bYMK_Wv" name="Keine Nachricht gespeichert.">
       <notes>
         <note category="german">Keine Nachricht gespeichert.</note>
@@ -10739,24 +10712,6 @@
       <segment>
         <source>Einrichtung</source>
         <target>Einrichtung</target>
-      </segment>
-    </unit>
-    <unit id="u6_oAsd" name="ff69301">
-      <notes>
-        <note category="german">Du hast keine neue Privatnachricht erhalten. Eine Liste aller Bürger findest du im</note>
-      </notes>
-      <segment>
-        <source>Du hast keine neue Privatnachricht erhalten. Eine Liste aller Bürger findest du im</source>
-        <target>Du hast keine neue Privatnachricht erhalten. Eine Liste aller Bürger findest du im</target>
-      </segment>
-    </unit>
-    <unit id="4AkrdgW" name="Verzeichnis der Stadt.">
-      <notes>
-        <note category="german">Verzeichnis der Stadt.</note>
-      </notes>
-      <segment>
-        <source>Verzeichnis der Stadt.</source>
-        <target>Verzeichnis der Stadt.</target>
       </segment>
     </unit>
     <unit id="Ht8hKI." name="Dies ist eine offizielle Nachricht.">
