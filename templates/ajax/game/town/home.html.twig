@@ -57,6 +57,9 @@
                 <div class="padded cell rw-4 rw-lg-12 left medium">
                     <input id="desc_edit" type="text" maxlength="64" placeholder="{{ 'Dein Beschreibungstext'|trans({},'game') }}" value="{{ home.description }}">
                     <div class="small right"><a id="desc_edit_button" href="">{{ 'Speichern'|trans({},'game') }}</a></div>
+                    <div class="tooltip help">
+                    {{ 'Diese Mitteilung wird auf <strong>der Bürgerseite bei deinem Namen angezeigt und ist für jeden lesbar</strong>. Nutze diese Mitteilungsmöglichkeit, um dich vorzustellen, dich zu rechtfertigen oder einen Gruß an deine Mitspieler zu hinterlassen...'|trans({}, 'game')|raw }}
+                    </div>
                 </div>
             </div>
         </div>
@@ -82,7 +85,7 @@
                 {% embed "ajax/game/actions.html.twig" with {'special_action_list': special_actions} %}
                 {% endembed %}
 
-                <h5>{% trans from 'game' %}Meine Aktionen{% endtrans %}</h5>
+                <h5>{% trans from 'game' %}Meine Aktionen{% endtrans %} <a class="help-button"><div class="tooltip help">{% trans from 'global' %}Manche deiner Gegenstände sind <strong>benutzbar</strong>. Klick einfach auf einen Link hier unten, um den jeweiligen Gegenstand zu gebrauchen. Andere Gegenstände wiederum, wie zum Beispiel Waffen, können nur <strong>außerhalb der Stadt</strong> verwendet werden..{% endtrans %}</div>{{ 'Hilfe'|trans({},'global') }}</a></h5>
                 {% embed "ajax/game/actions.html.twig" with {'heroic_action_list': heroics, 'item_action_list': actions, 'recipe_list': recipes} %}
                 {% endembed %}
 
