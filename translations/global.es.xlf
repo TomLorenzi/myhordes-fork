@@ -1522,5 +1522,41 @@
         <target>Mehrsprachig</target>
       </segment>
     </unit>
+    <unit id="soKCKr9" name="Wir müssen den Wachturm benutzen, um eine Schätzung des Angriffs zu erhalten.">
+      <notes>
+        <note category="german">Wir müssen den Wachturm benutzen, um eine Schätzung des Angriffs zu erhalten.</note>
+      </notes>
+      <segment>
+        <source>Wir müssen den Wachturm benutzen, um eine Schätzung des Angriffs zu erhalten.</source>
+        <target>Wir müssen den Wachturm benutzen, um eine Schätzung des Angriffs zu erhalten.</target>
+      </segment>
+    </unit>
+    <unit id="pET9_Tj" name="Du weißt nicht, was du tun sollst? Folge den Empfehlungen hier unten :)">
+      <notes>
+        <note category="german">Du weißt nicht, was du tun sollst? Folge den Empfehlungen hier unten :)</note>
+      </notes>
+      <segment>
+        <source>Du weißt nicht, was du tun sollst? Folge den Empfehlungen hier unten :)</source>
+        <target>Du weißt nicht, was du tun sollst? Folge den Empfehlungen hier unten :)</target>
+      </segment>
+    </unit>
+    <unit id="AsaB86B" name="1acd778">
+      <notes>
+        <note category="german">Diesen Bonus gibt es nur dann, wenn sich die Wächter während eines Angriffs in der Stadt befinden.</note>
+      </notes>
+      <segment>
+        <source>Diesen Bonus gibt es nur dann, wenn sich die Wächter während eines Angriffs in der Stadt befinden.</source>
+        <target>Diesen Bonus gibt es nur dann, wenn sich die Wächter während eines Angriffs in der Stadt befinden.</target>
+      </segment>
+    </unit>
+    <unit id="FbU8Rr0" name="782996d">
+      <notes>
+        <note category="german">Manche deiner Gegenstände sind &lt;strong&gt;benutzbar&lt;/strong&gt;. Klick einfach auf einen Link hier unten, um den jeweiligen Gegenstand zu gebrauchen. Andere Gegenstände wiederum, wie zum Beispiel Waffen, können nur &lt;strong&gt;außerhalb der Stadt&lt;/strong&gt; verwendet werden..</note>
+      </notes>
+      <segment>
+        <source>Manche deiner Gegenstände sind &lt;strong&gt;benutzbar&lt;/strong&gt;. Klick einfach auf einen Link hier unten, um den jeweiligen Gegenstand zu gebrauchen. Andere Gegenstände wiederum, wie zum Beispiel Waffen, können nur &lt;strong&gt;außerhalb der Stadt&lt;/strong&gt; verwendet werden..</source>
+        <target><![CDATA[Manche deiner Gegenstände sind <strong>benutzbar</strong>. Klick einfach auf einen Link hier unten, um den jeweiligen Gegenstand zu gebrauchen. Andere Gegenstände wiederum, wie zum Beispiel Waffen, können nur <strong>außerhalb der Stadt</strong> verwendet werden..]]></target>
+      </segment>
+    </unit>
   </file>
 </xliff>
