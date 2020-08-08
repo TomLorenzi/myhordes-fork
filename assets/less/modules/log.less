@@ -17,7 +17,15 @@
         &:before{ content: '['; left: 0; } &:after{ content: ']'; right: 0; }
       }
       &>span.log-part-content {
-        &>span { color: white; font-weight: bold; &>img { vertical-align: text-top } }
+        &>span { 
+          color: white; font-weight: bold; &>img { vertical-align: text-top }
+          &.tool {
+            padding-left: 3px;
+            padding-right: 3px;
+            white-space: nowrap;
+            background-color: #784323; 
+          } 
+        }
         &.log-part-entry-hidden {
           background-color: #4d5537;
           color: #98a675;

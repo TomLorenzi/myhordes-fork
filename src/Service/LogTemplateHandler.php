@@ -41,7 +41,7 @@ class LogTemplateHandler
     }
 
     private function wrap(?string $obj): string {
-        return $obj ? "<span>$obj</span>" : '';
+        return $obj ? "<span class='tool'>$obj</span>" : '';
     }
 
     /**
