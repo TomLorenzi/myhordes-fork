@@ -1084,7 +1084,7 @@
       </notes>
       <segment>
         <source>Für diesen Ausbau werden keine Gegenstände benötigt.</source>
-        <target>Cette amélioration ne nécessite aucun objet.</target>
+        <target>Ne nécessite pas de matériel pour être construit(e).</target>
       </segment>
     </unit>
     <unit id="x7duHnG" name="f68beef">
@@ -1093,7 +1093,7 @@
       </notes>
       <segment>
         <source>Die folgenden Bauarbeiten kannst du an deinem Haus durchführen. Jede Verbesserung bringt dir besondere Vorteile.</source>
-        <target>Vous pouvez effectuer les travaux de construction suivants sur votre maison. Chaque amélioration vous apporte des avantages particuliers.</target>
+        <target>Voici la liste des travaux que vous pouvez effectuer chez vous. Chaque amélioration apporte des avantages spécifiques, mais attention, tout a un coût !</target>
       </segment>
     </unit>
     <unit id="r5DiSCv" name="Du musst ein Held sein, um die folgenden Ausbauten vornehmen zu können.">
