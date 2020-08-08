@@ -457,7 +457,7 @@
       </notes>
       <segment>
         <source>Dieser Gegenstand ist außerhalb deiner Reichweite.</source>
-        <target>Ce point est hors de votre portée.</target>
+        <target>Cet endroit est hors de votre portée.</target>
       </segment>
     </unit>
     <unit id="WFi0NxJ" name="Du hast keinen Platz mehr für diesen Gegenstand!">
@@ -1084,7 +1084,7 @@
       </notes>
       <segment>
         <source>Für diesen Ausbau werden keine Gegenstände benötigt.</source>
-        <target>Cette amélioration ne nécessite aucun objet.</target>
+        <target>Ne nécessite pas de matériel pour être construit(e).</target>
       </segment>
     </unit>
     <unit id="x7duHnG" name="f68beef">
@@ -1093,7 +1093,7 @@
       </notes>
       <segment>
         <source>Die folgenden Bauarbeiten kannst du an deinem Haus durchführen. Jede Verbesserung bringt dir besondere Vorteile.</source>
-        <target>Vous pouvez effectuer les travaux de construction suivants sur votre maison. Chaque amélioration vous apporte des avantages particuliers.</target>
+        <target>Voici la liste des travaux que vous pouvez effectuer chez vous. Chaque amélioration apporte des avantages spécifiques, mais attention, tout a un coût !</target>
       </segment>
     </unit>
     <unit id="r5DiSCv" name="Du musst ein Held sein, um die folgenden Ausbauten vornehmen zu können.">
@@ -3593,7 +3593,7 @@
       </notes>
       <segment>
         <source>Es ist kein Bürger in der Nähe...</source>
-        <target>Il n'y a personne à sauver...</target>
+        <target>Il n'y a personne près de la ville (2 cases de distance maximum).</target>
       </segment>
     </unit>
     <unit id="f1TzhOn" name="Gammler">
@@ -10573,7 +10573,7 @@
       </notes>
       <segment>
         <source>Das folgende Bauprojekt wurde empfohlen:</source>
-        <target>Le projet suivant a été recommandé :</target>
+        <target>La construction du chantier suivant a été recommandée :</target>
       </segment>
     </unit>
     <unit id="iita2xJ" name="83fa5e3">
