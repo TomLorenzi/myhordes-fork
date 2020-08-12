@@ -5163,6 +5163,18 @@ class TextFixtures extends Fixture
             "background" => "grid",
             "design" => "written"
         ],
+        "umn" => [
+            "title" => "Una mala noche",
+            "author" => "123k",
+            "content" => [
+                '<p>Todos los habitantes restantes en el pueblo quieren volver como antes, es decir, hace dos dias atrás. Los zombies no habían devorado todavía ha nadie, que bien nos lo pasabamos... y además.. todavía no había muerto nuestra querida mascota, Lafy... le teníamos tantoo cariño. </p>
+                <p>Según el "Cadaver matutino" le devoraron 50 zombis... Le deberíamos de echar la bronca a Fuego1798, nuestra mascota dormía en su casa, pero él no supo defendérle como se lo merecía.</p>
+                <p>Yo también he dormido muy mal esta noche, supongo que a todo el pueblo le habrá ocurrido lo mismo que a mi. Oyendo los gritos de nuestros compañeros... Esta noche he quedado aterrorizado, pero gracias a mis compañeros, lo estoy superando, ellos me administran mis calmantes. Espero que esta noche, los centinelas nos defiendan muy bien y que no muera nadie.</p>'
+            ],
+            "lang" => "es",
+            "background" => "secret",
+            "design" => "small"
+        ],
         "nightm_es" => [
             "title" => "Una noche corta",
             "author" => "Znarf",
