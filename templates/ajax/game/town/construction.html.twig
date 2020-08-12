@@ -7,7 +7,7 @@
 
     <div class="help">
         {% trans from 'game' %}
-            In diesem Bereich kannst du an der Errichtung neuer Gebäude und Bauprojekte mitarbeiten. Dazu musst du zunächst die dafür notwendigen Materialien in der Wüste einsammeln (Holz, Metall,...). Anschließend kannst du deine Aktionspunkte (AP) für das Gebäude ausgeben, das dich am meisten interessiert.
+            In diesem Bereich kannst du an der <strong>Errichtung neuer Gebäude und Bauprojekte mitarbeiten</strong>. Dazu musst du zunächst die dafür notwendigen Materialien in der Wüste einsammeln (Holz, Metall,...). Anschließend kannst du deine Aktionspunkte (AP) für das Gebäude ausgeben, das dich am meisten interessiert.
         {% endtrans %}
     </div>
 
@@ -38,6 +38,9 @@
         <div class="voted-building">
             {{'Das folgende Bauprojekt wurde empfohlen:'|trans({}, 'game')}}<br />
             <strong class="name">{{voted_building.prototype.label|trans({}, 'buildings')}}</strong>
+            <div class="tooltip help">
+            {{ 'Diese Empfehlung stammt von einem oder mehreren Helden deiner Stadt.'|trans({}, 'game') }}
+            </div>
         </div>
     {% endif %}
 
@@ -78,7 +81,7 @@
                     </div>
                 {% endif %}
                 {% if building.prototype.description %}
-                <div class="tooltip">
+                <div class="tooltip help">
                     {{ building.prototype.description|trans({}, 'buildings') }}
                 </div>
                 {% endif %}
@@ -161,6 +164,10 @@
     {% for building in root_cats %}
         <div x-tab-group="buildings" x-tab-id="type_{{ building.prototype.icon }}" x-tab-target class="buildings type_{{ building.prototype.icon }}">{{ _self.building_entry(building, true, 0, dictionary, bank, banished and not slavery, workshopBonus, hpToAp, canvote, voted_building) }}</div>
     {% endfor %}
+
+    <div class="help">
+    {{ 'Bauprojekte, die mit dem Symbol "<img alt="(!)" src="%path%" />" gekennzeichnet sind, können nur einmal verwendet werden. Sie werden nach dem Angriff der Zombiehorde wieder abgerissen. Wenn ihr wollt, könnt ihr sie morgen nochmal bauen.'|trans({"%path%": asset('build/images/icons/small_warning.gif')},'game')|raw }}  
+    </div>
 
     <div class="row">
         <h5>{{ 'Baustellenregister'|trans({},'game') }}</h5>

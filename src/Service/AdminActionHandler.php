@@ -33,7 +33,7 @@ class AdminActionHandler
     private $userHandler;
 
     private $requiredRole = [
-        'headshot' => 'ROLE_ADMIN',
+        'headshot' => 'ROLE_CROW',
         'suicid' => 'ROLE_CROW',
         'confirmDeath' => 'ROLE_ADMIN',
         'pinThread' => 'ROLE_ADMIN',

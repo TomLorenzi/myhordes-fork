@@ -5519,6 +5519,21 @@ class TextFixtures extends Fixture
             "background" => "tinystamp",
             "design" => "classic"
         ],
+        "rasln1" => [
+            "title" => "Day 22",
+            "author" => "Rassalon",
+            "content" => [
+                '<h1>Day 22</h1>
+                <p>They came in last night. Nearly 200 strong, by all estimates. Seven people gone, just like that, but we\'re still here. Unfortunately, I was badly wounded yesterday and couldn\'t go out. I pitched in where I could, but I can only hope it will be enough for tonight.</p>
+                <p>Many in town have gone on the offensive. Zombies are being cut down everywhere, and the surrounding area is as clear as it\'s ever been. It seems like less zombies are gathering in the distance than last night. We may yet withstand another attack, but how much longer can we go on? Water is scarce. Our defenses are battered. I\'m still having nightmares about last night. The fighting.</p>',
+                '<br>
+                <p>The screams in the night. Seven of the monsters came for me and I fought them off, but I don\'t know how many more I could handle.</p>
+                <p>As night approaches, I will be shoring up where I can. Maybe there will be a tomorrow. Maybe help is coming and we don\'t know about it. We can only hope and pray...</p>'
+            ],
+            "lang" => "en",
+            "background" => "printe",
+            "design" => "typed"
+        ],
         "rescl2_en" => [
             "title" => "Day 3 - Part 2",
             "author" => "LordRuthven",
@@ -5530,6 +5545,25 @@ class TextFixtures extends Fixture
                 <p>The colours of the desert look sharper, the heat feels more intense but more bearable - like a searing hot bath, at once too hot and satisfyingly cleansing. I can feel the blood pulsing in my head, like the beat of the nightclubs used to be before... before what? Before the blood and the death and the drugs and the sweet oblivion that spares us the pain of knowing genuine oblivion is just around the corner. I haul myself to my feet, get the battery launcher out of my bag and prepare to waste some of those monsters.</p>',
                 '<p></p>
                 <p>I crest the hill and I see the guy who called for help, Rob. I don’t know him well, I don’t know any of them well, but I’ve seen him around. Good guy, helped build the workshop, but if he’s out here in the desert alone he can’t be that bright. He’s fending off six zombies, desperately forcing them back with some old bit of pipe he found. The twinoid takes me and I... I start to dance to the beat. I’m dancing and singing and I can’t help it, the drug’s like a force driving my body to actions I never thought it would perform again... <strong>[contd...]</strong></p>'
+            ],
+            "lang" => "en",
+            "background" => "white",
+            "design" => "written"
+        ],
+        "rescl3" => [
+            "title" => "Day 3 - Part 3",
+            "author" => "LordRuthven",
+            "content" => [
+                '...The zombies notice me and so does Rob. I recognise one of the zombies now, Linda. She wandered out of the town the first night after the event, said something about looking for survivors. Doubt she found any. Rob looks even more terrified, can’t say that I blame him - I’m armed with some prototype alien gun and out of my mind on twinoid. I shout at him, “Duck you stupid bastard!” I think it was a shout, maybe I sang it. Either way he hits the deck, getting a mouthful of sand no doubt. For a moment I wonder what the sand tastes like then I get a grip and fire the Devastator!</p>
+                <p>It worked better than I hoped; two zombies wasted. I reload as quickly as I can, my hands shaking from the combined effects of twinoid and the desert sun. This time I took careful aim, I aimed for Linda. “Take this you self-righteous, stupid, suicidal bitch!” I screamed. Rob whimpered, I think he thought I meant him, and I fired my super-gun. Two more zombies down. Two of us versus two of them.</p>',
+                '<p>For some reason the zombies remain cowardly until midnight. They can’t face being outnumbered and back off whenever they fail to outnumber us by at least 3 to 1. Every midnight they charge at the town gates, like a tide of monsters, but until then they hide from any group of the living.</p>
+                <p>“Come on, Rob,” I say, “time to go home.”</p>
+                <p>“Sure,” He says, eyeing my warily. He takes out a flask of water, gulps it down in one go and starts to follow me back home.</p>
+                <p>We get to the gates with no problems. When we get inside the gates, though we find something awful. Just inside the gates one of our number, don’t remember his name, lies on the ground with his intenstines out. A one-handed gaunt figure was kneeling over him, shovelling the man’s innards into his mouth.</p>
+                <p>So Jim finally fell to the infection.</p>',
+                '<br>
+                <p>There were two of us so he backed off instinctively. We used that to herd him outside the gates and into the desert, then we threw the body out as well.</p>
+                <p>They’ll both be back at midnight...</p>'
             ],
             "lang" => "en",
             "background" => "white",
@@ -5595,7 +5629,7 @@ class TextFixtures extends Fixture
             "background" => "white",
             "design" => "typed"
         ],
-        "stpat1" => [
+        "stpat3" => [
             "title" => "Happy for you, blind man !",
             "author" => "Traditional Irish",
             "content" => [
@@ -5614,7 +5648,7 @@ class TextFixtures extends Fixture
             "background" => "old",
             "design" => "typed"
         ],
-        "stpat2" => [
+        "citya2_en" => [
             "title" => "Happy Harry's Horoscope: 2",
             "author" => "TheMentalist",
             "content" => [
@@ -5626,7 +5660,19 @@ class TextFixtures extends Fixture
             "background" => "carton",
             "design" => "typed"
         ],
-        "citya5" => [
+        "citya3_en" => [
+            "title" => "Happy Harry's Horoscope: 3",
+            "author" => "TheMentalist",
+            "content" => [
+                '<div class="hr"></div>
+                <h1>Gemini</h1>
+                <p>Stop talking about yourself all the time. It\'s pathetic, and people think the jokey racism runs deep. You\'re also out of shape.</p>'
+            ],
+            "lang" => "en",
+            "background" => "carton",
+            "design" => "typed"
+        ],
+        "citya5_en" => [
             "title" => "Happy Harry's Horoscope: 5",
             "author" => "TheMentalist",
             "content" => [
@@ -5639,7 +5685,7 @@ class TextFixtures extends Fixture
             "background" => "carton",
             "design" => "typed"
         ],
-        "cityb1" => [
+        "cityb1_en" => [
             "title" => "Happy Harry's Horoscope: 6",
             "author" => "TheMentalist",
             "content" => [
@@ -5665,6 +5711,50 @@ class TextFixtures extends Fixture
             "lang" => "en",
             "background" => "letter",
             "design" => "written"
+        ],
+        "tstpa1" => [
+            "title" => "Irish Anthem",
+            "author" => "Phil Coulter",
+            "content" => [
+                '<br><h1>Ireland\'s Call</h1><br>
+                <p>Come the day and come the hour</p>
+                <p>Come the power and the glory</p>
+                <p>We have come to answer</p>
+                <p>Our Country\'s call</p>
+                <p>From the four proud provinces of Ireland</p>
+                <br>
+                <p>Ireland, Ireland</p>
+                <p>Together standing tall</p>
+                <p>Shoulder to shoulder</p>
+                <p>We\'ll answer Ireland\'s call </p>
+                <br>',
+                '<br><br><br>
+                <p>From the mighty Glens of Antrim</p>
+                <p>From the rugged hills of Galway</p>
+                <p>From the walls of Limerick</p>
+                <p>And Dublin Bay</p>
+                <p>From the four proud provinces of Ireland</p>
+                <br>
+                <p>Ireland, Ireland</p>
+                <p>Together standing tall</p>
+                <p>Shoulder to shoulder</p>
+                <p>We\'ll answer Ireland\'s call </p>
+                <br>',
+                '<br><br><br>
+                <p>Hearts of steel, and heads unbowing</p>
+                <p>Vowing never to be broken</p>
+                <p>We will fight, until</p>
+                <p>We can fight no more</p>
+                <p>From the four proud provinces of Ireland</p>
+                <br>
+                <p>Ireland, Ireland</p>
+                <p>Together standing tall</p>
+                <p>Shoulder to shoulder</p>
+                <p>We\'ll answer Ireland\'s call </p>'
+            ],
+            "lang" => "en",
+            "background" => "notepad",
+            "design" => "poem"
         ],
         "stpat5_en" => [
             "title" => "Irish Proverbs",
@@ -5747,6 +5837,20 @@ class TextFixtures extends Fixture
             "background" => "old",
             "design" => "poem"
         ],
+        "crema1_en" => [
+            "title" => "Luck of the draw",
+            "author" => "Stravingo",
+            "content" => [
+                '<quote>The Bastion of Shattered Illusions,11th July</quote>
+                <p>It\'s been days... weeks even, since we had any real food. Hunger grips the town, and there is no escape. Even though we have built barricades, the horde is larger than ever, and growing by the day. I can\'t go on. I don\'t have the energy or the strength... </p>
+                <p>This morning we drew lots. I lost, but I don\'t care. The others seemed almost envious. I can smell the charcoal as they fire up the cremato-cue. They told me I\'ll hardly feel a thing, and that they saved me a whole bottle of vodka. I know they\'re lying though...</p>
+                <p>...because i stole the last one...</p>
+                <p><em>Stravingo</em></p>'
+            ],
+            "lang" => "en",
+            "background" => "old",
+            "design" => "poem"
+        ],
         "bilan_en" => [
             "title" => "Minutes of the meeting of 24th August",
             "author" => "Liior",
@@ -5781,6 +5885,21 @@ class TextFixtures extends Fixture
             "background" => "letter",
             "design" => "written"
         ],
+        "motran" => [
+            "title" => "Motherhood - Part 1",
+            "author" => "Raindragon16",
+            "content" => [
+                '<p>“Mommie.”  he whispered in her ear.  Her eyes fluttered for a moment, she moaned rolling over to her side, smiling at her little boy.</p>
+                <p>“Hey sweetie.”  He held out a small canteen light with water, “Just put it beside me baby, I’m not thirsty.”  She wasn’t, been days since she needed a drink.  One his knees he shook the canteen a little, his eyes narrow with worry.  She took the can and sipped it.  The water burned down her throat and she coughed violently, spilling water everywhere.  Specks of blood spotted the floor of plastic. </p>
+                <p>Sitting down cross-legged, the son looked at her hot face, wet brown hair, her torn uniform and the gaping wound on her leg.</p>',
+                '<p>Holding the tears back, he hid his face from her, breathing his thumping heart in deep. He told nobody in the shack town about the wound, he knew there was nothing they could do, they would just kill her.  She let her head rest on the dusty plastic of the dark green tent, it crinkled a little.  “Baby, go outside and help the others.  Mommy is fine, she just needs to sleep.”  He left the tent, careful not to let anyone see inside.</p>
+                <p>Her whole body was cooking in the dry desert air, sweat came somehow, even though she was empty, she where the water fell on her; patches of swollen and burning skin bubbled up like boils.  She knew it wouldn’t be long before she would become a monster, she left the canteen upright and started to moan, no tears came. </p>',
+                '<p>Maybe she should let them shoot her in the head, end it all, but quiet like and have them tell her son she died from a fever in the night.  Most of them were nice enough people, they let her in with her son, they had clean water, clean clothes; it was somewhere...</p>'
+            ],
+            "lang" => "en",
+            "background" => "old",
+            "design" => "typed"
+        ],
         "motrao" => [
             "title" => "Motherhood - Part 2",
             "author" => "Raindragon16",
@@ -5794,6 +5913,23 @@ class TextFixtures extends Fixture
                 '<p>The boy was the only child there in the camp, not many survived the trek through the desert, arriving dead in their parent’s arms.  Some parents didn’t live long after; a rope, a knife, cyanide missing from the bank, their eyes always empty.   “Hey.  I’m here to work.”  The boy smiled wide, his canteen slapping his thigh, too long pants dragging in the dirt with the oversized shoes, “How’s your mom?”  The man asked.</p>
                 <p></p>The boy’s eyes flashed with worry, he tried to cover with a smile, “Tired.”  <p></p>
                 <p></p>He nodded his head, taking the boy by the shoulder over to a workbench covered in planks and nails.  The boy hopped up on a stool and held a plank in place, the man smiled, “You just think yah know what I want eh?”...<p></p>'
+            ],
+            "lang" => "en",
+            "background" => "old",
+            "design" => "typed"
+        ],
+        "motrap" => [
+            "title" => "Motherhood - Part 3",
+            "author" => "Raindragon16",
+            "content" => [
+                '<br><br>
+                <p>The boy widely smiled, two front teeth missing, “Yep.” The man grabbed a hammer and started to align the nails to pound them in.  The project today was a watchtower to help the residence guess how many zombies may come during the night.  They were lucky so far, only four deaths, but it was only a sign of how close to death they all were.</p>
+                <p>“It’s been about three days since yer mom came out.”</p>
+                <p>The boy didn’t look at him, “She’s just tired.  Hasn’t slept good.”  The boy’s face twisted with stress, even though he was trying not to turn his head towards the man.  “I gotta go somewhere.”</p>',
+                '<p>Sliding off the stool, his shoes hit the dirt wood floor and the boy ran past the other workers, through the dusty paths, the man stared after him with concern, “I’ll check on em soon as I’m done here.”</p>
+                <p>The boy stopped short of the green tent, glancing side to side with suspicious eyes, nobody, nothing, zilch, not even the wind blew.  “Mommie.”  He whispered, opening the flap, it was dark inside, but he saw the outline of his mother huddled near the back, “Are you feeling better?” She moved back and forth in a whole body nod.  He slid in, the flap let a sliver of sun in, his saw his mother’s hand was red and puffy. Walking on his knees, he saw the open canteen, “Oh good,”  picking it up, “you drank…”</p>',
+                '<p>A low growl made the plastic tent shake, “Mommie?”  He clutched the canteen, eyes wide with fear; slowly he stepped back on his knees.</p>
+                <p>Her moans became louder, higher, rougher, he swallowed and she turned around, the streak of sun cutting across her body.  Her dirty hair clumped up in bunches, yellow patches bulged around her face, her eyes were bloodshot, she gritted her thin yellow teeth, her son’s mouth opened, she growled like a dog swollen hands swiping for him.  He knew the zombies melted at the contact of water, he held the open canteen, unsure, he looked to his mother; the yellow bulges broke open, puss and blood gushed out, he felt a surge of acid tickle his throat.   She lunged at him; knocking straight into the canteen, water dumped into the new open wounds, she couldn’t scream, her throat was melting away...</p>'
             ],
             "lang" => "en",
             "background" => "old",
@@ -5821,6 +5957,24 @@ class TextFixtures extends Fixture
             "background" => "secret",
             "design" => "written"
         ],
+        "nitemr" => [
+            "title" => "On Nightmares",
+            "author" => "DeadLucky",
+            "content" => [
+                '<p>When I was a child, like any other, I was terrified of the boogeyman. I dreamt of his cold, lifeless hands reaching for my warm, sleeping body. His eyes stared out at me from the dark corners of the night, my imagination filling the shadows with horror. I would wake up screaming bloody murder in the middle of the night, only to find myself very much alone.</p>
+                <br>
+                <p>My grandfather was a minister, and he placed all of his faith in the Church. One night, he heard the startled gasps that marked my release from the clutches of a nightmare and he came to console me. He explained to me that my dreams of evil were merely the Devil trying to frighten me, and that all I had to do to conquer this evil was to pray for strength and safety. That night we prayed together, and trusting my grandfather\'s wisdom, I never had that dream again.</p>',
+                '<br>
+                <p>Oh, now though, now my dreams are of being safe and sound in my bed as a child. When I wake, I am affronted with the bloated, decomposition smell of the ghouls surrounding the town. I hear the scratching and pounding of the Horde mindlessly working away at our barricades in the night. I can again imagine the fingers of the dead grasping at my helpless flesh.</p>
+                <br>
+                <p>You see, my grandfather was wrong. Those dreams weren\'t demonic. They were a warning, a warning that none of us paid any mind. And this time...</p>
+                <br>
+                <p>...prayer will do nothing to save us.</p>'
+            ],
+            "lang" => "en",
+            "background" => "notepad",
+            "design" => "classic"
+        ],
         "pcrsh1_en" => [
             "title" => "Polycarbonate Riot Shield",
             "author" => "Workshop",
@@ -5839,6 +5993,21 @@ class TextFixtures extends Fixture
             "lang" => "en",
             "background" => "old",
             "design" => "ad"
+        ],
+        "qwp1jl" => [
+            "title" => "Quark and the Watchtower - Part 1",
+            "author" => "JohnLeaf",
+            "content" => [
+                '<p>Quark walked up to the watchtower, looking out over the waste that they called, \'home\'. This was the eighth town he had been in on his journey. Each one before had been destroyed by zombies, and he had escaped, using nothing but his wits. He was wearing a cloak the color of shadows, causing him to blend in, the clouds blocking the sun causing him to be able to hide in the darkness whenever he wished.</p>
+                <p>He let out a sigh, spotting hordes of zombies all around the city, and in the distance, at least 200 or so zombies. He stepped on to the ledge of the tower, looking down. After a moment, he heard someone behind him. </p>
+                <p>"Don\'t move." A dark voice spoke out to him. He didn\'t turn. He knew he\'d be dead if he did.</p>',
+                '<p>"What do you want?" Quark asked, his hand slowly slipping to his waist, the movements hidden by the cloak which covered his arms. He gripped his dagger.</p>
+                <p>"You\'ve obviously lived in more than one town. You didn\'t live here before. You may have fooled the others into thinking you\'re just a traveler who was holed up near the town before all this began, but you can\'t fool me."</p>
+                <p>"And what if you\'re right?" Quark raised an eyebrow, although the man behind him couldn\'t see...</p>'
+            ],
+            "lang" => "en",
+            "background" => "printer",
+            "design" => "typed"
         ],
         "utpia1_en" => [
             "title" => "Rough Draft",
@@ -5891,6 +6060,21 @@ class TextFixtures extends Fixture
             "background" => "tinystamp",
             "design" => "classic"
         ],
+        "tddidc" => [
+            "title" => "The Dangerous Dunes",
+            "author" => "Indyclone77",
+            "content" => [
+                '<br>
+                <p>Sometimes I wondered why I bothered eating in that foul place. We lost our capacity for making proper food when Doug, the town chef, was mauled to death at midnight in the last attack. When he died, and the rest of the town mourned, I decided that pillaging his house was a better idea than crying and weeping. But forget Doug. Most of us did, and I had better things to think about.</p>
+                <p>For example, the expedition into the world beyond. We were running low on building supplies, so me, Roberto and Roseangela decided that we needed to go and find nuts, bolts, cement, anything to make our lives even marginally better. We left as soon as the horde had dispersed from the town gates. We set off into the distance, seeking an abandoned construction site that a scout had once told me about.</p>',
+                '<br>
+                <p>As we made our journey onwards, the sands seeped into our tattered shoes, weighing us down, making us tired. We had to rest, and soon. Therefore, we crashed down onto the hot sands, taking generous gulps of water from our individual canteens. In hindsight, it was foolish of us not to notice the zombies that were now surrounding us, and coming closer and closer. We were too involved in the idea of a quick rest, of water, and something to eat. We paid no heed to the dangerous dunes.</p>
+                <p>Such regret I felt when thinking of those things has long since left my rotted flesh and splintered bones. Now, I think only of the meal that lies beyond those great gates...</p>'
+            ],
+            "lang" => "en",
+            "background" => "letter",
+            "design" => "written"
+        ],
         "pswed1" => [
             "title" => "THE HANDFASTING OF APRIL 5, 2013",
             "author" => "Pocky & Soradobi",
@@ -5905,6 +6089,19 @@ class TextFixtures extends Fixture
             "background" => "noteup",
             "design" => "typed"
         ],
+        "stpwg1" => [
+            "title" => "The Wearin' O' The Green",
+            "author" => "Traditional.",
+            "content" => [
+                '<p>Today is the day fer the wearin\' o\' the green</p>
+                <p>Today is the day when the little people are seen</p>
+                <p>Today is St. Patrick\'s Day, so if ye\'r Irish me lad</p>
+                <p>Join the celebration for the grandest time ta\' be had</p>'
+            ],
+            "lang" => "en",
+            "background" => "letter",
+            "design" => "typed"
+        ],
         "cave1_en" => [
             "title" => "Torn Note",
             "author" => "gangster",
@@ -5917,6 +6114,35 @@ class TextFixtures extends Fixture
             "lang" => "en",
             "background" => "blood",
             "design" => "written"
+        ],
+        "stpat1" => [
+            "title" => "Treachery",
+            "author" => "Liior",
+            "content" => [
+                '<p>He stole our weapons, our last rations of meat, and left us on our own, to survive by himself in the desert.</p>
+                <p>We have been thrown into confusion and we don\'t know what to do to stop the hordes from wiping us out tonight...In the Lucky Tavern a few days ago, some were saying that a good kick in the wheels wouldn\'t make the situation any less pleasant.</p>
+                <p>I don\'t think we\'re safe any more... He took our weapons... our food, and left... without warning... were we abandoned? Maybe he\'s gone to deal with some zombies then come back this evening ?</p>',
+                '<p>Either way, our "chief" is gone, and it smells like treachery to me....</p>'
+            ],
+            "lang" => "en",
+            "background" => "grid",
+            "design" => "typed"
+        ],
+        "chief_en" => [
+            "title" => "Two Women or Twelve Men",
+            "author" => "Traditional Irish",
+            "content" => [
+                '<p>There was a fox that had three young ones, and when the time came to teach them how to fend for themselves, the old fox took them to a house.</p>
+                <p>There was great talk going on inside the house.  He asked the first two young ones if they could tell him who was in the house.</p>
+                <p>They couldn’t. Then he tried the third.</p>
+                <p>“Who is inside?” asked the old fox.</p>
+                <p>“Either two women or twelve men,” said the young one. </p>
+                <p>“You’ll do well in the world,” said the old fox.</p><br><br>
+                <p>- A traditional Irish tale</p>'
+            ],
+            "lang" => "en",
+            "background" => "notepad",
+            "design" => "small"
         ],
         "recip1_en" => [
             "title" => "Twinoid Label",
