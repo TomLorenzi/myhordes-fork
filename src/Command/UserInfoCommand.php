@@ -8,6 +8,7 @@ use App\Entity\Citizen;
 use App\Entity\FoundRolePlayText;
 use App\Entity\Picto;
 use App\Entity\PictoPrototype;
+use App\Entity\RolePlayText;
 use App\Entity\User;
 use App\Service\CommandHelper;
 use App\Service\UserHandler;
