@@ -5715,8 +5715,8 @@ class TextFixtures extends Fixture
                 <p>MsIHlvdXIgdXNlcm5hbWUgYW5kIHRvd24gbmFtZS4g</p>
                 <p>WW91IHdpbGwgd2luIGEgZGF5IHRvIHBsYXkgYXMgYSBIZXJvLi4uIEFyaXNlIFNpciBDaHVtcCE=</p>
                 <p><small>[End of Transmission]</small></p>
-                <p><small>ETR: 07/03 12h58 - An error has occurred: corrupt data - status : <strike>IGNORED</strike>Base<strike></strike></small></p><strike>
-                </strike>'
+                <p><small>ETR: 07/03 12h58 - An error has occurred: corrupt data - status : <s>IGNORED</s>Base<s></s></small></p><s>
+                </s>'
             ],
             "lang" => "en",
             "background" => "printer",
@@ -5852,14 +5852,14 @@ class TextFixtures extends Fixture
             "title" => "Diplomatic Invitation",
             "author" => "Berlusconi, S.",
             "content" => [
-                '<p><strong>Dear <strike>Sir or</strike> Madam</strong></p>
+                '<p><strong>Dear <s>Sir or</s> Madam</strong></p>
                 <p>You are cordially invited to the 39th parliamentary Bunga Bunga party</p>
                 <p>Please inform the committee if you intend to attend alone or with a partner.</p>
                 <p>Please also check the box provided if you require a position in the cabinet following this event</p>
                 <p>If you have no history in modelling or the sex industry please include a full-length photo</p>
                 <p>Yours Bunga-tastically,</p>
                 <p>Silvio</p>',
-                '<p><strong>Dear <strike>Sir or</strike> Madam</strong></p>
+                '<p><strong>Dear <s>Sir or</s> Madam</strong></p>
                 <p>It is with regret that we have had to cancel the 39th parliamentary Bunga Bunga party</p>
                 <p>This is due to (not entirely) unforeseen circumstances.</p>
                 <p>Please check the box provided if you have experience in cake baking and file smuggling</p>
