@@ -1,0 +1,554 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:2.0" version="2.0" srcLang="de" trgLang="es">
+  <file id="help.es">
+    <unit id="bOfIhXK" name="Brauchst du Hilfe?">
+      <notes>
+        <note category="german">Brauchst du Hilfe?</note>
+      </notes>
+      <segment>
+        <source>Brauchst du Hilfe?</source>
+        <target>Brauchst du Hilfe?</target>
+      </segment>
+    </unit>
+    <unit id="VToistk" name="Besuche unsere Technische Supportseite">
+      <notes>
+        <note category="german">Besuche unsere Technische Supportseite</note>
+      </notes>
+      <segment>
+        <source>Besuche unsere Technische Supportseite</source>
+        <target>Besuche unsere Technische Supportseite</target>
+      </segment>
+    </unit>
+    <unit id="OBNp2gg" name="Die Verdammten ?">
+      <notes>
+        <note category="german">Die Verdammten ?</note>
+      </notes>
+      <segment>
+        <source>Die Verdammten ?</source>
+        <target>Die Verdammten ?</target>
+      </segment>
+    </unit>
+    <unit id="FvwX8Vo" name="Die Außenwelt">
+      <notes>
+        <note category="german">Die Außenwelt</note>
+      </notes>
+      <segment>
+        <source>Die Außenwelt</source>
+        <target>Die Außenwelt</target>
+      </segment>
+    </unit>
+    <unit id="kaeVl5r" name="Sich bewegen">
+      <notes>
+        <note category="german">Sich bewegen</note>
+      </notes>
+      <segment>
+        <source>Sich bewegen</source>
+        <target>Sich bewegen</target>
+      </segment>
+    </unit>
+    <unit id="L4DksI7" name="Die Karte">
+      <notes>
+        <note category="german">Die Karte</note>
+      </notes>
+      <segment>
+        <source>Die Karte</source>
+        <target>Die Karte</target>
+      </segment>
+    </unit>
+    <unit id="fJO12Rm" name="Erkunden und Graben">
+      <notes>
+        <note category="german">Erkunden und Graben</note>
+      </notes>
+      <segment>
+        <source>Erkunden und Graben</source>
+        <target>Erkunden und Graben</target>
+      </segment>
+    </unit>
+    <unit id="a1rF75Q" name="Abgesuchte Zonen">
+      <notes>
+        <note category="german">Abgesuchte Zonen</note>
+      </notes>
+      <segment>
+        <source>Abgesuchte Zonen</source>
+        <target>Abgesuchte Zonen</target>
+      </segment>
+    </unit>
+    <unit id="6PsnUvf" name="Die Kontrollpunkte">
+      <notes>
+        <note category="german">Die Kontrollpunkte</note>
+      </notes>
+      <segment>
+        <source>Die Kontrollpunkte</source>
+        <target>Die Kontrollpunkte</target>
+      </segment>
+    </unit>
+    <unit id="q9hh0dv" name="Der Eskortenmodus">
+      <notes>
+        <note category="german">Der Eskortenmodus</note>
+      </notes>
+      <segment>
+        <source>Der Eskortenmodus</source>
+        <target>Der Eskortenmodus</target>
+      </segment>
+    </unit>
+    <unit id="QrZuM35" name="Zombies im Freien bekämpfen">
+      <notes>
+        <note category="german">Zombies im Freien bekämpfen</note>
+      </notes>
+      <segment>
+        <source>Zombies im Freien bekämpfen</source>
+        <target>Zombies im Freien bekämpfen</target>
+      </segment>
+    </unit>
+    <unit id="8Ld23ql" name="Wildes Campen">
+      <notes>
+        <note category="german">Wildes Campen</note>
+      </notes>
+      <segment>
+        <source>Wildes Campen</source>
+        <target>Wildes Campen</target>
+      </segment>
+    </unit>
+    <unit id="_M65l_6" name="Gebäude untersuchen">
+      <notes>
+        <note category="german">Gebäude untersuchen</note>
+      </notes>
+      <segment>
+        <source>Gebäude untersuchen</source>
+        <target>Gebäude untersuchen</target>
+      </segment>
+    </unit>
+    <unit id="zEQcWoH" name="Verlorene Seelen">
+      <notes>
+        <note category="german">Verlorene Seelen</note>
+      </notes>
+      <segment>
+        <source>Verlorene Seelen</source>
+        <target>Verlorene Seelen</target>
+      </segment>
+    </unit>
+    <unit id="C2ciqK3" name="Du">
+      <notes>
+        <note category="german">Du</note>
+      </notes>
+      <segment>
+        <source>Du</source>
+        <target>Du</target>
+      </segment>
+    </unit>
+    <unit id="EF2Sgns" name="Dein Gesundheitszustand">
+      <notes>
+        <note category="german">Dein Gesundheitszustand</note>
+      </notes>
+      <segment>
+        <source>Dein Gesundheitszustand</source>
+        <target>Dein Gesundheitszustand</target>
+      </segment>
+    </unit>
+    <unit id="1gKQD7J" name="Inventar">
+      <notes>
+        <note category="german">Inventar</note>
+      </notes>
+      <segment>
+        <source>Inventar</source>
+        <target>Inventar</target>
+      </segment>
+    </unit>
+    <unit id="BNcLxkK" name="Deine Seele">
+      <notes>
+        <note category="german">Deine Seele</note>
+      </notes>
+      <segment>
+        <source>Deine Seele</source>
+        <target>Deine Seele</target>
+      </segment>
+    </unit>
+    <unit id="9gv_cn." name="Der Tod und deine Seelenpunkte">
+      <notes>
+        <note category="german">Der Tod und deine Seelenpunkte</note>
+      </notes>
+      <segment>
+        <source>Der Tod und deine Seelenpunkte</source>
+        <target>Der Tod und deine Seelenpunkte</target>
+      </segment>
+    </unit>
+    <unit id="2I8uzty" name="Der letzte Tod">
+      <notes>
+        <note category="german">Der letzte Tod</note>
+      </notes>
+      <segment>
+        <source>Der letzte Tod</source>
+        <target>Der letzte Tod</target>
+      </segment>
+    </unit>
+    <unit id="MRhYGUw" name="Heldenmodus">
+      <notes>
+        <note category="german">Heldenmodus</note>
+      </notes>
+      <segment>
+        <source>Heldenmodus</source>
+        <target>Heldenmodus</target>
+      </segment>
+    </unit>
+    <unit id="JAkgM4Z" name="Kleine Koalitionen">
+      <notes>
+        <note category="german">Kleine Koalitionen</note>
+      </notes>
+      <segment>
+        <source>Kleine Koalitionen</source>
+        <target>Kleine Koalitionen</target>
+      </segment>
+    </unit>
+    <unit id="Ln3k6NJ" name="Haus &amp;amp; Hausarbeiten">
+      <notes>
+        <note category="german">Haus &amp;amp; Hausarbeiten</note>
+      </notes>
+      <segment>
+        <source>Haus &amp;amp; Hausarbeiten</source>
+        <target><![CDATA[Haus &amp; Hausarbeiten]]></target>
+      </segment>
+    </unit>
+    <unit id="KOB6h9k" name="Ghule">
+      <notes>
+        <note category="german">Ghule</note>
+      </notes>
+      <segment>
+        <source>Ghule</source>
+        <target>Ghule</target>
+      </segment>
+    </unit>
+    <unit id="t5LJ9KA" name="Die Berufe">
+      <notes>
+        <note category="german">Die Berufe</note>
+      </notes>
+      <segment>
+        <source>Die Berufe</source>
+        <target>Die Berufe</target>
+      </segment>
+    </unit>
+    <unit id="hlH9eeR" name="Einwohner">
+      <notes>
+        <note category="german">Einwohner</note>
+      </notes>
+      <segment>
+        <source>Einwohner</source>
+        <target>Einwohner</target>
+      </segment>
+    </unit>
+    <unit id="sBbkqrg" name="Buddler">
+      <notes>
+        <note category="german">Buddler</note>
+      </notes>
+      <segment>
+        <source>Buddler</source>
+        <target>Buddler</target>
+      </segment>
+    </unit>
+    <unit id="N55mPtD" name="Aufklärer">
+      <notes>
+        <note category="german">Aufklärer</note>
+      </notes>
+      <segment>
+        <source>Aufklärer</source>
+        <target>Aufklärer</target>
+      </segment>
+    </unit>
+    <unit id="aMWLa_K" name="Wächter">
+      <notes>
+        <note category="german">Wächter</note>
+      </notes>
+      <segment>
+        <source>Wächter</source>
+        <target>Wächter</target>
+      </segment>
+    </unit>
+    <unit id="jYiPQYC" name="Einsiedler">
+      <notes>
+        <note category="german">Einsiedler</note>
+      </notes>
+      <segment>
+        <source>Einsiedler</source>
+        <target>Einsiedler</target>
+      </segment>
+    </unit>
+    <unit id="l9gYoq8" name="Dompteur">
+      <notes>
+        <note category="german">Dompteur</note>
+      </notes>
+      <segment>
+        <source>Dompteur</source>
+        <target>Dompteur</target>
+      </segment>
+    </unit>
+    <unit id="CcGFUIM" name="Techniker">
+      <notes>
+        <note category="german">Techniker</note>
+      </notes>
+      <segment>
+        <source>Techniker</source>
+        <target>Techniker</target>
+      </segment>
+    </unit>
+    <unit id="BomjBbe" name="Herzlich willkommen in der Stadt">
+      <notes>
+        <note category="german">Herzlich willkommen in der Stadt</note>
+      </notes>
+      <segment>
+        <source>Herzlich willkommen in der Stadt</source>
+        <target>Herzlich willkommen in der Stadt</target>
+      </segment>
+    </unit>
+    <unit id="pq8uFuf" name="Die Gemeinschaft">
+      <notes>
+        <note category="german">Die Gemeinschaft</note>
+      </notes>
+      <segment>
+        <source>Die Gemeinschaft</source>
+        <target>Die Gemeinschaft</target>
+      </segment>
+    </unit>
+    <unit id="jBpgLXJ" name="Neue Gebäude bauen">
+      <notes>
+        <note category="german">Neue Gebäude bauen</note>
+      </notes>
+      <segment>
+        <source>Neue Gebäude bauen</source>
+        <target>Neue Gebäude bauen</target>
+      </segment>
+    </unit>
+    <unit id="iOrKXGN" name="Baupläne">
+      <notes>
+        <note category="german">Baupläne</note>
+      </notes>
+      <segment>
+        <source>Baupläne</source>
+        <target>Baupläne</target>
+      </segment>
+    </unit>
+    <unit id="a67wON3" name="Weiterentwicklung des Tages">
+      <notes>
+        <note category="german">Weiterentwicklung des Tages</note>
+      </notes>
+      <segment>
+        <source>Weiterentwicklung des Tages</source>
+        <target>Weiterentwicklung des Tages</target>
+      </segment>
+    </unit>
+    <unit id="mVINzuJ" name="Der Angriff der Zombiehorde">
+      <notes>
+        <note category="german">Der Angriff der Zombiehorde</note>
+      </notes>
+      <segment>
+        <source>Der Angriff der Zombiehorde</source>
+        <target>Der Angriff der Zombiehorde</target>
+      </segment>
+    </unit>
+    <unit id="CLGNvQz" name="Die Nachtwächter">
+      <notes>
+        <note category="german">Die Nachtwächter</note>
+      </notes>
+      <segment>
+        <source>Die Nachtwächter</source>
+        <target>Die Nachtwächter</target>
+      </segment>
+    </unit>
+    <unit id="kvBwFZL" name="Recht und Gesetz">
+      <notes>
+        <note category="german">Recht und Gesetz</note>
+      </notes>
+      <segment>
+        <source>Recht und Gesetz</source>
+        <target>Recht und Gesetz</target>
+      </segment>
+    </unit>
+    <unit id="HC3UP_X" name="Die Verbannten">
+      <notes>
+        <note category="german">Die Verbannten</note>
+      </notes>
+      <segment>
+        <source>Die Verbannten</source>
+        <target>Die Verbannten</target>
+      </segment>
+    </unit>
+    <unit id="Xi0f4lt" name="Das Chaos">
+      <notes>
+        <note category="german">Das Chaos</note>
+      </notes>
+      <segment>
+        <source>Das Chaos</source>
+        <target>Das Chaos</target>
+      </segment>
+    </unit>
+    <unit id="cbIy_th" name="Das Katapult">
+      <notes>
+        <note category="german">Das Katapult</note>
+      </notes>
+      <segment>
+        <source>Das Katapult</source>
+        <target>Das Katapult</target>
+      </segment>
+    </unit>
+    <unit id="9ee2OqZ" name="Kleine Karten">
+      <notes>
+        <note category="german">Kleine Karten</note>
+      </notes>
+      <segment>
+        <source>Kleine Karten</source>
+        <target>Kleine Karten</target>
+      </segment>
+    </unit>
+    <unit id="IdXP_LT" name="Zerstörte Stadt">
+      <notes>
+        <note category="german">Zerstörte Stadt</note>
+      </notes>
+      <segment>
+        <source>Zerstörte Stadt</source>
+        <target>Zerstörte Stadt</target>
+      </segment>
+    </unit>
+    <unit id="tWsphBt" name="Städte des Pandämoniums">
+      <notes>
+        <note category="german">Städte des Pandämoniums</note>
+      </notes>
+      <segment>
+        <source>Städte des Pandämoniums</source>
+        <target>Städte des Pandämoniums</target>
+      </segment>
+    </unit>
+    <unit id="tnYIPoS" name="Privatstädte">
+      <notes>
+        <note category="german">Privatstädte</note>
+      </notes>
+      <segment>
+        <source>Privatstädte</source>
+        <target>Privatstädte</target>
+      </segment>
+    </unit>
+    <unit id="KUWPnt." name="Rollenspieloptionen">
+      <notes>
+        <note category="german">Rollenspieloptionen</note>
+      </notes>
+      <segment>
+        <source>Rollenspieloptionen</source>
+        <target>Rollenspieloptionen</target>
+      </segment>
+    </unit>
+    <unit id="dyJ1Inc" name="Saisons und Ranglisten">
+      <notes>
+        <note category="german">Saisons und Ranglisten</note>
+      </notes>
+      <segment>
+        <source>Saisons und Ranglisten</source>
+        <target>Saisons und Ranglisten</target>
+      </segment>
+    </unit>
+    <unit id="hureH5L" name="Die Verdammten auf deinem Mobiltelefon (Anthrax GPS)">
+      <notes>
+        <note category="german">Die Verdammten auf deinem Mobiltelefon (Anthrax GPS)</note>
+      </notes>
+      <segment>
+        <source>Die Verdammten auf deinem Mobiltelefon (Anthrax GPS)</source>
+        <target>Die Verdammten auf deinem Mobiltelefon (Anthrax GPS)</target>
+      </segment>
+    </unit>
+    <unit id="vpGUC3n" name="Support">
+      <notes>
+        <note category="german">Support</note>
+      </notes>
+      <segment>
+        <source>Support</source>
+        <target>Support</target>
+      </segment>
+    </unit>
+    <unit id="BKRwO03" name="1- Überprüfe deinen Browser">
+      <notes>
+        <note category="german">1- Überprüfe deinen Browser</note>
+      </notes>
+      <segment>
+        <source>1- Überprüfe deinen Browser</source>
+        <target>1- Überprüfe deinen Browser</target>
+      </segment>
+    </unit>
+    <unit id=".36QxjA" name="2- Überprüfe deinen Flash Player">
+      <notes>
+        <note category="german">2- Überprüfe deinen Flash Player</note>
+      </notes>
+      <segment>
+        <source>2- Überprüfe deinen Flash Player</source>
+        <target>2- Überprüfe deinen Flash Player</target>
+      </segment>
+    </unit>
+    <unit id="wmbd0CC" name="3- Überprüfe sonstige installierte Programme">
+      <notes>
+        <note category="german">3- Überprüfe sonstige installierte Programme</note>
+      </notes>
+      <segment>
+        <source>3- Überprüfe sonstige installierte Programme</source>
+        <target>3- Überprüfe sonstige installierte Programme</target>
+      </segment>
+    </unit>
+    <unit id="vm9r3tz" name="Hier erhältst du Hilfe">
+      <notes>
+        <note category="german">Hier erhältst du Hilfe</note>
+      </notes>
+      <segment>
+        <source>Hier erhältst du Hilfe</source>
+        <target>Hier erhältst du Hilfe</target>
+      </segment>
+    </unit>
+    <unit id="AuzemM7" name="Wie wähle ich ein sicheres Passwort?">
+      <notes>
+        <note category="german">Wie wähle ich ein sicheres Passwort?</note>
+      </notes>
+      <segment>
+        <source>Wie wähle ich ein sicheres Passwort?</source>
+        <target>Wie wähle ich ein sicheres Passwort?</target>
+      </segment>
+    </unit>
+    <unit id="Uz4L9yI" name="Stadt unter Quarantäne">
+      <notes>
+        <note category="german">Stadt unter Quarantäne</note>
+      </notes>
+      <segment>
+        <source>Stadt unter Quarantäne</source>
+        <target>Stadt unter Quarantäne</target>
+      </segment>
+    </unit>
+    <unit id="TK7FpSk" name="Fehlverhalten melden">
+      <notes>
+        <note category="german">Fehlverhalten melden</note>
+      </notes>
+      <segment>
+        <source>Fehlverhalten melden</source>
+        <target>Fehlverhalten melden</target>
+      </segment>
+    </unit>
+    <unit id="rgL81Rn" name="Zum Thema 'Sitting'...">
+      <notes>
+        <note category="german">Zum Thema 'Sitting'...</note>
+      </notes>
+      <segment>
+        <source>Zum Thema 'Sitting'...</source>
+        <target>Zum Thema 'Sitting'...</target>
+      </segment>
+    </unit>
+    <unit id="T8fo4q1" name="Externe Webseiten und Anwendungen">
+      <notes>
+        <note category="german">Externe Webseiten und Anwendungen</note>
+      </notes>
+      <segment>
+        <source>Externe Webseiten und Anwendungen</source>
+        <target>Externe Webseiten und Anwendungen</target>
+      </segment>
+    </unit>
+    <unit id="QZSZXLb" name="Spielanleitung">
+      <notes>
+        <note category="german">Spielanleitung</note>
+      </notes>
+      <segment>
+        <source>Spielanleitung</source>
+        <target>Spielanleitung</target>
+      </segment>
+    </unit>
+  </file>
+</xliff>
