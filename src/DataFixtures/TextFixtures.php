@@ -1982,7 +1982,7 @@ class TextFixtures extends Fixture
             ],
             "lang" => "fr",
             "background" => "stamp",
-            "design" => 'written'
+            "design" => "written"
         ],
         "jdbdar_fr" => [
              "title" => "Journal de bord",
@@ -3912,7 +3912,7 @@ class TextFixtures extends Fixture
                 <small>2. jours ouvrables uniquement. </small>'
             ],
             "lang" => "fr",
-            "background" => 'stamp',
+            "background" => "stamp",
             "design" => "stamp"
         ],
         "sadism" => [
@@ -5447,7 +5447,7 @@ class TextFixtures extends Fixture
         ],
         "docgsw" => [
             "title" => "Based on a true story",
-            "author" => 'Workshop',
+            "author" => "Workshop",
             "content" => [
                 '<p>Pitiless Bay of the Banished, day 4</p>
                 <p>Bam! scratch scratch... Crrrrrrrr...</p>
@@ -5571,7 +5571,7 @@ class TextFixtures extends Fixture
         ],
         "drdiar" => [
             "title" => "Dear Diary",
-            "author" => 'ISteinier',
+            "author" => "ISteinier",
             "content" => [
                 '<h1>Dear diary,</h1>
                 <p>The weirdest thing happened today. I think I\'ve already written about the day Daddy went outside and when he came back he was all green and Mommy put him in the cellar with chain around his neck, didn\'t I?</p>
