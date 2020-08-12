@@ -107,7 +107,7 @@
                     <li class="status">
                         <img src="{{ asset('build/images/roles/' ~ role.icon ~ '.gif') }}" alt="{{ role.label|trans({},'game') }}">
                         {% if role.name == 'ghoul' %}
-                            <div class="ghoul-hunger-container hide-md hide-sm">
+                            <div class="ghoul-hunger-container hide-sm">
                                 <div class="ghoul-hunger-background"></div>
                                 <div class="ghoul-hunger-bar {% if hunger > 40 %}warning{% endif %}" style="width: {{ min(100,hunger) }}%"></div>
                                 <div class="ghoul-hunger-indicator" style="left: 40%"></div>
@@ -118,7 +118,7 @@
                         {% endif %}
                         <div class="tooltip">
                             {{ (role.message ?? 'Du bist der %rolename% dieser Stadt.')|trans({'%rolename%': role.label|trans({}, 'game')}, 'game')}}
-                            <div class="ghoul-hunger-container hide-lg hide-desktop">
+                            <div class="ghoul-hunger-container hide-md hide-lg hide-desktop">
                                 <div class="ghoul-hunger-background"></div>
                                 <div class="ghoul-hunger-bar {% if hunger > 40 %}warning{% endif %}" style="width: {{ min(100,hunger) }}%"></div>
                                 <div class="ghoul-hunger-indicator" style="left: 40%"></div>
