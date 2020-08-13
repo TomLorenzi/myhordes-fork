@@ -1,5 +1,3 @@
-@import "../theme";
-
 .helpArt {
     max-width: 573px;
     height: 51px;
@@ -18,32 +16,27 @@
 }
 
 ul {
-    &.HelpList { font-size: 1.2rem; }
-    margin: 0px;
-    padding: 0px;
-    margin-top: 5px;
-    list-style: none;
+    &.HelpList {
+        padding: 0;
+        > li {
+            font-weight: bold;
+            font-variant: small-caps;
+        }
+    }
+
+    font-size: 1.2rem;
+    list-style-type: none;
+    
     li {
-        &.help {
-            margin: 0px;
-            padding: 0px;
-            padding-left: 5px;
-            border-top: 1px solid #7e4d2a;
-            border-bottom: 1px solid #7e4d2a;
-            &.main {
-                margin-top: 10px;
-                a { font-weight: bold; font-variant: small-caps; }
-            }
-            &.sub { padding-left: 30px; }
-            &.active { 
-                background-color: #696486; border-color: #afacc1;
-                a {
-                    color: white;
-                    font-weight: bold;
-                    text-decoration: none;
-                    cursor: default;
-                }
-            }
+        border-top: 1px solid #7e4d2a;
+        border-bottom: 1px solid #7e4d2a;
+        &.active { 
+            background-color: #696486;
+            border-color: #afacc1;
+            color: white;
+            font-weight: bold;
+            text-decoration: none;
+            cursor: default;
         }
         img { vertical-align: -15%; }
     }
