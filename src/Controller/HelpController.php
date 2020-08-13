@@ -36,10 +36,10 @@ class HelpController extends AbstractController
      */
     public function soul_news(Request $request, string $name = 'welcome'): Response
     {
-        try {
+        //try {
             return $this->render( "ajax/help/$name.html.twig", ['section' => $name]);
-        } catch (Exception $e){
+        /*} catch (Exception $e){
             return $this->redirect($this->generateUrl('help'));
-        }
+        }*/
     }
 }

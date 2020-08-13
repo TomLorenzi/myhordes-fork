@@ -7,7 +7,7 @@
       </notes>
       <segment>
         <source>Brauchst du Hilfe?</source>
-        <target>Brauchst du Hilfe?</target>
+        <target>Besoin d'aide ?</target>
       </segment>
     </unit>
     <unit id="VToistk" name="Besuche unsere Technische Supportseite">
@@ -16,7 +16,7 @@
       </notes>
       <segment>
         <source>Besuche unsere Technische Supportseite</source>
-        <target>Besuche unsere Technische Supportseite</target>
+        <target>Consultez le site du support technique</target>
       </segment>
     </unit>
     <unit id="OBNp2gg" name="Die Verdammten ?">
@@ -25,7 +25,7 @@
       </notes>
       <segment>
         <source>Die Verdammten ?</source>
-        <target>Die Verdammten ?</target>
+        <target>Principe du jeu</target>
       </segment>
     </unit>
     <unit id="FvwX8Vo" name="Die Außenwelt">
@@ -34,7 +34,7 @@
       </notes>
       <segment>
         <source>Die Außenwelt</source>
-        <target>Die Außenwelt</target>
+        <target>L'Outre-Monde</target>
       </segment>
     </unit>
     <unit id="kaeVl5r" name="Sich bewegen">
@@ -43,7 +43,7 @@
       </notes>
       <segment>
         <source>Sich bewegen</source>
-        <target>Sich bewegen</target>
+        <target>Se déplacer</target>
       </segment>
     </unit>
     <unit id="L4DksI7" name="Die Karte">
@@ -52,7 +52,7 @@
       </notes>
       <segment>
         <source>Die Karte</source>
-        <target>Die Karte</target>
+        <target>La carte</target>
       </segment>
     </unit>
     <unit id="fJO12Rm" name="Erkunden und Graben">
@@ -61,7 +61,7 @@
       </notes>
       <segment>
         <source>Erkunden und Graben</source>
-        <target>Erkunden und Graben</target>
+        <target>Explorer et Fouiller</target>
       </segment>
     </unit>
     <unit id="a1rF75Q" name="Abgesuchte Zonen">
@@ -70,7 +70,7 @@
       </notes>
       <segment>
         <source>Abgesuchte Zonen</source>
-        <target>Abgesuchte Zonen</target>
+        <target>Zones épuisées</target>
       </segment>
     </unit>
     <unit id="6PsnUvf" name="Die Kontrollpunkte">
@@ -79,7 +79,7 @@
       </notes>
       <segment>
         <source>Die Kontrollpunkte</source>
-        <target>Die Kontrollpunkte</target>
+        <target>Les points de Contrôle</target>
       </segment>
     </unit>
     <unit id="q9hh0dv" name="Der Eskortenmodus">
@@ -88,7 +88,7 @@
       </notes>
       <segment>
         <source>Der Eskortenmodus</source>
-        <target>Der Eskortenmodus</target>
+        <target>Escortes citoyennes</target>
       </segment>
     </unit>
     <unit id="QrZuM35" name="Zombies im Freien bekämpfen">
@@ -97,7 +97,16 @@
       </notes>
       <segment>
         <source>Zombies im Freien bekämpfen</source>
-        <target>Zombies im Freien bekämpfen</target>
+        <target>Combarre les Hordes dehors</target>
+      </segment>
+    </unit>
+    <unit id="ztIX9Q7" name="Nachts">
+      <notes>
+        <note category="german">Nachts</note>
+      </notes>
+      <segment>
+        <source>Nachts</source>
+        <target>La nuit</target>
       </segment>
     </unit>
     <unit id="8Ld23ql" name="Wildes Campen">
@@ -106,7 +115,7 @@
       </notes>
       <segment>
         <source>Wildes Campen</source>
-        <target>Wildes Campen</target>
+        <target>Camping sauvage</target>
       </segment>
     </unit>
     <unit id="_M65l_6" name="Gebäude untersuchen">
@@ -115,7 +124,7 @@
       </notes>
       <segment>
         <source>Gebäude untersuchen</source>
-        <target>Gebäude untersuchen</target>
+        <target>Exploration de ruines</target>
       </segment>
     </unit>
     <unit id="zEQcWoH" name="Verlorene Seelen">
@@ -124,7 +133,7 @@
       </notes>
       <segment>
         <source>Verlorene Seelen</source>
-        <target>Verlorene Seelen</target>
+        <target>Les âmes perdues</target>
       </segment>
     </unit>
     <unit id="C2ciqK3" name="Du">
@@ -133,7 +142,7 @@
       </notes>
       <segment>
         <source>Du</source>
-        <target>Du</target>
+        <target>Vous</target>
       </segment>
     </unit>
     <unit id="EF2Sgns" name="Dein Gesundheitszustand">
@@ -142,7 +151,7 @@
       </notes>
       <segment>
         <source>Dein Gesundheitszustand</source>
-        <target>Dein Gesundheitszustand</target>
+        <target>Les états de santé</target>
       </segment>
     </unit>
     <unit id="1gKQD7J" name="Inventar">
@@ -151,7 +160,7 @@
       </notes>
       <segment>
         <source>Inventar</source>
-        <target>Inventar</target>
+        <target>Inventaire</target>
       </segment>
     </unit>
     <unit id="BNcLxkK" name="Deine Seele">
@@ -160,7 +169,7 @@
       </notes>
       <segment>
         <source>Deine Seele</source>
-        <target>Deine Seele</target>
+        <target>Votre âme</target>
       </segment>
     </unit>
     <unit id="9gv_cn." name="Der Tod und deine Seelenpunkte">
@@ -169,7 +178,7 @@
       </notes>
       <segment>
         <source>Der Tod und deine Seelenpunkte</source>
-        <target>Der Tod und deine Seelenpunkte</target>
+        <target>La mort des les Points d'âme</target>
       </segment>
     </unit>
     <unit id="2I8uzty" name="Der letzte Tod">
@@ -178,7 +187,7 @@
       </notes>
       <segment>
         <source>Der letzte Tod</source>
-        <target>Der letzte Tod</target>
+        <target>La Mort Ultime !</target>
       </segment>
     </unit>
     <unit id="MRhYGUw" name="Heldenmodus">
@@ -187,7 +196,7 @@
       </notes>
       <segment>
         <source>Heldenmodus</source>
-        <target>Heldenmodus</target>
+        <target>Mode Héros</target>
       </segment>
     </unit>
     <unit id="JAkgM4Z" name="Kleine Koalitionen">
@@ -196,7 +205,7 @@
       </notes>
       <segment>
         <source>Kleine Koalitionen</source>
-        <target>Kleine Koalitionen</target>
+        <target>Petites Coalitions</target>
       </segment>
     </unit>
     <unit id="Ln3k6NJ" name="Haus &amp;amp; Hausarbeiten">
@@ -205,7 +214,7 @@
       </notes>
       <segment>
         <source>Haus &amp;amp; Hausarbeiten</source>
-        <target><![CDATA[Haus &amp; Hausarbeiten]]></target>
+        <target><![CDATA[Maisons & Travaux]]></target>
       </segment>
     </unit>
     <unit id="KOB6h9k" name="Ghule">
@@ -214,7 +223,7 @@
       </notes>
       <segment>
         <source>Ghule</source>
-        <target>Ghule</target>
+        <target>Les goules</target>
       </segment>
     </unit>
     <unit id="t5LJ9KA" name="Die Berufe">
@@ -223,7 +232,7 @@
       </notes>
       <segment>
         <source>Die Berufe</source>
-        <target>Die Berufe</target>
+        <target>Les métiers</target>
       </segment>
     </unit>
     <unit id="hlH9eeR" name="Einwohner">
@@ -232,7 +241,7 @@
       </notes>
       <segment>
         <source>Einwohner</source>
-        <target>Einwohner</target>
+        <target>Habitant</target>
       </segment>
     </unit>
     <unit id="sBbkqrg" name="Buddler">
@@ -241,7 +250,7 @@
       </notes>
       <segment>
         <source>Buddler</source>
-        <target>Buddler</target>
+        <target>Fouineur</target>
       </segment>
     </unit>
     <unit id="N55mPtD" name="Aufklärer">
@@ -250,7 +259,7 @@
       </notes>
       <segment>
         <source>Aufklärer</source>
-        <target>Aufklärer</target>
+        <target>Éclaireur</target>
       </segment>
     </unit>
     <unit id="aMWLa_K" name="Wächter">
@@ -259,7 +268,7 @@
       </notes>
       <segment>
         <source>Wächter</source>
-        <target>Wächter</target>
+        <target>Gardien</target>
       </segment>
     </unit>
     <unit id="jYiPQYC" name="Einsiedler">
@@ -268,7 +277,7 @@
       </notes>
       <segment>
         <source>Einsiedler</source>
-        <target>Einsiedler</target>
+        <target>Ermite</target>
       </segment>
     </unit>
     <unit id="l9gYoq8" name="Dompteur">
@@ -277,7 +286,7 @@
       </notes>
       <segment>
         <source>Dompteur</source>
-        <target>Dompteur</target>
+        <target>Apprivoiseur</target>
       </segment>
     </unit>
     <unit id="CcGFUIM" name="Techniker">
@@ -286,7 +295,34 @@
       </notes>
       <segment>
         <source>Techniker</source>
-        <target>Techniker</target>
+        <target>Technicien</target>
+      </segment>
+    </unit>
+    <unit id="6I1t0iJ" name="Die Rollen">
+      <notes>
+        <note category="german">Die Rollen</note>
+      </notes>
+      <segment>
+        <source>Die Rollen</source>
+        <target>Les rôles</target>
+      </segment>
+    </unit>
+    <unit id="dymWtZP" name="Shamane">
+      <notes>
+        <note category="german">Shamane</note>
+      </notes>
+      <segment>
+        <source>Shamane</source>
+        <target>Chaman</target>
+      </segment>
+    </unit>
+    <unit id="EiBn7Mx" name="Der Reiseleiter in der Außenwelt">
+      <notes>
+        <note category="german">Der Reiseleiter in der Außenwelt</note>
+      </notes>
+      <segment>
+        <source>Der Reiseleiter in der Außenwelt</source>
+        <target>Guide de l'Outre-Monde</target>
       </segment>
     </unit>
     <unit id="BomjBbe" name="Herzlich willkommen in der Stadt">
@@ -295,7 +331,7 @@
       </notes>
       <segment>
         <source>Herzlich willkommen in der Stadt</source>
-        <target>Herzlich willkommen in der Stadt</target>
+        <target>Bienvenue en Ville</target>
       </segment>
     </unit>
     <unit id="pq8uFuf" name="Die Gemeinschaft">
@@ -304,7 +340,7 @@
       </notes>
       <segment>
         <source>Die Gemeinschaft</source>
-        <target>Die Gemeinschaft</target>
+        <target>La Communauté</target>
       </segment>
     </unit>
     <unit id="jBpgLXJ" name="Neue Gebäude bauen">
@@ -313,7 +349,7 @@
       </notes>
       <segment>
         <source>Neue Gebäude bauen</source>
-        <target>Neue Gebäude bauen</target>
+        <target>Contruire de nouveau bâtiments</target>
       </segment>
     </unit>
     <unit id="iOrKXGN" name="Baupläne">
@@ -322,7 +358,7 @@
       </notes>
       <segment>
         <source>Baupläne</source>
-        <target>Baupläne</target>
+        <target>Plans de chantiers</target>
       </segment>
     </unit>
     <unit id="a67wON3" name="Weiterentwicklung des Tages">
@@ -331,7 +367,7 @@
       </notes>
       <segment>
         <source>Weiterentwicklung des Tages</source>
-        <target>Weiterentwicklung des Tages</target>
+        <target>Évolutions du jour</target>
       </segment>
     </unit>
     <unit id="mVINzuJ" name="Der Angriff der Zombiehorde">
@@ -340,7 +376,7 @@
       </notes>
       <segment>
         <source>Der Angriff der Zombiehorde</source>
-        <target>Der Angriff der Zombiehorde</target>
+        <target>L'attaque des Hordes</target>
       </segment>
     </unit>
     <unit id="CLGNvQz" name="Die Nachtwächter">
@@ -349,7 +385,7 @@
       </notes>
       <segment>
         <source>Die Nachtwächter</source>
-        <target>Die Nachtwächter</target>
+        <target>Les Veilleurs</target>
       </segment>
     </unit>
     <unit id="kvBwFZL" name="Recht und Gesetz">
@@ -358,7 +394,7 @@
       </notes>
       <segment>
         <source>Recht und Gesetz</source>
-        <target>Recht und Gesetz</target>
+        <target>La justice et les crimes</target>
       </segment>
     </unit>
     <unit id="HC3UP_X" name="Die Verbannten">
@@ -367,7 +403,7 @@
       </notes>
       <segment>
         <source>Die Verbannten</source>
-        <target>Die Verbannten</target>
+        <target>Les bannis</target>
       </segment>
     </unit>
     <unit id="Xi0f4lt" name="Das Chaos">
@@ -376,7 +412,7 @@
       </notes>
       <segment>
         <source>Das Chaos</source>
-        <target>Das Chaos</target>
+        <target>Le chaos</target>
       </segment>
     </unit>
     <unit id="cbIy_th" name="Das Katapult">
@@ -385,7 +421,7 @@
       </notes>
       <segment>
         <source>Das Katapult</source>
-        <target>Das Katapult</target>
+        <target>La catapulte</target>
       </segment>
     </unit>
     <unit id="9ee2OqZ" name="Kleine Karten">
@@ -394,7 +430,7 @@
       </notes>
       <segment>
         <source>Kleine Karten</source>
-        <target>Kleine Karten</target>
+        <target>Villes en Région non éloigné</target>
       </segment>
     </unit>
     <unit id="IdXP_LT" name="Zerstörte Stadt">
@@ -403,7 +439,7 @@
       </notes>
       <segment>
         <source>Zerstörte Stadt</source>
-        <target>Zerstörte Stadt</target>
+        <target>Ville dévastée</target>
       </segment>
     </unit>
     <unit id="tWsphBt" name="Städte des Pandämoniums">
@@ -412,7 +448,7 @@
       </notes>
       <segment>
         <source>Städte des Pandämoniums</source>
-        <target>Städte des Pandämoniums</target>
+        <target>Les villes du Pandémonium</target>
       </segment>
     </unit>
     <unit id="tnYIPoS" name="Privatstädte">
@@ -421,7 +457,7 @@
       </notes>
       <segment>
         <source>Privatstädte</source>
-        <target>Privatstädte</target>
+        <target>Les villes privées</target>
       </segment>
     </unit>
     <unit id="KUWPnt." name="Rollenspieloptionen">
@@ -430,7 +466,7 @@
       </notes>
       <segment>
         <source>Rollenspieloptionen</source>
-        <target>Rollenspieloptionen</target>
+        <target>Options roleplay</target>
       </segment>
     </unit>
     <unit id="dyJ1Inc" name="Saisons und Ranglisten">
@@ -439,16 +475,7 @@
       </notes>
       <segment>
         <source>Saisons und Ranglisten</source>
-        <target>Saisons und Ranglisten</target>
-      </segment>
-    </unit>
-    <unit id="hureH5L" name="Die Verdammten auf deinem Mobiltelefon (Anthrax GPS)">
-      <notes>
-        <note category="german">Die Verdammten auf deinem Mobiltelefon (Anthrax GPS)</note>
-      </notes>
-      <segment>
-        <source>Die Verdammten auf deinem Mobiltelefon (Anthrax GPS)</source>
-        <target>Die Verdammten auf deinem Mobiltelefon (Anthrax GPS)</target>
+        <target>Saisons et classements</target>
       </segment>
     </unit>
     <unit id="vpGUC3n" name="Support">
@@ -466,7 +493,7 @@
       </notes>
       <segment>
         <source>1- Überprüfe deinen Browser</source>
-        <target>1- Überprüfe deinen Browser</target>
+        <target>1- Vérifier mon navigateur</target>
       </segment>
     </unit>
     <unit id=".36QxjA" name="2- Überprüfe deinen Flash Player">
@@ -475,7 +502,7 @@
       </notes>
       <segment>
         <source>2- Überprüfe deinen Flash Player</source>
-        <target>2- Überprüfe deinen Flash Player</target>
+        <target>2- Vérifier mon lecteur Flash</target>
       </segment>
     </unit>
     <unit id="wmbd0CC" name="3- Überprüfe sonstige installierte Programme">
@@ -484,7 +511,7 @@
       </notes>
       <segment>
         <source>3- Überprüfe sonstige installierte Programme</source>
-        <target>3- Überprüfe sonstige installierte Programme</target>
+        <target>3- Vérifier mes logiciels tiers</target>
       </segment>
     </unit>
     <unit id="vm9r3tz" name="Hier erhältst du Hilfe">
@@ -493,7 +520,7 @@
       </notes>
       <segment>
         <source>Hier erhältst du Hilfe</source>
-        <target>Hier erhältst du Hilfe</target>
+        <target>Obtenir de l'aide</target>
       </segment>
     </unit>
     <unit id="AuzemM7" name="Wie wähle ich ein sicheres Passwort?">
@@ -502,7 +529,7 @@
       </notes>
       <segment>
         <source>Wie wähle ich ein sicheres Passwort?</source>
-        <target>Wie wähle ich ein sicheres Passwort?</target>
+        <target>Choisir un bon mot de passe?</target>
       </segment>
     </unit>
     <unit id="Uz4L9yI" name="Stadt unter Quarantäne">
@@ -511,7 +538,7 @@
       </notes>
       <segment>
         <source>Stadt unter Quarantäne</source>
-        <target>Stadt unter Quarantäne</target>
+        <target>Villes en quarantaine</target>
       </segment>
     </unit>
     <unit id="TK7FpSk" name="Fehlverhalten melden">
@@ -520,7 +547,7 @@
       </notes>
       <segment>
         <source>Fehlverhalten melden</source>
-        <target>Fehlverhalten melden</target>
+        <target>On m'embête</target>
       </segment>
     </unit>
     <unit id="rgL81Rn" name="Zum Thema 'Sitting'...">
@@ -529,7 +556,7 @@
       </notes>
       <segment>
         <source>Zum Thema 'Sitting'...</source>
-        <target>Zum Thema 'Sitting'...</target>
+        <target>À propos du « sitting »</target>
       </segment>
     </unit>
     <unit id="T8fo4q1" name="Externe Webseiten und Anwendungen">
@@ -538,7 +565,7 @@
       </notes>
       <segment>
         <source>Externe Webseiten und Anwendungen</source>
-        <target>Externe Webseiten und Anwendungen</target>
+        <target>Sites externes à Hordes</target>
       </segment>
     </unit>
     <unit id="QZSZXLb" name="Spielanleitung">
@@ -547,7 +574,196 @@
       </notes>
       <segment>
         <source>Spielanleitung</source>
-        <target>Spielanleitung</target>
+        <target>Guide de jeu</target>
+      </segment>
+    </unit>
+    <unit id="smQglTK" name="5c55efb">
+      <notes>
+        <note category="german">'Die Verdammten' ist ein Survivalspiel, das in einer postapokalyptischen Welt voller Untoter spielt.</note>
+      </notes>
+      <segment>
+        <source>'Die Verdammten' ist ein Survivalspiel, das in einer postapokalyptischen Welt voller Untoter spielt.</source>
+        <target>Hordes est un jeu de survie dans un monde hostile peuplé de zombies.</target>
+      </segment>
+    </unit>
+    <unit id="fEPcQJL" name="794eff7">
+      <notes>
+        <note category="german">Die Spieler (auch "Bürger" genannt) leben in kleinen Städten und müssen sich jeden Tag aufs Neue organisieren und eine Strategie finden, um die nächtlichen Zombieangriffe erfolgreich abzuwehren. Je länger sie dabei überleben, desto mehr Punkte können sie sammeln. &lt;strong&gt;Der Tod ist ein fester Bestandteil des Spiels. Alle Stadteinwohner wissen vom ersten Tag an, dass sie sterben werden. Die Frage ist nur wie und wann... &lt;/strong&gt;. Als ob das nicht genug wäre, sind die Spieler dazu verdammt, nach ihrem Tod in einer anderen Stadt wiedergeboren zu werden und das Spiel beginnt wieder von vorn...</note>
+      </notes>
+      <segment>
+        <source>Die Spieler (auch "Bürger" genannt) leben in kleinen Städten und müssen sich jeden Tag aufs Neue organisieren und eine Strategie finden, um die nächtlichen Zombieangriffe erfolgreich abzuwehren. Je länger sie dabei überleben, desto mehr Punkte können sie sammeln. &lt;strong&gt;Der Tod ist ein fester Bestandteil des Spiels. Alle Stadteinwohner wissen vom ersten Tag an, dass sie sterben werden. Die Frage ist nur wie und wann... &lt;/strong&gt;. Als ob das nicht genug wäre, sind die Spieler dazu verdammt, nach ihrem Tod in einer anderen Stadt wiedergeboren zu werden und das Spiel beginnt wieder von vorn...</source>
+        <target><![CDATA[Les joueurs (ou Citoyens) sont regroupés dans de petites villes et ont pour tâche de s'organiser chaque jour pour tenir le plus longtemps possible face aux attaques des zombies... <strong>Le dernier survivant deviendra le Héros de la ville.</strong>]]></target>
+      </segment>
+    </unit>
+    <unit id="kiRQ28V" name="Ziel Nr.1: Erkundungen">
+      <notes>
+        <note category="german">Ziel Nr.1: Erkundungen</note>
+      </notes>
+      <segment>
+        <source>Ziel Nr.1: Erkundungen</source>
+        <target>Objectif n°1 : explorer pour s'équiper</target>
+      </segment>
+    </unit>
+    <unit id="Ty6GPyz" name="3947934">
+      <notes>
+        <note category="german">Während des Tages verlassen die Bürger ihre schützenden Städte, um die &lt;strong&gt;Außenwelt&lt;/strong&gt; zu erkunden. In der Wüste können sie durch Graben allerlei Waffen, Baumaterialien und Nahrung finden.</note>
+      </notes>
+      <segment>
+        <source>Während des Tages verlassen die Bürger ihre schützenden Städte, um die &lt;strong&gt;Außenwelt&lt;/strong&gt; zu erkunden. In der Wüste können sie durch Graben allerlei Waffen, Baumaterialien und Nahrung finden.</source>
+        <target><![CDATA[La journée, les Citoyens peuvent quitter la sécurité de la Ville pour explorer l'<strong>Outre-Monde</strong> et fouiller les étendues désertiques pour y trouver des armes, du matériel et de la nourriture.]]></target>
+      </segment>
+    </unit>
+    <unit id="9phHYef" name="Ziel Nr.2: Zombieangriffe überleben">
+      <notes>
+        <note category="german">Ziel Nr.2: Zombieangriffe überleben</note>
+      </notes>
+      <segment>
+        <source>Ziel Nr.2: Zombieangriffe überleben</source>
+        <target>Objectif n°2 : tenir face aux Hordes</target>
+      </segment>
+    </unit>
+    <unit id="tmcnTX3" name="7fe1c23">
+      <notes>
+        <note category="german">Jeden Tag um Mitternacht greift eine Zombiehorde die Stadt an. Die in der Wüste gefundenen Gegenstände wurden im Idealfall dazu benutzt, Verteidigungsanlagen zu bauen und die Häuser zu verbessern.</note>
+      </notes>
+      <segment>
+        <source>Jeden Tag um Mitternacht greift eine Zombiehorde die Stadt an. Die in der Wüste gefundenen Gegenstände wurden im Idealfall dazu benutzt, Verteidigungsanlagen zu bauen und die Häuser zu verbessern.</source>
+        <target>Chaque soir à minuit, les Hordes de morts-vivants attaquent la Ville ! Les objets trouvés dans la journée aident alors à bâtir des défenses et à protéger les maisons.</target>
+      </segment>
+    </unit>
+    <unit id="PX_pHFS" name="Ziel Nr.3: Sich gegenseitig helfen und überleben...">
+      <notes>
+        <note category="german">Ziel Nr.3: Sich gegenseitig helfen und überleben...</note>
+      </notes>
+      <segment>
+        <source>Ziel Nr.3: Sich gegenseitig helfen und überleben...</source>
+        <target>Objectif n°3 : s'entraider et survivre...</target>
+      </segment>
+    </unit>
+    <unit id="Itk0eeK" name="264a4b4">
+      <notes>
+        <note category="german">Alle gefundenen Gegenstände können mit anderen Spielern geteilt werden. Vielleicht besitzt dein Nachbar ja genau die Schraube, die dir für deine Kettensäge noch fehlt. Dein Überleben hängt im entscheidendem Maße davon ab, wie gut die Kooperation und Organisation in deiner Stadt funktioniert. Das Hauptkommunikationsmittel ist ein stadtinternes Forum.</note>
+      </notes>
+      <segment>
+        <source>Alle gefundenen Gegenstände können mit anderen Spielern geteilt werden. Vielleicht besitzt dein Nachbar ja genau die Schraube, die dir für deine Kettensäge noch fehlt. Dein Überleben hängt im entscheidendem Maße davon ab, wie gut die Kooperation und Organisation in deiner Stadt funktioniert. Das Hauptkommunikationsmittel ist ein stadtinternes Forum.</source>
+        <target>Les trouvailles des Citoyens peuvent être partagées. Peut être que votre voisin possède la Vis qu'il manque à votre Tronçonneuse ? Votre survie dépend de votre faculté à vous organiser ou à utiliser la communauté...</target>
+      </segment>
+    </unit>
+    <unit id="YjauAVu" name="Welche Aufgaben muss ich tagtäglich erledigen?">
+      <notes>
+        <note category="german">Welche Aufgaben muss ich tagtäglich erledigen?</note>
+      </notes>
+      <segment>
+        <source>Welche Aufgaben muss ich tagtäglich erledigen?</source>
+        <target>Que faire chaque jour ?</target>
+      </segment>
+    </unit>
+    <unit id="KGODA_M" name="In 'Die Verdammten' musst du jeden Tag mehrere Aufgaben erledigen.">
+      <notes>
+        <note category="german">In 'Die Verdammten' musst du jeden Tag mehrere Aufgaben erledigen.</note>
+      </notes>
+      <segment>
+        <source>In 'Die Verdammten' musst du jeden Tag mehrere Aufgaben erledigen.</source>
+        <target> Il y a plusieurs choses à accomplir chaque jour dans Hordes.</target>
+      </segment>
+    </unit>
+    <unit id="6umuhqS" name="Die Zeitung lesen">
+      <notes>
+        <note category="german">Die Zeitung lesen</note>
+      </notes>
+      <segment>
+        <source>Die Zeitung lesen</source>
+        <target>Lire le journal</target>
+      </segment>
+    </unit>
+    <unit id="f14Qoff" name="Die wichtigsten Informationen findest du jeden Tag druckfrisch hier!">
+      <notes>
+        <note category="german">Die wichtigsten Informationen findest du jeden Tag druckfrisch hier!</note>
+      </notes>
+      <segment>
+        <source>Die wichtigsten Informationen findest du jeden Tag druckfrisch hier!</source>
+        <target>il contient un résumé des choses importantes de la veille !</target>
+      </segment>
+    </unit>
+    <unit id="cqY1JTZ" name="Wasser entnehmen">
+      <notes>
+        <note category="german">Wasser entnehmen</note>
+      </notes>
+      <segment>
+        <source>Wasser entnehmen</source>
+        <target>Prendre votre eau au puits</target>
+      </segment>
+    </unit>
+    <unit id="WIyTL.r" name="Ohne Wasser stirbst du.">
+      <notes>
+        <note category="german">Ohne Wasser stirbst du.</note>
+      </notes>
+      <segment>
+        <source>Ohne Wasser stirbst du.</source>
+        <target>sans eau, pas de vie.</target>
+      </segment>
+    </unit>
+    <unit id="1US5NkZ" name="Die Außenwelt erkunden">
+      <notes>
+        <note category="german">Die Außenwelt erkunden</note>
+      </notes>
+      <segment>
+        <source>Die Außenwelt erkunden</source>
+        <target>Explorer l'Outre-Monde</target>
+      </segment>
+    </unit>
+    <unit id="KEE4jQS" name="Grabe in der Wüste und sammle nützliche Gegenstände ein.">
+      <notes>
+        <note category="german">Grabe in der Wüste und sammle nützliche Gegenstände ein.</note>
+      </notes>
+      <segment>
+        <source>Grabe in der Wüste und sammle nützliche Gegenstände ein.</source>
+        <target>fouillez le désert et ramassez des objets utiles.</target>
+      </segment>
+    </unit>
+    <unit id="kUTLK_h" name="Auf den Baustellen mithelfen">
+      <notes>
+        <note category="german">Auf den Baustellen mithelfen</note>
+      </notes>
+      <segment>
+        <source>Auf den Baustellen mithelfen</source>
+        <target>Participer aux chantiers</target>
+      </segment>
+    </unit>
+    <unit id="bOiwmPy" name="Wähle das Gebäude aus, welches die Stadt als nächstes bauen soll.">
+      <notes>
+        <note category="german">Wähle das Gebäude aus, welches die Stadt als nächstes bauen soll.</note>
+      </notes>
+      <segment>
+        <source>Wähle das Gebäude aus, welches die Stadt als nächstes bauen soll.</source>
+        <target>choisissez le prochain bâtiment à construire en ville.</target>
+      </segment>
+    </unit>
+    <unit id="p0DbdQX" name="Get active on the town forum">
+      <notes>
+        <note category="german">Get active on the town forum</note>
+      </notes>
+      <segment>
+        <source>Get active on the town forum</source>
+        <target>Participer au forum de la ville</target>
+      </segment>
+    </unit>
+    <unit id="nAx3MXx" name="organise yourselves and survive.">
+      <notes>
+        <note category="german">organise yourselves and survive.</note>
+      </notes>
+      <segment>
+        <source>organise yourselves and survive.</source>
+        <target>organisez-vous pour survivre.</target>
+      </segment>
+    </unit>
+    <unit id="HhS980w" name="Weiter">
+      <notes>
+        <note category="german">Weiter</note>
+      </notes>
+      <segment>
+        <source>Weiter</source>
+        <target>Suite</target>
       </segment>
     </unit>
   </file>

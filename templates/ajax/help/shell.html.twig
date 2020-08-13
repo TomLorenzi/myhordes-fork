@@ -4,7 +4,7 @@
     <li class="back-dash" x-ajax-href="{{ url('game_landing') }}">{{ 'Zum Spiel'|trans({},'global') }}</li>
 {% endblock %}
 {% block ajax %}
-<div class="row">
+    <div class="row">
         <div class="padded-small cell rw-4 rw-sm-12">
             <div class="row">
            		<a class="support" href="/support" target="_blank"><em>{{ 'Brauchst du Hilfe?'|trans({},'help') }}</em>{{ 'Besuche unsere Technische Supportseite'|trans({},'help') }}</a>
@@ -44,6 +44,10 @@
                         <li class="link">
                             <img src="{{ asset('build/images/item/item_cutcut.gif') }}" alt="fight">
                             {{ 'Zombies im Freien bekämpfen'|trans({},'help') }}
+                        </li>
+                        <li class="link">
+                            <img src="{{ asset('build/images/pictos/r_doutsd.gif') }}" alt="night">
+                            {{ 'Nachts'|trans({},'help') }}
                         </li>
                         <li class="link">
                             <img src="{{ asset('build/images/status/status_camper.gif') }}" alt="camp">
@@ -132,6 +136,20 @@
                         <li class="link">
                             <img src="{{ asset('build/images/professions/tech.gif') }}" alt="job_tech">
                             {{ 'Techniker'|trans({},'help') }}
+                        </li>
+                    </ul>
+                    <li class="link">
+                        <img src="{{ asset('build/images/icons/small_middot.gif') }}" alt="roles">
+                        {{ 'Die Rollen'|trans({},'help') }}
+                    </li>
+                    <ul>
+                        <li class="link">
+                            <img src="{{ asset('build/images/roles/shaman.gif') }}" alt="role_shaman">
+                            {{ 'Shamane'|trans({},'help') }}
+                        </li>
+                        <li class="link">
+                            <img src="{{ asset('build/images/roles/guide.gif') }}" alt="role_guide">
+                            {{ 'Der Reiseleiter in der Außenwelt'|trans({},'help') }}
                         </li>
                     </ul>
                     <li class="link">
@@ -250,7 +268,7 @@
 			</div>
         </div>
         <div class="padded cell rw-8 rw-sm-12">
-            <div class="row">
+            <div class="row help-content">
                 {% block helpContent %}
                 {% endblock %}
             </div>

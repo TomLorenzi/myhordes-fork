@@ -1,39 +1,43 @@
 {% extends "ajax/help/shell.html.twig" %}
 {% block helpContent %}
-<div class="helpArt"></div>
-<h1>Die Verdammten ?</h1>
+<div class="helpArt">{{ 'Spielanleitung'|trans({},'help') }}</div>
+<h1>{{'Die Verdammten ?'|trans({}, 'help')}}</h1>
 <div class="content">
     <p>
-        <strong>'Die Verdammten' ist ein Survivalspiel, das in einer postapokalyptischen Welt voller Untoter spielt.</strong>
+        <strong>{{"'Die Verdammten' ist ein Survivalspiel, das in einer postapokalyptischen Welt voller Untoter spielt."|trans({}, 'help')}}</strong>
     </p>
-    <p>Die Spieler (auch "Bürger" genannt) leben in kleinen Städten und müssen sich jeden Tag aufs Neue organisieren und eine Strategie finden, um die nächtlichen Zombieangriffe erfolgreich abzuwehren. Je länger sie dabei überleben, desto mehr Punkte können sie sammeln. <strong>Der Tod ist ein fester Bestandteil des Spiels. Alle Stadteinwohner wissen vom ersten Tag an, dass sie sterben werden. Die Frage ist nur wie und wann... </strong>. Als ob das nicht genug wäre, sind die Spieler dazu verdammt, nach ihrem Tod in einer anderen Stadt wiedergeboren zu werden und das Spiel beginnt wieder von vorn...</p>
-    <h2>Ziel Nr.1: Erkundungen</h2>
-    <img class="art" alt="" src="{{ asset('build/images/help/intro_equip.gif') }}" />
     <p>
-    Während des Tages verlassen die Bürger ihre schützenden Städte, um die <strong>Außenwelt</strong> zu erkunden. In der Wüste können sie durch Graben allerlei Waffen, Baumaterialien und Nahrung finden.
+    {% trans from 'help' %}
+        Die Spieler (auch "Bürger" genannt) leben in kleinen Städten und müssen sich jeden Tag aufs Neue organisieren und eine Strategie finden, um die nächtlichen Zombieangriffe erfolgreich abzuwehren. Je länger sie dabei überleben, desto mehr Punkte können sie sammeln. <strong>Der Tod ist ein fester Bestandteil des Spiels. Alle Stadteinwohner wissen vom ersten Tag an, dass sie sterben werden. Die Frage ist nur wie und wann... </strong>. Als ob das nicht genug wäre, sind die Spieler dazu verdammt, nach ihrem Tod in einer anderen Stadt wiedergeboren zu werden und das Spiel beginnt wieder von vorn...
+    {% endtrans %}
     </p>
-    <h2>Ziel Nr.2: Zombieangriffe überleben</h2>
+    <h2>{{'Ziel Nr.1: Erkundungen'|trans({}, 'help')}}</h2>
+    <p>
+        <img class="art" alt="" src="{{ asset('build/images/help/intro_equip.gif') }}" />
+        {% trans from 'help' %}Während des Tages verlassen die Bürger ihre schützenden Städte, um die <strong>Außenwelt</strong> zu erkunden. In der Wüste können sie durch Graben allerlei Waffen, Baumaterialien und Nahrung finden.{% endtrans %}
+    </p>
+    <h2>{{'Ziel Nr.2: Zombieangriffe überleben'|trans({}, 'help')}}</h2>
+    <p>
     <img class="art artRight" alt="" src="{{ asset('build/images/help/intro_fight.gif') }}">
-    <p>
-    Jeden Tag um Mitternacht greift eine Zombiehorde die Stadt an. Die in der Wüste gefundenen Gegenstände wurden im Idealfall dazu benutzt, Verteidigungsanlagen zu bauen und die Häuser zu verbessern.
+    {% trans from 'help' %}Jeden Tag um Mitternacht greift eine Zombiehorde die Stadt an. Die in der Wüste gefundenen Gegenstände wurden im Idealfall dazu benutzt, Verteidigungsanlagen zu bauen und die Häuser zu verbessern.{% endtrans %}
     </p>
-    <h2>Ziel Nr.3: Sich gegenseitig helfen und überleben...</h2>
+    <h2>{{'Ziel Nr.3: Sich gegenseitig helfen und überleben...'|trans({}, 'help')}}</h2>
+    <p>
     <img class="art" alt="" src="{{ asset('build/images/help/intro_help.gif') }}">
-    <p>
-    Alle gefundenen Gegenstände können mit anderen Spielern geteilt werden. Vielleicht besitzt dein Nachbar ja genau die Schraube, die dir für deine Kettensäge noch fehlt. Dein Überleben hängt im entscheidendem Maße davon ab, wie gut die Kooperation und Organisation in deiner Stadt funktioniert. Das Hauptkommunikationsmittel ist ein stadtinternes Forum.
+    {% trans from 'help' %}Alle gefundenen Gegenstände können mit anderen Spielern geteilt werden. Vielleicht besitzt dein Nachbar ja genau die Schraube, die dir für deine Kettensäge noch fehlt. Dein Überleben hängt im entscheidendem Maße davon ab, wie gut die Kooperation und Organisation in deiner Stadt funktioniert. Das Hauptkommunikationsmittel ist ein stadtinternes Forum.{% endtrans %}
     </p>
-    <h2>Welche Aufgaben muss ich tagtäglich erledigen?</h2>
+    <h2>{{'Welche Aufgaben muss ich tagtäglich erledigen?'|trans({}, 'help')}}</h2>
     <p>
-    In 'Die Verdammten' musst du jeden Tag mehrere Aufgaben erledigen.
+    {% trans from 'help' %}In 'Die Verdammten' musst du jeden Tag mehrere Aufgaben erledigen.{% endtrans %}
     </p>
     <ul>
-    <li><strong>Die Zeitung lesen</strong>: Die wichtigsten Informationen findest du jeden Tag druckfrisch hier!</li>
-    <li><strong>Wasser entnehmen</strong>: Ohne Wasser stirbst du.</li>
-    <li><strong>Die Außenwelt erkunden</strong>: Grabe in der Wüste und sammle nützliche Gegenstände ein.</li>
-    <li><strong>Auf den Baustellen mithelfen</strong>: Wähle das Gebäude aus, welches die Stadt als nächstes bauen soll.</li>
-    <li><strong>Get active on the town forum</strong>: organise yourselves and survive.</li>
+    <li><strong>{{'Die Zeitung lesen'|trans({}, 'help')}}</strong> : {{'Die wichtigsten Informationen findest du jeden Tag druckfrisch hier!'|trans({}, 'help')}}</li>
+    <li><strong>{{'Wasser entnehmen'|trans({}, 'help')}}</strong> : {{'Ohne Wasser stirbst du.'|trans({}, 'help')}}</li>
+    <li><strong>{{'Die Außenwelt erkunden'|trans({}, 'help')}}</strong> : {{'Grabe in der Wüste und sammle nützliche Gegenstände ein.'|trans({}, 'help')}}</li>
+    <li><strong>{{'Auf den Baustellen mithelfen'|trans({}, 'help')}}</strong> : {{'Wähle das Gebäude aus, welches die Stadt als nächstes bauen soll.'|trans({}, 'help')}}</li>
+    <li><strong>{{'Get active on the town forum'|trans({}, 'help')}}</strong> : {{'organise yourselves and survive.'|trans({}, 'help')}}</li>
     </ul>
     <div class="clear"></div>
-    <a class="button" x-ajax-href="{{ url('help', {'name': 'world_beyond'}) }}"><img src="{{ asset('build/images/icons/small_move.gif') }}" alt="move"> Weiter:<strong> Die Außenwelt</strong></a>
+    <a class="button" x-ajax-href="{{ url('help', {'name': 'world_beyond'}) }}"><img src="{{ asset('build/images/icons/small_move.gif') }}" alt="move"> {{'Weiter'|trans({}, 'help')}}:<strong> {{ 'Die Außenwelt'|trans({},'help') }}</strong></a>
 </div>
 {% endblock %}
