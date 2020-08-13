@@ -4,5 +4,195 @@
     <li class="back-dash" x-ajax-href="{{ url('game_landing') }}">{{ 'Zum Spiel'|trans({},'global') }}</li>
 {% endblock %}
 {% block ajax %}
-<div>COMING SOON</div>
+<div class="row">
+        <div class="padded-small cell rw-4 rw-sm-12">
+            <div class="row">
+           		<a class="support" href="/support" target="_blank"><em>{{ 'Brauchst du Hilfe?'|trans({},'help') }}</em>{{ 'Besuche unsere Technische Supportseite'|trans({},'help') }}</a>
+<ul class="HelpList">
+<li class="help active main">
+<img src="{{ asset('build/images/icons/small_middot.gif') }}" alt="intro">
+<a href="#help/die_verdammten" onclick="js.XmlHttp.get('help/die_verdammten',this);">{{ 'Die Verdammten ?'|trans({},'help') }}</a>
+</li><li class="help main">
+<img src="{{ asset('build/images/icons/small_middot.gif') }}" alt="outer">
+<a href="#help/die_auenwelt" onclick="js.XmlHttp.get('help/die_auenwelt',this);">{{ 'Die Außenwelt'|trans({},'help') }}</a>
+</li><li class="help sub">
+<img src="{{ asset('build/images/icons/small_move.gif') }}" alt="move">
+<a href="#help/sich_bewegen" onclick="js.XmlHttp.get('help/sich_bewegen',this);">{{ 'Sich bewegen'|trans({},'help') }}</a>
+</li><li class="help sub">
+<img src="{{ asset('build/images/icons/item_map.gif') }}" alt="map">
+<a href="#help/die_karte" onclick="js.XmlHttp.get('help/die_karte',this);">{{ 'Die Karte'|trans({},'help') }}</a>
+</li><li class="help sub">
+<img src="{{ asset('build/images/icons/small_gather.gif') }}" alt="explore">
+<a href="#help/erkunden_und_graben" onclick="js.XmlHttp.get('help/erkunden_und_graben',this);">{{ 'Erkunden und Graben'|trans({},'help') }}</a>
+</li><li class="help sub">
+<img src="{{ asset('build/images/icons/Small_broken.gif') }}" alt="depleted">
+<a href="#help/abgesuchte_zonen" onclick="js.XmlHttp.get('help/abgesuchte_zonen',this);">{{ 'Abgesuchte Zonen'|trans({},'help') }}</a>
+</li><li class="help sub">
+<img src="{{ asset('build/images/beyond/equal.gif') }}" alt="dom">
+<a href="#help/die_kontrollpunkte" onclick="js.XmlHttp.get('help/die_kontrollpunkte',this);">{{ 'Die Kontrollpunkte'|trans({},'help') }}</a>
+</li><li class="help sub">
+<img src="{{ asset('build/images/icons/small_move.gif') }}" alt="escort">
+<a href="#help/der_eskortenmodus" onclick="js.XmlHttp.get('help/der_eskortenmodus',this);">{{ 'Der Eskortenmodus'|trans({},'help') }}</a>
+</li><li class="help sub">
+<img src="{{ asset('build/images/item/item_cutcut.gif') }}" alt="fight">
+<a href="#help/zombies_im_freien_bekampfen" onclick="js.XmlHttp.get('help/zombies_im_freien_bekampfen',this);">{{ 'Zombies im Freien bekämpfen'|trans({},'help') }}</a>
+</li><li class="help sub">
+<img src="{{ asset('build/images/status/status_camper.gif') }}" alt="camp">
+<a href="#help/wildes_campen" onclick="js.XmlHttp.get('help/wildes_campen',this);">{{ 'Wildes Campen'|trans({},'help') }}</a>
+</li><li class="help sub">
+<img src="{{ asset('build/images/icons/small_exploration.gif') }}" alt="explo">
+<a href="#help/gebaude_untersuchen" onclick="js.XmlHttp.get('help/gebaude_untersuchen',this);">{{ 'Gebäude untersuchen'|trans({},'help') }}</a>
+</li><li class="help sub">
+<img src="{{ asset('build/images/item/item_soul_blue.gif') }}" alt="soul">
+<a href="#help/verlorene_seelen" onclick="js.XmlHttp.get('help/verlorene_seelen',this);">{{ 'Verlorene Seelen'|trans({},'help') }}</a>
+</li><li class="help main">
+<img src="{{ asset('build/images/icons/small_middot.gif') }}" alt="player">
+<a href="#help/du" onclick="js.XmlHttp.get('help/du',this);">{{ 'Du'|trans({},'help') }}</a>
+</li><li class="help sub">
+<img src="{{ asset('build/images/status/status_tired.gif') }}" alt="status">
+<a href="#help/dein_gesundheitszustand" onclick="js.XmlHttp.get('help/dein_gesundheitszustand',this);">{{ 'Dein Gesundheitszustand'|trans({},'help') }}</a>
+</li><li class="help sub">
+<img src="{{ asset('build/images/item/item_bag.gif') }}" alt="inv">
+<a href="#help/inventar" onclick="js.XmlHttp.get('help/inventar',this);">{{ 'Inventar'|trans({},'help') }}</a>
+</li><li class="help sub">
+<img src="{{ asset('build/images/icons/small_ghost_blue.gif') }}" alt="ghost">
+<a href="#help/deine_seele" onclick="js.XmlHttp.get('help/deine_seele',this);">{{ 'Deine Seele'|trans({},'help') }}</a>
+</li><li class="help sub">
+<img src="{{ asset('build/images/professions/death.gif') }}" alt="death">
+<a href="#help/der_tod_und_deine_seelenpunkte" onclick="js.XmlHttp.get('help/der_tod_und_deine_seelenpunkte',this);">{{ 'Der Tod und deine Seelenpunkte'|trans({},'help') }}</a>
+</li><li class="help sub">
+<img src="{{ asset('build/images/pictos/r_surlst.gif') }}" alt="lastOne">
+<a href="#help/der_letzte_tod" onclick="js.XmlHttp.get('help/der_letzte_tod',this);">{{ 'Der letzte Tod'|trans({},'help') }}</a>
+</li><li class="help sub">
+<img src="{{ asset('build/images/icons/star.gif') }}" alt="hero">
+<a href="#help/heldenmodus" onclick="js.XmlHttp.get('help/heldenmodus',this);">{{ 'Heldenmodus'|trans({},'help') }}</a>
+</li><li class="help sub">
+<img src="{{ asset('build/images/pictos/r_surgrp.gif') }}" alt="team">
+<a href="#help/kleine_koalitionen" onclick="js.XmlHttp.get('help/kleine_koalitionen',this);">{{ 'Kleine Koalitionen'|trans({},'help') }}</a>
+</li><li class="help sub">
+<img src="{{ asset('build/images/pictos/r_hbuild.gif') }}" alt="homeUpgrade">
+<a href="#help/haus_hausarbeiten" onclick="js.XmlHttp.get('help/haus_hausarbeiten',this);">{{ 'Haus &amp; Hausarbeiten'|trans({},'help') }}</a>
+</li><li class="help sub">
+<img src="{{ asset('build/images/roles/ghoul.gif') }}" alt="ghoul">
+<a href="#help/ghule" onclick="js.XmlHttp.get('help/ghule',this);">{{ 'Ghule'|trans({},'help') }}</a>
+</li><li class="help main">
+<img src="{{ asset('build/images/icons/small_middot.gif') }}" alt="jobs">
+<a href="#help/die_berufe" onclick="js.XmlHttp.get('help/die_berufe',this);">{{ 'Die Berufe'|trans({},'help') }}</a>
+</li><li class="help sub">
+<img src="{{ asset('build/images/professions/basic.gif') }}" alt="job_basic">
+<a href="#help/einwohner" onclick="js.XmlHttp.get('help/einwohner',this);">{{ 'Einwohner'|trans({},'help') }}</a>
+</li><li class="help sub">
+<img src="{{ asset('build/images/professions/dig.gif') }}" alt="job_collec">
+<a href="#help/buddler" onclick="js.XmlHttp.get('help/buddler',this);">{{ 'Buddler'|trans({},'help') }}</a>
+</li><li class="help sub">
+<img src="{{ asset('build/images/professions/vest.gif') }}" alt="job_eclair">
+<a href="#help/aufklarer" onclick="js.XmlHttp.get('help/aufklarer',this);">{{ 'Aufklärer'|trans({},'help') }}</a>
+</li><li class="help sub">
+<img src="{{ asset('build/images/professions/shield.gif') }}" alt="job_guardian">
+<a href="#help/wachter" onclick="js.XmlHttp.get('help/wachter',this);">{{ 'Wächter'|trans({},'help') }}</a>
+</li><li class="help sub">
+<img src="{{ asset('build/images/professions/book.gif') }}" alt="job_hunter">
+<a href="#help/einsiedler" onclick="js.XmlHttp.get('help/einsiedler',this);">{{ 'Einsiedler'|trans({},'help') }}</a>
+</li><li class="help sub">
+<img src="{{ asset('build/images/professions/tamer.gif') }}" alt="job_tamer">
+<a href="#help/dompteur" onclick="js.XmlHttp.get('help/dompteur',this);">{{ 'Dompteur'|trans({},'help') }}</a>
+</li><li class="help sub">
+<img src="{{ asset('build/images/professions/tech.gif') }}" alt="job_tech">
+<a href="#help/techniker" onclick="js.XmlHttp.get('help/techniker',this);">{{ 'Techniker'|trans({},'help') }}</a>
+</li><li class="help main">
+<img src="{{ asset('build/images/icons/small_middot.gif') }}" alt="city">
+<a href="#help/herzlich_willkommen_in_der_stadt" onclick="js.XmlHttp.get('help/herzlich_willkommen_in_der_stadt',this);">{{ 'Herzlich willkommen in der Stadt'|trans({},'help') }}</a>
+</li><li class="help sub">
+<img src="{{ asset('build/images/icons/small_world.gif') }}" alt="demo">
+<a href="#help/die_gemeinschaft" onclick="js.XmlHttp.get('help/die_gemeinschaft',this);">{{ 'Die Gemeinschaft'|trans({},'help') }}</a>
+</li><li class="help sub">
+<img src="{{ asset('build/images/icons/home.gif') }}" alt="votes">
+<a href="#help/neue_gebaude_bauen" onclick="js.XmlHttp.get('help/neue_gebaude_bauen',this);">{{ 'Neue Gebäude bauen'|trans({},'help') }}</a>
+</li><li class="help sub">
+<img src="{{ asset('build/images/item/item_bplan_u.gif') }}" alt="bplans">
+<a href="#help/bauplane" onclick="js.XmlHttp.get('help/bauplane',this);">{{ 'Baupläne'|trans({},'help') }}</a>
+</li><li class="help sub">
+<img src="{{ asset('build/images/building/small_city_up.gif') }}" alt="upgrades">
+<a href="#help/weiterentwicklung_des_tages" onclick="js.XmlHttp.get('help/weiterentwicklung_des_tages',this);">{{ 'Weiterentwicklung des Tages'|trans({},'help') }}</a>
+</li><li class="help sub">
+<img src="{{ asset('build/images/log/night.gif') }}" alt="attack">
+<a href="#help/der_angriff_der_zombiehorde" onclick="js.XmlHttp.get('help/der_angriff_der_zombiehorde',this);">{{ 'Der Angriff der Zombiehorde'|trans({},'help') }}</a>
+</li><li class="help sub">
+<img src="{{ asset('build/images/professions/water_soldier.gif') }}" alt="guard">
+<a href="#help/die_nachtwachter" onclick="js.XmlHttp.get('help/die_nachtwachter',this);">{{ 'Die Nachtwächter'|trans({},'help') }}</a>
+</li><li class="help sub">
+<img src="{{ asset('build/images/icons/small_star.gif') }}" alt="justice">
+<a href="#help/recht_und_gesetz" onclick="js.XmlHttp.get('help/recht_und_gesetz',this);">{{ 'Recht und Gesetz '|trans({},'help') }}</a>
+</li><li class="help sub">
+<img src="{{ asset('build/images/icons/small_ban.gif') }}" alt="banned">
+<a href="#help/die_verbannten" onclick="js.XmlHttp.get('help/die_verbannten',this);">{{ 'Die Verbannten'|trans({},'help') }}</a>
+</li><li class="help sub">
+<img src="{{ asset('build/images/professions/death.gif') }}" alt="chaos">
+<a href="#help/das_chaos" onclick="js.XmlHttp.get('help/das_chaos',this);">{{ 'Das Chaos'|trans({},'help') }}</a>
+</li><li class="help sub">
+<img src="{{ asset('build/images/item/item_courroie.gif') }}" alt="catapult">
+<a href="#help/das_katapult" onclick="js.XmlHttp.get('help/das_katapult',this);">{{ 'Das Katapult'|trans({},'help') }}</a>
+</li><li class="help sub">
+<img src="{{ asset('build/images/building/small_falsecity.gif') }}" alt="rne">
+<a href="#help/kleine_karten" onclick="js.XmlHttp.get('help/kleine_karten',this);">{{ 'Kleine Karten'|trans({},'help') }}</a>
+</li><li class="help sub">
+<img src="{{ asset('build/images/item/item_out_def_broken.gif') }}" alt="devast">
+<a href="#help/zerstorte_stadt" onclick="js.XmlHttp.get('help/zerstorte_stadt',this);">{{ 'Zerstörte Stadt'|trans({},'help') }}</a>
+</li><li class="help sub">
+<img src="{{ asset('build/images/icons/small_arma.gif') }}" alt="hardcore">
+<a href="#help/stadte_des_pandamoniums" onclick="js.XmlHttp.get('help/stadte_des_pandamoniums',this);">{{ 'Städte des Pandämoniums'|trans({},'help') }}</a>
+</li><li class="help sub">
+<img src="{{ asset('build/images/item/item_chair.gif') }}" alt="customMap">
+<a href="#help/privatstadte" onclick="js.XmlHttp.get('help/privatstadte',this);">{{ 'Privatstädte'|trans({},'help') }}</a>
+</li><li class="help sub">
+<img src="{{ asset('build/images/item/item_dice.gif') }}" alt="rp">
+<a href="#help/rollenspieloptionen" onclick="js.XmlHttp.get('help/rollenspieloptionen',this);">{{ 'Rollenspieloptionen'|trans({},'help') }}</a>
+</li><li class="help sub">
+<img src="{{ asset('build/images/forum/coin.png') }}" alt="seasons">
+<a href="#help/saisons_und_ranglisten" onclick="js.XmlHttp.get('help/saisons_und_ranglisten',this);">{{ 'Saisons und Ranglisten'|trans({},'help') }}</a>
+</li><li class="help main">
+<img src="{{ asset('build/images/icons/small_middot.gif') }}" alt="mobile">
+<a href="#help/die_verdammten_auf_deinem_mobiltelefon_anthrax_gps" onclick="js.XmlHttp.get('help/die_verdammten_auf_deinem_mobiltelefon_anthrax_gps',this);">{{ 'Die Verdammten auf deinem Mobiltelefon (Anthrax GPS)'|trans({},'help') }}</a>
+</li><li class="help main">
+<img src="{{ asset('build/images/icons/small_middot.gif') }}" alt="st">
+<a href="#help/support" onclick="js.XmlHttp.get('help/support',this);">{{ 'Support'|trans({},'help') }}</a>
+</li><li class="help sub">
+<img src="{{ asset('build/images/icons/small_middot.gif') }}" alt="browser">
+<a href="#help/1_uberprufe_deinen_browser" onclick="js.XmlHttp.get('help/1_uberprufe_deinen_browser',this);">{{ '1- Überprüfe deinen Browser'|trans({},'help') }}</a>
+</li><li class="help sub">
+<img src="{{ asset('build/images/icons/small_middot.gif') }}" alt="flash">
+<a href="#help/2_uberprufe_deinen_flash_player" onclick="js.XmlHttp.get('help/2_uberprufe_deinen_flash_player',this);">{{ '2- Überprüfe deinen Flash Player'|trans({},'help') }}</a>
+</li><li class="help sub">
+<img src="{{ asset('build/images/icons/small_middot.gif') }}" alt="parasites">
+<a href="#help/3_uberprufe_sonstige_installierte_programme" onclick="js.XmlHttp.get('help/3_uberprufe_sonstige_installierte_programme',this);">{{ '3- Überprüfe sonstige installierte Programme'|trans({},'help') }}</a>
+</li><li class="help sub">
+<img src="{{ asset('build/images/icons/small_middot.gif') }}" alt="contact">
+<a href="#help/hier_erhaltst_du_hilfe" onclick="js.XmlHttp.get('help/hier_erhaltst_du_hilfe',this);">{{ 'Hier erhältst du Hilfe'|trans({},'help') }}</a>
+</li><li class="help sub">
+<img src="{{ asset('build/images/icons/small_middot.gif') }}" alt="pass">
+<a href="#help/wie_wahle_ich_ein_sicheres_passwort" onclick="js.XmlHttp.get('help/wie_wahle_ich_ein_sicheres_passwort',this);">{{ 'Wie wähle ich ein sicheres Passwort?'|trans({},'help') }}</a>
+</li><li class="help sub">
+<img src="{{ asset('build/images/icons/small_middot.gif') }}" alt="quarantine">
+<a href="#help/stadt_unter_quarantane" onclick="js.XmlHttp.get('help/stadt_unter_quarantane',this);">{{ 'Stadt unter Quarantäne'|trans({},'help') }}</a>
+</li><li class="help sub">
+<img src="{{ asset('build/images/icons/small_calim.gif') }}" alt="report">
+<a href="#help/fehlverhalten_melden" onclick="js.XmlHttp.get('help/fehlverhalten_melden',this);">{{ 'Fehlverhalten melden'|trans({},'help') }}</a>
+</li><li class="help sub">
+<img src="{{ asset('build/images/icons/small_warning.gif') }}" alt="sitting">
+<a href="#help/zum_thema_sitting" onclick="js.XmlHttp.get('help/zum_thema_sitting',this);">{{ 'Zum Thema \'Sitting\'...'|trans({},'help') }}</a>
+</li><li class="help main">
+<img src="{{ asset('build/images/icons/small_archive.gif') }}" alt="extern">
+<a href="#help/externe_webseiten_und_anwendungen" onclick="js.XmlHttp.get('help/externe_webseiten_und_anwendungen',this);">{{ 'Externe Webseiten und Anwendungen'|trans({},'help') }}</a>
+</li>
+</ul>
+			</div>
+
+        </div>
+        <div class="padded cell rw-8 rw-sm-12"><div class="row"><div class="helpArt">{{ 'Spielanleitung'|trans({},'help') }}</div></div></div>
+    </div>
+{% endblock %}
+{% block js %}
+    {{ parent() }}
+    <script>
+    </script>
 {% endblock %}

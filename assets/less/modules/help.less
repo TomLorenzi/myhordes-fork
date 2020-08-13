@@ -1,0 +1,86 @@
+@import "../theme";
+
+.helpArt {
+    max-width: 573px;
+    height: 51px;
+    margin-bottom: 8px;
+    padding-top: 31px;
+    padding-right: 5px;
+    text-align: right;
+    font-weight: bold;
+    font-size: 1.5rem;
+    color: white;
+    text-transform: uppercase;
+    background: url("../../img/help/help.jpg") no-repeat right top;
+    background-size: cover;
+    border: 1px solid #b18a63;
+    text-shadow: 0px 1px 0px #4d0f00, 0px -1px 0px #4d0f00, 1px 0px 0px #4d0f00, -1px 0px 0px #4d0f00, 1px 1px 0px #4d0f00, -1px -1px 0px #4d0f00, -1px 1px 0px #4d0f00, 1px -1px 0px #4d0f00;
+}
+
+ul {
+    &.HelpList { font-size: 1.2rem; }
+    margin: 0px;
+    padding: 0px;
+    margin-top: 5px;
+    list-style: none;
+    li {
+        &.help {
+            margin: 0px;
+            padding: 0px;
+            padding-left: 5px;
+            border-top: 1px solid #7e4d2a;
+            border-bottom: 1px solid #7e4d2a;
+            &.main {
+                margin-top: 10px;
+                a { font-weight: bold; font-variant: small-caps; }
+            }
+            &.sub { padding-left: 30px; }
+            &.active { 
+                background-color: #696486; border-color: #afacc1;
+                a {
+                    color: white;
+                    font-weight: bold;
+                    text-decoration: none;
+                    cursor: default;
+                }
+            }
+        }
+        img { vertical-align: -15%; }
+    }
+}
+
+a {
+    &.support {
+        display: block;
+        margin: 3px auto 10px auto;
+        padding-left: 20px;
+        padding-right: 7px;
+        max-width: 180px;
+        padding-bottom: 1px;
+        text-align: left;
+        color: #f0d79e;
+        font-size: 1.4rem;
+        font-weight: bold;
+        text-align: left;
+        font-variant: small-caps;
+        text-decoration: none;
+        border: 1px solid #85a3af;
+        border-right-color: black;
+        border-bottom-color: black;
+        background-color: #32454d;
+        background-image: url("../../img/item/item_medic.gif");
+        background-position: 3px 1px;
+        background-repeat: no-repeat;
+        outline: 2px solid #5c2b20;
+        em {
+            display: block;
+            font-size: 1.0rem !important;
+            line-height: 9pt;
+            font-weight: normal;
+            font-style: normal;
+            font-variant: normal;
+            color: #ddab76;
+            text-align: left;
+        }
+    }
+}
