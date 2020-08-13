@@ -469,22 +469,13 @@
         <target>1- Überprüfe deinen Browser</target>
       </segment>
     </unit>
-    <unit id=".36QxjA" name="2- Überprüfe deinen Flash Player">
+    <unit id="cm9u5KI" name="2- Überprüfe sonstige installierte Programme">
       <notes>
-        <note category="german">2- Überprüfe deinen Flash Player</note>
+        <note category="german">2- Überprüfe sonstige installierte Programme</note>
       </notes>
       <segment>
-        <source>2- Überprüfe deinen Flash Player</source>
-        <target>2- Überprüfe deinen Flash Player</target>
-      </segment>
-    </unit>
-    <unit id="wmbd0CC" name="3- Überprüfe sonstige installierte Programme">
-      <notes>
-        <note category="german">3- Überprüfe sonstige installierte Programme</note>
-      </notes>
-      <segment>
-        <source>3- Überprüfe sonstige installierte Programme</source>
-        <target>3- Überprüfe sonstige installierte Programme</target>
+        <source>2- Überprüfe sonstige installierte Programme</source>
+        <target>2- Überprüfe sonstige installierte Programme</target>
       </segment>
     </unit>
     <unit id="vm9r3tz" name="Hier erhältst du Hilfe">
@@ -548,6 +539,303 @@
       <segment>
         <source>Spielanleitung</source>
         <target>Spielanleitung</target>
+      </segment>
+    </unit>
+    <unit id="ztIX9Q7" name="Nachts">
+      <notes>
+        <note category="german">Nachts</note>
+      </notes>
+      <segment>
+        <source>Nachts</source>
+        <target>Nachts</target>
+      </segment>
+    </unit>
+    <unit id="6I1t0iJ" name="Die Rollen">
+      <notes>
+        <note category="german">Die Rollen</note>
+      </notes>
+      <segment>
+        <source>Die Rollen</source>
+        <target>Die Rollen</target>
+      </segment>
+    </unit>
+    <unit id="dymWtZP" name="Shamane">
+      <notes>
+        <note category="german">Shamane</note>
+      </notes>
+      <segment>
+        <source>Shamane</source>
+        <target>Shamane</target>
+      </segment>
+    </unit>
+    <unit id="EiBn7Mx" name="Der Reiseleiter in der Außenwelt">
+      <notes>
+        <note category="german">Der Reiseleiter in der Außenwelt</note>
+      </notes>
+      <segment>
+        <source>Der Reiseleiter in der Außenwelt</source>
+        <target>Der Reiseleiter in der Außenwelt</target>
+      </segment>
+    </unit>
+    <unit id="smQglTK" name="5c55efb">
+      <notes>
+        <note category="german">'Die Verdammten' ist ein Survivalspiel, das in einer postapokalyptischen Welt voller Untoter spielt.</note>
+      </notes>
+      <segment>
+        <source>'Die Verdammten' ist ein Survivalspiel, das in einer postapokalyptischen Welt voller Untoter spielt.</source>
+        <target>'Die Verdammten' ist ein Survivalspiel, das in einer postapokalyptischen Welt voller Untoter spielt.</target>
+      </segment>
+    </unit>
+    <unit id="fEPcQJL" name="794eff7">
+      <notes>
+        <note category="german">Die Spieler (auch "Bürger" genannt) leben in kleinen Städten und müssen sich jeden Tag aufs Neue organisieren und eine Strategie finden, um die nächtlichen Zombieangriffe erfolgreich abzuwehren. Je länger sie dabei überleben, desto mehr Punkte können sie sammeln. &lt;strong&gt;Der Tod ist ein fester Bestandteil des Spiels. Alle Stadteinwohner wissen vom ersten Tag an, dass sie sterben werden. Die Frage ist nur wie und wann... &lt;/strong&gt;. Als ob das nicht genug wäre, sind die Spieler dazu verdammt, nach ihrem Tod in einer anderen Stadt wiedergeboren zu werden und das Spiel beginnt wieder von vorn...</note>
+      </notes>
+      <segment>
+        <source>Die Spieler (auch "Bürger" genannt) leben in kleinen Städten und müssen sich jeden Tag aufs Neue organisieren und eine Strategie finden, um die nächtlichen Zombieangriffe erfolgreich abzuwehren. Je länger sie dabei überleben, desto mehr Punkte können sie sammeln. &lt;strong&gt;Der Tod ist ein fester Bestandteil des Spiels. Alle Stadteinwohner wissen vom ersten Tag an, dass sie sterben werden. Die Frage ist nur wie und wann... &lt;/strong&gt;. Als ob das nicht genug wäre, sind die Spieler dazu verdammt, nach ihrem Tod in einer anderen Stadt wiedergeboren zu werden und das Spiel beginnt wieder von vorn...</source>
+        <target><![CDATA[Die Spieler (auch "Bürger" genannt) leben in kleinen Städten und müssen sich jeden Tag aufs Neue organisieren und eine Strategie finden, um die nächtlichen Zombieangriffe erfolgreich abzuwehren. Je länger sie dabei überleben, desto mehr Punkte können sie sammeln. <strong>Der Tod ist ein fester Bestandteil des Spiels. Alle Stadteinwohner wissen vom ersten Tag an, dass sie sterben werden. Die Frage ist nur wie und wann... </strong>. Als ob das nicht genug wäre, sind die Spieler dazu verdammt, nach ihrem Tod in einer anderen Stadt wiedergeboren zu werden und das Spiel beginnt wieder von vorn...]]></target>
+      </segment>
+    </unit>
+    <unit id="kiRQ28V" name="Ziel Nr.1: Erkundungen">
+      <notes>
+        <note category="german">Ziel Nr.1: Erkundungen</note>
+      </notes>
+      <segment>
+        <source>Ziel Nr.1: Erkundungen</source>
+        <target>Ziel Nr.1: Erkundungen</target>
+      </segment>
+    </unit>
+    <unit id="Ty6GPyz" name="3947934">
+      <notes>
+        <note category="german">Während des Tages verlassen die Bürger ihre schützenden Städte, um die &lt;strong&gt;Außenwelt&lt;/strong&gt; zu erkunden. In der Wüste können sie durch Graben allerlei Waffen, Baumaterialien und Nahrung finden.</note>
+      </notes>
+      <segment>
+        <source>Während des Tages verlassen die Bürger ihre schützenden Städte, um die &lt;strong&gt;Außenwelt&lt;/strong&gt; zu erkunden. In der Wüste können sie durch Graben allerlei Waffen, Baumaterialien und Nahrung finden.</source>
+        <target><![CDATA[Während des Tages verlassen die Bürger ihre schützenden Städte, um die <strong>Außenwelt</strong> zu erkunden. In der Wüste können sie durch Graben allerlei Waffen, Baumaterialien und Nahrung finden.]]></target>
+      </segment>
+    </unit>
+    <unit id="9phHYef" name="Ziel Nr.2: Zombieangriffe überleben">
+      <notes>
+        <note category="german">Ziel Nr.2: Zombieangriffe überleben</note>
+      </notes>
+      <segment>
+        <source>Ziel Nr.2: Zombieangriffe überleben</source>
+        <target>Ziel Nr.2: Zombieangriffe überleben</target>
+      </segment>
+    </unit>
+    <unit id="tmcnTX3" name="7fe1c23">
+      <notes>
+        <note category="german">Jeden Tag um Mitternacht greift eine Zombiehorde die Stadt an. Die in der Wüste gefundenen Gegenstände wurden im Idealfall dazu benutzt, Verteidigungsanlagen zu bauen und die Häuser zu verbessern.</note>
+      </notes>
+      <segment>
+        <source>Jeden Tag um Mitternacht greift eine Zombiehorde die Stadt an. Die in der Wüste gefundenen Gegenstände wurden im Idealfall dazu benutzt, Verteidigungsanlagen zu bauen und die Häuser zu verbessern.</source>
+        <target>Jeden Tag um Mitternacht greift eine Zombiehorde die Stadt an. Die in der Wüste gefundenen Gegenstände wurden im Idealfall dazu benutzt, Verteidigungsanlagen zu bauen und die Häuser zu verbessern.</target>
+      </segment>
+    </unit>
+    <unit id="PX_pHFS" name="Ziel Nr.3: Sich gegenseitig helfen und überleben...">
+      <notes>
+        <note category="german">Ziel Nr.3: Sich gegenseitig helfen und überleben...</note>
+      </notes>
+      <segment>
+        <source>Ziel Nr.3: Sich gegenseitig helfen und überleben...</source>
+        <target>Ziel Nr.3: Sich gegenseitig helfen und überleben...</target>
+      </segment>
+    </unit>
+    <unit id="Itk0eeK" name="264a4b4">
+      <notes>
+        <note category="german">Alle gefundenen Gegenstände können mit anderen Spielern geteilt werden. Vielleicht besitzt dein Nachbar ja genau die Schraube, die dir für deine Kettensäge noch fehlt. Dein Überleben hängt im entscheidendem Maße davon ab, wie gut die Kooperation und Organisation in deiner Stadt funktioniert. Das Hauptkommunikationsmittel ist ein stadtinternes Forum.</note>
+      </notes>
+      <segment>
+        <source>Alle gefundenen Gegenstände können mit anderen Spielern geteilt werden. Vielleicht besitzt dein Nachbar ja genau die Schraube, die dir für deine Kettensäge noch fehlt. Dein Überleben hängt im entscheidendem Maße davon ab, wie gut die Kooperation und Organisation in deiner Stadt funktioniert. Das Hauptkommunikationsmittel ist ein stadtinternes Forum.</source>
+        <target>Alle gefundenen Gegenstände können mit anderen Spielern geteilt werden. Vielleicht besitzt dein Nachbar ja genau die Schraube, die dir für deine Kettensäge noch fehlt. Dein Überleben hängt im entscheidendem Maße davon ab, wie gut die Kooperation und Organisation in deiner Stadt funktioniert. Das Hauptkommunikationsmittel ist ein stadtinternes Forum.</target>
+      </segment>
+    </unit>
+    <unit id="YjauAVu" name="Welche Aufgaben muss ich tagtäglich erledigen?">
+      <notes>
+        <note category="german">Welche Aufgaben muss ich tagtäglich erledigen?</note>
+      </notes>
+      <segment>
+        <source>Welche Aufgaben muss ich tagtäglich erledigen?</source>
+        <target>Welche Aufgaben muss ich tagtäglich erledigen?</target>
+      </segment>
+    </unit>
+    <unit id="KGODA_M" name="In 'Die Verdammten' musst du jeden Tag mehrere Aufgaben erledigen.">
+      <notes>
+        <note category="german">In 'Die Verdammten' musst du jeden Tag mehrere Aufgaben erledigen.</note>
+      </notes>
+      <segment>
+        <source>In 'Die Verdammten' musst du jeden Tag mehrere Aufgaben erledigen.</source>
+        <target>In 'Die Verdammten' musst du jeden Tag mehrere Aufgaben erledigen.</target>
+      </segment>
+    </unit>
+    <unit id="6umuhqS" name="Die Zeitung lesen">
+      <notes>
+        <note category="german">Die Zeitung lesen</note>
+      </notes>
+      <segment>
+        <source>Die Zeitung lesen</source>
+        <target>Die Zeitung lesen</target>
+      </segment>
+    </unit>
+    <unit id="f14Qoff" name="Die wichtigsten Informationen findest du jeden Tag druckfrisch hier!">
+      <notes>
+        <note category="german">Die wichtigsten Informationen findest du jeden Tag druckfrisch hier!</note>
+      </notes>
+      <segment>
+        <source>Die wichtigsten Informationen findest du jeden Tag druckfrisch hier!</source>
+        <target>Die wichtigsten Informationen findest du jeden Tag druckfrisch hier!</target>
+      </segment>
+    </unit>
+    <unit id="cqY1JTZ" name="Wasser entnehmen">
+      <notes>
+        <note category="german">Wasser entnehmen</note>
+      </notes>
+      <segment>
+        <source>Wasser entnehmen</source>
+        <target>Wasser entnehmen</target>
+      </segment>
+    </unit>
+    <unit id="WIyTL.r" name="Ohne Wasser stirbst du.">
+      <notes>
+        <note category="german">Ohne Wasser stirbst du.</note>
+      </notes>
+      <segment>
+        <source>Ohne Wasser stirbst du.</source>
+        <target>Ohne Wasser stirbst du.</target>
+      </segment>
+    </unit>
+    <unit id="1US5NkZ" name="Die Außenwelt erkunden">
+      <notes>
+        <note category="german">Die Außenwelt erkunden</note>
+      </notes>
+      <segment>
+        <source>Die Außenwelt erkunden</source>
+        <target>Die Außenwelt erkunden</target>
+      </segment>
+    </unit>
+    <unit id="KEE4jQS" name="Grabe in der Wüste und sammle nützliche Gegenstände ein.">
+      <notes>
+        <note category="german">Grabe in der Wüste und sammle nützliche Gegenstände ein.</note>
+      </notes>
+      <segment>
+        <source>Grabe in der Wüste und sammle nützliche Gegenstände ein.</source>
+        <target>Grabe in der Wüste und sammle nützliche Gegenstände ein.</target>
+      </segment>
+    </unit>
+    <unit id="kUTLK_h" name="Auf den Baustellen mithelfen">
+      <notes>
+        <note category="german">Auf den Baustellen mithelfen</note>
+      </notes>
+      <segment>
+        <source>Auf den Baustellen mithelfen</source>
+        <target>Auf den Baustellen mithelfen</target>
+      </segment>
+    </unit>
+    <unit id="bOiwmPy" name="Wähle das Gebäude aus, welches die Stadt als nächstes bauen soll.">
+      <notes>
+        <note category="german">Wähle das Gebäude aus, welches die Stadt als nächstes bauen soll.</note>
+      </notes>
+      <segment>
+        <source>Wähle das Gebäude aus, welches die Stadt als nächstes bauen soll.</source>
+        <target>Wähle das Gebäude aus, welches die Stadt als nächstes bauen soll.</target>
+      </segment>
+    </unit>
+    <unit id="p0DbdQX" name="Get active on the town forum">
+      <notes>
+        <note category="german">Get active on the town forum</note>
+      </notes>
+      <segment>
+        <source>Get active on the town forum</source>
+        <target>Get active on the town forum</target>
+      </segment>
+    </unit>
+    <unit id="nAx3MXx" name="organise yourselves and survive.">
+      <notes>
+        <note category="german">organise yourselves and survive.</note>
+      </notes>
+      <segment>
+        <source>organise yourselves and survive.</source>
+        <target>organise yourselves and survive.</target>
+      </segment>
+    </unit>
+    <unit id="HhS980w" name="Weiter">
+      <notes>
+        <note category="german">Weiter</note>
+      </notes>
+      <segment>
+        <source>Weiter</source>
+        <target>Weiter</target>
+      </segment>
+    </unit>
+    <unit id="jDfhi6M" name="0fdb9c5">
+      <notes>
+        <note category="german">Außerhalb der Stadt dehnt sich, soweit das Auge reicht, eine riesige Wüste aus. Sie wird von den Bürgern auch "Außenwelt" genannt.</note>
+      </notes>
+      <segment>
+        <source>Außerhalb der Stadt dehnt sich, soweit das Auge reicht, eine riesige Wüste aus. Sie wird von den Bürgern auch "Außenwelt" genannt.</source>
+        <target>Außerhalb der Stadt dehnt sich, soweit das Auge reicht, eine riesige Wüste aus. Sie wird von den Bürgern auch "Außenwelt" genannt.</target>
+      </segment>
+    </unit>
+    <unit id="bUYL11a" name="In dieser gefährlichen Gegend findest du alles, was du zum Überleben brauchst.">
+      <notes>
+        <note category="german">In dieser gefährlichen Gegend findest du alles, was du zum Überleben brauchst.</note>
+      </notes>
+      <segment>
+        <source>In dieser gefährlichen Gegend findest du alles, was du zum Überleben brauchst.</source>
+        <target>In dieser gefährlichen Gegend findest du alles, was du zum Überleben brauchst.</target>
+      </segment>
+    </unit>
+    <unit id="axtPo.U" name="d164912">
+      <notes>
+        <note category="german">Wenn die Einwohner in ihren Häusern bleiben, werden sie eher früher als später von den Zombies überrannt und sterben. Deshalb ist es wichtig, die Stadt zu verlassen, um Baumaterialien, Waffen und Nahrung zu finden.</note>
+      </notes>
+      <segment>
+        <source>Wenn die Einwohner in ihren Häusern bleiben, werden sie eher früher als später von den Zombies überrannt und sterben. Deshalb ist es wichtig, die Stadt zu verlassen, um Baumaterialien, Waffen und Nahrung zu finden.</source>
+        <target>Wenn die Einwohner in ihren Häusern bleiben, werden sie eher früher als später von den Zombies überrannt und sterben. Deshalb ist es wichtig, die Stadt zu verlassen, um Baumaterialien, Waffen und Nahrung zu finden.</target>
+      </segment>
+    </unit>
+    <unit id="gx15wYF" name="Wie kann man in die Außenwelt gehen?">
+      <notes>
+        <note category="german">Wie kann man in die Außenwelt gehen?</note>
+      </notes>
+      <segment>
+        <source>Wie kann man in die Außenwelt gehen?</source>
+        <target>Wie kann man in die Außenwelt gehen?</target>
+      </segment>
+    </unit>
+    <unit id="7xGg.TI" name="7242c20">
+      <notes>
+        <note category="german">Um in die Außenwelt zu treten, musst du dich zum &lt;strong&gt;Stadttor&lt;/strong&gt; begeben und es aufmachen... Doch aufgepasst! Bevor du die Stadt verlässt, solltest du folgendes beachten:</note>
+      </notes>
+      <segment>
+        <source>Um in die Außenwelt zu treten, musst du dich zum &lt;strong&gt;Stadttor&lt;/strong&gt; begeben und es aufmachen... Doch aufgepasst! Bevor du die Stadt verlässt, solltest du folgendes beachten:</source>
+        <target><![CDATA[Um in die Außenwelt zu treten, musst du dich zum <strong>Stadttor</strong> begeben und es aufmachen... Doch aufgepasst! Bevor du die Stadt verlässt, solltest du folgendes beachten:]]></target>
+      </segment>
+    </unit>
+    <unit id="hJ9V9EY" name="Nimm &lt;strong&gt;Nahrung&lt;/strong&gt; oder &lt;strong&gt;Wasser&lt;/strong&gt; mit.">
+      <notes>
+        <note category="german">Nimm &lt;strong&gt;Nahrung&lt;/strong&gt; oder &lt;strong&gt;Wasser&lt;/strong&gt; mit.</note>
+      </notes>
+      <segment>
+        <source>Nimm &lt;strong&gt;Nahrung&lt;/strong&gt; oder &lt;strong&gt;Wasser&lt;/strong&gt; mit.</source>
+        <target><![CDATA[Nimm <strong>Nahrung</strong> oder <strong>Wasser</strong> mit.]]></target>
+      </segment>
+    </unit>
+    <unit id="iZkIKR6" name="d79c87d">
+      <notes>
+        <note category="german">Kehre &lt;strong&gt;vor Mitternacht&lt;/strong&gt; wieder heim oder du wirst von den Zombies gefressen...</note>
+      </notes>
+      <segment>
+        <source>Kehre &lt;strong&gt;vor Mitternacht&lt;/strong&gt; wieder heim oder du wirst von den Zombies gefressen...</source>
+        <target><![CDATA[Kehre <strong>vor Mitternacht</strong> wieder heim oder du wirst von den Zombies gefressen...]]></target>
+      </segment>
+    </unit>
+    <unit id="hCNQJ1g" name="51ae16e">
+      <notes>
+        <note category="german">Mache in der Nacht wieder das Stadttor zu, sonst erlebst du eine böse Überraschung...</note>
+      </notes>
+      <segment>
+        <source>Mache in der Nacht wieder das Stadttor zu, sonst erlebst du eine böse Überraschung...</source>
+        <target>Mache in der Nacht wieder das Stadttor zu, sonst erlebst du eine böse Überraschung...</target>
       </segment>
     </unit>
   </file>

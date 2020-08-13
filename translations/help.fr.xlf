@@ -496,22 +496,13 @@
         <target>1- Vérifier mon navigateur</target>
       </segment>
     </unit>
-    <unit id=".36QxjA" name="2- Überprüfe deinen Flash Player">
+    <unit id="cm9u5KI" name="2- Überprüfe sonstige installierte Programme">
       <notes>
-        <note category="german">2- Überprüfe deinen Flash Player</note>
+        <note category="german">2- Überprüfe sonstige installierte Programme</note>
       </notes>
       <segment>
-        <source>2- Überprüfe deinen Flash Player</source>
-        <target>2- Vérifier mon lecteur Flash</target>
-      </segment>
-    </unit>
-    <unit id="wmbd0CC" name="3- Überprüfe sonstige installierte Programme">
-      <notes>
-        <note category="german">3- Überprüfe sonstige installierte Programme</note>
-      </notes>
-      <segment>
-        <source>3- Überprüfe sonstige installierte Programme</source>
-        <target>3- Vérifier mes logiciels tiers</target>
+        <source>2- Überprüfe sonstige installierte Programme</source>
+        <target>2- Vérifier mes logiciels tiers</target>
       </segment>
     </unit>
     <unit id="vm9r3tz" name="Hier erhältst du Hilfe">
@@ -764,6 +755,78 @@
       <segment>
         <source>Weiter</source>
         <target>Suite</target>
+      </segment>
+    </unit>
+    <unit id="jDfhi6M" name="0fdb9c5">
+      <notes>
+        <note category="german">Außerhalb der Stadt dehnt sich, soweit das Auge reicht, eine riesige Wüste aus. Sie wird von den Bürgern auch "Außenwelt" genannt.</note>
+      </notes>
+      <segment>
+        <source>Außerhalb der Stadt dehnt sich, soweit das Auge reicht, eine riesige Wüste aus. Sie wird von den Bürgern auch "Außenwelt" genannt.</source>
+        <target>L'Outre-Monde est le désert qui entoure la ville à perte de vue.</target>
+      </segment>
+    </unit>
+    <unit id="bUYL11a" name="In dieser gefährlichen Gegend findest du alles, was du zum Überleben brauchst.">
+      <notes>
+        <note category="german">In dieser gefährlichen Gegend findest du alles, was du zum Überleben brauchst.</note>
+      </notes>
+      <segment>
+        <source>In dieser gefährlichen Gegend findest du alles, was du zum Überleben brauchst.</source>
+        <target>Paradoxalement, c'est un milieu à la fois dangereux et essentiel à la survie.</target>
+      </segment>
+    </unit>
+    <unit id="axtPo.U" name="d164912">
+      <notes>
+        <note category="german">Wenn die Einwohner in ihren Häusern bleiben, werden sie eher früher als später von den Zombies überrannt und sterben. Deshalb ist es wichtig, die Stadt zu verlassen, um Baumaterialien, Waffen und Nahrung zu finden.</note>
+      </notes>
+      <segment>
+        <source>Wenn die Einwohner in ihren Häusern bleiben, werden sie eher früher als später von den Zombies überrannt und sterben. Deshalb ist es wichtig, die Stadt zu verlassen, um Baumaterialien, Waffen und Nahrung zu finden.</source>
+        <target>En effet si les humains restent cloîtrés dans leur ville, ils seront rapidement submergés par les Hordes de Zombies et périront, faute d'avoir récupéré de quoi améliorer leur quotidien et se défendre. Il est primordial de sortir pour trouver du matériel.</target>
+      </segment>
+    </unit>
+    <unit id="gx15wYF" name="Wie kann man in die Außenwelt gehen?">
+      <notes>
+        <note category="german">Wie kann man in die Außenwelt gehen?</note>
+      </notes>
+      <segment>
+        <source>Wie kann man in die Außenwelt gehen?</source>
+        <target>Comment aller dans l'Outre-Monde ?</target>
+      </segment>
+    </unit>
+    <unit id="7xGg.TI" name="7242c20">
+      <notes>
+        <note category="german">Um in die Außenwelt zu treten, musst du dich zum &lt;strong&gt;Stadttor&lt;/strong&gt; begeben und es aufmachen... Doch aufgepasst! Bevor du die Stadt verlässt, solltest du folgendes beachten:</note>
+      </notes>
+      <segment>
+        <source>Um in die Außenwelt zu treten, musst du dich zum &lt;strong&gt;Stadttor&lt;/strong&gt; begeben und es aufmachen... Doch aufgepasst! Bevor du die Stadt verlässt, solltest du folgendes beachten:</source>
+        <target><![CDATA[Pour visiter l'Outre-Monde, rendez-vous dans la section <strong>Portes de la Ville</strong> et ouvrez bien grandes les portes... Attention toutefois ! Retenez les trois règles suivantes :]]></target>
+      </segment>
+    </unit>
+    <unit id="hJ9V9EY" name="Nimm &lt;strong&gt;Nahrung&lt;/strong&gt; oder &lt;strong&gt;Wasser&lt;/strong&gt; mit.">
+      <notes>
+        <note category="german">Nimm &lt;strong&gt;Nahrung&lt;/strong&gt; oder &lt;strong&gt;Wasser&lt;/strong&gt; mit.</note>
+      </notes>
+      <segment>
+        <source>Nimm &lt;strong&gt;Nahrung&lt;/strong&gt; oder &lt;strong&gt;Wasser&lt;/strong&gt; mit.</source>
+        <target><![CDATA[emmenez de la <strong>nourriture</strong> et/ou <strong>de l'eau</strong> avec vous]]></target>
+      </segment>
+    </unit>
+    <unit id="iZkIKR6" name="d79c87d">
+      <notes>
+        <note category="german">Kehre &lt;strong&gt;vor Mitternacht&lt;/strong&gt; wieder heim oder du wirst von den Zombies gefressen...</note>
+      </notes>
+      <segment>
+        <source>Kehre &lt;strong&gt;vor Mitternacht&lt;/strong&gt; wieder heim oder du wirst von den Zombies gefressen...</source>
+        <target><![CDATA[ne soyez <strong>jamais dehors à Minuit</strong> (ou vous serez dévoré(e) par les Hordes...), à moins que vous ne campiez]]></target>
+      </segment>
+    </unit>
+    <unit id="hCNQJ1g" name="51ae16e">
+      <notes>
+        <note category="german">Mache in der Nacht wieder das Stadttor zu, sonst erlebst du eine böse Überraschung...</note>
+      </notes>
+      <segment>
+        <source>Mache in der Nacht wieder das Stadttor zu, sonst erlebst du eine böse Überraschung...</source>
+        <target>fermez les portes le soir, sinon les Hordes déferleront sur les citoyens</target>
       </segment>
     </unit>
   </file>

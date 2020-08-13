@@ -9,19 +9,19 @@
             <div class="row">
            		<a class="support" href="/support" target="_blank"><em>{{ 'Brauchst du Hilfe?'|trans({},'help') }}</em>{{ 'Besuche unsere Technische Supportseite'|trans({},'help') }}</a>
                 <ul class="HelpList">
-                    <li class="link {% if section == 'welcome' %} active{% endif %}" x-ajax-href="{{ url('help', {'name': 'welcome'}) }}">
+                    <li class="link {% if section == 'welcome' %}active{% endif %}" x-ajax-href="{{ url('help', {'name': 'welcome'}) }}">
                         <img src="{{ asset('build/images/icons/small_middot.gif') }}" alt="intro"> {{ 'Die Verdammten ?'|trans({},'help') }}
                     </li>
-                    <li class="link {% if section == 'world_beyond' %} active{% endif %}" x-ajax-href="{{ url('help', {'name': 'world_beyond'}) }}">
+                    <li class="link {% if section == 'world_beyond' %}active{% endif %}" x-ajax-href="{{ url('help', {'name': 'world_beyond'}) }}">
                         <img src="{{ asset('build/images/icons/small_middot.gif') }}" alt="outer">
                         {{ 'Die Außenwelt'|trans({},'help') }}
                     </li>
                     <ul>
-                        <li class="link">
+                        <li class="link {% if section == 'getting_around' %}active{% endif %}" x-ajax-href="{{ url('help', {'name': 'getting_around'}) }}">
                             <img src="{{ asset('build/images/icons/small_move.gif') }}" alt="move">
                             {{ 'Sich bewegen'|trans({},'help') }}
                         </li>
-                        <li class="link">
+                        <li class="link {% if section == 'map' %}active{% endif %}" x-ajax-href="{{ url('help', {'name': 'map'}) }}">
                             <img src="{{ asset('build/images/icons/item_map.gif') }}" alt="map">
                             {{ 'Die Karte'|trans({},'help') }}
                         </li>
@@ -232,12 +232,8 @@
                             {{ '1- Überprüfe deinen Browser'|trans({},'help') }}
                         </li>
                         <li class="link">
-                            <img src="{{ asset('build/images/icons/small_middot.gif') }}" alt="flash">
-                            {{ '2- Überprüfe deinen Flash Player'|trans({},'help') }}
-                        </li>
-                        <li class="link">
                             <img src="{{ asset('build/images/icons/small_middot.gif') }}" alt="parasites">
-                            {{ '3- Überprüfe sonstige installierte Programme'|trans({},'help') }}
+                            {{ '2- Überprüfe sonstige installierte Programme'|trans({},'help') }}
                         </li>
                         <li class="link">
                             <img src="{{ asset('build/images/icons/small_middot.gif') }}" alt="contact">
