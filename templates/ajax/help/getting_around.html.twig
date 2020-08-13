@@ -1,0 +1,38 @@
+{% extends "ajax/help/shell.html.twig" %}
+{% block helpContent %}
+<div class="helpArt">{{ 'Spielanleitung'|trans({},'help')|raw }}</div>
+<h1>{{ 'Sich bewegen'|trans({},'help')|raw }}</h1>
+<div class="content">
+<h2>{{ 'Aktionspunkte und Erschöpfung'|trans({},'help')|raw }}</div></h2>
+<p>
+{{ 'Solange du genügend <strong><img alt="" src="%path1%"> Aktionspunkte</strong> besitzt, kannst du dich in der Außenwelt bewegen:
+Pro Zug wird dir 1 Aktionspunkt abgezogen. Bei 0 Punkten bist du
+<img alt="" src="%path2%"> <strong>Erschöpft</strong>
+und kannst dich nicht mehr bewegen.'|trans({'%path1%': asset("build/images/icons/ap_small.gif"), '%path2%': asset("build/images/status/status_tired.gif")},'help')|raw }} 
+</p>
+<img class="art" alt="" src="{{ asset('build/images/help/moves.gif') }}">
+<p>
+{{ 'Deine Aktionspunkte werden oben rechts neben dem Hilfsbutton angezeigt. Du kannst deine <strong>Erschöpfung überwinden</strong> und deine Aktionspunkte durch eine der folgenden Aktionen wieder <strong>auffüllen</strong>:'|trans({},'help')|raw }}
+</p>
+<div class="clear"></div>
+<ul>
+<li><img alt="" src="{{ asset('build/images/item/item_water.gif') }}"> {{ 'Wasser trinken (1 Mal pro Tag möglich)'|trans({},'help')|raw }}</li>
+<li><img alt="" src="{{ asset('build/images/item/item_undef.gif') }}"> {{ 'Essen (1 Mal pro Tag möglich)'|trans({},'help')|raw }}</li>
+<li><img alt="" src="{{ asset('build/images/item/item_drug.gif') }}"> {{ 'Drogen nehmen (Vorsicht: Du wirst sehr schnell abhängig!)'|trans({},'help')|raw }}</li>
+</ul>
+<div class="clear"></div>
+<p>
+{{ 'Darüber hinaus gibt es noch weitere Methoden, um seine Aktionspunkte wieder aufzufüllen (manche sind durchaus gefährlich!)... Finde es am besten selbst heraus.'|trans({},'help')|raw }}
+</p>
+<h2>{{ 'Du hast keine Aktionspunkte mehr?'|trans({},'help')|raw }}</h2>
+<p>
+{{ 'Bete, dass ein anderer Spieler bei dir vorbeikommt und dir eine Stärkung da lässt... Im Zweifelsfall ist es besser, im Forum um Hilfe zu bitten (der Link befindet sich oben links).'|trans({},'help')|raw }}
+</p>
+<p class="ambiant">
+{{ 'Die Stunde des Angriffs rückt näher und näher... Du kannst noch so viel in dein Funkgerät schreien, es wird niemand mehr kommen...
+Im Schnelldurchlauf lässt du die schönen und unschönen Momente deines kurzen Lebens noch einmal Revue passieren... Wer weiß, vielleicht hast du schon morgen selbst Appetit auf Menschenfleisch?'|trans({},'help')|raw }}
+</p>
+<div class="clear"></div>
+<a class="button" x-ajax-href="{{ url('help', {'name': 'map'})|raw }}"><img src="{{ asset('build/images/icons/small_move.gif')|raw }}" alt="move"> {{'Weiter'|trans({}, 'help')}}:<strong> {{ 'Die Karte'|trans({},'help')|raw }}</strong></a>
+</div>
+{% endblock %}
