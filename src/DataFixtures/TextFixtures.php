@@ -1982,7 +1982,7 @@ class TextFixtures extends Fixture
             ],
             "lang" => "fr",
             "background" => "stamp",
-            "design" => 'written'
+            "design" => "written"
         ],
         "jdbdar_fr" => [
              "title" => "Journal de bord",
@@ -3912,7 +3912,7 @@ class TextFixtures extends Fixture
                 <small>2. jours ouvrables uniquement. </small>'
             ],
             "lang" => "fr",
-            "background" => 'stamp',
+            "background" => "stamp",
             "design" => "stamp"
         ],
         "sadism" => [
@@ -5163,6 +5163,18 @@ class TextFixtures extends Fixture
             "background" => "grid",
             "design" => "written"
         ],
+        "umn" => [
+            "title" => "Una mala noche",
+            "author" => "123k",
+            "content" => [
+                '<p>Todos los habitantes restantes en el pueblo quieren volver como antes, es decir, hace dos dias atrás. Los zombies no habían devorado todavía ha nadie, que bien nos lo pasabamos... y además.. todavía no había muerto nuestra querida mascota, Lafy... le teníamos tantoo cariño. </p>
+                <p>Según el "Cadaver matutino" le devoraron 50 zombis... Le deberíamos de echar la bronca a Fuego1798, nuestra mascota dormía en su casa, pero él no supo defendérle como se lo merecía.</p>
+                <p>Yo también he dormido muy mal esta noche, supongo que a todo el pueblo le habrá ocurrido lo mismo que a mi. Oyendo los gritos de nuestros compañeros... Esta noche he quedado aterrorizado, pero gracias a mis compañeros, lo estoy superando, ellos me administran mis calmantes. Espero que esta noche, los centinelas nos defiendan muy bien y que no muera nadie.</p>'
+            ],
+            "lang" => "es",
+            "background" => "secret",
+            "design" => "small"
+        ],
         "nightm_es" => [
             "title" => "Una noche corta",
             "author" => "Znarf",
@@ -5400,6 +5412,68 @@ class TextFixtures extends Fixture
             "background" => "tinystamp",
             "design" => "classic"
         ],
+        "afifr3" => [
+            "title" => "A Friend in Fur",
+            "author" => "Bugzilla",
+            "content" => [
+                '<h1>A Friend in Fur</h1>
+                <p></p>
+                <p>Midnight passes through the town bringing terror and dread. The zombies, moaning and clawing held at bay for another night.</p>
+                <p>Thank God for our defences, Dragnauv thinks as he heads out of town, his rucksack carrying only the bare essentials,
+                a tasty dish he prepared just before the nights attack, water for the long walk ahead and a rusty chain just in case something out
+                in the wasteland though he looked like a tasty dish.</p>
+                <p>After several hours of exploring and searching the long day caught up with Dragnauv who stopped focusing on the task at hand,
+                only for one moment, but one moment was all it took, Dragnauv was surrounded by zombies.</p>',
+                '<p></p>    
+                <p>\'Taste the pain\' Dragnauv yelled, as in one long swinging arc he bought the chain down on a zombies head. 
+                Stunned he watched as more rust than chain it disintegrated on impact.</p>
+                <p>Luckily for Dragnauv a small group of scavengers appeared from nearby, drawn by his premature battle cry, 
+                their arrival giving Dragnauv just enough of a distraction to make a break for it. </p>
+                <p>Dragnauv slowly backed away from the zombies and just as he was about to make his move for town he heard a light mewling coming
+                from the direction of a pile of rubbish, an upturned trash bin specifically, flipping the bin over he is both surprised and delighted
+                to see a young kitty looking slightly worse for wear and covered in all sorts of stains from its time in the upturned bin.</p>',
+                '<p></p>    
+                <p>Kneeling down to pick the poor defenceless kitty up, Dragnauv is in awe as the cat runs over towards the nearest zombie and in a flurry of hisses, 
+                bites and scratches rips its head off, turns and saunters back claiming Dragnauv as a new master.</p>
+                <p>By R3DD3R</p>
+                <br>
+                <p>Formerly: The Epic Saga of Mrs Whiskers, by Dragnauv</p>'
+            ],
+            "lang" => "en",
+            "background" => "old",
+            "design" => "written"
+        ],
+        "sprfen" => [
+            "title" => "Alfred's Epitaph",
+            "author" => "Planeshift",
+            "content" => [
+                '<h1>Sparky\'s electric fences!</h1>
+                <p>The best solution for protecting your town against unwanted visitors or keeping your private stock of food and water rations out of reach of your neighbours.</p>
+                <p>Order our latest models to keep your home safe:</p>
+                <ul>
+                <li>[ ] <strong>Sparky\'s Triple Jump</strong> - thee wires for better security</li>
+                <li>[ ] <strong>Sparky\'s Toaster</strong> - high voltage, continuous current</li>
+                <li>[ ] <strong>Sparky\'s DeLuxe Fence</strong> - with electrified barbed wire</li>
+                <li>[ ] <strong>Sparky\'s Electric Surprise</strong> - very thin wires, almost invisible - your neighbours will never try twice!</li>
+                <li>Note: Some models require an additional high power fence energizer, to be ordered separately.</li>
+                </ul>
+                <p></p>',
+                '<br>
+                <p>Satisfaction guaranteed! No hassle full-refund policy: if our product does not work as advertised, you can return it to us free of charge and we will give you a full refund.</p>
+                <p>Payments must be made in advance before your order can be processed. Please allow one month for delivery.</p>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <small>Disclaimer: Batteries not included. Some assembly required. Keep out of reach of children. Sparky\'s Ltd is not responsible for direct, indirect, incidental or consequential damages resulting from any defect, error or failure to perform.</small>'
+            ],
+            "lang" => "en",
+            "background" => "white",
+            "design" => "modern"
+        ],
         "dead1_en" => [
             "title" => "Alfred's Epitaph",
             "author" => "Planeshift",
@@ -5447,7 +5521,7 @@ class TextFixtures extends Fixture
         ],
         "docgsw" => [
             "title" => "Based on a true story",
-            "author" => 'Workshop',
+            "author" => "Workshop",
             "content" => [
                 '<p>Pitiless Bay of the Banished, day 4</p>
                 <p>Bam! scratch scratch... Crrrrrrrr...</p>
@@ -5461,9 +5535,107 @@ class TextFixtures extends Fixture
             "background" => "letter",
             "design" => "written"
         ],
+        "tstpa2" => [
+            "title" => "Black Velvet Band",
+            "author" => "Dubliners",
+            "content" => [
+                '<p>In a neat little town they call Brockton</p>
+                <p>Apprenticed in trade I was bound </p>
+                <p>And many an hour\'s sweet happiness </p>
+                <p>I spent in that neat little town </p>
+                <p>Then bad misfortune befell me </p>
+                <p>That caused me to stray from the land </p>
+                <p>Far away from my friends and companions </p>
+                <p>To follow the black velvet band </p>
+                <br>
+                <p>Well, I was out strolling one evening </p>
+                <p>Not intending to stay very long </p>
+                <p>When I met a frolicsome damsel</p>
+                <p>As she came tripping along</p>
+                <p>A watch she pulled out her pocket</p>
+                <p>And slipped it right into my hand </p>
+                <p>On the very first night that I met her,</p>
+                <p>Bad luck to the black velvet band </p>
+                <br>',
+                '<p>Her eyes they shone like the diamonds </p>
+                <p>You\'d think she was queen of the land </p>
+                <p>And her hair hung over her shoulder </p>
+                <p>Tied up in a black velvet band</p>
+                <br>
+                <p>Before judge and jury next morning </p>
+                <p>Both of us did appear </p>
+                <p>A gentleman claimed his jewelry</p>
+                <p>And the case against us was clear </p>
+                <p>Now seven long years transportation </p>
+                <p>Right down to Van Dieman\'s land </p>
+                <p>Far away from our friends and companions </p>
+                <p>To follow the black velvet band </p>
+                <br>
+                <p>Her eyes they shone like the diamonds </p>
+                <p>You\'d think she was queen of the land </p>
+                <p>And her hair hung over her shoulder </p>
+                <p>Tied up in a black velvet band</p>
+                <br>',
+                '<p>In a neat little town they call Brockton</p>
+                <p>Apprenticed in trade I was bound </p>
+                <p>And many an hour\'s sweet happiness </p>
+                <p>I spent in that neat little town </p>
+                <p>Then bad misfortune befell me </p>
+                <p>That caused me to stray from the land </p>
+                <p>Far away from my friends and companions </p>
+                <p>To follow the black velvet band </p>
+                <br>
+                <p>Well, I was out strolling one evening </p>
+                <p>Not intending to stay very long </p>
+                <p>When I met a frolicsome damsel</p>
+                <p>As she came tripping along</p>
+                <p>A watch she pulled out her pocket</p>
+                <p>And slipped it right into my hand </p>
+                <p>On the very first night that I met her,</p>
+                <p>Bad luck to the black velvet band </p>
+                <br>',
+                '<p>Her eyes they shone like the diamonds </p>
+                <p>You\'d think she was queen of the land </p>
+                <p>And her hair hung over her shoulder </p>
+                <p>Tied up in a black velvet band</p>
+                <br>
+                <p>Before judge and jury next morning </p>
+                <p>Both of us did appear </p>
+                <p>A gentleman claimed his jewelry</p>
+                <p>And the case against us was clear </p>
+                <p>Now seven long years transportation </p>
+                <p>Right down to Van Dieman\'s land </p>
+                <p>Far away from our friends and companions </p>
+                <p>To follow the black velvet band </p>
+                <br>
+                <p>Her eyes they shone like the diamonds </p>
+                <p>You\'d think she was queen of the land </p>
+                <p>And her hair hung over her shoulder </p>
+                <p>Tied up in a black velvet band</p>
+                <br>',
+                '<br><br>
+                <p>So come all you jolly young fellows </p>
+                <p>I\'d have you take warning by me </p>
+                <p>Whenever you\'re out on the liquor </p>
+                <p>Beware of the pretty Colleen</p>
+                <p>She\'ll fill you with vodka and twinoid </p>
+                <p>Until you\'re not able to stand</p>
+                <p>And the very next thing you\'d know</p>
+                <p>You\'ve landed in Van Dieman\'s Land. </p>
+                <br>
+                <p>Her eyes they shone like the diamonds </p>
+                <p>You\'d think she was queen of the land </p>
+                <p>And her hair hung over her shoulder </p>
+                <p>Tied up in a black velvet band</p>
+                <br>'
+            ],
+            "lang" => "en",
+            "background" => "printer",
+            "design" => "poem"
+        ],
         "bopkn1" => [
             "title" => "Book of Poetry. Page 5.",
-            "author" => 'kean4311',
+            "author" => "kean4311",
             "content" => [
                 '<p>Darkest night,</p>
                 <p>in world beyond.</p>
@@ -5505,6 +5677,51 @@ class TextFixtures extends Fixture
             "background" => "old",
             "design" => "poem"
         ],
+        "cwom13" => [
+            "title" => "Cannibal Woman of Mars Flyer",
+            "author" => "MickCooke",
+            "content" => [
+                '<p></p><center>It’s 2113 and Martian princesses Yasmin and Pippa are about to be<br><br> initiated in the man-eating rituals of their cursed planet. On the <br><br>menu are Jaxxon McGhee and Largs Lido, two unsuspecting jobless <br><br>21-year-olds, newly arrived from an overcrowded and cruel Earth. <br><br>But when Yasmin and Jaxxon rebel against their destiny they <br><br>trigger an interplanetary crisis, with the Martian Queen baying for<br><br> blood and the President of Earth looking to indulge his own appetite<br><br> for destruction.<br><br> See it at the Edinburgh Festival 2014 - Twitter: @cwom2013</center>'
+            ],
+            "lang" => "en",
+            "background" => "blood",
+            "design" => "written"
+        ],
+        "cptlog" => [
+            "title" => "Carpenter's Log",
+            "author" => "Bugzilla",
+            "content" => [
+                '<p>Zombies. I hate them.</p>
+                <p>They killed my wife, my children. They destroyed my workshop, my life.</p>
+                <p>They attack us every night since two weeks. We have lost our whole team of scavengers. Some cowards tried to escape. Damn fools!</p>
+                <p>They are all around us. But I don\'t care. I won\'t die like a trapped animal. I will fight.</p>
+                <p>I recovered the circular saws from the sawmill. They are now spinning outside, ready to rip up whatever comes at them. I love the music of my screaming saws.</p>
+                <p>I have enough bottles of "Wake the Dead" to keep me awake for a week. I have a chainsaw and a machete. I\'m ready.</p>'
+            ],
+            "lang" => "en",
+            "background" => "white",
+            "design" => "typed"
+        ],
+        "binary_en" => [
+            "title" => "Crumpled printout",
+            "author" => null,
+            "content" => [
+                '<p><small>[Start of Transmission]</small></p>
+                <p>Q29uZ3JhdHVsYXRpb25zISBZb3UncmUgYSBsb3Qgc21hcnRlci</p>
+                <p>B0aGFuIHlvdSBsb29rIQ0KDQpCZWNvbWUgYSBmYW4gb24gRmFj</p>
+                <p>ZWJvb2sgKHd3dy5mYWNlYm9vay5jb20vZGllMm5pdGUpIHRoZW</p>
+                <p>4gc2VuZCB1cyBhIG1lc3NhZ2UgdGhyb3VnaCB0aGUgc3VwcG9y</p>
+                <p>dCBzaXRlIHRlbGxpbmcgdXMgeW91J3ZlIGZvdW5kIHRoaXh7kp</p>
+                <p>MsIHlvdXIgdXNlcm5hbWUgYW5kIHRvd24gbmFtZS4g</p>
+                <p>WW91IHdpbGwgd2luIGEgZGF5IHRvIHBsYXkgYXMgYSBIZXJvLi4uIEFyaXNlIFNpciBDaHVtcCE=</p>
+                <p><small>[End of Transmission]</small></p>
+                <p><small>ETR: 07/03 12h58 - An error has occurred: corrupt data - status : <s>IGNORED</s>Base<s></s></small></p><s>
+                </s>'
+            ],
+            "lang" => "en",
+            "background" => "printer",
+            "design" => "typed"
+        ],
         "stval3_en" => [
             "title" => "D2N Valentines Day",
             "author" => null,
@@ -5518,6 +5735,38 @@ class TextFixtures extends Fixture
             "lang" => "en",
             "background" => "tinystamp",
             "design" => "classic"
+        ],
+        "rasln1" => [
+            "title" => "Day 22",
+            "author" => "Rassalon",
+            "content" => [
+                '<h1>Day 22</h1>
+                <p>They came in last night. Nearly 200 strong, by all estimates. Seven people gone, just like that, but we\'re still here. Unfortunately, I was badly wounded yesterday and couldn\'t go out. I pitched in where I could, but I can only hope it will be enough for tonight.</p>
+                <p>Many in town have gone on the offensive. Zombies are being cut down everywhere, and the surrounding area is as clear as it\'s ever been. It seems like less zombies are gathering in the distance than last night. We may yet withstand another attack, but how much longer can we go on? Water is scarce. Our defenses are battered. I\'m still having nightmares about last night. The fighting.</p>',
+                '<br>
+                <p>The screams in the night. Seven of the monsters came for me and I fought them off, but I don\'t know how many more I could handle.</p>
+                <p>As night approaches, I will be shoring up where I can. Maybe there will be a tomorrow. Maybe help is coming and we don\'t know about it. We can only hope and pray...</p>'
+            ],
+            "lang" => "en",
+            "background" => "printer",
+            "design" => "typed"
+        ],
+        "rescl1" => [
+            "title" => "Day 3 - Part 1",
+            "author" => "LordRuthven",
+            "content" => [
+                '<h1>Day 3:</h1>
+                <p>Woke up hungover, hungry and thirsty. For a moment life feels normal, for once I feel exactly like I would have before everything went to hell. Then a call comes on the walkie-talkie beside my bed.</p>
+                <p>"Is anyone out there? I\'m in sector 2/3, surrounded by zombies. Help, please."</p>
+                <p>I groan and pick up the walkie-talkie. "Alright, I\'ll come get you."</p>
+                <p>I get up, pop open the microwave and eat the noodles I find there - the microwave doesn\'t work anymore, I just keep my food in there for old times sake... sometimes I make a \'bing\' noise before opening it. I digress.</p>
+                <p>After eating I head over to the bank. Well, we call it a bank, it\'s just a big warehouse on the outskirts of town. A gaunt figure watches me warily as I head out to it...</p>',
+                '<p>Jim \'the Hand\' was caught stealing from us, we took his hand and his right to visit the bank as punishment. Now he just stares at us, mumbling about revenge. He looks ill, I think maybe he\'s infected. We\'ll soon find out.</p>
+                <p></p>The bank is full of stuff, most of it junk - rotting logs and scrap metal - but I find something interesting. In a wooden box marked \'Military Prototype - Devastator Battery Launcher\'. I pick it up, shake it and something rattles. It\'s broken but this is where my engineering degree finally comes in useful, I find some of the other junk my fellow citizens dumped in the bank, a belt and a few nuts and bolts, and soon I\'ve got the thing working! A victory, for once. Maybe I\'ll survive a few more days after all... unless Jim comes for me in the night... <strong>[contd...]</strong><p></p>'
+            ],
+            "lang" => "en",
+            "background" => "white",
+            "design" => "written"
         ],
         "rescl2_en" => [
             "title" => "Day 3 - Part 2",
@@ -5535,9 +5784,28 @@ class TextFixtures extends Fixture
             "background" => "white",
             "design" => "written"
         ],
+        "rescl3" => [
+            "title" => "Day 3 - Part 3",
+            "author" => "LordRuthven",
+            "content" => [
+                '...The zombies notice me and so does Rob. I recognise one of the zombies now, Linda. She wandered out of the town the first night after the event, said something about looking for survivors. Doubt she found any. Rob looks even more terrified, can’t say that I blame him - I’m armed with some prototype alien gun and out of my mind on twinoid. I shout at him, “Duck you stupid bastard!” I think it was a shout, maybe I sang it. Either way he hits the deck, getting a mouthful of sand no doubt. For a moment I wonder what the sand tastes like then I get a grip and fire the Devastator!</p>
+                <p>It worked better than I hoped; two zombies wasted. I reload as quickly as I can, my hands shaking from the combined effects of twinoid and the desert sun. This time I took careful aim, I aimed for Linda. “Take this you self-righteous, stupid, suicidal bitch!” I screamed. Rob whimpered, I think he thought I meant him, and I fired my super-gun. Two more zombies down. Two of us versus two of them.</p>',
+                '<p>For some reason the zombies remain cowardly until midnight. They can’t face being outnumbered and back off whenever they fail to outnumber us by at least 3 to 1. Every midnight they charge at the town gates, like a tide of monsters, but until then they hide from any group of the living.</p>
+                <p>“Come on, Rob,” I say, “time to go home.”</p>
+                <p>“Sure,” He says, eyeing my warily. He takes out a flask of water, gulps it down in one go and starts to follow me back home.</p>
+                <p>We get to the gates with no problems. When we get inside the gates, though we find something awful. Just inside the gates one of our number, don’t remember his name, lies on the ground with his intenstines out. A one-handed gaunt figure was kneeling over him, shovelling the man’s innards into his mouth.</p>
+                <p>So Jim finally fell to the infection.</p>',
+                '<br>
+                <p>There were two of us so he backed off instinctively. We used that to herd him outside the gates and into the desert, then we threw the body out as well.</p>
+                <p>They’ll both be back at midnight...</p>'
+            ],
+            "lang" => "en",
+            "background" => "white",
+            "design" => "written"
+        ],
         "drdiar" => [
             "title" => "Dear Diary",
-            "author" => 'ISteinier',
+            "author" => "ISteinier",
             "content" => [
                 '<h1>Dear diary,</h1>
                 <p>The weirdest thing happened today. I think I\'ve already written about the day Daddy went outside and when he came back he was all green and Mommy put him in the cellar with chain around his neck, didn\'t I?</p>
@@ -5553,6 +5821,55 @@ class TextFixtures extends Fixture
             "lang" => "en",
             "background" => "white",
             "design" => "written"
+        ],
+        "desktp" => [
+            "title" => "Desktop Factoids",
+            "author" => "ShaftWildly",
+            "content" => [
+                '<br><p>July used to be called Quintilis</p>
+                It was renamed after the death of Julius Caesar.<p></p>
+                <br>
+                <p>August used to be called Sextilis</p>
+                It was renamed after the new emperor Augustus Caesar.<p></p>',
+                '<div class="hr"></div>
+                <p>The famous Paris - Dakar rally neither starts in Paris nor ends in Dakar.</p><br>
+                <p>In 2014 it began in Rosario, Santa Fé, Argentina and finished in Valparaiso, Chile.</p>',
+                '<div class="hr"></div>
+                <p>Shotgun weddings are statistically more likely when the parents know the child will be a boy.</p>',
+                '<div class="hr"></div>
+                <p>Human\'s share 50% of their DNA with bananas.</p>',
+                '<div class="hr"></div>
+                <p>More humans are killed every year by vending machines than sharks.</p>',
+                '<div class="hr"></div>
+                <p>The most northern, eastern and western points in the USA are all in Alaska</p>',
+                '<div class="hr"></div>'
+            ],
+            "lang" => "en",
+            "background" => "postit",
+            "design" => "written"
+        ],
+        "slber1" => [
+            "title" => "Diplomatic Invitation",
+            "author" => "Berlusconi, S.",
+            "content" => [
+                '<p><strong>Dear <s>Sir or</s> Madam</strong></p>
+                <p>You are cordially invited to the 39th parliamentary Bunga Bunga party</p>
+                <p>Please inform the committee if you intend to attend alone or with a partner.</p>
+                <p>Please also check the box provided if you require a position in the cabinet following this event</p>
+                <p>If you have no history in modelling or the sex industry please include a full-length photo</p>
+                <p>Yours Bunga-tastically,</p>
+                <p>Silvio</p>',
+                '<p><strong>Dear <s>Sir or</s> Madam</strong></p>
+                <p>It is with regret that we have had to cancel the 39th parliamentary Bunga Bunga party</p>
+                <p>This is due to (not entirely) unforeseen circumstances.</p>
+                <p>Please check the box provided if you have experience in cake baking and file smuggling</p>
+                <p>and return it for the attention of Big Sadie, Cell Block D, Il Clinki Prisoni, Italia. </p>
+                <p>Yours Bung-requiringly,</p>
+                <p>S.B</p>'
+            ],
+            "lang" => "en",
+            "background" => "letter",
+            "design" => "typed"
         ],
         "swefae_en" => [
             "title" => "Eulogy for an Empire",
@@ -5595,7 +5912,24 @@ class TextFixtures extends Fixture
             "background" => "white",
             "design" => "typed"
         ],
-        "stpat1" => [
+        "burns1" => [
+            "title" => "Happy Burns' Day",
+            "author" => "Robert Burns",
+            "content" => [
+                '<p></p><center>Of a\' the airts the wind can blaw<br><br>
+                I dearly like the west,<br><br>
+                For there the bonie lassie lives,<br><br>
+                The lassie I lo\'e best.<br><br>
+                There wild woods grow, and rivers row,<br><br>
+                And monie a hill between,<br><br>
+                But day and night my fancy\'s flight<br><br>
+                Is ever wi\' my Jean.</center>'
+            ],
+            "lang" => "en",
+            "background" => "old",
+            "design" => "written"
+        ],
+        "stpat2" => [
             "title" => "Happy for you, blind man !",
             "author" => "Traditional Irish",
             "content" => [
@@ -5614,7 +5948,19 @@ class TextFixtures extends Fixture
             "background" => "old",
             "design" => "typed"
         ],
-        "stpat2" => [
+        "citya1_en" => [
+            "title" => "Happy Harry's Horoscope: 1",
+            "author" => "TheMentalist",
+            "content" => [
+                '<div class="hr"></div>
+                <h1>Pisces</h1>
+                <p>People don\'t get you. They enjoy parties more than you. You have bad sex and it\'s your fault. A man named Ian will take your stuff.</p>'
+            ],
+            "lang" => "en",
+            "background" => "carton",
+            "design" => "typed"
+        ],
+        "citya2_en" => [
             "title" => "Happy Harry's Horoscope: 2",
             "author" => "TheMentalist",
             "content" => [
@@ -5626,7 +5972,31 @@ class TextFixtures extends Fixture
             "background" => "carton",
             "design" => "typed"
         ],
-        "citya5" => [
+        "citya3_en" => [
+            "title" => "Happy Harry's Horoscope: 3",
+            "author" => "TheMentalist",
+            "content" => [
+                '<div class="hr"></div>
+                <h1>Gemini</h1>
+                <p>Stop talking about yourself all the time. It\'s pathetic, and people think the jokey racism runs deep. You\'re also out of shape.</p>'
+            ],
+            "lang" => "en",
+            "background" => "carton",
+            "design" => "typed"
+        ],
+        "citya4_en" => [
+            "title" => "Happy Harry's Horoscope: 4",
+            "author" => "TheMentalist",
+            "content" => [
+                '<div class="hr"></div>
+                <h1>Taurus</h1>
+                <p>People call you \'The Nipple\'. You\'re a bit of a tit.</p>'
+            ],
+            "lang" => "en",
+            "background" => "carton",
+            "design" => "typed"
+        ],
+        "citya5_en" => [
             "title" => "Happy Harry's Horoscope: 5",
             "author" => "TheMentalist",
             "content" => [
@@ -5639,7 +6009,7 @@ class TextFixtures extends Fixture
             "background" => "carton",
             "design" => "typed"
         ],
-        "cityb1" => [
+        "cityb1_en" => [
             "title" => "Happy Harry's Horoscope: 6",
             "author" => "TheMentalist",
             "content" => [
@@ -5661,6 +6031,69 @@ class TextFixtures extends Fixture
                 <p>hkr rnms sntr cdudmtr entr hbh</p>
                 <p>qdsqntud lnh z kz uhdhkkd onlod gxcqztkhptd z bhmp gdtqdr</p>
                 <p>hk x z tmd lnsn bzbgdd kz azr</p>'
+            ],
+            "lang" => "en",
+            "background" => "letter",
+            "design" => "written"
+        ],
+        "tstpa1" => [
+            "title" => "Irish Anthem",
+            "author" => "Phil Coulter",
+            "content" => [
+                '<br><h1>Ireland\'s Call</h1><br>
+                <p>Come the day and come the hour</p>
+                <p>Come the power and the glory</p>
+                <p>We have come to answer</p>
+                <p>Our Country\'s call</p>
+                <p>From the four proud provinces of Ireland</p>
+                <br>
+                <p>Ireland, Ireland</p>
+                <p>Together standing tall</p>
+                <p>Shoulder to shoulder</p>
+                <p>We\'ll answer Ireland\'s call </p>
+                <br>',
+                '<br><br><br>
+                <p>From the mighty Glens of Antrim</p>
+                <p>From the rugged hills of Galway</p>
+                <p>From the walls of Limerick</p>
+                <p>And Dublin Bay</p>
+                <p>From the four proud provinces of Ireland</p>
+                <br>
+                <p>Ireland, Ireland</p>
+                <p>Together standing tall</p>
+                <p>Shoulder to shoulder</p>
+                <p>We\'ll answer Ireland\'s call </p>
+                <br>',
+                '<br><br><br>
+                <p>Hearts of steel, and heads unbowing</p>
+                <p>Vowing never to be broken</p>
+                <p>We will fight, until</p>
+                <p>We can fight no more</p>
+                <p>From the four proud provinces of Ireland</p>
+                <br>
+                <p>Ireland, Ireland</p>
+                <p>Together standing tall</p>
+                <p>Shoulder to shoulder</p>
+                <p>We\'ll answer Ireland\'s call </p>'
+            ],
+            "lang" => "en",
+            "background" => "notepad",
+            "design" => "poem"
+        ],
+        "stpat4" => [
+            "title" => "Irish Blessing",
+            "author" => "Traditional Irish",
+            "content" => [
+                '<br>
+                <br>
+                <p>May the road rise to meet you.</p>
+                <p>May the wind be always at your back.</p>
+                <p>May the sun shine warm upon your face.</p>
+                <p>And rains fall soft upon your fields. </p>
+                <p>And until we meet again, </p>
+                <p>May God hold you in the hollow of His hand.</p>
+                <br><br>
+                <p>- Traditional</p>'
             ],
             "lang" => "en",
             "background" => "letter",
@@ -5698,6 +6131,17 @@ class TextFixtures extends Fixture
             "lang" => "en",
             "background" => "old",
             "design" => "letter"
+        ],
+        "biebs1" => [
+            "title" => "Justin Time",
+            "author" => null,
+            "content" => [
+                '<h1>Bieber Busted!</h1>
+                <br><p></p><center>Justin Bieber has a Valentine\'s Day date with a Florida judge on charges of driving under the influence, resisting arrest and driving with an expired licence.<br><br> A Miami-Dade County judge on Tuesday set a February 14 arraignment date for the 19-year-old pop star. Bieber and R&amp;B singer Khalil were arrested last week in Miami Beach after what police described as an illegal street race between a Lamborghini and a Ferrari..</center><p></p>'
+            ],
+            "lang" => "en",
+            "background" => "printer",
+            "design" => "typed"
         ],
         "noel_en" => [
             "title" => "Letter To Father Christmas",
@@ -5747,6 +6191,20 @@ class TextFixtures extends Fixture
             "background" => "old",
             "design" => "poem"
         ],
+        "crema1_en" => [
+            "title" => "Luck of the draw",
+            "author" => "Stravingo",
+            "content" => [
+                '<quote>The Bastion of Shattered Illusions,11th July</quote>
+                <p>It\'s been days... weeks even, since we had any real food. Hunger grips the town, and there is no escape. Even though we have built barricades, the horde is larger than ever, and growing by the day. I can\'t go on. I don\'t have the energy or the strength... </p>
+                <p>This morning we drew lots. I lost, but I don\'t care. The others seemed almost envious. I can smell the charcoal as they fire up the cremato-cue. They told me I\'ll hardly feel a thing, and that they saved me a whole bottle of vodka. I know they\'re lying though...</p>
+                <p>...because i stole the last one...</p>
+                <p><em>Stravingo</em></p>'
+            ],
+            "lang" => "en",
+            "background" => "old",
+            "design" => "poem"
+        ],
         "bilan_en" => [
             "title" => "Minutes of the meeting of 24th August",
             "author" => "Liior",
@@ -5781,6 +6239,54 @@ class TextFixtures extends Fixture
             "background" => "letter",
             "design" => "written"
         ],
+        "stpmm1" => [
+            "title" => "Molly Malone",
+            "author" => "Traditional.",
+            "content" => [
+                '<p>In Dublin\'s fair city, where the girls are so pretty,</p>
+                <p>I first set my eyes on sweet Molly Malone</p>
+                <p>As she wheeled her wheelbarrow<br> through streets broad and narrow</p>
+                <p>Crying cockles and mussels alive a-live O!</p>
+                <br>
+                <p>A-live a-live O! A-live a-live O!</p>
+                <p>Crying cockles and mussels alive a-live O!</p>
+                <br>
+                <p>She was a fishmonger, and sure t\'was no wonder,</p>
+                <p>For so were her father and mother before,</p>
+                <p>And they both wheeled their barrows<br> through streets broad and narrow,</p>
+                <p>Crying cockles and mussels alive a-live O!</p>
+                <br>
+                <p>A-live a-live O! A-live a-live O!</p>
+                <p>Crying cockles and mussels alive a-live O!</p>',
+                '<p>She died of a fever, and no-one could save her,</p>
+                <p>And that was the end of sweet Molly Malone,</p>
+                <p>Now her ghost wheels her barrow<br> through streets broad and narrow,</p>
+                <p>Crying cockles and mussels alive a-live O!</p>
+                <br>
+                <p>A-live a-live O! A-live a-live O!</p>
+                <p>Crying cockles and mussels alive a-live O!</p>   
+                <p>A-live a-live O! A-live a-live O!</p>
+                <p>Crying cockles and mussels alive a-live O!</p>'
+            ],
+            "lang" => "en",
+            "background" => "old",
+            "design" => "typed"
+        ],
+        "motran" => [
+            "title" => "Motherhood - Part 1",
+            "author" => "Raindragon16",
+            "content" => [
+                '<p>“Mommie.”  he whispered in her ear.  Her eyes fluttered for a moment, she moaned rolling over to her side, smiling at her little boy.</p>
+                <p>“Hey sweetie.”  He held out a small canteen light with water, “Just put it beside me baby, I’m not thirsty.”  She wasn’t, been days since she needed a drink.  One his knees he shook the canteen a little, his eyes narrow with worry.  She took the can and sipped it.  The water burned down her throat and she coughed violently, spilling water everywhere.  Specks of blood spotted the floor of plastic. </p>
+                <p>Sitting down cross-legged, the son looked at her hot face, wet brown hair, her torn uniform and the gaping wound on her leg.</p>',
+                '<p>Holding the tears back, he hid his face from her, breathing his thumping heart in deep. He told nobody in the shack town about the wound, he knew there was nothing they could do, they would just kill her.  She let her head rest on the dusty plastic of the dark green tent, it crinkled a little.  “Baby, go outside and help the others.  Mommy is fine, she just needs to sleep.”  He left the tent, careful not to let anyone see inside.</p>
+                <p>Her whole body was cooking in the dry desert air, sweat came somehow, even though she was empty, she where the water fell on her; patches of swollen and burning skin bubbled up like boils.  She knew it wouldn’t be long before she would become a monster, she left the canteen upright and started to moan, no tears came. </p>',
+                '<p>Maybe she should let them shoot her in the head, end it all, but quiet like and have them tell her son she died from a fever in the night.  Most of them were nice enough people, they let her in with her son, they had clean water, clean clothes; it was somewhere...</p>'
+            ],
+            "lang" => "en",
+            "background" => "old",
+            "design" => "typed"
+        ],
         "motrao" => [
             "title" => "Motherhood - Part 2",
             "author" => "Raindragon16",
@@ -5798,6 +6304,58 @@ class TextFixtures extends Fixture
             "lang" => "en",
             "background" => "old",
             "design" => "typed"
+        ],
+        "motrap" => [
+            "title" => "Motherhood - Part 3",
+            "author" => "Raindragon16",
+            "content" => [
+                '<br><br>
+                <p>The boy widely smiled, two front teeth missing, “Yep.” The man grabbed a hammer and started to align the nails to pound them in.  The project today was a watchtower to help the residence guess how many zombies may come during the night.  They were lucky so far, only four deaths, but it was only a sign of how close to death they all were.</p>
+                <p>“It’s been about three days since yer mom came out.”</p>
+                <p>The boy didn’t look at him, “She’s just tired.  Hasn’t slept good.”  The boy’s face twisted with stress, even though he was trying not to turn his head towards the man.  “I gotta go somewhere.”</p>',
+                '<p>Sliding off the stool, his shoes hit the dirt wood floor and the boy ran past the other workers, through the dusty paths, the man stared after him with concern, “I’ll check on em soon as I’m done here.”</p>
+                <p>The boy stopped short of the green tent, glancing side to side with suspicious eyes, nobody, nothing, zilch, not even the wind blew.  “Mommie.”  He whispered, opening the flap, it was dark inside, but he saw the outline of his mother huddled near the back, “Are you feeling better?” She moved back and forth in a whole body nod.  He slid in, the flap let a sliver of sun in, his saw his mother’s hand was red and puffy. Walking on his knees, he saw the open canteen, “Oh good,”  picking it up, “you drank…”</p>',
+                '<p>A low growl made the plastic tent shake, “Mommie?”  He clutched the canteen, eyes wide with fear; slowly he stepped back on his knees.</p>
+                <p>Her moans became louder, higher, rougher, he swallowed and she turned around, the streak of sun cutting across her body.  Her dirty hair clumped up in bunches, yellow patches bulged around her face, her eyes were bloodshot, she gritted her thin yellow teeth, her son’s mouth opened, she growled like a dog swollen hands swiping for him.  He knew the zombies melted at the contact of water, he held the open canteen, unsure, he looked to his mother; the yellow bulges broke open, puss and blood gushed out, he felt a surge of acid tickle his throat.   She lunged at him; knocking straight into the canteen, water dumped into the new open wounds, she couldn’t scream, her throat was melting away...</p>'
+            ],
+            "lang" => "en",
+            "background" => "old",
+            "design" => "typed"
+        ],
+        "motraq" => [
+            "title" => "Motherhood - Part 4",
+            "author" => "Raindragon16",
+            "content" => [
+                '<p>...Chunks of flesh dripped onto the sandy plastic, her fingers were mostly bone from clutching her water downed throat, her eyes open in terror, head tilted, the boy just stared at his mother covered in water, blood and sand, the smell of rotten meat tickling his stomach to puke.  He finally did.</p>
+                <p>Wiping his mouth, he began to cry.  “It’s ok mommie.”  He crawled to her and curled up on the reeking corpse.  Wrapping his fingers around her squishy, still warm hands, he shut his eyes and hummed a soft lullaby.</p>
+                <p>“Here to check on yah.” the man said outside the tent, holding the flashlight down.  He heard nothing and opened the tent flap slowly, “Are you ok?”  The flashlight circled on the boy sleeping on what was left of his mother.</p>',
+                '<br><br>
+                <p>Her body was more of a puddle seeping into her uniform, her hands were barely intact now between the boy’s, his clothes also sopping wet.  A wave of rotten smell burned his nose; he covered his face and kept starting, trying not to gag.</p><br> <br>
+                <p>The boy’s eyelids moved, clicking the flashlight off he plunged into the tent feeling the ooze between his hands, lifting the boy up from the stick with a sick sound of popping bones.</p>',
+                '<br><br><br>
+                <p>The thick air choked the man’s throat, the crinkling plastic was slippery on his large knees, his shoes were wet from the melting remains, “You’re ok, you’re ok, you’re ok.”  He whispered for himself and the boy when he shouldered through the flap, opening his lungs to the dry clear air, the boy still clutched his mother’s hands under the dim desert stars, a breeze whispered; taking the smell of death far away to somewhere and the man wept.</p>'
+            ],
+            "lang" => "en",
+            "background" => "old",
+            "design" => "typed"
+        ],
+        "jgoul1" => [
+            "title" => "My friend the Gouhl - Part 1",
+            "author" => "ninjaja",
+            "content" => [
+                '<h2>My friend the ghoul, part one</h2>
+                <p>On the road, I tripped over a small notepad half buried in the sand, firing it into the air.
+                The pages were blank, time had erased everything that had once been there save a few faded letters.</p>
+                <p>Two or three drags across the sole of my old sandal was all it took to resurrect the attached pen.
+                Without thinking, I put the lot in my pocket. I would never have imagined that I\'d be needing it so soon.</p>',
+                '<p>We had heard of a small shanty town, up in the north, in the middle of a desert plain. When we arrived, there were Sir Trotk and myself, and two bros; Mido and Ven.</p>
+                <p>The idea of a religion-free town cheered us up. Maybe we\'d be able to take part in the Festival of AnnualRainfall, the Ascension of the Crow, or some group worship of the one they simply refer to as Deblyn.
+                Would that merit a story?</p>
+                <p>Let\'s leave it for now in any case. The town is atheist...</p>'
+            ],
+            "lang" => "en",
+            "background" => "secret",
+            "design" => "written"
         ],
         "jgoul2" => [
             "title" => "My friend the Gouhl - Part 2",
@@ -5821,6 +6379,69 @@ class TextFixtures extends Fixture
             "background" => "secret",
             "design" => "written"
         ],
+        "nicev2" => [
+            "title" => "Natural Selection",
+            "author" => "Stravingo",
+            "content" => [
+                '<p>I am often told that my kindness and generosity are unparalleled.</p>
+                <p>It\'s true, I love helping out, taking charge of tasks which are for the good of others. I\'ve given tirelessly of myself for this community, even encouraging the weakest amongst us.</p>
+                <p>I remain incredibly polite. i am also admired for my negotiating talents. When there is tension, which sparks altercations, the townsfolk are happy for me to intervene. They know that I will soon return peace to the town.</p>
+                <p>I inspire confidence and others have confidence in me.</p>
+                <p>Today they have all left on an expedition in search of the necessary equipment to survive one day longer.</p>
+                <p>I can hear them. They\'ve been knocking on the gates for several hours now. Insults have given way to pleading. Night is fast approaching...</p>'
+            ],
+            "lang" => "en",
+            "background" => "notepad",
+            "design" => "small"
+        ],
+        "nitemr" => [
+            "title" => "On Nightmares",
+            "author" => "DeadLucky",
+            "content" => [
+                '<p>When I was a child, like any other, I was terrified of the boogeyman. I dreamt of his cold, lifeless hands reaching for my warm, sleeping body. His eyes stared out at me from the dark corners of the night, my imagination filling the shadows with horror. I would wake up screaming bloody murder in the middle of the night, only to find myself very much alone.</p>
+                <br>
+                <p>My grandfather was a minister, and he placed all of his faith in the Church. One night, he heard the startled gasps that marked my release from the clutches of a nightmare and he came to console me. He explained to me that my dreams of evil were merely the Devil trying to frighten me, and that all I had to do to conquer this evil was to pray for strength and safety. That night we prayed together, and trusting my grandfather\'s wisdom, I never had that dream again.</p>',
+                '<br>
+                <p>Oh, now though, now my dreams are of being safe and sound in my bed as a child. When I wake, I am affronted with the bloated, decomposition smell of the ghouls surrounding the town. I hear the scratching and pounding of the Horde mindlessly working away at our barricades in the night. I can again imagine the fingers of the dead grasping at my helpless flesh.</p>
+                <br>
+                <p>You see, my grandfather was wrong. Those dreams weren\'t demonic. They were a warning, a warning that none of us paid any mind. And this time...</p>
+                <br>
+                <p>...prayer will do nothing to save us.</p>'
+            ],
+            "lang" => "en",
+            "background" => "notepad",
+            "design" => "classic"
+        ],
+        "oathlb" => [
+            "title" => "Oath of the Live2nite Brotherhood",
+            "author" => "Soupfist",
+            "content" => [
+                '<p>We who seek to wear the camouflage cloak and move unseen through the wastes, who seek to dart impudently through the densest ranks of the undead, who seek to beat paths into Hell so that the feet of the living shall never walk into danger, must have a code that guides our hearts and our actions. Within the tenets of this code, the scout\'s mind is sharp, his decisions sure and swift, and his survival in the wastes assured. In the footprints of the scouts of the Live2Nite brotherhood, order springs like geysers of fresh water amid the dry sands of chaos.</p>
+                <p>All scouts at this time who wish to pledge themselves to the Live2Nite brotherhood raise high the thumb, index and ring fingers of the left hand and pledge the L2N Brotherhood Oath:</p>
+                <ol>
+                <li>A Live2Nite leaves no man in the wastes who requires his help.</li>
+                </ol>',
+                '<ol start="2">
+                <li>A Live2Nite leads the way for scavengers to dig in safety.</li>
+                <li>A Live2Nite sleeps in nothing but tents, for wood is precious and meant to protect the helpless.</li>
+                <li>A Live2Nite may call for help, but never admit his camouflage has failed.</li>
+                <li>A Live2Nite never leaves the body of another Live2Nite in the desert - he will retrieve it and use it for trap bait, for a Live2Nite is dedicated to helping others, even in death.</li>
+                <li>A Live2Nite does not say "hopeless." No matter how sure the demise and how nigh the end may be, he ends each evening reciting the Live2Nite brotherhood motto: "Tonight, we live!"</li>
+                </ol>
+                <p>Go forth with the L2N badge upon your cowl and spread order among the living.</p>',
+                '<br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <h1><strong>"Tonight we live!"</strong></h1>'
+            ],
+            "lang" => "en",
+            "background" => "grid",
+            "design" => "modern"
+        ],
         "pcrsh1_en" => [
             "title" => "Polycarbonate Riot Shield",
             "author" => "Workshop",
@@ -5839,6 +6460,48 @@ class TextFixtures extends Fixture
             "lang" => "en",
             "background" => "old",
             "design" => "ad"
+        ],
+        "granma_en" => [
+            "title" => "Post-it",
+            "author" => "sunsky",
+            "content" => [
+                '<p>Mom, you\'ve been sleeping for three days.</p>
+                <p>I\'m cold and you\'re not answering me!</p>
+                <p>There are people making lots of noise late at night. I\'m going to see if they want to play with my ball.</p>'
+            ],
+            "lang" => "en",
+            "background" => "old",
+            "design" => "ad"
+        ],
+        "qwp1jl" => [
+            "title" => "Quark and the Watchtower - Part 1",
+            "author" => "JohnLeaf",
+            "content" => [
+                '<p>Quark walked up to the watchtower, looking out over the waste that they called, \'home\'. This was the eighth town he had been in on his journey. Each one before had been destroyed by zombies, and he had escaped, using nothing but his wits. He was wearing a cloak the color of shadows, causing him to blend in, the clouds blocking the sun causing him to be able to hide in the darkness whenever he wished.</p>
+                <p>He let out a sigh, spotting hordes of zombies all around the city, and in the distance, at least 200 or so zombies. He stepped on to the ledge of the tower, looking down. After a moment, he heard someone behind him. </p>
+                <p>"Don\'t move." A dark voice spoke out to him. He didn\'t turn. He knew he\'d be dead if he did.</p>',
+                '<p>"What do you want?" Quark asked, his hand slowly slipping to his waist, the movements hidden by the cloak which covered his arms. He gripped his dagger.</p>
+                <p>"You\'ve obviously lived in more than one town. You didn\'t live here before. You may have fooled the others into thinking you\'re just a traveler who was holed up near the town before all this began, but you can\'t fool me."</p>
+                <p>"And what if you\'re right?" Quark raised an eyebrow, although the man behind him couldn\'t see...</p>'
+            ],
+            "lang" => "en",
+            "background" => "printer",
+            "design" => "typed"
+        ],
+        "qwp2jl" => [
+            "title" => "Quark and the Watchtower - Part 2",
+            "author" => "JohnLeaf",
+            "content" => [
+                '<p>..."Because I need your help to get out of this hell hole. This town won\'t survive for more than a month long. It\'s been a year, and ever since you came, the zombies have been gathering in the hundreds..."</p>
+                <p>Quark let out a sigh. "I\'m sorry, but you\'re wrong. the zombies have nothing to do with me. You\'re just insane."</p>
+                <p>"No, I\'m not. You know I\'m right. There\'s no use denying it." the man frowned, tightening his hold on his gun, which was pointed at Quark\'s head.</p>
+                <p>"Fine. You\'re right." Quark lied.</p>
+                <p>"I knew it! I was r-" the man was cut off mid sentence, a slim dagger finding it\'s way from Quark\'s cloak, to the man\'s head. He fell back, blood staining the floor as he fell down the stairs. </p>
+                <p>Quark looked over the ledge, leaping forward. He landed on the roof of a house, rolling to spread the pressure from the fall, avoiding injury. He jumped to the street, walking away, the echoing screams of the men who had discovered the body, ringing through his ears as he walked.</p>'
+            ],
+            "lang" => "en",
+            "background" => "printer",
+            "design" => "typed"
         ],
         "utpia1_en" => [
             "title" => "Rough Draft",
@@ -5862,6 +6525,46 @@ class TextFixtures extends Fixture
             "background" => "secret",
             "design" => "small"
         ],
+         "shbpap" => [
+            "title" => "Shabby piece of paper",
+            "author" => "Yummlick",
+            "content" => [
+                '<p>As always, if you\'re reading this, blah, blah, it means we didn\'t make it and I\'m dead, blah, bl[...illegible...]ut that\'s not important! I\'m not impo[...illegible...]ad this and PASS IT forward. Tell them! Tell them all!</p>
+                <p>Thirty nights in a row, they come. We\'re tired, sca[...illegible...]t of resources. I don\'t know how we managed it, but we hold again. Barely, again.</p>
+                <p>Here comes a da[...illegible...]er beautiful dawn. But this one is different. There\'s a man. THE MAN outside the gates. Alive. Heavily armed, well equiped. Dirty, bearded an[...illegible...]ll smiled. Wanderer, survivor. Preacher.</p>
+                <p>He tol[...illegible...]ut the great EXODUS. About himself and his former companions in misfortune, who decided not to wait for death, but to seek for redemption.</p>',
+                'And they found it! An OCEAN. There\'s an ocean, whole ocean of water, somewhere in t[...illegible...]T. And there\'s a bay. The bay with ships. Huge, old ships. THERE. IS. HOPE!<p></p>
+                <p></p>
+                <p>The man disappe[...illegible...]were preparing for our own expedition. Our exodus. But we\'re not important. What really matters is his mission. To pass the WORD!</p>
+                <p></p>
+                <p>East, always into the east!</p>'
+            ],
+            "lang" => "en",
+            "background" => "white",
+            "design" => "written"
+        ],
+        "sos1_en" => [
+            "title" => "S.O.S.",
+            "author" => "ChrisCool",
+            "content" => [
+                '<div class="hr"></div>
+                <p>This is a call for help! I\'m in the town of <strong>Festering Ba\'Snag</strong> ! If someone receives this message, PLEASE COME AND BRING ME A VIBRATOR, it\'s a matter of LIFE AND DEATH !</p>'
+            ],
+            "lang" => "en",
+            "background" => "carton",
+            "design" => "postit"
+        ],
+        "stpat3" => [
+            "title" => "She’s the White Flower of the Blackberry",
+            "author" => "Irish Folk Song",
+            "content" => [
+                '<br><p>She’s the white flower of the blackberry, she’s the sweet flower of the rasbery, she’s the best herb in excellence for the sight of the eyes.</p><br> <p>She’s my pulse, she’s my secret, she’s the scented flower of the apple, she’s summer in the cold time between Christmas and Easter.</p><br>
+                <p>- Irish, folksong before 1789</p>'
+            ],
+            "lang" => "en",
+            "background" => "notepad",
+            "design" => "poem"
+        ],
         "coloc_en" => [
             "title" => "Small Ad",
             "author" => null,
@@ -5875,6 +6578,59 @@ class TextFixtures extends Fixture
             "lang" => "en",
             "background" => "carton",
             "design" => "written"
+        ],
+        "sbwse1" => [
+            "title" => "Stopping By Woods on a Snowy Evening",
+            "author" => "Robert Frost",
+            "content" => [
+                '<p><br>Whose woods these are I think I know.<br><br> His house is in the village though;<br><br> He will not see me stopping here <br><br>
+                To watch his woods fill up with snow.</p><p><br>The woods are lovely, dark and deep.<br><br> But I have promises to keep,<br><br>  And miles to go before I sleep, <br><br>
+                And miles to go before I sleep.</p>'
+            ],
+            "lang" => "en",
+            "background" => "old",
+            "design" => "written"
+        ],
+        "sn1fap" => [
+            "title" => "Suicide Note",
+            "author" => "FapLotion",
+            "content" => [
+                '<p>I am almost smiling while writing this,<br><br> I am almost happy to know that its almost over.<br><br> That soon i will be overcome by the warmth of death. <br><br>
+                As i bring the cyanide to my lips, my mouth almost waters.<br><br> It shouldn\'t be long now.</p>'
+            ],
+            "lang" => "en",
+            "background" => "letter",
+            "design" => "written"
+        ],
+        "stpmk3" => [
+            "title" => "The 1st Limerick",
+            "author" => null,
+            "content" => [
+                '<p></p><center><br><br>An Irish builder called Mick,<br><br>
+                Did a very unusual trick,<br><br>
+                He would juggle his tools<br><br>
+                Which was really quite cool<br><br>
+                Til they landed one day on his foot!<br><br><br><br>
+                Happy St Patrick\'s Day!</center>'
+            ],
+            "lang" => "en",
+            "background" => "tinystamp",
+            "design" => "classic"
+        ],
+        "stprd3" => [
+            "title" => "The 2nd Limerick",
+            "author" => null,
+            "content" => [
+                '<p></p><center><br><br>There was an old man with a beard,<br><br>
+                Who said, "it\'s just how i feared!- <br><br>
+                Two owls and a hen <br><br>
+                Four larks and a wren <br><br>
+                Have all built their nests in my beard.<br><br><br><br>
+                Happy St Patrick\'s Day!</center>'
+            ],
+            "lang" => "en",
+            "background" => "tinystamp",
+            "design" => "classic"
         ],
         "stprd5_en" => [
             "title" => "The 3rd Limerick",
@@ -5891,6 +6647,49 @@ class TextFixtures extends Fixture
             "background" => "tinystamp",
             "design" => "classic"
         ],
+        "stprd4" => [
+            "title" => "The 4rd Limerick",
+            "author" => null,
+            "content" => [
+                '<p></p><center><br><br>There was a young lady named Wright,<br><br>
+                Whose speed was much faster than light,<br><br>
+                She set off one day<br><br>
+                In a relative way<br><br>
+                And she came back the previous night!<br><br><br><br>
+                Happy St Patrick\'s Day!</center>'
+            ],
+            "lang" => "en",
+            "background" => "tinystamp",
+            "design" => "classic"
+        ],
+        "stpr11" => [
+            "title" => "The 10th Limerick",
+            "author" => null,
+            "content" => [
+                '<p></p><center><br><br>There once was a girl from Nantucket...<br><br>
+                but i\'m sure you\'ve heard all about her...<br><br>
+                <br><br><br><br>
+                Please send complaints to the usual address!</center>'
+            ],
+            "lang" => "en",
+            "background" => "tinystamp",
+            "design" => "classic"
+        ],
+        "tddidc" => [
+            "title" => "The Dangerous Dunes",
+            "author" => "Indyclone77",
+            "content" => [
+                '<br>
+                <p>Sometimes I wondered why I bothered eating in that foul place. We lost our capacity for making proper food when Doug, the town chef, was mauled to death at midnight in the last attack. When he died, and the rest of the town mourned, I decided that pillaging his house was a better idea than crying and weeping. But forget Doug. Most of us did, and I had better things to think about.</p>
+                <p>For example, the expedition into the world beyond. We were running low on building supplies, so me, Roberto and Roseangela decided that we needed to go and find nuts, bolts, cement, anything to make our lives even marginally better. We left as soon as the horde had dispersed from the town gates. We set off into the distance, seeking an abandoned construction site that a scout had once told me about.</p>',
+                '<br>
+                <p>As we made our journey onwards, the sands seeped into our tattered shoes, weighing us down, making us tired. We had to rest, and soon. Therefore, we crashed down onto the hot sands, taking generous gulps of water from our individual canteens. In hindsight, it was foolish of us not to notice the zombies that were now surrounding us, and coming closer and closer. We were too involved in the idea of a quick rest, of water, and something to eat. We paid no heed to the dangerous dunes.</p>
+                <p>Such regret I felt when thinking of those things has long since left my rotted flesh and splintered bones. Now, I think only of the meal that lies beyond those great gates...</p>'
+            ],
+            "lang" => "en",
+            "background" => "letter",
+            "design" => "written"
+        ],
         "pswed1" => [
             "title" => "THE HANDFASTING OF APRIL 5, 2013",
             "author" => "Pocky & Soradobi",
@@ -5905,6 +6704,41 @@ class TextFixtures extends Fixture
             "background" => "noteup",
             "design" => "typed"
         ],
+        "stpwg1" => [
+            "title" => "The Wearin' O' The Green",
+            "author" => "Traditional.",
+            "content" => [
+                '<p>Today is the day fer the wearin\' o\' the green</p>
+                <p>Today is the day when the little people are seen</p>
+                <p>Today is St. Patrick\'s Day, so if ye\'r Irish me lad</p>
+                <p>Join the celebration for the grandest time ta\' be had</p>'
+            ],
+            "lang" => "en",
+            "background" => "letter",
+            "design" => "typed"
+        ],
+        "bsptr1" => [
+            "title" => "Thunder Road",
+            "author" => "Springsteen, B.",
+            "content" => [
+                '<p><br>...contd.</p>
+                There were ghosts in the eyes<br>
+                Of all the boys you sent away<br>
+                They haunt this dusty beach road<br>
+                In the skeleton frames of burned out chevrolets<br><br>
+                They scream your name at night in the street<br>
+                Your graduation gown lies in rags at their feet<br>
+                And in the lonely cool before dawn<br>
+                You hear their engines roaring on<br>
+                But when you get to the porch they\'re gone<br>
+                On the wind, so mary climb in<br>
+                Its a town full of losers<br>
+                And I\'m pulling out of here to win.<p></p>'
+            ],
+            "lang" => "en",
+            "background" => "noteup",
+            "design" => "written"
+        ],
         "cave1_en" => [
             "title" => "Torn Note",
             "author" => "gangster",
@@ -5917,6 +6751,35 @@ class TextFixtures extends Fixture
             "lang" => "en",
             "background" => "blood",
             "design" => "written"
+        ],
+        "stpat1" => [
+            "title" => "Treachery",
+            "author" => "Liior",
+            "content" => [
+                '<p>He stole our weapons, our last rations of meat, and left us on our own, to survive by himself in the desert.</p>
+                <p>We have been thrown into confusion and we don\'t know what to do to stop the hordes from wiping us out tonight...In the Lucky Tavern a few days ago, some were saying that a good kick in the wheels wouldn\'t make the situation any less pleasant.</p>
+                <p>I don\'t think we\'re safe any more... He took our weapons... our food, and left... without warning... were we abandoned? Maybe he\'s gone to deal with some zombies then come back this evening ?</p>',
+                '<p>Either way, our "chief" is gone, and it smells like treachery to me....</p>'
+            ],
+            "lang" => "en",
+            "background" => "grid",
+            "design" => "typed"
+        ],
+        "chief_en" => [
+            "title" => "Two Women or Twelve Men",
+            "author" => "Traditional Irish",
+            "content" => [
+                '<p>There was a fox that had three young ones, and when the time came to teach them how to fend for themselves, the old fox took them to a house.</p>
+                <p>There was great talk going on inside the house.  He asked the first two young ones if they could tell him who was in the house.</p>
+                <p>They couldn’t. Then he tried the third.</p>
+                <p>“Who is inside?” asked the old fox.</p>
+                <p>“Either two women or twelve men,” said the young one. </p>
+                <p>“You’ll do well in the world,” said the old fox.</p><br><br>
+                <p>- A traditional Irish tale</p>'
+            ],
+            "lang" => "en",
+            "background" => "notepad",
+            "design" => "small"
         ],
         "recip1_en" => [
             "title" => "Twinoid Label",
@@ -5951,6 +6814,20 @@ class TextFixtures extends Fixture
                 </blockquote>
                 <small>When you\'re short on time and cash, sometimes you gotta Bill Jerone!</small>
                 <small><strong>As always Bill accepts no responsibility for loss of life or limbs arising from use of this product</strong></small>'
+            ],
+            "lang" => "en",
+            "background" => "tinystamp",
+            "design" => "classic"
+        ],
+        "stval1" => [
+            "title" => "Valentines Day Card",
+            "author" => null,
+            "content" => [
+                '<p></p><center><br><br>Roses are red,<br><br>
+                Violets are blue,<br><br>
+                I\'ve got 5 fingers<br><br>
+                The middle one\'s for you!<br><br><br><br>
+                Crappy Valentine\'s Day!</center>'
             ],
             "lang" => "en",
             "background" => "tinystamp",
@@ -6110,6 +6987,40 @@ class TextFixtures extends Fixture
                 <br>
                 <br>
                 <p>To be continued...</p>'
+            ],
+            "lang" => "en",
+            "background" => "white",
+            "design" => "typed"
+        ],
+        "wstal2" => [
+            "title" => "Workshop's Tale - Part 2",
+            "author" => "R3dd3r",
+            "content" => [
+                '<h1>Workshop\'s Tale - Part 2</h1>
+                <p>It was no use though for our hero was slowly forced to watch his friends die, night after night and he new that soon his end was near.
+                On the last day when all around him where dead and all seemed lost, he collected his belongings and grabbed a water pistol, pushing open the gates he turned one last time to look at the town he loved, now just a shadow of its glory days he again turned and set off into the wasteland.
+                The sun beat down, the heat almost unbearable our hero marched on into the endless rolling sand dunes.
+                Fighting off a damn zombie ambush whilst searching for a drink at an old hydraulic pump he found.</p>',
+                '<br>
+                <br>
+                <p>Our hero thought his end was near. Sunburnt, no food, no water just an empty super-soaker and a case of the wasteland blues he sat on a rock to watch the sunset.
+                Looking one last time at the horizon our hero gave up hope, lay on sand and went to sleep.
+                His dreams were of his friends, of his time in the workshop and of the hate he had of those damn undead.
+                pain, Pain, PAIN!</p>
+                <p>Our hero awoke his leg now swarmed by Rats chewing and gnawing him, our hero freaked jumped up and flailing like a fool went running from the viscous chewing rats, he ran,
+                he ran,</p>',
+                '<br>
+                <p>he ran until he collapsed pain still shooting up his leg he lay there in the sand and cried dry tears until he could hear the moans around him getting louder and closer.
+                He was no coward our hero so he stood ready to face death ready to go down swinging.
+                As his eyes scanned the ever darkening gloom he spotted a low wall, a camp fire and a gate, the dehydration had finely taken his mind, at least the zombies wouldn\'t get it.
+                But no.</p>
+                <p>There where voices a low muttering and intermittent laughs, he was saved it was another town.
+                Summoning all his might he headed toward the gate.</p>',
+                '<br>
+                <br>
+                <p>"WHO GOES THERE? If you moan I\'ll freak-in shoot, SPEAK!" the voice rang out in the darkens.
+                Our hero called out "I\'m, I\'m Workshop. Where am I?"</p>
+                <p>A guardian stepped out from behind the gate, "Welcome, you’re in the Palisades of Winter."</p>'
             ],
             "lang" => "en",
             "background" => "white",

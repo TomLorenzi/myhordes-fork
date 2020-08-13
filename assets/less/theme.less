@@ -604,12 +604,14 @@ ul.inventory {
       padding: 2px 6px;
       margin-right: 2px;
     }
-    &.item { border-color: rgba(0,0,0,0); }
+    &.item {
+    	border-color: rgba(0,0,0,0); height: 18px; max-width: 40px;
+    	&:hover { border-color: #F0D79E; background-color: #B37C4A; }
+    }
     &.item:not(.locked) { cursor: pointer; }
     &.item.broken { border: 1px dotted #ff0000; }
     &.item.banished_hidden { opacity: 0.25; }
-    &.free, &.item { height: 18px; }
-    &.free, &.item:not(.counted) { width: 18px; }
+    &.free { height: 18px; width: 18px; }
     &.item.counted{
       font-size: 0;
       &>span { font-size: .9rem; position: relative; }
@@ -641,8 +643,8 @@ ul.actions, ul.special_actions, ul.heroic_actions {
       &:hover { color: white; background: lighten(@myhordes-cell-header-background-color, 10%) }
     }
     &>div.targets {
-      position: absolute; display: none; left: 0; right: 0; top: 100%; z-index: 1500; background: @myhordes-smalltext;
-      color: black; border: 1px solid black; box-shadow: 0 0 4px black;
+      position: absolute; display: none; left: 0; right: 0; top: 100%; z-index: 1500; background: #3b3249;
+      color: #f0d79e; border: 1px solid #afacc1; outline: 2px solid black;
       margin: 0; padding: 5px;
       &>ul {
         margin: 0; padding: 0; font-size: 0;

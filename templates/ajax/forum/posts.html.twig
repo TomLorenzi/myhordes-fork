@@ -205,10 +205,7 @@
         $.html.addEventListenerAll('[x-forum-moderator-action]', 'click', function(e,elem) {
             if (!confirm('{{ 'Bestätigen?'|trans({},'global')|e('js') }}'))
                 return;
-            $.ajax.easySend( elem.getAttribute('x-forum-moderator-action'), {},
-                function () {
-                    $.ajax.load(null, '{{ path('forum_thread_mod_controller', {fid: fid, tid: tid, mod: 'lock'}) }}', true);
-                } );
+            $.ajax.easySend('{{ path('forum_thread_mod_controller', {fid: fid, tid: tid, mod: 'lock'}) }}', null, reloadPage);
         });
         {% endif %}
 

@@ -8,6 +8,7 @@ use App\Entity\Inventory;
 use App\Entity\ItemPrototype;
 use App\Entity\Town;
 use App\Entity\TownClass;
+use App\Service\CommandHelper;
 use App\Service\InventoryHandler;
 use App\Service\ItemFactory;
 use Doctrine\ORM\EntityManagerInterface;
@@ -26,12 +27,14 @@ class InventoryInspectorCommand extends Command
     private $entityManager;
     private $itemFactory;
     private $inventoryHandler;
+    private $helper;
 
-    public function __construct(EntityManagerInterface $em, ItemFactory $if, InventoryHandler $ih)
+    public function __construct(EntityManagerInterface $em, ItemFactory $if, InventoryHandler $ih, CommandHelper $ch)
     {
         $this->entityManager = $em;
         $this->itemFactory = $if;
         $this->inventoryHandler = $ih;
+        $this->helper = $ch;
         parent::__construct();
     }
 
@@ -93,7 +96,7 @@ class InventoryInspectorCommand extends Command
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         /** @var Inventory $inventory */
-        $inventory = $this->entityManager->getRepository(Inventory::class)->find( (int)$input->getArgument('InventoryID') );
+        $inventory = $this->helper->resolve_string($input->getArgument('InventoryID'), Inventory::class, 'Inventory', $this->getHelper('question'), $input, $output);
 
         $updated = false;
 
@@ -104,10 +107,7 @@ class InventoryInspectorCommand extends Command
 
         if ($spawn = $input->getOption('spawn')) {
 
-            $spawn = is_numeric($spawn)
-                ? $this->entityManager->getRepository(ItemPrototype::class)->find( (int)$spawn )
-                : $this->entityManager->getRepository(ItemPrototype::class)->findOneByName( $spawn );
-
+            $spawn = $this->helper->resolve_string($spawn, ItemPrototype::class, 'Spawned Item', $this->getHelper('question'), $input, $output);
             if (!$spawn) {
                 $output->writeln("<error>The selected item prototype could not be found.</error>");
                 return 1;

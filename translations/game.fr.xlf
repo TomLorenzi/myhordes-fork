@@ -457,7 +457,7 @@
       </notes>
       <segment>
         <source>Dieser Gegenstand ist außerhalb deiner Reichweite.</source>
-        <target>Ce point est hors de votre portée.</target>
+        <target>Cet endroit est hors de votre portée.</target>
       </segment>
     </unit>
     <unit id="WFi0NxJ" name="Du hast keinen Platz mehr für diesen Gegenstand!">
@@ -883,15 +883,6 @@
         <target>Les plaintes peuvent entraîner votre bannissement ou même votre exécution. Vous devriez peut-être améliorer votre relation avec le reste de la ville ...</target>
       </segment>
     </unit>
-    <unit id="2zVOnFs" name="14e2896">
-      <notes>
-        <note category="german">In der linken Spalte werden alle Aktionen und Handlungen dargestellt, die du mit deinen Gegenständen ausführen kannst. In der rechten Spalte kannst du den Inhalt deines Rucksacks und deiner Truhe ansehen.</note>
-      </notes>
-      <segment>
-        <source>In der linken Spalte werden alle Aktionen und Handlungen dargestellt, die du mit deinen Gegenständen ausführen kannst. In der rechten Spalte kannst du den Inhalt deines Rucksacks und deiner Truhe ansehen.</source>
-        <target>La colonne de gauche présente les actions permises par vos objets. Celle de droite montre le contenu de votre sac à dos et de votre coffre de maison.</target>
-      </segment>
-    </unit>
     <unit id="mvdJ1gZ" name="Meine Spezialaktionen">
       <notes>
         <note category="german">Meine Spezialaktionen</note>
@@ -1084,7 +1075,7 @@
       </notes>
       <segment>
         <source>Für diesen Ausbau werden keine Gegenstände benötigt.</source>
-        <target>Cette amélioration ne nécessite aucun objet.</target>
+        <target>Ne nécessite pas de matériel pour être construit(e).</target>
       </segment>
     </unit>
     <unit id="x7duHnG" name="f68beef">
@@ -1093,7 +1084,7 @@
       </notes>
       <segment>
         <source>Die folgenden Bauarbeiten kannst du an deinem Haus durchführen. Jede Verbesserung bringt dir besondere Vorteile.</source>
-        <target>Vous pouvez effectuer les travaux de construction suivants sur votre maison. Chaque amélioration vous apporte des avantages particuliers.</target>
+        <target>Voici la liste des travaux que vous pouvez effectuer chez vous. Chaque amélioration apporte des avantages spécifiques, mais attention, tout a un coût !</target>
       </segment>
     </unit>
     <unit id="r5DiSCv" name="Du musst ein Held sein, um die folgenden Ausbauten vornehmen zu können.">
@@ -1578,15 +1569,6 @@
       <segment>
         <source>Bankregister</source>
         <target>Banque</target>
-      </segment>
-    </unit>
-    <unit id="TygUMhY" name="c03baa1">
-      <notes>
-        <note category="german">In diesem Bereich kannst du an der Errichtung neuer Gebäude und Bauprojekte mitarbeiten. Dazu musst du zunächst die dafür notwendigen Materialien in der Wüste einsammeln (Holz, Metall,...). Anschließend kannst du deine Aktionspunkte (AP) für das Gebäude ausgeben, das dich am meisten interessiert.</note>
-      </notes>
-      <segment>
-        <source>In diesem Bereich kannst du an der Errichtung neuer Gebäude und Bauprojekte mitarbeiten. Dazu musst du zunächst die dafür notwendigen Materialien in der Wüste einsammeln (Holz, Metall,...). Anschließend kannst du deine Aktionspunkte (AP) für das Gebäude ausgeben, das dich am meisten interessiert.</source>
-        <target>Cette section permet de participer à la construction de nouveaux bâtiments. Commencez par récupérer des ressources dans le désert (bois, métal...), puis apportez des Points d'Action (PA) au bâtiment qui vous intéresse le plus.</target>
       </segment>
     </unit>
     <unit id="dUenX0C" name="c731560">
@@ -3593,7 +3575,7 @@
       </notes>
       <segment>
         <source>Es ist kein Bürger in der Nähe...</source>
-        <target>Il n'y a personne à sauver...</target>
+        <target>Il n'y a personne près de la ville (2 cases de distance maximum).</target>
       </segment>
     </unit>
     <unit id="f1TzhOn" name="Gammler">
@@ -9433,15 +9415,6 @@
         <target>Écrire à tout le monde</target>
       </segment>
     </unit>
-    <unit id="aUj3MMh" name="7d87462">
-      <notes>
-        <note category="german">Du hast keine neue Privatnachricht erhalten. Eine Liste aller Bürger findest du im Verzeichnis der Stadt.</note>
-      </notes>
-      <segment>
-        <source>Du hast keine neue Privatnachricht erhalten. Eine Liste aller Bürger findest du im Verzeichnis der Stadt.</source>
-        <target>Vous n'avez pas reçu de nouveau message privé. Vous trouverez la liste des citoyens dans l'annuaire de la ville.</target>
-      </segment>
-    </unit>
     <unit id="bYMK_Wv" name="Keine Nachricht gespeichert.">
       <notes>
         <note category="german">Keine Nachricht gespeichert.</note>
@@ -10573,7 +10546,7 @@
       </notes>
       <segment>
         <source>Das folgende Bauprojekt wurde empfohlen:</source>
-        <target>Le projet suivant a été recommandé :</target>
+        <target>La construction du chantier suivant a été recommandée :</target>
       </segment>
     </unit>
     <unit id="iita2xJ" name="83fa5e3">
@@ -10619,24 +10592,6 @@
       <segment>
         <source>Einrichtung</source>
         <target>Aménagements</target>
-      </segment>
-    </unit>
-    <unit id="u6_oAsd" name="ff69301">
-      <notes>
-        <note category="german">Du hast keine neue Privatnachricht erhalten. Eine Liste aller Bürger findest du im</note>
-      </notes>
-      <segment>
-        <source>Du hast keine neue Privatnachricht erhalten. Eine Liste aller Bürger findest du im</source>
-        <target>Vous n'avez pas reçu de nouveau message privé. Vous trouverez la liste des citoyens dans</target>
-      </segment>
-    </unit>
-    <unit id="4AkrdgW" name="Verzeichnis der Stadt.">
-      <notes>
-        <note category="german">Verzeichnis der Stadt.</note>
-      </notes>
-      <segment>
-        <source>Verzeichnis der Stadt.</source>
-        <target>l'annuaire de la ville.</target>
       </segment>
     </unit>
     <unit id="aVkOGIz" name="Von einem Ghul gefressen">
@@ -11563,6 +11518,60 @@
       <segment>
         <source>Dies ist eine äußert seltene Auszeichnung, die den ersten Spielern von 'MyHordes' vorbehalten ist. Drogen sind nicht gut.</source>
         <target>Distinction rarissime réservée aux tout premiers citoyens de 'MyHordes'. Les drogues c'est pas bien.</target>
+      </segment>
+    </unit>
+    <unit id="HhGnEYa" name="a0a5c8d">
+      <notes>
+        <note category="german">Bauprojekte, die mit dem Symbol "&lt;img alt="(!)" src="%path%" /&gt;" gekennzeichnet sind, können nur einmal verwendet werden. Sie werden nach dem Angriff der Zombiehorde wieder abgerissen. Wenn ihr wollt, könnt ihr sie morgen nochmal bauen.</note>
+      </notes>
+      <segment>
+        <source>Bauprojekte, die mit dem Symbol "&lt;img alt="(!)" src="%path%" /&gt;" gekennzeichnet sind, können nur einmal verwendet werden. Sie werden nach dem Angriff der Zombiehorde wieder abgerissen. Wenn ihr wollt, könnt ihr sie morgen nochmal bauen.</source>
+        <target><![CDATA[Les chantiers marqués par le symbole "<img alt="(!)" src="%path%" />" sont temporaires : ils seront détruits à minuit, juste APRÈS l'attaque. Pour en bénéficier à nouveau, il faudra les reconstruire le lendemain.]]></target>
+      </segment>
+    </unit>
+    <unit id="rmqJTg6" name="70903c1">
+      <notes>
+        <note category="german">Du hast &lt;strong&gt;keine neue Privatnachricht&lt;/strong&gt; erhalten. Eine Liste aller Bürger findest du im &lt;span class="link" x-ajax-href="%path%"&gt;Verzeichnis der Stadt&lt;/span&gt;.</note>
+      </notes>
+      <segment>
+        <source>Du hast &lt;strong&gt;keine neue Privatnachricht&lt;/strong&gt; erhalten. Eine Liste aller Bürger findest du im &lt;span class="link" x-ajax-href="%path%"&gt;Verzeichnis der Stadt&lt;/span&gt;.</source>
+        <target><![CDATA[Vous n'avez <strong>pas reçu de nouveau message privé</strong>. Vous trouverez la liste des citoyens dans <span class="link" x-ajax-href="%path%">l'annuaire de la ville</span>.]]></target>
+      </segment>
+    </unit>
+    <unit id="HeGRH_q" name="11aee93">
+      <notes>
+        <note category="german">In diesem Bereich kannst du an der &lt;strong&gt;Errichtung neuer Gebäude und Bauprojekte mitarbeiten&lt;/strong&gt;. Dazu musst du zunächst die dafür notwendigen Materialien in der Wüste einsammeln (Holz, Metall,...). Anschließend kannst du deine Aktionspunkte (AP) für das Gebäude ausgeben, das dich am meisten interessiert.</note>
+      </notes>
+      <segment>
+        <source>In diesem Bereich kannst du an der &lt;strong&gt;Errichtung neuer Gebäude und Bauprojekte mitarbeiten&lt;/strong&gt;. Dazu musst du zunächst die dafür notwendigen Materialien in der Wüste einsammeln (Holz, Metall,...). Anschließend kannst du deine Aktionspunkte (AP) für das Gebäude ausgeben, das dich am meisten interessiert.</source>
+        <target><![CDATA[Cette section permet de <strong>participer à la construction de nouveaux bâtiments</strong>. Commencez par récupérer des ressources dans le désert (bois, métal...), puis apportez des Points d'Action (PA) au bâtiment qui vous intéresse le plus.]]></target>
+      </segment>
+    </unit>
+    <unit id="UOlnBMY" name="Diese Empfehlung stammt von einem oder mehreren Helden deiner Stadt.">
+      <notes>
+        <note category="german">Diese Empfehlung stammt von einem oder mehreren Helden deiner Stadt.</note>
+      </notes>
+      <segment>
+        <source>Diese Empfehlung stammt von einem oder mehreren Helden deiner Stadt.</source>
+        <target>Cette recommandation émane généralement d'un ou plusieurs Héros de votre ville.</target>
+      </segment>
+    </unit>
+    <unit id="36CKBMW" name="bc11f9b">
+      <notes>
+        <note category="german">Diese Mitteilung wird auf &lt;strong&gt;der Bürgerseite bei deinem Namen angezeigt und ist für jeden lesbar&lt;/strong&gt;. Nutze diese Mitteilungsmöglichkeit, um dich vorzustellen, dich zu rechtfertigen oder einen Gruß an deine Mitspieler zu hinterlassen...</note>
+      </notes>
+      <segment>
+        <source>Diese Mitteilung wird auf &lt;strong&gt;der Bürgerseite bei deinem Namen angezeigt und ist für jeden lesbar&lt;/strong&gt;. Nutze diese Mitteilungsmöglichkeit, um dich vorzustellen, dich zu rechtfertigen oder einen Gruß an deine Mitspieler zu hinterlassen...</source>
+        <target><![CDATA[Diese Mitteilung wird auf <strong>der Bürgerseite bei deinem Namen angezeigt und ist für jeden lesbar</strong>. Nutze diese Mitteilungsmöglichkeit, um dich vorzustellen, dich zu rechtfertigen oder einen Gruß an deine Mitspieler zu hinterlassen...]]></target>
+      </segment>
+    </unit>
+    <unit id="slcsIov" name="6900dcf">
+      <notes>
+        <note category="german">In der linken Spalte werden alle Aktionen und Handlungen dargestellt, die du &lt;strong&gt;mit deinen Gegenständen ausführen kannst&lt;/strong&gt;. In der rechten Spalte kannst du den &lt;strong&gt;Inhalt deines Rucksacks&lt;/strong&gt; und &lt;strong&gt;deiner Truhe&lt;/strong&gt; ansehen.</note>
+      </notes>
+      <segment>
+        <source>In der linken Spalte werden alle Aktionen und Handlungen dargestellt, die du &lt;strong&gt;mit deinen Gegenständen ausführen kannst&lt;/strong&gt;. In der rechten Spalte kannst du den &lt;strong&gt;Inhalt deines Rucksacks&lt;/strong&gt; und &lt;strong&gt;deiner Truhe&lt;/strong&gt; ansehen.</source>
+        <target><![CDATA[La colonne de gauche présente les <strong>actions permises par vos objets</strong>. Celle de droite montre le <strong>contenu de votre sac à dos</strong> et <strong>de votre coffre de maison</strong>.]]></target>
       </segment>
     </unit>
   </file>

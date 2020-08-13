@@ -19,6 +19,7 @@ use App\Entity\User;
 use App\Entity\RolePlayTextPage;
 use App\Entity\Season;
 use App\Response\AjaxResponse;
+use App\Service\ConfMaster;
 use App\Service\DeathHandler;
 use App\Service\ErrorHelper;
 use App\Service\JSONRequestParser;
@@ -27,10 +28,10 @@ use App\Service\UserFactory;
 use App\Service\UserHandler;
 use App\Service\AdminActionHandler;
 use App\Service\TimeKeeperService;
+use App\Structures\MyHordesConf;
 use DateTime;
 use Doctrine\ORM\EntityManagerInterface;
 use Exception;
-use Imagick;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Asset\Packages;
 use Symfony\Component\HttpFoundation\Request;
@@ -47,25 +48,18 @@ use Symfony\Contracts\Translation\TranslatorInterface;
  */
 class SoulController extends AbstractController
 {
+    const ErrorUserEditPasswordIncorrect     = ErrorHelper::BaseSoulErrors + 1;
+    const ErrorTwinImportInvalidResponse     = ErrorHelper::BaseSoulErrors + 2;
+    const ErrorTwinImportNoToken             = ErrorHelper::BaseSoulErrors + 3;
+    const ErrorTwinImportProfileMismatch     = ErrorHelper::BaseSoulErrors + 4;
+    const ErrorTwinImportProfileInUse        = ErrorHelper::BaseSoulErrors + 4;
+
     protected $entity_manager;
     protected $translator;
     protected $user_factory;
     protected $time_keeper;
     private $user_handler;
     private $asset;
-
-    const ErrorAvatarBackendUnavailable      = ErrorHelper::BaseAvatarErrors +  1;
-    const ErrorAvatarTooLarge                = ErrorHelper::BaseAvatarErrors +  2;
-    const ErrorAvatarFormatUnsupported       = ErrorHelper::BaseAvatarErrors +  3;
-    const ErrorAvatarImageBroken             = ErrorHelper::BaseAvatarErrors +  4;
-    const ErrorAvatarResolutionUnacceptable  = ErrorHelper::BaseAvatarErrors +  5;
-    const ErrorAvatarProcessingFailed        = ErrorHelper::BaseAvatarErrors +  6;
-    const ErrorAvatarInsufficientCompression = ErrorHelper::BaseAvatarErrors +  7;
-    const ErrorUserEditPasswordIncorrect     = ErrorHelper::BaseAvatarErrors +  8;
-    const ErrorTwinImportInvalidResponse     = ErrorHelper::BaseAvatarErrors +  9;
-    const ErrorTwinImportNoToken             = ErrorHelper::BaseAvatarErrors + 10;
-    const ErrorTwinImportProfileMismatch     = ErrorHelper::BaseAvatarErrors + 11;
-    const ErrorTwinImportProfileInUse        = ErrorHelper::BaseAvatarErrors + 12;
 
     public function __construct(EntityManagerInterface $em, UserFactory $uf, Packages $a, UserHandler $uh, TimeKeeperService $tk, TranslatorInterface $translator)
     {
@@ -731,12 +725,11 @@ class SoulController extends AbstractController
      * @param JSONRequestParser $parser
      * @return Response
      */
-    public function soul_settings_avatar(JSONRequestParser $parser): Response {
-
-        if (!extension_loaded('imagick')) return AjaxResponse::error(self::ErrorAvatarBackendUnavailable );
+    public function soul_settings_avatar(JSONRequestParser $parser, ConfMaster $conf): Response {
 
         $payload = $parser->get_base64('image', null);
         $upload = (int)$parser->get('up', 1);
+        $mime = $parser->get('mime', null);
 
         /** @var User $user */
         $user = $this->getUser();
@@ -744,82 +737,13 @@ class SoulController extends AbstractController
         if ($upload) {
 
             if (!$payload) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
-            // Processing limit: 3MB
-            if (strlen( $payload ) > 3145728) return AjaxResponse::error( self::ErrorAvatarTooLarge );
-
-            $im_image = new Imagick();
-            $processed_image_data = null;
-
-            try {
-                if (!$im_image->readImageBlob($payload))
-                    return AjaxResponse::error( self::ErrorAvatarImageBroken );
-
-                if (!in_array($im_image->getImageFormat(), ['GIF','JPEG','BMP','PNG','WEBP']))
-                    return AjaxResponse::error( self::ErrorAvatarFormatUnsupported );
-
-                if ($im_image->getImageFormat() === 'GIF') {
-                    $im_image->coalesceImages();
-                    $im_image->resetImagePage('0x0');
-                    $im_image->setFirstIterator();
-                }
-
-                $w = $im_image->getImageWidth();
-                $h = $im_image->getImageHeight();
-
-                if ($w / $h < 0.1 || $h / $w < 0.1 || $h < 16 || $w < 16)
-                    return AjaxResponse::error( self::ErrorAvatarResolutionUnacceptable, [$w,$h,$im_image->getImageFormat() ] );
-
-                if ( (max($w,$h) > 200 || min($w,$h < 90)) &&
-                    !$im_image->resizeImage(
-                        min(200,max(90,$w,$h)),
-                        min(200,max(90,$w,$h)),
-                        imagick::FILTER_SINC, 1, true )
-                ) return AjaxResponse::error( self:: ErrorAvatarProcessingFailed );
-
-                if ($im_image->getImageFormat() === 'GIF')
-                    $im_image->setFirstIterator();
-
-                $w_final = $im_image->getImageWidth();
-                $h_final = $im_image->getImageHeight();
-
-                switch ($im_image->getImageFormat()) {
-                    case 'JPEG':
-                        $im_image->setImageCompressionQuality ( 90 );
-                        break;
-                    case 'PNG':
-                        $im_image->setOption('png:compression-level', 9);
-                        break;
-                    case 'GIF':
-                        $im_image->setOption('optimize', true);
-                        break;
-                    default: break;
-                }
-
-                $processed_image_data = $im_image->getImagesBlob();
-                if (strlen($processed_image_data) > 1048576) return AjaxResponse::error( self::ErrorAvatarInsufficientCompression );
-            } catch (Exception $e) {
-                return AjaxResponse::error( self::ErrorAvatarProcessingFailed );
-            }
-
-            if (!($avatar = $user->getAvatar())) {
-                $avatar = new Avatar();
-                $user->setAvatar($avatar);
-            }
-
-            $name = md5( $processed_image_data );
-
-            $avatar
-                ->setChanged(new DateTime())
-                ->setFilename( $name )
-                ->setSmallName( $name )
-                ->setFormat( strtolower( $im_image->getImageFormat() ) )
-                ->setImage( $processed_image_data )
-                ->setX( $w_final )
-                ->setY( $h_final )
-                ->setSmallImage( null );
+            
+            $raw_processing = $conf->getGlobalConf()->get(MyHordesConf::CONF_RAW_AVATARS, false);
+            $error = $this->user_handler->setUserBaseAvatar($user, $payload, $raw_processing ? UserHandler::ImageProcessingPreferImagick : UserHandler::ImageProcessingForceImagick, $raw_processing ? $mime : null);
+            if ($error !== UserHandler::NoError)
+                return AjaxResponse::error($error);
 
             $this->entity_manager->persist( $user );
-            $this->entity_manager->persist( $avatar );
         } elseif ($user->getAvatar()) {
 
             $this->entity_manager->remove($user->getAvatar());
@@ -842,7 +766,6 @@ class SoulController extends AbstractController
      */
     public function soul_settings_small_avatar(JSONRequestParser $parser): Response
     {
-
         if (!$parser->has_all(['x', 'y', 'dx', 'dy'], false))
             return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
@@ -853,57 +776,10 @@ class SoulController extends AbstractController
 
         /** @var User $user */
         $user = $this->getUser();
-        $avatar = $user->getAvatar();
+        $error = $this->user_handler->setUserSmallAvatar($user, null, $x, $y, $dx, $dy);
+        if ($error !== UserHandler::NoError) return AjaxResponse::error( $error );
 
-        if (!$avatar || $avatar->isClassic())
-            return AjaxResponse::error(ErrorHelper::ErrorActionNotAvailable);
-
-        if (
-            $x < 0 || $dx < 0 || $x + $dx > $avatar->getX() ||
-            $y < 0 || $dy < 0 || $y + $dy > $avatar->getY()
-        ) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest, [$x,$y,$dx,$dy,$avatar->getX(),$avatar->getY()]);
-
-        $im_image = new Imagick();
-        $processed_image_data = null;
-
-        try {
-            if (!$im_image->readImageBlob(stream_get_contents( $avatar->getImage() )))
-                return AjaxResponse::error(self::ErrorAvatarImageBroken);
-
-            $im_image->setFirstIterator();
-
-            if (!$im_image->cropImage( $dx, $dy, $x, $y ))
-                return AjaxResponse::error(self::ErrorAvatarProcessingFailed);
-
-            $im_image->setFirstIterator();
-
-            $iw = $im_image->getImageWidth(); $ih = $im_image->getImageHeight();
-            if ($iw < 90 || $ih < 30 || ($ih/$iw != 3)) {
-                $new_height = max(30,$ih);
-                $new_width = $new_height * 3;
-                if (!$im_image->resizeImage(
-                    $new_width, $new_height,
-                    imagick::FILTER_SINC, 1, true ))
-                    return AjaxResponse::error(self::ErrorAvatarProcessingFailed);
-            }
-
-            if ($im_image->getImageFormat() === 'GIF')
-                $im_image->setOption('optimize', true);
-
-            $processed_image_data = $im_image->getImagesBlob();
-            if (strlen($processed_image_data) > 1048576) return AjaxResponse::error( self::ErrorAvatarInsufficientCompression );
-
-        } catch (Exception $e) {
-            return AjaxResponse::error( self::ErrorAvatarProcessingFailed );
-        }
-
-        $name = md5( (new DateTime())->getTimestamp() );
-
-        $avatar
-            ->setSmallName( $name )
-            ->setSmallImage( $processed_image_data );
-
-        $this->entity_manager->persist($avatar);
+        $this->entity_manager->persist($user);
 
         try {
             $this->entity_manager->flush();

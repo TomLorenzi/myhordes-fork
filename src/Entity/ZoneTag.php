@@ -2,13 +2,14 @@
 
 namespace App\Entity;
 
+use App\Interfaces\NamedEntity;
 use App\Repository\ZoneTagRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity(repositoryClass=ZoneTagRepository::class)
  */
-class ZoneTag
+class ZoneTag implements NamedEntity
 {
     const TagNone           = 0;
     const TagHelp           = 1;
