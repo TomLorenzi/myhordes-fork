@@ -11574,5 +11574,14 @@
         <target><![CDATA[La colonne de gauche présente les <strong>actions permises par vos objets</strong>. Celle de droite montre le <strong>contenu de votre sac à dos</strong> et <strong>de votre coffre de maison</strong>.]]></target>
       </segment>
     </unit>
+    <unit id="JZddhDT" name="dbe4ae4">
+      <notes>
+        <note category="german">Fangt schon mal an zu beten, Bürger - die Zombies werden um Mitternacht angreifen!</note>
+      </notes>
+      <segment>
+        <source>Fangt schon mal an zu beten, Bürger - die Zombies werden um Mitternacht angreifen!</source>
+        <target>Commencez à serrer les fesses citoyens, les zombies attaqueront ce soir à minuit !</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

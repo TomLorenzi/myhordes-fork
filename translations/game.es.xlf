@@ -11497,5 +11497,14 @@
         <target><![CDATA[La columna de la izquierda presenta las <strong>acciones que puedes realizar</strong>. La de la derecha muestra el <strong>contenido de tu mochila</strong> y <strong>del baúl de tu casa</strong>.]]></target>
       </segment>
     </unit>
+    <unit id="JZddhDT" name="dbe4ae4">
+      <notes>
+        <note category="german">Fangt schon mal an zu beten, Bürger - die Zombies werden um Mitternacht angreifen!</note>
+      </notes>
+      <segment>
+        <source>Fangt schon mal an zu beten, Bürger - die Zombies werden um Mitternacht angreifen!</source>
+        <target>Fangt schon mal an zu beten, Bürger - die Zombies werden um Mitternacht angreifen!</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

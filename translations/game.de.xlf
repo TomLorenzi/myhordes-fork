@@ -11503,5 +11503,14 @@
         <target><![CDATA[In der linken Spalte werden alle Aktionen und Handlungen dargestellt, die du <strong>mit deinen Gegenständen ausführen kannst</strong>. In der rechten Spalte kannst du den <strong>Inhalt deines Rucksacks</strong> und <strong>deiner Truhe</strong> ansehen.]]></target>
       </segment>
     </unit>
+    <unit id="JZddhDT" name="dbe4ae4">
+      <notes>
+        <note category="german">Fangt schon mal an zu beten, Bürger - die Zombies werden um Mitternacht angreifen!</note>
+      </notes>
+      <segment>
+        <source>Fangt schon mal an zu beten, Bürger - die Zombies werden um Mitternacht angreifen!</source>
+        <target>Fangt schon mal an zu beten, Bürger - die Zombies werden um Mitternacht angreifen!</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
