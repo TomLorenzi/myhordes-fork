@@ -652,7 +652,7 @@ class BeyondFixtures extends Fixture implements DependentFixtureInterface
             array('item' => 'courroie_#00','count' => 1),
             array('item' => 'repair_one_#00','count' => 1),
         ], 'desc' => 'Was hier passiert ist erschließt sich dir nicht so ganz... Ein riesiger Felsen ist mit voller Wucht auf die Straße geschleudert worden - doch woher kam er? Rings um dich ist nichts als Wüste...'],
-        ["label" => "Verwilderter Park",'icon' => 'park',"camping" => 7,"min_dist" => 4, "max_dist" => 7 "chance" => 102, "drops" => [
+        ["label" => "Verwilderter Park",'icon' => 'park',"camping" => 7,"min_dist" => 4, "max_dist" => 7, "chance" => 102, "drops" => [
             array('item' => 'watergun_empty_#00','count' => 12),
             array('item' => 'vegetable_#00','count' => 11),
             array('item' => 'pet_snake_#00','count' => 5),
