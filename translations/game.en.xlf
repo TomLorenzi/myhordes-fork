@@ -9299,4 +9299,2167 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
         <target>Write to:</target>
       </segment>
     </unit>
-    <unit id="Z14T1QO" name
+    <unit id="Z14T1QO" name="Bürgerverzeichnis anszeigen">
+      <notes>
+        <note category="german">Bürgerverzeichnis anszeigen</note>
+      </notes>
+      <segment>
+        <source>Bürgerverzeichnis anszeigen</source>
+        <target>Show list of citizens</target>
+      </segment>
+    </unit>
+    <unit id="yTzI33f" name="Dieser Nachricht Gegenstände beifügen">
+      <notes>
+        <note category="german">Dieser Nachricht Gegenstände beifügen</note>
+      </notes>
+      <segment>
+        <source>Dieser Nachricht Gegenstände beifügen</source>
+        <target>Send gifts!</target>
+      </segment>
+    </unit>
+    <unit id="xcRoAOS" name="Betreff:">
+      <notes>
+        <note category="german">Betreff:</note>
+      </notes>
+      <segment>
+        <source>Betreff:</source>
+        <target>Subject:</target>
+      </segment>
+    </unit>
+    <unit id="cvWytR6" name="Ich BESTÄTIGE meine Nachricht">
+      <notes>
+        <note category="german">Ich BESTÄTIGE meine Nachricht</note>
+      </notes>
+      <segment>
+        <source>Ich BESTÄTIGE meine Nachricht</source>
+        <target>I have CHECKED this message. CONTINUE</target>
+      </segment>
+    </unit>
+    <unit id="iZeG0XJ" name="Neue globale Nachricht">
+      <notes>
+        <note category="german">Neue globale Nachricht</note>
+      </notes>
+      <segment>
+        <source>Neue globale Nachricht</source>
+        <target>New global message</target>
+      </segment>
+    </unit>
+    <unit id="BSzCHEk" name="Einige gesundheitliche Askekte deines Opfers sind auf dich übergegangen ...">
+      <notes>
+        <note category="german">Einige gesundheitliche Askekte deines Opfers sind auf dich übergegangen ...</note>
+      </notes>
+      <segment>
+        <source>Einige gesundheitliche Askekte deines Opfers sind auf dich übergegangen ...</source>
+        <target>Some of your victim's health issues have passed to you ...</target>
+      </segment>
+    </unit>
+    <unit id="SKbA9D2" name="2a20efa">
+      <notes>
+        <note category="german">Wenn du anfängst zu gehen, greift ein sehr starker Schmerz in dein Bein. Du fällst stöhnend zu Boden. Man verliert eine Aktion...</note>
+      </notes>
+      <segment>
+        <source>Wenn du anfängst zu gehen, greift ein sehr starker Schmerz in dein Bein. Du fällst stöhnend zu Boden. Man verliert eine Aktion...</source>
+        <target>En commençant à marcher, une douleur très vive s'empare de votre jambe. Vous tombez à terre en gémissant. Vous perdez une action...</target>
+      </segment>
+    </unit>
+    <unit id="4gAjVQX" name="Verlassener Bunker">
+      <notes>
+        <note category="german">Verlassener Bunker</note>
+      </notes>
+      <segment>
+        <source>Verlassener Bunker</source>
+        <target>Abandonned Bunker</target>
+      </segment>
+    </unit>
+    <unit id="BRZGIi8" name="8183632">
+      <notes>
+        <note category="german">Diese heruntergekommene Gebäude scheint einmal ein Bunker gewesen zu sein. Du entdeckst einen Einstieg ins Gebäude, modriger Gestank schlägt dir entgegen. Du verziehst das Gesicht, aber hier könntest du mit ziemlicher Sicherheit etwas Nützliches finden...</note>
+      </notes>
+      <segment>
+        <source>Diese heruntergekommene Gebäude scheint einmal ein Bunker gewesen zu sein. Du entdeckst einen Einstieg ins Gebäude, modriger Gestank schlägt dir entgegen. Du verziehst das Gesicht, aber hier könntest du mit ziemlicher Sicherheit etwas Nützliches finden...</source>
+        <target>Bunkers are old refuges built by the military to contain the pandemic. If the soldiers at the time were still human, they would surely have advised their officers against trying to "educate" the first carriers of the virus.</target>
+      </segment>
+    </unit>
+    <unit id="oxlDhWv" name="Verlassenes Hotel">
+      <notes>
+        <note category="german">Verlassenes Hotel</note>
+      </notes>
+      <segment>
+        <source>Verlassenes Hotel</source>
+        <target>Abandonned Hotel</target>
+      </segment>
+    </unit>
+    <unit id="hP.60KS" name="150bce3">
+      <notes>
+        <note category="german">Diese heruntergekommene Gebäude scheint einmal ein Hotel gewesen zu sein. Du entdeckst einen Einstieg ins Gebäude, modriger Gestank schlägt dir entgegen. Du verziehst das Gesicht, aber hier könntest du mit ziemlicher Sicherheit etwas Nützliches finden...</note>
+      </notes>
+      <segment>
+        <source>Diese heruntergekommene Gebäude scheint einmal ein Hotel gewesen zu sein. Du entdeckst einen Einstieg ins Gebäude, modriger Gestank schlägt dir entgegen. Du verziehst das Gesicht, aber hier könntest du mit ziemlicher Sicherheit etwas Nützliches finden...</source>
+        <target>Ce bâtiment délabré semble avoir été un hôtel. Vous découvrez une entrée dans le bâtiment, une odeur de moisi vous frappe. Vous faites la grimace, mais vous pourriez presque certainement trouver quelque chose d'utile ici...</target>
+      </segment>
+    </unit>
+    <unit id="rnmrpxG" name="Verlassenes Hospital">
+      <notes>
+        <note category="german">Verlassenes Hospital</note>
+      </notes>
+      <segment>
+        <source>Verlassenes Hospital</source>
+        <target>Abandonned Hospital</target>
+      </segment>
+    </unit>
+    <unit id="PAKqkOM" name="1a6b1bb">
+      <notes>
+        <note category="german">Diese heruntergekommene Gebäude scheint einmal ein Hospital gewesen zu sein. Du entdeckst einen Einstieg ins Gebäude, modriger Gestank schlägt dir entgegen. Du verziehst das Gesicht, aber hier könntest du mit ziemlicher Sicherheit etwas Nützliches finden...</note>
+      </notes>
+      <segment>
+        <source>Diese heruntergekommene Gebäude scheint einmal ein Hospital gewesen zu sein. Du entdeckst einen Einstieg ins Gebäude, modriger Gestank schlägt dir entgegen. Du verziehst das Gesicht, aber hier könntest du mit ziemlicher Sicherheit etwas Nützliches finden...</source>
+        <target>Ce bâtiment délabré semble avoir été un hôpital. Vous découvrez une entrée dans le bâtiment, une odeur de moisi vous frappe. Vous faites la grimace, mais vous pourriez presque certainement trouver quelque chose d'utile ici...</target>
+      </segment>
+    </unit>
+    <unit id="Ijn0xpZ" name="%ruin% betreten">
+      <notes>
+        <note category="german">%ruin% betreten</note>
+      </notes>
+      <segment>
+        <source>%ruin% betreten</source>
+        <target>Enter in %ruin%</target>
+      </segment>
+    </unit>
+    <unit id="ha9MEDo" name="Eine Nachricht hinterlassen">
+      <notes>
+        <note category="german">Eine Nachricht hinterlassen</note>
+      </notes>
+      <segment>
+        <source>Eine Nachricht hinterlassen</source>
+        <target>Leave a note on their door</target>
+      </segment>
+    </unit>
+    <unit id="mhOu8ZN" name="Klick auf die Gegenstände, die du dieser Nachricht beifügen möchtest:">
+      <notes>
+        <note category="german">Klick auf die Gegenstände, die du dieser Nachricht beifügen möchtest:</note>
+      </notes>
+      <segment>
+        <source>Klick auf die Gegenstände, die du dieser Nachricht beifügen möchtest:</source>
+        <target>Click on the objects you wish to send with this message:</target>
+      </segment>
+    </unit>
+    <unit id="yr_pQQL" name="Folgende Gegenstände werden mitgesendet:">
+      <notes>
+        <note category="german">Folgende Gegenstände werden mitgesendet:</note>
+      </notes>
+      <segment>
+        <source>Folgende Gegenstände werden mitgesendet:</source>
+        <target>The following objects will be sent:</target>
+      </segment>
+    </unit>
+    <unit id="PyKRkrf" name="Kein Gegenstand beigefügt...">
+      <notes>
+        <note category="german">Kein Gegenstand beigefügt...</note>
+      </notes>
+      <segment>
+        <source>Kein Gegenstand beigefügt...</source>
+        <target>No objects attached...</target>
+      </segment>
+    </unit>
+    <unit id="Qg_Rwo3" name="c7efaf6">
+      <notes>
+        <note category="german">Du hast mit dieser Nachricht folgende Gegenstände erhalten. Sie müssten sich in deiner Truhe befinden (insofern noch niemand vor dir vorbei geschaut hat... ).</note>
+      </notes>
+      <segment>
+        <source>Du hast mit dieser Nachricht folgende Gegenstände erhalten. Sie müssten sich in deiner Truhe befinden (insofern noch niemand vor dir vorbei geschaut hat... ).</source>
+        <target>The following objects have been sent with this message. They should be in your chest ( assuming nobody has stopped by in the meantime... ).</target>
+      </segment>
+    </unit>
+    <unit id="YrqIO5c" name="Meine Nachrichten lesen.">
+      <notes>
+        <note category="german">Meine Nachrichten lesen.</note>
+      </notes>
+      <segment>
+        <source>Meine Nachrichten lesen.</source>
+        <target>Read my messages.</target>
+      </segment>
+    </unit>
+    <unit id="bYjLN7a" name="Draußen">
+      <notes>
+        <note category="german">Draußen</note>
+      </notes>
+      <segment>
+        <source>Draußen</source>
+        <target>Outside</target>
+      </segment>
+    </unit>
+    <unit id="3SUo7We" name="in der Stadt oder am Stadttor">
+      <notes>
+        <note category="german">in der Stadt oder am Stadttor</note>
+      </notes>
+      <segment>
+        <source>in der Stadt oder am Stadttor</source>
+        <target>in town or at the gates</target>
+      </segment>
+    </unit>
+    <unit id="fICCxje" name="Seine Seele ansehen">
+      <notes>
+        <note category="german">Seine Seele ansehen</note>
+      </notes>
+      <segment>
+        <source>Seine Seele ansehen</source>
+        <target>See their soul</target>
+      </segment>
+    </unit>
+    <unit id=".JWT0sC" name="Zonenmarkierer">
+      <notes>
+        <note category="german">Zonenmarkierer</note>
+      </notes>
+      <segment>
+        <source>Zonenmarkierer</source>
+        <target>Zone marker</target>
+      </segment>
+    </unit>
+    <unit id="dY6rVb6" name="Tor ist offen!">
+      <notes>
+        <note category="german">Tor ist offen!</note>
+      </notes>
+      <segment>
+        <source>Tor ist offen!</source>
+        <target>Gates are open!</target>
+      </segment>
+    </unit>
+    <unit id="1cEye.o" name="Zombies sind eingedrungen.">
+      <notes>
+        <note category="german">Zombies sind eingedrungen.</note>
+      </notes>
+      <segment>
+        <source>Zombies sind eingedrungen.</source>
+        <target>zombies got through!</target>
+      </segment>
+    </unit>
+    <unit id="ojehKlj" name="vor Angst erstarrt">
+      <notes>
+        <note category="german">vor Angst erstarrt</note>
+      </notes>
+      <segment>
+        <source>vor Angst erstarrt</source>
+        <target>frozen with fear</target>
+      </segment>
+    </unit>
+    <unit id="9NwZjWy" name="Teilnehmen">
+      <notes>
+        <note category="german">Teilnehmen</note>
+      </notes>
+      <segment>
+        <source>Teilnehmen</source>
+        <target>Help out!</target>
+      </segment>
+    </unit>
+    <unit id="MBMsiX2" name="Du wirst heute Nacht sterben!">
+      <notes>
+        <note category="german">Du wirst heute Nacht sterben!</note>
+      </notes>
+      <segment>
+        <source>Du wirst heute Nacht sterben!</source>
+        <target>You will die2nite!</target>
+      </segment>
+    </unit>
+    <unit id="vfCiVvC" name="Die letzte Zeitung lesen">
+      <notes>
+        <note category="german">Die letzte Zeitung lesen</note>
+      </notes>
+      <segment>
+        <source>Die letzte Zeitung lesen</source>
+        <target>Read the last gazette</target>
+      </segment>
+    </unit>
+    <unit id="6kQh7Rd" name="Stadtverteidigung">
+      <notes>
+        <note category="german">Stadtverteidigung</note>
+      </notes>
+      <segment>
+        <source>Stadtverteidigung</source>
+        <target>Defence points</target>
+      </segment>
+    </unit>
+    <unit id="75J9B.d" name="Details ansehen">
+      <notes>
+        <note category="german">Details ansehen</note>
+      </notes>
+      <segment>
+        <source>Details ansehen</source>
+        <target>Details infos</target>
+      </segment>
+    </unit>
+    <unit id="YuJzi8m" name="Basisverteidigung">
+      <notes>
+        <note category="german">Basisverteidigung</note>
+      </notes>
+      <segment>
+        <source>Basisverteidigung</source>
+        <target>Base defence</target>
+      </segment>
+    </unit>
+    <unit id="D3XPl3x" name="Es besteht die Chance das Objekt während des Angriffs zu zerbrechen!">
+      <notes>
+        <note category="german">Es besteht die Chance das Objekt während des Angriffs zu zerbrechen!</note>
+      </notes>
+      <segment>
+        <source>Es besteht die Chance das Objekt während des Angriffs zu zerbrechen!</source>
+        <target>There is a chance of breaking the object during the attack!</target>
+      </segment>
+    </unit>
+    <unit id="8qoI_l9" name="Es besteht die Chance das Objekt während des Angriffs zu verlieren!">
+      <notes>
+        <note category="german">Es besteht die Chance das Objekt während des Angriffs zu verlieren!</note>
+      </notes>
+      <segment>
+        <source>Es besteht die Chance das Objekt während des Angriffs zu verlieren!</source>
+        <target>There is a chance of losing the object during the attack!</target>
+      </segment>
+    </unit>
+    <unit id="Qvknk8Z" name="%citizen% hat es Regnen lassen und damit %kills% Zombies erledigt.">
+      <notes>
+        <note category="german">%citizen% hat es Regnen lassen und damit %kills% Zombies erledigt.</note>
+      </notes>
+      <segment>
+        <source>%citizen% hat es Regnen lassen und damit %kills% Zombies erledigt.</source>
+        <target>%citizen% made it rain and killed %kills% Zombies.</target>
+      </segment>
+    </unit>
+    <unit id="KVApIB1" name="Lage">
+      <notes>
+        <note category="german">Lage</note>
+      </notes>
+      <segment>
+        <source>Lage</source>
+        <target>Status</target>
+      </segment>
+    </unit>
+    <unit id="0jW7cq9" name="Stadttor geöffnet">
+      <notes>
+        <note category="german">Stadttor geöffnet</note>
+      </notes>
+      <segment>
+        <source>Stadttor geöffnet</source>
+        <target>Gates open</target>
+      </segment>
+    </unit>
+    <unit id="_DKPL9S" name="Wer ist draußen?">
+      <notes>
+        <note category="german">Wer ist draußen?</note>
+      </notes>
+      <segment>
+        <source>Wer ist draußen?</source>
+        <target>Who is outside?</target>
+      </segment>
+    </unit>
+    <unit id="rRAcec3" name="Stadttor geschlossen">
+      <notes>
+        <note category="german">Stadttor geschlossen</note>
+      </notes>
+      <segment>
+        <source>Stadttor geschlossen</source>
+        <target>Gates closed</target>
+      </segment>
+    </unit>
+    <unit id="A7ZG3D1" name="2d5f077">
+      <notes>
+        <note category="german">Unsere Verteidigung dürfte ausreichen, zumindest einen Teil des Angriffs heute Nacht abzuwehren.</note>
+      </notes>
+      <segment>
+        <source>Unsere Verteidigung dürfte ausreichen, zumindest einen Teil des Angriffs heute Nacht abzuwehren.</source>
+        <target>Our defences may be able to withstand part of the coming attack.</target>
+      </segment>
+    </unit>
+    <unit id="9cNHWGl" name="Seelenpunkte">
+      <notes>
+        <note category="german">Seelenpunkte</note>
+      </notes>
+      <segment>
+        <source>Seelenpunkte</source>
+        <target>Soul Value</target>
+      </segment>
+    </unit>
+    <unit id="bjhWQ9o" name="Anzahl der Seelenpunkte, die du durch deine Inkarnationen erhalten hast.">
+      <notes>
+        <note category="german">Anzahl der Seelenpunkte, die du durch deine Inkarnationen erhalten hast.</note>
+      </notes>
+      <segment>
+        <source>Anzahl der Seelenpunkte, die du durch deine Inkarnationen erhalten hast.</source>
+        <target>The number of soul points you have accumulated in the course of your many lives.</target>
+      </segment>
+    </unit>
+    <unit id="k9H0y76" name="d772640">
+      <notes>
+        <note category="german">Der Bürger %citizen% hat ein geheimes Versteck gefunden (vermutlich das eines verbannten Mitbürgers)! Es enthielt %items%.</note>
+      </notes>
+      <segment>
+        <source>Der Bürger %citizen% hat ein geheimes Versteck gefunden (vermutlich das eines verbannten Mitbürgers)! Es enthielt %items%.</source>
+        <target>The citizen %citizen% found a secret hiding place (presumably that of an exiled fellow citizen)! It contained %items%..</target>
+      </segment>
+    </unit>
+    <unit id="UWWvoug" name="e164c18">
+      <notes>
+        <note category="german">Du brauchst eine Weile, bis du alle Gegenstände versteckt hast, die du bei dir trägst... Ha Ha... Du hast 2 Aktionspunkte verbraucht.</note>
+      </notes>
+      <segment>
+        <source>Du brauchst eine Weile, bis du alle Gegenstände versteckt hast, die du bei dir trägst... Ha Ha... Du hast 2 Aktionspunkte verbraucht.</source>
+        <target>It will take you a while to hide all the items you carry with you ... Ha Ha ... You used up 2 action points.</target>
+      </segment>
+    </unit>
+    <unit id="ZgukXzf" name="Deine Nachricht und deine ausgewählten Gegenstände wurden überbracht.">
+      <notes>
+        <note category="german">Deine Nachricht und deine ausgewählten Gegenstände wurden überbracht.</note>
+      </notes>
+      <segment>
+        <source>Deine Nachricht und deine ausgewählten Gegenstände wurden überbracht.</source>
+        <target>Your message has been sent along with the objects you chose.</target>
+      </segment>
+    </unit>
+    <unit id="F71fElc" name="f8178fb">
+      <notes>
+        <note category="german">Beim Graben bist du auf eine Art... geheimes Versteck mit %items% gestoßen! Es wurde vermutlich von einem verbannten Mitbürger angelegt...</note>
+      </notes>
+      <segment>
+        <source>Beim Graben bist du auf eine Art... geheimes Versteck mit %items% gestoßen! Es wurde vermutlich von einem verbannten Mitbürger angelegt...</source>
+        <target>When digging you came across a kind of ... secret hiding place with %items%! It was probably created by an exiled fellow citizen ...</target>
+      </segment>
+    </unit>
+    <unit id="29AAorN" name="Rucksack verstecken">
+      <notes>
+        <note category="german">Rucksack verstecken</note>
+      </notes>
+      <segment>
+        <source>Rucksack verstecken</source>
+        <target>Hide rucksack</target>
+      </segment>
+    </unit>
+    <unit id="yBmpXGO" name="Behausung wiederverwerten">
+      <notes>
+        <note category="german">Behausung wiederverwerten</note>
+      </notes>
+      <segment>
+        <source>Behausung wiederverwerten</source>
+        <target>Recycle</target>
+      </segment>
+    </unit>
+    <unit id="oeQUUdA" name="Und wieder 'ne Leiche weniger! %citizen% wurde von † %disposed% entsorgt!">
+      <notes>
+        <note category="german">Und wieder 'ne Leiche weniger! %disposed% wurde von † %citizen% entsorgt!</note>
+      </notes>
+      <segment>
+        <source>Und wieder 'ne Leiche weniger! %citizen% wurde von † %disposed% entsorgt!</source>
+        <target>That's one body less! † %disposed% has been thrown out by %citizen%!</target>
+      </segment>
+    </unit>
+    <unit id="E0yx4Bm" name="%citizen% hat mit etwas Wasser † %disposed% &quot;verbrannt&quot;.">
+      <notes>
+        <note category="german">%citizen% hat mit etwas Wasser † %disposed% "verbrannt".</note>
+      </notes>
+      <segment>
+        <source>%citizen% hat mit etwas Wasser † %disposed% "verbrannt".</source>
+        <target>%citizen% has used water to burn † %disposed%'s corpse.</target>
+      </segment>
+    </unit>
+    <unit id="aKJtN4V" name="Tipp-Ex">
+      <notes>
+        <note category="german">Tipp-Ex</note>
+      </notes>
+      <segment>
+        <source>Tipp-Ex</source>
+        <target>Manipulator</target>
+      </segment>
+    </unit>
+    <unit id="N7td9of" name="ca2c228">
+      <notes>
+        <note category="german">Du kannst 2 Mal pro Partie einen Registereintrag unkenntlich machen. Dazu musst du nur auf das kleine Icon "Fälschen" klicken. Dieses befindet sich links neben dem "störenden" Registereintrag. ;-)</note>
+      </notes>
+      <segment>
+        <source>Du kannst 2 Mal pro Partie einen Registereintrag unkenntlich machen. Dazu musst du nur auf das kleine Icon "Fälschen" klicken. Dieses befindet sich links neben dem "störenden" Registereintrag. ;-)</source>
+        <target>Twice per game, you can delete an entry in the town register (click on the icon alongside the line you wish to delete...).</target>
+      </segment>
+    </unit>
+    <unit id="v3dbrZx" name="Hellseherei">
+      <notes>
+        <note category="german">Hellseherei</note>
+      </notes>
+      <segment>
+        <source>Hellseherei</source>
+        <target>Clairvoyance</target>
+      </segment>
+    </unit>
+    <unit id="K0VcFBE" name="b8e98fb">
+      <notes>
+        <note category="german">Du erfährst, wie aktiv ein bestimmter Bürger in deiner Stadt spielt. Du musst dazu lediglich bei ihm daheim vorbeischauen...</note>
+      </notes>
+      <segment>
+        <source>Du erfährst, wie aktiv ein bestimmter Bürger in deiner Stadt spielt. Du musst dazu lediglich bei ihm daheim vorbeischauen...</source>
+        <target>You know how active and present a player is in the game, simply by going to their house.</target>
+      </segment>
+    </unit>
+    <unit id="Qs6kA06" name="Rundbrief">
+      <notes>
+        <note category="german">Rundbrief</note>
+      </notes>
+      <segment>
+        <source>Rundbrief</source>
+        <target>Mr Writer</target>
+      </segment>
+    </unit>
+    <unit id="mbDhlAW" name="51b58eb">
+      <notes>
+        <note category="german">Mit dieser Funktion kannst du alle Stadteinwohner auf einmal anschreiben. Du kannst damit in den Foren zudem Rollenspielthreads (RP) erstellen (Übertreibe es aber bitte nicht - Danke!).</note>
+      </notes>
+      <segment>
+        <source>Mit dieser Funktion kannst du alle Stadteinwohner auf einmal anschreiben. Du kannst damit in den Foren zudem Rollenspielthreads (RP) erstellen (Übertreibe es aber bitte nicht - Danke!).</source>
+        <target>Now you can send Private Messages to all the citizens in your town at once (from the Messages section in your House). You can also start "RP" threads in the forums (please do not abuse this !).</target>
+      </segment>
+    </unit>
+    <unit id="U85YOFG" name="Freundschaft">
+      <notes>
+        <note category="german">Freundschaft</note>
+      </notes>
+      <segment>
+        <source>Freundschaft</source>
+        <target>Brothers in Arms</target>
+      </segment>
+    </unit>
+    <unit id="vO7Ba8Y" name="2898f7f">
+      <notes>
+        <note category="german">Mit dieser Fähigkeit kannst du 1 Mal pro Partie (Stadt) jemandem einen Heldentag spendieren! Die anderen werden in dir den Messias erkennen! BEACHTE: Verschenkte Heldentage werden dir von deinem Konto abgezogen. Um jemandem einen Heldentag zu schenken, musst mit ihm in der gleichen Zone stehen oder, wenn du in der Stadt bist, ihn daheim besuchen.</note>
+      </notes>
+      <segment>
+        <source>Mit dieser Fähigkeit kannst du 1 Mal pro Partie (Stadt) jemandem einen Heldentag spendieren! Die anderen werden in dir den Messias erkennen! BEACHTE: Verschenkte Heldentage werden dir von deinem Konto abgezogen. Um jemandem einen Heldentag zu schenken, musst mit ihm in der gleichen Zone stehen oder, wenn du in der Stadt bist, ihn daheim besuchen.</source>
+        <target>Once per game, you can give 1 Hero day to a fellow citizen ! Just wait, you'll become a veritable messiah for the masses... NB: any hero days you give away will be taken from your total, simply go to another citizen's page to give them a Hero day. Warning: When you donate a Hero day, it is only valid for THAT DAY. It cannot be saved for another time.</target>
+      </segment>
+    </unit>
+    <unit id="m6rV1sV" name="Diktator">
+      <notes>
+        <note category="german">Diktator</note>
+      </notes>
+      <segment>
+        <source>Diktator</source>
+        <target>Dictator</target>
+      </segment>
+    </unit>
+    <unit id="yIW1YVF" name="9ea7a84">
+      <notes>
+        <note category="german">Schreibe auf die Tafel, die sich auf der Übersichtsseite deiner Stadt befindet. Darüberhinaus kannst du auch deinen Mitbürgern ein Bauprojekt empfehlen. Das Gebäude mit den meisten Empfehlungen wird auf der Bauseite der Stadt hervorgehoben.</note>
+      </notes>
+      <segment>
+        <source>Schreibe auf die Tafel, die sich auf der Übersichtsseite deiner Stadt befindet. Darüberhinaus kannst du auch deinen Mitbürgern ein Bauprojekt empfehlen. Das Gebäude mit den meisten Empfehlungen wird auf der Bauseite der Stadt hervorgehoben.</source>
+        <target>You can change what is written on the blackboard on the town's main page.</target>
+      </segment>
+    </unit>
+    <unit id="aMybzLI" name="Große Truhe">
+      <notes>
+        <note category="german">Große Truhe</note>
+      </notes>
+      <segment>
+        <source>Große Truhe</source>
+        <target>Large Chested</target>
+      </segment>
+    </unit>
+    <unit id="1QRcfVE" name="Du erhältst einen zusätzlichen Platz in deiner Truhe.">
+      <notes>
+        <note category="german">Du erhältst einen zusätzlichen Platz in deiner Truhe.</note>
+      </notes>
+      <segment>
+        <source>Du erhältst einen zusätzlichen Platz in deiner Truhe.</source>
+        <target>You have earned an additional storage space in your personal chest, in your house.</target>
+      </segment>
+    </unit>
+    <unit id="XE_uE8Y" name="Top in Form">
+      <notes>
+        <note category="german">Top in Form</note>
+      </notes>
+      <segment>
+        <source>Top in Form</source>
+        <target>Healthy Body</target>
+      </segment>
+    </unit>
+    <unit id="3THXKcp" name="05dac1f">
+      <notes>
+        <note category="german">Solange du "Clean" bist (sprich: Du hast in der Partie noch keine Drogen zu Dir genommen.), verfügst du über einen zusätzlichen Zonenkontrollpunkt in der Außenwelt.</note>
+      </notes>
+      <segment>
+        <source>Solange du "Clean" bist (sprich: Du hast in der Partie noch keine Drogen zu Dir genommen.), verfügst du über einen zusätzlichen Zonenkontrollpunkt in der Außenwelt.</source>
+        <target>As long as you stay "Clean" (i.e. you haven't taken any drugs), you have 1 additional control point when you're in the World Beyond.</target>
+      </segment>
+    </unit>
+    <unit id="D31zha8" name="Allwissenheit">
+      <notes>
+        <note category="german">Allwissenheit</note>
+      </notes>
+      <segment>
+        <source>Allwissenheit</source>
+        <target>Omniscience</target>
+      </segment>
+    </unit>
+    <unit id="z2i75b9" name="0e67d77">
+      <notes>
+        <note category="german">Allwissenheit funktioniert wie Hellseherei, außer, dass du jetzt eine Übersicht zur Aktivität aller Stadteinwohner bekommst. Klicke dazu in der Bürgerliste einfach auf den Button "Allwissenheit".</note>
+      </notes>
+      <segment>
+        <source>Allwissenheit funktioniert wie Hellseherei, außer, dass du jetzt eine Übersicht zur Aktivität aller Stadteinwohner bekommst. Klicke dazu in der Bürgerliste einfach auf den Button "Allwissenheit".</source>
+        <target>Omniscience works like Clairvoyance, except you will be able to see the details of EVERY citizen from the town directory. Click on the Omniscience tab when looking at the list of citizens.</target>
+      </segment>
+    </unit>
+    <unit id="P.sGRq9" name="Einfallsreichtum">
+      <notes>
+        <note category="german">Einfallsreichtum</note>
+      </notes>
+      <segment>
+        <source>Einfallsreichtum</source>
+        <target>Resourcefulness</target>
+      </segment>
+    </unit>
+    <unit id="IvIWgfV" name="Du beginnst jede neue Stadt mit einem zusätzlichen nützlichen Gegenstand.">
+      <notes>
+        <note category="german">Du beginnst jede neue Stadt mit einem zusätzlichen nützlichen Gegenstand.</note>
+      </notes>
+      <segment>
+        <source>Du beginnst jede neue Stadt mit einem zusätzlichen nützlichen Gegenstand.</source>
+        <target>You will start out in every town with a random useful object.</target>
+      </segment>
+    </unit>
+    <unit id="QOEKzJS" name="Doppelter Boden">
+      <notes>
+        <note category="german">Doppelter Boden</note>
+      </notes>
+      <segment>
+        <source>Doppelter Boden</source>
+        <target>False Bottom</target>
+      </segment>
+    </unit>
+    <unit id="hR9jP7b" name="Du bekommst einen weiteren Platz in deiner Truhe.">
+      <notes>
+        <note category="german">Du bekommst einen weiteren Platz in deiner Truhe.</note>
+      </notes>
+      <segment>
+        <source>Du bekommst einen weiteren Platz in deiner Truhe.</source>
+        <target>You are given an additional storage compartment in your chest.</target>
+      </segment>
+    </unit>
+    <unit id="Y1T4Y0D" name="Schönes Fundstück">
+      <notes>
+        <note category="german">Schönes Fundstück</note>
+      </notes>
+      <segment>
+        <source>Schönes Fundstück</source>
+        <target>Lucky Find</target>
+      </segment>
+    </unit>
+    <unit id="SJGL9Ty" name="a6624c9">
+      <notes>
+        <note category="german">Mit deiner Heldenfähigkeit "Fundstück" stöberst du jetzt NOCH BESSERE Gegenstände auf.</note>
+      </notes>
+      <segment>
+        <source>Mit deiner Heldenfähigkeit "Fundstück" stöberst du jetzt NOCH BESSERE Gegenstände auf.</source>
+        <target>The Seeker heroic action is upgraded by improving the items available.</target>
+      </segment>
+    </unit>
+    <unit id="Pxb1j1P" name="Aufgeräumte Tasche">
+      <notes>
+        <note category="german">Aufgeräumte Tasche</note>
+      </notes>
+      <segment>
+        <source>Aufgeräumte Tasche</source>
+        <target>A place for everything</target>
+      </segment>
+    </unit>
+    <unit id="ukODLao" name="Du bekommst einen zusätzlichen Platz in deinem Rucksack.">
+      <notes>
+        <note category="german">Du bekommst einen zusätzlichen Platz in deinem Rucksack.</note>
+      </notes>
+      <segment>
+        <source>Du bekommst einen zusätzlichen Platz in deinem Rucksack.</source>
+        <target>You have an additional storage compartment in your rucksack.</target>
+      </segment>
+    </unit>
+    <unit id="zV1VWf6" name="Zweite Lunge">
+      <notes>
+        <note category="german">Zweite Lunge</note>
+      </notes>
+      <segment>
+        <source>Zweite Lunge</source>
+        <target>Second wind</target>
+      </segment>
+    </unit>
+    <unit id="eGCPfhk" name="1527d2b">
+      <notes>
+        <note category="german">Du verfügst ab sofort über eine mächtige Heldenfähigkeit, mit der du 6 AP wiederherstellen kannst und die deine Müdigkeit aufhebt.</note>
+      </notes>
+      <segment>
+        <source>Du verfügst ab sofort über eine mächtige Heldenfähigkeit, mit der du 6 AP wiederherstellen kannst und die deine Müdigkeit aufhebt.</source>
+        <target>Now you have an extremely useful power which allows you to restore your energy to 6AP and recover from being Exhausted.</target>
+      </segment>
+    </unit>
+    <unit id="Z9YgscK" name="Weitsichtig">
+      <notes>
+        <note category="german">Weitsichtig</note>
+      </notes>
+      <segment>
+        <source>Weitsichtig</source>
+        <target>Second Breakfast</target>
+      </segment>
+    </unit>
+    <unit id="4pAqmIp" name="Du beginnst jede neue Stadt mit einer zusätzlichen Nahrungsmittelration.">
+      <notes>
+        <note category="german">Du beginnst jede neue Stadt mit einer zusätzlichen Nahrungsmittelration.</note>
+      </notes>
+      <segment>
+        <source>Du beginnst jede neue Stadt mit einer zusätzlichen Nahrungsmittelration.</source>
+        <target>You will start all towns with an additional Doggy Bag of food.</target>
+      </segment>
+    </unit>
+    <unit id="PwnszRH" name="Panzerschrank">
+      <notes>
+        <note category="german">Panzerschrank</note>
+      </notes>
+      <segment>
+        <source>Panzerschrank</source>
+        <target>Brick S**thouse</target>
+      </segment>
+    </unit>
+    <unit id="BY.ydY2" name="53e0ef3">
+      <notes>
+        <note category="german">Dank deiner zahlreichen Zombiekontakte verfügst du in der Außenwelt ab sofort über einen zusätzlichen Zonenkontrollpunkt.</note>
+      </notes>
+      <segment>
+        <source>Dank deiner zahlreichen Zombiekontakte verfügst du in der Außenwelt ab sofort über einen zusätzlichen Zonenkontrollpunkt.</source>
+        <target>Your wealth of experience in the World Beyond has given you a permanent addition of 1 control point.</target>
+      </segment>
+    </unit>
+    <unit id="QTu6jiF" name="Hinterhältigkeit">
+      <notes>
+        <note category="german">Hinterhältigkeit</note>
+      </notes>
+      <segment>
+        <source>Hinterhältigkeit</source>
+        <target>Treachery</target>
+      </segment>
+    </unit>
+    <unit id="PgyVB.w" name="5b80459">
+      <notes>
+        <note category="german">Die "Tipp-Ex" Fähigkeit wird noch besser! Ab sofort kannst du pro Partie (Stadt) noch mehr Registereinträge fälschen! Du kannst ab sofort 4 Mal pro Partie einen Registereintrag unkenntlich machen.</note>
+      </notes>
+      <segment>
+        <source>Die "Tipp-Ex" Fähigkeit wird noch besser! Ab sofort kannst du pro Partie (Stadt) noch mehr Registereinträge fälschen! Du kannst ab sofort 4 Mal pro Partie einen Registereintrag unkenntlich machen.</source>
+        <target>The number of possible Manipulator actions is increased from 2 to 4.</target>
+      </segment>
+    </unit>
+    <unit id="SJBxB2t" name="d8fa451">
+      <notes>
+        <note category="german">Sobald diese neue Heldenfähigkeit aktiviert wurde, spürst du beim nächsten Zombieangriff keinen Durst, keine Drogenabhängigkeit und keine Infektion (nur eine Nacht lang gültig). Verhindert auch Ghulverhungern (Hungerbalken steigt trotzdem).</note>
+      </notes>
+      <segment>
+        <source>Sobald diese neue Heldenfähigkeit aktiviert wurde, spürst du beim nächsten Zombieangriff keinen Durst, keine Drogenabhängigkeit und keine Infektion (nur eine Nacht lang gültig). Verhindert auch Ghulverhungern (Hungerbalken steigt trotzdem).</source>
+        <target>When this is activated, this new power means you will no longer be affected by Status Thirst, Infection or Addiction during the next attack (only lasts for one night).</target>
+      </segment>
+    </unit>
+    <unit id="YOrcnrc" name="Süße Rache">
+      <notes>
+        <note category="german">Süße Rache</note>
+      </notes>
+      <segment>
+        <source>Süße Rache</source>
+        <target>Sweet Revenge</target>
+      </segment>
+    </unit>
+    <unit id="_lMBtWk" name="1db7767">
+      <notes>
+        <note category="german">Solltest du am dritten Tag oder an einem späteren Zeitpunkt verbannt werden, bekommst du automatisch etwas Gift geschenkt, das du nach Belieben einsetzen kannst... Tja, man hätte dich besser nicht ärgern sollen!</note>
+      </notes>
+      <segment>
+        <source>Solltest du am dritten Tag oder an einem späteren Zeitpunkt verbannt werden, bekommst du automatisch etwas Gift geschenkt, das du nach Belieben einsetzen kannst... Tja, man hätte dich besser nicht ärgern sollen!</source>
+        <target>If you are shunned on day 3 or later, you will automatically receive 2 vials of poison with which to exact your revenge... Yeah, they'd better not **** with you now!</target>
+      </segment>
+    </unit>
+    <unit id="teacwpj" name="Proficamper">
+      <notes>
+        <note category="german">Proficamper</note>
+      </notes>
+      <segment>
+        <source>Proficamper</source>
+        <target>Pro Camper</target>
+      </segment>
+    </unit>
+    <unit id="rcmlJ6d" name="ff04338">
+      <notes>
+        <note category="german">Die Nachteile, die bei wiederholtem Campen auftreten, fallen bei dir nicht mehr so stark aus: Somit kannst du in einer Stadt öfter campen.</note>
+      </notes>
+      <segment>
+        <source>Die Nachteile, die bei wiederholtem Campen auftreten, fallen bei dir nicht mehr so stark aus: Somit kannst du in einer Stadt öfter campen.</source>
+        <target>Penalties incurred by repeated camping in the World Beyond are reduced for you: therefore you can camp more often during your time in a town.</target>
+      </segment>
+    </unit>
+    <unit id="0i6IkRd" name="Erfahrener Junkie">
+      <notes>
+        <note category="german">Erfahrener Junkie</note>
+      </notes>
+      <segment>
+        <source>Erfahrener Junkie</source>
+        <target>Preventative Medicine</target>
+      </segment>
+    </unit>
+    <unit id="xQGVw2P" name="Du beginnst jede neue Stadt mit einer Ration Paracetoid 7g in deinem Rucksack.">
+      <notes>
+        <note category="german">Du beginnst jede neue Stadt mit einer Ration Paracetoid 7g in deinem Rucksack.</note>
+      </notes>
+      <segment>
+        <source>Du beginnst jede neue Stadt mit einer Ration Paracetoid 7g in deinem Rucksack.</source>
+        <target>You start out in every town with a sachet of Paracetoid 7g in your rucksack.</target>
+      </segment>
+    </unit>
+    <unit id="Byr6aKi" name="Bürgermeister">
+      <notes>
+        <note category="german">Bürgermeister</note>
+      </notes>
+      <segment>
+        <source>Bürgermeister</source>
+        <target>Mayor</target>
+      </segment>
+    </unit>
+    <unit id="Bkj9zxa" name="b5e7d08">
+      <notes>
+        <note category="german">Du kannst Privatstädte gründen (nach deinem nächsten Tod, auf der Seite "Spielen").</note>
+      </notes>
+      <segment>
+        <source>Du kannst Privatstädte gründen (nach deinem nächsten Tod, auf der Seite "Spielen").</source>
+        <target>You can create private towns by simply clicking "Play", when you are dead.</target>
+      </segment>
+    </unit>
+    <unit id="59iDY2T" name="Architekt">
+      <notes>
+        <note category="german">Architekt</note>
+      </notes>
+      <segment>
+        <source>Architekt</source>
+        <target>Architect</target>
+      </segment>
+    </unit>
+    <unit id="70rMMrW" name="Du beginnst jede Stadt mit einem Gebäudeplan.">
+      <notes>
+        <note category="german">Du beginnst jede Stadt mit einem Gebäudeplan.</note>
+      </notes>
+      <segment>
+        <source>Du beginnst jede Stadt mit einem Gebäudeplan.</source>
+        <target>You begin every town with a Construction Blueprint (common).</target>
+      </segment>
+    </unit>
+    <unit id="I7tDV2L" name="Profiwächter">
+      <notes>
+        <note category="german">Profiwächter</note>
+      </notes>
+      <segment>
+        <source>Profiwächter</source>
+        <target>Pro-Watchman</target>
+      </segment>
+    </unit>
+    <unit id="G12Hlud" name="Du hast permanent um 5% bessere Chancen auf der Nachtwache.">
+      <notes>
+        <note category="german">Du hast permanent um 5% bessere Chancen auf der Nachtwache.</note>
+      </notes>
+      <segment>
+        <source>Du hast permanent um 5% bessere Chancen auf der Nachtwache.</source>
+        <target>You always have 5% better chances at Night Watch.</target>
+      </segment>
+    </unit>
+    <unit id="HYbv76Z" name="32aff0d">
+      <notes>
+        <note category="german">Dieser Registereintrag wurde durchgestrichen und ist nicht mehr lesbar! Wer wollte damit etwas verbergen?</note>
+      </notes>
+      <segment>
+        <source>Dieser Registereintrag wurde durchgestrichen und ist nicht mehr lesbar! Wer wollte damit etwas verbergen?</source>
+        <target>This entry has been falsified: it is now completely illegible! What could they be trying to hide...?</target>
+      </segment>
+    </unit>
+    <unit id="QSPR33z" name="a72b313">
+      <notes>
+        <note category="german">Nicht ganz ekelfrei hat %disposing_citizen% den leblosen Körper von %citizen% entsorgt.</note>
+      </notes>
+      <segment>
+        <source>Nicht ganz ekelfrei hat %disposing_citizen% den leblosen Körper von %citizen% entsorgt.</source>
+        <target>The way %disposing_citizen% got rid of the lifeless body of %citizen% was pretty disgusting.</target>
+      </segment>
+    </unit>
+    <unit id="8xTkhGN" name="3ccf312">
+      <notes>
+        <note category="german">Dank %disposing_citizen% hat sich der Körper von %citizen% in verfaultes Wasser verwandelt.</note>
+      </notes>
+      <segment>
+        <source>Dank %disposing_citizen% hat sich der Körper von %citizen% in verfaultes Wasser verwandelt.</source>
+        <target>Thanks to the best efforts of %disposing_citizen%, %citizen%'s corpse has been reduced to a putrid liquid.</target>
+      </segment>
+    </unit>
+    <unit id="v432R4L" name="Du hast bisher:">
+      <notes>
+        <note category="german">Du hast bisher:</note>
+      </notes>
+      <segment>
+        <source>Du hast bisher:</source>
+        <target>You have amassed:</target>
+      </segment>
+    </unit>
+    <unit id="4dxmR7l" name="%days% Tage">
+      <notes>
+        <note category="german">%days% Tage</note>
+      </notes>
+      <segment>
+        <source>%days% Tage</source>
+        <target>%days% Days</target>
+      </segment>
+    </unit>
+    <unit id="8mlXwLP" name="im Heldenmodus gespielt">
+      <notes>
+        <note category="german">im Heldenmodus gespielt</note>
+      </notes>
+      <segment>
+        <source>im Heldenmodus gespielt</source>
+        <target>of Hero mode</target>
+      </segment>
+    </unit>
+    <unit id="pV4nX2l" name="Fähigkeit">
+      <notes>
+        <note category="german">Fähigkeit</note>
+      </notes>
+      <segment>
+        <source>Fähigkeit</source>
+        <target>Skill</target>
+      </segment>
+    </unit>
+    <unit id="6SYvAH3" name="Beschreibung">
+      <notes>
+        <note category="german">Beschreibung</note>
+      </notes>
+      <segment>
+        <source>Beschreibung</source>
+        <target>Description</target>
+      </segment>
+    </unit>
+    <unit id="1jWc_b3" name="Nächste:">
+      <notes>
+        <note category="german">Nächste:</note>
+      </notes>
+      <segment>
+        <source>Nächste:</source>
+        <target>Next:</target>
+      </segment>
+    </unit>
+    <unit id="luCuBtM" name="Diese Fähigkeit wurde noch nicht freigeschaltet...">
+      <notes>
+        <note category="german">Diese Fähigkeit wurde noch nicht freigeschaltet...</note>
+      </notes>
+      <segment>
+        <source>Diese Fähigkeit wurde noch nicht freigeschaltet...</source>
+        <target>Skill not unlocked...</target>
+      </segment>
+    </unit>
+    <unit id="MTYSMU0" name="Letzter freigeschalteter Heldenvorteil:">
+      <notes>
+        <note category="german">Letzter freigeschalteter Heldenvorteil:</note>
+      </notes>
+      <segment>
+        <source>Letzter freigeschalteter Heldenvorteil:</source>
+        <target>Last power earned:</target>
+      </segment>
+    </unit>
+    <unit id="gwaSbiX" name="Niemand">
+      <notes>
+        <note category="german">Keiner</note>
+      </notes>
+      <segment>
+        <source>Niemand</source>
+        <target>None</target>
+      </segment>
+    </unit>
+    <unit id="oeIpxYX" name="Alle freigeschalteten Vorteile anzeigen">
+      <notes>
+        <note category="german">Alle freigeschalteten Vorteile anzeigen</note>
+      </notes>
+      <segment>
+        <source>Alle freigeschalteten Vorteile anzeigen</source>
+        <target>Show the advantages I've earned</target>
+      </segment>
+    </unit>
+    <unit id="UA1vSp." name="Du nimmst einen Abdruck vom Schloss dieser Tür und erhälst %item%!">
+      <notes>
+        <note category="german">Du nimmst einen Abdruck vom Schloss dieser Tür und erhälst %item%!</note>
+      </notes>
+      <segment>
+        <source>Du nimmst einen Abdruck vom Schloss dieser Tür und erhälst %item%!</source>
+        <target>You take an impression of the lock on this door and receive %item%!</target>
+      </segment>
+    </unit>
+    <unit id="VBTeiIt" name="Du benötigst %item%, um diese Tür zu öffnen.">
+      <notes>
+        <note category="german">Du benötigst %item%, um diese Tür zu öffnen.</note>
+      </notes>
+      <segment>
+        <source>Du benötigst %item%, um diese Tür zu öffnen.</source>
+        <target>You need %item% to open this door.</target>
+      </segment>
+    </unit>
+    <unit id="Rc83IVi" name="Mithilfe des %item% hast du die Tür aufgeschlossen!">
+      <notes>
+        <note category="german">Mithilfe des %item% hast du die Tür aufgeschlossen!</note>
+      </notes>
+      <segment>
+        <source>Mithilfe des %item% hast du die Tür aufgeschlossen!</source>
+        <target>You unlocked the door with the %item%!</target>
+      </segment>
+    </unit>
+    <unit id="ZcFLHOU" name="Sauerstoff">
+      <notes>
+        <note category="german">Sauerstoff</note>
+      </notes>
+      <segment>
+        <source>Sauerstoff</source>
+        <target>Oxygen</target>
+      </segment>
+    </unit>
+    <unit id="EaUf6Ab" name="%z% Zombies blockieren den Weg!">
+      <notes>
+        <note category="german">%z% Zombies blockieren den Weg!</note>
+      </notes>
+      <segment>
+        <source>%z% Zombies blockieren den Weg!</source>
+        <target>%z% Zombies are blocking the way!</target>
+      </segment>
+    </unit>
+    <unit id="M1qRyRo" name="75469b8">
+      <notes>
+        <note category="german">Du wurdest überrascht und bist jetzt von den Zombies umzingelt! Du kannst flüchten, allerdings wirst du dadurch zusätzlichen Sauerstoff verbrauchen ...</note>
+      </notes>
+      <segment>
+        <source>Du wurdest überrascht und bist jetzt von den Zombies umzingelt! Du kannst flüchten, allerdings wirst du dadurch zusätzlichen Sauerstoff verbrauchen ...</source>
+        <target>You were surprised and are now surrounded by the zombies! You can escape, but you will use additional oxygen ...</target>
+      </segment>
+    </unit>
+    <unit id="RZlip1S" name="Flüchten">
+      <notes>
+        <note category="german">Flüchten</note>
+      </notes>
+      <segment>
+        <source>Flüchten</source>
+        <target>Flee</target>
+      </segment>
+    </unit>
+    <unit id="_KlLZBG" name="Gebäude verlassen">
+      <notes>
+        <note category="german">Gebäude verlassen</note>
+      </notes>
+      <segment>
+        <source>Gebäude verlassen</source>
+        <target>Leave building</target>
+      </segment>
+    </unit>
+    <unit id="OqMz83X" name="Raum durchsuchen">
+      <notes>
+        <note category="german">Raum durchsuchen</note>
+      </notes>
+      <segment>
+        <source>Raum durchsuchen</source>
+        <target>Search room</target>
+      </segment>
+    </unit>
+    <unit id="LcBC2EZ" name="Raum verlassen">
+      <notes>
+        <note category="german">Raum verlassen</note>
+      </notes>
+      <segment>
+        <source>Raum verlassen</source>
+        <target>Leave room</target>
+      </segment>
+    </unit>
+    <unit id="LXYdYwf" name="Raum betreten">
+      <notes>
+        <note category="german">Raum betreten</note>
+      </notes>
+      <segment>
+        <source>Raum betreten</source>
+        <target>Enter room</target>
+      </segment>
+    </unit>
+    <unit id="nnL4vYm" name="Abdruck nehmen">
+      <notes>
+        <note category="german">Abdruck nehmen</note>
+      </notes>
+      <segment>
+        <source>Abdruck nehmen</source>
+        <target>Take an impression</target>
+      </segment>
+    </unit>
+    <unit id="gi1cmP_" name="Tür aufschließen">
+      <notes>
+        <note category="german">Tür aufschließen</note>
+      </notes>
+      <segment>
+        <source>Tür aufschließen</source>
+        <target>Unlock the door</target>
+      </segment>
+    </unit>
+    <unit id="Zc9wwO7" name="Verbesserung des Tages (building)">
+      <notes>
+        <note category="german">Verbesserung des Tages (building)</note>
+      </notes>
+      <segment>
+        <source>Verbesserung des Tages (building)</source>
+        <target>Proj.</target>
+      </segment>
+    </unit>
+    <unit id="AKS0zA3" name="Werkstatt (building)">
+      <notes>
+        <note category="german">Werkstatt (building)</note>
+      </notes>
+      <segment>
+        <source>Werkstatt (building)</source>
+        <target>Works</target>
+      </segment>
+    </unit>
+    <unit id="VTcxe_c" name="Quarantäne">
+      <notes>
+        <note category="german">Quarantäne</note>
+      </notes>
+      <segment>
+        <source>Quarantäne</source>
+        <target>Quarantine</target>
+      </segment>
+    </unit>
+    <unit id="CHdbLWu" name="Komm zurück zu meiner Seele">
+      <notes>
+        <note category="german">Zurück zu meiner Seele</note>
+      </notes>
+      <segment>
+        <source>Komm zurück zu meiner Seele</source>
+        <target>Come back to my soul</target>
+      </segment>
+    </unit>
+    <unit id="2IRYW.2" name="06db8c8">
+      <notes>
+        <note category="german">%actor% hat bei der Plünderung von † %victim% Haus diesen Gegenstand gestohlen: %item%</note>
+      </notes>
+      <segment>
+        <source>%actor% hat bei der Plünderung von † %victim% Haus diesen Gegenstand gestohlen: %item%</source>
+        <target>%actor% aquired the %item% during the pillaging of † %victim%'s house!</target>
+      </segment>
+    </unit>
+    <unit id="n19gYuh" name="Das folgende Bauprojekt wurde empfohlen:">
+      <notes>
+        <note category="german">Das folgende Bauprojekt wurde empfohlen:</note>
+      </notes>
+      <segment>
+        <source>Das folgende Bauprojekt wurde empfohlen:</source>
+        <target>The following construction project was recommended:</target>
+      </segment>
+    </unit>
+    <unit id="OAGjXFG" name="Alle">
+      <notes>
+        <note category="german">Alle</note>
+      </notes>
+      <segment>
+        <source>Alle</source>
+        <target>All</target>
+      </segment>
+    </unit>
+    <unit id="iita2xJ" name="83fa5e3">
+      <notes>
+        <note category="german">Private towns allow groups of friends to play easily together, or to create "theme" towns.</note>
+      </notes>
+      <segment>
+        <source>In Privatstädten kannst du gemeinsam mit Freunden oder in Städten zu bestimmten "Theen" zu spielen.</source>
+        <target>Private towns allow groups of friends to play easily together, or to create "theme" towns.</target>
+      </segment>
+    </unit>
+    <unit id="CVyYW8Q" name="Je nach gewähltem Stadttyp erscheinen Ghule nach den üblichen Regeln.">
+      <notes>
+        <note category="german">The ghoul functions normally and will appear as defined by the rules of the town chosen.</note>
+      </notes>
+      <segment>
+        <source>Je nach gewähltem Stadttyp erscheinen Ghule nach den üblichen Regeln.</source>
+        <target>The ghoul functions normally and will appear as defined by the rules of the town chosen.</target>
+      </segment>
+    </unit>
+    <unit id="1zFAtcT" name="Wasservorrat">
+      <notes>
+        <note category="german">Water supply</note>
+      </notes>
+      <segment>
+        <source>Wasservorrat</source>
+        <target>Water supply</target>
+      </segment>
+    </unit>
+    <unit id="u6_oAsd" name="ff69301">
+      <notes>
+        <note category="german">Du hast keine neue Privatnachricht erhalten. Eine Liste aller Bürger findest du im</note>
+      </notes>
+      <segment>
+        <source>Du hast keine neue Privatnachricht erhalten. Eine Liste aller Bürger findest du im</source>
+        <target>You have not received any new private messages. You can find the list of citizens in the</target>
+      </segment>
+    </unit>
+    <unit id="4AkrdgW" name="Verzeichnis der Stadt.">
+      <notes>
+        <note category="german">Verzeichnis der Stadt.</note>
+      </notes>
+      <segment>
+        <source>Verzeichnis der Stadt.</source>
+        <target>town directory.</target>
+      </segment>
+    </unit>
+    <unit id="97Bucqq" name="Einrichtung">
+      <notes>
+        <note category="german">Einrichtung</note>
+      </notes>
+      <segment>
+        <source>Einrichtung</source>
+        <target>Home Improvements</target>
+      </segment>
+    </unit>
+    <unit id="Ht8hKI." name="Dies ist eine offizielle Nachricht.">
+      <notes>
+        <note category="german">Dies ist eine offizielle Nachricht.</note>
+      </notes>
+      <segment>
+        <source>Dies ist eine offizielle Nachricht.</source>
+        <target>This is an official message.</target>
+      </segment>
+    </unit>
+    <unit id="N1KK_ks" name="Die Liste der eingeschriebenen Spieler ansehen.">
+      <notes>
+        <note category="german">Die Liste der eingeschriebenen Spieler ansehen.</note>
+      </notes>
+      <segment>
+        <source>Die Liste der eingeschriebenen Spieler ansehen.</source>
+        <target>Die Liste der eingeschriebenen Spieler ansehen.</target>
+      </segment>
+    </unit>
+    <unit id="aVkOGIz" name="Von einem Ghul gefressen">
+      <notes>
+        <note category="german">Von einem Ghul gefressen</note>
+      </notes>
+      <segment>
+        <source>Von einem Ghul gefressen</source>
+        <target>Eaten by a Ghoul</target>
+      </segment>
+    </unit>
+    <unit id="znr86lo" name="Zum Forum">
+      <notes>
+        <note category="german">Zum Forum</note>
+      </notes>
+      <segment>
+        <source>Zum Forum</source>
+        <target>Access this Forum</target>
+      </segment>
+    </unit>
+    <unit id="3lrK_qg" name="Lade Forum...">
+      <notes>
+        <note category="german">Lade Forum...</note>
+      </notes>
+      <segment>
+        <source>Lade Forum...</source>
+        <target>Loading forum ...</target>
+      </segment>
+    </unit>
+    <unit id="z3Y3jVt" name="Anonyme Beschwerde">
+      <notes>
+        <note category="german">Anonyme Beschwerde</note>
+      </notes>
+      <segment>
+        <source>Anonyme Beschwerde</source>
+        <target>Anonymous Complaint</target>
+      </segment>
+    </unit>
+    <unit id="tlOTwnM" name="Es wurde eine neue anonyme Beschwerde gegen dich eingelegt: &quot;%reason%&quot;">
+      <notes>
+        <note category="german">Es wurde eine neue anonyme Beschwerde gegen dich eingelegt: "%reason%"</note>
+      </notes>
+      <segment>
+        <source>Es wurde eine neue anonyme Beschwerde gegen dich eingelegt: "%reason%"</source>
+        <target>You have received a new anonymous complaint: "%reason%"</target>
+      </segment>
+    </unit>
+    <unit id="1VFuVbv" name="Beschwerde zurückgezogen">
+      <notes>
+        <note category="german">Beschwerde zurückgezogen</note>
+      </notes>
+      <segment>
+        <source>Beschwerde zurückgezogen</source>
+        <target>Complaint Withdrawn</target>
+      </segment>
+    </unit>
+    <unit id="xllGfth" name="Es gibt gute Nachrichten! Folgende Beschwerde wurde zurückgezogen: &quot;%reason%&quot;">
+      <notes>
+        <note category="german">Es gibt gute Nachrichten! Folgende Beschwerde wurde zurückgezogen: "%reason%"</note>
+      </notes>
+      <segment>
+        <source>Es gibt gute Nachrichten! Folgende Beschwerde wurde zurückgezogen: "%reason%"</source>
+        <target>Good news! The following complaint has been withdrawn: "%reason%"</target>
+      </segment>
+    </unit>
+    <unit id="d7mV6VK" name="Du bist vor Angst erstarrt!!">
+      <notes>
+        <note category="german">Du bist vor Angst erstarrt!!</note>
+      </notes>
+      <segment>
+        <source>Du bist vor Angst erstarrt!!</source>
+        <target>Terrorised!!</target>
+      </segment>
+    </unit>
+    <unit id="k9lty2j" name="6fedae5">
+      <notes>
+        <note category="german">Wir haben zwei Neuigkeiten für dich. Eine gute und eine schlechte. Zuerst die gute: Trotz ihrer hartnäckigen Versuche, ist es den %num% Zombie(s) nicht gelungen, dich aufzufressen. Du hast dich wacker geschlagen. Bravo! Die schlechte: Das Erlebnis war so schlimm, dass du in eine Angststarre verfallen bist. So etwas möchtest du nicht wieder erleben...</note>
+      </notes>
+      <segment>
+        <source>Wir haben zwei Neuigkeiten für dich. Eine gute und eine schlechte. Zuerst die gute: Trotz ihrer hartnäckigen Versuche, ist es den %num% Zombie(s) nicht gelungen, dich aufzufressen. Du hast dich wacker geschlagen. Bravo! Die schlechte: Das Erlebnis war so schlimm, dass du in eine Angststarre verfallen bist. So etwas möchtest du nicht wieder erleben...</source>
+        <target>OK. We've got good news and bad news. The good news is that despite the best efforts of %num% Zombies to devour you, you got through it! The bad news is that the experience really shook you up, so you are now terrorised by the idea of having to go through that again...</target>
+      </segment>
+    </unit>
+    <unit id="Efbc_qn" name="Haltet den Dieb!">
+      <notes>
+        <note category="german">Haltet den Dieb!</note>
+      </notes>
+      <segment>
+        <source>Haltet den Dieb!</source>
+        <target>Robbery!</target>
+      </segment>
+    </unit>
+    <unit id="98qlXbX" name="Du bist %status%">
+      <notes>
+        <note category="german">Du bist %status%</note>
+      </notes>
+      <segment>
+        <source>Du bist %status%</source>
+        <target>You are %status%</target>
+      </segment>
+    </unit>
+    <unit id="Pzhs1Mo" name="Ratschlag:">
+      <notes>
+        <note category="german">Ratschlag:</note>
+      </notes>
+      <segment>
+        <source>Ratschlag:</source>
+        <target>Recommended:</target>
+      </segment>
+    </unit>
+    <unit id="iHdJZPx" name="Iss ODER trink etwas Wasser.">
+      <notes>
+        <note category="german">Iss ODER trink etwas Wasser.</note>
+      </notes>
+      <segment>
+        <source>Iss ODER trink etwas Wasser.</source>
+        <target>Eat OR drink some water.</target>
+      </segment>
+    </unit>
+    <unit id="hhKj9e1" name="Du kannst eine Ration Wasser trinken.">
+      <notes>
+        <note category="german">Du kannst eine Ration Wasser trinken.</note>
+      </notes>
+      <segment>
+        <source>Du kannst eine Ration Wasser trinken.</source>
+        <target>You can drink a ration of water.</target>
+      </segment>
+    </unit>
+    <unit id="uSGlEhQ" name="Du kannst etwas essen, um deine Erschöpfung zu lindern.">
+      <notes>
+        <note category="german">Du kannst etwas essen, um deine Erschöpfung zu lindern.</note>
+      </notes>
+      <segment>
+        <source>Du kannst etwas essen, um deine Erschöpfung zu lindern.</source>
+        <target>You can eat something to relieve your exhaustion.</target>
+      </segment>
+    </unit>
+    <unit id="CjT0_7R" name="4d90a81">
+      <notes>
+        <note category="german">Du hast bereits etwas gegessen und getrunken. Dir bleiben nur noch Drogen und Alkohol!</note>
+      </notes>
+      <segment>
+        <source>Du hast bereits etwas gegessen und getrunken. Dir bleiben nur noch Drogen und Alkohol!</source>
+        <target>You have already eaten and drunk something. You only have drugs and alcohol left!</target>
+      </segment>
+    </unit>
+    <unit id="00Lc7om" name="73a703f">
+      <notes>
+        <note category="german">Du bist in einer Privatstadt. Für diese Art von Stadt gelten einige Sonderregeln.</note>
+      </notes>
+      <segment>
+        <source>Du bist in einer Privatstadt. Für diese Art von Stadt gelten einige Sonderregeln.</source>
+        <target>You are in a Private Town. There are some special rules for this type of city.</target>
+      </segment>
+    </unit>
+    <unit id="W3jTpt9" name="Isolierte Zombies">
+      <notes>
+        <note category="german">Isolierte Zombies</note>
+      </notes>
+      <segment>
+        <source>Isolierte Zombies</source>
+        <target>Isolated Zombies</target>
+      </segment>
+    </unit>
+    <unit id="Yc0dhV4" name="Die Zombies verstümmeln">
+      <notes>
+        <note category="german">Die Zombies verstümmeln</note>
+      </notes>
+      <segment>
+        <source>Die Zombies verstümmeln</source>
+        <target>Pack of Zombies</target>
+      </segment>
+    </unit>
+    <unit id="c8SXj_R" name="Horde der Zombies">
+      <notes>
+        <note category="german">Horde der Zombies</note>
+      </notes>
+      <segment>
+        <source>Horde der Zombies</source>
+        <target>Horde of Zombies</target>
+      </segment>
+    </unit>
+    <unit id="BtRmkSS" name="Mark.">
+      <notes>
+        <note category="german">Mark.</note>
+      </notes>
+      <segment>
+        <source>Mark.</source>
+        <target>Mark.</target>
+      </segment>
+    </unit>
+    <unit id="icxLMof" name="Der letzte Tote in dieser Stadt!">
+      <notes>
+        <note category="german">Der letzte Tote in dieser Stadt!</note>
+      </notes>
+      <segment>
+        <source>Der letzte Tote in dieser Stadt!</source>
+        <target>The last dead man in this city!</target>
+      </segment>
+    </unit>
+    <unit id="SWca3Zo" name="089f4e0">
+      <notes>
+        <note category="german">Der letzte Tote erhält nur dann eine Belohnung, wenn er 5 volle Tage überlebt hat.</note>
+      </notes>
+      <segment>
+        <source>Der letzte Tote erhält nur dann eine Belohnung, wenn er 5 volle Tage überlebt hat.</source>
+        <target>The last dead person will only receive a reward if they have survived 5 full days.</target>
+      </segment>
+    </unit>
+    <unit id="mjwvinZ" name="Heute Morgen ist kein Artikel erschienen...">
+      <notes>
+        <note category="german">Heute Morgen ist kein Artikel erschienen...</note>
+      </notes>
+      <segment>
+        <source>Heute Morgen ist kein Artikel erschienen...</source>
+        <target>No news today...</target>
+      </segment>
+    </unit>
+    <unit id="DiWxu8O" name="9a7499d">
+      <notes>
+        <note category="german">Es scheint so, als ob ein anderer Bürger Gefallen an deinem Inventar gefunden hätte... Dir wurde folgendes gestohlen: %icon% %item%</note>
+      </notes>
+      <segment>
+        <source>Es scheint so, als ob ein anderer Bürger Gefallen an deinem Inventar gefunden hätte... Dir wurde folgendes gestohlen: %icon% %item%</source>
+        <target>Apparently, one of your fellow citizens really liked the contents of your inventory... Someone has pinched your: %icon% %item%</target>
+      </segment>
+    </unit>
+    <unit id="RrPwAW." name="Zufälliger Bürger">
+      <notes>
+        <note category="german">Zufälliger Bürger</note>
+      </notes>
+      <segment>
+        <source>Zufälliger Bürger</source>
+        <target>Random Citizen</target>
+      </segment>
+    </unit>
+    <unit id="dTDcH8R" name="c8e86c4">
+      <notes>
+        <note category="german">Hiermit kannst du den Namen eines zufälligen Bürgers in deinen Post anfügen.
+                                                Bei Bedarf kannst du die Auswahl auf bestimmte Berufe, Helden oder bereits gestorbene Bürger eingrenzen.</note>
+      </notes>
+      <segment>
+        <source>Hiermit kannst du den Namen eines zufälligen Bürgers in deinen Post anfügen.
+                                                Bei Bedarf kannst du die Auswahl auf bestimmte Berufe, Helden oder bereits gestorbene Bürger eingrenzen.</source>
+        <target>You can use this to add the name of a random citizen to your post.
+                                                If necessary, you can limit the selection to certain professions, heroes or citizens who have already died.</target>
+      </segment>
+    </unit>
+    <unit id="lpSEXvf" name="71134d2">
+      <notes>
+        <note category="german">Wenn zu den gleichen zufällig gewählten Bürger mehrfach in deinem Text verwenden willst, kannst du ihm eine Nummer zuweisen, beispielsweise:</note>
+      </notes>
+      <segment>
+        <source>Wenn zu den gleichen zufällig gewählten Bürger mehrfach in deinem Text verwenden willst, kannst du ihm eine Nummer zuweisen, beispielsweise:</source>
+        <target>If you want to use the same randomly chosen citizen more than once in your text, you can assign it a number, for example:</target>
+      </segment>
+    </unit>
+    <unit id="54fCkFO" name="7a97c74">
+      <notes>
+        <note category="german">Es sind nicht mehr genügend Einwohner in der Stadt. Der Zombieangriff und die Wiederherstellung der AP wurden auf morgen Abend verschoben.</note>
+      </notes>
+      <segment>
+        <source>Es sind nicht mehr genügend Einwohner in der Stadt. Der Zombieangriff und die Wiederherstellung der AP wurden auf morgen Abend verschoben.</source>
+        <target>There are no longer enough residents in the city. The zombie attack and AP restoration have been postponed until tomorrow.</target>
+      </segment>
+    </unit>
+    <unit id="2fBmxk8" name="Du hast dich soeben in einen Ghul verandelt!">
+      <notes>
+        <note category="german">Du hast dich soeben in einen Ghul verandelt!</note>
+      </notes>
+      <segment>
+        <source>Du hast dich soeben in einen Ghul verandelt!</source>
+        <target>You have been transformed into a Ghoul!</target>
+      </segment>
+    </unit>
+    <unit id="nu14DUW" name="f8cbaf5">
+      <notes>
+        <note category="german">Du hättest die kleinen bräunlichen Hautverfärbungen etwas ernster nehmen sollen. Nein, das war kein kleiner Sonnenbrand und kein exotischer Hautpilz!
+            Jetzt ist es zu spät... Einige wenige Augenblicke später haben sich alle deine Zweifel in Luft aufgelöst und ein unkontrollierbarer Appetit nach
+            Menschenfleisch übermannt sich... Hmmm... Du solltest deinen Hunger SCHNELLSTENS stillen, oder willst du krepieren?!</note>
+      </notes>
+      <segment>
+        <source>Du hättest die kleinen bräunlichen Hautverfärbungen etwas ernster nehmen sollen. Nein, das war kein kleiner Sonnenbrand und kein exotischer Hautpilz!
+            Jetzt ist es zu spät... Einige wenige Augenblicke später haben sich alle deine Zweifel in Luft aufgelöst und ein unkontrollierbarer Appetit nach
+            Menschenfleisch übermannt sich... Hmmm... Du solltest deinen Hunger SCHNELLSTENS stillen, oder willst du krepieren?!</source>
+        <target>The appearance of small brownish marks on your body should have given you cause for concern, but you naively supposed you had some kind of benign infection from being out in the sun all the time. Any remaining doubt has been erased by the uncontrollable hunger for human flesh which now grips you... A terrifying need which you must satisfy QUICKLY. Or die.</target>
+      </segment>
+    </unit>
+    <unit id="1VZ526R" name="Du bist ab sofort ein Ghul!">
+      <notes>
+        <note category="german">Du bist ab sofort ein Ghul!</note>
+      </notes>
+      <segment>
+        <source>Du bist ab sofort ein Ghul!</source>
+        <target>You are now a Ghoul.</target>
+      </segment>
+    </unit>
+    <unit id="kUcqlQB" name="bce0dfd">
+      <notes>
+        <note category="german">Ab sofort solltest du deine Spielweise ändern: Deine einstigen Nachbarn und Freunde sind jetzt zweibeinige Nahrung, die du durch List und Trug erlegen musst.</note>
+      </notes>
+      <segment>
+        <source>Ab sofort solltest du deine Spielweise ändern: Deine einstigen Nachbarn und Freunde sind jetzt zweibeinige Nahrung, die du durch List und Trug erlegen musst.</source>
+        <target>A new horizon is open to you: your neighbours and former allies have become your prey.</target>
+      </segment>
+    </unit>
+    <unit id="Lou1e47" name="Hier noch ein paar wichtige Überlebenstipps:">
+      <notes>
+        <note category="german">Hier noch ein paar wichtige Überlebenstipps:</note>
+      </notes>
+      <segment>
+        <source>Hier noch ein paar wichtige Überlebenstipps:</source>
+        <target>Some survival tips:</target>
+      </segment>
+    </unit>
+    <unit id="SJd1LN1" name="3fbdb60">
+      <notes>
+        <note category="german">Sag niemandem, dass du ein Ghul bist! Du würdest von deinen Mitbürgern sehr wahrscheinlich sofort erschlagen.</note>
+      </notes>
+      <segment>
+        <source>Sag niemandem, dass du ein Ghul bist! Du würdest von deinen Mitbürgern sehr wahrscheinlich sofort erschlagen.</source>
+        <target>don't tell anyone about it! You will be killed,</target>
+      </segment>
+    </unit>
+    <unit id="dIAkbPP" name="c3a93ff">
+      <notes>
+        <note category="german">Behalte deine Hungerleiste stets im Auge. Sie befindet sich bei deiner Gesundheitsanzeige.</note>
+      </notes>
+      <segment>
+        <source>Behalte deine Hungerleiste stets im Auge. Sie befindet sich bei deiner Gesundheitsanzeige.</source>
+        <target>keep an eye on your Hunger gauge, which can be seen alongside your health status,</target>
+      </segment>
+    </unit>
+    <unit id="baFbBy0" name="ff17216">
+      <notes>
+        <note category="german">Um deinen Heißhunger zu stillen, solltest du möglichst bald einen Mitbürger verschlingen. Das machst du am besten in der Wüste, da fällt es nicht so auf.</note>
+      </notes>
+      <segment>
+        <source>Um deinen Heißhunger zu stillen, solltest du möglichst bald einen Mitbürger verschlingen. Das machst du am besten in der Wüste, da fällt es nicht so auf.</source>
+        <target>devour a fellow citizen (preferably outside the town) to decrease your Hunger,</target>
+      </segment>
+    </unit>
+    <unit id="tUvA6.D" name="9ee8e2e">
+      <notes>
+        <note category="german">Auch der Verzehr von kaltem Menschenfleisch senkt deinen Hunger, allerdings nicht so stark wie Frischfleisch...</note>
+      </notes>
+      <segment>
+        <source>Auch der Verzehr von kaltem Menschenfleisch senkt deinen Hunger, allerdings nicht so stark wie Frischfleisch...</source>
+        <target>eat human flesh to reduce your Hunger slightly.</target>
+      </segment>
+    </unit>
+    <unit id="5MeFkca" name="c328ebf">
+      <notes>
+        <note category="german">Für viele Aktionen, wie beispielsweise die Erkundung der Aussenwelt oder der Arbeit auf einer Baustelle,
+                            benötigst du Aktionspunkte. Deine Aktionspunkte werden jede Nacht nach dem Angriff aufgefüllt. Außerdem
+                            kannst du sie durch den Einsatz bestimmter Gegenstände sowie einmal pro Tag durch Essen und Trinken neu
+                            auffüllen.</note>
+      </notes>
+      <segment>
+        <source>Für viele Aktionen, wie beispielsweise die Erkundung der Aussenwelt oder der Arbeit auf einer Baustelle,
+                            benötigst du Aktionspunkte. Deine Aktionspunkte werden jede Nacht nach dem Angriff aufgefüllt. Außerdem
+                            kannst du sie durch den Einsatz bestimmter Gegenstände sowie einmal pro Tag durch Essen und Trinken neu
+                            auffüllen.</source>
+        <target>These are used for many actions, such as exploring the outside world or working on a construction site. Your action points are replenished every night after the attack. You can also refill them by using certain items and once a day by eating and drinking.</target>
+      </segment>
+    </unit>
+    <unit id="NAC.Ln5" name="c85efc4">
+      <notes>
+        <note category="german">Baupunkte können in der Werkstatt und auf Baustellen verwendet werden, wo sie wie Aktionspunkte
+                            zählen. Wenn möglich werden immer zuerst Baupunkte verbraucht, bevor Aktionspunkte eingesetzt
+                            werden. Bedenke, dass Baupunkte nicht eingesetzt werden können wenn du erschöpft bist!</note>
+      </notes>
+      <segment>
+        <source>Baupunkte können in der Werkstatt und auf Baustellen verwendet werden, wo sie wie Aktionspunkte
+                            zählen. Wenn möglich werden immer zuerst Baupunkte verbraucht, bevor Aktionspunkte eingesetzt
+                            werden. Bedenke, dass Baupunkte nicht eingesetzt werden können wenn du erschöpft bist!</source>
+        <target>Building points can be used in the workshop and on construction sites, where they count like action points. If possible, building points are always used first before action points are used. Keep in mind that building points cannot be used when you are exhausted!</target>
+      </segment>
+    </unit>
+    <unit id="wn0c1Kw" name="Die Stadt wird erst starten, wenn sie &lt;strong&gt;%population% Bürger hat&lt;/strong&gt;.">
+      <notes>
+        <note category="german">Die Stadt wird erst starten, wenn sie &lt;strong&gt;%population% Bürger hat&lt;/strong&gt;.</note>
+      </notes>
+      <segment>
+        <source>Die Stadt wird erst starten, wenn sie &lt;strong&gt;%population% Bürger hat&lt;/strong&gt;.</source>
+        <target><![CDATA[The town will only begin once <strong>%population% citizens</strong> have joined it.]]></target>
+      </segment>
+    </unit>
+    <unit id="uL_3bHQ" name="2d4f0c6">
+      <notes>
+        <note category="german">Hiermit kannst du den Namen eines zufälligen Bürgers in deinen Post anfügen.
+                                                    Bei Bedarf kannst du die Auswahl auf bestimmte Berufe, Helden oder bereits gestorbene Bürger eingrenzen.</note>
+      </notes>
+      <segment>
+        <source>Hiermit kannst du den Namen eines zufälligen Bürgers in deinen Post anfügen.
+                                                    Bei Bedarf kannst du die Auswahl auf bestimmte Berufe, Helden oder bereits gestorbene Bürger eingrenzen.</source>
+        <target>You can use this to add the name of a random citizen to your post.
+                                                     If necessary, you can limit the selection to certain professions, heroes or citizens who have already died.</target>
+      </segment>
+    </unit>
+    <unit id="GQ3Gt_t" name="Du bist">
+      <notes>
+        <note category="german">Du bist</note>
+      </notes>
+      <segment>
+        <source>Du bist</source>
+        <target>You are</target>
+      </segment>
+    </unit>
+    <unit id="swizrYC" name="Erschöpft">
+      <notes>
+        <note category="german">Erschöpft</note>
+      </notes>
+      <segment>
+        <source>Erschöpft</source>
+        <target>Exhausted</target>
+      </segment>
+    </unit>
+    <unit id="ANGnefx" name="Stadtrat">
+      <notes>
+        <note category="german">Stadtrat</note>
+      </notes>
+      <segment>
+        <source>Stadtrat</source>
+        <target>Town Council</target>
+      </segment>
+    </unit>
+    <unit id="UEL2oHO" name="Spielzeit">
+      <notes>
+        <note category="german">Spielzeit</note>
+      </notes>
+      <segment>
+        <source>Spielzeit</source>
+        <target>Game time</target>
+      </segment>
+    </unit>
+    <unit id="RbJEkic" name="Mit den anderen Bürgern reden...">
+      <notes>
+        <note category="german">Mit den anderen Bürgern reden...</note>
+      </notes>
+      <segment>
+        <source>Mit den anderen Bürgern reden...</source>
+        <target>Speak to the other citizens in your town and get organized if you want to survive...</target>
+      </segment>
+    </unit>
+    <unit id="_EDDh5L" name="9f36678">
+      <notes>
+        <note category="german">Lesen und Nutzen des Forums sind in 'MyHordes' überlebensnotwendig! Die wichtigen Entscheidungen der Stadt werden hier gemeinsam von der Community getroffen.</note>
+      </notes>
+      <segment>
+        <source>Lesen und Nutzen des Forums sind in 'MyHordes' überlebensnotwendig! Die wichtigen Entscheidungen der Stadt werden hier gemeinsam von der Community getroffen.</source>
+        <target>Reading and chatting on the forums is critical in 'MyHordes'! That's where all the important decisions are made, by the community itself.</target>
+      </segment>
+    </unit>
+    <unit id="esKM3_t" name="Deine gesamte Geschichte basiert auf deinen zuvor gespielten Städten...">
+      <notes>
+        <note category="german">Deine gesamte Geschichte basiert auf deinen zuvor gespielten Städten...</note>
+      </notes>
+      <segment>
+        <source>Deine gesamte Geschichte basiert auf deinen zuvor gespielten Städten...</source>
+        <target>Your personal story built from all your previous lives ...</target>
+      </segment>
+    </unit>
+    <unit id="K382mbj" name="Spielhilfe aufrufen.">
+      <notes>
+        <note category="german">Spielhilfe aufrufen.</note>
+      </notes>
+      <segment>
+        <source>Spielhilfe aufrufen.</source>
+        <target>Check the online game guide for 'MyHordes'.</target>
+      </segment>
+    </unit>
+    <unit id="aBzVCJL" name="479d11d">
+      <notes>
+        <note category="german">Hast du schon unter "Wie wird gespielt" nachgeschaut? Du findest den Link darauf unter der Karte der Stadt.</note>
+      </notes>
+      <segment>
+        <source>Hast du schon unter "Wie wird gespielt" nachgeschaut? Du findest den Link darauf unter der Karte der Stadt.</source>
+        <target>Have you looked under "How to play"? You can find the link under the town map.</target>
+      </segment>
+    </unit>
+    <unit id="25Kvu55" name="8937cea">
+      <notes>
+        <note category="german">Das Leichsblatt: Hier findet ihr alle Neuigkeiten, über das, was gestern in der Stadt passiert ist...</note>
+      </notes>
+      <segment>
+        <source>Das Leichsblatt: Hier findet ihr alle Neuigkeiten, über das, was gestern in der Stadt passiert ist...</source>
+        <target>The News Corpse: if you want to know everything that went on in town last night...</target>
+      </segment>
+    </unit>
+    <unit id="55LsCVW" name="Schaut am besten jeden Tag einmal rein!">
+      <notes>
+        <note category="german">Schaut am besten jeden Tag einmal rein!</note>
+      </notes>
+      <segment>
+        <source>Schaut am besten jeden Tag einmal rein!</source>
+        <target>Make sure to check it every day! Loads of useful information is to be found there.</target>
+      </segment>
+    </unit>
+    <unit id="6lr5Awl" name="Starten Sie eine Stadt">
+      <notes>
+        <note category="german">Starten Sie eine Stadt</note>
+      </notes>
+      <segment>
+        <source>Starten Sie eine Stadt</source>
+        <target>Start a Town</target>
+      </segment>
+    </unit>
+    <unit id="tl3wxZA" name="Es ist Zeit, sich seinen Mitmenschen in der Hölle anschließen!">
+      <notes>
+        <note category="german">Es ist Zeit, sich seinen Mitmenschen in der Hölle anschließen!</note>
+      </notes>
+      <segment>
+        <source>Es ist Zeit, sich seinen Mitmenschen in der Hölle anschließen!</source>
+        <target>Es ist Zeit, sich seinen Mitmenschen in der Hölle anschließen!</target>
+      </segment>
+    </unit>
+    <unit id="EEkc8Fs" name="Anzahl der Tage, die du als Schamane gespielt hast.">
+      <notes>
+        <note category="german">Anzahl der Tage, die du als Schamane gespielt hast.</note>
+      </notes>
+      <segment>
+        <source>Anzahl der Tage, die du als Schamane gespielt hast.</source>
+        <target>Days spent trafficking the souls of the dead.</target>
+      </segment>
+    </unit>
+    <unit id="BINrrr7" name="Reicher Guru">
+      <notes>
+        <note category="german">Reicher Guru</note>
+      </notes>
+      <segment>
+        <source>Reicher Guru</source>
+        <target>Golden Child</target>
+      </segment>
+    </unit>
+    <unit id="02E6SZ7" name="1639b76">
+      <notes>
+        <note category="german">Anzahl der Bürger, die du dazu bringen konntest, bei Die Verdammten zu sterben UND dafür zu bezahlen.</note>
+      </notes>
+      <segment>
+        <source>Anzahl der Bürger, die du dazu bringen konntest, bei Die Verdammten zu sterben UND dafür zu bezahlen.</source>
+        <target>The number of new citizens you have convinced to come to die2nite.com AND to pay for the privilege.</target>
+      </segment>
+    </unit>
+    <unit id="zrGYjJm" name="Verdammt in Saarbrücken">
+      <notes>
+        <note category="german">Verdammt in Saarbrücken</note>
+      </notes>
+      <segment>
+        <source>Verdammt in Saarbrücken</source>
+        <target>Geeks tracker</target>
+      </segment>
+    </unit>
+    <unit id="AcfgdpB" name="Teilnehmer beim Community-Treffen in Saarbrücken am 6. November 2011">
+      <notes>
+        <note category="german">Teilnehmer beim Community-Treffen in Saarbrücken am 6. November 2011</note>
+      </notes>
+      <segment>
+        <source>Teilnehmer beim Community-Treffen in Saarbrücken am 6. November 2011</source>
+        <target>Extremely rare brand reserved for animators present at the Motion Twin stand of the 2008 Video Game Festival in Paris !</target>
+      </segment>
+    </unit>
+    <unit id="LXPchjh" name="Video Game Festival 2010">
+      <notes>
+        <note category="german">Video Game Festival 2010</note>
+      </notes>
+      <segment>
+        <source>Video Game Festival 2010</source>
+        <target>Video Game Festival 2010</target>
+      </segment>
+    </unit>
+    <unit id="pYfbEIR" name="Du warst beim Video Game Festival 2010 in Paris dabei: Danke!">
+      <notes>
+        <note category="german">Du warst beim Video Game Festival 2010 in Paris dabei: Danke!</note>
+      </notes>
+      <segment>
+        <source>Du warst beim Video Game Festival 2010 in Paris dabei: Danke!</source>
+        <target>You were present at the Video Game Festival in Paris in 2010 : thank you !</target>
+      </segment>
+    </unit>
+    <unit id="oIAROod" name="FJV'08 Kanonenfutter">
+      <notes>
+        <note category="german">FJV'08 Kanonenfutter</note>
+      </notes>
+      <segment>
+        <source>FJV'08 Kanonenfutter</source>
+        <target>FJV'08 cannon fodder</target>
+      </segment>
+    </unit>
+    <unit id="RGR6EuT" name="c411fe7">
+      <notes>
+        <note category="german">Der Besitzer dieses Abzeichens hat an der Schnitzeljagt beim Video Game Festival 2008 teilgenommen.</note>
+      </notes>
+      <segment>
+        <source>Der Besitzer dieses Abzeichens hat an der Schnitzeljagt beim Video Game Festival 2008 teilgenommen.</source>
+        <target>The bearer of this brand participated in the big hunt organized at the 2008 Video Game Festival.</target>
+      </segment>
+    </unit>
+    <unit id="Qx0jopB" name="Community-Auszeichnung">
+      <notes>
+        <note category="german">Community-Auszeichnung</note>
+      </notes>
+      <segment>
+        <source>Community-Auszeichnung</source>
+        <target>Clash Team</target>
+      </segment>
+    </unit>
+    <unit id="B3DWLs5" name="7de2808">
+      <notes>
+        <note category="german">Auszeichnung für außergewöhnliche Verdienste um die Community von Die Verdammten.</note>
+      </notes>
+      <segment>
+        <source>Auszeichnung für außergewöhnliche Verdienste um die Community von Die Verdammten.</source>
+        <target>Awarded for being part of the event team in the Clash of the Titans. Reporters, Video Makers, Town Leaders, we salute you.</target>
+      </segment>
+    </unit>
+    <unit id="S72AAG5" name="Clash CEO">
+      <notes>
+        <note category="german">Clash CEO</note>
+      </notes>
+      <segment>
+        <source>Clash CEO</source>
+        <target>Clash CEO</target>
+      </segment>
+    </unit>
+    <unit id="_q_zIoZ" name="6c74b28">
+      <notes>
+        <note category="german">Für die Community-Organisatoren und Entwickler des Clash of the Titans Events. Die Gemeinschaft sagt Danke!</note>
+      </notes>
+      <segment>
+        <source>Für die Community-Organisatoren und Entwickler des Clash of the Titans Events. Die Gemeinschaft sagt Danke!</source>
+        <target>Awarded for being one of the community organizers or developers in the Clash of the Titans. Our community thanks you !</target>
+      </segment>
+    </unit>
+    <unit id="ejbkJBk" name="Schlachtenbummler">
+      <notes>
+        <note category="german">Schlachtenbummler</note>
+      </notes>
+      <segment>
+        <source>Schlachtenbummler</source>
+        <target>Clash Titan</target>
+      </segment>
+    </unit>
+    <unit id="kdojgNO" name="a8d189f">
+      <notes>
+        <note category="german">Diese seltene Auszeichnung haben nur jene Verdammten erhalten, die an der Schlacht der Berufe teilgenommen haben.</note>
+      </notes>
+      <segment>
+        <source>Diese seltene Auszeichnung haben nur jene Verdammten erhalten, die an der Schlacht der Berufe teilgenommen haben.</source>
+        <target>Une distinction très rare, décernée uniquement aux quelques intrépides qui ont participé au tout premier Clash of the Titans.</target>
+      </segment>
+    </unit>
+    <unit id="jgy_VVR" name="Shock of heroes">
+      <notes>
+        <note category="german">Shock of heroes</note>
+      </notes>
+      <segment>
+        <source>Shock of heroes</source>
+        <target>Shock of heroes</target>
+      </segment>
+    </unit>
+    <unit id="W7M12k6" name="Ehrenpreis für die Teilname am Shock of Heroes Event!">
+      <notes>
+        <note category="german">Ehrenpreis für die Teilname am Shock of Heroes Event!</note>
+      </notes>
+      <segment>
+        <source>Ehrenpreis für die Teilname am Shock of Heroes Event!</source>
+        <target>Honorary reward for participating in the Shock of heroes !</target>
+      </segment>
+    </unit>
+    <unit id="3fdrfcN" name="Ultimativer Tod des SoH">
+      <notes>
+        <note category="german">Ultimativer Tod des SoH</note>
+      </notes>
+      <segment>
+        <source>Ultimativer Tod des SoH</source>
+        <target>Clash Colossus</target>
+      </segment>
+    </unit>
+    <unit id="wUWp3zG" name="f54ad37">
+      <notes>
+        <note category="german">Auszeichnung für den größten Helden, der während des Shock of Heroes Events am längsten überlebt hat. Du bist nun eine Legende der Außenwelt!</note>
+      </notes>
+      <segment>
+        <source>Auszeichnung für den größten Helden, der während des Shock of Heroes Events am längsten überlebt hat. Du bist nun eine Legende der Außenwelt!</source>
+        <target>Distinction of the greatest hero having survived the longest during the Shock of heroes, you are now part of the legend of the World Beyond !</target>
+      </segment>
+    </unit>
+    <unit id="74NqrNr" name="Triumphator">
+      <notes>
+        <note category="german">Triumphator</note>
+      </notes>
+      <segment>
+        <source>Triumphator</source>
+        <target>Clash Champion</target>
+      </segment>
+    </unit>
+    <unit id="Ycwc7kf" name="d8bdf81">
+      <notes>
+        <note category="german">Diese seltene Auszeichnung wurde den Einsiedlern verliehen, die mit ihrer Stadt die Schlacht der Berufe gewonnen haben. Respekt!</note>
+      </notes>
+      <segment>
+        <source>Diese seltene Auszeichnung wurde den Einsiedlern verliehen, die mit ihrer Stadt die Schlacht der Berufe gewonnen haben. Respekt!</source>
+        <target>This rare award was given to the Survivalists who won the battle of the professions with their Town. Respect!</target>
+      </segment>
+    </unit>
+    <unit id="2M7Hmok" name="Aufklärer - Gewinner des SoH">
+      <notes>
+        <note category="german">Aufklärer - Gewinner des SoH</note>
+      </notes>
+      <segment>
+        <source>Aufklärer - Gewinner des SoH</source>
+        <target>Scavenger - Winner of the SoH</target>
+      </segment>
+    </unit>
+    <unit id="cp2pUF_" name="Sieg für die Aufklärer beim Shock of Heroes Event!">
+      <notes>
+        <note category="german">Sieg für die Aufklärer beim Shock of Heroes Event!</note>
+      </notes>
+      <segment>
+        <source>Sieg für die Aufklärer beim Shock of Heroes Event!</source>
+        <target>Victory as a Scavenger during the Shock of Heroes !</target>
+      </segment>
+    </unit>
+    <unit id="z03nP6t" name="Shock of Heroes Champion">
+      <notes>
+        <note category="german">Shock of Heroes Champion</note>
+      </notes>
+      <segment>
+        <source>Shock of Heroes Champion</source>
+        <target>Shock of Heroes Champion</target>
+      </segment>
+    </unit>
+    <unit id="GGz46PZ" name="Sieg für die Wächter beim Shock of Heroes Event!">
+      <notes>
+        <note category="german">Sieg für die Wächter beim Shock of Heroes Event!</note>
+      </notes>
+      <segment>
+        <source>Sieg für die Wächter beim Shock of Heroes Event!</source>
+        <target>Victory as a Guardian during the Shock of heroes !</target>
+      </segment>
+    </unit>
+    <unit id="53Rhzgi" name="Bewohner Koh-Lambdas">
+      <notes>
+        <note category="german">Bewohner Koh-Lambdas</note>
+      </notes>
+      <segment>
+        <source>Bewohner Koh-Lambdas</source>
+        <target>Citizen Koh-Lambdais</target>
+      </segment>
+    </unit>
+    <unit id="Cj99pau" name="8bbd682">
+      <notes>
+        <note category="german">Dieser Bürger war bei der Wiedervereinigung (letzte Runde) von Koh-Lambda dabei!</note>
+      </notes>
+      <segment>
+        <source>Dieser Bürger war bei der Wiedervereinigung (letzte Runde) von Koh-Lambda dabei!</source>
+        <target>This citizen was present during the Reunification (last round) of Koh-Lambda !</target>
+      </segment>
+    </unit>
+    <unit id="1S2CbVP" name="Der Kobold hat dich erwischt">
+      <notes>
+        <note category="german">Der Kobold hat dich erwischt</note>
+      </notes>
+      <segment>
+        <source>Der Kobold hat dich erwischt</source>
+        <target>The leprechaun got you good</target>
+      </segment>
+    </unit>
+    <unit id="3FbjOB1" name="Anzahl der Gegenstände, die du von deinen Freunden gestohlen hast">
+      <notes>
+        <note category="german">Anzahl der Gegenstände, die du von deinen Freunden gestohlen hast</note>
+      </notes>
+      <segment>
+        <source>Anzahl der Gegenstände, die du von deinen Freunden gestohlen hast</source>
+        <target>Number of your friends' items you have stolen.</target>
+      </segment>
+    </unit>
+    <unit id="tkedsOI" name="Netter Kerl">
+      <notes>
+        <note category="german">Netter Kerl</note>
+      </notes>
+      <segment>
+        <source>Netter Kerl</source>
+        <target>Good Guy</target>
+      </segment>
+    </unit>
+    <unit id="9WkYS9d" name="e18094c">
+      <notes>
+        <note category="german">Du bist einer der am besten integrierten Spieler in Die Verdammten und verhälst dich immer fair, nicht nur aus Prinzip, sondern aus Überzeugung.</note>
+      </notes>
+      <segment>
+        <source>Du bist einer der am besten integrierten Spieler in Die Verdammten und verhälst dich immer fair, nicht nur aus Prinzip, sondern aus Überzeugung.</source>
+        <target>You are one of the most integrated players in Die2Nite, fair play, more than a principle, it is a state of mind.</target>
+      </segment>
+    </unit>
+    <unit id="XGrBqHH" name="0e1dfc0">
+      <notes>
+        <note category="german">%dogname%, der stinkende Köter von %citizen%, hat folgendes in die Bank gebracht: %item%</note>
+      </notes>
+      <segment>
+        <source>%dogname%, der stinkende Köter von %citizen%, hat folgendes in die Bank gebracht: %item%</source>
+        <target>%dogname%, the stinking dog from %citizen% has brought the following to the bank: %item%</target>
+      </segment>
+    </unit>
+    <unit id="Xrxxr_C" name="%citizen% hat seinen Hund mit %count% Gegenständen in die Stadt geschickt.">
+      <notes>
+        <note category="german">%citizen% hat seinen Hund mit %count% Gegenständen in die Stadt geschickt.</note>
+      </notes>
+      <segment>
+        <source>%citizen% hat seinen Hund mit %count% Gegenständen in die Stadt geschickt.</source>
+        <target>%citizen% sent his dog to town with %count% items.</target>
+      </segment>
+    </unit>
+    <unit id="ALk3xHN" name="a65f146">
+      <notes>
+        <note category="german">Du hast heimlich einen Eintrag im Register unkenntlich gemacht... Du kannst das noch %times% mal tun.</note>
+      </notes>
+      <segment>
+        <source>Du hast heimlich einen Eintrag im Register unkenntlich gemacht... Du kannst das noch %times% mal tun.</source>
+        <target>You have discretely tampered with an entry in the register... You can do this %times% more time.</target>
+      </segment>
+    </unit>
+    <unit id="FjeaId." name="Du hast %item_list% in der Werkstatt geöffnet und erhälst %item%.">
+      <notes>
+        <note category="german">Du hast %item_list% in der Werkstatt geöffnet und erhälst %item%.</note>
+      </notes>
+      <segment>
+        <source>Du hast %item_list% in der Werkstatt geöffnet und erhälst %item%.</source>
+        <target>You opened %item_list% in the Workshop and received %item%.</target>
+      </segment>
+    </unit>
+    <unit id="lbMpVVT" name="Du hast %item_list% in der Werkstatt zu %item% zerlegt.">
+      <notes>
+        <note category="german">Du hast %item_list% in der Werkstatt zu %item% zerlegt.</note>
+      </notes>
+      <segment>
+        <source>Du hast %item_list% in der Werkstatt zu %item% zerlegt.</source>
+        <target>You split %item_list% into %item% in the Workshop.</target>
+      </segment>
+    </unit>
+    <unit id="4NEM2QG" name="Du hast %item_list% in der Werkstatt zu %item% umgewandelt.">
+      <notes>
+        <note category="german">Du hast %item_list% in der Werkstatt zu %item% umgewandelt.</note>
+      </notes>
+      <segment>
+        <source>Du hast %item_list% in der Werkstatt zu %item% umgewandelt.</source>
+        <target>You converted %item_list% to %item% in the Workshop.</target>
+      </segment>
+    </unit>
+    <unit id="go91k6z" name="Du hast %item_list% zu %item% umgewandelt.">
+      <notes>
+        <note category="german">Du hast %item_list% zu %item% umgewandelt.</note>
+      </notes>
+      <segment>
+        <source>Du hast %item_list% zu %item% umgewandelt.</source>
+        <target>You have converted %item_list% to %item%.</target>
+      </segment>
+    </unit>
+    <unit id="UCMPjGO" name="45fbaf0">
+      <notes>
+        <note category="german">Niemand weiß, wie ein solches Wunder möglich ist, aber %hero% hat %citizen% (der sich auf %pos% befand), auf seinen Schultern heim getragen. Lang leben unsere Helden!</note>
+      </notes>
+      <segment>
+        <source>Niemand weiß, wie ein solches Wunder möglich ist, aber %hero% hat %citizen% (der sich auf %pos% befand), auf seinen Schultern heim getragen. Lang leben unsere Helden!</source>
+        <target>Nobody knows how such a miracle is possible, but %hero% has returned with %citizen% (who was at %pos%) on their shoulders ! Long live our Heroes !</target>
+      </segment>
+    </unit>
+    <unit id="9AyM3bj" name="85e8238">
+      <notes>
+        <note category="german">Nach einem harten Kampf gelingt es dir schließlich, einen Zombie gegen einen Felsen fallen zu lassen... Sein Kopf explodiert buchstäblich und sein Inhalt spritz auf deine Schuhe! Du taumelst zurück, außer Atem: einer weniger...</note>
+      </notes>
+      <segment>
+        <source>Nach einem harten Kampf gelingt es dir schließlich, einen Zombie gegen einen Felsen fallen zu lassen... Sein Kopf explodiert buchstäblich und sein Inhalt spritz auf deine Schuhe! Du taumelst zurück, außer Atem: einer weniger...</source>
+        <target>During an frightful encounter, you finally managed to throw a zombie against a rock... Its head literally exploded and the contents splattered onto your shoes ! Breathless, you stagger backwards : that's one more down...one...less...</target>
+      </segment>
+    </unit>
+    <unit id="uQ9iqg9" name="21d4990">
+      <notes>
+        <note category="german">Du schlägst mehrmals mit aller Kraft auf einen Zombie ein, aber es scheint ihm nichts auszumachen!</note>
+      </notes>
+      <segment>
+        <source>Du schlägst mehrmals mit aller Kraft auf einen Zombie ein, aber es scheint ihm nichts auszumachen!</source>
+        <target>You grab one of the wretched automatons with both hands, touching the sticky, putrefied flesh... it's unbearable... You wrestle with it, trying to force it back, but it's not happening... It tries unsuccessfully to bite you several times ! You retreat, out of breath and demoralised...</target>
+      </segment>
+    </unit>
+    <unit id="rJtk9d5" name="Die Abschätzung wird durch den Scanner verbessert.">
+      <notes>
+        <note category="german">Die Abschätzung wird durch den Scanner verbessert.</note>
+      </notes>
+      <segment>
+        <source>Die Abschätzung wird durch den Scanner verbessert.</source>
+        <target>The estimation is improved by the scanner.</target>
+      </segment>
+    </unit>
+    <unit id="pc7dbFT" name="Dank der Rechenmaschine kannst du den morgigen Angriff abschätzen.">
+      <notes>
+        <note category="german">Dank der Rechenmaschine kannst du den morgigen Angriff abschätzen.</note>
+      </notes>
+      <segment>
+        <source>Dank der Rechenmaschine kannst du den morgigen Angriff abschätzen.</source>
+        <target>Thanks to the calculator, you can estimate tomorrow's attack.</target>
+      </segment>
+    </unit>
+    <unit id="BU8ToEO" name="Zuletzt bearbeitet: %date%">
+      <notes>
+        <note category="german">Zuletzt bearbeitet: %date%</note>
+      </notes>
+      <segment>
+        <source>Zuletzt bearbeitet: %date%</source>
+        <target>Last edited: %date%</target>
+      </segment>
+    </unit>
+    <unit id="ZN8qU6R" name="Von einem Moderator bearbeitet.">
+      <notes>
+        <note category="german">Von einem Moderator bearbeitet.</note>
+      </notes>
+      <segment>
+        <source>Von einem Moderator bearbeitet.</source>
+        <target>Edited by a Moderator.</target>
+      </segment>
+    </unit>
+    <unit id="a5Hokue" name="Nur altgediente Helden können auf die Wandtafel schreiben">
+      <notes>
+        <note category="german">Nur altgediente Helden können auf die Wandtafel schreiben</note>
+      </notes>
+      <segment>
+        <source>Nur altgediente Helden können auf die Wandtafel schreiben</source>
+        <target>Only veteran heroes can write on the chalkboard</target>
+      </segment>
+    </unit>
+  </file>
+</xliff>

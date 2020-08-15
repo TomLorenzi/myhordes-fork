@@ -5601,4 +5601,1624 @@
     </unit>
     <unit id="ZpQFDiH" name="954de21">
       <notes>
-        <note category="german">Du hältst eine schlichte Sandkugel in der Hand, die du 
+        <note category="german">Du hältst eine schlichte Sandkugel in der Hand, die du vorher mit ein paar fiesen Kieselsteinchen angereicherst hast. HeHe! Irgendwie verspürst du gerade eine unglaubliche Lust diesen Ball jemanden ins Gesicht zu werfen. Wenn schon kein Schnee, dann wenigstens 'ne Sandballschlacht!</note>
+      </notes>
+      <segment>
+        <source>Du hältst eine schlichte Sandkugel in der Hand, die du vorher mit ein paar fiesen Kieselsteinchen angereicherst hast. HeHe! Irgendwie verspürst du gerade eine unglaubliche Lust diesen Ball jemanden ins Gesicht zu werfen. Wenn schon kein Schnee, dann wenigstens 'ne Sandballschlacht!</source>
+        <target>A harmless ball of sand (with some gravel for good measure) which you are just itching to launch into another citizen's face. You have no idea where this bizarre craving came from.</target>
+      </segment>
+    </unit>
+    <unit id="WG3v7xc" name="Dieser Bauplan ermöglicht es, ein neues Gebäude in der Stadt zu bauen.">
+      <notes>
+        <note category="german">Dieser Bauplan ermöglicht es, ein neues Gebäude in der Stadt zu bauen.</note>
+      </notes>
+      <segment>
+        <source>Dieser Bauplan ermöglicht es, ein neues Gebäude in der Stadt zu bauen.</source>
+        <target>You are holding what appears to be a construction blueprint! It's difficult to say exactly what type of project it is for though, it needs to be studied before it will become any use whatsoever.</target>
+      </segment>
+    </unit>
+    <unit id="Xmytkfd" name="2c9e817">
+      <notes>
+        <note category="german">Dieser Koffer enthält mehrere Dokumente und obskure Gegenstände (Bleistift, Kompass, Plastiklineale,...). Nichts was dir irgendwie helfen würde, in der Wüste zu überleben. ...zumindest auf den ersten Blick.</note>
+      </notes>
+      <segment>
+        <source>Dieser Koffer enthält mehrere Dokumente und obskure Gegenstände (Bleistift, Kompass, Plastiklineale,...). Nichts was dir irgendwie helfen würde, in der Wüste zu überleben. ...zumindest auf den ersten Blick.</source>
+        <target>An Architect's Chest. Not that kind of chest.</target>
+      </segment>
+    </unit>
+    <unit id="yDTEmRX" name="b69341f">
+      <notes>
+        <note category="german">Dieser Koffer enthält höchstwahrscheinlich ein sehr seltenes und kostbares Dokument...</note>
+      </notes>
+      <segment>
+        <source>Dieser Koffer enthält höchstwahrscheinlich ein sehr seltenes und kostbares Dokument...</source>
+        <target>This sealed chest almost certainly contains a rare and valuable document...</target>
+      </segment>
+    </unit>
+    <unit id="ZtqvzjI" name="fa3a6c4">
+      <notes>
+        <note category="german">Hier in dieser Einöde ein Ei zu finden, sollte dich eigentlich glücklich machen. Aber eine Frage lässt dir einfach keine Ruhe: Wo zum Teufel steckt das verdammte Huhn...</note>
+      </notes>
+      <segment>
+        <source>Hier in dieser Einöde ein Ei zu finden, sollte dich eigentlich glücklich machen. Aber eine Frage lässt dir einfach keine Ruhe: Wo zum Teufel steckt das verdammte Huhn...</source>
+        <target>Now finding an egg should be comforting, but one thought won't leave your mind, where is the bloody chicken...</target>
+      </segment>
+    </unit>
+    <unit id="aQIUoUv" name="536fc9f">
+      <notes>
+        <note category="german">Als einer davon auf Sir Newton's Kopf fiel dachte er mit Sicherheit nicht zuerst an das erste universelle Gesetz der Schwerkraft... aber es sollten immerhin ein paar Vitamine enthalten sein.</note>
+      </notes>
+      <segment>
+        <source>Als einer davon auf Sir Newton's Kopf fiel dachte er mit Sicherheit nicht zuerst an das erste universelle Gesetz der Schwerkraft... aber es sollten immerhin ein paar Vitamine enthalten sein.</source>
+        <target>When one of these landed on Sir Newton's head, surely the first thing to cross his mind wasn't the first Universal Law of Gravity... having said that, there should be a few vitamins in there for the munching.</target>
+      </segment>
+    </unit>
+    <unit id="nC8_Vma" name="Sie ist sehr groß, fruchtig und macht &quot;tick-tack&quot;.">
+      <notes>
+        <note category="german">Sie ist sehr groß, fruchtig und macht "tick-tack".</note>
+      </notes>
+      <segment>
+        <source>Sie ist sehr groß, fruchtig und macht "tick-tack".</source>
+        <target>It is large, juicy and makes a "tic tac" noise.</target>
+      </segment>
+    </unit>
+    <unit id="WY32pze" name="8686d0e">
+      <notes>
+        <note category="german">Diese kleine Ledertasche scheint Unterlagen zu enthalten. Du betest inständig, dass es sich dabei um ein Männermagazin handelt, oder den Bauplan für ein neues, mächiges Gebäude. ...und nicht um die verblichenen Kopien einer Umsatzschätzung der Buchhaltung.</note>
+      </notes>
+      <segment>
+        <source>Diese kleine Ledertasche scheint Unterlagen zu enthalten. Du betest inständig, dass es sich dabei um ein Männermagazin handelt, oder den Bauplan für ein neues, mächiges Gebäude. ...und nicht um die verblichenen Kopien einer Umsatzschätzung der Buchhaltung.</source>
+        <target>This small leather bag would appear to contain documents of some sort. You pray harder than you've ever prayed before that it contains some adult literature... or the blueprints for a new, all-powerful building, and not a faded facsimile of the shipping forecast...</target>
+      </segment>
+    </unit>
+    <unit id="VzWatEZ" name="a857b8b">
+      <notes>
+        <note category="german">Mit diesem HighTech-Schlüssel lassen sich Türen der Sicherheitsklasse 6.2 AOC öffnen. Nur Angehörige der Elite können sich damit brüsten, so einen Schlüssel zu besitzen. Leider ist der Schlüssel in einem so schlechten Zustand, dass er nur eine einzige Tür öffnet.</note>
+      </notes>
+      <segment>
+        <source>Mit diesem HighTech-Schlüssel lassen sich Türen der Sicherheitsklasse 6.2 AOC öffnen. Nur Angehörige der Elite können sich damit brüsten, so einen Schlüssel zu besitzen. Leider ist der Schlüssel in einem so schlechten Zustand, dass er nur eine einzige Tür öffnet.</source>
+        <target>This hi-tech key allows you to open doors secured up until level 6.2 AOC, only elite technicians are deigned to have one in their possession. Unfortunately, as yours is in pitiful condition, this key will only open one more door.</target>
+      </segment>
+    </unit>
+    <unit id="5ufgUwK" name="6fe0542">
+      <notes>
+        <note category="german">Dieser Schlüssel ist der Liebling aller Einbrecher und öffnet Türen so rasend schnell, dass man sich glatt fragt, warum man überhaupt noch normale Schlüssel benutzt. Leider ist der Schlüssel in einem so schlechten Zustand, dass er nur eine einzige Tür öffnet.</note>
+      </notes>
+      <segment>
+        <source>Dieser Schlüssel ist der Liebling aller Einbrecher und öffnet Türen so rasend schnell, dass man sich glatt fragt, warum man überhaupt noch normale Schlüssel benutzt. Leider ist der Schlüssel in einem so schlechten Zustand, dass er nur eine einzige Tür öffnet.</source>
+        <target>This key, a favourite amongst up-and-coming burglars, allows you to open any door in a matter of seconds. So easily in fact you might ask yourself what is the point in having normal keys. Unfortunately, as yours is in pitiful condition, this key will only open one more door.</target>
+      </segment>
+    </unit>
+    <unit id="tXHEeaI" name="284ff3d">
+      <notes>
+        <note category="german">Einige der Zimmer sind wahre Flaschenhälse. Darum ist das das perfekte Werkzeug, um sich Zutritt zu verschaffen und den einen oder anderen nützlichen Gegenstand herauszuholen! Leider ist der Flaschenöffner in einem so schlechten Zustand, dass er nur eine einzige Tür öffnet.</note>
+      </notes>
+      <segment>
+        <source>Einige der Zimmer sind wahre Flaschenhälse. Darum ist das das perfekte Werkzeug, um sich Zutritt zu verschaffen und den einen oder anderen nützlichen Gegenstand herauszuholen! Leider ist der Flaschenöffner in einem so schlechten Zustand, dass er nur eine einzige Tür öffnet.</source>
+        <target>This blank allows you to obtain a bump key, a favourite amongst up-and-coming burglars, which will allow you to open any door in a matter of seconds...</target>
+      </segment>
+    </unit>
+    <unit id="vclIZyk" name="33638dc">
+      <notes>
+        <note category="german">Einige der Zimmer sind wahre Flaschenhälse. Darum ist das das perfekte Werkzeug, um sich Zutritt zu verschaffen und den einen oder anderen nützlichen Gegenstand herauszuholen!</note>
+      </notes>
+      <segment>
+        <source>Einige der Zimmer sind wahre Flaschenhälse. Darum ist das das perfekte Werkzeug, um sich Zutritt zu verschaffen und den einen oder anderen nützlichen Gegenstand herauszuholen!</source>
+        <target>Some of the rooms here are a tight squeeze to say the least, so this would appear to be the perfect tool with which to gain access and get down to some serious rummaging. Thanks to this blank, you'll be able to obtain one!</target>
+      </segment>
+    </unit>
+    <unit id="1gt825t" name="2c41683">
+      <notes>
+        <note category="german">Dieses extrem seltene Serum wurde durch der Untersuchung der DNA eines fast immunen Wesens gewonnen. Es hatte zuvor 3 Tage überlebt, obwohl es von einem Infizierten gebissen wurde. Mit dem Serum kann man einen Ghul wieder in einen normalen Menschen verwandeln.</note>
+      </notes>
+      <segment>
+        <source>Dieses extrem seltene Serum wurde durch der Untersuchung der DNA eines fast immunen Wesens gewonnen. Es hatte zuvor 3 Tage überlebt, obwohl es von einem Infizierten gebissen wurde. Mit dem Serum kann man einen Ghul wieder in einen normalen Menschen verwandeln.</source>
+        <target>This extremely rare serum has been developed from the DNA of an almost immune specimen that has withstood an infectious bite for more than 3 days. It allows a ghoul to return to its normal human state.</target>
+      </segment>
+    </unit>
+    <unit id="tea5si." name="d9a4611">
+      <notes>
+        <note category="german">Eine Schwache Seele. Einmal in der Bank abgelegt, kann ein Schamane sie nehmen und in eine starke Seele umwandeln. Sie kann einen Schamanen noch in vielen anderen Situationen nützen.</note>
+      </notes>
+      <segment>
+        <source>Eine Schwache Seele. Einmal in der Bank abgelegt, kann ein Schamane sie nehmen und in eine starke Seele umwandeln. Sie kann einen Schamanen noch in vielen anderen Situationen nützen.</source>
+        <target>A weak soul. Once placed in the bank, a shaman can refine it into a powerful soul. This can then be used by shamans in numerous other situations.</target>
+      </segment>
+    </unit>
+    <unit id="doGsSie" name="2e1e3f5">
+      <notes>
+        <note category="german">Eine Starke Seele. Wurde von einem Schamanen aus einer Schwachen Seele hergestellt.</note>
+      </notes>
+      <segment>
+        <source>Eine Starke Seele. Wurde von einem Schamanen aus einer Schwachen Seele hergestellt.</source>
+        <target>Make the most of your friends' deaths! Citizens' souls can now be used in constructions, make sure to use these wisely to defend your town as fiercely as possible.</target>
+      </segment>
+    </unit>
+    <unit id="RyyUrj8" name="cc9a53c">
+      <notes>
+        <note category="german">In Wehmut versunken starrst du diesen überdimensionalen Bierkrug an... Sicher warm und geschmacklos, aber das Beste, das du seit der Apokalypse getrunken hast. Du musst wieder an all die verrückten Tage in München denken...</note>
+      </notes>
+      <segment>
+        <source>In Wehmut versunken starrst du diesen überdimensionalen Bierkrug an... Sicher warm und geschmacklos, aber das Beste, das du seit der Apokalypse getrunken hast. Du musst wieder an all die verrückten Tage in München denken...</source>
+        <target>You look at this oversized mug of beer with melancholy... Warm and tasteless, but surely the best thing you will have drunk since the Apocalypse. Something to remember the good old Oktoberfest days...</target>
+      </segment>
+    </unit>
+    <unit id="kVcbwU4" name="21d2d10">
+      <notes>
+        <note category="german">Ein leckerer, essbarer Snack... zumindest war es das einmal. Auf dieser Brezel wurde herumgetreten, sie riecht, als würde sie in Benzin getränkt (leider zu wenig, um sie für den Panzer im Südwesten der Stadt zu verwenden - schade) und es scheint, als wäre sie als Hammer oder als Zuhause für einen Holzwurm verwendet zu sein. Auf jedenfall erinnert sie dich jetzt stark an Prinzessin Beatrices Hochzeitshut.</note>
+      </notes>
+      <segment>
+        <source>Ein leckerer, essbarer Snack... zumindest war es das einmal. Auf dieser Brezel wurde herumgetreten, sie riecht, als würde sie in Benzin getränkt (leider zu wenig, um sie für den Panzer im Südwesten der Stadt zu verwenden - schade) und es scheint, als wäre sie als Hammer oder als Zuhause für einen Holzwurm verwendet zu sein. Auf jedenfall erinnert sie dich jetzt stark an Prinzessin Beatrices Hochzeitshut.</source>
+        <target>A tasty and edible snack... even after hanging around the ground for months. It tastes as if it was soaked in petrol (unfortunately too little to be used for the tank to the southwest of the city...) Beyond making you full, it can also amuse: it strongly reminds you of the hat of Princess Beatrice's wedding.</target>
+      </segment>
+    </unit>
+    <unit id="2wt0mMv" name="dbc5ae1">
+      <notes>
+        <note category="german">Der einzige in diesem gottverlassenen Ort, der dir wirklich Liebe schenken kann, ohne dir danach deine Pillen zu stehlen. Soweit du dich mit Hunden auskennst, sieht er ziemlich seltsam aus, aber er ist treu, hat scharfe Zähne und kann wunderbar knurren. Und sollte es doch mal zum schlimmsten Fall kommen, wird sich der Metzger sicher freuen, sich um ihn zu "kümmern"...</note>
+      </notes>
+      <segment>
+        <source>Der einzige in diesem gottverlassenen Ort, der dir wirklich Liebe schenken kann, ohne dir danach deine Pillen zu stehlen. Soweit du dich mit Hunden auskennst, sieht er ziemlich seltsam aus, aber er ist treu, hat scharfe Zähne und kann wunderbar knurren. Und sollte es doch mal zum schlimmsten Fall kommen, wird sich der Metzger sicher freuen, sich um ihn zu "kümmern"...</source>
+        <target>The only form of life who can really give you love in this cursed hell. As far as you are familiar with dogs, this one is loyal, with sharp jaws and can grunt wonderfully. In the worst case, the butcher will be happy to "take care" of this "sausage dog"...</target>
+      </segment>
+    </unit>
+    <unit id="tHLOoYh" name="3c2b71c">
+      <notes>
+        <note category="german">Der Pfahlwerfer kann dazu verwendet werden, Barrikaden zu verstärken oder jede Art von Gegner abzuwehren. Leider ist nur noch ein Pfahl übrig...</note>
+      </notes>
+      <segment>
+        <source>Der Pfahlwerfer kann dazu verwendet werden, Barrikaden zu verstärken oder jede Art von Gegner abzuwehren. Leider ist nur noch ein Pfahl übrig...</source>
+        <target>A stake launcher can be used to reinforce barricades or to defend against any manner of creature. Unfortunately there is only one stake left in the launcher.</target>
+      </segment>
+    </unit>
+    <unit id="6XdodLe" name="66391c4">
+      <notes>
+        <note category="german">Eine mächtige Wasserwaffe, dessen defeker Mechanismus nur noch für einen Schuss reicht.</note>
+      </notes>
+      <segment>
+        <source>Eine mächtige Wasserwaffe, dessen defeker Mechanismus nur noch für einen Schuss reicht.</source>
+        <target>A powerful water weapon, whose broken mechanism is only enough for one shot.</target>
+      </segment>
+    </unit>
+    <unit id="RDf9WEe" name="bba3476">
+      <notes>
+        <note category="german">Dieser wackelige Tisch wurde offensichtlich in Eile gebaut. Doch könnte er, von den Barrikaden geworfen, bestimmt gut einige Zombies zerquetschen.</note>
+      </notes>
+      <segment>
+        <source>Dieser wackelige Tisch wurde offensichtlich in Eile gebaut. Doch könnte er, von den Barrikaden geworfen, bestimmt gut einige Zombies zerquetschen.</source>
+        <target>This rickety desk was clearly built in a rush. Dropped from the top of the ramparts, however, it could prove most useful by crushing some zombies.</target>
+      </segment>
+    </unit>
+    <unit id="2goA6JI" name="cd7f656">
+      <notes>
+        <note category="german">Ich weiß was du denkst: "Kann dieser Automat nicht 20 Rationen Wasser und 50 Tüten Chips enthalten?!?" Dummerweise sieht das nicht so aus...aber immerhin ist er sehr klotzig und enthält ein paar Knochen.</note>
+      </notes>
+      <segment>
+        <source>Ich weiß was du denkst: "Kann dieser Automat nicht 20 Rationen Wasser und 50 Tüten Chips enthalten?!?" Dummerweise sieht das nicht so aus...aber immerhin ist er sehr klotzig und enthält ein paar Knochen.</source>
+        <target>This vending machine has been of no use since the pillaging started, it can become very useful very quickly should you decide to toss it off the top of the ramparts.</target>
+      </segment>
+    </unit>
+    <unit id="143H2cZ" name="c37fc5e">
+      <notes>
+        <note category="german">Es gab eine Zeit, da waren diese edlen Tiere legendär. Naja...diese Zeiten sind zwar vorbei, aber edel sind sie trotzdem noch.</note>
+      </notes>
+      <segment>
+        <source>Es gab eine Zeit, da waren diese edlen Tiere legendär. Naja...diese Zeiten sind zwar vorbei, aber edel sind sie trotzdem noch.</source>
+        <target>There was a time when this magnificent animalwas associated with marvellous legends... Those days are gone, but they are good for something else...</target>
+      </segment>
+    </unit>
+    <unit id="UuhpHIu" name="86ec8bc">
+      <notes>
+        <note category="german">Ein weitgehend verschimmeltes Osterei. Sein fauliger Gestank erinnert ein wenig an Schießpulver. Hat der Schimmel etwa seine physikalischen Eigenschaften verändert? Könnte sich lohnen, auf einen Zombie zu werfen.</note>
+      </notes>
+      <segment>
+        <source>Ein weitgehend verschimmeltes Osterei. Sein fauliger Gestank erinnert ein wenig an Schießpulver. Hat der Schimmel etwa seine physikalischen Eigenschaften verändert? Könnte sich lohnen, auf einen Zombie zu werfen.</source>
+        <target>A largely mouldy easter egg, its putrid stench is a little like gunpowder, could the mould have changed its physical properties? Might be worth testing on the zombies.</target>
+      </segment>
+    </unit>
+    <unit id="5vtPi6E" name="d5ea829">
+      <notes>
+        <note category="german">Du siehst ein glitzernden Gegenstand. Beim näheren Betrachten fällt dir auf, dass es ein Abzeichen ist. Das Abzeichen gibt dir die Kraft von 10 Männern. Du fühlst, dass dieser legendäre Gegenstand was besonderes ist.</note>
+      </notes>
+      <segment>
+        <source>Du siehst ein glitzernden Gegenstand. Beim näheren Betrachten fällt dir auf, dass es ein Abzeichen ist. Das Abzeichen gibt dir die Kraft von 10 Männern. Du fühlst, dass dieser legendäre Gegenstand was besonderes ist.</source>
+        <target>Rummaging through the wastes a dull glint catches your eye. On closer inspection you find it to be an ANZAC Badge. You immediately feel the strength of ten warriors within you. Guard this badge with your life, and the lives of those who have fallen before you. This legendary item must have some kind of effect on the evil horde...</target>
+      </segment>
+    </unit>
+    <unit id="9Yy7MEf" name="4c8196d">
+      <notes>
+        <note category="german">Eine Wasserwaffe ist immer sehr effektiv gegen Zombies.Das zählt allerdings nicht für leere...</note>
+      </notes>
+      <segment>
+        <source>Eine Wasserwaffe ist immer sehr effektiv gegen Zombies.Das zählt allerdings nicht für leere...</source>
+        <target>A powerful water gun against zombies. However, it does not kill many people when it is empty...</target>
+      </segment>
+    </unit>
+    <unit id="qHYIgFE" name="e7fefa9">
+      <notes>
+        <note category="german">Pass auf, dich nicht in den Drähten zu verstricken - wir würden dir nur ungern die Finger amputieren müssen, um dich zu befreien...</note>
+      </notes>
+      <segment>
+        <source>Pass auf, dich nicht in den Drähten zu verstricken - wir würden dir nur ungern die Finger amputieren müssen, um dich zu befreien...</source>
+        <target>Make sure you don't get tangled up in this, we'd hate to have to cut off your fingers to set you free.</target>
+      </segment>
+    </unit>
+    <unit id="gqDdsxv" name="3e60a86">
+      <notes>
+        <note category="german"> Ab und an finden wir diese Behälter leer in der Wüste - meistens an der Seite einer Leiche. Wann lernen die Leute endlich, dass man Motoröl nicht trinken kann?</note>
+      </notes>
+      <segment>
+        <source> Ab und an finden wir diese Behälter leer in der Wüste - meistens an der Seite einer Leiche. Wann lernen die Leute endlich, dass man Motoröl nicht trinken kann?</source>
+        <target>From time to time we find empty oil cans in the desert, often accompanied by a corpse. When will citizens learn that motor oil is undrinkable...</target>
+      </segment>
+    </unit>
+    <unit id="ZIo5wGX" name="f4b4b0e">
+      <notes>
+        <note category="german">Diese fast makellose Linse wartet scheinbar nur darauf, von deiner Kreativität einem höheren Zweck zugeführt zu werden.</note>
+      </notes>
+      <segment>
+        <source>Diese fast makellose Linse wartet scheinbar nur darauf, von deiner Kreativität einem höheren Zweck zugeführt zu werden.</source>
+        <target>This almoust flawless lens is just waiting for your ingenuity to find a use for it.</target>
+      </segment>
+    </unit>
+    <unit id="9wStwCD" name="5fbb21e">
+      <notes>
+        <note category="german">Das Kätzchen sieht ein wenig angefressen aus. Du solltest es besser nicht noch mehr reizen, es faucht ja jetzt schon.</note>
+      </notes>
+      <segment>
+        <source>Das Kätzchen sieht ein wenig angefressen aus. Du solltest es besser nicht noch mehr reizen, es faucht ja jetzt schon.</source>
+        <target>A kitten which surely belonged a now-dead citizen. It seems pretty aggravated, maybe you shouldn't annoy it any more.</target>
+      </segment>
+    </unit>
+    <unit id="lcMBOHL" name="8fb8264">
+      <notes>
+        <note category="german">Irgendwer hat sie mal in der Wüste vergraben, vermutlich um die Zombies aufzuhalten… Bisher haben sie sich nur als effektiv gegen unvorsichtige Mitbürger erwiesen.</note>
+      </notes>
+      <segment>
+        <source>Irgendwer hat sie mal in der Wüste vergraben, vermutlich um die Zombies aufzuhalten… Bisher haben sie sich nur als effektiv gegen unvorsichtige Mitbürger erwiesen.</source>
+        <target>We still find mines in the desert, but in general it's more common for careless citizens to step them than zombies.</target>
+      </segment>
+    </unit>
+    <unit id="JcYgft_" name="bc47d7d">
+      <notes>
+        <note category="german">Ein elektronisches Bauteil aus alter Zeit. Du hast nicht viel Ahnung von dem Zeug, aber es scheint noch zu funktionieren.</note>
+      </notes>
+      <segment>
+        <source>Ein elektronisches Bauteil aus alter Zeit. Du hast nicht viel Ahnung von dem Zeug, aber es scheint noch zu funktionieren.</source>
+        <target>An electronic component from a revolutionary time. It looks like it's in good order, even if you can't see though it personally.</target>
+      </segment>
+    </unit>
+    <unit id="pP0JDNU" name="f03e724">
+      <notes>
+        <note category="german">Früher konnte man damit die Damenwelt beeindrucken... Diese Zeiten sind vorbei, doch beliebt ist die Gitarre immer noch. Sie kommt zwar nicht an eine echte Les Paul '58 heran, aber die Stadt kann ein wenig Auflockerung gebrauchen. Wer hätte denn keinen Spaß an ein bisschen Musik?</note>
+      </notes>
+      <segment>
+        <source>Früher konnte man damit die Damenwelt beeindrucken... Diese Zeiten sind vorbei, doch beliebt ist die Gitarre immer noch. Sie kommt zwar nicht an eine echte Les Paul '58 heran, aber die Stadt kann ein wenig Auflockerung gebrauchen. Wer hätte denn keinen Spaß an ein bisschen Musik?</source>
+        <target>Once great for seducing the ladies while sitting in front of the campfire, they remain really popular despite the asexualization of the townsfolk. Far from a custom Les Paul '58 it may be, but it still brings joy and hope to the town. Who doesn't enjoy a sing-a-long?</target>
+      </segment>
+    </unit>
+    <unit id="Eu2UbaW" name="f7a4a78">
+      <notes>
+        <note category="german">Keine Ahnung, wo dieses kleine, pinke Stück Papier herkommt, aber wenn Du es in den Mund nimmst kribbelt dein Gehirn!</note>
+      </notes>
+      <segment>
+        <source>Keine Ahnung, wo dieses kleine, pinke Stück Papier herkommt, aber wenn Du es in den Mund nimmst kribbelt dein Gehirn!</source>
+        <target>We don't know where this little pink square of paper came from, but when you put it in your mouth it sends bubbles to your brain!</target>
+      </segment>
+    </unit>
+    <unit id="7vqShOC" name="4bf1bff">
+      <notes>
+        <note category="german">In der alten Welt war er verboten.In den Jahren wurde er weiter verbessert und die Strahlen gebündelt. Heute eignet er sich gut, um durch verrottetes Fleisch zu schneiden.</note>
+      </notes>
+      <segment>
+        <source>In der alten Welt war er verboten.In den Jahren wurde er weiter verbessert und die Strahlen gebündelt. Heute eignet er sich gut, um durch verrottetes Fleisch zu schneiden.</source>
+        <target>Banned throughout the world since someone advanced in years tried to cross the streams of two of these objects, it'll be good for slicing through putrefied flesh though!</target>
+      </segment>
+    </unit>
+    <unit id="0n4O6O2" name="c67ed7e">
+      <notes>
+        <note category="german">In der alten Welt war er verboten.In den Jahren wurde er weiter verbessert und die Strahlen gebündelt. Heute eignet er sich gut, um durch verrottetes Fleisch zu schneiden. Jetzt brauchst du nur noch eine Batterie...</note>
+      </notes>
+      <segment>
+        <source>In der alten Welt war er verboten.In den Jahren wurde er weiter verbessert und die Strahlen gebündelt. Heute eignet er sich gut, um durch verrottetes Fleisch zu schneiden. Jetzt brauchst du nur noch eine Batterie...</source>
+        <target>Banned throughout the world since someone advanced in years tried to cross the streams of two of these objects, it'll be good for slicing through putrefied flesh though!</target>
+      </segment>
+    </unit>
+    <unit id="HdTswyu" name="a7c2c07">
+      <notes>
+        <note category="german">Vor langer Zeit hat man mit diesem Werkzeug die Sterne beobachtet. Heute beobachten wir Zombies. Damit braucht die Angriffsabschätzung nur noch halb so viele Bürger.</note>
+      </notes>
+      <segment>
+        <source>Vor langer Zeit hat man mit diesem Werkzeug die Sterne beobachtet. Heute beobachten wir Zombies. Damit braucht die Angriffsabschätzung nur noch halb so viele Bürger.</source>
+        <target>In days gone by, this tool was used to observe and count stars in the sky. Nowdays, the stars have been replaced by zombies. When used, the telescope halves the number of citizens required to estimate the attack.</target>
+      </segment>
+    </unit>
+    <unit id="g97Hura" name="Nichts sagt &quot;Willkommen zuhause&quot; mehr als eine spontane Fußamputation.">
+      <notes>
+        <note category="german">Nichts sagt "Willkommen zuhause" mehr als eine spontane Fußamputation.</note>
+      </notes>
+      <segment>
+        <source>Nichts sagt "Willkommen zuhause" mehr als eine spontane Fußamputation.</source>
+        <target>A great way to make someone feel really unwelcome, a bomb under the doormat! Why didin't we think of this before!</target>
+      </segment>
+    </unit>
+    <unit id="AXX0tVc" name="9f0cbb1">
+      <notes>
+        <note category="german">Der Geist von Chuck lebt in dieser Figur. Nichts kann ihr schaden und sie wird noch lange nach deinem Tod hier sein, stets unerschrocken im Angesicht der Zombies.</note>
+      </notes>
+      <segment>
+        <source>Der Geist von Chuck lebt in dieser Figur. Nichts kann ihr schaden und sie wird noch lange nach deinem Tod hier sein, stets unerschrocken im Angesicht der Zombies.</source>
+        <target>The spirit of Chuck resides in this figurine. Nothing can happen to it, and it will still be here long after your death, still unafraid of the zombie horde.</target>
+      </segment>
+    </unit>
+    <unit id="WYHUH_F" name="abca93d">
+      <notes>
+        <note category="german">Dieses Buch wurde in vielen Sprachen veröffentlicht. Es bietet Rat für aussichtslose Situationen und schützt so vor Angststarren.</note>
+      </notes>
+      <segment>
+        <source>Dieses Buch wurde in vielen Sprachen veröffentlicht. Es bietet Rat für aussichtslose Situationen und schützt so vor Angststarren.</source>
+        <target>This book, which has been published in many languages, teaches you how to deal with overwhealming situations. There is a life after death! It prevents the user from becoming terrorised.</target>
+      </segment>
+    </unit>
+    <unit id="mwQUuAf" name="6259ffc">
+      <notes>
+        <note category="german">Scheint nicht viel besser als Heu zu sein, aber es wird sicher für irgendwas verwendbar sein. Außer ziemlich enttäuschenden Zigaretten.</note>
+      </notes>
+      <segment>
+        <source>Scheint nicht viel besser als Heu zu sein, aber es wird sicher für irgendwas verwendbar sein. Außer ziemlich enttäuschenden Zigaretten.</source>
+        <target>Although it appears to be nothing but hay in the making, there must be another use for this herb apart from very disappointing cigarettes.</target>
+      </segment>
+    </unit>
+    <unit id="j1nAPIq" name="d3c56ff">
+      <notes>
+        <note category="german">Manchmal finden wir Pilze auf Leichen nach deren Genuss man die merkwürdigsten Sachen von sich gibt. Es heißt, die Schäden am Gehirn seien irreparabel und dein aktueller Zustand könnte das sogar bestätigen...</note>
+      </notes>
+      <segment>
+        <source>Manchmal finden wir Pilze auf Leichen nach deren Genuss man die merkwürdigsten Sachen von sich gibt. Es heißt, die Schäden am Gehirn seien irreparabel und dein aktueller Zustand könnte das sogar bestätigen...</source>
+        <target>Sometimes we find mushrooms growing on corpses which make us say funny things, and they say that the effects on the brain are irreversible, and the state you're already in may just confirm it...</target>
+      </segment>
+    </unit>
+    <unit id="lVS8bQx" name="be2094c">
+      <notes>
+        <note category="german">Gesöff der Krieger, Trank der Könige, Cocktail der Götter! Zweifelst Du an der Stärke dieses Getränkes, dann lass ruhig erst einmal Deine Nachbarn probieren.</note>
+      </notes>
+      <segment>
+        <source>Gesöff der Krieger, Trank der Könige, Cocktail der Götter! Zweifelst Du an der Stärke dieses Getränkes, dann lass ruhig erst einmal Deine Nachbarn probieren.</source>
+        <target>The dream of warriors, the blend of kings, the cocktail of the gods! If you doubt its strength, let one of your neighbors taste it.</target>
+      </segment>
+    </unit>
+    <unit id="910sonF" name="febf617">
+      <notes>
+        <note category="german">Wenn kombiniert mit einer CD, diese HiFi Anlage hat das Potential zu einer Massenvernichtungswaffe zu werden.</note>
+      </notes>
+      <segment>
+        <source>Wenn kombiniert mit einer CD, diese HiFi Anlage hat das Potential zu einer Massenvernichtungswaffe zu werden.</source>
+        <target>When used with a CD, this unit has the potential to become a weapon of mass destruction!</target>
+      </segment>
+    </unit>
+    <unit id="qWTnZIC" name="72d7e00">
+      <notes>
+        <note category="german">Nichts ist besser, als mit ein wenig 80er Jahre Retro-Musik den Abend zu beleben! Dreh den Regler hoch und mach das Fenster auf!</note>
+      </notes>
+      <segment>
+        <source>Nichts ist besser, als mit ein wenig 80er Jahre Retro-Musik den Abend zu beleben! Dreh den Regler hoch und mach das Fenster auf!</source>
+        <target>Nothing beats a little 80s retro music to liven up your tented evenings! If you're and evil b******d, open the window, turn it up LOUD and play it all night long!</target>
+      </segment>
+    </unit>
+    <unit id="RsBk7HG" name="c247f9e">
+      <notes>
+        <note category="german">Hast du genug von dem Gequassel vor deiner Tür, den Streitereien nach zu viel Korn-Bräu oder Bürgern, die verzweifelt um ihr Leben schreien? Diese Ohrstöpsel sind genau das Richtige für dich!</note>
+      </notes>
+      <segment>
+        <source>Hast du genug von dem Gequassel vor deiner Tür, den Streitereien nach zu viel Korn-Bräu oder Bürgern, die verzweifelt um ihr Leben schreien? Diese Ohrstöpsel sind genau das Richtige für dich!</source>
+        <target>Had enough of the chitchat outside your door, townspeople insulting one another after too much Ergot Homebrew, citizens screaming in fear for their lives? These earplugs are your best friend!</target>
+      </segment>
+    </unit>
+    <unit id="AZvjPLz" name="1224a21">
+      <notes>
+        <note category="german">Ein zerbrochener Stock. Leider zu kurz, um eine vernünftige Waffe zu sein, aber er ist nicht völlig nutzlos...</note>
+      </notes>
+      <segment>
+        <source>Ein zerbrochener Stock. Leider zu kurz, um eine vernünftige Waffe zu sein, aber er ist nicht völlig nutzlos...</source>
+        <target>Half a staff. Too short to be a really effective weapon, but not entirely useless...</target>
+      </segment>
+    </unit>
+    <unit id="w0aH9Mj" name="9faef00">
+      <notes>
+        <note category="german">Trotz dass Du glaubst, dies ist Musik für kleine Mädchen , ist das eine ernsthafte Verteidigungsmaßnahme . Sobald die ersten Töne von der Mini Hi-Fi Anlage erklingen, wird kein normaler Mensch in der Lage sein, sich deinem Haus zu nähern. Vorrausgesetzt unsere Zombies waren mal normal und kennen Facebook ....</note>
+      </notes>
+      <segment>
+        <source>Trotz dass Du glaubst, dies ist Musik für kleine Mädchen , ist das eine ernsthafte Verteidigungsmaßnahme . Sobald die ersten Töne von der Mini Hi-Fi Anlage erklingen, wird kein normaler Mensch in der Lage sein, sich deinem Haus zu nähern. Vorrausgesetzt unsere Zombies waren mal normal und kennen Facebook ....</source>
+        <target>Despite an innocuous appearance, leading you to believe this is music for little girls, this is a serious defensive measure. As soon as the first waves from disk emanate from a HIFI, no normal person will be able to approach your home. That said, if our zombies were normal, MyHordes would be available on Facebook, so don't put all your faith in it...</target>
+      </segment>
+    </unit>
+    <unit id="2AXaCrg" name="dad7df7">
+      <notes>
+        <note category="german">Bereit deine Hüften zu ein wenig Rock 'n' Roll zu schwingen? Diese Sammlung der besten Songs des King of Rock wird Stimmung in jede Party bringen.</note>
+      </notes>
+      <segment>
+        <source>Bereit deine Hüften zu ein wenig Rock 'n' Roll zu schwingen? Diese Sammlung der besten Songs des King of Rock wird Stimmung in jede Party bringen.</source>
+        <target>Ready to shake thise hips to a little rock n' roll? This compilation from the true king of rock will kick-start the party!</target>
+      </segment>
+    </unit>
+    <unit id="S9PlQ06" name="Beflügelt durch die Hits des Kings, bist du motivierter als jemals zuvor!">
+      <notes>
+        <note category="german">Beflügelt durch die Hits des Kings, bist du motivierter als jemals zuvor!</note>
+      </notes>
+      <segment>
+        <source>Beflügelt durch die Hits des Kings, bist du motivierter als jemals zuvor!</source>
+        <target>Spinning the hits of the King, you'll wake up more motivated and energized than ever before!</target>
+      </segment>
+    </unit>
+    <unit id="DSKGDc3" name="82cb701">
+      <notes>
+        <note category="german">Mit der richtigen CD und ein paar guten Ohrstöpseln wird diese HiFi zu einer gefährlichen Waffe, die dich und deine Mitbürger sicher schlafen lässt (zumindest in einiger Distanz)</note>
+      </notes>
+      <segment>
+        <source>Mit der richtigen CD und ein paar guten Ohrstöpseln wird diese HiFi zu einer gefährlichen Waffe, die dich und deine Mitbürger sicher schlafen lässt (zumindest in einiger Distanz)</source>
+        <target>The right CD and some good ear defenders make this powerful weapon which allows you to rest peacefully while others are kept at a safe distance!</target>
+      </segment>
+    </unit>
+    <unit id="g93.YNB" name="fd51afb">
+      <notes>
+        <note category="german">Sie ist verdammt schwer und du bist dir fast sicher, dass da etwas nützliches drin ist... Aber erstmal brauchst du etwas um sie zu öffnen - zumindest etwas besseres als deine Zähne.</note>
+      </notes>
+      <segment>
+        <source>Sie ist verdammt schwer und du bist dir fast sicher, dass da etwas nützliches drin ist... Aber erstmal brauchst du etwas um sie zu öffnen - zumindest etwas besseres als deine Zähne.</source>
+        <target>It's pretty damn heavy and almost certainly contains something useful... you just need to find something better than your teeth for opening it.</target>
+      </segment>
+    </unit>
+    <unit id="xkCSr1b" name="6a0e5d7">
+      <notes>
+        <note category="german">Keine Ahnung, ob es am LSD liegt oder daran, dass Chuck Norris so hart ist, er trinkt Napalm gegen Sodbrennen - aber diese Rede hat definitiv einen positiven Einfluss auf unsere Nachtwächter!</note>
+      </notes>
+      <segment>
+        <source>Keine Ahnung, ob es am LSD liegt oder daran, dass Chuck Norris so hart ist, er trinkt Napalm gegen Sodbrennen - aber diese Rede hat definitiv einen positiven Einfluss auf unsere Nachtwächter!</source>
+        <target>We don't know if it's the LSD or it's just that Chuck Norris is so hard, he drinks napalm to cure his heartburn, but this speech certainly has a possitive effect on the watchman!</target>
+      </segment>
+    </unit>
+    <unit id="b4hXUsz" name="dd428b0">
+      <notes>
+        <note category="german">Diese riesige Schlange scheint Verdauungsprobleme zu haben... SO kannst du jedenfalls nichts mehr mit ihr anfangen.</note>
+      </notes>
+      <segment>
+        <source>Diese riesige Schlange scheint Verdauungsprobleme zu haben... SO kannst du jedenfalls nichts mehr mit ihr anfangen.</source>
+        <target>This giant snake seems to have indigestion, it has a huge bulge in its abdomen. It's of no use to you like this...</target>
+      </segment>
+    </unit>
+    <unit id="t2eh8MS" name="67ebe23">
+      <notes>
+        <note category="german">Sieht so aus als hätte dein Nachbar dir ein Geschenkt gemacht! Dein Name steht drauf! Was mag sie wohl enthalten?.</note>
+      </notes>
+      <segment>
+        <source>Sieht so aus als hätte dein Nachbar dir ein Geschenkt gemacht! Dein Name steht drauf! Was mag sie wohl enthalten?.</source>
+        <target>It seems that a neighbour has left a small box with your name on it in front of your house... What could be inside ?</target>
+      </segment>
+    </unit>
+    <unit id="0NzivMi" name="4e62797">
+      <notes>
+        <note category="german">Dieses gut versiegelte Fläschen enthält Traubensaft. Das ist wirklich komisch... Warum sollte jemand Traubensaft versiegeln? Zumal ein Etikett angebracht wurde: 'Bei versehentlichen Verschlucken, bitte schnellstens die nächste Ambulanz aufsuchen'. Das willste doch nicht trinken? Oder etwa doch?!</note>
+      </notes>
+      <segment>
+        <source>Dieses gut versiegelte Fläschen enthält Traubensaft. Das ist wirklich komisch... Warum sollte jemand Traubensaft versiegeln? Zumal ein Etikett angebracht wurde: 'Bei versehentlichen Verschlucken, bitte schnellstens die nächste Ambulanz aufsuchen'. Das willste doch nicht trinken? Oder etwa doch?!</source>
+        <target>This carefully sealed vial contains plum juice. Seems suspicious if you ask me. Especially when you conside that the label reads : 'in case of ingestion, contact the nearest poisons unit'. You're not going to drink it anyway, are you? Really?</target>
+      </segment>
+    </unit>
+    <unit id="SdOs4MP" name="Ein Flaschenetikett... Auf der Rückseite ist es sogar beschrieben!">
+      <notes>
+        <note category="german">Ein Flaschenetikett... Auf der Rückseite ist es sogar beschrieben!</note>
+      </notes>
+      <segment>
+        <source>Ein Flaschenetikett... Auf der Rückseite ist es sogar beschrieben!</source>
+        <target>A label from a bottle of something... Hang on, there's something written on the back !</target>
+      </segment>
+    </unit>
+    <unit id="liDUE4L" name="811ca45">
+      <notes>
+        <note category="german">Die Klamotten, die du schon seit ein paar Jahren trägst. Sie sind abgetragen, erfüllen aber ihren Zweck: Sie sind bequem. In diesen Kleidern wirst du auch sterben, soviel steht schon einmal fest.</note>
+      </notes>
+      <segment>
+        <source>Die Klamotten, die du schon seit ein paar Jahren trägst. Sie sind abgetragen, erfüllen aber ihren Zweck: Sie sind bequem. In diesen Kleidern wirst du auch sterben, soviel steht schon einmal fest.</source>
+        <target>A Resident is effectively a normal, everyday citizen, with no remarkable abilities to speak of...</target>
+      </segment>
+    </unit>
+    <unit id="rNdy2IV" name="bdd58ca">
+      <notes>
+        <note category="german">Schau dich nur an! Deine Kleidung ist vollkommen verdreckt und blutbesprengt! Du solltest sie reinigen, sobald du daheim bist!</note>
+      </notes>
+      <segment>
+        <source>Schau dich nur an! Deine Kleidung ist vollkommen verdreckt und blutbesprengt! Du solltest sie reinigen, sobald du daheim bist!</source>
+        <target>Your uniform : torn, dirty and covered in splashes of God-knows-what... You should really think about washing it when you get back to the town.</target>
+      </segment>
+    </unit>
+    <unit id="PnRAHcb" name="3c6105a">
+      <notes>
+        <note category="german">Mit dieser Kleidung kannst du dich in der Wüste unerkannt fortbewegen. Dennoch ist Vorsicht geboten: Wenn sich in einer Zone zu viele Zombies aufhalten, kannst du erkannt werden.</note>
+      </notes>
+      <segment>
+        <source>Mit dieser Kleidung kannst du dich in der Wüste unerkannt fortbewegen. Dennoch ist Vorsicht geboten: Wenn sich in einer Zone zu viele Zombies aufhalten, kannst du erkannt werden.</source>
+        <target>This allows you to move freely through zombie-infested areas in the desert. Always be careful though, as there is a chance you could be spotted if you're trying to cross an area that's crawling with the undead....</target>
+      </segment>
+    </unit>
+    <unit id="IU3Z1xk" name="c85cf59">
+      <notes>
+        <note category="german">Mit der kleinen Schaufel musst du in der Wüste nicht so lange graben (automatisch aktiviert). Die Wahrscheinlichkeit einen Gegenstand zu finden ist ebenfalls größer.</note>
+      </notes>
+      <segment>
+        <source>Mit der kleinen Schaufel musst du in der Wüste nicht so lange graben (automatisch aktiviert). Die Wahrscheinlichkeit einen Gegenstand zu finden ist ebenfalls größer.</source>
+        <target>The standard tool of the Scavenger. The small shovel automatically reduces searching time in the desert... The chances of finding an object are also significantly increased.</target>
+      </segment>
+    </unit>
+    <unit id="mpUAH1U" name="b687353">
+      <notes>
+        <note category="german">Der kleine kläffende Malteser stinkt nach nassem Fell, humpelt und sabbert ohne Ende. Einmal pro Tag kannst du ihn mit deinem Rucksackinhalt in die Stadt schicken. Dabei spielt es keine Rolle, wo du dich gerade befindest... Dein treuer Begleiter schlägt sich.</note>
+      </notes>
+      <segment>
+        <source>Der kleine kläffende Malteser stinkt nach nassem Fell, humpelt und sabbert ohne Ende. Einmal pro Tag kannst du ihn mit deinem Rucksackinhalt in die Stadt schicken. Dabei spielt es keine Rolle, wo du dich gerade befindest... Dein treuer Begleiter schlägt sich.</source>
+        <target>He follows you everywhere, smelling of wet dog and drooling constantly. And he yaps. Often. Once a day though, you can ask him to take the contents of your rucksack back to the town from anywhere in the desert.</target>
+      </segment>
+    </unit>
+    <unit id="1AGCtVy" name="c84c963">
+      <notes>
+        <note category="german">Auch wenn der Titel anderes vermuten lässt: "Tick, Trick und Tracks Schlaues Buch" ist von unschätzbarem Wert. Es enthält zahlreiche Tipps und Tricks, wie man in der Natur am besten überleben und Nahrung finden kann.</note>
+      </notes>
+      <segment>
+        <source>Auch wenn der Titel anderes vermuten lässt: "Tick, Trick und Tracks Schlaues Buch" ist von unschätzbarem Wert. Es enthält zahlreiche Tipps und Tricks, wie man in der Natur am besten überleben und Nahrung finden kann.</source>
+        <target>Your precious book entitled "Junior Woodchuck's Scouting Manual". Even though it may look like a children's book, it contains a wealth of useful information for anyone looking to survive in the great outdoors. It even shows you how to find food easily.</target>
+      </segment>
+    </unit>
+    <unit id="zNdPJiM" name="b1076bd">
+      <notes>
+        <note category="german">Unverzichtbar, um auf den Baustellen der Stadt herumzuwuseln, kann der Schraubenschlüssel auch dazu verwendet werden, verschlossene Türen ganz einfach zu öffnen.</note>
+      </notes>
+      <segment>
+        <source>Unverzichtbar, um auf den Baustellen der Stadt herumzuwuseln, kann der Schraubenschlüssel auch dazu verwendet werden, verschlossene Türen ganz einfach zu öffnen.</source>
+        <target>This comprehensive tool kit, which includes a top-of-the-line adjustable wrench, allows the technician to build more easily. Thanks to the array of tools in the kit, the tech can also take an impression of a lock in a secured door.</target>
+      </segment>
+    </unit>
+    <unit id="jwGWTvk" name="affc55c">
+      <notes>
+        <note category="german"> Ein großer Schutzschild, der keine Wünsche offen lässt, ermöglicht es dir, in der Wüste bis zu 2 zusätzliche Zombies auf Distanz zu halten.</note>
+      </notes>
+      <segment>
+        <source> Ein großer Schutzschild, der keine Wünsche offen lässt, ermöglicht es dir, in der Wüste bis zu 2 zusätzliche Zombies auf Distanz zu halten.</source>
+        <target> It's big and it's zombie-proof. In this world who could ask for more... It allows you to face 2 additional zombies in the desert..</target>
+      </segment>
+    </unit>
+    <unit id="Z1OLvdq" name="af1cd74">
+      <notes>
+        <note category="german">Diese uralte Maske ist erfüllt vom Wissen und der Macht tausender Voodoo-Priester. Mit ihr kann der Schamane ausfindig machen, wo in der Außenwelt die Seelen frisch verstorbenen Bürger herumwandeln.</note>
+      </notes>
+      <segment>
+        <source>Diese uralte Maske ist erfüllt vom Wissen und der Macht tausender Voodoo-Priester. Mit ihr kann der Schamane ausfindig machen, wo in der Außenwelt die Seelen frisch verstorbenen Bürger herumwandeln.</source>
+        <target>This antique mask, which has been used by ancient voodoo sorcerors for thousands of years, allows the Shaman to know exactly where the souls of freshly-deceased citizens are located in the World Beyond.</target>
+      </segment>
+    </unit>
+    <unit id="wESWf2D" name="Berufsgegenstand">
+      <notes>
+        <note category="german">Berufsgegenstand</note>
+      </notes>
+      <segment>
+        <source>Berufsgegenstand</source>
+        <target>Professional tool (cannot be dropped)</target>
+      </segment>
+    </unit>
+    <unit id="m3.VXgQ" name="Schwerer Gegenstand">
+      <notes>
+        <note category="german">Schwerer Gegenstand</note>
+      </notes>
+      <segment>
+        <source>Schwerer Gegenstand</source>
+        <target>Heavy object</target>
+      </segment>
+    </unit>
+    <unit id="ZFVsUqp" name="Einrichtungsgegenstand">
+      <notes>
+        <note category="german">Einrichtungsgegenstand</note>
+      </notes>
+      <segment>
+        <source>Einrichtungsgegenstand</source>
+        <target>Home decoration</target>
+      </segment>
+    </unit>
+    <unit id="r0TQqLv" name="Verteidigungsgegenstand">
+      <notes>
+        <note category="german">Verteidigungsgegenstand</note>
+      </notes>
+      <segment>
+        <source>Verteidigungsgegenstand</source>
+        <target>Defense Object</target>
+      </segment>
+    </unit>
+    <unit id="HRMX4o6" name="Waffe">
+      <notes>
+        <note category="german">Waffe</note>
+      </notes>
+      <segment>
+        <source>Waffe</source>
+        <target>Weapon</target>
+      </segment>
+    </unit>
+    <unit id="MqglA5l" name="Super-Flaum-Pulver">
+      <notes>
+        <note category="german">Super-Flaum-Pulver</note>
+      </notes>
+      <segment>
+        <source>Super-Flaum-Pulver</source>
+        <target>Super-Fuzz Powder</target>
+      </segment>
+    </unit>
+    <unit id="JoKXock" name="0cb7ed4">
+      <notes>
+        <note category="german">Je nach Epoche wurde dieses Pulver nacheinander als Zünder für verschiedene Artilleriegeschütze, dann als billige Droge für bedürftige Bürger und schließlich als Hauptbestandteil von Feuerwerkskörpern verwendet. In allen drei Fällen haben viele Menschen nicht überlebt.</note>
+      </notes>
+      <segment>
+        <source>Je nach Epoche wurde dieses Pulver nacheinander als Zünder für verschiedene Artilleriegeschütze, dann als billige Droge für bedürftige Bürger und schließlich als Hauptbestandteil von Feuerwerkskörpern verwendet. In allen drei Fällen haben viele Menschen nicht überlebt.</source>
+        <target>Depending on the era, this powder was used sequentially as a detonator for various artillery pieces, then as a cheap drug for needy citizens and finally as the main component of fireworks. In all three cases, many people have not survived.</target>
+      </segment>
+    </unit>
+    <unit id="B3woSiS" name="Flush-Abschussrohr">
+      <notes>
+        <note category="german">Flush-Abschussrohr</note>
+      </notes>
+      <segment>
+        <source>Flush-Abschussrohr</source>
+        <target>Firework Launch Tube</target>
+      </segment>
+    </unit>
+    <unit id="jo37Kom" name="Mehrere lange Plastikschläuche ohne großes Interesse.">
+      <notes>
+        <note category="german">Mehrere lange Plastikschläuche ohne großes Interesse.</note>
+      </notes>
+      <segment>
+        <source>Mehrere lange Plastikschläuche ohne großes Interesse.</source>
+        <target>Several long plastic hoses without much interest.</target>
+      </segment>
+    </unit>
+    <unit id="r_RaIim" name="Feuerwerkskiste">
+      <notes>
+        <note category="german">Feuerwerkskiste</note>
+      </notes>
+      <segment>
+        <source>Feuerwerkskiste</source>
+        <target>Box of Fireworks</target>
+      </segment>
+    </unit>
+    <unit id="CKlG8jA" name="5e73e38">
+      <notes>
+        <note category="german">Diese Schachtel enthält eine ganze Reihe von hochgiftigen Chemikalien mit aufrüttelnden Namen wie: Natrium-Fuzz, Carbopotassium Bling Bling oder Rainbow Lithium Cyanurized.</note>
+      </notes>
+      <segment>
+        <source>Diese Schachtel enthält eine ganze Reihe von hochgiftigen Chemikalien mit aufrüttelnden Namen wie: Natrium-Fuzz, Carbopotassium Bling Bling oder Rainbow Lithium Cyanurized.</source>
+        <target>This box contains a lot of highly toxic chemicals with startling names such as: sodium fuzz, carbopotassium bling bling or rainbow lithium cyanurized.</target>
+      </segment>
+    </unit>
+    <unit id="57AU2d." name="Kürbis ausgestorben">
+      <notes>
+        <note category="german">Kürbis ausgestorben</note>
+      </notes>
+      <segment>
+        <source>Kürbis ausgestorben</source>
+        <target>Carved Soft Pumpkin</target>
+      </segment>
+    </unit>
+    <unit id="hgy9Tb5" name="4e68aa9">
+      <notes>
+        <note category="german">Eine Art großes, stinkendes Orangengemüse, wie Sie es noch nie zuvor gesehen haben. Ein grimassierendes Gesicht ist in sein Fleisch geritzt: Was für eine barbarische Tradition steckt hinter diesem Ritual?</note>
+      </notes>
+      <segment>
+        <source>Eine Art großes, stinkendes Orangengemüse, wie Sie es noch nie zuvor gesehen haben. Ein grimassierendes Gesicht ist in sein Fleisch geritzt: Was für eine barbarische Tradition steckt hinter diesem Ritual?</source>
+        <target>A kind of big, smelly orange vegetable like you've never seen before. A grimacing face is carved into his flesh: what is the barbaric tradition behind this ritual?</target>
+      </segment>
+    </unit>
+    <unit id="qjyJg4a" name="Beleuchteter Kürbis">
+      <notes>
+        <note category="german">Beleuchteter Kürbis</note>
+      </notes>
+      <segment>
+        <source>Beleuchteter Kürbis</source>
+        <target>Lit Pumpkin</target>
+      </segment>
+    </unit>
+    <unit id="TQRmRVD" name="def5d68">
+      <notes>
+        <note category="german">Hier ist eine verrückte Idee: Dieses große, seltsame Gemüse wurde von seinem Fleisch befreit, geformt und es gibt eine brennende Kerze darin... </note>
+      </notes>
+      <segment>
+        <source>Hier ist eine verrückte Idee: Dieses große, seltsame Gemüse wurde von seinem Fleisch befreit, geformt und es gibt eine brennende Kerze darin... </source>
+        <target>Here's a crazy idea: this large, weird vegetable has been stripped of its flesh, shaped and there is a lit candle in it ... </target>
+      </segment>
+    </unit>
+    <unit id="JwoL.oE" name="Krähengirlande">
+      <notes>
+        <note category="german">Krähengirlande</note>
+      </notes>
+      <segment>
+        <source>Krähengirlande</source>
+        <target>Crow garland</target>
+      </segment>
+    </unit>
+    <unit id="3y4ye_D" name="44bf3b8">
+      <notes>
+        <note category="german">Eine Girlande einer scheinbar uralten Tradition. Es wird empfohlen, es zu Hause als Dekoration aufzuhängen, es könnte gut für die Moral der Stadt sein.</note>
+      </notes>
+      <segment>
+        <source>Eine Girlande einer scheinbar uralten Tradition. Es wird empfohlen, es zu Hause als Dekoration aufzuhängen, es könnte gut für die Moral der Stadt sein.</source>
+        <target>A garland of an apparently ancient tradition. It is recommended to hang it up at home as a decoration, it could be good for the town's morale.</target>
+      </segment>
+    </unit>
+    <unit id="9VFJt3E" name="9e61209">
+      <notes>
+        <note category="german">&lt;t-bp_ok&gt;Du liest den {item} und stellst fest, dass es sich um einen Plan für {bp_spawn} handelt.&lt;/t-bp_ok&gt;&lt;t-bp_fail&gt;Du versuchst den {item} zu lesen, kannst seinen Inhalt aber nicht verstehen ...&lt;/t-bp_fail&gt;</note>
+      </notes>
+      <segment>
+        <source>&lt;t-bp_ok&gt;Du liest den {item} und stellst fest, dass es sich um einen Plan für {bp_spawn} handelt.&lt;/t-bp_ok&gt;&lt;t-bp_fail&gt;Du versuchst den {item} zu lesen, kannst seinen Inhalt aber nicht verstehen ...&lt;/t-bp_fail&gt;</source>
+        <target><![CDATA[<t-bp_ok>You read the {item} and see that it is a plan for {bp_spawn}.</t-bp_ok><t-bp_fail>You read the {item} but you do not understand a word of what is written...</t-bp_fail>]]></target>
+      </segment>
+    </unit>
+    <unit id="V2fAVB5" name="Aufbauen">
+      <notes>
+        <note category="german">Aufbauen</note>
+      </notes>
+      <segment>
+        <source>Aufbauen</source>
+        <target>Install</target>
+      </segment>
+    </unit>
+    <unit id="BNi5WCM" name="Du hast das hiesige Versteck erheblich verbessert.">
+      <notes>
+        <note category="german">Du hast das hiesige Versteck erheblich verbessert.</note>
+      </notes>
+      <segment>
+        <source>Du hast das hiesige Versteck erheblich verbessert.</source>
+        <target>You have improved the hiding place considerably.</target>
+      </segment>
+    </unit>
+    <unit id="8f3LUQZ" name="Schlafplatz verbessern (schwacher permanenter Bonus, 1AP)">
+      <notes>
+        <note category="german">Schlafplatz verbessern (schwacher permanenter Bonus, 1AP)</note>
+      </notes>
+      <segment>
+        <source>Schlafplatz verbessern (schwacher permanenter Bonus, 1AP)</source>
+        <target>Improve the campsite (permanent small bonus, 1AP)</target>
+      </segment>
+    </unit>
+    <unit id="D632ww5" name="Du hast das hiesige Versteck verbessert.">
+      <notes>
+        <note category="german">Du hast das hiesige Versteck verbessert.</note>
+      </notes>
+      <segment>
+        <source>Du hast das hiesige Versteck verbessert.</source>
+        <target>You spent considerable time upgrading your hiding place with everything that came to hand...</target>
+      </segment>
+    </unit>
+    <unit id="I4OeVwm" name="Sich verstecken und die Nacht hier schlafen!">
+      <notes>
+        <note category="german">Sich verstecken und die Nacht hier schlafen!</note>
+      </notes>
+      <segment>
+        <source>Sich verstecken und die Nacht hier schlafen!</source>
+        <target>Hide here for the night!</target>
+      </segment>
+    </unit>
+    <unit id="VsRU9Va" name="Du hast Dich notdürftig versteckt.">
+      <notes>
+        <note category="german">Du hast Dich notdürftig versteckt.</note>
+      </notes>
+      <segment>
+        <source>Du hast Dich notdürftig versteckt.</source>
+        <target>You have hid yourself temporarily.</target>
+      </segment>
+    </unit>
+    <unit id="XqeL5yu" name="&quot;Grab&quot; schaufeln (mittelmäßiger vorübergehender Bonus, 1AP)">
+      <notes>
+        <note category="german">"Grab" schaufeln (mittelmäßiger vorübergehender Bonus, 1AP)</note>
+      </notes>
+      <segment>
+        <source>"Grab" schaufeln (mittelmäßiger vorübergehender Bonus, 1AP)</source>
+        <target>Look for a "tomb" (temporary medium bonus, 1AP )</target>
+      </segment>
+    </unit>
+    <unit id="P15D.zw" name="Du hast Dir Dein eigenes Grab geschaufelt. Oh welche Ironie!">
+      <notes>
+        <note category="german">Du hast Dir Dein eigenes Grab geschaufelt. Oh welche Ironie!</note>
+      </notes>
+      <segment>
+        <source>Du hast Dir Dein eigenes Grab geschaufelt. Oh welche Ironie!</source>
+        <target>You have dug your own tomb. Oh what irony!</target>
+      </segment>
+    </unit>
+    <unit id="nv.FYHK" name="Versteck verlassen">
+      <notes>
+        <note category="german">Versteck verlassen</note>
+      </notes>
+      <segment>
+        <source>Versteck verlassen</source>
+        <target>Leave your hiding place</target>
+      </segment>
+    </unit>
+    <unit id="DLyYjGK" name="Du hast Dein Versteck verlassen.">
+      <notes>
+        <note category="german">Du hast Dein Versteck verlassen.</note>
+      </notes>
+      <segment>
+        <source>Du hast Dein Versteck verlassen.</source>
+        <target>You left your hiding spot.</target>
+      </segment>
+    </unit>
+    <unit id="vD_lf43" name="Grab verlassen">
+      <notes>
+        <note category="german">Grab verlassen</note>
+      </notes>
+      <segment>
+        <source>Grab verlassen</source>
+        <target>Leave tomb</target>
+      </segment>
+    </unit>
+    <unit id="fz7VoYN" name="Du hast Dein Grab verlassen. Die schöne Arbeit umsonst!">
+      <notes>
+        <note category="german">Du hast Dein Grab verlassen. Die schöne Arbeit umsonst!</note>
+      </notes>
+      <segment>
+        <source>Du hast Dein Grab verlassen. Die schöne Arbeit umsonst!</source>
+        <target>You leave the grave you had dug. What a wasteful work...</target>
+      </segment>
+    </unit>
+    <unit id="A7SKfkS" name="Wandeln">
+      <notes>
+        <note category="german">Wandeln</note>
+      </notes>
+      <segment>
+        <source>Wandeln</source>
+        <target>Transform</target>
+      </segment>
+    </unit>
+    <unit id="9fNbzu." name="Zerlegen">
+      <notes>
+        <note category="german">Zerlegen</note>
+      </notes>
+      <segment>
+        <source>Zerlegen</source>
+        <target>Dismantle</target>
+      </segment>
+    </unit>
+    <unit id="1PXqODy" name="Baustoffe">
+      <notes>
+        <note category="german">Baustoffe</note>
+      </notes>
+      <segment>
+        <source>Baustoffe</source>
+        <target>Resources</target>
+      </segment>
+    </unit>
+    <unit id="eEycb65" name="Grundnahrungsmittel">
+      <notes>
+        <note category="german">Grundnahrungsmittel</note>
+      </notes>
+      <segment>
+        <source>Grundnahrungsmittel</source>
+        <target>Food</target>
+      </segment>
+    </unit>
+    <unit id="8beKQr4" name="Apotheke und Labor">
+      <notes>
+        <note category="german">Apotheke und Labor</note>
+      </notes>
+      <segment>
+        <source>Apotheke und Labor</source>
+        <target>Pharmacy</target>
+      </segment>
+    </unit>
+    <unit id="bj.MFsK" name="Expedition">
+      <notes>
+        <note category="german">Expedition</note>
+      </notes>
+      <segment>
+        <source>Expedition</source>
+        <target>Expedition</target>
+      </segment>
+    </unit>
+    <unit id="nz1fjZT" name="Sonstiges">
+      <notes>
+        <note category="german">Sonstiges</note>
+      </notes>
+      <segment>
+        <source>Sonstiges</source>
+        <target>Miscellaneous</target>
+      </segment>
+    </unit>
+    <unit id="nzgEuGm" name="Einrichtungen">
+      <notes>
+        <note category="german">Einrichtungen</note>
+      </notes>
+      <segment>
+        <source>Einrichtungen</source>
+        <target>Facilities</target>
+      </segment>
+    </unit>
+    <unit id="77.Cp5H" name="Verteidigung">
+      <notes>
+        <note category="german">Verteidigung</note>
+      </notes>
+      <segment>
+        <source>Verteidigung</source>
+        <target>Defences</target>
+      </segment>
+    </unit>
+    <unit id="PO0OQ3j" name="Waffenarsenal">
+      <notes>
+        <note category="german">Waffenarsenal</note>
+      </notes>
+      <segment>
+        <source>Waffenarsenal</source>
+        <target>Armoury</target>
+      </segment>
+    </unit>
+    <unit id="u1z.6sr" name="Taschen und Behälter">
+      <notes>
+        <note category="german">Taschen und Behälter</note>
+      </notes>
+      <segment>
+        <source>Taschen und Behälter</source>
+        <target>Containers and boxes</target>
+      </segment>
+    </unit>
+    <unit id="XfbyTTX" name="Kaputt">
+      <notes>
+        <note category="german">Kaputt</note>
+      </notes>
+      <segment>
+        <source>Kaputt</source>
+        <target>Broken</target>
+      </segment>
+    </unit>
+    <unit id="5OR30sk" name="01df5c7">
+      <notes>
+        <note category="german">__Du bist der Ansicht, dass du diese Zone nicht besser ausbauen kannst, da du schon dein Bestes gegeben hast.</note>
+      </notes>
+      <segment>
+        <source>Du bist der Ansicht, dass du diese Zone nicht besser ausbauen kannst, da du schon dein Bestes gegeben hast.</source>
+        <target>You feel that you cannot do better in this zone since you have already done your best.</target>
+      </segment>
+    </unit>
+    <unit id="fZlwOf2" name="Ausweiden">
+      <notes>
+        <note category="german">Ausweiden</note>
+      </notes>
+      <segment>
+        <source>Ausweiden</source>
+        <target>Carve</target>
+      </segment>
+    </unit>
+    <unit id="24l83Eh" name="7fe00d0">
+      <notes>
+        <note category="german">Der Metzger hat sich gut um {item} gekümmert... Dafür hast du nun {items_spawn} erhalten. Auf wiedersehen, mein Freund!</note>
+      </notes>
+      <segment>
+        <source>Der Metzger hat sich gut um {item} gekümmert... Dafür hast du nun {items_spawn} erhalten. Auf wiedersehen, mein Freund!</source>
+        <target>The butcher took great care of {item} ... You now have {items_spawn}. Goodbye dear friend!</target>
+      </segment>
+    </unit>
+    <unit id="OeuOyF4" name="Haus aufräumen und putzen">
+      <notes>
+        <note category="german">Haus aufräumen und putzen</note>
+      </notes>
+      <segment>
+        <source>Haus aufräumen und putzen</source>
+        <target>Clean and tidy my house</target>
+      </segment>
+    </unit>
+    <unit id="tOABtGm" name="0f9daa1">
+      <notes>
+        <note category="german">Du räumst deinen ganzen Plunder auf und machst ein wenig Ordnung, damit es hier etwas aufgeräumter aussieht. Auch wenn's ne Bruchbude ist, es ist DEIN Zuhause...</note>
+      </notes>
+      <segment>
+        <source>Du räumst deinen ganzen Plunder auf und machst ein wenig Ordnung, damit es hier etwas aufgeräumter aussieht. Auch wenn's ne Bruchbude ist, es ist DEIN Zuhause...</source>
+        <target>You pick up the rubbish that's lying around, tidy up your few remaining possessions and generally try to make the place you call home a little less squalid...</target>
+      </segment>
+    </unit>
+    <unit id="k1XRUwI" name="Duschen">
+      <notes>
+        <note category="german">Duschen</note>
+      </notes>
+      <segment>
+        <source>Duschen</source>
+        <target>Take a shower</target>
+      </segment>
+    </unit>
+    <unit id="DEHdLNl" name="a36d6fe">
+      <notes>
+        <note category="german">Du springst unter die hausgemachte Dusche ohne weiter darüber nachzudenken. Das eiskalte Wasser erschreckt dich, aber dennoch bleibst du für einige Augenblicke unter dem schwachen Wasserstrahl stehen. In Ermangelung von Seife reibst du dich mit einem glatten Stein ab und versuchst, den Schlamm und die Blutflecken abzuwaschen. Dabei versuchst du, dir einzureden, dass es sich gut anfühlt.</note>
+      </notes>
+      <segment>
+        <source>Du springst unter die hausgemachte Dusche ohne weiter darüber nachzudenken. Das eiskalte Wasser erschreckt dich, aber dennoch bleibst du für einige Augenblicke unter dem schwachen Wasserstrahl stehen. In Ermangelung von Seife reibst du dich mit einem glatten Stein ab und versuchst, den Schlamm und die Blutflecken abzuwaschen. Dabei versuchst du, dir einzureden, dass es sich gut anfühlt.</source>
+        <target>You jump under the homemade shower without giving it a second thought. The frozen water shocks you but you stay under the weak stream of water for a few moments. In the absence of soap, you rub yourself with a smooth stone, trying to shift the mud and bloodstains. You try to persuade yourself that it feels good.</target>
+      </segment>
+    </unit>
+    <unit id="ZM5U_5i" name="Heilen (5AP)">
+      <notes>
+        <note category="german">Heilen (5AP)</note>
+      </notes>
+      <segment>
+        <source>Heilen (5AP)</source>
+        <target>Heal (5AP)</target>
+      </segment>
+    </unit>
+    <unit id="8.uDazR" name="Heilen (6AP)">
+      <notes>
+        <note category="german">Heilen (6AP)</note>
+      </notes>
+      <segment>
+        <source>Heilen (6AP)</source>
+        <target>Heal (6AP)</target>
+      </segment>
+    </unit>
+    <unit id="H0NWl9b" name="Verteidigung organisieren (1 AP)">
+      <notes>
+        <note category="german">Verteidigung organisieren (1 AP)</note>
+      </notes>
+      <segment>
+        <source>Verteidigung organisieren (1 AP)</source>
+        <target>Organize defences (1 AP)</target>
+      </segment>
+    </unit>
+    <unit id="vte2QYO" name="Du hast dir etwas Zeit genommen und zur Verteidigung der Stadt beigetragen.">
+      <notes>
+        <note category="german">Du hast dir etwas Zeit genommen und zur Verteidigung der Stadt beigetragen.</note>
+      </notes>
+      <segment>
+        <source>Du hast dir etwas Zeit genommen und zur Verteidigung der Stadt beigetragen.</source>
+        <target>You take a walk round the town to check for weaknesses and kick some dodgy-looking repairs to test their worth. The town has earned +10 temporary defence points.</target>
+      </segment>
+    </unit>
+    <unit id="V1W3ATr" name="Nach Ruinen Ausschau halten">
+      <notes>
+        <note category="german">Nach Ruinen Ausschau halten</note>
+      </notes>
+      <segment>
+        <source>Nach Ruinen Ausschau halten</source>
+        <target>Look for ruins</target>
+      </segment>
+    </unit>
+    <unit id="zncq9xv" name="5a70d21">
+      <notes>
+        <note category="german">&lt;t-zone&gt;Du hast eine neue Ruine auf {zone} entdeckt!&lt;/t-zone&gt;&lt;nt-zone&gt;Es scheint, als gäbe es nichts mehr zu entdecken ...&lt;/nt-zone&gt;</note>
+      </notes>
+      <segment>
+        <source>&lt;t-zone&gt;Du hast eine neue Ruine auf {zone} entdeckt!&lt;/t-zone&gt;&lt;nt-zone&gt;Es scheint, als gäbe es nichts mehr zu entdecken ...&lt;/nt-zone&gt;</source>
+        <target><![CDATA[<t-zone>You have discovered a new ruin on {zone}!</t-zone><nt-zone>It seems like there is nothing left to discover ...</nt-zone>]]></target>
+      </segment>
+    </unit>
+    <unit id="zI0j8nd" name="Wasserwaffen füllen">
+      <notes>
+        <note category="german">Wasserwaffen füllen</note>
+      </notes>
+      <segment>
+        <source>Wasserwaffen füllen</source>
+        <target>Fill water weapons</target>
+      </segment>
+    </unit>
+    <unit id="5yZkmMK" name="Ins Kino gehen">
+      <notes>
+        <note category="german">Ins Kino gehen</note>
+      </notes>
+      <segment>
+        <source>Ins Kino gehen</source>
+        <target>Go to the Cinema</target>
+      </segment>
+    </unit>
+    <unit id="poR1ekb" name="Läutern">
+      <notes>
+        <note category="german">Läutern</note>
+      </notes>
+      <segment>
+        <source>Läutern</source>
+        <target>Purify</target>
+      </segment>
+    </unit>
+    <unit id="fJtXB6T" name="Du hast die Seele gereinigt und sie friedlich gemacht.">
+      <notes>
+        <note category="german">Du hast die Seele gereinigt und sie friedlich gemacht.</note>
+      </notes>
+      <segment>
+        <source>Du hast die Seele gereinigt und sie friedlich gemacht.</source>
+        <target>You have purified a lost soul. It evaporates leaving you with an aftertaste of peace and serenity...</target>
+      </segment>
+    </unit>
+    <unit id="YTSbJ8." name="Droge herstellen">
+      <notes>
+        <note category="german">Droge herstellen</note>
+      </notes>
+      <segment>
+        <source>Droge herstellen</source>
+        <target>Manufacture drug</target>
+      </segment>
+    </unit>
+    <unit id="0V2NUu6" name="In deinem Labor hast du {items_consume} in {items_spawn} umgewandelt.">
+      <notes>
+        <note category="german">In deinem Labor hast du {items_consume} in {items_spawn} umgewandelt.</note>
+      </notes>
+      <segment>
+        <source>In deinem Labor hast du {items_consume} in {items_spawn} umgewandelt.</source>
+        <target>You grind the contents of {items_consume} on the table and mix it with anything and everything that comes to hand... then let it infuse. You have obtained {items_spawn}.</target>
+      </segment>
+    </unit>
+    <unit id="6NDJKlk" name="Hierfür brauchst du 2x Pharmazeutische Substanz...">
+      <notes>
+        <note category="german">Hierfür brauchst du 2x Pharmazeutische Substanz...</note>
+      </notes>
+      <segment>
+        <source>Hierfür brauchst du 2x Pharmazeutische Substanz...</source>
+        <target>You need 2x Pharmaceutical Products...</target>
+      </segment>
+    </unit>
+    <unit id="z79RBPW" name="Kochen">
+      <notes>
+        <note category="german">Kochen</note>
+      </notes>
+      <segment>
+        <source>Kochen</source>
+        <target>Cook</target>
+      </segment>
+    </unit>
+    <unit id="h20eY91" name="In deiner Küche hast du {items_consume} in {items_spawn} umgewandelt.">
+      <notes>
+        <note category="german">In deiner Küche hast du {items_consume} in {items_spawn} umgewandelt.</note>
+      </notes>
+      <segment>
+        <source>In deiner Küche hast du {items_consume} in {items_spawn} umgewandelt.</source>
+        <target>You use {items_consume} and a few other bits and pieces.
+You put every effort into it. Then, after some time passes, you retrieve a {items_spawn} from the "stove".</target>
+      </segment>
+    </unit>
+    <unit id="GhoMZLz" name="Gegenstände suchen">
+      <notes>
+        <note category="german">Gegenstände suchen</note>
+      </notes>
+      <segment>
+        <source>Gegenstände suchen</source>
+        <target>Search an object...</target>
+      </segment>
+    </unit>
+    <unit id="R2RcDum" name="Kompass">
+      <notes>
+        <note category="german">Kompass</note>
+      </notes>
+      <segment>
+        <source>Kompass</source>
+        <target>Compass</target>
+      </segment>
+    </unit>
+    <unit id="txP7Qji" name="Vodka Marinostov">
+      <notes>
+        <note category="german">Vodka Marinostov</note>
+      </notes>
+      <segment>
+        <source>Vodka Marinostov</source>
+        <target>Vodka Marinostov</target>
+      </segment>
+    </unit>
+    <unit id="Xty7y8z" name="686a25e">
+      <notes>
+        <note category="german">Nimm einen kräftigen Schluck aus der Pulle und deine Lebenskräfte werden wieder geweckt (Du erhältst alle deine AP zurück!). Da nimmt man die lose darin herum schwimmenden organischen Substanzen doch gerne in Kauf. Prost Kameraden!</note>
+      </notes>
+      <segment>
+        <source>Nimm einen kräftigen Schluck aus der Pulle und deine Lebenskräfte werden wieder geweckt (Du erhältst alle deine AP zurück!). Da nimmt man die lose darin herum schwimmenden organischen Substanzen doch gerne in Kauf. Prost Kameraden!</source>
+        <target>A pretty violent way to overcome tiredness (and regain your action points)... 85% proof, with random, vaguely organic things floating in it. Cheers !</target>
+      </segment>
+    </unit>
+    <unit id="QwC3IQO" name="Mystischer Trank">
+      <notes>
+        <note category="german">Mystischer Trank</note>
+      </notes>
+      <segment>
+        <source>Mystischer Trank</source>
+        <target>Mystic Potion</target>
+      </segment>
+    </unit>
+    <unit id="6IZOpuK" name="29848f3">
+      <notes>
+        <note category="german">Diese besondere Ration Wasser, oder genauer gesagt "Weihwasser", sollte es dir ermöglichen, unbeschadet mit gequälten Seelen in Kontakt zu treten... Hoffentlich...</note>
+      </notes>
+      <segment>
+        <source>Diese besondere Ration Wasser, oder genauer gesagt "Weihwasser", sollte es dir ermöglichen, unbeschadet mit gequälten Seelen in Kontakt zu treten... Hoffentlich...</source>
+        <target>This special batch of water, "holy water" if you will, should allow you to interact with tortured souls without fear... Hopefully...</target>
+      </segment>
+    </unit>
+    <unit id="TinIUAB" name="Herstellung eines Mystischern Trank">
+      <notes>
+        <note category="german">Herstellung eines Mystischern Trank</note>
+      </notes>
+      <segment>
+        <source>Herstellung eines Mystischern Trank</source>
+        <target>Brew a Mystic Potion</target>
+      </segment>
+    </unit>
+    <unit id="rQB150u" name="Nickerchen machen">
+      <notes>
+        <note category="german">Nickerchen machen</note>
+      </notes>
+      <segment>
+        <source>Nickerchen machen</source>
+        <target>Take a nap</target>
+      </segment>
+    </unit>
+    <unit id="bFugpqQ" name="7f96c6f">
+      <notes>
+        <note category="german">Du versuchst dich ein paar Minuten auszuruhen.&lt;t-ap-up&gt;Nach einer kurzen Pause fühlst du dich nun viel besser. Du hast 2 AP erhalten !&lt;/t-ap-up&gt;&lt;nt-ap-up&gt;Leider bekommst du kein Auge zu: Der Gedanke an heute Abend, deinen Tod, sowie deine geringen Überlebenschancen lassen dir keine Ruhe...&lt;/nt-ap-up&gt;</note>
+      </notes>
+      <segment>
+        <source>Du versuchst dich ein paar Minuten auszuruhen.&lt;t-ap-up&gt;Nach einer kurzen Pause fühlst du dich nun viel besser. Du hast 2 AP erhalten !&lt;/t-ap-up&gt;&lt;nt-ap-up&gt;Leider bekommst du kein Auge zu: Der Gedanke an heute Abend, deinen Tod, sowie deine geringen Überlebenschancen lassen dir keine Ruhe...&lt;/nt-ap-up&gt;</source>
+        <target><![CDATA[You rest for a few minutes.<t-ap-up>Even a short break like that made you feel much better! You have regained 2 AP!</t-ap-up><nt-ap-up>Unfortunately, you don't even manage to close your eyes. You think too much about tonight, about dying and about your feeble chance of survival...</nt-ap-up>]]></target>
+      </segment>
+    </unit>
+    <unit id="p0SlVNr" name="4ec35c5">
+      <notes>
+        <note category="german">Du hast soeben den mystischen Trank getrunken. Hoffen wir, dass dieser Schamane weiß, was er tut...</note>
+      </notes>
+      <segment>
+        <source>Du hast soeben den mystischen Trank getrunken. Hoffen wir, dass dieser Schamane weiß, was er tut...</source>
+        <target>You just drank a Mystic potion. Now there's nothing for it, but to cross your fingers and hope this witch doctor isn't just some crazy drunk who doesn't like to wash...</target>
+      </segment>
+    </unit>
+    <unit id="qpQMEHf" name="5f07d6b">
+      <notes>
+        <note category="german">Tja, Vertrauen ist gut, Kontrolle ist besser... Ja, du wurdest bereits geschützt!</note>
+      </notes>
+      <segment>
+        <source>Tja, Vertrauen ist gut, Kontrolle ist besser... Ja, du wurdest bereits geschützt!</source>
+        <target>The townsfolk can smell the confidence on you... As you were in fact, already protected.</target>
+      </segment>
+    </unit>
+    <unit id="TWuwK4M" name="Angriff und Verteidigung">
+      <notes>
+        <note category="german">Angriff und Verteidigung</note>
+      </notes>
+      <segment>
+        <source>Angriff und Verteidigung</source>
+        <target>Attack and Defence</target>
+      </segment>
+    </unit>
+    <unit id="s1_qYeB" name="Kreuz">
+      <notes>
+        <note category="german">Kreuz</note>
+      </notes>
+      <segment>
+        <source>Kreuz</source>
+        <target>Club</target>
+      </segment>
+    </unit>
+    <unit id="XnWnfMP" name="Pik">
+      <notes>
+        <note category="german">Pik</note>
+      </notes>
+      <segment>
+        <source>Pik</source>
+        <target>Spade</target>
+      </segment>
+    </unit>
+    <unit id="Rduezfz" name="Herz">
+      <notes>
+        <note category="german">Herz</note>
+      </notes>
+      <segment>
+        <source>Herz</source>
+        <target>Heart</target>
+      </segment>
+    </unit>
+    <unit id="2P.dMD0" name="Karo">
+      <notes>
+        <note category="german">Karo</note>
+      </notes>
+      <segment>
+        <source>Karo</source>
+        <target>Diamond</target>
+      </segment>
+    </unit>
+    <unit id="cIg8Tyq" name="Bube">
+      <notes>
+        <note category="german">Bube</note>
+      </notes>
+      <segment>
+        <source>Bube</source>
+        <target>Jack</target>
+      </segment>
+    </unit>
+    <unit id="82FCAix" name="Dame">
+      <notes>
+        <note category="german">Dame</note>
+      </notes>
+      <segment>
+        <source>Dame</source>
+        <target>Queen</target>
+      </segment>
+    </unit>
+    <unit id="5IgH0Ms" name="König">
+      <notes>
+        <note category="german">König</note>
+      </notes>
+      <segment>
+        <source>König</source>
+        <target>King</target>
+      </segment>
+    </unit>
+    <unit id="Dq2RYL6" name="Ass">
+      <notes>
+        <note category="german">Ass</note>
+      </notes>
+      <segment>
+        <source>Ass</source>
+        <target>Ace</target>
+      </segment>
+    </unit>
+    <unit id="hEgldti" name="Nachtwache-Waffen">
+      <notes>
+        <note category="german">Nachtwache-Waffen</note>
+      </notes>
+      <segment>
+        <source>Nachtwache-Waffen</source>
+        <target>Guard weapon</target>
+      </segment>
+    </unit>
+    <unit id="47LA9aV" name="Pkte">
+      <notes>
+        <note category="german">Pkte</note>
+      </notes>
+      <segment>
+        <source>Pkte</source>
+        <target>Pts</target>
+      </segment>
+    </unit>
+    <unit id="xembRNS" name="63a0e11">
+      <notes>
+        <note category="german"> Wenn wirklich gar nichts mehr geht, schluckst du diese Kapsel mit einem großen Glas Wasser. Danach einfach warten und sich mit einem zufriedenen Grinsen von dieser Welt verabschieden.</note>
+      </notes>
+      <segment>
+        <source> Wenn wirklich gar nichts mehr geht, schluckst du diese Kapsel mit einem großen Glas Wasser. Danach einfach warten und sich mit einem zufriedenen Grinsen von dieser Welt verabschieden.</source>
+        <target> When everything has gone to hell, take a small cyanide capsule, a large glass of water, and just wait for all to go away with a peaceful smile.</target>
+      </segment>
+    </unit>
+    <unit id="UGai_eX" name="9e17f97">
+      <notes>
+        <note category="german">&lt;t-fail&gt;{item} kann keine schweren Gegenstände tragen...&lt;/t-fail&gt;&lt;nt-fail&gt;Du hast den {item} mit deinen Gegenständen in die Stadt geschickt.&lt;/nt-fail&gt;</note>
+      </notes>
+      <segment>
+        <source>&lt;t-fail&gt;{item} kann keine schweren Gegenstände tragen...&lt;/t-fail&gt;&lt;nt-fail&gt;Du hast den {item} mit deinen Gegenständen in die Stadt geschickt.&lt;/nt-fail&gt;</source>
+        <target><![CDATA[<t-fail>{item} cannot carry heavy objects...</t-fail><nt-fail>You send {item} in the direction of the town with the contents of your rucksack.</nt-fail>]]></target>
+      </segment>
+    </unit>
+    <unit id="tqLPvCK" name="Heilen">
+      <notes>
+        <note category="german">Heilen</note>
+      </notes>
+      <segment>
+        <source>Heilen</source>
+        <target>Heal</target>
+      </segment>
+    </unit>
+    <unit id="zEs55xR" name="Verteidigung organisieren">
+      <notes>
+        <note category="german">Verteidigung organisieren</note>
+      </notes>
+      <segment>
+        <source>Verteidigung organisieren</source>
+        <target>Organize defence</target>
+      </segment>
+    </unit>
+    <unit id="brwfS0V" name="Reinigen (Wasser)">
+      <notes>
+        <note category="german">Reinigen (Wasser)</note>
+      </notes>
+      <segment>
+        <source>Reinigen (Wasser)</source>
+        <target>Clean</target>
+      </segment>
+    </unit>
+    <unit id="F9ufT7F" name="Reinigen (Kleidung)">
+      <notes>
+        <note category="german">Reinigen (Kleidung)</note>
+      </notes>
+      <segment>
+        <source>Reinigen (Kleidung)</source>
+        <target>Clean</target>
+      </segment>
+    </unit>
+    <unit id="5v3eyG." name="9caf33d">
+      <notes>
+        <note category="german">Du nimmst dir ein paar Minuten, um deine {item} zu reinigen. Du schrubbst sorgfältig die Blutflecken ab und flickst ein paar kleine Löcher.</note>
+      </notes>
+      <segment>
+        <source>Du nimmst dir ein paar Minuten, um deine {item} zu reinigen. Du schrubbst sorgfältig die Blutflecken ab und flickst ein paar kleine Löcher.</source>
+        <target>You spend a few minutes cleaning your {item}. You do your best to get rid of the bloodstains then you patch up the holes.</target>
+      </segment>
+    </unit>
+    <unit id="HgUvBW6" name="267bdee">
+      <notes>
+        <note category="german">Du nimmst das {item} ein, aber es scheint keinen Effekt zu haben... Vielleicht hast du das gar nicht gebraucht?</note>
+      </notes>
+      <segment>
+        <source>Du nimmst das {item} ein, aber es scheint keinen Effekt zu haben... Vielleicht hast du das gar nicht gebraucht?</source>
+        <target>You take the {item} but it doesn't seem to have any effect ... Maybe you didn't need it at all?</target>
+      </segment>
+    </unit>
+    <unit id="OXWKuXW" name="b549796">
+      <notes>
+        <note category="german">Du befestigst den {item} und bedeckst ihn zur Tarnung mit herumliegendem Müll und vertrockneten Zweigen. Na bitte, das sollte hoffentlich deine Überlebenschancen heute Nacht verbessern. Du hast dafür 1 Aktionspunkt verbraucht.</note>
+      </notes>
+      <segment>
+        <source>Du befestigst den {item} und bedeckst ihn zur Tarnung mit herumliegendem Müll und vertrockneten Zweigen. Na bitte, das sollte hoffentlich deine Überlebenschancen heute Nacht verbessern. Du hast dafür 1 Aktionspunkt verbraucht.</source>
+        <target>You attach the {item} and cover it with camouflage garbage and dried branches for camouflage. Well please, that should hopefully improve your chances of survival tonight. You have used 1 Action point for this.</target>
+      </segment>
+    </unit>
+    <unit id="68c4rQB" name="2cc9126">
+      <notes>
+        <note category="german">Der Text ist überschrieben mit {item}. Du beginnst, ihn zu lesen.&lt;t-bannote_ok&gt;Diese gekritzelte Notiz gehörte früher einem verbanntem Bürger... Das einzige, was du lesen kannst, ist "{zone}"... Seltsam. Du zerstörst die Seite, nur um sicherzugehen, dass niemand die Nachricht liest...&lt;/t-bannote_ok&gt;&lt;t-bannote_fail&gt;Leider ist der Inhalt dieses Manuskripts völlig unleserlich.&lt;/t-bannote_fail&gt;</note>
+      </notes>
+      <segment>
+        <source>Der Text ist überschrieben mit {item}. Du beginnst, ihn zu lesen.&lt;t-bannote_ok&gt;Diese gekritzelte Notiz gehörte früher einem verbanntem Bürger... Das einzige, was du lesen kannst, ist "{zone}"... Seltsam. Du zerstörst die Seite, nur um sicherzugehen, dass niemand die Nachricht liest...&lt;/t-bannote_ok&gt;&lt;t-bannote_fail&gt;Leider ist der Inhalt dieses Manuskripts völlig unleserlich.&lt;/t-bannote_fail&gt;</source>
+        <target><![CDATA[Der Text ist überschrieben mit {item}. Du beginnst, ihn zu lesen.<t-bannote_ok>Diese gekritzelte Notiz gehörte früher einem verbanntem Bürger... Das einzige, was du lesen kannst, ist "{zone}"... Seltsam. Du zerstörst die Seite, nur um sicherzugehen, dass niemand die Nachricht liest...</t-bannote_ok><t-bannote_fail>Leider ist der Inhalt dieses Manuskripts völlig unleserlich.</t-bannote_fail>]]></target>
+      </segment>
+    </unit>
+    <unit id="NEVAuft" name="0671c26">
+      <notes>
+        <note category="german">Die Medizin gibt dir Kraft: Du bist jetzt immun gegen Infektionen und kannst nicht in einen Ghul verwandelt werden. Diese Wirkung lässt nach dem Angriff nach.</note>
+      </notes>
+      <segment>
+        <source>Die Medizin gibt dir Kraft: Du bist jetzt immun gegen Infektionen und kannst nicht in einen Ghul verwandelt werden. Diese Wirkung lässt nach dem Angriff nach.</source>
+        <target>Medicine gives you strength: You are now immune to infections and cannot be turned into a ghoul. This effect wears off after the attack.</target>
+      </segment>
+    </unit>
+    <unit id="hkUU8xN" name="ebaac76">
+      <notes>
+        <note category="german">&lt;t-stat-up-addict&gt;Schlechte Neuigkeiten! Du bist jetzt abhängig! Von nun an musst du jeden Tag eine Droge nehmen... oder STERBEN!&lt;/t-stat-up-addict&gt;</note>
+      </notes>
+      <segment>
+        <source>&lt;t-stat-up-addict&gt;Schlechte Neuigkeiten! Du bist jetzt abhängig! Von nun an musst du jeden Tag eine Droge nehmen... oder STERBEN!&lt;/t-stat-up-addict&gt;</source>
+        <target><![CDATA[<t-stat-up-addict>Bad news! You are now hooked! From now on, you must take at least one drug per day... or DIE!</t-stat-up-addict>]]></target>
+      </segment>
+    </unit>
+    <unit id="CW6G1J5" name="5e04d7b">
+      <notes>
+        <note category="german">Mit diesem Abdruck des HighTech-Schlüssels lassen sich Türen der Sicherheitsklasse 6.2 AOC öffnen.</note>
+      </notes>
+      <segment>
+        <source>Mit diesem Abdruck des HighTech-Schlüssels lassen sich Türen der Sicherheitsklasse 6.2 AOC öffnen.</source>
+        <target>This hi-tech blank will allow you to open secured doored rated up to level 6.2 AOC.</target>
+      </segment>
+    </unit>
+    <unit id="fU86IJs" name="Abdruck vom Flaschenöffner">
+      <notes>
+        <note category="german">Abdruck vom Flaschenöffner</note>
+      </notes>
+      <segment>
+        <source>Abdruck vom Flaschenöffner</source>
+        <target>Bottle Opener Blank</target>
+      </segment>
+    </unit>
+    <unit id="m0F5VOz" name="Kamera aus Vorkriegs-Tagen">
+      <notes>
+        <note category="german">Kamera aus Vorkriegs-Tagen</note>
+      </notes>
+      <segment>
+        <source>Kamera aus Vorkriegs-Tagen</source>
+        <target>Pre-war camera</target>
+      </segment>
+    </unit>
+    <unit id="rUsoPlx" name="efd6bf9">
+      <notes>
+        <note category="german">Diese nostalgische Knipse aus dem letzten Jahrhundert wirkt, als hätte sie schon Aberhunderten Leuten die Netzhaut verbrannt. Ihr schwacher Blitz könnte dich aus brenzligen Situationen retten, wenn du Zombies damit blendest!</note>
+      </notes>
+      <segment>
+        <source>Diese nostalgische Knipse aus dem letzten Jahrhundert wirkt, als hätte sie schon Aberhunderten Leuten die Netzhaut verbrannt. Ihr schwacher Blitz könnte dich aus brenzligen Situationen retten, wenn du Zombies damit blendest!</source>
+        <target>This authentic curio from the last century, or so it would appear, would have scorched many a retina in its day. Its poorly-calibrated flash could surely get you out of any desperate situations by blinding the zombies!</target>
+      </segment>
+    </unit>
+    <unit id="oTouBI5" name="Zur Bank schicken">
+      <notes>
+        <note category="german">Zur Bank schicken</note>
+      </notes>
+      <segment>
+        <source>Zur Bank schicken</source>
+        <target>Send to the Bank</target>
+      </segment>
+    </unit>
+    <unit id="q1MWl8S" name="Benutzen">
+      <notes>
+        <note category="german">Benutzen</note>
+      </notes>
+      <segment>
+        <source>Benutzen</source>
+        <target>Use</target>
+      </segment>
+    </unit>
+    <unit id="Nsd1Ael" name="6fa9fc3">
+      <notes>
+        <note category="german">&lt;t-escape&gt;Du setzt {item} in Gang. Ein gewaltiger Blitz schießt heraus und blendet die Zombies! Du solltest diese Gelegenheit zur Flucht nutzen.&lt;/t-escape&gt;&lt;t-reverse-escape&gt;Du setzt {item} in Gang. Ein gewaltiger Blitz schießt heraus, mitten in die Reihen der Zombies! Geblendet ergreifen {zombies} Zombies die Flucht.&lt;/t-reverse-escape&gt;</note>
+      </notes>
+      <segment>
+        <source>&lt;t-escape&gt;Du setzt {item} in Gang. Ein gewaltiger Blitz schießt heraus und blendet die Zombies! Du solltest diese Gelegenheit zur Flucht nutzen.&lt;/t-escape&gt;&lt;t-reverse-escape&gt;Du setzt {item} in Gang. Ein gewaltiger Blitz schießt heraus, mitten in die Reihen der Zombies! Geblendet ergreifen {zombies} Zombies die Flucht.&lt;/t-reverse-escape&gt;</source>
+        <target><![CDATA[<t-escape>You set off the {item} The violent flash sends a blast of photons into the zombie ranks! Blinded, they stumble around, unable to find you.</t-escape><t-reverse-escape>Du setzt {item} in Gang. Ein gewaltiger Blitz schießt heraus, mitten in die Reihen der Zombies! Geblendet ergreifen {zombies} Zombies die Flucht.</t-reverse-escape>]]></target>
+      </segment>
+    </unit>
+    <unit id="Y1T4Y0D" name="Schönes Fundstück">
+      <notes>
+        <note category="german">Schönes Fundstück</note>
+      </notes>
+      <segment>
+        <source>Schönes Fundstück</source>
+        <target>Lucky Find</target>
+      </segment>
+    </unit>
+    <unit id="khQvNdC" name="Zur Truhe schicken">
+      <notes>
+        <note category="german">Zur Truhe schicken</note>
+      </notes>
+      <segment>
+        <source>Zur Truhe schicken</source>
+        <target>Send to the Chest</target>
+      </segment>
+    </unit>
+    <unit id="sTuI8fr" name="f0c8728">
+      <notes>
+        <note category="german">&lt;nt-any-escape&gt;Ein stumpfes Klicken ertönt und ein wenig grünlicher Rauch entschwebt der {item} ...&lt;/nt-any-escape&gt;&lt;t-escape&gt;Du setzt {item} in Gang. Ein gewaltiger Blitz schießt heraus und blendet die Zombies! Du solltest diese Gelegenheit zur Flucht nutzen.&lt;/t-escape&gt;&lt;t-reverse-escape&gt;Du setzt {item} in Gang. Ein gewaltiger Blitz schießt heraus, mitten in die Reihen der Zombies! Geblendet ergreifen {zombies} Zombies die Flucht.&lt;/t-reverse-escape&gt;</note>
+      </notes>
+      <segment>
+        <source>&lt;nt-any-escape&gt;Ein stumpfes Klicken ertönt und ein wenig grünlicher Rauch entschwebt der {item} ...&lt;/nt-any-escape&gt;&lt;t-escape&gt;Du setzt {item} in Gang. Ein gewaltiger Blitz schießt heraus und blendet die Zombies! Du solltest diese Gelegenheit zur Flucht nutzen.&lt;/t-escape&gt;&lt;t-reverse-escape&gt;Du setzt {item} in Gang. Ein gewaltiger Blitz schießt heraus, mitten in die Reihen der Zombies! Geblendet ergreifen {zombies} Zombies die Flucht.&lt;/t-reverse-escape&gt;</source>
+        <target><![CDATA[<nt-any-escape>Ein stumpfes Klicken ertönt und ein wenig grünlicher Rauch entschwebt der {item} ...</nt-any-escape><t-escape>Du setzt {item} in Gang. Ein gewaltiger Blitz schießt heraus und blendet die Zombies! Du solltest diese Gelegenheit zur Flucht nutzen.</t-escape><t-reverse-escape>Du setzt {item} in Gang. Ein gewaltiger Blitz schießt heraus, mitten in die Reihen der Zombies! Geblendet ergreifen {zombies} Zombies die Flucht.</t-reverse-escape>]]></target>
+      </segment>
+    </unit>
+    <unit id="0qToQ7z" name="37cd042">
+      <notes>
+        <note category="german">&lt;nt-any-escape&gt;Ein stumpfes Klicken ertönt und ein wenig grünlicher Rauch entschwebt der {item} ...&lt;/nt-any-escape&gt;&lt;t-escape&gt;Du setzt {item} in Gang. Ein gewaltiger Blitz schießt heraus, mitten in die Reihen der Zombies! Geblendet stolpern sie umher und sind nicht länger in der Lage, dich zu finden.&lt;/t-escape&gt;&lt;t-reverse-escape&gt;Du setzt {item} in Gang. Ein gewaltiger Blitz schießt heraus, mitten in die Reihen der Zombies! Geblendet ergreifen {zombies} Zombies die Flucht.&lt;/t-reverse-escape&gt;</note>
+      </notes>
+      <segment>
+        <source>&lt;nt-any-escape&gt;Ein stumpfes Klicken ertönt und ein wenig grünlicher Rauch entschwebt der {item} ...&lt;/nt-any-escape&gt;&lt;t-escape&gt;Du setzt {item} in Gang. Ein gewaltiger Blitz schießt heraus, mitten in die Reihen der Zombies! Geblendet stolpern sie umher und sind nicht länger in der Lage, dich zu finden.&lt;/t-escape&gt;&lt;t-reverse-escape&gt;Du setzt {item} in Gang. Ein gewaltiger Blitz schießt heraus, mitten in die Reihen der Zombies! Geblendet ergreifen {zombies} Zombies die Flucht.&lt;/t-reverse-escape&gt;</source>
+        <target><![CDATA[<nt-any-escape>Ein stumpfes Klicken ertönt und ein wenig grünlicher Rauch entschwebt der {item} ...</nt-any-escape><t-escape>Du setzt {item} in Gang. Ein gewaltiger Blitz schießt heraus, mitten in die Reihen der Zombies! Geblendet stolpern sie umher und sind nicht länger in der Lage, dich zu finden.</t-escape><t-reverse-escape>Du setzt {item} in Gang. Ein gewaltiger Blitz schießt heraus, mitten in die Reihen der Zombies! Geblendet ergreifen {zombies} Zombies die Flucht.</t-reverse-escape>]]></target>
+      </segment>
+    </unit>
+    <unit id="h5657VO" name="bcb0832">
+      <notes>
+        <note category="german">&lt;nt-any-escape&gt;Ein stumpfes Klicken ertönt und ein wenig grünlicher Rauch entschwebt der {item} ...&lt;/nt-any-escape&gt;&lt;t-escape&gt;Du setzt {item} in Gang. Ein gewaltiger Blitz schießt heraus und blendet die Zombies! Geblendet stolpern sie umher und sind nicht länger in der Lage, dich zu finden.&lt;/t-escape&gt;&lt;t-reverse-escape&gt;Du setzt {item} in Gang. Ein gewaltiger Blitz schießt heraus, mitten in die Reihen der Zombies! Geblendet ergreifen {zombies} Zombies die Flucht.&lt;/t-reverse-escape&gt;</note>
+      </notes>
+      <segment>
+        <source>&lt;nt-any-escape&gt;Ein stumpfes Klicken ertönt und ein wenig grünlicher Rauch entschwebt der {item} ...&lt;/nt-any-escape&gt;&lt;t-escape&gt;Du setzt {item} in Gang. Ein gewaltiger Blitz schießt heraus und blendet die Zombies! Geblendet stolpern sie umher und sind nicht länger in der Lage, dich zu finden.&lt;/t-escape&gt;&lt;t-reverse-escape&gt;Du setzt {item} in Gang. Ein gewaltiger Blitz schießt heraus, mitten in die Reihen der Zombies! Geblendet ergreifen {zombies} Zombies die Flucht.&lt;/t-reverse-escape&gt;</source>
+        <target><![CDATA[<nt-any-escape>Ein stumpfes Klicken ertönt und ein wenig grünlicher Rauch entschwebt der {item} ...</nt-any-escape><t-escape>Du setzt {item} in Gang. Ein gewaltiger Blitz schießt heraus und blendet die Zombies! Geblendet stolpern sie umher und sind nicht länger in der Lage, dich zu finden.</t-escape><t-reverse-escape>Du setzt {item} in Gang. Ein gewaltiger Blitz schießt heraus, mitten in die Reihen der Zombies! Geblendet ergreifen {zombies} Zombies die Flucht.</t-reverse-escape>]]></target>
+      </segment>
+    </unit>
+    <unit id="zvBNa7R" name="c3f47db">
+      <notes>
+        <note category="german">&lt;t-stat-up-tg_meta_wound&gt;Diese Katze ist unglaublich! Sie scheint keine Angst zu haben, nicht einmal vor dir. Das Tier springt dir an die Kehle und vergräbt seine Krallen tief in deinem Fleisch.&lt;/t-stat-up-tg_meta_wound&gt;&lt;t-kills&gt;Diese Katze ist unglaublich! Sie scheint keine Angst zu haben, nicht einmal vor dem abartigen Gestank der Zombies. Mit mehr Zerstörungskraft als der Duracell-Hase und das Killer-Kaninchen von Caerbannog hat sie die Zone komplett bereinigt.&lt;/t-kills&gt;</note>
+      </notes>
+      <segment>
+        <source>&lt;t-stat-up-tg_meta_wound&gt;Diese Katze ist unglaublich! Sie scheint keine Angst zu haben, nicht einmal vor dir. Das Tier springt dir an die Kehle und vergräbt seine Krallen tief in deinem Fleisch.&lt;/t-stat-up-tg_meta_wound&gt;&lt;t-kills&gt;Diese Katze ist unglaublich! Sie scheint keine Angst zu haben, nicht einmal vor dem abartigen Gestank der Zombies. Mit mehr Zerstörungskraft als der Duracell-Hase und das Killer-Kaninchen von Caerbannog hat sie die Zone komplett bereinigt.&lt;/t-kills&gt;</source>
+        <target><![CDATA[<t-stat-up-tg_meta_wound>Diese Katze ist unglaublich! Sie scheint keine Angst zu haben, nicht einmal vor dir. Das Tier springt dir an die Kehle und vergräbt seine Krallen tief in deinem Fleisch.</t-stat-up-tg_meta_wound><t-kills>Diese Katze ist unglaublich! Sie scheint keine Angst zu haben, nicht einmal vor dem abartigen Gestank der Zombies. Mit mehr Zerstörungskraft als der Duracell-Hase und das Killer-Kaninchen von Caerbannog hat sie die Zone komplett bereinigt.</t-kills>]]></target>
+      </segment>
+    </unit>
+    <unit id="HpUrD8S" name="Vielleicht solltest du stattdessen dein Labor benutzen...">
+      <notes>
+        <note category="german">Vielleicht solltest du stattdessen dein Labor benutzen...</note>
+      </notes>
+      <segment>
+        <source>Vielleicht solltest du stattdessen dein Labor benutzen...</source>
+        <target>Maybe you should use your laboratory instead ...</target>
+      </segment>
+    </unit>
+    <unit id="ybdsMNt" name="2c3d069">
+      <notes>
+        <note category="german">Das {item} beginnt rasch zu wirken. Das Fieber klingt ab, dein Herz beginnt wieder in einem halbwegs normalen Takt zu schlagen... Du warst nicht weit von einem schrecklichen Tod entfernt.</note>
+      </notes>
+      <segment>
+        <source>Das {item} beginnt rasch zu wirken. Das Fieber klingt ab, dein Herz beginnt wieder in einem halbwegs normalen Takt zu schlagen... Du warst nicht weit von einem schrecklichen Tod entfernt.</source>
+        <target>Das {item} beginnt rasch zu wirken. Das Fieber klingt ab, dein Herz beginnt wieder in einem halbwegs normalen Takt zu schlagen... Du warst nicht weit von einem schrecklichen Tod entfernt.</target>
+      </segment>
+    </unit>
+    <unit id="SJ.JIzZ" name="5e75224">
+      <notes>
+        <note category="german">&lt;t-fail&gt;&lt;t-no-room&gt;Du hast nicht genug Platz für diese Gegenstände...&lt;/t-no-room&gt;&lt;t-door-closed&gt;Das Stadttor ist geschlossen...&lt;/t-door-closed&gt;&lt;t-too-heavy&gt;{item} kann keine schweren Gegenstände tragen...&lt;/t-too-heavy&gt;&lt;/t-fail&gt;&lt;nt-fail&gt;Du hast den {item} mit deinen Gegenständen in die Stadt geschickt.&lt;/nt-fail&gt;</note>
+      </notes>
+      <segment>
+        <source>&lt;t-fail&gt;&lt;t-no-room&gt;Du hast nicht genug Platz für diese Gegenstände...&lt;/t-no-room&gt;&lt;t-door-closed&gt;Das Stadttor ist geschlossen...&lt;/t-door-closed&gt;&lt;t-too-heavy&gt;{item} kann keine schweren Gegenstände tragen...&lt;/t-too-heavy&gt;&lt;/t-fail&gt;&lt;nt-fail&gt;Du hast den {item} mit deinen Gegenständen in die Stadt geschickt.&lt;/nt-fail&gt;</source>
+        <target><![CDATA[<t-fail><t-no-room>Du hast nicht genug Platz für diese Gegenstände...</t-no-room><t-door-closed>Das Stadttor ist geschlossen...</t-door-closed><t-too-heavy>{item} kann keine schweren Gegenstände tragen...</t-too-heavy></t-fail><nt-fail>Du hast den {item} mit deinen Gegenständen in die Stadt geschickt.</nt-fail>]]></target>
+      </segment>
+    </unit>
+  </file>
+</xliff>
