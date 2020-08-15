@@ -1,35 +1,3 @@
-.helpArt {
-    max-width: 573px;
-    height: 51px;
-    margin-bottom: 8px;
-    padding-top: 31px;
-    padding-right: 5px;
-    text-align: right;
-    font-weight: bold;
-    font-size: 1.5rem;
-    color: white;
-    text-transform: uppercase;
-    background: url("../../img/help/help.jpg") no-repeat right top;
-    background-size: cover;
-    border: 1px solid #b18a63;
-    text-shadow: 0px 1px 0px #4d0f00, 0px -1px 0px #4d0f00, 1px 0px 0px #4d0f00, -1px 0px 0px #4d0f00, 1px 1px 0px #4d0f00, -1px -1px 0px #4d0f00, -1px 1px 0px #4d0f00, 1px -1px 0px #4d0f00;
-}
-
-p.ambiant, div.ambiant {
-    padding: 5px;
-    padding-left: 22px;
-    margin-left: 40px;
-    margin-right: 10px;
-    margin-bottom: 10px;
-    color: #ddab76;
-    font-style: italic;
-    font-size: 1.2rem;
-    text-align: justify;
-    background-image: url("../../img/icons/small_rp.gif");
-    background-repeat: no-repeat;
-    background-position: 0px 5px;
-}
-
 ul {
     &.HelpList {
         padding: 0;
@@ -42,6 +10,7 @@ ul {
         li {
             border-top: 1px solid #7e4d2a;
             border-bottom: 1px solid #7e4d2a;
+            &.main { margin-top: 10px; }
             &.active { 
                 background-color: #696486;
                 border-color: #afacc1;
@@ -88,12 +57,31 @@ a {
             color: #ddab76;
             text-align: left;
         }
+        &:hover { color: white; outline: 1px solid #f0d79e; }
     }
 }
 
 .help-content {
     font-size: 1.3rem;
     text-align: justify;
+
+    .helpArt {
+        max-width: 573px;
+        height: 51px;
+        margin-bottom: 8px;
+        padding-top: 31px;
+        padding-right: 5px;
+        text-align: right;
+        font-weight: bold;
+        font-size: 1.5rem;
+        color: white;
+        text-transform: uppercase;
+        background: url("../../img/help/help.jpg") no-repeat right top;
+        background-size: cover;
+        border: 1px solid #b18a63;
+        text-shadow: 0px 1px 0px #4d0f00, 0px -1px 0px #4d0f00, 1px 0px 0px #4d0f00, -1px 0px 0px #4d0f00, 1px 1px 0px #4d0f00, -1px -1px 0px #4d0f00, -1px 1px 0px #4d0f00, 1px -1px 0px #4d0f00;
+    }
+
     h1 {
         height: 32px;
         margin: 0px;
@@ -133,16 +121,28 @@ a {
         color: #f0d79e;
     }
 
-    img.art {
-        float: left;
-        position: relative;
-        margin: 5px;
-        margin-right: 10px;
-        margin-bottom: 10px;
-        border: 1px solid #ddab76;
-        outline: 2px solid #5c2b20;
-        &.artRight {
-            float: right;
+    em {
+        color: #f0d79e;
+        text-align: justify;
+        display: block;
+        font-size: 1.2rem;
+        font-style: italic;
+        line-height: 10.5pt;
+    }
+
+    img {
+        vertical-align: -15%; 
+        &.art {
+            float: left;
+            position: relative;
+            margin: 5px;
+            margin-right: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ddab76;
+            outline: 2px solid #5c2b20;
+            &.artRight {
+                float: right;
+            }
         }
     }
 
@@ -178,5 +178,19 @@ a {
                 font-variant: small-caps;
             }
         }
+    }
+
+    p.ambiant, div.ambiant {
+        padding: 5px;
+        padding-left: 22px;
+        margin-left: 40px;
+        margin-right: 10px;
+        margin-bottom: 10px;
+        color: #ddab76;
+        font-style: italic;
+        text-align: justify;
+        background-image: url("../../img/icons/small_rp.gif");
+        background-repeat: no-repeat;
+        background-position: 0px 5px;
     }
 }

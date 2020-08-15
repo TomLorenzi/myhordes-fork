@@ -2,15 +2,12 @@
 {% block helpContent %}
 <div class="helpArt">{{ 'Spielanleitung'|trans({},'help')|raw }}</div>
 <h1>{{ 'Sich bewegen'|trans({},'help')|raw }}</h1>
-<div class="content">
-<h2>{{ 'Aktionspunkte und Erschöpfung'|trans({},'help')|raw }}</div></h2>
+<h2>{{ 'Aktionspunkte und Erschöpfung'|trans({},'help')|raw }}</h2>
 <p>
-{{ 'Solange du genügend <strong><img alt="" src="%path1%"> Aktionspunkte</strong> besitzt, kannst du dich in der Außenwelt bewegen:
-Pro Zug wird dir 1 Aktionspunkt abgezogen. Bei 0 Punkten bist du
-<img alt="" src="%path2%"> <strong>Erschöpft</strong>
-und kannst dich nicht mehr bewegen.'|trans({'%path1%': asset("build/images/icons/ap_small.gif"), '%path2%': asset("build/images/status/status_tired.gif")},'help')|raw }} 
+{{ '<div class="ap">Solange du genügend </div><strong> Aktionspunkte</strong> besitzt, kannst du dich in der Außenwelt bewegen:
+Pro Zug wird dir 1 Aktionspunkt abgezogen. Bei 0 Punkten bist du <img alt="" src="%path%"> <strong>Erschöpft</strong> und kannst dich nicht mehr bewegen.'|trans({'%path%': asset("build/images/status/status_tired.gif")},'help')|raw }} 
 </p>
-<img class="art" alt="" src="{{ asset('build/images/help/moves.gif') }}">
+<img class="art" alt="" src="{{ asset('build/images/help/moves.' ~ app.request.locale|e('html_attr') ~ '.png') }}">
 <p>
 {{ 'Deine Aktionspunkte werden oben rechts neben dem Hilfsbutton angezeigt. Du kannst deine <strong>Erschöpfung überwinden</strong> und deine Aktionspunkte durch eine der folgenden Aktionen wieder <strong>auffüllen</strong>:'|trans({},'help')|raw }}
 </p>
@@ -34,5 +31,4 @@ Im Schnelldurchlauf lässt du die schönen und unschönen Momente deines kurzen 
 </p>
 <div class="clear"></div>
 <a class="button" x-ajax-href="{{ url('help', {'name': 'map'})|raw }}"><img src="{{ asset('build/images/icons/small_move.gif')|raw }}" alt="move"> {{'Weiter'|trans({}, 'help')}}:<strong> {{ 'Die Karte'|trans({},'help')|raw }}</strong></a>
-</div>
 {% endblock %}

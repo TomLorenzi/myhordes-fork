@@ -1,0 +1,57 @@
+{% extends "ajax/help/shell.html.twig" %}
+{% block helpContent %}
+<div class="helpArt">{{ 'Spielanleitung'|trans({},'help')|raw }}</div>
+<h1>{{ 'Die Karte'|trans({},'help')|raw }}</h1>
+<div class="noJustify">
+<h2>{{ 'Standortansicht'|trans({},'help')|raw }}</h2>
+<img class="art" alt="" src="{{ asset('build/images/help/map.' ~ app.request.locale|e('html_attr') ~ '.png') }}">
+<p>
+<strong>{{ 'Sobald du die Stadt verlässt, ist die Karte dein einziges Hilfsmittel, um dich in der Außenwelt zu orientieren.'|trans({},'help')|raw }}</strong>
+</p>
+<p>
+{{ 'Klicke auf die grünen Pfeile <strong>[1]</strong>, um in die gewünschte Richtung zu gehen.'|trans({},'help')|raw }}
+</p>
+<p>
+{{ 'Durch Drücken des Kartenknopfes <strong>[2]</strong> erhältst du eine Gesamtansicht deiner Welt.'|trans({},'help')|raw }}
+</p>
+<h2>{{ 'Die Weltkarte'|trans({},'help')|raw }}</h2>
+<img class="art" alt="" src="{{ asset('build/images/help/map2.' ~ app.request.locale|e('html_attr') ~ '.png') }}">
+<p>
+{{ 'Das grün leuchtende Feld <strong>[1]</strong> zeigt deine aktuelle Position.'|trans({},'help')|raw }}
+</p>
+<p>
+{{ 'Orange, rot oder blau markierte Felder <strong>[2]</strong> weisen auf Zombiepräsenz hin. Wenn du in diesen Sektoren allein unterwegs bist, ist höchste Vorsicht geboten!'|trans({},'help')|raw }}
+</p>
+<p>
+{{ 'Der Mark.-Knopf <strong>[3]</strong> zeigt alle von dir oder von anderen Spieler gesetzten Wegmarken an. Diese können zum Markieren von gefährlichen Zonen gesetzt werden, oder aber, um auf wichtige Gegenstände hinzuweisen.'|trans({},'help')|raw }}
+</p>
+<!-- <p>
+{{ 'Der Globale Knopf <strong>[4]</strong> zeigt alle Zonen an, die der <strong>Stadt als Ganzes</strong> bekannt sind.'|trans({},'help')|raw }}
+</p> -->
+<p>
+{{ 'Der Expeditionsknopf <strong>[4]</strong> zeigt alle geplanten Expeditionen an.'|trans({},'help')|raw }}
+</p>
+<div class="clear"></div>
+<h2>{{ 'Zonentypen'|trans({},'help')|raw }}</h2>
+<ul>
+<li>
+<img alt="" src="{{ asset('build/images/help/map_unknown.gif') }}">
+{{ 'Es handelt sich um eine unerforschte Zone, die weder von dir, noch von sonst wem besucht wurde.'|trans({},'help')|raw }}
+</li>
+<li>
+<img alt="" src="{{ asset('build/images/help/map_nvt.gif') }}">
+{{ 'Diese Zone wurde in den letzten Tagen schon einmal erforscht. Da heute allerdings noch niemand da war, <strong>weißt du nicht, ob sich dort Zombies aufhalten</strong>...'|trans({},'help')|raw }}
+</li>
+<li>
+<img alt="" src="{{ asset('build/images/help/map_town.gif') }}">
+{{ 'Die Stadt: Hier solltest du jede Nacht schlafen, wenn du am Leben bleiben möchtest.'|trans({},'help')|raw }}
+</li>
+<li>
+<img alt="" src="{{ asset('build/images/help/map_building.gif') }}">
+{{ 'Dieses Feld zeigt an, dass sich an der Stelle ein Gebäude oder eine Ruine befindet, die du erforschen kannst. In aller Regel enthalten Gebäude wertvolle Gegenstände.'|trans({},'help')|raw }}
+</li>
+</ul>
+</div>
+<div class="clear"></div>
+<a class="button" x-ajax-href="{{ url('help', {'name': 'exploring_and_scavenging'}) }}"><img src="{{ asset('build/images/icons/small_move.gif') }}" alt="move"> {{'Weiter'|trans({}, 'help')}}:<strong> {{ 'Erkunden und Graben'|trans({},'help') }}</strong></a>
+{% endblock %}

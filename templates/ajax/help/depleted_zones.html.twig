@@ -1,0 +1,23 @@
+{% extends "ajax/help/shell.html.twig" %}
+{% block helpContent %}
+<div class="helpArt">{{ 'Spielanleitung'|trans({},'help')|raw }}</div>
+<h1>{{ 'Abgesuchte Zonen'|trans({},'help')|raw }}</h1>
+<p>
+{{ 'Wenn eine Zone mehrmals hintereinander abgesucht wurde, gilt sie ab einem bestimmten Zeitpunkt als "leer". Es können dann keine wertvollen Gegenstände mehr gefunden werden. Mit etwas Glück können noch ein paar minderwertige Materialien (Holz, Metall etc.) zu Tage gefördert werden.'|trans({},'help')|raw }}
+</p>
+<p>
+<strong>{{ 'Allerdings werden in der Nacht immer wieder seltsame metereologische Phänomene beobachtet...'|trans({},'help')|raw }}</strong>
+</p>
+<h2>{{ 'Meteorologische Anomalien'|trans({},'help')|raw }}</h2>
+<p>
+{{ 'In der Außenwelt wüten jede Nacht heftige Sandstürme. Bislang konnte keine logische Erklärung für diese Anomalien gefunden werden.'|trans({},'help')|raw }}
+</p>
+<p>
+<strong>{{ 'Die gute Nachricht ist, dass diese Stürme in manch leergesuchten Zonen neue Gegenstände zu Tage fördern können.'|trans({},'help')|raw }}</strong>
+</p>
+<p>
+{{ 'Um diese "regenerierten" Zonen entdecken zu können, benötigt die Stadt einen <strong>Forschungsturm</strong> (Konstruktion). Sein Bau erhöht zudem die Wahrscheinlichkeit, dass "regenerierte" Gebiete erneut Gegenstände enthalten.'|trans({},'help')|raw }}
+</p>
+<div class="clear"></div>
+<a class="button" x-ajax-href="{{ url('help', {'name': 'control_points'}) }}"><img src="{{ asset('build/images/icons/small_move.gif') }}" alt="move"> {{'Weiter'|trans({}, 'help')}}:<strong> {{ 'Die Kontrollpunkte'|trans({},'help') }}</strong></a>
+{% endblock %}
