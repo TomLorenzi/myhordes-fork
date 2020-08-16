@@ -33,7 +33,7 @@
                                 {% if in_town and map.zones[x][y].citizens|length != 0 and not chaos %}
                                     <div class="citizen_marker"></div>
                                 {% endif %}
-                                <div class="tooltip tooltip-map ndynamic">
+                                <div class="tooltip tooltip-map">
                                     {% if map.zones[x][y].discoveryStatus > constant('App\\Entity\\Zone::DiscoveryStateNone') and map.zones[x][y].prototype %}
                                         <div class="row"><div class="cell rw-12 bold">
                                             {% if map.zones[x][y].buryCount > 0 %}
