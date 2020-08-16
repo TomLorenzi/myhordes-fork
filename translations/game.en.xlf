@@ -502,7 +502,7 @@
       </notes>
       <segment>
         <source>Du kannst heute keinen weiteren Gegenstand stehlen.</source>
-        <target>You cannot steal another item today.</target>
+        <target>You have already broken and entered today.</target>
       </segment>
     </unit>
     <unit id="2BZWXxV" name="Du siehst keine Möglichkeit, hier einzubrechen ...">
@@ -1291,7 +1291,7 @@
       </notes>
       <segment>
         <source>%citizen% hat bereits %num% Anzeige(n).</source>
-        <target>%citizen% a reçu %num% plainte(s).</target>
+        <target>%citizen% has received %num% complaint(s).</target>
       </segment>
     </unit>
     <unit id="S8vqbzA" name="Verbannung">
@@ -3316,7 +3316,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>HALTET DEN DIEB! %actor% ist bei %victim% eingebrochen und hat %item% gestohlen!</source>
-        <target>HALTET DEN DIEB! %actor% ist bei %victim% eingebrochen und hat %item% gestohlen!</target>
+        <target>%actor% was seen stealing the %item% from %victim%!</target>
       </segment>
     </unit>
     <unit id="4N3qfX_" name="3dc5d36">
@@ -3325,7 +3325,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>VERDAMMT! Es scheint, jemand ist bei %victim% eingebrochen und hat %item% gestohlen...</source>
-        <target>VERDAMMT! Es scheint, jemand ist bei %victim% eingebrochen und hat %item% gestohlen...</target>
+        <target>It seems someone broke into %victim% and stole %item%...</target>
       </segment>
     </unit>
     <unit id="xFPnTgQ" name="%actor% ist bei %victim% eingebrochen und hat %item% hinterlassen...">
@@ -3658,7 +3658,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Jemand hat eine anonyme Anzeige gegen %citizen% vorgebracht!</source>
-        <target>Someone sent an anonyous complaint on %citizen%!</target>
+        <target>Someone sent an anonymous complaint on %citizen%!</target>
       </segment>
     </unit>
     <unit id="6S5k6T1" name="Jemand hat seine anonyme Anzeige gegen %citizen% zurückgezogen.">
@@ -3694,7 +3694,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>In der Stadt wohnen @citizens Bürger.</source>
-        <target>In der Stadt wohnen @citizens Bürger.</target>
+        <target>@Citizens citizens live in the Town.</target>
       </segment>
     </unit>
     <unit id="fUbvGiO" name="Leere Truhe">
@@ -5243,7 +5243,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Hättest du mehr als %day% Tage überlebt, würdest du zusätzlich noch folgendes erhalten:</source>
-        <target>Hättest du mehr als %day% Tage überlebt, würdest du zusätzlich noch folgendes erhalten:</target>
+        <target>If you had survived %day% more days, you would also receive the following:</target>
       </segment>
     </unit>
     <unit id="5NecEOg" name="28b7953">
@@ -5432,7 +5432,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Anzahl der Verstümmelungen und Gliedabtrennungen, die dich das Leben gekostet haben.</source>
-        <target>  Number of mutilations or dismemberments which didn't quite cost your life.</target>
+        <target>Number of mutilations or dismemberments which didn't quite cost your life.</target>
       </segment>
     </unit>
     <unit id="sfHZK3y" name="Hausmannskost">
@@ -5531,7 +5531,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Wasserkanonen</source>
-        <target>Wasserkanonen</target>
+        <target>Water Guns</target>
       </segment>
     </unit>
     <unit id="zu27xBQ" name="Anzahl an großen Wasserwaffen, die du gebaut hast.">
@@ -5540,7 +5540,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Anzahl an großen Wasserwaffen, die du gebaut hast.</source>
-        <target>Anzahl an großen Wasserwaffen, die du gebaut hast.</target>
+        <target>The number of water-based toys you have built.</target>
       </segment>
     </unit>
     <unit id="g01ynP2" name="Glückspilz">
@@ -5648,7 +5648,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Grillmeister</source>
-        <target>Grillmeister</target>
+        <target>Extreme BBQ Chef</target>
       </segment>
     </unit>
     <unit id="8KNXbhW" name="Anzahl deiner Alten Freunde, die du im Kremato-Cue gegrillt hast.">
@@ -5657,7 +5657,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Anzahl deiner Alten Freunde, die du im Kremato-Cue gegrillt hast.</source>
-        <target>Anzahl deiner Alten Freunde, die du im Kremato-Cue gegrillt hast.</target>
+        <target>The number of former friends and fellow residents you have cooked and eaten.</target>
       </segment>
     </unit>
     <unit id="1CYXYFJ" name="Ausgrabungsarbeiten">
@@ -6008,7 +6008,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Nachrichten</source>
-        <target>Private Messages</target>
+        <target>Messages</target>
       </segment>
     </unit>
     <unit id="Gp8QV9S" name="11324ce">
@@ -6053,7 +6053,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Anzahl der Tage, die du als Buddler gespielt hast.</source>
-        <target>Anzahl der Tage, die du als Buddler gespielt hast.</target>
+        <target>Days spent as a scavenger foraging around.</target>
       </segment>
     </unit>
     <unit id="9itIyey" name="Anzahl der Tage, die du als Wächter gespielt hast.">
@@ -6134,7 +6134,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Tod durch Entzug</source>
-        <target>Tod durch Entzug</target>
+        <target>Deaths from withdrawal</target>
       </segment>
     </unit>
     <unit id="TCaWV7i" name="d76eefd">
@@ -6143,7 +6143,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Die Anzahl der Male, in denen dein unfreiwilliger 'cold turkey' gescheitert ist...</source>
-        <target>Die Anzahl der Male, in denen dein unfreiwilliger 'cold turkey' gescheitert ist...</target>
+        <target>Nights you didn't see the other side of, due to lack of drugs.</target>
       </segment>
     </unit>
     <unit id="2yZmTqb" name="Letzter Toter">
@@ -6170,7 +6170,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Letzter Toter in einer Pandämoniumstadt</source>
-        <target>Letzter Toter in einer Pandämoniumstadt</target>
+        <target>Last Man Standing - Hardcore!</target>
       </segment>
     </unit>
     <unit id="G_vOQBw" name="Du bist der oder die Letzte, die in einer Pandämoniumstadt draufgeht!">
@@ -6179,7 +6179,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Du bist der oder die Letzte, die in einer Pandämoniumstadt draufgeht!</source>
-        <target>Du bist der oder die Letzte, die in einer Pandämoniumstadt draufgeht!</target>
+        <target>you were the last to bite the bullet in a Hardcore town!</target>
       </segment>
     </unit>
     <unit id="c02o7DF" name="Mystic">
@@ -6206,7 +6206,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Wüstenausflüge</source>
-        <target>Wüstenausflüge</target>
+        <target>Night in the desert</target>
       </segment>
     </unit>
     <unit id="DAHe8Qg" name="a229cab">
@@ -6215,7 +6215,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Die Auszeichnung spiegelt die Anzahl der Wüstenausflüge wieder, von denen du nicht mehr zurückgekehrt bist.</source>
-        <target>Die Auszeichnung spiegelt die Anzahl der Wüstenausflüge wieder, von denen du nicht mehr zurückgekehrt bist.</target>
+        <target>Little walks you took outside from which you never returned.</target>
       </segment>
     </unit>
     <unit id="jD.DiPe" name="Geöffnete Tür">
@@ -6242,7 +6242,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Hängend</source>
-        <target>Hängend</target>
+        <target>Hanging</target>
       </segment>
     </unit>
     <unit id="XILVSQ3" name="Anzahl der Städte, in denen Sie nicht mehr unterstützt werden konnten.">
@@ -6251,7 +6251,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Anzahl der Städte, in denen Sie nicht mehr unterstützt werden konnten.</source>
-        <target>Anzahl der Städte, in denen Sie nicht mehr unterstützt werden konnten.</target>
+        <target>Number of towns which, in the end, just couldn't put up with your crap anymore.</target>
       </segment>
     </unit>
     <unit id="4iul8w7" name="Häuserplünderungen">
@@ -6260,7 +6260,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Häuserplünderungen</source>
-        <target>Häuserplünderungen</target>
+        <target>Pillages</target>
       </segment>
     </unit>
     <unit id="OLsJBll" name="fb9ae4d">
@@ -6269,7 +6269,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Anzahl der Gegenstände, die du deinen noch verreckenden Freunden entrissen hast.</source>
-        <target>Anzahl der Gegenstände, die du deinen noch verreckenden Freunden entrissen hast.</target>
+        <target>Objects prised from the still-warm clutches of your former friends.</target>
       </segment>
     </unit>
     <unit id="qGiYEyp" name="Absurde Projekte">
@@ -6359,7 +6359,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Anzahl deiner toten Freunde, die du außerhalb der Stadt entsorgt hast.</source>
-        <target>  The number of dead friends you've dragged out of town.</target>
+        <target>The number of dead friends you've dragged out of town.</target>
       </segment>
     </unit>
     <unit id="tsZVejd" name="Batteriewerferfabrikant">
@@ -6386,7 +6386,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Überlebende der Hölle!</source>
-        <target>Überlebende der Hölle!</target>
+        <target>Survivor of Hell!</target>
       </segment>
     </unit>
     <unit id="BanibAx" name="Sie sind ein wahrer Überlebenskünstler der Hölle.">
@@ -6395,7 +6395,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Sie sind ein wahrer Überlebenskünstler der Hölle.</source>
-        <target>Sie sind ein wahrer Überlebenskünstler der Hölle.</target>
+        <target>You are a true survivor of hell.</target>
       </segment>
     </unit>
     <unit id="J105.gK" name="Hausarbeiten">
@@ -6404,7 +6404,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Hausarbeiten</source>
-        <target>Hausarbeiten</target>
+        <target>Homemaker</target>
       </segment>
     </unit>
     <unit id="ZWwqduJ" name="Anzahl der Ausbauten, die du an deinem Haus vorgenommen hast.">
@@ -6413,7 +6413,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Anzahl der Ausbauten, die du an deinem Haus vorgenommen hast.</source>
-        <target>Anzahl der Ausbauten, die du an deinem Haus vorgenommen hast.</target>
+        <target>Number of upgrades you have made to your place (improvements).</target>
       </segment>
     </unit>
     <unit id="r6xncsj" name="Kettensägen">
@@ -6440,7 +6440,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Stadtwächter</source>
-        <target>Stadtwächter</target>
+        <target>Watchman</target>
       </segment>
     </unit>
     <unit id="fEL0FCq" name="Anzahl der Nächte, die du als Stadtwächter überlebt hast.">
@@ -6449,7 +6449,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Anzahl der Nächte, die du als Stadtwächter überlebt hast.</source>
-        <target>Anzahl der Nächte, die du als Stadtwächter überlebt hast.</target>
+        <target>The number of nights survived as a watchman.</target>
       </segment>
     </unit>
     <unit id="I2LHLA6" name="Gerankte Stadt">
@@ -6494,7 +6494,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Teilnehmende Stadt</source>
-        <target>Teilnehmende Stadt</target>
+        <target>Participating Town</target>
       </segment>
     </unit>
     <unit id="xKwHsnM" name="b6bc05c">
@@ -6503,7 +6503,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Anzahl der Städte, die in der Top-35-Rangliste einer vergangenen Saison vertreten waren.</source>
-        <target>Anzahl der Städte, die in der Top-35-Rangliste einer vergangenen Saison vertreten waren.</target>
+        <target>Number of towns represented in the top 35 rankings of a past season.</target>
       </segment>
     </unit>
     <unit id="Y90upo5" name="Getötete Zombies">
@@ -6530,7 +6530,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Ehemaliger Beta-Tester</source>
-        <target>Ex BETA-Tester</target>
+        <target>In with the bricks</target>
       </segment>
     </unit>
     <unit id="jt.ezbv" name="7d0bc2b">
@@ -6566,7 +6566,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Kreuzigung</source>
-        <target>Kreuzigung</target>
+        <target>Crucifixion</target>
       </segment>
     </unit>
     <unit id="weKTlex" name="Freuen Sie sich, Sie hätten nicht laufen müssen.">
@@ -6575,7 +6575,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Freuen Sie sich, Sie hätten nicht laufen müssen.</source>
-        <target>Freuen Sie sich, Sie hätten nicht laufen müssen.</target>
+        <target>Rejoice you didn't have to walk.</target>
       </segment>
     </unit>
     <unit id="CWUGXbC" name="Den Weihnachtsmann gibt es nicht">
@@ -6620,7 +6620,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Dank deines Kostüms konntest du %item% von %victim% stehlen, ohne erkannt zu werden</source>
-        <target>Dank deines Kostüms konntest du %item% von %victim% stehlen, ohne erkannt zu werden</target>
+        <target>Thanks to your costume, you could steal %item% from %victim% without being recognized</target>
       </segment>
     </unit>
     <unit id="xHllIMc" name="Stunde(n)">
@@ -6701,7 +6701,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Dieser Bürger wurde noch nie gesehen...</source>
-        <target>This citizen has never been seen ...</target>
+        <target>this citizen has never been seen ...</target>
       </segment>
     </unit>
     <unit id="n3JcKxK" name="Der Bürger wurde zuletzt %time% gesehen.">
@@ -6728,7 +6728,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Dieser Bürger ist ernsthaft verletzt.</source>
-        <target>This citizen is seriously injured.</target>
+        <target>has been seriously wounded.</target>
       </segment>
     </unit>
     <unit id="w5JoDMX" name="29edb8e">
@@ -6764,7 +6764,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Dieser Bürger konnte nicht schlafen und redete wirres Zeug, von Tod, sprechenden Schatten und Stimmen in seinem Kopf...</source>
-        <target>Dieser Bürger konnte nicht schlafen und redete wirres Zeug, von Tod, sprechenden Schatten und Stimmen in seinem Kopf...</target>
+        <target>can't sleep anymore and is babbling incoherently, talking of death, talking shadows and voices in their head...</target>
       </segment>
     </unit>
     <unit id="Kx1swjd" name="beeba51">
@@ -6773,7 +6773,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Dieser Bürger ist nicht in der Lage, einen Beruf zu wählen. Wir sind noch lange nicht über den Berg, das kann ich euch sagen!</source>
-        <target>Dieser Bürger ist nicht in der Lage, einen Beruf zu wählen. Wir sind noch lange nicht über den Berg, das kann ich euch sagen!</target>
+        <target>is unable to choose a profession. We are far from over the mountain, I can tell you!</target>
       </segment>
     </unit>
     <unit id="dvSfZK0" name="96d45cc">
@@ -6782,7 +6782,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Dieser Bürger könnte jemand sehr Wichtiges sein. Vielleicht einer der Erschaffer?</source>
-        <target>Dieser Bürger könnte jemand sehr Wichtiges sein. Vielleicht einer der Erschaffer?</target>
+        <target>this citizen could be someone very important. Maybe one of the creators?</target>
       </segment>
     </unit>
     <unit id="q2ChVJX" name="Gereinigte Seelen">
@@ -6881,7 +6881,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Du hast heute bereits getrunken. Eine weitere Essensration erlaubt dir heute nicht weitere AP.</source>
-        <target>You have drank today. Another water ration won't allow you to restore any more Small pa.gif today.</target>
+        <target>You have drank today. Another water ration won't allow you to restore any more AP today.</target>
       </segment>
     </unit>
     <unit id="9hu_P2F" name="f13ed10">
@@ -6980,7 +6980,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Eine furchtbare Krankheit brennt sich durch dein Innerstes... Vielleicht eine Art Infektion? Das beste, was du jetzt tun kannst, ist die richtige Medizin einzunehmen... Wenn du hingegen nichts tust, hast du eine 50/50 Chance, morgen tot aufzuwachen.</source>
-        <target>Eine furchtbare Krankheit brennt sich durch dein Innerstes... Vielleicht eine Art Infektion? Das beste, was du jetzt tun kannst, ist die richtige Medizin einzunehmen... Wenn du hingegen nichts tust, hast du eine 50/50 Chance, morgen tot aufzuwachen.</target>
+        <target>A terrible disease rages inside you... Some sort of plague maybe? The most effective way to combat the sickness is to take the correct drugs... If you do nothing, you have a 50% chance of waking up dead in the morning.</target>
       </segment>
     </unit>
     <unit id="J1MlEZA" name="4c8ec9e">
@@ -7007,7 +7007,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Du wurdest ernsthaft verletzt! Essen, trinken und Ausruhen wird dir 1AP weniger verschaffen.</source>
-        <target>Du wurdest ernsthaft verletzt! Essen, trinken und Ausruhen wird dir 1AP weniger verschaffen.</target>
+        <target>You have been seriously injured ! You will restore 1AP less whenever you drink, eat or rest.</target>
       </segment>
     </unit>
     <unit id="E6vRFnM" name="Endlich kannst du deine Schwiegermutter loswerden!">
@@ -7061,7 +7061,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Dazu hast Du kein Recht.</source>
-        <target>Dazu hast Du kein Recht.</target>
+        <target>You have no right to do that.</target>
       </segment>
     </unit>
     <unit id="0i49zPL" name="In diesem Thread dreht sich alles um die Bank.">
@@ -7097,7 +7097,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Du hast die Nachricht von %username% dem Raben gemeldet. Wer weiß, vielleicht wird %username% heute Nacht stääärben...</source>
-        <target>You have reported this post from %username% to the raven. Who knows, maybe %username% will die tonight... caaaw caaaw!</target>
+        <target>You have reported this post from %username% to The Crow. Who knows, maybe %username% will die tonight... caaaw caaaw!</target>
       </segment>
     </unit>
     <unit id="Ci7U3L." name="Aktualisierung">
@@ -7151,7 +7151,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Stadt im %direction% in %km% Entfernung</source>
-        <target>The town is %km% to %direction%</target>
+        <target>The Town is %km% to %direction%</target>
       </segment>
     </unit>
     <unit id="jqa.16L" name="da1981d">
@@ -7268,7 +7268,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Nicht weit entfernt von deinem aktuellen Versteck erblickst du ein noch besseres Versteck... Hmmm...vielleicht solltest du umziehen?</source>
-        <target>Nicht weit entfernt von deinem aktuellen Versteck erblickst du ein noch besseres Versteck... Hmmm...vielleicht solltest du umziehen?</target>
+        <target>Not far from your current hiding place you see an even better hiding place ... Hmmm ... maybe you should move?</target>
       </segment>
     </unit>
     <unit id="ERjA3HO" name="Du erhälst einen Bauplan, wenn Du in diesem Gebäude campst.">
@@ -7295,7 +7295,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>%citizen% will zurück zur Stadt und wird dir nicht in diese Richtung folgen.</source>
-        <target>%citizen% will zurück zur Stadt und wird dir nicht in diese Richtung folgen.</target>
+        <target>%citizen% wants to go back to the Town and will not follow you in this direction.</target>
       </segment>
     </unit>
     <unit id="KnJXiGc" name="Die Tarnung von %name% ist aufgeflogen!">
@@ -7304,7 +7304,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Die Tarnung von %name% ist aufgeflogen!</source>
-        <target>Die Tarnung von %name% ist aufgeflogen!</target>
+        <target>%name%'s camouflage has been blown!</target>
       </segment>
     </unit>
     <unit id="jIaT.gH" name="b043aa1">
@@ -7349,7 +7349,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Du vollführst einen Schamanentanz und betest zum Himmel, dass er Regen bringen und diese unselige Zone reinigen möge.</source>
-        <target>Du vollführst einen Schamanentanz und betest zum Himmel, dass er Regen bringen und diese unselige Zone reinigen möge.</target>
+        <target>You perform a mystical dance and ask the sky for rain that will clear this zone of evil spirits.</target>
       </segment>
     </unit>
     <unit id="jveYh8O" name="c443ad8">
@@ -7358,7 +7358,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Doch nichts passiert... Soviel steht fest, du stehst nun wie ein lausiger Amateur da. Außer Blasen an den Füßen hat das alles nichts eingebracht...</source>
-        <target>Doch nichts passiert... Soviel steht fest, du stehst nun wie ein lausiger Amateur da. Außer Blasen an den Füßen hat das alles nichts eingebracht...</target>
+        <target>Nothing happens. If someone had seen you, he would surely consider you the worst amateur ever. And now you have blisters on your feet ...</target>
       </segment>
     </unit>
     <unit id="ROlGH4i" name="7e84046">
@@ -7385,7 +7385,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Das ist keine gute Idee, das ist dir doch wohl klar!</source>
-        <target>Das ist keine gute Idee, das ist dir doch wohl klar!</target>
+        <target>This is not a good idea, you must be clear about it!</target>
       </segment>
     </unit>
     <unit id="396xkzr" name="...der Mörder .. ist.. IST.. AAARGHhh..">
@@ -7439,7 +7439,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>%citizen% starb, als er auf lächerliche Weise von der Mauer fiel!</source>
-        <target>%citizen% starb, als er auf lächerliche Weise von der Mauer fiel!</target>
+        <target>%citizen% died when he fell ridiculously off the wall!</target>
       </segment>
     </unit>
     <unit id="6PEMPdF" name="Tapfere Bürger haben auf den Stadtmauern Stellung bezogen : %citizens%">
@@ -7457,7 +7457,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Schreiend und fuchtelnd hat %citizen% %kills% Zombies getötet.</source>
-        <target>Schreiend und fuchtelnd hat %citizen% %kills% Zombies getötet.</target>
+        <target>Using their Heroic powers, %citizen% has exterminated %kills% with their bare hands, screaming like a banshee!</target>
       </segment>
     </unit>
     <unit id="pYjjICz" name="e210a83">
@@ -7466,7 +7466,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>%citizen% hat es regnen lassen! Ihm habt ihr %num% Rationen reinen Wassers im Brunnen zu verdanken!</source>
-        <target>%citizen% hat es regnen lassen! Ihm habt ihr %num% Rationen reinen Wassers im Brunnen zu verdanken!</target>
+        <target>%citizen% made it rain baby! made it rain baby! Thanks to them the well has gained %num% rations of clean water!</target>
       </segment>
     </unit>
     <unit id="nLA31ML" name="ea40151">
@@ -7547,7 +7547,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Er kann den Gegenstand momentan nicht aufnehmen und hat ihn auf dem Boden abgelegt.</source>
-        <target>Er kann den Gegenstand momentan nicht aufnehmen und hat ihn auf dem Boden abgelegt.</target>
+        <target>This citizen is currently unable to pick up the item and has placed it on the floor.</target>
       </segment>
     </unit>
     <unit id="J2aR_r9" name="ed375df">
@@ -7565,7 +7565,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Trotz all seiner Anstrengungen hat dein Freund hier leider nichts gefunden...</source>
-        <target>Trotz all seiner Anstrengungen hat dein Freund hier leider nichts gefunden...</target>
+        <target>Despite all their efforts, your friend has unfortunately not found anything here ...</target>
       </segment>
     </unit>
     <unit id="ldDJ4DB" name="5617aca">
@@ -7574,7 +7574,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Trotz all ihrer Anstrengungen hat deine Expedition hier leider nichts gefunden...</source>
-        <target>Trotz all ihrer Anstrengungen hat deine Expedition hier leider nichts gefunden...</target>
+        <target>Despite all your efforts, your expedition has unfortunately found nothing here ...</target>
       </segment>
     </unit>
     <unit id="GEnmf7k" name="Nach einigen Anstrengungen hat dein Freund folgendes gefunden: %item%!">
@@ -7583,7 +7583,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Nach einigen Anstrengungen hat dein Freund folgendes gefunden: %item%!</source>
-        <target>Nach einigen Anstrengungen hat dein Freund folgendes gefunden: %item%!</target>
+        <target>After a few efforts, your friend found the following: %item%!</target>
       </segment>
     </unit>
     <unit id="YuDVKDs" name="Nach einigen Anstrengungen hat deine Expedition folgendes gefunden: %item%!">
@@ -7592,7 +7592,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Nach einigen Anstrengungen hat deine Expedition folgendes gefunden: %item%!</source>
-        <target>Nach einigen Anstrengungen hat deine Expedition folgendes gefunden: %item%!</target>
+        <target>After some effort, your expedition found the following: %item%!</target>
       </segment>
     </unit>
     <unit id="G9pK1NS" name="Du kannst keinen weiteren Bürger eskortieren.">
@@ -7601,7 +7601,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Du kannst keinen weiteren Bürger eskortieren.</source>
-        <target>Du kannst keinen weiteren Bürger eskortieren.</target>
+        <target>You cannot escort another citizen.</target>
       </segment>
     </unit>
     <unit id="v2VHWkl" name="Dieser Bürger hat kein AP mehr.">
@@ -7610,7 +7610,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Dieser Bürger hat kein AP mehr.</source>
-        <target>Dieser Bürger hat kein AP mehr.</target>
+        <target>This citizen no longer has AP.</target>
       </segment>
     </unit>
     <unit id="ZLNo.4B" name="Position:">
@@ -7700,7 +7700,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Die Anwesenheit des Geistigen Beistands unter den Nachtwächtern gibt ihnen jeweils einen Boost von 20 Verteidigung.</source>
-        <target>Die Anwesenheit des Geistigen Beistands unter den Nachtwächtern gibt ihnen jeweils einen Boost von 20 Verteidigung.</target>
+        <target>The presence of Psychadelic Spiritual Counsel among the Watchmen gives them a 20 defense boost each.</target>
       </segment>
     </unit>
     <unit id="nusxEDS" name="Benutzte Waffe">
@@ -7781,7 +7781,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Dank der Bemühungen von %disposing_citizen% konnte der Körper von %citizen% auf faule Flüssigkeit reduziert werden.</source>
-        <target>Dank der Bemühungen von %disposing_citizen% konnte der Körper von %citizen% auf faule Flüssigkeit reduziert werden.</target>
+        <target>Thanks to the bests efforts of %disposing_citizen%, %citizen%'s corpse has been reduced to putrid liquid.</target>
       </segment>
     </unit>
     <unit id="nyOAas." name="Klicke hier, um für diesen Bürger zu stimmen.">
@@ -8774,7 +8774,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Diese Bürger hat hier bereits vor Kurzem gegraben. Die nächste Ausgrabung ist erst morgen wieder möglich.</source>
-        <target>Diese Bürger hat hier bereits vor Kurzem gegraben. Die nächste Ausgrabung ist erst morgen wieder möglich.</target>
+        <target>This citizen has recently dug here. The next excavation will only be possible tomorrow.</target>
       </segment>
     </unit>
     <unit id="r.ZcCRS" name="Dieser Bürger wird aktuell von %leader% eskortiert.">
@@ -8783,7 +8783,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Dieser Bürger wird aktuell von %leader% eskortiert.</source>
-        <target>Dieser Bürger wird aktuell von %leader% eskortiert.</target>
+        <target>This citizen is currently being escorted by %leader%.</target>
       </segment>
     </unit>
     <unit id="8fTcb5D" name="Tote in der Stadt">
@@ -8981,7 +8981,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Zeuge von Harmagedon</source>
-        <target>Witness of Armageddon</target>
+        <target>Armageddon Witness</target>
       </segment>
     </unit>
     <unit id="VdVwoAS" name="76effd8">
@@ -8990,7 +8990,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Eine äußerst seltene Auszeichnung, die den Seelen vorbehalten ist, die das große Harmagedon des Universums von Die Verdammten erlebt haben!</source>
-        <target>Eine äußerst seltene Auszeichnung, die den Seelen vorbehalten ist, die das große Harmagedon des Universums von Die Verdammten erlebt haben!</target>
+        <target>An extremely rare distinction reserved for souls who have experienced the great Armageddon of Die2Nite!</target>
       </segment>
     </unit>
     <unit id="i.fN8wb" name="Zeuge der großen Verseuchung">
@@ -9017,7 +9017,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>&lt;i class="dagger"&gt;†&lt;/i&gt; %cadaver1% hatte gestern Abend kein Glück. Abgesehen davon war es eine ruhige Nacht in der Stadt...</source>
-        <target><![CDATA[<i class="dagger">†</i> %cadaver1% hatte gestern Abend kein Glück. Abgesehen davon war es eine ruhige Nacht in der Stadt...]]></target>
+        <target><![CDATA[<i class="dagger">†</i> %cadaver1% ran out of luck last night. That aside, it was a tranquil night in town...]]></target>
       </segment>
     </unit>
     <unit id="9Sqg4cw" name="953d15e">
@@ -9026,7 +9026,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Alle scheinen sich still und leise über den Tod von &lt;i class="dagger"&gt;†&lt;/i&gt; %cadaver1% gestern Abend zu freuen... Allerdings hat niemand erklärt, warum. %citizen1% kommentierte: "Seine Mutter war ein Hamster, und sein Vater roch nach Holunderbeeren".</source>
-        <target><![CDATA[Alle scheinen sich still und leise über den Tod von <i class="dagger">†</i> %cadaver1% gestern Abend zu freuen... Allerdings hat niemand erklärt, warum. %citizen1% kommentierte: "Seine Mutter war ein Hamster, und sein Vater roch nach Holunderbeeren".]]></target>
+        <target><![CDATA[Everybody seems to be silently rejoicing following the death of <i class="dagger">†</i> %cadaver1% last night... However, nobody has explained why. %citizen1% commented: "their mother was hamster, and their father smelt of elderberries".]]></target>
       </segment>
     </unit>
     <unit id="IshvSDg" name="3920ab5">
@@ -9035,7 +9035,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Jeder hörte &lt;i class="dagger"&gt;†&lt;/i&gt; %cadaver1% schreien, als er von den Zombies auseinander gerissen wurde. Offensichtlich versuchte niemand zu helfen. Überlebensinstinkt. Wirst du jetzt nachts schlafen können?</source>
-        <target><![CDATA[Jeder hörte <i class="dagger">†</i> %cadaver1% schreien, als er von den Zombies auseinander gerissen wurde. Offensichtlich versuchte niemand zu helfen. Überlebensinstinkt. Wirst du jetzt nachts schlafen können?]]></target>
+        <target><![CDATA[Everyone heard <i class="dagger">†</i> %cadaver1% screaming when they were being torn apart by the zombies. Evidently nobody tried to help. Survival instinct. Will you be able to sleep at night now?]]></target>
       </segment>
     </unit>
     <unit id="Ad1Ruao" name="7f96ed2">
@@ -9044,7 +9044,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Ich bin sicher, dass nicht nur ich der Meinung bin, dass wir eine Rechnung mit &lt;i class="dagger"&gt;†&lt;/i&gt; %cadaver1% zu begleichen hatten. Letztendlich scheint es also Karma gewesen zu sein, dass ausgerechnet er heute Nacht ums Leben kam.</source>
-        <target><![CDATA[Ich bin sicher, dass nicht nur ich der Meinung bin, dass wir eine Rechnung mit <i class="dagger">†</i> %cadaver1% zu begleichen hatten. Letztendlich scheint es also Karma gewesen zu sein, dass ausgerechnet er heute Nacht ums Leben kam.]]></target>
+        <target><![CDATA[I'm sure it's not just me who thinks we have a score to settle with <i class="dagger">†</i> %cadaver1% who "forgot" to close the gates after having opened them. It's ultimately down to you guys though...]]></target>
       </segment>
     </unit>
     <unit id="DhrsCwD" name="26dc6d1">
@@ -9053,7 +9053,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Einige Bürger wurden Zeugen eines seltsamen Vorfalls... Man könnte sagen, dass die Zombies gestern Abend ausschließlich für &lt;i class="dagger"&gt;†&lt;/i&gt; %cadaver1% gekommen sind. Sie trugen die Leiche den ganzen Weg zur Baustelle, bevor die Zerstückelung begann!</source>
-        <target><![CDATA[Einige Bürger wurden Zeugen eines seltsamen Vorfalls... Man könnte sagen, dass die Zombies gestern Abend ausschließlich für <i class="dagger">†</i> %cadaver1% gekommen sind. Sie trugen die Leiche den ganzen Weg zur Baustelle, bevor die Zerstückelung begann!]]></target>
+        <target><![CDATA[Some citizens witnessed a strange event... It could be said that the zombies came exclusively for <i class="dagger">†</i> %cadaver1% last night. They carried the body all the way to the construction site before the dismembering began !]]></target>
       </segment>
     </unit>
     <unit id="VXaNsva" name="dc8e234">
@@ -9062,7 +9062,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Einige sagen, daß der Tod von &lt;i class="dagger"&gt;†&lt;/i&gt; %cadaver1% nicht dem Glück zu verdanken ist... das einzige Opfer gestern Abend... Könnte jemand unter uns seinen Tod provoziert haben?</source>
-        <target><![CDATA[Einige sagen, daß der Tod von <i class="dagger">†</i> %cadaver1% nicht dem Glück zu verdanken ist... das einzige Opfer gestern Abend... Könnte jemand unter uns seinen Tod provoziert haben?]]></target>
+        <target><![CDATA[Some say that the death of <i class="dagger">†</i> %cadaver1% nwas not down to luck... the only victim last night... Could someone among us have provoked their death?]]></target>
       </segment>
     </unit>
     <unit id="kwKjT1z" name="d9930bb">
@@ -9089,7 +9089,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>%citizen% hat das Gebäude %plan% repariert und dabei %ap% ausgegeben.</source>
-        <target>%citizen% hat das Gebäude %plan% repariert und dabei %ap% ausgegeben.</target>
+        <target>%citizen% repaired the %plan% building and spent %ap%.</target>
       </segment>
     </unit>
     <unit id="RrBPp.5" name="743000a">
@@ -9143,7 +9143,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Aufgrund deiner Verletzung bist du gestolpert. So ein Ärger...</source>
-        <target>Aufgrund deiner Verletzung bist du gestolpert. So ein Ärger...</target>
+        <target>You stumbled because of your injury. Such trouble ...</target>
       </segment>
     </unit>
     <unit id="o2TNGvz" name="Deine Nachricht wurde korrekt übermittelt!">
@@ -9170,7 +9170,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Das Bauwerk %plan% hat %damage% Punkte Schaden genommen.</source>
-        <target>Le bâtiment %plan% a subi %damage% points de dégâts.</target>
+        <target>The building %plan% received %damage% damage points.</target>
       </segment>
     </unit>
     <unit id="nlQ1fJZ" name="919f19a">
@@ -9179,7 +9179,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Das Bauwerk %plan% hat %damage% Punkte Schaden genommen und wurde daraufhin von den Zombies vollständig zerstört.</source>
-        <target>Le bâtiment %plan% a subi %damage% points de dégâts et a été totalement dévasté par les zombies !.</target>
+        <target>The building %plan% received %damage% damage points and was totally destroyed by the zombies.</target>
       </segment>
     </unit>
     <unit id="3oU90MF" name="Beschädigte Verteidigung: %defense% / %max%">
@@ -9674,7 +9674,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Der Bürger %citizen% hat ein geheimes Versteck gefunden (vermutlich das eines verbannten Mitbürgers)! Es enthielt %items%.</source>
-        <target>Der Bürger %citizen% hat ein geheimes Versteck gefunden (vermutlich das eines verbannten Mitbürgers)! Es enthielt %items%.</target>
+        <target>The citizen %citizen% found a secret hiding place (presumably that of an exiled fellow citizen)! It contained %items%..</target>
       </segment>
     </unit>
     <unit id="UWWvoug" name="e164c18">
@@ -9683,7 +9683,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Du brauchst eine Weile, bis du alle Gegenstände versteckt hast, die du bei dir trägst... Ha Ha... Du hast 2 Aktionspunkte verbraucht.</source>
-        <target>Du brauchst eine Weile, bis du alle Gegenstände versteckt hast, die du bei dir trägst... Ha Ha... Du hast 2 Aktionspunkte verbraucht.</target>
+        <target>It will take you a while to hide all the items you carry with you ... Ha Ha ... You used up 2 action points.</target>
       </segment>
     </unit>
     <unit id="ZgukXzf" name="Deine Nachricht und deine ausgewählten Gegenstände wurden überbracht.">
@@ -9701,7 +9701,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Beim Graben bist du auf eine Art... geheimes Versteck mit %items% gestoßen! Es wurde vermutlich von einem verbannten Mitbürger angelegt...</source>
-        <target>Beim Graben bist du auf eine Art... geheimes Versteck mit %items% gestoßen! Es wurde vermutlich von einem verbannten Mitbürger angelegt...</target>
+        <target>When digging you came across a kind of ... secret hiding place with %items%! It was probably created by an exiled fellow citizen ...</target>
       </segment>
     </unit>
     <unit id="29AAorN" name="Rucksack verstecken">
@@ -11197,7 +11197,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Diese seltene Auszeichnung wurde den Einsiedlern verliehen, die mit ihrer Stadt die Schlacht der Berufe gewonnen haben. Respekt!</source>
-        <target>Gewinner des Clash Of The Titans: Survivalist</target>
+        <target>This rare award was given to the Survivalists who won the battle of the professions with their Town. Respect!</target>
       </segment>
     </unit>
     <unit id="2M7Hmok" name="Aufklärer - Gewinner des SoH">
@@ -11206,7 +11206,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Aufklärer - Gewinner des SoH</source>
-        <target>Scavenger winner of the SoH</target>
+        <target>Scavenger - Winner of the SoH</target>
       </segment>
     </unit>
     <unit id="cp2pUF_" name="Sieg für die Aufklärer beim Shock of Heroes Event!">
