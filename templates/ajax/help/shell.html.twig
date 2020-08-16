@@ -10,7 +10,7 @@
            		<a class="support" href="/support" target="_blank"><em>{{ 'Brauchst du Hilfe?'|trans({},'help') }}</em>{{ 'Besuche unsere Technische Supportseite'|trans({},'help') }}</a>
                 <ul class="HelpList">
                     <li class="link main {% if section == 'welcome' %}active{% endif %}" x-ajax-href="{{ url('help', {'name': 'welcome'}) }}">
-                        <img src="{{ asset('build/images/icons/small_middot.gif') }}" alt="intro"> {{ 'Die Verdammten ?'|trans({},'help') }}
+                        <img src="{{ asset('build/images/icons/small_middot.gif') }}" alt="intro"> {{ 'MyHordes?'|trans({},'help') }}
                     </li>
                     <li class="link main {% if section == 'world_beyond' %}active{% endif %}" x-ajax-href="{{ url('help', {'name': 'world_beyond'}) }}">
                         <img src="{{ asset('build/images/icons/small_middot.gif') }}" alt="outer">
