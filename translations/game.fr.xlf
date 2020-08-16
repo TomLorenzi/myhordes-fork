@@ -10974,7 +10974,7 @@
       </notes>
       <segment>
         <source>Erschöpft</source>
-        <target>Épuisé(e)</target>
+        <target>Fatigué(e)</target>
       </segment>
     </unit>
     <unit id="RbJEkic" name="Mit den anderen Bürgern reden...">
@@ -11572,6 +11572,15 @@
       <segment>
         <source>In der linken Spalte werden alle Aktionen und Handlungen dargestellt, die du &lt;strong&gt;mit deinen Gegenständen ausführen kannst&lt;/strong&gt;. In der rechten Spalte kannst du den &lt;strong&gt;Inhalt deines Rucksacks&lt;/strong&gt; und &lt;strong&gt;deiner Truhe&lt;/strong&gt; ansehen.</source>
         <target><![CDATA[La colonne de gauche présente les <strong>actions permises par vos objets</strong>. Celle de droite montre le <strong>contenu de votre sac à dos</strong> et <strong>de votre coffre de maison</strong>.]]></target>
+      </segment>
+    </unit>
+    <unit id="JZddhDT" name="dbe4ae4">
+      <notes>
+        <note category="german">Fangt schon mal an zu beten, Bürger - die Zombies werden um Mitternacht angreifen!</note>
+      </notes>
+      <segment>
+        <source>Fangt schon mal an zu beten, Bürger - die Zombies werden um Mitternacht angreifen!</source>
+        <target>Commencez à serrer les fesses citoyens, les zombies attaqueront ce soir à minuit !</target>
       </segment>
     </unit>
   </file>

@@ -11488,5 +11488,14 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
         <target><![CDATA[The column on the left lists the <strong>associated with your objects</strong>. The one on the right shows the <strong>contents of your rucksack</strong> and <strong>your personal chest</strong>.]]></target>
       </segment>
     </unit>
+    <unit id="JZddhDT" name="dbe4ae4">
+      <notes>
+        <note category="german">Fangt schon mal an zu beten, Bürger - die Zombies werden um Mitternacht angreifen!</note>
+      </notes>
+      <segment>
+        <source>Fangt schon mal an zu beten, Bürger - die Zombies werden um Mitternacht angreifen!</source>
+        <target>Start clenching citizens, the zombies will attack tonight at midnight!</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

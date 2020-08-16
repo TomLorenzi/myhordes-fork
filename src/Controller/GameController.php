@@ -197,8 +197,7 @@ class GameController extends AbstractController implements GameInterfaceControll
                 if ($town->isOpen()){
                     $text .= "<p>" . $this->translator->trans('Die Stadt wird erst starten, wenn sie <strong>%population% Bürger hat</strong>.', ['%population%' => $town->getPopulation()], 'game') . "</p>" . "<a class='help-button'>" . "<div class='tooltip help'>" . $this->translator->trans("Falls sich dieser Zustand auch um Mitternacht noch nicht geändert hat, findet kein Zombieangriff statt. Der Tag wird dann künstlich verlängert.", [], 'global') . "</div>" . $this->translator->trans("Hilfe", [], 'global') . "</a>";
                 } else {
-                    // TODO: translate 'Start clenching citizens, the zombies will attack tonight at midnight!'
-                    $text .= "Start clenching citizens, the zombies will attack tonight at midnight!";
+                    $text .= $this->translator->trans('Fangt schon mal an zu beten, Bürger - die Zombies werden um Mitternacht angreifen!', [], 'game');
                 }
             } else {
                 // 1. TOWN
