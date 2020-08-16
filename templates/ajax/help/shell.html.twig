@@ -9,256 +9,280 @@
             <div class="row">
            		<a class="support" href="/support" target="_blank"><em>{{ 'Brauchst du Hilfe?'|trans({},'help') }}</em>{{ 'Besuche unsere Technische Supportseite'|trans({},'help') }}</a>
                 <ul class="HelpList">
-                    <li class="link main {% if section == 'welcome' %}active{% endif %}" x-ajax-href="{{ url('help', {'name': 'welcome'}) }}">
-                        <img src="{{ asset('build/images/icons/small_middot.gif') }}" alt="intro"> {{ 'MyHordes?'|trans({},'help') }}
+                    <li class="main {% if section == 'welcome' %}active{% endif %}">
+                        <img src="{{ asset('build/images/icons/small_middot.gif') }}" alt="intro">
+                        <span class="link" x-ajax-href="{{ url('help', {'name': 'welcome'}) }}">{{ 'MyHordes?'|trans({},'help') }}</span>
                     </li>
-                    <li class="link main {% if section == 'world_beyond' %}active{% endif %}" x-ajax-href="{{ url('help', {'name': 'world_beyond'}) }}">
+                    <li class="main {% if section == 'world_beyond' %}active{% endif %}">
                         <img src="{{ asset('build/images/icons/small_middot.gif') }}" alt="outer">
-                        {{ 'Die Außenwelt'|trans({},'help') }}
+                        <span class="link" x-ajax-href="{{ url('help', {'name': 'world_beyond'}) }}">{{ 'Die Außenwelt'|trans({},'help') }}</span>
                     </li>
-                    <ul>
-                        <li class="link {% if section == 'getting_around' %}active{% endif %}" x-ajax-href="{{ url('help', {'name': 'getting_around'}) }}">
-                            <img src="{{ asset('build/images/icons/small_move.gif') }}" alt="move">
-                            {{ 'Sich bewegen'|trans({},'help') }}
-                        </li>
-                        <li class="link {% if section == 'map' %}active{% endif %}" x-ajax-href="{{ url('help', {'name': 'map'}) }}">
-                            <img src="{{ asset('build/images/icons/item_map.gif') }}" alt="map">
-                            {{ 'Die Karte'|trans({},'help') }}
-                        </li>
-                        <li class="link {% if section == 'exploring_and_scavenging' %}active{% endif %}" x-ajax-href="{{ url('help', {'name': 'exploring_and_scavenging'}) }}">
-                            <img src="{{ asset('build/images/icons/small_gather.gif') }}" alt="explore">
-                            {{ 'Erkunden und Graben'|trans({},'help') }}
-                        </li>
-                        <li class="link {% if section == 'depleted_zones' %}active{% endif %}" x-ajax-href="{{ url('help', {'name': 'depleted_zones'}) }}">
-                            <img src="{{ asset('build/images/icons/Small_broken.gif') }}" alt="depleted">
-                            {{ 'Abgesuchte Zonen'|trans({},'help') }}
-                        </li>
-                        <li class="link">
-                            <img src="{{ asset('build/images/beyond/equal.gif') }}" alt="dom">
-                            {{ 'Die Kontrollpunkte'|trans({},'help') }}
-                        </li>
-                        <li class="link">
-                            <img src="{{ asset('build/images/icons/small_move.gif') }}" alt="escort">
-                            {{ 'Der Eskortenmodus'|trans({},'help') }}
-                        </li>
-                        <li class="link">
-                            <img src="{{ asset('build/images/item/item_cutcut.gif') }}" alt="fight">
-                            {{ 'Zombies im Freien bekämpfen'|trans({},'help') }}
-                        </li>
-                        <li class="link">
-                            <img src="{{ asset('build/images/pictos/r_doutsd.gif') }}" alt="night">
-                            {{ 'Nachts'|trans({},'help') }}
-                        </li>
-                        <li class="link">
-                            <img src="{{ asset('build/images/status/status_camper.gif') }}" alt="camp">
-                            {{ 'Wildes Campen'|trans({},'help') }}
-                        </li>
-                        <li class="link">
-                            <img src="{{ asset('build/images/icons/small_exploration.gif') }}" alt="explo">
-                            {{ 'Gebäude untersuchen'|trans({},'help') }}
-                        </li>
-                        <li class="link">
-                            <img src="{{ asset('build/images/item/item_soul_blue.gif') }}" alt="soul">
-                            {{ 'Verlorene Seelen'|trans({},'help') }}
-                        </li>
-                    </ul>
-                    <li class="link main">
+                    <li class="sublist">
+                        <ul>
+                            <li class="{% if section == 'getting_around' %}active{% endif %}">
+                                <img src="{{ asset('build/images/icons/small_move.gif') }}" alt="move">
+                                <span class="link" x-ajax-href="{{ url('help', {'name': 'getting_around'}) }}">{{ 'Sich bewegen'|trans({},'help') }}</span>
+                            </li>
+                            <li class="{% if section == 'map' %}active{% endif %}">
+                                <img src="{{ asset('build/images/icons/item_map.gif') }}" alt="map">
+                                <span class="link" x-ajax-href="{{ url('help', {'name': 'map'}) }}">{{ 'Die Karte'|trans({},'help') }}</span>
+                            </li>
+                            <li class="{% if section == 'exploring_and_scavenging' %}active{% endif %}">
+                                <img src="{{ asset('build/images/icons/small_gather.gif') }}" alt="explore">
+                                <span class="link" x-ajax-href="{{ url('help', {'name': 'exploring_and_scavenging'}) }}">{{ 'Erkunden und Graben'|trans({},'help') }}</span>
+                            </li>
+                            <li class="{% if section == 'depleted_zones' %}active{% endif %}">
+                                <img src="{{ asset('build/images/icons/Small_broken.gif') }}" alt="depleted">
+                                <span class="link" x-ajax-href="{{ url('help', {'name': 'depleted_zones'}) }}">{{ 'Abgesuchte Zonen'|trans({},'help') }}</span>
+                            </li>
+                            <li class="">
+                                <img src="{{ asset('build/images/beyond/equal.gif') }}" alt="dom">
+                                <span class="link">{{ 'Die Kontrollpunkte'|trans({},'help') }}</span>
+                            </li>
+                            <li class="">
+                                <img src="{{ asset('build/images/icons/small_move.gif') }}" alt="escort">
+                                <span class="link">{{ 'Der Eskortenmodus'|trans({},'help') }}</span>
+                            </li>
+                            <li class="">
+                                <img src="{{ asset('build/images/item/item_cutcut.gif') }}" alt="fight">
+                                <span class="link">{{ 'Zombies im Freien bekämpfen'|trans({},'help') }}</span>
+                            </li>
+                            <li class="">
+                                <img src="{{ asset('build/images/pictos/r_doutsd.gif') }}" alt="night">
+                                <span class="link">{{ 'Nachts'|trans({},'help') }}</span>
+                            </li>
+                            <li class="">
+                                <img src="{{ asset('build/images/status/status_camper.gif') }}" alt="camp">
+                                <span class="link">{{ 'Wildes Campen'|trans({},'help') }}</span>
+                            </li>
+                            <li class="">
+                                <img src="{{ asset('build/images/icons/small_exploration.gif') }}" alt="explo">
+                                <span class="link">{{ 'Gebäude untersuchen'|trans({},'help') }}</span>
+                            </li>
+                            <li class="">
+                                <img src="{{ asset('build/images/item/item_soul_blue.gif') }}" alt="soul">
+                                <span class="link">{{ 'Verlorene Seelen'|trans({},'help') }}</span>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="main">
                         <img src="{{ asset('build/images/icons/small_middot.gif') }}" alt="player">
-                        {{ 'Du'|trans({},'help') }}
+                        <span class="link">{{ 'Du'|trans({},'help') }}</span>
                     </li>
-                    <ul>
-                        <li class="link">
-                            <img src="{{ asset('build/images/status/status_tired.gif') }}" alt="status">
-                            {{ 'Dein Gesundheitszustand'|trans({},'help') }}
-                        </li>
-                        <li class="link">
-                            <img src="{{ asset('build/images/item/item_bag.gif') }}" alt="inv">
-                            {{ 'Inventar'|trans({},'help') }}
-                        </li>
-                        <li class="link">
-                            <img src="{{ asset('build/images/icons/small_ghost_blue.gif') }}" alt="ghost">
-                            {{ 'Deine Seele'|trans({},'help') }}
-                        </li>
-                        <li class="link">
-                            <img src="{{ asset('build/images/professions/death.gif') }}" alt="death">
-                            {{ 'Der Tod und deine Seelenpunkte'|trans({},'help') }}
-                        </li>
-                        <li class="link">
-                            <img src="{{ asset('build/images/pictos/r_surlst.gif') }}" alt="lastOne">
-                            {{ 'Der letzte Tod'|trans({},'help') }}
-                        </li>
-                        <li class="link">
-                            <img src="{{ asset('build/images/icons/star.gif') }}" alt="hero">
-                            {{ 'Heldenmodus'|trans({},'help') }}
-                        </li>
-                        <li class="link">
-                            <img src="{{ asset('build/images/pictos/r_surgrp.gif') }}" alt="team">
-                            {{ 'Kleine Koalitionen'|trans({},'help') }}
-                        </li>
-                        <li class="link">
-                            <img src="{{ asset('build/images/pictos/r_hbuild.gif') }}" alt="homeUpgrade">
-                            {{ 'Haus &amp; Hausarbeiten'|trans({},'help') }}
-                        </li>
-                        <li class="link">
-                            <img src="{{ asset('build/images/roles/ghoul.gif') }}" alt="ghoul">
-                            {{ 'Ghule'|trans({},'help') }}
-                        </li>
-                    </ul>
-                    <li class="link main">
+
+                    <li class="sublist">
+                        <ul>
+                            <li class="">
+                                <img src="{{ asset('build/images/status/status_tired.gif') }}" alt="status">
+                                <span class="link">{{ 'Dein Gesundheitszustand'|trans({},'help') }}</span>
+                            </li>
+                            <li class="">
+                                <img src="{{ asset('build/images/item/item_bag.gif') }}" alt="inv">
+                                <span class="link">{{ 'Inventar'|trans({},'help') }}</span>
+                            </li>
+                            <li class="">
+                                <img src="{{ asset('build/images/icons/small_ghost_blue.gif') }}" alt="ghost">
+                                <span class="link">{{ 'Deine Seele'|trans({},'help') }}</span>
+                            </li>
+                            <li class="">
+                                <img src="{{ asset('build/images/professions/death.gif') }}" alt="death">
+                                <span class="link">{{ 'Der Tod und deine Seelenpunkte'|trans({},'help') }}</span>
+                            </li>
+                            <li class="">
+                                <img src="{{ asset('build/images/pictos/r_surlst.gif') }}" alt="lastOne">
+                                <span class="link">{{ 'Der letzte Tod'|trans({},'help') }}</span>
+                            </li>
+                            <li class="">
+                                <img src="{{ asset('build/images/icons/star.gif') }}" alt="hero">
+                                <span class="link">{{ 'Heldenmodus'|trans({},'help') }}</span>
+                            </li>
+                            <li class="">
+                                <img src="{{ asset('build/images/pictos/r_surgrp.gif') }}" alt="team">
+                                <span class="link">{{ 'Kleine Koalitionen'|trans({},'help') }}</span>
+                            </li>
+                            <li class="">
+                                <img src="{{ asset('build/images/pictos/r_hbuild.gif') }}" alt="homeUpgrade">
+                                <span class="link">{{ 'Haus &amp; Hausarbeiten'|trans({},'help') }}</span>
+                            </li>
+                            <li class="">
+                                <img src="{{ asset('build/images/roles/ghoul.gif') }}" alt="ghoul">
+                                <span class="link">{{ 'Ghule'|trans({},'help') }}</span>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="main">
                         <img src="{{ asset('build/images/icons/small_middot.gif') }}" alt="jobs">
-                        {{ 'Die Berufe'|trans({},'help') }}
+                        <span class="link">{{ 'Die Berufe'|trans({},'help') }}</span>
                     </li>
-                    <ul>
-                        <li class="link">
-                            <img src="{{ asset('build/images/professions/basic.gif') }}" alt="job_basic">
-                            {{ 'Einwohner'|trans({},'help') }}
-                        </li>
-                        <li class="link">
-                            <img src="{{ asset('build/images/professions/dig.gif') }}" alt="job_collec">
-                            {{ 'Buddler'|trans({},'help') }}
-                        </li>
-                        <li class="link">
-                            <img src="{{ asset('build/images/professions/vest.gif') }}" alt="job_eclair">
-                            {{ 'Aufklärer'|trans({},'help') }}
-                        </li>
-                        <li class="link">
-                            <img src="{{ asset('build/images/professions/shield.gif') }}" alt="job_guardian">
-                            {{ 'Wächter'|trans({},'help') }}
-                        </li>
-                        <li class="link">
-                            <img src="{{ asset('build/images/professions/book.gif') }}" alt="job_hunter">
-                            {{ 'Einsiedler'|trans({},'help') }}
-                        </li>
-                        <li class="link">
-                            <img src="{{ asset('build/images/professions/tamer.gif') }}" alt="job_tamer">
-                            {{ 'Dompteur'|trans({},'help') }}
-                        </li>
-                        <li class="link">
-                            <img src="{{ asset('build/images/professions/tech.gif') }}" alt="job_tech">
-                            {{ 'Techniker'|trans({},'help') }}
-                        </li>
-                    </ul>
-                    <li class="link main">
+
+                    <li class="sublist">
+                        <ul>
+                            <li class="">
+                                <img src="{{ asset('build/images/professions/basic.gif') }}" alt="job_basic">
+                                <span class="link"></span>{{ 'Einwohner'|trans({},'help') }}
+                            </li>
+                            <li class="">
+                                <img src="{{ asset('build/images/professions/dig.gif') }}" alt="job_collec">
+                                <span class="link">{{ 'Buddler'|trans({},'help') }}</span>
+                            </li>
+                            <li class="">
+                                <img src="{{ asset('build/images/professions/vest.gif') }}" alt="job_eclair">
+                                <span class="link">{{ 'Aufklärer'|trans({},'help') }}</span>
+                            </li>
+                            <li class="">
+                                <img src="{{ asset('build/images/professions/shield.gif') }}" alt="job_guardian">
+                                <span class="link">{{ 'Wächter'|trans({},'help') }}</span>
+                            </li>
+                            <li class="">
+                                <img src="{{ asset('build/images/professions/book.gif') }}" alt="job_hunter">
+                                <span class="link">{{ 'Einsiedler'|trans({},'help') }}</span>
+                            </li>
+                            <li class="">
+                                <img src="{{ asset('build/images/professions/tamer.gif') }}" alt="job_tamer">
+                                <span class="link">{{ 'Dompteur'|trans({},'help') }}</span>
+                            </li>
+                            <li class="">
+                                <img src="{{ asset('build/images/professions/tech.gif') }}" alt="job_tech">
+                                <span class="link">{{ 'Techniker'|trans({},'help') }}</span>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="main">
                         <img src="{{ asset('build/images/icons/small_middot.gif') }}" alt="roles">
-                        {{ 'Die Rollen'|trans({},'help') }}
+                        <span class="link">{{ 'Die Rollen'|trans({},'help') }}</span>
                     </li>
-                    <ul>
-                        <li class="link">
-                            <img src="{{ asset('build/images/roles/shaman.gif') }}" alt="role_shaman">
-                            {{ 'Shamane'|trans({},'help') }}
-                        </li>
-                        <li class="link">
-                            <img src="{{ asset('build/images/roles/guide.gif') }}" alt="role_guide">
-                            {{ 'Der Reiseleiter in der Außenwelt'|trans({},'help') }}
-                        </li>
-                    </ul>
-                    <li class="link main">
+
+                    <li class="sublist">
+                        <ul>
+                            <li class="">
+                                <img src="{{ asset('build/images/roles/shaman.gif') }}" alt="role_shaman">
+                                <span class="link">{{ 'Shamane'|trans({},'help') }}</span>
+                            </li>
+                            <li class="">
+                                <img src="{{ asset('build/images/roles/guide.gif') }}" alt="role_guide">
+                                <span class="link">{{ 'Der Reiseleiter in der Außenwelt'|trans({},'help') }}</span>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="main">
                         <img src="{{ asset('build/images/icons/small_middot.gif') }}" alt="city">
-                        {{ 'Herzlich willkommen in der Stadt'|trans({},'help') }}
+                        <span class="link">{{ 'Herzlich willkommen in der Stadt'|trans({},'help') }}</span>
                     </li>
-                    <ul>
-                        <li class="link">
-                            <img src="{{ asset('build/images/icons/small_world.gif') }}" alt="demo">
-                            {{ 'Die Gemeinschaft'|trans({},'help') }}
-                        </li>
-                        <li class="link">
-                            <img src="{{ asset('build/images/icons/home.gif') }}" alt="votes">
-                            {{ 'Neue Gebäude bauen'|trans({},'help') }}
-                        </li>
-                        <li class="link">
-                            <img src="{{ asset('build/images/item/item_bplan_u.gif') }}" alt="bplans">
-                            {{ 'Baupläne'|trans({},'help') }}
-                        </li>
-                        <li class="link">
-                            <img src="{{ asset('build/images/building/small_city_up.gif') }}" alt="upgrades">
-                            {{ 'Weiterentwicklung des Tages'|trans({},'help') }}
-                        </li>
-                        <li class="link">
-                            <img src="{{ asset('build/images/log/night.gif') }}" alt="attack">
-                            {{ 'Der Angriff der Zombiehorde'|trans({},'help') }}
-                        </li>
-                        <li class="link">
-                            <img src="{{ asset('build/images/professions/water_soldier.gif') }}" alt="guard">
-                            {{ 'Die Nachtwächter'|trans({},'help') }}
-                        </li>
-                        <li class="link">
-                            <img src="{{ asset('build/images/icons/small_star.gif') }}" alt="justice">
-                            {{ 'Recht und Gesetz '|trans({},'help') }}
-                        </li>
-                        <li class="link">
-                            <img src="{{ asset('build/images/icons/small_ban.gif') }}" alt="banned">
-                            {{ 'Die Verbannten'|trans({},'help') }}
-                        </li>
-                        <li class="link">
-                            <img src="{{ asset('build/images/professions/death.gif') }}" alt="chaos">
-                            {{ 'Das Chaos'|trans({},'help') }}
-                        </li>
-                        <li class="link">
-                            <img src="{{ asset('build/images/item/item_courroie.gif') }}" alt="catapult">
-                            {{ 'Das Katapult'|trans({},'help') }}
-                        </li>
-                        <li class="link">
-                            <img src="{{ asset('build/images/building/small_falsecity.gif') }}" alt="rne">
-                            {{ 'Kleine Karten'|trans({},'help') }}
-                        </li>
-                        <li class="link">
-                            <img src="{{ asset('build/images/item/item_out_def_broken.gif') }}" alt="devast">
-                            {{ 'Zerstörte Stadt'|trans({},'help') }}
-                        </li>
-                        <li class="link">
-                            <img src="{{ asset('build/images/icons/small_arma.gif') }}" alt="hardcore">
-                            {{ 'Städte des Pandämoniums'|trans({},'help') }}
-                        </li>
-                        <li class="link">
-                            <img src="{{ asset('build/images/item/item_chair.gif') }}" alt="customMap">
-                            {{ 'Privatstädte'|trans({},'help') }}
-                        </li>
-                        <li class="link">
-                            <img src="{{ asset('build/images/item/item_dice.gif') }}" alt="rp">
-                            {{ 'Rollenspieloptionen'|trans({},'help') }}
-                        </li>
-                        <li class="link">
-                            <img src="{{ asset('build/images/forum/coin.png') }}" alt="seasons">
-                            {{ 'Saisons und Ranglisten'|trans({},'help') }}
-                        </li>
-                    </ul>
-                    <li class="link main">
+
+                    <li class="sublist">
+                        <ul>
+                            <li class="">
+                                <img src="{{ asset('build/images/icons/small_world.gif') }}" alt="demo">
+                                <span class="link">{{ 'Die Gemeinschaft'|trans({},'help') }}</span>
+                            </li>
+                            <li class="">
+                                <img src="{{ asset('build/images/icons/home.gif') }}" alt="votes">
+                                <span class="link">{{ 'Neue Gebäude bauen'|trans({},'help') }}</span>
+                            </li>
+                            <li class="">
+                                <img src="{{ asset('build/images/item/item_bplan_u.gif') }}" alt="bplans">
+                                <span class="link">{{ 'Baupläne'|trans({},'help') }}</span>
+                            </li>
+                            <li class="">
+                                <img src="{{ asset('build/images/building/small_city_up.gif') }}" alt="upgrades">
+                                <span class="link">{{ 'Weiterentwicklung des Tages'|trans({},'help') }}</span>
+                            </li>
+                            <li class="">
+                                <img src="{{ asset('build/images/log/night.gif') }}" alt="attack">
+                                <span class="link">{{ 'Der Angriff der Zombiehorde'|trans({},'help') }}</span>
+                            </li>
+                            <li class="">
+                                <img src="{{ asset('build/images/professions/water_soldier.gif') }}" alt="guard">
+                                <span class="link">{{ 'Die Nachtwächter'|trans({},'help') }}</span>
+                            </li>
+                            <li class="">
+                                <img src="{{ asset('build/images/icons/small_star.gif') }}" alt="justice">
+                                <span class="link">{{ 'Recht und Gesetz '|trans({},'help') }}</span>
+                            </li>
+                            <li class="">
+                                <img src="{{ asset('build/images/icons/small_ban.gif') }}" alt="banned">
+                                <span class="link">{{ 'Die Verbannten'|trans({},'help') }}</span>
+                            </li>
+                            <li class="">
+                                <img src="{{ asset('build/images/professions/death.gif') }}" alt="chaos">
+                                <span class="link">{{ 'Das Chaos'|trans({},'help') }}</span>
+                            </li>
+                            <li class="">
+                                <img src="{{ asset('build/images/item/item_courroie.gif') }}" alt="catapult">
+                                <span class="link">{{ 'Das Katapult'|trans({},'help') }}</span>
+                            </li>
+                            <li class="">
+                                <img src="{{ asset('build/images/building/small_falsecity.gif') }}" alt="rne">
+                                <span class="link">{{ 'Kleine Karten'|trans({},'help') }}</span>
+                            </li>
+                            <li class="">
+                                <img src="{{ asset('build/images/item/item_out_def_broken.gif') }}" alt="devast">
+                                <span class="link">{{ 'Zerstörte Stadt'|trans({},'help') }}</span>
+                            </li>
+                            <li class="">
+                                <img src="{{ asset('build/images/icons/small_arma.gif') }}" alt="hardcore">
+                                <span class="link">{{ 'Städte des Pandämoniums'|trans({},'help') }}</span>
+                            </li>
+                            <li class="">
+                                <img src="{{ asset('build/images/item/item_chair.gif') }}" alt="customMap">
+                                <span class="link">{{ 'Privatstädte'|trans({},'help') }}</span>
+                            </li>
+                            <li class="">
+                                <img src="{{ asset('build/images/item/item_dice.gif') }}" alt="rp">
+                                <span class="link">{{ 'Rollenspieloptionen'|trans({},'help') }}</span>
+                            </li>
+                            <li class="">
+                                <img src="{{ asset('build/images/forum/coin.png') }}" alt="seasons">
+                                <span class="link">{{ 'Saisons und Ranglisten'|trans({},'help') }}</span>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="main">
                         <img src="{{ asset('build/images/icons/small_middot.gif') }}" alt="st">
-                        {{ 'Support'|trans({},'help') }}
+                        <span class="link">{{ 'Support'|trans({},'help') }}</span>
                     </li>
-                    <ul>
-                        <li class="link">
-                            <img src="{{ asset('build/images/icons/small_middot.gif') }}" alt="browser">
-                            {{ '1- Überprüfe deinen Browser'|trans({},'help') }}
-                        </li>
-                        <li class="link">
-                            <img src="{{ asset('build/images/icons/small_middot.gif') }}" alt="parasites">
-                            {{ '2- Überprüfe sonstige installierte Programme'|trans({},'help') }}
-                        </li>
-                        <li class="link">
-                            <img src="{{ asset('build/images/icons/small_middot.gif') }}" alt="contact">
-                            {{ 'Hier erhältst du Hilfe'|trans({},'help') }}
-                        </li>
-                        <li class="link">
-                            <img src="{{ asset('build/images/icons/small_middot.gif') }}" alt="pass">
-                            {{ 'Wie wähle ich ein sicheres Passwort?'|trans({},'help') }}
-                        </li>
-                        <li class="link">
-                            <img src="{{ asset('build/images/icons/small_middot.gif') }}" alt="quarantine">
-                            {{ 'Stadt unter Quarantäne'|trans({},'help') }}
-                        </li>
-                        <li class="link">
-                            <img src="{{ asset('build/images/icons/small_calim.gif') }}" alt="report">
-                            {{ 'Fehlverhalten melden'|trans({},'help') }}
-                        </li>
-                        <li class="link">
-                            <img src="{{ asset('build/images/icons/small_warning.gif') }}" alt="sitting">
-                            {{ 'Zum Thema \'Sitting\'...'|trans({},'help') }}
-                        </li>
-                    </ul>
-                    <li class="link main">
+
+                    <li class="sublist">
+                        <ul>
+                            <li class="">
+                                <img src="{{ asset('build/images/icons/small_middot.gif') }}" alt="browser">
+                                <span class="link">{{ '1- Überprüfe deinen Browser'|trans({},'help') }}</span>
+                            </li>
+                            <li class="">
+                                <img src="{{ asset('build/images/icons/small_middot.gif') }}" alt="parasites">
+                                <span class="link">{{ '2- Überprüfe sonstige installierte Programme'|trans({},'help') }}</span>
+                            </li>
+                            <li class="">
+                                <img src="{{ asset('build/images/icons/small_middot.gif') }}" alt="contact">
+                                <span class="link">{{ 'Hier erhältst du Hilfe'|trans({},'help') }}</span>
+                            </li>
+                            <li class="">
+                                <img src="{{ asset('build/images/icons/small_middot.gif') }}" alt="pass">
+                                <span class="link">{{ 'Wie wähle ich ein sicheres Passwort?'|trans({},'help') }}</span>
+                            </li>
+                            <li class="">
+                                <img src="{{ asset('build/images/icons/small_middot.gif') }}" alt="quarantine">
+                                <span class="link">{{ 'Stadt unter Quarantäne'|trans({},'help') }}</span>
+                            </li>
+                            <li class="">
+                                <img src="{{ asset('build/images/icons/small_calim.gif') }}" alt="report">
+                                <span class="link">{{ 'Fehlverhalten melden'|trans({},'help') }}</span>
+                            </li>
+                            <li class="">
+                                <img src="{{ asset('build/images/icons/small_warning.gif') }}" alt="sitting">
+                                <span class="link">{{ 'Zum Thema \'Sitting\'...'|trans({},'help') }}</span>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="main">
                         <img src="{{ asset('build/images/icons/small_archive.gif') }}" alt="extern">
-                        {{ 'Externe Webseiten und Anwendungen'|trans({},'help') }}
+                        <span class="link">{{ 'Externe Webseiten und Anwendungen'|trans({},'help') }}</span>
                     </li>
                 </ul>
 			</div>

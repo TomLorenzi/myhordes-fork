@@ -1,23 +1,5 @@
-.helpArt {
-    max-width: 573px;
-    height: 51px;
-    margin-bottom: 8px;
-    padding-top: 31px;
-    padding-right: 5px;
-    text-align: right;
-    font-weight: bold;
-    font-size: 1.5rem;
-    color: white;
-    text-transform: uppercase;
-    background: url("../../img/help/help.jpg") no-repeat right top;
-    background-size: cover;
-    border: 1px solid #b18a63;
-    text-shadow: 0 1px 0 #4d0f00, 0px -1px 0px #4d0f00, 1px 0px 0px #4d0f00, -1px 0px 0px #4d0f00, 1px 1px 0px #4d0f00, -1px -1px 0px #4d0f00, -1px 1px 0px #4d0f00, 1px -1px 0px #4d0f00;
-}
-
 p.ambiant, div.ambiant {
-    padding: 5px;
-    padding-left: 22px;
+    padding: 5px 5px 5px 22px;
     margin-left: 40px;
     margin-right: 10px;
     margin-bottom: 10px;
@@ -40,17 +22,16 @@ ul {
             font-variant: small-caps;
         }
         li {
+            list-style: none;
             border-top: 1px solid #7e4d2a;
             border-bottom: 1px solid #7e4d2a;
             &.main { margin-top: 10px; }
             &.active {
                 background-color: #696486;
                 border-color: #afacc1;
-                color: white;
-                font-weight: bold;
-                text-decoration: none;
-                cursor: default;
+                &, & span.link { color: white; font-weight: bold; text-decoration: none; cursor: default; }
             }
+            &.sublist > ul { padding-left: 30px; }
             img { vertical-align: -15%; }
         }
     }    
@@ -172,8 +153,7 @@ a {
     ul {
         padding: 0 3px;
         margin: 2px 0 15px 10px;
-        list-style: none;
-        list-style-type: none;
+        list-style: none none;
         border-top: 1px solid #ddab76;
         border-bottom: 1px solid #ddab76;
         clear: both;
@@ -196,8 +176,7 @@ a {
     }
 
     p.ambiant, div.ambiant {
-        padding: 5px;
-        padding-left: 22px;
+        padding: 5px 5px 5px 22px;
         margin-left: 40px;
         margin-right: 10px;
         margin-bottom: 10px;
