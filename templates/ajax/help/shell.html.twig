@@ -9,10 +9,10 @@
             <div class="row">
            		<a class="support" href="/support" target="_blank"><em>{{ 'Brauchst du Hilfe?'|trans({},'help') }}</em>{{ 'Besuche unsere Technische Supportseite'|trans({},'help') }}</a>
                 <ul class="HelpList">
-                    <li class="link {% if section == 'welcome' %}active{% endif %}" x-ajax-href="{{ url('help', {'name': 'welcome'}) }}">
+                    <li class="link main {% if section == 'welcome' %}active{% endif %}" x-ajax-href="{{ url('help', {'name': 'welcome'}) }}">
                         <img src="{{ asset('build/images/icons/small_middot.gif') }}" alt="intro"> {{ 'Die Verdammten ?'|trans({},'help') }}
                     </li>
-                    <li class="link {% if section == 'world_beyond' %}active{% endif %}" x-ajax-href="{{ url('help', {'name': 'world_beyond'}) }}">
+                    <li class="link main {% if section == 'world_beyond' %}active{% endif %}" x-ajax-href="{{ url('help', {'name': 'world_beyond'}) }}">
                         <img src="{{ asset('build/images/icons/small_middot.gif') }}" alt="outer">
                         {{ 'Die Außenwelt'|trans({},'help') }}
                     </li>
@@ -25,11 +25,11 @@
                             <img src="{{ asset('build/images/icons/item_map.gif') }}" alt="map">
                             {{ 'Die Karte'|trans({},'help') }}
                         </li>
-                        <li class="link">
+                        <li class="link {% if section == 'exploring_and_scavenging' %}active{% endif %}" x-ajax-href="{{ url('help', {'name': 'exploring_and_scavenging'}) }}">
                             <img src="{{ asset('build/images/icons/small_gather.gif') }}" alt="explore">
                             {{ 'Erkunden und Graben'|trans({},'help') }}
                         </li>
-                        <li class="link">
+                        <li class="link {% if section == 'depleted_zones' %}active{% endif %}" x-ajax-href="{{ url('help', {'name': 'depleted_zones'}) }}">
                             <img src="{{ asset('build/images/icons/Small_broken.gif') }}" alt="depleted">
                             {{ 'Abgesuchte Zonen'|trans({},'help') }}
                         </li>
@@ -62,7 +62,7 @@
                             {{ 'Verlorene Seelen'|trans({},'help') }}
                         </li>
                     </ul>
-                    <li class="link">
+                    <li class="link main">
                         <img src="{{ asset('build/images/icons/small_middot.gif') }}" alt="player">
                         {{ 'Du'|trans({},'help') }}
                     </li>
@@ -104,7 +104,7 @@
                             {{ 'Ghule'|trans({},'help') }}
                         </li>
                     </ul>
-                    <li class="link">
+                    <li class="link main">
                         <img src="{{ asset('build/images/icons/small_middot.gif') }}" alt="jobs">
                         {{ 'Die Berufe'|trans({},'help') }}
                     </li>
@@ -138,7 +138,7 @@
                             {{ 'Techniker'|trans({},'help') }}
                         </li>
                     </ul>
-                    <li class="link">
+                    <li class="link main">
                         <img src="{{ asset('build/images/icons/small_middot.gif') }}" alt="roles">
                         {{ 'Die Rollen'|trans({},'help') }}
                     </li>
@@ -152,7 +152,7 @@
                             {{ 'Der Reiseleiter in der Außenwelt'|trans({},'help') }}
                         </li>
                     </ul>
-                    <li class="link">
+                    <li class="link main">
                         <img src="{{ asset('build/images/icons/small_middot.gif') }}" alt="city">
                         {{ 'Herzlich willkommen in der Stadt'|trans({},'help') }}
                     </li>
@@ -222,7 +222,7 @@
                             {{ 'Saisons und Ranglisten'|trans({},'help') }}
                         </li>
                     </ul>
-                    <li class="link">
+                    <li class="link main">
                         <img src="{{ asset('build/images/icons/small_middot.gif') }}" alt="st">
                         {{ 'Support'|trans({},'help') }}
                     </li>
@@ -256,7 +256,7 @@
                             {{ 'Zum Thema \'Sitting\'...'|trans({},'help') }}
                         </li>
                     </ul>
-                    <li class="link">
+                    <li class="link main">
                         <img src="{{ asset('build/images/icons/small_archive.gif') }}" alt="extern">
                         {{ 'Externe Webseiten und Anwendungen'|trans({},'help') }}
                     </li>

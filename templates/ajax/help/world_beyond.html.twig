@@ -2,7 +2,6 @@
 {% block helpContent %}
 <div class="helpArt">{{ 'Spielanleitung'|trans({},'help')|raw }}</div>
 <h1>{{ 'Die Außenwelt'|trans({},'help')|raw }}</h1>
-<div class="content">
 <img class="art" alt="" img src="{{ asset('build/images/help/outer.gif') }}">
 <p>
 <strong>{{ 'Außerhalb der Stadt dehnt sich, soweit das Auge reicht, eine riesige Wüste aus. Sie wird von den Bürgern auch "Außenwelt" genannt.'|trans({},'help')|raw }}
@@ -22,5 +21,4 @@
 </ul>
 <div class="clear"></div>
 <a class="button" x-ajax-href="{{ url('help', {'name': 'getting_around'}) }}"><img src="{{ asset('build/images/icons/small_move.gif') }}" alt="move"> {{'Weiter'|trans({}, 'help')}}:<strong> {{ 'Sich bewegen'|trans({},'help') }}</strong></a>
-</div>
 {% endblock %}

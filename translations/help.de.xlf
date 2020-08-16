@@ -838,5 +838,359 @@
         <target>Mache in der Nacht wieder das Stadttor zu, sonst erlebst du eine böse Überraschung...</target>
       </segment>
     </unit>
+    <unit id="IU7M5.G" name="Aktionspunkte und Erschöpfung">
+      <notes>
+        <note category="german">Aktionspunkte und Erschöpfung</note>
+      </notes>
+      <segment>
+        <source>Aktionspunkte und Erschöpfung</source>
+        <target>Aktionspunkte und Erschöpfung</target>
+      </segment>
+    </unit>
+    <unit id="q20ROfy" name="c00d232">
+      <notes>
+        <note category="german">&lt;div class="ap"&gt;Solange du genügend &lt;/div&gt;&lt;strong&gt; Aktionspunkte&lt;/strong&gt; besitzt, kannst du dich in der Außenwelt bewegen:
+Pro Zug wird dir 1 Aktionspunkt abgezogen. Bei 0 Punkten bist du &lt;img alt="" src="%path%"&gt; &lt;strong&gt;Erschöpft&lt;/strong&gt; und kannst dich nicht mehr bewegen.</note>
+      </notes>
+      <segment>
+        <source>&lt;div class="ap"&gt;Solange du genügend &lt;/div&gt;&lt;strong&gt; Aktionspunkte&lt;/strong&gt; besitzt, kannst du dich in der Außenwelt bewegen:
+Pro Zug wird dir 1 Aktionspunkt abgezogen. Bei 0 Punkten bist du &lt;img alt="" src="%path%"&gt; &lt;strong&gt;Erschöpft&lt;/strong&gt; und kannst dich nicht mehr bewegen.</source>
+        <target><![CDATA[<div class="ap">Solange du genügend </div><strong> Aktionspunkte</strong> besitzt, kannst du dich in der Außenwelt bewegen:
+Pro Zug wird dir 1 Aktionspunkt abgezogen. Bei 0 Punkten bist du <img alt="" src="%path%"> <strong>Erschöpft</strong> und kannst dich nicht mehr bewegen.]]></target>
+      </segment>
+    </unit>
+    <unit id="bTdJb_Y" name="71b2959">
+      <notes>
+        <note category="german">Deine Aktionspunkte werden oben rechts neben dem Hilfsbutton angezeigt. Du kannst deine &lt;strong&gt;Erschöpfung überwinden&lt;/strong&gt; und deine Aktionspunkte durch eine der folgenden Aktionen wieder &lt;strong&gt;auffüllen&lt;/strong&gt;:</note>
+      </notes>
+      <segment>
+        <source>Deine Aktionspunkte werden oben rechts neben dem Hilfsbutton angezeigt. Du kannst deine &lt;strong&gt;Erschöpfung überwinden&lt;/strong&gt; und deine Aktionspunkte durch eine der folgenden Aktionen wieder &lt;strong&gt;auffüllen&lt;/strong&gt;:</source>
+        <target><![CDATA[Deine Aktionspunkte werden oben rechts neben dem Hilfsbutton angezeigt. Du kannst deine <strong>Erschöpfung überwinden</strong> und deine Aktionspunkte durch eine der folgenden Aktionen wieder <strong>auffüllen</strong>:]]></target>
+      </segment>
+    </unit>
+    <unit id="ghVrDw1" name="Wasser trinken (1 Mal pro Tag möglich)">
+      <notes>
+        <note category="german">Wasser trinken (1 Mal pro Tag möglich)</note>
+      </notes>
+      <segment>
+        <source>Wasser trinken (1 Mal pro Tag möglich)</source>
+        <target>Wasser trinken (1 Mal pro Tag möglich)</target>
+      </segment>
+    </unit>
+    <unit id="cj5diCF" name="Essen (1 Mal pro Tag möglich)">
+      <notes>
+        <note category="german">Essen (1 Mal pro Tag möglich)</note>
+      </notes>
+      <segment>
+        <source>Essen (1 Mal pro Tag möglich)</source>
+        <target>Essen (1 Mal pro Tag möglich)</target>
+      </segment>
+    </unit>
+    <unit id="XuY5gcP" name="Drogen nehmen (Vorsicht: Du wirst sehr schnell abhängig!)">
+      <notes>
+        <note category="german">Drogen nehmen (Vorsicht: Du wirst sehr schnell abhängig!)</note>
+      </notes>
+      <segment>
+        <source>Drogen nehmen (Vorsicht: Du wirst sehr schnell abhängig!)</source>
+        <target>Drogen nehmen (Vorsicht: Du wirst sehr schnell abhängig!)</target>
+      </segment>
+    </unit>
+    <unit id="KKt55ah" name="90f1a78">
+      <notes>
+        <note category="german">Darüber hinaus gibt es noch weitere Methoden, um seine Aktionspunkte wieder aufzufüllen (manche sind durchaus gefährlich!)... Finde es am besten selbst heraus.</note>
+      </notes>
+      <segment>
+        <source>Darüber hinaus gibt es noch weitere Methoden, um seine Aktionspunkte wieder aufzufüllen (manche sind durchaus gefährlich!)... Finde es am besten selbst heraus.</source>
+        <target>Darüber hinaus gibt es noch weitere Methoden, um seine Aktionspunkte wieder aufzufüllen (manche sind durchaus gefährlich!)... Finde es am besten selbst heraus.</target>
+      </segment>
+    </unit>
+    <unit id="1ZAcbNG" name="Du hast keine Aktionspunkte mehr?">
+      <notes>
+        <note category="german">Du hast keine Aktionspunkte mehr?</note>
+      </notes>
+      <segment>
+        <source>Du hast keine Aktionspunkte mehr?</source>
+        <target>Du hast keine Aktionspunkte mehr?</target>
+      </segment>
+    </unit>
+    <unit id="KRu9j0q" name="cceb5aa">
+      <notes>
+        <note category="german">Bete, dass ein anderer Spieler bei dir vorbeikommt und dir eine Stärkung da lässt... Im Zweifelsfall ist es besser, im Forum um Hilfe zu bitten (der Link befindet sich oben links).</note>
+      </notes>
+      <segment>
+        <source>Bete, dass ein anderer Spieler bei dir vorbeikommt und dir eine Stärkung da lässt... Im Zweifelsfall ist es besser, im Forum um Hilfe zu bitten (der Link befindet sich oben links).</source>
+        <target>Bete, dass ein anderer Spieler bei dir vorbeikommt und dir eine Stärkung da lässt... Im Zweifelsfall ist es besser, im Forum um Hilfe zu bitten (der Link befindet sich oben links).</target>
+      </segment>
+    </unit>
+    <unit id="PDHtzSM" name="03d7b7a">
+      <notes>
+        <note category="german">Die Stunde des Angriffs rückt näher und näher... Du kannst noch so viel in dein Funkgerät schreien, es wird niemand mehr kommen...
+Im Schnelldurchlauf lässt du die schönen und unschönen Momente deines kurzen Lebens noch einmal Revue passieren... Wer weiß, vielleicht hast du schon morgen selbst Appetit auf Menschenfleisch?</note>
+      </notes>
+      <segment>
+        <source>Die Stunde des Angriffs rückt näher und näher... Du kannst noch so viel in dein Funkgerät schreien, es wird niemand mehr kommen...
+Im Schnelldurchlauf lässt du die schönen und unschönen Momente deines kurzen Lebens noch einmal Revue passieren... Wer weiß, vielleicht hast du schon morgen selbst Appetit auf Menschenfleisch?</source>
+        <target>Die Stunde des Angriffs rückt näher und näher... Du kannst noch so viel in dein Funkgerät schreien, es wird niemand mehr kommen...
+Im Schnelldurchlauf lässt du die schönen und unschönen Momente deines kurzen Lebens noch einmal Revue passieren... Wer weiß, vielleicht hast du schon morgen selbst Appetit auf Menschenfleisch?</target>
+      </segment>
+    </unit>
+    <unit id="kH_n4fp" name="Standortansicht">
+      <notes>
+        <note category="german">Standortansicht</note>
+      </notes>
+      <segment>
+        <source>Standortansicht</source>
+        <target>Standortansicht</target>
+      </segment>
+    </unit>
+    <unit id="wqinlrE" name="7a54085">
+      <notes>
+        <note category="german">Sobald du die Stadt verlässt, ist die Karte dein einziges Hilfsmittel, um dich in der Außenwelt zu orientieren.</note>
+      </notes>
+      <segment>
+        <source>Sobald du die Stadt verlässt, ist die Karte dein einziges Hilfsmittel, um dich in der Außenwelt zu orientieren.</source>
+        <target>Sobald du die Stadt verlässt, ist die Karte dein einziges Hilfsmittel, um dich in der Außenwelt zu orientieren.</target>
+      </segment>
+    </unit>
+    <unit id="mT8Yf4b" name="fa18d1a">
+      <notes>
+        <note category="german">Klicke auf die grünen Pfeile &lt;strong&gt;[1]&lt;/strong&gt;, um in die gewünschte Richtung zu gehen.</note>
+      </notes>
+      <segment>
+        <source>Klicke auf die grünen Pfeile &lt;strong&gt;[1]&lt;/strong&gt;, um in die gewünschte Richtung zu gehen.</source>
+        <target><![CDATA[Klicke auf die grünen Pfeile <strong>[1]</strong>, um in die gewünschte Richtung zu gehen.]]></target>
+      </segment>
+    </unit>
+    <unit id="jPB67sO" name="88b6faa">
+      <notes>
+        <note category="german">Durch Drücken des Kartenknopfes &lt;strong&gt;[2]&lt;/strong&gt; erhältst du eine Gesamtansicht deiner Welt.</note>
+      </notes>
+      <segment>
+        <source>Durch Drücken des Kartenknopfes &lt;strong&gt;[2]&lt;/strong&gt; erhältst du eine Gesamtansicht deiner Welt.</source>
+        <target><![CDATA[Durch Drücken des Kartenknopfes <strong>[2]</strong> erhältst du eine Gesamtansicht deiner Welt.]]></target>
+      </segment>
+    </unit>
+    <unit id="W3z88_o" name="Die Weltkarte">
+      <notes>
+        <note category="german">Die Weltkarte</note>
+      </notes>
+      <segment>
+        <source>Die Weltkarte</source>
+        <target>Die Weltkarte</target>
+      </segment>
+    </unit>
+    <unit id="Z7NfCH0" name="Das grün leuchtende Feld &lt;strong&gt;[1]&lt;/strong&gt; zeigt deine aktuelle Position.">
+      <notes>
+        <note category="german">Das grün leuchtende Feld &lt;strong&gt;[1]&lt;/strong&gt; zeigt deine aktuelle Position.</note>
+      </notes>
+      <segment>
+        <source>Das grün leuchtende Feld &lt;strong&gt;[1]&lt;/strong&gt; zeigt deine aktuelle Position.</source>
+        <target><![CDATA[Das grün leuchtende Feld <strong>[1]</strong> zeigt deine aktuelle Position.]]></target>
+      </segment>
+    </unit>
+    <unit id="FZo2.OI" name="8a01e00">
+      <notes>
+        <note category="german">Orange, rot oder blau markierte Felder &lt;strong&gt;[2]&lt;/strong&gt; weisen auf Zombiepräsenz hin. Wenn du in diesen Sektoren allein unterwegs bist, ist höchste Vorsicht geboten!</note>
+      </notes>
+      <segment>
+        <source>Orange, rot oder blau markierte Felder &lt;strong&gt;[2]&lt;/strong&gt; weisen auf Zombiepräsenz hin. Wenn du in diesen Sektoren allein unterwegs bist, ist höchste Vorsicht geboten!</source>
+        <target><![CDATA[Orange, rot oder blau markierte Felder <strong>[2]</strong> weisen auf Zombiepräsenz hin. Wenn du in diesen Sektoren allein unterwegs bist, ist höchste Vorsicht geboten!]]></target>
+      </segment>
+    </unit>
+    <unit id="U20rwj0" name="274ff01">
+      <notes>
+        <note category="german">Der Mark.-Knopf &lt;strong&gt;[3]&lt;/strong&gt; zeigt alle von dir oder von anderen Spieler gesetzten Wegmarken an. Diese können zum Markieren von gefährlichen Zonen gesetzt werden, oder aber, um auf wichtige Gegenstände hinzuweisen.</note>
+      </notes>
+      <segment>
+        <source>Der Mark.-Knopf &lt;strong&gt;[3]&lt;/strong&gt; zeigt alle von dir oder von anderen Spieler gesetzten Wegmarken an. Diese können zum Markieren von gefährlichen Zonen gesetzt werden, oder aber, um auf wichtige Gegenstände hinzuweisen.</source>
+        <target><![CDATA[Der Mark.-Knopf <strong>[3]</strong> zeigt alle von dir oder von anderen Spieler gesetzten Wegmarken an. Diese können zum Markieren von gefährlichen Zonen gesetzt werden, oder aber, um auf wichtige Gegenstände hinzuweisen.]]></target>
+      </segment>
+    </unit>
+    <unit id="px25T6e" name="ef90c4f">
+      <notes>
+        <note category="german">Der Globale Knopf &lt;strong&gt;[4]&lt;/strong&gt; zeigt alle Zonen an, die der &lt;strong&gt;Stadt als Ganzes&lt;/strong&gt; bekannt sind.</note>
+      </notes>
+      <segment>
+        <source>Der Globale Knopf &lt;strong&gt;[4]&lt;/strong&gt; zeigt alle Zonen an, die der &lt;strong&gt;Stadt als Ganzes&lt;/strong&gt; bekannt sind.</source>
+        <target><![CDATA[Der Globale Knopf <strong>[4]</strong> zeigt alle Zonen an, die der <strong>Stadt als Ganzes</strong> bekannt sind.]]></target>
+      </segment>
+    </unit>
+    <unit id="Czm2yVn" name="Der Expeditionsknopf &lt;strong&gt;[4]&lt;/strong&gt; zeigt alle geplanten Expeditionen an.">
+      <notes>
+        <note category="german">Der Expeditionsknopf &lt;strong&gt;[4]&lt;/strong&gt; zeigt alle geplanten Expeditionen an.</note>
+      </notes>
+      <segment>
+        <source>Der Expeditionsknopf &lt;strong&gt;[4]&lt;/strong&gt; zeigt alle geplanten Expeditionen an.</source>
+        <target><![CDATA[Der Expeditionsknopf <strong>[4]</strong> zeigt alle geplanten Expeditionen an.]]></target>
+      </segment>
+    </unit>
+    <unit id="XRq1Sgx" name="Zonentypen">
+      <notes>
+        <note category="german">Zonentypen</note>
+      </notes>
+      <segment>
+        <source>Zonentypen</source>
+        <target>Zonentypen</target>
+      </segment>
+    </unit>
+    <unit id="jtZNkxE" name="206ff5d">
+      <notes>
+        <note category="german">Es handelt sich um eine unerforschte Zone, die weder von dir, noch von sonst wem besucht wurde.</note>
+      </notes>
+      <segment>
+        <source>Es handelt sich um eine unerforschte Zone, die weder von dir, noch von sonst wem besucht wurde.</source>
+        <target>Es handelt sich um eine unerforschte Zone, die weder von dir, noch von sonst wem besucht wurde.</target>
+      </segment>
+    </unit>
+    <unit id="4DRtW7F" name="5abb6fd">
+      <notes>
+        <note category="german">Diese Zone wurde in den letzten Tagen schon einmal erforscht. Da heute allerdings noch niemand da war, &lt;strong&gt;weißt du nicht, ob sich dort Zombies aufhalten&lt;/strong&gt;...</note>
+      </notes>
+      <segment>
+        <source>Diese Zone wurde in den letzten Tagen schon einmal erforscht. Da heute allerdings noch niemand da war, &lt;strong&gt;weißt du nicht, ob sich dort Zombies aufhalten&lt;/strong&gt;...</source>
+        <target><![CDATA[Diese Zone wurde in den letzten Tagen schon einmal erforscht. Da heute allerdings noch niemand da war, <strong>weißt du nicht, ob sich dort Zombies aufhalten</strong>...]]></target>
+      </segment>
+    </unit>
+    <unit id="GzqB3qA" name="84b0fd6">
+      <notes>
+        <note category="german">Die Stadt: Hier solltest du jede Nacht schlafen, wenn du am Leben bleiben möchtest.</note>
+      </notes>
+      <segment>
+        <source>Die Stadt: Hier solltest du jede Nacht schlafen, wenn du am Leben bleiben möchtest.</source>
+        <target>Die Stadt: Hier solltest du jede Nacht schlafen, wenn du am Leben bleiben möchtest.</target>
+      </segment>
+    </unit>
+    <unit id=".tcSMXw" name="a066790">
+      <notes>
+        <note category="german">Dieses Feld zeigt an, dass sich an der Stelle ein Gebäude oder eine Ruine befindet, die du erforschen kannst. In aller Regel enthalten Gebäude wertvolle Gegenstände.</note>
+      </notes>
+      <segment>
+        <source>Dieses Feld zeigt an, dass sich an der Stelle ein Gebäude oder eine Ruine befindet, die du erforschen kannst. In aller Regel enthalten Gebäude wertvolle Gegenstände.</source>
+        <target>Dieses Feld zeigt an, dass sich an der Stelle ein Gebäude oder eine Ruine befindet, die du erforschen kannst. In aller Regel enthalten Gebäude wertvolle Gegenstände.</target>
+      </segment>
+    </unit>
+    <unit id="Z5M25GL" name="In einer Zone graben">
+      <notes>
+        <note category="german">In einer Zone graben</note>
+      </notes>
+      <segment>
+        <source>In einer Zone graben</source>
+        <target>In einer Zone graben</target>
+      </segment>
+    </unit>
+    <unit id="W7woJZW" name="dd3b324">
+      <notes>
+        <note category="german">Du kannst in jeder Zone graben und allerlei nützliche Gegenstände finden, die du entweder gleich gebrauchen oder aber in die Stadt bringen kannst. &lt;strong&gt;Jede Zone kann einmal am Tag abgesucht werden.&lt;/strong&gt;</note>
+      </notes>
+      <segment>
+        <source>Du kannst in jeder Zone graben und allerlei nützliche Gegenstände finden, die du entweder gleich gebrauchen oder aber in die Stadt bringen kannst. &lt;strong&gt;Jede Zone kann einmal am Tag abgesucht werden.&lt;/strong&gt;</source>
+        <target><![CDATA[Du kannst in jeder Zone graben und allerlei nützliche Gegenstände finden, die du entweder gleich gebrauchen oder aber in die Stadt bringen kannst. <strong>Jede Zone kann einmal am Tag abgesucht werden.</strong>]]></target>
+      </segment>
+    </unit>
+    <unit id="4nMOP9R" name="Automatisches Graben">
+      <notes>
+        <note category="german">Automatisches Graben</note>
+      </notes>
+      <segment>
+        <source>Automatisches Graben</source>
+        <target>Automatisches Graben</target>
+      </segment>
+    </unit>
+    <unit id="hSPQB7N" name="c98f4a4">
+      <notes>
+        <note category="german">Nachdem du in einer Zone einmal gegraben hast, wechselst du in den &lt;strong&gt;Automatisch Graben&lt;/strong&gt; Modus.
+Wenn du nach deiner Grabungsaktion in der gleichen Zone bleibst, kannst du &lt;strong&gt;alle 2 Stunden&lt;/strong&gt; erneut graben.
+Du kannst deinen Browser in dieser Zeit auch schließen und das Spiel verlassen. Um zu erfahren, ob du etwas gefunden hast, kannst du dich zu einem späteren Zeitpunkt wieder einloggen.</note>
+      </notes>
+      <segment>
+        <source>Nachdem du in einer Zone einmal gegraben hast, wechselst du in den &lt;strong&gt;Automatisch Graben&lt;/strong&gt; Modus.
+Wenn du nach deiner Grabungsaktion in der gleichen Zone bleibst, kannst du &lt;strong&gt;alle 2 Stunden&lt;/strong&gt; erneut graben.
+Du kannst deinen Browser in dieser Zeit auch schließen und das Spiel verlassen. Um zu erfahren, ob du etwas gefunden hast, kannst du dich zu einem späteren Zeitpunkt wieder einloggen.</source>
+        <target><![CDATA[Nachdem du in einer Zone einmal gegraben hast, wechselst du in den <strong>Automatisch Graben</strong> Modus.
+Wenn du nach deiner Grabungsaktion in der gleichen Zone bleibst, kannst du <strong>alle 2 Stunden</strong> erneut graben.
+Du kannst deinen Browser in dieser Zeit auch schließen und das Spiel verlassen. Um zu erfahren, ob du etwas gefunden hast, kannst du dich zu einem späteren Zeitpunkt wieder einloggen.]]></target>
+      </segment>
+    </unit>
+    <unit id="Tn0ydi4" name="924cb9c">
+      <notes>
+        <note category="german">Beachte: Wenn du die &lt;strong&gt;Zone verlässt&lt;/strong&gt; wird der "Automatisch Graben"-Modus unterbrochen und kann nicht mehr gestartet werden. &lt;em&gt;Du kannst jedoch in einer anderen Zone wieder in den Automodus wechseln...&lt;/em&gt;</note>
+      </notes>
+      <segment>
+        <source>Beachte: Wenn du die &lt;strong&gt;Zone verlässt&lt;/strong&gt; wird der "Automatisch Graben"-Modus unterbrochen und kann nicht mehr gestartet werden. &lt;em&gt;Du kannst jedoch in einer anderen Zone wieder in den Automodus wechseln...&lt;/em&gt;</source>
+        <target><![CDATA[Beachte: Wenn du die <strong>Zone verlässt</strong> wird der "Automatisch Graben"-Modus unterbrochen und kann nicht mehr gestartet werden. <em>Du kannst jedoch in einer anderen Zone wieder in den Automodus wechseln...</em>]]></target>
+      </segment>
+    </unit>
+    <unit id="qKbuFIl" name="Außenweltgebäude">
+      <notes>
+        <note category="german">Außenweltgebäude</note>
+      </notes>
+      <segment>
+        <source>Außenweltgebäude</source>
+        <target>Außenweltgebäude</target>
+      </segment>
+    </unit>
+    <unit id="2uk6LrP" name="0bbaebc">
+      <notes>
+        <note category="german">Auf deinen Streifzügen durch die Außenwelt wirst du auch auf Gebäude stoßen, die unter dem Sand vergraben sind. In ihren Ruinen kannst du oft besondere, seltene und machmal auch gefährliche Gegenstände finden. Wenn du sie erforschen möchtest, musst du sie vorher von Unrat freiräumen.</note>
+      </notes>
+      <segment>
+        <source>Auf deinen Streifzügen durch die Außenwelt wirst du auch auf Gebäude stoßen, die unter dem Sand vergraben sind. In ihren Ruinen kannst du oft besondere, seltene und machmal auch gefährliche Gegenstände finden. Wenn du sie erforschen möchtest, musst du sie vorher von Unrat freiräumen.</source>
+        <target>Auf deinen Streifzügen durch die Außenwelt wirst du auch auf Gebäude stoßen, die unter dem Sand vergraben sind. In ihren Ruinen kannst du oft besondere, seltene und machmal auch gefährliche Gegenstände finden. Wenn du sie erforschen möchtest, musst du sie vorher von Unrat freiräumen.</target>
+      </segment>
+    </unit>
+    <unit id="NBF8cbm" name="5fd3771">
+      <notes>
+        <note category="german">Wenn eine Zone mehrmals hintereinander abgesucht wurde, gilt sie ab einem bestimmten Zeitpunkt als "leer". Es können dann keine wertvollen Gegenstände mehr gefunden werden. Mit etwas Glück können noch ein paar minderwertige Materialien (Holz, Metall etc.) zu Tage gefördert werden.</note>
+      </notes>
+      <segment>
+        <source>Wenn eine Zone mehrmals hintereinander abgesucht wurde, gilt sie ab einem bestimmten Zeitpunkt als "leer". Es können dann keine wertvollen Gegenstände mehr gefunden werden. Mit etwas Glück können noch ein paar minderwertige Materialien (Holz, Metall etc.) zu Tage gefördert werden.</source>
+        <target>Wenn eine Zone mehrmals hintereinander abgesucht wurde, gilt sie ab einem bestimmten Zeitpunkt als "leer". Es können dann keine wertvollen Gegenstände mehr gefunden werden. Mit etwas Glück können noch ein paar minderwertige Materialien (Holz, Metall etc.) zu Tage gefördert werden.</target>
+      </segment>
+    </unit>
+    <unit id="Bk3pSor" name="1771ab2">
+      <notes>
+        <note category="german">Allerdings werden in der Nacht immer wieder seltsame metereologische Phänomene beobachtet...</note>
+      </notes>
+      <segment>
+        <source>Allerdings werden in der Nacht immer wieder seltsame metereologische Phänomene beobachtet...</source>
+        <target>Allerdings werden in der Nacht immer wieder seltsame metereologische Phänomene beobachtet...</target>
+      </segment>
+    </unit>
+    <unit id="oVdK5BA" name="Meteorologische Anomalien">
+      <notes>
+        <note category="german">Meteorologische Anomalien</note>
+      </notes>
+      <segment>
+        <source>Meteorologische Anomalien</source>
+        <target>Meteorologische Anomalien</target>
+      </segment>
+    </unit>
+    <unit id="59Lo3IZ" name="2f13e20">
+      <notes>
+        <note category="german">In der Außenwelt wüten jede Nacht heftige Sandstürme. Bislang konnte keine logische Erklärung für diese Anomalien gefunden werden.</note>
+      </notes>
+      <segment>
+        <source>In der Außenwelt wüten jede Nacht heftige Sandstürme. Bislang konnte keine logische Erklärung für diese Anomalien gefunden werden.</source>
+        <target>In der Außenwelt wüten jede Nacht heftige Sandstürme. Bislang konnte keine logische Erklärung für diese Anomalien gefunden werden.</target>
+      </segment>
+    </unit>
+    <unit id="i4IWldb" name="a549f17">
+      <notes>
+        <note category="german">Die gute Nachricht ist, dass diese Stürme in manch leergesuchten Zonen neue Gegenstände zu Tage fördern können.</note>
+      </notes>
+      <segment>
+        <source>Die gute Nachricht ist, dass diese Stürme in manch leergesuchten Zonen neue Gegenstände zu Tage fördern können.</source>
+        <target>Die gute Nachricht ist, dass diese Stürme in manch leergesuchten Zonen neue Gegenstände zu Tage fördern können.</target>
+      </segment>
+    </unit>
+    <unit id=".evspwN" name="e17b44b">
+      <notes>
+        <note category="german">Um diese "regenerierten" Zonen entdecken zu können, benötigt die Stadt einen &lt;strong&gt;Forschungsturm&lt;/strong&gt; (Konstruktion). Sein Bau erhöht zudem die Wahrscheinlichkeit, dass "regenerierte" Gebiete erneut Gegenstände enthalten.</note>
+      </notes>
+      <segment>
+        <source>Um diese "regenerierten" Zonen entdecken zu können, benötigt die Stadt einen &lt;strong&gt;Forschungsturm&lt;/strong&gt; (Konstruktion). Sein Bau erhöht zudem die Wahrscheinlichkeit, dass "regenerierte" Gebiete erneut Gegenstände enthalten.</source>
+        <target><![CDATA[Um diese "regenerierten" Zonen entdecken zu können, benötigt die Stadt einen <strong>Forschungsturm</strong> (Konstruktion). Sein Bau erhöht zudem die Wahrscheinlichkeit, dass "regenerierte" Gebiete erneut Gegenstände enthalten.]]></target>
+      </segment>
+    </unit>
   </file>
 </xliff>

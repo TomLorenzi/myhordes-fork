@@ -97,7 +97,7 @@
       </notes>
       <segment>
         <source>Zombies im Freien bekämpfen</source>
-        <target>Combarre les Hordes dehors</target>
+        <target>Combattre les Hordes dehors</target>
       </segment>
     </unit>
     <unit id="ztIX9Q7" name="Nachts">
@@ -556,7 +556,7 @@
       </notes>
       <segment>
         <source>Externe Webseiten und Anwendungen</source>
-        <target>Sites externes à Hordes</target>
+        <target>Sites externes à MyHordes</target>
       </segment>
     </unit>
     <unit id="QZSZXLb" name="Spielanleitung">
@@ -574,7 +574,7 @@
       </notes>
       <segment>
         <source>'Die Verdammten' ist ein Survivalspiel, das in einer postapokalyptischen Welt voller Untoter spielt.</source>
-        <target>Hordes est un jeu de survie dans un monde hostile peuplé de zombies.</target>
+        <target>MyHordes est un jeu de survie dans un monde hostile peuplé de zombies.</target>
       </segment>
     </unit>
     <unit id="fEPcQJL" name="794eff7">
@@ -655,7 +655,7 @@
       </notes>
       <segment>
         <source>In 'Die Verdammten' musst du jeden Tag mehrere Aufgaben erledigen.</source>
-        <target> Il y a plusieurs choses à accomplir chaque jour dans Hordes.</target>
+        <target>Il y a plusieurs choses à accomplir chaque jour dans MyHordes.</target>
       </segment>
     </unit>
     <unit id="6umuhqS" name="Die Zeitung lesen">
@@ -827,6 +827,357 @@
       <segment>
         <source>Mache in der Nacht wieder das Stadttor zu, sonst erlebst du eine böse Überraschung...</source>
         <target>fermez les portes le soir, sinon les Hordes déferleront sur les citoyens</target>
+      </segment>
+    </unit>
+    <unit id="IU7M5.G" name="Aktionspunkte und Erschöpfung">
+      <notes>
+        <note category="german">Aktionspunkte und Erschöpfung</note>
+      </notes>
+      <segment>
+        <source>Aktionspunkte und Erschöpfung</source>
+        <target>Les points d'action et la Fatigue</target>
+      </segment>
+    </unit>
+    <unit id="q20ROfy" name="c00d232">
+      <notes>
+        <note category="german">&lt;div class="ap"&gt;Solange du genügend &lt;/div&gt;&lt;strong&gt; Aktionspunkte&lt;/strong&gt; besitzt, kannst du dich in der Außenwelt bewegen:
+Pro Zug wird dir 1 Aktionspunkt abgezogen. Bei 0 Punkten bist du &lt;img alt="" src="%path%"&gt; &lt;strong&gt;Erschöpft&lt;/strong&gt; und kannst dich nicht mehr bewegen.</note>
+      </notes>
+      <segment>
+        <source>&lt;div class="ap"&gt;Solange du genügend &lt;/div&gt;&lt;strong&gt; Aktionspunkte&lt;/strong&gt; besitzt, kannst du dich in der Außenwelt bewegen:
+Pro Zug wird dir 1 Aktionspunkt abgezogen. Bei 0 Punkten bist du &lt;img alt="" src="%path%"&gt; &lt;strong&gt;Erschöpft&lt;/strong&gt; und kannst dich nicht mehr bewegen.</source>
+        <target><![CDATA[<div class="ap">Vous pouvez vous déplacer dans l'Outre-Monde tant qu'il vous reste des </div><strong> Points d'action</strong>  :
+chaque mouvement coûte 1 point d'action. Dès que vous arrivez à 0 point, vous devenez <img alt="" src="%path%"> <strong>Fatigué(e)</strong> et vous ne pouvez plus bouger.]]></target>
+      </segment>
+    </unit>
+    <unit id="bTdJb_Y" name="71b2959">
+      <notes>
+        <note category="german">Deine Aktionspunkte werden oben rechts neben dem Hilfsbutton angezeigt. Du kannst deine &lt;strong&gt;Erschöpfung überwinden&lt;/strong&gt; und deine Aktionspunkte durch eine der folgenden Aktionen wieder &lt;strong&gt;auffüllen&lt;/strong&gt;:</note>
+      </notes>
+      <segment>
+        <source>Deine Aktionspunkte werden oben rechts neben dem Hilfsbutton angezeigt. Du kannst deine &lt;strong&gt;Erschöpfung überwinden&lt;/strong&gt; und deine Aktionspunkte durch eine der folgenden Aktionen wieder &lt;strong&gt;auffüllen&lt;/strong&gt;:</source>
+        <target><![CDATA[Ces points sont visibles en haut du site, près du bouton d'Aide. Vous pouvez <strong>récupérer vos points</strong> et <strong>annuler la fatigue</strong> de plusieurs façons :]]></target>
+      </segment>
+    </unit>
+    <unit id="ghVrDw1" name="Wasser trinken (1 Mal pro Tag möglich)">
+      <notes>
+        <note category="german">Wasser trinken (1 Mal pro Tag möglich)</note>
+      </notes>
+      <segment>
+        <source>Wasser trinken (1 Mal pro Tag möglich)</source>
+        <target>en buvant de l'eau (1 fois par jour)</target>
+      </segment>
+    </unit>
+    <unit id="cj5diCF" name="Essen (1 Mal pro Tag möglich)">
+      <notes>
+        <note category="german">Essen (1 Mal pro Tag möglich)</note>
+      </notes>
+      <segment>
+        <source>Essen (1 Mal pro Tag möglich)</source>
+        <target>en mangeant (1 fois par jour)</target>
+      </segment>
+    </unit>
+    <unit id="XuY5gcP" name="Drogen nehmen (Vorsicht: Du wirst sehr schnell abhängig!)">
+      <notes>
+        <note category="german">Drogen nehmen (Vorsicht: Du wirst sehr schnell abhängig!)</note>
+      </notes>
+      <segment>
+        <source>Drogen nehmen (Vorsicht: Du wirst sehr schnell abhängig!)</source>
+        <target>avec des drogues (illimitées, gare à la dépendance !)</target>
+      </segment>
+    </unit>
+    <unit id="KKt55ah" name="90f1a78">
+      <notes>
+        <note category="german">Darüber hinaus gibt es noch weitere Methoden, um seine Aktionspunkte wieder aufzufüllen (manche sind durchaus gefährlich!)... Finde es am besten selbst heraus.</note>
+      </notes>
+      <segment>
+        <source>Darüber hinaus gibt es noch weitere Methoden, um seine Aktionspunkte wieder aufzufüllen (manche sind durchaus gefährlich!)... Finde es am besten selbst heraus.</source>
+        <target>Il existe d'autres méthodes plus rares (parfois dangereuses !) mais il faudra les découvrir vous-même...</target>
+      </segment>
+    </unit>
+    <unit id="1ZAcbNG" name="Du hast keine Aktionspunkte mehr?">
+      <notes>
+        <note category="german">Du hast keine Aktionspunkte mehr?</note>
+      </notes>
+      <segment>
+        <source>Du hast keine Aktionspunkte mehr?</source>
+        <target>Plus de point d'action ?</target>
+      </segment>
+    </unit>
+    <unit id="KRu9j0q" name="cceb5aa">
+      <notes>
+        <note category="german">Bete, dass ein anderer Spieler bei dir vorbeikommt und dir eine Stärkung da lässt... Im Zweifelsfall ist es besser, im Forum um Hilfe zu bitten (der Link befindet sich oben links).</note>
+      </notes>
+      <segment>
+        <source>Bete, dass ein anderer Spieler bei dir vorbeikommt und dir eine Stärkung da lässt... Im Zweifelsfall ist es besser, im Forum um Hilfe zu bitten (der Link befindet sich oben links).</source>
+        <target>Priez pour qu'un citoyen passe par là et vous laisse un petit quelque chose pour repartir... Dans le doute, appelez à l'aide sur le forum (lien en haut à gauche du site).</target>
+      </segment>
+    </unit>
+    <unit id="PDHtzSM" name="03d7b7a">
+      <notes>
+        <note category="german">Die Stunde des Angriffs rückt näher und näher... Du kannst noch so viel in dein Funkgerät schreien, es wird niemand mehr kommen...
+Im Schnelldurchlauf lässt du die schönen und unschönen Momente deines kurzen Lebens noch einmal Revue passieren... Wer weiß, vielleicht hast du schon morgen selbst Appetit auf Menschenfleisch?</note>
+      </notes>
+      <segment>
+        <source>Die Stunde des Angriffs rückt näher und näher... Du kannst noch so viel in dein Funkgerät schreien, es wird niemand mehr kommen...
+Im Schnelldurchlauf lässt du die schönen und unschönen Momente deines kurzen Lebens noch einmal Revue passieren... Wer weiß, vielleicht hast du schon morgen selbst Appetit auf Menschenfleisch?</source>
+        <target>L'heure de l'Attaque de la Horde arrive bientôt... Vous avez beau crier sur votre Intercom : personne n'est venu vous sortir de là... Vous commencez à vous remémorer les souvenirs de cette brève vie... Qui sait si demain, vous n'aurez pas à votre tour de l'appétit pour les humains...</target>
+      </segment>
+    </unit>
+    <unit id="kH_n4fp" name="Standortansicht">
+      <notes>
+        <note category="german">Standortansicht</note>
+      </notes>
+      <segment>
+        <source>Standortansicht</source>
+        <target>La vue locale</target>
+      </segment>
+    </unit>
+    <unit id="wqinlrE" name="7a54085">
+      <notes>
+        <note category="german">Sobald du die Stadt verlässt, ist die Karte dein einziges Hilfsmittel, um dich in der Außenwelt zu orientieren.</note>
+      </notes>
+      <segment>
+        <source>Sobald du die Stadt verlässt, ist die Karte dein einziges Hilfsmittel, um dich in der Außenwelt zu orientieren.</source>
+        <target>Une fois les portes de la ville franchies, cette carte devient votre unique interface pour vous déplacer dans l'Outre-Monde.</target>
+      </segment>
+    </unit>
+    <unit id="mT8Yf4b" name="fa18d1a">
+      <notes>
+        <note category="german">Klicke auf die grünen Pfeile &lt;strong&gt;[1]&lt;/strong&gt;, um in die gewünschte Richtung zu gehen.</note>
+      </notes>
+      <segment>
+        <source>Klicke auf die grünen Pfeile &lt;strong&gt;[1]&lt;/strong&gt;, um in die gewünschte Richtung zu gehen.</source>
+        <target><![CDATA[Vous pouvez utiliser les flèches vertes <strong>[1]</strong> pour marcher dans la direction de votre choix.]]></target>
+      </segment>
+    </unit>
+    <unit id="jPB67sO" name="88b6faa">
+      <notes>
+        <note category="german">Durch Drücken des Kartenknopfes &lt;strong&gt;[2]&lt;/strong&gt; erhältst du eine Gesamtansicht deiner Welt.</note>
+      </notes>
+      <segment>
+        <source>Durch Drücken des Kartenknopfes &lt;strong&gt;[2]&lt;/strong&gt; erhältst du eine Gesamtansicht deiner Welt.</source>
+        <target><![CDATA[Le bouton Carte <strong>[2]</strong> vous permet d'afficher l'intégralité du monde connu.]]></target>
+      </segment>
+    </unit>
+    <unit id="W3z88_o" name="Die Weltkarte">
+      <notes>
+        <note category="german">Die Weltkarte</note>
+      </notes>
+      <segment>
+        <source>Die Weltkarte</source>
+        <target>La carte du monde</target>
+      </segment>
+    </unit>
+    <unit id="Z7NfCH0" name="Das grün leuchtende Feld &lt;strong&gt;[1]&lt;/strong&gt; zeigt deine aktuelle Position.">
+      <notes>
+        <note category="german">Das grün leuchtende Feld &lt;strong&gt;[1]&lt;/strong&gt; zeigt deine aktuelle Position.</note>
+      </notes>
+      <segment>
+        <source>Das grün leuchtende Feld &lt;strong&gt;[1]&lt;/strong&gt; zeigt deine aktuelle Position.</source>
+        <target><![CDATA[Le carré vert lumineux <strong>[1]</strong> indique votre position.]]></target>
+      </segment>
+    </unit>
+    <unit id="FZo2.OI" name="8a01e00">
+      <notes>
+        <note category="german">Orange, rot oder blau markierte Felder &lt;strong&gt;[2]&lt;/strong&gt; weisen auf Zombiepräsenz hin. Wenn du in diesen Sektoren allein unterwegs bist, ist höchste Vorsicht geboten!</note>
+      </notes>
+      <segment>
+        <source>Orange, rot oder blau markierte Felder &lt;strong&gt;[2]&lt;/strong&gt; weisen auf Zombiepräsenz hin. Wenn du in diesen Sektoren allein unterwegs bist, ist höchste Vorsicht geboten!</source>
+        <target><![CDATA[Les zones colorées en vert, orange, rouge ou bleu <strong>[2]</strong> indiquent la présence de zombies ! Attention si vous vous aventurez seul(e) dans ces secteurs.]]></target>
+      </segment>
+    </unit>
+    <unit id="U20rwj0" name="274ff01">
+      <notes>
+        <note category="german">Der Mark.-Knopf &lt;strong&gt;[3]&lt;/strong&gt; zeigt alle von dir oder von anderen Spieler gesetzten Wegmarken an. Diese können zum Markieren von gefährlichen Zonen gesetzt werden, oder aber, um auf wichtige Gegenstände hinzuweisen.</note>
+      </notes>
+      <segment>
+        <source>Der Mark.-Knopf &lt;strong&gt;[3]&lt;/strong&gt; zeigt alle von dir oder von anderen Spieler gesetzten Wegmarken an. Diese können zum Markieren von gefährlichen Zonen gesetzt werden, oder aber, um auf wichtige Gegenstände hinzuweisen.</source>
+        <target><![CDATA[Le bouton Marqueurs <strong>[3]</strong> vous permet d'afficher les marqueurs placés par les autres joueurs ou vous-même sur la carte. Ils permettent d'indiquer les zones dangereuses, les zones contenant des objets importants, etc.]]></target>
+      </segment>
+    </unit>
+    <unit id="px25T6e" name="ef90c4f">
+      <notes>
+        <note category="german">Der Globale Knopf &lt;strong&gt;[4]&lt;/strong&gt; zeigt alle Zonen an, die der &lt;strong&gt;Stadt als Ganzes&lt;/strong&gt; bekannt sind.</note>
+      </notes>
+      <segment>
+        <source>Der Globale Knopf &lt;strong&gt;[4]&lt;/strong&gt; zeigt alle Zonen an, die der &lt;strong&gt;Stadt als Ganzes&lt;/strong&gt; bekannt sind.</source>
+        <target><![CDATA[Der Globale Knopf <strong>[4]</strong> zeigt alle Zonen an, die der <strong>Stadt als Ganzes</strong> bekannt sind.]]></target>
+      </segment>
+    </unit>
+    <unit id="Czm2yVn" name="Der Expeditionsknopf &lt;strong&gt;[4]&lt;/strong&gt; zeigt alle geplanten Expeditionen an.">
+      <notes>
+        <note category="german">Der Expeditionsknopf &lt;strong&gt;[4]&lt;/strong&gt; zeigt alle geplanten Expeditionen an.</note>
+      </notes>
+      <segment>
+        <source>Der Expeditionsknopf &lt;strong&gt;[4]&lt;/strong&gt; zeigt alle geplanten Expeditionen an.</source>
+        <target><![CDATA[Enfin, le bouton Expéditions <strong>[4]</strong> vous permet d'afficher les expéditions planifiées par n'importe quel citoyen.]]></target>
+      </segment>
+    </unit>
+    <unit id="XRq1Sgx" name="Zonentypen">
+      <notes>
+        <note category="german">Zonentypen</note>
+      </notes>
+      <segment>
+        <source>Zonentypen</source>
+        <target>Contenu des zones</target>
+      </segment>
+    </unit>
+    <unit id="jtZNkxE" name="206ff5d">
+      <notes>
+        <note category="german">Es handelt sich um eine unerforschte Zone, die weder von dir, noch von sonst wem besucht wurde.</note>
+      </notes>
+      <segment>
+        <source>Es handelt sich um eine unerforschte Zone, die weder von dir, noch von sonst wem besucht wurde.</source>
+        <target>Secteur inconnu, vous n'y avez jamais mis les pieds personnellement. En mode Global, ces secteurs n'ont même jamais été visités par qui que ce soit !</target>
+      </segment>
+    </unit>
+    <unit id="4DRtW7F" name="5abb6fd">
+      <notes>
+        <note category="german">Diese Zone wurde in den letzten Tagen schon einmal erforscht. Da heute allerdings noch niemand da war, &lt;strong&gt;weißt du nicht, ob sich dort Zombies aufhalten&lt;/strong&gt;...</note>
+      </notes>
+      <segment>
+        <source>Diese Zone wurde in den letzten Tagen schon einmal erforscht. Da heute allerdings noch niemand da war, &lt;strong&gt;weißt du nicht, ob sich dort Zombies aufhalten&lt;/strong&gt;...</source>
+        <target><![CDATA[Secteur déjà visité au cours des jours précédents, mais pas aujourd'hui. <strong>Vous ignorez donc s'il y a encore des zombies là-bas...</strong>]]></target>
+      </segment>
+    </unit>
+    <unit id="GzqB3qA" name="84b0fd6">
+      <notes>
+        <note category="german">Die Stadt: Hier solltest du jede Nacht schlafen, wenn du am Leben bleiben möchtest.</note>
+      </notes>
+      <segment>
+        <source>Die Stadt: Hier solltest du jede Nacht schlafen, wenn du am Leben bleiben möchtest.</source>
+        <target>La ville : c'est là qu'il faut rentrer si vous voulez continuer à vivre.</target>
+      </segment>
+    </unit>
+    <unit id=".tcSMXw" name="a066790">
+      <notes>
+        <note category="german">Dieses Feld zeigt an, dass sich an der Stelle ein Gebäude oder eine Ruine befindet, die du erforschen kannst. In aller Regel enthalten Gebäude wertvolle Gegenstände.</note>
+      </notes>
+      <segment>
+        <source>Dieses Feld zeigt an, dass sich an der Stelle ein Gebäude oder eine Ruine befindet, die du erforschen kannst. In aller Regel enthalten Gebäude wertvolle Gegenstände.</source>
+        <target>Ce carré indique la présence d'un bâtiment ou d'une ruine à explorer. Les bâtiments contiennent en général de meilleurs objets !</target>
+      </segment>
+    </unit>
+    <unit id="Z5M25GL" name="In einer Zone graben">
+      <notes>
+        <note category="german">In einer Zone graben</note>
+      </notes>
+      <segment>
+        <source>In einer Zone graben</source>
+        <target>Fouiller une zone</target>
+      </segment>
+    </unit>
+    <unit id="W7woJZW" name="dd3b324">
+      <notes>
+        <note category="german">Du kannst in jeder Zone graben und allerlei nützliche Gegenstände finden, die du entweder gleich gebrauchen oder aber in die Stadt bringen kannst. &lt;strong&gt;Jede Zone kann einmal am Tag abgesucht werden.&lt;/strong&gt;</note>
+      </notes>
+      <segment>
+        <source>Du kannst in jeder Zone graben und allerlei nützliche Gegenstände finden, die du entweder gleich gebrauchen oder aber in die Stadt bringen kannst. &lt;strong&gt;Jede Zone kann einmal am Tag abgesucht werden.&lt;/strong&gt;</source>
+        <target><![CDATA[Dans chaque zone il est possible de procéder à des fouilles. Ces fouilles vous permettent de découvrir des objets que vous pourrez utiliser sur place ou ramener en ville. <strong>Vous pouvez fouiller chaque zone une fois par jour.</strong>]]></target>
+      </segment>
+    </unit>
+    <unit id="4nMOP9R" name="Automatisches Graben">
+      <notes>
+        <note category="german">Automatisches Graben</note>
+      </notes>
+      <segment>
+        <source>Automatisches Graben</source>
+        <target>La fouille automatique</target>
+      </segment>
+    </unit>
+    <unit id="hSPQB7N" name="c98f4a4">
+      <notes>
+        <note category="german">Nachdem du in einer Zone einmal gegraben hast, wechselst du in den &lt;strong&gt;Automatisch Graben&lt;/strong&gt; Modus.
+Wenn du nach deiner Grabungsaktion in der gleichen Zone bleibst, kannst du &lt;strong&gt;alle 2 Stunden&lt;/strong&gt; erneut graben.
+Du kannst deinen Browser in dieser Zeit auch schließen und das Spiel verlassen. Um zu erfahren, ob du etwas gefunden hast, kannst du dich zu einem späteren Zeitpunkt wieder einloggen.</note>
+      </notes>
+      <segment>
+        <source>Nachdem du in einer Zone einmal gegraben hast, wechselst du in den &lt;strong&gt;Automatisch Graben&lt;/strong&gt; Modus.
+Wenn du nach deiner Grabungsaktion in der gleichen Zone bleibst, kannst du &lt;strong&gt;alle 2 Stunden&lt;/strong&gt; erneut graben.
+Du kannst deinen Browser in dieser Zeit auch schließen und das Spiel verlassen. Um zu erfahren, ob du etwas gefunden hast, kannst du dich zu einem späteren Zeitpunkt wieder einloggen.</source>
+        <target><![CDATA[Lorsque vous effectuez une fouille sur une zone, vous passez immédiatement en mode <strong>Fouille automatique</strong>. Dès lors, si vous restez sur cette zone, vous bénéficierez d'une autre fouille <strong>toutes les 2 heures</strong> (temps réduit à 1h30 si vous êtes Fouineur). Vous n'êtes pas obligé(e) de garder votre navigateur ouvert, revenez simplement plus tard dans la journée...]]></target>
+      </segment>
+    </unit>
+    <unit id="Tn0ydi4" name="924cb9c">
+      <notes>
+        <note category="german">Beachte: Wenn du die &lt;strong&gt;Zone verlässt&lt;/strong&gt; wird der "Automatisch Graben"-Modus unterbrochen und kann nicht mehr gestartet werden. &lt;em&gt;Du kannst jedoch in einer anderen Zone wieder in den Automodus wechseln...&lt;/em&gt;</note>
+      </notes>
+      <segment>
+        <source>Beachte: Wenn du die &lt;strong&gt;Zone verlässt&lt;/strong&gt; wird der "Automatisch Graben"-Modus unterbrochen und kann nicht mehr gestartet werden. &lt;em&gt;Du kannst jedoch in einer anderen Zone wieder in den Automodus wechseln...&lt;/em&gt;</source>
+        <target><![CDATA[Attention, si vous <strong>sortez de la zone</strong> en vous déplaçant, votre fouille automatique sera interrompue et ne pourra être relancée dans cette même zone pour la journée. <em>Vous pourrez toutefois en commencer une nouvelle plus loin...</em>]]></target>
+      </segment>
+    </unit>
+    <unit id="qKbuFIl" name="Außenweltgebäude">
+      <notes>
+        <note category="german">Außenweltgebäude</note>
+      </notes>
+      <segment>
+        <source>Außenweltgebäude</source>
+        <target>Les bâtiments extérieurs</target>
+      </segment>
+    </unit>
+    <unit id="2uk6LrP" name="0bbaebc">
+      <notes>
+        <note category="german">Auf deinen Streifzügen durch die Außenwelt wirst du auch auf Gebäude stoßen, die unter dem Sand vergraben sind. In ihren Ruinen kannst du oft besondere, seltene und machmal auch gefährliche Gegenstände finden. Wenn du sie erforschen möchtest, musst du sie vorher von Unrat freiräumen.</note>
+      </notes>
+      <segment>
+        <source>Auf deinen Streifzügen durch die Außenwelt wirst du auch auf Gebäude stoßen, die unter dem Sand vergraben sind. In ihren Ruinen kannst du oft besondere, seltene und machmal auch gefährliche Gegenstände finden. Wenn du sie erforschen möchtest, musst du sie vorher von Unrat freiräumen.</source>
+        <target>En parcourant l'Outre-Monde, vous découvrirez des bâtiments enterrés. Il s'agira de les déterrer puis de les explorer. Ces bâtiments regorgent d'objets spéciaux, d'objets rares et parfois dangereux. Peut-être sauveront-ils les citoyens d'une mort certaine ?</target>
+      </segment>
+    </unit>
+    <unit id="NBF8cbm" name="5fd3771">
+      <notes>
+        <note category="german">Wenn eine Zone mehrmals hintereinander abgesucht wurde, gilt sie ab einem bestimmten Zeitpunkt als "leer". Es können dann keine wertvollen Gegenstände mehr gefunden werden. Mit etwas Glück können noch ein paar minderwertige Materialien (Holz, Metall etc.) zu Tage gefördert werden.</note>
+      </notes>
+      <segment>
+        <source>Wenn eine Zone mehrmals hintereinander abgesucht wurde, gilt sie ab einem bestimmten Zeitpunkt als "leer". Es können dann keine wertvollen Gegenstände mehr gefunden werden. Mit etwas Glück können noch ein paar minderwertige Materialien (Holz, Metall etc.) zu Tage gefördert werden.</source>
+        <target>Une zone du désert qui a été fouillée plusieurs fois peut devenir "épuisée" : aucun objet intéressant ne pourra alors plus y être trouvé. Tout au plus, on pourra encore y ramasser des ressources de mauvaise qualité (bois et métal).</target>
+      </segment>
+    </unit>
+    <unit id="Bk3pSor" name="1771ab2">
+      <notes>
+        <note category="german">Allerdings werden in der Nacht immer wieder seltsame metereologische Phänomene beobachtet...</note>
+      </notes>
+      <segment>
+        <source>Allerdings werden in der Nacht immer wieder seltsame metereologische Phänomene beobachtet...</source>
+        <target>Toutefois, depuis plusieurs semaines maintenant, nous avons observé d'étranges anomalies météorologiques pendant la nuit, dans l'Outre-Monde...</target>
+      </segment>
+    </unit>
+    <unit id="oVdK5BA" name="Meteorologische Anomalien">
+      <notes>
+        <note category="german">Meteorologische Anomalien</note>
+      </notes>
+      <segment>
+        <source>Meteorologische Anomalien</source>
+        <target>Anomalies météo</target>
+      </segment>
+    </unit>
+    <unit id="59Lo3IZ" name="2f13e20">
+      <notes>
+        <note category="german">In der Außenwelt wüten jede Nacht heftige Sandstürme. Bislang konnte keine logische Erklärung für diese Anomalien gefunden werden.</note>
+      </notes>
+      <segment>
+        <source>In der Außenwelt wüten jede Nacht heftige Sandstürme. Bislang konnte keine logische Erklärung für diese Anomalien gefunden werden.</source>
+        <target>De violentes tempêtes de sable s'abattent sur l'Outre-Monde aux alentours de minuit. Aucune explication rationnelle à ces phénomènes n'a pu être trouvée à l'heure actuelle.</target>
+      </segment>
+    </unit>
+    <unit id="i4IWldb" name="a549f17">
+      <notes>
+        <note category="german">Die gute Nachricht ist, dass diese Stürme in manch leergesuchten Zonen neue Gegenstände zu Tage fördern können.</note>
+      </notes>
+      <segment>
+        <source>Die gute Nachricht ist, dass diese Stürme in manch leergesuchten Zonen neue Gegenstände zu Tage fördern können.</source>
+        <target>La bonne nouvelle est que, dans les régions qu'elles affectent, ces tempêtes peuvent révéler la présence de nouveaux objets dans les zones considérées comme épuisées.</target>
+      </segment>
+    </unit>
+    <unit id=".evspwN" name="e17b44b">
+      <notes>
+        <note category="german">Um diese "regenerierten" Zonen entdecken zu können, benötigt die Stadt einen &lt;strong&gt;Forschungsturm&lt;/strong&gt; (Konstruktion). Sein Bau erhöht zudem die Wahrscheinlichkeit, dass "regenerierte" Gebiete erneut Gegenstände enthalten.</note>
+      </notes>
+      <segment>
+        <source>Um diese "regenerierten" Zonen entdecken zu können, benötigt die Stadt einen &lt;strong&gt;Forschungsturm&lt;/strong&gt; (Konstruktion). Sein Bau erhöht zudem die Wahrscheinlichkeit, dass "regenerierte" Gebiete erneut Gegenstände enthalten.</source>
+        <target><![CDATA[Pour repérer les zones regénérées, la construction d'un <strong>Scrutateur</strong> (chantier) est requise. De plus, le Scrutateur permet également d'améliorer les chances de regénération des zones affectées.]]></target>
       </segment>
     </unit>
   </file>
