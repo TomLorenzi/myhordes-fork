@@ -35,9 +35,9 @@
                                 <img src="{{ asset('build/images/icons/Small_broken.gif') }}" alt="depleted">
                                 <span class="link" x-ajax-href="{{ url('help', {'name': 'depleted_zones'}) }}">{{ 'Abgesuchte Zonen'|trans({},'help') }}</span>
                             </li>
-                            <li class="">
+                            <li class="{% if section == 'control_points' %}active{% endif %}">
                                 <img src="{{ asset('build/images/beyond/equal.gif') }}" alt="dom">
-                                <span class="link">{{ 'Die Kontrollpunkte'|trans({},'help') }}</span>
+                                <span class="link" x-ajax-href="{{ url('help', {'name': 'control_points'}) }}">{{ 'Die Kontrollpunkte'|trans({},'help') }}</span>
                             </li>
                             <li class="">
                                 <img src="{{ asset('build/images/icons/small_move.gif') }}" alt="escort">
@@ -121,7 +121,7 @@
                         <ul>
                             <li class="">
                                 <img src="{{ asset('build/images/professions/basic.gif') }}" alt="job_basic">
-                                <span class="link"></span>{{ 'Einwohner'|trans({},'help') }}
+                                <span class="link">{{ 'Einwohner'|trans({},'help') }}</span>
                             </li>
                             <li class="">
                                 <img src="{{ asset('build/images/professions/dig.gif') }}" alt="job_collec">
