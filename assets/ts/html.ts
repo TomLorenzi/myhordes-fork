@@ -256,7 +256,7 @@ export default class HTML {
             fun_tooltip_pos(e);
         }
 
-        const fun_tooltip_hide = function(e: PointerEvent) {
+        const fun_tooltip_hide = function(e: PointerEvent|TouchEvent) {
             element.style.display = 'none';
             parent.append( element );
         }
@@ -265,6 +265,7 @@ export default class HTML {
         parent.addEventListener('pointermove',  fun_tooltip_pos);
         parent.addEventListener('pointerleave', fun_tooltip_hide);
         parent.addEventListener('pointerup',    fun_tooltip_hide);
+        parent.addEventListener('touchend',    fun_tooltip_hide);
     };
 
     addLoadStack( num: number = 1): void {
