@@ -6,27 +6,20 @@ use App\Entity\ActionCounter;
 use App\Entity\Citizen;
 use App\Entity\CitizenProfession;
 use App\Entity\CauseOfDeath;
-use App\Entity\CitizenRankingProxy;
 use App\Entity\Gazette;
 use App\Entity\GazetteLogEntry;
 use App\Entity\HeroicActionPrototype;
 use App\Entity\HeroSkillPrototype;
-use App\Entity\Item;
 use App\Entity\ItemPrototype;
 use App\Entity\LogEntryTemplate;
-use App\Entity\Picto;
 use App\Entity\TownLogEntry;
-use App\Entity\User;
-use App\Entity\ZombieEstimation;
 use App\Response\AjaxResponse;
 use App\Service\CitizenHandler;
 use App\Service\ConfMaster;
 use App\Service\ErrorHelper;
-use App\Service\GameFactory;
 use App\Service\InventoryHandler;
 use App\Service\ItemFactory;
 use App\Service\JSONRequestParser;
-use App\Service\Locksmith;
 use App\Service\LogTemplateHandler;
 use App\Service\TimeKeeperService;
 use App\Service\UserHandler;
@@ -35,9 +28,7 @@ use Doctrine\ORM\EntityManagerInterface;
 use Exception;
 use DateTime;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
@@ -570,6 +561,9 @@ class GameController extends AbstractController implements GameInterfaceControll
         }
 
         if($log->getTown() !== $citizen->getTown())
+            return AjaxResponse::error(ErrorHelper::ErrorActionNotAvailable);
+
+        if($log->getLogEntryTemplate()->getType() == LogEntryTemplate::TypeNightly)
             return AjaxResponse::error(ErrorHelper::ErrorActionNotAvailable);
 
         $limit = 0;
