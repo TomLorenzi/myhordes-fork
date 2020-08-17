@@ -474,25 +474,27 @@ class MessageController extends AbstractController
 
         $tmp_str = $this->filterLockedEmotes($user, $tmp_str);
         $post->setText( $tmp_str );
-        if ($forum !== null && $forum->getTown()) {
-            foreach ( $forum->getTown()->getCitizens() as $citizen )
-                if ($citizen->getUser()->getId() === $user->getId()) {
-                    $note = null;
-                    if ($citizen->getZone() && ($citizen->getZone()->getX() > 0 || $citizen->getZone()->getY() > 0))  {
-                        if($citizen->getTown()->getChaos()){
-                            $note = $this->trans->trans('Draußen', [], 'game');
-                        } else {
-                            $note = "[{$citizen->getZone()->getX()}, {$citizen->getZone()->getY()}]";
+        if ($post->getType() !== 'CROW'){
+            if ($forum !== null && $forum->getTown()) {
+                foreach ( $forum->getTown()->getCitizens() as $citizen )
+                    if ($citizen->getUser()->getId() === $user->getId()) {
+                        $note = null;
+                        if ($citizen->getZone() && ($citizen->getZone()->getX() > 0 || $citizen->getZone()->getY() > 0))  {
+                            if($citizen->getTown()->getChaos()){
+                                $note = $this->trans->trans('Draußen', [], 'game');
+                            } else {
+                                $note = "[{$citizen->getZone()->getX()}, {$citizen->getZone()->getY()}]";
+                            }
                         }
+                        else {
+                            $note = $this->trans->trans('in der Stadt oder am Stadttor', [], 'game');
+                        }
+                        // <img src="{{ asset('build/images/professions/' ~ post.owner.getActiveCitizen.profession.icon ~ '.gif') }}" />
+                        // return "<img alt='' src='{$this->asset->getUrl( "build/images/item/item_{$obj->getPrototype()->getIcon()}.gif" )}' /> {$this->trans->trans($obj->getPrototype()->getLabel(), [], 'items')} <i>x {$obj->getChance()}</i>";
+                        $post->setNote("<img alt='' src='{$this->asset->getUrl("build/images/professions/{$citizen->getProfession()->getIcon()}.gif")}' /> <img alt='' src='{$this->asset->getUrl('build/images/icons/item_map.gif')}' /> <span>$note</span>");
                     }
-                    else {
-                        $note = $this->trans->trans('in der Stadt oder am Stadttor', [], 'game');
-                    }
-                    // <img src="{{ asset('build/images/professions/' ~ post.owner.getActiveCitizen.profession.icon ~ '.gif') }}" />
-                    // return "<img alt='' src='{$this->asset->getUrl( "build/images/item/item_{$obj->getPrototype()->getIcon()}.gif" )}' /> {$this->trans->trans($obj->getPrototype()->getLabel(), [], 'items')} <i>x {$obj->getChance()}</i>";
-                    $post->setNote("<img alt='' src='{$this->asset->getUrl("build/images/professions/{$citizen->getProfession()->getIcon()}.gif")}' /> <img alt='' src='{$this->asset->getUrl('build/images/icons/item_map.gif')}' /> <span>$note</span>");
-                }
             }
+        }
 
         return true;
     }
