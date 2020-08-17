@@ -1,0 +1,67 @@
+{% extends "ajax/help/shell.html.twig" %}
+{% block helpContent %}
+<div class="helpArt">{{ 'Spielanleitung'|trans({},'help')|raw }}</div>
+<h1>{{ 'Die Kontrollpunkte'|trans({},'help')|raw }}</h1>
+<img class="art" alt="" src="{{ asset('build/images/help/dom.de.png') }}">
+<p>
+    {{'An den Kontrollpunkten kannst du mit einem Blick erkennen, ob eine Zone gefährlich ist oder nicht. Die
+    entsprechenden Punkte werden in der Leiste unterhalb der Karte angezeigt. So wird gezählt:'|trans({},'help')|raw }}
+</p>
+<div class="clear"></div>
+<ul>
+    <li>{{'Jeder in einer Zone anwesende %img_human% <strong>Mensch</strong> zählt
+        <strong>2 Punkte</strong>.'|trans({'%img_human%': '<img alt="" src="' ~ asset('build/images/icons/small_human.gif') ~ '" />'},'help')|raw}}</li>
+    <li>{{'Jeder in einer Zone anwesende %img_zombie% <strong>Zombie</strong> zählt
+        <strong>1 Punkt</strong>.'|trans({'%img_zombie%': '<img alt="" src="' ~ asset('build/images/icons/small_zombie.gif') ~ '" />'},'help')|raw}}
+        <ul>
+            <li>{{ 'Bestimmte Vorteile durch Berufe, Erfahrung oder Gegenstände ermöglichen das Erhöhen oder Verringern der Kontrollpunkte eines Menschen.'|trans({},'help')|raw }}</li>
+        </ul>
+    </li>
+</ul>
+<div class="clear"></div>
+<p class="help">
+    <strong>{{'Wenn die Punkteanzahl der Zombies höher ist als die der Menschen, handelt es sich um eine gefährliche
+        Zone. Du sitzt dann in der Falle!'|trans({},'help')|raw }}</strong>
+</p>
+<h2>{{ 'Ab wann gilt eine Zone als "gefährlich"?'|trans({},'help')|raw }}</h2>
+<p>
+    {{'Eine Zone gilt als gefährlich, wenn die Zombies in der Überzahl sind und du nicht mehr weg kannst, weil sie dir
+    den Weg versperren! Anders gesagt: Um Mitternacht feiern sie eine kleine Party und du bist mittendrin - ob du willst
+    oder nicht...'|trans({},'help')|raw}}
+</p>
+<h2>{{ 'Die Flucht'|trans({},'help')|raw }}</h2>
+<img class="art" alt="" src="{{ asset('build/images/help/feist.gif') }}">
+<p>
+    {{ 'Wenn du in der Falle sitzt, hast du mehrere Optionen:'|trans({},'help')|raw }}
+</p>
+<ul class="stack">
+    <li>
+        {{ 'Du kannst versuchen, gewaltsam auszubrechen. Dabei riskierst du aber eine %img_wound% <strong>schwere
+        Verletzung</strong>.'|trans({'%img_wound%': '<img alt="" src="' ~ asset('build/images/status/status_wound1.gif') ~ '" />'},'help')|raw }}
+    </li>
+    <li>{{'Du kannst versuchen, die Zombies einen nach dem anderen mit bloßen Händen umzubringen... Jeder Versuch kostet
+        dich 1 %img_ap%. Die Erfolgsaussichten sind eher gering.'|trans({'%img_ap%': '<span class="ap"></span>'},'help')|raw}}</li>
+    <li>{{'Du kannst deine Waffen benutzen (wenn du welche hast) und das Gleichgewicht wiederherstellen, indem du ein paar
+    Zombies tötest (beachte die hier aufgeführte Kontrollpunkteregel).'|trans({},'help')|raw}}</li>
+    <li>
+        {{'Du kannst im Forum um Hilfe bitten und hoffen, dass ein anderer Spieler sich deiner erbarmt und dich besucht.
+        Durch seine Anwesenheit steigt die Punkteanzahl der Menschen, sodass ihr beide wieder flüchten könnt.'|trans({},'help')|raw}}
+    </li>
+    <li>{{'Es gibt noch weitere Möglichkeiten zur Flucht, wenn du von Zombies umzingelt bist. Es liegt aber an dir, diese
+        zu entdecken ...'|trans({},'help')|raw}}</li>
+</ul>
+<div class="clear"></div>
+<h2>{{'Kontrollverlust (Zeitzähler)'|trans({},'help')|raw}}</h2>
+<img class="art" alt="" src="{{ asset('build/images/help/domTimer.gif') }}">
+<p>
+    {{'Die Spieler verlieren immer dann die Kontrolle über eine Zone, wenn sich die Punktanzahl zu Gunsten der Zombies
+    verschiebt. Dies kann zum Beispiel passieren, wenn ein Spieler die Zone (unangekündigt) verlässt. Sollte dies
+    geschehen, haben die übrigen Spieler <strong>30 Minuten</strong> Zeit (und nicht eine Sekunde länger), um'|trans({},'help')|raw}}
+</p>
+<ul>
+    <li>{{'zu flüchten!'|trans({},'help')|raw}}</li>
+    <li>{{ 'wieder die Kontrolle zu erlangen.'|trans({},'help')|raw }}</li>
+</ul>
+<div class="clear"></div>
+<a class="button" x-ajax-href="{{ url('help', {'name': 'escort_mode'}) }}"><img src="{{ asset('build/images/icons/small_move.gif') }}" alt="move"> {{'Weiter'|trans({}, 'help')}}:<strong> {{ 'Der Eskortenmodus'|trans({},'help') }}</strong></a>
+{% endblock %}

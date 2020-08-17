@@ -4,8 +4,11 @@
 <h1>{{ 'Sich bewegen'|trans({},'help')|raw }}</h1>
 <h2>{{ 'Aktionspunkte und Erschöpfung'|trans({},'help')|raw }}</h2>
 <p>
-{{ '<div class="ap">Solange du genügend </div><strong> Aktionspunkte</strong> besitzt, kannst du dich in der Außenwelt bewegen:
-Pro Zug wird dir 1 Aktionspunkt abgezogen. Bei 0 Punkten bist du <img alt="" src="%path%"> <strong>Erschöpft</strong> und kannst dich nicht mehr bewegen.'|trans({'%path%': asset("build/images/status/status_tired.gif")},'help')|raw }} 
+{{ 'Solange du genügend %img_ap% <strong>Aktionspunkte</strong> besitzt, kannst du dich in der Außenwelt bewegen:
+Pro Zug wird dir 1 Aktionspunkt abgezogen. Bei 0 Punkten bist du %img_tired% <strong>Erschöpft</strong> und kannst dich nicht mehr bewegen.'|trans({
+    '%img_ap%'   : '<span class="ap"></span>',
+    '%img_tired%': '<img alt="" src="' ~ asset("build/images/status/status_tired.gif") ~ '">',
+},'help')|raw }}
 </p>
 <img class="art" alt="" src="{{ asset('build/images/help/moves.' ~ app.request.locale|e('html_attr') ~ '.png') }}">
 <p>

@@ -32,10 +32,12 @@ class HelpController extends AbstractController
     /**
      * @Route("jx/help/{name}", name="help")
      * @param Request $request
+     * @param string $name
      * @return Response
      */
-    public function soul_news(Request $request, string $name = 'welcome'): Response
+    public function help(Request $request, string $name = 'welcome'): Response
     {
+        if ($name === 'shell') return $this->redirect($this->generateUrl('help'));
         try {
             return $this->render( "ajax/help/$name.html.twig", ['section' => $name]);
         } catch (Exception $e){
