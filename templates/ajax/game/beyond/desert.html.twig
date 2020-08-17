@@ -499,11 +499,13 @@
                 <div class="cell padded rw-12">
                     <div class="note note-lightest">
                         <input type="checkbox" {% if citizen.escortSettings.forceDirectReturn %}checked{% endif%} x-toggle-escort="1" id="escort_force_return" />&nbsp;<label for="escort_force_return">{{ 'Ich will auf direktem Weg zurück zur Stadt'|trans({},'game') }}</label>
+                        <a class="help-button"><div class="tooltip help">{{ 'Wenn diese Option aktiviert ist, kann dich ein anderer Bürger nicht weiter von der Stadt entfernen. Er darf dich in diesem Fall nur näher bringen.'|trans({},'game') }}</div>{{ 'Hilfe'|trans({},'global') }}</a>
                     </div>
                 </div>
                 <div class="cell padded rw-12">
                     <div class="note note-lightest">
                         <input type="checkbox" {% if citizen.escortSettings.allowInventoryAccess %}checked{% endif%} x-toggle-escort="1" id="escort_allow_rucksack" />&nbsp;<label for="escort_allow_rucksack">{{ 'Zugriff auf meinen Rucksack zulassen'|trans({},'game') }}</label>
+                        <a class="help-button"><div class="tooltip help">{{ 'Wenn diese Option aktiviert ist, kann dir ein anderer Spieler befehlen, Gegenstände einzusammeln oder abzulegen. BEACHTE: Einige "persönliche" Gegenstände können unter keinen Umständen abgelegt werden (Texte, Waffen u.a.)'|trans({},'game') }}</div>{{ 'Hilfe'|trans({},'global') }}</a>
                     </div>
                 </div>
                 <div class="cell rw-12 padded left">
