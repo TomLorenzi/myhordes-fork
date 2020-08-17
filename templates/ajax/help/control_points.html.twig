@@ -2,7 +2,7 @@
 {% block helpContent %}
 <div class="helpArt">{{ 'Spielanleitung'|trans({},'help')|raw }}</div>
 <h1>{{ 'Die Kontrollpunkte'|trans({},'help')|raw }}</h1>
-<img class="art" alt="" src="{{ asset('build/images/help/dom.de.png') }}">
+<img class="art" alt="" src="{{ asset('build/images/help/dom.' ~ app.request.locale|e('html_attr') ~ '.png') }}">
 <p>
     {{'An den Kontrollpunkten kannst du mit einem Blick erkennen, ob eine Zone gefährlich ist oder nicht. Die
     entsprechenden Punkte werden in der Leiste unterhalb der Karte angezeigt. So wird gezählt:'|trans({},'help')|raw }}
@@ -52,7 +52,7 @@
 </ul>
 <div class="clear"></div>
 <h2>{{'Kontrollverlust (Zeitzähler)'|trans({},'help')|raw}}</h2>
-<img class="art" alt="" src="{{ asset('build/images/help/domTimer.gif') }}">
+<img class="art" alt="" src="{{ asset('build/images/help/domTimer.' ~ app.request.locale|e('html_attr') ~ '.png') }}">
 <p>
     {{'Die Spieler verlieren immer dann die Kontrolle über eine Zone, wenn sich die Punktanzahl zu Gunsten der Zombies
     verschiebt. Dies kann zum Beispiel passieren, wenn ein Spieler die Zone (unangekündigt) verlässt. Sollte dies
