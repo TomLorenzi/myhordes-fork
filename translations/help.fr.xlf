@@ -1273,17 +1273,6 @@ Du kannst deinen Browser in dieser Zeit auch schließen und das Spiel verlassen.
         <target>Lorsque vous êtes pris(e) au piège, vous avez plusieurs solutions :</target>
       </segment>
     </unit>
-    <unit id="GXn9vKV" name="0cbd10b">
-      <notes>
-        <note category="german">Du kannst versuchen, gewaltsam auszubrechen. Dabei riskierst du aber eine %img_wound% &lt;strong&gt;schwere
-        Verletzung&lt;/strong&gt;.</note>
-      </notes>
-      <segment>
-        <source>Du kannst versuchen, gewaltsam auszubrechen. Dabei riskierst du aber eine %img_wound% &lt;strong&gt;schwere
-        Verletzung&lt;/strong&gt;.</source>
-        <target><![CDATA[vous enfuir en forçant le passage, au prix d'une %img_wound% <strong>Blessure grave</strong>.]]></target>
-      </segment>
-    </unit>
     <unit id="G_5XfFC" name="e755ac4">
       <notes>
         <note category="german">Du kannst versuchen, die Zombies einen nach dem anderen mit bloßen Händen umzubringen... Jeder Versuch kostet
@@ -1414,6 +1403,276 @@ Pro Zug wird dir 1 Aktionspunkt abgezogen. Bei 0 Punkten bist du %img_tired% &lt
       <segment>
         <source>Organisiert euch, um zu überleben.</source>
         <target>organisez-vous pour survivre.</target>
+      </segment>
+    </unit>
+    <unit id="ZI9ipy1" name="b8fc43c">
+      <notes>
+        <note category="german">Du kannst versuchen, gewaltsam auszubrechen. Dabei riskierst du aber eine %img_wound% &lt;span x-ajax-href=%url_health%&gt;schwere Verletzung&lt;/span&gt;.</note>
+      </notes>
+      <segment>
+        <source>Du kannst versuchen, gewaltsam auszubrechen. Dabei riskierst du aber eine %img_wound% &lt;span x-ajax-href=%url_health%&gt;schwere Verletzung&lt;/span&gt;.</source>
+        <target><![CDATA[vous enfuir en forçant le passage, au prix d'une %img_wound% <span x-ajax-href=%url_health%>Blessure grave</span>.]]></target>
+      </segment>
+    </unit>
+    <unit id="FMm6m0B" name="47e9343">
+      <notes>
+        <note category="german">Sobald du dich in der Außenwelt befindest, kannst du jederzeit den &lt;strong&gt;Eskortenmodus aktivieren und auf eine Eskorte warten.&lt;/strong&gt; Dazu musst du lediglich auf den gleichnamigen Knopf drücken.</note>
+      </notes>
+      <segment>
+        <source>Sobald du dich in der Außenwelt befindest, kannst du jederzeit den &lt;strong&gt;Eskortenmodus aktivieren und auf eine Eskorte warten.&lt;/strong&gt; Dazu musst du lediglich auf den gleichnamigen Knopf drücken.</source>
+        <target><![CDATA[Lorsque vous êtes dans l'outre-monde, <strong>vous pouvez à tout moment vous mettre en "Attente d'une escorte" en cliquant sur le bouton du même nom situé en bas à droite de votre interface.</strong>]]></target>
+      </segment>
+    </unit>
+    <unit id="o3da5QN" name="d3679c1">
+      <notes>
+        <note category="german">Im Eskortenmodus gestattest du einem &lt;strong&gt;Helden&lt;/strong&gt;, deine Spielfigur teilweise zu steuern. Deine Eskorte darf</note>
+      </notes>
+      <segment>
+        <source>Im Eskortenmodus gestattest du einem &lt;strong&gt;Helden&lt;/strong&gt;, deine Spielfigur teilweise zu steuern. Deine Eskorte darf</source>
+        <target><![CDATA[En mode attente, un <strong>autre citoyen Héros</strong> pourra prendre partiellement le contrôle de votre personnage. Il pourra alors :]]></target>
+      </segment>
+    </unit>
+    <unit id="UkqDngj" name="dich bewegen (deine APs werden verbraucht).">
+      <notes>
+        <note category="german">dich bewegen (deine APs werden verbraucht).</note>
+      </notes>
+      <segment>
+        <source>dich bewegen (deine APs werden verbraucht).</source>
+        <target>vous déplacer en utilisant vos points d'action,</target>
+      </segment>
+    </unit>
+    <unit id="NlgRmmJ" name="dich graben lassen.">
+      <notes>
+        <note category="german">dich graben lassen.</note>
+      </notes>
+      <segment>
+        <source>dich graben lassen.</source>
+        <target>vous ordonner de lancer une fouille,</target>
+      </segment>
+    </unit>
+    <unit id="NA1nhgV" name="dich trinken lassen (aus deiner Flasche).">
+      <notes>
+        <note category="german">dich trinken lassen (aus deiner Flasche).</note>
+      </notes>
+      <segment>
+        <source>dich trinken lassen (aus deiner Flasche).</source>
+        <target>vous faire boire une ration d'eau depuis votre sac,</target>
+      </segment>
+    </unit>
+    <unit id="2J.NIaa" name="dich etwas essen lassen (aus deinem Rucksack).">
+      <notes>
+        <note category="german">dich etwas essen lassen (aus deinem Rucksack).</note>
+      </notes>
+      <segment>
+        <source>dich etwas essen lassen (aus deinem Rucksack).</source>
+        <target>vous faire manger une ration de nourriture depuis votre sac,</target>
+      </segment>
+    </unit>
+    <unit id="0gZf1w8" name="dich in die Stadt zurückbringen (wenn du in der Nähe des Stadttors bist).">
+      <notes>
+        <note category="german">dich in die Stadt zurückbringen (wenn du in der Nähe des Stadttors bist).</note>
+      </notes>
+      <segment>
+        <source>dich in die Stadt zurückbringen (wenn du in der Nähe des Stadttors bist).</source>
+        <target>vous faire rentrer en ville (si vous êtes devant les Portes),</target>
+      </segment>
+    </unit>
+    <unit id="hkluwlo" name="62236b5">
+      <notes>
+        <note category="german">Dich einen Gegenstand auf- oder ablegen lassen. Allerdings musst du ihm das vorher erlaubt haben (dazu muss ein Kästchen angekreuzt sein.</note>
+      </notes>
+      <segment>
+        <source>Dich einen Gegenstand auf- oder ablegen lassen. Allerdings musst du ihm das vorher erlaubt haben (dazu muss ein Kästchen angekreuzt sein.</source>
+        <target>vous faire poser un objet au sol. Cependant, pour que cela soit possible vous devez l'autoriser avant (la case pour l'inventaire doit être cochée),</target>
+      </segment>
+    </unit>
+    <unit id="uzxgIUl" name="dich auch links liegen lassen... :)">
+      <notes>
+        <note category="german">dich auch links liegen lassen... :)</note>
+      </notes>
+      <segment>
+        <source>dich auch links liegen lassen... :)</source>
+        <target>vous abandonner sur place :)</target>
+      </segment>
+    </unit>
+    <unit id="SHTu.Y5" name="In der Außenwelt gerettet werden">
+      <notes>
+        <note category="german">In der Außenwelt gerettet werden</note>
+      </notes>
+      <segment>
+        <source>In der Außenwelt gerettet werden</source>
+        <target>Sauvetages dans l'outre-monde</target>
+      </segment>
+    </unit>
+    <unit id="Ic3VNso" name="7bf4601">
+      <notes>
+        <note category="german">Wenn du einfach nur gerettet werden möchtest und keine Spaziergänge durch die halbe Außenwelt unternehmen willst, kannst du folgende Option wählen: "Dem Eskortenführer verbieten, mich von der Stadt zu entfernen".</note>
+      </notes>
+      <segment>
+        <source>Wenn du einfach nur gerettet werden möchtest und keine Spaziergänge durch die halbe Außenwelt unternehmen willst, kannst du folgende Option wählen: "Dem Eskortenführer verbieten, mich von der Stadt zu entfernen".</source>
+        <target>Si vous souhaitez seulement être secouru(e) et non pas baladé(e) dans tout l'outre-monde, vous disposez d'une option à cocher une fois la mise en attente d'une escorte validée : "interdire au chef d'escorte de m'éloigner de la ville" (cette option est activée par défaut).</target>
+      </segment>
+    </unit>
+    <unit id="_GSJ7sz" name="d5030b5">
+      <notes>
+        <note category="german">Diese Option ist von Haus aus aktiviert und schränkt die Handlungsmöglichkeiten deines Anführers (der Bürger, der sich deiner angenommen hat) erheblich ein. &lt;strong&gt;Er darf dich dann unter keinen Umständen von der Stadt entfernen, sondern dich ihr nur näher bringen.</note>
+      </notes>
+      <segment>
+        <source>Diese Option ist von Haus aus aktiviert und schränkt die Handlungsmöglichkeiten deines Anführers (der Bürger, der sich deiner angenommen hat) erheblich ein. &lt;strong&gt;Er darf dich dann unter keinen Umständen von der Stadt entfernen, sondern dich ihr nur näher bringen.</source>
+        <target><![CDATA[Cette option limite les déplacements que vous imposera le chef d'escorte (le citoyen qui vous aura pris en charge). <strong>Il lui sera interdit d'effectuer un déplacement qui vous éloignerait de la ville, il ne pourra que vous en rapprocher.</strong>]]></target>
+      </segment>
+    </unit>
+    <unit id="3jCo8OH" name="Wie tötet man einen Zombie?">
+      <notes>
+        <note category="german">Wie tötet man einen Zombie?</note>
+      </notes>
+      <segment>
+        <source>Wie tötet man einen Zombie?</source>
+        <target>Comment tuer un zombie ?</target>
+      </segment>
+    </unit>
+    <unit id="6P6JS.Y" name="894b1a6">
+      <notes>
+        <note category="german">Klassischerweise, indem man seinen Kopf vom Körper trennt. Neuerdings schwören manche auch auf Bowlingkugeln... Die Wahrheit allerdings ist: Erlaubt ist, was gefällt. Alle stimmen darin überein, dass &lt;strong&gt;reines Wasser&lt;/strong&gt; die Waffe der ersten Wahl ist. Dieses Wasser muss aber irgendwie transportiert werden. Plastiktüten eignen sich dazu hervorragend, denn sie geben zugleich tolle %img_grenade% Wasserbomben ab.</note>
+      </notes>
+      <segment>
+        <source>Klassischerweise, indem man seinen Kopf vom Körper trennt. Neuerdings schwören manche auch auf Bowlingkugeln... Die Wahrheit allerdings ist: Erlaubt ist, was gefällt. Alle stimmen darin überein, dass &lt;strong&gt;reines Wasser&lt;/strong&gt; die Waffe der ersten Wahl ist. Dieses Wasser muss aber irgendwie transportiert werden. Plastiktüten eignen sich dazu hervorragend, denn sie geben zugleich tolle %img_grenade% Wasserbomben ab.</source>
+        <target><![CDATA[Les techniques varient d'un citoyen à l'autre. Tout le monde s'accorde à dire que <strong>l'eau pure</strong> est une excellente arme pour les détruire. Toutefois, pour être utilisable, elle doit être assemblée avec des sacs plastique et ainsi servir de %img_grenade% Bombes à eau. D'autres objets peuvent servir d'armes, à vous de les découvrir.]]></target>
+      </segment>
+    </unit>
+    <unit id="NFLPXTS" name="Ein paar Vorschläge">
+      <notes>
+        <note category="german">Ein paar Vorschläge</note>
+      </notes>
+      <segment>
+        <source>Ein paar Vorschläge</source>
+        <target>Se la jouer alternatif</target>
+      </segment>
+    </unit>
+    <unit id="jvYEfUF" name="Je nach Geschmack könnt ihr folgendes verwenden:">
+      <notes>
+        <note category="german">Je nach Geschmack könnt ihr folgendes verwenden:</note>
+      </notes>
+      <segment>
+        <source>Je nach Geschmack könnt ihr folgendes verwenden:</source>
+        <target>Selon vos goûts, vous pouvez aussi utiliser :</target>
+      </segment>
+    </unit>
+    <unit id="JKpkVJV" name="Einen Holzstock... nicht gaanz so effektiv.">
+      <notes>
+        <note category="german">Einen Holzstock... nicht gaanz so effektiv.</note>
+      </notes>
+      <segment>
+        <source>Einen Holzstock... nicht gaanz so effektiv.</source>
+        <target>un bâton en bois... autant dire que c'est peu efficace</target>
+      </segment>
+    </unit>
+    <unit id="aSv3qDV" name="Eine Wasserpistole! Die ist ideal!">
+      <notes>
+        <note category="german">Eine Wasserpistole! Die ist ideal!</note>
+      </notes>
+      <segment>
+        <source>Eine Wasserpistole! Die ist ideal!</source>
+        <target>un pistolet à eau ! Idéal !</target>
+      </segment>
+    </unit>
+    <unit id="UpyywU6" name="Ein wohlerzogenes Haustier ;-)">
+      <notes>
+        <note category="german">Ein wohlerzogenes Haustier ;-)</note>
+      </notes>
+      <segment>
+        <source>Ein wohlerzogenes Haustier ;-)</source>
+        <target>un animal de compagnie bien dressé</target>
+      </segment>
+    </unit>
+    <unit id="kSxZoJl" name="Sonstiges nettes Spielzeug...">
+      <notes>
+        <note category="german">Sonstiges nettes Spielzeug...</note>
+      </notes>
+      <segment>
+        <source>Sonstiges nettes Spielzeug...</source>
+        <target>d'autres jouets amusants...</target>
+      </segment>
+    </unit>
+    <unit id="0nfxF12" name="0323d66">
+      <notes>
+        <note category="german">Wenn's mal Probleme geben sollte, ist eine &lt;span x-ajax-href=%url_cp%&gt;Flucht&lt;/span&gt; nicht verkehrt...</note>
+      </notes>
+      <segment>
+        <source>Wenn's mal Probleme geben sollte, ist eine &lt;span x-ajax-href=%url_cp%&gt;Flucht&lt;/span&gt; nicht verkehrt...</source>
+        <target><![CDATA[En cas de gros problème, pensez à <span x-ajax-href=%url_cp%>la fuite</span>...]]></target>
+      </segment>
+    </unit>
+    <unit id="THFtKTb" name="2547bd8">
+      <notes>
+        <note category="german">Die Nächte in der Welt von MyHordes sind kalt. Sehr kalt und selten günstig. Bestimmte Handlungen oder Regeln ändern sich in diesen Stunden großer Einsamkeit...</note>
+      </notes>
+      <segment>
+        <source>Die Nächte in der Welt von MyHordes sind kalt. Sehr kalt und selten günstig. Bestimmte Handlungen oder Regeln ändern sich in diesen Stunden großer Einsamkeit...</source>
+        <target>Les nuits sont froides dans le monde de MyHordes. Très froides et rarement de bon augure. Certaines actions ou règles changent au cours de ces heures de grande solitude...</target>
+      </segment>
+    </unit>
+    <unit id="VgYGj1w" name="Die folgenden Änderungen gelten Nachts:">
+      <notes>
+        <note category="german">Die folgenden Änderungen gelten Nachts:</note>
+      </notes>
+      <segment>
+        <source>Die folgenden Änderungen gelten Nachts:</source>
+        <target>Les changements suivants s'appliquent pendant la nuit :</target>
+      </segment>
+    </unit>
+    <unit id="HhFaIrh" name="Die Spezialfähigkeit &lt;i&gt;Durchbrechen&lt;/i&gt; hat eine höhere Erfolgschance.">
+      <notes>
+        <note category="german">Die Spezialfähigkeit &lt;i&gt;Durchbrechen&lt;/i&gt; hat eine höhere Erfolgschance.</note>
+      </notes>
+      <segment>
+        <source>Die Spezialfähigkeit &lt;i&gt;Durchbrechen&lt;/i&gt; hat eine höhere Erfolgschance.</source>
+        <target><![CDATA[la capacité spéciale <i>Passage en force</i> a une chance de succès supérieure,]]></target>
+      </segment>
+    </unit>
+    <unit id="HnQcgq_" name="0c31592">
+      <notes>
+        <note category="german">Für Aufklärer ist die Wahrscheinlichkeit, während der Bewegung entdeckt zu werden, erheblich geringer: Die Nacht ist Ihr Verbündeter.</note>
+      </notes>
+      <segment>
+        <source>Für Aufklärer ist die Wahrscheinlichkeit, während der Bewegung entdeckt zu werden, erheblich geringer: Die Nacht ist Ihr Verbündeter.</source>
+        <target>pour les éclaireurs, les chances d'être repérés pendant un déplacement baissent significativement : la nuit est votre alliée,</target>
+      </segment>
+    </unit>
+    <unit id="a05ekAR" name="0f74fb4">
+      <notes>
+        <note category="german">Ein Bürger kann versuchen, ein Objekt aus der Bank zu stehlen: Er hat dann die Möglichkeit, nicht im Register identifiziert zu werden.</note>
+      </notes>
+      <segment>
+        <source>Ein Bürger kann versuchen, ein Objekt aus der Bank zu stehlen: Er hat dann die Möglichkeit, nicht im Register identifiziert zu werden.</source>
+        <target>un citoyen peut tenter de voler un objet en banque : il a alors une chance de ne pas être identifié dans le Registre,</target>
+      </segment>
+    </unit>
+    <unit id="6VYEXVB" name="1e8a126">
+      <notes>
+        <note category="german">Ausgrabungen haben eine geringere Erfolgschance (einschließlich Gebäude). Sie können jedoch bestimmte Objekte verwenden, um diese Strafe aufzuheben (insbesondere Taschenlampen oder Lampen).</note>
+      </notes>
+      <segment>
+        <source>Ausgrabungen haben eine geringere Erfolgschance (einschließlich Gebäude). Sie können jedoch bestimmte Objekte verwenden, um diese Strafe aufzuheben (insbesondere Taschenlampen oder Lampen).</source>
+        <target>les fouilles ont des chances de réussite plus faibles (bâtiments compris). Toutefois, vous pouvez utiliser certains objets pour annuler cette pénalité (torches ou lampes notamment).</target>
+      </segment>
+    </unit>
+    <unit id="nAcFRkc" name="Diese Regeln gelten nicht in &quot;Kleinstadt&quot;-Karten.">
+      <notes>
+        <note category="german">Diese Regeln gelten nicht in "Kleinstadt"-Karten.</note>
+      </notes>
+      <segment>
+        <source>Diese Regeln gelten nicht in "Kleinstadt"-Karten.</source>
+        <target>ces règles ne s'appliquent pas dans les cartes "Région non éloignée".</target>
+      </segment>
+    </unit>
+    <unit id="iQ1y9St" name="Camper haben eine bessere Chance, ein Versteck zu finden.">
+      <notes>
+        <note category="german">Camper haben eine bessere Chance, ein Versteck zu finden.</note>
+      </notes>
+      <segment>
+        <source>Camper haben eine bessere Chance, ein Versteck zu finden.</source>
+        <target>les campeurs ont de meilleures chances de trouver un endroit où se cacher,</target>
       </segment>
     </unit>
   </file>

@@ -5,7 +5,7 @@ ul {
         list-style-type: none;
         > li {
             font-weight: bold;
-            font-variant: small-caps;
+            &.main { font-variant: small-caps; }
         }
         li {
             list-style: none;
@@ -73,7 +73,11 @@ a {
         background-image: url("../../img/icons/small_rp.gif");
         background-repeat: no-repeat;
         background-position: 0px 5px;
-}
+    }
+
+    div.clear { clear: both; }
+
+    span { color: #ddab76; font-weight: bold; text-decoration: underline; cursor: pointer; }
 
     .helpArt {
         max-width: 573px;
@@ -145,6 +149,12 @@ a {
             &.artRight {
                 float: right;
             }
+        }
+        &.pip {
+            float: left;
+            position: relative;
+            margin-right: 5px;
+            margin-bottom: 5px;
         }
     }
 
