@@ -266,6 +266,7 @@ class TownInspectorCommand extends Command
         if ($input->getOption('set-devastation')) {
             $town->setChaos(true);
             $town->setDevastated(true);
+            $town->setDoor(true);
             $this->entityManager->persist( $town );
             $changes = true;
         }

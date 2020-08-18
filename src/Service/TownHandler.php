@@ -80,6 +80,11 @@ class TownHandler
 
         }
 
+        if ( !$town->getDoor() && $town->getDevastated() ) {
+            $town->setDoor( true );
+            $changed = true;
+        }
+
         return $changed;
     }
 
