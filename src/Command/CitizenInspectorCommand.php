@@ -59,6 +59,8 @@ class CitizenInspectorCommand extends Command
             ->addOption('remove-role',null,InputOption::VALUE_REQUIRED, 'Removes an existing role.', '')
 
             ->addOption('set-banned', null, InputOption::VALUE_OPTIONAL, 'Bans a citizen', '')
+
+            ->addOption('set-hunger', null, InputOption::VALUE_REQUIRED, 'Sets the ghoul hunger.', '')
         ;
     }
 
@@ -108,6 +110,12 @@ class CitizenInspectorCommand extends Command
         $set_pm = $input->getOption('set-pm');
         if ($set_pm >= 0 && $citizen->hasRole('shaman')) {
             $citizen->setPm( $set_pm );
+            $updated = true;
+        }
+
+        $set_hunger = $input->getOption('set-hunger');
+        if ($set_hunger !== '' && $set_hunger >= 0) {
+            $citizen->setGhulHunger( $set_hunger );
             $updated = true;
         }
 
