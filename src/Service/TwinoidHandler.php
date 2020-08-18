@@ -260,7 +260,7 @@ class TwinoidHandler
                     ->setCod( $town->convertDeath() )
                     ->setComment( $town->getComment() )
                     ->setLastWords( $town->getMessage() )
-                    ->setDay( $town->getDay() )
+                    ->setDay( $town->getSurvivedDays() )
                     ->setConfirmed( true )
                     ->setPoints( $town->getScore() )
             );
