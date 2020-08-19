@@ -140,6 +140,9 @@ class TwinoidPayload
                             case 12: return $this->_parent->internal_fetch_cod( CauseOfDeath::GhulEaten );
                             case 13: return $this->_parent->internal_fetch_cod( CauseOfDeath::GhulBeaten );
                             case 14: return $this->_parent->internal_fetch_cod( CauseOfDeath::GhulStarved );
+                            case 15: return $this->_parent->internal_fetch_cod( CauseOfDeath::FleshCage );
+                            case 16: return $this->_parent->internal_fetch_cod( CauseOfDeath::ChocolateCross );
+                            case 17: return $this->_parent->internal_fetch_cod( CauseOfDeath::ExplosiveDoormat );
                             default: return $this->_parent->internal_fetch_cod( CauseOfDeath::Unknown );
                         }
                     }
