@@ -159,7 +159,7 @@ class ActionHandler
                 $source = $citizen->getZone() ? [$citizen->getInventory()] : [$citizen->getInventory(), $citizen->getHome()->getChest()];
 
                 if (empty($this->inventory_handler->fetchSpecificItems( $source,
-                    [new ItemRequest($item_str, $item_condition->getCount() ?? 1, false, null, $is_prop)]
+                    [new ItemRequest($item_str, $item_condition->getCount() ?? 1, false, $item_condition->getAllowPoison() ? null : false, $is_prop)]
                 ))) $current_state = min( $current_state, $this_state );
             }
 
