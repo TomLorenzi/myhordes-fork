@@ -40,8 +40,8 @@ class LogTemplateHandler
         $this->entity_manager = $em;
     }
 
-    private function wrap(?string $obj): string {
-        return $obj ? "<span class='tool'>$obj</span>" : '';
+    private function wrap(?string $obj, ?string $class = null): string {
+        return $obj ? ("<span" . ($class ? " class='$class'" : '') . ">$obj</span>") : '';
     }
 
     /**
@@ -144,7 +144,7 @@ class LogTemplateHandler
             try {
                 if ($typeEntry['type'] === 'itemGroup') {                
                     $itemGroupEntries  = $this->fetchVariableObject($typeEntry['type'], $variables[$typeEntry['name']])->getEntries()->getValues();
-                    $transParams['%'.$typeEntry['name'].'%'] = implode( ', ', array_map( function(ItemGroupEntry $e) { return $this->wrap( $this->iconize( $e ) ); }, $itemGroupEntries ));
+                    $transParams['%'.$typeEntry['name'].'%'] = implode( ', ', array_map( function(ItemGroupEntry $e) { return $this->wrap( $this->iconize( $e ), 'tool' ); }, $itemGroupEntries ));
                 }
                 elseif ($typeEntry['type'] === 'list') {
                     $listType = $typeEntry['listType'];
@@ -171,7 +171,10 @@ class LogTemplateHandler
                 }   
                 elseif ($typeEntry['type'] === 'chat') {
                     $transParams['%'.$typeEntry['name'].'%'] = $variables[$typeEntry['name']];
-                }     
+                }
+                elseif ($typeEntry['type'] === 'item') {
+                    $transParams['%'.$typeEntry['name'].'%'] = $this->wrap( $this->iconize( $this->fetchVariableObject( $typeEntry['type'], $variables[$typeEntry['name']] ), false, $variables['broken'] ?? false ), 'tool' );
+                }
                 else {
                     $transParams['%'.$typeEntry['name'].'%'] = $this->wrap( $this->iconize( $this->fetchVariableObject( $typeEntry['type'], $variables[$typeEntry['name']] ), false, $variables['broken'] ?? false ) );
                 }

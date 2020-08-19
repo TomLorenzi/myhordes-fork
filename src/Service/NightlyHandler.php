@@ -627,6 +627,15 @@ class NightlyHandler
             }
             $this->entity_manager->persist($fireworks);
         }
+
+        foreach ($town->getBuildings() as $b) if ($b->getComplete()) {
+            if ($b->getPrototype()->getTemp()){
+                $this->log->debug("Destroying building <info>{$b->getPrototype()->getLabel()}</info> as it is a temp building.");
+                $this->entity_manager->persist( $this->logTemplates->nightlyAttackDestroyBuilding($town, $b));
+                $b->setComplete(false)->setAp(0);
+            }
+            $b->setTempDefenseBonus(0);
+        }
     }
 
     private function stage3_status(Town $town) {
@@ -949,7 +958,7 @@ class NightlyHandler
         }
     }
 
-    private function stage3_buildings(Town $town) {
+    private function stage2_building_effects(Town $town) {
         $this->log->info('<info>Processing building functions</info> ...');
 
         $buildings = []; $max_votes = -1;
@@ -1060,15 +1069,6 @@ class NightlyHandler
 
         if (!empty($daily_items))
             $this->log->debug("Daily items: Placing " . implode(', ', $tx) . " in the bank.");
-
-        foreach ($town->getBuildings() as $b) if ($b->getComplete()) {
-            if ($b->getPrototype()->getTemp()){
-                $this->log->debug("Destroying building <info>{$b->getPrototype()->getLabel()}</info> as it is a temp building.");
-                $this->entity_manager->persist( $this->logTemplates->nightlyAttackDestroyBuilding($town, $b));
-                $b->setComplete(false)->setAp(0);
-            }
-            $b->setTempDefenseBonus(0);
-        }
     }
 
     private function stage3_pictos(Town $town){
@@ -1214,13 +1214,13 @@ class NightlyHandler
         $town->setDay( $town->getDay() + 1);
         $this->log->info('Entering <comment>Phase 2</comment> - The Attack');
         $this->stage2_pre_attack_buildings($town);
+        $this->stage2_building_effects($town);
         $this->stage2_day($town);
         $this->stage2_surprise_attack($town);
         $this->stage2_attack($town);
         $this->stage2_post_attack_buildings($town);
 
         $this->log->info('Entering <comment>Phase 3</comment> - Dawn of a New Day');
-        $this->stage3_buildings($town);
         $this->stage3_status($town);
         $this->stage3_roles($town);
         $this->stage3_zones($town);
