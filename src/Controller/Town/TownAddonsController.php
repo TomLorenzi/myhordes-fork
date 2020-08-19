@@ -272,14 +272,14 @@ class TownAddonsController extends TownController
         if ($recipe === null || $recipe->getType() !== Recipe::WorkshopType)
             return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
 
-        // Set the activity status
-        $this->citizen_handler->inflictStatus($citizen, 'tg_chk_active');
-        $this->citizen_handler->inflictStatus($citizen, 'tg_chk_workshop');
-
         // Execute recipe and persist
         if (($error = $ah->execute_recipe( $citizen, $recipe, $remove, $message )) !== ActionHandler::ErrorNone )
             return AjaxResponse::error( $error );
         else try {
+            // Set the activity status
+            $this->citizen_handler->inflictStatus($citizen, 'tg_chk_active');
+            $this->citizen_handler->inflictStatus($citizen, 'tg_chk_workshop');
+
             $this->entity_manager->persist($town);
             $this->entity_manager->persist($citizen);
             foreach ($remove as $e) $this->entity_manager->remove( $e );
