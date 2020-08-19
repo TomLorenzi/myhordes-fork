@@ -659,8 +659,9 @@ class CitizenHandler
 
         $chances = $baseChance;
         for($i = 0 ; $i < $citizen->getTown()->getDay() - 1; $i++){
+            /** @var CitizenWatch|null $previousWatches */
             $previousWatches = $this->entity_manager->getRepository(CitizenWatch::class)->findWatchOfCitizenForADay($citizen, $i + 1);
-            if($previousWatches === null) {
+            if($previousWatches === null || $previousWatches->getSkipped()) {
                 $chances = max($baseChance, $chances - 0.05);
             } else {
                 $factor = 0.1;

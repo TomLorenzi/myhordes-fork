@@ -389,6 +389,8 @@ class NightlyHandler
         $this->entity_manager->persist( $this->logTemplates->nightlyAttackSummary($town, $town->getDoor(), $overflow) );
 
         $this->log->debug("Getting watchers for day " . $town->getDay());
+
+        /** @var CitizenWatch[] $watchers */
         $watchers = $this->entity_manager->getRepository(CitizenWatch::class)->findWatchersOfDay($town, $town->getDay() - 1); // -1 because day has been advanced before stage2
 
         // Only deploy watchers if normal defense is not enough
@@ -414,7 +416,6 @@ class NightlyHandler
             $has_ikea             = (bool)$this->town_handler->getBuilding($town, 'small_ikea_#00', true);
             $has_armory           = (bool)$this->town_handler->getBuilding($town, 'small_armor_#00', true);
 
-            /** @var CitizenWatch[] $watchers */
             foreach ($watchers as $watcher) {
                 $def = $zeds_each_watcher == -1 ? $this->citizen_handler->getNightWatchDefense($watcher->getCitizen(), $has_shooting_gallery, $has_trebuchet, $has_ikea, $has_armory) : $zeds_each_watcher;
 
@@ -456,6 +457,11 @@ class NightlyHandler
                     }
 
                 $overflow -= $def;
+            }
+        } else {
+            foreach ($watchers as $watcher) {
+                $watcher->setSkipped(true);
+                $this->entity_manager->persist($watcher);
             }
         }
 
