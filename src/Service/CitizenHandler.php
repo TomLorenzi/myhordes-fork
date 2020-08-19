@@ -667,7 +667,7 @@ class CitizenHandler
                 $factor = 0.1;
                 if($citizen->getProfession()->getHeroic() && $this->user_handler->hasSkill($citizen->getUser(), 'prowatch'))
                     $factor -= 0.03;
-                $chances = min(1, $chances + 0.1);
+                $chances = min(1, $chances + $factor);
             }
         }
 
