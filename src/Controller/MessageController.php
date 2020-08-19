@@ -474,7 +474,7 @@ class MessageController extends AbstractController
 
         $tmp_str = $this->filterLockedEmotes($user, $tmp_str);
         $post->setText( $tmp_str );
-        if ($post->getType() !== 'CROW'){
+        if ($post instanceof Post && $post->getType() !== 'CROW'){
             if ($forum !== null && $forum->getTown()) {
                 foreach ( $forum->getTown()->getCitizens() as $citizen )
                     if ($citizen->getUser()->getId() === $user->getId()) {
@@ -1163,7 +1163,7 @@ class MessageController extends AbstractController
 
                 // Check inventory size
                 $max_size = $this->inventory_handler->getSize($recipient->getHome()->getChest());
-                if ($max_size > 0 && count($recipient->getHome()->getChest()->getItems()) + count($linked_items) >= $max_size)
+                if ($max_size > 0 && count($recipient->getHome()->getChest()->getItems()) + count($linked_items) > $max_size)
                     return AjaxResponse::error(InventoryHandler::ErrorInventoryFull);
             }
 
