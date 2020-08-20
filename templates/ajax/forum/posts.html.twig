@@ -229,7 +229,9 @@
                 let author = content.getAttribute('x-post-content-author');
                 let textEditor = document.getElementById("forum-editor-text");
 
-                textEditor.value = (author ? ('[quote=' + author + ']') : '[quote]') + $.html.twinoParser.parseFrom( content.innerHTML, $.html.twinoParser.OpModeQuote ) + '[/quote]' + "\n";
+                if(textEditor.value != '' && !textEditor.value.endsWith("\n")) textEditor.value += "\n";
+
+                textEditor.value += (author ? ('[quote=' + author + ']') : '[quote]') + $.html.twinoParser.parseFrom( content.innerHTML, $.html.twinoParser.OpModeQuote ) + '[/quote]' + "\n";
                 textEditor.dispatchEvent(new Event('input', {bubbles: true,cancelable: true}));
                 textEditor.focus();
             };

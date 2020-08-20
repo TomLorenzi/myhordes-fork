@@ -120,7 +120,6 @@ parameters:
       features:
         camping: false
         words_of_heros: false
-        nightwatch: false
         shaman: false
 
     remote:
