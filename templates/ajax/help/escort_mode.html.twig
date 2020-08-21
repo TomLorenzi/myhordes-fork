@@ -1,0 +1,27 @@
+{% extends "ajax/help/shell.html.twig" %}
+{% block helpContent %}
+<div class="helpArt">{{ 'Spielanleitung'|trans({},'help')|raw }}</div>
+<h1>{{ 'Der Eskortenmodus'|trans({},'help')|raw }}</h1>
+<p>
+{{ 'Sobald du dich in der Außenwelt befindest, kannst du jederzeit den <strong>Eskortenmodus aktivieren und auf eine Eskorte warten.</strong> Dazu musst du lediglich auf den gleichnamigen Knopf drücken.'|trans({},'help')|raw }}
+</p>
+<p>
+{{ 'Im Eskortenmodus gestattest du einem <strong>Helden</strong>, deine Spielfigur teilweise zu steuern. Deine Eskorte darf'|trans({},'help')|raw }}
+</p>
+<ul>
+<li>{{ 'dich bewegen (deine APs werden verbraucht).'|trans({},'help')|raw }}</li>
+<li>{{ 'dich graben lassen.'|trans({},'help')|raw }}</li>
+<li>{{ 'dich trinken lassen (aus deiner Flasche).'|trans({},'help')|raw }}</li>
+<li>{{ 'dich etwas essen lassen (aus deinem Rucksack).'|trans({},'help')|raw }}</li>
+<li>{{ 'dich in die Stadt zurückbringen (wenn du in der Nähe des Stadttors bist).'|trans({},'help')|raw }}</li>
+<li>{{ 'Dich einen Gegenstand auf- oder ablegen lassen. Allerdings musst du ihm das vorher erlaubt haben (dazu muss ein Kästchen angekreuzt sein.'|trans({},'help')|raw }}</li>
+<li>{{ 'dich auch links liegen lassen... :)'|trans({},'help')|raw }}</li>
+</ul>
+<h2>{{ 'In der Außenwelt gerettet werden'|trans({},'help')|raw }}</h2>
+<p>
+{{ 'Wenn du einfach nur gerettet werden möchtest und keine Spaziergänge durch die halbe Außenwelt unternehmen willst, kannst du folgende Option wählen: "Dem Eskortenführer verbieten, mich von der Stadt zu entfernen".'|trans({},'help')|raw }}</p>
+<p>{{ 'Diese Option ist von Haus aus aktiviert und schränkt die Handlungsmöglichkeiten deines Anführers (der Bürger, der sich deiner angenommen hat) erheblich ein. <strong>Er darf dich dann unter keinen Umständen von der Stadt entfernen, sondern dich ihr nur näher bringen.'|trans({},'help')|raw }}</strong>
+</p>
+<div class="clear"></div>
+<a class="button" x-ajax-href="{{ url('help', {'name': 'fighting_the_hordes_in_the_world_beyond'}) }}"><img src="{{ asset('build/images/icons/small_move.gif') }}" alt="move"> {{'Weiter'|trans({}, 'help')}}:<strong> {{ 'Zombies im Freien bekämpfen'|trans({},'help') }}</strong></a>
+{% endblock %}

@@ -1180,5 +1180,500 @@ Du kannst deinen Browser in dieser Zeit auch schließen und das Spiel verlassen.
         <target><![CDATA[Pour repérer les zones regénérées, la construction d'un <strong>Scrutateur</strong> (chantier) est requise. De plus, le Scrutateur permet également d'améliorer les chances de regénération des zones affectées.]]></target>
       </segment>
     </unit>
+    <unit id="FYzGcLV" name="e212c39">
+      <notes>
+        <note category="german">An den Kontrollpunkten kannst du mit einem Blick erkennen, ob eine Zone gefährlich ist oder nicht. Die
+    entsprechenden Punkte werden in der Leiste unterhalb der Karte angezeigt. So wird gezählt:</note>
+      </notes>
+      <segment>
+        <source>An den Kontrollpunkten kannst du mit einem Blick erkennen, ob eine Zone gefährlich ist oder nicht. Die
+    entsprechenden Punkte werden in der Leiste unterhalb der Karte angezeigt. So wird gezählt:</source>
+        <target>Les points de contrôle permettent de savoir si une zone est dangereuse ou non. Ils apparaissent juste au-dessous de la carte et se comptent comme suit :</target>
+      </segment>
+    </unit>
+    <unit id=".OrP_HR" name="c7b7b77">
+      <notes>
+        <note category="german">Jeder in einer Zone anwesende %img_human% &lt;strong&gt;Mensch&lt;/strong&gt; zählt
+        &lt;strong&gt;2 Punkte&lt;/strong&gt;.</note>
+      </notes>
+      <segment>
+        <source>Jeder in einer Zone anwesende %img_human% &lt;strong&gt;Mensch&lt;/strong&gt; zählt
+        &lt;strong&gt;2 Punkte&lt;/strong&gt;.</source>
+        <target><![CDATA[chaque %img_human% <strong>humain</strong> présent dans une zone compte pour <strong>2 points</strong>.]]></target>
+      </segment>
+    </unit>
+    <unit id="__T7p8r" name="c9733b2">
+      <notes>
+        <note category="german">Jeder in einer Zone anwesende %img_zombie% &lt;strong&gt;Zombie&lt;/strong&gt; zählt
+        &lt;strong&gt;1 Punkt&lt;/strong&gt;.</note>
+      </notes>
+      <segment>
+        <source>Jeder in einer Zone anwesende %img_zombie% &lt;strong&gt;Zombie&lt;/strong&gt; zählt
+        &lt;strong&gt;1 Punkt&lt;/strong&gt;.</source>
+        <target><![CDATA[chaque %img_zombie% <strong>zombie</strong> présent dans une zone compte pour <strong>1 point</strong>.]]></target>
+      </segment>
+    </unit>
+    <unit id="V2pHQmM" name="201e78b">
+      <notes>
+        <note category="german">Bestimmte Vorteile durch Berufe, Erfahrung oder Gegenstände ermöglichen das Erhöhen oder Verringern der Kontrollpunkte eines Menschen.</note>
+      </notes>
+      <segment>
+        <source>Bestimmte Vorteile durch Berufe, Erfahrung oder Gegenstände ermöglichen das Erhöhen oder Verringern der Kontrollpunkte eines Menschen.</source>
+        <target>Certains avantages de ce méter, d'expérience ou liés aux objets permettent d'augmenter les points de contrôle d'un humain ou de les réduire à néant.</target>
+      </segment>
+    </unit>
+    <unit id="ObiiIuR" name="ddbc46f">
+      <notes>
+        <note category="german">Wenn die Punkteanzahl der Zombies höher ist als die der Menschen, handelt es sich um eine gefährliche
+        Zone. Du sitzt dann in der Falle!</note>
+      </notes>
+      <segment>
+        <source>Wenn die Punkteanzahl der Zombies höher ist als die der Menschen, handelt es sich um eine gefährliche
+        Zone. Du sitzt dann in der Falle!</source>
+        <target>Si le score des zombies est supérieur au score des humains, la zone est dangereuse et vous êtes pris(e) au piège !</target>
+      </segment>
+    </unit>
+    <unit id="0J9DfPq" name="Ab wann gilt eine Zone als &quot;gefährlich&quot;?">
+      <notes>
+        <note category="german">Ab wann gilt eine Zone als "gefährlich"?</note>
+      </notes>
+      <segment>
+        <source>Ab wann gilt eine Zone als "gefährlich"?</source>
+        <target>Qu'est-ce qu'une zone "dangereuse" ?</target>
+      </segment>
+    </unit>
+    <unit id="W7hcwag" name="d7440e2">
+      <notes>
+        <note category="german">Eine Zone gilt als gefährlich, wenn die Zombies in der Überzahl sind und du nicht mehr weg kannst, weil sie dir
+    den Weg versperren! Anders gesagt: Um Mitternacht feiern sie eine kleine Party und du bist mittendrin - ob du willst
+    oder nicht...</note>
+      </notes>
+      <segment>
+        <source>Eine Zone gilt als gefährlich, wenn die Zombies in der Überzahl sind und du nicht mehr weg kannst, weil sie dir
+    den Weg versperren! Anders gesagt: Um Mitternacht feiern sie eine kleine Party und du bist mittendrin - ob du willst
+    oder nicht...</source>
+        <target>C'est une zone que vous ne pouvez plus quitter car les zombies sont en surnombre ! Autant dire qu'à minuit, ce sera la fête pour eux.</target>
+      </segment>
+    </unit>
+    <unit id="2CHFA23" name="Die Flucht">
+      <notes>
+        <note category="german">Die Flucht</note>
+      </notes>
+      <segment>
+        <source>Die Flucht</source>
+        <target>La fuite</target>
+      </segment>
+    </unit>
+    <unit id="NR36Pkw" name="Wenn du in der Falle sitzt, hast du mehrere Optionen:">
+      <notes>
+        <note category="german">Wenn du in der Falle sitzt, hast du mehrere Optionen:</note>
+      </notes>
+      <segment>
+        <source>Wenn du in der Falle sitzt, hast du mehrere Optionen:</source>
+        <target>Lorsque vous êtes pris(e) au piège, vous avez plusieurs solutions :</target>
+      </segment>
+    </unit>
+    <unit id="G_5XfFC" name="e755ac4">
+      <notes>
+        <note category="german">Du kannst versuchen, die Zombies einen nach dem anderen mit bloßen Händen umzubringen... Jeder Versuch kostet
+        dich 1 %img_ap%. Die Erfolgsaussichten sind eher gering.</note>
+      </notes>
+      <segment>
+        <source>Du kannst versuchen, die Zombies einen nach dem anderen mit bloßen Händen umzubringen... Jeder Versuch kostet
+        dich 1 %img_ap%. Die Erfolgsaussichten sind eher gering.</source>
+        <target>tenter de lutter à mains nues pour éliminer les zombies un par un... Chaque tentative coûte 1 %img_ap% et a une faible chance de réussir.</target>
+      </segment>
+    </unit>
+    <unit id="RTb1qPa" name="11e4145">
+      <notes>
+        <note category="german">Du kannst deine Waffen benutzen (wenn du welche hast) und das Gleichgewicht wiederherstellen, indem du ein paar
+    Zombies tötest (beachte die hier aufgeführte Kontrollpunkteregel).</note>
+      </notes>
+      <segment>
+        <source>Du kannst deine Waffen benutzen (wenn du welche hast) und das Gleichgewicht wiederherstellen, indem du ein paar
+    Zombies tötest (beachte die hier aufgeführte Kontrollpunkteregel).</source>
+        <target>utiliser des armes, si vous en avez, pour éliminer des zombies et ainsi rétablir l'équilibre (voir les règles de points ci-dessus)</target>
+      </segment>
+    </unit>
+    <unit id="LOjH680" name="6b46d85">
+      <notes>
+        <note category="german">Du kannst im Forum um Hilfe bitten und hoffen, dass ein anderer Spieler sich deiner erbarmt und dich besucht.
+        Durch seine Anwesenheit steigt die Punkteanzahl der Menschen, sodass ihr beide wieder flüchten könnt.</note>
+      </notes>
+      <segment>
+        <source>Du kannst im Forum um Hilfe bitten und hoffen, dass ein anderer Spieler sich deiner erbarmt und dich besucht.
+        Durch seine Anwesenheit steigt die Punkteanzahl der Menschen, sodass ihr beide wieder flüchten könnt.</source>
+        <target>appeler à l'aide sur le forum pour qu'un autre joueur vienne et ajoute donc des points "humains" à la zone. L'équilibre sera ainsi rétabli, vous laissant le temps de partir sans encombre.</target>
+      </segment>
+    </unit>
+    <unit id="fedIF9o" name="91c0157">
+      <notes>
+        <note category="german">Es gibt noch weitere Möglichkeiten zur Flucht, wenn du von Zombies umzingelt bist. Es liegt aber an dir, diese
+        zu entdecken ...</note>
+      </notes>
+      <segment>
+        <source>Es gibt noch weitere Möglichkeiten zur Flucht, wenn du von Zombies umzingelt bist. Es liegt aber an dir, diese
+        zu entdecken ...</source>
+        <target>il existe d'autres méthodes pour quitter une case lorsque vous êtes pris au piège par les zombies mais c'est à vous de les découvrir.</target>
+      </segment>
+    </unit>
+    <unit id="YfvqEL5" name="Kontrollverlust (Zeitzähler)">
+      <notes>
+        <note category="german">Kontrollverlust (Zeitzähler)</note>
+      </notes>
+      <segment>
+        <source>Kontrollverlust (Zeitzähler)</source>
+        <target>Perte de contrôle (compteur de temps)</target>
+      </segment>
+    </unit>
+    <unit id="rYm56Mb" name="813c76e">
+      <notes>
+        <note category="german">Die Spieler verlieren immer dann die Kontrolle über eine Zone, wenn sich die Punktanzahl zu Gunsten der Zombies
+    verschiebt. Dies kann zum Beispiel passieren, wenn ein Spieler die Zone (unangekündigt) verlässt. Sollte dies
+    geschehen, haben die übrigen Spieler &lt;strong&gt;30 Minuten&lt;/strong&gt; Zeit (und nicht eine Sekunde länger), um</note>
+      </notes>
+      <segment>
+        <source>Die Spieler verlieren immer dann die Kontrolle über eine Zone, wenn sich die Punktanzahl zu Gunsten der Zombies
+    verschiebt. Dies kann zum Beispiel passieren, wenn ein Spieler die Zone (unangekündigt) verlässt. Sollte dies
+    geschehen, haben die übrigen Spieler &lt;strong&gt;30 Minuten&lt;/strong&gt; Zeit (und nicht eine Sekunde länger), um</source>
+        <target><![CDATA[Si la zone est sous contrôle des humains (leur score est égal ou supérieur à celui des zombies) et que le contrôle est perdu (par exemple si un joueur présent part), tous les joueurs présents seront <strong>capturés après 30 minutes</strong>.
+        Vous avez donc ce temps (et pas une minute de plus) pour :]]></target>
+      </segment>
+    </unit>
+    <unit id="bhgKm6A" name="zu flüchten!">
+      <notes>
+        <note category="german">zu flüchten!</note>
+      </notes>
+      <segment>
+        <source>zu flüchten!</source>
+        <target>partir !</target>
+      </segment>
+    </unit>
+    <unit id="PxktjOs" name="wieder die Kontrolle zu erlangen.">
+      <notes>
+        <note category="german">wieder die Kontrolle zu erlangen.</note>
+      </notes>
+      <segment>
+        <source>wieder die Kontrolle zu erlangen.</source>
+        <target>reprendre le contrôle.</target>
+      </segment>
+    </unit>
+    <unit id="KvyR.t." name="72bd5b1">
+      <notes>
+        <note category="german">Solange du genügend %img_ap% &lt;strong&gt;Aktionspunkte&lt;/strong&gt; besitzt, kannst du dich in der Außenwelt bewegen:
+Pro Zug wird dir 1 Aktionspunkt abgezogen. Bei 0 Punkten bist du %img_tired% &lt;strong&gt;Erschöpft&lt;/strong&gt; und kannst dich nicht mehr bewegen.</note>
+      </notes>
+      <segment>
+        <source>Solange du genügend %img_ap% &lt;strong&gt;Aktionspunkte&lt;/strong&gt; besitzt, kannst du dich in der Außenwelt bewegen:
+Pro Zug wird dir 1 Aktionspunkt abgezogen. Bei 0 Punkten bist du %img_tired% &lt;strong&gt;Erschöpft&lt;/strong&gt; und kannst dich nicht mehr bewegen.</source>
+        <target><![CDATA[Vous pouvez vous déplacer dans l'Outre-Monde tant qu'il vous reste des %img_ap% <strong>Points d'action</strong> : chaque mouvement coûte 1 point d'action. Dès que vous arrivez à 0 point, vous devenez %img_tired% <strong>Fatigué(e)</strong> et vous ne pouvez plus bouger.]]></target>
+      </segment>
+    </unit>
+    <unit id="rTyffgm" name="MyHordes?">
+      <notes>
+        <note category="german">MyHordes?</note>
+      </notes>
+      <segment>
+        <source>MyHordes?</source>
+        <target>MyHordes ?</target>
+      </segment>
+    </unit>
+    <unit id="JtQM0Nd" name="e6b22b6">
+      <notes>
+        <note category="german">'MyHordes' ist ein Survivalspiel, das in einer postapokalyptischen Welt voller Untoter spielt.</note>
+      </notes>
+      <segment>
+        <source>'MyHordes' ist ein Survivalspiel, das in einer postapokalyptischen Welt voller Untoter spielt.</source>
+        <target>MyHordes est un jeu de survie dans un monde hostile peuplé de zombies.</target>
+      </segment>
+    </unit>
+    <unit id="uVaZ_gl" name="Beteilige dich im Forum">
+      <notes>
+        <note category="german">Beteilige dich im Forum</note>
+      </notes>
+      <segment>
+        <source>Beteilige dich im Forum</source>
+        <target>Participer au forum de la ville</target>
+      </segment>
+    </unit>
+    <unit id="vZ7tlqi" name="Organisiert euch, um zu überleben.">
+      <notes>
+        <note category="german">Organisiert euch, um zu überleben.</note>
+      </notes>
+      <segment>
+        <source>Organisiert euch, um zu überleben.</source>
+        <target>organisez-vous pour survivre.</target>
+      </segment>
+    </unit>
+    <unit id="ZI9ipy1" name="b8fc43c">
+      <notes>
+        <note category="german">Du kannst versuchen, gewaltsam auszubrechen. Dabei riskierst du aber eine %img_wound% &lt;span x-ajax-href=%url_health%&gt;schwere Verletzung&lt;/span&gt;.</note>
+      </notes>
+      <segment>
+        <source>Du kannst versuchen, gewaltsam auszubrechen. Dabei riskierst du aber eine %img_wound% &lt;span x-ajax-href=%url_health%&gt;schwere Verletzung&lt;/span&gt;.</source>
+        <target><![CDATA[vous enfuir en forçant le passage, au prix d'une %img_wound% <span x-ajax-href=%url_health%>Blessure grave</span>.]]></target>
+      </segment>
+    </unit>
+    <unit id="FMm6m0B" name="47e9343">
+      <notes>
+        <note category="german">Sobald du dich in der Außenwelt befindest, kannst du jederzeit den &lt;strong&gt;Eskortenmodus aktivieren und auf eine Eskorte warten.&lt;/strong&gt; Dazu musst du lediglich auf den gleichnamigen Knopf drücken.</note>
+      </notes>
+      <segment>
+        <source>Sobald du dich in der Außenwelt befindest, kannst du jederzeit den &lt;strong&gt;Eskortenmodus aktivieren und auf eine Eskorte warten.&lt;/strong&gt; Dazu musst du lediglich auf den gleichnamigen Knopf drücken.</source>
+        <target><![CDATA[Lorsque vous êtes dans l'outre-monde, <strong>vous pouvez à tout moment vous mettre en "Attente d'une escorte" en cliquant sur le bouton du même nom situé en bas à droite de votre interface.</strong>]]></target>
+      </segment>
+    </unit>
+    <unit id="o3da5QN" name="d3679c1">
+      <notes>
+        <note category="german">Im Eskortenmodus gestattest du einem &lt;strong&gt;Helden&lt;/strong&gt;, deine Spielfigur teilweise zu steuern. Deine Eskorte darf</note>
+      </notes>
+      <segment>
+        <source>Im Eskortenmodus gestattest du einem &lt;strong&gt;Helden&lt;/strong&gt;, deine Spielfigur teilweise zu steuern. Deine Eskorte darf</source>
+        <target><![CDATA[En mode attente, un <strong>autre citoyen Héros</strong> pourra prendre partiellement le contrôle de votre personnage. Il pourra alors :]]></target>
+      </segment>
+    </unit>
+    <unit id="UkqDngj" name="dich bewegen (deine APs werden verbraucht).">
+      <notes>
+        <note category="german">dich bewegen (deine APs werden verbraucht).</note>
+      </notes>
+      <segment>
+        <source>dich bewegen (deine APs werden verbraucht).</source>
+        <target>vous déplacer en utilisant vos points d'action,</target>
+      </segment>
+    </unit>
+    <unit id="NlgRmmJ" name="dich graben lassen.">
+      <notes>
+        <note category="german">dich graben lassen.</note>
+      </notes>
+      <segment>
+        <source>dich graben lassen.</source>
+        <target>vous ordonner de lancer une fouille,</target>
+      </segment>
+    </unit>
+    <unit id="NA1nhgV" name="dich trinken lassen (aus deiner Flasche).">
+      <notes>
+        <note category="german">dich trinken lassen (aus deiner Flasche).</note>
+      </notes>
+      <segment>
+        <source>dich trinken lassen (aus deiner Flasche).</source>
+        <target>vous faire boire une ration d'eau depuis votre sac,</target>
+      </segment>
+    </unit>
+    <unit id="2J.NIaa" name="dich etwas essen lassen (aus deinem Rucksack).">
+      <notes>
+        <note category="german">dich etwas essen lassen (aus deinem Rucksack).</note>
+      </notes>
+      <segment>
+        <source>dich etwas essen lassen (aus deinem Rucksack).</source>
+        <target>vous faire manger une ration de nourriture depuis votre sac,</target>
+      </segment>
+    </unit>
+    <unit id="0gZf1w8" name="dich in die Stadt zurückbringen (wenn du in der Nähe des Stadttors bist).">
+      <notes>
+        <note category="german">dich in die Stadt zurückbringen (wenn du in der Nähe des Stadttors bist).</note>
+      </notes>
+      <segment>
+        <source>dich in die Stadt zurückbringen (wenn du in der Nähe des Stadttors bist).</source>
+        <target>vous faire rentrer en ville (si vous êtes devant les Portes),</target>
+      </segment>
+    </unit>
+    <unit id="hkluwlo" name="62236b5">
+      <notes>
+        <note category="german">Dich einen Gegenstand auf- oder ablegen lassen. Allerdings musst du ihm das vorher erlaubt haben (dazu muss ein Kästchen angekreuzt sein.</note>
+      </notes>
+      <segment>
+        <source>Dich einen Gegenstand auf- oder ablegen lassen. Allerdings musst du ihm das vorher erlaubt haben (dazu muss ein Kästchen angekreuzt sein.</source>
+        <target>vous faire poser un objet au sol. Cependant, pour que cela soit possible vous devez l'autoriser avant (la case pour l'inventaire doit être cochée),</target>
+      </segment>
+    </unit>
+    <unit id="uzxgIUl" name="dich auch links liegen lassen... :)">
+      <notes>
+        <note category="german">dich auch links liegen lassen... :)</note>
+      </notes>
+      <segment>
+        <source>dich auch links liegen lassen... :)</source>
+        <target>vous abandonner sur place :)</target>
+      </segment>
+    </unit>
+    <unit id="SHTu.Y5" name="In der Außenwelt gerettet werden">
+      <notes>
+        <note category="german">In der Außenwelt gerettet werden</note>
+      </notes>
+      <segment>
+        <source>In der Außenwelt gerettet werden</source>
+        <target>Sauvetages dans l'outre-monde</target>
+      </segment>
+    </unit>
+    <unit id="Ic3VNso" name="7bf4601">
+      <notes>
+        <note category="german">Wenn du einfach nur gerettet werden möchtest und keine Spaziergänge durch die halbe Außenwelt unternehmen willst, kannst du folgende Option wählen: "Dem Eskortenführer verbieten, mich von der Stadt zu entfernen".</note>
+      </notes>
+      <segment>
+        <source>Wenn du einfach nur gerettet werden möchtest und keine Spaziergänge durch die halbe Außenwelt unternehmen willst, kannst du folgende Option wählen: "Dem Eskortenführer verbieten, mich von der Stadt zu entfernen".</source>
+        <target>Si vous souhaitez seulement être secouru(e) et non pas baladé(e) dans tout l'outre-monde, vous disposez d'une option à cocher une fois la mise en attente d'une escorte validée : "interdire au chef d'escorte de m'éloigner de la ville" (cette option est activée par défaut).</target>
+      </segment>
+    </unit>
+    <unit id="_GSJ7sz" name="d5030b5">
+      <notes>
+        <note category="german">Diese Option ist von Haus aus aktiviert und schränkt die Handlungsmöglichkeiten deines Anführers (der Bürger, der sich deiner angenommen hat) erheblich ein. &lt;strong&gt;Er darf dich dann unter keinen Umständen von der Stadt entfernen, sondern dich ihr nur näher bringen.</note>
+      </notes>
+      <segment>
+        <source>Diese Option ist von Haus aus aktiviert und schränkt die Handlungsmöglichkeiten deines Anführers (der Bürger, der sich deiner angenommen hat) erheblich ein. &lt;strong&gt;Er darf dich dann unter keinen Umständen von der Stadt entfernen, sondern dich ihr nur näher bringen.</source>
+        <target><![CDATA[Cette option limite les déplacements que vous imposera le chef d'escorte (le citoyen qui vous aura pris en charge). <strong>Il lui sera interdit d'effectuer un déplacement qui vous éloignerait de la ville, il ne pourra que vous en rapprocher.</strong>]]></target>
+      </segment>
+    </unit>
+    <unit id="3jCo8OH" name="Wie tötet man einen Zombie?">
+      <notes>
+        <note category="german">Wie tötet man einen Zombie?</note>
+      </notes>
+      <segment>
+        <source>Wie tötet man einen Zombie?</source>
+        <target>Comment tuer un zombie ?</target>
+      </segment>
+    </unit>
+    <unit id="6P6JS.Y" name="894b1a6">
+      <notes>
+        <note category="german">Klassischerweise, indem man seinen Kopf vom Körper trennt. Neuerdings schwören manche auch auf Bowlingkugeln... Die Wahrheit allerdings ist: Erlaubt ist, was gefällt. Alle stimmen darin überein, dass &lt;strong&gt;reines Wasser&lt;/strong&gt; die Waffe der ersten Wahl ist. Dieses Wasser muss aber irgendwie transportiert werden. Plastiktüten eignen sich dazu hervorragend, denn sie geben zugleich tolle %img_grenade% Wasserbomben ab.</note>
+      </notes>
+      <segment>
+        <source>Klassischerweise, indem man seinen Kopf vom Körper trennt. Neuerdings schwören manche auch auf Bowlingkugeln... Die Wahrheit allerdings ist: Erlaubt ist, was gefällt. Alle stimmen darin überein, dass &lt;strong&gt;reines Wasser&lt;/strong&gt; die Waffe der ersten Wahl ist. Dieses Wasser muss aber irgendwie transportiert werden. Plastiktüten eignen sich dazu hervorragend, denn sie geben zugleich tolle %img_grenade% Wasserbomben ab.</source>
+        <target><![CDATA[Les techniques varient d'un citoyen à l'autre. Tout le monde s'accorde à dire que <strong>l'eau pure</strong> est une excellente arme pour les détruire. Toutefois, pour être utilisable, elle doit être assemblée avec des sacs plastique et ainsi servir de %img_grenade% Bombes à eau. D'autres objets peuvent servir d'armes, à vous de les découvrir.]]></target>
+      </segment>
+    </unit>
+    <unit id="NFLPXTS" name="Ein paar Vorschläge">
+      <notes>
+        <note category="german">Ein paar Vorschläge</note>
+      </notes>
+      <segment>
+        <source>Ein paar Vorschläge</source>
+        <target>Se la jouer alternatif</target>
+      </segment>
+    </unit>
+    <unit id="jvYEfUF" name="Je nach Geschmack könnt ihr folgendes verwenden:">
+      <notes>
+        <note category="german">Je nach Geschmack könnt ihr folgendes verwenden:</note>
+      </notes>
+      <segment>
+        <source>Je nach Geschmack könnt ihr folgendes verwenden:</source>
+        <target>Selon vos goûts, vous pouvez aussi utiliser :</target>
+      </segment>
+    </unit>
+    <unit id="JKpkVJV" name="Einen Holzstock... nicht gaanz so effektiv.">
+      <notes>
+        <note category="german">Einen Holzstock... nicht gaanz so effektiv.</note>
+      </notes>
+      <segment>
+        <source>Einen Holzstock... nicht gaanz so effektiv.</source>
+        <target>un bâton en bois... autant dire que c'est peu efficace</target>
+      </segment>
+    </unit>
+    <unit id="aSv3qDV" name="Eine Wasserpistole! Die ist ideal!">
+      <notes>
+        <note category="german">Eine Wasserpistole! Die ist ideal!</note>
+      </notes>
+      <segment>
+        <source>Eine Wasserpistole! Die ist ideal!</source>
+        <target>un pistolet à eau ! Idéal !</target>
+      </segment>
+    </unit>
+    <unit id="UpyywU6" name="Ein wohlerzogenes Haustier ;-)">
+      <notes>
+        <note category="german">Ein wohlerzogenes Haustier ;-)</note>
+      </notes>
+      <segment>
+        <source>Ein wohlerzogenes Haustier ;-)</source>
+        <target>un animal de compagnie bien dressé</target>
+      </segment>
+    </unit>
+    <unit id="kSxZoJl" name="Sonstiges nettes Spielzeug...">
+      <notes>
+        <note category="german">Sonstiges nettes Spielzeug...</note>
+      </notes>
+      <segment>
+        <source>Sonstiges nettes Spielzeug...</source>
+        <target>d'autres jouets amusants...</target>
+      </segment>
+    </unit>
+    <unit id="0nfxF12" name="0323d66">
+      <notes>
+        <note category="german">Wenn's mal Probleme geben sollte, ist eine &lt;span x-ajax-href=%url_cp%&gt;Flucht&lt;/span&gt; nicht verkehrt...</note>
+      </notes>
+      <segment>
+        <source>Wenn's mal Probleme geben sollte, ist eine &lt;span x-ajax-href=%url_cp%&gt;Flucht&lt;/span&gt; nicht verkehrt...</source>
+        <target><![CDATA[En cas de gros problème, pensez à <span x-ajax-href=%url_cp%>la fuite</span>...]]></target>
+      </segment>
+    </unit>
+    <unit id="THFtKTb" name="2547bd8">
+      <notes>
+        <note category="german">Die Nächte in der Welt von MyHordes sind kalt. Sehr kalt und selten günstig. Bestimmte Handlungen oder Regeln ändern sich in diesen Stunden großer Einsamkeit...</note>
+      </notes>
+      <segment>
+        <source>Die Nächte in der Welt von MyHordes sind kalt. Sehr kalt und selten günstig. Bestimmte Handlungen oder Regeln ändern sich in diesen Stunden großer Einsamkeit...</source>
+        <target>Les nuits sont froides dans le monde de MyHordes. Très froides et rarement de bon augure. Certaines actions ou règles changent au cours de ces heures de grande solitude...</target>
+      </segment>
+    </unit>
+    <unit id="VgYGj1w" name="Die folgenden Änderungen gelten Nachts:">
+      <notes>
+        <note category="german">Die folgenden Änderungen gelten Nachts:</note>
+      </notes>
+      <segment>
+        <source>Die folgenden Änderungen gelten Nachts:</source>
+        <target>Les changements suivants s'appliquent pendant la nuit :</target>
+      </segment>
+    </unit>
+    <unit id="HhFaIrh" name="Die Spezialfähigkeit &lt;i&gt;Durchbrechen&lt;/i&gt; hat eine höhere Erfolgschance.">
+      <notes>
+        <note category="german">Die Spezialfähigkeit &lt;i&gt;Durchbrechen&lt;/i&gt; hat eine höhere Erfolgschance.</note>
+      </notes>
+      <segment>
+        <source>Die Spezialfähigkeit &lt;i&gt;Durchbrechen&lt;/i&gt; hat eine höhere Erfolgschance.</source>
+        <target><![CDATA[la capacité spéciale <i>Passage en force</i> a une chance de succès supérieure,]]></target>
+      </segment>
+    </unit>
+    <unit id="HnQcgq_" name="0c31592">
+      <notes>
+        <note category="german">Für Aufklärer ist die Wahrscheinlichkeit, während der Bewegung entdeckt zu werden, erheblich geringer: Die Nacht ist Ihr Verbündeter.</note>
+      </notes>
+      <segment>
+        <source>Für Aufklärer ist die Wahrscheinlichkeit, während der Bewegung entdeckt zu werden, erheblich geringer: Die Nacht ist Ihr Verbündeter.</source>
+        <target>pour les éclaireurs, les chances d'être repérés pendant un déplacement baissent significativement : la nuit est votre alliée,</target>
+      </segment>
+    </unit>
+    <unit id="a05ekAR" name="0f74fb4">
+      <notes>
+        <note category="german">Ein Bürger kann versuchen, ein Objekt aus der Bank zu stehlen: Er hat dann die Möglichkeit, nicht im Register identifiziert zu werden.</note>
+      </notes>
+      <segment>
+        <source>Ein Bürger kann versuchen, ein Objekt aus der Bank zu stehlen: Er hat dann die Möglichkeit, nicht im Register identifiziert zu werden.</source>
+        <target>un citoyen peut tenter de voler un objet en banque : il a alors une chance de ne pas être identifié dans le Registre,</target>
+      </segment>
+    </unit>
+    <unit id="6VYEXVB" name="1e8a126">
+      <notes>
+        <note category="german">Ausgrabungen haben eine geringere Erfolgschance (einschließlich Gebäude). Sie können jedoch bestimmte Objekte verwenden, um diese Strafe aufzuheben (insbesondere Taschenlampen oder Lampen).</note>
+      </notes>
+      <segment>
+        <source>Ausgrabungen haben eine geringere Erfolgschance (einschließlich Gebäude). Sie können jedoch bestimmte Objekte verwenden, um diese Strafe aufzuheben (insbesondere Taschenlampen oder Lampen).</source>
+        <target>les fouilles ont des chances de réussite plus faibles (bâtiments compris). Toutefois, vous pouvez utiliser certains objets pour annuler cette pénalité (torches ou lampes notamment).</target>
+      </segment>
+    </unit>
+    <unit id="nAcFRkc" name="Diese Regeln gelten nicht in &quot;Kleinstadt&quot;-Karten.">
+      <notes>
+        <note category="german">Diese Regeln gelten nicht in "Kleinstadt"-Karten.</note>
+      </notes>
+      <segment>
+        <source>Diese Regeln gelten nicht in "Kleinstadt"-Karten.</source>
+        <target>ces règles ne s'appliquent pas dans les cartes "Région non éloignée".</target>
+      </segment>
+    </unit>
+    <unit id="iQ1y9St" name="Camper haben eine bessere Chance, ein Versteck zu finden.">
+      <notes>
+        <note category="german">Camper haben eine bessere Chance, ein Versteck zu finden.</note>
+      </notes>
+      <segment>
+        <source>Camper haben eine bessere Chance, ein Versteck zu finden.</source>
+        <target>les campeurs ont de meilleures chances de trouver un endroit où se cacher,</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
