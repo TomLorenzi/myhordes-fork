@@ -157,9 +157,10 @@ class GameFactory
 
     public function createTownName($language): string {
         $langList = array_keys(static::$town_name_snippets);
-        if($language == 'multi')
+        if($language == 'multi') {
             $key = array_rand($langList);
             $language = $langList[$key];
+        }
 
         if(!isset(static::$town_name_snippets[$language]))
             $language = 'de';
