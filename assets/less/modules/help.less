@@ -1,0 +1,177 @@
+p.ambiant, div.ambiant {
+    padding: 5px 5px 5px 22px;
+    margin-left: 40px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    color: #ddab76;
+    font-style: italic;
+    font-size: 1.2rem;
+    text-align: justify;
+    background-image: url("../../img/icons/small_rp.gif");
+    background-repeat: no-repeat;
+    background-position: 0px 5px;
+}
+
+ul {
+    &.HelpList {
+        padding: 0;
+        font-size: 1.2rem;
+        list-style-type: none;
+        > li {
+            font-weight: bold;
+            font-variant: small-caps;
+        }
+        li {
+            list-style: none;
+            border-top: 1px solid #7e4d2a;
+            border-bottom: 1px solid #7e4d2a;
+            &.main { margin-top: 10px; }
+            &.active {
+                background-color: #696486;
+                border-color: #afacc1;
+                &, & span.link { color: white; font-weight: bold; text-decoration: none; cursor: default; }
+            }
+            &.sublist > ul { padding-left: 30px; }
+            img { vertical-align: -15%; }
+        }
+    }    
+}
+
+a {
+    &.support {
+        display: block;
+        margin: 3px auto 10px auto;
+        padding-left: 20px;
+        padding-right: 7px;
+        max-width: 180px;
+        padding-bottom: 1px;
+        text-align: left;
+        color: #f0d79e;
+        font-size: 1.4rem;
+        font-weight: bold;
+        font-variant: small-caps;
+        text-decoration: none;
+        border: 1px solid #85a3af;
+        border-right-color: black;
+        border-bottom-color: black;
+        background-color: #32454d;
+        background-image: url("../../img/item/item_medic.gif");
+        background-position: 3px 1px;
+        background-repeat: no-repeat;
+        outline: 2px solid #5c2b20;
+        em {
+            display: block;
+            font-size: 1.0rem !important;
+            line-height: 9pt;
+            font-weight: normal;
+            font-style: normal;
+            font-variant: normal;
+            color: #ddab76;
+            text-align: left;
+        }
+        &:hover { color: white; outline: 1px solid #f0d79e; }
+    }
+}
+
+.help-content {
+    font-size: 1.3rem;
+    text-align: justify;
+
+    .helpArt {
+        max-width: 573px;
+        height: 51px;
+        margin-bottom: 8px;
+        padding-top: 31px;
+        padding-right: 5px;
+        text-align: right;
+        font-weight: bold;
+        font-size: 1.5rem;
+        color: white;
+        text-transform: uppercase;
+        background: url("../../img/help/help.jpg") no-repeat right top;
+        background-size: cover;
+        border: 1px solid #b18a63;
+        text-shadow: 0px 1px 0px #4d0f00, 0px -1px 0px #4d0f00, 1px 0px 0px #4d0f00, -1px 0px 0px #4d0f00, 1px 1px 0px #4d0f00, -1px -1px 0px #4d0f00, -1px 1px 0px #4d0f00, 1px -1px 0px #4d0f00;
+    }
+
+    h1 {
+        height: 32px;
+        padding: 7px 0px 0px 48px;
+        margin: 0px 0px 8px;
+        color: #f0d79e;
+        font-size: 1.4rem;
+        line-height: 17px;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        background-image: url("../../img/help/h1.gif");
+        background-repeat: no-repeat;
+        clear: both;
+    }
+
+    h2 {
+        height: 17px;
+        padding: 0;
+        margin: 15px 0 5px;
+        color: #ddab76;
+        font-size: 1.2rem;
+        line-height: 17px;
+        text-transform: uppercase;
+        border-bottom: 2px solid #ddab76;
+        background-image: url("../../img/help/h2.gif");
+        background-repeat: repeat-x;
+        background-position: left bottom;
+        clear: both;
+    }
+
+    strong {
+        color: #f0d79e;
+    }
+
+    em {
+        color: #f0d79e;
+        text-align: justify;
+        display: block;
+        font-size: 1.2rem;
+        font-style: italic;
+        line-height: 10.5pt;
+    }
+
+    img {
+        vertical-align: -15%;
+        &.art {
+            float: left;
+            position: relative;
+            margin: 5px 10px 10px 5px;
+            border: 1px solid #ddab76;
+            outline: 2px solid #5c2b20;
+            &.artRight {
+                float: right;
+            }
+        }
+    }
+
+    ul {
+        padding: 0 3px;
+        margin: 2px 0 15px 10px;
+        list-style: none none;
+        border-top: 1px solid #ddab76;
+        border-bottom: 1px solid #ddab76;
+        &:not(.stack) {clear: both;}
+        li {
+            margin: 0;
+            padding: 4px 5px 6px 20px;
+            background-color: #5c2b20;
+            background-image: url("../../img/icons/small_dot.gif");
+            background-repeat: no-repeat;
+            background-position: left -2px;
+            border-top: 0px;
+            border-bottom: 1px dashed #ddab76;
+            &:last-child {
+                border-bottom: 0;
+            }
+            strong {
+                font-variant: small-caps;
+            }
+        }
+    }
+}

@@ -389,6 +389,8 @@ class NightlyHandler
         $this->entity_manager->persist( $this->logTemplates->nightlyAttackSummary($town, $town->getDoor(), $overflow) );
 
         $this->log->debug("Getting watchers for day " . $town->getDay());
+
+        /** @var CitizenWatch[] $watchers */
         $watchers = $this->entity_manager->getRepository(CitizenWatch::class)->findWatchersOfDay($town, $town->getDay() - 1); // -1 because day has been advanced before stage2
 
         // Only deploy watchers if normal defense is not enough
@@ -414,7 +416,6 @@ class NightlyHandler
             $has_ikea             = (bool)$this->town_handler->getBuilding($town, 'small_ikea_#00', true);
             $has_armory           = (bool)$this->town_handler->getBuilding($town, 'small_armor_#00', true);
 
-            /** @var CitizenWatch[] $watchers */
             foreach ($watchers as $watcher) {
                 $def = $zeds_each_watcher == -1 ? $this->citizen_handler->getNightWatchDefense($watcher->getCitizen(), $has_shooting_gallery, $has_trebuchet, $has_ikea, $has_armory) : $zeds_each_watcher;
 
@@ -456,6 +457,11 @@ class NightlyHandler
                     }
 
                 $overflow -= $def;
+            }
+        } else {
+            foreach ($watchers as $watcher) {
+                $watcher->setSkipped(true);
+                $this->entity_manager->persist($watcher);
             }
         }
 
@@ -626,6 +632,15 @@ class NightlyHandler
                 $this->entity_manager->persist($this->logTemplates->constructionsDamage($town, $fireworks->getPrototype(), 20 ));
             }
             $this->entity_manager->persist($fireworks);
+        }
+
+        foreach ($town->getBuildings() as $b) if ($b->getComplete()) {
+            if ($b->getPrototype()->getTemp()){
+                $this->log->debug("Destroying building <info>{$b->getPrototype()->getLabel()}</info> as it is a temp building.");
+                $this->entity_manager->persist( $this->logTemplates->nightlyAttackDestroyBuilding($town, $b));
+                $b->setComplete(false)->setAp(0);
+            }
+            $b->setTempDefenseBonus(0);
         }
     }
 
@@ -949,7 +964,7 @@ class NightlyHandler
         }
     }
 
-    private function stage3_buildings(Town $town) {
+    private function stage2_building_effects(Town $town) {
         $this->log->info('<info>Processing building functions</info> ...');
 
         $buildings = []; $max_votes = -1;
@@ -1060,15 +1075,6 @@ class NightlyHandler
 
         if (!empty($daily_items))
             $this->log->debug("Daily items: Placing " . implode(', ', $tx) . " in the bank.");
-
-        foreach ($town->getBuildings() as $b) if ($b->getComplete()) {
-            if ($b->getPrototype()->getTemp()){
-                $this->log->debug("Destroying building <info>{$b->getPrototype()->getLabel()}</info> as it is a temp building.");
-                $this->entity_manager->persist( $this->logTemplates->nightlyAttackDestroyBuilding($town, $b));
-                $b->setComplete(false)->setAp(0);
-            }
-            $b->setTempDefenseBonus(0);
-        }
     }
 
     private function stage3_pictos(Town $town){
@@ -1214,13 +1220,13 @@ class NightlyHandler
         $town->setDay( $town->getDay() + 1);
         $this->log->info('Entering <comment>Phase 2</comment> - The Attack');
         $this->stage2_pre_attack_buildings($town);
+        $this->stage2_building_effects($town);
         $this->stage2_day($town);
         $this->stage2_surprise_attack($town);
         $this->stage2_attack($town);
         $this->stage2_post_attack_buildings($town);
 
         $this->log->info('Entering <comment>Phase 3</comment> - Dawn of a New Day');
-        $this->stage3_buildings($town);
         $this->stage3_status($town);
         $this->stage3_roles($town);
         $this->stage3_zones($town);

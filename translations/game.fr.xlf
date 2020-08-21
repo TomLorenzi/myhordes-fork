@@ -7651,21 +7651,21 @@
         <target>Quel est votre commentaire ?</target>
       </segment>
     </unit>
-    <unit id="gLkZ8wY" name="0e83286">
+    <unit id="7Tv2eKD" name="8d60c8e">
       <notes>
-        <note category="german">Du führst einen mystischen Tanz auf und bittest den Himmel um Regen, der diese Zone von bösen Geistern befreien wird.</note>
+        <note category="german">Du vollführst einen Schamanentanz und betest zum Himmel, dass er Regen bringen und diese unselige Zone reinigen möge.</note>
       </notes>
       <segment>
-        <source>Du führst einen mystischen Tanz auf und bittest den Himmel um Regen, der diese Zone von bösen Geistern befreien wird.</source>
+        <source>Du vollführst einen Schamanentanz und betest zum Himmel, dass er Regen bringen und diese unselige Zone reinigen möge.</source>
         <target>Vous réalisez une danse chamanique et suppliez le ciel d'apporter la pluie qui permettra de purifier cette zone de terre des mauvais esprits.</target>
       </segment>
     </unit>
-    <unit id="qNbi2jZ" name="f202f15">
+    <unit id="jveYh8O" name="c443ad8">
       <notes>
-        <note category="german">Nichts passiert. Wenn dich jemand gesehen hätte, würde er dich sicherlich für den schlechtesten Amateur aller Zeiten halten. Und Blasen hast du jetzt auch noch an den Füßen...</note>
+        <note category="german">Doch nichts passiert... Soviel steht fest, du stehst nun wie ein lausiger Amateur da. Außer Blasen an den Füßen hat das alles nichts eingebracht...</note>
       </notes>
       <segment>
-        <source>Nichts passiert. Wenn dich jemand gesehen hätte, würde er dich sicherlich für den schlechtesten Amateur aller Zeiten halten. Und Blasen hast du jetzt auch noch an den Füßen...</source>
+        <source>Doch nichts passiert... Soviel steht fest, du stehst nun wie ein lausiger Amateur da. Außer Blasen an den Füßen hat das alles nichts eingebracht...</source>
         <target>Mais rien ne se passe. C'est sur, si on vous a vu, vous êtes passé pour un amateur de la pire espèce. Et pour ne rien arranger vous avez des ampoules aux pieds maintenant...</target>
       </segment>
     </unit>
@@ -7696,12 +7696,12 @@
         <target>Et l'énergie allouée à cette danse paie enfin, les premières gouttes tombent sur les zombies et vous savourez ce délicat moment durant lequel leur chair fond comme neige au soleil et vous attendez patiemment jusqu'à ce que leurs corps se liquéfient.</target>
       </segment>
     </unit>
-    <unit id="GIJWmHF" name="91f8c9a">
+    <unit id="rLM.vNL" name="75f054e">
       <notes>
-        <note category="german">Ob es sich um Gedankenkontrolle oder die Zufälligkeit des Wetters handelt: Regentropfen fallen auf die Stadt und bringen ein wenig Trinkwasser für den Brunnen.</note>
+        <note category="german">Ob durch deine Kräfte oder unverschämtes Wetterglück, dicke Regentropfen fallen auf die Stadt herab und füllen ein wenig den Brunnen auf.</note>
       </notes>
       <segment>
-        <source>Ob es sich um Gedankenkontrolle oder die Zufälligkeit des Wetters handelt: Regentropfen fallen auf die Stadt und bringen ein wenig Trinkwasser für den Brunnen.</source>
+        <source>Ob durch deine Kräfte oder unverschämtes Wetterglück, dicke Regentropfen fallen auf die Stadt herab und füllen ein wenig den Brunnen auf.</source>
         <target>Maîtrise des esprits ou hasard du calendrier météorologique, des gouttes de pluie tombent sur la ville, apportant un peu d'eau potable au puits.</target>
       </segment>
     </unit>

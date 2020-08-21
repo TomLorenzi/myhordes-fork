@@ -1,0 +1,1184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:2.0" version="2.0" srcLang="de" trgLang="fr">
+  <file id="help.fr">
+    <unit id="bOfIhXK" name="Brauchst du Hilfe?">
+      <notes>
+        <note category="german">Brauchst du Hilfe?</note>
+      </notes>
+      <segment>
+        <source>Brauchst du Hilfe?</source>
+        <target>Besoin d'aide ?</target>
+      </segment>
+    </unit>
+    <unit id="VToistk" name="Besuche unsere Technische Supportseite">
+      <notes>
+        <note category="german">Besuche unsere Technische Supportseite</note>
+      </notes>
+      <segment>
+        <source>Besuche unsere Technische Supportseite</source>
+        <target>Consultez le site du support technique</target>
+      </segment>
+    </unit>
+    <unit id="OBNp2gg" name="Die Verdammten ?">
+      <notes>
+        <note category="german">Die Verdammten ?</note>
+      </notes>
+      <segment>
+        <source>Die Verdammten ?</source>
+        <target>Principe du jeu</target>
+      </segment>
+    </unit>
+    <unit id="FvwX8Vo" name="Die Außenwelt">
+      <notes>
+        <note category="german">Die Außenwelt</note>
+      </notes>
+      <segment>
+        <source>Die Außenwelt</source>
+        <target>L'Outre-Monde</target>
+      </segment>
+    </unit>
+    <unit id="kaeVl5r" name="Sich bewegen">
+      <notes>
+        <note category="german">Sich bewegen</note>
+      </notes>
+      <segment>
+        <source>Sich bewegen</source>
+        <target>Se déplacer</target>
+      </segment>
+    </unit>
+    <unit id="L4DksI7" name="Die Karte">
+      <notes>
+        <note category="german">Die Karte</note>
+      </notes>
+      <segment>
+        <source>Die Karte</source>
+        <target>La carte</target>
+      </segment>
+    </unit>
+    <unit id="fJO12Rm" name="Erkunden und Graben">
+      <notes>
+        <note category="german">Erkunden und Graben</note>
+      </notes>
+      <segment>
+        <source>Erkunden und Graben</source>
+        <target>Explorer et Fouiller</target>
+      </segment>
+    </unit>
+    <unit id="a1rF75Q" name="Abgesuchte Zonen">
+      <notes>
+        <note category="german">Abgesuchte Zonen</note>
+      </notes>
+      <segment>
+        <source>Abgesuchte Zonen</source>
+        <target>Zones épuisées</target>
+      </segment>
+    </unit>
+    <unit id="6PsnUvf" name="Die Kontrollpunkte">
+      <notes>
+        <note category="german">Die Kontrollpunkte</note>
+      </notes>
+      <segment>
+        <source>Die Kontrollpunkte</source>
+        <target>Les points de Contrôle</target>
+      </segment>
+    </unit>
+    <unit id="q9hh0dv" name="Der Eskortenmodus">
+      <notes>
+        <note category="german">Der Eskortenmodus</note>
+      </notes>
+      <segment>
+        <source>Der Eskortenmodus</source>
+        <target>Escortes citoyennes</target>
+      </segment>
+    </unit>
+    <unit id="QrZuM35" name="Zombies im Freien bekämpfen">
+      <notes>
+        <note category="german">Zombies im Freien bekämpfen</note>
+      </notes>
+      <segment>
+        <source>Zombies im Freien bekämpfen</source>
+        <target>Combattre les Hordes dehors</target>
+      </segment>
+    </unit>
+    <unit id="ztIX9Q7" name="Nachts">
+      <notes>
+        <note category="german">Nachts</note>
+      </notes>
+      <segment>
+        <source>Nachts</source>
+        <target>La nuit</target>
+      </segment>
+    </unit>
+    <unit id="8Ld23ql" name="Wildes Campen">
+      <notes>
+        <note category="german">Wildes Campen</note>
+      </notes>
+      <segment>
+        <source>Wildes Campen</source>
+        <target>Camping sauvage</target>
+      </segment>
+    </unit>
+    <unit id="_M65l_6" name="Gebäude untersuchen">
+      <notes>
+        <note category="german">Gebäude untersuchen</note>
+      </notes>
+      <segment>
+        <source>Gebäude untersuchen</source>
+        <target>Exploration de ruines</target>
+      </segment>
+    </unit>
+    <unit id="zEQcWoH" name="Verlorene Seelen">
+      <notes>
+        <note category="german">Verlorene Seelen</note>
+      </notes>
+      <segment>
+        <source>Verlorene Seelen</source>
+        <target>Les âmes perdues</target>
+      </segment>
+    </unit>
+    <unit id="C2ciqK3" name="Du">
+      <notes>
+        <note category="german">Du</note>
+      </notes>
+      <segment>
+        <source>Du</source>
+        <target>Vous</target>
+      </segment>
+    </unit>
+    <unit id="EF2Sgns" name="Dein Gesundheitszustand">
+      <notes>
+        <note category="german">Dein Gesundheitszustand</note>
+      </notes>
+      <segment>
+        <source>Dein Gesundheitszustand</source>
+        <target>Les états de santé</target>
+      </segment>
+    </unit>
+    <unit id="1gKQD7J" name="Inventar">
+      <notes>
+        <note category="german">Inventar</note>
+      </notes>
+      <segment>
+        <source>Inventar</source>
+        <target>Inventaire</target>
+      </segment>
+    </unit>
+    <unit id="BNcLxkK" name="Deine Seele">
+      <notes>
+        <note category="german">Deine Seele</note>
+      </notes>
+      <segment>
+        <source>Deine Seele</source>
+        <target>Votre âme</target>
+      </segment>
+    </unit>
+    <unit id="9gv_cn." name="Der Tod und deine Seelenpunkte">
+      <notes>
+        <note category="german">Der Tod und deine Seelenpunkte</note>
+      </notes>
+      <segment>
+        <source>Der Tod und deine Seelenpunkte</source>
+        <target>La mort des les Points d'âme</target>
+      </segment>
+    </unit>
+    <unit id="2I8uzty" name="Der letzte Tod">
+      <notes>
+        <note category="german">Der letzte Tod</note>
+      </notes>
+      <segment>
+        <source>Der letzte Tod</source>
+        <target>La Mort Ultime !</target>
+      </segment>
+    </unit>
+    <unit id="MRhYGUw" name="Heldenmodus">
+      <notes>
+        <note category="german">Heldenmodus</note>
+      </notes>
+      <segment>
+        <source>Heldenmodus</source>
+        <target>Mode Héros</target>
+      </segment>
+    </unit>
+    <unit id="JAkgM4Z" name="Kleine Koalitionen">
+      <notes>
+        <note category="german">Kleine Koalitionen</note>
+      </notes>
+      <segment>
+        <source>Kleine Koalitionen</source>
+        <target>Petites Coalitions</target>
+      </segment>
+    </unit>
+    <unit id="Ln3k6NJ" name="Haus &amp;amp; Hausarbeiten">
+      <notes>
+        <note category="german">Haus &amp;amp; Hausarbeiten</note>
+      </notes>
+      <segment>
+        <source>Haus &amp;amp; Hausarbeiten</source>
+        <target><![CDATA[Maisons & Travaux]]></target>
+      </segment>
+    </unit>
+    <unit id="KOB6h9k" name="Ghule">
+      <notes>
+        <note category="german">Ghule</note>
+      </notes>
+      <segment>
+        <source>Ghule</source>
+        <target>Les goules</target>
+      </segment>
+    </unit>
+    <unit id="t5LJ9KA" name="Die Berufe">
+      <notes>
+        <note category="german">Die Berufe</note>
+      </notes>
+      <segment>
+        <source>Die Berufe</source>
+        <target>Les métiers</target>
+      </segment>
+    </unit>
+    <unit id="hlH9eeR" name="Einwohner">
+      <notes>
+        <note category="german">Einwohner</note>
+      </notes>
+      <segment>
+        <source>Einwohner</source>
+        <target>Habitant</target>
+      </segment>
+    </unit>
+    <unit id="sBbkqrg" name="Buddler">
+      <notes>
+        <note category="german">Buddler</note>
+      </notes>
+      <segment>
+        <source>Buddler</source>
+        <target>Fouineur</target>
+      </segment>
+    </unit>
+    <unit id="N55mPtD" name="Aufklärer">
+      <notes>
+        <note category="german">Aufklärer</note>
+      </notes>
+      <segment>
+        <source>Aufklärer</source>
+        <target>Éclaireur</target>
+      </segment>
+    </unit>
+    <unit id="aMWLa_K" name="Wächter">
+      <notes>
+        <note category="german">Wächter</note>
+      </notes>
+      <segment>
+        <source>Wächter</source>
+        <target>Gardien</target>
+      </segment>
+    </unit>
+    <unit id="jYiPQYC" name="Einsiedler">
+      <notes>
+        <note category="german">Einsiedler</note>
+      </notes>
+      <segment>
+        <source>Einsiedler</source>
+        <target>Ermite</target>
+      </segment>
+    </unit>
+    <unit id="l9gYoq8" name="Dompteur">
+      <notes>
+        <note category="german">Dompteur</note>
+      </notes>
+      <segment>
+        <source>Dompteur</source>
+        <target>Apprivoiseur</target>
+      </segment>
+    </unit>
+    <unit id="CcGFUIM" name="Techniker">
+      <notes>
+        <note category="german">Techniker</note>
+      </notes>
+      <segment>
+        <source>Techniker</source>
+        <target>Technicien</target>
+      </segment>
+    </unit>
+    <unit id="6I1t0iJ" name="Die Rollen">
+      <notes>
+        <note category="german">Die Rollen</note>
+      </notes>
+      <segment>
+        <source>Die Rollen</source>
+        <target>Les rôles</target>
+      </segment>
+    </unit>
+    <unit id="dymWtZP" name="Shamane">
+      <notes>
+        <note category="german">Shamane</note>
+      </notes>
+      <segment>
+        <source>Shamane</source>
+        <target>Chaman</target>
+      </segment>
+    </unit>
+    <unit id="EiBn7Mx" name="Der Reiseleiter in der Außenwelt">
+      <notes>
+        <note category="german">Der Reiseleiter in der Außenwelt</note>
+      </notes>
+      <segment>
+        <source>Der Reiseleiter in der Außenwelt</source>
+        <target>Guide de l'Outre-Monde</target>
+      </segment>
+    </unit>
+    <unit id="BomjBbe" name="Herzlich willkommen in der Stadt">
+      <notes>
+        <note category="german">Herzlich willkommen in der Stadt</note>
+      </notes>
+      <segment>
+        <source>Herzlich willkommen in der Stadt</source>
+        <target>Bienvenue en Ville</target>
+      </segment>
+    </unit>
+    <unit id="pq8uFuf" name="Die Gemeinschaft">
+      <notes>
+        <note category="german">Die Gemeinschaft</note>
+      </notes>
+      <segment>
+        <source>Die Gemeinschaft</source>
+        <target>La Communauté</target>
+      </segment>
+    </unit>
+    <unit id="jBpgLXJ" name="Neue Gebäude bauen">
+      <notes>
+        <note category="german">Neue Gebäude bauen</note>
+      </notes>
+      <segment>
+        <source>Neue Gebäude bauen</source>
+        <target>Contruire de nouveau bâtiments</target>
+      </segment>
+    </unit>
+    <unit id="iOrKXGN" name="Baupläne">
+      <notes>
+        <note category="german">Baupläne</note>
+      </notes>
+      <segment>
+        <source>Baupläne</source>
+        <target>Plans de chantiers</target>
+      </segment>
+    </unit>
+    <unit id="a67wON3" name="Weiterentwicklung des Tages">
+      <notes>
+        <note category="german">Weiterentwicklung des Tages</note>
+      </notes>
+      <segment>
+        <source>Weiterentwicklung des Tages</source>
+        <target>Évolutions du jour</target>
+      </segment>
+    </unit>
+    <unit id="mVINzuJ" name="Der Angriff der Zombiehorde">
+      <notes>
+        <note category="german">Der Angriff der Zombiehorde</note>
+      </notes>
+      <segment>
+        <source>Der Angriff der Zombiehorde</source>
+        <target>L'attaque des Hordes</target>
+      </segment>
+    </unit>
+    <unit id="CLGNvQz" name="Die Nachtwächter">
+      <notes>
+        <note category="german">Die Nachtwächter</note>
+      </notes>
+      <segment>
+        <source>Die Nachtwächter</source>
+        <target>Les Veilleurs</target>
+      </segment>
+    </unit>
+    <unit id="kvBwFZL" name="Recht und Gesetz">
+      <notes>
+        <note category="german">Recht und Gesetz</note>
+      </notes>
+      <segment>
+        <source>Recht und Gesetz</source>
+        <target>La justice et les crimes</target>
+      </segment>
+    </unit>
+    <unit id="HC3UP_X" name="Die Verbannten">
+      <notes>
+        <note category="german">Die Verbannten</note>
+      </notes>
+      <segment>
+        <source>Die Verbannten</source>
+        <target>Les bannis</target>
+      </segment>
+    </unit>
+    <unit id="Xi0f4lt" name="Das Chaos">
+      <notes>
+        <note category="german">Das Chaos</note>
+      </notes>
+      <segment>
+        <source>Das Chaos</source>
+        <target>Le chaos</target>
+      </segment>
+    </unit>
+    <unit id="cbIy_th" name="Das Katapult">
+      <notes>
+        <note category="german">Das Katapult</note>
+      </notes>
+      <segment>
+        <source>Das Katapult</source>
+        <target>La catapulte</target>
+      </segment>
+    </unit>
+    <unit id="9ee2OqZ" name="Kleine Karten">
+      <notes>
+        <note category="german">Kleine Karten</note>
+      </notes>
+      <segment>
+        <source>Kleine Karten</source>
+        <target>Villes en Région non éloigné</target>
+      </segment>
+    </unit>
+    <unit id="IdXP_LT" name="Zerstörte Stadt">
+      <notes>
+        <note category="german">Zerstörte Stadt</note>
+      </notes>
+      <segment>
+        <source>Zerstörte Stadt</source>
+        <target>Ville dévastée</target>
+      </segment>
+    </unit>
+    <unit id="tWsphBt" name="Städte des Pandämoniums">
+      <notes>
+        <note category="german">Städte des Pandämoniums</note>
+      </notes>
+      <segment>
+        <source>Städte des Pandämoniums</source>
+        <target>Les villes du Pandémonium</target>
+      </segment>
+    </unit>
+    <unit id="tnYIPoS" name="Privatstädte">
+      <notes>
+        <note category="german">Privatstädte</note>
+      </notes>
+      <segment>
+        <source>Privatstädte</source>
+        <target>Les villes privées</target>
+      </segment>
+    </unit>
+    <unit id="KUWPnt." name="Rollenspieloptionen">
+      <notes>
+        <note category="german">Rollenspieloptionen</note>
+      </notes>
+      <segment>
+        <source>Rollenspieloptionen</source>
+        <target>Options roleplay</target>
+      </segment>
+    </unit>
+    <unit id="dyJ1Inc" name="Saisons und Ranglisten">
+      <notes>
+        <note category="german">Saisons und Ranglisten</note>
+      </notes>
+      <segment>
+        <source>Saisons und Ranglisten</source>
+        <target>Saisons et classements</target>
+      </segment>
+    </unit>
+    <unit id="vpGUC3n" name="Support">
+      <notes>
+        <note category="german">Support</note>
+      </notes>
+      <segment>
+        <source>Support</source>
+        <target>Support</target>
+      </segment>
+    </unit>
+    <unit id="BKRwO03" name="1- Überprüfe deinen Browser">
+      <notes>
+        <note category="german">1- Überprüfe deinen Browser</note>
+      </notes>
+      <segment>
+        <source>1- Überprüfe deinen Browser</source>
+        <target>1- Vérifier mon navigateur</target>
+      </segment>
+    </unit>
+    <unit id="cm9u5KI" name="2- Überprüfe sonstige installierte Programme">
+      <notes>
+        <note category="german">2- Überprüfe sonstige installierte Programme</note>
+      </notes>
+      <segment>
+        <source>2- Überprüfe sonstige installierte Programme</source>
+        <target>2- Vérifier mes logiciels tiers</target>
+      </segment>
+    </unit>
+    <unit id="vm9r3tz" name="Hier erhältst du Hilfe">
+      <notes>
+        <note category="german">Hier erhältst du Hilfe</note>
+      </notes>
+      <segment>
+        <source>Hier erhältst du Hilfe</source>
+        <target>Obtenir de l'aide</target>
+      </segment>
+    </unit>
+    <unit id="AuzemM7" name="Wie wähle ich ein sicheres Passwort?">
+      <notes>
+        <note category="german">Wie wähle ich ein sicheres Passwort?</note>
+      </notes>
+      <segment>
+        <source>Wie wähle ich ein sicheres Passwort?</source>
+        <target>Choisir un bon mot de passe?</target>
+      </segment>
+    </unit>
+    <unit id="Uz4L9yI" name="Stadt unter Quarantäne">
+      <notes>
+        <note category="german">Stadt unter Quarantäne</note>
+      </notes>
+      <segment>
+        <source>Stadt unter Quarantäne</source>
+        <target>Villes en quarantaine</target>
+      </segment>
+    </unit>
+    <unit id="TK7FpSk" name="Fehlverhalten melden">
+      <notes>
+        <note category="german">Fehlverhalten melden</note>
+      </notes>
+      <segment>
+        <source>Fehlverhalten melden</source>
+        <target>On m'embête</target>
+      </segment>
+    </unit>
+    <unit id="rgL81Rn" name="Zum Thema 'Sitting'...">
+      <notes>
+        <note category="german">Zum Thema 'Sitting'...</note>
+      </notes>
+      <segment>
+        <source>Zum Thema 'Sitting'...</source>
+        <target>À propos du « sitting »</target>
+      </segment>
+    </unit>
+    <unit id="T8fo4q1" name="Externe Webseiten und Anwendungen">
+      <notes>
+        <note category="german">Externe Webseiten und Anwendungen</note>
+      </notes>
+      <segment>
+        <source>Externe Webseiten und Anwendungen</source>
+        <target>Sites externes à MyHordes</target>
+      </segment>
+    </unit>
+    <unit id="QZSZXLb" name="Spielanleitung">
+      <notes>
+        <note category="german">Spielanleitung</note>
+      </notes>
+      <segment>
+        <source>Spielanleitung</source>
+        <target>Guide de jeu</target>
+      </segment>
+    </unit>
+    <unit id="smQglTK" name="5c55efb">
+      <notes>
+        <note category="german">'Die Verdammten' ist ein Survivalspiel, das in einer postapokalyptischen Welt voller Untoter spielt.</note>
+      </notes>
+      <segment>
+        <source>'Die Verdammten' ist ein Survivalspiel, das in einer postapokalyptischen Welt voller Untoter spielt.</source>
+        <target>MyHordes est un jeu de survie dans un monde hostile peuplé de zombies.</target>
+      </segment>
+    </unit>
+    <unit id="fEPcQJL" name="794eff7">
+      <notes>
+        <note category="german">Die Spieler (auch "Bürger" genannt) leben in kleinen Städten und müssen sich jeden Tag aufs Neue organisieren und eine Strategie finden, um die nächtlichen Zombieangriffe erfolgreich abzuwehren. Je länger sie dabei überleben, desto mehr Punkte können sie sammeln. &lt;strong&gt;Der Tod ist ein fester Bestandteil des Spiels. Alle Stadteinwohner wissen vom ersten Tag an, dass sie sterben werden. Die Frage ist nur wie und wann... &lt;/strong&gt;. Als ob das nicht genug wäre, sind die Spieler dazu verdammt, nach ihrem Tod in einer anderen Stadt wiedergeboren zu werden und das Spiel beginnt wieder von vorn...</note>
+      </notes>
+      <segment>
+        <source>Die Spieler (auch "Bürger" genannt) leben in kleinen Städten und müssen sich jeden Tag aufs Neue organisieren und eine Strategie finden, um die nächtlichen Zombieangriffe erfolgreich abzuwehren. Je länger sie dabei überleben, desto mehr Punkte können sie sammeln. &lt;strong&gt;Der Tod ist ein fester Bestandteil des Spiels. Alle Stadteinwohner wissen vom ersten Tag an, dass sie sterben werden. Die Frage ist nur wie und wann... &lt;/strong&gt;. Als ob das nicht genug wäre, sind die Spieler dazu verdammt, nach ihrem Tod in einer anderen Stadt wiedergeboren zu werden und das Spiel beginnt wieder von vorn...</source>
+        <target><![CDATA[Les joueurs (ou Citoyens) sont regroupés dans de petites villes et ont pour tâche de s'organiser chaque jour pour tenir le plus longtemps possible face aux attaques des zombies... <strong>Le dernier survivant deviendra le Héros de la ville.</strong>]]></target>
+      </segment>
+    </unit>
+    <unit id="kiRQ28V" name="Ziel Nr.1: Erkundungen">
+      <notes>
+        <note category="german">Ziel Nr.1: Erkundungen</note>
+      </notes>
+      <segment>
+        <source>Ziel Nr.1: Erkundungen</source>
+        <target>Objectif n°1 : explorer pour s'équiper</target>
+      </segment>
+    </unit>
+    <unit id="Ty6GPyz" name="3947934">
+      <notes>
+        <note category="german">Während des Tages verlassen die Bürger ihre schützenden Städte, um die &lt;strong&gt;Außenwelt&lt;/strong&gt; zu erkunden. In der Wüste können sie durch Graben allerlei Waffen, Baumaterialien und Nahrung finden.</note>
+      </notes>
+      <segment>
+        <source>Während des Tages verlassen die Bürger ihre schützenden Städte, um die &lt;strong&gt;Außenwelt&lt;/strong&gt; zu erkunden. In der Wüste können sie durch Graben allerlei Waffen, Baumaterialien und Nahrung finden.</source>
+        <target><![CDATA[La journée, les Citoyens peuvent quitter la sécurité de la Ville pour explorer l'<strong>Outre-Monde</strong> et fouiller les étendues désertiques pour y trouver des armes, du matériel et de la nourriture.]]></target>
+      </segment>
+    </unit>
+    <unit id="9phHYef" name="Ziel Nr.2: Zombieangriffe überleben">
+      <notes>
+        <note category="german">Ziel Nr.2: Zombieangriffe überleben</note>
+      </notes>
+      <segment>
+        <source>Ziel Nr.2: Zombieangriffe überleben</source>
+        <target>Objectif n°2 : tenir face aux Hordes</target>
+      </segment>
+    </unit>
+    <unit id="tmcnTX3" name="7fe1c23">
+      <notes>
+        <note category="german">Jeden Tag um Mitternacht greift eine Zombiehorde die Stadt an. Die in der Wüste gefundenen Gegenstände wurden im Idealfall dazu benutzt, Verteidigungsanlagen zu bauen und die Häuser zu verbessern.</note>
+      </notes>
+      <segment>
+        <source>Jeden Tag um Mitternacht greift eine Zombiehorde die Stadt an. Die in der Wüste gefundenen Gegenstände wurden im Idealfall dazu benutzt, Verteidigungsanlagen zu bauen und die Häuser zu verbessern.</source>
+        <target>Chaque soir à minuit, les Hordes de morts-vivants attaquent la Ville ! Les objets trouvés dans la journée aident alors à bâtir des défenses et à protéger les maisons.</target>
+      </segment>
+    </unit>
+    <unit id="PX_pHFS" name="Ziel Nr.3: Sich gegenseitig helfen und überleben...">
+      <notes>
+        <note category="german">Ziel Nr.3: Sich gegenseitig helfen und überleben...</note>
+      </notes>
+      <segment>
+        <source>Ziel Nr.3: Sich gegenseitig helfen und überleben...</source>
+        <target>Objectif n°3 : s'entraider et survivre...</target>
+      </segment>
+    </unit>
+    <unit id="Itk0eeK" name="264a4b4">
+      <notes>
+        <note category="german">Alle gefundenen Gegenstände können mit anderen Spielern geteilt werden. Vielleicht besitzt dein Nachbar ja genau die Schraube, die dir für deine Kettensäge noch fehlt. Dein Überleben hängt im entscheidendem Maße davon ab, wie gut die Kooperation und Organisation in deiner Stadt funktioniert. Das Hauptkommunikationsmittel ist ein stadtinternes Forum.</note>
+      </notes>
+      <segment>
+        <source>Alle gefundenen Gegenstände können mit anderen Spielern geteilt werden. Vielleicht besitzt dein Nachbar ja genau die Schraube, die dir für deine Kettensäge noch fehlt. Dein Überleben hängt im entscheidendem Maße davon ab, wie gut die Kooperation und Organisation in deiner Stadt funktioniert. Das Hauptkommunikationsmittel ist ein stadtinternes Forum.</source>
+        <target>Les trouvailles des Citoyens peuvent être partagées. Peut être que votre voisin possède la Vis qu'il manque à votre Tronçonneuse ? Votre survie dépend de votre faculté à vous organiser ou à utiliser la communauté...</target>
+      </segment>
+    </unit>
+    <unit id="YjauAVu" name="Welche Aufgaben muss ich tagtäglich erledigen?">
+      <notes>
+        <note category="german">Welche Aufgaben muss ich tagtäglich erledigen?</note>
+      </notes>
+      <segment>
+        <source>Welche Aufgaben muss ich tagtäglich erledigen?</source>
+        <target>Que faire chaque jour ?</target>
+      </segment>
+    </unit>
+    <unit id="KGODA_M" name="In 'Die Verdammten' musst du jeden Tag mehrere Aufgaben erledigen.">
+      <notes>
+        <note category="german">In 'Die Verdammten' musst du jeden Tag mehrere Aufgaben erledigen.</note>
+      </notes>
+      <segment>
+        <source>In 'Die Verdammten' musst du jeden Tag mehrere Aufgaben erledigen.</source>
+        <target>Il y a plusieurs choses à accomplir chaque jour dans MyHordes.</target>
+      </segment>
+    </unit>
+    <unit id="6umuhqS" name="Die Zeitung lesen">
+      <notes>
+        <note category="german">Die Zeitung lesen</note>
+      </notes>
+      <segment>
+        <source>Die Zeitung lesen</source>
+        <target>Lire le journal</target>
+      </segment>
+    </unit>
+    <unit id="f14Qoff" name="Die wichtigsten Informationen findest du jeden Tag druckfrisch hier!">
+      <notes>
+        <note category="german">Die wichtigsten Informationen findest du jeden Tag druckfrisch hier!</note>
+      </notes>
+      <segment>
+        <source>Die wichtigsten Informationen findest du jeden Tag druckfrisch hier!</source>
+        <target>il contient un résumé des choses importantes de la veille !</target>
+      </segment>
+    </unit>
+    <unit id="cqY1JTZ" name="Wasser entnehmen">
+      <notes>
+        <note category="german">Wasser entnehmen</note>
+      </notes>
+      <segment>
+        <source>Wasser entnehmen</source>
+        <target>Prendre votre eau au puits</target>
+      </segment>
+    </unit>
+    <unit id="WIyTL.r" name="Ohne Wasser stirbst du.">
+      <notes>
+        <note category="german">Ohne Wasser stirbst du.</note>
+      </notes>
+      <segment>
+        <source>Ohne Wasser stirbst du.</source>
+        <target>sans eau, pas de vie.</target>
+      </segment>
+    </unit>
+    <unit id="1US5NkZ" name="Die Außenwelt erkunden">
+      <notes>
+        <note category="german">Die Außenwelt erkunden</note>
+      </notes>
+      <segment>
+        <source>Die Außenwelt erkunden</source>
+        <target>Explorer l'Outre-Monde</target>
+      </segment>
+    </unit>
+    <unit id="KEE4jQS" name="Grabe in der Wüste und sammle nützliche Gegenstände ein.">
+      <notes>
+        <note category="german">Grabe in der Wüste und sammle nützliche Gegenstände ein.</note>
+      </notes>
+      <segment>
+        <source>Grabe in der Wüste und sammle nützliche Gegenstände ein.</source>
+        <target>fouillez le désert et ramassez des objets utiles.</target>
+      </segment>
+    </unit>
+    <unit id="kUTLK_h" name="Auf den Baustellen mithelfen">
+      <notes>
+        <note category="german">Auf den Baustellen mithelfen</note>
+      </notes>
+      <segment>
+        <source>Auf den Baustellen mithelfen</source>
+        <target>Participer aux chantiers</target>
+      </segment>
+    </unit>
+    <unit id="bOiwmPy" name="Wähle das Gebäude aus, welches die Stadt als nächstes bauen soll.">
+      <notes>
+        <note category="german">Wähle das Gebäude aus, welches die Stadt als nächstes bauen soll.</note>
+      </notes>
+      <segment>
+        <source>Wähle das Gebäude aus, welches die Stadt als nächstes bauen soll.</source>
+        <target>choisissez le prochain bâtiment à construire en ville.</target>
+      </segment>
+    </unit>
+    <unit id="p0DbdQX" name="Get active on the town forum">
+      <notes>
+        <note category="german">Get active on the town forum</note>
+      </notes>
+      <segment>
+        <source>Get active on the town forum</source>
+        <target>Participer au forum de la ville</target>
+      </segment>
+    </unit>
+    <unit id="nAx3MXx" name="organise yourselves and survive.">
+      <notes>
+        <note category="german">organise yourselves and survive.</note>
+      </notes>
+      <segment>
+        <source>organise yourselves and survive.</source>
+        <target>organisez-vous pour survivre.</target>
+      </segment>
+    </unit>
+    <unit id="HhS980w" name="Weiter">
+      <notes>
+        <note category="german">Weiter</note>
+      </notes>
+      <segment>
+        <source>Weiter</source>
+        <target>Suite</target>
+      </segment>
+    </unit>
+    <unit id="jDfhi6M" name="0fdb9c5">
+      <notes>
+        <note category="german">Außerhalb der Stadt dehnt sich, soweit das Auge reicht, eine riesige Wüste aus. Sie wird von den Bürgern auch "Außenwelt" genannt.</note>
+      </notes>
+      <segment>
+        <source>Außerhalb der Stadt dehnt sich, soweit das Auge reicht, eine riesige Wüste aus. Sie wird von den Bürgern auch "Außenwelt" genannt.</source>
+        <target>L'Outre-Monde est le désert qui entoure la ville à perte de vue.</target>
+      </segment>
+    </unit>
+    <unit id="bUYL11a" name="In dieser gefährlichen Gegend findest du alles, was du zum Überleben brauchst.">
+      <notes>
+        <note category="german">In dieser gefährlichen Gegend findest du alles, was du zum Überleben brauchst.</note>
+      </notes>
+      <segment>
+        <source>In dieser gefährlichen Gegend findest du alles, was du zum Überleben brauchst.</source>
+        <target>Paradoxalement, c'est un milieu à la fois dangereux et essentiel à la survie.</target>
+      </segment>
+    </unit>
+    <unit id="axtPo.U" name="d164912">
+      <notes>
+        <note category="german">Wenn die Einwohner in ihren Häusern bleiben, werden sie eher früher als später von den Zombies überrannt und sterben. Deshalb ist es wichtig, die Stadt zu verlassen, um Baumaterialien, Waffen und Nahrung zu finden.</note>
+      </notes>
+      <segment>
+        <source>Wenn die Einwohner in ihren Häusern bleiben, werden sie eher früher als später von den Zombies überrannt und sterben. Deshalb ist es wichtig, die Stadt zu verlassen, um Baumaterialien, Waffen und Nahrung zu finden.</source>
+        <target>En effet si les humains restent cloîtrés dans leur ville, ils seront rapidement submergés par les Hordes de Zombies et périront, faute d'avoir récupéré de quoi améliorer leur quotidien et se défendre. Il est primordial de sortir pour trouver du matériel.</target>
+      </segment>
+    </unit>
+    <unit id="gx15wYF" name="Wie kann man in die Außenwelt gehen?">
+      <notes>
+        <note category="german">Wie kann man in die Außenwelt gehen?</note>
+      </notes>
+      <segment>
+        <source>Wie kann man in die Außenwelt gehen?</source>
+        <target>Comment aller dans l'Outre-Monde ?</target>
+      </segment>
+    </unit>
+    <unit id="7xGg.TI" name="7242c20">
+      <notes>
+        <note category="german">Um in die Außenwelt zu treten, musst du dich zum &lt;strong&gt;Stadttor&lt;/strong&gt; begeben und es aufmachen... Doch aufgepasst! Bevor du die Stadt verlässt, solltest du folgendes beachten:</note>
+      </notes>
+      <segment>
+        <source>Um in die Außenwelt zu treten, musst du dich zum &lt;strong&gt;Stadttor&lt;/strong&gt; begeben und es aufmachen... Doch aufgepasst! Bevor du die Stadt verlässt, solltest du folgendes beachten:</source>
+        <target><![CDATA[Pour visiter l'Outre-Monde, rendez-vous dans la section <strong>Portes de la Ville</strong> et ouvrez bien grandes les portes... Attention toutefois ! Retenez les trois règles suivantes :]]></target>
+      </segment>
+    </unit>
+    <unit id="hJ9V9EY" name="Nimm &lt;strong&gt;Nahrung&lt;/strong&gt; oder &lt;strong&gt;Wasser&lt;/strong&gt; mit.">
+      <notes>
+        <note category="german">Nimm &lt;strong&gt;Nahrung&lt;/strong&gt; oder &lt;strong&gt;Wasser&lt;/strong&gt; mit.</note>
+      </notes>
+      <segment>
+        <source>Nimm &lt;strong&gt;Nahrung&lt;/strong&gt; oder &lt;strong&gt;Wasser&lt;/strong&gt; mit.</source>
+        <target><![CDATA[emmenez de la <strong>nourriture</strong> et/ou <strong>de l'eau</strong> avec vous]]></target>
+      </segment>
+    </unit>
+    <unit id="iZkIKR6" name="d79c87d">
+      <notes>
+        <note category="german">Kehre &lt;strong&gt;vor Mitternacht&lt;/strong&gt; wieder heim oder du wirst von den Zombies gefressen...</note>
+      </notes>
+      <segment>
+        <source>Kehre &lt;strong&gt;vor Mitternacht&lt;/strong&gt; wieder heim oder du wirst von den Zombies gefressen...</source>
+        <target><![CDATA[ne soyez <strong>jamais dehors à Minuit</strong> (ou vous serez dévoré(e) par les Hordes...), à moins que vous ne campiez]]></target>
+      </segment>
+    </unit>
+    <unit id="hCNQJ1g" name="51ae16e">
+      <notes>
+        <note category="german">Mache in der Nacht wieder das Stadttor zu, sonst erlebst du eine böse Überraschung...</note>
+      </notes>
+      <segment>
+        <source>Mache in der Nacht wieder das Stadttor zu, sonst erlebst du eine böse Überraschung...</source>
+        <target>fermez les portes le soir, sinon les Hordes déferleront sur les citoyens</target>
+      </segment>
+    </unit>
+    <unit id="IU7M5.G" name="Aktionspunkte und Erschöpfung">
+      <notes>
+        <note category="german">Aktionspunkte und Erschöpfung</note>
+      </notes>
+      <segment>
+        <source>Aktionspunkte und Erschöpfung</source>
+        <target>Les points d'action et la Fatigue</target>
+      </segment>
+    </unit>
+    <unit id="q20ROfy" name="c00d232">
+      <notes>
+        <note category="german">&lt;div class="ap"&gt;Solange du genügend &lt;/div&gt;&lt;strong&gt; Aktionspunkte&lt;/strong&gt; besitzt, kannst du dich in der Außenwelt bewegen:
+Pro Zug wird dir 1 Aktionspunkt abgezogen. Bei 0 Punkten bist du &lt;img alt="" src="%path%"&gt; &lt;strong&gt;Erschöpft&lt;/strong&gt; und kannst dich nicht mehr bewegen.</note>
+      </notes>
+      <segment>
+        <source>&lt;div class="ap"&gt;Solange du genügend &lt;/div&gt;&lt;strong&gt; Aktionspunkte&lt;/strong&gt; besitzt, kannst du dich in der Außenwelt bewegen:
+Pro Zug wird dir 1 Aktionspunkt abgezogen. Bei 0 Punkten bist du &lt;img alt="" src="%path%"&gt; &lt;strong&gt;Erschöpft&lt;/strong&gt; und kannst dich nicht mehr bewegen.</source>
+        <target><![CDATA[<div class="ap">Vous pouvez vous déplacer dans l'Outre-Monde tant qu'il vous reste des </div><strong> Points d'action</strong>  :
+chaque mouvement coûte 1 point d'action. Dès que vous arrivez à 0 point, vous devenez <img alt="" src="%path%"> <strong>Fatigué(e)</strong> et vous ne pouvez plus bouger.]]></target>
+      </segment>
+    </unit>
+    <unit id="bTdJb_Y" name="71b2959">
+      <notes>
+        <note category="german">Deine Aktionspunkte werden oben rechts neben dem Hilfsbutton angezeigt. Du kannst deine &lt;strong&gt;Erschöpfung überwinden&lt;/strong&gt; und deine Aktionspunkte durch eine der folgenden Aktionen wieder &lt;strong&gt;auffüllen&lt;/strong&gt;:</note>
+      </notes>
+      <segment>
+        <source>Deine Aktionspunkte werden oben rechts neben dem Hilfsbutton angezeigt. Du kannst deine &lt;strong&gt;Erschöpfung überwinden&lt;/strong&gt; und deine Aktionspunkte durch eine der folgenden Aktionen wieder &lt;strong&gt;auffüllen&lt;/strong&gt;:</source>
+        <target><![CDATA[Ces points sont visibles en haut du site, près du bouton d'Aide. Vous pouvez <strong>récupérer vos points</strong> et <strong>annuler la fatigue</strong> de plusieurs façons :]]></target>
+      </segment>
+    </unit>
+    <unit id="ghVrDw1" name="Wasser trinken (1 Mal pro Tag möglich)">
+      <notes>
+        <note category="german">Wasser trinken (1 Mal pro Tag möglich)</note>
+      </notes>
+      <segment>
+        <source>Wasser trinken (1 Mal pro Tag möglich)</source>
+        <target>en buvant de l'eau (1 fois par jour)</target>
+      </segment>
+    </unit>
+    <unit id="cj5diCF" name="Essen (1 Mal pro Tag möglich)">
+      <notes>
+        <note category="german">Essen (1 Mal pro Tag möglich)</note>
+      </notes>
+      <segment>
+        <source>Essen (1 Mal pro Tag möglich)</source>
+        <target>en mangeant (1 fois par jour)</target>
+      </segment>
+    </unit>
+    <unit id="XuY5gcP" name="Drogen nehmen (Vorsicht: Du wirst sehr schnell abhängig!)">
+      <notes>
+        <note category="german">Drogen nehmen (Vorsicht: Du wirst sehr schnell abhängig!)</note>
+      </notes>
+      <segment>
+        <source>Drogen nehmen (Vorsicht: Du wirst sehr schnell abhängig!)</source>
+        <target>avec des drogues (illimitées, gare à la dépendance !)</target>
+      </segment>
+    </unit>
+    <unit id="KKt55ah" name="90f1a78">
+      <notes>
+        <note category="german">Darüber hinaus gibt es noch weitere Methoden, um seine Aktionspunkte wieder aufzufüllen (manche sind durchaus gefährlich!)... Finde es am besten selbst heraus.</note>
+      </notes>
+      <segment>
+        <source>Darüber hinaus gibt es noch weitere Methoden, um seine Aktionspunkte wieder aufzufüllen (manche sind durchaus gefährlich!)... Finde es am besten selbst heraus.</source>
+        <target>Il existe d'autres méthodes plus rares (parfois dangereuses !) mais il faudra les découvrir vous-même...</target>
+      </segment>
+    </unit>
+    <unit id="1ZAcbNG" name="Du hast keine Aktionspunkte mehr?">
+      <notes>
+        <note category="german">Du hast keine Aktionspunkte mehr?</note>
+      </notes>
+      <segment>
+        <source>Du hast keine Aktionspunkte mehr?</source>
+        <target>Plus de point d'action ?</target>
+      </segment>
+    </unit>
+    <unit id="KRu9j0q" name="cceb5aa">
+      <notes>
+        <note category="german">Bete, dass ein anderer Spieler bei dir vorbeikommt und dir eine Stärkung da lässt... Im Zweifelsfall ist es besser, im Forum um Hilfe zu bitten (der Link befindet sich oben links).</note>
+      </notes>
+      <segment>
+        <source>Bete, dass ein anderer Spieler bei dir vorbeikommt und dir eine Stärkung da lässt... Im Zweifelsfall ist es besser, im Forum um Hilfe zu bitten (der Link befindet sich oben links).</source>
+        <target>Priez pour qu'un citoyen passe par là et vous laisse un petit quelque chose pour repartir... Dans le doute, appelez à l'aide sur le forum (lien en haut à gauche du site).</target>
+      </segment>
+    </unit>
+    <unit id="PDHtzSM" name="03d7b7a">
+      <notes>
+        <note category="german">Die Stunde des Angriffs rückt näher und näher... Du kannst noch so viel in dein Funkgerät schreien, es wird niemand mehr kommen...
+Im Schnelldurchlauf lässt du die schönen und unschönen Momente deines kurzen Lebens noch einmal Revue passieren... Wer weiß, vielleicht hast du schon morgen selbst Appetit auf Menschenfleisch?</note>
+      </notes>
+      <segment>
+        <source>Die Stunde des Angriffs rückt näher und näher... Du kannst noch so viel in dein Funkgerät schreien, es wird niemand mehr kommen...
+Im Schnelldurchlauf lässt du die schönen und unschönen Momente deines kurzen Lebens noch einmal Revue passieren... Wer weiß, vielleicht hast du schon morgen selbst Appetit auf Menschenfleisch?</source>
+        <target>L'heure de l'Attaque de la Horde arrive bientôt... Vous avez beau crier sur votre Intercom : personne n'est venu vous sortir de là... Vous commencez à vous remémorer les souvenirs de cette brève vie... Qui sait si demain, vous n'aurez pas à votre tour de l'appétit pour les humains...</target>
+      </segment>
+    </unit>
+    <unit id="kH_n4fp" name="Standortansicht">
+      <notes>
+        <note category="german">Standortansicht</note>
+      </notes>
+      <segment>
+        <source>Standortansicht</source>
+        <target>La vue locale</target>
+      </segment>
+    </unit>
+    <unit id="wqinlrE" name="7a54085">
+      <notes>
+        <note category="german">Sobald du die Stadt verlässt, ist die Karte dein einziges Hilfsmittel, um dich in der Außenwelt zu orientieren.</note>
+      </notes>
+      <segment>
+        <source>Sobald du die Stadt verlässt, ist die Karte dein einziges Hilfsmittel, um dich in der Außenwelt zu orientieren.</source>
+        <target>Une fois les portes de la ville franchies, cette carte devient votre unique interface pour vous déplacer dans l'Outre-Monde.</target>
+      </segment>
+    </unit>
+    <unit id="mT8Yf4b" name="fa18d1a">
+      <notes>
+        <note category="german">Klicke auf die grünen Pfeile &lt;strong&gt;[1]&lt;/strong&gt;, um in die gewünschte Richtung zu gehen.</note>
+      </notes>
+      <segment>
+        <source>Klicke auf die grünen Pfeile &lt;strong&gt;[1]&lt;/strong&gt;, um in die gewünschte Richtung zu gehen.</source>
+        <target><![CDATA[Vous pouvez utiliser les flèches vertes <strong>[1]</strong> pour marcher dans la direction de votre choix.]]></target>
+      </segment>
+    </unit>
+    <unit id="jPB67sO" name="88b6faa">
+      <notes>
+        <note category="german">Durch Drücken des Kartenknopfes &lt;strong&gt;[2]&lt;/strong&gt; erhältst du eine Gesamtansicht deiner Welt.</note>
+      </notes>
+      <segment>
+        <source>Durch Drücken des Kartenknopfes &lt;strong&gt;[2]&lt;/strong&gt; erhältst du eine Gesamtansicht deiner Welt.</source>
+        <target><![CDATA[Le bouton Carte <strong>[2]</strong> vous permet d'afficher l'intégralité du monde connu.]]></target>
+      </segment>
+    </unit>
+    <unit id="W3z88_o" name="Die Weltkarte">
+      <notes>
+        <note category="german">Die Weltkarte</note>
+      </notes>
+      <segment>
+        <source>Die Weltkarte</source>
+        <target>La carte du monde</target>
+      </segment>
+    </unit>
+    <unit id="Z7NfCH0" name="Das grün leuchtende Feld &lt;strong&gt;[1]&lt;/strong&gt; zeigt deine aktuelle Position.">
+      <notes>
+        <note category="german">Das grün leuchtende Feld &lt;strong&gt;[1]&lt;/strong&gt; zeigt deine aktuelle Position.</note>
+      </notes>
+      <segment>
+        <source>Das grün leuchtende Feld &lt;strong&gt;[1]&lt;/strong&gt; zeigt deine aktuelle Position.</source>
+        <target><![CDATA[Le carré vert lumineux <strong>[1]</strong> indique votre position.]]></target>
+      </segment>
+    </unit>
+    <unit id="FZo2.OI" name="8a01e00">
+      <notes>
+        <note category="german">Orange, rot oder blau markierte Felder &lt;strong&gt;[2]&lt;/strong&gt; weisen auf Zombiepräsenz hin. Wenn du in diesen Sektoren allein unterwegs bist, ist höchste Vorsicht geboten!</note>
+      </notes>
+      <segment>
+        <source>Orange, rot oder blau markierte Felder &lt;strong&gt;[2]&lt;/strong&gt; weisen auf Zombiepräsenz hin. Wenn du in diesen Sektoren allein unterwegs bist, ist höchste Vorsicht geboten!</source>
+        <target><![CDATA[Les zones colorées en vert, orange, rouge ou bleu <strong>[2]</strong> indiquent la présence de zombies ! Attention si vous vous aventurez seul(e) dans ces secteurs.]]></target>
+      </segment>
+    </unit>
+    <unit id="U20rwj0" name="274ff01">
+      <notes>
+        <note category="german">Der Mark.-Knopf &lt;strong&gt;[3]&lt;/strong&gt; zeigt alle von dir oder von anderen Spieler gesetzten Wegmarken an. Diese können zum Markieren von gefährlichen Zonen gesetzt werden, oder aber, um auf wichtige Gegenstände hinzuweisen.</note>
+      </notes>
+      <segment>
+        <source>Der Mark.-Knopf &lt;strong&gt;[3]&lt;/strong&gt; zeigt alle von dir oder von anderen Spieler gesetzten Wegmarken an. Diese können zum Markieren von gefährlichen Zonen gesetzt werden, oder aber, um auf wichtige Gegenstände hinzuweisen.</source>
+        <target><![CDATA[Le bouton Marqueurs <strong>[3]</strong> vous permet d'afficher les marqueurs placés par les autres joueurs ou vous-même sur la carte. Ils permettent d'indiquer les zones dangereuses, les zones contenant des objets importants, etc.]]></target>
+      </segment>
+    </unit>
+    <unit id="px25T6e" name="ef90c4f">
+      <notes>
+        <note category="german">Der Globale Knopf &lt;strong&gt;[4]&lt;/strong&gt; zeigt alle Zonen an, die der &lt;strong&gt;Stadt als Ganzes&lt;/strong&gt; bekannt sind.</note>
+      </notes>
+      <segment>
+        <source>Der Globale Knopf &lt;strong&gt;[4]&lt;/strong&gt; zeigt alle Zonen an, die der &lt;strong&gt;Stadt als Ganzes&lt;/strong&gt; bekannt sind.</source>
+        <target><![CDATA[Der Globale Knopf <strong>[4]</strong> zeigt alle Zonen an, die der <strong>Stadt als Ganzes</strong> bekannt sind.]]></target>
+      </segment>
+    </unit>
+    <unit id="Czm2yVn" name="Der Expeditionsknopf &lt;strong&gt;[4]&lt;/strong&gt; zeigt alle geplanten Expeditionen an.">
+      <notes>
+        <note category="german">Der Expeditionsknopf &lt;strong&gt;[4]&lt;/strong&gt; zeigt alle geplanten Expeditionen an.</note>
+      </notes>
+      <segment>
+        <source>Der Expeditionsknopf &lt;strong&gt;[4]&lt;/strong&gt; zeigt alle geplanten Expeditionen an.</source>
+        <target><![CDATA[Enfin, le bouton Expéditions <strong>[4]</strong> vous permet d'afficher les expéditions planifiées par n'importe quel citoyen.]]></target>
+      </segment>
+    </unit>
+    <unit id="XRq1Sgx" name="Zonentypen">
+      <notes>
+        <note category="german">Zonentypen</note>
+      </notes>
+      <segment>
+        <source>Zonentypen</source>
+        <target>Contenu des zones</target>
+      </segment>
+    </unit>
+    <unit id="jtZNkxE" name="206ff5d">
+      <notes>
+        <note category="german">Es handelt sich um eine unerforschte Zone, die weder von dir, noch von sonst wem besucht wurde.</note>
+      </notes>
+      <segment>
+        <source>Es handelt sich um eine unerforschte Zone, die weder von dir, noch von sonst wem besucht wurde.</source>
+        <target>Secteur inconnu, vous n'y avez jamais mis les pieds personnellement. En mode Global, ces secteurs n'ont même jamais été visités par qui que ce soit !</target>
+      </segment>
+    </unit>
+    <unit id="4DRtW7F" name="5abb6fd">
+      <notes>
+        <note category="german">Diese Zone wurde in den letzten Tagen schon einmal erforscht. Da heute allerdings noch niemand da war, &lt;strong&gt;weißt du nicht, ob sich dort Zombies aufhalten&lt;/strong&gt;...</note>
+      </notes>
+      <segment>
+        <source>Diese Zone wurde in den letzten Tagen schon einmal erforscht. Da heute allerdings noch niemand da war, &lt;strong&gt;weißt du nicht, ob sich dort Zombies aufhalten&lt;/strong&gt;...</source>
+        <target><![CDATA[Secteur déjà visité au cours des jours précédents, mais pas aujourd'hui. <strong>Vous ignorez donc s'il y a encore des zombies là-bas...</strong>]]></target>
+      </segment>
+    </unit>
+    <unit id="GzqB3qA" name="84b0fd6">
+      <notes>
+        <note category="german">Die Stadt: Hier solltest du jede Nacht schlafen, wenn du am Leben bleiben möchtest.</note>
+      </notes>
+      <segment>
+        <source>Die Stadt: Hier solltest du jede Nacht schlafen, wenn du am Leben bleiben möchtest.</source>
+        <target>La ville : c'est là qu'il faut rentrer si vous voulez continuer à vivre.</target>
+      </segment>
+    </unit>
+    <unit id=".tcSMXw" name="a066790">
+      <notes>
+        <note category="german">Dieses Feld zeigt an, dass sich an der Stelle ein Gebäude oder eine Ruine befindet, die du erforschen kannst. In aller Regel enthalten Gebäude wertvolle Gegenstände.</note>
+      </notes>
+      <segment>
+        <source>Dieses Feld zeigt an, dass sich an der Stelle ein Gebäude oder eine Ruine befindet, die du erforschen kannst. In aller Regel enthalten Gebäude wertvolle Gegenstände.</source>
+        <target>Ce carré indique la présence d'un bâtiment ou d'une ruine à explorer. Les bâtiments contiennent en général de meilleurs objets !</target>
+      </segment>
+    </unit>
+    <unit id="Z5M25GL" name="In einer Zone graben">
+      <notes>
+        <note category="german">In einer Zone graben</note>
+      </notes>
+      <segment>
+        <source>In einer Zone graben</source>
+        <target>Fouiller une zone</target>
+      </segment>
+    </unit>
+    <unit id="W7woJZW" name="dd3b324">
+      <notes>
+        <note category="german">Du kannst in jeder Zone graben und allerlei nützliche Gegenstände finden, die du entweder gleich gebrauchen oder aber in die Stadt bringen kannst. &lt;strong&gt;Jede Zone kann einmal am Tag abgesucht werden.&lt;/strong&gt;</note>
+      </notes>
+      <segment>
+        <source>Du kannst in jeder Zone graben und allerlei nützliche Gegenstände finden, die du entweder gleich gebrauchen oder aber in die Stadt bringen kannst. &lt;strong&gt;Jede Zone kann einmal am Tag abgesucht werden.&lt;/strong&gt;</source>
+        <target><![CDATA[Dans chaque zone il est possible de procéder à des fouilles. Ces fouilles vous permettent de découvrir des objets que vous pourrez utiliser sur place ou ramener en ville. <strong>Vous pouvez fouiller chaque zone une fois par jour.</strong>]]></target>
+      </segment>
+    </unit>
+    <unit id="4nMOP9R" name="Automatisches Graben">
+      <notes>
+        <note category="german">Automatisches Graben</note>
+      </notes>
+      <segment>
+        <source>Automatisches Graben</source>
+        <target>La fouille automatique</target>
+      </segment>
+    </unit>
+    <unit id="hSPQB7N" name="c98f4a4">
+      <notes>
+        <note category="german">Nachdem du in einer Zone einmal gegraben hast, wechselst du in den &lt;strong&gt;Automatisch Graben&lt;/strong&gt; Modus.
+Wenn du nach deiner Grabungsaktion in der gleichen Zone bleibst, kannst du &lt;strong&gt;alle 2 Stunden&lt;/strong&gt; erneut graben.
+Du kannst deinen Browser in dieser Zeit auch schließen und das Spiel verlassen. Um zu erfahren, ob du etwas gefunden hast, kannst du dich zu einem späteren Zeitpunkt wieder einloggen.</note>
+      </notes>
+      <segment>
+        <source>Nachdem du in einer Zone einmal gegraben hast, wechselst du in den &lt;strong&gt;Automatisch Graben&lt;/strong&gt; Modus.
+Wenn du nach deiner Grabungsaktion in der gleichen Zone bleibst, kannst du &lt;strong&gt;alle 2 Stunden&lt;/strong&gt; erneut graben.
+Du kannst deinen Browser in dieser Zeit auch schließen und das Spiel verlassen. Um zu erfahren, ob du etwas gefunden hast, kannst du dich zu einem späteren Zeitpunkt wieder einloggen.</source>
+        <target><![CDATA[Lorsque vous effectuez une fouille sur une zone, vous passez immédiatement en mode <strong>Fouille automatique</strong>. Dès lors, si vous restez sur cette zone, vous bénéficierez d'une autre fouille <strong>toutes les 2 heures</strong> (temps réduit à 1h30 si vous êtes Fouineur). Vous n'êtes pas obligé(e) de garder votre navigateur ouvert, revenez simplement plus tard dans la journée...]]></target>
+      </segment>
+    </unit>
+    <unit id="Tn0ydi4" name="924cb9c">
+      <notes>
+        <note category="german">Beachte: Wenn du die &lt;strong&gt;Zone verlässt&lt;/strong&gt; wird der "Automatisch Graben"-Modus unterbrochen und kann nicht mehr gestartet werden. &lt;em&gt;Du kannst jedoch in einer anderen Zone wieder in den Automodus wechseln...&lt;/em&gt;</note>
+      </notes>
+      <segment>
+        <source>Beachte: Wenn du die &lt;strong&gt;Zone verlässt&lt;/strong&gt; wird der "Automatisch Graben"-Modus unterbrochen und kann nicht mehr gestartet werden. &lt;em&gt;Du kannst jedoch in einer anderen Zone wieder in den Automodus wechseln...&lt;/em&gt;</source>
+        <target><![CDATA[Attention, si vous <strong>sortez de la zone</strong> en vous déplaçant, votre fouille automatique sera interrompue et ne pourra être relancée dans cette même zone pour la journée. <em>Vous pourrez toutefois en commencer une nouvelle plus loin...</em>]]></target>
+      </segment>
+    </unit>
+    <unit id="qKbuFIl" name="Außenweltgebäude">
+      <notes>
+        <note category="german">Außenweltgebäude</note>
+      </notes>
+      <segment>
+        <source>Außenweltgebäude</source>
+        <target>Les bâtiments extérieurs</target>
+      </segment>
+    </unit>
+    <unit id="2uk6LrP" name="0bbaebc">
+      <notes>
+        <note category="german">Auf deinen Streifzügen durch die Außenwelt wirst du auch auf Gebäude stoßen, die unter dem Sand vergraben sind. In ihren Ruinen kannst du oft besondere, seltene und machmal auch gefährliche Gegenstände finden. Wenn du sie erforschen möchtest, musst du sie vorher von Unrat freiräumen.</note>
+      </notes>
+      <segment>
+        <source>Auf deinen Streifzügen durch die Außenwelt wirst du auch auf Gebäude stoßen, die unter dem Sand vergraben sind. In ihren Ruinen kannst du oft besondere, seltene und machmal auch gefährliche Gegenstände finden. Wenn du sie erforschen möchtest, musst du sie vorher von Unrat freiräumen.</source>
+        <target>En parcourant l'Outre-Monde, vous découvrirez des bâtiments enterrés. Il s'agira de les déterrer puis de les explorer. Ces bâtiments regorgent d'objets spéciaux, d'objets rares et parfois dangereux. Peut-être sauveront-ils les citoyens d'une mort certaine ?</target>
+      </segment>
+    </unit>
+    <unit id="NBF8cbm" name="5fd3771">
+      <notes>
+        <note category="german">Wenn eine Zone mehrmals hintereinander abgesucht wurde, gilt sie ab einem bestimmten Zeitpunkt als "leer". Es können dann keine wertvollen Gegenstände mehr gefunden werden. Mit etwas Glück können noch ein paar minderwertige Materialien (Holz, Metall etc.) zu Tage gefördert werden.</note>
+      </notes>
+      <segment>
+        <source>Wenn eine Zone mehrmals hintereinander abgesucht wurde, gilt sie ab einem bestimmten Zeitpunkt als "leer". Es können dann keine wertvollen Gegenstände mehr gefunden werden. Mit etwas Glück können noch ein paar minderwertige Materialien (Holz, Metall etc.) zu Tage gefördert werden.</source>
+        <target>Une zone du désert qui a été fouillée plusieurs fois peut devenir "épuisée" : aucun objet intéressant ne pourra alors plus y être trouvé. Tout au plus, on pourra encore y ramasser des ressources de mauvaise qualité (bois et métal).</target>
+      </segment>
+    </unit>
+    <unit id="Bk3pSor" name="1771ab2">
+      <notes>
+        <note category="german">Allerdings werden in der Nacht immer wieder seltsame metereologische Phänomene beobachtet...</note>
+      </notes>
+      <segment>
+        <source>Allerdings werden in der Nacht immer wieder seltsame metereologische Phänomene beobachtet...</source>
+        <target>Toutefois, depuis plusieurs semaines maintenant, nous avons observé d'étranges anomalies météorologiques pendant la nuit, dans l'Outre-Monde...</target>
+      </segment>
+    </unit>
+    <unit id="oVdK5BA" name="Meteorologische Anomalien">
+      <notes>
+        <note category="german">Meteorologische Anomalien</note>
+      </notes>
+      <segment>
+        <source>Meteorologische Anomalien</source>
+        <target>Anomalies météo</target>
+      </segment>
+    </unit>
+    <unit id="59Lo3IZ" name="2f13e20">
+      <notes>
+        <note category="german">In der Außenwelt wüten jede Nacht heftige Sandstürme. Bislang konnte keine logische Erklärung für diese Anomalien gefunden werden.</note>
+      </notes>
+      <segment>
+        <source>In der Außenwelt wüten jede Nacht heftige Sandstürme. Bislang konnte keine logische Erklärung für diese Anomalien gefunden werden.</source>
+        <target>De violentes tempêtes de sable s'abattent sur l'Outre-Monde aux alentours de minuit. Aucune explication rationnelle à ces phénomènes n'a pu être trouvée à l'heure actuelle.</target>
+      </segment>
+    </unit>
+    <unit id="i4IWldb" name="a549f17">
+      <notes>
+        <note category="german">Die gute Nachricht ist, dass diese Stürme in manch leergesuchten Zonen neue Gegenstände zu Tage fördern können.</note>
+      </notes>
+      <segment>
+        <source>Die gute Nachricht ist, dass diese Stürme in manch leergesuchten Zonen neue Gegenstände zu Tage fördern können.</source>
+        <target>La bonne nouvelle est que, dans les régions qu'elles affectent, ces tempêtes peuvent révéler la présence de nouveaux objets dans les zones considérées comme épuisées.</target>
+      </segment>
+    </unit>
+    <unit id=".evspwN" name="e17b44b">
+      <notes>
+        <note category="german">Um diese "regenerierten" Zonen entdecken zu können, benötigt die Stadt einen &lt;strong&gt;Forschungsturm&lt;/strong&gt; (Konstruktion). Sein Bau erhöht zudem die Wahrscheinlichkeit, dass "regenerierte" Gebiete erneut Gegenstände enthalten.</note>
+      </notes>
+      <segment>
+        <source>Um diese "regenerierten" Zonen entdecken zu können, benötigt die Stadt einen &lt;strong&gt;Forschungsturm&lt;/strong&gt; (Konstruktion). Sein Bau erhöht zudem die Wahrscheinlichkeit, dass "regenerierte" Gebiete erneut Gegenstände enthalten.</source>
+        <target><![CDATA[Pour repérer les zones regénérées, la construction d'un <strong>Scrutateur</strong> (chantier) est requise. De plus, le Scrutateur permet également d'améliorer les chances de regénération des zones affectées.]]></target>
+      </segment>
+    </unit>
+  </file>
+</xliff>

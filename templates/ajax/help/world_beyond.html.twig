@@ -1,0 +1,24 @@
+{% extends "ajax/help/shell.html.twig" %}
+{% block helpContent %}
+<div class="helpArt">{{ 'Spielanleitung'|trans({},'help')|raw }}</div>
+<h1>{{ 'Die Außenwelt'|trans({},'help')|raw }}</h1>
+<img class="art" alt="" img src="{{ asset('build/images/help/outer.gif') }}">
+<p>
+<strong>{{ 'Außerhalb der Stadt dehnt sich, soweit das Auge reicht, eine riesige Wüste aus. Sie wird von den Bürgern auch "Außenwelt" genannt.'|trans({},'help')|raw }}
+{{ 'In dieser gefährlichen Gegend findest du alles, was du zum Überleben brauchst.'|trans({},'help')|raw }}</strong>
+</p>
+<p>
+{{ 'Wenn die Einwohner in ihren Häusern bleiben, werden sie eher früher als später von den Zombies überrannt und sterben. Deshalb ist es wichtig, die Stadt zu verlassen, um Baumaterialien, Waffen und Nahrung zu finden.'|trans({},'help')|raw }}
+</p>
+<h2>{{ 'Wie kann man in die Außenwelt gehen?'|trans({},'help')|raw }}</h2>
+<p>
+{{ 'Um in die Außenwelt zu treten, musst du dich zum <strong>Stadttor</strong> begeben und es aufmachen... Doch aufgepasst! Bevor du die Stadt verlässt, solltest du folgendes beachten:'|trans({},'help')|raw }}
+</p>
+<ul>
+<li>{{ 'Nimm <strong>Nahrung</strong> oder <strong>Wasser</strong> mit.'|trans({},'help')|raw }}</li>
+<li>{{ 'Kehre <strong>vor Mitternacht</strong> wieder heim oder du wirst von den Zombies gefressen...'|trans({},'help')|raw }}</li>
+<li>{{ 'Mache in der Nacht wieder das Stadttor zu, sonst erlebst du eine böse Überraschung...'|trans({},'help')|raw }}</li>
+</ul>
+<div class="clear"></div>
+<a class="button" x-ajax-href="{{ url('help', {'name': 'getting_around'}) }}"><img src="{{ asset('build/images/icons/small_move.gif') }}" alt="move"> {{'Weiter'|trans({}, 'help')}}:<strong> {{ 'Sich bewegen'|trans({},'help') }}</strong></a>
+{% endblock %}

@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use App\Interfaces\NamedEntity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
@@ -16,7 +17,7 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
  *     @UniqueConstraint(name="town_class_name_unique",columns={"name"})
  * })
  */
-class TownClass
+class TownClass implements NamedEntity
 {
 
     const EASY    = 'small';

@@ -40,6 +40,11 @@ class CitizenWatch
      */
     private $day;
 
+    /**
+     * @ORM\Column(type="boolean", nullable=true)
+     */
+    private $skipped = false;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -77,6 +82,18 @@ class CitizenWatch
     public function setDay(int $day): self
     {
         $this->day = $day;
+
+        return $this;
+    }
+
+    public function getSkipped(): ?bool
+    {
+        return $this->skipped;
+    }
+
+    public function setSkipped(?bool $skipped): self
+    {
+        $this->skipped = $skipped;
 
         return $this;
     }

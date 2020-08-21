@@ -113,6 +113,9 @@ class CitizenFixtures extends Fixture implements DependentFixtureInterface
         [ 'ref' => CauseOfDeath::Headshot     , 'label' => 'Kopfschuss', 'icon' => 'headshot', 'desc' => 'Das hast du wohl nicht erwartet... Wie wäre es, wenn du dich das nächste mal an die Regeln hältst?' ],
         [ 'ref' => CauseOfDeath::Radiations   , 'label' => 'Tod durch Radioaktivität', 'icon' => 'infection', 'desc' => 'Gibt an, wie oft du unter dem Einfluß von Radioaktivität das Zeitliche gesegnet hast.' ],
         [ 'ref' => CauseOfDeath::Haunted      , 'label' => 'Besessen von einer gequälten Seele', 'icon' => 'haunted', 'desc' => 'Während du die Worte des Schamanen vernommen hast, dachtest du nie, dass er es ernst meinte. Nichts ist 100%ig sicher in dieser Wüste und der Trank, den er dir gegeben hat... Nun, er hat nicht funktioniert. Die gequälte Seele, der du zu helfen versuchtest, hat sich an dich geklammert und deine ungeschützte Seele mit Leichtigkeit überwältigt. Ihre Gewalt und Wut hinterließen nichts von dir als eine leere Hülle, dazu verdammt, von der Horde verschlungen zu werden.' ],
+
+        [ 'ref' => CauseOfDeath::ExplosiveDoormat, 'label' => 'Explosion', 'icon' => 'unknown', 'desc' => '???' ],
+        [ 'ref' => CauseOfDeath::ChocolateCross,   'label' => 'Schokoladenkreuz', 'icon' => 'unknown', 'desc' => '???' ],
     ];
 
     public static $home_levels = [

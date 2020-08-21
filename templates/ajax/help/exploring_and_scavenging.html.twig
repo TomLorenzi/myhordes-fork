@@ -1,0 +1,25 @@
+{% extends "ajax/help/shell.html.twig" %}
+{% block helpContent %}
+<div class="helpArt">{{ 'Spielanleitung'|trans({},'help')|raw }}</div>
+<h1>{{ 'Erkunden und Graben'|trans({},'help')|raw }}</h1>
+<h2>{{ 'In einer Zone graben'|trans({},'help')|raw }}</h2>
+<p>
+{{ 'Du kannst in jeder Zone graben und allerlei nützliche Gegenstände finden, die du entweder gleich gebrauchen oder aber in die Stadt bringen kannst. <strong>Jede Zone kann einmal am Tag abgesucht werden.</strong>'|trans({},'help')|raw }}
+</p>
+<h2>{{ 'Automatisches Graben'|trans({},'help')|raw }}</h2>
+<p>
+{{ 'Nachdem du in einer Zone einmal gegraben hast, wechselst du in den <strong>Automatisch Graben</strong> Modus.
+Wenn du nach deiner Grabungsaktion in der gleichen Zone bleibst, kannst du <strong>alle 2 Stunden</strong> erneut graben.
+Du kannst deinen Browser in dieser Zeit auch schließen und das Spiel verlassen. Um zu erfahren, ob du etwas gefunden hast, kannst du dich zu einem späteren Zeitpunkt wieder einloggen.'|trans({},'help')|raw }}
+</p>
+<p>
+{{ 'Beachte: Wenn du die <strong>Zone verlässt</strong> wird der "Automatisch Graben"-Modus unterbrochen und kann nicht mehr gestartet werden. <em>Du kannst jedoch in einer anderen Zone wieder in den Automodus wechseln...</em>'|trans({},'help')|raw }}
+</p>
+<div class="clear"></div>
+<h2>{{ 'Außenweltgebäude'|trans({},'help')|raw }}</h2>
+<p>
+{{ 'Auf deinen Streifzügen durch die Außenwelt wirst du auch auf Gebäude stoßen, die unter dem Sand vergraben sind. In ihren Ruinen kannst du oft besondere, seltene und machmal auch gefährliche Gegenstände finden. Wenn du sie erforschen möchtest, musst du sie vorher von Unrat freiräumen.'|trans({},'help')|raw }}
+</p>
+<div class="clear"></div>
+<a class="button" x-ajax-href="{{ url('help', {'name': 'depleted_zones'}) }}"><img src="{{ asset('build/images/icons/small_move.gif') }}" alt="move"> {{'Weiter'|trans({}, 'help')}}:<strong> {{ 'Abgesuchte Zonen'|trans({},'help') }}</strong></a>
+{% endblock %}

@@ -2,11 +2,13 @@
 
 namespace App\Service;
 
+use App\Entity\Avatar;
 use App\Entity\CauseOfDeath;
 use App\Entity\Changelog;
 use App\Entity\HeroSkillPrototype;
 use App\Entity\Picto;
 use App\Entity\User;
+use Imagick;
 use DateTime;
 use Doctrine\ORM\EntityManagerInterface;
 use Exception;
@@ -15,6 +17,20 @@ use Symfony\Component\Security\Core\Role\RoleHierarchyInterface;
 
 class UserHandler
 {
+    const NoError                            = 0;
+    const ErrorAvatarBackendUnavailable      = ErrorHelper::BaseAvatarErrors +  1;
+    const ErrorAvatarTooLarge                = ErrorHelper::BaseAvatarErrors +  2;
+    const ErrorAvatarFormatUnsupported       = ErrorHelper::BaseAvatarErrors +  3;
+    const ErrorAvatarImageBroken             = ErrorHelper::BaseAvatarErrors +  4;
+    const ErrorAvatarResolutionUnacceptable  = ErrorHelper::BaseAvatarErrors +  5;
+    const ErrorAvatarProcessingFailed        = ErrorHelper::BaseAvatarErrors +  6;
+    const ErrorAvatarInsufficientCompression = ErrorHelper::BaseAvatarErrors +  7;
+
+    const ImageProcessingForceImagick = 0;
+    const ImageProcessingPreferImagick = 1;
+    const ImageProcessingDisableImagick = 2;
+
+
     private $entity_manager;
     private $roles;
     private $container;
@@ -246,6 +262,7 @@ class UserHandler
         }
         $citizen = $user->getActiveCitizen();
         if ($citizen) {
+            $r = [];
             $this->container->get(DeathHandler::class)->kill( $citizen, CauseOfDeath::Headshot, $r );
             foreach ($r as $re) $this->entity_manager->remove($re);
         }
@@ -331,5 +348,156 @@ class UserHandler
         ) return false;
 
         return true;
+    }
+
+    public function setUserBaseAvatar( User $user, $payload, int $imagick_setting = self::ImageProcessingForceImagick, string $ext = null, int $x = 100, int $y = 100 ): int {
+
+        // Processing limit: 3MB
+        if (strlen( $payload ) > 3145728) return self::ErrorAvatarTooLarge;
+
+        if ($imagick_setting === self::ImageProcessingForceImagick && !extension_loaded('imagick')) return self::ErrorAvatarBackendUnavailable;
+
+        if (extension_loaded('imagick') && $imagick_setting !== self::ImageProcessingDisableImagick) {
+            $im_image = new Imagick();
+            $processed_image_data = null;
+
+            try {
+                if (!$im_image->readImageBlob($payload))
+                    return self::ErrorAvatarImageBroken;
+
+                if (!in_array($im_image->getImageFormat(), ['GIF','JPEG','BMP','PNG','WEBP']))
+                    return self::ErrorAvatarFormatUnsupported;
+
+                if ($im_image->getImageFormat() === 'GIF') {
+                    $im_image->coalesceImages();
+                    $im_image->resetImagePage('0x0');
+                    $im_image->setFirstIterator();
+                }
+
+                $w = $im_image->getImageWidth();
+                $h = $im_image->getImageHeight();
+
+                if ($w / $h < 0.1 || $h / $w < 0.1 || $h < 16 || $w < 16)
+                    return self::ErrorAvatarResolutionUnacceptable;
+
+                if ( (max($w,$h) > 200 || min($w,$h < 90)) &&
+                    !$im_image->resizeImage(
+                        min(200,max(90,$w,$h)),
+                        min(200,max(90,$w,$h)),
+                        imagick::FILTER_SINC, 1, true )
+                ) return self:: ErrorAvatarProcessingFailed;
+
+                if ($im_image->getImageFormat() === 'GIF')
+                    $im_image->setFirstIterator();
+
+                $w_final = $im_image->getImageWidth();
+                $h_final = $im_image->getImageHeight();
+
+                switch ($im_image->getImageFormat()) {
+                    case 'JPEG':
+                        $im_image->setImageCompressionQuality ( 90 );
+                        break;
+                    case 'PNG':
+                        $im_image->setOption('png:compression-level', 9);
+                        break;
+                    case 'GIF':
+                        $im_image->setOption('optimize', true);
+                        break;
+                    default: break;
+                }
+
+                $processed_image_data = $im_image->getImagesBlob();
+                $processed_format = strtolower( $im_image->getImageFormat() );
+            } catch (Exception $e) {
+                return self::ErrorAvatarProcessingFailed;
+            }
+        } else {
+            $processed_image_data = $payload;
+            $processed_format = $ext;
+            $w_final = $x ?: 100;
+            $h_final = $y ?: 100;
+        }
+
+        if (strlen($processed_image_data) > 1048576) return self::ErrorAvatarInsufficientCompression;
+
+        $name = md5( $processed_image_data );
+        if (!($avatar = $user->getAvatar())) {
+            $avatar = new Avatar();
+            $user->setAvatar($avatar);
+        }
+
+        $avatar
+            ->setChanged(new DateTime())
+            ->setFilename( $name )
+            ->setSmallName( $name )
+            ->setFormat( $processed_format )
+            ->setImage( $processed_image_data )
+            ->setX( $w_final )
+            ->setY( $h_final )
+            ->setSmallImage( null );
+
+        return self::NoError;
+    }
+
+    public function setUserSmallAvatar( User $user, $payload = null, ?int $x = null, ?int $y = null, ?int $dx = null, ?int $dy = null ): int {
+        $avatar = $user->getAvatar();
+
+        if (!$avatar || $avatar->isClassic())
+            return self::ErrorAvatarFormatUnsupported;
+
+        // Processing limit: 3MB
+        if ($payload !== null && strlen( $payload ) > 3145728) return self::ErrorAvatarTooLarge;
+        if ($payload === null && !extension_loaded('imagick')) return self::ErrorAvatarBackendUnavailable;
+
+        if ($payload === null) {
+            if (
+                $x < 0 || $dx < 0 || $x + $dx > $avatar->getX() ||
+                $y < 0 || $dy < 0 || $y + $dy > $avatar->getY()
+            ) return self::ErrorAvatarFormatUnsupported;
+
+            $im_image = new Imagick();
+            $processed_image_data = null;
+
+            try {
+                if (!$im_image->readImageBlob(stream_get_contents( $avatar->getImage() )))
+                    return self::ErrorAvatarImageBroken;
+
+                $im_image->setFirstIterator();
+
+                if (!$im_image->cropImage( $dx, $dy, $x, $y ))
+                    return self::ErrorAvatarProcessingFailed;
+
+                $im_image->setFirstIterator();
+
+                $iw = $im_image->getImageWidth(); $ih = $im_image->getImageHeight();
+                if ($iw < 90 || $ih < 30 || ($ih/$iw != 3)) {
+                    $new_height = max(30,$ih);
+                    $new_width = $new_height * 3;
+                    if (!$im_image->resizeImage(
+                        $new_width, $new_height,
+                        imagick::FILTER_SINC, 1, true ))
+                        return self::ErrorAvatarProcessingFailed;
+                }
+
+                if ($im_image->getImageFormat() === 'GIF')
+                    $im_image->setOption('optimize', true);
+
+                $processed_image_data = $im_image->getImagesBlob();
+
+            } catch (Exception $e) {
+                return self::ErrorAvatarProcessingFailed;
+            }
+        } else
+            $processed_image_data = $payload;
+
+        if (strlen($processed_image_data) > 1048576) return self::ErrorAvatarInsufficientCompression;
+
+        $name = md5( (new DateTime())->getTimestamp() );
+
+        $avatar
+            ->setSmallName( $name )
+            ->setSmallImage( $processed_image_data );
+
+        return self::NoError;
     }
 }

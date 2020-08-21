@@ -36,6 +36,11 @@ class RequireItem
      */
     private $count;
 
+    /**
+     * @ORM\Column(type="boolean", nullable=true)
+     */
+    private $allowPoison;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -85,6 +90,18 @@ class RequireItem
     public function setCount(?int $count): self
     {
         $this->count = $count;
+
+        return $this;
+    }
+
+    public function getAllowPoison(): ?bool
+    {
+        return $this->allowPoison;
+    }
+
+    public function setAllowPoison(?bool $allowPoison): self
+    {
+        $this->allowPoison = $allowPoison;
 
         return $this;
     }

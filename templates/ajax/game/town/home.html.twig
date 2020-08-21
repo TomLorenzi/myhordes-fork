@@ -104,7 +104,7 @@
 
                 {% embed "ajax/game/inventory.html.twig" with {'size': chest_size, 'items': chest.items} %}
                     {% block class %}chest{% endblock %}
-                    {% block title %}{% trans from 'game' %}Truhe{% endtrans %}{% endblock %}
+                    {% block title %}{% trans from 'game' %}Truhe{% endtrans %} ({{chest_size}}){% endblock %}
                 {% endembed %}
             </div>
         </div>

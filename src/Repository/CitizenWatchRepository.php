@@ -6,6 +6,7 @@ use App\Entity\Citizen;
 use App\Entity\CitizenWatch;
 use App\Entity\Town;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\ORM\NonUniqueResultException;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
@@ -45,18 +46,21 @@ class CitizenWatchRepository extends ServiceEntityRepository
         ;
     }
 
-    public function findWatchOfCitizenForADay(Citizen $citizen, int $day){
-         return $this->createQueryBuilder('c')
-            ->andWhere('c.town = :town')
-            ->andWhere('c.citizen = :citizen')
-            ->andWhere('c.day = :day')
-            ->setParameter('town', $citizen->getTown())
-            ->setParameter('citizen', $citizen)
-            ->setParameter('day', $day)
-            ->orderBy('c.day', 'ASC')
-            ->getQuery()
-            ->getOneOrNullResult()
-        ;
+    public function findWatchOfCitizenForADay(Citizen $citizen, int $day): ?CitizenWatch {
+        try {
+            return $this->createQueryBuilder('c')
+                ->andWhere('c.town = :town')
+                ->andWhere('c.citizen = :citizen')
+                ->andWhere('c.day = :day')
+                ->setParameter('town', $citizen->getTown())
+                ->setParameter('citizen', $citizen)
+                ->setParameter('day', $day)
+                ->orderBy('c.day', 'ASC')
+                ->getQuery()
+                ->getOneOrNullResult();
+        } catch (NonUniqueResultException $e) {
+            return null;
+        }
     }
 
     // /**

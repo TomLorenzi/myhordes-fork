@@ -1416,22 +1416,22 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
         if($zone == null)
             return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
 
-        $str = array();
-        $str[] = $this->translator->trans('Du führst einen mystischen Tanz auf und bittest den Himmel um Regen, der diese Zone von bösen Geistern befreien wird.', [], 'game');
+        $str = [];
+        $str[] = $this->translator->trans('Du vollführst einen Schamanentanz und betest zum Himmel, dass er Regen bringen und diese unselige Zone reinigen möge.', [], 'game');
 
         $success = $this->random_generator->chance(0.75);
 
-        if(!$success){
-            $str[] = $this->translator->trans('Nichts passiert. Wenn dich jemand gesehen hätte, würde er dich sicherlich für den schlechtesten Amateur aller Zeiten halten. Und Blasen hast du jetzt auch noch an den Füßen...', [], 'game');
+        if (!$success) {
+            $str[] = $this->translator->trans('Doch nichts passiert... Soviel steht fest, du stehst nun wie ein lausiger Amateur da. Außer Blasen an den Füßen hat das alles nichts eingebracht...', [], 'game');
         } else {
-            if($zone->getX() != 0 || $zone->getY() != 0) {
+            if (0 != $zone->getX() || 0 != $zone->getY()) {
                 $nbKills = min(mt_rand(3, 6), $zone->getZombies());
                 $this->entity_manager->persist($this->log->zombieKillShaman($citizen, $nbKills));
-                $zone->setZombies( $citizen->getZone()->getZombies() - $nbKills );
+                $zone->setZombies($citizen->getZone()->getZombies() - $nbKills);
                 $this->entity_manager->persist($zone);
-                $str[] = $this->translator->trans("Und die Energie, die in diesen Tanz gesteckt wurde, zahlt sich schließlich aus, die ersten Tropfen fallen auf die Zombies und du genießt diesen delikaten Moment, in dem ihr Fleisch wie Schnee in der Sonne schmilzt und du geduldig wartest, bis sich ihre Körper verflüssigen.", [], 'game');
+                $str[] = $this->translator->trans('Und die Energie, die in diesen Tanz gesteckt wurde, zahlt sich schließlich aus, die ersten Tropfen fallen auf die Zombies und du genießt diesen delikaten Moment, in dem ihr Fleisch wie Schnee in der Sonne schmilzt und du geduldig wartest, bis sich ihre Körper verflüssigen.', [], 'game');
             } else {
-                $str[] = $this->translator->trans("Ob es sich um Gedankenkontrolle oder die Zufälligkeit des Wetters handelt: Regentropfen fallen auf die Stadt und bringen ein wenig Trinkwasser für den Brunnen.", [], 'game');
+                $str[] = $this->translator->trans('Ob durch deine Kräfte oder unverschämtes Wetterglück, dicke Regentropfen fallen auf die Stadt herab und füllen ein wenig den Brunnen auf.', [], 'game');
                 $town = $citizen->getTown();
                 $town->setWell($town->getWell() + 5);
                 $this->entity_manager->persist($town);

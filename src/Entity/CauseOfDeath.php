@@ -33,6 +33,8 @@ class CauseOfDeath
     const Headshot = 15;
     const Radiations = 16;
     const Haunted = 17;
+    const ExplosiveDoormat = 18;
+    const ChocolateCross = 19;
 
     /**
      * @ORM\Id()

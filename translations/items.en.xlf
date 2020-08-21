@@ -2572,7 +2572,7 @@
       </notes>
       <segment>
         <source>Leerer Automat</source>
-        <target>Leerer Automat</target>
+        <target>Empty Vending Machine</target>
       </segment>
     </unit>
     <unit id="ruH1BcS" name="Santas Rentier">
@@ -6586,7 +6586,7 @@
       </notes>
       <segment>
         <source>Ausweiden</source>
-        <target>Cut</target>
+        <target>Carve</target>
       </segment>
     </unit>
     <unit id="24l83Eh" name="7fe00d0">
@@ -6595,7 +6595,7 @@
       </notes>
       <segment>
         <source>Der Metzger hat sich gut um {item} gekümmert... Dafür hast du nun {items_spawn} erhalten. Auf wiedersehen, mein Freund!</source>
-        <target>The butcher took great care of {item} ... You now have {items_spawn} erhalten. Goodbye dear friend!</target>
+        <target>The butcher took great care of {item} ... You now have {items_spawn}. Goodbye dear friend!</target>
       </segment>
     </unit>
     <unit id="OeuOyF4" name="Haus aufräumen und putzen">
@@ -6685,7 +6685,7 @@
       </notes>
       <segment>
         <source>&lt;t-zone&gt;Du hast eine neue Ruine auf {zone} entdeckt!&lt;/t-zone&gt;&lt;nt-zone&gt;Es scheint, als gäbe es nichts mehr zu entdecken ...&lt;/nt-zone&gt;</source>
-        <target><![CDATA[<t-zone>Du hast eine neue Ruine auf {zone} entdeckt!</t-zone><nt-zone>Es scheint, als gäbe es nichts mehr zu entdecken ...</nt-zone>]]></target>
+        <target><![CDATA[<t-zone>You have discovered a new ruin on {zone}!</t-zone><nt-zone>It seems like there is nothing left to discover ...</nt-zone>]]></target>
       </segment>
     </unit>
     <unit id="zI0j8nd" name="Wasserwaffen füllen">
@@ -6739,7 +6739,7 @@
       </notes>
       <segment>
         <source>In deinem Labor hast du {items_consume} in {items_spawn} umgewandelt.</source>
-        <target>In deinem Labor hast du {items_consume} in {items_spawn} umgewandelt.</target>
+        <target>You grind the contents of {items_consume} on the table and mix it with anything and everything that comes to hand... then let it infuse. You have obtained {items_spawn}.</target>
       </segment>
     </unit>
     <unit id="6NDJKlk" name="Hierfür brauchst du 2x Pharmazeutische Substanz...">
@@ -6766,7 +6766,8 @@
       </notes>
       <segment>
         <source>In deiner Küche hast du {items_consume} in {items_spawn} umgewandelt.</source>
-        <target>In deiner Küche hast du {items_consume} in {items_spawn} umgewandelt.</target>
+        <target>You use {items_consume} and a few other bits and pieces.
+You put every effort into it. Then, after some time passes, you retrieve a {items_spawn} from the "stove".</target>
       </segment>
     </unit>
     <unit id="GhoMZLz" name="Gegenstände suchen">
@@ -6847,7 +6848,7 @@
       </notes>
       <segment>
         <source>Du versuchst dich ein paar Minuten auszuruhen.&lt;t-ap-up&gt;Nach einer kurzen Pause fühlst du dich nun viel besser. Du hast 2 AP erhalten !&lt;/t-ap-up&gt;&lt;nt-ap-up&gt;Leider bekommst du kein Auge zu: Der Gedanke an heute Abend, deinen Tod, sowie deine geringen Überlebenschancen lassen dir keine Ruhe...&lt;/nt-ap-up&gt;</source>
-        <target><![CDATA[Du versuchst dich ein paar Minuten auszuruhen.<t-ap-up>Nach einer kurzen Pause fühlst du dich nun viel besser. Du hast 2 AP erhalten !</t-ap-up><nt-ap-up>Leider bekommst du kein Auge zu: Der Gedanke an heute Abend, deinen Tod, sowie deine geringen Überlebenschancen lassen dir keine Ruhe...</nt-ap-up>]]></target>
+        <target><![CDATA[You rest for a few minutes.<t-ap-up>Even a short break like that made you feel much better! You have regained 2 AP!</t-ap-up><nt-ap-up>Unfortunately, you don't even manage to close your eyes. You think too much about tonight, about dying and about your feeble chance of survival...</nt-ap-up>]]></target>
       </segment>
     </unit>
     <unit id="p0SlVNr" name="4ec35c5">
@@ -6856,7 +6857,7 @@
       </notes>
       <segment>
         <source>Du hast soeben den mystischen Trank getrunken. Hoffen wir, dass dieser Schamane weiß, was er tut...</source>
-        <target>You just drank a shamanic potion. Now there's nothing for it, but to cross your fingers and hope this witch doctor isn't just some crazy drunk who doesn't like to wash...</target>
+        <target>You just drank a Mystic potion. Now there's nothing for it, but to cross your fingers and hope this witch doctor isn't just some crazy drunk who doesn't like to wash...</target>
       </segment>
     </unit>
     <unit id="qpQMEHf" name="5f07d6b">
@@ -6982,7 +6983,7 @@
       </notes>
       <segment>
         <source>&lt;t-fail&gt;{item} kann keine schweren Gegenstände tragen...&lt;/t-fail&gt;&lt;nt-fail&gt;Du hast den {item} mit deinen Gegenständen in die Stadt geschickt.&lt;/nt-fail&gt;</source>
-        <target><![CDATA[<t-fail>{item} kann keine schweren Gegenstände tragen...</t-fail><nt-fail>Du hast den {item} mit deinen Gegenständen in die Stadt geschickt.</nt-fail>]]></target>
+        <target><![CDATA[<t-fail>{item} cannot carry heavy objects...</t-fail><nt-fail>You send {item} in the direction of the town with the contents of your rucksack.</nt-fail>]]></target>
       </segment>
     </unit>
     <unit id="tqLPvCK" name="Heilen">
@@ -7036,7 +7037,7 @@
       </notes>
       <segment>
         <source>Du nimmst das {item} ein, aber es scheint keinen Effekt zu haben... Vielleicht hast du das gar nicht gebraucht?</source>
-        <target>Du nimmst das {item} ein, aber es scheint keinen Effekt zu haben... Vielleicht hast du das gar nicht gebraucht?</target>
+        <target>You take the {item} but it doesn't seem to have any effect ... Maybe you didn't need it at all?</target>
       </segment>
     </unit>
     <unit id="OXWKuXW" name="b549796">
@@ -7045,7 +7046,7 @@
       </notes>
       <segment>
         <source>Du befestigst den {item} und bedeckst ihn zur Tarnung mit herumliegendem Müll und vertrockneten Zweigen. Na bitte, das sollte hoffentlich deine Überlebenschancen heute Nacht verbessern. Du hast dafür 1 Aktionspunkt verbraucht.</source>
-        <target>Du befestigst den {item} und bedeckst ihn zur Tarnung mit herumliegendem Müll und vertrockneten Zweigen. Na bitte, das sollte hoffentlich deine Überlebenschancen heute Nacht verbessern. Du hast dafür 1 Aktionspunkt verbraucht.</target>
+        <target>You attach the {item} and cover it with camouflage garbage and dried branches for camouflage. Well please, that should hopefully improve your chances of survival tonight. You have used 1 Action point for this.</target>
       </segment>
     </unit>
     <unit id="68c4rQB" name="2cc9126">
@@ -7135,7 +7136,7 @@
       </notes>
       <segment>
         <source>&lt;t-escape&gt;Du setzt {item} in Gang. Ein gewaltiger Blitz schießt heraus und blendet die Zombies! Du solltest diese Gelegenheit zur Flucht nutzen.&lt;/t-escape&gt;&lt;t-reverse-escape&gt;Du setzt {item} in Gang. Ein gewaltiger Blitz schießt heraus, mitten in die Reihen der Zombies! Geblendet ergreifen {zombies} Zombies die Flucht.&lt;/t-reverse-escape&gt;</source>
-        <target><![CDATA[<t-escape>Du setzt {item} in Gang. Ein gewaltiger Blitz schießt heraus und blendet die Zombies! Du solltest diese Gelegenheit zur Flucht nutzen.</t-escape><t-reverse-escape>Du setzt {item} in Gang. Ein gewaltiger Blitz schießt heraus, mitten in die Reihen der Zombies! Geblendet ergreifen {zombies} Zombies die Flucht.</t-reverse-escape>]]></target>
+        <target><![CDATA[<t-escape>You set off the {item} The violent flash sends a blast of photons into the zombie ranks! Blinded, they stumble around, unable to find you.</t-escape><t-reverse-escape>Du setzt {item} in Gang. Ein gewaltiger Blitz schießt heraus, mitten in die Reihen der Zombies! Geblendet ergreifen {zombies} Zombies die Flucht.</t-reverse-escape>]]></target>
       </segment>
     </unit>
     <unit id="Y1T4Y0D" name="Schönes Fundstück">
