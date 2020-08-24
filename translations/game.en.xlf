@@ -1827,7 +1827,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Das ist deine Chance - ergreife sie und fliehe! In Kürze werden die Zombies die Kontrolle über die Zone zurückerlangen. Dir verbleiden:</source>
-        <target>C'est votre chance ! Saisissez là et fuyez ! Bientôt, les zombies reprendront le contrôle de la zone. Il vous reste :</target>
+        <target>You have lost control of the zone (perhaps because another citizen left the zone without you) ! To escape before you get trapped, you have to leave before the timer runs out :</target>
       </segment>
     </unit>
     <unit id="1lHHd11" name="c57da02">
