@@ -1212,7 +1212,7 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             if ($data === null && !isset(static::$item_actions['meta_requirements'][$id])) throw new Exception('Requirement definition not found: ' . $id);
 
             $data = $data ?: static::$item_actions['meta_requirements'][$id];
-            $requirement = $manager->getRepository(Requirement::class)->findOneByName( $id );
+            $requirement = $manager->getRepository(Requirement::class)->findOneBy(['name' => $id]);
             if ($requirement) $out->writeln( "\t\t<comment>Update</comment> meta condition <info>$id</info>", OutputInterface::VERBOSITY_DEBUG );
             else {
                 $requirement = new Requirement();
@@ -1297,7 +1297,7 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
         array &$cache, string $id, array $data): RequireAP
     {
         if (!isset($cache[$id])) {
-            $requirement = $manager->getRepository(RequireAP::class)->findOneByName( $id );
+            $requirement = $manager->getRepository(RequireAP::class)->findOneBy(['name' => $id]);
             if ($requirement) $out->writeln( "\t\t\t<comment>Update</comment> condition <info>ap/{$id}</info>", OutputInterface::VERBOSITY_DEBUG );
             else {
                 $requirement = new RequireAP();
@@ -1325,7 +1325,7 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
         array &$cache, string $id, array $data): RequirePM
     {
         if (!isset($cache[$id])) {
-            $requirement = $manager->getRepository(RequirePM::class)->findOneByName( $id );
+            $requirement = $manager->getRepository(RequirePM::class)->findOneBy(['name' => $id]);
             if ($requirement) $out->writeln( "\t\t\t<comment>Update</comment> condition <info>pm/{$id}</info>", OutputInterface::VERBOSITY_DEBUG );
             else {
                 $requirement = new RequirePM();
@@ -1353,15 +1353,15 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
         array &$cache, string $id, array $data): RequireStatus
     {
         if (!isset($cache[$id])) {
-            $requirement = $manager->getRepository(RequireStatus::class)->findOneByName( $id );
+            $requirement = $manager->getRepository(RequireStatus::class)->findOneBy(['name' => $id]);
             if ($requirement) $out->writeln( "\t\t\t<comment>Update</comment> condition <info>status/{$id}</info>", OutputInterface::VERBOSITY_DEBUG );
             else {
                 $requirement = new RequireStatus();
                 $out->writeln( "\t\t\t<comment>Create</comment> condition <info>status/{$id}</info>", OutputInterface::VERBOSITY_DEBUG );
             }
-            $status = isset($data['status']) ? $manager->getRepository(CitizenStatus::class)->findOneByName( $data['status'] ) : null;
-            $prof = isset($data['profession']) ? $manager->getRepository(CitizenProfession::class)->findOneByName( $data['profession'] ) : null;
-            $role = isset($data['role']) ? $manager->getRepository(CitizenRole::class)->findOneByName( $data['role'] ) : null;
+            $status = isset($data['status']) ? $manager->getRepository(CitizenStatus::class)->findOneBy(['name' => $data['status']]) : null;
+            $prof = isset($data['profession']) ? $manager->getRepository(CitizenProfession::class)->findOneBy(['name' => $data['profession']]) : null;
+            $role = isset($data['role']) ? $manager->getRepository(CitizenRole::class)->findOneBy(['name' => $data['role']]) : null;
             if (isset($data['status']) && !$status) throw new Exception('Status condition not found: ' . $data['status']);
             if (isset($data['profession']) && !$prof) throw new Exception('Profession not found: ' . $data['profession']);
             if (isset($data['role']) && !$role) throw new Exception('Role not found: ' . $data['role']);
@@ -1387,17 +1387,17 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
         array &$cache, string $id, array $data): RequireItem
     {
         if (!isset($cache[$id])) {
-            $requirement = $manager->getRepository(RequireItem::class)->findOneByName( $id );
+            $requirement = $manager->getRepository(RequireItem::class)->findOneBy(['name' => $id]);
             if ($requirement) $out->writeln( "\t\t\t<comment>Update</comment> condition <info>item/{$id}</info>", OutputInterface::VERBOSITY_DEBUG );
             else {
                 $requirement = new RequireItem();
                 $out->writeln( "\t\t\t<comment>Create</comment> condition <info>item/{$id}</info>", OutputInterface::VERBOSITY_DEBUG );
             }
-            $prototype = empty($data['item']) ? null : $manager->getRepository(ItemPrototype::class)->findOneByName( $data['item'] );
+            $prototype = empty($data['item']) ? null : $manager->getRepository(ItemPrototype::class)->findOneBy(['name' => $data['item']]);
             if (!empty($data['item']) && ! $prototype)
                 throw new Exception('Item prototype not found: ' . $data['item']);
 
-            $property  = empty($data['prop']) ? null : $manager->getRepository(ItemProperty::class )->findOneByName( $data['prop'] );
+            $property  = empty($data['prop']) ? null : $manager->getRepository(ItemProperty::class )->findOneBy(['name' => $data['prop']]);
             if (!empty($data['prop']) && ! $property)
                 throw new Exception('Item property not found: ' . $data['prop']);
 
@@ -1425,7 +1425,7 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
         array &$cache, string $id, array $data): RequireLocation
     {
         if (!isset($cache[$id])) {
-            $requirement = $manager->getRepository(RequireLocation::class)->findOneByName( $id );
+            $requirement = $manager->getRepository(RequireLocation::class)->findOneBy(['name' => $id]);
             if ($requirement) $out->writeln( "\t\t\t<comment>Update</comment> condition <info>location/{$id}</info>", OutputInterface::VERBOSITY_DEBUG );
             else {
                 $requirement = new RequireLocation();
@@ -1460,7 +1460,7 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
         array &$cache, string $id, array $data): RequireZombiePresence
     {
         if (!isset($cache[$id])) {
-            $requirement = $manager->getRepository(RequireZombiePresence::class)->findOneByName( $id );
+            $requirement = $manager->getRepository(RequireZombiePresence::class)->findOneBy(['name' => $id]);
             if ($requirement) $out->writeln( "\t\t\t<comment>Update</comment> condition <info>zombies/{$id}</info>", OutputInterface::VERBOSITY_DEBUG );
             else {
                 $requirement = new RequireZombiePresence();
@@ -1491,7 +1491,7 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
         array &$cache, string $id, array $data): RequireHome
     {
         if (!isset($cache[$id])) {
-            $requirement = $manager->getRepository(RequireHome::class)->findOneByName( $id );
+            $requirement = $manager->getRepository(RequireHome::class)->findOneBy(['name' => $id]);
             if ($requirement) $out->writeln( "\t\t\t<comment>Update</comment> condition <info>home/{$id}</info>", OutputInterface::VERBOSITY_DEBUG );
             else {
                 $requirement = new RequireHome();
@@ -1504,7 +1504,7 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
                 ->setMaxLevel( $data['max_level'] ?? null );
 
             if (isset($data['upgrade'])) {
-                $proto = $manager->getRepository(CitizenHomeUpgradePrototype::class)->findOneByName($data['upgrade']);
+                $proto = $manager->getRepository(CitizenHomeUpgradePrototype::class)->findOneBy(['name' => $data['upgrade']]);
                 if (!$proto) throw new Exception('Home upgrade prototype not found: ' . $data['upgrade']);
                 $requirement->setUpgrade( $proto );
             }
@@ -1529,7 +1529,7 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
         array &$cache, string $id, array $data): RequireCounter
     {
         if (!isset($cache[$id])) {
-            $requirement = $manager->getRepository(RequireCounter::class)->findOneByName( $id );
+            $requirement = $manager->getRepository(RequireCounter::class)->findOneBy(['name' => $id]);
             if ($requirement) $out->writeln( "\t\t\t<comment>Update</comment> condition <info>counter/{$id}</info>", OutputInterface::VERBOSITY_DEBUG );
             else {
                 $requirement = new RequireCounter();
@@ -1562,7 +1562,7 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
         array &$cache, string $id, array $data): RequireZone
     {
         if (!isset($cache[$id])) {
-            $requirement = $manager->getRepository(RequireZone::class)->findOneByName( $id );
+            $requirement = $manager->getRepository(RequireZone::class)->findOneBy(['name' => $id]);
             if ($requirement) $out->writeln( "\t\t\t<comment>Update</comment> condition <info>zone/{$id}</info>", OutputInterface::VERBOSITY_DEBUG );
             else {
                 $requirement = new RequireZone();
@@ -1591,7 +1591,7 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
         array &$cache, string $id, array $data): RequireBuilding
     {
         if (!isset($cache[$id])) {
-            $requirement = $manager->getRepository(RequireBuilding::class)->findOneByName( $id );
+            $requirement = $manager->getRepository(RequireBuilding::class)->findOneBy(['name' => $id]);
             if ($requirement) $out->writeln( "\t\t\t<comment>Update</comment> condition <info>building/{$id}</info>", OutputInterface::VERBOSITY_DEBUG );
             else {
                 $requirement = new RequireBuilding();
@@ -1633,7 +1633,7 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             if ($data === null && !isset(static::$item_actions['meta_results'][$id])) throw new Exception('Result definition not found: ' . $id);
             $data = $data ?: static::$item_actions['meta_results'][$id];
 
-            $result = $manager->getRepository(Result::class)->findOneByName( $id );
+            $result = $manager->getRepository(Result::class)->findOneBy(['name' => $id]);
             if ($result) $out->writeln( "\t\t<comment>Update</comment> meta effect <info>$id</info>", OutputInterface::VERBOSITY_DEBUG );
             else {
                 $result = new Result();
@@ -1741,18 +1741,18 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
         array &$cache, string $id, array $data): AffectStatus
     {
         if (!isset($cache[$id])) {
-            $result = $manager->getRepository(AffectStatus::class)->findOneByName( $id );
+            $result = $manager->getRepository(AffectStatus::class)->findOneBy(['name' => $id]);
             if ($result) $out->writeln( "\t\t\t<comment>Update</comment> effect <info>status/{$id}</info>", OutputInterface::VERBOSITY_DEBUG );
             else {
                 $result = new AffectStatus();
                 $out->writeln( "\t\t\t<comment>Create</comment> effect <info>status/{$id}</info>", OutputInterface::VERBOSITY_DEBUG );
             }
-            $status_from = empty($data['from']) ? null : $manager->getRepository(CitizenStatus::class)->findOneByName( $data['from'] );
+            $status_from = empty($data['from']) ? null : $manager->getRepository(CitizenStatus::class)->findOneBy(['name' => $data['from']]);
             if (!$status_from && !empty($data['from'])) throw new Exception('Status effect not found: ' . $data['from']);
-            $status_to = empty($data['to']) ? null : $manager->getRepository(CitizenStatus::class)->findOneByName( $data['to'] );
+            $status_to = empty($data['to']) ? null : $manager->getRepository(CitizenStatus::class)->findOneBy(['name' => $data['to']]);
             if (!$status_to && !empty($data['to'])) throw new Exception('Status effect not found: ' . $data['to']);
 
-            $role = (empty($data['role']) || !isset( $data['enabled'] ) || $data['enabled'] === null) ? null : $manager->getRepository(CitizenRole::class)->findOneByName( $data['role'] );
+            $role = (empty($data['role']) || !isset( $data['enabled'] ) || $data['enabled'] === null) ? null : $manager->getRepository(CitizenRole::class)->findOneBy(['name' => $data['role']]);
 
             $result
                 ->setResetThirstCounter( $data['reset_thirst'] ?? null )
@@ -1783,7 +1783,7 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
         array &$cache, string $id, array $data): AffectAP
     {
         if (!isset($cache[$id])) {
-            $result = $manager->getRepository(AffectAP::class)->findOneBy(['name' => $id ]);
+            $result = $manager->getRepository(AffectAP::class)->findOneBy(['name' => $id]);
             if ($result) $out->writeln( "\t\t\t<comment>Update</comment> effect <info>ap/{$id}</info>", OutputInterface::VERBOSITY_DEBUG );
             else {
                 $result = new AffectAP();
@@ -1812,7 +1812,7 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
         array &$cache, string $id, array $data): AffectPM
     {
         if (!isset($cache[$id])) {
-            $result = $manager->getRepository(AffectPM::class)->findOneByName( $id );
+            $result = $manager->getRepository(AffectPM::class)->findOneBy(['name' => $id]);
             if ($result) $out->writeln( "\t\t\t<comment>Update</comment> effect <info>pm/{$id}</info>", OutputInterface::VERBOSITY_DEBUG );
             else {
                 $result = new AffectPM();
@@ -1841,14 +1841,14 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
         array &$cache, string $id, array $data): AffectDeath
     {
         if (!isset($cache[$id])) {
-            $result = $manager->getRepository(AffectDeath::class)->findOneByName( $id );
+            $result = $manager->getRepository(AffectDeath::class)->findOneBy(['name' => $id]);
             if ($result) $out->writeln( "\t\t\t<comment>Update</comment> effect <info>death/{$id}</info>", OutputInterface::VERBOSITY_DEBUG );
             else {
                 $result = new AffectDeath();
                 $out->writeln( "\t\t\t<comment>Create</comment> effect <info>death/{$id}</info>", OutputInterface::VERBOSITY_DEBUG );
             }
 
-            $result->setName( $id )->setCause(  $manager->getRepository(CauseOfDeath::class)->findOneByRef( $data[0] ));
+            $result->setName( $id )->setCause(  $manager->getRepository(CauseOfDeath::class)->findOneBy( ['ref' => $data[0]] ));
             $manager->persist( $cache[$id] = $result );
         } else $out->writeln( "\t\t\t<comment>Skip</comment> effect <info>death/{$id}</info>", OutputInterface::VERBOSITY_DEBUG );
 
@@ -1869,7 +1869,7 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
         array &$cache, string $id, array $data): AffectBlueprint
     {
         if (!isset($cache[$id])) {
-            $result = $manager->getRepository(AffectBlueprint::class)->findOneByName( $id );
+            $result = $manager->getRepository(AffectBlueprint::class)->findOneBy(['name' => $id]);
             if ($result) {
                 $result->getList()->clear();
                 $out->writeln( "\t\t\t<comment>Update</comment> effect <info>blueprint/{$id}</info>", OutputInterface::VERBOSITY_DEBUG );
@@ -1914,13 +1914,13 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
         array &$cache, string $id, array $data): AffectOriginalItem 
     {
         if (!isset($cache[$id])) {
-            $result = $manager->getRepository(AffectOriginalItem::class)->findOneByName( $id );
+            $result = $manager->getRepository(AffectOriginalItem::class)->findOneBy(['name' => $id]);
             if ($result) $out->writeln( "\t\t\t<comment>Update</comment> effect <info>item/{$id}</info>", OutputInterface::VERBOSITY_DEBUG );
             else {
                 $result = new AffectOriginalItem();
                 $out->writeln( "\t\t\t<comment>Create</comment> effect <info>item/{$id}</info>", OutputInterface::VERBOSITY_DEBUG );
             }
-            $morph_to = empty($data['morph']) ? null : $manager->getRepository(ItemPrototype::class)->findOneByName( $data['morph'] );
+            $morph_to = empty($data['morph']) ? null : $manager->getRepository(ItemPrototype::class)->findOneBy(['name' => $data['morph']]);
             if (!$morph_to && !empty($data['morph'])) throw new Exception('Item prototype not found: ' . $data['morph']);
 
             if ($morph_to && $data['consume']) throw new Exception('Item effects cannot morph and consume at the same time!');
@@ -1948,7 +1948,7 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
         array &$cache, string $id, array $data): AffectItemSpawn
     {
         if (!isset($cache[$id])) {
-            $result = $manager->getRepository(AffectItemSpawn::class)->findOneByName( $id );
+            $result = $manager->getRepository(AffectItemSpawn::class)->findOneBy(['name' => $id]);
             if ($result) $out->writeln( "\t\t\t<comment>Update</comment> effect <info>spawn/{$id}</info>", OutputInterface::VERBOSITY_DEBUG );
             else {
                 $result = (new AffectItemSpawn())->setName( $id );
@@ -1958,18 +1958,18 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             if (count($data) === 1) {
                 $name = is_array($data[0]) ? $data[0][0] : $data[0];
                 $count =  is_array($data[0]) ? $data[0][1] : 1;
-                $prototype = $manager->getRepository(ItemPrototype::class)->findOneByName( $name );
+                $prototype = $manager->getRepository(ItemPrototype::class)->findOneBy(['name' => $name]);
                 if (!$prototype) throw new Exception('Item prototype not found: ' . $name);
                 $result->setPrototype( $prototype )->setCount( $count );
             } else {
                 $g_name = "efg_{$id}";
-                $group = $manager->getRepository( ItemGroup::class )->findOneByName( $g_name );
+                $group = $manager->getRepository( ItemGroup::class )->findOneBy(['name' => $g_name]);
                 if ($group) $group->getEntries()->clear();
                 else $group = (new ItemGroup())->setName( $g_name );
 
                 foreach ($data as $entry) {
                     [$p,$c] = is_array($entry) ? $entry : [$entry,1];
-                    $prototype = $manager->getRepository(ItemPrototype::class)->findOneByName( $p );
+                    $prototype = $manager->getRepository(ItemPrototype::class)->findOneBy(['name' => $p]);
                     if (!$prototype) throw new Exception('Item prototype not found: ' . $p);
                     $group->addEntry( (new ItemGroupEntry())->setChance($c)->setPrototype( $prototype ) );
                 }
@@ -1998,7 +1998,7 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
         array &$cache, string $id, array $data): AffectItemConsume
     {
         if (!isset($cache[$id])) {
-            $result = $manager->getRepository(AffectItemConsume::class)->findOneByName( $id );
+            $result = $manager->getRepository(AffectItemConsume::class)->findOneBy(['name' => $id]);
             if ($result) $out->writeln( "\t\t\t<comment>Update</comment> effect <info>consume/{$id}</info>", OutputInterface::VERBOSITY_DEBUG );
             else {
                 $result = (new AffectItemConsume())->setName( $id );
@@ -2006,7 +2006,7 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             }
 
             [$name,$count] = count($data) > 1 ? $data : [$data[0],1];
-            $prototype = $manager->getRepository(ItemPrototype::class)->findOneByName( $name );
+            $prototype = $manager->getRepository(ItemPrototype::class)->findOneBy(['name' => $name]);
             if (!$prototype) throw new Exception('Item prototype not found: ' . $name);
             $result->setPrototype( $prototype )->setCount( $count );
 
@@ -2029,7 +2029,7 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
         array &$cache, string $id, array $data): AffectZombies
     {
         if (!isset($cache[$id])) {
-            $result = $manager->getRepository(AffectZombies::class)->findOneByName( $id );
+            $result = $manager->getRepository(AffectZombies::class)->findOneBy(['name' => $id]);
             if ($result) $out->writeln( "\t\t\t<comment>Update</comment> effect <info>zombie/{$id}</info>", OutputInterface::VERBOSITY_DEBUG );
             else {
                 $result = new AffectZombies();
@@ -2056,7 +2056,7 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
         array &$cache, string $id, array $data): AffectHome
     {
         if (!isset($cache[$id])) {
-            $result = $manager->getRepository(AffectHome::class)->findOneByName( $id );
+            $result = $manager->getRepository(AffectHome::class)->findOneBy(['name' => $id]);
             if ($result) $out->writeln( "\t\t\t<comment>Update</comment> effect <info>home/{$id}</info>", OutputInterface::VERBOSITY_DEBUG );
             else {
                 $result = new AffectHome();
@@ -2083,7 +2083,7 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
         array &$cache, string $id, array $data): AffectWell
     {
         if (!isset($cache[$id])) {
-            $result = $manager->getRepository(AffectWell::class)->findOneByName( $id );
+            $result = $manager->getRepository(AffectWell::class)->findOneBy(['name' => $id]);
             if ($result) $out->writeln( "\t\t\t<comment>Update</comment> effect <info>well/{$id}</info>", OutputInterface::VERBOSITY_DEBUG );
             else {
                 $result = new AffectWell();
@@ -2110,7 +2110,7 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
         array &$cache, string $id, array $data): AffectZone
     {
         if (!isset($cache[$id])) {
-            $result = $manager->getRepository(AffectZone::class)->findOneByName( $id );
+            $result = $manager->getRepository(AffectZone::class)->findOneBy(['name' => $id]);
             if ($result) $out->writeln( "\t\t\t<comment>Update</comment> effect <info>zone/{$id}</info>", OutputInterface::VERBOSITY_DEBUG );
             else {
                 $result = new AffectZone();
@@ -2144,7 +2144,7 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
         array &$cache, array &$meta_cache, array &$sub_cache, string $id, array $data): AffectResultGroup
     {
         if (!isset($cache[$id])) {
-            $result = $manager->getRepository(AffectResultGroup::class)->findOneByName( $id );
+            $result = $manager->getRepository(AffectResultGroup::class)->findOneBy(['name' => $id]);
             if ($result) $out->writeln( "\t\t\t<comment>Update</comment> effect <info>group/{$id}</info>", OutputInterface::VERBOSITY_DEBUG );
             else {
                 $result = (new AffectResultGroup())->setName( $id );
@@ -2186,14 +2186,14 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
         array &$cache, string $id, array $data): AffectPicto
     {
         if (!isset($cache[$id])) {
-            $result = $manager->getRepository(AffectPicto::class)->findOneByName( $id );
+            $result = $manager->getRepository(AffectPicto::class)->findOneBy(['name' => $id]);
             if ($result) $out->writeln( "\t\t\t<comment>Update</comment> effect <info>picto/{$id}</info>", OutputInterface::VERBOSITY_DEBUG );
             else {
                 $result = new AffectPicto();
                 $out->writeln( "\t\t\t<comment>Create</comment> effect <info>picto/{$id}</info>", OutputInterface::VERBOSITY_DEBUG );
             }
 
-            $result->setName( $id )->setPrototype(  $manager->getRepository(PictoPrototype::class)->findOneByName($data[0]));
+            $result->setName( $id )->setPrototype(  $manager->getRepository(PictoPrototype::class)->findOneBy(['name' => $data[0]]));
             $manager->persist( $cache[$id] = $result );
         } else $out->writeln( "\t\t\t<comment>Skip</comment> effect <info>picto/{$id}</info>", OutputInterface::VERBOSITY_DEBUG );
 
@@ -2213,7 +2213,7 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
         array &$cache, string $id, array $data): AffectMessage
     {
         if (!isset($cache[$id])) {
-            $result = $manager->getRepository(AffectMessage::class)->findOneByName( $id );
+            $result = $manager->getRepository(AffectMessage::class)->findOneBy(['name' => $id]);
             if ($result) $out->writeln( "\t\t\t<comment>Update</comment> effect <info>message/{$id}</info>", OutputInterface::VERBOSITY_DEBUG );
             else {
                 $result = new AffectMessage();
@@ -2242,7 +2242,7 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
         array &$cache, string $id, array $data): AffectTown
     {
         if (!isset($cache[$id])) {
-            $result = $manager->getRepository(AffectTown::class)->findOneByName( $id );
+            $result = $manager->getRepository(AffectTown::class)->findOneBy(['name' => $id]);
             if ($result) $out->writeln( "\t\t\t<comment>Update</comment> effect <info>town/{$id}</info>", OutputInterface::VERBOSITY_DEBUG );
             else {
                 $result = new AffectTown();
@@ -2265,7 +2265,7 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             if (!isset(static::$item_actions['actions'][$action])) throw new Exception('Action definition not found: ' . $action);
 
             $data = static::$item_actions['actions'][$action];
-            $new_action = $manager->getRepository(ItemAction::class)->findOneByName( $action );
+            $new_action = $manager->getRepository(ItemAction::class)->findOneBy(['name' => $action]);
             if ($new_action) $out->writeln( "\t<comment>Update</comment> action <info>$action</info> ('<info>{$data['label']}</info>')", OutputInterface::VERBOSITY_DEBUG );
             else {
                 $new_action = new ItemAction();
@@ -2289,12 +2289,12 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
                     ->setPoison( $data['target']['poison'] ?? null )
                     ->setBroken( $data['target']['broken'] ?? null );
                 if (isset( $data['target']['property'] )) {
-                    $prop = $manager->getRepository(ItemProperty::class)->findOneByName( $data['target']['property'] );
+                    $prop = $manager->getRepository(ItemProperty::class)->findOneBy(['name' => $data['target']['property']]);
                     if (!$prop) throw new Exception("Item property not found: '{$data['target']['property']}'");
                     $new_action->getTarget()->setTag($prop);
                 } else $new_action->getTarget()->setTag(null);
                 if (isset( $data['target']['prototype'] )) {
-                    $proto = $manager->getRepository(ItemPrototype::class)->findOneByName( $data['target']['prototype'] );
+                    $proto = $manager->getRepository(ItemPrototype::class)->findOneBy(['name' => $data['target']['prototype']]);
                     if (!$proto) throw new Exception("Item prototype not found: '{$data['target']['prototype']}'");
                     $new_action->getTarget()->setPrototype($proto);
                 } else $new_action->getTarget()->setPrototype(null);
@@ -2340,7 +2340,7 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
 
         foreach (static::$item_actions['items'] as $item_name => $actions) {
 
-            $item = $manager->getRepository(ItemPrototype::class)->findOneByName( $item_name );
+            $item = $manager->getRepository(ItemPrototype::class)->findOneBy(['name' => $item_name]);
             if (!$item) throw new Exception('Item prototype not found: ' . $item_name);
 
             $item->getActions()->clear();
@@ -2354,7 +2354,7 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
 
         foreach (static::$item_actions['heroics'] as $action) {
 
-            $action_proto = $manager->getRepository(HeroicActionPrototype::class)->findOneByName( $action['name'] );
+            $action_proto = $manager->getRepository(HeroicActionPrototype::class)->findOneBy(['name' => $action['name']]);
             if (!$action_proto) $action_proto = (new HeroicActionPrototype)->setName( $action['name'] );
             $action_proto->setUnlockable($action['unlockable']);
 
@@ -2365,7 +2365,7 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
 
         foreach (static::$item_actions['camping'] as $action) {
 
-            $action_proto = $manager->getRepository(CampingActionPrototype::class)->findOneByName( $action );
+            $action_proto = $manager->getRepository(CampingActionPrototype::class)->findOneBy(['name' => $action]);
             if (!$action_proto) $action_proto = (new CampingActionPrototype)->setName( $action );
 
             $action_proto->setAction( $this->generate_action( $manager, $out, $action, $set_meta_requirements, $set_sub_requirements, $set_meta_results, $set_sub_results, $set_actions ) );
@@ -2375,7 +2375,7 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
 
         foreach (static::$item_actions['home'] as $action_group) {
 
-            $action_proto = $manager->getRepository(HomeActionPrototype::class)->findOneByName( $action_group[0] );
+            $action_proto = $manager->getRepository(HomeActionPrototype::class)->findOneBy(['name' => $action_group[0]]);
             if (!$action_proto) $action_proto = (new HomeActionPrototype)->setName( $action_group[0] );
             $action_proto->setIcon( $action_group[1] );
 
@@ -2386,7 +2386,7 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
 
         foreach (static::$item_actions['escort'] as $escort_key => $escort_group) {
 
-            $escort_proto = $manager->getRepository(EscortActionGroup::class)->findOneByName( $escort_key );
+            $escort_proto = $manager->getRepository(EscortActionGroup::class)->findOneBy(['name' => $escort_key]);
             if (!$escort_proto) $escort_proto = (new EscortActionGroup);
             $escort_proto
                 ->setName( $escort_key )
@@ -2416,7 +2416,7 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
 
         foreach (static::$item_actions['items'] as $item_name => $actions) {
 
-            $item = $manager->getRepository(ItemPrototype::class)->findOneByName( $item_name );
+            $item = $manager->getRepository(ItemPrototype::class)->findOneBy(['name' => $item_name]);
             if (!$item) throw new Exception('Item prototype not found: ' . $item_name);
 
             $item->getActions()->clear();
