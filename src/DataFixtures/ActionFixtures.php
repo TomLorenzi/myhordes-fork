@@ -896,6 +896,7 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             'drug_#00'            => [ 'drug_6ap_1', 'drug_6ap_2' ],
             'drug_hero_#00'       => [ 'drug_8ap_1', 'drug_8ap_2' ],
             'drug_random_#00'     => [ 'drug_rand_1', 'drug_rand_2' ],
+            'lsd_#00'             => [ 'drug_rand_1', 'drug_rand_2' ],
             'beta_drug_bad_#00'   => [ 'drug_rand_1', 'drug_rand_2' ],
             'beta_drug_#00'       => [ 'drug_beta' ],
             'xanax_#00'           => [ 'drug_xana1', 'drug_xana2' ],
@@ -1598,7 +1599,7 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
                 $out->writeln( "\t\t\t<comment>Create</comment> condition <info>building/{$id}</info>", OutputInterface::VERBOSITY_DEBUG );
             }
 
-            $prototype = $manager->getRepository(BuildingPrototype::class)->findOneBy( ["name" => $data['prototype']], false );
+            $prototype = $manager->getRepository(BuildingPrototype::class)->findOneByName($data['prototype'], false );
             if (!$prototype)
                 throw new Exception('Building prototype not found: ' . $data['item']);
 
@@ -1886,7 +1887,7 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
                 $result->setType( -1 );
                 foreach ($data as $proto) {
 
-                    $bpp = $manager->getRepository(BuildingPrototype::class)->findOneBy( ['name' => $proto], false );
+                    $bpp = $manager->getRepository(BuildingPrototype::class)->findOneByName($proto, false );
                     if (!$bpp) throw new Exception("Building Prototype not found: {$proto}");
 
                     $result->addList( $bpp );
