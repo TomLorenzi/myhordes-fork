@@ -164,10 +164,21 @@ class GameFactory
 
         if(!isset(static::$town_name_snippets[$language]))
             $language = 'de';
-        
-        return implode(' ', array_map(function(array $list): string {
+
+        $name = implode(' ', array_map(function(array $list): string {
+            $emptyChances = 0;
+            // If we have an empty element (hello ES towns)
+            // We have 1/2 chances of not using an element in the array
+            if (in_array('', $list)) {
+                $emptyChances = 50;
+            }
+            $odd = mt_rand(0, 100);
+            if($odd < $emptyChances)
+                return '';
             return $list[ array_rand( $list ) ];
         }, static::$town_name_snippets[$language][array_rand( static::$town_name_snippets[$language] )]));
+        $name = trim(preg_replace("/\s{2,}/", " ", $name));
+        return $name;
     }
 
     private function getDefaultZoneResolution( TownConf $conf, ?int &$offset_x, ?int &$offset_y ): int {
@@ -182,7 +193,7 @@ class GameFactory
         if (!$this->validator->validateTownType($type))
             return null;
 
-        $townClass = $this->entity_manager->getRepository(TownClass::class)->findOneByName( $type );
+        $townClass = $this->entity_manager->getRepository(TownClass::class)->findOneBy([ 'name' => $type ]);
 
         // Initial: Create town
         $town = new Town();
