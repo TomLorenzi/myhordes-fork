@@ -21,7 +21,17 @@ Encore
         from: 'assets/img',
         to: (typeof(local.hash_filenames) !== 'undefined' && !local.hash_filenames)
             ? 'images/[path][name].[ext]'
-            : 'images/[path][name].[hash:8].[ext]' ,
+            : 'images/[path][name].[hash:8].[ext]',
+    })
+    .copyFiles({
+        from: 'assets/swf',
+        to: (typeof(local.hash_filenames) !== 'undefined' && !local.hash_filenames)
+            ? 'swf/[path][name].[ext]'
+            : 'swf/[path][name].[hash:8].[ext]',
+    })
+    .copyFiles({
+        from: 'assets/js/dep',
+        to: '[path][name].[ext]',
     })
 
     .configureFilenames({

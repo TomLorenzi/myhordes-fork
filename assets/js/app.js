@@ -19,7 +19,8 @@ import HTML from '../ts/html'
 const matchAll = require('string.prototype.matchall');
 matchAll.shim();
 
-require("./attack");
+// require("./attack");
+require("./ruffle");
 
 // Get the base URL
 const base_node = document.getElementsByTagName('base');
