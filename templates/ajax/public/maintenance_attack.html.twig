@@ -9,9 +9,9 @@
         <div class="content">
             <div class="animation">
                 <div id="animation_container" style="background-color:rgba(97, 45, 32, 1.00); width:440px; height:125px">
-                    <!--<canvas id="canvas" width="440" height="125" style="position: absolute; display: block; background-color:rgba(97, 45, 32, 1.00);"></canvas>
+                    <canvas id="canvas" width="440" height="125" style="position: absolute; display: block; background-color:rgba(97, 45, 32, 1.00);"></canvas>
                     <div id="dom_overlay_container" style="pointer-events:none; overflow:hidden; width:440px; height:125px; position: absolute; left: 0px; top: 0px; display: block;">
-                    </div>-->
+                    </div>
                 </div>
             </div>
             <p class="justify">
@@ -49,30 +49,8 @@
     <script>
         document.getElementById("gma").style.display = "none";
         var canvas, stage, exportRoot, anim_container, dom_overlay_container, fnStartAnimation;
-        window.RufflePlayer = window.RufflePlayer || {};
-
-        window.addEventListener('DOMContentLoaded', (event) => {
-            console.log("DOMContentLoaded)");
-          
-        });
-
         function init() {
-
-            let ruffle = window.RufflePlayer.newest();
-            let player = ruffle.create_player();
-            let container = document.getElementById('animation_container');
-            console.log(player);
-            container.appendChild(player);
-            player.stream_swf_url("{{ asset('build/swf/attack.swf') }}");
-            player.style.height = "125px";
-            player.style.width = "440px";
-            setTimeout(function(){
-                console.log(player.instance);
-                player.instance.play();
-                 player.play_button.style.display = "none";
-            }, 1000);
-
-            /*canvas = document.getElementById("canvas");
+            canvas = document.getElementById("canvas");
             anim_container = document.getElementById("animation_container");
             dom_overlay_container = document.getElementById("dom_overlay_container");
             var comp=AdobeAn.getComposition("7AABF79FCD83E4468DF64867E8D1326A");
@@ -81,7 +59,7 @@
             loader.addEventListener("fileload", function(evt){handleFileLoad(evt,comp)});
             loader.addEventListener("complete", function(evt){handleComplete(evt,comp)});
             var lib=comp.getLibrary();
-            loader.loadManifest(lib.properties.manifest);*/
+            loader.loadManifest(lib.properties.manifest);
         }
         function handleFileLoad(evt, comp) {
             var images=comp.getImages();    
