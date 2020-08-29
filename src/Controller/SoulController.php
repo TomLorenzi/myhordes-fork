@@ -45,6 +45,7 @@ use Symfony\Contracts\Translation\TranslatorInterface;
 
 /**
  * @Route("/",condition="request.isXmlHttpRequest()")
+ * @method User getUser
  */
 class SoulController extends AbstractController
 {
@@ -91,12 +92,23 @@ class SoulController extends AbstractController
     }
 
     /**
+     * @Route("jx/soul/disabled_message", name="soul_disabled")
+     * @return Response
+     */
+    public function soul_disabled(): Response
+    {
+        $user = $this->getUser();
+        if (!$user->getShadowBan())
+            return $this->redirect($this->generateUrl( 'soul_me' ));
+        return $this->render( 'ajax/soul/acc_disabled.html.twig', ['ban' => $user->getShadowBan()]);
+    }
+
+    /**
      * @Route("jx/soul/me", name="soul_me")
      * @return Response
      */
     public function soul_me(): Response
     {
-        /** @var User $user */
         $user = $this->getUser();
 
         /** @var CitizenRankingProxy $nextDeath */
@@ -130,6 +142,8 @@ class SoulController extends AbstractController
      */
     public function users_fuzzyfind(JSONRequestParser $parser, EntityManagerInterface $em): Response
     {
+        if ($this->getUser()->getShadowBan()) return $this->render( 'ajax/soul/users_list.html.twig', [ 'users' => [] ]);
+
         if (!$parser->has_all(['name'], true))
             return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
         $searchName = $parser->get('name');
@@ -227,6 +241,8 @@ class SoulController extends AbstractController
      */
     public function soul_import(TwinoidHandler $twin, string $code = ''): Response
     {
+        if ($this->getUser()->getShadowBan()) return $this->redirect($this->generateUrl( 'soul_disabled' ));
+
         /** @var User $user */
         $user = $this->getUser();
         $main = $this->entity_manager->getRepository(TwinoidImport::class)->findOneBy(['user' => $user, 'main' => true]);
@@ -255,6 +271,8 @@ class SoulController extends AbstractController
     {
         /** @var User $user */
         $user = $this->getUser();
+
+        if ($this->getUser()->getShadowBan()) return $this->redirect($this->generateUrl( 'soul_disabled' ));
 
         $import = $this->entity_manager->getRepository(TwinoidImport::class)->find( $id );
         if (!$import || $import->getUser() !== $user) return $this->redirect($this->generateUrl('soul_import'));
@@ -306,8 +324,9 @@ class SoulController extends AbstractController
      */
     public function soul_import_loader(string $code, JSONRequestParser $json, TwinoidHandler $twin): Response
     {
-        /** @var User $user */
         $user = $this->getUser();
+
+        if ($this->getUser()->getShadowBan()) return AjaxResponse::error(ErrorHelper::ErrorPermissionError);
 
         if ($this->isGranted('ROLE_DUMMY'))
             return AjaxResponse::error(ErrorHelper::ErrorPermissionError);
@@ -374,7 +393,6 @@ class SoulController extends AbstractController
      */
     public function soul_import_cancel(JSONRequestParser $json): Response
     {
-        /** @var User $user */
         $user = $this->getUser();
 
         $pending = $this->entity_manager->getRepository(TwinoidImportPreview::class)->findOneBy(['user' => $user]);
@@ -402,8 +420,9 @@ class SoulController extends AbstractController
      */
     public function soul_import_confirm(JSONRequestParser $json, TwinoidHandler $twin, int $id = -1): Response
     {
-        /** @var User $user */
         $user = $this->getUser();
+
+        if ($this->getUser()->getShadowBan()) return AjaxResponse::error(ErrorHelper::ErrorPermissionError);
 
         $to_main = (bool)$json->get('main', false);
         $pending = null; $selected = null;
@@ -461,7 +480,6 @@ class SoulController extends AbstractController
      */
     public function soul_coalitions(): Response
     {
-        /** @var User $user */
         $user = $this->getUser();
 
         /** @var CitizenRankingProxy $nextDeath */
@@ -481,7 +499,6 @@ class SoulController extends AbstractController
      */
     public function soul_season(): Response
     {
-        /** @var User $user */
         $user = $this->getUser();
 
         /** @var CitizenRankingProxy $nextDeath */
@@ -497,7 +514,6 @@ class SoulController extends AbstractController
      */
     public function soul_rps(): Response
     {
-        /** @var User $user */
         $user = $this->getUser();
 
         /** @var CitizenRankingProxy $nextDeath */
@@ -516,7 +532,6 @@ class SoulController extends AbstractController
      */
     public function soul_view_rp(int $id, int $page): Response
     {
-        /** @var User $user */
         $user = $this->getUser();
 
         /** @var CitizenRankingProxy $nextDeath */
@@ -555,7 +570,6 @@ class SoulController extends AbstractController
      */
     public function soul_view_town(int $idtown, $sid = 'me'): Response
     {
-        /** @var User $user */
         $user = $this->getUser();
 
         if ($sid !== 'me' && !is_numeric($sid))
@@ -597,8 +611,9 @@ class SoulController extends AbstractController
      */
     public function soul_add_comment(JSONRequestParser $parser): Response
     {
-        /** @var User $user */
         $user = $this->getUser();
+
+        if ($this->getUser()->getShadowBan()) return AjaxResponse::error(ErrorHelper::ErrorPermissionError);
 
         $id = $parser->get("id");
         /** @var CitizenRankingProxy $citizenProxy */
@@ -622,10 +637,11 @@ class SoulController extends AbstractController
      * @return Response
      */
     public function soul_settings_generateid(EntityManagerInterface $entityManager): Response {
-        /** @var User $user */
         $user = $this->getUser();
         if (!$user)
             return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable);
+
+        if ($this->getUser()->getShadowBan()) return AjaxResponse::error(ErrorHelper::ErrorPermissionError);
 
         $user->setExternalId(md5($user->getEmail() . mt_rand()));
         $entityManager->persist( $user );
@@ -640,7 +656,6 @@ class SoulController extends AbstractController
      * @return Response
      */
     public function soul_settings_deleteid(EntityManagerInterface $entityManager): Response {
-        /** @var User $user */
         $user = $this->getUser();
         if (!$user)
             return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable);
@@ -658,7 +673,6 @@ class SoulController extends AbstractController
      * @return Response
      */
     public function soul_settings_common(JSONRequestParser $parser): Response {
-        /** @var User $user */
         $user = $this->getUser();
 
         $user->setPreferSmallAvatars( (bool)$parser->get('sma', false) );
@@ -677,7 +691,6 @@ class SoulController extends AbstractController
      * @return Response
      */
     public function soul_settings_set_language(JSONRequestParser $parser, Request $request, UserHandler $userHandler, SessionInterface $session): Response {
-        /** @var User $user */
         $user = $this->getUser();
 
         $validLanguages = ['de','fr','en','es'];
@@ -710,7 +723,6 @@ class SoulController extends AbstractController
      * @return Response
      */
     public function soul_settings_defaultrole(JSONRequestParser $parser, AdminActionHandler $admh): Response {
-        /** @var User $user */
         $user = $this->getUser();
 
         $asDev = $parser->get('dev', false);
@@ -731,11 +743,10 @@ class SoulController extends AbstractController
         $upload = (int)$parser->get('up', 1);
         $mime = $parser->get('mime', null);
 
-        /** @var User $user */
         $user = $this->getUser();
 
         if ($upload) {
-
+            if ($this->getUser()->getShadowBan()) return AjaxResponse::error(ErrorHelper::ErrorPermissionError);
             if (!$payload) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
             
             $raw_processing = $conf->getGlobalConf()->get(MyHordesConf::CONF_RAW_AVATARS, false);
@@ -774,8 +785,9 @@ class SoulController extends AbstractController
         $dx = (int)floor((float)$parser->get('dx', 0));
         $dy = (int)floor((float)$parser->get('dy', 0));
 
-        /** @var User $user */
         $user = $this->getUser();
+        if ($this->getUser()->getShadowBan()) return AjaxResponse::error(ErrorHelper::ErrorPermissionError);
+
         $error = $this->user_handler->setUserSmallAvatar($user, null, $x, $y, $dx, $dy);
         if ($error !== UserHandler::NoError) return AjaxResponse::error( $error );
 
@@ -799,7 +811,6 @@ class SoulController extends AbstractController
      */
     public function soul_settings_change_pass(UserPasswordEncoderInterface $passwordEncoder, JSONRequestParser $parser, TokenStorageInterface $token): Response
     {
-        /** @var User $user */
         $user = $this->getUser();
 
         if ($this->isGranted('ROLE_DUMMY') && !$this->isGranted( 'ROLE_CROW' ))
@@ -825,14 +836,15 @@ class SoulController extends AbstractController
      * @Route("api/soul/settings/delete_account", name="api_soul_delete_account")
      * @param UserPasswordEncoderInterface $passwordEncoder
      * @param JSONRequestParser $parser
-     * @param DeathHandler $death
+     * @param UserHandler $userhandler
      * @param TokenStorageInterface $token
      * @return Response
      */
     public function soul_settings_delete_account(UserPasswordEncoderInterface $passwordEncoder, JSONRequestParser $parser, UserHandler $userhandler, TokenStorageInterface $token): Response
     {
-        /** @var User $user */
         $user = $this->getUser();
+
+        if ($this->getUser()->getShadowBan()) return AjaxResponse::error(ErrorHelper::ErrorPermissionError);
 
         if ($this->isGranted('ROLE_DUMMY'))
             return AjaxResponse::error(ErrorHelper::ErrorPermissionError);
@@ -855,7 +867,6 @@ class SoulController extends AbstractController
      */
     public function soul_visit(int $id): Response
     {
-        /** @var User $current_user */
         $current_user = $this->getUser();
 
         /** @var CitizenRankingProxy $nextDeath */
@@ -895,7 +906,6 @@ class SoulController extends AbstractController
      * @return Response
      */
     public function unsubscribe_api(JSONRequestParser $parser, SessionInterface $session): Response {
-        /** @var User $user */
         $user = $this->getUser();
 
         /** @var CitizenRankingProxy $nextDeath */
@@ -929,10 +939,10 @@ class SoulController extends AbstractController
         //    }
         //}
 
-          /** @var User|null $user */
+
         if ($active = $nextDeath->getCitizen()) {
             $active->setActive(false);
-            $active->setLastWords($last_words);
+            $active->setLastWords( $user->getShadowBan() ? '' : $last_words);
             $nextDeath = CitizenRankingProxy::fromCitizen( $active, true );
             $this->entity_manager->persist( $active );
         }
@@ -977,7 +987,6 @@ class SoulController extends AbstractController
      */
     public function soul_deathpage(): Response
     {
-        /** @var User $user */
         $user = $this->getUser();
 
         /** @var CitizenRankingProxy $nextDeath */
@@ -1023,6 +1032,7 @@ class SoulController extends AbstractController
 
     /**
      * @Route("api/soul/{user_id}/towns_all", name="soul_get_towns")
+     * @param int $user_id
      * @param JSONRequestParser $parser
      * @return Response
      */
@@ -1047,9 +1057,6 @@ class SoulController extends AbstractController
      */
     public function help_me(): Response
     {
-        /** @var User $user */
-        $user = $this->getUser();
-
         return $this->render( 'ajax/help/shell.html.twig');
     }
 }

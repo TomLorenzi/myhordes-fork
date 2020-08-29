@@ -66,6 +66,9 @@ class GhostController extends AbstractController implements GhostInterfaceContro
         /** @var User $user */
         $user = $this->getUser();
 
+        if ($user->getShadowBan())
+            return $this->redirect($this->generateUrl( 'soul_disabled' ));
+
         /** @var CitizenRankingProxy $nextDeath */
         if ($em->getRepository(CitizenRankingProxy::class)->findNextUnconfirmedDeath($user))
             return $this->redirect($this->generateUrl( 'soul_death' ));
@@ -219,6 +222,8 @@ class GhostController extends AbstractController implements GhostInterfaceContro
     public function join_api(JSONRequestParser $parser, GameFactory $factory, EntityManagerInterface $em, ConfMaster $conf, LogTemplateHandler $log) {
         /** @var User $user */
         $user = $this->getUser();
+
+        if ($user->getShadowBan()) return AjaxResponse::error(ErrorHelper::ErrorPermissionError);
 
         /** @var CitizenRankingProxy $nextDeath */
         if ($em->getRepository(CitizenRankingProxy::class)->findNextUnconfirmedDeath($user))

@@ -5,6 +5,17 @@
         <div class="cell padded header rw-12">
             {% embed "ajax/admin/users/tabs.html.twig" %}{% endembed %}
             <div class="row">
+                {% if user.shadowBan %}
+                    <div class="cell padded rw-3 rw-sm-12">
+                        &nbsp;
+                    </div>
+                    <div class="cell padded rw-9 rw-sm-12">
+                        <b style="color: red">{{ 'Durch %admin% vom Spiel ausgeschlossen!'|trans({'%admin%': user.shadowBan.admin.username}, 'admin') }}</b>
+                        {% if user.shadowBan.reason is not null %}
+                            <br /><i style="color: red">"{{ user.shadowBan.reason }}"</i>
+                        {% endif %}
+                    </div>
+                {% endif %}
                 <div class="cell padded rw-3 rw-sm-12">
                     <b>{{ 'Benutzername'|trans({}, 'admin') }}</b>
                 </div>
@@ -101,6 +112,11 @@
                                 <optgroup label="{{ 'Profil'|trans({},'admin') }}">
                                     <option value="{{ url('admin_users_account_manage', {action: 'rename', id: user.id}) }}" x-confirm="RENAME" x-query="{{ 'Neuen Namen eingeben.'|trans({},'admin') }}">{{ 'Umbenennen'|trans({},'admin') }}</option>
                                     <option value="{{ url('admin_users_account_manage', {action: 'delete', id: user.id}) }}" x-confirm="DELETE">{{ 'Löschen'|trans({},'admin') }}</option>
+                                    {% if user.shadowBan is null %}
+                                        <option value="{{ url('admin_users_account_manage', {action: 'shadow', id: user.id}) }}" x-confirm="SHADOW" x-query="{{ 'Grund angeben'|trans({},'admin') }}">{{ 'Spielbann'|trans({},'admin') }}</option>
+                                    {% else %}
+                                        <option value="{{ url('admin_users_account_manage', {action: 'unshadow', id: user.id}) }}" x-confirm="UNSHADOW">{{ 'Spielbann aufheben'|trans({},'admin') }}</option>
+                                    {% endif %}
                                 </optgroup>
                                 <optgroup label="{{ 'Sicherheit'|trans({},'admin') }}">
                                     <option value="{{ url('admin_users_account_manage', {action: 'initiate_pw_reset', id: user.id}) }}">{{ 'Passwort-Reset auslösen'|trans({},'admin') }}</option>
