@@ -306,12 +306,15 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
 
             $camping_blueprint = "";
             $blueprintFound = false;
-            if ($zone->getBlueprint() === Zone::BlueprintAvailable) {
-                $camping_blueprint = T::__("Du erhälst einen Bauplan, wenn Du in diesem Gebäude campst.", 'game');
-            } else if ($zone->getBlueprint() === Zone::BlueprintFound) {
-                $camping_blueprint = T::__("Hier wurde bereits ein Bauplan gefunden.", 'game');
-                $blueprintFound = true;
+            if ($zone->getBuryCount() <= 0) {
+                if ($zone->getBlueprint() === Zone::BlueprintAvailable) {
+                    $camping_blueprint = T::__("Du erhälst einen Bauplan, wenn Du in diesem Gebäude campst.", 'game');
+                } else if ($zone->getBlueprint() === Zone::BlueprintFound) {
+                    $camping_blueprint = T::__("Hier wurde bereits ein Bauplan gefunden.", 'game');
+                    $blueprintFound = true;
+                }
             }
+
 
 
             // Uncomment next line to show camping values in game interface.
