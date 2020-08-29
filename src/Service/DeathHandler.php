@@ -77,6 +77,12 @@ class DeathHandler
             $remove[] = $et;
         $citizen->getStatus()->clear();
 
+        foreach ($citizen->getCitizenWatch() as $cw) {
+            $citizen->getTown()->removeCitizenWatch($cw);
+            $citizen->removeCitizenWatch($cw);
+            $this->entity_manager->remove($cw);
+        }
+
         if ($citizen->getEscortSettings()) {
             $this->entity_manager->remove($citizen->getEscortSettings());
             $citizen->setEscortSettings(null);

@@ -1,4 +1,62 @@
 {% extends "ajax/ajax.html.twig" %}
 {% block ajax %}
+    <div class="row">
+        <div class="cell rw-12">
+            <h5>{{'Multi-Account Report'|trans({}, "admin")}}</h5>
+            <div class="row-table">
+                <div class="row header">
+                    <div class="cell padded rw-1">&nbsp;</div>
+                    <div class="cell padded rw-3">{{ 'Benutzername'|trans({},'admin') }}</div>
+                    <div class="cell padded rw-2">{{ 'Verdacht'|trans({},'admin') }}</div>
+                    <div class="cell padded rw-6">{{ 'Andere Accounts'|trans({},'admin') }}</div>
+                </div>
+                {% for table in ma_report %}
+                    {% if not table.principal.shadowBan %}
+                    {# @var table \App\Structures\CheatTable #}
+                        <div class="row">
+                            <div class="cell rw-4 padded">
+                                <b>{{ table.principal.username }}</b>
+                                {% if is_granted('ROLE_ADMIN') %}
+                                    <br /><span>{{ table.principal.email }}</span>
+                                {% endif %}
+                            </div>
+                            <div class="cell rw-2 padded">
+                                {{ table.likeliness }}
+                            </div>
+                            <div class="cell {% if is_granted('ROLE_ADMIN') %}rw-5{% else %}rw-6{% endif %}">
+                                {% for multi in table.users %}
+                                    <span class="small" {% if multi.shadowBan %}style="color:red; font-weight: bold"{% endif%} >
+                                        {{ multi.username }}
+                                        {% if is_granted('ROLE_ADMIN') %}
+                                            <div class="tooltip">{{ multi.email }}</div>
+                                        {% endif %}
+                                    </span>&nbsp;
+                                {% endfor %}
+                            </div>
+                            {% if is_granted('ROLE_ADMIN') %}
+                                <div class="cell rw-1 padded">
+                                    <button x-shadow x-api-endpoint="{{ url('admin_users_account_manage', {action: 'shadow', id: table.principal.id}) }}">{{ 'Bann'|trans({},'admin') }}</button>
+                                </div>
+                            {% endif %}
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+
+        </div>
+    </div>
     {% embed "ajax/admin/users/footer.html.twig" %}{% endembed %}
+{% endblock %}
+{% block js %}
+    {{ parent() }}
+    <script>
+        {% if is_granted("ROLE_ADMIN") %}
+            $.html.addEventListenerAll('[x-shadow][x-api-endpoint]', 'click', function(e,elem) {
+                $.ajax.easySend( elem.getAttribute('x-api-endpoint'), {param: 'Multi Account'},
+                    function () {
+                        $.ajax.load(null, '{{ path('admin_users') }}', true);
+                    } );
+            });
+        {% endif %}
+    </script>
 {% endblock %}

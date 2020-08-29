@@ -5,6 +5,7 @@ namespace App\Controller\Admin;
 use App\Entity\AdminReport;
 use App\Entity\Citizen;
 use App\Entity\Picto;
+use App\Entity\ShadowBan;
 use App\Entity\Town;
 use App\Entity\TwinoidImport;
 use App\Entity\TwinoidImportPreview;
@@ -12,6 +13,7 @@ use App\Entity\User;
 use App\Entity\UserPendingValidation;
 use App\Response\AjaxResponse;
 use App\Service\AdminActionHandler;
+use App\Service\AntiCheatService;
 use App\Service\ErrorHelper;
 use App\Service\JSONRequestParser;
 use App\Service\TwinoidHandler;
@@ -30,12 +32,15 @@ class AdminUserController extends AdminActionController
 {
     /**
      * @Route("jx/admin/users", name="admin_users")
+     * @param AntiCheatService $as
      * @return Response
      */
-    public function users(): Response
+    public function users(AntiCheatService $as): Response
     {
+        $report = $as->createMultiAccountReport();
         return $this->render( 'ajax/admin/users/index.html.twig', $this->addDefaultTwigArgs("admin_users_ban", [
-        ]));      
+            'ma_report' => $report
+        ]));
     }
 
     /**
@@ -75,7 +80,7 @@ class AdminUserController extends AdminActionController
 
         if (empty($param)) $param = $parser->get('param', '');
 
-        if (in_array($action, [ 'delete_token', 'invalidate', 'validate', 'twin_full_reset', 'twin_main_reset', 'delete', 'rename' ]) && !$this->isGranted('ROLE_ADMIN'))
+        if (in_array($action, [ 'delete_token', 'invalidate', 'validate', 'twin_full_reset', 'twin_main_reset', 'delete', 'rename', 'shadow', 'unshadow' ]) && !$this->isGranted('ROLE_ADMIN'))
             return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
 
         if ($action === 'grant' && $param !== 'NONE' && !$userHandler->admin_canGrant( $this->getUser(), $param ))
@@ -167,6 +172,22 @@ class AdminUserController extends AdminActionController
                 $this->entity_manager->persist($user);
                 break;
 
+            case 'shadow':
+                if (empty($param) || $user->getShadowBan()) return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
+
+                $user->setShadowBan( (new ShadowBan())->setAdmin( $this->getUser() )->setCreated( new \DateTime() )->setReason($param) );
+                $this->entity_manager->persist($user);
+                break;
+
+            case 'unshadow':
+                if (!$user->getShadowBan()) return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
+
+                $this->entity_manager->remove($user->getShadowBan());
+                $user->setShadowBan( null );
+
+                $this->entity_manager->persist($user);
+                break;
+
             case 'grant':
                 switch ($param) {
                     case 'NONE':
@@ -197,7 +218,7 @@ class AdminUserController extends AdminActionController
         try {
             $this->entity_manager->flush();
         } catch (\Exception $e) {
-            return AjaxResponse::error( ErrorHelper::ErrorDatabaseException );
+            return AjaxResponse::error( ErrorHelper::ErrorDatabaseException, [$e->getMessage()] );
         }
 
         return AjaxResponse::success();

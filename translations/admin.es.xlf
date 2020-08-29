@@ -1243,5 +1243,77 @@
         <target>Bitte bestätige folgende Aktion:</target>
       </segment>
     </unit>
+    <unit id="XCp8Tn4" name="Multi-Account Report">
+      <notes>
+        <note category="german">Multi-Account Report</note>
+      </notes>
+      <segment>
+        <source>Multi-Account Report</source>
+        <target>Multi-Account Report</target>
+      </segment>
+    </unit>
+    <unit id="NBT1t.l" name="Verdacht">
+      <notes>
+        <note category="german">Verdacht</note>
+      </notes>
+      <segment>
+        <source>Verdacht</source>
+        <target>Verdacht</target>
+      </segment>
+    </unit>
+    <unit id="5D_B4LJ" name="Andere Accounts">
+      <notes>
+        <note category="german">Andere Accounts</note>
+      </notes>
+      <segment>
+        <source>Andere Accounts</source>
+        <target>Andere Accounts</target>
+      </segment>
+    </unit>
+    <unit id="E6OsQAN" name="Bann">
+      <notes>
+        <note category="german">Bann</note>
+      </notes>
+      <segment>
+        <source>Bann</source>
+        <target>Bann</target>
+      </segment>
+    </unit>
+    <unit id="mXRxJwB" name="Durch %admin% vom Spiel ausgeschlossen!">
+      <notes>
+        <note category="german">Durch %admin% vom Spiel ausgeschlossen!</note>
+      </notes>
+      <segment>
+        <source>Durch %admin% vom Spiel ausgeschlossen!</source>
+        <target>Durch %admin% vom Spiel ausgeschlossen!</target>
+      </segment>
+    </unit>
+    <unit id="jyuOkNg" name="Grund angeben">
+      <notes>
+        <note category="german">Grund angeben</note>
+      </notes>
+      <segment>
+        <source>Grund angeben</source>
+        <target>Grund angeben</target>
+      </segment>
+    </unit>
+    <unit id="Gn20uPe" name="Spielbann">
+      <notes>
+        <note category="german">Spielbann</note>
+      </notes>
+      <segment>
+        <source>Spielbann</source>
+        <target>Spielbann</target>
+      </segment>
+    </unit>
+    <unit id="BfojyKe" name="Spielbann aufheben">
+      <notes>
+        <note category="german">Spielbann aufheben</note>
+      </notes>
+      <segment>
+        <source>Spielbann aufheben</source>
+        <target>Spielbann aufheben</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

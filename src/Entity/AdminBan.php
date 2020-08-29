@@ -10,6 +10,8 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class AdminBan
 {
+    const BanTypeLogin = 1;
+
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()
@@ -59,6 +61,11 @@ class AdminBan
      * @ORM\ManyToOne(targetEntity="App\Entity\User")
      */
     private $liftUser;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $type;
 
     public function getId(): ?int
     {
@@ -163,6 +170,18 @@ class AdminBan
     public function setLiftUser(?User $liftUser): self
     {
         $this->liftUser = $liftUser;
+
+        return $this;
+    }
+
+    public function getType(): ?int
+    {
+        return $this->type;
+    }
+
+    public function setType(int $type): self
+    {
+        $this->type = $type;
 
         return $this;
     }

@@ -1,0 +1,31 @@
+{% extends "ajax/game/game.html.twig" %}
+{% block menu_text %}
+    {{parent()}}
+{% endblock %}
+{% block ajax %}
+    <div class="row">
+        <div class="cell header rw-10 ro-1 rw-md-12 ro-md-0">
+            <h4>{% trans from 'soul' %}Dein Account wurde gesperrt.{% endtrans %}</h4>
+
+            <p>
+                {{ 'Dein Account wurde von einem Administrator vom Spiel ausgeschlossen.'|trans({},'soul') }}
+                <b>{{ 'Diese Sperre ist permanent.'|trans({},'soul') }}</b>
+            </p>
+
+            <p>
+                {{ 'Wenn du dich aktuell in einer Stadt befindest, kannst du dort keine Aktionen mehr durchführen und nicht länger auf das Stadtforum zugreifen.'|trans({},'soul') }}
+                {{ 'Du kannst auch keiner neuen Stadt mehr beitreten.'|trans({},'soul') }}
+            </p>
+            <p>
+                {# @var ban \App\Entity\ShadowBan #}
+                {% if ban.reason is not null %}
+                    {{ 'Folgende Begründung wurde für deine Sperre hinterlegt: '|trans({},'soul') }} <i>"{{ ban.reason }}".</i>
+                {% else %}
+                    {{ 'Es wurde keine Begründung für diese Sperre hinterlegt.'|trans({},'soul') }}
+                {% endif %}
+
+                {{ 'Wenn du der Meinung bist, fälschlicherweise gesperrt worden zu sein, kannst du dich im Weltforum melden.' }}
+            </p>
+        </div>
+    </div>
+{% endblock %}

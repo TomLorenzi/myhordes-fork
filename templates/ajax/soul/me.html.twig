@@ -108,13 +108,17 @@
                 </div>
             </div>
         </div>
-    <div class="row">
-    <div class="cell padded rw-12 rw-sm-12">
-        <div id="users-list-soul">
-        	<h5>{{'Seele suchen'|trans({}, "soul")}}</h5>
-            <div><label><input type="text" id="users-search" style="margin-top: 5px" /></label><div class="tooltip help">{{ 'Gib den Pseudo des Bürgers ein.'|trans({},'soul') }}</div></div>
-            <div id="users-list"></div>
-        </div>
+        {% if app.user.shadowBan is null %}
+            <div class="row">
+                <div class="cell padded rw-12 rw-sm-12">
+                    <div id="users-list-soul">
+                    	<h5>{{'Seele suchen'|trans({}, "soul")}}</h5>
+                        <div><label><input type="text" id="users-search" style="margin-top: 5px" /></label><div class="tooltip help">{{ 'Gib den Pseudo des Bürgers ein.'|trans({},'soul') }}</div></div>
+                        <div id="users-list"></div>
+                    </div>
+                </div>
+            </div>
+        {% endif %}
     </div>
 {% endblock %}
 {% block js %}
@@ -152,9 +156,12 @@
         clearTimeout(typingTimer);
     };
 
-    searchBox.addEventListener('keyup', userSearchHandlerUp);
-    searchBox.addEventListener('keydown', userSearchHandlerDown);
-    searchBox.addEventListener('focus', () => userSearchHandler());
-    searchBox.addEventListener('blur', () => setTimeout( () => document.getElementById('users-list').innerHTML = '', 100));
+    if (searchBox) {
+        searchBox.addEventListener('keyup', userSearchHandlerUp);
+        searchBox.addEventListener('keydown', userSearchHandlerDown);
+        searchBox.addEventListener('focus', () => userSearchHandler());
+        searchBox.addEventListener('blur', () => setTimeout( () => document.getElementById('users-list').innerHTML = '', 100));
+    }
+
     </script>
 {% endblock %}

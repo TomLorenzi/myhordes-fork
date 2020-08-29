@@ -177,6 +177,16 @@ class User implements UserInterface, EquatableInterface
      */
     private $latestChangelog;
 
+    /**
+     * @ORM\OneToMany(targetEntity=ConnectionIdentifier::class, mappedBy="user", orphanRemoval=true)
+     */
+    private $connectionIdentifiers;
+
+    /**
+     * @ORM\OneToOne(targetEntity=ShadowBan::class, mappedBy="user", cascade={"persist", "remove"})
+     */
+    private $shadowBan;
+
     public function __construct()
     {
         $this->citizens = new ArrayCollection();
@@ -185,6 +195,7 @@ class User implements UserInterface, EquatableInterface
         $this->bannings = new ArrayCollection();
         $this->pastLifes = new ArrayCollection();
         $this->twinoidImports = new ArrayCollection();
+        $this->connectionIdentifiers = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -297,7 +308,10 @@ class User implements UserInterface, EquatableInterface
         if ($this->validated) $roles[] = 'ROLE_USER';
         else $roles[] = 'ROLE_REGISTERED';
 
-        if ($this->getIsBanned()) $roles[] = 'ROLE_BANNED';
+        if ($this->getIsBanned()) $roles[] = 'ROLE_FORUM_BANNED';
+
+        if ($this->getShadowBan()) $roles[] = 'ROLE_SHADOW_BANNED';
+
         return array_unique($roles);
     }
 
@@ -752,6 +766,54 @@ class User implements UserInterface, EquatableInterface
     public function setLatestChangelog(?Changelog $latestChangelog): self
     {
         $this->latestChangelog = $latestChangelog;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|ConnectionIdentifier[]
+     */
+    public function getConnectionIdentifiers(): Collection
+    {
+        return $this->connectionIdentifiers;
+    }
+
+    public function addConnectionIdentifier(ConnectionIdentifier $connectionIdentifier): self
+    {
+        if (!$this->connectionIdentifiers->contains($connectionIdentifier)) {
+            $this->connectionIdentifiers[] = $connectionIdentifier;
+            $connectionIdentifier->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeConnectionIdentifier(ConnectionIdentifier $connectionIdentifier): self
+    {
+        if ($this->connectionIdentifiers->contains($connectionIdentifier)) {
+            $this->connectionIdentifiers->removeElement($connectionIdentifier);
+            // set the owning side to null (unless already changed)
+            if ($connectionIdentifier->getUser() === $this) {
+                $connectionIdentifier->setUser(null);
+            }
+        }
+
+        return $this;
+    }
+
+    public function getShadowBan(): ?ShadowBan
+    {
+        return $this->shadowBan;
+    }
+
+    public function setShadowBan(?ShadowBan $shadowBan): self
+    {
+        $this->shadowBan = $shadowBan;
+
+        // set the owning side of the relation if necessary
+        if ($shadowBan && $shadowBan->getUser() !== $this) {
+            $shadowBan->setUser($this);
+        }
 
         return $this;
     }

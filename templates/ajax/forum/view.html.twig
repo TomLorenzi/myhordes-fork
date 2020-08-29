@@ -85,7 +85,7 @@
                         <div class="forum-button-bar">
                             <div x-ajax-href="{{ url('forum_list') }}" class="forum-button"><img src="{{ asset('build/images/forum/back.png') }}" /><div class="tooltip">{{ 'Zurück'|trans({},'global') }}</div></div>
                             <div x-ajax-href="{{ url('forum_view', {id: forum.id}) }}" class="forum-button"><img src="{{ asset('build/images/forum/refresh.png') }}" /><div class="tooltip">{{ 'Liste der Themen aktualisieren'|trans({},'global') }}</div></div>
-                            {% if is_granted("ROLE_BANNED") %}
+                            {% if is_granted("ROLE_FORUM_BANNED") %}
                                 <div class="forum-button-disabled" id="banned">{{ 'Neues Thema'|trans({},'global') }}</div>
                             {% else %}
                                 <div x-forum-action="new" class="forum-button" id="new-thread-button"><span>{{ 'Neues Thema'|trans({},'global') }}</span></div>
@@ -147,7 +147,7 @@
             return editor;
         }
 
-        {% if not is_granted("ROLE_BANNED") %}
+        {% if not is_granted("ROLE_FORUM_BANNED") %}
             let new_post_btns = document.querySelectorAll('[x-forum-action=new]');
             for (let i = 0; i < new_post_btns.length; i++)
                 new_post_btns[i].addEventListener('click', function() {
