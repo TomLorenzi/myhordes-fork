@@ -6773,7 +6773,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Dieser Bürger ist nicht in der Lage, einen Beruf zu wählen. Wir sind noch lange nicht über den Berg, das kann ich euch sagen!</source>
-        <target>is unable to choose a profession. We are far from over the mountain, I can tell you!</target>
+        <target>wasn't even capable of choosing a profession! We're not through this yet, I promise you</target>
       </segment>
     </unit>
     <unit id="dvSfZK0" name="96d45cc">
@@ -11467,7 +11467,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Diese Empfehlung stammt von einem oder mehreren Helden deiner Stadt.</source>
-        <target>Diese Empfehlung stammt von einem oder mehreren Helden deiner Stadt.</target>
+        <target>This recommendation generally comes from one or more of your town's Heroes.</target>
       </segment>
     </unit>
     <unit id="36CKBMW" name="bc11f9b">
@@ -11495,6 +11495,33 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       <segment>
         <source>Fangt schon mal an zu beten, Bürger - die Zombies werden um Mitternacht angreifen!</source>
         <target>Start clenching citizens, the zombies will attack tonight at midnight!</target>
+      </segment>
+    </unit>
+    <unit id="ymSCpCu" name="Explosion">
+      <notes>
+        <note category="german">Explosion</note>
+      </notes>
+      <segment>
+        <source>Explosion</source>
+        <target>Explosion</target>
+      </segment>
+    </unit>
+    <unit id="oDsiHGx" name="???">
+      <notes>
+        <note category="german">???</note>
+      </notes>
+      <segment>
+        <source>???</source>
+        <target>???</target>
+      </segment>
+    </unit>
+    <unit id="i0KuVv1" name="Schokoladenkreuz">
+      <notes>
+        <note category="german">Schokoladenkreuz</note>
+      </notes>
+      <segment>
+        <source>Schokoladenkreuz</source>
+        <target>Chocolate Cross</target>
       </segment>
     </unit>
   </file>
