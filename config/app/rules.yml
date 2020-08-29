@@ -118,7 +118,6 @@ parameters:
 
 
       features:
-        camping: false
         shaman: false
 
     remote:
