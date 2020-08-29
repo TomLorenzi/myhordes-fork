@@ -160,7 +160,7 @@ class EmoteFixtures extends Fixture {
             $entity->setPath($entry['path']);
             $entity->setIsActive($entry['isactive']);
             $entity->setRequiresUnlock($entry['requiresunlock']);
-            $entity->setIndex($entry['index']);
+            $entity->setOrderIndex($entry['index']);
 
             $manager->persist($entity);
             $progress->advance();
