@@ -11512,5 +11512,23 @@
         <target>Fangt schon mal an zu beten, Bürger - die Zombies werden um Mitternacht angreifen!</target>
       </segment>
     </unit>
+    <unit id="Q8sma_4" name="eceaacb">
+      <notes>
+        <note category="german">Wenn diese Option aktiviert ist, kann dich ein anderer Bürger nicht weiter von der Stadt entfernen. Er darf dich in diesem Fall nur näher bringen.</note>
+      </notes>
+      <segment>
+        <source>Wenn diese Option aktiviert ist, kann dich ein anderer Bürger nicht weiter von der Stadt entfernen. Er darf dich in diesem Fall nur näher bringen.</source>
+        <target>Wenn diese Option aktiviert ist, kann dich ein anderer Bürger nicht weiter von der Stadt entfernen. Er darf dich in diesem Fall nur näher bringen.</target>
+      </segment>
+    </unit>
+    <unit id="zLtHCGI" name="472d56a">
+      <notes>
+        <note category="german">Wenn diese Option aktiviert ist, kann dir ein anderer Spieler befehlen, Gegenstände einzusammeln oder abzulegen. BEACHTE: Einige "persönliche" Gegenstände können unter keinen Umständen abgelegt werden (Texte, Waffen u.a.)</note>
+      </notes>
+      <segment>
+        <source>Wenn diese Option aktiviert ist, kann dir ein anderer Spieler befehlen, Gegenstände einzusammeln oder abzulegen. BEACHTE: Einige "persönliche" Gegenstände können unter keinen Umständen abgelegt werden (Texte, Waffen u.a.)</source>
+        <target>Wenn diese Option aktiviert ist, kann dir ein anderer Spieler befehlen, Gegenstände einzusammeln oder abzulegen. BEACHTE: Einige "persönliche" Gegenstände können unter keinen Umständen abgelegt werden (Texte, Waffen u.a.)</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

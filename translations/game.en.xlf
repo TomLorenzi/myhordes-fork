@@ -8684,7 +8684,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Deine Trunkenheit macht dir die Suche nicht gerade leichter.</source>
-        <target>Your drunkenness doesn't exactly make the search easier for you.</target>
+        <target>Your sobriety, or lack thereof, is quite inconvenient. Things become pretty tricky pretty quickly when you're completely wasted...</target>
       </segment>
     </unit>
     <unit id="UhCUwjo" name="Du kannst heute keine weiteren Beschwerden vorbringen.">
@@ -9566,7 +9566,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Details ansehen</source>
-        <target>Details infos</target>
+        <target>Show details</target>
       </segment>
     </unit>
     <unit id="YuJzi8m" name="Basisverteidigung">
@@ -11440,7 +11440,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Bauprojekte, die mit dem Symbol "&lt;img alt="(!)" src="%path%" /&gt;" gekennzeichnet sind, können nur einmal verwendet werden. Sie werden nach dem Angriff der Zombiehorde wieder abgerissen. Wenn ihr wollt, könnt ihr sie morgen nochmal bauen.</source>
-        <target><![CDATA[Bauprojekte, die mit dem Symbol "<img alt="(!)" src="%path%" />" gekennzeichnet sind, können nur einmal verwendet werden. Sie werden nach dem Angriff der Zombiehorde wieder abgerissen. Wenn ihr wollt, könnt ihr sie morgen nochmal bauen.]]></target>
+        <target><![CDATA[Constructions marked with this symbol "<img alt="(!)" src="%path%" />" are tomporary : they will be destroyed at midnight, immediately AFTER the attack. To make use of it again tomorrow, it must be rebuilt again tomorrow.]]></target>
       </segment>
     </unit>
     <unit id="rmqJTg6" name="70903c1">
@@ -11497,6 +11497,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
         <target>Start clenching citizens, the zombies will attack tonight at midnight!</target>
       </segment>
     </unit>
+<<<<<<< HEAD
     <unit id="ymSCpCu" name="Explosion">
       <notes>
         <note category="german">Explosion</note>
@@ -11522,6 +11523,24 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       <segment>
         <source>Schokoladenkreuz</source>
         <target>Chocolate Cross</target>
+=======
+    <unit id="Q8sma_4" name="eceaacb">
+      <notes>
+        <note category="german">Wenn diese Option aktiviert ist, kann dich ein anderer Bürger nicht weiter von der Stadt entfernen. Er darf dich in diesem Fall nur näher bringen.</note>
+      </notes>
+      <segment>
+        <source>Wenn diese Option aktiviert ist, kann dich ein anderer Bürger nicht weiter von der Stadt entfernen. Er darf dich in diesem Fall nur näher bringen.</source>
+        <target>Wenn diese Option aktiviert ist, kann dich ein anderer Bürger nicht weiter von der Stadt entfernen. Er darf dich in diesem Fall nur näher bringen.</target>
+      </segment>
+    </unit>
+    <unit id="zLtHCGI" name="472d56a">
+      <notes>
+        <note category="german">Wenn diese Option aktiviert ist, kann dir ein anderer Spieler befehlen, Gegenstände einzusammeln oder abzulegen. BEACHTE: Einige "persönliche" Gegenstände können unter keinen Umständen abgelegt werden (Texte, Waffen u.a.)</note>
+      </notes>
+      <segment>
+        <source>Wenn diese Option aktiviert ist, kann dir ein anderer Spieler befehlen, Gegenstände einzusammeln oder abzulegen. BEACHTE: Einige "persönliche" Gegenstände können unter keinen Umständen abgelegt werden (Texte, Waffen u.a.)</source>
+        <target>Wenn diese Option aktiviert ist, kann dir ein anderer Spieler befehlen, Gegenstände einzusammeln oder abzulegen. BEACHTE: Einige "persönliche" Gegenstände können unter keinen Umständen abgelegt werden (Texte, Waffen u.a.)</target>
+>>>>>>> 3b79941b787f6ab7f2195a2ce3c226d0f8c624c9
       </segment>
     </unit>
   </file>

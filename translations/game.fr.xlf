@@ -11583,5 +11583,23 @@
         <target>Commencez à serrer les fesses citoyens, les zombies attaqueront ce soir à minuit !</target>
       </segment>
     </unit>
+    <unit id="Q8sma_4" name="eceaacb">
+      <notes>
+        <note category="german">Wenn diese Option aktiviert ist, kann dich ein anderer Bürger nicht weiter von der Stadt entfernen. Er darf dich in diesem Fall nur näher bringen.</note>
+      </notes>
+      <segment>
+        <source>Wenn diese Option aktiviert ist, kann dich ein anderer Bürger nicht weiter von der Stadt entfernen. Er darf dich in diesem Fall nur näher bringen.</source>
+        <target>Lorsque cette option est activée, un autre citoyen ne peut pas vous éloigner de la ville. Dans ce cas, il ne peut que vous rapprocher.</target>
+      </segment>
+    </unit>
+    <unit id="zLtHCGI" name="472d56a">
+      <notes>
+        <note category="german">Wenn diese Option aktiviert ist, kann dir ein anderer Spieler befehlen, Gegenstände einzusammeln oder abzulegen. BEACHTE: Einige "persönliche" Gegenstände können unter keinen Umständen abgelegt werden (Texte, Waffen u.a.)</note>
+      </notes>
+      <segment>
+        <source>Wenn diese Option aktiviert ist, kann dir ein anderer Spieler befehlen, Gegenstände einzusammeln oder abzulegen. BEACHTE: Einige "persönliche" Gegenstände können unter keinen Umständen abgelegt werden (Texte, Waffen u.a.)</source>
+        <target>Lorsque cette option est activée, un autre joueur peut vous ordonner de collecter ou de déposer des objets. REMARQUE: certains objets «personnels» ne peuvent en aucun cas être déposés (écrits, armes, etc.)</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
