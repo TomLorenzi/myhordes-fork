@@ -935,7 +935,10 @@ class Citizen
         return $this;
     }
 
-    public function getCitizenWatch(): ?CitizenWatch
+    /**
+     * @return Collection|CitizenWatch[]
+     */
+    public function getCitizenWatch()
     {
         return $this->citizenWatch;
     }
