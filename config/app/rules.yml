@@ -119,7 +119,6 @@ parameters:
 
       features:
         camping: false
-        words_of_heros: false
         shaman: false
 
     remote:
@@ -132,7 +131,7 @@ parameters:
         wound_terror_penalty: 0.2
         building_attack_damage: true
         citizen_attack:
-          ap: 5
+          ap: 4
           injury: 0.6
 
       explorable_ruins: 2
