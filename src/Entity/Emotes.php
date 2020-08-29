@@ -44,6 +44,15 @@ class Emotes {
      */
     private $requiresUnlock;
 
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $index;
+
+    public function getIndex(): ?int {
+        return $this->index;
+    }
+
     public function getId(): ?int {
         return $this->id;
     }
@@ -54,6 +63,10 @@ class Emotes {
 
     public function getPath(): ?string {
         return $this->path;
+    }
+
+    public function setIndex(int $value) {
+        $this->index = $value;
     }
 
     public function setTag(string $value) {
