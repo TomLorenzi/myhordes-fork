@@ -23,15 +23,7 @@ class CitizenWatchRepository extends ServiceEntityRepository
     }
 
     public function findCurrentWatchers(Town $town){
-         return $this->createQueryBuilder('c')
-            ->andWhere('c.town = :town')
-            ->andWhere('c.day = :day')
-            ->setParameter('town', $town)
-            ->setParameter('day', $town->getDay())
-            ->orderBy('c.id', 'ASC')
-            ->getQuery()
-            ->getResult()
-        ;
+         return $this->findWatchersOfDay( $town, $town->getDay() );
     }
 
     public function findWatchersOfDay(Town $town, int $day){

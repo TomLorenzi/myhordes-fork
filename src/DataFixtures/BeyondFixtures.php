@@ -236,7 +236,15 @@ class BeyondFixtures extends Fixture implements DependentFixtureInterface
             array('item' => 'rsc_pack_3_#00','count' => 1),
         ], 'desc' => 'Dieser riesige gelbe Metallcontainer macht einen verlorenen Eindruck. Weit und breit keine Baustelle. Der Gemeinschaftsraum im Inneren ist mit leeren Bierflaschen übersät '],
         ["label" => "Dönerbude Utsel-Brutzel",'icon' => 'doner',"camping" => 7,"min_dist" => 3, "max_dist" => 6, "chance" => 181, "drops" => [
-            //TODO
+            array('item' => 'meat_#00','count' => 15),
+            array('item' => 'vegetable_#00','count' => 10),
+            array('item' => 'jerrycan_#00','count' => 6),
+            array('item' => 'chest_food_#00','count' => 3),
+            array('item' => 'vodka_#00','count' => 1),
+            array('item' => 'vodka_de_#00','count' => 1),
+            array('item' => 'knife_#00','count' => 3),
+            array('item' => 'mixergun_part_#00','count' => 2),
+            array('item' => 'pet_rat_#00','count' => 1),
         ], 'desc' => 'Von wegen Döner macht schöner. Scheint so als hätte der Besitzer dieser Bude das mit den Dönern und den Spießen missverstanden. Wer hier reingeht kommt garantiert nicht mehr raus. '],
         ["label" => "Dukes Villa",'icon' => 'duke',"camping" => 7,"min_dist" => 12, "max_dist" => 15, "chance" => 148, "drops" => [
             array('item' => 'drug_hero_#00','count' => 40),
@@ -491,7 +499,15 @@ class BeyondFixtures extends Fixture implements DependentFixtureInterface
             array('item' => 'home_box_xl_#00','count' => 1),
         ], 'desc' => 'Dieses militärische Vehikel ist wie die metaphorische Konservendose. Der Soldat ist drinnen und spielt die Rolle einer Sardine, und hundert Zombies draußen spielen den hungrigen Bürger. Der Bürger gewinnt...'],
         ["label" => "Motel 'Dusk'",'icon' => 'motel',"camping" => 7,"min_dist" => 12, "max_dist" => 15, "chance" => 292, "drops" => [
-            // ToDo
+            array('item' => 'door_carpet_#00','count' => 8),
+            array('item' => 'chest_#00','count' => 5),
+            array('item' => 'carpet_#00','count' => 4),
+            array('item' => 'chest_food_#00','count' => 2),
+            array('item' => 'lawn_part_#00','count' => 2),
+            array('item' => 'coffee_#00','count' => 1),
+            array('item' => 'bed_#00','count' => 1),
+            array('item' => 'mecanism_#00','count' => 2),
+            array('item' => 'pet_snake_#00','count' => 2),
         ], 'desc' => 'Beim Anblick des Gebäudes stellst du dir die Frage, wer in diesem schäbigen Motel früher übernachtet hat. Bilder und Szenen verschiedener Roadmovies schießen dir durch den Kopf: Thelma&Louise, Natural Born Killers... Du denkst dir: \'Vielleicht sollte ich als Erstes Zimmer 215 kontrollieren. Man weiß ja nie...\'.'],
         ["label" => "Militärischer Wachposten",'icon' => 'army',"camping" => 9,"min_dist" => 16, "max_dist" => 19, "chance" => 212, "drops" => [
             array('item' => 'coffee_#00','count' => 68),
@@ -556,7 +572,11 @@ class BeyondFixtures extends Fixture implements DependentFixtureInterface
             array('item' => 'chama_#00','count' => 9),
         ], 'desc' => 'In diesem Geschäft konnte man früher allerlei Produkte des täglichen Bedarfs kaufen: Lebensmittel, Getränke, Reinigungsmittel... An der Tür steht: Rund um die Uhr geöffnet (auch am Wochenende). In der Tat, das klaffenden Loch in der Mauer bestätigt dies.'],
         ["label" => "Truck 'Rathaus auf Rädern'",'icon' => 'mayor',"camping" => 7,"min_dist" => 16, "max_dist" => 19, "chance" => 81, "drops" => [
-            // ToDO
+            array('item' => 'book_gen_letter_#00','count' => 4),
+            array('item' => 'mecanism_#00','count' => 4),
+            array('item' => 'rp_letter_#00','count' => 8),
+            array('item' => 'rp_book2_#00','count' => 4),
+            array('item' => 'rp_manual_#00','count' => 1),
         ], 'desc' => 'Ihr Vertreter vor Ihrer Haustür. Die Zombies stimmten diesem Konzept voll und ganz zu, wenn man die Krallenspuren auf den Polstern der Kabine und die überall versprühten menschlichen Überreste bemerkt.'],
         ["label" => "Umgekippter Laster",'icon' => 'lkw',"camping" => 7,"min_dist" => 2, "max_dist" => 5, "chance" => 177, "drops" => [
             array('item' => 'chest_food_#00','count' => 58),
@@ -666,7 +686,16 @@ class BeyondFixtures extends Fixture implements DependentFixtureInterface
             array('item' => 'pet_pig_#00','count' => 1),
         ], 'desc' => 'Ein Ort des Friedens und der Gelassenheit... Wenn Sie bewaffnet und bereit sind, um Ihr Leben zu kämpfen. Die umgebende Vegetation ist unheimlich und riecht stark nach Tod, unidentifizierte Kreaturen lauern im Schatten... Sie haben das überwältigende Gefühl, dass eine Kreatur aus einer Hecke ausbrechen und Sie angreifen wird.'],
         ["label" => "Waffengeschäft Guns'n'Zombies",'icon' => 'guns',"camping" => 7,"min_dist" => 5, "max_dist" => 8, "chance" => 121, "drops" => [
-            // ToDo
+            array('item' => 'gun_#00','count' => 35),
+            array('item' => 'cutcut_#00','count' => 22),
+            array('item' => 'pilegun_empty_#00','count' => 18),
+            array('item' => 'knife_#00','count' => 15),
+            array('item' => 'machine_gun_#00','count' => 11),
+            array('item' => 'watergun_empty_#00','count' => 11),
+            array('item' => 'watergun_opt_part_#00','count' => 8),
+            array('item' => 'deto_#00','count' => 4),
+            array('item' => 'big_pgun_part_#00','count' => 4),
+            array('item' => 'chainsaw_part_#00','count' => 1),
         ], 'desc' => 'Wenn Sie drohen, verstümmeln oder morden wollen, haben Sie hier die Hauptader getroffen... Die in den Wänden steckenden Schrapnelle, Einschusslöcher und Trümmer ringsum geben Ihnen eine gute Vorstellung davon, welche Art von \'Ereignissen\' sich hier abgespielt haben...'],
         ["label" => "Warenlager",'icon' => 'warehouse',"camping" => 7,"min_dist" => 2, "max_dist" => 5, "chance" => 181, "drops" => [
             array('item' => 'chest_food_#00','count' => 43),

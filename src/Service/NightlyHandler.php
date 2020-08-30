@@ -273,7 +273,8 @@ class NightlyHandler
 
                 foreach ($citizens as $citizen) {
                     $gazette->setDeaths($gazette->getDeaths() + 1);
-                    $this->kill_wrap($citizen, $cod, false, 0, false, $town->getDay());
+                    $citizen->setSurvivedDays( $citizen->getTown()->getDay() - 1 );
+                    $this->kill_wrap($citizen, $cod, true, 0, false, $town->getDay());
                 }
 
                 $this->entity_manager->persist($gazette);
@@ -561,7 +562,7 @@ class NightlyHandler
             if ($force > $def){
                 $this->kill_wrap($target, $cod, false, $force);
                 // he dies from the attack, he validate the new day
-                $target->setSurvivedDays($town->getDay());
+                $target->setSurvivedDays($town->getDay() - 1);
                 $gazette->setDeaths($gazette->getDeaths() + 1);
             }
             else {
@@ -570,7 +571,7 @@ class NightlyHandler
                     $this->citizen_handler->inflictStatus( $target, $status_terror );
                     $this->log->debug("Citizen <info>{$target->getUser()->getUsername()}</info> now suffers from <info>{$status_terror->getLabel()}</info>");
 
-                    $this->crow->postAsPM( $target, '', '', PrivateMessage::TEMPLATE_CROW_THEFT, $force );
+                    $this->crow->postAsPM( $target, '', '', PrivateMessage::TEMPLATE_CROW_TERROR, $force );
 
                     $gazette->setTerror($gazette->getTerror() + 1);
                 }
