@@ -2326,7 +2326,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Erschöpfung</source>
-        <target>Erschöpfung</target>
+        <target>Exhausted</target>
       </segment>
     </unit>
     <unit id="m0NU7Ex" name="Angststarre">
@@ -2353,7 +2353,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Dehydriert</source>
-        <target>Dehydrated</target>
+        <target>Dehydrated!</target>
       </segment>
     </unit>
     <unit id="4cxMzfa" name="Rauschzustand">
@@ -2371,7 +2371,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Drogenabhängig</source>
-        <target>Hooked</target>
+        <target>Hooked!</target>
       </segment>
     </unit>
     <unit id="CXdRrv3" name="Infektion">
@@ -2380,7 +2380,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Infektion</source>
-        <target>Infection</target>
+        <target>Infected</target>
       </segment>
     </unit>
     <unit id="3dkb1Z2" name="Trunkenheit">
@@ -2398,7 +2398,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Kater</source>
-        <target>Hangover</target>
+        <target>Hungover</target>
       </segment>
     </unit>
     <unit id="E6kbVNC" name="Verwundung - Kopf">
@@ -2470,7 +2470,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Bandagiert</source>
-        <target>Bandage</target>
+        <target>Healed</target>
       </segment>
     </unit>
     <unit id="UUnigxa" name="Abgelegenes Haus">
