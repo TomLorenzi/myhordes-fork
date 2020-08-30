@@ -92,6 +92,11 @@ class Requirement
      */
     private $pm;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=RequireConf::class)
+     */
+    private $conf;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -255,6 +260,18 @@ class Requirement
     public function setPm(?RequirePM $pm): self
     {
         $this->pm = $pm;
+
+        return $this;
+    }
+
+    public function getConf(): ?RequireConf
+    {
+        return $this->conf;
+    }
+
+    public function setConf(?RequireConf $conf): self
+    {
+        $this->conf = $conf;
 
         return $this;
     }
