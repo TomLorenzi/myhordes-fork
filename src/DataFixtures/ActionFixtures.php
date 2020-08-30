@@ -39,6 +39,7 @@ use App\Entity\ItemTargetDefinition;
 use App\Entity\PictoPrototype;
 use App\Entity\RequireAP;
 use App\Entity\RequireBuilding;
+use App\Entity\RequireConf;
 use App\Entity\RequireCounter;
 use App\Entity\RequireHome;
 use App\Entity\RequireItem;
@@ -50,6 +51,7 @@ use App\Entity\RequireZombiePresence;
 use App\Entity\RequireZone;
 use App\Entity\Result;
 use App\Repository\RequireLocationRepository;
+use App\Structures\TownConf;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
@@ -63,6 +65,8 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
 {
     public static $item_actions = [
         'meta_requirements' => [
+            'feature_camping' => [ 'type' => Requirement::HideOnFail, 'collection' => ['conf' => [ 'value' => TownConf::CONF_FEATURE_CAMPING, 'bool' => true ] ] ],
+
             'never_cross'  => [ 'type' => Requirement::CrossOnFail, 'collection' => [ 'status' => [ 'enabled' => true, 'status' => 'tg_never' ] ]],
 
             'drink_cross'  => [ 'type' => Requirement::CrossOnFail, 'collection' => [ 'status' => [ 'enabled' => false, 'status' => 'hasdrunk' ] ]],
@@ -391,6 +395,7 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
                 'xmas'   => [ ['omg_this_will_kill_you_#00', 8], ['pocket_belt_#00', 8], 'rp_scroll_#00', 'rp_manual_#00', 'rp_sheets_#00', 'rp_letter_#00', 'rp_scroll_#00', 'rp_book_#00', 'rp_book_#01', 'rp_book2_#00' ],
                 'matbox' => [ 'wood2_#00', 'metal_#00' ],
                 'phone'  => [ 'deto_#00', 'metal_bad_#00', 'pile_broken_#00', 'electro_#00' ],
+                'proj'   => [ 'lens_#00' ],
                 'empty_battery' => [ 'pile_broken_#00' ],
                 'battery' => [ 'pile_#00' ],
                 'safe'  => [ 'watergun_opt_part_#00', 'big_pgun_part_#00', 'lawn_part_#00', 'chainsaw_part_#00', 'mixergun_part_#00', 'cutcut_#00', 'pilegun_upkit_#00', 'book_gen_letter_#00', 'pocket_belt_#00', 'drug_hero_#00', 'meca_parts_#00' ],
@@ -649,6 +654,7 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             'throw_b_torch_off'     => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside_or_exploring', 'must_have_zombies', 'not_tired' ], 'result' => [ ['group' => 'g_break_50'], ['group' => 'g_kill_1z_10'] ] ],
             'throw_b_wrench'        => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside_or_exploring', 'must_have_zombies', 'not_tired' ], 'result' => [ ['group' => 'g_break_33'], ['group' => 'g_kill_1z_50'] ] ],
             'throw_phone'           => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside_or_exploring', 'must_have_zombies', 'not_tired' ], 'result' => [ 'consume_item', ['spawn' => 'phone'] , 'kill_1_2_zombie' ] ],
+            'throw_projector'       => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside_or_exploring', 'must_have_zombies', 'not_tired' ], 'result' => [ 'consume_item', ['spawn' => 'proj'] , 'kill_1_zombie' ] ],
 
             'throw_grenade'         => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside_or_exploring', 'must_have_zombies' ], 'result' => [ 'consume_item', ['zombies' => [ 'min' => 2, 'max' =>  4 ]] ] ],
             'throw_exgrenade'       => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside_or_exploring', 'must_have_zombies' ], 'result' => [ 'consume_item', ['zombies' => [ 'min' => 6, 'max' => 10 ]] ] ],
@@ -746,7 +752,7 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             'hero_generic_immune' => [ 'label' => 'Den Tod besiegen', 'meta' => [ 'not_yet_hero'], 'result' => [ 'hero_act', 'hero_immune' ] ],
             'hero_generic_rescue' => [ 'label' => 'Rettung', 'target' => ['type' => ItemTargetDefinition::ItemHeroicRescueType], 'meta' => [ 'must_be_inside', 'not_yet_hero'], 'result' => [ 'hero_act', ['custom' => [9]] ], 'message' => 'Du hast {citizen} auf heldenhafte Weise in die Stadt gebracht!' ],
 
-            'improve' => [ 'label' => 'Aufbauen', 'meta' => [ 'must_be_outside', 'zone_is_improvable', 'min_1_ap', 'must_be_outside_not_at_doors' ], 'result' => [ 'minus_1ap', 'consume_item', [ 'zone' => ['improve' =>  1.8] ] ], 'message' => 'Du befestigst den {item} und bedeckst ihn zur Tarnung mit herumliegendem Müll und vertrockneten Zweigen. Na bitte, das sollte hoffentlich deine Überlebenschancen heute Nacht verbessern. Du hast dafür 1 Aktionspunkt verbraucht.' ],
+            'improve' => [ 'label' => 'Aufbauen', 'meta' => [ 'must_be_outside', 'zone_is_improvable', 'min_1_ap', 'must_be_outside_not_at_doors', 'feature_camping' ], 'result' => [ 'minus_1ap', 'consume_item', [ 'zone' => ['improve' =>  1.8] ] ], 'message' => 'Du befestigst den {item} und bedeckst ihn zur Tarnung mit herumliegendem Müll und vertrockneten Zweigen. Na bitte, das sollte hoffentlich deine Überlebenschancen heute Nacht verbessern. Du hast dafür 1 Aktionspunkt verbraucht.' ],
 
             'campsite_improve' => [ 'label' => 'Schlafplatz verbessern (schwacher permanenter Bonus, 1AP)', 'meta' => [ 'min_1_ap', 'not_tired', 'must_be_outside', 'must_not_be_hidden', 'must_not_be_tombed', 'zone_is_improvable' ], 'result' => [ 'minus_1ap', [ 'zone' => ['improve' =>  1] ] ], 'message' => 'Du hast das hiesige Versteck verbessert.' ],
             'campsite_hide'    => [ 'label' => 'Sich verstecken und die Nacht hier schlafen!', 'meta' => [ 'must_be_outside', 'must_not_be_hidden', 'must_not_be_tombed' ], 'result' => [ 'camp_hide', ['custom' => [10]] ], 'message' => 'Du hast Dich notdürftig versteckt.' ],
@@ -1007,6 +1013,7 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             'torch_off_#00'     => ['throw_b_torch_off'    ],
             'wrench_#00'        => ['throw_b_wrench'       ],
             'iphone_#00'        => ['throw_phone'          ],
+            'cinema_#00'        => ['throw_projector'      ],
 
             'bplan_c_#00'  => [ 'bp_generic_1' ],
             'bplan_u_#00'  => [ 'bp_generic_2' ],
@@ -1273,6 +1280,9 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
                     case 'pm':
                         $requirement->setPm( $this->process_pm_requirement( $manager, $out, $sub_cache[$sub_id], $sub_req, $sub_data ) );
                         break;
+                    case 'conf':
+                        $requirement->setConf( $this->process_conf_requirement( $manager, $out, $sub_cache[$sub_id], $sub_req, $sub_data ) );
+                        break;
                     default:
                         throw new Exception('No handler for requirement type ' . $sub_id);
                 }
@@ -1336,6 +1346,34 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             $requirement->setName( $id )->setMin( $data['min'] )->setMax( $data['max'] )->setRelativeMax( $data['relative'] );
             $manager->persist( $cache[$id] = $requirement );
         } else $out->writeln( "\t\t\t<comment>Skip</comment> condition <info>pm/{$id}</info>", OutputInterface::VERBOSITY_DEBUG );
+
+        return $cache[$id];
+    }
+
+    /**
+     * @param ObjectManager $manager
+     * @param ConsoleOutputInterface $out
+     * @param array $cache
+     * @param string $id
+     * @param array $data
+     * @return RequireConf
+     * @throws Exception
+     */
+    private function process_conf_requirement(
+        ObjectManager $manager, ConsoleOutputInterface $out,
+        array &$cache, string $id, array $data): RequireConf
+    {
+        if (!isset($cache[$id])) {
+            $requirement = $manager->getRepository(RequireConf::class)->findOneBy(['name' => $id]);
+            if ($requirement) $out->writeln( "\t\t\t<comment>Update</comment> condition <info>conf/{$id}</info>", OutputInterface::VERBOSITY_DEBUG );
+            else {
+                $requirement = new RequireConf();
+                $out->writeln( "\t\t\t<comment>Create</comment> condition <info>conf/{$id}</info>", OutputInterface::VERBOSITY_DEBUG );
+            }
+
+            $requirement->setName( $id )->setConf( $data['value'] )->setBoolVal( $data['bool'] ?? null );
+            $manager->persist( $cache[$id] = $requirement );
+        } else $out->writeln( "\t\t\t<comment>Skip</comment> condition <info>conf/{$id}</info>", OutputInterface::VERBOSITY_DEBUG );
 
         return $cache[$id];
     }

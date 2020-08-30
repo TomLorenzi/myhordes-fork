@@ -102,6 +102,16 @@ class ActionHandler
                 case Requirement::HideOnFail: $this_state = self::ActionValidityHidden; break;
             }
 
+            if ($config = $meta_requirement->getConf()) {
+
+                $set_val = $this->conf->getTownConfiguration($citizen->getTown())->get($config->getConf(), null);
+
+                $success = false;
+                if (!$success && $config->getBoolVal() !== null && $set_val === $config->getBoolVal()) $success = true;
+
+                if (!$success) $current_state = min( $current_state, $this_state );
+            }
+
 
             if ($status = $meta_requirement->getStatusRequirement()) {
                 if ($status->getStatus() !== null && $status->getEnabled() !== null) {
