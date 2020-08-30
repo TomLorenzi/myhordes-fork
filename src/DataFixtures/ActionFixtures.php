@@ -391,6 +391,7 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
                 'xmas'   => [ ['omg_this_will_kill_you_#00', 8], ['pocket_belt_#00', 8], 'rp_scroll_#00', 'rp_manual_#00', 'rp_sheets_#00', 'rp_letter_#00', 'rp_scroll_#00', 'rp_book_#00', 'rp_book_#01', 'rp_book2_#00' ],
                 'matbox' => [ 'wood2_#00', 'metal_#00' ],
                 'phone'  => [ 'deto_#00', 'metal_bad_#00', 'pile_broken_#00', 'electro_#00' ],
+                'proj'   => [ 'lens_#00' ],
                 'empty_battery' => [ 'pile_broken_#00' ],
                 'battery' => [ 'pile_#00' ],
                 'safe'  => [ 'watergun_opt_part_#00', 'big_pgun_part_#00', 'lawn_part_#00', 'chainsaw_part_#00', 'mixergun_part_#00', 'cutcut_#00', 'pilegun_upkit_#00', 'book_gen_letter_#00', 'pocket_belt_#00', 'drug_hero_#00', 'meca_parts_#00' ],
@@ -649,6 +650,7 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             'throw_b_torch_off'     => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside_or_exploring', 'must_have_zombies', 'not_tired' ], 'result' => [ ['group' => 'g_break_50'], ['group' => 'g_kill_1z_10'] ] ],
             'throw_b_wrench'        => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside_or_exploring', 'must_have_zombies', 'not_tired' ], 'result' => [ ['group' => 'g_break_33'], ['group' => 'g_kill_1z_50'] ] ],
             'throw_phone'           => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside_or_exploring', 'must_have_zombies', 'not_tired' ], 'result' => [ 'consume_item', ['spawn' => 'phone'] , 'kill_1_2_zombie' ] ],
+            'throw_projector'       => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside_or_exploring', 'must_have_zombies', 'not_tired' ], 'result' => [ 'consume_item', ['spawn' => 'proj'] , 'kill_1_zombie' ] ],
 
             'throw_grenade'         => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside_or_exploring', 'must_have_zombies' ], 'result' => [ 'consume_item', ['zombies' => [ 'min' => 2, 'max' =>  4 ]] ] ],
             'throw_exgrenade'       => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside_or_exploring', 'must_have_zombies' ], 'result' => [ 'consume_item', ['zombies' => [ 'min' => 6, 'max' => 10 ]] ] ],
@@ -1007,6 +1009,7 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             'torch_off_#00'     => ['throw_b_torch_off'    ],
             'wrench_#00'        => ['throw_b_wrench'       ],
             'iphone_#00'        => ['throw_phone'          ],
+            'cinema_#00'        => ['throw_projector'      ],
 
             'bplan_c_#00'  => [ 'bp_generic_1' ],
             'bplan_u_#00'  => [ 'bp_generic_2' ],
