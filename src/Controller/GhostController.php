@@ -123,7 +123,7 @@ class GhostController extends AbstractController implements GhostInterfaceContro
         }
 
         $townname = $parser->get('townName', '');
-        $password = $parser->get('password', '');
+        $password = $parser->get('password', null);
         $lang = $parser->get('lang', '');
         $townType = $parser->get('townType', '');
         $ghoulType = $parser->get('ghoulType', '');
@@ -143,6 +143,7 @@ class GhostController extends AbstractController implements GhostInterfaceContro
         $attacks = $parser->get('attacks', '');
         $allpictos = $parser->get('allpictos', '');
         $soulpoints = $parser->get('soulpoints', '');
+        $seed = $parser->get('seed', -1);
 
         // Initial: Create town setting from selected type
         $town = new Town();
@@ -189,9 +190,10 @@ class GhostController extends AbstractController implements GhostInterfaceContro
         $customConf['features']['give_all_pictos'] = $allpictos;
         $customConf['features']['give_soulpoints'] = $soulpoints;
 
-        $town = $gf->createTown($townname, $lang, null, 'custom', $customConf);
+        $town = $gf->createTown($townname, $lang, null, 'custom', $customConf, intval($seed));
         $town->setCreator($user);
-        $town->setPassword($password);
+        if(!empty($password) && $password != null)
+            $town->setPassword($password);
         $em->persist($town);
 
         $citizen = $gf->createCitizen($town, $user, $error);

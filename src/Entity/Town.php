@@ -150,7 +150,7 @@ class Town
     /**
      * @ORM\Column(type="string", length=90, nullable=true)
      */
-    private $password;
+    private $password = null;
 
     /**
      * @ORM\Column(type="integer")
