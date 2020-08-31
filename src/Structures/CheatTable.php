@@ -8,7 +8,7 @@ use App\Entity\User;
 class CheatTable
 {
     private $principal;
-    private $users;
+    private $users = [];
     private $likeliness;
 
     public function __construct(User $principal, int $likeliness = 0)
