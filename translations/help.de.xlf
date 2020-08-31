@@ -1666,7 +1666,7 @@ Pro Zug wird dir 1 Aktionspunkt abgezogen. Bei 0 Punkten bist du %img_tired% <st
       </notes>
       <segment>
         <source>Ausgrabungen haben eine geringere Erfolgschance (einschließlich Gebäude). Sie können jedoch bestimmte Objekte verwenden, um diese Strafe aufzuheben (insbesondere Taschenlampen oder Lampen).</source>
-        <target>Ausgrabungen haben eine geringere Erfolgschance (einschließlich Gebäude). Sie können jedoch bestimmte Objekte verwenden, um diese Strafe aufzuheben (insbesondere Taschenlampen oder Lampen).</target>
+        <target>Ausgrabungen haben eine geringere Erfolgschance (Gebäudesuche nicht enthalten). Sie können jedoch bestimmte Objekte verwenden, um diese Strafe aufzuheben (insbesondere Taschenlampen oder Lampen).</target>
       </segment>
     </unit>
     <unit id="nAcFRkc" name="Diese Regeln gelten nicht in &quot;Kleinstadt&quot;-Karten.">
