@@ -152,6 +152,16 @@ class Town
      */
     private $password;
 
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $dayWithoutAttack = 0;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=User::class)
+     */
+    private $creator;
+
     public function __construct()
     {
         $this->citizens = new ArrayCollection();
@@ -647,6 +657,30 @@ class Town
     {
     	$now = new \DateTime();
     	return $now->format('H') < 7 || $now->format('H') > 18;
+    }
+
+    public function getDayWithoutAttack(): ?int
+    {
+        return $this->dayWithoutAttack;
+    }
+
+    public function setDayWithoutAttack(int $dayWithoutAttack): self
+    {
+        $this->dayWithoutAttack = $dayWithoutAttack;
+
+        return $this;
+    }
+
+    public function getCreator(): ?User
+    {
+        return $this->creator;
+    }
+
+    public function setCreator(?User $creator): self
+    {
+        $this->creator = $creator;
+
+        return $this;
     }
 
 }

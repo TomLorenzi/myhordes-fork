@@ -33,6 +33,7 @@ class GhostController extends AbstractController implements GhostInterfaceContro
     protected $translator;
     protected $time_keeper;
     private $user_handler;
+    const ErrorWrongTownPassword          = ErrorHelper::BaseGhostErrors + 1;
 
     public function __construct(EntityManagerInterface $em, UserHandler $uh, TimeKeeperService $tk, TranslatorInterface $translator)
     {
@@ -189,6 +190,7 @@ class GhostController extends AbstractController implements GhostInterfaceContro
         $customConf['features']['give_soulpoints'] = $soulpoints;
 
         $town = $gf->createTown($townname, $lang, null, 'custom', $customConf);
+        $town->setCreator($user);
         $town->setPassword($password);
         $em->persist($town);
 
@@ -317,6 +319,30 @@ class GhostController extends AbstractController implements GhostInterfaceContro
         }
 
         return AjaxResponse::success();
+    }
+
+    /**
+     * @Route("api/ghost/check_town_pw", name="api_check_town_pw")
+     * @param JSONRequestParser $parser
+     * @param EntityManagerInterface $em
+     * @return Response
+     */
+    public function check_town_pw_api(JSONRequestParser $parser, EntityManagerInterface $em) {
+
+        if (!$parser->has('town') || !$parser->has('pass')) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+        $town_id = (int)$parser->get('town', -1);
+        $pass = $parser->get('pass', '');
+        if ($town_id <= 0 || empty($pass)) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+        /** @var Town $town */
+        $town = $em->getRepository(Town::class)->find( $town_id );
+
+        if (!$town) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+        if($town->getPassword() != $pass)
+            return AjaxResponse::error(self::ErrorWrongTownPassword);
+
+        return $this->redirectToRoute("api_join", ['town' => $town_id], 307);
     }
 
     public function getUserTownClassAccess(MyHordesConf $conf): array {
