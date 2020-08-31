@@ -27,21 +27,17 @@
                                 {% if not map.zones[x][y].tag is null and map.zones[x][y].tag.ref > 0 %}
                                     <div class="tag tag-{{map.zones[x][y].tag.ref}}"></div>
                                 {% endif %}
-                                {% if map.zones[x][y].discoveryStatus == constant('App\\Entity\\Zone::DiscoveryStateCurrent') and map.zones[x][y].zombieStatus == constant('App\\Entity\\Zone::ZombieStateExact') %}
-                                    <div class="count">{% if map.zones[x][y].zombies > 0 %}{{ map.zones[x][y].zombies }}{% endif %}</div>
-                                {% endif %}
-                                {% if in_town and map.zones[x][y].citizens|length != 0 and not chaos %}
+                                <div class="count">{% if map.zones[x][y].zombies > 0 %}{{ map.zones[x][y].zombies }}{% endif %}</div>
+                                {% if map.zones[x][y].citizens|length != 0 %}
                                     <div class="citizen_marker"></div>
                                 {% endif %}
                                 <div class="tooltip tooltip-map">
-                                    {% if map.zones[x][y].discoveryStatus > constant('App\\Entity\\Zone::DiscoveryStateNone') and map.zones[x][y].prototype %}
-                                        <div class="row"><div class="cell rw-12 bold">
-                                            {% if map.zones[x][y].buryCount > 0 %}
-                                                {{ 'Verschüttete Ruine'|trans({},'game') }}
-                                            {% else %}
-                                                {{ map.zones[x][y].prototype.label|trans({}, 'game') }}
-                                            {% endif %}
-                                        </div></div>
+                                    {% if map.zones[x][y].prototype %}
+                                        <div class="row">
+                                            <div class="cell rw-12 bold">
+                                                {{ map.zones[x][y].prototype.label|trans({}, 'game') }}{% if map.zones[x][y].buryCount > 0 %} ({{'Verschüttet'|trans({}, 'admin')}}) {% endif %}
+                                            </div>
+                                        </div>
                                     {% endif %}
                                     {% if x == 0 and y == 0 %}
                                         <div class="row"><div class="cell rw-12 bold">{{ map.zones[x][y].town.name }}</div></div>
@@ -54,27 +50,25 @@
                                         <div class="cell rw-6 left">{{ 'Entfernung'|trans({},'game') }}</div>
                                         <div class="cell rw-6 right"><div class="ap">{{ (x - map.pos_x)|abs + (y - map.pos_y)|abs }}</div></div>
                                     </div>
-                                    {% if in_town and map.zones[x][y].citizens|length != 0 %}
+                                    {% if map.zones[x][y].citizens|length != 0 %}
                                         {% for resident in map.zones[x][y].citizens %}
                                             <div class="row">
                                                 <div class="cell ro-6 rw-6 right">{{ resident.user.username }}</div>
                                             </div>
                                         {% endfor %}
                                     {% endif %}
-                                    {% if map.zones[x][y].discoveryStatus == constant('App\\Entity\\Zone::DiscoveryStateCurrent') %}
-                                        {% if map.zones[x][y].zombies > 0 and map.zones[x][y].zombies <= 2 %}
-                                            <div class="row">
-                                                {{'Isolierte Zombies'|trans({}, 'game')}}
-                                            </div>
-                                        {% elseif map.zones[x][y].zombies > 2 and map.zones[x][y].zombies <= 5 %}
-                                            <div class="row">
-                                                {{'Die Zombies verstümmeln'|trans({}, 'game')}}
-                                            </div>
-                                        {% elseif map.zones[x][y].zombies > 5 %}
-                                            <div class="row">
-                                                {{'Horde der Zombies'|trans({}, 'game')}}
-                                            </div>
-                                        {% endif %}
+                                    {% if map.zones[x][y].zombies > 0 and map.zones[x][y].zombies <= 2 %}
+                                        <div class="row">
+                                            {{'Isolierte Zombies'|trans({}, 'game')}}
+                                        </div>
+                                    {% elseif map.zones[x][y].zombies > 2 and map.zones[x][y].zombies <= 5 %}
+                                        <div class="row">
+                                            {{'Die Zombies verstümmeln'|trans({}, 'game')}}
+                                        </div>
+                                    {% elseif map.zones[x][y].zombies > 5 %}
+                                        <div class="row">
+                                            {{'Horde der Zombies'|trans({}, 'game')}}
+                                        </div>
                                     {% endif %}
                                     {% if not map.zones[x][y].tag is null and map.zones[x][y].tag.ref > 0 %}
                                         <div class="row">
@@ -82,7 +76,6 @@
                                         </div>
                                     {% endif %}
                                 </div>
-
                         </div>
                     {% else %}
                         <div class="void" style="width: {{ size }}%; padding-top: {{ size }}%"></div>
