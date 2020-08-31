@@ -751,5 +751,36 @@
         <target>Donne les points d'âme obtenus pendant la ville.</target>
       </segment>
     </unit>
+    <unit id="UgJmKP7" name="Bitte gib das Stadtpasswort ein :">
+      <notes>
+        <note category="german">Bitte gib das Stadtpasswort ein :</note>
+      </notes>
+      <segment>
+        <source>Bitte gib das Stadtpasswort ein :</source>
+        <target>Veuillez entrer le mot de passe de la ville :</target>
+      </segment>
+    </unit>
+    <unit id="Knuuneb" name="Karten-Seed">
+      <notes>
+        <note category="german">Karten-Seed</note>
+      </notes>
+      <segment>
+        <source>Karten-Seed</source>
+        <target>Seed de la carte</target>
+      </segment>
+    </unit>
+    <unit id="_SibAUY" name="5b4e357">
+      <notes>
+        <note category="german">Seed, das eine kontrollierte Kartenerstellung ermöglicht. Erlaubt im Falle von Ereignissen, ähnliche Karten zu generieren.
+                                Gib eine positive ganze Zahl ein, um es zu aktivieren.
+                                DENKT DARÜBER NACH, DIESE GANZE ZAHL VON EINEM EREIGNIS ZUM ANDEREN ZU ÄNDERN !</note>
+      </notes>
+      <segment>
+        <source>Seed, das eine kontrollierte Kartenerstellung ermöglicht. Erlaubt im Falle von Ereignissen, ähnliche Karten zu generieren.
+                                Gib eine positive ganze Zahl ein, um es zu aktivieren.
+                                DENKT DARÜBER NACH, DIESE GANZE ZAHL VON EINEM EREIGNIS ZUM ANDEREN ZU ÄNDERN !</source>
+        <target>Seed qui permet une génération de map maîtrisée. Permet, en cas d'event, de générer des maps similaires. Mettre un entier positif pour l'activer. PENSEZ À CHANGER CET ENTIER D'UN EVENT À L'AUTRE !</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

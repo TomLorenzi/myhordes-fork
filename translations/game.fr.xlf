@@ -11628,5 +11628,23 @@
         <target>Crucifixion</target>
       </segment>
     </unit>
+    <unit id="HagP5mz" name="Die Stadt für alle öffnen">
+      <notes>
+        <note category="german">Die Stadt für alle öffnen</note>
+      </notes>
+      <segment>
+        <source>Die Stadt für alle öffnen</source>
+        <target>Ouvrir la ville à tous</target>
+      </segment>
+    </unit>
+    <unit id="G0BraVl" name="Das Passwort ist falsch.">
+      <notes>
+        <note category="german">Das Passwort ist falsch.</note>
+      </notes>
+      <segment>
+        <source>Das Passwort ist falsch.</source>
+        <target>Le mot de passe est incorrect.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
