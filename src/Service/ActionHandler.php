@@ -758,12 +758,12 @@ class ActionHandler
 
             if ($result->getRolePlayText()) {
                 /** @var RolePlayText|null $text */
-                $text = $this->random_generator->pick($this->entity_manager->getRepository(RolePlayText::class)->findAllByLang($citizen->getTown()->getLanguage() ?? 'de'));
-                $alreadyfound = $this->entity_manager->getRepository(FoundRolePlayText::class)->findByUserAndText($citizen->getUser(), $text);
+                $text = $this->random_generator->pick( ($citizen->getTown()->getLanguage() === 'multi' || $citizen->getTown()->getLanguage() === null) ? $this->entity_manager->getRepository(RolePlayText::class)->findAll() : $this->entity_manager->getRepository(RolePlayText::class)->findAllByLang($citizen->getTown()->getLanguage() ));
+                $alreadyfound = !$text || $this->entity_manager->getRepository(FoundRolePlayText::class)->findByUserAndText($citizen->getUser(), $text);
                 $execute_info_cache['rp_text'] = $text->getTitle();
-                if ($text && $alreadyfound)
+                if ($alreadyfound)
                     $tags[] = 'rp_fail';
-                else {
+                elseif ($text) {
                     $tags[] = 'rp_ok';
                     $foundrp = new FoundRolePlayText();
                     $foundrp->setUser($citizen->getUser())->setText($text);
