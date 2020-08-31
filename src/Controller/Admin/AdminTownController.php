@@ -2,19 +2,14 @@
 
 namespace App\Controller\Admin;
 
-use App\Entity\AdminReport;
+use App\Entity\ExpeditionRoute;
 use App\Entity\Town;
-use App\Entity\User;
-use App\Entity\UserPendingValidation;
 use App\Entity\Zone;
 use App\Response\AjaxResponse;
-use App\Service\AdminActionHandler;
 use App\Service\ErrorHelper;
 use App\Service\JSONRequestParser;
 use App\Service\NightlyHandler;
 use App\Service\UserFactory;
-use Doctrine\ORM\EntityManagerInterface;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -56,13 +51,13 @@ class AdminTownController extends AdminActionController
                     $explorables[ $zone->getId() ]['rz'][] = $r;
             }
 
-        return $this->render( 'ajax/admin/towns/explorer.html.twig', [
+        return $this->render( 'ajax/admin/towns/explorer.html.twig', array_merge([
             'town' => $town,
             'conf' => $this->conf->getTownConfiguration( $town ),
             'explorables' => $explorables,
             'log' => $this->renderLog( -1, $town, false, null, null )->getContent(),
             'day' => $town->getDay()
-        ]);
+        ], $this->get_map_blob($town)));
     }
 
     /**
@@ -109,5 +104,48 @@ class AdminTownController extends AdminActionController
         }
 
         return AjaxResponse::success();
+    }
+
+    public function get_map_blob(Town $town): array {
+        $zones = []; $range_x = [PHP_INT_MAX,PHP_INT_MIN]; $range_y = [PHP_INT_MAX,PHP_INT_MIN];
+        $zones_classes = [];
+
+        $soul_zones_ids = array_map(function(Zone $z) { return $z->getId(); },$this->zone_handler->getSoulZones( $town ) );
+
+        foreach ($town->getZones() as $zone) {
+            $x = $zone->getX();
+            $y = $zone->getY();
+
+            $range_x = [ min($range_x[0], $x), max($range_x[1], $x) ];
+            $range_y = [ min($range_y[0], $y), max($range_y[1], $y) ];
+
+            if (!isset($zones[$x])) $zones[$x] = [];
+            $zones[$x][$y] = $zone;
+
+
+
+            if (!isset($zones_attributes[$x])) $zones_attributes[$x] = [];
+            $zones_classes[$x][$y] = $this->zone_handler->getZoneClasses(
+                $town,
+                $zone,
+                null,
+                in_array($zone->getId(), $soul_zones_ids)
+            );
+        }
+
+        return [
+            'map_data' => [
+                'zones' =>  $zones,
+                'zones_classes' =>  $zones_classes,
+                'town_devast' => $town->getDevastated(),
+                'routes' => $this->entity_manager->getRepository(ExpeditionRoute::class)->findByTown( $town ),
+                'pos_x'  => 0,
+                'pos_y'  => 0,
+                'map_x0' => $range_x[0],
+                'map_x1' => $range_x[1],
+                'map_y0' => $range_y[0],
+                'map_y1' => $range_y[1],
+            ]
+        ];
     }
 }
