@@ -612,6 +612,8 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
         $em->persist($town);
         $em->flush();
 
+        $this->addFlash("notice", $this->translator->trans("Du hast soeben den Zugang zu deiner privaten Stadt für jedermann geöffnet.", [], 'game'));
+
         return AjaxResponse::success();
     }
 

@@ -11646,5 +11646,23 @@
         <target>Le mot de passe est incorrect.</target>
       </segment>
     </unit>
+    <unit id="9EBorzV" name="Deine Stadt">
+      <notes>
+        <note category="german">Deine Stadt</note>
+      </notes>
+      <segment>
+        <source>Deine Stadt</source>
+        <target>Votre ville</target>
+      </segment>
+    </unit>
+    <unit id="jVhaVYF" name="Du hast soeben den Zugang zu deiner privaten Stadt für jedermann geöffnet.">
+      <notes>
+        <note category="german">Du hast soeben den Zugang zu deiner privaten Stadt für jedermann geöffnet.</note>
+      </notes>
+      <segment>
+        <source>Du hast soeben den Zugang zu deiner privaten Stadt für jedermann geöffnet.</source>
+        <target>Vous venez d'ouvrir à tous l'accès de votre ville privée.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

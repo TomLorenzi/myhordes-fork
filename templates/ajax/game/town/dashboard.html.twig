@@ -68,9 +68,6 @@
         <div class="padded cell {% if conf.get(constant('App\\Structures\\TownConf::CONF_FEATURE_WORDS_OF_HEROS'),false) %}rw-6{% else %}rw-12{% endif%} rw-lg-12">
             <h5>{{ 'Meine täglichen Aufgaben'|trans({}, 'game')}} <a class="help-button"><div class="tooltip help">{{ 'Du weißt nicht, was du tun sollst? Folge den Empfehlungen hier unten :)'|trans({},'global') }}</div>{{ 'Hilfe'|trans({},'global') }}</a></h5>
             <ul class="overview-checklist">
-                {% if town.password is not null and app.user == town.creator and town.dayWithoutAttack > 0 %}
-                <li id="open_town_btn">{{'Die Stadt für alle öffnen'|trans({}, 'game')}}</li>
-                {% endif %}
                 <li x-ajax-href="{{ url('forum_town_redirect') }}" {% if has_visited_forum %} class="checked"{% endif %}>{{ 'Einen Blick ins Forum werfen.'|trans({}, 'game') }}</li>
                 <li x-ajax-href="{{ path('town_well') }}" {% if active_citizen.specificActionCounterValue(constant('App\\Entity\\ActionCounter::ActionTypeWell')) > 0 %} class="checked"{% endif %}>{{ 'Meine Ration Wasser im Brunnen entnehmen (optional).'|trans({}, 'game') }}</li>
                 {% if new_message %}
@@ -88,6 +85,12 @@
 				{% if display_home_upgrade %}<li{% if has_upgraded_house %} class="checked"{% endif %} x-ajax-href="{{ path('town_house', {'tab': 'build' }) }}">{{ 'Mein Haus ausbauen'|trans({}, 'game') }}.</li>{% endif %}
                 <li{% if has_been_active %} class="checked"{% endif %}>{{ 'Auf der Baustelle arbeiten, in der Werkstatt arbeiten oder in die Außenwelt gehen (optional).'|trans({}, 'game') }}</li>
             </ul>
+            {% if town.password is not null and app.user == town.creator and town.dayWithoutAttack > 0 %}
+            <h5>{{ 'Deine Stadt'|trans({}, 'game') }}</h5>
+            <ul class="overview-checklist">
+                <li id="open_town_btn">{{'Die Stadt für alle öffnen'|trans({}, 'game')}}</li>
+            </ul>
+            {% endif %}
         </div>
         {% if conf.get(constant('App\\Structures\\TownConf::CONF_FEATURE_WORDS_OF_HEROS'),false) %}
         <div class="padded cell rw-6 rw-lg-12">
