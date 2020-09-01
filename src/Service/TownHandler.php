@@ -21,6 +21,8 @@ use App\Entity\ZombieEstimation;
 use App\Entity\Zone;
 use App\Structures\HomeDefenseSummary;
 use App\Structures\TownDefenseSummary;
+use App\Service\ConfMaster;
+use App\Structures\TownConf;
 use Doctrine\ORM\EntityManagerInterface;
 use function Couchbase\basicEncoderV1;
 
@@ -33,9 +35,10 @@ class TownHandler
     private $timeKeeper;
     private $citizen_handler;
     private $picto_handler;
+    private $conf;
 
     public function __construct(
-        EntityManagerInterface $em, InventoryHandler $ih, ItemFactory $if, LogTemplateHandler $lh, TimeKeeperService $tk, CitizenHandler $ch, PictoHandler $ph)
+        EntityManagerInterface $em, InventoryHandler $ih, ItemFactory $if, LogTemplateHandler $lh, TimeKeeperService $tk, CitizenHandler $ch, PictoHandler $ph, ConfMaster $conf)
     {
         $this->entity_manager = $em;
         $this->inventory_handler = $ih;
@@ -44,6 +47,7 @@ class TownHandler
         $this->timeKeeper = $tk;
         $this->citizen_handler = $ch;
         $this->picto_handler = $ph;
+        $this->conf = $conf;
     }
 
     private function internalAddBuilding( Town &$town, BuildingPrototype $prototype ): ?Building {
@@ -422,8 +426,27 @@ class TownHandler
         $d = $town->getDay();
         for ($current_day = $d; $current_day <= ($d+$future); $current_day++)
             if (!$this->entity_manager->getRepository(ZombieEstimation::class)->findOneByTown($town,$current_day)) {
-                $min = round( ($current_day <= 3 ? 0.66 : 1.0) * pow(max(1,$current_day-1) * 0.75 + 2.5,3) );
-                $max = round( ($current_day <= 3 ? ($current_day <= 1 ? 0.4 : 0.66) : 1.0) * pow($current_day * 0.75 + 3.5,3) );
+                $max_ratio = 1.0;
+                if($town->getType()->getName() == 'small') $max_ratio = 0.66;
+                
+                $mode = $this->conf->getTownConfiguration( $town )->get(TownConf::CONF_FEATURE_ATTACKS, 'normal');
+                switch($mode){
+                    case "hard":
+                        $max_ratio = 3.0;
+                        break;
+                    case "easy":
+                        $max_ratio = 0.66;
+                        break;
+                    case "normal":
+                    default:
+                        $max_ratio = 1.0;
+                        break;
+                }
+                $ratio_min = ($current_day <= 3 ? 0.66 : $max_ratio);
+                $ratio_max = ($current_day <= 3 ? ($current_day <= 1 ? 0.4 : 0.66) : $max_ratio);
+
+                $min = round( $ratio_min * pow(max(1,$current_day-1) * 0.75 + 2.5,3) );
+                $max = round( $ratio_max * pow($current_day * 0.75 + 3.5,3) );
 
                 $value = mt_rand($min,$max);
                 if ($value > ($min + 0.5 * ($max-$min))) $value = mt_rand($min,$max);
