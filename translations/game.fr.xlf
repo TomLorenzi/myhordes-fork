@@ -11628,13 +11628,13 @@
         <target>Crucifixion</target>
       </segment>
     </unit>
-    <unit id="HagP5mz" name="Die Stadt für alle öffnen">
+    <unit id="mkyiUfI" name="Öffne deine private Stadt für alle">
       <notes>
-        <note category="german">Die Stadt für alle öffnen</note>
+        <note category="german">Öffne deine private Stadt für alle</note>
       </notes>
       <segment>
-        <source>Die Stadt für alle öffnen</source>
-        <target>Ouvrir la ville à tous</target>
+        <source>Öffne deine private Stadt für alle</source>
+        <target>Ouvrir votre ville privée à tous</target>
       </segment>
     </unit>
     <unit id="G0BraVl" name="Das Passwort ist falsch.">
