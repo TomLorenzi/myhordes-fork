@@ -462,7 +462,7 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
         if ((!$town->getChaos() || !$citizen->getBanished()) && $citizen->getZone()->getX() === 0 && $citizen->getZone()->getY() === 0)
             return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
 
-        if ($citizen->getAp() <= 2 || $this->citizen_handler->isTired( $citizen ))
+        if ($citizen->getAp() < 2 || $this->citizen_handler->isTired( $citizen ))
             return AjaxResponse::error( ErrorHelper::ErrorNoAP );
 
         $hide_items = true;
