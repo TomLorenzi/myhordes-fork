@@ -102,6 +102,16 @@ class ActionHandler
                 case Requirement::HideOnFail: $this_state = self::ActionValidityHidden; break;
             }
 
+            if ($config = $meta_requirement->getConf()) {
+
+                $set_val = $this->conf->getTownConfiguration($citizen->getTown())->get($config->getConf(), null);
+
+                $success = false;
+                if (!$success && $config->getBoolVal() !== null && $set_val === $config->getBoolVal()) $success = true;
+
+                if (!$success) $current_state = min( $current_state, $this_state );
+            }
+
 
             if ($status = $meta_requirement->getStatusRequirement()) {
                 if ($status->getStatus() !== null && $status->getEnabled() !== null) {
@@ -748,12 +758,12 @@ class ActionHandler
 
             if ($result->getRolePlayText()) {
                 /** @var RolePlayText|null $text */
-                $text = $this->random_generator->pick($this->entity_manager->getRepository(RolePlayText::class)->findAllByLang($citizen->getTown()->getLanguage() ?? 'de'));
-                $alreadyfound = $this->entity_manager->getRepository(FoundRolePlayText::class)->findByUserAndText($citizen->getUser(), $text);
+                $text = $this->random_generator->pick( ($citizen->getTown()->getLanguage() === 'multi' || $citizen->getTown()->getLanguage() === null) ? $this->entity_manager->getRepository(RolePlayText::class)->findAll() : $this->entity_manager->getRepository(RolePlayText::class)->findAllByLang($citizen->getTown()->getLanguage() ));
+                $alreadyfound = !$text || $this->entity_manager->getRepository(FoundRolePlayText::class)->findByUserAndText($citizen->getUser(), $text);
                 $execute_info_cache['rp_text'] = $text->getTitle();
-                if ($text && $alreadyfound)
+                if ($alreadyfound)
                     $tags[] = 'rp_fail';
-                else {
+                elseif ($text) {
                     $tags[] = 'rp_ok';
                     $foundrp = new FoundRolePlayText();
                     $foundrp->setUser($citizen->getUser())->setText($text);

@@ -431,11 +431,6 @@ class TownAddonsController extends TownController
         if (!$th->getBuilding($town, 'small_round_path_#00', true) || !$this->getTownConf()->get(TownConf::CONF_FEATURE_NIGHTWATCH, true))
             return $this->redirect($this->generateUrl('town_dashboard'));
 
-        $has_shooting_gallery = (bool)$th->getBuilding($town, 'small_tourello_#00', true);
-        $has_trebuchet        = (bool)$th->getBuilding($town, 'small_catapult3_#00', true);
-        $has_ikea             = (bool)$th->getBuilding($town, 'small_ikea_#00', true);
-        $has_armory           = (bool)$th->getBuilding($town, 'small_armor_#00', true);
-
         $citizenWatch = $this->entity_manager->getRepository(CitizenWatch::class)->findCurrentWatchers($town);
         $watchers = [];
         $is_watcher = false;
@@ -600,24 +595,28 @@ class TownAddonsController extends TownController
 
         $action = $parser->get("action");
 
-        if($action == 'unwatch') {
-            $watchers = $this->entity_manager->getRepository(CitizenWatch::class)->findCurrentWatchers($town);
-            $activeCitizenWatcher = null;
+        $watchers = $this->entity_manager->getRepository(CitizenWatch::class)->findCurrentWatchers($town);
+        $activeCitizenWatcher = null;
 
-            foreach ($watchers as $watcher) {
-                if($watcher->getCitizen() == $this->getActiveCitizen()){
-                    $activeCitizenWatcher = $watcher;
-                    break;
-                }
+        foreach ($watchers as $watcher)
+            if($watcher->getCitizen() === $this->getActiveCitizen()){
+                $activeCitizenWatcher = $watcher;
+                break;
             }
-            if($activeCitizenWatcher === null) {
+
+        if($action == 'unwatch') {
+
+            if ($activeCitizenWatcher === null)
                 return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
-            }
 
             $town->removeCitizenWatch($activeCitizenWatcher);
             $this->getActiveCitizen()->removeCitizenWatch($activeCitizenWatcher);
             $this->entity_manager->remove($activeCitizenWatcher);
         } else if ($action == "watch") {
+
+            if ($activeCitizenWatcher !== null)
+                return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
+
             $citizenWatch = new CitizenWatch();
             $citizenWatch->setTown($town)->setCitizen($this->getActiveCitizen())->setDay($town->getDay());
             $town->addCitizenWatch($citizenWatch);

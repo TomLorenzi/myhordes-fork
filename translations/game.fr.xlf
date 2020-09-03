@@ -11601,5 +11601,32 @@
         <target>Lorsque cette option est activée, un autre joueur peut vous ordonner de collecter ou de déposer des objets. REMARQUE: certains objets «personnels» ne peuvent en aucun cas être déposés (écrits, armes, etc.)</target>
       </segment>
     </unit>
+    <unit id="ymSCpCu" name="Explosion">
+      <notes>
+        <note category="german">Explosion</note>
+      </notes>
+      <segment>
+        <source>Explosion</source>
+        <target>Explosion</target>
+      </segment>
+    </unit>
+    <unit id="oDsiHGx" name="???">
+      <notes>
+        <note category="german">???</note>
+      </notes>
+      <segment>
+        <source>???</source>
+        <target>???</target>
+      </segment>
+    </unit>
+    <unit id="i0KuVv1" name="Schokoladenkreuz">
+      <notes>
+        <note category="german">Schokoladenkreuz</note>
+      </notes>
+      <segment>
+        <source>Schokoladenkreuz</source>
+        <target>Schokoladenkreuz</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

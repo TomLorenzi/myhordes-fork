@@ -36,6 +36,7 @@ class EmotesRepository extends ServiceEntityRepository {
         return $this->createQueryBuilder('a')
             ->andWhere('a.isActive = true')
             ->andWhere('a.requiresUnlock = false')
+            ->orderBy('a.orderIndex', 'ASC')
             ->getQuery()
             ->getResult();
     }
@@ -44,6 +45,7 @@ class EmotesRepository extends ServiceEntityRepository {
         return $this->createQueryBuilder('a')
             ->andWhere('a.isActive = true')
             ->andWhere('a.requiresUnlock = true')
+            ->orderBy('a.orderIndex', 'ASC')
             ->getQuery()
             ->getResult();
 

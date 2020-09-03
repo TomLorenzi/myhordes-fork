@@ -106,10 +106,10 @@ class NightlyHandler
 
     private function stage1_vanish(Town $town) {
         $this->log->info('<info>Vanishing citizens</info> ...');
-        $cod = $this->entity_manager->getRepository(CauseOfDeath::class)->findOneByRef(CauseOfDeath::Vanished);
+        $cod = $this->entity_manager->getRepository(CauseOfDeath::class)->findOneBy(['ref' => CauseOfDeath::Vanished]);
 
-        $camp_1 = $this->entity_manager->getRepository(CitizenStatus::class)->findOneByName( 'tg_hide' );
-        $camp_2 = $this->entity_manager->getRepository(CitizenStatus::class)->findOneByName( 'tg_tomb' );
+        $camp_1 = $this->entity_manager->getRepository(CitizenStatus::class)->findOneBy(['name' => 'tg_hide']);
+        $camp_2 = $this->entity_manager->getRepository(CitizenStatus::class)->findOneBy(['name' => 'tg_tomb']);
 
         foreach ($town->getCitizens() as $citizen)
             if ($citizen->getAlive() && $citizen->getZone()) {
@@ -131,7 +131,7 @@ class NightlyHandler
                             $bp_name = ($this->zone_handler->getZoneKm($citizen->getZone()) < 10)
                                 ? 'bplan_u_#00'
                                 : 'bplan_r_#00';
-                            $bp_item_prototype = $this->entity_manager->getRepository(ItemPrototype::class)->findOneByName($bp_name);
+                            $bp_item_prototype = $this->entity_manager->getRepository(ItemPrototype::class)->findOneBy(['name' => $bp_name]);
                             $bp_item = $this->item_factory->createItem( $bp_item_prototype );
                             $citizen->getZone()->getFloor()->addItem($bp_item);
                             // Set zone blueprint.
@@ -149,16 +149,16 @@ class NightlyHandler
 
     private function stage1_status(Town $town) {
         $this->log->info('<info>Processing status-related deaths</info> ...');
-        $cod_thirst = $this->entity_manager->getRepository(CauseOfDeath::class)->findOneByRef(CauseOfDeath::Dehydration);
-        $cod_addict = $this->entity_manager->getRepository(CauseOfDeath::class)->findOneByRef(CauseOfDeath::Addiction);
-        $cod_infect = $this->entity_manager->getRepository(CauseOfDeath::class)->findOneByRef(CauseOfDeath::Infection);
-        $cod_ghoul  = $this->entity_manager->getRepository(CauseOfDeath::class)->findOneByRef(CauseOfDeath::GhulStarved);
+        $cod_thirst = $this->entity_manager->getRepository(CauseOfDeath::class)->findOneBy(['ref' => CauseOfDeath::Dehydration]);
+        $cod_addict = $this->entity_manager->getRepository(CauseOfDeath::class)->findOneBy(['ref' => CauseOfDeath::Addiction]);
+        $cod_infect = $this->entity_manager->getRepository(CauseOfDeath::class)->findOneBy(['ref' => CauseOfDeath::Infection]);
+        $cod_ghoul  = $this->entity_manager->getRepository(CauseOfDeath::class)->findOneBy(['ref' => CauseOfDeath::GhulStarved]);
 
-        $status_infected  = $this->entity_manager->getRepository(CitizenStatus::class)->findOneByName( 'infection' );
-        $status_survive   = $this->entity_manager->getRepository(CitizenStatus::class)->findOneByName( 'hsurvive' );
-        $status_thirst2   = $this->entity_manager->getRepository(CitizenStatus::class)->findOneByName( 'thirst2' );
-        $status_drugged   = $this->entity_manager->getRepository(CitizenStatus::class)->findOneByName( 'drugged' );
-        $status_addicted  = $this->entity_manager->getRepository(CitizenStatus::class)->findOneByName( 'addict' );
+        $status_infected  = $this->entity_manager->getRepository(CitizenStatus::class)->findOneBy(['name' => 'infection']);
+        $status_survive   = $this->entity_manager->getRepository(CitizenStatus::class)->findOneBy(['name' => 'hsurvive']);
+        $status_thirst2   = $this->entity_manager->getRepository(CitizenStatus::class)->findOneBy(['name' => 'thirst2']);
+        $status_drugged   = $this->entity_manager->getRepository(CitizenStatus::class)->findOneBy(['name' => 'drugged']);
+        $status_addicted  = $this->entity_manager->getRepository(CitizenStatus::class)->findOneBy(['name' => 'addict']);
 
         foreach ($town->getCitizens() as $citizen) {
 
@@ -223,21 +223,21 @@ class NightlyHandler
                         $citizen->getHome()->setAdditionalStorage($citizen->getHome()->getAdditionalStorage() + 1);
                         break;
                     case "secondwind":
-                        $heroic_action = $this->entity_manager->getRepository(HeroicActionPrototype::class)->findOneByName("hero_generic_ap");
+                        $heroic_action = $this->entity_manager->getRepository(HeroicActionPrototype::class)->findOneBy(['name' => "hero_generic_ap"]);
                         $citizen->addHeroicAction($heroic_action);
                         $this->entity_manager->persist($citizen);
                         break;
                     case "cheatdeath":
-                        $heroic_action = $this->entity_manager->getRepository(HeroicActionPrototype::class)->findOneByName("hero_generic_immune");
+                        $heroic_action = $this->entity_manager->getRepository(HeroicActionPrototype::class)->findOneBy(['name' => "hero_generic_immune"]);
                         $citizen->addHeroicAction($heroic_action);
                         $this->entity_manager->persist($citizen);
                         break;
                     case 'luckyfind':
-                        $oldfind = $this->entity_manager->getRepository(HeroicActionPrototype::class)->findOneByName("hero_generic_find");
+                        $oldfind = $this->entity_manager->getRepository(HeroicActionPrototype::class)->findOneBy(['name' => "hero_generic_find"]);
                         if($citizen->getHeroicActions()->contains($oldfind)) {
                             // He didn't used the Find, we replace it with the lucky find
                             $citizen->removeHeroicAction($oldfind);
-                            $newfind = $this->entity_manager->getRepository(HeroicActionPrototype::class)->findOneByName("hero_generic_find_lucky");
+                            $newfind = $this->entity_manager->getRepository(HeroicActionPrototype::class)->findOneBy(['name' => "hero_generic_find_lucky"]);
                             $citizen->addHeroicAction($newfind);
                         }
                 }
@@ -249,7 +249,7 @@ class NightlyHandler
         $this->log->info('Inflicting damages to buildings before the attack');
 
         $reactor = $this->town_handler->getBuilding($town, 'small_arma_#00', true);
-        $cod = $this->entity_manager->getRepository(CauseOfDeath::class)->findOneByRef(CauseOfDeath::Radiations);
+        $cod = $this->entity_manager->getRepository(CauseOfDeath::class)->findOneBy(['ref' => CauseOfDeath::Radiations]);
 
         if ($reactor) {
             $damages = mt_rand(50, 125);
@@ -273,7 +273,8 @@ class NightlyHandler
 
                 foreach ($citizens as $citizen) {
                     $gazette->setDeaths($gazette->getDeaths() + 1);
-                    $this->kill_wrap($citizen, $cod, false, 0, false, $town->getDay());
+                    $citizen->setSurvivedDays( $citizen->getTown()->getDay() - 1 );
+                    $this->kill_wrap($citizen, $cod, true, 0, false, $town->getDay());
                 }
 
                 $this->entity_manager->persist($gazette);
@@ -292,7 +293,7 @@ class NightlyHandler
         /** @var Building[] $buildings */
         $buildings = [];
 
-        $cod = $this->entity_manager->getRepository(CauseOfDeath::class)->findOneByRef(CauseOfDeath::NightlyAttack);
+        $cod = $this->entity_manager->getRepository(CauseOfDeath::class)->findOneBy(['ref' => CauseOfDeath::NightlyAttack]);
 
         foreach ($town->getCitizens() as $citizen) {
             if ($citizen->getAlive() && !$citizen->getZone())
@@ -346,8 +347,8 @@ class NightlyHandler
 
     private function stage2_attack(Town &$town) {
         $this->log->info('<info>Marching the horde</info> ...');
-        $cod = $this->entity_manager->getRepository(CauseOfDeath::class)->findOneByRef(CauseOfDeath::NightlyAttack);
-        $status_terror  = $this->entity_manager->getRepository(CitizenStatus::class)->findOneByName( 'terror' );
+        $cod = $this->entity_manager->getRepository(CauseOfDeath::class)->findOneBy(['ref' => CauseOfDeath::NightlyAttack]);
+        $status_terror  = $this->entity_manager->getRepository(CitizenStatus::class)->findOneBy(['name' => 'terror']);
 
         $has_kino = $this->town_handler->getBuilding($town, 'small_cinema_#00', true);
 
@@ -561,7 +562,7 @@ class NightlyHandler
             if ($force > $def){
                 $this->kill_wrap($target, $cod, false, $force);
                 // he dies from the attack, he validate the new day
-                $target->setSurvivedDays($town->getDay());
+                $target->setSurvivedDays($town->getDay() - 1);
                 $gazette->setDeaths($gazette->getDeaths() + 1);
             }
             else {
@@ -570,7 +571,7 @@ class NightlyHandler
                     $this->citizen_handler->inflictStatus( $target, $status_terror );
                     $this->log->debug("Citizen <info>{$target->getUser()->getUsername()}</info> now suffers from <info>{$status_terror->getLabel()}</info>");
 
-                    $this->crow->postAsPM( $target, '', '', PrivateMessage::TEMPLATE_CROW_THEFT, $force );
+                    $this->crow->postAsPM( $target, '', '', PrivateMessage::TEMPLATE_CROW_TERROR, $force );
 
                     $gazette->setTerror($gazette->getTerror() + 1);
                 }
@@ -694,7 +695,7 @@ class NightlyHandler
 
             if ($citizen->hasRole('ghoul')) {
                 $this->log->debug("Citizen <info>{$citizen->getUser()->getUsername()}</info> is a <info>ghoul</info>. <info>Increasing</info> hunger.");
-                $citizen->setGhulHunger( $citizen->getGhulHunger() + (($town->getChaos() || $town->getDevastated()) ? 15 : 35));
+                $citizen->setGhulHunger( $citizen->getGhulHunger() + (($town->getChaos() || $town->getDevastated()) ? 15 : 25));
             }
 
             $this->log->debug("Setting appropriate camping status for citizen <info>{$citizen->getUser()->getUsername()}</info> (who is <info>" . ($citizen->getZone() ? 'outside' : 'inside') . "</info> the town)...");
@@ -944,13 +945,13 @@ class NightlyHandler
         $this->log->debug( "Number of inventories: <info>{$c}</info>." );
 
         $morph = [
-            'torch_#00'    => $this->entity_manager->getRepository(ItemPrototype::class)->findOneByName('torch_off_#00'),
-            'lamp_on_#00'  => $this->entity_manager->getRepository(ItemPrototype::class)->findOneByName('lamp_#00'),
-            'radio_on_#00' => $this->entity_manager->getRepository(ItemPrototype::class)->findOneByName('radio_off_#00'),
-            'tamed_pet_off_#00'  => $this->entity_manager->getRepository(ItemPrototype::class)->findOneByName('tamed_pet_#00'),
-            'tamed_pet_drug_#00' => $this->entity_manager->getRepository(ItemPrototype::class)->findOneByName('tamed_pet_#00'),
-            'maglite_2_#00' => $this->entity_manager->getRepository(ItemPrototype::class)->findOneByName('maglite_1_#00'),
-            'maglite_1_#00' => $this->entity_manager->getRepository(ItemPrototype::class)->findOneByName('maglite_off_#00'),
+            'torch_#00'    => $this->entity_manager->getRepository(ItemPrototype::class)->findOneBy(['name' => 'torch_off_#00']),
+            'lamp_on_#00'  => $this->entity_manager->getRepository(ItemPrototype::class)->findOneBy(['name' => 'lamp_#00']),
+            'radio_on_#00' => $this->entity_manager->getRepository(ItemPrototype::class)->findOneBy(['name' => 'radio_off_#00']),
+            'tamed_pet_off_#00'  => $this->entity_manager->getRepository(ItemPrototype::class)->findOneBy(['name' => 'tamed_pet_#00']),
+            'tamed_pet_drug_#00' => $this->entity_manager->getRepository(ItemPrototype::class)->findOneBy(['name' => 'tamed_pet_#00']),
+            'maglite_2_#00' => $this->entity_manager->getRepository(ItemPrototype::class)->findOneBy(['name' => 'maglite_1_#00']),
+            'maglite_1_#00' => $this->entity_manager->getRepository(ItemPrototype::class)->findOneBy(['name' => 'maglite_off_#00']),
         ];
 
         foreach ($morph as $source => $target) {
@@ -1039,7 +1040,7 @@ class NightlyHandler
 
         $daily_items = []; $tx = [];
         if ($spawn_default_blueprint) {
-            $this->entity_manager->persist( $this->logTemplates->nightlyAttackProductionBlueprint( $town, $this->entity_manager->getRepository(ItemPrototype::class)->findOneByName('bplan_c_#00') ) );
+            $this->entity_manager->persist( $this->logTemplates->nightlyAttackProductionBlueprint( $town, $this->entity_manager->getRepository(ItemPrototype::class)->findOneBy(['name' => 'bplan_c_#00']) ) );
             $daily_items['bplan_c_#00'] = 1;
         }
 
@@ -1079,10 +1080,10 @@ class NightlyHandler
 
     private function stage3_pictos(Town $town){
 
-        $status_camping           = $this->entity_manager->getRepository(CitizenStatus::class)->findOneByName( 'camper' );
-        $picto_camping            = $this->entity_manager->getRepository(PictoPrototype::class)->findOneByName( 'r_camp_#00' );
-        $picto_camping_devastated = $this->entity_manager->getRepository(PictoPrototype::class)->findOneByName( 'r_cmplst_#00' );
-        $picto_nightwatch         = $this->entity_manager->getRepository(PictoPrototype::class)->findOneByName( 'r_guard_#00' );
+        $status_camping           = $this->entity_manager->getRepository(CitizenStatus::class)->findOneBy(['name' => 'camper']);
+        $picto_camping            = $this->entity_manager->getRepository(PictoPrototype::class)->findOneBy(['name' => 'r_camp_#00']);
+        $picto_camping_devastated = $this->entity_manager->getRepository(PictoPrototype::class)->findOneBy(['name' => 'r_cmplst_#00']);
+        $picto_nightwatch         = $this->entity_manager->getRepository(PictoPrototype::class)->findOneBy(['name' => 'r_guard_#00']);
         $this->log->info('<info>Processing Pictos functions</info> ...');
 
         // Marking pictos as obtained not-today

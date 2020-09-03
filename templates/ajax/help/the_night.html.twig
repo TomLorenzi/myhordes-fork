@@ -1,0 +1,23 @@
+{% extends "ajax/help/shell.html.twig" %}
+{% block helpContent %}
+<div class="helpArt">{{ 'Spielanleitung'|trans({},'help')|raw }}</div>
+<h1>{{ 'Nachts'|trans({},'help')|raw }}</h1>
+<img class="art" alt="" src="{{ asset('build/images/help/night.png') }}">
+<p>
+{{ 'Die Nächte in der Welt von MyHordes sind kalt. Sehr kalt und selten günstig. Bestimmte Handlungen oder Regeln ändern sich in diesen Stunden großer Einsamkeit...'|trans({},'help')|raw }}
+</p>
+<div class="clear"></div>
+<p>{{ 'Die folgenden Änderungen gelten Nachts:'|trans({},'help')|raw }}</p>
+<ul>
+<li> {{ 'Die Spezialfähigkeit <i>Durchbrechen</i> hat eine höhere Erfolgschance.'|trans({},'help')|raw }}</li>
+<li> {{ 'Camper haben eine bessere Chance, ein Versteck zu finden.'|trans({},'help')|raw }}</li>
+<li> {{ 'Für Aufklärer ist die Wahrscheinlichkeit, während der Bewegung entdeckt zu werden, erheblich geringer: Die Nacht ist Ihr Verbündeter.'|trans({},'help')|raw }}</li>
+<li> {{ 'Ein Bürger kann versuchen, ein Objekt aus der Bank zu stehlen: Er hat dann die Möglichkeit, nicht im Register identifiziert zu werden.'|trans({},'help')|raw }} <sup>1</sup></li>
+<li> {{ 'Ausgrabungen haben eine geringere Erfolgschance (einschließlich Gebäude). Sie können jedoch bestimmte Objekte verwenden, um diese Strafe aufzuheben (insbesondere Taschenlampen oder Lampen).'|trans({},'help')|raw }} <sup>1</sup></li>
+</ul>
+<em>
+<sup> 1 </sup>: {{ 'Diese Regeln gelten nicht in "Kleinstadt"-Karten.'|trans({},'help')|raw }}
+</em>
+<div class="clear"></div>
+<a class="button" x-ajax-href="{{ url('help', {'name': 'extreme_camping'}) }}"><img src="{{ asset('build/images/icons/small_move.gif') }}" alt="move"> {{'Weiter'|trans({}, 'help')}}:<strong> {{ 'Wildes Campen'|trans({},'help') }}</strong></a>
+{% endblock %}

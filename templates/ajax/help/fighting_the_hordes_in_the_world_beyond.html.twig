@@ -1,0 +1,24 @@
+{% extends "ajax/help/shell.html.twig" %}
+{% block helpContent %}
+<div class="helpArt">{{ 'Spielanleitung'|trans({},'help')|raw }}</div>
+<h1>{{ 'Zombies im Freien bekämpfen'|trans({},'help')|raw }}</h1>
+<h2>{{ 'Wie tötet man einen Zombie?'|trans({},'help')|raw }}</h2>
+<img class="pip" alt="" src="{{ asset('build/images/professions/select/hero.gif') }}">
+<p>
+{{ 'Klassischerweise, indem man seinen Kopf vom Körper trennt. Neuerdings schwören manche auch auf Bowlingkugeln... Die Wahrheit allerdings ist: Erlaubt ist, was gefällt. Alle stimmen darin überein, dass <strong>reines Wasser</strong> die Waffe der ersten Wahl ist. Dieses Wasser muss aber irgendwie transportiert werden. Plastiktüten eignen sich dazu hervorragend, denn sie geben zugleich tolle %img_grenade% Wasserbomben ab.'|trans({'%img_grenade%': '<img alt="" src="' ~ asset('build/images/item/item_grenade.gif') ~ '" />'},'help')|raw }}
+</p>
+<h2>{{ 'Ein paar Vorschläge'|trans({},'help')|raw }}</h2>
+<p>
+{{ 'Je nach Geschmack könnt ihr folgendes verwenden:'|trans({},'help')|raw }}
+</p>
+<ul>
+<li><img alt="" src="asset('build/images/items/item_staff.gif')"> {{ 'Einen Holzstock... nicht gaanz so effektiv.'|trans({},'help')|raw }}</li>
+<li><img alt="" src="asset('build/images/items/item_watergun_empty.gif')"> {{ 'Eine Wasserpistole! Die ist ideal!'|trans({},'help')|raw }}</li>
+<li><img alt="" src="asset('build/images/items/item_pet_dog.gif')"> {{ 'Ein wohlerzogenes Haustier ;-)'|trans({},'help')|raw }}</li>
+<li><img alt="" src="asset('build/images/items/item_chainsaw.gif')"> {{ 'Sonstiges nettes Spielzeug...'|trans({},'help')|raw }}</li>
+</ul>
+<p>
+{{ 'Wenn\'s mal Probleme geben sollte, ist eine <span x-ajax-href=%url_cp%>Flucht</span> nicht verkehrt...'|trans({'%url_cp%': url('help', {'name': 'control_points'})},'help')|raw }}
+<div class="clear"></div>
+<a class="button" x-ajax-href="{{ url('help', {'name': 'the_night'}) }}"><img src="{{ asset('build/images/icons/small_move.gif') }}" alt="move"> {{'Weiter'|trans({}, 'help')}}:<strong> {{ 'Nachts'|trans({},'help') }}</strong></a>
+{% endblock %}

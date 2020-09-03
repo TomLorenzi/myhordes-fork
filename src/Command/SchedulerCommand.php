@@ -8,6 +8,7 @@ use App\Entity\AttackSchedule;
 use App\Entity\Inventory;
 use App\Entity\Town;
 use App\Entity\TownClass;
+use App\Service\AntiCheatService;
 use App\Service\ConfMaster;
 use App\Service\GameValidator;
 use App\Service\Locksmith;
@@ -37,14 +38,16 @@ class SchedulerCommand extends Command
     private $locksmith;
     private $trans;
     private $conf;
+    private $anti_cheat;
 
-    public function __construct(EntityManagerInterface $em, NightlyHandler $nh, Locksmith $ls, Translator $translator, ConfMaster $conf)
+    public function __construct(EntityManagerInterface $em, NightlyHandler $nh, Locksmith $ls, Translator $translator, ConfMaster $conf, AntiCheatService $acs)
     {
         $this->entityManager = $em;
         $this->night = $nh;
         $this->locksmith = $ls;
         $this->trans = $translator;
         $this->conf = $conf->getGlobalConf();
+        $this->anti_cheat = $acs;
         parent::__construct();
     }
 
@@ -80,8 +83,6 @@ class SchedulerCommand extends Command
             $progress = new ProgressBar( $output->section() );
             $progress->start( count($towns) );
 
-            $has_fails = false;
-
             foreach ( $towns as $town ) {
 
                 if ($town->getAttackFails() >= 3 || ($town->getLastAttack() && $town->getLastAttack()->getId() === $s->getId()))
@@ -112,7 +113,6 @@ class SchedulerCommand extends Command
                     }
                 } catch (Exception $e) {
 
-                    $has_fails = true;
                     $output->writeln("<error>Failed to process town {$town->getId()}!</error>");
 
                     $fmt = $this->conf->get(MyHordesConf::CONF_FATAL_MAIL_TARGET, null);
@@ -141,8 +141,9 @@ class SchedulerCommand extends Command
                 $progress->advance();
             }
 
-            $s->setCompleted( !$has_fails );
+            $s->setCompleted( true );
             $this->entityManager->persist($s);
+            $this->anti_cheat->cleanseConnectionIdentifiers();  // Delete old connection identifiers
             $progress->finish();
 
             return true;
