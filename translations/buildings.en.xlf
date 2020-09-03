@@ -2986,7 +2986,7 @@
       </notes>
       <segment>
         <source>Ermöglicht die fachgerechte Entsorgung von Nahrung auf der Müllhalde.</source>
-        <target>Allows the destruction of food at the dump.Müllhalde.</target>
+        <target>Allows the destruction of food at the dump.</target>
       </segment>
     </unit>
     <unit id="wzBonsR" name="Steigert die Ausbeute jedes auf den Müll geworfenen Verteidigungs-Gegenstandes.">

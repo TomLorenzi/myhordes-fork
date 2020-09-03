@@ -11476,7 +11476,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Diese Mitteilung wird auf &lt;strong&gt;der Bürgerseite bei deinem Namen angezeigt und ist für jeden lesbar&lt;/strong&gt;. Nutze diese Mitteilungsmöglichkeit, um dich vorzustellen, dich zu rechtfertigen oder einen Gruß an deine Mitspieler zu hinterlassen...</source>
-        <target><![CDATA[Diese Mitteilung wird auf <strong>der Bürgerseite bei deinem Namen angezeigt und ist für jeden lesbar</strong>. Nutze diese Mitteilungsmöglichkeit, um dich vorzustellen, dich zu rechtfertigen oder einen Gruß an deine Mitspieler zu hinterlassen...]]></target>
+        <target><![CDATA[Everyone in town can see this message <strong>by looking at the Citizens page</strong>, next to your name. Use it to say a little bit about yourself, how you're feeling, or to leave a message for everyone... ]]></target>
       </segment>
     </unit>
     <unit id="slcsIov" name="6900dcf">
