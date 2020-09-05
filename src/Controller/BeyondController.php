@@ -345,7 +345,7 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
             'actions' => $this->getItemActions(),
             'floor' => $zone->getFloor(),
             'other_citizens' => $zone->getCitizens(),
-            'log' => $this->renderLog( -1, null, $zone, null, 10 )->getContent(),
+            'log' => ($zone->getX() === 0 && $zone->getY() === 0) ? '' : $this->renderLog( -1, null, $zone, null, 10 )->getContent(),
             'day' => $this->getActiveCitizen()->getTown()->getDay(),
             'camping_zone' => $camping_zone ?? '',
             'camping_zombies' => $camping_zombies ?? '',
@@ -965,6 +965,11 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
         $citizen = $this->getActiveCitizen();
         if ($this->zone_handler->check_cp( $citizen->getZone() ) || $this->get_escape_timeout( $citizen ) > 0)
             return AjaxResponse::error( self::ErrorZoneUnderControl );
+
+        if ($this->citizen_handler->hasStatusEffect($citizen,'terror' )) {
+            $this->addFlash('error', $this->translator->trans('Wenn du in der Wüste von Zombies umzingelst wirst, erstarrst du vor Angst und kannst nichts mehr unternehmen... Du musst Drogen oder etwas anderes finden, um <strong>deine Nerven zu beruhigen</strong> und aus dieser Hölle zu entkommen... Wenigstens ist es dir immer noch möglich, im Forum nach Hilfe zu suchen...', [], 'game'));
+            return AjaxResponse::success();
+        }
 
         if ($this->inventory_handler->countSpecificItems(
             $this->getActiveCitizen()->getInventory(), $this->entity_manager->getRepository(ItemPrototype::class)->findOneBy(['name' => 'vest_on_#00'])

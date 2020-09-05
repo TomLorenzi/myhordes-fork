@@ -132,7 +132,9 @@
                             {% endif %}
                             {% for item in citizen.home.chest.items %}
                                 {# @var \App\Entity\Item item #}
-                                <img alt="{{ item.prototype.label|trans({},'items') }}" src="{{ asset('build/images/item/item_' ~ item.prototype.icon ~ '.gif') }}" />
+                                {% if (citizen == me or not item.prototype.hideInForeignChest) %}
+                                    <img alt="{{ item.prototype.label|trans({},'items') }}" src="{{ asset('build/images/item/item_' ~ item.prototype.icon ~ '.gif') }}" />
+                                {% endif %}
                             {% endfor %}
                         {% else %}
                             <em>{{ 'Ein Vorhang blockiert die Sicht ...'|trans({},'game') }}</em>

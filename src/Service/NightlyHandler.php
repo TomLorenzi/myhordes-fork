@@ -537,12 +537,15 @@ class NightlyHandler
             $attacking = $overflow;
             $targets = $this->random->pick($targets, mt_rand( ceil(count($targets) * 0.15), ceil(count($targets) * 0.35 )), true);
         } else {
-            if     ($attack_day <= 14) $x = 1;
-            elseif ($attack_day <= 18) $x = 4;
-            elseif ($attack_day <= 23) $x = 5;
-            else                       $x = 6;
+            if     ($attack_day <= 14) $x = $attack_day + 1;
+            elseif ($attack_day <= 18) $x = $attack_day + 4;
+            elseif ($attack_day <= 23) $x = $attack_day + 5;
+            else                       $x = $attack_day + 6;
 
-            $attacking = min(($attack_day + $x) * max(10, count($targets)), $overflow);
+            //$in_town = $town->getChaos() ? max(10,count($targets)) : count($targets);
+            $in_town = max(10,count($targets));
+            $attacking = min(($in_town * $x), $overflow);
+
             $targets = $this->random->pick($targets, ceil(count($targets) * 0.85), true);
         }
 
@@ -672,9 +675,11 @@ class NightlyHandler
             }
 
             $citizen->getExpeditionRoutes()->clear();
+
             if (!$citizen->getAlive()) continue;
 
             $aliveCitizen++;
+            $citizen->setHasSeenGazette(false);
 
             if($citizen->getZone() === null)
                 $aliveCitizenInTown++;
