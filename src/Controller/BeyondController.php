@@ -963,6 +963,11 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
         if ($this->zone_handler->check_cp( $citizen->getZone() ) || $this->get_escape_timeout( $citizen ) > 0)
             return AjaxResponse::error( self::ErrorZoneUnderControl );
 
+        if ($this->citizen_handler->hasStatusEffect($citizen,'terror' )) {
+            $this->addFlash('error', $this->translator->trans('Wenn du in der Wüste von Zombies umzingelst wirst, erstarrst du vor Angst und kannst nichts mehr unternehmen... Du musst Drogen oder etwas anderes finden, um <strong>deine Nerven zu beruhigen</strong> und aus dieser Hölle zu entkommen... Wenigstens ist es dir immer noch möglich, im Forum nach Hilfe zu suchen...', [], 'game'));
+            return AjaxResponse::success();
+        }
+
         if ($this->inventory_handler->countSpecificItems(
             $this->getActiveCitizen()->getInventory(), $this->entity_manager->getRepository(ItemPrototype::class)->findOneBy(['name' => 'vest_on_#00'])
         ) > 0)
