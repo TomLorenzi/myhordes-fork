@@ -249,6 +249,11 @@ class Citizen
      */
     private $helpNotifications;
 
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $hasSeenGazette = false;
+
     public function __construct()
     {
         $this->status = new ArrayCollection();
@@ -1137,6 +1142,18 @@ class Citizen
         if ($this->helpNotifications->contains($helpNotification)) {
             $this->helpNotifications->removeElement($helpNotification);
         }
+
+        return $this;
+    }
+
+    public function getHasSeenGazette(): ?bool
+    {
+        return $this->hasSeenGazette;
+    }
+
+    public function setHasSeenGazette(bool $hasSeenGazette): self
+    {
+        $this->hasSeenGazette = $hasSeenGazette;
 
         return $this;
     }

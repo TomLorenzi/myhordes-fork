@@ -395,7 +395,8 @@ class GameFactory
             ->setTown( $town )
             ->setInventory( new Inventory() )
             ->setHome( $home )
-            ->setCauseOfDeath( $this->entity_manager->getRepository( CauseOfDeath::class )->findOneByRef( CauseOfDeath::Unknown ) );
+            ->setCauseOfDeath( $this->entity_manager->getRepository( CauseOfDeath::class )->findOneByRef( CauseOfDeath::Unknown ) )
+            ->setHasSeenGazette( true );
         (new Inventory())->setCitizen( $citizen );
         $this->citizen_handler->inflictStatus( $citizen, 'clean' );
 

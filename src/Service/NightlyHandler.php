@@ -675,9 +675,11 @@ class NightlyHandler
             }
 
             $citizen->getExpeditionRoutes()->clear();
+
             if (!$citizen->getAlive()) continue;
 
             $aliveCitizen++;
+            $citizen->setHasSeenGazette(false);
 
             if($citizen->getZone() === null)
                 $aliveCitizenInTown++;
