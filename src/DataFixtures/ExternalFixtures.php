@@ -62,11 +62,20 @@ class ExternalFixtures extends Fixture
         [
             'name' => 'Hordes-la-loi',
             'active' => 1,
-            'url' => 'http://myh.hordes-la-loi.fr/receive.php',
-            'icon' => 'null',
+            'url' => ' https://my.hordes-la-loi.fr/connect',
+            'icon' => 'hlaloi',
             'contact' => 'xemaro@hordes-la-loi.fr',
             'owner' => 'Xemaro',
             'key' => 'b4af912cbe75debe',
+        ],
+        [
+            'name' => 'Hordes-la-loi (Testing)',
+            'active' => 1,
+            'url' => 'https://beta.my.hordes-la-loi.fr/connect',
+            'icon' => 'hlaloi',
+            'contact' => 'xemaro@hordes-la-loi.fr',
+            'owner' => 'Xemaro',
+            'key' => 'a4af912cbe75debe',
         ],
         [
             'name' => 'Test',
