@@ -344,7 +344,7 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
             'actions' => $this->getItemActions(),
             'floor' => $zone->getFloor(),
             'other_citizens' => $zone->getCitizens(),
-            'log' => $this->renderLog( -1, null, $zone, null, 10 )->getContent(),
+            'log' => ($zone->getX() === 0 && $zone->getY() === 0) ? '' : $this->renderLog( -1, null, $zone, null, 10 )->getContent(),
             'day' => $this->getActiveCitizen()->getTown()->getDay(),
             'camping_zone' => $camping_zone ?? '',
             'camping_zombies' => $camping_zombies ?? '',

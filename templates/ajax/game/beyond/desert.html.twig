@@ -246,7 +246,11 @@
 
                 {% if is_shaman %}
                     <button id="fall_rain">
-                        <img alt="" src="{{ asset('build/images/icons/water.gif') }}">{{'Zone reinigen'|trans({}, 'game')}} (3 <div class="pm"></div>)
+                        {% if zone.x != 0 or zone.y != 0 %}
+                            <img alt="" src="{{ asset('build/images/icons/water.gif') }}">{{'Zone reinigen'|trans({}, 'game')}} (3 <div class="pm"></div>)
+                        {% else %}
+                            <img alt="" src="{{ asset('build/images/icons/water.gif') }}">{{'Regentanz ausführen'|trans({}, 'game')}} (3 <div class="pm"></div>)
+                        {% endif %}
                     </button>
                 {% endif %}
 
@@ -293,7 +297,7 @@
     {% endif %}
 
     <div class="other_citizens">
-    {% if other_citizens|length == 1 %}
+        {% if other_citizens|length == 1 %}
         <em>{{"Sie sind allein in dieser Gegend..."|trans({}, 'game')}}</em>
     {% elseif citizen.escortSettings is null or citizen.escortSettings.leader is null %}
         {% if conf.get(constant('App\\Structures\\TownConf::CONF_FEATURE_ESCORT'),true) and citizen.validLeadingEscorts|length > 0 %}
@@ -490,7 +494,7 @@
         {% endif %}
     {% endif %}
 
-    {% if not citizen.camping and conf.get(constant('App\\Structures\\TownConf::CONF_FEATURE_ESCORT'),true) %}
+        {% if not citizen.camping and conf.get(constant('App\\Structures\\TownConf::CONF_FEATURE_ESCORT'),true) %}
         <div class="row">
             {% if citizen.escortSettings is null and citizen.validLeadingEscorts|length == 0 %}
                 <div class="cell padded rw-12"><button x-toggle-escort="1"><img alt="" src="{{ asset('build/images/icons/escort_on.gif') }}" />{{ 'Eskorte aktivieren'|trans({},'game') }}</button></div>
@@ -514,7 +518,7 @@
         </div>
     {% endif %}
 
-    {% if zone.x != 0 or zone.y != 0 %}
+        {% if zone.x != 0 or zone.y != 0 %}
         <div class="row">
             <h5><span class="float-right link" x-ajax-href='{{ path('beyond_dashboard') }}'>{{'Aktualisierung'|trans({}, 'game')}}</span>{{ 'Zonenregister'|trans({},'game') }} <a class="help-button"><div class="tooltip help">{{ 'Beachte: Alle hier geschriebenen Nachrichten gehen verloren, wenn alle Bürger die Zone verlassen.'|trans({},'global') }}</div>{{ 'Hilfe'|trans({},'global') }}</a></h5>
             <div class="cell rw-12">
@@ -530,6 +534,7 @@
             </div>
         </div>
     {% endif %}
+    </div>
 {% endblock %}
 {% block js %}
     {{ parent() }}
@@ -801,8 +806,7 @@
         {% endif %}
 
         {% if is_shaman %}
-            let fallRainBtn = document.getElementById('fall_rain');
-            if(fallRainBtn) fallRainBtn.addEventListener('click', function() {
+            $.html.addEventListenerAll('#fall_rain', 'click', function() {
                 if (!confirm('{{ 'Bestätigen?'|trans({},'global')|e('js') }}'))
                     return;
                 $.ajax.easySend( '{{ path('beyond_desert_shaman_rain') }}', {},
