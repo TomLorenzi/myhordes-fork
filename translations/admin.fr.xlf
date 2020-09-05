@@ -1267,7 +1267,7 @@
       </notes>
       <segment>
         <source>Multi-Account Report</source>
-        <target>Multi-Account Report</target>
+        <target>Rapport multi-comptes</target>
       </segment>
     </unit>
     <unit id="NBT1t.l" name="Verdacht">
@@ -1276,7 +1276,7 @@
       </notes>
       <segment>
         <source>Verdacht</source>
-        <target>Verdacht</target>
+        <target>Soupçon</target>
       </segment>
     </unit>
     <unit id="5D_B4LJ" name="Andere Accounts">
@@ -1285,7 +1285,7 @@
       </notes>
       <segment>
         <source>Andere Accounts</source>
-        <target>Andere Accounts</target>
+        <target>Autres comptes</target>
       </segment>
     </unit>
     <unit id="E6OsQAN" name="Bann">
@@ -1294,7 +1294,7 @@
       </notes>
       <segment>
         <source>Bann</source>
-        <target>Bann</target>
+        <target>Bannir</target>
       </segment>
     </unit>
     <unit id="mXRxJwB" name="Durch %admin% vom Spiel ausgeschlossen!">
@@ -1303,7 +1303,7 @@
       </notes>
       <segment>
         <source>Durch %admin% vom Spiel ausgeschlossen!</source>
-        <target>Durch %admin% vom Spiel ausgeschlossen!</target>
+        <target>Exclus du jeu par %admin% !</target>
       </segment>
     </unit>
     <unit id="jyuOkNg" name="Grund angeben">
@@ -1312,7 +1312,7 @@
       </notes>
       <segment>
         <source>Grund angeben</source>
-        <target>Grund angeben</target>
+        <target>Expliquer la raison</target>
       </segment>
     </unit>
     <unit id="Gn20uPe" name="Spielbann">
@@ -1321,7 +1321,7 @@
       </notes>
       <segment>
         <source>Spielbann</source>
-        <target>Spielbann</target>
+        <target>Interdiction de jouer</target>
       </segment>
     </unit>
     <unit id="BfojyKe" name="Spielbann aufheben">
@@ -1330,7 +1330,7 @@
       </notes>
       <segment>
         <source>Spielbann aufheben</source>
-        <target>Spielbann aufheben</target>
+        <target>Supprimer l'interdiction</target>
       </segment>
     </unit>
   </file>
