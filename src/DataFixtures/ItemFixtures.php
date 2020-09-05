@@ -346,7 +346,7 @@ class ItemFixtures extends Fixture
         ['label' =>'Starker Laserpointer (1 Schuss)','icon'=>'lpoint1','category'=>'root_weapon','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                       // -- Out
         ['label' =>'Starker Laserpointer (Leer)','icon'=>'lpoint','category'=>'root_weapon','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                            // In Out
         ['label' =>'Teleskop','icon'=>'scope','category'=>'imp','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                                                   // -- ---
-        ['label' =>'Unpersönliche Explodierende Fußmatte','icon'=>'trapma','category'=>'furniture','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                // -- ---
+        ['label' =>'Unpersönliche Explodierende Fußmatte','icon'=>'trapma','category'=>'furniture','deco'=>0,'heavy'=>false, 'watchpoint' => 0, 'hideInForeignChest' => true],                // -- ---
         ['label' =>'Chuck-Figur','icon'=>'chudol','category'=>'furniture','deco'=>15,'heavy'=>false, 'watchpoint' => 0],                                        // -- ---
         ['label' =>'Kleine Zen-Fibel','icon'=>'lilboo','category'=>'imp','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                                          // In Out
         ['label' =>'Trockene Kräuter','icon'=>'ryebag','category'=>'rsc','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                                          // -- ---
@@ -1186,6 +1186,7 @@ class ItemFixtures extends Fixture
                 ->setHeavy( $entry['heavy'] )
                 ->setCategory( $category )
                 ->setDescription( static::$item_desc_data[ $entry_unique_id ] ?? "" )
+                ->setHideInForeignChest( $entry['hideInForeignChest'] ?? false )
                 ->getProperties()->clear();
 
             if(isset($entry['watchpoint']))

@@ -82,6 +82,11 @@ class ItemPrototype implements NamedEntity
      */
     private $nightWatchAction;
 
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $hideInForeignChest;
+
     public function __construct()
     {
         $this->properties = new ArrayCollection();
@@ -255,6 +260,18 @@ class ItemPrototype implements NamedEntity
     public function setNightWatchAction(?ItemAction $nightWatchAction): self
     {
         $this->nightWatchAction = $nightWatchAction;
+
+        return $this;
+    }
+
+    public function getHideInForeignChest(): ?bool
+    {
+        return $this->hideInForeignChest;
+    }
+
+    public function setHideInForeignChest(bool $hideInForeignChest): self
+    {
+        $this->hideInForeignChest = $hideInForeignChest;
 
         return $this;
     }
