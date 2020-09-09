@@ -144,6 +144,7 @@ class GhostController extends AbstractController implements GhostInterfaceContro
         $allpictos = $parser->get('allpictos', '');
         $soulpoints = $parser->get('soulpoints', '');
         $seed = $parser->get('seed', -1);
+        $incarnated = boolval($parser->get('incarnated', true));
 
         // Initial: Create town setting from selected type
         $town = new Town();
@@ -196,16 +197,19 @@ class GhostController extends AbstractController implements GhostInterfaceContro
             $town->setPassword($password);
         $em->persist($town);
 
-        $citizen = $gf->createCitizen($town, $user, $error);
-        if (!$citizen) return AjaxResponse::error($error);
-        try {
-            $em->persist($citizen);
-            $em->flush();
-        } catch (Exception $e) {
-            return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
+        if($incarnated) {
+            $citizen = $gf->createCitizen($town, $user, $error);
+            if (!$citizen) return AjaxResponse::error($error);
+            try {
+                $em->persist($citizen);
+                $em->flush();
+            } catch (Exception $e) {
+                return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
+            }
+
+            $em->persist( $log->citizenJoin( $citizen ) );
         }
 
-        $em->persist( $log->citizenJoin( $citizen ) );
         try {
             $em->flush();
         } catch (Exception $e) {

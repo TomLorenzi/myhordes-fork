@@ -161,6 +161,11 @@
                         <div class="cell rw-12 mod">
                             <input type="checkbox" name="improveddump" id="improveddump" checked/> <label for="improveddump"><strong>{{'Verbesserte Müllhalde:'|trans({}, 'ghost')}}</strong> {{'Verbesserte Müllhalde aktivieren'|trans({}, 'ghost')}}</label>
                         </div>
+                        {% if is_granted('ROLE_CROW') %}
+                        <div class="cell rw-12 mod">
+                            <input type="checkbox" name="incarnated" id="incarnated" checked/> <label for="incarnated"><strong>{{'Verkörperung in der Stadt:'|trans({}, 'ghost')}}</strong> {{'Verkörpert dich in der Stadt bei ihrer Entstehung'|trans({}, 'ghost')}}</label>
+                        </div>
+                        {% endif %}
                     </div>
                     <div class="help">
                         {{'Aktiviere/deaktiviere Spielmodifikationen spezifisch für diese Stadt'|trans({}, 'ghost')}}
@@ -262,10 +267,11 @@
             payload.attacks         = document.getElementById('attack').value;
 
             {% if is_granted('ROLE_CROW') %}
-            payload.townName = document.getElementById('townname').value;
-            payload.allpictos = document.getElementById('allpictos').checked;
+            payload.townName   = document.getElementById('townname').value;
+            payload.allpictos  = document.getElementById('allpictos').checked;
             payload.soulpoints = document.getElementById('soulpoints').checked;
-            payload.seed = document.getElementById('seed').value;
+            payload.seed       = document.getElementById('seed').value;
+            payload.incarnated = document.getElementById('incarnated').checked;
             {% endif %}
 
             $.ajax.send( '{{ path('ghost_process_create_town') }}', payload,

@@ -782,5 +782,23 @@
         <target>Seed qui permet une génération de map maîtrisée. Permet, en cas d'event, de générer des maps similaires. Mettre un entier positif pour l'activer. PENSEZ À CHANGER CET ENTIER D'UN EVENT À L'AUTRE !</target>
       </segment>
     </unit>
+    <unit id="YY0WZyp" name="Verkörperung in der Stadt:">
+      <notes>
+        <note category="german">Verkörperung in der Stadt:</note>
+      </notes>
+      <segment>
+        <source>Verkörperung in der Stadt:</source>
+        <target>S'incarner dans la ville :</target>
+      </segment>
+    </unit>
+    <unit id="4iMXGoK" name="Verkörpert dich in der Stadt bei ihrer Entstehung">
+      <notes>
+        <note category="german">Verkörpert dich in der Stadt bei ihrer Entstehung</note>
+      </notes>
+      <segment>
+        <source>Verkörpert dich in der Stadt bei ihrer Entstehung</source>
+        <target>S'incarner en ville lors de sa création</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
