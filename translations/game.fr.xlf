@@ -11682,15 +11682,6 @@
         <target>Gardien gagnant du CDH</target>
       </segment>
     </unit>
-    <unit id="e_umQ0L" name="37b3bf7">
-      <notes>
-        <note category="german">Wenn du in der Wüste von Zombies umzingelst wirst, erstarrst du vor Angst und kannst nichts mehr unternehmen... Du musst Drogen oder etwas anderes finden, um &lt;strong&gt;deine Nerven zu beruhigen&lt;/strong&gt; und aus dieser Hölle auszubrechen... Wenigstens ist es dir immer noch möglich, im Forum nach Hilfe zu suchen...</note>
-      </notes>
-      <segment>
-        <source>Wenn du in der Wüste von Zombies umzingelst wirst, erstarrst du vor Angst und kannst nichts mehr unternehmen... Du musst Drogen oder etwas anderes finden, um &lt;strong&gt;deine Nerven zu beruhigen&lt;/strong&gt; und aus dieser Hölle auszubrechen... Wenigstens ist es dir immer noch möglich, im Forum nach Hilfe zu suchen...</source>
-        <target><![CDATA[Lorsque vous êtes terrorisé et que vous n'avez pas le contrôle de la zone, vous ne pouvez rien faire... Vous devez trouver une drogue ou quelque chose pour <strong>calmer vos nerfs</strong> et sortir de ce pétrin... Au moins, il est possible d'appeler à l'aide sur le forum...]]></target>
-      </segment>
-    </unit>
     <unit id="0S63eNq" name="Regentanz ausführen">
       <notes>
         <note category="german">Regentanz ausführen</note>
@@ -11698,6 +11689,15 @@
       <segment>
         <source>Regentanz ausführen</source>
         <target>Regentanz ausführen</target>
+      </segment>
+    </unit>
+    <unit id="K65v2LS" name="90b2719">
+      <notes>
+        <note category="german">Wenn du in der Wüste von Zombies umzingelst wirst, erstarrst du vor Angst und kannst nichts mehr unternehmen... Du musst Drogen oder etwas anderes finden, um &lt;strong&gt;deine Nerven zu beruhigen&lt;/strong&gt; und aus dieser Hölle zu entkommen... Wenigstens ist es dir immer noch möglich, im Forum nach Hilfe zu suchen...</note>
+      </notes>
+      <segment>
+        <source>Wenn du in der Wüste von Zombies umzingelst wirst, erstarrst du vor Angst und kannst nichts mehr unternehmen... Du musst Drogen oder etwas anderes finden, um &lt;strong&gt;deine Nerven zu beruhigen&lt;/strong&gt; und aus dieser Hölle zu entkommen... Wenigstens ist es dir immer noch möglich, im Forum nach Hilfe zu suchen...</source>
+        <target><![CDATA[Lorsque vous êtes terrorisé et que vous n'avez pas le contrôle de la zone, vous ne pouvez rien faire... Vous devez trouver une drogue ou quelque chose pour <strong>calmer vos nerfs</strong> et sortir de ce pétrin... Au moins, il est possible d'appeler à l'aide sur le forum...]]></target>
       </segment>
     </unit>
   </file>
