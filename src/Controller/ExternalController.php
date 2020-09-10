@@ -144,8 +144,8 @@
                 break;
                 case $type === 'status':
                     $data = [
-                        "attack" => false,
-                        "maintain" => false
+                        "attack" => $this->time_keeper->isDuringAttack(),
+                        "maintain" => is_file($this->getParameter('kernel.project_dir')."/public/maintenance/.active")
                     ];
                 break;
                 case $type === 'items':

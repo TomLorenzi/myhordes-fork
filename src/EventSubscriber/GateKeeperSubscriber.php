@@ -67,7 +67,7 @@ class GateKeeperSubscriber implements EventSubscriberInterface
         $controller = $event->getController();
         if (is_array($controller)) $controller = $controller[0];
 
-        if (!($controller instanceof LandingController) && !($controller instanceof WebController) && !($controller instanceof AdminActionController)) {
+        if (!($controller instanceof LandingController) && !($controller instanceof WebController) && !($controller instanceof AdminActionController) && !($controller instanceof ExternalController)) {
             // During the attack, only the landing, web and admin controller shall be made available
             if ($this->timeKeeper->isDuringAttack())
                 throw new DynamicAjaxResetException($event->getRequest());
