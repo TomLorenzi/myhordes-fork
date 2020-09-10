@@ -791,12 +791,12 @@
         <target>S'incarner en ville lors de sa création</target>
       </segment>
     </unit>
-    <unit id="ZNJNL7f" name="Der Schamane wird auserwählt und die Seelen werden gefoltert.">
+    <unit id="EYBH.W." name="Der Schamane wird gewählt und die Seelen werden gequält.">
       <notes>
-        <note category="german">Der Schamane wird auserwählt und die Seelen werden gefoltert.</note>
+        <note category="german">Der Schamane wird gewählt und die Seelen werden gequält.</note>
       </notes>
       <segment>
-        <source>Der Schamane wird auserwählt und die Seelen werden gefoltert.</source>
+        <source>Der Schamane wird gewählt und die Seelen werden gequält.</source>
         <target>Le chaman est élu et les âmes deviennent torturées.</target>
       </segment>
     </unit>
@@ -827,12 +827,12 @@
         <target>Le chaman et les âmes sont désactivées.</target>
       </segment>
     </unit>
-    <unit id="VfTfx0U" name="Behinderte">
+    <unit id="ifwhezW" name="Deaktiviert">
       <notes>
-        <note category="german">Behinderte</note>
+        <note category="german">Deaktiviert</note>
       </notes>
       <segment>
-        <source>Behinderte</source>
+        <source>Deaktiviert</source>
         <target>Désactivé</target>
       </segment>
     </unit>

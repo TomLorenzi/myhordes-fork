@@ -131,21 +131,21 @@
 
                     <h5>{{'Stadtmodifikationen'|trans({}, 'ghost')}}</h5>
                     <div class="row">
-                        <div class="cell rw-12 mod">
-                            <input type="checkbox" name="explorableruins" id="explorableruins" checked/> <label for="explorableruins"><strong>{{'Exploration:'|trans({}, 'ghost')}}</strong> {{'Begehbare Ruinen aktivieren'|trans({}, 'ghost')}}</label>
-                        </div>
                         <div class="cell padded rw-4 note note-lightest">
                             <label for="shaman">{{'Seelen & Schamane:'|trans({}, 'ghost')}}</label>
                         </div>
                         <div class="cell padded rw-8">
                             <select name="shaman" id="shaman">
-                                <option value="normal" title="{{'Der Schamane wird auserwählt und die Seelen werden gefoltert.'|trans({}, 'ghost')}}">{{'Normal'|trans({}, 'ghost')}}</option>
+                                <option value="normal" title="{{'Der Schamane wird gewählt und die Seelen werden gequält.'|trans({}, 'ghost')}}">{{'Normal'|trans({}, 'ghost')}}</option>
                                 <option value="job" title="{{'Der Schamane ist ein Beruf, die Seelen werden in der Werkstatt verwandelt.'|trans({}, 'ghost')}}">{{'Job'|trans({}, 'ghost')}}</option>
-                                <option value="none" title="{{'Der Schamane und die Seelen werden deaktiviert.'|trans({}, 'ghost')}}">{{'Behinderte'|trans({}, 'ghost')}}</option>
+                                <option value="none" title="{{'Der Schamane und die Seelen werden deaktiviert.'|trans({}, 'ghost')}}">{{'Deaktiviert'|trans({}, 'ghost')}}</option>
                             </select>
                         </div>
                         <div class="cell padded rw-12">
-                            <div class="help" id="helpShaman">{{'Der Schamane wird auserwählt und die Seelen werden gefoltert.'|trans({}, 'ghost')}}</div>
+                            <div class="help" id="helpShaman">{{'Der Schamane wird gewählt und die Seelen werden gequält.'|trans({}, 'ghost')}}</div>
+                        </div>
+                        <div class="cell rw-12 mod">
+                            <input type="checkbox" name="explorableruins" id="explorableruins" checked/> <label for="explorableruins"><strong>{{'Exploration:'|trans({}, 'ghost')}}</strong> {{'Begehbare Ruinen aktivieren'|trans({}, 'ghost')}}</label>
                         </div>
                         <div class="cell rw-12 mod">
                             <input type="checkbox" name="escorts" id="escorts" checked/> <label for="escorts"><strong>{{'Eskorte:'|trans({}, 'ghost')}}</strong> {{'Eskorten aktivieren'|trans({}, 'ghost')}}</label>
@@ -217,7 +217,7 @@
                     
                     <div class="row">
                         <div class="cell padded rw-12">
-                            <button id="save-spots-ben">{{'Platzreservierung'|trans({}, 'ghost')}}</button>
+                            <button id="save-spots-btn">{{'Platzreservierung'|trans({}, 'ghost')}}</button>
                         </div>
                     </div>
 

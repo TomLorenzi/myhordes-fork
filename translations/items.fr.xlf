@@ -7165,12 +7165,12 @@
         <target><![CDATA[<t-fail><t-no-room>Vous n'avez pas assez d'espace pour ces objets ...</t-no-room><t-door-closed>La porte de la ville est fermée ...</t-door-closed><t-too-heavy>{item} ne peut pas transporter d'objets lourds ...</t-too-heavy></t-fail><nt-fail>Vous avez envoyé {item} avec vos objets en ville.</nt-fail>]]></target>
       </segment>
     </unit>
-    <unit id="Mk35aw5" name="Gefolterte Seele">
+    <unit id="xWENNfP" name="Gequälte Seele">
       <notes>
-        <note category="german">Gefolterte Seele</note>
+        <note category="german">Gequälte Seele</note>
       </notes>
       <segment>
-        <source>Gefolterte Seele</source>
+        <source>Gequälte Seele</source>
         <target>Âme torturée</target>
       </segment>
     </unit>

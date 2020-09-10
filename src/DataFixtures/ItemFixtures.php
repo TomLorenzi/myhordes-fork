@@ -319,7 +319,7 @@ class ItemFixtures extends Fixture
         ['label' =>'Hospital-Bauplan (selten)','icon'=>'mbplan_r','category'=>'imp','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                               // In ---
         ['label' =>'Hospital-Bauplan (sehr selten!)','icon'=>'mbplan_e','category'=>'imp','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                         // In ---
         ['label' =>'Verirrte Seele','icon'=>'soul_blue','category'=>'imp','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                                         //
-        ['label' =>'Gefolterte Seele','icon'=>'soul_red','category'=>'imp','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                                            //
+        ['label' =>'Gequälte Seele','icon'=>'soul_red','category'=>'imp','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                                            //
         ['label' =>'Starke Seele','icon'=>'soul_yellow','category'=>'imp','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                                            //
         ['label' =>'Schwache Seele','icon'=>'soul_blue','category'=>'imp','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                                         //
         ['label' =>'Bierkrug','icon'=>'fest','category'=>'food_a','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                                                 // In Out
