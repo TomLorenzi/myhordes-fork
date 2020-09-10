@@ -131,7 +131,7 @@ class GhostController extends AbstractController implements GhostInterfaceContro
         $disablexml = $parser->get('disablexml', '');
         $rules = $parser->get('rules', '');
         $ruins = boolval($parser->get('ruins', ''));
-        $shaman = $parser->get('shaman', 'normal');
+        $shamanMode = $parser->get('shamanMode', 'normal');
         $escorts = boolval($parser->get('escorts', ''));
         $shun = boolval($parser->get('shun', ''));
         $nightmode = boolval($parser->get('nightmode', ''));
@@ -145,6 +145,14 @@ class GhostController extends AbstractController implements GhostInterfaceContro
         $soulpoints = $parser->get('soulpoints', '');
         $seed = $parser->get('seed', -1);
         $incarnated = boolval($parser->get('incarnated', true));
+        $job_basic_enabled = boolval($parser->get('basic', true));
+        $job_collec_enabled = boolval($parser->get('collec', true));
+        $job_guardian_enabled = boolval($parser->get('guardian', true));
+        $job_hunter_enabled = boolval($parser->get('hunter', true));
+        $job_tamer_enabled = boolval($parser->get('tamer', true));
+        $job_tech_enabled = boolval($parser->get('tech', true));
+        $job_shaman_enabled = boolval($parser->get('shaman', false));
+        $job_survivalist_enabled = boolval($parser->get('survivalist', true));
 
         // Initial: Create town setting from selected type
         $town = new Town();
@@ -170,7 +178,7 @@ class GhostController extends AbstractController implements GhostInterfaceContro
         }
 
         if (!$ruins) $customConf['features'][''] = 0;
-        $customConf['features']['shaman'] = $shaman;
+        $customConf['features']['shamanMode'] = $shamanMode;
         $customConf['features']['escort'] = ['enabled' => $escorts];
         $customConf['features']['shun'] = $shun;
         $customConf['features']['nightmode'] = $nightmode;
@@ -183,10 +191,32 @@ class GhostController extends AbstractController implements GhostInterfaceContro
         $customConf['features']['give_all_pictos'] = $allpictos;
         $customConf['features']['give_soulpoints'] = $soulpoints;
 
-        if($shaman == "normal" || $shaman == "none")
+        if($shamanMode == "normal" || $shamanMode == "none")
             $customConf['disabled_jobs']['replace'] = ['shaman'];
         else
             $customConf['disabled_jobs']['replace'] = [];
+        
+        if(!$job_basic_enabled)
+            $customConf['disabled_jobs']['replace'][] = 'basic';
+        if(!$job_collec_enabled)
+            $customConf['disabled_jobs']['replace'][] = 'collec';
+        if(!$job_guardian_enabled)
+            $customConf['disabled_jobs']['replace'][] = 'guardian';
+        if(!$job_hunter_enabled)
+            $customConf['disabled_jobs']['replace'][] = 'hunter';
+        if(!$job_tamer_enabled)
+            $customConf['disabled_jobs']['replace'][] = 'tamer';
+        if(!$job_tech_enabled)
+            $customConf['disabled_jobs']['replace'][] = 'tech';
+        if(!$job_survivalist_enabled)
+            $customConf['disabled_jobs']['replace'][] = 'survivalist';
+        if(!$job_shaman_enabled)
+            $customConf['disabled_jobs']['replace'][] = 'shaman';
+        else if(in_array('shaman', $customConf['disabled_jobs']['replace'])) {
+            // If the shaman is disabled, but we enforced its activation, remove it from the disabled array
+            $$customConf['disabled_jobs']['replace'] = array_diff($customConf['disabled_jobs']['replace'], ['shaman']);
+        }
+
         $town = $gf->createTown($townname, $lang, null, 'custom', $customConf, intval($seed));
         $town->setCreator($user);
         if(!empty($password) && $password != null)

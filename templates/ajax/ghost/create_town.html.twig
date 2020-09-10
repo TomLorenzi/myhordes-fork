@@ -132,10 +132,10 @@
                     <h5>{{'Stadtmodifikationen'|trans({}, 'ghost')}}</h5>
                     <div class="row">
                         <div class="cell padded rw-4 note note-lightest">
-                            <label for="shaman">{{'Seelen & Schamane:'|trans({}, 'ghost')}}</label>
+                            <label for="shamanMode">{{'Seelen & Schamane:'|trans({}, 'ghost')}}</label>
                         </div>
                         <div class="cell padded rw-8">
-                            <select name="shaman" id="shaman">
+                            <select name="shamanMode" id="shamanMode">
                                 <option value="normal" title="{{'Der Schamane wird gewählt und die Seelen werden gequält.'|trans({}, 'ghost')}}">{{'Normal'|trans({}, 'ghost')}}</option>
                                 <option value="job" title="{{'Der Schamane ist ein Beruf, die Seelen werden in der Werkstatt verwandelt.'|trans({}, 'ghost')}}">{{'Job'|trans({}, 'ghost')}}</option>
                                 <option value="none" title="{{'Der Schamane und die Seelen werden deaktiviert.'|trans({}, 'ghost')}}">{{'Deaktiviert'|trans({}, 'ghost')}}</option>
@@ -204,6 +204,34 @@
                             <input type="checkbox" name="soulpoints" id="soulpoints" checked/> <label for="soulpoints"><strong>{{'Seelenpunkte vergeben:'|trans({}, 'ghost')}}</strong> {{'Gibt Ihnen Seelenpunkte.'|trans({}, 'ghost')}}</label>
                         </div>
                     </div>
+
+                    <h5>{{'Verfügbare Berufe'|trans({}, 'ghost')}}</h5>
+                    <div class="row">
+                        <div class="cell rw-12 mod">
+                            <input type="checkbox" name="basic" id="basic" checked/> <label for="basic"><strong>{{'Einwohner'|trans({}, 'game')}}</strong></label>
+                        </div>
+                        <div class="cell rw-12 mod">
+                            <input type="checkbox" name="collec" id="collec" checked/> <label for="collec"><strong>{{'Buddler'|trans({}, 'game')}}</strong></label>
+                        </div>
+                        <div class="cell rw-12 mod">
+                            <input type="checkbox" name="guardian" id="guardian" checked/> <label for="guardian"><strong>{{'Wächter'|trans({}, 'game')}}</strong></label>
+                        </div>
+                        <div class="cell rw-12 mod">
+                            <input type="checkbox" name="hunter" id="hunter" checked/> <label for="hunter"><strong>{{'Aufklärer'|trans({}, 'game')}}</strong></label>
+                        </div>
+                        <div class="cell rw-12 mod">
+                            <input type="checkbox" name="tamer" id="tamer" checked/> <label for="tamer"><strong>{{'Dompteur'|trans({}, 'game')}}</strong></label>
+                        </div>
+                        <div class="cell rw-12 mod">
+                            <input type="checkbox" name="tech" id="tech" checked/> <label for="tech"><strong>{{'Techniker'|trans({}, 'game')}}</strong></label>
+                        </div>
+                        <div class="cell rw-12 mod">
+                            <input type="checkbox" name="shaman" id="shaman"/> <label for="shaman"><strong>{{'Schamane'|trans({}, 'game')}}</strong></label>
+                        </div>
+                        <div class="cell rw-12 mod">
+                            <input type="checkbox" name="survivalist" id="survivalist" checked/> <label for="survivalist"><strong>{{'Einsiedler'|trans({}, 'game')}}</strong></label>
+                        </div>
+                    </div>
                     {% endif %}
 
                     <div class="warning">
@@ -246,9 +274,13 @@
             document.getElementById("helpGhoul").innerText = document.querySelector('#ghoulType option:checked').getAttribute('title');
         });
 
-        let shamanSelect = document.getElementById("shaman");
+        let shamanSelect = document.getElementById("shamanMode");
         if(shamanSelect) shamanSelect.addEventListener('change', function(){
-            document.getElementById("helpShaman").innerText = document.querySelector('#shaman option:checked').getAttribute('title')
+            document.getElementById("helpShaman").innerText = document.querySelector('#shamanMode option:checked').getAttribute('title');
+            if(shamanSelect.value != "job")
+                document.getElementById('shaman').checked = false;
+            else
+                document.getElementById('shaman').checked = true;
         });
 
         let createtownbtn = document.getElementById('create-town-btn');
@@ -269,7 +301,7 @@
             payload.rules           = document.getElementById('rules').value;
 
             payload.ruins           = document.getElementById('explorableruins').checked;
-            payload.shaman          = document.getElementById('shaman').value;
+            payload.shamanMode      = document.getElementById('shamanMode').value;
             payload.escorts         = document.getElementById('escorts').checked;
             payload.shun            = document.getElementById('shun').checked;
             payload.nightmode       = document.getElementById('nightmode').checked;
@@ -282,11 +314,23 @@
             payload.attacks         = document.getElementById('attack').value;
 
             {% if is_granted('ROLE_CROW') %}
-            payload.townName   = document.getElementById('townname').value;
-            payload.allpictos  = document.getElementById('allpictos').checked;
-            payload.soulpoints = document.getElementById('soulpoints').checked;
-            payload.seed       = document.getElementById('seed').value;
-            payload.incarnated = document.getElementById('incarnated').checked;
+            payload.townName    = document.getElementById('townname').value;
+            payload.allpictos   = document.getElementById('allpictos').checked;
+            payload.soulpoints  = document.getElementById('soulpoints').checked;
+            payload.seed        = document.getElementById('seed').value;
+            payload.incarnated  = document.getElementById('incarnated').checked;
+
+            // If we have at least 1 job enabled, we give the settings
+            if (document.getElementById('basic').checked || document.getElementById('collec').checked || document.getElementById('guardian').checked || document.getElementById('hunter').checked || document.getElementById('tamer').checked || document.getElementById('tech').checked || document.getElementById('shaman').checked || document.getElementById('survivalist').checked) {
+                payload.basic       = document.getElementById('basic').checked;
+                payload.collec      = document.getElementById('collec').checked;
+                payload.guardian    = document.getElementById('guardian').checked;
+                payload.hunter      = document.getElementById('hunter').checked;
+                payload.tamer       = document.getElementById('tamer').checked;
+                payload.tech        = document.getElementById('tech').checked;
+                payload.shaman      = document.getElementById('shaman').checked;
+                payload.survivalist = document.getElementById('survivalist').checked;
+            }
             {% endif %}
 
             $.ajax.send( '{{ path('ghost_process_create_town') }}', payload,
