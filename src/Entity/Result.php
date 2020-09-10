@@ -121,6 +121,11 @@ class Result
     private $pm;
 
     /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\AffectCP")
+     */
+    private $cp;
+
+    /**
      * @ORM\ManyToOne(targetEntity=AffectMessage::class)
      */
     private $message;
@@ -149,7 +154,7 @@ class Result
     public function clear(): self {
         $this->ap = $this->status = $this->item = $this->spawn = $this->consume = $this->resultGroup = $this->zombies =
         $this->blueprint = $this->rolePlayerText = $this->custom = $this->well = $this->home = $this->death =
-        $this->target = $this->zone = $this->picto = $this->pm = null;
+        $this->target = $this->zone = $this->picto = $this->pm = $this->cp = null;
         return $this;
     }
 
@@ -365,6 +370,18 @@ class Result
     public function setPm(?AffectPM $pm): self
     {
         $this->pm = $pm;
+
+        return $this;
+    }
+
+    public function getCp(): ?AffectCP
+    {
+        return $this->cp;
+    }
+
+    public function setCp(?AffectCP $cp): self
+    {
+        $this->cp = $cp;
 
         return $this;
     }

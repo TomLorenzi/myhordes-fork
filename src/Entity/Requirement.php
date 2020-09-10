@@ -93,6 +93,11 @@ class Requirement
     private $pm;
 
     /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\RequireCP")
+     */
+    private $cp;
+
+    /**
      * @ORM\ManyToOne(targetEntity=RequireConf::class)
      */
     private $conf;
@@ -116,7 +121,7 @@ class Requirement
 
     public function clear(): self {
         $this->statusRequirement = $this->item = $this->zombies = $this->location = $this->ap = $this->building =
-        $this->home = $this->zone = $this->counter = $this->pm = null;
+        $this->home = $this->zone = $this->counter = $this->pm = $this->cp = $this->conf = null;
         return $this;
     }
 
@@ -260,6 +265,18 @@ class Requirement
     public function setPm(?RequirePM $pm): self
     {
         $this->pm = $pm;
+
+        return $this;
+    }
+
+    public function getCp(): ?RequireCP
+    {
+        return $this->cp;
+    }
+
+    public function setCp(?RequireCP $cp): self
+    {
+        $this->cp = $cp;
 
         return $this;
     }
