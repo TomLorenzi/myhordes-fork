@@ -134,8 +134,18 @@
                         <div class="cell rw-12 mod">
                             <input type="checkbox" name="explorableruins" id="explorableruins" checked/> <label for="explorableruins"><strong>{{'Exploration:'|trans({}, 'ghost')}}</strong> {{'Begehbare Ruinen aktivieren'|trans({}, 'ghost')}}</label>
                         </div>
-                        <div class="cell rw-12 mod">
-                            <input type="checkbox" name="shaman" id="shaman" checked/> <label for="shaman"><strong>{{'Seelen & Schamane:'|trans({}, 'ghost')}}</strong> {{'Verlorene Seelen und Schamanen aktivieren'|trans({}, 'ghost')}}</label>
+                        <div class="cell padded rw-4 note note-lightest">
+                            <label for="shaman">{{'Seelen & Schamane:'|trans({}, 'ghost')}}</label>
+                        </div>
+                        <div class="cell padded rw-8">
+                            <select name="shaman" id="shaman">
+                                <option value="normal" title="{{'Der Schamane wird auserwählt und die Seelen werden gefoltert.'|trans({}, 'ghost')}}">{{'Normal'|trans({}, 'ghost')}}</option>
+                                <option value="job" title="{{'Der Schamane ist ein Beruf, die Seelen werden in der Werkstatt verwandelt.'|trans({}, 'ghost')}}">{{'Job'|trans({}, 'ghost')}}</option>
+                                <option value="none" title="{{'Der Schamane und die Seelen werden deaktiviert.'|trans({}, 'ghost')}}">{{'Behinderte'|trans({}, 'ghost')}}</option>
+                            </select>
+                        </div>
+                        <div class="cell padded rw-12">
+                            <div class="help" id="helpShaman">{{'Der Schamane wird auserwählt und die Seelen werden gefoltert.'|trans({}, 'ghost')}}</div>
                         </div>
                         <div class="cell rw-12 mod">
                             <input type="checkbox" name="escorts" id="escorts" checked/> <label for="escorts"><strong>{{'Eskorte:'|trans({}, 'ghost')}}</strong> {{'Eskorten aktivieren'|trans({}, 'ghost')}}</label>
@@ -236,6 +246,11 @@
             document.getElementById("helpGhoul").innerText = document.querySelector('#ghoulType option:checked').getAttribute('title');
         });
 
+        let shamanSelect = document.getElementById("shaman");
+        if(shamanSelect) shamanSelect.addEventListener('change', function(){
+            document.getElementById("helpShaman").innerText = document.querySelector('#shaman option:checked').getAttribute('title')
+        });
+
         let createtownbtn = document.getElementById('create-town-btn');
         if(createtownbtn) createtownbtn.addEventListener('click', function(){
             if (!confirm('{{ 'Bestätigen?'|trans({},'global')|e('js') }}'))
@@ -254,7 +269,7 @@
             payload.rules           = document.getElementById('rules').value;
 
             payload.ruins           = document.getElementById('explorableruins').checked;
-            payload.shaman          = document.getElementById('shaman').checked;
+            payload.shaman          = document.getElementById('shaman').value;
             payload.escorts         = document.getElementById('escorts').checked;
             payload.shun            = document.getElementById('shun').checked;
             payload.nightmode       = document.getElementById('nightmode').checked;

@@ -49,7 +49,7 @@ class NightlyHandler
     private $maze;
     private $crow;
 
-  public function __construct(EntityManagerInterface $em, LoggerInterface $log, CitizenHandler $ch, InventoryHandler $ih,
+    public function __construct(EntityManagerInterface $em, LoggerInterface $log, CitizenHandler $ch, InventoryHandler $ih,
                               RandomGenerator $rg, DeathHandler $dh, TownHandler $th, ZoneHandler $zh, PictoHandler $ph,
                               ItemFactory $if, LogTemplateHandler $lh, ConfMaster $conf, ActionHandler $ah, MazeMaker $maze,
                               CrowService $crow)
@@ -877,49 +877,51 @@ class NightlyHandler
         }
         $this->log->debug("Recovered <info>{$reco_counter[0]}</info>/<info>{$reco_counter[1]}</info> zones." );
 
-        $this->log->debug("Processing <info>souls</info> mutations.");
-        foreach ($this->zone_handler->getSoulZones($town) as $zone) {
-            foreach ($zone->getFloor()->getItems() as $item) {
-                if($item->getPrototype()->getName() !== 'soul_blue_#00') continue;
-                if($this->random->chance(0.25)){
-                    $this->log->debug("Mutating soul in zone [<info>{$zone->getX()},{$zone->getY()}</info>].");
-                    $this->inventory_handler->forceRemoveItem($item);
-                    $this->inventory_handler->forceMoveItem($zone->getFloor(), $this->item_factory->createItem('soul_red_#00'));
-                    $this->entity_manager->persist($zone);
+        if($this->conf->getTownConfiguration($town)->get( TownConf::CONF_FEATURE_SHAMAN_MODE, 'normal' ) == 'normal') {
+            $this->log->debug("Processing <info>souls</info> mutations.");
+            foreach ($this->zone_handler->getSoulZones($town) as $zone) {
+                foreach ($zone->getFloor()->getItems() as $item) {
+                    if($item->getPrototype()->getName() !== 'soul_blue_#00') continue;
+                    if($this->random->chance(0.25)){
+                        $this->log->debug("Mutating soul in zone [<info>{$zone->getX()},{$zone->getY()}</info>].");
+                        $this->inventory_handler->forceRemoveItem($item);
+                        $this->inventory_handler->forceMoveItem($zone->getFloor(), $this->item_factory->createItem('soul_red_#00'));
+                        $this->entity_manager->persist($zone);
 
+                    }
                 }
             }
-        }
 
-        foreach ($town->getBank()->getItems() as $item) {
-            if($item->getPrototype()->getName() !== 'soul_blue_#00') continue;
-            // In the bank, the count is > 1, we must loop through each soul
-            for($i = 0 ; $i < $item->getCount() ; $i++) {
-                if($this->random->chance(0.1)){
-                    $this->log->debug("Mutating soul in bank.");
-                    $this->inventory_handler->forceRemoveItem($item);
-                    $this->inventory_handler->forceMoveItem($town->getBank(), $this->item_factory->createItem('soul_red_#00'));
+            foreach ($town->getBank()->getItems() as $item) {
+                if($item->getPrototype()->getName() !== 'soul_blue_#00') continue;
+                // In the bank, the count is > 1, we must loop through each soul
+                for($i = 0 ; $i < $item->getCount() ; $i++) {
+                    if($this->random->chance(0.1)){
+                        $this->log->debug("Mutating soul in bank.");
+                        $this->inventory_handler->forceRemoveItem($item);
+                        $this->inventory_handler->forceMoveItem($town->getBank(), $this->item_factory->createItem('soul_red_#00'));
+                    }
                 }
             }
-        }
-
-        foreach ($town->getCitizens() as $citizen) {
-            foreach ($citizen->getHome()->getChest()->getItems() as $item) {
-                if($item->getPrototype()->getName() !== 'soul_blue_#00') continue;
-                if($this->random->chance(0.1)){
-                    $this->log->debug("Mutating soul in chest of citizen <info>{$citizen->getUser()->getUsername()}</info>");
-                    $this->inventory_handler->forceRemoveItem($item);
-                    $this->inventory_handler->forceMoveItem($citizen->getHome()->getChest(), $this->item_factory->createItem('soul_red_#00'));
-                    $this->entity_manager->persist($citizen->getHome()->getChest());
+    
+            foreach ($town->getCitizens() as $citizen) {
+                foreach ($citizen->getHome()->getChest()->getItems() as $item) {
+                    if($item->getPrototype()->getName() !== 'soul_blue_#00') continue;
+                    if($this->random->chance(0.1)){
+                        $this->log->debug("Mutating soul in chest of citizen <info>{$citizen->getUser()->getUsername()}</info>");
+                        $this->inventory_handler->forceRemoveItem($item);
+                        $this->inventory_handler->forceMoveItem($citizen->getHome()->getChest(), $this->item_factory->createItem('soul_red_#00'));
+                        $this->entity_manager->persist($citizen->getHome()->getChest());
+                    }
                 }
-            }
-            foreach ($citizen->getInventory()->getItems() as $item) {
-                if($item->getPrototype()->getName() !== 'soul_blue_#00') continue;
-                if($this->random->chance(0.1)){
-                    $this->log->debug("Mutating soul in rucksack of citizen <info>{$citizen->getUser()->getUsername()}</info>");
-                    $this->inventory_handler->forceRemoveItem($item);
-                    $this->inventory_handler->forceMoveItem($citizen->getHome()->getChest(), $this->item_factory->createItem('soul_red_#00'));
-                    $this->entity_manager->persist($citizen->getHome()->getChest());
+                foreach ($citizen->getInventory()->getItems() as $item) {
+                    if($item->getPrototype()->getName() !== 'soul_blue_#00') continue;
+                    if($this->random->chance(0.1)){
+                        $this->log->debug("Mutating soul in rucksack of citizen <info>{$citizen->getUser()->getUsername()}</info>");
+                        $this->inventory_handler->forceRemoveItem($item);
+                        $this->inventory_handler->forceMoveItem($citizen->getHome()->getChest(), $this->item_factory->createItem('soul_red_#00'));
+                        $this->entity_manager->persist($citizen->getHome()->getChest());
+                    }
                 }
             }
         }

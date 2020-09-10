@@ -253,7 +253,7 @@
       </notes>
       <segment>
         <source>Normal</source>
-        <target>Normale</target>
+        <target>Normal</target>
       </segment>
     </unit>
     <unit id="jNQMs2P" name="fead058">
@@ -425,15 +425,6 @@
       <segment>
         <source>Seelen &amp; Schamane:</source>
         <target><![CDATA[Âmes & chamans :]]></target>
-      </segment>
-    </unit>
-    <unit id="k2SkMiM" name="Verlorene Seelen und Schamanen aktivieren">
-      <notes>
-        <note category="german">Verlorene Seelen und Schamanen aktivieren</note>
-      </notes>
-      <segment>
-        <source>Verlorene Seelen und Schamanen aktivieren</source>
-        <target>Active les âmes errantes et le chaman.</target>
       </segment>
     </unit>
     <unit id="KwchNgg" name="Eskorte:">
@@ -798,6 +789,51 @@
       <segment>
         <source>Verkörpert dich in der Stadt bei ihrer Entstehung</source>
         <target>S'incarner en ville lors de sa création</target>
+      </segment>
+    </unit>
+    <unit id="ZNJNL7f" name="Der Schamane wird auserwählt und die Seelen werden gefoltert.">
+      <notes>
+        <note category="german">Der Schamane wird auserwählt und die Seelen werden gefoltert.</note>
+      </notes>
+      <segment>
+        <source>Der Schamane wird auserwählt und die Seelen werden gefoltert.</source>
+        <target>Le chaman est élu et les âmes deviennent torturées.</target>
+      </segment>
+    </unit>
+    <unit id="YnsFoKy" name="Der Schamane ist ein Beruf, die Seelen werden in der Werkstatt verwandelt.">
+      <notes>
+        <note category="german">Der Schamane ist ein Beruf, die Seelen werden in der Werkstatt verwandelt.</note>
+      </notes>
+      <segment>
+        <source>Der Schamane ist ein Beruf, die Seelen werden in der Werkstatt verwandelt.</source>
+        <target>Le chaman est un métier, les âmes sont transformées à l'atelier.</target>
+      </segment>
+    </unit>
+    <unit id="rWF6D91" name="Job">
+      <notes>
+        <note category="german">Job</note>
+      </notes>
+      <segment>
+        <source>Job</source>
+        <target>Métier</target>
+      </segment>
+    </unit>
+    <unit id="_kZYbUN" name="Der Schamane und die Seelen werden deaktiviert.">
+      <notes>
+        <note category="german">Der Schamane und die Seelen werden deaktiviert.</note>
+      </notes>
+      <segment>
+        <source>Der Schamane und die Seelen werden deaktiviert.</source>
+        <target>Le chaman et les âmes sont désactivées.</target>
+      </segment>
+    </unit>
+    <unit id="VfTfx0U" name="Behinderte">
+      <notes>
+        <note category="german">Behinderte</note>
+      </notes>
+      <segment>
+        <source>Behinderte</source>
+        <target>Désactivé</target>
       </segment>
     </unit>
   </file>
