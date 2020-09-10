@@ -2500,7 +2500,7 @@
       </notes>
       <segment>
         <source>Starke Seele</source>
-        <target>Âme torturée</target>
+        <target>Âme forte</target>
       </segment>
     </unit>
     <unit id="qERZioI" name="Schwache Seele">
@@ -7163,6 +7163,24 @@
       <segment>
         <source>&lt;t-fail&gt;&lt;t-no-room&gt;Du hast nicht genug Platz für diese Gegenstände...&lt;/t-no-room&gt;&lt;t-door-closed&gt;Das Stadttor ist geschlossen...&lt;/t-door-closed&gt;&lt;t-too-heavy&gt;{item} kann keine schweren Gegenstände tragen...&lt;/t-too-heavy&gt;&lt;/t-fail&gt;&lt;nt-fail&gt;Du hast den {item} mit deinen Gegenständen in die Stadt geschickt.&lt;/nt-fail&gt;</source>
         <target><![CDATA[<t-fail><t-no-room>Vous n'avez pas assez d'espace pour ces objets ...</t-no-room><t-door-closed>La porte de la ville est fermée ...</t-door-closed><t-too-heavy>{item} ne peut pas transporter d'objets lourds ...</t-too-heavy></t-fail><nt-fail>Vous avez envoyé {item} avec vos objets en ville.</nt-fail>]]></target>
+      </segment>
+    </unit>
+    <unit id="Mk35aw5" name="Gefolterte Seele">
+      <notes>
+        <note category="german">Gefolterte Seele</note>
+      </notes>
+      <segment>
+        <source>Gefolterte Seele</source>
+        <target>Âme torturée</target>
+      </segment>
+    </unit>
+    <unit id="US6ub3j" name="0d35708">
+      <notes>
+        <note category="german">Die Seele dieses Bürgers wurde schon zu lange ohne Rücksicht auf Rücksicht verlassen. Heute kommt dieses von Hass erfüllte Wesen, um die schlechten Vibes der Überseewelt zu nähren, ihr solltet euch schnell darum kümmern!</note>
+      </notes>
+      <segment>
+        <source>Die Seele dieses Bürgers wurde schon zu lange ohne Rücksicht auf Rücksicht verlassen. Heute kommt dieses von Hass erfüllte Wesen, um die schlechten Vibes der Überseewelt zu nähren, ihr solltet euch schnell darum kümmern!</source>
+        <target>Cette âme de citoyen a été abandonnée, sans considération, trop longtemps. Aujourd'hui cette entité emplie de haine vient alimenter les mauvaises ondes de l'Outre-Monde, vous devriez vite vous en occuper !</target>
       </segment>
     </unit>
   </file>

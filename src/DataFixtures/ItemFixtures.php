@@ -319,7 +319,8 @@ class ItemFixtures extends Fixture
         ['label' =>'Hospital-Bauplan (selten)','icon'=>'mbplan_r','category'=>'imp','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                               // In ---
         ['label' =>'Hospital-Bauplan (sehr selten!)','icon'=>'mbplan_e','category'=>'imp','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                         // In ---
         ['label' =>'Verirrte Seele','icon'=>'soul_blue','category'=>'imp','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                                         //
-        ['label' =>'Starke Seele','icon'=>'soul_red','category'=>'imp','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                                            //
+        ['label' =>'Gefolterte Seele','icon'=>'soul_red','category'=>'imp','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                                            //
+        ['label' =>'Starke Seele','icon'=>'soul_yellow','category'=>'imp','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                                            //
         ['label' =>'Schwache Seele','icon'=>'soul_blue','category'=>'imp','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                                         //
         ['label' =>'Bierkrug','icon'=>'fest','category'=>'food_a','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                                                 // In Out
         ['label' =>'Brezel','icon'=>'bretz','category'=>'food','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                                                    // In Out
@@ -663,7 +664,8 @@ class ItemFixtures extends Fixture
         'mbplan_r_#00' => 'Dieser Bauplan ermöglicht es, ein neues Gebäude in der Stadt zu bauen.', // Hospital-Bauplan (selten)
         'mbplan_e_#00' => 'Dieser Bauplan ermöglicht es, ein neues Gebäude in der Stadt zu bauen.', // Hospital-Bauplan (sehr selten!)
         'soul_blue_#00' => 'Eine Schwache Seele. Einmal in der Bank abgelegt, kann ein Schamane sie nehmen und in eine starke Seele umwandeln. Sie kann einen Schamanen noch in vielen anderen Situationen nützen.', // Verirrte Seele
-        'soul_red_#00' => 'Eine Starke Seele. Wurde von einem Schamanen aus einer Schwachen Seele hergestellt.', // Starke Seele
+        'soul_yellow_#00' => 'Eine Starke Seele. Wurde von einem Schamanen aus einer Schwachen Seele hergestellt.', // Starke Seele
+        'soul_red_#00' => 'Die Seele dieses Bürgers wurde schon zu lange ohne Rücksicht auf Rücksicht verlassen. Heute kommt dieses von Hass erfüllte Wesen, um die schlechten Vibes der Überseewelt zu nähren, ihr solltet euch schnell darum kümmern!', // Gefolterte Seele
         'soul_blue_#01' => 'Eine Schwache Seele. Einmal in der Bank abgelegt, kann ein Schamane sie nehmen und in eine starke Seele umwandeln. Sie kann einen Schamanen noch in vielen anderen Situationen nützen.', // Schwache Seele
         'fest_#00' => 'In Wehmut versunken starrst du diesen überdimensionalen Bierkrug an... Sicher warm und geschmacklos, aber das Beste, das du seit der Apokalypse getrunken hast. Du musst wieder an all die verrückten Tage in München denken...', // Bierkrug
         'bretz_#00' => 'Ein leckerer, essbarer Snack... zumindest war es das einmal. Auf dieser Brezel wurde herumgetreten, sie riecht, als würde sie in Benzin getränkt (leider zu wenig, um sie für den Panzer im Südwesten der Stadt zu verwenden - schade) und es scheint, als wäre sie als Hammer oder als Zuhause für einen Holzwurm verwendet zu sein. Auf jedenfall erinnert sie dich jetzt stark an Prinzessin Beatrices Hochzeitshut.', // Brezel
