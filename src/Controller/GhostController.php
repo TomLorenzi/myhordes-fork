@@ -194,7 +194,7 @@ class GhostController extends AbstractController implements GhostInterfaceContro
         if($shaman == "normal" || $shaman == "none")
             $customConf['disabled_jobs'] = ['shaman'];
         else
-        $customConf['disabled_jobs'] = [];
+            $customConf['disabled_jobs'] = [];
 
         $town = $gf->createTown($townname, $lang, null, 'custom', $customConf, intval($seed));
         $town->setCreator($user);
