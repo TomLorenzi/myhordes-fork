@@ -400,6 +400,9 @@ class RecipeFixtures extends Fixture implements DependentFixtureInterface
             $object->setResources( $group );
         }
 
+        $object->getChildren()->clear();
+        $object->setParent(null);
+
         if (!empty($data['children']))
             foreach ($data['children'] as $child)
                 $object->addChild( $this->create_building( $manager, $child, $cache ) );
