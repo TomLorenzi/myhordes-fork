@@ -131,7 +131,7 @@ class GhostController extends AbstractController implements GhostInterfaceContro
         $disablexml = $parser->get('disablexml', '');
         $rules = $parser->get('rules', '');
         $ruins = boolval($parser->get('ruins', ''));
-        $shaman = boolval($parser->get('shaman', ''));
+        $shaman = $parser->get('shaman', 'normal');
         $escorts = boolval($parser->get('escorts', ''));
         $shun = boolval($parser->get('shun', ''));
         $nightmode = boolval($parser->get('nightmode', ''));
@@ -190,6 +190,11 @@ class GhostController extends AbstractController implements GhostInterfaceContro
 
         $customConf['features']['give_all_pictos'] = $allpictos;
         $customConf['features']['give_soulpoints'] = $soulpoints;
+
+        if($shaman == "normal" || $shaman == "none")
+            $customConf['disabled_jobs'] = ['shaman'];
+        else
+        $customConf['disabled_jobs'] = [];
 
         $town = $gf->createTown($townname, $lang, null, 'custom', $customConf, intval($seed));
         $town->setCreator($user);

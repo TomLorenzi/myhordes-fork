@@ -429,15 +429,27 @@ class GameController extends AbstractController implements GameInterfaceControll
 
     /**
      * @Route("jx/game/jobcenter", name="game_jobs")
+     * @param ConfMaster $cf
      * @return Response
      */
-    public function job_select(): Response
+    public function job_select(ConfMaster $cf): Response
     {
         if ($this->getActiveCitizen()->getProfession()->getName() !== CitizenProfession::DEFAULT)
             return $this->redirect($this->generateUrl('game_landing'));
 
+        $jobs = $this->entity_manager->getRepository(CitizenProfession::class)->findSelectable();
+
+        $disabledJobs = $cf->getTownConfiguration($this->getActiveCitizen()->getTown())->get(TownConf::CONF_DISABLED_JOBS, ['shaman']);
+
+        $selectablesJobs = [];
+
+        foreach($jobs as $job){
+            if(!in_array($job->getName(), $disabledJobs))
+                $selectablesJobs[] = $job;
+        }
+
         return $this->render( 'ajax/game/jobs.html.twig', [
-            'professions' => $this->entity_manager->getRepository(CitizenProfession::class)->findSelectable()
+            'professions' => $selectablesJobs
         ] );
     }
 

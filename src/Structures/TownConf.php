@@ -73,6 +73,8 @@ class TownConf extends Conf
     const CONF_FEATURE_GIVE_ALL_PICTOS = 'features.give_all_pictos';
     const CONF_FEATURE_GIVE_SOULPOINTS = 'features.give_soulpoints';
 
+    const CONF_DISABLED_JOBS = 'disabled_jobs';
+
     public function __construct(array $data)
     {
         $first = false;

@@ -97,6 +97,8 @@ parameters:
         give_all_pictos: true
         give_soulpoints: true
 
+      disabled_jobs: ['shaman']
+      
     small:
       map:  { min: 12, max: 14 }
       ruins: 10
