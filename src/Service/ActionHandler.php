@@ -119,8 +119,10 @@ class ActionHandler
                     if ($status_is_active !== $status->getEnabled()) $current_state = min( $current_state, $this_state );
                 }
 
-                if ($status->getProfession() !== null && $citizen->getProfession()->getId() !== $status->getProfession()->getId())
-                    $current_state = min( $current_state, $this_state );
+                if ($status->getProfession() !== null && $status->getEnabled() !== null) {
+                    $profession_is_active = $citizen->getProfession()->getId() === $status->getProfession()->getId();
+                    if ($profession_is_active !== $status->getEnabled()) $current_state = min( $current_state, $this_state );
+                }
 
                 if ($status->getRole() !== null && $status->getEnabled() !== null) {
                     $role_is_active = $citizen->getRoles()->contains( $status->getRole() );
@@ -155,6 +157,11 @@ class ActionHandler
                 if ($citizen->getPm() < $pm->getMin() || $citizen->getPm() > $max) $current_state = min( $current_state, $this_state );
             }
 
+            if ($cp = $meta_requirement->getCp()) {
+                $max = $cp->getRelativeMax() ? ($this->citizen_handler->getMaxBP( $citizen ) + $cp->getMax()) : $cp->getMax();
+                if ($citizen->getBp() < $cp->getMin() || $citizen->getBp() > $max) $current_state = min( $current_state, $this_state );
+            }
+
             if ($counter = $meta_requirement->getCounter()) {
                 $counter_value = $citizen->getSpecificActionCounterValue( $counter->getType() );
                 if ($counter->getMin() !== null && $counter_value < $counter->getMin()) $current_state = min( $current_state, $this_state );
@@ -168,9 +175,18 @@ class ActionHandler
 
                 $source = $citizen->getZone() ? [$citizen->getInventory()] : [$citizen->getInventory(), $citizen->getHome()->getChest()];
 
-                if (empty($this->inventory_handler->fetchSpecificItems( $source,
-                    [new ItemRequest($item_str, $item_condition->getCount() ?? 1, false, $item_condition->getAllowPoison() ? null : false, $is_prop)]
-                ))) $current_state = min( $current_state, $this_state );
+                $count = $item_condition->getCount() === null ? 1 : $item_condition->getCount();
+
+                if ($count > 0) {
+                    if (empty($this->inventory_handler->fetchSpecificItems( $source,
+                        [new ItemRequest($item_str, $item_condition->getCount() ?? 1, false, $item_condition->getAllowPoison() ? null : false, $is_prop)]
+                    ))) $current_state = min( $current_state, $this_state );
+                } else {
+                    if (!empty($this->inventory_handler->fetchSpecificItems( $source,
+                        [new ItemRequest($item_str, 1, false, $item_condition->getAllowPoison() ? null : false, $is_prop)]
+                    ))) $current_state = min( $current_state, $this_state );
+                }
+
             }
 
             if ($location_condition = $meta_requirement->getLocation()) {
@@ -481,6 +497,7 @@ class ActionHandler
         $execute_info_cache = [
             'ap' => 0,
             'pm' => 0,
+            'cp' => 0,
             'item'   => $item ? $item->getPrototype() : null,
             'target' => $target_item_prototype,
             'citizen' => is_a($target, Citizen::class) ? $target : null,
@@ -580,6 +597,16 @@ class ActionHandler
                 } else $this->citizen_handler->setPM( $citizen, true, $pm->getPm() );
 
                 $execute_info_cache['pm'] += ( $citizen->getPm() - $old_pm );
+            }
+
+            if ($cp = $result->getCp()) {
+                $old_cp = $citizen->getBp();
+                if ($cp->getMax()) {
+                    $to = $this->citizen_handler->getMaxBP($citizen) + $cp->getCp();
+                    $this->citizen_handler->setBP( $citizen, false, max( $old_cp, $to ) );
+                } else $this->citizen_handler->setBP( $citizen, true, $cp->getCp() );
+
+                $execute_info_cache['cp'] += ( $citizen->getBp() - $old_cp );
             }
 
             if ($death = $result->getDeath()) {
