@@ -52,7 +52,7 @@
                 {% endtrans %}
             </p>
         </div>
-        <div class="float-right link" x-ajax-href='{{ path('beyond_dashboard') }}'>{{'Aktualisierung'|trans({}, 'game')}}</div>
+        <div class="float-right link" x-ajax-sticky x-ajax-href='{{ path('beyond_dashboard') }}'>{{'Aktualisierung'|trans({}, 'game')}}</div>
 
     {% else %}
         {% if (zone.x != 0 or zone.y != 0) and conf.get(constant('App\\Structures\\TownConf::CONF_FEATURE_CAMPING'),false) %}
@@ -257,7 +257,7 @@
             </div>
 
             <div class="padded cell rw-6 rw-md-12">
-                <h5><span class="float-right link" x-ajax-href='{{ path('beyond_dashboard') }}'>{{'Aktualisierung'|trans({}, 'game')}}</span>{% trans from 'game' %}Meine objekte{% endtrans %}</h5>
+                <h5><span class="float-right link" x-ajax-sticky x-ajax-href='{{ path('beyond_dashboard') }}'>{{'Aktualisierung'|trans({}, 'game')}}</span>{% trans from 'game' %}Meine objekte{% endtrans %}</h5>
                 {% embed "ajax/game/inventory.html.twig" with {'size': rucksack_size, 'items': rucksack.items, 'hidden': citizen_hidden} %}
                     {% block class %}rucksack{% endblock %}
                     {% block title %}{% trans from 'game' %}Rucksack{% endtrans %}{% endblock %}
@@ -520,7 +520,7 @@
 
         {% if zone.x != 0 or zone.y != 0 %}
         <div class="row">
-            <h5><span class="float-right link" x-ajax-href='{{ path('beyond_dashboard') }}'>{{'Aktualisierung'|trans({}, 'game')}}</span>{{ 'Zonenregister'|trans({},'game') }} <a class="help-button"><div class="tooltip help">{{ 'Beachte: Alle hier geschriebenen Nachrichten gehen verloren, wenn alle Bürger die Zone verlassen.'|trans({},'global') }}</div>{{ 'Hilfe'|trans({},'global') }}</a></h5>
+            <h5><span class="float-right link" x-ajax-sticky x-ajax-href='{{ path('beyond_dashboard') }}'>{{'Aktualisierung'|trans({}, 'game')}}</span>{{ 'Zonenregister'|trans({},'game') }} <a class="help-button"><div class="tooltip help">{{ 'Beachte: Alle hier geschriebenen Nachrichten gehen verloren, wenn alle Bürger die Zone verlassen.'|trans({},'global') }}</div>{{ 'Hilfe'|trans({},'global') }}</a></h5>
             <div class="cell rw-12">
                 <div class="row">
                     <div class="padded cell rw-10 rw-lg-10 rw-md-9 rw-sm-8"><input id="beyond_chat" type="text" placeholder="{{ 'Deine Nachricht'|trans({},'global') }}" /></div>
