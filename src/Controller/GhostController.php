@@ -151,14 +151,6 @@ class GhostController extends AbstractController implements GhostInterfaceContro
         $town
             ->setType($em->getRepository(TownClass::class)->findOneBy(['name' => $townType]));
 
-        $conf = $conf->getTownConfiguration($town);
-
-        $customConf = $conf->getData();
-
-        /*$customConf = [
-            'features' => []
-        ];*/
-
         if(!empty($well) && is_numeric($well) && $well <= 300){
             $customConf['well'] = [
                 'min' => $well,
