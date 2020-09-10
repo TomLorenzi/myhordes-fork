@@ -15,10 +15,10 @@ const mark_zone = function(map, x = null, y = null, manual = false) {
 
     const last_zone = $.client.get('marker','routes',null);
     $.client.set('marker','routes',null,false);
-    if (last_zone && last_zone[0] === x && last_zone[1] === y && manual) return;
+    if (last_zone && last_zone[0] === x && last_zone[1] === y && manual) x = y = 0;
     if (x === {{ map.pos_x }} && y === {{ map.pos_y }}) return;
 
-    if (x === null || y === null) return;
+    if (x === null || y === null) x = y = 0;
     $.client.set('marker','routes',[x,y],false);
 
     if (marker_direction) {
@@ -340,7 +340,7 @@ for (let i = 0; i < scroll_areas.length; i++) {
     const active_marker = $.client.get('marker','routes',null);
     if (active_marker !== null)
         mark_zone( map, active_marker[0], active_marker[1], false );
-    else mark_zone( map );
+    else mark_zone( map);
 
 
     add_move_handler( map_area.querySelector('.zone-plane-controls>.action-move-north') );
