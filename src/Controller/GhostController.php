@@ -241,8 +241,7 @@ class GhostController extends AbstractController implements GhostInterfaceContro
 
         $town = $gf->createTown($townname, $lang, null, 'custom', $customConf, intval($seed));
         $town->setCreator($user);
-        if(!empty($password) && $password != null)
-            $town->setPassword($password);
+        if(!empty($password)) $town->setPassword($password);
         $em->persist($town);
 
         if($incarnated) {
