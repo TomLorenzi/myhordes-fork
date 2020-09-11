@@ -52,6 +52,7 @@
         </ul>
     {% endif %}
 
+    {% if (ap is defined and max_ap is defined) or (bp is defined and max_bp is defined and max_bp > 0) or (pm is defined and max_pm is defined and max_pm > 0) %}
     <div class="ulcont">
         {% if ap is defined and max_ap is defined %}
             <div>
@@ -99,6 +100,7 @@
         {% endif %}
 
     </div>
+    {% endif %}
     {% if (banished is defined and banished) or (roles is defined and roles|length > 0) %}
         <ul class="ulcont">
             {% for role in roles %}

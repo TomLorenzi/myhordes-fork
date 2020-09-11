@@ -700,7 +700,6 @@ class ActionHandler
             }
 
             if ($zombie_kill = $result->getZombies()) {
-
                 if ($citizen->getZone() && !$citizen->activeExplorerStats()) {
                     $kills = min($citizen->getZone()->getZombies(), mt_rand( $zombie_kill->getMin(), $zombie_kill->getMax() ));
                     if ($kills > 0) {
@@ -719,14 +718,11 @@ class ActionHandler
                         $this->picto_handler->give_picto($citizen, 'r_killz_#00', $kills);
                     }
                 }
-
             }
 
             if ($home_set = $result->getHome()) {
-
                 $citizen->getHome()->setAdditionalStorage( $citizen->getHome()->getAdditionalStorage() + $home_set->getAdditionalStorage() );
                 $citizen->getHome()->setAdditionalDefense( $citizen->getHome()->getAdditionalDefense() + $home_set->getAdditionalDefense() );
-
             }
 
             if($town_set = $result->getTown()){

@@ -212,7 +212,10 @@ class TownAddonsController extends TownController
         $have_saw  = $iv->countSpecificItems( $c_inv, $this->entity_manager->getRepository( ItemPrototype::class )->findOneByName( 'saw_tool_#00' ), false, false ) > 0;
         $have_manu = $th->getBuilding($town, 'small_factory_#00', true) !== null;
 
-        $recipes = $this->entity_manager->getRepository(Recipe::class)->findByType( Recipe::WorkshopType );
+        $recipes = $this->entity_manager->getRepository(Recipe::class)->findBy( ['type' => Recipe::WorkshopType] );
+        if($this->getActiveCitizen()->getProfession()->getName() == "shaman") {
+            $recipes = array_merge($recipes, $this->entity_manager->getRepository(Recipe::class)->findBy(['type' => Recipe::WorkshopTypeShamanSpecific]));
+        }
         $source_db = []; $result_db = [];
         foreach ($recipes as $recipe) {
             /** @var Recipe $recipe */

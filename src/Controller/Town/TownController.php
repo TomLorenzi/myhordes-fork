@@ -569,6 +569,30 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
     }
 
     /**
+     * @Route("api/town/remove_password", name="town_remove_password")
+     * @param int $id
+     * @param JSONRequestParser $parser
+     * @param EntityManagerInterface $em
+     * @return Response
+     */
+    public function town_remove_password(JSONRequestParser $parser, EntityManagerInterface $em): Response {
+        /** @var Town $town */
+        $town = $this->getActiveCitizen()->getTown();;
+
+        if (!$town) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+        if($town->getCreator() !== $this->getUser()) return AjaxResponse::error(ErrorHelper::ErrorActionNotAvailable);
+
+        $town->setPassword(null);
+        $em->persist($town);
+        $em->flush();
+
+        $this->addFlash("notice", $this->translator->trans("Du hast soeben den Zugang zu deiner privaten Stadt für jedermann geöffnet.", [], 'game'));
+
+        return AjaxResponse::success();
+    }
+
+    /**
      * @Route("jx/town/well", name="town_well")
      * @param TownHandler $th
      * @return Response

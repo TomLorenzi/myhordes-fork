@@ -188,9 +188,12 @@ class GameFactory
         return $resolution;
     }
 
-    public function createTown( ?string $name, ?string $language, ?int $population, string $type, $customConf = [] ): ?Town {
+    public function createTown( ?string $name, ?string $language, ?int $population, string $type, $customConf = [], int $seed = -1 ): ?Town {
         if (!$this->validator->validateTownType($type))
             return null;
+
+        if ($seed > 0)
+            mt_srand($seed);
 
         $townClass = $this->entity_manager->getRepository(TownClass::class)->findOneBy([ 'name' => $type ]);
 

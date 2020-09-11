@@ -169,7 +169,6 @@ class AdminActionHandler
     {
         if(!$this->hasRights($sourceUser, 'ban'))
             return false;
-            
 
         if (!($duration < 31 && $duration > 0)) return false;
         $sourceUser = $this->entity_manager->getRepository(User::class)->find($sourceUser);
@@ -185,7 +184,8 @@ class AdminActionHandler
             ->setUser( $targetUser )           
             ->setReason( $reason )
             ->setBanStart( $banStart )
-            ->setBanEnd( $banEnd );
+            ->setBanEnd( $banEnd )
+            ->setType(0);
         
         try {
             $this->entity_manager->persist($newban);

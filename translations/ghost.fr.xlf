@@ -253,7 +253,7 @@
       </notes>
       <segment>
         <source>Normal</source>
-        <target>Normale</target>
+        <target>Normal</target>
       </segment>
     </unit>
     <unit id="jNQMs2P" name="fead058">
@@ -425,15 +425,6 @@
       <segment>
         <source>Seelen &amp; Schamane:</source>
         <target><![CDATA[Âmes & chamans :]]></target>
-      </segment>
-    </unit>
-    <unit id="k2SkMiM" name="Verlorene Seelen und Schamanen aktivieren">
-      <notes>
-        <note category="german">Verlorene Seelen und Schamanen aktivieren</note>
-      </notes>
-      <segment>
-        <source>Verlorene Seelen und Schamanen aktivieren</source>
-        <target>Active les âmes errantes et le chaman.</target>
       </segment>
     </unit>
     <unit id="KwchNgg" name="Eskorte:">
@@ -749,6 +740,100 @@
       <segment>
         <source>Gibt Ihnen Seelenpunkte.</source>
         <target>Donne les points d'âme obtenus pendant la ville.</target>
+      </segment>
+    </unit>
+    <unit id="UgJmKP7" name="Bitte gib das Stadtpasswort ein :">
+      <notes>
+        <note category="german">Bitte gib das Stadtpasswort ein :</note>
+      </notes>
+      <segment>
+        <source>Bitte gib das Stadtpasswort ein :</source>
+        <target>Veuillez entrer le mot de passe de la ville :</target>
+      </segment>
+    </unit>
+    <unit id="Knuuneb" name="Karten-Seed">
+      <notes>
+        <note category="german">Karten-Seed</note>
+      </notes>
+      <segment>
+        <source>Karten-Seed</source>
+        <target>Seed de la carte</target>
+      </segment>
+    </unit>
+    <unit id="_SibAUY" name="5b4e357">
+      <notes>
+        <note category="german">Seed, das eine kontrollierte Kartenerstellung ermöglicht. Erlaubt im Falle von Ereignissen, ähnliche Karten zu generieren.
+                                Gib eine positive ganze Zahl ein, um es zu aktivieren.
+                                DENKT DARÜBER NACH, DIESE GANZE ZAHL VON EINEM EREIGNIS ZUM ANDEREN ZU ÄNDERN !</note>
+      </notes>
+      <segment>
+        <source>Seed, das eine kontrollierte Kartenerstellung ermöglicht. Erlaubt im Falle von Ereignissen, ähnliche Karten zu generieren.
+                                Gib eine positive ganze Zahl ein, um es zu aktivieren.
+                                DENKT DARÜBER NACH, DIESE GANZE ZAHL VON EINEM EREIGNIS ZUM ANDEREN ZU ÄNDERN !</source>
+        <target>Seed qui permet une génération de map maîtrisée. Permet, en cas d'event, de générer des maps similaires. Mettre un entier positif pour l'activer. PENSEZ À CHANGER CET ENTIER D'UN EVENT À L'AUTRE !</target>
+      </segment>
+    </unit>
+    <unit id="YY0WZyp" name="Verkörperung in der Stadt:">
+      <notes>
+        <note category="german">Verkörperung in der Stadt:</note>
+      </notes>
+      <segment>
+        <source>Verkörperung in der Stadt:</source>
+        <target>S'incarner dans la ville :</target>
+      </segment>
+    </unit>
+    <unit id="4iMXGoK" name="Verkörpert dich in der Stadt bei ihrer Entstehung">
+      <notes>
+        <note category="german">Verkörpert dich in der Stadt bei ihrer Entstehung</note>
+      </notes>
+      <segment>
+        <source>Verkörpert dich in der Stadt bei ihrer Entstehung</source>
+        <target>S'incarner en ville lors de sa création</target>
+      </segment>
+    </unit>
+    <unit id="EYBH.W." name="Der Schamane wird gewählt und die Seelen werden gequält.">
+      <notes>
+        <note category="german">Der Schamane wird gewählt und die Seelen werden gequält.</note>
+      </notes>
+      <segment>
+        <source>Der Schamane wird gewählt und die Seelen werden gequält.</source>
+        <target>Le chaman est élu et les âmes deviennent torturées.</target>
+      </segment>
+    </unit>
+    <unit id="YnsFoKy" name="Der Schamane ist ein Beruf, die Seelen werden in der Werkstatt verwandelt.">
+      <notes>
+        <note category="german">Der Schamane ist ein Beruf, die Seelen werden in der Werkstatt verwandelt.</note>
+      </notes>
+      <segment>
+        <source>Der Schamane ist ein Beruf, die Seelen werden in der Werkstatt verwandelt.</source>
+        <target>Le chaman est un métier, les âmes sont transformées à l'atelier.</target>
+      </segment>
+    </unit>
+    <unit id="rWF6D91" name="Job">
+      <notes>
+        <note category="german">Job</note>
+      </notes>
+      <segment>
+        <source>Job</source>
+        <target>Métier</target>
+      </segment>
+    </unit>
+    <unit id="_kZYbUN" name="Der Schamane und die Seelen werden deaktiviert.">
+      <notes>
+        <note category="german">Der Schamane und die Seelen werden deaktiviert.</note>
+      </notes>
+      <segment>
+        <source>Der Schamane und die Seelen werden deaktiviert.</source>
+        <target>Le chaman et les âmes sont désactivées.</target>
+      </segment>
+    </unit>
+    <unit id="ifwhezW" name="Deaktiviert">
+      <notes>
+        <note category="german">Deaktiviert</note>
+      </notes>
+      <segment>
+        <source>Deaktiviert</source>
+        <target>Désactivé</target>
       </segment>
     </unit>
   </file>

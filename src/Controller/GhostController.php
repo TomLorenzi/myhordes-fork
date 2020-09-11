@@ -33,6 +33,7 @@ class GhostController extends AbstractController implements GhostInterfaceContro
     protected $translator;
     protected $time_keeper;
     private $user_handler;
+    const ErrorWrongTownPassword          = ErrorHelper::BaseGhostErrors + 1;
 
     public function __construct(EntityManagerInterface $em, UserHandler $uh, TimeKeeperService $tk, TranslatorInterface $translator)
     {
@@ -122,7 +123,7 @@ class GhostController extends AbstractController implements GhostInterfaceContro
         }
 
         $townname = $parser->get('townName', '');
-        $password = $parser->get('password', '');
+        $password = $parser->get('password', null);
         $lang = $parser->get('lang', '');
         $townType = $parser->get('townType', '');
         $ghoulType = $parser->get('ghoulType', '');
@@ -130,7 +131,7 @@ class GhostController extends AbstractController implements GhostInterfaceContro
         $disablexml = $parser->get('disablexml', '');
         $rules = $parser->get('rules', '');
         $ruins = boolval($parser->get('ruins', ''));
-        $shaman = boolval($parser->get('shaman', ''));
+        $shamanMode = $parser->get('shamanMode', 'normal');
         $escorts = boolval($parser->get('escorts', ''));
         $shun = boolval($parser->get('shun', ''));
         $nightmode = boolval($parser->get('nightmode', ''));
@@ -142,19 +143,21 @@ class GhostController extends AbstractController implements GhostInterfaceContro
         $attacks = $parser->get('attacks', '');
         $allpictos = $parser->get('allpictos', '');
         $soulpoints = $parser->get('soulpoints', '');
+        $seed = $parser->get('seed', -1);
+        $incarnated = boolval($parser->get('incarnated', true));
+        $job_basic_enabled = boolval($parser->get('basic', true));
+        $job_collec_enabled = boolval($parser->get('collec', true));
+        $job_guardian_enabled = boolval($parser->get('guardian', true));
+        $job_hunter_enabled = boolval($parser->get('hunter', true));
+        $job_tamer_enabled = boolval($parser->get('tamer', true));
+        $job_tech_enabled = boolval($parser->get('tech', true));
+        $job_shaman_enabled = boolval($parser->get('shaman', false));
+        $job_survivalist_enabled = boolval($parser->get('survivalist', true));
 
         // Initial: Create town setting from selected type
         $town = new Town();
         $town
             ->setType($em->getRepository(TownClass::class)->findOneBy(['name' => $townType]));
-
-        $conf = $conf->getTownConfiguration($town);
-
-        $customConf = $conf->getData();
-
-        /*$customConf = [
-            'features' => []
-        ];*/
 
         if(!empty($well) && is_numeric($well) && $well <= 300){
             $customConf['well'] = [
@@ -175,7 +178,7 @@ class GhostController extends AbstractController implements GhostInterfaceContro
         }
 
         if (!$ruins) $customConf['features'][''] = 0;
-        $customConf['features']['shaman'] = $shaman;
+        $customConf['features']['shamanMode'] = $shamanMode;
         $customConf['features']['escort'] = ['enabled' => $escorts];
         $customConf['features']['shun'] = $shun;
         $customConf['features']['nightmode'] = $nightmode;
@@ -188,20 +191,51 @@ class GhostController extends AbstractController implements GhostInterfaceContro
         $customConf['features']['give_all_pictos'] = $allpictos;
         $customConf['features']['give_soulpoints'] = $soulpoints;
 
-        $town = $gf->createTown($townname, $lang, null, 'custom', $customConf);
-        $town->setPassword($password);
-        $em->persist($town);
-
-        $citizen = $gf->createCitizen($town, $user, $error);
-        if (!$citizen) return AjaxResponse::error($error);
-        try {
-            $em->persist($citizen);
-            $em->flush();
-        } catch (Exception $e) {
-            return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
+        if($shamanMode == "normal" || $shamanMode == "none")
+            $customConf['disabled_jobs']['replace'] = ['shaman'];
+        else
+            $customConf['disabled_jobs']['replace'] = [];
+        
+        if(!$job_basic_enabled)
+            $customConf['disabled_jobs']['replace'][] = 'basic';
+        if(!$job_collec_enabled)
+            $customConf['disabled_jobs']['replace'][] = 'collec';
+        if(!$job_guardian_enabled)
+            $customConf['disabled_jobs']['replace'][] = 'guardian';
+        if(!$job_hunter_enabled)
+            $customConf['disabled_jobs']['replace'][] = 'hunter';
+        if(!$job_tamer_enabled)
+            $customConf['disabled_jobs']['replace'][] = 'tamer';
+        if(!$job_tech_enabled)
+            $customConf['disabled_jobs']['replace'][] = 'tech';
+        if(!$job_survivalist_enabled)
+            $customConf['disabled_jobs']['replace'][] = 'survivalist';
+        if(!$job_shaman_enabled)
+            $customConf['disabled_jobs']['replace'][] = 'shaman';
+        else if(in_array('shaman', $customConf['disabled_jobs']['replace'])) {
+            // If the shaman is disabled, but we enforced its activation, remove it from the disabled array
+            $$customConf['disabled_jobs']['replace'] = array_diff($customConf['disabled_jobs']['replace'], ['shaman']);
         }
 
-        $em->persist( $log->citizenJoin( $citizen ) );
+        $town = $gf->createTown($townname, $lang, null, 'custom', $customConf, intval($seed));
+        $town->setCreator($user);
+        if(!empty($password) && $password != null)
+            $town->setPassword($password);
+        $em->persist($town);
+
+        if($incarnated) {
+            $citizen = $gf->createCitizen($town, $user, $error);
+            if (!$citizen) return AjaxResponse::error($error);
+            try {
+                $em->persist($citizen);
+                $em->flush();
+            } catch (Exception $e) {
+                return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
+            }
+
+            $em->persist( $log->citizenJoin( $citizen ) );
+        }
+
         try {
             $em->flush();
         } catch (Exception $e) {
@@ -317,6 +351,30 @@ class GhostController extends AbstractController implements GhostInterfaceContro
         }
 
         return AjaxResponse::success();
+    }
+
+    /**
+     * @Route("api/ghost/check_town_pw", name="api_check_town_pw")
+     * @param JSONRequestParser $parser
+     * @param EntityManagerInterface $em
+     * @return Response
+     */
+    public function check_town_pw_api(JSONRequestParser $parser, EntityManagerInterface $em) {
+
+        if (!$parser->has('town') || !$parser->has('pass')) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+        $town_id = (int)$parser->get('town', -1);
+        $pass = $parser->get('pass', '');
+        if ($town_id <= 0 || empty($pass)) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+        /** @var Town $town */
+        $town = $em->getRepository(Town::class)->find( $town_id );
+
+        if (!$town) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+        if($town->getPassword() != $pass)
+            return AjaxResponse::error(self::ErrorWrongTownPassword);
+
+        return $this->redirectToRoute("api_join", ['town' => $town_id], 307);
     }
 
     public function getUserTownClassAccess(MyHordesConf $conf): array {

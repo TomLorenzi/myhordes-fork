@@ -12,6 +12,7 @@ use App\Service\ConfMaster;
 use App\Service\ErrorHelper;
 use App\Service\JSONRequestParser;
 use App\Service\LogTemplateHandler;
+use App\Service\ZoneHandler;
 use App\Translation\T;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -30,6 +31,7 @@ class AdminActionController extends AbstractController
     protected $entity_manager;
     protected $logTemplateHandler;
     protected $conf;
+    protected $zone_handler;
     protected $translator;
 
 
@@ -42,12 +44,13 @@ class AdminActionController extends AbstractController
         ];
     }
 
-    public function __construct(EntityManagerInterface $em, ConfMaster $conf, LogTemplateHandler $lth, TranslatorInterface $translator)
+    public function __construct(EntityManagerInterface $em, ConfMaster $conf, LogTemplateHandler $lth, TranslatorInterface $translator, ZoneHandler $zh)
     {
         $this->entity_manager = $em;
         $this->conf = $conf;
         $this->logTemplateHandler = $lth;
         $this->translator = $translator;
+        $this->zone_handler = $zh;
 
     }
 

@@ -11268,13 +11268,13 @@
         <target>Distinction du plus grand héros ayant survécu le plus longtemps lors du choc des héros, vous faîtes désormais parti de la légende de l'outre-monde !</target>
       </segment>
     </unit>
-    <unit id="74NqrNr" name="Triumphator">
+    <unit id="SFjPHiw" name="Einsiedler - Gewinner des SoH">
       <notes>
-        <note category="german">Triumphator</note>
+        <note category="german">Einsiedler - Gewinner des SoH</note>
       </notes>
       <segment>
-        <source>Triumphator</source>
-        <target>Champion du Choc des héros</target>
+        <source>Einsiedler - Gewinner des SoH</source>
+        <target>Ermite gagnant du CDH</target>
       </segment>
     </unit>
     <unit id="Ycwc7kf" name="d8bdf81">
@@ -11292,7 +11292,7 @@
       </notes>
       <segment>
         <source>Aufklärer - Gewinner des SoH</source>
-        <target>Fouineur gagnant du CDH</target>
+        <target>Éclaireur gagnant du CDH</target>
       </segment>
     </unit>
     <unit id="cp2pUF_" name="Sieg für die Aufklärer beim Shock of Heroes Event!">
@@ -11301,16 +11301,7 @@
       </notes>
       <segment>
         <source>Sieg für die Aufklärer beim Shock of Heroes Event!</source>
-        <target>Victoire en tant que Fouineur lors du Choc des Héros !</target>
-      </segment>
-    </unit>
-    <unit id="z03nP6t" name="Shock of Heroes Champion">
-      <notes>
-        <note category="german">Shock of Heroes Champion</note>
-      </notes>
-      <segment>
-        <source>Shock of Heroes Champion</source>
-        <target>Champion du Choc des héros</target>
+        <target>Victoire en tant qu'Éclaireur lors du Choc des Héros !</target>
       </segment>
     </unit>
     <unit id="GGz46PZ" name="Sieg für die Wächter beim Shock of Heroes Event!">
@@ -11628,13 +11619,67 @@
         <target>Crucifixion</target>
       </segment>
     </unit>
-    <unit id="K65v2LS" name="90b2719">
+    <unit id="mkyiUfI" name="Öffne deine private Stadt für alle">
       <notes>
-        <note category="german">Wenn du in der Wüste von Zombies umzingelst wirst, erstarrst du vor Angst und kannst nichts mehr unternehmen... Du musst Drogen oder etwas anderes finden, um &lt;strong&gt;deine Nerven zu beruhigen&lt;/strong&gt; und aus dieser Hölle zu entkommen... Wenigstens ist es dir immer noch möglich, im Forum nach Hilfe zu suchen...</note>
+        <note category="german">Öffne deine private Stadt für alle</note>
       </notes>
       <segment>
-        <source>Wenn du in der Wüste von Zombies umzingelst wirst, erstarrst du vor Angst und kannst nichts mehr unternehmen... Du musst Drogen oder etwas anderes finden, um &lt;strong&gt;deine Nerven zu beruhigen&lt;/strong&gt; und aus dieser Hölle zu entkommen... Wenigstens ist es dir immer noch möglich, im Forum nach Hilfe zu suchen...</source>
-        <target><![CDATA[Wenn du in der Wüste von Zombies umzingelst wirst, erstarrst du vor Angst und kannst nichts mehr unternehmen... Du musst Drogen oder etwas anderes finden, um <strong>deine Nerven zu beruhigen</strong> und aus dieser Hölle zu entkommen... Wenigstens ist es dir immer noch möglich, im Forum nach Hilfe zu suchen...]]></target>
+        <source>Öffne deine private Stadt für alle</source>
+        <target>Ouvrir votre ville privée à tous</target>
+      </segment>
+    </unit>
+    <unit id="G0BraVl" name="Das Passwort ist falsch.">
+      <notes>
+        <note category="german">Das Passwort ist falsch.</note>
+      </notes>
+      <segment>
+        <source>Das Passwort ist falsch.</source>
+        <target>Le mot de passe est incorrect.</target>
+      </segment>
+    </unit>
+    <unit id="9EBorzV" name="Deine Stadt">
+      <notes>
+        <note category="german">Deine Stadt</note>
+      </notes>
+      <segment>
+        <source>Deine Stadt</source>
+        <target>Votre ville</target>
+      </segment>
+    </unit>
+    <unit id="jVhaVYF" name="Du hast soeben den Zugang zu deiner privaten Stadt für jedermann geöffnet.">
+      <notes>
+        <note category="german">Du hast soeben den Zugang zu deiner privaten Stadt für jedermann geöffnet.</note>
+      </notes>
+      <segment>
+        <source>Du hast soeben den Zugang zu deiner privaten Stadt für jedermann geöffnet.</source>
+        <target>Vous venez d'ouvrir à tous l'accès de votre ville privée.</target>
+      </segment>
+    </unit>
+    <unit id="suYM2pk" name="Buddler - Gewinner des SoH">
+      <notes>
+        <note category="german">Buddler - Gewinner des SoH</note>
+      </notes>
+      <segment>
+        <source>Buddler - Gewinner des SoH</source>
+        <target>Fouineur gagnant du CDH</target>
+      </segment>
+    </unit>
+    <unit id="B4NRnue" name="Sieg für die Buddler beim Shock of Heroes Event!">
+      <notes>
+        <note category="german">Sieg für die Buddler beim Shock of Heroes Event!</note>
+      </notes>
+      <segment>
+        <source>Sieg für die Buddler beim Shock of Heroes Event!</source>
+        <target>Victoire en tant que Fouineur lors du Choc des Héros !</target>
+      </segment>
+    </unit>
+    <unit id="ezjjECr" name="Wächter - Gewinner des SoH">
+      <notes>
+        <note category="german">Wächter - Gewinner des SoH</note>
+      </notes>
+      <segment>
+        <source>Wächter - Gewinner des SoH</source>
+        <target>Gardien gagnant du CDH</target>
       </segment>
     </unit>
     <unit id="0S63eNq" name="Regentanz ausführen">
@@ -11644,6 +11689,15 @@
       <segment>
         <source>Regentanz ausführen</source>
         <target>Regentanz ausführen</target>
+      </segment>
+    </unit>
+    <unit id="K65v2LS" name="90b2719">
+      <notes>
+        <note category="german">Wenn du in der Wüste von Zombies umzingelst wirst, erstarrst du vor Angst und kannst nichts mehr unternehmen... Du musst Drogen oder etwas anderes finden, um &lt;strong&gt;deine Nerven zu beruhigen&lt;/strong&gt; und aus dieser Hölle zu entkommen... Wenigstens ist es dir immer noch möglich, im Forum nach Hilfe zu suchen...</note>
+      </notes>
+      <segment>
+        <source>Wenn du in der Wüste von Zombies umzingelst wirst, erstarrst du vor Angst und kannst nichts mehr unternehmen... Du musst Drogen oder etwas anderes finden, um &lt;strong&gt;deine Nerven zu beruhigen&lt;/strong&gt; und aus dieser Hölle zu entkommen... Wenigstens ist es dir immer noch möglich, im Forum nach Hilfe zu suchen...</source>
+        <target><![CDATA[Lorsque vous êtes terrorisé et que vous n'avez pas le contrôle de la zone, vous ne pouvez rien faire... Vous devez trouver une drogue ou quelque chose pour <strong>calmer vos nerfs</strong> et sortir de ce pétrin... Au moins, il est possible d'appeler à l'aide sur le forum...]]></target>
       </segment>
     </unit>
   </file>
