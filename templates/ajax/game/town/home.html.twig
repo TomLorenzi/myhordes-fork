@@ -49,15 +49,15 @@
     <div x-tab-group="home-main" x-tab-id="dash" x-tab-target>
         <div class="dashboard">
             <div class="row">
-                <div class="padded cell rw-4 rw-lg-6 center">
-                    <em>{{ 'Verteidigung'|trans({}, 'game') }}</em><br />
-                    <span class="counter">{{ def.sum }} <img src="{{ asset('build/images/icons/small_def.gif') }}" alt="" /></span>
-                </div>
-                <div class="padded cell rw-4 rw-lg-6 center deco-estimation">
+                <div class="padded cell rw-2 rw-lg-6 center">
                     <em>{{ 'Dekoration'|trans({}, 'game') }}</em><br />
                     <span class="counter">{{ deco }} <img src="{{ asset('build/images/icons/small_deco.gif') }}" alt="" /></span>
                 </div>
-                <div class="padded cell rw-4 rw-lg-12 left medium">
+                <div class="padded cell rw-4 rw-lg-6 center def-estimation">
+                    <em>{{ 'Verteidigung'|trans({}, 'game') }}</em><br />
+                    <span class="counter">{{ def.sum }} <img src="{{ asset('build/images/icons/small_def.gif') }}" alt="" /></span>
+                </div>
+                <div class="padded cell rw-6 rw-lg-12 left medium">
                     <input id="desc_edit" type="text" maxlength="64" placeholder="{{ 'Dein Beschreibungstext'|trans({},'game') }}" value="{{ home.description }}">
                     <div class="small right"><a id="desc_edit_button" href="">{{ 'Speichern'|trans({},'game') }}</a></div>
                     <div class="tooltip help">
