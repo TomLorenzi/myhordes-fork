@@ -1333,5 +1333,14 @@
         <target>Supprimer l'interdiction</target>
       </segment>
     </unit>
+    <unit id="OasWqCK" name="Verschüttet">
+      <notes>
+        <note category="german">Verschüttet</note>
+      </notes>
+      <segment>
+        <source>Verschüttet</source>
+        <target>Enterré</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

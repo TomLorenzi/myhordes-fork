@@ -555,21 +555,27 @@ class PictoFixtures extends Fixture
             'rare' => true
         ],
         [
-            'label' => 'Triumphator',
+            'label' => 'Einsiedler - Gewinner des SoH',
             'description' => 'Diese seltene Auszeichnung wurde den Einsiedlern verliehen, die mit ihrer Stadt die Schlacht der Berufe gewonnen haben. Respekt!',
             'icon' => 'r_ermwin',
             'rare' => true
         ],
         [
-            'label' => 'Aufklärer - Gewinner des SoH',
-            'description' => 'Sieg für die Aufklärer beim Shock of Heroes Event!',
+            'label' => 'Buddler - Gewinner des SoH',
+            'description' => 'Sieg für die Buddler beim Shock of Heroes Event!',
             'icon' => 'r_cdhwin',
             'rare' => true
         ],
         [
-            'label' => 'Shock of Heroes Champion',
+            'label' => 'Wächter - Gewinner des SoH',
             'description' => 'Sieg für die Wächter beim Shock of Heroes Event!',
             'icon' => 'r_defwin',
+            'rare' => true
+        ],
+        [
+            'label' => 'Aufklärer - Gewinner des SoH',
+            'description' => 'Sieg für die Aufklärer beim Shock of Heroes Event!',
+            'icon' => 'r_rangwin',
             'rare' => true
         ],
         [

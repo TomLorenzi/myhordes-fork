@@ -212,7 +212,10 @@ class TownAddonsController extends TownController
         $have_saw  = $iv->countSpecificItems( $c_inv, $this->entity_manager->getRepository( ItemPrototype::class )->findOneByName( 'saw_tool_#00' ), false, false ) > 0;
         $have_manu = $th->getBuilding($town, 'small_factory_#00', true) !== null;
 
-        $recipes = $this->entity_manager->getRepository(Recipe::class)->findByType( Recipe::WorkshopType );
+        $recipes = $this->entity_manager->getRepository(Recipe::class)->findBy( ['type' => Recipe::WorkshopType] );
+        if($this->getActiveCitizen()->getProfession()->getName() == "shaman") {
+            $recipes = array_merge($recipes, $this->entity_manager->getRepository(Recipe::class)->findBy(['type' => Recipe::WorkshopTypeShamanSpecific]));
+        }
         $source_db = []; $result_db = [];
         foreach ($recipes as $recipe) {
             /** @var Recipe $recipe */
@@ -428,7 +431,10 @@ class TownAddonsController extends TownController
     public function addon_nightwatch(TownHandler $th): Response
     {
         $town = $this->getActiveCitizen()->getTown();
-        if (!$th->getBuilding($town, 'small_round_path_#00', true) || !$this->getTownConf()->get(TownConf::CONF_FEATURE_NIGHTWATCH, true))
+        if (!$this->getTownConf()->get(TownConf::CONF_FEATURE_NIGHTWATCH, true))
+            return $this->redirect($this->generateUrl('town_dashboard'));
+
+        if (!$th->getBuilding($town, 'small_round_path_#00', true) && !$this->getTownConf()->get(TownConf::CONF_FEATURE_NIGHTWATCH_INSTANT, false))
             return $this->redirect($this->generateUrl('town_dashboard'));
 
         $citizenWatch = $this->entity_manager->getRepository(CitizenWatch::class)->findCurrentWatchers($town);
@@ -590,7 +596,10 @@ class TownAddonsController extends TownController
     public function api_nightwatch_gowatch(TownHandler $th, JSONRequestParser $parser): Response
     {
         $town = $this->getActiveCitizen()->getTown();
-        if (!$th->getBuilding($town, 'small_round_path_#00', true))
+        if (!$this->getTownConf()->get(TownConf::CONF_FEATURE_NIGHTWATCH, true))
+            return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
+
+        if (!$th->getBuilding($town, 'small_round_path_#00', true) && !$this->getTownConf()->get(TownConf::CONF_FEATURE_NIGHTWATCH_INSTANT, false))
             return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
 
         $action = $parser->get("action");

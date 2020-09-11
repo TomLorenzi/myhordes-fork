@@ -109,8 +109,12 @@
         <div class="row">
             <div class="cell-small rw-11 rw-sm-24 justify">
                 <strong>MyHordes</strong>
-                <div class="content">This is a fan project for the games <a href="http://dieverdammten.de">Die Verdammten</a>, <a href="http://die2nite.com/">Die2Nite</a>, <a href="http://hordes.fr/">Hordes</a> and <a href="http://www.zombinoia.com/">Zombinoia</a> by <b>MotionTwin</b>.
-                Unless otherwise expressly stated, all graphics in MyHordes are taken from these games and are therefore the property of <b>MotionTwin</b>.</div>
+                <div class="content">
+                    This is a fan project for the games <a href="http://dieverdammten.de">Die Verdammten</a>, <a href="http://die2nite.com/">Die2Nite</a>, <a href="http://hordes.fr/">Hordes</a> and <a href="http://www.zombinoia.com/">Zombinoia</a> by <b>MotionTwin</b>.
+                    Unless otherwise expressly stated, all graphics in MyHordes are taken from these games and are therefore the property of <b>MotionTwin</b>.
+                    <br /><br />
+                    MyHordes is <i>Open Source</i> and everyone is welcome to <b>get involved</b>. You can find the source code at <a href="https://gitlab.com/eternal-twin/myhordes">Gitlab</a>.
+                </div>
             </div>
             <div class="cell-small ro-5 rw-8 ro-sm-0 rw-sm-24 center">
                 <strong>Programming</strong>
@@ -140,6 +144,7 @@
                 {{ include('scripts/errors/inventory.txt.twig') }}
                 {{ include('scripts/errors/actions.txt.twig') }}
                 {{ include('scripts/errors/forum.txt.twig') }}
+                {{ include('scripts/errors/ghost.txt.twig') }}
             },
             'langs': {
                 'de': '{{ 'Deutsch'|trans({},'global') }}',

@@ -7,11 +7,14 @@
 {% if bankmode is defined and bankmode %}
     <input type="text" name="banksearch" id="banksearch" placeholder="{{ 'Gegenstände suchen'|trans({},'items') }}"/>
 {% endif %}
+{% if foreignChestMode is not defined %}
+    {% set foreignChestMode = false %}
+{% endif %}
 <ul {% if bankmode is defined and bankmode %}id="bank-inventory"{% endif %} class="inventory {% block class %}{% endblock %}">
     {% if bankmode is not defined or not bankmode %}
         <li class="title">{% block title %}{% endblock %}</li>
         {% for item in items %}
-            {% if not item.hidden or show_banished_hidden %}
+            {% if (not item.hidden or show_banished_hidden) and (not foreignChestMode or not item.prototype.hideInForeignChest) %}
                 {% embed "ajax/game/item.html.twig" with {'item': item, 'escort': escort} %}{% endembed %}
             {% endif %}
         {% endfor %}

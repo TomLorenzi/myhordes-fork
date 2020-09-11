@@ -122,6 +122,8 @@ class GameController extends AbstractController implements GameInterfaceControll
             return $this->redirect($this->generateUrl('soul_death'));
         elseif ($this->getActiveCitizen()->getProfession()->getName() === CitizenProfession::DEFAULT)
             return $this->redirect($this->generateUrl('game_jobs'));
+        elseif (!$this->getActiveCitizen()->getHasSeenGazette())
+            return $this->redirect($this->generateUrl('game_newspaper'));
         elseif ($this->getActiveCitizen()->getZone() && !$this->getActiveCitizen()->activeExplorerStats())
             return $this->redirect($this->generateUrl('beyond_dashboard'));
         elseif ($this->getActiveCitizen()->getZone() && $this->getActiveCitizen()->activeExplorerStats())
@@ -370,11 +372,6 @@ class GameController extends AbstractController implements GameInterfaceControll
             'repeat' => floor($day / 5),
         ];
 
-        $attack = -1;
-        $defense = -1;
-        $attack = $gazette->getAttack();
-        $defense = $gazette->getDefense();
-
         $citizensWithRole = $this->entity_manager->getRepository(Citizen::class)->findCitizenWithRole($town);
 
         $gazette_info = [
@@ -399,6 +396,10 @@ class GameController extends AbstractController implements GameInterfaceControll
         ];
 
         $show_register = $in_town || !$this->getActiveCitizen()->getAlive();
+
+        $this->getActiveCitizen()->setHasSeenGazette(true);
+        $this->entity_manager->persist($this->getActiveCitizen());
+        $this->entity_manager->flush();
 
         return $this->render( 'ajax/game/newspaper.html.twig', [
             'show_register'  => $show_register,
@@ -428,15 +429,27 @@ class GameController extends AbstractController implements GameInterfaceControll
 
     /**
      * @Route("jx/game/jobcenter", name="game_jobs")
+     * @param ConfMaster $cf
      * @return Response
      */
-    public function job_select(): Response
+    public function job_select(ConfMaster $cf): Response
     {
         if ($this->getActiveCitizen()->getProfession()->getName() !== CitizenProfession::DEFAULT)
             return $this->redirect($this->generateUrl('game_landing'));
 
+        $jobs = $this->entity_manager->getRepository(CitizenProfession::class)->findSelectable();
+
+        $disabledJobs = $cf->getTownConfiguration($this->getActiveCitizen()->getTown())->get(TownConf::CONF_DISABLED_JOBS, ['shaman']);
+
+        $selectablesJobs = [];
+
+        foreach($jobs as $job){
+            if(!in_array($job->getName(), $disabledJobs))
+                $selectablesJobs[] = $job;
+        }
+
         return $this->render( 'ajax/game/jobs.html.twig', [
-            'professions' => $this->entity_manager->getRepository(CitizenProfession::class)->findSelectable()
+            'professions' => $selectablesJobs
         ] );
     }
 

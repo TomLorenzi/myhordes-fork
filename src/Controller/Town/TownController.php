@@ -82,6 +82,9 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
 
         $data["builtbuildings"] = array();
 
+        if ($this->getTownConf()->get(TownConf::CONF_FEATURE_NIGHTWATCH_INSTANT, false) && $this->getTownConf()->get(TownConf::CONF_FEATURE_NIGHTWATCH, true))
+            $addons['battlement'] = [T::__('Wächt', 'game'), 'town_nightwatch', 3];
+
         foreach ($town->getBuildings() as $b) if ($b->getComplete()) {
 
             if ($b->getPrototype()->getMaxLevel() > 0)
@@ -93,7 +96,7 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
             if ($b->getPrototype()->getName() === 'small_refine_#00')
                 $addons['workshop'] = [T::__('Werkstatt (building)', 'game'), 'town_workshop', 2];
 
-            if ($b->getPrototype()->getName() === 'small_round_path_#00' && $this->getTownConf()->get(TownConf::CONF_FEATURE_NIGHTWATCH, true))
+            if (($b->getPrototype()->getName() === 'small_round_path_#00' && !$this->getTownConf()->get(TownConf::CONF_FEATURE_NIGHTWATCH_INSTANT, false)) && $this->getTownConf()->get(TownConf::CONF_FEATURE_NIGHTWATCH, true))
                 $addons['battlement'] = [T::__('Wächt', 'game'), 'town_nightwatch', 3];
 
             if ($b->getPrototype()->getName() === 'small_trash_#00')
@@ -561,36 +564,35 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
         if (!$c || $c->getTown()->getId() !== $this->getActiveCitizen()->getTown()->getId())
             return AjaxResponse::error(ErrorHelper::ErrorActionNotAvailable );
 
-        $up_inv   = $ac->getHome()->getChest();
+        $direction = $parser->get('direction', '');
+
+        $up_inv   = $direction === 'down' ? $ac->getInventory() : $ac->getHome()->getChest();
         $down_inv = $c->getHome()->getChest();
-        $result = $this->generic_item_api( $up_inv, $down_inv, false, $parser, $handler);
-        if($result == AjaxResponse::success() && $c->getAlive()){
-            /*
-            //TODO: Find a way to create PM from the Crow
-            $thread = new PrivateMessageThread($crow);
-            $thread->setSender(null)
-                ->setTitle("Raub!")
-                ->setLocked(true)
-                ->setLastMessage(new \DateTime('now'))
-                ->setRecipient($c)
-            ;
+        return $this->generic_item_api( $up_inv, $down_inv, false, $parser, $handler);
+    }
 
-            $post = new PrivateMessage();
-            $post->setDate(new \DateTime('now'))
-                ->setText("Quelqu'un s'est introduit chez vous pour vous voler un item !")
-                ->setPrivateMessageThread($thread)
-                ->setOwner(null)
-                ->setNew(true)
-                ->setRecipient($c)
-            ;
+    /**
+     * @Route("api/town/remove_password", name="town_remove_password")
+     * @param int $id
+     * @param JSONRequestParser $parser
+     * @param EntityManagerInterface $em
+     * @return Response
+     */
+    public function town_remove_password(JSONRequestParser $parser, EntityManagerInterface $em): Response {
+        /** @var Town $town */
+        $town = $this->getActiveCitizen()->getTown();;
 
-            $thread->addMessage($post);
+        if (!$town) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
-            $em->persist($thread);
-            $em->persist($post);
-            $em->flush();*/
-        }
-        return $result;
+        if($town->getCreator() !== $this->getUser()) return AjaxResponse::error(ErrorHelper::ErrorActionNotAvailable);
+
+        $town->setPassword(null);
+        $em->persist($town);
+        $em->flush();
+
+        $this->addFlash("notice", $this->translator->trans("Du hast soeben den Zugang zu deiner privaten Stadt für jedermann geöffnet.", [], 'game'));
+
+        return AjaxResponse::success();
     }
 
     /**

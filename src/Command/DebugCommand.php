@@ -97,8 +97,8 @@ class DebugCommand extends Command
                             '--validated' => true,
                         ]);
                         $command->run($nested_input, $output);
-                        $crow = $this->entity_manager->getRepository(User::class)->find(66);
-                    }                                       
+                    }
+                    $crow = $this->entity_manager->getRepository(User::class)->find(66);
                 }
 
                 if ($crow->getRightsElevation() > User::ROLE_USER || !strstr($crow->getEmail(), "@localhost") === "@localhost") {

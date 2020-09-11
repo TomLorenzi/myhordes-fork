@@ -85,18 +85,23 @@ parameters:
           enabled: true
           max: 4
         nightmode: true
-        shaman: true
+        shaman: normal
         xml_feed: true
         ghoul_mode: normal
         all_poison: false
         shun: true
         ghoul: true
-        nightwatch: true
+        nightwatch:
+          enabled: true
+          instant: false
         improveddump: true
         attacks: normal
         give_all_pictos: true
         give_soulpoints: true
 
+      disabled_jobs: ['shaman']
+      disabled_buildings: []
+      
     small:
       map:  { min: 12, max: 14 }
       ruins: 10
@@ -118,7 +123,6 @@ parameters:
 
 
       features:
-        camping: false
         shaman: false
 
     remote:

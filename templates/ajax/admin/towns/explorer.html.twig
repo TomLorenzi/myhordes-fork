@@ -30,7 +30,7 @@
             {# @var town \App\Entity\Town #}
             <div x-tab-group="admin-town" x-tab-id="dash" x-tab-target>
                 <div class="row">
-                    <div class="cell rw-12 padded">
+                    <div class="cell padded rw-6 rw-sm-12">
                         {{ _self.valuelist('ID'|trans({},'admin'),         town.id) }}
                         {{ _self.valuelist('Stadtname'|trans({},'admin'),  town.name) }}
                         {{ _self.valuelist('Sprache'|trans({},'admin'),    town.language) }}
@@ -67,12 +67,12 @@
                             </div>
                         </div>
                     </div>
-                    <div class="cell padded rw-9 rw-sm-12">
-
+                    <div class="cell padded rw-6 rw-sm-12">
+                        {% embed "ajax/admin/towns/map.html.twig" with {'default_zoom': 0, 'default_show_zone': false, 'allow_zone_view': false, 'map': map_data} %}
+                        {% endembed %}
                     </div>
                 </div>
             </div>
-
 
             <div x-tab-group="admin-town" x-tab-id="citizens" x-tab-target>
                 <div class="row">

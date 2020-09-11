@@ -401,7 +401,7 @@ class InventoryAwareController extends AbstractController
             if ($give_ap > $aggressor->getAp())
                 $this->citizen_handler->setAP($aggressor, false, $give_ap, null );
 
-            $aggressor->setGhulHunger( max(0, $aggressor->getGhulHunger() - 50) );
+            $aggressor->setGhulHunger( max(0, $aggressor->getGhulHunger() - 65) );
 
             $stat_down = false;
             if (!$this->citizen_handler->hasStatusEffect($aggressor, 'drugged') && $this->citizen_handler->hasStatusEffect($victim, 'drugged')) {

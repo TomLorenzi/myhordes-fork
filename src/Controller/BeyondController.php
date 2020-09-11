@@ -68,6 +68,7 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
     const ErrorNoMovementWhileHiding= ErrorHelper::BaseBeyondErrors + 10;
     const ErrorEscortLimitHit       = ErrorHelper::BaseBeyondErrors + 11;
     const ErrorEscortFailure        = ErrorHelper::BaseBeyondErrors + 12;
+    const ErrorTerrorized           = ErrorHelper::BaseBeyondErrors + 13;
 
     protected $game_factory;
     protected $zone_handler;
@@ -344,7 +345,7 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
             'actions' => $this->getItemActions(),
             'floor' => $zone->getFloor(),
             'other_citizens' => $zone->getCitizens(),
-            'log' => $this->renderLog( -1, null, $zone, null, 10 )->getContent(),
+            'log' => ($zone->getX() === 0 && $zone->getY() === 0) ? '' : $this->renderLog( -1, null, $zone, null, 10 )->getContent(),
             'day' => $this->getActiveCitizen()->getTown()->getDay(),
             'camping_zone' => $camping_zone ?? '',
             'camping_zombies' => $camping_zombies ?? '',
@@ -462,8 +463,10 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
         if ((!$town->getChaos() || !$citizen->getBanished()) && $citizen->getZone()->getX() === 0 && $citizen->getZone()->getY() === 0)
             return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
 
-        if ($citizen->getAp() <= 2 || $this->citizen_handler->isTired( $citizen ))
+        if ($citizen->getAp() < 2 || $this->citizen_handler->isTired( $citizen ))
             return AjaxResponse::error( ErrorHelper::ErrorNoAP );
+
+        $this->citizen_handler->setAP($citizen, true, -2);
 
         $hide_items = true;
         foreach ($citizen->getZone()->getCitizens() as $fellow_citizen) {
@@ -963,30 +966,38 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
         if ($this->zone_handler->check_cp( $citizen->getZone() ) || $this->get_escape_timeout( $citizen ) > 0)
             return AjaxResponse::error( self::ErrorZoneUnderControl );
 
+        if ($this->citizen_handler->hasStatusEffect($citizen,'terror' )) {
+            $this->addFlash('error', $this->translator->trans('Wenn du in der Wüste von Zombies umzingelst wirst, erstarrst du vor Angst und kannst nichts mehr unternehmen... Du musst Drogen oder etwas anderes finden, um <strong>deine Nerven zu beruhigen</strong> und aus dieser Hölle zu entkommen... Wenigstens ist es dir immer noch möglich, im Forum nach Hilfe zu suchen...', [], 'game'));
+            return AjaxResponse::success();
+        }
+
         if ($this->inventory_handler->countSpecificItems(
             $this->getActiveCitizen()->getInventory(), $this->entity_manager->getRepository(ItemPrototype::class)->findOneBy(['name' => 'vest_on_#00'])
         ) > 0)
             return AjaxResponse::error( self::ErrorZoneUnderControl );
+        
+        if($this->citizen_handler->hasStatusEffect($citizen, "terror"))
+            return AjaxResponse::error(self::ErrorTerrorized);
 
-            if ($this->citizen_handler->isWounded( $citizen ))
-                return AjaxResponse::error( self::ErrorAlreadyWounded );
+        if ($this->citizen_handler->isWounded( $citizen ))
+            return AjaxResponse::error( self::ErrorAlreadyWounded );
 
-            $this->citizen_handler->inflictWound( $citizen );
+        $this->citizen_handler->inflictWound( $citizen );
 
-            try {
-                $escape = (new EscapeTimer())
-                ->setZone( $citizen->getZone() )
-                ->setCitizen( $citizen )
-                ->setTime( new DateTime('+1min') );
-                $this->entity_manager->persist( $citizen );
-                $this->entity_manager->persist( $escape );
-                $this->entity_manager->flush();
-            } catch (Exception $e) {
-                return AjaxResponse::error( ErrorHelper::ErrorInternalError );
-            }
-
-            return AjaxResponse::success();
+        try {
+            $escape = (new EscapeTimer())
+            ->setZone( $citizen->getZone() )
+            ->setCitizen( $citizen )
+            ->setTime( new DateTime('+1min') );
+            $this->entity_manager->persist( $citizen );
+            $this->entity_manager->persist( $escape );
+            $this->entity_manager->flush();
+        } catch (Exception $e) {
+            return AjaxResponse::error( ErrorHelper::ErrorInternalError );
         }
+
+        return AjaxResponse::success();
+    }
 
     /**
      * @Route("api/beyond/desert/attack", name="beyond_desert_attack_controller")

@@ -20,6 +20,7 @@ class Recipe
 {
 
     const WorkshopType = 1;
+    const WorkshopTypeShamanSpecific = 2;
 
     const ManualOutside = 11;
     const ManualInside = 12;

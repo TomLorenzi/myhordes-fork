@@ -54,7 +54,7 @@
                         <span>
                             <img src="{{ asset('build/images/status/status_' ~ status.icon ~ '.gif') }}" alt="{{ status.label|trans({},'items') }}">
                             <div class="tooltip">
-                                {{ status.defImpact }} <img src="{{ asset('build/images/icons/small_zombie.gif') }}" /> {{ status.deathImpact }} <img src="{{ asset('build/images/icons/small_human.gif') }}" />
+                                {{ status.defImpact }} <img alt="" src="{{ asset('build/images/icons/small_zombie.gif') }}" /> {{ -status.deathImpact }} <img alt="" src="{{ asset('build/images/icons/small_human.gif') }}" />
                             </div>
                         </span>
                     {% endfor %}
