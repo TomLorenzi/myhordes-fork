@@ -27,18 +27,21 @@
                     <img class="hide-desktop" alt="" src="{{ asset('build/images/icons/small_mail.gif') }}" />
                 {% endif %}
                 <span class="hide-lg hide-md hide-sm">{{ 'Nachrichten'|trans({},'game') }}</span>
+                <div class="tooltip normal">{{ 'Deine privaten Nachrichten'|trans({},'game') }}</div>
             </div>
         </li>
         <li class="tab" x-tab-id="build">
             <div class="tab-link">
                 <img alt="" src="{{ asset('build/images/icons/small_home_up.gif') }}">
                 <span class="hide-lg hide-md hide-sm">{{ 'Bauarbeiten'|trans({},'game') }}</span>
+                <div class="tooltip normal">{{ 'In diesem Bereich kannst du dir alle möglichen Verbesserungen deines Hauses ansehen.'|trans({},'game') }}</div>
             </div>
         </li>
         <li class="tab" x-tab-id="values">
             <div class="tab-link">
                 <img class="hide-desktop" alt="+" src="{{ asset('build/images/icons/small_more2.gif') }}">
                 <span class="hide-lg hide-md hide-sm">{{ 'Einrichtung'|trans({}, 'game') }}</span>
+                <div class="tooltip normal">{{ 'In diesem Bereich werden alle bereits eingebauten Einrichtungen und Ausbauten deines Hauses angezeigt (Möbel, Verteidigungsvorrichtungen...).'|trans({},'game') }}</div>
             </div>
         </li>
     </ul>
@@ -213,7 +216,7 @@
                 <div class="cell padded rw-1">
                     <span class="link">
                         <img src="{{ asset('build/images/icons/small_human.gif') }}" id="show_list" />
-                        <div class="tooltip">
+                        <div class="tooltip normal">
                             {% trans from 'game'%}
                                 Bürgerverzeichnis anszeigen
                             {% endtrans %}
