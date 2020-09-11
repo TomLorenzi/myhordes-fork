@@ -131,14 +131,13 @@ class GhostController extends AbstractController implements GhostInterfaceContro
         $disablexml = $parser->get('disablexml', '');
         $rules = $parser->get('rules', '');
         $ruins = boolval($parser->get('ruins', ''));
-        $shamanMode = $parser->get('shamanMode', 'normal');
+
         $escorts = boolval($parser->get('escorts', ''));
         $shun = boolval($parser->get('shun', ''));
         $nightmode = boolval($parser->get('nightmode', ''));
         $camp = boolval($parser->get('camp', ''));
         $ghouls = boolval($parser->get('ghouls', ''));
         $buildingdamages = boolval($parser->get('buildingdamages', ''));
-        $nightwatch = boolval($parser->get('nightwatch', ''));
         $improveddump = boolval($parser->get('improveddump', ''));
         $attacks = $parser->get('attacks', '');
         $allpictos = $parser->get('allpictos', '');
@@ -153,6 +152,11 @@ class GhostController extends AbstractController implements GhostInterfaceContro
         $job_tech_enabled = boolval($parser->get('tech', true));
         $job_shaman_enabled = boolval($parser->get('shaman', false));
         $job_survivalist_enabled = boolval($parser->get('survivalist', true));
+
+        $shamanMode = $parser->get('shamanMode', 'normal');
+        if (!in_array($shamanMode, ['normal','job','none'])) $shamanMode = 'normal';
+        $nightwatch = $parser->get('nightWatchMode', 'normal');
+        if (!in_array($nightwatch, ['normal','instant','none'])) $nightwatch = 'normal';
 
         // Initial: Create town setting from selected type
         $town = new Town();
@@ -184,38 +188,47 @@ class GhostController extends AbstractController implements GhostInterfaceContro
         $customConf['features']['nightmode'] = $nightmode;
         $customConf['features']['camping'] = $camp;
         $customConf['features']['ghoul'] = $ghouls;
-        $customConf['features']['nightwatch'] = $nightwatch;
+        $customConf['features']['nightwatch']['enabled'] = $nightwatch !== 'none';
+        $customConf['features']['nightwatch']['instant'] = $nightwatch === 'instant';
         $customConf['features']['improveddump'] = $improveddump;
         $customConf['features']['attacks'] = $attacks;
 
         $customConf['features']['give_all_pictos'] = $allpictos;
         $customConf['features']['give_soulpoints'] = $soulpoints;
 
+        $disabled_jobs   = [];
+        $disabled_builds = [];
+
         if($shamanMode == "normal" || $shamanMode == "none")
-            $customConf['disabled_jobs']['replace'] = ['shaman'];
-        else
-            $customConf['disabled_jobs']['replace'] = [];
-        
+            $disabled_jobs[] = 'shaman';
+
         if(!$job_basic_enabled)
-            $customConf['disabled_jobs']['replace'][] = 'basic';
+            $disabled_jobs[] = 'basic';
         if(!$job_collec_enabled)
-            $customConf['disabled_jobs']['replace'][] = 'collec';
+            $disabled_jobs[] = 'collec';
         if(!$job_guardian_enabled)
-            $customConf['disabled_jobs']['replace'][] = 'guardian';
+            $disabled_jobs[] = 'guardian';
         if(!$job_hunter_enabled)
-            $customConf['disabled_jobs']['replace'][] = 'hunter';
+            $disabled_jobs[] = 'hunter';
         if(!$job_tamer_enabled)
-            $customConf['disabled_jobs']['replace'][] = 'tamer';
+            $disabled_jobs[] = 'tamer';
         if(!$job_tech_enabled)
-            $customConf['disabled_jobs']['replace'][] = 'tech';
+            $disabled_jobs[] = 'tech';
         if(!$job_survivalist_enabled)
-            $customConf['disabled_jobs']['replace'][] = 'survivalist';
+            $disabled_jobs[] = 'survivalist';
+
         if(!$job_shaman_enabled)
-            $customConf['disabled_jobs']['replace'][] = 'shaman';
-        else if(in_array('shaman', $customConf['disabled_jobs']['replace'])) {
+            $disabled_jobs[] = 'shaman';
+        else if (in_array('shaman', $disabled_jobs)) {
             // If the shaman is disabled, but we enforced its activation, remove it from the disabled array
-            $$customConf['disabled_jobs']['replace'] = array_diff($customConf['disabled_jobs']['replace'], ['shaman']);
+            $disabled_jobs = array_diff($disabled_jobs, ['shaman']);
         }
+
+        if ($nightwatch !== 'normal')
+            $disabled_builds[] = 'small_round_path_#00';
+
+        $customConf['disabled_jobs']['replace']      = $disabled_jobs;
+        $customConf['disabled_buildings']['replace'] = $disabled_builds;
 
         $town = $gf->createTown($townname, $lang, null, 'custom', $customConf, intval($seed));
         $town->setCreator($user);

@@ -91,13 +91,16 @@ parameters:
         all_poison: false
         shun: true
         ghoul: true
-        nightwatch: true
+        nightwatch:
+          enabled: true
+          instant: false
         improveddump: true
         attacks: normal
         give_all_pictos: true
         give_soulpoints: true
 
       disabled_jobs: ['shaman']
+      disabled_buildings: []
       
     small:
       map:  { min: 12, max: 14 }

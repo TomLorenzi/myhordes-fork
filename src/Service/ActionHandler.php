@@ -616,9 +616,11 @@ class ActionHandler
             }
 
             if ($bp = $result->getBlueprint()) {
+                $blocked = $this->conf->getTownConfiguration($citizen->getTown())->get(TownConf::CONF_DISABLED_BUILDINGS);
                 $possible = $this->entity_manager->getRepository(BuildingPrototype::class)->findProspectivePrototypes( $citizen->getTown() );
-                $filtered = array_filter( $possible, function(BuildingPrototype $proto) use ($bp) {
-                    if ($bp->getType() !== null && $bp->getType() === $proto->getBlueprint() ) return true;
+                $filtered = array_filter( $possible, function(BuildingPrototype $proto) use ($bp,$blocked) {
+                    if (in_array($proto->getName(), $blocked)) return false;
+                    elseif ($bp->getType() !== null && $bp->getType() === $proto->getBlueprint() ) return true;
                     else return $bp->getList()->contains( $proto );
                 } );
 

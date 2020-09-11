@@ -67,13 +67,15 @@ class TownConf extends Conf
     const CONF_FEATURE_ALL_POISON      = 'features.all_poison';
     const CONF_FEATURE_SHUN            = 'features.shun';
     const CONF_FEATURE_GHOUL           = 'features.ghoul';
-    const CONF_FEATURE_NIGHTWATCH      = 'features.nightwatch';
+    const CONF_FEATURE_NIGHTWATCH      = 'features.nightwatch.enabled';
+    const CONF_FEATURE_NIGHTWATCH_INSTANT = 'features.nightwatch.instant';
     const CONF_FEATURE_IMPROVEDDUMP    = 'features.improveddump';
     const CONF_FEATURE_ATTACKS         = 'features.attacks';
     const CONF_FEATURE_GIVE_ALL_PICTOS = 'features.give_all_pictos';
     const CONF_FEATURE_GIVE_SOULPOINTS = 'features.give_soulpoints';
 
     const CONF_DISABLED_JOBS = 'disabled_jobs';
+    const CONF_DISABLED_BUILDINGS = 'disabled_buildings';
 
     public function __construct(array $data)
     {

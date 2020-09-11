@@ -82,6 +82,9 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
 
         $data["builtbuildings"] = array();
 
+        if ($this->getTownConf()->get(TownConf::CONF_FEATURE_NIGHTWATCH_INSTANT, false) && $this->getTownConf()->get(TownConf::CONF_FEATURE_NIGHTWATCH, true))
+            $addons['battlement'] = [T::__('Wächt', 'game'), 'town_nightwatch', 3];
+
         foreach ($town->getBuildings() as $b) if ($b->getComplete()) {
 
             if ($b->getPrototype()->getMaxLevel() > 0)
@@ -93,7 +96,7 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
             if ($b->getPrototype()->getName() === 'small_refine_#00')
                 $addons['workshop'] = [T::__('Werkstatt (building)', 'game'), 'town_workshop', 2];
 
-            if ($b->getPrototype()->getName() === 'small_round_path_#00' && $this->getTownConf()->get(TownConf::CONF_FEATURE_NIGHTWATCH, true))
+            if (($b->getPrototype()->getName() === 'small_round_path_#00' && !$this->getTownConf()->get(TownConf::CONF_FEATURE_NIGHTWATCH_INSTANT, false)) && $this->getTownConf()->get(TownConf::CONF_FEATURE_NIGHTWATCH, true))
                 $addons['battlement'] = [T::__('Wächt', 'game'), 'town_nightwatch', 3];
 
             if ($b->getPrototype()->getName() === 'small_trash_#00')

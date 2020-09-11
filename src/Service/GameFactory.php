@@ -219,12 +219,17 @@ class GameFactory
             ->setWell( mt_rand( $conf->get(TownConf::CONF_WELL_MIN, 0), $conf->get(TownConf::CONF_WELL_MAX, 0) ) );
 
         foreach ($this->entity_manager->getRepository(BuildingPrototype::class)->findProspectivePrototypes($town, 0) as $prototype)
-            $this->town_handler->addBuilding( $town, $prototype );
+            if (!in_array($prototype->getName(), $conf->get(TownConf::CONF_DISABLED_BUILDINGS)))
+                $this->town_handler->addBuilding( $town, $prototype );
 
         foreach ($conf->get(TownConf::CONF_BUILDINGS_UNLOCKED) as $str_prototype)
-            $this->town_handler->addBuilding( $town, $this->entity_manager->getRepository(BuildingPrototype::class)->findOneByName( $str_prototype ) );
+            if (!in_array($str_prototype, $conf->get(TownConf::CONF_DISABLED_BUILDINGS)))
+                $this->town_handler->addBuilding( $town, $this->entity_manager->getRepository(BuildingPrototype::class)->findOneByName( $str_prototype ) );
 
         foreach ($conf->get(TownConf::CONF_BUILDINGS_CONSTRUCTED) as $str_prototype) {
+            if (in_array($str_prototype, $conf->get(TownConf::CONF_DISABLED_BUILDINGS)))
+                continue;
+
             /** @var BuildingPrototype $proto */
             $proto = $this->entity_manager->getRepository(BuildingPrototype::class)->findOneByName( $str_prototype );
             $b = $this->town_handler->addBuilding( $town, $proto );

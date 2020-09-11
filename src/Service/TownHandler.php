@@ -55,10 +55,12 @@ class TownHandler
         // Add building
         $town->addBuilding( $b = (new Building())->setPrototype( $prototype )->setPosition($prototype->getOrderBy()) );
 
+        $blocked = $this->conf->getTownConfiguration($town)->get(TownConf::CONF_DISABLED_BUILDINGS);
+
         // Add all children that do not require blueprints
         if ($b)
             foreach ( $prototype->getChildren() as $child )
-                if ($child->getBlueprint() == 0) $this->internalAddBuilding( $town, $child );
+                if ($child->getBlueprint() == 0 && !in_array($child->getName(), $blocked)) $this->internalAddBuilding( $town, $child );
         return $b;
     }
 

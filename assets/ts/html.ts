@@ -23,8 +23,11 @@ export default class HTML {
         return elements.length;
     }
 
-    addEventListenerAll(query: string, event: string, handler: eventListener ): number {
-        return this.forEach( query, (elem, i) => elem.addEventListener( event, e => handler(e,elem,i) ) )
+    addEventListenerAll(query: string, event: string, handler: eventListener, trigger_now: boolean = false ): number {
+        return this.forEach( query, (elem, i) => {
+            elem.addEventListener( event, e => handler(e,elem,i) );
+            if (trigger_now) handler(new Event('event'), elem, i);
+        } )
     }
 
     serializeForm(form: ParentNode): object {
