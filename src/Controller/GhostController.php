@@ -224,6 +224,15 @@ class GhostController extends AbstractController implements GhostInterfaceContro
             $disabled_jobs = array_diff($disabled_jobs, ['shaman']);
         }
 
+        if ($shamanMode !== 'job') {
+            $disabled_builds[] = 'small_vaudoudoll_#00';
+            $disabled_builds[] = 'small_bokorsword_#00';
+            $disabled_builds[] = 'small_spiritmirage_#00';
+            $disabled_builds[] = 'small_holyrain_#00';
+        }
+        if ($shamanMode !== 'normal')
+            $disabled_builds[] = 'small_spa4souls_#00';
+
         if ($nightwatch !== 'normal')
             $disabled_builds[] = 'small_round_path_#00';
 
