@@ -27,18 +27,21 @@
                     <img class="hide-desktop" alt="" src="{{ asset('build/images/icons/small_mail.gif') }}" />
                 {% endif %}
                 <span class="hide-lg hide-md hide-sm">{{ 'Nachrichten'|trans({},'game') }}</span>
+                <div class="tooltip normal">{{ 'Deine privaten Nachrichten'|trans({},'game') }}</div>
             </div>
         </li>
         <li class="tab" x-tab-id="build">
             <div class="tab-link">
                 <img alt="" src="{{ asset('build/images/icons/small_home_up.gif') }}">
                 <span class="hide-lg hide-md hide-sm">{{ 'Bauarbeiten'|trans({},'game') }}</span>
+                <div class="tooltip normal">{{ 'In diesem Bereich kannst du dir alle möglichen Verbesserungen deines Hauses ansehen.'|trans({},'game') }}</div>
             </div>
         </li>
         <li class="tab" x-tab-id="values">
             <div class="tab-link">
                 <img class="hide-desktop" alt="+" src="{{ asset('build/images/icons/small_more2.gif') }}">
                 <span class="hide-lg hide-md hide-sm">{{ 'Einrichtung'|trans({}, 'game') }}</span>
+                <div class="tooltip normal">{{ 'In diesem Bereich werden alle bereits eingebauten Einrichtungen und Ausbauten deines Hauses angezeigt (Möbel, Verteidigungsvorrichtungen...).'|trans({},'game') }}</div>
             </div>
         </li>
     </ul>
@@ -46,15 +49,15 @@
     <div x-tab-group="home-main" x-tab-id="dash" x-tab-target>
         <div class="dashboard">
             <div class="row">
-                <div class="padded cell rw-4 rw-lg-6 center">
-                    <em>{{ 'Verteidigung'|trans({}, 'game') }}</em><br />
-                    <span class="counter">{{ def.sum }} <img src="{{ asset('build/images/icons/small_def.gif') }}" alt="" /></span>
-                </div>
-                <div class="padded cell rw-4 rw-lg-6 center deco-estimation">
+                <div class="padded cell rw-2 rw-lg-6 center">
                     <em>{{ 'Dekoration'|trans({}, 'game') }}</em><br />
                     <span class="counter">{{ deco }} <img src="{{ asset('build/images/icons/small_deco.gif') }}" alt="" /></span>
                 </div>
-                <div class="padded cell rw-4 rw-lg-12 left medium">
+                <div class="padded cell rw-4 rw-lg-6 center def-estimation">
+                    <em>{{ 'Verteidigung'|trans({}, 'game') }}</em><br />
+                    <span class="counter">{{ def.sum }} <img src="{{ asset('build/images/icons/small_def.gif') }}" alt="" /></span>
+                </div>
+                <div class="padded cell rw-6 rw-lg-12 left medium">
                     <input id="desc_edit" type="text" maxlength="64" placeholder="{{ 'Dein Beschreibungstext'|trans({},'game') }}" value="{{ home.description }}">
                     <div class="small right"><a id="desc_edit_button" href="">{{ 'Speichern'|trans({},'game') }}</a></div>
                     <div class="tooltip help">
@@ -213,7 +216,7 @@
                 <div class="cell padded rw-1">
                     <span class="link">
                         <img src="{{ asset('build/images/icons/small_human.gif') }}" id="show_list" />
-                        <div class="tooltip">
+                        <div class="tooltip normal">
                             {% trans from 'game'%}
                                 Bürgerverzeichnis anszeigen
                             {% endtrans %}

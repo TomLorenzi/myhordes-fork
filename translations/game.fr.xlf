@@ -9583,7 +9583,7 @@
       </notes>
       <segment>
         <source>Klick auf die Gegenstände, die du dieser Nachricht beifügen möchtest:</source>
-        <target>Cliquez sur les éléments que vous souhaitez joindre à ce message :</target>
+        <target>Cliquez sur les objets que vous souhaitez envoyer avec ce message :</target>
       </segment>
     </unit>
     <unit id="yr_pQQL" name="Folgende Gegenstände werden mitgesendet:">
@@ -9592,7 +9592,7 @@
       </notes>
       <segment>
         <source>Folgende Gegenstände werden mitgesendet:</source>
-        <target>Les éléments suivants sont inclus :</target>
+        <target>Les objets suivants seront envoyés :</target>
       </segment>
     </unit>
     <unit id="PyKRkrf" name="Kein Gegenstand beigefügt...">
@@ -9601,7 +9601,7 @@
       </notes>
       <segment>
         <source>Kein Gegenstand beigefügt...</source>
-        <target>Aucun élément attaché...</target>
+        <target>Aucun objet attaché...</target>
       </segment>
     </unit>
     <unit id="Qg_Rwo3" name="c7efaf6">
