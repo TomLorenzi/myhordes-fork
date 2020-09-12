@@ -105,6 +105,8 @@ class AntiCheatService {
             $struct = new CheatTable($fun_get_user($principal));
             foreach ($user_list as $multi => $time_list) {
                 if ($this->user_handler->hasRole($fun_get_user($multi), "ROLE_CROW")) continue;
+                foreach ($fun_get_user($principal)->getConnectionWhitelists() as $wl)
+                    if ($wl->getUsers()->contains( $fun_get_user($multi) )) continue 2;
                 $struct->addUser( $fun_get_user($multi) );
                 foreach ($time_list as $time_dif)
                     $struct->addLikeliness( $fun_score_time($time_dif) * ($fun_get_user($multi)->getShadowBan() ? 2 : 1) );

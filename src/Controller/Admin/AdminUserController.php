@@ -4,6 +4,7 @@ namespace App\Controller\Admin;
 
 use App\Entity\AdminReport;
 use App\Entity\Citizen;
+use App\Entity\ConnectionWhitelist;
 use App\Entity\Picto;
 use App\Entity\ShadowBan;
 use App\Entity\Town;
@@ -80,7 +81,7 @@ class AdminUserController extends AdminActionController
 
         if (empty($param)) $param = $parser->get('param', '');
 
-        if (in_array($action, [ 'delete_token', 'invalidate', 'validate', 'twin_full_reset', 'twin_main_reset', 'delete', 'rename', 'shadow', 'unshadow' ]) && !$this->isGranted('ROLE_ADMIN'))
+        if (in_array($action, [ 'delete_token', 'invalidate', 'validate', 'twin_full_reset', 'twin_main_reset', 'delete', 'rename', 'shadow', 'unshadow', 'whitelist', 'unwhitelist' ]) && !$this->isGranted('ROLE_ADMIN'))
             return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
 
         if ($action === 'grant' && $param !== 'NONE' && !$userHandler->admin_canGrant( $this->getUser(), $param ))
@@ -186,6 +187,38 @@ class AdminUserController extends AdminActionController
                 $user->setShadowBan( null );
 
                 $this->entity_manager->persist($user);
+                break;
+
+            case 'whitelist':
+                if ($user->getConnectionWhitelists()->isEmpty()) $user->getConnectionWhitelists()->add( $wl = new ConnectionWhitelist() );
+                else $wl = $user->getConnectionWhitelists()->getValues()[0];
+
+                $wl->addUser($user);
+                if (!is_array($param)) $param = [$param];
+                foreach ($param as $other_user_id) {
+                    /** @var User $other_user */
+                    $other_user = $this->entity_manager->getRepository(User::class)->find($other_user_id);
+                    if (!$other_user) return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
+                    $wl->addUser($other_user);
+                }
+
+                $this->entity_manager->persist($wl);
+                break;
+
+            case 'unwhitelist':
+                if (!is_array($param)) $param = [$param];
+                foreach ($param as $other_user_id) {
+                    /** @var User $other_user */
+                    $other_user = $this->entity_manager->getRepository(User::class)->find($other_user_id);
+                    if (!$other_user) return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
+
+                    foreach ($user->getConnectionWhitelists() as $wl)
+                        $wl->removeUser($other_user);
+
+                    foreach ($user->getConnectionWhitelists() as $wl)
+                        if ($wl->getUsers()->count() < 2) $this->entity_manager->remove($wl);
+                        else $this->entity_manager->persist($wl);
+                }
                 break;
 
             case 'grant':

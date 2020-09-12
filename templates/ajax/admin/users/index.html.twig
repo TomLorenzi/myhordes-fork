@@ -24,18 +24,27 @@
                                 {{ table.likeliness }}
                             </div>
                             <div class="cell {% if is_granted('ROLE_ADMIN') %}rw-5{% else %}rw-6{% endif %}">
+                                {% set group = [] %}
                                 {% for multi in table.users %}
-                                    <span class="small" {% if multi.shadowBan %}style="color:red; font-weight: bold"{% endif%} >
+                                    {% set group = group|merge([multi.id]) %}
+                                    <span class="small pointer" x-whitelist-alt="{{ url('admin_users_account_view', {id: multi.id}) }}" x-whitelist="{{ group|join('|') }}" x-api-endpoint="{{ url('admin_users_account_manage', {action: 'whitelist', id: table.principal.id}) }}" {% if multi.shadowBan %}style="color:red; font-weight: bold"{% endif%} >
                                         {{ multi.username }}
                                         {% if is_granted('ROLE_ADMIN') %}
-                                            <div class="tooltip">{{ multi.email }}</div>
+                                            <div class="tooltip">
+                                                <i>({{ multi.id }})</i> <b>{{ multi.email }}</b>
+                                                <hr/>
+                                                <i>{{ 'Klick, um Profil in neuem Tab zu öffnen'|trans({},'admin') }}</i>
+                                                <hr/>
+                                                <i>{{ 'STRG+Klick, um zur Whitelist hinzuzufügen'|trans({},'admin') }}</i>
+                                            </div>
                                         {% endif %}
                                     </span>&nbsp;
                                 {% endfor %}
                             </div>
                             {% if is_granted('ROLE_ADMIN') %}
                                 <div class="cell rw-1 padded">
-                                    <button x-shadow x-api-endpoint="{{ url('admin_users_account_manage', {action: 'shadow', id: table.principal.id}) }}">{{ 'Bann'|trans({},'admin') }}</button>
+                                    <button x-shadow x-api-endpoint="{{ url('admin_users_account_manage', {action: 'shadow',    id: table.principal.id}) }}">{{ 'Bann'|trans({},'admin') }}</button>
+                                    <button x-whitelist="{{ group|join('|') }}" x-api-endpoint="{{ url('admin_users_account_manage', {action: 'whitelist', id: table.principal.id}) }}">{{ 'Whitelist'|trans({},'admin') }}</button>
                                 </div>
                             {% endif %}
                         </div>
@@ -52,11 +61,22 @@
     <script>
         {% if is_granted("ROLE_ADMIN") %}
             $.html.addEventListenerAll('[x-shadow][x-api-endpoint]', 'click', function(e,elem) {
-                $.ajax.easySend( elem.getAttribute('x-api-endpoint'), {param: 'Multi Account'},
+                if (confirm("{{ 'Bestätigen?'|trans({},'global')|e('js') }}\nBAN"))
+                    $.ajax.easySend( elem.getAttribute('x-api-endpoint'), {param: 'Multi Account'},
+                        function () {
+                            $.ajax.load(null, '{{ path('admin_users') }}', true);
+                        } );
+            });
+        $.html.addEventListenerAll('[x-whitelist][x-api-endpoint]', 'click', function(e,elem) {
+            if ((!elem.hasAttribute('x-whitelist-alt') || e.ctrlKey) && confirm("{{ 'Bestätigen?'|trans({},'global')|e('js') }}\nWHITELIST"))
+                $.ajax.easySend( elem.getAttribute('x-api-endpoint'), {param: elem.getAttribute('x-whitelist').split('|')},
                     function () {
                         $.ajax.load(null, '{{ path('admin_users') }}', true);
                     } );
-            });
+        });
+        $.html.addEventListenerAll('[x-whitelist][x-whitelist-alt][x-api-endpoint]', 'click', function(e,elem) {
+            if (!e.ctrlKey) window.open(elem.getAttribute('x-whitelist-alt'),'_blank');
+        });
         {% endif %}
     </script>
 {% endblock %}

@@ -86,6 +86,19 @@
                             </div>
                         {% endfor %}
                     </div>
+                    <div class="cell padded rw-3 rw-sm-12">
+                        <b>{{ 'Multi-Account Whitelist'|trans({}, 'admin') }}</b>
+                    </div>
+                    <div class="cell padded rw-9 rw-sm-12">
+                        {% if user.connectionWhitelists|length == 0 %}{{ 'Keine'|trans({}, 'admin') }}{% endif %}
+                        {% for list in user.connectionWhitelists %}
+                            {% for other_user in list.users %}
+                                {% if other_user.id != user.id %}
+                                    <div>{{ other_user.username }} <span class="pointer" x-unwhitelist="{{ other_user.id }}"><i class="fa fa-trash"></i></span></div>
+                                {% endif %}
+                            {% endfor %}
+                        {% endfor %}
+                    </div>
                 {% endif %}
 
                 <div class="cell padded rw-3 rw-sm-12">
@@ -117,6 +130,7 @@
                                     {% else %}
                                         <option value="{{ url('admin_users_account_manage', {action: 'unshadow', id: user.id}) }}" x-confirm="UNSHADOW">{{ 'Spielbann aufheben'|trans({},'admin') }}</option>
                                     {% endif %}
+                                    <option value="{{ url('admin_users_account_manage', {action: 'whitelist', id: user.id}) }}" x-confirm="WHITELIST" x-query="{{ 'Spieler-ID'|trans({},'admin') }}">{{ 'Multi-Account Whitelist-Eintrag hinzufügen'|trans({},'admin') }}</option>
                                 </optgroup>
                                 <optgroup label="{{ 'Sicherheit'|trans({},'admin') }}">
                                     <option value="{{ url('admin_users_account_manage', {action: 'initiate_pw_reset', id: user.id}) }}">{{ 'Passwort-Reset auslösen'|trans({},'admin') }}</option>
@@ -184,6 +198,12 @@
         {% if is_granted("ROLE_ADMIN") %}
             $.html.addEventListenerAll('[x-delete-token]', 'click', function(e,elem) {
                 $.ajax.easySend( '{{ path('admin_users_account_manage', {id: user.id, action: 'delete_token'}) }}', {tid: elem.getAttribute('x-delete-token')},
+                    function () {
+                        $.ajax.load(null, '{{ path('admin_users_account_view', {id: user.id}) }}', true);
+                    } );
+            });
+            $.html.addEventListenerAll('[x-unwhitelist]', 'click', function(e,elem) {
+                $.ajax.easySend( '{{ path('admin_users_account_manage', {id: user.id, action: 'unwhitelist'}) }}', {param: elem.getAttribute('x-unwhitelist')},
                     function () {
                         $.ajax.load(null, '{{ path('admin_users_account_view', {id: user.id}) }}', true);
                     } );
