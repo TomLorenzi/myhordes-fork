@@ -11521,7 +11521,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Schokoladenkreuz</source>
-        <target>Schokoladenkreuz</target>
+        <target>Chocolate Cross</target>
       </segment>
     </unit>
     <unit id="Q8sma_4" name="eceaacb">
@@ -11557,7 +11557,115 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Regentanz ausführen</source>
-        <target>Regentanz ausführen</target>
+        <target>Make it rain!</target>
+      </segment>
+    </unit>
+    <unit id="SFjPHiw" name="Einsiedler - Gewinner des SoH">
+      <notes>
+        <note category="german">Einsiedler - Gewinner des SoH</note>
+      </notes>
+      <segment>
+        <source>Einsiedler - Gewinner des SoH</source>
+        <target>Survivalist - Winner of SoH</target>
+      </segment>
+    </unit>
+    <unit id="suYM2pk" name="Buddler - Gewinner des SoH">
+      <notes>
+        <note category="german">Buddler - Gewinner des SoH</note>
+      </notes>
+      <segment>
+        <source>Buddler - Gewinner des SoH</source>
+        <target>Scavenger - Winner of SoH</target>
+      </segment>
+    </unit>
+    <unit id="B4NRnue" name="Sieg für die Buddler beim Shock of Heroes Event!">
+      <notes>
+        <note category="german">Sieg für die Buddler beim Shock of Heroes Event!</note>
+      </notes>
+      <segment>
+        <source>Sieg für die Buddler beim Shock of Heroes Event!</source>
+        <target>Victory for the Scavengers at the Shock of Heroes event!</target>
+      </segment>
+    </unit>
+    <unit id="ezjjECr" name="Wächter - Gewinner des SoH">
+      <notes>
+        <note category="german">Wächter - Gewinner des SoH</note>
+      </notes>
+      <segment>
+        <source>Wächter - Gewinner des SoH</source>
+        <target>Guardian - Winner of SoH</target>
+      </segment>
+    </unit>
+    <unit id="jVhaVYF" name="Du hast soeben den Zugang zu deiner privaten Stadt für jedermann geöffnet.">
+      <notes>
+        <note category="german">Du hast soeben den Zugang zu deiner privaten Stadt für jedermann geöffnet.</note>
+      </notes>
+      <segment>
+        <source>Du hast soeben den Zugang zu deiner privaten Stadt für jedermann geöffnet.</source>
+        <target>You have just opened access to your private town for everyone.</target>
+      </segment>
+    </unit>
+    <unit id="e_umQ0L" name="37b3bf7">
+      <notes>
+        <note category="german">Wenn du in der Wüste von Zombies umzingelst wirst, erstarrst du vor Angst und kannst nichts mehr unternehmen... Du musst Drogen oder etwas anderes finden, um &lt;strong&gt;deine Nerven zu beruhigen&lt;/strong&gt; und aus dieser Hölle auszubrechen... Wenigstens ist es dir immer noch möglich, im Forum nach Hilfe zu suchen...</note>
+      </notes>
+      <segment>
+        <source>Wenn du in der Wüste von Zombies umzingelst wirst, erstarrst du vor Angst und kannst nichts mehr unternehmen... Du musst Drogen oder etwas anderes finden, um &lt;strong&gt;deine Nerven zu beruhigen&lt;/strong&gt; und aus dieser Hölle auszubrechen... Wenigstens ist es dir immer noch möglich, im Forum nach Hilfe zu suchen...</source>
+        <target><![CDATA[Wenn du in der Wüste von Zombies umzingelst wirst, erstarrst du vor Angst und kannst nichts mehr unternehmen... Du musst Drogen oder etwas anderes finden, um <strong>deine Nerven zu beruhigen</strong> und aus dieser Hölle auszubrechen... Wenigstens ist es dir immer noch möglich, im Forum nach Hilfe zu suchen...]]></target>
+      </segment>
+    </unit>
+    <unit id="G0BraVl" name="Das Passwort ist falsch.">
+      <notes>
+        <note category="german">Das Passwort ist falsch.</note>
+      </notes>
+      <segment>
+        <source>Das Passwort ist falsch.</source>
+        <target>The password is incorrect.</target>
+      </segment>
+    </unit>
+    <unit id="G7YX22v" name="Deine privaten Nachrichten">
+      <notes>
+        <note category="german">Deine privaten Nachrichten</note>
+      </notes>
+      <segment>
+        <source>Deine privaten Nachrichten</source>
+        <target>Your private messages</target>
+      </segment>
+    </unit>
+    <unit id="C9_MTts" name="91fcb31">
+      <notes>
+        <note category="german">In diesem Bereich kannst du dir alle möglichen Verbesserungen deines Hauses ansehen.</note>
+      </notes>
+      <segment>
+        <source>In diesem Bereich kannst du dir alle möglichen Verbesserungen deines Hauses ansehen.</source>
+        <target>This section shows the building upgrades which can be made to your home.</target>
+      </segment>
+    </unit>
+    <unit id="dQRl.Lz" name="fb2b856">
+      <notes>
+        <note category="german">In diesem Bereich werden alle bereits eingebauten Einrichtungen und Ausbauten deines Hauses angezeigt (Möbel, Verteidigungsvorrichtungen...).</note>
+      </notes>
+      <segment>
+        <source>In diesem Bereich werden alle bereits eingebauten Einrichtungen und Ausbauten deines Hauses angezeigt (Möbel, Verteidigungsvorrichtungen...).</source>
+        <target>This section shows the interior improvements you have made to your home (furniture, home defences...).</target>
+      </segment>
+    </unit>
+    <unit id="9EBorzV" name="Deine Stadt">
+      <notes>
+        <note category="german">Deine Stadt</note>
+      </notes>
+      <segment>
+        <source>Deine Stadt</source>
+        <target>Your Town</target>
+      </segment>
+    </unit>
+    <unit id="mkyiUfI" name="Öffne deine private Stadt für alle">
+      <notes>
+        <note category="german">Öffne deine private Stadt für alle</note>
+      </notes>
+      <segment>
+        <source>Öffne deine private Stadt für alle</source>
+        <target>Open your private town to everyone</target>
       </segment>
     </unit>
   </file>
