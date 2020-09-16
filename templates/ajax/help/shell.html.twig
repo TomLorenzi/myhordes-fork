@@ -51,24 +51,24 @@
                                 <img src="{{ asset('build/images/pictos/r_doutsd.gif') }}" alt="night">
                                 <span class="link" x-ajax-href="{{ url('help', {'name': 'the_night'}) }}">{{ 'Nachts'|trans({},'help') }}</span>
                             </li>
-                            <li class="">
+                            <li class="{% if section == 'extreme_camping' %}active{% endif %}">
                                 <img src="{{ asset('build/images/status/status_camper.gif') }}" alt="camp">
-                                <span class="link">{{ 'Wildes Campen'|trans({},'help') }}</span>
+                                <span class="link" x-ajax-href="{{ url('help', {'name': 'extreme_camping'}) }}">{{ 'Wildes Campen'|trans({},'help') }}</span>
                             </li>
-                            <li class="">
+                            <li class="{% if section == 'ruin_exploration' %}active{% endif %}">
                                 <img src="{{ asset('build/images/icons/small_exploration.gif') }}" alt="explo">
-                                <span class="link">{{ 'Gebäude untersuchen'|trans({},'help') }}</span>
+                                <span class="link" x-ajax-href="{{ url('help', {'name': 'ruin_exploration'}) }}">{{ 'Gebäude untersuchen'|trans({},'help') }}</span>
                             </li>
-                            <li class="">
+                            <li class="{% if section == 'lost_souls' %}active{% endif %}">
                                 <img src="{{ asset('build/images/item/item_soul_blue.gif') }}" alt="soul">
-                                <span class="link">{{ 'Verlorene Seelen'|trans({},'help') }}</span>
+                                <span class="link" x-ajax-href="{{ url('help', {'name': 'lost_souls'}) }}">{{ 'Verlorene Seelen'|trans({},'help') }}</span>
                             </li>
                         </ul>
                     </li>
 
-                    <li class="main">
+                    <li class="main {% if section == 'about_you' %}active{% endif %}">
                         <img src="{{ asset('build/images/icons/small_middot.gif') }}" alt="player">
-                        <span class="link">{{ 'Du'|trans({},'help') }}</span>
+                        <span class="link" x-ajax-href="{{ url('help', {'name': 'about_you'}) }}">{{ 'Du'|trans({},'help') }}</span>
                     </li>
 
                     <li class="sublist">
