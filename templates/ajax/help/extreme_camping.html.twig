@@ -1,0 +1,117 @@
+{% extends "ajax/help/shell.html.twig" %}
+{% block helpContent %}
+<div class="helpArt">{{ 'Spielanleitung'|trans({},'help') }}</div>
+<h1>{{'Wildes Campen'|trans({}, 'help')}}</h1>
+<img class="art" alt="" src="{{ asset('build/images/help/nightCamping.png') }}">
+<p>
+<strong>{{ 'Wildes Campen ist eine etwas gewagte, aber erfolgreiche Spielweise, die darin besteht, sich beim Angriff um Mitternacht draußen zu verstecken.'|trans({},'help')|raw }}</strong>
+</p>
+<p>
+{{ 'Ihr geht dabei folgendermaßen vor: Ihr sucht euch ein passendes Versteck und dann kneift ihr die Arschbacken zusammen und betet, dass die Nacht schnell vorbei ist.'|trans({},'help')|raw }}
+</p>
+<div class="clear"></div>
+<p>
+{{ 'Aus dieser Spielweise ergeben sich mehrere Vorteile:'|trans({},'help')|raw }}
+</p>
+<ul>
+<li>
+{{ '<strong>Du bist imstande zu überleben, wenn das Stadttor mal wieder vor deiner Nase geschlossen wurde</strong>: Das kommt öfters vor als du denkst!
+Wenn du überlebst, kannst du bei deiner Rückkehr deinen Freunden mitteilen, wie sehr du ihren kleinen Scherz genossen hast...'|trans({},'help')|raw }}
+</li>
+<li>
+{{ '<strong>Du kannst ausgedehnte Expeditionen unternehmen</strong>. Lange Erkundungsmärsche können auf zwei oder mehr Tage verteilt werden!'|trans({},'help')|raw }}
+</li>
+<li>
+{{ '<strong>Du erhältst einen Bonus für alle deine Grabungsaktionen</strong>: Wenn du beim Zombieangriff draußen bist, erhältst du am nächsten Tag beim Graben einen Bonus (deine Wahrscheinlichkeit etwas zu finden steigt).
+Der Grund dafür ist, dass du über Nacht die Wüstenwinde und Dünenverschiebungen besser studieren konntest (ja, ja!).'|trans({},'help')|raw }}
+</li>
+<li>
+{{ '<strong>Eine Auszeichnung</strong>: Nicht jeder, der draußen überlebt, erhält eine Auszeichnung!'|trans({},'help')|raw }}
+</li>
+<li>
+{{ '<strong>Du erhältst eine seltene Auszeichnung</strong>: Für jede Nacht, die du draußen überlebst während die Stadt schon zerstört ist, 
+bekommst du zusätzlich eine seltene Auszeichnung (lies dazu auch den folgenden Abschnitt: <i>"Auszeichnung: Camper im Jenseits"</i>).'|trans({},'help')|raw }}
+</li>
+</ul>
+<h2>{{ 'Wie kann ich draußen campen?'|trans({},'help')|raw }}</h2>
+<p>
+{{ 'Klicke auf den Link <strong>Umgebung untersuchen</strong>. Du kannst anschließend mehrere Aktionen ausführen:'|trans({},'help')|raw }}
+</p>
+<ul>
+<li>
+{{ '<strong>Ein Versteck vorbereiten</strong>: Du suchst dir ein paar Steintrümmer, ein paar verdörrte Baumzweige und gräbst ein Loch, um in der Nacht nicht von den Zombies entdeckt zu werden. Jeder Versteckausbau erhöht deine Überlebenschance in dieser Zone <i>ein wenig</i>.
+<strong>Alle überlebenden Bürger, die sich in der betreffenden Zone befinden, ziehen einen Vorteil von Versteckausbauten. Außerdem gilt der Bonus der Ausbauten auch für alle folgenden Tage. Allerdings wird jede Nacht ein Teil dieser Ausbauten von den Zombies beschädigt.</strong>'|trans({},'help')|raw }}
+</li>
+<li>
+{{ '<strong>Verstecken</strong>: Du legst dich auf die Lauer und kannst während dieser Zeit nichts anderes mehr machen. Wenn du wieder eine Aktion ausführen möchtest, musst du aus deinem Versteck hervorkriechen.'|trans({},'help')|raw }}
+</li>
+<li>
+{{ '<strong>Ein "Grab" schaufeln</strong>: Du gräbst ein Loch und bedeckst dich mit allem, was du in deiner unmittelbaren Umgebung auftreiben kannst. Diese Aktion verleiht dir einen größeren Bonus als die Verbesserung deines Campingplatzes. Allerdings kannst du dich danach nicht mehr bewegen. Du verlierst diesen Bonus, wenn du aus deinem Versteck hervorkriechst.'|trans({},'help')|raw }}
+</li>
+<li>
+{{ '<strong>Verteidigungsgegenstände gebrauchen</strong>: Mit manchen Gegenständen kannst du deinen Campingplatz erheblich verbessern. Der Gebrauch dieser Gegenstände verbraucht allerdings 1 %img_ap%.'|trans({'%img_ap%' : '<span class="ap"></span>'},'help')|raw }}
+</li>
+<li>{{ 'Es gibt andere Möglichkeiten, Ihre Überlebenschancen beim Campen in Bezug auf Berufe, Gegenstände und Gebiete zu erhöhen. Es liegt an Ihnen, sie herauszufinden.'|trans({},'help')|raw }}</li>
+</ul>
+<p>
+{{ '<strong>Unmittelbar vor dem Stadttor kannst du nicht campen, denn das ist zu gefährlich.</strong> Die Zombiehorde würde dich überrennen. Such dir einen besseren Platz aus.'|trans({},'help')|raw }}
+</p>
+<p class="critical">
+{{ 'Wie gut dein Versteck auch sein mag, deine Überlebenschancen sind begrenzt. Ein (kleines) Restrisiko besteht immer! Deine Überlebenschancen hängen von zahlreichen Faktoren ab: Gegenstände, Anzahl der Verbesserungsarbeiten, Grab etc... Ab einer bestimmten Stufe, kann die Überlebenschance nicht weiter erhöht werden.'|trans({},'help')|raw }}
+</p>
+<h2>{{ 'Wie hoch sind meine Überlebenschancen?'|trans({},'help')|raw }}</h2>
+<p>
+{{ 'Deine Überlebenschancen werden <strong>zu dem Zeitpunkt berechnet, an dem du auf "<i>Verstecken</i>" oder ein "<i>'Grab' schaufeln</i>"</strong> klickst. Eine spätere Änderung der Situation wirkt sich nicht auf deine Überlebenschance aus. Zum Beispiel:'|trans({},'help')|raw }}
+</p><p><em>
+{{ 'Du hast beschlossen, dich in einer Zone zu verstecken, in der 6 Zombies rumlungern (du erhälst dafür einen Malus).
+Zu einem späteren Zeitpunkt kommt ein anderer Bürger vorbeigestapft und bringt alle Untoten um. Dies wirkt sich nicht auf deine Überlebenschancen aus. Als du dich entschieden hattest, in besagter Zone dein Versteck zu bauen, hast du mit den aktuellen Gegebenheiten gerechnet (die Zone war voller Zombies). Wenn du in den Genuss der neuen Ausgangslage kommen möchtest (alle Zombies sind tot), musst du dein Versteck verlassen und dich erneut verstecken.'|trans({},'help')|raw }}
+</em></p>
+<p>
+{{ 'Deine Überlebenschancen hängen von zahlreichen Faktoren ab:'|trans({},'help')|raw }}
+</p>
+<ul>
+<li>{{ 'Anzahl der Zombies in der Umgebung (dieser Nachteil wird etwas abgemildert, wenn du als Aufklärer spielst und deine Tarnkleidung anhast).'|trans({},'help')|raw }}</li>
+<li>{{ 'Anwesenheit anderer Bürger, die sich <strong>vor dir</strong> hier ein Versteck gesucht haben (Nachteil). Es sollte jedem klar sein, dass man sich allein unauffälliger verhält als zu fünft.'|trans({},'help')|raw }}</li>
+<li>{{ 'Präsenz eines freigeschaufelten Gebäudes (je nach Art des Gebäudes kann das ein Vor- oder ein Nachteil sein).'|trans({},'help')|raw }}</li>
+<li>{{ 'Präsenz eines <strong> nicht freigeschaufelten</strong> Gebäudes (Vorteil).'|trans({},'help')|raw }}</li>
+<li>{{ 'Die Stadt wurde <strong>zerstört</strong> (großer Nachteil)'|trans({},'help')|raw }}</li>
+<li>{{ 'Die Entfernung zur Stadt: Je weiter du beim Angriff von der Stadt weg bist, umso besser!'|trans({},'help')|raw }}</li>
+<li>{{ 'Spezialausrüstung (Bonus), die im Spiel gefunden werden kann.'|trans({},'help')|raw }}</li>
+<li>{{ 'Pandämonium: In Pandämoniumsstädten ist das Campen sehr schwierig.'|trans({},'help')|raw }}</li>
+<li>{{ 'Anzahl der Nächte, die du in einer Partie draußen verbracht hast (dein erstes Camping ist sicher, das 
+zweite ist etwas unsicherer, das dritte noch unsicherer etc...).'|trans({},'help')|raw }}</li>
+</ul>
+<div class="critical">
+{{ '<strong>ACHTUNG:</strong> Deine Überlebenschancen sind auf 90% begrenzt! Wie gut dein Versteck auch sein 
+mag, ein kleines Restrisiko besteht immer!'|trans({},'help')|raw }}
+<p>
+{{ 'Der Beruf des <strong>Einsiedlers</strong> verfügt über einen entscheidenden Vorteil: Seine Überlebenschancen 
+sind <strong>nicht auf 90%</strong> beschränkt.'|trans({},'help')|raw }}
+</p>
+</div>
+<h2>{{ 'Wie läuft der Angriff um Mitternacht ab?'|trans({},'help')|raw }}</h2>
+<p>
+{{ 'Spätestens um Mitternacht musst du in deinem Versteck sein. Abhängig von der Qualität deines Verstecks und der Höhe deiner Überlebenschancen, wirst du von den Untoten verschont, oder aber in Stücke gerissen.'|trans({},'help')|raw }}
+</p>
+<p>
+{{ 'Wenn du überlebst, <strong>erhältst du neue %img_ap% sowie verschiedene Auszeichnungen.</strong>'|trans({'%img_ap%' : '<span class="ap"></span>'},'help')|raw }}
+</p>
+<p>
+{{ 'Wichtig zu wissen ist, dass die Zombieaktivität um Mitternacht besonders stark ist. Das bedeutet, dass&nbsp;die Verteidigung deines Verstecks jedes Mal in Mitleidenschaft gezogen wird.'|trans({},'help')|raw }}
+</p>
+<p>
+{{ '<strong>Achtung: </strong> Wenn du die Nacht in der Wüste überlebst, fliegt deine Tarnung am nächsten Morgen auf! Solltest du beabsichtigen wieder draußen zu schlafen, musst du dein Versteck <strong>erneut</strong> ausbauen.'|trans({},'help')|raw }}
+</p>
+<p>
+{{ 'Sollte der Fall eintreten, dass sich beim Angriff der Zombiehorde niemand mehr in der Stadt befindet (da zum Beispiel alle Überlebenden draußen campen), wird die Stadt von den Untoten <span x-ajax-href=%url_devast%>zerstört</span>.'|trans({'%url_cp%': url('help', {'name': 'devast'})},'help')|raw }}
+</p>
+<h2>{{ '"Auszeichnung: Camper im Jenseits"'|trans({},'help')|raw }}</h2>
+<p>
+{{ 'Für jede Nacht, die du draußen überlebt hast, als die Stadt schon <span x-ajax-href=%url_devast%>zerstört</span> war, bekommst du zusätzlich zu der normalen Auszeichnung, eine <strong>besonders seltene Auszeichnung</strong>.'|trans({'%url_cp%': url('help', {'name': 'devast'})},'help')|raw }}
+</p>
+<p>
+{{ 'Um diese Auszeichnung zu erhalten, muss die Stadt mindestens <strong>10 volle Tage</strong> überlebt haben.'|trans({},'help')|raw }}
+</p>
+<div class="clear"></div>
+<a class="button" x-ajax-href="{{ url('help', {'name': 'ruin_exploration'}) }}"><img src="{{ asset('build/images/icons/small_move.gif') }}" alt="move"> {{'Weiter'|trans({}, 'help')}}:<strong> {{ 'Gebäude untersuchen'|trans({},'help') }}</strong></a>
+{% endblock %}
