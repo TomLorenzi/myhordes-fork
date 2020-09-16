@@ -138,6 +138,11 @@ a {
         line-height: 10.5pt;
     }
 
+    i {
+        color: #f0d79e;
+        font-style: italic;
+    }
+
     img {
         vertical-align: -15%;
         &.art {
@@ -183,6 +188,11 @@ a {
         }
     }
 
+    .warning, .critical {
+        color: #f86;
+        font-weight: bold;
+    }
+
     p.ambiant, div.ambiant {
         padding: 5px 5px 5px 22px;
         margin-left: 40px;
@@ -195,4 +205,13 @@ a {
         background-repeat: no-repeat;
         background-position: 0px 5px;
     }
+    div.warning, div.critical {
+        margin-top: 5px;
+        padding: 5px;
+        font-variant: small-caps;
+        background-color: #5c2b20;
+        border: 1px solid #f0d79e;
+        outline: 1px solid #5c2b20;
+    }
+    div.critical { margin-bottom: 10px; }
 }
