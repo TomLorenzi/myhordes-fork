@@ -228,16 +228,10 @@ class InventoryHandler
     }
 
     public function countHeavyItems(Inventory $inventory): int {
-        try {
-            return (int)$this->entity_manager->createQueryBuilder()
-                ->select('SUM(i.count)')->from('App:Item', 'i')
-                ->leftJoin('App:ItemPrototype', 'p', Join::WITH, 'i.prototype = p.id')
-                ->where('i.inventory = :inv')->setParameter('inv', $inventory)
-                ->andWhere('p.heavy = :hv')->setParameter('hv', true)
-                ->getQuery()->getSingleScalarResult();
-        } catch (Exception $e) {
-            return 0;
-        }
+        $c = 0;
+        foreach ($inventory->getItems() as $item)
+            if ($item->getPrototype()->getHeavy()) $c += $item->getCount();
+        return $c;
     }
 
     public function countEssentialItems(Inventory $inventory): int {

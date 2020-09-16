@@ -7191,11 +7191,11 @@
     </unit>
     <unit id="ROlGH4i" name="7e84046">
       <notes>
-        <note category="german">Und die Energie, die in diesen Tanz gesteckt wurde, zahlt sich schließlich aus, die ersten Tropfen fallen auf die Zombies und du genießt diesen delikaten Moment, in dem ihr Fleisch wie Schnee in der Sonne schmilzt und du geduldig wartest, bis sich ihre Körper verflüssigen.</note>
+        <note category="german">Schließlich zahlen sich deine Bemühungen aus. Die ersten Tropfen regnen auf die Zombies herab. Du genießt diesen Moment, als ihr Fleisch wie Schnee in der Sonne schmilzt und wartest geduldig ab, bis sich ihre Körper komplett aufgelöst haben.</note>
       </notes>
       <segment>
         <source>Und die Energie, die in diesen Tanz gesteckt wurde, zahlt sich schließlich aus, die ersten Tropfen fallen auf die Zombies und du genießt diesen delikaten Moment, in dem ihr Fleisch wie Schnee in der Sonne schmilzt und du geduldig wartest, bis sich ihre Körper verflüssigen.</source>
-        <target>Und die Energie, die in diesen Tanz gesteckt wurde, zahlt sich schließlich aus, die ersten Tropfen fallen auf die Zombies und du genießt diesen delikaten Moment, in dem ihr Fleisch wie Schnee in der Sonne schmilzt und du geduldig wartest, bis sich ihre Körper verflüssigen.</target>
+        <target>Schließlich zahlen sich deine Bemühungen aus. Die ersten Tropfen regnen auf die Zombies herab. Du genießt diesen Moment, als ihr Fleisch wie Schnee in der Sonne schmilzt und wartest geduldig ab, bis sich ihre Körper komplett aufgelöst haben.</target>
       </segment>
     </unit>
     <unit id="rLM.vNL" name="75f054e">
@@ -11528,6 +11528,51 @@
       <segment>
         <source>Wenn diese Option aktiviert ist, kann dir ein anderer Spieler befehlen, Gegenstände einzusammeln oder abzulegen. BEACHTE: Einige "persönliche" Gegenstände können unter keinen Umständen abgelegt werden (Texte, Waffen u.a.)</source>
         <target>Wenn diese Option aktiviert ist, kann dir ein anderer Spieler befehlen, Gegenstände einzusammeln oder abzulegen. BEACHTE: Einige "persönliche" Gegenstände können unter keinen Umständen abgelegt werden (Texte, Waffen u.a.)</target>
+      </segment>
+    </unit>
+    <unit id="ymSCpCu" name="Explosion">
+      <notes>
+        <note category="german">Explosion</note>
+      </notes>
+      <segment>
+        <source>Explosion</source>
+        <target>Explosion</target>
+      </segment>
+    </unit>
+    <unit id="oDsiHGx" name="???">
+      <notes>
+        <note category="german">???</note>
+      </notes>
+      <segment>
+        <source>???</source>
+        <target>???</target>
+      </segment>
+    </unit>
+    <unit id="i0KuVv1" name="Schokoladenkreuz">
+      <notes>
+        <note category="german">Schokoladenkreuz</note>
+      </notes>
+      <segment>
+        <source>Schokoladenkreuz</source>
+        <target>Schokoladenkreuz</target>
+      </segment>
+    </unit>
+    <unit id="K65v2LS" name="90b2719">
+      <notes>
+        <note category="german">Wenn du in der Wüste von Zombies umzingelst wirst, erstarrst du vor Angst und kannst nichts mehr unternehmen... Du musst Drogen oder etwas anderes finden, um &lt;strong&gt;deine Nerven zu beruhigen&lt;/strong&gt; und aus dieser Hölle zu entkommen... Wenigstens ist es dir immer noch möglich, im Forum nach Hilfe zu suchen...</note>
+      </notes>
+      <segment>
+        <source>Wenn du in der Wüste von Zombies umzingelst wirst, erstarrst du vor Angst und kannst nichts mehr unternehmen... Du musst Drogen oder etwas anderes finden, um &lt;strong&gt;deine Nerven zu beruhigen&lt;/strong&gt; und aus dieser Hölle zu entkommen... Wenigstens ist es dir immer noch möglich, im Forum nach Hilfe zu suchen...</source>
+        <target><![CDATA[Wenn du in der Wüste von Zombies umzingelst wirst, erstarrst du vor Angst und kannst nichts mehr unternehmen... Du musst Drogen oder etwas anderes finden, um <strong>deine Nerven zu beruhigen</strong> und aus dieser Hölle zu entkommen... Wenigstens ist es dir immer noch möglich, im Forum nach Hilfe zu suchen...]]></target>
+      </segment>
+    </unit>
+    <unit id="0S63eNq" name="Regentanz ausführen">
+      <notes>
+        <note category="german">Regentanz ausführen</note>
+      </notes>
+      <segment>
+        <source>Regentanz ausführen</source>
+        <target>Regentanz ausführen</target>
       </segment>
     </unit>
   </file>

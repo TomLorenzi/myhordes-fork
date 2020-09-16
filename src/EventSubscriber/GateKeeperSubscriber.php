@@ -20,17 +20,22 @@ use App\Controller\WebController;
 use App\Entity\Citizen;
 use App\Entity\User;
 use App\Exception\DynamicAjaxResetException;
+use App\Service\AntiCheatService;
 use App\Service\Locksmith;
 use App\Service\TimeKeeperService;
 use App\Service\TownHandler;
 use Doctrine\ORM\EntityManagerInterface;
+use Exception;
 use Proxies\__CG__\App\Entity\CitizenProfession;
+use Symfony\Bundle\FrameworkBundle\Controller\RedirectController;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\HttpKernel\Event\ControllerEvent;
 use Symfony\Component\HttpKernel\Event\ResponseEvent;
 use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
+use Symfony\Component\HttpKernel\Exception\HttpException;
 use Symfony\Component\HttpKernel\KernelEvents;
 use Symfony\Component\Lock\LockInterface;
+use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
 use Symfony\Component\Security\Core\Security;
 
@@ -41,24 +46,28 @@ class GateKeeperSubscriber implements EventSubscriberInterface
     private $locksmith;
     private $townHandler;
     private $timeKeeper;
+    private $anti_cheat;
+    private $url_generator;
 
     /** @var LockInterface|null  */
     private $current_lock = null;
 
-    public function __construct(EntityManagerInterface $em, Locksmith $locksmith, Security $security, TownHandler $th, TimeKeeperService $tk)
+    public function __construct(EntityManagerInterface $em, Locksmith $locksmith, Security $security, TownHandler $th, TimeKeeperService $tk, AntiCheatService $anti_cheat, UrlGeneratorInterface $url)
     {
         $this->em = $em;
         $this->locksmith = $locksmith;
         $this->security = $security;
         $this->townHandler = $th;
         $this->timeKeeper = $tk;
+        $this->anti_cheat = $anti_cheat;
+        $this->url_generator = $url;
     }
 
     public function holdTheDoor(ControllerEvent $event) {
         $controller = $event->getController();
         if (is_array($controller)) $controller = $controller[0];
 
-        if (!($controller instanceof LandingController) && !($controller instanceof WebController) && !($controller instanceof AdminActionController)) {
+        if (!($controller instanceof LandingController) && !($controller instanceof WebController) && !($controller instanceof AdminActionController) && !($controller instanceof ExternalController)) {
             // During the attack, only the landing, web and admin controller shall be made available
             if ($this->timeKeeper->isDuringAttack())
                 throw new DynamicAjaxResetException($event->getRequest());
@@ -66,6 +75,9 @@ class GateKeeperSubscriber implements EventSubscriberInterface
 
         /** @var User $user */
         $user = $this->security->getUser();
+
+        $this->anti_cheat->recordConnection($user, $event->getRequest());
+        try { $this->em->flush(); } catch (Exception $e) {}
 
         if ($user && $user->getLanguage() && $event->getRequest()->getLocale() !== $user->getLanguage())
             $event->getRequest()->getSession()->set('_user_lang', $user->getLanguage());
@@ -80,6 +92,12 @@ class GateKeeperSubscriber implements EventSubscriberInterface
             // This is a game controller; it is not available to players outside of a game
             if (!$user || !$citizen = $user->getActiveCitizen())
                 throw new DynamicAjaxResetException($event->getRequest());
+
+            // Redirect shadow-banned users
+            if ($user->getShadowBan()) {
+                $event->setController(function() use ($event) { return (new RedirectController($this->url_generator))->redirectAction($event->getRequest(), 'soul_disabled'); });
+                return;
+            }
 
             /** @var $citizen Citizen */
             $this->current_lock = $this->locksmith->waitForLock( 'game-' . $citizen->getTown()->getId() );

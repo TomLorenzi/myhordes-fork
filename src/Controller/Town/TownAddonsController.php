@@ -212,7 +212,10 @@ class TownAddonsController extends TownController
         $have_saw  = $iv->countSpecificItems( $c_inv, $this->entity_manager->getRepository( ItemPrototype::class )->findOneByName( 'saw_tool_#00' ), false, false ) > 0;
         $have_manu = $th->getBuilding($town, 'small_factory_#00', true) !== null;
 
-        $recipes = $this->entity_manager->getRepository(Recipe::class)->findByType( Recipe::WorkshopType );
+        $recipes = $this->entity_manager->getRepository(Recipe::class)->findBy( ['type' => Recipe::WorkshopType] );
+        if($this->getActiveCitizen()->getProfession()->getName() == "shaman") {
+            $recipes = array_merge($recipes, $this->entity_manager->getRepository(Recipe::class)->findBy(['type' => Recipe::WorkshopTypeShamanSpecific]));
+        }
         $source_db = []; $result_db = [];
         foreach ($recipes as $recipe) {
             /** @var Recipe $recipe */
@@ -428,13 +431,11 @@ class TownAddonsController extends TownController
     public function addon_nightwatch(TownHandler $th): Response
     {
         $town = $this->getActiveCitizen()->getTown();
-        if (!$th->getBuilding($town, 'small_round_path_#00', true) || !$this->getTownConf()->get(TownConf::CONF_FEATURE_NIGHTWATCH, true))
+        if (!$this->getTownConf()->get(TownConf::CONF_FEATURE_NIGHTWATCH, true))
             return $this->redirect($this->generateUrl('town_dashboard'));
 
-        $has_shooting_gallery = (bool)$th->getBuilding($town, 'small_tourello_#00', true);
-        $has_trebuchet        = (bool)$th->getBuilding($town, 'small_catapult3_#00', true);
-        $has_ikea             = (bool)$th->getBuilding($town, 'small_ikea_#00', true);
-        $has_armory           = (bool)$th->getBuilding($town, 'small_armor_#00', true);
+        if (!$th->getBuilding($town, 'small_round_path_#00', true) && !$this->getTownConf()->get(TownConf::CONF_FEATURE_NIGHTWATCH_INSTANT, false))
+            return $this->redirect($this->generateUrl('town_dashboard'));
 
         $citizenWatch = $this->entity_manager->getRepository(CitizenWatch::class)->findCurrentWatchers($town);
         $watchers = [];
@@ -595,29 +596,36 @@ class TownAddonsController extends TownController
     public function api_nightwatch_gowatch(TownHandler $th, JSONRequestParser $parser): Response
     {
         $town = $this->getActiveCitizen()->getTown();
-        if (!$th->getBuilding($town, 'small_round_path_#00', true))
+        if (!$this->getTownConf()->get(TownConf::CONF_FEATURE_NIGHTWATCH, true))
+            return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
+
+        if (!$th->getBuilding($town, 'small_round_path_#00', true) && !$this->getTownConf()->get(TownConf::CONF_FEATURE_NIGHTWATCH_INSTANT, false))
             return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
 
         $action = $parser->get("action");
 
-        if($action == 'unwatch') {
-            $watchers = $this->entity_manager->getRepository(CitizenWatch::class)->findCurrentWatchers($town);
-            $activeCitizenWatcher = null;
+        $watchers = $this->entity_manager->getRepository(CitizenWatch::class)->findCurrentWatchers($town);
+        $activeCitizenWatcher = null;
 
-            foreach ($watchers as $watcher) {
-                if($watcher->getCitizen() == $this->getActiveCitizen()){
-                    $activeCitizenWatcher = $watcher;
-                    break;
-                }
+        foreach ($watchers as $watcher)
+            if($watcher->getCitizen() === $this->getActiveCitizen()){
+                $activeCitizenWatcher = $watcher;
+                break;
             }
-            if($activeCitizenWatcher === null) {
+
+        if($action == 'unwatch') {
+
+            if ($activeCitizenWatcher === null)
                 return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
-            }
 
             $town->removeCitizenWatch($activeCitizenWatcher);
             $this->getActiveCitizen()->removeCitizenWatch($activeCitizenWatcher);
             $this->entity_manager->remove($activeCitizenWatcher);
         } else if ($action == "watch") {
+
+            if ($activeCitizenWatcher !== null)
+                return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
+
             $citizenWatch = new CitizenWatch();
             $citizenWatch->setTown($town)->setCitizen($this->getActiveCitizen())->setDay($town->getDay());
             $town->addCitizenWatch($citizenWatch);

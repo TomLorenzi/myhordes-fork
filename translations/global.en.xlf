@@ -1564,7 +1564,7 @@
       </notes>
       <segment>
         <source>Du weißt nicht, was du tun sollst? Folge den Empfehlungen hier unten :)</source>
-        <target>Du weißt nicht, was du tun sollst? Folge den Empfehlungen hier unten :)</target>
+        <target>Don't know what to do? Follow the recommendations below :)</target>
       </segment>
     </unit>
     <unit id="AsaB86B" name="1acd778">
@@ -1573,7 +1573,7 @@
       </notes>
       <segment>
         <source>Diesen Bonus gibt es nur dann, wenn sich die Wächter während eines Angriffs in der Stadt befinden.</source>
-        <target>Diesen Bonus gibt es nur dann, wenn sich die Wächter während eines Angriffs in der Stadt befinden.</target>
+        <target>This bonus is only available if the guardians are in the town during the attack.</target>
       </segment>
     </unit>
     <unit id="FbU8Rr0" name="782996d">

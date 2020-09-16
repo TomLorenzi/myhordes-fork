@@ -47,14 +47,6 @@ class TextFixtures extends Fixture
             'design' => 'typed',
             'background' => 'notepad',
         ],
-        'dv_003' => [
-            'title' => 'Befehl',
-            'author' => 'Nobbz',
-            'content' => [
-                ''
-            ],
-            'lang' => 'de'
-        ],
         'dv_004' => [
             'title' => 'Bekanntmachung: Abtrünnige',
             'author' => 'Sigma',
@@ -7060,7 +7052,7 @@ class TextFixtures extends Fixture
         // Iterate over all entries
         foreach (static::$texts as $name => $entry) {
             // Get existing entry, or create new one
-            $entity = $this->entityManager->getRepository(RolePlayText::class)->findOneByName($name);
+            $entity = $this->entityManager->getRepository(RolePlayText::class)->findOneBy(['name' => $name]);
             if ($entity === null){
                 $entity = new RolePlayText();   
             } else {

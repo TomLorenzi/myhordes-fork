@@ -1655,5 +1655,68 @@
         <target>Jours</target>
       </segment>
     </unit>
+    <unit id="3CKPuqs" name="Dein Account wurde gesperrt.">
+      <notes>
+        <note category="german">Dein Account wurde gesperrt.</note>
+      </notes>
+      <segment>
+        <source>Dein Account wurde gesperrt.</source>
+        <target>Votre compte a été bloqué.</target>
+      </segment>
+    </unit>
+    <unit id="smLPd3k" name="Dein Account wurde von einem Administrator vom Spiel ausgeschlossen.">
+      <notes>
+        <note category="german">Dein Account wurde von einem Administrator vom Spiel ausgeschlossen.</note>
+      </notes>
+      <segment>
+        <source>Dein Account wurde von einem Administrator vom Spiel ausgeschlossen.</source>
+        <target>Votre compte a été banni du jeu par un administrateur.</target>
+      </segment>
+    </unit>
+    <unit id="w55zJhZ" name="Diese Sperre ist permanent.">
+      <notes>
+        <note category="german">Diese Sperre ist permanent.</note>
+      </notes>
+      <segment>
+        <source>Diese Sperre ist permanent.</source>
+        <target>Ce bloquage est permanent.</target>
+      </segment>
+    </unit>
+    <unit id="zh9.khn" name="8177ade">
+      <notes>
+        <note category="german">Wenn du dich aktuell in einer Stadt befindest, kannst du dort keine Aktionen mehr durchführen und nicht länger auf das Stadtforum zugreifen.</note>
+      </notes>
+      <segment>
+        <source>Wenn du dich aktuell in einer Stadt befindest, kannst du dort keine Aktionen mehr durchführen und nicht länger auf das Stadtforum zugreifen.</source>
+        <target>Si vous êtes actuellement dans une ville, vous ne pouvez plus y effectuer d'actions et ne plus accéder au forum de la ville.</target>
+      </segment>
+    </unit>
+    <unit id="Abv4VOi" name="Du kannst auch keiner neuen Stadt mehr beitreten.">
+      <notes>
+        <note category="german">Du kannst auch keiner neuen Stadt mehr beitreten.</note>
+      </notes>
+      <segment>
+        <source>Du kannst auch keiner neuen Stadt mehr beitreten.</source>
+        <target>Vous ne pouvez plus rejoindre une nouvelle ville.</target>
+      </segment>
+    </unit>
+    <unit id="vTDbvR_" name="Folgende Begründung wurde für deine Sperre hinterlegt:">
+      <notes>
+        <note category="german">Folgende Begründung wurde für deine Sperre hinterlegt:</note>
+      </notes>
+      <segment>
+        <source>Folgende Begründung wurde für deine Sperre hinterlegt:</source>
+        <target>La raison suivante a été fournie pour votre bannissement :</target>
+      </segment>
+    </unit>
+    <unit id="4pm3p5L" name="Es wurde keine Begründung für diese Sperre hinterlegt.">
+      <notes>
+        <note category="german">Es wurde keine Begründung für diese Sperre hinterlegt.</note>
+      </notes>
+      <segment>
+        <source>Es wurde keine Begründung für diese Sperre hinterlegt.</source>
+        <target>Aucune raison n'a été donnée pour ce bannissement.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

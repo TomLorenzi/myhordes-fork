@@ -121,7 +121,11 @@ export default class Ajax {
                     if (load_target == undefined)
                         load_target = target;
 
-                    ajax_instance.load( load_target, buttons[b].getAttribute('x-ajax-href'), true )
+                    let no_scroll = buttons[b].hasAttribute('x-ajax-sticky');
+
+                    ajax_instance.load( load_target, buttons[b].getAttribute('x-ajax-href'), true, {}, () => {
+                        if (!no_scroll) window.scrollTo(0, 0);
+                    } )
                 }, {once: true, capture: true});
                 buttons[b].addEventListener('mousedown', function(e: MouseEvent) {
                     if (e.button === 1) {

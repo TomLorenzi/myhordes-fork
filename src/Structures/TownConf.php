@@ -5,15 +5,15 @@ namespace App\Structures;
 
 class TownConf extends Conf
 {
-    const CONF_ALLOW_LOCAL = 'allow_local_conf';
-    const CONF_WELL_MIN  = 'well.min';
-    const CONF_WELL_MAX  = 'well.max';
-    const CONF_MAP_MIN  = 'map.min';
-    const CONF_MAP_MAX  = 'map.max';
-    const CONF_POPULATION_MIN  = 'population.min';
-    const CONF_POPULATION_MAX  = 'population.max';
-    const CONF_NUM_RUINS = 'ruins';
-    const CONF_NUM_EXPLORABLE_RUINS = 'explorable_ruins';
+    const CONF_ALLOW_LOCAL           = 'allow_local_conf';
+    const CONF_WELL_MIN              = 'well.min';
+    const CONF_WELL_MAX              = 'well.max';
+    const CONF_MAP_MIN               = 'map.min';
+    const CONF_MAP_MAX               = 'map.max';
+    const CONF_POPULATION_MIN        = 'population.min';
+    const CONF_POPULATION_MAX        = 'population.max';
+    const CONF_NUM_RUINS             = 'ruins';
+    const CONF_NUM_EXPLORABLE_RUINS  = 'explorable_ruins';
     const CONF_BUILDINGS_CONSTRUCTED = 'initial_buildings';
     const CONF_BUILDINGS_UNLOCKED    = 'unlocked_buildings';
     const CONF_DISTRIBUTED_ITEMS     = 'distribute_items';
@@ -58,7 +58,7 @@ class TownConf extends Conf
 
     const CONF_FEATURE_CAMPING         = 'features.camping';
     const CONF_FEATURE_NIGHTMODE       = 'features.nightmode';
-    const CONF_FEATURE_SHAMAN          = 'features.shaman';
+    const CONF_FEATURE_SHAMAN_MODE     = 'features.shaman';
     const CONF_FEATURE_WORDS_OF_HEROS  = 'features.words_of_heros';
     const CONF_FEATURE_ESCORT          = 'features.escort.enabled';
     const CONF_FEATURE_ESCORT_SIZE     = 'features.escort.max';
@@ -67,11 +67,15 @@ class TownConf extends Conf
     const CONF_FEATURE_ALL_POISON      = 'features.all_poison';
     const CONF_FEATURE_SHUN            = 'features.shun';
     const CONF_FEATURE_GHOUL           = 'features.ghoul';
-    const CONF_FEATURE_NIGHTWATCH      = 'features.nightwatch';
+    const CONF_FEATURE_NIGHTWATCH      = 'features.nightwatch.enabled';
+    const CONF_FEATURE_NIGHTWATCH_INSTANT = 'features.nightwatch.instant';
     const CONF_FEATURE_IMPROVEDDUMP    = 'features.improveddump';
     const CONF_FEATURE_ATTACKS         = 'features.attacks';
     const CONF_FEATURE_GIVE_ALL_PICTOS = 'features.give_all_pictos';
     const CONF_FEATURE_GIVE_SOULPOINTS = 'features.give_soulpoints';
+
+    const CONF_DISABLED_JOBS = 'disabled_jobs';
+    const CONF_DISABLED_BUILDINGS = 'disabled_buildings';
 
     public function __construct(array $data)
     {

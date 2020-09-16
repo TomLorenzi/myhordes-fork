@@ -291,7 +291,7 @@ class AwardFixtures extends Fixture implements DependentFixtureInterface {
                 $entity = new AwardPrototype();
             }
 
-            $pp = $this->entityManager->getRepository(PictoPrototype::class)->findOneByName($entry['associatedpicto']);
+            $pp = $this->entityManager->getRepository(PictoPrototype::class)->findOneBy(['name' => $entry['associatedpicto']]);
             if ($pp === null) {
                 $out->writeln("<error>Skipping award '{$entry['title']}' because the associated picto '{$entry['associatedpicto']}' does not exist.</error>");
                 continue;

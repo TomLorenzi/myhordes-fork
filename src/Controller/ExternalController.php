@@ -31,6 +31,7 @@
     use SimpleXMLElement;
     use Symfony\Component\HttpFoundation\Response;
     use Symfony\Component\Routing\Annotation\Route;
+    use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
     use Symfony\Contracts\Translation\TranslatorInterface;
     use Symfony\Component\HttpFoundation\Request;
 
@@ -144,8 +145,8 @@
                 break;
                 case $type === 'status':
                     $data = [
-                        "attack" => false,
-                        "maintain" => false
+                        "attack" => $this->time_keeper->isDuringAttack(),
+                        "maintain" => is_file($this->getParameter('kernel.project_dir')."/public/maintenance/.active")
                     ];
                 break;
                 case $type === 'items':
@@ -401,7 +402,7 @@
                     case $field==="avatar":
                         $has_avatar = $user->getAvatar();
                         if($has_avatar) {
-                            $user_data['avatar']= $this->generateUrl('avatar', ['name' => $has_avatar->getFilename(), 'ext' => $has_avatar->getFormat()]);
+                            $user_data['avatar']= $this->generateUrl('app_web_avatar', ['uid' => $user->getId(), 'name' => $has_avatar->getFilename(), 'ext' => $has_avatar->getFormat()], UrlGeneratorInterface::ABSOLUTE_URL);
                         } else $user_data['avatar'] = false;
                     break;
                     //case $field==="homeMessage": // It's a future feature because isn't existe now

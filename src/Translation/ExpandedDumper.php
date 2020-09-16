@@ -3,7 +3,6 @@
 
 namespace App\Translation;
 
-use MongoDB\Driver\Exception\ExecutionTimeoutException;
 use Symfony\Component\Translation\Dumper\XliffFileDumper;
 use Symfony\Component\Translation\MessageCatalogue;
 use Symfony\Contracts\Translation\TranslatorInterface;

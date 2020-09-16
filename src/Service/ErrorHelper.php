@@ -18,6 +18,7 @@ class ErrorHelper
     const BaseActionErrors        = 600;
     const BaseBeyondErrors        = 700;
     const BaseSoulErrors          = 800;
+    const BaseGhostErrors         = 900;
 
     const BaseForumErrors         = 1100;
     

@@ -66,7 +66,7 @@ div.town-banner {
     }
     &.selected {
       &>div:first-child { background-color: #965C36 !important; }
-      &>div:last-child { background: lighten(@myhordes-cell-header-background-color, 10%); color: @myhordes-input-border; border: 1px solid #693e29; text-decoration: underline; };
+      &>div:last-child { background: #965C36; color: white; border: 1px solid #693e29; };
     }
   }
   &:not(.night)>.town-menu-house>div:first-child { background: url("../../img/background/town/menu_home.gif") center/cover no-repeat }
@@ -180,7 +180,7 @@ div.town-banner {
     background-repeat: no-repeat;;
     background-position: 4px 2px;
     &>li {
-      padding-bottom: 5px; padding-left: 25px;
+      padding-bottom: 5px;
       &>em {
         color: #e7c48f;
         padding-left: 20px;
@@ -316,7 +316,7 @@ div.town-banner {
   border: 1px solid darken(@myhordes-cell-header-background-color, 5%); color: @myhordes-smalltext;
   box-shadow: 0 0 10px rgba(0,0,0,0.3);
   font-size: 1.2rem;
-  .attack-estimation, .deco-estimation {
+  .attack-estimation, .def-estimation {
     border-left:1px dashed #7e4d2a;
     border-right:1px solid #ddab76;
     &.attack-estimation {
@@ -455,7 +455,7 @@ div.town-banner {
 }
 
 .citizen-box-name { background-color: #b37c4a; }
-.citizen-box-name-me { background-color: #696288; }
+.citizen-box-name-me { background-color: #57536F; }
 .citizen-box-name, .citizen-box-name-me {color: white !important;}
 
 .citizen-box-name > span > .citizen-name {

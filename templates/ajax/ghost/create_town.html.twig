@@ -17,7 +17,7 @@
                             <label for="townname">{{'Name der Stadt'|trans({}, 'ghost')}}</label>
                         </div>
                         <div class="cell padded rw-8">
-                            <input type="text" name="townname" id="townname" />
+                            <input type="text" x-payload="townName" name="townname" id="townname" />
                         </div>
                     </div>
                     {% endif %}
@@ -27,7 +27,7 @@
                             <label for="lang">{{'Sprache'|trans({}, 'global')}}</label>
                         </div>
                         <div class="cell padded rw-8">
-                            <select name="lang" id="lang">
+                            <select name="lang" id="lang" x-payload="lang">
                                 <option value="de" {% if app.user.language == 'de' %}selected{% endif %}>{{ 'Deutsch'|trans({}, 'global') }}</option>
                                 <option value="en" {% if app.user.language == 'en' %}selected{% endif %}>{{ 'Englisch'|trans({}, 'global') }}</option>
                                 <option value="fr" {% if app.user.language == 'fr' %}selected{% endif %}>{{ 'Französisch'|trans({}, 'global') }}</option>
@@ -42,7 +42,7 @@
                             <label for="password">{{'Zugangscode'|trans({}, 'ghost')}}</label>
                         </div>
                         <div class="cell padded rw-8">
-                            <input type="text" name="password" id="password"/>
+                            <input type="text" x-payload="password" name="password" id="password"/>
                         </div>
                     </div>
 
@@ -51,7 +51,7 @@
                             <label for="type">{{'Stadttyp'|trans({}, 'ghost')}}</label>
                         </div>
                         <div class="cell padded rw-8">
-                            <select name="type" id="type">
+                            <select name="type" id="type" x-payload="townType">
                                 {% for townClass in townClasses %}
                                     <option value="{{townClass.name}}">{{townClass.label|trans({}, 'game')}}</option>
                                 {% endfor %}
@@ -64,14 +64,14 @@
                             <label for="ghoulType">{{'Ghule'|trans({}, 'ghost')}}</label>
                         </div>
                         <div class="cell padded rw-8">
-                            <select name="ghoulType" id="ghoulType">
+                            <select name="ghoulType" id="ghoulType" x-payload="ghoulType">
                                 <option value="normal" title="{{'Je nach gewähltem Stadttyp erscheinen Ghule nach den üblichen Regeln.'|trans({}, 'ghost')}}">{{'Normal'|trans({}, 'ghost')}}</option>
                                 <option value="bloodthirst" title="{{'Das Auftreten von Ghulen wird nicht geändert. Allerdings kann ein Ghul seinen Hunger nur stillen, indem er einen Mitbürger verspeist.'|trans({}, 'ghost')}}">{{'Blutdurst'|trans({}, 'ghost')}}</option>
                                 <option value="childtown" title="{{'Es erscheint zwar kein Ghul um Mitternacht. Dafür können andere Ereignisse das Auftreten von Ghulen auslösen.'|trans({}, 'ghost')}}">{{'Stadt der Kuscheltiere'|trans({}, 'ghost')}}</option>
                             </select>
                         </div>
                         <div class="cell padded rw-12">
-                            <div class="help" id="helpGhoul">{{'Je nach gewähltem Stadttyp erscheinen Ghule nach den üblichen Regeln.'|trans({}, 'ghost')}}</div>
+                            <div class="help" id="helpGhoul"></div>
                         </div>
                     </div>
 
@@ -80,7 +80,7 @@
                             <label for="water">{{"Wasservorrat"|trans({}, 'ghost')}}</label>
                         </div>
                         <div class="cell padded rw-8">
-                            <input type="text" name="water" id="water"/>
+                            <input type="number" name="water" id="water" x-payload="well"/>
                         </div>
                         <div class="cell padded rw-12">
                             <div class="help">{{'Normale Werte liegen zwischen 100 und 180. Wert ist in Pandämonium-Städten reduziert. Maximum ist 300'|trans({}, 'ghost')}}</div>
@@ -92,7 +92,7 @@
                             <label>{{'Einstellungen'|trans({}, 'ghost')}}</label>
                         </div>
                         <div class="cell padded rw-8">
-                            <input type="checkbox" name="disablexml" id="disablexml" /> <label for="disablexml">{{'XML Feed für diese Stadt deaktivieren'|trans({}, 'ghost')}}</label>
+                            <input type="checkbox" name="disablexml" id="disablexml" x-payload="disablexml" /> <label for="disablexml">{{'XML Feed für diese Stadt deaktivieren'|trans({}, 'ghost')}}</label>
                         </div>
                     </div>
 
@@ -102,46 +102,90 @@
                             <label for="rules">{{'Spezialregeln'|trans({}, 'ghost')}}</label>
                         </div>
                         <div class="cell padded rw-8">
-                            <select id="rules" name="rules" multiple>
+                            <select id="rules" name="rules" multiple x-payload="rules">
                                 <option value="none" title="{{'Keine Spezialregeln'|trans({}, 'ghost')}}" selected>{{'Keine'|trans({}, 'ghost')}}</option>
                                 <option value="nobuilding" title="{{'Kein Gebäude ist zu Beginn freigeschaltet. Alle müssen in der Aussenwelt gefunden werden!'|trans({}, 'ghost')}}">{{'Keine Startgebäude'|trans({}, 'ghost')}}</option>
                                 <option value="poison" title="{{'Jedes Essen und jede Droge, die du zu dir nimmst, birgt ein geringes Infektionsrisiko.'|trans({}, 'ghost')}}">{{'Kontaminierte Zone'|trans({}, 'ghost')}}</option>
                             </select>
                         </div>
                     </div>
+                    {% if is_granted('ROLE_CROW') %}
+                    <div class="row">
+                        <div class="cell padded rw-4 note note-lightest">
+                            <label for="seed">{{'Karten-Seed'|trans({}, 'ghost')}}:</label>
+                        </div>
+                        <div class="cell padded rw-8">
+                            <input type="text" name="seed" id="seed" x-payload="seed" value="-1"/>
+                        </div>
+                        <div class="cell padded rw-12">
+                            <div class="help">
+                                {% trans from "ghost"%}
+                                Seed, das eine kontrollierte Kartenerstellung ermöglicht. Erlaubt im Falle von Ereignissen, ähnliche Karten zu generieren.
+                                Gib eine positive ganze Zahl ein, um es zu aktivieren.
+                                DENKT DARÜBER NACH, DIESE GANZE ZAHL VON EINEM EREIGNIS ZUM ANDEREN ZU ÄNDERN !
+                                {% endtrans %}
+                            </div>
+                        </div>
+                    </div>
+                    {% endif %}
 
                     <h5>{{'Stadtmodifikationen'|trans({}, 'ghost')}}</h5>
                     <div class="row">
-                        <div class="cell rw-12 mod">
-                            <input type="checkbox" name="explorableruins" id="explorableruins" checked/> <label for="explorableruins"><strong>{{'Exploration:'|trans({}, 'ghost')}}</strong> {{'Begehbare Ruinen aktivieren'|trans({}, 'ghost')}}</label>
+                        <div class="cell padded rw-4 note note-lightest">
+                            <label for="shamanMode">{{'Seelen & Schamane:'|trans({}, 'ghost')}}</label>
+                        </div>
+                        <div class="cell padded rw-8">
+                            <select name="shamanMode" id="shamanMode" x-payload="shamanMode">
+                                <option value="normal" title="{{'Der Schamane wird gewählt und die Seelen werden gequält.'|trans({}, 'ghost')}}">{{'Normal'|trans({}, 'ghost')}}</option>
+                                <option value="job" title="{{'Der Schamane ist ein Beruf, die Seelen werden in der Werkstatt verwandelt.'|trans({}, 'ghost')}}">{{'Job'|trans({}, 'ghost')}}</option>
+                                <option value="none" title="{{'Der Schamane und die Seelen werden deaktiviert.'|trans({}, 'ghost')}}">{{'Deaktiviert'|trans({}, 'ghost')}}</option>
+                            </select>
+                        </div>
+                        <div class="cell padded rw-12">
+                            <div class="help" id="helpShaman"></div>
+                        </div>
+                        <div class="cell padded rw-4 note note-lightest">
+                            <label for="nightWatchMode">{{'Nachtwache:'|trans({}, 'ghost')}}</label>
+                        </div>
+                        <div class="cell padded rw-8">
+                            <select name="nightWatchMode" id="nightWatchMode" x-payload="nightWatchMode">
+                                <option value="normal" title="{{'Die Nachtwache ist verfügbar, wenn das Gebäude "Brustwehr" errichtet wurde.'|trans({}, 'ghost')}}">{{'Normal'|trans({}, 'ghost')}}</option>
+                                <option value="instant" title="{{'Die Nachtwache ist von Anfang an verfügbar.'|trans({}, 'ghost')}}">{{'Sofort'|trans({}, 'ghost')}}</option>
+                                <option value="none" title="{{'Die Nachtwache ist deaktiviert.'|trans({}, 'ghost')}}">{{'Deaktiviert'|trans({}, 'ghost')}}</option>
+                            </select>
+                        </div>
+                        <div class="cell padded rw-12">
+                            <div class="help" id="helpNightWatch"></div>
                         </div>
                         <div class="cell rw-12 mod">
-                            <input type="checkbox" name="shaman" id="shaman" checked/> <label for="shaman"><strong>{{'Seelen & Schamane:'|trans({}, 'ghost')}}</strong> {{'Verlorene Seelen und Schamanen aktivieren'|trans({}, 'ghost')}}</label>
+                            <input type="checkbox" name="explorableruins" id="explorableruins" x-payload="ruins" checked/> <label for="explorableruins"><strong>{{'Exploration:'|trans({}, 'ghost')}}</strong> {{'Begehbare Ruinen aktivieren'|trans({}, 'ghost')}}</label>
                         </div>
                         <div class="cell rw-12 mod">
-                            <input type="checkbox" name="escorts" id="escorts" checked/> <label for="escorts"><strong>{{'Eskorte:'|trans({}, 'ghost')}}</strong> {{'Eskorten aktivieren'|trans({}, 'ghost')}}</label>
+                            <input type="checkbox" name="escorts" id="escorts" x-payload="escorts" checked/> <label for="escorts"><strong>{{'Eskorte:'|trans({}, 'ghost')}}</strong> {{'Eskorten aktivieren'|trans({}, 'ghost')}}</label>
                         </div>
                         <div class="cell rw-12 mod">
-                            <input type="checkbox" name="shun" id="shun" checked/> <label for="shun"><strong>{{'Verbannung:'|trans({}, 'ghost')}}</strong> {{'Verbannung aktivieren'|trans({}, 'ghost')}}</label>
+                            <input type="checkbox" name="shun" id="shun" x-payload="shun" checked/> <label for="shun"><strong>{{'Verbannung:'|trans({}, 'ghost')}}</strong> {{'Verbannung aktivieren'|trans({}, 'ghost')}}</label>
                         </div>
                         <div class="cell rw-12 mod">
-                            <input type="checkbox" name="nightmode" id="nightmode" checked/> <label for="nightmode"><strong>{{'Nachtmodus:'|trans({}, 'ghost')}}</strong> {{'Nachtmodus aktivieren (schwerer)'|trans({}, 'ghost')}}</label>
+                            <input type="checkbox" name="nightmode" id="nightmode" x-payload="nightmode" checked/> <label for="nightmode"><strong>{{'Nachtmodus:'|trans({}, 'ghost')}}</strong> {{'Nachtmodus aktivieren (schwerer)'|trans({}, 'ghost')}}</label>
                         </div>
                         <div class="cell rw-12 mod">
-                            <input type="checkbox" name="camp" id="camp" checked/> <label for="camp"><strong>{{'Camping:'|trans({}, 'ghost')}}</strong> {{'Camping in der Wildnis aktivieren'|trans({}, 'ghost')}}</label>
+                            <input type="checkbox" name="camp" id="camp" x-payload="camp" checked/> <label for="camp"><strong>{{'Camping:'|trans({}, 'ghost')}}</strong> {{'Camping in der Wildnis aktivieren'|trans({}, 'ghost')}}</label>
                         </div>
                         <div class="cell rw-12 mod">
-                            <input type="checkbox" name="ghouls" id="ghouls" checked/> <label for="ghouls"><strong>{{'Ghule:'|trans({}, 'ghost')}}</strong> {{'Ghule aktivieren'|trans({}, 'ghost')}}</label>
+                            <input type="checkbox" name="ghouls" id="ghouls" x-payload="ghouls" checked/> <label for="ghouls"><strong>{{'Ghule:'|trans({}, 'ghost')}}</strong> {{'Ghule aktivieren'|trans({}, 'ghost')}}</label>
                         </div>
                         <div class="cell rw-12 mod">
-                            <input type="checkbox" name="buildingdamages" id="buildingdamages" checked/> <label for="buildingdamages"><strong>{{'Gebäudeschaden:'|trans({}, 'ghost')}}</strong> {{'Gebäudeschaden aktivieren'|trans({}, 'ghost')}}</label>
+                            <input type="checkbox" name="buildingdamages" id="buildingdamages" x-payload="buildingdamages" checked/> <label for="buildingdamages"><strong>{{'Gebäudeschaden:'|trans({}, 'ghost')}}</strong> {{'Gebäudeschaden aktivieren'|trans({}, 'ghost')}}</label>
                         </div>
                         <div class="cell rw-12 mod">
-                            <input type="checkbox" name="nightwatch" id="nightwatch" checked/> <label for="nightwatch"><strong>{{'Nachtwache:'|trans({}, 'ghost')}}</strong> {{'Nachtwache aktivieren'|trans({}, 'ghost')}}</label>
+                            <input type="checkbox" name="improveddump" id="improveddump" x-payload="improveddump" checked/> <label for="improveddump"><strong>{{'Verbesserte Müllhalde:'|trans({}, 'ghost')}}</strong> {{'Verbesserte Müllhalde aktivieren'|trans({}, 'ghost')}}</label>
                         </div>
+                        {% if is_granted('ROLE_CROW') %}
                         <div class="cell rw-12 mod">
-                            <input type="checkbox" name="improveddump" id="improveddump" checked/> <label for="improveddump"><strong>{{'Verbesserte Müllhalde:'|trans({}, 'ghost')}}</strong> {{'Verbesserte Müllhalde aktivieren'|trans({}, 'ghost')}}</label>
+                            <input type="checkbox" name="incarnated" id="incarnated" x-payload="incarnated" checked/> <label for="incarnated"><strong>{{'Verkörperung in der Stadt:'|trans({}, 'ghost')}}</strong> {{'Verkörpert dich in der Stadt bei ihrer Entstehung'|trans({}, 'ghost')}}</label>
                         </div>
+                        {% endif %}
                     </div>
                     <div class="help">
                         {{'Aktiviere/deaktiviere Spielmodifikationen spezifisch für diese Stadt'|trans({}, 'ghost')}}
@@ -152,7 +196,7 @@
                             <label for="attack">{{'Stärke der Angriffe'|trans({}, 'ghost')}}</label>
                         </div>
                         <div class="cell padded rw-8">
-                            <select name="attack" id="attack">
+                            <select name="attack" id="attack" x-payload="attacks">
                                 <option value="normal">{{'Normal'|trans({}, 'ghost')}}</option>
                                 <option value="easy">{{'Leiche Angriffe'|trans({}, 'ghost')}}</option>
                                 <option value="hard">{{'Schwere Angriffe'|trans({}, 'ghost')}}</option>
@@ -164,10 +208,38 @@
                     <h5>{{'Spiel-Optionen'|trans({}, 'ghost')}}</h5>
                     <div class="row">
                         <div class="cell rw-12 mod">
-                            <input type="checkbox" name="allpictos" id="allpictos" checked/> <label for="allpictos"><strong>{{'Abstimmung aller Piktogramme:'|trans({}, 'ghost')}}</strong> {{'Gibt die Gesamtheit der während der Stadt erhaltenen Piktogramme an, anstatt ein Drittel davon.'|trans({}, 'ghost')}}</label>
+                            <input type="checkbox" name="allpictos" id="allpictos" x-payload="allpictos" checked/> <label for="allpictos"><strong>{{'Abstimmung aller Piktogramme:'|trans({}, 'ghost')}}</strong> {{'Gibt die Gesamtheit der während der Stadt erhaltenen Piktogramme an, anstatt ein Drittel davon.'|trans({}, 'ghost')}}</label>
                         </div>
                         <div class="cell rw-12 mod">
-                            <input type="checkbox" name="soulpoints" id="soulpoints" checked/> <label for="soulpoints"><strong>{{'Seelenpunkte vergeben:'|trans({}, 'ghost')}}</strong> {{'Gibt Ihnen Seelenpunkte.'|trans({}, 'ghost')}}</label>
+                            <input type="checkbox" name="soulpoints" id="soulpoints" x-payload="soulpoints" checked/> <label for="soulpoints"><strong>{{'Seelenpunkte vergeben:'|trans({}, 'ghost')}}</strong> {{'Gibt Ihnen Seelenpunkte.'|trans({}, 'ghost')}}</label>
+                        </div>
+                    </div>
+
+                    <h5>{{'Verfügbare Berufe'|trans({}, 'ghost')}}</h5>
+                    <div class="row">
+                        <div class="cell rw-12 mod">
+                            <input type="checkbox" x-payload="basic" name="basic" id="basic" checked/> <label for="basic"><strong>{{'Einwohner'|trans({}, 'game')}}</strong></label>
+                        </div>
+                        <div class="cell rw-12 mod">
+                            <input type="checkbox" x-payload="collec" name="collec" id="collec" checked/> <label for="collec"><strong>{{'Buddler'|trans({}, 'game')}}</strong></label>
+                        </div>
+                        <div class="cell rw-12 mod">
+                            <input type="checkbox" x-payload="guardian" name="guardian" id="guardian" checked/> <label for="guardian"><strong>{{'Wächter'|trans({}, 'game')}}</strong></label>
+                        </div>
+                        <div class="cell rw-12 mod">
+                            <input type="checkbox" x-payload="hunter" name="hunter" id="hunter" checked/> <label for="hunter"><strong>{{'Aufklärer'|trans({}, 'game')}}</strong></label>
+                        </div>
+                        <div class="cell rw-12 mod">
+                            <input type="checkbox" x-payload="tamer" name="tamer" id="tamer" checked/> <label for="tamer"><strong>{{'Dompteur'|trans({}, 'game')}}</strong></label>
+                        </div>
+                        <div class="cell rw-12 mod">
+                            <input type="checkbox" x-payload="tech" name="tech" id="tech" checked/> <label for="tech"><strong>{{'Techniker'|trans({}, 'game')}}</strong></label>
+                        </div>
+                        <div class="cell rw-12 mod">
+                            <input type="checkbox" x-payload="shaman" name="shaman" id="shaman"/> <label for="shaman"><strong>{{'Schamane'|trans({}, 'game')}}</strong></label>
+                        </div>
+                        <div class="cell rw-12 mod">
+                            <input type="checkbox" x-payload="survivalist" name="survivalist" id="survivalist" checked/> <label for="survivalist"><strong>{{'Einsiedler'|trans({}, 'game')}}</strong></label>
                         </div>
                     </div>
                     {% endif %}
@@ -183,7 +255,7 @@
                     
                     <div class="row">
                         <div class="cell padded rw-12">
-                            <button id="save-spots-ben">{{'Platzreservierung'|trans({}, 'ghost')}}</button>
+                            <button id="save-spots-btn">{{'Platzreservierung'|trans({}, 'ghost')}}</button>
                         </div>
                     </div>
 
@@ -207,48 +279,26 @@
 {% block js %}
     {{parent()}}
     <script>
-        let ghoulTypeSelect = document.getElementById("ghoulType");
-        if(ghoulType) ghoulType.addEventListener('change', function(){
-            document.getElementById("helpGhoul").innerText = document.querySelector('#ghoulType option:checked').getAttribute('title');
-        });
 
-        let createtownbtn = document.getElementById('create-town-btn');
-        if(createtownbtn) createtownbtn.addEventListener('click', function(){
+        let fun_link_help = function(selector_id, help_id, f = null) {
+            $.html.addEventListenerAll('#' + selector_id, 'change', function(e,elem) {
+                document.getElementById(help_id).innerText = elem.querySelector('option:checked').getAttribute('title');
+                if (typeof f === 'function') f(elem.value);
+            }, true);
+        }
+
+        fun_link_help('ghoulType','helpGhoul');
+        fun_link_help('nightWatchMode','helpNightWatch');
+        fun_link_help('shamanMode','helpShaman', v => document.getElementById('shaman').checked = (v === 'job'));
+
+        $.html.addEventListenerAll('#create-town-btn', 'click', function(){
             if (!confirm('{{ 'Bestätigen?'|trans({},'global')|e('js') }}'))
                 return;
 
             let payload = {};
-            {% if is_granted('ROLE_CROW') %}
-            payload.townName = document.getElementById('townname').value;
-            {% endif %}
-            payload.password        = document.getElementById("password").value;
-            payload.lang            = document.getElementById("lang").value;
-            payload.townType        = document.getElementById("type").value;
-            payload.ghoulType       = document.getElementById('ghoulType').value;
 
-            payload.well            = document.getElementById('water').value;
-
-            payload.disablexml      = document.getElementById('disablexml').checked;
-
-            payload.rules           = document.getElementById('rules').value;
-
-            payload.ruins           = document.getElementById('explorableruins').checked;
-            payload.shaman          = document.getElementById('shaman').checked;
-            payload.escorts         = document.getElementById('escorts').checked;
-            payload.shun            = document.getElementById('shun').checked;
-            payload.nightmode       = document.getElementById('nightmode').checked;
-            payload.camp            = document.getElementById('camp').checked;
-            payload.ghouls          = document.getElementById('ghouls').checked;
-            payload.buildingdamages = document.getElementById('buildingdamages').checked;
-            payload.nightwatch      = document.getElementById('nightwatch').checked;
-            payload.improveddump    = document.getElementById('improveddump').checked;
-
-            payload.attacks         = document.getElementById('attack').value;
-
-            {% if is_granted('ROLE_CROW') %}
-            payload.allpictos = document.getElementById('allpictos').checked;
-            payload.soulpoints = document.getElementById('soulpoints').checked;
-            {% endif %}
+            $.html.forEach('input[type=checkbox][x-payload],input[type=radio][x-payload]', elem => payload[elem.getAttribute('x-payload')] = elem.checked );
+            $.html.forEach('input:not([type=checkbox]):not([type=radio])[x-payload],textarea[x-payload],select[x-payload]', elem => payload[elem.getAttribute('x-payload')] = elem.value );
 
             $.ajax.send( '{{ path('ghost_process_create_town') }}', payload,
                 function () {

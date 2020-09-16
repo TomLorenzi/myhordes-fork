@@ -70,7 +70,7 @@ class CitizenRankingProxy
     private $baseID;
 
     /**
-     * @ORM\OneToOne(targetEntity=Citizen::class, mappedBy="rankingEntry", cascade={"persist"})
+     * @ORM\OneToOne(targetEntity=Citizen::class, mappedBy="rankingEntry", cascade={"persist"}, orphanRemoval=true)
      */
     private $citizen;
 

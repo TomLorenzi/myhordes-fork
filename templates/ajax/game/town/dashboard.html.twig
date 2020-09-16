@@ -9,7 +9,7 @@
 
     <div class="dashboard">
         <div class="row">
-            <div class="padded cell rw-4 rw-md-6 center">
+            <div class="padded cell rw-3 rw-md-6 center">
                 <em>{{ 'Unsere Verteidigung :'|trans({}, 'game') }}</em><br />
                 <span class="counter">{{ def }} <img src="{{ asset('build/images/icons/small_def.gif') }}" alt="" /></span>
             </div>
@@ -30,7 +30,7 @@
                 {% endif %}
                 {% if has_watchtower and not has_estimated %}<br /><span class="help">[ <span class="link" x-ajax-href="{{ path('town_watchtower') }}">{{ 'Teilnehmen'|trans({}, 'game') }}</span> ] </span>{% endif %}
             </div>
-            <div class="padded cell rw-4 rw-md-12 center">
+            <div class="padded cell rw-5 rw-md-12 center">
                 {% if (zeds_today[3] >= wtt) and zeds_today[0] %}
                     {% if def < zeds_today[1] %}
                          <span class="warning">
@@ -85,6 +85,14 @@
 				{% if display_home_upgrade %}<li{% if has_upgraded_house %} class="checked"{% endif %} x-ajax-href="{{ path('town_house', {'tab': 'build' }) }}">{{ 'Mein Haus ausbauen'|trans({}, 'game') }}.</li>{% endif %}
                 <li{% if has_been_active %} class="checked"{% endif %}>{{ 'Auf der Baustelle arbeiten, in der Werkstatt arbeiten oder in die Außenwelt gehen (optional).'|trans({}, 'game') }}</li>
             </ul>
+            {% if town.dayWithoutAttack > 0 and (app.user == town.creator or is_granted('ROLE_CROW')) %}
+            <h5>{{ 'Deine Stadt'|trans({}, 'game') }}</h5>
+            <ul class="overview-checklist">
+                {% if town.dayWithoutAttack > 0 %}
+                    <li {% if town.password is null %}class="checked"{% endif %} id="open_town_btn">{{'Öffne deine private Stadt für alle'|trans({}, 'game')}}</li>
+                {% endif %}
+            </ul>
+            {% endif %}
         </div>
         {% if conf.get(constant('App\\Structures\\TownConf::CONF_FEATURE_WORDS_OF_HEROS'),false) %}
         <div class="padded cell rw-6 rw-lg-12">
@@ -175,5 +183,18 @@
                     $.ajax.load(null, '{{ path('town_dashboard') }}', true);
             } );
         });
+        {% if town.password is not null and app.user == town.creator and town.dayWithoutAttack > 0 %}
+        $.html.addEventListenerAll("#open_town_btn", "click", function(event){
+            event.preventDefault();
+            event.stopPropagation();
+            if (!confirm('{{ 'Bestätigen?'|trans({},'global')|e('js') }}'))
+                return;
+
+            $.ajax.easySend( '{{ path('town_remove_password') }}', {},
+                function () {
+                    $.ajax.load(null, '{{ path('town_dashboard') }}', true);
+            } );
+        });
+        {% endif %}
     </script>
 {% endblock %}

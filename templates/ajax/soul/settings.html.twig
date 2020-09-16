@@ -31,11 +31,15 @@
                     <input class="hidden" type="file" id="avatar_file_select" accept=".gif,.jpg,.jpeg,.jif,.jfif,.png,.webp,.bmp">
 
                     {% if app.user.avatar is not null %}
-                        <label class="button" for="avatar_file_select">{{ 'Neues Profilbild hochladen'|trans({},'soul') }}</label>
+                        {% if not is_granted('ROLE_SHADOW_BANNED') %}
+                            <label class="button" for="avatar_file_select">{{ 'Neues Profilbild hochladen'|trans({},'soul') }}</label>
+                        {% endif %}
                         <button id="avatar_del">{{ 'Profilbild löschen'|trans({},'soul') }}</button>
 
                         {% if not app.user.avatar.classic %}
-                            <button class="hide-mobile" id="avatar_com" x-avatar-com-toggle>{{ 'Komprimierte Anzeige bearbeiten'|trans({},'soul') }}</button>
+                            {% if not is_granted('ROLE_SHADOW_BANNED') %}
+                                <button class="hide-mobile" id="avatar_com" x-avatar-com-toggle>{{ 'Komprimierte Anzeige bearbeiten'|trans({},'soul') }}</button>
+                            {% endif %}
                             <div id="avatar_com_edit" class="row hidden hide-mobile">
                                 <div class="padded cell rw-6">
                                     <div class="help">
@@ -90,7 +94,7 @@
             </div>
 
             <div class="row">
-                <div class="cell rw-6 rw-lg-12">
+                <div class="cell {% if not is_granted('ROLE_SHADOW_BANNED') %}rw-6{% else %}rw-12{% endif%} rw-lg-12">
                     <h5>{{ 'Darstellung'|trans({},'soul') }}</h5>
                     <div class="row">
                         <div class="padded cell rw-12">
@@ -118,25 +122,25 @@
                         </div>
                     </div>
                 </div>
-                <div class="cell rw-6 rw-lg-12">
-                    <div class="importSoulBanner">
-                        <h4>{{ 'Willkommen bei MyHordes!'|trans({},'welcome') }}</h4>
-                        <p>
-                            {{ 'Hast du ein Seele bei %hordes%, %dv%, %d2n% oder %zn%?'|trans({
-                                '%hordes%': '<i>Hordes</i>', '%dv%': '<i>Die Verdammten</i>', '%d2n%': '<i>Die2Nite</i>', '%zn%': '<i>Zombinoia</i>'
-                            },'soul')|raw }}
-                            <b>{{ 'Dann musst du nicht von Vorne beginnen!'|trans({},'soul') }}</b> {{ 'Importiere deine Seele und mache dort weiter, wo du aufgehört hast.'|trans({},'soul') }}
-                        </p>
-                        <button class="bigbutton" x-ajax-href="{{ url('soul_import') }}">
-                            <img class="float-left" alt="" src="{{ asset('build/images/icons/small_ghost_blue.gif') }}">
-                            <span>{{ 'Seele importieren'|trans({},'soul') }}</span>
-                            <img class="right" alt="" src="{{ asset('build/images/icons/small_ghost_blue.gif') }}">
-                        </button>
+                {% if not is_granted('ROLE_SHADOW_BANNED') %}
+                    <div class="cell rw-6 rw-lg-12">
+                        <div class="importSoulBanner">
+                            <h4>{{ 'Willkommen bei MyHordes!'|trans({},'welcome') }}</h4>
+                            <p>
+                                {{ 'Hast du ein Seele bei %hordes%, %dv%, %d2n% oder %zn%?'|trans({
+                                    '%hordes%': '<i>Hordes</i>', '%dv%': '<i>Die Verdammten</i>', '%d2n%': '<i>Die2Nite</i>', '%zn%': '<i>Zombinoia</i>'
+                                },'soul')|raw }}
+                                <b>{{ 'Dann musst du nicht von Vorne beginnen!'|trans({},'soul') }}</b> {{ 'Importiere deine Seele und mache dort weiter, wo du aufgehört hast.'|trans({},'soul') }}
+                            </p>
+                            <button class="bigbutton" x-ajax-href="{{ url('soul_import') }}">
+                                <img class="float-left" alt="" src="{{ asset('build/images/icons/small_ghost_blue.gif') }}">
+                                <span>{{ 'Seele importieren'|trans({},'soul') }}</span>
+                                <img class="right" alt="" src="{{ asset('build/images/icons/small_ghost_blue.gif') }}">
+                            </button>
+                        </div>
                     </div>
-                </div>
+                {% endif %}
             </div>
-
-
 
             {% if is_granted("ROLE_ADMIN") %}
                 <h5>{{ 'Standardrolle im Forum'|trans({},'soul') }}</h5>
@@ -173,27 +177,30 @@
                 </div>
             </div>
 
-            <h5>{{ 'Externe Anwendungen'|trans({},'soul') }}</h5>
-            <div class="row">
-                <div class="cell padded rw-4 rw-sm-12">
-                    <label for="app_ext">{% trans from 'soul' %}Externe ID für Apps{% endtrans %}</label> <a class="help-button"><div class="tooltip help">{{ 'Diese ID übergibst du der Seite oder dem Programm, dem du einen (Lese-)Zugriff auf deine Spieldaten in "MyHordes" geben möchtest. Das sind Informationen zu deiner Stadt, dem Bürgerverzeichnis, der Weltkarte etc.'|trans({},'global') }}</div>{{ 'Hilfe'|trans({},'global') }}</a>
+            {% if not is_granted('ROLE_SHADOW_BANNED') %}
+                <h5>{{ 'Externe Anwendungen'|trans({},'soul') }}</h5>
+                <div class="row">
+                    <div class="cell padded rw-4 rw-sm-12">
+                        <label for="app_ext">{% trans from 'soul' %}Externe ID für Apps{% endtrans %}</label> <a class="help-button"><div class="tooltip help">{{ 'Diese ID übergibst du der Seite oder dem Programm, dem du einen (Lese-)Zugriff auf deine Spieldaten in "MyHordes" geben möchtest. Das sind Informationen zu deiner Stadt, dem Bürgerverzeichnis, der Weltkarte etc.'|trans({},'global') }}</div>{{ 'Hilfe'|trans({},'global') }}</a>
+                    </div>
+                    <div class="cell padded rw-4 rw-sm-12">
+                        <input id="app_ext" type="text" readonly value="{% if app.user.externalId != '' %}{{ app.user.externalId }}{% else %}not set{% endif %}" />
+                    </div>
+                    <div class="cell padded rw-4 rw-sm-12">
+                        <button id="generate-external-id">{{ 'Neue ID generieren'|trans({}, 'soul') }}</button>
+                        <button id="delete-external-id">{{ 'ID löschen'|trans({}, 'soul') }}</button>
+                        <p class="small">{% trans from 'soul' %}Mit dem Löschen der ID verhinderst Du den Zugriff externer Apps auf Deine Daten.{% endtrans %}</p>
+                    </div>
                 </div>
-                <div class="cell padded rw-4 rw-sm-12">
-                    <input id="app_ext" type="text" readonly value="{% if app.user.externalId != '' %}{{ app.user.externalId }}{% else %}not set{% endif %}" />
-                </div>
-                <div class="cell padded rw-4 rw-sm-12">
-                    <button id="generate-external-id">{{ 'Neue ID generieren'|trans({}, 'soul') }}</button>
-                    <button id="delete-external-id">{{ 'ID löschen'|trans({}, 'soul') }}</button>
-                    <p class="small">{% trans from 'soul' %}Mit dem Löschen der ID verhinderst Du den Zugriff externer Apps auf Deine Daten.{% endtrans %}</p>
-                </div>
-            </div>
 
-            <h5>{{ 'Account löschen'|trans({},'soul') }}</h5>
-            <div class="row">
-                <div class="padded cell rw-4"><label for="acc_del_input">{{ 'Aktuelles Passwort'|trans({},'login') }}</label></div>
-                <div class="padded cell rw-4"><input id="acc_del_input" type="password" /></div>
-                <div class="padded cell rw-4"><button id="acc_del_btn"><i class="fa fa-trash"></i> {{ 'Meinen Account löschen'|trans({},'soul') }}</button></div>
-            </div>
+                <h5>{{ 'Account löschen'|trans({},'soul') }}</h5>
+                <div class="row">
+                    <div class="padded cell rw-4"><label for="acc_del_input">{{ 'Aktuelles Passwort'|trans({},'login') }}</label></div>
+                    <div class="padded cell rw-4"><input id="acc_del_input" type="password" /></div>
+                    <div class="padded cell rw-4"><button id="acc_del_btn"><i class="fa fa-trash"></i> {{ 'Meinen Account löschen'|trans({},'soul') }}</button></div>
+                </div>
+            {% endif %}
+
         </div>
     </div>
 {% endblock %}
@@ -218,7 +225,7 @@
             }
         })
 
-        document.getElementById('acc_del_btn').addEventListener('click', function(e) {
+        $.html.addEventListenerAll('#acc_del_btn', 'click', function(e) {
             e.preventDefault();
             const pw = document.getElementById('acc_del_input').value;
             if (!confirm('{{ 'Bist du sicher, dass du deinen Account jetzt löschen möchtest? Dieser Vorgang kann nicht rückgängig gemacht werden!'|trans({},'soul')|e('js') }}'))
@@ -252,14 +259,14 @@
                 } )
         });
 
-        document.getElementById('generate-external-id').addEventListener('click', function(e) {
+        $.html.addEventListenerAll('#generate-external-id', 'click', function(e) {
             e.preventDefault();
             $.ajax.easySend( '{{ path('api_soul_settings_generateid') }}', [],
                 function () {
                     $.ajax.load(null, '{{ path('soul_settings') }}', true);
                 } )
         });
-        document.getElementById('delete-external-id').addEventListener('click', function(e) {
+        $.html.addEventListenerAll('#delete-external-id', 'click', function(e) {
             e.preventDefault();
             $.ajax.easySend( '{{ path('api_soul_settings_deleteid') }}', [],
                 function () {

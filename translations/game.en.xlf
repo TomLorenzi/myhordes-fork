@@ -1827,7 +1827,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Das ist deine Chance - ergreife sie und fliehe! In Kürze werden die Zombies die Kontrolle über die Zone zurückerlangen. Dir verbleiden:</source>
-        <target>C'est votre chance ! Saisissez là et fuyez ! Bientôt, les zombies reprendront le contrôle de la zone. Il vous reste :</target>
+        <target>You have lost control of the zone (perhaps because another citizen left the zone without you) ! To escape before you get trapped, you have to leave before the timer runs out :</target>
       </segment>
     </unit>
     <unit id="1lHHd11" name="c57da02">
@@ -2326,7 +2326,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Erschöpfung</source>
-        <target>Erschöpfung</target>
+        <target>Exhausted</target>
       </segment>
     </unit>
     <unit id="m0NU7Ex" name="Angststarre">
@@ -2353,7 +2353,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Dehydriert</source>
-        <target>Dehydrated</target>
+        <target>Dehydrated!</target>
       </segment>
     </unit>
     <unit id="4cxMzfa" name="Rauschzustand">
@@ -2371,7 +2371,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Drogenabhängig</source>
-        <target>Hooked</target>
+        <target>Hooked!</target>
       </segment>
     </unit>
     <unit id="CXdRrv3" name="Infektion">
@@ -2380,7 +2380,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Infektion</source>
-        <target>Infection</target>
+        <target>Infected</target>
       </segment>
     </unit>
     <unit id="3dkb1Z2" name="Trunkenheit">
@@ -2398,7 +2398,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Kater</source>
-        <target>Hangover</target>
+        <target>Hungover</target>
       </segment>
     </unit>
     <unit id="E6kbVNC" name="Verwundung - Kopf">
@@ -2470,7 +2470,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Bandagiert</source>
-        <target>Bandage</target>
+        <target>Healed</target>
       </segment>
     </unit>
     <unit id="UUnigxa" name="Abgelegenes Haus">
@@ -6773,7 +6773,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Dieser Bürger ist nicht in der Lage, einen Beruf zu wählen. Wir sind noch lange nicht über den Berg, das kann ich euch sagen!</source>
-        <target>is unable to choose a profession. We are far from over the mountain, I can tell you!</target>
+        <target>wasn't even capable of choosing a profession! We're not through this yet, I promise you</target>
       </segment>
     </unit>
     <unit id="dvSfZK0" name="96d45cc">
@@ -7363,7 +7363,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     </unit>
     <unit id="ROlGH4i" name="7e84046">
       <notes>
-        <note category="german">Und die Energie, die in diesen Tanz gesteckt wurde, zahlt sich schließlich aus, die ersten Tropfen fallen auf die Zombies und du genießt diesen delikaten Moment, in dem ihr Fleisch wie Schnee in der Sonne schmilzt und du geduldig wartest, bis sich ihre Körper verflüssigen.</note>
+        <note category="german">Schließlich zahlen sich deine Bemühungen aus. Die ersten Tropfen regnen auf die Zombies herab. Du genießt diesen Moment, als ihr Fleisch wie Schnee in der Sonne schmilzt und wartest geduldig ab, bis sich ihre Körper komplett aufgelöst haben.</note>
       </notes>
       <segment>
         <source>Und die Energie, die in diesen Tanz gesteckt wurde, zahlt sich schließlich aus, die ersten Tropfen fallen auf die Zombies und du genießt diesen delikaten Moment, in dem ihr Fleisch wie Schnee in der Sonne schmilzt und du geduldig wartest, bis sich ihre Körper verflüssigen.</source>
@@ -8684,7 +8684,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Deine Trunkenheit macht dir die Suche nicht gerade leichter.</source>
-        <target>Your drunkenness doesn't exactly make the search easier for you.</target>
+        <target>Your sobriety, or lack thereof, is quite inconvenient. Things become pretty tricky pretty quickly when you're completely wasted...</target>
       </segment>
     </unit>
     <unit id="UhCUwjo" name="Du kannst heute keine weiteren Beschwerden vorbringen.">
@@ -9566,7 +9566,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Details ansehen</source>
-        <target>Details infos</target>
+        <target>Show details</target>
       </segment>
     </unit>
     <unit id="YuJzi8m" name="Basisverteidigung">
@@ -11440,7 +11440,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Bauprojekte, die mit dem Symbol "&lt;img alt="(!)" src="%path%" /&gt;" gekennzeichnet sind, können nur einmal verwendet werden. Sie werden nach dem Angriff der Zombiehorde wieder abgerissen. Wenn ihr wollt, könnt ihr sie morgen nochmal bauen.</source>
-        <target><![CDATA[Bauprojekte, die mit dem Symbol "<img alt="(!)" src="%path%" />" gekennzeichnet sind, können nur einmal verwendet werden. Sie werden nach dem Angriff der Zombiehorde wieder abgerissen. Wenn ihr wollt, könnt ihr sie morgen nochmal bauen.]]></target>
+        <target><![CDATA[Constructions marked with this symbol "<img alt="(!)" src="%path%" />" are tomporary : they will be destroyed at midnight, immediately AFTER the attack. To make use of it again tomorrow, it must be rebuilt again tomorrow.]]></target>
       </segment>
     </unit>
     <unit id="rmqJTg6" name="70903c1">
@@ -11467,7 +11467,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Diese Empfehlung stammt von einem oder mehreren Helden deiner Stadt.</source>
-        <target>Diese Empfehlung stammt von einem oder mehreren Helden deiner Stadt.</target>
+        <target>This recommendation generally comes from one or more of your town's Heroes.</target>
       </segment>
     </unit>
     <unit id="36CKBMW" name="bc11f9b">
@@ -11476,7 +11476,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Diese Mitteilung wird auf &lt;strong&gt;der Bürgerseite bei deinem Namen angezeigt und ist für jeden lesbar&lt;/strong&gt;. Nutze diese Mitteilungsmöglichkeit, um dich vorzustellen, dich zu rechtfertigen oder einen Gruß an deine Mitspieler zu hinterlassen...</source>
-        <target><![CDATA[Diese Mitteilung wird auf <strong>der Bürgerseite bei deinem Namen angezeigt und ist für jeden lesbar</strong>. Nutze diese Mitteilungsmöglichkeit, um dich vorzustellen, dich zu rechtfertigen oder einen Gruß an deine Mitspieler zu hinterlassen...]]></target>
+        <target><![CDATA[Everyone in town can see this message <strong>by looking at the Citizens page</strong>, next to your name. Use it to say a little bit about yourself, how you're feeling, or to leave a message for everyone... ]]></target>
       </segment>
     </unit>
     <unit id="slcsIov" name="6900dcf">
@@ -11497,6 +11497,33 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
         <target>Start clenching citizens, the zombies will attack tonight at midnight!</target>
       </segment>
     </unit>
+    <unit id="ymSCpCu" name="Explosion">
+      <notes>
+        <note category="german">Explosion</note>
+      </notes>
+      <segment>
+        <source>Explosion</source>
+        <target>Explosion</target>
+      </segment>
+    </unit>
+    <unit id="oDsiHGx" name="???">
+      <notes>
+        <note category="german">???</note>
+      </notes>
+      <segment>
+        <source>???</source>
+        <target>???</target>
+      </segment>
+    </unit>
+    <unit id="i0KuVv1" name="Schokoladenkreuz">
+      <notes>
+        <note category="german">Schokoladenkreuz</note>
+      </notes>
+      <segment>
+        <source>Schokoladenkreuz</source>
+        <target>Schokoladenkreuz</target>
+      </segment>
+    </unit>
     <unit id="Q8sma_4" name="eceaacb">
       <notes>
         <note category="german">Wenn diese Option aktiviert ist, kann dich ein anderer Bürger nicht weiter von der Stadt entfernen. Er darf dich in diesem Fall nur näher bringen.</note>
@@ -11513,6 +11540,24 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       <segment>
         <source>Wenn diese Option aktiviert ist, kann dir ein anderer Spieler befehlen, Gegenstände einzusammeln oder abzulegen. BEACHTE: Einige "persönliche" Gegenstände können unter keinen Umständen abgelegt werden (Texte, Waffen u.a.)</source>
         <target>Wenn diese Option aktiviert ist, kann dir ein anderer Spieler befehlen, Gegenstände einzusammeln oder abzulegen. BEACHTE: Einige "persönliche" Gegenstände können unter keinen Umständen abgelegt werden (Texte, Waffen u.a.)</target>
+      </segment>
+    </unit>
+    <unit id="K65v2LS" name="90b2719">
+      <notes>
+        <note category="german">Wenn du in der Wüste von Zombies umzingelst wirst, erstarrst du vor Angst und kannst nichts mehr unternehmen... Du musst Drogen oder etwas anderes finden, um &lt;strong&gt;deine Nerven zu beruhigen&lt;/strong&gt; und aus dieser Hölle zu entkommen... Wenigstens ist es dir immer noch möglich, im Forum nach Hilfe zu suchen...</note>
+      </notes>
+      <segment>
+        <source>Wenn du in der Wüste von Zombies umzingelst wirst, erstarrst du vor Angst und kannst nichts mehr unternehmen... Du musst Drogen oder etwas anderes finden, um &lt;strong&gt;deine Nerven zu beruhigen&lt;/strong&gt; und aus dieser Hölle zu entkommen... Wenigstens ist es dir immer noch möglich, im Forum nach Hilfe zu suchen...</source>
+        <target><![CDATA[Wenn du in der Wüste von Zombies umzingelst wirst, erstarrst du vor Angst und kannst nichts mehr unternehmen... Du musst Drogen oder etwas anderes finden, um <strong>deine Nerven zu beruhigen</strong> und aus dieser Hölle zu entkommen... Wenigstens ist es dir immer noch möglich, im Forum nach Hilfe zu suchen...]]></target>
+      </segment>
+    </unit>
+    <unit id="0S63eNq" name="Regentanz ausführen">
+      <notes>
+        <note category="german">Regentanz ausführen</note>
+      </notes>
+      <segment>
+        <source>Regentanz ausführen</source>
+        <target>Regentanz ausführen</target>
       </segment>
     </unit>
   </file>

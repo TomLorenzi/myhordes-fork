@@ -1650,11 +1650,11 @@ Pro Zug wird dir 1 Aktionspunkt abgezogen. Bei 0 Punkten bist du %img_tired% &lt
     </unit>
     <unit id="6VYEXVB" name="1e8a126">
       <notes>
-        <note category="german">Ausgrabungen haben eine geringere Erfolgschance (einschließlich Gebäude). Sie können jedoch bestimmte Objekte verwenden, um diese Strafe aufzuheben (insbesondere Taschenlampen oder Lampen).</note>
+        <note category="german">Ausgrabungen haben eine geringere Erfolgschance (Gebäudesuche nicht enthalten). Sie können jedoch bestimmte Objekte verwenden, um diese Strafe aufzuheben (insbesondere Taschenlampen oder Lampen).</note>
       </notes>
       <segment>
         <source>Ausgrabungen haben eine geringere Erfolgschance (einschließlich Gebäude). Sie können jedoch bestimmte Objekte verwenden, um diese Strafe aufzuheben (insbesondere Taschenlampen oder Lampen).</source>
-        <target>les fouilles ont des chances de réussite plus faibles (bâtiments compris). Toutefois, vous pouvez utiliser certains objets pour annuler cette pénalité (torches ou lampes notamment).</target>
+        <target>les fouilles ont des chances de réussite plus faibles (fouilles de bâtiments non incluses). Toutefois, vous pouvez utiliser certains objets pour annuler cette pénalité (torches ou lampes notamment).</target>
       </segment>
     </unit>
     <unit id="nAcFRkc" name="Diese Regeln gelten nicht in &quot;Kleinstadt&quot;-Karten.">

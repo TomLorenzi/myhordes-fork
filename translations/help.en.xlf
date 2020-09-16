@@ -1180,6 +1180,99 @@ Du kannst deinen Browser in dieser Zeit auch schließen und das Spiel verlassen.
         <target><![CDATA[Um diese "regenerierten" Zonen entdecken zu können, benötigt die Stadt einen <strong>Forschungsturm</strong> (Konstruktion). Sein Bau erhöht zudem die Wahrscheinlichkeit, dass "regenerierte" Gebiete erneut Gegenstände enthalten.]]></target>
       </segment>
     </unit>
+    <unit id="KvyR.t." name="72bd5b1">
+      <notes>
+        <note category="german">Solange du genügend %img_ap% &lt;strong&gt;Aktionspunkte&lt;/strong&gt; besitzt, kannst du dich in der Außenwelt bewegen:
+Pro Zug wird dir 1 Aktionspunkt abgezogen. Bei 0 Punkten bist du %img_tired% &lt;strong&gt;Erschöpft&lt;/strong&gt; und kannst dich nicht mehr bewegen.</note>
+      </notes>
+      <segment>
+        <source>Solange du genügend %img_ap% &lt;strong&gt;Aktionspunkte&lt;/strong&gt; besitzt, kannst du dich in der Außenwelt bewegen:
+Pro Zug wird dir 1 Aktionspunkt abgezogen. Bei 0 Punkten bist du %img_tired% &lt;strong&gt;Erschöpft&lt;/strong&gt; und kannst dich nicht mehr bewegen.</source>
+        <target><![CDATA[Solange du genügend %img_ap% <strong>Aktionspunkte</strong> besitzt, kannst du dich in der Außenwelt bewegen:
+Pro Zug wird dir 1 Aktionspunkt abgezogen. Bei 0 Punkten bist du %img_tired% <strong>Erschöpft</strong> und kannst dich nicht mehr bewegen.]]></target>
+      </segment>
+    </unit>
+    <unit id="rTyffgm" name="MyHordes?">
+      <notes>
+        <note category="german">MyHordes?</note>
+      </notes>
+      <segment>
+        <source>MyHordes?</source>
+        <target>MyHordes?</target>
+      </segment>
+    </unit>
+    <unit id="THFtKTb" name="2547bd8">
+      <notes>
+        <note category="german">Die Nächte in der Welt von MyHordes sind kalt. Sehr kalt und selten günstig. Bestimmte Handlungen oder Regeln ändern sich in diesen Stunden großer Einsamkeit...</note>
+      </notes>
+      <segment>
+        <source>Die Nächte in der Welt von MyHordes sind kalt. Sehr kalt und selten günstig. Bestimmte Handlungen oder Regeln ändern sich in diesen Stunden großer Einsamkeit...</source>
+        <target>Die Nächte in der Welt von MyHordes sind kalt. Sehr kalt und selten günstig. Bestimmte Handlungen oder Regeln ändern sich in diesen Stunden großer Einsamkeit...</target>
+      </segment>
+    </unit>
+    <unit id="VgYGj1w" name="Die folgenden Änderungen gelten Nachts:">
+      <notes>
+        <note category="german">Die folgenden Änderungen gelten Nachts:</note>
+      </notes>
+      <segment>
+        <source>Die folgenden Änderungen gelten Nachts:</source>
+        <target>Die folgenden Änderungen gelten Nachts:</target>
+      </segment>
+    </unit>
+    <unit id="HhFaIrh" name="Die Spezialfähigkeit &lt;i&gt;Durchbrechen&lt;/i&gt; hat eine höhere Erfolgschance.">
+      <notes>
+        <note category="german">Die Spezialfähigkeit &lt;i&gt;Durchbrechen&lt;/i&gt; hat eine höhere Erfolgschance.</note>
+      </notes>
+      <segment>
+        <source>Die Spezialfähigkeit &lt;i&gt;Durchbrechen&lt;/i&gt; hat eine höhere Erfolgschance.</source>
+        <target><![CDATA[Die Spezialfähigkeit <i>Durchbrechen</i> hat eine höhere Erfolgschance.]]></target>
+      </segment>
+    </unit>
+    <unit id="iQ1y9St" name="Camper haben eine bessere Chance, ein Versteck zu finden.">
+      <notes>
+        <note category="german">Camper haben eine bessere Chance, ein Versteck zu finden.</note>
+      </notes>
+      <segment>
+        <source>Camper haben eine bessere Chance, ein Versteck zu finden.</source>
+        <target>Camper haben eine bessere Chance, ein Versteck zu finden.</target>
+      </segment>
+    </unit>
+    <unit id="HnQcgq_" name="0c31592">
+      <notes>
+        <note category="german">Für Aufklärer ist die Wahrscheinlichkeit, während der Bewegung entdeckt zu werden, erheblich geringer: Die Nacht ist Ihr Verbündeter.</note>
+      </notes>
+      <segment>
+        <source>Für Aufklärer ist die Wahrscheinlichkeit, während der Bewegung entdeckt zu werden, erheblich geringer: Die Nacht ist Ihr Verbündeter.</source>
+        <target>Für Aufklärer ist die Wahrscheinlichkeit, während der Bewegung entdeckt zu werden, erheblich geringer: Die Nacht ist Ihr Verbündeter.</target>
+      </segment>
+    </unit>
+    <unit id="a05ekAR" name="0f74fb4">
+      <notes>
+        <note category="german">Ein Bürger kann versuchen, ein Objekt aus der Bank zu stehlen: Er hat dann die Möglichkeit, nicht im Register identifiziert zu werden.</note>
+      </notes>
+      <segment>
+        <source>Ein Bürger kann versuchen, ein Objekt aus der Bank zu stehlen: Er hat dann die Möglichkeit, nicht im Register identifiziert zu werden.</source>
+        <target>Ein Bürger kann versuchen, ein Objekt aus der Bank zu stehlen: Er hat dann die Möglichkeit, nicht im Register identifiziert zu werden.</target>
+      </segment>
+    </unit>
+    <unit id="6VYEXVB" name="1e8a126">
+      <notes>
+        <note category="german">Ausgrabungen haben eine geringere Erfolgschance (Gebäudesuche nicht enthalten). Sie können jedoch bestimmte Objekte verwenden, um diese Strafe aufzuheben (insbesondere Taschenlampen oder Lampen).</note>
+      </notes>
+      <segment>
+        <source>Ausgrabungen haben eine geringere Erfolgschance (einschließlich Gebäude). Sie können jedoch bestimmte Objekte verwenden, um diese Strafe aufzuheben (insbesondere Taschenlampen oder Lampen).</source>
+        <target>Ausgrabungen haben eine geringere Erfolgschance (einschließlich Gebäude). Sie können jedoch bestimmte Objekte verwenden, um diese Strafe aufzuheben (insbesondere Taschenlampen oder Lampen).</target>
+      </segment>
+    </unit>
+    <unit id="nAcFRkc" name="Diese Regeln gelten nicht in &quot;Kleinstadt&quot;-Karten.">
+      <notes>
+        <note category="german">Diese Regeln gelten nicht in "Kleinstadt"-Karten.</note>
+      </notes>
+      <segment>
+        <source>Diese Regeln gelten nicht in "Kleinstadt"-Karten.</source>
+        <target>Diese Regeln gelten nicht in "Kleinstadt"-Karten.</target>
+      </segment>
+    </unit>
     <unit id="FYzGcLV" name="e212c39">
       <notes>
         <note category="german">An den Kontrollpunkten kannst du mit einem Blick erkennen, ob eine Zone gefährlich ist oder nicht. Die
@@ -1279,6 +1372,15 @@ Du kannst deinen Browser in dieser Zeit auch schließen und das Spiel verlassen.
         <target>Wenn du in der Falle sitzt, hast du mehrere Optionen:</target>
       </segment>
     </unit>
+    <unit id="ZI9ipy1" name="b8fc43c">
+      <notes>
+        <note category="german">Du kannst versuchen, gewaltsam auszubrechen. Dabei riskierst du aber eine %img_wound% &lt;span x-ajax-href=%url_health%&gt;schwere Verletzung&lt;/span&gt;.</note>
+      </notes>
+      <segment>
+        <source>Du kannst versuchen, gewaltsam auszubrechen. Dabei riskierst du aber eine %img_wound% &lt;span x-ajax-href=%url_health%&gt;schwere Verletzung&lt;/span&gt;.</source>
+        <target><![CDATA[Du kannst versuchen, gewaltsam auszubrechen. Dabei riskierst du aber eine %img_wound% <span x-ajax-href=%url_health%>schwere Verletzung</span>.]]></target>
+      </segment>
+    </unit>
     <unit id="G_5XfFC" name="e755ac4">
       <notes>
         <note category="german">Du kannst versuchen, die Zombies einen nach dem anderen mit bloßen Händen umzubringen... Jeder Versuch kostet
@@ -1369,27 +1471,6 @@ Du kannst deinen Browser in dieser Zeit auch schließen und das Spiel verlassen.
         <target>wieder die Kontrolle zu erlangen.</target>
       </segment>
     </unit>
-    <unit id="KvyR.t." name="72bd5b1">
-      <notes>
-        <note category="german">Solange du genügend %img_ap% &lt;strong&gt;Aktionspunkte&lt;/strong&gt; besitzt, kannst du dich in der Außenwelt bewegen:
-Pro Zug wird dir 1 Aktionspunkt abgezogen. Bei 0 Punkten bist du %img_tired% &lt;strong&gt;Erschöpft&lt;/strong&gt; und kannst dich nicht mehr bewegen.</note>
-      </notes>
-      <segment>
-        <source>Solange du genügend %img_ap% &lt;strong&gt;Aktionspunkte&lt;/strong&gt; besitzt, kannst du dich in der Außenwelt bewegen:
-Pro Zug wird dir 1 Aktionspunkt abgezogen. Bei 0 Punkten bist du %img_tired% &lt;strong&gt;Erschöpft&lt;/strong&gt; und kannst dich nicht mehr bewegen.</source>
-        <target><![CDATA[Solange du genügend %img_ap% <strong>Aktionspunkte</strong> besitzt, kannst du dich in der Außenwelt bewegen:
-Pro Zug wird dir 1 Aktionspunkt abgezogen. Bei 0 Punkten bist du %img_tired% <strong>Erschöpft</strong> und kannst dich nicht mehr bewegen.]]></target>
-      </segment>
-    </unit>
-    <unit id="rTyffgm" name="MyHordes?">
-      <notes>
-        <note category="german">MyHordes?</note>
-      </notes>
-      <segment>
-        <source>MyHordes?</source>
-        <target>MyHordes?</target>
-      </segment>
-    </unit>
     <unit id="JtQM0Nd" name="e6b22b6">
       <notes>
         <note category="german">'MyHordes' ist ein Survivalspiel, das in einer postapokalyptischen Welt voller Untoter spielt.</note>
@@ -1415,15 +1496,6 @@ Pro Zug wird dir 1 Aktionspunkt abgezogen. Bei 0 Punkten bist du %img_tired% <st
       <segment>
         <source>Organisiert euch, um zu überleben.</source>
         <target>Organisiert euch, um zu überleben.</target>
-      </segment>
-    </unit>
-    <unit id="ZI9ipy1" name="b8fc43c">
-      <notes>
-        <note category="german">Du kannst versuchen, gewaltsam auszubrechen. Dabei riskierst du aber eine %img_wound% &lt;span x-ajax-href=%url_health%&gt;schwere Verletzung&lt;/span&gt;.</note>
-      </notes>
-      <segment>
-        <source>Du kannst versuchen, gewaltsam auszubrechen. Dabei riskierst du aber eine %img_wound% &lt;span x-ajax-href=%url_health%&gt;schwere Verletzung&lt;/span&gt;.</source>
-        <target><![CDATA[Du kannst versuchen, gewaltsam auszubrechen. Dabei riskierst du aber eine %img_wound% <span x-ajax-href=%url_health%>schwere Verletzung</span>.]]></target>
       </segment>
     </unit>
     <unit id="FMm6m0B" name="47e9343">
@@ -1613,78 +1685,6 @@ Pro Zug wird dir 1 Aktionspunkt abgezogen. Bei 0 Punkten bist du %img_tired% <st
       <segment>
         <source>Wenn's mal Probleme geben sollte, ist eine &lt;span x-ajax-href=%url_cp%&gt;Flucht&lt;/span&gt; nicht verkehrt...</source>
         <target><![CDATA[Wenn's mal Probleme geben sollte, ist eine <span x-ajax-href=%url_cp%>Flucht</span> nicht verkehrt...]]></target>
-      </segment>
-    </unit>
-    <unit id="THFtKTb" name="2547bd8">
-      <notes>
-        <note category="german">Die Nächte in der Welt von MyHordes sind kalt. Sehr kalt und selten günstig. Bestimmte Handlungen oder Regeln ändern sich in diesen Stunden großer Einsamkeit...</note>
-      </notes>
-      <segment>
-        <source>Die Nächte in der Welt von MyHordes sind kalt. Sehr kalt und selten günstig. Bestimmte Handlungen oder Regeln ändern sich in diesen Stunden großer Einsamkeit...</source>
-        <target>Die Nächte in der Welt von MyHordes sind kalt. Sehr kalt und selten günstig. Bestimmte Handlungen oder Regeln ändern sich in diesen Stunden großer Einsamkeit...</target>
-      </segment>
-    </unit>
-    <unit id="VgYGj1w" name="Die folgenden Änderungen gelten Nachts:">
-      <notes>
-        <note category="german">Die folgenden Änderungen gelten Nachts:</note>
-      </notes>
-      <segment>
-        <source>Die folgenden Änderungen gelten Nachts:</source>
-        <target>Die folgenden Änderungen gelten Nachts:</target>
-      </segment>
-    </unit>
-    <unit id="HhFaIrh" name="Die Spezialfähigkeit &lt;i&gt;Durchbrechen&lt;/i&gt; hat eine höhere Erfolgschance.">
-      <notes>
-        <note category="german">Die Spezialfähigkeit &lt;i&gt;Durchbrechen&lt;/i&gt; hat eine höhere Erfolgschance.</note>
-      </notes>
-      <segment>
-        <source>Die Spezialfähigkeit &lt;i&gt;Durchbrechen&lt;/i&gt; hat eine höhere Erfolgschance.</source>
-        <target><![CDATA[Die Spezialfähigkeit <i>Durchbrechen</i> hat eine höhere Erfolgschance.]]></target>
-      </segment>
-    </unit>
-    <unit id="HnQcgq_" name="0c31592">
-      <notes>
-        <note category="german">Für Aufklärer ist die Wahrscheinlichkeit, während der Bewegung entdeckt zu werden, erheblich geringer: Die Nacht ist Ihr Verbündeter.</note>
-      </notes>
-      <segment>
-        <source>Für Aufklärer ist die Wahrscheinlichkeit, während der Bewegung entdeckt zu werden, erheblich geringer: Die Nacht ist Ihr Verbündeter.</source>
-        <target>Für Aufklärer ist die Wahrscheinlichkeit, während der Bewegung entdeckt zu werden, erheblich geringer: Die Nacht ist Ihr Verbündeter.</target>
-      </segment>
-    </unit>
-    <unit id="a05ekAR" name="0f74fb4">
-      <notes>
-        <note category="german">Ein Bürger kann versuchen, ein Objekt aus der Bank zu stehlen: Er hat dann die Möglichkeit, nicht im Register identifiziert zu werden.</note>
-      </notes>
-      <segment>
-        <source>Ein Bürger kann versuchen, ein Objekt aus der Bank zu stehlen: Er hat dann die Möglichkeit, nicht im Register identifiziert zu werden.</source>
-        <target>Ein Bürger kann versuchen, ein Objekt aus der Bank zu stehlen: Er hat dann die Möglichkeit, nicht im Register identifiziert zu werden.</target>
-      </segment>
-    </unit>
-    <unit id="6VYEXVB" name="1e8a126">
-      <notes>
-        <note category="german">Ausgrabungen haben eine geringere Erfolgschance (einschließlich Gebäude). Sie können jedoch bestimmte Objekte verwenden, um diese Strafe aufzuheben (insbesondere Taschenlampen oder Lampen).</note>
-      </notes>
-      <segment>
-        <source>Ausgrabungen haben eine geringere Erfolgschance (einschließlich Gebäude). Sie können jedoch bestimmte Objekte verwenden, um diese Strafe aufzuheben (insbesondere Taschenlampen oder Lampen).</source>
-        <target>Ausgrabungen haben eine geringere Erfolgschance (einschließlich Gebäude). Sie können jedoch bestimmte Objekte verwenden, um diese Strafe aufzuheben (insbesondere Taschenlampen oder Lampen).</target>
-      </segment>
-    </unit>
-    <unit id="nAcFRkc" name="Diese Regeln gelten nicht in &quot;Kleinstadt&quot;-Karten.">
-      <notes>
-        <note category="german">Diese Regeln gelten nicht in "Kleinstadt"-Karten.</note>
-      </notes>
-      <segment>
-        <source>Diese Regeln gelten nicht in "Kleinstadt"-Karten.</source>
-        <target>Diese Regeln gelten nicht in "Kleinstadt"-Karten.</target>
-      </segment>
-    </unit>
-    <unit id="iQ1y9St" name="Camper haben eine bessere Chance, ein Versteck zu finden.">
-      <notes>
-        <note category="german">Camper haben eine bessere Chance, ein Versteck zu finden.</note>
-      </notes>
-      <segment>
-        <source>Camper haben eine bessere Chance, ein Versteck zu finden.</source>
-        <target>Camper haben eine bessere Chance, ein Versteck zu finden.</target>
       </segment>
     </unit>
   </file>

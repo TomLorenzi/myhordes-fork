@@ -77,6 +77,12 @@ class DeathHandler
             $remove[] = $et;
         $citizen->getStatus()->clear();
 
+        foreach ($citizen->getCitizenWatch() as $cw) {
+            $citizen->getTown()->removeCitizenWatch($cw);
+            $citizen->removeCitizenWatch($cw);
+            $this->entity_manager->remove($cw);
+        }
+
         if ($citizen->getEscortSettings()) {
             $this->entity_manager->remove($citizen->getEscortSettings());
             $citizen->setEscortSettings(null);
@@ -225,8 +231,8 @@ class DeathHandler
         TownRankingProxy::fromTown( $citizen->getTown(), true );
 
         if ($handle_em) foreach ($remove as $r) $this->entity_manager->remove($r);
-        // If the town is not small, spawn a soul
-        if($citizen->getTown()->getType()->getName() != 'small') {
+        // If the town is not small AND the souls are enabled, spawn a soul
+        if($citizen->getTown()->getType()->getName() != 'small' && $this->conf->getTownConfiguration( $citizen->getTown() )->get(TownConf::CONF_FEATURE_SHAMAN_MODE, 'normal') != 'none') {
             $minDistance = min(4, $citizen->getTown()->getDay());
             $maxDistance = max($citizen->getTown()->getDay() + 6, 15);
 

@@ -159,7 +159,7 @@
             <h5>{{ '%citizen%s Truhe'|trans({'%citizen%': owner.user.username}, 'game') }}</h5>
             {% if not hidden %}
                 <p>{{ 'Wenn Sie aus dem Fenster schauen, können Sie die folgenden Dinge im Haus sehen:'|trans({},'game') }}</p>
-                {% embed "ajax/game/inventory.html.twig" with {'size': chest_size, 'items': chest.items} %}
+                {% embed "ajax/game/inventory.html.twig" with {'size': chest_size, 'items': chest.items, 'foreignChestMode': true} %}
                     {% block class %}chest{% endblock %}
                     {% block title %}{% endblock %}
                 {% endembed %}

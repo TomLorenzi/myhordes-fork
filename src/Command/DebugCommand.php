@@ -75,6 +75,7 @@ class DebugCommand extends Command
             ->addOption('force', null, InputOption::VALUE_NONE, 'Will detach debug users when used with fill-town.')
             ->addOption('fill-bank', null, InputOption::VALUE_REQUIRED, 'Places 500 of each item type in the bank of a given town.')
             ->addOption('confirm-deaths', null, InputOption::VALUE_NONE, 'Confirms death of every account having an email ending on @localhost.')
+            ->addOption('test-town-names', null, InputOption::VALUE_REQUIRED, 'Will generate 50 town names')
         ;
     }
 
@@ -96,8 +97,8 @@ class DebugCommand extends Command
                             '--validated' => true,
                         ]);
                         $command->run($nested_input, $output);
-                        $crow = $this->entity_manager->getRepository(User::class)->find(66);
-                    }                                       
+                    }
+                    $crow = $this->entity_manager->getRepository(User::class)->find(66);
                 }
 
                 if ($crow->getRightsElevation() > User::ROLE_USER || !strstr($crow->getEmail(), "@localhost") === "@localhost") {
@@ -293,6 +294,10 @@ class DebugCommand extends Command
             
             return 0;
         }
+
+        if ($lang = $input->getOption('test-town-names'))
+            for ($i = 0; $i < 50; $i++)
+                $output->writeln($this->game_factory->createTownName($lang));
 
         return 1;
     }

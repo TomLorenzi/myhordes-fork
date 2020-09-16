@@ -5,11 +5,11 @@ namespace App\Command;
 
 
 use App\Entity\AttackSchedule;
-use App\Entity\Inventory;
+use App\Entity\Picto;
 use App\Entity\Town;
-use App\Entity\TownClass;
+use App\Entity\TownLogEntry;
+use App\Service\AntiCheatService;
 use App\Service\ConfMaster;
-use App\Service\GameValidator;
 use App\Service\Locksmith;
 use App\Service\NightlyHandler;
 use App\Structures\MyHordesConf;
@@ -18,15 +18,10 @@ use Doctrine\ORM\EntityManagerInterface;
 use Exception;
 use Symfony\Bundle\FrameworkBundle\Translation\Translator;
 use Symfony\Component\Console\Command\Command;
-use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Helper\ProgressBar;
-use Symfony\Component\Console\Helper\Table;
-use Symfony\Component\Translation\TranslatorBagInterface;
-use Symfony\Contracts\Translation\LocaleAwareInterface;
-use Symfony\Contracts\Translation\TranslatorInterface;
 
 class SchedulerCommand extends Command
 {
@@ -37,14 +32,16 @@ class SchedulerCommand extends Command
     private $locksmith;
     private $trans;
     private $conf;
+    private $anti_cheat;
 
-    public function __construct(EntityManagerInterface $em, NightlyHandler $nh, Locksmith $ls, Translator $translator, ConfMaster $conf)
+    public function __construct(EntityManagerInterface $em, NightlyHandler $nh, Locksmith $ls, Translator $translator, ConfMaster $conf, AntiCheatService $acs)
     {
         $this->entityManager = $em;
         $this->night = $nh;
         $this->locksmith = $ls;
         $this->trans = $translator;
         $this->conf = $conf->getGlobalConf();
+        $this->anti_cheat = $acs;
         parent::__construct();
     }
 
@@ -80,8 +77,6 @@ class SchedulerCommand extends Command
             $progress = new ProgressBar( $output->section() );
             $progress->start( count($towns) );
 
-            $has_fails = false;
-
             foreach ( $towns as $town ) {
 
                 if ($town->getAttackFails() >= 3 || ($town->getLastAttack() && $town->getLastAttack()->getId() === $s->getId()))
@@ -104,16 +99,35 @@ class SchedulerCommand extends Command
                         $this->entityManager->flush();
 
                     } else {
-
-                        $town->setAttackFails(0);
-                        $this->entityManager->persist($town);
+                        if($town->isOpen() && $town->getDayWithoutAttack() > 2 && $town->getType()->getName() == "custom") {
+                            $this->entityManager->flush();
+                            $output->writeln("Removing town <info>{$town->getName()}</info> because is lasted for 2 days without getting filled");
+                            foreach($town->getCitizens() as $citizen) {
+                                /** @var \App\Entity\Citizen $citizen */
+                                $citizen->getUser()->removePastLife($citizen->getRankingEntry());
+                                $this->entityManager->remove($citizen->getRankingEntry());
+                                $this->entityManager->remove($citizen);
+                            }
+                            $logs = $this->entityManager->getRepository(TownLogEntry::class)->findBy(['town' => $town]);
+                            foreach ($logs as $log){
+                                $this->entityManager->remove($log);
+                            }
+                            $pictos = $this->entityManager->getRepository(Picto::class)->findBy(['town' => $town]);
+                            foreach ($pictos as $picto){
+                                $this->entityManager->remove($picto);
+                            }
+                            $this->entityManager->remove($town->getRankingEntry());
+                            $this->entityManager->remove($town);
+                        } else {
+                            $town->setAttackFails(0);
+                            $this->entityManager->persist($town);
+                        }
                         $this->entityManager->flush();
-
                     }
                 } catch (Exception $e) {
 
-                    $has_fails = true;
                     $output->writeln("<error>Failed to process town {$town->getId()}!</error>");
+                    $output->writeln($e->getMessage());
 
                     $fmt = $this->conf->get(MyHordesConf::CONF_FATAL_MAIL_TARGET, null);
                     $fms = $this->conf->get(MyHordesConf::CONF_FATAL_MAIL_SOURCE, 'fatalmail@localhost');
@@ -141,8 +155,9 @@ class SchedulerCommand extends Command
                 $progress->advance();
             }
 
-            $s->setCompleted( !$has_fails );
+            $s->setCompleted( true );
             $this->entityManager->persist($s);
+            $this->anti_cheat->cleanseConnectionIdentifiers();  // Delete old connection identifiers
             $progress->finish();
 
             return true;

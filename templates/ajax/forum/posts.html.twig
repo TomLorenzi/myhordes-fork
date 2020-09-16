@@ -26,7 +26,7 @@
                 {% endif %}
             </div>
             <div class="cell padded rw-6 right">
-                {% if not locked and not is_granted("ROLE_BANNED") %}
+                {% if not locked and not is_granted("ROLE_FORUM_BANNED") %}
                     <div x-forum-action="answer" class="forum-button"><span>{{ 'Antworten'|trans({},'global') }}</span></div>
                 {% else %}
                     <div class="forum-button-disabled"><img alt="" src="{{ asset('build/images/icons/lock.gif') }}" /><span>{{ 'Antworten'|trans({},'global') }}</span></div>
@@ -202,13 +202,12 @@
         const reloadPage = function() { loadPage( {{ current_page }} ); };
 
         {% if owned %}
-        $.html.addEventListenerAll('[x-forum-moderator-action]', 'click', function(e,elem) {
+        $.html.addEventListenerAll('[x-forum-moderator-action="lock"]', 'click', function(e,elem) {
             if (!confirm('{{ 'Bestätigen?'|trans({},'global')|e('js') }}'))
                 return;
             $.ajax.easySend('{{ path('forum_thread_mod_controller', {fid: fid, tid: tid, mod: 'lock'}) }}', null, reloadPage);
         });
         {% endif %}
-
 
         $.html.addEventListenerAll('[x-forum-action="link-post"]', 'click', function(e,elem) {
             let link = document.getElementById('link-post-' + elem.getAttribute('x-post-id'));

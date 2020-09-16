@@ -102,6 +102,16 @@ class ActionHandler
                 case Requirement::HideOnFail: $this_state = self::ActionValidityHidden; break;
             }
 
+            if ($config = $meta_requirement->getConf()) {
+
+                $set_val = $this->conf->getTownConfiguration($citizen->getTown())->get($config->getConf(), null);
+
+                $success = false;
+                if (!$success && $config->getBoolVal() !== null && $set_val === $config->getBoolVal()) $success = true;
+
+                if (!$success) $current_state = min( $current_state, $this_state );
+            }
+
 
             if ($status = $meta_requirement->getStatusRequirement()) {
                 if ($status->getStatus() !== null && $status->getEnabled() !== null) {
@@ -109,8 +119,10 @@ class ActionHandler
                     if ($status_is_active !== $status->getEnabled()) $current_state = min( $current_state, $this_state );
                 }
 
-                if ($status->getProfession() !== null && $citizen->getProfession()->getId() !== $status->getProfession()->getId())
-                    $current_state = min( $current_state, $this_state );
+                if ($status->getProfession() !== null && $status->getEnabled() !== null) {
+                    $profession_is_active = $citizen->getProfession()->getId() === $status->getProfession()->getId();
+                    if ($profession_is_active !== $status->getEnabled()) $current_state = min( $current_state, $this_state );
+                }
 
                 if ($status->getRole() !== null && $status->getEnabled() !== null) {
                     $role_is_active = $citizen->getRoles()->contains( $status->getRole() );
@@ -145,6 +157,11 @@ class ActionHandler
                 if ($citizen->getPm() < $pm->getMin() || $citizen->getPm() > $max) $current_state = min( $current_state, $this_state );
             }
 
+            if ($cp = $meta_requirement->getCp()) {
+                $max = $cp->getRelativeMax() ? ($this->citizen_handler->getMaxBP( $citizen ) + $cp->getMax()) : $cp->getMax();
+                if ($citizen->getBp() < $cp->getMin() || $citizen->getBp() > $max) $current_state = min( $current_state, $this_state );
+            }
+
             if ($counter = $meta_requirement->getCounter()) {
                 $counter_value = $citizen->getSpecificActionCounterValue( $counter->getType() );
                 if ($counter->getMin() !== null && $counter_value < $counter->getMin()) $current_state = min( $current_state, $this_state );
@@ -158,9 +175,18 @@ class ActionHandler
 
                 $source = $citizen->getZone() ? [$citizen->getInventory()] : [$citizen->getInventory(), $citizen->getHome()->getChest()];
 
-                if (empty($this->inventory_handler->fetchSpecificItems( $source,
-                    [new ItemRequest($item_str, $item_condition->getCount() ?? 1, false, $item_condition->getAllowPoison() ? null : false, $is_prop)]
-                ))) $current_state = min( $current_state, $this_state );
+                $count = $item_condition->getCount() === null ? 1 : $item_condition->getCount();
+
+                if ($count > 0) {
+                    if (empty($this->inventory_handler->fetchSpecificItems( $source,
+                        [new ItemRequest($item_str, $item_condition->getCount() ?? 1, false, $item_condition->getAllowPoison() ? null : false, $is_prop)]
+                    ))) $current_state = min( $current_state, $this_state );
+                } else {
+                    if (!empty($this->inventory_handler->fetchSpecificItems( $source,
+                        [new ItemRequest($item_str, 1, false, $item_condition->getAllowPoison() ? null : false, $is_prop)]
+                    ))) $current_state = min( $current_state, $this_state );
+                }
+
             }
 
             if ($location_condition = $meta_requirement->getLocation()) {
@@ -471,6 +497,7 @@ class ActionHandler
         $execute_info_cache = [
             'ap' => 0,
             'pm' => 0,
+            'cp' => 0,
             'item'   => $item ? $item->getPrototype() : null,
             'target' => $target_item_prototype,
             'citizen' => is_a($target, Citizen::class) ? $target : null,
@@ -572,6 +599,16 @@ class ActionHandler
                 $execute_info_cache['pm'] += ( $citizen->getPm() - $old_pm );
             }
 
+            if ($cp = $result->getCp()) {
+                $old_cp = $citizen->getBp();
+                if ($cp->getMax()) {
+                    $to = $this->citizen_handler->getMaxBP($citizen) + $cp->getCp();
+                    $this->citizen_handler->setBP( $citizen, false, max( $old_cp, $to ) );
+                } else $this->citizen_handler->setBP( $citizen, true, $cp->getCp() );
+
+                $execute_info_cache['cp'] += ( $citizen->getBp() - $old_cp );
+            }
+
             if ($death = $result->getDeath()) {
                 $this->death_handler->kill( $citizen, $death->getCause(), $r );
                 $this->entity_manager->persist( $this->log->citizenDeath( $citizen ) );
@@ -579,9 +616,11 @@ class ActionHandler
             }
 
             if ($bp = $result->getBlueprint()) {
+                $blocked = $this->conf->getTownConfiguration($citizen->getTown())->get(TownConf::CONF_DISABLED_BUILDINGS);
                 $possible = $this->entity_manager->getRepository(BuildingPrototype::class)->findProspectivePrototypes( $citizen->getTown() );
-                $filtered = array_filter( $possible, function(BuildingPrototype $proto) use ($bp) {
-                    if ($bp->getType() !== null && $bp->getType() === $proto->getBlueprint() ) return true;
+                $filtered = array_filter( $possible, function(BuildingPrototype $proto) use ($bp,$blocked) {
+                    if (in_array($proto->getName(), $blocked)) return false;
+                    elseif ($bp->getType() !== null && $bp->getType() === $proto->getBlueprint() ) return true;
                     else return $bp->getList()->contains( $proto );
                 } );
 
@@ -663,7 +702,6 @@ class ActionHandler
             }
 
             if ($zombie_kill = $result->getZombies()) {
-
                 if ($citizen->getZone() && !$citizen->activeExplorerStats()) {
                     $kills = min($citizen->getZone()->getZombies(), mt_rand( $zombie_kill->getMin(), $zombie_kill->getMax() ));
                     if ($kills > 0) {
@@ -682,14 +720,11 @@ class ActionHandler
                         $this->picto_handler->give_picto($citizen, 'r_killz_#00', $kills);
                     }
                 }
-
             }
 
             if ($home_set = $result->getHome()) {
-
                 $citizen->getHome()->setAdditionalStorage( $citizen->getHome()->getAdditionalStorage() + $home_set->getAdditionalStorage() );
                 $citizen->getHome()->setAdditionalDefense( $citizen->getHome()->getAdditionalDefense() + $home_set->getAdditionalDefense() );
-
             }
 
             if($town_set = $result->getTown()){
@@ -748,12 +783,12 @@ class ActionHandler
 
             if ($result->getRolePlayText()) {
                 /** @var RolePlayText|null $text */
-                $text = $this->random_generator->pick($this->entity_manager->getRepository(RolePlayText::class)->findAllByLang($citizen->getTown()->getLanguage() ?? 'de'));
-                $alreadyfound = $this->entity_manager->getRepository(FoundRolePlayText::class)->findByUserAndText($citizen->getUser(), $text);
+                $text = $this->random_generator->pick( ($citizen->getTown()->getLanguage() === 'multi' || $citizen->getTown()->getLanguage() === null) ? $this->entity_manager->getRepository(RolePlayText::class)->findAll() : $this->entity_manager->getRepository(RolePlayText::class)->findAllByLang($citizen->getTown()->getLanguage() ));
+                $alreadyfound = !$text || $this->entity_manager->getRepository(FoundRolePlayText::class)->findByUserAndText($citizen->getUser(), $text);
                 $execute_info_cache['rp_text'] = $text->getTitle();
-                if ($text && $alreadyfound)
+                if ($alreadyfound)
                     $tags[] = 'rp_fail';
-                else {
+                elseif ($text) {
                     $tags[] = 'rp_ok';
                     $foundrp = new FoundRolePlayText();
                     $foundrp->setUser($citizen->getUser())->setText($text);
