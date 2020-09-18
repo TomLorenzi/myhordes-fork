@@ -37,7 +37,7 @@
             </form>
             <p class="right small">
                 {% trans from 'login' %}Du hast noch keinen Account?{% endtrans %}
-                <a href="" x-ajax-href="{{ path('public_register') }}">{% trans from 'login' %}Registrieren!{% endtrans %}</a><br />
+                <a href="" x-ajax-href="{{ path('public_register') }}" class="small button blue" style="max-width: 35%">{% trans from 'login' %}Registrieren!{% endtrans %}</a><br />
                 <a href="" x-ajax-href="{{ path('public_reset') }}">{% trans from 'login' %}Passwort vergessen?{% endtrans %}</a>
             </p>
         </div>
