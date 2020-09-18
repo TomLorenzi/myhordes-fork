@@ -187,6 +187,11 @@ class User implements UserInterface, EquatableInterface
      */
     private $shadowBan;
 
+    /**
+     * @ORM\ManyToMany(targetEntity=ConnectionWhitelist::class, mappedBy="users", cascade={"persist", "remove"})
+     */
+    private $connectionWhitelists;
+
     public function __construct()
     {
         $this->citizens = new ArrayCollection();
@@ -196,6 +201,7 @@ class User implements UserInterface, EquatableInterface
         $this->pastLifes = new ArrayCollection();
         $this->twinoidImports = new ArrayCollection();
         $this->connectionIdentifiers = new ArrayCollection();
+        $this->connectionWhitelists = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -813,6 +819,34 @@ class User implements UserInterface, EquatableInterface
         // set the owning side of the relation if necessary
         if ($shadowBan && $shadowBan->getUser() !== $this) {
             $shadowBan->setUser($this);
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|ConnectionWhitelist[]
+     */
+    public function getConnectionWhitelists(): Collection
+    {
+        return $this->connectionWhitelists;
+    }
+
+    public function addConnectionWhitelist(ConnectionWhitelist $connectionWhitelist): self
+    {
+        if (!$this->connectionWhitelists->contains($connectionWhitelist)) {
+            $this->connectionWhitelists[] = $connectionWhitelist;
+            $connectionWhitelist->addUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeConnectionWhitelist(ConnectionWhitelist $connectionWhitelist): self
+    {
+        if ($this->connectionWhitelists->contains($connectionWhitelist)) {
+            $this->connectionWhitelists->removeElement($connectionWhitelist);
+            $connectionWhitelist->removeUser($this);
         }
 
         return $this;
