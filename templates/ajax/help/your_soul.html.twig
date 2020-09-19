@@ -1,0 +1,56 @@
+{% extends "ajax/help/shell.html.twig" %}
+{% block helpContent %}
+<div class="helpArt">{{ 'Spielanleitung'|trans({},'help')|raw }}</div>
+<h1>{{ 'Deine Seele'|trans({},'help')|raw }}</h1>
+<p>
+{{ 'Deine Existenz in \'MyHordes\' ist vergänglich und nur von kurzer Dauer. Sterben ist etwas ganz gewöhnliches und nicht weiter schlimm.'|trans({},'help')|raw }}
+</p>
+<p>
+<strong>
+{{ 'Deine Seele ist der rote Faden des Spiels. In ihr werden all deine gemachten Erfahrungen und Auszeichnungen gesammelt. Außerdem wird dort auch dein aktueller Listenplatz in der Seelenrangliste angezeigt.'|trans({},'help')|raw }}
+</strong>
+</p>
+<h2>{{ 'Die Auszeichnungen'|trans({},'help')|raw }}</h2>
+<img class="art" alt="" src="{{ asset('build/images/help/rewards.' ~ app.request.locale|e('html_attr') ~ '.png') }}">
+<p>
+{{ 'Nach jedem Tod erhältst für bestimmte Taten oder Erfolge ein paar Auszeichungen. Dies wird unter anderem gezählt: Anzahl der getöteten Zombies, Anzahl der seltenen gefundenen Gegenstände, Anzahl der APs, die du in Baustellen investiert hast...'|trans({},'help')|raw }}
+</p>
+<p>
+{{ 'Diese Informationen sind für alle Spieler sichtbar und stellen einen Leistungsspiegel all deiner Partien dar.'|trans({},'help')|raw }}
+</p>
+<div class="clear"></div>
+<div class="critical">
+<p>
+{{ '<strong>Achtung:</strong> Alle am letzten Tag erworbenen Auszeichungen werden nicht gezählt (Manche Auszeichungen, wie die Verbannung oder die Todesart sind davon ausgenommen.).'|trans({},'help')|raw }}
+</p>
+<p>
+{{ 'Die Grundregel lautet: Ab dem 5. Tag werden dir alle Auszeichnungen gutgeschrieben.
+Wenn du in einer "Kleinen Karte" spielst und <strong>100 Seelenpunkte oder mehr hast</strong>, werden Auszeichnungen erst ab Tag 8 vergeben!'|trans({},'help')|raw }}
+</p>
+</div>
+<h2>{{ 'Die Titel'|trans({},'help')|raw }}</h2>
+<p>
+{{ 'Für manche Auszeichnungen erhältst du bei einer entsprechend hohen Anzahl einen <strong>speziellen Titel!</strong>'|trans({},'help')|raw }}
+</p>
+<p>
+<em>
+{{ 'Beispiel: Für jeden erledigten Zombie erhältst du die Auszeichung "Erlegte Zombies". Sobald du 100 Untote umgebracht hast erscheint der Titel "Brutalo" in deinem Profil! Je mehr Zombies du danach tötest, desto besser wird dein Titel.'|trans({},'help')|raw }}
+</em>
+</p>
+<p>
+<strong>{{ 'Wenn du deinem Nicknamen einen zusätzlichen Titel geben möchtest, musst du auf deiner Seelenseite auf den gewünschten Titel klicken!'|trans({},'help')|raw }}</strong>
+</p>
+<h2>{{ 'Seelenrangliste'|trans({},'help')|raw }}</h2>
+<p>
+{{ 'Für jeden Tag, den du in einer Stadt überlebst, bekommst du Punkte. In den ersten Tagen erhältst du nur wenige Punkte. Je länger du allerdings durchhältst, desto mehr Punkte werden es!'|trans({},'help')|raw }}
+</p>
+<p>
+{{ 'Deine Punktanzahl ist in der Großen Seelenrangliste aufgeführt.'|trans({},'help')|raw }}
+</p>
+<p>
+{{ '<strong>Sobald ein Spieler mehr als 100 Seelenpunkte gesammelt hat, wird er nur noch in Städten wiedergeboren, in denen ebenfalls Spieler mit 100 Punkten spielen</strong>
+(so dass die besten Spieler unter sich bleiben).'|trans({},'help')|raw }}
+</p>
+<div class="clear"></div>
+<a class="button" x-ajax-href="{{ url('help', {'name': 'death_and_soul_points'}) }}"><img src="{{ asset('build/images/icons/small_move.gif') }}" alt="move"> {{'Weiter'|trans({}, 'help')}}:<strong> {{ 'Der Tod und deine Seelenpunkte'|trans({},'help') }}</strong></a>
+{% endblock %}

@@ -73,17 +73,17 @@
 
                     <li class="sublist">
                         <ul>
-                            <li class="">
+                            <li class="{% if section == 'health' %}active{% endif %}">
                                 <img src="{{ asset('build/images/status/status_tired.gif') }}" alt="status">
-                                <span class="link">{{ 'Dein Gesundheitszustand'|trans({},'help') }}</span>
+                                <span class="link" x-ajax-href="{{ url('help', {'name': 'health'}) }}">{{ 'Dein Gesundheitszustand'|trans({},'help') }}</span>
                             </li>
-                            <li class="">
+                            <li class="{% if section == 'inventory' %}active{% endif %}">
                                 <img src="{{ asset('build/images/item/item_bag.gif') }}" alt="inv">
-                                <span class="link">{{ 'Inventar'|trans({},'help') }}</span>
+                                <span class="link" x-ajax-href="{{ url('help', {'name': 'inventory'}) }}">{{ 'Inventar'|trans({},'help') }}</span>
                             </li>
-                            <li class="">
+                            <li class="{% if section == 'your_soul' %}active{% endif %}">
                                 <img src="{{ asset('build/images/icons/small_ghost_blue.gif') }}" alt="ghost">
-                                <span class="link">{{ 'Deine Seele'|trans({},'help') }}</span>
+                                <span class="link" x-ajax-href="{{ url('help', {'name': 'your_soul'}) }}">{{ 'Deine Seele'|trans({},'help') }}</span>
                             </li>
                             <li class="">
                                 <img src="{{ asset('build/images/professions/death.gif') }}" alt="death">
