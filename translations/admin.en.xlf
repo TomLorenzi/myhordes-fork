@@ -1258,7 +1258,7 @@
       </notes>
       <segment>
         <source>Verdacht</source>
-        <target>Verdacht</target>
+        <target>Suspicion</target>
       </segment>
     </unit>
     <unit id="5D_B4LJ" name="Andere Accounts">
@@ -1267,7 +1267,7 @@
       </notes>
       <segment>
         <source>Andere Accounts</source>
-        <target>Andere Accounts</target>
+        <target>Other accounts</target>
       </segment>
     </unit>
     <unit id="E6OsQAN" name="Bann">
@@ -1276,7 +1276,7 @@
       </notes>
       <segment>
         <source>Bann</source>
-        <target>Bann</target>
+        <target>Ban</target>
       </segment>
     </unit>
     <unit id="mXRxJwB" name="Durch %admin% vom Spiel ausgeschlossen!">
@@ -1285,7 +1285,7 @@
       </notes>
       <segment>
         <source>Durch %admin% vom Spiel ausgeschlossen!</source>
-        <target>Durch %admin% vom Spiel ausgeschlossen!</target>
+        <target>Excluded from the game by %admin%!</target>
       </segment>
     </unit>
     <unit id="jyuOkNg" name="Grund angeben">
@@ -1294,7 +1294,7 @@
       </notes>
       <segment>
         <source>Grund angeben</source>
-        <target>Grund angeben</target>
+        <target>State reason</target>
       </segment>
     </unit>
     <unit id="Gn20uPe" name="Spielbann">
@@ -1303,7 +1303,7 @@
       </notes>
       <segment>
         <source>Spielbann</source>
-        <target>Spielbann</target>
+        <target>Ban</target>
       </segment>
     </unit>
     <unit id="BfojyKe" name="Spielbann aufheben">
@@ -1312,7 +1312,7 @@
       </notes>
       <segment>
         <source>Spielbann aufheben</source>
-        <target>Spielbann aufheben</target>
+        <target>Remove the ban</target>
       </segment>
     </unit>
     <unit id="OasWqCK" name="Verschüttet">
@@ -1321,7 +1321,7 @@
       </notes>
       <segment>
         <source>Verschüttet</source>
-        <target>Verschüttet</target>
+        <target>Buried</target>
       </segment>
     </unit>
     <unit id="XGKeQ9m" name="Multi-Account Whitelist">
@@ -1339,7 +1339,7 @@
       </notes>
       <segment>
         <source>Spieler-ID</source>
-        <target>Spieler-ID</target>
+        <target>Player-ID</target>
       </segment>
     </unit>
     <unit id="101JnrD" name="Multi-Account Whitelist-Eintrag hinzufügen">
@@ -1348,7 +1348,7 @@
       </notes>
       <segment>
         <source>Multi-Account Whitelist-Eintrag hinzufügen</source>
-        <target>Multi-Account Whitelist-Eintrag hinzufügen</target>
+        <target>Add multi-account whitelist entry</target>
       </segment>
     </unit>
     <unit id="E26lZPz" name="Klick, um Profil in neuem Tab zu öffnen">
@@ -1357,7 +1357,7 @@
       </notes>
       <segment>
         <source>Klick, um Profil in neuem Tab zu öffnen</source>
-        <target>Klick, um Profil in neuem Tab zu öffnen</target>
+        <target>Click to open profile in new tab</target>
       </segment>
     </unit>
     <unit id="KQDagiG" name="STRG+Klick, um zur Whitelist hinzuzufügen">
@@ -1366,7 +1366,7 @@
       </notes>
       <segment>
         <source>STRG+Klick, um zur Whitelist hinzuzufügen</source>
-        <target>STRG+Klick, um zur Whitelist hinzuzufügen</target>
+        <target>CTRL + Click to add to the whitelist</target>
       </segment>
     </unit>
     <unit id="hVmvpi1" name="Whitelist">
