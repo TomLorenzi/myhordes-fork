@@ -10,13 +10,17 @@ use App\Entity\CitizenHome;
 use App\Entity\CitizenHomePrototype;
 use App\Entity\CitizenProfession;
 use App\Entity\Forum;
+use App\Entity\GazetteLogEntry;
 use App\Entity\HeroicActionPrototype;
 use App\Entity\Inventory;
+use App\Entity\Picto;
 use App\Entity\Post;
 use App\Entity\RuinZone;
 use App\Entity\Thread;
+use App\Entity\ThreadReadMarker;
 use App\Entity\Town;
 use App\Entity\TownClass;
+use App\Entity\TownLogEntry;
 use App\Entity\TownRankingProxy;
 use App\Entity\User;
 use App\Entity\Zone;
@@ -420,5 +424,34 @@ class GameFactory
             $citizen->addHeroicAction( $heroic_action );
 
         return $citizen;
+    }
+
+    public function nullifyTown(Town $town, bool $force = false): bool {
+        if ($town->isOpen() && !$force) return false;
+
+        foreach($town->getCitizens() as $citizen) {
+            /** @var Citizen $citizen */
+            $citizen->getUser()->removePastLife($citizen->getRankingEntry());
+            $this->entity_manager->remove($citizen->getRankingEntry());
+            $this->entity_manager->remove($citizen);
+        }
+
+        foreach ($this->entity_manager->getRepository(TownLogEntry::class)->findBy(['town' => $town]) as $log)
+            $this->entity_manager->remove($log);
+
+        foreach ($this->entity_manager->getRepository(Picto::class)->findBy(['town' => $town]) as $picto)
+            $this->entity_manager->remove($picto);
+
+        if ($town->getForum()) foreach ($town->getForum()->getThreads() as $thread)
+            foreach ($this->entity_manager->getRepository(ThreadReadMarker::class)->findBy(['thread' => $thread]) as $marker)
+                $this->entity_manager->remove($marker);
+
+        foreach ($town->getGazettes() as $gazette)
+            foreach ($this->entity_manager->getRepository(GazetteLogEntry::class)->findByFilter($gazette) as $gazetteLogEntry)
+                $this->entity_manager->remove($gazetteLogEntry);
+
+        $this->entity_manager->remove($town->getRankingEntry());
+        $this->entity_manager->remove($town);
+        return true;
     }
 }

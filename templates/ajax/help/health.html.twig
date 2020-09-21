@@ -1,0 +1,137 @@
+{% extends "ajax/help/shell.html.twig" %}
+{% block helpContent %}
+<div class="helpArt">{{ 'Spielanleitung'|trans({},'help')|raw }}</div>
+<h1>{{ 'Dein Gesundheitszustand'|trans({},'help')|raw }}</h1>
+<img class="art" alt="" src="{{ asset('build/images/help/status.' ~ app.request.locale|e('html_attr') ~ '.png') }}">
+<p>
+{{ 'Um möglichst lange zu überleben, solltest du auf deine <strong>Gesundheit</strong> achten.'|trans({},'help')|raw }}
+</p>
+<p>
+{{ 'Eine oben auf der Seite platzierte Anzeige verrät dir mit einem Blick deinen aktuellen Gesundheitszustand und sagt dir, ob du etwas trinken musst, ob du verletzt bist usw. ...'|trans({},'help')|raw }}
+</p>
+<div class="clear"></div>
+<dl>
+<dt>
+<img alt="" src="{{ asset('build/images/status/status_tired.gif') }}"> <strong>{{ 'Erschöpfung'|trans({},'help')|raw }}</strong> :
+</dt>
+<dd>
+{{ 'Wenn du keine %img_ap% Aktionspunkte mehr hast, bist du erschöpft und kannst dich nicht mehr bewegen (siehe: <span x-ajax-href=%url_move%>Sich bewegen</span>).'|trans({'%img_ap%' : '<span class="ap"></span>', '%url_move%': url('help', {'name': 'move'})},'help')|raw }}
+</dd>
+<dt>
+<img alt="" src="{{ asset('build/images/status/status_thirst1.gif') }}"> <strong>{{ 'Durst'|trans({},'help')|raw }}</strong>:
+</dt>
+<dd>
+{{ 'Du musst etwas trinken... Warte nicht zu lang, sonst bist du
+<strong>%img_dehy% Dehydriert</strong>!'|trans({'%img_dehy%': '<img alt="" src="' ~ asset("build/images/status/status_thirst2.gif") ~ '">'},'help')|raw }}
+</dd>
+<dt>
+<img alt="" src="{{ asset('build/images/status/status_hasdrunk.gif') }}"> {{ 'oder'|trans({},'help')|raw }} <img alt="" src="{{ asset('build/images/status/status_haseaten.gif') }}"> <strong>{{ 'Satt'|trans({},'help')|raw }}</strong>:
+</dt>
+<dd>
+{{ 'Diese zwei Zustände zeigen an, dass du heute bereits getrunken und/oder gegessen hast. Solltest du noch mehr essen oder trinken, erhältst du für diesen Tag keine zusätzlichen Aktionspunkte mehr.'|trans({},'help')|raw }}
+<em>
+{{ 'Beispiel: Du hast heute morgen deine Trinkflasche getrunken, um deine Aktionspunkte aufzufüllen und um den DURST zu beseitigen. Wenn du heute erneut trinkst, kannst du zwar wieder deinen DURST löschen, aber nicht mehr deine Aktionspunkte zurückbekommen.'|trans({},'help')|raw }}
+</em>
+</dd>
+<dt>
+<img alt="" src="{{ asset('build/images/status/status_wound1.gif') }}"> <strong>{{ 'Verwundung'|trans({},'help')|raw }}</strong>:
+</dt>
+<dd>
+{{ 'Du wurdest schwer verletzt... Verarzte dich so schnell wie möglich mit einem Verband oder etwas ähnlichem, sonst riskierst du eine <strong><img alt="" src="/gfx/icons/status_infect.gif"> Infektion</strong> (geht in der Regel tödlich aus...)!'|trans({},'help')|raw }}
+</dd>
+<dt>
+<img alt="" src="{{ asset('build/images/status/status_infection.gif') }}"> <strong>{{ 'Infektion'|trans({},'help')|raw }}</strong>:
+</dt>
+<dd>
+{{ 'Das liegt an einer Wunde oder daran, etwas zu essen, das etwas zu veraltet war. Heile dich schnell, eine Infektion hat eine Sterblichkeitsrate von 50%, 75% in Pandemonium-Städten.'|trans({},'help')|raw }}
+</dd>
+<dt>
+<img alt="" src="{{ asset('build/images/status/status_drugged.gif') }}"> <strong>{{ 'Rauschzustand'|trans({},'help')|raw }}</strong>:
+</dt>
+<dd>
+{{ 'Es gibt in \'MyHordes\' mächtige Drogen, die alle unterschiedliche Effekte haben: Sie lindern Erschöpfungszustände, bekämpfen Infektionen, bringen dich bei Panikattacken wieder runter oder rehydrieren dich... Allerdings ist Vorsicht geboten: Wenn du zu viele nimmst, kannst du <strong><img alt="" src="/gfx/icons/status_addict.gif"> Abhängig</strong> werden.'|trans({},'help')|raw }}
+</dd>
+<dt>
+<img alt="" src="{{ asset('build/images/status/status_terror.gif') }}"> <strong>{{ 'Angst'|trans({},'help')|raw }}</strong> :
+</dt>
+<dd>
+{{ '00:10 Uhr - Die Zombiemeute hat es in die Stadt geschafft und trommelt nun wutschnaubend und gröhlend gegen deine Haustür. Dir gelingt es zwar sie aus deinem Haus zu halten, aber diesen Schock wirst du nicht so schnell vergessen... du bist <strong>vor Angst erstarrt</strong>.
+Die in diesen Stunden erlittene panische <strong>Angst</strong> ist dir ins Rückenmark gegangen und geblieben. Deine Aktions- und Bewegungsfreiheit ist seitdem erheblich eingeschränkt: Du kannst dich unter keinen Umständen in die Nähe von Zombies begeben! Solltest du in diesem Zustand dennoch auf welche stoßen, verfällst du in eine Angststarre und kannst dich nicht mehr bewegen... bis sie dich auffressen. In der Wüste zählst du, ungeachtet deines Berufs und deiner Ausrüstung, 0 Kontrollpunkte. Alle Zonen, in denen die Zombies mehr Punkte haben, sind für dich tabu.'|trans({},'help')|raw }}
+<p>
+{{ 'Es gibt andere Wege, um in Angststarre zu enden, aber die musst du selbst erleben.'|trans({},'help')|raw }}
+</p>
+</dd>
+<dt>
+<img alt="" src="{{ asset('build/images/status/status_drunk.gif') }}"> <strong>{{ 'Trunkenheit'|trans({},'help')|raw }}</strong> :
+</dt>
+<dd>
+{{ 'Durch das Trinken von Alkohol kommst du wieder zu Kräften (hebt die Erschöpfung auf), allerdings bist du danach nicht mehr ganz Herr deiner Sinne... Deine <img alt="" src="/gfx/icons/status_drunk.gif">&nbsp;<strong>Trunkenheit</strong> weicht am nächsten Tag einem üblen <img alt="" src="/gfx/icons/status_hung_over.gif">&nbsp;<strong>Kater</strong>... Allgemein gilt: Wenn du betrunken oder verkatert bist, kannst du keine weiteren alkoholischen Getränke zu dir nehmen.'|trans({},'help')|raw }}
+</dd>
+<dt>
+<img alt="" src="{{ asset('build/images/status/status_clean.gif') }}"> <strong>{{ 'Clean'|trans({},'help')|raw }}</strong> :
+</dt>
+<dd>
+{{ 'Das Symbol zeigt an, dass du noch keine Drogen genommen hast. Das ist durchaus eine Spitzenleistung, wenn man bedenkt, welch wunderschöne Halluzination und Trips dir entgangen sind...'|trans({},'help')|raw }}
+</dd>
+<dt>
+<img alt="" src="{{ asset('build/images/status/status_immune.gif') }}"> <strong>{{ 'Immunisiert'|trans({},'help')|raw }}</strong> :
+</dt>
+<dd>
+{{ 'Du hast dich durch die Einnahme eines Medikamentes oder eines ähnlichen Produktes erfolgreich gegen eine Infektion immunisiert!
+Außerdem kannst du damit verhindern, dass du dich um Mitternacht in einen Ghul verwandelst.
+Der Schutz endet nach dem Angriff um Mitternacht.'|trans({},'help')|raw }}
+</dd>
+<dt>
+<img alt="" src="{{ asset('build/images/status/status_camper.gif') }}"> <strong>{{ 'Umsichtiger Camper'|trans({},'help')|raw }}</strong> :
+</dt>
+<dd>
+{{ 'Wenn es dir gelingt eine Nacht draußen zu campen und dabei zu überleben, bekommst du für den darauf folgenden Tag einen besonderen Status verliehen, der deine Grabungsaktionen verbessert!'|trans({},'help')|raw }}
+</dd>
+<dt>
+<img alt="" src="{{ asset('build/images/status/status_ghoul.gif') }}"> <strong>{{ 'Ghul'|trans({},'help')|raw }}</strong> :
+</dt>
+<dd>
+{{ 'Du wurdest von einer unheilbaren Krankheit infiziert und hast dich jetzt in einen <span x-ajax-href=%url_ghoul%>Ghul</span> verwandelt.'|trans({'%url_ghoul%': url('help', {'name': 'move'})},'help')|raw }}
+</dd>
+</dl>
+<h2>{{ 'Die Drogenabhängigkeit'|trans({},'help')|raw }}</h2>
+<p>
+{{ 'Wenn du zu viele Drogen nimmst (mehr als eine Dosis am Tag), wirst du
+<strong>%img_addict% Abhängig</strong>! Darüber hinaus wirst du diese <strong>Sucht auch nicht mehr los</strong>.'|trans({'%img_addict%': '<img alt="" src="' ~ asset("build/images/status/status_addict.gif") ~ '">'},'help')|raw }}
+</p>
+<p>
+{{ 'Wenn du dann erstmal süchtig bist <strong>musst du jeden Tag vor Mitternacht etwas zu dir nehmen</strong>, andersfall stirbst du und das ist nicht gerade nett anzusehen: Unter starken Schmerzen, zitternd und sabbernd halluzinierst du dich in eine andere Welt...'|trans({},'help')|raw }}
+</p>
+<h2>{{ 'Verwundungsarten'|trans({},'help')|raw }}</h2>
+<p>
+{{ 'Du kannst im Spiel an verschiedenen Körperteilen verwundet werden:'|trans({},'help')|raw }}
+</p>
+<ul>
+<li>
+<strong>{{ 'Kopf'|trans({},'help')|raw }}</strong>:
+{{ 'Du gibst wirres Zeug von dir.'|trans({},'help')|raw }}
+</li>
+<li>
+<strong>{{ 'Hände'|trans({},'help')|raw }}</strong>:
+{{ 'Du kannst bestimmte Gegenstände nicht mehr benutzen.'|trans({},'help')|raw }}
+</li>
+<li>
+<strong>{{ 'Arme'|trans({},'help')|raw }}</strong>:
+{{ 'Du kannst nicht mehr auf den Baustellen arbeiten und das Stadttor nicht schließen...'|trans({},'help')|raw }}
+</li>
+<li>
+<strong>{{ 'Bein'|trans({},'help')|raw }}</strong>:
+{{ 'In der Außenwelt besteht mit jedem Schritt das Risiko, dass du zusammenbrichst und dich nicht mehr bewegen kannst (Du verlierst einen Aktionspunkt)!'|trans({},'help')|raw }}
+</li>
+<li>
+<strong>{{ 'Auge'|trans({},'help')|raw }}</strong>:
+{{ 'Die Wahrscheinlichkeit in der Wüste oder in einer Ruine einen Gegenstand zu finden sinkt erheblich.'|trans({},'help')|raw }}
+</li>
+<li>
+<strong>{{ 'Fuß'|trans({},'help')|raw }}</strong>:
+{{ 'Bringt dir keine Nachteile.'|trans({},'help')|raw }}
+</li>
+</ul>
+<div class="clear"></div>
+<a class="button" x-ajax-href="{{ url('help', {'name': 'inventory'}) }}"><img src="{{ asset('build/images/icons/small_move.gif') }}" alt="move"> {{'Weiter'|trans({}, 'help')}}:<strong> {{ 'Inventar'|trans({},'help') }}</strong></a>
+{% endblock %}
