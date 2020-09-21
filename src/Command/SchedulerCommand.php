@@ -5,11 +5,14 @@ namespace App\Command;
 
 
 use App\Entity\AttackSchedule;
+use App\Entity\Citizen;
 use App\Entity\Picto;
+use App\Entity\ThreadReadMarker;
 use App\Entity\Town;
 use App\Entity\TownLogEntry;
 use App\Service\AntiCheatService;
 use App\Service\ConfMaster;
+use App\Service\GameFactory;
 use App\Service\Locksmith;
 use App\Service\NightlyHandler;
 use App\Structures\MyHordesConf;
@@ -33,8 +36,9 @@ class SchedulerCommand extends Command
     private $trans;
     private $conf;
     private $anti_cheat;
+    private $gameFactory;
 
-    public function __construct(EntityManagerInterface $em, NightlyHandler $nh, Locksmith $ls, Translator $translator, ConfMaster $conf, AntiCheatService $acs)
+    public function __construct(EntityManagerInterface $em, NightlyHandler $nh, Locksmith $ls, Translator $translator, ConfMaster $conf, AntiCheatService $acs, GameFactory $gf)
     {
         $this->entityManager = $em;
         $this->night = $nh;
@@ -42,6 +46,7 @@ class SchedulerCommand extends Command
         $this->trans = $translator;
         $this->conf = $conf->getGlobalConf();
         $this->anti_cheat = $acs;
+        $this->gameFactory = $gf;
         parent::__construct();
     }
 
@@ -99,25 +104,10 @@ class SchedulerCommand extends Command
                         $this->entityManager->flush();
 
                     } else {
-                        if($town->isOpen() && $town->getDayWithoutAttack() > 2 && $town->getType()->getName() == "custom") {
-                            $this->entityManager->flush();
-                            $output->writeln("Removing town <info>{$town->getName()}</info> because is lasted for 2 days without getting filled");
-                            foreach($town->getCitizens() as $citizen) {
-                                /** @var \App\Entity\Citizen $citizen */
-                                $citizen->getUser()->removePastLife($citizen->getRankingEntry());
-                                $this->entityManager->remove($citizen->getRankingEntry());
-                                $this->entityManager->remove($citizen);
-                            }
-                            $logs = $this->entityManager->getRepository(TownLogEntry::class)->findBy(['town' => $town]);
-                            foreach ($logs as $log){
-                                $this->entityManager->remove($log);
-                            }
-                            $pictos = $this->entityManager->getRepository(Picto::class)->findBy(['town' => $town]);
-                            foreach ($pictos as $picto){
-                                $this->entityManager->remove($picto);
-                            }
-                            $this->entityManager->remove($town->getRankingEntry());
-                            $this->entityManager->remove($town);
+                        if ($town->isOpen() && $town->getDayWithoutAttack() > 2 && $town->getType()->getName() == "custom") {
+
+                            $this->gameFactory->nullifyTown($town);
+
                         } else {
                             $town->setAttackFails(0);
                             $this->entityManager->persist($town);

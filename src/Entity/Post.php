@@ -69,6 +69,11 @@ class Post
      */
     private $adminReports;
 
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\AdminDeletion", mappedBy="post", orphanRemoval=true, cascade={"persist", "remove"})
+     */
+    private $adminDeletion;
+
     private $new = false;
 
     /**
