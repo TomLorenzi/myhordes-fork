@@ -61,6 +61,9 @@
                                                 <option value="{{ url('admin_town_manage', {action: 'advance', id: town.id}) }}">{{ 'Manueller Tageswechsel'|trans({},'admin') }}</option>
                                             {% endif %}
                                         </optgroup>
+                                    <optgroup label="{{ 'Verwaltung'|trans({},'admin') }}">
+                                        <option x-alt-url="{{ path('admin_town_list') }}" value="{{ url('admin_town_manage', {action: 'nullify', id: town.id}) }}">{{ 'Annulieren'|trans({},'admin') }}</option>
+                                    </optgroup>
                                     {% endif %}
                                 </select>
                                 <div id="execute_button" class="button inline small">{{ 'Ausführen'|trans({},'admin') }}</div>
@@ -186,9 +189,10 @@
 
             document.getElementById('execute_button').addEventListener('click', function() {
                 if (!document.getElementById('administer-town').value) return;
+                let url = document.querySelector('#administer-town option:checked').getAttribute('x-alt-url');
                 $.ajax.easySend( document.getElementById('administer-town').value, {},
                     function () {
-                        $.ajax.load(null, '{{ path('admin_town_explorer', {id: town.id}) }}', true);
+                        $.ajax.load(null, url ? url : '{{ path('admin_town_explorer', {id: town.id}) }}', true);
                     } );
             });
 
