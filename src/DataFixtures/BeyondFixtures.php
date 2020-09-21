@@ -781,7 +781,7 @@ class BeyondFixtures extends Fixture implements DependentFixtureInterface
                 array('item' => 'rlaunc_#00','count' => 1),
                 array('item' => 'tagger_#00','count' => 1),
                 array('item' => 'big_pgun_#00','count' => 1),
-                array('item' => 'item_big_pgun_part_#00','count' => 4),
+                array('item' => 'big_pgun_part_#00','count' => 4),
                 array('item' => 'bumpKey_#00','count' => 3),
                 array('item' => 'repair_kit_part_raw_#00','count' => 2),
                 array('item' => 'classicKey_#00','count' => 3),
