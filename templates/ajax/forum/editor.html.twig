@@ -260,15 +260,20 @@
 
                     let doc = new DOMParser().parseFromString(input1.value, 'text/html');
                     tagText = doc.body.textContent || "";
-                    tagUrl = encodeURI(input2.value.replace('http:', '').replace('https:', ''));
 
-                    if (tagUrl.substr(0,2) !== '//') {
+                    tagUrl = decodeURI(input2.value);
+                    if (!/[a-zA-Z]+:\/\//.test(tagUrl)) tagUrl = 'https://' + tagUrl;
+
+                    const components = /([a-zA-Z]+:\/\/)([^/?#\[\]@:$&'()*+,;=\t\r\n]{2,256})([/?#\[\]@:$&'()*+,;=])?(.*)/g.exec(tagUrl);
+                    if (!components) {
                         // Apparently not an Url.
                         // TODO: Add error message to Url field.
                         input1.classList.add('error');
                         input2.classList.add('error');
                     }
                     else {
+                        tagUrl = components[1] + $.vendor.punycode.toASCII(components[2]) + ( components[3] ? encodeURI(components[3] + components[4]) : '' );
+
                         $.html.triggerPopupPop(elem);
                         input1.classList.remove('error');
                         input2.classList.remove('error');
