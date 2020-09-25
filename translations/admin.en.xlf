@@ -1317,7 +1317,7 @@
     </unit>
     <unit id="OasWqCK" name="Verschüttet">
       <notes>
-        <note category="german">Verschüttet</note>
+        <note category="german">Buried</note>
       </notes>
       <segment>
         <source>Verschüttet</source>
@@ -1335,7 +1335,7 @@
     </unit>
     <unit id="8slYyDF" name="Spieler-ID">
       <notes>
-        <note category="german">Spieler-ID</note>
+        <note category="german">Player-ID</note>
       </notes>
       <segment>
         <source>Spieler-ID</source>
@@ -1344,7 +1344,7 @@
     </unit>
     <unit id="101JnrD" name="Multi-Account Whitelist-Eintrag hinzufügen">
       <notes>
-        <note category="german">Multi-Account Whitelist-Eintrag hinzufügen</note>
+        <note category="german">Add multi-account whitelist entry</note>
       </notes>
       <segment>
         <source>Multi-Account Whitelist-Eintrag hinzufügen</source>
@@ -1353,7 +1353,7 @@
     </unit>
     <unit id="E26lZPz" name="Klick, um Profil in neuem Tab zu öffnen">
       <notes>
-        <note category="german">Klick, um Profil in neuem Tab zu öffnen</note>
+        <note category="german">Click to open profile in new tab</note>
       </notes>
       <segment>
         <source>Klick, um Profil in neuem Tab zu öffnen</source>
@@ -1362,7 +1362,7 @@
     </unit>
     <unit id="KQDagiG" name="STRG+Klick, um zur Whitelist hinzuzufügen">
       <notes>
-        <note category="german">STRG+Klick, um zur Whitelist hinzuzufügen</note>
+        <note category="german">CTRL + Click to add to the whitelist</note>
       </notes>
       <segment>
         <source>STRG+Klick, um zur Whitelist hinzuzufügen</source>
@@ -1376,6 +1376,24 @@
       <segment>
         <source>Whitelist</source>
         <target>Whitelist</target>
+      </segment>
+    </unit>
+    <unit id="JFa7jtc" name="Verwaltung">
+      <notes>
+        <note category="german">Verwaltung</note>
+      </notes>
+      <segment>
+        <source>Verwaltung</source>
+        <target>Verwaltung</target>
+      </segment>
+    </unit>
+    <unit id="OEN26ap" name="Annulieren">
+      <notes>
+        <note category="german">Annulieren</note>
+      </notes>
+      <segment>
+        <source>Annulieren</source>
+        <target>Annulieren</target>
       </segment>
     </unit>
   </file>
