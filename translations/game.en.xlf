@@ -4559,7 +4559,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Was hier passiert ist erschließt sich dir nicht so ganz... Ein riesiger Felsen ist mit voller Wucht auf die Straße geschleudert worden - doch woher kam er? Rings um dich ist nichts als Wüste...</source>
-        <target>Was hier passiert ist erschließt sich dir nicht so ganz... Ein riesiger Felsen ist mit voller Wucht auf die Straße geschleudert worden - doch woher kam er? Rings um dich ist nichts als Wüste...</target>
+        <target>Something truly bizarre seems to have happened here : a huge rock seems to have crash landed in the middle of the road, like some kind of tombstone...Something truly bizarre seems to have happened here : a huge rock seems to have crash landed in the middle of the road, like some kind of tombstone...</target>
       </segment>
     </unit>
     <unit id="yFJW.aK" name="8bf8201">
@@ -11562,7 +11562,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
     </unit>
     <unit id="SFjPHiw" name="Einsiedler - Gewinner des SoH">
       <notes>
-        <note category="german">Einsiedler - Gewinner des SoH</note>
+        <note category="german">Survivalist - Winner of SoH</note>
       </notes>
       <segment>
         <source>Einsiedler - Gewinner des SoH</source>
@@ -11571,7 +11571,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
     </unit>
     <unit id="suYM2pk" name="Buddler - Gewinner des SoH">
       <notes>
-        <note category="german">Buddler - Gewinner des SoH</note>
+        <note category="german">Scavenger - Winner of SoH</note>
       </notes>
       <segment>
         <source>Buddler - Gewinner des SoH</source>
@@ -11580,7 +11580,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
     </unit>
     <unit id="B4NRnue" name="Sieg für die Buddler beim Shock of Heroes Event!">
       <notes>
-        <note category="german">Sieg für die Buddler beim Shock of Heroes Event!</note>
+        <note category="german">Victory for the Scavengers at the Shock of Heroes event!</note>
       </notes>
       <segment>
         <source>Sieg für die Buddler beim Shock of Heroes Event!</source>
@@ -11589,7 +11589,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
     </unit>
     <unit id="ezjjECr" name="Wächter - Gewinner des SoH">
       <notes>
-        <note category="german">Wächter - Gewinner des SoH</note>
+        <note category="german">Guardian - Winner of SoH</note>
       </notes>
       <segment>
         <source>Wächter - Gewinner des SoH</source>
@@ -11598,7 +11598,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
     </unit>
     <unit id="jVhaVYF" name="Du hast soeben den Zugang zu deiner privaten Stadt für jedermann geöffnet.">
       <notes>
-        <note category="german">Du hast soeben den Zugang zu deiner privaten Stadt für jedermann geöffnet.</note>
+        <note category="german">You have just opened access to your private town for everyone.</note>
       </notes>
       <segment>
         <source>Du hast soeben den Zugang zu deiner privaten Stadt für jedermann geöffnet.</source>
@@ -11616,7 +11616,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
     </unit>
     <unit id="G0BraVl" name="Das Passwort ist falsch.">
       <notes>
-        <note category="german">Das Passwort ist falsch.</note>
+        <note category="german">The password is incorrect.</note>
       </notes>
       <segment>
         <source>Das Passwort ist falsch.</source>
@@ -11625,7 +11625,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
     </unit>
     <unit id="G7YX22v" name="Deine privaten Nachrichten">
       <notes>
-        <note category="german">Deine privaten Nachrichten</note>
+        <note category="german">Your private messages</note>
       </notes>
       <segment>
         <source>Deine privaten Nachrichten</source>
@@ -11634,7 +11634,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
     </unit>
     <unit id="C9_MTts" name="91fcb31">
       <notes>
-        <note category="german">In diesem Bereich kannst du dir alle möglichen Verbesserungen deines Hauses ansehen.</note>
+        <note category="german">This section shows the building upgrades which can be made to your home.</note>
       </notes>
       <segment>
         <source>In diesem Bereich kannst du dir alle möglichen Verbesserungen deines Hauses ansehen.</source>
@@ -11643,7 +11643,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
     </unit>
     <unit id="dQRl.Lz" name="fb2b856">
       <notes>
-        <note category="german">In diesem Bereich werden alle bereits eingebauten Einrichtungen und Ausbauten deines Hauses angezeigt (Möbel, Verteidigungsvorrichtungen...).</note>
+        <note category="german">This section shows the interior improvements you have made to your home (furniture, home defences...).</note>
       </notes>
       <segment>
         <source>In diesem Bereich werden alle bereits eingebauten Einrichtungen und Ausbauten deines Hauses angezeigt (Möbel, Verteidigungsvorrichtungen...).</source>
@@ -11652,7 +11652,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
     </unit>
     <unit id="9EBorzV" name="Deine Stadt">
       <notes>
-        <note category="german">Deine Stadt</note>
+        <note category="german">Your Town</note>
       </notes>
       <segment>
         <source>Deine Stadt</source>
@@ -11661,7 +11661,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
     </unit>
     <unit id="mkyiUfI" name="Öffne deine private Stadt für alle">
       <notes>
-        <note category="german">Öffne deine private Stadt für alle</note>
+        <note category="german">Open your private town to everyone</note>
       </notes>
       <segment>
         <source>Öffne deine private Stadt für alle</source>
