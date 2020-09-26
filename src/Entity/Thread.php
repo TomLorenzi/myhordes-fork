@@ -60,6 +60,11 @@ class Thread
      */
     private $lastPost;
 
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\ThreadReadMarker", mappedBy="thread", cascade={"persist", "remove"})
+     */
+    private $_readMarkers;
+
     private $new = false;
 
     /**

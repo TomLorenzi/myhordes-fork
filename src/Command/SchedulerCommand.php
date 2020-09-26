@@ -110,7 +110,7 @@ class SchedulerCommand extends Command
 
                         } else {
                             $town->setAttackFails(0);
-                            $this->entityManager->persist($town);
+                            if (!$this->gameFactory->compactTown($town)) $this->entityManager->persist($town);
                         }
                         $this->entityManager->flush();
                     }

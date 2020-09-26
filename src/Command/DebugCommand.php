@@ -10,6 +10,7 @@ use App\Entity\CitizenStatus;
 use App\Entity\ItemPrototype;
 use App\Entity\Picto;
 use App\Entity\Town;
+use App\Entity\TownRankingProxy;
 use App\Entity\User;
 use App\Service\CitizenHandler;
 use App\Service\GameFactory;
@@ -76,6 +77,12 @@ class DebugCommand extends Command
             ->addOption('fill-bank', null, InputOption::VALUE_REQUIRED, 'Places 500 of each item type in the bank of a given town.')
             ->addOption('confirm-deaths', null, InputOption::VALUE_NONE, 'Confirms death of every account having an email ending on @localhost.')
             ->addOption('test-town-names', null, InputOption::VALUE_REQUIRED, 'Will generate 50 town names')
+
+            ->addOption('compact-active-towns', null, InputOption::VALUE_NONE, 'Deletes non-empty towns without living citizens, but keeps the ranking intact.')
+            ->addOption('purge-active-towns', null, InputOption::VALUE_NONE, 'Will end all current towns, but keep their rankings intact.')
+            ->addOption('purge-rankings', null, InputOption::VALUE_NONE, 'Will end all current towns and completely wipe the ranking.')
+            ->addOption('keep-imported', null, InputOption::VALUE_NONE, 'When used together with --purge-rankings, imported entries will not be deleted.')
+            ->addOption('chunk-size', null, InputOption::VALUE_REQUIRED, 'When used together with --purge-active-towns or --purge-rankings, determines how many towns are deleted for each flush (default: 1).')
         ;
     }
 
@@ -298,6 +305,61 @@ class DebugCommand extends Command
         if ($lang = $input->getOption('test-town-names'))
             for ($i = 0; $i < 50; $i++)
                 $output->writeln($this->game_factory->createTownName($lang));
+
+        if ($input->getOption('compact-active-towns'))
+            foreach ($this->entity_manager->getRepository(Town::class)->findAll() as $town)
+                if ($this->game_factory->compactTown($town)) {
+                    $output->write("<info>Compacting</info> town '<comment>{$town->getName()}</comment>' (<comment>{$town->getId()}</comment>)... ");
+                    $this->entity_manager->flush();
+                    $output->writeln('<info>OK!</info>');
+                } else $output->writeln("<info>Skipped</info> town '<comment>{$town->getName()}</comment>' (<comment>{$town->getId()}</comment>).");
+
+        if ($input->getOption('purge-rankings') || $input->getOption('purge-active-towns')) {
+
+            $purge_rankings = $input->getOption('purge-rankings');
+
+            $c_size = (int)$input->getOption('chunk-size');
+            if ($c_size <= 0) $c_size = 1;
+
+            $c = 0;
+            foreach ($this->entity_manager->getRepository(Town::class)->findAll() as $town) {
+                $output->write("Purging active town '<comment>{$town->getName()}</comment>' (<comment>{$town->getId()}</comment>)... ");
+                if ($purge_rankings && $town->getRankingEntry()) $this->entity_manager->remove($town->getRankingEntry());
+                $this->entity_manager->remove($town);
+
+                if (++$c >= $c_size) {
+                    $this->entity_manager->flush();
+                    $output->writeln('<info>OK!</info>');
+                    $c = 0;
+                } else $output->writeln('');
+
+            }
+
+            if ($c > 0) {
+                $this->entity_manager->flush();
+                $output->writeln('<info>OK!</info>');
+                $c = 0;
+            }
+
+            if ($purge_rankings) {
+                $target_proxies = $input->getOption('keep-imported') ? $this->entity_manager->getRepository(TownRankingProxy::class)->findBy(['imported' => false]) : $this->entity_manager->getRepository(TownRankingProxy::class)->findAll();
+                foreach ($target_proxies as $town) {
+                    $output->write("Purging archived town '<comment>{$town->getName()}</comment>' (<comment>{$town->getBaseID()}</comment>)... ");
+                    $this->entity_manager->remove($town);
+                    if (++$c >= $c_size) {
+                        $this->entity_manager->flush();
+                        $output->writeln('<info>OK!</info>');
+                        $c = 0;
+                    } else $output->writeln('');
+                }
+
+                if ($c > 0) {
+                    $this->entity_manager->flush();
+                    $output->writeln('<info>OK!</info>');
+                }
+            }
+
+        }
 
         return 1;
     }

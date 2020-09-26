@@ -426,31 +426,19 @@ class GameFactory
         return $citizen;
     }
 
+    public function compactTown(Town $town): bool {
+
+        foreach ($town->getCitizens() as $citizen) if ($citizen->getAlive()) return false;
+        if ($town->isOpen() && !$town->getCitizens()->isEmpty()) return false;
+
+        $this->entity_manager->remove($town);
+        return true;
+    }
+
     public function nullifyTown(Town $town, bool $force = false): bool {
         if ($town->isOpen() && !$force) return false;
 
-        foreach($town->getCitizens() as $citizen) {
-            /** @var Citizen $citizen */
-            $citizen->getUser()->removePastLife($citizen->getRankingEntry());
-            $this->entity_manager->remove($citizen->getRankingEntry());
-            $this->entity_manager->remove($citizen);
-        }
-
-        foreach ($this->entity_manager->getRepository(TownLogEntry::class)->findBy(['town' => $town]) as $log)
-            $this->entity_manager->remove($log);
-
-        foreach ($this->entity_manager->getRepository(Picto::class)->findBy(['town' => $town]) as $picto)
-            $this->entity_manager->remove($picto);
-
-        if ($town->getForum()) foreach ($town->getForum()->getThreads() as $thread)
-            foreach ($this->entity_manager->getRepository(ThreadReadMarker::class)->findBy(['thread' => $thread]) as $marker)
-                $this->entity_manager->remove($marker);
-
-        foreach ($town->getGazettes() as $gazette)
-            foreach ($this->entity_manager->getRepository(GazetteLogEntry::class)->findByFilter($gazette) as $gazetteLogEntry)
-                $this->entity_manager->remove($gazetteLogEntry);
-
-        $this->entity_manager->remove($town->getRankingEntry());
+        if ($town->getRankingEntry()) $this->entity_manager->remove($town->getRankingEntry());
         $this->entity_manager->remove($town);
         return true;
     }

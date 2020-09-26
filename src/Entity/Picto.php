@@ -40,7 +40,7 @@ class Picto
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Town")
-     * @ORM\JoinColumn(nullable=true)
+     * @ORM\JoinColumn(nullable=true, onDelete="CASCADE")
      */
     private $town;
 
@@ -57,6 +57,7 @@ class Picto
 
     /**
      * @ORM\ManyToOne(targetEntity=TownRankingProxy::class, inversedBy="distributedPictos")
+     * @ORM\JoinColumn(nullable=true, onDelete="CASCADE")
      */
     private $townEntry;
 
