@@ -1393,7 +1393,7 @@
       </notes>
       <segment>
         <source>Annulieren</source>
-        <target>Cancel</target>
+        <target>Abort Town</target>
       </segment>
     </unit>
   </file>
