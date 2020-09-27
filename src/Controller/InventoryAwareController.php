@@ -440,6 +440,7 @@ class InventoryAwareController extends AbstractController
 
             $aggressor->setGhulHunger( max(0, $aggressor->getGhulHunger() - 10) );
             $victim->getHome()->setHoldsBody(false);
+            $this->picto_handler->give_picto($aggressor, 'r_cannib_#00');
 
             $notes[] = $this->translator->trans('Nicht so appetitlich wie frisches Menschenfleisch, aber es stillt nichtsdestotrotz deinen Hunger... zumindest ein bisschen. Wenigstens war das Fleisch noch halbwegs zart.', [], 'game');
             $this->citizen_handler->inflictStatus( $aggressor, 'tg_ghoul_corpse' );
