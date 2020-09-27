@@ -1384,7 +1384,7 @@
       </notes>
       <segment>
         <source>Verwaltung</source>
-        <target>Verwaltung</target>
+        <target>Administration</target>
       </segment>
     </unit>
     <unit id="OEN26ap" name="Annulieren">
@@ -1393,7 +1393,7 @@
       </notes>
       <segment>
         <source>Annulieren</source>
-        <target>Annulieren</target>
+        <target>Abort Town</target>
       </segment>
     </unit>
   </file>
