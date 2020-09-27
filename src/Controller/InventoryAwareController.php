@@ -371,7 +371,6 @@ class InventoryAwareController extends AbstractController
             if ($victim->hasRole('ghoul')) {
                 $this->addFlash('notice', $this->translator->trans('Du kannst diesen Bürger nicht angreifen... er riecht nicht wie die anderen. Moment... Dieser Bürger ist ein Ghul, genau wie du!', [], 'game'));
                 return AjaxResponse::success();
-
             }
 
             $notes[] = $this->translator->trans( 'Mit weit aufgerissenem Maul stürzt du dich auf %citizen%. Unter der Wucht deiner brutalen Schläge und Tritte sackt er ziemlich schnell zusammen.', ['%citizen%' => $victim->getUser()->getUsername()], 'game' );
@@ -402,6 +401,7 @@ class InventoryAwareController extends AbstractController
                 $this->citizen_handler->setAP($aggressor, false, $give_ap, null );
 
             $aggressor->setGhulHunger( max(0, $aggressor->getGhulHunger() - 65) );
+            $this->picto_handler->give_picto($aggressor, 'r_cannib_#00');
 
             $stat_down = false;
             if (!$this->citizen_handler->hasStatusEffect($aggressor, 'drugged') && $this->citizen_handler->hasStatusEffect($victim, 'drugged')) {
