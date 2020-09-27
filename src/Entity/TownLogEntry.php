@@ -47,7 +47,7 @@ class TownLogEntry
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Town", inversedBy="_townLogEntries")
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\JoinColumn(nullable=false, onDelete="CASCADE")
      */
     private $town;
 
