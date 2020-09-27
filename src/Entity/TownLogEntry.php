@@ -46,7 +46,7 @@ class TownLogEntry
     private $day;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Town")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Town", inversedBy="_townLogEntries")
      * @ORM\JoinColumn(nullable=false)
      */
     private $town;
