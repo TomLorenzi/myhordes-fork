@@ -90,7 +90,7 @@ class TwinoRegexResult {
             while ( (result = startMatchRegex.exec( s )) !== null ) {
 
                 // We have found a potential start tag; get the node name
-                const node = result[1];
+                const node = result[1].replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 
                 // Create a new RegEx that looks for more instances if this tag, either as a starting tag or closing tag
                 // The new RegEx should start at the position of the outer RegEx, so we set lastIndex

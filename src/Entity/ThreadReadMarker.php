@@ -28,13 +28,13 @@ class ThreadReadMarker
     private $user;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Thread")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Thread", inversedBy="_readMarkers")
      * @ORM\JoinColumn(nullable=false)
      */
     private $thread;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Post")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Post", inversedBy="_readMarkers")
      * @ORM\JoinColumn(nullable=false)
      */
     private $post;

@@ -177,6 +177,7 @@ class Citizen
 
     /**
      * @ORM\OneToOne(targetEntity="App\Entity\CitizenEscortSettings", inversedBy="citizen", cascade={"persist", "remove"}, orphanRemoval=true)
+     * @ORM\JoinColumn(nullable=true, onDelete="SET NULL")
      */
     private $escortSettings;
 
@@ -229,7 +230,8 @@ class Citizen
     private $privateMessageThreads;
 
     /**
-     * @ORM\OneToOne(targetEntity=CitizenRankingProxy::class, inversedBy="citizen", cascade={"persist"})
+     * @ORM\OneToOne(targetEntity=CitizenRankingProxy::class, mappedBy="citizen", cascade={"persist"})
+     * @ORM\JoinColumn(nullable=false)
      */
     private $rankingEntry;
 

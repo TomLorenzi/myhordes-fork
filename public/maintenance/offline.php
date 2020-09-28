@@ -23,7 +23,7 @@
     <title>MyHordes - System Maintenance</title>
 
     <style>
-        body { background: black; font-family: sans-serif; }
+        body { background: <?=$f('offline_back_center.png','png')?>; background-size: contain; font-family: sans-serif; }
         #header, #content, #footer { position: relative; margin: 0 auto; padding: 0; width: 950px; overflow: visible; }
         #header  { height: 140px; background: <?=$f('deco_header.png','png')?> left top no-repeat; }
         #content { background: <?=$f('bg_content.jpg','jpeg')?> left top repeat-y }

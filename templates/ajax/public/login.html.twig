@@ -18,26 +18,28 @@
             </p>
             <form id="login-form">
                 <div class="row">
-                    <div class="cell padded-small rw-6 rw-md-12"><b><label for="login-name">{% trans from 'login' %}Spielername{% endtrans %}</label></b></div>
-                    <div class="cell padded-small rw-6 rw-md-12"><input name="login_user" id="login-name" type="text" /></div>
+                    <div class="cell padded-small rw-4 rw-md-12"><b><label for="login-name">{% trans from 'login' %}Spielername{% endtrans %}</label></b></div>
+                    <div class="cell padded-small rw-8 rw-md-12"><input name="login_user" id="login-name" type="text" /></div>
                 </div>
                 <div class="row">
-                    <div class="cell padded-small rw-6 rw-md-12"><b><label for="login-password">{% trans from 'login' %}Passwort{% endtrans %}</label></b></div>
-                    <div class="cell padded-small rw-6 rw-md-12"><input name="login_pass" id="login-password" type="password" /></div>
+                    <div class="cell padded-small rw-4 rw-md-12"><b><label for="login-password">{% trans from 'login' %}Passwort{% endtrans %}</label></b></div>
+                    <div class="cell padded-small rw-8 rw-md-12"><input name="login_pass" id="login-password" type="password" /></div>
                 </div>
                 <div class="row">
-                    <div class="cell padded-small rw-6 rw-md-12"><b><label for="remember_me">{% trans from 'login' %}Angemeldet bleiben{% endtrans %}</label></b></div>
-                    <div class="cell padded-small rw-6 rw-md-12"><input type="checkbox" id="remember_me" name="_remember_me" checked/></div>
+                    <div class="cell padded-small rw-4 rw-md-8"><b><label for="remember_me">{% trans from 'login' %}Angemeldet bleiben{% endtrans %}</label></b></div>
+                    <div class="cell padded-small rw-8 rw-md-4"><input type="checkbox" id="remember_me" name="_remember_me" checked/></div>
                 </div>
-                <div class="row">
-                    <div class="cell padded-small rw-6 ro-6 rw-md-12 ro-md-0">
+                <div class="row-flex bottom right wrap">
+                    <div class="cell padded-small rw-4 rw-md-6 rw-sm-12">
                         <button id="login_button">{% trans from 'login' %}Einloggen{% endtrans %}</button>
+                    </div>
+                    <div class="cell padded-small rw-4 rw-md-6 rw-sm-12">
+                        <span class="small hide-sm">{% trans from 'login' %}Du hast noch keinen Account?{% endtrans %}</span>
+                        <button x-ajax-href="{{ path('public_register') }}" class="blue">{% trans from 'login' %}Registrieren!{% endtrans %}</button>
                     </div>
                 </div>
             </form>
             <p class="right small">
-                {% trans from 'login' %}Du hast noch keinen Account?{% endtrans %}
-                <a href="" x-ajax-href="{{ path('public_register') }}">{% trans from 'login' %}Registrieren!{% endtrans %}</a><br />
                 <a href="" x-ajax-href="{{ path('public_reset') }}">{% trans from 'login' %}Passwort vergessen?{% endtrans %}</a>
             </p>
         </div>

@@ -19,7 +19,7 @@ class Forum
     private $id;
 
     /**
-     * @ORM\OneToOne(targetEntity="App\Entity\Town", inversedBy="forum", cascade={"persist", "remove"})
+     * @ORM\OneToOne(targetEntity="App\Entity\Town", inversedBy="forum", cascade={"persist"})
      */
     private $town;
 

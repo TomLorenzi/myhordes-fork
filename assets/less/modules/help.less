@@ -138,6 +138,11 @@ a {
         line-height: 10.5pt;
     }
 
+    i {
+        color: #f0d79e;
+        font-style: italic;
+    }
+
     img {
         vertical-align: -15%;
         &.art {
@@ -183,6 +188,11 @@ a {
         }
     }
 
+    .warning, .critical {
+        color: #f86;
+        font-weight: bold;
+    }
+
     p.ambiant, div.ambiant {
         padding: 5px 5px 5px 22px;
         margin-left: 40px;
@@ -194,5 +204,47 @@ a {
         background-image: url("../../img/icons/small_rp.gif");
         background-repeat: no-repeat;
         background-position: 0px 5px;
+    }
+    div.warning, div.critical {
+        margin-top: 5px;
+        padding: 5px;
+        font-variant: small-caps;
+        background-color: #5c2b20;
+        border: 1px solid #f0d79e;
+        outline: 1px solid #5c2b20;
+    }
+    div.critical { margin-bottom: 10px; }
+    dl {
+        dt, dd {
+            color: #e3c699;
+            min-height: 21px;
+            border-bottom: 1px solid #b37c4a;
+            margin-bottom: 1px;
+        }
+        dt {
+            display: block;
+            clear: both;
+            position: relative;
+            margin-right: 5px;
+            padding-left: 5px;
+            color: white;
+            font-weight: bold;
+            background-color: #b37c4a;
+            -moz-border-radius-topleft: 10px;
+            width: 17rem;
+            height: auto;
+            padding-top: 2px;
+            font-size: 10pt;
+            font-style: italic;
+            line-height: 10.5pt;
+            -moz-border-radius-topright: 10px;
+        }
+        dd {
+            margin-bottom: 10px;
+            margin-left: 0px;
+            padding-left: 10px;
+            color: #f0d79e;
+            background-color: #996739;
+        }
     }
 }

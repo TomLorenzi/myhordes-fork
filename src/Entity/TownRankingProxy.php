@@ -60,17 +60,18 @@ class TownRankingProxy
     private $baseID;
 
     /**
-     * @ORM\OneToMany(targetEntity=CitizenRankingProxy::class, mappedBy="town", orphanRemoval=true, cascade={"persist"})
+     * @ORM\OneToMany(targetEntity=CitizenRankingProxy::class, mappedBy="town", cascade={"persist", "remove"})
      */
     private $citizens;
 
     /**
-     * @ORM\OneToOne(targetEntity=Town::class, mappedBy="rankingEntry", cascade={"persist"})
+     * @ORM\OneToOne(targetEntity=Town::class, inversedBy="rankingEntry", cascade={"persist"})
+     * @ORM\JoinColumn(nullable=true, onDelete="SET NULL")
      */
     private $town;
 
     /**
-     * @ORM\OneToMany(targetEntity=Picto::class, mappedBy="townEntry", cascade={"persist"})
+     * @ORM\OneToMany(targetEntity=Picto::class, mappedBy="townEntry", cascade={"persist", "remove"})
      */
     private $distributedPictos;
 

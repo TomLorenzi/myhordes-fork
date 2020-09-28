@@ -4559,7 +4559,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Was hier passiert ist erschließt sich dir nicht so ganz... Ein riesiger Felsen ist mit voller Wucht auf die Straße geschleudert worden - doch woher kam er? Rings um dich ist nichts als Wüste...</source>
-        <target>Was hier passiert ist erschließt sich dir nicht so ganz... Ein riesiger Felsen ist mit voller Wucht auf die Straße geschleudert worden - doch woher kam er? Rings um dich ist nichts als Wüste...</target>
+        <target>Something truly bizarre seems to have happened here : a huge rock seems to have crash landed in the middle of the road, like some kind of tombstone...Something truly bizarre seems to have happened here : a huge rock seems to have crash landed in the middle of the road, like some kind of tombstone...</target>
       </segment>
     </unit>
     <unit id="yFJW.aK" name="8bf8201">
@@ -7646,7 +7646,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Unsere Verteidigung ist möglicherweise nicht stark genug, um dem Angriff heute Nacht standzuhalten...</source>
-        <target>Unsere Verteidigung ist möglicherweise nicht stark genug, um dem Angriff heute Nacht standzuhalten...</target>
+        <target>Our defences may be able to withstand the coming attack.</target>
       </segment>
     </unit>
     <unit id="u_UqXok" name="Hast du schließlich doch Angst Wächter zu sein? Was zögerst du noch:">
@@ -11521,7 +11521,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Schokoladenkreuz</source>
-        <target>Schokoladenkreuz</target>
+        <target>Chocolate Cross</target>
       </segment>
     </unit>
     <unit id="Q8sma_4" name="eceaacb">
@@ -11557,7 +11557,115 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Regentanz ausführen</source>
-        <target>Regentanz ausführen</target>
+        <target>Make it rain!</target>
+      </segment>
+    </unit>
+    <unit id="SFjPHiw" name="Einsiedler - Gewinner des SoH">
+      <notes>
+        <note category="german">Survivalist - Winner of SoH</note>
+      </notes>
+      <segment>
+        <source>Einsiedler - Gewinner des SoH</source>
+        <target>Survivalist - Winner of SoH</target>
+      </segment>
+    </unit>
+    <unit id="suYM2pk" name="Buddler - Gewinner des SoH">
+      <notes>
+        <note category="german">Scavenger - Winner of SoH</note>
+      </notes>
+      <segment>
+        <source>Buddler - Gewinner des SoH</source>
+        <target>Scavenger - Winner of SoH</target>
+      </segment>
+    </unit>
+    <unit id="B4NRnue" name="Sieg für die Buddler beim Shock of Heroes Event!">
+      <notes>
+        <note category="german">Victory for the Scavengers at the Shock of Heroes event!</note>
+      </notes>
+      <segment>
+        <source>Sieg für die Buddler beim Shock of Heroes Event!</source>
+        <target>Victory for the Scavengers at the Shock of Heroes event!</target>
+      </segment>
+    </unit>
+    <unit id="ezjjECr" name="Wächter - Gewinner des SoH">
+      <notes>
+        <note category="german">Guardian - Winner of SoH</note>
+      </notes>
+      <segment>
+        <source>Wächter - Gewinner des SoH</source>
+        <target>Guardian - Winner of SoH</target>
+      </segment>
+    </unit>
+    <unit id="jVhaVYF" name="Du hast soeben den Zugang zu deiner privaten Stadt für jedermann geöffnet.">
+      <notes>
+        <note category="german">You have just opened access to your private town for everyone.</note>
+      </notes>
+      <segment>
+        <source>Du hast soeben den Zugang zu deiner privaten Stadt für jedermann geöffnet.</source>
+        <target>You have just opened access to your private town for everyone.</target>
+      </segment>
+    </unit>
+    <unit id="e_umQ0L" name="37b3bf7">
+      <notes>
+        <note category="german">Wenn du in der Wüste von Zombies umzingelst wirst, erstarrst du vor Angst und kannst nichts mehr unternehmen... Du musst Drogen oder etwas anderes finden, um &lt;strong&gt;deine Nerven zu beruhigen&lt;/strong&gt; und aus dieser Hölle auszubrechen... Wenigstens ist es dir immer noch möglich, im Forum nach Hilfe zu suchen...</note>
+      </notes>
+      <segment>
+        <source>Wenn du in der Wüste von Zombies umzingelst wirst, erstarrst du vor Angst und kannst nichts mehr unternehmen... Du musst Drogen oder etwas anderes finden, um &lt;strong&gt;deine Nerven zu beruhigen&lt;/strong&gt; und aus dieser Hölle auszubrechen... Wenigstens ist es dir immer noch möglich, im Forum nach Hilfe zu suchen...</source>
+        <target><![CDATA[Wenn du in der Wüste von Zombies umzingelst wirst, erstarrst du vor Angst und kannst nichts mehr unternehmen... Du musst Drogen oder etwas anderes finden, um <strong>deine Nerven zu beruhigen</strong> und aus dieser Hölle auszubrechen... Wenigstens ist es dir immer noch möglich, im Forum nach Hilfe zu suchen...]]></target>
+      </segment>
+    </unit>
+    <unit id="G0BraVl" name="Das Passwort ist falsch.">
+      <notes>
+        <note category="german">The password is incorrect.</note>
+      </notes>
+      <segment>
+        <source>Das Passwort ist falsch.</source>
+        <target>The password is incorrect.</target>
+      </segment>
+    </unit>
+    <unit id="G7YX22v" name="Deine privaten Nachrichten">
+      <notes>
+        <note category="german">Your private messages</note>
+      </notes>
+      <segment>
+        <source>Deine privaten Nachrichten</source>
+        <target>Your private messages</target>
+      </segment>
+    </unit>
+    <unit id="C9_MTts" name="91fcb31">
+      <notes>
+        <note category="german">This section shows the building upgrades which can be made to your home.</note>
+      </notes>
+      <segment>
+        <source>In diesem Bereich kannst du dir alle möglichen Verbesserungen deines Hauses ansehen.</source>
+        <target>This section shows the building upgrades which can be made to your home.</target>
+      </segment>
+    </unit>
+    <unit id="dQRl.Lz" name="fb2b856">
+      <notes>
+        <note category="german">This section shows the interior improvements you have made to your home (furniture, home defences...).</note>
+      </notes>
+      <segment>
+        <source>In diesem Bereich werden alle bereits eingebauten Einrichtungen und Ausbauten deines Hauses angezeigt (Möbel, Verteidigungsvorrichtungen...).</source>
+        <target>This section shows the interior improvements you have made to your home (furniture, home defences...).</target>
+      </segment>
+    </unit>
+    <unit id="9EBorzV" name="Deine Stadt">
+      <notes>
+        <note category="german">Your Town</note>
+      </notes>
+      <segment>
+        <source>Deine Stadt</source>
+        <target>Your Town</target>
+      </segment>
+    </unit>
+    <unit id="mkyiUfI" name="Öffne deine private Stadt für alle">
+      <notes>
+        <note category="german">Open your private town to everyone</note>
+      </notes>
+      <segment>
+        <source>Öffne deine private Stadt für alle</source>
+        <target>Open your private town to everyone</target>
       </segment>
     </unit>
   </file>

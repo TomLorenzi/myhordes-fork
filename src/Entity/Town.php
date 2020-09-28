@@ -133,7 +133,8 @@ class Town
     private $citizenWatches;
 
     /**
-     * @ORM\OneToOne(targetEntity=TownRankingProxy::class, inversedBy="town", cascade={"persist"})
+     * @ORM\OneToOne(targetEntity=TownRankingProxy::class, mappedBy="town", cascade={"persist"})
+     * @ORM\JoinColumn(nullable=true, onDelete="SET NULL")
      */
     private $rankingEntry;
 
@@ -161,6 +162,11 @@ class Town
      * @ORM\ManyToOne(targetEntity=User::class)
      */
     private $creator;
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\TownLogEntry", mappedBy="town", cascade={"remove"})
+     */
+    private $_townLogEntries;
 
     public function __construct()
     {
