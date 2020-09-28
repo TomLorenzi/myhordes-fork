@@ -370,7 +370,7 @@ class CitizenHandler
             $base = $citizen->getProfession()->getName() == 'guardian' ? 4 : 2;
 
             $has_healthy_body = $citizen->getProfession()->getHeroic() && $this->user_handler->hasSkill($citizen->getUser(), 'healthybody');
-            $has_body_armor = $citizen->getProfession()->getHeroic() && $this->user_handler->hasSkill($citizen->getUser(), 'brick');
+            $has_body_armor   = $citizen->getProfession()->getHeroic() && $this->user_handler->hasSkill($citizen->getUser(), 'brick');
 
             if ($has_healthy_body && $this->hasStatusEffect( $citizen, 'clean', false ))
                 $base += 1;
