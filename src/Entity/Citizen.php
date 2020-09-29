@@ -231,7 +231,7 @@ class Citizen
 
     /**
      * @ORM\OneToOne(targetEntity=CitizenRankingProxy::class, mappedBy="citizen", cascade={"persist"})
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\JoinColumn(nullable=true, onDelete="SET NULL")
      */
     private $rankingEntry;
 
