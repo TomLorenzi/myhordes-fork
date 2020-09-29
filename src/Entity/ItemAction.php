@@ -75,6 +75,11 @@ class ItemAction implements NamedEntity
      */
     private $confirm;
 
+    /**
+     * @ORM\Column(type="boolean", nullable=true)
+     */
+    private $allowWhenTerrorized = false;
+
     public function __construct()
     {
         $this->requirements = new ArrayCollection();
@@ -230,6 +235,18 @@ class ItemAction implements NamedEntity
     public function setConfirm(?bool $confirm): self
     {
         $this->confirm = $confirm;
+
+        return $this;
+    }
+
+    public function getAllowWhenTerrorized(): ?bool
+    {
+        return $this->allowWhenTerrorized;
+    }
+
+    public function setAllowWhenTerrorized(?bool $allowWhenTerrorized): self
+    {
+        $this->allowWhenTerrorized = $allowWhenTerrorized;
 
         return $this;
     }
