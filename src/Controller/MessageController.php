@@ -477,7 +477,7 @@ class MessageController extends AbstractController
         if ($post instanceof Post && $post->getType() !== 'CROW' && $forum !== null && $forum->getTown()){
 
             $citizen = $user->getActiveCitizen();
-            if ($citizen->getTown() === $forum->getTown()) {
+            if ($citizen && $citizen->getTown() === $forum->getTown()) {
 
                 if ($citizen->getZone() && ($citizen->getZone()->getX() !== 0 || $citizen->getZone()->getY() !== 0))  {
                     if($citizen->getTown()->getChaos()){
