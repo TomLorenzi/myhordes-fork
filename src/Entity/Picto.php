@@ -40,7 +40,7 @@ class Picto
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Town")
-     * @ORM\JoinColumn(nullable=true, onDelete="CASCADE")
+     * @ORM\JoinColumn(nullable=true, onDelete="SET NULL")
      */
     private $town;
 
