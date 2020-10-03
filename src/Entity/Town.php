@@ -618,9 +618,20 @@ class Town
      * @param LifecycleEventArgs $args
      * @throws ORMException
      */
-    public function lifeCycle_createTownRankingProxy(LifecycleEventArgs $args) {
+    public function lifeCycle_postPersist(LifecycleEventArgs $args) {
         $args->getEntityManager()->persist( TownRankingProxy::fromTown( $this ) );
+        $args->getEntityManager()->persist( (new UserGroup())->setName("[town:{$this->getId()}]")->setType(UserGroup::GroupTownInhabitants)->setRef1($this->getId()) );
         $args->getEntityManager()->flush();
+    }
+
+    /**
+     * @ORM\PreRemove()
+     * @param LifecycleEventArgs $args
+     * @throws ORMException
+     */
+    public function lifeCycle_preRemove(LifecycleEventArgs $args) {
+        $g = $args->getEntityManager()->getRepository(UserGroup::class)->findOneBy( ['type' => UserGroup::GroupTownInhabitants, 'ref1' => $this->getId()] );
+        if ($g) $args->getEntityManager()->remove($g);
     }
 
     public function getLastAttack(): ?AttackSchedule
