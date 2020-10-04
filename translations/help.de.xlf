@@ -1687,5 +1687,1298 @@ Pro Zug wird dir 1 Aktionspunkt abgezogen. Bei 0 Punkten bist du %img_tired% <st
         <target>Camper haben eine bessere Chance, ein Versteck zu finden.</target>
       </segment>
     </unit>
+    <unit id="gxWuOUR" name="fba6242">
+      <notes>
+        <note category="german">Im Laufe deines Spielerlebens wirst du in MyHordes zahlreiche Gegenstände in der Wüste finden, beim Bau verschiedener Gebäude mithelfen, dir Krankheiten einfangen und auch Drogen konsumieren...</note>
+      </notes>
+      <segment>
+        <source>Im Laufe deines Spielerlebens wirst du in MyHordes zahlreiche Gegenstände in der Wüste finden, beim Bau verschiedener Gebäude mithelfen, dir Krankheiten einfangen und auch Drogen konsumieren...</source>
+        <target>Im Laufe deines Spielerlebens wirst du in MyHordes zahlreiche Gegenstände in der Wüste finden, beim Bau verschiedener Gebäude mithelfen, dir Krankheiten einfangen und auch Drogen konsumieren...</target>
+      </segment>
+    </unit>
+    <unit id="Qo0UDUa" name="9c0157d">
+      <notes>
+        <note category="german">Damit du immer die richtigen Entscheidungen triffst, ist es wichtig, die Übersicht zu behalten.</note>
+      </notes>
+      <segment>
+        <source>Damit du immer die richtigen Entscheidungen triffst, ist es wichtig, die Übersicht zu behalten.</source>
+        <target>Damit du immer die richtigen Entscheidungen triffst, ist es wichtig, die Übersicht zu behalten.</target>
+      </segment>
+    </unit>
+    <unit id="8OTtw8S" name="7be03fa">
+      <notes>
+        <note category="german">Wildes Campen ist eine etwas gewagte, aber erfolgreiche Spielweise, die darin besteht, sich beim Angriff um Mitternacht draußen zu verstecken.</note>
+      </notes>
+      <segment>
+        <source>Wildes Campen ist eine etwas gewagte, aber erfolgreiche Spielweise, die darin besteht, sich beim Angriff um Mitternacht draußen zu verstecken.</source>
+        <target>Wildes Campen ist eine etwas gewagte, aber erfolgreiche Spielweise, die darin besteht, sich beim Angriff um Mitternacht draußen zu verstecken.</target>
+      </segment>
+    </unit>
+    <unit id="a8U92l3" name="bb1556b">
+      <notes>
+        <note category="german">Ihr geht dabei folgendermaßen vor: Ihr sucht euch ein passendes Versteck und dann kneift ihr die Arschbacken zusammen und betet, dass die Nacht schnell vorbei ist.</note>
+      </notes>
+      <segment>
+        <source>Ihr geht dabei folgendermaßen vor: Ihr sucht euch ein passendes Versteck und dann kneift ihr die Arschbacken zusammen und betet, dass die Nacht schnell vorbei ist.</source>
+        <target>Ihr geht dabei folgendermaßen vor: Ihr sucht euch ein passendes Versteck und dann kneift ihr die Arschbacken zusammen und betet, dass die Nacht schnell vorbei ist.</target>
+      </segment>
+    </unit>
+    <unit id=".4GI52S" name="Aus dieser Spielweise ergeben sich mehrere Vorteile:">
+      <notes>
+        <note category="german">Aus dieser Spielweise ergeben sich mehrere Vorteile:</note>
+      </notes>
+      <segment>
+        <source>Aus dieser Spielweise ergeben sich mehrere Vorteile:</source>
+        <target>Aus dieser Spielweise ergeben sich mehrere Vorteile:</target>
+      </segment>
+    </unit>
+    <unit id="cWBqfQ." name="0734aa3">
+      <notes>
+        <note category="german">&lt;strong&gt;Du bist imstande zu überleben, wenn das Stadttor mal wieder vor deiner Nase geschlossen wurde&lt;/strong&gt;: Das kommt öfters vor als du denkst!
+Wenn du überlebst, kannst du bei deiner Rückkehr deinen Freunden mitteilen, wie sehr du ihren kleinen Scherz genossen hast...</note>
+      </notes>
+      <segment>
+        <source>&lt;strong&gt;Du bist imstande zu überleben, wenn das Stadttor mal wieder vor deiner Nase geschlossen wurde&lt;/strong&gt;: Das kommt öfters vor als du denkst!
+Wenn du überlebst, kannst du bei deiner Rückkehr deinen Freunden mitteilen, wie sehr du ihren kleinen Scherz genossen hast...</source>
+        <target><![CDATA[<strong>Du bist imstande zu überleben, wenn das Stadttor mal wieder vor deiner Nase geschlossen wurde</strong>: Das kommt öfters vor als du denkst!
+Wenn du überlebst, kannst du bei deiner Rückkehr deinen Freunden mitteilen, wie sehr du ihren kleinen Scherz genossen hast...]]></target>
+      </segment>
+    </unit>
+    <unit id="t8doMhI" name="fe0bae5">
+      <notes>
+        <note category="german">&lt;strong&gt;Du kannst ausgedehnte Expeditionen unternehmen&lt;/strong&gt;. Lange Erkundungsmärsche können auf zwei oder mehr Tage verteilt werden!</note>
+      </notes>
+      <segment>
+        <source>&lt;strong&gt;Du kannst ausgedehnte Expeditionen unternehmen&lt;/strong&gt;. Lange Erkundungsmärsche können auf zwei oder mehr Tage verteilt werden!</source>
+        <target><![CDATA[<strong>Du kannst ausgedehnte Expeditionen unternehmen</strong>. Lange Erkundungsmärsche können auf zwei oder mehr Tage verteilt werden!]]></target>
+      </segment>
+    </unit>
+    <unit id="i1Wu8tt" name="ba74249">
+      <notes>
+        <note category="german">&lt;strong&gt;Du erhältst einen Bonus für alle deine Grabungsaktionen&lt;/strong&gt;: Wenn du beim Zombieangriff draußen bist, erhältst du am nächsten Tag beim Graben einen Bonus (deine Wahrscheinlichkeit etwas zu finden steigt).
+Der Grund dafür ist, dass du über Nacht die Wüstenwinde und Dünenverschiebungen besser studieren konntest (ja, ja!).</note>
+      </notes>
+      <segment>
+        <source>&lt;strong&gt;Du erhältst einen Bonus für alle deine Grabungsaktionen&lt;/strong&gt;: Wenn du beim Zombieangriff draußen bist, erhältst du am nächsten Tag beim Graben einen Bonus (deine Wahrscheinlichkeit etwas zu finden steigt).
+Der Grund dafür ist, dass du über Nacht die Wüstenwinde und Dünenverschiebungen besser studieren konntest (ja, ja!).</source>
+        <target><![CDATA[<strong>Du erhältst einen Bonus für alle deine Grabungsaktionen</strong>: Wenn du beim Zombieangriff draußen bist, erhältst du am nächsten Tag beim Graben einen Bonus (deine Wahrscheinlichkeit etwas zu finden steigt).
+Der Grund dafür ist, dass du über Nacht die Wüstenwinde und Dünenverschiebungen besser studieren konntest (ja, ja!).]]></target>
+      </segment>
+    </unit>
+    <unit id="VVo2ZSG" name="ba71709">
+      <notes>
+        <note category="german">&lt;strong&gt;Eine Auszeichnung&lt;/strong&gt;: Nicht jeder, der draußen überlebt, erhält eine Auszeichnung!</note>
+      </notes>
+      <segment>
+        <source>&lt;strong&gt;Eine Auszeichnung&lt;/strong&gt;: Nicht jeder, der draußen überlebt, erhält eine Auszeichnung!</source>
+        <target><![CDATA[<strong>Eine Auszeichnung</strong>: Nicht jeder, der draußen überlebt, erhält eine Auszeichnung!]]></target>
+      </segment>
+    </unit>
+    <unit id="_cYKNb9" name="79cb454">
+      <notes>
+        <note category="german">&lt;strong&gt;Du erhältst eine seltene Auszeichnung&lt;/strong&gt;: Für jede Nacht, die du draußen überlebst während die Stadt schon zerstört ist, 
+bekommst du zusätzlich eine seltene Auszeichnung (lies dazu auch den folgenden Abschnitt: &lt;i&gt;"Auszeichnung: Camper im Jenseits"&lt;/i&gt;).</note>
+      </notes>
+      <segment>
+        <source>&lt;strong&gt;Du erhältst eine seltene Auszeichnung&lt;/strong&gt;: Für jede Nacht, die du draußen überlebst während die Stadt schon zerstört ist, 
+bekommst du zusätzlich eine seltene Auszeichnung (lies dazu auch den folgenden Abschnitt: &lt;i&gt;"Auszeichnung: Camper im Jenseits"&lt;/i&gt;).</source>
+        <target><![CDATA[<strong>Du erhältst eine seltene Auszeichnung</strong>: Für jede Nacht, die du draußen überlebst während die Stadt schon zerstört ist, 
+bekommst du zusätzlich eine seltene Auszeichnung (lies dazu auch den folgenden Abschnitt: <i>"Auszeichnung: Camper im Jenseits"</i>).]]></target>
+      </segment>
+    </unit>
+    <unit id="sMhdxRS" name="Wie kann ich draußen campen?">
+      <notes>
+        <note category="german">Wie kann ich draußen campen?</note>
+      </notes>
+      <segment>
+        <source>Wie kann ich draußen campen?</source>
+        <target>Wie kann ich draußen campen?</target>
+      </segment>
+    </unit>
+    <unit id="Gg6bH7K" name="a40b212">
+      <notes>
+        <note category="german">Klicke auf den Link &lt;strong&gt;Umgebung untersuchen&lt;/strong&gt;. Du kannst anschließend mehrere Aktionen ausführen:</note>
+      </notes>
+      <segment>
+        <source>Klicke auf den Link &lt;strong&gt;Umgebung untersuchen&lt;/strong&gt;. Du kannst anschließend mehrere Aktionen ausführen:</source>
+        <target><![CDATA[Klicke auf den Link <strong>Umgebung untersuchen</strong>. Du kannst anschließend mehrere Aktionen ausführen:]]></target>
+      </segment>
+    </unit>
+    <unit id="FCBsJmN" name="ac94a20">
+      <notes>
+        <note category="german">&lt;strong&gt;Ein Versteck vorbereiten&lt;/strong&gt;: Du suchst dir ein paar Steintrümmer, ein paar verdörrte Baumzweige und gräbst ein Loch, um in der Nacht nicht von den Zombies entdeckt zu werden. Jeder Versteckausbau erhöht deine Überlebenschance in dieser Zone &lt;i&gt;ein wenig&lt;/i&gt;.
+&lt;strong&gt;Alle überlebenden Bürger, die sich in der betreffenden Zone befinden, ziehen einen Vorteil von Versteckausbauten. Außerdem gilt der Bonus der Ausbauten auch für alle folgenden Tage. Allerdings wird jede Nacht ein Teil dieser Ausbauten von den Zombies beschädigt.&lt;/strong&gt;</note>
+      </notes>
+      <segment>
+        <source>&lt;strong&gt;Ein Versteck vorbereiten&lt;/strong&gt;: Du suchst dir ein paar Steintrümmer, ein paar verdörrte Baumzweige und gräbst ein Loch, um in der Nacht nicht von den Zombies entdeckt zu werden. Jeder Versteckausbau erhöht deine Überlebenschance in dieser Zone &lt;i&gt;ein wenig&lt;/i&gt;.
+&lt;strong&gt;Alle überlebenden Bürger, die sich in der betreffenden Zone befinden, ziehen einen Vorteil von Versteckausbauten. Außerdem gilt der Bonus der Ausbauten auch für alle folgenden Tage. Allerdings wird jede Nacht ein Teil dieser Ausbauten von den Zombies beschädigt.&lt;/strong&gt;</source>
+        <target><![CDATA[<strong>Ein Versteck vorbereiten</strong>: Du suchst dir ein paar Steintrümmer, ein paar verdörrte Baumzweige und gräbst ein Loch, um in der Nacht nicht von den Zombies entdeckt zu werden. Jeder Versteckausbau erhöht deine Überlebenschance in dieser Zone <i>ein wenig</i>.
+<strong>Alle überlebenden Bürger, die sich in der betreffenden Zone befinden, ziehen einen Vorteil von Versteckausbauten. Außerdem gilt der Bonus der Ausbauten auch für alle folgenden Tage. Allerdings wird jede Nacht ein Teil dieser Ausbauten von den Zombies beschädigt.</strong>]]></target>
+      </segment>
+    </unit>
+    <unit id="BX84.Qk" name="d7b4cf1">
+      <notes>
+        <note category="german">&lt;strong&gt;Verstecken&lt;/strong&gt;: Du legst dich auf die Lauer und kannst während dieser Zeit nichts anderes mehr machen. Wenn du wieder eine Aktion ausführen möchtest, musst du aus deinem Versteck hervorkriechen.</note>
+      </notes>
+      <segment>
+        <source>&lt;strong&gt;Verstecken&lt;/strong&gt;: Du legst dich auf die Lauer und kannst während dieser Zeit nichts anderes mehr machen. Wenn du wieder eine Aktion ausführen möchtest, musst du aus deinem Versteck hervorkriechen.</source>
+        <target><![CDATA[<strong>Verstecken</strong>: Du legst dich auf die Lauer und kannst während dieser Zeit nichts anderes mehr machen. Wenn du wieder eine Aktion ausführen möchtest, musst du aus deinem Versteck hervorkriechen.]]></target>
+      </segment>
+    </unit>
+    <unit id="2CR0YgI" name="07b43cb">
+      <notes>
+        <note category="german">&lt;strong&gt;Ein "Grab" schaufeln&lt;/strong&gt;: Du gräbst ein Loch und bedeckst dich mit allem, was du in deiner unmittelbaren Umgebung auftreiben kannst. Diese Aktion verleiht dir einen größeren Bonus als die Verbesserung deines Campingplatzes. Allerdings kannst du dich danach nicht mehr bewegen. Du verlierst diesen Bonus, wenn du aus deinem Versteck hervorkriechst.</note>
+      </notes>
+      <segment>
+        <source>&lt;strong&gt;Ein "Grab" schaufeln&lt;/strong&gt;: Du gräbst ein Loch und bedeckst dich mit allem, was du in deiner unmittelbaren Umgebung auftreiben kannst. Diese Aktion verleiht dir einen größeren Bonus als die Verbesserung deines Campingplatzes. Allerdings kannst du dich danach nicht mehr bewegen. Du verlierst diesen Bonus, wenn du aus deinem Versteck hervorkriechst.</source>
+        <target><![CDATA[<strong>Ein "Grab" schaufeln</strong>: Du gräbst ein Loch und bedeckst dich mit allem, was du in deiner unmittelbaren Umgebung auftreiben kannst. Diese Aktion verleiht dir einen größeren Bonus als die Verbesserung deines Campingplatzes. Allerdings kannst du dich danach nicht mehr bewegen. Du verlierst diesen Bonus, wenn du aus deinem Versteck hervorkriechst.]]></target>
+      </segment>
+    </unit>
+    <unit id="kWTiIOz" name="e476432">
+      <notes>
+        <note category="german">&lt;strong&gt;Verteidigungsgegenstände gebrauchen&lt;/strong&gt;: Mit manchen Gegenständen kannst du deinen Campingplatz erheblich verbessern. Der Gebrauch dieser Gegenstände verbraucht allerdings 1 %img_ap%.</note>
+      </notes>
+      <segment>
+        <source>&lt;strong&gt;Verteidigungsgegenstände gebrauchen&lt;/strong&gt;: Mit manchen Gegenständen kannst du deinen Campingplatz erheblich verbessern. Der Gebrauch dieser Gegenstände verbraucht allerdings 1 %img_ap%.</source>
+        <target><![CDATA[<strong>Verteidigungsgegenstände gebrauchen</strong>: Mit manchen Gegenständen kannst du deinen Campingplatz erheblich verbessern. Der Gebrauch dieser Gegenstände verbraucht allerdings 1 %img_ap%.]]></target>
+      </segment>
+    </unit>
+    <unit id="A3wujEo" name="a6858a6">
+      <notes>
+        <note category="german">Es gibt andere Möglichkeiten, deine Überlebenschancen beim Campen in Bezug auf Berufe, Objekte und Gebiete zu erhöhen. Es liegt an dir das herauszufinden.</note>
+      </notes>
+      <segment>
+        <source>Es gibt andere Möglichkeiten, deine Überlebenschancen beim Campen in Bezug auf Berufe, Objekte und Gebiete zu erhöhen. Es liegt an dir das herauszufinden.</source>
+        <target>Es gibt andere Möglichkeiten, deine Überlebenschancen beim Campen in Bezug auf Berufe, Objekte und Gebiete zu erhöhen. Es liegt an dir das herauszufinden.</target>
+      </segment>
+    </unit>
+    <unit id="qQ6FYAf" name="77120ab">
+      <notes>
+        <note category="german">&lt;strong&gt;Unmittelbar vor dem Stadttor kannst du nicht campen, denn das ist zu gefährlich.&lt;/strong&gt; Die Zombiehorde würde dich überrennen. Such dir einen besseren Platz aus.</note>
+      </notes>
+      <segment>
+        <source>&lt;strong&gt;Unmittelbar vor dem Stadttor kannst du nicht campen, denn das ist zu gefährlich.&lt;/strong&gt; Die Zombiehorde würde dich überrennen. Such dir einen besseren Platz aus.</source>
+        <target><![CDATA[<strong>Unmittelbar vor dem Stadttor kannst du nicht campen, denn das ist zu gefährlich.</strong> Die Zombiehorde würde dich überrennen. Such dir einen besseren Platz aus.]]></target>
+      </segment>
+    </unit>
+    <unit id="hGPfqUo" name="5c39619">
+      <notes>
+        <note category="german">Wie gut dein Versteck auch sein mag, deine Überlebenschancen sind begrenzt. Ein (kleines) Restrisiko besteht immer! Deine Überlebenschancen hängen von zahlreichen Faktoren ab: Gegenstände, Anzahl der Verbesserungsarbeiten, Grab etc... Ab einer bestimmten Stufe, kann die Überlebenschance nicht weiter erhöht werden.</note>
+      </notes>
+      <segment>
+        <source>Wie gut dein Versteck auch sein mag, deine Überlebenschancen sind begrenzt. Ein (kleines) Restrisiko besteht immer! Deine Überlebenschancen hängen von zahlreichen Faktoren ab: Gegenstände, Anzahl der Verbesserungsarbeiten, Grab etc... Ab einer bestimmten Stufe, kann die Überlebenschance nicht weiter erhöht werden.</source>
+        <target>Wie gut dein Versteck auch sein mag, deine Überlebenschancen sind begrenzt. Ein (kleines) Restrisiko besteht immer! Deine Überlebenschancen hängen von zahlreichen Faktoren ab: Gegenstände, Anzahl der Verbesserungsarbeiten, Grab etc... Ab einer bestimmten Stufe, kann die Überlebenschance nicht weiter erhöht werden.</target>
+      </segment>
+    </unit>
+    <unit id="lOUtB9j" name="Wie hoch sind meine Überlebenschancen?">
+      <notes>
+        <note category="german">Wie hoch sind meine Überlebenschancen?</note>
+      </notes>
+      <segment>
+        <source>Wie hoch sind meine Überlebenschancen?</source>
+        <target>Wie hoch sind meine Überlebenschancen?</target>
+      </segment>
+    </unit>
+    <unit id="moEXpA8" name="1ee9475">
+      <notes>
+        <note category="german">Deine Überlebenschancen werden &lt;strong&gt;zu dem Zeitpunkt berechnet, an dem du auf "&lt;i&gt;Verstecken&lt;/i&gt;" oder ein "&lt;i&gt;'Grab' schaufeln&lt;/i&gt;"&lt;/strong&gt; klickst. Eine spätere Änderung der Situation wirkt sich nicht auf deine Überlebenschance aus. Zum Beispiel:</note>
+      </notes>
+      <segment>
+        <source>Deine Überlebenschancen werden &lt;strong&gt;zu dem Zeitpunkt berechnet, an dem du auf "&lt;i&gt;Verstecken&lt;/i&gt;" oder ein "&lt;i&gt;'Grab' schaufeln&lt;/i&gt;"&lt;/strong&gt; klickst. Eine spätere Änderung der Situation wirkt sich nicht auf deine Überlebenschance aus. Zum Beispiel:</source>
+        <target><![CDATA[Deine Überlebenschancen werden <strong>zu dem Zeitpunkt berechnet, an dem du auf "<i>Verstecken</i>" oder ein "<i>'Grab' schaufeln</i>"</strong> klickst. Eine spätere Änderung der Situation wirkt sich nicht auf deine Überlebenschance aus. Zum Beispiel:]]></target>
+      </segment>
+    </unit>
+    <unit id="O7aoiYZ" name="e7830d9">
+      <notes>
+        <note category="german">Du hast beschlossen, dich in einer Zone zu verstecken, in der 6 Zombies rumlungern (du erhälst dafür einen Malus).
+Zu einem späteren Zeitpunkt kommt ein anderer Bürger vorbeigestapft und bringt alle Untoten um. Dies wirkt sich nicht auf deine Überlebenschancen aus. Als du dich entschieden hattest, in besagter Zone dein Versteck zu bauen, hast du mit den aktuellen Gegebenheiten gerechnet (die Zone war voller Zombies). Wenn du in den Genuss der neuen Ausgangslage kommen möchtest (alle Zombies sind tot), musst du dein Versteck verlassen und dich erneut verstecken.</note>
+      </notes>
+      <segment>
+        <source>Du hast beschlossen, dich in einer Zone zu verstecken, in der 6 Zombies rumlungern (du erhälst dafür einen Malus).
+Zu einem späteren Zeitpunkt kommt ein anderer Bürger vorbeigestapft und bringt alle Untoten um. Dies wirkt sich nicht auf deine Überlebenschancen aus. Als du dich entschieden hattest, in besagter Zone dein Versteck zu bauen, hast du mit den aktuellen Gegebenheiten gerechnet (die Zone war voller Zombies). Wenn du in den Genuss der neuen Ausgangslage kommen möchtest (alle Zombies sind tot), musst du dein Versteck verlassen und dich erneut verstecken.</source>
+        <target>Du hast beschlossen, dich in einer Zone zu verstecken, in der 6 Zombies rumlungern (du erhälst dafür einen Malus).
+Zu einem späteren Zeitpunkt kommt ein anderer Bürger vorbeigestapft und bringt alle Untoten um. Dies wirkt sich nicht auf deine Überlebenschancen aus. Als du dich entschieden hattest, in besagter Zone dein Versteck zu bauen, hast du mit den aktuellen Gegebenheiten gerechnet (die Zone war voller Zombies). Wenn du in den Genuss der neuen Ausgangslage kommen möchtest (alle Zombies sind tot), musst du dein Versteck verlassen und dich erneut verstecken.</target>
+      </segment>
+    </unit>
+    <unit id="EoQj_AI" name="Deine Überlebenschancen hängen von zahlreichen Faktoren ab:">
+      <notes>
+        <note category="german">Deine Überlebenschancen hängen von zahlreichen Faktoren ab:</note>
+      </notes>
+      <segment>
+        <source>Deine Überlebenschancen hängen von zahlreichen Faktoren ab:</source>
+        <target>Deine Überlebenschancen hängen von zahlreichen Faktoren ab:</target>
+      </segment>
+    </unit>
+    <unit id="xpSubH2" name="9eb5825">
+      <notes>
+        <note category="german">Anzahl der Zombies in der Umgebung (dieser Nachteil wird etwas abgemildert, wenn du als Aufklärer spielst und deine Tarnkleidung anhast).</note>
+      </notes>
+      <segment>
+        <source>Anzahl der Zombies in der Umgebung (dieser Nachteil wird etwas abgemildert, wenn du als Aufklärer spielst und deine Tarnkleidung anhast).</source>
+        <target>Anzahl der Zombies in der Umgebung (dieser Nachteil wird etwas abgemildert, wenn du als Aufklärer spielst und deine Tarnkleidung anhast).</target>
+      </segment>
+    </unit>
+    <unit id="lOEPC3J" name="9a2aa6c">
+      <notes>
+        <note category="german">Anwesenheit anderer Bürger, die sich &lt;strong&gt;vor dir&lt;/strong&gt; hier ein Versteck gesucht haben (Nachteil). Es sollte jedem klar sein, dass man sich allein unauffälliger verhält als zu fünft.</note>
+      </notes>
+      <segment>
+        <source>Anwesenheit anderer Bürger, die sich &lt;strong&gt;vor dir&lt;/strong&gt; hier ein Versteck gesucht haben (Nachteil). Es sollte jedem klar sein, dass man sich allein unauffälliger verhält als zu fünft.</source>
+        <target><![CDATA[Anwesenheit anderer Bürger, die sich <strong>vor dir</strong> hier ein Versteck gesucht haben (Nachteil). Es sollte jedem klar sein, dass man sich allein unauffälliger verhält als zu fünft.]]></target>
+      </segment>
+    </unit>
+    <unit id="BTUfzKK" name="d75d90b">
+      <notes>
+        <note category="german">Präsenz eines freigeschaufelten Gebäudes (je nach Art des Gebäudes kann das ein Vor- oder ein Nachteil sein).</note>
+      </notes>
+      <segment>
+        <source>Präsenz eines freigeschaufelten Gebäudes (je nach Art des Gebäudes kann das ein Vor- oder ein Nachteil sein).</source>
+        <target>Präsenz eines freigeschaufelten Gebäudes (je nach Art des Gebäudes kann das ein Vor- oder ein Nachteil sein).</target>
+      </segment>
+    </unit>
+    <unit id="0pwi3zg" name="Präsenz eines &lt;strong&gt; nicht freigeschaufelten&lt;/strong&gt; Gebäudes (Vorteil).">
+      <notes>
+        <note category="german">Präsenz eines &lt;strong&gt; nicht freigeschaufelten&lt;/strong&gt; Gebäudes (Vorteil).</note>
+      </notes>
+      <segment>
+        <source>Präsenz eines &lt;strong&gt; nicht freigeschaufelten&lt;/strong&gt; Gebäudes (Vorteil).</source>
+        <target><![CDATA[Präsenz eines <strong> nicht freigeschaufelten</strong> Gebäudes (Vorteil).]]></target>
+      </segment>
+    </unit>
+    <unit id="DXqk0B2" name="Die Stadt wurde &lt;strong&gt;zerstört&lt;/strong&gt; (großer Nachteil)">
+      <notes>
+        <note category="german">Die Stadt wurde &lt;strong&gt;zerstört&lt;/strong&gt; (großer Nachteil)</note>
+      </notes>
+      <segment>
+        <source>Die Stadt wurde &lt;strong&gt;zerstört&lt;/strong&gt; (großer Nachteil)</source>
+        <target><![CDATA[Die Stadt wurde <strong>zerstört</strong> (großer Nachteil)]]></target>
+      </segment>
+    </unit>
+    <unit id="OdsD2OY" name="9ee2716">
+      <notes>
+        <note category="german">Die Entfernung zur Stadt: Je weiter du beim Angriff von der Stadt weg bist, umso besser!</note>
+      </notes>
+      <segment>
+        <source>Die Entfernung zur Stadt: Je weiter du beim Angriff von der Stadt weg bist, umso besser!</source>
+        <target>Die Entfernung zur Stadt: Je weiter du beim Angriff von der Stadt weg bist, umso besser!</target>
+      </segment>
+    </unit>
+    <unit id="TX1UQMr" name="Spezialausrüstung (Bonus), die im Spiel gefunden werden kann.">
+      <notes>
+        <note category="german">Spezialausrüstung (Bonus), die im Spiel gefunden werden kann.</note>
+      </notes>
+      <segment>
+        <source>Spezialausrüstung (Bonus), die im Spiel gefunden werden kann.</source>
+        <target>Spezialausrüstung (Bonus), die im Spiel gefunden werden kann.</target>
+      </segment>
+    </unit>
+    <unit id="peMsrIw" name="Pandämonium: In Pandämoniumsstädten ist das Campen sehr schwierig.">
+      <notes>
+        <note category="german">Pandämonium: In Pandämoniumsstädten ist das Campen sehr schwierig.</note>
+      </notes>
+      <segment>
+        <source>Pandämonium: In Pandämoniumsstädten ist das Campen sehr schwierig.</source>
+        <target>Pandämonium: In Pandämoniumsstädten ist das Campen sehr schwierig.</target>
+      </segment>
+    </unit>
+    <unit id="l4xSyG6" name="1d2b6f5">
+      <notes>
+        <note category="german">Anzahl der Nächte, die du in einer Partie draußen verbracht hast (dein erstes Camping ist sicher, das 
+zweite ist etwas unsicherer, das dritte noch unsicherer etc...).</note>
+      </notes>
+      <segment>
+        <source>Anzahl der Nächte, die du in einer Partie draußen verbracht hast (dein erstes Camping ist sicher, das 
+zweite ist etwas unsicherer, das dritte noch unsicherer etc...).</source>
+        <target>Anzahl der Nächte, die du in einer Partie draußen verbracht hast (dein erstes Camping ist sicher, das 
+zweite ist etwas unsicherer, das dritte noch unsicherer etc...).</target>
+      </segment>
+    </unit>
+    <unit id="CMw.m2Z" name="b187712">
+      <notes>
+        <note category="german">&lt;strong&gt;ACHTUNG:&lt;/strong&gt; Deine Überlebenschancen sind auf 90% begrenzt! Wie gut dein Versteck auch sein 
+mag, ein kleines Restrisiko besteht immer!</note>
+      </notes>
+      <segment>
+        <source>&lt;strong&gt;ACHTUNG:&lt;/strong&gt; Deine Überlebenschancen sind auf 90% begrenzt! Wie gut dein Versteck auch sein 
+mag, ein kleines Restrisiko besteht immer!</source>
+        <target><![CDATA[<strong>ACHTUNG:</strong> Deine Überlebenschancen sind auf 90% begrenzt! Wie gut dein Versteck auch sein 
+mag, ein kleines Restrisiko besteht immer!]]></target>
+      </segment>
+    </unit>
+    <unit id="OqVqAxa" name="9af0d7c">
+      <notes>
+        <note category="german">Der Beruf des &lt;strong&gt;Einsiedlers&lt;/strong&gt; verfügt über einen entscheidenden Vorteil: Seine Überlebenschancen 
+sind &lt;strong&gt;nicht auf 90%&lt;/strong&gt; beschränkt.</note>
+      </notes>
+      <segment>
+        <source>Der Beruf des &lt;strong&gt;Einsiedlers&lt;/strong&gt; verfügt über einen entscheidenden Vorteil: Seine Überlebenschancen 
+sind &lt;strong&gt;nicht auf 90%&lt;/strong&gt; beschränkt.</source>
+        <target><![CDATA[Der Beruf des <strong>Einsiedlers</strong> verfügt über einen entscheidenden Vorteil: Seine Überlebenschancen 
+sind <strong>nicht auf 90%</strong> beschränkt.]]></target>
+      </segment>
+    </unit>
+    <unit id="TnJAv.." name="Wie läuft der Angriff um Mitternacht ab?">
+      <notes>
+        <note category="german">Wie läuft der Angriff um Mitternacht ab?</note>
+      </notes>
+      <segment>
+        <source>Wie läuft der Angriff um Mitternacht ab?</source>
+        <target>Wie läuft der Angriff um Mitternacht ab?</target>
+      </segment>
+    </unit>
+    <unit id="y72QNPI" name="dce0e41">
+      <notes>
+        <note category="german">Spätestens um Mitternacht musst du in deinem Versteck sein. Abhängig von der Qualität deines Verstecks und der Höhe deiner Überlebenschancen, wirst du von den Untoten verschont, oder aber in Stücke gerissen.</note>
+      </notes>
+      <segment>
+        <source>Spätestens um Mitternacht musst du in deinem Versteck sein. Abhängig von der Qualität deines Verstecks und der Höhe deiner Überlebenschancen, wirst du von den Untoten verschont, oder aber in Stücke gerissen.</source>
+        <target>Spätestens um Mitternacht musst du in deinem Versteck sein. Abhängig von der Qualität deines Verstecks und der Höhe deiner Überlebenschancen, wirst du von den Untoten verschont, oder aber in Stücke gerissen.</target>
+      </segment>
+    </unit>
+    <unit id="dK2DHZj" name="ba5dc11">
+      <notes>
+        <note category="german">Wenn du überlebst, &lt;strong&gt;erhältst du neue %img_ap% sowie verschiedene Auszeichnungen.&lt;/strong&gt;</note>
+      </notes>
+      <segment>
+        <source>Wenn du überlebst, &lt;strong&gt;erhältst du neue %img_ap% sowie verschiedene Auszeichnungen.&lt;/strong&gt;</source>
+        <target><![CDATA[Wenn du überlebst, <strong>erhältst du neue %img_ap% sowie verschiedene Auszeichnungen.</strong>]]></target>
+      </segment>
+    </unit>
+    <unit id="Cua0mtD" name="ed7cc09">
+      <notes>
+        <note category="german">Wichtig zu wissen ist, dass die Zombieaktivität um Mitternacht besonders stark ist. Das bedeutet, dass&amp;nbsp;die Verteidigung deines Verstecks jedes Mal in Mitleidenschaft gezogen wird.</note>
+      </notes>
+      <segment>
+        <source>Wichtig zu wissen ist, dass die Zombieaktivität um Mitternacht besonders stark ist. Das bedeutet, dass&amp;nbsp;die Verteidigung deines Verstecks jedes Mal in Mitleidenschaft gezogen wird.</source>
+        <target><![CDATA[Wichtig zu wissen ist, dass die Zombieaktivität um Mitternacht besonders stark ist. Das bedeutet, dass&nbsp;die Verteidigung deines Verstecks jedes Mal in Mitleidenschaft gezogen wird.]]></target>
+      </segment>
+    </unit>
+    <unit id="Cvh3WWe" name="c6bae94">
+      <notes>
+        <note category="german">&lt;strong&gt;Achtung: &lt;/strong&gt; Wenn du die Nacht in der Wüste überlebst, fliegt deine Tarnung am nächsten Morgen auf! Solltest du beabsichtigen wieder draußen zu schlafen, musst du dein Versteck &lt;strong&gt;erneut&lt;/strong&gt; ausbauen.</note>
+      </notes>
+      <segment>
+        <source>&lt;strong&gt;Achtung: &lt;/strong&gt; Wenn du die Nacht in der Wüste überlebst, fliegt deine Tarnung am nächsten Morgen auf! Solltest du beabsichtigen wieder draußen zu schlafen, musst du dein Versteck &lt;strong&gt;erneut&lt;/strong&gt; ausbauen.</source>
+        <target><![CDATA[<strong>Achtung: </strong> Wenn du die Nacht in der Wüste überlebst, fliegt deine Tarnung am nächsten Morgen auf! Solltest du beabsichtigen wieder draußen zu schlafen, musst du dein Versteck <strong>erneut</strong> ausbauen.]]></target>
+      </segment>
+    </unit>
+    <unit id="iBuxE_N" name="25a5a4f">
+      <notes>
+        <note category="german">Sollte der Fall eintreten, dass sich beim Angriff der Zombiehorde niemand mehr in der Stadt befindet (da zum Beispiel alle Überlebenden draußen campen), wird die Stadt von den Untoten &lt;span x-ajax-href=%url_devast%&gt;zerstört&lt;/span&gt;.</note>
+      </notes>
+      <segment>
+        <source>Sollte der Fall eintreten, dass sich beim Angriff der Zombiehorde niemand mehr in der Stadt befindet (da zum Beispiel alle Überlebenden draußen campen), wird die Stadt von den Untoten &lt;span x-ajax-href=%url_devast%&gt;zerstört&lt;/span&gt;.</source>
+        <target><![CDATA[Sollte der Fall eintreten, dass sich beim Angriff der Zombiehorde niemand mehr in der Stadt befindet (da zum Beispiel alle Überlebenden draußen campen), wird die Stadt von den Untoten <span x-ajax-href=%url_devast%>zerstört</span>.]]></target>
+      </segment>
+    </unit>
+    <unit id="DV.uQFd" name="&quot;Auszeichnung: Camper im Jenseits&quot;">
+      <notes>
+        <note category="german">"Auszeichnung: Camper im Jenseits"</note>
+      </notes>
+      <segment>
+        <source>"Auszeichnung: Camper im Jenseits"</source>
+        <target>"Auszeichnung: Camper im Jenseits"</target>
+      </segment>
+    </unit>
+    <unit id="eK5ymSE" name="9446ac1">
+      <notes>
+        <note category="german">Für jede Nacht, die du draußen überlebt hast, als die Stadt schon &lt;span x-ajax-href=%url_devast%&gt;zerstört&lt;/span&gt; war, bekommst du zusätzlich zu der normalen Auszeichnung, eine &lt;strong&gt;besonders seltene Auszeichnung&lt;/strong&gt;.</note>
+      </notes>
+      <segment>
+        <source>Für jede Nacht, die du draußen überlebt hast, als die Stadt schon &lt;span x-ajax-href=%url_devast%&gt;zerstört&lt;/span&gt; war, bekommst du zusätzlich zu der normalen Auszeichnung, eine &lt;strong&gt;besonders seltene Auszeichnung&lt;/strong&gt;.</source>
+        <target><![CDATA[Für jede Nacht, die du draußen überlebt hast, als die Stadt schon <span x-ajax-href=%url_devast%>zerstört</span> war, bekommst du zusätzlich zu der normalen Auszeichnung, eine <strong>besonders seltene Auszeichnung</strong>.]]></target>
+      </segment>
+    </unit>
+    <unit id="x56srvE" name="e01909b">
+      <notes>
+        <note category="german">Um diese Auszeichnung zu erhalten, muss die Stadt mindestens &lt;strong&gt;10 volle Tage&lt;/strong&gt; überlebt haben.</note>
+      </notes>
+      <segment>
+        <source>Um diese Auszeichnung zu erhalten, muss die Stadt mindestens &lt;strong&gt;10 volle Tage&lt;/strong&gt; überlebt haben.</source>
+        <target><![CDATA[Um diese Auszeichnung zu erhalten, muss die Stadt mindestens <strong>10 volle Tage</strong> überlebt haben.]]></target>
+      </segment>
+    </unit>
+    <unit id="XQ0dCN1" name="23ad46c">
+      <notes>
+        <note category="german">Um möglichst lange zu überleben, solltest du auf deine &lt;strong&gt;Gesundheit&lt;/strong&gt; achten.</note>
+      </notes>
+      <segment>
+        <source>Um möglichst lange zu überleben, solltest du auf deine &lt;strong&gt;Gesundheit&lt;/strong&gt; achten.</source>
+        <target><![CDATA[Um möglichst lange zu überleben, solltest du auf deine <strong>Gesundheit</strong> achten.]]></target>
+      </segment>
+    </unit>
+    <unit id="ZiakJdT" name="0b7efac">
+      <notes>
+        <note category="german">Eine oben auf der Seite platzierte Anzeige verrät dir mit einem Blick deinen aktuellen Gesundheitszustand und sagt dir, ob du etwas trinken musst, ob du verletzt bist usw. ...</note>
+      </notes>
+      <segment>
+        <source>Eine oben auf der Seite platzierte Anzeige verrät dir mit einem Blick deinen aktuellen Gesundheitszustand und sagt dir, ob du etwas trinken musst, ob du verletzt bist usw. ...</source>
+        <target>Eine oben auf der Seite platzierte Anzeige verrät dir mit einem Blick deinen aktuellen Gesundheitszustand und sagt dir, ob du etwas trinken musst, ob du verletzt bist usw. ...</target>
+      </segment>
+    </unit>
+    <unit id="OAnJvWx" name="Erschöpfung">
+      <notes>
+        <note category="german">Erschöpfung</note>
+      </notes>
+      <segment>
+        <source>Erschöpfung</source>
+        <target>Erschöpfung</target>
+      </segment>
+    </unit>
+    <unit id="LosQOVV" name="44ab0f2">
+      <notes>
+        <note category="german">Wenn du keine %img_ap% Aktionspunkte mehr hast, bist du erschöpft und kannst dich nicht mehr bewegen (siehe: &lt;span x-ajax-href=%url_move%&gt;Sich bewegen&lt;/span&gt;).</note>
+      </notes>
+      <segment>
+        <source>Wenn du keine %img_ap% Aktionspunkte mehr hast, bist du erschöpft und kannst dich nicht mehr bewegen (siehe: &lt;span x-ajax-href=%url_move%&gt;Sich bewegen&lt;/span&gt;).</source>
+        <target><![CDATA[Wenn du keine %img_ap% Aktionspunkte mehr hast, bist du erschöpft und kannst dich nicht mehr bewegen (siehe: <span x-ajax-href=%url_move%>Sich bewegen</span>).]]></target>
+      </segment>
+    </unit>
+    <unit id="MDmkyh9" name="Durst">
+      <notes>
+        <note category="german">Durst</note>
+      </notes>
+      <segment>
+        <source>Durst</source>
+        <target>Durst</target>
+      </segment>
+    </unit>
+    <unit id="g0AGvrO" name="7f9ab9f">
+      <notes>
+        <note category="german">Du musst etwas trinken... Warte nicht zu lang, sonst bist du
+&lt;strong&gt;%img_dehy% Dehydriert&lt;/strong&gt;!</note>
+      </notes>
+      <segment>
+        <source>Du musst etwas trinken... Warte nicht zu lang, sonst bist du
+&lt;strong&gt;%img_dehy% Dehydriert&lt;/strong&gt;!</source>
+        <target><![CDATA[Du musst etwas trinken... Warte nicht zu lang, sonst bist du
+<strong>%img_dehy% Dehydriert</strong>!]]></target>
+      </segment>
+    </unit>
+    <unit id="uB2Vk6P" name="oder">
+      <notes>
+        <note category="german">oder</note>
+      </notes>
+      <segment>
+        <source>oder</source>
+        <target>oder</target>
+      </segment>
+    </unit>
+    <unit id="_akkbne" name="Satt">
+      <notes>
+        <note category="german">Satt</note>
+      </notes>
+      <segment>
+        <source>Satt</source>
+        <target>Satt</target>
+      </segment>
+    </unit>
+    <unit id="kyN1oc5" name="e5500e3">
+      <notes>
+        <note category="german">Diese zwei Zustände zeigen an, dass du heute bereits getrunken und/oder gegessen hast. Solltest du noch mehr essen oder trinken, erhältst du für diesen Tag keine zusätzlichen Aktionspunkte mehr.</note>
+      </notes>
+      <segment>
+        <source>Diese zwei Zustände zeigen an, dass du heute bereits getrunken und/oder gegessen hast. Solltest du noch mehr essen oder trinken, erhältst du für diesen Tag keine zusätzlichen Aktionspunkte mehr.</source>
+        <target>Diese zwei Zustände zeigen an, dass du heute bereits getrunken und/oder gegessen hast. Solltest du noch mehr essen oder trinken, erhältst du für diesen Tag keine zusätzlichen Aktionspunkte mehr.</target>
+      </segment>
+    </unit>
+    <unit id="dCCM5aI" name="de432cc">
+      <notes>
+        <note category="german">Beispiel: Du hast heute morgen deine Trinkflasche getrunken, um deine Aktionspunkte aufzufüllen und um den DURST zu beseitigen. Wenn du heute erneut trinkst, kannst du zwar wieder deinen DURST löschen, aber nicht mehr deine Aktionspunkte zurückbekommen.</note>
+      </notes>
+      <segment>
+        <source>Beispiel: Du hast heute morgen deine Trinkflasche getrunken, um deine Aktionspunkte aufzufüllen und um den DURST zu beseitigen. Wenn du heute erneut trinkst, kannst du zwar wieder deinen DURST löschen, aber nicht mehr deine Aktionspunkte zurückbekommen.</source>
+        <target>Beispiel: Du hast heute morgen deine Trinkflasche getrunken, um deine Aktionspunkte aufzufüllen und um den DURST zu beseitigen. Wenn du heute erneut trinkst, kannst du zwar wieder deinen DURST löschen, aber nicht mehr deine Aktionspunkte zurückbekommen.</target>
+      </segment>
+    </unit>
+    <unit id="Wq9s4CS" name="Verwundung">
+      <notes>
+        <note category="german">Verwundung</note>
+      </notes>
+      <segment>
+        <source>Verwundung</source>
+        <target>Verwundung</target>
+      </segment>
+    </unit>
+    <unit id="ojaV2Qu" name="9837244">
+      <notes>
+        <note category="german">Du wurdest schwer verletzt... Verarzte dich so schnell wie möglich mit einem Verband oder etwas ähnlichem, sonst riskierst du eine &lt;strong&gt;&lt;img alt="" src="/gfx/icons/status_infect.gif"&gt; Infektion&lt;/strong&gt; (geht in der Regel tödlich aus...)!</note>
+      </notes>
+      <segment>
+        <source>Du wurdest schwer verletzt... Verarzte dich so schnell wie möglich mit einem Verband oder etwas ähnlichem, sonst riskierst du eine &lt;strong&gt;&lt;img alt="" src="/gfx/icons/status_infect.gif"&gt; Infektion&lt;/strong&gt; (geht in der Regel tödlich aus...)!</source>
+        <target><![CDATA[Du wurdest schwer verletzt... Verarzte dich so schnell wie möglich mit einem Verband oder etwas ähnlichem, sonst riskierst du eine <strong><img alt="" src="/gfx/icons/status_infect.gif"> Infektion</strong> (geht in der Regel tödlich aus...)!]]></target>
+      </segment>
+    </unit>
+    <unit id="CXdRrv3" name="Infektion">
+      <notes>
+        <note category="german">Infektion</note>
+      </notes>
+      <segment>
+        <source>Infektion</source>
+        <target>Infektion</target>
+      </segment>
+    </unit>
+    <unit id="xHOr0iD" name="8d215e8">
+      <notes>
+        <note category="german">Das liegt an einer Wunde oder daran, etwas zu essen, das etwas zu veraltet war. Heile dich schnell, eine Infektion hat eine Sterblichkeitsrate von 50%, 75% in Pandemonium-Städten.</note>
+      </notes>
+      <segment>
+        <source>Das liegt an einer Wunde oder daran, etwas zu essen, das etwas zu veraltet war. Heile dich schnell, eine Infektion hat eine Sterblichkeitsrate von 50%, 75% in Pandemonium-Städten.</source>
+        <target>Das liegt an einer Wunde oder daran, etwas zu essen, das etwas zu veraltet war. Heile dich schnell, eine Infektion hat eine Sterblichkeitsrate von 50%, 75% in Pandemonium-Städten.</target>
+      </segment>
+    </unit>
+    <unit id="4cxMzfa" name="Rauschzustand">
+      <notes>
+        <note category="german">Rauschzustand</note>
+      </notes>
+      <segment>
+        <source>Rauschzustand</source>
+        <target>Rauschzustand</target>
+      </segment>
+    </unit>
+    <unit id="3lvgcHG" name="4b8ddef">
+      <notes>
+        <note category="german">Es gibt in 'MyHordes' mächtige Drogen, die alle unterschiedliche Effekte haben: Sie lindern Erschöpfungszustände, bekämpfen Infektionen, bringen dich bei Panikattacken wieder runter oder rehydrieren dich... Allerdings ist Vorsicht geboten: Wenn du zu viele nimmst, kannst du &lt;strong&gt;&lt;img alt="" src="/gfx/icons/status_addict.gif"&gt; Abhängig&lt;/strong&gt; werden.</note>
+      </notes>
+      <segment>
+        <source>Es gibt in 'MyHordes' mächtige Drogen, die alle unterschiedliche Effekte haben: Sie lindern Erschöpfungszustände, bekämpfen Infektionen, bringen dich bei Panikattacken wieder runter oder rehydrieren dich... Allerdings ist Vorsicht geboten: Wenn du zu viele nimmst, kannst du &lt;strong&gt;&lt;img alt="" src="/gfx/icons/status_addict.gif"&gt; Abhängig&lt;/strong&gt; werden.</source>
+        <target><![CDATA[Es gibt in 'MyHordes' mächtige Drogen, die alle unterschiedliche Effekte haben: Sie lindern Erschöpfungszustände, bekämpfen Infektionen, bringen dich bei Panikattacken wieder runter oder rehydrieren dich... Allerdings ist Vorsicht geboten: Wenn du zu viele nimmst, kannst du <strong><img alt="" src="/gfx/icons/status_addict.gif"> Abhängig</strong> werden.]]></target>
+      </segment>
+    </unit>
+    <unit id="J35wjTS" name="Angst">
+      <notes>
+        <note category="german">Angst</note>
+      </notes>
+      <segment>
+        <source>Angst</source>
+        <target>Angst</target>
+      </segment>
+    </unit>
+    <unit id="OcEgNTY" name="1da5284">
+      <notes>
+        <note category="german">00:10 Uhr - Die Zombiemeute hat es in die Stadt geschafft und trommelt nun wutschnaubend und gröhlend gegen deine Haustür. Dir gelingt es zwar sie aus deinem Haus zu halten, aber diesen Schock wirst du nicht so schnell vergessen... du bist &lt;strong&gt;vor Angst erstarrt&lt;/strong&gt;.
+Die in diesen Stunden erlittene panische &lt;strong&gt;Angst&lt;/strong&gt; ist dir ins Rückenmark gegangen und geblieben. Deine Aktions- und Bewegungsfreiheit ist seitdem erheblich eingeschränkt: Du kannst dich unter keinen Umständen in die Nähe von Zombies begeben! Solltest du in diesem Zustand dennoch auf welche stoßen, verfällst du in eine Angststarre und kannst dich nicht mehr bewegen... bis sie dich auffressen. In der Wüste zählst du, ungeachtet deines Berufs und deiner Ausrüstung, 0 Kontrollpunkte. Alle Zonen, in denen die Zombies mehr Punkte haben, sind für dich tabu.</note>
+      </notes>
+      <segment>
+        <source>00:10 Uhr - Die Zombiemeute hat es in die Stadt geschafft und trommelt nun wutschnaubend und gröhlend gegen deine Haustür. Dir gelingt es zwar sie aus deinem Haus zu halten, aber diesen Schock wirst du nicht so schnell vergessen... du bist &lt;strong&gt;vor Angst erstarrt&lt;/strong&gt;.
+Die in diesen Stunden erlittene panische &lt;strong&gt;Angst&lt;/strong&gt; ist dir ins Rückenmark gegangen und geblieben. Deine Aktions- und Bewegungsfreiheit ist seitdem erheblich eingeschränkt: Du kannst dich unter keinen Umständen in die Nähe von Zombies begeben! Solltest du in diesem Zustand dennoch auf welche stoßen, verfällst du in eine Angststarre und kannst dich nicht mehr bewegen... bis sie dich auffressen. In der Wüste zählst du, ungeachtet deines Berufs und deiner Ausrüstung, 0 Kontrollpunkte. Alle Zonen, in denen die Zombies mehr Punkte haben, sind für dich tabu.</source>
+        <target><![CDATA[00:10 Uhr - Die Zombiemeute hat es in die Stadt geschafft und trommelt nun wutschnaubend und gröhlend gegen deine Haustür. Dir gelingt es zwar sie aus deinem Haus zu halten, aber diesen Schock wirst du nicht so schnell vergessen... du bist <strong>vor Angst erstarrt</strong>.
+Die in diesen Stunden erlittene panische <strong>Angst</strong> ist dir ins Rückenmark gegangen und geblieben. Deine Aktions- und Bewegungsfreiheit ist seitdem erheblich eingeschränkt: Du kannst dich unter keinen Umständen in die Nähe von Zombies begeben! Solltest du in diesem Zustand dennoch auf welche stoßen, verfällst du in eine Angststarre und kannst dich nicht mehr bewegen... bis sie dich auffressen. In der Wüste zählst du, ungeachtet deines Berufs und deiner Ausrüstung, 0 Kontrollpunkte. Alle Zonen, in denen die Zombies mehr Punkte haben, sind für dich tabu.]]></target>
+      </segment>
+    </unit>
+    <unit id="isD8Ydk" name="183bf89">
+      <notes>
+        <note category="german">Es gibt andere Wege, um in Angststarre zu enden, aber die musst du selbst erleben.</note>
+      </notes>
+      <segment>
+        <source>Es gibt andere Wege, um in Angststarre zu enden, aber die musst du selbst erleben.</source>
+        <target>Es gibt andere Wege, um in Angststarre zu enden, aber die musst du selbst erleben.</target>
+      </segment>
+    </unit>
+    <unit id="3dkb1Z2" name="Trunkenheit">
+      <notes>
+        <note category="german">Trunkenheit</note>
+      </notes>
+      <segment>
+        <source>Trunkenheit</source>
+        <target>Trunkenheit</target>
+      </segment>
+    </unit>
+    <unit id="IK5t3wR" name="d0fd31e">
+      <notes>
+        <note category="german">Durch das Trinken von Alkohol kommst du wieder zu Kräften (hebt die Erschöpfung auf), allerdings bist du danach nicht mehr ganz Herr deiner Sinne... Deine &lt;img alt="" src="/gfx/icons/status_drunk.gif"&gt;&amp;nbsp;&lt;strong&gt;Trunkenheit&lt;/strong&gt; weicht am nächsten Tag einem üblen &lt;img alt="" src="/gfx/icons/status_hung_over.gif"&gt;&amp;nbsp;&lt;strong&gt;Kater&lt;/strong&gt;... Allgemein gilt: Wenn du betrunken oder verkatert bist, kannst du keine weiteren alkoholischen Getränke zu dir nehmen.</note>
+      </notes>
+      <segment>
+        <source>Durch das Trinken von Alkohol kommst du wieder zu Kräften (hebt die Erschöpfung auf), allerdings bist du danach nicht mehr ganz Herr deiner Sinne... Deine &lt;img alt="" src="/gfx/icons/status_drunk.gif"&gt;&amp;nbsp;&lt;strong&gt;Trunkenheit&lt;/strong&gt; weicht am nächsten Tag einem üblen &lt;img alt="" src="/gfx/icons/status_hung_over.gif"&gt;&amp;nbsp;&lt;strong&gt;Kater&lt;/strong&gt;... Allgemein gilt: Wenn du betrunken oder verkatert bist, kannst du keine weiteren alkoholischen Getränke zu dir nehmen.</source>
+        <target><![CDATA[Durch das Trinken von Alkohol kommst du wieder zu Kräften (hebt die Erschöpfung auf), allerdings bist du danach nicht mehr ganz Herr deiner Sinne... Deine <img alt="" src="/gfx/icons/status_drunk.gif">&nbsp;<strong>Trunkenheit</strong> weicht am nächsten Tag einem üblen <img alt="" src="/gfx/icons/status_hung_over.gif">&nbsp;<strong>Kater</strong>... Allgemein gilt: Wenn du betrunken oder verkatert bist, kannst du keine weiteren alkoholischen Getränke zu dir nehmen.]]></target>
+      </segment>
+    </unit>
+    <unit id="UTfIdgy" name="Clean">
+      <notes>
+        <note category="german">Clean</note>
+      </notes>
+      <segment>
+        <source>Clean</source>
+        <target>Clean</target>
+      </segment>
+    </unit>
+    <unit id="J.9tdfY" name="de3df07">
+      <notes>
+        <note category="german">Das Symbol zeigt an, dass du noch keine Drogen genommen hast. Das ist durchaus eine Spitzenleistung, wenn man bedenkt, welch wunderschöne Halluzination und Trips dir entgangen sind...</note>
+      </notes>
+      <segment>
+        <source>Das Symbol zeigt an, dass du noch keine Drogen genommen hast. Das ist durchaus eine Spitzenleistung, wenn man bedenkt, welch wunderschöne Halluzination und Trips dir entgangen sind...</source>
+        <target>Das Symbol zeigt an, dass du noch keine Drogen genommen hast. Das ist durchaus eine Spitzenleistung, wenn man bedenkt, welch wunderschöne Halluzination und Trips dir entgangen sind...</target>
+      </segment>
+    </unit>
+    <unit id="LoyMaAF" name="Immunisiert">
+      <notes>
+        <note category="german">Immunisiert</note>
+      </notes>
+      <segment>
+        <source>Immunisiert</source>
+        <target>Immunisiert</target>
+      </segment>
+    </unit>
+    <unit id="Hs1ihif" name="c887a1d">
+      <notes>
+        <note category="german">Du hast dich durch die Einnahme eines Medikamentes oder eines ähnlichen Produktes erfolgreich gegen eine Infektion immunisiert!
+Außerdem kannst du damit verhindern, dass du dich um Mitternacht in einen Ghul verwandelst.
+Der Schutz endet nach dem Angriff um Mitternacht.</note>
+      </notes>
+      <segment>
+        <source>Du hast dich durch die Einnahme eines Medikamentes oder eines ähnlichen Produktes erfolgreich gegen eine Infektion immunisiert!
+Außerdem kannst du damit verhindern, dass du dich um Mitternacht in einen Ghul verwandelst.
+Der Schutz endet nach dem Angriff um Mitternacht.</source>
+        <target>Du hast dich durch die Einnahme eines Medikamentes oder eines ähnlichen Produktes erfolgreich gegen eine Infektion immunisiert!
+Außerdem kannst du damit verhindern, dass du dich um Mitternacht in einen Ghul verwandelst.
+Der Schutz endet nach dem Angriff um Mitternacht.</target>
+      </segment>
+    </unit>
+    <unit id="LQhKsMz" name="Umsichtiger Camper">
+      <notes>
+        <note category="german">Umsichtiger Camper</note>
+      </notes>
+      <segment>
+        <source>Umsichtiger Camper</source>
+        <target>Umsichtiger Camper</target>
+      </segment>
+    </unit>
+    <unit id="B3tVRRs" name="aaa6834">
+      <notes>
+        <note category="german">Wenn es dir gelingt eine Nacht draußen zu campen und dabei zu überleben, bekommst du für den darauf folgenden Tag einen besonderen Status verliehen, der deine Grabungsaktionen verbessert!</note>
+      </notes>
+      <segment>
+        <source>Wenn es dir gelingt eine Nacht draußen zu campen und dabei zu überleben, bekommst du für den darauf folgenden Tag einen besonderen Status verliehen, der deine Grabungsaktionen verbessert!</source>
+        <target>Wenn es dir gelingt eine Nacht draußen zu campen und dabei zu überleben, bekommst du für den darauf folgenden Tag einen besonderen Status verliehen, der deine Grabungsaktionen verbessert!</target>
+      </segment>
+    </unit>
+    <unit id="72h0.SN" name="Ghul">
+      <notes>
+        <note category="german">Ghul</note>
+      </notes>
+      <segment>
+        <source>Ghul</source>
+        <target>Ghul</target>
+      </segment>
+    </unit>
+    <unit id="FAn5Q8v" name="f30c55c">
+      <notes>
+        <note category="german">Du wurdest von einer unheilbaren Krankheit infiziert und hast dich jetzt in einen &lt;span x-ajax-href=%url_ghoul%&gt;Ghul&lt;/span&gt; verwandelt.</note>
+      </notes>
+      <segment>
+        <source>Du wurdest von einer unheilbaren Krankheit infiziert und hast dich jetzt in einen &lt;span x-ajax-href=%url_ghoul%&gt;Ghul&lt;/span&gt; verwandelt.</source>
+        <target><![CDATA[Du wurdest von einer unheilbaren Krankheit infiziert und hast dich jetzt in einen <span x-ajax-href=%url_ghoul%>Ghul</span> verwandelt.]]></target>
+      </segment>
+    </unit>
+    <unit id="gPbg.WJ" name="Die Drogenabhängigkeit">
+      <notes>
+        <note category="german">Die Drogenabhängigkeit</note>
+      </notes>
+      <segment>
+        <source>Die Drogenabhängigkeit</source>
+        <target>Die Drogenabhängigkeit</target>
+      </segment>
+    </unit>
+    <unit id="A79xfl2" name="ec57694">
+      <notes>
+        <note category="german">Wenn du zu viele Drogen nimmst (mehr als eine Dosis am Tag), wirst du
+&lt;strong&gt;%img_addict% Abhängig&lt;/strong&gt;! Darüber hinaus wirst du diese &lt;strong&gt;Sucht auch nicht mehr los&lt;/strong&gt;.</note>
+      </notes>
+      <segment>
+        <source>Wenn du zu viele Drogen nimmst (mehr als eine Dosis am Tag), wirst du
+&lt;strong&gt;%img_addict% Abhängig&lt;/strong&gt;! Darüber hinaus wirst du diese &lt;strong&gt;Sucht auch nicht mehr los&lt;/strong&gt;.</source>
+        <target><![CDATA[Wenn du zu viele Drogen nimmst (mehr als eine Dosis am Tag), wirst du
+<strong>%img_addict% Abhängig</strong>! Darüber hinaus wirst du diese <strong>Sucht auch nicht mehr los</strong>.]]></target>
+      </segment>
+    </unit>
+    <unit id="Ye1f5W8" name="731711b">
+      <notes>
+        <note category="german">Wenn du dann erstmal süchtig bist &lt;strong&gt;musst du jeden Tag vor Mitternacht etwas zu dir nehmen&lt;/strong&gt;, andersfall stirbst du und das ist nicht gerade nett anzusehen: Unter starken Schmerzen, zitternd und sabbernd halluzinierst du dich in eine andere Welt...</note>
+      </notes>
+      <segment>
+        <source>Wenn du dann erstmal süchtig bist &lt;strong&gt;musst du jeden Tag vor Mitternacht etwas zu dir nehmen&lt;/strong&gt;, andersfall stirbst du und das ist nicht gerade nett anzusehen: Unter starken Schmerzen, zitternd und sabbernd halluzinierst du dich in eine andere Welt...</source>
+        <target><![CDATA[Wenn du dann erstmal süchtig bist <strong>musst du jeden Tag vor Mitternacht etwas zu dir nehmen</strong>, andersfall stirbst du und das ist nicht gerade nett anzusehen: Unter starken Schmerzen, zitternd und sabbernd halluzinierst du dich in eine andere Welt...]]></target>
+      </segment>
+    </unit>
+    <unit id="hbwi0z1" name="Verwundungsarten">
+      <notes>
+        <note category="german">Verwundungsarten</note>
+      </notes>
+      <segment>
+        <source>Verwundungsarten</source>
+        <target>Verwundungsarten</target>
+      </segment>
+    </unit>
+    <unit id="uQUc62A" name="Du kannst im Spiel an verschiedenen Körperteilen verwundet werden:">
+      <notes>
+        <note category="german">Du kannst im Spiel an verschiedenen Körperteilen verwundet werden:</note>
+      </notes>
+      <segment>
+        <source>Du kannst im Spiel an verschiedenen Körperteilen verwundet werden:</source>
+        <target>Du kannst im Spiel an verschiedenen Körperteilen verwundet werden:</target>
+      </segment>
+    </unit>
+    <unit id="l2sp7PJ" name="Kopf">
+      <notes>
+        <note category="german">Kopf</note>
+      </notes>
+      <segment>
+        <source>Kopf</source>
+        <target>Kopf</target>
+      </segment>
+    </unit>
+    <unit id="HblgYqB" name="Du gibst wirres Zeug von dir.">
+      <notes>
+        <note category="german">Du gibst wirres Zeug von dir.</note>
+      </notes>
+      <segment>
+        <source>Du gibst wirres Zeug von dir.</source>
+        <target>Du gibst wirres Zeug von dir.</target>
+      </segment>
+    </unit>
+    <unit id="rhC.oAK" name="Hände">
+      <notes>
+        <note category="german">Hände</note>
+      </notes>
+      <segment>
+        <source>Hände</source>
+        <target>Hände</target>
+      </segment>
+    </unit>
+    <unit id="rdYTYJe" name="Du kannst bestimmte Gegenstände nicht mehr benutzen.">
+      <notes>
+        <note category="german">Du kannst bestimmte Gegenstände nicht mehr benutzen.</note>
+      </notes>
+      <segment>
+        <source>Du kannst bestimmte Gegenstände nicht mehr benutzen.</source>
+        <target>Du kannst bestimmte Gegenstände nicht mehr benutzen.</target>
+      </segment>
+    </unit>
+    <unit id="fweEsGL" name="Arme">
+      <notes>
+        <note category="german">Arme</note>
+      </notes>
+      <segment>
+        <source>Arme</source>
+        <target>Arme</target>
+      </segment>
+    </unit>
+    <unit id="_RuCwTX" name="1658d91">
+      <notes>
+        <note category="german">Du kannst nicht mehr auf den Baustellen arbeiten und das Stadttor nicht schließen...</note>
+      </notes>
+      <segment>
+        <source>Du kannst nicht mehr auf den Baustellen arbeiten und das Stadttor nicht schließen...</source>
+        <target>Du kannst nicht mehr auf den Baustellen arbeiten und das Stadttor nicht schließen...</target>
+      </segment>
+    </unit>
+    <unit id="xXqHDly" name="Bein">
+      <notes>
+        <note category="german">Bein</note>
+      </notes>
+      <segment>
+        <source>Bein</source>
+        <target>Bein</target>
+      </segment>
+    </unit>
+    <unit id="TFtve.d" name="3ee81de">
+      <notes>
+        <note category="german">In der Außenwelt besteht mit jedem Schritt das Risiko, dass du zusammenbrichst und dich nicht mehr bewegen kannst (Du verlierst einen Aktionspunkt)!</note>
+      </notes>
+      <segment>
+        <source>In der Außenwelt besteht mit jedem Schritt das Risiko, dass du zusammenbrichst und dich nicht mehr bewegen kannst (Du verlierst einen Aktionspunkt)!</source>
+        <target>In der Außenwelt besteht mit jedem Schritt das Risiko, dass du zusammenbrichst und dich nicht mehr bewegen kannst (Du verlierst einen Aktionspunkt)!</target>
+      </segment>
+    </unit>
+    <unit id="oFtlo8T" name="Auge">
+      <notes>
+        <note category="german">Auge</note>
+      </notes>
+      <segment>
+        <source>Auge</source>
+        <target>Auge</target>
+      </segment>
+    </unit>
+    <unit id="BLh5Li2" name="6688a00">
+      <notes>
+        <note category="german">Die Wahrscheinlichkeit in der Wüste oder in einer Ruine einen Gegenstand zu finden sinkt erheblich.</note>
+      </notes>
+      <segment>
+        <source>Die Wahrscheinlichkeit in der Wüste oder in einer Ruine einen Gegenstand zu finden sinkt erheblich.</source>
+        <target>Die Wahrscheinlichkeit in der Wüste oder in einer Ruine einen Gegenstand zu finden sinkt erheblich.</target>
+      </segment>
+    </unit>
+    <unit id="4CY2vtO" name="Fuß">
+      <notes>
+        <note category="german">Fuß</note>
+      </notes>
+      <segment>
+        <source>Fuß</source>
+        <target>Fuß</target>
+      </segment>
+    </unit>
+    <unit id="seK9BoL" name="Bringt dir keine Nachteile.">
+      <notes>
+        <note category="german">Bringt dir keine Nachteile.</note>
+      </notes>
+      <segment>
+        <source>Bringt dir keine Nachteile.</source>
+        <target>Bringt dir keine Nachteile.</target>
+      </segment>
+    </unit>
+    <unit id="dVwApzS" name="Der Rucksack">
+      <notes>
+        <note category="german">Der Rucksack</note>
+      </notes>
+      <segment>
+        <source>Der Rucksack</source>
+        <target>Der Rucksack</target>
+      </segment>
+    </unit>
+    <unit id="fo2jRnp" name="074fa9a">
+      <notes>
+        <note category="german">Im Rucksack kannst du Nahrung, Wasser und Waffen mit dir tragen. Seine Größe ist auf 4 freie Plätze beschränkt. Ein Platz ist für deine Kleidung vorgesehen.</note>
+      </notes>
+      <segment>
+        <source>Im Rucksack kannst du Nahrung, Wasser und Waffen mit dir tragen. Seine Größe ist auf 4 freie Plätze beschränkt. Ein Platz ist für deine Kleidung vorgesehen.</source>
+        <target>Im Rucksack kannst du Nahrung, Wasser und Waffen mit dir tragen. Seine Größe ist auf 4 freie Plätze beschränkt. Ein Platz ist für deine Kleidung vorgesehen.</target>
+      </segment>
+    </unit>
+    <unit id="jSYnX6p" name="6e20269">
+      <notes>
+        <note category="german">&lt;strong&gt;Helden&lt;/strong&gt; verfügen in ihrem Rucksack über einen zusätzlichen freien Platz!
+Außerdem führst du &lt;strong&gt;zusätzlich&lt;/strong&gt; zu deiner normalen Bürgerkleidung einen berufsspezifischen Anzug mit.</note>
+      </notes>
+      <segment>
+        <source>&lt;strong&gt;Helden&lt;/strong&gt; verfügen in ihrem Rucksack über einen zusätzlichen freien Platz!
+Außerdem führst du &lt;strong&gt;zusätzlich&lt;/strong&gt; zu deiner normalen Bürgerkleidung einen berufsspezifischen Anzug mit.</source>
+        <target><![CDATA[<strong>Helden</strong> verfügen in ihrem Rucksack über einen zusätzlichen freien Platz!
+Außerdem führst du <strong>zusätzlich</strong> zu deiner normalen Bürgerkleidung einen berufsspezifischen Anzug mit.]]></target>
+      </segment>
+    </unit>
+    <unit id="kx13MUV" name="Dein Zuhause">
+      <notes>
+        <note category="german">Dein Zuhause</note>
+      </notes>
+      <segment>
+        <source>Dein Zuhause</source>
+        <target>Dein Zuhause</target>
+      </segment>
+    </unit>
+    <unit id="C2_sPwU" name="cd055d8">
+      <notes>
+        <note category="german">Wenn du von deinen ausgedehnten Wüstenwanderungen zurückkehrst, kannst du deinen Rucksack daheim ausleeren. Deine Reisevorbereitungen erledigst du ebenfalls am besten daheim. Es gilt Lunchpaket, Wasser, Waffen und, wenn vorhanden, Drogen mitzunehmen.</note>
+      </notes>
+      <segment>
+        <source>Wenn du von deinen ausgedehnten Wüstenwanderungen zurückkehrst, kannst du deinen Rucksack daheim ausleeren. Deine Reisevorbereitungen erledigst du ebenfalls am besten daheim. Es gilt Lunchpaket, Wasser, Waffen und, wenn vorhanden, Drogen mitzunehmen.</source>
+        <target>Wenn du von deinen ausgedehnten Wüstenwanderungen zurückkehrst, kannst du deinen Rucksack daheim ausleeren. Deine Reisevorbereitungen erledigst du ebenfalls am besten daheim. Es gilt Lunchpaket, Wasser, Waffen und, wenn vorhanden, Drogen mitzunehmen.</target>
+      </segment>
+    </unit>
+    <unit id="4diEY6x" name="Deine persönliche Truhe">
+      <notes>
+        <note category="german">Deine persönliche Truhe</note>
+      </notes>
+      <segment>
+        <source>Deine persönliche Truhe</source>
+        <target>Deine persönliche Truhe</target>
+      </segment>
+    </unit>
+    <unit id="hSaAdB3" name="eede599">
+      <notes>
+        <note category="german">In deine Truhe passen bis zu 4 Gegenstände (5 wenn du ein Held bist). Einige Gegenstände, sowie manche Hausverbesserungen ermöglich dir noch mehr aufzubewahren.</note>
+      </notes>
+      <segment>
+        <source>In deine Truhe passen bis zu 4 Gegenstände (5 wenn du ein Held bist). Einige Gegenstände, sowie manche Hausverbesserungen ermöglich dir noch mehr aufzubewahren.</source>
+        <target>In deine Truhe passen bis zu 4 Gegenstände (5 wenn du ein Held bist). Einige Gegenstände, sowie manche Hausverbesserungen ermöglich dir noch mehr aufzubewahren.</target>
+      </segment>
+    </unit>
+    <unit id="cv_VCkz" name="b4113bf">
+      <notes>
+        <note category="german">Manche Gegenstände, wie zum Beispiel der &lt;strong&gt;&lt;img alt="" src="/gfx/icons/item_carpet.gif"&gt; Teppich&lt;/strong&gt;,
+werden &lt;strong&gt;automatisch&lt;/strong&gt; der &lt;strong&gt;Hauseinrichtung&lt;/strong&gt; hinzugefügt, wenn du sie in der Truhe ablegst. Einrichtungsgegenstände verschaffen dir verschiedene Vorteile (Deko, Diebstahlschutz, Schutz gegen Zombies...)</note>
+      </notes>
+      <segment>
+        <source>Manche Gegenstände, wie zum Beispiel der &lt;strong&gt;&lt;img alt="" src="/gfx/icons/item_carpet.gif"&gt; Teppich&lt;/strong&gt;,
+werden &lt;strong&gt;automatisch&lt;/strong&gt; der &lt;strong&gt;Hauseinrichtung&lt;/strong&gt; hinzugefügt, wenn du sie in der Truhe ablegst. Einrichtungsgegenstände verschaffen dir verschiedene Vorteile (Deko, Diebstahlschutz, Schutz gegen Zombies...)</source>
+        <target><![CDATA[Manche Gegenstände, wie zum Beispiel der <strong><img alt="" src="/gfx/icons/item_carpet.gif"> Teppich</strong>,
+werden <strong>automatisch</strong> der <strong>Hauseinrichtung</strong> hinzugefügt, wenn du sie in der Truhe ablegst. Einrichtungsgegenstände verschaffen dir verschiedene Vorteile (Deko, Diebstahlschutz, Schutz gegen Zombies...)]]></target>
+      </segment>
+    </unit>
+    <unit id="P6K6ed5" name="a644e62">
+      <notes>
+        <note category="german">&lt;strong&gt;Die Seelen %img_blue_soul% verschiedener Mitbürger wandern rastlos in den öden Weiten der Außenwelt umher.&lt;/strong&gt;
+Jedesmal, wenn ein Bürger stirbt (gleichgültig woran und wo), erscheint eine blaue Seele in der Außenwelt. Jeder Bürger kann eine Seele einsammeln und sie in die Stadt bringen. Beachtet, dass eine Seele als "sperriger Gegenstand" gilt.</note>
+      </notes>
+      <segment>
+        <source>&lt;strong&gt;Die Seelen %img_blue_soul% verschiedener Mitbürger wandern rastlos in den öden Weiten der Außenwelt umher.&lt;/strong&gt;
+Jedesmal, wenn ein Bürger stirbt (gleichgültig woran und wo), erscheint eine blaue Seele in der Außenwelt. Jeder Bürger kann eine Seele einsammeln und sie in die Stadt bringen. Beachtet, dass eine Seele als "sperriger Gegenstand" gilt.</source>
+        <target><![CDATA[<strong>Die Seelen %img_blue_soul% verschiedener Mitbürger wandern rastlos in den öden Weiten der Außenwelt umher.</strong>
+Jedesmal, wenn ein Bürger stirbt (gleichgültig woran und wo), erscheint eine blaue Seele in der Außenwelt. Jeder Bürger kann eine Seele einsammeln und sie in die Stadt bringen. Beachtet, dass eine Seele als "sperriger Gegenstand" gilt.]]></target>
+      </segment>
+    </unit>
+    <unit id="8TquK3o" name="1309ffe">
+      <notes>
+        <note category="german">Es liegt dann an der Stadt, sich zu organisieren, um diese verlorenen Seelen zu bergen. In der Tat haben diese Seelen eine große Chance, sich in gequälte Seelen %img_red_soul% zu verwandeln, wenn sie verlassen werden! Und dort wird es Zeit in Panik zu geraten, diese gequälten Seelen entwickeln die Zombie-Proliferation!</note>
+      </notes>
+      <segment>
+        <source>Es liegt dann an der Stadt, sich zu organisieren, um diese verlorenen Seelen zu bergen. In der Tat haben diese Seelen eine große Chance, sich in gequälte Seelen %img_red_soul% zu verwandeln, wenn sie verlassen werden! Und dort wird es Zeit in Panik zu geraten, diese gequälten Seelen entwickeln die Zombie-Proliferation!</source>
+        <target>Es liegt dann an der Stadt, sich zu organisieren, um diese verlorenen Seelen zu bergen. In der Tat haben diese Seelen eine große Chance, sich in gequälte Seelen %img_red_soul% zu verwandeln, wenn sie verlassen werden! Und dort wird es Zeit in Panik zu geraten, diese gequälten Seelen entwickeln die Zombie-Proliferation!</target>
+      </segment>
+    </unit>
+    <unit id="Sz_Kc6M" name="36d748d">
+      <notes>
+        <note category="german">Beachten Sie, dass der Schamane auf der gesamten Karte eine Vision von Seelen haben kann, aber er wird nicht in der Lage sein, gefolterte Seelen von anderen zu unterscheiden.</note>
+      </notes>
+      <segment>
+        <source>Beachten Sie, dass der Schamane auf der gesamten Karte eine Vision von Seelen haben kann, aber er wird nicht in der Lage sein, gefolterte Seelen von anderen zu unterscheiden.</source>
+        <target>Beachten Sie, dass der Schamane auf der gesamten Karte eine Vision von Seelen haben kann, aber er wird nicht in der Lage sein, gefolterte Seelen von anderen zu unterscheiden.</target>
+      </segment>
+    </unit>
+    <unit id="wM4GFMA" name="2f91250">
+      <notes>
+        <note category="german">Das Wiederherstellen von Seelen erfordert eine kleine Vorbereitung! In der Tat fordern gefolterte Seelen einen guten Schutz vor ihrer Gewalt, da jeder Bürger eine wandernde Seele transportieren kann.</note>
+      </notes>
+      <segment>
+        <source>Das Wiederherstellen von Seelen erfordert eine kleine Vorbereitung! In der Tat fordern gefolterte Seelen einen guten Schutz vor ihrer Gewalt, da jeder Bürger eine wandernde Seele transportieren kann.</source>
+        <target>Das Wiederherstellen von Seelen erfordert eine kleine Vorbereitung! In der Tat fordern gefolterte Seelen einen guten Schutz vor ihrer Gewalt, da jeder Bürger eine wandernde Seele transportieren kann.</target>
+      </segment>
+    </unit>
+    <unit id="KE5t8gU" name="b6407ae">
+      <notes>
+        <note category="german">Der Schamane ist unempfindlich gegenüber ihm und kann diese Seelen daher ohne Risiko (aber nicht ohne Angst) manipulieren. Der Bürger muss seinen Schamanen bitten, einen Immunisierungstrank zuzubereiten. Aber Vorsicht, das Vertrauen in die Kräfte Ihres Schamanen sollte nicht unendlich sein...</note>
+      </notes>
+      <segment>
+        <source>Der Schamane ist unempfindlich gegenüber ihm und kann diese Seelen daher ohne Risiko (aber nicht ohne Angst) manipulieren. Der Bürger muss seinen Schamanen bitten, einen Immunisierungstrank zuzubereiten. Aber Vorsicht, das Vertrauen in die Kräfte Ihres Schamanen sollte nicht unendlich sein...</source>
+        <target>Der Schamane ist unempfindlich gegenüber ihm und kann diese Seelen daher ohne Risiko (aber nicht ohne Angst) manipulieren. Der Bürger muss seinen Schamanen bitten, einen Immunisierungstrank zuzubereiten. Aber Vorsicht, das Vertrauen in die Kräfte Ihres Schamanen sollte nicht unendlich sein...</target>
+      </segment>
+    </unit>
+    <unit id="Jly9usI" name="379bc01">
+      <notes>
+        <note category="german">Wenn Sie einmal in der Stadt sind, können Sie diese Seele reinigen und in Frieden ruhen lassen, weit weg von Ihrer Stadt und ihren bösen Geistern. &lt;strong&gt;Seien Sie vorsichtig, ungereinigte Seelen werden um Mitternacht weiterhin Unglück bringen, selbst wenn sie in der Stadt bleiben!&lt;/strong&gt;</note>
+      </notes>
+      <segment>
+        <source>Wenn Sie einmal in der Stadt sind, können Sie diese Seele reinigen und in Frieden ruhen lassen, weit weg von Ihrer Stadt und ihren bösen Geistern. &lt;strong&gt;Seien Sie vorsichtig, ungereinigte Seelen werden um Mitternacht weiterhin Unglück bringen, selbst wenn sie in der Stadt bleiben!&lt;/strong&gt;</source>
+        <target><![CDATA[Wenn Sie einmal in der Stadt sind, können Sie diese Seele reinigen und in Frieden ruhen lassen, weit weg von Ihrer Stadt und ihren bösen Geistern. <strong>Seien Sie vorsichtig, ungereinigte Seelen werden um Mitternacht weiterhin Unglück bringen, selbst wenn sie in der Stadt bleiben!</strong>]]></target>
+      </segment>
+    </unit>
+    <unit id="uepLpvU" name="e19b01f">
+      <notes>
+        <note category="german">Die Außenwelt birgt verlassene Gebäude, die nach Rohstoffen und nützlichen Plänen abgesucht werden können.</note>
+      </notes>
+      <segment>
+        <source>Die Außenwelt birgt verlassene Gebäude, die nach Rohstoffen und nützlichen Plänen abgesucht werden können.</source>
+        <target>Die Außenwelt birgt verlassene Gebäude, die nach Rohstoffen und nützlichen Plänen abgesucht werden können.</target>
+      </segment>
+    </unit>
+    <unit id="F3BRYtp" name="14e1df7">
+      <notes>
+        <note category="german">Sobald du einen solchen Ort gefunden hast, siehst du bei deinen Aktion eine Option, über die du diesen Ort betreten kannst. &lt;strong&gt;Achtung: Bürger, die verletzt oder starr vor Angst sind, können einen solch klaustrophobischen Ort nicht betreten.&lt;/strong&gt;
+Diese unseligen Orte werden außerdem oft von Zombies heimgesucht. Wenn sich dein kleiner Ausflug also lohnen soll, lass dir besser vorher etwas einfallen, wie du diese Kreaturen wieder los wirst.</note>
+      </notes>
+      <segment>
+        <source>Sobald du einen solchen Ort gefunden hast, siehst du bei deinen Aktion eine Option, über die du diesen Ort betreten kannst. &lt;strong&gt;Achtung: Bürger, die verletzt oder starr vor Angst sind, können einen solch klaustrophobischen Ort nicht betreten.&lt;/strong&gt;
+Diese unseligen Orte werden außerdem oft von Zombies heimgesucht. Wenn sich dein kleiner Ausflug also lohnen soll, lass dir besser vorher etwas einfallen, wie du diese Kreaturen wieder los wirst.</source>
+        <target><![CDATA[Sobald du einen solchen Ort gefunden hast, siehst du bei deinen Aktion eine Option, über die du diesen Ort betreten kannst. <strong>Achtung: Bürger, die verletzt oder starr vor Angst sind, können einen solch klaustrophobischen Ort nicht betreten.</strong>
+Diese unseligen Orte werden außerdem oft von Zombies heimgesucht. Wenn sich dein kleiner Ausflug also lohnen soll, lass dir besser vorher etwas einfallen, wie du diese Kreaturen wieder los wirst.]]></target>
+      </segment>
+    </unit>
+    <unit id=".w.ATRf" name="f304740">
+      <notes>
+        <note category="german">Du findest nur in den Zimmern dieser Ruinen brauchbare Gegenstände. In den Fluren befinden sich nur dann Gegenstände, wenn andere Spielern sie dort abgelegt haben.
+Manchmal stößt du auf verriegelte Türen, die du nur mit bestimmten Schlüsseln aufbekommst. Die ehemaligen Bewohner dieser Orte haben oft Schlüssel zurückgelassen. Es liegt an dir, sie zu finden.</note>
+      </notes>
+      <segment>
+        <source>Du findest nur in den Zimmern dieser Ruinen brauchbare Gegenstände. In den Fluren befinden sich nur dann Gegenstände, wenn andere Spielern sie dort abgelegt haben.
+Manchmal stößt du auf verriegelte Türen, die du nur mit bestimmten Schlüsseln aufbekommst. Die ehemaligen Bewohner dieser Orte haben oft Schlüssel zurückgelassen. Es liegt an dir, sie zu finden.</source>
+        <target>Du findest nur in den Zimmern dieser Ruinen brauchbare Gegenstände. In den Fluren befinden sich nur dann Gegenstände, wenn andere Spielern sie dort abgelegt haben.
+Manchmal stößt du auf verriegelte Türen, die du nur mit bestimmten Schlüsseln aufbekommst. Die ehemaligen Bewohner dieser Orte haben oft Schlüssel zurückgelassen. Es liegt an dir, sie zu finden.</target>
+      </segment>
+    </unit>
+    <unit id="X7Z3oSQ" name="0b5fcc2">
+      <notes>
+        <note category="german">Es ist niemals so einfach wie es aussieht. Die Luft in diesen seit langem verlassenen Gebäuden ist mit einer giftigen Substanz gesättigt. Du solltest dich hier darum besser nicht zu lange aufhalten.</note>
+      </notes>
+      <segment>
+        <source>Es ist niemals so einfach wie es aussieht. Die Luft in diesen seit langem verlassenen Gebäuden ist mit einer giftigen Substanz gesättigt. Du solltest dich hier darum besser nicht zu lange aufhalten.</source>
+        <target>Es ist niemals so einfach wie es aussieht. Die Luft in diesen seit langem verlassenen Gebäuden ist mit einer giftigen Substanz gesättigt. Du solltest dich hier darum besser nicht zu lange aufhalten.</target>
+      </segment>
+    </unit>
+    <unit id="uqQWwTV" name="c7f6f64">
+      <notes>
+        <note category="german">&lt;strong&gt;Ein Sauerstoffmesser verrät dir, wieviel Zeit dir zum Durchsuchen einer Zone bleibt, ehe du vergiftet wirst.&lt;/strong&gt;
+Du musst unbedingt rechtzeitig aus diesem Labyrinth entkommen. Ansonsten wirst du schwer verletzt und verlierst alle Gegenstände, die du bei deiner Suche gefunden hast.
+Verlassene Gebäude haben nur einen einzigen Eingang. Und das ist gleichzeitig dein einziger Weg zurück nach draußen.
+Sei auf der Hut: Wenn du zu gierig und ungestüm bist, wirst du dieses Labyrinth nicht mehr lebend verlassen.</note>
+      </notes>
+      <segment>
+        <source>&lt;strong&gt;Ein Sauerstoffmesser verrät dir, wieviel Zeit dir zum Durchsuchen einer Zone bleibt, ehe du vergiftet wirst.&lt;/strong&gt;
+Du musst unbedingt rechtzeitig aus diesem Labyrinth entkommen. Ansonsten wirst du schwer verletzt und verlierst alle Gegenstände, die du bei deiner Suche gefunden hast.
+Verlassene Gebäude haben nur einen einzigen Eingang. Und das ist gleichzeitig dein einziger Weg zurück nach draußen.
+Sei auf der Hut: Wenn du zu gierig und ungestüm bist, wirst du dieses Labyrinth nicht mehr lebend verlassen.</source>
+        <target><![CDATA[<strong>Ein Sauerstoffmesser verrät dir, wieviel Zeit dir zum Durchsuchen einer Zone bleibt, ehe du vergiftet wirst.</strong>
+Du musst unbedingt rechtzeitig aus diesem Labyrinth entkommen. Ansonsten wirst du schwer verletzt und verlierst alle Gegenstände, die du bei deiner Suche gefunden hast.
+Verlassene Gebäude haben nur einen einzigen Eingang. Und das ist gleichzeitig dein einziger Weg zurück nach draußen.
+Sei auf der Hut: Wenn du zu gierig und ungestüm bist, wirst du dieses Labyrinth nicht mehr lebend verlassen.]]></target>
+      </segment>
+    </unit>
+    <unit id="cR7ePtk" name="1856884">
+      <notes>
+        <note category="german">Es gibt einige Verhaltensregeln, wie man in einer solchen Gegend voller Zombies überleben kann. Wenn du deine Lieben daheim jemals wiedersehen willst, hältst du dich besser daran:</note>
+      </notes>
+      <segment>
+        <source>Es gibt einige Verhaltensregeln, wie man in einer solchen Gegend voller Zombies überleben kann. Wenn du deine Lieben daheim jemals wiedersehen willst, hältst du dich besser daran:</source>
+        <target>Es gibt einige Verhaltensregeln, wie man in einer solchen Gegend voller Zombies überleben kann. Wenn du deine Lieben daheim jemals wiedersehen willst, hältst du dich besser daran:</target>
+      </segment>
+    </unit>
+    <unit id="a5rChiF" name="61a3988">
+      <notes>
+        <note category="german">Aufgrund der Enge dieser Orte, kann sie nur &lt;strong&gt;nur ein einzelner Bürger gleichzeitig&lt;/strong&gt; betreten und untersuchen. Sobald dieser Bürger das Gebäude wieder verlassen hat, kann ein anderer seinen Platz einnehmen.</note>
+      </notes>
+      <segment>
+        <source>Aufgrund der Enge dieser Orte, kann sie nur &lt;strong&gt;nur ein einzelner Bürger gleichzeitig&lt;/strong&gt; betreten und untersuchen. Sobald dieser Bürger das Gebäude wieder verlassen hat, kann ein anderer seinen Platz einnehmen.</source>
+        <target><![CDATA[Aufgrund der Enge dieser Orte, kann sie nur <strong>nur ein einzelner Bürger gleichzeitig</strong> betreten und untersuchen. Sobald dieser Bürger das Gebäude wieder verlassen hat, kann ein anderer seinen Platz einnehmen.]]></target>
+      </segment>
+    </unit>
+    <unit id="RR6Z.rb" name="aac3441">
+      <notes>
+        <note category="german">Wegen der großen Menge Gift, die man beim Untersuchen eines verlassenen Gebäudes einatmet, kann ein Bürger ein Gebäude &lt;strong&gt;nur einmal pro Tag&lt;/strong&gt; untersuchen. Eine weitere Tour würde unweigerlich zu einem sehr unschönen Tod führen.</note>
+      </notes>
+      <segment>
+        <source>Wegen der großen Menge Gift, die man beim Untersuchen eines verlassenen Gebäudes einatmet, kann ein Bürger ein Gebäude &lt;strong&gt;nur einmal pro Tag&lt;/strong&gt; untersuchen. Eine weitere Tour würde unweigerlich zu einem sehr unschönen Tod führen.</source>
+        <target><![CDATA[Wegen der großen Menge Gift, die man beim Untersuchen eines verlassenen Gebäudes einatmet, kann ein Bürger ein Gebäude <strong>nur einmal pro Tag</strong> untersuchen. Eine weitere Tour würde unweigerlich zu einem sehr unschönen Tod führen.]]></target>
+      </segment>
+    </unit>
+    <unit id="9tyeLdW" name="b3077a1">
+      <notes>
+        <note category="german">Um den Zombies zu entkommen, die sich hier herumtreiben, kannst du deine Gegenstände aus deinem Inventar benutzen und damit angreifen. Du kannst auch &lt;strong&gt;die Aktion "Die Flucht wagen" ausführen&lt;/strong&gt;: Dabei verbrauchst du einen Teil deines Sauerstoffvorrats. 
+Solltest du später noch einmal zurückkommen, werden genauso viele Zombies auf dich warten.</note>
+      </notes>
+      <segment>
+        <source>Um den Zombies zu entkommen, die sich hier herumtreiben, kannst du deine Gegenstände aus deinem Inventar benutzen und damit angreifen. Du kannst auch &lt;strong&gt;die Aktion "Die Flucht wagen" ausführen&lt;/strong&gt;: Dabei verbrauchst du einen Teil deines Sauerstoffvorrats. 
+Solltest du später noch einmal zurückkommen, werden genauso viele Zombies auf dich warten.</source>
+        <target><![CDATA[Um den Zombies zu entkommen, die sich hier herumtreiben, kannst du deine Gegenstände aus deinem Inventar benutzen und damit angreifen. Du kannst auch <strong>die Aktion "Die Flucht wagen" ausführen</strong>: Dabei verbrauchst du einen Teil deines Sauerstoffvorrats. 
+Solltest du später noch einmal zurückkommen, werden genauso viele Zombies auf dich warten.]]></target>
+      </segment>
+    </unit>
+    <unit id="Ro.Av4r" name="0995565">
+      <notes>
+        <note category="german">Durch den Lärm, den die Abenteurer in der Außenwelt machen, halten sich &lt;strong&gt;immer einige Zombies in der Nähe&lt;/strong&gt; der Gebäude auf. Du solltest eine solche Zone darum schnell durchsuchen, ehe es dort nur so vor Zombies wimmelt.</note>
+      </notes>
+      <segment>
+        <source>Durch den Lärm, den die Abenteurer in der Außenwelt machen, halten sich &lt;strong&gt;immer einige Zombies in der Nähe&lt;/strong&gt; der Gebäude auf. Du solltest eine solche Zone darum schnell durchsuchen, ehe es dort nur so vor Zombies wimmelt.</source>
+        <target><![CDATA[Durch den Lärm, den die Abenteurer in der Außenwelt machen, halten sich <strong>immer einige Zombies in der Nähe</strong> der Gebäude auf. Du solltest eine solche Zone darum schnell durchsuchen, ehe es dort nur so vor Zombies wimmelt.]]></target>
+      </segment>
+    </unit>
+    <unit id="V5OvUWu" name="5998125">
+      <notes>
+        <note category="german">Zwischen dem Auftauchen der Verdammten und diesen Gebäuden besteht ein Zusammenhang. Es ist darum kein Wunder, dass Plünderer keine Zeit hatten, sie in Ruhe zu durchsuchen. Sie beherbergen darum noch immer zahlreiche Ressourcen und Baupläne. 
+Leider ist es unmöglich, Karten von diesen Gebäuden aufzustöbern. Aber es besteht kein Zweifel daran, dass die einfachsten Mittel auch die effektivsten Mittel zum Durchsuchen dieser Orte sein werden.</note>
+      </notes>
+      <segment>
+        <source>Zwischen dem Auftauchen der Verdammten und diesen Gebäuden besteht ein Zusammenhang. Es ist darum kein Wunder, dass Plünderer keine Zeit hatten, sie in Ruhe zu durchsuchen. Sie beherbergen darum noch immer zahlreiche Ressourcen und Baupläne. 
+Leider ist es unmöglich, Karten von diesen Gebäuden aufzustöbern. Aber es besteht kein Zweifel daran, dass die einfachsten Mittel auch die effektivsten Mittel zum Durchsuchen dieser Orte sein werden.</source>
+        <target>Zwischen dem Auftauchen der Verdammten und diesen Gebäuden besteht ein Zusammenhang. Es ist darum kein Wunder, dass Plünderer keine Zeit hatten, sie in Ruhe zu durchsuchen. Sie beherbergen darum noch immer zahlreiche Ressourcen und Baupläne. 
+Leider ist es unmöglich, Karten von diesen Gebäuden aufzustöbern. Aber es besteht kein Zweifel daran, dass die einfachsten Mittel auch die effektivsten Mittel zum Durchsuchen dieser Orte sein werden.</target>
+      </segment>
+    </unit>
+    <unit id="arLFfQ0" name="ebd1af9">
+      <notes>
+        <note category="german">Deine Existenz in 'MyHordes' ist vergänglich und nur von kurzer Dauer. Sterben ist etwas ganz gewöhnliches und nicht weiter schlimm.</note>
+      </notes>
+      <segment>
+        <source>Deine Existenz in 'MyHordes' ist vergänglich und nur von kurzer Dauer. Sterben ist etwas ganz gewöhnliches und nicht weiter schlimm.</source>
+        <target>Deine Existenz in 'MyHordes' ist vergänglich und nur von kurzer Dauer. Sterben ist etwas ganz gewöhnliches und nicht weiter schlimm.</target>
+      </segment>
+    </unit>
+    <unit id="ZAcOqcY" name="6d2d9d1">
+      <notes>
+        <note category="german">Deine Seele ist der rote Faden des Spiels. In ihr werden all deine gemachten Erfahrungen und Auszeichnungen gesammelt. Außerdem wird dort auch dein aktueller Listenplatz in der Seelenrangliste angezeigt.</note>
+      </notes>
+      <segment>
+        <source>Deine Seele ist der rote Faden des Spiels. In ihr werden all deine gemachten Erfahrungen und Auszeichnungen gesammelt. Außerdem wird dort auch dein aktueller Listenplatz in der Seelenrangliste angezeigt.</source>
+        <target>Deine Seele ist der rote Faden des Spiels. In ihr werden all deine gemachten Erfahrungen und Auszeichnungen gesammelt. Außerdem wird dort auch dein aktueller Listenplatz in der Seelenrangliste angezeigt.</target>
+      </segment>
+    </unit>
+    <unit id="27FD0EG" name="Die Auszeichnungen">
+      <notes>
+        <note category="german">Die Auszeichnungen</note>
+      </notes>
+      <segment>
+        <source>Die Auszeichnungen</source>
+        <target>Die Auszeichnungen</target>
+      </segment>
+    </unit>
+    <unit id="_1Ab7yD" name="d46f2cc">
+      <notes>
+        <note category="german">Nach jedem Tod erhältst für bestimmte Taten oder Erfolge ein paar Auszeichungen. Dies wird unter anderem gezählt: Anzahl der getöteten Zombies, Anzahl der seltenen gefundenen Gegenstände, Anzahl der APs, die du in Baustellen investiert hast...</note>
+      </notes>
+      <segment>
+        <source>Nach jedem Tod erhältst für bestimmte Taten oder Erfolge ein paar Auszeichungen. Dies wird unter anderem gezählt: Anzahl der getöteten Zombies, Anzahl der seltenen gefundenen Gegenstände, Anzahl der APs, die du in Baustellen investiert hast...</source>
+        <target>Nach jedem Tod erhältst für bestimmte Taten oder Erfolge ein paar Auszeichungen. Dies wird unter anderem gezählt: Anzahl der getöteten Zombies, Anzahl der seltenen gefundenen Gegenstände, Anzahl der APs, die du in Baustellen investiert hast...</target>
+      </segment>
+    </unit>
+    <unit id="wCuacLL" name="20f1b74">
+      <notes>
+        <note category="german">Diese Informationen sind für alle Spieler sichtbar und stellen einen Leistungsspiegel all deiner Partien dar.</note>
+      </notes>
+      <segment>
+        <source>Diese Informationen sind für alle Spieler sichtbar und stellen einen Leistungsspiegel all deiner Partien dar.</source>
+        <target>Diese Informationen sind für alle Spieler sichtbar und stellen einen Leistungsspiegel all deiner Partien dar.</target>
+      </segment>
+    </unit>
+    <unit id="PoMJK5K" name="8b272ca">
+      <notes>
+        <note category="german">&lt;strong&gt;Achtung:&lt;/strong&gt; Alle am letzten Tag erworbenen Auszeichungen werden nicht gezählt (Manche Auszeichungen, wie die Verbannung oder die Todesart sind davon ausgenommen.).</note>
+      </notes>
+      <segment>
+        <source>&lt;strong&gt;Achtung:&lt;/strong&gt; Alle am letzten Tag erworbenen Auszeichungen werden nicht gezählt (Manche Auszeichungen, wie die Verbannung oder die Todesart sind davon ausgenommen.).</source>
+        <target><![CDATA[<strong>Achtung:</strong> Alle am letzten Tag erworbenen Auszeichungen werden nicht gezählt (Manche Auszeichungen, wie die Verbannung oder die Todesart sind davon ausgenommen.).]]></target>
+      </segment>
+    </unit>
+    <unit id="LiN0qWx" name="0160004">
+      <notes>
+        <note category="german">Die Grundregel lautet: Ab dem 5. Tag werden dir alle Auszeichnungen gutgeschrieben.
+Wenn du in einer "Kleinen Karte" spielst und &lt;strong&gt;100 Seelenpunkte oder mehr hast&lt;/strong&gt;, werden Auszeichnungen erst ab Tag 8 vergeben!</note>
+      </notes>
+      <segment>
+        <source>Die Grundregel lautet: Ab dem 5. Tag werden dir alle Auszeichnungen gutgeschrieben.
+Wenn du in einer "Kleinen Karte" spielst und &lt;strong&gt;100 Seelenpunkte oder mehr hast&lt;/strong&gt;, werden Auszeichnungen erst ab Tag 8 vergeben!</source>
+        <target><![CDATA[Die Grundregel lautet: Ab dem 5. Tag werden dir alle Auszeichnungen gutgeschrieben.
+Wenn du in einer "Kleinen Karte" spielst und <strong>100 Seelenpunkte oder mehr hast</strong>, werden Auszeichnungen erst ab Tag 8 vergeben!]]></target>
+      </segment>
+    </unit>
+    <unit id="LoWYOXM" name="Die Titel">
+      <notes>
+        <note category="german">Die Titel</note>
+      </notes>
+      <segment>
+        <source>Die Titel</source>
+        <target>Die Titel</target>
+      </segment>
+    </unit>
+    <unit id="12Oiou9" name="886aecf">
+      <notes>
+        <note category="german">Für manche Auszeichnungen erhältst du bei einer entsprechend hohen Anzahl einen &lt;strong&gt;speziellen Titel!&lt;/strong&gt;</note>
+      </notes>
+      <segment>
+        <source>Für manche Auszeichnungen erhältst du bei einer entsprechend hohen Anzahl einen &lt;strong&gt;speziellen Titel!&lt;/strong&gt;</source>
+        <target><![CDATA[Für manche Auszeichnungen erhältst du bei einer entsprechend hohen Anzahl einen <strong>speziellen Titel!</strong>]]></target>
+      </segment>
+    </unit>
+    <unit id="2pL5J7A" name="b79dc67">
+      <notes>
+        <note category="german">Beispiel: Für jeden erledigten Zombie erhältst du die Auszeichung "Erlegte Zombies". Sobald du 100 Untote umgebracht hast erscheint der Titel "Brutalo" in deinem Profil! Je mehr Zombies du danach tötest, desto besser wird dein Titel.</note>
+      </notes>
+      <segment>
+        <source>Beispiel: Für jeden erledigten Zombie erhältst du die Auszeichung "Erlegte Zombies". Sobald du 100 Untote umgebracht hast erscheint der Titel "Brutalo" in deinem Profil! Je mehr Zombies du danach tötest, desto besser wird dein Titel.</source>
+        <target>Beispiel: Für jeden erledigten Zombie erhältst du die Auszeichung "Erlegte Zombies". Sobald du 100 Untote umgebracht hast erscheint der Titel "Brutalo" in deinem Profil! Je mehr Zombies du danach tötest, desto besser wird dein Titel.</target>
+      </segment>
+    </unit>
+    <unit id="33cFnv8" name="7dd845b">
+      <notes>
+        <note category="german">Wenn du deinem Nicknamen einen zusätzlichen Titel geben möchtest, musst du auf deiner Seelenseite auf den gewünschten Titel klicken!</note>
+      </notes>
+      <segment>
+        <source>Wenn du deinem Nicknamen einen zusätzlichen Titel geben möchtest, musst du auf deiner Seelenseite auf den gewünschten Titel klicken!</source>
+        <target>Wenn du deinem Nicknamen einen zusätzlichen Titel geben möchtest, musst du auf deiner Seelenseite auf den gewünschten Titel klicken!</target>
+      </segment>
+    </unit>
+    <unit id="5bXhBKp" name="Seelenrangliste">
+      <notes>
+        <note category="german">Seelenrangliste</note>
+      </notes>
+      <segment>
+        <source>Seelenrangliste</source>
+        <target>Seelenrangliste</target>
+      </segment>
+    </unit>
+    <unit id="6YDiz37" name="f944b3c">
+      <notes>
+        <note category="german">Für jeden Tag, den du in einer Stadt überlebst, bekommst du Punkte. In den ersten Tagen erhältst du nur wenige Punkte. Je länger du allerdings durchhältst, desto mehr Punkte werden es!</note>
+      </notes>
+      <segment>
+        <source>Für jeden Tag, den du in einer Stadt überlebst, bekommst du Punkte. In den ersten Tagen erhältst du nur wenige Punkte. Je länger du allerdings durchhältst, desto mehr Punkte werden es!</source>
+        <target>Für jeden Tag, den du in einer Stadt überlebst, bekommst du Punkte. In den ersten Tagen erhältst du nur wenige Punkte. Je länger du allerdings durchhältst, desto mehr Punkte werden es!</target>
+      </segment>
+    </unit>
+    <unit id="bekk9Oq" name="Deine Punktanzahl ist in der Großen Seelenrangliste aufgeführt.">
+      <notes>
+        <note category="german">Deine Punktanzahl ist in der Großen Seelenrangliste aufgeführt.</note>
+      </notes>
+      <segment>
+        <source>Deine Punktanzahl ist in der Großen Seelenrangliste aufgeführt.</source>
+        <target>Deine Punktanzahl ist in der Großen Seelenrangliste aufgeführt.</target>
+      </segment>
+    </unit>
+    <unit id="5mPpD9Q" name="222be22">
+      <notes>
+        <note category="german">&lt;strong&gt;Sobald ein Spieler mehr als 100 Seelenpunkte gesammelt hat, wird er nur noch in Städten wiedergeboren, in denen ebenfalls Spieler mit 100 Punkten spielen&lt;/strong&gt;
+(so dass die besten Spieler unter sich bleiben).</note>
+      </notes>
+      <segment>
+        <source>&lt;strong&gt;Sobald ein Spieler mehr als 100 Seelenpunkte gesammelt hat, wird er nur noch in Städten wiedergeboren, in denen ebenfalls Spieler mit 100 Punkten spielen&lt;/strong&gt;
+(so dass die besten Spieler unter sich bleiben).</source>
+        <target><![CDATA[<strong>Sobald ein Spieler mehr als 100 Seelenpunkte gesammelt hat, wird er nur noch in Städten wiedergeboren, in denen ebenfalls Spieler mit 100 Punkten spielen</strong>
+(so dass die besten Spieler unter sich bleiben).]]></target>
+      </segment>
+    </unit>
+    <unit id="GVvf.A." name="9ebce8d">
+      <notes>
+        <note category="german">Du wurdest schwer verletzt... Verarzte dich so schnell wie möglich mit einem Verband oder etwas ähnlichem, sonst riskierst du eine &lt;strong&gt;%img_infect% Infektion&lt;/strong&gt; (geht in der Regel tödlich aus...)!</note>
+      </notes>
+      <segment>
+        <source>Du wurdest schwer verletzt... Verarzte dich so schnell wie möglich mit einem Verband oder etwas ähnlichem, sonst riskierst du eine &lt;strong&gt;%img_infect% Infektion&lt;/strong&gt; (geht in der Regel tödlich aus...)!</source>
+        <target><![CDATA[Du wurdest schwer verletzt... Verarzte dich so schnell wie möglich mit einem Verband oder etwas ähnlichem, sonst riskierst du eine <strong>%img_infect% Infektion</strong> (geht in der Regel tödlich aus...)!]]></target>
+      </segment>
+    </unit>
+    <unit id="DwNHYeS" name="c387eb6">
+      <notes>
+        <note category="german">Manche Gegenstände, wie zum Beispiel der &lt;strong&gt;%img_carpet% Teppich&lt;/strong&gt;,
+werden &lt;strong&gt;automatisch&lt;/strong&gt; der &lt;strong&gt;Hauseinrichtung&lt;/strong&gt; hinzugefügt, wenn du sie in der Truhe ablegst. Einrichtungsgegenstände verschaffen dir verschiedene Vorteile (Deko, Diebstahlschutz, Schutz gegen Zombies...)</note>
+      </notes>
+      <segment>
+        <source>Manche Gegenstände, wie zum Beispiel der &lt;strong&gt;%img_carpet% Teppich&lt;/strong&gt;,
+werden &lt;strong&gt;automatisch&lt;/strong&gt; der &lt;strong&gt;Hauseinrichtung&lt;/strong&gt; hinzugefügt, wenn du sie in der Truhe ablegst. Einrichtungsgegenstände verschaffen dir verschiedene Vorteile (Deko, Diebstahlschutz, Schutz gegen Zombies...)</source>
+        <target><![CDATA[Manche Gegenstände, wie zum Beispiel der <strong>%img_carpet% Teppich</strong>,
+werden <strong>automatisch</strong> der <strong>Hauseinrichtung</strong> hinzugefügt, wenn du sie in der Truhe ablegst. Einrichtungsgegenstände verschaffen dir verschiedene Vorteile (Deko, Diebstahlschutz, Schutz gegen Zombies...)]]></target>
+      </segment>
+    </unit>
+    <unit id="_PQd7sk" name="ad9208e">
+      <notes>
+        <note category="german">Es gibt in 'MyHordes' mächtige Drogen, die alle unterschiedliche Effekte haben: Sie lindern Erschöpfungszustände, bekämpfen Infektionen, bringen dich bei Panikattacken wieder runter oder rehydrieren dich... Allerdings ist Vorsicht geboten: Wenn du zu viele nimmst, kannst du &lt;strong&gt;%img_addict% Abhängig&lt;/strong&gt; werden.</note>
+      </notes>
+      <segment>
+        <source>Es gibt in 'MyHordes' mächtige Drogen, die alle unterschiedliche Effekte haben: Sie lindern Erschöpfungszustände, bekämpfen Infektionen, bringen dich bei Panikattacken wieder runter oder rehydrieren dich... Allerdings ist Vorsicht geboten: Wenn du zu viele nimmst, kannst du &lt;strong&gt;%img_addict% Abhängig&lt;/strong&gt; werden.</source>
+        <target><![CDATA[Es gibt in 'MyHordes' mächtige Drogen, die alle unterschiedliche Effekte haben: Sie lindern Erschöpfungszustände, bekämpfen Infektionen, bringen dich bei Panikattacken wieder runter oder rehydrieren dich... Allerdings ist Vorsicht geboten: Wenn du zu viele nimmst, kannst du <strong>%img_addict% Abhängig</strong> werden.]]></target>
+      </segment>
+    </unit>
+    <unit id="ywk869u" name="6603e25">
+      <notes>
+        <note category="german">Durch das Trinken von Alkohol kommst du wieder zu Kräften (hebt die Erschöpfung auf), allerdings bist du danach nicht mehr ganz Herr deiner Sinne... Deine %img_drunk% &lt;strong&gt;Trunkenheit&lt;/strong&gt; weicht am nächsten Tag einem üblen %img_hung% &lt;strong&gt;Kater&lt;/strong&gt;... Allgemein gilt: Wenn du betrunken oder verkatert bist, kannst du keine weiteren alkoholischen Getränke zu dir nehmen.</note>
+      </notes>
+      <segment>
+        <source>Durch das Trinken von Alkohol kommst du wieder zu Kräften (hebt die Erschöpfung auf), allerdings bist du danach nicht mehr ganz Herr deiner Sinne... Deine %img_drunk% &lt;strong&gt;Trunkenheit&lt;/strong&gt; weicht am nächsten Tag einem üblen %img_hung% &lt;strong&gt;Kater&lt;/strong&gt;... Allgemein gilt: Wenn du betrunken oder verkatert bist, kannst du keine weiteren alkoholischen Getränke zu dir nehmen.</source>
+        <target><![CDATA[Durch das Trinken von Alkohol kommst du wieder zu Kräften (hebt die Erschöpfung auf), allerdings bist du danach nicht mehr ganz Herr deiner Sinne... Deine %img_drunk% <strong>Trunkenheit</strong> weicht am nächsten Tag einem üblen %img_hung% <strong>Kater</strong>... Allgemein gilt: Wenn du betrunken oder verkatert bist, kannst du keine weiteren alkoholischen Getränke zu dir nehmen.]]></target>
+      </segment>
+    </unit>
+    <unit id="Ltaudos" name="27de32f">
+      <notes>
+        <note category="german">Sei gewiss: An diesem gottverlassenen Ort wird dir niemand zu Hilfe eilen. Und Kontrollpunkte gelten hier auch nicht mehr. Versuche darum, das Maximum aus diesen Gebäuden herauszuholen.</note>
+      </notes>
+      <segment>
+        <source>Sei gewiss: An diesem gottverlassenen Ort wird dir niemand zu Hilfe eilen. Und Kontrollpunkte gelten hier auch nicht mehr. Versuche darum, das Maximum aus diesen Gebäuden herauszuholen.</source>
+        <target>Sei gewiss: An diesem gottverlassenen Ort wird dir niemand zu Hilfe eilen. Und Kontrollpunkte gelten hier auch nicht mehr. Versuche darum, das Maximum aus diesen Gebäuden herauszuholen.</target>
+      </segment>
+    </unit>
+    <unit id="pCjfjXL" name="198f48e">
+      <notes>
+        <note category="german">Achte auf die Zeit. Falls du dich noch um Mitternacht in einem Gebäude befindest, werden deine Überlebenschancen genauso groß sein, wie die eines %img_meat% saftigen Steaks auf einer angerichteten Tafel!</note>
+      </notes>
+      <segment>
+        <source>Achte auf die Zeit. Falls du dich noch um Mitternacht in einem Gebäude befindest, werden deine Überlebenschancen genauso groß sein, wie die eines %img_meat% saftigen Steaks auf einer angerichteten Tafel!</source>
+        <target>Achte auf die Zeit. Falls du dich noch um Mitternacht in einem Gebäude befindest, werden deine Überlebenschancen genauso groß sein, wie die eines %img_meat% saftigen Steaks auf einer angerichteten Tafel!</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

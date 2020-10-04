@@ -2137,13 +2137,13 @@ sind <strong>nicht auf 90%</strong> beschränkt.]]></target>
         <target><![CDATA[Um diese Auszeichnung zu erhalten, muss die Stadt mindestens <strong>10 volle Tage</strong> überlebt haben.]]></target>
       </segment>
     </unit>
-    <unit id="Frfj2OK" name="79f6272">
+    <unit id="gxWuOUR" name="fba6242">
       <notes>
-        <note category="german">Im Laufe deines Spielerlebens wirst du in 'MyHordes' zahlreiche Gegenstände in der Wüste finden, beim Bau verschiedener Gebäude mithelfen, dir Krankheiten einfangen und auch Drogen konsumieren...</note>
+        <note category="german">Im Laufe deines Spielerlebens wirst du in MyHordes zahlreiche Gegenstände in der Wüste finden, beim Bau verschiedener Gebäude mithelfen, dir Krankheiten einfangen und auch Drogen konsumieren...</note>
       </notes>
       <segment>
-        <source>Im Laufe deines Spielerlebens wirst du in 'MyHordes' zahlreiche Gegenstände in der Wüste finden, beim Bau verschiedener Gebäude mithelfen, dir Krankheiten einfangen und auch Drogen konsumieren...</source>
-        <target>Im Laufe deines Spielerlebens wirst du in 'MyHordes' zahlreiche Gegenstände in der Wüste finden, beim Bau verschiedener Gebäude mithelfen, dir Krankheiten einfangen und auch Drogen konsumieren...</target>
+        <source>Im Laufe deines Spielerlebens wirst du in MyHordes zahlreiche Gegenstände in der Wüste finden, beim Bau verschiedener Gebäude mithelfen, dir Krankheiten einfangen und auch Drogen konsumieren...</source>
+        <target>Im Laufe deines Spielerlebens wirst du in MyHordes zahlreiche Gegenstände in der Wüste finden, beim Bau verschiedener Gebäude mithelfen, dir Krankheiten einfangen und auch Drogen konsumieren...</target>
       </segment>
     </unit>
     <unit id="Qo0UDUa" name="9c0157d">
@@ -2833,18 +2833,6 @@ Solltest du später noch einmal zurückkommen, werden genauso viele Zombies auf 
         <target><![CDATA[Durch den Lärm, den die Abenteurer in der Außenwelt machen, halten sich <strong>immer einige Zombies in der Nähe</strong> der Gebäude auf. Du solltest eine solche Zone darum schnell durchsuchen, ehe es dort nur so vor Zombies wimmelt.]]></target>
       </segment>
     </unit>
-    <unit id="faAJUBc" name="c673734">
-      <notes>
-        <note category="german">Sei gewiss: An diesem gottverlassenen Ort wird dir niemand zu Hilfe eilen. Und Kontrollpunkte gelten hier auch nicht mehr. Versuche darum, das Maximum aus diesen Gebäuden herauszuholen.&lt;/li&gt;
-&lt;li&gt;Achte auf die Zeit. Falls du dich noch um Mitternacht in einem Gebäude befindest, werden deine Überlebenschancen genauso groß sein, wie die eines &lt;img alt="" src="gfx/icons/item_meat.gif"&gt; saftigen Steaks auf einer angerichteten Tafel!</note>
-      </notes>
-      <segment>
-        <source>Sei gewiss: An diesem gottverlassenen Ort wird dir niemand zu Hilfe eilen. Und Kontrollpunkte gelten hier auch nicht mehr. Versuche darum, das Maximum aus diesen Gebäuden herauszuholen.&lt;/li&gt;
-&lt;li&gt;Achte auf die Zeit. Falls du dich noch um Mitternacht in einem Gebäude befindest, werden deine Überlebenschancen genauso groß sein, wie die eines &lt;img alt="" src="gfx/icons/item_meat.gif"&gt; saftigen Steaks auf einer angerichteten Tafel!</source>
-        <target><![CDATA[Sei gewiss: An diesem gottverlassenen Ort wird dir niemand zu Hilfe eilen. Und Kontrollpunkte gelten hier auch nicht mehr. Versuche darum, das Maximum aus diesen Gebäuden herauszuholen.</li>
-<li>Achte auf die Zeit. Falls du dich noch um Mitternacht in einem Gebäude befindest, werden deine Überlebenschancen genauso groß sein, wie die eines <img alt="" src="gfx/icons/item_meat.gif"> saftigen Steaks auf einer angerichteten Tafel!]]></target>
-      </segment>
-    </unit>
     <unit id="V5OvUWu" name="5998125">
       <notes>
         <note category="german">Zwischen dem Auftauchen der Verdammten und diesen Gebäuden besteht ein Zusammenhang. Es ist darum kein Wunder, dass Plünderer keine Zeit hatten, sie in Ruhe zu durchsuchen. Sie beherbergen darum noch immer zahlreiche Ressourcen und Baupläne. 
@@ -2933,6 +2921,63 @@ werden &lt;strong&gt;automatisch&lt;/strong&gt; der &lt;strong&gt;Hauseinrichtun
 werden &lt;strong&gt;automatisch&lt;/strong&gt; der &lt;strong&gt;Hauseinrichtung&lt;/strong&gt; hinzugefügt, wenn du sie in der Truhe ablegst. Einrichtungsgegenstände verschaffen dir verschiedene Vorteile (Deko, Diebstahlschutz, Schutz gegen Zombies...)</source>
         <target><![CDATA[Manche Gegenstände, wie zum Beispiel der <strong><img alt="" src="/gfx/icons/item_carpet.gif"> Teppich</strong>,
 werden <strong>automatisch</strong> der <strong>Hauseinrichtung</strong> hinzugefügt, wenn du sie in der Truhe ablegst. Einrichtungsgegenstände verschaffen dir verschiedene Vorteile (Deko, Diebstahlschutz, Schutz gegen Zombies...)]]></target>
+      </segment>
+    </unit>
+    <unit id="GVvf.A." name="9ebce8d">
+      <notes>
+        <note category="german">Du wurdest schwer verletzt... Verarzte dich so schnell wie möglich mit einem Verband oder etwas ähnlichem, sonst riskierst du eine &lt;strong&gt;%img_infect% Infektion&lt;/strong&gt; (geht in der Regel tödlich aus...)!</note>
+      </notes>
+      <segment>
+        <source>Du wurdest schwer verletzt... Verarzte dich so schnell wie möglich mit einem Verband oder etwas ähnlichem, sonst riskierst du eine &lt;strong&gt;%img_infect% Infektion&lt;/strong&gt; (geht in der Regel tödlich aus...)!</source>
+        <target><![CDATA[Du wurdest schwer verletzt... Verarzte dich so schnell wie möglich mit einem Verband oder etwas ähnlichem, sonst riskierst du eine <strong>%img_infect% Infektion</strong> (geht in der Regel tödlich aus...)!]]></target>
+      </segment>
+    </unit>
+    <unit id="DwNHYeS" name="c387eb6">
+      <notes>
+        <note category="german">Manche Gegenstände, wie zum Beispiel der &lt;strong&gt;%img_carpet% Teppich&lt;/strong&gt;,
+werden &lt;strong&gt;automatisch&lt;/strong&gt; der &lt;strong&gt;Hauseinrichtung&lt;/strong&gt; hinzugefügt, wenn du sie in der Truhe ablegst. Einrichtungsgegenstände verschaffen dir verschiedene Vorteile (Deko, Diebstahlschutz, Schutz gegen Zombies...)</note>
+      </notes>
+      <segment>
+        <source>Manche Gegenstände, wie zum Beispiel der &lt;strong&gt;%img_carpet% Teppich&lt;/strong&gt;,
+werden &lt;strong&gt;automatisch&lt;/strong&gt; der &lt;strong&gt;Hauseinrichtung&lt;/strong&gt; hinzugefügt, wenn du sie in der Truhe ablegst. Einrichtungsgegenstände verschaffen dir verschiedene Vorteile (Deko, Diebstahlschutz, Schutz gegen Zombies...)</source>
+        <target><![CDATA[Manche Gegenstände, wie zum Beispiel der <strong>%img_carpet% Teppich</strong>,
+werden <strong>automatisch</strong> der <strong>Hauseinrichtung</strong> hinzugefügt, wenn du sie in der Truhe ablegst. Einrichtungsgegenstände verschaffen dir verschiedene Vorteile (Deko, Diebstahlschutz, Schutz gegen Zombies...)]]></target>
+      </segment>
+    </unit>
+    <unit id="_PQd7sk" name="ad9208e">
+      <notes>
+        <note category="german">Es gibt in 'MyHordes' mächtige Drogen, die alle unterschiedliche Effekte haben: Sie lindern Erschöpfungszustände, bekämpfen Infektionen, bringen dich bei Panikattacken wieder runter oder rehydrieren dich... Allerdings ist Vorsicht geboten: Wenn du zu viele nimmst, kannst du &lt;strong&gt;%img_addict% Abhängig&lt;/strong&gt; werden.</note>
+      </notes>
+      <segment>
+        <source>Es gibt in 'MyHordes' mächtige Drogen, die alle unterschiedliche Effekte haben: Sie lindern Erschöpfungszustände, bekämpfen Infektionen, bringen dich bei Panikattacken wieder runter oder rehydrieren dich... Allerdings ist Vorsicht geboten: Wenn du zu viele nimmst, kannst du &lt;strong&gt;%img_addict% Abhängig&lt;/strong&gt; werden.</source>
+        <target><![CDATA[Es gibt in 'MyHordes' mächtige Drogen, die alle unterschiedliche Effekte haben: Sie lindern Erschöpfungszustände, bekämpfen Infektionen, bringen dich bei Panikattacken wieder runter oder rehydrieren dich... Allerdings ist Vorsicht geboten: Wenn du zu viele nimmst, kannst du <strong>%img_addict% Abhängig</strong> werden.]]></target>
+      </segment>
+    </unit>
+    <unit id="ywk869u" name="6603e25">
+      <notes>
+        <note category="german">Durch das Trinken von Alkohol kommst du wieder zu Kräften (hebt die Erschöpfung auf), allerdings bist du danach nicht mehr ganz Herr deiner Sinne... Deine %img_drunk% &lt;strong&gt;Trunkenheit&lt;/strong&gt; weicht am nächsten Tag einem üblen %img_hung% &lt;strong&gt;Kater&lt;/strong&gt;... Allgemein gilt: Wenn du betrunken oder verkatert bist, kannst du keine weiteren alkoholischen Getränke zu dir nehmen.</note>
+      </notes>
+      <segment>
+        <source>Durch das Trinken von Alkohol kommst du wieder zu Kräften (hebt die Erschöpfung auf), allerdings bist du danach nicht mehr ganz Herr deiner Sinne... Deine %img_drunk% &lt;strong&gt;Trunkenheit&lt;/strong&gt; weicht am nächsten Tag einem üblen %img_hung% &lt;strong&gt;Kater&lt;/strong&gt;... Allgemein gilt: Wenn du betrunken oder verkatert bist, kannst du keine weiteren alkoholischen Getränke zu dir nehmen.</source>
+        <target><![CDATA[Durch das Trinken von Alkohol kommst du wieder zu Kräften (hebt die Erschöpfung auf), allerdings bist du danach nicht mehr ganz Herr deiner Sinne... Deine %img_drunk% <strong>Trunkenheit</strong> weicht am nächsten Tag einem üblen %img_hung% <strong>Kater</strong>... Allgemein gilt: Wenn du betrunken oder verkatert bist, kannst du keine weiteren alkoholischen Getränke zu dir nehmen.]]></target>
+      </segment>
+    </unit>
+    <unit id="Ltaudos" name="27de32f">
+      <notes>
+        <note category="german">Sei gewiss: An diesem gottverlassenen Ort wird dir niemand zu Hilfe eilen. Und Kontrollpunkte gelten hier auch nicht mehr. Versuche darum, das Maximum aus diesen Gebäuden herauszuholen.</note>
+      </notes>
+      <segment>
+        <source>Sei gewiss: An diesem gottverlassenen Ort wird dir niemand zu Hilfe eilen. Und Kontrollpunkte gelten hier auch nicht mehr. Versuche darum, das Maximum aus diesen Gebäuden herauszuholen.</source>
+        <target>Sei gewiss: An diesem gottverlassenen Ort wird dir niemand zu Hilfe eilen. Und Kontrollpunkte gelten hier auch nicht mehr. Versuche darum, das Maximum aus diesen Gebäuden herauszuholen.</target>
+      </segment>
+    </unit>
+    <unit id="pCjfjXL" name="198f48e">
+      <notes>
+        <note category="german">Achte auf die Zeit. Falls du dich noch um Mitternacht in einem Gebäude befindest, werden deine Überlebenschancen genauso groß sein, wie die eines %img_meat% saftigen Steaks auf einer angerichteten Tafel!</note>
+      </notes>
+      <segment>
+        <source>Achte auf die Zeit. Falls du dich noch um Mitternacht in einem Gebäude befindest, werden deine Überlebenschancen genauso groß sein, wie die eines %img_meat% saftigen Steaks auf einer angerichteten Tafel!</source>
+        <target>Achte auf die Zeit. Falls du dich noch um Mitternacht in einem Gebäude befindest, werden deine Überlebenschancen genauso groß sein, wie die eines %img_meat% saftigen Steaks auf einer angerichteten Tafel!</target>
       </segment>
     </unit>
   </file>
