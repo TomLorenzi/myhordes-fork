@@ -69,6 +69,16 @@ class Post
      */
     private $adminReports;
 
+    /**
+     * @ORM\OneToOne(targetEntity="App\Entity\AdminDeletion", mappedBy="post", orphanRemoval=true, cascade={"remove"})
+     */
+    private $_adminDeletion;
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\ThreadReadMarker", mappedBy="post", cascade={"remove"})
+     */
+    private $_readMarkers;
+
     private $new = false;
 
     /**

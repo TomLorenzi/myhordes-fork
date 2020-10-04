@@ -51,7 +51,7 @@ class GazetteLogEntry
     private $day;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Gazette")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Gazette", inversedBy="_log_entries")
      * @ORM\JoinColumn(nullable=false)
      */
     private $gazette;

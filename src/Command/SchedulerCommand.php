@@ -5,11 +5,14 @@ namespace App\Command;
 
 
 use App\Entity\AttackSchedule;
+use App\Entity\Citizen;
 use App\Entity\Picto;
+use App\Entity\ThreadReadMarker;
 use App\Entity\Town;
 use App\Entity\TownLogEntry;
 use App\Service\AntiCheatService;
 use App\Service\ConfMaster;
+use App\Service\GameFactory;
 use App\Service\Locksmith;
 use App\Service\NightlyHandler;
 use App\Structures\MyHordesConf;
@@ -33,8 +36,9 @@ class SchedulerCommand extends Command
     private $trans;
     private $conf;
     private $anti_cheat;
+    private $gameFactory;
 
-    public function __construct(EntityManagerInterface $em, NightlyHandler $nh, Locksmith $ls, Translator $translator, ConfMaster $conf, AntiCheatService $acs)
+    public function __construct(EntityManagerInterface $em, NightlyHandler $nh, Locksmith $ls, Translator $translator, ConfMaster $conf, AntiCheatService $acs, GameFactory $gf)
     {
         $this->entityManager = $em;
         $this->night = $nh;
@@ -42,6 +46,7 @@ class SchedulerCommand extends Command
         $this->trans = $translator;
         $this->conf = $conf->getGlobalConf();
         $this->anti_cheat = $acs;
+        $this->gameFactory = $gf;
         parent::__construct();
     }
 
@@ -79,14 +84,23 @@ class SchedulerCommand extends Command
 
             foreach ( $towns as $town ) {
 
+                // This makes sure we don't carry anything over from the last town that was processed
+                // Since we clear the entityManager, we need to re-fetch the Town and AttackSchedule entity
+                $this->entityManager->clear();
+                $town = $this->entityManager->getRepository(Town::class)->find($town->getId());
+                $s = $this->entityManager->getRepository(AttackSchedule::class)->find($s->getId());
+
                 if ($town->getAttackFails() >= 3 || ($town->getLastAttack() && $town->getLastAttack()->getId() === $s->getId()))
                     continue;
 
-                $this->trans->setLocale($town->getLanguage() ?? 'de');
+                if ($town->getLanguage() === 'multi') $this->trans->setLocale('en');
+                else $this->trans->setLocale($town->getLanguage() ?? 'de');
 
                 try {
                     /** @var Town $town */
                     $town->setAttackFails($town->getAttackFails() + 1);
+
+                    $last_op = 'pre';
                     $this->entityManager->persist($town);
                     $this->entityManager->flush();
 
@@ -95,38 +109,34 @@ class SchedulerCommand extends Command
 
                         $town->setLastAttack($s)->setAttackFails(0);
 
+                        $last_op = 'adv';
                         $this->entityManager->persist($town);
                         $this->entityManager->flush();
 
                     } else {
-                        if($town->isOpen() && $town->getDayWithoutAttack() > 2 && $town->getType()->getName() == "custom") {
-                            $this->entityManager->flush();
-                            $output->writeln("Removing town <info>{$town->getName()}</info> because is lasted for 2 days without getting filled");
-                            foreach($town->getCitizens() as $citizen) {
-                                /** @var \App\Entity\Citizen $citizen */
-                                $citizen->getUser()->removePastLife($citizen->getRankingEntry());
-                                $this->entityManager->remove($citizen->getRankingEntry());
-                                $this->entityManager->remove($citizen);
-                            }
-                            $logs = $this->entityManager->getRepository(TownLogEntry::class)->findBy(['town' => $town]);
-                            foreach ($logs as $log){
-                                $this->entityManager->remove($log);
-                            }
-                            $pictos = $this->entityManager->getRepository(Picto::class)->findBy(['town' => $town]);
-                            foreach ($pictos as $picto){
-                                $this->entityManager->remove($picto);
-                            }
-                            $this->entityManager->remove($town->getRankingEntry());
-                            $this->entityManager->remove($town);
+
+                        // In case a log entry has been written to the town log during the cancelled attack,
+                        // we want to make sure everything is persisted before we proceed.
+                        $last_op = 'stay';
+                        $this->entityManager->persist($town);
+                        $this->entityManager->flush();
+
+                        if ($town->isOpen() && $town->getDayWithoutAttack() > 2 && $town->getType()->getName() == "custom") {
+                            $last_op = 'del';
+                            $this->gameFactory->nullifyTown($town, true);
+
                         } else {
+                            $last_op = 'com';
                             $town->setAttackFails(0);
-                            $this->entityManager->persist($town);
+                            if (!$this->gameFactory->compactTown($town)) {
+                                $this->entityManager->persist($town);
+                            }
                         }
                         $this->entityManager->flush();
                     }
                 } catch (Exception $e) {
 
-                    $output->writeln("<error>Failed to process town {$town->getId()}!</error>");
+                    $output->writeln("<error>Failed to process town {$town->getId()} (@{$last_op})!</error>");
                     $output->writeln($e->getMessage());
 
                     $fmt = $this->conf->get(MyHordesConf::CONF_FATAL_MAIL_TARGET, null);
@@ -149,7 +159,7 @@ class SchedulerCommand extends Command
                         );
                     }
 
-                    return false;
+                    throw $e;
                 }
 
                 $progress->advance();

@@ -28,7 +28,10 @@ const url = base_node.length === 0 ? '' : base_node[0].getAttribute('href');
 let $ = {
     ajax: new Ajax(url),
     html: new HTML(),
-    client: new Client()
+    client: new Client(),
+    vendor: {
+        punycode: require("./punycode")
+    }
 };
 window.$ = $;
 

@@ -11,12 +11,14 @@ use App\Entity\Town;
 use App\Entity\TwinoidImport;
 use App\Entity\TwinoidImportPreview;
 use App\Entity\User;
+use App\Entity\UserGroup;
 use App\Entity\UserPendingValidation;
 use App\Response\AjaxResponse;
 use App\Service\AdminActionHandler;
 use App\Service\AntiCheatService;
 use App\Service\ErrorHelper;
 use App\Service\JSONRequestParser;
+use App\Service\PermissionHandler;
 use App\Service\TwinoidHandler;
 use App\Service\UserFactory;
 use App\Service\UserHandler;
@@ -71,9 +73,10 @@ class AdminUserController extends AdminActionController
      * @param UserFactory $uf
      * @param TwinoidHandler $twin
      * @param UserHandler $userHandler
+     * @param string $param
      * @return Response
      */
-    public function user_account_manager(int $id, string $action, JSONRequestParser $parser, UserFactory $uf, TwinoidHandler $twin, UserHandler $userHandler, string $param = ''): Response
+    public function user_account_manager(int $id, string $action, JSONRequestParser $parser, UserFactory $uf, TwinoidHandler $twin, UserHandler $userHandler, PermissionHandler $perm, string $param = ''): Response
     {
         /** @var User $user */
         $user = $this->entity_manager->getRepository(User::class)->find($id);
@@ -102,12 +105,14 @@ class AdminUserController extends AdminActionController
                     $user->setPendingValidation(null);
                 }
                 $user->setValidated(true);
+                $perm->associate($user, $perm->getDefaultGroup( UserGroup::GroupTypeDefaultUserGroup ));
                 $this->entity_manager->persist($user);
                 break;
             case 'invalidate':
                 if (!$user->getValidated())
                     return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
                 $user->setValidated(false);
+                $perm->disassociate($user, $perm->getDefaultGroup( UserGroup::GroupTypeDefaultUserGroup ));
                 $uf->announceValidationToken( $uf->ensureValidation( $user, UserPendingValidation::EMailValidation ) );
                 $this->entity_manager->persist($user);
                 break;
@@ -225,20 +230,37 @@ class AdminUserController extends AdminActionController
                 switch ($param) {
                     case 'NONE':
                         $user->setRightsElevation( User::ROLE_USER );
+                        $perm->disassociate( $user, $perm->getDefaultGroup( UserGroup::GroupTypeDefaultElevatedGroup ) );
+                        $perm->disassociate( $user, $perm->getDefaultGroup( UserGroup::GroupTypeDefaultModeratorGroup ) );
+                        $perm->disassociate( $user, $perm->getDefaultGroup( UserGroup::GroupTypeDefaultAdminGroup ) );
                         break;
                     case 'ROLE_ORACLE':
                         if ( $user->getRightsElevation() === User::ROLE_CROW )
                             $user->setRightsElevation( User::ROLE_ORACLE );
                         else $user->setRightsElevation( max($user->getRightsElevation(), User::ROLE_ORACLE) );
+
+                        $perm->associate( $user, $perm->getDefaultGroup( UserGroup::GroupTypeDefaultElevatedGroup ) );
+                        $perm->disassociate( $user, $perm->getDefaultGroup( UserGroup::GroupTypeDefaultModeratorGroup ) );
+                        $perm->disassociate( $user, $perm->getDefaultGroup( UserGroup::GroupTypeDefaultAdminGroup ) );
+
                         break;
                     case 'ROLE_CROW':
                         $user->setRightsElevation( max($user->getRightsElevation(), User::ROLE_CROW) );
+                        $perm->associate( $user, $perm->getDefaultGroup( UserGroup::GroupTypeDefaultElevatedGroup ) );
+                        $perm->associate( $user, $perm->getDefaultGroup( UserGroup::GroupTypeDefaultModeratorGroup ) );
+                        $perm->disassociate( $user, $perm->getDefaultGroup( UserGroup::GroupTypeDefaultAdminGroup ) );
                         break;
                     case 'ROLE_ADMIN':
                         $user->setRightsElevation( max($user->getRightsElevation(), User::ROLE_ADMIN) );
+                        $perm->associate( $user, $perm->getDefaultGroup( UserGroup::GroupTypeDefaultElevatedGroup ) );
+                        $perm->associate( $user, $perm->getDefaultGroup( UserGroup::GroupTypeDefaultModeratorGroup ) );
+                        $perm->associate( $user, $perm->getDefaultGroup( UserGroup::GroupTypeDefaultAdminGroup ) );
                         break;
                     case 'ROLE_SUPER':
                         $user->setRightsElevation( max($user->getRightsElevation(), User::ROLE_SUPER) );
+                        $perm->associate( $user, $perm->getDefaultGroup( UserGroup::GroupTypeDefaultElevatedGroup ) );
+                        $perm->associate( $user, $perm->getDefaultGroup( UserGroup::GroupTypeDefaultModeratorGroup ) );
+                        $perm->associate( $user, $perm->getDefaultGroup( UserGroup::GroupTypeDefaultAdminGroup ) );
                         break;
                     default: breaK;
                 }
@@ -352,8 +374,23 @@ class AdminUserController extends AdminActionController
     {
         if (!$parser->has_all(['name'], true))
             return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
-        $searchName = $parser->get('name');
-        $users = $em->getRepository(User::class)->findByNameContains($searchName);
+
+        $parts = explode(':', $parser->get('name'), 2);
+        list($query,$searchName) = count($parts) === 2 ? $parts : ['u', $parts[0]];
+
+        switch ($query) {
+            case 'i': $users = $em->getRepository(User::class)->findBy(['id' => (int)$searchName]); break; // ID
+            case 'u': $users = $em->getRepository(User::class)->findByNameContains($searchName); break; // Username
+            case 'e': $users = $this->isGranted('ROLE_ADMIN') ? $em->getRepository(User::class)->findByMailContains($searchName) : []; break; // Mail
+            case 'ue':case 'eu': $users = $this->isGranted('ROLE_ADMIN') ? $em->getRepository(User::class)->findByNameOrMailContains($searchName) : []; break; // Username & Mail
+            case 't':  $users = $em->getRepository(User::class)->findBy(['twinoidID' => (int)$searchName]); break; // Twinoid ID
+            case 'b':  $users = $em->getRepository(User::class)->findByBanned(); break; // Banned
+            case 'ro':  $users = $em->getRepository(User::class)->findBy(['rightsElevation' => [User::ROLE_ORACLE]]); break; // Is Oracle
+            case 'rc':  $users = $em->getRepository(User::class)->findBy(['rightsElevation' => [User::ROLE_CROW]]);   break; // Is Crow
+            case 'ra':  $users = $em->getRepository(User::class)->findBy(['rightsElevation' => [User::ROLE_ADMIN, User::ROLE_SUPER]]);  break; // Is Admin
+            case 'rb':  $users = $em->getRepository(User::class)->findBy(['rightsElevation' => [User::ROLE_SUPER]]);  break; // Is Brainbox
+            default: $users = [];
+        }
 
         return $this->render( 'ajax/admin/users/list.html.twig', $this->addDefaultTwigArgs("admin_users_citizen", [
             'users' => $users,

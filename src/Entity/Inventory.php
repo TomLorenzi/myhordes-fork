@@ -36,12 +36,12 @@ class Inventory
     private $home;
 
     /**
-     * @ORM\OneToOne(targetEntity="App\Entity\Town", mappedBy="bank", cascade={"persist", "remove"})
+     * @ORM\OneToOne(targetEntity="App\Entity\Town", mappedBy="bank", cascade={"persist"})
      */
     private $town;
 
     /**
-     * @ORM\OneToOne(targetEntity="App\Entity\Zone", mappedBy="floor", cascade={"persist", "remove"})
+     * @ORM\OneToOne(targetEntity="App\Entity\Zone", mappedBy="floor", cascade={"persist"})
      */
     private $zone;
 
