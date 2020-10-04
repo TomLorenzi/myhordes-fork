@@ -836,5 +836,50 @@
         <target>Désactivé</target>
       </segment>
     </unit>
+    <unit id="TxDkI9W" name="Die Nachtwache ist verfügbar, wenn das Gebäude &quot;Brustwehr&quot; errichtet wurde.">
+      <notes>
+        <note category="german">Die Nachtwache ist verfügbar, wenn das Gebäude "Brustwehr" errichtet wurde.</note>
+      </notes>
+      <segment>
+        <source>Die Nachtwache ist verfügbar, wenn das Gebäude "Brustwehr" errichtet wurde.</source>
+        <target>La veille de nuit est disponible lorsque le bâtiment Chemin de Ronde a été érigé.</target>
+      </segment>
+    </unit>
+    <unit id="I6A5smr" name="Die Nachtwache ist von Anfang an verfügbar.">
+      <notes>
+        <note category="german">Die Nachtwache ist von Anfang an verfügbar.</note>
+      </notes>
+      <segment>
+        <source>Die Nachtwache ist von Anfang an verfügbar.</source>
+        <target>La veille de nuit est disponible dès le départ.</target>
+      </segment>
+    </unit>
+    <unit id="AvGVwK2" name="Sofort">
+      <notes>
+        <note category="german">Sofort</note>
+      </notes>
+      <segment>
+        <source>Sofort</source>
+        <target>Immédiatement</target>
+      </segment>
+    </unit>
+    <unit id="s4VKN2Z" name="Die Nachtwache ist deaktiviert.">
+      <notes>
+        <note category="german">Die Nachtwache ist deaktiviert.</note>
+      </notes>
+      <segment>
+        <source>Die Nachtwache ist deaktiviert.</source>
+        <target>La veille de nuit est désactivée.</target>
+      </segment>
+    </unit>
+    <unit id="Vwi2p0a" name="Verfügbare Berufe">
+      <notes>
+        <note category="german">Verfügbare Berufe</note>
+      </notes>
+      <segment>
+        <source>Verfügbare Berufe</source>
+        <target>Métiers disponibles</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

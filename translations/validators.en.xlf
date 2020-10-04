@@ -856,15 +856,6 @@
         <target>Each element of this collection should satisfy its own set of constraints.</target>
       </segment>
     </unit>
-    <unit id="lrbaa8g" name="This value is not a valid International Securities Identification Number (ISIN).">
-      <notes>
-        <note category="german">Dieser Wert ist keine gültige Internationale Wertpapierkennnummer (ISIN).</note>
-      </notes>
-      <segment>
-        <source>This value is not a valid International Securities Identification Number (ISIN).</source>
-        <target>This value is not a valid International Securities Identification Number (ISIN).</target>
-      </segment>
-    </unit>
     <unit id=".SEaaBa" name="This form should not contain extra fields.">
       <notes>
         <note category="german">Dieses Formular sollte keine zusätzlichen Felder enthalten.</note>
@@ -1115,6 +1106,15 @@
       <segment>
         <source>Please provide a valid phone number.</source>
         <target>Please provide a valid phone number.</target>
+      </segment>
+    </unit>
+    <unit id="lrbaa8g" name="This value is not a valid International Securities Identification Number (ISIN).">
+      <notes>
+        <note category="german">This value is not a valid International Securities Identification Number (ISIN).</note>
+      </notes>
+      <segment>
+        <source>This value is not a valid International Securities Identification Number (ISIN).</source>
+        <target>This value is not a valid International Securities Identification Number (ISIN).</target>
       </segment>
     </unit>
   </file>

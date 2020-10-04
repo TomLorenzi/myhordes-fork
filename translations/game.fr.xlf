@@ -11700,5 +11700,41 @@
         <target><![CDATA[Lorsque vous êtes terrorisé et que vous n'avez pas le contrôle de la zone, vous ne pouvez rien faire... Vous devez trouver une drogue ou quelque chose pour <strong>calmer vos nerfs</strong> et sortir de ce pétrin... Au moins, il est possible d'appeler à l'aide sur le forum...]]></target>
       </segment>
     </unit>
+    <unit id="G7YX22v" name="Deine privaten Nachrichten">
+      <notes>
+        <note category="german">Deine privaten Nachrichten</note>
+      </notes>
+      <segment>
+        <source>Deine privaten Nachrichten</source>
+        <target>Vos messages privés</target>
+      </segment>
+    </unit>
+    <unit id="C9_MTts" name="91fcb31">
+      <notes>
+        <note category="german">In diesem Bereich kannst du dir alle möglichen Verbesserungen deines Hauses ansehen.</note>
+      </notes>
+      <segment>
+        <source>In diesem Bereich kannst du dir alle möglichen Verbesserungen deines Hauses ansehen.</source>
+        <target>Dans cet onglet, vous pouvez voir toutes les améliorations possibles à votre maison.</target>
+      </segment>
+    </unit>
+    <unit id="dQRl.Lz" name="fb2b856">
+      <notes>
+        <note category="german">In diesem Bereich werden alle bereits eingebauten Einrichtungen und Ausbauten deines Hauses angezeigt (Möbel, Verteidigungsvorrichtungen...).</note>
+      </notes>
+      <segment>
+        <source>In diesem Bereich werden alle bereits eingebauten Einrichtungen und Ausbauten deines Hauses angezeigt (Möbel, Verteidigungsvorrichtungen...).</source>
+        <target>Cet onglet présente toutes les installations et aménagements déjà apportés à votre maison (mobilier, défenses ...).</target>
+      </segment>
+    </unit>
+    <unit id="e_umQ0L" name="37b3bf7">
+      <notes>
+        <note category="german">Wenn du in der Wüste von Zombies umzingelst wirst, erstarrst du vor Angst und kannst nichts mehr unternehmen... Du musst Drogen oder etwas anderes finden, um &lt;strong&gt;deine Nerven zu beruhigen&lt;/strong&gt; und aus dieser Hölle auszubrechen... Wenigstens ist es dir immer noch möglich, im Forum nach Hilfe zu suchen...</note>
+      </notes>
+      <segment>
+        <source>Wenn du in der Wüste von Zombies umzingelst wirst, erstarrst du vor Angst und kannst nichts mehr unternehmen... Du musst Drogen oder etwas anderes finden, um &lt;strong&gt;deine Nerven zu beruhigen&lt;/strong&gt; und aus dieser Hölle auszubrechen... Wenigstens ist es dir immer noch möglich, im Forum nach Hilfe zu suchen...</source>
+        <target><![CDATA[Si vous êtes en proie à la terreur, dans le désert et entouré de zombies, vous ne pouvez rien faire... Vous devez trouver une drogue ou autre chose pour <strong>calmer vos nerfs</strong> et sortir de cet enfer... Au moins il est encore possible d'appeler à l'aide sur le forum...]]></target>
+      </segment>
+    </unit>
   </file>
 </xliff>

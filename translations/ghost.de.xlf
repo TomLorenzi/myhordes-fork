@@ -754,5 +754,146 @@
         <target>Beginne ein neues Leben in der Welt der Verdammten une versuche, so lang wie möglich zu überleben. Wer weiß, ws dich in dieser neuen Stadt erwarten wird?</target>
       </segment>
     </unit>
+    <unit id="Knuuneb" name="Karten-Seed">
+      <notes>
+        <note category="german">Map Seed</note>
+      </notes>
+      <segment>
+        <source>Karten-Seed</source>
+        <target>Karten-Seed</target>
+      </segment>
+    </unit>
+    <unit id="_SibAUY" name="5b4e357">
+      <notes>
+        <note category="german">Seed that enables controlled map creation. Allows similar maps to be generated in case of events.
+                                 Enter a positive integer to activate it.
+                                 THINK ABOUT CHANGING THIS WHOLE NUMBER FROM ONE EVENT TO ANOTHER!</note>
+      </notes>
+      <segment>
+        <source>Seed, das eine kontrollierte Kartenerstellung ermöglicht. Erlaubt im Falle von Ereignissen, ähnliche Karten zu generieren.
+                                Gib eine positive ganze Zahl ein, um es zu aktivieren.
+                                DENKT DARÜBER NACH, DIESE GANZE ZAHL VON EINEM EREIGNIS ZUM ANDEREN ZU ÄNDERN !</source>
+        <target>Seed, das eine kontrollierte Kartenerstellung ermöglicht. Erlaubt im Falle von Ereignissen, ähnliche Karten zu generieren.
+                                Gib eine positive ganze Zahl ein, um es zu aktivieren.
+                                DENKT DARÜBER NACH, DIESE GANZE ZAHL VON EINEM EREIGNIS ZUM ANDEREN ZU ÄNDERN !</target>
+      </segment>
+    </unit>
+    <unit id="EYBH.W." name="Der Schamane wird gewählt und die Seelen werden gequält.">
+      <notes>
+        <note category="german">The shaman is a Role and the souls are tormented.</note>
+      </notes>
+      <segment>
+        <source>Der Schamane wird gewählt und die Seelen werden gequält.</source>
+        <target>Der Schamane wird gewählt und die Seelen werden gequält.</target>
+      </segment>
+    </unit>
+    <unit id="YnsFoKy" name="Der Schamane ist ein Beruf, die Seelen werden in der Werkstatt verwandelt.">
+      <notes>
+        <note category="german">The shaman is a Profession, souls are transformed in the workshop.</note>
+      </notes>
+      <segment>
+        <source>Der Schamane ist ein Beruf, die Seelen werden in der Werkstatt verwandelt.</source>
+        <target>Der Schamane ist ein Beruf, die Seelen werden in der Werkstatt verwandelt.</target>
+      </segment>
+    </unit>
+    <unit id="rWF6D91" name="Job">
+      <notes>
+        <note category="german">Job</note>
+      </notes>
+      <segment>
+        <source>Job</source>
+        <target>Job</target>
+      </segment>
+    </unit>
+    <unit id="_kZYbUN" name="Der Schamane und die Seelen werden deaktiviert.">
+      <notes>
+        <note category="german">The shaman and the souls are deactivated.</note>
+      </notes>
+      <segment>
+        <source>Der Schamane und die Seelen werden deaktiviert.</source>
+        <target>Der Schamane und die Seelen werden deaktiviert.</target>
+      </segment>
+    </unit>
+    <unit id="ifwhezW" name="Deaktiviert">
+      <notes>
+        <note category="german">Deactivated</note>
+      </notes>
+      <segment>
+        <source>Deaktiviert</source>
+        <target>Deaktiviert</target>
+      </segment>
+    </unit>
+    <unit id="TxDkI9W" name="Die Nachtwache ist verfügbar, wenn das Gebäude &quot;Brustwehr&quot; errichtet wurde.">
+      <notes>
+        <note category="german">The night watch is available when the "Battlements" building has been constructed.</note>
+      </notes>
+      <segment>
+        <source>Die Nachtwache ist verfügbar, wenn das Gebäude "Brustwehr" errichtet wurde.</source>
+        <target>Die Nachtwache ist verfügbar, wenn das Gebäude "Brustwehr" errichtet wurde.</target>
+      </segment>
+    </unit>
+    <unit id="I6A5smr" name="Die Nachtwache ist von Anfang an verfügbar.">
+      <notes>
+        <note category="german">The night watch is available from the start.</note>
+      </notes>
+      <segment>
+        <source>Die Nachtwache ist von Anfang an verfügbar.</source>
+        <target>Die Nachtwache ist von Anfang an verfügbar.</target>
+      </segment>
+    </unit>
+    <unit id="AvGVwK2" name="Sofort">
+      <notes>
+        <note category="german">Immediately</note>
+      </notes>
+      <segment>
+        <source>Sofort</source>
+        <target>Sofort</target>
+      </segment>
+    </unit>
+    <unit id="s4VKN2Z" name="Die Nachtwache ist deaktiviert.">
+      <notes>
+        <note category="german">The night watch is deactivated.</note>
+      </notes>
+      <segment>
+        <source>Die Nachtwache ist deaktiviert.</source>
+        <target>Die Nachtwache ist deaktiviert.</target>
+      </segment>
+    </unit>
+    <unit id="YY0WZyp" name="Verkörperung in der Stadt:">
+      <notes>
+        <note category="german">Incarnate in the Town:</note>
+      </notes>
+      <segment>
+        <source>Verkörperung in der Stadt:</source>
+        <target>Verkörperung in der Stadt:</target>
+      </segment>
+    </unit>
+    <unit id="4iMXGoK" name="Verkörpert dich in der Stadt bei ihrer Entstehung">
+      <notes>
+        <note category="german">Incarnate you in the Town when it comes into being</note>
+      </notes>
+      <segment>
+        <source>Verkörpert dich in der Stadt bei ihrer Entstehung</source>
+        <target>Verkörpert dich in der Stadt bei ihrer Entstehung</target>
+      </segment>
+    </unit>
+    <unit id="Vwi2p0a" name="Verfügbare Berufe">
+      <notes>
+        <note category="german">Available Professions</note>
+      </notes>
+      <segment>
+        <source>Verfügbare Berufe</source>
+        <target>Verfügbare Berufe</target>
+      </segment>
+    </unit>
+    <unit id="UgJmKP7" name="Bitte gib das Stadtpasswort ein :">
+      <notes>
+        <note category="german">Please enter the Town password:</note>
+      </notes>
+      <segment>
+        <source>Bitte gib das Stadtpasswort ein :</source>
+        <target>Bitte gib das Stadtpasswort ein :</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
