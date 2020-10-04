@@ -112,8 +112,10 @@ class PermissionHandler
                 ->setParameter('user', $user)->setParameter('groups', $groups)
                 ->getQuery()->getResult() as $entry) {
 
-                if ($ng_mask & ~$entry['pd']) $denied_forums[] = $entry['fid'];
+                if ($ng_mask & $entry['pd']) $denied_forums[] = $entry['fid'];
             }
+
+            if (empty($denied_forums)) return $this->entity_manager->getRepository(Forum::class)->findAll();
 
             /** @var QueryBuilder $qb */
             $qb = $this->entity_manager->getRepository(Forum::class)->createQueryBuilder('f');
