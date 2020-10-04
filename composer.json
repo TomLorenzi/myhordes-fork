@@ -2,7 +2,7 @@
     "type": "project",
     "license": "proprietary",
     "require": {
-        "php": "^7.2.5",
+        "php": "^7.4",
         "ext-ctype": "*",
         "ext-dom": "*",
         "ext-iconv": "*",
@@ -42,8 +42,8 @@
         "symfony/webpack-encore-bundle": "^1.7",
         "symfony/yaml": "5.1.*",
         "twig/intl-extra": "^3.0",
-      "ext-simplexml": "*",
-      "ext-libxml": "*"
+        "ext-simplexml": "*",
+        "ext-libxml": "*"
     },
     "require-dev": {
         "symfony/debug-pack": "*",

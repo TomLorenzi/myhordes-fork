@@ -30,6 +30,12 @@ class Gazette
     private $town;
 
     /**
+     * @ORM\OneToMany(targetEntity="App\Entity\GazetteLogEntry", mappedBy="gazette", cascade={"persist","remove"})
+     */
+    private $_log_entries;
+
+
+    /**
      * @ORM\Column(type="integer")
      */
     private $day = 1;

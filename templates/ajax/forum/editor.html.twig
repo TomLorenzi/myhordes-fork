@@ -255,20 +255,24 @@
                 form.append(formType, label1, input1, label2, input2);
 
                 const processModal = function(e,elem) {
-                    let submitted = document.getElementById('modal-form');
                     let tagText, tagUrl;
 
-                    let doc = new DOMParser().parseFromString(input1.value, 'text/html');
+                    let doc = new DOMParser().parseFromString(input1.value ? input1.value : input2.value, 'text/html');
                     tagText = doc.body.textContent || "";
-                    tagUrl = encodeURI(input2.value.replace('http:', '').replace('https:', ''));
 
-                    if (tagUrl.substr(0,2) !== '//') {
+                    tagUrl = decodeURI(input2.value ? input2.value : input1.value);
+                    if (!/[a-zA-Z]+:\/\//.test(tagUrl)) tagUrl = 'https://' + tagUrl;
+
+                    const components = /([a-zA-Z]+:\/\/)([^/?#\[\]@:$&'()*+,;=\t\r\n]{2,256})\.([^/?#\[\]@:$&'()*+,;=\t\r\n]{2,})([/?#\[\]@:$&'()*+,;=])?(.*)/g.exec(tagUrl);
+                    if (!components) {
                         // Apparently not an Url.
                         // TODO: Add error message to Url field.
                         input1.classList.add('error');
                         input2.classList.add('error');
                     }
                     else {
+                        tagUrl = components[1] + $.vendor.punycode.toASCII(components[2] + '.' + components[3]) + ( components[4] ? encodeURI(components[4] + components[5]) : '' );
+
                         $.html.triggerPopupPop(elem);
                         input1.classList.remove('error');
                         input2.classList.remove('error');
@@ -285,10 +289,20 @@
                     }
                 }
 
+                input1.addEventListener('keypress', function(e) {
+                    if (e.key === "Enter") processModal(e,input1);
+                });
+                input2.addEventListener('keypress', function(e) {
+                    if (e.key === "Enter") processModal(e,input2);
+                });
+
                 $.html.popup(title, form, 'tag'+tag, [
                     [ '{{ 'Einfügen'|trans({},'global')|e('js') }}',  [ ['click', processModal] ] ],
                     [ '{{ 'Abbrechen'|trans({},'global')|e('js') }}', [ ['click', (e,elem) => $.html.triggerPopupPop(elem)] ] ]
                 ] );
+
+                if (!input1.value) input1.focus();
+                else input2.focus();
             } );
             $.html.addEventListenerAll( '[x-forum-action="edit"][x-text-wrap-node]', 'click', function (e,elem) {
                 e.preventDefault();

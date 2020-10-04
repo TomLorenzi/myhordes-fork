@@ -70,6 +70,37 @@ class UserRepository extends ServiceEntityRepository implements UserLoaderInterf
             ->getQuery()->getResult();
     }
 
+    /**
+     * @return User[] Returns an array of User objects
+     */
+    public function findByMailContains(string $value)
+    {
+        return $this->createQueryBuilder('u')
+            ->andWhere('u.email LIKE :val')->setParameter('val', '%' . $value . '%')
+            ->getQuery()->getResult();
+    }
+
+    /**
+     * @return User[] Returns an array of User objects
+     */
+    public function findByNameOrMailContains(string $value)
+    {
+        return $this->createQueryBuilder('u')
+            ->andWhere('u.name LIKE :val')
+            ->orWhere('u.email LIKE :val')->setParameter('val', '%' . $value . '%')
+            ->getQuery()->getResult();
+    }
+
+    /**
+     * @return User[] Returns an array of User objects
+     */
+    public function findByBanned()
+    {
+        return $this->createQueryBuilder('u')
+            ->andWhere('u.shadowBan IS NOT NULL')
+            ->getQuery()->getResult();
+    }
+
     public function findOneByMail(string $value): ?User
     {
         try {

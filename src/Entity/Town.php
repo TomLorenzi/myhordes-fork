@@ -133,7 +133,8 @@ class Town
     private $citizenWatches;
 
     /**
-     * @ORM\OneToOne(targetEntity=TownRankingProxy::class, inversedBy="town", cascade={"persist"})
+     * @ORM\OneToOne(targetEntity=TownRankingProxy::class, mappedBy="town", cascade={"persist"})
+     * @ORM\JoinColumn(nullable=true, onDelete="SET NULL")
      */
     private $rankingEntry;
 
@@ -161,6 +162,11 @@ class Town
      * @ORM\ManyToOne(targetEntity=User::class)
      */
     private $creator;
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\TownLogEntry", mappedBy="town", cascade={"remove"})
+     */
+    private $_townLogEntries;
 
     public function __construct()
     {
@@ -612,9 +618,20 @@ class Town
      * @param LifecycleEventArgs $args
      * @throws ORMException
      */
-    public function lifeCycle_createTownRankingProxy(LifecycleEventArgs $args) {
+    public function lifeCycle_postPersist(LifecycleEventArgs $args) {
         $args->getEntityManager()->persist( TownRankingProxy::fromTown( $this ) );
+        $args->getEntityManager()->persist( (new UserGroup())->setName("[town:{$this->getId()}]")->setType(UserGroup::GroupTownInhabitants)->setRef1($this->getId()) );
         $args->getEntityManager()->flush();
+    }
+
+    /**
+     * @ORM\PreRemove()
+     * @param LifecycleEventArgs $args
+     * @throws ORMException
+     */
+    public function lifeCycle_preRemove(LifecycleEventArgs $args) {
+        $g = $args->getEntityManager()->getRepository(UserGroup::class)->findOneBy( ['type' => UserGroup::GroupTownInhabitants, 'ref1' => $this->getId()] );
+        if ($g) $args->getEntityManager()->remove($g);
     }
 
     public function getLastAttack(): ?AttackSchedule

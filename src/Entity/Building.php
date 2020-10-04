@@ -81,7 +81,7 @@ class Building
     private $defense = 0;
 
     /**
-     * @ORM\OneToMany(targetEntity=BuildingVote::class, mappedBy="building")
+     * @ORM\OneToMany(targetEntity=BuildingVote::class, mappedBy="building", orphanRemoval=true, cascade={"persist", "remove"})
      */
     private $buildingVotes;
 

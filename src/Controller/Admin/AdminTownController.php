@@ -7,9 +7,11 @@ use App\Entity\Town;
 use App\Entity\Zone;
 use App\Response\AjaxResponse;
 use App\Service\ErrorHelper;
+use App\Service\GameFactory;
 use App\Service\JSONRequestParser;
 use App\Service\NightlyHandler;
 use App\Service\UserFactory;
+use Exception;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -64,17 +66,16 @@ class AdminTownController extends AdminActionController
      * @Route("api/admin/town/{id}/do/{action}", name="admin_town_manage", requirements={"id"="\d+"})
      * @param int $id
      * @param string $action
-     * @param JSONRequestParser $parser
-     * @param UserFactory $uf
+     * @param NightlyHandler $night
      * @return Response
      */
-    public function town_manager(int $id, string $action, NightlyHandler $night): Response
+    public function town_manager(int $id, string $action, NightlyHandler $night, GameFactory $gameFactory): Response
     {
         /** @var Town $town */
         $town = $this->entity_manager->getRepository(Town::class)->find($id);
         if (!$town) return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
 
-        if (in_array($action, [ 'release', 'quarantine', 'advance' ]) && !$this->isGranted('ROLE_ADMIN'))
+        if (in_array($action, [ 'release', 'quarantine', 'advance', 'nullify' ]) && !$this->isGranted('ROLE_ADMIN'))
             return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
 
         switch ($action) {
@@ -93,14 +94,17 @@ class AdminTownController extends AdminActionController
                     $this->entity_manager->persist( $town );
                 }
                 break;
+            case 'nullify':
+                $gameFactory->nullifyTown($town, true);
+                break;
 
             default: return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
         }
 
         try {
             $this->entity_manager->flush();
-        } catch (\Exception $e) {
-            return AjaxResponse::error( ErrorHelper::ErrorDatabaseException );
+        } catch (Exception $e) {
+            return AjaxResponse::error( ErrorHelper::ErrorDatabaseException, ['message' => $e->getMessage()] );
         }
 
         return AjaxResponse::success();

@@ -1,0 +1,29 @@
+{% extends "ajax/help/shell.html.twig" %}
+{% block helpContent %}
+<div class="helpArt">{{ 'Spielanleitung'|trans({},'help')|raw }}</div>
+<h1>{{ 'Verlorene Seelen'|trans({},'help')|raw }}</h1>
+<p>
+{{ '<strong>Die Seelen %img_blue_soul% verschiedener Mitbürger wandern rastlos in den öden Weiten der Außenwelt umher.</strong>
+Jedesmal, wenn ein Bürger stirbt (gleichgültig woran und wo), erscheint eine blaue Seele in der Außenwelt. Jeder Bürger kann eine Seele einsammeln und sie in die Stadt bringen. Beachtet, dass eine Seele als "sperriger Gegenstand" gilt.'|trans({'%img_blue_soul%': '<img alt="" src="' ~ asset('build/images/item/item_soul_blue.gif') ~ '" />'},'help')|raw }}
+<img class="art" alt="" src="{{ asset('build/images/help/screen_soul.png') }}">
+</p>
+<p>
+{{ 'Es liegt dann an der Stadt, sich zu organisieren, um diese verlorenen Seelen zu bergen. In der Tat haben diese Seelen eine große Chance, sich in gequälte Seelen %img_red_soul% zu verwandeln, wenn sie verlassen werden! Und dort wird es Zeit in Panik zu geraten, diese gequälten Seelen entwickeln die Zombie-Proliferation!'|trans({'%img_red_soul%': '<img alt="" src="' ~ asset('build/images/item/item_soul_red.gif') ~ '" />'},'help')|raw }}
+</p>
+<p>
+<strong>
+{{ 'Beachten Sie, dass der Schamane auf der gesamten Karte eine Vision von Seelen haben kann, aber er wird nicht in der Lage sein, gefolterte Seelen von anderen zu unterscheiden.'|trans({},'help')|raw }}
+</strong>
+</p>
+<p>
+{{ 'Das Wiederherstellen von Seelen erfordert eine kleine Vorbereitung! In der Tat fordern gefolterte Seelen einen guten Schutz vor ihrer Gewalt, da jeder Bürger eine wandernde Seele transportieren kann.'|trans({},'help')|raw }}
+</p>
+<p>
+{{ 'Der Schamane ist unempfindlich gegenüber ihm und kann diese Seelen daher ohne Risiko (aber nicht ohne Angst) manipulieren. Der Bürger muss seinen Schamanen bitten, einen Immunisierungstrank zuzubereiten. Aber Vorsicht, das Vertrauen in die Kräfte Ihres Schamanen sollte nicht unendlich sein...'|trans({},'help')|raw }}
+</p>
+<p>
+{{ 'Wenn Sie einmal in der Stadt sind, können Sie diese Seele reinigen und in Frieden ruhen lassen, weit weg von Ihrer Stadt und ihren bösen Geistern. <strong>Seien Sie vorsichtig, ungereinigte Seelen werden um Mitternacht weiterhin Unglück bringen, selbst wenn sie in der Stadt bleiben!</strong>'|trans({},'help')|raw }}
+</p>
+<div class="clear"></div>
+<a class="button" x-ajax-href="{{ url('help', {'name': 'about_you'}) }}"><img src="{{ asset('build/images/icons/small_move.gif') }}" alt="move"> {{'Weiter'|trans({}, 'help')}}:<strong> {{ 'Du'|trans({},'help') }}</strong></a>
+{% endblock %}

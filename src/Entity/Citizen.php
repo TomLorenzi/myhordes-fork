@@ -100,7 +100,7 @@ class Citizen
 
     /**
      * @ORM\OneToOne(targetEntity="App\Entity\DailyUpgradeVote", mappedBy="citizen", cascade={"persist", "remove"})
-     * @ORM\JoinColumn(nullable=true)
+     * @ORM\JoinColumn(nullable=true, onDelete="SET NULL")
      */
     private $dailyUpgradeVote;
 
@@ -177,6 +177,7 @@ class Citizen
 
     /**
      * @ORM\OneToOne(targetEntity="App\Entity\CitizenEscortSettings", inversedBy="citizen", cascade={"persist", "remove"}, orphanRemoval=true)
+     * @ORM\JoinColumn(nullable=true, onDelete="SET NULL")
      */
     private $escortSettings;
 
@@ -229,7 +230,8 @@ class Citizen
     private $privateMessageThreads;
 
     /**
-     * @ORM\OneToOne(targetEntity=CitizenRankingProxy::class, inversedBy="citizen", cascade={"persist"})
+     * @ORM\OneToOne(targetEntity=CitizenRankingProxy::class, mappedBy="citizen", cascade={"persist"})
+     * @ORM\JoinColumn(nullable=true, onDelete="SET NULL")
      */
     private $rankingEntry;
 
@@ -240,7 +242,7 @@ class Citizen
 
     /**
      * @ORM\OneToOne(targetEntity=BuildingVote::class, mappedBy="citizen", cascade={"persist", "remove"})
-     * @ORM\JoinColumn(nullable=true)
+     * @ORM\JoinColumn(nullable=true, onDelete="SET NULL")
      */
     private $buildingVote;
 

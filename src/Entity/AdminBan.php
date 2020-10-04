@@ -33,7 +33,7 @@ class AdminBan
 
     /**
      * @ORM\OneToOne(targetEntity="App\Entity\Post")
-     * @ORM\JoinColumn(nullable=true)
+     * @ORM\JoinColumn(nullable=true, onDelete="SET NULL")
      */
     private $post;
 

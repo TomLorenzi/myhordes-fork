@@ -1048,7 +1048,10 @@ class SoulController extends AbstractController
 
         $limit = (bool)$parser->get('limit10', true);
 
-        return $this->render( 'ajax/soul/town_list.html.twig', ['towns' => $this->entity_manager->getRepository(CitizenRankingProxy::class)->findPastByUserAndSeason($user, $season, $limit)]);
+        return $this->render( 'ajax/soul/town_list.html.twig', [
+            'towns' => $this->entity_manager->getRepository(CitizenRankingProxy::class)->findPastByUserAndSeason($user, $season, $limit),
+            'editable' => $user->getId() === $this->getUser()->getId()
+        ]);
     }
 
     /**

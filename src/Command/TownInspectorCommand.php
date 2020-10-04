@@ -82,6 +82,8 @@ class TownInspectorCommand extends Command
 
             ->addOption('citizen', 'c', InputOption::VALUE_REQUIRED, 'When used together with --reset-well-lock, only the lock of the given citizen is released.', -1)
 
+            ->addOption('nullify', null, InputOption::VALUE_NONE, 'Nullifies the town')
+
             ->addOption('no-info', '0', InputOption::VALUE_NONE, 'Disables the town summary.')
             ;
     }
@@ -159,6 +161,8 @@ class TownInspectorCommand extends Command
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
+        $no_info = $input->getOption('no-info');
+
         /** @var Town $town */
         $town = $this->helper->resolve_string($input->getArgument('TownID'), Town::class, 'Town', $this->getHelper('question'), $input, $output);
         if (!$town) {
@@ -309,6 +313,13 @@ class TownInspectorCommand extends Command
             $changes = $n > 0;
         }
 
+        if ($input->getOption('nullify')) {
+            $output->write("<comment>Nullifying town</comment>... ");
+            $this->gameFactory->nullifyTown($town);
+            $output->writeln("<info>OK!</info>");
+            $no_info = $changes = true;
+        }
+
         if ($changes) {
             $output->write("<comment>Updating database</comment>... ");
             $this->entityManager->flush();
@@ -321,6 +332,6 @@ class TownInspectorCommand extends Command
         if ($rg_x !== null && count($rg_x) === 1) $rg_x[1] = $rg_x[0];
         if ($rg_y !== null && count($rg_y) === 1) $rg_y[1] = $rg_y[0];
 
-        return ($input->getOption('no-info')) ? 0 : $this->info($town, $output, $input->getOption('show-zones'), $rg_x, $rg_y);
+        return $no_info ? 0 : $this->info($town, $output, $input->getOption('show-zones'), $rg_x, $rg_y);
     }
 }

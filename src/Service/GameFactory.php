@@ -10,15 +10,20 @@ use App\Entity\CitizenHome;
 use App\Entity\CitizenHomePrototype;
 use App\Entity\CitizenProfession;
 use App\Entity\Forum;
+use App\Entity\GazetteLogEntry;
 use App\Entity\HeroicActionPrototype;
 use App\Entity\Inventory;
+use App\Entity\Picto;
 use App\Entity\Post;
 use App\Entity\RuinZone;
 use App\Entity\Thread;
+use App\Entity\ThreadReadMarker;
 use App\Entity\Town;
 use App\Entity\TownClass;
+use App\Entity\TownLogEntry;
 use App\Entity\TownRankingProxy;
 use App\Entity\User;
+use App\Entity\UserGroup;
 use App\Entity\Zone;
 use App\Entity\ZonePrototype;
 use App\Entity\ZoneTag;
@@ -43,6 +48,7 @@ class GameFactory
     private $translator;
     private $maze_maker;
     private $crow;
+    private $perm;
 
     const ErrorNone = 0;
     const ErrorTownClosed          = ErrorHelper::BaseTownSelectionErrors + 1;
@@ -53,7 +59,7 @@ class GameFactory
     public function __construct(ConfMaster $conf,
         EntityManagerInterface $em, GameValidator $v, Locksmith $l, ItemFactory $if, TownHandler $th,
         StatusFactory $sf, RandomGenerator $rg, InventoryHandler $ih, CitizenHandler $ch, ZoneHandler $zh, LogTemplateHandler $lh,
-        TranslatorInterface $translator, MazeMaker $mm, CrowService $crow)
+        TranslatorInterface $translator, MazeMaker $mm, CrowService $crow, PermissionHandler $perm)
     {
         $this->entity_manager = $em;
         $this->validator = $v;
@@ -70,6 +76,7 @@ class GameFactory
         $this->translator = $translator;
         $this->maze_maker = $mm;
         $this->crow = $crow;
+        $this->perm = $perm;
     }
 
     private static $town_name_snippets = [
@@ -419,6 +426,26 @@ class GameFactory
             /** @var $heroic_action HeroicActionPrototype */
             $citizen->addHeroicAction( $heroic_action );
 
+        $town_group = $this->entity_manager->getRepository(UserGroup::class)->findOneBy( ['type' => UserGroup::GroupTownInhabitants, 'ref1' => $town->getId()] );
+        if ($town_group) $this->perm->associate( $user, $town_group );
+
         return $citizen;
+    }
+
+    public function compactTown(Town $town): bool {
+
+        foreach ($town->getCitizens() as $citizen) if ($citizen->getAlive()) return false;
+        if ($town->isOpen() && !$town->getCitizens()->isEmpty()) return false;
+
+        $this->entity_manager->remove($town);
+        return true;
+    }
+
+    public function nullifyTown(Town $town, bool $force = false): bool {
+        if ($town->isOpen() && !$force) return false;
+
+        if ($town->getRankingEntry()) $this->entity_manager->remove($town->getRankingEntry());
+        $this->entity_manager->remove($town);
+        return true;
     }
 }
