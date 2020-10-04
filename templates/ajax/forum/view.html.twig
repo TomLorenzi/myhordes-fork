@@ -93,6 +93,14 @@
                         </div>
                     </div>
                     <br />
+                    {% if forum.description is not empty %}
+                        <div class="forum-control">
+                            <div class="quote">
+                                <i class="fa fa-quote-left"></i><span>{{ forum.description }}</span><i class="fa fa-quote-right"></i>
+                            </div>
+                        </div>
+                        <br />
+                    {% endif %}
                     {% if pinned_threads %}
                         {{ _self.display_thread_list(pinned_threads, forum.id, 'fa-thumbtack', 'Sticky'|trans({}, 'global'), select, jump) }}
                         <br />

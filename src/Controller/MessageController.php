@@ -208,6 +208,7 @@ class MessageController extends AbstractController
     public function forums(PermissionHandler $perm): Response
     {
         return $this->render( 'ajax/forum/list.html.twig', $this->addDefaultTwigArgs([
+            'user' => $this->getUser(),
             'forums' => $perm->getForumsWithPermission($this->getUser(), ForumUsagePermissions::PermissionRead),
         ] ));
     }
