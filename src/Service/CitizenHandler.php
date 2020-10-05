@@ -491,8 +491,8 @@ class CitizenHandler
             9 => -9,
             10 => -9,
             11 => -9,
-            12 => -6,
-            13 => -7,
+            12 => -8,
+            13 => -7.6,
             14 => -7,
             15 => -6,
         ];
@@ -507,7 +507,7 @@ class CitizenHandler
         // Ruin in zone.
         $camping_values['ruin'] = $zone->getPrototype() ? $zone->getPrototype()->getCampingLevel() : 0;
 
-        // Zombies in zone. Factor -1.4, for CamperPro it is -0.6.
+        // Zombies in zone. Factor -1.4, for CamperPro it is -0.6. (completely false! The penalty is reduced only when you are Scout with the hood enabled)
         $factor = $has_pro_camper ? -0.6 : -1.4;
         $camping_values['zombies'] = $factor * $zone->getZombies();
 
@@ -617,7 +617,7 @@ class CitizenHandler
         // Grab
         $camping_values['tomb'] = 0;
         if ($citizen->getStatus()->contains( $this->entity_manager->getRepository(CitizenStatus::class)->findOneByName( 'tg_tomb' ) )) {
-            $camping_values['tomb'] = 1.9;
+            $camping_values['tomb'] = 1.6;
         }
 
         // Night time bonus.
@@ -631,7 +631,7 @@ class CitizenHandler
         // Leuchtturm
         $camping_values['lighthouse'] = 0;
         if ($town->getBuildings()->contains( $this->entity_manager->getRepository(BuildingPrototype::class)->findOneByName( 'small_lighthouse_#00' )) ) {
-            $camping_values['lighthouse'] = 25;
+            $camping_values['lighthouse'] = 25; //camping improvement or percent ? Because it's 5 camping improvement normally
         }
 
         // Devastated town.
