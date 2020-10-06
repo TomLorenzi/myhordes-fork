@@ -7228,5 +7228,32 @@
         <target><![CDATA[<t-fail><t-no-room>Du hast nicht genug Platz für diese Gegenstände...</t-no-room><t-door-closed>Das Stadttor ist geschlossen...</t-door-closed><t-too-heavy>{item} kann keine schweren Gegenstände tragen...</t-too-heavy></t-fail><nt-fail>Du hast den {item} mit deinen Gegenständen in die Stadt geschickt.</nt-fail>]]></target>
       </segment>
     </unit>
+    <unit id="xWENNfP" name="Gequälte Seele">
+      <notes>
+        <note category="german">Gequälte Seele</note>
+      </notes>
+      <segment>
+        <source>Gequälte Seele</source>
+        <target>Gequälte Seele</target>
+      </segment>
+    </unit>
+    <unit id="US6ub3j" name="0d35708">
+      <notes>
+        <note category="german">Die Seele dieses Bürgers wurde schon zu lange ohne Rücksicht auf Rücksicht verlassen. Heute kommt dieses von Hass erfüllte Wesen, um die schlechten Vibes der Überseewelt zu nähren, ihr solltet euch schnell darum kümmern!</note>
+      </notes>
+      <segment>
+        <source>Die Seele dieses Bürgers wurde schon zu lange ohne Rücksicht auf Rücksicht verlassen. Heute kommt dieses von Hass erfüllte Wesen, um die schlechten Vibes der Überseewelt zu nähren, ihr solltet euch schnell darum kümmern!</source>
+        <target>Die Seele dieses Bürgers wurde schon zu lange ohne Rücksicht auf Rücksicht verlassen. Heute kommt dieses von Hass erfüllte Wesen, um die schlechten Vibes der Überseewelt zu nähren, ihr solltet euch schnell darum kümmern!</target>
+      </segment>
+    </unit>
+    <unit id="SLJtaFf" name="Öffnen (1 BP)">
+      <notes>
+        <note category="german">Öffnen (1 BP)</note>
+      </notes>
+      <segment>
+        <source>Öffnen (1 BP)</source>
+        <target>Öffnen (1 BP)</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

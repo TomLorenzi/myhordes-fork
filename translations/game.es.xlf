@@ -11569,5 +11569,113 @@
         <target>Regentanz ausführen</target>
       </segment>
     </unit>
+    <unit id="SFjPHiw" name="Einsiedler - Gewinner des SoH">
+      <notes>
+        <note category="german">Einsiedler - Gewinner des SoH</note>
+      </notes>
+      <segment>
+        <source>Einsiedler - Gewinner des SoH</source>
+        <target>Einsiedler - Gewinner des SoH</target>
+      </segment>
+    </unit>
+    <unit id="suYM2pk" name="Buddler - Gewinner des SoH">
+      <notes>
+        <note category="german">Buddler - Gewinner des SoH</note>
+      </notes>
+      <segment>
+        <source>Buddler - Gewinner des SoH</source>
+        <target>Buddler - Gewinner des SoH</target>
+      </segment>
+    </unit>
+    <unit id="B4NRnue" name="Sieg für die Buddler beim Shock of Heroes Event!">
+      <notes>
+        <note category="german">Sieg für die Buddler beim Shock of Heroes Event!</note>
+      </notes>
+      <segment>
+        <source>Sieg für die Buddler beim Shock of Heroes Event!</source>
+        <target>Sieg für die Buddler beim Shock of Heroes Event!</target>
+      </segment>
+    </unit>
+    <unit id="ezjjECr" name="Wächter - Gewinner des SoH">
+      <notes>
+        <note category="german">Wächter - Gewinner des SoH</note>
+      </notes>
+      <segment>
+        <source>Wächter - Gewinner des SoH</source>
+        <target>Wächter - Gewinner des SoH</target>
+      </segment>
+    </unit>
+    <unit id="jVhaVYF" name="Du hast soeben den Zugang zu deiner privaten Stadt für jedermann geöffnet.">
+      <notes>
+        <note category="german">Du hast soeben den Zugang zu deiner privaten Stadt für jedermann geöffnet.</note>
+      </notes>
+      <segment>
+        <source>Du hast soeben den Zugang zu deiner privaten Stadt für jedermann geöffnet.</source>
+        <target>Du hast soeben den Zugang zu deiner privaten Stadt für jedermann geöffnet.</target>
+      </segment>
+    </unit>
+    <unit id="9EBorzV" name="Deine Stadt">
+      <notes>
+        <note category="german">Deine Stadt</note>
+      </notes>
+      <segment>
+        <source>Deine Stadt</source>
+        <target>Deine Stadt</target>
+      </segment>
+    </unit>
+    <unit id="mkyiUfI" name="Öffne deine private Stadt für alle">
+      <notes>
+        <note category="german">Öffne deine private Stadt für alle</note>
+      </notes>
+      <segment>
+        <source>Öffne deine private Stadt für alle</source>
+        <target>Öffne deine private Stadt für alle</target>
+      </segment>
+    </unit>
+    <unit id="G7YX22v" name="Deine privaten Nachrichten">
+      <notes>
+        <note category="german">Deine privaten Nachrichten</note>
+      </notes>
+      <segment>
+        <source>Deine privaten Nachrichten</source>
+        <target>Deine privaten Nachrichten</target>
+      </segment>
+    </unit>
+    <unit id="C9_MTts" name="91fcb31">
+      <notes>
+        <note category="german">In diesem Bereich kannst du dir alle möglichen Verbesserungen deines Hauses ansehen.</note>
+      </notes>
+      <segment>
+        <source>In diesem Bereich kannst du dir alle möglichen Verbesserungen deines Hauses ansehen.</source>
+        <target>In diesem Bereich kannst du dir alle möglichen Verbesserungen deines Hauses ansehen.</target>
+      </segment>
+    </unit>
+    <unit id="dQRl.Lz" name="fb2b856">
+      <notes>
+        <note category="german">In diesem Bereich werden alle bereits eingebauten Einrichtungen und Ausbauten deines Hauses angezeigt (Möbel, Verteidigungsvorrichtungen...).</note>
+      </notes>
+      <segment>
+        <source>In diesem Bereich werden alle bereits eingebauten Einrichtungen und Ausbauten deines Hauses angezeigt (Möbel, Verteidigungsvorrichtungen...).</source>
+        <target>In diesem Bereich werden alle bereits eingebauten Einrichtungen und Ausbauten deines Hauses angezeigt (Möbel, Verteidigungsvorrichtungen...).</target>
+      </segment>
+    </unit>
+    <unit id="e_umQ0L" name="37b3bf7">
+      <notes>
+        <note category="german">Wenn du in der Wüste von Zombies umzingelst wirst, erstarrst du vor Angst und kannst nichts mehr unternehmen... Du musst Drogen oder etwas anderes finden, um &lt;strong&gt;deine Nerven zu beruhigen&lt;/strong&gt; und aus dieser Hölle auszubrechen... Wenigstens ist es dir immer noch möglich, im Forum nach Hilfe zu suchen...</note>
+      </notes>
+      <segment>
+        <source>Wenn du in der Wüste von Zombies umzingelst wirst, erstarrst du vor Angst und kannst nichts mehr unternehmen... Du musst Drogen oder etwas anderes finden, um &lt;strong&gt;deine Nerven zu beruhigen&lt;/strong&gt; und aus dieser Hölle auszubrechen... Wenigstens ist es dir immer noch möglich, im Forum nach Hilfe zu suchen...</source>
+        <target><![CDATA[Wenn du in der Wüste von Zombies umzingelst wirst, erstarrst du vor Angst und kannst nichts mehr unternehmen... Du musst Drogen oder etwas anderes finden, um <strong>deine Nerven zu beruhigen</strong> und aus dieser Hölle auszubrechen... Wenigstens ist es dir immer noch möglich, im Forum nach Hilfe zu suchen...]]></target>
+      </segment>
+    </unit>
+    <unit id="G0BraVl" name="Das Passwort ist falsch.">
+      <notes>
+        <note category="german">Das Passwort ist falsch.</note>
+      </notes>
+      <segment>
+        <source>Das Passwort ist falsch.</source>
+        <target>Das Passwort ist falsch.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

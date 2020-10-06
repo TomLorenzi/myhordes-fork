@@ -856,15 +856,6 @@
         <target>Chaque élément de cette collection doit satisfaire à son propre jeu de contraintes.</target>
       </segment>
     </unit>
-    <unit id="lrbaa8g" name="This value is not a valid International Securities Identification Number (ISIN).">
-      <notes>
-        <note category="german">Dieser Wert ist keine gültige Internationale Wertpapierkennnummer (ISIN).</note>
-      </notes>
-      <segment>
-        <source>This value is not a valid International Securities Identification Number (ISIN).</source>
-        <target>Cette valeur n'est pas un code international de sécurité valide (ISIN).</target>
-      </segment>
-    </unit>
     <unit id=".SEaaBa" name="This form should not contain extra fields.">
       <notes>
         <note category="german">Dieses Formular sollte keine zusätzlichen Felder enthalten.</note>
@@ -899,6 +890,15 @@
       <segment>
         <source>This value is not a valid HTML5 color.</source>
         <target>Cette valeur n'est pas une couleur HTML5 valide.</target>
+      </segment>
+    </unit>
+    <unit id="lrbaa8g" name="This value is not a valid International Securities Identification Number (ISIN).">
+      <notes>
+        <note category="german">This value is not a valid International Securities Identification Number (ISIN).</note>
+      </notes>
+      <segment>
+        <source>This value is not a valid International Securities Identification Number (ISIN).</source>
+        <target>Cette valeur n'est pas un code international de sécurité valide (ISIN).</target>
       </segment>
     </unit>
   </file>

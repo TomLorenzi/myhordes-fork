@@ -7183,5 +7183,14 @@
         <target>Cette âme de citoyen a été abandonnée, sans considération, trop longtemps. Aujourd'hui cette entité emplie de haine vient alimenter les mauvaises ondes de l'Outre-Monde, vous devriez vite vous en occuper !</target>
       </segment>
     </unit>
+    <unit id="SLJtaFf" name="Öffnen (1 BP)">
+      <notes>
+        <note category="german">Öffnen (1 BP)</note>
+      </notes>
+      <segment>
+        <source>Öffnen (1 BP)</source>
+        <target>Ouvrir (1 PC)</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
