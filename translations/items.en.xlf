@@ -1087,7 +1087,7 @@
       </notes>
       <segment>
         <source>Revolver (entladen)</source>
-        <target>Revolver (loaded)</target>
+        <target>Revolver (unloaded)</target>
       </segment>
     </unit>
     <unit id="y1obQuD" name="Sturmgewehr (entladen)">
@@ -1096,7 +1096,7 @@
       </notes>
       <segment>
         <source>Sturmgewehr (entladen)</source>
-        <target>Assault Rifle (loaded)</target>
+        <target>Assault Rifle (unloaded)</target>
       </segment>
     </unit>
     <unit id="UyQlEYn" name="Zünder">
