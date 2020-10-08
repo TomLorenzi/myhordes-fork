@@ -77,7 +77,7 @@ class GhostController extends AbstractController implements GhostInterfaceContro
         return $this->render( 'ajax/ghost/intro.html.twig', $this->addDefaultTwigArgs([
             'townClasses' => $em->getRepository(TownClass::class)->findAll(),
             'userCanJoin' => $this->getUserTownClassAccess($conf->getGlobalConf()),
-            'canCreateTown' => $uh->hasSkill($user, 'mayor'),
+            'canCreateTown' => $uh->hasSkill($user, 'mayor') || $user->getRightsElevation() >= User::ROLE_CROW,
         ] ));
     }
 
