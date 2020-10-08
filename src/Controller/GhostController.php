@@ -118,7 +118,7 @@ class GhostController extends AbstractController implements GhostInterfaceContro
         if ($em->getRepository(CitizenRankingProxy::class)->findNextUnconfirmedDeath($user))
             return AjaxResponse::success( true, ['url' => $this->generateUrl('soul_death')] );
 
-        if(!$uh->hasSkill($user, 'mayor')){
+        if(!$uh->hasSkill($user, 'mayor') && $user->getRightsElevation() < User::ROLE_CROW){
             return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable, ['url' => $this->generateUrl('initial_landing')] );
         }
 
