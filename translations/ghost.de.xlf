@@ -756,7 +756,7 @@
     </unit>
     <unit id="Knuuneb" name="Karten-Seed">
       <notes>
-        <note category="german">Map Seed</note>
+        <note category="german">Karten-Seed</note>
       </notes>
       <segment>
         <source>Karten-Seed</source>
@@ -765,9 +765,9 @@
     </unit>
     <unit id="_SibAUY" name="5b4e357">
       <notes>
-        <note category="german">Seed that enables controlled map creation. Allows similar maps to be generated in case of events.
-                                 Enter a positive integer to activate it.
-                                 THINK ABOUT CHANGING THIS WHOLE NUMBER FROM ONE EVENT TO ANOTHER!</note>
+        <note category="german">Seed, das eine kontrollierte Kartenerstellung ermöglicht. Erlaubt im Falle von Ereignissen, ähnliche Karten zu generieren.
+                                Gib eine positive ganze Zahl ein, um es zu aktivieren.
+                                DENKT DARÜBER NACH, DIESE GANZE ZAHL VON EINEM EREIGNIS ZUM ANDEREN ZU ÄNDERN !</note>
       </notes>
       <segment>
         <source>Seed, das eine kontrollierte Kartenerstellung ermöglicht. Erlaubt im Falle von Ereignissen, ähnliche Karten zu generieren.
@@ -780,7 +780,7 @@
     </unit>
     <unit id="EYBH.W." name="Der Schamane wird gewählt und die Seelen werden gequält.">
       <notes>
-        <note category="german">The shaman is a Role and the souls are tormented.</note>
+        <note category="german">Der Schamane wird gewählt und die Seelen werden gequält.</note>
       </notes>
       <segment>
         <source>Der Schamane wird gewählt und die Seelen werden gequält.</source>
@@ -789,7 +789,7 @@
     </unit>
     <unit id="YnsFoKy" name="Der Schamane ist ein Beruf, die Seelen werden in der Werkstatt verwandelt.">
       <notes>
-        <note category="german">The shaman is a Profession, souls are transformed in the workshop.</note>
+        <note category="german">Der Schamane ist ein Beruf, die Seelen werden in der Werkstatt verwandelt.</note>
       </notes>
       <segment>
         <source>Der Schamane ist ein Beruf, die Seelen werden in der Werkstatt verwandelt.</source>
@@ -807,7 +807,7 @@
     </unit>
     <unit id="_kZYbUN" name="Der Schamane und die Seelen werden deaktiviert.">
       <notes>
-        <note category="german">The shaman and the souls are deactivated.</note>
+        <note category="german">Der Schamane und die Seelen werden deaktiviert.</note>
       </notes>
       <segment>
         <source>Der Schamane und die Seelen werden deaktiviert.</source>
@@ -816,7 +816,7 @@
     </unit>
     <unit id="ifwhezW" name="Deaktiviert">
       <notes>
-        <note category="german">Deactivated</note>
+        <note category="german">Deaktiviert</note>
       </notes>
       <segment>
         <source>Deaktiviert</source>
@@ -825,7 +825,7 @@
     </unit>
     <unit id="TxDkI9W" name="Die Nachtwache ist verfügbar, wenn das Gebäude &quot;Brustwehr&quot; errichtet wurde.">
       <notes>
-        <note category="german">The night watch is available when the "Battlements" building has been constructed.</note>
+        <note category="german">Die Nachtwache ist verfügbar, wenn das Gebäude "Brustwehr" errichtet wurde.</note>
       </notes>
       <segment>
         <source>Die Nachtwache ist verfügbar, wenn das Gebäude "Brustwehr" errichtet wurde.</source>
@@ -834,7 +834,7 @@
     </unit>
     <unit id="I6A5smr" name="Die Nachtwache ist von Anfang an verfügbar.">
       <notes>
-        <note category="german">The night watch is available from the start.</note>
+        <note category="german">Die Nachtwache ist von Anfang an verfügbar.</note>
       </notes>
       <segment>
         <source>Die Nachtwache ist von Anfang an verfügbar.</source>
@@ -843,7 +843,7 @@
     </unit>
     <unit id="AvGVwK2" name="Sofort">
       <notes>
-        <note category="german">Immediately</note>
+        <note category="german">Sofort</note>
       </notes>
       <segment>
         <source>Sofort</source>
@@ -852,7 +852,7 @@
     </unit>
     <unit id="s4VKN2Z" name="Die Nachtwache ist deaktiviert.">
       <notes>
-        <note category="german">The night watch is deactivated.</note>
+        <note category="german">Die Nachtwache ist deaktiviert.</note>
       </notes>
       <segment>
         <source>Die Nachtwache ist deaktiviert.</source>
@@ -861,7 +861,7 @@
     </unit>
     <unit id="YY0WZyp" name="Verkörperung in der Stadt:">
       <notes>
-        <note category="german">Incarnate in the Town:</note>
+        <note category="german">Verkörperung in der Stadt:</note>
       </notes>
       <segment>
         <source>Verkörperung in der Stadt:</source>
@@ -870,7 +870,7 @@
     </unit>
     <unit id="4iMXGoK" name="Verkörpert dich in der Stadt bei ihrer Entstehung">
       <notes>
-        <note category="german">Incarnate you in the Town when it comes into being</note>
+        <note category="german">Verkörpert dich in der Stadt bei ihrer Entstehung</note>
       </notes>
       <segment>
         <source>Verkörpert dich in der Stadt bei ihrer Entstehung</source>
@@ -879,7 +879,7 @@
     </unit>
     <unit id="Vwi2p0a" name="Verfügbare Berufe">
       <notes>
-        <note category="german">Available Professions</note>
+        <note category="german">Verfügbare Berufe</note>
       </notes>
       <segment>
         <source>Verfügbare Berufe</source>
@@ -888,7 +888,7 @@
     </unit>
     <unit id="UgJmKP7" name="Bitte gib das Stadtpasswort ein :">
       <notes>
-        <note category="german">Please enter the Town password:</note>
+        <note category="german">Bitte gib das Stadtpasswort ein :</note>
       </notes>
       <segment>
         <source>Bitte gib das Stadtpasswort ein :</source>

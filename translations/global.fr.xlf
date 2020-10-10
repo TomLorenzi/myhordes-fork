@@ -1594,5 +1594,32 @@
         <target><![CDATA[Certains objets que vous possédez sont <strong>utilisables</strong>. Cliquez alors simplement sur un lien ci-dessous pour vous en servir. D'autres objets, comme les armes par exemple, ne peuvent être utilisés que <strong>hors de la ville</strong>.]]></target>
       </segment>
     </unit>
+    <unit id="H1CIx1I" name="Stadtforum">
+      <notes>
+        <note category="german">Stadtforum</note>
+      </notes>
+      <segment>
+        <source>Stadtforum</source>
+        <target>Forum de la ville</target>
+      </segment>
+    </unit>
+    <unit id="78Bg7UU" name="Weltforen">
+      <notes>
+        <note category="german">Weltforen</note>
+      </notes>
+      <segment>
+        <source>Weltforen</source>
+        <target>Forums Monde</target>
+      </segment>
+    </unit>
+    <unit id="9o6Bgnk" name="Andere Foren">
+      <notes>
+        <note category="german">Andere Foren</note>
+      </notes>
+      <segment>
+        <source>Andere Foren</source>
+        <target>Autres forums</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
