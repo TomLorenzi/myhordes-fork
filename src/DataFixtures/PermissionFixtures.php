@@ -18,6 +18,7 @@ class PermissionFixtures extends Fixture
     public static $base_group_data = [
         ['name'=>'[users]',    'type'=> UserGroup::GroupTypeDefaultUserGroup],
         ['name'=>'[elevated]', 'type'=> UserGroup::GroupTypeDefaultElevatedGroup],
+        ['name'=>'[oracles]',  'type'=> UserGroup::GroupTypeDefaultOracleGroup],
         ['name'=>'[mods]',     'type'=> UserGroup::GroupTypeDefaultModeratorGroup],
         ['name'=>'[admins]',   'type'=> UserGroup::GroupTypeDefaultAdminGroup],
     ];

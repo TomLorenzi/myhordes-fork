@@ -36,15 +36,9 @@ class AdminActionHandler
         'headshot' => 'ROLE_CROW',
         'suicid' => 'ROLE_CROW',
         'confirmDeath' => 'ROLE_ADMIN',
-        'pinThread' => 'ROLE_ADMIN',
-        'unpinThread' => 'ROLE_ADMIN',
         'setDefaultRoleDev' => 'ROLE_ADMIN',
-
-        'lockThread' => 'ROLE_CROW',
-        'unlockThread' => 'ROLE_CROW',
         'liftAllBans' => 'ROLE_CROW',
         'ban' => 'ROLE_CROW',
-        'hidePost' => 'ROLE_CROW',
         'clearReports' => 'ROLE_CROW',
     ];
 
@@ -84,64 +78,6 @@ class AdminActionHandler
             $message = $this->translator->trans('%username% gehört keiner Stadt an.', ['%username%' => '<span>' . $user->getUsername() . '</span>'], 'game');
         }
         return $message;
-    }
-
-    public function lockThread(int $sourceUser, int $forumId, int $threadId): bool
-    {
-        if(!$this->hasRights($sourceUser, 'lockThread'))
-            return false;
-        /**
-        * @var Thread
-        */
-        $thread = $this->entity_manager->getRepository( Thread::class )->find( $threadId );
-        if ($thread === null || $thread->getForum()->getId() !== $forumId) return false;
-        $thread->setLocked(true);
-        $this->entity_manager->persist($thread);
-        $this->entity_manager->flush();
-        return true;
-    }
-
-    public function unlockThread(int $sourceUser, int $forumId, int $threadId): bool
-    {
-        if(!$this->hasRights($sourceUser, 'unlockThread'))
-            return false;
-        /**
-        * @var Thread
-        */
-        $thread = $this->entity_manager->getRepository( Thread::class )->find( $threadId );
-        if ($thread === null || $thread->getForum()->getId() !== $forumId) return false;
-        $thread->setLocked(false);
-        $this->entity_manager->persist($thread);
-        $this->entity_manager->flush();
-        return true;
-    }
-
-    public function pinThread(int $sourceUser, int $forumId, int $threadId): bool{
-        if(!$this->hasRights($sourceUser, 'pinThread'))
-            return false;
-        /**
-        * @var Thread
-        */
-        $thread = $this->entity_manager->getRepository( Thread::class )->find( $threadId );
-        if ($thread === null || $thread->getForum()->getId() !== $forumId) return false;
-        $thread->setPinned(true);
-        $this->entity_manager->persist($thread);
-        $this->entity_manager->flush();
-        return true;
-    }
-
-    public function unpinThread(int $sourceUser, int $forumId, int $threadId): bool{
-        if(!$this->hasRights($sourceUser, 'unpinThread'))
-            return false;
-        /**
-        * @var Thread
-        */
-        $thread = $this->entity_manager->getRepository( Thread::class )->find( $threadId );
-        if ($thread === null || $thread->getForum()->getId() !== $forumId) return false;
-        $thread->setPinned(false);
-        $this->entity_manager->persist($thread);
-        $this->entity_manager->flush();
-        return true;
     }
 
     public function liftAllBans(int $sourceUser, int $targetUser): bool
@@ -220,41 +156,6 @@ class AdminActionHandler
 
         $this->entity_manager->persist( $activeCitizen );
         $this->entity_manager->flush();
-
-        return true;
-    }
-
-    public function hidePost(int $srcUser, int $postId, string $reason): bool {
-        if(!$this->hasRights($srcUser, 'hidePost'))
-            return false;
-
-        $sourceUser = $this->entity_manager->getRepository(User::class)->find($srcUser);        
-        $post = $this->entity_manager->getRepository(Post::class)->find($postId);
-
-        if (!(isset($post)))
-            return false;
-
-        if (!isset($reason))
-            return false;
-        try {
-            $post->setHidden(true);
-            $this->entity_manager->persist( $post );
-
-            $adminDeletion = (new AdminDeletion())
-                ->setSourceUser( $sourceUser )
-                ->setTimestamp( new DateTime('now') )           
-                ->setReason( $reason )
-                ->setPost( $post );
-            
-            $this->entity_manager->persist( $adminDeletion );        
-            $this->entity_manager->flush();
-        }        
-        catch (Exception $e) 
-        {
-            return false;
-        }
-
-        $this->clearReports($srcUser, $postId);
 
         return true;
     }
