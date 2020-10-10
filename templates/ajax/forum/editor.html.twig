@@ -1,4 +1,7 @@
 {% extends "ajax/ajax_plain.html.twig" %}
+
+{# @var permission \App\Structures\ForumPermissionAccessor #}
+
 {% block ajax_base %}
     <div class="forum-editor">
         <div class="forum-editor-header">
@@ -50,14 +53,14 @@
                     <div x-forum-action="edit" x-text-wrap-node="s" class="forum-button"><i class="fa fa-strikethrough"></i><span class="forum-button-tooltip">{{ 'Durchstreichen'|trans({},'global') }}</span></div>
                     <div x-forum-action="edit" x-text-wrap-node="bad" class="forum-button"><i class="fas fa-tint"></i><span class="forum-button-tooltip">{{ 'Verräter'|trans({},'global') }}</span></div>
                     <div x-forum-action="modal" x-text-modal-node="link" class="forum-button"><i class="fa fa-link"></i><span class="forum-button-tooltip">{{ 'Link einfügen'|trans({},'global') }}</span></div>
-                    {% if is_granted("ROLE_ADMIN") %}
+                    {% if permission.format_admin() %}
                         <div x-forum-action="modal" x-text-modal-node="image" class="forum-button"><i class="fa fa-image"></i><span class="forum-button-tooltip">{{ 'Bild einfügen'|trans({},'global') }}</span></div>
                         <div x-forum-action="edit" x-text-wrap-node="admannounce" class="forum-button"><i class="fas fa-bullhorn"></i><span class="forum-button-tooltip">{{ 'Admin Ankündigung'|trans({},'global') }}</span></div>
                     {% endif %}
-                    {% if is_granted("ROLE_CROW") %}
+                    {% if permission.format_mod() %}
                         <div x-forum-action="edit" x-text-wrap-node="modannounce" class="forum-button"><i class="fas fa-gavel"></i><span class="forum-button-tooltip">{{ 'Mod Ankündigung'|trans({},'global') }}</span></div>
                     {% endif %}
-                    {% if is_granted("ROLE_ORACLE") %}
+                    {% if permission.format_oracle() %}
                         <div x-forum-action="edit" x-text-wrap-node="announce" class="forum-button"><i class="fas fa-rss"></i><span class="forum-button-tooltip">{{ 'Orakel Ankündigung'|trans({},'global') }}</span></div>
                     {% endif %}
                     <div x-forum-action="edit" x-text-insert-list-node="*" class="forum-button"><i class="fa fa-star-of-life"></i><span class="forum-button-tooltip">{{ 'Listenpunkt'|trans({},'global') }}</span></div>
@@ -153,14 +156,16 @@
         </div>
         <div class="row">
             <div class="padded cell rw-12 right">
-                {% if forum and is_granted("ROLE_CROW") and pid is null %}
+                {% if forum and (permission.post_as_crow() or permission.post_as_dev()) and pid is null %}
                     <div id="crowpost" class="forum-checkbox">
                         <input class="forum-checkbox" type="radio" id="radio-user" name="post-type" value="USER" {% if app.user.postAsDefault != "DEV" %}checked{% endif %}>
-                        <input class="forum-checkbox" type="radio" id="radio-crow" name="post-type" value="CROW">
-                        {% if is_granted("ROLE_ADMIN") %}
+                        {% if permission.post_as_crow() %}
+                            <input class="forum-checkbox" type="radio" id="radio-crow" name="post-type" value="CROW">
+                        {% endif %}
+                        {% if permission.post_as_dev() %}
                             <input class="forum-checkbox" type="radio" id="radio-dev" name="post-type" value="DEV" {% if app.user.postAsDefault == "DEV" %}checked{% endif %}>
                         {% endif %}
-                        <span id="crow_answer_content">{% if app.user.postAsDefault != "DEV" %}{{ app.user.username }}{% else %}{{ 'Dev'|trans({},'global') }}{% endif %}</span>
+                        <span id="crow_answer_content">{% if not permission.post_as_dev() or app.user.postAsDefault != "DEV" %}{{ app.user.username }}{% else %}{{ 'Dev'|trans({},'global') }}{% endif %}</span>
                     </div>
                 {% endif %}
                 <div x-forum-action="send" class="forum-button">{{ 'Absenden'|trans({},'global') }}</div>
@@ -379,34 +384,35 @@
             } );
 
             // Post as crow toggle
-            {% if is_granted("ROLE_CROW") and forum and not pid %}
+            {% if (permission.post_as_dev() or permission.post_as_crow()) and forum and not pid %}
                 function changeHandler(){
                     switch (document.querySelector("input[name=post-type]:checked").value) {
                         case "USER":
-                            document.getElementById("radio-crow").checked = true;
                             document.getElementById("radio-user").checked = false;
-                        {% if is_granted("ROLE_ADMIN") %}
-                            document.getElementById("radio-dev").checked = false;
-                        {% endif %}
-                            document.getElementById('crow_answer_content').innerHTML = "{{ 'Rabe'|trans({},'global') }}";
+                            {% if permission.post_as_crow() %}
+                                document.getElementById("radio-crow").checked = true;
+                                document.getElementById('crow_answer_content').innerHTML = "{{ 'Rabe'|trans({},'global') }}";
+                            {% elseif permission.post_as_dev() %}
+                                document.getElementById("radio-dev").checked = true;
+                                document.getElementById('crow_answer_content').innerHTML = "{{ 'Dev'|trans({},'global') }}";
+                            {% else %}
+                                document.getElementById("radio-user").checked = true;
+                                document.getElementById('crow_answer_content').innerHTML = "{{ app.user.username }}";
+                            {% endif %}
                             break;
                         case "CROW":
                             document.getElementById("radio-crow").checked = false;
-                        {% if is_granted("ROLE_ADMIN") %}
-                            document.getElementById("radio-user").checked = false;
-                            document.getElementById("radio-dev").checked = true;
-                            document.getElementById('crow_answer_content').innerHTML = "{{ 'Dev'|trans({},'global') }}";
-                        {% else %}
-                            document.getElementById("radio-user").checked = true;
-                            document.getElementById('crow_answer_content').innerHTML = "{{ app.user.username }}";
-                        {% endif %}
+                            {% if permission.post_as_dev() %}
+                                document.getElementById("radio-dev").checked = true;
+                                document.getElementById('crow_answer_content').innerHTML = "{{ 'Dev'|trans({},'global') }}";
+                            {% else %}
+                                document.getElementById("radio-user").checked = true;
+                                document.getElementById('crow_answer_content').innerHTML = "{{ app.user.username }}";
+                            {% endif %}
                             break;
                         case "DEV":
-                            document.getElementById("radio-crow").checked = false;
-                            document.getElementById("radio-user").checked = true;
-                        {% if is_granted("ROLE_ADMIN") %}
                             document.getElementById("radio-dev").checked = false;
-                        {% endif %}
+                            document.getElementById("radio-user").checked = true;
                             document.getElementById('crow_answer_content').innerHTML = "{{ app.user.username }}";
                             break;
                     }

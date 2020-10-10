@@ -543,7 +543,7 @@ class MigrateCommand extends Command
                 }
             };
 
-            $fun_permissions = function( ?Forum $forum, UserGroup $group, int $grant = ForumUsagePermissions::PermissionRead | ForumUsagePermissions::PermissionWrite, int $deny = ForumUsagePermissions::PermissionNone) use ($output) {
+            $fun_permissions = function( ?Forum $forum, UserGroup $group, int $grant = ForumUsagePermissions::PermissionReadWrite, int $deny = ForumUsagePermissions::PermissionNone) use ($output) {
                 $po = $this->entity_manager->getRepository(ForumUsagePermissions::class)->findOneBy(['principalUser' => null, 'forum' => $forum, 'principalGroup' => $group]);
                 if (!$po) {
                     if ($forum)
@@ -558,10 +558,11 @@ class MigrateCommand extends Command
                 }
             };
 
-            $g_users = $this->entity_manager->getRepository(UserGroup::class)->findOneBy(['type' => UserGroup::GroupTypeDefaultUserGroup]);
-            $g_elev  = $this->entity_manager->getRepository(UserGroup::class)->findOneBy(['type' => UserGroup::GroupTypeDefaultElevatedGroup]);
-            $g_mods  = $this->entity_manager->getRepository(UserGroup::class)->findOneBy(['type' => UserGroup::GroupTypeDefaultModeratorGroup]);
-            $g_admin = $this->entity_manager->getRepository(UserGroup::class)->findOneBy(['type' => UserGroup::GroupTypeDefaultAdminGroup]);
+            $g_users  = $this->entity_manager->getRepository(UserGroup::class)->findOneBy(['type' => UserGroup::GroupTypeDefaultUserGroup]);
+            $g_elev   = $this->entity_manager->getRepository(UserGroup::class)->findOneBy(['type' => UserGroup::GroupTypeDefaultElevatedGroup]);
+            $g_oracle = $this->entity_manager->getRepository(UserGroup::class)->findOneBy(['type' => UserGroup::GroupTypeDefaultOracleGroup]);
+            $g_mods   = $this->entity_manager->getRepository(UserGroup::class)->findOneBy(['type' => UserGroup::GroupTypeDefaultModeratorGroup]);
+            $g_admin  = $this->entity_manager->getRepository(UserGroup::class)->findOneBy(['type' => UserGroup::GroupTypeDefaultAdminGroup]);
 
             // Fix group associations
             $all_users = $this->entity_manager->getRepository(User::class)->findAll();
@@ -569,8 +570,9 @@ class MigrateCommand extends Command
 
                 if ($current_user->getValidated()) $fun_assoc($current_user, $g_users); else $fun_dis_assoc($current_user, $g_users);
                 if ($current_user->getRightsElevation() > User::ROLE_USER) $fun_assoc($current_user, $g_elev); else $fun_dis_assoc($current_user, $g_elev);
-                if ($this->user_handler->hasRole($current_user, "ROLE_CROW")) $fun_assoc($current_user, $g_mods); else $fun_dis_assoc($current_user, $g_mods);
-                if ($this->user_handler->hasRole($current_user, "ROLE_ADMIN")) $fun_assoc($current_user, $g_admin); else $fun_dis_assoc($current_user, $g_admin);
+                if ($this->user_handler->hasRole($current_user, "ROLE_ORACLE")) $fun_assoc($current_user, $g_oracle); else $fun_dis_assoc($current_user, $g_oracle);
+                if ($this->user_handler->hasRole($current_user, "ROLE_CROW"))   $fun_assoc($current_user, $g_mods); else $fun_dis_assoc($current_user, $g_mods);
+                if ($this->user_handler->hasRole($current_user, "ROLE_ADMIN"))  $fun_assoc($current_user, $g_admin); else $fun_dis_assoc($current_user, $g_admin);
 
             }
 
@@ -598,7 +600,8 @@ class MigrateCommand extends Command
             $this->entity_manager->flush();
 
             // Fix permissions
-            $fun_permissions(null, $g_mods,  ForumUsagePermissions::PermissionModerate);
+            $fun_permissions(null, $g_oracle,  ForumUsagePermissions::PermissionFormattingOracle);
+            $fun_permissions(null, $g_mods,  ForumUsagePermissions::PermissionModerate | ForumUsagePermissions::PermissionFormattingModerator | ForumUsagePermissions::PermissionPostAsCrow);
             $fun_permissions(null, $g_admin, ForumUsagePermissions::PermissionOwn);
 
             foreach ($this->entity_manager->getRepository(Forum::class)->findAll() as $forum) {

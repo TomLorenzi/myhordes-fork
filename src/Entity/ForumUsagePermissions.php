@@ -16,10 +16,34 @@ use Doctrine\ORM\Mapping\UniqueConstraint;
 class ForumUsagePermissions
 {
     const PermissionNone     = 0;
-    const PermissionRead     = 1 << 0;
-    const PermissionWrite    = 1 << 1;
-    const PermissionModerate = 1 << 2;
-    const PermissionOwn      = 1 << 3;
+
+    // Read Permissions
+    const PermissionListThreads  =  1 << 1;
+    const PermissionReadThreads  =  1 << 2;
+    const PermissionRead         = ForumUsagePermissions::PermissionListThreads |
+                                   ForumUsagePermissions::PermissionReadThreads;
+
+    // Write Permissions
+    const PermissionCreatePost   =  1 << 6;
+    const PermissionCreateThread =  1 << 7;
+    const PermissionEditPost     =  1 << 8;
+    const PermissionWrite        = ForumUsagePermissions::PermissionCreatePost   |
+                                   ForumUsagePermissions::PermissionCreateThread |
+                                   ForumUsagePermissions::PermissionEditPost;
+
+    // Common
+    const PermissionReadWrite = ForumUsagePermissions::PermissionRead | ForumUsagePermissions::PermissionWrite;
+
+    // Moderation
+    const PermissionModerate     = 1 << 10;
+    const PermissionOwn          = 1 << 11;
+
+    // Functionality
+    const PermissionFormattingOracle    = 1 << 16;
+    const PermissionFormattingModerator = 1 << 17;
+    const PermissionFormattingAdmin     = 1 << 18;
+    const PermissionPostAsCrow          = 1 << 19;
+    const PermissionPostAsDev           = 1 << 20;
 
     /**
      * @ORM\Id

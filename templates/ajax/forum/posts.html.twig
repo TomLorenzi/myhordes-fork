@@ -1,23 +1,24 @@
 {% extends "ajax/ajax_plain.html.twig" %}
 {% block ajax_base %}
     {# @var posts \App\Entity\Post[] #}
+    {# @var permission \App\Structures\ForumPermissionAccessor #}
     {% set today = date() %}
     {% set yesterday = date('-1days') %}
     {% block buttons %}
         <div class="row">
             <div class="cell padded rw-6 left">
-                {% if is_granted("ROLE_CROW") or owned %}
+                {% if permission.moderate() or owned %}
                     {% if not locked %}
                         <div x-forum-moderator-action="lock" class="forum-button"><img alt="" src="{{ asset('build/images/icons/lock.gif') }}" /><span>{{ 'Schließen'|trans({},'global') }}</span></div>
                     {% endif %}
-                    {% if is_granted("ROLE_CROW")%}
+                    {% if permission.moderate() %}
                         {% if locked %}
                             <div x-forum-moderator-action="unlock" x-forum-api-endpoint="{{ url('forum_thread_mod_controller', {fid: fid, tid: tid, mod: 'unlock'}) }}" class="forum-button"><img alt="" src="{{ asset('build/images/icons/mod.png') }}" /><span>{{ 'Öffnen'|trans({},'global') }}</span></div>
                         {% endif %}
                     {% endif %}
 
                 {% endif %}
-                {% if is_granted("ROLE_ADMIN") %}
+                {% if permission.moderate() %}
                     {% if not pinned %}
                         <div x-forum-moderator-action="pin" x-forum-api-endpoint="{{ url('forum_thread_mod_controller', {fid: fid, tid: tid, mod: 'pin'}) }}" class="forum-button"><img alt="" src="{{ asset('build/images/icons/mod.png') }}" /><span>{{ 'Anpinnen'|trans({},'global') }}</span></div>
                     {% else %}
@@ -26,7 +27,7 @@
                 {% endif %}
             </div>
             <div class="cell padded rw-6 right">
-                {% if not locked and not is_granted("ROLE_FORUM_BANNED") %}
+                {% if not locked and not is_granted("ROLE_FORUM_BANNED") and permission.create_post() %}
                     <div x-forum-action="answer" class="forum-button"><span>{{ 'Antworten'|trans({},'global') }}</span></div>
                 {% else %}
                     <div class="forum-button-disabled"><img alt="" src="{{ asset('build/images/icons/lock.gif') }}" /><span>{{ 'Antworten'|trans({},'global') }}</span></div>
@@ -92,7 +93,7 @@
     {% endif %}
     <div class="forum-posts">
         {% for post in posts %}
-            {% if not post.hidden or is_granted("ROLE_CROW") %}
+            {% if not post.hidden or permission.moderate() %}
                 {% set author_name = (post.owner.username == 'Der Rabe') ? 'Der Rabe'|trans({},'global') : post.owner.username %}
                 <div x-post-wrapper-id="{{ post.id }}" class="forum-post {% if not post.hidden %}{% else %}forum-post-hidden{% endif %} {% if post.new %}forum-post-new{% endif %} {% if markedPost is defined and post.id == markedPost %}forum-post-marked{% endif %}">
                     <div class="forum-post-header {% if post.owner.username == 'Der Rabe' %}header-variant-crow{% elseif post.type == "DEV" %}header-variant-dev{% endif %}">
@@ -129,7 +130,7 @@
                         {% endif %}
                         {% if post.note is not null %}<div class="right post-note">{{ post.note|raw }}</div>{% endif %}
                     </div>
-                    {% if is_granted("ROLE_ADMIN") and post.originalText is not null %}
+                    {% if permission.moderate() and post.originalText is not null %}
                         <div class="modOrigText pointer">
                             <span>{{ 'Ursprünglichen Text anzeigen'|trans({},'global') }}</span>
                             <div>{{ post.originalText|raw }}</div>
@@ -140,13 +141,13 @@
                     </div>
                     <div class="forum-post-footer">
                         <div class="float-left small">
-                            {% if not is_granted('ROLE_ADMIN') %}
+                            {% if not permission.own() %}
                                 {% if post.edited is not null and post.lastAdminActionBy is null %}
                                     {{ 'Zuletzt bearbeitet: %date%'|trans({'%date%': post.edited|format_datetime('medium', 'short')},'game') }}
                                 {% elseif post.edited is not null and post.lastAdminActionBy is not null %}
                                     {{ 'Von einem Moderator bearbeitet.'|trans({},'game') }}
                                 {% endif %}
-                            {% elseif is_granted('ROLE_ADMIN') %}
+                            {% else %}
                                 {% if post.lastAdminActionBy is not null and post.edited is not null %}
                                     {{ 'Zuletzt bearbeitet: %date%'|trans({'%date%': post.edited|format_datetime('medium', 'short')},'game') }}
                                     {{ ' ~ MOD: ' ~ post.lastAdminActionBy.username }}
@@ -156,7 +157,7 @@
                             {% endif %}
                         </div>
                         <div class="float-right">
-                            {% if is_granted("ROLE_CROW") %}
+                            {% if permission.moderate() %}
                                 <label class="mod-submenu" for="mod-submenu-toggle-{{ post.id }}">
                                     <input type="checkbox" name="mod-submenu-toggle-{{ post.id }}" id="mod-submenu-toggle-{{ post.id }}" />
                                     <ul class="mod-submenu-links">
@@ -168,7 +169,7 @@
                                 </label>
                             {% endif %}
                             {% if not locked %}
-                            {% if (post.owner == app.user or (post.owner.id == 66 and is_granted("ROLE_CROW"))) and post.editable %}
+                            {% if (post.owner == app.user or (post.owner.id == 66 and permission.post_as_crow())) and post.editable %}
                                     [ <a class="action-button" id="edit_post"  x-forum-action="edit-post"  x-post-id={{ post.id }} ><img alt="" src="{{ asset('build/images/forum/edit.png') }}"><div class="tooltip forum-tooltip">{{'Bearbeiten'|trans({}, 'global')}}</div></a> ]
                                 {% endif %}
                             {% endif %}
@@ -270,7 +271,7 @@
 
         $.html.addEventListenerAll('[x-forum-action="edit-post"]', 'click', (e,elem) => fun_inline_edit('{{ path('forum_post_editor_controller', {fid: fid, tid: tid}) }}', elem.getAttribute('x-post-id'), 0));
 
-        {% if is_granted("ROLE_CROW") %}
+        {% if permission.moderate() %}
 
             $.html.addEventListenerAll('.modOrigText.pointer', 'click', (e,elem) => { elem.classList.remove('pointer'); } )
 

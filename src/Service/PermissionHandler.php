@@ -79,7 +79,6 @@ class PermissionHandler
      */
     public function getForumsWithPermission( User $user, $permission = ForumUsagePermissions::PermissionRead ): array {
         $groups = $this->userGroups($user);
-        $mask = $permission | ForumUsagePermissions::PermissionOwn;
 
         $grant = $deny = 0;
 
@@ -96,10 +95,12 @@ class PermissionHandler
             $deny |= $entry->getPermissionsDenied();
         }
 
+        $match = ($grant & (~$deny)) & $permission;
+        if (($match === $permission) || (($grant & (~$deny)) & ForumUsagePermissions::PermissionOwn)) {
 
-        if ( $ng_mask = (($grant & (~$deny)) & $mask) ) {
+            $matched_by_owning = ($match !== $permission);
 
-            // Default permissions grant access to all forums; we need to look for forums where the permission is
+            // Default permissions granted to all forums; we need to look for forums where the permission is
             // explicitly denied and reverse the list
             $denied_forums = [];
 
@@ -112,8 +113,11 @@ class PermissionHandler
                 ->setParameter('user', $user)->setParameter('groups', $groups)
                 ->getQuery()->getResult() as $entry) {
 
-                if ($ng_mask & ~$entry['pd']) $denied_forums[] = $entry['fid'];
+                if ($matched_by_owning && ($entry['pd'] & ForumUsagePermissions::PermissionOwn))  $denied_forums[] = $entry['fid'];
+                elseif ($permission & $entry['pd']) $denied_forums[] = $entry['fid'];
             }
+
+            if (empty($denied_forums)) return $this->entity_manager->getRepository(Forum::class)->findAll();
 
             /** @var QueryBuilder $qb */
             $qb = $this->entity_manager->getRepository(Forum::class)->createQueryBuilder('f');
@@ -141,7 +145,7 @@ class PermissionHandler
             }
 
             foreach ($forum_perms as $fid => list($granted, $denied))
-                if ( $mask & $granted & (~$denied) ) $granted_forums[] = $fid;
+                if ( ($permission & $granted & (~$denied)) === $permission ) $granted_forums[] = $fid;
 
             /** @var QueryBuilder $qb */
             $qb = $this->entity_manager->getRepository(Forum::class)->createQueryBuilder('f');
@@ -190,8 +194,9 @@ class PermissionHandler
         return $grant & (~$deny);
     }
 
-    public function getEffectivePermissions( User $user, Forum $forum ): int {
+    public function getEffectivePermissions( User $user, ?Forum $forum ): int {
         $grant = $deny = 0;
+        if ($forum === null) return ForumUsagePermissions::PermissionNone;
 
         /** @var QueryBuilder $qb */
         $qb = $this->entity_manager->getRepository(ForumUsagePermissions::class)->createQueryBuilder('p');
@@ -210,7 +215,12 @@ class PermissionHandler
     }
 
     public function isPermitted( int $effectivePermissions, int $permission ): bool {
-        return $effectivePermissions & ($permission | ForumUsagePermissions::PermissionOwn);
+        return (($effectivePermissions & $permission) === $permission) || ($effectivePermissions & ForumUsagePermissions::PermissionOwn);
+    }
+
+    public function isAnyPermitted( int $effectivePermissions, array $permissions ): bool {
+        foreach ($permissions as $permission) if ($this->isPermitted($effectivePermissions, $permission)) return true;
+        return false;
     }
 
     public function checkEffectivePermissions( User $user, Forum $forum, int $perm ): bool {
