@@ -3,7 +3,27 @@
     {{parent()}}
     <li class="back-dash" x-ajax-href="{{ url('game_landing') }}">{{ 'Zum Spiel'|trans({},'global') }}</li>
 {% endblock %}
+
+{# @var user \App\Entity\User #}
 {# @var forums \App\Entity\Forum[] #}
+
+{% macro drawForum(forum) %}
+    {# @var forum \App\Entity\Forum #}
+    <div x-ajax-href="{{ url('forum_view', {id: forum.id}) }}" class="forum-preview {% if forum.description is not empty %}forum-preview-desc{% endif %}">
+        {% if forum.town %}
+            <img alt="" src="{{ asset('build/images/forum/banner/bannerForumVille.gif') }}">
+        {% elseif forum.icon is not empty %}
+            <img alt="" src="{{ asset('build/images/forum/banner/' ~ forum.icon) }}">
+        {% else %}
+            <img alt="" src="{{ asset('build/images/forum/banner/bannerForumVoid.gif') }}">
+        {% endif %}
+        <div>{{ forum.title }}</div>
+        {% if forum.description is not empty %}
+            <span>{{ forum.description }}</span>
+        {% endif %}
+    </div>
+{% endmacro %}
+
 {% block ajax %}
     <div class="row">
         <div class="cell padded header rw-8 ro-2 rw-lg-12 ro-lg-0">
@@ -16,11 +36,30 @@
                         {% endtrans %}
                     </div>
                 {% else %}
-                    {% for forum in forums %}
-                        <div x-ajax-href="{{ url('forum_view', {id: forum.id}) }}" class="forum-preview {% if forum.town %}forum-preview-town{% endif %}">
-                            {{ forum.title }}
-                        </div>
-                    {% endfor %}
+
+                    {% set town_forums = forums|filter(f => (f.town and user.aliveCitizen and user.aliveCitizen.town.id == f.town.id)) %}
+                    {% if town_forums is not empty %}
+                        <h5>{{ 'Stadtforum'|trans({},'global') }}</h5>
+                        {% for forum in town_forums %}
+                            {{ _self.drawForum(forum) }}
+                        {% endfor %}
+                    {% endif %}
+
+                    {% set world_forums = forums|filter(f => f.town is empty)|sort((a,b) => (a.type <=> b.type ?? a.id <=> b.id)) %}
+                    {% if world_forums is not empty %}
+                        <h5>{{ 'Weltforen'|trans({},'global') }}</h5>
+                        {% for forum in world_forums %}
+                            {{ _self.drawForum(forum) }}
+                        {% endfor %}
+                    {% endif %}
+
+                    {% set other_forums = forums|filter(f => (f.town and (user.aliveCitizen is null or user.aliveCitizen.town.id != f.town.id))) %}
+                    {% if other_forums is not empty %}
+                        <h5>{{ 'Andere Foren'|trans({},'global') }}</h5>
+                        {% for forum in other_forums %}
+                            {{ _self.drawForum(forum) }}
+                        {% endfor %}
+                    {% endif %}
                 {% endif %}
             </div>
         </div>

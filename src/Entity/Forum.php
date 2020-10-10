@@ -15,6 +15,7 @@ class Forum
     const ForumTypeElevated = 1;
     const ForumTypeMods = 2;
     const ForumTypeAdmins = 3;
+    const ForumTypeCustom = 4;
 
     /**
      * @ORM\Id()
@@ -42,6 +43,16 @@ class Forum
      * @ORM\Column(type="integer", nullable=true)
      */
     private $type;
+
+    /**
+     * @ORM\Column(type="text", nullable=true)
+     */
+    private $description;
+
+    /**
+     * @ORM\Column(type="string", length=190, nullable=true)
+     */
+    private $icon;
 
     public function __construct()
     {
@@ -116,6 +127,30 @@ class Forum
     public function setType(?int $type): self
     {
         $this->type = $type;
+
+        return $this;
+    }
+
+    public function getDescription(): ?string
+    {
+        return $this->description;
+    }
+
+    public function setDescription(?string $description): self
+    {
+        $this->description = $description;
+
+        return $this;
+    }
+
+    public function getIcon(): ?string
+    {
+        return $this->icon;
+    }
+
+    public function setIcon(?string $icon): self
+    {
+        $this->icon = $icon;
 
         return $this;
     }

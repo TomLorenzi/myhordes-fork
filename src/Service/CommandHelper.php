@@ -5,11 +5,14 @@ namespace App\Service;
 
 use App\Entity\BuildingPrototype;
 use App\Entity\Citizen;
+use App\Entity\Forum;
+use App\Entity\ForumUsagePermissions;
 use App\Entity\Inventory;
 use App\Entity\ItemPrototype;
 use App\Entity\PictoPrototype;
 use App\Entity\Town;
 use App\Entity\User;
+use App\Entity\UserGroup;
 use App\Interfaces\NamedEntity;
 use App\Structures\IdentifierSemantic;
 use DirectoryIterator;
@@ -55,6 +58,20 @@ class CommandHelper
             case Town::class:
                 /** @var Town $e */
                 return "Town #{$e->getId()} <comment>{$e->getName()}</comment> ({$e->getLanguage()}, Day {$e->getDay()})";
+            case Forum::class:
+                /** @var Forum $e */
+                return $e->getTown()
+                    ? "Town Forum #{$e->getId()} <comment>{$e->getTitle()}</comment>"
+                    : "Forum #{$e->getId()} <comment>{$e->getTitle()}</comment> (Type: <comment>{$e->getType()}</comment>)";
+            case UserGroup::class:
+                /** @var UserGroup $e */
+                return "User group #{$e->getId()} <comment>{$e->getName()}</comment> (Ref1 '<comment>{$e->getRef1()}</comment>' Ref2 '<comment>{$e->getRef2()}</comment>')";
+            case ForumUsagePermissions::class:
+                /** @var ForumUsagePermissions $e */
+                $front = $e->getForum() ? "Forum Permissions #{$e->getId()} ('<comment>{$e->getForum()->getTitle()}</comment>')" : "Default Forum Permissions #{$e->getId()}";
+                if ($e->getPrincipalUser()) return "$front for User '<comment>{$e->getPrincipalUser()->getUsername()}</comment>'";
+                elseif ($e->getPrincipalGroup()) return "$front for User '<comment>{$e->getPrincipalGroup()->getName()}</comment>'";
+                else return $front;
             case Inventory::class:
                 /** @var Inventory $e */
                 if ($e->getTown())              return "Inventory #{$e->getId()} (Bank of {$e->getTown()->getName()})";
@@ -106,6 +123,14 @@ class CommandHelper
             $this->_db[$c][IdentifierSemantic::LikelyMatch][] = 'name';
         }
 
+        $this->_db[Forum::class][IdentifierSemantic::PerfectMatch] = ['#id'];
+        $this->_db[Forum::class][IdentifierSemantic::LikelyMatch]  = ['title'];
+        $this->_db[Forum::class][IdentifierSemantic::GuessMatch]   = ['%title', '%description'];
+
+        $this->_db[UserGroup::class][IdentifierSemantic::PerfectMatch] = ['#id'];
+        $this->_db[UserGroup::class][IdentifierSemantic::LikelyMatch]  = ['name'];
+        $this->_db[UserGroup::class][IdentifierSemantic::GuessMatch]   = ['%name'];
+
         return $this->_db;
     }
 
@@ -154,6 +179,25 @@ class CommandHelper
                     case User::class:
                         /** @var User $base */
                         return $base->getActiveCitizen() ? $base->getActiveCitizen()->getTown() : null;
+                    case UserGroup::class:
+                        /** @var UserGroup $base */
+                        return $base->getType() === UserGroup::GroupTownInhabitants ? $this->entity_manager->getRepository(Town::class)->find($base->getRef1()) : null;
+                    default: null;
+                }
+            }
+            case Forum::class: {
+                switch (get_class($base)) {
+                    case Town::class:
+                        /** @var Town $base */
+                        return $base->getForum();
+                    default: null;
+                }
+            }
+            case UserGroup::class: {
+                switch (get_class($base)) {
+                    case Town::class:
+                        /** @var Town $base */
+                        return $this->entity_manager->getRepository(UserGroup::class)->findOneBy(['type' => UserGroup::GroupTownInhabitants, 'ref1' => $base->getID()]);
                     default: null;
                 }
             }
