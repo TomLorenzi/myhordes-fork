@@ -179,6 +179,8 @@ class ForumPermissionCommand extends Command
             return 1;
         }
 
+        $new = false;
+
         $perm = $this->entityManager->getRepository(ForumUsagePermissions::class)->findOneBy(['forum' => $forum, 'principalUser' => $user, 'principalGroup' => $group]);
         if ($perm) $output->writeln('Permission object loaded.');
         else {
@@ -189,13 +191,21 @@ class ForumPermissionCommand extends Command
                 ->setPrincipalGroup($group)
                 ->setPermissionsGranted( ForumUsagePermissions::PermissionNone )
                 ->setPermissionsDenied(ForumUsagePermissions::PermissionNone);
+            $new = true;
         }
 
         $perm->setPermissionsGranted( $this->configure_perms($input,$output,$perm->getPermissionsGranted(), false) );
         $perm->setPermissionsDenied( $this->configure_perms($input,$output,$perm->getPermissionsDenied(), true) );
 
-        $this->entityManager->persist($perm);
-        $output->writeln( "Configuring forum permission object to grant <info>{$perm->getPermissionsGranted()}</info> and deny <info>{$perm->getPermissionsDenied()}</info>." );
+        if ($new && $perm->getPermissionsGranted() === ForumUsagePermissions::PermissionNone && $perm->getPermissionsDenied() === ForumUsagePermissions::PermissionNone) {
+            $output->writeln('The new permission object is empty. <info>Therefore, it will not be created!</info>');
+        } elseif ($perm->getPermissionsGranted() === ForumUsagePermissions::PermissionNone && $perm->getPermissionsDenied() === ForumUsagePermissions::PermissionNone) {
+            $output->writeln('The permission object is empty. <info>Therefore, it will be removed!</info>');
+            $this->entityManager->remove($perm);
+        } else {
+            $output->writeln( "Configuring forum permission object to grant <info>{$perm->getPermissionsGranted()}</info> and deny <info>{$perm->getPermissionsDenied()}</info>." );
+            $this->entityManager->persist($perm);
+        }
         $this->entityManager->flush();
 
         return 0;
