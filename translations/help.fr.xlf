@@ -178,7 +178,7 @@
       </notes>
       <segment>
         <source>Der Tod und deine Seelenpunkte</source>
-        <target>La mort des les Points d'âme</target>
+        <target>La mort et les Points d'âme</target>
       </segment>
     </unit>
     <unit id="2I8uzty" name="Der letzte Tod">
@@ -210,7 +210,7 @@
     </unit>
     <unit id="Ln3k6NJ" name="Haus &amp;amp; Hausarbeiten">
       <notes>
-        <note category="german">Haus &amp;amp; Hausarbeiten</note>
+        <note category="german">Haus und Hausarbeiten</note>
       </notes>
       <segment>
         <source>Haus &amp;amp; Hausarbeiten</source>
@@ -1357,7 +1357,7 @@ Pro Zug wird dir 1 Aktionspunkt abgezogen. Bei 0 Punkten bist du %img_tired% &lt
       </notes>
       <segment>
         <source>'MyHordes' ist ein Survivalspiel, das in einer postapokalyptischen Welt voller Untoter spielt.</source>
-        <target>MyHordes est un jeu de survie dans un monde hostile peuplé de zombies.</target>
+        <target>'MyHordes' est un jeu de survie dans un monde hostile peuplé de zombies.</target>
       </segment>
     </unit>
     <unit id="uVaZ_gl" name="Beteilige dich im Forum">

@@ -201,11 +201,11 @@
     </unit>
     <unit id="Ln3k6NJ" name="Haus &amp;amp; Hausarbeiten">
       <notes>
-        <note category="german">Haus &amp;amp; Hausarbeiten</note>
+        <note category="german">Haus und Hausarbeiten</note>
       </notes>
       <segment>
         <source>Haus &amp;amp; Hausarbeiten</source>
-        <target><![CDATA[Haus &amp; Hausarbeiten]]></target>
+        <target><![CDATA[Haus & Hausarbeiten]]></target>
       </segment>
     </unit>
     <unit id="KOB6h9k" name="Ghule">
