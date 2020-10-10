@@ -7,7 +7,7 @@
       </notes>
       <segment>
         <source>Brauchst du Hilfe?</source>
-        <target>Brauchst du Hilfe?</target>
+        <target>Need help ?</target>
       </segment>
     </unit>
     <unit id="VToistk" name="Besuche unsere Technische Supportseite">
@@ -16,7 +16,7 @@
       </notes>
       <segment>
         <source>Besuche unsere Technische Supportseite</source>
-        <target>Besuche unsere Technische Supportseite</target>
+        <target>Consult the technical support site.</target>
       </segment>
     </unit>
     <unit id="OBNp2gg" name="Die Verdammten ?">
@@ -25,7 +25,7 @@
       </notes>
       <segment>
         <source>Die Verdammten ?</source>
-        <target>Die Verdammten ?</target>
+        <target>MyHordes ?</target>
       </segment>
     </unit>
     <unit id="FvwX8Vo" name="Die Außenwelt">
@@ -34,7 +34,7 @@
       </notes>
       <segment>
         <source>Die Außenwelt</source>
-        <target>Die Außenwelt</target>
+        <target>The World Beyond</target>
       </segment>
     </unit>
     <unit id="kaeVl5r" name="Sich bewegen">
@@ -43,7 +43,7 @@
       </notes>
       <segment>
         <source>Sich bewegen</source>
-        <target>Sich bewegen</target>
+        <target>Getting around</target>
       </segment>
     </unit>
     <unit id="L4DksI7" name="Die Karte">
@@ -52,7 +52,7 @@
       </notes>
       <segment>
         <source>Die Karte</source>
-        <target>Die Karte</target>
+        <target>Map</target>
       </segment>
     </unit>
     <unit id="fJO12Rm" name="Erkunden und Graben">
@@ -61,7 +61,7 @@
       </notes>
       <segment>
         <source>Erkunden und Graben</source>
-        <target>Erkunden und Graben</target>
+        <target>Exploring and Scavenging</target>
       </segment>
     </unit>
     <unit id="a1rF75Q" name="Abgesuchte Zonen">
@@ -70,7 +70,7 @@
       </notes>
       <segment>
         <source>Abgesuchte Zonen</source>
-        <target>Abgesuchte Zonen</target>
+        <target>Depleted zones</target>
       </segment>
     </unit>
     <unit id="6PsnUvf" name="Die Kontrollpunkte">
@@ -79,7 +79,7 @@
       </notes>
       <segment>
         <source>Die Kontrollpunkte</source>
-        <target>Die Kontrollpunkte</target>
+        <target>Control Points</target>
       </segment>
     </unit>
     <unit id="q9hh0dv" name="Der Eskortenmodus">
@@ -88,7 +88,7 @@
       </notes>
       <segment>
         <source>Der Eskortenmodus</source>
-        <target>Der Eskortenmodus</target>
+        <target>Escort Mode</target>
       </segment>
     </unit>
     <unit id="QrZuM35" name="Zombies im Freien bekämpfen">
@@ -97,7 +97,7 @@
       </notes>
       <segment>
         <source>Zombies im Freien bekämpfen</source>
-        <target>Zombies im Freien bekämpfen</target>
+        <target>Fighting the Hordes in the World Beyond</target>
       </segment>
     </unit>
     <unit id="8Ld23ql" name="Wildes Campen">
@@ -106,7 +106,7 @@
       </notes>
       <segment>
         <source>Wildes Campen</source>
-        <target>Wildes Campen</target>
+        <target>Extreme camping</target>
       </segment>
     </unit>
     <unit id="_M65l_6" name="Gebäude untersuchen">
@@ -115,7 +115,7 @@
       </notes>
       <segment>
         <source>Gebäude untersuchen</source>
-        <target>Gebäude untersuchen</target>
+        <target>Ruin exploration</target>
       </segment>
     </unit>
     <unit id="zEQcWoH" name="Verlorene Seelen">
@@ -124,7 +124,7 @@
       </notes>
       <segment>
         <source>Verlorene Seelen</source>
-        <target>Verlorene Seelen</target>
+        <target>Lost Souls</target>
       </segment>
     </unit>
     <unit id="C2ciqK3" name="Du">
@@ -133,7 +133,7 @@
       </notes>
       <segment>
         <source>Du</source>
-        <target>Du</target>
+        <target>About You</target>
       </segment>
     </unit>
     <unit id="EF2Sgns" name="Dein Gesundheitszustand">
@@ -142,7 +142,7 @@
       </notes>
       <segment>
         <source>Dein Gesundheitszustand</source>
-        <target>Dein Gesundheitszustand</target>
+        <target>Health</target>
       </segment>
     </unit>
     <unit id="1gKQD7J" name="Inventar">
@@ -151,7 +151,7 @@
       </notes>
       <segment>
         <source>Inventar</source>
-        <target>Inventar</target>
+        <target>Inventory</target>
       </segment>
     </unit>
     <unit id="BNcLxkK" name="Deine Seele">
@@ -160,7 +160,7 @@
       </notes>
       <segment>
         <source>Deine Seele</source>
-        <target>Deine Seele</target>
+        <target>Your Soul</target>
       </segment>
     </unit>
     <unit id="9gv_cn." name="Der Tod und deine Seelenpunkte">
@@ -169,7 +169,7 @@
       </notes>
       <segment>
         <source>Der Tod und deine Seelenpunkte</source>
-        <target>Der Tod und deine Seelenpunkte</target>
+        <target>Death and soul points</target>
       </segment>
     </unit>
     <unit id="2I8uzty" name="Der letzte Tod">
@@ -178,7 +178,7 @@
       </notes>
       <segment>
         <source>Der letzte Tod</source>
-        <target>Der letzte Tod</target>
+        <target>Last Man Standing!</target>
       </segment>
     </unit>
     <unit id="MRhYGUw" name="Heldenmodus">
@@ -187,7 +187,7 @@
       </notes>
       <segment>
         <source>Heldenmodus</source>
-        <target>Heldenmodus</target>
+        <target>Hero mode</target>
       </segment>
     </unit>
     <unit id="JAkgM4Z" name="Kleine Koalitionen">
@@ -196,16 +196,16 @@
       </notes>
       <segment>
         <source>Kleine Koalitionen</source>
-        <target>Kleine Koalitionen</target>
+        <target>Coalitions</target>
       </segment>
     </unit>
     <unit id="Ln3k6NJ" name="Haus &amp;amp; Hausarbeiten">
       <notes>
-        <note category="german">Haus &amp;amp; Hausarbeiten</note>
+        <note category="german">Haus und Hausarbeiten</note>
       </notes>
       <segment>
         <source>Haus &amp;amp; Hausarbeiten</source>
-        <target><![CDATA[Haus &amp; Hausarbeiten]]></target>
+        <target>House and Work</target>
       </segment>
     </unit>
     <unit id="KOB6h9k" name="Ghule">
@@ -214,7 +214,7 @@
       </notes>
       <segment>
         <source>Ghule</source>
-        <target>Ghule</target>
+        <target>Ghouls</target>
       </segment>
     </unit>
     <unit id="t5LJ9KA" name="Die Berufe">
@@ -223,7 +223,7 @@
       </notes>
       <segment>
         <source>Die Berufe</source>
-        <target>Die Berufe</target>
+        <target>Jobs</target>
       </segment>
     </unit>
     <unit id="hlH9eeR" name="Einwohner">
@@ -232,7 +232,7 @@
       </notes>
       <segment>
         <source>Einwohner</source>
-        <target>Einwohner</target>
+        <target>Resident</target>
       </segment>
     </unit>
     <unit id="sBbkqrg" name="Buddler">
@@ -241,7 +241,7 @@
       </notes>
       <segment>
         <source>Buddler</source>
-        <target>Buddler</target>
+        <target>Scavenger</target>
       </segment>
     </unit>
     <unit id="N55mPtD" name="Aufklärer">
@@ -250,7 +250,7 @@
       </notes>
       <segment>
         <source>Aufklärer</source>
-        <target>Aufklärer</target>
+        <target>Scout</target>
       </segment>
     </unit>
     <unit id="aMWLa_K" name="Wächter">
@@ -259,7 +259,7 @@
       </notes>
       <segment>
         <source>Wächter</source>
-        <target>Wächter</target>
+        <target>Guardian</target>
       </segment>
     </unit>
     <unit id="jYiPQYC" name="Einsiedler">
@@ -268,7 +268,7 @@
       </notes>
       <segment>
         <source>Einsiedler</source>
-        <target>Einsiedler</target>
+        <target>Survivalist</target>
       </segment>
     </unit>
     <unit id="l9gYoq8" name="Dompteur">
@@ -277,7 +277,7 @@
       </notes>
       <segment>
         <source>Dompteur</source>
-        <target>Dompteur</target>
+        <target>Tamer</target>
       </segment>
     </unit>
     <unit id="CcGFUIM" name="Techniker">
@@ -286,7 +286,7 @@
       </notes>
       <segment>
         <source>Techniker</source>
-        <target>Techniker</target>
+        <target>Technician</target>
       </segment>
     </unit>
     <unit id="BomjBbe" name="Herzlich willkommen in der Stadt">
@@ -295,7 +295,7 @@
       </notes>
       <segment>
         <source>Herzlich willkommen in der Stadt</source>
-        <target>Herzlich willkommen in der Stadt</target>
+        <target>Welcome to the Town</target>
       </segment>
     </unit>
     <unit id="pq8uFuf" name="Die Gemeinschaft">
@@ -304,7 +304,7 @@
       </notes>
       <segment>
         <source>Die Gemeinschaft</source>
-        <target>Die Gemeinschaft</target>
+        <target>The Community</target>
       </segment>
     </unit>
     <unit id="jBpgLXJ" name="Neue Gebäude bauen">
@@ -313,7 +313,7 @@
       </notes>
       <segment>
         <source>Neue Gebäude bauen</source>
-        <target>Neue Gebäude bauen</target>
+        <target>Constructing New Buildings</target>
       </segment>
     </unit>
     <unit id="iOrKXGN" name="Baupläne">
@@ -322,7 +322,7 @@
       </notes>
       <segment>
         <source>Baupläne</source>
-        <target>Baupläne</target>
+        <target>Blueprints</target>
       </segment>
     </unit>
     <unit id="a67wON3" name="Weiterentwicklung des Tages">
@@ -331,7 +331,7 @@
       </notes>
       <segment>
         <source>Weiterentwicklung des Tages</source>
-        <target>Weiterentwicklung des Tages</target>
+        <target>Daily Upgrades</target>
       </segment>
     </unit>
     <unit id="mVINzuJ" name="Der Angriff der Zombiehorde">
@@ -340,7 +340,7 @@
       </notes>
       <segment>
         <source>Der Angriff der Zombiehorde</source>
-        <target>Der Angriff der Zombiehorde</target>
+        <target>The Attack of the Hordes</target>
       </segment>
     </unit>
     <unit id="CLGNvQz" name="Die Nachtwächter">
@@ -349,7 +349,7 @@
       </notes>
       <segment>
         <source>Die Nachtwächter</source>
-        <target>Die Nachtwächter</target>
+        <target>The Watchmen</target>
       </segment>
     </unit>
     <unit id="kvBwFZL" name="Recht und Gesetz">
@@ -358,7 +358,7 @@
       </notes>
       <segment>
         <source>Recht und Gesetz</source>
-        <target>Recht und Gesetz</target>
+        <target>Crimes and Punishment</target>
       </segment>
     </unit>
     <unit id="HC3UP_X" name="Die Verbannten">
@@ -367,7 +367,7 @@
       </notes>
       <segment>
         <source>Die Verbannten</source>
-        <target>Die Verbannten</target>
+        <target>Shunned Citizens</target>
       </segment>
     </unit>
     <unit id="Xi0f4lt" name="Das Chaos">
@@ -376,7 +376,7 @@
       </notes>
       <segment>
         <source>Das Chaos</source>
-        <target>Das Chaos</target>
+        <target>Chaos</target>
       </segment>
     </unit>
     <unit id="cbIy_th" name="Das Katapult">
@@ -385,7 +385,7 @@
       </notes>
       <segment>
         <source>Das Katapult</source>
-        <target>Das Katapult</target>
+        <target>Catapult</target>
       </segment>
     </unit>
     <unit id="9ee2OqZ" name="Kleine Karten">
@@ -394,7 +394,7 @@
       </notes>
       <segment>
         <source>Kleine Karten</source>
-        <target>Kleine Karten</target>
+        <target>Towns in Non-distant-regions</target>
       </segment>
     </unit>
     <unit id="IdXP_LT" name="Zerstörte Stadt">
@@ -403,7 +403,7 @@
       </notes>
       <segment>
         <source>Zerstörte Stadt</source>
-        <target>Zerstörte Stadt</target>
+        <target>Devastated town</target>
       </segment>
     </unit>
     <unit id="tWsphBt" name="Städte des Pandämoniums">
@@ -412,7 +412,7 @@
       </notes>
       <segment>
         <source>Städte des Pandämoniums</source>
-        <target>Städte des Pandämoniums</target>
+        <target>Hardcore Towns</target>
       </segment>
     </unit>
     <unit id="tnYIPoS" name="Privatstädte">
@@ -421,7 +421,7 @@
       </notes>
       <segment>
         <source>Privatstädte</source>
-        <target>Privatstädte</target>
+        <target>Private towns</target>
       </segment>
     </unit>
     <unit id="KUWPnt." name="Rollenspieloptionen">
@@ -430,7 +430,7 @@
       </notes>
       <segment>
         <source>Rollenspieloptionen</source>
-        <target>Rollenspieloptionen</target>
+        <target>Roleplay options</target>
       </segment>
     </unit>
     <unit id="dyJ1Inc" name="Saisons und Ranglisten">
@@ -457,7 +457,7 @@
       </notes>
       <segment>
         <source>1- Überprüfe deinen Browser</source>
-        <target>1- Überprüfe deinen Browser</target>
+        <target>1- Check my browser</target>
       </segment>
     </unit>
     <unit id="cm9u5KI" name="2- Überprüfe sonstige installierte Programme">
@@ -466,7 +466,7 @@
       </notes>
       <segment>
         <source>2- Überprüfe sonstige installierte Programme</source>
-        <target>2- Überprüfe sonstige installierte Programme</target>
+        <target>2- Check third-party applications</target>
       </segment>
     </unit>
     <unit id="vm9r3tz" name="Hier erhältst du Hilfe">
@@ -475,7 +475,7 @@
       </notes>
       <segment>
         <source>Hier erhältst du Hilfe</source>
-        <target>Hier erhältst du Hilfe</target>
+        <target>Getting help</target>
       </segment>
     </unit>
     <unit id="AuzemM7" name="Wie wähle ich ein sicheres Passwort?">
@@ -484,7 +484,7 @@
       </notes>
       <segment>
         <source>Wie wähle ich ein sicheres Passwort?</source>
-        <target>Wie wähle ich ein sicheres Passwort?</target>
+        <target>Choosing a good password</target>
       </segment>
     </unit>
     <unit id="Uz4L9yI" name="Stadt unter Quarantäne">
@@ -493,7 +493,7 @@
       </notes>
       <segment>
         <source>Stadt unter Quarantäne</source>
-        <target>Stadt unter Quarantäne</target>
+        <target>Quarantined towns</target>
       </segment>
     </unit>
     <unit id="TK7FpSk" name="Fehlverhalten melden">
@@ -502,7 +502,7 @@
       </notes>
       <segment>
         <source>Fehlverhalten melden</source>
-        <target>Fehlverhalten melden</target>
+        <target>I'm annoyed!</target>
       </segment>
     </unit>
     <unit id="rgL81Rn" name="Zum Thema 'Sitting'...">
@@ -511,7 +511,7 @@
       </notes>
       <segment>
         <source>Zum Thema 'Sitting'...</source>
-        <target>Zum Thema 'Sitting'...</target>
+        <target>About 'account-sitting'</target>
       </segment>
     </unit>
     <unit id="T8fo4q1" name="Externe Webseiten und Anwendungen">
@@ -520,7 +520,7 @@
       </notes>
       <segment>
         <source>Externe Webseiten und Anwendungen</source>
-        <target>Externe Webseiten und Anwendungen</target>
+        <target>Use of external sites</target>
       </segment>
     </unit>
     <unit id="QZSZXLb" name="Spielanleitung">
@@ -529,7 +529,7 @@
       </notes>
       <segment>
         <source>Spielanleitung</source>
-        <target>Spielanleitung</target>
+        <target>Game Guide</target>
       </segment>
     </unit>
     <unit id="ztIX9Q7" name="Nachts">
@@ -538,7 +538,7 @@
       </notes>
       <segment>
         <source>Nachts</source>
-        <target>Nachts</target>
+        <target>The Night</target>
       </segment>
     </unit>
     <unit id="6I1t0iJ" name="Die Rollen">
@@ -547,7 +547,7 @@
       </notes>
       <segment>
         <source>Die Rollen</source>
-        <target>Die Rollen</target>
+        <target>Town Roles</target>
       </segment>
     </unit>
     <unit id="dymWtZP" name="Shamane">
@@ -556,7 +556,7 @@
       </notes>
       <segment>
         <source>Shamane</source>
-        <target>Shamane</target>
+        <target>Shaman</target>
       </segment>
     </unit>
     <unit id="EiBn7Mx" name="Der Reiseleiter in der Außenwelt">
@@ -574,7 +574,7 @@
       </notes>
       <segment>
         <source>Die Spieler (auch "Bürger" genannt) leben in kleinen Städten und müssen sich jeden Tag aufs Neue organisieren und eine Strategie finden, um die nächtlichen Zombieangriffe erfolgreich abzuwehren. Je länger sie dabei überleben, desto mehr Punkte können sie sammeln. &lt;strong&gt;Der Tod ist ein fester Bestandteil des Spiels. Alle Stadteinwohner wissen vom ersten Tag an, dass sie sterben werden. Die Frage ist nur wie und wann... &lt;/strong&gt;. Als ob das nicht genug wäre, sind die Spieler dazu verdammt, nach ihrem Tod in einer anderen Stadt wiedergeboren zu werden und das Spiel beginnt wieder von vorn...</source>
-        <target><![CDATA[Die Spieler (auch "Bürger" genannt) leben in kleinen Städten und müssen sich jeden Tag aufs Neue organisieren und eine Strategie finden, um die nächtlichen Zombieangriffe erfolgreich abzuwehren. Je länger sie dabei überleben, desto mehr Punkte können sie sammeln. <strong>Der Tod ist ein fester Bestandteil des Spiels. Alle Stadteinwohner wissen vom ersten Tag an, dass sie sterben werden. Die Frage ist nur wie und wann... </strong>. Als ob das nicht genug wäre, sind die Spieler dazu verdammt, nach ihrem Tod in einer anderen Stadt wiedergeboren zu werden und das Spiel beginnt wieder von vorn...]]></target>
+        <target><![CDATA[The players (or citizens) are divided into groups and are allocated a small town where they must organise themselves each day in such a way as to survive as long as possible against these beings. <strong>The last remaining survivor will become the Hero of the town</strong>]]></target>
       </segment>
     </unit>
     <unit id="kiRQ28V" name="Ziel Nr.1: Erkundungen">
@@ -583,7 +583,7 @@
       </notes>
       <segment>
         <source>Ziel Nr.1: Erkundungen</source>
-        <target>Ziel Nr.1: Erkundungen</target>
+        <target>Objective n°1: Explore and equip</target>
       </segment>
     </unit>
     <unit id="Ty6GPyz" name="3947934">
@@ -592,7 +592,7 @@
       </notes>
       <segment>
         <source>Während des Tages verlassen die Bürger ihre schützenden Städte, um die &lt;strong&gt;Außenwelt&lt;/strong&gt; zu erkunden. In der Wüste können sie durch Graben allerlei Waffen, Baumaterialien und Nahrung finden.</source>
-        <target><![CDATA[Während des Tages verlassen die Bürger ihre schützenden Städte, um die <strong>Außenwelt</strong> zu erkunden. In der Wüste können sie durch Graben allerlei Waffen, Baumaterialien und Nahrung finden.]]></target>
+        <target><![CDATA[During the day, citizens can leave the relative safety of the town to explore the desolate wastelands of the <strong>World Beyond</strong> to find weapons, materials and food.]]></target>
       </segment>
     </unit>
     <unit id="9phHYef" name="Ziel Nr.2: Zombieangriffe überleben">
@@ -601,7 +601,7 @@
       </notes>
       <segment>
         <source>Ziel Nr.2: Zombieangriffe überleben</source>
-        <target>Ziel Nr.2: Zombieangriffe überleben</target>
+        <target>Objective n°2: Defend against the hordes</target>
       </segment>
     </unit>
     <unit id="tmcnTX3" name="7fe1c23">
@@ -610,7 +610,7 @@
       </notes>
       <segment>
         <source>Jeden Tag um Mitternacht greift eine Zombiehorde die Stadt an. Die in der Wüste gefundenen Gegenstände wurden im Idealfall dazu benutzt, Verteidigungsanlagen zu bauen und die Häuser zu verbessern.</source>
-        <target>Jeden Tag um Mitternacht greift eine Zombiehorde die Stadt an. Die in der Wüste gefundenen Gegenstände wurden im Idealfall dazu benutzt, Verteidigungsanlagen zu bauen und die Häuser zu verbessern.</target>
+        <target>Every day at 23h00 (server time), the hordes of living-dead attack the town! Objects found during the day can be used to build defences and protect your home.</target>
       </segment>
     </unit>
     <unit id="PX_pHFS" name="Ziel Nr.3: Sich gegenseitig helfen und überleben...">
@@ -619,7 +619,7 @@
       </notes>
       <segment>
         <source>Ziel Nr.3: Sich gegenseitig helfen und überleben...</source>
-        <target>Ziel Nr.3: Sich gegenseitig helfen und überleben...</target>
+        <target>Objective n°3: Help one another and survive...</target>
       </segment>
     </unit>
     <unit id="Itk0eeK" name="264a4b4">
@@ -628,7 +628,7 @@
       </notes>
       <segment>
         <source>Alle gefundenen Gegenstände können mit anderen Spielern geteilt werden. Vielleicht besitzt dein Nachbar ja genau die Schraube, die dir für deine Kettensäge noch fehlt. Dein Überleben hängt im entscheidendem Maße davon ab, wie gut die Kooperation und Organisation in deiner Stadt funktioniert. Das Hauptkommunikationsmittel ist ein stadtinternes Forum.</source>
-        <target>Alle gefundenen Gegenstände können mit anderen Spielern geteilt werden. Vielleicht besitzt dein Nachbar ja genau die Schraube, die dir für deine Kettensäge noch fehlt. Dein Überleben hängt im entscheidendem Maße davon ab, wie gut die Kooperation und Organisation in deiner Stadt funktioniert. Das Hauptkommunikationsmittel ist ein stadtinternes Forum.</target>
+        <target>Objects and materials found by the citizens can be shared. Maybe your neighbour found the screw you need to fix your chainsaw? Your survival depends on your ability to organise yourself and make the most of the community's resources...</target>
       </segment>
     </unit>
     <unit id="YjauAVu" name="Welche Aufgaben muss ich tagtäglich erledigen?">
@@ -637,7 +637,7 @@
       </notes>
       <segment>
         <source>Welche Aufgaben muss ich tagtäglich erledigen?</source>
-        <target>Welche Aufgaben muss ich tagtäglich erledigen?</target>
+        <target>What should I be doing each day?</target>
       </segment>
     </unit>
     <unit id="KGODA_M" name="In 'Die Verdammten' musst du jeden Tag mehrere Aufgaben erledigen.">
@@ -646,7 +646,7 @@
       </notes>
       <segment>
         <source>In 'Die Verdammten' musst du jeden Tag mehrere Aufgaben erledigen.</source>
-        <target>In 'Die Verdammten' musst du jeden Tag mehrere Aufgaben erledigen.</target>
+        <target>There are several tasks to carry out each day in MyHordes.</target>
       </segment>
     </unit>
     <unit id="6umuhqS" name="Die Zeitung lesen">
@@ -655,7 +655,7 @@
       </notes>
       <segment>
         <source>Die Zeitung lesen</source>
-        <target>Die Zeitung lesen</target>
+        <target>Read the newspaper</target>
       </segment>
     </unit>
     <unit id="f14Qoff" name="Die wichtigsten Informationen findest du jeden Tag druckfrisch hier!">
@@ -664,7 +664,7 @@
       </notes>
       <segment>
         <source>Die wichtigsten Informationen findest du jeden Tag druckfrisch hier!</source>
-        <target>Die wichtigsten Informationen findest du jeden Tag druckfrisch hier!</target>
+        <target>It will give you a rundown of yesterday's events!</target>
       </segment>
     </unit>
     <unit id="cqY1JTZ" name="Wasser entnehmen">
@@ -673,7 +673,7 @@
       </notes>
       <segment>
         <source>Wasser entnehmen</source>
-        <target>Wasser entnehmen</target>
+        <target>Collect your water ration from the well</target>
       </segment>
     </unit>
     <unit id="WIyTL.r" name="Ohne Wasser stirbst du.">
@@ -682,7 +682,7 @@
       </notes>
       <segment>
         <source>Ohne Wasser stirbst du.</source>
-        <target>Ohne Wasser stirbst du.</target>
+        <target>You can't live without it.</target>
       </segment>
     </unit>
     <unit id="1US5NkZ" name="Die Außenwelt erkunden">
@@ -691,7 +691,7 @@
       </notes>
       <segment>
         <source>Die Außenwelt erkunden</source>
-        <target>Die Außenwelt erkunden</target>
+        <target>Explore the World Beyond</target>
       </segment>
     </unit>
     <unit id="KEE4jQS" name="Grabe in der Wüste und sammle nützliche Gegenstände ein.">
@@ -700,7 +700,7 @@
       </notes>
       <segment>
         <source>Grabe in der Wüste und sammle nützliche Gegenstände ein.</source>
-        <target>Grabe in der Wüste und sammle nützliche Gegenstände ein.</target>
+        <target>Go scavenging in the desert and bring back any useful objects.</target>
       </segment>
     </unit>
     <unit id="kUTLK_h" name="Auf den Baustellen mithelfen">
@@ -709,7 +709,7 @@
       </notes>
       <segment>
         <source>Auf den Baustellen mithelfen</source>
-        <target>Auf den Baustellen mithelfen</target>
+        <target>Participate in construction projects</target>
       </segment>
     </unit>
     <unit id="bOiwmPy" name="Wähle das Gebäude aus, welches die Stadt als nächstes bauen soll.">
@@ -727,7 +727,7 @@
       </notes>
       <segment>
         <source>Weiter</source>
-        <target>Weiter</target>
+        <target>Next</target>
       </segment>
     </unit>
     <unit id="jDfhi6M" name="0fdb9c5">
@@ -736,7 +736,7 @@
       </notes>
       <segment>
         <source>Außerhalb der Stadt dehnt sich, soweit das Auge reicht, eine riesige Wüste aus. Sie wird von den Bürgern auch "Außenwelt" genannt.</source>
-        <target>Außerhalb der Stadt dehnt sich, soweit das Auge reicht, eine riesige Wüste aus. Sie wird von den Bürgern auch "Außenwelt" genannt.</target>
+        <target>The World beyond is the desert which surrounds the town and stretches as far as the eye can see.</target>
       </segment>
     </unit>
     <unit id="bUYL11a" name="In dieser gefährlichen Gegend findest du alles, was du zum Überleben brauchst.">
@@ -745,7 +745,7 @@
       </notes>
       <segment>
         <source>In dieser gefährlichen Gegend findest du alles, was du zum Überleben brauchst.</source>
-        <target>In dieser gefährlichen Gegend findest du alles, was du zum Überleben brauchst.</target>
+        <target>Paradoxically, it is a place which is dangerous but at the same time essential for survival.</target>
       </segment>
     </unit>
     <unit id="axtPo.U" name="d164912">
@@ -754,7 +754,7 @@
       </notes>
       <segment>
         <source>Wenn die Einwohner in ihren Häusern bleiben, werden sie eher früher als später von den Zombies überrannt und sterben. Deshalb ist es wichtig, die Stadt zu verlassen, um Baumaterialien, Waffen und Nahrung zu finden.</source>
-        <target>Wenn die Einwohner in ihren Häusern bleiben, werden sie eher früher als später von den Zombies überrannt und sterben. Deshalb ist es wichtig, die Stadt zu verlassen, um Baumaterialien, Waffen und Nahrung zu finden.</target>
+        <target>If the humans shut themselves away in their town, they will soon be overrun by zombie hordes and perish. They must gather items to improve their daily life and defend themselves. It is essential to go outside the town to find these objects and materials.</target>
       </segment>
     </unit>
     <unit id="gx15wYF" name="Wie kann man in die Außenwelt gehen?">
@@ -763,7 +763,7 @@
       </notes>
       <segment>
         <source>Wie kann man in die Außenwelt gehen?</source>
-        <target>Wie kann man in die Außenwelt gehen?</target>
+        <target>How to get to the World Beyond?</target>
       </segment>
     </unit>
     <unit id="7xGg.TI" name="7242c20">
@@ -772,7 +772,7 @@
       </notes>
       <segment>
         <source>Um in die Außenwelt zu treten, musst du dich zum &lt;strong&gt;Stadttor&lt;/strong&gt; begeben und es aufmachen... Doch aufgepasst! Bevor du die Stadt verlässt, solltest du folgendes beachten:</source>
-        <target><![CDATA[Um in die Außenwelt zu treten, musst du dich zum <strong>Stadttor</strong> begeben und es aufmachen... Doch aufgepasst! Bevor du die Stadt verlässt, solltest du folgendes beachten:]]></target>
+        <target><![CDATA[To visit the World Beyond, go to the <strong>Town Gates</strong> section... open the gates and proceed with extreme caution! Remember the following 3 rules:]]></target>
       </segment>
     </unit>
     <unit id="hJ9V9EY" name="Nimm &lt;strong&gt;Nahrung&lt;/strong&gt; oder &lt;strong&gt;Wasser&lt;/strong&gt; mit.">
@@ -781,7 +781,7 @@
       </notes>
       <segment>
         <source>Nimm &lt;strong&gt;Nahrung&lt;/strong&gt; oder &lt;strong&gt;Wasser&lt;/strong&gt; mit.</source>
-        <target><![CDATA[Nimm <strong>Nahrung</strong> oder <strong>Wasser</strong> mit.]]></target>
+        <target><![CDATA[Take <strong>food</strong> or <strong>water</strong> with you.]]></target>
       </segment>
     </unit>
     <unit id="iZkIKR6" name="d79c87d">
@@ -790,7 +790,7 @@
       </notes>
       <segment>
         <source>Kehre &lt;strong&gt;vor Mitternacht&lt;/strong&gt; wieder heim oder du wirst von den Zombies gefressen...</source>
-        <target><![CDATA[Kehre <strong>vor Mitternacht</strong> wieder heim oder du wirst von den Zombies gefressen...]]></target>
+        <target><![CDATA[Always ensure you are back inside the gates <strong>before 23h00 (server time)</strong> (or you will be devoured by the Hordes...)]]></target>
       </segment>
     </unit>
     <unit id="hCNQJ1g" name="51ae16e">
@@ -799,7 +799,7 @@
       </notes>
       <segment>
         <source>Mache in der Nacht wieder das Stadttor zu, sonst erlebst du eine böse Überraschung...</source>
-        <target>Mache in der Nacht wieder das Stadttor zu, sonst erlebst du eine böse Überraschung...</target>
+        <target>Close the town gates before 23h00 (server time), or the zombies will rush into the town and wreak havoc on the citizens...</target>
       </segment>
     </unit>
     <unit id="IU7M5.G" name="Aktionspunkte und Erschöpfung">
@@ -808,7 +808,7 @@
       </notes>
       <segment>
         <source>Aktionspunkte und Erschöpfung</source>
-        <target>Aktionspunkte und Erschöpfung</target>
+        <target>Action Points and Exhaustion</target>
       </segment>
     </unit>
     <unit id="bTdJb_Y" name="71b2959">
@@ -817,7 +817,7 @@
       </notes>
       <segment>
         <source>Deine Aktionspunkte werden oben rechts neben dem Hilfsbutton angezeigt. Du kannst deine &lt;strong&gt;Erschöpfung überwinden&lt;/strong&gt; und deine Aktionspunkte durch eine der folgenden Aktionen wieder &lt;strong&gt;auffüllen&lt;/strong&gt;:</source>
-        <target><![CDATA[Deine Aktionspunkte werden oben rechts neben dem Hilfsbutton angezeigt. Du kannst deine <strong>Erschöpfung überwinden</strong> und deine Aktionspunkte durch eine der folgenden Aktionen wieder <strong>auffüllen</strong>:]]></target>
+        <target><![CDATA[Your action points are shown at the top of the page, near the Help button. You can <strong>alleviate exhaustion</strong> and <strong>recover your action points</strong> in several ways:]]></target>
       </segment>
     </unit>
     <unit id="ghVrDw1" name="Wasser trinken (1 Mal pro Tag möglich)">
@@ -826,7 +826,7 @@
       </notes>
       <segment>
         <source>Wasser trinken (1 Mal pro Tag möglich)</source>
-        <target>Wasser trinken (1 Mal pro Tag möglich)</target>
+        <target>drinking water (Once per day)</target>
       </segment>
     </unit>
     <unit id="cj5diCF" name="Essen (1 Mal pro Tag möglich)">
@@ -835,7 +835,7 @@
       </notes>
       <segment>
         <source>Essen (1 Mal pro Tag möglich)</source>
-        <target>Essen (1 Mal pro Tag möglich)</target>
+        <target>eating (Once per day)</target>
       </segment>
     </unit>
     <unit id="XuY5gcP" name="Drogen nehmen (Vorsicht: Du wirst sehr schnell abhängig!)">
@@ -844,7 +844,7 @@
       </notes>
       <segment>
         <source>Drogen nehmen (Vorsicht: Du wirst sehr schnell abhängig!)</source>
-        <target>Drogen nehmen (Vorsicht: Du wirst sehr schnell abhängig!)</target>
+        <target> taking drugs (Unlimited, but beware: It's very easy to get hooked!)</target>
       </segment>
     </unit>
     <unit id="KKt55ah" name="90f1a78">
@@ -853,7 +853,7 @@
       </notes>
       <segment>
         <source>Darüber hinaus gibt es noch weitere Methoden, um seine Aktionspunkte wieder aufzufüllen (manche sind durchaus gefährlich!)... Finde es am besten selbst heraus.</source>
-        <target>Darüber hinaus gibt es noch weitere Methoden, um seine Aktionspunkte wieder aufzufüllen (manche sind durchaus gefährlich!)... Finde es am besten selbst heraus.</target>
+        <target>There are other more unusual (and sometimes dangerous!) methods but you'll have to discover them for yourself...</target>
       </segment>
     </unit>
     <unit id="1ZAcbNG" name="Du hast keine Aktionspunkte mehr?">
@@ -862,7 +862,7 @@
       </notes>
       <segment>
         <source>Du hast keine Aktionspunkte mehr?</source>
-        <target>Du hast keine Aktionspunkte mehr?</target>
+        <target>Run out of action points?</target>
       </segment>
     </unit>
     <unit id="KRu9j0q" name="cceb5aa">
@@ -871,7 +871,7 @@
       </notes>
       <segment>
         <source>Bete, dass ein anderer Spieler bei dir vorbeikommt und dir eine Stärkung da lässt... Im Zweifelsfall ist es besser, im Forum um Hilfe zu bitten (der Link befindet sich oben links).</source>
-        <target>Bete, dass ein anderer Spieler bei dir vorbeikommt und dir eine Stärkung da lässt... Im Zweifelsfall ist es besser, im Forum um Hilfe zu bitten (der Link befindet sich oben links).</target>
+        <target>Pray that a citizen passes by and leaves you a little something to get you going again... If you're in doubt, call for help on the forum (the link is at the top left of the page)</target>
       </segment>
     </unit>
     <unit id="PDHtzSM" name="03d7b7a">
@@ -882,8 +882,7 @@ Im Schnelldurchlauf lässt du die schönen und unschönen Momente deines kurzen 
       <segment>
         <source>Die Stunde des Angriffs rückt näher und näher... Du kannst noch so viel in dein Funkgerät schreien, es wird niemand mehr kommen...
 Im Schnelldurchlauf lässt du die schönen und unschönen Momente deines kurzen Lebens noch einmal Revue passieren... Wer weiß, vielleicht hast du schon morgen selbst Appetit auf Menschenfleisch?</source>
-        <target>Die Stunde des Angriffs rückt näher und näher... Du kannst noch so viel in dein Funkgerät schreien, es wird niemand mehr kommen...
-Im Schnelldurchlauf lässt du die schönen und unschönen Momente deines kurzen Lebens noch einmal Revue passieren... Wer weiß, vielleicht hast du schon morgen selbst Appetit auf Menschenfleisch?</target>
+        <target>The time for the Horde to attack is nigh... You have cried in vain on the intercom: nobody has come to save you... Your short life starts to flash before your eyes... Who knows, maybe tomorrow you'll wake up craving human flesh...</target>
       </segment>
     </unit>
     <unit id="kH_n4fp" name="Standortansicht">
@@ -1152,8 +1151,7 @@ Pro Zug wird dir 1 Aktionspunkt abgezogen. Bei 0 Punkten bist du %img_tired% &lt
       <segment>
         <source>Solange du genügend %img_ap% &lt;strong&gt;Aktionspunkte&lt;/strong&gt; besitzt, kannst du dich in der Außenwelt bewegen:
 Pro Zug wird dir 1 Aktionspunkt abgezogen. Bei 0 Punkten bist du %img_tired% &lt;strong&gt;Erschöpft&lt;/strong&gt; und kannst dich nicht mehr bewegen.</source>
-        <target><![CDATA[Solange du genügend %img_ap% <strong>Aktionspunkte</strong> besitzt, kannst du dich in der Außenwelt bewegen:
-Pro Zug wird dir 1 Aktionspunkt abgezogen. Bei 0 Punkten bist du %img_tired% <strong>Erschöpft</strong> und kannst dich nicht mehr bewegen.]]></target>
+        <target><![CDATA[You can move around the World Beyond for as long as you have %img_ap% <strong>Action Points</strong> remaining: each movement costs 1 action point. When you reach 0 points, you will become %img_tired% <strong>Exhausted</strong> and will no longer be able to move.]]></target>
       </segment>
     </unit>
     <unit id="rTyffgm" name="MyHordes?">
@@ -1162,7 +1160,7 @@ Pro Zug wird dir 1 Aktionspunkt abgezogen. Bei 0 Punkten bist du %img_tired% <st
       </notes>
       <segment>
         <source>MyHordes?</source>
-        <target>MyHordes?</target>
+        <target>MyHordes ?</target>
       </segment>
     </unit>
     <unit id="THFtKTb" name="2547bd8">
@@ -1441,7 +1439,7 @@ Pro Zug wird dir 1 Aktionspunkt abgezogen. Bei 0 Punkten bist du %img_tired% <st
       </notes>
       <segment>
         <source>'MyHordes' ist ein Survivalspiel, das in einer postapokalyptischen Welt voller Untoter spielt.</source>
-        <target>'MyHordes' ist ein Survivalspiel, das in einer postapokalyptischen Welt voller Untoter spielt.</target>
+        <target>'MyHordes' is a game of survival set in a hostile world inhabited by the living dead.</target>
       </segment>
     </unit>
     <unit id="uVaZ_gl" name="Beteilige dich im Forum">
@@ -1450,7 +1448,7 @@ Pro Zug wird dir 1 Aktionspunkt abgezogen. Bei 0 Punkten bist du %img_tired% <st
       </notes>
       <segment>
         <source>Beteilige dich im Forum</source>
-        <target>Beteilige dich im Forum</target>
+        <target>Get active on the town forum</target>
       </segment>
     </unit>
     <unit id="vZ7tlqi" name="Organisiert euch, um zu überleben.">
@@ -1459,7 +1457,7 @@ Pro Zug wird dir 1 Aktionspunkt abgezogen. Bei 0 Punkten bist du %img_tired% <st
       </notes>
       <segment>
         <source>Organisiert euch, um zu überleben.</source>
-        <target>Organisiert euch, um zu überleben.</target>
+        <target>organise yourselves and survive.</target>
       </segment>
     </unit>
     <unit id="FMm6m0B" name="47e9343">
