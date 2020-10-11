@@ -12,6 +12,7 @@ use App\Entity\Picto;
 use App\Entity\Town;
 use App\Entity\TownClass;
 use App\Entity\User;
+use App\Entity\UserGroup;
 use App\Entity\UserPendingValidation;
 use DateTime;
 use Doctrine\ORM\EntityManagerInterface;
@@ -30,6 +31,7 @@ class UserFactory
     private $url;
     private $twig;
     private $trans;
+    private $perm;
 
     const ErrorNone = 0;
     const ErrorUserExists        = ErrorHelper::BaseUserErrors + 1;
@@ -39,7 +41,8 @@ class UserFactory
     const ErrorValidationExists  = ErrorHelper::BaseUserErrors + 5;
 
     public function __construct( EntityManagerInterface $em, UserPasswordEncoderInterface $passwordEncoder,
-                                 Locksmith $l, UrlGeneratorInterface $url, Environment $e, TranslatorInterface $t)
+                                 Locksmith $l, UrlGeneratorInterface $url, Environment $e, TranslatorInterface $t,
+                                 PermissionHandler $p)
     {
         $this->entity_manager = $em;
         $this->encoder = $passwordEncoder;
@@ -47,6 +50,7 @@ class UserFactory
         $this->url = $url;
         $this->twig = $e;
         $this->trans = $t;
+        $this->perm = $p;
     }
 
     public function resetUserPassword( string $email, string $validation_key, string $password, ?int &$error ): ?User {
@@ -148,6 +152,7 @@ class UserFactory
 
         if (!$validated)
             $this->announceValidationToken( $this->ensureValidation( $new_user, UserPendingValidation::EMailValidation ) );
+        else $this->perm->associate($new_user, $this->perm->getDefaultGroup( UserGroup::GroupTypeDefaultUserGroup ));
 
         return $new_user;
     }
@@ -173,6 +178,7 @@ class UserFactory
 
         try {
             $user->setValidated( true );
+            $this->perm->associate( $user, $this->perm->getDefaultGroup( UserGroup::GroupTypeDefaultUserGroup ) );
             $this->entity_manager->persist( $user );
             $this->entity_manager->remove( $pending );
             $this->entity_manager->flush();

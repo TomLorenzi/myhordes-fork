@@ -42,7 +42,6 @@
          */
         public function api_xml(): Response {
             $request = Request::createFromGlobals();
-            $this->request = $request;
 
             // Try POST data
             $app_key = $request->query->get('appkey');
@@ -117,7 +116,7 @@
                 'hordes' => [
                     'headers' => [
                         'attributes' => [
-                            'link' => $this->request->getRequestUri(),
+                            'link' => Request::createFromGlobals()->getRequestUri(),
                             'iconurl' => '',
                             'avatarurl' => '',
                             'secure' => 0,

@@ -14,6 +14,7 @@ use App\Entity\PictoPrototype;
 use App\Entity\RuinZone;
 use App\Entity\Soul;
 use App\Entity\TownRankingProxy;
+use App\Entity\UserGroup;
 use App\Structures\TownConf;
 use Doctrine\ORM\EntityManagerInterface;
 
@@ -29,10 +30,12 @@ class DeathHandler
     private $log;
     private $random_generator;
     private $conf;
-
+    private $perm;
 
     public function __construct(
-        EntityManagerInterface $em, StatusFactory $sf, ZoneHandler $zh, InventoryHandler $ih, CitizenHandler $ch, ItemFactory $if, LogTemplateHandler $lt, PictoHandler $ph, RandomGenerator $rg, ConfMaster $conf)
+        EntityManagerInterface $em, StatusFactory $sf, ZoneHandler $zh, InventoryHandler $ih, CitizenHandler $ch,
+        ItemFactory $if, LogTemplateHandler $lt, PictoHandler $ph, RandomGenerator $rg, ConfMaster $conf,
+        PermissionHandler $perm)
     {
         $this->entity_manager = $em;
         $this->status_factory = $sf;
@@ -44,6 +47,7 @@ class DeathHandler
         $this->log = $lt;
         $this->random_generator = $rg;
         $this->conf = $conf;
+        $this->perm = $perm;
     }
 
     /**
@@ -229,6 +233,9 @@ class DeathHandler
 
         CitizenRankingProxy::fromCitizen( $citizen, true );
         TownRankingProxy::fromTown( $citizen->getTown(), true );
+
+        $town_group = $this->entity_manager->getRepository(UserGroup::class)->findOneBy( ['type' => UserGroup::GroupTownInhabitants, 'ref1' => $citizen->getTown()->getId()] );
+        if ($town_group) $this->perm->disassociate( $citizen->getUser(), $town_group );
 
         if ($handle_em) foreach ($remove as $r) $this->entity_manager->remove($r);
         // If the town is not small AND the souls are enabled, spawn a soul

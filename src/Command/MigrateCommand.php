@@ -10,6 +10,8 @@ use App\Entity\Citizen;
 use App\Entity\CitizenProfession;
 use App\Entity\CitizenRankingProxy;
 use App\Entity\CitizenStatus;
+use App\Entity\Forum;
+use App\Entity\ForumUsagePermissions;
 use App\Entity\HeroicActionPrototype;
 use App\Entity\Item;
 use App\Entity\Picto;
@@ -17,6 +19,7 @@ use App\Entity\Town;
 use App\Entity\TownLogEntry;
 use App\Entity\TownRankingProxy;
 use App\Entity\User;
+use App\Entity\UserGroup;
 use App\Entity\Zone;
 use App\Entity\ZonePrototype;
 use App\Entity\ZoneTag;
@@ -25,7 +28,9 @@ use App\Service\ConfMaster;
 use App\Service\GameFactory;
 use App\Service\InventoryHandler;
 use App\Service\MazeMaker;
+use App\Service\PermissionHandler;
 use App\Service\RandomGenerator;
+use App\Service\UserHandler;
 use App\Structures\TownConf;
 use Doctrine\ORM\EntityManagerInterface;
 use Exception;
@@ -55,10 +60,12 @@ class MigrateCommand extends Command
     private $conf;
     private $maze;
     private $param;
+    private $user_handler;
+    private $perm;
 
     public function __construct(KernelInterface $kernel, GameFactory $gf, EntityManagerInterface $em,
                                 RandomGenerator $rg, CitizenHandler $ch, InventoryHandler $ih, ConfMaster $conf,
-                                MazeMaker $maze, ParameterBagInterface $params)
+                                MazeMaker $maze, ParameterBagInterface $params, UserHandler $uh, PermissionHandler $p)
     {
         $this->kernel = $kernel;
 
@@ -70,6 +77,8 @@ class MigrateCommand extends Command
         $this->conf = $conf;
         $this->maze = $maze;
         $this->param = $params;
+        $this->user_handler = $uh;
+        $this->perm = $p;
 
         parent::__construct();
     }
@@ -105,6 +114,8 @@ class MigrateCommand extends Command
             ->addOption('update-ranking-entries', null, InputOption::VALUE_NONE, 'Update ranking values')
             ->addOption('update-shaman-immune', null, InputOption::VALUE_NONE, 'Changes status tg_immune to tg_shaman_immune')
             ->addOption('place-explorables', null, InputOption::VALUE_NONE, 'Adds explorable ruins to all towns')
+
+            ->addOption('repair-permissions', null, InputOption::VALUE_NONE, 'Makes sure forum permissions and user groups are set up properly')
         ;
     }
 
@@ -515,6 +526,99 @@ class MigrateCommand extends Command
 
         }
 
+
+        if ($input->getOption('repair-permissions')) {
+
+            $fun_assoc = function (User $user, UserGroup $group) use ($output) {
+                if (!$this->perm->userInGroup( $user, $group )) {
+                    $output->writeln("Adding <info>{$user->getUsername()}</info> to group <info>{$group->getName()}</info>");
+                    $this->perm->associate( $user, $group );
+                }
+            };
+
+            $fun_dis_assoc = function (User $user, UserGroup $group) use ($output) {
+                if ($this->perm->userInGroup( $user, $group )) {
+                    $output->writeln("Removing <info>{$user->getUsername()}</info> from group <info>{$group->getName()}</info>");
+                    $this->perm->disassociate( $user, $group );
+                }
+            };
+
+            $fun_permissions = function( ?Forum $forum, UserGroup $group, int $grant = ForumUsagePermissions::PermissionReadWrite, int $deny = ForumUsagePermissions::PermissionNone) use ($output) {
+                $po = $this->entity_manager->getRepository(ForumUsagePermissions::class)->findOneBy(['principalUser' => null, 'forum' => $forum, 'principalGroup' => $group]);
+                if (!$po) {
+                    if ($forum)
+                        $output->writeln("Creating group <info>{$group->getName()}</info> permission object for forum <info>{$forum->getTitle()}</info>: <comment>[+{$grant} | -{$deny}]</comment>");
+                    else $output->writeln("Creating group <info>{$group->getName()}</info> default permission object: <comment>[+{$grant} | -{$deny}]</comment>");
+                    $this->entity_manager->persist( (new ForumUsagePermissions())->setForum($forum)->setPrincipalGroup($group)->setPermissionsGranted($grant)->setPermissionsDenied($deny) );
+                } elseif ($po->getPermissionsGranted() !== $grant || $po->getPermissionsDenied() !== $deny) {
+                    if ($forum)
+                        $output->writeln("Resetting group <info>{$group->getName()}</info> permission object for forum <info>{$forum->getTitle()}</info>: <comment>[+{$grant} | -{$deny}]</comment>");
+                    else $output->writeln("Resetting group <info>{$group->getName()}</info> default permission object: <comment>[+{$grant} | -{$deny}]</comment>");
+                    $this->entity_manager->persist( $po->setPermissionsGranted($grant)->setPermissionsDenied($deny) );
+                }
+            };
+
+            $g_users  = $this->entity_manager->getRepository(UserGroup::class)->findOneBy(['type' => UserGroup::GroupTypeDefaultUserGroup]);
+            $g_elev   = $this->entity_manager->getRepository(UserGroup::class)->findOneBy(['type' => UserGroup::GroupTypeDefaultElevatedGroup]);
+            $g_oracle = $this->entity_manager->getRepository(UserGroup::class)->findOneBy(['type' => UserGroup::GroupTypeDefaultOracleGroup]);
+            $g_mods   = $this->entity_manager->getRepository(UserGroup::class)->findOneBy(['type' => UserGroup::GroupTypeDefaultModeratorGroup]);
+            $g_admin  = $this->entity_manager->getRepository(UserGroup::class)->findOneBy(['type' => UserGroup::GroupTypeDefaultAdminGroup]);
+
+            // Fix group associations
+            $all_users = $this->entity_manager->getRepository(User::class)->findAll();
+            foreach ($all_users as $current_user) {
+
+                if ($current_user->getValidated()) $fun_assoc($current_user, $g_users); else $fun_dis_assoc($current_user, $g_users);
+                if ($current_user->getRightsElevation() > User::ROLE_USER) $fun_assoc($current_user, $g_elev); else $fun_dis_assoc($current_user, $g_elev);
+                if ($this->user_handler->hasRole($current_user, "ROLE_ORACLE")) $fun_assoc($current_user, $g_oracle); else $fun_dis_assoc($current_user, $g_oracle);
+                if ($this->user_handler->hasRole($current_user, "ROLE_CROW"))   $fun_assoc($current_user, $g_mods); else $fun_dis_assoc($current_user, $g_mods);
+                if ($this->user_handler->hasRole($current_user, "ROLE_ADMIN"))  $fun_assoc($current_user, $g_admin); else $fun_dis_assoc($current_user, $g_admin);
+
+            }
+
+            // Fix town groups
+            foreach ($this->entity_manager->getRepository(Town::class)->findAll() as $current_town) {
+                $town_group = $this->entity_manager->getRepository(UserGroup::class)->findOneBy( ['type' => UserGroup::GroupTownInhabitants, 'ref1' => $current_town->getId()] );
+                if (!$town_group) {
+                    $output->writeln("Creating town group for <info>{$current_town->getName()}</info>");
+                    $this->entity_manager->persist( $town_group = (new UserGroup())->setName("[town:{$current_town->getId()}]")->setType(UserGroup::GroupTownInhabitants)->setRef1($current_town->getId()) );
+                }
+
+                foreach ($all_users as $current_user) {
+                    if ($current_user->getAliveCitizen() && $current_user->getAliveCitizen()->getTown() === $current_town)
+                        $fun_assoc($current_user, $town_group);
+                    else $fun_dis_assoc($current_user, $town_group);
+                }
+            }
+
+            foreach ($this->entity_manager->getRepository(UserGroup::class)->findBy(['type' => UserGroup::GroupTownInhabitants]) as $town_group)
+                if (!$this->entity_manager->getRepository(Town::class)->find( $town_group->getRef1() )) {
+                    $output->writeln("Removing obsolete town group <info>{$town_group->getName()}</info>");
+                    $this->entity_manager->remove($town_group);
+                }
+
+            $this->entity_manager->flush();
+
+            // Fix permissions
+            $fun_permissions(null, $g_oracle,  ForumUsagePermissions::PermissionFormattingOracle);
+            $fun_permissions(null, $g_mods,  ForumUsagePermissions::PermissionModerate | ForumUsagePermissions::PermissionFormattingModerator | ForumUsagePermissions::PermissionPostAsCrow);
+            $fun_permissions(null, $g_admin, ForumUsagePermissions::PermissionOwn);
+
+            foreach ($this->entity_manager->getRepository(Forum::class)->findAll() as $forum) {
+
+                if ($forum->getTown())
+                    $fun_permissions($forum, $this->entity_manager->getRepository(UserGroup::class)->findOneBy( ['type' => UserGroup::GroupTownInhabitants, 'ref1' => $forum->getTown()->getId()] ));
+
+                elseif ($forum->getType() === Forum::ForumTypeDefault || $forum->getType() === null) $fun_permissions($forum, $g_users);
+                elseif ($forum->getType() === Forum::ForumTypeElevated) $fun_permissions($forum, $g_elev);
+                elseif ($forum->getType() === Forum::ForumTypeMods) $fun_permissions($forum, $g_mods);
+                elseif ($forum->getType() === Forum::ForumTypeAdmins) $fun_permissions($forum, $g_admin);
+
+            }
+
+            $this->entity_manager->flush();
+
+        }
 
         return 1;
     }
