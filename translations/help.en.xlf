@@ -19,15 +19,6 @@
         <target>Consult the technical support site.</target>
       </segment>
     </unit>
-    <unit id="OBNp2gg" name="Die Verdammten ?">
-      <notes>
-        <note category="german">Die Verdammten ?</note>
-      </notes>
-      <segment>
-        <source>Die Verdammten ?</source>
-        <target>MyHordes ?</target>
-      </segment>
-    </unit>
     <unit id="FvwX8Vo" name="Die Außenwelt">
       <notes>
         <note category="german">Die Außenwelt</note>
@@ -2357,16 +2348,7 @@ Wenn du in einer "Kleinen Karte" spielst und <strong>100 Seelenpunkte oder mehr 
       </notes>
       <segment>
         <source>Verwundung</source>
-        <target>Verwundung</target>
-      </segment>
-    </unit>
-    <unit id="ojaV2Qu" name="9837244">
-      <notes>
-        <note category="german">Du wurdest schwer verletzt... Verarzte dich so schnell wie möglich mit einem Verband oder etwas ähnlichem, sonst riskierst du eine &lt;strong&gt;&lt;img alt="" src="/gfx/icons/status_infect.gif"&gt; Infektion&lt;/strong&gt; (geht in der Regel tödlich aus...)!</note>
-      </notes>
-      <segment>
-        <source>Du wurdest schwer verletzt... Verarzte dich so schnell wie möglich mit einem Verband oder etwas ähnlichem, sonst riskierst du eine &lt;strong&gt;&lt;img alt="" src="/gfx/icons/status_infect.gif"&gt; Infektion&lt;/strong&gt; (geht in der Regel tödlich aus...)!</source>
-        <target><![CDATA[Du wurdest schwer verletzt... Verarzte dich so schnell wie möglich mit einem Verband oder etwas ähnlichem, sonst riskierst du eine <strong><img alt="" src="/gfx/icons/status_infect.gif"> Infektion</strong> (geht in der Regel tödlich aus...)!]]></target>
+        <target>Wounded</target>
       </segment>
     </unit>
     <unit id="CXdRrv3" name="Infektion">
@@ -2393,16 +2375,7 @@ Wenn du in einer "Kleinen Karte" spielst und <strong>100 Seelenpunkte oder mehr 
       </notes>
       <segment>
         <source>Rauschzustand</source>
-        <target>Rauschzustand</target>
-      </segment>
-    </unit>
-    <unit id="3lvgcHG" name="4b8ddef">
-      <notes>
-        <note category="german">Es gibt in 'MyHordes' mächtige Drogen, die alle unterschiedliche Effekte haben: Sie lindern Erschöpfungszustände, bekämpfen Infektionen, bringen dich bei Panikattacken wieder runter oder rehydrieren dich... Allerdings ist Vorsicht geboten: Wenn du zu viele nimmst, kannst du &lt;strong&gt;&lt;img alt="" src="/gfx/icons/status_addict.gif"&gt; Abhängig&lt;/strong&gt; werden.</note>
-      </notes>
-      <segment>
-        <source>Es gibt in 'MyHordes' mächtige Drogen, die alle unterschiedliche Effekte haben: Sie lindern Erschöpfungszustände, bekämpfen Infektionen, bringen dich bei Panikattacken wieder runter oder rehydrieren dich... Allerdings ist Vorsicht geboten: Wenn du zu viele nimmst, kannst du &lt;strong&gt;&lt;img alt="" src="/gfx/icons/status_addict.gif"&gt; Abhängig&lt;/strong&gt; werden.</source>
-        <target><![CDATA[Es gibt in 'MyHordes' mächtige Drogen, die alle unterschiedliche Effekte haben: Sie lindern Erschöpfungszustände, bekämpfen Infektionen, bringen dich bei Panikattacken wieder runter oder rehydrieren dich... Allerdings ist Vorsicht geboten: Wenn du zu viele nimmst, kannst du <strong><img alt="" src="/gfx/icons/status_addict.gif"> Abhängig</strong> werden.]]></target>
+        <target>Drugged</target>
       </segment>
     </unit>
     <unit id="J35wjTS" name="Angst">
@@ -2441,16 +2414,7 @@ Die in diesen Stunden erlittene panische <strong>Angst</strong> ist dir ins Rüc
       </notes>
       <segment>
         <source>Trunkenheit</source>
-        <target>Trunkenheit</target>
-      </segment>
-    </unit>
-    <unit id="IK5t3wR" name="d0fd31e">
-      <notes>
-        <note category="german">Durch das Trinken von Alkohol kommst du wieder zu Kräften (hebt die Erschöpfung auf), allerdings bist du danach nicht mehr ganz Herr deiner Sinne... Deine &lt;img alt="" src="/gfx/icons/status_drunk.gif"&gt;&amp;nbsp;&lt;strong&gt;Trunkenheit&lt;/strong&gt; weicht am nächsten Tag einem üblen &lt;img alt="" src="/gfx/icons/status_hung_over.gif"&gt;&amp;nbsp;&lt;strong&gt;Kater&lt;/strong&gt;... Allgemein gilt: Wenn du betrunken oder verkatert bist, kannst du keine weiteren alkoholischen Getränke zu dir nehmen.</note>
-      </notes>
-      <segment>
-        <source>Durch das Trinken von Alkohol kommst du wieder zu Kräften (hebt die Erschöpfung auf), allerdings bist du danach nicht mehr ganz Herr deiner Sinne... Deine &lt;img alt="" src="/gfx/icons/status_drunk.gif"&gt;&amp;nbsp;&lt;strong&gt;Trunkenheit&lt;/strong&gt; weicht am nächsten Tag einem üblen &lt;img alt="" src="/gfx/icons/status_hung_over.gif"&gt;&amp;nbsp;&lt;strong&gt;Kater&lt;/strong&gt;... Allgemein gilt: Wenn du betrunken oder verkatert bist, kannst du keine weiteren alkoholischen Getränke zu dir nehmen.</source>
-        <target><![CDATA[Durch das Trinken von Alkohol kommst du wieder zu Kräften (hebt die Erschöpfung auf), allerdings bist du danach nicht mehr ganz Herr deiner Sinne... Deine <img alt="" src="/gfx/icons/status_drunk.gif">&nbsp;<strong>Trunkenheit</strong> weicht am nächsten Tag einem üblen <img alt="" src="/gfx/icons/status_hung_over.gif">&nbsp;<strong>Kater</strong>... Allgemein gilt: Wenn du betrunken oder verkatert bist, kannst du keine weiteren alkoholischen Getränke zu dir nehmen.]]></target>
+        <target>Drunk</target>
       </segment>
     </unit>
     <unit id="UTfIdgy" name="Clean">
@@ -2873,25 +2837,13 @@ Außerdem führst du <strong>zusätzlich</strong> zu deiner normalen Bürgerklei
         <target>In deine Truhe passen bis zu 4 Gegenstände (5 wenn du ein Held bist). Einige Gegenstände, sowie manche Hausverbesserungen ermöglich dir noch mehr aufzubewahren.</target>
       </segment>
     </unit>
-    <unit id="cv_VCkz" name="b4113bf">
-      <notes>
-        <note category="german">Manche Gegenstände, wie zum Beispiel der &lt;strong&gt;&lt;img alt="" src="/gfx/icons/item_carpet.gif"&gt; Teppich&lt;/strong&gt;,
-werden &lt;strong&gt;automatisch&lt;/strong&gt; der &lt;strong&gt;Hauseinrichtung&lt;/strong&gt; hinzugefügt, wenn du sie in der Truhe ablegst. Einrichtungsgegenstände verschaffen dir verschiedene Vorteile (Deko, Diebstahlschutz, Schutz gegen Zombies...)</note>
-      </notes>
-      <segment>
-        <source>Manche Gegenstände, wie zum Beispiel der &lt;strong&gt;&lt;img alt="" src="/gfx/icons/item_carpet.gif"&gt; Teppich&lt;/strong&gt;,
-werden &lt;strong&gt;automatisch&lt;/strong&gt; der &lt;strong&gt;Hauseinrichtung&lt;/strong&gt; hinzugefügt, wenn du sie in der Truhe ablegst. Einrichtungsgegenstände verschaffen dir verschiedene Vorteile (Deko, Diebstahlschutz, Schutz gegen Zombies...)</source>
-        <target><![CDATA[Manche Gegenstände, wie zum Beispiel der <strong><img alt="" src="/gfx/icons/item_carpet.gif"> Teppich</strong>,
-werden <strong>automatisch</strong> der <strong>Hauseinrichtung</strong> hinzugefügt, wenn du sie in der Truhe ablegst. Einrichtungsgegenstände verschaffen dir verschiedene Vorteile (Deko, Diebstahlschutz, Schutz gegen Zombies...)]]></target>
-      </segment>
-    </unit>
     <unit id="GVvf.A." name="9ebce8d">
       <notes>
         <note category="german">Du wurdest schwer verletzt... Verarzte dich so schnell wie möglich mit einem Verband oder etwas ähnlichem, sonst riskierst du eine &lt;strong&gt;%img_infect% Infektion&lt;/strong&gt; (geht in der Regel tödlich aus...)!</note>
       </notes>
       <segment>
         <source>Du wurdest schwer verletzt... Verarzte dich so schnell wie möglich mit einem Verband oder etwas ähnlichem, sonst riskierst du eine &lt;strong&gt;%img_infect% Infektion&lt;/strong&gt; (geht in der Regel tödlich aus...)!</source>
-        <target><![CDATA[Du wurdest schwer verletzt... Verarzte dich so schnell wie möglich mit einem Verband oder etwas ähnlichem, sonst riskierst du eine <strong>%img_infect% Infektion</strong> (geht in der Regel tödlich aus...)!]]></target>
+        <target><![CDATA[You have been seriously wounded... Heal yourself quickly with bandages or other medication or you risk getting an <strong>%img_infect% Infection</strong>, which is usually deadly.]]></target>
       </segment>
     </unit>
     <unit id="DwNHYeS" name="c387eb6">

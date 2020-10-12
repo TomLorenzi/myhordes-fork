@@ -19,15 +19,6 @@
         <target>Besuche unsere Technische Supportseite</target>
       </segment>
     </unit>
-    <unit id="OBNp2gg" name="Die Verdammten ?">
-      <notes>
-        <note category="german">Die Verdammten ?</note>
-      </notes>
-      <segment>
-        <source>Die Verdammten ?</source>
-        <target>Die Verdammten ?</target>
-      </segment>
-    </unit>
     <unit id="FvwX8Vo" name="Die Außenwelt">
       <notes>
         <note category="german">Die Außenwelt</note>
