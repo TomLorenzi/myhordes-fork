@@ -289,7 +289,9 @@
 
         fun_link_help('ghoulType','helpGhoul');
         fun_link_help('nightWatchMode','helpNightWatch');
-        fun_link_help('shamanMode','helpShaman', v => document.getElementById('shaman').checked = (v === 'job'));
+        fun_link_help('shamanMode','helpShaman', v => {
+            if (document.getElementById('shaman')) document.getElementById('shaman').checked = (v === 'job')
+        });
 
         $.html.addEventListenerAll('#create-town-btn', 'click', function(){
             if (!confirm('{{ 'Bestätigen?'|trans({},'global')|e('js') }}'))
