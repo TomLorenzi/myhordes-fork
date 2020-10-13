@@ -2627,7 +2627,7 @@ Der Schutz endet nach dem Angriff um Mitternacht.</source>
       </notes>
       <segment>
         <source>Die Außenwelt birgt verlassene Gebäude, die nach Rohstoffen und nützlichen Plänen abgesucht werden können.</source>
-        <target>Die Außenwelt birgt verlassene Gebäude, die nach Rohstoffen und nützlichen Plänen abgesucht werden können.</target>
+        <target>Advanced explorations allow citizens to visit forgotten ruins in the World Beyond to search them for resources and plans to help you survive for as long as possible.</target>
       </segment>
     </unit>
     <unit id="F3BRYtp" name="14e1df7">
@@ -2638,8 +2638,7 @@ Diese unseligen Orte werden außerdem oft von Zombies heimgesucht. Wenn sich dei
       <segment>
         <source>Sobald du einen solchen Ort gefunden hast, siehst du bei deinen Aktion eine Option, über die du diesen Ort betreten kannst. &lt;strong&gt;Achtung: Bürger, die verletzt oder starr vor Angst sind, können einen solch klaustrophobischen Ort nicht betreten.&lt;/strong&gt;
 Diese unseligen Orte werden außerdem oft von Zombies heimgesucht. Wenn sich dein kleiner Ausflug also lohnen soll, lass dir besser vorher etwas einfallen, wie du diese Kreaturen wieder los wirst.</source>
-        <target><![CDATA[Sobald du einen solchen Ort gefunden hast, siehst du bei deinen Aktion eine Option, über die du diesen Ort betreten kannst. <strong>Achtung: Bürger, die verletzt oder starr vor Angst sind, können einen solch klaustrophobischen Ort nicht betreten.</strong>
-Diese unseligen Orte werden außerdem oft von Zombies heimgesucht. Wenn sich dein kleiner Ausflug also lohnen soll, lass dir besser vorher etwas einfallen, wie du diese Kreaturen wieder los wirst.]]></target>
+        <target><![CDATA[Once you have found a special building, you will be given the choice of entering the building or not, <strong>but remember - a wounded or terrified citizen cannot enter such claustrophobic areas.</strong> These places are swarming with zombies, you'll need to find a way to get rid of these creatures to make the most of your discovery.]]></target>
       </segment>
     </unit>
     <unit id=".w.ATRf" name="f304740">
@@ -2650,8 +2649,7 @@ Manchmal stößt du auf verriegelte Türen, die du nur mit bestimmten Schlüssel
       <segment>
         <source>Du findest nur in den Zimmern dieser Ruinen brauchbare Gegenstände. In den Fluren befinden sich nur dann Gegenstände, wenn andere Spielern sie dort abgelegt haben.
 Manchmal stößt du auf verriegelte Türen, die du nur mit bestimmten Schlüsseln aufbekommst. Die ehemaligen Bewohner dieser Orte haben oft Schlüssel zurückgelassen. Es liegt an dir, sie zu finden.</source>
-        <target>Du findest nur in den Zimmern dieser Ruinen brauchbare Gegenstände. In den Fluren befinden sich nur dann Gegenstände, wenn andere Spielern sie dort abgelegt haben.
-Manchmal stößt du auf verriegelte Türen, die du nur mit bestimmten Schlüsseln aufbekommst. Die ehemaligen Bewohner dieser Orte haben oft Schlüssel zurückgelassen. Es liegt an dir, sie zu finden.</target>
+        <target>When you are exploring, you will only find resources in rooms, only resources dropped by other players will be found on the ground in the corridors. Sometimes you will come across locked doors which will require a certain key to open them, but you'll notice the former residents quite often abandoned their keys in their haste to get out, all you need to do is find the right ones.</target>
       </segment>
     </unit>
     <unit id="X7Z3oSQ" name="0b5fcc2">
@@ -2660,7 +2658,7 @@ Manchmal stößt du auf verriegelte Türen, die du nur mit bestimmten Schlüssel
       </notes>
       <segment>
         <source>Es ist niemals so einfach wie es aussieht. Die Luft in diesen seit langem verlassenen Gebäuden ist mit einer giftigen Substanz gesättigt. Du solltest dich hier darum besser nicht zu lange aufhalten.</source>
-        <target>Es ist niemals so einfach wie es aussieht. Die Luft in diesen seit langem verlassenen Gebäuden ist mit einer giftigen Substanz gesättigt. Du solltest dich hier darum besser nicht zu lange aufhalten.</target>
+        <target>As you know, nothing is ever simple here, the air filling these buildings which have been abandoned for so long is saturated with a toxic substance which stops you from staying in the building for too long.</target>
       </segment>
     </unit>
     <unit id="uqQWwTV" name="c7f6f64">
@@ -2675,10 +2673,7 @@ Sei auf der Hut: Wenn du zu gierig und ungestüm bist, wirst du dieses Labyrinth
 Du musst unbedingt rechtzeitig aus diesem Labyrinth entkommen. Ansonsten wirst du schwer verletzt und verlierst alle Gegenstände, die du bei deiner Suche gefunden hast.
 Verlassene Gebäude haben nur einen einzigen Eingang. Und das ist gleichzeitig dein einziger Weg zurück nach draußen.
 Sei auf der Hut: Wenn du zu gierig und ungestüm bist, wirst du dieses Labyrinth nicht mehr lebend verlassen.</source>
-        <target><![CDATA[<strong>Ein Sauerstoffmesser verrät dir, wieviel Zeit dir zum Durchsuchen einer Zone bleibt, ehe du vergiftet wirst.</strong>
-Du musst unbedingt rechtzeitig aus diesem Labyrinth entkommen. Ansonsten wirst du schwer verletzt und verlierst alle Gegenstände, die du bei deiner Suche gefunden hast.
-Verlassene Gebäude haben nur einen einzigen Eingang. Und das ist gleichzeitig dein einziger Weg zurück nach draußen.
-Sei auf der Hut: Wenn du zu gierig und ungestüm bist, wirst du dieses Labyrinth nicht mehr lebend verlassen.]]></target>
+        <target><![CDATA[<strong>An oxygen meter lets you keep an eye on how much time you have remaining to search the building before you die horrifically from ingesting the toxic air.</strong> It is imperative that you get out of the winding corridors before time runs out or you will be seriously wounded and you will lose any and all objects you found on your trip. There is only one entrance to these buildings, which also means it's your only way out Einstein. Don't get greedy and take unnecessary risks by venturing too far inside these labyrinths...]]></target>
       </segment>
     </unit>
     <unit id="cR7ePtk" name="1856884">
@@ -2687,7 +2682,7 @@ Sei auf der Hut: Wenn du zu gierig und ungestüm bist, wirst du dieses Labyrinth
       </notes>
       <segment>
         <source>Es gibt einige Verhaltensregeln, wie man in einer solchen Gegend voller Zombies überleben kann. Wenn du deine Lieben daheim jemals wiedersehen willst, hältst du dich besser daran:</source>
-        <target>Es gibt einige Verhaltensregeln, wie man in einer solchen Gegend voller Zombies überleben kann. Wenn du deine Lieben daheim jemals wiedersehen willst, hältst du dich besser daran:</target>
+        <target>Here are the rules you'll need to live by when in zombie territory if you ever want to see your cherished shack again:</target>
       </segment>
     </unit>
     <unit id="a5rChiF" name="61a3988">
@@ -2696,7 +2691,7 @@ Sei auf der Hut: Wenn du zu gierig und ungestüm bist, wirst du dieses Labyrinth
       </notes>
       <segment>
         <source>Aufgrund der Enge dieser Orte, kann sie nur &lt;strong&gt;nur ein einzelner Bürger gleichzeitig&lt;/strong&gt; betreten und untersuchen. Sobald dieser Bürger das Gebäude wieder verlassen hat, kann ein anderer seinen Platz einnehmen.</source>
-        <target><![CDATA[Aufgrund der Enge dieser Orte, kann sie nur <strong>nur ein einzelner Bürger gleichzeitig</strong> betreten und untersuchen. Sobald dieser Bürger das Gebäude wieder verlassen hat, kann ein anderer seinen Platz einnehmen.]]></target>
+        <target><![CDATA[Due to the cramped nature of these buildings, <strong>only one citizen can enter a building at a given time.</strong> Once a citizen has left, another may take their place.]]></target>
       </segment>
     </unit>
     <unit id="RR6Z.rb" name="aac3441">
@@ -2705,7 +2700,7 @@ Sei auf der Hut: Wenn du zu gierig und ungestüm bist, wirst du dieses Labyrinth
       </notes>
       <segment>
         <source>Wegen der großen Menge Gift, die man beim Untersuchen eines verlassenen Gebäudes einatmet, kann ein Bürger ein Gebäude &lt;strong&gt;nur einmal pro Tag&lt;/strong&gt; untersuchen. Eine weitere Tour würde unweigerlich zu einem sehr unschönen Tod führen.</source>
-        <target><![CDATA[Wegen der großen Menge Gift, die man beim Untersuchen eines verlassenen Gebäudes einatmet, kann ein Bürger ein Gebäude <strong>nur einmal pro Tag</strong> untersuchen. Eine weitere Tour würde unweigerlich zu einem sehr unschönen Tod führen.]]></target>
+        <target><![CDATA[Due to the high levels of exposure to toxic substances during explorations, <strong>a citizen will only be able to enter a building once per day</strong>, subsequent exposure could lead to an agonizing death.]]></target>
       </segment>
     </unit>
     <unit id="9tyeLdW" name="b3077a1">
@@ -2716,8 +2711,7 @@ Solltest du später noch einmal zurückkommen, werden genauso viele Zombies auf 
       <segment>
         <source>Um den Zombies zu entkommen, die sich hier herumtreiben, kannst du deine Gegenstände aus deinem Inventar benutzen und damit angreifen. Du kannst auch &lt;strong&gt;die Aktion "Die Flucht wagen" ausführen&lt;/strong&gt;: Dabei verbrauchst du einen Teil deines Sauerstoffvorrats. 
 Solltest du später noch einmal zurückkommen, werden genauso viele Zombies auf dich warten.</source>
-        <target><![CDATA[Um den Zombies zu entkommen, die sich hier herumtreiben, kannst du deine Gegenstände aus deinem Inventar benutzen und damit angreifen. Du kannst auch <strong>die Aktion "Die Flucht wagen" ausführen</strong>: Dabei verbrauchst du einen Teil deines Sauerstoffvorrats. 
-Solltest du später noch einmal zurückkommen, werden genauso viele Zombies auf dich warten.]]></target>
+        <target><![CDATA[To escape the zombies populating these areas, aside from using offensive objects, bad breath and colourful language, <strong>you can choose to "Flee"</strong> which allows you to escape but uses up some of your oxygen. However, if you retrace your steps, you will come across the same number of zombies as before.]]></target>
       </segment>
     </unit>
     <unit id="Ro.Av4r" name="0995565">
@@ -2726,7 +2720,7 @@ Solltest du später noch einmal zurückkommen, werden genauso viele Zombies auf 
       </notes>
       <segment>
         <source>Durch den Lärm, den die Abenteurer in der Außenwelt machen, halten sich &lt;strong&gt;immer einige Zombies in der Nähe&lt;/strong&gt; der Gebäude auf. Du solltest eine solche Zone darum schnell durchsuchen, ehe es dort nur so vor Zombies wimmelt.</source>
-        <target><![CDATA[Durch den Lärm, den die Abenteurer in der Außenwelt machen, halten sich <strong>immer einige Zombies in der Nähe</strong> der Gebäude auf. Du solltest eine solche Zone darum schnell durchsuchen, ehe es dort nur so vor Zombies wimmelt.]]></target>
+        <target><![CDATA[The noise made by adventurers in the World Beyond means that <strong>some zombies enter the building every day.</strong> The best idea is to search the zone thoroughly as quickly as possible, before the area becomes infested.]]></target>
       </segment>
     </unit>
     <unit id="V5OvUWu" name="5998125">
@@ -2737,8 +2731,7 @@ Leider ist es unmöglich, Karten von diesen Gebäuden aufzustöbern. Aber es bes
       <segment>
         <source>Zwischen dem Auftauchen der Verdammten und diesen Gebäuden besteht ein Zusammenhang. Es ist darum kein Wunder, dass Plünderer keine Zeit hatten, sie in Ruhe zu durchsuchen. Sie beherbergen darum noch immer zahlreiche Ressourcen und Baupläne. 
 Leider ist es unmöglich, Karten von diesen Gebäuden aufzustöbern. Aber es besteht kein Zweifel daran, dass die einfachsten Mittel auch die effektivsten Mittel zum Durchsuchen dieser Orte sein werden.</source>
-        <target>Zwischen dem Auftauchen der Verdammten und diesen Gebäuden besteht ein Zusammenhang. Es ist darum kein Wunder, dass Plünderer keine Zeit hatten, sie in Ruhe zu durchsuchen. Sie beherbergen darum noch immer zahlreiche Ressourcen und Baupläne. 
-Leider ist es unmöglich, Karten von diesen Gebäuden aufzustöbern. Aber es besteht kein Zweifel daran, dass die einfachsten Mittel auch die effektivsten Mittel zum Durchsuchen dieser Orte sein werden.</target>
+        <target>Nobody can come to help you in these nightmarish places, which means that control points have no meaning here, so you should be as organized as possible to get the most benefit from these buildings.</target>
       </segment>
     </unit>
     <unit id="dVwApzS" name="Der Rucksack">
@@ -2747,7 +2740,7 @@ Leider ist es unmöglich, Karten von diesen Gebäuden aufzustöbern. Aber es bes
       </notes>
       <segment>
         <source>Der Rucksack</source>
-        <target>Der Rucksack</target>
+        <target>Rucksack</target>
       </segment>
     </unit>
     <unit id="fo2jRnp" name="074fa9a">
@@ -2756,7 +2749,7 @@ Leider ist es unmöglich, Karten von diesen Gebäuden aufzustöbern. Aber es bes
       </notes>
       <segment>
         <source>Im Rucksack kannst du Nahrung, Wasser und Waffen mit dir tragen. Seine Größe ist auf 4 freie Plätze beschränkt. Ein Platz ist für deine Kleidung vorgesehen.</source>
-        <target>Im Rucksack kannst du Nahrung, Wasser und Waffen mit dir tragen. Seine Größe ist auf 4 freie Plätze beschränkt. Ein Platz ist für deine Kleidung vorgesehen.</target>
+        <target>It's thanks to your trusty rucksack that you can carry your food rations, your water or your weapons with you. It is pretty limited though, and fills up quickly... by default it has 4 storage compartments and one compartment reserved for your uniform.</target>
       </segment>
     </unit>
     <unit id="jSYnX6p" name="6e20269">
@@ -2767,8 +2760,7 @@ Außerdem führst du &lt;strong&gt;zusätzlich&lt;/strong&gt; zu deiner normalen
       <segment>
         <source>&lt;strong&gt;Helden&lt;/strong&gt; verfügen in ihrem Rucksack über einen zusätzlichen freien Platz!
 Außerdem führst du &lt;strong&gt;zusätzlich&lt;/strong&gt; zu deiner normalen Bürgerkleidung einen berufsspezifischen Anzug mit.</source>
-        <target><![CDATA[<strong>Helden</strong> verfügen in ihrem Rucksack über einen zusätzlichen freien Platz!
-Außerdem führst du <strong>zusätzlich</strong> zu deiner normalen Bürgerkleidung einen berufsspezifischen Anzug mit.]]></target>
+        <target><![CDATA[If you are in <strong>Hero mode</strong>, you have an additional storage compartment in your rucksack! In addition, you will <strong>also</strong> have to carry your citizen's uniform and your work uniform.]]></target>
       </segment>
     </unit>
     <unit id="kx13MUV" name="Dein Zuhause">
@@ -2777,7 +2769,7 @@ Außerdem führst du <strong>zusätzlich</strong> zu deiner normalen Bürgerklei
       </notes>
       <segment>
         <source>Dein Zuhause</source>
-        <target>Dein Zuhause</target>
+        <target>Your House</target>
       </segment>
     </unit>
     <unit id="C2_sPwU" name="cd055d8">
@@ -2786,7 +2778,7 @@ Außerdem führst du <strong>zusätzlich</strong> zu deiner normalen Bürgerklei
       </notes>
       <segment>
         <source>Wenn du von deinen ausgedehnten Wüstenwanderungen zurückkehrst, kannst du deinen Rucksack daheim ausleeren. Deine Reisevorbereitungen erledigst du ebenfalls am besten daheim. Es gilt Lunchpaket, Wasser, Waffen und, wenn vorhanden, Drogen mitzunehmen.</source>
-        <target>Wenn du von deinen ausgedehnten Wüstenwanderungen zurückkehrst, kannst du deinen Rucksack daheim ausleeren. Deine Reisevorbereitungen erledigst du ebenfalls am besten daheim. Es gilt Lunchpaket, Wasser, Waffen und, wenn vorhanden, Drogen mitzunehmen.</target>
+        <target>When you come back from the World Beyond, your House is where you can unpack your rucksack. It is also where you will fill it before setting off again.</target>
       </segment>
     </unit>
     <unit id="4diEY6x" name="Deine persönliche Truhe">
@@ -2795,7 +2787,7 @@ Außerdem führst du <strong>zusätzlich</strong> zu deiner normalen Bürgerklei
       </notes>
       <segment>
         <source>Deine persönliche Truhe</source>
-        <target>Deine persönliche Truhe</target>
+        <target>Your personal chest</target>
       </segment>
     </unit>
     <unit id="hSaAdB3" name="eede599">
@@ -2804,7 +2796,7 @@ Außerdem führst du <strong>zusätzlich</strong> zu deiner normalen Bürgerklei
       </notes>
       <segment>
         <source>In deine Truhe passen bis zu 4 Gegenstände (5 wenn du ein Held bist). Einige Gegenstände, sowie manche Hausverbesserungen ermöglich dir noch mehr aufzubewahren.</source>
-        <target>In deine Truhe passen bis zu 4 Gegenstände (5 wenn du ein Held bist). Einige Gegenstände, sowie manche Hausverbesserungen ermöglich dir noch mehr aufzubewahren.</target>
+        <target>Your personal chest can hold 4 objects by default (5 for Heroes). Certain objects and home improvements allow you to increase this limit.</target>
       </segment>
     </unit>
     <unit id="GVvf.A." name="9ebce8d">
@@ -2851,7 +2843,7 @@ werden &lt;strong&gt;automatisch&lt;/strong&gt; der &lt;strong&gt;Hauseinrichtun
       </notes>
       <segment>
         <source>Sei gewiss: An diesem gottverlassenen Ort wird dir niemand zu Hilfe eilen. Und Kontrollpunkte gelten hier auch nicht mehr. Versuche darum, das Maximum aus diesen Gebäuden herauszuholen.</source>
-        <target>Sei gewiss: An diesem gottverlassenen Ort wird dir niemand zu Hilfe eilen. Und Kontrollpunkte gelten hier auch nicht mehr. Versuche darum, das Maximum aus diesen Gebäuden herauszuholen.</target>
+        <target>Nobody can come to help you in these nightmarish places, which means that control points have no meaning here, so you should be as organized as possible to get the most benefit from these buildings.</target>
       </segment>
     </unit>
     <unit id="pCjfjXL" name="198f48e">
