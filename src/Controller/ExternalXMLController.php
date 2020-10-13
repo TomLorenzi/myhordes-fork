@@ -35,12 +35,13 @@
     use Symfony\Component\HttpFoundation\Request;
 
     class ExternalXMLController extends ExternalController {
-
+        
         /**
-         * @Route("/api/x/xml", name="api_x_xml", defaults={"_format"="xml"}, methods={"POST"})
-         * @return Response
+         * Check if the appkey and userkey has been given
+         *
+         * @return Response|User Error or the user linked to the user_key
          */
-        public function api_xml(): Response {
+        private function check_keys() {
             $request = Request::createFromGlobals();
 
             // Try POST data
@@ -58,268 +59,109 @@
 
             // If still no key, none was sent correctly.
             if (trim($app_key) == '') {
-                return $this->json(['Error' => 'Access denied', 'ErrorCode' => '403', 'ErrorMessage' => 'No app key found in request.']);
+                return new Response($this->arrayToXml( ["Error" => "Access Denied", "ErrorCode" => "403", "ErrorMessage" => "No app key found in request."], '<hordes xmlns:dc="http://purl.org/dc/elements/1.1" xmlns:content="http://purl.org/rss/1.0/modules/content/" />' ));
             }
-            if (trim($app_key) == '') {
-                return $this->json(['Error' => 'Access denied', 'ErrorCode' => '403', 'ErrorMessage' => 'No user key found in request.']);
-            }
+
+            if(trim($user_key) == '')
+            return new Response($this->arrayToXml( ["Error" => "Access Denied", "ErrorCode" => "403", "ErrorMessage" => "No user key found in request."], '<hordes xmlns:dc="http://purl.org/dc/elements/1.1" xmlns:content="http://purl.org/rss/1.0/modules/content/" />' ));
 
             // Get the app.
             /** @var ExternalApp $app */
             $app = $this->entity_manager->getRepository(ExternalApp::class)->findOneBy(['secret' => $app_key]);
             if (!$app) {
-                return $this->json(['Error' => 'Access denied', 'ErrorCode' => '403', 'ErrorMessage' => 'Access not allowed for application.']);
+                return new Response($this->arrayToXml( ["Error" => "Access Denied", "ErrorCode" => "403", "ErrorMessage" => "Access not allowed for application."], '<hordes xmlns:dc="http://purl.org/dc/elements/1.1" xmlns:content="http://purl.org/rss/1.0/modules/content/" />' ));
             }
 
             // Get the user.
             /** @var User $user */
             $user = $this->entity_manager->getRepository(User::class)->findOneBy(['externalId' => $user_key]);
             if (!$user) {
-                return $this->json(['Error' => 'Access denied', 'ErrorCode' => '403', 'ErrorMessage' => 'Access not allowed by user.']);
+                return new Response($this->arrayToXml( ["Error" => "Access Denied", "ErrorCode" => "403", "ErrorMessage" => "Access not allowed for user."], '<hordes xmlns:dc="http://purl.org/dc/elements/1.1" xmlns:content="http://purl.org/rss/1.0/modules/content/" />' ));
             }
 
+            return $user;
+        }
+        /**
+         * @Route("/api/x/xml", name="api_x_xml", defaults={"_format"="xml"}, methods={"POST"})
+         * @return Response
+         */
+        public function api_xml(): Response {
+            $check = $this->check_keys();
+
+            print_r(get_class($check));
+
+            if($check instanceof Response)
+                return $check;
+            
+            $array = [
+                "endpoint_list" => [
+                    "User infos : " . $this->generateUrl('api_x_xml_user')
+                ]
+            ];
+
             // All fine, let's populate the response.
-            $data = $this->generateLegacyData($user);
-            $response = new Response($this->arrayToXml( $data['hordes'], '<hordes xmlns:dc="http://purl.org/dc/elements/1.1" xmlns:content="http://purl.org/rss/1.0/modules/content/" />' ));
-            #$response = new Response(print_r($data, 1));
+            $response = new Response($this->arrayToXml( $array, '<hordes xmlns:dc="http://purl.org/dc/elements/1.1" xmlns:content="http://purl.org/rss/1.0/modules/content/" />' ));
             $response->headers->set('Content-Type', 'text/xml');
             return $response;
         }
 
-        private function generateLegacyData(User $user): array {
+        /**
+         * @Route("/api/x/xml/user", name="api_x_xml_user", defaults={"_format"="xml"}, methods={"POST"})
+         * @return Response
+         */
+        public function api_xml_users(): Response {
+            $user = $this->check_keys();
+
+            if($user instanceof Response)
+                return $user;
+
             try {
-                $now = new DateTime('now', new DateTimeZone('America/New_York'));
+                $now = new DateTime('now', new DateTimeZone('Europe/Paris'));
             } catch (Exception $e) {
                 $now = date('Y-m-d H:i:s');
             }
 
-            /** @var Citizen $citizen */
-            $citizen = $user->getActiveCitizen();
-            /** @var Town $town */
-            $town = $citizen->getTown();
-            /** @var Zone $citizen_zone */
-            $citizen_zone = $citizen->getZone();
-
-            $language = $town->getLanguage() ?? 'de';
-
-            $x_min = $x_max = $y_min = $y_max = 0;
-            foreach ( $town->getZones() as $zone ) {
-                /** @var Zone $zone */
-                $x_min = min($zone->getX(), $x_min);
-                $x_max = max($zone->getX(), $x_max);
-                $y_min = min($zone->getY(), $y_min);
-                $y_max = max($zone->getY(), $y_max);
-            }
+            $language = $user->getLanguage() ?? 'de';
 
             // Base data.
             $data = [
                 'hordes' => [
                     'headers' => [
                         'attributes' => [
-                            'link' => Request::createFromGlobals()->getRequestUri(),
-                            'iconurl' => '',
+                            'link' => Request::createFromGlobals()->getBaseUrl() . Request::createFromGlobals()->getPathInfo(),
+                            'iconurl' => $user->getAvatar() !== null ? $this->generateUrl('app_web_avatar', ['uid' => $user->getId(), 'name' => $user->getAvatar()->getFilename(), 'ext' => $user->getAvatar()->getFormat()], UrlGeneratorInterface::ABSOLUTE_URL) : "",
                             'avatarurl' => '',
-                            'secure' => 0,
+                            'secure' => intval(Request::createFromGlobals()->isSecure()),
                             'author' => 'MyHordes',
-                            'language' => $town->getLanguage(),
+                            'language' => $language,
                             'version' => '0.1',
                             'generator' => 'symfony',
                         ],
-                        'game' => [
-                            'attributes' => [
-                                'days' => $town->getDay(),
-                                'quarantine' => $town->getDevastated(),
-                                'datetime' => $now->format('Y-m-d H:i:s'),
-                                'id' => $town->getId(),
-                            ],
-                        ],
-                    ],
-                    'data' => [
-                        'attributes' => [
-                            'cache-date' => $now->format('Y-m-d H:i:s'),
-                            'cache-fast' => 0,
-                        ],
-                        'city' => [
-                            'attributes' => [
-                                'city' => $town->getName(),
-                                'door' => $town->getDoor(),
-                                'hard' => $town->getType()->getId() == 3 ? 1 : 0,
-                                'water' => $town->getWell(),
-                                'chaos' => $town->getChaos(),
-                                'devast' => $town->getDevastated(),
-                                'x' => 0 - $x_min,
-                                'y' => $y_max,
-                            ],
-                            'list' => [
-                                'name' => 'building',
-                                'items' => [],
-                            ],
-                            'defense' => [
-                                'attributes' => [],
-                            ],
-                        ],
-                        'bank' => [
-                            'list' => [
-                                'name' => 'item',
-                                'items' => [],
-                            ],
-                        ],
-                        'expeditions' => [],
-                        'citizens' => [
-                            'list' => [
-                                'name' => 'citizen',
-                                'items' => [],
-                            ],
-                        ],
-                        'cadavers' => [
-                            'list' => [
-                                'name' => 'cadaver',
-                                'items' => [],
-                            ],
-                        ],
-                        'map' => [
-                            'attributes' => [
-                                'hei' => abs($y_min) + abs($y_max) + 1,
-                                'wid' => abs($x_min) + abs($x_max) + 1,
-                            ],
-                            'list' => [
-                                'name' => 'zone',
-                                'items' => [],
-                            ],
-                        ],
-                        'upgrades' => [
-                            'attributes' => [
-                                'total' => 0,
-                            ],
-                        ],
-                        'estimations' => [
-                            'list' => [
-                                'name' => 'e',
-                                'items' => [],
-                            ],
-                        ],
-                    ],
-                ],
+                    ]
+                ]
             ];
 
-            // Add zones.
-            foreach ( $town->getZones() as $zone ) {
-                /** @var Zone $zone */
-                if ($zone->getDiscoveryStatus() != 0) {
-                    $attributes = $this->zone_handler->getZoneAttributes($zone);
-                    $zone_data = [
-                        'attributes' => [
-                            'x' => $zone->getX() - $x_min,
-                            'y' => $y_max - $zone->getY(),
-                            'nvt' => $zone->getDiscoveryStatus() == 1 ? 1 : 0,
-                        ],
-                    ];
-                    if (array_key_exists('danger', $attributes)) {
-                        $zone_data['attributes']['danger'] = $attributes['danger'];
-                    }
-                    if (array_key_exists('building', $attributes)) {
-                        $zone_data['building'] = ['attributes' => $attributes['building']];
-                    }
-                    $data['hordes']['data']['map']['list']['items'][] = $zone_data;
-                }
-            }
-
-            // Add buildings.
-            foreach ( $town->getBuildings() as $building ) {
-                if ($building->getComplete()) {
-                    $building_data = [
-                        'attributes' => [
-                            'name' => $this->translator->trans($building->getPrototype()->getLabel(), [], "game"),
-                            'temporary' => $building->getPrototype()->getTemp(),
-                            'id' => $building->getPrototype()->getId(),
-                            'img' => $building->getPrototype()->getIcon(),
-                        ],
-                    ];
-                    $data['hordes']['data']['city']['list']['items'][] = $building_data;
-                }
-            }
-
-            // Add bank items.
-            $inventory = $town->getBank();
-            foreach ( $inventory->getItems() as $item ) {
-                $item_data = [
+            /** @var Citizen $citizen */
+            $citizen = $user->getActiveCitizen();
+            if($citizen !== null){
+                /** @var Town $town */
+                $town = $citizen->getTown();
+                /** @var Zone $citizen_zone */
+                $citizen_zone = $citizen->getZone();
+                $data['hordes']['headers']['game'] = [
                     'attributes' => [
-                        'name' => $this->translator->trans($item->getPrototype()->getLabel(), [], "game"),
-                        'count' => $item->getCount(),
-                        'id' => $item->getPrototype()->getId(),
-                        'img' => $item->getPrototype()->getIcon(),
-                        'cat' => $item->getPrototype()->getCategory()->getParent() ? $item->getPrototype()->getCategory()->getParent()->getName() : $item->getPrototype()->getCategory()->getName(),
-                        'broken' => $item->getBroken(),
+                        'days' => $town->getDay(),
+                        'quarantine' => $town->getAttackFails() >= 3,
+                        'datetime' => $now->format('Y-m-d H:i:s'),
+                        'id' => $town->getId(),
                     ],
                 ];
-                $data['hordes']['data']['bank']['list']['items'][] = $item_data;
             }
 
-            // Add citizens.
-            foreach ( $town->getCitizens() as $citizen ) {
-                if ($citizen->getAlive()) {
-                    $citizen_data = [
-                        'attributes' => [
-                            'dead' => 0,
-                            'hero' => $citizen->getProfession()->getHeroic(),
-                            'name' => $citizen->getUser()->getUsername(),
-                            'avatar' => '',
-                            'x' => !is_null($citizen->getZone()) ? $citizen->getZone()->getX() - $x_min : -$x_min,
-                            'y' => !is_null($citizen->getZone()) ? $y_max - $citizen->getZone()->getY() : $y_max,
-                            'id' => $citizen->getId(),
-                            'ban' => $citizen->getBanished(),
-                            'job' => $citizen->getProfession()->getName(),
-                            'out' => !is_null($citizen->getZone()),
-                            'baseDef' => 0,
-                        ],
-                    ];
-                    $data['hordes']['data']['citizens']['list']['items'][] = $citizen_data;
-                    if ($citizen == $user->getActiveCitizen()) {
-                        $data['hordes']['headers']['owner'] = [
-                            'citizen' => $citizen_data,
-                        ];
-                        if ($citizen->getZone()) {
-                            $myzone = $citizen->getZone();
-                            $data['hordes']['headers']['owner']['myZone'] = [
-                                'attributes' => [
-                                    'dried' => $myzone->getDigs() > 0 ? 0 : 1,
-                                    'z' => $myzone->getZombies(),
-                                ],
-                                'list' => [
-                                    'name' => 'item',
-                                    'items' => [],
-                                ],
-                            ];
-                            $inventory = $myzone->getFloor();
-                            foreach ( $inventory->getItems() as $item ) {
-                                $item_data = [
-                                    'attributes' => [
-                                        'name' => $item->getPrototype()->getLabel(),
-                                        'count' => $item->getCount(),
-                                        'id' => $item->getPrototype()->getId(),
-                                        'img' => $item->getPrototype()->getIcon(),
-                                        'cat' => $item->getPrototype()->getCategory()->getParent() ? $item->getPrototype()->getCategory()->getParent()->getName() : $item->getPrototype()->getCategory()->getName(),
-                                        'broken' => $item->getBroken(),
-                                    ],
-                                ];
-                                $data['hordes']['headers']['owner']['myZone']['list']['items'][] = $item_data;
-                            }
-                        }
-                    }
-                } else {
-                    $citizen_data = [
-                        'attributes' => [
-                            'name' => $citizen->getUser()->getUsername(),
-                            'id' => $citizen->getId(),
-                            'dtype' => $citizen->getCauseOfDeath()->getId(),
-                            'day' => $citizen->getSurvivedDays(),
-                        ],
-                    ];
-                    $data['hordes']['data']['cadavers']['list']['items'][] = $citizen_data;
-                }
-            }
-
-            return $data ?? [];
+            $response = new Response($this->arrayToXml( $data['hordes'], '<hordes xmlns:dc="http://purl.org/dc/elements/1.1" xmlns:content="http://purl.org/rss/1.0/modules/content/" />' ));
+            #$response = new Response(print_r($data, 1));
+            $response->headers->set('Content-Type', 'text/xml');
+            return $response;
         }
 
         private function arrayToXml($array, $rootElement = null, $xml = null, $node = null): string {
@@ -357,5 +199,7 @@
             }
             return $_xml->asXML();
         }
+
+
     }
 ?>

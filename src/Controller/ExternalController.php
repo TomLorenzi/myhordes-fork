@@ -14,7 +14,8 @@
     use App\Service\ConfMaster;
     use App\Service\CrowService;
     use App\Service\DeathHandler;
-    use App\Service\GameFactory;
+use App\Service\ErrorHelper;
+use App\Service\GameFactory;
     use App\Service\InventoryHandler;
     use App\Service\ItemFactory;
     use App\Service\LogTemplateHandler;
@@ -27,7 +28,8 @@
     use DateTime;
     use DateTimeZone;
     use Doctrine\ORM\EntityManagerInterface;
-    use Exception;
+use Error;
+use Exception;
     use SimpleXMLElement;
     use Symfony\Component\HttpFoundation\Response;
     use Symfony\Component\Routing\Annotation\Route;
