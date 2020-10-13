@@ -51,11 +51,11 @@
                     </div>
                 </div>
                 <div class="cell rw-3 right count" style="background:#593223; padding: 5px;">
-                    {% if thread.posts|length > 1 %}
-                        {{ thread.posts|length - 1 }}
+                    {% if thread.visiblePosts|length > 1 %}
+                        {{ thread.visiblePosts|length - 1 }}
                     {% endif %}
                     <br />
-                    {% set last_post = thread.posts|length > 0 ? thread.posts[thread.posts|length-1] : null %}
+                    {% set last_post = thread.lastPost %}
                     {% if last_post and last_post.owner %}
                         {% if last_post.owner.username == 'Der Rabe' %}
                             {{ 'Der Rabe'|trans({},'global') }}

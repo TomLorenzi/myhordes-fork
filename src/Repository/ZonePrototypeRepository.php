@@ -36,14 +36,14 @@ class ZonePrototypeRepository extends ServiceEntityRepository
 
     /**
      * @param int $distance
+     * @param bool $explorable
      * @return ZonePrototype[] Returns an array of ZonePrototype objects
      */
-    public function findByDistance(int $distance)
+    public function findByDistance(int $distance, bool $explorable = false)
     {
         return $this->createQueryBuilder('z')
-            ->andWhere('z.minDistance <= :dist')
-            ->andWhere('z.maxDistance >= :dist')
-            ->setParameter('dist', $distance)
+            ->andWhere('z.minDistance <= :dist')->andWhere('z.maxDistance >= :dist')->setParameter('dist', $distance)
+            ->andWhere('z.explorable = :exp')->setParameter('exp', $explorable)
             ->getQuery()
             ->getResult()
         ;

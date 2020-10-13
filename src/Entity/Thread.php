@@ -155,6 +155,27 @@ class Thread
         return $this->posts;
     }
 
+    /**
+     * @return Post[]
+     */
+    public function visiblePosts(): array
+    {
+        return array_filter( $this->getPosts()->getValues(), fn(Post $p) => !$p->getHidden() );
+    }
+
+    /**
+     * @param bool $include_hidden
+     * @return null|Post
+     */
+    public function lastPost(bool $include_hidden = false): ?Post
+    {
+        if ($this->getPosts()->isEmpty()) return null;
+        for ($i = $this->getPosts()->count() - 1; $i > 0; $i--)
+            if ($include_hidden || !$this->getPosts()[$i]->getHidden())
+                return $this->getPosts()[$i];
+        return null;
+    }
+
     public function addPost(Post $post): self
     {
         if (!$this->posts->contains($post)) {

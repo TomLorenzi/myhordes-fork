@@ -1122,7 +1122,7 @@ class MessageController extends AbstractController
                 $reason = $parser->get( 'reason', '' );
                 if (empty($reason)) return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
 
-                if ($post->getThread() !== $thread) return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
+                if ($post->getHidden() || $post->getThread() !== $thread) return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
 
                 if (!$this->perm->checkEffectivePermissions($this->getUser(), $forum, ForumUsagePermissions::PermissionModerate))
                     return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
@@ -1145,7 +1145,26 @@ class MessageController extends AbstractController
                     return AjaxResponse::error( ErrorHelper::ErrorDatabaseException );
                 }
 
+            case 'undelete':
 
+                /** @var Post $post */
+                $post = $this->entityManager->getRepository(Post::class)->find((int)$parser->get('postId'));
+                if (!$post->getHidden() || $post->getThread() !== $thread) return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
+
+                if (!$this->perm->checkEffectivePermissions($this->getUser(), $forum, ForumUsagePermissions::PermissionModerate))
+                    return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
+
+                try {
+                    $post->setHidden(false);
+                    if ($ad = $this->entityManager->getRepository(AdminDeletion::class)->findOneBy(['post' => $post]))
+                        $this->entityManager->remove($ad);
+                    $this->entityManager->persist( $post );
+                    $this->entityManager->flush();
+                    return AjaxResponse::success();
+                }
+                catch (Exception $e) {
+                    return AjaxResponse::error( ErrorHelper::ErrorDatabaseException );
+                }
             default: break;
         }
 

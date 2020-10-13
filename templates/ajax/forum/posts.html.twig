@@ -161,9 +161,12 @@
                                 <label class="mod-submenu" for="mod-submenu-toggle-{{ post.id }}">
                                     <input type="checkbox" name="mod-submenu-toggle-{{ post.id }}" id="mod-submenu-toggle-{{ post.id }}" />
                                     <ul class="mod-submenu-links">
-                                        {% if not post.hidden %}
-                                            <li><a class="action-button" id="delete_post" x-forum-moderator-action="delete-post" x-post-id={{ post.id }} x-to-page={{ current_page }}>{{ 'Löschen'|trans({},'global') }}</a></li>
-                                            <li><a class="action-button" id="delete_post" x-forum-moderator-action="edit-post"   x-post-id={{ post.id }} x-to-page={{ current_page }}>{{ 'Bearbeiten'|trans({},'global') }}</a></li>
+
+                                        {% if post.hidden %}
+                                            <li><a class="action-button" x-forum-moderator-action="undelete-post" x-post-id={{ post.id }} x-to-page={{ current_page }}>{{ 'Wiederherstellen'|trans({},'global') }}</a></li>
+                                        {% else %}
+                                            <li><a class="action-button" x-forum-moderator-action="delete-post" x-post-id={{ post.id }} x-to-page={{ current_page }}>{{ 'Löschen'|trans({},'global') }}</a></li>
+                                            <li><a class="action-button" x-forum-moderator-action="edit-post"   x-post-id={{ post.id }} x-to-page={{ current_page }}>{{ 'Bearbeiten'|trans({},'global') }}</a></li>
                                         {% endif %}
                                     </ul>
                                 </label>
@@ -279,6 +282,9 @@
                 let reason = prompt('{{ 'Grund'|trans({},'admin')|e('js') }}', '');
                 if (reason !== null)
                     $.ajax.easySend( '{{ url('forum_thread_mod_controller', { 'fid': fid, 'tid': tid, mod: 'delete'}) }}', {reason: reason, postId: parseInt( elem.getAttribute('x-post-id')) }, reloadPage );
+            } );
+            $.html.addEventListenerAll( '[x-forum-moderator-action="undelete-post"]', 'click', function(e,elem) {
+                $.ajax.easySend( '{{ url('forum_thread_mod_controller', { 'fid': fid, 'tid': tid, mod: 'undelete'}) }}', {postId: parseInt( elem.getAttribute('x-post-id')) }, reloadPage );
             } );
             $.html.addEventListenerAll( '[x-forum-moderator-action="edit-post"]', 'click', function(e,elem) {
                 fun_inline_edit('{{ path('forum_post_editor_controller', {fid: fid, tid: tid}) }}', elem.getAttribute('x-post-id'), $.html.twinoParser.OpModeRaw)
