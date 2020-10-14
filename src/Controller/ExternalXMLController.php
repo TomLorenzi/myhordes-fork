@@ -92,7 +92,7 @@ class ExternalXMLController extends ExternalController {
     }
 
     /**
-     * @Route("/api/x/xml/user", name="api_x_xml_user", defaults={"_format"="xml"})
+     * @Route("/api/x/xml/user", name="api_x_xml_user", defaults={"_format"="xml"}, methods={"POST"})
      * @param $trans TranslatorInterface
      * @param $zh ZoneHandler
      * @param $ch CitizenHandler
