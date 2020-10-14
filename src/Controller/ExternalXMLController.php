@@ -88,8 +88,6 @@
         public function api_xml(): Response {
             $check = $this->check_keys();
 
-            print_r(get_class($check));
-
             if($check instanceof Response)
                 return $check;
             
@@ -107,9 +105,12 @@
 
         /**
          * @Route("/api/x/xml/user", name="api_x_xml_user", defaults={"_format"="xml"}, methods={"POST"})
+         * @param $trans TranslatorInterface
+         * @param $zh ZoneHandler
+         * @param $ch CitizenHandler
          * @return Response
          */
-        public function api_xml_users(): Response {
+        public function api_xml_users(TranslatorInterface $trans, ZoneHandler $zh, CitizenHandler $ch): Response {
             $user = $this->check_keys();
 
             if($user instanceof Response)
@@ -121,7 +122,20 @@
                 $now = date('Y-m-d H:i:s');
             }
 
-            $language = $user->getLanguage() ?? 'de';
+            $request = Request::createFromGlobals();
+
+            // Try POST data
+            $language = $request->query->get('lang');
+
+            if (trim($language) == '') {
+                $language = $request->request->get('lang');
+            }
+
+            if(!in_array($language, ['en', 'fr', 'de', 'es', 'all'])) {
+                $language = $user->getLanguage() ?? 'de';
+            }
+
+            $trans->setLocale($language);
 
             // Base data.
             $data = [
@@ -129,8 +143,8 @@
                     'headers' => [
                         'attributes' => [
                             'link' => Request::createFromGlobals()->getBaseUrl() . Request::createFromGlobals()->getPathInfo(),
-                            'iconurl' => $user->getAvatar() !== null ? $this->generateUrl('app_web_avatar', ['uid' => $user->getId(), 'name' => $user->getAvatar()->getFilename(), 'ext' => $user->getAvatar()->getFormat()], UrlGeneratorInterface::ABSOLUTE_URL) : "",
-                            'avatarurl' => '',
+                            'iconurl' => '',
+                            'avatarurl' => '/cdn/avatar/', // Find a way to set this dynamic (see WebController::avatar for reference)
                             'secure' => intval(Request::createFromGlobals()->isSecure()),
                             'author' => 'MyHordes',
                             'language' => $language,
@@ -146,8 +160,57 @@
             if($citizen !== null){
                 /** @var Town $town */
                 $town = $citizen->getTown();
-                /** @var Zone $citizen_zone */
-                $citizen_zone = $citizen->getZone();
+                $data['hordes']['headers']['owner'] = [
+                    'citizen' => [
+                        "attributes" => [
+                            'dead' => !$citizen->getAlive(),
+                            'hero' => $citizen->getProfession()->getHeroic(),
+                            'name' => $user->getUsername(),
+                            'avatar' => $user->getId() . "/" . $user->getAvatar()->getFilename() . "." . $user->getAvatar()->getFormat(),
+                            'x' => $citizen->getZone() !== null ? $citizen->getZone()->getX() : '0',
+                            'y' => $citizen->getZone() !== null ? $citizen->getZone()->getY() : '0',
+                            'id' => $citizen->getId(),
+                            'ban' => $citizen->getBanished(),
+                            'job' => $citizen->getProfession()->getName(),
+                            'out' => intval($citizen->getZone() !== null),
+                            'baseDef' => '0'
+                        ],
+                        "value" => $citizen->getHome()->getDescription()
+                    ]
+                ];
+                /** @var Zone $zone */
+                $zone = $citizen->getZone();
+                if($zone !== null){
+                    $cp = 0;
+                    foreach ($zone->getCitizens() as $c)
+                        if ($c->getAlive())
+                            $cp += $ch->getCP($c);
+                    $data['hordes']['headers']['owner']['myZone'] = [
+                        "attributes" => [
+                            'dried' => intval($zone->getDigs() == 0),
+                            'h' => $cp,
+                            'z' => $zone->getZombies()
+                        ],
+                        'list' => [
+                            'name' => 'item',
+                            'items' => []
+                        ]
+                    ];
+                    
+                    /** @var Item $item */
+                    foreach($zone->getFloor()->getItems() as $item) {
+                        $data['hordes']['headers']['owner']['myZone']['list']['items'][] = [
+                            'attributes' => [
+                                'name' => $trans->trans($item->getPrototype()->getLabel(), [], 'items'),
+                                'count' => 1,
+                                'id' => $item->getPrototype()->getId(),
+                                'cat' => $item->getPrototype()->getCategory()->getName(),
+                                'img' => $item->getPrototype()->getName(),
+                                'broken' => intval($item->getBroken())
+                            ]
+                        ];
+                    }
+                }
                 $data['hordes']['headers']['game'] = [
                     'attributes' => [
                         'days' => $town->getDay(),
@@ -157,6 +220,11 @@
                     ],
                 ];
             }
+
+            $data['hordes']['data'] = [
+                'rewards' => [],
+                'maps' => []
+            ];
 
             $response = new Response($this->arrayToXml( $data['hordes'], '<hordes xmlns:dc="http://purl.org/dc/elements/1.1" xmlns:content="http://purl.org/rss/1.0/modules/content/" />' ));
             #$response = new Response(print_r($data, 1));
@@ -175,6 +243,7 @@
                 if (is_array($v)) {
                     $name = $node ?? $k;
                     $child = $_xml->addChild($name);
+                    
                     if (array_key_exists('attributes', $v)) {
                         foreach ($v['attributes'] as $a => $b) {
                             $child->addAttribute($a, $b);
@@ -184,6 +253,10 @@
                     if (array_key_exists('list', $v)) {
                         $this->arrayToXml($v['list']['items'], $name, $child, $v['list']['name']);
                         unset($v['list']);
+                    }
+                    if(array_key_exists('value', $v)) {
+                        $child[0] = "<![CDATA[{$v["value"]}]]>";
+                        unset($v["value"]);
                     }
                 }
                 // If there is nested array then
