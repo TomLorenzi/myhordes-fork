@@ -1,0 +1,44 @@
+#api-docs {
+    font-family: "Century Gothic", "Arial", "Trebuchet MS", Verdana, sans-serif;
+    color: white;
+    font-size: 1.3rem;
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        border-spacing: 0px;
+        border: 0px;
+        border-bottom: 2px solid #f0d79e;
+        th { vertical-align: bottom; border-bottom: 2px solid #f0d79e; }
+        td { 
+            padding-left: 5px; padding-right: 5px;
+            vertical-align: top;
+            border: 0px; border-right: 1px solid #7e4d2a; border-bottom: 1px solid #7e4d2a;
+            background-color: #5c2b20;
+            a { font-weight: normal; } 
+        }
+    }
+    h5 {
+        font-size: 1.1rem;
+        line-height: 17px;
+        font-family: Verdana;
+        text-transform: uppercase;
+    }
+    pre {
+        background-color: #4f2e1f;
+        box-shadow: 0 0 2px #4E5162;
+        color: #FFFFFF;
+        display: block;
+        overflow: auto;
+        padding: 8px;
+        white-space: pre;
+        span { 
+            &.string { color: #eca4f1; }
+            &.int { color: #76d8ca; }
+            &.bool { color: #ee7c2b; }
+        }
+        a {
+            &.custom { text-decoration: underline; color: #00e0e0; }
+            &.entity { text-decoration: underline; color: #ddab76; }
+        }
+    }
+}
