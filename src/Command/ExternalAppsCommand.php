@@ -6,7 +6,6 @@ namespace App\Command;
 use App\Entity\ExternalApp;
 use App\Entity\User;
 use App\Service\CommandHelper;
-use App\Structures\IdentifierSemantic;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Helper\Table;
@@ -15,6 +14,10 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Question\Question;
+use Symfony\Component\Validator\Constraints\Email as EmailConstraint;
+use Symfony\Component\Validator\Constraints\Url as UrlConstraint;
+
+use Symfony\Component\Validator\Validator\ValidatorInterface;
 
 class ExternalAppsCommand extends Command
 {
@@ -22,11 +25,13 @@ class ExternalAppsCommand extends Command
 
     private $entityManager;
     private $helper;
+    private $validator;
 
-    public function __construct(EntityManagerInterface $em, CommandHelper $ch)
+    public function __construct(EntityManagerInterface $em, CommandHelper $ch, ValidatorInterface $validator)
     {
         $this->entityManager = $em;
         $this->helper = $ch;
+        $this->validator = $validator;
         parent::__construct();
     }
 
@@ -82,10 +87,34 @@ class ExternalAppsCommand extends Command
                 throw new \Exception("URL is mandatory");
             }
 
+            $constraint = new UrlConstraint();
+            $constraint->message = 'The URL is invalid';
+
+            $errors = $this->validator->validate(
+                $url,
+                $constraint
+            );
+
+            if(count($errors) > 0){
+                throw new \Exception($errors);
+            }
+
             $question = new Question('What is the contact email of the external app : ');
             $contact = $helper->ask($input, $output, $question);
             if(empty(trim($contact))) {
                 throw new \Exception("Contact is mandatory");
+            }
+
+            $constraint = new EmailConstraint();
+            $constraint->message = 'The contact email is invalid';
+
+            $errors = $this->validator->validate(
+                $contact,
+                $constraint
+            );
+
+            if(count($errors) > 0){
+                throw new \Exception($errors);
             }
 
             $question = new Question('What is the icon name of the app: ');
