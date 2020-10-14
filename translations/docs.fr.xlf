@@ -7,7 +7,7 @@
       </notes>
       <segment>
         <source>URL anfordern</source>
-        <target>URL anfordern</target>
+        <target>URL d'appel</target>
       </segment>
     </unit>
     <unit id="cQsNuV4" name="Rückgabetyp">
@@ -16,7 +16,7 @@
       </notes>
       <segment>
         <source>Rückgabetyp</source>
-        <target>Rückgabetyp</target>
+        <target>Type de retour</target>
       </segment>
     </unit>
     <unit id="Yzze0ZL" name="&quot;true&quot;, wenn der Angriff ausgeführt wird">
@@ -25,7 +25,7 @@
       </notes>
       <segment>
         <source>"true", wenn der Angriff ausgeführt wird</source>
-        <target>"true", wenn der Angriff ausgeführt wird</target>
+        <target>"true", quand l'attaque est en cours</target>
       </segment>
     </unit>
     <unit id="mw_nuOf" name="&quot;true&quot;, wenn das Spiel gewartet wird">
@@ -34,7 +34,7 @@
       </notes>
       <segment>
         <source>"true", wenn das Spiel gewartet wird</source>
-        <target>"true", wenn das Spiel gewartet wird</target>
+        <target>"true", lorsque le jeu est en maintenance</target>
       </segment>
     </unit>
     <unit id="b_mVDDt" name="Spielkarten-ID">
@@ -43,7 +43,7 @@
       </notes>
       <segment>
         <source>Spielkarten-ID</source>
-        <target>Spielkarten-ID</target>
+        <target>ID de la carte de jeu</target>
       </segment>
     </unit>
     <unit id="x3kQEe2" name="Serverzeit">
@@ -52,7 +52,7 @@
       </notes>
       <segment>
         <source>Serverzeit</source>
-        <target>Serverzeit</target>
+        <target>Heure du serveur</target>
       </segment>
     </unit>
     <unit id="jb3MjHh" name="Kartenbreite">
@@ -61,7 +61,7 @@
       </notes>
       <segment>
         <source>Kartenbreite</source>
-        <target>Kartenbreite</target>
+        <target>Largeur de la carte</target>
       </segment>
     </unit>
     <unit id="VWs0Y67" name="Kartenhöhe">
@@ -70,7 +70,7 @@
       </notes>
       <segment>
         <source>Kartenhöhe</source>
-        <target>Kartenhöhe</target>
+        <target>Hauteur de la carte</target>
       </segment>
     </unit>
     <unit id="CWyvqQv" name="Wenn es einen Aufstand gibt">
@@ -79,7 +79,7 @@
       </notes>
       <segment>
         <source>Wenn es einen Aufstand gibt</source>
-        <target>Wenn es einen Aufstand gibt</target>
+        <target>S'il y a insurrection</target>
       </segment>
     </unit>
     <unit id="XhYRokz" name="Bonuspunkte">
@@ -88,7 +88,7 @@
       </notes>
       <segment>
         <source>Bonuspunkte</source>
-        <target>Bonuspunkte</target>
+        <target>Points bonus</target>
       </segment>
     </unit>
     <unit id="_TdUTyc" name="Stadttag">
@@ -97,7 +97,7 @@
       </notes>
       <segment>
         <source>Stadttag</source>
-        <target>Stadttag</target>
+        <target>Jour de la ville</target>
       </segment>
     </unit>
     <unit id="XS6yW8K" name="Boolescher Wert, der angibt, ob die Stadt privat ist oder nicht">
@@ -106,7 +106,7 @@
       </notes>
       <segment>
         <source>Boolescher Wert, der angibt, ob die Stadt privat ist oder nicht</source>
-        <target>Boolescher Wert, der angibt, ob die Stadt privat ist oder nicht</target>
+        <target>Booléen qui indique si la ville est privée ou non</target>
       </segment>
     </unit>
     <unit id="IIyH1_p" name="Liste bekannter Zonen">
@@ -115,7 +115,7 @@
       </notes>
       <segment>
         <source>Liste bekannter Zonen</source>
-        <target>Liste bekannter Zonen</target>
+        <target>Liste des zones connues</target>
       </segment>
     </unit>
     <unit id="8yQo_c7" name="Liste der Bürger">
@@ -124,7 +124,7 @@
       </notes>
       <segment>
         <source>Liste der Bürger</source>
-        <target>Liste der Bürger</target>
+        <target>Liste des citoyens</target>
       </segment>
     </unit>
     <unit id="DPvvGuO" name="Stadtinformationen">
@@ -133,7 +133,7 @@
       </notes>
       <segment>
         <source>Stadtinformationen</source>
-        <target>Stadtinformationen</target>
+        <target>Informations de la ville</target>
       </segment>
     </unit>
     <unit id="1flCWsE" name="Liste der Leichen">
@@ -142,7 +142,7 @@
       </notes>
       <segment>
         <source>Liste der Leichen</source>
-        <target>Liste der Leichen</target>
+        <target>Liste des cadavres</target>
       </segment>
     </unit>
     <unit id="Duo3rP5" name="Liste der Expeditionen">
@@ -151,7 +151,7 @@
       </notes>
       <segment>
         <source>Liste der Expeditionen</source>
-        <target>Liste der Expeditionen</target>
+        <target>Liste des expéditions</target>
       </segment>
     </unit>
     <unit id="wlDIcKF" name="City Creation Season ID">
@@ -160,7 +160,7 @@
       </notes>
       <segment>
         <source>City Creation Season ID</source>
-        <target>City Creation Season ID</target>
+        <target>ID de la saison de la création de la ville</target>
       </segment>
     </unit>
     <unit id="5A15fqI" name="UID des Spielers, der Schamane ist">
@@ -169,7 +169,7 @@
       </notes>
       <segment>
         <source>UID des Spielers, der Schamane ist</source>
-        <target>UID des Spielers, der Schamane ist</target>
+        <target>UID du joueur qui est Chaman</target>
       </segment>
     </unit>
     <unit id="vP9JFiK" name="UID des Spielers, der Reiseleiter in der Außenwel ist">
@@ -178,7 +178,7 @@
       </notes>
       <segment>
         <source>UID des Spielers, der Reiseleiter in der Außenwel ist</source>
-        <target>UID des Spielers, der Reiseleiter in der Außenwel ist</target>
+        <target>UID du joueur qui est Guide</target>
       </segment>
     </unit>
     <unit id="4BJBscB" name="X von der oberen linken Ecke">
@@ -187,7 +187,7 @@
       </notes>
       <segment>
         <source>X von der oberen linken Ecke</source>
-        <target>X von der oberen linken Ecke</target>
+        <target>X par rapport au coin en haut à gauche</target>
       </segment>
     </unit>
     <unit id="SII2qTe" name="Y von der oberen linken Ecke">
@@ -196,7 +196,7 @@
       </notes>
       <segment>
         <source>Y von der oberen linken Ecke</source>
-        <target>Y von der oberen linken Ecke</target>
+        <target>Y par rapport au coin en haut à gauche</target>
       </segment>
     </unit>
     <unit id="sGpVIDB" name="Heute nicht besucht">
@@ -205,7 +205,7 @@
       </notes>
       <segment>
         <source>Heute nicht besucht</source>
-        <target>Heute nicht besucht</target>
+        <target>Pas visité aujourd'hui</target>
       </segment>
     </unit>
     <unit id="9dyupPG" name="Zonen-Tag">
@@ -214,7 +214,7 @@
       </notes>
       <segment>
         <source>Zonen-Tag</source>
-        <target>Zonen-Tag</target>
+        <target>Balise de la zone</target>
       </segment>
     </unit>
     <unit id="ly658p5" name="Gefahrenstufe 0 = grün, 1 = grün-gelb, 2 = orange, 3 = rot, 4 = blau">
@@ -223,7 +223,7 @@
       </notes>
       <segment>
         <source>Gefahrenstufe 0 = grün, 1 = grün-gelb, 2 = orange, 3 = rot, 4 = blau</source>
-        <target>Gefahrenstufe 0 = grün, 1 = grün-gelb, 2 = orange, 3 = rot, 4 = blau</target>
+        <target>Niveau de danger 0 = vert, 1 = vert-jaune, 2 = orange, 3 = rouge, 4 = bleu</target>
       </segment>
     </unit>
     <unit id="y68XZY9" name="Bereichsdetails">
@@ -232,7 +232,7 @@
       </notes>
       <segment>
         <source>Bereichsdetails</source>
-        <target>Bereichsdetails</target>
+        <target>Détails de la zone</target>
       </segment>
     </unit>
     <unit id="ulaMByP" name="Liste der Objekte in diesem Bereich">
@@ -241,7 +241,7 @@
       </notes>
       <segment>
         <source>Liste der Objekte in diesem Bereich</source>
-        <target>Liste der Objekte in diesem Bereich</target>
+        <target>Liste des objets dans cette zone</target>
       </segment>
     </unit>
     <unit id="4Yz8rlD" name="Informationen zum Gebäude in der Umgebung">
@@ -250,7 +250,7 @@
       </notes>
       <segment>
         <source>Informationen zum Gebäude in der Umgebung</source>
-        <target>Informationen zum Gebäude in der Umgebung</target>
+        <target>Informations sur le bâtiment présent sur la zone</target>
       </segment>
     </unit>
     <unit id="yHlJU_1" name="Die Gebäude-ID">
@@ -259,7 +259,7 @@
       </notes>
       <segment>
         <source>Die Gebäude-ID</source>
-        <target>Die Gebäude-ID</target>
+        <target>L'ID du bâtiment</target>
       </segment>
     </unit>
     <unit id="jq0ZA8A" name="Die Anzahl der Sandhaufen auf dem Gebäude">
@@ -268,7 +268,7 @@
       </notes>
       <segment>
         <source>Die Anzahl der Sandhaufen auf dem Gebäude</source>
-        <target>Die Anzahl der Sandhaufen auf dem Gebäude</target>
+        <target>Le nombre de tas de sable sur le bâtiment</target>
       </segment>
     </unit>
     <unit id="3A_fZl2" name="Der Name des Gebäudes">
@@ -277,7 +277,7 @@
       </notes>
       <segment>
         <source>Der Name des Gebäudes</source>
-        <target>Der Name des Gebäudes</target>
+        <target>Le nom du bâtiment</target>
       </segment>
     </unit>
     <unit id="vlUUAhW" name="Beschreibung des Gebäudes">
@@ -286,7 +286,7 @@
       </notes>
       <segment>
         <source>Beschreibung des Gebäudes</source>
-        <target>Beschreibung des Gebäudes</target>
+        <target>La description du bâtiment</target>
       </segment>
     </unit>
     <unit id="UkI_qkM" name="Wenn das Gebäude gelagert wurde">
@@ -295,7 +295,7 @@
       </notes>
       <segment>
         <source>Wenn das Gebäude gelagert wurde</source>
-        <target>Wenn das Gebäude gelagert wurde</target>
+        <target>Si le bâtiment a été campé</target>
       </segment>
     </unit>
     <unit id="IujjIrH" name="Das Gebäude trocknen">
@@ -304,7 +304,7 @@
       </notes>
       <segment>
         <source>Das Gebäude trocknen</source>
-        <target>Das Gebäude trocknen</target>
+        <target>L'assèchement du bâtiment</target>
       </segment>
     </unit>
     <unit id="BAdMxDp" name="Die Anzahl der Zombies">
@@ -313,7 +313,7 @@
       </notes>
       <segment>
         <source>Die Anzahl der Zombies</source>
-        <target>Die Anzahl der Zombies</target>
+        <target>Le nombre de zombies</target>
       </segment>
     </unit>
     <unit id="89Ftxlo" name="Die Anzahl der Menschen">
@@ -322,7 +322,7 @@
       </notes>
       <segment>
         <source>Die Anzahl der Menschen</source>
-        <target>Die Anzahl der Menschen</target>
+        <target>Le nombre d'humain</target>
       </segment>
     </unit>
     <unit id="ksG4XYO" name="Den Bereich austrocknen">
@@ -331,7 +331,7 @@
       </notes>
       <segment>
         <source>Den Bereich austrocknen</source>
-        <target>Den Bereich austrocknen</target>
+        <target>L'assèchement de la zone</target>
       </segment>
     </unit>
     <unit id="VR0KmfL" name="Spielername">
@@ -340,7 +340,7 @@
       </notes>
       <segment>
         <source>Spielername</source>
-        <target>Spielername</target>
+        <target>Nom du joueur</target>
       </segment>
     </unit>
     <unit id="CcdX8lv" name="ob der Spieler verkörpert ist (false) oder nicht (true)">
@@ -349,7 +349,7 @@
       </notes>
       <segment>
         <source>ob der Spieler verkörpert ist (false) oder nicht (true)</source>
-        <target>ob der Spieler verkörpert ist (false) oder nicht (true)</target>
+        <target>Si le joueur est incarné (false) ou non (true)</target>
       </segment>
     </unit>
     <unit id="YVtCp6_" name="Die Twinoid-ID, wenn er sein Konto verknüpft hat">
@@ -358,7 +358,7 @@
       </notes>
       <segment>
         <source>Die Twinoid-ID, wenn er sein Konto verknüpft hat</source>
-        <target>Die Twinoid-ID, wenn er sein Konto verknüpft hat</target>
+        <target>L'ID Twinoid s'il a lié son compte</target>
       </segment>
     </unit>
     <unit id="o928kfJ" name="So verkörpert die ID seiner Stadt">
@@ -367,7 +367,7 @@
       </notes>
       <segment>
         <source>So verkörpert die ID seiner Stadt</source>
-        <target>So verkörpert die ID seiner Stadt</target>
+        <target>Si incarné, l'ID de sa ville</target>
       </segment>
     </unit>
     <unit id="dZpwNJa" name="Wenn verkörpert, eine Instanz von Map">
@@ -376,7 +376,7 @@
       </notes>
       <segment>
         <source>Wenn verkörpert, eine Instanz von Map</source>
-        <target>Wenn verkörpert, eine Instanz von Map</target>
+        <target>Si incarné, un instance de Map</target>
       </segment>
     </unit>
     <unit id="j__H7.N" name="Persönlicher Text (über die Seele)">
@@ -385,7 +385,7 @@
       </notes>
       <segment>
         <source>Persönlicher Text (über die Seele)</source>
-        <target>Persönlicher Text (über die Seele)</target>
+        <target>Texte personnel (sur l'Âme)</target>
       </segment>
     </unit>
     <unit id="UX5dXh2" name="Spieler-Avatar-URL">
@@ -394,7 +394,7 @@
       </notes>
       <segment>
         <source>Spieler-Avatar-URL</source>
-        <target>Spieler-Avatar-URL</target>
+        <target>URL de l'avatar du joueur</target>
       </segment>
     </unit>
     <unit id="DG42b1O" name="Liste der alten Inkarnationen">
@@ -403,7 +403,7 @@
       </notes>
       <segment>
         <source>Liste der alten Inkarnationen</source>
-        <target>Liste der alten Inkarnationen</target>
+        <target>La liste des anciennes incarnations</target>
       </segment>
     </unit>
     <unit id="ICOL_5_" name="ID-MyHordes">
@@ -412,7 +412,7 @@
       </notes>
       <segment>
         <source>ID-MyHordes</source>
-        <target>ID-MyHordes</target>
+        <target>ID MyHordes</target>
       </segment>
     </unit>
     <unit id="C5c5hLx" name="universelle ID (zB: basic = Einwohner)">
@@ -421,7 +421,7 @@
       </notes>
       <segment>
         <source>universelle ID (zB: basic = Einwohner)</source>
-        <target>universelle ID (zB: basic = Einwohner)</target>
+        <target>ID universel (ex: basic = habitant)</target>
       </segment>
     </unit>
     <unit id="I8Bzv3U" name="Der Name des Berufs">
@@ -430,7 +430,7 @@
       </notes>
       <segment>
         <source>Der Name des Berufs</source>
-        <target>Der Name des Berufs</target>
+        <target>Le nom du métier</target>
       </segment>
     </unit>
     <unit id="1lXS_T7" name="Die Beschreibung">
@@ -439,7 +439,7 @@
       </notes>
       <segment>
         <source>Die Beschreibung</source>
-        <target>Die Beschreibung</target>
+        <target>La description</target>
       </segment>
     </unit>
     <unit id="KAAmbDC" name="Name der Stadt">
@@ -448,7 +448,7 @@
       </notes>
       <segment>
         <source>Name der Stadt</source>
-        <target>Name der Stadt</target>
+        <target>Nom de la ville</target>
       </segment>
     </unit>
     <unit id="EiF29ae" name="Anzahl der verfügbaren Wasserrationen">
@@ -457,7 +457,7 @@
       </notes>
       <segment>
         <source>Anzahl der verfügbaren Wasserrationen</source>
-        <target>Anzahl der verfügbaren Wasserrationen</target>
+        <target>Nombre de rations d'eau disponibles</target>
       </segment>
     </unit>
     <unit id="usrpxmF" name="Stadtposition">
@@ -466,7 +466,7 @@
       </notes>
       <segment>
         <source>Stadtposition</source>
-        <target>Stadtposition</target>
+        <target>Position de la ville</target>
       </segment>
     </unit>
     <unit id="U5gH9xh" name="Boolescher Wert, der angibt, ob das Stadttor geöffnet ist">
@@ -475,7 +475,7 @@
       </notes>
       <segment>
         <source>Boolescher Wert, der angibt, ob das Stadttor geöffnet ist</source>
-        <target>Boolescher Wert, der angibt, ob das Stadttor geöffnet ist</target>
+        <target>Booléen qui précise si la porte de la ville est ouverte</target>
       </segment>
     </unit>
     <unit id="YXbjKvx" name="Boolescher Wert, der angibt, dass sich die Stadt im Chaos befindet">
@@ -484,7 +484,7 @@
       </notes>
       <segment>
         <source>Boolescher Wert, der angibt, dass sich die Stadt im Chaos befindet</source>
-        <target>Boolescher Wert, der angibt, dass sich die Stadt im Chaos befindet</target>
+        <target>Booléen qui précise que la ville est en chaos</target>
       </segment>
     </unit>
     <unit id="JHeixLc" name="Boolescher Wert, der besagt, ob die Stadt ein Pandemonium ist">
@@ -493,7 +493,7 @@
       </notes>
       <segment>
         <source>Boolescher Wert, der besagt, ob die Stadt ein Pandemonium ist</source>
-        <target>Boolescher Wert, der besagt, ob die Stadt ein Pandemonium ist</target>
+        <target>Booléen qui dit si la ville est pandémonium</target>
       </segment>
     </unit>
     <unit id="2KmVjTR" name="Boolescher Wert, der angibt, ob die Stadt am Boden zerstört ist">
@@ -502,7 +502,7 @@
       </notes>
       <segment>
         <source>Boolescher Wert, der angibt, ob die Stadt am Boden zerstört ist</source>
-        <target>Boolescher Wert, der angibt, ob die Stadt am Boden zerstört ist</target>
+        <target>Booléen qui précise si la ville est dévastée</target>
       </segment>
     </unit>
     <unit id="CD19.Dq" name="Vollständige Liste der verfügbaren Websites">
@@ -511,7 +511,7 @@
       </notes>
       <segment>
         <source>Vollständige Liste der verfügbaren Websites</source>
-        <target>Vollständige Liste der verfügbaren Websites</target>
+        <target>Liste complète des chantiers disponibles</target>
       </segment>
     </unit>
     <unit id="NABXV7b" name="Liste der Baustellen">
@@ -520,7 +520,7 @@
       </notes>
       <segment>
         <source>Liste der Baustellen</source>
-        <target>Liste der Baustellen</target>
+        <target>Liste des chantiers construits</target>
       </segment>
     </unit>
     <unit id="ILfZzBQ" name="Neueste Zeitschrift mit Informationen zu Angriff und Verteidigung">
@@ -529,7 +529,7 @@
       </notes>
       <segment>
         <source>Neueste Zeitschrift mit Informationen zu Angriff und Verteidigung</source>
-        <target>Neueste Zeitschrift mit Informationen zu Angriff und Verteidigung</target>
+        <target>Dernière gazette avec informations sur l'attaque et la défense</target>
       </segment>
     </unit>
     <unit id="8lOIXsk" name="Informationen zur Verteidigung der Stadt">
@@ -538,7 +538,7 @@
       </notes>
       <segment>
         <source>Informationen zur Verteidigung der Stadt</source>
-        <target>Informationen zur Verteidigung der Stadt</target>
+        <target>Informations sur la défense de la ville</target>
       </segment>
     </unit>
     <unit id="Yj_2XP7" name="Liste der verfügbaren Verbesserungen (Pumpe usw.)">
@@ -547,7 +547,7 @@
       </notes>
       <segment>
         <source>Liste der verfügbaren Verbesserungen (Pumpe usw.)</source>
-        <target>Liste der verfügbaren Verbesserungen (Pumpe usw.)</target>
+        <target>Liste des améliorations disponibles (pompe etc.)</target>
       </segment>
     </unit>
     <unit id="kloFsgB" name="Schätzung für den Abendangriff">
@@ -556,7 +556,7 @@
       </notes>
       <segment>
         <source>Schätzung für den Abendangriff</source>
-        <target>Schätzung für den Abendangriff</target>
+        <target>Estimation pour l'attaque du soir</target>
       </segment>
     </unit>
     <unit id="O1v3iVT" name="cf3ba52">
@@ -565,7 +565,7 @@
       </notes>
       <segment>
         <source>Schätzen Sie für den Angriff am nächsten Tag oder nichts, wenn nicht der Planer</source>
-        <target>Schätzen Sie für den Angriff am nächsten Tag oder nichts, wenn nicht der Planer</target>
+        <target>Estimation pour l'attaque du lendemain ou rien si pas le Planificateur</target>
       </segment>
     </unit>
     <unit id="fM9i_xk" name="Objekte in der Bank">
@@ -574,7 +574,7 @@
       </notes>
       <segment>
         <source>Objekte in der Bank</source>
-        <target>Objekte in der Bank</target>
+        <target>Objets présents dans la banque</target>
       </segment>
     </unit>
     <unit id="L_ynkvZ" name="Die Tage der Schätzung">
@@ -583,7 +583,7 @@
       </notes>
       <segment>
         <source>Die Tage der Schätzung</source>
-        <target>Die Tage der Schätzung</target>
+        <target>Le jour de l'estimation</target>
       </segment>
     </unit>
     <unit id="59EsNO8" name="Der minimale Angriff">
@@ -592,7 +592,7 @@
       </notes>
       <segment>
         <source>Der minimale Angriff</source>
-        <target>Der minimale Angriff</target>
+        <target>L'attaque minimum</target>
       </segment>
     </unit>
     <unit id="6ZRLBbX" name="Maximaler Angriff">
@@ -601,7 +601,7 @@
       </notes>
       <segment>
         <source>Maximaler Angriff</source>
-        <target>Maximaler Angriff</target>
+        <target>L'attaque maximum</target>
       </segment>
     </unit>
     <unit id="6Y4BoH0" name="totale Verteidigung">
@@ -610,7 +610,7 @@
       </notes>
       <segment>
         <source>totale Verteidigung</source>
-        <target>totale Verteidigung</target>
+        <target>Défense totale</target>
       </segment>
     </unit>
     <unit id="rMw81SZ" name="Grundverteidigung (10)">
@@ -619,7 +619,7 @@
       </notes>
       <segment>
         <source>Grundverteidigung (10)</source>
-        <target>Grundverteidigung (10)</target>
+        <target>Défense de base (10)</target>
       </segment>
     </unit>
     <unit id="IRSXjEH" name="Verteidigung durch Konstruktionen">
@@ -628,7 +628,7 @@
       </notes>
       <segment>
         <source>Verteidigung durch Konstruktionen</source>
-        <target>Verteidigung durch Konstruktionen</target>
+        <target>Défense apportée par les constructions</target>
       </segment>
     </unit>
     <unit id="9dwicyP" name="Verteidigung durch Entwicklungen">
@@ -637,7 +637,7 @@
       </notes>
       <segment>
         <source>Verteidigung durch Entwicklungen</source>
-        <target>Verteidigung durch Entwicklungen</target>
+        <target>Défense apportée par les évolutions</target>
       </segment>
     </unit>
     <unit id="zmUAact" name="Anzahl der Verteidigungsobjekte">
@@ -646,7 +646,7 @@
       </notes>
       <segment>
         <source>Anzahl der Verteidigungsobjekte</source>
-        <target>Anzahl der Verteidigungsobjekte</target>
+        <target>Nombre d'Objet de Défense</target>
       </segment>
     </unit>
     <unit id="quvGx89" name="Verteidigung durch Verteidigungsobjekte">
@@ -655,7 +655,7 @@
       </notes>
       <segment>
         <source>Verteidigung durch Verteidigungsobjekte</source>
-        <target>Verteidigung durch Verteidigungsobjekte</target>
+        <target>Défense apportée par les Objets de Défense</target>
       </segment>
     </unit>
     <unit id="DDD3O8h" name="Verteidigung durch Häuser gebracht">
@@ -664,7 +664,7 @@
       </notes>
       <segment>
         <source>Verteidigung durch Häuser gebracht</source>
-        <target>Verteidigung durch Häuser gebracht</target>
+        <target>Défense apportée par les habitations</target>
       </segment>
     </unit>
     <unit id="Pb940Cc" name="Verteidigung durch die Wachen (oder Anzahl der Wachen)">
@@ -673,7 +673,7 @@
       </notes>
       <segment>
         <source>Verteidigung durch die Wachen (oder Anzahl der Wachen)</source>
-        <target>Verteidigung durch die Wachen (oder Anzahl der Wachen)</target>
+        <target>Défense apportée par les Gardiens (ou nombre de Gardiens)</target>
       </segment>
     </unit>
     <unit id="m37G302" name="Verteidigung von den Wächtern gebracht">
@@ -682,7 +682,7 @@
       </notes>
       <segment>
         <source>Verteidigung von den Wächtern gebracht</source>
-        <target>Verteidigung von den Wächtern gebracht</target>
+        <target>Défense apportée par les veilleurs</target>
       </segment>
     </unit>
     <unit id="FnNHWg4" name="Verteidigung durch Seelen gebracht">
@@ -691,7 +691,7 @@
       </notes>
       <segment>
         <source>Verteidigung durch Seelen gebracht</source>
-        <target>Verteidigung durch Seelen gebracht</target>
+        <target>Défense apportée par les âmes</target>
       </segment>
     </unit>
     <unit id="LnV0bki" name="Vorübergehende Verteidigung">
@@ -700,7 +700,7 @@
       </notes>
       <segment>
         <source>Vorübergehende Verteidigung</source>
-        <target>Vorübergehende Verteidigung</target>
+        <target>Défense temporaire</target>
       </segment>
     </unit>
     <unit id="WKYdPxy" name="Verteidigung durch Leichen gebracht">
@@ -709,7 +709,7 @@
       </notes>
       <segment>
         <source>Verteidigung durch Leichen gebracht</source>
-        <target>Verteidigung durch Leichen gebracht</target>
+        <target>Défense apportée par les cadavres</target>
       </segment>
     </unit>
     <unit id="vRe51_F" name="Anzahl der Wachen">
@@ -718,7 +718,7 @@
       </notes>
       <segment>
         <source>Anzahl der Wachen</source>
-        <target>Anzahl der Wachen</target>
+        <target>Nombre de Gardiens</target>
       </segment>
     </unit>
     <unit id="PRCDOWU" name="Verteidigung durch die Wächter">
@@ -727,7 +727,7 @@
       </notes>
       <segment>
         <source>Verteidigung durch die Wächter</source>
-        <target>Verteidigung durch die Wächter</target>
+        <target>Défense apportée par les Gardiens</target>
       </segment>
     </unit>
     <unit id="pJFT5TL" name="Anzahl der angegriffenen Zombies">
@@ -736,7 +736,7 @@
       </notes>
       <segment>
         <source>Anzahl der angegriffenen Zombies</source>
-        <target>Anzahl der angegriffenen Zombies</target>
+        <target>Nombre de zombie à avoir attaqué</target>
       </segment>
     </unit>
     <unit id="62emNze" name="Anzahl der Verteidigungspunkte">
@@ -745,7 +745,7 @@
       </notes>
       <segment>
         <source>Anzahl der Verteidigungspunkte</source>
-        <target>Anzahl der Verteidigungspunkte</target>
+        <target>Nombre de points de défense</target>
       </segment>
     </unit>
     <unit id="v3BuslK" name="Gazette-Text">
@@ -754,7 +754,7 @@
       </notes>
       <segment>
         <source>Gazette-Text</source>
-        <target>Gazette-Text</target>
+        <target>Texte de la Gazette</target>
       </segment>
     </unit>
     <unit id="XIAr9QP" name="Richtung der Regeneration des stellvertretenden Rückkehrers?">
@@ -763,7 +763,7 @@
       </notes>
       <segment>
         <source>Richtung der Regeneration des stellvertretenden Rückkehrers?</source>
-        <target>Richtung der Regeneration des stellvertretenden Rückkehrers?</target>
+        <target>Direction de la régénération du scrutateur ?</target>
       </segment>
     </unit>
     <unit id="0MMAnFB" name="Anzahl der im Brunnen verbleibenden Rationen?">
@@ -772,7 +772,7 @@
       </notes>
       <segment>
         <source>Anzahl der im Brunnen verbleibenden Rationen?</source>
-        <target>Anzahl der im Brunnen verbleibenden Rationen?</target>
+        <target>Nombre de ration restante dans le puits ?</target>
       </segment>
     </unit>
     <unit id="0K2pZFf" name="ID der Site">
@@ -781,7 +781,7 @@
       </notes>
       <segment>
         <source>ID der Site</source>
-        <target>ID der Site</target>
+        <target>ID du chantier</target>
       </segment>
     </unit>
     <unit id="EVve8Kz" name="Anzahl der für den Bau benötigten AP">
@@ -790,7 +790,7 @@
       </notes>
       <segment>
         <source>Anzahl der für den Bau benötigten AP</source>
-        <target>Anzahl der für den Bau benötigten AP</target>
+        <target>Nombre de PA nécessaires à sa construction</target>
       </segment>
     </unit>
     <unit id="biYb4QK" name="aktuelle Lebenspunkte der Site (falls nicht gebaut = 0)">
@@ -799,7 +799,7 @@
       </notes>
       <segment>
         <source>aktuelle Lebenspunkte der Site (falls nicht gebaut = 0)</source>
-        <target>aktuelle Lebenspunkte der Site (falls nicht gebaut = 0)</target>
+        <target>Points de vie actuels du chantier (si pas construit = 0)</target>
       </segment>
     </unit>
     <unit id="slJHrsA" name="Stimmen für diese Seite gesammelt">
@@ -808,7 +808,7 @@
       </notes>
       <segment>
         <source>Stimmen für diese Seite gesammelt</source>
-        <target>Stimmen für diese Seite gesammelt</target>
+        <target>Votes récoltés pour ce chantier</target>
       </segment>
     </unit>
     <unit id=".7yFBGU" name="ob dieses Gebäude nach dem Angriff zerstört werden kann">
@@ -817,7 +817,7 @@
       </notes>
       <segment>
         <source>ob dieses Gebäude nach dem Angriff zerstört werden kann</source>
-        <target>ob dieses Gebäude nach dem Angriff zerstört werden kann</target>
+        <target>Si ce bâtiment pourra être cassé après l'attaque</target>
       </segment>
     </unit>
     <unit id="iQPe1o4" name="Verteidigung dieses Gebäudes">
@@ -826,7 +826,7 @@
       </notes>
       <segment>
         <source>Verteidigung dieses Gebäudes</source>
-        <target>Verteidigung dieses Gebäudes</target>
+        <target>Défense de ce bâtiment</target>
       </segment>
     </unit>
     <unit id="aSXJac0" name="Wenn sich dieses Gebäude weiterentwickeln kann">
@@ -835,7 +835,7 @@
       </notes>
       <segment>
         <source>Wenn sich dieses Gebäude weiterentwickeln kann</source>
-        <target>Wenn sich dieses Gebäude weiterentwickeln kann</target>
+        <target>Si ce bâtiment peut évoluer</target>
       </segment>
     </unit>
     <unit id="G3Ku2Xx" name="Seltenheit des Plans">
@@ -844,7 +844,7 @@
       </notes>
       <segment>
         <source>Seltenheit des Plans</source>
-        <target>Seltenheit des Plans</target>
+        <target>Rareté du plan</target>
       </segment>
     </unit>
     <unit id="5X22qFB" name="Temporäres Gebäude">
@@ -853,7 +853,7 @@
       </notes>
       <segment>
         <source>Temporäres Gebäude</source>
-        <target>Temporäres Gebäude</target>
+        <target>Bâtiment temporaire</target>
       </segment>
     </unit>
     <unit id="mLc1q40" name="Gebäude-ID des vorherigen Zweigs">
@@ -862,7 +862,7 @@
       </notes>
       <segment>
         <source>Gebäude-ID des vorherigen Zweigs</source>
-        <target>Gebäude-ID des vorherigen Zweigs</target>
+        <target>ID du bâtiment de la branche précédente</target>
       </segment>
     </unit>
     <unit id="nvQbiRt" name="Anzahl der benötigten Ressourcen">
@@ -871,7 +871,7 @@
       </notes>
       <segment>
         <source>Anzahl der benötigten Ressourcen</source>
-        <target>Anzahl der benötigten Ressourcen</target>
+        <target>Nombre de ressources nécessaires</target>
       </segment>
     </unit>
     <unit id="7Y7NLQQ" name="Objekte benötigt">
@@ -880,7 +880,7 @@
       </notes>
       <segment>
         <source>Objekte benötigt</source>
-        <target>Objekte benötigt</target>
+        <target>Objet nécessaire</target>
       </segment>
     </unit>
     <unit id="1aS4pN3" name="Spieler ID">
@@ -889,7 +889,7 @@
       </notes>
       <segment>
         <source>Spieler ID</source>
-        <target>Spieler ID</target>
+        <target>ID du joueur</target>
       </segment>
     </unit>
     <unit id="LEUu9N8" name="Twinoid-ID des Spielers">
@@ -898,7 +898,7 @@
       </notes>
       <segment>
         <source>Twinoid-ID des Spielers</source>
-        <target>Twinoid-ID des Spielers</target>
+        <target>ID Twinoid du joueur</target>
       </segment>
     </unit>
     <unit id="BKvVHXl" name="Karten-ID">
@@ -907,7 +907,7 @@
       </notes>
       <segment>
         <source>Karten-ID</source>
-        <target>Karten-ID</target>
+        <target>ID de la carte</target>
       </segment>
     </unit>
     <unit id="xTzYk7X" name="Anzahl der Tage überlebt">
@@ -916,7 +916,7 @@
       </notes>
       <segment>
         <source>Anzahl der Tage überlebt</source>
-        <target>Anzahl der Tage überlebt</target>
+        <target>Nombre de jours survécus</target>
       </segment>
     </unit>
     <unit id="dps99iA" name="Kartentag">
@@ -925,7 +925,7 @@
       </notes>
       <segment>
         <source>Kartentag</source>
-        <target>Kartentag</target>
+        <target>Jour de la carte</target>
       </segment>
     </unit>
     <unit id="Z9JTs1j" name="Spieler Avatar">
@@ -934,7 +934,7 @@
       </notes>
       <segment>
         <source>Spieler Avatar</source>
-        <target>Spieler Avatar</target>
+        <target>Avatar du joueur</target>
       </segment>
     </unit>
     <unit id="Zu1g5UR" name="Name der Karte">
@@ -943,7 +943,7 @@
       </notes>
       <segment>
         <source>Name der Karte</source>
-        <target>Name der Karte</target>
+        <target>Nom de la carte</target>
       </segment>
     </unit>
     <unit id="VniN2pJ" name="Saisonnummer">
@@ -952,7 +952,7 @@
       </notes>
       <segment>
         <source>Saisonnummer</source>
-        <target>Saisonnummer</target>
+        <target>Numéro de la saison</target>
       </segment>
     </unit>
     <unit id="SA8L5hq" name="&quot;true&quot; wenn diese Leiche aus dem Spiel V1 stammt">
@@ -961,7 +961,7 @@
       </notes>
       <segment>
         <source>"true" wenn diese Leiche aus dem Spiel V1 stammt</source>
-        <target>"true" wenn diese Leiche aus dem Spiel V1 stammt</target>
+        <target>"true" si ce cadavre provient de la V1 du jeu</target>
       </segment>
     </unit>
     <unit id="zY4iz3Q" name="Ergebnis">
@@ -970,7 +970,7 @@
       </notes>
       <segment>
         <source>Ergebnis</source>
-        <target>Ergebnis</target>
+        <target>Score</target>
       </segment>
     </unit>
     <unit id="BKUxNcG" name="relevante Spielzeit">
@@ -979,7 +979,7 @@
       </notes>
       <segment>
         <source>relevante Spielzeit</source>
-        <target>relevante Spielzeit</target>
+        <target>Saison de jeu concernée</target>
       </segment>
     </unit>
     <unit id="eFl1Az2" name="Kennung des Todestyps">
@@ -988,7 +988,7 @@
       </notes>
       <segment>
         <source>Kennung des Todestyps</source>
-        <target>Kennung des Todestyps</target>
+        <target>Identifiant de type de mort</target>
       </segment>
     </unit>
     <unit id="L1GKCXN" name="Todesnachricht">
@@ -997,7 +997,7 @@
       </notes>
       <segment>
         <source>Todesnachricht</source>
-        <target>Todesnachricht</target>
+        <target>Message de mort</target>
       </segment>
     </unit>
     <unit id="coQifWg" name="Kommentar">
@@ -1006,7 +1006,7 @@
       </notes>
       <segment>
         <source>Kommentar</source>
-        <target>Kommentar</target>
+        <target>Commentaire</target>
       </segment>
     </unit>
     <unit id="kLpp_j_" name="Name des Spielers, der den Körper entsorgt hat">
@@ -1015,7 +1015,7 @@
       </notes>
       <segment>
         <source>Name des Spielers, der den Körper entsorgt hat</source>
-        <target>Name des Spielers, der den Körper entsorgt hat</target>
+        <target>Nom du joueur qui s'est débarrassé du corps</target>
       </segment>
     </unit>
     <unit id="kJKx3Jf" name="Methode : garbage, water, cook order ghoul">
@@ -1024,7 +1024,7 @@
       </notes>
       <segment>
         <source>Methode : garbage, water, cook order ghoul</source>
-        <target>Methode : garbage, water, cook order ghoul</target>
+        <target>Méthode : garbage, water, cook ou ghoul</target>
       </segment>
     </unit>
     <unit id="fpFPzjl" name="Expeditionsname">
@@ -1033,7 +1033,7 @@
       </notes>
       <segment>
         <source>Expeditionsname</source>
-        <target>Expeditionsname</target>
+        <target>Nom de l'expédition</target>
       </segment>
     </unit>
     <unit id=".st_v.h" name="der Autor">
@@ -1042,7 +1042,7 @@
       </notes>
       <segment>
         <source>der Autor</source>
-        <target>der Autor</target>
+        <target>L'auteur</target>
       </segment>
     </unit>
     <unit id="Andj.R3" name="Versandlänge">
@@ -1051,7 +1051,7 @@
       </notes>
       <segment>
         <source>Versandlänge</source>
-        <target>Versandlänge</target>
+        <target>Longueur de l'expédition</target>
       </segment>
     </unit>
     <unit id="AK5FGCL" name="Punkte, die den Kurs definieren">
@@ -1060,16 +1060,16 @@
       </notes>
       <segment>
         <source>Punkte, die den Kurs definieren</source>
-        <target>Punkte, die den Kurs definieren</target>
+        <target>Points définisant le parcours</target>
       </segment>
     </unit>
-    <unit id="W5Qhdxv" name="Alle ISO 3166-1 alpha-2Ländercodes werden in das Feld &quot;langues&quot; eingetragen">
+    <unit id="hvMEx8f" name="Alle ISO 3166-1 alpha-2 Ländercodes werden in das Feld &quot;langues&quot; eingetragen">
       <notes>
-        <note category="german">Alle ISO 3166-1 alpha-2Ländercodes werden in das Feld "langues" eingetragen</note>
+        <note category="german">Alle ISO 3166-1 alpha-2 Ländercodes werden in das Feld "langues" eingetragen</note>
       </notes>
       <segment>
-        <source>Alle ISO 3166-1 alpha-2Ländercodes werden in das Feld "langues" eingetragen</source>
-        <target>Alle ISO 3166-1 alpha-2Ländercodes werden in das Feld "langues" eingetragen</target>
+        <source>Alle ISO 3166-1 alpha-2 Ländercodes werden in das Feld "langues" eingetragen</source>
+        <target>Tous les codes de pays ISO 3166-1 alpha-2 placés dans le champ</target>
       </segment>
     </unit>
     <unit id="MLDUlQN" name="zB :">
@@ -1078,7 +1078,7 @@
       </notes>
       <segment>
         <source>zB :</source>
-        <target>zB :</target>
+        <target>ex :</target>
       </segment>
     </unit>
     <unit id="IHHHc2r" name="Beispiel">
@@ -1087,16 +1087,16 @@
       </notes>
       <segment>
         <source>Beispiel</source>
-        <target>Beispiel</target>
+        <target>Exemple</target>
       </segment>
     </unit>
-    <unit id="qGpQqqi" name="513b1ef">
+    <unit id="UVFe9GX" name="e382445">
       <notes>
-        <note category="german">Für api/x/json/itemsFür api / x / json / items akzeptieren Filter nur UIDs. Derzeit ist die UID identisch mit img. Aber in Zukunft wird die UID durch eine echte Horden-ID ersetzt.</note>
+        <note category="german">Für api/x/json/items akzeptieren Filter nur UIDs. Derzeit ist die UID identisch mit img. Aber in Zukunft wird die UID durch eine echte Horden-ID ersetzt.</note>
       </notes>
       <segment>
-        <source>Für api/x/json/itemsFür api / x / json / items akzeptieren Filter nur UIDs. Derzeit ist die UID identisch mit img. Aber in Zukunft wird die UID durch eine echte Horden-ID ersetzt.</source>
-        <target>Für api/x/json/itemsFür api / x / json / items akzeptieren Filter nur UIDs. Derzeit ist die UID identisch mit img. Aber in Zukunft wird die UID durch eine echte Horden-ID ersetzt.</target>
+        <source>Für api/x/json/items akzeptieren Filter nur UIDs. Derzeit ist die UID identisch mit img. Aber in Zukunft wird die UID durch eine echte Horden-ID ersetzt.</source>
+        <target>Pour api/x/json/items les filtres n'acceptent que les UID. Actuellement, l'UID est identique à img. Mais à l'avenir, l'UID sera remplacé par le véritable ID de Hordes.</target>
       </segment>
     </unit>
     <unit id="vXeei1Z" name="d1299aa">
@@ -1105,7 +1105,7 @@
       </notes>
       <segment>
         <source>Beispiel, um nur die Informationen des Objekts „Wasserration“ wiederherzustellen:</source>
-        <target>Beispiel, um nur die Informationen des Objekts „Wasserration“ wiederherzustellen:</target>
+        <target>Exemple pour récuperer uniquement les informations de l'objet "Ration d'eau" :</target>
       </segment>
     </unit>
     <unit id="stieGyi" name="Es wird angezeigt :">
@@ -1114,7 +1114,7 @@
       </notes>
       <segment>
         <source>Es wird angezeigt :</source>
-        <target>Es wird angezeigt :</target>
+        <target>Cela affichera :</target>
       </segment>
     </unit>
   </file>

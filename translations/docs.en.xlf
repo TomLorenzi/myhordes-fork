@@ -1063,13 +1063,13 @@
         <target>Punkte, die den Kurs definieren</target>
       </segment>
     </unit>
-    <unit id="W5Qhdxv" name="Alle ISO 3166-1 alpha-2Ländercodes werden in das Feld &quot;langues&quot; eingetragen">
+    <unit id="hvMEx8f" name="Alle ISO 3166-1 alpha-2 Ländercodes werden in das Feld &quot;langues&quot; eingetragen">
       <notes>
-        <note category="german">Alle ISO 3166-1 alpha-2Ländercodes werden in das Feld "langues" eingetragen</note>
+        <note category="german">Alle ISO 3166-1 alpha-2 Ländercodes werden in das Feld "langues" eingetragen</note>
       </notes>
       <segment>
-        <source>Alle ISO 3166-1 alpha-2Ländercodes werden in das Feld "langues" eingetragen</source>
-        <target>Alle ISO 3166-1 alpha-2Ländercodes werden in das Feld "langues" eingetragen</target>
+        <source>Alle ISO 3166-1 alpha-2 Ländercodes werden in das Feld "langues" eingetragen</source>
+        <target>Alle ISO 3166-1 alpha-2 Ländercodes werden in das Feld "langues" eingetragen</target>
       </segment>
     </unit>
     <unit id="MLDUlQN" name="zB :">
@@ -1090,13 +1090,13 @@
         <target>Beispiel</target>
       </segment>
     </unit>
-    <unit id="qGpQqqi" name="513b1ef">
+    <unit id="UVFe9GX" name="e382445">
       <notes>
-        <note category="german">Für api/x/json/itemsFür api / x / json / items akzeptieren Filter nur UIDs. Derzeit ist die UID identisch mit img. Aber in Zukunft wird die UID durch eine echte Horden-ID ersetzt.</note>
+        <note category="german">Für api/x/json/items akzeptieren Filter nur UIDs. Derzeit ist die UID identisch mit img. Aber in Zukunft wird die UID durch eine echte Horden-ID ersetzt.</note>
       </notes>
       <segment>
-        <source>Für api/x/json/itemsFür api / x / json / items akzeptieren Filter nur UIDs. Derzeit ist die UID identisch mit img. Aber in Zukunft wird die UID durch eine echte Horden-ID ersetzt.</source>
-        <target>Für api/x/json/itemsFür api / x / json / items akzeptieren Filter nur UIDs. Derzeit ist die UID identisch mit img. Aber in Zukunft wird die UID durch eine echte Horden-ID ersetzt.</target>
+        <source>Für api/x/json/items akzeptieren Filter nur UIDs. Derzeit ist die UID identisch mit img. Aber in Zukunft wird die UID durch eine echte Horden-ID ersetzt.</source>
+        <target>Für api/x/json/items akzeptieren Filter nur UIDs. Derzeit ist die UID identisch mit img. Aber in Zukunft wird die UID durch eine echte Horden-ID ersetzt.</target>
       </segment>
     </unit>
     <unit id="vXeei1Z" name="d1299aa">
