@@ -227,7 +227,6 @@
             ];
 
             $response = new Response($this->arrayToXml( $data['hordes'], '<hordes xmlns:dc="http://purl.org/dc/elements/1.1" xmlns:content="http://purl.org/rss/1.0/modules/content/" />' ));
-            #$response = new Response(print_r($data, 1));
             $response->headers->set('Content-Type', 'text/xml');
             return $response;
         }
