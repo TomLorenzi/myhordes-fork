@@ -227,4 +227,7 @@ class PermissionHandler
         return $this->isPermitted( $this->getEffectivePermissions($user, $forum), $perm );
     }
 
+    public function checkAnyEffectivePermissions( User $user, Forum $forum, array $perm ): bool {
+        return $this->isAnyPermitted( $this->getEffectivePermissions($user, $forum), $perm );
+    }
 }

@@ -233,12 +233,16 @@ class Thread
 
     public function hasReportedPosts(): bool
     {
-        foreach ($this->posts as $post){
-            if ($post->getAdminReports()->count() > 0)
-                return true;
-        }
-
+        foreach ($this->posts as $post) if (count($post->getAdminReports(true)) > 0) return true;
         return false;
+    }
+
+    /**
+     * @return Collection|Post[]
+     */
+    public function getUnseenReportedPosts(): Collection
+    {
+        return $this->posts->filter(fn(Post $p) => !$p->getAdminReports(true)->isEmpty());
     }
 
     public function isNew(): bool {

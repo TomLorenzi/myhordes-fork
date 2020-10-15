@@ -2,13 +2,16 @@
 
 namespace App\Controller\Admin;
 
+use App\DataFixtures\PermissionFixtures;
 use App\Entity\AdminReport;
+use App\Entity\ForumUsagePermissions;
 use App\Entity\User;
 use App\Entity\UserPendingValidation;
 use App\Response\AjaxResponse;
 use App\Service\AdminActionHandler;
 use App\Service\ErrorHelper;
 use App\Service\JSONRequestParser;
+use App\Service\PermissionHandler;
 use App\Service\UserFactory;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -17,24 +20,35 @@ use Symfony\Component\HttpFoundation\Response;
 
 /**
  * @Route("/",condition="request.isXmlHttpRequest()")
+ * @method User getUser
  */
 class AdminForumController extends AdminActionController
 {
     /**
      * @Route("jx/admin/forum/reports/{opt}", name="admin_reports")
+     * @param PermissionHandler $perm
      * @param string $opt
      * @return Response
      */
-    public function reports(string $opt = ''): Response
+    public function reports(PermissionHandler $perm, string $opt = ''): Response
     {
         $show_all = $opt === 'all';
 
-        $reports = $this->entity_manager->getRepository(AdminReport::class)->findBy(['seen' => false]);
-        // Make sure to fetch only unseen reports for posts with at least 2 unseen reports
-        $postsList = array('post' => [], 'reporter' => []);
-        $postsList['post'] = array_map(function($report) { return $report->getPost(); }, $reports);
-        $postsList['reporter'] = array_map(function($report) { return $report->getSourceUser(); }, $reports);
+        $allowed_forums = [];
 
+        $reports = $this->entity_manager->getRepository(AdminReport::class)->findBy(['seen' => false]);
+
+        $reports = array_filter($reports, function(AdminReport $r) use (&$allowed_forums, $perm) {
+            $tid = $r->getPost()->getThread()->getForum()->getId();
+            if (isset($allowed_forums[$tid])) return $allowed_forums[$tid];
+            else return $allowed_forums[$tid] = $perm->checkAnyEffectivePermissions($this->getUser(), $r->getPost()->getThread()->getForum(), [ForumUsagePermissions::PermissionReadThreads, ForumUsagePermissions::PermissionModerate]);
+        });
+
+        // Make sure to fetch only unseen reports for posts with at least 2 unseen reports
+        $postsList = [
+            'post' => array_map(function($report) { return $report->getPost(); }, $reports),
+            'reporter' => array_map(function($report) { return $report->getSourceUser(); }, $reports)
+        ];
 
         $alreadyCountedIndexes = [];
         $selectedReports = [];

@@ -29,4 +29,6 @@ class ForumPermissionAccessor
 
     public function moderate(): bool { return $this->perm->isPermitted( $this->permissions, ForumUsagePermissions::PermissionModerate ); }
     public function own():      bool { return $this->perm->isPermitted( $this->permissions, ForumUsagePermissions::PermissionOwn ); }
+
+    public function only_mod_access(): bool { return $this->perm->isPermitted( $this->permissions, ForumUsagePermissions::PermissionModerate ) && !$this->perm->isPermitted( $this->permissions, ForumUsagePermissions::PermissionListThreads ); }
 }

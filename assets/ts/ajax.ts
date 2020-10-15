@@ -190,9 +190,16 @@ export default class Ajax {
         request.responseType = 'document';
         request.addEventListener('load', function(e) {
             // Check if a reset header is set
-            if (this.getResponseHeader('X-AJAX-Control') === 'reset') {
-                window.location.href = ajax_instance.base;
-                return;
+            switch ( this.getResponseHeader('X-AJAX-Control') ) {
+                case 'reset':
+                    window.location.href = ajax_instance.base;
+                    return;
+                case 'reload':
+                    window.location.reload();
+                    return;
+                case 'cancel':
+                    return;
+                case 'process': default: break;
             }
 
             if (this.status >= 400) {
@@ -244,6 +251,9 @@ export default class Ajax {
             switch ( this.getResponseHeader('X-AJAX-Control') ) {
                 case 'reset':
                     window.location.href = base;
+                    return;
+                case 'reload':
+                    window.location.reload();
                     return;
                 case 'cancel':
                     return;
