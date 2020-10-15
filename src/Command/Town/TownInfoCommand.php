@@ -1,7 +1,7 @@
 <?php
 
 
-namespace App\Command;
+namespace App\Command\Town;
 
 
 use App\Entity\Inventory;
@@ -19,7 +19,7 @@ use Symfony\Component\Console\Helper\Table;
 
 class TownInfoCommand extends Command
 {
-    protected static $defaultName = 'app:towns';
+    protected static $defaultName = 'app:town:list';
 
     private $entityManager;
     private $gameValidator;

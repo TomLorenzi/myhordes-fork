@@ -1,7 +1,7 @@
 <?php
 
 
-namespace App\Command;
+namespace App\Command\Town;
 
 
 use App\Entity\ActionCounter;
@@ -28,7 +28,7 @@ use Symfony\Component\Console\Helper\Table;
 
 class TownInspectorCommand extends Command
 {
-    protected static $defaultName = 'app:town';
+    protected static $defaultName = 'app:town:inspect';
 
     private $entityManager;
     private $gameFactory;

@@ -23,7 +23,7 @@ yarn encore dev
 bin/console app:debug --add-crow
 
 # Create a new town (available languages : fr, en, de, es, multi)
-bin/console app:create-town remote 40 de
+bin/console app:town:create remote 40 de
 
 # Add debug users (password = username)
 bin/console app:debug --add-debug-users
@@ -46,14 +46,15 @@ bin/console app:debug --everyone-drink <town.id>
 
 # Every commands
 bin/console app:citizen --help
-bin/console app:create-town --help
-bin/console app:create-user --help
+bin/console app:town:inspect --help
+bin/console app:town:list --help
+bin/console app:town:create --help
+bin/console app:user:list --help
+bin/console app:user:create --help
 bin/console app:debug --help
 bin/console app:inventory --help
 bin/console app:schedule --help
-bin/console app:town --help
-bin/console app:towns --help
-bin/console app:users --help
+
 
 ```
 
