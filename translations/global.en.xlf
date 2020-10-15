@@ -1585,5 +1585,32 @@
         <target><![CDATA[Manche deiner Gegenstände sind <strong>benutzbar</strong>. Klick einfach auf einen Link hier unten, um den jeweiligen Gegenstand zu gebrauchen. Andere Gegenstände wiederum, wie zum Beispiel Waffen, können nur <strong>außerhalb der Stadt</strong> verwendet werden..]]></target>
       </segment>
     </unit>
+    <unit id="H1CIx1I" name="Stadtforum">
+      <notes>
+        <note category="german">Stadtforum</note>
+      </notes>
+      <segment>
+        <source>Stadtforum</source>
+        <target>Stadtforum</target>
+      </segment>
+    </unit>
+    <unit id="78Bg7UU" name="Weltforen">
+      <notes>
+        <note category="german">Weltforen</note>
+      </notes>
+      <segment>
+        <source>Weltforen</source>
+        <target>Weltforen</target>
+      </segment>
+    </unit>
+    <unit id="9o6Bgnk" name="Andere Foren">
+      <notes>
+        <note category="german">Andere Foren</note>
+      </notes>
+      <segment>
+        <source>Andere Foren</source>
+        <target>Andere Foren</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

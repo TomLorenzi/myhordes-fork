@@ -4,7 +4,7 @@
         <div class="cell rw-12 padded">
             <table>
                 <thead>
-                    <tr><th>Request URL</th><th>return</th></tr>
+                    <tr><th>{{ 'URL anfordern'|trans({},'docs') }}</th><th>{{ 'Rückgabetyp'|trans({},'docs') }}</th></tr>
                 </thead>
                 <tbody>
                     <tr><td>https://zombvival.de/myhordes/api/x/json/status</td><td><a>Status</a></td></tr>
@@ -15,63 +15,63 @@
                 </tbody>
             </table>
 <pre><a class="entity">&lt;Status&gt;</a> {
-   attack: <span class="bool">Bool</span>,                   // True when the attack is in progress
-   maintain: <span class="bool">Bool</span>                  // True when the game is in maintenance
+   attack: <span class="bool">Bool</span>,                   // {{ '"true", wenn der Angriff ausgeführt wird'|trans({},'docs') }}
+   maintain: <span class="bool">Bool</span>                  // {{ '"true", wenn das Spiel gewartet wird'|trans({},'docs') }}
 }
 
 <a class="entity">&lt;Map&gt;</a> {
-   id: <span class="int">Int</span>,                        //ID de la map de jeu
-   date: <span class="string">String</span>,                   //heure du serveur
-   wid: <span class="int">Int</span>,                       //dimension de la carte
-   hei: <span class="int">Int</span>,                       //dimension de la carte
-   conspiracy: <span class="bool">Bool</span>,               //S'il y a insurrection
-   bonusPts: <span class="int">Int</span>,                  //points bonus
-   days: <span class="int">Int</span>,                      //jour de la ville   
-   custom: <span class="bool">Bool</span>,                   //booléen qui indique si la ville est privée ou non
-   zones: Array<a class="custom">&lt;Zone&gt;</a>,             //liste des zones connues
-   citizens: Array<a class="custom">&lt;User&gt;</a>,          //liste des citoyens
-   city: <a class="custom">&lt;City&gt;</a>,                   //informations de la ville
-   cadavers: Array<a class="custom">&lt;Cadaver&gt;</a>,       //liste des cadavres
-   expeditions: Array<a class="custom">&lt;Expedition&gt;</a>, //liste des expeditions
-   season: <span class="int">Int</span>,                    //ID de la saison de la création de la ville
-   shaman: <span class="int">Int</span>,                    //UID du joueur qui est chaman
-   guide: <span class="int">Int</span>                      //UID du joueur qui est guide
+   id: <span class="int">Int</span>,                        // {{ 'Spielkarten-ID'|trans({},'docs') }}
+   date: <span class="string">String</span>,                   // {{ 'Serverzeit'|trans({},'docs') }}
+   wid: <span class="int">Int</span>,                       // {{ 'Kartenbreite'|trans({},'docs') }}
+   hei: <span class="int">Int</span>,                       // {{ 'Kartenhöhe'|trans({},'docs') }}
+   conspiracy: <span class="bool">Bool</span>,               // {{ 'Wenn es einen Aufstand gibt'|trans({},'docs') }}
+   bonusPts: <span class="int">Int</span>,                  // {{ 'Bonuspunkte'|trans({},'docs') }}
+   days: <span class="int">Int</span>,                      // {{ 'Stadttag'|trans({},'docs') }}
+   custom: <span class="bool">Bool</span>,                   // {{ 'Boolescher Wert, der angibt, ob die Stadt privat ist oder nicht'|trans({},'docs') }}
+   zones: Array<a class="custom">&lt;Zone&gt;</a>,             // {{ 'Liste bekannter Zonen'|trans({},'docs') }}
+   citizens: Array<a class="custom">&lt;User&gt;</a>,          // {{ 'Liste der Bürger'|trans({},'docs') }}
+   city: <a class="custom">&lt;City&gt;</a>,                   // {{ 'Stadtinformationen'|trans({},'docs') }}
+   cadavers: Array<a class="custom">&lt;Cadaver&gt;</a>,       // {{ 'Liste der Leichen'|trans({},'docs') }}
+   expeditions: Array<a class="custom">&lt;Expedition&gt;</a>, // {{ 'Liste der Expeditionen'|trans({},'docs') }}
+   season: <span class="int">Int</span>,                    // {{ 'City Creation Season ID'|trans({},'docs') }}
+   shaman: <span class="int">Int</span>,                    // {{ 'UID des Spielers, der Schamane ist'|trans({},'docs') }}
+   guide: <span class="int">Int</span>                      // {{ 'UID des Spielers, der Reiseleiter in der Außenwel ist'|trans({},'docs') }}
 }
 
 <a class="entity">&lt;Zone&gt;</a> {
-   x: <span class="int">Int</span>,                         //X par rapport au coin en haut à gauche
-   y: <span class="int">Int</span>,                         //Y par rapport au coin en haut à gauche
-   nvt: <span class="bool">Bool</span>,                      //Not visited today
-   tag: null,                      //Tag de la zone
-   danger: <span class="int">Int</span>,                    //Niveau de danger 0 = vert, 1 = vert-jaune, 2 = orange, 3 = rouge, 4 = bleu
-   details: <a class="custom">&lt;ZoneInfo&gt;</a>,            //details de la zone
-   items: Array<a class="custom">&lt;Item&gt;</a>,             //liste des items dans cette zone
-   building: <a class="custom">&lt;RuineInfo&gt;</a>           //informations sur le bâtiment présent sur la zone   
+   x: <span class="int">Int</span>,                         // {{ 'X von der oberen linken Ecke'|trans({},'docs') }}
+   y: <span class="int">Int</span>,                         // {{ 'Y von der oberen linken Ecke'|trans({},'docs') }}
+   nvt: <span class="bool">Bool</span>,                      // {{ 'Heute nicht besucht'|trans({},'docs') }}
+   tag: null,                      // {{ 'Zonen-Tag'|trans({},'docs') }}
+   danger: <span class="int">Int</span>,                    // {{ 'Gefahrenstufe 0 = grün, 1 = grün-gelb, 2 = orange, 3 = rot, 4 = blau'|trans({},'docs') }}
+   details: <a class="custom">&lt;ZoneInfo&gt;</a>,            // {{ 'Bereichsdetails'|trans({},'docs') }}
+   items: Array<a class="custom">&lt;Item&gt;</a>,             // {{ 'Liste der Objekte in diesem Bereich'|trans({},'docs') }}
+   building: <a class="custom">&lt;RuineInfo&gt;</a>           // {{ 'Informationen zum Gebäude in der Umgebung'|trans({},'docs') }}
 }
 
 <a class="entity">&lt;RuineInfo&gt;</a> {
-   type: <span class="int">Int</span>,                      //L'id du bâtiment
-   dig: <span class="int">Int</span>,                       //Le nombre de tas de sable sur le bâtiment
-   name: <a class="custom">&lt;LangString&gt;</a>,             //Le nom du bâtiment
-   desc: <a class="custom">&lt;LangString&gt;</a>,             //La description du bâtiment
-   camped: <span class="bool">Bool</span>,                   //Si le bâtiment à été campé
-   dried: <span class="bool">Bool</span>                     //L'assèchement du bâtiment
+   type: <span class="int">Int</span>,                      // {{ 'Die Gebäude-ID'|trans({},'docs') }}
+   dig: <span class="int">Int</span>,                       // {{ 'Die Anzahl der Sandhaufen auf dem Gebäude'|trans({},'docs') }}
+   name: <a class="custom">&lt;LangString&gt;</a>,             // {{ 'Der Name des Gebäudes'|trans({},'docs') }}
+   desc: <a class="custom">&lt;LangString&gt;</a>,             // {{ 'Beschreibung des Gebäudes'|trans({},'docs') }}
+   camped: <span class="bool">Bool</span>,                   // {{ 'Wenn das Gebäude gelagert wurde'|trans({},'docs') }}
+   dried: <span class="bool">Bool</span>                     // {{ 'Das Gebäude trocknen'|trans({},'docs') }}
 }
 
 <a class="entity">&lt;ZoneInfo&gt;</a> {
-   z: <span class="int">Int</span>,                         //Le nombre de zombies
-   h: <span class="int">Int</span>,                         //Le nombre d'humain
-   dried: <span class="bool">Bool</span>                     //L'assèchement de la zone
+   z: <span class="int">Int</span>,                         // {{ 'Die Anzahl der Zombies'|trans({},'docs') }}
+   h: <span class="int">Int</span>,                         // {{ 'Die Anzahl der Menschen'|trans({},'docs') }}
+   dried: <span class="bool">Bool</span>                     // {{ 'Den Bereich austrocknen'|trans({},'docs') }}
 }
 
 <a class="entity">&lt;User&gt;</a> {
-   name: <span class="string">String</span>,                   //Nom du joueur
-   isGhost: <span class="bool">Bool</span>,                  //si le joueur est incarné (false) ou non (true)
-   twinId: <span class="int">Int</span>,                    //L'id twinoid s'il a lier son compte
-   mapId: <span class="int">Int</span>,                     //Si incarné, l'id de ça ville
-   map: <a class="custom">&lt;Map&gt;</a>,                     //Si incarné, un instance de Map
-   homeMessage: <span class="string">String</span>,            //Texte personnel (sur l'âmes)
-   avatar: <span class="string">String</span>,                 //URL de l'avatar du joueur
+   name: <span class="string">String</span>,                   // {{ 'Spielername'|trans({},'docs') }}
+   isGhost: <span class="bool">Bool</span>,                  // {{ 'ob der Spieler verkörpert ist (false) oder nicht (true)'|trans({},'docs') }}
+   twinId: <span class="int">Int</span>,                    // {{ 'Die Twinoid-ID, wenn er sein Konto verknüpft hat'|trans({},'docs') }}
+   mapId: <span class="int">Int</span>,                     // {{ 'So verkörpert die ID seiner Stadt'|trans({},'docs') }}
+   map: <a class="custom">&lt;Map&gt;</a>,                     // {{ 'Wenn verkörpert, eine Instanz von Map'|trans({},'docs') }}
+   homeMessage: <span class="string">String</span>,            // {{ 'Persönlicher Text (über die Seele)'|trans({},'docs') }}
+   avatar: <span class="string">String</span>,                 // {{ 'Spieler-Avatar-URL'|trans({},'docs') }}
    hero: <span class="bool">Bool</span>,
    job: <a class="custom">&lt;Job&gt;</a>,
    dead: <span class="bool">Bool</span>,
@@ -80,40 +80,39 @@
    ban: <span class="bool">Bool</span>,
    x: <span class="int">Int</span>,
    y: <span class="int">Int</span>,
-   playedMaps: Array<a class="custom">&lt;Cadaver&gt;</a>      //La liste des anciennes incarnations
+   playedMaps: Array<a class="custom">&lt;Cadaver&gt;</a>      // {{ 'Liste der alten Inkarnationen'|trans({},'docs') }}
 }
 
 <a class="entity">&lt;Job&gt;</a> {
-   id: <span class="int">Int</span>,                        //Id MyHordes
-   uid: <span class="string">String</span>,                    //universal ID (ex: basic = habitant)
-   name: <a class="custom">&lt;LangString&gt;</a>,             //Le nom du métier
-   desc: <a class="custom">&lt;LangString&gt;</a>              //La description
+   id: <span class="int">Int</span>,                        // {{ 'ID-MyHordes'|trans({},'docs') }}
+   uid: <span class="string">String</span>,                    // {{ 'universelle ID (zB: basic = Einwohner)'|trans({},'docs') }}
+   name: <a class="custom">&lt;LangString&gt;</a>,             // {{ 'Der Name des Berufs'|trans({},'docs') }}
+   desc: <a class="custom">&lt;LangString&gt;</a>              // {{ 'Die Beschreibung'|trans({},'docs') }}
 }
 
 <a class="entity">&lt;City&gt;</a> {
-   name: <span class="string">String</span>,                   //Nom de la ville
-   water: <span class="int">Int</span>,                     //Nombre de rations d'eau disponibles
-   x: <span class="int">Int</span>,                         //position de la ville
-   y: <span class="int">Int</span>,                         //position de la ville
-   door: <span class="bool">Bool</span>,                     //flag qui précise si la porte de la ville est ouverte
-   chaos: <span class="bool">Bool</span>,                    //flag qui précise que la ville est en chaos
-   chaos: <span class="bool">Bool</span>,                    //flag qui précise que la ville est en chaos
-   hard: <span class="bool">Bool</span>,                     //flag qui dit si la ville est pandémonium
-   devast: <span class="bool">Bool</span>,                   //flag qui précise si la ville est dévastée
-   chantiers: Array<a class="custom">&lt;Chantier&gt;</a>,     //liste complète des chantiers disponibles
-   buildings: Array<a class="custom">&lt;Chantier&gt;</a>,     //liste des chantiers construits
-   news: <a class="custom">&lt;News&gt;</a>,                   //dernière gazette avec informations sur l'attaque et la défense
-   defense: <a class="custom">&lt;Defense&gt;</a>,             //informations sur la défense de la ville
-   upgrades: <a class="custom">&lt;Upgrades&gt;</a>,           //Liste des amélioration dispo (pompe etc)
-   estimations: <a class="custom">&lt;Estimations&gt;</a>,     //Estimation pour l'attaque du soir
-   estimationsNext: <a class="custom">&lt;Estimations&gt;</a>, //Estimation pour l'attaque du lendemain ou rien si pas le Planificateur
-   bank: Array<a class="custom">&lt;Item&gt;</a>               //items présents dans la banque
+   name: <span class="string">String</span>,                   // {{ 'Name der Stadt'|trans({},'docs') }}
+   water: <span class="int">Int</span>,                     // {{ 'Anzahl der verfügbaren Wasserrationen'|trans({},'docs') }}
+   x: <span class="int">Int</span>,                         // {{ 'Stadtposition'|trans({},'docs') }}
+   y: <span class="int">Int</span>,                         // {{ 'Stadtposition'|trans({},'docs') }}
+   door: <span class="bool">Bool</span>,                     // {{ 'Boolescher Wert, der angibt, ob das Stadttor geöffnet ist'|trans({},'docs') }}
+   chaos: <span class="bool">Bool</span>,                    // {{ 'Boolescher Wert, der angibt, dass sich die Stadt im Chaos befindet'|trans({},'docs') }}
+   hard: <span class="bool">Bool</span>,                     // {{ 'Boolescher Wert, der besagt, ob die Stadt ein Pandemonium ist'|trans({},'docs') }}
+   devast: <span class="bool">Bool</span>,                   // {{ 'Boolescher Wert, der angibt, ob die Stadt am Boden zerstört ist'|trans({},'docs') }}
+   chantiers: Array<a class="custom">&lt;Chantier&gt;</a>,     // {{ 'Vollständige Liste der verfügbaren Websites'|trans({},'docs') }}
+   buildings: Array<a class="custom">&lt;Chantier&gt;</a>,     // {{ 'Liste der Baustellen'|trans({},'docs') }}
+   news: <a class="custom">&lt;News&gt;</a>,                   // {{ 'Neueste Zeitschrift mit Informationen zu Angriff und Verteidigung'|trans({},'docs') }}
+   defense: <a class="custom">&lt;Defense&gt;</a>,             // {{ 'Informationen zur Verteidigung der Stadt'|trans({},'docs') }}
+   upgrades: <a class="custom">&lt;Upgrades&gt;</a>,           // {{ 'Liste der verfügbaren Verbesserungen (Pumpe usw.)'|trans({},'docs') }}
+   estimations: <a class="custom">&lt;Estimations&gt;</a>,     // {{ 'Schätzung für den Abendangriff'|trans({},'docs') }}
+   estimationsNext: <a class="custom">&lt;Estimations&gt;</a>, // {{ 'Schätzen Sie für den Angriff am nächsten Tag oder nichts, wenn nicht der Planer'|trans({},'docs') }}
+   bank: Array<a class="custom">&lt;Item&gt;</a>               // {{ 'Objekte in der Bank'|trans({},'docs') }}
 }
 
 <a class="entity">&lt;Estimations&gt;</a> {
-   days: <span class="int">Int</span>,                      //Le jours de l'estimations
-   min: <span class="int">Int</span>,                       //L'attaque minimum
-   max: <span class="int">Int</span>,                       //L'attaque maximum
+   days: <span class="int">Int</span>,                      // {{ 'Die Tage der Schätzung'|trans({},'docs') }}
+   min: <span class="int">Int</span>,                       // {{ 'Der minimale Angriff'|trans({},'docs') }}
+   max: <span class="int">Int</span>,                       // {{ 'Maximaler Angriff'|trans({},'docs') }}
    maxed: <span class="bool">Bool</span>
 }
 
@@ -130,58 +129,58 @@
 }
 
 <a class="entity">&lt;Defense&gt;</a> {
-   total: <span class="int">Int</span>,                     //défense totale
-   base: <span class="int">Int</span>,                      //défense de base (10)
-   buildings: <span class="int">Int</span>,                 //défense apportée par les constructions
-   upgrades: <span class="int">Int</span>,                  //défense apportée par les évolutions
-   items: <span class="int">Int</span>,                     //nombre d'OD
-   itemsMul: <span class="int">Int</span>,                  //défense apportée par les OD
-   citizen_homes: <span class="int">Int</span>,             //défense apportée par les maison
-   citizen_guardians: <span class="int">Int</span>,         //défense apportée par les gardiens (ou nombre de gardiens)
-   watchmen: <span class="int">Int</span>,                  //défense apportée par les veilleurs
-   souls: <span class="int">Int</span>,                     //défense apportée par les âmes
-   temp: <span class="int">Int</span>,                      //défense temporaire
-   cadavers: <span class="int">Int</span>,                  //défense apportée par les cadavres
+   total: <span class="int">Int</span>,                     // {{ 'totale Verteidigung'|trans({},'docs') }}
+   base: <span class="int">Int</span>,                      // {{ 'Grundverteidigung (10)'|trans({},'docs') }}
+   buildings: <span class="int">Int</span>,                 // {{ 'Verteidigung durch Konstruktionen'|trans({},'docs') }}
+   upgrades: <span class="int">Int</span>,                  // {{ 'Verteidigung durch Entwicklungen'|trans({},'docs') }}
+   items: <span class="int">Int</span>,                     // {{ 'Anzahl der Verteidigungsobjekte'|trans({},'docs') }}
+   itemsMul: <span class="int">Int</span>,                  // {{ 'Verteidigung durch Verteidigungsobjekte'|trans({},'docs') }}
+   citizen_homes: <span class="int">Int</span>,             // {{ 'Verteidigung durch Häuser gebracht'|trans({},'docs') }}
+   citizen_guardians: <span class="int">Int</span>,         // {{ 'Verteidigung durch die Wachen (oder Anzahl der Wachen)'|trans({},'docs') }}
+   watchmen: <span class="int">Int</span>,                  // {{ 'Verteidigung von den Wächtern gebracht'|trans({},'docs') }}
+   souls: <span class="int">Int</span>,                     // {{ 'Verteidigung durch Seelen gebracht'|trans({},'docs') }}
+   temp: <span class="int">Int</span>,                      // {{ 'Vorübergehende Verteidigung'|trans({},'docs') }}
+   cadavers: <span class="int">Int</span>,                  // {{ 'Verteidigung durch Leichen gebracht'|trans({},'docs') }}
    guardiansInfos: <a class="custom">&lt;Guardians&gt;</a>,
    bonus: <span class="int">Int</span>
 }
 
 <a class="entity">&lt;Guardians&gt;</a> {
-   guardians: <span class="int">Int</span>,                 //Nombre de gardiens
-   def: <span class="int">Int</span>                        //Défense apportée par les gardiens
+   guardians: <span class="int">Int</span>,                 // {{ 'Anzahl der Wachen'|trans({},'docs') }}
+   def: <span class="int">Int</span>                        // {{ 'Verteidigung durch die Wächter'|trans({},'docs') }}
 }
 
 <a class="entity">&lt;News&gt;</a> {
-   z: <span class="int">Int</span>,                         //Nombre de zombie à avoir attaqué
-   def: <span class="int">Int</span>,                       //Nombre de points de défense
-   content: <span class="string">String</span>,                //Texte de la gazette
-   regenDir: <span class="string">String</span>,               //Direction de la regeneration du scrutateur ?
-   water: <span class="int">Int</span>                      //Nombre de ration restante dans le puits ?
+   z: <span class="int">Int</span>,                         // {{ 'Anzahl der angegriffenen Zombies'|trans({},'docs') }}
+   def: <span class="int">Int</span>,                       // {{ 'Anzahl der Verteidigungspunkte'|trans({},'docs') }}
+   content: <span class="string">String</span>,                // {{ 'Gazette-Text'|trans({},'docs') }}
+   regenDir: <span class="string">String</span>,               // {{ 'Richtung der Regeneration des stellvertretenden Rückkehrers?'|trans({},'docs') }}
+   water: <span class="int">Int</span>                      // {{ 'Anzahl der im Brunnen verbleibenden Rationen?'|trans({},'docs') }}
 }
 
 <a class="entity">&lt;Chantiers&gt;</a> {
-   id: <span class="int">Int</span>,                        //Id du chantier
+   id: <span class="int">Int</span>,                        // {{ 'ID der Site'|trans({},'docs') }}
    icon: <span class="string">String</span>,
    name: <a class="custom">&lt;LangString&gt;</a>,
    desc: <a class="custom">&lt;LangString&gt;</a>,
-   pa: <span class="int">Int</span>,                        //nombre de PA nécéssaires à sa construction
-   life: <span class="int">Int</span>,                      //points de vie actuels du chantier (si pas construit = 0)
+   pa: <span class="int">Int</span>,                        // {{ 'Anzahl der für den Bau benötigten AP'|trans({},'docs') }}
+   life: <span class="int">Int</span>,                      // {{ 'aktuelle Lebenspunkte der Site (falls nicht gebaut = 0)'|trans({},'docs') }}
    maxLife: <span class="int">Int</span>,   
-   votes: <span class="int">Int</span>,                     //votes récoltés pour ce chantier
-   breakable: <span class="bool">Bool</span>,                //si ce bâtiment pourra être cassé après l'attaque
-   def: <span class="int">Int</span>,                       //defense de ce bâtiment
-   hasUpgrade: <span class="bool">Bool</span>,               //si ce bâtiment peut évoluer
-   rarity:  <span class="string">String</span>,                //rareté du plan 
-   temporary: <span class="bool">Bool</span>,                //bâtiment temporaire
-   parent: <span class="int">Int</span>,                    //ID du bâtiment de la branche précédentes
+   votes: <span class="int">Int</span>,                     // {{ 'Stimmen für diese Seite gesammelt'|trans({},'docs') }}
+   breakable: <span class="bool">Bool</span>,                // {{ 'ob dieses Gebäude nach dem Angriff zerstört werden kann'|trans({},'docs') }}
+   def: <span class="int">Int</span>,                       // {{ 'Verteidigung dieses Gebäudes'|trans({},'docs') }}
+   hasUpgrade: <span class="bool">Bool</span>,               // {{ 'Wenn sich dieses Gebäude weiterentwickeln kann'|trans({},'docs') }}
+   rarity:  <span class="string">String</span>,                // {{ 'Seltenheit des Plans'|trans({},'docs') }}
+   temporary: <span class="bool">Bool</span>,                // {{ 'Temporäres Gebäude'|trans({},'docs') }}
+   parent: <span class="int">Int</span>,                    // {{ 'Gebäude-ID des vorherigen Zweigs'|trans({},'docs') }}
    resources: array<a class="custom">&lt;Resources&gt;</a>,
    actions: <span class="int">Int</span>,
    hasLevels: <span class="bool">Bool</span>
 }
 
 <a class="entity">&lt;Resources&gt;</a> {
-   amount: <span class="int">Int</span>,                    //Nombre de ressources nécésaire
-   rsc: <a class="custom">&lt;Item&gt;</a>                     //Item nécésaire
+   amount: <span class="int">Int</span>,                    // {{ 'Anzahl der benötigten Ressourcen'|trans({},'docs') }}
+   rsc: <a class="custom">&lt;Item&gt;</a>                     // {{ 'Objekte benötigt'|trans({},'docs') }}
 }
 
 <a class="entity">&lt;Item&gt;</a> {
@@ -198,34 +197,34 @@
 }
 
 <a class="entity">&lt;Cadaver&gt;</a> {
-   id: <span class="int">Int</span>,                        //ID du joueur
-   twinId: <span class="int">Int</span>,                    //ID twinoid du joueur
-   mapId: <span class="int">Int</span>,                     //ID de la map
-   survival: <span class="int">Int</span>,                  //nombre de jours survécus
-   day: <span class="int">Int</span>,                       //Jour de la map
-   avatar: <span class="string">String</span>,                 //Avatar du joueur
-   name: <span class="string">String</span>,                   //nom du joueur
-   mapName: <span class="string">String</span>,                //nom de la map
-   season: <span class="int">Int</span>,                    //numéro de la saison
-   v1: <span class="bool">Bool</span>,                       //vrai si ce cadavre provient de la V1 du jeu
-   score: <span class="int">Int</span>,                     //score
-   season: <span class="int">Int</span>,                    //saison de jeu concernée
-   dtype: <span class="int">Int</span>,                     //identifiant de type de mort
-   msg: <span class="string">String</span>,                    //message de mort
-   comment: <span class="string">String</span>,                //commentaire
+   id: <span class="int">Int</span>,                        // {{ 'Spieler ID'|trans({},'docs') }}
+   twinId: <span class="int">Int</span>,                    // {{ 'Twinoid-ID des Spielers'|trans({},'docs') }}
+   mapId: <span class="int">Int</span>,                     // {{ 'Karten-ID'|trans({},'docs') }}
+   survival: <span class="int">Int</span>,                  // {{ 'Anzahl der Tage überlebt'|trans({},'docs') }}
+   day: <span class="int">Int</span>,                       // {{ 'Kartentag'|trans({},'docs') }}
+   avatar: <span class="string">String</span>,                 // {{ 'Spieler Avatar'|trans({},'docs') }}
+   name: <span class="string">String</span>,                   // {{ 'Spielername'|trans({},'docs') }}
+   mapName: <span class="string">String</span>,                // {{ 'Name der Karte'|trans({},'docs') }}
+   season: <span class="int">Int</span>,                    // {{ 'Saisonnummer'|trans({},'docs') }}
+   v1: <span class="bool">Bool</span>,                       // {{ '"true" wenn diese Leiche aus dem Spiel V1 stammt'|trans({},'docs') }}
+   score: <span class="int">Int</span>,                     // {{ 'Ergebnis'|trans({},'docs') }}
+   season: <span class="int">Int</span>,                    // {{ 'relevante Spielzeit'|trans({},'docs') }}
+   dtype: <span class="int">Int</span>,                     // {{ 'Kennung des Todestyps'|trans({},'docs') }}
+   msg: <span class="string">String</span>,                    // {{ 'Todesnachricht'|trans({},'docs') }}
+   comment: <span class="string">String</span>,                // {{ 'Kommentar'|trans({},'docs') }}
    cleanup : <a class="custom">&lt;CadaverCleanupInfo&gt;</a>
 }
 
 <a class="entity">&lt;CadaverCleanupInfo&gt;</a> {
-   user: <span class="string">String</span>,                   //Nom du joueur qui s'est débarrassé du corps
-   type: <span class="string">String</span>                    //Méthode : garbage, water, cook ou ghoul
+   user: <span class="string">String</span>,                   // {{ 'Name des Spielers, der den Körper entsorgt hat'|trans({},'docs') }}
+   type: <span class="string">String</span>                    // {{ 'Methode : garbage, water, cook order ghoul'|trans({},'docs') }}
 }
 
 <a class="entity">&lt;Expedition&gt;</a> {
-   name: <span class="string">String</span>,                   //Nom de l'expedition
-   author: <a class="custom">&lt;User&gt;</a>,                 //l'auteur
-   length: <span class="int">Int</span>,                    //longueur de l'expédition
-   points: Array<a class="custom">&lt;ExpeditionPoints&gt;</a> //points définisant le parcours
+   name: <span class="string">String</span>,                   // {{ 'Expeditionsname'|trans({},'docs') }}
+   author: <a class="custom">&lt;User&gt;</a>,                 // {{ 'der Autor'|trans({},'docs') }}
+   length: <span class="int">Int</span>,                    // {{ 'Versandlänge'|trans({},'docs') }}
+   points: Array<a class="custom">&lt;ExpeditionPoints&gt;</a> // {{ 'Punkte, die den Kurs definieren'|trans({},'docs') }}
 }
 
 <a class="entity">&lt;ExpeditionPoints&gt;</a> {
@@ -234,20 +233,18 @@
 }
 
 <a class="entity">&lt;LangString&gt;</a> {
-   // all ISO 3166-1 alpha-2 country code put on "langues" field
-   // ex :
+   // {{ 'Alle ISO 3166-1 alpha-2 Ländercodes werden in das Feld "langues" eingetragen'|trans({},'docs') }}
+   // {{ 'zB :'|trans({},'docs') }}
    fr: <span class="string">String</span>,
    en: <span class="string">String</span>,
    de: <span class="string">String</span>,
    es: <span class="string">String</span>
 }</pre>
-            <h5>Example</h5>
-            <p>For api/x/json/items, filters only accept UIDs. Currently, the UID is identique to img. But in the future, the UID will be replaced by real hordes ID.<br>Example to only recover the information of the “water ration” object:</p>
+            <h5>{{ 'Beispiel'|trans({},'docs') }}</h5>
+            <p>{{ 'Für api/x/json/items akzeptieren Filter nur UIDs. Derzeit ist die UID identisch mit img. Aber in Zukunft wird die UID durch eine echte Horden-ID ersetzt.'|trans({},'docs') }}<br>{{ 'Beispiel, um nur die Informationen des Objekts „Wasserration“ wiederherzustellen:'|trans({},'docs') }}</p>
             <pre>api/x/json/items?fields=name&filters=water&langues=fr,es,en,de</pre>
-            <p>Show :</p>
+            <p>{{ 'Es wird angezeigt :'|trans({},'docs') }}</p>
             <pre>&#123;&#10;   "water": &#123; // UID&#10;      "name": &#123;&#10;         "fr": "Ration d'eau",&#10;         "es": "Ración de agua",&#10;         "en": "Water Ration",&#10;         "de": "Ration Wasser"&#10;      &#125;&#10;   &#125;&#10;&#125;&#10;</pre>
         </div>
     </div>
-    <style>#api-docs {font-family: "Century Gothic", "Arial", "Trebuchet MS", Verdana, sans-serif;color: white;font-size: 10pt;}#api-docs table {width: 100%;border-collapse: collapse;border-spacing: 0px;border: 0px;border-bottom: 2px solid #f0d79e;}#api-docs table th {vertical-align: bottom;border-bottom: 2px solid #f0d79e;}#api-docs table td {padding-left: 5px;padding-right: 5px;vertical-align: top;border: 0px;border-right: 1px solid #7e4d2a;border-bottom: 1px solid #7e4d2a;background-color: #5c2b20;}#api-docs table td a {font-weight: normal;}#api-docs h5 {font-size: 8pt;line-height: 17px;font-family: Verdana;text-transform: uppercase;}#api-docs pre {background-color: #4f2e1f;box-shadow: 0 0 2px #4E5162;color: #FFFFFF;display: block;overflow: auto;padding: 8px;white-space: pre;}</style>
-    <style>#api-docs pre span.string {color:#eca4f1} #api-docs pre span.int {color:#76d8ca} #api-docs pre span.bool {color:#ee7c2b} #api-docs pre a.custom {text-decoration:underline;color:#00e0e0}#api-docs pre a.entity {text-decoration:underline;color:#ddab76}</style>
 {% endblock %}

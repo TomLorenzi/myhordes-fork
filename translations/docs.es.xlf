@@ -1,0 +1,1121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:2.0" version="2.0" srcLang="de" trgLang="es">
+  <file id="docs.es">
+    <unit id="27WnKMI" name="URL anfordern">
+      <notes>
+        <note category="german">URL anfordern</note>
+      </notes>
+      <segment>
+        <source>URL anfordern</source>
+        <target>URL anfordern</target>
+      </segment>
+    </unit>
+    <unit id="cQsNuV4" name="Rückgabetyp">
+      <notes>
+        <note category="german">Rückgabetyp</note>
+      </notes>
+      <segment>
+        <source>Rückgabetyp</source>
+        <target>Rückgabetyp</target>
+      </segment>
+    </unit>
+    <unit id="Yzze0ZL" name="&quot;true&quot;, wenn der Angriff ausgeführt wird">
+      <notes>
+        <note category="german">"true", wenn der Angriff ausgeführt wird</note>
+      </notes>
+      <segment>
+        <source>"true", wenn der Angriff ausgeführt wird</source>
+        <target>"true", wenn der Angriff ausgeführt wird</target>
+      </segment>
+    </unit>
+    <unit id="mw_nuOf" name="&quot;true&quot;, wenn das Spiel gewartet wird">
+      <notes>
+        <note category="german">"true", wenn das Spiel gewartet wird</note>
+      </notes>
+      <segment>
+        <source>"true", wenn das Spiel gewartet wird</source>
+        <target>"true", wenn das Spiel gewartet wird</target>
+      </segment>
+    </unit>
+    <unit id="b_mVDDt" name="Spielkarten-ID">
+      <notes>
+        <note category="german">Spielkarten-ID</note>
+      </notes>
+      <segment>
+        <source>Spielkarten-ID</source>
+        <target>Spielkarten-ID</target>
+      </segment>
+    </unit>
+    <unit id="x3kQEe2" name="Serverzeit">
+      <notes>
+        <note category="german">Serverzeit</note>
+      </notes>
+      <segment>
+        <source>Serverzeit</source>
+        <target>Serverzeit</target>
+      </segment>
+    </unit>
+    <unit id="jb3MjHh" name="Kartenbreite">
+      <notes>
+        <note category="german">Kartenbreite</note>
+      </notes>
+      <segment>
+        <source>Kartenbreite</source>
+        <target>Kartenbreite</target>
+      </segment>
+    </unit>
+    <unit id="VWs0Y67" name="Kartenhöhe">
+      <notes>
+        <note category="german">Kartenhöhe</note>
+      </notes>
+      <segment>
+        <source>Kartenhöhe</source>
+        <target>Kartenhöhe</target>
+      </segment>
+    </unit>
+    <unit id="CWyvqQv" name="Wenn es einen Aufstand gibt">
+      <notes>
+        <note category="german">Wenn es einen Aufstand gibt</note>
+      </notes>
+      <segment>
+        <source>Wenn es einen Aufstand gibt</source>
+        <target>Wenn es einen Aufstand gibt</target>
+      </segment>
+    </unit>
+    <unit id="XhYRokz" name="Bonuspunkte">
+      <notes>
+        <note category="german">Bonuspunkte</note>
+      </notes>
+      <segment>
+        <source>Bonuspunkte</source>
+        <target>Bonuspunkte</target>
+      </segment>
+    </unit>
+    <unit id="_TdUTyc" name="Stadttag">
+      <notes>
+        <note category="german">Stadttag</note>
+      </notes>
+      <segment>
+        <source>Stadttag</source>
+        <target>Stadttag</target>
+      </segment>
+    </unit>
+    <unit id="XS6yW8K" name="Boolescher Wert, der angibt, ob die Stadt privat ist oder nicht">
+      <notes>
+        <note category="german">Boolescher Wert, der angibt, ob die Stadt privat ist oder nicht</note>
+      </notes>
+      <segment>
+        <source>Boolescher Wert, der angibt, ob die Stadt privat ist oder nicht</source>
+        <target>Boolescher Wert, der angibt, ob die Stadt privat ist oder nicht</target>
+      </segment>
+    </unit>
+    <unit id="IIyH1_p" name="Liste bekannter Zonen">
+      <notes>
+        <note category="german">Liste bekannter Zonen</note>
+      </notes>
+      <segment>
+        <source>Liste bekannter Zonen</source>
+        <target>Liste bekannter Zonen</target>
+      </segment>
+    </unit>
+    <unit id="8yQo_c7" name="Liste der Bürger">
+      <notes>
+        <note category="german">Liste der Bürger</note>
+      </notes>
+      <segment>
+        <source>Liste der Bürger</source>
+        <target>Liste der Bürger</target>
+      </segment>
+    </unit>
+    <unit id="DPvvGuO" name="Stadtinformationen">
+      <notes>
+        <note category="german">Stadtinformationen</note>
+      </notes>
+      <segment>
+        <source>Stadtinformationen</source>
+        <target>Stadtinformationen</target>
+      </segment>
+    </unit>
+    <unit id="1flCWsE" name="Liste der Leichen">
+      <notes>
+        <note category="german">Liste der Leichen</note>
+      </notes>
+      <segment>
+        <source>Liste der Leichen</source>
+        <target>Liste der Leichen</target>
+      </segment>
+    </unit>
+    <unit id="Duo3rP5" name="Liste der Expeditionen">
+      <notes>
+        <note category="german">Liste der Expeditionen</note>
+      </notes>
+      <segment>
+        <source>Liste der Expeditionen</source>
+        <target>Liste der Expeditionen</target>
+      </segment>
+    </unit>
+    <unit id="wlDIcKF" name="City Creation Season ID">
+      <notes>
+        <note category="german">City Creation Season ID</note>
+      </notes>
+      <segment>
+        <source>City Creation Season ID</source>
+        <target>City Creation Season ID</target>
+      </segment>
+    </unit>
+    <unit id="5A15fqI" name="UID des Spielers, der Schamane ist">
+      <notes>
+        <note category="german">UID des Spielers, der Schamane ist</note>
+      </notes>
+      <segment>
+        <source>UID des Spielers, der Schamane ist</source>
+        <target>UID des Spielers, der Schamane ist</target>
+      </segment>
+    </unit>
+    <unit id="vP9JFiK" name="UID des Spielers, der Reiseleiter in der Außenwel ist">
+      <notes>
+        <note category="german">UID des Spielers, der Reiseleiter in der Außenwel ist</note>
+      </notes>
+      <segment>
+        <source>UID des Spielers, der Reiseleiter in der Außenwel ist</source>
+        <target>UID des Spielers, der Reiseleiter in der Außenwel ist</target>
+      </segment>
+    </unit>
+    <unit id="4BJBscB" name="X von der oberen linken Ecke">
+      <notes>
+        <note category="german">X von der oberen linken Ecke</note>
+      </notes>
+      <segment>
+        <source>X von der oberen linken Ecke</source>
+        <target>X von der oberen linken Ecke</target>
+      </segment>
+    </unit>
+    <unit id="SII2qTe" name="Y von der oberen linken Ecke">
+      <notes>
+        <note category="german">Y von der oberen linken Ecke</note>
+      </notes>
+      <segment>
+        <source>Y von der oberen linken Ecke</source>
+        <target>Y von der oberen linken Ecke</target>
+      </segment>
+    </unit>
+    <unit id="sGpVIDB" name="Heute nicht besucht">
+      <notes>
+        <note category="german">Heute nicht besucht</note>
+      </notes>
+      <segment>
+        <source>Heute nicht besucht</source>
+        <target>Heute nicht besucht</target>
+      </segment>
+    </unit>
+    <unit id="9dyupPG" name="Zonen-Tag">
+      <notes>
+        <note category="german">Zonen-Tag</note>
+      </notes>
+      <segment>
+        <source>Zonen-Tag</source>
+        <target>Zonen-Tag</target>
+      </segment>
+    </unit>
+    <unit id="ly658p5" name="Gefahrenstufe 0 = grün, 1 = grün-gelb, 2 = orange, 3 = rot, 4 = blau">
+      <notes>
+        <note category="german">Gefahrenstufe 0 = grün, 1 = grün-gelb, 2 = orange, 3 = rot, 4 = blau</note>
+      </notes>
+      <segment>
+        <source>Gefahrenstufe 0 = grün, 1 = grün-gelb, 2 = orange, 3 = rot, 4 = blau</source>
+        <target>Gefahrenstufe 0 = grün, 1 = grün-gelb, 2 = orange, 3 = rot, 4 = blau</target>
+      </segment>
+    </unit>
+    <unit id="y68XZY9" name="Bereichsdetails">
+      <notes>
+        <note category="german">Bereichsdetails</note>
+      </notes>
+      <segment>
+        <source>Bereichsdetails</source>
+        <target>Bereichsdetails</target>
+      </segment>
+    </unit>
+    <unit id="ulaMByP" name="Liste der Objekte in diesem Bereich">
+      <notes>
+        <note category="german">Liste der Objekte in diesem Bereich</note>
+      </notes>
+      <segment>
+        <source>Liste der Objekte in diesem Bereich</source>
+        <target>Liste der Objekte in diesem Bereich</target>
+      </segment>
+    </unit>
+    <unit id="4Yz8rlD" name="Informationen zum Gebäude in der Umgebung">
+      <notes>
+        <note category="german">Informationen zum Gebäude in der Umgebung</note>
+      </notes>
+      <segment>
+        <source>Informationen zum Gebäude in der Umgebung</source>
+        <target>Informationen zum Gebäude in der Umgebung</target>
+      </segment>
+    </unit>
+    <unit id="yHlJU_1" name="Die Gebäude-ID">
+      <notes>
+        <note category="german">Die Gebäude-ID</note>
+      </notes>
+      <segment>
+        <source>Die Gebäude-ID</source>
+        <target>Die Gebäude-ID</target>
+      </segment>
+    </unit>
+    <unit id="jq0ZA8A" name="Die Anzahl der Sandhaufen auf dem Gebäude">
+      <notes>
+        <note category="german">Die Anzahl der Sandhaufen auf dem Gebäude</note>
+      </notes>
+      <segment>
+        <source>Die Anzahl der Sandhaufen auf dem Gebäude</source>
+        <target>Die Anzahl der Sandhaufen auf dem Gebäude</target>
+      </segment>
+    </unit>
+    <unit id="3A_fZl2" name="Der Name des Gebäudes">
+      <notes>
+        <note category="german">Der Name des Gebäudes</note>
+      </notes>
+      <segment>
+        <source>Der Name des Gebäudes</source>
+        <target>Der Name des Gebäudes</target>
+      </segment>
+    </unit>
+    <unit id="vlUUAhW" name="Beschreibung des Gebäudes">
+      <notes>
+        <note category="german">Beschreibung des Gebäudes</note>
+      </notes>
+      <segment>
+        <source>Beschreibung des Gebäudes</source>
+        <target>Beschreibung des Gebäudes</target>
+      </segment>
+    </unit>
+    <unit id="UkI_qkM" name="Wenn das Gebäude gelagert wurde">
+      <notes>
+        <note category="german">Wenn das Gebäude gelagert wurde</note>
+      </notes>
+      <segment>
+        <source>Wenn das Gebäude gelagert wurde</source>
+        <target>Wenn das Gebäude gelagert wurde</target>
+      </segment>
+    </unit>
+    <unit id="IujjIrH" name="Das Gebäude trocknen">
+      <notes>
+        <note category="german">Das Gebäude trocknen</note>
+      </notes>
+      <segment>
+        <source>Das Gebäude trocknen</source>
+        <target>Das Gebäude trocknen</target>
+      </segment>
+    </unit>
+    <unit id="BAdMxDp" name="Die Anzahl der Zombies">
+      <notes>
+        <note category="german">Die Anzahl der Zombies</note>
+      </notes>
+      <segment>
+        <source>Die Anzahl der Zombies</source>
+        <target>Die Anzahl der Zombies</target>
+      </segment>
+    </unit>
+    <unit id="89Ftxlo" name="Die Anzahl der Menschen">
+      <notes>
+        <note category="german">Die Anzahl der Menschen</note>
+      </notes>
+      <segment>
+        <source>Die Anzahl der Menschen</source>
+        <target>Die Anzahl der Menschen</target>
+      </segment>
+    </unit>
+    <unit id="ksG4XYO" name="Den Bereich austrocknen">
+      <notes>
+        <note category="german">Den Bereich austrocknen</note>
+      </notes>
+      <segment>
+        <source>Den Bereich austrocknen</source>
+        <target>Den Bereich austrocknen</target>
+      </segment>
+    </unit>
+    <unit id="VR0KmfL" name="Spielername">
+      <notes>
+        <note category="german">Spielername</note>
+      </notes>
+      <segment>
+        <source>Spielername</source>
+        <target>Spielername</target>
+      </segment>
+    </unit>
+    <unit id="CcdX8lv" name="ob der Spieler verkörpert ist (false) oder nicht (true)">
+      <notes>
+        <note category="german">ob der Spieler verkörpert ist (false) oder nicht (true)</note>
+      </notes>
+      <segment>
+        <source>ob der Spieler verkörpert ist (false) oder nicht (true)</source>
+        <target>ob der Spieler verkörpert ist (false) oder nicht (true)</target>
+      </segment>
+    </unit>
+    <unit id="YVtCp6_" name="Die Twinoid-ID, wenn er sein Konto verknüpft hat">
+      <notes>
+        <note category="german">Die Twinoid-ID, wenn er sein Konto verknüpft hat</note>
+      </notes>
+      <segment>
+        <source>Die Twinoid-ID, wenn er sein Konto verknüpft hat</source>
+        <target>Die Twinoid-ID, wenn er sein Konto verknüpft hat</target>
+      </segment>
+    </unit>
+    <unit id="o928kfJ" name="So verkörpert die ID seiner Stadt">
+      <notes>
+        <note category="german">So verkörpert die ID seiner Stadt</note>
+      </notes>
+      <segment>
+        <source>So verkörpert die ID seiner Stadt</source>
+        <target>So verkörpert die ID seiner Stadt</target>
+      </segment>
+    </unit>
+    <unit id="dZpwNJa" name="Wenn verkörpert, eine Instanz von Map">
+      <notes>
+        <note category="german">Wenn verkörpert, eine Instanz von Map</note>
+      </notes>
+      <segment>
+        <source>Wenn verkörpert, eine Instanz von Map</source>
+        <target>Wenn verkörpert, eine Instanz von Map</target>
+      </segment>
+    </unit>
+    <unit id="j__H7.N" name="Persönlicher Text (über die Seele)">
+      <notes>
+        <note category="german">Persönlicher Text (über die Seele)</note>
+      </notes>
+      <segment>
+        <source>Persönlicher Text (über die Seele)</source>
+        <target>Persönlicher Text (über die Seele)</target>
+      </segment>
+    </unit>
+    <unit id="UX5dXh2" name="Spieler-Avatar-URL">
+      <notes>
+        <note category="german">Spieler-Avatar-URL</note>
+      </notes>
+      <segment>
+        <source>Spieler-Avatar-URL</source>
+        <target>Spieler-Avatar-URL</target>
+      </segment>
+    </unit>
+    <unit id="DG42b1O" name="Liste der alten Inkarnationen">
+      <notes>
+        <note category="german">Liste der alten Inkarnationen</note>
+      </notes>
+      <segment>
+        <source>Liste der alten Inkarnationen</source>
+        <target>Liste der alten Inkarnationen</target>
+      </segment>
+    </unit>
+    <unit id="ICOL_5_" name="ID-MyHordes">
+      <notes>
+        <note category="german">ID-MyHordes</note>
+      </notes>
+      <segment>
+        <source>ID-MyHordes</source>
+        <target>ID-MyHordes</target>
+      </segment>
+    </unit>
+    <unit id="C5c5hLx" name="universelle ID (zB: basic = Einwohner)">
+      <notes>
+        <note category="german">universelle ID (zB: basic = Einwohner)</note>
+      </notes>
+      <segment>
+        <source>universelle ID (zB: basic = Einwohner)</source>
+        <target>universelle ID (zB: basic = Einwohner)</target>
+      </segment>
+    </unit>
+    <unit id="I8Bzv3U" name="Der Name des Berufs">
+      <notes>
+        <note category="german">Der Name des Berufs</note>
+      </notes>
+      <segment>
+        <source>Der Name des Berufs</source>
+        <target>Der Name des Berufs</target>
+      </segment>
+    </unit>
+    <unit id="1lXS_T7" name="Die Beschreibung">
+      <notes>
+        <note category="german">Die Beschreibung</note>
+      </notes>
+      <segment>
+        <source>Die Beschreibung</source>
+        <target>Die Beschreibung</target>
+      </segment>
+    </unit>
+    <unit id="KAAmbDC" name="Name der Stadt">
+      <notes>
+        <note category="german">Name der Stadt</note>
+      </notes>
+      <segment>
+        <source>Name der Stadt</source>
+        <target>Name der Stadt</target>
+      </segment>
+    </unit>
+    <unit id="EiF29ae" name="Anzahl der verfügbaren Wasserrationen">
+      <notes>
+        <note category="german">Anzahl der verfügbaren Wasserrationen</note>
+      </notes>
+      <segment>
+        <source>Anzahl der verfügbaren Wasserrationen</source>
+        <target>Anzahl der verfügbaren Wasserrationen</target>
+      </segment>
+    </unit>
+    <unit id="usrpxmF" name="Stadtposition">
+      <notes>
+        <note category="german">Stadtposition</note>
+      </notes>
+      <segment>
+        <source>Stadtposition</source>
+        <target>Stadtposition</target>
+      </segment>
+    </unit>
+    <unit id="U5gH9xh" name="Boolescher Wert, der angibt, ob das Stadttor geöffnet ist">
+      <notes>
+        <note category="german">Boolescher Wert, der angibt, ob das Stadttor geöffnet ist</note>
+      </notes>
+      <segment>
+        <source>Boolescher Wert, der angibt, ob das Stadttor geöffnet ist</source>
+        <target>Boolescher Wert, der angibt, ob das Stadttor geöffnet ist</target>
+      </segment>
+    </unit>
+    <unit id="YXbjKvx" name="Boolescher Wert, der angibt, dass sich die Stadt im Chaos befindet">
+      <notes>
+        <note category="german">Boolescher Wert, der angibt, dass sich die Stadt im Chaos befindet</note>
+      </notes>
+      <segment>
+        <source>Boolescher Wert, der angibt, dass sich die Stadt im Chaos befindet</source>
+        <target>Boolescher Wert, der angibt, dass sich die Stadt im Chaos befindet</target>
+      </segment>
+    </unit>
+    <unit id="JHeixLc" name="Boolescher Wert, der besagt, ob die Stadt ein Pandemonium ist">
+      <notes>
+        <note category="german">Boolescher Wert, der besagt, ob die Stadt ein Pandemonium ist</note>
+      </notes>
+      <segment>
+        <source>Boolescher Wert, der besagt, ob die Stadt ein Pandemonium ist</source>
+        <target>Boolescher Wert, der besagt, ob die Stadt ein Pandemonium ist</target>
+      </segment>
+    </unit>
+    <unit id="2KmVjTR" name="Boolescher Wert, der angibt, ob die Stadt am Boden zerstört ist">
+      <notes>
+        <note category="german">Boolescher Wert, der angibt, ob die Stadt am Boden zerstört ist</note>
+      </notes>
+      <segment>
+        <source>Boolescher Wert, der angibt, ob die Stadt am Boden zerstört ist</source>
+        <target>Boolescher Wert, der angibt, ob die Stadt am Boden zerstört ist</target>
+      </segment>
+    </unit>
+    <unit id="CD19.Dq" name="Vollständige Liste der verfügbaren Websites">
+      <notes>
+        <note category="german">Vollständige Liste der verfügbaren Websites</note>
+      </notes>
+      <segment>
+        <source>Vollständige Liste der verfügbaren Websites</source>
+        <target>Vollständige Liste der verfügbaren Websites</target>
+      </segment>
+    </unit>
+    <unit id="NABXV7b" name="Liste der Baustellen">
+      <notes>
+        <note category="german">Liste der Baustellen</note>
+      </notes>
+      <segment>
+        <source>Liste der Baustellen</source>
+        <target>Liste der Baustellen</target>
+      </segment>
+    </unit>
+    <unit id="ILfZzBQ" name="Neueste Zeitschrift mit Informationen zu Angriff und Verteidigung">
+      <notes>
+        <note category="german">Neueste Zeitschrift mit Informationen zu Angriff und Verteidigung</note>
+      </notes>
+      <segment>
+        <source>Neueste Zeitschrift mit Informationen zu Angriff und Verteidigung</source>
+        <target>Neueste Zeitschrift mit Informationen zu Angriff und Verteidigung</target>
+      </segment>
+    </unit>
+    <unit id="8lOIXsk" name="Informationen zur Verteidigung der Stadt">
+      <notes>
+        <note category="german">Informationen zur Verteidigung der Stadt</note>
+      </notes>
+      <segment>
+        <source>Informationen zur Verteidigung der Stadt</source>
+        <target>Informationen zur Verteidigung der Stadt</target>
+      </segment>
+    </unit>
+    <unit id="Yj_2XP7" name="Liste der verfügbaren Verbesserungen (Pumpe usw.)">
+      <notes>
+        <note category="german">Liste der verfügbaren Verbesserungen (Pumpe usw.)</note>
+      </notes>
+      <segment>
+        <source>Liste der verfügbaren Verbesserungen (Pumpe usw.)</source>
+        <target>Liste der verfügbaren Verbesserungen (Pumpe usw.)</target>
+      </segment>
+    </unit>
+    <unit id="kloFsgB" name="Schätzung für den Abendangriff">
+      <notes>
+        <note category="german">Schätzung für den Abendangriff</note>
+      </notes>
+      <segment>
+        <source>Schätzung für den Abendangriff</source>
+        <target>Schätzung für den Abendangriff</target>
+      </segment>
+    </unit>
+    <unit id="O1v3iVT" name="cf3ba52">
+      <notes>
+        <note category="german">Schätzen Sie für den Angriff am nächsten Tag oder nichts, wenn nicht der Planer</note>
+      </notes>
+      <segment>
+        <source>Schätzen Sie für den Angriff am nächsten Tag oder nichts, wenn nicht der Planer</source>
+        <target>Schätzen Sie für den Angriff am nächsten Tag oder nichts, wenn nicht der Planer</target>
+      </segment>
+    </unit>
+    <unit id="fM9i_xk" name="Objekte in der Bank">
+      <notes>
+        <note category="german">Objekte in der Bank</note>
+      </notes>
+      <segment>
+        <source>Objekte in der Bank</source>
+        <target>Objekte in der Bank</target>
+      </segment>
+    </unit>
+    <unit id="L_ynkvZ" name="Die Tage der Schätzung">
+      <notes>
+        <note category="german">Die Tage der Schätzung</note>
+      </notes>
+      <segment>
+        <source>Die Tage der Schätzung</source>
+        <target>Die Tage der Schätzung</target>
+      </segment>
+    </unit>
+    <unit id="59EsNO8" name="Der minimale Angriff">
+      <notes>
+        <note category="german">Der minimale Angriff</note>
+      </notes>
+      <segment>
+        <source>Der minimale Angriff</source>
+        <target>Der minimale Angriff</target>
+      </segment>
+    </unit>
+    <unit id="6ZRLBbX" name="Maximaler Angriff">
+      <notes>
+        <note category="german">Maximaler Angriff</note>
+      </notes>
+      <segment>
+        <source>Maximaler Angriff</source>
+        <target>Maximaler Angriff</target>
+      </segment>
+    </unit>
+    <unit id="6Y4BoH0" name="totale Verteidigung">
+      <notes>
+        <note category="german">totale Verteidigung</note>
+      </notes>
+      <segment>
+        <source>totale Verteidigung</source>
+        <target>totale Verteidigung</target>
+      </segment>
+    </unit>
+    <unit id="rMw81SZ" name="Grundverteidigung (10)">
+      <notes>
+        <note category="german">Grundverteidigung (10)</note>
+      </notes>
+      <segment>
+        <source>Grundverteidigung (10)</source>
+        <target>Grundverteidigung (10)</target>
+      </segment>
+    </unit>
+    <unit id="IRSXjEH" name="Verteidigung durch Konstruktionen">
+      <notes>
+        <note category="german">Verteidigung durch Konstruktionen</note>
+      </notes>
+      <segment>
+        <source>Verteidigung durch Konstruktionen</source>
+        <target>Verteidigung durch Konstruktionen</target>
+      </segment>
+    </unit>
+    <unit id="9dwicyP" name="Verteidigung durch Entwicklungen">
+      <notes>
+        <note category="german">Verteidigung durch Entwicklungen</note>
+      </notes>
+      <segment>
+        <source>Verteidigung durch Entwicklungen</source>
+        <target>Verteidigung durch Entwicklungen</target>
+      </segment>
+    </unit>
+    <unit id="zmUAact" name="Anzahl der Verteidigungsobjekte">
+      <notes>
+        <note category="german">Anzahl der Verteidigungsobjekte</note>
+      </notes>
+      <segment>
+        <source>Anzahl der Verteidigungsobjekte</source>
+        <target>Anzahl der Verteidigungsobjekte</target>
+      </segment>
+    </unit>
+    <unit id="quvGx89" name="Verteidigung durch Verteidigungsobjekte">
+      <notes>
+        <note category="german">Verteidigung durch Verteidigungsobjekte</note>
+      </notes>
+      <segment>
+        <source>Verteidigung durch Verteidigungsobjekte</source>
+        <target>Verteidigung durch Verteidigungsobjekte</target>
+      </segment>
+    </unit>
+    <unit id="DDD3O8h" name="Verteidigung durch Häuser gebracht">
+      <notes>
+        <note category="german">Verteidigung durch Häuser gebracht</note>
+      </notes>
+      <segment>
+        <source>Verteidigung durch Häuser gebracht</source>
+        <target>Verteidigung durch Häuser gebracht</target>
+      </segment>
+    </unit>
+    <unit id="Pb940Cc" name="Verteidigung durch die Wachen (oder Anzahl der Wachen)">
+      <notes>
+        <note category="german">Verteidigung durch die Wachen (oder Anzahl der Wachen)</note>
+      </notes>
+      <segment>
+        <source>Verteidigung durch die Wachen (oder Anzahl der Wachen)</source>
+        <target>Verteidigung durch die Wachen (oder Anzahl der Wachen)</target>
+      </segment>
+    </unit>
+    <unit id="m37G302" name="Verteidigung von den Wächtern gebracht">
+      <notes>
+        <note category="german">Verteidigung von den Wächtern gebracht</note>
+      </notes>
+      <segment>
+        <source>Verteidigung von den Wächtern gebracht</source>
+        <target>Verteidigung von den Wächtern gebracht</target>
+      </segment>
+    </unit>
+    <unit id="FnNHWg4" name="Verteidigung durch Seelen gebracht">
+      <notes>
+        <note category="german">Verteidigung durch Seelen gebracht</note>
+      </notes>
+      <segment>
+        <source>Verteidigung durch Seelen gebracht</source>
+        <target>Verteidigung durch Seelen gebracht</target>
+      </segment>
+    </unit>
+    <unit id="LnV0bki" name="Vorübergehende Verteidigung">
+      <notes>
+        <note category="german">Vorübergehende Verteidigung</note>
+      </notes>
+      <segment>
+        <source>Vorübergehende Verteidigung</source>
+        <target>Vorübergehende Verteidigung</target>
+      </segment>
+    </unit>
+    <unit id="WKYdPxy" name="Verteidigung durch Leichen gebracht">
+      <notes>
+        <note category="german">Verteidigung durch Leichen gebracht</note>
+      </notes>
+      <segment>
+        <source>Verteidigung durch Leichen gebracht</source>
+        <target>Verteidigung durch Leichen gebracht</target>
+      </segment>
+    </unit>
+    <unit id="vRe51_F" name="Anzahl der Wachen">
+      <notes>
+        <note category="german">Anzahl der Wachen</note>
+      </notes>
+      <segment>
+        <source>Anzahl der Wachen</source>
+        <target>Anzahl der Wachen</target>
+      </segment>
+    </unit>
+    <unit id="PRCDOWU" name="Verteidigung durch die Wächter">
+      <notes>
+        <note category="german">Verteidigung durch die Wächter</note>
+      </notes>
+      <segment>
+        <source>Verteidigung durch die Wächter</source>
+        <target>Verteidigung durch die Wächter</target>
+      </segment>
+    </unit>
+    <unit id="pJFT5TL" name="Anzahl der angegriffenen Zombies">
+      <notes>
+        <note category="german">Anzahl der angegriffenen Zombies</note>
+      </notes>
+      <segment>
+        <source>Anzahl der angegriffenen Zombies</source>
+        <target>Anzahl der angegriffenen Zombies</target>
+      </segment>
+    </unit>
+    <unit id="62emNze" name="Anzahl der Verteidigungspunkte">
+      <notes>
+        <note category="german">Anzahl der Verteidigungspunkte</note>
+      </notes>
+      <segment>
+        <source>Anzahl der Verteidigungspunkte</source>
+        <target>Anzahl der Verteidigungspunkte</target>
+      </segment>
+    </unit>
+    <unit id="v3BuslK" name="Gazette-Text">
+      <notes>
+        <note category="german">Gazette-Text</note>
+      </notes>
+      <segment>
+        <source>Gazette-Text</source>
+        <target>Gazette-Text</target>
+      </segment>
+    </unit>
+    <unit id="XIAr9QP" name="Richtung der Regeneration des stellvertretenden Rückkehrers?">
+      <notes>
+        <note category="german">Richtung der Regeneration des stellvertretenden Rückkehrers?</note>
+      </notes>
+      <segment>
+        <source>Richtung der Regeneration des stellvertretenden Rückkehrers?</source>
+        <target>Richtung der Regeneration des stellvertretenden Rückkehrers?</target>
+      </segment>
+    </unit>
+    <unit id="0MMAnFB" name="Anzahl der im Brunnen verbleibenden Rationen?">
+      <notes>
+        <note category="german">Anzahl der im Brunnen verbleibenden Rationen?</note>
+      </notes>
+      <segment>
+        <source>Anzahl der im Brunnen verbleibenden Rationen?</source>
+        <target>Anzahl der im Brunnen verbleibenden Rationen?</target>
+      </segment>
+    </unit>
+    <unit id="0K2pZFf" name="ID der Site">
+      <notes>
+        <note category="german">ID der Site</note>
+      </notes>
+      <segment>
+        <source>ID der Site</source>
+        <target>ID der Site</target>
+      </segment>
+    </unit>
+    <unit id="EVve8Kz" name="Anzahl der für den Bau benötigten AP">
+      <notes>
+        <note category="german">Anzahl der für den Bau benötigten AP</note>
+      </notes>
+      <segment>
+        <source>Anzahl der für den Bau benötigten AP</source>
+        <target>Anzahl der für den Bau benötigten AP</target>
+      </segment>
+    </unit>
+    <unit id="biYb4QK" name="aktuelle Lebenspunkte der Site (falls nicht gebaut = 0)">
+      <notes>
+        <note category="german">aktuelle Lebenspunkte der Site (falls nicht gebaut = 0)</note>
+      </notes>
+      <segment>
+        <source>aktuelle Lebenspunkte der Site (falls nicht gebaut = 0)</source>
+        <target>aktuelle Lebenspunkte der Site (falls nicht gebaut = 0)</target>
+      </segment>
+    </unit>
+    <unit id="slJHrsA" name="Stimmen für diese Seite gesammelt">
+      <notes>
+        <note category="german">Stimmen für diese Seite gesammelt</note>
+      </notes>
+      <segment>
+        <source>Stimmen für diese Seite gesammelt</source>
+        <target>Stimmen für diese Seite gesammelt</target>
+      </segment>
+    </unit>
+    <unit id=".7yFBGU" name="ob dieses Gebäude nach dem Angriff zerstört werden kann">
+      <notes>
+        <note category="german">ob dieses Gebäude nach dem Angriff zerstört werden kann</note>
+      </notes>
+      <segment>
+        <source>ob dieses Gebäude nach dem Angriff zerstört werden kann</source>
+        <target>ob dieses Gebäude nach dem Angriff zerstört werden kann</target>
+      </segment>
+    </unit>
+    <unit id="iQPe1o4" name="Verteidigung dieses Gebäudes">
+      <notes>
+        <note category="german">Verteidigung dieses Gebäudes</note>
+      </notes>
+      <segment>
+        <source>Verteidigung dieses Gebäudes</source>
+        <target>Verteidigung dieses Gebäudes</target>
+      </segment>
+    </unit>
+    <unit id="aSXJac0" name="Wenn sich dieses Gebäude weiterentwickeln kann">
+      <notes>
+        <note category="german">Wenn sich dieses Gebäude weiterentwickeln kann</note>
+      </notes>
+      <segment>
+        <source>Wenn sich dieses Gebäude weiterentwickeln kann</source>
+        <target>Wenn sich dieses Gebäude weiterentwickeln kann</target>
+      </segment>
+    </unit>
+    <unit id="G3Ku2Xx" name="Seltenheit des Plans">
+      <notes>
+        <note category="german">Seltenheit des Plans</note>
+      </notes>
+      <segment>
+        <source>Seltenheit des Plans</source>
+        <target>Seltenheit des Plans</target>
+      </segment>
+    </unit>
+    <unit id="5X22qFB" name="Temporäres Gebäude">
+      <notes>
+        <note category="german">Temporäres Gebäude</note>
+      </notes>
+      <segment>
+        <source>Temporäres Gebäude</source>
+        <target>Temporäres Gebäude</target>
+      </segment>
+    </unit>
+    <unit id="mLc1q40" name="Gebäude-ID des vorherigen Zweigs">
+      <notes>
+        <note category="german">Gebäude-ID des vorherigen Zweigs</note>
+      </notes>
+      <segment>
+        <source>Gebäude-ID des vorherigen Zweigs</source>
+        <target>Gebäude-ID des vorherigen Zweigs</target>
+      </segment>
+    </unit>
+    <unit id="nvQbiRt" name="Anzahl der benötigten Ressourcen">
+      <notes>
+        <note category="german">Anzahl der benötigten Ressourcen</note>
+      </notes>
+      <segment>
+        <source>Anzahl der benötigten Ressourcen</source>
+        <target>Anzahl der benötigten Ressourcen</target>
+      </segment>
+    </unit>
+    <unit id="7Y7NLQQ" name="Objekte benötigt">
+      <notes>
+        <note category="german">Objekte benötigt</note>
+      </notes>
+      <segment>
+        <source>Objekte benötigt</source>
+        <target>Objekte benötigt</target>
+      </segment>
+    </unit>
+    <unit id="1aS4pN3" name="Spieler ID">
+      <notes>
+        <note category="german">Spieler ID</note>
+      </notes>
+      <segment>
+        <source>Spieler ID</source>
+        <target>Spieler ID</target>
+      </segment>
+    </unit>
+    <unit id="LEUu9N8" name="Twinoid-ID des Spielers">
+      <notes>
+        <note category="german">Twinoid-ID des Spielers</note>
+      </notes>
+      <segment>
+        <source>Twinoid-ID des Spielers</source>
+        <target>Twinoid-ID des Spielers</target>
+      </segment>
+    </unit>
+    <unit id="BKvVHXl" name="Karten-ID">
+      <notes>
+        <note category="german">Karten-ID</note>
+      </notes>
+      <segment>
+        <source>Karten-ID</source>
+        <target>Karten-ID</target>
+      </segment>
+    </unit>
+    <unit id="xTzYk7X" name="Anzahl der Tage überlebt">
+      <notes>
+        <note category="german">Anzahl der Tage überlebt</note>
+      </notes>
+      <segment>
+        <source>Anzahl der Tage überlebt</source>
+        <target>Anzahl der Tage überlebt</target>
+      </segment>
+    </unit>
+    <unit id="dps99iA" name="Kartentag">
+      <notes>
+        <note category="german">Kartentag</note>
+      </notes>
+      <segment>
+        <source>Kartentag</source>
+        <target>Kartentag</target>
+      </segment>
+    </unit>
+    <unit id="Z9JTs1j" name="Spieler Avatar">
+      <notes>
+        <note category="german">Spieler Avatar</note>
+      </notes>
+      <segment>
+        <source>Spieler Avatar</source>
+        <target>Spieler Avatar</target>
+      </segment>
+    </unit>
+    <unit id="Zu1g5UR" name="Name der Karte">
+      <notes>
+        <note category="german">Name der Karte</note>
+      </notes>
+      <segment>
+        <source>Name der Karte</source>
+        <target>Name der Karte</target>
+      </segment>
+    </unit>
+    <unit id="VniN2pJ" name="Saisonnummer">
+      <notes>
+        <note category="german">Saisonnummer</note>
+      </notes>
+      <segment>
+        <source>Saisonnummer</source>
+        <target>Saisonnummer</target>
+      </segment>
+    </unit>
+    <unit id="SA8L5hq" name="&quot;true&quot; wenn diese Leiche aus dem Spiel V1 stammt">
+      <notes>
+        <note category="german">"true" wenn diese Leiche aus dem Spiel V1 stammt</note>
+      </notes>
+      <segment>
+        <source>"true" wenn diese Leiche aus dem Spiel V1 stammt</source>
+        <target>"true" wenn diese Leiche aus dem Spiel V1 stammt</target>
+      </segment>
+    </unit>
+    <unit id="zY4iz3Q" name="Ergebnis">
+      <notes>
+        <note category="german">Ergebnis</note>
+      </notes>
+      <segment>
+        <source>Ergebnis</source>
+        <target>Ergebnis</target>
+      </segment>
+    </unit>
+    <unit id="BKUxNcG" name="relevante Spielzeit">
+      <notes>
+        <note category="german">relevante Spielzeit</note>
+      </notes>
+      <segment>
+        <source>relevante Spielzeit</source>
+        <target>relevante Spielzeit</target>
+      </segment>
+    </unit>
+    <unit id="eFl1Az2" name="Kennung des Todestyps">
+      <notes>
+        <note category="german">Kennung des Todestyps</note>
+      </notes>
+      <segment>
+        <source>Kennung des Todestyps</source>
+        <target>Kennung des Todestyps</target>
+      </segment>
+    </unit>
+    <unit id="L1GKCXN" name="Todesnachricht">
+      <notes>
+        <note category="german">Todesnachricht</note>
+      </notes>
+      <segment>
+        <source>Todesnachricht</source>
+        <target>Todesnachricht</target>
+      </segment>
+    </unit>
+    <unit id="coQifWg" name="Kommentar">
+      <notes>
+        <note category="german">Kommentar</note>
+      </notes>
+      <segment>
+        <source>Kommentar</source>
+        <target>Kommentar</target>
+      </segment>
+    </unit>
+    <unit id="kLpp_j_" name="Name des Spielers, der den Körper entsorgt hat">
+      <notes>
+        <note category="german">Name des Spielers, der den Körper entsorgt hat</note>
+      </notes>
+      <segment>
+        <source>Name des Spielers, der den Körper entsorgt hat</source>
+        <target>Name des Spielers, der den Körper entsorgt hat</target>
+      </segment>
+    </unit>
+    <unit id="kJKx3Jf" name="Methode : garbage, water, cook order ghoul">
+      <notes>
+        <note category="german">Methode : garbage, water, cook order ghoul</note>
+      </notes>
+      <segment>
+        <source>Methode : garbage, water, cook order ghoul</source>
+        <target>Methode : garbage, water, cook order ghoul</target>
+      </segment>
+    </unit>
+    <unit id="fpFPzjl" name="Expeditionsname">
+      <notes>
+        <note category="german">Expeditionsname</note>
+      </notes>
+      <segment>
+        <source>Expeditionsname</source>
+        <target>Expeditionsname</target>
+      </segment>
+    </unit>
+    <unit id=".st_v.h" name="der Autor">
+      <notes>
+        <note category="german">der Autor</note>
+      </notes>
+      <segment>
+        <source>der Autor</source>
+        <target>der Autor</target>
+      </segment>
+    </unit>
+    <unit id="Andj.R3" name="Versandlänge">
+      <notes>
+        <note category="german">Versandlänge</note>
+      </notes>
+      <segment>
+        <source>Versandlänge</source>
+        <target>Versandlänge</target>
+      </segment>
+    </unit>
+    <unit id="AK5FGCL" name="Punkte, die den Kurs definieren">
+      <notes>
+        <note category="german">Punkte, die den Kurs definieren</note>
+      </notes>
+      <segment>
+        <source>Punkte, die den Kurs definieren</source>
+        <target>Punkte, die den Kurs definieren</target>
+      </segment>
+    </unit>
+    <unit id="hvMEx8f" name="Alle ISO 3166-1 alpha-2 Ländercodes werden in das Feld &quot;langues&quot; eingetragen">
+      <notes>
+        <note category="german">Alle ISO 3166-1 alpha-2 Ländercodes werden in das Feld "langues" eingetragen</note>
+      </notes>
+      <segment>
+        <source>Alle ISO 3166-1 alpha-2 Ländercodes werden in das Feld "langues" eingetragen</source>
+        <target>Alle ISO 3166-1 alpha-2 Ländercodes werden in das Feld "langues" eingetragen</target>
+      </segment>
+    </unit>
+    <unit id="MLDUlQN" name="zB :">
+      <notes>
+        <note category="german">zB :</note>
+      </notes>
+      <segment>
+        <source>zB :</source>
+        <target>zB :</target>
+      </segment>
+    </unit>
+    <unit id="IHHHc2r" name="Beispiel">
+      <notes>
+        <note category="german">Beispiel</note>
+      </notes>
+      <segment>
+        <source>Beispiel</source>
+        <target>Beispiel</target>
+      </segment>
+    </unit>
+    <unit id="UVFe9GX" name="e382445">
+      <notes>
+        <note category="german">Für api/x/json/items akzeptieren Filter nur UIDs. Derzeit ist die UID identisch mit img. Aber in Zukunft wird die UID durch eine echte Horden-ID ersetzt.</note>
+      </notes>
+      <segment>
+        <source>Für api/x/json/items akzeptieren Filter nur UIDs. Derzeit ist die UID identisch mit img. Aber in Zukunft wird die UID durch eine echte Horden-ID ersetzt.</source>
+        <target>Für api/x/json/items akzeptieren Filter nur UIDs. Derzeit ist die UID identisch mit img. Aber in Zukunft wird die UID durch eine echte Horden-ID ersetzt.</target>
+      </segment>
+    </unit>
+    <unit id="vXeei1Z" name="d1299aa">
+      <notes>
+        <note category="german">Beispiel, um nur die Informationen des Objekts „Wasserration“ wiederherzustellen:</note>
+      </notes>
+      <segment>
+        <source>Beispiel, um nur die Informationen des Objekts „Wasserration“ wiederherzustellen:</source>
+        <target>Beispiel, um nur die Informationen des Objekts „Wasserration“ wiederherzustellen:</target>
+      </segment>
+    </unit>
+    <unit id="stieGyi" name="Es wird angezeigt :">
+      <notes>
+        <note category="german">Es wird angezeigt :</note>
+      </notes>
+      <segment>
+        <source>Es wird angezeigt :</source>
+        <target>Es wird angezeigt :</target>
+      </segment>
+    </unit>
+  </file>
+</xliff>
