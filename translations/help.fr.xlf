@@ -19,15 +19,6 @@
         <target>Consultez le site du support technique</target>
       </segment>
     </unit>
-    <unit id="OBNp2gg" name="Die Verdammten ?">
-      <notes>
-        <note category="german">Die Verdammten ?</note>
-      </notes>
-      <segment>
-        <source>Die Verdammten ?</source>
-        <target>Principe du jeu</target>
-      </segment>
-    </unit>
     <unit id="FvwX8Vo" name="Die Außenwelt">
       <notes>
         <note category="german">Die Außenwelt</note>
@@ -178,7 +169,7 @@
       </notes>
       <segment>
         <source>Der Tod und deine Seelenpunkte</source>
-        <target>La mort des les Points d'âme</target>
+        <target>La mort et les Points d'âme</target>
       </segment>
     </unit>
     <unit id="2I8uzty" name="Der letzte Tod">
@@ -210,7 +201,7 @@
     </unit>
     <unit id="Ln3k6NJ" name="Haus &amp;amp; Hausarbeiten">
       <notes>
-        <note category="german">Haus &amp;amp; Hausarbeiten</note>
+        <note category="german">Haus und Hausarbeiten</note>
       </notes>
       <segment>
         <source>Haus &amp;amp; Hausarbeiten</source>
@@ -568,15 +559,6 @@
         <target>Guide de jeu</target>
       </segment>
     </unit>
-    <unit id="smQglTK" name="5c55efb">
-      <notes>
-        <note category="german">'Die Verdammten' ist ein Survivalspiel, das in einer postapokalyptischen Welt voller Untoter spielt.</note>
-      </notes>
-      <segment>
-        <source>'Die Verdammten' ist ein Survivalspiel, das in einer postapokalyptischen Welt voller Untoter spielt.</source>
-        <target>MyHordes est un jeu de survie dans un monde hostile peuplé de zombies.</target>
-      </segment>
-    </unit>
     <unit id="fEPcQJL" name="794eff7">
       <notes>
         <note category="german">Die Spieler (auch "Bürger" genannt) leben in kleinen Städten und müssen sich jeden Tag aufs Neue organisieren und eine Strategie finden, um die nächtlichen Zombieangriffe erfolgreich abzuwehren. Je länger sie dabei überleben, desto mehr Punkte können sie sammeln. &lt;strong&gt;Der Tod ist ein fester Bestandteil des Spiels. Alle Stadteinwohner wissen vom ersten Tag an, dass sie sterben werden. Die Frage ist nur wie und wann... &lt;/strong&gt;. Als ob das nicht genug wäre, sind die Spieler dazu verdammt, nach ihrem Tod in einer anderen Stadt wiedergeboren zu werden und das Spiel beginnt wieder von vorn...</note>
@@ -728,24 +710,6 @@
       <segment>
         <source>Wähle das Gebäude aus, welches die Stadt als nächstes bauen soll.</source>
         <target>choisissez le prochain bâtiment à construire en ville.</target>
-      </segment>
-    </unit>
-    <unit id="p0DbdQX" name="Get active on the town forum">
-      <notes>
-        <note category="german">Get active on the town forum</note>
-      </notes>
-      <segment>
-        <source>Get active on the town forum</source>
-        <target>Participer au forum de la ville</target>
-      </segment>
-    </unit>
-    <unit id="nAx3MXx" name="organise yourselves and survive.">
-      <notes>
-        <note category="german">organise yourselves and survive.</note>
-      </notes>
-      <segment>
-        <source>organise yourselves and survive.</source>
-        <target>organisez-vous pour survivre.</target>
       </segment>
     </unit>
     <unit id="HhS980w" name="Weiter">
@@ -1384,7 +1348,7 @@ Pro Zug wird dir 1 Aktionspunkt abgezogen. Bei 0 Punkten bist du %img_tired% &lt
       </notes>
       <segment>
         <source>'MyHordes' ist ein Survivalspiel, das in einer postapokalyptischen Welt voller Untoter spielt.</source>
-        <target>MyHordes est un jeu de survie dans un monde hostile peuplé de zombies.</target>
+        <target>'MyHordes' est un jeu de survie dans un monde hostile peuplé de zombies.</target>
       </segment>
     </unit>
     <unit id="uVaZ_gl" name="Beteilige dich im Forum">

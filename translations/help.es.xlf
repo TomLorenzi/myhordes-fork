@@ -19,15 +19,6 @@
         <target>Besuche unsere Technische Supportseite</target>
       </segment>
     </unit>
-    <unit id="OBNp2gg" name="Die Verdammten ?">
-      <notes>
-        <note category="german">Die Verdammten ?</note>
-      </notes>
-      <segment>
-        <source>Die Verdammten ?</source>
-        <target>Die Verdammten ?</target>
-      </segment>
-    </unit>
     <unit id="FvwX8Vo" name="Die Außenwelt">
       <notes>
         <note category="german">Die Außenwelt</note>
@@ -201,11 +192,11 @@
     </unit>
     <unit id="Ln3k6NJ" name="Haus &amp;amp; Hausarbeiten">
       <notes>
-        <note category="german">Haus &amp;amp; Hausarbeiten</note>
+        <note category="german">Haus und Hausarbeiten</note>
       </notes>
       <segment>
         <source>Haus &amp;amp; Hausarbeiten</source>
-        <target><![CDATA[Haus &amp; Hausarbeiten]]></target>
+        <target><![CDATA[Haus & Hausarbeiten]]></target>
       </segment>
     </unit>
     <unit id="KOB6h9k" name="Ghule">
@@ -442,15 +433,6 @@
         <target>Saisons und Ranglisten</target>
       </segment>
     </unit>
-    <unit id="hureH5L" name="Die Verdammten auf deinem Mobiltelefon (Anthrax GPS)">
-      <notes>
-        <note category="german">Die Verdammten auf deinem Mobiltelefon (Anthrax GPS)</note>
-      </notes>
-      <segment>
-        <source>Die Verdammten auf deinem Mobiltelefon (Anthrax GPS)</source>
-        <target>Die Verdammten auf deinem Mobiltelefon (Anthrax GPS)</target>
-      </segment>
-    </unit>
     <unit id="vpGUC3n" name="Support">
       <notes>
         <note category="german">Support</note>
@@ -575,15 +557,6 @@
       <segment>
         <source>Der Reiseleiter in der Außenwelt</source>
         <target>Der Reiseleiter in der Außenwelt</target>
-      </segment>
-    </unit>
-    <unit id="smQglTK" name="5c55efb">
-      <notes>
-        <note category="german">'Die Verdammten' ist ein Survivalspiel, das in einer postapokalyptischen Welt voller Untoter spielt.</note>
-      </notes>
-      <segment>
-        <source>'Die Verdammten' ist ein Survivalspiel, das in einer postapokalyptischen Welt voller Untoter spielt.</source>
-        <target>'Die Verdammten' ist ein Survivalspiel, das in einer postapokalyptischen Welt voller Untoter spielt.</target>
       </segment>
     </unit>
     <unit id="fEPcQJL" name="794eff7">
@@ -737,24 +710,6 @@
       <segment>
         <source>Wähle das Gebäude aus, welches die Stadt als nächstes bauen soll.</source>
         <target>Wähle das Gebäude aus, welches die Stadt als nächstes bauen soll.</target>
-      </segment>
-    </unit>
-    <unit id="p0DbdQX" name="Get active on the town forum">
-      <notes>
-        <note category="german">Get active on the town forum</note>
-      </notes>
-      <segment>
-        <source>Get active on the town forum</source>
-        <target>Get active on the town forum</target>
-      </segment>
-    </unit>
-    <unit id="nAx3MXx" name="organise yourselves and survive.">
-      <notes>
-        <note category="german">organise yourselves and survive.</note>
-      </notes>
-      <segment>
-        <source>organise yourselves and survive.</source>
-        <target>organise yourselves and survive.</target>
       </segment>
     </unit>
     <unit id="HhS980w" name="Weiter">
