@@ -5216,7 +5216,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Am Ende der Schlacht zerfiel das Gebäude %buildingName% zu Staub.</source>
-        <target>__Am Ende der Schlacht zerfiel das Gebäude %buildingName% zu Staub.</target>
+        <target>At the end of the battle, the %buildingName% crumbled to dust.</target>
       </segment>
     </unit>
     <unit id="xyPBCmM" name="Gefahr">
@@ -11143,7 +11143,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Diese seltene Auszeichnung haben nur jene Verdammten erhalten, die an der Schlacht der Berufe teilgenommen haben.</source>
-        <target>Une distinction très rare, décernée uniquement aux quelques intrépides qui ont participé au tout premier Clash of the Titans.</target>
+        <target>A very rare distinction, awarded only to the intrepid few who participated in the very first Clash of the Titans.</target>
       </segment>
     </unit>
     <unit id="jgy_VVR" name="Shock of heroes">
@@ -11152,7 +11152,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Shock of heroes</source>
-        <target>Shock of heroes</target>
+        <target>Shock of Heroes</target>
       </segment>
     </unit>
     <unit id="W7M12k6" name="Ehrenpreis für die Teilname am Shock of Heroes Event!">
