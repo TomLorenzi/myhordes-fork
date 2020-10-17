@@ -408,14 +408,7 @@ class TownHandler
         $min = round($est->getZombies() - ($est->getZombies() * $offsetMin / 100));
         $max = round($est->getZombies() + ($est->getZombies() * $offsetMax / 100));
 
-        $soulFactor = 1;
-
-        $redSoulsCount = $this->get_red_soul_count($town);
-
-        $soulFactor += (0.04 * $redSoulsCount);
-
-        if($town->getType()->getName() !== 'panda')
-            $soulFactor = min($soulFactor, 1.2);
+        $soulFactor = min(1 + (0.04 * $this->get_red_soul_count($town)), (float)$this->conf->getTownConfiguration($town)->get(TownConf::CONF_MODIFIER_RED_SOUL_FACTOR, 1.2));
 
         $min = round($min * $soulFactor, 0);
         $max = round($max * $soulFactor, 0);
@@ -428,9 +421,6 @@ class TownHandler
         $d = $town->getDay();
         for ($current_day = $d; $current_day <= ($d+$future); $current_day++)
             if (!$this->entity_manager->getRepository(ZombieEstimation::class)->findOneByTown($town,$current_day)) {
-                $max_ratio = 1.0;
-                if($town->getType()->getName() == 'small') $max_ratio = 0.66;
-                
                 $mode = $this->conf->getTownConfiguration( $town )->get(TownConf::CONF_FEATURE_ATTACKS, 'normal');
                 switch($mode){
                     case "hard":

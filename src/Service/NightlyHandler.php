@@ -368,12 +368,7 @@ class NightlyHandler
         $est = $this->entity_manager->getRepository(ZombieEstimation::class)->findOneByTown($town,$town->getDay()-1);
         $zombies = $est ? $est->getZombies() : 0;
 
-        $redSoulCount = $this->town_handler->get_red_soul_count($town);
-
-        $soulFactor = 1 + (0.04 * $redSoulCount);
-
-        if($town->getType()->getName() !== 'panda')
-            $soulFactor = min($soulFactor, 1.2);
+        $soulFactor = min(1 + (0.04 * $this->town_handler->get_red_soul_count($town)), (float)$this->conf->getTownConfiguration($town)->get(TownConf::CONF_MODIFIER_RED_SOUL_FACTOR, 1.2));
 
         $zombies *= $soulFactor;
         $zombies = round($zombies);
@@ -764,12 +759,11 @@ class NightlyHandler
                             $citizen_eligible[] = $citizen;
                         }
 
-                        if(count($citizen_eligible) > 0) {
+                        $last_stand_picto = $this->conf->getTownConfiguration($town)->get(TownConf::CONF_FEATURE_LAST_DEATH, 'r_surlst_#00');
+                        if($last_stand_picto && count($citizen_eligible) > 0) {
                             $winner = $this->random->pick($citizen_eligible);
-
-                            $picto = $town->getType()->getName() == 'panda' ? 'r_suhard_#00' : 'r_surlst_#00';
-                            $this->log->debug("We give the picto <info>$picto</info> to the lucky citizen {$winner->getUser()->getUsername()}");
-                            $this->picto_handler->give_validated_picto($winner, $picto);
+                            $this->log->debug("We give the picto <info>$last_stand_picto</info> to the lucky citizen {$winner->getUser()->getUsername()}");
+                            $this->picto_handler->give_validated_picto($winner, $last_stand_picto);
                         }
 
                         foreach ($citizen_eligible as $citizen)
@@ -827,6 +821,10 @@ class NightlyHandler
         $this->entity_manager->persist($gazette);
 
         $reco_counter = [0,0];
+
+        $maze_zeds = $this->conf->getTownConfiguration($town)->get(TownConf::CONF_EXPLORABLES_ZOMBIES_DAY, 5);
+        $wind_dist = $this->conf->getTownConfiguration($town)->get(TownConf::CONF_MODIFIER_WIND_DISTANCE, 2);
+
         foreach ($town->getZones() as $zone) {
 
             if ($zone->getPrototype() && $zone->getPrototype()->getExplorable()) {
@@ -834,11 +832,7 @@ class NightlyHandler
                     $ex->getCitizen()->removeExplorerStat( $ex );
                     $this->entity_manager->remove($ex);
                 }
-                $this->maze->populateMaze(
-                    $zone,
-                    $this->conf->getTownConfiguration($town)->get(TownConf::CONF_EXPLORABLES_ZOMBIES_DAY, 5),
-                    true, true
-                );
+                $this->maze->populateMaze( $zone, $maze_zeds, true, true );
             }
 
             $distance = sqrt( pow($zone->getX(),2) + pow($zone->getY(),2) );
@@ -854,7 +848,7 @@ class NightlyHandler
                 $zone->setZombieStatus( Zone::ZombieStateUnknown );
             }
 
-            if ($zone->getDirection() === $wind && (round($distance) > 2) || $town->getType()->getName() == 'small') {
+            if ($zone->getDirection() === $wind && round($distance) > $wind_dist) {
                 $reco_counter[1]++;
                 if ($this->random->chance( $recovery_chance )) {
                     $digs = mt_rand(5, 10);

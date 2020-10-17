@@ -16,6 +16,7 @@ use App\Service\GameFactory;
 use App\Service\Locksmith;
 use App\Service\NightlyHandler;
 use App\Structures\MyHordesConf;
+use App\Structures\TownConf;
 use DateTime;
 use Doctrine\ORM\EntityManagerInterface;
 use Exception;
@@ -35,6 +36,7 @@ class SchedulerCommand extends Command
     private $locksmith;
     private $trans;
     private $conf;
+    private $conf_master;
     private $anti_cheat;
     private $gameFactory;
 
@@ -44,6 +46,7 @@ class SchedulerCommand extends Command
         $this->night = $nh;
         $this->locksmith = $ls;
         $this->trans = $translator;
+        $this->conf_master = $conf;
         $this->conf = $conf->getGlobalConf();
         $this->anti_cheat = $acs;
         $this->gameFactory = $gf;
@@ -93,6 +96,8 @@ class SchedulerCommand extends Command
                 if ($town->getAttackFails() >= 3 || ($town->getLastAttack() && $town->getLastAttack()->getId() === $s->getId()))
                     continue;
 
+                $town_conf = $this->conf_master->getTownConfiguration($town);
+
                 if ($town->getLanguage() === 'multi') $this->trans->setLocale('en');
                 else $this->trans->setLocale($town->getLanguage() ?? 'de');
 
@@ -121,7 +126,9 @@ class SchedulerCommand extends Command
                         $this->entityManager->persist($town);
                         $this->entityManager->flush();
 
-                        if ($town->isOpen() && $town->getDayWithoutAttack() > 2 && $town->getType()->getName() == "custom") {
+                        $limit = (int)$town_conf->get( TownConf::CONF_CLOSE_TOWN_AFTER, -1 );
+
+                        if ($town->isOpen() && $limit >= 0 && $town->getDayWithoutAttack() > $limit) {
                             $last_op = 'del';
                             $this->gameFactory->nullifyTown($town, true);
 

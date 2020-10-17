@@ -122,46 +122,51 @@ class GhostController extends AbstractController implements GhostInterfaceContro
             return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable, ['url' => $this->generateUrl('initial_landing')] );
         }
 
-        $townname = $parser->get('townName', '');
+        $crow_permissions = $this->isGranted('ROLE_CROW');
+
+        $nightwatch = $parser->get('nightWatchMode', 'normal', ['normal','instant','none']);
+
+        $customConf = [
+            'open_town_limit'      => ($crow_permissions && !(bool)$parser->get('negate', true)) ? -1 : 2,
+            'lock_door_until_full' => $crow_permissions ? (bool)$parser->get('lock_door', true) : true,
+
+            'features' => [
+                'xml_feed' => !(bool)$parser->get('disablexml', false),
+
+                'ghoul_mode'    => $parser->get('ghoulType', 'normal'),
+                'shamanMode'    => $parser->get('shamanMode', 'normal', ['normal','job','none']),
+                'shun'          => (bool)$parser->get('shun', true),
+                'nightmode'     => (bool)$parser->get('nightmode', true),
+                'camping'       => (bool)$parser->get('camp', true),
+                'ghoul'         => (bool)$parser->get('ghouls', true),
+                'improveddump'  => (bool)$parser->get('improveddump', true),
+                'attacks'       => $parser->get('attacks', 'normal', ['easy','normal','hard']),
+
+                'nightwatch' => [
+                    'enabled' => $nightwatch !== 'none',
+                    'instant' => $nightwatch === 'instant',
+                ],
+
+                'escort' => [
+                    'enabled' => (bool)$parser->get('escorts', false)
+                ],
+
+                'give_all_pictos' => $crow_permissions ? (bool)$parser->get('allpictos', false) : false,
+                'give_soulpoints' => $crow_permissions ? (bool)$parser->get('soulpoints', false) : false,
+            ],
+
+            'modifiers' => [
+                'strict_picto_distribution' => $crow_permissions ? (bool)$parser->get('strict_pictos', false) : false,
+            ]
+        ];
+
+        $townname = $crow_permissions ? $parser->get('townName', '') : '';
         $password = $parser->get('password', null);
         $lang = $parser->get('lang', '');
-        $townType = $parser->get('townType', '');
-        $ghoulType = $parser->get('ghoulType', '');
         $well = $parser->get('well', '');
-        $disablexml = $parser->get('disablexml', '');
-        $rules = $parser->get('rules', '');
-        $ruins = boolval($parser->get('ruins', ''));
 
-        $escorts = boolval($parser->get('escorts', ''));
-        $shun = boolval($parser->get('shun', ''));
-        $nightmode = boolval($parser->get('nightmode', ''));
-        $camp = boolval($parser->get('camp', ''));
-        $ghouls = boolval($parser->get('ghouls', ''));
-        $buildingdamages = boolval($parser->get('buildingdamages', ''));
-        $improveddump = boolval($parser->get('improveddump', ''));
-        $attacks = $parser->get('attacks', '');
-        $allpictos = $parser->get('allpictos', '');
-        $soulpoints = $parser->get('soulpoints', '');
-        $seed = $parser->get('seed', -1);
-        $incarnated = boolval($parser->get('incarnated', true));
-        $job_basic_enabled = boolval($parser->get('basic', true));
-        $job_collec_enabled = boolval($parser->get('collec', true));
-        $job_guardian_enabled = boolval($parser->get('guardian', true));
-        $job_hunter_enabled = boolval($parser->get('hunter', true));
-        $job_tamer_enabled = boolval($parser->get('tamer', true));
-        $job_tech_enabled = boolval($parser->get('tech', true));
-        $job_shaman_enabled = boolval($parser->get('shaman', false));
-        $job_survivalist_enabled = boolval($parser->get('survivalist', true));
-
-        $shamanMode = $parser->get('shamanMode', 'normal');
-        if (!in_array($shamanMode, ['normal','job','none'])) $shamanMode = 'normal';
-        $nightwatch = $parser->get('nightWatchMode', 'normal');
-        if (!in_array($nightwatch, ['normal','instant','none'])) $nightwatch = 'normal';
-
-        // Initial: Create town setting from selected type
-        $town = new Town();
-        $town
-            ->setType($em->getRepository(TownClass::class)->findOneBy(['name' => $townType]));
+        $seed       = $crow_permissions ? (int)$parser->get('seed', -1) : -1;
+        $incarnated = $crow_permissions ? (bool)$parser->get('incarnated', true) : true;
 
         if(!empty($well) && is_numeric($well) && $well <= 300){
             $customConf['well'] = [
@@ -170,67 +175,49 @@ class GhostController extends AbstractController implements GhostInterfaceContro
             ];
         }
 
-        if(!empty($disablexml)) $customConf['features']['xml_feed'] = !$disablexml;
-        if(!empty($ghoulType)) $customConf['features']['ghoul_mode'] = $ghoulType;
-        switch($rules) {
+
+        $rules = $parser->get('rules', []);
+        if (is_array($rules)) foreach ($rules as $rule) switch($rule) {
             case 'nobuilding':
-                $customConf['features']['unlocked_buildings'] = [];
+                $customConf['features']['unlocked_buildings']['replace'] = [];
                 break;
             case 'poison':
                 $customConf['features']['all_poison'] = true;
                 break;
         }
 
-        if (!$ruins) $customConf['features'][''] = 0;
-        $customConf['features']['shamanMode'] = $shamanMode;
-        $customConf['features']['escort'] = ['enabled' => $escorts];
-        $customConf['features']['shun'] = $shun;
-        $customConf['features']['nightmode'] = $nightmode;
-        $customConf['features']['camping'] = $camp;
-        $customConf['features']['ghoul'] = $ghouls;
-        $customConf['features']['nightwatch']['enabled'] = $nightwatch !== 'none';
-        $customConf['features']['nightwatch']['instant'] = $nightwatch === 'instant';
-        $customConf['features']['improveddump'] = $improveddump;
-        $customConf['features']['attacks'] = $attacks;
+        if (!(bool)$parser->get('ruins', '')) $customConf['explorable_ruins'] = 0;
 
-        $customConf['features']['give_all_pictos'] = $allpictos;
-        $customConf['features']['give_soulpoints'] = $soulpoints;
 
         $disabled_jobs   = [];
         $disabled_builds = [];
 
-        if($shamanMode == "normal" || $shamanMode == "none")
+        if($customConf['features']['shamanMode'] == "normal" || $customConf['features']['shamanMode'] == "none")
             $disabled_jobs[] = 'shaman';
 
-        if(!$job_basic_enabled)
-            $disabled_jobs[] = 'basic';
-        if(!$job_collec_enabled)
-            $disabled_jobs[] = 'collec';
-        if(!$job_guardian_enabled)
-            $disabled_jobs[] = 'guardian';
-        if(!$job_hunter_enabled)
-            $disabled_jobs[] = 'hunter';
-        if(!$job_tamer_enabled)
-            $disabled_jobs[] = 'tamer';
-        if(!$job_tech_enabled)
-            $disabled_jobs[] = 'tech';
-        if(!$job_survivalist_enabled)
-            $disabled_jobs[] = 'survivalist';
+        if(!(bool)$parser->get('basic', true)) $disabled_jobs[] = 'basic';
+        if(!(bool)$parser->get('collec', true)) $disabled_jobs[] = 'collec';
+        if(!(bool)$parser->get('guardian', true)) $disabled_jobs[] = 'guardian';
+        if(!(bool)$parser->get('hunter', true)) $disabled_jobs[] = 'hunter';
+        if(!(bool)$parser->get('tamer', true)) $disabled_jobs[] = 'tamer';
+        if(!(bool)$parser->get('tech', true)) $disabled_jobs[] = 'tech';
+        if(!(bool)$parser->get('survivalist', true)) $disabled_jobs[] = 'survivalist';
 
-        if(!$job_shaman_enabled)
+        if(!(bool)$parser->get('shaman', false))
             $disabled_jobs[] = 'shaman';
         else if (in_array('shaman', $disabled_jobs)) {
             // If the shaman is disabled, but we enforced its activation, remove it from the disabled array
             $disabled_jobs = array_diff($disabled_jobs, ['shaman']);
         }
 
-        if ($shamanMode !== 'job') {
+        if ($customConf['features']['shamanMode'] !== 'job') {
             $disabled_builds[] = 'small_vaudoudoll_#00';
             $disabled_builds[] = 'small_bokorsword_#00';
             $disabled_builds[] = 'small_spiritmirage_#00';
             $disabled_builds[] = 'small_holyrain_#00';
         }
-        if ($shamanMode !== 'normal')
+
+        if ($customConf['features']['shamanMode'] !== 'normal')
             $disabled_builds[] = 'small_spa4souls_#00';
 
         if ($nightwatch !== 'normal')
@@ -239,7 +226,11 @@ class GhostController extends AbstractController implements GhostInterfaceContro
         $customConf['disabled_jobs']['replace']      = $disabled_jobs;
         $customConf['disabled_buildings']['replace'] = $disabled_builds;
 
-        $town = $gf->createTown($townname, $lang, null, 'custom', $customConf, intval($seed));
+        $type = $parser->get('townType', 'remote', array_map(fn(TownClass $t) => $t->getName(), $em->getRepository(TownClass::class)->findBy(['hasPreset' => true])));
+        if ($crow_permissions && (bool)$parser->get('unprivate', false))
+            $town = $gf->createTown($townname, $lang, null, $type, $customConf, $seed);
+        else $town = ($gf->createTown($townname, $lang, null, 'custom', $customConf, $seed))->setDeriveConfigFrom( $type );
+
         $town->setCreator($user);
         if(!empty($password)) $town->setPassword($password);
         $em->persist($town);

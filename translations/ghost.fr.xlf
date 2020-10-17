@@ -881,5 +881,101 @@
         <target>Métiers disponibles</target>
       </segment>
     </unit>
+    <unit id="VHJI.J4" name="Nicht als Privatstadt erstellen:">
+      <notes>
+        <note category="german">Nicht als Privatstadt erstellen:</note>
+      </notes>
+      <segment>
+        <source>Nicht als Privatstadt erstellen:</source>
+        <target>Nicht als Privatstadt erstellen:</target>
+      </segment>
+    </unit>
+    <unit id="QFPVvM5" name="e82f193">
+      <notes>
+        <note category="german">Die Stadt wird nicht in der Liste der Privatstädte, sondern in der oben gewählten Gruppe erscheinen. Diese Option hat keine Auswirkungen auf die Spielregeln oder die Vergabe von Auszeichnungen und Seelenpunkten!</note>
+      </notes>
+      <segment>
+        <source>Die Stadt wird nicht in der Liste der Privatstädte, sondern in der oben gewählten Gruppe erscheinen. Diese Option hat keine Auswirkungen auf die Spielregeln oder die Vergabe von Auszeichnungen und Seelenpunkten!</source>
+        <target>Die Stadt wird nicht in der Liste der Privatstädte, sondern in der oben gewählten Gruppe erscheinen. Diese Option hat keine Auswirkungen auf die Spielregeln oder die Vergabe von Auszeichnungen und Seelenpunkten!</target>
+      </segment>
+    </unit>
+    <unit id="Y1vuSS7" name="Kein XML Feed:">
+      <notes>
+        <note category="german">Kein XML Feed:</note>
+      </notes>
+      <segment>
+        <source>Kein XML Feed:</source>
+        <target>Kein XML Feed:</target>
+      </segment>
+    </unit>
+    <unit id="dSkZ2BY" name="ee8a5d1">
+      <notes>
+        <note category="german">Seed, das eine kontrollierte Kartenerstellung ermöglicht. Erlaubt im Falle von Ereignissen, ähnliche Karten zu generieren.
+                                    Gib eine positive ganze Zahl ein, um es zu aktivieren.
+                                    DENKT DARÜBER NACH, DIESE GANZE ZAHL VON EINEM EREIGNIS ZUM ANDEREN ZU ÄNDERN !</note>
+      </notes>
+      <segment>
+        <source>Seed, das eine kontrollierte Kartenerstellung ermöglicht. Erlaubt im Falle von Ereignissen, ähnliche Karten zu generieren.
+                                    Gib eine positive ganze Zahl ein, um es zu aktivieren.
+                                    DENKT DARÜBER NACH, DIESE GANZE ZAHL VON EINEM EREIGNIS ZUM ANDEREN ZU ÄNDERN !</source>
+        <target>Seed, das eine kontrollierte Kartenerstellung ermöglicht. Erlaubt im Falle von Ereignissen, ähnliche Karten zu generieren.
+                                    Gib eine positive ganze Zahl ein, um es zu aktivieren.
+                                    DENKT DARÜBER NACH, DIESE GANZE ZAHL VON EINEM EREIGNIS ZUM ANDEREN ZU ÄNDERN !</target>
+      </segment>
+    </unit>
+    <unit id="9SrqJ_A" name="Strikte Vergabe von Auszeichnungen:">
+      <notes>
+        <note category="german">Strikte Vergabe von Auszeichnungen:</note>
+      </notes>
+      <segment>
+        <source>Strikte Vergabe von Auszeichnungen:</source>
+        <target>Strikte Vergabe von Auszeichnungen:</target>
+      </segment>
+    </unit>
+    <unit id="FtgTDco" name="Vergabe von Auszeichnungen folgt den Regeln kleiner Städte.">
+      <notes>
+        <note category="german">Vergabe von Auszeichnungen folgt den Regeln kleiner Städte.</note>
+      </notes>
+      <segment>
+        <source>Vergabe von Auszeichnungen folgt den Regeln kleiner Städte.</source>
+        <target>Vergabe von Auszeichnungen folgt den Regeln kleiner Städte.</target>
+      </segment>
+    </unit>
+    <unit id="wuiQkOi" name="Nach 2 Tagen negieren:">
+      <notes>
+        <note category="german">Nach 2 Tagen negieren:</note>
+      </notes>
+      <segment>
+        <source>Nach 2 Tagen negieren:</source>
+        <target>Nach 2 Tagen negieren:</target>
+      </segment>
+    </unit>
+    <unit id="q64vyDh" name="Negiert die Stadt, wenn sie nach 2 Tagen nicht gefüllt ist.">
+      <notes>
+        <note category="german">Negiert die Stadt, wenn sie nach 2 Tagen nicht gefüllt ist.</note>
+      </notes>
+      <segment>
+        <source>Negiert die Stadt, wenn sie nach 2 Tagen nicht gefüllt ist.</source>
+        <target>Negiert die Stadt, wenn sie nach 2 Tagen nicht gefüllt ist.</target>
+      </segment>
+    </unit>
+    <unit id="MOZLgFu" name="Tor versperren:">
+      <notes>
+        <note category="german">Tor versperren:</note>
+      </notes>
+      <segment>
+        <source>Tor versperren:</source>
+        <target>Tor versperren:</target>
+      </segment>
+    </unit>
+    <unit id="lC8mS57" name="Das Stadttor kann erst geöffnet werden, wenn die Stadt voll ist.">
+      <notes>
+        <note category="german">Das Stadttor kann erst geöffnet werden, wenn die Stadt voll ist.</note>
+      </notes>
+      <segment>
+        <source>Das Stadttor kann erst geöffnet werden, wenn die Stadt voll ist.</source>
+        <target>Das Stadttor kann erst geöffnet werden, wenn die Stadt voll ist.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

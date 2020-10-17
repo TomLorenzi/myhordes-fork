@@ -11,15 +11,16 @@
             <div class="row">
                 <div class="cell padded rw-8 rw-md-12">
                     <div class="help">{{'In Privatstädten kannst du gemeinsam mit Freunden oder in Städten zu bestimmten "Theen" zu spielen.'|trans({}, 'ghost')}}</div>
+
                     {% if is_granted('ROLE_CROW') %}
-                    <div class="row">
-                        <div class="cell padded rw-4 note note-lightest">
-                            <label for="townname">{{'Name der Stadt'|trans({}, 'ghost')}}</label>
+                        <div class="row">
+                            <div class="cell padded rw-4 note note-lightest">
+                                <label for="townname">{{'Name der Stadt'|trans({}, 'ghost')}}</label>
+                            </div>
+                            <div class="cell padded rw-8">
+                                <input type="text" x-payload="townName" name="townname" id="townname" />
+                            </div>
                         </div>
-                        <div class="cell padded rw-8">
-                            <input type="text" x-payload="townName" name="townname" id="townname" />
-                        </div>
-                    </div>
                     {% endif %}
 
                     <div class="row">
@@ -46,6 +47,7 @@
                         </div>
                     </div>
 
+
                     <div class="row">
                         <div class="cell padded rw-4 note note-lightest">
                             <label for="type">{{'Stadttyp'|trans({}, 'ghost')}}</label>
@@ -56,7 +58,13 @@
                                     <option value="{{townClass.name}}">{{townClass.label|trans({}, 'game')}}</option>
                                 {% endfor %}
                             </select>
+
                         </div>
+                        {% if is_granted('ROLE_CROW') %}
+                            <div class="cell padded ro-4 rw-8 mod">
+                                <input type="checkbox" name="unprivate" id="unprivate" x-payload="unprivate" /> <label for="unprivate"><strong>{{'Nicht als Privatstadt erstellen:'|trans({}, 'ghost')}}</strong> {{'Die Stadt wird nicht in der Liste der Privatstädte, sondern in der oben gewählten Gruppe erscheinen. Diese Option hat keine Auswirkungen auf die Spielregeln oder die Vergabe von Auszeichnungen und Seelenpunkten!'|trans({}, 'ghost')}}</label>
+                            </div>
+                        {% endif %}
                     </div>
 
                     <div class="row">
@@ -91,8 +99,8 @@
                         <div class="cell padded rw-4 note note-lightest">
                             <label>{{'Einstellungen'|trans({}, 'ghost')}}</label>
                         </div>
-                        <div class="cell padded rw-8">
-                            <input type="checkbox" name="disablexml" id="disablexml" x-payload="disablexml" /> <label for="disablexml">{{'XML Feed für diese Stadt deaktivieren'|trans({}, 'ghost')}}</label>
+                        <div class="cell padded rw-8 mod">
+                            <input type="checkbox" name="disablexml" id="disablexml" x-payload="disablexml" /> <label for="disablexml"><strong>{{'Kein XML Feed:'|trans({}, 'ghost')}}</strong> {{'XML Feed für diese Stadt deaktivieren'|trans({}, 'ghost')}}</label>
                         </div>
                     </div>
 
@@ -110,23 +118,23 @@
                         </div>
                     </div>
                     {% if is_granted('ROLE_CROW') %}
-                    <div class="row">
-                        <div class="cell padded rw-4 note note-lightest">
-                            <label for="seed">{{'Karten-Seed'|trans({}, 'ghost')}}:</label>
-                        </div>
-                        <div class="cell padded rw-8">
-                            <input type="text" name="seed" id="seed" x-payload="seed" value="-1"/>
-                        </div>
-                        <div class="cell padded rw-12">
-                            <div class="help">
-                                {% trans from "ghost"%}
-                                Seed, das eine kontrollierte Kartenerstellung ermöglicht. Erlaubt im Falle von Ereignissen, ähnliche Karten zu generieren.
-                                Gib eine positive ganze Zahl ein, um es zu aktivieren.
-                                DENKT DARÜBER NACH, DIESE GANZE ZAHL VON EINEM EREIGNIS ZUM ANDEREN ZU ÄNDERN !
-                                {% endtrans %}
+                        <div class="row">
+                            <div class="cell padded rw-4 note note-lightest">
+                                <label for="seed">{{'Karten-Seed'|trans({}, 'ghost')}}:</label>
+                            </div>
+                            <div class="cell padded rw-8">
+                                <input type="text" name="seed" id="seed" x-payload="seed" value="-1"/>
+                            </div>
+                            <div class="cell padded rw-12">
+                                <div class="help">
+                                    {% trans from "ghost"%}
+                                    Seed, das eine kontrollierte Kartenerstellung ermöglicht. Erlaubt im Falle von Ereignissen, ähnliche Karten zu generieren.
+                                    Gib eine positive ganze Zahl ein, um es zu aktivieren.
+                                    DENKT DARÜBER NACH, DIESE GANZE ZAHL VON EINEM EREIGNIS ZUM ANDEREN ZU ÄNDERN !
+                                    {% endtrans %}
+                                </div>
                             </div>
                         </div>
-                    </div>
                     {% endif %}
 
                     <h5>{{'Stadtmodifikationen'|trans({}, 'ghost')}}</h5>
@@ -181,11 +189,6 @@
                         <div class="cell rw-12 mod">
                             <input type="checkbox" name="improveddump" id="improveddump" x-payload="improveddump" checked/> <label for="improveddump"><strong>{{'Verbesserte Müllhalde:'|trans({}, 'ghost')}}</strong> {{'Verbesserte Müllhalde aktivieren'|trans({}, 'ghost')}}</label>
                         </div>
-                        {% if is_granted('ROLE_CROW') %}
-                        <div class="cell rw-12 mod">
-                            <input type="checkbox" name="incarnated" id="incarnated" x-payload="incarnated" checked/> <label for="incarnated"><strong>{{'Verkörperung in der Stadt:'|trans({}, 'ghost')}}</strong> {{'Verkörpert dich in der Stadt bei ihrer Entstehung'|trans({}, 'ghost')}}</label>
-                        </div>
-                        {% endif %}
                     </div>
                     <div class="help">
                         {{'Aktiviere/deaktiviere Spielmodifikationen spezifisch für diese Stadt'|trans({}, 'ghost')}}
@@ -205,15 +208,27 @@
                     </div>
 
                     {% if is_granted('ROLE_CROW') %}
-                    <h5>{{'Spiel-Optionen'|trans({}, 'ghost')}}</h5>
-                    <div class="row">
-                        <div class="cell rw-12 mod">
-                            <input type="checkbox" name="allpictos" id="allpictos" x-payload="allpictos" checked/> <label for="allpictos"><strong>{{'Abstimmung aller Piktogramme:'|trans({}, 'ghost')}}</strong> {{'Gibt die Gesamtheit der während der Stadt erhaltenen Piktogramme an, anstatt ein Drittel davon.'|trans({}, 'ghost')}}</label>
+                        <h5>{{'Spiel-Optionen'|trans({}, 'ghost')}}</h5>
+                        <div class="row">
+                            <div class="cell rw-12 mod">
+                                <input type="checkbox" name="incarnated" id="incarnated" x-payload="incarnated" checked/> <label for="incarnated"><strong>{{'Verkörperung in der Stadt:'|trans({}, 'ghost')}}</strong> {{'Verkörpert dich in der Stadt bei ihrer Entstehung'|trans({}, 'ghost')}}</label>
+                            </div>
+                            <div class="cell rw-12 mod">
+                                <input type="checkbox" name="allpictos" id="allpictos" x-payload="allpictos" checked/> <label for="allpictos"><strong>{{'Abstimmung aller Piktogramme:'|trans({}, 'ghost')}}</strong> {{'Gibt die Gesamtheit der während der Stadt erhaltenen Piktogramme an, anstatt ein Drittel davon.'|trans({}, 'ghost')}}</label>
+                            </div>
+                            <div class="cell rw-12 mod">
+                                <input type="checkbox" name="strict_pictos" id="strict_pictos" x-payload="strict_pictos" /> <label for="strict_pictos"><strong>{{'Strikte Vergabe von Auszeichnungen:'|trans({}, 'ghost')}}</strong> {{'Vergabe von Auszeichnungen folgt den Regeln kleiner Städte.'|trans({}, 'ghost')}}</label>
+                            </div>
+                            <div class="cell rw-12 mod">
+                                <input type="checkbox" name="soulpoints" id="soulpoints" x-payload="soulpoints" checked/> <label for="soulpoints"><strong>{{'Seelenpunkte vergeben:'|trans({}, 'ghost')}}</strong> {{'Gibt Ihnen Seelenpunkte.'|trans({}, 'ghost')}}</label>
+                            </div>
+                            <div class="cell rw-12 mod">
+                                <input type="checkbox" name="negate" id="negate" x-payload="negate" checked/> <label for="negate"><strong>{{'Nach 2 Tagen negieren:'|trans({}, 'ghost')}}</strong> {{'Negiert die Stadt, wenn sie nach 2 Tagen nicht gefüllt ist.'|trans({}, 'ghost')}}</label>
+                            </div>
+                            <div class="cell rw-12 mod">
+                                <input type="checkbox" name="lock_door" id="lock_door" x-payload="lock_door" checked/> <label for="lock_door"><strong>{{'Tor versperren:'|trans({}, 'ghost')}}</strong> {{'Das Stadttor kann erst geöffnet werden, wenn die Stadt voll ist.'|trans({}, 'ghost')}}</label>
+                            </div>
                         </div>
-                        <div class="cell rw-12 mod">
-                            <input type="checkbox" name="soulpoints" id="soulpoints" x-payload="soulpoints" checked/> <label for="soulpoints"><strong>{{'Seelenpunkte vergeben:'|trans({}, 'ghost')}}</strong> {{'Gibt Ihnen Seelenpunkte.'|trans({}, 'ghost')}}</label>
-                        </div>
-                    </div>
 
                     <h5>{{'Verfügbare Berufe'|trans({}, 'ghost')}}</h5>
                     <div class="row">
@@ -300,7 +315,12 @@
             let payload = {};
 
             $.html.forEach('input[type=checkbox][x-payload],input[type=radio][x-payload]', elem => payload[elem.getAttribute('x-payload')] = elem.checked );
-            $.html.forEach('input:not([type=checkbox]):not([type=radio])[x-payload],textarea[x-payload],select[x-payload]', elem => payload[elem.getAttribute('x-payload')] = elem.value );
+            $.html.forEach('select[x-payload][multiple]>option:checked', elem => {
+                const xpayload = elem.parentElement.getAttribute('x-payload');
+                if (typeof payload[xpayload] === 'undefined') payload[xpayload] = [];
+                payload[xpayload].push(elem.value);
+            } );
+            $.html.forEach('input:not([type=checkbox]):not([type=radio])[x-payload],textarea[x-payload],select[x-payload]:not([multiple])', elem => payload[elem.getAttribute('x-payload')] = elem.value );
 
             $.ajax.send( '{{ path('ghost_process_create_town') }}', payload,
                 function () {
