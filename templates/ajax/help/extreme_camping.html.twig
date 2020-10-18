@@ -103,11 +103,11 @@ sind <strong>nicht auf 90%</strong> beschränkt.'|trans({},'help')|raw }}
 {{ '<strong>Achtung: </strong> Wenn du die Nacht in der Wüste überlebst, fliegt deine Tarnung am nächsten Morgen auf! Solltest du beabsichtigen wieder draußen zu schlafen, musst du dein Versteck <strong>erneut</strong> ausbauen.'|trans({},'help')|raw }}
 </p>
 <p>
-{{ 'Sollte der Fall eintreten, dass sich beim Angriff der Zombiehorde niemand mehr in der Stadt befindet (da zum Beispiel alle Überlebenden draußen campen), wird die Stadt von den Untoten <span x-ajax-href=%url_devast%>zerstört</span>.'|trans({'%url_cp%': url('help', {'name': 'devast'})},'help')|raw }}
+{{ 'Sollte der Fall eintreten, dass sich beim Angriff der Zombiehorde niemand mehr in der Stadt befindet (da zum Beispiel alle Überlebenden draußen campen), wird die Stadt von den Untoten <span x-ajax-href=%url_devast%>zerstört</span>.'|trans({'%url_devast%': url('help', {'name': 'devastated_town'})},'help')|raw }}
 </p>
 <h2>{{ '"Auszeichnung: Camper im Jenseits"'|trans({},'help')|raw }}</h2>
 <p>
-{{ 'Für jede Nacht, die du draußen überlebt hast, als die Stadt schon <span x-ajax-href=%url_devast%>zerstört</span> war, bekommst du zusätzlich zu der normalen Auszeichnung, eine <strong>besonders seltene Auszeichnung</strong>.'|trans({'%url_cp%': url('help', {'name': 'devast'})},'help')|raw }}
+{{ 'Für jede Nacht, die du draußen überlebt hast, als die Stadt schon <span x-ajax-href=%url_devast%>zerstört</span> war, bekommst du zusätzlich zu der normalen Auszeichnung, eine <strong>besonders seltene Auszeichnung</strong>.'|trans({'%url_devast%': url('help', {'name': 'devastated_town'})},'help')|raw }}
 </p>
 <p>
 {{ 'Um diese Auszeichnung zu erhalten, muss die Stadt mindestens <strong>10 volle Tage</strong> überlebt haben.'|trans({},'help')|raw }}
