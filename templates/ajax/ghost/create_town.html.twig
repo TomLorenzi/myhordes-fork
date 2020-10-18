@@ -114,6 +114,7 @@
                                 <option value="none" title="{{'Keine Spezialregeln'|trans({}, 'ghost')}}" selected>{{'Keine'|trans({}, 'ghost')}}</option>
                                 <option value="nobuilding" title="{{'Kein Gebäude ist zu Beginn freigeschaltet. Alle müssen in der Aussenwelt gefunden werden!'|trans({}, 'ghost')}}">{{'Keine Startgebäude'|trans({}, 'ghost')}}</option>
                                 <option value="poison" title="{{'Jedes Essen und jede Droge, die du zu dir nimmst, birgt ein geringes Infektionsrisiko.'|trans({}, 'ghost')}}">{{'Kontaminierte Zone'|trans({}, 'ghost')}}</option>
+                                <option value="nobeta" title="{{'Betapropin steht nicht zur Verfügung.'|trans({}, 'ghost')}}">{{'Beta-Funktionen deaktivieren'|trans({}, 'ghost')}}</option>
                             </select>
                         </div>
                     </div>
@@ -259,7 +260,7 @@
                     </div>
                     {% endif %}
 
-                    <div class="warning">
+                    <div class="warning" id="negate_warning">
                         <strong>{{'Achtung!'|trans({}, 'ghost')}}</strong> {{'Falls die Stadt night in 2 Tagen gefüllt ist, wird sie wieder negiert.'|trans({}, 'ghost')}}
                     </div>
                     <div class="row">
@@ -276,7 +277,7 @@
 
                     <div class="row">
                         <div class="cell padded rw-12">
-                            <div class="small"><img src="{{ asset('build/images/icons/small_rp.gif') }}" /> {{'Beginne ein neues Leben in der Welt der Verdammten une versuche, so lang wie möglich zu überleben. Wer weiß, ws dich in dieser neuen Stadt erwarten wird?'|trans({}, 'ghost')}}</div>
+                            <div class="small"><img alt="" src="{{ asset('build/images/icons/small_rp.gif') }}" /> {{'Beginne ein neues Leben in der Welt der Verdammten une versuche, so lang wie möglich zu überleben. Wer weiß, ws dich in dieser neuen Stadt erwarten wird?'|trans({}, 'ghost')}}</div>
                         </div>
                     </div>
 
@@ -306,6 +307,11 @@
         fun_link_help('nightWatchMode','helpNightWatch');
         fun_link_help('shamanMode','helpShaman', v => {
             if (document.getElementById('shaman')) document.getElementById('shaman').checked = (v === 'job')
+        });
+
+        $.html.addEventListenerAll('#negate', 'change', function(e,elem) {
+            let w = document.getElementById('negate_warning');
+            if (w) w.style.display = elem.checked ? null : 'none';
         });
 
         $.html.addEventListenerAll('#create-town-btn', 'click', function(){

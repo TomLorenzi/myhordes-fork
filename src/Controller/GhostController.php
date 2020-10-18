@@ -175,6 +175,7 @@ class GhostController extends AbstractController implements GhostInterfaceContro
             ];
         }
 
+        $remove_chest_items = [];
 
         $rules = $parser->get('rules', []);
         if (is_array($rules)) foreach ($rules as $rule) switch($rule) {
@@ -184,7 +185,12 @@ class GhostController extends AbstractController implements GhostInterfaceContro
             case 'poison':
                 $customConf['features']['all_poison'] = true;
                 break;
+            case 'nobeta':
+                $remove_chest_items[] = 'beta_drug_#00';
+                break;
         }
+
+        $customConf['initial_chest']['remove'] = $remove_chest_items;
 
         if (!(bool)$parser->get('ruins', '')) $customConf['explorable_ruins'] = 0;
 
