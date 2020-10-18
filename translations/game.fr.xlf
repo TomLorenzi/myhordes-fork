@@ -7024,7 +7024,7 @@
       </notes>
       <segment>
         <source>Du hast deine Heldenfähigkeit "Den Tod besiegen" verwendet!</source>
-        <target>Utiliser l'action héroïque Vaincre la mort vous empêche de mourir d'infection, de déshydratation et quand votre barre de voracité dépasse la limite (goule).</target>
+        <target>Vous avez utilisé votre pouvoir de héros "Vaincre la mort" !</target>
       </segment>
     </unit>
     <unit id="y0fyg0y" name="fc54baa">
