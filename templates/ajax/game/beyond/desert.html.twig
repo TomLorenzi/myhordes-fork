@@ -133,7 +133,7 @@
         {% endif %}
         <div class="row">
             <div class="padded cell rw-6 rw-md-12">
-                <h5>{% trans from 'game' %}Diese Zone{% endtrans %}</h5>
+                {% if zone.x != 0 or zone.y != 0 %}<h5>{% trans from 'game' %}Diese Zone{% endtrans %}</h5>{% endif %}
 
                 {% if zone.digs <= 0 %}
                     <div class="note note-light">
