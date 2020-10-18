@@ -291,7 +291,7 @@ class RecipeFixtures extends Fixture implements DependentFixtureInterface
         'ws021' => ['type' => Recipe::WorkshopType, 'in' => 'prints_#02',          'out' => 'classicKey_#00', 'action' => 'Wandeln' ],    // Abdruck vom Flaschenöffner
 
         // Shaman Specific recipes
-        'ws010' => ['type' => Recipe::WorkshopTypeShamanSpecific, 'in' => 'soul_blue_#00',      'out' => 'soul_yellow_#00', 'action' => 'Wandeln'],
+        'ws022' => ['type' => Recipe::WorkshopTypeShamanSpecific, 'in' => 'soul_blue_#00',      'out' => 'soul_yellow_#00', 'action' => 'Wandeln'],
 
         'com001' => ['type' => Recipe::ManualAnywhere, 'out' => 'coffee_machine_#00',     'provoking' => 'coffee_machine_part_#00','in' => ['coffee_machine_part_#00', 'cyanure_#00', 'electro_#00', 'meca_parts_#00', 'rustine_#00', 'metal_#00', 'tube_#00' ] ],
         'com002' => ['type' => Recipe::ManualAnywhere, 'out' => 'music_#00',              'provoking' => 'music_part_#00',         'in' => ['music_part_#00', 'pile_#00', 'electro_#00'] ],
