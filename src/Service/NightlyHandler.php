@@ -730,54 +730,58 @@ class NightlyHandler
 
         }
 
-        if($town->getDay() > 3) {
-        	$this->log->debug("Town has passed 3 days, let's check its own status change");
-            if($town->getDevastated()){
-                $this->log->debug("Town is devastated, nothing to do.");
-            } else {
-            	$this->log->debug("Town is not yet devastated, and has <info>$aliveCitizen</info> alive citizens (including <info>$aliveCitizenInTown</info> in town)");
-                if ($aliveCitizen > 0 && $aliveCitizen <= 10 && !$town->getDevastated()) {
-                    $this->log->debug("There is <info>$aliveCitizen</info> citizens alive, the town is not devastated, setting the town to <info>chaos</info> mode");
-                    $town->setChaos(true);
-                    foreach ($town->getCitizens() as $target_citizen) {
-                        $target_citizen->setBanished(false);
+        if($town->getDevastated()){
+            $this->log->debug("Town is devastated, nothing to do.");
+        } else {
+            $this->log->debug("Town is not yet devastated, and has <info>$aliveCitizen</info> alive citizens (including <info>$aliveCitizenInTown</info> in town)");
+
+            if ($aliveCitizen > 0 && $aliveCitizen <= 10 && $aliveCitizenInTown > 0 && !$town->getDevastated() && $town->getDay() > 3) {
+                $this->log->debug("There is <info>$aliveCitizen</info> citizens alive, the town is not devastated, setting the town to <info>chaos</info> mode");
+                $town->setChaos(true);
+
+                foreach ($town->getCitizens() as $target_citizen)
+                    $target_citizen->setBanished(false);
+            }
+
+            if ($aliveCitizenInTown == 0) {
+                $this->log->debug("There is <info>$aliveCitizenInTown</info> citizens alive AND in town, setting the town to <info>devastated</info> mode and to <info>chaos</info> mode");
+
+                if($town->getDay() >= 5){
+                    $this->log->debug('Town has lived for 5 days or more, we give the <info>Last Man Standing</info> picto to a lucky citizen that died in town');
+                    $citizen_eligible = [];
+                    foreach ($town->getCitizens() as $citizen) {
+                        if($citizen->getAlive() || $citizen->getZone())
+                            continue;
+
+                        if($citizen->getSurvivedDays() < $town->getDay())
+                            continue;
+
+                        if($citizen->getCauseOfDeath()->getRef() !== CauseOfDeath::NightlyAttack && $citizen->getCauseOfDeath()->getRef() !== CauseOfDeath::Radiations)
+                            continue;
+                        $citizen_eligible[] = $citizen;
                     }
-                } else if ($aliveCitizenInTown == 0) {
-                    $this->log->debug("There is <info>$aliveCitizenInTown</info> citizens alive AND in town, setting the town to <info>devastated</info> mode and to <info>chaos</info> mode");
-                    if($town->getDay() >= 5){
-                        $this->log->debug('Town has lived for 5 days or more, we give the <info>Last Man Standing</info> picto to a lucky citizen that died in town');
-                        $citizen_eligible = [];
-                        foreach ($town->getCitizens() as $citizen) {
-                            if($citizen->getAlive() || $citizen->getZone())
-                                continue;
-                            
-                            if($citizen->getSurvivedDays() < $town->getDay())
-                                continue;
-                            
-                            if($citizen->getCauseOfDeath()->getRef() !== CauseOfDeath::NightlyAttack && $citizen->getCauseOfDeath()->getRef() !== CauseOfDeath::Radiations)
-                                continue;
-                            $citizen_eligible[] = $citizen;
-                        }
 
-                        $last_stand_picto = $this->conf->getTownConfiguration($town)->get(TownConf::CONF_FEATURE_LAST_DEATH, 'r_surlst_#00');
-                        if($last_stand_picto && count($citizen_eligible) > 0) {
-                            $winner = $this->random->pick($citizen_eligible);
-                            $this->log->debug("We give the picto <info>$last_stand_picto</info> to the lucky citizen {$winner->getUser()->getUsername()}");
-                            $this->picto_handler->give_validated_picto($winner, $last_stand_picto);
-                        }
-
-                        foreach ($citizen_eligible as $citizen)
-                            $this->picto_handler->give_validated_picto($citizen, "r_surgrp_#00");
-
+                    $last_stand_picto = $this->conf->getTownConfiguration($town)->get(TownConf::CONF_FEATURE_LAST_DEATH, 'r_surlst_#00');
+                    if($last_stand_picto && count($citizen_eligible) > 0) {
+                        $winner = $this->random->pick($citizen_eligible);
+                        $this->log->debug("We give the picto <info>$last_stand_picto</info> to the lucky citizen {$winner->getUser()->getUsername()}");
+                        $this->picto_handler->give_validated_picto($winner, $last_stand_picto);
                     }
-                    $town->setDevastated(true);
-		            $town->setChaos(true);
-		            $town->setDoor(true);
-		            foreach ($town->getCitizens() as $target_citizen)
-		                $target_citizen->setBanished(false);
-		            foreach ($town->getBuildings() as $target_building)
-		                if (!$target_building->getComplete()) $target_building->setAp(0);
+
+                    foreach ($citizen_eligible as $citizen)
+                        $this->picto_handler->give_validated_picto($citizen, "r_surgrp_#00");
+
                 }
+
+                $town->setDevastated(true);
+                $town->setChaos(true);
+                $town->setDoor(true);
+
+                foreach ($town->getCitizens() as $target_citizen)
+                    $target_citizen->setBanished(false);
+
+                foreach ($town->getBuildings() as $target_building)
+                    if (!$target_building->getComplete()) $target_building->setAp(0);
             }
         }
     }
