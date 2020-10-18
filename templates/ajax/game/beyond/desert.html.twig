@@ -754,8 +754,6 @@
         {% if allow_enter_town %}
             let townEnterBtn = document.getElementById('town-enter');
             if(townEnterBtn) townEnterBtn.addEventListener('click', function() {
-                if (!confirm('{{ 'Bestätigen?'|trans({},'global')|e('js') }}'))
-                    return;
                 $.ajax.easySend( '{{ path('beyond_desert_exit_controller') }}', {},
                     function () {
                         $.ajax.load(null, '{{ path('game_landing') }}', true);
