@@ -9709,7 +9709,7 @@
       </notes>
       <segment>
         <source>Details ansehen</source>
-        <target>Voir les détails</target>
+        <target>Voir le détail</target>
       </segment>
     </unit>
     <unit id="Qvknk8Z" name="%citizen% hat es Regnen lassen und damit %kills% Zombies erledigt.">
@@ -11553,7 +11553,7 @@
       </notes>
       <segment>
         <source>Diese Mitteilung wird auf &lt;strong&gt;der Bürgerseite bei deinem Namen angezeigt und ist für jeden lesbar&lt;/strong&gt;. Nutze diese Mitteilungsmöglichkeit, um dich vorzustellen, dich zu rechtfertigen oder einen Gruß an deine Mitspieler zu hinterlassen...</source>
-        <target><![CDATA[Diese Mitteilung wird auf <strong>der Bürgerseite bei deinem Namen angezeigt und ist für jeden lesbar</strong>. Nutze diese Mitteilungsmöglichkeit, um dich vorzustellen, dich zu rechtfertigen oder einen Gruß an deine Mitspieler zu hinterlassen...]]></target>
+        <target><![CDATA[Cette annonce est <strong>visible pour tout le monde dans la page des Citoyens</strong>, en face de votre nom. Utilisez-la pour parler un peu de vous, de votre humeur, laisser un mot à tout le monde...]]></target>
       </segment>
     </unit>
     <unit id="slcsIov" name="6900dcf">
@@ -11688,7 +11688,7 @@
       </notes>
       <segment>
         <source>Regentanz ausführen</source>
-        <target>Regentanz ausführen</target>
+        <target>Faire tomber la pluie</target>
       </segment>
     </unit>
     <unit id="K65v2LS" name="90b2719">
@@ -11706,7 +11706,7 @@
       </notes>
       <segment>
         <source>Deine privaten Nachrichten</source>
-        <target>Vos messages privés</target>
+        <target>Donner un objet et écrire un message</target>
       </segment>
     </unit>
     <unit id="C9_MTts" name="91fcb31">
@@ -11715,7 +11715,7 @@
       </notes>
       <segment>
         <source>In diesem Bereich kannst du dir alle möglichen Verbesserungen deines Hauses ansehen.</source>
-        <target>Dans cet onglet, vous pouvez voir toutes les améliorations possibles à votre maison.</target>
+        <target>Cette section affiche les extensions possibles de votre Maison</target>
       </segment>
     </unit>
     <unit id="dQRl.Lz" name="fb2b856">
@@ -11724,7 +11724,7 @@
       </notes>
       <segment>
         <source>In diesem Bereich werden alle bereits eingebauten Einrichtungen und Ausbauten deines Hauses angezeigt (Möbel, Verteidigungsvorrichtungen...).</source>
-        <target>Cet onglet présente toutes les installations et aménagements déjà apportés à votre maison (mobilier, défenses ...).</target>
+        <target>Cette section affiche les équipements installés sur votre Maison (meubles, défenses...)</target>
       </segment>
     </unit>
     <unit id="e_umQ0L" name="37b3bf7">
