@@ -190,6 +190,15 @@ a {
         }
     }
 
+    table {
+        &.procons {
+            width: 100%;
+            th {text-align: center; font-size: 12pt; }
+            td {width: 50%; vertical-align: top; }
+
+        }
+    }
+
     .warning, .critical {
         color: #f86;
         font-weight: bold;
@@ -217,6 +226,12 @@ a {
     }
     div.critical { margin-bottom: 10px; }
     dl {
+        &.faq { 
+            dt {
+                padding-left:24px;
+                background-image: url('../../img/icons/small_help.gif'); background-repeat: no-repeat; background-position: 2px 2px;
+            }    
+        }
         dt, dd {
             color: #e3c699;
             min-height: 21px;

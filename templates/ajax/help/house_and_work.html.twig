@@ -1,0 +1,39 @@
+{% extends "ajax/help/shell.html.twig" %}
+{% block helpContent %}
+<div class="helpArt">{{ 'Spielanleitung'|trans({},'help')|raw }}</div>
+<h1>{{ 'Haus &amp; Hausarbeiten'|trans({},'help')|raw }}</h1>
+<h2>{{ 'Dein Zuhause'|trans({},'help')|raw }}</h2>
+<p>{{ 'Dein Haus ist eine Oase der Ruhe und dein ganz privater Rückzugsraum, wenn du mal abschalten möchtest.'|trans({},'help')|raw }}</p>
+<p>{{ 'Es handelt sich um einen <strong>sehr wichtigen Ort</strong>, an dem du:'|trans({},'help')|raw }}</p>
+<ul>
+<li>{{ 'Persönliche Dinge erledigen kannst.'|trans({},'help')|raw }}</li>
+<li>{{ 'Gegenstände in deiner Truhe aufbewahren kannst (4 Plätze stehen hierzu standardmäßig zur Verfügung).'|trans({},'help')|raw }}</li>
+</ul>
+<h2>{{ 'Dein Rucksack und deine Truhe'|trans({},'help')|raw }}</h2>
+<p>{{ 'In deinem Rucksack und in deiner Truhe kannst du Gegenstände ablegen, die du in der Außenwelt gefunden hast oder die du aus der Bank genommen hast.'|trans({},'help')|raw }}</p>
+<p>{{ 'Beide haben eine begrenzte Anzahl an Aufbewahrungsplätzen. Es ist jedoch möglich, ihre <strong> Aufnahmekapazität</strong> mit bestimmten Gegenständen oder durch einen Ausbau (nur die Truhe) zu vergrößern.'|trans({},'help')|raw }}</p>
+<p>{{ 'Dazu musst du nur die richtigen Gegenstände finden (Rucksack und Truhe) oder deine Einrichtung ausbauen (gilt nur für die Truhe).'|trans({},'help')|raw }}</p>
+<h2>{{ 'Die Hausverteidigung verbessern'|trans({},'help')|raw }}</h2>
+<p>{{ 'Du kannst die Verteidigungfähigkeit deines Hauses durch bestimmte Ausbauten verbessern. <strong>Mit jeder Ausbaustufe steigt auch der Verteidigungswert</strong>, allerdings benötigst du eine bestimmte Anzahl an Materialien.'|trans({},'help')|raw }}</p>
+<p>{{ 'Verteidigungsbauten wirken sich wie folgt aus:'|trans({},'help')|raw }}</p>
+<ul>
+<li>{{ 'Sie halten Zombies davon ab, bei dir einzudringen.'|trans({},'help')|raw }}</li>
+<li>{{ 'Sie verbessern allgemein die Verteidigung der Stadt.'|trans({},'help')|raw }}</li>
+</ul>
+<h2>{{ 'Deine Einrichtung verbessern'|trans({},'help')|raw }}</h2>
+<p>
+{{ 'Neben deinem Haus selbst kannst du auch deine Einrichtung verschönern und verbessern. Auch diese <strong>Maßnahmen</strong> bringen dir einige Vorteile, wie zum Beispiel mehr Aufbewahrungsmöglichkeiten, besserer Diebstahlschutz u.v.m!'|trans({},'help')|raw }}
+</p>
+<p>{{ 'Jede Einrichtungsverbesserung benötigt <strong>APs</strong> und/oder <strong>Materialien</strong>.'|trans({},'help')|raw }}</p>
+<p>{{ 'Hierbei gibt es verschiedene Verbesserungsarten:'|trans({},'help')|raw }}</p>
+<ul>
+<li>{{ '<strong>Stauraum</strong>: Vergrößert deinen Lagerplatz.'|trans({},'help')|raw }}</li>
+<li>{{ '<strong>Verteidigung</strong>: Verbessert deine Fähigkeit Zombies abzuwehren.'|trans({},'help')|raw }}</li>
+<li>{{ '<strong>Türschloss</strong>: Hindert deine lieben Mitbürger daran, sich mal was "auszuleihen"...'|trans({},'help')|raw }}</li>
+<li>{{ '<strong>Alarm</strong>: Macht sich bemerkbar, wenn sich jemand was "leihen" möchte.'|trans({},'help')|raw }}</li>
+<li>{{ '<strong>Vorhang</strong>: Verhindert allzu neugierige Blicke auf deine Truhe.'|trans({},'help')|raw }}</li>
+</ul>
+<p>{{ 'Dieses Einrichtungsverbesserungssystem ist den <strong>Helden</strong> vorbehalten.'|trans({},'help')|raw }}</p>
+<div class="clear"></div>
+<a class="button" x-ajax-href="{{ url('help', {'name': 'ghouls'}) }}"><img src="{{ asset('build/images/icons/small_move.gif') }}" alt="move"> {{'Weiter'|trans({}, 'help')}}:<strong> {{ 'Ghule'|trans({},'help') }}</strong></a>
+{% endblock %}
