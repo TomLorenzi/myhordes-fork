@@ -11677,5 +11677,14 @@
         <target>Das Passwort ist falsch.</target>
       </segment>
     </unit>
+    <unit id=".DPY78g" name="dbe2a8d">
+      <notes>
+        <note category="german">Das Stadttor ist Teil einer Festungsmauer, die den Großteil der Zombies abwehrt. Solltest du vergessen es am Abend zu schließen, kannst du dich auf Qualen einstellen, die deine schlimmsten Alpträume weit übertreffen.</note>
+      </notes>
+      <segment>
+        <source>Das Stadttor ist Teil einer Festungsmauer, die den Großteil der Zombies abwehrt. Solltest du vergessen es am Abend zu schließen, kannst du dich auf Qualen einstellen, die deine schlimmsten Alpträume weit übertreffen.</source>
+        <target>Das Stadttor ist Teil einer Festungsmauer, die den Großteil der Zombies abwehrt. Solltest du vergessen es am Abend zu schließen, kannst du dich auf Qualen einstellen, die deine schlimmsten Alpträume weit übertreffen.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

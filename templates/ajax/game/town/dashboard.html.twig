@@ -41,7 +41,7 @@
                         </span>
                     {% elseif def > zeds_today[1] and def < zeds_today[2] %}
                         <span class="warning">
-                            {{'Unsere Verteidigung dürfte ausreichen, zumindest einen Teil des Angriffs heute Nacht abzuwehren.'|trans({}, 'game')}}
+                            {{'Unsere Verteidigung dürfte ausreichen, zumindest einen Teil des Angriffs heute Nacht abzuwehren.'|trans({}, 'game')}} <a class="help-button"><div class="tooltip help">{{ 'Wir sollten mehr Verteidigungsanlagen bauen. Falls Ressourcen dafür fehlen, geh in die Außenwelt (die Wüste außerhalb der Stadt) und suche danach.'|trans({},'global') }}</div>{{ 'Hilfe'|trans({},'global') }}</a>
                             {% if has_battlement %}
                                 <div x-ajax-href="{{ path('town_nightwatch') }}" class="link">{{ 'Du kannst helfen und dich der heutigen Nachtwache anschließen!'|trans({}, 'game') }}</div>
                             {% endif %}
@@ -141,7 +141,7 @@
                 <li>{{'Nachtwächter'|trans({}, 'game')}} : + {{def_summary.nightwatch_defense}} <img src="{{ asset('build/images/icons/small_def.gif') }}" /></li>
                 {% endif %}
                 {% if def_summary.soul_defense > 0 %}
-                <li>{{'Gereinigte Seelen'|trans({}, 'game')}} : + {{def_summary.soul_defense}} <img src="{{ asset('build/images/icons/small_def.gif') }}" /></li>
+                <li>{{'Gereinigte Seelen'|trans({}, 'game')}} : + {{def_summary.soul_defense}} <img src="{{ asset('build/images/icons/small_def.gif') }}" /> <a class="help-button"><div class="tooltip help">{{ 'Diese Abwehrkräfte werden von gereinigten Seelen gebracht.'|trans({},'global') }}</div>{{ 'Hilfe'|trans({},'global') }}</a></li>
                 {% endif %}
                 <li class="separator">TOTAL : {{def}} <img src="{{ asset('build/images/icons/small_def.gif') }}" /></li>
             </ul>

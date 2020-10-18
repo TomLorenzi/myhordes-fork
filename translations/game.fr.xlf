@@ -11736,5 +11736,14 @@
         <target><![CDATA[Si vous êtes en proie à la terreur, dans le désert et entouré de zombies, vous ne pouvez rien faire... Vous devez trouver une drogue ou autre chose pour <strong>calmer vos nerfs</strong> et sortir de cet enfer... Au moins il est encore possible d'appeler à l'aide sur le forum...]]></target>
       </segment>
     </unit>
+    <unit id=".DPY78g" name="dbe2a8d">
+      <notes>
+        <note category="german">Das Stadttor ist Teil einer Festungsmauer, die den Großteil der Zombies abwehrt. Solltest du vergessen es am Abend zu schließen, kannst du dich auf Qualen einstellen, die deine schlimmsten Alpträume weit übertreffen.</note>
+      </notes>
+      <segment>
+        <source>Das Stadttor ist Teil einer Festungsmauer, die den Großteil der Zombies abwehrt. Solltest du vergessen es am Abend zu schließen, kannst du dich auf Qualen einstellen, die deine schlimmsten Alpträume weit übertreffen.</source>
+        <target>La Grande Porte de la ville est un rempart contre une bonne partie des Hordes qui sévissent à l'extérieur de la ville. Oubliez de la verrouiller le soir et vous découvrirez des souffrances allant bien au-delà de vos pires cauchemars.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
