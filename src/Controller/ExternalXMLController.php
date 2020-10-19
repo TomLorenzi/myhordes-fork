@@ -147,7 +147,7 @@ class ExternalXMLController extends ExternalController {
                         'link' => Request::createFromGlobals()->getBaseUrl() . Request::createFromGlobals()->getPathInfo(),
                         'iconurl' => '',
                         'avatarurl' => '/cdn/avatar/', // Find a way to set this dynamic (see WebController::avatar for reference)
-                        'secure' => intval(Request::createFromGlobals()->isSecure()),
+                        'secure' => '1',
                         'author' => 'MyHordes',
                         'language' => $language,
                         'version' => '0.1',
@@ -338,7 +338,7 @@ class ExternalXMLController extends ExternalController {
                         'link' => Request::createFromGlobals()->getBaseUrl() . Request::createFromGlobals()->getPathInfo(),
                         'iconurl' => '',
                         'avatarurl' => '/cdn/avatar/', // Find a way to set this dynamic (see WebController::avatar for reference)
-                        'secure' => intval(Request::createFromGlobals()->isSecure()),
+                        'secure' => '1',
                         'author' => 'MyHordes',
                         'language' => $language,
                         'version' => '0.1',
@@ -678,10 +678,13 @@ class ExternalXMLController extends ExternalController {
                         'attributes' => [
                             'name' => $zone->getBuryCount() > 0 ? $trans->trans('Verschüttete Ruine', [], 'game') : $trans->trans($zone->getPrototype()->getLabel(), [], 'game'),
                             'type' => $zone->getBuryCount() > 0 ? -1 : $zone->getPrototype()->getId(),
-                            'dig' => $zone->getBuryCount()
                         ],
-                        'value' => $zone->getBuryCount() > 0 ? '' : $trans->trans($zone->getPrototype()->getDescription(), [], 'game')
+                        'value' => $zone->getBuryCount() > 0 ? $trans->trans('Die Zone ist vollständig mit verrottender Vegetation, Sand und allem möglichen Schrott bedeckt. Du bist dir sicher, dass es hier etwas zu finden gibt, aber zunächst musst du diesen gesamten Sektor aufräumen um ihn vernünftig durchsuchen zu können.', [], 'game') : $trans->trans($zone->getPrototype()->getDescription(), [], 'game')
                     ];
+
+                    if($zone->getBuryCount() > 0) {
+                        $item['building']['attributes']['dig'] = $zone->getBuryCount();
+                    }
                 }
 
                 $data['hordes']['data']['map']['list']['items'][] = $item;
