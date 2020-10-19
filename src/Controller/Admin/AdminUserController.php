@@ -147,6 +147,7 @@ class AdminUserController extends AdminActionController
 
                 $pending = $this->entity_manager->getRepository(TwinoidImportPreview::class)->findOneBy(['user' => $user]);
                 if ($pending) {
+                    $user->setTwinoidImportPreview(null);
                     $pending->setUser(null);
                     $this->entity_manager->remove($pending);
                 }
