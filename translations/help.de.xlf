@@ -3642,7 +3642,7 @@ ACHTUNG: Wir raten dir wärmstens davon ab uns anzuschreiben, wenn du ganz siche
     </unit>
     <unit id="forco.9" name="e3d64a2">
       <notes>
-        <note category="german">Als Ghul musst du jeden Tag deinen Hunger nach Menschenfleisch stillen. Dein &lt;strong&gt;Hunger&lt;/strong&gt; wird durch eine Leiste angezeigt, die du oben auf der Seite direkt unter deinem Gesundheitszustand findest.</note>
+        <note category="german">Als Ghul musst du jeden Tag deinen Hunger nach Menschenfleisch stillen. Dein &lt;strong&gt;Hunger&lt;/strong&gt; wird durch eine Leiste angezeigt, die du oben auf der Seite in der Nähe Gesundheitszustand findest.</note>
       </notes>
       <segment>
         <source>Als Ghul musst du jeden Tag deinen Hunger nach Menschenfleisch stillen. Dein &lt;strong&gt;Hunger&lt;/strong&gt; wird durch eine Leiste angezeigt, die du oben auf der Seite direkt unter deinem Gesundheitszustand findest.</source>
@@ -3777,7 +3777,7 @@ ACHTUNG: Wir raten dir wärmstens davon ab uns anzuschreiben, wenn du ganz siche
     </unit>
     <unit id="5JpviwY" name="7439588">
       <notes>
-        <note category="german">Man kann sich mit bestimmten Produkten gegen die Verwandlung in einen Ghul schützen!</note>
+        <note category="german">Es ist möglich, bestimmte Produkte zu verwenden, um sich gegen das Werden eines Ghuls zu verteidigen oder sich mit dem Anti-Ghul-Impfstoff zu heilen!</note>
       </notes>
       <segment>
         <source>Man kann sich mit bestimmten Produkten gegen die Verwandlung in einen Ghul schützen!</source>

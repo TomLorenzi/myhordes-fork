@@ -13924,5 +13924,158 @@
         <target>Eine Stadt sie zu knechten!</target>
       </segment>
     </unit>
+    <unit id="9aeJYKv" name="Der unsichtbare Mann">
+      <notes>
+        <note category="german">Der unsichtbare Mann</note>
+      </notes>
+      <segment>
+        <source>Der unsichtbare Mann</source>
+        <target>Der unsichtbare Mann</target>
+      </segment>
+    </unit>
+    <unit id="p6Yx3lE" name="Ein BMW? Kein Problem!">
+      <notes>
+        <note category="german">Ein BMW? Kein Problem!</note>
+      </notes>
+      <segment>
+        <source>Ein BMW? Kein Problem!</source>
+        <target>Ein BMW? Kein Problem!</target>
+      </segment>
+    </unit>
+    <unit id="RtVs3Hp" name="Où est Larchi ?">
+      <notes>
+        <note category="german">Où est Larchi ?</note>
+      </notes>
+      <segment>
+        <source>Où est Larchi ?</source>
+        <target>Où est Larchi ?</target>
+      </segment>
+    </unit>
+    <unit id="SGyvnLU" name="Meser (halb Mensch, halb Malteser)">
+      <notes>
+        <note category="german">Meser (halb Mensch, halb Malteser)</note>
+      </notes>
+      <segment>
+        <source>Meser (halb Mensch, halb Malteser)</source>
+        <target>Meser (halb Mensch, halb Malteser)</target>
+      </segment>
+    </unit>
+    <unit id="9r9G9Tw" name="Personalisierter Titel - Dompteur (T-ID: 1725642)">
+      <notes>
+        <note category="german">Personalisierter Titel - Dompteur (T-ID: 1725642)</note>
+      </notes>
+      <segment>
+        <source>Personalisierter Titel - Dompteur (T-ID: 1725642)</source>
+        <target>Personalisierter Titel - Dompteur (T-ID: 1725642)</target>
+      </segment>
+    </unit>
+    <unit id="Bjh4Mcf" name="Gepanzerter Fakir">
+      <notes>
+        <note category="german">Gepanzerter Fakir</note>
+      </notes>
+      <segment>
+        <source>Gepanzerter Fakir</source>
+        <target>Gepanzerter Fakir</target>
+      </segment>
+    </unit>
+    <unit id="JtRdwdg" name="Seele eines Profis">
+      <notes>
+        <note category="german">Seele eines Profis</note>
+      </notes>
+      <segment>
+        <source>Seele eines Profis</source>
+        <target>Seele eines Profis</target>
+      </segment>
+    </unit>
+    <unit id="W6KG1Kx" name="Personalisierter Titel - Techniker (T-ID: 631944)">
+      <notes>
+        <note category="german">Personalisierter Titel - Techniker (T-ID: 631944)</note>
+      </notes>
+      <segment>
+        <source>Personalisierter Titel - Techniker (T-ID: 631944)</source>
+        <target>Personalisierter Titel - Techniker (T-ID: 631944)</target>
+      </segment>
+    </unit>
+    <unit id="k._y0h1" name="Holy F***ing Iceberg">
+      <notes>
+        <note category="german">Holy F***ing Iceberg</note>
+      </notes>
+      <segment>
+        <source>Holy F***ing Iceberg</source>
+        <target>Holy F***ing Iceberg</target>
+      </segment>
+    </unit>
+    <unit id="W7EFZTB" name="Verrückter Skeptiker">
+      <notes>
+        <note category="german">Verrückter Skeptiker</note>
+      </notes>
+      <segment>
+        <source>Verrückter Skeptiker</source>
+        <target>Verrückter Skeptiker</target>
+      </segment>
+    </unit>
+    <unit id="lUQdYSh" name="Seelenknipser">
+      <notes>
+        <note category="german">Seelenknipser</note>
+      </notes>
+      <segment>
+        <source>Seelenknipser</source>
+        <target>Seelenknipser</target>
+      </segment>
+    </unit>
+    <unit id="hB6qDhD" name="Wächter der Seelen">
+      <notes>
+        <note category="german">Wächter der Seelen</note>
+      </notes>
+      <segment>
+        <source>Wächter der Seelen</source>
+        <target>Wächter der Seelen</target>
+      </segment>
+    </unit>
+    <unit id="HhpZEPz" name="Die Wahrheit ist irgendwo da draußen">
+      <notes>
+        <note category="german">Die Wahrheit ist irgendwo da draußen</note>
+      </notes>
+      <segment>
+        <source>Die Wahrheit ist irgendwo da draußen</source>
+        <target>Die Wahrheit ist irgendwo da draußen</target>
+      </segment>
+    </unit>
+    <unit id="gLH3tE5" name="Ich glaube!">
+      <notes>
+        <note category="german">Ich glaube!</note>
+      </notes>
+      <segment>
+        <source>Ich glaube!</source>
+        <target>Ich glaube!</target>
+      </segment>
+    </unit>
+    <unit id="xhBxbLA" name="Sektenmitglied">
+      <notes>
+        <note category="german">Sektenmitglied</note>
+      </notes>
+      <segment>
+        <source>Sektenmitglied</source>
+        <target>Sektenmitglied</target>
+      </segment>
+    </unit>
+    <unit id="1HEtOB8" name="Kosmischer Anführer">
+      <notes>
+        <note category="german">Kosmischer Anführer</note>
+      </notes>
+      <segment>
+        <source>Kosmischer Anführer</source>
+        <target>Kosmischer Anführer</target>
+      </segment>
+    </unit>
+    <unit id=".DPY78g" name="dbe2a8d">
+      <notes>
+        <note category="german">Das Stadttor ist Teil einer Festungsmauer, die den Großteil der Zombies abwehrt. Solltest du vergessen es am Abend zu schließen, kannst du dich auf Qualen einstellen, die deine schlimmsten Alpträume weit übertreffen.</note>
+      </notes>
+      <segment>
+        <source>Das Stadttor ist Teil einer Festungsmauer, die den Großteil der Zombies abwehrt. Solltest du vergessen es am Abend zu schließen, kannst du dich auf Qualen einstellen, die deine schlimmsten Alpträume weit übertreffen.</source>
+        <target>Das Stadttor ist Teil einer Festungsmauer, die den Großteil der Zombies abwehrt. Solltest du vergessen es am Abend zu schließen, kannst du dich auf Qualen einstellen, die deine schlimmsten Alpträume weit übertreffen.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

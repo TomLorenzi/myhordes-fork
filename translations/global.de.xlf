@@ -1630,5 +1630,41 @@
         <target>Wiederherstellen</target>
       </segment>
     </unit>
+    <unit id="p47NfhB" name="37691d8">
+      <notes>
+        <note category="german">Wir sollten mehr Verteidigungsanlagen bauen. Falls Ressourcen dafür fehlen, geh in die Außenwelt (die Wüste außerhalb der Stadt) und suche danach.</note>
+      </notes>
+      <segment>
+        <source>Wir sollten mehr Verteidigungsanlagen bauen. Falls Ressourcen dafür fehlen, geh in die Außenwelt (die Wüste außerhalb der Stadt) und suche danach.</source>
+        <target>Wir sollten mehr Verteidigungsanlagen bauen. Falls Ressourcen dafür fehlen, geh in die Außenwelt (die Wüste außerhalb der Stadt) und suche danach.</target>
+      </segment>
+    </unit>
+    <unit id="6gPmw1f" name="05b29ea">
+      <notes>
+        <note category="german">&lt;strong&gt;Wichtig:&lt;/strong&gt; Verteidigungsgegenstände können maximal &lt;strong&gt;500&lt;/strong&gt; Verteidigungspunkte vergeben!</note>
+      </notes>
+      <segment>
+        <source>&lt;strong&gt;Wichtig:&lt;/strong&gt; Verteidigungsgegenstände können maximal &lt;strong&gt;500&lt;/strong&gt; Verteidigungspunkte vergeben!</source>
+        <target><![CDATA[<strong>Wichtig:</strong> Verteidigungsgegenstände können maximal <strong>500</strong> Verteidigungspunkte vergeben!]]></target>
+      </segment>
+    </unit>
+    <unit id="Wwiv0r7" name="Diese Abwehrkräfte werden von gereinigten Seelen gebracht.">
+      <notes>
+        <note category="german">Diese Abwehrkräfte werden von gereinigten Seelen gebracht.</note>
+      </notes>
+      <segment>
+        <source>Diese Abwehrkräfte werden von gereinigten Seelen gebracht.</source>
+        <target>Diese Abwehrkräfte werden von gereinigten Seelen gebracht.</target>
+      </segment>
+    </unit>
+    <unit id="mhXv42Q" name="735ca7b">
+      <notes>
+        <note category="german">Jeder &lt;strong&gt;Verteidigungsgegenstand&lt;/strong&gt;, der sich in der Bank befindet, bringt der Stadt &lt;strong&gt;1 Verteidigungspunkte&lt;/strong&gt;.</note>
+      </notes>
+      <segment>
+        <source>Jeder &lt;strong&gt;Verteidigungsgegenstand&lt;/strong&gt;, der sich in der Bank befindet, bringt der Stadt &lt;strong&gt;1 Verteidigungspunkte&lt;/strong&gt;.</source>
+        <target><![CDATA[Jeder <strong>Verteidigungsgegenstand</strong>, der sich in der Bank befindet, bringt der Stadt <strong>1 Verteidigungspunkte</strong>.]]></target>
+      </segment>
+    </unit>
   </file>
 </xliff>

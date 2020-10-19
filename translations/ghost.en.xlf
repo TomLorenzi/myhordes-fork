@@ -1000,5 +1000,23 @@
         <target>Das Stadttor kann erst geöffnet werden, wenn die Stadt voll ist.</target>
       </segment>
     </unit>
+    <unit id="8UBVWFJ" name="Betapropin steht nicht zur Verfügung.">
+      <notes>
+        <note category="german">Betapropin steht nicht zur Verfügung.</note>
+      </notes>
+      <segment>
+        <source>Betapropin steht nicht zur Verfügung.</source>
+        <target>Betapropin steht nicht zur Verfügung.</target>
+      </segment>
+    </unit>
+    <unit id="QjQvnlj" name="Beta-Funktionen deaktivieren">
+      <notes>
+        <note category="german">Beta-Funktionen deaktivieren</note>
+      </notes>
+      <segment>
+        <source>Beta-Funktionen deaktivieren</source>
+        <target>Beta-Funktionen deaktivieren</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
