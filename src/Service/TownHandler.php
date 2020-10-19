@@ -399,7 +399,7 @@ class TownHandler
     }
 
     public function get_zombie_estimation_quality(Town &$town, int $future = 0, ?int &$min = null, ?int &$max = null): float {
-        $est = $this->entity_manager->getRepository(ZombieEstimation::class)->findOneByTown($town,$town->getDay()+$future);
+        $est = $this->entity_manager->getRepository(ZombieEstimation::class)->findOneByTown($town, $town->getDay() + $future);
         if (!$est) return 0;
 
         $offsetMin = $est->getOffsetMin();
