@@ -153,7 +153,7 @@ use Exception;
                 break;
                 case $type === 'items':
                     $SURLL_request = ['items' => [
-                        'langues' => ['de', 'en', 'es', 'fr'],
+                        'languages' => ['de', 'en', 'es', 'fr'],
                         'fields' => [
                             'img',
                             'name'
