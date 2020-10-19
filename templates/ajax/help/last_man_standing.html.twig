@@ -1,0 +1,34 @@
+{% extends "ajax/help/shell.html.twig" %}
+{% block helpContent %}
+<div class="helpArt">{{ 'Spielanleitung'|trans({},'help')|raw }}</div>
+<h1>{{ 'Der letzte Tod'|trans({},'help')|raw }}</h1>
+<p>{{ 'Im Spiel gibt es eine ganz besondere Auszeichung, die den besten (oder hinterhältigsten) Bürgern vorbehalten ist: <strong>Der letzte Tod!</strong>'|trans({},'help')|raw }}</p>
+{#<p>Diese Auszeichnung beschenkt den letzten Bürger mit einem schönen Geschenk: Sie verwandelt ihn für <strong>1 oder mehrere Tage in einen Helden!</strong></p>#}
+<p>{{ 'Um die Auszeichung zu erhalten, müssen drei Regeln beachtet werden:'|trans({},'help')|raw }}</p>
+<ul>
+<li>{{ 'Die Stadt muss insgesamt <strong>mindestens 5 volle Tage</strong> überlebt haben.'|trans({},'help')|raw }}</li>
+<li>{{ 'Der letzte Bürger muss während des <strong>letzten Zombieangriffs</strong> aufgefressen worden sein.'|trans({},'help')|raw }}</li>
+<li>{{ 'Die Stadt darf in den vorangegangenen Tagen nicht <span x-ajax-href=%url_devast%>zerstört</span> worden sein. <i>Eine Stadt gilt dann als zerstört, wenn sich in einer Nacht keine Bürger in ihr ("intra muros") aufgehalten haben.</i>'|trans({'%url_devast%': url('help', {'name': 'devastated_town'})},'help')|raw }}</li>
+</ul>
+<p>{{ 'Dementsprechend können <strong>Selbstmörder, Bürger die am letzten Abend in Folge einer Dehydratation sterben oder Spieler, die in der Außenwelt umkommen</strong>, diese Auszeichnung nicht bekommen.'|trans({},'help')|raw }}</p>
+<p>
+{{ 'Bürger, die beim letzten Angriff auf die Stadt draußen gecampt haben, können die Auszeichnung auch nicht bekommen.'|trans({},'help')|raw }}
+</p>
+<p>{{ 'Falls mehrere Bürger beim letzten Zombieangriff in der Stadt noch am Leben sind, bestimmt sich <strong>der letzte Tote</strong> nach dem Zufallsprinzip.'|trans({},'help')|raw }}</p>
+{#<p>Wenn der letzte Tote ein Held war, werden der oder die gewonnenen Heldentage seinem Konto hinzugefügt.
+</p>
+<h2>Gewinntabelle für den Letzten Tod:</h2>
+<ul>
+<li>Im Laufe des 5. Tages (zwischen 00.00 und 23:59h) oder früher gestorben = kein Gewinn</li>
+<li>In der Nacht vom 5. auf den 6. Tag gestorben = 1 Heldentag + Auszeichnung</li>
+<li>In der Nacht vom 6. auf den 7. Tag gestorben = 2 Heldentage + Auszeichnung</li>
+<li>In der Nacht vom 7. auf den 8. Tag gestorben = 3 Heldentage + Auszeichnung</li>
+<li>In der Nacht vom 8. auf den 9. Tag gestorben = 4 Heldentage + Auszeichnung</li>
+<li>In der Nacht vom 9. auf den 10. Tag gestorben = 5 Heldentage + Auszeichnung</li>
+<li>In den Nächten zwischen Tag 10 und Tag 15 gestorben = 6 Heldentage + Auszeichnung</li>
+<li>In den Nächten zwischen Tag 15 und Tag 20 gestorben = 7 Heldentage + Auszeichnung</li>
+<li>In der Nacht vom 20. auf den 21. Tag (oder später) gestorben = 10 Heldentage + Auszeichnung</li>
+</ul>#}
+<div class="clear"></div>
+<a class="button" x-ajax-href="{{ url('help', {'name': 'hero_mode'}) }}"><img src="{{ asset('build/images/icons/small_move.gif') }}" alt="move"> {{'Weiter'|trans({}, 'help')}}:<strong> {{ 'Heldenmodus'|trans({},'help') }}</strong></a>
+{% endblock %}

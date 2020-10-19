@@ -511,7 +511,7 @@
       </notes>
       <segment>
         <source>Als Verbannter darfst du keine Gegenstände aus der Bank entnehmen.</source>
-        <target>En tant qu'exilé, vous ne pouvez retirer aucun article de la banque.</target>
+        <target>En tant qu'exilé, vous ne pouvez retirer aucun objet de la banque.</target>
       </segment>
     </unit>
     <unit id="2HhqG76" name="Diese Aktion ist ungültig.">
@@ -2140,7 +2140,7 @@
                             auffüllen.</source>
         <target>Pour de nombreuses actions, comme explorer le monde extérieur ou travailler sur un chantier de construction,
                             vous avez besoin de points d'action. Vos points d'action sont rechargés tous les soirs après l'attaque. 
-                            Vous pouvez également les recharger en utilisant certains articles et une fois par jour en mangeant 
+                            Vous pouvez également les recharger en utilisant certains objets et une fois par jour en mangeant 
                             et en buvant.</target>
       </segment>
     </unit>
@@ -10886,7 +10886,7 @@
         <source>Du hättest die kleinen bräunlichen Hautverfärbungen etwas ernster nehmen sollen. Nein, das war kein kleiner Sonnenbrand und kein exotischer Hautpilz!
             Jetzt ist es zu spät... Einige wenige Augenblicke später haben sich alle deine Zweifel in Luft aufgelöst und ein unkontrollierbarer Appetit nach
             Menschenfleisch übermannt sich... Hmmm... Du solltest deinen Hunger SCHNELLSTENS stillen, oder willst du krepieren?!</source>
-        <target>L'apparition de petites tâches brunâtres sur votre corps aurait dû vous alarmer, mais vous avez naïvement supposé qu'il s'agissait d'une petite infection bénigne dû au soleil. Les doutes ont étés balayés lorsqu'un désir incontrôlable de goûter la chair humaine a pris le pas dans votre esprit... Un besoin effroyable qu'il vous assouvir RAPIDEMENT. Ou mourir.</target>
+        <target>L'apparition de petites tâches brunâtres sur votre corps aurait dû vous alarmer, mais vous avez naïvement supposé qu'il s'agissait d'une petite infection bénigne due au soleil. Les doutes ont étés balayés lorsqu'un désir incontrôlable de goûter la chair humaine a pris le pas dans votre esprit... Un besoin effroyable qu'il vous faut assouvir RAPIDEMENT. Ou mourir.</target>
       </segment>
     </unit>
     <unit id="1VZ526R" name="Du bist ab sofort ein Ghul!">
@@ -10922,7 +10922,7 @@
       </notes>
       <segment>
         <source>Sag niemandem, dass du ein Ghul bist! Du würdest von deinen Mitbürgern sehr wahrscheinlich sofort erschlagen.</source>
-        <target>N'en parlez à personne ! Vous seriez immédiatement abbatu(e).</target>
+        <target>N'en parlez à personne ! Vous seriez immédiatement abattu(e).</target>
       </segment>
     </unit>
     <unit id="dIAkbPP" name="c3a93ff">
