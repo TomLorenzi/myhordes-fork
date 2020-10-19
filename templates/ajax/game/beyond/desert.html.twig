@@ -24,6 +24,7 @@
                                 <br />
                                 {{ 'Es muss noch aufgeräumt werden'|trans({},'game') }}:
                                 <div class="ruin-bury-count">{% for p in 1..zone.buryCount %}<div></div>{% endfor %}</div>
+                                <span class="ruin-desc">{{ 'Die Zone ist vollständig mit verrottender Vegetation, Sand und allem möglichen Schrott bedeckt. Du bist dir sicher, dass es hier etwas zu finden gibt, aber zunächst musst du diesen gesamten Sektor aufräumen um ihn vernünftig durchsuchen zu können.'|trans({}, 'game') }}</span>
                             {% else %}
                                 <img src="{{ asset('build/images/icons/small_help.gif') }}" /> <span class="ruin-name">{{ 'Ruine'|trans({},'game') }} : <b>{{ zone.prototype.label|trans({}, 'game') }}</b></span><br />
                                 <span class="ruin-desc">{{ zone.prototype.description|trans({}, 'game') }}</span>

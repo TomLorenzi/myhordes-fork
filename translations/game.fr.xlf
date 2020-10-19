@@ -14130,5 +14130,14 @@
         <target>Kosmischer Anführer</target>
       </segment>
     </unit>
+    <unit id="tz9Jwn2" name="d2acf54">
+      <notes>
+        <note category="german">Die Zone ist vollständig mit verrottender Vegetation, Sand und allem möglichen Schrott bedeckt. Du bist dir sicher, dass es hier etwas zu finden gibt, aber zunächst musst du diesen gesamten Sektor aufräumen um ihn vernünftig durchsuchen zu können.</note>
+      </notes>
+      <segment>
+        <source>Die Zone ist vollständig mit verrottender Vegetation, Sand und allem möglichen Schrott bedeckt. Du bist dir sicher, dass es hier etwas zu finden gibt, aber zunächst musst du diesen gesamten Sektor aufräumen um ihn vernünftig durchsuchen zu können.</source>
+        <target>Toute la zone est envahie par une végétation pourrissante, du sable et des débris de toutes sortes. Vous êtes sûr(e) que quelque chose se cache ici, mais il faudrait déblayer tout le secteur pour commencer les fouilles à proprement parler...</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

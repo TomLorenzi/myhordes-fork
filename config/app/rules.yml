@@ -65,7 +65,7 @@ parameters:
           max: 15
 
       modifiers:
-        watchtower_estimation_threshold: 0
+        watchtower_estimation_threshold: 33
         allow_redig: false
         assemble_items_from_floor: false
         preview_item_assemblage: false

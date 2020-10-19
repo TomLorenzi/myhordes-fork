@@ -719,4 +719,24 @@ class Town
         return $this;
     }
 
+    public function getMapOffset(): array {
+        $xOffset = 0;
+        $yOffset = 0;
+        foreach($this->getZones() as $zone) {
+            $xOffset = min($xOffset, $zone->getX());
+            $yOffset = max($yOffset, $zone->getY());
+        }
+
+        return ['x' => abs($xOffset), 'y' => abs($yOffset)];
+    }
+
+    public function getMapSize(): int {
+        $max = 0;
+        $min = 0;
+        foreach($this->getZones() as $zone) {
+            $min = min($min, $zone->getX());
+            $max = max($max, $zone->getX());
+        }
+        return abs($max) + abs($min) + 1;
+    }
 }
