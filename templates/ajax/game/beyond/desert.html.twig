@@ -133,7 +133,7 @@
         {% endif %}
         <div class="row">
             <div class="padded cell rw-6 rw-md-12">
-                <h5>{% trans from 'game' %}Diese Zone{% endtrans %}</h5>
+                {% if zone.x != 0 or zone.y != 0 %}<h5>{% trans from 'game' %}Diese Zone{% endtrans %}</h5>{% endif %}
 
                 {% if zone.digs <= 0 %}
                     <div class="note note-light">
@@ -754,8 +754,6 @@
         {% if allow_enter_town %}
             let townEnterBtn = document.getElementById('town-enter');
             if(townEnterBtn) townEnterBtn.addEventListener('click', function() {
-                if (!confirm('{{ 'Bestätigen?'|trans({},'global')|e('js') }}'))
-                    return;
                 $.ajax.easySend( '{{ path('beyond_desert_exit_controller') }}', {},
                     function () {
                         $.ajax.load(null, '{{ path('game_landing') }}', true);
