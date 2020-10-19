@@ -132,7 +132,7 @@ class SchedulerCommand extends Command
                             $last_op = 'del';
                             $this->gameFactory->nullifyTown($town, true);
 
-                        } else {
+                        } elseif (!$town->isOpen() && $town->getAliveCitizenCount() == 0) {
                             $last_op = 'com';
                             $town->setAttackFails(0);
                             if (!$this->gameFactory->compactTown($town)) {
