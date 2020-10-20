@@ -112,40 +112,40 @@
                         </ul>
                     </li>
 
-                    <li class="main">
+                    <li class="main {% if section == 'jobs' %}active{% endif %}">
                         <img src="{{ asset('build/images/icons/small_middot.gif') }}" alt="jobs">
-                        <span class="link">{{ 'Die Berufe'|trans({},'help') }}</span>
+                        <span class="link" x-ajax-href="{{ url('help', {'name': 'jobs'}) }}">{{ 'Die Berufe'|trans({},'help') }}</span>
                     </li>
 
                     <li class="sublist">
                         <ul>
-                            <li class="">
+                            <li class="{% if section == 'resident' %}active{% endif %}">
                                 <img src="{{ asset('build/images/professions/basic.gif') }}" alt="job_basic">
-                                <span class="link">{{ 'Einwohner'|trans({},'help') }}</span>
+                                <span class="link" x-ajax-href="{{ url('help', {'name': 'resident'}) }}">{{ 'Einwohner'|trans({},'help') }}</span>
                             </li>
-                            <li class="">
+                            <li class="{% if section == 'scavenger' %}active{% endif %}">
                                 <img src="{{ asset('build/images/professions/dig.gif') }}" alt="job_collec">
-                                <span class="link">{{ 'Buddler'|trans({},'help') }}</span>
+                                <span class="link" x-ajax-href="{{ url('help', {'name': 'scavenger'}) }}">{{ 'Buddler'|trans({},'help') }}</span>
                             </li>
-                            <li class="">
+                            <li class="{% if section == 'scout' %}active{% endif %}">
                                 <img src="{{ asset('build/images/professions/vest.gif') }}" alt="job_eclair">
-                                <span class="link">{{ 'Aufklärer'|trans({},'help') }}</span>
+                                <span class="link" x-ajax-href="{{ url('help', {'name': 'scout'}) }}">{{ 'Aufklärer'|trans({},'help') }}</span>
                             </li>
-                            <li class="">
+                            <li class="{% if section == 'guardian' %}active{% endif %}">
                                 <img src="{{ asset('build/images/professions/shield.gif') }}" alt="job_guardian">
-                                <span class="link">{{ 'Wächter'|trans({},'help') }}</span>
+                                <span class="link" x-ajax-href="{{ url('help', {'name': 'guardian'}) }}">{{ 'Wächter'|trans({},'help') }}</span>
                             </li>
-                            <li class="">
+                            <li class="{% if section == 'survivalist' %}active{% endif %}">
                                 <img src="{{ asset('build/images/professions/book.gif') }}" alt="job_hunter">
-                                <span class="link">{{ 'Einsiedler'|trans({},'help') }}</span>
+                                <span class="link" x-ajax-href="{{ url('help', {'name': 'survivalist'}) }}">{{ 'Einsiedler'|trans({},'help') }}</span>
                             </li>
-                            <li class="">
+                            <li class="{% if section == 'tamer' %}active{% endif %}">
                                 <img src="{{ asset('build/images/professions/tamer.gif') }}" alt="job_tamer">
-                                <span class="link">{{ 'Dompteur'|trans({},'help') }}</span>
+                                <span class="link" x-ajax-href="{{ url('help', {'name': 'tamer'}) }}">{{ 'Dompteur'|trans({},'help') }}</span>
                             </li>
-                            <li class="">
+                            <li class="{% if section == 'technician' %}active{% endif %}">
                                 <img src="{{ asset('build/images/professions/tech.gif') }}" alt="job_tech">
-                                <span class="link">{{ 'Techniker'|trans({},'help') }}</span>
+                                <span class="link" x-ajax-href="{{ url('help', {'name': 'technician'}) }}">{{ 'Techniker'|trans({},'help') }}</span>
                             </li>
                         </ul>
                     </li>

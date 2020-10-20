@@ -3790,5 +3790,449 @@ es besteht eine erhöhte Wahrscheinlichkeit sein Opfer zu verletzen. Versucht au
         <target>Don't forget that anybody can be transformed into a ghoul! Even the charismatic leader who is calling the shots and giving you good advice.</target>
       </segment>
     </unit>
+    <unit id="m3f6S65" name="8f8917d">
+      <notes>
+        <note category="german">Jeder Spieler startet in "Die Verdammten" als einfacher Bürger. 
+Daneben gibt es jedoch noch &lt;strong&gt;7 außergewöhnliche Berufe&lt;/strong&gt;. 
+Diese Berufe sind aber den Spielern vorbehalten sind, die als Held spielen.</note>
+      </notes>
+      <segment>
+        <source>Jeder Spieler startet in "Die Verdammten" als einfacher Bürger. 
+Daneben gibt es jedoch noch &lt;strong&gt;7 außergewöhnliche Berufe&lt;/strong&gt;. 
+Diese Berufe sind aber den Spielern vorbehalten sind, die als Held spielen.</source>
+        <target><![CDATA[<strong>All citizens in MyHordes start out as a simple Resident</strong>. Heroes choose their own job which gives them an advantage in a given domain: a Scavenger, for example, can find more objects in the desert than an average citizen.]]></target>
+      </segment>
+    </unit>
+    <unit id="9ySXrH1" name="b148883">
+      <notes>
+        <note category="german">Helden können zum Beginn einer Stadt einen Beruf wählen. Jeder Beruf bietet besondere Vorteile. 
+Der Buddler zum Beispiel findet in der Wüste im Durchschnitt mehr Gegenstände als ein normaler 
+Einwohner. Der Einsiedler hat bessere Überlebenschancen beim Campen in der Wildnis.
+Darüber hinaus erhält man je nach Beruf einen &lt;strong&gt;speziellen Gegenstand&lt;/strong&gt;. 
+Der Aufklärer besitzt eine Tarnkleidung, der Buddler eine Schaufel usw...</note>
+      </notes>
+      <segment>
+        <source>Helden können zum Beginn einer Stadt einen Beruf wählen. Jeder Beruf bietet besondere Vorteile. 
+Der Buddler zum Beispiel findet in der Wüste im Durchschnitt mehr Gegenstände als ein normaler 
+Einwohner. Der Einsiedler hat bessere Überlebenschancen beim Campen in der Wildnis.
+Darüber hinaus erhält man je nach Beruf einen &lt;strong&gt;speziellen Gegenstand&lt;/strong&gt;. 
+Der Aufklärer besitzt eine Tarnkleidung, der Buddler eine Schaufel usw...</source>
+        <target><![CDATA[A job <strong>gives the citizen a special object or tool which only they can possess</strong>. A camouflage suit for the Scout, a spade for the Scavenger, etc...]]></target>
+      </segment>
+    </unit>
+    <unit id="gkceIWw" name="dbc810c">
+      <notes>
+        <note category="german">Der Einwohner ist einfacher Bürger. Er verfügt über keine spezielle Fähigkeit.</note>
+      </notes>
+      <segment>
+        <source>Der Einwohner ist einfacher Bürger. Er verfügt über keine spezielle Fähigkeit.</source>
+        <target>A Resident is effectively a normal, everyday citizen, with no remarkable abilities to speak of...</target>
+      </segment>
+    </unit>
+    <unit id="6t2A8hx" name="Startausrüstung">
+      <notes>
+        <note category="german">Startausrüstung</note>
+      </notes>
+      <segment>
+        <source>Startausrüstung</source>
+        <target>Basic equipment</target>
+      </segment>
+    </unit>
+    <unit id="tIJY2yE" name="Bürgerkleidung">
+      <notes>
+        <note category="german">Bürgerkleidung</note>
+      </notes>
+      <segment>
+        <source>Bürgerkleidung</source>
+        <target>Citizen's uniform</target>
+      </segment>
+    </unit>
+    <unit id="liDUE4L" name="811ca45">
+      <notes>
+        <note category="german">Die Klamotten, die du schon seit ein paar Jahren trägst. Sie sind abgetragen, erfüllen aber ihren Zweck: Sie sind bequem. In diesen Kleidern wirst du auch sterben, soviel steht schon einmal fest.</note>
+      </notes>
+      <segment>
+        <source>Die Klamotten, die du schon seit ein paar Jahren trägst. Sie sind abgetragen, erfüllen aber ihren Zweck: Sie sind bequem. In diesen Kleidern wirst du auch sterben, soviel steht schon einmal fest.</source>
+        <target>The citizen's uniform has remained unchanged in years. This is also the uniform you will wear for the rest of your days. Nonetheless, the outfit is functional and pretty comfortable, so there's not really that much to complain about...</target>
+      </segment>
+    </unit>
+    <unit id=".km5yno" name="Wie wird diese Figur gespielt?">
+      <notes>
+        <note category="german">Wie wird diese Figur gespielt?</note>
+      </notes>
+      <segment>
+        <source>Wie wird diese Figur gespielt?</source>
+        <target>How do I play?</target>
+      </segment>
+    </unit>
+    <unit id="4VWEE9m" name="Es gibt nichts Besonderes zu erwähnen, du kannst spielen wie du möchtest...">
+      <notes>
+        <note category="german">Es gibt nichts Besonderes zu erwähnen, du kannst spielen wie du möchtest...</note>
+      </notes>
+      <segment>
+        <source>Es gibt nichts Besonderes zu erwähnen, du kannst spielen wie du möchtest...</source>
+        <target>There's no real secret to it, you can do pretty much what you like... within reason!</target>
+      </segment>
+    </unit>
+    <unit id="g2PQAEX" name="Der Buddler findet in der Wüste mehr Gegenstände.">
+      <notes>
+        <note category="german">Der Buddler findet in der Wüste mehr Gegenstände.</note>
+      </notes>
+      <segment>
+        <source>Der Buddler findet in der Wüste mehr Gegenstände.</source>
+        <target>The Scavenger is able to find many more objects when searching in the desert.</target>
+      </segment>
+    </unit>
+    <unit id="zozlCDV" name="Kleine Schaufel">
+      <notes>
+        <note category="german">Kleine Schaufel</note>
+      </notes>
+      <segment>
+        <source>Kleine Schaufel</source>
+        <target>Small spade</target>
+      </segment>
+    </unit>
+    <unit id="IU3Z1xk" name="c85cf59">
+      <notes>
+        <note category="german">Mit der kleinen Schaufel musst du in der Wüste nicht so lange graben (automatisch aktiviert). Die Wahrscheinlichkeit einen Gegenstand zu finden ist ebenfalls größer.</note>
+      </notes>
+      <segment>
+        <source>Mit der kleinen Schaufel musst du in der Wüste nicht so lange graben (automatisch aktiviert). Die Wahrscheinlichkeit einen Gegenstand zu finden ist ebenfalls größer.</source>
+        <target>The small spade (automatically) reduces the time required for each search in the desert... The chances of finding an object are also significantly increased.</target>
+      </segment>
+    </unit>
+    <unit id="6lyOEYJ" name="c880d28">
+      <notes>
+        <note category="german">Deine automatischen Grabungsaktionen dauern &lt;strong&gt;30 Minuten weniger&lt;/strong&gt; als bei anderen Bürgern. Du kannst pro Tag also öfters graben! Die Wahrscheinlichkeit einen Gegenstand zu finden ist größer als bei den anderen Bürgern.</note>
+      </notes>
+      <segment>
+        <source>Deine automatischen Grabungsaktionen dauern &lt;strong&gt;30 Minuten weniger&lt;/strong&gt; als bei anderen Bürgern. Du kannst pro Tag also öfters graben! Die Wahrscheinlichkeit einen Gegenstand zu finden ist größer als bei den anderen Bürgern.</source>
+        <target><![CDATA[Your automatic searches take <strong>30 minutes less</strong> than other citizens, therefore you can carry out more searches in a day! Your chances of finding something are also much better than those of normal citizens.]]></target>
+      </segment>
+    </unit>
+    <unit id="FGMXL35" name="58be565">
+      <notes>
+        <note category="german">In der Außenwelt verfügst du über einen "sechsten Sinn", der dir im voraus ermöglicht zu wissen, ob eine benachbarte Zone Gegenstände enthält oder ob sie leer ist. Du weißt dann auch, ob ein Gebäude Gegenstände enthält oder nicht!</note>
+      </notes>
+      <segment>
+        <source>In der Außenwelt verfügst du über einen "sechsten Sinn", der dir im voraus ermöglicht zu wissen, ob eine benachbarte Zone Gegenstände enthält oder ob sie leer ist. Du weißt dann auch, ob ein Gebäude Gegenstände enthält oder nicht!</source>
+        <target>Furthermore, when you're in the World Beyond, your keen Scavenger's instinct lets you know in advance whether a neighbouring zone still contains objects or if it is depleted (this skill also allows you to discover buildings which contain objects)!</target>
+      </segment>
+    </unit>
+    <unit id="5fEzGrz" name="091d519">
+      <notes>
+        <note category="german">Der Buddler hat einen großen Vorteil beim Untersuchen verlassener Gebäude. Dank seines &lt;strong&gt;50% größeren 
+Sauerstoffvorrats&lt;/strong&gt; kann er verlassenene Gebäude länger und somit gründlicher untersuchen als andere Bürger.</note>
+      </notes>
+      <segment>
+        <source>Der Buddler hat einen großen Vorteil beim Untersuchen verlassener Gebäude. Dank seines &lt;strong&gt;50% größeren 
+Sauerstoffvorrats&lt;/strong&gt; kann er verlassenene Gebäude länger und somit gründlicher untersuchen als andere Bürger.</source>
+        <target><![CDATA[Once again, the scavenger is well versed in scavenging in cramped, labyrinthian situations. A scavenger will have <strong>50% more oxygen</strong> with which to explore the maze of corridors in abandoned buildings in more depth.]]></target>
+      </segment>
+    </unit>
+    <unit id="MpbQcuA" name="bed09b2">
+      <notes>
+        <note category="german">Der Aufklärer weiß sich geschickt zu tarnen, um sich mühelos selbst durch große Zombieansammlungen zu schleichen und Zonen aufzusuchen, in die sich keiner alleine trauen würde.
+Achtung: Wenn er in seiner Deckung eine Aktion ausführt, verliert er seine Tarnung!</note>
+      </notes>
+      <segment>
+        <source>Der Aufklärer weiß sich geschickt zu tarnen, um sich mühelos selbst durch große Zombieansammlungen zu schleichen und Zonen aufzusuchen, in die sich keiner alleine trauen würde.
+Achtung: Wenn er in seiner Deckung eine Aktion ausführt, verliert er seine Tarnung!</source>
+        <target>The Scout can sneak past groups of zombies undetected, allowing them to explore the farthest reaches of the desert, in almost total safety. Warning: carrying out any actions when hiding causes you to break cover and reveal yourself!</target>
+      </segment>
+    </unit>
+    <unit id="Ppxhgkz" name="Tarnanzug">
+      <notes>
+        <note category="german">Tarnanzug</note>
+      </notes>
+      <segment>
+        <source>Tarnanzug</source>
+        <target>Camouflage suit</target>
+      </segment>
+    </unit>
+    <unit id="PnRAHcb" name="3c6105a">
+      <notes>
+        <note category="german">Mit dieser Kleidung kannst du dich in der Wüste unerkannt fortbewegen. Dennoch ist Vorsicht geboten: Wenn sich in einer Zone zu viele Zombies aufhalten, kannst du erkannt werden.</note>
+      </notes>
+      <segment>
+        <source>Mit dieser Kleidung kannst du dich in der Wüste unerkannt fortbewegen. Dennoch ist Vorsicht geboten: Wenn sich in einer Zone zu viele Zombies aufhalten, kannst du erkannt werden.</source>
+        <target>This outfit allows you to move around freely in zombie controlled zones in the desert. Always be careful though, there is always a chance of being discovered if the zone is swarming with living dead...</target>
+      </segment>
+    </unit>
+    <unit id="5QvwN2P" name="6d823b2">
+      <notes>
+        <note category="german">Auf sich allein gestellt, schleicht sich der Aufklärer tief hinter die feindlichen Linien und erfüllt somit ganz klar die Funktion eines Spähers.</note>
+      </notes>
+      <segment>
+        <source>Auf sich allein gestellt, schleicht sich der Aufklärer tief hinter die feindlichen Linien und erfüllt somit ganz klar die Funktion eines Spähers.</source>
+        <target>Your role involves discovering areas of interest and being a one-man scouting party. Take advantage of your sneakiness to go beyond enemy lines.</target>
+      </segment>
+    </unit>
+    <unit id="gJaUe_I" name="ea16ba6">
+      <notes>
+        <note category="german">Wenn er getarnt ist, kann der Aufklärer nur bestimmte Aktionen ausführen: Trinken, Essen und Drogen konsumieren.</note>
+      </notes>
+      <segment>
+        <source>Wenn er getarnt ist, kann der Aufklärer nur bestimmte Aktionen ausführen: Trinken, Essen und Drogen konsumieren.</source>
+        <target>Only certain actions are allowed while you are camouflaged: drinking, eating and taking drugs for example.</target>
+      </segment>
+    </unit>
+    <unit id="IuyPBh5" name="3090dc0">
+      <notes>
+        <note category="german">In der Außenwelt ist der Aufklärer imstande, die Anzahl der Zombies in einer benachbarten Zone ziemlich genau vorherzusagen.</note>
+      </notes>
+      <segment>
+        <source>In der Außenwelt ist der Aufklärer imstande, die Anzahl der Zombies in einer benachbarten Zone ziemlich genau vorherzusagen.</source>
+        <target>In the World Beyond, you will be able to estimate the number of zombies in neighbouring zones (maybe with the occasional mistake...).</target>
+      </segment>
+    </unit>
+    <unit id="4yfi7Cc" name="4bdcd55">
+      <notes>
+        <note category="german">Der Aufklärer hat beim Camping gegenüber anderen Spielern einen Vorteil, wenn sich in der betroffenen Zone Zombies aufhalten.</note>
+      </notes>
+      <segment>
+        <source>Der Aufklärer hat beim Camping gegenüber anderen Spielern einen Vorteil, wenn sich in der betroffenen Zone Zombies aufhalten.</source>
+        <target>You have an advantage over other players when camping if there are zombies in the zone.</target>
+      </segment>
+    </unit>
+    <unit id=".Pu8sJx" name="3c2bc83">
+      <notes>
+        <note category="german">Der Wächter ist der geborene Kämpfer. In der Wüste kann er es mit weitaus mehr Zombies aufnehmen als jeder andere durchschnittliche Einwohner.
+&lt;strong&gt;Dieser Vorteil überträgt sich auf alle Mitspieler, die ihn begleiten&lt;/strong&gt;!</note>
+      </notes>
+      <segment>
+        <source>Der Wächter ist der geborene Kämpfer. In der Wüste kann er es mit weitaus mehr Zombies aufnehmen als jeder andere durchschnittliche Einwohner.
+&lt;strong&gt;Dieser Vorteil überträgt sich auf alle Mitspieler, die ihn begleiten&lt;/strong&gt;!</source>
+        <target><![CDATA[In the World Beyond, the Guardian can keep more zombies at bay than an average citizen. <strong>The guardian retains this advantage even when travelling as part of a group</strong>!]]></target>
+      </segment>
+    </unit>
+    <unit id="ZnKlh2A" name="Schutzschild">
+      <notes>
+        <note category="german">Schutzschild</note>
+      </notes>
+      <segment>
+        <source>Schutzschild</source>
+        <target>Riot Shield</target>
+      </segment>
+    </unit>
+    <unit id="WCCJVAm" name="c4e3047">
+      <notes>
+        <note category="german">Ein großer Schutzschild, der keine Wünsche offen lässt, ermöglicht es dir, in der Wüste bis zu 2 zusätzliche Zombies auf Distanz zu halten.</note>
+      </notes>
+      <segment>
+        <source>Ein großer Schutzschild, der keine Wünsche offen lässt, ermöglicht es dir, in der Wüste bis zu 2 zusätzliche Zombies auf Distanz zu halten.</source>
+        <target>In the desert, the Guardian can face 4 zombies alone instead of the usual 2 (for a normal citizen).</target>
+      </segment>
+    </unit>
+    <unit id="NZvEP3R" name="b0c75c5">
+      <notes>
+        <note category="german">Der gewöhnliche Bürger kann in der Wüste höchstens 2 Zombies in Schach halten. Wenn es mehr werden, sitzt er in der Falle und kann nicht mehr flüchten. &lt;strong&gt;Der Wächter hingegen kann es dank seines großen Schildes mit bis zu 4 Zombies aufnehmen!&lt;/strong&gt;</note>
+      </notes>
+      <segment>
+        <source>Der gewöhnliche Bürger kann in der Wüste höchstens 2 Zombies in Schach halten. Wenn es mehr werden, sitzt er in der Falle und kann nicht mehr flüchten. &lt;strong&gt;Der Wächter hingegen kann es dank seines großen Schildes mit bis zu 4 Zombies aufnehmen!&lt;/strong&gt;</source>
+        <target><![CDATA[Normally, when in the desert, a lone citizen can face a maximum of 2 zombies. Any more than that and they will become trapped and will no longer be able to flee. <strong>As a Guardian, you can face a maximum of 4 zombies</strong> thanks to your trusty Riot Shield.]]></target>
+      </segment>
+    </unit>
+    <unit id="B6Xc1Cw" name="Jeder Wächter bringt der Stadt einen Verteidigungsbonus ein.">
+      <notes>
+        <note category="german">Jeder Wächter bringt der Stadt einen Verteidigungsbonus ein.</note>
+      </notes>
+      <segment>
+        <source>Jeder Wächter bringt der Stadt einen Verteidigungsbonus ein.</source>
+        <target>Every guardian gives a defensive bonus to the town.</target>
+      </segment>
+    </unit>
+    <unit id="SoFK1VJ" name="0c7fe1d">
+      <notes>
+        <note category="german">Wenn ein Wächter Nachtwache hält, gibt er der Stadt 30 zusätzliche Verteidigungspunkte. Außerdem haben sie eine um 5% höhere Überlebenschance, wenn der Angriff der Zombiehorden den Verteidigungspunkten der Stadt unterlegen ist.</note>
+      </notes>
+      <segment>
+        <source>Wenn ein Wächter Nachtwache hält, gibt er der Stadt 30 zusätzliche Verteidigungspunkte. Außerdem haben sie eine um 5% höhere Überlebenschance, wenn der Angriff der Zombiehorden den Verteidigungspunkten der Stadt unterlegen ist.</source>
+        <target>When on watch, a guardian gives 30 additional defence points to the town, they also have a 5% greater chance of surviving if the hordes' attack is inferior to the town's defense points.</target>
+      </segment>
+    </unit>
+    <unit id="xfwq_Tw" name="0c99e67">
+      <notes>
+        <note category="german">Der Einsiedler ist ein Typ, mit dem seit Jahren niemand mehr geredet hat. Ganz auf sich allein gestellt, lebt er still vor sich hin. Wenn es ums Überleben geht, weiß sich der Einsiedler seit jeher zu helfen: &lt;strong&gt;Er findet immer etwas Ess- oder Trinkbares - egal, wo er sich gerade befindet.&lt;/strong&gt;</note>
+      </notes>
+      <segment>
+        <source>Der Einsiedler ist ein Typ, mit dem seit Jahren niemand mehr geredet hat. Ganz auf sich allein gestellt, lebt er still vor sich hin. Wenn es ums Überleben geht, weiß sich der Einsiedler seit jeher zu helfen: &lt;strong&gt;Er findet immer etwas Ess- oder Trinkbares - egal, wo er sich gerade befindet.&lt;/strong&gt;</source>
+        <target><![CDATA[Having chosen to live in the most extreme solitude, the Survivalist is the guy nobody has talked to in years. The good thing is, that they have learned how to always get by on their own when it comes down to it. <strong>A Survivalist will always find something edible (food or water), regardless of where they are in the desert and when they want to find it.</strong>]]></target>
+      </segment>
+    </unit>
+    <unit id="iZtaOjI" name="Survivalbuch">
+      <notes>
+        <note category="german">Survivalbuch</note>
+      </notes>
+      <segment>
+        <source>Survivalbuch</source>
+        <target>Survival Guide</target>
+      </segment>
+    </unit>
+    <unit id="1AGCtVy" name="c84c963">
+      <notes>
+        <note category="german">Auch wenn der Titel anderes vermuten lässt: "Tick, Trick und Tracks Schlaues Buch" ist von unschätzbarem Wert. Es enthält zahlreiche Tipps und Tricks, wie man in der Natur am besten überleben und Nahrung finden kann.</note>
+      </notes>
+      <segment>
+        <source>Auch wenn der Titel anderes vermuten lässt: "Tick, Trick und Tracks Schlaues Buch" ist von unschätzbarem Wert. Es enthält zahlreiche Tipps und Tricks, wie man in der Natur am besten überleben und Nahrung finden kann.</source>
+        <target>Your precious guide, entitled "Junior Woodchuck's Scouting Manual". Even though it may seem like a children's book, it contains a wealth of information on how to survive alone in the wild. It allows you to easily find something to eat or drink. Be careful, however, the chances of finding something to eat will change over the days. After 20 days, it will therefore be difficult to find food or drink, and even more if the city is devastated...</target>
+      </segment>
+    </unit>
+    <unit id="ZT85L51" name="4dca042">
+      <notes>
+        <note category="german">Mit dieser Spielfigur brauchst du keine Nahrung mehr mit dir führen, denn du findest immer etwas zum Futtern - egal wo, egal wie. Wenn die anderen Spieler nach einer wilden Campingnacht kurz vorm Verhungern sind, genießt du, was Mutter Natur auftischt: Ein kleiner Wurm hier, eine leckere Wurzel dort.</note>
+      </notes>
+      <segment>
+        <source>Mit dieser Spielfigur brauchst du keine Nahrung mehr mit dir führen, denn du findest immer etwas zum Futtern - egal wo, egal wie. Wenn die anderen Spieler nach einer wilden Campingnacht kurz vorm Verhungern sind, genießt du, was Mutter Natur auftischt: Ein kleiner Wurm hier, eine leckere Wurzel dort.</source>
+        <target>As you no longer need to carry food, you should always have what you need on your person, no matter where you are. When other citizens risk dying of hunger the morning after some extreme camping, you will always be able to find a juicy worm or a root to nibble on.</target>
+      </segment>
+    </unit>
+    <unit id="343Nda0" name="ea0d29b">
+      <notes>
+        <note category="german">Deine Fähigkeit sollte dich allerdings nicht zu Leichtsinn verführen: Pro Tag kannst du nur EINE Ration Wasser ODER Nahrung finden.</note>
+      </notes>
+      <segment>
+        <source>Deine Fähigkeit sollte dich allerdings nicht zu Leichtsinn verführen: Pro Tag kannst du nur EINE Ration Wasser ODER Nahrung finden.</source>
+        <target>Attention, Survivalist! You can only use this ability once per day: you will only be able to find one item of food OR some water.</target>
+      </segment>
+    </unit>
+    <unit id="h45Kn82" name="f3f691f">
+      <notes>
+        <note category="german">Außerdem verfügst du über einen Vorteil beim Campen: Während die Überlebenschancen der anderen Einwohner nie mehr als 90% betragen (selbst wenn sie alles richtig gemacht haben, bleibt ein Restrisiko...), gilt diese Beschränkung beim Einsiedler nicht! Wenn er sich geschickt anstellt, kann er eine Überlebenschance von 100% erreichen!</note>
+      </notes>
+      <segment>
+        <source>Außerdem verfügst du über einen Vorteil beim Campen: Während die Überlebenschancen der anderen Einwohner nie mehr als 90% betragen (selbst wenn sie alles richtig gemacht haben, bleibt ein Restrisiko...), gilt diese Beschränkung beim Einsiedler nicht! Wenn er sich geschickt anstellt, kann er eine Überlebenschance von 100% erreichen!</source>
+        <target>You also have an advantage when extreme camping: for a normal citizen, the chances of survival are capped at 90% (as for most people there is always an inherent risk of dying at 23h00 (server time)). A Survivalist is unconcerned with "most people": if they take care of business, they have a 100% chance of survival.</target>
+      </segment>
+    </unit>
+    <unit id="xJMePl2" name="f852d46">
+      <notes>
+        <note category="german">Da der Einsiedler psychologisch "ein schwieriger Fall" ist und deutlich soziopathische Tendenzen aufweist, 
+kann er weder Nahrung noch Wasser finden, wenn er sich in Zonen aufhält, die weniger als 4 km von einer Stadt entfernt sind.</note>
+      </notes>
+      <segment>
+        <source>Da der Einsiedler psychologisch "ein schwieriger Fall" ist und deutlich soziopathische Tendenzen aufweist, 
+kann er weder Nahrung noch Wasser finden, wenn er sich in Zonen aufhält, die weniger als 4 km von einer Stadt entfernt sind.</source>
+        <target>The Survivalist, being a cantankerous neurotic with sociopathic tendancies, will only be able to find water or food once they are at a distance of 3km from the town.</target>
+      </segment>
+    </unit>
+    <unit id="_9s0i6Q" name="9655f71">
+      <notes>
+        <note category="german">Der Dompteur wird jederzeit von seinem treuen dreibeinigen Malteser begleitet. (Was gibt es da zu Lachen? Das ist eine äußerst noble Rasse.) Als Dompteur ist er in der Lage, &lt;strong&gt;einen Teil seines Rucksackinhaltes von jeder Zone aus zurück in die Stadt zu senden.&lt;/strong&gt;.</note>
+      </notes>
+      <segment>
+        <source>Der Dompteur wird jederzeit von seinem treuen dreibeinigen Malteser begleitet. (Was gibt es da zu Lachen? Das ist eine äußerst noble Rasse.) Als Dompteur ist er in der Lage, &lt;strong&gt;einen Teil seines Rucksackinhaltes von jeder Zone aus zurück in die Stadt zu senden.&lt;/strong&gt;.</source>
+        <target><![CDATA[Always accompanied by their trusty 3-legged labradoodle (a noble breed, and not even a little bit ridiculous), the Tamer is able to <strong>send some of the contents of their rucksack back to the town from anywhere in the World Beyond</strong>.]]></target>
+      </segment>
+    </unit>
+    <unit id="6nEfpGY" name="Dreibeiniger Malteser">
+      <notes>
+        <note category="german">Dreibeiniger Malteser</note>
+      </notes>
+      <segment>
+        <source>Dreibeiniger Malteser</source>
+        <target>3-legged Labradoodle</target>
+      </segment>
+    </unit>
+    <unit id="AVr9MAl" name="e516e52">
+      <notes>
+        <note category="german">Der kleine kläffende Malteser stinkt nach nassem Fell, humpelt und sabbert ohne Ende. Einmal pro Tag kannst du ihn mit deinem Rucksackinhalt in die Stadt schicken. Dabei spielt es keine Rolle, wo du dich gerade befindest... Dein treuer Begleiter schlägt sich immer durch.</note>
+      </notes>
+      <segment>
+        <source>Der kleine kläffende Malteser stinkt nach nassem Fell, humpelt und sabbert ohne Ende. Einmal pro Tag kannst du ihn mit deinem Rucksackinhalt in die Stadt schicken. Dabei spielt es keine Rolle, wo du dich gerade befindest... Dein treuer Begleiter schlägt sich immer durch.</source>
+        <target>She follows you everywhere, smelling of wet dog, limping and drooling excessively. And she barks. A lot. You can ask her to take the contents of your rucksack back to the town once per day, from no matter where you are in the World Beyond.</target>
+      </segment>
+    </unit>
+    <unit id="KDJYaCc" name="40592c7">
+      <notes>
+        <note category="german">Der Dompteur ist die ideale Figur für Wüstenwanderer: Wenn du in deinem Rucksack wieder etwas Platz brauchst, dann schnall deinen ganzen Plunder der Töle drauf. Dein kleiner dreibeiniger Freund kann auch anderen Expeditionsteilnehmern seine Dienste erweisen.</note>
+      </notes>
+      <segment>
+        <source>Der Dompteur ist die ideale Figur für Wüstenwanderer: Wenn du in deinem Rucksack wieder etwas Platz brauchst, dann schnall deinen ganzen Plunder der Töle drauf. Dein kleiner dreibeiniger Freund kann auch anderen Expeditionsteilnehmern seine Dienste erweisen.</source>
+        <target>An excellent role if you like expeditions to distant zones: if you need space, give all your stuff to your dog. Your fellow travellers will be happy to make the most of it too.</target>
+      </segment>
+    </unit>
+    <unit id="N_8QsJy" name="1dfcb32">
+      <notes>
+        <note category="german">Dein Hund kann keine sperrigen Gegenstände tragen. 
+Du kannst dieses "Manko" allerdings durch Steroide beseitigen... Hör auf zu grinsen, das ist NICHT GUT für seine Gesundheit.</note>
+      </notes>
+      <segment>
+        <source>Dein Hund kann keine sperrigen Gegenstände tragen. 
+Du kannst dieses "Manko" allerdings durch Steroide beseitigen... Hör auf zu grinsen, das ist NICHT GUT für seine Gesundheit.</source>
+        <target>Your dog cannot normally carry heavy objects. However, you can give him some steroids to overcome this limitation... Don't make a face like that, it's probably really good for its health.</target>
+      </segment>
+    </unit>
+    <unit id="e_quqhc" name="ae322d0">
+      <notes>
+        <note category="german">Malteser verfügen über eine ausgesprochen gute Nase und einen ausgeprägten Orientierungssinn. Er kann damit seinem Herrchen die Richtung zeigen, in der ein Eingang zu einer Ruine liegt. Folge dem blauen Blitz!</note>
+      </notes>
+      <segment>
+        <source>Malteser verfügen über eine ausgesprochen gute Nase und einen ausgeprägten Orientierungssinn. Er kann damit seinem Herrchen die Richtung zeigen, in der ein Eingang zu einer Ruine liegt. Folge dem blauen Blitz!</source>
+        <target>The Tamer's faithful labradoodle companion will show their master the way out of the ruins, a blue arrow allows every tamer to never lose their bearings.</target>
+      </segment>
+    </unit>
+    <unit id=".dXyrBS" name="80c7b2d">
+      <notes>
+        <note category="german">Als *Hans Dampf auf jeder Baustelle* kann der Techniker - und zwar nur er - extra Aktionspunkte auf den Baustellen der Stadt einsetzen.</note>
+      </notes>
+      <segment>
+        <source>Als *Hans Dampf auf jeder Baustelle* kann der Techniker - und zwar nur er - extra Aktionspunkte auf den Baustellen der Stadt einsetzen.</source>
+        <target>lways ready to get involved with any construction project, the technician, abandoned alone on a desert island with nothing but a toothpick, could construct an enormous entirely autonomous wheel. So just imagine what technical marvels they could construct with a shiny new DIY kit!</target>
+      </segment>
+    </unit>
+    <unit id="y1Nwhhg" name="Schraubenschlüssel">
+      <notes>
+        <note category="german">Schraubenschlüssel</note>
+      </notes>
+      <segment>
+        <source>Schraubenschlüssel</source>
+        <target>Handyman's Toolbelt</target>
+      </segment>
+    </unit>
+    <unit id="zNdPJiM" name="b1076bd">
+      <notes>
+        <note category="german">Unverzichtbar, um auf den Baustellen der Stadt herumzuwuseln, kann der Schraubenschlüssel auch dazu verwendet werden, verschlossene Türen ganz einfach zu öffnen.</note>
+      </notes>
+      <segment>
+        <source>Unverzichtbar, um auf den Baustellen der Stadt herumzuwuseln, kann der Schraubenschlüssel auch dazu verwendet werden, verschlossene Türen ganz einfach zu öffnen.</source>
+        <target>Unparalleled for smashing construction records, this complete tool kit includes a top-of-the-line adjustable wrench!</target>
+      </segment>
+    </unit>
+    <unit id="EPAYkGB" name="77fd34a">
+      <notes>
+        <note category="german">Dank seines unglaublichen Potentials, ist der Techniker eine große Hilfe beim Bauen &amp;amp; Reparieren von Gebäuden.
+Jeden Tag besitzt er &lt;strong&gt;6%img_bp% Baupunkte&lt;/strong&gt;, mit denen er auch dann noch auf den Baustellen arbeiten kann, wenn andere Bürger schon längst müde sind.
+Um seine Baupunkte einsetzen zu können, muss er jedoch mindestens noch &lt;strong&gt;1%img_ap% Aktionspunkt&lt;/strong&gt; übrig haben. Ansonsten verliert er seine gesamte
+Motivation und kann seine &lt;strong&gt;%img_bp% Baupunkte&lt;/strong&gt; nicht einsetzen.</note>
+      </notes>
+      <segment>
+        <source>Dank seines unglaublichen Potentials, ist der Techniker eine große Hilfe beim Bauen &amp;amp; Reparieren von Gebäuden.
+Jeden Tag besitzt er &lt;strong&gt;6%img_bp% Baupunkte&lt;/strong&gt;, mit denen er auch dann noch auf den Baustellen arbeiten kann, wenn andere Bürger schon längst müde sind.
+Um seine Baupunkte einsetzen zu können, muss er jedoch mindestens noch &lt;strong&gt;1%img_ap% Aktionspunkt&lt;/strong&gt; übrig haben. Ansonsten verliert er seine gesamte
+Motivation und kann seine &lt;strong&gt;%img_bp% Baupunkte&lt;/strong&gt; nicht einsetzen.</source>
+        <target><![CDATA[Thanks to their highly unusual skillset, the technician will be of great help when it comes to delegating tasks at the workshop. Every day, they have <strong>%img_bp% Construction Points</strong> which allow the tech to continue building long after the average citizen is exhausted. However, the tech must always keep <strong>1%img_ap% Action Point</strong> to be able to use them, otherwise the tech will lose all motivation and not be able to use any <strong>%img_bp% Construction Points</strong>.]]></target>
+      </segment>
+    </unit>
+    <unit id=".pjn_lU" name="89c184b">
+      <notes>
+        <note category="german">Der Techniker kann seine Baupunkte auf Baustellen zum Bauen und Reparieren, sowie in der Werkstatt zum Umwandeln von Gegenständen einsetzen.</note>
+      </notes>
+      <segment>
+        <source>Der Techniker kann seine Baupunkte auf Baustellen zum Bauen und Reparieren, sowie in der Werkstatt zum Umwandeln von Gegenständen einsetzen.</source>
+        <target>Technicians can use their Construction Points to repair buildings and transform / refine objects in the workshop.</target>
+      </segment>
+    </unit>
+    <unit id="Du2KItX" name="06fa837">
+      <notes>
+        <note category="german">Er ist daneben eine wertvolle Hilfe in den verlassenen Gebäuden. Mit seinem Talent und seinem Werkzeug zum Öffnen von Türen werdet ihr solche Gebäude einfacher untersuchen können.
+Aus dem Abdruck eines bestimmten Schlosses kann er außerdem einen Einmal-Schlüssel herstellen, mit dem sich ebendiese Tür später öffnen lässt.</note>
+      </notes>
+      <segment>
+        <source>Er ist daneben eine wertvolle Hilfe in den verlassenen Gebäuden. Mit seinem Talent und seinem Werkzeug zum Öffnen von Türen werdet ihr solche Gebäude einfacher untersuchen können.
+Aus dem Abdruck eines bestimmten Schlosses kann er außerdem einen Einmal-Schlüssel herstellen, mit dem sich ebendiese Tür später öffnen lässt.</source>
+        <target>The tech will also be a huge help in abandoned buildings: their talents, combined with the right tools, allows them to take impressions of locks in secured doors. Nonetheless, the impression has to be worked on in town in order to manufacture a temporary key, which allows the tech to open the door in question at a later date.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
