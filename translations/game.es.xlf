@@ -14071,5 +14071,221 @@
         <target>Das Stadttor ist Teil einer Festungsmauer, die den Großteil der Zombies abwehrt. Solltest du vergessen es am Abend zu schließen, kannst du dich auf Qualen einstellen, die deine schlimmsten Alpträume weit übertreffen.</target>
       </segment>
     </unit>
+    <unit id="jImJojV" name="Der Batterienator">
+      <notes>
+        <note category="german">Der Batterienator</note>
+      </notes>
+      <segment>
+        <source>Der Batterienator</source>
+        <target>Der Batterienator</target>
+      </segment>
+    </unit>
+    <unit id="xgCfGsM" name="Ist es ein Vogel? Ist es ein Flugzeug? Nein, es ist der super Batteriewerfer!">
+      <notes>
+        <note category="german">Ist es ein Vogel? Ist es ein Flugzeug? Nein, es ist der super Batteriewerfer!</note>
+      </notes>
+      <segment>
+        <source>Ist es ein Vogel? Ist es ein Flugzeug? Nein, es ist der super Batteriewerfer!</source>
+        <target>Ist es ein Vogel? Ist es ein Flugzeug? Nein, es ist der super Batteriewerfer!</target>
+      </segment>
+    </unit>
+    <unit id="_5jsyrZ" name="Aufgeladen und kampfbereit">
+      <notes>
+        <note category="german">Aufgeladen und kampfbereit</note>
+      </notes>
+      <segment>
+        <source>Aufgeladen und kampfbereit</source>
+        <target>Aufgeladen und kampfbereit</target>
+      </segment>
+    </unit>
+    <unit id="3gGDaMw" name="Hey! Willst du meine... Batterie sehen?">
+      <notes>
+        <note category="german">Hey! Willst du meine... Batterie sehen?</note>
+      </notes>
+      <segment>
+        <source>Hey! Willst du meine... Batterie sehen?</source>
+        <target>Hey! Willst du meine... Batterie sehen?</target>
+      </segment>
+    </unit>
+    <unit id="XLDVSsV" name="Meister der Schlüssel">
+      <notes>
+        <note category="german">Meister der Schlüssel</note>
+      </notes>
+      <segment>
+        <source>Meister der Schlüssel</source>
+        <target>Meister der Schlüssel</target>
+      </segment>
+    </unit>
+    <unit id="gKGzu5i" name="Es war wirklich zu einfach.">
+      <notes>
+        <note category="german">Es war wirklich zu einfach.</note>
+      </notes>
+      <segment>
+        <source>Es war wirklich zu einfach.</source>
+        <target>Es war wirklich zu einfach.</target>
+      </segment>
+    </unit>
+    <unit id="QPcrBd9" name="Ich fresse Nägel und scheiße Kugeln!">
+      <notes>
+        <note category="german">Ich fresse Nägel und scheiße Kugeln!</note>
+      </notes>
+      <segment>
+        <source>Ich fresse Nägel und scheiße Kugeln!</source>
+        <target>Ich fresse Nägel und scheiße Kugeln!</target>
+      </segment>
+    </unit>
+    <unit id="8yrjws." name="Pandämonium? Hah. Einfach.">
+      <notes>
+        <note category="german">Pandämonium? Hah. Einfach.</note>
+      </notes>
+      <segment>
+        <source>Pandämonium? Hah. Einfach.</source>
+        <target>Pandämonium? Hah. Einfach.</target>
+      </segment>
+    </unit>
+    <unit id="RAheQ6X" name="Rauch? Welcher Rauch?">
+      <notes>
+        <note category="german">Rauch? Welcher Rauch?</note>
+      </notes>
+      <segment>
+        <source>Rauch? Welcher Rauch?</source>
+        <target>Rauch? Welcher Rauch?</target>
+      </segment>
+    </unit>
+    <unit id="0yKxX98" name="Leckstopper">
+      <notes>
+        <note category="german">Leckstopper</note>
+      </notes>
+      <segment>
+        <source>Leckstopper</source>
+        <target>Leckstopper</target>
+      </segment>
+    </unit>
+    <unit id="88ZyuY4" name="Licht in der Nacht">
+      <notes>
+        <note category="german">Licht in der Nacht</note>
+      </notes>
+      <segment>
+        <source>Licht in der Nacht</source>
+        <target>Licht in der Nacht</target>
+      </segment>
+    </unit>
+    <unit id="NbdbHur" name="RadioactiveMan">
+      <notes>
+        <note category="german">RadioactiveMan</note>
+      </notes>
+      <segment>
+        <source>RadioactiveMan</source>
+        <target>RadioactiveMan</target>
+      </segment>
+    </unit>
+    <unit id="qU.xq8H" name="Strahlender Bürger">
+      <notes>
+        <note category="german">Strahlender Bürger</note>
+      </notes>
+      <segment>
+        <source>Strahlender Bürger</source>
+        <target>Strahlender Bürger</target>
+      </segment>
+    </unit>
+    <unit id="nGvkh6T" name="Hölle, das esse ich jeden Morgen.">
+      <notes>
+        <note category="german">Hölle, das esse ich jeden Morgen.</note>
+      </notes>
+      <segment>
+        <source>Hölle, das esse ich jeden Morgen.</source>
+        <target>Hölle, das esse ich jeden Morgen.</target>
+      </segment>
+    </unit>
+    <unit id="L0BHZsf" name="Abonnent der Pandämoniumsauna">
+      <notes>
+        <note category="german">Abonnent der Pandämoniumsauna</note>
+      </notes>
+      <segment>
+        <source>Abonnent der Pandämoniumsauna</source>
+        <target>Abonnent der Pandämoniumsauna</target>
+      </segment>
+    </unit>
+    <unit id="eiNhL4c" name="Pandämonium ist meine Liebe!">
+      <notes>
+        <note category="german">Pandämonium ist meine Liebe!</note>
+      </notes>
+      <segment>
+        <source>Pandämonium ist meine Liebe!</source>
+        <target>Pandämonium ist meine Liebe!</target>
+      </segment>
+    </unit>
+    <unit id="rUm7U9a" name="Luzifers Tanzpartner">
+      <notes>
+        <note category="german">Luzifers Tanzpartner</note>
+      </notes>
+      <segment>
+        <source>Luzifers Tanzpartner</source>
+        <target>Luzifers Tanzpartner</target>
+      </segment>
+    </unit>
+    <unit id="ydooU6U" name="Ultimativer Horden-Erkunder">
+      <notes>
+        <note category="german">Ultimativer Horden-Erkunder</note>
+      </notes>
+      <segment>
+        <source>Ultimativer Horden-Erkunder</source>
+        <target>Ultimativer Horden-Erkunder</target>
+      </segment>
+    </unit>
+    <unit id="GPwTxbP" name="Irische Taschen sind prall gefüllt!">
+      <notes>
+        <note category="german">Irische Taschen sind prall gefüllt!</note>
+      </notes>
+      <segment>
+        <source>Irische Taschen sind prall gefüllt!</source>
+        <target>Irische Taschen sind prall gefüllt!</target>
+      </segment>
+    </unit>
+    <unit id=".vLpN2Q" name="Wo ist mein Topf voll Gold, diebische Elster!">
+      <notes>
+        <note category="german">Wo ist mein Topf voll Gold, diebische Elster!</note>
+      </notes>
+      <segment>
+        <source>Wo ist mein Topf voll Gold, diebische Elster!</source>
+        <target>Wo ist mein Topf voll Gold, diebische Elster!</target>
+      </segment>
+    </unit>
+    <unit id="eOQPgcU" name="Dieser Kobold ist unaufhaltbar.">
+      <notes>
+        <note category="german">Dieser Kobold ist unaufhaltbar.</note>
+      </notes>
+      <segment>
+        <source>Dieser Kobold ist unaufhaltbar.</source>
+        <target>Dieser Kobold ist unaufhaltbar.</target>
+      </segment>
+    </unit>
+    <unit id="Spx1xmA" name="Verbrennt ihn! Sieh nach ob seine Asche grün wird!">
+      <notes>
+        <note category="german">Verbrennt ihn! Sieh nach ob seine Asche grün wird!</note>
+      </notes>
+      <segment>
+        <source>Verbrennt ihn! Sieh nach ob seine Asche grün wird!</source>
+        <target>Verbrennt ihn! Sieh nach ob seine Asche grün wird!</target>
+      </segment>
+    </unit>
+    <unit id="HJTFoon" name="Ein Wohnwagen ohne Räder???">
+      <notes>
+        <note category="german">Ein Wohnwagen ohne Räder???</note>
+      </notes>
+      <segment>
+        <source>Ein Wohnwagen ohne Räder???</source>
+        <target>Ein Wohnwagen ohne Räder???</target>
+      </segment>
+    </unit>
+    <unit id="tz9Jwn2" name="d2acf54">
+      <notes>
+        <note category="german">Die Zone ist vollständig mit verrottender Vegetation, Sand und allem möglichen Schrott bedeckt. Du bist dir sicher, dass es hier etwas zu finden gibt, aber zunächst musst du diesen gesamten Sektor aufräumen um ihn vernünftig durchsuchen zu können.</note>
+      </notes>
+      <segment>
+        <source>Die Zone ist vollständig mit verrottender Vegetation, Sand und allem möglichen Schrott bedeckt. Du bist dir sicher, dass es hier etwas zu finden gibt, aber zunächst musst du diesen gesamten Sektor aufräumen um ihn vernünftig durchsuchen zu können.</source>
+        <target>Die Zone ist vollständig mit verrottender Vegetation, Sand und allem möglichen Schrott bedeckt. Du bist dir sicher, dass es hier etwas zu finden gibt, aber zunächst musst du diesen gesamten Sektor aufräumen um ihn vernünftig durchsuchen zu können.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
