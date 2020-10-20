@@ -5,7 +5,9 @@
 {% endblock %}
 
 {# @var forum \App\Entity\Forum #}
-{% macro display_thread_list( list, fid, icon, title, select, jump ) %}
+{# @var permission \App\Structures\ForumPermissionAccessor #}
+
+{% macro display_thread_list( list, fid, icon, title, select, jump, permission ) %}
     <div class="forum-note">
         <b><i class="fa {{ icon }}"></i> {{ title }}</b>
         {% for thread in list %}
@@ -31,29 +33,37 @@
                         {% else %}
                             {{ thread.title }}
                         {% endif %}
+                        {% if permission.moderate and thread.reportedPosts %}
+                            <span class="float-right">
+                                <img alt="" src="{{ asset('build/images/forum/warning.png') }}" />
+                                <div class="tooltip forum-tooltip">
+                                    {{'Mindestens ein Post in diesem Thema wurde den Moderatoren gemeldet.'|trans({}, 'global')}}
+                                </div>
+                            </span>
+                        {% endif %}
                         {% if thread.hasAdminAnnounce %}
-                        <span class="float-right">
-                            <img alt="" src="{{ asset('build/images/forum/adminAnnounce.png') }}" />
-                            <div class="tooltip forum-tooltip">
-                                {{'Dieses Thema enthält offizielle Ansagen der Website Administratoren.'|trans({}, 'global')}}
-                            </div>
-                        </span>
+                            <span class="float-right">
+                                <img alt="" src="{{ asset('build/images/forum/adminAnnounce.png') }}" />
+                                <div class="tooltip forum-tooltip">
+                                    {{'Dieses Thema enthält offizielle Ansagen der Website Administratoren.'|trans({}, 'global')}}
+                                </div>
+                            </span>
                         {% elseif thread.hasOracleAnnounce %}
-                        <span class="float-right">
-                            <img src="{{ asset('build/images/forum/announce.png') }}" />
-                            <div class="tooltip forum-tooltip">
-                                {{'Dieses Thema enthält Ansagen von Community-Vertretern.'|trans({}, 'global')}}
-                            </div>
-                        </span>
+                            <span class="float-right">
+                                <img src="{{ asset('build/images/forum/announce.png') }}" />
+                                <div class="tooltip forum-tooltip">
+                                    {{'Dieses Thema enthält Ansagen von Community-Vertretern.'|trans({}, 'global')}}
+                                </div>
+                            </span>
                         {% endif %}
                     </div>
                 </div>
                 <div class="cell rw-3 right count" style="background:#593223; padding: 5px;">
-                    {% if thread.posts|length > 1 %}
-                        {{ thread.posts|length - 1 }}
+                    {% if thread.visiblePosts|length > 1 %}
+                        {{ thread.visiblePosts|length - 1 }}
                     {% endif %}
                     <br />
-                    {% set last_post = thread.posts|length > 0 ? thread.posts[thread.posts|length-1] : null %}
+                    {% set last_post = thread.lastPost %}
                     {% if last_post and last_post.owner %}
                         {% if last_post.owner.username == 'Der Rabe' %}
                             {{ 'Der Rabe'|trans({},'global') }}
@@ -85,7 +95,7 @@
                         <div class="forum-button-bar">
                             <div x-ajax-href="{{ url('forum_list') }}" class="forum-button"><img src="{{ asset('build/images/forum/back.png') }}" /><div class="tooltip forum-tooltip">{{ 'Zurück'|trans({},'global') }}</div></div>
                             <div x-ajax-href="{{ url('forum_view', {id: forum.id}) }}" class="forum-button"><img src="{{ asset('build/images/forum/refresh.png') }}" /><div class="tooltip forum-tooltip">{{ 'Liste der Themen aktualisieren'|trans({},'global') }}</div></div>
-                            {% if is_granted("ROLE_FORUM_BANNED") %}
+                            {% if is_granted("ROLE_FORUM_BANNED") or not permission.create_thread() %}
                                 <div class="forum-button-disabled" id="banned">{{ 'Neues Thema'|trans({},'global') }}</div>
                             {% else %}
                                 <div x-forum-action="new" class="forum-button" id="new-thread-button"><span>{{ 'Neues Thema'|trans({},'global') }}</span></div>
@@ -93,12 +103,29 @@
                         </div>
                     </div>
                     <br />
-                    {% if pinned_threads %}
-                        {{ _self.display_thread_list(pinned_threads, forum.id, 'fa-thumbtack', 'Sticky'|trans({}, 'global'), select, jump) }}
+                    {% if forum.description is not empty %}
+                        <div class="forum-control">
+                            <div class="quote">
+                                <i class="fa fa-quote-left"></i><span>{{ forum.description }}</span><i class="fa fa-quote-right"></i>
+                            </div>
+                        </div>
                         <br />
                     {% endif %}
 
-                    {{ _self.display_thread_list(threads, forum.id, 'fa-scroll', forum.title, select, jump) }}
+                    {% if permission.only_mod_access %}
+                        <div class="forum-control">
+                            <b><i class="fa fa-exclamation"></i> {{ 'Moderation'|trans({},'global') }}</b>
+                            <div class="pad">{{ 'Du moderierst dieses Forum, verfügst aber nicht über Leserechte. Es werden dir nur Threads angezeigt, in denen mindestens ein Post gemeldet wurde.' }}</div>
+                        </div>
+                        <br />
+                    {% endif %}
+
+                    {% if pinned_threads %}
+                        {{ _self.display_thread_list(pinned_threads, forum.id, 'fa-thumbtack', 'Sticky'|trans({}, 'global'), select, jump, permission) }}
+                        <br />
+                    {% endif %}
+
+                    {{ _self.display_thread_list(threads, forum.id, 'fa-scroll', forum.title, select, jump, permission) }}
                     {% if pages > 1 %}
                         <div class="row">
                             <div class="cell rw-12 padded center">
@@ -147,7 +174,7 @@
             return editor;
         }
 
-        {% if not is_granted("ROLE_FORUM_BANNED") %}
+        {% if not is_granted("ROLE_FORUM_BANNED") and permission.create_thread() %}
             let new_post_btns = document.querySelectorAll('[x-forum-action=new]');
             for (let i = 0; i < new_post_btns.length; i++)
                 new_post_btns[i].addEventListener('click', function() {

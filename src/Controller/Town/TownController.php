@@ -23,6 +23,7 @@ use App\Entity\User;
 use App\Entity\ZombieEstimation;
 use App\Entity\Zone;
 use App\Service\BankAntiAbuseService;
+use App\Service\ConfMaster;
 use App\Structures\TownConf;
 use App\Translation\T;
 use App\Response\AjaxResponse;
@@ -1209,7 +1210,7 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
             return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
         if ($action === 'open'  && $town->getDoor())
             return AjaxResponse::error( self::ErrorDoorAlreadyOpen );
-        if ($action === 'open'  && $this->door_is_locked($th))
+        if ($action === 'open'  && $this->door_is_locked($th, $this->conf))
             return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
         if ($action === 'close' && !$town->getDoor())
             return AjaxResponse::error( self::ErrorDoorAlreadyClosed );
@@ -1278,10 +1279,13 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
         return AjaxResponse::success();
     }
 
-    private function door_is_locked(TownHandler $th): bool {
+    private function door_is_locked(TownHandler $th, ConfMaster $conf): bool {
         $town = $this->getActiveCitizen()->getTown();
+
         if ( !$town->getDoor() ) {
-            if($town->getType()->getName() === 'custom' && $town->isOpen()) return true;
+
+            if ($town->isOpen() && $conf->getTownConfiguration($town)->get(TownConf::CONF_LOCK_UNTIL_FULL, false) ) return true;
+
             if((($s = $this->time_keeper->secondsUntilNextAttack(null, true)) <= 1800)) {
                 if ($th->getBuilding( $town, 'small_door_closed_#02', true )) {
                     if ($s <= 60) return true;
@@ -1303,7 +1307,7 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
     public function door(TownHandler $th): Response
     {
 
-        $door_locked = $this->door_is_locked($th);
+        $door_locked = $this->door_is_locked($th,$this->conf);
         $can_go_out = !$this->citizen_handler->hasStatusEffect($this->getActiveCitizen(), 'tired') && $this->getActiveCitizen()->getAp() > 0;
 
         $town = $this->getActiveCitizen()->getTown();

@@ -33,7 +33,7 @@ class AdminDeletion
     private $reason;
 
     /**
-     * @ORM\OneToOne(targetEntity="App\Entity\Post", inversedBy="_adminDeletion", cascade={"persist"})
+     * @ORM\OneToOne(targetEntity="App\Entity\Post", inversedBy="adminDeletion", cascade={"persist"})
      * @ORM\JoinColumn(nullable=false)
      */
     private $post;

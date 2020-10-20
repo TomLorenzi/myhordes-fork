@@ -115,7 +115,7 @@
                                 <div class="ghoul-hunger-indicator" style="left: 40%"></div>
                             </div>
                             {% if hunger > 40 %}
-                                <div class="ghoul-message">{{"Du wirst heute Nacht sterben!"|trans({}, 'game')}}</div>
+                                <div class="ghoul-message"><img src="{{ asset('build/images/icons/small_warning.gif') }}" alt="/!\"> {{"Du wirst heute Nacht sterben!"|trans({}, 'game')}}</div>
                             {% endif %}
                         {% endif %}
                         <div class="tooltip">

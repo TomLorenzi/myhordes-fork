@@ -1,7 +1,7 @@
 <?php
 
 
-namespace App\Command;
+namespace App\Command\User;
 
 
 use App\Entity\Citizen;
@@ -18,7 +18,7 @@ use Symfony\Component\Console\Question\Question;
 
 class UserCreateCommand extends Command
 {
-    protected static $defaultName = 'app:create-user';
+    protected static $defaultName = 'app:user:create';
 
     private $entityManager;
     private $userFactory;

@@ -1,7 +1,10 @@
 parameters:
   rules:
     default:
-      allow_local_conf: false
+      allow_local_conf: true
+
+      open_town_limit: -1
+      lock_door_until_full: false
 
       well:       { min: 90, max: 180 }
       map:        { min: 25, max:  27 }
@@ -42,6 +45,7 @@ parameters:
 
       initial_chest: ['beta_drug_#00']
       distribute_items: ['bplan_box_e_#00', 'bplan_box_e_#00', 'bplan_box_#00', 'bplan_box_#00', 'bplan_box_#00', 'bplan_box_#00', 'bplan_box_#00', 'firework_powder_#00','firework_tube_#00','firework_box_#00']
+      instant_pictos: ['r_rp_#00', 'r_sandb_#00', 'r_ban_#00', 'r_theft_#00', 'r_collec_#00']
 
       distribution_distance:
         - item: 'bplan_box_e_#00'
@@ -61,7 +65,7 @@ parameters:
           max: 15
 
       modifiers:
-        watchtower_estimation_threshold: 0
+        watchtower_estimation_threshold: 33
         allow_redig: false
         assemble_items_from_floor: false
         preview_item_assemblage: false
@@ -77,6 +81,12 @@ parameters:
         carry_extra_bag: false
         meaty_bones_within_town: false
         building_attack_damage: false
+        camping:
+          default_bonus: 0
+          map: 'normal'
+        red_soul_max_factor: 1.2
+        wind_distance: 2
+        strict_picto_distribution: false
 
       features:
         camping: true
@@ -85,7 +95,7 @@ parameters:
           enabled: true
           max: 4
         nightmode: true
-        shaman: normal
+        shaman: 'normal'
         xml_feed: true
         ghoul_mode: normal
         all_poison: false
@@ -95,9 +105,10 @@ parameters:
           enabled: true
           instant: false
         improveddump: true
-        attacks: normal
+        attacks: 'normal'
         give_all_pictos: true
         give_soulpoints: true
+        last_death: 'r_surlst_#00'
 
       disabled_jobs: ['shaman']
       disabled_buildings: []
@@ -116,14 +127,19 @@ parameters:
       distribution_distance:
         replace: []
 
+      instant_pictos:
+        merge: ['r_guide_#00', 'r_guard_#00']
+
       modifiers:
         watchtower_estimation_threshold: 0
         citizen_attack:
           protection: true
+        wind_distance: -1
+        strict_picto_distribution: true
 
 
       features:
-        shaman: false
+        shaman: 'none'
 
     remote:
 
@@ -137,6 +153,13 @@ parameters:
         citizen_attack:
           ap: 4
           injury: 0.6
+        camping:
+          default_bonus: -14
+          map: 'hard'
+        red_soul_max_factor: 666
+
+      features:
+        last_death: 'r_suhard_#00'
 
       explorable_ruins: 2
 
@@ -149,4 +172,7 @@ parameters:
         max_distance: 100
 
     custom:
-      allow_local_conf: true
+      open_town_limit: 2
+      lock_door_until_full: true
+      give_all_pictos: false
+      give_soulpoints: false

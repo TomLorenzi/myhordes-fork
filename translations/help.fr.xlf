@@ -19,15 +19,6 @@
         <target>Consultez le site du support technique</target>
       </segment>
     </unit>
-    <unit id="OBNp2gg" name="Die Verdammten ?">
-      <notes>
-        <note category="german">Die Verdammten ?</note>
-      </notes>
-      <segment>
-        <source>Die Verdammten ?</source>
-        <target>Principe du jeu</target>
-      </segment>
-    </unit>
     <unit id="FvwX8Vo" name="Die Außenwelt">
       <notes>
         <note category="german">Die Außenwelt</note>
@@ -178,7 +169,7 @@
       </notes>
       <segment>
         <source>Der Tod und deine Seelenpunkte</source>
-        <target>La mort des les Points d'âme</target>
+        <target>La mort et les Points d'âme</target>
       </segment>
     </unit>
     <unit id="2I8uzty" name="Der letzte Tod">
@@ -210,7 +201,7 @@
     </unit>
     <unit id="Ln3k6NJ" name="Haus &amp;amp; Hausarbeiten">
       <notes>
-        <note category="german">Haus &amp;amp; Hausarbeiten</note>
+        <note category="german">Haus und Hausarbeiten</note>
       </notes>
       <segment>
         <source>Haus &amp;amp; Hausarbeiten</source>
@@ -568,15 +559,6 @@
         <target>Guide de jeu</target>
       </segment>
     </unit>
-    <unit id="smQglTK" name="5c55efb">
-      <notes>
-        <note category="german">'Die Verdammten' ist ein Survivalspiel, das in einer postapokalyptischen Welt voller Untoter spielt.</note>
-      </notes>
-      <segment>
-        <source>'Die Verdammten' ist ein Survivalspiel, das in einer postapokalyptischen Welt voller Untoter spielt.</source>
-        <target>MyHordes est un jeu de survie dans un monde hostile peuplé de zombies.</target>
-      </segment>
-    </unit>
     <unit id="fEPcQJL" name="794eff7">
       <notes>
         <note category="german">Die Spieler (auch "Bürger" genannt) leben in kleinen Städten und müssen sich jeden Tag aufs Neue organisieren und eine Strategie finden, um die nächtlichen Zombieangriffe erfolgreich abzuwehren. Je länger sie dabei überleben, desto mehr Punkte können sie sammeln. &lt;strong&gt;Der Tod ist ein fester Bestandteil des Spiels. Alle Stadteinwohner wissen vom ersten Tag an, dass sie sterben werden. Die Frage ist nur wie und wann... &lt;/strong&gt;. Als ob das nicht genug wäre, sind die Spieler dazu verdammt, nach ihrem Tod in einer anderen Stadt wiedergeboren zu werden und das Spiel beginnt wieder von vorn...</note>
@@ -728,24 +710,6 @@
       <segment>
         <source>Wähle das Gebäude aus, welches die Stadt als nächstes bauen soll.</source>
         <target>choisissez le prochain bâtiment à construire en ville.</target>
-      </segment>
-    </unit>
-    <unit id="p0DbdQX" name="Get active on the town forum">
-      <notes>
-        <note category="german">Get active on the town forum</note>
-      </notes>
-      <segment>
-        <source>Get active on the town forum</source>
-        <target>Participer au forum de la ville</target>
-      </segment>
-    </unit>
-    <unit id="nAx3MXx" name="organise yourselves and survive.">
-      <notes>
-        <note category="german">organise yourselves and survive.</note>
-      </notes>
-      <segment>
-        <source>organise yourselves and survive.</source>
-        <target>organisez-vous pour survivre.</target>
       </segment>
     </unit>
     <unit id="HhS980w" name="Weiter">
@@ -1384,7 +1348,7 @@ Pro Zug wird dir 1 Aktionspunkt abgezogen. Bei 0 Punkten bist du %img_tired% &lt
       </notes>
       <segment>
         <source>'MyHordes' ist ein Survivalspiel, das in einer postapokalyptischen Welt voller Untoter spielt.</source>
-        <target>MyHordes est un jeu de survie dans un monde hostile peuplé de zombies.</target>
+        <target>'MyHordes' est un jeu de survie dans un monde hostile peuplé de zombies.</target>
       </segment>
     </unit>
     <unit id="uVaZ_gl" name="Beteilige dich im Forum">
@@ -1673,6 +1637,2173 @@ Pro Zug wird dir 1 Aktionspunkt abgezogen. Bei 0 Punkten bist du %img_tired% &lt
       <segment>
         <source>Camper haben eine bessere Chance, ein Versteck zu finden.</source>
         <target>les campeurs ont de meilleures chances de trouver un endroit où se cacher,</target>
+      </segment>
+    </unit>
+    <unit id="gxWuOUR" name="fba6242">
+      <notes>
+        <note category="german">Im Laufe deines Spielerlebens wirst du in MyHordes zahlreiche Gegenstände in der Wüste finden, beim Bau verschiedener Gebäude mithelfen, dir Krankheiten einfangen und auch Drogen konsumieren...</note>
+      </notes>
+      <segment>
+        <source>Im Laufe deines Spielerlebens wirst du in MyHordes zahlreiche Gegenstände in der Wüste finden, beim Bau verschiedener Gebäude mithelfen, dir Krankheiten einfangen und auch Drogen konsumieren...</source>
+        <target>Au cours de votre vie dans MyHordes, vous accumulerez des trouvailles ramassées dans le désert, vous construirez des bâtiments, attraperez des maladies, consommerez des drogues...</target>
+      </segment>
+    </unit>
+    <unit id="Qo0UDUa" name="9c0157d">
+      <notes>
+        <note category="german">Damit du immer die richtigen Entscheidungen triffst, ist es wichtig, die Übersicht zu behalten.</note>
+      </notes>
+      <segment>
+        <source>Damit du immer die richtigen Entscheidungen triffst, ist es wichtig, die Übersicht zu behalten.</source>
+        <target>Il faut toujours garder un œil sur votre situation pour faire les meilleurs choix.</target>
+      </segment>
+    </unit>
+    <unit id="8OTtw8S" name="7be03fa">
+      <notes>
+        <note category="german">Wildes Campen ist eine etwas gewagte, aber erfolgreiche Spielweise, die darin besteht, sich beim Angriff um Mitternacht draußen zu verstecken.</note>
+      </notes>
+      <segment>
+        <source>Wildes Campen ist eine etwas gewagte, aber erfolgreiche Spielweise, die darin besteht, sich beim Angriff um Mitternacht draußen zu verstecken.</source>
+        <target>Le camping sauvage est une technique quelque peu risquée mais payante consistant à se cacher dehors lors de l'attaque de minuit.</target>
+      </segment>
+    </unit>
+    <unit id="a8U92l3" name="bb1556b">
+      <notes>
+        <note category="german">Ihr geht dabei folgendermaßen vor: Ihr sucht euch ein passendes Versteck und dann kneift ihr die Arschbacken zusammen und betet, dass die Nacht schnell vorbei ist.</note>
+      </notes>
+      <segment>
+        <source>Ihr geht dabei folgendermaßen vor: Ihr sucht euch ein passendes Versteck und dann kneift ihr die Arschbacken zusammen und betet, dass die Nacht schnell vorbei ist.</source>
+        <target>Son fonctionnement est simple : vous vous trouvez une planque raisonnable dans l'Outre-Monde puis vous serrez les fesses en attendant que ça passe.</target>
+      </segment>
+    </unit>
+    <unit id=".4GI52S" name="Aus dieser Spielweise ergeben sich mehrere Vorteile:">
+      <notes>
+        <note category="german">Aus dieser Spielweise ergeben sich mehrere Vorteile:</note>
+      </notes>
+      <segment>
+        <source>Aus dieser Spielweise ergeben sich mehrere Vorteile:</source>
+        <target>Cette technique offre plusieurs avantages :</target>
+      </segment>
+    </unit>
+    <unit id="cWBqfQ." name="0734aa3">
+      <notes>
+        <note category="german">&lt;strong&gt;Du bist imstande zu überleben, wenn das Stadttor mal wieder vor deiner Nase geschlossen wurde&lt;/strong&gt;: Das kommt öfters vor als du denkst!
+Wenn du überlebst, kannst du bei deiner Rückkehr deinen Freunden mitteilen, wie sehr du ihren kleinen Scherz genossen hast...</note>
+      </notes>
+      <segment>
+        <source>&lt;strong&gt;Du bist imstande zu überleben, wenn das Stadttor mal wieder vor deiner Nase geschlossen wurde&lt;/strong&gt;: Das kommt öfters vor als du denkst!
+Wenn du überlebst, kannst du bei deiner Rückkehr deinen Freunden mitteilen, wie sehr du ihren kleinen Scherz genossen hast...</source>
+        <target><![CDATA[<strong>survivre si les portes de la ville vous ont été fermées</strong> : ça arrive ! Vous pourrez faire comprendre à vos anciens petits camarades à quel point vous avez apprécié la bonne blague, si vous survivez.]]></target>
+      </segment>
+    </unit>
+    <unit id="t8doMhI" name="fe0bae5">
+      <notes>
+        <note category="german">&lt;strong&gt;Du kannst ausgedehnte Expeditionen unternehmen&lt;/strong&gt;. Lange Erkundungsmärsche können auf zwei oder mehr Tage verteilt werden!</note>
+      </notes>
+      <segment>
+        <source>&lt;strong&gt;Du kannst ausgedehnte Expeditionen unternehmen&lt;/strong&gt;. Lange Erkundungsmärsche können auf zwei oder mehr Tage verteilt werden!</source>
+        <target><![CDATA[<strong>mener une expédition lointaine</strong> : vous pouvez découper une expédition longue en 2 journées, voire plus !]]></target>
+      </segment>
+    </unit>
+    <unit id="i1Wu8tt" name="ba74249">
+      <notes>
+        <note category="german">&lt;strong&gt;Du erhältst einen Bonus für alle deine Grabungsaktionen&lt;/strong&gt;: Wenn du beim Zombieangriff draußen bist, erhältst du am nächsten Tag beim Graben einen Bonus (deine Wahrscheinlichkeit etwas zu finden steigt).
+Der Grund dafür ist, dass du über Nacht die Wüstenwinde und Dünenverschiebungen besser studieren konntest (ja, ja!).</note>
+      </notes>
+      <segment>
+        <source>&lt;strong&gt;Du erhältst einen Bonus für alle deine Grabungsaktionen&lt;/strong&gt;: Wenn du beim Zombieangriff draußen bist, erhältst du am nächsten Tag beim Graben einen Bonus (deine Wahrscheinlichkeit etwas zu finden steigt).
+Der Grund dafür ist, dass du über Nacht die Wüstenwinde und Dünenverschiebungen besser studieren konntest (ja, ja!).</source>
+        <target><![CDATA[<strong>bénéficier d'un bonus aux fouilles</strong> : si vous êtes dehors lors des tempêtes nocturnes, vous recevez un bonus pour la journée suivante à toutes vos fouilles (chances de trouver quelque chose). Vous avez en effet pu mettre à profit votre situation pour observer les vents, les mouvements des dunes, et ainsi repérer des coins intéressants à fouiller.]]></target>
+      </segment>
+    </unit>
+    <unit id="VVo2ZSG" name="ba71709">
+      <notes>
+        <note category="german">&lt;strong&gt;Eine Auszeichnung&lt;/strong&gt;: Nicht jeder, der draußen überlebt, erhält eine Auszeichnung!</note>
+      </notes>
+      <segment>
+        <source>&lt;strong&gt;Eine Auszeichnung&lt;/strong&gt;: Nicht jeder, der draußen überlebt, erhält eine Auszeichnung!</source>
+        <target><![CDATA[<strong>une distinction</strong> : ce n'est pas donné à tout le monde de survivre dehors !]]></target>
+      </segment>
+    </unit>
+    <unit id="_cYKNb9" name="79cb454">
+      <notes>
+        <note category="german">&lt;strong&gt;Du erhältst eine seltene Auszeichnung&lt;/strong&gt;: Für jede Nacht, die du draußen überlebst während die Stadt schon zerstört ist, 
+bekommst du zusätzlich eine seltene Auszeichnung (lies dazu auch den folgenden Abschnitt: &lt;i&gt;"Auszeichnung: Camper im Jenseits"&lt;/i&gt;).</note>
+      </notes>
+      <segment>
+        <source>&lt;strong&gt;Du erhältst eine seltene Auszeichnung&lt;/strong&gt;: Für jede Nacht, die du draußen überlebst während die Stadt schon zerstört ist, 
+bekommst du zusätzlich eine seltene Auszeichnung (lies dazu auch den folgenden Abschnitt: &lt;i&gt;"Auszeichnung: Camper im Jenseits"&lt;/i&gt;).</source>
+        <target><![CDATA[<strong>une autre distinction rare</strong> : pour chaque nuit survécue alors que la ville a été dévastée, vous recevrez, en plus, une autre distinction rare spéciale (voir le chapitre ci-dessous : <i>"Distinction : Campeur de l'au-delà"</i>).]]></target>
+      </segment>
+    </unit>
+    <unit id="sMhdxRS" name="Wie kann ich draußen campen?">
+      <notes>
+        <note category="german">Wie kann ich draußen campen?</note>
+      </notes>
+      <segment>
+        <source>Wie kann ich draußen campen?</source>
+        <target>Comment camper ?</target>
+      </segment>
+    </unit>
+    <unit id="Gg6bH7K" name="a40b212">
+      <notes>
+        <note category="german">Klicke auf den Link &lt;strong&gt;Umgebung untersuchen&lt;/strong&gt;. Du kannst anschließend mehrere Aktionen ausführen:</note>
+      </notes>
+      <segment>
+        <source>Klicke auf den Link &lt;strong&gt;Umgebung untersuchen&lt;/strong&gt;. Du kannst anschließend mehrere Aktionen ausführen:</source>
+        <target><![CDATA[Vous disposez d'un lien <strong>Inspecter les environs</strong> débouchant sur plusieurs actions :]]></target>
+      </segment>
+    </unit>
+    <unit id="FCBsJmN" name="ac94a20">
+      <notes>
+        <note category="german">&lt;strong&gt;Ein Versteck vorbereiten&lt;/strong&gt;: Du suchst dir ein paar Steintrümmer, ein paar verdörrte Baumzweige und gräbst ein Loch, um in der Nacht nicht von den Zombies entdeckt zu werden. Jeder Versteckausbau erhöht deine Überlebenschance in dieser Zone &lt;i&gt;ein wenig&lt;/i&gt;.
+&lt;strong&gt;Alle überlebenden Bürger, die sich in der betreffenden Zone befinden, ziehen einen Vorteil von Versteckausbauten. Außerdem gilt der Bonus der Ausbauten auch für alle folgenden Tage. Allerdings wird jede Nacht ein Teil dieser Ausbauten von den Zombies beschädigt.&lt;/strong&gt;</note>
+      </notes>
+      <segment>
+        <source>&lt;strong&gt;Ein Versteck vorbereiten&lt;/strong&gt;: Du suchst dir ein paar Steintrümmer, ein paar verdörrte Baumzweige und gräbst ein Loch, um in der Nacht nicht von den Zombies entdeckt zu werden. Jeder Versteckausbau erhöht deine Überlebenschance in dieser Zone &lt;i&gt;ein wenig&lt;/i&gt;.
+&lt;strong&gt;Alle überlebenden Bürger, die sich in der betreffenden Zone befinden, ziehen einen Vorteil von Versteckausbauten. Außerdem gilt der Bonus der Ausbauten auch für alle folgenden Tage. Allerdings wird jede Nacht ein Teil dieser Ausbauten von den Zombies beschädigt.&lt;/strong&gt;</source>
+        <target><![CDATA[<strong>améliorer le campement</strong> : vous déplacez des débris, des branches mortes, creusez des trous pour augmenter <i>légèrement</i> vos chances de survivre ici en prévision d'un camping le soir même.
+<strong>Ces améliorations profitent à tous les citoyens présents dans la zone et restent pour les jours suivants. Toutefois, une partie des améliorations est perdue à minuit, chaque soir (endommagée par les zombies).</strong>]]></target>
+      </segment>
+    </unit>
+    <unit id="BX84.Qk" name="d7b4cf1">
+      <notes>
+        <note category="german">&lt;strong&gt;Verstecken&lt;/strong&gt;: Du legst dich auf die Lauer und kannst während dieser Zeit nichts anderes mehr machen. Wenn du wieder eine Aktion ausführen möchtest, musst du aus deinem Versteck hervorkriechen.</note>
+      </notes>
+      <segment>
+        <source>&lt;strong&gt;Verstecken&lt;/strong&gt;: Du legst dich auf die Lauer und kannst während dieser Zeit nichts anderes mehr machen. Wenn du wieder eine Aktion ausführen möchtest, musst du aus deinem Versteck hervorkriechen.</source>
+        <target><![CDATA[<strong>se cacher</strong> : vous vous installez. Vous ne pouvez plus rien faire, sauf si vous quittez votre planque.]]></target>
+      </segment>
+    </unit>
+    <unit id="2CR0YgI" name="07b43cb">
+      <notes>
+        <note category="german">&lt;strong&gt;Ein "Grab" schaufeln&lt;/strong&gt;: Du gräbst ein Loch und bedeckst dich mit allem, was du in deiner unmittelbaren Umgebung auftreiben kannst. Diese Aktion verleiht dir einen größeren Bonus als die Verbesserung deines Campingplatzes. Allerdings kannst du dich danach nicht mehr bewegen. Du verlierst diesen Bonus, wenn du aus deinem Versteck hervorkriechst.</note>
+      </notes>
+      <segment>
+        <source>&lt;strong&gt;Ein "Grab" schaufeln&lt;/strong&gt;: Du gräbst ein Loch und bedeckst dich mit allem, was du in deiner unmittelbaren Umgebung auftreiben kannst. Diese Aktion verleiht dir einen größeren Bonus als die Verbesserung deines Campingplatzes. Allerdings kannst du dich danach nicht mehr bewegen. Du verlierst diesen Bonus, wenn du aus deinem Versteck hervorkriechst.</source>
+        <target><![CDATA[<strong>creuser une tombe</strong> : vous vous enterrez tant bien que mal en vous recouvrant de tout ce qui traîne dans le coin. Cette action octroie un bonus plus important que l'amélioration du campement, mais vous êtes immédiatement caché(e) et vous perdez ce bonus si vous quittez votre cachette.]]></target>
+      </segment>
+    </unit>
+    <unit id="kWTiIOz" name="e476432">
+      <notes>
+        <note category="german">&lt;strong&gt;Verteidigungsgegenstände gebrauchen&lt;/strong&gt;: Mit manchen Gegenständen kannst du deinen Campingplatz erheblich verbessern. Der Gebrauch dieser Gegenstände verbraucht allerdings 1 %img_ap%.</note>
+      </notes>
+      <segment>
+        <source>&lt;strong&gt;Verteidigungsgegenstände gebrauchen&lt;/strong&gt;: Mit manchen Gegenständen kannst du deinen Campingplatz erheblich verbessern. Der Gebrauch dieser Gegenstände verbraucht allerdings 1 %img_ap%.</source>
+        <target><![CDATA[<strong>utiliser des objets de défense</strong> : certains objets permettent d'améliorer significativement le campement. L'utilisation de tels objets nécessite 1 %img_ap%.]]></target>
+      </segment>
+    </unit>
+    <unit id="A3wujEo" name="a6858a6">
+      <notes>
+        <note category="german">Es gibt andere Möglichkeiten, deine Überlebenschancen beim Campen in Bezug auf Berufe, Objekte und Gebiete zu erhöhen. Es liegt an dir das herauszufinden.</note>
+      </notes>
+      <segment>
+        <source>Es gibt andere Möglichkeiten, deine Überlebenschancen beim Campen in Bezug auf Berufe, Objekte und Gebiete zu erhöhen. Es liegt an dir das herauszufinden.</source>
+        <target>il existe d'autres méthodes pour augmenter vos chances de survie en camping liées aux métiers, aux objets et aux chantiers à vous de les découvrir.</target>
+      </segment>
+    </unit>
+    <unit id="qQ6FYAf" name="77120ab">
+      <notes>
+        <note category="german">&lt;strong&gt;Unmittelbar vor dem Stadttor kannst du nicht campen, denn das ist zu gefährlich.&lt;/strong&gt; Die Zombiehorde würde dich überrennen. Such dir einen besseren Platz aus.</note>
+      </notes>
+      <segment>
+        <source>&lt;strong&gt;Unmittelbar vor dem Stadttor kannst du nicht campen, denn das ist zu gefährlich.&lt;/strong&gt; Die Zombiehorde würde dich überrennen. Such dir einen besseren Platz aus.</source>
+        <target><![CDATA[<strong>Il est impossible de camper aux portes de la ville.</strong> En effet, c'est dans ce secteur qu'arriveront tous les zombies à minuit : par définition, c'est donc le pire choix pour camper.]]></target>
+      </segment>
+    </unit>
+    <unit id="hGPfqUo" name="5c39619">
+      <notes>
+        <note category="german">Wie gut dein Versteck auch sein mag, deine Überlebenschancen sind begrenzt. Ein (kleines) Restrisiko besteht immer! Deine Überlebenschancen hängen von zahlreichen Faktoren ab: Gegenstände, Anzahl der Verbesserungsarbeiten, Grab etc... Ab einer bestimmten Stufe, kann die Überlebenschance nicht weiter erhöht werden.</note>
+      </notes>
+      <segment>
+        <source>Wie gut dein Versteck auch sein mag, deine Überlebenschancen sind begrenzt. Ein (kleines) Restrisiko besteht immer! Deine Überlebenschancen hängen von zahlreichen Faktoren ab: Gegenstände, Anzahl der Verbesserungsarbeiten, Grab etc... Ab einer bestimmten Stufe, kann die Überlebenschance nicht weiter erhöht werden.</source>
+        <target>Les chances supplémentaires apportées par toutes les améliorations manuelles de campement sont plafonnées (objets, amélioration mineure et creuser une tombe). Passé un certain seuil, il devient inutile de les utiliser plus pour augmenter vos chances de survie.</target>
+      </segment>
+    </unit>
+    <unit id="lOUtB9j" name="Wie hoch sind meine Überlebenschancen?">
+      <notes>
+        <note category="german">Wie hoch sind meine Überlebenschancen?</note>
+      </notes>
+      <segment>
+        <source>Wie hoch sind meine Überlebenschancen?</source>
+        <target>Quelles sont mes chances de survivre dehors ?</target>
+      </segment>
+    </unit>
+    <unit id="moEXpA8" name="1ee9475">
+      <notes>
+        <note category="german">Deine Überlebenschancen werden &lt;strong&gt;zu dem Zeitpunkt berechnet, an dem du auf "&lt;i&gt;Verstecken&lt;/i&gt;" oder ein "&lt;i&gt;'Grab' schaufeln&lt;/i&gt;"&lt;/strong&gt; klickst. Eine spätere Änderung der Situation wirkt sich nicht auf deine Überlebenschance aus. Zum Beispiel:</note>
+      </notes>
+      <segment>
+        <source>Deine Überlebenschancen werden &lt;strong&gt;zu dem Zeitpunkt berechnet, an dem du auf "&lt;i&gt;Verstecken&lt;/i&gt;" oder ein "&lt;i&gt;'Grab' schaufeln&lt;/i&gt;"&lt;/strong&gt; klickst. Eine spätere Änderung der Situation wirkt sich nicht auf deine Überlebenschance aus. Zum Beispiel:</source>
+        <target><![CDATA[Vos chances de survie sont évaluées <strong>au moment où vous utilisez l'action "<i>se cacher</i>" ou "<i>creuser une tombe</i>"</strong>. Si la situation de la zone devait évoluer par la suite, vos chances de survie ne seraient pas altérées. Par exemple :]]></target>
+      </segment>
+    </unit>
+    <unit id="O7aoiYZ" name="e7830d9">
+      <notes>
+        <note category="german">Du hast beschlossen, dich in einer Zone zu verstecken, in der 6 Zombies rumlungern (du erhälst dafür einen Malus).
+Zu einem späteren Zeitpunkt kommt ein anderer Bürger vorbeigestapft und bringt alle Untoten um. Dies wirkt sich nicht auf deine Überlebenschancen aus. Als du dich entschieden hattest, in besagter Zone dein Versteck zu bauen, hast du mit den aktuellen Gegebenheiten gerechnet (die Zone war voller Zombies). Wenn du in den Genuss der neuen Ausgangslage kommen möchtest (alle Zombies sind tot), musst du dein Versteck verlassen und dich erneut verstecken.</note>
+      </notes>
+      <segment>
+        <source>Du hast beschlossen, dich in einer Zone zu verstecken, in der 6 Zombies rumlungern (du erhälst dafür einen Malus).
+Zu einem späteren Zeitpunkt kommt ein anderer Bürger vorbeigestapft und bringt alle Untoten um. Dies wirkt sich nicht auf deine Überlebenschancen aus. Als du dich entschieden hattest, in besagter Zone dein Versteck zu bauen, hast du mit den aktuellen Gegebenheiten gerechnet (die Zone war voller Zombies). Wenn du in den Genuss der neuen Ausgangslage kommen möchtest (alle Zombies sind tot), musst du dein Versteck verlassen und dich erneut verstecken.</source>
+        <target>Vous décidez de vous cacher dans une zone comportant 6 zombies (vous subissez une pénalité aux chances de survie). Un citoyen arrive après vous et tue tous les zombies. Vos chances de survie ne s'en trouveront pas améliorées. En effet, vous avez dû choisir votre cachette avec les contraintes du moment (entouré(e) de zombies). Pour profiter de la nouvelle situation, vous devez quitter votre trou et vous cacher à nouveau.</target>
+      </segment>
+    </unit>
+    <unit id="EoQj_AI" name="Deine Überlebenschancen hängen von zahlreichen Faktoren ab:">
+      <notes>
+        <note category="german">Deine Überlebenschancen hängen von zahlreichen Faktoren ab:</note>
+      </notes>
+      <segment>
+        <source>Deine Überlebenschancen hängen von zahlreichen Faktoren ab:</source>
+        <target>Vos chances de survie dépendent de nombreux facteurs :</target>
+      </segment>
+    </unit>
+    <unit id="xpSubH2" name="9eb5825">
+      <notes>
+        <note category="german">Anzahl der Zombies in der Umgebung (dieser Nachteil wird etwas abgemildert, wenn du als Aufklärer spielst und deine Tarnkleidung anhast).</note>
+      </notes>
+      <segment>
+        <source>Anzahl der Zombies in der Umgebung (dieser Nachteil wird etwas abgemildert, wenn du als Aufklärer spielst und deine Tarnkleidung anhast).</source>
+        <target>présence de zombies dans les environs (pénalité, qui peut être réduite si vous êtes un éclaireur et camouflé),</target>
+      </segment>
+    </unit>
+    <unit id="lOEPC3J" name="9a2aa6c">
+      <notes>
+        <note category="german">Anwesenheit anderer Bürger, die sich &lt;strong&gt;vor dir&lt;/strong&gt; hier ein Versteck gesucht haben (Nachteil). Es sollte jedem klar sein, dass man sich allein unauffälliger verhält als zu fünft.</note>
+      </notes>
+      <segment>
+        <source>Anwesenheit anderer Bürger, die sich &lt;strong&gt;vor dir&lt;/strong&gt; hier ein Versteck gesucht haben (Nachteil). Es sollte jedem klar sein, dass man sich allein unauffälliger verhält als zu fünft.</source>
+        <target><![CDATA[présence d'autres citoyens déjà cachés ici <strong>avant vous</strong> (pénalité); vous êtes plus discret(e) seul(e) qu'à 5, par exemple,]]></target>
+      </segment>
+    </unit>
+    <unit id="BTUfzKK" name="d75d90b">
+      <notes>
+        <note category="german">Präsenz eines freigeschaufelten Gebäudes (je nach Art des Gebäudes kann das ein Vor- oder ein Nachteil sein).</note>
+      </notes>
+      <segment>
+        <source>Präsenz eines freigeschaufelten Gebäudes (je nach Art des Gebäudes kann das ein Vor- oder ein Nachteil sein).</source>
+        <target>présence d'un bâtiment déterré (bonus ou pénalité en fonction du bâtiment ; si vous campez en rase campagne, vous aurez une pénalité),</target>
+      </segment>
+    </unit>
+    <unit id="0pwi3zg" name="Präsenz eines &lt;strong&gt; nicht freigeschaufelten&lt;/strong&gt; Gebäudes (Vorteil).">
+      <notes>
+        <note category="german">Präsenz eines &lt;strong&gt; nicht freigeschaufelten&lt;/strong&gt; Gebäudes (Vorteil).</note>
+      </notes>
+      <segment>
+        <source>Präsenz eines &lt;strong&gt; nicht freigeschaufelten&lt;/strong&gt; Gebäudes (Vorteil).</source>
+        <target><![CDATA[présence d'un bâtiment <strong>non-déterré</strong> (bonus),]]></target>
+      </segment>
+    </unit>
+    <unit id="DXqk0B2" name="Die Stadt wurde &lt;strong&gt;zerstört&lt;/strong&gt; (großer Nachteil)">
+      <notes>
+        <note category="german">Die Stadt wurde &lt;strong&gt;zerstört&lt;/strong&gt; (großer Nachteil)</note>
+      </notes>
+      <segment>
+        <source>Die Stadt wurde &lt;strong&gt;zerstört&lt;/strong&gt; (großer Nachteil)</source>
+        <target><![CDATA[ville <strong>dévastée</strong> (malus important),]]></target>
+      </segment>
+    </unit>
+    <unit id="OdsD2OY" name="9ee2716">
+      <notes>
+        <note category="german">Die Entfernung zur Stadt: Je weiter du beim Angriff von der Stadt weg bist, umso besser!</note>
+      </notes>
+      <segment>
+        <source>Die Entfernung zur Stadt: Je weiter du beim Angriff von der Stadt weg bist, umso besser!</source>
+        <target>distance de la ville : plus vous en serez éloigné(e) au moment de l'attaque, mieux cela vaudra pour vous !</target>
+      </segment>
+    </unit>
+    <unit id="TX1UQMr" name="Spezialausrüstung (Bonus), die im Spiel gefunden werden kann.">
+      <notes>
+        <note category="german">Spezialausrüstung (Bonus), die im Spiel gefunden werden kann.</note>
+      </notes>
+      <segment>
+        <source>Spezialausrüstung (Bonus), die im Spiel gefunden werden kann.</source>
+        <target>équipements spéciaux (bonus),</target>
+      </segment>
+    </unit>
+    <unit id="peMsrIw" name="Pandämonium: In Pandämoniumsstädten ist das Campen sehr schwierig.">
+      <notes>
+        <note category="german">Pandämonium: In Pandämoniumsstädten ist das Campen sehr schwierig.</note>
+      </notes>
+      <segment>
+        <source>Pandämonium: In Pandämoniumsstädten ist das Campen sehr schwierig.</source>
+        <target>Pandémonium: Le camping est très difficile dans les villes du Pandémonium.</target>
+      </segment>
+    </unit>
+    <unit id="l4xSyG6" name="1d2b6f5">
+      <notes>
+        <note category="german">Anzahl der Nächte, die du in einer Partie draußen verbracht hast (dein erstes Camping ist sicher, das 
+zweite ist etwas unsicherer, das dritte noch unsicherer etc...).</note>
+      </notes>
+      <segment>
+        <source>Anzahl der Nächte, die du in einer Partie draußen verbracht hast (dein erstes Camping ist sicher, das 
+zweite ist etwas unsicherer, das dritte noch unsicherer etc...).</source>
+        <target>le nombre de nuits que vous avez vous-même passé dehors au cours de cette partie (votre premier camp est sûr, le 2ème moins, le 3ème encore moins, ...etc.).</target>
+      </segment>
+    </unit>
+    <unit id="CMw.m2Z" name="b187712">
+      <notes>
+        <note category="german">&lt;strong&gt;ACHTUNG:&lt;/strong&gt; Deine Überlebenschancen sind auf 90% begrenzt! Wie gut dein Versteck auch sein 
+mag, ein kleines Restrisiko besteht immer!</note>
+      </notes>
+      <segment>
+        <source>&lt;strong&gt;ACHTUNG:&lt;/strong&gt; Deine Überlebenschancen sind auf 90% begrenzt! Wie gut dein Versteck auch sein 
+mag, ein kleines Restrisiko besteht immer!</source>
+        <target><![CDATA[<strong>ATTENTION :</strong> vos chances de survie sont plafonnées à 90% ! Quoique vous fassiez, vous aurez toujours un risque (faible) de mourir dehors.]]></target>
+      </segment>
+    </unit>
+    <unit id="OqVqAxa" name="9af0d7c">
+      <notes>
+        <note category="german">Der Beruf des &lt;strong&gt;Einsiedlers&lt;/strong&gt; verfügt über einen entscheidenden Vorteil: Seine Überlebenschancen 
+sind &lt;strong&gt;nicht auf 90%&lt;/strong&gt; beschränkt.</note>
+      </notes>
+      <segment>
+        <source>Der Beruf des &lt;strong&gt;Einsiedlers&lt;/strong&gt; verfügt über einen entscheidenden Vorteil: Seine Überlebenschancen 
+sind &lt;strong&gt;nicht auf 90%&lt;/strong&gt; beschränkt.</source>
+        <target><![CDATA[Le métier <strong>d'Ermite</strong> a un avantage décisif: ses chances de survie <strong>ne sont pas limitées à 90%</strong>.]]></target>
+      </segment>
+    </unit>
+    <unit id="TnJAv.." name="Wie läuft der Angriff um Mitternacht ab?">
+      <notes>
+        <note category="german">Wie läuft der Angriff um Mitternacht ab?</note>
+      </notes>
+      <segment>
+        <source>Wie läuft der Angriff um Mitternacht ab?</source>
+        <target>Comment se déroule l'attaque de minuit ?</target>
+      </segment>
+    </unit>
+    <unit id="y72QNPI" name="dce0e41">
+      <notes>
+        <note category="german">Spätestens um Mitternacht musst du in deinem Versteck sein. Abhängig von der Qualität deines Verstecks und der Höhe deiner Überlebenschancen, wirst du von den Untoten verschont, oder aber in Stücke gerissen.</note>
+      </notes>
+      <segment>
+        <source>Spätestens um Mitternacht musst du in deinem Versteck sein. Abhängig von der Qualität deines Verstecks und der Höhe deiner Überlebenschancen, wirst du von den Untoten verschont, oder aber in Stücke gerissen.</source>
+        <target>A minuit, vous devrez être dans votre cachette ! En fonction de vos chances de survie, vous survivrez ou mourrez dévoré(e).</target>
+      </segment>
+    </unit>
+    <unit id="dK2DHZj" name="ba5dc11">
+      <notes>
+        <note category="german">Wenn du überlebst, &lt;strong&gt;erhältst du neue %img_ap% sowie verschiedene Auszeichnungen.&lt;/strong&gt;</note>
+      </notes>
+      <segment>
+        <source>Wenn du überlebst, &lt;strong&gt;erhältst du neue %img_ap% sowie verschiedene Auszeichnungen.&lt;/strong&gt;</source>
+        <target><![CDATA[Si vous survivez, <strong>vous récupérerez vos %img_ap% et vous gagnerez différentes récompenses.</strong>]]></target>
+      </segment>
+    </unit>
+    <unit id="Cua0mtD" name="ed7cc09">
+      <notes>
+        <note category="german">Wichtig zu wissen ist, dass die Zombieaktivität um Mitternacht besonders stark ist. Das bedeutet, dass&amp;nbsp;die Verteidigung deines Verstecks jedes Mal in Mitleidenschaft gezogen wird.</note>
+      </notes>
+      <segment>
+        <source>Wichtig zu wissen ist, dass die Zombieaktivität um Mitternacht besonders stark ist. Das bedeutet, dass&amp;nbsp;die Verteidigung deines Verstecks jedes Mal in Mitleidenschaft gezogen wird.</source>
+        <target>L'activité des zombies à minuit est particulièrement violente : l'efficacité des améliorations de campement que vous avez éventuellement installées la veille est réduite pour le lendemain.</target>
+      </segment>
+    </unit>
+    <unit id="Cvh3WWe" name="c6bae94">
+      <notes>
+        <note category="german">&lt;strong&gt;Achtung: &lt;/strong&gt; Wenn du die Nacht in der Wüste überlebst, fliegt deine Tarnung am nächsten Morgen auf! Solltest du beabsichtigen wieder draußen zu schlafen, musst du dein Versteck &lt;strong&gt;erneut&lt;/strong&gt; ausbauen.</note>
+      </notes>
+      <segment>
+        <source>&lt;strong&gt;Achtung: &lt;/strong&gt; Wenn du die Nacht in der Wüste überlebst, fliegt deine Tarnung am nächsten Morgen auf! Solltest du beabsichtigen wieder draußen zu schlafen, musst du dein Versteck &lt;strong&gt;erneut&lt;/strong&gt; ausbauen.</source>
+        <target><![CDATA[<strong>Attention :</strong> si vous survivez à votre nuit dans le désert, vous ne serez plus considéré(e) comme caché(e) ! Vous devrez utiliser <strong>à nouveau</strong> l'action "se cacher" si vous souhaitez passer une autre nuit dehors.]]></target>
+      </segment>
+    </unit>
+    <unit id="iBuxE_N" name="25a5a4f">
+      <notes>
+        <note category="german">Sollte der Fall eintreten, dass sich beim Angriff der Zombiehorde niemand mehr in der Stadt befindet (da zum Beispiel alle Überlebenden draußen campen), wird die Stadt von den Untoten &lt;span x-ajax-href=%url_devast%&gt;zerstört&lt;/span&gt;.</note>
+      </notes>
+      <segment>
+        <source>Sollte der Fall eintreten, dass sich beim Angriff der Zombiehorde niemand mehr in der Stadt befindet (da zum Beispiel alle Überlebenden draußen campen), wird die Stadt von den Untoten &lt;span x-ajax-href=%url_devast%&gt;zerstört&lt;/span&gt;.</source>
+        <target><![CDATA[Si la ville a été laissée à l'abandon (tout le monde est sorti camper), alors la ville est considérée comme <span x-ajax-href=%url_devast%>dévastée</span>.]]></target>
+      </segment>
+    </unit>
+    <unit id="DV.uQFd" name="&quot;Auszeichnung: Camper im Jenseits&quot;">
+      <notes>
+        <note category="german">"Auszeichnung: Camper im Jenseits"</note>
+      </notes>
+      <segment>
+        <source>"Auszeichnung: Camper im Jenseits"</source>
+        <target>Distinction : "Campeur de l'au-delà"</target>
+      </segment>
+    </unit>
+    <unit id="eK5ymSE" name="9446ac1">
+      <notes>
+        <note category="german">Für jede Nacht, die du draußen überlebt hast, als die Stadt schon &lt;span x-ajax-href=%url_devast%&gt;zerstört&lt;/span&gt; war, bekommst du zusätzlich zu der normalen Auszeichnung, eine &lt;strong&gt;besonders seltene Auszeichnung&lt;/strong&gt;.</note>
+      </notes>
+      <segment>
+        <source>Für jede Nacht, die du draußen überlebt hast, als die Stadt schon &lt;span x-ajax-href=%url_devast%&gt;zerstört&lt;/span&gt; war, bekommst du zusätzlich zu der normalen Auszeichnung, eine &lt;strong&gt;besonders seltene Auszeichnung&lt;/strong&gt;.</source>
+        <target><![CDATA[Pour chaque nuit survécue alors que la ville a été <span x-ajax-href=%url_devast%>dévastée</span> , les campeurs reçoivent <strong>une distinction rare spéciale</strong>.]]></target>
+      </segment>
+    </unit>
+    <unit id="x56srvE" name="e01909b">
+      <notes>
+        <note category="german">Um diese Auszeichnung zu erhalten, muss die Stadt mindestens &lt;strong&gt;10 volle Tage&lt;/strong&gt; überlebt haben.</note>
+      </notes>
+      <segment>
+        <source>Um diese Auszeichnung zu erhalten, muss die Stadt mindestens &lt;strong&gt;10 volle Tage&lt;/strong&gt; überlebt haben.</source>
+        <target><![CDATA[Toutefois, la ville doit avoir tenu <strong>10 jours complets minimum</strong> pour que cette distinction soit attribuée.]]></target>
+      </segment>
+    </unit>
+    <unit id="XQ0dCN1" name="23ad46c">
+      <notes>
+        <note category="german">Um möglichst lange zu überleben, solltest du auf deine &lt;strong&gt;Gesundheit&lt;/strong&gt; achten.</note>
+      </notes>
+      <segment>
+        <source>Um möglichst lange zu überleben, solltest du auf deine &lt;strong&gt;Gesundheit&lt;/strong&gt; achten.</source>
+        <target><![CDATA[Pour survivre dans un monde pareil, il est primordial de bien <strong>surveiller votre état de santé</strong>. De nombreux indicateurs sont visibles en haut du site.]]></target>
+      </segment>
+    </unit>
+    <unit id="ZiakJdT" name="0b7efac">
+      <notes>
+        <note category="german">Eine oben auf der Seite platzierte Anzeige verrät dir mit einem Blick deinen aktuellen Gesundheitszustand und sagt dir, ob du etwas trinken musst, ob du verletzt bist usw. ...</note>
+      </notes>
+      <segment>
+        <source>Eine oben auf der Seite platzierte Anzeige verrät dir mit einem Blick deinen aktuellen Gesundheitszustand und sagt dir, ob du etwas trinken musst, ob du verletzt bist usw. ...</source>
+        <target>Vous y apprendrez en un coup d'œil si vous avez besoin de boire, vous soigner, ..etc.</target>
+      </segment>
+    </unit>
+    <unit id="OAnJvWx" name="Erschöpfung">
+      <notes>
+        <note category="german">Erschöpfung</note>
+      </notes>
+      <segment>
+        <source>Erschöpfung</source>
+        <target>Fatigue</target>
+      </segment>
+    </unit>
+    <unit id="LosQOVV" name="44ab0f2">
+      <notes>
+        <note category="german">Wenn du keine %img_ap% Aktionspunkte mehr hast, bist du erschöpft und kannst dich nicht mehr bewegen (siehe: &lt;span x-ajax-href=%url_move%&gt;Sich bewegen&lt;/span&gt;).</note>
+      </notes>
+      <segment>
+        <source>Wenn du keine %img_ap% Aktionspunkte mehr hast, bist du erschöpft und kannst dich nicht mehr bewegen (siehe: &lt;span x-ajax-href=%url_move%&gt;Sich bewegen&lt;/span&gt;).</source>
+        <target><![CDATA[Lorsque vous n'avez plus de %img_ap% Points d'action, vous devenez fatigué(e) et vous ne pouvez plus marcher (voir <span x-ajax-href=%url_move%>Se déplacer</span>).]]></target>
+      </segment>
+    </unit>
+    <unit id="MDmkyh9" name="Durst">
+      <notes>
+        <note category="german">Durst</note>
+      </notes>
+      <segment>
+        <source>Durst</source>
+        <target>Soif</target>
+      </segment>
+    </unit>
+    <unit id="g0AGvrO" name="7f9ab9f">
+      <notes>
+        <note category="german">Du musst etwas trinken... Warte nicht zu lang, sonst bist du
+&lt;strong&gt;%img_dehy% Dehydriert&lt;/strong&gt;!</note>
+      </notes>
+      <segment>
+        <source>Du musst etwas trinken... Warte nicht zu lang, sonst bist du
+&lt;strong&gt;%img_dehy% Dehydriert&lt;/strong&gt;!</source>
+        <target><![CDATA[Vous avez besoin de boire... Ne tardez pas trop à le faire, vous risquez de finir par devenir <strong>%img_dehy% Déshydraté(e)</strong>!]]></target>
+      </segment>
+    </unit>
+    <unit id="uB2Vk6P" name="oder">
+      <notes>
+        <note category="german">oder</note>
+      </notes>
+      <segment>
+        <source>oder</source>
+        <target>ou</target>
+      </segment>
+    </unit>
+    <unit id="_akkbne" name="Satt">
+      <notes>
+        <note category="german">Satt</note>
+      </notes>
+      <segment>
+        <source>Satt</source>
+        <target>Rassasié(e)</target>
+      </segment>
+    </unit>
+    <unit id="kyN1oc5" name="e5500e3">
+      <notes>
+        <note category="german">Diese zwei Zustände zeigen an, dass du heute bereits getrunken und/oder gegessen hast. Solltest du noch mehr essen oder trinken, erhältst du für diesen Tag keine zusätzlichen Aktionspunkte mehr.</note>
+      </notes>
+      <segment>
+        <source>Diese zwei Zustände zeigen an, dass du heute bereits getrunken und/oder gegessen hast. Solltest du noch mehr essen oder trinken, erhältst du für diesen Tag keine zusätzlichen Aktionspunkte mehr.</source>
+        <target>Ces états indiquent que vous avez bu et/ou mangé aujourd'hui. Répéter cette action ne vous fera plus récupérer vos points d'action à nouveau pour la journée.</target>
+      </segment>
+    </unit>
+    <unit id="dCCM5aI" name="de432cc">
+      <notes>
+        <note category="german">Beispiel: Du hast heute morgen deine Trinkflasche getrunken, um deine Aktionspunkte aufzufüllen und um den DURST zu beseitigen. Wenn du heute erneut trinkst, kannst du zwar wieder deinen DURST löschen, aber nicht mehr deine Aktionspunkte zurückbekommen.</note>
+      </notes>
+      <segment>
+        <source>Beispiel: Du hast heute morgen deine Trinkflasche getrunken, um deine Aktionspunkte aufzufüllen und um den DURST zu beseitigen. Wenn du heute erneut trinkst, kannst du zwar wieder deinen DURST löschen, aber nicht mehr deine Aktionspunkte zurückbekommen.</source>
+        <target>Exemple : vous avez bu une gourde ce matin pour récupérer vos points d'action et annuler l'état SOIF. Si vous buvez à nouveau aujourd'hui, vous pourrez annuler à nouveau la SOIF mais pas récupérer vos points d'action.</target>
+      </segment>
+    </unit>
+    <unit id="Wq9s4CS" name="Verwundung">
+      <notes>
+        <note category="german">Verwundung</note>
+      </notes>
+      <segment>
+        <source>Verwundung</source>
+        <target>Blessure</target>
+      </segment>
+    </unit>
+    <unit id="CXdRrv3" name="Infektion">
+      <notes>
+        <note category="german">Infektion</note>
+      </notes>
+      <segment>
+        <source>Infektion</source>
+        <target>Infection</target>
+      </segment>
+    </unit>
+    <unit id="xHOr0iD" name="8d215e8">
+      <notes>
+        <note category="german">Das liegt an einer Wunde oder daran, etwas zu essen, das etwas zu veraltet war. Heile dich schnell, eine Infektion hat eine Sterblichkeitsrate von 50%, 75% in Pandemonium-Städten.</note>
+      </notes>
+      <segment>
+        <source>Das liegt an einer Wunde oder daran, etwas zu essen, das etwas zu veraltet war. Heile dich schnell, eine Infektion hat eine Sterblichkeitsrate von 50%, 75% in Pandemonium-Städten.</source>
+        <target>Elle est due à une blessure ou à la consommation d'une nourriture peu recommandable, soignez-vous rapidement, elle a 50% de chance d'être mortelle, 75% dans les cités du Pandémonium.</target>
+      </segment>
+    </unit>
+    <unit id="4cxMzfa" name="Rauschzustand">
+      <notes>
+        <note category="german">Rauschzustand</note>
+      </notes>
+      <segment>
+        <source>Rauschzustand</source>
+        <target>Drogué(e)</target>
+      </segment>
+    </unit>
+    <unit id="J35wjTS" name="Angst">
+      <notes>
+        <note category="german">Angst</note>
+      </notes>
+      <segment>
+        <source>Angst</source>
+        <target>Terreur</target>
+      </segment>
+    </unit>
+    <unit id="OcEgNTY" name="1da5284">
+      <notes>
+        <note category="german">00:10 Uhr - Die Zombiemeute hat es in die Stadt geschafft und trommelt nun wutschnaubend und gröhlend gegen deine Haustür. Dir gelingt es zwar sie aus deinem Haus zu halten, aber diesen Schock wirst du nicht so schnell vergessen... du bist &lt;strong&gt;vor Angst erstarrt&lt;/strong&gt;.
+Die in diesen Stunden erlittene panische &lt;strong&gt;Angst&lt;/strong&gt; ist dir ins Rückenmark gegangen und geblieben. Deine Aktions- und Bewegungsfreiheit ist seitdem erheblich eingeschränkt: Du kannst dich unter keinen Umständen in die Nähe von Zombies begeben! Solltest du in diesem Zustand dennoch auf welche stoßen, verfällst du in eine Angststarre und kannst dich nicht mehr bewegen... bis sie dich auffressen. In der Wüste zählst du, ungeachtet deines Berufs und deiner Ausrüstung, 0 Kontrollpunkte. Alle Zonen, in denen die Zombies mehr Punkte haben, sind für dich tabu.</note>
+      </notes>
+      <segment>
+        <source>00:10 Uhr - Die Zombiemeute hat es in die Stadt geschafft und trommelt nun wutschnaubend und gröhlend gegen deine Haustür. Dir gelingt es zwar sie aus deinem Haus zu halten, aber diesen Schock wirst du nicht so schnell vergessen... du bist &lt;strong&gt;vor Angst erstarrt&lt;/strong&gt;.
+Die in diesen Stunden erlittene panische &lt;strong&gt;Angst&lt;/strong&gt; ist dir ins Rückenmark gegangen und geblieben. Deine Aktions- und Bewegungsfreiheit ist seitdem erheblich eingeschränkt: Du kannst dich unter keinen Umständen in die Nähe von Zombies begeben! Solltest du in diesem Zustand dennoch auf welche stoßen, verfällst du in eine Angststarre und kannst dich nicht mehr bewegen... bis sie dich auffressen. In der Wüste zählst du, ungeachtet deines Berufs und deiner Ausrüstung, 0 Kontrollpunkte. Alle Zonen, in denen die Zombies mehr Punkte haben, sind für dich tabu.</source>
+        <target><![CDATA[Il est minuit. Les Hordes s'abattent sur votre maison avec rage, mais vous arrivez à les repousser. Le souvenir de la mort si proche va vous <strong>terroriser</strong>. Sous l'emprise de la <strong>terreur</strong>, vous serez très limité(e) dans vos agissements... Hors de question de rester près des zombies quelles que soient les circonstances ! Et si vous n'avez pas le choix, vous serez tout simplement paralysé(e) par la terreur... jusqu'à ce que l'un d'eux vous dévore. Dans le désert, vous comptez pour 0 point de contrôle, quelque soit votre métier ou votre équipement. Vous ne pouvez pas agir sur une zone si le score de contrôle des zombies est supérieur à celui des humains.]]></target>
+      </segment>
+    </unit>
+    <unit id="isD8Ydk" name="183bf89">
+      <notes>
+        <note category="german">Es gibt andere Wege, um in Angststarre zu enden, aber die musst du selbst erleben.</note>
+      </notes>
+      <segment>
+        <source>Es gibt andere Wege, um in Angststarre zu enden, aber die musst du selbst erleben.</source>
+        <target>Il existe d'autres manières de se retrouver terrorisé mais c'est à vous de les découvrir.</target>
+      </segment>
+    </unit>
+    <unit id="3dkb1Z2" name="Trunkenheit">
+      <notes>
+        <note category="german">Trunkenheit</note>
+      </notes>
+      <segment>
+        <source>Trunkenheit</source>
+        <target>Ivre</target>
+      </segment>
+    </unit>
+    <unit id="UTfIdgy" name="Clean">
+      <notes>
+        <note category="german">Clean</note>
+      </notes>
+      <segment>
+        <source>Clean</source>
+        <target>Clair(e)</target>
+      </segment>
+    </unit>
+    <unit id="J.9tdfY" name="de3df07">
+      <notes>
+        <note category="german">Das Symbol zeigt an, dass du noch keine Drogen genommen hast. Das ist durchaus eine Spitzenleistung, wenn man bedenkt, welch wunderschöne Halluzination und Trips dir entgangen sind...</note>
+      </notes>
+      <segment>
+        <source>Das Symbol zeigt an, dass du noch keine Drogen genommen hast. Das ist durchaus eine Spitzenleistung, wenn man bedenkt, welch wunderschöne Halluzination und Trips dir entgangen sind...</source>
+        <target>Ce statut indique que vous n'avez consommé aucune drogue jusqu'à maintenant. Une belle prouesse, quand on sait quel genre d'hallucinations merveilleuses les drogues vous permettent d'entrevoir.</target>
+      </segment>
+    </unit>
+    <unit id="LoyMaAF" name="Immunisiert">
+      <notes>
+        <note category="german">Immunisiert</note>
+      </notes>
+      <segment>
+        <source>Immunisiert</source>
+        <target>Immunisé(e)</target>
+      </segment>
+    </unit>
+    <unit id="Hs1ihif" name="c887a1d">
+      <notes>
+        <note category="german">Du hast dich durch die Einnahme eines Medikamentes oder eines ähnlichen Produktes erfolgreich gegen eine Infektion immunisiert!
+Außerdem kannst du damit verhindern, dass du dich um Mitternacht in einen Ghul verwandelst.
+Der Schutz endet nach dem Angriff um Mitternacht.</note>
+      </notes>
+      <segment>
+        <source>Du hast dich durch die Einnahme eines Medikamentes oder eines ähnlichen Produktes erfolgreich gegen eine Infektion immunisiert!
+Außerdem kannst du damit verhindern, dass du dich um Mitternacht in einen Ghul verwandelst.
+Der Schutz endet nach dem Angriff um Mitternacht.</source>
+        <target>Un médicament ou un autre produit similaire consommé récemment vous a immunisé contre l'infection ! Cet effet prend fin juste après l'attaque.</target>
+      </segment>
+    </unit>
+    <unit id="LQhKsMz" name="Umsichtiger Camper">
+      <notes>
+        <note category="german">Umsichtiger Camper</note>
+      </notes>
+      <segment>
+        <source>Umsichtiger Camper</source>
+        <target>Campeur avisé</target>
+      </segment>
+    </unit>
+    <unit id="B3tVRRs" name="aaa6834">
+      <notes>
+        <note category="german">Wenn es dir gelingt eine Nacht draußen zu campen und dabei zu überleben, bekommst du für den darauf folgenden Tag einen besonderen Status verliehen, der deine Grabungsaktionen verbessert!</note>
+      </notes>
+      <segment>
+        <source>Wenn es dir gelingt eine Nacht draußen zu campen und dabei zu überleben, bekommst du für den darauf folgenden Tag einen besonderen Status verliehen, der deine Grabungsaktionen verbessert!</source>
+        <target>Si vous parvenez à camper dehors pendant une nuit et à survivre, vous recevrez un statut spécial pour le lendemain, ce qui améliorera vos activités de fouille !</target>
+      </segment>
+    </unit>
+    <unit id="72h0.SN" name="Ghul">
+      <notes>
+        <note category="german">Ghul</note>
+      </notes>
+      <segment>
+        <source>Ghul</source>
+        <target>Goule</target>
+      </segment>
+    </unit>
+    <unit id="FAn5Q8v" name="f30c55c">
+      <notes>
+        <note category="german">Du wurdest von einer unheilbaren Krankheit infiziert und hast dich jetzt in einen &lt;span x-ajax-href=%url_ghoul%&gt;Ghul&lt;/span&gt; verwandelt.</note>
+      </notes>
+      <segment>
+        <source>Du wurdest von einer unheilbaren Krankheit infiziert und hast dich jetzt in einen &lt;span x-ajax-href=%url_ghoul%&gt;Ghul&lt;/span&gt; verwandelt.</source>
+        <target><![CDATA[Vous avez été infecté par une maladie incurable et vous êtes maintenant transformé en <span x-ajax-href=%url_ghoul%>Goule</span>.]]></target>
+      </segment>
+    </unit>
+    <unit id="gPbg.WJ" name="Die Drogenabhängigkeit">
+      <notes>
+        <note category="german">Die Drogenabhängigkeit</note>
+      </notes>
+      <segment>
+        <source>Die Drogenabhängigkeit</source>
+        <target>La dépendance aux drogues</target>
+      </segment>
+    </unit>
+    <unit id="A79xfl2" name="ec57694">
+      <notes>
+        <note category="german">Wenn du zu viele Drogen nimmst (mehr als eine Dosis am Tag), wirst du
+&lt;strong&gt;%img_addict% Abhängig&lt;/strong&gt;! Darüber hinaus wirst du diese &lt;strong&gt;Sucht auch nicht mehr los&lt;/strong&gt;.</note>
+      </notes>
+      <segment>
+        <source>Wenn du zu viele Drogen nimmst (mehr als eine Dosis am Tag), wirst du
+&lt;strong&gt;%img_addict% Abhängig&lt;/strong&gt;! Darüber hinaus wirst du diese &lt;strong&gt;Sucht auch nicht mehr los&lt;/strong&gt;.</source>
+        <target><![CDATA[Lorsque vous consommez trop de drogues (plus d'une par jour), vous devenez <strong>%img_addict% Dépendant(e)</strong> ! Il est <strong>impossible de perdre cette dépendance</strong>.]]></target>
+      </segment>
+    </unit>
+    <unit id="Ye1f5W8" name="731711b">
+      <notes>
+        <note category="german">Wenn du dann erstmal süchtig bist &lt;strong&gt;musst du jeden Tag vor Mitternacht etwas zu dir nehmen&lt;/strong&gt;, andersfall stirbst du und das ist nicht gerade nett anzusehen: Unter starken Schmerzen, zitternd und sabbernd halluzinierst du dich in eine andere Welt...</note>
+      </notes>
+      <segment>
+        <source>Wenn du dann erstmal süchtig bist &lt;strong&gt;musst du jeden Tag vor Mitternacht etwas zu dir nehmen&lt;/strong&gt;, andersfall stirbst du und das ist nicht gerade nett anzusehen: Unter starken Schmerzen, zitternd und sabbernd halluzinierst du dich in eine andere Welt...</source>
+        <target><![CDATA[Dès lors, vous devez toujours consommer <strong>au moins une drogue par jour avant minuit</strong>, ou vous mourrez (en bavant abondamment et en tremblant, ça ne sera pas beau à voir...).]]></target>
+      </segment>
+    </unit>
+    <unit id="hbwi0z1" name="Verwundungsarten">
+      <notes>
+        <note category="german">Verwundungsarten</note>
+      </notes>
+      <segment>
+        <source>Verwundungsarten</source>
+        <target>Types de blessures</target>
+      </segment>
+    </unit>
+    <unit id="uQUc62A" name="Du kannst im Spiel an verschiedenen Körperteilen verwundet werden:">
+      <notes>
+        <note category="german">Du kannst im Spiel an verschiedenen Körperteilen verwundet werden:</note>
+      </notes>
+      <segment>
+        <source>Du kannst im Spiel an verschiedenen Körperteilen verwundet werden:</source>
+        <target>Lorsque vous subissez une blessure, un organe précis de votre corps est touché !</target>
+      </segment>
+    </unit>
+    <unit id="l2sp7PJ" name="Kopf">
+      <notes>
+        <note category="german">Kopf</note>
+      </notes>
+      <segment>
+        <source>Kopf</source>
+        <target>Tête</target>
+      </segment>
+    </unit>
+    <unit id="HblgYqB" name="Du gibst wirres Zeug von dir.">
+      <notes>
+        <note category="german">Du gibst wirres Zeug von dir.</note>
+      </notes>
+      <segment>
+        <source>Du gibst wirres Zeug von dir.</source>
+        <target>vos propos deviennent incohérents...</target>
+      </segment>
+    </unit>
+    <unit id="rhC.oAK" name="Hände">
+      <notes>
+        <note category="german">Hände</note>
+      </notes>
+      <segment>
+        <source>Hände</source>
+        <target>Mains</target>
+      </segment>
+    </unit>
+    <unit id="rdYTYJe" name="Du kannst bestimmte Gegenstände nicht mehr benutzen.">
+      <notes>
+        <note category="german">Du kannst bestimmte Gegenstände nicht mehr benutzen.</note>
+      </notes>
+      <segment>
+        <source>Du kannst bestimmte Gegenstände nicht mehr benutzen.</source>
+        <target>vous ne pouvez plus utiliser certains objets.</target>
+      </segment>
+    </unit>
+    <unit id="fweEsGL" name="Arme">
+      <notes>
+        <note category="german">Arme</note>
+      </notes>
+      <segment>
+        <source>Arme</source>
+        <target>Bras</target>
+      </segment>
+    </unit>
+    <unit id="_RuCwTX" name="1658d91">
+      <notes>
+        <note category="german">Du kannst nicht mehr auf den Baustellen arbeiten und das Stadttor nicht schließen...</note>
+      </notes>
+      <segment>
+        <source>Du kannst nicht mehr auf den Baustellen arbeiten und das Stadttor nicht schließen...</source>
+        <target>votre blessure vous empêche de participer aux chantiers de ville ou de manipuler la Grande Porte...</target>
+      </segment>
+    </unit>
+    <unit id="xXqHDly" name="Bein">
+      <notes>
+        <note category="german">Bein</note>
+      </notes>
+      <segment>
+        <source>Bein</source>
+        <target>Jambe</target>
+      </segment>
+    </unit>
+    <unit id="TFtve.d" name="3ee81de">
+      <notes>
+        <note category="german">In der Außenwelt besteht mit jedem Schritt das Risiko, dass du zusammenbrichst und dich nicht mehr bewegen kannst (Du verlierst einen Aktionspunkt)!</note>
+      </notes>
+      <segment>
+        <source>In der Außenwelt besteht mit jedem Schritt das Risiko, dass du zusammenbrichst und dich nicht mehr bewegen kannst (Du verlierst einen Aktionspunkt)!</source>
+        <target>dans l'Outre-Monde, vous avez une chance à chaque pas de vous effondrer. Votre PA est alors perdu et vous ne quittez pas la case où vous êtes !</target>
+      </segment>
+    </unit>
+    <unit id="oFtlo8T" name="Auge">
+      <notes>
+        <note category="german">Auge</note>
+      </notes>
+      <segment>
+        <source>Auge</source>
+        <target>Œil</target>
+      </segment>
+    </unit>
+    <unit id="BLh5Li2" name="6688a00">
+      <notes>
+        <note category="german">Die Wahrscheinlichkeit in der Wüste oder in einer Ruine einen Gegenstand zu finden sinkt erheblich.</note>
+      </notes>
+      <segment>
+        <source>Die Wahrscheinlichkeit in der Wüste oder in einer Ruine einen Gegenstand zu finden sinkt erheblich.</source>
+        <target>vos chances de trouver un objet en extérieur lors d'une fouille (désert ou bâtiment) sont considérablement réduites.</target>
+      </segment>
+    </unit>
+    <unit id="4CY2vtO" name="Fuß">
+      <notes>
+        <note category="german">Fuß</note>
+      </notes>
+      <segment>
+        <source>Fuß</source>
+        <target>Pied</target>
+      </segment>
+    </unit>
+    <unit id="seK9BoL" name="Bringt dir keine Nachteile.">
+      <notes>
+        <note category="german">Bringt dir keine Nachteile.</note>
+      </notes>
+      <segment>
+        <source>Bringt dir keine Nachteile.</source>
+        <target>pas de pénalité supplémentaire.</target>
+      </segment>
+    </unit>
+    <unit id="dVwApzS" name="Der Rucksack">
+      <notes>
+        <note category="german">Der Rucksack</note>
+      </notes>
+      <segment>
+        <source>Der Rucksack</source>
+        <target>Le sac à dos</target>
+      </segment>
+    </unit>
+    <unit id="fo2jRnp" name="074fa9a">
+      <notes>
+        <note category="german">Im Rucksack kannst du Nahrung, Wasser und Waffen mit dir tragen. Seine Größe ist auf 4 freie Plätze beschränkt. Ein Platz ist für deine Kleidung vorgesehen.</note>
+      </notes>
+      <segment>
+        <source>Im Rucksack kannst du Nahrung, Wasser und Waffen mit dir tragen. Seine Größe ist auf 4 freie Plätze beschränkt. Ein Platz ist für deine Kleidung vorgesehen.</source>
+        <target>C'est grâce à lui que vous emportez vos rations de nourriture, votre eau ou vos armes avec vous. Il est très limité en place et arrive vite à saturation... Par défaut il contient 4 emplacements + un emplacement réservé à la tenue de citoyen.</target>
+      </segment>
+    </unit>
+    <unit id="jSYnX6p" name="6e20269">
+      <notes>
+        <note category="german">&lt;strong&gt;Helden&lt;/strong&gt; verfügen in ihrem Rucksack über einen zusätzlichen freien Platz!
+Außerdem führst du &lt;strong&gt;zusätzlich&lt;/strong&gt; zu deiner normalen Bürgerkleidung einen berufsspezifischen Anzug mit.</note>
+      </notes>
+      <segment>
+        <source>&lt;strong&gt;Helden&lt;/strong&gt; verfügen in ihrem Rucksack über einen zusätzlichen freien Platz!
+Außerdem führst du &lt;strong&gt;zusätzlich&lt;/strong&gt; zu deiner normalen Bürgerkleidung einen berufsspezifischen Anzug mit.</source>
+        <target><![CDATA[Si vous êtes en <strong>mode Héros</strong>, vous disposez d'un emplacement de sac à dos supplémentaire ! Par ailleurs, vous transportez <strong>en plus</strong> de votre tenue de citoyen votre habit de métier.]]></target>
+      </segment>
+    </unit>
+    <unit id="kx13MUV" name="Dein Zuhause">
+      <notes>
+        <note category="german">Dein Zuhause</note>
+      </notes>
+      <segment>
+        <source>Dein Zuhause</source>
+        <target>Votre maison</target>
+      </segment>
+    </unit>
+    <unit id="C2_sPwU" name="cd055d8">
+      <notes>
+        <note category="german">Wenn du von deinen ausgedehnten Wüstenwanderungen zurückkehrst, kannst du deinen Rucksack daheim ausleeren. Deine Reisevorbereitungen erledigst du ebenfalls am besten daheim. Es gilt Lunchpaket, Wasser, Waffen und, wenn vorhanden, Drogen mitzunehmen.</note>
+      </notes>
+      <segment>
+        <source>Wenn du von deinen ausgedehnten Wüstenwanderungen zurückkehrst, kannst du deinen Rucksack daheim ausleeren. Deine Reisevorbereitungen erledigst du ebenfalls am besten daheim. Es gilt Lunchpaket, Wasser, Waffen und, wenn vorhanden, Drogen mitzunehmen.</source>
+        <target>Quand vous revenez de l'Outre-Monde, votre Maison est l'un des endroits où vous pouvez vider votre sac à dos. C'est également l'un des endroits où vous le remplissez avant de repartir.</target>
+      </segment>
+    </unit>
+    <unit id="4diEY6x" name="Deine persönliche Truhe">
+      <notes>
+        <note category="german">Deine persönliche Truhe</note>
+      </notes>
+      <segment>
+        <source>Deine persönliche Truhe</source>
+        <target>Votre coffre personnel</target>
+      </segment>
+    </unit>
+    <unit id="hSaAdB3" name="eede599">
+      <notes>
+        <note category="german">In deine Truhe passen bis zu 4 Gegenstände (5 wenn du ein Held bist). Einige Gegenstände, sowie manche Hausverbesserungen ermöglich dir noch mehr aufzubewahren.</note>
+      </notes>
+      <segment>
+        <source>In deine Truhe passen bis zu 4 Gegenstände (5 wenn du ein Held bist). Einige Gegenstände, sowie manche Hausverbesserungen ermöglich dir noch mehr aufzubewahren.</source>
+        <target>Votre coffre peut contenir 4 objets par défaut (5 pour les héros). Mais certains objets et améliorations de maison vous permettent d'augmenter cette limite.</target>
+      </segment>
+    </unit>
+    <unit id="P6K6ed5" name="a644e62">
+      <notes>
+        <note category="german">&lt;strong&gt;Die Seelen %img_blue_soul% verschiedener Mitbürger wandern rastlos in den öden Weiten der Außenwelt umher.&lt;/strong&gt;
+Jedesmal, wenn ein Bürger stirbt (gleichgültig woran und wo), erscheint eine blaue Seele in der Außenwelt. Jeder Bürger kann eine Seele einsammeln und sie in die Stadt bringen. Beachtet, dass eine Seele als "sperriger Gegenstand" gilt.</note>
+      </notes>
+      <segment>
+        <source>&lt;strong&gt;Die Seelen %img_blue_soul% verschiedener Mitbürger wandern rastlos in den öden Weiten der Außenwelt umher.&lt;/strong&gt;
+Jedesmal, wenn ein Bürger stirbt (gleichgültig woran und wo), erscheint eine blaue Seele in der Außenwelt. Jeder Bürger kann eine Seele einsammeln und sie in die Stadt bringen. Beachtet, dass eine Seele als "sperriger Gegenstand" gilt.</source>
+        <target><![CDATA[<strong>Les âmes %img_blue_soul% de vos compagnons citoyens fraîchement décédés hanteront désormais les vastes terres dévastées de l'Outre-monde</strong>. Chaque fois qu'un citoyen meurt, une âme apparaîtra dans le désert.]]></target>
+      </segment>
+    </unit>
+    <unit id="8TquK3o" name="1309ffe">
+      <notes>
+        <note category="german">Es liegt dann an der Stadt, sich zu organisieren, um diese verlorenen Seelen zu bergen. In der Tat haben diese Seelen eine große Chance, sich in gequälte Seelen %img_red_soul% zu verwandeln, wenn sie verlassen werden! Und dort wird es Zeit in Panik zu geraten, diese gequälten Seelen entwickeln die Zombie-Proliferation!</note>
+      </notes>
+      <segment>
+        <source>Es liegt dann an der Stadt, sich zu organisieren, um diese verlorenen Seelen zu bergen. In der Tat haben diese Seelen eine große Chance, sich in gequälte Seelen %img_red_soul% zu verwandeln, wenn sie verlassen werden! Und dort wird es Zeit in Panik zu geraten, diese gequälten Seelen entwickeln die Zombie-Proliferation!</source>
+        <target>Il incombe alors à la ville de s'organiser pour aller récupérer ces âmes perdues. En effet, ces âmes si elles sont laissées à l'abandon, ont de fortes chances de se transformer en âme torturée %img_red_soul% ! Et là, il sera temps de paniquer, ces âmes torturées développant la prolifération zombie!</target>
+      </segment>
+    </unit>
+    <unit id="Sz_Kc6M" name="36d748d">
+      <notes>
+        <note category="german">Beachten Sie, dass der Schamane auf der gesamten Karte eine Vision von Seelen haben kann, aber er wird nicht in der Lage sein, gefolterte Seelen von anderen zu unterscheiden.</note>
+      </notes>
+      <segment>
+        <source>Beachten Sie, dass der Schamane auf der gesamten Karte eine Vision von Seelen haben kann, aber er wird nicht in der Lage sein, gefolterte Seelen von anderen zu unterscheiden.</source>
+        <target>Notez bien qu'il est possible au Chaman d'avoir une vision des âmes sur l'ensemble de la carte, mais il ne pourra distinguer les âmes torturées des autres.</target>
+      </segment>
+    </unit>
+    <unit id="wM4GFMA" name="2f91250">
+      <notes>
+        <note category="german">Das Wiederherstellen von Seelen erfordert eine kleine Vorbereitung! In der Tat fordern gefolterte Seelen einen guten Schutz vor ihrer Gewalt, da jeder Bürger eine wandernde Seele transportieren kann.</note>
+      </notes>
+      <segment>
+        <source>Das Wiederherstellen von Seelen erfordert eine kleine Vorbereitung! In der Tat fordern gefolterte Seelen einen guten Schutz vor ihrer Gewalt, da jeder Bürger eine wandernde Seele transportieren kann.</source>
+        <target>La récupération des âmes demande un peu de préparation ! En effet, autant transporter une âme errante est à la portée de tout citoyen, autant les âmes torturées exigent d'être bien protégé contre leur violence.</target>
+      </segment>
+    </unit>
+    <unit id="KE5t8gU" name="b6407ae">
+      <notes>
+        <note category="german">Der Schamane ist unempfindlich gegenüber ihm und kann diese Seelen daher ohne Risiko (aber nicht ohne Angst) manipulieren. Der Bürger muss seinen Schamanen bitten, einen Immunisierungstrank zuzubereiten. Aber Vorsicht, das Vertrauen in die Kräfte Ihres Schamanen sollte nicht unendlich sein...</note>
+      </notes>
+      <segment>
+        <source>Der Schamane ist unempfindlich gegenüber ihm und kann diese Seelen daher ohne Risiko (aber nicht ohne Angst) manipulieren. Der Bürger muss seinen Schamanen bitten, einen Immunisierungstrank zuzubereiten. Aber Vorsicht, das Vertrauen in die Kräfte Ihres Schamanen sollte nicht unendlich sein...</source>
+        <target>Le Chaman, lui est insensible et peut donc manipuler ces âmes sans risque (mais non sans peur). Le citoyen quant à lui doit demander à son Chaman de préparer une potion immunisante. Mais attention toutefois, la confiance attribuée aux pouvoirs de votre Chaman ne devrait pas être infinie...</target>
+      </segment>
+    </unit>
+    <unit id="Jly9usI" name="379bc01">
+      <notes>
+        <note category="german">Wenn Sie einmal in der Stadt sind, können Sie diese Seele reinigen und in Frieden ruhen lassen, weit weg von Ihrer Stadt und ihren bösen Geistern. &lt;strong&gt;Seien Sie vorsichtig, ungereinigte Seelen werden um Mitternacht weiterhin Unglück bringen, selbst wenn sie in der Stadt bleiben!&lt;/strong&gt;</note>
+      </notes>
+      <segment>
+        <source>Wenn Sie einmal in der Stadt sind, können Sie diese Seele reinigen und in Frieden ruhen lassen, weit weg von Ihrer Stadt und ihren bösen Geistern. &lt;strong&gt;Seien Sie vorsichtig, ungereinigte Seelen werden um Mitternacht weiterhin Unglück bringen, selbst wenn sie in der Stadt bleiben!&lt;/strong&gt;</source>
+        <target><![CDATA[Une fois en ville, si le chantier est construit, vous pourrez purifier cette âme et la laisser reposer en paix, loin de votre ville et de ses mauvais esprits. <strong>Attention, les âmes non purifiées continueront à apporter le malheur à minuit, même si elles restent en ville !</strong>]]></target>
+      </segment>
+    </unit>
+    <unit id="uepLpvU" name="e19b01f">
+      <notes>
+        <note category="german">Die Außenwelt birgt verlassene Gebäude, die nach Rohstoffen und nützlichen Plänen abgesucht werden können.</note>
+      </notes>
+      <segment>
+        <source>Die Außenwelt birgt verlassene Gebäude, die nach Rohstoffen und nützlichen Plänen abgesucht werden können.</source>
+        <target>Les explorations avancées de ruine permettent aux citoyens de visiter des bâtiments oubliés dans l'Outre-Monde pour rechercher des ressources et des plans utiles pour survivre le plus longtemps possible.</target>
+      </segment>
+    </unit>
+    <unit id="F3BRYtp" name="14e1df7">
+      <notes>
+        <note category="german">Sobald du einen solchen Ort gefunden hast, siehst du bei deinen Aktion eine Option, über die du diesen Ort betreten kannst. &lt;strong&gt;Achtung: Bürger, die verletzt oder starr vor Angst sind, können einen solch klaustrophobischen Ort nicht betreten.&lt;/strong&gt;
+Diese unseligen Orte werden außerdem oft von Zombies heimgesucht. Wenn sich dein kleiner Ausflug also lohnen soll, lass dir besser vorher etwas einfallen, wie du diese Kreaturen wieder los wirst.</note>
+      </notes>
+      <segment>
+        <source>Sobald du einen solchen Ort gefunden hast, siehst du bei deinen Aktion eine Option, über die du diesen Ort betreten kannst. &lt;strong&gt;Achtung: Bürger, die verletzt oder starr vor Angst sind, können einen solch klaustrophobischen Ort nicht betreten.&lt;/strong&gt;
+Diese unseligen Orte werden außerdem oft von Zombies heimgesucht. Wenn sich dein kleiner Ausflug also lohnen soll, lass dir besser vorher etwas einfallen, wie du diese Kreaturen wieder los wirst.</source>
+        <target><![CDATA[Une fois une ruine trouvée, une action propose d'entrer dans ce lieu, <strong>attention, un citoyen blessé ou terrorisé ne peut rentrer dans ces lieux claustrophobiques.</strong>
+Ces endroits confinés sont malheureusement infestés de zombies, il faudra donc parvenir à se débarrasser de ces créatures pour profiter pleinement de votre trouvaille.]]></target>
+      </segment>
+    </unit>
+    <unit id=".w.ATRf" name="f304740">
+      <notes>
+        <note category="german">Du findest nur in den Zimmern dieser Ruinen brauchbare Gegenstände. In den Fluren befinden sich nur dann Gegenstände, wenn andere Spielern sie dort abgelegt haben.
+Manchmal stößt du auf verriegelte Türen, die du nur mit bestimmten Schlüsseln aufbekommst. Die ehemaligen Bewohner dieser Orte haben oft Schlüssel zurückgelassen. Es liegt an dir, sie zu finden.</note>
+      </notes>
+      <segment>
+        <source>Du findest nur in den Zimmern dieser Ruinen brauchbare Gegenstände. In den Fluren befinden sich nur dann Gegenstände, wenn andere Spielern sie dort abgelegt haben.
+Manchmal stößt du auf verriegelte Türen, die du nur mit bestimmten Schlüsseln aufbekommst. Die ehemaligen Bewohner dieser Orte haben oft Schlüssel zurückgelassen. Es liegt an dir, sie zu finden.</source>
+        <target>Vous ne trouverez des ressources que dans les chambres de ces ruines, seules les ressources déposées par les autres joueurs pourront se trouver par terre dans les couloirs. Vous trouverez parfois des portes verrouillées qu'il vous faudra ouvrir grâce à certains types de clés, les anciens résidents des lieux ont bien souvent laissé à l'abandon ces clés derrière eux, à vous d'en faire bon usage.</target>
+      </segment>
+    </unit>
+    <unit id="X7Z3oSQ" name="0b5fcc2">
+      <notes>
+        <note category="german">Es ist niemals so einfach wie es aussieht. Die Luft in diesen seit langem verlassenen Gebäuden ist mit einer giftigen Substanz gesättigt. Du solltest dich hier darum besser nicht zu lange aufhalten.</note>
+      </notes>
+      <segment>
+        <source>Es ist niemals so einfach wie es aussieht. Die Luft in diesen seit langem verlassenen Gebäuden ist mit einer giftigen Substanz gesättigt. Du solltest dich hier darum besser nicht zu lange aufhalten.</source>
+        <target>Comme rien n'est jamais simple, l'air, présent dans ces bâtiments qui n'ont pas été visités depuis longtemps, est saturé d'une substance toxique qui vous empêche d'y rester trop longtemps.</target>
+      </segment>
+    </unit>
+    <unit id="uqQWwTV" name="c7f6f64">
+      <notes>
+        <note category="german">&lt;strong&gt;Ein Sauerstoffmesser verrät dir, wieviel Zeit dir zum Durchsuchen einer Zone bleibt, ehe du vergiftet wirst.&lt;/strong&gt;
+Du musst unbedingt rechtzeitig aus diesem Labyrinth entkommen. Ansonsten wirst du schwer verletzt und verlierst alle Gegenstände, die du bei deiner Suche gefunden hast.
+Verlassene Gebäude haben nur einen einzigen Eingang. Und das ist gleichzeitig dein einziger Weg zurück nach draußen.
+Sei auf der Hut: Wenn du zu gierig und ungestüm bist, wirst du dieses Labyrinth nicht mehr lebend verlassen.</note>
+      </notes>
+      <segment>
+        <source>&lt;strong&gt;Ein Sauerstoffmesser verrät dir, wieviel Zeit dir zum Durchsuchen einer Zone bleibt, ehe du vergiftet wirst.&lt;/strong&gt;
+Du musst unbedingt rechtzeitig aus diesem Labyrinth entkommen. Ansonsten wirst du schwer verletzt und verlierst alle Gegenstände, die du bei deiner Suche gefunden hast.
+Verlassene Gebäude haben nur einen einzigen Eingang. Und das ist gleichzeitig dein einziger Weg zurück nach draußen.
+Sei auf der Hut: Wenn du zu gierig und ungestüm bist, wirst du dieses Labyrinth nicht mehr lebend verlassen.</source>
+        <target><![CDATA[<strong>Un compteur d'oxygène vous permet de connaître le temps qu'il vous reste pour fouiller toute la zone avant l'empoisonnement dû aux substances.</strong>
+Vous devez absolument sortir de ces dédales avant la fin du temps imparti sous peine d'être blessé(e) gravement et de perdre tous les objets acquis durant votre périple. Il n'y a qu'une seule entrée dans ces ruines, elle sera donc votre unique moyen de sortie. N'ayez pas les yeux plus gros que le ventre en vous aventurant trop loin dans ces labyrinthes.]]></target>
+      </segment>
+    </unit>
+    <unit id="cR7ePtk" name="1856884">
+      <notes>
+        <note category="german">Es gibt einige Verhaltensregeln, wie man in einer solchen Gegend voller Zombies überleben kann. Wenn du deine Lieben daheim jemals wiedersehen willst, hältst du dich besser daran:</note>
+      </notes>
+      <segment>
+        <source>Es gibt einige Verhaltensregeln, wie man in einer solchen Gegend voller Zombies überleben kann. Wenn du deine Lieben daheim jemals wiedersehen willst, hältst du dich besser daran:</source>
+        <target>Voici les règles de survie en territoire zombie à respecter si vous voulez revoir votre taudis chéri :</target>
+      </segment>
+    </unit>
+    <unit id="a5rChiF" name="61a3988">
+      <notes>
+        <note category="german">Aufgrund der Enge dieser Orte, kann sie nur &lt;strong&gt;nur ein einzelner Bürger gleichzeitig&lt;/strong&gt; betreten und untersuchen. Sobald dieser Bürger das Gebäude wieder verlassen hat, kann ein anderer seinen Platz einnehmen.</note>
+      </notes>
+      <segment>
+        <source>Aufgrund der Enge dieser Orte, kann sie nur &lt;strong&gt;nur ein einzelner Bürger gleichzeitig&lt;/strong&gt; betreten und untersuchen. Sobald dieser Bürger das Gebäude wieder verlassen hat, kann ein anderer seinen Platz einnehmen.</source>
+        <target><![CDATA[En raison de l'exiguïté des lieux, <strong>un seul citoyen peut rentrer à la fois dans un bâtiment.</strong> Une fois le citoyen sorti, un autre peut prendre sa place.]]></target>
+      </segment>
+    </unit>
+    <unit id="RR6Z.rb" name="aac3441">
+      <notes>
+        <note category="german">Wegen der großen Menge Gift, die man beim Untersuchen eines verlassenen Gebäudes einatmet, kann ein Bürger ein Gebäude &lt;strong&gt;nur einmal pro Tag&lt;/strong&gt; untersuchen. Eine weitere Tour würde unweigerlich zu einem sehr unschönen Tod führen.</note>
+      </notes>
+      <segment>
+        <source>Wegen der großen Menge Gift, die man beim Untersuchen eines verlassenen Gebäudes einatmet, kann ein Bürger ein Gebäude &lt;strong&gt;nur einmal pro Tag&lt;/strong&gt; untersuchen. Eine weitere Tour würde unweigerlich zu einem sehr unschönen Tod führen.</source>
+        <target><![CDATA[Vu l'exposition aux hautes doses de toxicité durant son exploration, <strong>un citoyen ne pourra rentrer qu'une seule fois par jour dans la ruine</strong>, plus d'exposition pourrait conduire à une mort traumatisante.]]></target>
+      </segment>
+    </unit>
+    <unit id="9tyeLdW" name="b3077a1">
+      <notes>
+        <note category="german">Um den Zombies zu entkommen, die sich hier herumtreiben, kannst du deine Gegenstände aus deinem Inventar benutzen und damit angreifen. Du kannst auch &lt;strong&gt;die Aktion "Die Flucht wagen" ausführen&lt;/strong&gt;: Dabei verbrauchst du einen Teil deines Sauerstoffvorrats. 
+Solltest du später noch einmal zurückkommen, werden genauso viele Zombies auf dich warten.</note>
+      </notes>
+      <segment>
+        <source>Um den Zombies zu entkommen, die sich hier herumtreiben, kannst du deine Gegenstände aus deinem Inventar benutzen und damit angreifen. Du kannst auch &lt;strong&gt;die Aktion "Die Flucht wagen" ausführen&lt;/strong&gt;: Dabei verbrauchst du einen Teil deines Sauerstoffvorrats. 
+Solltest du später noch einmal zurückkommen, werden genauso viele Zombies auf dich warten.</source>
+        <target><![CDATA[Pour échapper aux zombies peuplant ces zones, en plus de pouvoir utiliser vos objets offensifs, <strong>vous pourrez utiliser l'action de "S'enfuir"</strong>qui vous permettra de leur échapper en consommant une partie de votre oxygène, vous retrouverez tout de même le même nombre de zombies en revenant sur vos pas.]]></target>
+      </segment>
+    </unit>
+    <unit id="Ro.Av4r" name="0995565">
+      <notes>
+        <note category="german">Durch den Lärm, den die Abenteurer in der Außenwelt machen, halten sich &lt;strong&gt;immer einige Zombies in der Nähe&lt;/strong&gt; der Gebäude auf. Du solltest eine solche Zone darum schnell durchsuchen, ehe es dort nur so vor Zombies wimmelt.</note>
+      </notes>
+      <segment>
+        <source>Durch den Lärm, den die Abenteurer in der Außenwelt machen, halten sich &lt;strong&gt;immer einige Zombies in der Nähe&lt;/strong&gt; der Gebäude auf. Du solltest eine solche Zone darum schnell durchsuchen, ehe es dort nur so vor Zombies wimmelt.</source>
+        <target><![CDATA[En raison du bruit généré par les aventuriers de l'Outre-monde, <strong>quelques zombies pénètreront dans les bâtiments tous les jours.</strong> Il vaut mieux donc fouiller la zone rapidement, avant que les lieux ne soient infestés.]]></target>
+      </segment>
+    </unit>
+    <unit id="V5OvUWu" name="5998125">
+      <notes>
+        <note category="german">Zwischen dem Auftauchen der Verdammten und diesen Gebäuden besteht ein Zusammenhang. Es ist darum kein Wunder, dass Plünderer keine Zeit hatten, sie in Ruhe zu durchsuchen. Sie beherbergen darum noch immer zahlreiche Ressourcen und Baupläne. 
+Leider ist es unmöglich, Karten von diesen Gebäuden aufzustöbern. Aber es besteht kein Zweifel daran, dass die einfachsten Mittel auch die effektivsten Mittel zum Durchsuchen dieser Orte sein werden.</note>
+      </notes>
+      <segment>
+        <source>Zwischen dem Auftauchen der Verdammten und diesen Gebäuden besteht ein Zusammenhang. Es ist darum kein Wunder, dass Plünderer keine Zeit hatten, sie in Ruhe zu durchsuchen. Sie beherbergen darum noch immer zahlreiche Ressourcen und Baupläne. 
+Leider ist es unmöglich, Karten von diesen Gebäuden aufzustöbern. Aber es besteht kein Zweifel daran, dass die einfachsten Mittel auch die effektivsten Mittel zum Durchsuchen dieser Orte sein werden.</source>
+        <target>Ces ruines ayant un lien avec l'origine des hordes, il est normal que les pillards n'aient pu les fouiller à loisir, ils contiennent donc de nombreuses ressources et plans de chantiers. Les cartes de ces bâtiments sont malheureusement impossibles à tracer, mais il ne fait aucun doute que les moyens les plus rudimentaires seront utilisés pour fouiller la zone le plus efficacement.</target>
+      </segment>
+    </unit>
+    <unit id="arLFfQ0" name="ebd1af9">
+      <notes>
+        <note category="german">Deine Existenz in 'MyHordes' ist vergänglich und nur von kurzer Dauer. Sterben ist etwas ganz gewöhnliches und nicht weiter schlimm.</note>
+      </notes>
+      <segment>
+        <source>Deine Existenz in 'MyHordes' ist vergänglich und nur von kurzer Dauer. Sterben ist etwas ganz gewöhnliches und nicht weiter schlimm.</source>
+        <target>Dans 'MyHordes', l'existence est futile. De courte durée. Il vous arrivera souvent de mourir, mais la mort n'est jamais bien grave.</target>
+      </segment>
+    </unit>
+    <unit id="ZAcOqcY" name="6d2d9d1">
+      <notes>
+        <note category="german">Deine Seele ist der rote Faden des Spiels. In ihr werden all deine gemachten Erfahrungen und Auszeichnungen gesammelt. Außerdem wird dort auch dein aktueller Listenplatz in der Seelenrangliste angezeigt.</note>
+      </notes>
+      <segment>
+        <source>Deine Seele ist der rote Faden des Spiels. In ihr werden all deine gemachten Erfahrungen und Auszeichnungen gesammelt. Außerdem wird dort auch dein aktueller Listenplatz in der Seelenrangliste angezeigt.</source>
+        <target>Votre âme est le fil conducteur qui relie toutes vos incarnations. Elle garde une mémoire de toutes vos vies passées, votre position dans le Grand Classement et vos Distinctions.</target>
+      </segment>
+    </unit>
+    <unit id="27FD0EG" name="Die Auszeichnungen">
+      <notes>
+        <note category="german">Die Auszeichnungen</note>
+      </notes>
+      <segment>
+        <source>Die Auszeichnungen</source>
+        <target>Les Distinctions</target>
+      </segment>
+    </unit>
+    <unit id="_1Ab7yD" name="d46f2cc">
+      <notes>
+        <note category="german">Nach jedem Tod erhältst für bestimmte Taten oder Erfolge ein paar Auszeichungen. Dies wird unter anderem gezählt: Anzahl der getöteten Zombies, Anzahl der seltenen gefundenen Gegenstände, Anzahl der APs, die du in Baustellen investiert hast...</note>
+      </notes>
+      <segment>
+        <source>Nach jedem Tod erhältst für bestimmte Taten oder Erfolge ein paar Auszeichungen. Dies wird unter anderem gezählt: Anzahl der getöteten Zombies, Anzahl der seltenen gefundenen Gegenstände, Anzahl der APs, die du in Baustellen investiert hast...</source>
+        <target>À chaque mort, vous recevez des Distinctions pour de nombreuses choses réalisées au cours de votre partie : nombre de zombies éliminés, objets rares trouvés, ...etc.</target>
+      </segment>
+    </unit>
+    <unit id="wCuacLL" name="20f1b74">
+      <notes>
+        <note category="german">Diese Informationen sind für alle Spieler sichtbar und stellen einen Leistungsspiegel all deiner Partien dar.</note>
+      </notes>
+      <segment>
+        <source>Diese Informationen sind für alle Spieler sichtbar und stellen einen Leistungsspiegel all deiner Partien dar.</source>
+        <target>Elles sont visibles par tous les joueurs sur votre fiche et reflètent ce que vous avez réalisé dans vos vies.</target>
+      </segment>
+    </unit>
+    <unit id="PoMJK5K" name="8b272ca">
+      <notes>
+        <note category="german">&lt;strong&gt;Achtung:&lt;/strong&gt; Alle am letzten Tag erworbenen Auszeichungen werden nicht gezählt (Manche Auszeichungen, wie die Verbannung oder die Todesart sind davon ausgenommen.).</note>
+      </notes>
+      <segment>
+        <source>&lt;strong&gt;Achtung:&lt;/strong&gt; Alle am letzten Tag erworbenen Auszeichungen werden nicht gezählt (Manche Auszeichungen, wie die Verbannung oder die Todesart sind davon ausgenommen.).</source>
+        <target><![CDATA[<strong>Attention :</strong> si vous mourez, les distinctions acquises au cours de la dernière journée ne seront pas gagnées (quelques rares distinctions font exception à cette règle, comme le bannissement, les écrits, les distinctions de mort etc.).]]></target>
+      </segment>
+    </unit>
+    <unit id="LiN0qWx" name="0160004">
+      <notes>
+        <note category="german">Die Grundregel lautet: Ab dem 5. Tag werden dir alle Auszeichnungen gutgeschrieben.
+Wenn du in einer "Kleinen Karte" spielst und &lt;strong&gt;100 Seelenpunkte oder mehr hast&lt;/strong&gt;, werden Auszeichnungen erst ab Tag 8 vergeben!</note>
+      </notes>
+      <segment>
+        <source>Die Grundregel lautet: Ab dem 5. Tag werden dir alle Auszeichnungen gutgeschrieben.
+Wenn du in einer "Kleinen Karte" spielst und &lt;strong&gt;100 Seelenpunkte oder mehr hast&lt;/strong&gt;, werden Auszeichnungen erst ab Tag 8 vergeben!</source>
+        <target><![CDATA[Toutefois, à partir du jour 5, cette règle ne s'applique plus : vous gagnez toujours toutes vos distinctions. Dans les Régions non éloignées, <strong>dès l'acquisition de 100 points d'âme</strong>, aucun picto n'est validé avant le J8.]]></target>
+      </segment>
+    </unit>
+    <unit id="LoWYOXM" name="Die Titel">
+      <notes>
+        <note category="german">Die Titel</note>
+      </notes>
+      <segment>
+        <source>Die Titel</source>
+        <target>Les Titres</target>
+      </segment>
+    </unit>
+    <unit id="12Oiou9" name="886aecf">
+      <notes>
+        <note category="german">Für manche Auszeichnungen erhältst du bei einer entsprechend hohen Anzahl einen &lt;strong&gt;speziellen Titel!&lt;/strong&gt;</note>
+      </notes>
+      <segment>
+        <source>Für manche Auszeichnungen erhältst du bei einer entsprechend hohen Anzahl einen &lt;strong&gt;speziellen Titel!&lt;/strong&gt;</source>
+        <target><![CDATA[Certaines Distinctions débloquent des titres : lorsque vous atteignez un nombre déterminé de cette distinction, un <strong>titre spécial</strong> apparaîtra sur votre profil !]]></target>
+      </segment>
+    </unit>
+    <unit id="2pL5J7A" name="b79dc67">
+      <notes>
+        <note category="german">Beispiel: Für jeden erledigten Zombie erhältst du die Auszeichung "Erlegte Zombies". Sobald du 100 Untote umgebracht hast erscheint der Titel "Brutalo" in deinem Profil! Je mehr Zombies du danach tötest, desto besser wird dein Titel.</note>
+      </notes>
+      <segment>
+        <source>Beispiel: Für jeden erledigten Zombie erhältst du die Auszeichung "Erlegte Zombies". Sobald du 100 Untote umgebracht hast erscheint der Titel "Brutalo" in deinem Profil! Je mehr Zombies du danach tötest, desto besser wird dein Titel.</source>
+        <target>Exemple: vous recevez une distinction "Zombies éliminés" pour chaque mort-vivant que vous éliminez. Au bout de 100, le titre "Grosse Brute" apparaît sur votre Nexus ! Continuez à gagner cette distinction et un nouveau titre apparaîtra.</target>
+      </segment>
+    </unit>
+    <unit id="33cFnv8" name="7dd845b">
+      <notes>
+        <note category="german">Wenn du deinem Nicknamen einen zusätzlichen Titel geben möchtest, musst du auf deiner Seelenseite auf den gewünschten Titel klicken!</note>
+      </notes>
+      <segment>
+        <source>Wenn du deinem Nicknamen einen zusätzlichen Titel geben möchtest, musst du auf deiner Seelenseite auf den gewünschten Titel klicken!</source>
+        <target>Pour afficher un titre à côté de votre pseudo, cliquez sur le titre désiré depuis "Mon titre communautaire" dans votre Profil !</target>
+      </segment>
+    </unit>
+    <unit id="5bXhBKp" name="Seelenrangliste">
+      <notes>
+        <note category="german">Seelenrangliste</note>
+      </notes>
+      <segment>
+        <source>Seelenrangliste</source>
+        <target>L'échelle des âmes (classement)</target>
+      </segment>
+    </unit>
+    <unit id="6YDiz37" name="f944b3c">
+      <notes>
+        <note category="german">Für jeden Tag, den du in einer Stadt überlebst, bekommst du Punkte. In den ersten Tagen erhältst du nur wenige Punkte. Je länger du allerdings durchhältst, desto mehr Punkte werden es!</note>
+      </notes>
+      <segment>
+        <source>Für jeden Tag, den du in einer Stadt überlebst, bekommst du Punkte. In den ersten Tagen erhältst du nur wenige Punkte. Je länger du allerdings durchhältst, desto mehr Punkte werden es!</source>
+        <target>Chaque jour que vous passez dans une ville vous rapporte des points. Les premiers jours rapportent peu de points, mais plus vous avancez, plus vous en gagnez !</target>
+      </segment>
+    </unit>
+    <unit id="bekk9Oq" name="Deine Punktanzahl ist in der Großen Seelenrangliste aufgeführt.">
+      <notes>
+        <note category="german">Deine Punktanzahl ist in der Großen Seelenrangliste aufgeführt.</note>
+      </notes>
+      <segment>
+        <source>Deine Punktanzahl ist in der Großen Seelenrangliste aufgeführt.</source>
+        <target>Ces points vous font notamment entrer dans un classement général des âmes.</target>
+      </segment>
+    </unit>
+    <unit id="5mPpD9Q" name="222be22">
+      <notes>
+        <note category="german">&lt;strong&gt;Sobald ein Spieler mehr als 100 Seelenpunkte gesammelt hat, wird er nur noch in Städten wiedergeboren, in denen ebenfalls Spieler mit 100 Punkten spielen&lt;/strong&gt;
+(so dass die besten Spieler unter sich bleiben).</note>
+      </notes>
+      <segment>
+        <source>&lt;strong&gt;Sobald ein Spieler mehr als 100 Seelenpunkte gesammelt hat, wird er nur noch in Städten wiedergeboren, in denen ebenfalls Spieler mit 100 Punkten spielen&lt;/strong&gt;
+(so dass die besten Spieler unter sich bleiben).</source>
+        <target><![CDATA[<strong>Lorsqu'un joueur comptabilise plus de 100 points en score d'âme, toutes ses existences suivantes se feront dans des villes dont tous les joueurs ont également plus de 100 points</strong> (les meilleurs peuvent jouer entre eux).]]></target>
+      </segment>
+    </unit>
+    <unit id="GVvf.A." name="9ebce8d">
+      <notes>
+        <note category="german">Du wurdest schwer verletzt... Verarzte dich so schnell wie möglich mit einem Verband oder etwas ähnlichem, sonst riskierst du eine &lt;strong&gt;%img_infect% Infektion&lt;/strong&gt; (geht in der Regel tödlich aus...)!</note>
+      </notes>
+      <segment>
+        <source>Du wurdest schwer verletzt... Verarzte dich so schnell wie möglich mit einem Verband oder etwas ähnlichem, sonst riskierst du eine &lt;strong&gt;%img_infect% Infektion&lt;/strong&gt; (geht in der Regel tödlich aus...)!</source>
+        <target><![CDATA[Vous avez été grièvement blessé(e)... Soignez-vous rapidement avec des bandages ou autre, ou vous risquez une <strong>%img_infect% Infection</strong> généralement mortelle !]]></target>
+      </segment>
+    </unit>
+    <unit id="DwNHYeS" name="c387eb6">
+      <notes>
+        <note category="german">Manche Gegenstände, wie zum Beispiel der &lt;strong&gt;%img_carpet% Teppich&lt;/strong&gt;,
+werden &lt;strong&gt;automatisch&lt;/strong&gt; der &lt;strong&gt;Hauseinrichtung&lt;/strong&gt; hinzugefügt, wenn du sie in der Truhe ablegst. Einrichtungsgegenstände verschaffen dir verschiedene Vorteile (Deko, Diebstahlschutz, Schutz gegen Zombies...)</note>
+      </notes>
+      <segment>
+        <source>Manche Gegenstände, wie zum Beispiel der &lt;strong&gt;%img_carpet% Teppich&lt;/strong&gt;,
+werden &lt;strong&gt;automatisch&lt;/strong&gt; der &lt;strong&gt;Hauseinrichtung&lt;/strong&gt; hinzugefügt, wenn du sie in der Truhe ablegst. Einrichtungsgegenstände verschaffen dir verschiedene Vorteile (Deko, Diebstahlschutz, Schutz gegen Zombies...)</source>
+        <target><![CDATA[Certains objets, comme le <strong>%img_carpet% Tapis</strong>, sont <strong>automatiquement</strong> utilisés dans l'<strong>Aménagement</strong> de votre maison si vous les rangez dans votre coffre. Les aménagements apportent des bonus divers (décoration, protection contre le vol, défenses contre les zombies...)]]></target>
+      </segment>
+    </unit>
+    <unit id="_PQd7sk" name="ad9208e">
+      <notes>
+        <note category="german">Es gibt in 'MyHordes' mächtige Drogen, die alle unterschiedliche Effekte haben: Sie lindern Erschöpfungszustände, bekämpfen Infektionen, bringen dich bei Panikattacken wieder runter oder rehydrieren dich... Allerdings ist Vorsicht geboten: Wenn du zu viele nimmst, kannst du &lt;strong&gt;%img_addict% Abhängig&lt;/strong&gt; werden.</note>
+      </notes>
+      <segment>
+        <source>Es gibt in 'MyHordes' mächtige Drogen, die alle unterschiedliche Effekte haben: Sie lindern Erschöpfungszustände, bekämpfen Infektionen, bringen dich bei Panikattacken wieder runter oder rehydrieren dich... Allerdings ist Vorsicht geboten: Wenn du zu viele nimmst, kannst du &lt;strong&gt;%img_addict% Abhängig&lt;/strong&gt; werden.</source>
+        <target><![CDATA[Les drogues sont puissantes dans 'MyHordes' et ont de nombreuses utilités : retirer la fatigue, soigner une infection, calmer les nerfs, s'hydrater... Aussi attention à ne pas trop en consommer. Les risques de <strong>%img_addict% Dépendance</strong> sont réels et particulièrement dangereux.]]></target>
+      </segment>
+    </unit>
+    <unit id="ywk869u" name="6603e25">
+      <notes>
+        <note category="german">Durch das Trinken von Alkohol kommst du wieder zu Kräften (hebt die Erschöpfung auf), allerdings bist du danach nicht mehr ganz Herr deiner Sinne... Deine %img_drunk% &lt;strong&gt;Trunkenheit&lt;/strong&gt; weicht am nächsten Tag einem üblen %img_hung% &lt;strong&gt;Kater&lt;/strong&gt;... Allgemein gilt: Wenn du betrunken oder verkatert bist, kannst du keine weiteren alkoholischen Getränke zu dir nehmen.</note>
+      </notes>
+      <segment>
+        <source>Durch das Trinken von Alkohol kommst du wieder zu Kräften (hebt die Erschöpfung auf), allerdings bist du danach nicht mehr ganz Herr deiner Sinne... Deine %img_drunk% &lt;strong&gt;Trunkenheit&lt;/strong&gt; weicht am nächsten Tag einem üblen %img_hung% &lt;strong&gt;Kater&lt;/strong&gt;... Allgemein gilt: Wenn du betrunken oder verkatert bist, kannst du keine weiteren alkoholischen Getränke zu dir nehmen.</source>
+        <target><![CDATA[L'alcool vous permet de récupérer d'une grosse fatigue, mais il est possible que vous fassiez un peu n'importe quoi... Le lendemain, vous perdrez l'état %img_drunk% <strong>Ivre</strong> qui sera remplacé pour la journée par l'état %img_hung% <strong>Gueule de bois</strong>. Vous ne pouvez pas consommer d'autres boissons alcoolisées dans l'un de ces deux états.]]></target>
+      </segment>
+    </unit>
+    <unit id="Ltaudos" name="27de32f">
+      <notes>
+        <note category="german">Sei gewiss: An diesem gottverlassenen Ort wird dir niemand zu Hilfe eilen. Und Kontrollpunkte gelten hier auch nicht mehr. Versuche darum, das Maximum aus diesen Gebäuden herauszuholen.</note>
+      </notes>
+      <segment>
+        <source>Sei gewiss: An diesem gottverlassenen Ort wird dir niemand zu Hilfe eilen. Und Kontrollpunkte gelten hier auch nicht mehr. Versuche darum, das Maximum aus diesen Gebäuden herauszuholen.</source>
+        <target>Personne ne peut vous venir en aide dans ces lieux cauchemardesques, les points de contrôle n'ont donc plus d'utilité, il vous faudra vous organiser pour tirer un maximum de profit de ces bâtiments.</target>
+      </segment>
+    </unit>
+    <unit id="pCjfjXL" name="198f48e">
+      <notes>
+        <note category="german">Achte auf die Zeit. Falls du dich noch um Mitternacht in einem Gebäude befindest, werden deine Überlebenschancen genauso groß sein, wie die eines %img_meat% saftigen Steaks auf einer angerichteten Tafel!</note>
+      </notes>
+      <segment>
+        <source>Achte auf die Zeit. Falls du dich noch um Mitternacht in einem Gebäude befindest, werden deine Überlebenschancen genauso groß sein, wie die eines %img_meat% saftigen Steaks auf einer angerichteten Tafel!</source>
+        <target>Attention à l'heure, si vous vous trouvez à l'intérieur d'un bâtiment à minuit pile, vous aurez autant de chance de survie qu'un %img_meat% steak juteux sur la grande place !</target>
+      </segment>
+    </unit>
+    <unit id="gns2u3H" name="Der Tod">
+      <notes>
+        <note category="german">Der Tod</note>
+      </notes>
+      <segment>
+        <source>Der Tod</source>
+        <target>La Mort</target>
+      </segment>
+    </unit>
+    <unit id="vc97FEy" name="In &quot;MyHordes&quot; ist der Tod nicht weiter tragisch.">
+      <notes>
+        <note category="german">In "MyHordes" ist der Tod nicht weiter tragisch.</note>
+      </notes>
+      <segment>
+        <source>In "MyHordes" ist der Tod nicht weiter tragisch.</source>
+        <target>Dans "MyHordes", la mort n'est jamais grave.</target>
+      </segment>
+    </unit>
+    <unit id="MLk.yRi" name="473b48d">
+      <notes>
+        <note category="german">Der Tod stellt das Ende deiner Existenz in einer bestimmten Stadt dar und ermöglicht dir im Anschluss in einer neuen Stadt wiedergeboren zu werden.</note>
+      </notes>
+      <segment>
+        <source>Der Tod stellt das Ende deiner Existenz in einer bestimmten Stadt dar und ermöglicht dir im Anschluss in einer neuen Stadt wiedergeboren zu werden.</source>
+        <target>Elle signifie la fin de votre existence dans une ville donnée, mais marque aussi le début d'une nouvelle existence dans une autre ville.</target>
+      </segment>
+    </unit>
+    <unit id="B6yhspG" name="Seelenpunkte nach dem Tod">
+      <notes>
+        <note category="german">Seelenpunkte nach dem Tod</note>
+      </notes>
+      <segment>
+        <source>Seelenpunkte nach dem Tod</source>
+        <target>Gain de points d'âme en cas de mort</target>
+      </segment>
+    </unit>
+    <unit id="XFgRKGC" name="a24c090">
+      <notes>
+        <note category="german">Nach jedem Tod erhältst du eine bestimmte Anzahl an Punkten, die sich an der &lt;strong&gt;Anzahl der Tage&lt;/strong&gt; bemisst, die du in einer Stadt "vollkommen überlebt" hast.</note>
+      </notes>
+      <segment>
+        <source>Nach jedem Tod erhältst du eine bestimmte Anzahl an Punkten, die sich an der &lt;strong&gt;Anzahl der Tage&lt;/strong&gt; bemisst, die du in einer Stadt "vollkommen überlebt" hast.</source>
+        <target><![CDATA[Lorsque vous mourez, vous recevez un nombre de points correspondant au <strong>nombre de jours intégralement survécus au cours de votre dernière existence</strong>.]]></target>
+      </segment>
+    </unit>
+    <unit id="Cg_7jr3" name="e65fd93">
+      <notes>
+        <note category="german">Ein Tag gilt immer dann als "vollkommen überlebt",
+&lt;strong&gt;wenn du beim Zombieangriff um Mitternacht stirbst&lt;/strong&gt;.
+Wenn du im Laufe des Tages stirbst, gilt der Tag als nicht überlebt.</note>
+      </notes>
+      <segment>
+        <source>Ein Tag gilt immer dann als "vollkommen überlebt",
+&lt;strong&gt;wenn du beim Zombieangriff um Mitternacht stirbst&lt;/strong&gt;.
+Wenn du im Laufe des Tages stirbst, gilt der Tag als nicht überlebt.</source>
+        <target><![CDATA[Une journée est considérée comme "intégralement vécue" <strong>si vous y survivez ou si vous mourez des suites de l'attaque des zombies à 23:59</strong>. Toute autre mort invalidera la journée.]]></target>
+      </segment>
+    </unit>
+    <unit id="KsSxKXH" name="Mehrere Fälle sind denkbar:">
+      <notes>
+        <note category="german">Mehrere Fälle sind denkbar:</note>
+      </notes>
+      <segment>
+        <source>Mehrere Fälle sind denkbar:</source>
+        <target>Voici les cas possibles :</target>
+      </segment>
+    </unit>
+    <unit id="db1JVra" name="d3597e9">
+      <notes>
+        <note category="german">&lt;strong&gt;Du stirbst im Laufe des Tages (Vergiftung, Wassermangel ...):&lt;/strong&gt;
+Der angebrochene Tag gilt dann als nicht überlebt. &lt;em&gt;Solltest du zum Beispiel am fünften Tag an einer Zyanidvergiftung sterben, wird deine Punktanzahl auf Grundlage der vier vollständig überlebten Tag berechnet.&lt;/em&gt;</note>
+      </notes>
+      <segment>
+        <source>&lt;strong&gt;Du stirbst im Laufe des Tages (Vergiftung, Wassermangel ...):&lt;/strong&gt;
+Der angebrochene Tag gilt dann als nicht überlebt. &lt;em&gt;Solltest du zum Beispiel am fünften Tag an einer Zyanidvergiftung sterben, wird deine Punktanzahl auf Grundlage der vier vollständig überlebten Tag berechnet.&lt;/em&gt;</source>
+        <target><![CDATA[<strong>si vous mourez au cours de la journée (empoisonnement, déshydratation en expédition, ...) :</strong> la journée en cours n'est pas considérée comme intégralement survécue. <em>Par exemple, si vous mourez d'empoisonnement au Cyanure pendant le jour 5 de votre ville, vous recevrez des points sur la base de 4 jours survécus.</em>]]></target>
+      </segment>
+    </unit>
+    <unit id="sIyefIc" name="d145a33">
+      <notes>
+        <note category="german">&lt;strong&gt;Du stirbst um Mitternacht, allerdings nicht durch die Zombies, sondern an Wassermangel, an einer Infektion oder etwas ähnlichem:&lt;/strong&gt;
+Auch dieser Tag wird nicht gezählt, da du nicht in der Lage warst, deine Grundbedürfnisse zu befriedigen und für dich zu sorgen.
+&lt;em&gt;Solltest du zum Beispiel in der Nacht vom fünften auf den sechsten Tag an Wassermangel sterben, erhältst du Punkte nur für die vier überlebten Tage.&lt;/em&gt;</note>
+      </notes>
+      <segment>
+        <source>&lt;strong&gt;Du stirbst um Mitternacht, allerdings nicht durch die Zombies, sondern an Wassermangel, an einer Infektion oder etwas ähnlichem:&lt;/strong&gt;
+Auch dieser Tag wird nicht gezählt, da du nicht in der Lage warst, deine Grundbedürfnisse zu befriedigen und für dich zu sorgen.
+&lt;em&gt;Solltest du zum Beispiel in der Nacht vom fünften auf den sechsten Tag an Wassermangel sterben, erhältst du Punkte nur für die vier überlebten Tage.&lt;/em&gt;</source>
+        <target><![CDATA[<strong>si vous mourez à minuit mais de déshydratation, infection ou toute cause non liée à l'assaut des zombies :</strong> votre journée passée n'est pas non plus validée, car vous n'avez pas été en mesure de subvenir à vos besoins élémentaires. <em>Par exemple, si vous mourez dans la nuit du 5 au 6 de déshydratation, vous recevrez les points pour 4 jours survécus.</em>]]></target>
+      </segment>
+    </unit>
+    <unit id="IwZcTox" name="e59c65e">
+      <notes>
+        <note category="german">&lt;strong&gt;Du stirbst um Mitternacht in der Wüste:&lt;/strong&gt;
+Der Tag wird nicht gezählt (siehe vorangegangenes Beispiel).</note>
+      </notes>
+      <segment>
+        <source>&lt;strong&gt;Du stirbst um Mitternacht in der Wüste:&lt;/strong&gt;
+Der Tag wird nicht gezählt (siehe vorangegangenes Beispiel).</source>
+        <target><![CDATA[<strong>Si vous mourez dans le désert à minuit :</strong> votre journée passée n'est pas non plus validée (voir exemple précédent).]]></target>
+      </segment>
+    </unit>
+    <unit id="7V87v1y" name="7ec3b81">
+      <notes>
+        <note category="german">&lt;strong&gt;Du stirbst in der Stadt und dies während des Zombieangriffs:&lt;/strong&gt;
+Dein überlebter Tag wird gezählt! &lt;em&gt;Wenn du zum Beispiel in der Nacht vom fünften auf den sechsten Tag beim Angriff der Zombiemeute umkommst, bekommst du deine Punkte für insgesamt fünf Tage (der fünfte Tag wird gezählt).&lt;/em&gt;</note>
+      </notes>
+      <segment>
+        <source>&lt;strong&gt;Du stirbst in der Stadt und dies während des Zombieangriffs:&lt;/strong&gt;
+Dein überlebter Tag wird gezählt! &lt;em&gt;Wenn du zum Beispiel in der Nacht vom fünften auf den sechsten Tag beim Angriff der Zombiemeute umkommst, bekommst du deine Punkte für insgesamt fünf Tage (der fünfte Tag wird gezählt).&lt;/em&gt;</source>
+        <target><![CDATA[<strong>Si vous mourez en ville et durant l'attaque, des suites de l'assaut des zombies :</strong> votre journée est validée ! <em>Par exemple, si vous mourez dans la nuit du 5 au 6 des suites de l'assaut des zombies, vous recevrez des points correspondant à 5 jours survécus (la 5ème et dernière journée vous a été validée).</em>]]></target>
+      </segment>
+    </unit>
+    <unit id="hRyFeHQ" name="54e1be5">
+      <notes>
+        <note category="german">Du stirbst beim Campen und deine Stadt war nicht zerstört:&lt;/strong&gt; Dein überlebter Tag wird &lt;strong&gt;nicht&lt;/strong&gt; gezählt!</note>
+      </notes>
+      <segment>
+        <source>Du stirbst beim Campen und deine Stadt war nicht zerstört:&lt;/strong&gt; Dein überlebter Tag wird &lt;strong&gt;nicht&lt;/strong&gt; gezählt!</source>
+        <target><![CDATA[Vous mourez en camping et votre ville n'a pas été détruite :</strong> votre journée passée n'est <strong>pas</strong> validée !]]></target>
+      </segment>
+    </unit>
+    <unit id="wS0eiAx" name="2f5be52">
+      <notes>
+        <note category="german">Du stirbst beim Campen während deine Stadt bereits zerstört ist:&lt;/strong&gt; Dein überlebter Tag wird gezählt.</note>
+      </notes>
+      <segment>
+        <source>Du stirbst beim Campen während deine Stadt bereits zerstört ist:&lt;/strong&gt; Dein überlebter Tag wird gezählt.</source>
+        <target><![CDATA[Vous mourez en camping alors que votre ville est déjà détruite :</strong> votre journée est validée.]]></target>
+      </segment>
+    </unit>
+    <unit id="gyD1cj7" name="202ab24">
+      <notes>
+        <note category="german">Im Spiel gibt es eine ganz besondere Auszeichung, die den besten (oder hinterhältigsten) Bürgern vorbehalten ist: &lt;strong&gt;Der letzte Tod!&lt;/strong&gt;</note>
+      </notes>
+      <segment>
+        <source>Im Spiel gibt es eine ganz besondere Auszeichung, die den besten (oder hinterhältigsten) Bürgern vorbehalten ist: &lt;strong&gt;Der letzte Tod!&lt;/strong&gt;</source>
+        <target><![CDATA[Une distinction très particulière existe dans le jeu. C'est celle qui récompense les meilleurs (ou plus retors...) citoyens : <strong>La Mort Ultime !</strong>]]></target>
+      </segment>
+    </unit>
+    <unit id="kNwp_aT" name="Um die Auszeichung zu erhalten, müssen drei Regeln beachtet werden:">
+      <notes>
+        <note category="german">Um die Auszeichung zu erhalten, müssen drei Regeln beachtet werden:</note>
+      </notes>
+      <segment>
+        <source>Um die Auszeichung zu erhalten, müssen drei Regeln beachtet werden:</source>
+        <target>Attention cependant, pour gagner cette distinction il existe trois règles :</target>
+      </segment>
+    </unit>
+    <unit id="IPmacZS" name="9bcb92b">
+      <notes>
+        <note category="german">Die Stadt muss insgesamt &lt;strong&gt;mindestens 5 volle Tage&lt;/strong&gt; überlebt haben.</note>
+      </notes>
+      <segment>
+        <source>Die Stadt muss insgesamt &lt;strong&gt;mindestens 5 volle Tage&lt;/strong&gt; überlebt haben.</source>
+        <target><![CDATA[La ville doit avoir tenu <strong>au moins 5 jours complets</strong>,]]></target>
+      </segment>
+    </unit>
+    <unit id="umhoIqi" name="8cb76f5">
+      <notes>
+        <note category="german">Der letzte Bürger muss während des &lt;strong&gt;letzten Zombieangriffs&lt;/strong&gt; aufgefressen worden sein.</note>
+      </notes>
+      <segment>
+        <source>Der letzte Bürger muss während des &lt;strong&gt;letzten Zombieangriffs&lt;/strong&gt; aufgefressen worden sein.</source>
+        <target><![CDATA[Le citoyen doit avoir été <strong>dévoré pendant l'attaque de la Horde</strong> qui aura dévasté la ville,]]></target>
+      </segment>
+    </unit>
+    <unit id="8I4_Kv5" name="271e995">
+      <notes>
+        <note category="german">Die Stadt darf in den vorangegangenen Tagen nicht &lt;span x-ajax-href=%url_devast%&gt;zerstört&lt;/span&gt; worden sein. &lt;i&gt;Eine Stadt gilt dann als zerstört, wenn sich in einer Nacht keine Bürger in ihr ("intra muros") aufgehalten haben.&lt;/i&gt;</note>
+      </notes>
+      <segment>
+        <source>Die Stadt darf in den vorangegangenen Tagen nicht &lt;span x-ajax-href=%url_devast%&gt;zerstört&lt;/span&gt; worden sein. &lt;i&gt;Eine Stadt gilt dann als zerstört, wenn sich in einer Nacht keine Bürger in ihr ("intra muros") aufgehalten haben.&lt;/i&gt;</source>
+        <target><![CDATA[La ville ne doit pas avoir été <span x-ajax-href=%url_devast%>dévastée</span> au cours des jours précédents (<i>une ville est dévastée si elle n'avait plus d'habitants entre ses murs au cours d'une nuit</i>).]]></target>
+      </segment>
+    </unit>
+    <unit id="9xaYy6q" name="931f8ab">
+      <notes>
+        <note category="german">Dementsprechend können &lt;strong&gt;Selbstmörder, Bürger die am letzten Abend in Folge einer Dehydratation sterben oder Spieler, die in der Außenwelt umkommen&lt;/strong&gt;, diese Auszeichnung nicht bekommen.</note>
+      </notes>
+      <segment>
+        <source>Dementsprechend können &lt;strong&gt;Selbstmörder, Bürger die am letzten Abend in Folge einer Dehydratation sterben oder Spieler, die in der Außenwelt umkommen&lt;/strong&gt;, diese Auszeichnung nicht bekommen.</source>
+        <target><![CDATA[Ainsi, <strong>un citoyen qui se suicide, meurt le dernier soir déshydraté ou meurt dans l'Outre-Monde, ne gagnera pas cette distinction.</strong>]]></target>
+      </segment>
+    </unit>
+    <unit id="NbJkxgg" name="15c2361">
+      <notes>
+        <note category="german">Bürger, die beim letzten Angriff auf die Stadt draußen gecampt haben, können die Auszeichnung auch nicht bekommen.</note>
+      </notes>
+      <segment>
+        <source>Bürger, die beim letzten Angriff auf die Stadt draußen gecampt haben, können die Auszeichnung auch nicht bekommen.</source>
+        <target>De même, un citoyen qui campe dans l'Outre-Monde la nuit de la destruction d'une ville ne recevra pas la Mort Ultime.</target>
+      </segment>
+    </unit>
+    <unit id="QbzljWZ" name="1a35249">
+      <notes>
+        <note category="german">Falls mehrere Bürger beim letzten Zombieangriff in der Stadt noch am Leben sind, bestimmt sich &lt;strong&gt;der letzte Tote&lt;/strong&gt; nach dem Zufallsprinzip.</note>
+      </notes>
+      <segment>
+        <source>Falls mehrere Bürger beim letzten Zombieangriff in der Stadt noch am Leben sind, bestimmt sich &lt;strong&gt;der letzte Tote&lt;/strong&gt; nach dem Zufallsprinzip.</source>
+        <target><![CDATA[La sélection du dernier survivant est totalement aléatoire. <strong>Le dernier tué obtient la Mort Ultime.</strong>]]></target>
+      </segment>
+    </unit>
+    <unit id="C0Rhk.N" name="Vorteile der altgedienten Helden">
+      <notes>
+        <note category="german">Vorteile der altgedienten Helden</note>
+      </notes>
+      <segment>
+        <source>Vorteile der altgedienten Helden</source>
+        <target>Avantages des héros vétérans</target>
+      </segment>
+    </unit>
+    <unit id="t9ux.G_" name="226e909">
+      <notes>
+        <note category="german">Neben den zahlreichen Vorteilen, über die du im Heldenmodus verfügst, kannst du mit fortschreitender Heldenerfahrung weitere Vorteile freispielen!</note>
+      </notes>
+      <segment>
+        <source>Neben den zahlreichen Vorteilen, über die du im Heldenmodus verfügst, kannst du mit fortschreitender Heldenerfahrung weitere Vorteile freispielen!</source>
+        <target>En plus de tous les avantages obtenus en tant que Héros, vous pouvez en débloquer encore plus en profitant de votre ancienneté !</target>
+      </segment>
+    </unit>
+    <unit id="i5ckZqP" name="42d8ce6">
+      <notes>
+        <note category="german">Jeder Tag, den du im Heldenmodus spielst, wird in deiner Seelenseite eingetragen. Sobald du eine gewisse Anzahl an Heldentagen gesammelt hast, bist du in der Lage neue Heldenvorteile freizuschalten!</note>
+      </notes>
+      <segment>
+        <source>Jeder Tag, den du im Heldenmodus spielst, wird in deiner Seelenseite eingetragen. Sobald du eine gewisse Anzahl an Heldentagen gesammelt hast, bist du in der Lage neue Heldenvorteile freizuschalten!</source>
+        <target>Chaque jour passé en tant que Héros est comptabilisé dans votre âme. Dès que vous avez cumulé un certain nombre de jours, vous débloquez automatiquement des avantages exceptionnels !</target>
+      </segment>
+    </unit>
+    <unit id="spWGaZU" name="72f4edd">
+      <notes>
+        <note category="german">Der erste Heldenveteranenbonus ist bereits nach 3 Tagen erhältlich. Alle weiteren Boni werden mit zunehmender Anzahl an gespielten Heldentagen freigeschaltet.</note>
+      </notes>
+      <segment>
+        <source>Der erste Heldenveteranenbonus ist bereits nach 3 Tagen erhältlich. Alle weiteren Boni werden mit zunehmender Anzahl an gespielten Heldentagen freigeschaltet.</source>
+        <target>Le premier de ces avantages s'obtient seulement au bout de 3 jours. Les suivants s'obtiennent en moyenne tous les 15 jours, puis de plus en plus lentement en raison de leur puissance.</target>
+      </segment>
+    </unit>
+    <unit id="pMxpfAN" name="Wichtiger Hinweis:">
+      <notes>
+        <note category="german">Wichtiger Hinweis:</note>
+      </notes>
+      <segment>
+        <source>Wichtiger Hinweis:</source>
+        <target>Note importante :</target>
+      </segment>
+    </unit>
+    <unit id="rbZWeqs" name="d7684b4">
+      <notes>
+        <note category="german">Solange du im Heldenmodus spielst, verfügst du über alle freigespielten Vorteile und Boni.</note>
+      </notes>
+      <segment>
+        <source>Solange du im Heldenmodus spielst, verfügst du über alle freigespielten Vorteile und Boni.</source>
+        <target>Tant que vous êtes en mode Héros, vous bénéficiez de vos avantages débloqués.</target>
+      </segment>
+    </unit>
+    <unit id="tDYCTbh" name="Wenn du nicht mehr als Held spielst, verfallen diese Vorteile.">
+      <notes>
+        <note category="german">Wenn du nicht mehr als Held spielst, verfallen diese Vorteile.</note>
+      </notes>
+      <segment>
+        <source>Wenn du nicht mehr als Held spielst, verfallen diese Vorteile.</source>
+        <target>Si vous n'êtes plus Héros, vous n'en bénéficiez plus.</target>
+      </segment>
+    </unit>
+    <unit id="jxtizxy" name="09277f1">
+      <notes>
+        <note category="german">Wechselst du wieder in den Heldenmodus, erhältst du alle Heldenvorteile und es wird da weitergezählt, wo du aufgehört hast.</note>
+      </notes>
+      <segment>
+        <source>Wechselst du wieder in den Heldenmodus, erhältst du alle Heldenvorteile und es wird da weitergezählt, wo du aufgehört hast.</source>
+        <target>Si vous redevenez Héros ensuite, vous reprenez vos avantages et votre progression exactement là où vous en étiez.</target>
+      </segment>
+    </unit>
+    <unit id="TqrEFjN" name="1be791e">
+      <notes>
+        <note category="german">Der Spielmodus &lt;strong&gt;Kleine Koalitionen&lt;/strong&gt; ist sehr einfach und sehr effektiv.
+Es basiert auf folgenden zwei Konzepten:</note>
+      </notes>
+      <segment>
+        <source>Der Spielmodus &lt;strong&gt;Kleine Koalitionen&lt;/strong&gt; ist sehr einfach und sehr effektiv.
+Es basiert auf folgenden zwei Konzepten:</source>
+        <target><![CDATA[Le système de <strong>Petites Coalitions</strong> est un système d'équipe à la fois très basique et très puissant. Il est basé sur les concepts suivants :]]></target>
+      </segment>
+    </unit>
+    <unit id="NxiEK7R" name="b1589ab">
+      <notes>
+        <note category="german">1 - Manche Spieler möchten 'MyHordes' gerne mit ihren Freunden spielen und gemeinsam leiden.</note>
+      </notes>
+      <segment>
+        <source>1 - Manche Spieler möchten 'MyHordes' gerne mit ihren Freunden spielen und gemeinsam leiden.</source>
+        <target>1 - Certains joueurs veulent se retrouver et vivre des aventures ensemble</target>
+      </segment>
+    </unit>
+    <unit id="syTxQPv" name="2 - Die entsprechende Stadtauswahl muss dementsprechend einfach sein.">
+      <notes>
+        <note category="german">2 - Die entsprechende Stadtauswahl muss dementsprechend einfach sein.</note>
+      </notes>
+      <segment>
+        <source>2 - Die entsprechende Stadtauswahl muss dementsprechend einfach sein.</source>
+        <target>2 - Choisir et rejoindre une ville est plus simple pour ces joueurs</target>
+      </segment>
+    </unit>
+    <unit id="2n8_pNk" name="Wie funktionieren Kleine Koalitionen?">
+      <notes>
+        <note category="german">Wie funktionieren Kleine Koalitionen?</note>
+      </notes>
+      <segment>
+        <source>Wie funktionieren Kleine Koalitionen?</source>
+        <target>Comment ça marche ?</target>
+      </segment>
+    </unit>
+    <unit id="R5h.W4u" name="f1a605e">
+      <notes>
+        <note category="german">Ein Spieler erstellt auf seiner Seelenseite eine Koalition und versendet anschließend Einladungen an seine Freunde.</note>
+      </notes>
+      <segment>
+        <source>Ein Spieler erstellt auf seiner Seelenseite eine Koalition und versendet anschließend Einladungen an seine Freunde.</source>
+        <target>Un des joueurs doit créer une coalition depuis son âme. Puis il envoie des invitations à ses amis qui peuvent ou non rejoindre sa coalition.</target>
+      </segment>
+    </unit>
+    <unit id="vQbgI60" name="e1d6b89">
+      <notes>
+        <note category="german">Die Koalition wird gebildet, sobald ihr 5 Spieler beigetreten sind. Die Spieler können anschließend Strategien besprechen, etc...</note>
+      </notes>
+      <segment>
+        <source>Die Koalition wird gebildet, sobald ihr 5 Spieler beigetreten sind. Die Spieler können anschließend Strategien besprechen, etc...</source>
+        <target>Une fois que 5 joueurs ont rejoint la coalition, ils peuvent discuter entre eux, définir des stratégies, ..etc.</target>
+      </segment>
+    </unit>
+    <unit id="yr8y3nx" name="19526d0">
+      <notes>
+        <note category="german">Das Abenteuer kann sodann beginnen! &lt;strong&gt;Der erste &lt;i&gt;verfügbare&lt;/i&gt; Spieler einer Gruppe, der sich für eine Stadt entscheidet, zieht die übrigen (verfügbaren) Spieler mit!&lt;/strong&gt;. Die Koalition benötigt einen Helden, wenn sie sich eine Stadt aussuchen möchte. Wenn sich in der Koalition kein Held befindet, wird die Koalition automatisch in die nächstbeste Stadt gezogen.</note>
+      </notes>
+      <segment>
+        <source>Das Abenteuer kann sodann beginnen! &lt;strong&gt;Der erste &lt;i&gt;verfügbare&lt;/i&gt; Spieler einer Gruppe, der sich für eine Stadt entscheidet, zieht die übrigen (verfügbaren) Spieler mit!&lt;/strong&gt;. Die Koalition benötigt einen Helden, wenn sie sich eine Stadt aussuchen möchte. Wenn sich in der Koalition kein Held befindet, wird die Koalition automatisch in die nächstbeste Stadt gezogen.</source>
+        <target><![CDATA[Puis arrive le temps de partir à l'aventure ! <strong>Le premier membre <i>disponible</i> qui rejoint un monde entraîne les autres (disponibles) à sa suite ! C'est aussi simple que cela.</strong>]]></target>
+      </segment>
+    </unit>
+    <unit id="js0aDbK" name="f3ef2b7">
+      <notes>
+        <note category="german">Selbstverständlich ist in einer Koalition eine gehörige Portion Organisation vonnöten. Ein privater Chat wird den Spieler hierfür zur Verfügung gestellt.</note>
+      </notes>
+      <segment>
+        <source>Selbstverständlich ist in einer Koalition eine gehörige Portion Organisation vonnöten. Ein privater Chat wird den Spieler hierfür zur Verfügung gestellt.</source>
+        <target>Bien entendu ce système demande de la coordination entre les joueurs mais les discussions sur le chat privé sont là pour ça :)</target>
+      </segment>
+    </unit>
+    <unit id="BvIp2WN" name="c5d97bf">
+      <notes>
+        <note category="german">Jeder Teilnehmer kann die Koalition jederzeit verlassen und der Gründer kann sie jederzeit auflösen.</note>
+      </notes>
+      <segment>
+        <source>Jeder Teilnehmer kann die Koalition jederzeit verlassen und der Gründer kann sie jederzeit auflösen.</source>
+        <target>En outre, il est possible de quitter une coalition à tout moment. Il est également possible pour le créateur de dissoudre sa coalition.</target>
+      </segment>
+    </unit>
+    <unit id="P7hm9z." name="Wenn der Gründer seine Koalition verlässt, wird diese mit ihm aufgelöst.">
+      <notes>
+        <note category="german">Wenn der Gründer seine Koalition verlässt, wird diese mit ihm aufgelöst.</note>
+      </notes>
+      <segment>
+        <source>Wenn der Gründer seine Koalition verlässt, wird diese mit ihm aufgelöst.</source>
+        <target>Enfin, et il est important de le noter : si le créateur quitte la coalition, elle disparaît en enfer avec lui.</target>
+      </segment>
+    </unit>
+    <unit id="Vvun1Sq" name="Ausnahmen und Besonderheiten">
+      <notes>
+        <note category="german">Ausnahmen und Besonderheiten</note>
+      </notes>
+      <segment>
+        <source>Ausnahmen und Besonderheiten</source>
+        <target>Règles particulières</target>
+      </segment>
+    </unit>
+    <unit id="MdieWou" name="6b77b65">
+      <notes>
+        <note category="german">Du kannst einer Koalition nicht beitreten, wenn dieser ein Spieler angehört, der verdächtig wird, ein Multiaccount von dir zu sein.</note>
+      </notes>
+      <segment>
+        <source>Du kannst einer Koalition nicht beitreten, wenn dieser ein Spieler angehört, der verdächtig wird, ein Multiaccount von dir zu sein.</source>
+        <target>Vous n'avez pas le droit de rejoindre une coalition dont un membre est détecté comme un multi-compte de votre propre compte.</target>
+      </segment>
+    </unit>
+    <unit id="sHGNd4c" name="bda7671">
+      <notes>
+        <note category="german">Du kannst einer Koalition ebenfalls nicht beitreten, wenn 2 (oder mehr) Mitglieder dieser Koalition sich in den letzten 15 Tagen vom gleichen Rechner aus eingeloggt haben.</note>
+      </notes>
+      <segment>
+        <source>Du kannst einer Koalition ebenfalls nicht beitreten, wenn 2 (oder mehr) Mitglieder dieser Koalition sich in den letzten 15 Tagen vom gleichen Rechner aus eingeloggt haben.</source>
+        <target>De plus, vous ne pouvez pas rejoindre une coalition si 2 membres (ou plus) de cette coalition se sont connectés sur la même machine que vous, depuis moins de 15 jours.</target>
+      </segment>
+    </unit>
+    <unit id="G0k099k" name="5383c4b">
+      <notes>
+        <note category="german">Wenn du der Meinung bist, dass wir dich zu unrecht verdächtigen, kannst du dich an unseren Technischen Support 	
+wenden. Wir werden dann prüfen, ob wir dir weiterhelfen können oder nicht.
+ACHTUNG: Wir raten dir wärmstens davon ab uns anzuschreiben, wenn du ganz sicher weißt, dass du verbotenerweise mehrere Accounts spielst! Du könntest deine Aktion bereuen....</note>
+      </notes>
+      <segment>
+        <source>Wenn du der Meinung bist, dass wir dich zu unrecht verdächtigen, kannst du dich an unseren Technischen Support 	
+wenden. Wir werden dann prüfen, ob wir dir weiterhelfen können oder nicht.
+ACHTUNG: Wir raten dir wärmstens davon ab uns anzuschreiben, wenn du ganz sicher weißt, dass du verbotenerweise mehrere Accounts spielst! Du könntest deine Aktion bereuen....</source>
+        <target>Si vous pensez que cette détection est faussée dans votre cas, contactez la modération de hordes via leur messagerie de groupe : les Corbeaux feront le nécessaire pour remonter votre demande. ATTENTION : nous vous recommandons fortement de ne pas contacter les Corbeaux si vous êtes en tort, vous pourriez être amené(e) à regretter ce choix.</target>
+      </segment>
+    </unit>
+    <unit id="kKnuEUv" name="Häufig gestellte Fragen">
+      <notes>
+        <note category="german">Häufig gestellte Fragen</note>
+      </notes>
+      <segment>
+        <source>Häufig gestellte Fragen</source>
+        <target>Questions-réponses</target>
+      </segment>
+    </unit>
+    <unit id="Wb1EOe6" name="ff5d25d">
+      <notes>
+        <note category="german">Spielt die GESAMTE Koalition in der vom Gründer ausgesuchten Stadt? Schließt das auch die Spieler ein, die offline sind?</note>
+      </notes>
+      <segment>
+        <source>Spielt die GESAMTE Koalition in der vom Gründer ausgesuchten Stadt? Schließt das auch die Spieler ein, die offline sind?</source>
+        <target>Lorsque le joueur qui a créé la coalition rejoint une ville, TOUTE la coalition rejoint la ville avec lui (même ceux qui ne sont pas connectés) ?</target>
+      </segment>
+    </unit>
+    <unit id="SA9u7H3" name="db10250">
+      <notes>
+        <note category="german">&lt;strong&gt;Nein,&lt;/strong&gt; es werden nur eingeladene Spieler mitgenommen, die ihrerseits noch keine Stadt gewählt haben. Ob jemand off- oder online ist, spielt keine Rolle.</note>
+      </notes>
+      <segment>
+        <source>&lt;strong&gt;Nein,&lt;/strong&gt; es werden nur eingeladene Spieler mitgenommen, die ihrerseits noch keine Stadt gewählt haben. Ob jemand off- oder online ist, spielt keine Rolle.</source>
+        <target><![CDATA[<strong>Non,</strong> seuls les joueurs qui ne sont pas déjà dans une ville rejoignent la nouvelle ville si leur statut est en disponibilité. Par contre, le fait d'être connecté ou non à ce moment au site n'a pas d'importance.]]></target>
+      </segment>
+    </unit>
+    <unit id="xWRwURq" name="273690f">
+      <notes>
+        <note category="german">Wenn eine Stadt mehr als 35 Einwohner hat und eine Koalition der Stadt beitreten möchte, hat dies dann zur Folge, dass die Stadt mehr als 40 Bürger hat?</note>
+      </notes>
+      <segment>
+        <source>Wenn eine Stadt mehr als 35 Einwohner hat und eine Koalition der Stadt beitreten möchte, hat dies dann zur Folge, dass die Stadt mehr als 40 Bürger hat?</source>
+        <target>Si la ville contient plus de 35 personnes et que la coalition rejoint la ville, la ville contiendra-t-elle plus de 40 citoyens ?</target>
+      </segment>
+    </unit>
+    <unit id="xpgRvT_" name="9a2e84e">
+      <notes>
+        <note category="german">&lt;strong&gt; Nein,&lt;/strong&gt; es werden nur die übrigen Plätze aufgefüllt. Wenn noch 4 Plätze frei sind, werden nur 4 Spieler aus einer Koalition aufgenommen. Um sicher zu stellen, dass alle Koalitionsmitglieder in der gleichen Stadt spielen können, ist es ratsam das Programm eine Stadt nach dem Zufallsprinzip auswählen zu lassen.</note>
+      </notes>
+      <segment>
+        <source>&lt;strong&gt; Nein,&lt;/strong&gt; es werden nur die übrigen Plätze aufgefüllt. Wenn noch 4 Plätze frei sind, werden nur 4 Spieler aus einer Koalition aufgenommen. Um sicher zu stellen, dass alle Koalitionsmitglieder in der gleichen Stadt spielen können, ist es ratsam das Programm eine Stadt nach dem Zufallsprinzip auswählen zu lassen.</source>
+        <target><![CDATA[<strong>Non,</strong> un cadenas apparaît sur l'écran du choix des villes indiquant que la coalition ne peut plus la rejoindre.]]></target>
+      </segment>
+    </unit>
+    <unit id="K3mRnjG" name="Für wie lange wird eine Koalition gebildet?">
+      <notes>
+        <note category="german">Für wie lange wird eine Koalition gebildet?</note>
+      </notes>
+      <segment>
+        <source>Für wie lange wird eine Koalition gebildet?</source>
+        <target>La coalition ne sert-elle qu'une fois ?</target>
+      </segment>
+    </unit>
+    <unit id="nTUJUCy" name="beb8dbc">
+      <notes>
+        <note category="german">Die Lebensdauer einer Koalition ist &lt;strong&gt;unbegrenzt&lt;/strong&gt;! Sie hört auf zu existieren, wenn der Gründer sie auflöst oder wenn alle Spieler sie verlassen.</note>
+      </notes>
+      <segment>
+        <source>Die Lebensdauer einer Koalition ist &lt;strong&gt;unbegrenzt&lt;/strong&gt;! Sie hört auf zu existieren, wenn der Gründer sie auflöst oder wenn alle Spieler sie verlassen.</source>
+        <target><![CDATA[<strong>Non</strong>, une coalition a une durée de vie infinie tant qu'elle n'a pas été dissoute par son fondateur ou que tous les joueurs ne l'ont pas abandonnée.]]></target>
+      </segment>
+    </unit>
+    <unit id="Cm86Dx2" name="f8608fa">
+      <notes>
+        <note category="german">&lt;strong&gt;Beachte&lt;/strong&gt;: Wenn der Koalitionsgründer seine Koalition verlässt, wird diese ebenfalls aufgelöst!</note>
+      </notes>
+      <segment>
+        <source>&lt;strong&gt;Beachte&lt;/strong&gt;: Wenn der Koalitionsgründer seine Koalition verlässt, wird diese ebenfalls aufgelöst!</source>
+        <target><![CDATA[<strong>Attention</strong> : si le créateur quitte sa coalition, elle sera également dissoute !]]></target>
+      </segment>
+    </unit>
+    <unit id="iFHNOV4" name="3ffbd3c">
+      <notes>
+        <note category="german">Was passiert wenn ein anderer Spieler aus meiner Koalition eine Stadt wählt und ich offline bin?</note>
+      </notes>
+      <segment>
+        <source>Was passiert wenn ein anderer Spieler aus meiner Koalition eine Stadt wählt und ich offline bin?</source>
+        <target>Si je ne suis pas connecté(e) au site quand un autre joueur de ma coalition choisit une ville, que se passe-t-il ?</target>
+      </segment>
+    </unit>
+    <unit id="Rsmj9VE" name="c4633da">
+      <notes>
+        <note category="german">Wenn du noch keine Stadt gewählt hast, spielst du automatisch in der Stadt deines Freundes. Sobald du dich das nächste Mal einloggst, bist du in der gewählten Stadt.</note>
+      </notes>
+      <segment>
+        <source>Wenn du noch keine Stadt gewählt hast, spielst du automatisch in der Stadt deines Freundes. Sobald du dich das nächste Mal einloggst, bist du in der gewählten Stadt.</source>
+        <target>Si vous n'êtes pas déjà dans une ville, vous rejoignez la ville choisie par le joueur automatiquement si votre statut est en disponible. Dès votre prochaine connexion, vous serez dans cette ville. Si votre statut est en indisponible pour une quelconque raison et qu'il reste de la place dans la ville, un bouton apparaîtra pour que vous puissiez rejoindre le ou les membre(s) de votre coalition.</target>
+      </segment>
+    </unit>
+    <unit id="byHsL3D" name="a8b530a">
+      <notes>
+        <note category="german">Dein Haus ist eine Oase der Ruhe und dein ganz privater Rückzugsraum, wenn du mal abschalten möchtest.</note>
+      </notes>
+      <segment>
+        <source>Dein Haus ist eine Oase der Ruhe und dein ganz privater Rückzugsraum, wenn du mal abschalten möchtest.</source>
+        <target>Votre maison est votre havre de paix et de tranquillité dans le monde terrifiant de MyHordes.</target>
+      </segment>
+    </unit>
+    <unit id="ML1xoWn" name="Es handelt sich um einen &lt;strong&gt;sehr wichtigen Ort&lt;/strong&gt;, an dem du:">
+      <notes>
+        <note category="german">Es handelt sich um einen &lt;strong&gt;sehr wichtigen Ort&lt;/strong&gt;, an dem du:</note>
+      </notes>
+      <segment>
+        <source>Es handelt sich um einen &lt;strong&gt;sehr wichtigen Ort&lt;/strong&gt;, an dem du:</source>
+        <target><![CDATA[C'est un <strong>lieu essentiel !</strong> En effet c'est là que vous pouvez :]]></target>
+      </segment>
+    </unit>
+    <unit id="WUwx9ZR" name="Persönliche Dinge erledigen kannst.">
+      <notes>
+        <note category="german">Persönliche Dinge erledigen kannst.</note>
+      </notes>
+      <segment>
+        <source>Persönliche Dinge erledigen kannst.</source>
+        <target>Effectuer des actions personnelles</target>
+      </segment>
+    </unit>
+    <unit id="RkI3NUA" name="822873f">
+      <notes>
+        <note category="german">Gegenstände in deiner Truhe aufbewahren kannst (4 Plätze stehen hierzu standardmäßig zur Verfügung).</note>
+      </notes>
+      <segment>
+        <source>Gegenstände in deiner Truhe aufbewahren kannst (4 Plätze stehen hierzu standardmäßig zur Verfügung).</source>
+        <target>Stocker des objets dans votre coffre (4 emplacements par défaut)</target>
+      </segment>
+    </unit>
+    <unit id="2Zlr.jK" name="Dein Rucksack und deine Truhe">
+      <notes>
+        <note category="german">Dein Rucksack und deine Truhe</note>
+      </notes>
+      <segment>
+        <source>Dein Rucksack und deine Truhe</source>
+        <target>Votre sac et votre coffre</target>
+      </segment>
+    </unit>
+    <unit id="1y.FMB4" name="0c71e39">
+      <notes>
+        <note category="german">In deinem Rucksack und in deiner Truhe kannst du Gegenstände ablegen, die du in der Außenwelt gefunden hast oder die du aus der Bank genommen hast.</note>
+      </notes>
+      <segment>
+        <source>In deinem Rucksack und in deiner Truhe kannst du Gegenstände ablegen, die du in der Außenwelt gefunden hast oder die du aus der Bank genommen hast.</source>
+        <target>Votre sac et votre coffre sont les endroits où vous pouvez stocker des objets trouvés dans l'Outre-Monde ou dans la Banque.</target>
+      </segment>
+    </unit>
+    <unit id="yg15KnG" name="a9dbd06">
+      <notes>
+        <note category="german">Beide haben eine begrenzte Anzahl an Aufbewahrungsplätzen. Es ist jedoch möglich, ihre &lt;strong&gt; Aufnahmekapazität&lt;/strong&gt; mit bestimmten Gegenständen oder durch einen Ausbau (nur die Truhe) zu vergrößern.</note>
+      </notes>
+      <segment>
+        <source>Beide haben eine begrenzte Anzahl an Aufbewahrungsplätzen. Es ist jedoch möglich, ihre &lt;strong&gt; Aufnahmekapazität&lt;/strong&gt; mit bestimmten Gegenständen oder durch einen Ausbau (nur die Truhe) zu vergrößern.</source>
+        <target><![CDATA[Ils ont chacun un nombre limité d'emplacements. Mais il est <strong>possible d'augmenter leur capacité de stockage</strong>.]]></target>
+      </segment>
+    </unit>
+    <unit id="Nb_xRXS" name="996c759">
+      <notes>
+        <note category="german">Dazu musst du nur die richtigen Gegenstände finden (Rucksack und Truhe) oder deine Einrichtung ausbauen (gilt nur für die Truhe).</note>
+      </notes>
+      <segment>
+        <source>Dazu musst du nur die richtigen Gegenstände finden (Rucksack und Truhe) oder deine Einrichtung ausbauen (gilt nur für die Truhe).</source>
+        <target>Il suffit de trouver des objets pour cela (sac et coffre) ou de construire des améliorations (coffre uniquement).</target>
+      </segment>
+    </unit>
+    <unit id="QEyrv7n" name="Die Hausverteidigung verbessern">
+      <notes>
+        <note category="german">Die Hausverteidigung verbessern</note>
+      </notes>
+      <segment>
+        <source>Die Hausverteidigung verbessern</source>
+        <target>Améliorer vos défenses</target>
+      </segment>
+    </unit>
+    <unit id="0sZ2Bu8" name="4757264">
+      <notes>
+        <note category="german">Du kannst die Verteidigungfähigkeit deines Hauses durch bestimmte Ausbauten verbessern. &lt;strong&gt;Mit jeder Ausbaustufe steigt auch der Verteidigungswert&lt;/strong&gt;, allerdings benötigst du eine bestimmte Anzahl an Materialien.</note>
+      </notes>
+      <segment>
+        <source>Du kannst die Verteidigungfähigkeit deines Hauses durch bestimmte Ausbauten verbessern. &lt;strong&gt;Mit jeder Ausbaustufe steigt auch der Verteidigungswert&lt;/strong&gt;, allerdings benötigst du eine bestimmte Anzahl an Materialien.</source>
+        <target><![CDATA[Il est possible d'améliorer les défenses de votre maison en construisant des évolutions. <strong>Chaque évolution vous apporte des points de défense.</strong> Enfin, chaque évolution a un coût en ressources.]]></target>
+      </segment>
+    </unit>
+    <unit id="iyArRrk" name="Verteidigungsbauten wirken sich wie folgt aus:">
+      <notes>
+        <note category="german">Verteidigungsbauten wirken sich wie folgt aus:</note>
+      </notes>
+      <segment>
+        <source>Verteidigungsbauten wirken sich wie folgt aus:</source>
+        <target>Les défenses de maison ont deux impacts :</target>
+      </segment>
+    </unit>
+    <unit id="1kFgpdL" name="Sie halten Zombies davon ab, bei dir einzudringen.">
+      <notes>
+        <note category="german">Sie halten Zombies davon ab, bei dir einzudringen.</note>
+      </notes>
+      <segment>
+        <source>Sie halten Zombies davon ab, bei dir einzudringen.</source>
+        <target>Empêcher les zombies de vous dévorer le soir</target>
+      </segment>
+    </unit>
+    <unit id=".sNRTps" name="Sie verbessern allgemein die Verteidigung der Stadt.">
+      <notes>
+        <note category="german">Sie verbessern allgemein die Verteidigung der Stadt.</note>
+      </notes>
+      <segment>
+        <source>Sie verbessern allgemein die Verteidigung der Stadt.</source>
+        <target>Augmenter les défenses de la ville</target>
+      </segment>
+    </unit>
+    <unit id="XLhfWZv" name="Deine Einrichtung verbessern">
+      <notes>
+        <note category="german">Deine Einrichtung verbessern</note>
+      </notes>
+      <segment>
+        <source>Deine Einrichtung verbessern</source>
+        <target>Améliorer votre habitation</target>
+      </segment>
+    </unit>
+    <unit id="A_.d_sj" name="bc2b68c">
+      <notes>
+        <note category="german">Neben deinem Haus selbst kannst du auch deine Einrichtung verschönern und verbessern. Auch diese &lt;strong&gt;Maßnahmen&lt;/strong&gt; bringen dir einige Vorteile, wie zum Beispiel mehr Aufbewahrungsmöglichkeiten, besserer Diebstahlschutz u.v.m!</note>
+      </notes>
+      <segment>
+        <source>Neben deinem Haus selbst kannst du auch deine Einrichtung verschönern und verbessern. Auch diese &lt;strong&gt;Maßnahmen&lt;/strong&gt; bringen dir einige Vorteile, wie zum Beispiel mehr Aufbewahrungsmöglichkeiten, besserer Diebstahlschutz u.v.m!</source>
+        <target><![CDATA[Votre maison ne demande qu'à être bâtie et améliorée. Aussi, MyHordes propose un système de <strong>Travaux</strong> qui vous permet d'améliorer vos défenses, d'augmenter votre capacité de stockage ou encore de devenir artisan !]]></target>
+      </segment>
+    </unit>
+    <unit id="vHP_r22" name="5e61d3b">
+      <notes>
+        <note category="german">Jede Einrichtungsverbesserung benötigt &lt;strong&gt;APs&lt;/strong&gt; und/oder &lt;strong&gt;Materialien&lt;/strong&gt;.</note>
+      </notes>
+      <segment>
+        <source>Jede Einrichtungsverbesserung benötigt &lt;strong&gt;APs&lt;/strong&gt; und/oder &lt;strong&gt;Materialien&lt;/strong&gt;.</source>
+        <target><![CDATA[La plupart des améliorations de votre maison nécessite d'investir des <strong>PAs</strong> et/ou des <strong>ressources</strong>.]]></target>
+      </segment>
+    </unit>
+    <unit id="Qpnsaa." name="Hierbei gibt es verschiedene Verbesserungsarten:">
+      <notes>
+        <note category="german">Hierbei gibt es verschiedene Verbesserungsarten:</note>
+      </notes>
+      <segment>
+        <source>Hierbei gibt es verschiedene Verbesserungsarten:</source>
+        <target>Il existe plusieurs grands types d'améliorations :</target>
+      </segment>
+    </unit>
+    <unit id="BchHNdu" name="&lt;strong&gt;Stauraum&lt;/strong&gt;: Vergrößert deinen Lagerplatz.">
+      <notes>
+        <note category="german">&lt;strong&gt;Stauraum&lt;/strong&gt;: Vergrößert deinen Lagerplatz.</note>
+      </notes>
+      <segment>
+        <source>&lt;strong&gt;Stauraum&lt;/strong&gt;: Vergrößert deinen Lagerplatz.</source>
+        <target><![CDATA[<strong>Rangements</strong> : augmentent votre capacité de stockage]]></target>
+      </segment>
+    </unit>
+    <unit id="qpGJItt" name="&lt;strong&gt;Verteidigung&lt;/strong&gt;: Verbessert deine Fähigkeit Zombies abzuwehren.">
+      <notes>
+        <note category="german">&lt;strong&gt;Verteidigung&lt;/strong&gt;: Verbessert deine Fähigkeit Zombies abzuwehren.</note>
+      </notes>
+      <segment>
+        <source>&lt;strong&gt;Verteidigung&lt;/strong&gt;: Verbessert deine Fähigkeit Zombies abzuwehren.</source>
+        <target><![CDATA[<strong>Défense</strong> : augmente votre capacité à repousser des zombies pendant l'attaque de la nuit]]></target>
+      </segment>
+    </unit>
+    <unit id="2ICld5d" name="627af64">
+      <notes>
+        <note category="german">&lt;strong&gt;Türschloss&lt;/strong&gt;: Hindert deine lieben Mitbürger daran, sich mal was "auszuleihen"...</note>
+      </notes>
+      <segment>
+        <source>&lt;strong&gt;Türschloss&lt;/strong&gt;: Hindert deine lieben Mitbürger daran, sich mal was "auszuleihen"...</source>
+        <target><![CDATA[<strong>Verrou</strong> : permet d'empêcher les autres citoyens de venir vous "emprunter" des objets]]></target>
+      </segment>
+    </unit>
+    <unit id="GiAhDRG" name="e57645e">
+      <notes>
+        <note category="german">&lt;strong&gt;Alarm&lt;/strong&gt;: Macht sich bemerkbar, wenn sich jemand was "leihen" möchte.</note>
+      </notes>
+      <segment>
+        <source>&lt;strong&gt;Alarm&lt;/strong&gt;: Macht sich bemerkbar, wenn sich jemand was "leihen" möchte.</source>
+        <target><![CDATA[<strong>Alarme</strong> : permet de savoir si d'autres citoyens veulent vous "emprunter" des objets]]></target>
+      </segment>
+    </unit>
+    <unit id="2trN91i" name="&lt;strong&gt;Vorhang&lt;/strong&gt;: Verhindert allzu neugierige Blicke auf deine Truhe.">
+      <notes>
+        <note category="german">&lt;strong&gt;Vorhang&lt;/strong&gt;: Verhindert allzu neugierige Blicke auf deine Truhe.</note>
+      </notes>
+      <segment>
+        <source>&lt;strong&gt;Vorhang&lt;/strong&gt;: Verhindert allzu neugierige Blicke auf deine Truhe.</source>
+        <target><![CDATA[<strong>Rideau</strong>: permet de cacher le contenu de votre coffre de la vue de vos camarades...]]></target>
+      </segment>
+    </unit>
+    <unit id="j5QIYAA" name="11bfbf5">
+      <notes>
+        <note category="german">Dieses Einrichtungsverbesserungssystem ist den &lt;strong&gt;Helden&lt;/strong&gt; vorbehalten.</note>
+      </notes>
+      <segment>
+        <source>Dieses Einrichtungsverbesserungssystem ist den &lt;strong&gt;Helden&lt;/strong&gt; vorbehalten.</source>
+        <target><![CDATA[Pour utiliser ce système, il suffit d'être <strong>Héros</strong>.]]></target>
+      </segment>
+    </unit>
+    <unit id="3K7RUJG" name="0208218">
+      <notes>
+        <note category="german">&lt;strong&gt;Bei den Ghulen handelt es sich um infizierte Einwohner, die sich noch nicht ganz in Zombies verwandelt haben&lt;/strong&gt;
+(Auch die liebe Mutter Natur treibt ab und zu ihre Späßchen).</note>
+      </notes>
+      <segment>
+        <source>&lt;strong&gt;Bei den Ghulen handelt es sich um infizierte Einwohner, die sich noch nicht ganz in Zombies verwandelt haben&lt;/strong&gt;
+(Auch die liebe Mutter Natur treibt ab und zu ihre Späßchen).</source>
+        <target><![CDATA[<strong>Les goules sont des citoyens partiellement infectés mais qui ne se sont pas complètement transformés en zombies</strong> (Mère Nature se marre bien, parfois, quand même).]]></target>
+      </segment>
+    </unit>
+    <unit id="i1wTSyA" name="b0fa4d3">
+      <notes>
+        <note category="german">Es ist so gut wie unmöglich einen Ghul von einem normalen Bürger zu unterscheiden. Wenn ihr nicht aufpasst, kann schon ein Ghul eine ganze Stadt innerhalb kürzester Zeit dezimieren.</note>
+      </notes>
+      <segment>
+        <source>Es ist so gut wie unmöglich einen Ghul von einem normalen Bürger zu unterscheiden. Wenn ihr nicht aufpasst, kann schon ein Ghul eine ganze Stadt innerhalb kürzester Zeit dezimieren.</source>
+        <target>On ne peut quasiment pas distinguer une goule d'un citoyen sain et elle aura tendance à décimer les rangs d'une ville si aucune mesure n'est prise rapidement.</target>
+      </segment>
+    </unit>
+    <unit id="d4P2O7p" name="Hilfe, ich bin ein Ghul!">
+      <notes>
+        <note category="german">Hilfe, ich bin ein Ghul!</note>
+      </notes>
+      <segment>
+        <source>Hilfe, ich bin ein Ghul!</source>
+        <target>Je suis une goule !</target>
+      </segment>
+    </unit>
+    <unit id="forco.9" name="e3d64a2">
+      <notes>
+        <note category="german">Als Ghul musst du jeden Tag deinen Hunger nach Menschenfleisch stillen. Dein &lt;strong&gt;Hunger&lt;/strong&gt; wird durch eine Leiste angezeigt, die du oben auf der Seite in der Nähe Gesundheitszustand findest.</note>
+      </notes>
+      <segment>
+        <source>Als Ghul musst du jeden Tag deinen Hunger nach Menschenfleisch stillen. Dein &lt;strong&gt;Hunger&lt;/strong&gt; wird durch eine Leiste angezeigt, die du oben auf der Seite direkt unter deinem Gesundheitszustand findest.</source>
+        <target><![CDATA[Pour survivre, vous devez gérer votre jauge de <strong>Voracité</strong> visible en haut à droite, près de vos états.]]></target>
+      </segment>
+    </unit>
+    <unit id="xwV.CDq" name="5c10877">
+      <notes>
+        <note category="german">Um deinen Hunger zu stillen, musst du einen lebenden Mitbürger oder kaltes Menschenfleisch essen (in was für einer Form auch immer...).</note>
+      </notes>
+      <segment>
+        <source>Um deinen Hunger zu stillen, musst du einen lebenden Mitbürger oder kaltes Menschenfleisch essen (in was für einer Form auch immer...).</source>
+        <target>Dévorez un citoyen ou consommez de la viande humaine froide (sous toutes ses formes) pour réduire votre Voracité.</target>
+      </segment>
+    </unit>
+    <unit id="l_nvwuf" name="Vorteile">
+      <notes>
+        <note category="german">Vorteile</note>
+      </notes>
+      <segment>
+        <source>Vorteile</source>
+        <target>Avantages</target>
+      </segment>
+    </unit>
+    <unit id="LGXhz7Z" name="Nachteile">
+      <notes>
+        <note category="german">Nachteile</note>
+      </notes>
+      <segment>
+        <source>Nachteile</source>
+        <target>Désavantages</target>
+      </segment>
+    </unit>
+    <unit id="I5rvSru" name="4757914">
+      <notes>
+        <note category="german">Der Verzehr von kalten oder warmen Menschenfleisch gibt dir %img_ap% zurück und senkt deinen Heißhunger.</note>
+      </notes>
+      <segment>
+        <source>Der Verzehr von kalten oder warmen Menschenfleisch gibt dir %img_ap% zurück und senkt deinen Heißhunger.</source>
+        <target>consommer de la chair humaine vivante ou morte régénère vos %img_ap% et réduit votre Voracité,</target>
+      </segment>
+    </unit>
+    <unit id="h_gD9Uq" name="76fcd15">
+      <notes>
+        <note category="german">Pro gefressenem Mitbürger gewinnst du &lt;strong&gt;1 Heldentag&lt;/strong&gt; (Du erhältst sie nach deinem Tod).</note>
+      </notes>
+      <segment>
+        <source>Pro gefressenem Mitbürger gewinnst du &lt;strong&gt;1 Heldentag&lt;/strong&gt; (Du erhältst sie nach deinem Tod).</source>
+        <target><![CDATA[Pro gefressenem Mitbürger gewinnst du <strong>1 Heldentag</strong> (Du erhältst sie nach deinem Tod).]]></target>
+      </segment>
+    </unit>
+    <unit id="v4LpsCZ" name="ddfab5c">
+      <notes>
+        <note category="german">Du bist gegen die Wirkungen einer &lt;strong&gt;Infektion&lt;/strong&gt; immun und verspürst keinen &lt;strong&gt;Durst&lt;/strong&gt;.</note>
+      </notes>
+      <segment>
+        <source>Du bist gegen die Wirkungen einer &lt;strong&gt;Infektion&lt;/strong&gt; immun und verspürst keinen &lt;strong&gt;Durst&lt;/strong&gt;.</source>
+        <target><![CDATA[vous êtes immunisé(e) aux effets de <strong>l'infection</strong> et de <strong>la soif</strong> ; vous ne mourrez donc jamais en marchant dans l'Outre-Monde ou des suites d'une blessure infectée à minuit,]]></target>
+      </segment>
+    </unit>
+    <unit id="SY1__db" name="897fd94">
+      <notes>
+        <note category="german">Du kannst die Stadt unerkannt betreten und verlassen (d.h.: Es wird nicht ins Register eingetragen).</note>
+      </notes>
+      <segment>
+        <source>Du kannst die Stadt unerkannt betreten und verlassen (d.h.: Es wird nicht ins Register eingetragen).</source>
+        <target>vous pouvez, si vous le souhaitez, entrer ou sortir discrètement de la ville (ie. pas d'inscription au registre).</target>
+      </segment>
+    </unit>
+    <unit id="87181SX" name="9718572">
+      <notes>
+        <note category="german">Wenn deine Hungerleiste die &lt;strong&gt;rote Linie&lt;/strong&gt; überschreitet, stirbst du beim Zombieangriff um Mitternacht.</note>
+      </notes>
+      <segment>
+        <source>Wenn deine Hungerleiste die &lt;strong&gt;rote Linie&lt;/strong&gt; überschreitet, stirbst du beim Zombieangriff um Mitternacht.</source>
+        <target><![CDATA[si votre jauge de voracité <strong>dépasse la limite rouge</strong>, vous mourrez à minuit lors de l'attaque,]]></target>
+      </segment>
+    </unit>
+    <unit id="5afbmiP" name="Wenn du Wasser trinkst, bist du &lt;strong&gt;verletzt&lt;/strong&gt;.">
+      <notes>
+        <note category="german">Wenn du Wasser trinkst, bist du &lt;strong&gt;verletzt&lt;/strong&gt;.</note>
+      </notes>
+      <segment>
+        <source>Wenn du Wasser trinkst, bist du &lt;strong&gt;verletzt&lt;/strong&gt;.</source>
+        <target><![CDATA[vous subirez une <strong>blessure</strong> si vous consommez de l'eau,]]></target>
+      </segment>
+    </unit>
+    <unit id="BxAsI52" name="8612213">
+      <notes>
+        <note category="german">Die Wahrscheinlichkeit beim Töten eines Mitbürgers ertappt zu werden, verhält sich proportional zur der Anzahl der noch lebenden Stadtbürger.</note>
+      </notes>
+      <segment>
+        <source>Die Wahrscheinlichkeit beim Töten eines Mitbürgers ertappt zu werden, verhält sich proportional zur der Anzahl der noch lebenden Stadtbürger.</source>
+        <target>si vous décidez de dévorer un citoyen en ville, vos chances d'être vu(e) seront proportionnelles au nombre de citoyens actuellement présents dans la ville,</target>
+      </segment>
+    </unit>
+    <unit id="rgpo1TM" name="e8b8d67">
+      <notes>
+        <note category="german">Dein Hunger wird jeden Tag nach dem Angriff um Mitternacht größer: Wenn du als Ghul überleben möchtest, solltest du darauf achten, rechtzeitig "Nahrung" zu dir zu nehmen. Wenn die Stadt allerdings zerstört wurde, sinkt deine Lust und dein Hunger ein wenig.</note>
+      </notes>
+      <segment>
+        <source>Dein Hunger wird jeden Tag nach dem Angriff um Mitternacht größer: Wenn du als Ghul überleben möchtest, solltest du darauf achten, rechtzeitig "Nahrung" zu dir zu nehmen. Wenn die Stadt allerdings zerstört wurde, sinkt deine Lust und dein Hunger ein wenig.</source>
+        <target>votre voracité augmente à minuit, après l'attaque : vous devez donc régulièrement dévorer un citoyen pour survivre. Toutefois, si la ville est dévastée, la tentation et la faim se feront moins sentir.</target>
+      </segment>
+    </unit>
+    <unit id="4t8w_0b" name="40a4909">
+      <notes>
+        <note category="german">Wenn du einen Menschen frisst, wird sein Zustand auf dich übertragen. Suche dir deine Opfer also sorgfältig aus und widerstehe der Versuchung, den erstbesten Drogensüchtigen zu verspeisen!</note>
+      </notes>
+      <segment>
+        <source>Wenn du einen Menschen frisst, wird sein Zustand auf dich übertragen. Suche dir deine Opfer also sorgfältig aus und widerstehe der Versuchung, den erstbesten Drogensüchtigen zu verspeisen!</source>
+        <target>si vous consommez un humain ayant un statut particulier, il vous sera transmis à ce moment là : tâchez de bien sélectionner vos victimes, et de ne pas succomber à la tentation de dévorer le premier drogué venu !</target>
+      </segment>
+    </unit>
+    <unit id="zP1fcqT" name="Wie kann man ein Ghul werden?">
+      <notes>
+        <note category="german">Wie kann man ein Ghul werden?</note>
+      </notes>
+      <segment>
+        <source>Wie kann man ein Ghul werden?</source>
+        <target>Comment devient on une goule ?</target>
+      </segment>
+    </unit>
+    <unit id="C2V9vFV" name="472a94d">
+      <notes>
+        <note category="german">Dieser Zustand kann nicht gewählt werden. Vielmehr handelt es sich um einen Fluch, von dem jeder Spieler, egal ob in der Stadt oder in der Außenwelt, getroffen werden kann.</note>
+      </notes>
+      <segment>
+        <source>Dieser Zustand kann nicht gewählt werden. Vielmehr handelt es sich um einen Fluch, von dem jeder Spieler, egal ob in der Stadt oder in der Außenwelt, getroffen werden kann.</source>
+        <target>Un citoyen a des chances de devenir une goule en mangeant de la nourriture plus ou moins suspecte : Cadavre de voyageur, melon d'intestin, viande Humaine et quelques autres... Bien sûr les chances peuvent être faibles, mais prendrez vous le risque de muter ?</target>
+      </segment>
+    </unit>
+    <unit id="5JpviwY" name="7439588">
+      <notes>
+        <note category="german">Es ist möglich, bestimmte Produkte zu verwenden, um sich gegen das Werden eines Ghuls zu verteidigen oder sich mit dem Anti-Ghul-Impfstoff zu heilen!</note>
+      </notes>
+      <segment>
+        <source>Man kann sich mit bestimmten Produkten gegen die Verwandlung in einen Ghul schützen!</source>
+        <target>Il est possible de se guérir de cet état grâce au vaccin anti-goule !</target>
+      </segment>
+    </unit>
+    <unit id="m270tVB" name="Wie tötet man einen Ghul?">
+      <notes>
+        <note category="german">Wie tötet man einen Ghul?</note>
+      </notes>
+      <segment>
+        <source>Wie tötet man einen Ghul?</source>
+        <target>Comment tuer une goule ?</target>
+      </segment>
+    </unit>
+    <unit id="NqWgUq6" name="77a41fb">
+      <notes>
+        <note category="german">Ein Ghul ist noch kein Zombie. Sein Körper kann sich nur schlecht gegen Angriffe wehren. Sowohl der Galgen, als auch Drogenabhängigkeit können einen Ghul umbringen. Allerdings kann ein Ghul weder verdursten, noch an einer Infektion sterben.</note>
+      </notes>
+      <segment>
+        <source>Ein Ghul ist noch kein Zombie. Sein Körper kann sich nur schlecht gegen Angriffe wehren. Sowohl der Galgen, als auch Drogenabhängigkeit können einen Ghul umbringen. Allerdings kann ein Ghul weder verdursten, noch an einer Infektion sterben.</source>
+        <target>Une goule n'est pas tout à fait un zombie et elle peut donc mourir de certaines causes "normales" : pendaison et addiction aux drogues. Toutefois, elle est immunisée à la soif et à l'infection, et donc, aux morts qui correspondent.</target>
+      </segment>
+    </unit>
+    <unit id="w0OQSf1" name="acbb19c">
+      <notes>
+        <note category="german">&lt;strong&gt;Die effektivste Methode einen Ghul zu töten, ist es ihn anzugreifen. Er stirbt dann sofort.&lt;/strong&gt;
+Doch aufgepasst: Ein körperlicher Angriff kostet einiges an %img_ap% und
+es besteht eine erhöhte Wahrscheinlichkeit sein Opfer zu verletzen. Versucht auch nicht den/die falschen anzugreifen, es könnte auf euch zurückfallen. ;)</note>
+      </notes>
+      <segment>
+        <source>&lt;strong&gt;Die effektivste Methode einen Ghul zu töten, ist es ihn anzugreifen. Er stirbt dann sofort.&lt;/strong&gt;
+Doch aufgepasst: Ein körperlicher Angriff kostet einiges an %img_ap% und
+es besteht eine erhöhte Wahrscheinlichkeit sein Opfer zu verletzen. Versucht auch nicht den/die falschen anzugreifen, es könnte auf euch zurückfallen. ;)</source>
+        <target><![CDATA[<strong>L'agression est la solution la plus efficace et tue instantanément une goule.</strong> Attention toutefois : l'agression coûte cher en %img_ap% et a une chance élevée de blesser la victime. Gare aux agressions non-justifiées.]]></target>
+      </segment>
+    </unit>
+    <unit id="DeovMmE" name="Wie erkenne ich einen Ghul?">
+      <notes>
+        <note category="german">Wie erkenne ich einen Ghul?</note>
+      </notes>
+      <segment>
+        <source>Wie erkenne ich einen Ghul?</source>
+        <target>Comment repérer une goule ?</target>
+      </segment>
+    </unit>
+    <unit id="EYzcm1C" name="2c95215">
+      <notes>
+        <note category="german">Das Stadtregister ist dein wichtigster Anhaltspunkt. Außerdem solltest du einen Blick auf die An- und Abwesenheit bestimmter Spieler achten.</note>
+      </notes>
+      <segment>
+        <source>Das Stadtregister ist dein wichtigster Anhaltspunkt. Außerdem solltest du einen Blick auf die An- und Abwesenheit bestimmter Spieler achten.</source>
+        <target>Le Registre de la ville sera votre meilleur allié. Surveillez aussi les présences et absences des joueurs.</target>
+      </segment>
+    </unit>
+    <unit id="biUg0kY" name="d68835e">
+      <notes>
+        <note category="german">Vergiss nie, dass sich jeder Spieler urplötzlich in einen Ghul verwandeln kann! Es kann auch den charismatischen Anführer deiner Stadt treffen, der dir immer so wertvolle Tipps gibt...</note>
+      </notes>
+      <segment>
+        <source>Vergiss nie, dass sich jeder Spieler urplötzlich in einen Ghul verwandeln kann! Es kann auch den charismatischen Anführer deiner Stadt treffen, der dir immer so wertvolle Tipps gibt...</source>
+        <target>N'oubliez pas que tout le monde peut être transformé en Goule ! Même le leader charismatique qui dirige votre ville et qui vous donne de bons conseils.</target>
       </segment>
     </unit>
   </file>

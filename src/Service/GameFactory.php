@@ -23,6 +23,7 @@ use App\Entity\TownClass;
 use App\Entity\TownLogEntry;
 use App\Entity\TownRankingProxy;
 use App\Entity\User;
+use App\Entity\UserGroup;
 use App\Entity\Zone;
 use App\Entity\ZonePrototype;
 use App\Entity\ZoneTag;
@@ -47,6 +48,7 @@ class GameFactory
     private $translator;
     private $maze_maker;
     private $crow;
+    private $perm;
 
     const ErrorNone = 0;
     const ErrorTownClosed          = ErrorHelper::BaseTownSelectionErrors + 1;
@@ -57,7 +59,7 @@ class GameFactory
     public function __construct(ConfMaster $conf,
         EntityManagerInterface $em, GameValidator $v, Locksmith $l, ItemFactory $if, TownHandler $th,
         StatusFactory $sf, RandomGenerator $rg, InventoryHandler $ih, CitizenHandler $ch, ZoneHandler $zh, LogTemplateHandler $lh,
-        TranslatorInterface $translator, MazeMaker $mm, CrowService $crow)
+        TranslatorInterface $translator, MazeMaker $mm, CrowService $crow, PermissionHandler $perm)
     {
         $this->entity_manager = $em;
         $this->validator = $v;
@@ -74,6 +76,7 @@ class GameFactory
         $this->translator = $translator;
         $this->maze_maker = $mm;
         $this->crow = $crow;
+        $this->perm = $perm;
     }
 
     private static $town_name_snippets = [
@@ -270,7 +273,7 @@ class GameFactory
         $previous = [];
 
         for ($i = 0; $i < min($spawn_ruins+2,count($zone_list)); $i++) {
-            $zombies_base = 0;
+
             if ($i < $spawn_ruins) {
                 $zombies_base = 1 + floor(min(1,sqrt( pow($zone_list[$i]->getX(),2) + pow($zone_list[$i]->getY(),2) )/18) * 18);
 
@@ -422,6 +425,9 @@ class GameFactory
         foreach ($heroic_actions as $heroic_action)
             /** @var $heroic_action HeroicActionPrototype */
             $citizen->addHeroicAction( $heroic_action );
+
+        $town_group = $this->entity_manager->getRepository(UserGroup::class)->findOneBy( ['type' => UserGroup::GroupTownInhabitants, 'ref1' => $town->getId()] );
+        if ($town_group) $this->perm->associate( $user, $town_group );
 
         return $citizen;
     }

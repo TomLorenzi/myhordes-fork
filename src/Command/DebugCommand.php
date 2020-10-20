@@ -94,7 +94,7 @@ class DebugCommand extends Command
                 /** @var User $crow */
                 $crow = $this->entity_manager->getRepository(User::class)->find(66);
                 if (!isset($crow)) {
-                    $command = $this->getApplication()->find('app:create-user');
+                    $command = $this->getApplication()->find('app:user:create');
                     for ($i = 1; $i <= 80; $i++) {
                         $user_name = 'user_' . str_pad($i, 3, '0', STR_PAD_LEFT);
                         $nested_input = new ArrayInput([
@@ -122,7 +122,7 @@ class DebugCommand extends Command
                 return 0;
             }
 
-            $command = $this->getApplication()->find('app:create-user');
+            $command = $this->getApplication()->find('app:user:create');
             for ($i = 1; $i <= 80; $i++) {
                 $user_name = 'user_' . str_pad($i, 3, '0', STR_PAD_LEFT);
                 $nested_input = new ArrayInput([

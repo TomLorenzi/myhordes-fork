@@ -11,6 +11,12 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Forum
 {
+    const ForumTypeDefault = 0;
+    const ForumTypeElevated = 1;
+    const ForumTypeMods = 2;
+    const ForumTypeAdmins = 3;
+    const ForumTypeCustom = 4;
+
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()
@@ -32,6 +38,21 @@ class Forum
      * @ORM\OneToMany(targetEntity="App\Entity\Thread", mappedBy="forum", orphanRemoval=true, cascade={"persist", "remove"})
      */
     private $threads;
+
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $type;
+
+    /**
+     * @ORM\Column(type="text", nullable=true)
+     */
+    private $description;
+
+    /**
+     * @ORM\Column(type="string", length=190, nullable=true)
+     */
+    private $icon;
 
     public function __construct()
     {
@@ -94,6 +115,42 @@ class Forum
                 $thread->setForum(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getType(): ?int
+    {
+        return $this->type;
+    }
+
+    public function setType(?int $type): self
+    {
+        $this->type = $type;
+
+        return $this;
+    }
+
+    public function getDescription(): ?string
+    {
+        return $this->description;
+    }
+
+    public function setDescription(?string $description): self
+    {
+        $this->description = $description;
+
+        return $this;
+    }
+
+    public function getIcon(): ?string
+    {
+        return $this->icon;
+    }
+
+    public function setIcon(?string $icon): self
+    {
+        $this->icon = $icon;
 
         return $this;
     }

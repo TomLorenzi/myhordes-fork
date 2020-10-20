@@ -11,12 +11,14 @@ use App\Entity\Town;
 use App\Entity\TwinoidImport;
 use App\Entity\TwinoidImportPreview;
 use App\Entity\User;
+use App\Entity\UserGroup;
 use App\Entity\UserPendingValidation;
 use App\Response\AjaxResponse;
 use App\Service\AdminActionHandler;
 use App\Service\AntiCheatService;
 use App\Service\ErrorHelper;
 use App\Service\JSONRequestParser;
+use App\Service\PermissionHandler;
 use App\Service\TwinoidHandler;
 use App\Service\UserFactory;
 use App\Service\UserHandler;
@@ -71,9 +73,10 @@ class AdminUserController extends AdminActionController
      * @param UserFactory $uf
      * @param TwinoidHandler $twin
      * @param UserHandler $userHandler
+     * @param string $param
      * @return Response
      */
-    public function user_account_manager(int $id, string $action, JSONRequestParser $parser, UserFactory $uf, TwinoidHandler $twin, UserHandler $userHandler, string $param = ''): Response
+    public function user_account_manager(int $id, string $action, JSONRequestParser $parser, UserFactory $uf, TwinoidHandler $twin, UserHandler $userHandler, PermissionHandler $perm, string $param = ''): Response
     {
         /** @var User $user */
         $user = $this->entity_manager->getRepository(User::class)->find($id);
@@ -102,12 +105,14 @@ class AdminUserController extends AdminActionController
                     $user->setPendingValidation(null);
                 }
                 $user->setValidated(true);
+                $perm->associate($user, $perm->getDefaultGroup( UserGroup::GroupTypeDefaultUserGroup ));
                 $this->entity_manager->persist($user);
                 break;
             case 'invalidate':
                 if (!$user->getValidated())
                     return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
                 $user->setValidated(false);
+                $perm->disassociate($user, $perm->getDefaultGroup( UserGroup::GroupTypeDefaultUserGroup ));
                 $uf->announceValidationToken( $uf->ensureValidation( $user, UserPendingValidation::EMailValidation ) );
                 $this->entity_manager->persist($user);
                 break;
@@ -142,6 +147,7 @@ class AdminUserController extends AdminActionController
 
                 $pending = $this->entity_manager->getRepository(TwinoidImportPreview::class)->findOneBy(['user' => $user]);
                 if ($pending) {
+                    $user->setTwinoidImportPreview(null);
                     $pending->setUser(null);
                     $this->entity_manager->remove($pending);
                 }
@@ -225,20 +231,37 @@ class AdminUserController extends AdminActionController
                 switch ($param) {
                     case 'NONE':
                         $user->setRightsElevation( User::ROLE_USER );
+                        $perm->disassociate( $user, $perm->getDefaultGroup( UserGroup::GroupTypeDefaultElevatedGroup ) );
+                        $perm->disassociate( $user, $perm->getDefaultGroup( UserGroup::GroupTypeDefaultModeratorGroup ) );
+                        $perm->disassociate( $user, $perm->getDefaultGroup( UserGroup::GroupTypeDefaultAdminGroup ) );
                         break;
                     case 'ROLE_ORACLE':
                         if ( $user->getRightsElevation() === User::ROLE_CROW )
                             $user->setRightsElevation( User::ROLE_ORACLE );
                         else $user->setRightsElevation( max($user->getRightsElevation(), User::ROLE_ORACLE) );
+
+                        $perm->associate( $user, $perm->getDefaultGroup( UserGroup::GroupTypeDefaultElevatedGroup ) );
+                        $perm->disassociate( $user, $perm->getDefaultGroup( UserGroup::GroupTypeDefaultModeratorGroup ) );
+                        $perm->disassociate( $user, $perm->getDefaultGroup( UserGroup::GroupTypeDefaultAdminGroup ) );
+
                         break;
                     case 'ROLE_CROW':
                         $user->setRightsElevation( max($user->getRightsElevation(), User::ROLE_CROW) );
+                        $perm->associate( $user, $perm->getDefaultGroup( UserGroup::GroupTypeDefaultElevatedGroup ) );
+                        $perm->associate( $user, $perm->getDefaultGroup( UserGroup::GroupTypeDefaultModeratorGroup ) );
+                        $perm->disassociate( $user, $perm->getDefaultGroup( UserGroup::GroupTypeDefaultAdminGroup ) );
                         break;
                     case 'ROLE_ADMIN':
                         $user->setRightsElevation( max($user->getRightsElevation(), User::ROLE_ADMIN) );
+                        $perm->associate( $user, $perm->getDefaultGroup( UserGroup::GroupTypeDefaultElevatedGroup ) );
+                        $perm->associate( $user, $perm->getDefaultGroup( UserGroup::GroupTypeDefaultModeratorGroup ) );
+                        $perm->associate( $user, $perm->getDefaultGroup( UserGroup::GroupTypeDefaultAdminGroup ) );
                         break;
                     case 'ROLE_SUPER':
                         $user->setRightsElevation( max($user->getRightsElevation(), User::ROLE_SUPER) );
+                        $perm->associate( $user, $perm->getDefaultGroup( UserGroup::GroupTypeDefaultElevatedGroup ) );
+                        $perm->associate( $user, $perm->getDefaultGroup( UserGroup::GroupTypeDefaultModeratorGroup ) );
+                        $perm->associate( $user, $perm->getDefaultGroup( UserGroup::GroupTypeDefaultAdminGroup ) );
                         break;
                     default: breaK;
                 }
