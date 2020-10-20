@@ -1069,7 +1069,7 @@
       </notes>
       <segment>
         <source>Alle ISO 3166-1 alpha-2 Ländercodes werden in das Feld "langues" eingetragen</source>
-        <target>Alle ISO 3166-1 alpha-2 Ländercodes werden in das Feld "langues" eingetragen</target>
+        <target>Alle ISO 3166-1 alpha-2 Ländercodes werden in das Feld "languages" eingetragen</target>
       </segment>
     </unit>
     <unit id="MLDUlQN" name="zB :">

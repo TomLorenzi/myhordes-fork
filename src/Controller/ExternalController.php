@@ -162,7 +162,7 @@ use Exception;
 
                     $fields = $this->getRequestParam('fields');
                     $filter = $this->getRequestParam('filters');
-                    $langue = $this->getRequestParam('langues');
+                    $langue = $this->getRequestParam('languages');
 
                     
                     if($fields!=false) {
@@ -172,7 +172,7 @@ use Exception;
                         $SURLL_request['items']['filters'] = $this->SURLL_preparser($filter);
                     }
                     if($langue!=false) {
-                        $SURLL_request['items']['langues'] = $this->SURLL_preparser($langue);
+                        $SURLL_request['items']['languages'] = $this->SURLL_preparser($langue);
                     }
 
                     $data = $this->getItemsData($SURLL_request);
@@ -191,7 +191,7 @@ use Exception;
                                 case $type==="me":
                                     $SURLL_request = ['user' => [
                                         'filters' => $user->getId(),
-                                        'langues' => ['de', 'en', 'es', 'fr'],
+                                        'languages' => ['de', 'en', 'es', 'fr'],
                                         'fields' => [
                                             'id',
                                             'isGhost'
@@ -199,13 +199,13 @@ use Exception;
                                     ]];
 
                                     $fields = $this->getRequestParam('fields');
-                                    $langue = $this->getRequestParam('langues');
+                                    $langue = $this->getRequestParam('languages');
 
                                     if($fields!=false) {
                                         $SURLL_request['user']['fields'] = $this->SURLL_preparser($fields);
                                     }
                                     if($langue!=false) {
-                                        $SURLL_request['user']['langues'] = $this->SURLL_preparser($langue);
+                                        $SURLL_request['user']['languages'] = $this->SURLL_preparser($langue);
                                     }
 
                                     $data = $this->getUserData($SURLL_request, $user->getId());
@@ -215,7 +215,7 @@ use Exception;
                                     if($user_id!=false||$user_id>0) {
                                         $SURLL_request = ['user' => [
                                             'filters' => $user_id,
-                                            'langues' => ['de', 'en', 'es', 'fr'],
+                                            'languages' => ['de', 'en', 'es', 'fr'],
                                             'fields' => [
                                                 'id',
                                                 'isGhost'
@@ -223,13 +223,13 @@ use Exception;
                                         ]];
 
                                         $fields = $this->getRequestParam('fields');
-                                        $langue = $this->getRequestParam('langues');
+                                        $langue = $this->getRequestParam('languages');
                                         
                                         if($fields!=false) {
                                             $SURLL_request['user']['fields'] = $this->SURLL_preparser($fields);
                                         }
                                         if($langue!=false) {
-                                            $SURLL_request['user']['langues'] = $this->SURLL_preparser($langue);
+                                            $SURLL_request['user']['languages'] = $this->SURLL_preparser($langue);
                                         }
 
                                         $data = $this->getUserData($SURLL_request, $user->getId());
@@ -242,18 +242,18 @@ use Exception;
                                     if($map_id!=false||$map_id>0) {
                                         $SURLL_request = ['map' => [
                                             'filters' => $map_id,
-                                            'langues' => ['de', 'en', 'es', 'fr'],
+                                            'languages' => ['de', 'en', 'es', 'fr'],
                                             'fields' => ['date', 'days', 'season', 'id', 'hei', 'wid', 'bonusPts', 'conspiracy', 'custom']
                                         ]];
 
                                         $fields = $this->getRequestParam('fields');
-                                        $langue = $this->getRequestParam('langues');
+                                        $langue = $this->getRequestParam('languages');
 
                                         if($fields!=false) {
                                             $SURLL_request['map']['fields'] = $this->SURLL_preparser($fields);
                                         }
                                         if($langue!=false) {
-                                            $SURLL_request['map']['langues'] = $this->SURLL_preparser($langue);
+                                            $SURLL_request['map']['languages'] = $this->SURLL_preparser($langue);
                                         }
 
                                         $data = $this->getMapData($SURLL_request, $user->getId());
@@ -371,7 +371,7 @@ use Exception;
                         break;
                     }
                 }
-                foreach($SURLL_request['items']['langues'] as $lang) {
+                foreach($SURLL_request['items']['languages'] as $lang) {
                     if(!is_string($lang)||strlen($lang)!=2) continue;
                     foreach($SURLL_request['items']['fields'] as $field) {
                         $field_val = $this->getItemVal($ItemProto, $field);
@@ -442,7 +442,7 @@ use Exception;
                     case ($current_citizen && $field==="map"):
                         $user_data['map']= $this->getMapData(['map' => [
                             'filters' => $current_citizen->getTown()->getId(),
-                            'langues' => ['de', 'en', 'es', 'fr'],
+                            'languages' => ['de', 'en', 'es', 'fr'],
                             'fields' => ['date', 'days', 'season', 'id', 'hei', 'wid', 'bonusPts', 'conspiracy', 'custom']
                         ]], $originalUserID);
                     break;
@@ -454,7 +454,7 @@ use Exception;
                             foreach($field as $ProtoFieldName => $ProtoFieldValue) {
                                 switch(true) {
                                     case ($current_citizen && $ProtoFieldName==="map"):
-                                        if(!isset($ProtoFieldValue['langues'])) $ProtoFieldValue['langues']= ['fr','en','de','es'];
+                                        if(!isset($ProtoFieldValue['languages'])) $ProtoFieldValue['languages']= ['fr','en','de','es'];
                                         if(!isset($ProtoFieldValue['fields'])) $ProtoFieldValue['fields']= ['date', 'days', 'season', 'id', 'hei', 'wid', 'bonusPts', 'conspiracy', 'custom'];
                                         $ProtoFieldValue['filters']= $current_citizen->getTown()->getId();
                                         $user_data['map']= $this->getMapData($ProtoFieldValue, $originalUserID);
