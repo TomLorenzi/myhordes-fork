@@ -241,7 +241,7 @@ class BeyondFixtures extends Fixture implements DependentFixtureInterface
             array('item' => 'jerrycan_#00','count' => 6),
             array('item' => 'chest_food_#00','count' => 3),
             array('item' => 'vodka_#00','count' => 1),
-            array('item' => 'vodka_de_#00','count' => 1),
+            //array('item' => 'vodka_de_#00','count' => 1),
             array('item' => 'knife_#00','count' => 3),
             array('item' => 'mixergun_part_#00','count' => 2),
             array('item' => 'pet_rat_#00','count' => 1),
