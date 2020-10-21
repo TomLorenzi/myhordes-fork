@@ -1,0 +1,26 @@
+{% extends "ajax/help/shell.html.twig" %}
+{% block helpContent %}
+<div class="helpArt">{{ 'Spielanleitung'|trans({},'help')|raw }}</div>
+<h1>{{ 'Wächter'|trans({},'help')|raw }}</h1>
+<img class="pip" alt="pip" src="{{ asset('build/images/professions/select/shield.gif') }}">
+<p>
+{{ 'Der Wächter ist der geborene Kämpfer. In der Wüste kann er es mit weitaus mehr Zombies aufnehmen als jeder andere durchschnittliche Einwohner.
+<strong>Dieser Vorteil überträgt sich auf alle Mitspieler, die ihn begleiten</strong>!'|trans({},'help')|raw }}
+</p>
+<label>{{ 'Startausrüstung'|trans({},'help')|raw }} : <strong><img alt="" src="{{ asset('build/images/professions/shield.gif') }}"> {{ 'Schutzschild'|trans({},'help')|raw }}</strong></label>
+<em>
+{{ 'Ein großer Schutzschild, der keine Wünsche offen lässt, ermöglicht es dir, in der Wüste bis zu 2 zusätzliche Zombies auf Distanz zu halten.'|trans({},'help')|raw }}
+</em>
+<h2>{{ 'Wie wird diese Figur gespielt?'|trans({},'help')|raw }}</h2>
+<p>
+{{ 'Der gewöhnliche Bürger kann in der Wüste höchstens 2 Zombies in Schach halten. Wenn es mehr werden, sitzt er in der Falle und kann nicht mehr flüchten. <strong>Der Wächter hingegen kann es dank seines großen Schildes mit bis zu 4 Zombies aufnehmen!</strong>'|trans({},'help')|raw }}
+</p>
+<p>
+{{ 'Jeder Wächter bringt der Stadt einen Verteidigungsbonus ein.'|trans({},'help')|raw }}
+</p>
+<p>
+{{ 'Wenn ein Wächter Nachtwache hält, gibt er der Stadt 30 zusätzliche Verteidigungspunkte. Außerdem haben sie eine um 5% höhere Überlebenschance, wenn der Angriff der Zombiehorden den Verteidigungspunkten der Stadt unterlegen ist.'|trans({},'help')|raw }}
+</p>
+<div class="clear"></div>
+<a class="button" x-ajax-href="{{ url('help', {'name': 'survivalist'}) }}"><img src="{{ asset('build/images/icons/small_move.gif') }}" alt="move"> {{'Weiter'|trans({}, 'help')}}:<strong> {{ 'Einsiedler'|trans({},'help') }}</strong></a>
+{% endblock %}
