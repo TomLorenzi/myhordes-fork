@@ -85,9 +85,10 @@ use Exception;
 
         /**
          * @Route("/jx/disclaimer/{id}", name="disclaimer", condition="request.isXmlHttpRequest()")
+         * @param int $id
          * @return Response
          */
-        public function disclaimer(Request $request, int $id): Response {
+        public function disclaimer(int $id): Response {
             $app = $this->entity_manager->getRepository(ExternalApp::class)->find($id);
             if(!$app||$app->getTesting())
                 return $this->redirect($this->generateUrl('initial_landing'));
