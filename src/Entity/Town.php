@@ -627,7 +627,10 @@ class Town
      */
     public function lifeCycle_postPersist(LifecycleEventArgs $args) {
         $args->getEntityManager()->persist( TownRankingProxy::fromTown( $this ) );
-        $args->getEntityManager()->persist( (new UserGroup())->setName("[town:{$this->getId()}]")->setType(UserGroup::GroupTownInhabitants)->setRef1($this->getId()) );
+        if ($this->getForum()) {
+            $args->getEntityManager()->persist( $g = (new UserGroup())->setName("[town:{$this->getId()}]")->setType(UserGroup::GroupTownInhabitants)->setRef1($this->getId()) );
+            $args->getEntityManager()->persist( (new ForumUsagePermissions())->setForum($this->getForum())->setPrincipalGroup($g)->setPermissionsGranted(ForumUsagePermissions::PermissionReadWrite)->setPermissionsDenied(ForumUsagePermissions::PermissionNone) );
+        }
         $args->getEntityManager()->flush();
     }
 
