@@ -1,0 +1,26 @@
+{% extends "ajax/help/shell.html.twig" %}
+{% block helpContent %}
+<div class="helpArt">{{ 'Spielanleitung'|trans({},'help')|raw }}</div>
+<h1>{{ 'Buddler'|trans({},'help')|raw }}</h1>
+<img class="pip" alt="pip" src="{{ asset('build/images/professions/select/dig.gif') }}">
+<p>
+{{ 'Der Buddler findet in der Wüste mehr Gegenstände.'|trans({},'help')|raw }}
+</p>
+<label>{{ 'Startausrüstung'|trans({},'help')|raw }} : <strong><img alt="" src="{{ asset('build/images/professions/dig.gif') }}"> {{ 'Kleine Schaufel'|trans({},'help')|raw }}</strong></label>
+<em>
+{{ 'Mit der kleinen Schaufel musst du in der Wüste nicht so lange graben (automatisch aktiviert). Die Wahrscheinlichkeit einen Gegenstand zu finden ist ebenfalls größer.'|trans({},'help')|raw }}
+</em>
+<h2>{{ 'Wie wird diese Figur gespielt?'|trans({},'help')|raw }}</h2>
+<p>
+{{ 'Deine automatischen Grabungsaktionen dauern <strong>30 Minuten weniger</strong> als bei anderen Bürgern. Du kannst pro Tag also öfters graben! Die Wahrscheinlichkeit einen Gegenstand zu finden ist größer als bei den anderen Bürgern.'|trans({},'help')|raw }}
+</p>
+<p>
+{{ 'In der Außenwelt verfügst du über einen "sechsten Sinn", der dir im voraus ermöglicht zu wissen, ob eine benachbarte Zone Gegenstände enthält oder ob sie leer ist. Du weißt dann auch, ob ein Gebäude Gegenstände enthält oder nicht!'|trans({},'help')|raw }}
+</p>
+<div class="update">
+{{ 'Der Buddler hat einen großen Vorteil beim Untersuchen verlassener Gebäude. Dank seines <strong>50% größeren 
+Sauerstoffvorrats</strong> kann er verlassenene Gebäude länger und somit gründlicher untersuchen als andere Bürger.'|trans({},'help')|raw }}
+</div>
+<div class="clear"></div>
+<a class="button" x-ajax-href="{{ url('help', {'name': 'scout'}) }}"><img src="{{ asset('build/images/icons/small_move.gif') }}" alt="move"> {{'Weiter'|trans({}, 'help')}}:<strong> {{ 'Aufklärer'|trans({},'help') }}</strong></a>
+{% endblock %}

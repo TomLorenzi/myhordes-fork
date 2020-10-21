@@ -32,6 +32,7 @@ use PhpParser\Node\Stmt\Continue_;
 use SimpleXMLElement;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use Symfony\Contracts\Translation\TranslatorInterface;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -88,17 +89,20 @@ class ExternalXML2Controller extends ExternalController {
      * @return Response
      */
     public function api_xml(): Response {
-        $check = $this->check_keys();
+        $user = $this->check_keys();
 
-        if($check instanceof Response)
-            return $check;
-        
+        if($user instanceof Response)
+            return $user;
+
+        $endpoints = [];
+        $endpoints['user'] = $this->generateUrl('api_x2_xml_user', [], UrlGeneratorInterface::ABSOLUTE_URL);
+        if ($user->getAliveCitizen()) $endpoints['town'] = $this->generateUrl("api_x2_xml_town", ['townId' => $user->getAliveCitizen()->getTown()->getId()], UrlGeneratorInterface::ABSOLUTE_URL);
+
         $array = [
-            "endpoint_list" => [
-                "User infos : " . $this->generateUrl('api_x_xml_user'),
-                'Town indos : ' . $this->generateUrl("api_x_xml_town")
-            ]
+            "endpoint_list" => $endpoints
         ];
+
+
 
         // All fine, let's populate the response.
         $response = new Response($this->arrayToXml( $array, '<hordes xmlns:dc="http://purl.org/dc/elements/1.1" xmlns:content="http://purl.org/rss/1.0/modules/content/" />' ));
@@ -274,15 +278,18 @@ class ExternalXML2Controller extends ExternalController {
 
         foreach($user->getPastLifes() as $pastLife){
             /** @var CitizenRankingProxy $pastLife */
-            if($pastLife->getCitizen()->getAlive()) continue;
+            if($pastLife->getCitizen() && $pastLife->getCitizen()->getAlive()) continue;
             $data['hordes']['data']['maps']['list']['items'][] = [
                 'attributes' => [
                     'name' => $pastLife->getTown()->getName(),
-                    'season' => $pastLife->getTown()->getSeason(),
+                    'season' => $pastLife->getTown()->getSeason() ? $pastLife->getTown()->getSeason()->getNumber() : 0,
                     'score' => $pastLife->getPoints(),
                     'd' => $pastLife->getDay(),
                     'id' => $pastLife->getTown()->getId(),
-                    'v1' => 0
+                    'v1' => 0,
+                    'origin' => ($pastLife->getTown()->getSeason() && $pastLife->getTown()->getSeason()->getNumber() === 0)
+                        ? strtolower($pastLife->getTown()->getLanguage()) . "-{$pastLife->getTown()->getSeason()->getSubNumber()}"
+                        : '',
                 ], 
                 'value' => $pastLife->getLastWords()
             ];
@@ -295,9 +302,12 @@ class ExternalXML2Controller extends ExternalController {
 
     /**
      * @Route("/api/x/v2/xml/town/{townId}", name="api_x2_xml_town", defaults={"_format"="xml"}, methods={"GET","POST"})
+     * @param int $townId
      * @param $trans TranslatorInterface
      * @param $zh ZoneHandler
      * @param $ch CitizenHandler
+     * @param TownHandler $th
+     * @param ConfMaster $conf
      * @return Response
      */
     public function api_xml_town(int $townId, TranslatorInterface $trans, ZoneHandler $zh, CitizenHandler $ch, TownHandler $th, ConfMaster $conf): Response {
@@ -311,6 +321,16 @@ class ExternalXML2Controller extends ExternalController {
         } catch (Exception $e) {
             $now = date('Y-m-d H:i:s');
         }
+
+        /** @var Town $town */
+        $town = $this->entity_manager->getRepository(Town::class)->find($townId);
+        if($town === null)
+            return new Response($this->arrayToXml( ["Error" => "Not Found", "ErrorCode" => "404", "ErrorMessage" => "Town not found"], '<hordes xmlns:dc="http://purl.org/dc/elements/1.1" xmlns:content="http://purl.org/rss/1.0/modules/content/" />' ));
+
+
+        /** @var User $user */
+        if (!$user->getAliveCitizen() || $user->getAliveCitizen()->getTown() !== $town )
+            return new Response($this->arrayToXml( ["Error" => "Access Denied", "ErrorCode" => "403", "ErrorMessage" => "User is not within this towns domain"], '<hordes xmlns:dc="http://purl.org/dc/elements/1.1" xmlns:content="http://purl.org/rss/1.0/modules/content/" />' ));
 
         $request = Request::createFromGlobals();
 
@@ -350,79 +370,70 @@ class ExternalXML2Controller extends ExternalController {
         ];
 
         /** @var Citizen $citizen */
-        $citizen = $user->getActiveCitizen();
-        if($citizen !== null){
-            /** @var Town $town */
-            $town = $citizen->getTown();
-            $activeOffset = $town->getMapOffset();
-            $data['hordes']['headers']['owner'] = [
-                'citizen' => [
-                    "attributes" => [
-                        'dead' => intval(!$citizen->getAlive()),
-                        'hero' => $citizen->getProfession()->getHeroic(),
-                        'name' => $user->getUsername(),
-                        'avatar' => $user->getAvatar()!= null ? $user->getId() . "/" . $user->getAvatar()->getFilename() . "." . $user->getAvatar()->getFormat() : '',
-                        'x' => $citizen->getZone() !== null ? $activeOffset['x'] + $citizen->getZone()->getX() : $activeOffset['x'],
-                        'y' => $citizen->getZone() !== null ? $activeOffset['y'] - $citizen->getZone()->getY() : $activeOffset['y'],
-                        'id' => $citizen->getId(),
-                        'ban' => $citizen->getBanished(),
-                        'job' => $citizen->getProfession()->getName(),
-                        'out' => intval($citizen->getZone() !== null),
-                        'baseDef' => '0'
-                    ],
-                    "value" => $citizen->getHome()->getDescription()
+        $citizen = $user->getAliveCitizen();
+
+        $activeOffset = $town->getMapOffset();
+        $data['hordes']['headers']['owner'] = [
+            'citizen' => [
+                "attributes" => [
+                    'dead' => intval(!$citizen->getAlive()),
+                    'hero' => $citizen->getProfession()->getHeroic(),
+                    'name' => $user->getUsername(),
+                    'avatar' => $user->getAvatar()!= null ? $user->getId() . "/" . $user->getAvatar()->getFilename() . "." . $user->getAvatar()->getFormat() : '',
+                    'x' => $citizen->getZone() !== null ? $activeOffset['x'] + $citizen->getZone()->getX() : $activeOffset['x'],
+                    'y' => $citizen->getZone() !== null ? $activeOffset['y'] - $citizen->getZone()->getY() : $activeOffset['y'],
+                    'id' => $citizen->getId(),
+                    'ban' => $citizen->getBanished(),
+                    'job' => $citizen->getProfession()->getName(),
+                    'out' => intval($citizen->getZone() !== null),
+                    'baseDef' => '0'
+                ],
+                "value" => $citizen->getHome()->getDescription()
+            ]
+        ];
+
+        /** @var Zone $zone */
+        $zone = $citizen->getZone();
+        if($zone !== null){
+            $cp = 0;
+            foreach ($zone->getCitizens() as $c)
+                if ($c->getAlive())
+                    $cp += $ch->getCP($c);
+
+            $data['hordes']['headers']['owner']['myZone'] = [
+                "attributes" => [
+                    'dried' => intval($zone->getDigs() == 0),
+                    'h' => $cp,
+                    'z' => $zone->getZombies()
+                ],
+                'list' => [
+                    'name' => 'item',
+                    'items' => []
                 ]
             ];
 
-            /** @var Zone $zone */
-            $zone = $citizen->getZone();
-            if($zone !== null){
-                $cp = 0;
-                foreach ($zone->getCitizens() as $c)
-                    if ($c->getAlive())
-                        $cp += $ch->getCP($c);
-
-                $data['hordes']['headers']['owner']['myZone'] = [
-                    "attributes" => [
-                        'dried' => intval($zone->getDigs() == 0),
-                        'h' => $cp,
-                        'z' => $zone->getZombies()
-                    ],
-                    'list' => [
-                        'name' => 'item',
-                        'items' => []
+            /** @var Item $item */
+            foreach($zone->getFloor()->getItems() as $item) {
+                $data['hordes']['headers']['owner']['myZone']['list']['items'][] = [
+                    'attributes' => [
+                        'name' => $trans->trans($item->getPrototype()->getLabel(), [], 'items'),
+                        'count' => 1,
+                        'id' => $item->getPrototype()->getId(),
+                        'cat' => $item->getPrototype()->getCategory()->getName(),
+                        'img' => $item->getPrototype()->getIcon(),
+                        'broken' => intval($item->getBroken())
                     ]
                 ];
-                
-                /** @var Item $item */
-                foreach($zone->getFloor()->getItems() as $item) {
-                    $data['hordes']['headers']['owner']['myZone']['list']['items'][] = [
-                        'attributes' => [
-                            'name' => $trans->trans($item->getPrototype()->getLabel(), [], 'items'),
-                            'count' => 1,
-                            'id' => $item->getPrototype()->getId(),
-                            'cat' => $item->getPrototype()->getCategory()->getName(),
-                            'img' => $item->getPrototype()->getIcon(),
-                            'broken' => intval($item->getBroken())
-                        ]
-                    ];
-                }
             }
-            $data['hordes']['headers']['game'] = [
-                'attributes' => [
-                    'days' => $town->getDay(),
-                    'quarantine' => $town->getAttackFails() >= 3,
-                    'datetime' => $now->format('Y-m-d H:i:s'),
-                    'id' => $town->getId(),
-                ],
-            ];
         }
-
-        /** @var Town $town */
-        $town = $this->entity_manager->getRepository(Town::class)->find($townId);
-        if($town === null){
-            return new Response($this->arrayToXml( ["Error" => "Not Found", "ErrorCode" => "404", "ErrorMessage" => "There is no town with the id $townId."], '<hordes xmlns:dc="http://purl.org/dc/elements/1.1" xmlns:content="http://purl.org/rss/1.0/modules/content/" />' ));
-        }
+        $data['hordes']['headers']['game'] = [
+            'attributes' => [
+                'days' => $town->getDay(),
+                'quarantine' => $town->getAttackFails() >= 3,
+                'datetime' => $now->format('Y-m-d H:i:s'),
+                'id' => $town->getId(),
+            ],
+        ];
 
         $offset = $town->getMapOffset();
 
