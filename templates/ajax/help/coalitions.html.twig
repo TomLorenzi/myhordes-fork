@@ -1,0 +1,44 @@
+{% extends "ajax/help/shell.html.twig" %}
+{% block helpContent %}
+<div class="helpArt">{{ 'Spielanleitung'|trans({},'help')|raw }}</div>
+<h1>{{ 'Kleine Koalitionen'|trans({},'help')|raw }}</h1>
+<p>{{ 'Der Spielmodus <strong>Kleine Koalitionen</strong> ist sehr einfach und sehr effektiv.
+Es basiert auf folgenden zwei Konzepten:'|trans({},'help')|raw }}</p>
+<ul>
+<li>{{ '1 - Manche Spieler möchten \'MyHordes\' gerne mit ihren Freunden spielen und gemeinsam leiden.'|trans({},'help')|raw }}</li>
+<li>{{ '2 - Die entsprechende Stadtauswahl muss dementsprechend einfach sein.'|trans({},'help')|raw }}</li>
+</ul>
+<h2>{{ 'Wie funktionieren Kleine Koalitionen?'|trans({},'help')|raw }}</h2>
+<p>{{ 'Ein Spieler erstellt auf seiner Seelenseite eine Koalition und versendet anschließend Einladungen an seine Freunde.'|trans({},'help')|raw }}</p>
+<p>{{ 'Die Koalition wird gebildet, sobald ihr 5 Spieler beigetreten sind. Die Spieler können anschließend Strategien besprechen, etc...'|trans({},'help')|raw }}</p>
+<p>{{ 'Das Abenteuer kann sodann beginnen! <strong>Der erste <i>verfügbare</i> Spieler einer Gruppe, der sich für eine Stadt entscheidet, zieht die übrigen (verfügbaren) Spieler mit!</strong>. Die Koalition benötigt einen Helden, wenn sie sich eine Stadt aussuchen möchte. Wenn sich in der Koalition kein Held befindet, wird die Koalition automatisch in die nächstbeste Stadt gezogen.'|trans({},'help')|raw }}</p>
+<p>{{ 'Selbstverständlich ist in einer Koalition eine gehörige Portion Organisation vonnöten. Ein privater Chat wird den Spieler hierfür zur Verfügung gestellt.'|trans({},'help')|raw }}</p>
+<p>{{ 'Jeder Teilnehmer kann die Koalition jederzeit verlassen und der Gründer kann sie jederzeit auflösen.'|trans({},'help')|raw }}</p>
+<p><strong>{{ 'Wenn der Gründer seine Koalition verlässt, wird diese mit ihm aufgelöst.'|trans({},'help')|raw }}</strong></p>
+<h2>{{ 'Ausnahmen und Besonderheiten'|trans({},'help')|raw }}</h2>
+<p>
+{{ 'Du kannst einer Koalition nicht beitreten, wenn dieser ein Spieler angehört, der verdächtig wird, ein Multiaccount von dir zu sein.'|trans({},'help')|raw }}
+</p>
+<p>
+{{ 'Du kannst einer Koalition ebenfalls nicht beitreten, wenn 2 (oder mehr) Mitglieder dieser Koalition sich in den letzten 15 Tagen vom gleichen Rechner aus eingeloggt haben.'|trans({},'help')|raw }}
+</p>
+<p>
+{{ 'Wenn du der Meinung bist, dass wir dich zu unrecht verdächtigen, kannst du dich an unseren Technischen Support 	
+wenden. Wir werden dann prüfen, ob wir dir weiterhelfen können oder nicht.
+ACHTUNG: Wir raten dir wärmstens davon ab uns anzuschreiben, wenn du ganz sicher weißt, dass du verbotenerweise mehrere Accounts spielst! Du könntest deine Aktion bereuen....'|trans({},'help')|raw }}
+</p>
+<h2>{{ 'Häufig gestellte Fragen'|trans({},'help')|raw }}</h2>
+<dl class="faq">
+<dt>{{ 'Spielt die GESAMTE Koalition in der vom Gründer ausgesuchten Stadt? Schließt das auch die Spieler ein, die offline sind?'|trans({},'help')|raw }}</dt>
+<dd>{{ '<strong>Nein,</strong> es werden nur eingeladene Spieler mitgenommen, die ihrerseits noch keine Stadt gewählt haben. Ob jemand off- oder online ist, spielt keine Rolle.'|trans({},'help')|raw }}</dd>
+<dt>{{ 'Wenn eine Stadt mehr als 35 Einwohner hat und eine Koalition der Stadt beitreten möchte, hat dies dann zur Folge, dass die Stadt mehr als 40 Bürger hat?'|trans({},'help')|raw }}</dt>
+<dd>{{ '<strong> Nein,</strong> es werden nur die übrigen Plätze aufgefüllt. Wenn noch 4 Plätze frei sind, werden nur 4 Spieler aus einer Koalition aufgenommen. Um sicher zu stellen, dass alle Koalitionsmitglieder in der gleichen Stadt spielen können, ist es ratsam das Programm eine Stadt nach dem Zufallsprinzip auswählen zu lassen.'|trans({},'help')|raw }}</dd>
+<dt>{{ 'Für wie lange wird eine Koalition gebildet?'|trans({},'help')|raw }}</dt>
+<dd>{{ 'Die Lebensdauer einer Koalition ist <strong>unbegrenzt</strong>! Sie hört auf zu existieren, wenn der Gründer sie auflöst oder wenn alle Spieler sie verlassen.'|trans({},'help')|raw }}</dd>
+<dd>{{ '<strong>Beachte</strong>: Wenn der Koalitionsgründer seine Koalition verlässt, wird diese ebenfalls aufgelöst!'|trans({},'help')|raw }}</dd>
+<dt>{{ 'Was passiert wenn ein anderer Spieler aus meiner Koalition eine Stadt wählt und ich offline bin?'|trans({},'help')|raw }}</dt>
+<dd>{{ 'Wenn du noch keine Stadt gewählt hast, spielst du automatisch in der Stadt deines Freundes. Sobald du dich das nächste Mal einloggst, bist du in der gewählten Stadt.'|trans({},'help')|raw }}</dd>
+</dl>
+<div class="clear"></div>
+<a class="button" x-ajax-href="{{ url('help', {'name': 'house_and_work'}) }}"><img src="{{ asset('build/images/icons/small_move.gif') }}" alt="move"> {{'Weiter'|trans({}, 'help')}}:<strong> {{ 'Haus &amp; Hausarbeiten'|trans({},'help') }}</strong></a>
+{% endblock %}

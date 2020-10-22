@@ -1,0 +1,20 @@
+{% extends "ajax/help/shell.html.twig" %}
+{% block helpContent %}
+<div class="helpArt">{{ 'Spielanleitung'|trans({},'help')|raw }}</div>
+<h1>{{ 'Die Berufe'|trans({},'help')|raw }}</h1>
+<img class="pip" alt="pip" src="{{ asset('build/images/professions/select/metier.gif') }}">
+<p>
+{{ 'Jeder Spieler startet in "Die Verdammten" als einfacher Bürger. 
+Daneben gibt es jedoch noch <strong>7 außergewöhnliche Berufe</strong>. 
+Diese Berufe sind aber den Spielern vorbehalten sind, die als Held spielen.'|trans({},'help')|raw }}
+</p>
+<p>
+{{ 'Helden können zum Beginn einer Stadt einen Beruf wählen. Jeder Beruf bietet besondere Vorteile. 
+Der Buddler zum Beispiel findet in der Wüste im Durchschnitt mehr Gegenstände als ein normaler 
+Einwohner. Der Einsiedler hat bessere Überlebenschancen beim Campen in der Wildnis.
+Darüber hinaus erhält man je nach Beruf einen <strong>speziellen Gegenstand</strong>. 
+Der Aufklärer besitzt eine Tarnkleidung, der Buddler eine Schaufel usw...'|trans({},'help')|raw }}
+</p>	
+<div class="clear"></div>
+<a class="button" x-ajax-href="{{ url('help', {'name': 'resident'}) }}"><img src="{{ asset('build/images/icons/small_move.gif') }}" alt="move"> {{'Weiter'|trans({}, 'help')}}:<strong> {{ 'Einwohner'|trans({},'help') }}</strong></a>
+{% endblock %}

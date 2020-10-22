@@ -1,0 +1,29 @@
+{% extends "ajax/help/shell.html.twig" %}
+{% block helpContent %}
+<div class="helpArt">{{ 'Spielanleitung'|trans({},'help')|raw }}</div>
+<h1>{{ 'Aufklärer'|trans({},'help')|raw }}</h1>
+<img class="pip" alt="pip" src="{{ asset('build/images/professions/select/vest.gif') }}">
+<p>
+{{ 'Der Aufklärer weiß sich geschickt zu tarnen, um sich mühelos selbst durch große Zombieansammlungen zu schleichen und Zonen aufzusuchen, in die sich keiner alleine trauen würde.
+Achtung: Wenn er in seiner Deckung eine Aktion ausführt, verliert er seine Tarnung!'|trans({},'help')|raw }}
+</p>
+<label>{{ 'Startausrüstung'|trans({},'help')|raw }} : <strong><img alt="" src="{{ asset('build/images/professions/vest.gif') }}"> {{ 'Tarnanzug'|trans({},'help')|raw }}</strong></label>
+<em>
+{{ 'Mit dieser Kleidung kannst du dich in der Wüste unerkannt fortbewegen. Dennoch ist Vorsicht geboten: Wenn sich in einer Zone zu viele Zombies aufhalten, kannst du erkannt werden.'|trans({},'help')|raw }}
+</em>
+<h2>{{ 'Wie wird diese Figur gespielt?'|trans({},'help')|raw }}</h2>
+<p>
+{{ 'Auf sich allein gestellt, schleicht sich der Aufklärer tief hinter die feindlichen Linien und erfüllt somit ganz klar die Funktion eines Spähers.'|trans({},'help')|raw }}
+</p>
+<p>
+{{ 'Wenn er getarnt ist, kann der Aufklärer nur bestimmte Aktionen ausführen: Trinken, Essen und Drogen konsumieren.'|trans({},'help')|raw }}
+</p>
+<p>
+{{ 'In der Außenwelt ist der Aufklärer imstande, die Anzahl der Zombies in einer benachbarten Zone ziemlich genau vorherzusagen.'|trans({},'help')|raw }}
+</p>
+<p>
+{{ 'Der Aufklärer hat beim Camping gegenüber anderen Spielern einen Vorteil, wenn sich in der betroffenen Zone Zombies aufhalten.'|trans({},'help')|raw }}
+</p>
+<div class="clear"></div>
+<a class="button" x-ajax-href="{{ url('help', {'name': 'guardian'}) }}"><img src="{{ asset('build/images/icons/small_move.gif') }}" alt="move"> {{'Weiter'|trans({}, 'help')}}:<strong> {{ 'Wächter'|trans({},'help') }}</strong></a>
+{% endblock %}

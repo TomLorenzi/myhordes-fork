@@ -37,7 +37,7 @@
 <img alt="" src="{{ asset('build/images/status/status_wound1.gif') }}"> <strong>{{ 'Verwundung'|trans({},'help')|raw }}</strong>:
 </dt>
 <dd>
-{{ 'Du wurdest schwer verletzt... Verarzte dich so schnell wie möglich mit einem Verband oder etwas ähnlichem, sonst riskierst du eine <strong><img alt="" src="/gfx/icons/status_infect.gif"> Infektion</strong> (geht in der Regel tödlich aus...)!'|trans({},'help')|raw }}
+{{ 'Du wurdest schwer verletzt... Verarzte dich so schnell wie möglich mit einem Verband oder etwas ähnlichem, sonst riskierst du eine <strong>%img_infect% Infektion</strong> (geht in der Regel tödlich aus...)!'|trans({'%img_infect%': '<img alt="" src="' ~ asset("build/images/status/status_infection.gif") ~ '">'},'help')|raw }}
 </dd>
 <dt>
 <img alt="" src="{{ asset('build/images/status/status_infection.gif') }}"> <strong>{{ 'Infektion'|trans({},'help')|raw }}</strong>:
@@ -49,7 +49,7 @@
 <img alt="" src="{{ asset('build/images/status/status_drugged.gif') }}"> <strong>{{ 'Rauschzustand'|trans({},'help')|raw }}</strong>:
 </dt>
 <dd>
-{{ 'Es gibt in \'MyHordes\' mächtige Drogen, die alle unterschiedliche Effekte haben: Sie lindern Erschöpfungszustände, bekämpfen Infektionen, bringen dich bei Panikattacken wieder runter oder rehydrieren dich... Allerdings ist Vorsicht geboten: Wenn du zu viele nimmst, kannst du <strong><img alt="" src="/gfx/icons/status_addict.gif"> Abhängig</strong> werden.'|trans({},'help')|raw }}
+{{ 'Es gibt in \'MyHordes\' mächtige Drogen, die alle unterschiedliche Effekte haben: Sie lindern Erschöpfungszustände, bekämpfen Infektionen, bringen dich bei Panikattacken wieder runter oder rehydrieren dich... Allerdings ist Vorsicht geboten: Wenn du zu viele nimmst, kannst du <strong>%img_addict% Abhängig</strong> werden.'|trans({'%img_addict%': '<img alt="" src="' ~ asset("build/images/status/status_addict.gif") ~ '">'},'help')|raw }}
 </dd>
 <dt>
 <img alt="" src="{{ asset('build/images/status/status_terror.gif') }}"> <strong>{{ 'Angst'|trans({},'help')|raw }}</strong> :
@@ -65,7 +65,7 @@ Die in diesen Stunden erlittene panische <strong>Angst</strong> ist dir ins Rüc
 <img alt="" src="{{ asset('build/images/status/status_drunk.gif') }}"> <strong>{{ 'Trunkenheit'|trans({},'help')|raw }}</strong> :
 </dt>
 <dd>
-{{ 'Durch das Trinken von Alkohol kommst du wieder zu Kräften (hebt die Erschöpfung auf), allerdings bist du danach nicht mehr ganz Herr deiner Sinne... Deine <img alt="" src="/gfx/icons/status_drunk.gif">&nbsp;<strong>Trunkenheit</strong> weicht am nächsten Tag einem üblen <img alt="" src="/gfx/icons/status_hung_over.gif">&nbsp;<strong>Kater</strong>... Allgemein gilt: Wenn du betrunken oder verkatert bist, kannst du keine weiteren alkoholischen Getränke zu dir nehmen.'|trans({},'help')|raw }}
+{{ 'Durch das Trinken von Alkohol kommst du wieder zu Kräften (hebt die Erschöpfung auf), allerdings bist du danach nicht mehr ganz Herr deiner Sinne... Deine %img_drunk% <strong>Trunkenheit</strong> weicht am nächsten Tag einem üblen %img_hung% <strong>Kater</strong>... Allgemein gilt: Wenn du betrunken oder verkatert bist, kannst du keine weiteren alkoholischen Getränke zu dir nehmen.'|trans({'%img_drunk%': '<img alt="" src="' ~ asset("build/images/status/status_drunk.gif") ~ '">', '%img_hung%': '<img alt="" src="' ~ asset("build/images/status/status_hungover.gif") ~ '">'},'help')|raw }}
 </dd>
 <dt>
 <img alt="" src="{{ asset('build/images/status/status_clean.gif') }}"> <strong>{{ 'Clean'|trans({},'help')|raw }}</strong> :

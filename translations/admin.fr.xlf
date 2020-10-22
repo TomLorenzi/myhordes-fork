@@ -1342,5 +1342,86 @@
         <target>Enterré</target>
       </segment>
     </unit>
+    <unit id="JFa7jtc" name="Verwaltung">
+      <notes>
+        <note category="german">Verwaltung</note>
+      </notes>
+      <segment>
+        <source>Verwaltung</source>
+        <target>Administration</target>
+      </segment>
+    </unit>
+    <unit id="OEN26ap" name="Annulieren">
+      <notes>
+        <note category="german">Annulieren</note>
+      </notes>
+      <segment>
+        <source>Annulieren</source>
+        <target>Annuler</target>
+      </segment>
+    </unit>
+    <unit id="XGKeQ9m" name="Multi-Account Whitelist">
+      <notes>
+        <note category="german">Multi-Account Whitelist</note>
+      </notes>
+      <segment>
+        <source>Multi-Account Whitelist</source>
+        <target>Liste blanche multi-comptes</target>
+      </segment>
+    </unit>
+    <unit id="8slYyDF" name="Spieler-ID">
+      <notes>
+        <note category="german">Spieler-ID</note>
+      </notes>
+      <segment>
+        <source>Spieler-ID</source>
+        <target>ID du joueur</target>
+      </segment>
+    </unit>
+    <unit id="101JnrD" name="Multi-Account Whitelist-Eintrag hinzufügen">
+      <notes>
+        <note category="german">Multi-Account Whitelist-Eintrag hinzufügen</note>
+      </notes>
+      <segment>
+        <source>Multi-Account Whitelist-Eintrag hinzufügen</source>
+        <target>Ajouter une entrée de liste blanche multi-comptes</target>
+      </segment>
+    </unit>
+    <unit id=".rV_1n2" name="Verwende folgende Syntax, um deine Suche zu spezifizieren:">
+      <notes>
+        <note category="german">Verwende folgende Syntax, um deine Suche zu spezifizieren:</note>
+      </notes>
+      <segment>
+        <source>Verwende folgende Syntax, um deine Suche zu spezifizieren:</source>
+        <target>Utilisez la syntaxe suivante pour spécifier votre recherche:</target>
+      </segment>
+    </unit>
+    <unit id="E26lZPz" name="Klick, um Profil in neuem Tab zu öffnen">
+      <notes>
+        <note category="german">Klick, um Profil in neuem Tab zu öffnen</note>
+      </notes>
+      <segment>
+        <source>Klick, um Profil in neuem Tab zu öffnen</source>
+        <target>Cliquez pour ouvrir le profil dans un nouvel onglet</target>
+      </segment>
+    </unit>
+    <unit id="KQDagiG" name="STRG+Klick, um zur Whitelist hinzuzufügen">
+      <notes>
+        <note category="german">STRG+Klick, um zur Whitelist hinzuzufügen</note>
+      </notes>
+      <segment>
+        <source>STRG+Klick, um zur Whitelist hinzuzufügen</source>
+        <target>Ctrl + clic pour ajouter à la liste blanche</target>
+      </segment>
+    </unit>
+    <unit id="hVmvpi1" name="Whitelist">
+      <notes>
+        <note category="german">Whitelist</note>
+      </notes>
+      <segment>
+        <source>Whitelist</source>
+        <target>Liste blanche</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

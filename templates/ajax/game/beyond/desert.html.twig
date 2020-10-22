@@ -24,6 +24,7 @@
                                 <br />
                                 {{ 'Es muss noch aufgeräumt werden'|trans({},'game') }}:
                                 <div class="ruin-bury-count">{% for p in 1..zone.buryCount %}<div></div>{% endfor %}</div>
+                                <span class="ruin-desc">{{ 'Die Zone ist vollständig mit verrottender Vegetation, Sand und allem möglichen Schrott bedeckt. Du bist dir sicher, dass es hier etwas zu finden gibt, aber zunächst musst du diesen gesamten Sektor aufräumen um ihn vernünftig durchsuchen zu können.'|trans({}, 'game') }}</span>
                             {% else %}
                                 <img src="{{ asset('build/images/icons/small_help.gif') }}" /> <span class="ruin-name">{{ 'Ruine'|trans({},'game') }} : <b>{{ zone.prototype.label|trans({}, 'game') }}</b></span><br />
                                 <span class="ruin-desc">{{ zone.prototype.description|trans({}, 'game') }}</span>
@@ -133,7 +134,7 @@
         {% endif %}
         <div class="row">
             <div class="padded cell rw-6 rw-md-12">
-                <h5>{% trans from 'game' %}Diese Zone{% endtrans %}</h5>
+                {% if zone.x != 0 or zone.y != 0 %}<h5>{% trans from 'game' %}Diese Zone{% endtrans %}</h5>{% endif %}
 
                 {% if zone.digs <= 0 %}
                     <div class="note note-light">
@@ -754,8 +755,6 @@
         {% if allow_enter_town %}
             let townEnterBtn = document.getElementById('town-enter');
             if(townEnterBtn) townEnterBtn.addEventListener('click', function() {
-                if (!confirm('{{ 'Bestätigen?'|trans({},'global')|e('js') }}'))
-                    return;
                 $.ajax.easySend( '{{ path('beyond_desert_exit_controller') }}', {},
                     function () {
                         $.ajax.load(null, '{{ path('game_landing') }}', true);

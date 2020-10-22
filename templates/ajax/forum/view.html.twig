@@ -7,7 +7,7 @@
 {# @var forum \App\Entity\Forum #}
 {# @var permission \App\Structures\ForumPermissionAccessor #}
 
-{% macro display_thread_list( list, fid, icon, title, select, jump ) %}
+{% macro display_thread_list( list, fid, icon, title, select, jump, permission ) %}
     <div class="forum-note">
         <b><i class="fa {{ icon }}"></i> {{ title }}</b>
         {% for thread in list %}
@@ -33,29 +33,37 @@
                         {% else %}
                             {{ thread.title }}
                         {% endif %}
+                        {% if permission.moderate and thread.reportedPosts %}
+                            <span class="float-right">
+                                <img alt="" src="{{ asset('build/images/forum/warning.png') }}" />
+                                <div class="tooltip forum-tooltip">
+                                    {{'Mindestens ein Post in diesem Thema wurde den Moderatoren gemeldet.'|trans({}, 'global')}}
+                                </div>
+                            </span>
+                        {% endif %}
                         {% if thread.hasAdminAnnounce %}
-                        <span class="float-right">
-                            <img alt="" src="{{ asset('build/images/forum/adminAnnounce.png') }}" />
-                            <div class="tooltip forum-tooltip">
-                                {{'Dieses Thema enthält offizielle Ansagen der Website Administratoren.'|trans({}, 'global')}}
-                            </div>
-                        </span>
+                            <span class="float-right">
+                                <img alt="" src="{{ asset('build/images/forum/adminAnnounce.png') }}" />
+                                <div class="tooltip forum-tooltip">
+                                    {{'Dieses Thema enthält offizielle Ansagen der Website Administratoren.'|trans({}, 'global')}}
+                                </div>
+                            </span>
                         {% elseif thread.hasOracleAnnounce %}
-                        <span class="float-right">
-                            <img src="{{ asset('build/images/forum/announce.png') }}" />
-                            <div class="tooltip forum-tooltip">
-                                {{'Dieses Thema enthält Ansagen von Community-Vertretern.'|trans({}, 'global')}}
-                            </div>
-                        </span>
+                            <span class="float-right">
+                                <img src="{{ asset('build/images/forum/announce.png') }}" />
+                                <div class="tooltip forum-tooltip">
+                                    {{'Dieses Thema enthält Ansagen von Community-Vertretern.'|trans({}, 'global')}}
+                                </div>
+                            </span>
                         {% endif %}
                     </div>
                 </div>
                 <div class="cell rw-3 right count" style="background:#593223; padding: 5px;">
-                    {% if thread.posts|length > 1 %}
-                        {{ thread.posts|length - 1 }}
+                    {% if thread.visiblePosts|length > 1 %}
+                        {{ thread.visiblePosts|length - 1 }}
                     {% endif %}
                     <br />
-                    {% set last_post = thread.posts|length > 0 ? thread.posts[thread.posts|length-1] : null %}
+                    {% set last_post = thread.lastPost %}
                     {% if last_post and last_post.owner %}
                         {% if last_post.owner.username == 'Der Rabe' %}
                             {{ 'Der Rabe'|trans({},'global') }}
@@ -103,12 +111,21 @@
                         </div>
                         <br />
                     {% endif %}
-                    {% if pinned_threads %}
-                        {{ _self.display_thread_list(pinned_threads, forum.id, 'fa-thumbtack', 'Sticky'|trans({}, 'global'), select, jump) }}
+
+                    {% if permission.only_mod_access %}
+                        <div class="forum-control">
+                            <b><i class="fa fa-exclamation"></i> {{ 'Moderation'|trans({},'global') }}</b>
+                            <div class="pad">{{ 'Du moderierst dieses Forum, verfügst aber nicht über Leserechte. Es werden dir nur Threads angezeigt, in denen mindestens ein Post gemeldet wurde.' }}</div>
+                        </div>
                         <br />
                     {% endif %}
 
-                    {{ _self.display_thread_list(threads, forum.id, 'fa-scroll', forum.title, select, jump) }}
+                    {% if pinned_threads %}
+                        {{ _self.display_thread_list(pinned_threads, forum.id, 'fa-thumbtack', 'Sticky'|trans({}, 'global'), select, jump, permission) }}
+                        <br />
+                    {% endif %}
+
+                    {{ _self.display_thread_list(threads, forum.id, 'fa-scroll', forum.title, select, jump, permission) }}
                     {% if pages > 1 %}
                         <div class="row">
                             <div class="cell rw-12 padded center">

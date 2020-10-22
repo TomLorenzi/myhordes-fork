@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Command;
+namespace App\Command\User;
 
 
 use App\Entity\Avatar;
@@ -24,7 +24,7 @@ use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 class UserInfoCommand extends Command
 {
-    protected static $defaultName = 'app:users';
+    protected static $defaultName = 'app:user:list';
 
     private $entityManager;
     private $user_handler;

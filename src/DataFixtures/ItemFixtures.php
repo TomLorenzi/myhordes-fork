@@ -741,7 +741,7 @@ class ItemFixtures extends Fixture
     ];
     
     public static $item_prototype_properties = [
-        'saw_tool_#00'         => [ 'impoundable', 'can_opener' ],
+        'saw_tool_#00'         => [ 'impoundable', 'can_opener', 'box_opener' ],
         'can_opener_#00'       => [ 'impoundable', 'weapon', 'can_opener', 'box_opener', 'nw_armory' ],
         'screw_#00'            => [ 'impoundable', 'weapon', 'can_opener', 'box_opener', 'nw_armory' ],
         'swiss_knife_#00'      => [ 'impoundable', 'weapon', 'can_opener', 'box_opener', 'nw_armory' ],
@@ -1038,7 +1038,7 @@ class ItemFixtures extends Fixture
             array('item' => 'cinema_#00','count' => '53'),
             array('item' => 'maglite_off_#00','count' => '24'),
             array('item' => 'vodka_#00','count' => '18'),
-            array('item' => 'vodka_de_#00','count' => '6'),
+            //array('item' => 'vodka_de_#00','count' => '6'),
         ),
         'christmas_dig' => [
             array('item' => 'renne_#00','count' => '14'),

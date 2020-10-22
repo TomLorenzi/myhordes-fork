@@ -6,6 +6,10 @@ namespace App\Structures;
 class TownConf extends Conf
 {
     const CONF_ALLOW_LOCAL           = 'allow_local_conf';
+
+    const CONF_CLOSE_TOWN_AFTER      = 'open_town_limit';
+    const CONF_LOCK_UNTIL_FULL       = 'lock_door_until_full';
+
     const CONF_WELL_MIN              = 'well.min';
     const CONF_WELL_MAX              = 'well.max';
     const CONF_MAP_MIN               = 'map.min';
@@ -19,6 +23,8 @@ class TownConf extends Conf
     const CONF_DISTRIBUTED_ITEMS     = 'distribute_items';
     const CONF_DEFAULT_CHEST_ITEMS   = 'initial_chest';
     const CONF_DISTRIBUTION_DISTANCE = 'distribution_distance';
+
+    const CONF_INSTANT_PICTOS = 'instant_pictos';
 
     const CONF_EXPLORABLES_COMPLEXITY   = 'explorable_ruin_params.complexity';
     const CONF_EXPLORABLES_CONVOLUTION  = 'explorable_ruin_params.convolution';
@@ -55,6 +61,11 @@ class TownConf extends Conf
     const CONF_MODIFIER_CARRY_EXTRA_BAG      = 'modifiers.carry_extra_bag';
     const CONF_MODIFIER_BONES_IN_TOWN        = 'modifiers.meaty_bones_within_town';
     const CONF_MODIFIER_BUILDING_DAMAGE      = 'modifiers.building_attack_damage';
+    const CONF_MODIFIER_CAMPING_BONUS        = 'modifiers.camping.default_bonus';
+    const CONF_MODIFIER_CAMPING_CHANCE_MAP   = 'modifiers.camping.map';
+    const CONF_MODIFIER_RED_SOUL_FACTOR      = 'modifiers.red_soul_max_factor';
+    const CONF_MODIFIER_WIND_DISTANCE        = 'modifiers.wind_distance';
+    const CONF_MODIFIER_STRICT_PICTOS        = 'modifiers.strict_picto_distribution';
 
     const CONF_FEATURE_CAMPING         = 'features.camping';
     const CONF_FEATURE_NIGHTMODE       = 'features.nightmode';
@@ -73,6 +84,7 @@ class TownConf extends Conf
     const CONF_FEATURE_ATTACKS         = 'features.attacks';
     const CONF_FEATURE_GIVE_ALL_PICTOS = 'features.give_all_pictos';
     const CONF_FEATURE_GIVE_SOULPOINTS = 'features.give_soulpoints';
+    const CONF_FEATURE_LAST_DEATH      = 'features.last_death';
 
     const CONF_DISABLED_JOBS = 'disabled_jobs';
     const CONF_DISABLED_BUILDINGS = 'disabled_buildings';

@@ -128,7 +128,7 @@ class DeathHandler
         }
 
         // Give soul point
-        if($citizen->getTown()->getType()->getName() !== 'custom' || $this->conf->getTownConfiguration($citizen->getTown())->get(TownConf::CONF_FEATURE_GIVE_SOULPOINTS, false)) {
+        if($this->conf->getTownConfiguration($citizen->getTown())->get(TownConf::CONF_FEATURE_GIVE_SOULPOINTS, true)) {
             $days = $citizen->getSurvivedDays();
             $nbSoulPoints = $days * ( $days + 1 ) / 2;
 
@@ -239,7 +239,7 @@ class DeathHandler
 
         if ($handle_em) foreach ($remove as $r) $this->entity_manager->remove($r);
         // If the town is not small AND the souls are enabled, spawn a soul
-        if($citizen->getTown()->getType()->getName() != 'small' && $this->conf->getTownConfiguration( $citizen->getTown() )->get(TownConf::CONF_FEATURE_SHAMAN_MODE, 'normal') != 'none') {
+        if($this->conf->getTownConfiguration( $citizen->getTown() )->get(TownConf::CONF_FEATURE_SHAMAN_MODE, 'normal') != 'none') {
             $minDistance = min(4, $citizen->getTown()->getDay());
             $maxDistance = max($citizen->getTown()->getDay() + 6, 15);
 

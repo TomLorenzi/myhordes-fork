@@ -14,7 +14,8 @@ class Conf
             if (!isset($base[$key])) $base[$key] = $data;
             elseif ( is_array( $base[$key] ) === is_array( $data ) ) {
                 if (is_array($data) && array_keys($data) === ['replace'])  $base[$key] = $data['replace'];
-                elseif (is_array($data) && array_keys($data) === ['merge']) $base[$key] = array_merge( $base[$key], $data['merge'] );
+                elseif (is_array($data) && array_keys($data) === ['merge'])  $base[$key] = array_merge( $base[$key], $data['merge'] );
+                elseif (is_array($data) && array_keys($data) === ['remove']) $base[$key] = array_filter( $base[$key], fn($e) => !in_array($e, $data['remove']) );
                 elseif (is_array($data)) $this->deep_merge( $base[$key], $data );
                 else $base[$key] = $data;
             }
