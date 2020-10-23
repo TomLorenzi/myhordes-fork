@@ -1019,7 +1019,7 @@
       </notes>
       <segment>
         <source>Mein Haus ausbauen</source>
-        <target>Mejora tu casa</target>
+        <target>Mejora mi casa</target>
       </segment>
     </unit>
     <unit id="J53z_38" name="10e9370">
@@ -1693,7 +1693,7 @@
       </notes>
       <segment>
         <source>Mein Haus</source>
-        <target>Tu Casa</target>
+        <target>Mi Casa</target>
       </segment>
     </unit>
     <unit id="lQNhv.P" name="Brunnen">
@@ -3634,7 +3634,7 @@
       </notes>
       <segment>
         <source>Wachturm</source>
-        <target>Torre de vigilancia</target>
+        <target>Torre</target>
       </segment>
     </unit>
     <unit id="gd8sEx3" name="Werkstatt">
@@ -3724,7 +3724,7 @@
       </notes>
       <segment>
         <source>Übersicht</source>
-        <target>Übersicht</target>
+        <target>Vista general del pueblo</target>
       </segment>
     </unit>
     <unit id="a8zlw81" name="d91d555">
@@ -4876,7 +4876,7 @@
       </notes>
       <segment>
         <source>Unsere Verteidigung :</source>
-        <target>Unsere Verteidigung :</target>
+        <target>Nuestras Defensas:</target>
       </segment>
     </unit>
     <unit id="fCsY_QS" name="Geschätzter Angriff :">
@@ -4885,7 +4885,7 @@
       </notes>
       <segment>
         <source>Geschätzter Angriff :</source>
-        <target>Geschätzter Angriff :</target>
+        <target>Pronóstico del ataque:</target>
       </segment>
     </unit>
     <unit id="J2.6H7T" name="Unbekannt">
@@ -4912,7 +4912,7 @@
       </notes>
       <segment>
         <source>Unsere Verteidigung ist stark genug, um dem Angriff heute Nacht standzuhalten.</source>
-        <target>Unsere Verteidigung ist stark genug, um dem Angriff heute Nacht standzuhalten.</target>
+        <target>Nuestras defensas son lo suficientemente fuertes para resistir el ataque de esta noche.</target>
       </segment>
     </unit>
     <unit id="3Nw75Vc" name="847f9a6">
@@ -4930,7 +4930,7 @@
       </notes>
       <segment>
         <source>Meine täglichen Aufgaben</source>
-        <target>Meine täglichen Aufgaben</target>
+        <target>Mis tareas cotidianas</target>
       </segment>
     </unit>
     <unit id="OSdFB8R" name="Einen Blick ins Forum werfen.">
@@ -4939,7 +4939,7 @@
       </notes>
       <segment>
         <source>Einen Blick ins Forum werfen.</source>
-        <target>Einen Blick ins Forum werfen.</target>
+        <target>Echa un vistazo al foro.</target>
       </segment>
     </unit>
     <unit id=".vMt2eO" name="Meine Ration Wasser im Brunnen entnehmen (optional).">
@@ -4948,7 +4948,7 @@
       </notes>
       <segment>
         <source>Meine Ration Wasser im Brunnen entnehmen (optional).</source>
-        <target>Meine Ration Wasser im Brunnen entnehmen (optional).</target>
+        <target>Toma tu ración de agua del pozo (opcional).</target>
       </segment>
     </unit>
     <unit id="UgqaO9M" name="An der Angriffsabschätzung teilnehmen">
@@ -4957,7 +4957,7 @@
       </notes>
       <segment>
         <source>An der Angriffsabschätzung teilnehmen</source>
-        <target>An der Angriffsabschätzung teilnehmen</target>
+        <target>Participa en el pronóstico del ataque.</target>
       </segment>
     </unit>
     <unit id="h3w5_BE" name="Für ein Tagesprojekt abstimmen.">
@@ -4966,7 +4966,7 @@
       </notes>
       <segment>
         <source>Für ein Tagesprojekt abstimmen.</source>
-        <target>Für ein Tagesprojekt abstimmen.</target>
+        <target>Vota por el proyecto del día.</target>
       </segment>
     </unit>
     <unit id="G7Kbsmc" name="36edbd1">
@@ -4975,7 +4975,7 @@
       </notes>
       <segment>
         <source>Auf der Baustelle arbeiten, in der Werkstatt arbeiten oder in die Außenwelt gehen (optional).</source>
-        <target>Auf der Baustelle arbeiten, in der Werkstatt arbeiten oder in die Außenwelt gehen (optional).</target>
+        <target>Trabaja en una construcción o sal a buscar materiales en el desierto. Los vagos son más apetitosos para los zombies</target>
       </segment>
     </unit>
     <unit id="4tgoaqE" name="Heldentafel">
@@ -4984,7 +4984,7 @@
       </notes>
       <segment>
         <source>Heldentafel</source>
-        <target>Heldentafel</target>
+        <target>La voz de los héroes</target>
       </segment>
     </unit>
     <unit id="eeHEERB" name="Unsere Situation">
@@ -4993,7 +4993,7 @@
       </notes>
       <segment>
         <source>Unsere Situation</source>
-        <target>Unsere Situation</target>
+        <target>Nuestra situación</target>
       </segment>
     </unit>
     <unit id="PouMrbo" name="Stadttyp:">
@@ -5002,7 +5002,7 @@
       </notes>
       <segment>
         <source>Stadttyp:</source>
-        <target>Stadttyp:</target>
+        <target>Tipo de pueblo:</target>
       </segment>
     </unit>
     <unit id="jVUAKv9" name="Stadttor:">
@@ -5011,7 +5011,7 @@
       </notes>
       <segment>
         <source>Stadttor:</source>
-        <target>Stadttor:</target>
+        <target>El portal:</target>
       </segment>
     </unit>
     <unit id="dKGSLP." name="Offen!">
@@ -5020,7 +5020,7 @@
       </notes>
       <segment>
         <source>Offen!</source>
-        <target>Offen!</target>
+        <target>¡Abierto!</target>
       </segment>
     </unit>
     <unit id="UlrC9u_" name="Geschlossen">
@@ -5038,7 +5038,7 @@
       </notes>
       <segment>
         <source>Wasservorräte:</source>
-        <target>Wasservorräte:</target>
+        <target>Reservas de agua:</target>
       </segment>
     </unit>
     <unit id="xa6ARi1" name="Einwohner am Leben:">
@@ -5047,7 +5047,7 @@
       </notes>
       <segment>
         <source>Einwohner am Leben:</source>
-        <target>Einwohner am Leben:</target>
+        <target>Habitantes vivos:</target>
       </segment>
     </unit>
     <unit id="Bij.q6J" name="Lesen Sie das Mitteilungsblatt">
@@ -8866,7 +8866,7 @@
       </notes>
       <segment>
         <source>Status</source>
-        <target>Status</target>
+        <target>Estados</target>
       </segment>
     </unit>
     <unit id="m9ipH9g" name="[nights]">
@@ -10414,7 +10414,7 @@
       </notes>
       <segment>
         <source>Verbesserung des Tages (building)</source>
-        <target>Verbesserung des Tages (building)</target>
+        <target>Obras</target>
       </segment>
     </unit>
     <unit id="AKS0zA3" name="Werkstatt (building)">
@@ -10570,7 +10570,7 @@
       </notes>
       <segment>
         <source>Zum Forum</source>
-        <target>Zum Forum</target>
+        <target>Hacia el foro</target>
       </segment>
     </unit>
     <unit id="2fBmxk8" name="Du hast dich soeben in einen Ghul verandelt!">
@@ -10864,7 +10864,7 @@
       </notes>
       <segment>
         <source>Mit den anderen Bürgern reden...</source>
-        <target>Mit den anderen Bürgern reden...</target>
+        <target>Habla con los demás habitantes del pueblo y organícense si quieren sobrevivir...</target>
       </segment>
     </unit>
     <unit id="_EDDh5L" name="9f36678">
@@ -10873,7 +10873,7 @@
       </notes>
       <segment>
         <source>Lesen und Nutzen des Forums sind in 'MyHordes' überlebensnotwendig! Die wichtigen Entscheidungen der Stadt werden hier gemeinsam von der Community getroffen.</source>
-        <target>Lesen und Nutzen des Forums sind in 'MyHordes' überlebensnotwendig! Die wichtigen Entscheidungen der Stadt werden hier gemeinsam von der Community getroffen.</target>
+        <target>¡Leer y escribir en los foros es importante en 'MyHordes'! Ahí se tomarán todas las decisiones importantes, por la misma comunidad.</target>
       </segment>
     </unit>
     <unit id="esKM3_t" name="Deine gesamte Geschichte basiert auf deinen zuvor gespielten Städten...">
@@ -10882,7 +10882,7 @@
       </notes>
       <segment>
         <source>Deine gesamte Geschichte basiert auf deinen zuvor gespielten Städten...</source>
-        <target>Deine gesamte Geschichte basiert auf deinen zuvor gespielten Städten...</target>
+        <target>El reflejo de tus vidas anteriores.</target>
       </segment>
     </unit>
     <unit id="K382mbj" name="Spielhilfe aufrufen.">
@@ -10891,7 +10891,7 @@
       </notes>
       <segment>
         <source>Spielhilfe aufrufen.</source>
-        <target>Spielhilfe aufrufen.</target>
+        <target>¿Eres nuevo en MyHordes?</target>
       </segment>
     </unit>
     <unit id="aBzVCJL" name="479d11d">
@@ -10900,7 +10900,7 @@
       </notes>
       <segment>
         <source>Hast du schon unter "Wie wird gespielt" nachgeschaut? Du findest den Link darauf unter der Karte der Stadt.</source>
-        <target>Hast du schon unter "Wie wird gespielt" nachgeschaut? Du findest den Link darauf unter der Karte der Stadt.</target>
+        <target>La Guía «Cómo jugar» sobre el mapa es muy útil</target>
       </segment>
     </unit>
     <unit id="25Kvu55" name="8937cea">
@@ -10909,7 +10909,7 @@
       </notes>
       <segment>
         <source>Das Leichsblatt: Hier findet ihr alle Neuigkeiten, über das, was gestern in der Stadt passiert ist...</source>
-        <target>Das Leichsblatt: Hier findet ihr alle Neuigkeiten, über das, was gestern in der Stadt passiert ist...</target>
+        <target>El Cadáver Matutino: Entérate de lo que sucedió ayer.</target>
       </segment>
     </unit>
     <unit id="55LsCVW" name="Schaut am besten jeden Tag einmal rein!">
@@ -10918,7 +10918,7 @@
       </notes>
       <segment>
         <source>Schaut am besten jeden Tag einmal rein!</source>
-        <target>Schaut am besten jeden Tag einmal rein!</target>
+        <target>No olvides echarle un vistazo cada día, encontrarás mucha información útil.</target>
       </segment>
     </unit>
     <unit id="6lr5Awl" name="Starten Sie eine Stadt">
@@ -10927,7 +10927,7 @@
       </notes>
       <segment>
         <source>Starten Sie eine Stadt</source>
-        <target>Starten Sie eine Stadt</target>
+        <target>Ingresa a un pueblo</target>
       </segment>
     </unit>
     <unit id="tl3wxZA" name="Es ist Zeit, sich seinen Mitmenschen in der Hölle anschließen!">
@@ -10936,7 +10936,7 @@
       </notes>
       <segment>
         <source>Es ist Zeit, sich seinen Mitmenschen in der Hölle anschließen!</source>
-        <target>Es ist Zeit, sich seinen Mitmenschen in der Hölle anschließen!</target>
+        <target>¡Tu misión: Ser el último superviviente!</target>
       </segment>
     </unit>
     <unit id="uL_3bHQ" name="2d4f0c6">
