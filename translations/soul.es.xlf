@@ -586,7 +586,7 @@
       </notes>
       <segment>
         <source>Hier findet ihr alle vorangegangenen Updates:</source>
-        <target>Hier findet ihr alle vorangegangenen Updates:</target>
+        <target>Acceda a actualizaciones importantes anteriores:</target>
       </segment>
     </unit>
     <unit id="EHTi.hN" name="ea67ed1">
@@ -597,8 +597,8 @@
       <segment>
         <source>Wähle aus, welcher Teil deines Profilbilds für die komprimierte Darstellung verwendet werden soll.
                                             Bewege den Ausschnitt mit der Maus und vergrößere oder verkleinere ihn mit dem Mausrad.</source>
-        <target>Wähle aus, welcher Teil deines Profilbilds für die komprimierte Darstellung verwendet werden soll.
-                                            Bewege den Ausschnitt mit der Maus und vergrößere oder verkleinere ihn mit dem Mausrad.</target>
+        <target>Elija qué parte de su foto de perfil se debe utilizar para la pantalla comprimida.
+                                             Mueva la sección con el ratón y amplíela o redúzcala con la rueda del ratón.</target>
       </segment>
     </unit>
     <unit id="XqSrbwp" name="Browser-Einstellungen">
@@ -643,7 +643,7 @@
       </notes>
       <segment>
         <source>Koalition</source>
-        <target>Koalition</target>
+        <target>Alianza</target>
       </segment>
     </unit>
     <unit id="svF8aFT" name="Saison 15">
@@ -652,7 +652,7 @@
       </notes>
       <segment>
         <source>Saison 15</source>
-        <target>Saison 15</target>
+        <target>Temporada 15</target>
       </segment>
     </unit>
     <unit id="x3_4s4O" name="Alte Städte">
@@ -661,7 +661,7 @@
       </notes>
       <segment>
         <source>Alte Städte</source>
-        <target>Alte Städte</target>
+        <target>Historial de mis partidas</target>
       </segment>
     </unit>
     <unit id="hU1AUQF" name="Nur 10 Städte anzeigen">
@@ -670,7 +670,7 @@
       </notes>
       <segment>
         <source>Nur 10 Städte anzeigen</source>
-        <target>Nur 10 Städte anzeigen</target>
+        <target>Limitar la vista a 10 pueblos</target>
       </segment>
     </unit>
     <unit id="1vjIGbE" name="Kartei schließen">
@@ -679,7 +679,7 @@
       </notes>
       <segment>
         <source>Kartei schließen</source>
-        <target>Kartei schließen</target>
+        <target>Cerrar esta ficha</target>
       </segment>
     </unit>
     <unit id="TP_RyxL" name="Haus besuchen">
@@ -688,7 +688,7 @@
       </notes>
       <segment>
         <source>Haus besuchen</source>
-        <target>Haus besuchen</target>
+        <target>Visite Casa</target>
       </segment>
     </unit>
     <unit id="q4I8gVL" name="Eine neue Seele importieren">
@@ -697,7 +697,7 @@
       </notes>
       <segment>
         <source>Eine neue Seele importieren</source>
-        <target>Eine neue Seele importieren</target>
+        <target>Importar una nueva Alma</target>
       </segment>
     </unit>
     <unit id="Oh71xYO" name="Twinoid Application ID">
@@ -724,7 +724,7 @@
       </notes>
       <segment>
         <source>Seele auswählen</source>
-        <target>Seele auswählen</target>
+        <target>Seleccionar Alma</target>
       </segment>
     </unit>
     <unit id="KVqdEan" name="Import starten">
@@ -733,7 +733,7 @@
       </notes>
       <segment>
         <source>Import starten</source>
-        <target>Import starten</target>
+        <target>Iniciar importación</target>
       </segment>
     </unit>
     <unit id="WeNNcNG" name="Deine importierten Seelen">
@@ -742,7 +742,7 @@
       </notes>
       <segment>
         <source>Deine importierten Seelen</source>
-        <target>Deine importierten Seelen</target>
+        <target>Tus almas importadas</target>
       </segment>
     </unit>
     <unit id="aTN.bek" name="Vorschau">
@@ -751,7 +751,7 @@
       </notes>
       <segment>
         <source>Vorschau</source>
-        <target>Vorschau</target>
+        <target>Avance</target>
       </segment>
     </unit>
     <unit id="pGqYh1Z" name="Hurra, wir haben dein Profil heruntergeladen!">
@@ -760,7 +760,7 @@
       </notes>
       <segment>
         <source>Hurra, wir haben dein Profil heruntergeladen!</source>
-        <target>Hurra, wir haben dein Profil heruntergeladen!</target>
+        <target>¡Hurra, hemos descargado tu perfil!</target>
       </segment>
     </unit>
     <unit id="j_qDUZ2" name="39b14b5">
@@ -769,7 +769,7 @@
       </notes>
       <segment>
         <source>Bitte prüfe die unten angegebenen Daten und bestätige den Import, wenn alles OK ist.</source>
-        <target>Bitte prüfe die unten angegebenen Daten und bestätige den Import, wenn alles OK ist.</target>
+        <target>Verifique los datos a continuación y confirme la importación si todo está bien.</target>
       </segment>
     </unit>
     <unit id="HwA4Kx3" name="Twinoid-Profil">
@@ -787,7 +787,7 @@
       </notes>
       <segment>
         <source>Profil ansehen</source>
-        <target>Profil ansehen</target>
+        <target>Ver perfil</target>
       </segment>
     </unit>
     <unit id="heTnD9H" name="Seelen-ID">
@@ -796,7 +796,7 @@
       </notes>
       <segment>
         <source>Seelen-ID</source>
-        <target>Seelen-ID</target>
+        <target>Alma-ID</target>
       </segment>
     </unit>
     <unit id="fmZlI_I" name="Saison">
@@ -805,7 +805,7 @@
       </notes>
       <segment>
         <source>Saison</source>
-        <target>Saison</target>
+        <target>Temporada</target>
       </segment>
     </unit>
     <unit id="FQORaiq" name="Tag">
@@ -814,7 +814,7 @@
       </notes>
       <segment>
         <source>Tag</source>
-        <target>Tag</target>
+        <target>Día</target>
       </segment>
     </unit>
     <unit id="Bfb7kn4" name="Stadtname">
@@ -823,7 +823,7 @@
       </notes>
       <segment>
         <source>Stadtname</source>
-        <target>Stadtname</target>
+        <target>Nombre del pueblo</target>
       </segment>
     </unit>
     <unit id="H9ZffoW" name="Nachrichten">
@@ -832,7 +832,7 @@
       </notes>
       <segment>
         <source>Nachrichten</source>
-        <target>Nachrichten</target>
+        <target>Noticias</target>
       </segment>
     </unit>
     <unit id="hn7LsRJ" name="Punkte">
@@ -841,7 +841,7 @@
       </notes>
       <segment>
         <source>Punkte</source>
-        <target>Punkte</target>
+        <target>Puntos</target>
       </segment>
     </unit>
     <unit id="bRng7VP" name="%d% überlebt">
@@ -850,7 +850,7 @@
       </notes>
       <segment>
         <source>%d% überlebt</source>
-        <target>%d% überlebt</target>
+        <target>%d% sobrevivió</target>
       </segment>
     </unit>
     <unit id="rD2ZHAN" name="Letzte Worte">
@@ -859,7 +859,7 @@
       </notes>
       <segment>
         <source>Letzte Worte</source>
-        <target>Letzte Worte</target>
+        <target>Ultimas palabras</target>
       </segment>
     </unit>
     <unit id="N5nG16_" name="Import bestätigen">
@@ -868,7 +868,7 @@
       </notes>
       <segment>
         <source>Import bestätigen</source>
-        <target>Import bestätigen</target>
+        <target>Confirmar importación</target>
       </segment>
     </unit>
     <unit id="Asz_NPm" name="Hast du ein Seele bei %hordes%, %dv%, %d2n% oder %zn%?">
@@ -877,7 +877,7 @@
       </notes>
       <segment>
         <source>Hast du ein Seele bei %hordes%, %dv%, %d2n% oder %zn%?</source>
-        <target>Hast du ein Seele bei %hordes%, %dv%, %d2n% oder %zn%?</target>
+        <target>¿Tienes un alma en %d2n%, %hordes%, %dv%, o %zn%?</target>
       </segment>
     </unit>
     <unit id="VVu6KAH" name="Seele importieren">
@@ -886,7 +886,7 @@
       </notes>
       <segment>
         <source>Seele importieren</source>
-        <target>Seele importieren</target>
+        <target>Importar Alma</target>
       </segment>
     </unit>
     <unit id="CezJVcA" name="Dein Profil konnte nicht geladen werden, da Twinoid die Anfrage abgelehnt hat.">
@@ -895,7 +895,7 @@
       </notes>
       <segment>
         <source>Dein Profil konnte nicht geladen werden, da Twinoid die Anfrage abgelehnt hat.</source>
-        <target>Dein Profil konnte nicht geladen werden, da Twinoid die Anfrage abgelehnt hat.</target>
+        <target>No se pudo cargar su perfil porque Twinoid rechazó la solicitud.</target>
       </segment>
     </unit>
     <unit id="q3h_whw" name="1260b6c">

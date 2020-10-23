@@ -7,7 +7,7 @@
       </notes>
       <segment>
         <source>Account validieren</source>
-        <target>Account validieren</target>
+        <target>Validación de cuenta</target>
       </segment>
     </unit>
     <unit id="bGFqxj8" name="Passwort zurücksetzen">
@@ -16,7 +16,7 @@
       </notes>
       <segment>
         <source>Passwort zurücksetzen</source>
-        <target>Passwort zurücksetzen</target>
+        <target>Restablecimiento de contraseña</target>
       </segment>
     </unit>
     <unit id="Yf9Z7KC" name="Hallo %user%! Willkommen bei MyHordes!">
@@ -25,7 +25,7 @@
       </notes>
       <segment>
         <source>Hallo %user%! Willkommen bei MyHordes!</source>
-        <target>Hallo %user%! Willkommen bei MyHordes!</target>
+        <target>¡Hola %user%! ¡Bienvenido a MyHordes!</target>
       </segment>
     </unit>
     <unit id="_WvOCkO" name="Um deine Registrierung abzuschließen, benötigst du folgenden Validierungscode:">
@@ -34,7 +34,7 @@
       </notes>
       <segment>
         <source>Um deine Registrierung abzuschließen, benötigst du folgenden Validierungscode:</source>
-        <target>Um deine Registrierung abzuschließen, benötigst du folgenden Validierungscode:</target>
+        <target>Para completar su registro, necesita el siguiente código de validación:</target>
       </segment>
     </unit>
     <unit id="AevPeyo" name="365f8ca">
@@ -45,8 +45,7 @@
       <segment>
         <source>Du erhälst diese Mail, da du (oder jemand anderes) deine E-Mail Adresse bei der Registrierung angegeben hat.
         Wenn du dich nicht bei MyHordes registriert hast, ignoriere diese Nachricht.</source>
-        <target>Du erhälst diese Mail, da du (oder jemand anderes) deine E-Mail Adresse bei der Registrierung angegeben hat.
-        Wenn du dich nicht bei MyHordes registriert hast, ignoriere diese Nachricht.</target>
+        <target>Recibió este correo electrónico porque usted (u otra persona) proporcionó su dirección de correo electrónico al registrarse. Si no se ha registrado en MyHordes, ignore este mensaje.</target>
       </segment>
     </unit>
     <unit id="DKEI.Ty" name="Hallo %user%!">
@@ -55,7 +54,7 @@
       </notes>
       <segment>
         <source>Hallo %user%!</source>
-        <target>Hallo %user%!</target>
+        <target>¡Hola %user%!</target>
       </segment>
     </unit>
     <unit id="SWaK66s" name="Um dein Passwort zurückzusetzen, besuche bitte folgenden Link :">
@@ -64,7 +63,7 @@
       </notes>
       <segment>
         <source>Um dein Passwort zurückzusetzen, besuche bitte folgenden Link :</source>
-        <target>Um dein Passwort zurückzusetzen, besuche bitte folgenden Link :</target>
+        <target>Para restablecer su contraseña, visite el siguiente enlace:</target>
       </segment>
     </unit>
     <unit id="WdF_yfy" name="6d2f95b">
@@ -77,9 +76,7 @@
         <source>Du erhälst diese Mail, da du (oder jemand anderes) deine E-Mail Adresse in die Passwort-Zurücksetzen-Funktion eingegeben hat.
         Wenn du dein Passwort nicht zurücksetzen willst, ignoriere diese E-Mail. Dein altes Passwort bleibt weiterhin gültig, wenn du es nicht
         durch das Anklicken des oben genannten Links änderst.</source>
-        <target>Du erhälst diese Mail, da du (oder jemand anderes) deine E-Mail Adresse in die Passwort-Zurücksetzen-Funktion eingegeben hat.
-        Wenn du dein Passwort nicht zurücksetzen willst, ignoriere diese E-Mail. Dein altes Passwort bleibt weiterhin gültig, wenn du es nicht
-        durch das Anklicken des oben genannten Links änderst.</target>
+        <target>Recibió este correo electrónico porque usted (u otra persona) ingresó su dirección de correo electrónico en la función de restablecimiento de contraseña. Si no desea restablecer su contraseña, ignore este correo electrónico. Su contraseña anterior sigue siendo válida a menos que la cambie haciendo clic en el enlace de arriba.</target>
       </segment>
     </unit>
   </file>
