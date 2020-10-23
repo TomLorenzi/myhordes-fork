@@ -1,0 +1,29 @@
+{% extends "ajax/help/shell.html.twig" %}
+{% block helpContent %}
+<div class="helpArt">{{ 'Spielanleitung'|trans({},'help')|raw }}</div>
+<h1>{{ 'Einsiedler'|trans({},'help')|raw }}</h1>
+<img class="pip" alt="pip" src="{{ asset('build/images/professions/select/book.gif') }}">
+<p>
+{{ 'Der Einsiedler ist ein Typ, mit dem seit Jahren niemand mehr geredet hat. Ganz auf sich allein gestellt, lebt er still vor sich hin. Wenn es ums Überleben geht, weiß sich der Einsiedler seit jeher zu helfen: <strong>Er findet immer etwas Ess- oder Trinkbares - egal, wo er sich gerade befindet.</strong>'|trans({},'help')|raw }}
+</p>
+<label>{{ 'Startausrüstung'|trans({},'help')|raw }} : <strong><img alt="" src="{{ asset('build/images/professions/book.gif') }}"> {{ 'Survivalbuch'|trans({},'help')|raw }}</strong></label>
+<em>
+{{ 'Auch wenn der Titel anderes vermuten lässt: "Tick, Trick und Tracks Schlaues Buch" ist von unschätzbarem Wert. Es enthält zahlreiche Tipps und Tricks, wie man in der Natur am besten überleben und Nahrung finden kann.'|trans({},'help')|raw }}
+</em>
+<h2>{{ 'Wie wird diese Figur gespielt?'|trans({},'help')|raw }}</h2>
+<p>
+{{ 'Mit dieser Spielfigur brauchst du keine Nahrung mehr mit dir führen, denn du findest immer etwas zum Futtern - egal wo, egal wie. Wenn die anderen Spieler nach einer wilden Campingnacht kurz vorm Verhungern sind, genießt du, was Mutter Natur auftischt: Ein kleiner Wurm hier, eine leckere Wurzel dort.'|trans({},'help')|raw }}
+</p>
+<p>
+{{ 'Deine Fähigkeit sollte dich allerdings nicht zu Leichtsinn verführen: Pro Tag kannst du nur EINE Ration Wasser ODER Nahrung finden.'|trans({},'help')|raw }}
+</p>
+<p>
+{{ 'Außerdem verfügst du über einen Vorteil beim Campen: Während die Überlebenschancen der anderen Einwohner nie mehr als 90% betragen (selbst wenn sie alles richtig gemacht haben, bleibt ein Restrisiko...), gilt diese Beschränkung beim Einsiedler nicht! Wenn er sich geschickt anstellt, kann er eine Überlebenschance von 100% erreichen!'|trans({},'help')|raw }}
+</p>
+<p>
+<strong>{{ 'Da der Einsiedler psychologisch "ein schwieriger Fall" ist und deutlich soziopathische Tendenzen aufweist, 
+kann er weder Nahrung noch Wasser finden, wenn er sich in Zonen aufhält, die weniger als 4 km von einer Stadt entfernt sind.'|trans({},'help')|raw }}</strong> 
+</p>
+<div class="clear"></div>
+<a class="button" x-ajax-href="{{ url('help', {'name': 'tamer'}) }}"><img src="{{ asset('build/images/icons/small_move.gif') }}" alt="move"> {{'Weiter'|trans({}, 'help')}}:<strong> {{ 'Dompteur'|trans({},'help') }}</strong></a>
+{% endblock %}

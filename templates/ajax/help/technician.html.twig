@@ -1,0 +1,29 @@
+{% extends "ajax/help/shell.html.twig" %}
+{% block helpContent %}
+<div class="helpArt">{{ 'Spielanleitung'|trans({},'help')|raw }}</div>
+<h1>{{ 'Techniker'|trans({},'help')|raw }}</h1>
+<img class="pip" alt="pip" src="{{ asset('build/images/professions/select/tech.gif') }}">
+<p>
+{{ 'Als *Hans Dampf auf jeder Baustelle* kann der Techniker - und zwar nur er - extra Aktionspunkte auf den Baustellen der Stadt einsetzen.'|trans({},'help')|raw }}
+</p>
+<label>{{ 'Startausrüstung'|trans({},'help')|raw }} : <strong><img alt="" src="{{ asset('build/images/professions/tech.gif') }}"> {{ 'Schraubenschlüssel'|trans({},'help')|raw }}</strong></label>
+<em>
+{{ 'Unverzichtbar, um auf den Baustellen der Stadt herumzuwuseln, kann der Schraubenschlüssel auch dazu verwendet werden, verschlossene Türen ganz einfach zu öffnen.'|trans({},'help')|raw }}
+</em>
+<h2>{{ 'Wie wird diese Figur gespielt?'|trans({},'help')|raw }}</h2>
+<p>
+{{ 'Dank seines unglaublichen Potentials, ist der Techniker eine große Hilfe beim Bauen &amp; Reparieren von Gebäuden.
+Jeden Tag besitzt er <strong>6%img_bp% Baupunkte</strong>, mit denen er auch dann noch auf den Baustellen arbeiten kann, wenn andere Bürger schon längst müde sind.
+Um seine Baupunkte einsetzen zu können, muss er jedoch mindestens noch <strong>1%img_ap% Aktionspunkt</strong> übrig haben. Ansonsten verliert er seine gesamte
+Motivation und kann seine <strong>%img_bp% Baupunkte</strong> nicht einsetzen.'|trans({'%img_bp%'   : '<span class="bp"></span>', '%img_ap%'   : '<span class="ap"></span>'},'help')|raw }}
+</p>
+<p>
+{{ 'Der Techniker kann seine Baupunkte auf Baustellen zum Bauen und Reparieren, sowie in der Werkstatt zum Umwandeln von Gegenständen einsetzen.'|trans({},'help')|raw }}
+</p>
+<p>
+{{ 'Er ist daneben eine wertvolle Hilfe in den verlassenen Gebäuden. Mit seinem Talent und seinem Werkzeug zum Öffnen von Türen werdet ihr solche Gebäude einfacher untersuchen können.
+Aus dem Abdruck eines bestimmten Schlosses kann er außerdem einen Einmal-Schlüssel herstellen, mit dem sich ebendiese Tür später öffnen lässt.'|trans({},'help')|raw }}
+</p>
+<div class="clear"></div>
+<a class="button" x-ajax-href="{{ url('help', {'name': 'town_roles'}) }}"><img src="{{ asset('build/images/icons/small_move.gif') }}" alt="move"> {{'Weiter'|trans({}, 'help')}}:<strong> {{ 'Die Rollen'|trans({},'help') }}</strong></a>
+{% endblock %}

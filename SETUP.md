@@ -222,7 +222,7 @@ When first setting up the project, you should run these commands:
 - Create the very first town :
 
   ```bash
-  bin/console app:create-town remote 40 <en,fr,de,es>
+  bin/console app:town:create remote 40 <en,fr,de,es>
   ```
 
 #### Night attack
@@ -268,27 +268,27 @@ bin/console app:debug --fill-town <town.id>
 The town IDs are incremental, so your first town will have 1 as id. To see all towns, use :
 
 ```bash
-bin/console app:towns
+bin/console app:town:list
 ```
 
 See what all the commands can do by adding --help, here is the list :
 
 ```bash
 bin/console app:citizen --help
-bin/console app:create-town --help
-bin/console app:create-user --help
+bin/console app:town:create --help
+bin/console app:user:create --help
 bin/console app:debug --help
 bin/console app:inventory --help
 bin/console app:schedule --help
-bin/console app:town --help
-bin/console app:towns --help
-bin/console app:users --help
+bin/console app:town:inspect --help
+bin/console app:town:list --help
+bin/console app:user:list --help
 ```
 
 Now you probably want to become an administrator. Here is how to do it. 
 
 ```bash
-bin/console app:users
+bin/console app:user:list
 ```
 
 Find your user ID in the displayed results.

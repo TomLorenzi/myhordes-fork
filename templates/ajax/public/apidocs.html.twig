@@ -207,6 +207,7 @@
    mapName: <span class="string">String</span>,                // {{ 'Name der Karte'|trans({},'docs') }}
    season: <span class="int">Int</span>,                    // {{ 'Saisonnummer'|trans({},'docs') }}
    v1: <span class="bool">Bool</span>,                       // {{ '"true" wenn diese Leiche aus dem Spiel V1 stammt'|trans({},'docs') }}
+   origin: <span class="string">String</span>,              // {{ 'Wenn aus Twinoid importiert, Ländercode + Season (zb "fr-12"); sonst leer.'|trans({},'docs') }}
    score: <span class="int">Int</span>,                     // {{ 'Ergebnis'|trans({},'docs') }}
    season: <span class="int">Int</span>,                    // {{ 'relevante Spielzeit'|trans({},'docs') }}
    dtype: <span class="int">Int</span>,                     // {{ 'Kennung des Todestyps'|trans({},'docs') }}
@@ -242,7 +243,7 @@
 }</pre>
             <h5>{{ 'Beispiel'|trans({},'docs') }}</h5>
             <p>{{ 'Für api/x/json/items akzeptieren Filter nur UIDs. Derzeit ist die UID identisch mit img. Aber in Zukunft wird die UID durch eine echte Horden-ID ersetzt.'|trans({},'docs') }}<br>{{ 'Beispiel, um nur die Informationen des Objekts „Wasserration“ wiederherzustellen:'|trans({},'docs') }}</p>
-            <pre>api/x/json/items?fields=name&filters=water&langues=fr,es,en,de</pre>
+            <pre>api/x/json/items?fields=name&filters=water&languages=fr,es,en,de</pre>
             <p>{{ 'Es wird angezeigt :'|trans({},'docs') }}</p>
             <pre>&#123;&#10;   "water": &#123; // UID&#10;      "name": &#123;&#10;         "fr": "Ration d'eau",&#10;         "es": "Ración de agua",&#10;         "en": "Water Ration",&#10;         "de": "Ration Wasser"&#10;      &#125;&#10;   &#125;&#10;&#125;&#10;</pre>
         </div>

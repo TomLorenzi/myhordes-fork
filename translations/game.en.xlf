@@ -5216,7 +5216,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Am Ende der Schlacht zerfiel das Gebäude %buildingName% zu Staub.</source>
-        <target>__Am Ende der Schlacht zerfiel das Gebäude %buildingName% zu Staub.</target>
+        <target>At the end of the battle, the %buildingName% crumbled to dust.</target>
       </segment>
     </unit>
     <unit id="xyPBCmM" name="Gefahr">
@@ -11143,7 +11143,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Diese seltene Auszeichnung haben nur jene Verdammten erhalten, die an der Schlacht der Berufe teilgenommen haben.</source>
-        <target>Une distinction très rare, décernée uniquement aux quelques intrépides qui ont participé au tout premier Clash of the Titans.</target>
+        <target>A very rare distinction, awarded only to the intrepid few who participated in the very first Clash of the Titans.</target>
       </segment>
     </unit>
     <unit id="jgy_VVR" name="Shock of heroes">
@@ -11152,7 +11152,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Shock of heroes</source>
-        <target>Shock of heroes</target>
+        <target>Shock of Heroes</target>
       </segment>
     </unit>
     <unit id="W7M12k6" name="Ehrenpreis für die Teilname am Shock of Heroes Event!">
@@ -11668,6 +11668,2391 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
         <target>Open your private town to everyone</target>
       </segment>
     </unit>
+    <unit id="lqbQiYz" name="Pfadfinder">
+      <notes>
+        <note category="german">Pfadfinder</note>
+      </notes>
+      <segment>
+        <source>Pfadfinder</source>
+        <target>Pfadfinder</target>
+      </segment>
+    </unit>
+    <unit id="kFR6HoJ" name="Ninja">
+      <notes>
+        <note category="german">Ninja</note>
+      </notes>
+      <segment>
+        <source>Ninja</source>
+        <target>Ninja</target>
+      </segment>
+    </unit>
+    <unit id="fK.LQlc" name="Green Beret">
+      <notes>
+        <note category="german">Green Beret</note>
+      </notes>
+      <segment>
+        <source>Green Beret</source>
+        <target>Green Beret</target>
+      </segment>
+    </unit>
+    <unit id="OaAloKt" name="Schattenmann">
+      <notes>
+        <note category="german">Schattenmann</note>
+      </notes>
+      <segment>
+        <source>Schattenmann</source>
+        <target>Schattenmann</target>
+      </segment>
+    </unit>
+    <unit id="Gk4T3iI" name="Wüstenphantom">
+      <notes>
+        <note category="german">Wüstenphantom</note>
+      </notes>
+      <segment>
+        <source>Wüstenphantom</source>
+        <target>Wüstenphantom</target>
+      </segment>
+    </unit>
+    <unit id="0dGXUFA" name="Solid Snake war gestern...">
+      <notes>
+        <note category="german">Solid Snake war gestern...</note>
+      </notes>
+      <segment>
+        <source>Solid Snake war gestern...</source>
+        <target>Solid Snake war gestern...</target>
+      </segment>
+    </unit>
+    <unit id="kHVMitZ" name="Sandarbeiter">
+      <notes>
+        <note category="german">Sandarbeiter</note>
+      </notes>
+      <segment>
+        <source>Sandarbeiter</source>
+        <target>Sandarbeiter</target>
+      </segment>
+    </unit>
+    <unit id="IJYuZ5a" name="Wüstenspringmaus">
+      <notes>
+        <note category="german">Wüstenspringmaus</note>
+      </notes>
+      <segment>
+        <source>Wüstenspringmaus</source>
+        <target>Wüstenspringmaus</target>
+      </segment>
+    </unit>
+    <unit id="Vkh5MQX" name="Großer Ameisenbär">
+      <notes>
+        <note category="german">Großer Ameisenbär</note>
+      </notes>
+      <segment>
+        <source>Großer Ameisenbär</source>
+        <target>Großer Ameisenbär</target>
+      </segment>
+    </unit>
+    <unit id="nHhwa89" name="Wüstenfuchs">
+      <notes>
+        <note category="german">Wüstenfuchs</note>
+      </notes>
+      <segment>
+        <source>Wüstenfuchs</source>
+        <target>Wüstenfuchs</target>
+      </segment>
+    </unit>
+    <unit id="j2g8eu0" name="Ich sehe Alles!">
+      <notes>
+        <note category="german">Ich sehe Alles!</note>
+      </notes>
+      <segment>
+        <source>Ich sehe Alles!</source>
+        <target>Ich sehe Alles!</target>
+      </segment>
+    </unit>
+    <unit id="fgaC7U9" name="Tierliebhaber">
+      <notes>
+        <note category="german">Tierliebhaber</note>
+      </notes>
+      <segment>
+        <source>Tierliebhaber</source>
+        <target>Tierliebhaber</target>
+      </segment>
+    </unit>
+    <unit id="zwq1Nwl" name="Malteserzüchter">
+      <notes>
+        <note category="german">Malteserzüchter</note>
+      </notes>
+      <segment>
+        <source>Malteserzüchter</source>
+        <target>Malteserzüchter</target>
+      </segment>
+    </unit>
+    <unit id="wNYAdWT" name="Ich bändige Bestien">
+      <notes>
+        <note category="german">Ich bändige Bestien</note>
+      </notes>
+      <segment>
+        <source>Ich bändige Bestien</source>
+        <target>Ich bändige Bestien</target>
+      </segment>
+    </unit>
+    <unit id="uBx6t9G" name="Nie ohne meinen Hund!">
+      <notes>
+        <note category="german">Nie ohne meinen Hund!</note>
+      </notes>
+      <segment>
+        <source>Nie ohne meinen Hund!</source>
+        <target>Nie ohne meinen Hund!</target>
+      </segment>
+    </unit>
+    <unit id="NptrmeY" name="Hundewurst schmeckt gar nicht schlecht!">
+      <notes>
+        <note category="german">Hundewurst schmeckt gar nicht schlecht!</note>
+      </notes>
+      <segment>
+        <source>Hundewurst schmeckt gar nicht schlecht!</source>
+        <target>Hundewurst schmeckt gar nicht schlecht!</target>
+      </segment>
+    </unit>
+    <unit id="7QwnRMJ" name="Wurmfresser">
+      <notes>
+        <note category="german">Wurmfresser</note>
+      </notes>
+      <segment>
+        <source>Wurmfresser</source>
+        <target>Wurmfresser</target>
+      </segment>
+    </unit>
+    <unit id="LNbZ8tc" name="Meister im Würmerfinden">
+      <notes>
+        <note category="german">Meister im Würmerfinden</note>
+      </notes>
+      <segment>
+        <source>Meister im Würmerfinden</source>
+        <target>Meister im Würmerfinden</target>
+      </segment>
+    </unit>
+    <unit id="r_g0Zdo" name="Gefräßiger Bürger">
+      <notes>
+        <note category="german">Gefräßiger Bürger</note>
+      </notes>
+      <segment>
+        <source>Gefräßiger Bürger</source>
+        <target>Gefräßiger Bürger</target>
+      </segment>
+    </unit>
+    <unit id="YuHCJk9" name="Wüstenwurmzüchter">
+      <notes>
+        <note category="german">Wüstenwurmzüchter</note>
+      </notes>
+      <segment>
+        <source>Wüstenwurmzüchter</source>
+        <target>Wüstenwurmzüchter</target>
+      </segment>
+    </unit>
+    <unit id="R1l.1Ik" name="Ich brauche niemanden!">
+      <notes>
+        <note category="german">Ich brauche niemanden!</note>
+      </notes>
+      <segment>
+        <source>Ich brauche niemanden!</source>
+        <target>Ich brauche niemanden!</target>
+      </segment>
+    </unit>
+    <unit id="mjnL5N2" name="Heraklit der Außenwelt">
+      <notes>
+        <note category="german">Heraklit der Außenwelt</note>
+      </notes>
+      <segment>
+        <source>Heraklit der Außenwelt</source>
+        <target>Heraklit der Außenwelt</target>
+      </segment>
+    </unit>
+    <unit id="W6Yibia" name="Diplomierter Scharlatan">
+      <notes>
+        <note category="german">Diplomierter Scharlatan</note>
+      </notes>
+      <segment>
+        <source>Diplomierter Scharlatan</source>
+        <target>Diplomierter Scharlatan</target>
+      </segment>
+    </unit>
+    <unit id="PoQOcTB" name="Schlimmer Finger">
+      <notes>
+        <note category="german">Schlimmer Finger</note>
+      </notes>
+      <segment>
+        <source>Schlimmer Finger</source>
+        <target>Schlimmer Finger</target>
+      </segment>
+    </unit>
+    <unit id="8XXS1ZO" name="Seelenverwerter">
+      <notes>
+        <note category="german">Seelenverwerter</note>
+      </notes>
+      <segment>
+        <source>Seelenverwerter</source>
+        <target>Seelenverwerter</target>
+      </segment>
+    </unit>
+    <unit id="daFQjVZ" name="Mystischer Seher">
+      <notes>
+        <note category="german">Mystischer Seher</note>
+      </notes>
+      <segment>
+        <source>Mystischer Seher</source>
+        <target>Mystischer Seher</target>
+      </segment>
+    </unit>
+    <unit id="XHBWlNh" name="Voodoo Sorceror">
+      <notes>
+        <note category="german">Voodoo Sorceror</note>
+      </notes>
+      <segment>
+        <source>Voodoo Sorceror</source>
+        <target>Voodoo Sorceror</target>
+      </segment>
+    </unit>
+    <unit id=".MsSFMC" name="Yo, wir schaffen das!">
+      <notes>
+        <note category="german">Yo, wir schaffen das!</note>
+      </notes>
+      <segment>
+        <source>Yo, wir schaffen das!</source>
+        <target>Yo, wir schaffen das!</target>
+      </segment>
+    </unit>
+    <unit id="QAyNZLl" name="Kleiner Schraubendreher">
+      <notes>
+        <note category="german">Kleiner Schraubendreher</note>
+      </notes>
+      <segment>
+        <source>Kleiner Schraubendreher</source>
+        <target>Kleiner Schraubendreher</target>
+      </segment>
+    </unit>
+    <unit id="lOiwfoy" name="Schweizer Taschenmesser">
+      <notes>
+        <note category="german">Schweizer Taschenmesser</note>
+      </notes>
+      <segment>
+        <source>Schweizer Taschenmesser</source>
+        <target>Schweizer Taschenmesser</target>
+      </segment>
+    </unit>
+    <unit id="G7XcSN_" name="Unermüdlicher Schrauber">
+      <notes>
+        <note category="german">Unermüdlicher Schrauber</note>
+      </notes>
+      <segment>
+        <source>Unermüdlicher Schrauber</source>
+        <target>Unermüdlicher Schrauber</target>
+      </segment>
+    </unit>
+    <unit id="howdSv." name="Seele des Handwerks">
+      <notes>
+        <note category="german">Seele des Handwerks</note>
+      </notes>
+      <segment>
+        <source>Seele des Handwerks</source>
+        <target>Seele des Handwerks</target>
+      </segment>
+    </unit>
+    <unit id="1nG_get" name="Die Mauer">
+      <notes>
+        <note category="german">Die Mauer</note>
+      </notes>
+      <segment>
+        <source>Die Mauer</source>
+        <target>Die Mauer</target>
+      </segment>
+    </unit>
+    <unit id="_EUCNVZ" name="Höllenwächter">
+      <notes>
+        <note category="german">Höllenwächter</note>
+      </notes>
+      <segment>
+        <source>Höllenwächter</source>
+        <target>Höllenwächter</target>
+      </segment>
+    </unit>
+    <unit id="Q8GaCTs" name="Kerberos">
+      <notes>
+        <note category="german">Kerberos</note>
+      </notes>
+      <segment>
+        <source>Kerberos</source>
+        <target>Kerberos</target>
+      </segment>
+    </unit>
+    <unit id="9MIZnKw" name="Die letzte Verteidigungslinie">
+      <notes>
+        <note category="german">Die letzte Verteidigungslinie</note>
+      </notes>
+      <segment>
+        <source>Die letzte Verteidigungslinie</source>
+        <target>Die letzte Verteidigungslinie</target>
+      </segment>
+    </unit>
+    <unit id="Kn0Gmio" name="Du kommst hier NICHT durch!">
+      <notes>
+        <note category="german">Du kommst hier NICHT durch!</note>
+      </notes>
+      <segment>
+        <source>Du kommst hier NICHT durch!</source>
+        <target>Du kommst hier NICHT durch!</target>
+      </segment>
+    </unit>
+    <unit id="ieyAoEk" name="Hekatoncheir">
+      <notes>
+        <note category="german">Hekatoncheir</note>
+      </notes>
+      <segment>
+        <source>Hekatoncheir</source>
+        <target>Hekatoncheir</target>
+      </segment>
+    </unit>
+    <unit id="oBRWtxD" name="Kantinenkoch">
+      <notes>
+        <note category="german">Kantinenkoch</note>
+      </notes>
+      <segment>
+        <source>Kantinenkoch</source>
+        <target>Kantinenkoch</target>
+      </segment>
+    </unit>
+    <unit id="XpX9Vur" name="Kleiner Küchenchef">
+      <notes>
+        <note category="german">Kleiner Küchenchef</note>
+      </notes>
+      <segment>
+        <source>Kleiner Küchenchef</source>
+        <target>Kleiner Küchenchef</target>
+      </segment>
+    </unit>
+    <unit id="rY8Cfrk" name="Meister Eintopf">
+      <notes>
+        <note category="german">Meister Eintopf</note>
+      </notes>
+      <segment>
+        <source>Meister Eintopf</source>
+        <target>Meister Eintopf</target>
+      </segment>
+    </unit>
+    <unit id="j.yBGQa" name="Großer Wüstenkonditor">
+      <notes>
+        <note category="german">Großer Wüstenkonditor</note>
+      </notes>
+      <segment>
+        <source>Großer Wüstenkonditor</source>
+        <target>Großer Wüstenkonditor</target>
+      </segment>
+    </unit>
+    <unit id="FL.AXi6" name="Begnadeter Wüstenkonditor">
+      <notes>
+        <note category="german">Begnadeter Wüstenkonditor</note>
+      </notes>
+      <segment>
+        <source>Begnadeter Wüstenkonditor</source>
+        <target>Begnadeter Wüstenkonditor</target>
+      </segment>
+    </unit>
+    <unit id="Ry7M.1L" name="Cooking Mama">
+      <notes>
+        <note category="german">Cooking Mama</note>
+      </notes>
+      <segment>
+        <source>Cooking Mama</source>
+        <target>Cooking Mama</target>
+      </segment>
+    </unit>
+    <unit id="pOMrA2Q" name="Meisterhafter Kochlöffelschwinger">
+      <notes>
+        <note category="german">Meisterhafter Kochlöffelschwinger</note>
+      </notes>
+      <segment>
+        <source>Meisterhafter Kochlöffelschwinger</source>
+        <target>Meisterhafter Kochlöffelschwinger</target>
+      </segment>
+    </unit>
+    <unit id="N5OsYPz" name="Amateur-Laborratte">
+      <notes>
+        <note category="german">Amateur-Laborratte</note>
+      </notes>
+      <segment>
+        <source>Amateur-Laborratte</source>
+        <target>Amateur-Laborratte</target>
+      </segment>
+    </unit>
+    <unit id="ilBLypr" name="Kleiner Präparator">
+      <notes>
+        <note category="german">Kleiner Präparator</note>
+      </notes>
+      <segment>
+        <source>Kleiner Präparator</source>
+        <target>Kleiner Präparator</target>
+      </segment>
+    </unit>
+    <unit id="qWtv5vs" name="Chemiker von um die Ecke">
+      <notes>
+        <note category="german">Chemiker von um die Ecke</note>
+      </notes>
+      <segment>
+        <source>Chemiker von um die Ecke</source>
+        <target>Chemiker von um die Ecke</target>
+      </segment>
+    </unit>
+    <unit id="njxFJS2" name="Produkttester">
+      <notes>
+        <note category="german">Produkttester</note>
+      </notes>
+      <segment>
+        <source>Produkttester</source>
+        <target>Produkttester</target>
+      </segment>
+    </unit>
+    <unit id="lktSNSj" name="Wüstenstadt-Dealer">
+      <notes>
+        <note category="german">Wüstenstadt-Dealer</note>
+      </notes>
+      <segment>
+        <source>Wüstenstadt-Dealer</source>
+        <target>Wüstenstadt-Dealer</target>
+      </segment>
+    </unit>
+    <unit id="umCGzIQ" name="X-Men Leser">
+      <notes>
+        <note category="german">X-Men Leser</note>
+      </notes>
+      <segment>
+        <source>X-Men Leser</source>
+        <target>X-Men Leser</target>
+      </segment>
+    </unit>
+    <unit id="eDmRCP_" name="Aussergewöhnlicher Bürger">
+      <notes>
+        <note category="german">Aussergewöhnlicher Bürger</note>
+      </notes>
+      <segment>
+        <source>Aussergewöhnlicher Bürger</source>
+        <target>Aussergewöhnlicher Bürger</target>
+      </segment>
+    </unit>
+    <unit id="MqVu1hx" name="Wunder">
+      <notes>
+        <note category="german">Wunder</note>
+      </notes>
+      <segment>
+        <source>Wunder</source>
+        <target>Wunder</target>
+      </segment>
+    </unit>
+    <unit id="HP.Tq_s" name="Werdender Superheld">
+      <notes>
+        <note category="german">Werdender Superheld</note>
+      </notes>
+      <segment>
+        <source>Werdender Superheld</source>
+        <target>Werdender Superheld</target>
+      </segment>
+    </unit>
+    <unit id="tndLENl" name="Volksheld">
+      <notes>
+        <note category="german">Volksheld</note>
+      </notes>
+      <segment>
+        <source>Volksheld</source>
+        <target>Volksheld</target>
+      </segment>
+    </unit>
+    <unit id="7.7oYfN" name="Neo">
+      <notes>
+        <note category="german">Neo</note>
+      </notes>
+      <segment>
+        <source>Neo</source>
+        <target>Neo</target>
+      </segment>
+    </unit>
+    <unit id="ymQSygb" name="Erlöser der Menschheit">
+      <notes>
+        <note category="german">Erlöser der Menschheit</note>
+      </notes>
+      <segment>
+        <source>Erlöser der Menschheit</source>
+        <target>Erlöser der Menschheit</target>
+      </segment>
+    </unit>
+    <unit id="arP67gQ" name="Außenweltlegende">
+      <notes>
+        <note category="german">Außenweltlegende</note>
+      </notes>
+      <segment>
+        <source>Außenweltlegende</source>
+        <target>Außenweltlegende</target>
+      </segment>
+    </unit>
+    <unit id="bKSb1w6" name="Abstauber">
+      <notes>
+        <note category="german">Abstauber</note>
+      </notes>
+      <segment>
+        <source>Abstauber</source>
+        <target>Abstauber</target>
+      </segment>
+    </unit>
+    <unit id="nxVhC8." name="Müllkind">
+      <notes>
+        <note category="german">Müllkind</note>
+      </notes>
+      <segment>
+        <source>Müllkind</source>
+        <target>Müllkind</target>
+      </segment>
+    </unit>
+    <unit id="d9pmB69" name="Maulheld">
+      <notes>
+        <note category="german">Maulheld</note>
+      </notes>
+      <segment>
+        <source>Maulheld</source>
+        <target>Maulheld</target>
+      </segment>
+    </unit>
+    <unit id="Iz1vTMf" name="Lump">
+      <notes>
+        <note category="german">Lump</note>
+      </notes>
+      <segment>
+        <source>Lump</source>
+        <target>Lump</target>
+      </segment>
+    </unit>
+    <unit id="CVZoBX6" name="Schaumschläger">
+      <notes>
+        <note category="german">Schaumschläger</note>
+      </notes>
+      <segment>
+        <source>Schaumschläger</source>
+        <target>Schaumschläger</target>
+      </segment>
+    </unit>
+    <unit id="hR4UiUY" name="Dieb">
+      <notes>
+        <note category="german">Dieb</note>
+      </notes>
+      <segment>
+        <source>Dieb</source>
+        <target>Dieb</target>
+      </segment>
+    </unit>
+    <unit id="Whz2P01" name="Fantomas">
+      <notes>
+        <note category="german">Fantomas</note>
+      </notes>
+      <segment>
+        <source>Fantomas</source>
+        <target>Fantomas</target>
+      </segment>
+    </unit>
+    <unit id="hvK5zf_" name="Ali Baba">
+      <notes>
+        <note category="german">Ali Baba</note>
+      </notes>
+      <segment>
+        <source>Ali Baba</source>
+        <target>Ali Baba</target>
+      </segment>
+    </unit>
+    <unit id="ZtrOtZO" name="Meisterdieb">
+      <notes>
+        <note category="german">Meisterdieb</note>
+      </notes>
+      <segment>
+        <source>Meisterdieb</source>
+        <target>Meisterdieb</target>
+      </segment>
+    </unit>
+    <unit id="uBzfyYA" name="Kleptomane">
+      <notes>
+        <note category="german">Kleptomane</note>
+      </notes>
+      <segment>
+        <source>Kleptomane</source>
+        <target>Kleptomane</target>
+      </segment>
+    </unit>
+    <unit id="Tyefb1z" name="Dein Haus ist mein Haus">
+      <notes>
+        <note category="german">Dein Haus ist mein Haus</note>
+      </notes>
+      <segment>
+        <source>Dein Haus ist mein Haus</source>
+        <target>Dein Haus ist mein Haus</target>
+      </segment>
+    </unit>
+    <unit id="EAUfc_T" name="Ästhet">
+      <notes>
+        <note category="german">Ästhet</note>
+      </notes>
+      <segment>
+        <source>Ästhet</source>
+        <target>Ästhet</target>
+      </segment>
+    </unit>
+    <unit id="htrqTBX" name="Schaufenstergestalter">
+      <notes>
+        <note category="german">Schaufenstergestalter</note>
+      </notes>
+      <segment>
+        <source>Schaufenstergestalter</source>
+        <target>Schaufenstergestalter</target>
+      </segment>
+    </unit>
+    <unit id="nVB8Scb" name="Innenarchitekt">
+      <notes>
+        <note category="german">Innenarchitekt</note>
+      </notes>
+      <segment>
+        <source>Innenarchitekt</source>
+        <target>Innenarchitekt</target>
+      </segment>
+    </unit>
+    <unit id="34SP50k" name="Möbelgourmet">
+      <notes>
+        <note category="german">Möbelgourmet</note>
+      </notes>
+      <segment>
+        <source>Möbelgourmet</source>
+        <target>Möbelgourmet</target>
+      </segment>
+    </unit>
+    <unit id="mxWnK5O" name="Ordnung muss sein!">
+      <notes>
+        <note category="german">Ordnung muss sein!</note>
+      </notes>
+      <segment>
+        <source>Ordnung muss sein!</source>
+        <target>Ordnung muss sein!</target>
+      </segment>
+    </unit>
+    <unit id="edY8VI9" name="Plünderer">
+      <notes>
+        <note category="german">Plünderer</note>
+      </notes>
+      <segment>
+        <source>Plünderer</source>
+        <target>Plünderer</target>
+      </segment>
+    </unit>
+    <unit id="CGvAzP5" name="Aasgeier">
+      <notes>
+        <note category="german">Aasgeier</note>
+      </notes>
+      <segment>
+        <source>Aasgeier</source>
+        <target>Aasgeier</target>
+      </segment>
+    </unit>
+    <unit id="6pQK.d7" name="Hyäne">
+      <notes>
+        <note category="german">Hyäne</note>
+      </notes>
+      <segment>
+        <source>Hyäne</source>
+        <target>Hyäne</target>
+      </segment>
+    </unit>
+    <unit id="oULxGXv" name="Wegelagerer post mortem">
+      <notes>
+        <note category="german">Wegelagerer post mortem</note>
+      </notes>
+      <segment>
+        <source>Wegelagerer post mortem</source>
+        <target>Wegelagerer post mortem</target>
+      </segment>
+    </unit>
+    <unit id="wrk6884" name="Hungriger Schakal">
+      <notes>
+        <note category="german">Hungriger Schakal</note>
+      </notes>
+      <segment>
+        <source>Hungriger Schakal</source>
+        <target>Hungriger Schakal</target>
+      </segment>
+    </unit>
+    <unit id="sH.HjOH" name="Kojote der kargen Steppen">
+      <notes>
+        <note category="german">Kojote der kargen Steppen</note>
+      </notes>
+      <segment>
+        <source>Kojote der kargen Steppen</source>
+        <target>Kojote der kargen Steppen</target>
+      </segment>
+    </unit>
+    <unit id="urPWQsn" name="Fingerschmied">
+      <notes>
+        <note category="german">Fingerschmied</note>
+      </notes>
+      <segment>
+        <source>Fingerschmied</source>
+        <target>Fingerschmied</target>
+      </segment>
+    </unit>
+    <unit id="YWEYkqM" name="Nein, das Ding fasse ich nicht an.">
+      <notes>
+        <note category="german">Nein, das Ding fasse ich nicht an.</note>
+      </notes>
+      <segment>
+        <source>Nein, das Ding fasse ich nicht an.</source>
+        <target>Nein, das Ding fasse ich nicht an.</target>
+      </segment>
+    </unit>
+    <unit id="r5GkUq2" name="Leichenhygieniker">
+      <notes>
+        <note category="german">Leichenhygieniker</note>
+      </notes>
+      <segment>
+        <source>Leichenhygieniker</source>
+        <target>Leichenhygieniker</target>
+      </segment>
+    </unit>
+    <unit id="psoFfLg" name="Ich liebe den Geruch von gewaschenen Leichen am Morgen.">
+      <notes>
+        <note category="german">Ich liebe den Geruch von gewaschenen Leichen am Morgen.</note>
+      </notes>
+      <segment>
+        <source>Ich liebe den Geruch von gewaschenen Leichen am Morgen.</source>
+        <target>Ich liebe den Geruch von gewaschenen Leichen am Morgen.</target>
+      </segment>
+    </unit>
+    <unit id="LhDxZvT" name="Müllmann">
+      <notes>
+        <note category="german">Müllmann</note>
+      </notes>
+      <segment>
+        <source>Müllmann</source>
+        <target>Müllmann</target>
+      </segment>
+    </unit>
+    <unit id="sFQWLgK" name="Erfahrener Müllmann">
+      <notes>
+        <note category="german">Erfahrener Müllmann</note>
+      </notes>
+      <segment>
+        <source>Erfahrener Müllmann</source>
+        <target>Erfahrener Müllmann</target>
+      </segment>
+    </unit>
+    <unit id="tsPJ.tn" name="Entsorgungsfachmann">
+      <notes>
+        <note category="german">Entsorgungsfachmann</note>
+      </notes>
+      <segment>
+        <source>Entsorgungsfachmann</source>
+        <target>Entsorgungsfachmann</target>
+      </segment>
+    </unit>
+    <unit id="B4Wcvgc" name="SM Anhänger">
+      <notes>
+        <note category="german">SM Anhänger</note>
+      </notes>
+      <segment>
+        <source>SM Anhänger</source>
+        <target>SM Anhänger</target>
+      </segment>
+    </unit>
+    <unit id="U8Ek_Ms" name="SM Spezialist">
+      <notes>
+        <note category="german">SM Spezialist</note>
+      </notes>
+      <segment>
+        <source>SM Spezialist</source>
+        <target>SM Spezialist</target>
+      </segment>
+    </unit>
+    <unit id="SpnmnFy" name="Nenn mich Herrin">
+      <notes>
+        <note category="german">Nenn mich Herrin</note>
+      </notes>
+      <segment>
+        <source>Nenn mich Herrin</source>
+        <target>Nenn mich Herrin</target>
+      </segment>
+    </unit>
+    <unit id="xCZqHbA" name="Ich möchte dein Objekt sein.">
+      <notes>
+        <note category="german">Ich möchte dein Objekt sein.</note>
+      </notes>
+      <segment>
+        <source>Ich möchte dein Objekt sein.</source>
+        <target>Ich möchte dein Objekt sein.</target>
+      </segment>
+    </unit>
+    <unit id="MFlCpq0" name="Stadtmetzger">
+      <notes>
+        <note category="german">Stadtmetzger</note>
+      </notes>
+      <segment>
+        <source>Stadtmetzger</source>
+        <target>Stadtmetzger</target>
+      </segment>
+    </unit>
+    <unit id="VsHM2Ov" name="Spezialität: Hundesteaks">
+      <notes>
+        <note category="german">Spezialität: Hundesteaks</note>
+      </notes>
+      <segment>
+        <source>Spezialität: Hundesteaks</source>
+        <target>Spezialität: Hundesteaks</target>
+      </segment>
+    </unit>
+    <unit id="vPqbzL2" name="Miezi? Jaaaa, komm her...">
+      <notes>
+        <note category="german">Miezi? Jaaaa, komm her...</note>
+      </notes>
+      <segment>
+        <source>Miezi? Jaaaa, komm her...</source>
+        <target>Miezi? Jaaaa, komm her...</target>
+      </segment>
+    </unit>
+    <unit id="j0rqxtq" name="Fleisch ist mein Gemüse">
+      <notes>
+        <note category="german">Fleisch ist mein Gemüse</note>
+      </notes>
+      <segment>
+        <source>Fleisch ist mein Gemüse</source>
+        <target>Fleisch ist mein Gemüse</target>
+      </segment>
+    </unit>
+    <unit id="kux2P8d" name="Nervensäge">
+      <notes>
+        <note category="german">Nervensäge</note>
+      </notes>
+      <segment>
+        <source>Nervensäge</source>
+        <target>Nervensäge</target>
+      </segment>
+    </unit>
+    <unit id="EmKmq5r" name="Sozialschmarotzer">
+      <notes>
+        <note category="german">Sozialschmarotzer</note>
+      </notes>
+      <segment>
+        <source>Sozialschmarotzer</source>
+        <target>Sozialschmarotzer</target>
+      </segment>
+    </unit>
+    <unit id="fReXfmp" name="Die Wüste ist mein Zuhause">
+      <notes>
+        <note category="german">Die Wüste ist mein Zuhause</note>
+      </notes>
+      <segment>
+        <source>Die Wüste ist mein Zuhause</source>
+        <target>Die Wüste ist mein Zuhause</target>
+      </segment>
+    </unit>
+    <unit id="HYrdx8z" name="Immer ein Auge offen">
+      <notes>
+        <note category="german">Immer ein Auge offen</note>
+      </notes>
+      <segment>
+        <source>Immer ein Auge offen</source>
+        <target>Immer ein Auge offen</target>
+      </segment>
+    </unit>
+    <unit id="Z_0j57p" name="Mit offenen Augen schlafen? Kein Problem!">
+      <notes>
+        <note category="german">Mit offenen Augen schlafen? Kein Problem!</note>
+      </notes>
+      <segment>
+        <source>Mit offenen Augen schlafen? Kein Problem!</source>
+        <target>Mit offenen Augen schlafen? Kein Problem!</target>
+      </segment>
+    </unit>
+    <unit id="_gGT4Bo" name="Immer alles im Blick">
+      <notes>
+        <note category="german">Immer alles im Blick</note>
+      </notes>
+      <segment>
+        <source>Immer alles im Blick</source>
+        <target>Immer alles im Blick</target>
+      </segment>
+    </unit>
+    <unit id="y3Kn2k." name="Großer Baumeister">
+      <notes>
+        <note category="german">Großer Baumeister</note>
+      </notes>
+      <segment>
+        <source>Großer Baumeister</source>
+        <target>Großer Baumeister</target>
+      </segment>
+    </unit>
+    <unit id="jmKMicq" name="Großer Architekt">
+      <notes>
+        <note category="german">Großer Architekt</note>
+      </notes>
+      <segment>
+        <source>Großer Architekt</source>
+        <target>Großer Architekt</target>
+      </segment>
+    </unit>
+    <unit id="MvKgCjl" name="Freimauer">
+      <notes>
+        <note category="german">Freimauer</note>
+      </notes>
+      <segment>
+        <source>Freimauer</source>
+        <target>Freimauer</target>
+      </segment>
+    </unit>
+    <unit id="a12lyk0" name="Terraformingspezialist">
+      <notes>
+        <note category="german">Terraformingspezialist</note>
+      </notes>
+      <segment>
+        <source>Terraformingspezialist</source>
+        <target>Terraformingspezialist</target>
+      </segment>
+    </unit>
+    <unit id="6qQgdl3" name="Allmächtiger Schöpfer">
+      <notes>
+        <note category="german">Allmächtiger Schöpfer</note>
+      </notes>
+      <segment>
+        <source>Allmächtiger Schöpfer</source>
+        <target>Allmächtiger Schöpfer</target>
+      </segment>
+    </unit>
+    <unit id="iI2X2UH" name="Bauherr ohne Sinn und Verstand">
+      <notes>
+        <note category="german">Bauherr ohne Sinn und Verstand</note>
+      </notes>
+      <segment>
+        <source>Bauherr ohne Sinn und Verstand</source>
+        <target>Bauherr ohne Sinn und Verstand</target>
+      </segment>
+    </unit>
+    <unit id="G3RJpst" name="Erbauer der verlorenen Zeit">
+      <notes>
+        <note category="german">Erbauer der verlorenen Zeit</note>
+      </notes>
+      <segment>
+        <source>Erbauer der verlorenen Zeit</source>
+        <target>Erbauer der verlorenen Zeit</target>
+      </segment>
+    </unit>
+    <unit id="SFBU3BN" name="Erleuchteter Baumeister">
+      <notes>
+        <note category="german">Erleuchteter Baumeister</note>
+      </notes>
+      <segment>
+        <source>Erleuchteter Baumeister</source>
+        <target>Erleuchteter Baumeister</target>
+      </segment>
+    </unit>
+    <unit id="lSOiFIr" name="Maurer aus Leidenschaft">
+      <notes>
+        <note category="german">Maurer aus Leidenschaft</note>
+      </notes>
+      <segment>
+        <source>Maurer aus Leidenschaft</source>
+        <target>Maurer aus Leidenschaft</target>
+      </segment>
+    </unit>
+    <unit id="0or.wGT" name="Huldigt den riesigen KVF!">
+      <notes>
+        <note category="german">Huldigt den riesigen KVF!</note>
+      </notes>
+      <segment>
+        <source>Huldigt den riesigen KVF!</source>
+        <target>Huldigt den riesigen KVF!</target>
+      </segment>
+    </unit>
+    <unit id="tEgszOf" name="Durazell">
+      <notes>
+        <note category="german">Durazell</note>
+      </notes>
+      <segment>
+        <source>Durazell</source>
+        <target>Durazell</target>
+      </segment>
+    </unit>
+    <unit id="TYUW16_" name="Hüter der Heiligen Batterie">
+      <notes>
+        <note category="german">Hüter der Heiligen Batterie</note>
+      </notes>
+      <segment>
+        <source>Hüter der Heiligen Batterie</source>
+        <target>Hüter der Heiligen Batterie</target>
+      </segment>
+    </unit>
+    <unit id="UE4hY7d" name="Maurerlehrling">
+      <notes>
+        <note category="german">Maurerlehrling</note>
+      </notes>
+      <segment>
+        <source>Maurerlehrling</source>
+        <target>Maurerlehrling</target>
+      </segment>
+    </unit>
+    <unit id="Q9svW6q" name="Maurer">
+      <notes>
+        <note category="german">Maurer</note>
+      </notes>
+      <segment>
+        <source>Maurer</source>
+        <target>Maurer</target>
+      </segment>
+    </unit>
+    <unit id="6S8DN5y" name="Polier">
+      <notes>
+        <note category="german">Polier</note>
+      </notes>
+      <segment>
+        <source>Polier</source>
+        <target>Polier</target>
+      </segment>
+    </unit>
+    <unit id="oQ7Otmd" name="Baustellenleiter">
+      <notes>
+        <note category="german">Baustellenleiter</note>
+      </notes>
+      <segment>
+        <source>Baustellenleiter</source>
+        <target>Baustellenleiter</target>
+      </segment>
+    </unit>
+    <unit id="8v3L_FV" name="Meisterarchitekt">
+      <notes>
+        <note category="german">Meisterarchitekt</note>
+      </notes>
+      <segment>
+        <source>Meisterarchitekt</source>
+        <target>Meisterarchitekt</target>
+      </segment>
+    </unit>
+    <unit id="3UPelIK" name="Oscar Niemeyer">
+      <notes>
+        <note category="german">Oscar Niemeyer</note>
+      </notes>
+      <segment>
+        <source>Oscar Niemeyer</source>
+        <target>Oscar Niemeyer</target>
+      </segment>
+    </unit>
+    <unit id="vDfFFwR" name="Spachtler">
+      <notes>
+        <note category="german">Spachtler</note>
+      </notes>
+      <segment>
+        <source>Spachtler</source>
+        <target>Spachtler</target>
+      </segment>
+    </unit>
+    <unit id="EQ0gFgq" name="Gewissenhafter Maurer">
+      <notes>
+        <note category="german">Gewissenhafter Maurer</note>
+      </notes>
+      <segment>
+        <source>Gewissenhafter Maurer</source>
+        <target>Gewissenhafter Maurer</target>
+      </segment>
+    </unit>
+    <unit id="3lgdVhM" name="Meisterwerke in Gefahr">
+      <notes>
+        <note category="german">Meisterwerke in Gefahr</note>
+      </notes>
+      <segment>
+        <source>Meisterwerke in Gefahr</source>
+        <target>Meisterwerke in Gefahr</target>
+      </segment>
+    </unit>
+    <unit id="T3Y_6id" name="Ein Flicken und alles ist wie neu">
+      <notes>
+        <note category="german">Ein Flicken und alles ist wie neu</note>
+      </notes>
+      <segment>
+        <source>Ein Flicken und alles ist wie neu</source>
+        <target>Ein Flicken und alles ist wie neu</target>
+      </segment>
+    </unit>
+    <unit id="5gsWNg_" name="Kettensägenmassaker">
+      <notes>
+        <note category="german">Kettensägenmassaker</note>
+      </notes>
+      <segment>
+        <source>Kettensägenmassaker</source>
+        <target>Kettensägenmassaker</target>
+      </segment>
+    </unit>
+    <unit id="_qvR5kt" name="Hobby-Heimwerker">
+      <notes>
+        <note category="german">Hobby-Heimwerker</note>
+      </notes>
+      <segment>
+        <source>Hobby-Heimwerker</source>
+        <target>Hobby-Heimwerker</target>
+      </segment>
+    </unit>
+    <unit id="rEGk1G9" name="Meisterbastler ">
+      <notes>
+        <note category="german">Meisterbastler </note>
+      </notes>
+      <segment>
+        <source>Meisterbastler </source>
+        <target>Meisterbastler </target>
+      </segment>
+    </unit>
+    <unit id="jmPWc5Q" name="Sowas wirft man doch nicht weg!">
+      <notes>
+        <note category="german">Sowas wirft man doch nicht weg!</note>
+      </notes>
+      <segment>
+        <source>Sowas wirft man doch nicht weg!</source>
+        <target>Sowas wirft man doch nicht weg!</target>
+      </segment>
+    </unit>
+    <unit id="M8coTc5" name="Mac Gyver der Außenwelt">
+      <notes>
+        <note category="german">Mac Gyver der Außenwelt</note>
+      </notes>
+      <segment>
+        <source>Mac Gyver der Außenwelt</source>
+        <target>Mac Gyver der Außenwelt</target>
+      </segment>
+    </unit>
+    <unit id="RZgJyGg" name="Super Soaker">
+      <notes>
+        <note category="german">Super Soaker</note>
+      </notes>
+      <segment>
+        <source>Super Soaker</source>
+        <target>Super Soaker</target>
+      </segment>
+    </unit>
+    <unit id="ZEyOlPy" name="Archäologielehrling">
+      <notes>
+        <note category="german">Archäologielehrling</note>
+      </notes>
+      <segment>
+        <source>Archäologielehrling</source>
+        <target>Archäologielehrling</target>
+      </segment>
+    </unit>
+    <unit id="K4lcaj0" name="Archäologe">
+      <notes>
+        <note category="german">Archäologe</note>
+      </notes>
+      <segment>
+        <source>Archäologe</source>
+        <target>Archäologe</target>
+      </segment>
+    </unit>
+    <unit id="saCdR3." name="Grabungsleiter">
+      <notes>
+        <note category="german">Grabungsleiter</note>
+      </notes>
+      <segment>
+        <source>Grabungsleiter</source>
+        <target>Grabungsleiter</target>
+      </segment>
+    </unit>
+    <unit id="d_VW4n7" name="Furchtloser Camper">
+      <notes>
+        <note category="german">Furchtloser Camper</note>
+      </notes>
+      <segment>
+        <source>Furchtloser Camper</source>
+        <target>Furchtloser Camper</target>
+      </segment>
+    </unit>
+    <unit id="wJkos1g" name="Waisenkind der Wüste">
+      <notes>
+        <note category="german">Waisenkind der Wüste</note>
+      </notes>
+      <segment>
+        <source>Waisenkind der Wüste</source>
+        <target>Waisenkind der Wüste</target>
+      </segment>
+    </unit>
+    <unit id="30V5YYq" name="Unglaubliche Entschlossenheit">
+      <notes>
+        <note category="german">Unglaubliche Entschlossenheit</note>
+      </notes>
+      <segment>
+        <source>Unglaubliche Entschlossenheit</source>
+        <target>Unglaubliche Entschlossenheit</target>
+      </segment>
+    </unit>
+    <unit id="KIn20mU" name="Der letzte Überlebende">
+      <notes>
+        <note category="german">Der letzte Überlebende</note>
+      </notes>
+      <segment>
+        <source>Der letzte Überlebende</source>
+        <target>Der letzte Überlebende</target>
+      </segment>
+    </unit>
+    <unit id="F4i5n1d" name="Lebensmüder Kundschafter">
+      <notes>
+        <note category="german">Lebensmüder Kundschafter</note>
+      </notes>
+      <segment>
+        <source>Lebensmüder Kundschafter</source>
+        <target>Lebensmüder Kundschafter</target>
+      </segment>
+    </unit>
+    <unit id="K5wkxsW" name="Draufgängerischer Expeditionsreisender">
+      <notes>
+        <note category="german">Draufgängerischer Expeditionsreisender</note>
+      </notes>
+      <segment>
+        <source>Draufgängerischer Expeditionsreisender</source>
+        <target>Draufgängerischer Expeditionsreisender</target>
+      </segment>
+    </unit>
+    <unit id="dHefPEX" name="Nervenkitzelsucher">
+      <notes>
+        <note category="german">Nervenkitzelsucher</note>
+      </notes>
+      <segment>
+        <source>Nervenkitzelsucher</source>
+        <target>Nervenkitzelsucher</target>
+      </segment>
+    </unit>
+    <unit id="y1cQ.we" name="Christopher Kolumbus">
+      <notes>
+        <note category="german">Christopher Kolumbus</note>
+      </notes>
+      <segment>
+        <source>Christopher Kolumbus</source>
+        <target>Christopher Kolumbus</target>
+      </segment>
+    </unit>
+    <unit id="uzKHOBH" name="Neil Armstrong der Außenwelt">
+      <notes>
+        <note category="german">Neil Armstrong der Außenwelt</note>
+      </notes>
+      <segment>
+        <source>Neil Armstrong der Außenwelt</source>
+        <target>Neil Armstrong der Außenwelt</target>
+      </segment>
+    </unit>
+    <unit id="uAR60V." name="Wenn ich das nur vorher gewusst hätte...">
+      <notes>
+        <note category="german">Wenn ich das nur vorher gewusst hätte...</note>
+      </notes>
+      <segment>
+        <source>Wenn ich das nur vorher gewusst hätte...</source>
+        <target>Wenn ich das nur vorher gewusst hätte...</target>
+      </segment>
+    </unit>
+    <unit id="AFtFx3S" name="Verwegener Wanderer">
+      <notes>
+        <note category="german">Verwegener Wanderer</note>
+      </notes>
+      <segment>
+        <source>Verwegener Wanderer</source>
+        <target>Verwegener Wanderer</target>
+      </segment>
+    </unit>
+    <unit id="xbciBar" name="Tunnelblicker">
+      <notes>
+        <note category="german">Tunnelblicker</note>
+      </notes>
+      <segment>
+        <source>Tunnelblicker</source>
+        <target>Tunnelblicker</target>
+      </segment>
+    </unit>
+    <unit id="E0TEflx" name="Im Irrgarten">
+      <notes>
+        <note category="german">Im Irrgarten</note>
+      </notes>
+      <segment>
+        <source>Im Irrgarten</source>
+        <target>Im Irrgarten</target>
+      </segment>
+    </unit>
+    <unit id="sI3v2iE" name="Inklusive Kompass">
+      <notes>
+        <note category="german">Inklusive Kompass</note>
+      </notes>
+      <segment>
+        <source>Inklusive Kompass</source>
+        <target>Inklusive Kompass</target>
+      </segment>
+    </unit>
+    <unit id="9MvetCf" name="Wo klemmt's?">
+      <notes>
+        <note category="german">Wo klemmt's?</note>
+      </notes>
+      <segment>
+        <source>Wo klemmt's?</source>
+        <target>Wo klemmt's?</target>
+      </segment>
+    </unit>
+    <unit id="xSIL2hw" name="Dietrich">
+      <notes>
+        <note category="german">Dietrich</note>
+      </notes>
+      <segment>
+        <source>Dietrich</source>
+        <target>Dietrich</target>
+      </segment>
+    </unit>
+    <unit id="rO44v_5" name="Sesam, öffne dich...">
+      <notes>
+        <note category="german">Sesam, öffne dich...</note>
+      </notes>
+      <segment>
+        <source>Sesam, öffne dich...</source>
+        <target>Sesam, öffne dich...</target>
+      </segment>
+    </unit>
+    <unit id="m6lDtle" name="Türöffner">
+      <notes>
+        <note category="german">Türöffner</note>
+      </notes>
+      <segment>
+        <source>Türöffner</source>
+        <target>Türöffner</target>
+      </segment>
+    </unit>
+    <unit id="R0ZtLGb" name="Gentleman-Einbrecher">
+      <notes>
+        <note category="german">Gentleman-Einbrecher</note>
+      </notes>
+      <segment>
+        <source>Gentleman-Einbrecher</source>
+        <target>Gentleman-Einbrecher</target>
+      </segment>
+    </unit>
+    <unit id="LC18HiM" name="Schlüsseldienst">
+      <notes>
+        <note category="german">Schlüsseldienst</note>
+      </notes>
+      <segment>
+        <source>Schlüsseldienst</source>
+        <target>Schlüsseldienst</target>
+      </segment>
+    </unit>
+    <unit id="oDCQsxd" name="Zerberus">
+      <notes>
+        <note category="german">Zerberus</note>
+      </notes>
+      <segment>
+        <source>Zerberus</source>
+        <target>Zerberus</target>
+      </segment>
+    </unit>
+    <unit id="mUXkV5x" name="Brutalo">
+      <notes>
+        <note category="german">Brutalo</note>
+      </notes>
+      <segment>
+        <source>Brutalo</source>
+        <target>Brutalo</target>
+      </segment>
+    </unit>
+    <unit id="1leFpaB" name="Verstümmler">
+      <notes>
+        <note category="german">Verstümmler</note>
+      </notes>
+      <segment>
+        <source>Verstümmler</source>
+        <target>Verstümmler</target>
+      </segment>
+    </unit>
+    <unit id="6OntuXL" name="Killer">
+      <notes>
+        <note category="german">Killer</note>
+      </notes>
+      <segment>
+        <source>Killer</source>
+        <target>Killer</target>
+      </segment>
+    </unit>
+    <unit id="Em4Oqo2" name="Kadaverentsorger">
+      <notes>
+        <note category="german">Kadaverentsorger</note>
+      </notes>
+      <segment>
+        <source>Kadaverentsorger</source>
+        <target>Kadaverentsorger</target>
+      </segment>
+    </unit>
+    <unit id="UT6JPAL" name="Vernichter">
+      <notes>
+        <note category="german">Vernichter</note>
+      </notes>
+      <segment>
+        <source>Vernichter</source>
+        <target>Vernichter</target>
+      </segment>
+    </unit>
+    <unit id="wLvuWTM" name="Schlächter">
+      <notes>
+        <note category="german">Schlächter</note>
+      </notes>
+      <segment>
+        <source>Schlächter</source>
+        <target>Schlächter</target>
+      </segment>
+    </unit>
+    <unit id="h22lyQh" name="Friedensstifter">
+      <notes>
+        <note category="german">Friedensstifter</note>
+      </notes>
+      <segment>
+        <source>Friedensstifter</source>
+        <target>Friedensstifter</target>
+      </segment>
+    </unit>
+    <unit id="7BFkjgW" name="Alptraum der Traumlosen">
+      <notes>
+        <note category="german">Alptraum der Traumlosen</note>
+      </notes>
+      <segment>
+        <source>Alptraum der Traumlosen</source>
+        <target>Alptraum der Traumlosen</target>
+      </segment>
+    </unit>
+    <unit id="bpDT2gF" name="Hans im Glück">
+      <notes>
+        <note category="german">Hans im Glück</note>
+      </notes>
+      <segment>
+        <source>Hans im Glück</source>
+        <target>Hans im Glück</target>
+      </segment>
+    </unit>
+    <unit id="1B_QLcP" name="Vierklettriges Kleeblatt">
+      <notes>
+        <note category="german">Vierklettriges Kleeblatt</note>
+      </notes>
+      <segment>
+        <source>Vierklettriges Kleeblatt</source>
+        <target>Vierklettriges Kleeblatt</target>
+      </segment>
+    </unit>
+    <unit id="oSJbjHs" name="Fortuna">
+      <notes>
+        <note category="german">Fortuna</note>
+      </notes>
+      <segment>
+        <source>Fortuna</source>
+        <target>Fortuna</target>
+      </segment>
+    </unit>
+    <unit id="mdOmwT_" name="Ultimate Fighter">
+      <notes>
+        <note category="german">Ultimate Fighter</note>
+      </notes>
+      <segment>
+        <source>Ultimate Fighter</source>
+        <target>Ultimate Fighter</target>
+      </segment>
+    </unit>
+    <unit id="_Mj721z" name="Stürmischer Kundschafter">
+      <notes>
+        <note category="german">Stürmischer Kundschafter</note>
+      </notes>
+      <segment>
+        <source>Stürmischer Kundschafter</source>
+        <target>Stürmischer Kundschafter</target>
+      </segment>
+    </unit>
+    <unit id="FYjowMw" name="Furchtloser Abenteurer">
+      <notes>
+        <note category="german">Furchtloser Abenteurer</note>
+      </notes>
+      <segment>
+        <source>Furchtloser Abenteurer</source>
+        <target>Furchtloser Abenteurer</target>
+      </segment>
+    </unit>
+    <unit id="tTqatlE" name="Wagemutiger Trapper">
+      <notes>
+        <note category="german">Wagemutiger Trapper</note>
+      </notes>
+      <segment>
+        <source>Wagemutiger Trapper</source>
+        <target>Wagemutiger Trapper</target>
+      </segment>
+    </unit>
+    <unit id="blmFuiK" name="Wikinger">
+      <notes>
+        <note category="german">Wikinger</note>
+      </notes>
+      <segment>
+        <source>Wikinger</source>
+        <target>Wikinger</target>
+      </segment>
+    </unit>
+    <unit id="bInjN2I" name="Außenweltreiseführer">
+      <notes>
+        <note category="german">Außenweltreiseführer</note>
+      </notes>
+      <segment>
+        <source>Außenweltreiseführer</source>
+        <target>Außenweltreiseführer</target>
+      </segment>
+    </unit>
+    <unit id="spLDM3R" name="Außenweltschläfer">
+      <notes>
+        <note category="german">Außenweltschläfer</note>
+      </notes>
+      <segment>
+        <source>Außenweltschläfer</source>
+        <target>Außenweltschläfer</target>
+      </segment>
+    </unit>
+    <unit id="tN.fsYk" name="Allein in dieser Welt">
+      <notes>
+        <note category="german">Allein in dieser Welt</note>
+      </notes>
+      <segment>
+        <source>Allein in dieser Welt</source>
+        <target>Allein in dieser Welt</target>
+      </segment>
+    </unit>
+    <unit id="0c_KtqX" name="Der mit den Zombies tanzt">
+      <notes>
+        <note category="german">Der mit den Zombies tanzt</note>
+      </notes>
+      <segment>
+        <source>Der mit den Zombies tanzt</source>
+        <target>Der mit den Zombies tanzt</target>
+      </segment>
+    </unit>
+    <unit id="2VIFWs4" name="Ich sehe überall Tote!">
+      <notes>
+        <note category="german">Ich sehe überall Tote!</note>
+      </notes>
+      <segment>
+        <source>Ich sehe überall Tote!</source>
+        <target>Ich sehe überall Tote!</target>
+      </segment>
+    </unit>
+    <unit id="VkcylUg" name="Ich komme heute Nacht nicht heim...">
+      <notes>
+        <note category="german">Ich komme heute Nacht nicht heim...</note>
+      </notes>
+      <segment>
+        <source>Ich komme heute Nacht nicht heim...</source>
+        <target>Ich komme heute Nacht nicht heim...</target>
+      </segment>
+    </unit>
+    <unit id="Dp2y90j" name="Ein Mann gegen die Außenwelt">
+      <notes>
+        <note category="german">Ein Mann gegen die Außenwelt</note>
+      </notes>
+      <segment>
+        <source>Ein Mann gegen die Außenwelt</source>
+        <target>Ein Mann gegen die Außenwelt</target>
+      </segment>
+    </unit>
+    <unit id="6oEZQKt" name="Neugieriger Leser">
+      <notes>
+        <note category="german">Neugieriger Leser</note>
+      </notes>
+      <segment>
+        <source>Neugieriger Leser</source>
+        <target>Neugieriger Leser</target>
+      </segment>
+    </unit>
+    <unit id="Vq_scnh" name="Eifriger Leser">
+      <notes>
+        <note category="german">Eifriger Leser</note>
+      </notes>
+      <segment>
+        <source>Eifriger Leser</source>
+        <target>Eifriger Leser</target>
+      </segment>
+    </unit>
+    <unit id="WjVYOHI" name="Wüstenhistoriker">
+      <notes>
+        <note category="german">Wüstenhistoriker</note>
+      </notes>
+      <segment>
+        <source>Wüstenhistoriker</source>
+        <target>Wüstenhistoriker</target>
+      </segment>
+    </unit>
+    <unit id="5x7Ljm0" name="Bibliothekar">
+      <notes>
+        <note category="german">Bibliothekar</note>
+      </notes>
+      <segment>
+        <source>Bibliothekar</source>
+        <target>Bibliothekar</target>
+      </segment>
+    </unit>
+    <unit id="81_RQfR" name="Archivar">
+      <notes>
+        <note category="german">Archivar</note>
+      </notes>
+      <segment>
+        <source>Archivar</source>
+        <target>Archivar</target>
+      </segment>
+    </unit>
+    <unit id="39aUvZi" name="Twinoid ist tabu">
+      <notes>
+        <note category="german">Twinoid ist tabu</note>
+      </notes>
+      <segment>
+        <source>Twinoid ist tabu</source>
+        <target>Twinoid ist tabu</target>
+      </segment>
+    </unit>
+    <unit id="3Eh6k_i" name="Keine Macht den Drogen">
+      <notes>
+        <note category="german">Keine Macht den Drogen</note>
+      </notes>
+      <segment>
+        <source>Keine Macht den Drogen</source>
+        <target>Keine Macht den Drogen</target>
+      </segment>
+    </unit>
+    <unit id="C2u908W" name="Sowas fasse ICH nicht an">
+      <notes>
+        <note category="german">Sowas fasse ICH nicht an</note>
+      </notes>
+      <segment>
+        <source>Sowas fasse ICH nicht an</source>
+        <target>Sowas fasse ICH nicht an</target>
+      </segment>
+    </unit>
+    <unit id="jMuFMNy" name="Vorbild für die Jugend">
+      <notes>
+        <note category="german">Vorbild für die Jugend</note>
+      </notes>
+      <segment>
+        <source>Vorbild für die Jugend</source>
+        <target>Vorbild für die Jugend</target>
+      </segment>
+    </unit>
+    <unit id="ihhvM4Y" name="Champions nehmen keine Drogen!">
+      <notes>
+        <note category="german">Champions nehmen keine Drogen!</note>
+      </notes>
+      <segment>
+        <source>Champions nehmen keine Drogen!</source>
+        <target>Champions nehmen keine Drogen!</target>
+      </segment>
+    </unit>
+    <unit id="4AHAF07" name="Medikamentetester">
+      <notes>
+        <note category="german">Medikamentetester</note>
+      </notes>
+      <segment>
+        <source>Medikamentetester</source>
+        <target>Medikamentetester</target>
+      </segment>
+    </unit>
+    <unit id="KQJ083f" name="Laborratte">
+      <notes>
+        <note category="german">Laborratte</note>
+      </notes>
+      <segment>
+        <source>Laborratte</source>
+        <target>Laborratte</target>
+      </segment>
+    </unit>
+    <unit id="Y7OBSHf" name="Pille palle, 3 Tage wach!">
+      <notes>
+        <note category="german">Pille palle, 3 Tage wach!</note>
+      </notes>
+      <segment>
+        <source>Pille palle, 3 Tage wach!</source>
+        <target>Pille palle, 3 Tage wach!</target>
+      </segment>
+    </unit>
+    <unit id="0A79ZRe" name="Timothy Leary">
+      <notes>
+        <note category="german">Timothy Leary</note>
+      </notes>
+      <segment>
+        <source>Timothy Leary</source>
+        <target>Timothy Leary</target>
+      </segment>
+    </unit>
+    <unit id="T._inuH" name="Menschenfleischliebhaber">
+      <notes>
+        <note category="german">Menschenfleischliebhaber</note>
+      </notes>
+      <segment>
+        <source>Menschenfleischliebhaber</source>
+        <target>Menschenfleischliebhaber</target>
+      </segment>
+    </unit>
+    <unit id="2fnnqHL" name="Hannibalfan">
+      <notes>
+        <note category="german">Hannibalfan</note>
+      </notes>
+      <segment>
+        <source>Hannibalfan</source>
+        <target>Hannibalfan</target>
+      </segment>
+    </unit>
+    <unit id="ZH64Tzb" name="Totmacher">
+      <notes>
+        <note category="german">Totmacher</note>
+      </notes>
+      <segment>
+        <source>Totmacher</source>
+        <target>Totmacher</target>
+      </segment>
+    </unit>
+    <unit id="gUIyMph" name="Jeffrey Dahmer">
+      <notes>
+        <note category="german">Jeffrey Dahmer</note>
+      </notes>
+      <segment>
+        <source>Jeffrey Dahmer</source>
+        <target>Jeffrey Dahmer</target>
+      </segment>
+    </unit>
+    <unit id="rtCWNuh" name="Fido">
+      <notes>
+        <note category="german">Fido</note>
+      </notes>
+      <segment>
+        <source>Fido</source>
+        <target>Fido</target>
+      </segment>
+    </unit>
+    <unit id="O.WFVAT" name="Fast schon ein Zombie...">
+      <notes>
+        <note category="german">Fast schon ein Zombie...</note>
+      </notes>
+      <segment>
+        <source>Fast schon ein Zombie...</source>
+        <target>Fast schon ein Zombie...</target>
+      </segment>
+    </unit>
+    <unit id="hQntRjp" name="Schmeckt am besten wenn's noch schreit!">
+      <notes>
+        <note category="german">Schmeckt am besten wenn's noch schreit!</note>
+      </notes>
+      <segment>
+        <source>Schmeckt am besten wenn's noch schreit!</source>
+        <target>Schmeckt am besten wenn's noch schreit!</target>
+      </segment>
+    </unit>
+    <unit id="Jn.J6ZI" name="Die Macht der Proteine">
+      <notes>
+        <note category="german">Die Macht der Proteine</note>
+      </notes>
+      <segment>
+        <source>Die Macht der Proteine</source>
+        <target>Die Macht der Proteine</target>
+      </segment>
+    </unit>
+    <unit id="WE9IWrB" name="Zombieliebling">
+      <notes>
+        <note category="german">Zombieliebling</note>
+      </notes>
+      <segment>
+        <source>Zombieliebling</source>
+        <target>Zombieliebling</target>
+      </segment>
+    </unit>
+    <unit id="gSBK_12" name="Ich bin in der Hölle aufgewachsen.">
+      <notes>
+        <note category="german">Ich bin in der Hölle aufgewachsen.</note>
+      </notes>
+      <segment>
+        <source>Ich bin in der Hölle aufgewachsen.</source>
+        <target>Ich bin in der Hölle aufgewachsen.</target>
+      </segment>
+    </unit>
+    <unit id="h9OS6ti" name="Teilweise verrottet">
+      <notes>
+        <note category="german">Teilweise verrottet</note>
+      </notes>
+      <segment>
+        <source>Teilweise verrottet</source>
+        <target>Teilweise verrottet</target>
+      </segment>
+    </unit>
+    <unit id="LzdnkS5" name="Virenschleuder">
+      <notes>
+        <note category="german">Virenschleuder</note>
+      </notes>
+      <segment>
+        <source>Virenschleuder</source>
+        <target>Virenschleuder</target>
+      </segment>
+    </unit>
+    <unit id="lR71uxG" name="Gedärmeauskotzer">
+      <notes>
+        <note category="german">Gedärmeauskotzer</note>
+      </notes>
+      <segment>
+        <source>Gedärmeauskotzer</source>
+        <target>Gedärmeauskotzer</target>
+      </segment>
+    </unit>
+    <unit id="5LOqx_Q" name="Seuchenherd">
+      <notes>
+        <note category="german">Seuchenherd</note>
+      </notes>
+      <segment>
+        <source>Seuchenherd</source>
+        <target>Seuchenherd</target>
+      </segment>
+    </unit>
+    <unit id="MhMq2h_" name="Verirrter Ausflügler">
+      <notes>
+        <note category="german">Verirrter Ausflügler</note>
+      </notes>
+      <segment>
+        <source>Verirrter Ausflügler</source>
+        <target>Verirrter Ausflügler</target>
+      </segment>
+    </unit>
+    <unit id="GTHd4n3" name="Nächtlicher Spaziergänger">
+      <notes>
+        <note category="german">Nächtlicher Spaziergänger</note>
+      </notes>
+      <segment>
+        <source>Nächtlicher Spaziergänger</source>
+        <target>Nächtlicher Spaziergänger</target>
+      </segment>
+    </unit>
+    <unit id="OfHX59h" name="Vertrauenswürdiger Bürger">
+      <notes>
+        <note category="german">Vertrauenswürdiger Bürger</note>
+      </notes>
+      <segment>
+        <source>Vertrauenswürdiger Bürger</source>
+        <target>Vertrauenswürdiger Bürger</target>
+      </segment>
+    </unit>
+    <unit id="hn0iaf5" name="Sehr erfahrener Bürger">
+      <notes>
+        <note category="german">Sehr erfahrener Bürger</note>
+      </notes>
+      <segment>
+        <source>Sehr erfahrener Bürger</source>
+        <target>Sehr erfahrener Bürger</target>
+      </segment>
+    </unit>
+    <unit id="rKc_d4M" name="Vorbild für das Volk">
+      <notes>
+        <note category="german">Vorbild für das Volk</note>
+      </notes>
+      <segment>
+        <source>Vorbild für das Volk</source>
+        <target>Vorbild für das Volk</target>
+      </segment>
+    </unit>
+    <unit id="I3PJqtw" name="Richtwert der Gemeinschaft">
+      <notes>
+        <note category="german">Richtwert der Gemeinschaft</note>
+      </notes>
+      <segment>
+        <source>Richtwert der Gemeinschaft</source>
+        <target>Richtwert der Gemeinschaft</target>
+      </segment>
+    </unit>
+    <unit id="HXtJm00" name="Berühmter Veteran">
+      <notes>
+        <note category="german">Berühmter Veteran</note>
+      </notes>
+      <segment>
+        <source>Berühmter Veteran</source>
+        <target>Berühmter Veteran</target>
+      </segment>
+    </unit>
+    <unit id="GTEfEXg" name="Lebender Mythos">
+      <notes>
+        <note category="german">Lebender Mythos</note>
+      </notes>
+      <segment>
+        <source>Lebender Mythos</source>
+        <target>Lebender Mythos</target>
+      </segment>
+    </unit>
+    <unit id="R6RX4Vs" name="Ich bin eine Legende">
+      <notes>
+        <note category="german">Ich bin eine Legende</note>
+      </notes>
+      <segment>
+        <source>Ich bin eine Legende</source>
+        <target>Ich bin eine Legende</target>
+      </segment>
+    </unit>
+    <unit id="Tak2K5U" name="Hör auf mich, wenn du überleben möchtest">
+      <notes>
+        <note category="german">Hör auf mich, wenn du überleben möchtest</note>
+      </notes>
+      <segment>
+        <source>Hör auf mich, wenn du überleben möchtest</source>
+        <target>Hör auf mich, wenn du überleben möchtest</target>
+      </segment>
+    </unit>
+    <unit id="LXsPdMO" name="Alter Hase">
+      <notes>
+        <note category="german">Alter Hase</note>
+      </notes>
+      <segment>
+        <source>Alter Hase</source>
+        <target>Alter Hase</target>
+      </segment>
+    </unit>
+    <unit id="e0SZFhK" name="Jedes Los gewinnt">
+      <notes>
+        <note category="german">Jedes Los gewinnt</note>
+      </notes>
+      <segment>
+        <source>Jedes Los gewinnt</source>
+        <target>Jedes Los gewinnt</target>
+      </segment>
+    </unit>
+    <unit id="NnTekv7" name="Zinker">
+      <notes>
+        <note category="german">Zinker</note>
+      </notes>
+      <segment>
+        <source>Zinker</source>
+        <target>Zinker</target>
+      </segment>
+    </unit>
+    <unit id="lUV0fyN" name="Bingo">
+      <notes>
+        <note category="german">Bingo</note>
+      </notes>
+      <segment>
+        <source>Bingo</source>
+        <target>Bingo</target>
+      </segment>
+    </unit>
+    <unit id="zNfSuGP" name="Sudoku ist anders">
+      <notes>
+        <note category="german">Sudoku ist anders</note>
+      </notes>
+      <segment>
+        <source>Sudoku ist anders</source>
+        <target>Sudoku ist anders</target>
+      </segment>
+    </unit>
+    <unit id="hau3lHt" name="Siebenseitiger Würfel">
+      <notes>
+        <note category="german">Siebenseitiger Würfel</note>
+      </notes>
+      <segment>
+        <source>Siebenseitiger Würfel</source>
+        <target>Siebenseitiger Würfel</target>
+      </segment>
+    </unit>
+    <unit id="nvWauKU" name="Einarmiger Bandit">
+      <notes>
+        <note category="german">Einarmiger Bandit</note>
+      </notes>
+      <segment>
+        <source>Einarmiger Bandit</source>
+        <target>Einarmiger Bandit</target>
+      </segment>
+    </unit>
+    <unit id="geFjTQD" name="Motivierter Messebesucher">
+      <notes>
+        <note category="german">Motivierter Messebesucher</note>
+      </notes>
+      <segment>
+        <source>Motivierter Messebesucher</source>
+        <target>Motivierter Messebesucher</target>
+      </segment>
+    </unit>
+    <unit id="IQd9dUu" name="Kleiner Guru">
+      <notes>
+        <note category="german">Kleiner Guru</note>
+      </notes>
+      <segment>
+        <source>Kleiner Guru</source>
+        <target>Kleiner Guru</target>
+      </segment>
+    </unit>
+    <unit id="5FggkWu" name="Überzeugender Guru">
+      <notes>
+        <note category="german">Überzeugender Guru</note>
+      </notes>
+      <segment>
+        <source>Überzeugender Guru</source>
+        <target>Überzeugender Guru</target>
+      </segment>
+    </unit>
+    <unit id="BKdc_nU" name="Frischfleischhändler">
+      <notes>
+        <note category="german">Frischfleischhändler</note>
+      </notes>
+      <segment>
+        <source>Frischfleischhändler</source>
+        <target>Frischfleischhändler</target>
+      </segment>
+    </unit>
+    <unit id="YK4MoDf" name="Held der Community!">
+      <notes>
+        <note category="german">Held der Community!</note>
+      </notes>
+      <segment>
+        <source>Held der Community!</source>
+        <target>Held der Community!</target>
+      </segment>
+    </unit>
+    <unit id="7rLOpWl" name="Nobler Spender">
+      <notes>
+        <note category="german">Nobler Spender</note>
+      </notes>
+      <segment>
+        <source>Nobler Spender</source>
+        <target>Nobler Spender</target>
+      </segment>
+    </unit>
+    <unit id="7CI50m3" name="Immer zur Stelle">
+      <notes>
+        <note category="german">Immer zur Stelle</note>
+      </notes>
+      <segment>
+        <source>Immer zur Stelle</source>
+        <target>Immer zur Stelle</target>
+      </segment>
+    </unit>
+    <unit id="DQYjmAS" name="Samariter">
+      <notes>
+        <note category="german">Samariter</note>
+      </notes>
+      <segment>
+        <source>Samariter</source>
+        <target>Samariter</target>
+      </segment>
+    </unit>
+    <unit id="PT2xNUt" name="Der Weihnachtsmann ist ein Schlawiner">
+      <notes>
+        <note category="german">Der Weihnachtsmann ist ein Schlawiner</note>
+      </notes>
+      <segment>
+        <source>Der Weihnachtsmann ist ein Schlawiner</source>
+        <target>Der Weihnachtsmann ist ein Schlawiner</target>
+      </segment>
+    </unit>
+    <unit id="JVylXOR" name="Treffen der 4. Art">
+      <notes>
+        <note category="german">Treffen der 4. Art</note>
+      </notes>
+      <segment>
+        <source>Treffen der 4. Art</source>
+        <target>Treffen der 4. Art</target>
+      </segment>
+    </unit>
+    <unit id="gxrFu2W" name="Hast Du mal Feuer?">
+      <notes>
+        <note category="german">Hast Du mal Feuer?</note>
+      </notes>
+      <segment>
+        <source>Hast Du mal Feuer?</source>
+        <target>Hast Du mal Feuer?</target>
+      </segment>
+    </unit>
+    <unit id="O9xv8SA" name="Medium mit Preisnachlass">
+      <notes>
+        <note category="german">Medium mit Preisnachlass</note>
+      </notes>
+      <segment>
+        <source>Medium mit Preisnachlass</source>
+        <target>Medium mit Preisnachlass</target>
+      </segment>
+    </unit>
+    <unit id="ua9mDef" name="Amophilis Psychotropes">
+      <notes>
+        <note category="german">Amophilis Psychotropes</note>
+      </notes>
+      <segment>
+        <source>Amophilis Psychotropes</source>
+        <target>Amophilis Psychotropes</target>
+      </segment>
+    </unit>
+    <unit id="ssmlx9q" name="Blauer Feuerspucker">
+      <notes>
+        <note category="german">Blauer Feuerspucker</note>
+      </notes>
+      <segment>
+        <source>Blauer Feuerspucker</source>
+        <target>Blauer Feuerspucker</target>
+      </segment>
+    </unit>
+    <unit id="KZqJU6f" name="I see dead people 0_0">
+      <notes>
+        <note category="german">I see dead people 0_0</note>
+      </notes>
+      <segment>
+        <source>I see dead people 0_0</source>
+        <target>I see dead people 0_0</target>
+      </segment>
+    </unit>
+    <unit id="UTJLf6u" name="Soul Man">
+      <notes>
+        <note category="german">Soul Man</note>
+      </notes>
+      <segment>
+        <source>Soul Man</source>
+        <target>Soul Man</target>
+      </segment>
+    </unit>
+    <unit id="npv5jjJ" name="Bei meiner Seel">
+      <notes>
+        <note category="german">Bei meiner Seel</note>
+      </notes>
+      <segment>
+        <source>Bei meiner Seel</source>
+        <target>Bei meiner Seel</target>
+      </segment>
+    </unit>
+    <unit id="Yt_PNgK" name="Für immer und seelich">
+      <notes>
+        <note category="german">Für immer und seelich</note>
+      </notes>
+      <segment>
+        <source>Für immer und seelich</source>
+        <target>Für immer und seelich</target>
+      </segment>
+    </unit>
+    <unit id="s87SnO6" name="Noble Seele">
+      <notes>
+        <note category="german">Noble Seele</note>
+      </notes>
+      <segment>
+        <source>Noble Seele</source>
+        <target>Noble Seele</target>
+      </segment>
+    </unit>
+    <unit id="F1KJmZk" name="Beseelt">
+      <notes>
+        <note category="german">Beseelt</note>
+      </notes>
+      <segment>
+        <source>Beseelt</source>
+        <target>Beseelt</target>
+      </segment>
+    </unit>
+    <unit id="q8Y1vX0" name="Reinkarnator">
+      <notes>
+        <note category="german">Reinkarnator</note>
+      </notes>
+      <segment>
+        <source>Reinkarnator</source>
+        <target>Reinkarnator</target>
+      </segment>
+    </unit>
+    <unit id="EEzpRAE" name="Göttliche Seele">
+      <notes>
+        <note category="german">Göttliche Seele</note>
+      </notes>
+      <segment>
+        <source>Göttliche Seele</source>
+        <target>Göttliche Seele</target>
+      </segment>
+    </unit>
+    <unit id="zoS8PK1" name="Open-chakra">
+      <notes>
+        <note category="german">Open-chakra</note>
+      </notes>
+      <segment>
+        <source>Open-chakra</source>
+        <target>Open-chakra</target>
+      </segment>
+    </unit>
+    <unit id="oyYT1f_" name="Tausend-und-ein-Leben">
+      <notes>
+        <note category="german">Tausend-und-ein-Leben</note>
+      </notes>
+      <segment>
+        <source>Tausend-und-ein-Leben</source>
+        <target>Tausend-und-ein-Leben</target>
+      </segment>
+    </unit>
+    <unit id="gIRIl_l" name="Buddha">
+      <notes>
+        <note category="german">Buddha</note>
+      </notes>
+      <segment>
+        <source>Buddha</source>
+        <target>Buddha</target>
+      </segment>
+    </unit>
+    <unit id="DejsE.K" name="Messie der verlorenen Welt">
+      <notes>
+        <note category="german">Messie der verlorenen Welt</note>
+      </notes>
+      <segment>
+        <source>Messie der verlorenen Welt</source>
+        <target>Messie der verlorenen Welt</target>
+      </segment>
+    </unit>
+    <unit id="F0CVB9H" name="Ich bin ein Gott! Ich werde ewig leben!">
+      <notes>
+        <note category="german">Ich bin ein Gott! Ich werde ewig leben!</note>
+      </notes>
+      <segment>
+        <source>Ich bin ein Gott! Ich werde ewig leben!</source>
+        <target>Ich bin ein Gott! Ich werde ewig leben!</target>
+      </segment>
+    </unit>
+    <unit id="NrbBkvY" name="Eine Stadt sie zu knechten!">
+      <notes>
+        <note category="german">Eine Stadt sie zu knechten!</note>
+      </notes>
+      <segment>
+        <source>Eine Stadt sie zu knechten!</source>
+        <target>Eine Stadt sie zu knechten!</target>
+      </segment>
+    </unit>
+    <unit id="9aeJYKv" name="Der unsichtbare Mann">
+      <notes>
+        <note category="german">Der unsichtbare Mann</note>
+      </notes>
+      <segment>
+        <source>Der unsichtbare Mann</source>
+        <target>Der unsichtbare Mann</target>
+      </segment>
+    </unit>
+    <unit id="p6Yx3lE" name="Ein BMW? Kein Problem!">
+      <notes>
+        <note category="german">Ein BMW? Kein Problem!</note>
+      </notes>
+      <segment>
+        <source>Ein BMW? Kein Problem!</source>
+        <target>Ein BMW? Kein Problem!</target>
+      </segment>
+    </unit>
+    <unit id="RtVs3Hp" name="Où est Larchi ?">
+      <notes>
+        <note category="german">Où est Larchi ?</note>
+      </notes>
+      <segment>
+        <source>Où est Larchi ?</source>
+        <target>Où est Larchi ?</target>
+      </segment>
+    </unit>
+    <unit id="SGyvnLU" name="Meser (halb Mensch, halb Malteser)">
+      <notes>
+        <note category="german">Meser (halb Mensch, halb Malteser)</note>
+      </notes>
+      <segment>
+        <source>Meser (halb Mensch, halb Malteser)</source>
+        <target>Meser (halb Mensch, halb Malteser)</target>
+      </segment>
+    </unit>
+    <unit id="9r9G9Tw" name="Personalisierter Titel - Dompteur (T-ID: 1725642)">
+      <notes>
+        <note category="german">Personalisierter Titel - Dompteur (T-ID: 1725642)</note>
+      </notes>
+      <segment>
+        <source>Personalisierter Titel - Dompteur (T-ID: 1725642)</source>
+        <target>Personalisierter Titel - Dompteur (T-ID: 1725642)</target>
+      </segment>
+    </unit>
+    <unit id="Bjh4Mcf" name="Gepanzerter Fakir">
+      <notes>
+        <note category="german">Gepanzerter Fakir</note>
+      </notes>
+      <segment>
+        <source>Gepanzerter Fakir</source>
+        <target>Gepanzerter Fakir</target>
+      </segment>
+    </unit>
+    <unit id="JtRdwdg" name="Seele eines Profis">
+      <notes>
+        <note category="german">Seele eines Profis</note>
+      </notes>
+      <segment>
+        <source>Seele eines Profis</source>
+        <target>Seele eines Profis</target>
+      </segment>
+    </unit>
+    <unit id="W6KG1Kx" name="Personalisierter Titel - Techniker (T-ID: 631944)">
+      <notes>
+        <note category="german">Personalisierter Titel - Techniker (T-ID: 631944)</note>
+      </notes>
+      <segment>
+        <source>Personalisierter Titel - Techniker (T-ID: 631944)</source>
+        <target>Personalisierter Titel - Techniker (T-ID: 631944)</target>
+      </segment>
+    </unit>
+    <unit id="k._y0h1" name="Holy F***ing Iceberg">
+      <notes>
+        <note category="german">Holy F***ing Iceberg</note>
+      </notes>
+      <segment>
+        <source>Holy F***ing Iceberg</source>
+        <target>Holy F***ing Iceberg</target>
+      </segment>
+    </unit>
+    <unit id="W7EFZTB" name="Verrückter Skeptiker">
+      <notes>
+        <note category="german">Verrückter Skeptiker</note>
+      </notes>
+      <segment>
+        <source>Verrückter Skeptiker</source>
+        <target>Verrückter Skeptiker</target>
+      </segment>
+    </unit>
+    <unit id="lUQdYSh" name="Seelenknipser">
+      <notes>
+        <note category="german">Seelenknipser</note>
+      </notes>
+      <segment>
+        <source>Seelenknipser</source>
+        <target>Seelenknipser</target>
+      </segment>
+    </unit>
+    <unit id="hB6qDhD" name="Wächter der Seelen">
+      <notes>
+        <note category="german">Wächter der Seelen</note>
+      </notes>
+      <segment>
+        <source>Wächter der Seelen</source>
+        <target>Wächter der Seelen</target>
+      </segment>
+    </unit>
+    <unit id="HhpZEPz" name="Die Wahrheit ist irgendwo da draußen">
+      <notes>
+        <note category="german">Die Wahrheit ist irgendwo da draußen</note>
+      </notes>
+      <segment>
+        <source>Die Wahrheit ist irgendwo da draußen</source>
+        <target>Die Wahrheit ist irgendwo da draußen</target>
+      </segment>
+    </unit>
+    <unit id="gLH3tE5" name="Ich glaube!">
+      <notes>
+        <note category="german">Ich glaube!</note>
+      </notes>
+      <segment>
+        <source>Ich glaube!</source>
+        <target>Ich glaube!</target>
+      </segment>
+    </unit>
+    <unit id="xhBxbLA" name="Sektenmitglied">
+      <notes>
+        <note category="german">Sektenmitglied</note>
+      </notes>
+      <segment>
+        <source>Sektenmitglied</source>
+        <target>Sektenmitglied</target>
+      </segment>
+    </unit>
+    <unit id="1HEtOB8" name="Kosmischer Anführer">
+      <notes>
+        <note category="german">Kosmischer Anführer</note>
+      </notes>
+      <segment>
+        <source>Kosmischer Anführer</source>
+        <target>Kosmischer Anführer</target>
+      </segment>
+    </unit>
     <unit id=".DPY78g" name="dbe2a8d">
       <notes>
         <note category="german">Das Stadttor ist Teil einer Festungsmauer, die den Großteil der Zombies abwehrt. Solltest du vergessen es am Abend zu schließen, kannst du dich auf Qualen einstellen, die deine schlimmsten Alpträume weit übertreffen.</note>
@@ -11675,6 +14060,222 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       <segment>
         <source>Das Stadttor ist Teil einer Festungsmauer, die den Großteil der Zombies abwehrt. Solltest du vergessen es am Abend zu schließen, kannst du dich auf Qualen einstellen, die deine schlimmsten Alpträume weit übertreffen.</source>
         <target>Das Stadttor ist Teil einer Festungsmauer, die den Großteil der Zombies abwehrt. Solltest du vergessen es am Abend zu schließen, kannst du dich auf Qualen einstellen, die deine schlimmsten Alpträume weit übertreffen.</target>
+      </segment>
+    </unit>
+    <unit id="jImJojV" name="Der Batterienator">
+      <notes>
+        <note category="german">Der Batterienator</note>
+      </notes>
+      <segment>
+        <source>Der Batterienator</source>
+        <target>Der Batterienator</target>
+      </segment>
+    </unit>
+    <unit id="xgCfGsM" name="Ist es ein Vogel? Ist es ein Flugzeug? Nein, es ist der super Batteriewerfer!">
+      <notes>
+        <note category="german">Ist es ein Vogel? Ist es ein Flugzeug? Nein, es ist der super Batteriewerfer!</note>
+      </notes>
+      <segment>
+        <source>Ist es ein Vogel? Ist es ein Flugzeug? Nein, es ist der super Batteriewerfer!</source>
+        <target>Ist es ein Vogel? Ist es ein Flugzeug? Nein, es ist der super Batteriewerfer!</target>
+      </segment>
+    </unit>
+    <unit id="_5jsyrZ" name="Aufgeladen und kampfbereit">
+      <notes>
+        <note category="german">Aufgeladen und kampfbereit</note>
+      </notes>
+      <segment>
+        <source>Aufgeladen und kampfbereit</source>
+        <target>Aufgeladen und kampfbereit</target>
+      </segment>
+    </unit>
+    <unit id="3gGDaMw" name="Hey! Willst du meine... Batterie sehen?">
+      <notes>
+        <note category="german">Hey! Willst du meine... Batterie sehen?</note>
+      </notes>
+      <segment>
+        <source>Hey! Willst du meine... Batterie sehen?</source>
+        <target>Hey! Willst du meine... Batterie sehen?</target>
+      </segment>
+    </unit>
+    <unit id="XLDVSsV" name="Meister der Schlüssel">
+      <notes>
+        <note category="german">Meister der Schlüssel</note>
+      </notes>
+      <segment>
+        <source>Meister der Schlüssel</source>
+        <target>Meister der Schlüssel</target>
+      </segment>
+    </unit>
+    <unit id="gKGzu5i" name="Es war wirklich zu einfach.">
+      <notes>
+        <note category="german">Es war wirklich zu einfach.</note>
+      </notes>
+      <segment>
+        <source>Es war wirklich zu einfach.</source>
+        <target>Es war wirklich zu einfach.</target>
+      </segment>
+    </unit>
+    <unit id="QPcrBd9" name="Ich fresse Nägel und scheiße Kugeln!">
+      <notes>
+        <note category="german">Ich fresse Nägel und scheiße Kugeln!</note>
+      </notes>
+      <segment>
+        <source>Ich fresse Nägel und scheiße Kugeln!</source>
+        <target>Ich fresse Nägel und scheiße Kugeln!</target>
+      </segment>
+    </unit>
+    <unit id="8yrjws." name="Pandämonium? Hah. Einfach.">
+      <notes>
+        <note category="german">Pandämonium? Hah. Einfach.</note>
+      </notes>
+      <segment>
+        <source>Pandämonium? Hah. Einfach.</source>
+        <target>Pandämonium? Hah. Einfach.</target>
+      </segment>
+    </unit>
+    <unit id="RAheQ6X" name="Rauch? Welcher Rauch?">
+      <notes>
+        <note category="german">Rauch? Welcher Rauch?</note>
+      </notes>
+      <segment>
+        <source>Rauch? Welcher Rauch?</source>
+        <target>Rauch? Welcher Rauch?</target>
+      </segment>
+    </unit>
+    <unit id="0yKxX98" name="Leckstopper">
+      <notes>
+        <note category="german">Leckstopper</note>
+      </notes>
+      <segment>
+        <source>Leckstopper</source>
+        <target>Leckstopper</target>
+      </segment>
+    </unit>
+    <unit id="88ZyuY4" name="Licht in der Nacht">
+      <notes>
+        <note category="german">Licht in der Nacht</note>
+      </notes>
+      <segment>
+        <source>Licht in der Nacht</source>
+        <target>Licht in der Nacht</target>
+      </segment>
+    </unit>
+    <unit id="NbdbHur" name="RadioactiveMan">
+      <notes>
+        <note category="german">RadioactiveMan</note>
+      </notes>
+      <segment>
+        <source>RadioactiveMan</source>
+        <target>RadioactiveMan</target>
+      </segment>
+    </unit>
+    <unit id="qU.xq8H" name="Strahlender Bürger">
+      <notes>
+        <note category="german">Strahlender Bürger</note>
+      </notes>
+      <segment>
+        <source>Strahlender Bürger</source>
+        <target>Strahlender Bürger</target>
+      </segment>
+    </unit>
+    <unit id="nGvkh6T" name="Hölle, das esse ich jeden Morgen.">
+      <notes>
+        <note category="german">Hölle, das esse ich jeden Morgen.</note>
+      </notes>
+      <segment>
+        <source>Hölle, das esse ich jeden Morgen.</source>
+        <target>Hölle, das esse ich jeden Morgen.</target>
+      </segment>
+    </unit>
+    <unit id="L0BHZsf" name="Abonnent der Pandämoniumsauna">
+      <notes>
+        <note category="german">Abonnent der Pandämoniumsauna</note>
+      </notes>
+      <segment>
+        <source>Abonnent der Pandämoniumsauna</source>
+        <target>Abonnent der Pandämoniumsauna</target>
+      </segment>
+    </unit>
+    <unit id="eiNhL4c" name="Pandämonium ist meine Liebe!">
+      <notes>
+        <note category="german">Pandämonium ist meine Liebe!</note>
+      </notes>
+      <segment>
+        <source>Pandämonium ist meine Liebe!</source>
+        <target>Pandämonium ist meine Liebe!</target>
+      </segment>
+    </unit>
+    <unit id="rUm7U9a" name="Luzifers Tanzpartner">
+      <notes>
+        <note category="german">Luzifers Tanzpartner</note>
+      </notes>
+      <segment>
+        <source>Luzifers Tanzpartner</source>
+        <target>Luzifers Tanzpartner</target>
+      </segment>
+    </unit>
+    <unit id="ydooU6U" name="Ultimativer Horden-Erkunder">
+      <notes>
+        <note category="german">Ultimativer Horden-Erkunder</note>
+      </notes>
+      <segment>
+        <source>Ultimativer Horden-Erkunder</source>
+        <target>Ultimativer Horden-Erkunder</target>
+      </segment>
+    </unit>
+    <unit id="GPwTxbP" name="Irische Taschen sind prall gefüllt!">
+      <notes>
+        <note category="german">Irische Taschen sind prall gefüllt!</note>
+      </notes>
+      <segment>
+        <source>Irische Taschen sind prall gefüllt!</source>
+        <target>Irische Taschen sind prall gefüllt!</target>
+      </segment>
+    </unit>
+    <unit id=".vLpN2Q" name="Wo ist mein Topf voll Gold, diebische Elster!">
+      <notes>
+        <note category="german">Wo ist mein Topf voll Gold, diebische Elster!</note>
+      </notes>
+      <segment>
+        <source>Wo ist mein Topf voll Gold, diebische Elster!</source>
+        <target>Wo ist mein Topf voll Gold, diebische Elster!</target>
+      </segment>
+    </unit>
+    <unit id="eOQPgcU" name="Dieser Kobold ist unaufhaltbar.">
+      <notes>
+        <note category="german">Dieser Kobold ist unaufhaltbar.</note>
+      </notes>
+      <segment>
+        <source>Dieser Kobold ist unaufhaltbar.</source>
+        <target>Dieser Kobold ist unaufhaltbar.</target>
+      </segment>
+    </unit>
+    <unit id="Spx1xmA" name="Verbrennt ihn! Sieh nach ob seine Asche grün wird!">
+      <notes>
+        <note category="german">Verbrennt ihn! Sieh nach ob seine Asche grün wird!</note>
+      </notes>
+      <segment>
+        <source>Verbrennt ihn! Sieh nach ob seine Asche grün wird!</source>
+        <target>Verbrennt ihn! Sieh nach ob seine Asche grün wird!</target>
+      </segment>
+    </unit>
+    <unit id="HJTFoon" name="Ein Wohnwagen ohne Räder???">
+      <notes>
+        <note category="german">Ein Wohnwagen ohne Räder???</note>
+      </notes>
+      <segment>
+        <source>Ein Wohnwagen ohne Räder???</source>
+        <target>Ein Wohnwagen ohne Räder???</target>
+      </segment>
+    </unit>
+    <unit id="tz9Jwn2" name="d2acf54">
+      <notes>
+        <note category="german">Die Zone ist vollständig mit verrottender Vegetation, Sand und allem möglichen Schrott bedeckt. Du bist dir sicher, dass es hier etwas zu finden gibt, aber zunächst musst du diesen gesamten Sektor aufräumen um ihn vernünftig durchsuchen zu können.</note>
+      </notes>
+      <segment>
+        <source>Die Zone ist vollständig mit verrottender Vegetation, Sand und allem möglichen Schrott bedeckt. Du bist dir sicher, dass es hier etwas zu finden gibt, aber zunächst musst du diesen gesamten Sektor aufräumen um ihn vernünftig durchsuchen zu können.</source>
+        <target>Die Zone ist vollständig mit verrottender Vegetation, Sand und allem möglichen Schrott bedeckt. Du bist dir sicher, dass es hier etwas zu finden gibt, aber zunächst musst du diesen gesamten Sektor aufräumen um ihn vernünftig durchsuchen zu können.</target>
       </segment>
     </unit>
   </file>

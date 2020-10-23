@@ -40,16 +40,16 @@ class JSONRequestParser
         return true;
     }
 
-    public function get( string $key, $default = null ) {
-        return $this->has( $key ) ? $this->data[$key] : $default;
+    public function get( string $key, $default = null, ?array $from = null ) {
+        return $this->has( $key ) ? ( $from === null || in_array($this->data[$key], $from) ? $this->data[$key] : $default) : $default;
     }
 
     public function get_base64( string $key, $default = null ) {
         return $this->has( $key ) ? base64_decode($this->data[$key], true) : $default;
     }
 
-    public function trimmed( string $key, $default = null ) {
-        return $this->has( $key ) ? $this->trimmed_data[$key] : $default;
+    public function trimmed( string $key, $default = null, ?array $from = null ) {
+        return $this->has( $key ) ? ( $from === null || in_array($this->trimmed_data[$key], $from) ? $this->trimmed_data[$key] : $default) : $default;
     }
 
     public function all( bool $trimmed = false ) {

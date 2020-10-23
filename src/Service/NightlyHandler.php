@@ -368,12 +368,7 @@ class NightlyHandler
         $est = $this->entity_manager->getRepository(ZombieEstimation::class)->findOneByTown($town,$town->getDay()-1);
         $zombies = $est ? $est->getZombies() : 0;
 
-        $redSoulCount = $this->town_handler->get_red_soul_count($town);
-
-        $soulFactor = 1 + (0.04 * $redSoulCount);
-
-        if($town->getType()->getName() !== 'panda')
-            $soulFactor = min($soulFactor, 1.2);
+        $soulFactor = min(1 + (0.04 * $this->town_handler->get_red_soul_count($town)), (float)$this->conf->getTownConfiguration($town)->get(TownConf::CONF_MODIFIER_RED_SOUL_FACTOR, 1.2));
 
         $zombies *= $soulFactor;
         $zombies = round($zombies);
@@ -735,55 +730,58 @@ class NightlyHandler
 
         }
 
-        if($town->getDay() > 3) {
-        	$this->log->debug("Town has passed 3 days, let's check its own status change");
-            if($town->getDevastated()){
-                $this->log->debug("Town is devastated, nothing to do.");
-            } else {
-            	$this->log->debug("Town is not yet devastated, and has <info>$aliveCitizen</info> alive citizens (including <info>$aliveCitizenInTown</info> in town)");
-                if ($aliveCitizen > 0 && $aliveCitizen <= 10 && !$town->getDevastated()) {
-                    $this->log->debug("There is <info>$aliveCitizen</info> citizens alive, the town is not devastated, setting the town to <info>chaos</info> mode");
-                    $town->setChaos(true);
-                    foreach ($town->getCitizens() as $target_citizen) {
-                        $target_citizen->setBanished(false);
+        if($town->getDevastated()){
+            $this->log->debug("Town is devastated, nothing to do.");
+        } else {
+            $this->log->debug("Town is not yet devastated, and has <info>$aliveCitizen</info> alive citizens (including <info>$aliveCitizenInTown</info> in town)");
+
+            if ($aliveCitizen > 0 && $aliveCitizen <= 10 && $aliveCitizenInTown > 0 && !$town->getDevastated() && $town->getDay() > 3) {
+                $this->log->debug("There is <info>$aliveCitizen</info> citizens alive, the town is not devastated, setting the town to <info>chaos</info> mode");
+                $town->setChaos(true);
+
+                foreach ($town->getCitizens() as $target_citizen)
+                    $target_citizen->setBanished(false);
+            }
+
+            if ($aliveCitizenInTown == 0) {
+                $this->log->debug("There is <info>$aliveCitizenInTown</info> citizens alive AND in town, setting the town to <info>devastated</info> mode and to <info>chaos</info> mode");
+
+                if($town->getDay() >= 5){
+                    $this->log->debug('Town has lived for 5 days or more, we give the <info>Last Man Standing</info> picto to a lucky citizen that died in town');
+                    $citizen_eligible = [];
+                    foreach ($town->getCitizens() as $citizen) {
+                        if($citizen->getAlive() || $citizen->getZone())
+                            continue;
+
+                        if($citizen->getSurvivedDays() < $town->getDay())
+                            continue;
+
+                        if($citizen->getCauseOfDeath()->getRef() !== CauseOfDeath::NightlyAttack && $citizen->getCauseOfDeath()->getRef() !== CauseOfDeath::Radiations)
+                            continue;
+                        $citizen_eligible[] = $citizen;
                     }
-                } else if ($aliveCitizenInTown == 0) {
-                    $this->log->debug("There is <info>$aliveCitizenInTown</info> citizens alive AND in town, setting the town to <info>devastated</info> mode and to <info>chaos</info> mode");
-                    if($town->getDay() >= 5){
-                        $this->log->debug('Town has lived for 5 days or more, we give the <info>Last Man Standing</info> picto to a lucky citizen that died in town');
-                        $citizen_eligible = [];
-                        foreach ($town->getCitizens() as $citizen) {
-                            if($citizen->getAlive() || $citizen->getZone())
-                                continue;
-                            
-                            if($citizen->getSurvivedDays() < $town->getDay())
-                                continue;
-                            
-                            if($citizen->getCauseOfDeath()->getRef() !== CauseOfDeath::NightlyAttack && $citizen->getCauseOfDeath()->getRef() !== CauseOfDeath::Radiations)
-                                continue;
-                            $citizen_eligible[] = $citizen;
-                        }
 
-                        if(count($citizen_eligible) > 0) {
-                            $winner = $this->random->pick($citizen_eligible);
-
-                            $picto = $town->getType()->getName() == 'panda' ? 'r_suhard_#00' : 'r_surlst_#00';
-                            $this->log->debug("We give the picto <info>$picto</info> to the lucky citizen {$winner->getUser()->getUsername()}");
-                            $this->picto_handler->give_validated_picto($winner, $picto);
-                        }
-
-                        foreach ($citizen_eligible as $citizen)
-                            $this->picto_handler->give_validated_picto($citizen, "r_surgrp_#00");
-
+                    $last_stand_picto = $this->conf->getTownConfiguration($town)->get(TownConf::CONF_FEATURE_LAST_DEATH, 'r_surlst_#00');
+                    if($last_stand_picto && count($citizen_eligible) > 0) {
+                        $winner = $this->random->pick($citizen_eligible);
+                        $this->log->debug("We give the picto <info>$last_stand_picto</info> to the lucky citizen {$winner->getUser()->getUsername()}");
+                        $this->picto_handler->give_validated_picto($winner, $last_stand_picto);
                     }
-                    $town->setDevastated(true);
-		            $town->setChaos(true);
-		            $town->setDoor(true);
-		            foreach ($town->getCitizens() as $target_citizen)
-		                $target_citizen->setBanished(false);
-		            foreach ($town->getBuildings() as $target_building)
-		                if (!$target_building->getComplete()) $target_building->setAp(0);
+
+                    foreach ($citizen_eligible as $citizen)
+                        $this->picto_handler->give_validated_picto($citizen, "r_surgrp_#00");
+
                 }
+
+                $town->setDevastated(true);
+                $town->setChaos(true);
+                $town->setDoor(true);
+
+                foreach ($town->getCitizens() as $target_citizen)
+                    $target_citizen->setBanished(false);
+
+                foreach ($town->getBuildings() as $target_building)
+                    if (!$target_building->getComplete()) $target_building->setAp(0);
             }
         }
     }
@@ -827,6 +825,10 @@ class NightlyHandler
         $this->entity_manager->persist($gazette);
 
         $reco_counter = [0,0];
+
+        $maze_zeds = $this->conf->getTownConfiguration($town)->get(TownConf::CONF_EXPLORABLES_ZOMBIES_DAY, 5);
+        $wind_dist = $this->conf->getTownConfiguration($town)->get(TownConf::CONF_MODIFIER_WIND_DISTANCE, 2);
+
         foreach ($town->getZones() as $zone) {
 
             if ($zone->getPrototype() && $zone->getPrototype()->getExplorable()) {
@@ -834,11 +836,7 @@ class NightlyHandler
                     $ex->getCitizen()->removeExplorerStat( $ex );
                     $this->entity_manager->remove($ex);
                 }
-                $this->maze->populateMaze(
-                    $zone,
-                    $this->conf->getTownConfiguration($town)->get(TownConf::CONF_EXPLORABLES_ZOMBIES_DAY, 5),
-                    true, true
-                );
+                $this->maze->populateMaze( $zone, $maze_zeds, true, true );
             }
 
             $distance = sqrt( pow($zone->getX(),2) + pow($zone->getY(),2) );
@@ -854,7 +852,7 @@ class NightlyHandler
                 $zone->setZombieStatus( Zone::ZombieStateUnknown );
             }
 
-            if ($zone->getDirection() === $wind && (round($distance) > 2) || $town->getType()->getName() == 'small') {
+            if ($zone->getDirection() === $wind && round($distance) > $wind_dist) {
                 $reco_counter[1]++;
                 if ($this->random->chance( $recovery_chance )) {
                     $digs = mt_rand(5, 10);

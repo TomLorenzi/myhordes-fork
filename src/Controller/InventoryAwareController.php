@@ -746,8 +746,6 @@ class InventoryAwareController extends AbstractController
             if (!isset($zones[$x])) $zones[$x] = [];
             $zones[$x][$y] = $zone;
 
-
-
             if (!isset($zones_attributes[$x])) $zones_attributes[$x] = [];
             $zones_classes[$x][$y] = $this->zone_handler->getZoneClasses(
                 $this->getActiveCitizen()->getTown(),

@@ -1,0 +1,26 @@
+{% extends "ajax/help/shell.html.twig" %}
+{% block helpContent %}
+<div class="helpArt">{{ 'Spielanleitung'|trans({},'help')|raw }}</div>
+<h1>{{ 'Dompteur'|trans({},'help')|raw }}</h1>
+<img class="pip" alt="pip" src="{{ asset('build/images/professions/select/tamer.gif') }}">
+<p>
+{{ 'Der Dompteur wird jederzeit von seinem treuen dreibeinigen Malteser begleitet. (Was gibt es da zu Lachen? Das ist eine äußerst noble Rasse.) Als Dompteur ist er in der Lage, <strong>einen Teil seines Rucksackinhaltes von jeder Zone aus zurück in die Stadt zu senden.</strong>.'|trans({},'help')|raw }}
+</p>
+<label>{{ 'Startausrüstung'|trans({},'help')|raw }} : <strong><img alt="" src="{{ asset('build/images/professions/tamer.gif') }}"> {{ 'Dreibeiniger Malteser'|trans({},'help')|raw }}</strong></label>
+<em>
+{{ 'Der kleine kläffende Malteser stinkt nach nassem Fell, humpelt und sabbert ohne Ende. Einmal pro Tag kannst du ihn mit deinem Rucksackinhalt in die Stadt schicken. Dabei spielt es keine Rolle, wo du dich gerade befindest... Dein treuer Begleiter schlägt sich immer durch.'|trans({},'help')|raw }}
+</em>
+<h2>{{ 'Wie wird diese Figur gespielt?'|trans({},'help')|raw }}</h2>
+<p>
+{{ 'Der Dompteur ist die ideale Figur für Wüstenwanderer: Wenn du in deinem Rucksack wieder etwas Platz brauchst, dann schnall deinen ganzen Plunder der Töle drauf. Dein kleiner dreibeiniger Freund kann auch anderen Expeditionsteilnehmern seine Dienste erweisen.'|trans({},'help')|raw }}
+</p>
+<p>
+{{ 'Dein Hund kann keine sperrigen Gegenstände tragen. 
+Du kannst dieses "Manko" allerdings durch Steroide beseitigen... Hör auf zu grinsen, das ist NICHT GUT für seine Gesundheit.'|trans({},'help')|raw }}
+</p>
+<p>
+{{ 'Malteser verfügen über eine ausgesprochen gute Nase und einen ausgeprägten Orientierungssinn. Er kann damit seinem Herrchen die Richtung zeigen, in der ein Eingang zu einer Ruine liegt. Folge dem blauen Blitz!'|trans({},'help')|raw }}
+</p>
+<div class="clear"></div>
+<a class="button" x-ajax-href="{{ url('help', {'name': 'technician'}) }}"><img src="{{ asset('build/images/icons/small_move.gif') }}" alt="move"> {{'Weiter'|trans({}, 'help')}}:<strong> {{ 'Techniker'|trans({},'help') }}</strong></a>
+{% endblock %}

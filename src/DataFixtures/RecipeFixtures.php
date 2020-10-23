@@ -280,7 +280,7 @@ class RecipeFixtures extends Fixture implements DependentFixtureInterface
         'ws010' => ['type' => Recipe::WorkshopType, 'in' => 'metal_beam_#00',      'out' => 'metal_#00', 'action' => 'Wandeln'],
         'ws011' => ['type' => Recipe::WorkshopType, 'in' => 'electro_box_#00',     'out' => [ 'pile_#00', 'pilegun_empty_#00', 'electro_#00', 'meca_parts_#00', 'tagger_#00', 'deto_#00' ], 'action' => 'Zerlegen' ],
         'ws012' => ['type' => Recipe::WorkshopType, 'in' => 'mecanism_#00',        'out' => [ 'metal_#00', 'tube_#00', 'metal_bad_#00', 'meca_parts_#00' ], 'action' => 'Zerlegen' ],
-        'ws013' => ['type' => Recipe::WorkshopType, 'in' => 'chest_#00',           'out' => [ 'drug_#00', 'bandage_#00', 'pile_#00', 'pilegun_empty_#00', 'vodka_de_#00', 'vodka_#00', 'pharma_#00', 'explo_#00', 'lights_#00', 'drug_hero_#00', 'rhum_#00' ], 'action' => 'Öffnen' ],
+        'ws013' => ['type' => Recipe::WorkshopType, 'in' => 'chest_#00',           'out' => [ 'drug_#00', 'bandage_#00', 'pile_#00', 'pilegun_empty_#00', /*'vodka_de_#00',*/ 'vodka_#00', 'pharma_#00', 'explo_#00', 'lights_#00', 'drug_hero_#00', 'rhum_#00' ], 'action' => 'Öffnen' ],
         'ws014' => ['type' => Recipe::WorkshopType, 'in' => 'chest_xl_#00',        'out' => [ 'watergun_opt_part_#00', 'pilegun_upkit_#00', 'pocket_belt_#00', 'cutcut_#00', 'chainsaw_part_#00', 'mixergun_part_#00', 'big_pgun_part_#00', 'lawn_part_#00' ], 'action' => 'Öffnen' ],
         'ws015' => ['type' => Recipe::WorkshopType, 'in' => 'chest_tools_#00',     'out' => [ 'pile_#00', 'meca_parts_#00', 'rustine_#00', 'tube_#00', 'pharma_#00', 'explo_#00', 'lights_#00' ], 'action' => 'Öffnen' ],
         'ws016' => ['type' => Recipe::WorkshopType, 'in' => 'chest_food_#00',      'out' => [ 'food_bag_#00', 'can_#00', 'meat_#00', 'hmeat_#00', 'vegetable_#00' ], 'action' => 'Öffnen' ],
@@ -291,7 +291,7 @@ class RecipeFixtures extends Fixture implements DependentFixtureInterface
         'ws021' => ['type' => Recipe::WorkshopType, 'in' => 'prints_#02',          'out' => 'classicKey_#00', 'action' => 'Wandeln' ],    // Abdruck vom Flaschenöffner
 
         // Shaman Specific recipes
-        'ws010' => ['type' => Recipe::WorkshopTypeShamanSpecific, 'in' => 'soul_blue_#00',      'out' => 'soul_yellow_#00', 'action' => 'Wandeln'],
+        'ws022' => ['type' => Recipe::WorkshopTypeShamanSpecific, 'in' => 'soul_blue_#00',      'out' => 'soul_yellow_#00', 'action' => 'Wandeln'],
 
         'com001' => ['type' => Recipe::ManualAnywhere, 'out' => 'coffee_machine_#00',     'provoking' => 'coffee_machine_part_#00','in' => ['coffee_machine_part_#00', 'cyanure_#00', 'electro_#00', 'meca_parts_#00', 'rustine_#00', 'metal_#00', 'tube_#00' ] ],
         'com002' => ['type' => Recipe::ManualAnywhere, 'out' => 'music_#00',              'provoking' => 'music_part_#00',         'in' => ['music_part_#00', 'pile_#00', 'electro_#00'] ],

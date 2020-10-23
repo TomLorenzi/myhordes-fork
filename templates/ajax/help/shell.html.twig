@@ -85,67 +85,67 @@
                                 <img src="{{ asset('build/images/icons/small_ghost_blue.gif') }}" alt="ghost">
                                 <span class="link" x-ajax-href="{{ url('help', {'name': 'your_soul'}) }}">{{ 'Deine Seele'|trans({},'help') }}</span>
                             </li>
-                            <li class="">
+                            <li class="{% if section == 'death_and_soul_points' %}active{% endif %}">
                                 <img src="{{ asset('build/images/professions/death.gif') }}" alt="death">
-                                <span class="link">{{ 'Der Tod und deine Seelenpunkte'|trans({},'help') }}</span>
+                                <span class="link" x-ajax-href="{{ url('help', {'name': 'death_and_soul_points'}) }}">{{ 'Der Tod und deine Seelenpunkte'|trans({},'help') }}</span>
                             </li>
-                            <li class="">
+                            <li class="{% if section == 'last_man_standing' %}active{% endif %}">
                                 <img src="{{ asset('build/images/pictos/r_surlst.gif') }}" alt="lastOne">
-                                <span class="link">{{ 'Der letzte Tod'|trans({},'help') }}</span>
+                                <span class="link" x-ajax-href="{{ url('help', {'name': 'last_man_standing'}) }}">{{ 'Der letzte Tod'|trans({},'help') }}</span>
                             </li>
-                            <li class="">
+                            <li class="{% if section == 'hero_mode' %}active{% endif %}">
                                 <img src="{{ asset('build/images/icons/star.gif') }}" alt="hero">
-                                <span class="link">{{ 'Heldenmodus'|trans({},'help') }}</span>
+                                <span class="link" x-ajax-href="{{ url('help', {'name': 'hero_mode'}) }}">{{ 'Heldenmodus'|trans({},'help') }}</span>
                             </li>
-                            <li class="">
+                            <li class="{% if section == 'coalitions' %}active{% endif %}">
                                 <img src="{{ asset('build/images/pictos/r_surgrp.gif') }}" alt="team">
-                                <span class="link">{{ 'Kleine Koalitionen'|trans({},'help') }}</span>
+                                <span class="link" x-ajax-href="{{ url('help', {'name': 'coalitions'}) }}">{{ 'Kleine Koalitionen'|trans({},'help') }}</span>
                             </li>
-                            <li class="">
+                            <li class="{% if section == 'house_and_work' %}active{% endif %}">
                                 <img src="{{ asset('build/images/pictos/r_hbuild.gif') }}" alt="homeUpgrade">
-                                <span class="link">{{ 'Haus &amp; Hausarbeiten'|trans({},'help') }}</span>
+                                <span class="link" x-ajax-href="{{ url('help', {'name': 'house_and_work'}) }}">{{ 'Haus &amp; Hausarbeiten'|trans({},'help') }}</span>
                             </li>
-                            <li class="">
+                            <li class="{% if section == 'ghouls' %}active{% endif %}">
                                 <img src="{{ asset('build/images/roles/ghoul.gif') }}" alt="ghoul">
-                                <span class="link">{{ 'Ghule'|trans({},'help') }}</span>
+                                <span class="link" x-ajax-href="{{ url('help', {'name': 'ghouls'}) }}">{{ 'Ghule'|trans({},'help') }}</span>
                             </li>
                         </ul>
                     </li>
 
-                    <li class="main">
+                    <li class="main {% if section == 'jobs' %}active{% endif %}">
                         <img src="{{ asset('build/images/icons/small_middot.gif') }}" alt="jobs">
-                        <span class="link">{{ 'Die Berufe'|trans({},'help') }}</span>
+                        <span class="link" x-ajax-href="{{ url('help', {'name': 'jobs'}) }}">{{ 'Die Berufe'|trans({},'help') }}</span>
                     </li>
 
                     <li class="sublist">
                         <ul>
-                            <li class="">
+                            <li class="{% if section == 'resident' %}active{% endif %}">
                                 <img src="{{ asset('build/images/professions/basic.gif') }}" alt="job_basic">
-                                <span class="link">{{ 'Einwohner'|trans({},'help') }}</span>
+                                <span class="link" x-ajax-href="{{ url('help', {'name': 'resident'}) }}">{{ 'Einwohner'|trans({},'help') }}</span>
                             </li>
-                            <li class="">
+                            <li class="{% if section == 'scavenger' %}active{% endif %}">
                                 <img src="{{ asset('build/images/professions/dig.gif') }}" alt="job_collec">
-                                <span class="link">{{ 'Buddler'|trans({},'help') }}</span>
+                                <span class="link" x-ajax-href="{{ url('help', {'name': 'scavenger'}) }}">{{ 'Buddler'|trans({},'help') }}</span>
                             </li>
-                            <li class="">
+                            <li class="{% if section == 'scout' %}active{% endif %}">
                                 <img src="{{ asset('build/images/professions/vest.gif') }}" alt="job_eclair">
-                                <span class="link">{{ 'Aufklärer'|trans({},'help') }}</span>
+                                <span class="link" x-ajax-href="{{ url('help', {'name': 'scout'}) }}">{{ 'Aufklärer'|trans({},'help') }}</span>
                             </li>
-                            <li class="">
+                            <li class="{% if section == 'guardian' %}active{% endif %}">
                                 <img src="{{ asset('build/images/professions/shield.gif') }}" alt="job_guardian">
-                                <span class="link">{{ 'Wächter'|trans({},'help') }}</span>
+                                <span class="link" x-ajax-href="{{ url('help', {'name': 'guardian'}) }}">{{ 'Wächter'|trans({},'help') }}</span>
                             </li>
-                            <li class="">
+                            <li class="{% if section == 'survivalist' %}active{% endif %}">
                                 <img src="{{ asset('build/images/professions/book.gif') }}" alt="job_hunter">
-                                <span class="link">{{ 'Einsiedler'|trans({},'help') }}</span>
+                                <span class="link" x-ajax-href="{{ url('help', {'name': 'survivalist'}) }}">{{ 'Einsiedler'|trans({},'help') }}</span>
                             </li>
-                            <li class="">
+                            <li class="{% if section == 'tamer' %}active{% endif %}">
                                 <img src="{{ asset('build/images/professions/tamer.gif') }}" alt="job_tamer">
-                                <span class="link">{{ 'Dompteur'|trans({},'help') }}</span>
+                                <span class="link" x-ajax-href="{{ url('help', {'name': 'tamer'}) }}">{{ 'Dompteur'|trans({},'help') }}</span>
                             </li>
-                            <li class="">
+                            <li class="{% if section == 'technician' %}active{% endif %}">
                                 <img src="{{ asset('build/images/professions/tech.gif') }}" alt="job_tech">
-                                <span class="link">{{ 'Techniker'|trans({},'help') }}</span>
+                                <span class="link" x-ajax-href="{{ url('help', {'name': 'technician'}) }}">{{ 'Techniker'|trans({},'help') }}</span>
                             </li>
                         </ul>
                     </li>

@@ -1585,13 +1585,58 @@
         <target>Andere Foren</target>
       </segment>
     </unit>
-    <unit id="mhXv42Q" name="735ca7b">
+    <unit id="h.t7uDT" name="Mindestens ein Post in diesem Thema wurde den Moderatoren gemeldet.">
       <notes>
-        <note category="german">Jeder &lt;strong&gt;Verteidigungsgegenstand&lt;/strong&gt;, der sich in der Bank befindet, bringt der Stadt &lt;strong&gt;1 Verteidigungspunkte&lt;/strong&gt;.</note>
+        <note category="german">Mindestens ein Post in diesem Thema wurde den Moderatoren gemeldet.</note>
       </notes>
       <segment>
-        <source>Jeder &lt;strong&gt;Verteidigungsgegenstand&lt;/strong&gt;, der sich in der Bank befindet, bringt der Stadt &lt;strong&gt;1 Verteidigungspunkte&lt;/strong&gt;.</source>
-        <target><![CDATA[Jeder <strong>Verteidigungsgegenstand</strong>, der sich in der Bank befindet, bringt der Stadt <strong>1 Verteidigungspunkte</strong>.]]></target>
+        <source>Mindestens ein Post in diesem Thema wurde den Moderatoren gemeldet.</source>
+        <target>Mindestens ein Post in diesem Thema wurde den Moderatoren gemeldet.</target>
+      </segment>
+    </unit>
+    <unit id="KV1uMW3" name="Dieses Thema enthält %count% gemeldete Posts:">
+      <notes>
+        <note category="german">Dieses Thema enthält %count% gemeldete Posts:</note>
+      </notes>
+      <segment>
+        <source>Dieses Thema enthält %count% gemeldete Posts:</source>
+        <target>Dieses Thema enthält %count% gemeldete Posts:</target>
+      </segment>
+    </unit>
+    <unit id="XvJRBeq" name="%num% Meldungen. Klicken, um Benutzer anzuzeigen.">
+      <notes>
+        <note category="german">%num% Meldungen. Klicken, um Benutzer anzuzeigen.</note>
+      </notes>
+      <segment>
+        <source>%num% Meldungen. Klicken, um Benutzer anzuzeigen.</source>
+        <target>%num% Meldungen. Klicken, um Benutzer anzuzeigen.</target>
+      </segment>
+    </unit>
+    <unit id="uVEhYFM" name="Gelöscht von %user% (%time%). Klicken, um den Grund einzublenden.">
+      <notes>
+        <note category="german">Gelöscht von %user% (%time%). Klicken, um den Grund einzublenden.</note>
+      </notes>
+      <segment>
+        <source>Gelöscht von %user% (%time%). Klicken, um den Grund einzublenden.</source>
+        <target>Gelöscht von %user% (%time%). Klicken, um den Grund einzublenden.</target>
+      </segment>
+    </unit>
+    <unit id="gAhtva3" name="Überprüft">
+      <notes>
+        <note category="german">Überprüft</note>
+      </notes>
+      <segment>
+        <source>Überprüft</source>
+        <target>Überprüft</target>
+      </segment>
+    </unit>
+    <unit id="q5mhXGv" name="Wiederherstellen">
+      <notes>
+        <note category="german">Wiederherstellen</note>
+      </notes>
+      <segment>
+        <source>Wiederherstellen</source>
+        <target>Wiederherstellen</target>
       </segment>
     </unit>
     <unit id="p47NfhB" name="37691d8">
@@ -1619,6 +1664,15 @@
       <segment>
         <source>Diese Abwehrkräfte werden von gereinigten Seelen gebracht.</source>
         <target>Diese Abwehrkräfte werden von gereinigten Seelen gebracht.</target>
+      </segment>
+    </unit>
+    <unit id="mhXv42Q" name="735ca7b">
+      <notes>
+        <note category="german">Jeder &lt;strong&gt;Verteidigungsgegenstand&lt;/strong&gt;, der sich in der Bank befindet, bringt der Stadt &lt;strong&gt;1 Verteidigungspunkte&lt;/strong&gt;.</note>
+      </notes>
+      <segment>
+        <source>Jeder &lt;strong&gt;Verteidigungsgegenstand&lt;/strong&gt;, der sich in der Bank befindet, bringt der Stadt &lt;strong&gt;1 Verteidigungspunkte&lt;/strong&gt;.</source>
+        <target><![CDATA[Jeder <strong>Verteidigungsgegenstand</strong>, der sich in der Bank befindet, bringt der Stadt <strong>1 Verteidigungspunkte</strong>.]]></target>
       </segment>
     </unit>
   </file>

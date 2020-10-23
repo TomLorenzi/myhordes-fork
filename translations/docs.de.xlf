@@ -3,11 +3,11 @@
   <file id="docs.de">
     <unit id="27WnKMI" name="URL anfordern">
       <notes>
-        <note category="german">URL anfordern</note>
+        <note category="german">Anforderungs-URL</note>
       </notes>
       <segment>
         <source>URL anfordern</source>
-        <target>URL anfordern</target>
+        <target>Anforderungs-URL</target>
       </segment>
     </unit>
     <unit id="cQsNuV4" name="Rückgabetyp">
@@ -39,11 +39,11 @@
     </unit>
     <unit id="b_mVDDt" name="Spielkarten-ID">
       <notes>
-        <note category="german">Spielkarten-ID</note>
+        <note category="german">Spiel-ID</note>
       </notes>
       <segment>
         <source>Spielkarten-ID</source>
-        <target>Spielkarten-ID</target>
+        <target>Spiel-ID</target>
       </segment>
     </unit>
     <unit id="x3kQEe2" name="Serverzeit">
@@ -156,11 +156,11 @@
     </unit>
     <unit id="wlDIcKF" name="City Creation Season ID">
       <notes>
-        <note category="german">City Creation Season ID</note>
+        <note category="german">Season, in der die Stadt gestartet wurde</note>
       </notes>
       <segment>
         <source>City Creation Season ID</source>
-        <target>City Creation Season ID</target>
+        <target>Season, in der die Stadt gestartet wurde</target>
       </segment>
     </unit>
     <unit id="5A15fqI" name="UID des Spielers, der Schamane ist">
@@ -174,29 +174,29 @@
     </unit>
     <unit id="vP9JFiK" name="UID des Spielers, der Reiseleiter in der Außenwel ist">
       <notes>
-        <note category="german">UID des Spielers, der Reiseleiter in der Außenwel ist</note>
+        <note category="german">UID des Spielers, der Reiseleiter in der Außenwelt ist</note>
       </notes>
       <segment>
         <source>UID des Spielers, der Reiseleiter in der Außenwel ist</source>
-        <target>UID des Spielers, der Reiseleiter in der Außenwel ist</target>
+        <target>UID des Spielers, der Reiseleiter in der Außenwelt ist</target>
       </segment>
     </unit>
     <unit id="4BJBscB" name="X von der oberen linken Ecke">
       <notes>
-        <note category="german">X von der oberen linken Ecke</note>
+        <note category="german">X (von der oberen linken Ecke)</note>
       </notes>
       <segment>
         <source>X von der oberen linken Ecke</source>
-        <target>X von der oberen linken Ecke</target>
+        <target>X (von der oberen linken Ecke)</target>
       </segment>
     </unit>
     <unit id="SII2qTe" name="Y von der oberen linken Ecke">
       <notes>
-        <note category="german">Y von der oberen linken Ecke</note>
+        <note category="german">Y (von der oberen linken Ecke)</note>
       </notes>
       <segment>
         <source>Y von der oberen linken Ecke</source>
-        <target>Y von der oberen linken Ecke</target>
+        <target>Y (von der oberen linken Ecke)</target>
       </segment>
     </unit>
     <unit id="sGpVIDB" name="Heute nicht besucht">
@@ -228,20 +228,20 @@
     </unit>
     <unit id="y68XZY9" name="Bereichsdetails">
       <notes>
-        <note category="german">Bereichsdetails</note>
+        <note category="german">Zonendetails</note>
       </notes>
       <segment>
         <source>Bereichsdetails</source>
-        <target>Bereichsdetails</target>
+        <target>Zonendetails</target>
       </segment>
     </unit>
     <unit id="ulaMByP" name="Liste der Objekte in diesem Bereich">
       <notes>
-        <note category="german">Liste der Objekte in diesem Bereich</note>
+        <note category="german">Liste der Objekte in dieser Zone</note>
       </notes>
       <segment>
         <source>Liste der Objekte in diesem Bereich</source>
-        <target>Liste der Objekte in diesem Bereich</target>
+        <target>Liste der Objekte in dieser Zone</target>
       </segment>
     </unit>
     <unit id="4Yz8rlD" name="Informationen zum Gebäude in der Umgebung">
@@ -291,20 +291,20 @@
     </unit>
     <unit id="UkI_qkM" name="Wenn das Gebäude gelagert wurde">
       <notes>
-        <note category="german">Wenn das Gebäude gelagert wurde</note>
+        <note category="german">Ob auf dem Gebäude gecampt wurde</note>
       </notes>
       <segment>
         <source>Wenn das Gebäude gelagert wurde</source>
-        <target>Wenn das Gebäude gelagert wurde</target>
+        <target>Ob auf dem Gebäude gecampt wurde</target>
       </segment>
     </unit>
     <unit id="IujjIrH" name="Das Gebäude trocknen">
       <notes>
-        <note category="german">Das Gebäude trocknen</note>
+        <note category="german">Ob das Gebäude leergesucht ist</note>
       </notes>
       <segment>
         <source>Das Gebäude trocknen</source>
-        <target>Das Gebäude trocknen</target>
+        <target>Ob das Gebäude leergesucht ist</target>
       </segment>
     </unit>
     <unit id="BAdMxDp" name="Die Anzahl der Zombies">
@@ -327,11 +327,11 @@
     </unit>
     <unit id="ksG4XYO" name="Den Bereich austrocknen">
       <notes>
-        <note category="german">Den Bereich austrocknen</note>
+        <note category="german">Ob die Zone leergesucht ist</note>
       </notes>
       <segment>
         <source>Den Bereich austrocknen</source>
-        <target>Den Bereich austrocknen</target>
+        <target>Ob die Zone leergesucht ist</target>
       </segment>
     </unit>
     <unit id="VR0KmfL" name="Spielername">
@@ -345,11 +345,11 @@
     </unit>
     <unit id="CcdX8lv" name="ob der Spieler verkörpert ist (false) oder nicht (true)">
       <notes>
-        <note category="german">ob der Spieler verkörpert ist (false) oder nicht (true)</note>
+        <note category="german">Ob der Spieler in einer Stadt ist (false) oder nicht (true)</note>
       </notes>
       <segment>
         <source>ob der Spieler verkörpert ist (false) oder nicht (true)</source>
-        <target>ob der Spieler verkörpert ist (false) oder nicht (true)</target>
+        <target>Ob der Spieler in einer Stadt ist (false) oder nicht (true)</target>
       </segment>
     </unit>
     <unit id="YVtCp6_" name="Die Twinoid-ID, wenn er sein Konto verknüpft hat">
@@ -363,20 +363,20 @@
     </unit>
     <unit id="o928kfJ" name="So verkörpert die ID seiner Stadt">
       <notes>
-        <note category="german">So verkörpert die ID seiner Stadt</note>
+        <note category="german">Stadt-ID (wenn der Spieler in einer Stadt ist)</note>
       </notes>
       <segment>
         <source>So verkörpert die ID seiner Stadt</source>
-        <target>So verkörpert die ID seiner Stadt</target>
+        <target>Stadt-ID (wenn der Spieler in einer Stadt ist)</target>
       </segment>
     </unit>
     <unit id="dZpwNJa" name="Wenn verkörpert, eine Instanz von Map">
       <notes>
-        <note category="german">Wenn verkörpert, eine Instanz von Map</note>
+        <note category="german">Wenn der Spieler in einer Stadt ist, eine Instanz von deren Map-Objekt</note>
       </notes>
       <segment>
         <source>Wenn verkörpert, eine Instanz von Map</source>
-        <target>Wenn verkörpert, eine Instanz von Map</target>
+        <target>Wenn der Spieler in einer Stadt ist, eine Instanz von deren Map-Objekt</target>
       </segment>
     </unit>
     <unit id="j__H7.N" name="Persönlicher Text (über die Seele)">
@@ -399,11 +399,11 @@
     </unit>
     <unit id="DG42b1O" name="Liste der alten Inkarnationen">
       <notes>
-        <note category="german">Liste der alten Inkarnationen</note>
+        <note category="german">Liste der vergangenen Städte</note>
       </notes>
       <segment>
         <source>Liste der alten Inkarnationen</source>
-        <target>Liste der alten Inkarnationen</target>
+        <target>Liste der vergangenen Städte</target>
       </segment>
     </unit>
     <unit id="ICOL_5_" name="ID-MyHordes">
@@ -417,11 +417,11 @@
     </unit>
     <unit id="C5c5hLx" name="universelle ID (zB: basic = Einwohner)">
       <notes>
-        <note category="german">universelle ID (zB: basic = Einwohner)</note>
+        <note category="german">Universelle ID (zB: basic = Einwohner)</note>
       </notes>
       <segment>
         <source>universelle ID (zB: basic = Einwohner)</source>
-        <target>universelle ID (zB: basic = Einwohner)</target>
+        <target>Universelle ID (zB: basic = Einwohner)</target>
       </segment>
     </unit>
     <unit id="I8Bzv3U" name="Der Name des Berufs">
@@ -480,29 +480,29 @@
     </unit>
     <unit id="YXbjKvx" name="Boolescher Wert, der angibt, dass sich die Stadt im Chaos befindet">
       <notes>
-        <note category="german">Boolescher Wert, der angibt, dass sich die Stadt im Chaos befindet</note>
+        <note category="german">Boolescher Wert, der angibt, ob sich die Stadt im Chaos befindet</note>
       </notes>
       <segment>
         <source>Boolescher Wert, der angibt, dass sich die Stadt im Chaos befindet</source>
-        <target>Boolescher Wert, der angibt, dass sich die Stadt im Chaos befindet</target>
+        <target>Boolescher Wert, der angibt, ob sich die Stadt im Chaos befindet</target>
       </segment>
     </unit>
     <unit id="JHeixLc" name="Boolescher Wert, der besagt, ob die Stadt ein Pandemonium ist">
       <notes>
-        <note category="german">Boolescher Wert, der besagt, ob die Stadt ein Pandemonium ist</note>
+        <note category="german">Boolescher Wert, der angibt, ob die Stadt eine Pandämonium-Stadt ist</note>
       </notes>
       <segment>
         <source>Boolescher Wert, der besagt, ob die Stadt ein Pandemonium ist</source>
-        <target>Boolescher Wert, der besagt, ob die Stadt ein Pandemonium ist</target>
+        <target>Boolescher Wert, der angibt, ob die Stadt eine Pandämonium-Stadt ist</target>
       </segment>
     </unit>
     <unit id="2KmVjTR" name="Boolescher Wert, der angibt, ob die Stadt am Boden zerstört ist">
       <notes>
-        <note category="german">Boolescher Wert, der angibt, ob die Stadt am Boden zerstört ist</note>
+        <note category="german">Boolescher Wert, der angibt, ob die Stadt zerstört ist</note>
       </notes>
       <segment>
         <source>Boolescher Wert, der angibt, ob die Stadt am Boden zerstört ist</source>
-        <target>Boolescher Wert, der angibt, ob die Stadt am Boden zerstört ist</target>
+        <target>Boolescher Wert, der angibt, ob die Stadt zerstört ist</target>
       </segment>
     </unit>
     <unit id="CD19.Dq" name="Vollständige Liste der verfügbaren Websites">
@@ -552,20 +552,20 @@
     </unit>
     <unit id="kloFsgB" name="Schätzung für den Abendangriff">
       <notes>
-        <note category="german">Schätzung für den Abendangriff</note>
+        <note category="german">Schätzung für den abendlichen Angriff</note>
       </notes>
       <segment>
         <source>Schätzung für den Abendangriff</source>
-        <target>Schätzung für den Abendangriff</target>
+        <target>Schätzung für den abendlichen Angriff</target>
       </segment>
     </unit>
     <unit id="O1v3iVT" name="cf3ba52">
       <notes>
-        <note category="german">Schätzen Sie für den Angriff am nächsten Tag oder nichts, wenn nicht der Planer</note>
+        <note category="german">Schätzen Sie für den Angriff am folgenden Tag (wenn verfügbar)</note>
       </notes>
       <segment>
         <source>Schätzen Sie für den Angriff am nächsten Tag oder nichts, wenn nicht der Planer</source>
-        <target>Schätzen Sie für den Angriff am nächsten Tag oder nichts, wenn nicht der Planer</target>
+        <target>Schätzen Sie für den Angriff am folgenden Tag (wenn verfügbar)</target>
       </segment>
     </unit>
     <unit id="fM9i_xk" name="Objekte in der Bank">
@@ -579,20 +579,20 @@
     </unit>
     <unit id="L_ynkvZ" name="Die Tage der Schätzung">
       <notes>
-        <note category="german">Die Tage der Schätzung</note>
+        <note category="german">Tag der Schätzung</note>
       </notes>
       <segment>
         <source>Die Tage der Schätzung</source>
-        <target>Die Tage der Schätzung</target>
+        <target>Tag der Schätzung</target>
       </segment>
     </unit>
     <unit id="59EsNO8" name="Der minimale Angriff">
       <notes>
-        <note category="german">Der minimale Angriff</note>
+        <note category="german">Minimaler Angriff</note>
       </notes>
       <segment>
         <source>Der minimale Angriff</source>
-        <target>Der minimale Angriff</target>
+        <target>Minimaler Angriff</target>
       </segment>
     </unit>
     <unit id="6ZRLBbX" name="Maximaler Angriff">
@@ -606,11 +606,11 @@
     </unit>
     <unit id="6Y4BoH0" name="totale Verteidigung">
       <notes>
-        <note category="german">totale Verteidigung</note>
+        <note category="german">Gesamte Verteidigung</note>
       </notes>
       <segment>
         <source>totale Verteidigung</source>
-        <target>totale Verteidigung</target>
+        <target>Gesamte Verteidigung</target>
       </segment>
     </unit>
     <unit id="rMw81SZ" name="Grundverteidigung (10)">
@@ -660,65 +660,65 @@
     </unit>
     <unit id="DDD3O8h" name="Verteidigung durch Häuser gebracht">
       <notes>
-        <note category="german">Verteidigung durch Häuser gebracht</note>
+        <note category="german">Verteidigung durch Häuser</note>
       </notes>
       <segment>
         <source>Verteidigung durch Häuser gebracht</source>
-        <target>Verteidigung durch Häuser gebracht</target>
+        <target>Verteidigung durch Häuser</target>
       </segment>
     </unit>
     <unit id="Pb940Cc" name="Verteidigung durch die Wachen (oder Anzahl der Wachen)">
       <notes>
-        <note category="german">Verteidigung durch die Wachen (oder Anzahl der Wachen)</note>
+        <note category="german">Verteidigung durch die Wächter (oder Anzahl der Wächter)</note>
       </notes>
       <segment>
         <source>Verteidigung durch die Wachen (oder Anzahl der Wachen)</source>
-        <target>Verteidigung durch die Wachen (oder Anzahl der Wachen)</target>
+        <target>Verteidigung durch die Wächter (oder Anzahl der Wächter)</target>
       </segment>
     </unit>
     <unit id="m37G302" name="Verteidigung von den Wächtern gebracht">
       <notes>
-        <note category="german">Verteidigung von den Wächtern gebracht</note>
+        <note category="german">Verteidigung durch Nachtwache</note>
       </notes>
       <segment>
         <source>Verteidigung von den Wächtern gebracht</source>
-        <target>Verteidigung von den Wächtern gebracht</target>
+        <target>Verteidigung durch Nachtwache</target>
       </segment>
     </unit>
     <unit id="FnNHWg4" name="Verteidigung durch Seelen gebracht">
       <notes>
-        <note category="german">Verteidigung durch Seelen gebracht</note>
+        <note category="german">Verteidigung durch Seelen</note>
       </notes>
       <segment>
         <source>Verteidigung durch Seelen gebracht</source>
-        <target>Verteidigung durch Seelen gebracht</target>
+        <target>Verteidigung durch Seelen</target>
       </segment>
     </unit>
     <unit id="LnV0bki" name="Vorübergehende Verteidigung">
       <notes>
-        <note category="german">Vorübergehende Verteidigung</note>
+        <note category="german">Temporäre Verteidigung</note>
       </notes>
       <segment>
         <source>Vorübergehende Verteidigung</source>
-        <target>Vorübergehende Verteidigung</target>
+        <target>Temporäre Verteidigung</target>
       </segment>
     </unit>
     <unit id="WKYdPxy" name="Verteidigung durch Leichen gebracht">
       <notes>
-        <note category="german">Verteidigung durch Leichen gebracht</note>
+        <note category="german">Verteidigung durch Leichen</note>
       </notes>
       <segment>
         <source>Verteidigung durch Leichen gebracht</source>
-        <target>Verteidigung durch Leichen gebracht</target>
+        <target>Verteidigung durch Leichen</target>
       </segment>
     </unit>
     <unit id="vRe51_F" name="Anzahl der Wachen">
       <notes>
-        <note category="german">Anzahl der Wachen</note>
+        <note category="german">Anzahl der Wächter</note>
       </notes>
       <segment>
         <source>Anzahl der Wachen</source>
-        <target>Anzahl der Wachen</target>
+        <target>Anzahl der Wächter</target>
       </segment>
     </unit>
     <unit id="PRCDOWU" name="Verteidigung durch die Wächter">
@@ -732,11 +732,11 @@
     </unit>
     <unit id="pJFT5TL" name="Anzahl der angegriffenen Zombies">
       <notes>
-        <note category="german">Anzahl der angegriffenen Zombies</note>
+        <note category="german">Anzahl der angreifenden Zombies</note>
       </notes>
       <segment>
         <source>Anzahl der angegriffenen Zombies</source>
-        <target>Anzahl der angegriffenen Zombies</target>
+        <target>Anzahl der angreifenden Zombies</target>
       </segment>
     </unit>
     <unit id="62emNze" name="Anzahl der Verteidigungspunkte">
@@ -750,20 +750,20 @@
     </unit>
     <unit id="v3BuslK" name="Gazette-Text">
       <notes>
-        <note category="german">Gazette-Text</note>
+        <note category="german">Zeitungstext</note>
       </notes>
       <segment>
         <source>Gazette-Text</source>
-        <target>Gazette-Text</target>
+        <target>Zeitungstext</target>
       </segment>
     </unit>
     <unit id="XIAr9QP" name="Richtung der Regeneration des stellvertretenden Rückkehrers?">
       <notes>
-        <note category="german">Richtung der Regeneration des stellvertretenden Rückkehrers?</note>
+        <note category="german">Windrichtung</note>
       </notes>
       <segment>
         <source>Richtung der Regeneration des stellvertretenden Rückkehrers?</source>
-        <target>Richtung der Regeneration des stellvertretenden Rückkehrers?</target>
+        <target>Windrichtung</target>
       </segment>
     </unit>
     <unit id="0MMAnFB" name="Anzahl der im Brunnen verbleibenden Rationen?">
@@ -777,11 +777,11 @@
     </unit>
     <unit id="0K2pZFf" name="ID der Site">
       <notes>
-        <note category="german">ID der Site</note>
+        <note category="german">ID der Konstruktion</note>
       </notes>
       <segment>
         <source>ID der Site</source>
-        <target>ID der Site</target>
+        <target>ID der Konstruktion</target>
       </segment>
     </unit>
     <unit id="EVve8Kz" name="Anzahl der für den Bau benötigten AP">
@@ -795,47 +795,47 @@
     </unit>
     <unit id="biYb4QK" name="aktuelle Lebenspunkte der Site (falls nicht gebaut = 0)">
       <notes>
-        <note category="german">aktuelle Lebenspunkte der Site (falls nicht gebaut = 0)</note>
+        <note category="german">Aktuelle Lebenspunkte der Konstruktion (falls nicht gebaut = 0)</note>
       </notes>
       <segment>
         <source>aktuelle Lebenspunkte der Site (falls nicht gebaut = 0)</source>
-        <target>aktuelle Lebenspunkte der Site (falls nicht gebaut = 0)</target>
+        <target>Aktuelle Lebenspunkte der Konstruktion (falls nicht gebaut = 0)</target>
       </segment>
     </unit>
     <unit id="slJHrsA" name="Stimmen für diese Seite gesammelt">
       <notes>
-        <note category="german">Stimmen für diese Seite gesammelt</note>
+        <note category="german">Stimmen für diese Konstruktion</note>
       </notes>
       <segment>
         <source>Stimmen für diese Seite gesammelt</source>
-        <target>Stimmen für diese Seite gesammelt</target>
+        <target>Stimmen für diese Konstruktion</target>
       </segment>
     </unit>
     <unit id=".7yFBGU" name="ob dieses Gebäude nach dem Angriff zerstört werden kann">
       <notes>
-        <note category="german">ob dieses Gebäude nach dem Angriff zerstört werden kann</note>
+        <note category="german">ob diese Konstruktion nach dem Angriff zerstört werden kann</note>
       </notes>
       <segment>
         <source>ob dieses Gebäude nach dem Angriff zerstört werden kann</source>
-        <target>ob dieses Gebäude nach dem Angriff zerstört werden kann</target>
+        <target>ob diese Konstruktion nach dem Angriff zerstört werden kann</target>
       </segment>
     </unit>
     <unit id="iQPe1o4" name="Verteidigung dieses Gebäudes">
       <notes>
-        <note category="german">Verteidigung dieses Gebäudes</note>
+        <note category="german">Verteidigung diese Konstruktion</note>
       </notes>
       <segment>
         <source>Verteidigung dieses Gebäudes</source>
-        <target>Verteidigung dieses Gebäudes</target>
+        <target>Verteidigung diese Konstruktion</target>
       </segment>
     </unit>
     <unit id="aSXJac0" name="Wenn sich dieses Gebäude weiterentwickeln kann">
       <notes>
-        <note category="german">Wenn sich dieses Gebäude weiterentwickeln kann</note>
+        <note category="german">Wenn sich diese Konstruktion weiterentwickeln kann</note>
       </notes>
       <segment>
         <source>Wenn sich dieses Gebäude weiterentwickeln kann</source>
-        <target>Wenn sich dieses Gebäude weiterentwickeln kann</target>
+        <target>Wenn sich diese Konstruktion weiterentwickeln kann</target>
       </segment>
     </unit>
     <unit id="G3Ku2Xx" name="Seltenheit des Plans">
@@ -849,20 +849,20 @@
     </unit>
     <unit id="5X22qFB" name="Temporäres Gebäude">
       <notes>
-        <note category="german">Temporäres Gebäude</note>
+        <note category="german">Temporäre Konstruktion</note>
       </notes>
       <segment>
         <source>Temporäres Gebäude</source>
-        <target>Temporäres Gebäude</target>
+        <target>Temporäre Konstruktion</target>
       </segment>
     </unit>
     <unit id="mLc1q40" name="Gebäude-ID des vorherigen Zweigs">
       <notes>
-        <note category="german">Gebäude-ID des vorherigen Zweigs</note>
+        <note category="german">ID der übergeordneten Konstruktion</note>
       </notes>
       <segment>
         <source>Gebäude-ID des vorherigen Zweigs</source>
-        <target>Gebäude-ID des vorherigen Zweigs</target>
+        <target>ID der übergeordneten Konstruktion</target>
       </segment>
     </unit>
     <unit id="nvQbiRt" name="Anzahl der benötigten Ressourcen">
@@ -1020,11 +1020,11 @@
     </unit>
     <unit id="kJKx3Jf" name="Methode : garbage, water, cook order ghoul">
       <notes>
-        <note category="german">Methode : garbage, water, cook order ghoul</note>
+        <note category="german">Methode : garbage, water, cook oder ghoul</note>
       </notes>
       <segment>
         <source>Methode : garbage, water, cook order ghoul</source>
-        <target>Methode : garbage, water, cook order ghoul</target>
+        <target>Methode : garbage, water, cook oder ghoul</target>
       </segment>
     </unit>
     <unit id="fpFPzjl" name="Expeditionsname">
@@ -1065,11 +1065,11 @@
     </unit>
     <unit id="hvMEx8f" name="Alle ISO 3166-1 alpha-2 Ländercodes werden in das Feld &quot;langues&quot; eingetragen">
       <notes>
-        <note category="german">Alle ISO 3166-1 alpha-2 Ländercodes werden in das Feld "langues" eingetragen</note>
+        <note category="german">Alle ISO 3166-1 alpha-2 Ländercodes werden in das Feld "languages" eingetragen</note>
       </notes>
       <segment>
         <source>Alle ISO 3166-1 alpha-2 Ländercodes werden in das Feld "langues" eingetragen</source>
-        <target>Alle ISO 3166-1 alpha-2 Ländercodes werden in das Feld "langues" eingetragen</target>
+        <target>Alle ISO 3166-1 alpha-2 Ländercodes werden in das Feld "languages" eingetragen</target>
       </segment>
     </unit>
     <unit id="MLDUlQN" name="zB :">
@@ -1092,11 +1092,11 @@
     </unit>
     <unit id="UVFe9GX" name="e382445">
       <notes>
-        <note category="german">Für api/x/json/items akzeptieren Filter nur UIDs. Derzeit ist die UID identisch mit img. Aber in Zukunft wird die UID durch eine echte Horden-ID ersetzt.</note>
+        <note category="german">Für api/x/json/items akzeptieren Filter nur UIDs. Derzeit ist die UID identisch mit img. Aber in Zukunft wird die UID durch die echte Hordes-ID ersetzt.</note>
       </notes>
       <segment>
         <source>Für api/x/json/items akzeptieren Filter nur UIDs. Derzeit ist die UID identisch mit img. Aber in Zukunft wird die UID durch eine echte Horden-ID ersetzt.</source>
-        <target>Für api/x/json/items akzeptieren Filter nur UIDs. Derzeit ist die UID identisch mit img. Aber in Zukunft wird die UID durch eine echte Horden-ID ersetzt.</target>
+        <target>Für api/x/json/items akzeptieren Filter nur UIDs. Derzeit ist die UID identisch mit img. Aber in Zukunft wird die UID durch die echte Hordes-ID ersetzt.</target>
       </segment>
     </unit>
     <unit id="vXeei1Z" name="d1299aa">

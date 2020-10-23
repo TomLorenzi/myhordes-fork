@@ -1087,7 +1087,7 @@
       </notes>
       <segment>
         <source>Revolver (entladen)</source>
-        <target>Revolver (loaded)</target>
+        <target>Revolver (unloaded)</target>
       </segment>
     </unit>
     <unit id="y1obQuD" name="Sturmgewehr (entladen)">
@@ -1096,7 +1096,7 @@
       </notes>
       <segment>
         <source>Sturmgewehr (entladen)</source>
-        <target>Assault Rifle (loaded)</target>
+        <target>Assault Rifle (unloaded)</target>
       </segment>
     </unit>
     <unit id="UyQlEYn" name="Zünder">
@@ -7217,7 +7217,7 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
       </notes>
       <segment>
         <source>&lt;t-fail&gt;&lt;t-no-room&gt;Du hast nicht genug Platz für diese Gegenstände...&lt;/t-no-room&gt;&lt;t-door-closed&gt;Das Stadttor ist geschlossen...&lt;/t-door-closed&gt;&lt;t-too-heavy&gt;{item} kann keine schweren Gegenstände tragen...&lt;/t-too-heavy&gt;&lt;/t-fail&gt;&lt;nt-fail&gt;Du hast den {item} mit deinen Gegenständen in die Stadt geschickt.&lt;/nt-fail&gt;</source>
-        <target><![CDATA[<t-fail><t-no-room>Du hast nicht genug Platz für diese Gegenstände...</t-no-room><t-door-closed>Das Stadttor ist geschlossen...</t-door-closed><t-too-heavy>{item} kann keine schweren Gegenstände tragen...</t-too-heavy></t-fail><nt-fail>Du hast den {item} mit deinen Gegenständen in die Stadt geschickt.</nt-fail>]]></target>
+        <target><![CDATA[<t-fail><t-no-room>You don't have enough space for these items ...</t-no-room><t-door-closed>The Town gates are closed ...</t-door-closed><t-too-heavy>{item} cannot carry heavy objects ...</t-too-heavy></t-fail><nt-fail>You send {item} in the direction of the town witht hte tontents of your rucksack.</nt-fail>]]></target>
       </segment>
     </unit>
     <unit id="xWENNfP" name="Gequälte Seele">
@@ -7226,7 +7226,7 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
       </notes>
       <segment>
         <source>Gequälte Seele</source>
-        <target>Gequälte Seele</target>
+        <target>Tortured Soul</target>
       </segment>
     </unit>
     <unit id="US6ub3j" name="0d35708">
@@ -7235,7 +7235,7 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
       </notes>
       <segment>
         <source>Die Seele dieses Bürgers wurde schon zu lange ohne Rücksicht auf Rücksicht verlassen. Heute kommt dieses von Hass erfüllte Wesen, um die schlechten Vibes der Überseewelt zu nähren, ihr solltet euch schnell darum kümmern!</source>
-        <target>Die Seele dieses Bürgers wurde schon zu lange ohne Rücksicht auf Rücksicht verlassen. Heute kommt dieses von Hass erfüllte Wesen, um die schlechten Vibes der Überseewelt zu nähren, ihr solltet euch schnell darum kümmern!</target>
+        <target>This doesn't look like your average lost soul... Maybe you should be a little careful with this one. In fact maybe you should talk to your resident voodooman...</target>
       </segment>
     </unit>
     <unit id="SLJtaFf" name="Öffnen (1 BP)">
@@ -7244,7 +7244,7 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
       </notes>
       <segment>
         <source>Öffnen (1 BP)</source>
-        <target>Öffnen (1 BP)</target>
+        <target>Open (1 CP)</target>
       </segment>
     </unit>
   </file>

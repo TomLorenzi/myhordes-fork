@@ -273,7 +273,7 @@ class GameFactory
         $previous = [];
 
         for ($i = 0; $i < min($spawn_ruins+2,count($zone_list)); $i++) {
-            $zombies_base = 0;
+
             if ($i < $spawn_ruins) {
                 $zombies_base = 1 + floor(min(1,sqrt( pow($zone_list[$i]->getX(),2) + pow($zone_list[$i]->getY(),2) )/18) * 18);
 

@@ -1,0 +1,82 @@
+{% extends "ajax/help/shell.html.twig" %}
+{% block helpContent %}
+<div class="helpArt">{{ 'Spielanleitung'|trans({},'help')|raw }}</div>
+<h1>{{ 'Ghule'|trans({},'help')|raw }}</h1>
+<p>
+{{ '<strong>Bei den Ghulen handelt es sich um infizierte Einwohner, die sich noch nicht ganz in Zombies verwandelt haben</strong>
+(Auch die liebe Mutter Natur treibt ab und zu ihre Späßchen).'|trans({},'help')|raw }}
+</p>
+<p>
+{{ 'Es ist so gut wie unmöglich einen Ghul von einem normalen Bürger zu unterscheiden. Wenn ihr nicht aufpasst, kann schon ein Ghul eine ganze Stadt innerhalb kürzester Zeit dezimieren.'|trans({},'help')|raw }}
+</p>
+<h2>{{ 'Hilfe, ich bin ein Ghul!'|trans({},'help')|raw }}</h2>
+<img class="art" alt="" src="{{ asset('build/images/help/ghoulHunger.' ~ app.request.locale|e('html_attr') ~ '.png') }}">
+<p>{{ 'Als Ghul musst du jeden Tag deinen Hunger nach Menschenfleisch stillen. Dein <strong>Hunger</strong> wird durch eine Leiste angezeigt, die du oben auf der Seite direkt unter deinem Gesundheitszustand findest.'|trans({},'help')|raw }}
+</p>
+<p>
+{{ 'Um deinen Hunger zu stillen, musst du einen lebenden Mitbürger oder kaltes Menschenfleisch essen (in was für einer Form auch immer...).'|trans({},'help')|raw }}
+</p>
+<div class="clear"></div>
+<table class="procons">
+<tbody><tr>
+<th>{{ 'Vorteile'|trans({},'help')|raw }}</th>
+<th>{{ 'Nachteile'|trans({},'help')|raw }}</th>
+</tr>
+<tr>
+<td>
+<ul>
+<li>{{ 'Der Verzehr von kalten oder warmen Menschenfleisch gibt dir %img_ap% zurück und senkt deinen Heißhunger.'|trans({'%img_ap%': '<span class="ap"></span>'},'help')|raw }}</li>
+{#<li>{{ 'Pro gefressenem Mitbürger gewinnst du <strong>1 Heldentag</strong> (Du erhältst sie nach deinem Tod).'|trans({},'help')|raw }}</li>#}
+<li>{{ 'Du bist gegen die Wirkungen einer <strong>Infektion</strong> immun und verspürst keinen <strong>Durst</strong>.'|trans({},'help')|raw }}</li>
+<li>{{ 'Du kannst die Stadt unerkannt betreten und verlassen (d.h.: Es wird nicht ins Register eingetragen).'|trans({},'help')|raw }}</li>
+</ul>
+</td>
+<td>
+<ul>
+<li>{{ 'Wenn deine Hungerleiste die <strong>rote Linie</strong> überschreitet, stirbst du beim Zombieangriff um Mitternacht.'|trans({},'help')|raw }}</li>
+<li>{{ 'Wenn du Wasser trinkst, bist du <strong>verletzt</strong>.'|trans({},'help')|raw }}</li>
+<li>{{ 'Die Wahrscheinlichkeit beim Töten eines Mitbürgers ertappt zu werden, verhält sich proportional zur der Anzahl der noch lebenden Stadtbürger.'|trans({},'help')|raw }}</li>
+<li>{{ 'Dein Hunger wird jeden Tag nach dem Angriff um Mitternacht größer: Wenn du als Ghul überleben möchtest, solltest du darauf achten, rechtzeitig "Nahrung" zu dir zu nehmen. Wenn die Stadt allerdings zerstört wurde, sinkt deine Lust und dein Hunger ein wenig.'|trans({},'help')|raw }}</li>
+<li>
+{{ 'Wenn du einen Menschen frisst, wird sein Zustand auf dich übertragen. Suche dir deine Opfer also sorgfältig aus und widerstehe der Versuchung, den erstbesten Drogensüchtigen zu verspeisen!'|trans({},'help')|raw }}</li>
+</ul>
+</td>
+</tr>
+</tbody></table>
+<h2>{{ 'Wie kann man ein Ghul werden?'|trans({},'help')|raw }}</h2>
+<p>
+{{ 'Dieser Zustand kann nicht gewählt werden. Vielmehr handelt es sich um einen Fluch, von dem jeder Spieler, egal ob in der Stadt oder in der Außenwelt, getroffen werden kann.'|trans({},'help')|raw }}
+</p>
+{#
+<p>Die Häufigkeit für das Auftreten von Ghulen hängt vom Stadtyp ab:</p>
+<ul>
+<li>in <strong>normalen Städten</strong> tauchen sie ungefähr ab Tag 15 auf.</li>
+<li>in den <strong>Entfernten Regionen</strong> tauchen sie ungefähr ab Tag 9 auf.</li>
+<li>in <strong>Pandämoniumsstädten</strong> tauchen die Ghule von Anfang an auf.</li>
+</ul>
+<p>
+In einer Stadt kann es auch mehrere Ghule geben, wenn es der Gemeinschaft nicht gelungen ist, den ersten Ghul umzubringen.
+</p>
+#}
+<p>
+<strong>{{ 'Man kann sich mit bestimmten Produkten gegen die Verwandlung in einen Ghul schützen!'|trans({},'help')|raw }}</strong>
+</p>    
+<h2>{{ 'Wie tötet man einen Ghul?'|trans({},'help')|raw }}</h2>
+<p>
+{{ 'Ein Ghul ist noch kein Zombie. Sein Körper kann sich nur schlecht gegen Angriffe wehren. Sowohl der Galgen, als auch Drogenabhängigkeit können einen Ghul umbringen. Allerdings kann ein Ghul weder verdursten, noch an einer Infektion sterben.'|trans({},'help')|raw }}
+</p>
+<p>
+{{ '<strong>Die effektivste Methode einen Ghul zu töten, ist es ihn anzugreifen. Er stirbt dann sofort.</strong>
+Doch aufgepasst: Ein körperlicher Angriff kostet einiges an %img_ap% und
+es besteht eine erhöhte Wahrscheinlichkeit sein Opfer zu verletzen. Versucht auch nicht den/die falschen anzugreifen, es könnte auf euch zurückfallen. ;)'|trans({'%img_ap%': '<span class="ap"></span>'},'help')|raw }}
+</p>
+<h2>{{ 'Wie erkenne ich einen Ghul?'|trans({},'help')|raw }}</h2>
+<p>
+{{ 'Das Stadtregister ist dein wichtigster Anhaltspunkt. Außerdem solltest du einen Blick auf die An- und Abwesenheit bestimmter Spieler achten.'|trans({},'help')|raw }}
+</p>
+<p>
+{{ 'Vergiss nie, dass sich jeder Spieler urplötzlich in einen Ghul verwandeln kann! Es kann auch den charismatischen Anführer deiner Stadt treffen, der dir immer so wertvolle Tipps gibt...'|trans({},'help')|raw }}
+</p>
+<div class="clear"></div>
+<a class="button" x-ajax-href="{{ url('help', {'name': 'jobs'}) }}"><img src="{{ asset('build/images/icons/small_move.gif') }}" alt="move"> {{'Weiter'|trans({}, 'help')}}:<strong> {{ 'Die Berufe'|trans({},'help') }}</strong></a>
+{% endblock %}

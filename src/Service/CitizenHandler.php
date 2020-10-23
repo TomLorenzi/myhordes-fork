@@ -22,24 +22,27 @@ use App\Entity\ItemPrototype;
 use App\Entity\PictoPrototype;
 use App\Entity\PrivateMessageThread;
 use App\Structures\ItemRequest;
+use App\Structures\TownConf;
 use DateTime;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 class CitizenHandler
 {
-    private $entity_manager;
-    private $status_factory;
-    private $item_factory;
-    private $random_generator;
-    private $inventory_handler;
-    private $picto_handler;
-    private $log;
-    private $container;
-    private $user_handler;
+    private EntityManagerInterface $entity_manager;
+    private StatusFactory $status_factory;
+    private ItemFactory $item_factory;
+    private RandomGenerator $random_generator;
+    private InventoryHandler $inventory_handler;
+    private PictoHandler $picto_handler;
+    private LogTemplateHandler $log;
+    private ContainerInterface $container;
+    private UserHandler $user_handler;
+    private ConfMaster $conf;
 
     public function __construct(EntityManagerInterface $em, StatusFactory $sf, RandomGenerator $g, InventoryHandler $ih,
-                                PictoHandler $ph, ItemFactory $if, LogTemplateHandler $lh, ContainerInterface $c, UserHandler $uh)
+                                PictoHandler $ph, ItemFactory $if, LogTemplateHandler $lh, ContainerInterface $c, UserHandler $uh,
+                                ConfMaster $conf)
     {
         $this->entity_manager = $em;
         $this->status_factory = $sf;
@@ -50,6 +53,7 @@ class CitizenHandler
         $this->log = $lh;
         $this->container = $c;
         $this->user_handler = $uh;
+        $this->conf = $conf;
     }
 
     /**
@@ -475,8 +479,10 @@ class CitizenHandler
         $town = $citizen->getTown();
         $has_pro_camper = $citizen->getProfession()->getHeroic() && $this->user_handler->hasSkill($citizen->getUser(), 'procamp');
 
+        $config = $this->conf->getTownConfiguration($citizen->getTown());
+
         // Town type: Pandemonium gets malus of 14, all other types are neutral.
-        $camping_values['town'] = $town->getType()->getId() == 3 ? -14 : 0;
+        $camping_values['town'] = (int)$config->get(TownConf::CONF_MODIFIER_CAMPING_BONUS, 0);
 
         // Distance in km
         $distance_map = [
@@ -565,19 +571,8 @@ class CitizenHandler
                 ]
             ],
         ];
-        $previous_campings = $citizen->getCampingCounter();
-        if ($town->getType()->getId() == 3) {
-            if($has_pro_camper)
-                $camping_values['campings'] = $campings_map['hard']['pro'][$previous_campings];
-            else
-                $camping_values['campings'] = $campings_map['hard']['nonpro'][$previous_campings];
-        }
-        else {
-            if($has_pro_camper)
-                $camping_values['campings'] = $campings_map['normal']['pro'][$previous_campings];
-            else
-                $camping_values['campings'] = $campings_map['normal']['nonpro'][$previous_campings];
-        }
+
+        $camping_values['campings'] = $campings_map[$config->get(TownConf::CONF_MODIFIER_CAMPING_CHANCE_MAP, 'normal')][$has_pro_camper ? 'pro' : 'nonpro'][$citizen->getCampingCounter()];
 
         // Campers that are already hidden.
         $campers_map = [
