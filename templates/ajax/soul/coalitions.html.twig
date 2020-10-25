@@ -3,5 +3,154 @@
     {{ parent() }}
 {% endblock %}
 {% block soul_content %}
-    COMING SOON
+
+    {# @var membership \App\Entity\UserGroupAssociation #}
+    {# @var all_users \App\Entity\UserGroupAssociation[] #}
+    {# @var invitations \App\Entity\UserGroupAssociation[] #}
+
+    <div class="row">
+        <div class="cell rw-12 padded">
+            <a class="small" href="{{ url('help', {'name': 'coalitions'}) }}" target="_blank"><img alt="" src="{{ asset('build/images/assets/img/icons/small_help.gif') }}"> {{ 'Spielhilfe: Kleine Koalitionen'|trans({}, 'soul') }}</a>
+        </div>
+    </div>
+
+    <div class="row">
+        {% if membership is null %}
+            <div class="cell rw-12 padded">
+                <div class="help">
+                    {% trans from 'soul' %}
+                        Du möchtest schon seit langem <strong>mit deinen Freunden zusammen sterben</strong>? Du möchtest die gleichen schönen und <strong>entsetzlichen</strong> Momente mit ihnen erleben? Dann sind die <strong>Kleinen Koalitionen</strong> genau das richtige für dich! Es handelt sich um kleine Mannschaften von <strong>5</strong> Bürgern, die gemeinsam die Welt der Verdammten entdecken möchten.
+                    {% endtrans %}
+                    <br />
+                    {% trans from 'soul' %}
+                        Das Prinzip ist ganz einfach: Wenn ihr in einer Koalition spielt, <strong>zieht der Erste, der eine Partie anfängt, alle verfügbaren Koalitionsmitglieder mit sich ins Spiel.</strong>
+                    {% endtrans %}
+                </div>
+            </div>
+            <div class="cell padded rw-6 rw-md-8 rw-sm-12">
+                <button id="make_coa">{{ 'Meine Koalition erstellen'|trans({},'soul') }}</button>
+            </div>
+            <div class="cell rw-12 padded">
+                <h5>{{ 'Einer existierenden Koalition beitreten'|trans({},'soul') }}</h5>
+                {% if invitations is empty %}
+                    <span class="small">{{ 'Es hat dich bisher noch niemand eingeladen.'|trans({},'soul') }}</span>
+                {% endif %}
+            </div>
+        {% else %}
+            <div class="cell rw-8 padded">
+                <h5>{{ 'Shoutbox der Koalition'|trans({},'soul') }}</h5>
+            </div>
+            <div class="cell rw-4 padded">
+                {% set all_members  = all_users|filter(ac => ac.associationType == constant('App\\Entity\\UserGroupAssociation::GroupAssociationTypeCoalitionMember') ) %}
+                {% set all_sleepers = all_users|filter(ac => ac.associationType == constant('App\\Entity\\UserGroupAssociation::GroupAssociationTypeCoalitionMemberInactive') ) %}
+                {% set all_invited  = all_users|filter(ac => ac.associationType == constant('App\\Entity\\UserGroupAssociation::GroupAssociationTypeCoalitionInvitation') ) %}
+
+                {% macro display_assoc(assocs) %}
+                    {# @var assocs \App\Entity\UserGroupAssociation[] #}
+                    <ul class="coa-users">
+                        {% for assoc in assocs %}
+                            <li>{{ assoc.user.username }}</li>
+                        {% endfor %}
+                    </ul>
+                {% endmacro %}
+
+                {% if all_members is not empty %}
+                    <h5>{{ 'Verfügbare Mitglieder'|trans({},'soul') }}</h5>
+                    {{ _self.display_assoc(all_members) }}
+                    <br />
+                {% endif %}
+                {% if all_sleepers is not empty %}
+                    <h5>{{ 'Nicht verfügbar'|trans({},'soul') }}</h5>
+                    {{ _self.display_assoc(all_sleepers) }}
+                    <br />
+                {% endif %}
+                {% if all_invited is not empty %}
+                    <h5>{{ 'Eingeladen'|trans({},'soul') }}</h5>
+                    {{ _self.display_assoc(all_invited) }}
+                    <br />
+                {% endif %}
+
+                {% if membership.associationLevel == constant('App\\Entity\\UserGroupAssociation::GroupAssociationLevelFounder') %}
+                    <div id="users-list-soul">
+                        <h5>{{'Einen Freund einladen'|trans({}, "soul")}}</h5>
+                        <div><label><input type="text" id="users-search" style="margin-top: 5px" /></label><div class="tooltip help">{{ 'Gib den Pseudo des Bürgers ein.'|trans({},'soul') }}</div></div>
+                        <div id="users-list"></div>
+                    </div>
+                {% endif %}
+
+                <h5>{{ 'Optionen'|trans({},'soul') }}</h5>
+                {% if membership.associationType == constant('App\\Entity\\UserGroupAssociation::GroupAssociationTypeCoalitionMember') %}
+                    <span class="small">{% trans from "soul" %}Du stehst <strong>zur Verfügung</strong>.{% endtrans %}</span>
+                {% else %}
+                    <span class="small">{% trans from "soul" %}Du stehst <strong>nicht zur Verfügung</strong>.{% endtrans %}</span>
+                {% endif %}
+                <button id="toggle_state">{{ 'Meinen Status ändern'|trans({},'soul') }}</button>
+                <button id="leave_coa">{{ membership.associationLevel == constant('App\\Entity\\UserGroupAssociation::GroupAssociationLevelFounder') ? 'Verlassen UND auflösen'|trans({},'soul') : 'Verlassen'|trans({},'soul') }}</button>
+                <span class="small"></span>
+            </div>
+        {% endif %}
+    </div>
+{% endblock %}
+
+{% block js %}
+    {{parent()}}
+    <script>
+        {% if membership is null %}
+            $.html.addEventListenerAll('#make_coa', 'click', function() {
+                if (confirm('{{ 'Du möchtest deine eigene Koalition erstellen?'|trans({},'soul'|e('js')) }}'))
+                    $.ajax.easySend( '{{ path('soul_create_coalition') }}', {},
+                        function () {
+                            $.ajax.load(null, '{{ path('soul_coalitions') }}', true);
+                        } );
+            });
+        {% else %}
+
+            {% if membership.associationLevel == constant('App\\Entity\\UserGroupAssociation::GroupAssociationLevelFounder') %}
+                let typingTimer, doneTypingInterval = 500;
+                let searchBox = document.getElementById('users-search');
+
+                const userSearchHandler = function() {
+                    if (searchBox.value.length >= 3)
+                        $.ajax.background().load(
+                            document.getElementById('users-list'),
+                            '{{ path('users_fuzzyfind') }}',
+                            false,
+                            {'name': searchBox.value}
+                        );
+                    else document.getElementById('users-list').innerHTML = '';
+                };
+
+                const userSearchHandlerUp = function () {
+                    clearTimeout(typingTimer);
+                    typingTimer = setTimeout(userSearchHandler, doneTypingInterval);
+                };
+
+                const userSearchHandlerDown = function () {
+                    clearTimeout(typingTimer);
+                };
+
+                if (searchBox) {
+                    searchBox.addEventListener('keyup', userSearchHandlerUp);
+                    searchBox.addEventListener('keydown', userSearchHandlerDown);
+                    searchBox.addEventListener('focus', () => userSearchHandler());
+                    searchBox.addEventListener('blur', () => setTimeout( () => document.getElementById('users-list').innerHTML = '', 100));
+                }
+
+            {% endif %}
+
+            $.html.addEventListenerAll('#toggle_state', 'click', function() {
+                $.ajax.easySend( '{{ path('soul_toggle_coalition') }}', {},
+                    function () {
+                        $.ajax.load(null, '{{ path('soul_coalitions') }}', true);
+                    } );
+            });
+            $.html.addEventListenerAll('#leave_coa', 'click', function() {
+                if (confirm('{{ (membership.associationLevel == constant('App\\Entity\\UserGroupAssociation::GroupAssociationLevelFounder') ? 'Möchtest du diese Koalition verlassen und somit auflösen?' : 'Möchtest du diese Koalition verlassen?')|trans({},'soul'|e('js')) }}'))
+                    $.ajax.easySend( '{{ path('soul_leave_coalition', {'coalition': membership.id}) }}', {},
+                        function () {
+                            $.ajax.load(null, '{{ path('soul_coalitions') }}', true);
+                        } );
+            });
+        {% endif %}
+    </script>
 {% endblock %}

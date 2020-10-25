@@ -20,6 +20,8 @@ class UserGroup
 
     const GroupTownInhabitants = 10;
 
+    const GroupSmallCoalition = 101;
+
     /**
      * @ORM\Id
      * @ORM\GeneratedValue

@@ -18,11 +18,14 @@ use App\Entity\TwinoidImportPreview;
 use App\Entity\User;
 use App\Entity\RolePlayTextPage;
 use App\Entity\Season;
+use App\Entity\UserGroup;
+use App\Entity\UserGroupAssociation;
 use App\Response\AjaxResponse;
 use App\Service\ConfMaster;
 use App\Service\DeathHandler;
 use App\Service\ErrorHelper;
 use App\Service\JSONRequestParser;
+use App\Service\PermissionHandler;
 use App\Service\TwinoidHandler;
 use App\Service\UserFactory;
 use App\Service\UserHandler;
@@ -54,6 +57,9 @@ class SoulController extends AbstractController
     const ErrorTwinImportNoToken             = ErrorHelper::BaseSoulErrors + 3;
     const ErrorTwinImportProfileMismatch     = ErrorHelper::BaseSoulErrors + 4;
     const ErrorTwinImportProfileInUse        = ErrorHelper::BaseSoulErrors + 4;
+
+    const ErrorCoalitionAlreadyMember        = ErrorHelper::BaseSoulErrors + 10;
+    const ErrorCoalitionNotSet               = ErrorHelper::BaseSoulErrors + 11;
 
     protected $entity_manager;
     protected $translator;
@@ -490,7 +496,144 @@ class SoulController extends AbstractController
         if ($this->entity_manager->getRepository(CitizenRankingProxy::class)->findNextUnconfirmedDeath($user))
             return $this->redirect($this->generateUrl( 'soul_death' ));
 
-        return $this->render( 'ajax/soul/coalitions.html.twig', $this->addDefaultTwigArgs("soul_coalitions", null) );
+        /** @var UserGroupAssociation|null $user_coalition */
+        $user_coalition = $this->entity_manager->getRepository(UserGroupAssociation::class)->findOneBy( [
+            'user' => $user,
+            'associationType' => [UserGroupAssociation::GroupAssociationTypeCoalitionMember, UserGroupAssociation::GroupAssociationTypeCoalitionMemberInactive]
+            ]);
+
+        $all_users = $user_coalition ? $this->entity_manager->getRepository(UserGroupAssociation::class)->findBy( [
+                'association' => $user_coalition->getAssociation()
+            ]) : [];
+
+        $user_invitations = $user_coalition ? null : $this->entity_manager->getRepository(UserGroupAssociation::class)->findBy( [
+                'user' => $user,
+                'associationType' => UserGroupAssociation::GroupAssociationTypeCoalitionInvitation ]
+        );
+
+        return $this->render( 'ajax/soul/coalitions.html.twig', $this->addDefaultTwigArgs("soul_coalitions", [
+            'membership' => $user_coalition,
+            'all_users' => $all_users,
+            'invitations' => $user_invitations,
+        ]) );
+    }
+
+    /**
+     * @Route("api/soul/coalition/create", name="soul_create_coalition")
+     * @param TranslatorInterface $trans
+     * @param PermissionHandler $perm
+     * @return Response
+     */
+    public function api_soul_create_coalitions(TranslatorInterface $trans, PermissionHandler $perm): Response
+    {
+        $user = $this->getUser();
+
+
+        /** @var UserGroupAssociation|null $user_coalition */
+        $user_coalitions = $this->entity_manager->getRepository(UserGroupAssociation::class)->findBy( [
+                'user' => $user,
+                'associationType' => [UserGroupAssociation::GroupAssociationTypeCoalitionMember, UserGroupAssociation::GroupAssociationTypeCoalitionMemberInactive] ]
+        );
+
+        if (!empty($user_coalitions)) return AjaxResponse::error( self::ErrorCoalitionAlreadyMember );
+
+        // Creating a coalition refuses all invitations
+        foreach ($this->entity_manager->getRepository(UserGroupAssociation::class)->findBy( [
+                'user' => $user,
+                'associationType' => UserGroupAssociation::GroupAssociationTypeCoalitionInvitation ]
+        ) as $invitation) $this->entity_manager->remove($invitation);
+
+        $this->entity_manager->persist( $g = (new UserGroup())->setName($trans->trans("%name%'s Koalition", ['%name%' => $user->getUsername()]))->setType(UserGroup::GroupSmallCoalition)->setRef1($user->getId()) );
+        $perm->associate( $user, $g, UserGroupAssociation::GroupAssociationTypeCoalitionMember, UserGroupAssociation::GroupAssociationLevelFounder );
+
+        try {
+            $this->entity_manager->flush();
+        }
+        catch (Exception $e) {
+            return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
+        }
+
+        return AjaxResponse::success();
+    }
+
+    /**
+     * @Route("api/soul/coalition/toggle", name="soul_toggle_coalition")
+     * @return Response
+     */
+    public function api_soul_toggle_coalition_membership(): Response
+    {
+        $user = $this->getUser();
+
+
+        /** @var UserGroupAssociation|null $user_coalition */
+        $user_coalition = $this->entity_manager->getRepository(UserGroupAssociation::class)->findOneBy( [
+                'user' => $user,
+                'associationType' => [UserGroupAssociation::GroupAssociationTypeCoalitionMember, UserGroupAssociation::GroupAssociationTypeCoalitionMemberInactive] ]
+        );
+
+        if ($user_coalition === null) return AjaxResponse::error( self::ErrorCoalitionNotSet );
+
+        $user_coalition->setAssociationType(
+            $user_coalition->getAssociationType() === UserGroupAssociation::GroupAssociationTypeCoalitionMember
+                ? UserGroupAssociation::GroupAssociationTypeCoalitionMemberInactive
+                : UserGroupAssociation::GroupAssociationTypeCoalitionMember
+        );
+        $this->entity_manager->persist( $user_coalition );
+
+        try {
+            $this->entity_manager->flush();
+        }
+        catch (Exception $e) {
+            return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
+        }
+
+        return AjaxResponse::success();
+    }
+
+    /**
+     * @Route("api/soul/coalition/leave/{coalition<\d+>}", name="soul_leave_coalition")
+     * @param int $coalition
+     * @return Response
+     */
+    public function api_soul_leave_coalition(int $coalition): Response
+    {
+        $user = $this->getUser();
+
+        /** @var UserGroupAssociation|null $user_coalition */
+        $user_coalition = $this->entity_manager->getRepository(UserGroupAssociation::class)->find($coalition);
+
+        if ($user_coalition === null) return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
+        if (
+            $user_coalition->getUser() !== $user ||
+            $user_coalition->getAssociation()->getType() !== UserGroup::GroupSmallCoalition ||
+            !in_array($user_coalition->getAssociationType(), [
+                UserGroupAssociation::GroupAssociationTypeCoalitionInvitation,
+                UserGroupAssociation::GroupAssociationTypeCoalitionMember,
+                UserGroupAssociation::GroupAssociationTypeCoalitionMemberInactive
+            ])) return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
+
+        $destroy = $user_coalition->getAssociationLevel() === UserGroupAssociation::GroupAssociationLevelFounder;
+
+
+        if ($destroy) {
+
+            foreach ($this->entity_manager->getRepository(UserGroupAssociation::class)->findBy( [
+                'association' => $user_coalition->getAssociation()
+            ]) as $assoc ) $this->entity_manager->remove($assoc);
+
+            $this->entity_manager->remove( $user_coalition->getAssociation() );
+
+        } else $this->entity_manager->remove( $user_coalition );
+
+
+        try {
+            $this->entity_manager->flush();
+        }
+        catch (Exception $e) {
+            return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
+        }
+
+        return AjaxResponse::success();
     }
 
     /**
