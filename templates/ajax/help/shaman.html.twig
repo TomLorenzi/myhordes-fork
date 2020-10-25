@@ -1,0 +1,31 @@
+{% extends "ajax/help/shell.html.twig" %}
+{% block helpContent %}
+<div class="helpArt">{{ 'Spielanleitung'|trans({},'help')|raw }}</div>
+<h1>{{ 'Shamane'|trans({},'help')|raw }}</h1>
+<img class="pip" alt="pip" src="{{ asset('build/images/professions/select/shaman.gif') }}">
+<p>
+{{ 'Der Schamane ist ein unglaublich mächtiger Voodoo-Zauberer, der vom Tod anderer Bürger profitieren kann, um seine schwarze Magie auszuführen.
+Der Schamane weiß, wie man das Nutzlose nutzt und wie man eine nützlichere Reinkarnation für unsere Verstorbenen herbeiführt.'|trans({},'help')|raw }}
+</p>
+<h2>{{ 'Wie wirst du der Stadtschamane?'|trans({},'help')|raw }}</h2>
+<p>
+{{ 'In der ersten Nacht und jedes Mal, wenn der Schamane stirbt, findet ein Stadttreffen statt. Während dieses Treffens findet eine Debatte statt und nach vielem Streiten, Ausweichen vor Verantwortung und zweifellos Trinken wird der ... "qualifizierteste" Bewohner als Schamane bezeichnet! Von diesem Moment an wird der Schamane Zugang zu neuen Kräften und neuen "Punkten" haben.'|trans({},'help')|raw }}
+</p>
+<h2>{{ 'Ich bin der Schamane, was mache ich?'|trans({},'help')|raw }}</h2>
+<p>
+{{ 'Dank ihrer einzigartigen Weltanschauung kann der Schamane einzigartige Aktionen ausführen, die ihn gleichzeitig zu einem Heiler, einem Hellseher oder einem Scharlatan machen können.
+Der Schamane kann:'|trans({},'help')|raw }}
+</p><ul>
+<li>{{ 'Heile Bürger <strong>in der Stadt </strong>. Lindere Angststarre, Infektionen oder extrahiere sogar Alkohol oder Drogen aus den Körpern deiner Kameraden. Der Erfolg ist jedoch nicht garantiert. Manchmal nimmt der Schamane während des Heilungsprozesses die Krankheit, die das Opfer plagt, in seinen eigenen Körper auf.'|trans({},'help')|raw }}
+</li>
+<li>{{ 'Reinige Zonen, indem du Regen auf diese Bereiche fallen lässt. Wenn der Regen auf die Stadt fällt, füllt das Wasser den Brunnen ein wenig.'|trans({},'help')|raw }}</li>
+<li>{{ 'Führe die Bürger zum Ort der Seelen in der Außenwelt.'|trans({},'help')|raw }}</li>
+<li>{{ 'Braue spezielle Tränke, die bloße Sterbliche vor dem Übel gefolterter Seelen schützen.'|trans({},'help')|raw }}</li>
+</ul>
+<p></p>
+<p>
+{{ 'Der Schamane ist daher eine zentrale Figur in der grausamen Komödie, die das Überleben der Stadt darstellt. Aber wie lange wird der Schamane überleben?'|trans({},'help')|raw }}
+</p>
+<div class="clear"></div>
+<a class="button" x-ajax-href="{{ url('help', {'name': 'guide_to_the_world_beyond'}) }}"><img src="{{ asset('build/images/icons/small_move.gif') }}" alt="move"> {{'Weiter'|trans({}, 'help')}}:<strong> {{ 'Der Reiseleiter in der Außenwelt'|trans({},'help') }}</strong></a>
+{% endblock %}
