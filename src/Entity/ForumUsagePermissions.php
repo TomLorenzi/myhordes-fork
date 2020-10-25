@@ -64,7 +64,7 @@ class ForumUsagePermissions
 
     /**
      * @ORM\ManyToOne(targetEntity=Forum::class)
-     * @ORM\JoinColumn(nullable=true)
+     * @ORM\JoinColumn(nullable=true, onDelete="CASCADE")
      */
     private $forum;
 

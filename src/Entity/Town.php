@@ -2,10 +2,10 @@
 
 namespace App\Entity;
 
+use DateTime;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Event\LifecycleEventArgs;
-use Doctrine\ORM\Event\PreUpdateEventArgs;
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\ORM\Mapping\OrderBy;
 use Doctrine\ORM\ORMException;
@@ -21,27 +21,27 @@ class Town
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
      */
-    private $id;
+    private ?int $id = null;
 
     /**
      * @ORM\Column(type="string", length=190)
      */
-    private $name;
+    private ?string $name = null;
 
     /**
      * @ORM\Column(type="string", length=8)
      */
-    private $language;
+    private ?string $language = null;
 
     /**
      * @ORM\Column(type="integer")
      */
-    private $population;
+    private ?int $population = null;
 
     /**
      * @ORM\Column(type="string", nullable=true)
      */
-    private $wordsOfHeroes;
+    private ?string $wordsOfHeroes = null;
 
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\Citizen", mappedBy="town", orphanRemoval=true, cascade={"persist", "remove"})
@@ -53,23 +53,23 @@ class Town
      * @ORM\OneToOne(targetEntity="App\Entity\Inventory", inversedBy="town", cascade={"persist", "remove"})
      * @ORM\JoinColumn(nullable=false)
      */
-    private $bank;
+    private ?Inventory $bank = null;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\TownClass", inversedBy="towns")
      * @ORM\JoinColumn(nullable=false)
      */
-    private $type;
+    private ?TownClass $type = null;
 
     /**
      * @ORM\Column(type="integer")
      */
-    private $day = 1;
+    private int $day = 1;
 
     /**
      * @ORM\Column(type="integer")
      */
-    private $well;
+    private ?int $well = 0;
 
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\Zone", mappedBy="town", orphanRemoval=true, cascade={"persist", "remove"})
@@ -79,17 +79,17 @@ class Town
     /**
      * @ORM\Column(type="boolean")
      */
-    private $door = false;
+    private bool $door = false;
 
     /**
      * @ORM\Column(type="boolean")
      */
-    private $chaos = false;
+    private bool $chaos = false;
 
     /**
      * @ORM\Column(type="boolean")
      */
-    private $devastated = false;
+    private bool $devastated = false;
 
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\Building", mappedBy="town", orphanRemoval=true, cascade={"persist", "remove"})
@@ -110,22 +110,22 @@ class Town
     /**
      * @ORM\OneToOne(targetEntity="App\Entity\Forum", mappedBy="town", cascade={"persist", "remove"})
      */
-    private $forum;
+    private ?Forum $forum = null;
 
     /**
      * @ORM\Column(type="array", nullable=true)
      */
-    private $conf = [];
+    private array $conf = [];
 
     /**
      * @ORM\Column(type="integer")
      */
-    private $soulDefense = 0;
+    private int $soulDefense = 0;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Season", inversedBy="towns")
      */
-    private $season;
+    private ?Season $season = null;
 
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\CitizenWatch", mappedBy="town", orphanRemoval=true)
@@ -136,7 +136,7 @@ class Town
      * @ORM\OneToOne(targetEntity=TownRankingProxy::class, mappedBy="town", cascade={"persist"})
      * @ORM\JoinColumn(nullable=true, onDelete="SET NULL")
      */
-    private $rankingEntry;
+    private ?TownRankingProxy $rankingEntry = null;
 
     /**
      * @ORM\ManyToOne(targetEntity=AttackSchedule::class)
@@ -146,27 +146,32 @@ class Town
     /**
      * @ORM\Column(type="integer")
      */
-    private $attackFails = 0;
+    private int $attackFails = 0;
 
     /**
      * @ORM\Column(type="string", length=90, nullable=true)
      */
-    private $password = null;
+    private ?string $password = null;
 
     /**
      * @ORM\Column(type="integer")
      */
-    private $dayWithoutAttack = 0;
+    private int $dayWithoutAttack = 0;
 
     /**
      * @ORM\ManyToOne(targetEntity=User::class)
      */
-    private $creator;
+    private ?User $creator = null;
 
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\TownLogEntry", mappedBy="town", cascade={"remove"})
      */
     private $_townLogEntries;
+
+    /**
+     * @ORM\Column(type="string", length=24, nullable=true)
+     */
+    private ?string $deriveConfigFrom = null;
 
     public function __construct()
     {
@@ -175,6 +180,8 @@ class Town
         $this->buildings = new ArrayCollection();
         $this->zombieEstimations = new ArrayCollection();
         $this->citizenWatches = new ArrayCollection();
+        $this->_townLogEntries = new ArrayCollection();
+        $this->gazettes = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -254,7 +261,7 @@ class Town
 
     public function userInTown(User $user): bool {
         foreach ($this->getCitizens() as $citizen) {
-            if($citizen->getUser() == $user)
+            if($citizen->getUser() === $user)
                 return true;
         }
         return false;
@@ -532,7 +539,7 @@ class Town
 
     public function setConf(?array $conf): self
     {
-        $this->conf = $conf;
+        $this->conf = $conf ?? [];
 
         return $this;
     }
@@ -620,7 +627,10 @@ class Town
      */
     public function lifeCycle_postPersist(LifecycleEventArgs $args) {
         $args->getEntityManager()->persist( TownRankingProxy::fromTown( $this ) );
-        $args->getEntityManager()->persist( (new UserGroup())->setName("[town:{$this->getId()}]")->setType(UserGroup::GroupTownInhabitants)->setRef1($this->getId()) );
+        if ($this->getForum()) {
+            $args->getEntityManager()->persist( $g = (new UserGroup())->setName("[town:{$this->getId()}]")->setType(UserGroup::GroupTownInhabitants)->setRef1($this->getId()) );
+            $args->getEntityManager()->persist( (new ForumUsagePermissions())->setForum($this->getForum())->setPrincipalGroup($g)->setPermissionsGranted(ForumUsagePermissions::PermissionReadWrite)->setPermissionsDenied(ForumUsagePermissions::PermissionNone) );
+        }
         $args->getEntityManager()->flush();
     }
 
@@ -672,7 +682,7 @@ class Town
 
     public function isNight(): bool
     {
-    	$now = new \DateTime();
+    	$now = new DateTime();
     	return $now->format('H') < 7 || $now->format('H') > 18;
     }
 
@@ -700,4 +710,36 @@ class Town
         return $this;
     }
 
+    public function getDeriveConfigFrom(): ?string
+    {
+        return $this->deriveConfigFrom;
+    }
+
+    public function setDeriveConfigFrom(?string $deriveConfigFrom): self
+    {
+        $this->deriveConfigFrom = $deriveConfigFrom;
+
+        return $this;
+    }
+
+    public function getMapOffset(): array {
+        $xOffset = 0;
+        $yOffset = 0;
+        foreach($this->getZones() as $zone) {
+            $xOffset = min($xOffset, $zone->getX());
+            $yOffset = max($yOffset, $zone->getY());
+        }
+
+        return ['x' => abs($xOffset), 'y' => abs($yOffset)];
+    }
+
+    public function getMapSize(): int {
+        $max = 0;
+        $min = 0;
+        foreach($this->getZones() as $zone) {
+            $min = min($min, $zone->getX());
+            $max = max($max, $zone->getX());
+        }
+        return abs($max) + abs($min) + 1;
+    }
 }

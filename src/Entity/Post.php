@@ -72,7 +72,7 @@ class Post
     /**
      * @ORM\OneToOne(targetEntity="App\Entity\AdminDeletion", mappedBy="post", orphanRemoval=true, cascade={"remove"})
      */
-    private $_adminDeletion;
+    private $adminDeletion;
 
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\ThreadReadMarker", mappedBy="post", cascade={"remove"})
@@ -208,20 +208,12 @@ class Post
     }
 
     /**
+     * @param bool|null $unseen
      * @return Collection|AdminReport[]
      */
     public function getAdminReports(?bool $unseen = false): Collection
     {
-        if ($unseen) {
-            $reports = $this->adminReports;
-            foreach ($this->adminReports as $idx => $report) {
-                if ($report->getSeen())
-                    $reports->remove($idx);
-            }
-            return $reports;
-        }
-        else 
-            return $this->adminReports;
+        return $unseen ? $this->adminReports->filter(fn(AdminReport $a) => !$a->getSeen()) : $this->adminReports;
     }
 
     public function addAdminReport(AdminReport $adminReport): self
@@ -245,6 +237,14 @@ class Post
         }
 
         return $this;
+    }
+
+    /**
+     * @return AdminDeletion|null
+     */
+    public function getAdminDeletion(): ?AdminDeletion
+    {
+        return $this->adminDeletion;
     }
 
     public function isNew(): bool {

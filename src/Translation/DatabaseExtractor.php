@@ -4,6 +4,7 @@
 namespace App\Translation;
 
 use App\Entity\AffectMessage;
+use App\Entity\AwardPrototype;
 use App\Entity\Building;
 use App\Entity\BuildingPrototype;
 use App\Entity\CauseOfDeath;
@@ -77,17 +78,17 @@ class DatabaseExtractor implements ExtractorInterface
             $this->insert($c, $escort_action->getLabel(), 'items');
 
         foreach ($this->em->getRepository(Recipe::class)->findAll() as $recipe)
-            /** @var $recipe Recipe */
+            /** @var Recipe $recipe */
             if ($recipe->getAction())
                 $this->insert( $c, $recipe->getAction(), 'items' );
 
         foreach ($this->em->getRepository(ItemCategory::class)->findRootCategories() as $itemCategory)
-            /** @var $itemCategory ItemCategory */
+            /** @var ItemCategory $itemCategory */
             if ($itemCategory->getLabel())
                 $this->insert( $c, $itemCategory->getLabel(), 'items' );
 
         foreach ($this->em->getRepository(AffectMessage::class)->findAll() as $affectMessage)
-            /** @var $affectMessage AffectMessage */
+            /** @var AffectMessage $affectMessage */
             if ($affectMessage->getText())
                 $this->insert( $c, $affectMessage->getText(), 'items' );
 
@@ -107,12 +108,12 @@ class DatabaseExtractor implements ExtractorInterface
 
         // Get home upgrade labels
         foreach ($this->em->getRepository(CitizenHomePrototype::class)->findAll() as $upgrade)
-            /** @var $upgrade CitizenHomePrototype */
+            /** @var CitizenHomePrototype $upgrade */
             $this->insert( $c, $upgrade->getLabel(), 'buildings' );
 
         // Get home extension labels
         foreach ($this->em->getRepository(CitizenHomeUpgradePrototype::class)->findAll() as $extension) {
-            /** @var $extension CitizenHomeUpgradePrototype */
+            /** @var CitizenHomeUpgradePrototype $extension */
             $this->insert($c, $extension->getLabel(), 'buildings');
             $this->insert($c, $extension->getDescription(), 'buildings');
         }
@@ -120,7 +121,7 @@ class DatabaseExtractor implements ExtractorInterface
 
         //<editor-fold desc="Game Domain">
         foreach ($this->em->getRepository(CitizenStatus::class)->findAll() as $status) {
-            /** @var $status CitizenStatus */
+            /** @var CitizenStatus $status */
             if (!$status->getHidden() && $status->getLabel())
                 $this->insert( $c, $status->getLabel(), 'game' );
 
@@ -129,7 +130,7 @@ class DatabaseExtractor implements ExtractorInterface
         }
 
         foreach ($this->em->getRepository(CauseOfDeath::class)->findAll() as $causeOfDeath){
-            /** @var $status CitizenStatus */
+            /** @var CitizenStatus $status */
             if ($causeOfDeath->getLabel())
                 $this->insert( $c, $causeOfDeath->getLabel(), 'game' );
 
@@ -138,12 +139,12 @@ class DatabaseExtractor implements ExtractorInterface
         }
 
         foreach ($this->em->getRepository(CitizenProfession::class)->findAll() as $profession)
-            /** @var $profession CitizenProfession */
+            /** @var CitizenProfession $profession */
             if ($profession->getLabel())
                 $this->insert( $c, $profession->getLabel(), 'game' );
 
         foreach ($this->em->getRepository(CitizenRole::class)->findAll() as $role) {
-            /** @var $role CitizenRole */
+            /** @var CitizenRole $role */
             if ($role->getLabel())
                 $this->insert( $c, $role->getLabel(), 'game' );
             if ($role->getMessage())
@@ -152,7 +153,7 @@ class DatabaseExtractor implements ExtractorInterface
         }
 
         foreach ($this->em->getRepository(ZonePrototype::class)->findAll() as $zone) {
-            /** @var $zone ZonePrototype */
+            /** @var ZonePrototype $zone */
             if ($zone->getLabel())
                 $this->insert( $c, $zone->getLabel(), 'game' );
 
@@ -164,18 +165,18 @@ class DatabaseExtractor implements ExtractorInterface
         }
 
         foreach ($this->em->getRepository(ZoneTag::class)->findAll() as $zone) {
-            /** @var $zone ZonePrototype */
+            /** @var ZonePrototype $zone */
             if ($zone->getLabel())
                 $this->insert( $c, $zone->getLabel(), 'game' );
         }
 
         foreach ($this->em->getRepository(TownClass::class)->findAll() as $town)
-            /** @var $town TownClass */
+            /** @var TownClass $town */
             if ($town->getLabel())
                 $this->insert( $c, $town->getLabel(), 'game' );
 
         foreach ($this->em->getRepository(PictoPrototype::class)->findAll() as $pictoPrototype) {
-            /** @var $pictoPrototype PictoPrototype */
+            /** @var PictoPrototype $pictoPrototype */
             if ($pictoPrototype->getLabel())
                 $this->insert( $c, $pictoPrototype->getLabel(), 'game' );
 
@@ -183,13 +184,19 @@ class DatabaseExtractor implements ExtractorInterface
                 $this->insert( $c, $pictoPrototype->getDescription(), 'game' );
         }
 
+        foreach ($this->em->getRepository(AwardPrototype::class)->findAll() as $awardPrototype) {
+            /** @var AwardPrototype $awardPrototype */
+            if ($awardPrototype->getTitle())
+                $this->insert( $c, $awardPrototype->getTitle(), 'game' );
+        }
+
         foreach ($this->em->getRepository(LogEntryTemplate::class)->findAll() as $logtemplate)
-            /** @var $logtemplate LogEntryTemplate */
+            /** @var LogEntryTemplate $logtemplate */
             if ($logtemplate->getText())
                 $this->insert( $c, $logtemplate->getText(), 'game' );
 
         foreach ($this->em->getRepository(HeroSkillPrototype::class)->findAll() as $heroSkill) {
-            /** @var $heroSkill HeroSkillPrototype */
+            /** @var HeroSkillPrototype $heroSkill */
             if ($heroSkill->getTitle())
                 $this->insert( $c, $heroSkill->getTitle(), 'game' );
 

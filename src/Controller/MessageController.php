@@ -680,17 +680,25 @@ class MessageController extends AbstractController
     public function new_post_api(int $fid, int $tid, JSONRequestParser $parser, EntityManagerInterface $em, PictoHandler $ph): Response {
         $user = $this->getUser();
 
-
         $thread = $em->getRepository(Thread::class)->find( $tid );
         if (!$thread || $thread->getForum()->getId() !== $fid) return AjaxResponse::error( self::ErrorForumNotFound );
-        if ($thread->getLocked())
-            return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
 
         /** @var Forum $forum */
         $forum = $thread->getForum();
 
         $permissions = $this->perm->getEffectivePermissions($user, $forum);
-        if ($user->getIsBanned() || !$this->perm->isPermitted($permissions, ForumUsagePermissions::PermissionCreatePost))
+
+        if ($user->getIsBanned())
+            return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
+
+        $mod_post = false;
+        if (!$this->perm->isPermitted( $permissions, ForumUsagePermissions::PermissionCreatePost )) {
+            if ($thread->hasReportedPosts() && $this->perm->isPermitted( $permissions, ForumUsagePermissions::PermissionModerate ) )
+                $mod_post = true;
+            else return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
+        }
+
+        if ($thread->getLocked() && !$this->perm->isPermitted($permissions, ForumUsagePermissions::PermissionModerate))
             return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
 
         // Check the last 4 threads; if they were all made by the same user, they must wait 4h before they can post again
@@ -704,12 +712,6 @@ class MessageController extends AbstractController
             }
         }
 
-        $mod_post = false;
-        if (!$this->perm->isPermitted( $permissions, ForumUsagePermissions::PermissionWrite )) {
-            if ($thread->hasReportedPosts() && $this->perm->isPermitted( $permissions, ForumUsagePermissions::PermissionModerate ) )
-                $mod_post = true;
-            else return AjaxResponse::error( self::ErrorForumNotFound );
-        }
 
         if (!$parser->has_all(['text'], true))
             return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
@@ -756,9 +758,8 @@ class MessageController extends AbstractController
             return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
         }
 
-        return AjaxResponse::success( true, ['url' => $mod_post
-            ? $this->generateUrl('admin_reports')
-            : $this->generateUrl('forum_thread_view', ['fid' => $fid, 'tid' => $tid])
+        return AjaxResponse::success( true, ['url' =>
+            $this->generateUrl('forum_thread_view', ['fid' => $fid, 'tid' => $tid])
         ] );
     }
 
@@ -892,7 +893,7 @@ class MessageController extends AbstractController
         $permissions = $this->perm->getEffectivePermissions( $user, $forum );
         if (!$this->perm->isPermitted( $permissions, ForumUsagePermissions::PermissionReadThreads )) {
             if (!$thread->hasReportedPosts() || !$this->perm->isPermitted( $permissions, ForumUsagePermissions::PermissionModerate ) )
-                return new Response('');
+                return new Response('', 200, ['X-AJAX-Control' => 'reload']);
         }
 
         $jump_post = ($pid > 0) ? $em->getRepository(Post::class)->find( $pid ) : null;
@@ -920,12 +921,10 @@ class MessageController extends AbstractController
 
 
         $announces = [
-            'admin' => [],
-            'oracle' => []
+            'reported' => $this->perm->isPermitted( $permissions, ForumUsagePermissions::PermissionModerate ) ? $thread->getUnseenReportedPosts() : [],
+            'admin' => $em->getRepository(Post::class)->findAdminAnnounces($thread),
+            'oracle' => $em->getRepository(Post::class)->findOracleAnnounces($thread)
         ];
-
-        $announces['admin'] = $em->getRepository(Post::class)->findAdminAnnounces($thread);
-        $announces['oracle'] = $em->getRepository(Post::class)->findOracleAnnounces($thread);
 
         foreach ($posts as $post){
             /** @var $post Post */
@@ -1050,7 +1049,7 @@ class MessageController extends AbstractController
      * @param AdminActionHandler $admh
      * @return Response
      */
-    public function lock_thread_api(int $fid, int $tid, string $mod, JSONRequestParser $parser, AdminActionHandler $admh): Response {
+    public function mod_thread_api(int $fid, int $tid, string $mod, JSONRequestParser $parser, AdminActionHandler $admh): Response {
         $success = false;
         $uid = $this->getUser()->getId();
 
@@ -1120,12 +1119,12 @@ class MessageController extends AbstractController
                 /** @var Post $post */
                 $post = $this->entityManager->getRepository(Post::class)->find((int)$parser->get('postId'));
                 $reason = $parser->get( 'reason', '' );
-                if (empty($reason)) return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
-
-                if ($post->getThread() !== $thread) return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
+                if (!$post || empty($reason)) return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
 
                 if (!$this->perm->checkEffectivePermissions($this->getUser(), $forum, ForumUsagePermissions::PermissionModerate))
                     return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
+
+                if ($post->getHidden() || $post->getThread() !== $thread) return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
 
                 try {
                     $post->setHidden(true);
@@ -1135,7 +1134,7 @@ class MessageController extends AbstractController
                         ->setTimestamp( new DateTime('now') )
                         ->setReason( $reason )
                         ->setPost( $post ) );
-                    $reports = $post->getAdminReports();
+                    $reports = $post->getAdminReports(true);
                     foreach ($reports as $report)
                         $this->entityManager->persist($report->setSeen(true));
                     $this->entityManager->flush();
@@ -1145,7 +1144,46 @@ class MessageController extends AbstractController
                     return AjaxResponse::error( ErrorHelper::ErrorDatabaseException );
                 }
 
+            case 'undelete':
+                if (!$this->perm->checkEffectivePermissions($this->getUser(), $forum, ForumUsagePermissions::PermissionModerate))
+                    return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
 
+                /** @var Post $post */
+                $post = $this->entityManager->getRepository(Post::class)->find((int)$parser->get('postId'));
+                if (!$post || !$post->getHidden() || $post->getThread() !== $thread) return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
+
+                try {
+                    $post->setHidden(false);
+                    if ($ad = $this->entityManager->getRepository(AdminDeletion::class)->findOneBy(['post' => $post]))
+                        $this->entityManager->remove($ad);
+                    $this->entityManager->persist( $post );
+                    $this->entityManager->flush();
+                    return AjaxResponse::success();
+                }
+                catch (Exception $e) {
+                    return AjaxResponse::error( ErrorHelper::ErrorDatabaseException );
+                }
+
+            case 'seen':
+
+                /** @var Post $post */
+                $post = $this->entityManager->getRepository(Post::class)->find((int)$parser->get('postId'));
+
+                if (!$this->perm->checkEffectivePermissions($this->getUser(), $forum, ForumUsagePermissions::PermissionModerate))
+                    return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
+
+                if (!$post || $post->getAdminReports(true)->isEmpty()) return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
+
+                try {
+                    foreach ($post->getAdminReports(true) as $report)
+                        $this->entityManager->persist($report->setSeen(true));
+                    $this->entityManager->persist( $post );
+                    $this->entityManager->flush();
+                    return AjaxResponse::success();
+                }
+                catch (Exception $e) {
+                    return AjaxResponse::error( ErrorHelper::ErrorDatabaseException );
+                }
             default: break;
         }
 

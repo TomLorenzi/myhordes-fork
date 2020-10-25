@@ -23,17 +23,21 @@
 @myhordes-forum-disabled-button-color:  grey;
 @myhordes-forum-disabled-button-border: grey;
 
-.modOrigText {
+.modOrigText, .modWarnText, .modInfoText {
   clear: left; margin: 0 15px;
   position: relative;
-  background-color: #324200;
-  background-image: linear-gradient(-45deg, #0006 25%, #fff0 25%, #fff0 50%, #0006 50%, #0006 75%, #fff0 75%, #fff0 100%);
+
+  background-image: linear-gradient(-45deg, #0001 25%, #fff0 25%, #fff0 50%, #0001 50%, #0001 75%, #fff0 75%, #fff0 100%);
   background-size: 12.63px 12.63px;
-  border: 1px solid #004702;
+
   padding: 2px 2px 2px 8px;
-  &>span:first-child { font-size: 0.6em; color: #a4ff96 }
+  &>span:first-child { font-size: 0.6em; font-weight: bold }
   &:not(.pointer)>span:first-child { display: none; }
   &.pointer>div:last-child { display: none }
+
+  &.modOrigText { background-color: #324200; border: 1px solid #004702; &>span:first-child { color: #a4ff96 }; &>div { color: white; } }
+  &.modWarnText { background-color: #ff7272; border: 1px solid #fb5f5f; &>span:first-child, &>div { color: #000000 } }
+  &.modInfoText { background-color: #ffe1a6; border: 1px solid #fcc281; &>span:first-child, &>div { color: #000000 } }
 
   &+.forum-post-content {border-top: none !important;}
 }
@@ -116,21 +120,13 @@
 
   .oracleAnnounce,
   .modAnnounce,
-  .adminAnnounce, .modOrigText {
+  .adminAnnounce {
     clear: left;
     margin: 0 15px;
     padding: 8px 8px 8px 24px;
     background-repeat: no-repeat;
     border-radius: 4px;
     position: relative;
-
-    &.modOrigText {
-      background-color: #005c14;
-      border: 1px solid #004702;
-      padding: 2px 2px 2px 8px;
-      &>span:first-child { font-size: 0.6em; color: #a4ff96 }
-      &.pointer>div:last-child { display: none }
-    }
 
     &.oracleAnnounce {
       background-image: url('../../img/forum/announceBg.png');
@@ -426,7 +422,7 @@
   }
 }
 
-.adminAnnounces, .oracleAnnounces {
+.announces {
   font-size: 1rem;
   padding: 3px 3px 3px 25px;
   color: white;
@@ -434,6 +430,7 @@
   background-repeat: no-repeat;
   background-position: 3px 3px;
   border-radius: 3px;
+
   &.adminAnnounces {
     background-image: url("../../img/forum/adminAnnounce.png");
     background-color: #553C53;
@@ -446,9 +443,12 @@
     border: 1px solid #4e5162;
   }
 
-  .announce  {
-    font-size: 1.25rem;
+  &.reported {
+    background-image: url("../../img/forum/warning.png");
+    background-color: #3e0000;
+    border: 1px solid #ff3333;
   }
+
   ul {
     list-style-image: url('../../img/forum/view.png');
     padding-left: 20px;
@@ -462,7 +462,6 @@
     }
   }
 }
-
 
 .forum-preview-container {
   border: 1px solid @myhordes-smalltext; padding: 3px;

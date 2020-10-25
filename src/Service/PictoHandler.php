@@ -88,10 +88,7 @@ class PictoHandler
     public function nightly_validate_picto(Citizen $citizen) {
         // Also, the RP, Sandball, ban, theft and soul collector pictos are always validated
         // In small town, we add the Guide and Nightwatch pictos
-        $pictoAlwaysPersisted = array('r_rp_#00', 'r_sandb_#00', 'r_ban_#00', 'r_theft_#00', 'r_collec_#00');
-        if ($citizen->getTown()->getType()->getName() == "small") {
-            $pictoAlwaysPersisted = array_merge($pictoAlwaysPersisted, array('r_guide_#00', 'r_guard_#00'));
-        }
+        $pictoAlwaysPersisted = $this->conf->getTownConfiguration($citizen->getTown())->get(TownConf::CONF_INSTANT_PICTOS, []);
 
         foreach ($citizen->getUser()->getPictos() as $picto) {
             /** @var Picto $picto */
@@ -105,12 +102,16 @@ class PictoHandler
             // In Small Towns, if the user has 100 soul points or more, he must survive at least 8 days or die from the attack during day 7 to 8
             // to validate the picto (set them as persisted)
             if(in_array($picto->getPrototype()->getName(), $pictoAlwaysPersisted)){
+
                 $persistPicto = true;
-            } else if ($citizen->getTown()->getType()->getName() == "small" && $citizen->getUser()->getAllSoulPoints() >= 100) {
+
+            } else if ($this->conf->getTownConfiguration($citizen->getTown())->get(TownConf::CONF_MODIFIER_STRICT_PICTOS, false) && $citizen->getUser()->getAllSoulPoints() >= 100) {
+
                 if($citizen->getSurvivedDays() == 8 && $citizen->getCauseOfDeath() !== null && $citizen->getCauseOfDeath()->getRef() == CauseOfDeath::NightlyAttack)
                     $persistPicto = true;
                 else if ($citizen->getSurvivedDays() > 8)
                     $persistPicto = true;
+
             } else if ($citizen->getSurvivedDays() >= 5) {
                 $persistPicto = true;
             }
@@ -139,7 +140,7 @@ class PictoHandler
         $conf = $this->conf->getTownConfiguration($citizen->getTown());
 
         // In private towns, we get only 1/3 of all pictos and no rare, unless it is specified otherwise
-        if($citizen->getTown()->getType()->getName() == "custom" && !$conf->get(TownConf::CONF_FEATURE_GIVE_ALL_PICTOS, false)){
+        if(!$conf->get(TownConf::CONF_FEATURE_GIVE_ALL_PICTOS, true)){
 
             $keepPictos = [];
 

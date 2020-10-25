@@ -1,7 +1,7 @@
 <?php
 
 
-namespace App\Command;
+namespace App\Command\Town;
 
 
 use App\Entity\ActionCounter;
@@ -11,6 +11,7 @@ use App\Entity\CitizenStatus;
 use App\Entity\Town;
 use App\Entity\Zone;
 use App\Service\CommandHelper;
+use App\Service\ConfMaster;
 use App\Service\GameFactory;
 use App\Service\MazeMaker;
 use App\Service\NightlyHandler;
@@ -28,18 +29,19 @@ use Symfony\Component\Console\Helper\Table;
 
 class TownInspectorCommand extends Command
 {
-    protected static $defaultName = 'app:town';
+    protected static $defaultName = 'app:town:inspect';
 
-    private $entityManager;
-    private $gameFactory;
-    private $townHandler;
-    private $zonehandler;
-    private $nighthandler;
-    private $mazeMaker;
-    private $trans;
-    private $helper;
+    private EntityManagerInterface $entityManager;
+    private GameFactory $gameFactory;
+    private TownHandler $townHandler;
+    private ZoneHandler $zonehandler;
+    private NightlyHandler $nighthandler;
+    private MazeMaker $mazeMaker;
+    private Translator $trans;
+    private CommandHelper $helper;
+    private ConfMaster $conf;
 
-    public function __construct(EntityManagerInterface $em, GameFactory $gf, ZoneHandler $zh, TownHandler $th, NightlyHandler $nh, Translator $translator, MazeMaker $maker, CommandHelper $ch)
+    public function __construct(EntityManagerInterface $em, GameFactory $gf, ZoneHandler $zh, TownHandler $th, NightlyHandler $nh, Translator $translator, MazeMaker $maker, CommandHelper $ch, ConfMaster $conf)
     {
         $this->entityManager = $em;
         $this->gameFactory = $gf;
@@ -49,6 +51,7 @@ class TownInspectorCommand extends Command
         $this->trans = $translator;
         $this->mazeMaker = $maker;
         $this->helper = $ch;
+        $this->conf = $conf;
         parent::__construct();
     }
 
@@ -60,6 +63,7 @@ class TownInspectorCommand extends Command
             ->addArgument('TownID', InputArgument::REQUIRED, 'The town ID')
 
             ->addOption('show-zones', null, InputOption::VALUE_NONE, 'Lists zone information.')
+            ->addOption('show-conf',  null, InputOption::VALUE_NONE, 'Lists town config.')
             ->addOption('zone-limit-x', null, InputOption::VALUE_OPTIONAL | InputOption::VALUE_IS_ARRAY, 'Limits zone output to a given X coordinate. Use twice to specify range.', null)
             ->addOption('zone-limit-y', null, InputOption::VALUE_OPTIONAL | InputOption::VALUE_IS_ARRAY, 'Limits zone output to a given Y coordinate. Use twice to specify range.', null)
 
@@ -88,7 +92,7 @@ class TownInspectorCommand extends Command
             ;
     }
 
-    protected function info(Town $town, OutputInterface $output, bool $zones, ?array $x_range = null, ?array $y_range = null) {
+    protected function info(Town $town, OutputInterface $output, bool $zones, ?array $x_range = null, ?array $y_range = null, bool $show_config = false) {
         $this->trans->setLocale($town->getLanguage() ?? 'de');
         $output->writeln('<comment>Common town data</comment>');
         $table = new Table( $output );
@@ -104,6 +108,20 @@ class TownInspectorCommand extends Command
         ]);
         $table->render();
         $output->writeln("\n");
+
+        if ($show_config) {
+            $table = new Table($output);
+            $table->setHeaders(['Property','Value']);
+
+            foreach ($this->conf->getTownConfiguration( $town )->raw() as $name => $value) {
+                if (is_bool($value)) $value = $value ? 'true' : 'false';
+                elseif (is_array($value)) $value = empty($value) ? '[]' : implode("\n", array_map(function ($entry) {
+                    return is_array($entry) ? implode(", ", $entry) : $entry;
+                }, $value));
+                $table->addRow([$name, "<info>{$value}</info>"]);
+            }
+            $table->render();
+        }
 
         $output->writeln('<comment>Citizen list</comment>');
         $table = new Table( $output );
@@ -332,6 +350,6 @@ class TownInspectorCommand extends Command
         if ($rg_x !== null && count($rg_x) === 1) $rg_x[1] = $rg_x[0];
         if ($rg_y !== null && count($rg_y) === 1) $rg_y[1] = $rg_y[0];
 
-        return $no_info ? 0 : $this->info($town, $output, $input->getOption('show-zones'), $rg_x, $rg_y);
+        return $no_info ? 0 : $this->info($town, $output, $input->getOption('show-zones'), $rg_x, $rg_y, $input->getOption('show-conf'));
     }
 }
