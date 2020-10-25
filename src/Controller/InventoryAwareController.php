@@ -964,7 +964,7 @@ class InventoryAwareController extends AbstractController
         $citizen = $base_citizen ?? $this->getActiveCitizen();
 
         $zone = $citizen->getZone();
-        if ($zone && $zone->getZombies() > 0 && !$action->getAllowWhenTerrorized() && $this->citizen_handler->hasStatusEffect($citizen, 'terror'))
+        if ($zone && $zone->getZombies() > 0 && !$action->getAllowWhenTerrorized() && $this->citizen_handler->hasStatusEffect($citizen, 'terror') && !$this->zone_handler->check_cp($this->getActiveCitizen()->getZone()))
             return AjaxResponse::error( BeyondController::ErrorTerrorized );
 
         $secondary_inv = $zone ? $zone->getFloor() : $citizen->getHome()->getChest();
