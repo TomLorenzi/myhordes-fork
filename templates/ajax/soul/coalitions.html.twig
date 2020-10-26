@@ -113,9 +113,17 @@
                     if (searchBox.value.length >= 3)
                         $.ajax.background().load(
                             document.getElementById('users-list'),
-                            '{{ path('users_fuzzyfind') }}',
+                            '{{ path('users_fuzzyfind', {url: 'soul_invite_coalition'}) }}',
                             false,
-                            {'name': searchBox.value}
+                            {'name': searchBox.value},
+                            function () {
+                                $.html.addEventListenerAll('#users-list>.users-list-entry>div', 'click', function (e,elem) {
+                                    $.ajax.easySend( elem.getAttribute('x-soul-url'), {},
+                                        function () {
+                                            $.ajax.load(null, '{{ path('soul_coalitions') }}', true);
+                                        } );
+                                })
+                            }
                         );
                     else document.getElementById('users-list').innerHTML = '';
                 };

@@ -22,4 +22,6 @@ class MyHordesConf extends Conf
     const CONF_TOWNS_OPENMIN_CUSTOM = 'towns.openmin.custom';
 
     const CONF_RAW_AVATARS = 'allow_raw_avatars';
+
+    const CONF_COA_MAX_NUM = 'coalitions.size';
 }

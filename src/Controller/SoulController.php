@@ -60,6 +60,9 @@ class SoulController extends AbstractController
 
     const ErrorCoalitionAlreadyMember        = ErrorHelper::BaseSoulErrors + 10;
     const ErrorCoalitionNotSet               = ErrorHelper::BaseSoulErrors + 11;
+    const ErrorCoalitionUserAlreadyMember    = ErrorHelper::BaseSoulErrors + 12;
+    const ErrorCoalitionFull                 = ErrorHelper::BaseSoulErrors + 13;
+
 
     protected $entity_manager;
     protected $translator;
@@ -141,21 +144,22 @@ class SoulController extends AbstractController
     }
 
     /**
-     * @Route("jx/soul/fuzzyfind", name="users_fuzzyfind")
+     * @Route("jx/soul/fuzzyfind/{url}", name="users_fuzzyfind")
      * @param JSONRequestParser $parser
      * @param EntityManagerInterface $em
      * @return Response
      */
-    public function users_fuzzyfind(JSONRequestParser $parser, EntityManagerInterface $em): Response
+    public function users_fuzzyfind(JSONRequestParser $parser, EntityManagerInterface $em, $url = 'soul_visit'): Response
     {
-        if ($this->getUser()->getShadowBan()) return $this->render( 'ajax/soul/users_list.html.twig', [ 'users' => [] ]);
+        $user = $this->getUser();
+        if ($user->getShadowBan()) return $this->render( 'ajax/soul/users_list.html.twig', [ 'users' => [] ]);
 
         if (!$parser->has_all(['name'], true))
             return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
         $searchName = $parser->get('name');
-        $users = mb_strlen($searchName) >= 3 ? $em->getRepository(User::class)->findByNameContains($searchName) : [];
+        $users = mb_strlen($searchName) >= 3 ? array_filter($em->getRepository(User::class)->findByNameContains($searchName), fn(User $u) => $u !== $user) : [];
 
-        return $this->render( 'ajax/soul/users_list.html.twig', [ 'users' => $users ]);
+        return $this->render( 'ajax/soul/users_list.html.twig', [ 'users' => in_array($url, ['soul_visit','soul_invite_coalition']) ? $users : [], 'route' => $url ]);
     }
 
 
@@ -624,6 +628,73 @@ class SoulController extends AbstractController
             $this->entity_manager->remove( $user_coalition->getAssociation() );
 
         } else $this->entity_manager->remove( $user_coalition );
+
+
+        try {
+            $this->entity_manager->flush();
+        }
+        catch (Exception $e) {
+            return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
+        }
+
+        return AjaxResponse::success();
+    }
+
+    /**
+     * @Route("api/soul/coalition/invite/{id<\d+>}", name="soul_invite_coalition")
+     * @param ConfMaster $conf
+     * @param int $id
+     * @return Response
+     */
+    public function api_soul_invite_coalition(ConfMaster $conf, int $id): Response
+    {
+        $user = $this->getUser();
+
+        if ($id === $user->getId()) return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
+
+        /** @var UserGroupAssociation|null $user_coalition */
+        $user_coalition = $this->entity_manager->getRepository(UserGroupAssociation::class)->findOneBy( [
+                'user' => $user,
+                'associationType' => [UserGroupAssociation::GroupAssociationTypeCoalitionMember, UserGroupAssociation::GroupAssociationTypeCoalitionMemberInactive] ]
+        );
+
+        if ($user_coalition === null) return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
+        if ($user_coalition->getAssociationLevel() !== UserGroupAssociation::GroupAssociationLevelFounder)
+            return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
+
+        $all_users = $this->entity_manager->getRepository(UserGroupAssociation::class)->findBy( [
+                'association' => $user_coalition->getAssociation(),
+                'associationType' => [UserGroupAssociation::GroupAssociationTypeCoalitionMember, UserGroupAssociation::GroupAssociationTypeCoalitionMemberInactive] ]
+        );
+
+        if (count($all_users) >= $conf->getGlobalConf()->get(MyHordesConf::CONF_COA_MAX_NUM, 5))
+            return AjaxResponse::error( self::ErrorCoalitionFull );
+
+        $target = $this->entity_manager->getRepository(User::class)->find($id);
+        if ($target === null) return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
+
+        /** @var UserGroupAssociation|null $user_coalition */
+        $target_coalition = $this->entity_manager->getRepository(UserGroupAssociation::class)->findOneBy( [
+                'user' => $target,
+                'associationType' => [UserGroupAssociation::GroupAssociationTypeCoalitionMember, UserGroupAssociation::GroupAssociationTypeCoalitionMemberInactive] ]
+        );
+
+        /** @var UserGroupAssociation|null $user_coalition */
+        $self_coalition = $this->entity_manager->getRepository(UserGroupAssociation::class)->findOneBy( [
+                'user' => $target,
+                'association' => $user_coalition->getAssociation()
+        ] );
+
+
+        if ($target_coalition || $self_coalition) return AjaxResponse::error( self::ErrorCoalitionUserAlreadyMember );
+
+        $this->entity_manager->persist(
+            (new UserGroupAssociation)
+                ->setUser($target)
+                ->setAssociation( $user_coalition->getAssociation() )
+                ->setAssociationType( UserGroupAssociation::GroupAssociationTypeCoalitionInvitation )
+                ->setAssociationLevel( UserGroupAssociation::GroupAssociationLevelDefault )
+        );
 
 
         try {
