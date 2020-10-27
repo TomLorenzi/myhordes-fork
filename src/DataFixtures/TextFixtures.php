@@ -1534,6 +1534,25 @@ class TextFixtures extends Fixture
             "background" => "white",
             "design" => "white"
         ],
+        "epit" => [
+            "title" => "Épitaphe",
+            "author" => "aeniln57",
+            "content" => [
+                '>
+                <h1>Epitaphe</h1>
+                <p>Nous perdons aujourd\'hui notre dernier Heros,<br>
+                En veillant sur nos vies, il croisa son destin<br>
+                Et ces immondes choses s\'en sont fait un festin,<br>
+                N\'en laissant qu\'une épaule, un pied, et quelques os.<br>
+                La Horde chaque jour rend rouges nos aurores ;<br>
+                La Horde chaque nuit nous ronge et nous consume…<br>
+                Hommes, sonnez le glas de l’ami qu’on inhume,<br>
+                Mais bientôt soyez sûrs qu’il sonnera encore…</p>'
+            ],
+            "lang" => "fr",
+            "background" => "notepad",
+            "design" => "written"
+        ],
         "dead1" => [
             "title" => "Épitaphe pour Alfred",
             "author" => "Planeshift",
@@ -1556,6 +1575,29 @@ class TextFixtures extends Fixture
             ],
             "lang" => "fr",
             "background" => "carton",
+            "design" => "written"
+        ],
+        "espece" => [
+            "title" => "Espèce en voie de disparition",
+            "author" => "Aknarintja",
+            "content" => [
+                '>
+                <p>
+                Réveil à 6 heures.<br>
+                Il pleut à verse, mais c\'est décidé, aujourd\'hui je retourne à la Villa.<br>
+                Ces derniers jours nous avons retrouvé une bande de chats puants et hirsutes comme s\'ils avaient été caressés à rebrousse-poil pendant des mois,<br>
+                et aucune trace de la chienne de mon père.<br>
+                </p>
+                <p>
+                Quelle rincée !<br>
+                J\'aperçois enfin cette maison jadis charmante et harmonieuse, maintenant crasseuse et dévastée.<br>
+                Est-ce que tu es là ma belle ?<br>
+                Où t\'es Pepette, où t\'es ?<br>
+                Dis moi où tu es cachée.<br>
+                </p>'
+            ],
+            "lang" => "fr",
+            "background" => "notepad",
             "design" => "written"
         ],
         "ster" => [
@@ -3967,7 +4009,7 @@ class TextFixtures extends Fixture
             "design" => "written"
         ],
         "ensole" => [
-             "title" => "Souvenirs d'un survivant perdu",
+             "title" => "Souvenir d'un été ensoleillé",
              "author" => "Drozera",
              "content" => [
                 '>
@@ -4141,6 +4183,25 @@ class TextFixtures extends Fixture
             "background" => "notepad",
             "design" => "written"
         ],
+        "tobego" => [
+             "title" => "To be goule or not to be ?",
+             "author" => "Aaku",
+             "content" => [
+                '>
+                <p>Ma persévérance s’éloigne avec mes derniers espoirs de survie sur le dos,
+                juste car je ne voudrais pas en arriver à sacrifier leur vie pour sauver la mienne.</p>
+                <p>
+                A quoi bon agir si égoïstement, après tout… ?</p>
+                <p>
+                En me laissant mourir, j’avais des chances de rejoindre ceux qui n’étaient déjà plus des nôtres, au paradis. Mais mon dieu accepterait-t-il un monstre dans son royaume ?</p>
+                <p>
+                Bannie, ma seule chance de survie reste de dévorer un citoyen à portée de ma nature goulesque.
+                Alors que je suis bientôt épuisée, oserai-je tuer cet homme, qui campe misérablement dans l’Outre-monde ?</p>'
+             ],
+             "lang" => "fr",
+             "background" => "notepad",
+             "design" => "written"
+         ],
         "tomb_fr" => [
              "title" => "Tombe d'un poète",
              "author" => "Emmatopiak",
@@ -4540,7 +4601,35 @@ class TextFixtures extends Fixture
              "lang" => "fr",
              "background" => "old",
              "design" => "poem"
-         ],
+        ],
+         "conti" => [
+             "title" => "Contine des jours sans lendemain",
+             "author" => "Prostipoulpe",
+             "content" => [
+                '>
+                <p>Un, deux, trois, de l\'eau je ne bois,<br>
+                Quatre, cinq, six, je chasse les écrits,<br>
+                Sept, huit, neuf, maintenant jmange mon oeuf,<br>
+                Dix, onze, douze, une petite fouille piquouze,<br>
+                Treize, quatorze, quinze, un teddy contre une guinze,<br>
+                Seize, dix-sept, dix-huit, l\'ETL réussie,<br>
+                Dix-neuf, vingt, vingt et un, jmarche avec entrain,<br>
+                Vingt-deux, vingt-trois, vingt-quatre, des zombies à abattre,<br>
+                Vingt-cinq, vingt-six, vingt-sept, twino, alcool, machette,<br>
+                Vingt-huit, vingt-neuf, trente, mourir J1, une constante,<br>
+                Trente et un, trente-deux, trente-trois, picto déshydratation encore une fois.<br>
+                </p>',
+                'Cloaque étrange (1)
+                <p>Disette chez la Horde : aucun des 35 zombies n\'a eu quoi que ce soit à se mettre sous la dent hier soir en ville, nos défenses ont bien tenu.</p>
+                <p>Amusant, † Bistouflex n\'est toujours pas rentré(e) en ville depuis hier…</p>
+                - Le Corbeau
+                Morts en ville : Aucun !
+                Autres Victimes (1) : Bistouflex'
+             ],
+             "lang" => "fr",
+             "background" => "secret",
+             "design" => "written"
+        ],
         "regler_fr" => [
             "title" => "Regretté Regler",
             "author" => "Darkhan",
