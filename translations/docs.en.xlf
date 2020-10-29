@@ -1117,5 +1117,14 @@
         <target>Es wird angezeigt :</target>
       </segment>
     </unit>
+    <unit id="iNaLkw8" name="Wenn aus Twinoid importiert, Ländercode + Season (zb &quot;fr-12&quot;); sonst leer.">
+      <notes>
+        <note category="german">Wenn aus Twinoid importiert, Ländercode + Season (zb "fr-12"); sonst leer.</note>
+      </notes>
+      <segment>
+        <source>Wenn aus Twinoid importiert, Ländercode + Season (zb "fr-12"); sonst leer.</source>
+        <target>Wenn aus Twinoid importiert, Ländercode + Season (zb "fr-12"); sonst leer.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

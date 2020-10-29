@@ -18,9 +18,7 @@
         {% if membership is null %}
             <div class="cell rw-12 padded">
                 <div class="help">
-                    {% trans from 'soul' %}
-                        Du möchtest schon seit langem <strong>mit deinen Freunden zusammen sterben</strong>? Du möchtest die gleichen schönen und <strong>entsetzlichen</strong> Momente mit ihnen erleben? Dann sind die <strong>Kleinen Koalitionen</strong> genau das richtige für dich! Es handelt sich um kleine Mannschaften von <strong>5</strong> Bürgern, die gemeinsam die Welt der Verdammten entdecken möchten.
-                    {% endtrans %}
+                        {{ 'Du möchtest schon seit langem <strong>mit deinen Freunden zusammen sterben</strong>? Du möchtest die gleichen schönen und <strong>entsetzlichen</strong> Momente mit ihnen erleben? Dann sind die <strong>Kleinen Koalitionen</strong> genau das richtige für dich! Es handelt sich um kleine Mannschaften von <strong>5</strong> Bürgern, die gemeinsam die Welt der Verdammten entdecken möchten.'|trans({}, 'soul') }}
                     <br />
                     {% trans from 'soul' %}
                         Das Prinzip ist ganz einfach: Wenn ihr in einer Koalition spielt, <strong>zieht der Erste, der eine Partie anfängt, alle verfügbaren Koalitionsmitglieder mit sich ins Spiel.</strong>
@@ -97,7 +95,7 @@
     <script>
         {% if membership is null %}
             $.html.addEventListenerAll('#make_coa', 'click', function() {
-                if (confirm('{{ 'Du möchtest deine eigene Koalition erstellen?'|trans({},'soul'|e('js')) }}'))
+                if (confirm('{{ 'Du möchtest deine eigene Koalition erstellen?'|trans({},'soul')|e('js')) }}'))
                     $.ajax.easySend( '{{ path('soul_create_coalition') }}', {},
                         function () {
                             $.ajax.load(null, '{{ path('soul_coalitions') }}', true);

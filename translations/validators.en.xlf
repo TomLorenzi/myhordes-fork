@@ -903,7 +903,7 @@
     </unit>
     <unit id="dN.ZVc0" name="Please enter a valid birthdate.">
       <notes>
-        <note category="german">Please enter a valid birthdate.</note>
+        <note category="german">Bitte geben Sie ein gültiges Geburtsdatum ein.</note>
       </notes>
       <segment>
         <source>Please enter a valid birthdate.</source>
@@ -912,7 +912,7 @@
     </unit>
     <unit id="OPymPfZ" name="The selected choice is invalid.">
       <notes>
-        <note category="german">The selected choice is invalid.</note>
+        <note category="german">Die Auswahl ist ungültig.</note>
       </notes>
       <segment>
         <source>The selected choice is invalid.</source>
@@ -921,7 +921,7 @@
     </unit>
     <unit id="GUH6TYE" name="The collection is invalid.">
       <notes>
-        <note category="german">The collection is invalid.</note>
+        <note category="german">Diese Gruppe von Feldern ist ungültig.</note>
       </notes>
       <segment>
         <source>The collection is invalid.</source>
@@ -930,7 +930,7 @@
     </unit>
     <unit id="14il0ha" name="Please select a valid color.">
       <notes>
-        <note category="german">Please select a valid color.</note>
+        <note category="german">Bitte geben Sie eine gültige Farbe ein.</note>
       </notes>
       <segment>
         <source>Please select a valid color.</source>
@@ -939,7 +939,7 @@
     </unit>
     <unit id="4AJRUCC" name="Please select a valid country.">
       <notes>
-        <note category="german">Please select a valid country.</note>
+        <note category="german">Bitte wählen Sie ein gültiges Land aus.</note>
       </notes>
       <segment>
         <source>Please select a valid country.</source>
@@ -948,7 +948,7 @@
     </unit>
     <unit id="xAI5mrh" name="Please select a valid currency.">
       <notes>
-        <note category="german">Please select a valid currency.</note>
+        <note category="german">Bitte wählen Sie eine gültige Währung aus.</note>
       </notes>
       <segment>
         <source>Please select a valid currency.</source>
@@ -957,7 +957,7 @@
     </unit>
     <unit id="c6v9ASZ" name="Please choose a valid date interval.">
       <notes>
-        <note category="german">Please choose a valid date interval.</note>
+        <note category="german">Bitte wählen Sie ein gültiges Datumsintervall.</note>
       </notes>
       <segment>
         <source>Please choose a valid date interval.</source>
@@ -966,7 +966,7 @@
     </unit>
     <unit id="2BR60Jg" name="Please enter a valid date and time.">
       <notes>
-        <note category="german">Please enter a valid date and time.</note>
+        <note category="german">Bitte geben Sie ein gültiges Datum samt Uhrzeit ein.</note>
       </notes>
       <segment>
         <source>Please enter a valid date and time.</source>
@@ -975,7 +975,7 @@
     </unit>
     <unit id="ofLBhv0" name="Please enter a valid date.">
       <notes>
-        <note category="german">Please enter a valid date.</note>
+        <note category="german">Bitte geben Sie ein gültiges Datum ein.</note>
       </notes>
       <segment>
         <source>Please enter a valid date.</source>
@@ -984,7 +984,7 @@
     </unit>
     <unit id="Xsmm6Mc" name="Please select a valid file.">
       <notes>
-        <note category="german">Please select a valid file.</note>
+        <note category="german">Bitte wählen Sie eine gültige Datei.</note>
       </notes>
       <segment>
         <source>Please select a valid file.</source>
@@ -993,7 +993,7 @@
     </unit>
     <unit id="Fka0cZD" name="The hidden field is invalid.">
       <notes>
-        <note category="german">The hidden field is invalid.</note>
+        <note category="german">Das versteckte Feld ist ungültig.</note>
       </notes>
       <segment>
         <source>The hidden field is invalid.</source>
@@ -1002,7 +1002,7 @@
     </unit>
     <unit id="69ux5Ml" name="Please enter an integer.">
       <notes>
-        <note category="german">Please enter an integer.</note>
+        <note category="german">Bitte geben Sie eine ganze Zahl ein.</note>
       </notes>
       <segment>
         <source>Please enter an integer.</source>
@@ -1011,7 +1011,7 @@
     </unit>
     <unit id="TQbat_9" name="Please select a valid language.">
       <notes>
-        <note category="german">Please select a valid language.</note>
+        <note category="german">Bitte wählen Sie eine gültige Sprache.</note>
       </notes>
       <segment>
         <source>Please select a valid language.</source>
@@ -1020,7 +1020,7 @@
     </unit>
     <unit id="vpa7l8w" name="Please select a valid locale.">
       <notes>
-        <note category="german">Please select a valid locale.</note>
+        <note category="german">Bitte wählen Sie eine gültige Locale-Einstellung aus.</note>
       </notes>
       <segment>
         <source>Please select a valid locale.</source>
@@ -1029,7 +1029,7 @@
     </unit>
     <unit id="Gz8pWER" name="Please enter a valid money amount.">
       <notes>
-        <note category="german">Please enter a valid money amount.</note>
+        <note category="german">Bitte geben Sie einen gültigen Geldbetrag ein.</note>
       </notes>
       <segment>
         <source>Please enter a valid money amount.</source>
@@ -1038,7 +1038,7 @@
     </unit>
     <unit id="PRxiOhB" name="Please enter a number.">
       <notes>
-        <note category="german">Please enter a number.</note>
+        <note category="german">Bitte geben Sie eine gültige Zahl ein.</note>
       </notes>
       <segment>
         <source>Please enter a number.</source>
@@ -1047,7 +1047,7 @@
     </unit>
     <unit id="seAdKJo" name="The password is invalid.">
       <notes>
-        <note category="german">The password is invalid.</note>
+        <note category="german">Das Kennwort ist ungültig.</note>
       </notes>
       <segment>
         <source>The password is invalid.</source>
@@ -1056,7 +1056,7 @@
     </unit>
     <unit id="A5k0Q20" name="Please enter a percentage value.">
       <notes>
-        <note category="german">Please enter a percentage value.</note>
+        <note category="german">Bitte geben Sie einen gültigen Prozentwert ein.</note>
       </notes>
       <segment>
         <source>Please enter a percentage value.</source>
@@ -1065,7 +1065,7 @@
     </unit>
     <unit id="rH6V.WA" name="The values do not match.">
       <notes>
-        <note category="german">The values do not match.</note>
+        <note category="german">Die Werte stimmen nicht überein.</note>
       </notes>
       <segment>
         <source>The values do not match.</source>
@@ -1074,7 +1074,7 @@
     </unit>
     <unit id="Eopl1Sm" name="Please enter a valid time.">
       <notes>
-        <note category="german">Please enter a valid time.</note>
+        <note category="german">Bitte geben Sie eine gültige Uhrzeit ein.</note>
       </notes>
       <segment>
         <source>Please enter a valid time.</source>
@@ -1083,7 +1083,7 @@
     </unit>
     <unit id="ll14Sm9" name="Please select a valid timezone.">
       <notes>
-        <note category="german">Please select a valid timezone.</note>
+        <note category="german">Bitte wählen Sie eine gültige Zeitzone.</note>
       </notes>
       <segment>
         <source>Please select a valid timezone.</source>
@@ -1092,7 +1092,7 @@
     </unit>
     <unit id="1xP1kmd" name="Please enter a valid URL.">
       <notes>
-        <note category="german">Please enter a valid URL.</note>
+        <note category="german">Bitte geben Sie eine gültige URL ein.</note>
       </notes>
       <segment>
         <source>Please enter a valid URL.</source>
@@ -1101,7 +1101,7 @@
     </unit>
     <unit id="iMmAsrC" name="Please enter a valid search term.">
       <notes>
-        <note category="german">Please enter a valid search term.</note>
+        <note category="german">Bitte geben Sie einen gültigen Suchbegriff ein.</note>
       </notes>
       <segment>
         <source>Please enter a valid search term.</source>
@@ -1110,11 +1110,56 @@
     </unit>
     <unit id="GRMTXRX" name="Please provide a valid phone number.">
       <notes>
-        <note category="german">Please provide a valid phone number.</note>
+        <note category="german">Bitte geben Sie eine gültige Telefonnummer ein.</note>
       </notes>
       <segment>
         <source>Please provide a valid phone number.</source>
         <target>Please provide a valid phone number.</target>
+      </segment>
+    </unit>
+    <unit id="WkYuMDd" name="The checkbox has an invalid value.">
+      <notes>
+        <note category="german">Das Kontrollkästchen hat einen ungültigen Wert.</note>
+      </notes>
+      <segment>
+        <source>The checkbox has an invalid value.</source>
+        <target>The checkbox has an invalid value.</target>
+      </segment>
+    </unit>
+    <unit id="lY5Mzyl" name="Please enter a valid email address.">
+      <notes>
+        <note category="german">Bitte geben Sie eine gültige E-Mail-Adresse ein.</note>
+      </notes>
+      <segment>
+        <source>Please enter a valid email address.</source>
+        <target>Please enter a valid email address.</target>
+      </segment>
+    </unit>
+    <unit id="TzSC4.o" name="Please select a valid option.">
+      <notes>
+        <note category="german">Bitte wählen Sie eine gültige Option.</note>
+      </notes>
+      <segment>
+        <source>Please select a valid option.</source>
+        <target>Please select a valid option.</target>
+      </segment>
+    </unit>
+    <unit id="qGRcTk7" name="Please select a valid range.">
+      <notes>
+        <note category="german">Bitte wählen Sie einen gültigen Bereich.</note>
+      </notes>
+      <segment>
+        <source>Please select a valid range.</source>
+        <target>Please select a valid range.</target>
+      </segment>
+    </unit>
+    <unit id="PU.w6nC" name="Please enter a valid week.">
+      <notes>
+        <note category="german">Bitte geben Sie eine gültige Woche ein.</note>
+      </notes>
+      <segment>
+        <source>Please enter a valid week.</source>
+        <target>Please enter a valid week.</target>
       </segment>
     </unit>
   </file>
