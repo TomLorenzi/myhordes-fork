@@ -192,12 +192,14 @@ class MigrateCommand extends Command
 
             if (!$input->getOption('fast')) {
                 if ($env === 'dev') {
-                    if (!$this->capsule( ($input->getOption('phar') ? 'php composer.phar' : 'composer') . " update", $output, 'Updating composer dependencies...', false )) return 3;
-                } else if (!$this->capsule( ($input->getOption('phar') ? 'php composer.phar' : 'composer') . " update --no-dev --optimize-autoloader", $output, 'Updating composer production dependencies... ', false )) return 4;
+                    if (!$this->capsule( ($input->getOption('phar') ? 'php composer.phar' : 'composer') . " install", $output, 'Updating composer dependencies...', false )) return 3;
+                } else if (!$this->capsule( ($input->getOption('phar') ? 'php composer.phar' : 'composer') . " install --no-dev --optimize-autoloader", $output, 'Updating composer production dependencies... ', false )) return 4;
                 if (!$this->capsule( "yarn install", $output, 'Updating yarn dependencies... ', false )) return 5;
             } else $output->writeln("Skipping <info>dependency updates</info>.");
 
-            if (!$this->capsule( "yarn encore {$env}", $output, 'Building web assets... ', false )) return 6;
+            if (!$input->getOption('fast')) {
+                if (!$this->capsule( "yarn encore {$env}", $output, 'Building web assets... ', false )) return 6;
+            } else $output->writeln("Skipping <info>web asset updates</info>.");
 
             $version_lines = $this->bin( 'git describe --tags', $ret );
             if (count($version_lines) >= 1) {
