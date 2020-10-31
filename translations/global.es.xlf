@@ -1114,7 +1114,7 @@
       </notes>
       <segment>
         <source>Liste der Themen aktualisieren</source>
-        <target>Liste der Themen aktualisieren</target>
+        <target>Actualizar la lista de temas</target>
       </segment>
     </unit>
     <unit id="1DOwo4V" name="Dieses Thema enthält offizielle Ansagen der Website Administratoren.">
@@ -1123,7 +1123,7 @@
       </notes>
       <segment>
         <source>Dieses Thema enthält offizielle Ansagen der Website Administratoren.</source>
-        <target>Dieses Thema enthält offizielle Ansagen der Website Administratoren.</target>
+        <target>Este tema tiene uno o varios anuncios de la Administración.</target>
       </segment>
     </unit>
     <unit id="B75DsbE" name="Dieses Thema enthält Ansagen von Community-Vertretern.">
@@ -1132,7 +1132,7 @@
       </notes>
       <segment>
         <source>Dieses Thema enthält Ansagen von Community-Vertretern.</source>
-        <target>Dieses Thema enthält Ansagen von Community-Vertretern.</target>
+        <target>Este tema tiene uno o varios anuncios de representantes de la comunidad.</target>
       </segment>
     </unit>
     <unit id="8_r8k2t" name="Dieses Thema enthält %count% offizielle Ansage(n) der MyHordes-Administratoren:">
@@ -1141,7 +1141,7 @@
       </notes>
       <segment>
         <source>Dieses Thema enthält %count% offizielle Ansage(n) der MyHordes-Administratoren:</source>
-        <target>Dieses Thema enthält %count% offizielle Ansage(n) der MyHordes-Administratoren:</target>
+        <target>Este tema contiene %count% anuncio(s) oficial(es) de la Administración de MyHordes :</target>
       </segment>
     </unit>
     <unit id="GfGOj1g" name="Dieses Thema enthält %count% Ansage(n) von Community-Vertretern:">
@@ -1150,7 +1150,7 @@
       </notes>
       <segment>
         <source>Dieses Thema enthält %count% Ansage(n) von Community-Vertretern:</source>
-        <target>Dieses Thema enthält %count% Ansage(n) von Community-Vertretern:</target>
+        <target>Este tema tiene %count% anuncio(s) de representantes de la comunidad :</target>
       </segment>
     </unit>
     <unit id="wg02Gq4" name="Zitieren">
@@ -1159,7 +1159,7 @@
       </notes>
       <segment>
         <source>Zitieren</source>
-        <target>Zitieren</target>
+        <target>Citar</target>
       </segment>
     </unit>
     <unit id="H5.W95P" name="7a92ff6">
@@ -1177,7 +1177,7 @@
       </notes>
       <segment>
         <source>Bestätigen</source>
-        <target>Bestätigen</target>
+        <target>Confirmar</target>
       </segment>
     </unit>
     <unit id="3RZ5Bd4" name="Version">
@@ -1186,7 +1186,7 @@
       </notes>
       <segment>
         <source>Version</source>
-        <target>Version</target>
+        <target>Versión</target>
       </segment>
     </unit>
     <unit id="8qHMcfp" name="Sprache">
@@ -1195,7 +1195,7 @@
       </notes>
       <segment>
         <source>Sprache</source>
-        <target>Sprache</target>
+        <target>Idioma</target>
       </segment>
     </unit>
     <unit id="33mt65B" name="Num. Listenpunkt">
@@ -1249,7 +1249,7 @@
       </notes>
       <segment>
         <source>Diese ID übergibst du der Seite oder dem Programm, dem du einen (Lese-)Zugriff auf deine Spieldaten in "MyHordes" geben möchtest. Das sind Informationen zu deiner Stadt, dem Bürgerverzeichnis, der Weltkarte etc.</source>
-        <target>Diese ID übergibst du der Seite oder dem Programm, dem du einen (Lese-)Zugriff auf deine Spieldaten in "MyHordes" geben möchtest. Das sind Informationen zu deiner Stadt, dem Bürgerverzeichnis, der Weltkarte etc.</target>
+        <target>Este identificador debe proporcionarse a todos los sitios a los que desee permitir el acceso (solo lectura) a la información del juego guardada en su cuenta MyHordes: información sobre su ciudad, lista de ciudadanos, mapa del mundo, etc.</target>
       </segment>
     </unit>
     <unit id=".0Hr4tG" name="Diese Punkte werden für die Seelenrangliste verwendet.">
@@ -1258,7 +1258,7 @@
       </notes>
       <segment>
         <source>Diese Punkte werden für die Seelenrangliste verwendet.</source>
-        <target>Diese Punkte werden für die Seelenrangliste verwendet.</target>
+        <target>Estos puntos son tomados en cuenta para la Escala de Almas.</target>
       </segment>
     </unit>
     <unit id="L3FSiZr" name="1eebdb6">
@@ -1267,7 +1267,7 @@
       </notes>
       <segment>
         <source>Abhängig von der Anzahl der Tage, die du überlebt hast, erhältst du nach jeder Partie eine bestimmte Anzahl an Punkten.</source>
-        <target>Abhängig von der Anzahl der Tage, die du überlebt hast, erhältst du nach jeder Partie eine bestimmte Anzahl an Punkten.</target>
+        <target>Ganarás puntos al final de cada partida en función de la cantidad de días sobrevividos.</target>
       </segment>
     </unit>
     <unit id="OP_adtd" name="Unangemessene Nachricht blockieren">
@@ -1285,7 +1285,7 @@
       </notes>
       <segment>
         <source>Link</source>
-        <target>Link</target>
+        <target>Enlace</target>
       </segment>
     </unit>
     <unit id="6ih6_9H" name="Permanenter Link zu diesem Post:">
@@ -1294,7 +1294,7 @@
       </notes>
       <segment>
         <source>Permanenter Link zu diesem Post:</source>
-        <target>Permanenter Link zu diesem Post:</target>
+        <target>Enlace permanente a esta publicación:</target>
       </segment>
     </unit>
     <unit id="WyLb36J" name="Deinen Rucksack umklammern">
@@ -1564,7 +1564,7 @@
       </notes>
       <segment>
         <source>Stadtforum</source>
-        <target>Stadtforum</target>
+        <target>Foro de la ciudad</target>
       </segment>
     </unit>
     <unit id="78Bg7UU" name="Weltforen">
@@ -1573,7 +1573,7 @@
       </notes>
       <segment>
         <source>Weltforen</source>
-        <target>Weltforen</target>
+        <target>Foros Mundiales</target>
       </segment>
     </unit>
     <unit id="9o6Bgnk" name="Andere Foren">
@@ -1582,7 +1582,7 @@
       </notes>
       <segment>
         <source>Andere Foren</source>
-        <target>Andere Foren</target>
+        <target>Otros Foros</target>
       </segment>
     </unit>
     <unit id="h.t7uDT" name="Mindestens ein Post in diesem Thema wurde den Moderatoren gemeldet.">
