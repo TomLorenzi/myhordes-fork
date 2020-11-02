@@ -602,7 +602,12 @@ class PictoFixtures extends Fixture
             'icon' => 'r_beta2',
             'rare' => true
         ],
-
+        [
+            'label' => 'HAZ-Gewinner',
+            'description' => 'Ehrenauszeichnung für den Gewinner der Heilung für die Auszeichnungssucht.',
+            'icon' => 'r_gsp',
+            'rare' => false
+        ],
     ];
 
     private $entityManager;

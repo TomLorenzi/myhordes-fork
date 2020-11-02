@@ -316,6 +316,7 @@ class AwardFixtures extends Fixture implements DependentFixtureInterface {
         ['title'=>'Dieser Kobold ist unaufhaltbar.', 'unlockquantity'=>50, 'associatedtag'=>':lepre:', 'associatedpicto'=>'r_lepre_#00'],
         ['title'=>'Verbrennt ihn! Sieh nach ob seine Asche grün wird!', 'unlockquantity'=>75, 'associatedtag'=>':lepre:', 'associatedpicto'=>'r_lepre_#00'],
         ['title'=>'Ein Wohnwagen ohne Räder???', 'unlockquantity'=>100, 'associatedtag'=>':lepre:', 'associatedpicto'=>'r_lepre_#00'],
+        ['title'=>'Ich bin geheilt', 'unlockquantity'=>1, 'associatedtag'=>':gsp:', 'associatedpicto'=>'r_gsp_#00'],
     ];
 
     private function insertAwards(ObjectManager $manager, ConsoleOutputInterface $out) {
