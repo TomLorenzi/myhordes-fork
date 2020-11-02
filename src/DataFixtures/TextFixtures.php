@@ -1932,6 +1932,21 @@ class TextFixtures extends Fixture
             "background" => "notepad",
             "design" => "written"
         ],
+        "kirou" => [
+            "title" => "Il était un temps",
+            "author" => "kiroukou",
+            "content" => [
+                '>
+				<h1>L\'admin Kiroukou</h1>
+				<p>
+				Il était un temps où le réveil était synonyme de travail et le travail était synonyme de jeux et de joueurs. <br>
+				A cette époque, il était coutume de faire briller la belle balise violette sur les forums. <br>
+				</p>'
+            ],
+            "lang" => "fr",
+            "background" => "notepad",
+            "design" => "poem"
+        ],
         "infect" => [
             "title" => "Infection",
             "author" => "anonyme",
