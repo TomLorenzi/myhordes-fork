@@ -582,7 +582,7 @@ class PictoFixtures extends Fixture
             'label' => 'Bewohner Koh-Lambdas',
             'description' => 'Dieser Bürger war bei der Wiedervereinigung (letzte Runde) von Koh-Lambda dabei!',
             'icon' => 'r_kohlmb',
-            'rare' => true
+            'rare' => false
         ],
         [
             'label' => 'Der Kobold hat dich erwischt',
