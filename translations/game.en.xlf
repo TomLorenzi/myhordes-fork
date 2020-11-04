@@ -7367,7 +7367,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Und die Energie, die in diesen Tanz gesteckt wurde, zahlt sich schließlich aus, die ersten Tropfen fallen auf die Zombies und du genießt diesen delikaten Moment, in dem ihr Fleisch wie Schnee in der Sonne schmilzt und du geduldig wartest, bis sich ihre Körper verflüssigen.</source>
-        <target>Und die Energie, die in diesen Tanz gesteckt wurde, zahlt sich schließlich aus, die ersten Tropfen fallen auf die Zombies und du genießt diesen delikaten Moment, in dem ihr Fleisch wie Schnee in der Sonne schmilzt und du geduldig wartest, bis sich ihre Körper verflüssigen.</target>
+        <target>and the energy invested in this dance finally pays off, the first drops of rain fall on the zombies and their flesh melts like snow in the sunshine and you watch and wait until their bodies are completely liquefied.</target>
       </segment>
     </unit>
     <unit id="rLM.vNL" name="75f054e">
@@ -9341,7 +9341,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Wenn du anfängst zu gehen, greift ein sehr starker Schmerz in dein Bein. Du fällst stöhnend zu Boden. Man verliert eine Aktion...</source>
-        <target>As you start walking, a very sharp pain seizes your leg. You fall on the ground moaning. You lose an Action Point ...</target>
+        <target>As you start walking, a very sharp pain seizes your leg. You fall on the ground, moaning. You lose an Action Point ...</target>
       </segment>
     </unit>
     <unit id="4gAjVQX" name="Verlassener Bunker">
