@@ -32,7 +32,7 @@
                                 {% else %}
                                     {% for citizen in gazette.death_inside %}
                                     <span>
-                                        <span x-ajax-href="{{ path('town_visit', {id: citizen.id}) }}" style="cursor: pointer; text-decoration: underline;">{{citizen.user.username}}</span>,
+                                        <span x-ajax-href="{{ path('town_visit', {id: citizen.id}) }}" style="cursor: pointer; text-decoration: underline;">{{citizen.user.name}}</span>,
                                         <div class="tooltip normal">
                                             <h1>{{'Todesursache'|trans({}, 'game')}}</h1>
                                             {{citizen.causeOfDeath.label|trans({}, 'game')}}
@@ -48,7 +48,7 @@
                                     </div>
                                     {% for citizen in gazette.death_outside %}
                                     <span>
-                                        <span x-ajax-href="{{ path('town_visit', {id: citizen.id}) }}" style="cursor: pointer; text-decoration: underline;">{{citizen.user.username}}</span>,
+                                        <span x-ajax-href="{{ path('town_visit', {id: citizen.id}) }}" style="cursor: pointer; text-decoration: underline;">{{citizen.user.name}}</span>,
                                         <div class="tooltip normal">
                                             <h1>{{'Todesursache'|trans({}, 'game')}}</h1>
                                             {{citizen.causeOfDeath.label|trans({}, 'game')}}
@@ -111,7 +111,7 @@
             {% for citizenWithRole in citizensWithRole %}
                 {% for role in citizenWithRole.roles %}
                     {% if not role.secret and not role.hidden %}
-                        <p><img alt="•" src="{{ asset('build/images/icons/small_middot.gif') }}" />{{ "Der %rolename% der Stadt ist %username%"|trans({'%rolename%': "<strong>" ~ role.label|trans({}, 'game') ~ "</strong>", '%username%': "<strong>" ~ citizenWithRole.user.username ~ "</strong>"} , 'game')|raw }}</p>
+                        <p><img alt="•" src="{{ asset('build/images/icons/small_middot.gif') }}" />{{ "Der %rolename% der Stadt ist %username%"|trans({'%rolename%': "<strong>" ~ role.label|trans({}, 'game') ~ "</strong>", '%username%': "<strong>" ~ citizenWithRole.user.name ~ "</strong>"} , 'game')|raw }}</p>
                     {% endif %}
                 {% endfor %}
             {% endfor %}

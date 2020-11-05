@@ -2,6 +2,9 @@
     "behat/transliterator": {
         "version": "v1.3.0"
     },
+    "brainbox-et/etwin-api-client": {
+        "version": "dev-master"
+    },
     "clue/graph": {
         "version": "v0.9.1"
     },

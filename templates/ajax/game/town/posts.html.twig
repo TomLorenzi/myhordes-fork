@@ -14,7 +14,7 @@
 
     {% for post in posts %}
         <div class="forum-post">
-            <div class="forum-post-header {% if not post.owner or post.owner.user.username == 'Der Rabe' %}header-variant-crow{% endif %}">
+            <div class="forum-post-header {% if not post.owner or post.owner.user.name == 'Der Rabe' %}header-variant-crow{% endif %}">
                 <i>
                     {% if post.date.format('Ymd') == today|date("Ymd") %}
                         {{ 'Heute um'|trans({},'global') }} {{ post.date|format_datetime('none', 'short') }}
@@ -24,7 +24,7 @@
                         {{ post.date|format_datetime('medium', 'short') }}
                     {% endif %}
                 </i>
-                {% if post.owner and post.owner.user.username != 'Der Rabe' %}
+                {% if post.owner and post.owner.user.name != 'Der Rabe' %}
 
                     {% if (post.owner.user.avatar) %}
                         {% if app.user.preferSmallAvatars %}
@@ -44,10 +44,10 @@
                 {% endif %}
 
                 <b>
-                    {% if not post.owner or post.owner.user.username == 'Der Rabe' %}
+                    {% if not post.owner or post.owner.user.name == 'Der Rabe' %}
                         {{ 'Der Rabe'|trans({},'global') }}
                     {% else %}
-                        {{ post.owner.user.username }}
+                        {{ post.owner.user.name }}
                     {% endif %}
                 </b>
             </div>

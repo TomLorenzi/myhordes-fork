@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "bf5d26dfc83c3d2c70a4a621966e6372",
+    "content-hash": "9fe3b6606d1898ef795d6ddbd7b469d9",
     "packages": [
         {
             "name": "behat/transliterator",
@@ -50,6 +50,43 @@
                 "transliterator"
             ],
             "time": "2020-01-14T16:39:13+00:00"
+        },
+        {
+            "name": "brainbox-et/etwin-api-client",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://gitlab.com/eternal-twin/etwin-php-api-client.git",
+                "reference": "a58f79a8b7170e89626d94e3f98ae7fa0d1aa7db"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://gitlab.com/api/v4/projects/eternal-twin%2Fetwin-php-api-client/repository/archive.zip?sha=a58f79a8b7170e89626d94e3f98ae7fa0d1aa7db",
+                "reference": "a58f79a8b7170e89626d94e3f98ae7fa0d1aa7db",
+                "shasum": ""
+            },
+            "require": {
+                "ext-json": "*",
+                "php": ">=7.4"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "EternalTwinClient\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "CC-BY-SA-4.0"
+            ],
+            "authors": [
+                {
+                    "name": "Benjamin Behrendt",
+                    "email": "behrendt@isg.cs.uni-magdeburg.de"
+                }
+            ],
+            "description": "PHP-based client to connect to the EternalTwin API",
+            "time": "2020-11-05T16:38:51+00:00"
         },
         {
             "name": "clue/graph",
@@ -1584,6 +1621,7 @@
                 "reflection",
                 "static"
             ],
+            "abandoned": "roave/better-reflection",
             "time": "2020-10-27T21:46:55+00:00"
         },
         {
@@ -1641,16 +1679,16 @@
         },
         {
             "name": "egulias/email-validator",
-            "version": "2.1.22",
+            "version": "2.1.23",
             "source": {
                 "type": "git",
                 "url": "https://github.com/egulias/EmailValidator.git",
-                "reference": "68e418ec08fbfc6f58f6fd2eea70ca8efc8cc7d5"
+                "reference": "5fa792ad1853ae2bc60528dd3e5cbf4542d3c1df"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/egulias/EmailValidator/zipball/68e418ec08fbfc6f58f6fd2eea70ca8efc8cc7d5",
-                "reference": "68e418ec08fbfc6f58f6fd2eea70ca8efc8cc7d5",
+                "url": "https://api.github.com/repos/egulias/EmailValidator/zipball/5fa792ad1853ae2bc60528dd3e5cbf4542d3c1df",
+                "reference": "5fa792ad1853ae2bc60528dd3e5cbf4542d3c1df",
                 "shasum": ""
             },
             "require": {
@@ -1695,7 +1733,7 @@
                 "validation",
                 "validator"
             ],
-            "time": "2020-09-26T15:48:38+00:00"
+            "time": "2020-10-31T20:37:35+00:00"
         },
         {
             "name": "gedmo/doctrine-extensions",
@@ -3955,16 +3993,16 @@
         },
         {
             "name": "symfony/flex",
-            "version": "v1.9.10",
+            "version": "v1.10.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/flex.git",
-                "reference": "7335ec033995aa34133e621627333368f260b626"
+                "reference": "e38520236bdc911c2f219634b485bc328746e980"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/flex/zipball/7335ec033995aa34133e621627333368f260b626",
-                "reference": "7335ec033995aa34133e621627333368f260b626",
+                "url": "https://api.github.com/repos/symfony/flex/zipball/e38520236bdc911c2f219634b485bc328746e980",
+                "reference": "e38520236bdc911c2f219634b485bc328746e980",
                 "shasum": ""
             },
             "require": {
@@ -4014,7 +4052,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2020-10-14T17:41:54+00:00"
+            "time": "2020-11-05T10:56:45+00:00"
         },
         {
             "name": "symfony/form",
@@ -8695,7 +8733,9 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "brainbox-et/etwin-api-client": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {

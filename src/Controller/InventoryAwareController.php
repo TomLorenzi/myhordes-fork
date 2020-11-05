@@ -138,7 +138,7 @@ class InventoryAwareController extends AbstractController
         $data['rucksack_size'] = $this->inventory_handler->getSize( $this->getActiveCitizen()->getInventory() );
         $data['pm'] = $this->getActiveCitizen()->getPm();
         $data['max_pm'] = $this->citizen_handler->getMaxPM( $this->getActiveCitizen() );
-        $data['username'] = $this->getUser()->getUsername();
+        $data['username'] = $this->getUser()->getName();
         $data['is_shaman'] = $is_shaman;
         $data['hunger'] = $this->getActiveCitizen()->getGhulHunger();
         return $data;
@@ -216,7 +216,7 @@ class InventoryAwareController extends AbstractController
 
                 foreach ($this->getActiveCitizen()->getTown()->getCitizens() as $citizen)
                     if ($citizen->getAlive() && $citizen->getZone() && round( sqrt(pow($citizen->getZone()->getX(),2 ) + pow($citizen->getZone()->getY(),2 )) ) <= 2)
-                        $targets[] = [ $citizen->getId(), $citizen->getUser()->getUsername(), "build/images/professions/{$citizen->getProfession()->getIcon()}.gif" ];
+                        $targets[] = [ $citizen->getId(), $citizen->getUser()->getName(), "build/images/professions/{$citizen->getProfession()->getIcon()}.gif" ];
 
                 break;
         }
@@ -373,7 +373,7 @@ class InventoryAwareController extends AbstractController
                 return AjaxResponse::success();
             }
 
-            $notes[] = $this->translator->trans( 'Mit weit aufgerissenem Maul stürzt du dich auf %citizen%. Unter der Wucht deiner brutalen Schläge und Tritte sackt er ziemlich schnell zusammen.', ['%citizen%' => $victim->getUser()->getUsername()], 'game' );
+            $notes[] = $this->translator->trans( 'Mit weit aufgerissenem Maul stürzt du dich auf %citizen%. Unter der Wucht deiner brutalen Schläge und Tritte sackt er ziemlich schnell zusammen.', ['%citizen%' => $victim->getUser()->getName()], 'game' );
             $notes[] = $this->translator->trans( 'Mit ein paar unschönen Tritten gegen seinen Kopf vergewisserst du dich, dass er garantiert nicht mehr aufstehen wird. Na los! Bring deinen Job zuende und verspeise ihn!', [], 'game' );
 
             $give_ap = 6;
@@ -488,9 +488,9 @@ class InventoryAwareController extends AbstractController
 
             $this->citizen_handler->setAP($aggressor, true, -5);
             $this->addFlash('notice',
-                $this->translator->trans('Mit aller Gewalt greifst du %citizen% an! Du hast den Überraschungsmoment auf deiner Seite und am Ende trägt %citizen% eine schwere Verletzung davon.', ['%citizen%' => $defender->getUser()->getUsername()], 'game')
+                $this->translator->trans('Mit aller Gewalt greifst du %citizen% an! Du hast den Überraschungsmoment auf deiner Seite und am Ende trägt %citizen% eine schwere Verletzung davon.', ['%citizen%' => $defender->getUser()->getName()], 'game')
                 . "<hr />" .
-                $this->translator->trans('Plötzlich sackt %citizen% in sich zusammen, seine Augen drehen sich nach hinten, und mit einem schauerhaften Gurgeln löst sich sein ganzer Körper vor deinen Augen auf und hinterlässt nur den üblen Geruch von Tod und Verwesung! Es gibt keinen Zweifel mehr: %citizen% war ein Ghul!!', ['%citizen%' => $defender->getUser()->getUsername()], 'game')
+                $this->translator->trans('Plötzlich sackt %citizen% in sich zusammen, seine Augen drehen sich nach hinten, und mit einem schauerhaften Gurgeln löst sich sein ganzer Körper vor deinen Augen auf und hinterlässt nur den üblen Geruch von Tod und Verwesung! Es gibt keinen Zweifel mehr: %citizen% war ein Ghul!!', ['%citizen%' => $defender->getUser()->getName()], 'game')
             );
             $this->entity_manager->persist($this->log->citizenAttack($aggressor, $defender, true));
             $this->death_handler->kill($defender, CauseOfDeath::GhulBeaten);
@@ -501,7 +501,7 @@ class InventoryAwareController extends AbstractController
 
         } elseif ( $this->citizen_handler->isWounded( $defender ) ) {
 
-            $this->addFlash('error', $this->translator->trans('%citizen% ist bereits verletzt; ihn erneut anzugreifen wird dir nichts bringen.', ['%citizen%' => $defender->getUser()->getUsername()], 'game'));
+            $this->addFlash('error', $this->translator->trans('%citizen% ist bereits verletzt; ihn erneut anzugreifen wird dir nichts bringen.', ['%citizen%' => $defender->getUser()->getName()], 'game'));
 
         } else {
 
@@ -510,12 +510,12 @@ class InventoryAwareController extends AbstractController
             $this->entity_manager->persist($this->log->citizenAttack($aggressor, $defender, $wound));
             if ($wound) {
                 $this->addFlash('notice',
-                    $this->translator->trans('Mit aller Gewalt greifst du %citizen% an! Du hast den Überraschungsmoment auf deiner Seite und am Ende trägt %citizen% eine schwere Verletzung davon.', ['%citizen%' => $defender->getUser()->getUsername()], 'game')
+                    $this->translator->trans('Mit aller Gewalt greifst du %citizen% an! Du hast den Überraschungsmoment auf deiner Seite und am Ende trägt %citizen% eine schwere Verletzung davon.', ['%citizen%' => $defender->getUser()->getName()], 'game')
                 );
                 $this->citizen_handler->inflictWound($defender);
 
             } else $this->addFlash('notice',
-                $this->translator->trans('Mit aller Gewalt greifst du %citizen% an! Ihr tauscht für eine Weile Schläge aus, bis ihr euch schließlich größtenteils unverletzt voneinander trennt.', ['%citizen%' => $defender->getUser()->getUsername()], 'game')
+                $this->translator->trans('Mit aller Gewalt greifst du %citizen% an! Ihr tauscht für eine Weile Schläge aus, bis ihr euch schließlich größtenteils unverletzt voneinander trennt.', ['%citizen%' => $defender->getUser()->getName()], 'game')
             );
 
         }
@@ -641,11 +641,11 @@ class InventoryAwareController extends AbstractController
 
                                 $this->entity_manager->persist( $this->log->townSteal( $victim_home->getCitizen(), $citizen, $current_item->getPrototype(), $steal_up, false, $current_item->getBroken() ) );
                                 $this->addFlash( 'notice', $this->translator->trans('"Einen Schritt weiter..." stand auf %victim%s Fußmatte. Ihre Explosion hat einen bleibenden Eindruck bei dir hinterlassen. Wenn du noch laufen kannst, such dir besser einen Arzt.', 
-                                ['%victim%' => $victim_home->getCitizen()->getUser()->getUsername()], 'game') );
+                                ['%victim%' => $victim_home->getCitizen()->getUser()->getName()], 'game') );
                             } elseif ($isSanta) {
                                 $this->entity_manager->persist( $this->log->townSteal( $victim_home->getCitizen(), null, $current_item->getPrototype(), $steal_up, true, $current_item->getBroken() ) );
                                 $this->addFlash( 'notice', $this->translator->trans('Dank deines Kostüms konntest du %item% von %victim% stehlen, ohne erkannt zu werden', [
-                                    '%victim%' => $victim_home->getCitizen()->getUser()->getUsername(),
+                                    '%victim%' => $victim_home->getCitizen()->getUser()->getName(),
                                     '%item%' => "<span>" . $this->translator->trans($current_item->getPrototype()->getLabel(),[], 'items') . "</span>"], 'game') );
                             } elseif ($this->entity_manager->getRepository(CitizenHomeUpgrade::class)->findOneByPrototype(
                                 $victim_home,
@@ -653,17 +653,17 @@ class InventoryAwareController extends AbstractController
                             {
                                 $this->entity_manager->persist( $this->log->townSteal( $victim_home->getCitizen(), $citizen, $current_item->getPrototype(), $steal_up, false, $current_item->getBroken() ) );
                                 $this->citizen_handler->inflictStatus( $citizen, 'terror' );
-                                $this->addFlash( 'notice', $this->translator->trans('%victim%s Alarmanlage hat die halbe Stadt aufgeweckt und dich zu Tode erschreckt!', ['%victim%' => $victim_home->getCitizen()->getUser()->getUsername()], 'game') );
+                                $this->addFlash( 'notice', $this->translator->trans('%victim%s Alarmanlage hat die halbe Stadt aufgeweckt und dich zu Tode erschreckt!', ['%victim%' => $victim_home->getCitizen()->getUser()->getName()], 'game') );
                             } elseif (($victim_home->getCitizen()->getAlive() && $this->random_generator->chance(0.5)) || !$victim_home->getCitizen()->getAlive()) {
                                 if($victim_home->getCitizen()->getAlive()){
                                     $this->entity_manager->persist( $this->log->townSteal( $victim_home->getCitizen(), $citizen, $current_item->getPrototype(), $steal_up, false, $current_item->getBroken() ) );
-                                    $this->addFlash( 'notice', $this->translator->trans('Mist, dein Einbruch bei %victim% ist aufgeflogen...', ['%victim%' => $victim_home->getCitizen()->getUser()->getUsername()], 'game') );
+                                    $this->addFlash( 'notice', $this->translator->trans('Mist, dein Einbruch bei %victim% ist aufgeflogen...', ['%victim%' => $victim_home->getCitizen()->getUser()->getName()], 'game') );
                                 } else {
                                     $this->entity_manager->persist( $this->log->townLoot( $victim_home->getCitizen(), $citizen, $current_item->getPrototype(), $steal_up, false, $current_item->getBroken() ) );
                                 }
                             } else {
                                 $this->entity_manager->persist( $this->log->townSteal( $victim_home->getCitizen(), null, $current_item->getPrototype(), $steal_up, false, $current_item->getBroken() ) );
-                                $this->addFlash( 'notice', $this->translator->trans('Sehr gut, niemand hat dich bei deinem Einbruch bei %victim% beobachtet.', ['%victim%' => $victim_home->getCitizen()->getUser()->getUsername()], 'game') );
+                                $this->addFlash( 'notice', $this->translator->trans('Sehr gut, niemand hat dich bei deinem Einbruch bei %victim% beobachtet.', ['%victim%' => $victim_home->getCitizen()->getUser()->getName()], 'game') );
                             }
 
                             $this->crow->postAsPM( $victim_home->getCitizen(), '', '', PrivateMessage::TEMPLATE_CROW_THEFT, $current_item->getPrototype()->getId() );
