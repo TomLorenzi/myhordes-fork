@@ -20,6 +20,8 @@ security:
             guard:
                 authenticators:
                     - App\Security\AjaxAuthenticator
+                    - App\Security\EternalAuthenticator
+                entry_point: App\Security\EternalAuthenticator
             remember_me:
                 secret: '%kernel.secret%'
                 lifetime: 2629800 # 1 month

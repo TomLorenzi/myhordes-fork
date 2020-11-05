@@ -8,16 +8,21 @@ use App\Entity\PictoPrototype;
 use App\Entity\User;
 use App\Entity\UserPendingValidation;
 use App\Exception\DynamicAjaxResetException;
+use App\Service\ConfMaster;
 use App\Service\ErrorHelper;
+use App\Service\EternalTwinHandler;
 use App\Service\JSONRequestParser;
 use App\Service\UserFactory;
 use App\Response\AjaxResponse;
+use App\Structures\MyHordesConf;
 use Doctrine\ORM\EntityManagerInterface;
 use Exception;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\RedirectResponse;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
 use Symfony\Component\Security\Core\Authentication\Token\UsernamePasswordToken;
 use Symfony\Component\Validator\Constraints;
 use Symfony\Component\Validator\ConstraintViolationInterface;
@@ -26,6 +31,7 @@ use Symfony\Contracts\Translation\TranslatorInterface;
 
 /**
  * @Route("/",condition="request.isXmlHttpRequest()")
+ * @method User|null getUser
  */
 class PublicController extends AbstractController
 {
@@ -56,23 +62,37 @@ class PublicController extends AbstractController
 
     /**
      * @Route("jx/public/login", name="public_login")
+     * @param ConfMaster $conf
+     * @param EternalTwinHandler $etwin
      * @return Response
      */
-    public function login(): Response
+    public function login(ConfMaster $conf, EternalTwinHandler $etwin): Response
     {
         if ($this->isGranted( 'ROLE_REGISTERED' ))
             return $this->redirect($this->generateUrl('initial_landing'));
-        return $this->render( 'ajax/public/login.html.twig', $this->addDefaultTwigArgs() );
+
+        $global = $conf->getGlobalConf();
+        $allow_dual_stack = $global->get(MyHordesConf::CONF_ETWIN_DUAL_STACK, true);
+
+        return $this->render(  $etwin->isReady() ? 'ajax/public/login.html.twig' : 'ajax/public/login_legacy.html.twig', $this->addDefaultTwigArgs([
+            'etwin' => $etwin->isReady(),
+            'myh' => $allow_dual_stack,
+        ]) );
     }
 
     /**
      * @Route("jx/public/register", name="public_register")
+     * @param EternalTwinHandler $etwin
      * @return Response
      */
-    public function register(): Response
+    public function register(EternalTwinHandler $etwin): Response
     {
         if ($this->isGranted( 'ROLE_REGISTERED' ))
             return $this->redirect($this->generateUrl('initial_landing'));
+
+        if ($etwin->isReady())
+            return $this->redirect($this->generateUrl('public_login'));
+
         return $this->render( 'ajax/public/register.html.twig',  $this->addDefaultTwigArgs() );
     }
 
@@ -198,10 +218,11 @@ class PublicController extends AbstractController
         JSONRequestParser $parser,
         TranslatorInterface $translator,
         UserFactory $factory,
-        EntityManagerInterface $entityManager
+        EntityManagerInterface $entityManager,
+        EternalTwinHandler $etwin
     ): Response
     {
-        if ($this->isGranted( 'ROLE_REGISTERED' ))
+        if ($this->isGranted( 'ROLE_REGISTERED' ) || $etwin->isReady())
             return AjaxResponse::error(ErrorHelper::ErrorActionNotAvailable);
 
         if (!$parser->valid()) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
@@ -267,6 +288,133 @@ class PublicController extends AbstractController
 
             return AjaxResponse::error( 'invalid_fields', ['fields' => $v] );
         }
+    }
+
+    /**
+     * @Route("jx/public/login/etwin/{code}", name="etwin_login")
+     * @param string $code
+     * @param TranslatorInterface $translator
+     * @param EternalTwinHandler $etwin
+     * @param SessionInterface $session
+     * @return Response
+     */
+    public function login_via_etwin(string $code, TranslatorInterface $translator, EternalTwinHandler $etwin, SessionInterface $session): Response {
+
+
+        $myhordes_user = $this->getUser();
+        if ($myhordes_user && $myhordes_user->getEternalID())
+            throw new DynamicAjaxResetException(Request::createFromGlobals());
+
+        if (empty($code) || !$etwin->isReady()) {
+            $this->addFlash('error', $translator->trans('Fehler bei der Datenübertragung.', [], 'login'));
+            throw new DynamicAjaxResetException(Request::createFromGlobals());
+        }
+
+        try {
+            $etwin->setAuthorizationCode( $code );
+            $user = $etwin->requestAuthSelf($e);
+        } catch (Exception $e) {
+            $this->addFlash('error', $translator->trans('Fehler bei der Datenübertragung.', [], 'login'));
+            throw new DynamicAjaxResetException(Request::createFromGlobals());
+        }
+
+        if ($user->isValid()) {
+
+            $potential_user = $this->entity_manager->getRepository(User::class)->findOneByEternalID( $user->getID() );
+
+            $session->set('_etwin_user', $user);
+            $session->set('_etwin_login', $potential_user !== null);
+            $session->set('_etwin_local', $myhordes_user ? $myhordes_user->getId() : null);
+
+            return $this->render( 'ajax/public/et_welcome.html.twig', [
+                'etwin_user' => $user,
+                'target_user' => $potential_user,
+                'current_user' => $myhordes_user
+            ] );
+
+
+        } else $this->addFlash('error', $translator->trans('Fehler bei der Datenübertragung.', [], 'login'));
+
+        die;
+    }
+
+    /**
+     * @Route("api/public/etwin/confirm", name="api_etwin_confirm")
+     * @param SessionInterface $session
+     * @param UserFactory $userFactory
+     * @return Response
+     */
+    public function etwin_confirm_api(SessionInterface $session, UserFactory $userFactory): Response {
+
+        $myhordes_user = $this->getUser();
+
+        /** @var \EternalTwinClient\Object\User $etwin_user */
+        $etwin_user = $session->get('_etwin_user', null);
+
+        if ($etwin_user !== null && !is_a($etwin_user, \EternalTwinClient\Object\User::class))
+            return new RedirectResponse($this->generateUrl( 'api_etwin_cancel' ));
+
+        // Case A - Login
+        if ($myhordes_user === null && $session->has('_etwin_user') && $session->get('_etwin_login', false)) {
+            /** @var User $myhordes_user */
+            $myhordes_user = $this->entity_manager->getRepository(User::class)->findOneByEternalID( $etwin_user->getID() );
+
+            // Update display name
+            if ($myhordes_user) {
+                $this->entity_manager->persist( $myhordes_user->setDisplayName( $myhordes_user->getUsername() === $etwin_user->getDisplayName() ? null : $etwin_user->getDisplayName() ) );
+
+                try {
+                    $this->entity_manager->flush();
+                } catch (Exception $e) {
+                    return AjaxResponse::error( ErrorHelper::ErrorDatabaseException );
+                }
+
+                return new RedirectResponse($this->generateUrl( 'api_login' ));
+
+            } else return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
+
+        }
+
+        // Case B - Account Creation
+        elseif ($myhordes_user === null && $session->has('_etwin_user') && !$session->get('_etwin_login', false)) {
+
+            $new_user = $userFactory->importUser( $etwin_user );
+            $this->entity_manager->persist( $new_user );
+
+            try {
+                $this->entity_manager->flush();
+            } catch (Exception $e) {
+                return AjaxResponse::error( ErrorHelper::ErrorDatabaseException );
+            }
+
+            $session->set('_etwin_login', true);
+            return new RedirectResponse($this->generateUrl( 'api_login' ));
+        }
+
+        // Case C - Account linking
+        elseif ($myhordes_user !== null && $session->has('_etwin_user') && $session->get('_etwin_local') === $myhordes_user->getId()) {
+
+            if ($myhordes_user->getEternalID()) return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
+
+            $myhordes_user->setEternalID( $etwin_user->getID() )->setPassword(null);
+            if ($etwin_user->getUsername() !== $myhordes_user->getUsername())
+                $myhordes_user->setDisplayName( $etwin_user->getUsername() );
+            $session->set('_etwin_login', true);
+
+        }
+
+        return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
+    }
+
+    /**
+     * @Route("api/public/etwin/cancel", name="api_etwin_cancel")
+     * @param SessionInterface $session
+     * @return Response
+     */
+    public function etwin_cancel_api(SessionInterface $session): Response {
+        $session->remove('_etwin_user');
+        $session->remove('_etwin_login');
+        return AjaxResponse::success();
     }
 
     /**

@@ -43,7 +43,8 @@
         "symfony/yaml": "5.1.*",
         "twig/intl-extra": "^3.0",
         "ext-simplexml": "*",
-        "ext-libxml": "*"
+        "ext-libxml": "*",
+        "brainbox-et/etwin-api-client": "@dev"
     },
     "require-dev": {
         "symfony/debug-pack": "*",
@@ -92,7 +93,7 @@
         ]
     },
     "conflict": {
-        "symfony/symfony": "*"
+        "symfony/symfony": "0.1.*"
     },
     "extra": {
         "symfony": {

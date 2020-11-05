@@ -3,35 +3,26 @@
 
 namespace App\Security;
 
-
-use App\Service\JSONRequestParser;
+use App\Entity\User;
+use EternalTwinClient\Object\User as ETwinUser;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
-use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 use Symfony\Component\Security\Core\Exception\AuthenticationException;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Security\Core\User\UserProviderInterface;
 use Symfony\Component\Security\Guard\AbstractGuardAuthenticator;
 
-class AjaxAuthenticator extends AbstractGuardAuthenticator
+class EternalAuthenticator extends AbstractGuardAuthenticator
 {
-
-    private $request_parser;
-    private $password_generator;
     private $url_generator;
 
     public function __construct(
-        JSONRequestParser $parser,
-        UserPasswordEncoderInterface $passwordEncoder,
         UrlGeneratorInterface $router
     )
     {
-        $this->request_parser = $parser;
-        $this->password_generator = $passwordEncoder;
         $this->url_generator = $router;
     }
 
@@ -57,9 +48,20 @@ class AjaxAuthenticator extends AbstractGuardAuthenticator
      */
     public function supports(Request $request)
     {
-        return
-            $request->isXmlHttpRequest() &&
-            $this->request_parser->has_all( ['login_user','login_pass'], true);
+        if (!$request->isXmlHttpRequest() ||
+            !$request->getSession()->has('_etwin_user') ||
+            !$request->getSession()->get('_etwin_login', false))
+            return false;
+
+        /** @var ETwinUser $etwin_user_object */
+        $etwin_user_object = $request->getSession()->get('_etwin_user');
+
+        if (!is_a($etwin_user_object, ETwinUser::class) || !$etwin_user_object->isValid())
+            return false;
+
+        //var_dump($etwin_user_object);
+
+        return true;
     }
 
     /**
@@ -67,9 +69,11 @@ class AjaxAuthenticator extends AbstractGuardAuthenticator
      */
     public function getCredentials(Request $request)
     {
+        /** @var ETwinUser $etwin_user_object */
+        $etwin_user_object = $request->getSession()->get('_etwin_user');
+
         return [
-            'username' => $this->request_parser->trimmed('login_user', null),
-            'password' => $this->request_parser->trimmed('login_pass', null)
+            'etwin_id' => $etwin_user_object->getID()
         ];
     }
 
@@ -78,7 +82,7 @@ class AjaxAuthenticator extends AbstractGuardAuthenticator
      */
     public function getUser($credentials, UserProviderInterface $userProvider)
     {
-        return $userProvider->loadUserByUsername( "myh::{$credentials['username']}" );
+        return $userProvider->loadUserByUsername( "etwin::{$credentials['etwin_id']}" );
     }
 
     /**
@@ -86,7 +90,8 @@ class AjaxAuthenticator extends AbstractGuardAuthenticator
      */
     public function checkCredentials($credentials, UserInterface $user)
     {
-        return $this->password_generator->isPasswordValid( $user, $credentials['password'] );
+        /** @var User $user */
+        return $user->getEternalID() === $credentials['etwin_id'];
     }
 
     /**

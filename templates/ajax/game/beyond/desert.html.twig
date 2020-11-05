@@ -45,7 +45,7 @@
 
     {% if citizen.escortSettings is not null and citizen.escortSettings.leader is not null %}
         <div class="help">
-            <b>{{ 'Du folgst aktuell %citizen%.'|trans({'%citizen%': citizen.escortSettings.leader.user.username}, 'game') }}</b>
+            <b>{{ 'Du folgst aktuell %citizen%.'|trans({'%citizen%': citizen.escortSettings.leader.user.name}, 'game') }}</b>
             <p>
                 {% trans from 'game' %}
                     Solange du einem anderen Bürger folgst, sind deine Handlungsmöglichkeiten eingeschränkt.
@@ -319,7 +319,7 @@
                                     <img src="{{ asset('build/images/icons/player_offline.gif') }}" alt="{{ 'Offline'|trans({},'global') }}">
                                 {% endif %}
                                 <img alt="{{ other_citizen.profession.label|trans({}, 'game') }}" src="{{ asset('build/images/professions/' ~ other_citizen.profession.icon ~ '.gif') }}">
-                                <b>{{ other_citizen.user.username }}</b>
+                                <b>{{ other_citizen.user.name }}</b>
                             </div>
                             <div class="padded cell rw-3">
                                 <ul class="status">
@@ -457,7 +457,7 @@
                                     <img src="{{ asset('build/images/icons/player_offline.gif') }}" alt="{{ 'Offline'|trans({},'global') }}">
                                 {% endif %}
                                 <img alt="{{ other_citizen.profession.label|trans({}, 'game') }}" src="{{ asset('build/images/professions/' ~ other_citizen.profession.icon ~ '.gif') }}">
-                                <b>{{ other_citizen.user.username }}</b>
+                                <b>{{ other_citizen.user.name }}</b>
                             </div>
                             <div class="padded cell rw-4">
                                 <ul class="status">
@@ -471,7 +471,7 @@
                                         <li class="status">
                                             <img src="{{ asset('build/images/icons/escort_other.gif') }}" alt="{{ 'Eskorte'|trans({},'game') }}">
                                             <div class="tooltip">
-                                                {{ 'Dieser Bürger wird aktuell von %leader% eskortiert.'|trans({'%leader%': other_citizen.escortSettings.leader.user.username},'game') }}
+                                                {{ 'Dieser Bürger wird aktuell von %leader% eskortiert.'|trans({'%leader%': other_citizen.escortSettings.leader.user.name},'game') }}
                                             </div>
                                         </li>
                                     {% endif %}

@@ -153,29 +153,30 @@
                 </div>
             {% endif %}
 
-            <h5>{{ 'Login und Sicherheit'|trans({},'soul') }}</h5>
-            <div class="row">
-                <div class="cell padded rw-4 rw-sm-12">
-                    <label for="app_mail">{% trans from 'soul' %}E-Mail-Adresse{% endtrans %}</label>
-                </div>
-                <div class="cell padded rw-8 rw-sm-12">
-                    <input id="app_mail" type="text" disabled value="{{ app.user.email }}" />
-                </div>
-            </div>
-            <div class="row">
-                <div class="cell padded rw-4 rw-sm-12">
-                    {% trans from 'soul' %}Passwort ändern{% endtrans %}
-                </div>
-                <div class="cell rw-8 rw-sm-12">
-                    <div class="row">
-                        <div class="cell padded rw-6"><label><input id="app_pw_change_new1" placeholder="{{ 'Neues Passwort'|trans({},'soul') }}" type="password" value="" /></label></div>
-                        <div class="cell padded rw-6"><label><input id="app_pw_change_new2" placeholder="{{ 'Neues Passwort wiederholen'|trans({},'soul') }}" type="password" value="" /></label></div>
-                        <div class="cell padded rw-6"><label><input id="app_pw_change_old" placeholder="{{ 'Aktuelles Passwort'|trans({},'soul') }}" type="password" value="" /></label></div>
-                        <div class="cell padded rw-6"><button id="acc_ch_pw">{{ 'Passwort aktualisieren'|trans({},'soul') }}</button></div>
+            {% if not is_granted('ROLE_ETERNAL') %}
+                <h5>{{ 'Login und Sicherheit'|trans({},'soul') }}</h5>
+                <div class="row">
+                    <div class="cell padded rw-4 rw-sm-12">
+                        <label for="app_mail">{% trans from 'soul' %}E-Mail-Adresse{% endtrans %}</label>
                     </div>
-
+                    <div class="cell padded rw-8 rw-sm-12">
+                        <input id="app_mail" type="text" disabled value="{{ app.user.email }}" />
+                    </div>
                 </div>
-            </div>
+                <div class="row">
+                    <div class="cell padded rw-4 rw-sm-12">
+                        {% trans from 'soul' %}Passwort ändern{% endtrans %}
+                    </div>
+                    <div class="cell rw-8 rw-sm-12">
+                        <div class="row">
+                            <div class="cell padded rw-6"><label><input id="app_pw_change_new1" placeholder="{{ 'Neues Passwort'|trans({},'soul') }}" type="password" value="" /></label></div>
+                            <div class="cell padded rw-6"><label><input id="app_pw_change_new2" placeholder="{{ 'Neues Passwort wiederholen'|trans({},'soul') }}" type="password" value="" /></label></div>
+                            <div class="cell padded rw-6"><label><input id="app_pw_change_old" placeholder="{{ 'Aktuelles Passwort'|trans({},'soul') }}" type="password" value="" /></label></div>
+                            <div class="cell padded rw-6"><button id="acc_ch_pw">{{ 'Passwort aktualisieren'|trans({},'soul') }}</button></div>
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
 
             {% if not is_granted('ROLE_SHADOW_BANNED') %}
                 <h5>{{ 'Externe Anwendungen'|trans({},'soul') }}</h5>
@@ -193,12 +194,14 @@
                     </div>
                 </div>
 
-                <h5>{{ 'Account löschen'|trans({},'soul') }}</h5>
-                <div class="row">
-                    <div class="padded cell rw-4"><label for="acc_del_input">{{ 'Aktuelles Passwort'|trans({},'login') }}</label></div>
-                    <div class="padded cell rw-4"><input id="acc_del_input" type="password" /></div>
-                    <div class="padded cell rw-4"><button id="acc_del_btn"><i class="fa fa-trash"></i> {{ 'Meinen Account löschen'|trans({},'soul') }}</button></div>
-                </div>
+                {% if not is_granted('ROLE_ETERNAL') %}
+                    <h5>{{ 'Account löschen'|trans({},'soul') }}</h5>
+                    <div class="row">
+                        <div class="padded cell rw-4"><label for="acc_del_input">{{ 'Aktuelles Passwort'|trans({},'login') }}</label></div>
+                        <div class="padded cell rw-4"><input id="acc_del_input" type="password" /></div>
+                        <div class="padded cell rw-4"><button id="acc_del_btn"><i class="fa fa-trash"></i> {{ 'Meinen Account löschen'|trans({},'soul') }}</button></div>
+                    </div>
+                {% endif %}
             {% endif %}
 
         </div>
@@ -237,7 +240,8 @@
                 } )
         });
 
-        document.getElementById('acc_ch_pw').addEventListener('click', function(e) {
+
+        $.html.addEventListenerAll('#acc_ch_pw', 'click', function(e) {
             e.preventDefault();
             const pw_old = document.getElementById('app_pw_change_old').value;
             const pw_new1 = document.getElementById('app_pw_change_new1').value;

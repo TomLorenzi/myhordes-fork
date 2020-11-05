@@ -10,7 +10,7 @@
                         &nbsp;
                     </div>
                     <div class="cell padded rw-9 rw-sm-12">
-                        <b style="color: red">{{ 'Durch %admin% vom Spiel ausgeschlossen!'|trans({'%admin%': user.shadowBan.admin.username}, 'admin') }}</b>
+                        <b style="color: red">{{ 'Durch %admin% vom Spiel ausgeschlossen!'|trans({'%admin%': user.shadowBan.admin.name}, 'admin') }}</b>
                         {% if user.shadowBan.reason is not null %}
                             <br /><i style="color: red">"{{ user.shadowBan.reason }}"</i>
                         {% endif %}
@@ -20,7 +20,7 @@
                     <b>{{ 'Benutzername'|trans({}, 'admin') }}</b>
                 </div>
                 <div class="cell padded rw-9 rw-sm-12">
-                    {{ user.username }}
+                    {{ user.name }}
                 </div>
 
                 {% if is_granted("ROLE_ADMIN") %}
@@ -94,7 +94,7 @@
                         {% for list in user.connectionWhitelists %}
                             {% for other_user in list.users %}
                                 {% if other_user.id != user.id %}
-                                    <div>{{ other_user.username }} <span class="pointer" x-unwhitelist="{{ other_user.id }}"><i class="fa fa-trash"></i></span></div>
+                                    <div>{{ other_user.name }} <span class="pointer" x-unwhitelist="{{ other_user.id }}"><i class="fa fa-trash"></i></span></div>
                                 {% endif %}
                             {% endfor %}
                         {% endfor %}

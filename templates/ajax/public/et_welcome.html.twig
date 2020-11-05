@@ -1,0 +1,79 @@
+{% extends "ajax/ajax.html.twig" %}
+{% block ajax %}
+    <div class="row">
+        <div class="cell padded header rw-8 ro-2 rw-lg-12 ro-lg-0">
+            {% if current_user is not null or target_user is null %}
+                <h4>{{ 'Verknüpfung mit EternalTwin'|trans({},'login') }}</h4>
+            {% endif %}
+
+            {% if current_user is null and target_user is null %}
+                <h5>{{ 'Gleich kanns losgehen!'|trans({},'login') }}</h5>
+            {% endif %}
+
+            {% if current_user is not null or target_user is null %}
+                <div class="row-flex v-center">
+                    <div class="padded cell rw-4">
+                        <img alt="" src="{{ asset('build/images/eternal-twin/icon_large.png') }}" class="fit" />
+                    </div>
+                    <div class="padded cell rw-8 grow-2 justify">
+                        {% if current_user is null and target_user is null %}
+                            <p>
+                                <strong>{{ 'Hallo %username%!'|trans({'%username%': etwin_user.getDisplayName}) }}</strong>
+                                {{ 'Dank deines EternalTwin-Account kannst du ohne vorherige Registrierung MyHordes spielen!'|trans({},'login') }}
+                            </p>
+                            <p>
+                                <img alt="" src="{{ asset('build/images/icons/small_warning.gif') }}">
+                                {% trans from 'login' %}
+                                    <strong>Achtung:</strong> Du hast bereits einen MyHordes-Account? Dann solltest du jetzt
+                                    <i>abbrechen</i> und dich zuerst mit deinem alten MyHordes-Account einloggen. Du kannst deinen
+                                    EternalTwin-Account in den Einstellungen mit deinem MyHordes-Account verknüpfen.
+                                {% endtrans %}
+                            </p>
+                        {% endif %}
+                    </div>
+                </div>
+
+                <div class="row-flex v-center space">
+                    <div class="cell rw-4">
+                        <button id="et_confirm">
+                            {% if current_user is null and target_user is null %}{{ 'Los geht\'s!'|trans({},'login') }}{% endif %}
+                        </button>
+                    </div>
+                    <div class="cell">
+                        <a href="" id="et_cancel">
+                            {% if current_user is null and target_user is null %}{{ 'Abbrechen'|trans({},'login') }}{% endif %}
+                        </a>
+                    </div>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}
+
+{% block js %}
+    <script>
+        history.replaceState('{{ path('public_login') }}', '', '{{ path('public_login') }}');
+
+        {% if current_user is null and target_user is not null %}
+            $.ajax.easySend( '{{ path('api_login') }}', [], function() {
+                $.ajax.load(null, '{{ path('initial_landing') }}', true)
+            });
+        {% else %}
+            document.getElementById('et_confirm').addEventListener('click', function () {
+                $.ajax.easySend( '{{ path('api_etwin_confirm') }}', [], function() {
+                    $.ajax.load(null, '{{ path('initial_landing') }}', true)
+                });
+            });
+            document.getElementById('et_cancel').addEventListener('click', function (e) {
+                e.preventDefault();
+                $.ajax.easySend( '{{ path('api_etwin_cancel') }}', [], function() {
+                    {% if current_user is null %}
+                        $.ajax.load(null, '{{ path('public_login') }}', true)
+                    {% else %}
+                        $.ajax.load(null, '{{ path('initial_landing') }}', true)
+                    {% endif %}
+                });
+            });
+        {% endif %}
+    </script>
+{% endblock %}

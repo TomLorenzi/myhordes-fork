@@ -41,7 +41,7 @@
                                                             {% else %}
                                                                 <img src="{{ asset('build/images/professions/death.gif') }}" alt="{{ denizen.profession.label|trans({},'game') }}" />
                                                             {% endif %}
-                                                            <a class="link" href="{{ path('soul_visit', {id: denizen.user.id}) }}">{{ denizen.user.username }}</a>
+                                                            <a class="link" href="{{ path('soul_visit', {id: denizen.user.id}) }}">{{ denizen.user.name }}</a>
                                                         </li>
                                                     {% endfor %}
                                                 </ul>
