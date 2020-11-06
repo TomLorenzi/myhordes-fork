@@ -291,7 +291,6 @@ class AwardFixtures extends Fixture implements DependentFixtureInterface {
         ['title'=>'Open-chakra', 'unlockquantity'=>7000, 'associatedtag'=>':ptame:', 'associatedpicto'=>'r_ptame_#00'],
         ['title'=>'Tausend-und-ein-Leben', 'unlockquantity'=>9000, 'associatedtag'=>':ptame:', 'associatedpicto'=>'r_ptame_#00'],
         ['title'=>'Buddha', 'unlockquantity'=>12000, 'associatedtag'=>':ptame:', 'associatedpicto'=>'r_ptame_#00'],
-        ['title'=>'Messie der verlorenen Welt', 'unlockquantity'=>500, 'associatedtag'=>':hero:', 'associatedpicto'=>'r_heroac_#00'],
         ['title'=>'Ich bin ein Gott! Ich werde ewig leben!', 'unlockquantity'=>1, 'associatedtag'=>':ermwin:', 'associatedpicto'=>'r_ermwin_#00'],
         ['title'=>'Eine Stadt sie zu knechten!', 'unlockquantity'=>1, 'associatedtag'=>':cott:', 'associatedpicto'=>'r_cott_#00'],
         ['title'=>'Verrückter Skeptiker', 'unlockquantity'=>10, 'associatedtag'=>':mystic:', 'associatedpicto'=>'r_mystic_#00'],
