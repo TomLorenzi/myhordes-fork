@@ -53,6 +53,11 @@ class Item
      */
     private $hidden = false;
 
+    /**
+     * @ORM\Column(type="boolean", nullable=true)
+     */
+    private $firstPick = false;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -138,6 +143,18 @@ class Item
     public function setHidden(bool $hidden): self
     {
         $this->hidden = $hidden;
+
+        return $this;
+    }
+
+    public function getFirstPick(): ?bool
+    {
+        return $this->firstPick;
+    }
+
+    public function setFirstPick(?bool $firstPick): self
+    {
+        $this->firstPick = $firstPick;
 
         return $this;
     }

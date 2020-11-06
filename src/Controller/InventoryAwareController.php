@@ -584,7 +584,6 @@ class InventoryAwareController extends AbstractController
 
             foreach ($items as $current_item){
                 if($current_item->getPrototype()->getName() == 'soul_red_#00' && $floor_up) {
-
                     // We pick a read soul in the World Beyond
                     if($target_citizen && !$this->citizen_handler->hasStatusEffect($target_citizen, "tg_shaman_immune")) {
                         $dead = true;
@@ -597,6 +596,7 @@ class InventoryAwareController extends AbstractController
                         $this->inventory_handler->forceRemoveItem($current_item);
                     }
                 }
+
                 if(!$dead){
                     if (($error = $handler->transferItem(
                             $citizen,
@@ -605,6 +605,13 @@ class InventoryAwareController extends AbstractController
 
                         if ($bank_up !== null)  $this->entity_manager->persist( $this->log->bankItemLog( $target_citizen, $current_item->getPrototype(), !$bank_up, $current_item->getBroken() ) );
                         if ($floor_up !== null) {
+                            if($floor_up && $current_item->getPrototype()->getName() == 'soul_blue_#00' && $current_item->getFirstPick()) {
+                                $current_item->setFirstPick(false);
+                                // In the "Job" version of the shaman, the one that pick a blue soul for the 1st time gets the "r_collec" picto
+                                if (!$this->getTownConf()->get(TownConf::CONF_FEATURE_SHAMAN_MODE, "normal") == "job")
+                                    $this->picto_handler->give_picto($target_citizen, "r_collec_#00");
+                                $this->entity_manager->persist($current_item);
+                            }
                             if (!$hide && !$current_item->getHidden()) $this->entity_manager->persist( $this->log->beyondItemLog( $target_citizen, $current_item->getPrototype(), !$floor_up, $current_item->getBroken() ) );
                         }
                         if ($steal_up !== null) {
