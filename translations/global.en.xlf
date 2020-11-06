@@ -1222,7 +1222,7 @@
       </notes>
       <segment>
         <source>Diese ID übergibst du der Seite oder dem Programm, dem du einen (Lese-)Zugriff auf deine Spieldaten in "MyHordes" geben möchtest. Das sind Informationen zu deiner Stadt, dem Bürgerverzeichnis, der Weltkarte etc.</source>
-        <target>This identifier must be supplied to any sites which you wish to allow to access (read-only) to game information held in your Die2Nite account : Information on your town, list of citizens, map of the world, etc...</target>
+        <target>This identifier must be supplied to any sites which you wish to allow to access (read-only) to game information held in your MyHordes account : Information on your town, list of citizens, map of the world, etc...</target>
       </segment>
     </unit>
     <unit id=".0Hr4tG" name="Diese Punkte werden für die Seelenrangliste verwendet.">
