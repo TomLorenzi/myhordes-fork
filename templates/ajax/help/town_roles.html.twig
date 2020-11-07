@@ -1,0 +1,12 @@
+{% extends "ajax/help/shell.html.twig" %}
+{% block helpContent %}
+<div class="helpArt">{{ 'Spielanleitung'|trans({},'help')|raw }}</div>
+<h1>{{ 'Die Rollen'|trans({},'help')|raw }}</h1>
+<img class="pip" alt="pip" src="{{ asset('build/images/professions/select/shaman.gif') }}">
+<p>
+<strong>{{ 'Jeder Bürger beginnt als einfacher Bewohner des MyHordes-Universums.'|trans({},'help')|raw }}</strong>
+{{ 'Doch manchmal greift das Schicksal ein und zerrt dich aus Ihrem kleinen Leben in große Abenteuer und kühne Taten.'|trans({},'help')|raw }}
+</p>
+<div class="clear"></div>
+<a class="button" x-ajax-href="{{ url('help', {'name': 'shaman'}) }}"><img src="{{ asset('build/images/icons/small_move.gif') }}" alt="move"> {{'Weiter'|trans({}, 'help')}}:<strong> {{ 'Shamane'|trans({},'help') }}</strong></a>
+{% endblock %}

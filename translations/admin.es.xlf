@@ -210,7 +210,7 @@
     </unit>
     <unit id="Tae9Qqu" name="Forum">
       <notes>
-        <note category="german">Forum</note>
+        <note category="german">Foren</note>
       </notes>
       <segment>
         <source>Forum</source>
@@ -871,7 +871,7 @@
       </notes>
       <segment>
         <source>Titel</source>
-        <target>Titel</target>
+        <target>Título</target>
       </segment>
     </unit>
     <unit id="3RZ5Bd4" name="Version">

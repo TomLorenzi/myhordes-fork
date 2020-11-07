@@ -1,0 +1,15 @@
+{% extends "ajax/help/shell.html.twig" %}
+{% block helpContent %}
+<div class="helpArt">{{ 'Spielanleitung'|trans({},'help')|raw }}</div>
+<h1>{{ 'Herzlich willkommen in der Stadt'|trans({},'help')|raw }}</h1>
+<img class="art" alt="" src="{{ asset('build/images/help/city.gif') }}">
+<p>
+{{ 'Die Stadt ist der Ort, an dem alles beginnt und alles endet. Hier musst du dich jeden Tag vor Mitternacht einfinden, wenn du überleben möchtest...'|trans({},'help')|raw }}
+</p>
+<h2>{{ 'Der Treffpunkt der Gemeinschaft'|trans({},'help')|raw }}</h2>
+<p>
+{{ 'Die Stadt ist auch der zentrale Punkt, an dem du deine Leidensgenossen triffst, um mit ihnen die beste Überlebensstrategie zu besprechen. Sie dient euch auch als Basislager für Wüstenexpeditionen und beherbergt eine Bank, in der gefundene Gegenstände gesammelt werden.'|trans({},'help')|raw }}
+</p>
+<div class="clear"></div>
+<a class="button" x-ajax-href="{{ url('help', {'name': 'the_community'}) }}"><img src="{{ asset('build/images/icons/small_move.gif') }}" alt="move"> {{'Weiter'|trans({}, 'help')}}:<strong> {{ 'Die Gemeinschaft'|trans({},'help') }}</strong></a>
+{% endblock %}

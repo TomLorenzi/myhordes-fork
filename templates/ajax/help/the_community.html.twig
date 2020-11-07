@@ -1,0 +1,30 @@
+{% extends "ajax/help/shell.html.twig" %}
+{% block helpContent %}
+<div class="helpArt">{{ 'Spielanleitung'|trans({},'help')|raw }}</div>
+<h1>{{ 'Die Gemeinschaft'|trans({},'help')|raw }}</h1>
+<h2>{{ 'Überleben durch Kommunikation und Kooperation'|trans({},'help')|raw }}</h2>
+<p>{{ 'So wie der Aufklärer eine wichtige Aufgabe für die Gemeinschaft erfüllt, trägt jeder Spieler, ungeachtet seines Berufs, zum Überleben der Gemeinschaft bei. Keine Frage, man kann auch alleine überleben. Manchmal, wenn sonst niemand mehr da ist, ist das auch die letzte Möglichkeit. Trotzdem steht die Kooperation in \'MyHordes\' im Mittelpunkt. Aufgaben und Rollen sollten besprochen und aufgeteilt werden, wenn die Gemeinschaft als Ganzes überleben möchte. So können manche Spieler sich um das Einsammeln von Rohstoffen kümmern, während andere ihre Aktionspunkte auf den Baustellen einsetzen.'|trans({},'help')|raw }}</p>
+<h2>{{ 'Die Bank'|trans({},'help')|raw }}</h2>
+<p>{{ 'Damit die Stadt Gebäude bauen und ihre Verteidigung verbessern kann, <strong>sollten</strong> alle Spieler die Beute ihrer Ausflüge in der Bank abliefern. Jede gespendete Blechplatte trägt dazu bei, dass die Stadt möglichst bald ihre Stadtmauer verstärken kann. Ebenso ermöglicht das Spenden von Holz und Metall den zügigen Bau verbesserter Verteidigungsanlagen oder anderer Konstruktionen.'|trans({},'help')|raw }}</p>
+<p class="help">{{ '<strong>Beherzige das Sprichwort</strong>: Wer nichts gibt und nichts spendet, der verendet!'|trans({},'help')|raw }}</p>
+<h2>{{ 'Das Stadtforum und seine Unterforen'|trans({},'help')|raw }}</h2>
+<img class="art" alt="" src="{{ asset('build/images/help/forum.' ~ app.request.locale|e('html_attr') ~ '.png') }}">
+<p>{{ 'Die Einwohner können sich im Stadtforum und seinen Unterforen austauschen, Verteidigungsstrategien besprechen oder einfach einen netten Plausch halten. Wichtige Orte verfügen jeweils über ein separates Forum, wie zum Beispiel die Baustelle. Im Stadtforum können auch Hilferufe abgesetzt werden, wenn man in der Wüste feststeckt...'|trans({},'help')|raw }}</p>
+<h2>{{ 'Die Zeitung'|trans({},'help')|raw }}</h2>
+<img class="art" alt="" src="{{ asset('build/images/help/news.' ~ app.request.locale|e('html_attr') ~ '.png') }}">
+<p>{{ 'Nach dem mitternächtlichen Zombieangriff werden jede Nacht die Druckmaschinen angeworfen, um eine Zeitung zu drucken, in der die wichtigsten Ereignisse des letzten Tages noch einmal kompakt zusammengefasst werden.'|trans({},'help')|raw }}</p>
+<h2>{{ 'Das Bürgerbüro'|trans({},'help')|raw }}</h2>
+<img class="art" alt="" src="{{ asset('build/images/help/jobs.gif') }}">
+<p>{{ 'Im Bürgerbüro findest du wagemutige Mitstreiter, die bereit sind, mit dir die Außenwelt zu erkunden.'|trans({},'help')|raw }}</p>
+<h2>{{ 'Private Nachrichten'|trans({},'help')|raw }}</h2>
+<img class="art" alt="" src="{{ asset('build/images/help/message.' ~ app.request.locale|e('html_attr') ~ '.png') }}">
+<p>
+{{ 'Du kannst deine Mitspieler auch mit einer privaten Nachricht anschreiben. Gehe dazu in den Abschnitt <strong>Bürger</strong> und betrete ein Haus. Klick auf den Knopf:
+<strong>Eine Nachricht an seiner Tür hinterlassen</strong>. Intimes (Infektionen und ähnliches) und Verschwörungen lassen sich zu zweit meistens besser besprechen...'|trans({},'help')|raw }}
+</p>
+<p>
+<strong>{{ 'Private Nachrichten können nur in der Stadt gelesen werden.'|trans({},'help')|raw }}</strong>
+</p>
+<div class="clear"></div>
+<a class="button" x-ajax-href="{{ url('help', {'name': 'constructing_new_buildings'}) }}"><img src="{{ asset('build/images/icons/small_move.gif') }}" alt="move"> {{'Weiter'|trans({}, 'help')}}:<strong> {{ 'Neue Gebäude bauen'|trans({},'help') }}</strong></a>
+{% endblock %}
