@@ -134,7 +134,7 @@ class GhostController extends AbstractController implements GhostInterfaceContro
                 'xml_feed' => !(bool)$parser->get('disablexml', false),
 
                 'ghoul_mode'    => $parser->get('ghoulType', 'normal'),
-                'shamanMode'    => $parser->get('shamanMode', 'normal', ['normal','job','none']),
+                'shaman'    => $parser->get('shamanMode', 'normal', ['normal','job','none']),
                 'shun'          => (bool)$parser->get('shun', true),
                 'nightmode'     => (bool)$parser->get('nightmode', true),
                 'camping'       => (bool)$parser->get('camp', true),
@@ -198,7 +198,7 @@ class GhostController extends AbstractController implements GhostInterfaceContro
         $disabled_jobs   = [];
         $disabled_builds = [];
 
-        if($customConf['features']['shamanMode'] == "normal" || $customConf['features']['shamanMode'] == "none")
+        if($customConf['features']['shaman'] == "normal" || $customConf['features']['shaman'] == "none")
             $disabled_jobs[] = 'shaman';
 
         if(!(bool)$parser->get('basic', true)) $disabled_jobs[] = 'basic';
@@ -216,14 +216,14 @@ class GhostController extends AbstractController implements GhostInterfaceContro
             $disabled_jobs = array_diff($disabled_jobs, ['shaman']);
         }
 
-        if ($customConf['features']['shamanMode'] !== 'job') {
+        if ($customConf['features']['shaman'] !== 'job') {
             $disabled_builds[] = 'small_vaudoudoll_#00';
             $disabled_builds[] = 'small_bokorsword_#00';
             $disabled_builds[] = 'small_spiritmirage_#00';
             $disabled_builds[] = 'small_holyrain_#00';
         }
 
-        if ($customConf['features']['shamanMode'] !== 'normal')
+        if ($customConf['features']['shaman'] !== 'normal')
             $disabled_builds[] = 'small_spa4souls_#00';
 
         if ($nightwatch !== 'normal')
