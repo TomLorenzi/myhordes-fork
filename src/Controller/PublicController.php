@@ -24,6 +24,9 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Core\Authentication\Token\UsernamePasswordToken;
+use Symfony\Component\Security\Core\Encoder\PasswordEncoderInterface;
+use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
+use Symfony\Component\Security\Http\Authenticator\Passport\UserPassportInterface;
 use Symfony\Component\Validator\Constraints;
 use Symfony\Component\Validator\ConstraintViolationInterface;
 use Symfony\Component\Validator\Validation;
@@ -340,13 +343,17 @@ class PublicController extends AbstractController
 
     /**
      * @Route("api/public/etwin/confirm", name="api_etwin_confirm")
+     * @param JSONRequestParser $parser
      * @param SessionInterface $session
      * @param UserFactory $userFactory
+     * @param UserPasswordEncoderInterface $pass
      * @return Response
      */
-    public function etwin_confirm_api(SessionInterface $session, UserFactory $userFactory): Response {
+    public function etwin_confirm_api(JSONRequestParser $parser, SessionInterface $session, UserFactory $userFactory,
+                                      UserPasswordEncoderInterface $pass, TranslatorInterface $trans): Response {
 
         $myhordes_user = $this->getUser();
+        $password = $parser->get('pass', null);
 
         /** @var \EternalTwinClient\Object\User $etwin_user */
         $etwin_user = $session->get('_etwin_user', null);
@@ -396,11 +403,28 @@ class PublicController extends AbstractController
 
             if ($myhordes_user->getEternalID()) return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
 
+            if (empty($password) || !$pass->isPasswordValid( $myhordes_user, $password ))
+                return AjaxResponse::error( SoulController::ErrorUserEditPasswordIncorrect );
+
+            if ($this->entity_manager->getRepository(User::class)->findOneByEternalID( $etwin_user->getID() ))
+                return AjaxResponse::error( SoulController::ErrorETwinImportProfileInUse );
+
             $myhordes_user->setEternalID( $etwin_user->getID() )->setPassword(null);
-            if ($etwin_user->getUsername() !== $myhordes_user->getUsername())
-                $myhordes_user->setDisplayName( $etwin_user->getUsername() );
+            if ($etwin_user->getDisplayName() !== $myhordes_user->getUsername())
+                $myhordes_user->setDisplayName( $etwin_user->getDisplayName() );
+
+            $this->entity_manager->persist($myhordes_user);
+            try {
+                $this->entity_manager->flush();
+            } catch (Exception $e) {
+                return AjaxResponse::error( ErrorHelper::ErrorDatabaseException );
+            }
+
             $session->set('_etwin_login', true);
 
+            $this->addFlash('success', $trans->trans('Dein Account wurde erfolgreich verknüpft!', [], 'login'));
+
+            return new RedirectResponse($this->generateUrl( 'api_login' ));
         }
 
         return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );

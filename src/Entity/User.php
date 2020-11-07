@@ -359,7 +359,13 @@ class User implements UserInterface, EquatableInterface
      * @inheritDoc
      */
     public function isEqualTo(UserInterface $user) {
-        $b1 = $this->getPassword() !== null && $user->getPassword() !== null &&
+        if (!$this->getPassword() === null && $this->eternalID === null) return false;
+
+        /** @var User $user */
+        if (!is_a($user, self::class) || (!$user->getPassword() === null && $user->eternalID === null))
+            return false;
+
+        $b1 =
             $this->getUsername() === $user->getUsername() &&
             $this->getPassword() === $user->getPassword() &&
             $this->getRoles() === $user->getRoles();

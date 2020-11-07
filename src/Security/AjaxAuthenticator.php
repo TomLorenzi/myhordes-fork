@@ -20,9 +20,9 @@ use Symfony\Component\Security\Guard\AbstractGuardAuthenticator;
 class AjaxAuthenticator extends AbstractGuardAuthenticator
 {
 
-    private $request_parser;
-    private $password_generator;
-    private $url_generator;
+    private JSONRequestParser $request_parser;
+    private UserPasswordEncoderInterface $password_generator;
+    private UrlGeneratorInterface $url_generator;
 
     public function __construct(
         JSONRequestParser $parser,
@@ -94,7 +94,13 @@ class AjaxAuthenticator extends AbstractGuardAuthenticator
      */
     public function onAuthenticationFailure(Request $request, AuthenticationException $exception)
     {
-        return new JsonResponse( ['success' => false, 'message' => $exception->getMessage()] );
+        $intent = $request->headers->get('X-Requested-With', 'UndefinedIntent');
+        switch ($intent) {
+            case 'WebNavigation':
+                return new RedirectResponse($this->url_generator->generate('public_login'));
+            default:
+                return new JsonResponse( ['success' => false, 'message' => $exception->getMessage()] );
+        }
     }
 
     /**

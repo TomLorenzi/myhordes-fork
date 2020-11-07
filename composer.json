@@ -44,7 +44,7 @@
         "twig/intl-extra": "^3.0",
         "ext-simplexml": "*",
         "ext-libxml": "*",
-        "brainbox-et/etwin-api-client": "@dev",
+        "brainbox-et/etwin-api-client": "@dev"
     },
     "require-dev": {
         "symfony/debug-pack": "*",

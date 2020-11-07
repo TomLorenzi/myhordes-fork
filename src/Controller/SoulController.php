@@ -53,7 +53,8 @@ class SoulController extends AbstractController
     const ErrorTwinImportInvalidResponse     = ErrorHelper::BaseSoulErrors + 2;
     const ErrorTwinImportNoToken             = ErrorHelper::BaseSoulErrors + 3;
     const ErrorTwinImportProfileMismatch     = ErrorHelper::BaseSoulErrors + 4;
-    const ErrorTwinImportProfileInUse        = ErrorHelper::BaseSoulErrors + 4;
+    const ErrorTwinImportProfileInUse        = ErrorHelper::BaseSoulErrors + 5;
+    const ErrorETwinImportProfileInUse       = ErrorHelper::BaseSoulErrors + 6;
 
     protected $entity_manager;
     protected $translator;

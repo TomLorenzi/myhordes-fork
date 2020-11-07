@@ -17,7 +17,7 @@ use Symfony\Component\Security\Guard\AbstractGuardAuthenticator;
 
 class EternalAuthenticator extends AbstractGuardAuthenticator
 {
-    private $url_generator;
+    private UrlGeneratorInterface $url_generator;
 
     public function __construct(
         UrlGeneratorInterface $router
@@ -59,8 +59,6 @@ class EternalAuthenticator extends AbstractGuardAuthenticator
         if (!is_a($etwin_user_object, ETwinUser::class) || !$etwin_user_object->isValid())
             return false;
 
-        //var_dump($etwin_user_object);
-
         return true;
     }
 
@@ -99,7 +97,13 @@ class EternalAuthenticator extends AbstractGuardAuthenticator
      */
     public function onAuthenticationFailure(Request $request, AuthenticationException $exception)
     {
-        return new JsonResponse( ['success' => false, 'message' => $exception->getMessage()] );
+        $intent = $request->headers->get('X-Requested-With', 'UndefinedIntent');
+        switch ($intent) {
+            case 'WebNavigation':
+                return new RedirectResponse($this->url_generator->generate('public_login'));
+            default:
+                return new JsonResponse( ['success' => false, 'message' => $exception->getMessage()] );
+        }
     }
 
     /**
@@ -107,6 +111,9 @@ class EternalAuthenticator extends AbstractGuardAuthenticator
      */
     public function onAuthenticationSuccess(Request $request, TokenInterface $token, string $providerKey)
     {
+        $request->getSession()->remove('_etwin_user');
+        $request->getSession()->remove('_etwin_login');
+        $request->getSession()->remove('_etwin_local');
         return null;
     }
 

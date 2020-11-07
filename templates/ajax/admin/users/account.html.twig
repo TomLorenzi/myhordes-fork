@@ -124,9 +124,9 @@
                 </div>
                 <div class="cell padded rw-9 rw-sm-12">
                     {% set parts = user.email|split('@',2) %}
-                    {% if parts[1] == 'localhost' %}
+                    {% if parts|length > 1 and parts[1] == 'localhost' %}
                         {{ 'Lokal: %account%'|trans({'%account%': parts[0]}, 'admin') }}
-                    {% elseif parts[1] == 'user.eternal-twin.net' %}
+                    {% elseif parts|length > 1 and parts[1] == 'user.eternal-twin.net' %}
                         [{{ 'Von EternalTwin verwaltet'|trans({}, 'admin') }}]
                     {% else %}
                         {% if is_granted("ROLE_ADMIN") %}
