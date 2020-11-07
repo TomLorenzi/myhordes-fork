@@ -3791,7 +3791,7 @@
       </notes>
       <segment>
         <source>Wenn du hier schläfst, kannst du dich gleich selbst umbringen. Das geht schneller und du kannst deinen Tod selbst bestimmen.</source>
-        <target>Dormir dans un endroit pareil revient à se suicider, purement et simplement. A vous de voir.</target>
+        <target>Dormir dans un endroit pareil revient à se suicider, purement et simplement. À vous de voir.</target>
       </segment>
     </unit>
     <unit id="u.HzZ0w" name="bdd1b72">
@@ -5123,7 +5123,7 @@
       </notes>
       <segment>
         <source>An diesem Ort gibt es ein paar gute Versteckmöglichkeiten. Wenn du hier heute Nacht schlafen möchtest...</source>
-        <target> L'endroit offre des cachettes correctes pour qui voudrait y passer la nuit...</target>
+        <target>L'endroit offre des cachettes correctes pour qui voudrait y passer la nuit…</target>
       </segment>
     </unit>
     <unit id="YrPIELu" name="In diesem Sektor gibt es ein paar wirklich gute Unterschlupfmöglichkeiten.">
@@ -5132,7 +5132,7 @@
       </notes>
       <segment>
         <source>In diesem Sektor gibt es ein paar wirklich gute Unterschlupfmöglichkeiten.</source>
-        <target> Ce secteur offre de bonnes planques en cas de besoin.</target>
+        <target>Ce secteur offre de bonnes planques en cas de besoin.</target>
       </segment>
     </unit>
     <unit id="Be5ZaAS" name="c1ea3a3">
@@ -5614,20 +5614,20 @@
     </unit>
     <unit id="iUTpVp." name="Kernsammler">
       <notes>
-        <note category="german">Kernsammler</note>
+        <note category="german">Seelenreiniger</note>
       </notes>
       <segment>
         <source>Kernsammler</source>
-        <target>Collecteur d'âmes</target>
+        <target>Purificateur d'âmes</target>
       </segment>
     </unit>
     <unit id="lul.uPB" name="Anzahl der im Ausland gesammelten Seelen verstorbener Bürger">
       <notes>
-        <note category="german">Anzahl der im Ausland gesammelten Seelen verstorbener Bürger</note>
+        <note category="german">Anzahl der Seelen verstorbener Bürger, die Sie gereinigt haben.</note>
       </notes>
       <segment>
         <source>Anzahl der im Ausland gesammelten Seelen verstorbener Bürger</source>
-        <target>Nombres d'âmes de citoyens décédés collectées dans l'outre-monde</target>
+        <target>Nombre d'âmes de citoyens décédés que vous avez purifiées.</target>
       </segment>
     </unit>
     <unit id="FRTO7P3" name="Kämpfe um Leben und Tod">
@@ -11616,7 +11616,7 @@
       </notes>
       <segment>
         <source>Schokoladenkreuz</source>
-        <target>Crucifixion</target>
+        <target>Croix en chocolat</target>
       </segment>
     </unit>
     <unit id="mkyiUfI" name="Öffne deine private Stadt für alle">
@@ -14344,6 +14344,69 @@
       <segment>
         <source>Ein Wohnwagen ohne Räder???</source>
         <target>Ein Wohnwagen ohne Räder???</target>
+      </segment>
+    </unit>
+    <unit id="IDhWsfU" name="HAZ-Gewinner">
+      <notes>
+        <note category="german">HAZ-Gewinner</note>
+      </notes>
+      <segment>
+        <source>HAZ-Gewinner</source>
+        <target>HAZ-Gewinner</target>
+      </segment>
+    </unit>
+    <unit id="ltZ7BR_" name="Ehrenauszeichnung für den Gewinner der Heilung für die Auszeichnungssucht.">
+      <notes>
+        <note category="german">Ehrenauszeichnung für den Gewinner der Heilung für die Auszeichnungssucht.</note>
+      </notes>
+      <segment>
+        <source>Ehrenauszeichnung für den Gewinner der Heilung für die Auszeichnungssucht.</source>
+        <target>Ehrenauszeichnung für den Gewinner der Heilung für die Auszeichnungssucht.</target>
+      </segment>
+    </unit>
+    <unit id="YZc0dgj" name="Kernsammler (job)">
+      <notes>
+        <note category="german">Kernsammler (job)</note>
+      </notes>
+      <segment>
+        <source>Kernsammler (job)</source>
+        <target>Collecteur d'âmes</target>
+      </segment>
+    </unit>
+    <unit id="mRdxtx0" name="Anzahl der im Ausland gesammelten Seelen verstorbener Bürger (job)">
+      <notes>
+        <note category="german">Anzahl der im Ausland gesammelten Seelen verstorbener Bürger (job)</note>
+      </notes>
+      <segment>
+        <source>Anzahl der im Ausland gesammelten Seelen verstorbener Bürger (job)</source>
+        <target>Nombres d'âmes de citoyens décédés collectées dans l'outre-monde</target>
+      </segment>
+    </unit>
+    <unit id="SZYZY_h" name="Mystic (job)">
+      <notes>
+        <note category="german">Mystic (job)</note>
+      </notes>
+      <segment>
+        <source>Mystic (job)</source>
+        <target>Transformation mystique</target>
+      </segment>
+    </unit>
+    <unit id="dMCiesS" name="Wie viele Seelen hat Ihre Stadt befreien können. (job)">
+      <notes>
+        <note category="german">Wie viele Seelen hat Ihre Stadt befreien können. (job)</note>
+      </notes>
+      <segment>
+        <source>Wie viele Seelen hat Ihre Stadt befreien können. (job)</source>
+        <target>Nombre d'âmes trafiquées par vos soins à l'Atelier.</target>
+      </segment>
+    </unit>
+    <unit id="MsIlSXC" name="Ich bin geheilt">
+      <notes>
+        <note category="german">Ich bin geheilt</note>
+      </notes>
+      <segment>
+        <source>Ich bin geheilt</source>
+        <target>Ich bin geheilt</target>
       </segment>
     </unit>
   </file>

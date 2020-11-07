@@ -1019,7 +1019,7 @@
       </notes>
       <segment>
         <source>Mein Haus ausbauen</source>
-        <target>Mejora tu casa</target>
+        <target>Mejora mi casa</target>
       </segment>
     </unit>
     <unit id="J53z_38" name="10e9370">
@@ -1693,7 +1693,7 @@
       </notes>
       <segment>
         <source>Mein Haus</source>
-        <target>Tu Casa</target>
+        <target>Mi Casa</target>
       </segment>
     </unit>
     <unit id="lQNhv.P" name="Brunnen">
@@ -3553,7 +3553,7 @@
       </notes>
       <segment>
         <source>Gammler</source>
-        <target>Gammler</target>
+        <target>Indeciso</target>
       </segment>
     </unit>
     <unit id="sBbkqrg" name="Buddler">
@@ -3634,7 +3634,7 @@
       </notes>
       <segment>
         <source>Wachturm</source>
-        <target>Torre de vigilancia</target>
+        <target>Torre</target>
       </segment>
     </unit>
     <unit id="gd8sEx3" name="Werkstatt">
@@ -3724,7 +3724,7 @@
       </notes>
       <segment>
         <source>Übersicht</source>
-        <target>Übersicht</target>
+        <target>Vista general del pueblo</target>
       </segment>
     </unit>
     <unit id="a8zlw81" name="d91d555">
@@ -3742,7 +3742,7 @@
       </notes>
       <segment>
         <source>Möchtest du nun also nach draußen gehen oder entscheidest du dich dafür, in der Stadt zu bleiben? Manche sagen, dass man verrückt, andere wiederum, dass man gewieft sein muss, um die Außenwelt zu erkunden. Vielleicht trifft ja beides zu...</source>
-        <target>Möchtest du nun also nach draußen gehen oder entscheidest du dich dafür, in der Stadt zu bleiben? Manche sagen, dass man verrückt, andere wiederum, dass man gewieft sein muss, um die Außenwelt zu erkunden. Vielleicht trifft ja beides zu...</target>
+        <target>¿Decidirás seguir adelante o esconderte detrás de las murallas fortificadas? Algunos creen que es mejor ser cauteloso y considerar todas las opciones, otros sostienen que el corazón débil nunca ganó a la doncella justa... Quizás la verdad esté en algún lugar entre los dos...</target>
       </segment>
     </unit>
     <unit id="v3pLWJA" name="b728cc6">
@@ -3751,7 +3751,7 @@
       </notes>
       <segment>
         <source>Die Wüstennächte sind bitterkalt... Eine dicke Staubwolke umhüllt dich und du hörst schauriges Gekreische in deiner Umgebung. Ab und zu glaubst du eine unförmige Gestalt im Schatten wandeln zu sehen. Vielleicht geht auch nur deine Fantasie mit dir durch...</source>
-        <target>Die Wüstennächte sind bitterkalt... Eine dicke Staubwolke umhüllt dich und du hörst schauriges Gekreische in deiner Umgebung. Ab und zu glaubst du eine unförmige Gestalt im Schatten wandeln zu sehen. Vielleicht geht auch nur deine Fantasie mit dir durch...</target>
+        <target>Las noches son heladas en el desierto... Una densa nube de polvo lo envuelve todo y se oyen gemidos apesadumbrados a tu alrededor. De vez en cuando distingue una figura borrosa moviéndose en las sombras. Esperemos que sea solo tu imaginación...</target>
       </segment>
     </unit>
     <unit id="is0j5bp" name="Die Zone untersuchen">
@@ -3760,7 +3760,7 @@
       </notes>
       <segment>
         <source>Die Zone untersuchen</source>
-        <target>Die Zone untersuchen</target>
+        <target>Inspecciona la zona</target>
       </segment>
     </unit>
     <unit id="Utl2PJa" name="Du schaust dir die Gegend etwas genauer an...">
@@ -3769,7 +3769,7 @@
       </notes>
       <segment>
         <source>Du schaust dir die Gegend etwas genauer an...</source>
-        <target>Du schaust dir die Gegend etwas genauer an...</target>
+        <target>Inspecciona los alrededores...</target>
       </segment>
     </unit>
     <unit id="BsmmJg2" name="6089085">
@@ -3778,7 +3778,7 @@
       </notes>
       <segment>
         <source>Wenn du hier schläfst, kannst du dich gleich selbst umbringen. Das geht schneller und du kannst deinen Tod selbst bestimmen.</source>
-        <target>Wenn du hier schläfst, kannst du dich gleich selbst umbringen. Das geht schneller und du kannst deinen Tod selbst bestimmen.</target>
+        <target>Dormir en un lugar semejante equivale a suicidarse, así de simple. Piénsalo.</target>
       </segment>
     </unit>
     <unit id="u.HzZ0w" name="bdd1b72">
@@ -3787,7 +3787,7 @@
       </notes>
       <segment>
         <source>Du schätzt, dass deine Überlebenschancen hier quasi Null sind... Besser gleich 'ne Zyanidkapsel schlucken.</source>
-        <target>Du schätzt, dass deine Überlebenschancen hier quasi Null sind... Besser gleich 'ne Zyanidkapsel schlucken.</target>
+        <target>Crees que tus posibilidades de sobrevivir aquí son casi nulas... ¿Cianuro?</target>
       </segment>
     </unit>
     <unit id="VGRstc7" name="Rucksack auf dem Boden ausleeren">
@@ -4615,7 +4615,7 @@
       </notes>
       <segment>
         <source>Hier ist so gut wie nichts, mit dem du dich verstecken könntest. Du fühlst dich leicht schutzlos...</source>
-        <target>Hier ist so gut wie nichts, mit dem du dich verstecken könntest. Du fühlst dich leicht schutzlos...</target>
+        <target>Nada aquí te sirve para esconderte. Te sientes más vulnerable que nunca...</target>
       </segment>
     </unit>
     <unit id="fftPup_" name="e5ccfe7">
@@ -4624,7 +4624,7 @@
       </notes>
       <segment>
         <source>Außer ein paar 'natürlichen' Schutzgelegenheiten bietet diese Zone nicht viel. Du musst dich irgendwie durchwursteln.</source>
-        <target>Außer ein paar 'natürlichen' Schutzgelegenheiten bietet diese Zone nicht viel. Du musst dich irgendwie durchwursteln.</target>
+        <target>Esta zona ofrece muy pocos refugios "naturales" para pasar la noche. Habrá que arreglárselas con lo que hay...</target>
       </segment>
     </unit>
     <unit id="YFhoAPq" name="d9a9e80">
@@ -4633,7 +4633,7 @@
       </notes>
       <segment>
         <source>Wenn man hier bisschen sucht, lässt sich bestimmt ein adäquates Versteck finden.</source>
-        <target>Wenn man hier bisschen sucht, lässt sich bestimmt ein adäquates Versteck finden.</target>
+        <target>Buscando un poco, debe haber un rincón para esconderse.</target>
       </segment>
     </unit>
     <unit id="i9FQpcu" name="4c4bb46">
@@ -4642,7 +4642,7 @@
       </notes>
       <segment>
         <source>An diesem Ort gibt es ein paar gute Versteckmöglichkeiten. Wenn du hier heute Nacht schlafen möchtest...</source>
-        <target>An diesem Ort gibt es ein paar gute Versteckmöglichkeiten. Wenn du hier heute Nacht schlafen möchtest...</target>
+        <target>El lugar tiene escondites interesantes.</target>
       </segment>
     </unit>
     <unit id="YrPIELu" name="In diesem Sektor gibt es ein paar wirklich gute Unterschlupfmöglichkeiten.">
@@ -4651,7 +4651,7 @@
       </notes>
       <segment>
         <source>In diesem Sektor gibt es ein paar wirklich gute Unterschlupfmöglichkeiten.</source>
-        <target>In diesem Sektor gibt es ein paar wirklich gute Unterschlupfmöglichkeiten.</target>
+        <target>Esta zona ofrece buenos escondites en caso de peligro.</target>
       </segment>
     </unit>
     <unit id="Be5ZaAS" name="c1ea3a3">
@@ -4660,7 +4660,7 @@
       </notes>
       <segment>
         <source>Das ist der ideale Ort, um hier zu schlafen. An Versteckmöglichkeiten mangelt es wahrlich nicht.</source>
-        <target>Das ist der ideale Ort, um hier zu schlafen. An Versteckmöglichkeiten mangelt es wahrlich nicht.</target>
+        <target>Este es el lugar ideal para pasar la noche, no faltan los lugares donde protegerse.</target>
       </segment>
     </unit>
     <unit id="nLW7mkF" name="Die Anwesenheit von ein paar Zombies in dieser Umgebung beunruhigt dich etwas...">
@@ -4669,7 +4669,7 @@
       </notes>
       <segment>
         <source>Die Anwesenheit von ein paar Zombies in dieser Umgebung beunruhigt dich etwas...</source>
-        <target>Die Anwesenheit von ein paar Zombies in dieser Umgebung beunruhigt dich etwas...</target>
+        <target>La presencia de algunos zombies en los alrededores es preocupante...</target>
       </segment>
     </unit>
     <unit id="GtXqaDO" name="25208d0">
@@ -4678,7 +4678,7 @@
       </notes>
       <segment>
         <source>Die große Anzahl der herumstreunenden Zombies ist bestimmt kein Vorteil... Verstecken könnte etwas schwierig werden.</source>
-        <target>Die große Anzahl der herumstreunenden Zombies ist bestimmt kein Vorteil... Verstecken könnte etwas schwierig werden.</target>
+        <target>La gran cantidad de zombies rondando por aquí no es nada buena. Esconderse será difícil.</target>
       </segment>
     </unit>
     <unit id="UFJR0VM" name="8577666">
@@ -4687,7 +4687,7 @@
       </notes>
       <segment>
         <source>Du schätzt, dass deine Überlebenschancen hier sehr gering sind. Vielleicht hast du ja Bock 'ne Runde Kopf oder Zahl zu spielen?</source>
-        <target>Du schätzt, dass deine Überlebenschancen hier sehr gering sind. Vielleicht hast du ja Bock 'ne Runde Kopf oder Zahl zu spielen?</target>
+        <target>Crees que tus posibilidades de sobrevivir aquí son muy pocas. ¿Apostamos?</target>
       </segment>
     </unit>
     <unit id="7OnKd2K" name="c72bf07">
@@ -4696,7 +4696,7 @@
       </notes>
       <segment>
         <source>Du schätzt, dass deine Überlebenschancen hier gering sind. Hmmm... schwer zu sagen, wie das hier ausgeht.</source>
-        <target>Du schätzt, dass deine Überlebenschancen hier gering sind. Hmmm... schwer zu sagen, wie das hier ausgeht.</target>
+        <target>Crees que tus posibilidades de sobrevivir aquí son pocas. Quién sabe...</target>
       </segment>
     </unit>
     <unit id="rlIeIKM" name="c23c4df">
@@ -4705,7 +4705,7 @@
       </notes>
       <segment>
         <source>Du schätzt, dass deine Überlebenschancen hier mittelmäßig sind. Ist allerdings einen Versuch wert.. obwohl, Unfälle passieren schnell...</source>
-        <target>Du schätzt, dass deine Überlebenschancen hier mittelmäßig sind. Ist allerdings einen Versuch wert.. obwohl, Unfälle passieren schnell...</target>
+        <target>Crees que tus posibilidades de sobrevivir aquí son reducidas, aunque se puede intentar. Tú sabes, podrías sufrir un accidente...</target>
       </segment>
     </unit>
     <unit id="o1L6EkI" name="f00374e">
@@ -4714,7 +4714,7 @@
       </notes>
       <segment>
         <source>Du schätzt, dass deine Überlebenschancen hier zufriedenstellend sind - vorausgesetzt du erlebst keine böse Überraschung.</source>
-        <target>Du schätzt, dass deine Überlebenschancen hier zufriedenstellend sind - vorausgesetzt du erlebst keine böse Überraschung.</target>
+        <target>Crees que tus posibilidades de sobrevivir aquí son aceptables, esperando que no suceda ningún imprevisto.</target>
       </segment>
     </unit>
     <unit id="v2oSIjv" name="25e2513">
@@ -4723,7 +4723,7 @@
       </notes>
       <segment>
         <source>Du schätzt, dass deine Überlebenschancen hier korrekt sind. Jetzt heißt's nur noch Daumen drücken!</source>
-        <target>Du schätzt, dass deine Überlebenschancen hier korrekt sind. Jetzt heißt's nur noch Daumen drücken!</target>
+        <target>Crees que tus posibilidades de sobrevivir aquí son buenas. ¡Cruza los dedos!</target>
       </segment>
     </unit>
     <unit id="kqluhpf" name="effb08c">
@@ -4732,7 +4732,7 @@
       </notes>
       <segment>
         <source>Du schätzt, dass deine Überlebenschancen hier gut sind. Du müsstest hier problemlos die Nacht verbringen können.</source>
-        <target>Du schätzt, dass deine Überlebenschancen hier gut sind. Du müsstest hier problemlos die Nacht verbringen können.</target>
+        <target>Crees que tus posibilidades de sobrevivir aquí son altas. Podías pasar la noche aquí.</target>
       </segment>
     </unit>
     <unit id="1JwyDRE" name="cfe905b">
@@ -4741,7 +4741,7 @@
       </notes>
       <segment>
         <source>Du schätzt, dass deine Überlebenschancen hier optimal sind. Niemand wird dich sehen - selbst wenn man mit dem Finger auf dich zeigt.</source>
-        <target>Du schätzt, dass deine Überlebenschancen hier optimal sind. Niemand wird dich sehen - selbst wenn man mit dem Finger auf dich zeigt.</target>
+        <target>Crees que tus posibilidades de sobrevivir aquí son óptimas. Nadie te verá, ni señalándote con el dedo</target>
       </segment>
     </unit>
     <unit id="Lm_z2Dh" name="Deine Tarnung ist aufgeflogen!">
@@ -4777,7 +4777,7 @@
       </notes>
       <segment>
         <source>Katapult</source>
-        <target>Katapult</target>
+        <target>Catap</target>
       </segment>
     </unit>
     <unit id="T04hD_3" name="Trotz all deiner Anstrengungen hast du hier leider nichts gefunden ...">
@@ -4858,7 +4858,7 @@
       </notes>
       <segment>
         <source>Ja</source>
-        <target>Ja</target>
+        <target>Si</target>
       </segment>
     </unit>
     <unit id="0vW.4CA" name="Ein Vorhang blockiert die Sicht ...">
@@ -4876,7 +4876,7 @@
       </notes>
       <segment>
         <source>Unsere Verteidigung :</source>
-        <target>Unsere Verteidigung :</target>
+        <target>Nuestras Defensas:</target>
       </segment>
     </unit>
     <unit id="fCsY_QS" name="Geschätzter Angriff :">
@@ -4885,7 +4885,7 @@
       </notes>
       <segment>
         <source>Geschätzter Angriff :</source>
-        <target>Geschätzter Angriff :</target>
+        <target>Pronóstico del ataque:</target>
       </segment>
     </unit>
     <unit id="J2.6H7T" name="Unbekannt">
@@ -4894,7 +4894,7 @@
       </notes>
       <segment>
         <source>Unbekannt</source>
-        <target>Unbekannt</target>
+        <target>Desconocida</target>
       </segment>
     </unit>
     <unit id="I9U6Iz0" name="Morgiger Angriff :">
@@ -4903,7 +4903,7 @@
       </notes>
       <segment>
         <source>Morgiger Angriff :</source>
-        <target>Morgiger Angriff :</target>
+        <target>El ataque de mañana :</target>
       </segment>
     </unit>
     <unit id="0.KJY95" name="Unsere Verteidigung ist stark genug, um dem Angriff heute Nacht standzuhalten.">
@@ -4912,7 +4912,7 @@
       </notes>
       <segment>
         <source>Unsere Verteidigung ist stark genug, um dem Angriff heute Nacht standzuhalten.</source>
-        <target>Unsere Verteidigung ist stark genug, um dem Angriff heute Nacht standzuhalten.</target>
+        <target>Nuestras defensas son lo suficientemente fuertes para resistir el ataque de esta noche.</target>
       </segment>
     </unit>
     <unit id="3Nw75Vc" name="847f9a6">
@@ -4930,7 +4930,7 @@
       </notes>
       <segment>
         <source>Meine täglichen Aufgaben</source>
-        <target>Meine täglichen Aufgaben</target>
+        <target>Mis tareas cotidianas</target>
       </segment>
     </unit>
     <unit id="OSdFB8R" name="Einen Blick ins Forum werfen.">
@@ -4939,7 +4939,7 @@
       </notes>
       <segment>
         <source>Einen Blick ins Forum werfen.</source>
-        <target>Einen Blick ins Forum werfen.</target>
+        <target>Echa un vistazo al foro.</target>
       </segment>
     </unit>
     <unit id=".vMt2eO" name="Meine Ration Wasser im Brunnen entnehmen (optional).">
@@ -4948,7 +4948,7 @@
       </notes>
       <segment>
         <source>Meine Ration Wasser im Brunnen entnehmen (optional).</source>
-        <target>Meine Ration Wasser im Brunnen entnehmen (optional).</target>
+        <target>Toma tu ración de agua del pozo (opcional).</target>
       </segment>
     </unit>
     <unit id="UgqaO9M" name="An der Angriffsabschätzung teilnehmen">
@@ -4957,7 +4957,7 @@
       </notes>
       <segment>
         <source>An der Angriffsabschätzung teilnehmen</source>
-        <target>An der Angriffsabschätzung teilnehmen</target>
+        <target>Participa en el pronóstico del ataque.</target>
       </segment>
     </unit>
     <unit id="h3w5_BE" name="Für ein Tagesprojekt abstimmen.">
@@ -4966,7 +4966,7 @@
       </notes>
       <segment>
         <source>Für ein Tagesprojekt abstimmen.</source>
-        <target>Für ein Tagesprojekt abstimmen.</target>
+        <target>Vota por el proyecto del día.</target>
       </segment>
     </unit>
     <unit id="G7Kbsmc" name="36edbd1">
@@ -4975,7 +4975,7 @@
       </notes>
       <segment>
         <source>Auf der Baustelle arbeiten, in der Werkstatt arbeiten oder in die Außenwelt gehen (optional).</source>
-        <target>Auf der Baustelle arbeiten, in der Werkstatt arbeiten oder in die Außenwelt gehen (optional).</target>
+        <target>Trabaja en una construcción o sal a buscar materiales en el desierto. Los vagos son más apetitosos para los zombies</target>
       </segment>
     </unit>
     <unit id="4tgoaqE" name="Heldentafel">
@@ -4984,7 +4984,7 @@
       </notes>
       <segment>
         <source>Heldentafel</source>
-        <target>Heldentafel</target>
+        <target>La voz de los héroes</target>
       </segment>
     </unit>
     <unit id="eeHEERB" name="Unsere Situation">
@@ -4993,7 +4993,7 @@
       </notes>
       <segment>
         <source>Unsere Situation</source>
-        <target>Unsere Situation</target>
+        <target>Nuestra situación</target>
       </segment>
     </unit>
     <unit id="PouMrbo" name="Stadttyp:">
@@ -5002,7 +5002,7 @@
       </notes>
       <segment>
         <source>Stadttyp:</source>
-        <target>Stadttyp:</target>
+        <target>Tipo de pueblo:</target>
       </segment>
     </unit>
     <unit id="jVUAKv9" name="Stadttor:">
@@ -5011,7 +5011,7 @@
       </notes>
       <segment>
         <source>Stadttor:</source>
-        <target>Stadttor:</target>
+        <target>El portal:</target>
       </segment>
     </unit>
     <unit id="dKGSLP." name="Offen!">
@@ -5020,7 +5020,7 @@
       </notes>
       <segment>
         <source>Offen!</source>
-        <target>Offen!</target>
+        <target>¡Abierto!</target>
       </segment>
     </unit>
     <unit id="UlrC9u_" name="Geschlossen">
@@ -5029,7 +5029,7 @@
       </notes>
       <segment>
         <source>Geschlossen</source>
-        <target>Geschlossen</target>
+        <target>Cerrado</target>
       </segment>
     </unit>
     <unit id="gGd7K.3" name="Wasservorräte:">
@@ -5038,7 +5038,7 @@
       </notes>
       <segment>
         <source>Wasservorräte:</source>
-        <target>Wasservorräte:</target>
+        <target>Reservas de agua:</target>
       </segment>
     </unit>
     <unit id="xa6ARi1" name="Einwohner am Leben:">
@@ -5047,7 +5047,7 @@
       </notes>
       <segment>
         <source>Einwohner am Leben:</source>
-        <target>Einwohner am Leben:</target>
+        <target>Habitantes vivos:</target>
       </segment>
     </unit>
     <unit id="Bij.q6J" name="Lesen Sie das Mitteilungsblatt">
@@ -5065,7 +5065,7 @@
       </notes>
       <segment>
         <source>Unsere Verteidigungen</source>
-        <target>Unsere Verteidigungen</target>
+        <target>Informe de defensa detallado</target>
       </segment>
     </unit>
     <unit id="BlKVHJ7" name="Grundbefestigungsmauer">
@@ -5092,7 +5092,7 @@
       </notes>
       <segment>
         <source>Häuser</source>
-        <target>Häuser</target>
+        <target>Casas de ciudadanos</target>
       </segment>
     </unit>
     <unit id="fTFJ5hh" name="Nachtwächter">
@@ -5164,7 +5164,7 @@
       </notes>
       <segment>
         <source>Installieren</source>
-        <target>Installieren</target>
+        <target>Instalar</target>
       </segment>
     </unit>
     <unit id="RNyztpO" name="Wie viele Gegenstände möchtest du auf den Müll werfen?">
@@ -5182,7 +5182,7 @@
       </notes>
       <segment>
         <source>Du kannst keine Aktionen ausführen, während du dich versteckst.</source>
-        <target>Du kannst keine Aktionen ausführen, während du dich versteckst.</target>
+        <target>Todas las acciones que suelen estar disponibles fuera de la ciudad se desactivan cuando te escondes.</target>
       </segment>
     </unit>
     <unit id="rSInXr8" name="Du kannst dich nicht fortbewegen während du versteckt bist.">
@@ -5308,7 +5308,7 @@
       </notes>
       <segment>
         <source>Heldentaten</source>
-        <target>Heldentaten</target>
+        <target>Acciones heroicas</target>
       </segment>
     </unit>
     <unit id="1H1xdaJ" name="Anzahl deiner wirklich außergewöhnlichen Heldentaten.">
@@ -5317,7 +5317,7 @@
       </notes>
       <segment>
         <source>Anzahl deiner wirklich außergewöhnlichen Heldentaten.</source>
-        <target>Anzahl deiner wirklich außergewöhnlichen Heldentaten.</target>
+        <target>Cantidad de acciones extraordinarias que has realizado.</target>
       </segment>
     </unit>
     <unit id="1lND7a9" name="Alkohol">
@@ -5326,7 +5326,7 @@
       </notes>
       <segment>
         <source>Alkohol</source>
-        <target>Alkohol</target>
+        <target>Alcoholes</target>
       </segment>
     </unit>
     <unit id="5DxEd.t" name="Anzahl der Liter selbstgebrannten Alkohols, den du gesoffen hast.">
@@ -5335,7 +5335,7 @@
       </notes>
       <segment>
         <source>Anzahl der Liter selbstgebrannten Alkohols, den du gesoffen hast.</source>
-        <target>Anzahl der Liter selbstgebrannten Alkohols, den du gesoffen hast.</target>
+        <target>Litros de bebidas alcohólicas artesanales que has ingerido.</target>
       </segment>
     </unit>
     <unit id="cqHpjId" name="Hausverbesserung">
@@ -5344,7 +5344,7 @@
       </notes>
       <segment>
         <source>Hausverbesserung</source>
-        <target>Hausverbesserung</target>
+        <target>Trabajador hogareño</target>
       </segment>
     </unit>
     <unit id="vvkmQ1Z" name="d4af217">
@@ -5353,7 +5353,7 @@
       </notes>
       <segment>
         <source>Anzahl der Verbesserungen und Ausbauten, die du an deinem eigenem Haus vorgenommen hast.</source>
-        <target>Anzahl der Verbesserungen und Ausbauten, die du an deinem eigenem Haus vorgenommen hast.</target>
+        <target>Cantidad de pequeños trabajos hechos en casa.</target>
       </segment>
     </unit>
     <unit id="NXPKDs5" name="Handwerk">
@@ -5362,7 +5362,7 @@
       </notes>
       <segment>
         <source>Handwerk</source>
-        <target>Handwerk</target>
+        <target>Artesano</target>
       </segment>
     </unit>
     <unit id="X2_RNih" name="b2a8e10">
@@ -5371,7 +5371,7 @@
       </notes>
       <segment>
         <source>Anzahl der Gegenstände, die du in der Werkstatt zusammengebaut oder zerstört hast.</source>
-        <target>Anzahl der Gegenstände, die du in der Werkstatt zusammengebaut oder zerstört hast.</target>
+        <target>Cantidad de cachivaches armados o destruidos en el taller.</target>
       </segment>
     </unit>
     <unit id="qxxe5aj" name="Leichenwäscher">
@@ -5380,7 +5380,7 @@
       </notes>
       <segment>
         <source>Leichenwäscher</source>
-        <target>Leichenwäscher</target>
+        <target>Mojador de muertos</target>
       </segment>
     </unit>
     <unit id="8S1_bLd" name="346ada5">
@@ -5389,7 +5389,7 @@
       </notes>
       <segment>
         <source>Anzahl der Leichenwaschzeremonien, die du mit den Körpern deiner verstorbenen Mitbürger durchgeführt hast.</source>
-        <target>Anzahl der Leichenwaschzeremonien, die du mit den Körpern deiner verstorbenen Mitbürger durchgeführt hast.</target>
+        <target>Veces que has regado con agua los cadáveres del pueblo.</target>
       </segment>
     </unit>
     <unit id="7Wc6Ben" name="Autarker Verbannter">
@@ -5398,7 +5398,7 @@
       </notes>
       <segment>
         <source>Autarker Verbannter</source>
-        <target>Autarker Verbannter</target>
+        <target>Desterrado emancipado</target>
       </segment>
     </unit>
     <unit id="2DaxIuu" name="2014a2c">
@@ -5407,7 +5407,7 @@
       </notes>
       <segment>
         <source>Anzahl der brauchbaren Gegenstände, die du in der Mülldeponie vor der Stadt gefunden hast. Nur Verbannte können diese Auszeichnung erhalten.</source>
-        <target>Anzahl der brauchbaren Gegenstände, die du in der Mülldeponie vor der Stadt gefunden hast. Nur Verbannte können diese Auszeichnung erhalten.</target>
+        <target>Cantidad de objetos de fortuna fabricado con desechos encontrados en la basura del pueblo. Solo los desterrados pueden recibir este reconocimiento.</target>
       </segment>
     </unit>
     <unit id="KqvNLEL" name="Verbannungen">
@@ -5416,7 +5416,7 @@
       </notes>
       <segment>
         <source>Verbannungen</source>
-        <target>Verbannungen</target>
+        <target>Destierros</target>
       </segment>
     </unit>
     <unit id="wgg_HJR" name="Anzahl der Stadtverbannungen.">
@@ -5425,7 +5425,7 @@
       </notes>
       <segment>
         <source>Anzahl der Stadtverbannungen.</source>
-        <target>Anzahl der Stadtverbannungen.</target>
+        <target>Cantidad de veces que fuiste expulsado de la comunidad.</target>
       </segment>
     </unit>
     <unit id="nVFqlRD" name="Schwere Verletzungen">
@@ -5434,7 +5434,7 @@
       </notes>
       <segment>
         <source>Schwere Verletzungen</source>
-        <target>Schwere Verletzungen</target>
+        <target>Magulladuras</target>
       </segment>
     </unit>
     <unit id="TBkqTrT" name="c7383c9">
@@ -5443,7 +5443,7 @@
       </notes>
       <segment>
         <source>Anzahl der Verstümmelungen und Gliedabtrennungen, die dich das Leben gekostet haben.</source>
-        <target>Anzahl der Verstümmelungen und Gliedabtrennungen, die dich das Leben gekostet haben.</target>
+        <target>Cantidad de mutilaciones o desarticulaciones que no te quitaron la vida.</target>
       </segment>
     </unit>
     <unit id="sfHZK3y" name="Hausmannskost">
@@ -5452,7 +5452,7 @@
       </notes>
       <segment>
         <source>Hausmannskost</source>
-        <target>Hausmannskost</target>
+        <target>Delicias</target>
       </segment>
     </unit>
     <unit id="5amCsNE" name="Anzahl köstlicher Speisen, die du in der Küche gezaubert hast.">
@@ -5461,7 +5461,7 @@
       </notes>
       <segment>
         <source>Anzahl köstlicher Speisen, die du in der Küche gezaubert hast.</source>
-        <target>Anzahl köstlicher Speisen, die du in der Küche gezaubert hast.</target>
+        <target>Platillos preparados con ingredientes de procedencia dudosa.</target>
       </segment>
     </unit>
     <unit id="lFadGAX" name="Metzger">
@@ -5470,7 +5470,7 @@
       </notes>
       <segment>
         <source>Metzger</source>
-        <target>Metzger</target>
+        <target>Carnicería</target>
       </segment>
     </unit>
     <unit id="j99sKU7" name="528c615">
@@ -5479,7 +5479,7 @@
       </notes>
       <segment>
         <source>Anzahl der Tiere, die du umgebracht hast (mit deinen Händen, im Mixer, in der Fäkalienhebeanlage...).</source>
-        <target>Anzahl der Tiere, die du umgebracht hast (mit deinen Händen, im Mixer, in der Fäkalienhebeanlage...).</target>
+        <target>Cantidad de animales que has exterminado (con las manos, con un machete, con una batidora...)</target>
       </segment>
     </unit>
     <unit id="c4t38mo" name="Camper im Jenseits">
@@ -5488,7 +5488,7 @@
       </notes>
       <segment>
         <source>Camper im Jenseits</source>
-        <target>Camper im Jenseits</target>
+        <target>Campista del Más Allá</target>
       </segment>
     </unit>
     <unit id="AJmB7Pi" name="4f2413f">
@@ -5497,7 +5497,7 @@
       </notes>
       <segment>
         <source>Anzahl der Nächte, die du draußen überlebt hast als die Stadt schon zerstört war!</source>
-        <target>Anzahl der Nächte, die du draußen überlebt hast als die Stadt schon zerstört war!</target>
+        <target>Cantidad de noches sobrevividas mientras que el pueblo estaba devastado.</target>
       </segment>
     </unit>
     <unit id="wV.yQpJ" name="Mutiger Camper">
@@ -5506,7 +5506,7 @@
       </notes>
       <segment>
         <source>Mutiger Camper</source>
-        <target>Mutiger Camper</target>
+        <target>Campista temerario</target>
       </segment>
     </unit>
     <unit id="qZ87cXc" name="Anzahl der Nächte, die du draußen geschlafen und überlebt hast.">
@@ -5515,7 +5515,7 @@
       </notes>
       <segment>
         <source>Anzahl der Nächte, die du draußen geschlafen und überlebt hast.</source>
-        <target>Anzahl der Nächte, die du draußen geschlafen und überlebt hast.</target>
+        <target>Cantidad de noches pasadas fuera del pueblo y que has sobrevivido.</target>
       </segment>
     </unit>
     <unit id="g8yfOwR" name="Kannibalismus">
@@ -5524,7 +5524,7 @@
       </notes>
       <segment>
         <source>Kannibalismus</source>
-        <target>Kannibalismus</target>
+        <target>Canibalismo</target>
       </segment>
     </unit>
     <unit id="DkOM_ae" name="Die Anzahl der Kilos an Menschenfleisch, die von dir verzehrt wurden...">
@@ -5533,7 +5533,7 @@
       </notes>
       <segment>
         <source>Die Anzahl der Kilos an Menschenfleisch, die von dir verzehrt wurden...</source>
-        <target>Die Anzahl der Kilos an Menschenfleisch, die von dir verzehrt wurden...</target>
+        <target>Cantidad de veces que tragaste carne humana...</target>
       </segment>
     </unit>
     <unit id="fl_VRZF" name="Wasserkanonen">
@@ -5542,7 +5542,7 @@
       </notes>
       <segment>
         <source>Wasserkanonen</source>
-        <target>Wasserkanonen</target>
+        <target>Cañones de agua</target>
       </segment>
     </unit>
     <unit id="zu27xBQ" name="Anzahl an großen Wasserwaffen, die du gebaut hast.">
@@ -5551,7 +5551,7 @@
       </notes>
       <segment>
         <source>Anzahl an großen Wasserwaffen, die du gebaut hast.</source>
-        <target>Anzahl an großen Wasserwaffen, die du gebaut hast.</target>
+        <target>Cantidad de grandes juguetes de agua que has fabricado.</target>
       </segment>
     </unit>
     <unit id="g01ynP2" name="Glückspilz">
@@ -5560,7 +5560,7 @@
       </notes>
       <segment>
         <source>Glückspilz</source>
-        <target>Glückspilz</target>
+        <target>Suertudo</target>
       </segment>
     </unit>
     <unit id="2sqMJTk" name="Anzahl der großen Metallkoffer, die du in der Außenwelt ausgegraben hast.">
@@ -5569,7 +5569,7 @@
       </notes>
       <segment>
         <source>Anzahl der großen Metallkoffer, die du in der Außenwelt ausgegraben hast.</source>
-        <target>Anzahl der großen Metallkoffer, die du in der Außenwelt ausgegraben hast.</target>
+        <target>Cantidad de grandes cofres de metal que has encontrado en el Ultramundo.</target>
       </segment>
     </unit>
     <unit id="4e.Kq3q" name="Baustellen">
@@ -5578,7 +5578,7 @@
       </notes>
       <segment>
         <source>Baustellen</source>
-        <target>Baustellen</target>
+        <target>Construcciones</target>
       </segment>
     </unit>
     <unit id="Ad9kZzy" name="735b153">
@@ -5587,7 +5587,7 @@
       </notes>
       <segment>
         <source>Anzahl der Aktionspunkte, die du für den Bau neuer Kontruktionen und Stadtgebäude verwendet hast.</source>
-        <target>Anzahl der Aktionspunkte, die du für den Bau neuer Kontruktionen und Stadtgebäude verwendet hast.</target>
+        <target>Puntos de acción o de construcción invertidos en el avance de una obra en el pueblo.</target>
       </segment>
     </unit>
     <unit id="WH7we5M" name="79b5be7">
@@ -5596,25 +5596,25 @@
       </notes>
       <segment>
         <source>Anzahl der Punkte, die du erworben hast, indem du in einer Stadt komplett clean geblieben bist.</source>
-        <target>Anzahl der Punkte, die du erworben hast, indem du in einer Stadt komplett clean geblieben bist.</target>
+        <target>Capacidad de rechazar el consumo de todo estimulante en tu vida.</target>
       </segment>
     </unit>
     <unit id="iUTpVp." name="Kernsammler">
       <notes>
-        <note category="german">Kernsammler</note>
+        <note category="german">Seelenreiniger</note>
       </notes>
       <segment>
         <source>Kernsammler</source>
-        <target>Kernsammler</target>
+        <target>Purificador de almas</target>
       </segment>
     </unit>
     <unit id="lul.uPB" name="Anzahl der im Ausland gesammelten Seelen verstorbener Bürger">
       <notes>
-        <note category="german">Anzahl der im Ausland gesammelten Seelen verstorbener Bürger</note>
+        <note category="german">Anzahl der Seelen verstorbener Bürger, die Sie gereinigt haben.</note>
       </notes>
       <segment>
         <source>Anzahl der im Ausland gesammelten Seelen verstorbener Bürger</source>
-        <target>Anzahl der im Ausland gesammelten Seelen verstorbener Bürger</target>
+        <target>Cantidad de almas recolectadas que has purificado.</target>
       </segment>
     </unit>
     <unit id="FRTO7P3" name="Kämpfe um Leben und Tod">
@@ -5623,7 +5623,7 @@
       </notes>
       <segment>
         <source>Kämpfe um Leben und Tod</source>
-        <target>Kämpfe um Leben und Tod</target>
+        <target>Combates mortales</target>
       </segment>
     </unit>
     <unit id="HViHyOD" name="Anzahl der Zombies, die du mit den bloßen Händen umgebracht hast. Wow!">
@@ -5632,7 +5632,7 @@
       </notes>
       <segment>
         <source>Anzahl der Zombies, die du mit den bloßen Händen umgebracht hast. Wow!</source>
-        <target>Anzahl der Zombies, die du mit den bloßen Händen umgebracht hast. Wow!</target>
+        <target>Zombies que mataste con tus propias manos, sin armas ni competencias especiales. ¡Eso macho!</target>
       </segment>
     </unit>
     <unit id="X.bgGgs" name="Wunderwerke">
@@ -5641,7 +5641,7 @@
       </notes>
       <segment>
         <source>Wunderwerke</source>
-        <target>Wunderwerke</target>
+        <target>Construcción de Maravillas</target>
       </segment>
     </unit>
     <unit id="3tQwiq5" name="Anzahl der Wunderwerke, an deren Bau du mitgewirkt hast.">
@@ -5650,7 +5650,7 @@
       </notes>
       <segment>
         <source>Anzahl der Wunderwerke, an deren Bau du mitgewirkt hast.</source>
-        <target>Anzahl der Wunderwerke, an deren Bau du mitgewirkt hast.</target>
+        <target>Cantidad de maravillas que has logrado construir.</target>
       </segment>
     </unit>
     <unit id="18LG1hY" name="Grillmeister">
@@ -5659,7 +5659,7 @@
       </notes>
       <segment>
         <source>Grillmeister</source>
-        <target>Grillmeister</target>
+        <target>Cocina exótica</target>
       </segment>
     </unit>
     <unit id="8KNXbhW" name="Anzahl deiner Alten Freunde, die du im Kremato-Cue gegrillt hast.">
@@ -5668,7 +5668,7 @@
       </notes>
       <segment>
         <source>Anzahl deiner Alten Freunde, die du im Kremato-Cue gegrillt hast.</source>
-        <target>Anzahl deiner Alten Freunde, die du im Kremato-Cue gegrillt hast.</target>
+        <target>Viejos amigos a los que has cocinado en el Cremato-bar.</target>
       </segment>
     </unit>
     <unit id="1CYXYFJ" name="Ausgrabungsarbeiten">
@@ -5677,7 +5677,7 @@
       </notes>
       <segment>
         <source>Ausgrabungsarbeiten</source>
-        <target>Ausgrabungsarbeiten</target>
+        <target>Desmonte</target>
       </segment>
     </unit>
     <unit id="X_yPmV2" name="cf5d4c4">
@@ -5686,7 +5686,7 @@
       </notes>
       <segment>
         <source>Anzahl der Aktionspunkte, die du verbraucht hast, um eine Gebäuderuine in der Außenwelt freizulegen.</source>
-        <target>Anzahl der Aktionspunkte, die du verbraucht hast, um eine Gebäuderuine in der Außenwelt freizulegen.</target>
+        <target>Puntos de acción invertidos en despejar un edificio en el Ultramundo.</target>
       </segment>
     </unit>
     <unit id="YpOmX81" name="Hauseinrichtung">
@@ -5695,7 +5695,7 @@
       </notes>
       <segment>
         <source>Hauseinrichtung</source>
-        <target>Hauseinrichtung</target>
+        <target>Decoración</target>
       </segment>
     </unit>
     <unit id="Enu9Feh" name="4b674e5">
@@ -5704,7 +5704,7 @@
       </notes>
       <segment>
         <source>Anzahl der Punkte, die du durch sinnlose Einrichtungsverschönerungen gewonnen hast.</source>
-        <target>Anzahl der Punkte, die du durch sinnlose Einrichtungsverschönerungen gewonnen hast.</target>
+        <target>Cantidad de puntos de decoración que has agregado a tu hogar.</target>
       </segment>
     </unit>
     <unit id="sAt788p" name="Letzte Verteidigungslinie">
@@ -5713,7 +5713,7 @@
       </notes>
       <segment>
         <source>Letzte Verteidigungslinie</source>
-        <target>Letzte Verteidigungslinie</target>
+        <target>Última línea</target>
       </segment>
     </unit>
     <unit id="5vRd54n" name="ade071b">
@@ -5722,7 +5722,7 @@
       </notes>
       <segment>
         <source>Du gehörst zu den letzten Bürgern der Stadt, die die Zombiehorde 'empfangen' hat...</source>
-        <target>Du gehörst zu den letzten Bürgern der Stadt, die die Zombiehorde 'empfangen' hat...</target>
+        <target>Fuiste uno de los últimos en ver las hordas de zombies invadir el pueblo.</target>
       </segment>
     </unit>
     <unit id=".flbaw." name="Drogen">
@@ -5731,7 +5731,7 @@
       </notes>
       <segment>
         <source>Drogen</source>
-        <target>Drogen</target>
+        <target>Estimulantes</target>
       </segment>
     </unit>
     <unit id="vrHQtYb" name="a6f1dcd">
@@ -5740,7 +5740,7 @@
       </notes>
       <segment>
         <source>Anzahl kleiner lustiger Pillen, die du geschluckt oder sonstwie eingenommen hast.</source>
-        <target>Anzahl kleiner lustiger Pillen, die du geschluckt oder sonstwie eingenommen hast.</target>
+        <target>Cantidad de pequeñas pildoritas de colores que has tragado (o colocado en otra parte...)</target>
       </segment>
     </unit>
     <unit id="eO92oF_" name="Drogenerfahrungen">
@@ -5749,7 +5749,7 @@
       </notes>
       <segment>
         <source>Drogenerfahrungen</source>
-        <target>Drogenerfahrungen</target>
+        <target>Experimentaciones</target>
       </segment>
     </unit>
     <unit id="f0JFraG" name="Anzahl der gefährlichen Drogen, die du genommen hast.">
@@ -5758,7 +5758,7 @@
       </notes>
       <segment>
         <source>Anzahl der gefährlichen Drogen, die du genommen hast.</source>
-        <target>Anzahl der gefährlichen Drogen, die du genommen hast.</target>
+        <target>Estimulantes con efectos peligrosos que has probado.</target>
       </segment>
     </unit>
     <unit id="sSPf54f" name="Gebäude erkunden">
@@ -5767,7 +5767,7 @@
       </notes>
       <segment>
         <source>Gebäude erkunden</source>
-        <target>Gebäude erkunden</target>
+        <target>Exploración de ruinas</target>
       </segment>
     </unit>
     <unit id="jIah41g" name="Anzahl der verlassenen Gebäude, die du untersucht hast.">
@@ -5776,7 +5776,7 @@
       </notes>
       <segment>
         <source>Anzahl der verlassenen Gebäude, die du untersucht hast.</source>
-        <target>Anzahl der verlassenen Gebäude, die du untersucht hast.</target>
+        <target>Cantidad de veces que has osado entrar en una ruina abandonada</target>
       </segment>
     </unit>
     <unit id="CLMy7pI" name="Komplexe Expeditionen">
@@ -5785,7 +5785,7 @@
       </notes>
       <segment>
         <source>Komplexe Expeditionen</source>
-        <target>Komplexe Expeditionen</target>
+        <target>Exploraciones avanzadas</target>
       </segment>
     </unit>
     <unit id="U.4cHE6" name="Anzahl der entfernten Gebäude, die von dir erkundet wurden.">
@@ -5794,7 +5794,7 @@
       </notes>
       <segment>
         <source>Anzahl der entfernten Gebäude, die von dir erkundet wurden.</source>
-        <target>Anzahl der entfernten Gebäude, die von dir erkundet wurden.</target>
+        <target>Cantidad de edificios en zonas alejadas que has explorado.</target>
       </segment>
     </unit>
     <unit id="IzudVAk" name="Expertenexpeditionen">
@@ -5803,7 +5803,7 @@
       </notes>
       <segment>
         <source>Expertenexpeditionen</source>
-        <target>Expertenexpeditionen</target>
+        <target>Exploraciones muy lejanas</target>
       </segment>
     </unit>
     <unit id="nukR2X5" name="Anzahl SEHR WEIT entfernter Gebäude, die von dir erkundet wurden.">
@@ -5812,7 +5812,7 @@
       </notes>
       <segment>
         <source>Anzahl SEHR WEIT entfernter Gebäude, die von dir erkundet wurden.</source>
-        <target>Anzahl SEHR WEIT entfernter Gebäude, die von dir erkundet wurden.</target>
+        <target>Cantidad de edificios que has explorado en zonas REALMENTE muy alejadas.</target>
       </segment>
     </unit>
     <unit id="7Gh92iA" name="Großzügigkeit">
@@ -5821,7 +5821,7 @@
       </notes>
       <segment>
         <source>Großzügigkeit</source>
-        <target>Großzügigkeit</target>
+        <target>Generosidad</target>
       </segment>
     </unit>
     <unit id="LSlayka" name="Anzahl der Heldentage, die du einem anderem Bürger in Not geschenkt hast.">
@@ -5830,7 +5830,7 @@
       </notes>
       <segment>
         <source>Anzahl der Heldentage, die du einem anderem Bürger in Not geschenkt hast.</source>
-        <target>Anzahl der Heldentage, die du einem anderem Bürger in Not geschenkt hast.</target>
+        <target>Cantidad de días de Modo Héroe que regalaste a otro habitante necesitado.</target>
       </segment>
     </unit>
     <unit id="yMz03.8" name="Spiritueller Führer">
@@ -5839,7 +5839,7 @@
       </notes>
       <segment>
         <source>Spiritueller Führer</source>
-        <target>Spiritueller Führer</target>
+        <target>Guía Espiritual</target>
       </segment>
     </unit>
     <unit id="G37KPb9" name="5a11e64">
@@ -5848,7 +5848,7 @@
       </notes>
       <segment>
         <source>Anzahl der Tage, die du als Führer von Anfängern in den kleinen Regionen verbracht hast.</source>
-        <target>Anzahl der Tage, die du als Führer von Anfängern in den kleinen Regionen verbracht hast.</target>
+        <target>Días pasados como guía en las regiones amateur.</target>
       </segment>
     </unit>
     <unit id="dj5AV6G" name="Laborant">
@@ -5857,7 +5857,7 @@
       </notes>
       <segment>
         <source>Laborant</source>
-        <target>Laborant</target>
+        <target>Laboratorio</target>
       </segment>
     </unit>
     <unit id="CC3N8jQ" name="Anzahl der kleinen bunten Pillen aus deinem privaten Hobbylabor.">
@@ -5866,7 +5866,7 @@
       </notes>
       <segment>
         <source>Anzahl der kleinen bunten Pillen aus deinem privaten Hobbylabor.</source>
-        <target>Anzahl der kleinen bunten Pillen aus deinem privaten Hobbylabor.</target>
+        <target>Pastillas de Twinoid elaboradas en tu laboratorio personal.</target>
       </segment>
     </unit>
     <unit id="cue6a8_" name="Diebstähle">
@@ -5875,7 +5875,7 @@
       </notes>
       <segment>
         <source>Diebstähle</source>
-        <target>Diebstähle</target>
+        <target>Hurtos</target>
       </segment>
     </unit>
     <unit id="3MT_LNg" name="Anzahl der Gegenstände, die du bei deinen (lebenden) Nachbarn geklaut hast.">
@@ -5884,7 +5884,7 @@
       </notes>
       <segment>
         <source>Anzahl der Gegenstände, die du bei deinen (lebenden) Nachbarn geklaut hast.</source>
-        <target>Anzahl der Gegenstände, die du bei deinen (lebenden) Nachbarn geklaut hast.</target>
+        <target>Cantidad de objetos robados a tus vecinos (en vida).</target>
       </segment>
     </unit>
     <unit id="gibtxxf" name="Schusseligkeiten">
@@ -5893,7 +5893,7 @@
       </notes>
       <segment>
         <source>Schusseligkeiten</source>
-        <target>Schusseligkeiten</target>
+        <target>Torpezas</target>
       </segment>
     </unit>
     <unit id="ZEsIgrQ" name="d3696dd">
@@ -5902,7 +5902,7 @@
       </notes>
       <segment>
         <source>Anzahl der Gegenstände, die du durch seine Tollpatschigkeit kaputt gemacht hast.</source>
-        <target>Anzahl der Gegenstände, die du durch seine Tollpatschigkeit kaputt gemacht hast.</target>
+        <target>Cantidad de objetos que has roto en tus experiencias fallidas.</target>
       </segment>
     </unit>
     <unit id="10t0DvM" name="Masochismus">
@@ -5911,7 +5911,7 @@
       </notes>
       <segment>
         <source>Masochismus</source>
-        <target>Masochismus</target>
+        <target>Masoquismo</target>
       </segment>
     </unit>
     <unit id="yBA7otl" name="Anzahl der Glücksmomente, die du glücklich oder schmerzgeplagt genossen hast.">
@@ -5920,7 +5920,7 @@
       </notes>
       <segment>
         <source>Anzahl der Glücksmomente, die du glücklich oder schmerzgeplagt genossen hast.</source>
-        <target>Anzahl der Glücksmomente, die du glücklich oder schmerzgeplagt genossen hast.</target>
+        <target>Momentos de felicidad en el sufrimiento más profundo.</target>
       </segment>
     </unit>
     <unit id="dI2.ozd" name="Event-Auszeichnungen">
@@ -5929,7 +5929,7 @@
       </notes>
       <segment>
         <source>Event-Auszeichnungen</source>
-        <target>Event-Auszeichnungen</target>
+        <target>Reconocimiento de la Comunidad</target>
       </segment>
     </unit>
     <unit id="nwDzN3Q" name="Auszeichnung für die Teilnahme an Events bei 'Die Verdammten'.">
@@ -5938,7 +5938,7 @@
       </notes>
       <segment>
         <source>Auszeichnung für die Teilnahme an Events bei 'Die Verdammten'.</source>
-        <target>Auszeichnung für die Teilnahme an Events bei 'Die Verdammten'.</target>
+        <target>Recompensa obtenida por trabajar con la comunidad.</target>
       </segment>
     </unit>
     <unit id="uAqDBtW" name="Wunderwerk: Sandschloss">
@@ -5947,7 +5947,7 @@
       </notes>
       <segment>
         <source>Wunderwerk: Sandschloss</source>
-        <target>Wunderwerk: Sandschloss</target>
+        <target>Maravilla: Castillo de arena</target>
       </segment>
     </unit>
     <unit id="jq1R02j" name="Das hast du nicht wirklich gebaut?">
@@ -5956,7 +5956,7 @@
       </notes>
       <segment>
         <source>Das hast du nicht wirklich gebaut?</source>
-        <target>Das hast du nicht wirklich gebaut?</target>
+        <target>¿Realmente has construido eso?</target>
       </segment>
     </unit>
     <unit id="On3ImiP" name="Wunderwerk: Riesiger KVF">
@@ -5965,7 +5965,7 @@
       </notes>
       <segment>
         <source>Wunderwerk: Riesiger KVF</source>
-        <target>Wunderwerk: Riesiger KVF</target>
+        <target>Maravilla: COSA gigante</target>
       </segment>
     </unit>
     <unit id="M4.ycbK" name="Huldigt den Riesigen KVF!">
@@ -5974,7 +5974,7 @@
       </notes>
       <segment>
         <source>Huldigt den Riesigen KVF!</source>
-        <target>Huldigt den Riesigen KVF!</target>
+        <target>¡Gloria la COSA gigante!</target>
       </segment>
     </unit>
     <unit id="vRqc5Uq" name="Wunderwerk: Rad des Schreckens">
@@ -5983,7 +5983,7 @@
       </notes>
       <segment>
         <source>Wunderwerk: Rad des Schreckens</source>
-        <target>Wunderwerk: Rad des Schreckens</target>
+        <target>Maravilla: La Rueda del Miedo</target>
       </segment>
     </unit>
     <unit id="GVSWGjN" name="Sieh nur, man kann von da oben die Zombies sehen!">
@@ -5992,7 +5992,7 @@
       </notes>
       <segment>
         <source>Sieh nur, man kann von da oben die Zombies sehen!</source>
-        <target>Sieh nur, man kann von da oben die Zombies sehen!</target>
+        <target>Increíble, ¡desde aquí los zombies se ven como hormiguitas!</target>
       </segment>
     </unit>
     <unit id="7wxk0fW" name="Wunderwerk: Statue des Raben">
@@ -6001,7 +6001,7 @@
       </notes>
       <segment>
         <source>Wunderwerk: Statue des Raben</source>
-        <target>Wunderwerk: Statue des Raben</target>
+        <target>Maravilla: Estatua del Cuervo</target>
       </segment>
     </unit>
     <unit id="dQkqyKh" name="Der Rabe ist gut, der Rabe ist ein Segen für die Stadt. [editiert vom Raben]">
@@ -6010,7 +6010,7 @@
       </notes>
       <segment>
         <source>Der Rabe ist gut, der Rabe ist ein Segen für die Stadt. [editiert vom Raben]</source>
-        <target>Der Rabe ist gut, der Rabe ist ein Segen für die Stadt. [editiert vom Raben]</target>
+        <target>El Cuervo es un tipazo, el Cuervo es bondadoso. [Firmado: El Cuervo]</target>
       </segment>
     </unit>
     <unit id="H9ZffoW" name="Nachrichten">
@@ -6019,7 +6019,7 @@
       </notes>
       <segment>
         <source>Nachrichten</source>
-        <target>Nachrichten</target>
+        <target>Mensajes</target>
       </segment>
     </unit>
     <unit id="Gp8QV9S" name="11324ce">
@@ -6028,7 +6028,7 @@
       </notes>
       <segment>
         <source>Anzahl der sinnvollen (oder sinnlosen...) Nachrichten, die du im Stadtforum geschrieben hast.</source>
-        <target>Anzahl der sinnvollen (oder sinnlosen...) Nachrichten, die du im Stadtforum geschrieben hast.</target>
+        <target>Cantidad de mensajes útiles (o no) que has publicado en el foro del pueblo.</target>
       </segment>
     </unit>
     <unit id="Qw5Rx06" name="Anzahl der Tage, an denen du kleine Malteserhunde malträtiert hast.">
@@ -6037,7 +6037,7 @@
       </notes>
       <segment>
         <source>Anzahl der Tage, an denen du kleine Malteserhunde malträtiert hast.</source>
-        <target>Anzahl der Tage, an denen du kleine Malteserhunde malträtiert hast.</target>
+        <target>Días pasados torturando perritos.</target>
       </segment>
     </unit>
     <unit id="NyGp8KR" name="Anzahl der Tage, die du als Aufklärer gespielt hast.">
@@ -6046,7 +6046,7 @@
       </notes>
       <segment>
         <source>Anzahl der Tage, die du als Aufklärer gespielt hast.</source>
-        <target>Anzahl der Tage, die du als Aufklärer gespielt hast.</target>
+        <target>Días pasados en la oscuridad como Explorador.</target>
       </segment>
     </unit>
     <unit id="XzMbfeG" name="Anzahl der Tage, die du als Einsiedler gespielt hast.">
@@ -6055,7 +6055,7 @@
       </notes>
       <segment>
         <source>Anzahl der Tage, die du als Einsiedler gespielt hast.</source>
-        <target>Anzahl der Tage, die du als Einsiedler gespielt hast.</target>
+        <target>Días pasados comiendo cualquier cosa como Ermitaño.</target>
       </segment>
     </unit>
     <unit id="tSnoLfe" name="Anzahl der Tage, die du als Buddler gespielt hast.">
@@ -6064,7 +6064,7 @@
       </notes>
       <segment>
         <source>Anzahl der Tage, die du als Buddler gespielt hast.</source>
-        <target>Anzahl der Tage, die du als Buddler gespielt hast.</target>
+        <target>Días pasados escarbando el suelo como Excavador.</target>
       </segment>
     </unit>
     <unit id="9itIyey" name="Anzahl der Tage, die du als Wächter gespielt hast.">
@@ -6073,7 +6073,7 @@
       </notes>
       <segment>
         <source>Anzahl der Tage, die du als Wächter gespielt hast.</source>
-        <target>Anzahl der Tage, die du als Wächter gespielt hast.</target>
+        <target>Días pasados con tu escudo como Guardián.</target>
       </segment>
     </unit>
     <unit id="7nFBaX5" name="Anzahl der Tage, die du als Techniker gespielt hast.">
@@ -6082,7 +6082,7 @@
       </notes>
       <segment>
         <source>Anzahl der Tage, die du als Techniker gespielt hast.</source>
-        <target>Anzahl der Tage, die du als Techniker gespielt hast.</target>
+        <target>Días pasados jugando con herramientas.</target>
       </segment>
     </unit>
     <unit id="WgUNYZY" name="In deinem Bett gestorben">
@@ -6091,7 +6091,7 @@
       </notes>
       <segment>
         <source>In deinem Bett gestorben</source>
-        <target>In deinem Bett gestorben</target>
+        <target>¡Si me muero, mejor que sea cómodamente!</target>
       </segment>
     </unit>
     <unit id="XgMSDj1" name="Großmutter, was hast du für große Zähne... Grrrooooaaar!">
@@ -6100,7 +6100,7 @@
       </notes>
       <segment>
         <source>Großmutter, was hast du für große Zähne... Grrrooooaaar!</source>
-        <target>Großmutter, was hast du für große Zähne... Grrrooooaaar!</target>
+        <target>¡Si me muero, mejor que sea cómodamente!</target>
       </segment>
     </unit>
     <unit id="GmWG0wd" name="Dehydrationstode">
@@ -6109,7 +6109,7 @@
       </notes>
       <segment>
         <source>Dehydrationstode</source>
-        <target>Dehydrationstode</target>
+        <target>Muertes por deshidratación</target>
       </segment>
     </unit>
     <unit id="FmgO.iY" name="82057de">
@@ -6118,7 +6118,7 @@
       </notes>
       <segment>
         <source>Gibt die Anzahl der Dehydrationen an, an denen du gestorben bist. Doch, doch! Wasser ist wichtig !</source>
-        <target>Gibt die Anzahl der Dehydrationen an, an denen du gestorben bist. Doch, doch! Wasser ist wichtig !</target>
+        <target>Cantidad de muertes por deshidratación terminal. Sí, el agua es importante.</target>
       </segment>
     </unit>
     <unit id="bhRI8Sg" name="Tödliche Infektionen">
@@ -6127,7 +6127,7 @@
       </notes>
       <segment>
         <source>Tödliche Infektionen</source>
-        <target>Tödliche Infektionen</target>
+        <target>Muertes por infección</target>
       </segment>
     </unit>
     <unit id="WsBlA83" name="Anzahl der Infektionen, die dich das Leben gekostet haben.">
@@ -6136,7 +6136,7 @@
       </notes>
       <segment>
         <source>Anzahl der Infektionen, die dich das Leben gekostet haben.</source>
-        <target>Anzahl der Infektionen, die dich das Leben gekostet haben.</target>
+        <target>Cantidad de fallecimientos por infecciones.</target>
       </segment>
     </unit>
     <unit id="Ph5uruX" name="Tod durch Entzug">
@@ -6145,7 +6145,7 @@
       </notes>
       <segment>
         <source>Tod durch Entzug</source>
-        <target>Tod durch Entzug</target>
+        <target>Muertes por abstinencia</target>
       </segment>
     </unit>
     <unit id="TCaWV7i" name="d76eefd">
@@ -6154,7 +6154,7 @@
       </notes>
       <segment>
         <source>Die Anzahl der Male, in denen dein unfreiwilliger 'cold turkey' gescheitert ist...</source>
-        <target>Die Anzahl der Male, in denen dein unfreiwilliger 'cold turkey' gescheitert ist...</target>
+        <target>Veces que has muerto por falta de estimulantes.</target>
       </segment>
     </unit>
     <unit id="2yZmTqb" name="Letzter Toter">
@@ -6163,7 +6163,7 @@
       </notes>
       <segment>
         <source>Letzter Toter</source>
-        <target>Letzter Toter</target>
+        <target>¡El Último Habitante!</target>
       </segment>
     </unit>
     <unit id="mjHDbiJ" name="ae94e5e">
@@ -6172,7 +6172,7 @@
       </notes>
       <segment>
         <source>Du bist die oder der letzte, die draufgeht. Diese Ehre wird nur sehr wenigen Bürgen zuteil.</source>
-        <target>Du bist die oder der letzte, die draufgeht. Diese Ehre wird nur sehr wenigen Bürgen zuteil.</target>
+        <target>Fuiste el último en morir en tu pueblo. ¡Muy pocos jugadores han logrado esta hazaña!</target>
       </segment>
     </unit>
     <unit id="7CtY5hA" name="Letzter Toter in einer Pandämoniumstadt">
@@ -6181,7 +6181,7 @@
       </notes>
       <segment>
         <source>Letzter Toter in einer Pandämoniumstadt</source>
-        <target>Letzter Toter in einer Pandämoniumstadt</target>
+        <target>El Último Superviviente en Pandemonio</target>
       </segment>
     </unit>
     <unit id="G_vOQBw" name="Du bist der oder die Letzte, die in einer Pandämoniumstadt draufgeht!">
@@ -6190,7 +6190,7 @@
       </notes>
       <segment>
         <source>Du bist der oder die Letzte, die in einer Pandämoniumstadt draufgeht!</source>
-        <target>Du bist der oder die Letzte, die in einer Pandämoniumstadt draufgeht!</target>
+        <target>¡Fuiste el último en morir en un pueblo del Pandemonio!</target>
       </segment>
     </unit>
     <unit id="c02o7DF" name="Mystic">
@@ -6199,7 +6199,7 @@
       </notes>
       <segment>
         <source>Mystic</source>
-        <target>Mystic</target>
+        <target>Puntos de Misticismo</target>
       </segment>
     </unit>
     <unit id="edsJJvH" name="Wie viele Seelen hat Ihre Stadt befreien können.">
@@ -6208,7 +6208,7 @@
       </notes>
       <segment>
         <source>Wie viele Seelen hat Ihre Stadt befreien können.</source>
-        <target>Wie viele Seelen hat Ihre Stadt befreien können.</target>
+        <target>Cantidad de almas que tu pueblo pudo reciclar en las construcciones</target>
       </segment>
     </unit>
     <unit id="faOzY5m" name="Wüstenausflüge">
@@ -6217,7 +6217,7 @@
       </notes>
       <segment>
         <source>Wüstenausflüge</source>
-        <target>Wüstenausflüge</target>
+        <target>Noches en el desierto</target>
       </segment>
     </unit>
     <unit id="DAHe8Qg" name="a229cab">
@@ -6226,7 +6226,7 @@
       </notes>
       <segment>
         <source>Die Auszeichnung spiegelt die Anzahl der Wüstenausflüge wieder, von denen du nicht mehr zurückgekehrt bist.</source>
-        <target>Die Auszeichnung spiegelt die Anzahl der Wüstenausflüge wieder, von denen du nicht mehr zurückgekehrt bist.</target>
+        <target>Veces en las que saliste a pasear fuera del pueblo y nunca más volviste.</target>
       </segment>
     </unit>
     <unit id="jD.DiPe" name="Geöffnete Tür">
@@ -6235,7 +6235,7 @@
       </notes>
       <segment>
         <source>Geöffnete Tür</source>
-        <target>Geöffnete Tür</target>
+        <target>Apertura de puertas</target>
       </segment>
     </unit>
     <unit id="rtoHwdw" name="c693297">
@@ -6244,7 +6244,7 @@
       </notes>
       <segment>
         <source>Anzahl der verschlossenen Türen, die du in verlassenen Gebäuden geöffnet hast.</source>
-        <target>Anzahl der verschlossenen Türen, die du in verlassenen Gebäuden geöffnet hast.</target>
+        <target>Cantidad de puertas abiertas en las ruinas.</target>
       </segment>
     </unit>
     <unit id="vzg1Vou" name="Hängend">
@@ -6253,7 +6253,7 @@
       </notes>
       <segment>
         <source>Hängend</source>
-        <target>Hängend</target>
+        <target>Horcas</target>
       </segment>
     </unit>
     <unit id="XILVSQ3" name="Anzahl der Städte, in denen Sie nicht mehr unterstützt werden konnten.">
@@ -6262,7 +6262,7 @@
       </notes>
       <segment>
         <source>Anzahl der Städte, in denen Sie nicht mehr unterstützt werden konnten.</source>
-        <target>Anzahl der Städte, in denen Sie nicht mehr unterstützt werden konnten.</target>
+        <target>Cantidad de pueblos en los que fuiste considerado indeseable.</target>
       </segment>
     </unit>
     <unit id="4iul8w7" name="Häuserplünderungen">
@@ -6271,7 +6271,7 @@
       </notes>
       <segment>
         <source>Häuserplünderungen</source>
-        <target>Häuserplünderungen</target>
+        <target>Saqueos en casas</target>
       </segment>
     </unit>
     <unit id="OLsJBll" name="fb9ae4d">
@@ -6280,7 +6280,7 @@
       </notes>
       <segment>
         <source>Anzahl der Gegenstände, die du deinen noch verreckenden Freunden entrissen hast.</source>
-        <target>Anzahl der Gegenstände, die du deinen noch verreckenden Freunden entrissen hast.</target>
+        <target>Objetos arrancados del cuerpo aún tibio de tus vecinos.</target>
       </segment>
     </unit>
     <unit id="qGiYEyp" name="Absurde Projekte">
@@ -6289,7 +6289,7 @@
       </notes>
       <segment>
         <source>Absurde Projekte</source>
-        <target>Absurde Projekte</target>
+        <target>Proyectos delirantes</target>
       </segment>
     </unit>
     <unit id="2MnOx8i" name="Anzahl der Absurden Projekte, deren Fertigstellung du noch erlebt hast.">
@@ -6298,7 +6298,7 @@
       </notes>
       <segment>
         <source>Anzahl der Absurden Projekte, deren Fertigstellung du noch erlebt hast.</source>
-        <target>Anzahl der Absurden Projekte, deren Fertigstellung du noch erlebt hast.</target>
+        <target>Cantidad de proyectos delirantes terminados durante tu triste vida.</target>
       </segment>
     </unit>
     <unit id="6bjYKi6" name="Reparaturen">
@@ -6307,7 +6307,7 @@
       </notes>
       <segment>
         <source>Reparaturen</source>
-        <target>Reparaturen</target>
+        <target>Reparaciones</target>
       </segment>
     </unit>
     <unit id="M68ujLN" name="Anzahl kaputter Gegenstände, die du wieder repariert hast.">
@@ -6316,7 +6316,7 @@
       </notes>
       <segment>
         <source>Anzahl kaputter Gegenstände, die du wieder repariert hast.</source>
-        <target>Anzahl kaputter Gegenstände, die du wieder repariert hast.</target>
+        <target>Objetos rotos que has reparado.</target>
       </segment>
     </unit>
     <unit id="J.XSCYh" name="Gebäudereparaturen">
@@ -6325,7 +6325,7 @@
       </notes>
       <segment>
         <source>Gebäudereparaturen</source>
-        <target>Gebäudereparaturen</target>
+        <target>Reparación de construcciones</target>
       </segment>
     </unit>
     <unit id="eVadw_d" name="Anzahl der Aktionspunkte, die du in Reparaturen auf der Baustelle gesteckt hast.">
@@ -6334,7 +6334,7 @@
       </notes>
       <segment>
         <source>Anzahl der Aktionspunkte, die du in Reparaturen auf der Baustelle gesteckt hast.</source>
-        <target>Anzahl der Aktionspunkte, die du in Reparaturen auf der Baustelle gesteckt hast.</target>
+        <target>Puntos de acción invertidos en reparaciones interminables.</target>
       </segment>
     </unit>
     <unit id="tRxlExf" name="Textsammler">
@@ -6343,7 +6343,7 @@
       </notes>
       <segment>
         <source>Textsammler</source>
-        <target>Textsammler</target>
+        <target>Rolista</target>
       </segment>
     </unit>
     <unit id="MnSJgts" name="Anzahl der Dokumente und Texte, die du in der Wüste gefunden hast.">
@@ -6352,7 +6352,7 @@
       </notes>
       <segment>
         <source>Anzahl der Dokumente und Texte, die du in der Wüste gefunden hast.</source>
-        <target>Anzahl der Dokumente und Texte, die du in der Wüste gefunden hast.</target>
+        <target>Documentos y otros descubrimientos en el juego de rol.</target>
       </segment>
     </unit>
     <unit id="rcSA5Xd" name="Leichenentsorger">
@@ -6361,7 +6361,7 @@
       </notes>
       <segment>
         <source>Leichenentsorger</source>
-        <target>Leichenentsorger</target>
+        <target>Lanzamuertos</target>
       </segment>
     </unit>
     <unit id="rFyYect" name="Anzahl deiner toten Freunde, die du außerhalb der Stadt entsorgt hast.">
@@ -6370,7 +6370,7 @@
       </notes>
       <segment>
         <source>Anzahl deiner toten Freunde, die du außerhalb der Stadt entsorgt hast.</source>
-        <target>Anzahl deiner toten Freunde, die du außerhalb der Stadt entsorgt hast.</target>
+        <target>Cantidad de amigos muertos que has tirado fuera del pueblo.</target>
       </segment>
     </unit>
     <unit id="tsZVejd" name="Batteriewerferfabrikant">
@@ -6379,7 +6379,7 @@
       </notes>
       <segment>
         <source>Batteriewerferfabrikant</source>
-        <target>Batteriewerferfabrikant</target>
+        <target>Super lanzapilas</target>
       </segment>
     </unit>
     <unit id="tpreu_F" name="Anzahl der Batteriewerfer, die du gebaut hast.">
@@ -6388,7 +6388,7 @@
       </notes>
       <segment>
         <source>Anzahl der Batteriewerfer, die du gebaut hast.</source>
-        <target>Anzahl der Batteriewerfer, die du gebaut hast.</target>
+        <target>Cantidad de lanza-pilas que has fabricado.</target>
       </segment>
     </unit>
     <unit id="Ncfbww0" name="Überlebende der Hölle!">
@@ -6397,7 +6397,7 @@
       </notes>
       <segment>
         <source>Überlebende der Hölle!</source>
-        <target>Überlebende der Hölle!</target>
+        <target>Superviviente del Infierno</target>
       </segment>
     </unit>
     <unit id="BanibAx" name="Sie sind ein wahrer Überlebenskünstler der Hölle.">
@@ -6406,7 +6406,7 @@
       </notes>
       <segment>
         <source>Sie sind ein wahrer Überlebenskünstler der Hölle.</source>
-        <target>Sie sind ein wahrer Überlebenskünstler der Hölle.</target>
+        <target>Eres un verdadero superviviente del infierno</target>
       </segment>
     </unit>
     <unit id="J105.gK" name="Hausarbeiten">
@@ -6415,7 +6415,7 @@
       </notes>
       <segment>
         <source>Hausarbeiten</source>
-        <target>Hausarbeiten</target>
+        <target>Trabajador hogareño</target>
       </segment>
     </unit>
     <unit id="ZWwqduJ" name="Anzahl der Ausbauten, die du an deinem Haus vorgenommen hast.">
@@ -6424,7 +6424,7 @@
       </notes>
       <segment>
         <source>Anzahl der Ausbauten, die du an deinem Haus vorgenommen hast.</source>
-        <target>Anzahl der Ausbauten, die du an deinem Haus vorgenommen hast.</target>
+        <target>Cantidad de pequeños trabajos hechos en casa.</target>
       </segment>
     </unit>
     <unit id="r6xncsj" name="Kettensägen">
@@ -6433,7 +6433,7 @@
       </notes>
       <segment>
         <source>Kettensägen</source>
-        <target>Kettensägen</target>
+        <target>Sierras elécticas</target>
       </segment>
     </unit>
     <unit id="KXf9wDg" name="Anzahl an Kettensägen, die du gebaut hast.">
@@ -6442,7 +6442,7 @@
       </notes>
       <segment>
         <source>Anzahl an Kettensägen, die du gebaut hast.</source>
-        <target>Anzahl an Kettensägen, die du gebaut hast.</target>
+        <target>Cantidad de sierras eléctricas que has armado.</target>
       </segment>
     </unit>
     <unit id="kdHo25R" name="Stadtwächter">
@@ -6451,7 +6451,7 @@
       </notes>
       <segment>
         <source>Stadtwächter</source>
-        <target>Stadtwächter</target>
+        <target>Centinela</target>
       </segment>
     </unit>
     <unit id="fEL0FCq" name="Anzahl der Nächte, die du als Stadtwächter überlebt hast.">
@@ -6460,7 +6460,7 @@
       </notes>
       <segment>
         <source>Anzahl der Nächte, die du als Stadtwächter überlebt hast.</source>
-        <target>Anzahl der Nächte, die du als Stadtwächter überlebt hast.</target>
+        <target>Cantidad de noches que sobreviviste como Centinela.</target>
       </segment>
     </unit>
     <unit id="I2LHLA6" name="Gerankte Stadt">
@@ -6469,7 +6469,7 @@
       </notes>
       <segment>
         <source>Gerankte Stadt</source>
-        <target>Gerankte Stadt</target>
+        <target>Habitante prestigioso</target>
       </segment>
     </unit>
     <unit id="bjLGLtR" name="8e6bd99">
@@ -6478,7 +6478,7 @@
       </notes>
       <segment>
         <source>Anzahl der Städte, in denen Du mitgespielt hast, die es in einer vergangenen Saison ins Ranking geschafft haben.</source>
-        <target>Anzahl der Städte, in denen Du mitgespielt hast, die es in einer vergangenen Saison ins Ranking geschafft haben.</target>
+        <target>Cantidad de veces en que has participado en pueblos presentes en una clasificación anterior.</target>
       </segment>
     </unit>
     <unit id="vkTwfZ7" name="Legendäre Stadt">
@@ -6487,7 +6487,7 @@
       </notes>
       <segment>
         <source>Legendäre Stadt</source>
-        <target>Legendäre Stadt</target>
+        <target>Ciudadano legendario</target>
       </segment>
     </unit>
     <unit id="k1epE3V" name="e2cb47f">
@@ -6496,7 +6496,7 @@
       </notes>
       <segment>
         <source>Anzahl der Städte, in denen Du mitgespielt hast, die in einer vergangenen Saison als Erste abgeschnitten haben.</source>
-        <target>Anzahl der Städte, in denen Du mitgespielt hast, die in einer vergangenen Saison als Erste abgeschnitten haben.</target>
+        <target>Cantidad de pueblos colocados en el primer lugar en una clasificación anterior.</target>
       </segment>
     </unit>
     <unit id="P87Mfm4" name="Teilnehmende Stadt">
@@ -6505,7 +6505,7 @@
       </notes>
       <segment>
         <source>Teilnehmende Stadt</source>
-        <target>Teilnehmende Stadt</target>
+        <target>Pueblo participante</target>
       </segment>
     </unit>
     <unit id="xKwHsnM" name="b6bc05c">
@@ -6514,7 +6514,7 @@
       </notes>
       <segment>
         <source>Anzahl der Städte, die in der Top-35-Rangliste einer vergangenen Saison vertreten waren.</source>
-        <target>Anzahl der Städte, die in der Top-35-Rangliste einer vergangenen Saison vertreten waren.</target>
+        <target>Cantidad de pueblos representadas en las primeras 35 clasificaciones de la temporada pasada</target>
       </segment>
     </unit>
     <unit id="Y90upo5" name="Getötete Zombies">
@@ -6523,7 +6523,7 @@
       </notes>
       <segment>
         <source>Getötete Zombies</source>
-        <target>Getötete Zombies</target>
+        <target>Zombies eliminados</target>
       </segment>
     </unit>
     <unit id="2VXomcj" name="0cd9e5b">
@@ -6532,7 +6532,7 @@
       </notes>
       <segment>
         <source>Gibt die Gesamtanzahl, der von dir umgebrachten Zombies an. Jede Tötungsmethode wird gezählt.</source>
-        <target>Gibt die Gesamtanzahl, der von dir umgebrachten Zombies an. Jede Tötungsmethode wird gezählt.</target>
+        <target>Total de muertos vivientes que volviste a enviar bajo tierra de cualquier manera.</target>
       </segment>
     </unit>
     <unit id="VEVB_Sc" name="Ehemaliger Beta-Tester">
@@ -6541,7 +6541,7 @@
       </notes>
       <segment>
         <source>Ehemaliger Beta-Tester</source>
-        <target>Ehemaliger Beta-Tester</target>
+        <target>Beta-tester</target>
       </segment>
     </unit>
     <unit id="jt.ezbv" name="7d0bc2b">
@@ -6550,7 +6550,7 @@
       </notes>
       <segment>
         <source>Dies ist eine äußert seltene Auszeichnung, die den ersten Spielern von 'MyHordes' vorbehalten ist.</source>
-        <target>Dies ist eine äußert seltene Auszeichnung, die den ersten Spielern von 'MyHordes' vorbehalten ist.</target>
+        <target>Distinción rarísima otorgada a quienes participaron en la fase Beta, los primeros jugadores de Zombinoia.</target>
       </segment>
     </unit>
     <unit id="eAodZt." name="Sandbälle! Yeah!">
@@ -6559,7 +6559,7 @@
       </notes>
       <segment>
         <source>Sandbälle! Yeah!</source>
-        <target>Sandbälle! Yeah!</target>
+        <target>Bolas de arena</target>
       </segment>
     </unit>
     <unit id="KhJ3UGm" name="8dca30b">
@@ -6568,7 +6568,7 @@
       </notes>
       <segment>
         <source>Anzahl der Sandbälle, die du deinen Mitspielern ins Gesicht geworfen hast. Kicher, kicher...</source>
-        <target>Anzahl der Sandbälle, die du deinen Mitspielern ins Gesicht geworfen hast. Kicher, kicher...</target>
+        <target>Cantidad de bolas de arena lanzadas a la cara de otros jugadores.</target>
       </segment>
     </unit>
     <unit id="ZfFBo_5" name="Kreuzigung">
@@ -6577,7 +6577,7 @@
       </notes>
       <segment>
         <source>Kreuzigung</source>
-        <target>Kreuzigung</target>
+        <target>Crucifixión</target>
       </segment>
     </unit>
     <unit id="weKTlex" name="Freuen Sie sich, Sie hätten nicht laufen müssen.">
@@ -6586,7 +6586,7 @@
       </notes>
       <segment>
         <source>Freuen Sie sich, Sie hätten nicht laufen müssen.</source>
-        <target>Freuen Sie sich, Sie hätten nicht laufen müssen.</target>
+        <target>Alégrate de que no tuviste que caminar</target>
       </segment>
     </unit>
     <unit id="CWUGXbC" name="Den Weihnachtsmann gibt es nicht">
@@ -6595,7 +6595,7 @@
       </notes>
       <segment>
         <source>Den Weihnachtsmann gibt es nicht</source>
-        <target>Den Weihnachtsmann gibt es nicht</target>
+        <target>Maldito Papá Noel</target>
       </segment>
     </unit>
     <unit id="8JoH6DL" name="Anzahl der Geschenke, die du deinen Freunden geklaut hast.">
@@ -6604,7 +6604,7 @@
       </notes>
       <segment>
         <source>Anzahl der Geschenke, die du deinen Freunden geklaut hast.</source>
-        <target>Anzahl der Geschenke, die du deinen Freunden geklaut hast.</target>
+        <target>Cantidad de regalos robados a amigos</target>
       </segment>
     </unit>
     <unit id="Gf1_yUr" name="Tagelang wurde an den Seelen der Toten herumgepfuscht.">
@@ -6613,7 +6613,7 @@
       </notes>
       <segment>
         <source>Tagelang wurde an den Seelen der Toten herumgepfuscht.</source>
-        <target>Tagelang wurde an den Seelen der Toten herumgepfuscht.</target>
+        <target>Días pasados jugando con almas de muertos.</target>
       </segment>
     </unit>
     <unit id="H3ZzhL." name="f8d99bd">
@@ -7045,7 +7045,7 @@
       </notes>
       <segment>
         <source>Reiseleiter in der Außenwelt</source>
-        <target>Reiseleiter in der Außenwelt</target>
+        <target>Guía del Ultramundo</target>
       </segment>
     </unit>
     <unit id="ti26S85" name="Dazu hast Du nicht das Recht.">
@@ -8866,7 +8866,7 @@
       </notes>
       <segment>
         <source>Status</source>
-        <target>Status</target>
+        <target>Estados</target>
       </segment>
     </unit>
     <unit id="m9ipH9g" name="[nights]">
@@ -9469,7 +9469,7 @@
       </notes>
       <segment>
         <source>Seelenpunkte</source>
-        <target>Seelenpunkte</target>
+        <target>Puntos de Alma</target>
       </segment>
     </unit>
     <unit id="bjhWQ9o" name="Anzahl der Seelenpunkte, die du durch deine Inkarnationen erhalten hast.">
@@ -9523,7 +9523,7 @@
       </notes>
       <segment>
         <source>Tipp-Ex</source>
-        <target>Tipp-Ex</target>
+        <target>Manipulador</target>
       </segment>
     </unit>
     <unit id="N7td9of" name="ca2c228">
@@ -9532,7 +9532,7 @@
       </notes>
       <segment>
         <source>Du kannst 2 Mal pro Partie einen Registereintrag unkenntlich machen. Dazu musst du nur auf das kleine Icon "Fälschen" klicken. Dieses befindet sich links neben dem "störenden" Registereintrag. ;-)</source>
-        <target>Du kannst 2 Mal pro Partie einen Registereintrag unkenntlich machen. Dazu musst du nur auf das kleine Icon "Fälschen" klicken. Dieses befindet sich links neben dem "störenden" Registereintrag. ;-)</target>
+        <target>Te permite borrar 2 líneas de cualquier registro durante una partida (haga clic en el icono junto a la línea que desea eliminar...).</target>
       </segment>
     </unit>
     <unit id="v3dbrZx" name="Hellseherei">
@@ -9541,7 +9541,7 @@
       </notes>
       <segment>
         <source>Hellseherei</source>
-        <target>Hellseherei</target>
+        <target>Clarividencia</target>
       </segment>
     </unit>
     <unit id="K0VcFBE" name="b8e98fb">
@@ -9550,7 +9550,7 @@
       </notes>
       <segment>
         <source>Du erfährst, wie aktiv ein bestimmter Bürger in deiner Stadt spielt. Du musst dazu lediglich bei ihm daheim vorbeischauen...</source>
-        <target>Du erfährst, wie aktiv ein bestimmter Bürger in deiner Stadt spielt. Du musst dazu lediglich bei ihm daheim vorbeischauen...</target>
+        <target>Puedes ver que tan activos son los demás habitantes entrando a sus casas</target>
       </segment>
     </unit>
     <unit id="Qs6kA06" name="Rundbrief">
@@ -9559,7 +9559,7 @@
       </notes>
       <segment>
         <source>Rundbrief</source>
-        <target>Rundbrief</target>
+        <target>Demagogo</target>
       </segment>
     </unit>
     <unit id="mbDhlAW" name="51b58eb">
@@ -9568,7 +9568,7 @@
       </notes>
       <segment>
         <source>Mit dieser Funktion kannst du alle Stadteinwohner auf einmal anschreiben. Du kannst damit in den Foren zudem Rollenspielthreads (RP) erstellen (Übertreibe es aber bitte nicht - Danke!).</source>
-        <target>Mit dieser Funktion kannst du alle Stadteinwohner auf einmal anschreiben. Du kannst damit in den Foren zudem Rollenspielthreads (RP) erstellen (Übertreibe es aber bitte nicht - Danke!).</target>
+        <target>Puedes enviar MP a todos en el pueblo a la vez. También puede iniciar hilos "RP" en los foros (¡no abuse de esto!).</target>
       </segment>
     </unit>
     <unit id="U85YOFG" name="Freundschaft">
@@ -9577,7 +9577,7 @@
       </notes>
       <segment>
         <source>Freundschaft</source>
-        <target>Freundschaft</target>
+        <target>Camaradería</target>
       </segment>
     </unit>
     <unit id="vO7Ba8Y" name="2898f7f">
@@ -9586,7 +9586,7 @@
       </notes>
       <segment>
         <source>Mit dieser Fähigkeit kannst du 1 Mal pro Partie (Stadt) jemandem einen Heldentag spendieren! Die anderen werden in dir den Messias erkennen! BEACHTE: Verschenkte Heldentage werden dir von deinem Konto abgezogen. Um jemandem einen Heldentag zu schenken, musst mit ihm in der gleichen Zone stehen oder, wenn du in der Stadt bist, ihn daheim besuchen.</source>
-        <target>Mit dieser Fähigkeit kannst du 1 Mal pro Partie (Stadt) jemandem einen Heldentag spendieren! Die anderen werden in dir den Messias erkennen! BEACHTE: Verschenkte Heldentage werden dir von deinem Konto abgezogen. Um jemandem einen Heldentag zu schenken, musst mit ihm in der gleichen Zone stehen oder, wenn du in der Stadt bist, ihn daheim besuchen.</target>
+        <target>Puedes dar 1 día de héroe a cualquier ciudadano. El día será descontado de tu total de días restantes. NB: cualquier día de héroe que regale se tomará de su total, simplemente vaya a la página de otro ciudadano para darles un día de héroe. Advertencia: cuando dona un día de héroe, solo es válido para ESE DÍA. No se puede guardar para otro momento.</target>
       </segment>
     </unit>
     <unit id="m6rV1sV" name="Diktator">
@@ -9595,7 +9595,7 @@
       </notes>
       <segment>
         <source>Diktator</source>
-        <target>Diktator</target>
+        <target>Dictador</target>
       </segment>
     </unit>
     <unit id="yIW1YVF" name="9ea7a84">
@@ -9604,7 +9604,7 @@
       </notes>
       <segment>
         <source>Schreibe auf die Tafel, die sich auf der Übersichtsseite deiner Stadt befindet. Darüberhinaus kannst du auch deinen Mitbürgern ein Bauprojekt empfehlen. Das Gebäude mit den meisten Empfehlungen wird auf der Bauseite der Stadt hervorgehoben.</source>
-        <target>Schreibe auf die Tafel, die sich auf der Übersichtsseite deiner Stadt befindet. Darüberhinaus kannst du auch deinen Mitbürgern ein Bauprojekt empfehlen. Das Gebäude mit den meisten Empfehlungen wird auf der Bauseite der Stadt hervorgehoben.</target>
+        <target>Puedes modificar la pizarra de héroes. La pizarra aparece en la vista general del pueblo cuando alguno de los héroes presentes posee esta habilidad.</target>
       </segment>
     </unit>
     <unit id="aMybzLI" name="Große Truhe">
@@ -9613,7 +9613,7 @@
       </notes>
       <segment>
         <source>Große Truhe</source>
-        <target>Große Truhe</target>
+        <target>Gran Baúl</target>
       </segment>
     </unit>
     <unit id="1QRcfVE" name="Du erhältst einen zusätzlichen Platz in deiner Truhe.">
@@ -9622,7 +9622,7 @@
       </notes>
       <segment>
         <source>Du erhältst einen zusätzlichen Platz in deiner Truhe.</source>
-        <target>Du erhältst einen zusätzlichen Platz in deiner Truhe.</target>
+        <target>Obtienes un espacio adicional para el baúl de tu casa.</target>
       </segment>
     </unit>
     <unit id="XE_uE8Y" name="Top in Form">
@@ -9631,7 +9631,7 @@
       </notes>
       <segment>
         <source>Top in Form</source>
-        <target>Top in Form</target>
+        <target>Cuerpo Sano</target>
       </segment>
     </unit>
     <unit id="3THXKcp" name="05dac1f">
@@ -9640,7 +9640,7 @@
       </notes>
       <segment>
         <source>Solange du "Clean" bist (sprich: Du hast in der Partie noch keine Drogen zu Dir genommen.), verfügst du über einen zusätzlichen Zonenkontrollpunkt in der Außenwelt.</source>
-        <target>Solange du "Clean" bist (sprich: Du hast in der Partie noch keine Drogen zu Dir genommen.), verfügst du über einen zusätzlichen Zonenkontrollpunkt in der Außenwelt.</target>
+        <target>Mientras mantengas el estatus "Limpio" obtendrás un punto de control extra al viajar en el ultramundo.</target>
       </segment>
     </unit>
     <unit id="D31zha8" name="Allwissenheit">
@@ -9649,7 +9649,7 @@
       </notes>
       <segment>
         <source>Allwissenheit</source>
-        <target>Allwissenheit</target>
+        <target>Omnisciencia</target>
       </segment>
     </unit>
     <unit id="z2i75b9" name="0e67d77">
@@ -9658,7 +9658,7 @@
       </notes>
       <segment>
         <source>Allwissenheit funktioniert wie Hellseherei, außer, dass du jetzt eine Übersicht zur Aktivität aller Stadteinwohner bekommst. Klicke dazu in der Bürgerliste einfach auf den Button "Allwissenheit".</source>
-        <target>Allwissenheit funktioniert wie Hellseherei, außer, dass du jetzt eine Übersicht zur Aktivität aller Stadteinwohner bekommst. Klicke dazu in der Bürgerliste einfach auf den Button "Allwissenheit".</target>
+        <target>Es una mejora de clarividencia, aparecerá una pestaña en el anuario del pueblo, en la cual podrás ver la misma lista de habitantes, pero con el número de estrellas de todos, además verás los objetos en el baúl de manera fija y los puntos de alma de cada uno.</target>
       </segment>
     </unit>
     <unit id="P.sGRq9" name="Einfallsreichtum">
@@ -9667,7 +9667,7 @@
       </notes>
       <segment>
         <source>Einfallsreichtum</source>
-        <target>Einfallsreichtum</target>
+        <target>Destreza</target>
       </segment>
     </unit>
     <unit id="IvIWgfV" name="Du beginnst jede neue Stadt mit einem zusätzlichen nützlichen Gegenstand.">
@@ -9676,7 +9676,7 @@
       </notes>
       <segment>
         <source>Du beginnst jede neue Stadt mit einem zusätzlichen nützlichen Gegenstand.</source>
-        <target>Du beginnst jede neue Stadt mit einem zusätzlichen nützlichen Gegenstand.</target>
+        <target>Comienzas cada partida con una caja especial en tu baúl.</target>
       </segment>
     </unit>
     <unit id="QOEKzJS" name="Doppelter Boden">
@@ -9685,7 +9685,7 @@
       </notes>
       <segment>
         <source>Doppelter Boden</source>
-        <target>Doppelter Boden</target>
+        <target>Fondo Falso</target>
       </segment>
     </unit>
     <unit id="hR9jP7b" name="Du bekommst einen weiteren Platz in deiner Truhe.">
@@ -9694,7 +9694,7 @@
       </notes>
       <segment>
         <source>Du bekommst einen weiteren Platz in deiner Truhe.</source>
-        <target>Du bekommst einen weiteren Platz in deiner Truhe.</target>
+        <target>Obtienes un espacio adicional en el baúl de casa.</target>
       </segment>
     </unit>
     <unit id="Y1T4Y0D" name="Schönes Fundstück">
@@ -9703,7 +9703,7 @@
       </notes>
       <segment>
         <source>Schönes Fundstück</source>
-        <target>Schönes Fundstück</target>
+        <target>Descubrimientos fantásticos</target>
       </segment>
     </unit>
     <unit id="SJGL9Ty" name="a6624c9">
@@ -9712,7 +9712,7 @@
       </notes>
       <segment>
         <source>Mit deiner Heldenfähigkeit "Fundstück" stöberst du jetzt NOCH BESSERE Gegenstände auf.</source>
-        <target>Mit deiner Heldenfähigkeit "Fundstück" stöberst du jetzt NOCH BESSERE Gegenstände auf.</target>
+        <target>Mejora los objetos que puedes encontrar mediante la acción heroica hallazgo</target>
       </segment>
     </unit>
     <unit id="Pxb1j1P" name="Aufgeräumte Tasche">
@@ -9721,7 +9721,7 @@
       </notes>
       <segment>
         <source>Aufgeräumte Tasche</source>
-        <target>Aufgeräumte Tasche</target>
+        <target>Bolsillos inteligentes</target>
       </segment>
     </unit>
     <unit id="ukODLao" name="Du bekommst einen zusätzlichen Platz in deinem Rucksack.">
@@ -9730,7 +9730,7 @@
       </notes>
       <segment>
         <source>Du bekommst einen zusätzlichen Platz in deinem Rucksack.</source>
-        <target>Du bekommst einen zusätzlichen Platz in deinem Rucksack.</target>
+        <target>Espacio adicional para tu mochila.</target>
       </segment>
     </unit>
     <unit id="zV1VWf6" name="Zweite Lunge">
@@ -9739,7 +9739,7 @@
       </notes>
       <segment>
         <source>Zweite Lunge</source>
-        <target>Zweite Lunge</target>
+        <target>Segundo Aliento</target>
       </segment>
     </unit>
     <unit id="eGCPfhk" name="1527d2b">
@@ -9748,7 +9748,7 @@
       </notes>
       <segment>
         <source>Du verfügst ab sofort über eine mächtige Heldenfähigkeit, mit der du 6 AP wiederherstellen kannst und die deine Müdigkeit aufhebt.</source>
-        <target>Du verfügst ab sofort über eine mächtige Heldenfähigkeit, mit der du 6 AP wiederherstellen kannst und die deine Müdigkeit aufhebt.</target>
+        <target>Ahora tiene un poder extremadamente útil que le permite restaurar su energía a 6PA y recuperarse del agotamiento.</target>
       </segment>
     </unit>
     <unit id="Z9YgscK" name="Weitsichtig">
@@ -9757,7 +9757,7 @@
       </notes>
       <segment>
         <source>Weitsichtig</source>
-        <target>Weitsichtig</target>
+        <target>Precavido</target>
       </segment>
     </unit>
     <unit id="4pAqmIp" name="Du beginnst jede neue Stadt mit einer zusätzlichen Nahrungsmittelration.">
@@ -9766,7 +9766,7 @@
       </notes>
       <segment>
         <source>Du beginnst jede neue Stadt mit einer zusätzlichen Nahrungsmittelration.</source>
-        <target>Du beginnst jede neue Stadt mit einer zusätzlichen Nahrungsmittelration.</target>
+        <target>Comienzas las partidas con 2 doggy bag en vez de 1.</target>
       </segment>
     </unit>
     <unit id="PwnszRH" name="Panzerschrank">
@@ -9775,7 +9775,7 @@
       </notes>
       <segment>
         <source>Panzerschrank</source>
-        <target>Panzerschrank</target>
+        <target>Erudito</target>
       </segment>
     </unit>
     <unit id="BY.ydY2" name="53e0ef3">
@@ -9784,7 +9784,7 @@
       </notes>
       <segment>
         <source>Dank deiner zahlreichen Zombiekontakte verfügst du in der Außenwelt ab sofort über einen zusätzlichen Zonenkontrollpunkt.</source>
-        <target>Dank deiner zahlreichen Zombiekontakte verfügst du in der Außenwelt ab sofort über einen zusätzlichen Zonenkontrollpunkt.</target>
+        <target>Otorga 1 punto de control adicional en el ultramundo.</target>
       </segment>
     </unit>
     <unit id="QTu6jiF" name="Hinterhältigkeit">
@@ -9793,7 +9793,7 @@
       </notes>
       <segment>
         <source>Hinterhältigkeit</source>
-        <target>Hinterhältigkeit</target>
+        <target>Perfidia</target>
       </segment>
     </unit>
     <unit id="PgyVB.w" name="5b80459">
@@ -9802,7 +9802,7 @@
       </notes>
       <segment>
         <source>Die "Tipp-Ex" Fähigkeit wird noch besser! Ab sofort kannst du pro Partie (Stadt) noch mehr Registereinträge fälschen! Du kannst ab sofort 4 Mal pro Partie einen Registereintrag unkenntlich machen.</source>
-        <target>Die "Tipp-Ex" Fähigkeit wird noch besser! Ab sofort kannst du pro Partie (Stadt) noch mehr Registereinträge fälschen! Du kannst ab sofort 4 Mal pro Partie einen Registereintrag unkenntlich machen.</target>
+        <target>Duplica el efecto de manipulador (en vez tachar 2 líneas podrás tachar 4).</target>
       </segment>
     </unit>
     <unit id="SJBxB2t" name="d8fa451">
@@ -9811,7 +9811,7 @@
       </notes>
       <segment>
         <source>Sobald diese neue Heldenfähigkeit aktiviert wurde, spürst du beim nächsten Zombieangriff keinen Durst, keine Drogenabhängigkeit und keine Infektion (nur eine Nacht lang gültig). Verhindert auch Ghulverhungern (Hungerbalken steigt trotzdem).</source>
-        <target>Sobald diese neue Heldenfähigkeit aktiviert wurde, spürst du beim nächsten Zombieangriff keinen Durst, keine Drogenabhängigkeit und keine Infektion (nur eine Nacht lang gültig). Verhindert auch Ghulverhungern (Hungerbalken steigt trotzdem).</target>
+        <target>Te protege de morir durante un ataque zombie por infección, sed o adicción.</target>
       </segment>
     </unit>
     <unit id="YOrcnrc" name="Süße Rache">
@@ -9820,7 +9820,7 @@
       </notes>
       <segment>
         <source>Süße Rache</source>
-        <target>Süße Rache</target>
+        <target>Venganza sórdida</target>
       </segment>
     </unit>
     <unit id="_lMBtWk" name="1db7767">
@@ -9829,7 +9829,7 @@
       </notes>
       <segment>
         <source>Solltest du am dritten Tag oder an einem späteren Zeitpunkt verbannt werden, bekommst du automatisch etwas Gift geschenkt, das du nach Belieben einsetzen kannst... Tja, man hätte dich besser nicht ärgern sollen!</source>
-        <target>Solltest du am dritten Tag oder an einem späteren Zeitpunkt verbannt werden, bekommst du automatisch etwas Gift geschenkt, das du nach Belieben einsetzen kannst... Tja, man hätte dich besser nicht ärgern sollen!</target>
+        <target>Si eres desterrado el día 3 o posteriores automáticamente recibes dos frasco veneno (puede usarse para envenenar la comida y el agua).</target>
       </segment>
     </unit>
     <unit id="teacwpj" name="Proficamper">
@@ -9838,7 +9838,7 @@
       </notes>
       <segment>
         <source>Proficamper</source>
-        <target>Proficamper</target>
+        <target>Campista Experto</target>
       </segment>
     </unit>
     <unit id="rcmlJ6d" name="ff04338">
@@ -9847,7 +9847,7 @@
       </notes>
       <segment>
         <source>Die Nachteile, die bei wiederholtem Campen auftreten, fallen bei dir nicht mehr so stark aus: Somit kannst du in einer Stadt öfter campen.</source>
-        <target>Die Nachteile, die bei wiederholtem Campen auftreten, fallen bei dir nicht mehr so stark aus: Somit kannst du in einer Stadt öfter campen.</target>
+        <target>Reduce las penalidades por acampar repetidamente.</target>
       </segment>
     </unit>
     <unit id="0i6IkRd" name="Erfahrener Junkie">
@@ -9856,7 +9856,7 @@
       </notes>
       <segment>
         <source>Erfahrener Junkie</source>
-        <target>Erfahrener Junkie</target>
+        <target>Medicina Preventiva</target>
       </segment>
     </unit>
     <unit id="xQGVw2P" name="Du beginnst jede neue Stadt mit einer Ration Paracetoid 7g in deinem Rucksack.">
@@ -9865,7 +9865,7 @@
       </notes>
       <segment>
         <source>Du beginnst jede neue Stadt mit einer Ration Paracetoid 7g in deinem Rucksack.</source>
-        <target>Du beginnst jede neue Stadt mit einer Ration Paracetoid 7g in deinem Rucksack.</target>
+        <target>Comienzas la partida con un Paracetoid 7g.</target>
       </segment>
     </unit>
     <unit id="Byr6aKi" name="Bürgermeister">
@@ -9874,7 +9874,7 @@
       </notes>
       <segment>
         <source>Bürgermeister</source>
-        <target>Bürgermeister</target>
+        <target>Alcalde</target>
       </segment>
     </unit>
     <unit id="Bkj9zxa" name="b5e7d08">
@@ -9883,7 +9883,7 @@
       </notes>
       <segment>
         <source>Du kannst Privatstädte gründen (nach deinem nächsten Tod, auf der Seite "Spielen").</source>
-        <target>Du kannst Privatstädte gründen (nach deinem nächsten Tod, auf der Seite "Spielen").</target>
+        <target>Te da la capacidad de crear pueblos privados.</target>
       </segment>
     </unit>
     <unit id="59iDY2T" name="Architekt">
@@ -9892,7 +9892,7 @@
       </notes>
       <segment>
         <source>Architekt</source>
-        <target>Architekt</target>
+        <target>Arquitecto</target>
       </segment>
     </unit>
     <unit id="70rMMrW" name="Du beginnst jede Stadt mit einem Gebäudeplan.">
@@ -9901,7 +9901,7 @@
       </notes>
       <segment>
         <source>Du beginnst jede Stadt mit einem Gebäudeplan.</source>
-        <target>Du beginnst jede Stadt mit einem Gebäudeplan.</target>
+        <target>Comienzas cada partida con un plano común en tu poder.</target>
       </segment>
     </unit>
     <unit id="I7tDV2L" name="Profiwächter">
@@ -9910,7 +9910,7 @@
       </notes>
       <segment>
         <source>Profiwächter</source>
-        <target>Profiwächter</target>
+        <target>Centinela Experto</target>
       </segment>
     </unit>
     <unit id="G12Hlud" name="Du hast permanent um 5% bessere Chancen auf der Nachtwache.">
@@ -9919,7 +9919,7 @@
       </notes>
       <segment>
         <source>Du hast permanent um 5% bessere Chancen auf der Nachtwache.</source>
-        <target>Du hast permanent um 5% bessere Chancen auf der Nachtwache.</target>
+        <target>Siempre tienes un 5% mejores posibilidades de sobrevivir como centinela a la noche.</target>
       </segment>
     </unit>
     <unit id="UWWvoug" name="e164c18">
@@ -9964,7 +9964,7 @@
       </notes>
       <segment>
         <source>Draußen</source>
-        <target>Draußen</target>
+        <target>Fuera</target>
       </segment>
     </unit>
     <unit id="3SUo7We" name="in der Stadt oder am Stadttor">
@@ -10000,7 +10000,7 @@
       </notes>
       <segment>
         <source>Sauerstoff</source>
-        <target>Sauerstoff</target>
+        <target>Oxígeno</target>
       </segment>
     </unit>
     <unit id="6kQh7Rd" name="Stadtverteidigung">
@@ -10315,7 +10315,7 @@
       </notes>
       <segment>
         <source>Letzter freigeschalteter Heldenvorteil:</source>
-        <target>Letzter freigeschalteter Heldenvorteil:</target>
+        <target>Último poder ganado :</target>
       </segment>
     </unit>
     <unit id="gwaSbiX" name="Niemand">
@@ -10324,7 +10324,7 @@
       </notes>
       <segment>
         <source>Niemand</source>
-        <target>Niemand</target>
+        <target>Nada</target>
       </segment>
     </unit>
     <unit id="oeIpxYX" name="Alle freigeschalteten Vorteile anzeigen">
@@ -10333,7 +10333,7 @@
       </notes>
       <segment>
         <source>Alle freigeschalteten Vorteile anzeigen</source>
-        <target>Alle freigeschalteten Vorteile anzeigen</target>
+        <target>Muestre los poderes que he ganado</target>
       </segment>
     </unit>
     <unit id="vfCiVvC" name="Die letzte Zeitung lesen">
@@ -10360,7 +10360,7 @@
       </notes>
       <segment>
         <source>%days% Tage</source>
-        <target>%days% Tage</target>
+        <target>%days% Dias</target>
       </segment>
     </unit>
     <unit id="8mlXwLP" name="im Heldenmodus gespielt">
@@ -10378,7 +10378,7 @@
       </notes>
       <segment>
         <source>Fähigkeit</source>
-        <target>Fähigkeit</target>
+        <target>Poder</target>
       </segment>
     </unit>
     <unit id="6SYvAH3" name="Beschreibung">
@@ -10387,7 +10387,7 @@
       </notes>
       <segment>
         <source>Beschreibung</source>
-        <target>Beschreibung</target>
+        <target>Detalles</target>
       </segment>
     </unit>
     <unit id="1jWc_b3" name="Nächste:">
@@ -10396,7 +10396,7 @@
       </notes>
       <segment>
         <source>Nächste:</source>
-        <target>Nächste:</target>
+        <target>Siguiente :</target>
       </segment>
     </unit>
     <unit id="luCuBtM" name="Diese Fähigkeit wurde noch nicht freigeschaltet...">
@@ -10405,7 +10405,7 @@
       </notes>
       <segment>
         <source>Diese Fähigkeit wurde noch nicht freigeschaltet...</source>
-        <target>Diese Fähigkeit wurde noch nicht freigeschaltet...</target>
+        <target>Habilidad no desbloqueada ...</target>
       </segment>
     </unit>
     <unit id="Zc9wwO7" name="Verbesserung des Tages (building)">
@@ -10414,7 +10414,7 @@
       </notes>
       <segment>
         <source>Verbesserung des Tages (building)</source>
-        <target>Verbesserung des Tages (building)</target>
+        <target>Obras</target>
       </segment>
     </unit>
     <unit id="AKS0zA3" name="Werkstatt (building)">
@@ -10570,7 +10570,7 @@
       </notes>
       <segment>
         <source>Zum Forum</source>
-        <target>Zum Forum</target>
+        <target>Hacia el foro</target>
       </segment>
     </unit>
     <unit id="2fBmxk8" name="Du hast dich soeben in einen Ghul verandelt!">
@@ -10720,7 +10720,7 @@
       </notes>
       <segment>
         <source>Dies ist eine offizielle Nachricht.</source>
-        <target>Dies ist eine offizielle Nachricht.</target>
+        <target>Este es un mensaje oficial.</target>
       </segment>
     </unit>
     <unit id="3lrK_qg" name="Lade Forum...">
@@ -10729,7 +10729,7 @@
       </notes>
       <segment>
         <source>Lade Forum...</source>
-        <target>Lade Forum...</target>
+        <target>Cargando foro ...</target>
       </segment>
     </unit>
     <unit id="n19gYuh" name="Das folgende Bauprojekt wurde empfohlen:">
@@ -10747,7 +10747,7 @@
       </notes>
       <segment>
         <source>Alle</source>
-        <target>Alle</target>
+        <target>Todas</target>
       </segment>
     </unit>
     <unit id="98qlXbX" name="Du bist %status%">
@@ -10756,7 +10756,7 @@
       </notes>
       <segment>
         <source>Du bist %status%</source>
-        <target>Du bist %status%</target>
+        <target>Usted está %status%</target>
       </segment>
     </unit>
     <unit id="Pzhs1Mo" name="Ratschlag:">
@@ -10819,7 +10819,7 @@
       </notes>
       <segment>
         <source>Quarantäne</source>
-        <target>Quarantäne</target>
+        <target>Cuarentena</target>
       </segment>
     </unit>
     <unit id="icxLMof" name="Der letzte Tote in dieser Stadt!">
@@ -10864,7 +10864,7 @@
       </notes>
       <segment>
         <source>Mit den anderen Bürgern reden...</source>
-        <target>Mit den anderen Bürgern reden...</target>
+        <target>Habla con los demás habitantes del pueblo y organícense si quieren sobrevivir...</target>
       </segment>
     </unit>
     <unit id="_EDDh5L" name="9f36678">
@@ -10873,7 +10873,7 @@
       </notes>
       <segment>
         <source>Lesen und Nutzen des Forums sind in 'MyHordes' überlebensnotwendig! Die wichtigen Entscheidungen der Stadt werden hier gemeinsam von der Community getroffen.</source>
-        <target>Lesen und Nutzen des Forums sind in 'MyHordes' überlebensnotwendig! Die wichtigen Entscheidungen der Stadt werden hier gemeinsam von der Community getroffen.</target>
+        <target>¡Leer y escribir en los foros es importante en 'MyHordes'! Ahí se tomarán todas las decisiones importantes, por la misma comunidad.</target>
       </segment>
     </unit>
     <unit id="esKM3_t" name="Deine gesamte Geschichte basiert auf deinen zuvor gespielten Städten...">
@@ -10882,7 +10882,7 @@
       </notes>
       <segment>
         <source>Deine gesamte Geschichte basiert auf deinen zuvor gespielten Städten...</source>
-        <target>Deine gesamte Geschichte basiert auf deinen zuvor gespielten Städten...</target>
+        <target>El reflejo de tus vidas anteriores.</target>
       </segment>
     </unit>
     <unit id="K382mbj" name="Spielhilfe aufrufen.">
@@ -10891,7 +10891,7 @@
       </notes>
       <segment>
         <source>Spielhilfe aufrufen.</source>
-        <target>Spielhilfe aufrufen.</target>
+        <target>¿Eres nuevo en MyHordes?</target>
       </segment>
     </unit>
     <unit id="aBzVCJL" name="479d11d">
@@ -10900,7 +10900,7 @@
       </notes>
       <segment>
         <source>Hast du schon unter "Wie wird gespielt" nachgeschaut? Du findest den Link darauf unter der Karte der Stadt.</source>
-        <target>Hast du schon unter "Wie wird gespielt" nachgeschaut? Du findest den Link darauf unter der Karte der Stadt.</target>
+        <target>La Guía «Cómo jugar» sobre el mapa es muy útil</target>
       </segment>
     </unit>
     <unit id="25Kvu55" name="8937cea">
@@ -10909,7 +10909,7 @@
       </notes>
       <segment>
         <source>Das Leichsblatt: Hier findet ihr alle Neuigkeiten, über das, was gestern in der Stadt passiert ist...</source>
-        <target>Das Leichsblatt: Hier findet ihr alle Neuigkeiten, über das, was gestern in der Stadt passiert ist...</target>
+        <target>El Cadáver Matutino: Entérate de lo que sucedió ayer.</target>
       </segment>
     </unit>
     <unit id="55LsCVW" name="Schaut am besten jeden Tag einmal rein!">
@@ -10918,7 +10918,7 @@
       </notes>
       <segment>
         <source>Schaut am besten jeden Tag einmal rein!</source>
-        <target>Schaut am besten jeden Tag einmal rein!</target>
+        <target>No olvides echarle un vistazo cada día, encontrarás mucha información útil.</target>
       </segment>
     </unit>
     <unit id="6lr5Awl" name="Starten Sie eine Stadt">
@@ -10927,7 +10927,7 @@
       </notes>
       <segment>
         <source>Starten Sie eine Stadt</source>
-        <target>Starten Sie eine Stadt</target>
+        <target>Ingresa a un pueblo</target>
       </segment>
     </unit>
     <unit id="tl3wxZA" name="Es ist Zeit, sich seinen Mitmenschen in der Hölle anschließen!">
@@ -10936,7 +10936,7 @@
       </notes>
       <segment>
         <source>Es ist Zeit, sich seinen Mitmenschen in der Hölle anschließen!</source>
-        <target>Es ist Zeit, sich seinen Mitmenschen in der Hölle anschließen!</target>
+        <target>¡Tu misión: Ser el último superviviente!</target>
       </segment>
     </unit>
     <unit id="uL_3bHQ" name="2d4f0c6">
@@ -10966,7 +10966,7 @@
       </notes>
       <segment>
         <source>Erschöpft</source>
-        <target>Erschöpft</target>
+        <target>Cansancio</target>
       </segment>
     </unit>
     <unit id="UEL2oHO" name="Spielzeit">
@@ -10975,7 +10975,7 @@
       </notes>
       <segment>
         <source>Spielzeit</source>
-        <target>Spielzeit</target>
+        <target>Tiempo de juego</target>
       </segment>
     </unit>
     <unit id="5MeFkca" name="c328ebf">
@@ -11035,7 +11035,7 @@
       </notes>
       <segment>
         <source>Reicher Guru</source>
-        <target>Reicher Guru</target>
+        <target>Rico gurú</target>
       </segment>
     </unit>
     <unit id="02E6SZ7" name="1639b76">
@@ -11044,7 +11044,7 @@
       </notes>
       <segment>
         <source>Anzahl der Bürger, die du dazu bringen konntest, bei Die Verdammten zu sterben UND dafür zu bezahlen.</source>
-        <target>Anzahl der Bürger, die du dazu bringen konntest, bei Die Verdammten zu sterben UND dafür zu bezahlen.</target>
+        <target>Número de nuevos ciudadanos a los que convenció para morir Y pagar por ello.</target>
       </segment>
     </unit>
     <unit id="zrGYjJm" name="Verdammt in Saarbrücken">
@@ -11053,7 +11053,7 @@
       </notes>
       <segment>
         <source>Verdammt in Saarbrücken</source>
-        <target>Verdammt in Saarbrücken</target>
+        <target>Rastreador friki</target>
       </segment>
     </unit>
     <unit id="AcfgdpB" name="Teilnehmer beim Community-Treffen in Saarbrücken am 6. November 2011">
@@ -11062,7 +11062,7 @@
       </notes>
       <segment>
         <source>Teilnehmer beim Community-Treffen in Saarbrücken am 6. November 2011</source>
-        <target>Teilnehmer beim Community-Treffen in Saarbrücken am 6. November 2011</target>
+        <target>¡Una marca extremadamente rara reservada para los animadores presentes en el stand Motion Twin del Video Game Festival 2008 en París!</target>
       </segment>
     </unit>
     <unit id="LXPchjh" name="Video Game Festival 2010">
@@ -11071,7 +11071,7 @@
       </notes>
       <segment>
         <source>Video Game Festival 2010</source>
-        <target>Video Game Festival 2010</target>
+        <target>Festival de Videojuegos 2010</target>
       </segment>
     </unit>
     <unit id="pYfbEIR" name="Du warst beim Video Game Festival 2010 in Paris dabei: Danke!">
@@ -11080,7 +11080,7 @@
       </notes>
       <segment>
         <source>Du warst beim Video Game Festival 2010 in Paris dabei: Danke!</source>
-        <target>Du warst beim Video Game Festival 2010 in Paris dabei: Danke!</target>
+        <target>Estuviste presente en el Festival de Videojuegos de París en 2010: ¡gracias!</target>
       </segment>
     </unit>
     <unit id="oIAROod" name="FJV'08 Kanonenfutter">
@@ -11089,7 +11089,7 @@
       </notes>
       <segment>
         <source>FJV'08 Kanonenfutter</source>
-        <target>FJV'08 Kanonenfutter</target>
+        <target>Carne de cañón FJV'08</target>
       </segment>
     </unit>
     <unit id="RGR6EuT" name="c411fe7">
@@ -11098,7 +11098,7 @@
       </notes>
       <segment>
         <source>Der Besitzer dieses Abzeichens hat an der Schnitzeljagt beim Video Game Festival 2008 teilgenommen.</source>
-        <target>Der Besitzer dieses Abzeichens hat an der Schnitzeljagt beim Video Game Festival 2008 teilgenommen.</target>
+        <target>El portador de esta marca participó en la gran caza organizada en el Festival de Videojuegos 2008.</target>
       </segment>
     </unit>
     <unit id="Qx0jopB" name="Community-Auszeichnung">
@@ -11107,7 +11107,7 @@
       </notes>
       <segment>
         <source>Community-Auszeichnung</source>
-        <target>Community-Auszeichnung</target>
+        <target>Organización de Choque</target>
       </segment>
     </unit>
     <unit id="B3DWLs5" name="7de2808">
@@ -11116,7 +11116,7 @@
       </notes>
       <segment>
         <source>Auszeichnung für außergewöhnliche Verdienste um die Community von Die Verdammten.</source>
-        <target>Auszeichnung für außergewöhnliche Verdienste um die Community von Die Verdammten.</target>
+        <target>¡Tu organización impecable durante el Choque de Héroes creó un evento del que se hablará durante mucho tiempo!</target>
       </segment>
     </unit>
     <unit id="S72AAG5" name="Clash CEO">
@@ -11125,7 +11125,7 @@
       </notes>
       <segment>
         <source>Clash CEO</source>
-        <target>Clash CEO</target>
+        <target>Director ejecutivo de Clash</target>
       </segment>
     </unit>
     <unit id="_q_zIoZ" name="6c74b28">
@@ -11134,7 +11134,7 @@
       </notes>
       <segment>
         <source>Für die Community-Organisatoren und Entwickler des Clash of the Titans Events. Die Gemeinschaft sagt Danke!</source>
-        <target>Für die Community-Organisatoren und Entwickler des Clash of the Titans Events. Die Gemeinschaft sagt Danke!</target>
+        <target>Otorgado por ser uno de los organizadores o desarrolladores de la comunidad en Clash of Héroes. ¡Nuestra comunidad te lo agradece!</target>
       </segment>
     </unit>
     <unit id="ejbkJBk" name="Schlachtenbummler">
@@ -11143,7 +11143,7 @@
       </notes>
       <segment>
         <source>Schlachtenbummler</source>
-        <target>Schlachtenbummler</target>
+        <target>Titán de choque</target>
       </segment>
     </unit>
     <unit id="kdojgNO" name="a8d189f">
@@ -11152,7 +11152,7 @@
       </notes>
       <segment>
         <source>Diese seltene Auszeichnung haben nur jene Verdammten erhalten, die an der Schlacht der Berufe teilgenommen haben.</source>
-        <target>Diese seltene Auszeichnung haben nur jene Verdammten erhalten, die an der Schlacht der Berufe teilgenommen haben.</target>
+        <target>Una distinción muy rara, otorgada solo a los pocos intrépidos que participaron en el primer Choque de héroes.</target>
       </segment>
     </unit>
     <unit id="jgy_VVR" name="Shock of heroes">
@@ -11161,7 +11161,7 @@
       </notes>
       <segment>
         <source>Shock of heroes</source>
-        <target>Shock of heroes</target>
+        <target>Choque de héroes</target>
       </segment>
     </unit>
     <unit id="W7M12k6" name="Ehrenpreis für die Teilname am Shock of Heroes Event!">
@@ -11170,7 +11170,7 @@
       </notes>
       <segment>
         <source>Ehrenpreis für die Teilname am Shock of Heroes Event!</source>
-        <target>Ehrenpreis für die Teilname am Shock of Heroes Event!</target>
+        <target>¡Recompensa honorífica por participar en Clash de Héroes!</target>
       </segment>
     </unit>
     <unit id="3fdrfcN" name="Ultimativer Tod des SoH">
@@ -11179,7 +11179,7 @@
       </notes>
       <segment>
         <source>Ultimativer Tod des SoH</source>
-        <target>Ultimativer Tod des SoH</target>
+        <target>El Último Habitante del CDH</target>
       </segment>
     </unit>
     <unit id="wUWp3zG" name="f54ad37">
@@ -11188,7 +11188,7 @@
       </notes>
       <segment>
         <source>Auszeichnung für den größten Helden, der während des Shock of Heroes Events am längsten überlebt hat. Du bist nun eine Legende der Außenwelt!</source>
-        <target>Auszeichnung für den größten Helden, der während des Shock of Heroes Events am längsten überlebt hat. Du bist nun eine Legende der Außenwelt!</target>
+        <target>Reconocimiento al héroe más grande que sobrevivió más tiempo durante el choque de héroes, ¡ahora eres parte de la leyenda del inframundo!</target>
       </segment>
     </unit>
     <unit id="74NqrNr" name="Triumphator">
@@ -11206,7 +11206,7 @@
       </notes>
       <segment>
         <source>Diese seltene Auszeichnung wurde den Einsiedlern verliehen, die mit ihrer Stadt die Schlacht der Berufe gewonnen haben. Respekt!</source>
-        <target>Diese seltene Auszeichnung wurde den Einsiedlern verliehen, die mit ihrer Stadt die Schlacht der Berufe gewonnen haben. Respekt!</target>
+        <target>¡Victoria como Ermitaño durante el choque de héroes!</target>
       </segment>
     </unit>
     <unit id="2M7Hmok" name="Aufklärer - Gewinner des SoH">
@@ -11215,7 +11215,7 @@
       </notes>
       <segment>
         <source>Aufklärer - Gewinner des SoH</source>
-        <target>Aufklärer - Gewinner des SoH</target>
+        <target>Ganador Explorador del CDH</target>
       </segment>
     </unit>
     <unit id="cp2pUF_" name="Sieg für die Aufklärer beim Shock of Heroes Event!">
@@ -11224,7 +11224,7 @@
       </notes>
       <segment>
         <source>Sieg für die Aufklärer beim Shock of Heroes Event!</source>
-        <target>Sieg für die Aufklärer beim Shock of Heroes Event!</target>
+        <target>¡Victoria como Explorador durante el choque de héroes!</target>
       </segment>
     </unit>
     <unit id="z03nP6t" name="Shock of Heroes Champion">
@@ -11233,7 +11233,7 @@
       </notes>
       <segment>
         <source>Shock of Heroes Champion</source>
-        <target>Shock of Heroes Champion</target>
+        <target>Campeón de Choque de héroes</target>
       </segment>
     </unit>
     <unit id="GGz46PZ" name="Sieg für die Wächter beim Shock of Heroes Event!">
@@ -11242,7 +11242,7 @@
       </notes>
       <segment>
         <source>Sieg für die Wächter beim Shock of Heroes Event!</source>
-        <target>Sieg für die Wächter beim Shock of Heroes Event!</target>
+        <target>¡Victoria como Guardián durante el choque de héroes!</target>
       </segment>
     </unit>
     <unit id="53Rhzgi" name="Bewohner Koh-Lambdas">
@@ -11251,7 +11251,7 @@
       </notes>
       <segment>
         <source>Bewohner Koh-Lambdas</source>
-        <target>Bewohner Koh-Lambdas</target>
+        <target>Ciudadano Koh-Lambdais</target>
       </segment>
     </unit>
     <unit id="Cj99pau" name="8bbd682">
@@ -11260,7 +11260,7 @@
       </notes>
       <segment>
         <source>Dieser Bürger war bei der Wiedervereinigung (letzte Runde) von Koh-Lambda dabei!</source>
-        <target>Dieser Bürger war bei der Wiedervereinigung (letzte Runde) von Koh-Lambda dabei!</target>
+        <target>¡Este ciudadano estuvo presente durante la Reunificación (última ronda) de Koh-Lambda!</target>
       </segment>
     </unit>
     <unit id="1S2CbVP" name="Der Kobold hat dich erwischt">
@@ -11269,7 +11269,7 @@
       </notes>
       <segment>
         <source>Der Kobold hat dich erwischt</source>
-        <target>Der Kobold hat dich erwischt</target>
+        <target>Duendecillo</target>
       </segment>
     </unit>
     <unit id="3FbjOB1" name="Anzahl der Gegenstände, die du von deinen Freunden gestohlen hast">
@@ -11278,7 +11278,7 @@
       </notes>
       <segment>
         <source>Anzahl der Gegenstände, die du von deinen Freunden gestohlen hast</source>
-        <target>Anzahl der Gegenstände, die du von deinen Freunden gestohlen hast</target>
+        <target>Parece que le has robado algo a un amigo.</target>
       </segment>
     </unit>
     <unit id="tkedsOI" name="Netter Kerl">
@@ -11287,7 +11287,7 @@
       </notes>
       <segment>
         <source>Netter Kerl</source>
-        <target>Netter Kerl</target>
+        <target>Buen chico</target>
       </segment>
     </unit>
     <unit id="9WkYS9d" name="e18094c">
@@ -11296,7 +11296,7 @@
       </notes>
       <segment>
         <source>Du bist einer der am besten integrierten Spieler in Die Verdammten und verhälst dich immer fair, nicht nur aus Prinzip, sondern aus Überzeugung.</source>
-        <target>Du bist einer der am besten integrierten Spieler in Die Verdammten und verhälst dich immer fair, nicht nur aus Prinzip, sondern aus Überzeugung.</target>
+        <target>Eres uno de los jugadores más integrados en Zombinoia, el juego limpio es más que un principio, es un estado de ánimo.</target>
       </segment>
     </unit>
     <unit id="XGrBqHH" name="0e1dfc0">
@@ -11530,7 +11530,7 @@
       </notes>
       <segment>
         <source>Explosion</source>
-        <target>Explosion</target>
+        <target>Explosión</target>
       </segment>
     </unit>
     <unit id="oDsiHGx" name="???">
@@ -11548,7 +11548,7 @@
       </notes>
       <segment>
         <source>Schokoladenkreuz</source>
-        <target>Schokoladenkreuz</target>
+        <target>Cruz de chocolate</target>
       </segment>
     </unit>
     <unit id="K65v2LS" name="90b2719">
@@ -11566,7 +11566,7 @@
       </notes>
       <segment>
         <source>Regentanz ausführen</source>
-        <target>Regentanz ausführen</target>
+        <target>Haz caer la lluvia</target>
       </segment>
     </unit>
     <unit id="SFjPHiw" name="Einsiedler - Gewinner des SoH">
@@ -11575,7 +11575,7 @@
       </notes>
       <segment>
         <source>Einsiedler - Gewinner des SoH</source>
-        <target>Einsiedler - Gewinner des SoH</target>
+        <target>Ganador Ermitaño del CDH</target>
       </segment>
     </unit>
     <unit id="suYM2pk" name="Buddler - Gewinner des SoH">
@@ -11584,7 +11584,7 @@
       </notes>
       <segment>
         <source>Buddler - Gewinner des SoH</source>
-        <target>Buddler - Gewinner des SoH</target>
+        <target>Ganador Excavador del CDH</target>
       </segment>
     </unit>
     <unit id="B4NRnue" name="Sieg für die Buddler beim Shock of Heroes Event!">
@@ -11593,7 +11593,7 @@
       </notes>
       <segment>
         <source>Sieg für die Buddler beim Shock of Heroes Event!</source>
-        <target>Sieg für die Buddler beim Shock of Heroes Event!</target>
+        <target>¡Victoria como Excavador durante el choque de héroes!</target>
       </segment>
     </unit>
     <unit id="ezjjECr" name="Wächter - Gewinner des SoH">
@@ -11602,7 +11602,7 @@
       </notes>
       <segment>
         <source>Wächter - Gewinner des SoH</source>
-        <target>Wächter - Gewinner des SoH</target>
+        <target>Campeón de Choque de héroes</target>
       </segment>
     </unit>
     <unit id="jVhaVYF" name="Du hast soeben den Zugang zu deiner privaten Stadt für jedermann geöffnet.">
@@ -11611,7 +11611,7 @@
       </notes>
       <segment>
         <source>Du hast soeben den Zugang zu deiner privaten Stadt für jedermann geöffnet.</source>
-        <target>Du hast soeben den Zugang zu deiner privaten Stadt für jedermann geöffnet.</target>
+        <target>Acaba de abrir el acceso a su ciudad privada a todos.</target>
       </segment>
     </unit>
     <unit id="9EBorzV" name="Deine Stadt">
@@ -11620,7 +11620,7 @@
       </notes>
       <segment>
         <source>Deine Stadt</source>
-        <target>Deine Stadt</target>
+        <target>Tu ciudad</target>
       </segment>
     </unit>
     <unit id="mkyiUfI" name="Öffne deine private Stadt für alle">
@@ -11629,7 +11629,7 @@
       </notes>
       <segment>
         <source>Öffne deine private Stadt für alle</source>
-        <target>Öffne deine private Stadt für alle</target>
+        <target>Abre tu ciudad privada a todos</target>
       </segment>
     </unit>
     <unit id="G7YX22v" name="Deine privaten Nachrichten">
@@ -14285,6 +14285,69 @@
       <segment>
         <source>Die Zone ist vollständig mit verrottender Vegetation, Sand und allem möglichen Schrott bedeckt. Du bist dir sicher, dass es hier etwas zu finden gibt, aber zunächst musst du diesen gesamten Sektor aufräumen um ihn vernünftig durchsuchen zu können.</source>
         <target>Die Zone ist vollständig mit verrottender Vegetation, Sand und allem möglichen Schrott bedeckt. Du bist dir sicher, dass es hier etwas zu finden gibt, aber zunächst musst du diesen gesamten Sektor aufräumen um ihn vernünftig durchsuchen zu können.</target>
+      </segment>
+    </unit>
+    <unit id="IDhWsfU" name="HAZ-Gewinner">
+      <notes>
+        <note category="german">HAZ-Gewinner</note>
+      </notes>
+      <segment>
+        <source>HAZ-Gewinner</source>
+        <target>HAZ-Gewinner</target>
+      </segment>
+    </unit>
+    <unit id="ltZ7BR_" name="Ehrenauszeichnung für den Gewinner der Heilung für die Auszeichnungssucht.">
+      <notes>
+        <note category="german">Ehrenauszeichnung für den Gewinner der Heilung für die Auszeichnungssucht.</note>
+      </notes>
+      <segment>
+        <source>Ehrenauszeichnung für den Gewinner der Heilung für die Auszeichnungssucht.</source>
+        <target>Ehrenauszeichnung für den Gewinner der Heilung für die Auszeichnungssucht.</target>
+      </segment>
+    </unit>
+    <unit id="YZc0dgj" name="Kernsammler (job)">
+      <notes>
+        <note category="german">Kernsammler (job)</note>
+      </notes>
+      <segment>
+        <source>Kernsammler (job)</source>
+        <target>Recolector de Almas</target>
+      </segment>
+    </unit>
+    <unit id="mRdxtx0" name="Anzahl der im Ausland gesammelten Seelen verstorbener Bürger (job)">
+      <notes>
+        <note category="german">Anzahl der im Ausland gesammelten Seelen verstorbener Bürger (job)</note>
+      </notes>
+      <segment>
+        <source>Anzahl der im Ausland gesammelten Seelen verstorbener Bürger (job)</source>
+        <target>Cantidad de almas recolectadas de habitantes fallecidos en el Ultramundo</target>
+      </segment>
+    </unit>
+    <unit id="SZYZY_h" name="Mystic (job)">
+      <notes>
+        <note category="german">Mystic (job)</note>
+      </notes>
+      <segment>
+        <source>Mystic (job)</source>
+        <target>Transformación Mística</target>
+      </segment>
+    </unit>
+    <unit id="dMCiesS" name="Wie viele Seelen hat Ihre Stadt befreien können. (job)">
+      <notes>
+        <note category="german">Wie viele Seelen hat Ihre Stadt befreien können. (job)</note>
+      </notes>
+      <segment>
+        <source>Wie viele Seelen hat Ihre Stadt befreien können. (job)</source>
+        <target>Cantidad de almas que has transformado en el Taller</target>
+      </segment>
+    </unit>
+    <unit id="MsIlSXC" name="Ich bin geheilt">
+      <notes>
+        <note category="german">Ich bin geheilt</note>
+      </notes>
+      <segment>
+        <source>Ich bin geheilt</source>
+        <target>Ich bin geheilt</target>
       </segment>
     </unit>
   </file>

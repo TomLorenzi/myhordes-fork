@@ -10,6 +10,7 @@ use App\Entity\CitizenRankingProxy;
 use App\Entity\DigTimer;
 use App\Entity\EscapeTimer;
 use App\Entity\Gazette;
+use App\Entity\ItemProperty;
 use App\Entity\PictoPrototype;
 use App\Entity\RuinZone;
 use App\Entity\Soul;
@@ -245,6 +246,7 @@ class DeathHandler
 
             $spawnZone = $this->random_generator->pickLocationBetweenFromList($citizen->getTown()->getZones()->toArray(), $minDistance, $maxDistance);
             $soulItem = $this->item_factory->createItem( "soul_blue_#00");
+            $soulItem->setFirstPick(true);
             $this->inventory_handler->forceMoveItem($spawnZone->getFloor(), $soulItem);
         }
     }

@@ -336,7 +336,7 @@ class ItemFixtures extends Fixture
         ['label' =>'Drahtspule','icon'=>'wire','category'=>'rsc','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                                                  // -- ---
         ['label' =>'Ölkännchen','icon'=>'oilcan','category'=>'rsc','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                                                // -- ---
         ['label' =>'Konvexlinse','icon'=>'lens','category'=>'rsc','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                                                 // -- ---
-        ['label' =>'Wütende Mieze (halb verdaut)','icon'=>'angryc','category'=>'root_weapon','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                           // --
+        ['label' =>'Wütende Mieze (halb verdaut)','icon'=>'angryc','category'=>'root_weapon','deco'=>1,'heavy'=>false, 'watchpoint' => 0],                           // --
         ['label' =>'Tretmine','icon'=>'claymo','category'=>'root_weapon','deco'=>0,'heavy'=>false, 'watchpoint' => 50],                                               // -- ---
         ['label' =>'Laserdiode','icon'=>'diode','category'=>'rsc','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                                                 // -- ---
         ['label' =>'Selbstgebaute Gitarre','icon'=>'guitar','category'=>'imp','deco'=>6,'heavy'=>false, 'watchpoint' => 19],                                     // In ---

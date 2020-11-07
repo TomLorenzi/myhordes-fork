@@ -879,11 +879,16 @@ class NightlyHandler
             $this->log->debug("Processing <info>souls</info> mutations.");
             foreach ($this->zone_handler->getSoulZones($town) as $zone) {
                 foreach ($zone->getFloor()->getItems() as $item) {
+                    /** @var Item $item */
                     if($item->getPrototype()->getName() !== 'soul_blue_#00') continue;
                     if($this->random->chance(0.25)){
                         $this->log->debug("Mutating soul in zone [<info>{$zone->getX()},{$zone->getY()}</info>].");
                         $this->inventory_handler->forceRemoveItem($item);
-                        $this->inventory_handler->forceMoveItem($zone->getFloor(), $this->item_factory->createItem('soul_red_#00'));
+                        $redsoul = $this->item_factory->createItem('soul_red_#00');
+                        if($item->getFirstPick())
+                            $redsoul->setFirstPick($item->getFirstPick());
+                            
+                        $this->inventory_handler->forceMoveItem($zone->getFloor(), $redsoul);
                         $this->entity_manager->persist($zone);
 
                     }
