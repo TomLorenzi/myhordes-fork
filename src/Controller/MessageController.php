@@ -469,7 +469,7 @@ class MessageController extends AbstractController
                 /** @var Citizen $cc */
                 $cc = $this->rand->pick($valid);
                 if ($group !== null) $cache['citizen'][$group] = $cc->getId();
-                $d->nodeValue = $cc->getUser()->getUsername();
+                $d->nodeValue = $cc->getUser()->getName();
             },
 
             // This MUST be the last element!
@@ -985,7 +985,7 @@ class MessageController extends AbstractController
             'permission' => $this->getPermissionObject( $permissions ),
 
             'emotes' => $this->getEmotesByUser($this->getUser(),true),
-            'username' => $this->getUser()->getUsername(),
+            'username' => $this->getUser()->getName(),
             'forum' => true,
             'town_controls' => $forum->getTown() !== null,
         ] );
@@ -1214,7 +1214,7 @@ class MessageController extends AbstractController
             return AjaxResponse::error(ErrorHelper::ErrorPermissionError);
 
         $targetUser = $post->getOwner();
-        if ($targetUser->getUsername() === "Der Rabe" ) {
+        if ($targetUser->getName() === "Der Rabe" ) {
             $message = $ti->trans('Das ist keine gute Idee, das ist dir doch wohl klar!', [], 'game');
             $this->addFlash('notice', $message);
             return AjaxResponse::success();
@@ -1236,7 +1236,7 @@ class MessageController extends AbstractController
             } catch (Exception $e) {
                 return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
             }
-            $message = $ti->trans('Du hast die Nachricht von %username% dem Raben gemeldet. Wer weiß, vielleicht wird %username% heute Nacht stääärben...', ['%username%' => '<span>' . $post->getOwner()->getUsername() . '</span>'], 'game');
+            $message = $ti->trans('Du hast die Nachricht von %username% dem Raben gemeldet. Wer weiß, vielleicht wird %username% heute Nacht stääärben...', ['%username%' => '<span>' . $post->getOwner()->getName() . '</span>'], 'game');
             $this->addFlash('notice', $message);
             return AjaxResponse::success( );
         }

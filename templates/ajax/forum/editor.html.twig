@@ -12,7 +12,7 @@
             {% else %}
                 <i>{{ 'Bearbeiten'|trans({},'global') }}</i>
             {% endif %}
-            <b>{{ app.user.username }}</b>
+            <b>{{ app.user.name }}</b>
         </div>
         {% if tid is null %}
             <div class="row">
@@ -165,7 +165,7 @@
                         {% if permission.post_as_dev() %}
                             <input class="forum-checkbox" type="radio" id="radio-dev" name="post-type" value="DEV" {% if app.user.postAsDefault == "DEV" %}checked{% endif %}>
                         {% endif %}
-                        <span id="crow_answer_content">{% if not permission.post_as_dev() or app.user.postAsDefault != "DEV" %}{{ app.user.username }}{% else %}{{ 'Dev'|trans({},'global') }}{% endif %}</span>
+                        <span id="crow_answer_content">{% if not permission.post_as_dev() or app.user.postAsDefault != "DEV" %}{{ app.user.name }}{% else %}{{ 'Dev'|trans({},'global') }}{% endif %}</span>
                     </div>
                 {% endif %}
                 <div x-forum-action="send" class="forum-button">{{ 'Absenden'|trans({},'global') }}</div>
@@ -397,7 +397,7 @@
                                 document.getElementById('crow_answer_content').innerHTML = "{{ 'Dev'|trans({},'global') }}";
                             {% else %}
                                 document.getElementById("radio-user").checked = true;
-                                document.getElementById('crow_answer_content').innerHTML = "{{ app.user.username }}";
+                                document.getElementById('crow_answer_content').innerHTML = "{{ app.user.name }}";
                             {% endif %}
                             break;
                         case "CROW":
@@ -407,13 +407,13 @@
                                 document.getElementById('crow_answer_content').innerHTML = "{{ 'Dev'|trans({},'global') }}";
                             {% else %}
                                 document.getElementById("radio-user").checked = true;
-                                document.getElementById('crow_answer_content').innerHTML = "{{ app.user.username }}";
+                                document.getElementById('crow_answer_content').innerHTML = "{{ app.user.name }}";
                             {% endif %}
                             break;
                         case "DEV":
                             document.getElementById("radio-dev").checked = false;
                             document.getElementById("radio-user").checked = true;
-                            document.getElementById('crow_answer_content').innerHTML = "{{ app.user.username }}";
+                            document.getElementById('crow_answer_content').innerHTML = "{{ app.user.name }}";
                             break;
                     }
                 }

@@ -65,16 +65,16 @@
                     <br />
                     {% set last_post = thread.lastPost %}
                     {% if last_post and last_post.owner %}
-                        {% if last_post.owner.username == 'Der Rabe' %}
+                        {% if last_post.owner.name == 'Der Rabe' %}
                             {{ 'Der Rabe'|trans({},'global') }}
                         {% else %}
-                            {{ last_post.owner.username }}
+                            {{ last_post.owner.name }}
                         {% endif %}
                     {% elseif thread.owner %}
-                        {% if thread.owner.username == 'Der Rabe' %}
+                        {% if thread.owner.name == 'Der Rabe' %}
                             {{ 'Der Rabe'|trans({},'global') }}
                         {% else %}
-                            {{ thread.owner.username }}
+                            {{ thread.owner.name }}
                         {% endif %}
                     {% else %}
                         {{ 'Der Rabe'|trans({},'global') }}

@@ -25,14 +25,13 @@ yarn-error.log
 # Composer
 composer.phar
 
-*.lock
-
 # Local webpack config
 webpack.config.local.js
 
 # Local app configs
 config/packages/dev/app/*.yml
 config/packages/prod/app/*.yml
+etwin.toml
 
 # Misc
 .DS_Store

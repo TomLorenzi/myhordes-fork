@@ -400,7 +400,7 @@ use Exception;
                         $user_data['id']= $user->getId();
                     break;
                     case $field==="name":
-                        $user_data['name']= $user->getUsername();
+                        $user_data['name']= $user->getName();
                     break;
                     case $field==="avatar":
                         $has_avatar = $user->getAvatar();

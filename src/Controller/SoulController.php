@@ -56,7 +56,8 @@ class SoulController extends AbstractController
     const ErrorTwinImportInvalidResponse     = ErrorHelper::BaseSoulErrors + 2;
     const ErrorTwinImportNoToken             = ErrorHelper::BaseSoulErrors + 3;
     const ErrorTwinImportProfileMismatch     = ErrorHelper::BaseSoulErrors + 4;
-    const ErrorTwinImportProfileInUse        = ErrorHelper::BaseSoulErrors + 4;
+    const ErrorTwinImportProfileInUse        = ErrorHelper::BaseSoulErrors + 5;
+    const ErrorETwinImportProfileInUse       = ErrorHelper::BaseSoulErrors + 6;
 
     const ErrorCoalitionAlreadyMember        = ErrorHelper::BaseSoulErrors + 10;
     const ErrorCoalitionNotSet               = ErrorHelper::BaseSoulErrors + 11;
@@ -1030,6 +1031,9 @@ class SoulController extends AbstractController
         if ($this->isGranted('ROLE_DUMMY') && !$this->isGranted( 'ROLE_CROW' ))
             return AjaxResponse::error(ErrorHelper::ErrorPermissionError);
 
+        if ($this->isGranted('ROLE_ETERNAL'))
+            return AjaxResponse::error(ErrorHelper::ErrorPermissionError);
+
         $new_pw = $parser->trimmed('pw_new', '');
         if (mb_strlen($new_pw) < 6) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
@@ -1058,9 +1062,7 @@ class SoulController extends AbstractController
     {
         $user = $this->getUser();
 
-        if ($this->getUser()->getShadowBan()) return AjaxResponse::error(ErrorHelper::ErrorPermissionError);
-
-        if ($this->isGranted('ROLE_DUMMY'))
+        if ($this->getUser()->getShadowBan() || $this->isGranted('ROLE_ETERNAL') || $this->isGranted('ROLE_DUMMY'))
             return AjaxResponse::error(ErrorHelper::ErrorPermissionError);
 
         if (!$passwordEncoder->isPasswordValid( $user, $parser->trimmed('pw') ))

@@ -3208,7 +3208,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>%citizen% hat diese Ruine freigelegt. Es handelt sich um %type%. Hurra!</source>
-        <target>Thanks to %citizen%, the zone has been completely cleared, revealing a: %type%. Hourra !</target>
+        <target>Thanks to %citizen%, the zone has been completely cleared, revealing a: %type%. Hurray !</target>
       </segment>
     </unit>
     <unit id="zTh0a4e" name="a30f81a">
@@ -3217,7 +3217,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>%zombie% ist von den Toten auferstanden und hat unanständige Nachrichten auf die Heldentafel geschrieben!</source>
-        <target>%zombie% ist von den Toten auferstanden und hat unanständige Nachrichten auf die Heldentafel geschrieben!</target>
+        <target>%zombie% rose from the dead and wrote indecent messages on the hero board!</target>
       </segment>
     </unit>
     <unit id="ToXb7Kr" name="%zombie% ist von den Toten auferstanden und hat sich wieder hingelegt!">
@@ -3226,7 +3226,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>%zombie% ist von den Toten auferstanden und hat sich wieder hingelegt!</source>
-        <target>%zombie% ist von den Toten auferstanden und hat sich wieder hingelegt!</target>
+        <target>%zombie% rose from the dead and lay down again!</target>
       </segment>
     </unit>
     <unit id="vw6w67." name="%zombie% ist von den Toten auferstanden und verlangt nach einem Kaffee!">
@@ -3235,7 +3235,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>%zombie% ist von den Toten auferstanden und verlangt nach einem Kaffee!</source>
-        <target>%zombie% ist von den Toten auferstanden und verlangt nach einem Kaffee!</target>
+        <target>%zombie% has risen from the dead and is calling for a coffee!</target>
       </segment>
     </unit>
     <unit id="vlEPrgk" name="b2b2ccc">
@@ -3244,7 +3244,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>%zombie% ist von den Toten auferstanden und hat eine Runde auf dem Stadtplatz gedreht!</source>
-        <target>%zombie% ist von den Toten auferstanden und hat eine Runde auf dem Stadtplatz gedreht!</target>
+        <target>%zombie% rose from the dead and did a round of the town square!</target>
       </segment>
     </unit>
     <unit id="GtC0MNC" name="... das OFFEN stand! %num% Zombies sind in die Stadt eingedrungen!">
@@ -3253,7 +3253,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>... das OFFEN stand! %num% Zombies sind in die Stadt eingedrungen!</source>
-        <target>... qui sont grandes ouvertes ! %num% zombies sont entrés dans la ville !</target>
+        <target>... which were LEFT OPEN !! %num% zombies entered in the Town !</target>
       </segment>
     </unit>
     <unit id="4ETWhR_" name="%num% Zombies sind durch unsere Verteidigung gebrochen!">
@@ -5590,20 +5590,20 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     </unit>
     <unit id="iUTpVp." name="Kernsammler">
       <notes>
-        <note category="german">Kernsammler</note>
+        <note category="german">Seelenreiniger</note>
       </notes>
       <segment>
         <source>Kernsammler</source>
-        <target>Soul Collector</target>
+        <target>Soul Purificator</target>
       </segment>
     </unit>
     <unit id="lul.uPB" name="Anzahl der im Ausland gesammelten Seelen verstorbener Bürger">
       <notes>
-        <note category="german">Anzahl der im Ausland gesammelten Seelen verstorbener Bürger</note>
+        <note category="german">Anzahl der Seelen verstorbener Bürger, die Sie gereinigt haben.</note>
       </notes>
       <segment>
         <source>Anzahl der im Ausland gesammelten Seelen verstorbener Bürger</source>
-        <target>The number of dead citizens' souls collected in the World Beyond</target>
+        <target>The number of dead citizens' souls you purified.</target>
       </segment>
     </unit>
     <unit id="FRTO7P3" name="Kämpfe um Leben und Tod">
@@ -6800,7 +6800,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>"Einen Schritt weiter..." stand auf %victim%s Fußmatte. Ihre Explosion hat einen bleibenden Eindruck bei dir hinterlassen. Wenn du noch laufen kannst, such dir besser einen Arzt.</source>
-        <target>"Einen Schritt weiter..." stand auf %victim%s Fußmatte. Ihre Explosion hat einen bleibenden Eindruck bei dir hinterlassen. Wenn du noch laufen kannst, such dir besser einen Arzt.</target>
+        <target>"One step further ..." it said on %victim% s doormat. Their explosion left a lasting impression on you. If you can still walk, you'd better see a doctor.</target>
       </segment>
     </unit>
     <unit id="Eg1H7Qy" name="Während Zombies die Zone kontrollieren, kannst du nicht graben.">
@@ -6827,7 +6827,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>%username% wurde standrechtlich erschossen.</source>
-        <target>%username% wurde standrechtlich erschossen.</target>
+        <target>%username% was shot dead.</target>
       </segment>
     </unit>
     <unit id="tkJcWLe" name="%username% gehört keiner Stadt an.">
@@ -6836,7 +6836,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>%username% gehört keiner Stadt an.</source>
-        <target>%username% gehört keiner Stadt an.</target>
+        <target>%username% does not belong to any Town.</target>
       </segment>
     </unit>
     <unit id="a8CDdVQ" name="%citizen% wurde standrechtlich erschossen. Lang lebe das Diktat!">
@@ -7016,7 +7016,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Endlich kannst du deine Schwiegermutter loswerden!</source>
-        <target>Endlich kannst du deine Schwiegermutter loswerden!</target>
+        <target>You can finally get rid of your mother-in-law!</target>
       </segment>
     </unit>
     <unit id="PMbiois" name="46dc649">
@@ -7250,7 +7250,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Besessen von einer gequälten Seele</source>
-        <target>Possesed by a tortured soul</target>
+        <target>Possesed by a Tortured Soul</target>
       </segment>
     </unit>
     <unit id="cxtMADZ" name="6462887">
@@ -7259,7 +7259,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Während du die Worte des Schamanen vernommen hast, dachtest du nie, dass er es ernst meinte. Nichts ist 100%ig sicher in dieser Wüste und der Trank, den er dir gegeben hat... Nun, er hat nicht funktioniert. Die gequälte Seele, der du zu helfen versuchtest, hat sich an dich geklammert und deine ungeschützte Seele mit Leichtigkeit überwältigt. Ihre Gewalt und Wut hinterließen nichts von dir als eine leere Hülle, dazu verdammt, von der Horde verschlungen zu werden.</source>
-        <target>Während du die Worte des Schamanen vernommen hast, dachtest du nie, dass er es ernst meinte. Nichts ist 100%ig sicher in dieser Wüste und der Trank, den er dir gegeben hat... Nun, er hat nicht funktioniert. Die gequälte Seele, der du zu helfen versuchtest, hat sich an dich geklammert und deine ungeschützte Seele mit Leichtigkeit überwältigt. Ihre Gewalt und Wut hinterließen nichts von dir als eine leere Hülle, dazu verdammt, von der Horde verschlungen zu werden.</target>
+        <target>While you heard the Shaman's words, you never thought he was serious. Nothing is 100% in this desert and the potion he gave you... Well it didin't work. The tortured soul you tried to help latched onto you and easily overcame your unprotected soul. It's violence and rage left nothing of you but an empty shell, doomed to be devoured by the horde.</target>
       </segment>
     </unit>
     <unit id="FoS7MOU" name="0b6b395">
@@ -7367,7 +7367,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Und die Energie, die in diesen Tanz gesteckt wurde, zahlt sich schließlich aus, die ersten Tropfen fallen auf die Zombies und du genießt diesen delikaten Moment, in dem ihr Fleisch wie Schnee in der Sonne schmilzt und du geduldig wartest, bis sich ihre Körper verflüssigen.</source>
-        <target>Und die Energie, die in diesen Tanz gesteckt wurde, zahlt sich schließlich aus, die ersten Tropfen fallen auf die Zombies und du genießt diesen delikaten Moment, in dem ihr Fleisch wie Schnee in der Sonne schmilzt und du geduldig wartest, bis sich ihre Körper verflüssigen.</target>
+        <target>and the energy invested in this dance finally pays off, the first drops of rain fall on the zombies and their flesh melts like snow in the sunshine and you watch and wait until their bodies are completely liquefied.</target>
       </segment>
     </unit>
     <unit id="rLM.vNL" name="75f054e">
@@ -9341,7 +9341,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Wenn du anfängst zu gehen, greift ein sehr starker Schmerz in dein Bein. Du fällst stöhnend zu Boden. Man verliert eine Aktion...</source>
-        <target>En commençant à marcher, une douleur très vive s'empare de votre jambe. Vous tombez à terre en gémissant. Vous perdez une action...</target>
+        <target>As you start walking, a very sharp pain seizes your leg. You fall on the ground, moaning. You lose an Action Point ...</target>
       </segment>
     </unit>
     <unit id="4gAjVQX" name="Verlassener Bunker">
@@ -14276,6 +14276,69 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       <segment>
         <source>Die Zone ist vollständig mit verrottender Vegetation, Sand und allem möglichen Schrott bedeckt. Du bist dir sicher, dass es hier etwas zu finden gibt, aber zunächst musst du diesen gesamten Sektor aufräumen um ihn vernünftig durchsuchen zu können.</source>
         <target>Die Zone ist vollständig mit verrottender Vegetation, Sand und allem möglichen Schrott bedeckt. Du bist dir sicher, dass es hier etwas zu finden gibt, aber zunächst musst du diesen gesamten Sektor aufräumen um ihn vernünftig durchsuchen zu können.</target>
+      </segment>
+    </unit>
+    <unit id="IDhWsfU" name="HAZ-Gewinner">
+      <notes>
+        <note category="german">HAZ-Gewinner</note>
+      </notes>
+      <segment>
+        <source>HAZ-Gewinner</source>
+        <target>HAZ-Gewinner</target>
+      </segment>
+    </unit>
+    <unit id="ltZ7BR_" name="Ehrenauszeichnung für den Gewinner der Heilung für die Auszeichnungssucht.">
+      <notes>
+        <note category="german">Ehrenauszeichnung für den Gewinner der Heilung für die Auszeichnungssucht.</note>
+      </notes>
+      <segment>
+        <source>Ehrenauszeichnung für den Gewinner der Heilung für die Auszeichnungssucht.</source>
+        <target>Ehrenauszeichnung für den Gewinner der Heilung für die Auszeichnungssucht.</target>
+      </segment>
+    </unit>
+    <unit id="YZc0dgj" name="Kernsammler (job)">
+      <notes>
+        <note category="german">Kernsammler (job)</note>
+      </notes>
+      <segment>
+        <source>Kernsammler (job)</source>
+        <target>Soul Collector</target>
+      </segment>
+    </unit>
+    <unit id="mRdxtx0" name="Anzahl der im Ausland gesammelten Seelen verstorbener Bürger (job)">
+      <notes>
+        <note category="german">Anzahl der im Ausland gesammelten Seelen verstorbener Bürger (job)</note>
+      </notes>
+      <segment>
+        <source>Anzahl der im Ausland gesammelten Seelen verstorbener Bürger (job)</source>
+        <target>The number of dead citizens' souls collected in the World Beyond</target>
+      </segment>
+    </unit>
+    <unit id="SZYZY_h" name="Mystic (job)">
+      <notes>
+        <note category="german">Mystic (job)</note>
+      </notes>
+      <segment>
+        <source>Mystic (job)</source>
+        <target>Mystical transformation</target>
+      </segment>
+    </unit>
+    <unit id="dMCiesS" name="Wie viele Seelen hat Ihre Stadt befreien können. (job)">
+      <notes>
+        <note category="german">Wie viele Seelen hat Ihre Stadt befreien können. (job)</note>
+      </notes>
+      <segment>
+        <source>Wie viele Seelen hat Ihre Stadt befreien können. (job)</source>
+        <target>Number of souls trafficked by you at the Workshop.</target>
+      </segment>
+    </unit>
+    <unit id="MsIlSXC" name="Ich bin geheilt">
+      <notes>
+        <note category="german">Ich bin geheilt</note>
+      </notes>
+      <segment>
+        <source>Ich bin geheilt</source>
+        <target>Ich bin geheilt</target>
       </segment>
     </unit>
   </file>

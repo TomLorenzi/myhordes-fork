@@ -401,7 +401,7 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
                     return AjaxResponse::error( ErrorHelper::ErrorNoAP );
                 $this->citizen_handler->setAP($ac, true, -2);
                 $pictoName = "r_cgarb_#00";
-                $message = $this->translator->trans('Du hast die Leiche von %disposed% außerhalb der Stadt entsorgt. Eine gute Sache, die Sie getan haben!', ['%disposed%' => '<span>' . $c->getUser()->getUsername() . '</span>'], 'game');
+                $message = $this->translator->trans('Du hast die Leiche von %disposed% außerhalb der Stadt entsorgt. Eine gute Sache, die Sie getan haben!', ['%disposed%' => '<span>' . $c->getUser()->getName() . '</span>'], 'game');
                 $c->setDisposed(Citizen::Thrown);
                 $c->addDisposedBy($ac);
                 break;
@@ -422,7 +422,7 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
                     return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
                 $spawn_items[] = [ 'item' => $em->getRepository( ItemPrototype::class )->findOneByName( 'hmeat_#00' ), 'count' => 4 ];
                 $pictoName = "r_cooked_#00";
-                $message = $this->translator->trans('Sie brachten die Leiche von %disposed% zum Kremato-Cue. Man bekommt %ration% Rationen davon...  Aber zu welchem Preis?', ['%disposed%' => '<span>' . $c->getUser()->getUsername() . '</span>','%ration%' => '<span>4</span>'], 'game');
+                $message = $this->translator->trans('Sie brachten die Leiche von %disposed% zum Kremato-Cue. Man bekommt %ration% Rationen davon...  Aber zu welchem Preis?', ['%disposed%' => '<span>' . $c->getUser()->getName() . '</span>','%ration%' => '<span>4</span>'], 'game');
                 $c->setDisposed(Citizen::Cooked);
                 $c->addDisposedBy($ac);
                 break;
@@ -1501,15 +1501,15 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
 
             $this->citizen_handler->removeStatus($c, $healedStatus);
 
-            $message[] = $this->translator->trans($healableStatus[$healedStatus]['success'], ['%citizen%' => "<span>" . $c->getUser()->getUsername() . "</span>"], 'game');
+            $message[] = $this->translator->trans($healableStatus[$healedStatus]['success'], ['%citizen%' => "<span>" . $c->getUser()->getName() . "</span>"], 'game');
 
             $transfer = $this->random_generator->chance(0.1);
             if($transfer){
                 $this->citizen_handler->inflictStatus($citizen, $healedStatus);
-                $message[] = $this->translator->trans($healableStatus[$healedStatus]['transfer'], ['%citizen%' => "<span>" . $c->getUser()->getUsername() . "</span>"], 'game');
+                $message[] = $this->translator->trans($healableStatus[$healedStatus]['transfer'], ['%citizen%' => "<span>" . $c->getUser()->getName() . "</span>"], 'game');
             }
         } else {
-            $message[] = $this->translator->trans($healableStatus[$healedStatus]['fail'], ['%citizen%' => "<span>" . $c->getUser()->getUsername() . "</span>"], 'game');
+            $message[] = $this->translator->trans($healableStatus[$healedStatus]['fail'], ['%citizen%' => "<span>" . $c->getUser()->getName() . "</span>"], 'game');
         }
         $citizen->setPM($citizen->getPM() - 2);
 

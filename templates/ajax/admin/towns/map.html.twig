@@ -53,7 +53,7 @@
                                     {% if map.zones[x][y].citizens|length != 0 %}
                                         {% for resident in map.zones[x][y].citizens %}
                                             <div class="row">
-                                                <div class="cell ro-6 rw-6 right">{{ resident.user.username }}</div>
+                                                <div class="cell ro-6 rw-6 right">{{ resident.user.name }}</div>
                                             </div>
                                         {% endfor %}
                                     {% endif %}

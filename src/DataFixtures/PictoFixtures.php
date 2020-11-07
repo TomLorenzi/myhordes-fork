@@ -582,7 +582,7 @@ class PictoFixtures extends Fixture
             'label' => 'Bewohner Koh-Lambdas',
             'description' => 'Dieser Bürger war bei der Wiedervereinigung (letzte Runde) von Koh-Lambda dabei!',
             'icon' => 'r_kohlmb',
-            'rare' => true
+            'rare' => false
         ],
         [
             'label' => 'Der Kobold hat dich erwischt',
@@ -602,7 +602,24 @@ class PictoFixtures extends Fixture
             'icon' => 'r_beta2',
             'rare' => true
         ],
-
+        [
+            'label' => 'HAZ-Gewinner',
+            'description' => 'Ehrenauszeichnung für den Gewinner der Heilung für die Auszeichnungssucht.',
+            'icon' => 'r_gsp',
+            'rare' => false
+        ],
+        [
+            'label' => 'Kernsammler (job)',
+            'description' => 'Anzahl der im Ausland gesammelten Seelen verstorbener Bürger (job)',
+            'icon' => 'r_collec2',
+            'rare' => false
+        ],
+        [
+            'label' => 'Mystic (job)',
+            'description' => 'Wie viele Seelen hat Ihre Stadt befreien können. (job)',
+            'icon' => 'r_mystic2',
+            'rare' => false
+        ],
     ];
 
     private $entityManager;

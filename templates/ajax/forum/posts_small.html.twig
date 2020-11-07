@@ -9,7 +9,7 @@
         {% for post in posts %}
             {% if not post.hidden or is_granted("ROLE_CROW") %}
                 <div class="forum-post {% if not post.hidden %}{% else %}forum-post-hidden{% endif %} {% if post.new %}forum-post-new{% endif %} {% if markedPost is defined and post.id == markedPost %}forum-post-marked{% endif %}" id="{{post.id}}">
-                    <div class="forum-post-header {% if post.owner.username == 'Der Rabe' %}header-variant-crow{% elseif post.type == "DEV" %}header-variant-dev{% endif %}">
+                    <div class="forum-post-header {% if post.owner.name == 'Der Rabe' %}header-variant-crow{% elseif post.type == "DEV" %}header-variant-dev{% endif %}">
                         <i>
                             {% if post.date.format('Ymd') == today|date("Ymd") %}
                                 {{ 'Heute um'|trans({},'global') }} {{ post.date|format_datetime('none', 'short') }}
@@ -20,7 +20,7 @@
                             {% endif %}
                         </i>
                         {% if (post.owner.avatar) %}
-                            {% if post.owner.username == 'Der Rabe' %}
+                            {% if post.owner.name == 'Der Rabe' %}
                                 <div class="avatarcrow small"><img alt="" src="{{ path('app_web_avatar', {'uid': post.owner.id, 'name': post.owner.avatar.smallName, 'ext': post.owner.avatar.format}) }}"></div>
                             {% else %}
                                 <div class="avatar small"><img alt="" src="{{ path('app_web_avatar', {'uid': post.owner.id, 'name': post.owner.avatar.smallName, 'ext': post.owner.avatar.format}) }}"></div>
@@ -29,17 +29,17 @@
                             <div class="avatar small"><img alt="" src="{{ asset('build/images/forum/empty_avatar.gif') }}"></div>
                         {% endif %}
                         <b>
-                            {% if post.owner.username == 'Der Rabe' %}
+                            {% if post.owner.name == 'Der Rabe' %}
                             	{% if post.translate %}
                         			{{ 'Der Rabe'|trans({},'global') }}
                         		{% else %}
                         			<a class="link" href="{{ path('soul_visit', {id: post.owner.id}) }}">{{ 'Der Rabe'|trans({},'global') }}</a>
                         		{% endif %}
                             {% elseif post.type == "DEV" %}
-                                <a class="link" href="{{ path('soul_visit', {id: post.owner.id}) }}">{{ post.owner.username }}</a>
+                                <a class="link" href="{{ path('soul_visit', {id: post.owner.id}) }}">{{ post.owner.name }}</a>
                                 <img alt="" src="{{ asset('build/images/icons/small_admin.gif') }}" />
                             {% else %}
-                                <a class="link" href="{{ path('soul_visit', {id: post.owner.id}) }}">{{ post.owner.username }}</a>
+                                <a class="link" href="{{ path('soul_visit', {id: post.owner.id}) }}">{{ post.owner.name }}</a>
                             {% endif %}
                         </b>
                         {% if post.note is not null %}<div class="right post-note">{{ post.note|raw }}</div>{% endif %}

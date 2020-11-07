@@ -26,7 +26,7 @@
             <div class="padded cell rw-4 hide-md hide-sm center">{{ 'Nachricht'|trans({},'game') }}</div>
             <div class="padded cell rw-3 rw-md-5 right">{{ 'Draußen?'|trans({},'game') }}</div>
         </div>
-        {% for citizenInfo in citizens|sort((a,b) => (a.citizen.alive == b.citizen.alive) ? ((a.citizen.alive) ? a.citizen.user.username|lower <=> b.citizen.user.username|lower : b.citizen.survivedDays <=> a.citizen.survivedDays) : b.citizen.alive <=> a.citizen.alive) %}
+        {% for citizenInfo in citizens|sort((a,b) => (a.citizen.alive == b.citizen.alive) ? ((a.citizen.alive) ? a.citizen.user.name|lower <=> b.citizen.user.name|lower : b.citizen.survivedDays <=> a.citizen.survivedDays) : b.citizen.alive <=> a.citizen.alive) %}
             {% set citizen = citizenInfo.citizen %}
             {# @var \App\Entity\Citizen citizen  #}
             <div class="row-flex stretch pointer{% if citizen == me%} me{% endif %}" style="max-height: 100px;">
@@ -53,7 +53,7 @@
                                 {% endif %}
                                 <img alt="{{ 'Tot!'|trans({},'game') }}" src="{{ asset('build/images/professions/death.gif') }}" />
                             {% endif %}
-                            <a class="link" href="{{ path('soul_visit', {id: citizen.user.id}) }}"><b class="citizen-name">{{ citizen.user.username }}</b></a>
+                            <a class="link" href="{{ path('soul_visit', {id: citizen.user.id}) }}"><b class="citizen-name">{{ citizen.user.name }}</b></a>
                             {% if citizen.alive %}
                                 {% for role in citizen.roles %}
                                     {% if not role.secret and not role.hidden %}

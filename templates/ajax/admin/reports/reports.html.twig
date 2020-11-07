@@ -34,7 +34,7 @@
                             <a href="{{path('forum_jump_view', {pid: post['post'].id})}}" target="_blank">{{ post['post'].thread.forum.title }}</a>
                         </div>
                         <div class="cell padded rw-2 rw-sm-12">
-                            <span>{{ post['post'].owner.username }}</span>
+                            <span>{{ post['post'].owner.name }}</span>
                         </div>
                         <div class="cell padded rw-2 rw-sm-12">
                             <span>{{ post['count'] }}</span>
@@ -43,9 +43,9 @@
                             {% set iteration = 0 %}
                             {% for reporter in post['reporters'] %}
                                 {% if iteration > 0 %}
-                                    <span>{{ ", " ~ reporter.username }}</span>
+                                    <span>{{ ", " ~ reporter.name }}</span>
                                 {% else %}
-                                    <span>{{ reporter.username }}</span>
+                                    <span>{{ reporter.name }}</span>
                                 {% endif %}
                                 {% set iteration = iteration + 1 %}
                             {% endfor %}

@@ -9,6 +9,12 @@ parameters:
     twinoid:
       sk: ~
       id: ~
+    etwin:
+      auth: ~
+      api: ~
+      sk: ~
+      app: myhordes
+      dual-stack: true
     allow_raw_avatars: false
     soulpoints:
       limits:

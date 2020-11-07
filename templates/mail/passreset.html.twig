@@ -1,7 +1,7 @@
 {% extends "mail/framework.html.twig" %}
 {% block body %}
     {# @var user \App\Entity\User #}
-    <p><b>{{ 'Hallo %user%!'|trans({ '%user%': user.username },'mail') }}</b></p>
+    <p><b>{{ 'Hallo %user%!'|trans({ '%user%': user.name },'mail') }}</b></p>
     <p>{{ 'Um dein Passwort zurückzusetzen, besuche bitte folgenden Link :'|trans({},'mail') }}</p>
     {# @var token \App\Entity\UserPendingValidation #}
     <p><a href="{{ url }}">{{ url }}</a></p>

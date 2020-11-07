@@ -1696,7 +1696,7 @@
       </notes>
       <segment>
         <source>Dein Account wurde gesperrt.</source>
-        <target>Dein Account wurde gesperrt.</target>
+        <target>Your account has been banned.</target>
       </segment>
     </unit>
     <unit id="smLPd3k" name="Dein Account wurde von einem Administrator vom Spiel ausgeschlossen.">
@@ -1705,7 +1705,7 @@
       </notes>
       <segment>
         <source>Dein Account wurde von einem Administrator vom Spiel ausgeschlossen.</source>
-        <target>Dein Account wurde von einem Administrator vom Spiel ausgeschlossen.</target>
+        <target>Your account has been banned from the game by an Administrator.</target>
       </segment>
     </unit>
     <unit id="w55zJhZ" name="Diese Sperre ist permanent.">
@@ -1714,7 +1714,7 @@
       </notes>
       <segment>
         <source>Diese Sperre ist permanent.</source>
-        <target>Diese Sperre ist permanent.</target>
+        <target>This lock is permanent.</target>
       </segment>
     </unit>
     <unit id="zh9.khn" name="8177ade">
@@ -1723,7 +1723,7 @@
       </notes>
       <segment>
         <source>Wenn du dich aktuell in einer Stadt befindest, kannst du dort keine Aktionen mehr durchführen und nicht länger auf das Stadtforum zugreifen.</source>
-        <target>Wenn du dich aktuell in einer Stadt befindest, kannst du dort keine Aktionen mehr durchführen und nicht länger auf das Stadtforum zugreifen.</target>
+        <target>If you are currently in a town, you can no longer perform any actions there and no longer access the town forum.</target>
       </segment>
     </unit>
     <unit id="Abv4VOi" name="Du kannst auch keiner neuen Stadt mehr beitreten.">
@@ -1732,7 +1732,7 @@
       </notes>
       <segment>
         <source>Du kannst auch keiner neuen Stadt mehr beitreten.</source>
-        <target>Du kannst auch keiner neuen Stadt mehr beitreten.</target>
+        <target>Also, you can not any longer join a new town.</target>
       </segment>
     </unit>
     <unit id="vTDbvR_" name="Folgende Begründung wurde für deine Sperre hinterlegt:">
@@ -1741,7 +1741,7 @@
       </notes>
       <segment>
         <source>Folgende Begründung wurde für deine Sperre hinterlegt:</source>
-        <target>Folgende Begründung wurde für deine Sperre hinterlegt:</target>
+        <target>The following reason was deposited for your ban:</target>
       </segment>
     </unit>
     <unit id="4pm3p5L" name="Es wurde keine Begründung für diese Sperre hinterlegt.">
@@ -1750,7 +1750,61 @@
       </notes>
       <segment>
         <source>Es wurde keine Begründung für diese Sperre hinterlegt.</source>
-        <target>Es wurde keine Begründung für diese Sperre hinterlegt.</target>
+        <target>No reason was given for this ban.</target>
+      </segment>
+    </unit>
+    <unit id="clP2Rxk" name="EternalTwin-Nutzer">
+      <notes>
+        <note category="german">EternalTwin-Nutzer</note>
+      </notes>
+      <segment>
+        <source>EternalTwin-Nutzer</source>
+        <target>EternalTwin-Nutzer</target>
+      </segment>
+    </unit>
+    <unit id="0T9At.g" name="32951b2">
+      <notes>
+        <note category="german">Dieser Spieler verwendet einen EternalTwin-Account. Wir feuen uns, ihn bei MyHordes begrüßen zu dürfen!</note>
+      </notes>
+      <segment>
+        <source>Dieser Spieler verwendet einen EternalTwin-Account. Wir feuen uns, ihn bei MyHordes begrüßen zu dürfen!</source>
+        <target>Dieser Spieler verwendet einen EternalTwin-Account. Wir feuen uns, ihn bei MyHordes begrüßen zu dürfen!</target>
+      </segment>
+    </unit>
+    <unit id="XRvl7w0" name="ce071ab">
+      <notes>
+        <note category="german">Das angegebene Profil kann nicht importiert werden, da es bereits einem anderen MyHordes-Konto zugeordnet ist.</note>
+      </notes>
+      <segment>
+        <source>Das angegebene Profil kann nicht importiert werden, da es bereits einem anderen MyHordes-Konto zugeordnet ist.</source>
+        <target>Das angegebene Profil kann nicht importiert werden, da es bereits einem anderen MyHordes-Konto zugeordnet ist.</target>
+      </segment>
+    </unit>
+    <unit id="wstj04z" name="MyHordes ist ein stolzer Bestandteil des EternalTwin-Netzwerkes!">
+      <notes>
+        <note category="german">MyHordes ist ein stolzer Bestandteil des EternalTwin-Netzwerkes!</note>
+      </notes>
+      <segment>
+        <source>MyHordes ist ein stolzer Bestandteil des EternalTwin-Netzwerkes!</source>
+        <target>MyHordes ist ein stolzer Bestandteil des EternalTwin-Netzwerkes!</target>
+      </segment>
+    </unit>
+    <unit id="WVIMH8t" name="a7e6e46">
+      <notes>
+        <note category="german">Um MyHordes auch in Zukunft weiter spielen zu können, musst du deinen alten MyHordes-Account mit einem EternalTwin-Account verknüpfen.</note>
+      </notes>
+      <segment>
+        <source>Um MyHordes auch in Zukunft weiter spielen zu können, musst du deinen alten MyHordes-Account mit einem EternalTwin-Account verknüpfen.</source>
+        <target>Um MyHordes auch in Zukunft weiter spielen zu können, musst du deinen alten MyHordes-Account mit einem EternalTwin-Account verknüpfen.</target>
+      </segment>
+    </unit>
+    <unit id="CACKQCH" name="EternalTwin-Account verknüpfen">
+      <notes>
+        <note category="german">EternalTwin-Account verknüpfen</note>
+      </notes>
+      <segment>
+        <source>EternalTwin-Account verknüpfen</source>
+        <target>EternalTwin-Account verknüpfen</target>
       </segment>
     </unit>
   </file>

@@ -715,7 +715,7 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
 
             // Check if escortee wants to go home
             if (count($movers) > 1 && $mover->getEscortSettings() && $mover->getEscortSettings()->getForceDirectReturn() && $away_from_town)
-                return AjaxResponse::errorMessage( $this->translator->trans('%citizen% will zurück zur Stadt und wird dir nicht in diese Richtung folgen.', ['%citizen%' => $mover->getUser()->getUsername()], 'game') );
+                return AjaxResponse::errorMessage( $this->translator->trans('%citizen% will zurück zur Stadt und wird dir nicht in diese Richtung folgen.', ['%citizen%' => $mover->getUser()->getName()], 'game') );
         }
 
         foreach ($movers as $mover) {
@@ -757,7 +757,7 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
                         if ($mover->getId() === $citizen->getId())
                             $this->addFlash( 'notice', $this->translator->trans('Deine Tarnung ist aufgeflogen!', [], 'game' ));
                         else 
-                            $this->addFlash( 'notice', $this->translator->trans('Die Tarnung von %name% ist aufgeflogen!', ['%name%' => $mover->getUser()->getUsername()], 'game' ));
+                            $this->addFlash( 'notice', $this->translator->trans('Die Tarnung von %name% ist aufgeflogen!', ['%name%' => $mover->getUser()->getName()], 'game' ));
                     }
                 }
             }
@@ -864,7 +864,7 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
 
         $uncover_fun = function(ItemAction &$a) use ($citizen) {
             if (!$a->getKeepsCover() && !$this->zone_handler->check_cp( $this->getActiveCitizen()->getZone() ) && $this->uncoverHunter($citizen))
-                $this->addFlash( 'notice', $this->translator->trans('Die Tarnung von %name% ist aufgeflogen!', ['%name%' => $citizen->getUser()->getUsername()], 'game') );
+                $this->addFlash( 'notice', $this->translator->trans('Die Tarnung von %name% ist aufgeflogen!', ['%name%' => $citizen->getUser()->getName()], 'game') );
         };
 
         return $this->generic_action_api($parser, $uncover_fun, $citizen);
