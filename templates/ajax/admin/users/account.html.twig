@@ -1,6 +1,14 @@
 {% extends "ajax/ajax.html.twig" %}
 {% block ajax %}
     {# @var user \App\Entity\User#}
+
+    {% set has_main_soul = false %}
+    {% for soul in user.twinoidImports %}
+        {% if soul.main %}
+            {% set has_main_soul = true %}
+        {% endif %}
+    {% endfor %}
+
     <div class="row soul">
         <div class="cell padded header rw-12">
             {% embed "ajax/admin/users/tabs.html.twig" %}{% endembed %}
@@ -151,12 +159,10 @@
                     <b>{{ 'Twinoid-Konto'|trans({}, 'admin') }}</b>
                 </div>
                 <div class="cell padded rw-3 rw-sm-12">
-                    {% set has_main_soul = false %}
                     {% if user.twinoidID is not null %}
                         <a target="_blank" href="https://twinoid.com/user/{{ user.twinoidID }}"><i class="fa fa-external-link-alt"></i> {{ user.twinoidID }}</a><br />
                         {% for soul in user.twinoidImports %}
                             {% if soul.main %}
-                                {% set has_main_soul = true %}
                                 <div><i class="fa fa-arrow-right"></i> <img alt="" src="{{ asset('build/images/icons/small_hero_up.gif') }}"> <b>{{ soul.scope }}</b></div>
                             {% else %}
                                 <div><i class="fa fa-arrow-right"></i> <i>{{ soul.scope }}</i></div>

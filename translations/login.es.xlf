@@ -550,5 +550,59 @@
         <target>Hallo %username%!</target>
       </segment>
     </unit>
+    <unit id="2WaNcqR" name="Dein Account wurde erfolgreich verknüpft!">
+      <notes>
+        <note category="german">Dein Account wurde erfolgreich verknüpft!</note>
+      </notes>
+      <segment>
+        <source>Dein Account wurde erfolgreich verknüpft!</source>
+        <target>Dein Account wurde erfolgreich verknüpft!</target>
+      </segment>
+    </unit>
+    <unit id="Oi3QrV3" name="Du wirst eingeloggt. Bitte warte eine Sekunde ...">
+      <notes>
+        <note category="german">Du wirst eingeloggt. Bitte warte eine Sekunde ...</note>
+      </notes>
+      <segment>
+        <source>Du wirst eingeloggt. Bitte warte eine Sekunde ...</source>
+        <target>Du wirst eingeloggt. Bitte warte eine Sekunde ...</target>
+      </segment>
+    </unit>
+    <unit id="pEAthLZ" name="d621208">
+      <notes>
+        <note category="german">Vielen Dank, dass du deinen MyHordes-Account %namecheck_mh% mit deinem EternalTwin-Account %namecheck_et% verknüpfst!</note>
+      </notes>
+      <segment>
+        <source>Vielen Dank, dass du deinen MyHordes-Account %namecheck_mh% mit deinem EternalTwin-Account %namecheck_et% verknüpfst!</source>
+        <target>Vielen Dank, dass du deinen MyHordes-Account %namecheck_mh% mit deinem EternalTwin-Account %namecheck_et% verknüpfst!</target>
+      </segment>
+    </unit>
+    <unit id="7JD3pLt" name="7505c04">
+      <notes>
+        <note category="german">Nach der Verknüpfung kannst du dich nur noch über EternalTwin in MyHordes anmelden. Deine alten Zugangsdaten werden ungültig.</note>
+      </notes>
+      <segment>
+        <source>Nach der Verknüpfung kannst du dich nur noch über EternalTwin in MyHordes anmelden. Deine alten Zugangsdaten werden ungültig.</source>
+        <target>Nach der Verknüpfung kannst du dich nur noch über EternalTwin in MyHordes anmelden. Deine alten Zugangsdaten werden ungültig.</target>
+      </segment>
+    </unit>
+    <unit id="r.jGoXw" name="d65799d">
+      <notes>
+        <note category="german">Wenn du fortfahren möchtest, gib bitte ein letztes Mal dein MyHordes-Passwort ein und klicke auf "Verknüpfen".</note>
+      </notes>
+      <segment>
+        <source>Wenn du fortfahren möchtest, gib bitte ein letztes Mal dein MyHordes-Passwort ein und klicke auf "Verknüpfen".</source>
+        <target>Wenn du fortfahren möchtest, gib bitte ein letztes Mal dein MyHordes-Passwort ein und klicke auf "Verknüpfen".</target>
+      </segment>
+    </unit>
+    <unit id="jKP5PMR" name="Verknüpfen">
+      <notes>
+        <note category="german">Verknüpfen</note>
+      </notes>
+      <segment>
+        <source>Verknüpfen</source>
+        <target>Verknüpfen</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
