@@ -152,7 +152,7 @@ class UserFactory
 
         if (!$validated)
             $this->announceValidationToken( $this->ensureValidation( $new_user, UserPendingValidation::EMailValidation ) );
-        else $this->perm->associate($new_user, $this->perm->getDefaultGroup( UserGroup::GroupTypeDefaultUserGroup ));
+        else $this->entity_manager->persist($this->perm->associate($new_user, $this->perm->getDefaultGroup( UserGroup::GroupTypeDefaultUserGroup )));
 
         return $new_user;
     }
@@ -178,6 +178,7 @@ class UserFactory
         if ($new_name !== $etwin_user->getUsername())
             $new_user->setDisplayName( $etwin_user->getUsername() );
 
+        $this->entity_manager->persist($this->perm->associate($new_user, $this->perm->getDefaultGroup( UserGroup::GroupTypeDefaultUserGroup )));
         return $new_user;
     }
 
@@ -202,7 +203,7 @@ class UserFactory
 
         try {
             $user->setValidated( true );
-            $this->perm->associate( $user, $this->perm->getDefaultGroup( UserGroup::GroupTypeDefaultUserGroup ) );
+            $this->entity_manager->persist($this->perm->associate( $user, $this->perm->getDefaultGroup( UserGroup::GroupTypeDefaultUserGroup ) ) );
             $this->entity_manager->persist( $user );
             $this->entity_manager->remove( $pending );
             $this->entity_manager->flush();
