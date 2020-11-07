@@ -73,6 +73,16 @@ class UserRepository extends ServiceEntityRepository implements UserLoaderInterf
     /**
      * @return User[] Returns an array of User objects
      */
+    public function findByDisplayNameContains(string $value)
+    {
+        return $this->createQueryBuilder('u')
+            ->andWhere('u.displayName LIKE :val')->setParameter('val', '%' . $value . '%')
+            ->getQuery()->getResult();
+    }
+
+    /**
+     * @return User[] Returns an array of User objects
+     */
     public function findByMailContains(string $value)
     {
         return $this->createQueryBuilder('u')
