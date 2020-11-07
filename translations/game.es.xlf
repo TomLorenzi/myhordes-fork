@@ -5601,20 +5601,20 @@
     </unit>
     <unit id="iUTpVp." name="Kernsammler">
       <notes>
-        <note category="german">Kernsammler</note>
+        <note category="german">Seelenreiniger</note>
       </notes>
       <segment>
         <source>Kernsammler</source>
-        <target>Recolector de Almas</target>
+        <target>Purificador de almas</target>
       </segment>
     </unit>
     <unit id="lul.uPB" name="Anzahl der im Ausland gesammelten Seelen verstorbener Bürger">
       <notes>
-        <note category="german">Anzahl der im Ausland gesammelten Seelen verstorbener Bürger</note>
+        <note category="german">Anzahl der Seelen verstorbener Bürger, die Sie gereinigt haben.</note>
       </notes>
       <segment>
         <source>Anzahl der im Ausland gesammelten Seelen verstorbener Bürger</source>
-        <target>Cantidad de almas recolectadas de habitantes fallecidos en el Ultramundo</target>
+        <target>Cantidad de almas recolectadas que has purificado.</target>
       </segment>
     </unit>
     <unit id="FRTO7P3" name="Kämpfe um Leben und Tod">

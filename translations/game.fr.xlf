@@ -5614,20 +5614,20 @@
     </unit>
     <unit id="iUTpVp." name="Kernsammler">
       <notes>
-        <note category="german">Kernsammler</note>
+        <note category="german">Seelenreiniger</note>
       </notes>
       <segment>
         <source>Kernsammler</source>
-        <target>Collecteur d'âmes</target>
+        <target>Purificateur d'âmes</target>
       </segment>
     </unit>
     <unit id="lul.uPB" name="Anzahl der im Ausland gesammelten Seelen verstorbener Bürger">
       <notes>
-        <note category="german">Anzahl der im Ausland gesammelten Seelen verstorbener Bürger</note>
+        <note category="german">Anzahl der Seelen verstorbener Bürger, die Sie gereinigt haben.</note>
       </notes>
       <segment>
         <source>Anzahl der im Ausland gesammelten Seelen verstorbener Bürger</source>
-        <target>Nombres d'âmes de citoyens décédés collectées dans l'outre-monde</target>
+        <target>Nombre d'âmes de citoyens décédés que vous avez purifiées.</target>
       </segment>
     </unit>
     <unit id="FRTO7P3" name="Kämpfe um Leben und Tod">

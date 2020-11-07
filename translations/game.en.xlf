@@ -5590,20 +5590,20 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     </unit>
     <unit id="iUTpVp." name="Kernsammler">
       <notes>
-        <note category="german">Kernsammler</note>
+        <note category="german">Seelenreiniger</note>
       </notes>
       <segment>
         <source>Kernsammler</source>
-        <target>Soul Collector</target>
+        <target>Soul Purificator</target>
       </segment>
     </unit>
     <unit id="lul.uPB" name="Anzahl der im Ausland gesammelten Seelen verstorbener Bürger">
       <notes>
-        <note category="german">Anzahl der im Ausland gesammelten Seelen verstorbener Bürger</note>
+        <note category="german">Anzahl der Seelen verstorbener Bürger, die Sie gereinigt haben.</note>
       </notes>
       <segment>
         <source>Anzahl der im Ausland gesammelten Seelen verstorbener Bürger</source>
-        <target>The number of dead citizens' souls collected in the World Beyond</target>
+        <target>The number of dead citizens' souls you purified.</target>
       </segment>
     </unit>
     <unit id="FRTO7P3" name="Kämpfe um Leben und Tod">
