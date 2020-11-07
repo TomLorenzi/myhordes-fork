@@ -609,7 +609,7 @@ class InventoryAwareController extends AbstractController
                                 $current_item->setFirstPick(false);
                                 // In the "Job" version of the shaman, the one that pick a blue soul for the 1st time gets the "r_collec" picto
                                 if (!$this->getTownConf()->get(TownConf::CONF_FEATURE_SHAMAN_MODE, "normal") == "job")
-                                    $this->picto_handler->give_picto($target_citizen, "r_collec_#00");
+                                    $this->picto_handler->give_picto($target_citizen, "r_collec2_#00");
                                 $this->entity_manager->persist($current_item);
                             }
                             if (!$hide && !$current_item->getHidden()) $this->entity_manager->persist( $this->log->beyondItemLog( $target_citizen, $current_item->getPrototype(), !$floor_up, $current_item->getBroken() ) );
