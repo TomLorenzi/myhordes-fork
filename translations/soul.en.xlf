@@ -1807,5 +1807,14 @@
         <target>EternalTwin-Account verknüpfen</target>
       </segment>
     </unit>
+    <unit id="lqipl75" name="%name%'s Koalition">
+      <notes>
+        <note category="german">%name%'s Koalition</note>
+      </notes>
+      <segment>
+        <source>%name%'s Koalition</source>
+        <target>%name%'s Koalition</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
