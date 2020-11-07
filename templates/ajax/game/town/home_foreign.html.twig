@@ -93,7 +93,7 @@
                         {% if can_devour %}
                             <button x-devour-citizen {% if not allow_devour %}disabled{% endif %}><img alt="" src="{{ asset('build/images/roles/ghoul.gif') }}" /> {{ 'Diesen Bürger verspeisen!'|trans({},'game') }}</button>
                         {% endif %}
-	                    {% if is_shaman and not banished %}
+	                    {% if is_shaman_role and not banished %}
 	                        <button x-heal-citizen>{{'Nutze deine heilenden Hände'|trans({}, 'game')}} (2 <div class="pm"></div>)</button>
 	                    {% endif %}
                     {% endif %}
@@ -242,7 +242,7 @@
                             } );
                 })
             {% endif %}
-            {% if is_shaman and not banished %}
+            {% if is_shaman_role and not banished %}
 	            const healButtons = document.querySelectorAll('[x-heal-citizen]');
 	            for (let i = 0; i < healButtons.length; i++) {
 	                healButtons[i].addEventListener('click', function() {

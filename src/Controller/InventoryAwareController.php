@@ -140,6 +140,8 @@ class InventoryAwareController extends AbstractController
         $data['max_pm'] = $this->citizen_handler->getMaxPM( $this->getActiveCitizen() );
         $data['username'] = $this->getUser()->getName();
         $data['is_shaman'] = $is_shaman;
+        $data['is_shaman_job'] = $this->getActiveCitizen()->getProfession()->getName() == 'shaman';
+        $data['is_shaman_role'] = $this->citizen_handler->hasRole($this->getActiveCitizen(), 'shaman');
         $data['hunger'] = $this->getActiveCitizen()->getGhulHunger();
         return $data;
     }
