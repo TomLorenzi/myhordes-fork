@@ -14278,5 +14278,68 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
         <target>Die Zone ist vollständig mit verrottender Vegetation, Sand und allem möglichen Schrott bedeckt. Du bist dir sicher, dass es hier etwas zu finden gibt, aber zunächst musst du diesen gesamten Sektor aufräumen um ihn vernünftig durchsuchen zu können.</target>
       </segment>
     </unit>
+    <unit id="IDhWsfU" name="HAZ-Gewinner">
+      <notes>
+        <note category="german">HAZ-Gewinner</note>
+      </notes>
+      <segment>
+        <source>HAZ-Gewinner</source>
+        <target>HAZ-Gewinner</target>
+      </segment>
+    </unit>
+    <unit id="ltZ7BR_" name="Ehrenauszeichnung für den Gewinner der Heilung für die Auszeichnungssucht.">
+      <notes>
+        <note category="german">Ehrenauszeichnung für den Gewinner der Heilung für die Auszeichnungssucht.</note>
+      </notes>
+      <segment>
+        <source>Ehrenauszeichnung für den Gewinner der Heilung für die Auszeichnungssucht.</source>
+        <target>Ehrenauszeichnung für den Gewinner der Heilung für die Auszeichnungssucht.</target>
+      </segment>
+    </unit>
+    <unit id="YZc0dgj" name="Kernsammler (job)">
+      <notes>
+        <note category="german">Kernsammler (job)</note>
+      </notes>
+      <segment>
+        <source>Kernsammler (job)</source>
+        <target>Soul Collector</target>
+      </segment>
+    </unit>
+    <unit id="mRdxtx0" name="Anzahl der im Ausland gesammelten Seelen verstorbener Bürger (job)">
+      <notes>
+        <note category="german">Anzahl der im Ausland gesammelten Seelen verstorbener Bürger (job)</note>
+      </notes>
+      <segment>
+        <source>Anzahl der im Ausland gesammelten Seelen verstorbener Bürger (job)</source>
+        <target>The number of dead citizens' souls collected in the World Beyond</target>
+      </segment>
+    </unit>
+    <unit id="SZYZY_h" name="Mystic (job)">
+      <notes>
+        <note category="german">Mystic (job)</note>
+      </notes>
+      <segment>
+        <source>Mystic (job)</source>
+        <target>Mystical transformation</target>
+      </segment>
+    </unit>
+    <unit id="dMCiesS" name="Wie viele Seelen hat Ihre Stadt befreien können. (job)">
+      <notes>
+        <note category="german">Wie viele Seelen hat Ihre Stadt befreien können. (job)</note>
+      </notes>
+      <segment>
+        <source>Wie viele Seelen hat Ihre Stadt befreien können. (job)</source>
+        <target>Number of souls trafficked by you at the Workshop.</target>
+      </segment>
+    </unit>
+    <unit id="MsIlSXC" name="Ich bin geheilt">
+      <notes>
+        <note category="german">Ich bin geheilt</note>
+      </notes>
+      <segment>
+        <source>Ich bin geheilt</source>
+        <target>Ich bin geheilt</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
