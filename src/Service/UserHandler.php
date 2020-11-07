@@ -255,7 +255,11 @@ class UserHandler
     }
 
     public function deleteUser(User $user) {
-        $user->setEmail("$ deleted <{$user->getId()}>")->setName("$ deleted <{$user->getId()}>")->setPassword(null)->setRightsElevation(0);
+        $user
+            ->setEmail("$ deleted <{$user->getId()}>")->setDisplayName(null)
+            ->setName("$ deleted <{$user->getId()}>")
+            ->setPassword(null)
+            ->setRightsElevation(0);
         if ($user->getAvatar()) {
             $this->entity_manager->remove($user->getAvatar());
             $user->setAvatar(null);
