@@ -326,7 +326,7 @@ class PublicController extends AbstractController
             $potential_user = $this->entity_manager->getRepository(User::class)->findOneByEternalID( $user->getID() );
 
             $session->set('_etwin_user', $user);
-            $session->set('_etwin_login', $potential_user !== null);
+            $session->set('_etwin_login', $potential_user !== null && $myhordes_user === null);
             $session->set('_etwin_local', $myhordes_user ? $myhordes_user->getId() : null);
 
             return $this->render( 'ajax/public/et_welcome.html.twig', [

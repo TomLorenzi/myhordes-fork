@@ -62,7 +62,7 @@
                     <div class="cell rw-4">
                         <button id="et_confirm">
                             {% if current_user is null and target_user is null %}{{ 'Los geht\'s!'|trans({},'login') }}{% endif %}
-                            {% if current_user is not null and target_user is null %}{{ 'Verknüpfen'|trans({},'login') }}{% endif %}
+                            {% if current_user is not null %}{{ 'Verknüpfen'|trans({},'login') }}{% endif %}
                         </button>
                     </div>
                     <div class="cell">

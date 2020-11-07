@@ -71,7 +71,8 @@ class EternalAuthenticator extends AbstractGuardAuthenticator
         $etwin_user_object = $request->getSession()->get('_etwin_user');
 
         return [
-            'etwin_id' => $etwin_user_object->getID()
+            'etwin_id' => $etwin_user_object->getID(),
+            'etwin_on' => $request->getSession()->has('_etwin_login')
         ];
     }
 
@@ -80,7 +81,7 @@ class EternalAuthenticator extends AbstractGuardAuthenticator
      */
     public function getUser($credentials, UserProviderInterface $userProvider)
     {
-        return $userProvider->loadUserByUsername( "etwin::{$credentials['etwin_id']}" );
+        return $credentials['etwin_on'] ? $userProvider->loadUserByUsername( "etwin::{$credentials['etwin_id']}" ) : null;
     }
 
     /**
@@ -89,7 +90,7 @@ class EternalAuthenticator extends AbstractGuardAuthenticator
     public function checkCredentials($credentials, UserInterface $user)
     {
         /** @var User $user */
-        return $user->getEternalID() === $credentials['etwin_id'];
+        return $credentials['etwin_on'] && $user->getEternalID() === $credentials['etwin_id'];
     }
 
     /**
