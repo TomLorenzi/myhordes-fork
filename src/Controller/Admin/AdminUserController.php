@@ -26,6 +26,7 @@ use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 /**
  * @Route("/",condition="request.isXmlHttpRequest()")
@@ -76,7 +77,10 @@ class AdminUserController extends AdminActionController
      * @param string $param
      * @return Response
      */
-    public function user_account_manager(int $id, string $action, JSONRequestParser $parser, UserFactory $uf, TwinoidHandler $twin, UserHandler $userHandler, PermissionHandler $perm, string $param = ''): Response
+    public function user_account_manager(int $id, string $action, JSONRequestParser $parser, UserFactory $uf,
+                                         TwinoidHandler $twin, UserHandler $userHandler, PermissionHandler $perm,
+                                         UserPasswordEncoderInterface $passwordEncoder,
+                                         string $param = ''): Response
     {
         /** @var User $user */
         $user = $this->entity_manager->getRepository(User::class)->find($id);
@@ -84,7 +88,10 @@ class AdminUserController extends AdminActionController
 
         if (empty($param)) $param = $parser->get('param', '');
 
-        if (in_array($action, [ 'delete_token', 'invalidate', 'validate', 'twin_full_reset', 'twin_main_reset', 'delete', 'rename', 'shadow', 'unshadow', 'whitelist', 'unwhitelist' ]) && !$this->isGranted('ROLE_ADMIN'))
+        if (in_array($action, [
+            'delete_token', 'invalidate', 'validate', 'twin_full_reset', 'twin_main_reset', 'delete', 'rename',
+            'shadow', 'unshadow', 'whitelist', 'unwhitelist', 'etwin_reset', 'overwrite_pw', 'initiate_pw_reset',
+            'enforce_pw_reset', 'change_mail' ]) && !$this->isGranted('ROLE_ADMIN'))
             return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
 
         if ($action === 'grant' && $param !== 'NONE' && !$userHandler->admin_canGrant( $this->getUser(), $param ))
@@ -97,7 +104,7 @@ class AdminUserController extends AdminActionController
 
         switch ($action) {
             case 'validate':
-                if ($user->getValidated())
+                if ($user->getValidated() || $user->getEternalID())
                     return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
                 $pf = $this->entity_manager->getRepository(UserPendingValidation::class)->findOneByUserAndType($user, UserPendingValidation::EMailValidation);
                 if ($pf) {
@@ -108,15 +115,19 @@ class AdminUserController extends AdminActionController
                 $perm->associate($user, $perm->getDefaultGroup( UserGroup::GroupTypeDefaultUserGroup ));
                 $this->entity_manager->persist($user);
                 break;
+
             case 'invalidate':
-                if (!$user->getValidated())
+                if (!$user->getValidated() || $user->getEternalID())
                     return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
                 $user->setValidated(false);
                 $perm->disassociate($user, $perm->getDefaultGroup( UserGroup::GroupTypeDefaultUserGroup ));
                 $uf->announceValidationToken( $uf->ensureValidation( $user, UserPendingValidation::EMailValidation ) );
                 $this->entity_manager->persist($user);
                 break;
+
             case 'refresh_tokens': case 'regen_tokens':
+                if ($user->getEternalID())
+                    return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
                 foreach ($this->entity_manager->getRepository(UserPendingValidation::class)->findByUser($user) as $pf) {
                     /** @var $pf UserPendingValidation */
                     if ($action === 'regen_tokens') $pf->generatePKey();
@@ -124,13 +135,29 @@ class AdminUserController extends AdminActionController
                     $this->entity_manager->persist( $pf );
                 }
                 break;
+
             case 'initiate_pw_reset':case 'enforce_pw_reset':
                 if ($action === 'enforce_pw_reset')
                     $user->setPassword(null);
                 $uf->announceValidationToken( $uf->ensureValidation( $user, UserPendingValidation::ResetValidation ) );
                 $this->entity_manager->persist($user);
                 break;
+
+            case 'overwrite_pw':
+                if (empty($param) || $user->getEternalID()) return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
+                $user->setPassword( $passwordEncoder->encodePassword( $user, $param ) );
+                $this->entity_manager->persist($user);
+                break;
+
+            case 'change_mail':
+                if ($user->getEternalID()) return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
+                $user->setEmail( $param ?? null );
+                $this->entity_manager->persist($user);
+                break;
+
             case 'delete_token':
+                if ($user->getEternalID())
+                    return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
                 /** @var $pv UserPendingValidation */
                 if (!$parser->has('tid') || ($pv = $this->entity_manager->getRepository(UserPendingValidation::class)->find((int)$parser->get('tid'))) === null)
                     return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
@@ -165,7 +192,17 @@ class AdminUserController extends AdminActionController
                     $main->setMain( false );
                     $this->entity_manager->persist($main);
                 }
+                break;
 
+            case 'etwin_reset':
+
+                if (empty($param) || $user->getEternalID() === null)
+                    return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
+                $user
+                    ->setEternalID( null )
+                    ->setEmail( $param )
+                    ->setPassword( null );
+                $this->entity_manager->persist($user);
                 break;
 
             case 'rename':
@@ -175,6 +212,8 @@ class AdminUserController extends AdminActionController
                 break;
 
             case 'delete':
+                if ($user->getEternalID())
+                    return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
                 $userHandler->deleteUser($user);
                 $this->entity_manager->persist($user);
                 break;
