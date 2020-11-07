@@ -49,7 +49,7 @@
                     {# @var assocs \App\Entity\UserGroupAssociation[] #}
                     <ul class="coa-users">
                         {% for assoc in assocs %}
-                            <li>{{ assoc.user.username }}</li>
+                            <li>{{ assoc.user.name }}</li>
                         {% endfor %}
                     </ul>
                 {% endmacro %}
