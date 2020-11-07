@@ -59,6 +59,17 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
         $town = $this->getActiveCitizen()->getTown();
         $roles = $this->entity_manager->getRepository(CitizenRole::class)->findVotable();
 
+        $disabled_roles = $this->conf->getTownConfiguration($town)->get(TownConf::CONF_DISABLED_ROLES, []);
+
+
+        for($i = count($roles) - 1; $i >= 0 ; $i--) {
+            $role = $roles[$i];
+            /** @var CitizenRole $role */
+            if(in_array($role->getName(), $disabled_roles)) {
+                unset($roles[$i]);
+            }
+        }
+
         $votesNeeded = array();
         foreach ($roles as $role)
             $votesNeeded[$role->getName()] = ($town->getChaos() || $town->isOpen()) ? null : $role;

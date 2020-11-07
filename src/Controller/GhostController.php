@@ -197,9 +197,12 @@ class GhostController extends AbstractController implements GhostInterfaceContro
 
         $disabled_jobs   = [];
         $disabled_builds = [];
+        $disabled_roles  = [];
 
         if($customConf['features']['shaman'] == "normal" || $customConf['features']['shaman'] == "none")
             $disabled_jobs[] = 'shaman';
+        else if ($customConf['features']['shaman'] == "job" || $customConf['features']['shaman'] == "none")
+            $disabled_roles[] = 'shaman';
 
         if(!(bool)$parser->get('basic', true)) $disabled_jobs[] = 'basic';
         if(!(bool)$parser->get('collec', true)) $disabled_jobs[] = 'collec';
@@ -231,6 +234,7 @@ class GhostController extends AbstractController implements GhostInterfaceContro
 
         $customConf['disabled_jobs']['replace']      = $disabled_jobs;
         $customConf['disabled_buildings']['replace'] = $disabled_builds;
+        $customConf['disabled_roles']['replace']     = $disabled_roles;
 
         $type = $parser->get('townType', 'remote', array_map(fn(TownClass $t) => $t->getName(), $em->getRepository(TownClass::class)->findBy(['hasPreset' => true])));
         if ($crow_permissions && (bool)$parser->get('unprivate', false))

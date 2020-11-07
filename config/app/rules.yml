@@ -111,6 +111,7 @@ parameters:
         last_death: 'r_surlst_#00'
 
       disabled_jobs: ['shaman']
+      disabled_roles: []
       disabled_buildings: []
       
     small:
@@ -140,6 +141,9 @@ parameters:
 
       features:
         shaman: 'none'
+      
+      disabled_jobs: ['shaman']
+      disabled_roles: ['shaman']
 
     remote:
 
