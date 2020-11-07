@@ -426,5 +426,128 @@
         <target>Rester connecté</target>
       </segment>
     </unit>
+    <unit id="B0ZNAR." name="Fehler bei der Datenübertragung.">
+      <notes>
+        <note category="german">Fehler bei der Datenübertragung.</note>
+      </notes>
+      <segment>
+        <source>Fehler bei der Datenübertragung.</source>
+        <target>Fehler bei der Datenübertragung.</target>
+      </segment>
+    </unit>
+    <unit id="wPXsZnE" name="6842e2e">
+      <notes>
+        <note category="german">MyHordes ist ein Teil des EternalTwin-Netzwerks. Wenn du einen EternalTwin-Account hast, kannst du MyHordes ohne zusätzliche Registrierung spielen!</note>
+      </notes>
+      <segment>
+        <source>MyHordes ist ein Teil des EternalTwin-Netzwerks. Wenn du einen EternalTwin-Account hast, kannst du MyHordes ohne zusätzliche Registrierung spielen!</source>
+        <target>MyHordes ist ein Teil des EternalTwin-Netzwerks. Wenn du einen EternalTwin-Account hast, kannst du MyHordes ohne zusätzliche Registrierung spielen!</target>
+      </segment>
+    </unit>
+    <unit id="qo4M11k" name="Über EternalTwin einloggen">
+      <notes>
+        <note category="german">Über EternalTwin einloggen</note>
+      </notes>
+      <segment>
+        <source>Über EternalTwin einloggen</source>
+        <target>Über EternalTwin einloggen</target>
+      </segment>
+    </unit>
+    <unit id="LiGRhEI" name="9a73574">
+      <notes>
+        <note category="german">Wenn du noch einen alten MyHordes-Account hast, kannst du dich vorerst auch damit einloggen.</note>
+      </notes>
+      <segment>
+        <source>Wenn du noch einen alten MyHordes-Account hast, kannst du dich vorerst auch damit einloggen.</source>
+        <target>Wenn du noch einen alten MyHordes-Account hast, kannst du dich vorerst auch damit einloggen.</target>
+      </segment>
+    </unit>
+    <unit id="ho.WxzI" name="6471614">
+      <notes>
+        <note category="german">Dies wird nicht für immer möglich sein. Wir raten dir, deinen alten MyHordes-Account so bald wie möglich mit EternalTwin zu verknüpfen.</note>
+      </notes>
+      <segment>
+        <source>Dies wird nicht für immer möglich sein. Wir raten dir, deinen alten MyHordes-Account so bald wie möglich mit EternalTwin zu verknüpfen.</source>
+        <target>Dies wird nicht für immer möglich sein. Wir raten dir, deinen alten MyHordes-Account so bald wie möglich mit EternalTwin zu verknüpfen.</target>
+      </segment>
+    </unit>
+    <unit id="uT6i9yH" name="bb99aa1">
+      <notes>
+        <note category="german">Deine Seele bleibt bei der Verknüpfung mit EternalTwin selbstverständlich vollständig erhalten.</note>
+      </notes>
+      <segment>
+        <source>Deine Seele bleibt bei der Verknüpfung mit EternalTwin selbstverständlich vollständig erhalten.</source>
+        <target>Deine Seele bleibt bei der Verknüpfung mit EternalTwin selbstverständlich vollständig erhalten.</target>
+      </segment>
+    </unit>
+    <unit id="RG1kp2m" name="Über MyHordes einloggen">
+      <notes>
+        <note category="german">Über MyHordes einloggen</note>
+      </notes>
+      <segment>
+        <source>Über MyHordes einloggen</source>
+        <target>Über MyHordes einloggen</target>
+      </segment>
+    </unit>
+    <unit id="CvfPvDp" name="Verknüpfung mit EternalTwin">
+      <notes>
+        <note category="german">Verknüpfung mit EternalTwin</note>
+      </notes>
+      <segment>
+        <source>Verknüpfung mit EternalTwin</source>
+        <target>Verknüpfung mit EternalTwin</target>
+      </segment>
+    </unit>
+    <unit id="sndALWW" name="Gleich kanns losgehen!">
+      <notes>
+        <note category="german">Gleich kanns losgehen!</note>
+      </notes>
+      <segment>
+        <source>Gleich kanns losgehen!</source>
+        <target>Gleich kanns losgehen!</target>
+      </segment>
+    </unit>
+    <unit id="NYi.sD7" name="1ba0830">
+      <notes>
+        <note category="german">Dank deines EternalTwin-Account kannst du ohne vorherige Registrierung MyHordes spielen!</note>
+      </notes>
+      <segment>
+        <source>Dank deines EternalTwin-Account kannst du ohne vorherige Registrierung MyHordes spielen!</source>
+        <target>Dank deines EternalTwin-Account kannst du ohne vorherige Registrierung MyHordes spielen!</target>
+      </segment>
+    </unit>
+    <unit id="zK1Sfzm" name="696390f">
+      <notes>
+        <note category="german">&lt;strong&gt;Achtung:&lt;/strong&gt; Du hast bereits einen MyHordes-Account? Dann solltest du jetzt
+                                    &lt;i&gt;abbrechen&lt;/i&gt; und dich zuerst mit deinem alten MyHordes-Account einloggen. Du kannst deinen
+                                    EternalTwin-Account in den Einstellungen mit deinem MyHordes-Account verknüpfen.</note>
+      </notes>
+      <segment>
+        <source>&lt;strong&gt;Achtung:&lt;/strong&gt; Du hast bereits einen MyHordes-Account? Dann solltest du jetzt
+                                    &lt;i&gt;abbrechen&lt;/i&gt; und dich zuerst mit deinem alten MyHordes-Account einloggen. Du kannst deinen
+                                    EternalTwin-Account in den Einstellungen mit deinem MyHordes-Account verknüpfen.</source>
+        <target><![CDATA[<strong>Achtung:</strong> Du hast bereits einen MyHordes-Account? Dann solltest du jetzt
+                                    <i>abbrechen</i> und dich zuerst mit deinem alten MyHordes-Account einloggen. Du kannst deinen
+                                    EternalTwin-Account in den Einstellungen mit deinem MyHordes-Account verknüpfen.]]></target>
+      </segment>
+    </unit>
+    <unit id="zHOj.3O" name="Los geht's!">
+      <notes>
+        <note category="german">Los geht's!</note>
+      </notes>
+      <segment>
+        <source>Los geht's!</source>
+        <target>Los geht's!</target>
+      </segment>
+    </unit>
+    <unit id="e0idyWf" name="Hallo %username%!">
+      <notes>
+        <note category="german">Hallo %username%!</note>
+      </notes>
+      <segment>
+        <source>Hallo %username%!</source>
+        <target>Hallo %username%!</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

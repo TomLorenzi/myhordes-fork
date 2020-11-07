@@ -293,6 +293,21 @@ class MigrateCommand extends Command
                     return 1;
                 }
 
+            } elseif (extension_loaded('pthreads')) {
+                $threads = [];
+                foreach ($langs as $current_lang) {
+
+                    $threads[] = new class(function () use ($current_lang,$output) {
+                        $this->capsule("app:migrate -t $current_lang", $output);
+                    }) extends \Worker {
+                        private $_f;
+                        public function __construct(callable $fun) { $this->_f = $fun; }
+                        public function run() { ($this->_f)(); }
+                    };
+                }
+
+                foreach ($threads as $thread) $thread->start();
+                foreach ($threads as $thread) $thread->join();
             } else foreach ($langs as $current_lang)
                 $this->capsule("app:migrate -t $current_lang", $output);
 

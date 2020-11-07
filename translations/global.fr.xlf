@@ -1711,5 +1711,14 @@
         <target>Wiederherstellen</target>
       </segment>
     </unit>
+    <unit id="uB2Vk6P" name="oder">
+      <notes>
+        <note category="german">oder</note>
+      </notes>
+      <segment>
+        <source>oder</source>
+        <target>oder</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

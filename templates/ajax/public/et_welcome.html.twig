@@ -18,7 +18,7 @@
                     <div class="padded cell rw-8 grow-2 justify">
                         {% if current_user is null and target_user is null %}
                             <p>
-                                <strong>{{ 'Hallo %username%!'|trans({'%username%': etwin_user.getDisplayName}) }}</strong>
+                                <strong>{{ 'Hallo %username%!'|trans({'%username%': etwin_user.getDisplayName},'login') }}</strong>
                                 {{ 'Dank deines EternalTwin-Account kannst du ohne vorherige Registrierung MyHordes spielen!'|trans({},'login') }}
                             </p>
                             <p>

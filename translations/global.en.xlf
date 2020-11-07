@@ -1702,5 +1702,14 @@
         <target><![CDATA[Jeder <strong>Verteidigungsgegenstand</strong>, der sich in der Bank befindet, bringt der Stadt <strong>1 Verteidigungspunkte</strong>.]]></target>
       </segment>
     </unit>
+    <unit id="uB2Vk6P" name="oder">
+      <notes>
+        <note category="german">oder</note>
+      </notes>
+      <segment>
+        <source>oder</source>
+        <target>oder</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

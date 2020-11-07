@@ -1718,5 +1718,23 @@
         <target>Aucune raison n'a été donnée pour ce bannissement.</target>
       </segment>
     </unit>
+    <unit id="clP2Rxk" name="EternalTwin-Nutzer">
+      <notes>
+        <note category="german">EternalTwin-Nutzer</note>
+      </notes>
+      <segment>
+        <source>EternalTwin-Nutzer</source>
+        <target>EternalTwin-Nutzer</target>
+      </segment>
+    </unit>
+    <unit id="0T9At.g" name="32951b2">
+      <notes>
+        <note category="german">Dieser Spieler verwendet einen EternalTwin-Account. Wir feuen uns, ihn bei MyHordes begrüßen zu dürfen!</note>
+      </notes>
+      <segment>
+        <source>Dieser Spieler verwendet einen EternalTwin-Account. Wir feuen uns, ihn bei MyHordes begrüßen zu dürfen!</source>
+        <target>Dieser Spieler verwendet einen EternalTwin-Account. Wir feuen uns, ihn bei MyHordes begrüßen zu dürfen!</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

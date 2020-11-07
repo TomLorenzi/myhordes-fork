@@ -856,6 +856,15 @@
         <target>Cada elemento de esta colección debería satisfacer su propio conjunto de restricciones.</target>
       </segment>
     </unit>
+    <unit id="lrbaa8g" name="This value is not a valid International Securities Identification Number (ISIN).">
+      <notes>
+        <note category="german">Dieser Wert ist keine gültige Internationale Wertpapierkennnummer (ISIN).</note>
+      </notes>
+      <segment>
+        <source>This value is not a valid International Securities Identification Number (ISIN).</source>
+        <target>Este valor no es un número de identificación internacional de valores (ISIN) válido.</target>
+      </segment>
+    </unit>
     <unit id=".SEaaBa" name="This form should not contain extra fields.">
       <notes>
         <note category="german">Dieses Formular sollte keine zusätzlichen Felder enthalten.</note>
@@ -881,6 +890,276 @@
       <segment>
         <source>The CSRF token is invalid. Please try to resubmit the form.</source>
         <target>El token CSRF no es válido. Por favor, pruebe a enviar nuevamente el formulario.</target>
+      </segment>
+    </unit>
+    <unit id="eo1zeih" name="This value is not a valid HTML5 color.">
+      <notes>
+        <note category="german">Dieser Wert ist keine gültige HTML5 Farbe.</note>
+      </notes>
+      <segment>
+        <source>This value is not a valid HTML5 color.</source>
+        <target>Este valor no es un color HTML5 válido.</target>
+      </segment>
+    </unit>
+    <unit id="dN.ZVc0" name="Please enter a valid birthdate.">
+      <notes>
+        <note category="german">Bitte geben Sie ein gültiges Geburtsdatum ein.</note>
+      </notes>
+      <segment>
+        <source>Please enter a valid birthdate.</source>
+        <target>Por favor, ingrese una fecha de cumpleaños válida.</target>
+      </segment>
+    </unit>
+    <unit id="OPymPfZ" name="The selected choice is invalid.">
+      <notes>
+        <note category="german">Die Auswahl ist ungültig.</note>
+      </notes>
+      <segment>
+        <source>The selected choice is invalid.</source>
+        <target>La opción seleccionada no es válida.</target>
+      </segment>
+    </unit>
+    <unit id="GUH6TYE" name="The collection is invalid.">
+      <notes>
+        <note category="german">Diese Gruppe von Feldern ist ungültig.</note>
+      </notes>
+      <segment>
+        <source>The collection is invalid.</source>
+        <target>La colección no es válida.</target>
+      </segment>
+    </unit>
+    <unit id="14il0ha" name="Please select a valid color.">
+      <notes>
+        <note category="german">Bitte geben Sie eine gültige Farbe ein.</note>
+      </notes>
+      <segment>
+        <source>Please select a valid color.</source>
+        <target>Por favor, seleccione un color válido.</target>
+      </segment>
+    </unit>
+    <unit id="4AJRUCC" name="Please select a valid country.">
+      <notes>
+        <note category="german">Bitte wählen Sie ein gültiges Land aus.</note>
+      </notes>
+      <segment>
+        <source>Please select a valid country.</source>
+        <target>Por favor, seleccione un país válido.</target>
+      </segment>
+    </unit>
+    <unit id="xAI5mrh" name="Please select a valid currency.">
+      <notes>
+        <note category="german">Bitte wählen Sie eine gültige Währung aus.</note>
+      </notes>
+      <segment>
+        <source>Please select a valid currency.</source>
+        <target>Por favor, seleccione una moneda válida.</target>
+      </segment>
+    </unit>
+    <unit id="c6v9ASZ" name="Please choose a valid date interval.">
+      <notes>
+        <note category="german">Bitte wählen Sie ein gültiges Datumsintervall.</note>
+      </notes>
+      <segment>
+        <source>Please choose a valid date interval.</source>
+        <target>Por favor, elija un intervalo de fechas válido.</target>
+      </segment>
+    </unit>
+    <unit id="2BR60Jg" name="Please enter a valid date and time.">
+      <notes>
+        <note category="german">Bitte geben Sie ein gültiges Datum samt Uhrzeit ein.</note>
+      </notes>
+      <segment>
+        <source>Please enter a valid date and time.</source>
+        <target>Por favor, ingrese una fecha y hora válidas.</target>
+      </segment>
+    </unit>
+    <unit id="ofLBhv0" name="Please enter a valid date.">
+      <notes>
+        <note category="german">Bitte geben Sie ein gültiges Datum ein.</note>
+      </notes>
+      <segment>
+        <source>Please enter a valid date.</source>
+        <target>Por favor, ingrese una fecha valida.</target>
+      </segment>
+    </unit>
+    <unit id="Xsmm6Mc" name="Please select a valid file.">
+      <notes>
+        <note category="german">Bitte wählen Sie eine gültige Datei.</note>
+      </notes>
+      <segment>
+        <source>Please select a valid file.</source>
+        <target>Por favor, seleccione un archivo válido.</target>
+      </segment>
+    </unit>
+    <unit id="Fka0cZD" name="The hidden field is invalid.">
+      <notes>
+        <note category="german">Das versteckte Feld ist ungültig.</note>
+      </notes>
+      <segment>
+        <source>The hidden field is invalid.</source>
+        <target>El campo oculto no es válido.</target>
+      </segment>
+    </unit>
+    <unit id="69ux5Ml" name="Please enter an integer.">
+      <notes>
+        <note category="german">Bitte geben Sie eine ganze Zahl ein.</note>
+      </notes>
+      <segment>
+        <source>Please enter an integer.</source>
+        <target>Por favor, ingrese un número entero.</target>
+      </segment>
+    </unit>
+    <unit id="TQbat_9" name="Please select a valid language.">
+      <notes>
+        <note category="german">Bitte wählen Sie eine gültige Sprache.</note>
+      </notes>
+      <segment>
+        <source>Please select a valid language.</source>
+        <target>Por favor, seleccione un idioma válido.</target>
+      </segment>
+    </unit>
+    <unit id="vpa7l8w" name="Please select a valid locale.">
+      <notes>
+        <note category="german">Bitte wählen Sie eine gültige Locale-Einstellung aus.</note>
+      </notes>
+      <segment>
+        <source>Please select a valid locale.</source>
+        <target>Por favor, seleccione una configuración regional válida.</target>
+      </segment>
+    </unit>
+    <unit id="Gz8pWER" name="Please enter a valid money amount.">
+      <notes>
+        <note category="german">Bitte geben Sie einen gültigen Geldbetrag ein.</note>
+      </notes>
+      <segment>
+        <source>Please enter a valid money amount.</source>
+        <target>Por favor, ingrese una cantidad de dinero válida.</target>
+      </segment>
+    </unit>
+    <unit id="PRxiOhB" name="Please enter a number.">
+      <notes>
+        <note category="german">Bitte geben Sie eine gültige Zahl ein.</note>
+      </notes>
+      <segment>
+        <source>Please enter a number.</source>
+        <target>Por favor, ingrese un número.</target>
+      </segment>
+    </unit>
+    <unit id="seAdKJo" name="The password is invalid.">
+      <notes>
+        <note category="german">Das Kennwort ist ungültig.</note>
+      </notes>
+      <segment>
+        <source>The password is invalid.</source>
+        <target>La contraseña no es válida.</target>
+      </segment>
+    </unit>
+    <unit id="A5k0Q20" name="Please enter a percentage value.">
+      <notes>
+        <note category="german">Bitte geben Sie einen gültigen Prozentwert ein.</note>
+      </notes>
+      <segment>
+        <source>Please enter a percentage value.</source>
+        <target>Por favor, ingrese un valor porcentual.</target>
+      </segment>
+    </unit>
+    <unit id="rH6V.WA" name="The values do not match.">
+      <notes>
+        <note category="german">Die Werte stimmen nicht überein.</note>
+      </notes>
+      <segment>
+        <source>The values do not match.</source>
+        <target>Los valores no coinciden.</target>
+      </segment>
+    </unit>
+    <unit id="Eopl1Sm" name="Please enter a valid time.">
+      <notes>
+        <note category="german">Bitte geben Sie eine gültige Uhrzeit ein.</note>
+      </notes>
+      <segment>
+        <source>Please enter a valid time.</source>
+        <target>Por favor, ingrese una hora válida.</target>
+      </segment>
+    </unit>
+    <unit id="ll14Sm9" name="Please select a valid timezone.">
+      <notes>
+        <note category="german">Bitte wählen Sie eine gültige Zeitzone.</note>
+      </notes>
+      <segment>
+        <source>Please select a valid timezone.</source>
+        <target>Por favor, seleccione una zona horaria válida.</target>
+      </segment>
+    </unit>
+    <unit id="1xP1kmd" name="Please enter a valid URL.">
+      <notes>
+        <note category="german">Bitte geben Sie eine gültige URL ein.</note>
+      </notes>
+      <segment>
+        <source>Please enter a valid URL.</source>
+        <target>Por favor, ingrese una URL válida.</target>
+      </segment>
+    </unit>
+    <unit id="iMmAsrC" name="Please enter a valid search term.">
+      <notes>
+        <note category="german">Bitte geben Sie einen gültigen Suchbegriff ein.</note>
+      </notes>
+      <segment>
+        <source>Please enter a valid search term.</source>
+        <target>Por favor, ingrese un término de búsqueda válido.</target>
+      </segment>
+    </unit>
+    <unit id="GRMTXRX" name="Please provide a valid phone number.">
+      <notes>
+        <note category="german">Bitte geben Sie eine gültige Telefonnummer ein.</note>
+      </notes>
+      <segment>
+        <source>Please provide a valid phone number.</source>
+        <target>Por favor, proporcione un número de teléfono válido.</target>
+      </segment>
+    </unit>
+    <unit id="WkYuMDd" name="The checkbox has an invalid value.">
+      <notes>
+        <note category="german">Das Kontrollkästchen hat einen ungültigen Wert.</note>
+      </notes>
+      <segment>
+        <source>The checkbox has an invalid value.</source>
+        <target>La casilla de verificación tiene un valor inválido.</target>
+      </segment>
+    </unit>
+    <unit id="lY5Mzyl" name="Please enter a valid email address.">
+      <notes>
+        <note category="german">Bitte geben Sie eine gültige E-Mail-Adresse ein.</note>
+      </notes>
+      <segment>
+        <source>Please enter a valid email address.</source>
+        <target>Por favor, ingrese una dirección de correo electrónico válida.</target>
+      </segment>
+    </unit>
+    <unit id="TzSC4.o" name="Please select a valid option.">
+      <notes>
+        <note category="german">Bitte wählen Sie eine gültige Option.</note>
+      </notes>
+      <segment>
+        <source>Please select a valid option.</source>
+        <target>Por favor, seleccione una opción válida.</target>
+      </segment>
+    </unit>
+    <unit id="qGRcTk7" name="Please select a valid range.">
+      <notes>
+        <note category="german">Bitte wählen Sie einen gültigen Bereich.</note>
+      </notes>
+      <segment>
+        <source>Please select a valid range.</source>
+        <target>Por favor, seleccione un rango válido.</target>
+      </segment>
+    </unit>
+    <unit id="PU.w6nC" name="Please enter a valid week.">
+      <notes>
+        <note category="german">Bitte geben Sie eine gültige Woche ein.</note>
+      </notes>
+      <segment>
+        <source>Please enter a valid week.</source>
+        <target>Por favor, ingrese una semana válida.</target>
       </segment>
     </unit>
   </file>
