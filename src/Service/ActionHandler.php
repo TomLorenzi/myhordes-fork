@@ -1212,7 +1212,7 @@ class ActionHandler
 
         $remove = [];
 
-        if ($recipe->getType() === Recipe::WorkshopType) {
+        if (in_array($recipe->getType(), [Recipe::WorkshopType, Recipe::WorkshopTypeShamanSpecific])) {
             $have_saw  = $this->inventory_handler->countSpecificItems( $c_inv, $this->entity_manager->getRepository( ItemPrototype::class )->findOneBy(['name' => 'saw_tool_#00']), false, false ) > 0;
             $have_manu = $this->town_handler->getBuilding($town, 'small_factory_#00', true) !== null;
 
@@ -1223,10 +1223,10 @@ class ActionHandler
         if ( $recipe->getType() == Recipe::WorkshopType && (($citizen->getAp() + $citizen->getBp()) < $ap || $this->citizen_handler->isTired( $citizen )) )
             return ErrorHelper::ErrorNoAP;
 
-        $source_inv = $recipe->getType() === Recipe::WorkshopType ? [ $t_inv ] : ($citizen->getZone() ? [$c_inv] : [$c_inv, $citizen->getHome()->getChest() ]);
-        $target_inv = $recipe->getType() === Recipe::WorkshopType ? [ $t_inv ] : ($citizen->getZone() ? ($citizen->getZone()->getX() != 0 || $citizen->getZone()->getY() != 0 ? [$c_inv,$citizen->getZone()->getFloor()] : [$c_inv])  : [$c_inv, $citizen->getHome()->getChest(), $t_inv]);
+        $source_inv = in_array($recipe->getType(), [Recipe::WorkshopType, Recipe::WorkshopTypeShamanSpecific]) ? [ $t_inv ] : ($citizen->getZone() ? [$c_inv] : [$c_inv, $citizen->getHome()->getChest() ]);
+        $target_inv = in_array($recipe->getType(), [Recipe::WorkshopType, Recipe::WorkshopTypeShamanSpecific]) ? [ $t_inv ] : ($citizen->getZone() ? ($citizen->getZone()->getX() != 0 || $citizen->getZone()->getY() != 0 ? [$c_inv,$citizen->getZone()->getFloor()] : [$c_inv])  : [$c_inv, $citizen->getHome()->getChest(), $t_inv]);
 
-        if ($recipe->getType() !== Recipe::WorkshopType && $citizen->getZone() && $this->conf->getTownConfiguration($town)->get(TownConf::CONF_MODIFIER_FLOOR_ASMBLY, false))
+        if (!in_array($recipe->getType(), [Recipe::WorkshopType, Recipe::WorkshopTypeShamanSpecific]) && $citizen->getZone() && $this->conf->getTownConfiguration($town)->get(TownConf::CONF_MODIFIER_FLOOR_ASMBLY, false))
             $source_inv[] = $citizen->getZone()->getFloor();
 
         $items = $this->inventory_handler->fetchSpecificItems( $source_inv, $recipe->getSource() );
@@ -1245,11 +1245,12 @@ class ActionHandler
         $new_item = $this->random_generator->pickItemPrototypeFromGroup( $recipe->getResult() );
         $this->inventory_handler->placeItem( $citizen, $this->item_factory->createItem( $new_item ) , $target_inv, true );
 
-        if ($recipe->getType() === Recipe::WorkshopType)
+        if (in_array($recipe->getType(), [Recipe::WorkshopType, Recipe::WorkshopTypeShamanSpecific]))
             $this->entity_manager->persist( $this->log->workshopConvert( $citizen, array_map( function(Item $e) { return array($e->getPrototype()); }, $items  ), array([$new_item]) ) );
 
         switch ( $recipe->getType() ) {
             case Recipe::WorkshopType:
+            case Recipe::WorkshopTypeShamanSpecific:
               switch($recipe->getAction()) {
                 case "Öffnen":
                   $base = T::__('Du hast %item_list% in der Werkstatt geöffnet und erhälst %item%.', 'game');
@@ -1261,8 +1262,7 @@ class ActionHandler
                 default:
                   $base = T::__('Du hast %item_list% in der Werkstatt zu %item% umgewandelt.', 'game');
               }
-              $pictoPrototype = $this->entity_manager->getRepository(PictoPrototype::class)->findOneByName("r_refine_#00");
-              $this->picto_handler->give_picto($citizen, $pictoPrototype);
+              $this->picto_handler->give_picto($citizen, "r_refine_#00");
               break;
             case Recipe::ManualOutside:case Recipe::ManualInside:case Recipe::ManualAnywhere:default:
                 $base = T::__('Du hast %item_list% zu %item% umgewandelt.', 'game');
@@ -1270,6 +1270,10 @@ class ActionHandler
                     $this->picto_handler->give_picto($citizen, $recipe->getPictoPrototype());
                 }
                 break;
+        }
+
+        if($recipe->getPictoPrototype() !== null) {
+            $this->picto_handler->give_picto($citizen, $recipe->getPictoPrototype());
         }
 
         $message = $this->translator->trans( $base, [

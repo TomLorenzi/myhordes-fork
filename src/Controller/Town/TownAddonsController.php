@@ -272,7 +272,8 @@ class TownAddonsController extends TownController
         /** @var Recipe $recipe */
         // Get recipe object and make sure it is a workshop recipe
         $recipe = $this->entity_manager->getRepository(Recipe::class)->find( $id );
-        if ($recipe === null || $recipe->getType() !== Recipe::WorkshopType)
+
+        if ($recipe === null || ($recipe->getType() !== Recipe::WorkshopType && $recipe->getType() !== Recipe::WorkshopTypeShamanSpecific))
             return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
 
         // Execute recipe and persist
