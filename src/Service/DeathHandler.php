@@ -239,7 +239,7 @@ class DeathHandler
         if ($town_group) $this->perm->disassociate( $citizen->getUser(), $town_group );
 
         if ($handle_em) foreach ($remove as $r) $this->entity_manager->remove($r);
-        // If the town is not small AND the souls are enabled, spawn a soul
+        // If the souls are enabled, spawn a soul
         if($this->conf->getTownConfiguration( $citizen->getTown() )->get(TownConf::CONF_FEATURE_SHAMAN_MODE, 'normal') != 'none') {
             $minDistance = min(4, $citizen->getTown()->getDay());
             $maxDistance = max($citizen->getTown()->getDay() + 6, 15);
