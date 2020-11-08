@@ -72,9 +72,11 @@ class GateKeeperSubscriber implements EventSubscriberInterface
 
         /** @var User $user */
         $user = $this->security->getUser();
-
-        $this->anti_cheat->recordConnection($user, $event->getRequest());
-        try { $this->em->flush(); } catch (Exception $e) {}
+        if ($user) {
+            $this->anti_cheat->recordConnection($user, $event->getRequest());
+            $this->em->persist( $user->setLastActionTimestamp( new \DateTime() ) );
+            try { $this->em->flush(); } catch (Exception $e) {}
+        }
 
         if ($user && $user->getLanguage() && $event->getRequest()->getLocale() !== $user->getLanguage())
             $event->getRequest()->getSession()->set('_user_lang', $user->getLanguage());

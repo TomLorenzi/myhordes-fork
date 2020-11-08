@@ -8,6 +8,7 @@ use App\Entity\Changelog;
 use App\Entity\HeroSkillPrototype;
 use App\Entity\Picto;
 use App\Entity\User;
+use App\Entity\UserGroupAssociation;
 use Imagick;
 use DateTime;
 use Doctrine\ORM\EntityManagerInterface;
@@ -259,11 +260,15 @@ class UserHandler
             ->setEmail("$ deleted <{$user->getId()}>")->setDisplayName(null)
             ->setName("$ deleted <{$user->getId()}>")
             ->setPassword(null)
+            ->setLastActionTimestamp( null )
             ->setRightsElevation(0);
         if ($user->getAvatar()) {
             $this->entity_manager->remove($user->getAvatar());
             $user->setAvatar(null);
         }
+
+
+
         $citizen = $user->getActiveCitizen();
         if ($citizen) {
             $r = [];
@@ -503,5 +508,42 @@ class UserHandler
             ->setSmallImage( $processed_image_data );
 
         return self::NoError;
+    }
+
+    /**
+     * @param User $user
+     * @param int|null $full_member_count
+     * @param bool|null $active
+     * @return User[]
+     */
+    public function getAvailableCoalitionMembers(User $user, ?int &$full_member_count = null, ?bool &$active = null): array {
+        /** @var UserGroupAssociation|null $user_coalition */
+        $user_coalition = $this->entity_manager->getRepository(UserGroupAssociation::class)->findOneBy( [
+                'user' => $user,
+                'associationType' => [UserGroupAssociation::GroupAssociationTypeCoalitionMember, UserGroupAssociation::GroupAssociationTypeCoalitionMemberInactive] ]
+        );
+
+        /** @var UserGroupAssociation[] $all_coalition_members */
+        $all_coalition_members = $user_coalition ? $this->entity_manager->getRepository(UserGroupAssociation::class)->findBy( [
+            'association' => $user_coalition->getAssociation(),
+            'associationType' => [UserGroupAssociation::GroupAssociationTypeCoalitionMember, UserGroupAssociation::GroupAssociationTypeCoalitionMemberInactive]
+        ]) : [];
+
+        $full_member_count = count($all_coalition_members);
+        $active = false;
+
+        $valid_members = [];
+        foreach ($all_coalition_members as $member)
+            if (
+                $member->getAssociationType() === UserGroupAssociation::GroupAssociationTypeCoalitionMember &&
+                $member->getUser()->getLastActionTimestamp() !== null &&
+                $member->getUser()->getLastActionTimestamp()->getTimestamp() > (time() - 432000) &&
+                $member->getUser()->getActiveCitizen() === null
+            ) {
+                if ($member->getUser() === $user) $active = true;
+                else $valid_members[] = $member->getUser();
+            }
+
+        return $active ? $valid_members : [];
     }
 }

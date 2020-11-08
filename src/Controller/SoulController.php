@@ -642,6 +642,84 @@ class SoulController extends AbstractController
     }
 
     /**
+     * @Route("api/soul/coalition/join/{coalition<\d+>}", name="soul_join_coalition")
+     * @param int $coalition
+     * @return Response
+     */
+    public function api_soul_join_coalition(int $coalition, TranslatorInterface $trans): Response
+    {
+        $user = $this->getUser();
+
+        /** @var UserGroupAssociation|null $user_coalition */
+        $user_coalition = $this->entity_manager->getRepository(UserGroupAssociation::class)->find($coalition);
+
+        if ($user_coalition === null) return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
+        if (
+            $user_coalition->getUser() !== $user ||
+            $user_coalition->getAssociation()->getType() !== UserGroup::GroupSmallCoalition ||
+            $user_coalition->getAssociationType() !== UserGroupAssociation::GroupAssociationTypeCoalitionInvitation
+            ) return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
+
+        $user_coalition->setAssociationType(UserGroupAssociation::GroupAssociationTypeCoalitionMember);
+        $this->entity_manager->persist($user_coalition);
+
+        // Joining a coalition refuses all other invitations
+        foreach ($this->entity_manager->getRepository(UserGroupAssociation::class)->findBy( [
+                'user' => $user,
+                'associationType' => UserGroupAssociation::GroupAssociationTypeCoalitionInvitation ]
+        ) as $invitation) if ($invitation->getId() !== $coalition) $this->entity_manager->remove($invitation);
+
+        $this->addFlash('info', $trans->trans('Herzlichen Glückwunsch, du bist der Koalition soeben beigetreten!', [], 'soul'));
+
+        try {
+            $this->entity_manager->flush();
+        }
+        catch (Exception $e) {
+            return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
+        }
+
+        return AjaxResponse::success();
+    }
+
+    /**
+     * @Route("api/soul/coalition/kick/{coalition<\d+>}", name="soul_kick_coalition")
+     * @param int $coalition
+     * @return Response
+     */
+    public function api_soul_kick_coalition(int $coalition): Response
+    {
+        $user = $this->getUser();
+
+        /** @var UserGroupAssociation|null $user_coalition */
+        $user_coalition = $this->entity_manager->getRepository(UserGroupAssociation::class)->findOneBy( [
+                'user' => $user,
+                'associationType' => [UserGroupAssociation::GroupAssociationTypeCoalitionMember, UserGroupAssociation::GroupAssociationTypeCoalitionMemberInactive] ]
+        );
+
+        if ($user_coalition === null) return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
+        if ($user_coalition->getAssociationLevel() !== UserGroupAssociation::GroupAssociationLevelFounder)
+            return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
+
+        /** @var UserGroupAssociation|null $target_coalition */
+        $target_coalition = $this->entity_manager->getRepository(UserGroupAssociation::class)->find($coalition);
+
+        if ($target_coalition === null) return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
+        if ($target_coalition->getAssociation() !== $user_coalition->getAssociation())
+            return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
+
+        $this->entity_manager->remove( $target_coalition );
+
+        try {
+            $this->entity_manager->flush();
+        }
+        catch (Exception $e) {
+            return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
+        }
+
+        return AjaxResponse::success();
+    }
+
+    /**
      * @Route("api/soul/coalition/invite/{id<\d+>}", name="soul_invite_coalition")
      * @param ConfMaster $conf
      * @param int $id
@@ -665,7 +743,7 @@ class SoulController extends AbstractController
 
         $all_users = $this->entity_manager->getRepository(UserGroupAssociation::class)->findBy( [
                 'association' => $user_coalition->getAssociation(),
-                'associationType' => [UserGroupAssociation::GroupAssociationTypeCoalitionMember, UserGroupAssociation::GroupAssociationTypeCoalitionMemberInactive] ]
+                'associationType' => [UserGroupAssociation::GroupAssociationTypeCoalitionMember, UserGroupAssociation::GroupAssociationTypeCoalitionMemberInactive, UserGroupAssociation::GroupAssociationTypeCoalitionInvitation] ]
         );
 
         if (count($all_users) >= $conf->getGlobalConf()->get(MyHordesConf::CONF_COA_MAX_NUM, 5))

@@ -10,7 +10,7 @@
 
     <div class="row">
         <div class="cell rw-12 padded">
-            <a class="small" href="{{ url('help', {'name': 'coalitions'}) }}" target="_blank"><img alt="" src="{{ asset('build/images/assets/img/icons/small_help.gif') }}"> {{ 'Spielhilfe: Kleine Koalitionen'|trans({}, 'soul') }}</a>
+            <a class="small" href="{{ path('help', {'name': 'coalitions'}) }}" target="_blank"><img alt="" src="{{ asset('build/images/assets/img/icons/small_help.gif') }}"> {{ 'Spielhilfe: Kleine Koalitionen'|trans({}, 'soul') }}</a>
         </div>
     </div>
 
@@ -18,7 +18,9 @@
         {% if membership is null %}
             <div class="cell rw-12 padded">
                 <div class="help">
-                        {{ 'Du möchtest schon seit langem <strong>mit deinen Freunden zusammen sterben</strong>? Du möchtest die gleichen schönen und <strong>entsetzlichen</strong> Momente mit ihnen erleben? Dann sind die <strong>Kleinen Koalitionen</strong> genau das richtige für dich! Es handelt sich um kleine Mannschaften von <strong>5</strong> Bürgern, die gemeinsam die Welt der Verdammten entdecken möchten.'|trans({}, 'soul') }}
+                    {% trans from 'soul' %}
+                        Du möchtest schon seit langem <strong>mit deinen Freunden zusammen sterben</strong>? Du möchtest die gleichen schönen und <strong>entsetzlichen</strong> Momente mit ihnen erleben? Dann sind die <strong>Kleinen Koalitionen</strong> genau das richtige für dich! Es handelt sich um kleine Mannschaften von <strong>5</strong> Bürgern, die gemeinsam die Welt der Verdammten entdecken möchten.
+                    {% endtrans %}
                     <br />
                     {% trans from 'soul' %}
                         Das Prinzip ist ganz einfach: Wenn ihr in einer Koalition spielt, <strong>zieht der Erste, der eine Partie anfängt, alle verfügbaren Koalitionsmitglieder mit sich ins Spiel.</strong>
@@ -26,46 +28,93 @@
                 </div>
             </div>
             <div class="cell padded rw-6 rw-md-8 rw-sm-12">
-                <button id="make_coa">{{ 'Meine Koalition erstellen'|trans({},'soul') }}</button>
+                <button x-confirm="{{ 'Du möchtest deine eigene Koalition erstellen?'|trans({},'soul') }}" x-api-endpoint="{{ path('soul_create_coalition') }}">{{ 'Meine Koalition erstellen'|trans({},'soul') }}</button>
             </div>
             <div class="cell rw-12 padded">
                 <h5>{{ 'Einer existierenden Koalition beitreten'|trans({},'soul') }}</h5>
                 {% if invitations is empty %}
                     <span class="small">{{ 'Es hat dich bisher noch niemand eingeladen.'|trans({},'soul') }}</span>
+                {% else %}
+                    <div class="row-table">
+                        <div class="row header hide-sm">
+                            <div class="padded cell rw-5">{{ 'Name'|trans({},'soul') }}</div>
+                            <div class="padded cell rw-7">{{ 'Aktionen'|trans({},'soul') }}</div>
+                        </div>
+                        {% for invitation in invitations %}
+                            {# @var invitation \App\Entity\UserGroupAssociation #}
+                            <div class="row">
+                                <div class="padded cell rw-5 rw-sm-12">
+                                    <img alt="!" src="{{ asset('build/images/icons/anim_icon_mail.gif') }}" />
+                                    {{ invitation.association.name }}
+                                </div>
+                                <div class="padded cell rw-7 rw-sm-12">
+                                    <button x-api-endpoint="{{ path('soul_join_coalition', {'coalition': invitation.id}) }}">{{ 'Mitmachen!'|trans({},'soul') }}</button>
+                                    <button x-api-endpoint="{{ path('soul_leave_coalition', {'coalition': invitation.id}) }}">{{ 'Die Einladung ablehnen.'|trans({},'soul') }}</button>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
                 {% endif %}
             </div>
         {% else %}
-            <div class="cell rw-8 padded">
+            <div class="cell rw-8 rw-lg-7 rw-md-6 rw-sm-12 padded">
                 <h5>{{ 'Shoutbox der Koalition'|trans({},'soul') }}</h5>
             </div>
-            <div class="cell rw-4 padded">
-                {% set all_members  = all_users|filter(ac => ac.associationType == constant('App\\Entity\\UserGroupAssociation::GroupAssociationTypeCoalitionMember') ) %}
-                {% set all_sleepers = all_users|filter(ac => ac.associationType == constant('App\\Entity\\UserGroupAssociation::GroupAssociationTypeCoalitionMemberInactive') ) %}
+            <div class="cell rw-4 rw-lg-5 rw-md-6 rw-sm-12 padded">
                 {% set all_invited  = all_users|filter(ac => ac.associationType == constant('App\\Entity\\UserGroupAssociation::GroupAssociationTypeCoalitionInvitation') ) %}
+                {% set all_sleepers = all_users|filter(ac => (
+                    ac.associationType == constant('App\\Entity\\UserGroupAssociation::GroupAssociationTypeCoalitionMemberInactive') or
+                    ac.user.lastActionTimestamp is null or
+                    ac.user.lastActionTimestamp.timestamp < ('now'|date('U') - 432000) or
+                    ac.user.activeCitizen is not null
+                    ) and ac not in all_invited
+                ) %}
+                {% set all_members  = all_users|filter(ac => ac.associationType == constant('App\\Entity\\UserGroupAssociation::GroupAssociationTypeCoalitionMember') and ac not in all_sleepers ) %}
 
-                {% macro display_assoc(assocs) %}
+                {% macro display_assoc(assocs,membership) %}
                     {# @var assocs \App\Entity\UserGroupAssociation[] #}
                     <ul class="coa-users">
                         {% for assoc in assocs %}
-                            <li>{{ assoc.user.name }}</li>
+                            <li class="{{ assoc.user == app.user ? 'my-entry' : '' }}">
+                                <div class="row-flex v-center">
+                                    <div class="padded cell">
+                                        <img alt="o" src="{{ asset( assoc.user.lastActionTimestamp is not null and assoc.user.lastActionTimestamp.timestamp > ('now'|date('U') - 300) ? 'build/images/icons/player_online.gif' : 'build/images/icons/player_offline.gif') }}">
+                                    </div>
+                                    <div class="cell"><div class="avatar small"><img alt="" src="{{ assoc.user.avatar ? path('app_web_avatar', {'uid': assoc.user.id, 'name': assoc.user.avatar.smallName, 'ext': assoc.user.avatar.format}) : asset('build/images/forum/empty_avatar.gif') }}" style="margin-right: 0;"></div></div>
+                                    <div class="cell grow-1" style="margin-left: 4px;">
+                                        {{ assoc.user.name }}<br />
+                                        <span>
+                                            {% if assoc.user.activeCitizen is not null %}
+                                                {{ assoc.user.activeCitizen.town.name }}
+                                            {% else %}
+                                                <i>{{ 'Nicht in einer Stadt'|trans({},'soul') }}</i>
+                                            {% endif %}
+                                        </span>
+                                    </div>
+                                    {% if assoc.user != app.user and membership.associationLevel == constant('App\\Entity\\UserGroupAssociation::GroupAssociationLevelFounder') %}
+                                        <div class="cell">
+                                            <img x-confirm="{{ 'Diesen Spieler ausschließen?'|trans({},'soul') }}" x-api-endpoint="{{ path('soul_kick_coalition', {'coalition': assoc.id}) }}" class="pointer" alt="[x]" src="{{ asset('build/images/icons/fired.gif') }}" />
+                                            <div class="tooltip">{{ 'Diesen Spieler ausschließen.'|trans({},'soul') }}</div>
+                                        </div>
+                                    {% endif %}
+
+                                </div>
+                            </li>
                         {% endfor %}
                     </ul>
                 {% endmacro %}
 
                 {% if all_members is not empty %}
                     <h5>{{ 'Verfügbare Mitglieder'|trans({},'soul') }}</h5>
-                    {{ _self.display_assoc(all_members) }}
-                    <br />
+                    {{ _self.display_assoc(all_members,membership) }}
                 {% endif %}
                 {% if all_sleepers is not empty %}
                     <h5>{{ 'Nicht verfügbar'|trans({},'soul') }}</h5>
-                    {{ _self.display_assoc(all_sleepers) }}
-                    <br />
+                    {{ _self.display_assoc(all_sleepers,membership) }}
                 {% endif %}
                 {% if all_invited is not empty %}
-                    <h5>{{ 'Eingeladen'|trans({},'soul') }}</h5>
-                    {{ _self.display_assoc(all_invited) }}
-                    <br />
+                    <h5>{{ 'Ausstehende Einladungen'|trans({},'soul') }}</h5>
+                    {{ _self.display_assoc(all_invited,membership) }}
                 {% endif %}
 
                 {% if membership.associationLevel == constant('App\\Entity\\UserGroupAssociation::GroupAssociationLevelFounder') %}
@@ -82,8 +131,8 @@
                 {% else %}
                     <span class="small">{% trans from "soul" %}Du stehst <strong>nicht zur Verfügung</strong>.{% endtrans %}</span>
                 {% endif %}
-                <button id="toggle_state">{{ 'Meinen Status ändern'|trans({},'soul') }}</button>
-                <button id="leave_coa">{{ membership.associationLevel == constant('App\\Entity\\UserGroupAssociation::GroupAssociationLevelFounder') ? 'Verlassen UND auflösen'|trans({},'soul') : 'Verlassen'|trans({},'soul') }}</button>
+                <button x-api-endpoint="{{ path('soul_toggle_coalition') }}">{{ 'Meinen Status ändern'|trans({},'soul') }}</button>
+                <button x-confirm="{{ (membership.associationLevel == constant('App\\Entity\\UserGroupAssociation::GroupAssociationLevelFounder') ? 'Möchtest du diese Koalition verlassen und somit auflösen?' : 'Möchtest du diese Koalition verlassen?')|trans({},'soul') }}" x-api-endpoint="{{ path('soul_leave_coalition', {'coalition': membership.id}) }}">{{ membership.associationLevel == constant('App\\Entity\\UserGroupAssociation::GroupAssociationLevelFounder') ? 'Verlassen UND auflösen'|trans({},'soul') : 'Verlassen'|trans({},'soul') }}</button>
                 <span class="small"></span>
             </div>
         {% endif %}
@@ -93,15 +142,7 @@
 {% block js %}
     {{parent()}}
     <script>
-        {% if membership is null %}
-            $.html.addEventListenerAll('#make_coa', 'click', function() {
-                if (confirm('{{ 'Du möchtest deine eigene Koalition erstellen?'|trans({},'soul')|e('js')) }}'))
-                    $.ajax.easySend( '{{ path('soul_create_coalition') }}', {},
-                        function () {
-                            $.ajax.load(null, '{{ path('soul_coalitions') }}', true);
-                        } );
-            });
-        {% else %}
+        {% if membership is not null %}
 
             {% if membership.associationLevel == constant('App\\Entity\\UserGroupAssociation::GroupAssociationLevelFounder') %}
                 let typingTimer, doneTypingInterval = 500;
@@ -143,20 +184,15 @@
                 }
 
             {% endif %}
+        {% endif %}
 
-            $.html.addEventListenerAll('#toggle_state', 'click', function() {
-                $.ajax.easySend( '{{ path('soul_toggle_coalition') }}', {},
+        $.html.addEventListenerAll('[x-api-endpoint]', 'click', function(e,elem) {
+            const cn = elem.getAttribute('x-confirm');
+            if (!cn || confirm(cn))
+                $.ajax.easySend( elem.getAttribute('x-api-endpoint'), {},
                     function () {
                         $.ajax.load(null, '{{ path('soul_coalitions') }}', true);
                     } );
-            });
-            $.html.addEventListenerAll('#leave_coa', 'click', function() {
-                if (confirm('{{ (membership.associationLevel == constant('App\\Entity\\UserGroupAssociation::GroupAssociationLevelFounder') ? 'Möchtest du diese Koalition verlassen und somit auflösen?' : 'Möchtest du diese Koalition verlassen?')|trans({},'soul'|e('js')) }}'))
-                    $.ajax.easySend( '{{ path('soul_leave_coalition', {'coalition': membership.id}) }}', {},
-                        function () {
-                            $.ajax.load(null, '{{ path('soul_coalitions') }}', true);
-                        } );
-            });
-        {% endif %}
+        });
     </script>
 {% endblock %}
