@@ -14307,7 +14307,7 @@
     </unit>
     <unit id="YZc0dgj" name="Kernsammler (job)">
       <notes>
-        <note category="german">Kernsammler (job)</note>
+        <note category="german">Kernsammler</note>
       </notes>
       <segment>
         <source>Kernsammler (job)</source>
@@ -14316,7 +14316,7 @@
     </unit>
     <unit id="mRdxtx0" name="Anzahl der im Ausland gesammelten Seelen verstorbener Bürger (job)">
       <notes>
-        <note category="german">Anzahl der im Ausland gesammelten Seelen verstorbener Bürger (job)</note>
+        <note category="german">Anzahl der im Ausland gesammelten Seelen verstorbener Bürger</note>
       </notes>
       <segment>
         <source>Anzahl der im Ausland gesammelten Seelen verstorbener Bürger (job)</source>
@@ -14325,7 +14325,7 @@
     </unit>
     <unit id="SZYZY_h" name="Mystic (job)">
       <notes>
-        <note category="german">Mystic (job)</note>
+        <note category="german">Mystische Transformation</note>
       </notes>
       <segment>
         <source>Mystic (job)</source>
@@ -14334,7 +14334,7 @@
     </unit>
     <unit id="dMCiesS" name="Wie viele Seelen hat Ihre Stadt befreien können. (job)">
       <notes>
-        <note category="german">Wie viele Seelen hat Ihre Stadt befreien können. (job)</note>
+        <note category="german">Anzahl der Seelen, die du in der Werkstatt umgewandelt hast.</note>
       </notes>
       <segment>
         <source>Wie viele Seelen hat Ihre Stadt befreien können. (job)</source>

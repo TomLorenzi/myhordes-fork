@@ -7222,7 +7222,7 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
     </unit>
     <unit id="xWENNfP" name="Gequälte Seele">
       <notes>
-        <note category="german">Tortured Soul</note>
+        <note category="german">Gequälte Seele</note>
       </notes>
       <segment>
         <source>Gequälte Seele</source>
@@ -7231,7 +7231,7 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
     </unit>
     <unit id="US6ub3j" name="0d35708">
       <notes>
-        <note category="german">This doesn't look like your average lost soul... Maybe you should be a little careful with this one. In fact maybe you should talk to your resident voodooman...</note>
+        <note category="german">Die Seele dieses Bürgers wurde schon zu lange ohne Rücksicht auf Rücksicht verlassen. Heute kommt dieses von Hass erfüllte Wesen, um die schlechten Vibes der Überseewelt zu nähren, ihr solltet euch schnell darum kümmern!</note>
       </notes>
       <segment>
         <source>Die Seele dieses Bürgers wurde schon zu lange ohne Rücksicht auf Rücksicht verlassen. Heute kommt dieses von Hass erfüllte Wesen, um die schlechten Vibes der Überseewelt zu nähren, ihr solltet euch schnell darum kümmern!</source>
@@ -7240,7 +7240,7 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
     </unit>
     <unit id="SLJtaFf" name="Öffnen (1 BP)">
       <notes>
-        <note category="german">Open (1 CP)</note>
+        <note category="german">Öffnen (1 BP)</note>
       </notes>
       <segment>
         <source>Öffnen (1 BP)</source>
