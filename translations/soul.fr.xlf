@@ -1778,7 +1778,7 @@
       </notes>
       <segment>
         <source>%name%'s Koalition</source>
-        <target>%name%'s Koalition</target>
+        <target>Coalition de %name%</target>
       </segment>
     </unit>
     <unit id="j8VraNU" name="Herzlichen Glückwunsch, du bist der Koalition soeben beigetreten!">
@@ -1787,7 +1787,7 @@
       </notes>
       <segment>
         <source>Herzlichen Glückwunsch, du bist der Koalition soeben beigetreten!</source>
-        <target>Herzlichen Glückwunsch, du bist der Koalition soeben beigetreten!</target>
+        <target>Félicitations, vous avez rejoint la coalition !</target>
       </segment>
     </unit>
     <unit id="MNqhTYg" name="Es tut uns Leid, aber dieser Spieler gehört bereits einer Koalition an.">
@@ -1796,7 +1796,7 @@
       </notes>
       <segment>
         <source>Es tut uns Leid, aber dieser Spieler gehört bereits einer Koalition an.</source>
-        <target>Es tut uns Leid, aber dieser Spieler gehört bereits einer Koalition an.</target>
+        <target>Désolé, ce joueur fait déjà partie d'une coalition.</target>
       </segment>
     </unit>
     <unit id="3gqWAoL" name="Hierfür musst du einer Koalition angehören.">
@@ -1805,7 +1805,7 @@
       </notes>
       <segment>
         <source>Hierfür musst du einer Koalition angehören.</source>
-        <target>Hierfür musst du einer Koalition angehören.</target>
+        <target>Pour cela, vous devez appartenir à une coalition.</target>
       </segment>
     </unit>
     <unit id="57GeJrY" name="Du bist bereits Mitglied einer Koalition.">
@@ -1814,7 +1814,7 @@
       </notes>
       <segment>
         <source>Du bist bereits Mitglied einer Koalition.</source>
-        <target>Du bist bereits Mitglied einer Koalition.</target>
+        <target>Vous êtes déjà membre d'une coalition.</target>
       </segment>
     </unit>
     <unit id="yQfn1EC" name="Deine Koalition ist bereits voll.">
@@ -1823,7 +1823,7 @@
       </notes>
       <segment>
         <source>Deine Koalition ist bereits voll.</source>
-        <target>Deine Koalition ist bereits voll.</target>
+        <target>Votre coalition est déjà pleine.</target>
       </segment>
     </unit>
     <unit id="QuFqW4z" name="Spielhilfe: Kleine Koalitionen">
@@ -1832,7 +1832,7 @@
       </notes>
       <segment>
         <source>Spielhilfe: Kleine Koalitionen</source>
-        <target>Spielhilfe: Kleine Koalitionen</target>
+        <target>Guide: Petites coalitions</target>
       </segment>
     </unit>
     <unit id="GO1ZJcp" name="3e3b0ae">
@@ -1841,7 +1841,7 @@
       </notes>
       <segment>
         <source>Du möchtest schon seit langem &lt;strong&gt;mit deinen Freunden zusammen sterben&lt;/strong&gt;? Du möchtest die gleichen schönen und &lt;strong&gt;entsetzlichen&lt;/strong&gt; Momente mit ihnen erleben? Dann sind die &lt;strong&gt;Kleinen Koalitionen&lt;/strong&gt; genau das richtige für dich! Es handelt sich um kleine Mannschaften von &lt;strong&gt;5&lt;/strong&gt; Bürgern, die gemeinsam die Welt der Verdammten entdecken möchten.</source>
-        <target><![CDATA[Du möchtest schon seit langem <strong>mit deinen Freunden zusammen sterben</strong>? Du möchtest die gleichen schönen und <strong>entsetzlichen</strong> Momente mit ihnen erleben? Dann sind die <strong>Kleinen Koalitionen</strong> genau das richtige für dich! Es handelt sich um kleine Mannschaften von <strong>5</strong> Bürgern, die gemeinsam die Welt der Verdammten entdecken möchten.]]></target>
+        <target><![CDATA[Vous rêvez de <strong>mourir entre amis</strong> ? Vous souhaitez partager les mêmes moments de tendresse et d'<strong>horreur</strong> ? Alors les <strong>Petites Coalitions</strong> sont un outil idée pour vous ! Ce sont des 'équipes' de choc de <strong>5</strong> citoyens qui traversent le monde des Hordes ensemble.]]></target>
       </segment>
     </unit>
     <unit id="_SpidlG" name="cb2469f">
@@ -1850,7 +1850,7 @@
       </notes>
       <segment>
         <source>Das Prinzip ist ganz einfach: Wenn ihr in einer Koalition spielt, &lt;strong&gt;zieht der Erste, der eine Partie anfängt, alle verfügbaren Koalitionsmitglieder mit sich ins Spiel.&lt;/strong&gt;</source>
-        <target><![CDATA[Das Prinzip ist ganz einfach: Wenn ihr in einer Koalition spielt, <strong>zieht der Erste, der eine Partie anfängt, alle verfügbaren Koalitionsmitglieder mit sich ins Spiel.</strong>]]></target>
+        <target><![CDATA[Le principe est ultra simple : quand vous faites partie d'une coalition, <strong>le premier qui rejoint une partie entraîne tous les membres disponibles de la coalition avec lui</strong>.]]></target>
       </segment>
     </unit>
     <unit id="vxIJV3j" name="Du möchtest deine eigene Koalition erstellen?">
@@ -1859,7 +1859,7 @@
       </notes>
       <segment>
         <source>Du möchtest deine eigene Koalition erstellen?</source>
-        <target>Du möchtest deine eigene Koalition erstellen?</target>
+        <target>Créer votre propre coalition ?</target>
       </segment>
     </unit>
     <unit id="h_4dLhS" name="Meine Koalition erstellen">
@@ -1868,7 +1868,7 @@
       </notes>
       <segment>
         <source>Meine Koalition erstellen</source>
-        <target>Meine Koalition erstellen</target>
+        <target>Créer ma coalition</target>
       </segment>
     </unit>
     <unit id="okBUp.C" name="Einer existierenden Koalition beitreten">
@@ -1877,7 +1877,7 @@
       </notes>
       <segment>
         <source>Einer existierenden Koalition beitreten</source>
-        <target>Einer existierenden Koalition beitreten</target>
+        <target>Rejoindre une coalition existante</target>
       </segment>
     </unit>
     <unit id="S6ckGt2" name="Es hat dich bisher noch niemand eingeladen.">
@@ -1886,7 +1886,7 @@
       </notes>
       <segment>
         <source>Es hat dich bisher noch niemand eingeladen.</source>
-        <target>Es hat dich bisher noch niemand eingeladen.</target>
+        <target>Pour l'instant personne ne vous envoyé d'invitation.</target>
       </segment>
     </unit>
     <unit id="3NHVIj9" name="Name">
@@ -1895,7 +1895,7 @@
       </notes>
       <segment>
         <source>Name</source>
-        <target>Name</target>
+        <target>Nom</target>
       </segment>
     </unit>
     <unit id="Vlb5Lbe" name="Aktionen">
@@ -1904,7 +1904,7 @@
       </notes>
       <segment>
         <source>Aktionen</source>
-        <target>Aktionen</target>
+        <target>Action</target>
       </segment>
     </unit>
     <unit id="ze.SRGE" name="Mitmachen!">
@@ -1913,7 +1913,7 @@
       </notes>
       <segment>
         <source>Mitmachen!</source>
-        <target>Mitmachen!</target>
+        <target>Rejoindre !</target>
       </segment>
     </unit>
     <unit id="RRAKPkm" name="Die Einladung ablehnen.">
@@ -1922,7 +1922,7 @@
       </notes>
       <segment>
         <source>Die Einladung ablehnen.</source>
-        <target>Die Einladung ablehnen.</target>
+        <target>Refuser l'invitation.</target>
       </segment>
     </unit>
     <unit id="3hmiaVs" name="Shoutbox der Koalition">
@@ -1931,7 +1931,7 @@
       </notes>
       <segment>
         <source>Shoutbox der Koalition</source>
-        <target>Shoutbox der Koalition</target>
+        <target>Shoutbox de la coalition</target>
       </segment>
     </unit>
     <unit id="EdbufZv" name="Verfügbare Mitglieder">
@@ -1940,7 +1940,7 @@
       </notes>
       <segment>
         <source>Verfügbare Mitglieder</source>
-        <target>Verfügbare Mitglieder</target>
+        <target>Membres disponibles</target>
       </segment>
     </unit>
     <unit id="XblqKpM" name="Nicht verfügbar">
@@ -1949,7 +1949,7 @@
       </notes>
       <segment>
         <source>Nicht verfügbar</source>
-        <target>Nicht verfügbar</target>
+        <target>Indisponibles</target>
       </segment>
     </unit>
     <unit id="3E9hxaU" name="Ausstehende Einladungen">
@@ -1958,7 +1958,7 @@
       </notes>
       <segment>
         <source>Ausstehende Einladungen</source>
-        <target>Ausstehende Einladungen</target>
+        <target>Invitations en attente</target>
       </segment>
     </unit>
     <unit id="RG9ZXHi" name="Einen Freund einladen">
@@ -1967,7 +1967,7 @@
       </notes>
       <segment>
         <source>Einen Freund einladen</source>
-        <target>Einen Freund einladen</target>
+        <target>Ajouter un ami</target>
       </segment>
     </unit>
     <unit id="8dquNSH" name="Optionen">
@@ -1976,7 +1976,7 @@
       </notes>
       <segment>
         <source>Optionen</source>
-        <target>Optionen</target>
+        <target>Options</target>
       </segment>
     </unit>
     <unit id="Rh5HYn_" name="Du stehst &lt;strong&gt;zur Verfügung&lt;/strong&gt;.">
@@ -1985,7 +1985,7 @@
       </notes>
       <segment>
         <source>Du stehst &lt;strong&gt;zur Verfügung&lt;/strong&gt;.</source>
-        <target><![CDATA[Du stehst <strong>zur Verfügung</strong>.]]></target>
+        <target><![CDATA[Vous êtes <strong>disponible</strong>.]]></target>
       </segment>
     </unit>
     <unit id="o.K5fG9" name="Du stehst &lt;strong&gt;nicht zur Verfügung&lt;/strong&gt;.">
@@ -1994,7 +1994,7 @@
       </notes>
       <segment>
         <source>Du stehst &lt;strong&gt;nicht zur Verfügung&lt;/strong&gt;.</source>
-        <target><![CDATA[Du stehst <strong>nicht zur Verfügung</strong>.]]></target>
+        <target><![CDATA[Vous êtes <strong>indisponible</strong>.]]></target>
       </segment>
     </unit>
     <unit id="jFqiwRT" name="Meinen Status ändern">
@@ -2003,7 +2003,7 @@
       </notes>
       <segment>
         <source>Meinen Status ändern</source>
-        <target>Meinen Status ändern</target>
+        <target>Changer mon status</target>
       </segment>
     </unit>
     <unit id="rq4q8kx" name="Verlassen UND auflösen">
@@ -2012,7 +2012,7 @@
       </notes>
       <segment>
         <source>Verlassen UND auflösen</source>
-        <target>Verlassen UND auflösen</target>
+        <target>Quitter ET Dissoudre</target>
       </segment>
     </unit>
     <unit id="oiwx9uP" name="Verlassen">
@@ -2021,7 +2021,7 @@
       </notes>
       <segment>
         <source>Verlassen</source>
-        <target>Verlassen</target>
+        <target>Quitter</target>
       </segment>
     </unit>
     <unit id="sLJWy9T" name="Nicht in einer Stadt">
@@ -2030,7 +2030,7 @@
       </notes>
       <segment>
         <source>Nicht in einer Stadt</source>
-        <target>Nicht in einer Stadt</target>
+        <target>Pas de ville</target>
       </segment>
     </unit>
     <unit id="AT.EHRB" name="Diesen Spieler ausschließen?">
@@ -2039,7 +2039,7 @@
       </notes>
       <segment>
         <source>Diesen Spieler ausschließen?</source>
-        <target>Diesen Spieler ausschließen?</target>
+        <target>Renvoyer ce coéquipier?</target>
       </segment>
     </unit>
     <unit id="xpAtz8l" name="Diesen Spieler ausschließen.">
@@ -2048,7 +2048,7 @@
       </notes>
       <segment>
         <source>Diesen Spieler ausschließen.</source>
-        <target>Diesen Spieler ausschließen.</target>
+        <target>Renvoyer ce joueur.</target>
       </segment>
     </unit>
   </file>
