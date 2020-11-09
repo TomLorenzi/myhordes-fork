@@ -1408,15 +1408,16 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
             return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
         $citizen = $this->getActiveCitizen();
 
-        $is_shaman = $citizen->hasRole('shaman');
-
+        
         // Forbidden if not shaman
-        if(!$is_shaman){
+        if(($citizen->hasRole('shaman') && $citizen->getPM() < 3)) {
             return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
-        }
-
-        if($citizen->getPM() < 3) {
-            return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );   
+        } else if ($citizen->getProfession()->getName() == "shaman") {
+            if($citizen->getAp() < 1){
+                return AjaxResponse::error( ErrorHelper::ErrorNoAP );
+            } else if($this->inventory_handler->countSpecificItems($citizen->getInventory(), 'soul_blue_#00') <= 0) {
+                return AjaxResponse::error(ErrorHelper::ErrorItemsMissing);
+            }
         }
 
         $zone = $citizen->getZone();

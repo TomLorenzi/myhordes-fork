@@ -1460,10 +1460,22 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
         
         $citizen = $this->getActiveCitizen();
         $message = [];
-        if($citizen->getPM() < 2 || $this->citizen_handler->hasStatusEffect($citizen, ['drugged', 'drunk', 'infected', 'terror'])) {
+        if($this->citizen_handler->hasStatusEffect($citizen, ['drugged', 'drunk', 'infected', 'terror'])) {
             $message[] = $this->translator->trans('In deinem aktuellen Zustand kannst du diese Aktion nicht ausführen.', [], 'game');
             $this->addFlash('notice', implode('<hr />', $message));
             return AjaxResponse::success();
+        }
+
+        if(($citizen->hasRole('shaman') && $citizen->getPM() < 2)) {
+            $message[] = $this->translator->trans('In deinem aktuellen Zustand kannst du diese Aktion nicht ausführen.', [], 'game');
+            $this->addFlash('notice', implode('<hr />', $message));
+            return AjaxResponse::success();
+        } else if ($citizen->getProfession()->getName() == "shaman") {
+            if($citizen->getAp() < 1){
+                return AjaxResponse::error( ErrorHelper::ErrorNoAP );
+            } else if($this->inventory_handler->countSpecificItems($citizen->getInventory(), 'soul_blue_#00') <= 0) {
+                return AjaxResponse::error(ErrorHelper::ErrorItemsMissing);
+            }
         }
 
         /** @var Citizen $c */
