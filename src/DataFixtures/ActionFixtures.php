@@ -1224,7 +1224,7 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             'badge_#00'          => 'nw_destroy',
             'claymo_#00'         => 'nw_destroy',
             'guitar_#00'         => 'nw_break',
-
+            'chkspk_#00'         => 'nw_destroy',
         ]
     ];
 
