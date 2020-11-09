@@ -2086,5 +2086,59 @@
         <target>Diesen Spieler ausschließen.</target>
       </segment>
     </unit>
+    <unit id="PmiiQcl" name="Die Shoutbox ist leer...">
+      <notes>
+        <note category="german">Die Shoutbox ist leer...</note>
+      </notes>
+      <segment>
+        <source>Die Shoutbox ist leer...</source>
+        <target>Die Shoutbox ist leer...</target>
+      </segment>
+    </unit>
+    <unit id="kaVP2oE" name="%u1% hat %u2% in die Koalition eingeladen.">
+      <notes>
+        <note category="german">%u1% hat %u2% in die Koalition eingeladen.</note>
+      </notes>
+      <segment>
+        <source>%u1% hat %u2% in die Koalition eingeladen.</source>
+        <target>%u1% hat %u2% in die Koalition eingeladen.</target>
+      </segment>
+    </unit>
+    <unit id="KIepEhG" name="%u1% ist der Koalition soeben beigetreten!">
+      <notes>
+        <note category="german">%u1% ist der Koalition soeben beigetreten!</note>
+      </notes>
+      <segment>
+        <source>%u1% ist der Koalition soeben beigetreten!</source>
+        <target>%u1% ist der Koalition soeben beigetreten!</target>
+      </segment>
+    </unit>
+    <unit id="u4t4MK2" name="%u1% hat die Koalition verlassen.">
+      <notes>
+        <note category="german">%u1% hat die Koalition verlassen.</note>
+      </notes>
+      <segment>
+        <source>%u1% hat die Koalition verlassen.</source>
+        <target>%u1% hat die Koalition verlassen.</target>
+      </segment>
+    </unit>
+    <unit id="lbwHiv9" name="%u1% hat %u2% aus der Koalition entfernt.">
+      <notes>
+        <note category="german">%u1% hat %u2% aus der Koalition entfernt.</note>
+      </notes>
+      <segment>
+        <source>%u1% hat %u2% aus der Koalition entfernt.</source>
+        <target>%u1% hat %u2% aus der Koalition entfernt.</target>
+      </segment>
+    </unit>
+    <unit id="xtAW3cb" name="%u1% hat sich soeben in die Stadt &quot;%town%&quot; eingeschrieben!">
+      <notes>
+        <note category="german">%u1% hat sich soeben in die Stadt "%town%" eingeschrieben!</note>
+      </notes>
+      <segment>
+        <source>%u1% hat sich soeben in die Stadt "%town%" eingeschrieben!</source>
+        <target>%u1% hat sich soeben in die Stadt "%town%" eingeschrieben!</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
