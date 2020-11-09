@@ -75,3 +75,35 @@
   }
 
 }
+
+.shoutbox {
+  background: @myhordes-cell-header-background-color; border: 1px solid @myhordes-input-border;
+  padding: 4px;
+  &>.shout-content {
+    font-size: 1.2rem; color: #f0d79e; max-height: 450px; overflow-y: auto;
+    &>.shout-loader { text-align: center; }
+    &>.shout-entry {
+      &:before { content: " "; height: 16px; width: 16px; top: 2px; left: 2px; position: absolute; }
+      padding: 2px; position: relative; cursor: default; margin: 1px 0; background-color: transparent;
+      &>span.shout-part-time {
+        color: @myhordes-smalltext; font-size: 0.9em; display: inline-block; width: 50px;
+        position: relative; text-align: center;
+        &:before, &:after { display: block; width: 10px; position: absolute; top: 0; }
+        &:before{ content: '['; left: 0; } &:after{ content: ']'; right: 0; }
+      }
+      &>span.shout-part-content {
+        &>span {
+          color: white; font-weight: bold; &>img { vertical-align: text-top }
+          &.tool {
+            padding-left: 3px;
+            padding-right: 3px;
+            white-space: nowrap;
+            background-color: #784323;
+          }
+        }
+      }
+
+      &.shout-entry-class-1 { background-color: #3b3249 }
+    }
+  }
+}

@@ -59,6 +59,13 @@
         {% else %}
             <div class="cell rw-8 rw-lg-7 rw-md-6 rw-sm-12 padded">
                 <h5>{{ 'Shoutbox der Koalition'|trans({},'soul') }}</h5>
+                <div class="shout-container">
+                    <div class="shoutbox">
+                        <div class="shout-content">
+                            <div class="shout-loader"><i class="fa fa-pulse fa-spinner"></i></div>
+                        </div>
+                    </div>
+                </div>
             </div>
             <div class="cell rw-4 rw-lg-5 rw-md-6 rw-sm-12 padded">
                 {% set all_invited  = all_users|filter(ac => ac.associationType == constant('App\\Entity\\UserGroupAssociation::GroupAssociationTypeCoalitionInvitation') ) %}
@@ -194,5 +201,17 @@
                         $.ajax.load(null, '{{ path('soul_coalitions') }}', true);
                     } );
         });
+
+        $.html.forEach( '.shout-container', function(elem) {
+            let content_box = elem.querySelectorAll('.shout-content');
+
+            const fun_refresh = function(bg) {
+                if (bg) $.ajax.background().load( content_box[0], '{{ path('soul_shoutbox')|e('js') }}', false, {} );
+                else $.ajax.load( content_box[0], '{{ path('soul_shoutbox')|e('js') }}', false, {} )
+            };
+
+
+            fun_refresh(true);
+        } );
     </script>
 {% endblock %}

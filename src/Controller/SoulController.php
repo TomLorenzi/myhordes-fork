@@ -12,6 +12,8 @@ use App\Entity\FoundRolePlayText;
 use App\Entity\HeroSkillPrototype;
 use App\Entity\Picto;
 use App\Entity\PictoPrototype;
+use App\Entity\Shoutbox;
+use App\Entity\ShoutboxEntry;
 use App\Entity\TownRankingProxy;
 use App\Entity\TwinoidImport;
 use App\Entity\TwinoidImportPreview;
@@ -524,6 +526,33 @@ class SoulController extends AbstractController
     }
 
     /**
+     * @Route("jx/soul/shoutbox", name="soul_shoutbox")
+     * @return Response
+     */
+    public function soul_shoutbox(): Response
+    {
+        $user = $this->getUser();
+
+        $entries = [];
+
+        /** @var UserGroupAssociation|null $user_coalition */
+        $user_coalition = $this->entity_manager->getRepository(UserGroupAssociation::class)->findOneBy( [
+                'user' => $user,
+                'associationType' => [UserGroupAssociation::GroupAssociationTypeCoalitionMember, UserGroupAssociation::GroupAssociationTypeCoalitionMemberInactive] ]
+        );
+
+        if ($user_coalition) {
+            /** @var Shoutbox $shoutbox */
+            if ($shoutbox = $this->entity_manager->getRepository(Shoutbox::class)->findOneBy(['userGroup' => $user_coalition->getAssociation()]))
+                $entries = array_reverse( $shoutbox->getEntries()->getValues() );
+        }
+
+        return $this->render( 'ajax/soul/shout_content.html.twig', [
+            'entries' => $entries,
+        ] );
+    }
+
+    /**
      * @Route("api/soul/coalition/create", name="soul_create_coalition")
      * @param TranslatorInterface $trans
      * @param PermissionHandler $perm
@@ -548,8 +577,14 @@ class SoulController extends AbstractController
                 'associationType' => UserGroupAssociation::GroupAssociationTypeCoalitionInvitation ]
         ) as $invitation) $this->entity_manager->remove($invitation);
 
-        $this->entity_manager->persist( $g = (new UserGroup())->setName($trans->trans("%name%'s Koalition", ['%name%' => $user->getUsername()], 'soul'))->setType(UserGroup::GroupSmallCoalition)->setRef1($user->getId()) );
+        $this->entity_manager->persist(
+            $g = (new UserGroup())
+                ->setName($trans->trans("%name%'s Koalition", ['%name%' => $user->getUsername()], 'soul'))
+                ->setType(UserGroup::GroupSmallCoalition)
+                ->setRef1($user->getId())
+        );
         $perm->associate( $user, $g, UserGroupAssociation::GroupAssociationTypeCoalitionMember, UserGroupAssociation::GroupAssociationLevelFounder );
+        $this->entity_manager->persist((new Shoutbox())->setUserGroup($g));
 
         try {
             $this->entity_manager->flush();
@@ -619,7 +654,6 @@ class SoulController extends AbstractController
 
         $destroy = $user_coalition->getAssociationLevel() === UserGroupAssociation::GroupAssociationLevelFounder;
 
-
         if ($destroy) {
 
             foreach ($this->entity_manager->getRepository(UserGroupAssociation::class)->findBy( [
@@ -628,7 +662,19 @@ class SoulController extends AbstractController
 
             $this->entity_manager->remove( $user_coalition->getAssociation() );
 
-        } else $this->entity_manager->remove( $user_coalition );
+        } else {
+            $this->entity_manager->remove( $user_coalition );
+            /** @var Shoutbox|null $shoutbox */
+            if ($shoutbox = $this->entity_manager->getRepository(Shoutbox::class)->findOneBy(['userGroup' => $user_coalition->getAssociation()])) {
+                $shoutbox->addEntry(
+                    (new ShoutboxEntry())
+                        ->setType( ShoutboxEntry::SBEntryTypeLeave )
+                        ->setTimestamp( new DateTime() )
+                        ->setUser1( $user )
+                );
+                $this->entity_manager->persist($shoutbox);
+            }
+        }
 
 
         try {
@@ -671,6 +717,17 @@ class SoulController extends AbstractController
 
         $this->addFlash('info', $trans->trans('Herzlichen Glückwunsch, du bist der Koalition soeben beigetreten!', [], 'soul'));
 
+        /** @var Shoutbox|null $shoutbox */
+        if ($shoutbox = $this->entity_manager->getRepository(Shoutbox::class)->findOneBy(['userGroup' => $user_coalition->getAssociation()])) {
+            $shoutbox->addEntry(
+                (new ShoutboxEntry())
+                    ->setType( ShoutboxEntry::SBEntryTypeJoin )
+                    ->setTimestamp( new DateTime() )
+                    ->setUser1( $user )
+            );
+            $this->entity_manager->persist($shoutbox);
+        }
+
         try {
             $this->entity_manager->flush();
         }
@@ -708,6 +765,17 @@ class SoulController extends AbstractController
             return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
 
         $this->entity_manager->remove( $target_coalition );
+        /** @var Shoutbox|null $shoutbox */
+        if ($shoutbox = $this->entity_manager->getRepository(Shoutbox::class)->findOneBy(['userGroup' => $user_coalition->getAssociation()])) {
+            $shoutbox->addEntry(
+                (new ShoutboxEntry())
+                    ->setType( ShoutboxEntry::SBEntryTypeLeave )
+                    ->setTimestamp( new DateTime() )
+                    ->setUser1( $user )
+                    ->setUser2( $target_coalition->getUser() )
+            );
+            $this->entity_manager->persist($shoutbox);
+        }
 
         try {
             $this->entity_manager->flush();
@@ -774,6 +842,18 @@ class SoulController extends AbstractController
                 ->setAssociationType( UserGroupAssociation::GroupAssociationTypeCoalitionInvitation )
                 ->setAssociationLevel( UserGroupAssociation::GroupAssociationLevelDefault )
         );
+
+        /** @var Shoutbox|null $shoutbox */
+        if ($shoutbox = $this->entity_manager->getRepository(Shoutbox::class)->findOneBy(['userGroup' => $user_coalition->getAssociation()])) {
+            $shoutbox->addEntry(
+                (new ShoutboxEntry())
+                    ->setType( ShoutboxEntry::SBEntryTypeInvite )
+                    ->setTimestamp( new DateTime() )
+                    ->setUser1( $user )
+                    ->setUser2( $target )
+            );
+            $this->entity_manager->persist($shoutbox);
+        }
 
 
         try {
