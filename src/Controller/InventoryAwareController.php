@@ -519,7 +519,6 @@ class InventoryAwareController extends AbstractController
             } else $this->addFlash('notice',
                 $this->translator->trans('Mit aller Gewalt greifst du %citizen% an! Ihr tauscht für eine Weile Schläge aus, bis ihr euch schließlich größtenteils unverletzt voneinander trennt.', ['%citizen%' => $defender->getUser()->getName()], 'game')
             );
-
         }
 
         $this->entity_manager->persist($aggressor);

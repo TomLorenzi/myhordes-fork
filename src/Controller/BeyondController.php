@@ -942,10 +942,10 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
         $citizen = $this->getActiveCitizen();
 
         if ($escort !== null) {
-            /** @var Citizen $c */
-            $c = $this->entity_manager->getRepository(Citizen::class)->find((int)$escort);
-            if ($c && ($es = $c->getEscortSettings()) && $es->getLeader() && $es->getLeader()->getId() === $this->getActiveCitizen()->getId() && $es->getAllowInventoryAccess()) {
-                $up_inv   = $c->getInventory();
+            /** @var Citizen $citizen */
+            $citizen = $this->entity_manager->getRepository(Citizen::class)->find((int)$escort);
+            if ($citizen && ($es = $citizen->getEscortSettings()) && $es->getLeader() && $es->getLeader()->getId() === $this->getActiveCitizen()->getId() && $es->getAllowInventoryAccess()) {
+                $up_inv   = $citizen->getInventory();
             }
             else return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
         } else $up_inv   = $this->getActiveCitizen()->getInventory();
