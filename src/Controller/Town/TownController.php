@@ -1534,7 +1534,13 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
         } else {
             $message[] = $this->translator->trans($healableStatus[$healedStatus]['fail'], ['%citizen%' => "<span>" . $c->getUser()->getName() . "</span>"], 'game');
         }
-        $citizen->setPM($citizen->getPM() - 2);
+        if ($citizen->hasRole('shaman')) {
+            $citizen->setPM($citizen->getPM() - 2);
+        } else if ($citizen->getProfession()->getName() == "shaman") {
+            $citizen->setAp($citizen->getAp() - 1);
+            $soul = $this->inventory_handler->fetchSpecificItems($citizen->getInventory(), [new ItemRequest("soul_blue_#00")]);
+            if (!empty($soul)) $this->inventory_handler->forceRemoveItem(array_pop($soul));
+        }
 
         $this->entity_manager->persist($c);
         $this->entity_manager->persist($citizen);

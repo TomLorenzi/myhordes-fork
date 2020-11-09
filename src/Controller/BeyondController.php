@@ -1449,7 +1449,13 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
             }
         }
         
-        $citizen->setPM($citizen->getPM() - 3);
+        if ($citizen->hasRole('shaman')) {
+            $citizen->setPM($citizen->getPM() - 3);
+        } else if ($citizen->getProfession()->getName() == "shaman") {
+            $citizen->setAp($citizen->getAp() - 1);
+            $soul = $this->inventory_handler->fetchSpecificItems($citizen->getInventory(), [new ItemRequest("soul_blue_#00")]);
+            if (!empty($soul)) $this->inventory_handler->forceRemoveItem(array_pop($soul));
+        }
 
         try {
             $this->entity_manager->persist( $citizen );
