@@ -94,7 +94,7 @@
                             <button x-devour-citizen {% if not allow_devour %}disabled{% endif %}><img alt="" src="{{ asset('build/images/roles/ghoul.gif') }}" /> {{ 'Diesen Bürger verspeisen!'|trans({},'game') }}</button>
                         {% endif %}
 	                    {% if is_shaman and not banished %}
-	                        <button x-heal-citizen>{{'Nutze deine heilenden Hände'|trans({}, 'game')}} ({% if is_shaman_role %}2 <div class="pm"></div>{% else %}1 <div class="ap"></div> + 1 <img style="float: none;vertical-align: baseline;" src="{{ asset('build/images/item/item_soul_blue.gif') }}" alt="" />{% endif %})</button>
+	                        <button x-heal-citizen>{{'Nutze deine heilenden Hände'|trans({}, 'game')}} ({% if is_shaman_role %}2 <div class="pm"></div>{% else %}2 <div class="ap"></div>{% endif %})</button>
 	                    {% endif %}
                     {% endif %}
                 {% endif %}

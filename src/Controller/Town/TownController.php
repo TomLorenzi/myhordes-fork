@@ -1470,12 +1470,8 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
             $message[] = $this->translator->trans('In deinem aktuellen Zustand kannst du diese Aktion nicht ausführen.', [], 'game');
             $this->addFlash('notice', implode('<hr />', $message));
             return AjaxResponse::success();
-        } else if ($citizen->getProfession()->getName() == "shaman") {
-            if($citizen->getAp() < 1){
-                return AjaxResponse::error( ErrorHelper::ErrorNoAP );
-            } else if($this->inventory_handler->countSpecificItems($citizen->getInventory(), 'soul_blue_#00') <= 0) {
-                return AjaxResponse::error(ErrorHelper::ErrorItemsMissing);
-            }
+        } else if ($citizen->getProfession()->getName() == "shaman" && $citizen->getAp() < 2) {
+            return AjaxResponse::error( ErrorHelper::ErrorNoAP );
         }
 
         /** @var Citizen $c */
@@ -1537,9 +1533,7 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
         if ($citizen->hasRole('shaman')) {
             $citizen->setPM($citizen->getPM() - 2);
         } else if ($citizen->getProfession()->getName() == "shaman") {
-            $citizen->setAp($citizen->getAp() - 1);
-            $soul = $this->inventory_handler->fetchSpecificItems($citizen->getInventory(), [new ItemRequest("soul_blue_#00")]);
-            if (!empty($soul)) $this->inventory_handler->forceRemoveItem(array_pop($soul));
+            $citizen->setAp($citizen->getAp() - 2);
         }
 
         $this->entity_manager->persist($c);
