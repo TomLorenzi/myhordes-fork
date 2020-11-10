@@ -270,6 +270,8 @@ class AdminUserController extends AdminActionController
                 switch ($param) {
                     case 'NONE':
                         $user->setRightsElevation( User::ROLE_USER );
+                        $perm->disassociate( $user, $perm->getDefaultGroup(UserGroup::GroupTypeDefaultOracleGroup));
+
                         $perm->disassociate( $user, $perm->getDefaultGroup( UserGroup::GroupTypeDefaultElevatedGroup ) );
                         $perm->disassociate( $user, $perm->getDefaultGroup( UserGroup::GroupTypeDefaultModeratorGroup ) );
                         $perm->disassociate( $user, $perm->getDefaultGroup( UserGroup::GroupTypeDefaultAdminGroup ) );
@@ -278,27 +280,29 @@ class AdminUserController extends AdminActionController
                         if ( $user->getRightsElevation() === User::ROLE_CROW )
                             $user->setRightsElevation( User::ROLE_ORACLE );
                         else $user->setRightsElevation( max($user->getRightsElevation(), User::ROLE_ORACLE) );
-
                         $perm->associate( $user, $perm->getDefaultGroup( UserGroup::GroupTypeDefaultElevatedGroup ) );
+                        $perm->associate( $user, $perm->getDefaultGroup( UserGroup::GroupTypeDefaultOracleGroup));
                         $perm->disassociate( $user, $perm->getDefaultGroup( UserGroup::GroupTypeDefaultModeratorGroup ) );
                         $perm->disassociate( $user, $perm->getDefaultGroup( UserGroup::GroupTypeDefaultAdminGroup ) );
-
                         break;
                     case 'ROLE_CROW':
                         $user->setRightsElevation( max($user->getRightsElevation(), User::ROLE_CROW) );
                         $perm->associate( $user, $perm->getDefaultGroup( UserGroup::GroupTypeDefaultElevatedGroup ) );
+                        $perm->associate( $user, $perm->getDefaultGroup( UserGroup::GroupTypeDefaultOracleGroup));
                         $perm->associate( $user, $perm->getDefaultGroup( UserGroup::GroupTypeDefaultModeratorGroup ) );
                         $perm->disassociate( $user, $perm->getDefaultGroup( UserGroup::GroupTypeDefaultAdminGroup ) );
                         break;
                     case 'ROLE_ADMIN':
                         $user->setRightsElevation( max($user->getRightsElevation(), User::ROLE_ADMIN) );
                         $perm->associate( $user, $perm->getDefaultGroup( UserGroup::GroupTypeDefaultElevatedGroup ) );
+                        $perm->associate( $user, $perm->getDefaultGroup( UserGroup::GroupTypeDefaultOracleGroup));
                         $perm->associate( $user, $perm->getDefaultGroup( UserGroup::GroupTypeDefaultModeratorGroup ) );
                         $perm->associate( $user, $perm->getDefaultGroup( UserGroup::GroupTypeDefaultAdminGroup ) );
                         break;
                     case 'ROLE_SUPER':
                         $user->setRightsElevation( max($user->getRightsElevation(), User::ROLE_SUPER) );
                         $perm->associate( $user, $perm->getDefaultGroup( UserGroup::GroupTypeDefaultElevatedGroup ) );
+                        $perm->associate( $user, $perm->getDefaultGroup( UserGroup::GroupTypeDefaultOracleGroup));
                         $perm->associate( $user, $perm->getDefaultGroup( UserGroup::GroupTypeDefaultModeratorGroup ) );
                         $perm->associate( $user, $perm->getDefaultGroup( UserGroup::GroupTypeDefaultAdminGroup ) );
                         break;
