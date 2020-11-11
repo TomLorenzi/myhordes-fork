@@ -67,12 +67,12 @@ class SoulController extends AbstractController
     const ErrorCoalitionFull                 = ErrorHelper::BaseSoulErrors + 13;
 
 
-    protected $entity_manager;
-    protected $translator;
-    protected $user_factory;
-    protected $time_keeper;
-    private $user_handler;
-    private $asset;
+    protected EntityManagerInterface $entity_manager;
+    protected TranslatorInterface $translator;
+    protected UserFactory $user_factory;
+    protected TimeKeeperService $time_keeper;
+    private UserHandler $user_handler;
+    private Packages $asset;
 
     public function __construct(EntityManagerInterface $em, UserFactory $uf, Packages $a, UserHandler $uh, TimeKeeperService $tk, TranslatorInterface $translator)
     {
