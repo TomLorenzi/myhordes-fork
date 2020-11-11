@@ -18,6 +18,7 @@
     <div class="row">
         <div class="cell padded rw-12">
             <ul class="tabs plain" x-tab-group="admin-town" x-tab-control x-tab-default="dash">
+            	<div class="tab-floater">
                 <li class="tab" x-tab-id="dash"><div class="tab-link">{{ 'Übersicht'|trans({},'admin') }}</div></li>
                 <li class="tab" x-tab-id="citizens"><div class="tab-link">{{ 'Bürger'|trans({},'admin') }}</div></li>
                 <li class="tab" x-tab-id="register"><div class="tab-link">{{ 'Stadtregister'|trans({},'admin') }}</div></li>
@@ -25,7 +26,7 @@
                 {% if is_granted("ROLE_ADMIN") %}
                     <li class="tab" x-tab-id="explorer"><div class="tab-link">{{ 'Ruinenscanner'|trans({},'admin') }}</div></li>
                 {% endif %}
-
+                </div>
             </ul>
             {# @var town \App\Entity\Town #}
             <div x-tab-group="admin-town" x-tab-id="dash" x-tab-target>
