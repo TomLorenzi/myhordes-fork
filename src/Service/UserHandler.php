@@ -7,7 +7,10 @@ use App\Entity\CauseOfDeath;
 use App\Entity\Changelog;
 use App\Entity\HeroSkillPrototype;
 use App\Entity\Picto;
+use App\Entity\Shoutbox;
+use App\Entity\ShoutboxEntry;
 use App\Entity\User;
+use App\Entity\UserGroup;
 use App\Entity\UserGroupAssociation;
 use Imagick;
 use DateTime;
@@ -508,6 +511,29 @@ class UserHandler
             ->setSmallImage( $processed_image_data );
 
         return self::NoError;
+    }
+
+    public function getCoalitionMembership(User $user): ?UserGroupAssociation {
+        return $this->entity_manager->getRepository(UserGroupAssociation::class)->findOneBy( [
+                'user' => $user,
+                'associationType' => [UserGroupAssociation::GroupAssociationTypeCoalitionMember, UserGroupAssociation::GroupAssociationTypeCoalitionMemberInactive] ]
+        );
+    }
+
+    /**
+     * @param User|UserGroup|UserGroupAssociation $principal
+     * @return Shoutbox|null
+     */
+    public function getShoutbox($principal): ?Shoutbox {
+
+        if (is_a($principal, User::class)) $principal = $this->getCoalitionMembership($principal);
+        if (is_a($principal, UserGroupAssociation::class) && in_array($principal->getAssociationType(),
+            [UserGroupAssociation::GroupAssociationTypeCoalitionMember, UserGroupAssociation::GroupAssociationTypeCoalitionMemberInactive]
+            )) $principal = $principal->getAssociation();
+        if (is_a($principal, UserGroup::class) && $principal->getType() === UserGroup::GroupSmallCoalition)
+            return $this->entity_manager->getRepository(Shoutbox::class)->findOneBy(['userGroup' => $principal]);
+
+        return null;
     }
 
     /**

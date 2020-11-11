@@ -16,6 +16,8 @@ use App\Entity\Inventory;
 use App\Entity\Picto;
 use App\Entity\Post;
 use App\Entity\RuinZone;
+use App\Entity\Shoutbox;
+use App\Entity\ShoutboxEntry;
 use App\Entity\Thread;
 use App\Entity\ThreadReadMarker;
 use App\Entity\Town;
@@ -464,6 +466,18 @@ class GameFactory
             if ($joining_user === $user) $main_citizen = $citizen;
             $all_citizens[] = $citizen;
             $this->entity_manager->persist($citizen);
+
+            /** @var Shoutbox|null $shoutbox */
+            if ($shoutbox = $this->user_handler->getShoutbox($joining_user)) {
+                $shoutbox->addEntry(
+                    (new ShoutboxEntry())
+                        ->setType( ShoutboxEntry::SBEntryTypeTown )
+                        ->setTimestamp( new \DateTime() )
+                        ->setUser1( $joining_user )
+                        ->setText( $town->getName() )
+                );
+                $this->entity_manager->persist($shoutbox);
+            }
         }
 
         return $main_citizen;

@@ -1,6 +1,6 @@
 <?php /** @noinspection PhpComposerExtensionStubsInspection */
 
-namespace App\Controller;
+namespace App\Controller\Soul;
 
 use App\Entity\Avatar;
 use App\Entity\Award;
@@ -536,12 +536,7 @@ class SoulController extends AbstractController
         $entries = [];
 
         /** @var UserGroupAssociation|null $user_coalition */
-        $user_coalition = $this->entity_manager->getRepository(UserGroupAssociation::class)->findOneBy( [
-                'user' => $user,
-                'associationType' => [UserGroupAssociation::GroupAssociationTypeCoalitionMember, UserGroupAssociation::GroupAssociationTypeCoalitionMemberInactive] ]
-        );
-
-        if ($user_coalition) {
+        if ($user_coalition = $this->user_handler->getCoalitionMembership($user)) {
             /** @var Shoutbox $shoutbox */
             if ($shoutbox = $this->entity_manager->getRepository(Shoutbox::class)->findOneBy(['userGroup' => $user_coalition->getAssociation()]))
                 $entries = array_reverse( $shoutbox->getEntries()->getValues() );
@@ -606,10 +601,7 @@ class SoulController extends AbstractController
 
 
         /** @var UserGroupAssociation|null $user_coalition */
-        $user_coalition = $this->entity_manager->getRepository(UserGroupAssociation::class)->findOneBy( [
-                'user' => $user,
-                'associationType' => [UserGroupAssociation::GroupAssociationTypeCoalitionMember, UserGroupAssociation::GroupAssociationTypeCoalitionMemberInactive] ]
-        );
+        $user_coalition = $this->user_handler->getCoalitionMembership($user);
 
         if ($user_coalition === null) return AjaxResponse::error( self::ErrorCoalitionNotSet );
 
@@ -665,7 +657,7 @@ class SoulController extends AbstractController
         } else {
             $this->entity_manager->remove( $user_coalition );
             /** @var Shoutbox|null $shoutbox */
-            if ($shoutbox = $this->entity_manager->getRepository(Shoutbox::class)->findOneBy(['userGroup' => $user_coalition->getAssociation()])) {
+            if ($shoutbox = $this->user_handler->getShoutbox($user_coalition)) {
                 $shoutbox->addEntry(
                     (new ShoutboxEntry())
                         ->setType( ShoutboxEntry::SBEntryTypeLeave )
@@ -718,7 +710,7 @@ class SoulController extends AbstractController
         $this->addFlash('info', $trans->trans('Herzlichen Glückwunsch, du bist der Koalition soeben beigetreten!', [], 'soul'));
 
         /** @var Shoutbox|null $shoutbox */
-        if ($shoutbox = $this->entity_manager->getRepository(Shoutbox::class)->findOneBy(['userGroup' => $user_coalition->getAssociation()])) {
+        if ($shoutbox = $this->user_handler->getShoutbox($user_coalition)) {
             $shoutbox->addEntry(
                 (new ShoutboxEntry())
                     ->setType( ShoutboxEntry::SBEntryTypeJoin )
@@ -748,10 +740,7 @@ class SoulController extends AbstractController
         $user = $this->getUser();
 
         /** @var UserGroupAssociation|null $user_coalition */
-        $user_coalition = $this->entity_manager->getRepository(UserGroupAssociation::class)->findOneBy( [
-                'user' => $user,
-                'associationType' => [UserGroupAssociation::GroupAssociationTypeCoalitionMember, UserGroupAssociation::GroupAssociationTypeCoalitionMemberInactive] ]
-        );
+        $user_coalition = $this->user_handler->getCoalitionMembership($user);
 
         if ($user_coalition === null) return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
         if ($user_coalition->getAssociationLevel() !== UserGroupAssociation::GroupAssociationLevelFounder)
@@ -766,7 +755,7 @@ class SoulController extends AbstractController
 
         $this->entity_manager->remove( $target_coalition );
         /** @var Shoutbox|null $shoutbox */
-        if ($shoutbox = $this->entity_manager->getRepository(Shoutbox::class)->findOneBy(['userGroup' => $user_coalition->getAssociation()])) {
+        if ($shoutbox = $this->user_handler->getShoutbox($user_coalition)) {
             $shoutbox->addEntry(
                 (new ShoutboxEntry())
                     ->setType( ShoutboxEntry::SBEntryTypeLeave )
@@ -800,12 +789,7 @@ class SoulController extends AbstractController
         if ($id === $user->getId()) return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
 
         /** @var UserGroupAssociation|null $user_coalition */
-        $user_coalition = $this->entity_manager->getRepository(UserGroupAssociation::class)->findOneBy( [
-                'user' => $user,
-                'associationType' => [UserGroupAssociation::GroupAssociationTypeCoalitionMember, UserGroupAssociation::GroupAssociationTypeCoalitionMemberInactive] ]
-        );
-
-        if ($user_coalition === null) return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
+        if (($user_coalition = $this->user_handler->getCoalitionMembership($user)) === null) return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
         if ($user_coalition->getAssociationLevel() !== UserGroupAssociation::GroupAssociationLevelFounder)
             return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
 
@@ -821,10 +805,7 @@ class SoulController extends AbstractController
         if ($target === null) return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
 
         /** @var UserGroupAssociation|null $user_coalition */
-        $target_coalition = $this->entity_manager->getRepository(UserGroupAssociation::class)->findOneBy( [
-                'user' => $target,
-                'associationType' => [UserGroupAssociation::GroupAssociationTypeCoalitionMember, UserGroupAssociation::GroupAssociationTypeCoalitionMemberInactive] ]
-        );
+        $target_coalition = $this->user_handler->getCoalitionMembership($target);
 
         /** @var UserGroupAssociation|null $user_coalition */
         $self_coalition = $this->entity_manager->getRepository(UserGroupAssociation::class)->findOneBy( [
@@ -844,7 +825,7 @@ class SoulController extends AbstractController
         );
 
         /** @var Shoutbox|null $shoutbox */
-        if ($shoutbox = $this->entity_manager->getRepository(Shoutbox::class)->findOneBy(['userGroup' => $user_coalition->getAssociation()])) {
+        if ($shoutbox = $this->user_handler->getShoutbox($user_coalition)) {
             $shoutbox->addEntry(
                 (new ShoutboxEntry())
                     ->setType( ShoutboxEntry::SBEntryTypeInvite )
