@@ -41,6 +41,7 @@ class AdminActionController extends AbstractController
             ['name' => T::__('Meldungen', 'admin'), 'id' => 2],
             ['name' => T::__('Städte', 'admin'),    'id' => 3],
             ['name' => T::__('Zukunft', 'admin'),   'id' => 4],
+            ['name' => T::__('AntiSpam', 'admin'),  'id' => 5],
         ];
     }
 
@@ -170,6 +171,7 @@ class AdminActionController extends AbstractController
             case 2: return $this->redirect($this->generateUrl('admin_reports'));
             case 3: return $this->redirect($this->generateUrl('admin_town_list'));
             case 4: return $this->redirect($this->generateUrl('admin_changelogs'));
+            case 5: return $this->redirect($this->generateUrl('admin_spam_domain_view'));
             default: break;
         }
         return AjaxResponse::error(ErrorHelper::ErrorPermissionError);

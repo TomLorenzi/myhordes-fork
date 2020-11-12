@@ -1,0 +1,9 @@
+{% block ajax %}
+    <div class="row">
+        {% for domain in domains %}
+            <div class="padded cell rw-12">
+                <label><input type="checkbox" id="dom_cbox_{{ domain.id }}" value="{{ domain.id }}" /> {{ domain }}</label>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}
