@@ -1127,6 +1127,23 @@ div.tooltip {
   outline: 1px solid darken(@myhordes-smalltext, 50%);
   font-weight: normal;
   font-variant: normal;
+
+  ul {
+    padding: 0 3px;
+    margin: 2px 0 0px 0px;
+    list-style: none none;
+    color: #F0D79E;
+    &:not(.stack) {clear: both;}
+    li {
+        margin: 0; padding-left: 4px; padding-right: 4px;
+        background-color: #524053;
+        border-top: 0px; border-bottom: 2px solid #5c2b20;
+        &:last-child { border-bottom: 0; }
+        i { color: #f0d79e; font-style: italic; }
+        strong { font-variant: small-caps; }
+    }
+  }
+
   &>h1:first-child {
     font-size: 1.2rem; font-weight: bold; margin: 4px; padding: 0; text-align: center;
     border-bottom: 1px solid darken(@myhordes-smalltext, 20%); font-variant: small-caps;
