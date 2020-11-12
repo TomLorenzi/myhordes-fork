@@ -20,19 +20,19 @@
             <span class="shout-part-time">{{ entry.timestamp.format('G:i') }}</span>
             <span class="shout-part-content">
                 {% if entry.type == constant('App\\Entity\\ShoutboxEntry::SBEntryTypeChat') %}
-                    <b>{{ entry.user1.name }}:</b> {{ entry.text|raw }}
+                    <b>{{ entry.user1.name }} :</b> « {{ entry.text|raw }} »
                 {% elseif entry.type == constant('App\\Entity\\ShoutboxEntry::SBEntryTypeInvite') %}
-                    {{ '%u1% hat %u2% in die Koalition eingeladen.'|trans({'%u1%': entry.user1.name, '%u2%': entry.user2.name},'soul') }}
+                    {{ '<b>%u1%</b> hat <b>%u2%</b> in die Koalition eingeladen.'|trans({'%u1%': entry.user1.name, '%u2%': entry.user2.name},'soul')|raw }}
                 {% elseif entry.type == constant('App\\Entity\\ShoutboxEntry::SBEntryTypeJoin') %}
-                    {{ '%u1% ist der Koalition soeben beigetreten!'|trans({'%u1%': entry.user1.name},'soul') }}
+                    {{ '<b>%u1%</b> ist der Koalition soeben beigetreten!'|trans({'%u1%': entry.user1.name},'soul')|raw }}
                 {% elseif entry.type == constant('App\\Entity\\ShoutboxEntry::SBEntryTypeLeave') %}
                     {% if entry.user2 is null %}
-                        {{ '%u1% hat die Koalition verlassen.'|trans({'%u1%': entry.user1.name},'soul') }}
+                        {{ '<b>%u1%</b> hat die Koalition verlassen.'|trans({'%u1%': entry.user1.name},'soul')|raw }}
                     {% else%}
-                        {{ '%u1% hat %u2% aus der Koalition entfernt.'|trans({'%u1%': entry.user1.name, '%u2%': entry.user2.name},'soul') }}
+                        {{ '<b>%u1%</b> hat <b>%u2%</b> aus der Koalition entfernt.'|trans({'%u1%': entry.user1.name, '%u2%': entry.user2.name},'soul')|raw }}
                     {% endif %}
                 {% elseif entry.type == constant('App\\Entity\\ShoutboxEntry::SBEntryTypeTown') %}
-                    {{ '%u1% hat sich soeben in die Stadt "%town%" eingeschrieben!'|trans({'%u1%': entry.user1.name, '%town%': entry.text},'soul') }}
+                    {{ '<b>%u1%</b> hat sich soeben in die Stadt "<b>%town%</b>" eingeschrieben!'|trans({'%u1%': entry.user1.name, '%town%': entry.text},'soul')|raw }}
                 {% else %}
                     ???
                 {% endif %}
