@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\AntiSpamDomains;
 use App\Entity\Citizen;
 use App\Entity\Picto;
 use App\Entity\PictoPrototype;
@@ -21,6 +22,7 @@ use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInt
 use Symfony\Component\Security\Core\Authentication\Token\UsernamePasswordToken;
 use Symfony\Component\Validator\Constraints;
 use Symfony\Component\Validator\ConstraintViolationInterface;
+use Symfony\Component\Validator\Context\ExecutionContextInterface;
 use Symfony\Component\Validator\Validation;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
@@ -220,8 +222,27 @@ class PublicController extends AbstractController
                         'maxMessage' => $translator->trans('Dein Name kann höchstens {{ limit }} Zeichen umfassen.', [], 'login'),
                     ]),
             ],
-            'mail1' => new Constraints\Email(
-                ['message' => $translator->trans('Die eingegebene E-Mail Adresse ist nicht gültig.', [], 'login')]),
+            'mail1' => [
+                new Constraints\Email( ['message' => $translator->trans('Die eingegebene E-Mail Adresse ist nicht gültig.', [], 'login')]),
+                new Constraints\Callback( [ 'callback' => function(string $mail, ExecutionContextInterface $context) use ($parser,$entityManager,$translator) {
+                    $parts = explode('@', $mail, 2);
+                    if (count($parts) < 2) return;
+                    $parts = explode('.', $parts[1]);
+
+                    $repo = $entityManager->getRepository(AntiSpamDomains::class);
+                    $test = '';
+                    while (!empty($parts)) {
+                        $d = array_pop($parts);
+                        if (empty($d)) continue;
+                        $test = $d . (empty($test) ? '' : ".{$test}");
+                        if ($repo->findOneBy(['domain' => $test])) {
+                            $context->buildViolation($translator->trans('Die eingegebene E-Mail Adresse ist nicht gültig.', [], 'login'))
+                                ->atPath('mail1')
+                                ->addViolation();
+                        }
+                    }
+                } ] )
+                ],
             'mail2' => new Constraints\EqualTo(
                 ['value' => $parser->trimmed( 'mail1'), 'message' => $translator->trans('Die eingegebenen E-Mail Adressen stimmen nicht überein.', [], 'login')]),
             'pass1' => new Constraints\Length(
