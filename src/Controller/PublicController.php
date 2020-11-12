@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\AntiSpamDomains;
+use App\Controller\Soul\SoulController;
 use App\Entity\Citizen;
 use App\Entity\Picto;
 use App\Entity\PictoPrototype;

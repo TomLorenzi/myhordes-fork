@@ -1,6 +1,8 @@
 {{ constant('App\\Service\\GameFactory::ErrorTownClosed') }}               : '{{'Die gewählte Stadt ist bereits voll.'|trans({},'ghost')|e('js')}}',
 {{ constant('App\\Service\\GameFactory::ErrorUserAlreadyInGame') }}        : '{{'Du kannst nicht mehr als einer Stadt gleichzeitig beitreten.'|trans({},'ghost')|e('js')}}',
+{{ constant('App\\Service\\GameFactory::ErrorMemberBlocked') }} : '{{'Ein Mitglied deiner Koalition kann dieser Stadt nicht beitreten.'|trans({},'ghost')|e('js')}}',
 {{ constant('App\\Service\\GameFactory::ErrorUserAlreadyInTown') }}        : '{{'Du bist dieser Stadt bereits beigetreten.'|trans({},'ghost')|e('js')}}',
+{{ constant('App\\Service\\GameFactory::ErrorTownNoCoaRoom') }}        : '{{'In dieser Stadt ist kein Platz mehr für dich und deine Koalition.'|trans({},'ghost')|e('js')}}',
 {{ constant('App\\Controller\\GameController::ErrorJobAlreadySelected') }} : '{{'Du hast bereits einen Beruf gewählt.'|trans({},'game')|e('js')}}',
 {{ constant('App\\Controller\\GameController::ErrorJobInvalid') }}         : '{{'Ungültige Auswahl.'|trans({},'game')|e('js')}}',
 {{ constant('App\\Controller\\Town\\TownController::ErrorWellEmpty') }}          : '{{'Der Brunnen ist leer!'|trans({},'game')|e('js')}}',

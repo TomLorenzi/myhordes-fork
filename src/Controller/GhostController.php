@@ -6,6 +6,7 @@ use App\Entity\CitizenRankingProxy;
 use App\Entity\Town;
 use App\Entity\TownClass;
 use App\Entity\User;
+use App\Entity\UserGroupAssociation;
 use App\Response\AjaxResponse;
 use App\Service\ConfMaster;
 use App\Service\ErrorHelper;
@@ -74,7 +75,13 @@ class GhostController extends AbstractController implements GhostInterfaceContro
         if ($em->getRepository(CitizenRankingProxy::class)->findNextUnconfirmedDeath($user))
             return $this->redirect($this->generateUrl( 'soul_death' ));
 
+        $coa_members = $this->user_handler->getAvailableCoalitionMembers($user, $count, $active);
+
         return $this->render( 'ajax/ghost/intro.html.twig', $this->addDefaultTwigArgs([
+            'warnCoaInactive'    => $count > 0 && !$active,
+            'warnCoaNotComplete' => $count > 0 && (count($coa_members) + 1) < $count,
+            'warnCoaEmpty'       => $count > 1 && empty($coa_members),
+            'coa'                => $coa_members,
             'townClasses' => $em->getRepository(TownClass::class)->findAll(),
             'userCanJoin' => $this->getUserTownClassAccess($conf->getGlobalConf()),
             'canCreateTown' => $uh->hasSkill($user, 'mayor') || $user->getRightsElevation() >= User::ROLE_CROW,
@@ -301,7 +308,7 @@ class GhostController extends AbstractController implements GhostInterfaceContro
             return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
         }
 
-        $citizen = $factory->createCitizen($town, $user, $error);
+        $citizen = $factory->createCitizen($town, $user, $error, $all);
         if (!$citizen) return AjaxResponse::error($error);
 
         // Let's check if there is enough opened town
@@ -362,10 +369,11 @@ class GhostController extends AbstractController implements GhostInterfaceContro
             $em->persist($citizen);
             $em->flush();
         } catch (Exception $e) {
-            return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
+            return AjaxResponse::error(ErrorHelper::ErrorDatabaseException, ['e' => $e->getMessage()]);
         }
         try {
-            $em->persist( $log->citizenJoin( $citizen ) );
+            foreach ($all as $new_citizen)
+                $em->persist( $log->citizenJoin( $new_citizen ) );
             $em->flush();
         }
         catch (Exception $e) {

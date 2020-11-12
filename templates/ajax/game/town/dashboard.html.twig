@@ -73,6 +73,9 @@
                 {% if new_message %}
                     <li x-ajax-href="{{ path('town_house', {tab: 'messages', subtab: 'received'}) }}">{{ 'Meine Nachrichten lesen.'|trans({}, 'game') }} <img src="{{ asset("build/images/icons/anim_icon_mail.gif") }}" alt="" /> </li>
                 {% endif %}
+                {% if new_coa_message %}
+                    <li x-ajax-href="{{ path('soul_coalitions') }}">{{ 'Die letzten Nachrichten meiner Koalition lesen.'|trans({}, 'game') }} <img src="{{ asset("build/images/icons/anim_icon_mail.gif") }}" alt="" /> </li>
+                {% endif %}
                 {% for name,role in votes_needed %}
                     {% if role %}
                     <li x-ajax-href="{{ path('town_citizen_vote', {roleId: role.id}) }}" {% if has_voted[role.name] %}class="checked"{% endif %}>

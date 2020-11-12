@@ -56,12 +56,16 @@ class PermissionHandler
         return $this->get_assoc($user,$group) !== null;
     }
 
-    public function associate( User $user, UserGroup $group): UserGroupAssociation {
+    public function associate( User $user, UserGroup $group,
+                               int $type = UserGroupAssociation::GroupAssociationTypeDefault,
+                               int $level = UserGroupAssociation::GroupAssociationLevelDefault): UserGroupAssociation {
         $existing_assoc = $this->get_assoc( $user, $group );
         if (!$existing_assoc) $this->entity_manager->persist(
             $existing_assoc = (new UserGroupAssociation())
                 ->setUser($user)
                 ->setAssociation($group)
+                ->setAssociationType($type)
+                ->setAssociationLevel($level)
         );
         return $existing_assoc;
     }

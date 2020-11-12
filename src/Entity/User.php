@@ -202,6 +202,11 @@ class User implements UserInterface, EquatableInterface
      */
     private $displayName;
 
+    /**
+     * @ORM\Column(type="datetime", nullable=true)
+     */
+    private $lastActionTimestamp;
+
     public function __construct()
     {
         $this->citizens = new ArrayCollection();
@@ -894,6 +899,18 @@ class User implements UserInterface, EquatableInterface
     public function setDisplayName(?string $displayName): self
     {
         $this->displayName = $displayName;
+
+        return $this;
+    }
+
+    public function getLastActionTimestamp(): ?\DateTimeInterface
+    {
+        return $this->lastActionTimestamp;
+    }
+
+    public function setLastActionTimestamp(?\DateTimeInterface $lastActionTimestamp): self
+    {
+        $this->lastActionTimestamp = $lastActionTimestamp;
 
         return $this;
     }
