@@ -17,9 +17,12 @@ use App\Entity\Complaint;
 use App\Entity\ExpeditionRoute;
 use App\Entity\ItemPrototype;
 use App\Entity\PictoPrototype;
+use App\Entity\ShoutboxEntry;
+use App\Entity\ShoutboxReadMarker;
 use App\Entity\TownLogEntry;
 use App\Entity\PrivateMessage;
 use App\Entity\User;
+use App\Entity\UserGroupAssociation;
 use App\Entity\ZombieEstimation;
 use App\Entity\Zone;
 use App\Service\BankAntiAbuseService;
@@ -188,6 +191,16 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
                 $has_voted[$role->getName()] = ($this->entity_manager->getRepository(CitizenVote::class)->findOneByCitizenAndRole($this->getActiveCitizen(), $role) !== null);
 
         $can_edit_blackboard = $this->getActiveCitizen()->getProfession()->getHeroic() && $this->user_handler->hasSkill($this->getActiveCitizen()->getUser(), 'dictator') && !$this->getActiveCitizen()->getBanished();
+        
+        $sb = $this->user_handler->getShoutbox($this->getUser());
+        $messages = false;
+        if ($sb) {
+            $last_entry = $this->entity_manager->getRepository(ShoutboxEntry::class)->findOneBy(['shoutbox' => $sb], ['timestamp' => 'DESC']);
+            if ($last_entry) {
+                $marker = $this->entity_manager->getRepository(ShoutboxReadMarker::class)->findOneBy(['user' => $this->getUser()]);
+                if (!$marker || $last_entry !== $marker->getEntry()) $messages = true;
+            }
+        }
 
         return $this->render( 'ajax/game/town/dashboard.html.twig', $this->addDefaultTwigArgs(null, [
             'town' => $town,
@@ -210,6 +223,7 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
             'display_home_upgrade' => $display_home_upgrade,
             'has_upgraded_house' => $this->citizen_handler->hasStatusEffect($this->getActiveCitizen(), 'tg_home_upgrade'),
             'can_edit_blackboard' => $can_edit_blackboard,
+            'new_coa_message' => $messages
         ]) );
     }
 

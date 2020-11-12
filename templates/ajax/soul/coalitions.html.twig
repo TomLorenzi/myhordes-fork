@@ -217,8 +217,14 @@
         {% if membership is not null %}
             const fun_refresh = function(bg, fun = null) {
                 let content_box = document.querySelector('.shout-container .shout-content');
-                if (bg) $.ajax.background().load( content_box, '{{ path('soul_shoutbox')|e('js') }}', false, {}, fun );
-                else $.ajax.load( content_box, '{{ path('soul_shoutbox')|e('js') }}', false, {}, fun )
+                const callback = function() {
+                    if (fun) fun();
+                    let coa_icon = document.querySelector('img#shell_coa_icon[x-src-default]');
+                    if (coa_icon) coa_icon.setAttribute('src', coa_icon.getAttribute('x-src-default'));
+                };
+
+                if (bg) $.ajax.background().load( content_box, '{{ path('soul_shoutbox')|e('js') }}', false, {}, callback );
+                else $.ajax.load( content_box, '{{ path('soul_shoutbox')|e('js') }}', false, {}, callback )
             };
 
             fun_refresh(true);
