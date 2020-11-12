@@ -24,11 +24,13 @@ class ThreadRepository extends ServiceEntityRepository
 
     public function countByForum( Forum $forum, bool $include_hidden = false ): int {
         try {
-            return $this->createQueryBuilder('t')
+            $qb = $this->createQueryBuilder('t')
                 ->select('COUNT(t.id)')
-                ->andWhere('t.forum = :forum')->setParameter('forum', $forum)
-                ->andWhere($include_hidden ? '1 = 1' : 't.hidden = false')
-                ->getQuery()
+                ->andWhere('t.forum = :forum')->setParameter('forum', $forum);
+            if (!$include_hidden)
+                $qb->andWhere('t.hidden = false OR t.hidden is NULL');
+
+            return $qb->getQuery()
                 ->getSingleScalarResult();
         } catch (Exception $e) {
             return 0;
@@ -38,13 +40,16 @@ class ThreadRepository extends ServiceEntityRepository
     public function findByForumSemantic(Forum $forum, int $semantic, bool $include_hidden = false): ?Thread
     {
         try {
-            return $this->createQueryBuilder('t')
+            $qb = $this->createQueryBuilder('t')
                 ->andWhere('t.semantic = :semantic')->setParameter('semantic', $semantic)
                 ->andWhere('t.forum = :forum')->setParameter('forum', $forum)
-                ->andWhere($include_hidden ? '1 = 1' : 't.hidden = false')
                 ->orderBy('t.lastPost', 'DESC')
-                ->setMaxResults(1)
-                ->getQuery()
+                ->setMaxResults(1);
+
+            if (!$include_hidden)
+                $qb->andWhere('t.hidden = false OR t.hidden is NULL');
+
+            return $qb->getQuery()
                 ->getOneOrNullResult();
         } catch (Exception $e) {
             return null;
@@ -56,10 +61,12 @@ class ThreadRepository extends ServiceEntityRepository
         $q = $this->createQueryBuilder('t')
             ->andWhere('t.pinned = false')
             ->andWhere('t.forum = :forum')->setParameter('forum', $forum)
-            ->andWhere($include_hidden ? '1 = 1' : 't.hidden = false')
             ->orderBy('t.lastPost', 'DESC');
         if ($number !== null) $q->setMaxResults($number);
         if ($offset !== null) $q->setFirstResult($offset);
+        if (!$include_hidden)
+            $q->andWhere('t.hidden = false OR t.hidden is NULL');
+
         return $q
             ->getQuery()
             ->getResult()
@@ -71,10 +78,11 @@ class ThreadRepository extends ServiceEntityRepository
         $q = $this->createQueryBuilder('t')
             ->andWhere('t.pinned = true')
             ->andWhere('t.forum = :forum')->setParameter('forum', $forum)
-            ->andWhere($include_hidden ? '1 = 1' : 't.hidden = false')
             ->orderBy('t.lastPost', 'DESC');
         if ($number !== null) $q->setMaxResults($number);
         if ($offset !== null) $q->setFirstResult($offset);
+        if (!$include_hidden)
+            $q->andWhere('t.hidden = false OR t.hidden is NULL');
         return $q
             ->getQuery()
             ->getResult()
