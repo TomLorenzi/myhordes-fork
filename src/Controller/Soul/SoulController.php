@@ -14,6 +14,7 @@ use App\Entity\Picto;
 use App\Entity\PictoPrototype;
 use App\Entity\Shoutbox;
 use App\Entity\ShoutboxEntry;
+use App\Entity\ShoutboxReadMarker;
 use App\Entity\TownRankingProxy;
 use App\Entity\TwinoidImport;
 use App\Entity\TwinoidImportPreview;
@@ -90,7 +91,28 @@ class SoulController extends AbstractController
 
         $data = $data ?? [];
 
+        $user_coalition = $this->entity_manager->getRepository(UserGroupAssociation::class)->findOneBy( [
+            'user' => $user,
+            'associationType' => [UserGroupAssociation::GroupAssociationTypeCoalitionMember, UserGroupAssociation::GroupAssociationTypeCoalitionMemberInactive]
+        ]);
+
+        $user_invitations = $user_coalition ? [] : $this->entity_manager->getRepository(UserGroupAssociation::class)->findBy( [
+                'user' => $user,
+                'associationType' => UserGroupAssociation::GroupAssociationTypeCoalitionInvitation ]
+        );
+
+        $sb = $this->user_handler->getShoutbox($user);
+        $messages = false;
+        if ($sb) {
+            $last_entry = $this->entity_manager->getRepository(ShoutboxEntry::class)->findOneBy(['shoutbox' => $sb], ['timestamp' => 'DESC']);
+            if ($last_entry) {
+                $marker = $this->entity_manager->getRepository(ShoutboxReadMarker::class)->findOneBy(['user' => $user]);
+                if (!$marker || $last_entry !== $marker->getEntry()) $messages = true;
+            }
+        }
+
         $data["soul_tab"] = $section;
+        $data["new_message"] = !empty($user_invitations) || $messages;
 
         $data['clock'] = [
             'desc'      => $user->getActiveCitizen() !== null ? $user->getActiveCitizen()->getTown()->getName() : $this->translator->trans('Worauf warten Sie noch?', [], 'ghost'),
@@ -539,7 +561,20 @@ class SoulController extends AbstractController
         if ($user_coalition = $this->user_handler->getCoalitionMembership($user)) {
             /** @var Shoutbox $shoutbox */
             if ($shoutbox = $this->entity_manager->getRepository(Shoutbox::class)->findOneBy(['userGroup' => $user_coalition->getAssociation()]))
-                $entries = array_reverse( $shoutbox->getEntries()->getValues() );
+                $entries = $this->entity_manager->getRepository(ShoutboxEntry::class)->findFromShoutbox($shoutbox, new DateTime('-60day'), 100);
+        }
+
+        if (!empty($entries)) {
+            $rm = $this->entity_manager->getRepository(ShoutboxReadMarker::class)->findOneBy(['user' => $user]);
+            if (!$rm) $rm = (new ShoutboxReadMarker())->setUser($user);
+
+            if ($rm->getEntry() !== $entries[0]) {
+                $rm->setEntry($entries[0]);
+                $this->entity_manager->persist($rm);
+                try {
+                    $this->entity_manager->flush();
+                } catch (Exception $e) {}
+            }
         }
 
         return $this->render( 'ajax/soul/shout_content.html.twig', [
@@ -556,7 +591,7 @@ class SoulController extends AbstractController
     public function api_soul_create_coalitions(TranslatorInterface $trans, PermissionHandler $perm): Response
     {
         $user = $this->getUser();
-
+        if ($user->getIsBanned()) return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
 
         /** @var UserGroupAssociation|null $user_coalition */
         $user_coalitions = $this->entity_manager->getRepository(UserGroupAssociation::class)->findBy( [
@@ -687,6 +722,7 @@ class SoulController extends AbstractController
     public function api_soul_join_coalition(int $coalition, TranslatorInterface $trans): Response
     {
         $user = $this->getUser();
+        if ($user->getIsBanned()) return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
 
         /** @var UserGroupAssociation|null $user_coalition */
         $user_coalition = $this->entity_manager->getRepository(UserGroupAssociation::class)->find($coalition);
@@ -738,6 +774,7 @@ class SoulController extends AbstractController
     public function api_soul_kick_coalition(int $coalition): Response
     {
         $user = $this->getUser();
+        if ($user->getIsBanned()) return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
 
         /** @var UserGroupAssociation|null $user_coalition */
         $user_coalition = $this->user_handler->getCoalitionMembership($user);
@@ -785,6 +822,8 @@ class SoulController extends AbstractController
     public function api_soul_invite_coalition(ConfMaster $conf, int $id): Response
     {
         $user = $this->getUser();
+
+        if ($user->getIsBanned()) return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
 
         if ($id === $user->getId()) return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
 
@@ -836,6 +875,46 @@ class SoulController extends AbstractController
             $this->entity_manager->persist($shoutbox);
         }
 
+
+        try {
+            $this->entity_manager->flush();
+        }
+        catch (Exception $e) {
+            return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
+        }
+
+        return AjaxResponse::success();
+    }
+
+    /**
+     * @Route("api/soul/coalition/shout", name="soul_shout_coalition")
+     * @param JSONRequestParser $parser
+     * @return Response
+     */
+    public function api_coalition_shout(JSONRequestParser $parser): Response
+    {
+        $user = $this->getUser();
+        $shoutbox = $this->user_handler->getShoutbox($user);
+
+        if (!$shoutbox || $user->getIsBanned()) return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
+
+        $last_chat_entries = $this->entity_manager->getRepository(ShoutboxEntry::class)->findBy(
+            ['type' => ShoutboxEntry::SBEntryTypeChat], ['timestamp' => 'DESC'], 10
+        );
+        if (count($last_chat_entries) === 10 && $last_chat_entries[9]->getTimestamp()->getTimestamp() > (time() - 30))
+            return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
+
+        $text = mb_substr( $parser->trimmed('text', ''), 0, 190);
+
+        $shoutbox = $this->user_handler->getShoutbox($user);
+        $shoutbox->addEntry(
+            (new ShoutboxEntry())
+                ->setType( ShoutboxEntry::SBEntryTypeChat )
+                ->setTimestamp( new DateTime() )
+                ->setUser1( $user )
+                ->setText( $text )
+        );
+        $this->entity_manager->persist($shoutbox);
 
         try {
             $this->entity_manager->flush();

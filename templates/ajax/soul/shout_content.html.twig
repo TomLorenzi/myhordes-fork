@@ -2,12 +2,25 @@
 {% if entries|length == 0 %}
     <i>{{ 'Die Shoutbox ist leer...'|trans({},'soul') }}</i>
 {% else %}
+    {% set last_day = ('now'|date('U')/86400)|round(0, 'floor') %}
+    {% set this_day = last_day %}
     {% for entry in entries %}
-        <div class="shout-entry shout-entry-type-{{ entry.type }}">
+        {% set log_day = (entry.timestamp.format('U')/86400)|round(0, 'floor') %}
+        {% if log_day != last_day %}
+            {% set last_day = log_day %}
+            <div class="shout-separator">
+                {% if (this_day - log_day) == 1 %}
+                    {{ 'Vor 1 Tag'|trans({}, 'soul') }}
+                {% else %}
+                    {{ 'Vor %d% Tagen'|trans({'%d%': this_day - log_day}, 'soul') }}
+                {% endif %}
+            </div>
+        {% endif %}
+        <div class="shout-entry shout-entry-class-{{ entry.type }}">
             <span class="shout-part-time">{{ entry.timestamp.format('G:i') }}</span>
             <span class="shout-part-content">
                 {% if entry.type == constant('App\\Entity\\ShoutboxEntry::SBEntryTypeChat') %}
-                    {{ entry.text|raw }}
+                    <b>{{ entry.user1.name }}:</b> {{ entry.text|raw }}
                 {% elseif entry.type == constant('App\\Entity\\ShoutboxEntry::SBEntryTypeInvite') %}
                     {{ '%u1% hat %u2% in die Koalition eingeladen.'|trans({'%u1%': entry.user1.name, '%u2%': entry.user2.name},'soul') }}
                 {% elseif entry.type == constant('App\\Entity\\ShoutboxEntry::SBEntryTypeJoin') %}
@@ -15,9 +28,9 @@
                 {% elseif entry.type == constant('App\\Entity\\ShoutboxEntry::SBEntryTypeLeave') %}
                     {% if entry.user2 is null %}
                         {{ '%u1% hat die Koalition verlassen.'|trans({'%u1%': entry.user1.name},'soul') }}
-                   {% else%}
-                       {{ '%u1% hat %u2% aus der Koalition entfernt.'|trans({'%u1%': entry.user1.name, '%u2%': entry.user2.name},'soul') }}
-                   {% endif %}
+                    {% else%}
+                        {{ '%u1% hat %u2% aus der Koalition entfernt.'|trans({'%u1%': entry.user1.name, '%u2%': entry.user2.name},'soul') }}
+                    {% endif %}
                 {% elseif entry.type == constant('App\\Entity\\ShoutboxEntry::SBEntryTypeTown') %}
                     {{ '%u1% hat sich soeben in die Stadt "%town%" eingeschrieben!'|trans({'%u1%': entry.user1.name, '%town%': entry.text},'soul') }}
                 {% else %}

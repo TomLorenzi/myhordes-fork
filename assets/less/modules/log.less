@@ -82,6 +82,9 @@
   &>.shout-content {
     font-size: 1.2rem; color: #f0d79e; max-height: 450px; overflow-y: auto;
     &>.shout-loader { text-align: center; }
+    &>.shout-separator {
+      margin: 3px 0; border-bottom: 1px solid #f0d79e;
+    }
     &>.shout-entry {
       &:before { content: " "; height: 16px; width: 16px; top: 2px; left: 2px; position: absolute; }
       padding: 2px; position: relative; cursor: default; margin: 1px 0; background-color: transparent;
@@ -103,7 +106,10 @@
         }
       }
 
-      &.shout-entry-class-1 { background-color: #3b3249 }
+      &.shout-entry-class-1 {
+        b { color: white }
+        background-color: #3b3249;
+      }
     }
   }
 }
