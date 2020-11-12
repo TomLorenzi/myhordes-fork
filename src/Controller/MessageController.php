@@ -122,7 +122,7 @@ class MessageController extends AbstractController
             $threads = $em->getRepository(Thread::class)->findByForum($forum, $num_per_page, ($page-1)*$num_per_page, $show_hidden_threads);
         } elseif ( $this->perm->isPermitted( $permissions, ForumUsagePermissions::PermissionModerate ) ) {
 
-            $threads = array_filter( $em->getRepository(Thread::class)->findByForum($forum, $show_hidden_threads), fn(Thread $t): bool => $t->hasReportedPosts() );
+            $threads = array_filter( $em->getRepository(Thread::class)->findByForum($forum, null, null, $show_hidden_threads), fn(Thread $t): bool => $t->hasReportedPosts() );
             $pages = floor(max(0,count($threads)-1) / $num_per_page) + 1;
             if ($parser->has('page'))
                 $page = min(max(1,$parser->get('page', 1)), $pages);
@@ -143,9 +143,9 @@ class MessageController extends AbstractController
         }
 
         if ( $this->perm->isPermitted( $permissions, ForumUsagePermissions::PermissionListThreads ) ) {
-            $pinned_threads = $em->getRepository(Thread::class)->findPinnedByForum($forum, $show_hidden_threads);
+            $pinned_threads = $em->getRepository(Thread::class)->findPinnedByForum($forum, null, null, $show_hidden_threads);
         } elseif ( $this->perm->isPermitted( $permissions, ForumUsagePermissions::PermissionModerate ) ) {
-            $pinned_threads = array_filter( $em->getRepository(Thread::class)->findPinnedByForum($forum, $show_hidden_threads), fn(Thread $t): bool => $t->hasReportedPosts() );
+            $pinned_threads = array_filter( $em->getRepository(Thread::class)->findPinnedByForum($forum, null, null, $show_hidden_threads), fn(Thread $t): bool => $t->hasReportedPosts() );
         } else $pinned_threads = [];
 
         foreach ($pinned_threads as $thread) {
@@ -274,14 +274,14 @@ class MessageController extends AbstractController
         ]
     ];
 
-    private const HTML_ATTRIB_ALLOWED_ORACLE = [ 
-        'div.class' => [ 
+    private const HTML_ATTRIB_ALLOWED_ORACLE = [
+        'div.class' => [
             'oracleAnnounce'
         ]
     ];
 
-    private const HTML_ATTRIB_ALLOWED_CROW = [ 
-        'div.class' => [ 
+    private const HTML_ATTRIB_ALLOWED_CROW = [
+        'div.class' => [
             'modAnnounce', 'html'
         ]
     ];
@@ -292,7 +292,7 @@ class MessageController extends AbstractController
             'dice-4', 'dice-6', 'dice-8', 'dice-10', 'dice-12', 'dice-20', 'dice-100',
             'letter-a', 'letter-v', 'letter-c',
             'rps', 'coin', 'card',
-             'citizen', 'rpText',
+            'citizen', 'rpText',
         ],
         'span.class' => [
             'quoteauthor','bad','rpauthor'
@@ -1239,21 +1239,21 @@ class MessageController extends AbstractController
             if ($report->getSourceUser()->getId() == $user->getId())
                 return AjaxResponse::success();
 
-            $newReport = (new AdminReport())
+        $newReport = (new AdminReport())
             ->setSourceUser($user)
             ->setTs(new DateTime('now'))
             ->setPost($post);
 
-            try {
-                $em->persist($newReport);
-                $em->flush();
-            } catch (Exception $e) {
-                return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
-            }
-            $message = $ti->trans('Du hast die Nachricht von %username% dem Raben gemeldet. Wer weiß, vielleicht wird %username% heute Nacht stääärben...', ['%username%' => '<span>' . $post->getOwner()->getUsername() . '</span>'], 'game');
-            $this->addFlash('notice', $message);
-            return AjaxResponse::success( );
+        try {
+            $em->persist($newReport);
+            $em->flush();
+        } catch (Exception $e) {
+            return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
         }
+        $message = $ti->trans('Du hast die Nachricht von %username% dem Raben gemeldet. Wer weiß, vielleicht wird %username% heute Nacht stääärben...', ['%username%' => '<span>' . $post->getOwner()->getUsername() . '</span>'], 'game');
+        $this->addFlash('notice', $message);
+        return AjaxResponse::success( );
+    }
 
     /**
      * @Route("api/town/house/sendpm", name="town_house_send_pm_controller")
