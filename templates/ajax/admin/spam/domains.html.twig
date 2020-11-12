@@ -1,0 +1,76 @@
+{% extends "ajax/ajax.html.twig" %}
+{% block ajax %}
+    <div class="row">
+        <div class="cell rw-12">
+            <b>{{ 'Anzahl der gelisteten Domains: %number%'|trans({'%number%': n},'admin') }}</b>
+            <hr />
+            <div style="height: 250px; overflow-y: scroll;" id="domain_list"></div>
+            <div class="row-flex">
+                <div class="padded cell grow-1">
+                    <label><input type="text" id="domain_search" placeholder="{{ 'Domain-Suche'|trans({},'admin') }}" /></label>
+                </div>
+                {% if is_granted("ROLE_ADMIN") %}
+                    <div class="padded cell">
+                        <button id="domain_delete">{{ 'Gewählte entfernen'|trans({},'admin') }}</button>
+                    </div>
+                {% endif %}
+            </div>
+            {% if is_granted("ROLE_ADMIN") %}
+                <hr />
+                <label for="domain_new">{{ 'Domains hinzufügen'|trans({},'admin') }}</label>
+                <textarea id="domain_new" style="height: 250px;"></textarea>
+                <div class="float-right">
+                    <button id="domain_add">{{ 'Hinzufügen'|trans({},'admin') }}</button>
+                </div>
+            {% endif %}
+        </div>
+
+    </div>
+{% endblock %}
+{% block js %}
+    <script>
+        {% if is_granted("ROLE_ADMIN") %}
+            $.html.addEventListenerAll('#domain_add', 'click', function() {
+                $.ajax.easySend( '{{ path('admin_add_spam_domain') }}', {'list': document.getElementById("domain_new").value},
+                    function () {
+                        $.ajax.load(null, '{{ path('admin_spam_domain_view') }}', true);
+                    } );
+            });
+
+            $.html.addEventListenerAll('#domain_delete', 'click', function() {
+                let values = [];
+                $.html.forEach('#domain_list input[type=checkbox]:checked', function(elem) {
+                    values.push( elem.value );
+                });
+
+                $.ajax.easySend( '{{ path('admin_remove_spam_domain') }}', {'list': values},
+                    function () {
+                        $.ajax.load(null, '{{ path('admin_spam_domain_view') }}', true);
+                    } );
+            });
+        {% endif %}
+
+        let typingTimer, doneTypingInterval = 300;
+        let searchBox = document.getElementById('domain_search');
+        const domainSearchHandler = function() {
+            $.ajax.background().load(
+                document.getElementById('domain_list'),
+                '{{ path('admin_spam_domain_search') }}',
+                false,
+                {'query': searchBox.value}
+            );
+        };
+
+        const domainSearchHandlerUp = function () {
+            clearTimeout(typingTimer);
+            typingTimer = setTimeout(domainSearchHandler, doneTypingInterval);
+        };
+
+        const domainSearchHandlerDown = function () {
+            clearTimeout(typingTimer);
+        };
+
+        searchBox.addEventListener('keyup', domainSearchHandlerUp);
+        searchBox.addEventListener('keydown', domainSearchHandlerDown);
+    </script>
+{% endblock %}
