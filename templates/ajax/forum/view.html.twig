@@ -27,7 +27,7 @@
                     {% endif %}
                 </div>
                 <div class="cell rw-8 title"  style="padding: 5px;">
-                    <div>
+                    <div {% if thread.hidden %}style="color: red"{% endif %}>
                         {% if thread.translatable %}
                             {{ thread.title|trans({},'game') }}
                         {% else %}

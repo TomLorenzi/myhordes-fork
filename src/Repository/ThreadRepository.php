@@ -22,11 +22,12 @@ class ThreadRepository extends ServiceEntityRepository
         parent::__construct($registry, Thread::class);
     }
 
-    public function countByForum( Forum $forum ): int {
+    public function countByForum( Forum $forum, bool $include_hidden = false ): int {
         try {
             return $this->createQueryBuilder('t')
                 ->select('COUNT(t.id)')
                 ->andWhere('t.forum = :forum')->setParameter('forum', $forum)
+                ->andWhere($include_hidden ? '1 = 1' : 't.hidden = false')
                 ->getQuery()
                 ->getSingleScalarResult();
         } catch (Exception $e) {
@@ -34,12 +35,13 @@ class ThreadRepository extends ServiceEntityRepository
         }
     }
 
-    public function findByForumSemantic(Forum $forum, int $semantic): ?Thread
+    public function findByForumSemantic(Forum $forum, int $semantic, bool $include_hidden = false): ?Thread
     {
         try {
             return $this->createQueryBuilder('t')
                 ->andWhere('t.semantic = :semantic')->setParameter('semantic', $semantic)
                 ->andWhere('t.forum = :forum')->setParameter('forum', $forum)
+                ->andWhere($include_hidden ? '1 = 1' : 't.hidden = false')
                 ->orderBy('t.lastPost', 'DESC')
                 ->setMaxResults(1)
                 ->getQuery()
@@ -49,11 +51,12 @@ class ThreadRepository extends ServiceEntityRepository
         }
     }
 
-    public function findByForum(Forum $forum, $number = null, $offset = null)
+    public function findByForum(Forum $forum, $number = null, $offset = null, bool $include_hidden = false)
     {
         $q = $this->createQueryBuilder('t')
             ->andWhere('t.pinned = false')
             ->andWhere('t.forum = :forum')->setParameter('forum', $forum)
+            ->andWhere($include_hidden ? '1 = 1' : 't.hidden = false')
             ->orderBy('t.lastPost', 'DESC');
         if ($number !== null) $q->setMaxResults($number);
         if ($offset !== null) $q->setFirstResult($offset);
@@ -63,11 +66,12 @@ class ThreadRepository extends ServiceEntityRepository
             ;
     }
 
-    public function findPinnedByForum(Forum $forum, $number = null, $offset = null)
+    public function findPinnedByForum(Forum $forum, $number = null, $offset = null, bool $include_hidden = false)
     {
         $q = $this->createQueryBuilder('t')
             ->andWhere('t.pinned = true')
             ->andWhere('t.forum = :forum')->setParameter('forum', $forum)
+            ->andWhere($include_hidden ? '1 = 1' : 't.hidden = false')
             ->orderBy('t.lastPost', 'DESC');
         if ($number !== null) $q->setMaxResults($number);
         if ($offset !== null) $q->setFirstResult($offset);
