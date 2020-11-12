@@ -138,7 +138,8 @@ class MessageController extends AbstractController
             /** @var Thread $thread */
             /** @var ThreadReadMarker $marker */
             $marker = $em->getRepository(ThreadReadMarker::class)->findByThreadAndUser($user, $thread);
-            if ($marker && $thread->getLastPost() <= $marker->getPost()->getDate()) $thread->setNew();
+            $lastPost = $thread->lastPost();
+            if ($marker && $lastPost && $lastPost->getDate() <= $marker->getPost()->getDate()) $thread->setNew();
         }
 
         if ( $this->perm->isPermitted( $permissions, ForumUsagePermissions::PermissionListThreads ) ) {
@@ -151,7 +152,8 @@ class MessageController extends AbstractController
             /** @var Thread $thread */
             /** @var ThreadReadMarker $marker */
             $marker = $em->getRepository(ThreadReadMarker::class)->findByThreadAndUser($user, $thread);
-            if ($marker && $thread->getLastPost() <= $marker->getPost()->getDate()) $thread->setNew();
+            $lastPost = $thread->lastPost();
+            if ($marker && $lastPost && $lastPost->getDate() <= $marker->getPost()->getDate()) $thread->setNew();
         }
 
         return $this->render( 'ajax/forum/view.html.twig', $this->addDefaultTwigArgs([
