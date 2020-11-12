@@ -1,7 +1,7 @@
 {% block ajax %}
     {% for user in users %}
         <div class="users-list-entry">
-            <div x-ajax-href="{{ url('soul_visit', {id: user.id}) }}" x-ajax-target="#content">
+            <div x-soul-id="{{ user.id }}" x-soul-url="{{ url(route, {id: user.id}) }}">
                 <div class="avatar small"><img alt="" src="{{ user.avatar ? path('app_web_avatar', {'uid': user.id, 'name': user.avatar.smallName, 'ext': user.avatar.format}) : asset('build/images/forum/empty_avatar.gif') }}" style="margin-right: 0;"></div> {{ user.name }}
             </div>
         </div>

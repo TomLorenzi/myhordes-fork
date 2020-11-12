@@ -1123,7 +1123,7 @@
       </notes>
       <segment>
         <source>Wenn aus Twinoid importiert, Ländercode + Season (zb "fr-12"); sonst leer.</source>
-        <target>Wenn aus Twinoid importiert, Ländercode + Season (zb "fr-12"); sonst leer.</target>
+        <target>Si importé de Twinoid, code pays + saison (par exemple "fr-12"); sinon vide.</target>
       </segment>
     </unit>
   </file>

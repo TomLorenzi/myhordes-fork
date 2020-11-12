@@ -1,6 +1,8 @@
 parameters:
   local: []
   myhordes:
+    coalitions:
+      size: 5
     fatalmail:
       target: ~
       source: ~

@@ -1009,5 +1009,59 @@
         <target>Beta-Funktionen deaktivieren</target>
       </segment>
     </unit>
+    <unit id="VoOkBZ0" name="Ein Mitglied deiner Koalition kann dieser Stadt nicht beitreten.">
+      <notes>
+        <note category="german">Ein Mitglied deiner Koalition kann dieser Stadt nicht beitreten.</note>
+      </notes>
+      <segment>
+        <source>Ein Mitglied deiner Koalition kann dieser Stadt nicht beitreten.</source>
+        <target>Ein Mitglied deiner Koalition kann dieser Stadt nicht beitreten.</target>
+      </segment>
+    </unit>
+    <unit id="jLPuWWW" name="In dieser Stadt ist kein Platz mehr für dich und deine Koalition.">
+      <notes>
+        <note category="german">In dieser Stadt ist kein Platz mehr für dich und deine Koalition.</note>
+      </notes>
+      <segment>
+        <source>In dieser Stadt ist kein Platz mehr für dich und deine Koalition.</source>
+        <target>In dieser Stadt ist kein Platz mehr für dich und deine Koalition.</target>
+      </segment>
+    </unit>
+    <unit id="hMJko2L" name="6057265">
+      <notes>
+        <note category="german">Achtung: Du stehst deiner Koalition NICHT ZUR VERFÜGUNG! Das bedeutet, dass du diese Partie allein spielen wirst.</note>
+      </notes>
+      <segment>
+        <source>Achtung: Du stehst deiner Koalition NICHT ZUR VERFÜGUNG! Das bedeutet, dass du diese Partie allein spielen wirst.</source>
+        <target>Achtung: Du stehst deiner Koalition NICHT ZUR VERFÜGUNG! Das bedeutet, dass du diese Partie allein spielen wirst.</target>
+      </segment>
+    </unit>
+    <unit id="cglpSDE" name="6b90743">
+      <notes>
+        <note category="german">Achtung: Im Moment steht kein Mitglied deiner Koalition zur Verfügung, um dir in eine Stadt zu folgen.</note>
+      </notes>
+      <segment>
+        <source>Achtung: Im Moment steht kein Mitglied deiner Koalition zur Verfügung, um dir in eine Stadt zu folgen.</source>
+        <target>Achtung: Im Moment steht kein Mitglied deiner Koalition zur Verfügung, um dir in eine Stadt zu folgen.</target>
+      </segment>
+    </unit>
+    <unit id="UtrdfFQ" name="21c3104">
+      <notes>
+        <note category="german">Achtung: Im Moment stehen nicht alle Mitglieder deiner Koalition zur Verfügung, um dir in eine Stadt zu folgen.</note>
+      </notes>
+      <segment>
+        <source>Achtung: Im Moment stehen nicht alle Mitglieder deiner Koalition zur Verfügung, um dir in eine Stadt zu folgen.</source>
+        <target>Achtung: Im Moment stehen nicht alle Mitglieder deiner Koalition zur Verfügung, um dir in eine Stadt zu folgen.</target>
+      </segment>
+    </unit>
+    <unit id="EwLUGr9" name="8b6f59e">
+      <notes>
+        <note category="german">Wenn du eine Stadt betrittst, werden folgende Mitglieder deiner Koalition dir folgen:</note>
+      </notes>
+      <segment>
+        <source>Wenn du eine Stadt betrittst, werden folgende Mitglieder deiner Koalition dir folgen:</source>
+        <target>Wenn du eine Stadt betrittst, werden folgende Mitglieder deiner Koalition dir folgen:</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

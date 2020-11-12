@@ -15,24 +15,43 @@ use Doctrine\ORM\Mapping\UniqueConstraint;
  */
 class UserGroupAssociation
 {
+    const GroupAssociationTypeDefault   = 0;
+    const GroupAssociationTypeCoalitionInvitation     = 1000;
+    const GroupAssociationTypeCoalitionMember         = 1001;
+    const GroupAssociationTypeCoalitionMemberInactive = 1002;
+
+    const GroupAssociationLevelDefault = 0;
+    const GroupAssociationLevelFounder = 100;
+
     /**
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
      */
-    private $id;
+    private int $id;
 
     /**
      * @ORM\ManyToOne(targetEntity=User::class, cascade={"persist"})
      * @ORM\JoinColumn(nullable=false, onDelete="CASCADE")
      */
-    private $user;
+    private ?User $user = null;
 
     /**
      * @ORM\ManyToOne(targetEntity=UserGroup::class, cascade={"persist"})
      * @ORM\JoinColumn(nullable=false, onDelete="CASCADE")
      */
-    private $association;
+    private ?UserGroup $association = null;
+
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private ?int $associationType = self::GroupAssociationTypeDefault;
+
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private ?int $associationLevel;
+
 
     public function getId(): ?int
     {
@@ -59,6 +78,30 @@ class UserGroupAssociation
     public function setAssociation(UserGroup $association): self
     {
         $this->association = $association;
+
+        return $this;
+    }
+
+    public function getAssociationType(): ?int
+    {
+        return $this->associationType;
+    }
+
+    public function setAssociationType(?int $associationType): self
+    {
+        $this->associationType = $associationType;
+
+        return $this;
+    }
+
+    public function getAssociationLevel(): ?int
+    {
+        return $this->associationLevel;
+    }
+
+    public function setAssociationLevel(?int $associationLevel): self
+    {
+        $this->associationLevel = $associationLevel;
 
         return $this;
     }
