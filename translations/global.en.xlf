@@ -345,7 +345,7 @@
     </unit>
     <unit id="Tae9Qqu" name="Forum">
       <notes>
-        <note category="german">Forum</note>
+        <note category="german">Foren</note>
       </notes>
       <segment>
         <source>Forum</source>
@@ -1555,7 +1555,7 @@
       </notes>
       <segment>
         <source>Wir müssen den Wachturm benutzen, um eine Schätzung des Angriffs zu erhalten.</source>
-        <target>Wir müssen den Wachturm benutzen, um eine Schätzung des Angriffs zu erhalten.</target>
+        <target>We have to use the watchtower to get an estimate of the attack.</target>
       </segment>
     </unit>
     <unit id="pET9_Tj" name="Du weißt nicht, was du tun sollst? Folge den Empfehlungen hier unten :)">
@@ -1582,7 +1582,7 @@
       </notes>
       <segment>
         <source>Manche deiner Gegenstände sind &lt;strong&gt;benutzbar&lt;/strong&gt;. Klick einfach auf einen Link hier unten, um den jeweiligen Gegenstand zu gebrauchen. Andere Gegenstände wiederum, wie zum Beispiel Waffen, können nur &lt;strong&gt;außerhalb der Stadt&lt;/strong&gt; verwendet werden..</source>
-        <target><![CDATA[Manche deiner Gegenstände sind <strong>benutzbar</strong>. Klick einfach auf einen Link hier unten, um den jeweiligen Gegenstand zu gebrauchen. Andere Gegenstände wiederum, wie zum Beispiel Waffen, können nur <strong>außerhalb der Stadt</strong> verwendet werden..]]></target>
+        <target><![CDATA[Some of your items are <strong>usable</strong>. Just click on a link below to use the item in question. Other items, such as weapons, can only be used <strong>outside of town</strong> ..]]></target>
       </segment>
     </unit>
     <unit id="H1CIx1I" name="Stadtforum">
@@ -1591,7 +1591,7 @@
       </notes>
       <segment>
         <source>Stadtforum</source>
-        <target>Stadtforum</target>
+        <target>Town Forum</target>
       </segment>
     </unit>
     <unit id="78Bg7UU" name="Weltforen">
@@ -1600,7 +1600,7 @@
       </notes>
       <segment>
         <source>Weltforen</source>
-        <target>Weltforen</target>
+        <target>World Forums</target>
       </segment>
     </unit>
     <unit id="9o6Bgnk" name="Andere Foren">
@@ -1609,7 +1609,7 @@
       </notes>
       <segment>
         <source>Andere Foren</source>
-        <target>Andere Foren</target>
+        <target>Other Forums</target>
       </segment>
     </unit>
     <unit id="h.t7uDT" name="Mindestens ein Post in diesem Thema wurde den Moderatoren gemeldet.">
@@ -1618,7 +1618,7 @@
       </notes>
       <segment>
         <source>Mindestens ein Post in diesem Thema wurde den Moderatoren gemeldet.</source>
-        <target>Mindestens ein Post in diesem Thema wurde den Moderatoren gemeldet.</target>
+        <target>At least one post on this Topic has been reported to the Moderators.</target>
       </segment>
     </unit>
     <unit id="KV1uMW3" name="Dieses Thema enthält %count% gemeldete Posts:">
@@ -1627,7 +1627,7 @@
       </notes>
       <segment>
         <source>Dieses Thema enthält %count% gemeldete Posts:</source>
-        <target>Dieses Thema enthält %count% gemeldete Posts:</target>
+        <target>This Topic contains %count% reported posts:</target>
       </segment>
     </unit>
     <unit id="XvJRBeq" name="%num% Meldungen. Klicken, um Benutzer anzuzeigen.">
@@ -1636,7 +1636,7 @@
       </notes>
       <segment>
         <source>%num% Meldungen. Klicken, um Benutzer anzuzeigen.</source>
-        <target>%num% Meldungen. Klicken, um Benutzer anzuzeigen.</target>
+        <target>%num% Messages. Click to view users.</target>
       </segment>
     </unit>
     <unit id="uVEhYFM" name="Gelöscht von %user% (%time%). Klicken, um den Grund einzublenden.">
@@ -1645,7 +1645,7 @@
       </notes>
       <segment>
         <source>Gelöscht von %user% (%time%). Klicken, um den Grund einzublenden.</source>
-        <target>Gelöscht von %user% (%time%). Klicken, um den Grund einzublenden.</target>
+        <target>Deleted by %user% (%time%). Click to reveal the reason.</target>
       </segment>
     </unit>
     <unit id="gAhtva3" name="Überprüft">
@@ -1654,7 +1654,7 @@
       </notes>
       <segment>
         <source>Überprüft</source>
-        <target>Überprüft</target>
+        <target>Checked</target>
       </segment>
     </unit>
     <unit id="q5mhXGv" name="Wiederherstellen">
@@ -1663,7 +1663,7 @@
       </notes>
       <segment>
         <source>Wiederherstellen</source>
-        <target>Wiederherstellen</target>
+        <target>Restore</target>
       </segment>
     </unit>
     <unit id="p47NfhB" name="37691d8">
@@ -1672,7 +1672,7 @@
       </notes>
       <segment>
         <source>Wir sollten mehr Verteidigungsanlagen bauen. Falls Ressourcen dafür fehlen, geh in die Außenwelt (die Wüste außerhalb der Stadt) und suche danach.</source>
-        <target>Wir sollten mehr Verteidigungsanlagen bauen. Falls Ressourcen dafür fehlen, geh in die Außenwelt (die Wüste außerhalb der Stadt) und suche danach.</target>
+        <target>We should build more defenses. If resources are lacking, go to the outside world (the desert outside the city) and look for it.</target>
       </segment>
     </unit>
     <unit id="6gPmw1f" name="05b29ea">
@@ -1681,7 +1681,8 @@
       </notes>
       <segment>
         <source>&lt;strong&gt;Wichtig:&lt;/strong&gt; Verteidigungsgegenstände können maximal &lt;strong&gt;500&lt;/strong&gt; Verteidigungspunkte vergeben!</source>
-        <target><![CDATA[<strong>Wichtig:</strong> Verteidigungsgegenstände können maximal <strong>500</strong> Verteidigungspunkte vergeben!]]></target>
+        <target><![CDATA[<strong>Important:</strong>
+        Defence objects can award a maximum of <strong>500</strong> defence points!]]></target>
       </segment>
     </unit>
     <unit id="Wwiv0r7" name="Diese Abwehrkräfte werden von gereinigten Seelen gebracht.">
@@ -1690,7 +1691,7 @@
       </notes>
       <segment>
         <source>Diese Abwehrkräfte werden von gereinigten Seelen gebracht.</source>
-        <target>Diese Abwehrkräfte werden von gereinigten Seelen gebracht.</target>
+        <target>These defences are brought about by purified souls.</target>
       </segment>
     </unit>
     <unit id="mhXv42Q" name="735ca7b">
@@ -1699,7 +1700,16 @@
       </notes>
       <segment>
         <source>Jeder &lt;strong&gt;Verteidigungsgegenstand&lt;/strong&gt;, der sich in der Bank befindet, bringt der Stadt &lt;strong&gt;1 Verteidigungspunkte&lt;/strong&gt;.</source>
-        <target><![CDATA[Jeder <strong>Verteidigungsgegenstand</strong>, der sich in der Bank befindet, bringt der Stadt <strong>1 Verteidigungspunkte</strong>.]]></target>
+        <target><![CDATA[Each <strong>Defence Object</strong> in the bank gives the city <strong>1 defence point</strong>.]]></target>
+      </segment>
+    </unit>
+    <unit id="uB2Vk6P" name="oder">
+      <notes>
+        <note category="german">oder</note>
+      </notes>
+      <segment>
+        <source>oder</source>
+        <target>oder</target>
       </segment>
     </unit>
   </file>

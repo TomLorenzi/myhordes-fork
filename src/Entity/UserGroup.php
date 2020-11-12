@@ -20,6 +20,8 @@ class UserGroup
 
     const GroupTownInhabitants = 10;
 
+    const GroupSmallCoalition = 101;
+
     /**
      * @ORM\Id
      * @ORM\GeneratedValue
@@ -46,6 +48,11 @@ class UserGroup
      * @ORM\Column(type="integer", nullable=true)
      */
     private $ref2;
+
+    /**
+     * @ORM\OneToOne(targetEntity=Shoutbox::class, mappedBy="userGroup", cascade={"persist", "remove"})
+     */
+    private $shoutbox;
 
     public function getId(): ?int
     {
@@ -96,6 +103,23 @@ class UserGroup
     public function setRef2(?int $ref2): self
     {
         $this->ref2 = $ref2;
+
+        return $this;
+    }
+
+    public function getEntries(): ?Shoutbox
+    {
+        return $this->entries;
+    }
+
+    public function setEntries(Shoutbox $entries): self
+    {
+        $this->entries = $entries;
+
+        // set the owning side of the relation if necessary
+        if ($entries->getUserGroup() !== $this) {
+            $entries->setUserGroup($this);
+        }
 
         return $this;
     }

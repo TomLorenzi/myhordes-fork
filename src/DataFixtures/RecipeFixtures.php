@@ -291,7 +291,7 @@ class RecipeFixtures extends Fixture implements DependentFixtureInterface
         'ws021' => ['type' => Recipe::WorkshopType, 'in' => 'prints_#02',          'out' => 'classicKey_#00', 'action' => 'Wandeln' ],    // Abdruck vom Flaschenöffner
 
         // Shaman Specific recipes
-        'ws022' => ['type' => Recipe::WorkshopTypeShamanSpecific, 'in' => 'soul_blue_#00',      'out' => 'soul_yellow_#00', 'action' => 'Wandeln'],
+        'ws022' => ['type' => Recipe::WorkshopTypeShamanSpecific, 'in' => 'soul_blue_#00',      'out' => 'soul_yellow_#00', 'action' => 'Wandeln', "picto"=> "r_mystic2_#00" ],
 
         'com001' => ['type' => Recipe::ManualAnywhere, 'out' => 'coffee_machine_#00',     'provoking' => 'coffee_machine_part_#00','in' => ['coffee_machine_part_#00', 'cyanure_#00', 'electro_#00', 'meca_parts_#00', 'rustine_#00', 'metal_#00', 'tube_#00' ] ],
         'com002' => ['type' => Recipe::ManualAnywhere, 'out' => 'music_#00',              'provoking' => 'music_part_#00',         'in' => ['music_part_#00', 'pile_#00', 'electro_#00'] ],
@@ -331,7 +331,7 @@ class RecipeFixtures extends Fixture implements DependentFixtureInterface
         'com032' => ['type' => Recipe::ManualAnywhere, 'out' => 'fungus_#00',     'provoking' => 'ryebag_#00', 'in' => ['ryebag_#00', 'lens_#00'] ],
         'com033' => ['type' => Recipe::ManualAnywhere, 'out' => 'lsd_#00',        'provoking' => 'fungus_#00', 'in' => ['fungus_#00', 'poison_part_#00'] ],
         'com034' => ['type' => Recipe::ManualAnywhere, 'out' => 'chkspk_#00',     'provoking' => 'chudol_#00', 'in' => ['chudol_#00', 'lsd_#00'] ],
-        'com035' => ['type' => Recipe::ManualAnywhere, 'out' => 'fruit_#00',      'provoking' => 'fruit_part_#00', 'in' => ['fruit_sub_part_#00', 'fruit_part_#00'] ],
+        'com035' => ['type' => Recipe::ManualAnywhere, 'out' => 'fruit_#00',      'provoking' => 'fruit_part_#00', 'in' => ['fruit_sub_part_#00', 'fruit_part_#00'], "picto"=> "r_solban_#00" ],
         'com036' => ['type' => Recipe::ManualAnywhere, 'out' => 'dfhifi_#00',     'provoking' => 'cdelvi_#00', 'in' => ['cdelvi_#00', 'music_#00'] ],
         'com037' => ['type' => Recipe::ManualAnywhere, 'out' => 'hifiev_#00',     'provoking' => 'cdphil_#00', 'in' => ['cdphil_#00', 'music_#00'] ],
         'com039' => ['type' => Recipe::ManualAnywhere, 'out' => 'hifiev_#00',     'provoking' => 'cdbrit_#00', 'in' => ['cdbrit_#00', 'music_#00'] ],

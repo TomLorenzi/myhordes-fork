@@ -1696,7 +1696,7 @@
       </notes>
       <segment>
         <source>Dein Account wurde gesperrt.</source>
-        <target>Dein Account wurde gesperrt.</target>
+        <target>Your account has been banned.</target>
       </segment>
     </unit>
     <unit id="smLPd3k" name="Dein Account wurde von einem Administrator vom Spiel ausgeschlossen.">
@@ -1705,7 +1705,7 @@
       </notes>
       <segment>
         <source>Dein Account wurde von einem Administrator vom Spiel ausgeschlossen.</source>
-        <target>Dein Account wurde von einem Administrator vom Spiel ausgeschlossen.</target>
+        <target>Your account has been banned from the game by an Administrator.</target>
       </segment>
     </unit>
     <unit id="w55zJhZ" name="Diese Sperre ist permanent.">
@@ -1714,7 +1714,7 @@
       </notes>
       <segment>
         <source>Diese Sperre ist permanent.</source>
-        <target>Diese Sperre ist permanent.</target>
+        <target>This lock is permanent.</target>
       </segment>
     </unit>
     <unit id="zh9.khn" name="8177ade">
@@ -1723,7 +1723,7 @@
       </notes>
       <segment>
         <source>Wenn du dich aktuell in einer Stadt befindest, kannst du dort keine Aktionen mehr durchführen und nicht länger auf das Stadtforum zugreifen.</source>
-        <target>Wenn du dich aktuell in einer Stadt befindest, kannst du dort keine Aktionen mehr durchführen und nicht länger auf das Stadtforum zugreifen.</target>
+        <target>If you are currently in a town, you can no longer perform any actions there and no longer access the town forum.</target>
       </segment>
     </unit>
     <unit id="Abv4VOi" name="Du kannst auch keiner neuen Stadt mehr beitreten.">
@@ -1732,7 +1732,7 @@
       </notes>
       <segment>
         <source>Du kannst auch keiner neuen Stadt mehr beitreten.</source>
-        <target>Du kannst auch keiner neuen Stadt mehr beitreten.</target>
+        <target>Also, you can not any longer join a new town.</target>
       </segment>
     </unit>
     <unit id="vTDbvR_" name="Folgende Begründung wurde für deine Sperre hinterlegt:">
@@ -1741,7 +1741,7 @@
       </notes>
       <segment>
         <source>Folgende Begründung wurde für deine Sperre hinterlegt:</source>
-        <target>Folgende Begründung wurde für deine Sperre hinterlegt:</target>
+        <target>The following reason was deposited for your ban:</target>
       </segment>
     </unit>
     <unit id="4pm3p5L" name="Es wurde keine Begründung für diese Sperre hinterlegt.">
@@ -1750,7 +1750,394 @@
       </notes>
       <segment>
         <source>Es wurde keine Begründung für diese Sperre hinterlegt.</source>
-        <target>Es wurde keine Begründung für diese Sperre hinterlegt.</target>
+        <target>No reason was given for this ban.</target>
+      </segment>
+    </unit>
+    <unit id="clP2Rxk" name="EternalTwin-Nutzer">
+      <notes>
+        <note category="german">EternalTwin-Nutzer</note>
+      </notes>
+      <segment>
+        <source>EternalTwin-Nutzer</source>
+        <target>EternalTwin-Nutzer</target>
+      </segment>
+    </unit>
+    <unit id="0T9At.g" name="32951b2">
+      <notes>
+        <note category="german">Dieser Spieler verwendet einen EternalTwin-Account. Wir feuen uns, ihn bei MyHordes begrüßen zu dürfen!</note>
+      </notes>
+      <segment>
+        <source>Dieser Spieler verwendet einen EternalTwin-Account. Wir feuen uns, ihn bei MyHordes begrüßen zu dürfen!</source>
+        <target>Dieser Spieler verwendet einen EternalTwin-Account. Wir feuen uns, ihn bei MyHordes begrüßen zu dürfen!</target>
+      </segment>
+    </unit>
+    <unit id="XRvl7w0" name="ce071ab">
+      <notes>
+        <note category="german">Das angegebene Profil kann nicht importiert werden, da es bereits einem anderen MyHordes-Konto zugeordnet ist.</note>
+      </notes>
+      <segment>
+        <source>Das angegebene Profil kann nicht importiert werden, da es bereits einem anderen MyHordes-Konto zugeordnet ist.</source>
+        <target>Das angegebene Profil kann nicht importiert werden, da es bereits einem anderen MyHordes-Konto zugeordnet ist.</target>
+      </segment>
+    </unit>
+    <unit id="wstj04z" name="MyHordes ist ein stolzer Bestandteil des EternalTwin-Netzwerkes!">
+      <notes>
+        <note category="german">MyHordes ist ein stolzer Bestandteil des EternalTwin-Netzwerkes!</note>
+      </notes>
+      <segment>
+        <source>MyHordes ist ein stolzer Bestandteil des EternalTwin-Netzwerkes!</source>
+        <target>MyHordes ist ein stolzer Bestandteil des EternalTwin-Netzwerkes!</target>
+      </segment>
+    </unit>
+    <unit id="WVIMH8t" name="a7e6e46">
+      <notes>
+        <note category="german">Um MyHordes auch in Zukunft weiter spielen zu können, musst du deinen alten MyHordes-Account mit einem EternalTwin-Account verknüpfen.</note>
+      </notes>
+      <segment>
+        <source>Um MyHordes auch in Zukunft weiter spielen zu können, musst du deinen alten MyHordes-Account mit einem EternalTwin-Account verknüpfen.</source>
+        <target>Um MyHordes auch in Zukunft weiter spielen zu können, musst du deinen alten MyHordes-Account mit einem EternalTwin-Account verknüpfen.</target>
+      </segment>
+    </unit>
+    <unit id="CACKQCH" name="EternalTwin-Account verknüpfen">
+      <notes>
+        <note category="german">EternalTwin-Account verknüpfen</note>
+      </notes>
+      <segment>
+        <source>EternalTwin-Account verknüpfen</source>
+        <target>EternalTwin-Account verknüpfen</target>
+      </segment>
+    </unit>
+    <unit id="lqipl75" name="%name%'s Koalition">
+      <notes>
+        <note category="german">%name%'s Koalition</note>
+      </notes>
+      <segment>
+        <source>%name%'s Koalition</source>
+        <target>%name%'s Koalition</target>
+      </segment>
+    </unit>
+    <unit id="j8VraNU" name="Herzlichen Glückwunsch, du bist der Koalition soeben beigetreten!">
+      <notes>
+        <note category="german">Herzlichen Glückwunsch, du bist der Koalition soeben beigetreten!</note>
+      </notes>
+      <segment>
+        <source>Herzlichen Glückwunsch, du bist der Koalition soeben beigetreten!</source>
+        <target>Herzlichen Glückwunsch, du bist der Koalition soeben beigetreten!</target>
+      </segment>
+    </unit>
+    <unit id="MNqhTYg" name="Es tut uns Leid, aber dieser Spieler gehört bereits einer Koalition an.">
+      <notes>
+        <note category="german">Es tut uns Leid, aber dieser Spieler gehört bereits einer Koalition an.</note>
+      </notes>
+      <segment>
+        <source>Es tut uns Leid, aber dieser Spieler gehört bereits einer Koalition an.</source>
+        <target>Es tut uns Leid, aber dieser Spieler gehört bereits einer Koalition an.</target>
+      </segment>
+    </unit>
+    <unit id="3gqWAoL" name="Hierfür musst du einer Koalition angehören.">
+      <notes>
+        <note category="german">Hierfür musst du einer Koalition angehören.</note>
+      </notes>
+      <segment>
+        <source>Hierfür musst du einer Koalition angehören.</source>
+        <target>Hierfür musst du einer Koalition angehören.</target>
+      </segment>
+    </unit>
+    <unit id="57GeJrY" name="Du bist bereits Mitglied einer Koalition.">
+      <notes>
+        <note category="german">Du bist bereits Mitglied einer Koalition.</note>
+      </notes>
+      <segment>
+        <source>Du bist bereits Mitglied einer Koalition.</source>
+        <target>Du bist bereits Mitglied einer Koalition.</target>
+      </segment>
+    </unit>
+    <unit id="yQfn1EC" name="Deine Koalition ist bereits voll.">
+      <notes>
+        <note category="german">Deine Koalition ist bereits voll.</note>
+      </notes>
+      <segment>
+        <source>Deine Koalition ist bereits voll.</source>
+        <target>Deine Koalition ist bereits voll.</target>
+      </segment>
+    </unit>
+    <unit id="QuFqW4z" name="Spielhilfe: Kleine Koalitionen">
+      <notes>
+        <note category="german">Spielhilfe: Kleine Koalitionen</note>
+      </notes>
+      <segment>
+        <source>Spielhilfe: Kleine Koalitionen</source>
+        <target>Spielhilfe: Kleine Koalitionen</target>
+      </segment>
+    </unit>
+    <unit id="GO1ZJcp" name="3e3b0ae">
+      <notes>
+        <note category="german">Du möchtest schon seit langem &lt;strong&gt;mit deinen Freunden zusammen sterben&lt;/strong&gt;? Du möchtest die gleichen schönen und &lt;strong&gt;entsetzlichen&lt;/strong&gt; Momente mit ihnen erleben? Dann sind die &lt;strong&gt;Kleinen Koalitionen&lt;/strong&gt; genau das richtige für dich! Es handelt sich um kleine Mannschaften von &lt;strong&gt;5&lt;/strong&gt; Bürgern, die gemeinsam die Welt der Verdammten entdecken möchten.</note>
+      </notes>
+      <segment>
+        <source>Du möchtest schon seit langem &lt;strong&gt;mit deinen Freunden zusammen sterben&lt;/strong&gt;? Du möchtest die gleichen schönen und &lt;strong&gt;entsetzlichen&lt;/strong&gt; Momente mit ihnen erleben? Dann sind die &lt;strong&gt;Kleinen Koalitionen&lt;/strong&gt; genau das richtige für dich! Es handelt sich um kleine Mannschaften von &lt;strong&gt;5&lt;/strong&gt; Bürgern, die gemeinsam die Welt der Verdammten entdecken möchten.</source>
+        <target><![CDATA[Du möchtest schon seit langem <strong>mit deinen Freunden zusammen sterben</strong>? Du möchtest die gleichen schönen und <strong>entsetzlichen</strong> Momente mit ihnen erleben? Dann sind die <strong>Kleinen Koalitionen</strong> genau das richtige für dich! Es handelt sich um kleine Mannschaften von <strong>5</strong> Bürgern, die gemeinsam die Welt der Verdammten entdecken möchten.]]></target>
+      </segment>
+    </unit>
+    <unit id="_SpidlG" name="cb2469f">
+      <notes>
+        <note category="german">Das Prinzip ist ganz einfach: Wenn ihr in einer Koalition spielt, &lt;strong&gt;zieht der Erste, der eine Partie anfängt, alle verfügbaren Koalitionsmitglieder mit sich ins Spiel.&lt;/strong&gt;</note>
+      </notes>
+      <segment>
+        <source>Das Prinzip ist ganz einfach: Wenn ihr in einer Koalition spielt, &lt;strong&gt;zieht der Erste, der eine Partie anfängt, alle verfügbaren Koalitionsmitglieder mit sich ins Spiel.&lt;/strong&gt;</source>
+        <target><![CDATA[Das Prinzip ist ganz einfach: Wenn ihr in einer Koalition spielt, <strong>zieht der Erste, der eine Partie anfängt, alle verfügbaren Koalitionsmitglieder mit sich ins Spiel.</strong>]]></target>
+      </segment>
+    </unit>
+    <unit id="vxIJV3j" name="Du möchtest deine eigene Koalition erstellen?">
+      <notes>
+        <note category="german">Du möchtest deine eigene Koalition erstellen?</note>
+      </notes>
+      <segment>
+        <source>Du möchtest deine eigene Koalition erstellen?</source>
+        <target>Du möchtest deine eigene Koalition erstellen?</target>
+      </segment>
+    </unit>
+    <unit id="h_4dLhS" name="Meine Koalition erstellen">
+      <notes>
+        <note category="german">Meine Koalition erstellen</note>
+      </notes>
+      <segment>
+        <source>Meine Koalition erstellen</source>
+        <target>Meine Koalition erstellen</target>
+      </segment>
+    </unit>
+    <unit id="okBUp.C" name="Einer existierenden Koalition beitreten">
+      <notes>
+        <note category="german">Einer existierenden Koalition beitreten</note>
+      </notes>
+      <segment>
+        <source>Einer existierenden Koalition beitreten</source>
+        <target>Einer existierenden Koalition beitreten</target>
+      </segment>
+    </unit>
+    <unit id="S6ckGt2" name="Es hat dich bisher noch niemand eingeladen.">
+      <notes>
+        <note category="german">Es hat dich bisher noch niemand eingeladen.</note>
+      </notes>
+      <segment>
+        <source>Es hat dich bisher noch niemand eingeladen.</source>
+        <target>Es hat dich bisher noch niemand eingeladen.</target>
+      </segment>
+    </unit>
+    <unit id="3NHVIj9" name="Name">
+      <notes>
+        <note category="german">Name</note>
+      </notes>
+      <segment>
+        <source>Name</source>
+        <target>Name</target>
+      </segment>
+    </unit>
+    <unit id="Vlb5Lbe" name="Aktionen">
+      <notes>
+        <note category="german">Aktionen</note>
+      </notes>
+      <segment>
+        <source>Aktionen</source>
+        <target>Aktionen</target>
+      </segment>
+    </unit>
+    <unit id="ze.SRGE" name="Mitmachen!">
+      <notes>
+        <note category="german">Mitmachen!</note>
+      </notes>
+      <segment>
+        <source>Mitmachen!</source>
+        <target>Mitmachen!</target>
+      </segment>
+    </unit>
+    <unit id="RRAKPkm" name="Die Einladung ablehnen.">
+      <notes>
+        <note category="german">Die Einladung ablehnen.</note>
+      </notes>
+      <segment>
+        <source>Die Einladung ablehnen.</source>
+        <target>Die Einladung ablehnen.</target>
+      </segment>
+    </unit>
+    <unit id="3hmiaVs" name="Shoutbox der Koalition">
+      <notes>
+        <note category="german">Shoutbox der Koalition</note>
+      </notes>
+      <segment>
+        <source>Shoutbox der Koalition</source>
+        <target>Shoutbox der Koalition</target>
+      </segment>
+    </unit>
+    <unit id="EdbufZv" name="Verfügbare Mitglieder">
+      <notes>
+        <note category="german">Verfügbare Mitglieder</note>
+      </notes>
+      <segment>
+        <source>Verfügbare Mitglieder</source>
+        <target>Verfügbare Mitglieder</target>
+      </segment>
+    </unit>
+    <unit id="XblqKpM" name="Nicht verfügbar">
+      <notes>
+        <note category="german">Nicht verfügbar</note>
+      </notes>
+      <segment>
+        <source>Nicht verfügbar</source>
+        <target>Nicht verfügbar</target>
+      </segment>
+    </unit>
+    <unit id="3E9hxaU" name="Ausstehende Einladungen">
+      <notes>
+        <note category="german">Ausstehende Einladungen</note>
+      </notes>
+      <segment>
+        <source>Ausstehende Einladungen</source>
+        <target>Ausstehende Einladungen</target>
+      </segment>
+    </unit>
+    <unit id="RG9ZXHi" name="Einen Freund einladen">
+      <notes>
+        <note category="german">Einen Freund einladen</note>
+      </notes>
+      <segment>
+        <source>Einen Freund einladen</source>
+        <target>Einen Freund einladen</target>
+      </segment>
+    </unit>
+    <unit id="8dquNSH" name="Optionen">
+      <notes>
+        <note category="german">Optionen</note>
+      </notes>
+      <segment>
+        <source>Optionen</source>
+        <target>Optionen</target>
+      </segment>
+    </unit>
+    <unit id="Rh5HYn_" name="Du stehst &lt;strong&gt;zur Verfügung&lt;/strong&gt;.">
+      <notes>
+        <note category="german">Du stehst &lt;strong&gt;zur Verfügung&lt;/strong&gt;.</note>
+      </notes>
+      <segment>
+        <source>Du stehst &lt;strong&gt;zur Verfügung&lt;/strong&gt;.</source>
+        <target><![CDATA[Du stehst <strong>zur Verfügung</strong>.]]></target>
+      </segment>
+    </unit>
+    <unit id="o.K5fG9" name="Du stehst &lt;strong&gt;nicht zur Verfügung&lt;/strong&gt;.">
+      <notes>
+        <note category="german">Du stehst &lt;strong&gt;nicht zur Verfügung&lt;/strong&gt;.</note>
+      </notes>
+      <segment>
+        <source>Du stehst &lt;strong&gt;nicht zur Verfügung&lt;/strong&gt;.</source>
+        <target><![CDATA[Du stehst <strong>nicht zur Verfügung</strong>.]]></target>
+      </segment>
+    </unit>
+    <unit id="jFqiwRT" name="Meinen Status ändern">
+      <notes>
+        <note category="german">Meinen Status ändern</note>
+      </notes>
+      <segment>
+        <source>Meinen Status ändern</source>
+        <target>Meinen Status ändern</target>
+      </segment>
+    </unit>
+    <unit id="rq4q8kx" name="Verlassen UND auflösen">
+      <notes>
+        <note category="german">Verlassen UND auflösen</note>
+      </notes>
+      <segment>
+        <source>Verlassen UND auflösen</source>
+        <target>Verlassen UND auflösen</target>
+      </segment>
+    </unit>
+    <unit id="oiwx9uP" name="Verlassen">
+      <notes>
+        <note category="german">Verlassen</note>
+      </notes>
+      <segment>
+        <source>Verlassen</source>
+        <target>Verlassen</target>
+      </segment>
+    </unit>
+    <unit id="sLJWy9T" name="Nicht in einer Stadt">
+      <notes>
+        <note category="german">Nicht in einer Stadt</note>
+      </notes>
+      <segment>
+        <source>Nicht in einer Stadt</source>
+        <target>Nicht in einer Stadt</target>
+      </segment>
+    </unit>
+    <unit id="AT.EHRB" name="Diesen Spieler ausschließen?">
+      <notes>
+        <note category="german">Diesen Spieler ausschließen?</note>
+      </notes>
+      <segment>
+        <source>Diesen Spieler ausschließen?</source>
+        <target>Diesen Spieler ausschließen?</target>
+      </segment>
+    </unit>
+    <unit id="xpAtz8l" name="Diesen Spieler ausschließen.">
+      <notes>
+        <note category="german">Diesen Spieler ausschließen.</note>
+      </notes>
+      <segment>
+        <source>Diesen Spieler ausschließen.</source>
+        <target>Diesen Spieler ausschließen.</target>
+      </segment>
+    </unit>
+    <unit id="PmiiQcl" name="Die Shoutbox ist leer...">
+      <notes>
+        <note category="german">Die Shoutbox ist leer...</note>
+      </notes>
+      <segment>
+        <source>Die Shoutbox ist leer...</source>
+        <target>Die Shoutbox ist leer...</target>
+      </segment>
+    </unit>
+    <unit id="kaVP2oE" name="%u1% hat %u2% in die Koalition eingeladen.">
+      <notes>
+        <note category="german">%u1% hat %u2% in die Koalition eingeladen.</note>
+      </notes>
+      <segment>
+        <source>%u1% hat %u2% in die Koalition eingeladen.</source>
+        <target>%u1% hat %u2% in die Koalition eingeladen.</target>
+      </segment>
+    </unit>
+    <unit id="KIepEhG" name="%u1% ist der Koalition soeben beigetreten!">
+      <notes>
+        <note category="german">%u1% ist der Koalition soeben beigetreten!</note>
+      </notes>
+      <segment>
+        <source>%u1% ist der Koalition soeben beigetreten!</source>
+        <target>%u1% ist der Koalition soeben beigetreten!</target>
+      </segment>
+    </unit>
+    <unit id="u4t4MK2" name="%u1% hat die Koalition verlassen.">
+      <notes>
+        <note category="german">%u1% hat die Koalition verlassen.</note>
+      </notes>
+      <segment>
+        <source>%u1% hat die Koalition verlassen.</source>
+        <target>%u1% hat die Koalition verlassen.</target>
+      </segment>
+    </unit>
+    <unit id="lbwHiv9" name="%u1% hat %u2% aus der Koalition entfernt.">
+      <notes>
+        <note category="german">%u1% hat %u2% aus der Koalition entfernt.</note>
+      </notes>
+      <segment>
+        <source>%u1% hat %u2% aus der Koalition entfernt.</source>
+        <target>%u1% hat %u2% aus der Koalition entfernt.</target>
+      </segment>
+    </unit>
+    <unit id="xtAW3cb" name="%u1% hat sich soeben in die Stadt &quot;%town%&quot; eingeschrieben!">
+      <notes>
+        <note category="german">%u1% hat sich soeben in die Stadt "%town%" eingeschrieben!</note>
+      </notes>
+      <segment>
+        <source>%u1% hat sich soeben in die Stadt "%town%" eingeschrieben!</source>
+        <target>%u1% hat sich soeben in die Stadt "%town%" eingeschrieben!</target>
       </segment>
     </unit>
   </file>

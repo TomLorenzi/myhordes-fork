@@ -8,7 +8,7 @@
                         <div class="avatar small"><img alt="" src="{{ path('app_web_avatar', {'uid': user.id, 'name': user.avatar.smallName, 'ext': user.avatar.format}) }}"></div>
                     {% endif %}
                     <h4 class="soul-name">
-                        <img src="{{ asset('build/images/icons/small_ghost_red.gif') }}" alt="{{'Held'|trans({}, 'game')}}" /> {{ user.username }}
+                        <img src="{{ asset('build/images/icons/small_ghost_red.gif') }}" alt="{{'Held'|trans({}, 'game')}}" /> {{ user.name }}
                     </h4>
                 </div>
                 <div class="float-right">

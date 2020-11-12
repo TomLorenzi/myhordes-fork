@@ -608,6 +608,18 @@ class PictoFixtures extends Fixture
             'icon' => 'r_gsp',
             'rare' => false
         ],
+        [
+            'label' => 'Kernsammler (job)',
+            'description' => 'Anzahl der im Ausland gesammelten Seelen verstorbener Bürger (job)',
+            'icon' => 'r_collec2',
+            'rare' => false
+        ],
+        [
+            'label' => 'Mystic (job)',
+            'description' => 'Wie viele Seelen hat Ihre Stadt befreien können. (job)',
+            'icon' => 'r_mystic2',
+            'rare' => false
+        ],
     ];
 
     private $entityManager;

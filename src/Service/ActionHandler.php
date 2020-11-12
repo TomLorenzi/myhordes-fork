@@ -437,7 +437,7 @@ class ActionHandler
             $s =  $this->translator->trans($o->getLabel(), [], 'buildings');
             $i = 'build/images/building/' . $o->getIcon() . '.gif';
         } else if (is_a($o, Citizen::class)) {
-            $s =  $o->getUser()->getUsername();
+            $s =  $o->getUser()->getName();
             $i = 'build/images/professions/' . $o->getProfession()->getIcon() . '.gif';
         }
         else if (is_string($o)) $s = $o;

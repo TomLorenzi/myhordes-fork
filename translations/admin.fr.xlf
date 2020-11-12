@@ -219,7 +219,7 @@
     </unit>
     <unit id="Tae9Qqu" name="Forum">
       <notes>
-        <note category="german">Forum</note>
+        <note category="german">Foren</note>
       </notes>
       <segment>
         <source>Forum</source>
@@ -1421,6 +1421,132 @@
       <segment>
         <source>Whitelist</source>
         <target>Liste blanche</target>
+      </segment>
+    </unit>
+    <unit id="GEzMtJe" name="E-Mail eingeben.">
+      <notes>
+        <note category="german">E-Mail eingeben.</note>
+      </notes>
+      <segment>
+        <source>E-Mail eingeben.</source>
+        <target>E-Mail eingeben.</target>
+      </segment>
+    </unit>
+    <unit id="lJqqLMl" name="E-Mail ändern">
+      <notes>
+        <note category="german">E-Mail ändern</note>
+      </notes>
+      <segment>
+        <source>E-Mail ändern</source>
+        <target>E-Mail ändern</target>
+      </segment>
+    </unit>
+    <unit id="5sAjGFp" name="Neues Passwort eingeben.">
+      <notes>
+        <note category="german">Neues Passwort eingeben.</note>
+      </notes>
+      <segment>
+        <source>Neues Passwort eingeben.</source>
+        <target>Neues Passwort eingeben.</target>
+      </segment>
+    </unit>
+    <unit id="n2HwFFe" name="Neues Passwort setzen">
+      <notes>
+        <note category="german">Neues Passwort setzen</note>
+      </notes>
+      <segment>
+        <source>Neues Passwort setzen</source>
+        <target>Neues Passwort setzen</target>
+      </segment>
+    </unit>
+    <unit id="V1ukt7Z" name="EternalTwin-Integration">
+      <notes>
+        <note category="german">EternalTwin-Integration</note>
+      </notes>
+      <segment>
+        <source>EternalTwin-Integration</source>
+        <target>EternalTwin-Integration</target>
+      </segment>
+    </unit>
+    <unit id="OkyzTP2" name="In lokalen Account umwandeln">
+      <notes>
+        <note category="german">In lokalen Account umwandeln</note>
+      </notes>
+      <segment>
+        <source>In lokalen Account umwandeln</source>
+        <target>In lokalen Account umwandeln</target>
+      </segment>
+    </unit>
+    <unit id="B9D7Dk5" name="Kartei">
+      <notes>
+        <note category="german">Kartei</note>
+      </notes>
+      <segment>
+        <source>Kartei</source>
+        <target>Kartei</target>
+      </segment>
+    </unit>
+    <unit id="OrLqzbq" name="Anzeigename">
+      <notes>
+        <note category="german">Anzeigename</note>
+      </notes>
+      <segment>
+        <source>Anzeigename</source>
+        <target>Anzeigename</target>
+      </segment>
+    </unit>
+    <unit id="14HKU3b" name="Lokal: %account%">
+      <notes>
+        <note category="german">Lokal: %account%</note>
+      </notes>
+      <segment>
+        <source>Lokal: %account%</source>
+        <target>Lokal: %account%</target>
+      </segment>
+    </unit>
+    <unit id="OaKjJho" name="Von EternalTwin verwaltet">
+      <notes>
+        <note category="german">Von EternalTwin verwaltet</note>
+      </notes>
+      <segment>
+        <source>Von EternalTwin verwaltet</source>
+        <target>Von EternalTwin verwaltet</target>
+      </segment>
+    </unit>
+    <unit id="uCT9EnO" name="Nur für Administratoren sichtbar">
+      <notes>
+        <note category="german">Nur für Administratoren sichtbar</note>
+      </notes>
+      <segment>
+        <source>Nur für Administratoren sichtbar</source>
+        <target>Nur für Administratoren sichtbar</target>
+      </segment>
+    </unit>
+    <unit id="pitbSje" name="Verknüpfte Konten">
+      <notes>
+        <note category="german">Verknüpfte Konten</note>
+      </notes>
+      <segment>
+        <source>Verknüpfte Konten</source>
+        <target>Verknüpfte Konten</target>
+      </segment>
+    </unit>
+    <unit id="L0eG_iZ" name="EternalTwin-Konto">
+      <notes>
+        <note category="german">EternalTwin-Konto</note>
+      </notes>
+      <segment>
+        <source>EternalTwin-Konto</source>
+        <target>EternalTwin-Konto</target>
+      </segment>
+    </unit>
+    <unit id="nz1fjZT" name="Sonstiges">
+      <notes>
+        <note category="german">Sonstiges</note>
+      </notes>
+      <segment>
+        <source>Sonstiges</source>
+        <target>Sonstiges</target>
       </segment>
     </unit>
   </file>

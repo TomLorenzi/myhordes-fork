@@ -1,7 +1,7 @@
 {% extends "mail/framework.html.twig" %}
 {% block body %}
     {# @var user \App\Entity\User #}
-    <p><b>{{ 'Hallo %user%! Willkommen bei MyHordes!'|trans({ '%user%': user.username },'mail') }}</b></p>
+    <p><b>{{ 'Hallo %user%! Willkommen bei MyHordes!'|trans({ '%user%': user.name },'mail') }}</b></p>
     <p>{{ 'Um deine Registrierung abzuschließen, benötigst du folgenden Validierungscode:'|trans({},'mail') }}</p>
     {# @var token \App\Entity\UserPendingValidation #}
     <p><b>{{ token.pkey }}</b></p>

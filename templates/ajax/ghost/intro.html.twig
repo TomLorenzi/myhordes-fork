@@ -5,6 +5,37 @@
             <h4>{% trans from 'ghost' %}Wähle eine Stadt{% endtrans %}{% if canCreateTown %}<span class="link float-right" x-ajax-href="{{ path('ghost_create_town') }}">{{'Privatstadt gründen'|trans({}, 'ghost')}}</span>{% endif %}</h4>
             <div class="row">
                 <div class="cell rw-8 rw-md-12">
+                    {% if warnCoaInactive %}
+                        <div class="note note-warning">
+                            {% trans from 'ghost' %}
+                                Achtung: Du stehst deiner Koalition NICHT ZUR VERFÜGUNG! Das bedeutet, dass du diese Partie allein spielen wirst.
+                            {% endtrans %}
+                        </div>
+                    {% elseif warnCoaEmpty %}
+                        <div class="note note-warning">
+                            {% trans from 'ghost' %}
+                                Achtung: Im Moment steht kein Mitglied deiner Koalition zur Verfügung, um dir in eine Stadt zu folgen.
+                            {% endtrans %}
+                        </div>
+                    {% elseif warnCoaNotComplete %}
+                        <div class="note note-warning">
+                            {% trans from 'ghost' %}
+                                Achtung: Im Moment stehen nicht alle Mitglieder deiner Koalition zur Verfügung, um dir in eine Stadt zu folgen.
+                            {% endtrans %}
+                        </div>
+                    {% endif %}
+
+                    {% if coa is not empty %}
+                        <div class="note">
+                            {% trans from 'ghost' %}
+                                Wenn du eine Stadt betrittst, werden folgende Mitglieder deiner Koalition dir folgen:
+                            {% endtrans %}<br />
+                            {% for member in coa %}
+                                <strong>{{ member.name }}</strong><br />
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+
                     {% for townClass in townClasses %}
 
                         {% set joinable = userCanJoin[townClass.name] %}
@@ -41,7 +72,7 @@
                                                             {% else %}
                                                                 <img src="{{ asset('build/images/professions/death.gif') }}" alt="{{ denizen.profession.label|trans({},'game') }}" />
                                                             {% endif %}
-                                                            <a class="link" href="{{ path('soul_visit', {id: denizen.user.id}) }}">{{ denizen.user.username }}</a>
+                                                            <a class="link" href="{{ path('soul_visit', {id: denizen.user.id}) }}">{{ denizen.user.name }}</a>
                                                         </li>
                                                     {% endfor %}
                                                 </ul>

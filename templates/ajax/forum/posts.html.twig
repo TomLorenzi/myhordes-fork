@@ -116,9 +116,9 @@
         {% for post in posts %}
             {# @var post \App\Entity\Post #}
             {% if not post.hidden or permission.moderate() %}
-                {% set author_name = (post.owner.username == 'Der Rabe') ? 'Der Rabe'|trans({},'global') : post.owner.username %}
+                {% set author_name = (post.owner.name == 'Der Rabe') ? 'Der Rabe'|trans({},'global') : post.owner.name %}
                 <div x-post-wrapper-id="{{ post.id }}" class="forum-post {% if not post.hidden %}{% else %}forum-post-hidden{% endif %} {% if post.new %}forum-post-new{% endif %} {% if markedPost is defined and post.id == markedPost %}forum-post-marked{% endif %}">
-                    <div class="forum-post-header {% if post.owner.username == 'Der Rabe' %}header-variant-crow{% elseif post.type == "DEV" %}header-variant-dev{% endif %}">
+                    <div class="forum-post-header {% if post.owner.name == 'Der Rabe' %}header-variant-crow{% elseif post.type == "DEV" %}header-variant-dev{% endif %}">
                         <i>
                             {% if post.date.format('Ymd') == today|date("Ymd") %}
                                 {{ 'Heute um'|trans({},'global') }} {{ post.date|format_datetime('none', 'short') }}
@@ -130,13 +130,13 @@
                         </i>
                         {% if (post.owner.avatar) %}
                             {% if app.user.preferSmallAvatars %}
-                                {% if post.owner.username == 'Der Rabe' %}
+                                {% if post.owner.name == 'Der Rabe' %}
                                     <div class="avatarcrow small"><img alt="" src="{{ path('app_web_avatar', {'uid': post.owner.id, 'name': post.owner.avatar.smallName, 'ext': post.owner.avatar.format}) }}"></div>
                                 {% else %}
                                     <div class="avatar small"><img alt="" src="{{ path('app_web_avatar', {'uid': post.owner.id, 'name': post.owner.avatar.smallName, 'ext': post.owner.avatar.format}) }}"></div>
                                 {% endif %}
                             {% else %}
-                                {% if post.owner.username == 'Der Rabe' %}
+                                {% if post.owner.name == 'Der Rabe' %}
                                     <div class="avatarcrow"><img alt="" src="{{ path('app_web_avatar', {'uid': post.owner.id, 'name': post.owner.avatar.filename, 'ext': post.owner.avatar.format}) }}"></div>
                                 {% else %}
                                     <div class="avatar"><img alt="" src="{{ path('app_web_avatar', {'uid': post.owner.id, 'name': post.owner.avatar.filename, 'ext': post.owner.avatar.format}) }}"></div>
@@ -158,7 +158,7 @@
                                 <span>{{ '%num% Meldungen. Klicken, um Benutzer anzuzeigen.'|trans({'%num%': post.adminReports(true)|length},'global') }}</span>
                                 <div>
                                     {% for report in post.adminReports(true) %}
-                                        <span class="pointer" x-ajax-href="{{ path('soul_visit', {id: report.sourceUser.id}) }}">{{ report.sourceUser.username }}</span>
+                                        <span class="pointer" x-ajax-href="{{ path('soul_visit', {id: report.sourceUser.id}) }}">{{ report.sourceUser.name }}</span>
                                     {% endfor %}
                                 </div>
                             </div>
@@ -172,7 +172,7 @@
                         {% if post.adminDeletion is not null %}
                             <div class="modrev modInfoText pointer">
                             <span>{{ 'Gelöscht von %user% (%time%). Klicken, um den Grund einzublenden.'|trans({
-                                    '%user%': post.adminDeletion.sourceUser.username,
+                                    '%user%': post.adminDeletion.sourceUser.name,
                                     '%time%': post.adminDeletion.timestamp|format_datetime('medium', 'short'),
                                 },'global') }}</span>
                                 <div>{{ post.adminDeletion.reason }}</div>
@@ -195,9 +195,9 @@
                             {% else %}
                                 {% if post.lastAdminActionBy is not null and post.edited is not null %}
                                     {{ 'Zuletzt bearbeitet: %date%'|trans({'%date%': post.edited|format_datetime('medium', 'short')},'game') }}
-                                    {{ ' ~ MOD: ' ~ post.lastAdminActionBy.username }}
+                                    {{ ' ~ MOD: ' ~ post.lastAdminActionBy.name }}
                                 {% elseif post.lastAdminActionBy is not null and post.edited is null %}
-                                    {{ 'MOD: ' ~ post.lastAdminActionBy.username }}
+                                    {{ 'MOD: ' ~ post.lastAdminActionBy.name }}
                                 {% endif %}
                             {% endif %}
                         </div>

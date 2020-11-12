@@ -5601,20 +5601,20 @@
     </unit>
     <unit id="iUTpVp." name="Kernsammler">
       <notes>
-        <note category="german">Kernsammler</note>
+        <note category="german">Seelenreiniger</note>
       </notes>
       <segment>
         <source>Kernsammler</source>
-        <target>Recolector de Almas</target>
+        <target>Purificador de almas</target>
       </segment>
     </unit>
     <unit id="lul.uPB" name="Anzahl der im Ausland gesammelten Seelen verstorbener Bürger">
       <notes>
-        <note category="german">Anzahl der im Ausland gesammelten Seelen verstorbener Bürger</note>
+        <note category="german">Anzahl der Seelen verstorbener Bürger, die Sie gereinigt haben.</note>
       </notes>
       <segment>
         <source>Anzahl der im Ausland gesammelten Seelen verstorbener Bürger</source>
-        <target>Cantidad de almas recolectadas de habitantes fallecidos en el Ultramundo</target>
+        <target>Cantidad de almas recolectadas que has purificado.</target>
       </segment>
     </unit>
     <unit id="FRTO7P3" name="Kämpfe um Leben und Tod">
@@ -9262,7 +9262,7 @@
       </notes>
       <segment>
         <source>Betreff:</source>
-        <target>Betreff:</target>
+        <target>Sujeto:</target>
       </segment>
     </unit>
     <unit id="cvWytR6" name="Ich BESTÄTIGE meine Nachricht">
@@ -14285,6 +14285,69 @@
       <segment>
         <source>Die Zone ist vollständig mit verrottender Vegetation, Sand und allem möglichen Schrott bedeckt. Du bist dir sicher, dass es hier etwas zu finden gibt, aber zunächst musst du diesen gesamten Sektor aufräumen um ihn vernünftig durchsuchen zu können.</source>
         <target>Die Zone ist vollständig mit verrottender Vegetation, Sand und allem möglichen Schrott bedeckt. Du bist dir sicher, dass es hier etwas zu finden gibt, aber zunächst musst du diesen gesamten Sektor aufräumen um ihn vernünftig durchsuchen zu können.</target>
+      </segment>
+    </unit>
+    <unit id="IDhWsfU" name="HAZ-Gewinner">
+      <notes>
+        <note category="german">HAZ-Gewinner</note>
+      </notes>
+      <segment>
+        <source>HAZ-Gewinner</source>
+        <target>HAZ-Gewinner</target>
+      </segment>
+    </unit>
+    <unit id="ltZ7BR_" name="Ehrenauszeichnung für den Gewinner der Heilung für die Auszeichnungssucht.">
+      <notes>
+        <note category="german">Ehrenauszeichnung für den Gewinner der Heilung für die Auszeichnungssucht.</note>
+      </notes>
+      <segment>
+        <source>Ehrenauszeichnung für den Gewinner der Heilung für die Auszeichnungssucht.</source>
+        <target>Ehrenauszeichnung für den Gewinner der Heilung für die Auszeichnungssucht.</target>
+      </segment>
+    </unit>
+    <unit id="YZc0dgj" name="Kernsammler (job)">
+      <notes>
+        <note category="german">Kernsammler</note>
+      </notes>
+      <segment>
+        <source>Kernsammler (job)</source>
+        <target>Recolector de Almas</target>
+      </segment>
+    </unit>
+    <unit id="mRdxtx0" name="Anzahl der im Ausland gesammelten Seelen verstorbener Bürger (job)">
+      <notes>
+        <note category="german">Anzahl der im Ausland gesammelten Seelen verstorbener Bürger</note>
+      </notes>
+      <segment>
+        <source>Anzahl der im Ausland gesammelten Seelen verstorbener Bürger (job)</source>
+        <target>Cantidad de almas recolectadas de habitantes fallecidos en el Ultramundo</target>
+      </segment>
+    </unit>
+    <unit id="SZYZY_h" name="Mystic (job)">
+      <notes>
+        <note category="german">Mystische Transformation</note>
+      </notes>
+      <segment>
+        <source>Mystic (job)</source>
+        <target>Transformación Mística</target>
+      </segment>
+    </unit>
+    <unit id="dMCiesS" name="Wie viele Seelen hat Ihre Stadt befreien können. (job)">
+      <notes>
+        <note category="german">Anzahl der Seelen, die du in der Werkstatt umgewandelt hast.</note>
+      </notes>
+      <segment>
+        <source>Wie viele Seelen hat Ihre Stadt befreien können. (job)</source>
+        <target>Cantidad de almas que has transformado en el Taller</target>
+      </segment>
+    </unit>
+    <unit id="MsIlSXC" name="Ich bin geheilt">
+      <notes>
+        <note category="german">Ich bin geheilt</note>
+      </notes>
+      <segment>
+        <source>Ich bin geheilt</source>
+        <target>Ich bin geheilt</target>
       </segment>
     </unit>
   </file>

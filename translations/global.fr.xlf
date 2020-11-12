@@ -345,7 +345,7 @@
     </unit>
     <unit id="Tae9Qqu" name="Forum">
       <notes>
-        <note category="german">Forum</note>
+        <note category="german">Foren</note>
       </notes>
       <segment>
         <source>Forum</source>
@@ -1709,6 +1709,15 @@
       <segment>
         <source>Wiederherstellen</source>
         <target>Restaurer</target>
+      </segment>
+    </unit>
+    <unit id="uB2Vk6P" name="oder">
+      <notes>
+        <note category="german">oder</note>
+      </notes>
+      <segment>
+        <source>oder</source>
+        <target>oder</target>
       </segment>
     </unit>
   </file>

@@ -48,6 +48,17 @@
             </div>
         </div>
     {% endif %}
+
+    {#  @var bagder \App\Entity\User #}
+    {% if user_handler.hasRole(badger, "ROLE_ETERNAL") %}
+        <div class="badge badge-eternal">
+            <div></div>
+            <div class="tooltip badge-tooltip">
+                <b>{{ 'EternalTwin-Nutzer'|trans({},'soul') }}</b>
+                {{ 'Dieser Spieler verwendet einen EternalTwin-Account. Wir feuen uns, ihn bei MyHordes begrüßen zu dürfen!'|trans({},'soul') }}
+            </div>
+        </div>
+    {% endif %}
 </div>
 
 <script>

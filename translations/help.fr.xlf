@@ -4087,7 +4087,7 @@ Achtung: Wenn er in seiner Deckung eine Aktion ausführt, verliert er seine Tarn
     </unit>
     <unit id="1AGCtVy" name="c84c963">
       <notes>
-        <note category="german">Auch wenn der Titel anderes vermuten lässt: "Tick, Trick und Tracks Schlaues Buch" ist von unschätzbarem Wert. Es enthält zahlreiche Tipps und Tricks, wie man in der Natur am besten überleben und Nahrung finden kann.</note>
+        <note category="german">Auch wenn der Titel anderes vermuten lässt: "Tick, Trick und Tracks Schlaues Buch" ist von unschätzbarem Wert. Es enthält zahlreiche Tipps und Tricks, wie man in der Natur am besten überleben und Nahrung finden kann. Sei vorsichtig, die Chancen, etwas zu essen zu finden, werden sich im Laufe der Tage ändern. Nach 20 Tagen wird es daher schwierig sein, Essen oder Trinken zu finden, und noch mehr, wenn die Stadt zerstört ist...</note>
       </notes>
       <segment>
         <source>Auch wenn der Titel anderes vermuten lässt: "Tick, Trick und Tracks Schlaues Buch" ist von unschätzbarem Wert. Es enthält zahlreiche Tipps und Tricks, wie man in der Natur am besten überleben und Nahrung finden kann.</source>
@@ -4248,6 +4248,317 @@ Aus dem Abdruck eines bestimmten Schlosses kann er außerdem einen Einmal-Schlü
         <source>Er ist daneben eine wertvolle Hilfe in den verlassenen Gebäuden. Mit seinem Talent und seinem Werkzeug zum Öffnen von Türen werdet ihr solche Gebäude einfacher untersuchen können.
 Aus dem Abdruck eines bestimmten Schlosses kann er außerdem einen Einmal-Schlüssel herstellen, mit dem sich ebendiese Tür später öffnen lässt.</source>
         <target>Il sera d'une aide précieuse dans les ruines abandonnées : son talent, conjugué avec son matériel, lui permettra de réaliser des empreintes de serrures de portes solidement fermées. Il lui faudra néanmoins raffiner l'empreinte en ville pour obtenir une clé temporaire, lui permettant d'ouvrir plus tard la porte en question.</target>
+      </segment>
+    </unit>
+    <unit id="iZhm0MR" name="7185590">
+      <notes>
+        <note category="german">Der "Reiseleiter in der Außenwelt" ist ein besonderer Bürger. Die schwere Verantwortung, seinen Kameraden bei der Navigation durch die Außenwelt zu helfen, liegt auf seinen Schultern.
+Dies bedeutet, dass dieser Bürger Expiditionen organisieren, der Anführer sein kann (auch wenn er kein Held ist) und einen Kontrollpunkt für jeden anderen Bürger in seiner Zone hinzufügen kann.</note>
+      </notes>
+      <segment>
+        <source>Der "Reiseleiter in der Außenwelt" ist ein besonderer Bürger. Die schwere Verantwortung, seinen Kameraden bei der Navigation durch die Außenwelt zu helfen, liegt auf seinen Schultern.
+Dies bedeutet, dass dieser Bürger Expiditionen organisieren, der Anführer sein kann (auch wenn er kein Held ist) und einen Kontrollpunkt für jeden anderen Bürger in seiner Zone hinzufügen kann.</source>
+        <target>Le Guide de l'Outre-Monde est un citoyen vraiment à part. Lui vient la responsabilité d'aider ses concitoyens à voyager dans l'Outre-Monde. Pour cela, il peut organiser des expéditions, être leader (même s'il n'est pas héro), et offre dans les zones où il se trouve un point de contrôle supplémentaire par personne présente.</target>
+      </segment>
+    </unit>
+    <unit id="aVNJko." name="Wie werde ich dieser Anführer, von dem du sprichst?">
+      <notes>
+        <note category="german">Wie werde ich dieser Anführer, von dem du sprichst?</note>
+      </notes>
+      <segment>
+        <source>Wie werde ich dieser Anführer, von dem du sprichst?</source>
+        <target>Comment devenir Guide de l'Outre-Monde?</target>
+      </segment>
+    </unit>
+    <unit id="JGKyk6g" name="4223cec">
+      <notes>
+        <note category="german">Durch eine Wahl!
+In der ersten Nacht in der Stadt und nach dem Tod jedes nachfolgenden Führers (ja, es ist ein gefährlicher Job) wird eine Wahl abgehalten.
+Während dieser Manifestation der Demokratie wird eine Debatte stattfinden und die Abstimmung wird folgen. Am Ende wird der... qualifizierteste... Bürger ausgewählt, um eine Zielscheibe, ich meine Hut zu tragen...
+Von diesem Moment an verfügt der neue Anführer über besondere Fähigkeiten, die er zum Wohle der Stadt nutzen kann.</note>
+      </notes>
+      <segment>
+        <source>Durch eine Wahl!
+In der ersten Nacht in der Stadt und nach dem Tod jedes nachfolgenden Führers (ja, es ist ein gefährlicher Job) wird eine Wahl abgehalten.
+Während dieser Manifestation der Demokratie wird eine Debatte stattfinden und die Abstimmung wird folgen. Am Ende wird der... qualifizierteste... Bürger ausgewählt, um eine Zielscheibe, ich meine Hut zu tragen...
+Von diesem Moment an verfügt der neue Anführer über besondere Fähigkeiten, die er zum Wohle der Stadt nutzen kann.</source>
+        <target>En se faisant élire! Lors de la première nuit, et à chaque mort du Guide de l'Outre-Monde, une nouvelle assemblée citoyenne aura lieu. Durant cette assemblée, un débat prend place et l'assemblée termine par un vote, attribuant au citoyen le plus ...qualifié.. le titre de Guide de l'Outre-Monde. A partir de ce moment là, ce citoyen se voit attribuer des actions spécifiques qu'il pourra exploiter.</target>
+      </segment>
+    </unit>
+    <unit id="9tmUsfs" name="1277be0">
+      <notes>
+        <note category="german">So wird der Anführer ein wichtiger Teil des Überlebens der Stadt und seiner Nachbarn... Aber wie lange wird dieser neue Anführer überhaupt überleben???</note>
+      </notes>
+      <segment>
+        <source>So wird der Anführer ein wichtiger Teil des Überlebens der Stadt und seiner Nachbarn... Aber wie lange wird dieser neue Anführer überhaupt überleben???</source>
+        <target>Le Guide de l'Outre-Monde est donc un personnage central pour la bonne survie de ces concitoyens, mais survivra-t-il plus longtemps pour autant?</target>
+      </segment>
+    </unit>
+    <unit id="3VWbsLn" name="5c9343c">
+      <notes>
+        <note category="german">Der Schamane ist ein unglaublich mächtiger Voodoo-Zauberer, der vom Tod anderer Bürger profitieren kann, um seine schwarze Magie auszuführen.
+Der Schamane weiß, wie man das Nutzlose nutzt und wie man eine nützlichere Reinkarnation für unsere Verstorbenen herbeiführt.</note>
+      </notes>
+      <segment>
+        <source>Der Schamane ist ein unglaublich mächtiger Voodoo-Zauberer, der vom Tod anderer Bürger profitieren kann, um seine schwarze Magie auszuführen.
+Der Schamane weiß, wie man das Nutzlose nutzt und wie man eine nützlichere Reinkarnation für unsere Verstorbenen herbeiführt.</source>
+        <target>Le Chaman serait un sorcier vaudou surpuissant tirant profit de la mort des autres pour exercer sa magie noire. Dans les faits, c'est un citoyen à la sensibilité plus aigüe et qui fait preuve parfois de chance!</target>
+      </segment>
+    </unit>
+    <unit id="TXxL0zS" name="Wie wirst du der Stadtschamane?">
+      <notes>
+        <note category="german">Wie wirst du der Stadtschamane?</note>
+      </notes>
+      <segment>
+        <source>Wie wirst du der Stadtschamane?</source>
+        <target>Comment être Chaman?</target>
+      </segment>
+    </unit>
+    <unit id="k1MDJd5" name="70b54b1">
+      <notes>
+        <note category="german">In der ersten Nacht und jedes Mal, wenn der Schamane stirbt, findet ein Stadttreffen statt. Während dieses Treffens findet eine Debatte statt und nach vielem Streiten, Ausweichen vor Verantwortung und zweifellos Trinken wird der ... "qualifizierteste" Bewohner als Schamane bezeichnet! Von diesem Moment an wird der Schamane Zugang zu neuen Kräften und neuen "Punkten" haben.</note>
+      </notes>
+      <segment>
+        <source>In der ersten Nacht und jedes Mal, wenn der Schamane stirbt, findet ein Stadttreffen statt. Während dieses Treffens findet eine Debatte statt und nach vielem Streiten, Ausweichen vor Verantwortung und zweifellos Trinken wird der ... "qualifizierteste" Bewohner als Schamane bezeichnet! Von diesem Moment an wird der Schamane Zugang zu neuen Kräften und neuen "Punkten" haben.</source>
+        <target>Lors de la première nuit, et à chaque mort du chaman, une nouvelle assemblée citoyenne aura lieu. Durant cette assemblée, un débat prend place et l'assemblée termine par un vote, attribuant au citoyen le plus ...qualifié.. le titre de "Chaman"! A partir de ce moment là, ce citoyen se voit attribuer des actions spécifiques qu'il pourra exploiter grâce à ses points de charlatanisme quotidiens.</target>
+      </segment>
+    </unit>
+    <unit id="lX6N9d4" name="Ich bin der Schamane, was mache ich?">
+      <notes>
+        <note category="german">Ich bin der Schamane, was mache ich?</note>
+      </notes>
+      <segment>
+        <source>Ich bin der Schamane, was mache ich?</source>
+        <target>Comment le jouer ?</target>
+      </segment>
+    </unit>
+    <unit id="EB1GVNp" name="4bb6b26">
+      <notes>
+        <note category="german">Dank ihrer einzigartigen Weltanschauung kann der Schamane einzigartige Aktionen ausführen, die ihn gleichzeitig zu einem Heiler, einem Hellseher oder einem Scharlatan machen können.
+Der Schamane kann:</note>
+      </notes>
+      <segment>
+        <source>Dank ihrer einzigartigen Weltanschauung kann der Schamane einzigartige Aktionen ausführen, die ihn gleichzeitig zu einem Heiler, einem Hellseher oder einem Scharlatan machen können.
+Der Schamane kann:</source>
+        <target>Grâce à une perception du monde unique, le Chaman pourra procéder à des actions uniques, ce qui pourra le qualifier parfois de guérisseur, de voyant, ou encore de charlatan. Il pourra notamment :</target>
+      </segment>
+    </unit>
+    <unit id="Jk0YceP" name="6787c91">
+      <notes>
+        <note category="german">Heile Bürger &lt;strong&gt;in der Stadt &lt;/strong&gt;. Lindere Angststarre, Infektionen oder extrahiere sogar Alkohol oder Drogen aus den Körpern deiner Kameraden. Der Erfolg ist jedoch nicht garantiert. Manchmal nimmt der Schamane während des Heilungsprozesses die Krankheit, die das Opfer plagt, in seinen eigenen Körper auf.</note>
+      </notes>
+      <segment>
+        <source>Heile Bürger &lt;strong&gt;in der Stadt &lt;/strong&gt;. Lindere Angststarre, Infektionen oder extrahiere sogar Alkohol oder Drogen aus den Körpern deiner Kameraden. Der Erfolg ist jedoch nicht garantiert. Manchmal nimmt der Schamane während des Heilungsprozesses die Krankheit, die das Opfer plagt, in seinen eigenen Körper auf.</source>
+        <target><![CDATA[Réaliser des soins sur les citoyens <strong>en ville</strong>. Soigner une terreur, une infection ou encore permettre d'évacuer drogue et alcool du corps de son camarade. Mais la réussite n'est pas garantie, parfois il est même possible que pour guérir, le chaman s'infligera à lui-même le mal qui ronge son compagnon.]]></target>
+      </segment>
+    </unit>
+    <unit id="R8zw7sJ" name="b418440">
+      <notes>
+        <note category="german">Reinige Zonen, indem du Regen auf diese Bereiche fallen lässt. Wenn der Regen auf die Stadt fällt, füllt das Wasser den Brunnen ein wenig.</note>
+      </notes>
+      <segment>
+        <source>Reinige Zonen, indem du Regen auf diese Bereiche fallen lässt. Wenn der Regen auf die Stadt fällt, füllt das Wasser den Brunnen ein wenig.</source>
+        <target>Purifier des zones en y faisant tomber de la pluie. Au niveau de la ville, cette pluie pourra remplir un peu le puit, dans l'Outre-Monde, elle sera utile pour nettoyer la zone de quelques zombies.</target>
+      </segment>
+    </unit>
+    <unit id="GZCNcDN" name="Führe die Bürger zum Ort der Seelen in der Außenwelt.">
+      <notes>
+        <note category="german">Führe die Bürger zum Ort der Seelen in der Außenwelt.</note>
+      </notes>
+      <segment>
+        <source>Führe die Bürger zum Ort der Seelen in der Außenwelt.</source>
+        <target>Indiquer la position des âmes dans l'Outre-Monde aux autres citoyens.</target>
+      </segment>
+    </unit>
+    <unit id="Gy1BjIf" name="5167310">
+      <notes>
+        <note category="german">Braue spezielle Tränke, die bloße Sterbliche vor dem Übel gefolterter Seelen schützen.</note>
+      </notes>
+      <segment>
+        <source>Braue spezielle Tränke, die bloße Sterbliche vor dem Übel gefolterter Seelen schützen.</source>
+        <target>Protéger les joueurs en expéditions de récupération d'âmes torturées en leur préparant des potions immunisantes.</target>
+      </segment>
+    </unit>
+    <unit id="35sXzYK" name="05c2cbe">
+      <notes>
+        <note category="german">Der Schamane ist daher eine zentrale Figur in der grausamen Komödie, die das Überleben der Stadt darstellt. Aber wie lange wird der Schamane überleben?</note>
+      </notes>
+      <segment>
+        <source>Der Schamane ist daher eine zentrale Figur in der grausamen Komödie, die das Überleben der Stadt darstellt. Aber wie lange wird der Schamane überleben?</source>
+        <target>Le Chaman est donc un personnage central pour la bonne survie de ces concitoyens, mais survivra-t-il plus longtemps pour autant?</target>
+      </segment>
+    </unit>
+    <unit id="dI.W08W" name="Jeder Bürger beginnt als einfacher Bewohner des MyHordes-Universums.">
+      <notes>
+        <note category="german">Jeder Bürger beginnt als einfacher Bewohner des MyHordes-Universums.</note>
+      </notes>
+      <segment>
+        <source>Jeder Bürger beginnt als einfacher Bewohner des MyHordes-Universums.</source>
+        <target>Chaque citoyen dans MyHordes commence en tant que simple Habitant.</target>
+      </segment>
+    </unit>
+    <unit id="CzB7SzY" name="c1878ff">
+      <notes>
+        <note category="german">Doch manchmal greift das Schicksal ein und zerrt dich aus deinem kleinen Leben in große Abenteuer und kühne Taten.</note>
+      </notes>
+      <segment>
+        <source>Doch manchmal greift das Schicksal ein und zerrt dich aus Ihrem kleinen Leben in große Abenteuer und kühne Taten.</source>
+        <target>Mais il arrive que le sort fasse que vous deviez vous élever et sortir de votre rôle si tranquille de citoyen.</target>
+      </segment>
+    </unit>
+    <unit id="djKCii7" name="Überleben durch Kommunikation und Kooperation">
+      <notes>
+        <note category="german">Überleben durch Kommunikation und Kooperation</note>
+      </notes>
+      <segment>
+        <source>Überleben durch Kommunikation und Kooperation</source>
+        <target>Survivre c'est communiquer</target>
+      </segment>
+    </unit>
+    <unit id="iGFqIbp" name="be3c446">
+      <notes>
+        <note category="german">So wie der Aufklärer eine wichtige Aufgabe für die Gemeinschaft erfüllt, trägt jeder Spieler, ungeachtet seines Berufs, zum Überleben der Gemeinschaft bei. Keine Frage, man kann auch alleine überleben. Manchmal, wenn sonst niemand mehr da ist, ist das auch die letzte Möglichkeit. Trotzdem steht die Kooperation in 'MyHordes' im Mittelpunkt. Aufgaben und Rollen sollten besprochen und aufgeteilt werden, wenn die Gemeinschaft als Ganzes überleben möchte. So können manche Spieler sich um das Einsammeln von Rohstoffen kümmern, während andere ihre Aktionspunkte auf den Baustellen einsetzen.</note>
+      </notes>
+      <segment>
+        <source>So wie der Aufklärer eine wichtige Aufgabe für die Gemeinschaft erfüllt, trägt jeder Spieler, ungeachtet seines Berufs, zum Überleben der Gemeinschaft bei. Keine Frage, man kann auch alleine überleben. Manchmal, wenn sonst niemand mehr da ist, ist das auch die letzte Möglichkeit. Trotzdem steht die Kooperation in 'MyHordes' im Mittelpunkt. Aufgaben und Rollen sollten besprochen und aufgeteilt werden, wenn die Gemeinschaft als Ganzes überleben möchte. So können manche Spieler sich um das Einsammeln von Rohstoffen kümmern, während andere ihre Aktionspunkte auf den Baustellen einsetzen.</source>
+        <target>Tout comme l'Éclaireur est un métier important pour la communauté car il est une véritable source d'information, chacun, peu importe son métier, a un rôle à jouer. Certes, il est possible de survivre seul. Peut-être même est-ce la solution quand il ne reste plus grand monde pour contrecarrer les attaques de la Horde. Cependant, au début de votre nouvelle existence, s'allier avec vos concitoyens est le meilleur cheminement pour créer une ville plus forte et récupérer des ressources et des objets plus facilement dans le désert de l'Outre-Monde.</target>
+      </segment>
+    </unit>
+    <unit id="fh_ltq7" name="Die Bank">
+      <notes>
+        <note category="german">Die Bank</note>
+      </notes>
+      <segment>
+        <source>Die Bank</source>
+        <target>La Banque</target>
+      </segment>
+    </unit>
+    <unit id="HbtThHi" name="f32800d">
+      <notes>
+        <note category="german">Damit die Stadt Gebäude bauen und ihre Verteidigung verbessern kann, &lt;strong&gt;sollten&lt;/strong&gt; alle Spieler die Beute ihrer Ausflüge in der Bank abliefern. Jede gespendete Blechplatte trägt dazu bei, dass die Stadt möglichst bald ihre Stadtmauer verstärken kann. Ebenso ermöglicht das Spenden von Holz und Metall den zügigen Bau verbesserter Verteidigungsanlagen oder anderer Konstruktionen.</note>
+      </notes>
+      <segment>
+        <source>Damit die Stadt Gebäude bauen und ihre Verteidigung verbessern kann, &lt;strong&gt;sollten&lt;/strong&gt; alle Spieler die Beute ihrer Ausflüge in der Bank abliefern. Jede gespendete Blechplatte trägt dazu bei, dass die Stadt möglichst bald ihre Stadtmauer verstärken kann. Ebenso ermöglicht das Spenden von Holz und Metall den zügigen Bau verbesserter Verteidigungsanlagen oder anderer Konstruktionen.</source>
+        <target><![CDATA[Afin de pouvoir construire des bâtiments et de renforcer les défenses de la ville, les aventuriers peuvent donner à la ville le fruit de leurs recherches <strong>s'ils en ont envie</strong>. Ainsi donner des morceaux de tôle récupérés sur de vieilles carlingues d'avion, permettra de renforcer le blindage des murs extérieurs. De la même façon donner du bois ou du métal, permettra la construction des bâtiments communautaires]]></target>
+      </segment>
+    </unit>
+    <unit id="4fvRlNu" name="0ffe272">
+      <notes>
+        <note category="german">&lt;strong&gt;Beherzige das Sprichwort&lt;/strong&gt;: Wer nichts gibt und nichts spendet, der verendet!</note>
+      </notes>
+      <segment>
+        <source>&lt;strong&gt;Beherzige das Sprichwort&lt;/strong&gt;: Wer nichts gibt und nichts spendet, der verendet!</source>
+        <target><![CDATA[<strongSuivez le dicton</strong> : Ne rien partager, ne rien donner, c'est la meilleure solution pour se faire bouffer.]]></target>
+      </segment>
+    </unit>
+    <unit id="tPuqFSN" name="Das Stadtforum und seine Unterforen">
+      <notes>
+        <note category="german">Das Stadtforum und seine Unterforen</note>
+      </notes>
+      <segment>
+        <source>Das Stadtforum und seine Unterforen</source>
+        <target>Le Forum et les espaces de communication</target>
+      </segment>
+    </unit>
+    <unit id="xrMzlbE" name="bb5379b">
+      <notes>
+        <note category="german">Die Einwohner können sich im Stadtforum und seinen Unterforen austauschen, Verteidigungsstrategien besprechen oder einfach einen netten Plausch halten. Wichtige Orte verfügen jeweils über ein separates Forum, wie zum Beispiel die Baustelle. Im Stadtforum können auch Hilferufe abgesetzt werden, wenn man in der Wüste feststeckt...</note>
+      </notes>
+      <segment>
+        <source>Die Einwohner können sich im Stadtforum und seinen Unterforen austauschen, Verteidigungsstrategien besprechen oder einfach einen netten Plausch halten. Wichtige Orte verfügen jeweils über ein separates Forum, wie zum Beispiel die Baustelle. Im Stadtforum können auch Hilferufe abgesetzt werden, wenn man in der Wüste feststeckt...</source>
+        <target>Le Forum et les différents espaces de communication autour des lieux importants de la ville sont des endroits privilégiés, pour se rencontrer, discuter de stratégies et aussi se détendre. C'est aussi l'endroit pour réceptionner les appels d'aventuriers perdus dans le désert ou en très mauvaise posture...</target>
+      </segment>
+    </unit>
+    <unit id=".pvOofi" name="Die Zeitung">
+      <notes>
+        <note category="german">Die Zeitung</note>
+      </notes>
+      <segment>
+        <source>Die Zeitung</source>
+        <target>La Gazette</target>
+      </segment>
+    </unit>
+    <unit id="edCUYZ4" name="671024f">
+      <notes>
+        <note category="german">Nach dem mitternächtlichen Zombieangriff werden jede Nacht die Druckmaschinen angeworfen, um eine Zeitung zu drucken, in der die wichtigsten Ereignisse des letzten Tages noch einmal kompakt zusammengefasst werden.</note>
+      </notes>
+      <segment>
+        <source>Nach dem mitternächtlichen Zombieangriff werden jede Nacht die Druckmaschinen angeworfen, um eine Zeitung zu drucken, in der die wichtigsten Ereignisse des letzten Tages noch einmal kompakt zusammengefasst werden.</source>
+        <target>Chaque soir, après le passage de la Horde, les citoyens survivants publient une gazette qui rappelle les événements marquants de la journée.</target>
+      </segment>
+    </unit>
+    <unit id="dMUwTpn" name="Das Bürgerbüro">
+      <notes>
+        <note category="german">Das Bürgerbüro</note>
+      </notes>
+      <segment>
+        <source>Das Bürgerbüro</source>
+        <target>L'annuaire du citoyen</target>
+      </segment>
+    </unit>
+    <unit id="S3ZXK0Q" name="83094e4">
+      <notes>
+        <note category="german">Im Bürgerbüro findest du wagemutige Mitstreiter, die bereit sind, mit dir die Außenwelt zu erkunden.</note>
+      </notes>
+      <segment>
+        <source>Im Bürgerbüro findest du wagemutige Mitstreiter, die bereit sind, mit dir die Außenwelt zu erkunden.</source>
+        <target>C'est dans l'annuaire des Citoyens que vous trouverez des équipiers pour traverser le désert de l'Outre-Monde.</target>
+      </segment>
+    </unit>
+    <unit id="72KJHkb" name="Private Nachrichten">
+      <notes>
+        <note category="german">Private Nachrichten</note>
+      </notes>
+      <segment>
+        <source>Private Nachrichten</source>
+        <target>La Messagerie privée</target>
+      </segment>
+    </unit>
+    <unit id="ts5cPQf" name="7edf977">
+      <notes>
+        <note category="german">Du kannst deine Mitspieler auch mit einer privaten Nachricht anschreiben. Gehe dazu in den Abschnitt &lt;strong&gt;Bürger&lt;/strong&gt; und betrete ein Haus. Klick auf den Knopf:
+&lt;strong&gt;Eine Nachricht an seiner Tür hinterlassen&lt;/strong&gt;. Intimes (Infektionen und ähnliches) und Verschwörungen lassen sich zu zweit meistens besser besprechen...</note>
+      </notes>
+      <segment>
+        <source>Du kannst deine Mitspieler auch mit einer privaten Nachricht anschreiben. Gehe dazu in den Abschnitt &lt;strong&gt;Bürger&lt;/strong&gt; und betrete ein Haus. Klick auf den Knopf:
+&lt;strong&gt;Eine Nachricht an seiner Tür hinterlassen&lt;/strong&gt;. Intimes (Infektionen und ähnliches) und Verschwörungen lassen sich zu zweit meistens besser besprechen...</source>
+        <target><![CDATA[Si vous souhaitez discuter en privé avec un autre aventurier, la messagerie est l'outil qu'il vous faut. Rendez-vous dans la section <strong>Citoyens</strong> du site, puis dans une maison. Cliquez sur le bouton <strong>Laisser un mot sur sa porte</strong>. Vous pouvez ainsi convenir de stratégies de groupes ou conspirer contre d'autres joueurs...]]></target>
+      </segment>
+    </unit>
+    <unit id="gewChOm" name="Private Nachrichten können nur in der Stadt gelesen werden.">
+      <notes>
+        <note category="german">Private Nachrichten können nur in der Stadt gelesen werden.</note>
+      </notes>
+      <segment>
+        <source>Private Nachrichten können nur in der Stadt gelesen werden.</source>
+        <target>Attention : vous ne pouvez lire vos messages privés qu'en ville.</target>
+      </segment>
+    </unit>
+    <unit id="0_C4R9z" name="d6cefb2">
+      <notes>
+        <note category="german">Die Stadt ist der Ort, an dem alles beginnt und alles endet. Hier musst du dich jeden Tag vor Mitternacht einfinden, wenn du überleben möchtest...</note>
+      </notes>
+      <segment>
+        <source>Die Stadt ist der Ort, an dem alles beginnt und alles endet. Hier musst du dich jeden Tag vor Mitternacht einfinden, wenn du überleben möchtest...</source>
+        <target>La ville est l'endroit d'où vous partez et où vous revenez. Chaque jour, après vos heures d'exploration dans l'Outre-Monde, vous devez rentrer en ville. En effet, en dehors de la ville la survie est très limitée la nuit...</target>
+      </segment>
+    </unit>
+    <unit id="5hSH6cs" name="Der Treffpunkt der Gemeinschaft">
+      <notes>
+        <note category="german">Der Treffpunkt der Gemeinschaft</note>
+      </notes>
+      <segment>
+        <source>Der Treffpunkt der Gemeinschaft</source>
+        <target>Le centre de la communauté</target>
+      </segment>
+    </unit>
+    <unit id="V0J_pKJ" name="4c7de52">
+      <notes>
+        <note category="german">Die Stadt ist auch der zentrale Punkt, an dem du deine Leidensgenossen triffst, um mit ihnen die beste Überlebensstrategie zu besprechen. Sie dient euch auch als Basislager für Wüstenexpeditionen und beherbergt eine Bank, in der gefundene Gegenstände gesammelt werden.</note>
+      </notes>
+      <segment>
+        <source>Die Stadt ist auch der zentrale Punkt, an dem du deine Leidensgenossen triffst, um mit ihnen die beste Überlebensstrategie zu besprechen. Sie dient euch auch als Basislager für Wüstenexpeditionen und beherbergt eine Bank, in der gefundene Gegenstände gesammelt werden.</source>
+        <target>La ville vous permet de retrouver tous vos compagnons d'infortune, de discuter avec eux près du puits, près des Grandes Portes... C'est en ville que vous créez des petites équipes d'exploration, c'est également en ville que vous pourrez stocker vos trouvailles.</target>
       </segment>
     </unit>
   </file>

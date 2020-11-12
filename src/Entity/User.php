@@ -8,7 +8,6 @@ use Doctrine\ORM\Mapping as ORM;
 use Doctrine\ORM\Mapping\Table;
 use Doctrine\ORM\Mapping\UniqueConstraint;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
-use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\Security\Core\User\EquatableInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
 
@@ -21,7 +20,8 @@ use Symfony\Component\Security\Core\User\UserInterface;
  *     uniqueConstraints={
  *         @UniqueConstraint(name="email_unique",columns={"email"}),
  *         @UniqueConstraint(name="user_name_unique",columns={"name"}),
- *         @UniqueConstraint(name="user_twinoid_unique",columns={"twinoid_id"})
+ *         @UniqueConstraint(name="user_twinoid_unique",columns={"twinoid_id"}),
+ *         @UniqueConstraint(name="user_etwin_unique",columns={"eternal_id"})
  *     }
  * )
  */
@@ -192,6 +192,21 @@ class User implements UserInterface, EquatableInterface
      */
     private $connectionWhitelists;
 
+    /**
+     * @ORM\Column(type="string", length=190, nullable=true)
+     */
+    private $eternalID;
+
+    /**
+     * @ORM\Column(type="string", length=32, nullable=true)
+     */
+    private $displayName;
+
+    /**
+     * @ORM\Column(type="datetime", nullable=true)
+     */
+    private $lastActionTimestamp;
+
     public function __construct()
     {
         $this->citizens = new ArrayCollection();
@@ -212,6 +227,11 @@ class User implements UserInterface, EquatableInterface
     public function getUsername(): ?string
     {
         return $this->name;
+    }
+
+    public function getName(): ?string
+    {
+        return $this->displayName ?? $this->name;
     }
 
     public function setName(string $name): self
@@ -301,7 +321,7 @@ class User implements UserInterface, EquatableInterface
     public function getRoles()
     {
         $roles = [];
-        if ($this->pass === null) return $roles;
+        if ($this->pass === null && $this->getEternalID() === null) return $roles;
 
         if     ($this->rightsElevation >= self::ROLE_SUPER)  $roles[] = 'ROLE_SUPER';
         elseif ($this->rightsElevation >= self::ROLE_ADMIN)  $roles[] = 'ROLE_ADMIN';
@@ -317,6 +337,7 @@ class User implements UserInterface, EquatableInterface
         if ($this->getIsBanned()) $roles[] = 'ROLE_FORUM_BANNED';
 
         if ($this->getShadowBan()) $roles[] = 'ROLE_SHADOW_BANNED';
+        if ($this->getEternalID()) $roles[] = 'ROLE_ETERNAL';
 
         return array_unique($roles);
     }
@@ -343,7 +364,13 @@ class User implements UserInterface, EquatableInterface
      * @inheritDoc
      */
     public function isEqualTo(UserInterface $user) {
-        $b1 = $this->getPassword() !== null && $user->getPassword() !== null &&
+        if (!$this->getPassword() === null && $this->eternalID === null) return false;
+
+        /** @var User $user */
+        if (!is_a($user, self::class) || (!$user->getPassword() === null && $user->eternalID === null))
+            return false;
+
+        $b1 =
             $this->getUsername() === $user->getUsername() &&
             $this->getPassword() === $user->getPassword() &&
             $this->getRoles() === $user->getRoles();
@@ -848,6 +875,42 @@ class User implements UserInterface, EquatableInterface
             $this->connectionWhitelists->removeElement($connectionWhitelist);
             $connectionWhitelist->removeUser($this);
         }
+
+        return $this;
+    }
+
+    public function getEternalID(): ?string
+    {
+        return $this->eternalID;
+    }
+
+    public function setEternalID(?string $eternalID): self
+    {
+        $this->eternalID = $eternalID;
+
+        return $this;
+    }
+
+    public function getDisplayName(): ?string
+    {
+        return $this->displayName;
+    }
+
+    public function setDisplayName(?string $displayName): self
+    {
+        $this->displayName = $displayName;
+
+        return $this;
+    }
+
+    public function getLastActionTimestamp(): ?\DateTimeInterface
+    {
+        return $this->lastActionTimestamp;
+    }
+
+    public function setLastActionTimestamp(?\DateTimeInterface $lastActionTimestamp): self
+    {
+        $this->lastActionTimestamp = $lastActionTimestamp;
 
         return $this;
     }

@@ -47,7 +47,7 @@
                     </div>
                 </span>
                 {% endif %}
-                <span class="link" x-ajax-href="{{ path('soul_visit', {id: citizen.user.id}) }}">{{citizen.user.username}}</span>
+                <span class="link" x-ajax-href="{{ path('soul_visit', {id: citizen.user.id}) }}">{{citizen.user.name}}</span>
             </div>
             <div class="padded cell rw-4 rw-lg-3 hide-sm ">
                 {% if citizen.cod is not null %}
