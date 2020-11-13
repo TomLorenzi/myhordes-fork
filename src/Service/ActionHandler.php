@@ -531,6 +531,7 @@ class ActionHandler
             $floor_inventory = $ruinZone->getFloor();
 
         $execute_result = function(Result $result) use ($citizen, &$item, &$target, &$action, &$message, &$remove, &$execute_result, &$execute_info_cache, &$tags, &$kill_by_poison, &$spread_poison, $town_conf, &$floor_inventory, &$ruinZone) {
+            /** @var Citizen $citizen */
             if ($status = $result->getStatus()) {
                 if ($status->getResetThirstCounter())
                     $citizen->setWalkingDistance(0);
@@ -802,6 +803,15 @@ class ActionHandler
 
             if($picto = $result->getPicto()){
                 $this->picto_handler->give_picto($citizen, $picto->getPrototype());
+            }
+
+            if($picto = $result->getGlobalPicto()){
+                $citizens = $citizen->getTown()->getCitizens();
+                foreach($citizens as $curCitizen) {
+                    /** @var Citizen $curCitizen */
+                    if(!$curCitizen->getAlive()) continue;
+                    $this->picto_handler->give_picto($curCitizen, $picto->getPrototype());
+                }
             }
 
             if ($result->getCustom())
