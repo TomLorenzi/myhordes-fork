@@ -429,7 +429,7 @@ class ExternalXML2Controller extends ExternalController {
         $data['hordes']['headers']['game'] = [
             'attributes' => [
                 'days' => $town->getDay(),
-                'quarantine' => $town->getAttackFails() >= 3,
+                'quarantine' => intval($town->getAttackFails() >= 3),
                 'datetime' => $now->format('Y-m-d H:i:s'),
                 'id' => $town->getId(),
             ],
@@ -540,7 +540,8 @@ class ExternalXML2Controller extends ExternalController {
         foreach($town->getBuildings() as $building){
             /** @var Building $building */
             if(!$building->getComplete()) continue;
-            $data['hordes']['data']['city']['list']['items'][] = [
+
+            $buildingXml = [
                 'attributes' => [
                     'name' => $trans->trans($building->getPrototype()->getLabel(), [], 'buildings'),
                     'temporary' => intval($building->getPrototype()->getTemp()),
@@ -549,6 +550,13 @@ class ExternalXML2Controller extends ExternalController {
                 ], 
                 'value' => $trans->trans($building->getPrototype()->getDescription(), [], 'buildings')
             ];
+
+
+            if($building->getPrototype()->getParent() !== null) {
+                $buildingXml['attributes']['parent'] = $building->getPrototype()->getParent()->getId();
+            }
+
+            $data['hordes']['data']['city']['list']['items'][] = $buildingXml;
 
             if($building->getPrototype()->getMaxLevel() > 0 && $building->getLevel() > 0){
                 $data['hordes']['data']['upgrades']['list']['items'][] = [
