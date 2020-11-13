@@ -2095,49 +2095,94 @@
         <target>Die Shoutbox ist leer...</target>
       </segment>
     </unit>
-    <unit id="kaVP2oE" name="%u1% hat %u2% in die Koalition eingeladen.">
+    <unit id="IuHFUTo" name="Absenden">
       <notes>
-        <note category="german">%u1% hat %u2% in die Koalition eingeladen.</note>
+        <note category="german">Absenden</note>
       </notes>
       <segment>
-        <source>%u1% hat %u2% in die Koalition eingeladen.</source>
-        <target>%u1% hat %u2% in die Koalition eingeladen.</target>
+        <source>Absenden</source>
+        <target>Absenden</target>
       </segment>
     </unit>
-    <unit id="KIepEhG" name="%u1% ist der Koalition soeben beigetreten!">
+    <unit id="zeYLnSy" name="Klick auf diesen Link, um die Seite neu zu laden.">
       <notes>
-        <note category="german">%u1% ist der Koalition soeben beigetreten!</note>
+        <note category="german">Klick auf diesen Link, um die Seite neu zu laden.</note>
       </notes>
       <segment>
-        <source>%u1% ist der Koalition soeben beigetreten!</source>
-        <target>%u1% ist der Koalition soeben beigetreten!</target>
+        <source>Klick auf diesen Link, um die Seite neu zu laden.</source>
+        <target>Klick auf diesen Link, um die Seite neu zu laden.</target>
       </segment>
     </unit>
-    <unit id="u4t4MK2" name="%u1% hat die Koalition verlassen.">
+    <unit id="flUhUW0" name="7e9e358">
       <notes>
-        <note category="german">%u1% hat die Koalition verlassen.</note>
+        <note category="german">Wenn du nicht automatisch an einer Partie teilnehmen möchtest, sobald ein anderer Spieler der Koalition einer Stadt beitritt, stelle bitte ein: nicht zur Verfügung.</note>
       </notes>
       <segment>
-        <source>%u1% hat die Koalition verlassen.</source>
-        <target>%u1% hat die Koalition verlassen.</target>
+        <source>Wenn du nicht automatisch an einer Partie teilnehmen möchtest, sobald ein anderer Spieler der Koalition einer Stadt beitritt, stelle bitte ein: nicht zur Verfügung.</source>
+        <target>Wenn du nicht automatisch an einer Partie teilnehmen möchtest, sobald ein anderer Spieler der Koalition einer Stadt beitritt, stelle bitte ein: nicht zur Verfügung.</target>
       </segment>
     </unit>
-    <unit id="lbwHiv9" name="%u1% hat %u2% aus der Koalition entfernt.">
+    <unit id="FNkhsV2" name="Vor 1 Tag">
       <notes>
-        <note category="german">%u1% hat %u2% aus der Koalition entfernt.</note>
+        <note category="german">Vor 1 Tag</note>
       </notes>
       <segment>
-        <source>%u1% hat %u2% aus der Koalition entfernt.</source>
-        <target>%u1% hat %u2% aus der Koalition entfernt.</target>
+        <source>Vor 1 Tag</source>
+        <target>Vor 1 Tag</target>
       </segment>
     </unit>
-    <unit id="xtAW3cb" name="%u1% hat sich soeben in die Stadt &quot;%town%&quot; eingeschrieben!">
+    <unit id="BFD31Nv" name="Vor %d% Tagen">
       <notes>
-        <note category="german">%u1% hat sich soeben in die Stadt "%town%" eingeschrieben!</note>
+        <note category="german">Vor %d% Tagen</note>
       </notes>
       <segment>
-        <source>%u1% hat sich soeben in die Stadt "%town%" eingeschrieben!</source>
-        <target>%u1% hat sich soeben in die Stadt "%town%" eingeschrieben!</target>
+        <source>Vor %d% Tagen</source>
+        <target>Vor %d% Tagen</target>
+      </segment>
+    </unit>
+    <unit id="vKZiHzm" name="&lt;b&gt;%u1%&lt;/b&gt; hat &lt;b&gt;%u2%&lt;/b&gt; in die Koalition eingeladen.">
+      <notes>
+        <note category="german">&lt;b&gt;%u1%&lt;/b&gt; hat &lt;b&gt;%u2%&lt;/b&gt; in die Koalition eingeladen.</note>
+      </notes>
+      <segment>
+        <source>&lt;b&gt;%u1%&lt;/b&gt; hat &lt;b&gt;%u2%&lt;/b&gt; in die Koalition eingeladen.</source>
+        <target><![CDATA[<b>%u1%</b> hat <b>%u2%</b> in die Koalition eingeladen.]]></target>
+      </segment>
+    </unit>
+    <unit id="bvTtAAO" name="&lt;b&gt;%u1%&lt;/b&gt; ist der Koalition soeben beigetreten!">
+      <notes>
+        <note category="german">&lt;b&gt;%u1%&lt;/b&gt; ist der Koalition soeben beigetreten!</note>
+      </notes>
+      <segment>
+        <source>&lt;b&gt;%u1%&lt;/b&gt; ist der Koalition soeben beigetreten!</source>
+        <target><![CDATA[<b>%u1%</b> ist der Koalition soeben beigetreten!]]></target>
+      </segment>
+    </unit>
+    <unit id="ztPAknj" name="&lt;b&gt;%u1%&lt;/b&gt; hat die Koalition verlassen.">
+      <notes>
+        <note category="german">&lt;b&gt;%u1%&lt;/b&gt; hat die Koalition verlassen.</note>
+      </notes>
+      <segment>
+        <source>&lt;b&gt;%u1%&lt;/b&gt; hat die Koalition verlassen.</source>
+        <target><![CDATA[<b>%u1%</b> hat die Koalition verlassen.]]></target>
+      </segment>
+    </unit>
+    <unit id="tMzLQiv" name="&lt;b&gt;%u1%&lt;/b&gt; hat &lt;b&gt;%u2%&lt;/b&gt; aus der Koalition entfernt.">
+      <notes>
+        <note category="german">&lt;b&gt;%u1%&lt;/b&gt; hat &lt;b&gt;%u2%&lt;/b&gt; aus der Koalition entfernt.</note>
+      </notes>
+      <segment>
+        <source>&lt;b&gt;%u1%&lt;/b&gt; hat &lt;b&gt;%u2%&lt;/b&gt; aus der Koalition entfernt.</source>
+        <target><![CDATA[<b>%u1%</b> hat <b>%u2%</b> aus der Koalition entfernt.]]></target>
+      </segment>
+    </unit>
+    <unit id="bCn1heW" name="&lt;b&gt;%u1%&lt;/b&gt; hat sich soeben in die Stadt &quot;&lt;b&gt;%town%&lt;/b&gt;&quot; eingeschrieben!">
+      <notes>
+        <note category="german">&lt;b&gt;%u1%&lt;/b&gt; hat sich soeben in die Stadt "&lt;b&gt;%town%&lt;/b&gt;" eingeschrieben!</note>
+      </notes>
+      <segment>
+        <source>&lt;b&gt;%u1%&lt;/b&gt; hat sich soeben in die Stadt "&lt;b&gt;%town%&lt;/b&gt;" eingeschrieben!</source>
+        <target><![CDATA[<b>%u1%</b> hat sich soeben in die Stadt "<b>%town%</b>" eingeschrieben!]]></target>
       </segment>
     </unit>
   </file>

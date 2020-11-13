@@ -2057,52 +2057,97 @@
       </notes>
       <segment>
         <source>Die Shoutbox ist leer...</source>
-        <target>Die Shoutbox ist leer...</target>
+        <target>La shoutbox est vide...</target>
       </segment>
     </unit>
-    <unit id="kaVP2oE" name="%u1% hat %u2% in die Koalition eingeladen.">
+    <unit id="IuHFUTo" name="Absenden">
       <notes>
-        <note category="german">%u1% hat %u2% in die Koalition eingeladen.</note>
+        <note category="german">Absenden</note>
       </notes>
       <segment>
-        <source>%u1% hat %u2% in die Koalition eingeladen.</source>
-        <target>%u1% hat %u2% in die Koalition eingeladen.</target>
+        <source>Absenden</source>
+        <target>Envoyer</target>
       </segment>
     </unit>
-    <unit id="KIepEhG" name="%u1% ist der Koalition soeben beigetreten!">
+    <unit id="FNkhsV2" name="Vor 1 Tag">
       <notes>
-        <note category="german">%u1% ist der Koalition soeben beigetreten!</note>
+        <note category="german">Vor 1 Tag</note>
       </notes>
       <segment>
-        <source>%u1% ist der Koalition soeben beigetreten!</source>
-        <target>%u1% ist der Koalition soeben beigetreten!</target>
+        <source>Vor 1 Tag</source>
+        <target>Il y a 1 jour</target>
       </segment>
     </unit>
-    <unit id="u4t4MK2" name="%u1% hat die Koalition verlassen.">
+    <unit id="BFD31Nv" name="Vor %d% Tagen">
       <notes>
-        <note category="german">%u1% hat die Koalition verlassen.</note>
+        <note category="german">Vor %d% Tagen</note>
       </notes>
       <segment>
-        <source>%u1% hat die Koalition verlassen.</source>
-        <target>%u1% hat die Koalition verlassen.</target>
+        <source>Vor %d% Tagen</source>
+        <target>Il y a %d% jours</target>
       </segment>
     </unit>
-    <unit id="lbwHiv9" name="%u1% hat %u2% aus der Koalition entfernt.">
+    <unit id="zeYLnSy" name="Klick auf diesen Link, um die Seite neu zu laden.">
       <notes>
-        <note category="german">%u1% hat %u2% aus der Koalition entfernt.</note>
+        <note category="german">Klick auf diesen Link, um die Seite neu zu laden.</note>
       </notes>
       <segment>
-        <source>%u1% hat %u2% aus der Koalition entfernt.</source>
-        <target>%u1% hat %u2% aus der Koalition entfernt.</target>
+        <source>Klick auf diesen Link, um die Seite neu zu laden.</source>
+        <target>Cliquez sur ce lien pour actualiser la page.</target>
       </segment>
     </unit>
-    <unit id="xtAW3cb" name="%u1% hat sich soeben in die Stadt &quot;%town%&quot; eingeschrieben!">
+    <unit id="flUhUW0" name="7e9e358">
       <notes>
-        <note category="german">%u1% hat sich soeben in die Stadt "%town%" eingeschrieben!</note>
+        <note category="german">Wenn du nicht automatisch an einer Partie teilnehmen möchtest, sobald ein anderer Spieler der Koalition einer Stadt beitritt, stelle bitte ein: nicht zur Verfügung.</note>
       </notes>
       <segment>
-        <source>%u1% hat sich soeben in die Stadt "%town%" eingeschrieben!</source>
-        <target>%u1% hat sich soeben in die Stadt "%town%" eingeschrieben!</target>
+        <source>Wenn du nicht automatisch an einer Partie teilnehmen möchtest, sobald ein anderer Spieler der Koalition einer Stadt beitritt, stelle bitte ein: nicht zur Verfügung.</source>
+        <target>Si vous ne souhaitez pas rejoindre automatiquement une partie lorsqu\'un autre membre de la Coalition rejoint une ville, mettez vous en mode Indisponible !</target>
+      </segment>
+    </unit>
+    <unit id="vKZiHzm" name="&lt;b&gt;%u1%&lt;/b&gt; hat &lt;b&gt;%u2%&lt;/b&gt; in die Koalition eingeladen.">
+      <notes>
+        <note category="german">&lt;b&gt;%u1%&lt;/b&gt; hat &lt;b&gt;%u2%&lt;/b&gt; in die Koalition eingeladen.</note>
+      </notes>
+      <segment>
+        <source>&lt;b&gt;%u1%&lt;/b&gt; hat &lt;b&gt;%u2%&lt;/b&gt; in die Koalition eingeladen.</source>
+        <target><![CDATA[<b>%u1%</b> a invité <b>%u2%</b> à nous rejoindre.]]></target>
+      </segment>
+    </unit>
+    <unit id="bvTtAAO" name="&lt;b&gt;%u1%&lt;/b&gt; ist der Koalition soeben beigetreten!">
+      <notes>
+        <note category="german">&lt;b&gt;%u1%&lt;/b&gt; ist der Koalition soeben beigetreten!</note>
+      </notes>
+      <segment>
+        <source>&lt;b&gt;%u1%&lt;/b&gt; ist der Koalition soeben beigetreten!</source>
+        <target><![CDATA[<b>%u1%</b> vient de rejoindre la coalition !]]></target>
+      </segment>
+    </unit>
+    <unit id="ztPAknj" name="&lt;b&gt;%u1%&lt;/b&gt; hat die Koalition verlassen.">
+      <notes>
+        <note category="german">&lt;b&gt;%u1%&lt;/b&gt; hat die Koalition verlassen.</note>
+      </notes>
+      <segment>
+        <source>&lt;b&gt;%u1%&lt;/b&gt; hat die Koalition verlassen.</source>
+        <target><![CDATA[<b>%u1%</b> a quitté la coalition.]]></target>
+      </segment>
+    </unit>
+    <unit id="tMzLQiv" name="&lt;b&gt;%u1%&lt;/b&gt; hat &lt;b&gt;%u2%&lt;/b&gt; aus der Koalition entfernt.">
+      <notes>
+        <note category="german">&lt;b&gt;%u1%&lt;/b&gt; hat &lt;b&gt;%u2%&lt;/b&gt; aus der Koalition entfernt.</note>
+      </notes>
+      <segment>
+        <source>&lt;b&gt;%u1%&lt;/b&gt; hat &lt;b&gt;%u2%&lt;/b&gt; aus der Koalition entfernt.</source>
+        <target><![CDATA[<b>%u1%</b> a renvoyé(e) <b>%u2%</b> de la coalition.]]></target>
+      </segment>
+    </unit>
+    <unit id="bCn1heW" name="&lt;b&gt;%u1%&lt;/b&gt; hat sich soeben in die Stadt &quot;&lt;b&gt;%town%&lt;/b&gt;&quot; eingeschrieben!">
+      <notes>
+        <note category="german">&lt;b&gt;%u1%&lt;/b&gt; hat sich soeben in die Stadt "&lt;b&gt;%town%&lt;/b&gt;" eingeschrieben!</note>
+      </notes>
+      <segment>
+        <source>&lt;b&gt;%u1%&lt;/b&gt; hat sich soeben in die Stadt "&lt;b&gt;%town%&lt;/b&gt;" eingeschrieben!</source>
+        <target><![CDATA[<b>%u1%</b> vient de partir sur "<b>%town%</b>" !]]></target>
       </segment>
     </unit>
   </file>

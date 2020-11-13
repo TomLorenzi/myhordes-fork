@@ -1663,7 +1663,7 @@
       </notes>
       <segment>
         <source>Mindestens ein Post in diesem Thema wurde den Moderatoren gemeldet.</source>
-        <target>Mindestens ein Post in diesem Thema wurde den Moderatoren gemeldet.</target>
+        <target>Au moins un message sur ce sujet a été signalé aux modérateurs.</target>
       </segment>
     </unit>
     <unit id="KV1uMW3" name="Dieses Thema enthält %count% gemeldete Posts:">
@@ -1672,7 +1672,7 @@
       </notes>
       <segment>
         <source>Dieses Thema enthält %count% gemeldete Posts:</source>
-        <target>Dieses Thema enthält %count% gemeldete Posts:</target>
+        <target>Ce sujet contient %count% message(s) signalé(s) :</target>
       </segment>
     </unit>
     <unit id="XvJRBeq" name="%num% Meldungen. Klicken, um Benutzer anzuzeigen.">
@@ -1681,7 +1681,7 @@
       </notes>
       <segment>
         <source>%num% Meldungen. Klicken, um Benutzer anzuzeigen.</source>
-        <target>%num% Meldungen. Klicken, um Benutzer anzuzeigen.</target>
+        <target>%num% Messages. Cliquez pour voir les utilisateurs.</target>
       </segment>
     </unit>
     <unit id="uVEhYFM" name="Gelöscht von %user% (%time%). Klicken, um den Grund einzublenden.">
@@ -1690,7 +1690,7 @@
       </notes>
       <segment>
         <source>Gelöscht von %user% (%time%). Klicken, um den Grund einzublenden.</source>
-        <target>Gelöscht von %user% (%time%). Klicken, um den Grund einzublenden.</target>
+        <target>Supprimé par %user% (%time%). Cliquez pour révéler la raison.</target>
       </segment>
     </unit>
     <unit id="gAhtva3" name="Überprüft">
@@ -1699,7 +1699,7 @@
       </notes>
       <segment>
         <source>Überprüft</source>
-        <target>Überprüft</target>
+        <target>Vérifié</target>
       </segment>
     </unit>
     <unit id="q5mhXGv" name="Wiederherstellen">
@@ -1708,7 +1708,7 @@
       </notes>
       <segment>
         <source>Wiederherstellen</source>
-        <target>Wiederherstellen</target>
+        <target>Restaurer</target>
       </segment>
     </unit>
     <unit id="uB2Vk6P" name="oder">
@@ -1718,6 +1718,24 @@
       <segment>
         <source>oder</source>
         <target>oder</target>
+      </segment>
+    </unit>
+    <unit id="1N_y7nB" name="d3efb5f">
+      <notes>
+        <note category="german">Folgende Bürger sind wahlweise: &lt;ul&gt;&lt;li&gt;auf ihrer Todesanzeigeseite (sie haben ihren Tod noch nicht bestätigt),&lt;/li&gt;&lt;li&gt;bereits im Spiel,&lt;/li&gt;&lt;li&gt;sie haben sich entschieden, nicht automatisch einer Stadt und ihrer Koalition anzugehören.&lt;/li&gt;&lt;li&gt;oder, sie haben sich seit über 5 Tagen nicht mehr angemeldet.&lt;/li&gt;&lt;/ul&gt;</note>
+      </notes>
+      <segment>
+        <source>Folgende Bürger sind wahlweise: &lt;ul&gt;&lt;li&gt;auf ihrer Todesanzeigeseite (sie haben ihren Tod noch nicht bestätigt),&lt;/li&gt;&lt;li&gt;bereits im Spiel,&lt;/li&gt;&lt;li&gt;sie haben sich entschieden, nicht automatisch einer Stadt und ihrer Koalition anzugehören.&lt;/li&gt;&lt;li&gt;oder, sie haben sich seit über 5 Tagen nicht mehr angemeldet.&lt;/li&gt;&lt;/ul&gt;</source>
+        <target><![CDATA[Les citoyens suivants sont : <ul><li>soit sur leur page de Mort (ils n\'ont pas validé leur décès),</li><li>soit déjà en jeu,</li><li>soit ils ont choisi de ne pas rejoindre automatiquement une ville avec le reste de la coalition.</li><li>non reconnectés depuis plus de 5 jours.</li></ul>]]></target>
+      </segment>
+    </unit>
+    <unit id="Dhx3Fbp" name="212f094">
+      <notes>
+        <note category="german">Wenn ein andered Mitglied deiner Koalition eine Stadt auswählt, schließt du dich ihm automatisch an und spielst in der gleichen Stadt wie er.</note>
+      </notes>
+      <segment>
+        <source>Wenn ein andered Mitglied deiner Koalition eine Stadt auswählt, schließt du dich ihm automatisch an und spielst in der gleichen Stadt wie er.</source>
+        <target>Si un autre membre de la coalition rejoint une ville, vous le suivrez et commencerez dans la même ville que lui.</target>
       </segment>
     </unit>
   </file>
