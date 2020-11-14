@@ -11,6 +11,7 @@ use App\Service\JSONRequestParser;
 use App\Service\TwinoidHandler;
 use DateTime;
 use Exception;
+use Psr\Log\LoggerInterface;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -107,7 +108,7 @@ class SoulImportController extends SoulController
      * @param TwinoidHandler $twin
      * @return Response
      */
-    public function soul_import_loader(string $code, JSONRequestParser $json, TwinoidHandler $twin): Response
+    public function soul_import_loader(string $code, JSONRequestParser $json, TwinoidHandler $twin, LoggerInterface $logger): Response
     {
         $user = $this->getUser();
 
@@ -127,12 +128,18 @@ class SoulImportController extends SoulController
         $data1 = $twin->getData("$scope/tid",'me', [
             'name','twinId',
             'playedMaps' => [ 'mapId','survival','mapName','season','v1','score','dtype','msg','comment','cleanup' ]
-        ], $error);
+        ], $error, $raw_data);
 
-        if ($error || isset($data1['error'])) return AjaxResponse::error(self::ErrorTwinImportInvalidResponse, ['response' => $data1]);
+        if ($error || isset($data1['error'])) {
+            $logger->alert( 'Twinoid import failed at stage 1.', [ 'raw' => $raw_data, 'error' => $error ] );
+            return AjaxResponse::error(self::ErrorTwinImportInvalidResponse, ['response' => $data1]);
+        }
 
         $twin_id = (int)($data1['twinId'] ?? 0);
-        if (!$twin_id) return AjaxResponse::error(self::ErrorTwinImportInvalidResponse, ['response' => $data1]);
+        if (!$twin_id) {
+            $logger->alert( 'Twinoid import failed at stage 2.', [ 'raw' => $raw_data, 'error' => 'no_twin_id' ] );
+            return AjaxResponse::error(self::ErrorTwinImportInvalidResponse, ['response' => $data1]);
+        }
 
         $data2 = $twin->getData('twinoid.com',"site?host={$scope}", [
             'me' => [ 'points','npoints',
@@ -141,9 +148,12 @@ class SoulImportController extends SoulController
                     'data' => ['type','title','url','prefix','suffix']
                 ]
             ]
-        ], $error);
+        ], $error, $raw_data);
 
-        if ($error || isset($data2['error'])) return AjaxResponse::error(self::ErrorTwinImportInvalidResponse, ['response' => $data2]);
+        if ($error || isset($data2['error'])) {
+            $logger->alert( 'Twinoid import failed at stage 3.', [ 'raw' => $raw_data, 'error' => $error ] );
+            return AjaxResponse::error(self::ErrorTwinImportInvalidResponse, ['response' => $data2]);
+        }
 
         if ($user->getTwinoidID() === null) {
 
