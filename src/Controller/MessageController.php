@@ -138,7 +138,7 @@ class MessageController extends AbstractController
             /** @var Thread $thread */
             /** @var ThreadReadMarker $marker */
             $marker = $em->getRepository(ThreadReadMarker::class)->findByThreadAndUser($user, $thread);
-            $lastPost = $thread->lastPost();
+            $lastPost = $thread->lastPost( $show_hidden_threads );
             if (!$marker || ($lastPost && $lastPost !== $marker->getPost()))
                 $thread->setNew();
         }
@@ -153,7 +153,7 @@ class MessageController extends AbstractController
             /** @var Thread $thread */
             /** @var ThreadReadMarker $marker */
             $marker = $em->getRepository(ThreadReadMarker::class)->findByThreadAndUser($user, $thread);
-            $lastPost = $thread->lastPost();
+            $lastPost = $thread->lastPost( $show_hidden_threads );
             if (!$marker || ($lastPost && $lastPost !== $marker->getPost()))
                 $thread->setNew();
         }
