@@ -6755,7 +6755,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Dieser Bürger is eventuell süchtig... Wir nennen sein Verhalten aggressiv, manchmal sogar assozial...</source>
-        <target>Dieser Bürger is eventuell süchtig... Wir nennen sein Verhalten aggressiv, manchmal sogar assozial...</target>
+        <target>is heavilty dependant... and violent... you could even say their behaviour is becoming 'anti-citizen'.</target>
       </segment>
     </unit>
     <unit id="QHYoGw6" name="fab7d5c">
@@ -7376,7 +7376,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Ob durch deine Kräfte oder unverschämtes Wetterglück, dicke Regentropfen fallen auf die Stadt herab und füllen ein wenig den Brunnen auf.</source>
-        <target>Ob durch deine Kräfte oder unverschämtes Wetterglück, dicke Regentropfen fallen auf die Stadt herab und füllen ein wenig den Brunnen auf.</target>
+        <target>and be it mastery of the spirit world or blind meteorological fortune, drops of rain fall on the town, adding fresh drinking water to the well.</target>
       </segment>
     </unit>
     <unit id="bWnfo2a" name="Das ist keine gute Idee, das ist dir doch wohl klar!">
