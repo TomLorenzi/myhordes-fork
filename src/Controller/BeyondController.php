@@ -1236,6 +1236,7 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
      */
     public function desert_attack_api(int $cid): Response {
         $citizen = $this->getActiveCitizen();
+        if (!$this->activeCitizenCanAct()) return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
 
         /** @var Citizen|null $target_citizen */
         $target_citizen = $this->entity_manager->getRepository(Citizen::class)->find( $cid );
@@ -1256,6 +1257,7 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
      */
     public function desert_devour_api(int $cid): Response {
         $citizen = $this->getActiveCitizen();
+        if (!$this->activeCitizenCanAct()) return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
 
         /** @var Citizen|null $target_citizen */
         $target_citizen = $this->entity_manager->getRepository(Citizen::class)->find( $cid );
