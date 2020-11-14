@@ -463,7 +463,7 @@ class InventoryAwareController extends AbstractController
         return AjaxResponse::success();
     }
 
-    public function generic_attack_api(Citizen $aggressor, Citizen $defender) {
+    public function generic_attack_api(Citizen $aggressor, Citizen $defender): Response {
         if ($aggressor->getId() === $defender->getId() || !$defender->getAlive())
             return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
 
@@ -479,7 +479,7 @@ class InventoryAwareController extends AbstractController
         if ($this->citizen_handler->isTired($aggressor) || $aggressor->getAp() < $ap)
             return AjaxResponse::error( ErrorHelper::ErrorNoAP );
 
-        $attack_protect = $this->getTownConf()->get(TownConf::CONF_MODIFIER_ATTACK_PROTECT, false);
+        $attack_protect = $this->getTownConf()->get(TownConf::CONF_MODIFIER_ATTACK_PROTECT, false) || ($aggressor->getUser()->getSoulPoints() < 50);
         if ($attack_protect) {
             foreach ($aggressor->getTown()->getCitizens() as $c)
                 if ($c->getAlive() && $c->hasRole('ghoul'))
@@ -497,6 +497,7 @@ class InventoryAwareController extends AbstractController
             $this->entity_manager->persist($this->log->citizenAttack($aggressor, $defender, true));
             $this->death_handler->kill($defender, CauseOfDeath::GhulBeaten);
             $this->entity_manager->persist($this->log->citizenDeath( $defender ) );
+
         } elseif ($attack_protect) {
 
             $this->addFlash('error', $this->translator->trans('Bleib mal ganz geschmeidig! In dieser Stadt gibt es keine Ghule, also solltest du auch nicht herumlaufen und grundlos Leute verprügeln. M\'Kay?', [], 'game'));

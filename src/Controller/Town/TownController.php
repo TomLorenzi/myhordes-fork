@@ -496,6 +496,9 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
         if ($this->getActiveCitizen()->getBanished())
             return AjaxResponse::error(ErrorHelper::ErrorActionNotAvailable );
 
+        if ($this->getActiveCitizen()->getUser()->getSoulPoints() < 50)
+            return AjaxResponse::error(ErrorHelper::ErrorActionNotAvailableSP );
+
         $severity = (int)$parser->get('severity', -1);
         if ($severity < Complaint::SeverityNone || $severity > Complaint::SeverityKill)
             return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest );
