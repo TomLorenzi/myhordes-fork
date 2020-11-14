@@ -280,6 +280,7 @@ class GhostController extends AbstractController implements GhostInterfaceContro
      * @param GameFactory $factory
      * @param EntityManagerInterface $em
      * @param ConfMaster $conf
+     * @param LogTemplateHandler $log
      * @return Response
      */
     public function join_api(JSONRequestParser $parser, GameFactory $factory, EntityManagerInterface $em, ConfMaster $conf, LogTemplateHandler $log) {
@@ -302,6 +303,9 @@ class GhostController extends AbstractController implements GhostInterfaceContro
         $user = $this->getUser();
 
         if (!$town || !$user) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+        if(!empty($town->getPassword()) && $town->getPassword() !== $parser->get('pass', ''))
+            return AjaxResponse::error(self::ErrorWrongTownPassword);
 
         $allowedTownClasses = $this->getUserTownClassAccess($conf->getGlobalConf());
         if (!$allowedTownClasses[$town->getType()->getName()]) {
@@ -381,30 +385,6 @@ class GhostController extends AbstractController implements GhostInterfaceContro
         }
 
         return AjaxResponse::success();
-    }
-
-    /**
-     * @Route("api/ghost/check_town_pw", name="api_check_town_pw")
-     * @param JSONRequestParser $parser
-     * @param EntityManagerInterface $em
-     * @return Response
-     */
-    public function check_town_pw_api(JSONRequestParser $parser, EntityManagerInterface $em) {
-
-        if (!$parser->has('town') || !$parser->has('pass')) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
-        $town_id = (int)$parser->get('town', -1);
-        $pass = $parser->get('pass', '');
-        if ($town_id <= 0 || empty($pass)) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
-
-        /** @var Town $town */
-        $town = $em->getRepository(Town::class)->find( $town_id );
-
-        if (!$town) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
-
-        if($town->getPassword() != $pass)
-            return AjaxResponse::error(self::ErrorWrongTownPassword);
-
-        return $this->redirectToRoute("api_join", ['town' => $town_id], 307);
     }
 
     public function getUserTownClassAccess(MyHordesConf $conf): array {

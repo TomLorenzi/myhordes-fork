@@ -124,20 +124,12 @@
             } else if (!confirm('{{ 'Möchtest du die schreckliche Welt der Verdammten als Bürge der Stadt %town_name% betreten'|trans({},'ghost')|e('js') }} ?'.replace('%town_name%', town_name)))
                 return;
 
-            if (elem.getAttribute('x-town-locked') == 1) {
-                let pass = prompt('{{ 'Bitte gib das Stadtpasswort ein :'|trans({}, 'ghost') }}');
-                $.ajax.easySend( '{{ path('api_check_town_pw') }}', {town: elem.getAttribute('x-town-id'), pass: pass},
-                    function (response) {
-                        $.ajax.load(null, '{{ path('game_landing') }}', true);
-                    }
-                );
-            } else {
-                $.ajax.easySend( '{{ path('api_join') }}', {town: elem.getAttribute('x-town-id')},
-                    function () {
-                        $.ajax.load(null, '{{ path('game_landing') }}', true);
-                    }
-                );
-            }
+            const pass = (elem.getAttribute('x-town-locked') === '1') ? prompt('{{ 'Bitte gib das Stadtpasswort ein :'|trans({}, 'ghost') }}') : '';
+            $.ajax.easySend( '{{ path('api_join') }}', {town: elem.getAttribute('x-town-id'), pass: pass},
+                function () {
+                    $.ajax.load(null, '{{ path('game_landing') }}', true);
+                }
+            );
         } );
     </script>
 {% endblock %}
