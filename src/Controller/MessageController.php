@@ -139,7 +139,8 @@ class MessageController extends AbstractController
             /** @var ThreadReadMarker $marker */
             $marker = $em->getRepository(ThreadReadMarker::class)->findByThreadAndUser($user, $thread);
             $lastPost = $thread->lastPost();
-            if ($marker && $lastPost && $lastPost->getDate() <= $marker->getPost()->getDate()) $thread->setNew();
+            if (!$marker || ($lastPost && $lastPost !== $marker->getPost()))
+                $thread->setNew();
         }
 
         if ( $this->perm->isPermitted( $permissions, ForumUsagePermissions::PermissionListThreads ) ) {
@@ -153,7 +154,8 @@ class MessageController extends AbstractController
             /** @var ThreadReadMarker $marker */
             $marker = $em->getRepository(ThreadReadMarker::class)->findByThreadAndUser($user, $thread);
             $lastPost = $thread->lastPost();
-            if ($marker && $lastPost && $lastPost->getDate() <= $marker->getPost()->getDate()) $thread->setNew();
+            if (!$marker || ($lastPost && $lastPost !== $marker->getPost()))
+                $thread->setNew();
         }
 
         return $this->render( 'ajax/forum/view.html.twig', $this->addDefaultTwigArgs([
@@ -936,7 +938,7 @@ class MessageController extends AbstractController
 
         foreach ($posts as $post){
             /** @var $post Post */
-            if ($marker->getPost() === null || $marker->getPost()->getId() < $post->getId())
+            if ($marker->getPost() === null || $marker->getPost()->getDate() < $post->getDate())
                 $post->setNew();
         }
 
@@ -947,10 +949,10 @@ class MessageController extends AbstractController
             $last_read = $marker->getPost();
             if ($last_read === null || $read_post->getId() > $last_read->getId()) {
                 $marker->setPost($read_post);
-                try {
+                //try {
                     $em->persist($marker);
                     $em->flush();
-                } catch (Exception $e) {}
+                //} catch (Exception $e) {}
             }
         }
 
