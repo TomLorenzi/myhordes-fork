@@ -7,7 +7,7 @@
       </notes>
       <segment>
         <source>Brauchst du Hilfe?</source>
-        <target>Brauchst du Hilfe?</target>
+        <target>¿Necesitas ayuda?</target>
       </segment>
     </unit>
     <unit id="VToistk" name="Besuche unsere Technische Supportseite">
@@ -16,7 +16,7 @@
       </notes>
       <segment>
         <source>Besuche unsere Technische Supportseite</source>
-        <target>Besuche unsere Technische Supportseite</target>
+        <target>Visite el sitio de soporte técnico</target>
       </segment>
     </unit>
     <unit id="FvwX8Vo" name="Die Außenwelt">
@@ -25,7 +25,7 @@
       </notes>
       <segment>
         <source>Die Außenwelt</source>
-        <target>Die Außenwelt</target>
+        <target>El Ultramundo</target>
       </segment>
     </unit>
     <unit id="kaeVl5r" name="Sich bewegen">
@@ -34,7 +34,7 @@
       </notes>
       <segment>
         <source>Sich bewegen</source>
-        <target>Sich bewegen</target>
+        <target>Desplazarse y Puntos de acción</target>
       </segment>
     </unit>
     <unit id="L4DksI7" name="Die Karte">
@@ -43,7 +43,7 @@
       </notes>
       <segment>
         <source>Die Karte</source>
-        <target>Die Karte</target>
+        <target>El mapa</target>
       </segment>
     </unit>
     <unit id="fJO12Rm" name="Erkunden und Graben">
@@ -52,7 +52,7 @@
       </notes>
       <segment>
         <source>Erkunden und Graben</source>
-        <target>Erkunden und Graben</target>
+        <target>Exploraciones y búsquedas</target>
       </segment>
     </unit>
     <unit id="a1rF75Q" name="Abgesuchte Zonen">
@@ -61,7 +61,7 @@
       </notes>
       <segment>
         <source>Abgesuchte Zonen</source>
-        <target>Abgesuchte Zonen</target>
+        <target>Zonas agotadas</target>
       </segment>
     </unit>
     <unit id="6PsnUvf" name="Die Kontrollpunkte">
@@ -70,7 +70,7 @@
       </notes>
       <segment>
         <source>Die Kontrollpunkte</source>
-        <target>Die Kontrollpunkte</target>
+        <target>Los puntos de control</target>
       </segment>
     </unit>
     <unit id="q9hh0dv" name="Der Eskortenmodus">
@@ -79,7 +79,7 @@
       </notes>
       <segment>
         <source>Der Eskortenmodus</source>
-        <target>Der Eskortenmodus</target>
+        <target>Escoltas ciudadanas</target>
       </segment>
     </unit>
     <unit id="QrZuM35" name="Zombies im Freien bekämpfen">
@@ -88,7 +88,7 @@
       </notes>
       <segment>
         <source>Zombies im Freien bekämpfen</source>
-        <target>Zombies im Freien bekämpfen</target>
+        <target>Luchar contra los zombies</target>
       </segment>
     </unit>
     <unit id="8Ld23ql" name="Wildes Campen">
@@ -97,7 +97,7 @@
       </notes>
       <segment>
         <source>Wildes Campen</source>
-        <target>Wildes Campen</target>
+        <target>Campamento salvaje</target>
       </segment>
     </unit>
     <unit id="_M65l_6" name="Gebäude untersuchen">
@@ -106,7 +106,7 @@
       </notes>
       <segment>
         <source>Gebäude untersuchen</source>
-        <target>Gebäude untersuchen</target>
+        <target>Exploración de ruinas</target>
       </segment>
     </unit>
     <unit id="zEQcWoH" name="Verlorene Seelen">
@@ -115,7 +115,7 @@
       </notes>
       <segment>
         <source>Verlorene Seelen</source>
-        <target>Verlorene Seelen</target>
+        <target>Almas perdidas</target>
       </segment>
     </unit>
     <unit id="C2ciqK3" name="Du">
@@ -124,7 +124,7 @@
       </notes>
       <segment>
         <source>Du</source>
-        <target>Du</target>
+        <target>Tú</target>
       </segment>
     </unit>
     <unit id="EF2Sgns" name="Dein Gesundheitszustand">
@@ -133,7 +133,7 @@
       </notes>
       <segment>
         <source>Dein Gesundheitszustand</source>
-        <target>Dein Gesundheitszustand</target>
+        <target>Los estados de salud</target>
       </segment>
     </unit>
     <unit id="1gKQD7J" name="Inventar">
@@ -142,7 +142,7 @@
       </notes>
       <segment>
         <source>Inventar</source>
-        <target>Inventar</target>
+        <target>Inventario</target>
       </segment>
     </unit>
     <unit id="BNcLxkK" name="Deine Seele">
@@ -151,7 +151,7 @@
       </notes>
       <segment>
         <source>Deine Seele</source>
-        <target>Deine Seele</target>
+        <target>Tu alma</target>
       </segment>
     </unit>
     <unit id="9gv_cn." name="Der Tod und deine Seelenpunkte">
@@ -160,7 +160,7 @@
       </notes>
       <segment>
         <source>Der Tod und deine Seelenpunkte</source>
-        <target>Der Tod und deine Seelenpunkte</target>
+        <target>La muerte y los Puntos de Alma</target>
       </segment>
     </unit>
     <unit id="2I8uzty" name="Der letzte Tod">
@@ -169,7 +169,7 @@
       </notes>
       <segment>
         <source>Der letzte Tod</source>
-        <target>Der letzte Tod</target>
+        <target>¡El Último Habitante!</target>
       </segment>
     </unit>
     <unit id="MRhYGUw" name="Heldenmodus">
@@ -178,7 +178,7 @@
       </notes>
       <segment>
         <source>Heldenmodus</source>
-        <target>Heldenmodus</target>
+        <target>El Modo Héroe</target>
       </segment>
     </unit>
     <unit id="JAkgM4Z" name="Kleine Koalitionen">
@@ -187,7 +187,7 @@
       </notes>
       <segment>
         <source>Kleine Koalitionen</source>
-        <target>Kleine Koalitionen</target>
+        <target>Las alianzas</target>
       </segment>
     </unit>
     <unit id="Ln3k6NJ" name="Haus &amp;amp; Hausarbeiten">
@@ -196,7 +196,7 @@
       </notes>
       <segment>
         <source>Haus &amp;amp; Hausarbeiten</source>
-        <target><![CDATA[Haus & Hausarbeiten]]></target>
+        <target><![CDATA[Casas y construcciones]]></target>
       </segment>
     </unit>
     <unit id="KOB6h9k" name="Ghule">
@@ -205,7 +205,7 @@
       </notes>
       <segment>
         <source>Ghule</source>
-        <target>Ghule</target>
+        <target>Los mutantes</target>
       </segment>
     </unit>
     <unit id="t5LJ9KA" name="Die Berufe">
@@ -214,7 +214,7 @@
       </notes>
       <segment>
         <source>Die Berufe</source>
-        <target>Die Berufe</target>
+        <target>Los oficios</target>
       </segment>
     </unit>
     <unit id="hlH9eeR" name="Einwohner">
@@ -223,7 +223,7 @@
       </notes>
       <segment>
         <source>Einwohner</source>
-        <target>Einwohner</target>
+        <target>Habitante</target>
       </segment>
     </unit>
     <unit id="sBbkqrg" name="Buddler">
@@ -232,7 +232,7 @@
       </notes>
       <segment>
         <source>Buddler</source>
-        <target>Buddler</target>
+        <target>Excavador</target>
       </segment>
     </unit>
     <unit id="N55mPtD" name="Aufklärer">
@@ -241,7 +241,7 @@
       </notes>
       <segment>
         <source>Aufklärer</source>
-        <target>Aufklärer</target>
+        <target>Explorador</target>
       </segment>
     </unit>
     <unit id="aMWLa_K" name="Wächter">
@@ -250,7 +250,7 @@
       </notes>
       <segment>
         <source>Wächter</source>
-        <target>Wächter</target>
+        <target>Guardián</target>
       </segment>
     </unit>
     <unit id="jYiPQYC" name="Einsiedler">
@@ -259,7 +259,7 @@
       </notes>
       <segment>
         <source>Einsiedler</source>
-        <target>Einsiedler</target>
+        <target>Ermitaño</target>
       </segment>
     </unit>
     <unit id="l9gYoq8" name="Dompteur">
@@ -268,7 +268,7 @@
       </notes>
       <segment>
         <source>Dompteur</source>
-        <target>Dompteur</target>
+        <target>Domador</target>
       </segment>
     </unit>
     <unit id="CcGFUIM" name="Techniker">
@@ -277,7 +277,7 @@
       </notes>
       <segment>
         <source>Techniker</source>
-        <target>Techniker</target>
+        <target>Técnico</target>
       </segment>
     </unit>
     <unit id="BomjBbe" name="Herzlich willkommen in der Stadt">
@@ -286,7 +286,7 @@
       </notes>
       <segment>
         <source>Herzlich willkommen in der Stadt</source>
-        <target>Herzlich willkommen in der Stadt</target>
+        <target>Bienvenido al pueblo</target>
       </segment>
     </unit>
     <unit id="pq8uFuf" name="Die Gemeinschaft">
@@ -295,7 +295,7 @@
       </notes>
       <segment>
         <source>Die Gemeinschaft</source>
-        <target>Die Gemeinschaft</target>
+        <target>La comunidad</target>
       </segment>
     </unit>
     <unit id="jBpgLXJ" name="Neue Gebäude bauen">
@@ -304,7 +304,7 @@
       </notes>
       <segment>
         <source>Neue Gebäude bauen</source>
-        <target>Neue Gebäude bauen</target>
+        <target>Construir nuevos edificios</target>
       </segment>
     </unit>
     <unit id="iOrKXGN" name="Baupläne">
@@ -313,7 +313,7 @@
       </notes>
       <segment>
         <source>Baupläne</source>
-        <target>Baupläne</target>
+        <target>Planos de construcciones</target>
       </segment>
     </unit>
     <unit id="a67wON3" name="Weiterentwicklung des Tages">
@@ -322,7 +322,7 @@
       </notes>
       <segment>
         <source>Weiterentwicklung des Tages</source>
-        <target>Weiterentwicklung des Tages</target>
+        <target>La mejora del día</target>
       </segment>
     </unit>
     <unit id="mVINzuJ" name="Der Angriff der Zombiehorde">
@@ -331,7 +331,7 @@
       </notes>
       <segment>
         <source>Der Angriff der Zombiehorde</source>
-        <target>Der Angriff der Zombiehorde</target>
+        <target>El ataque de los zombies</target>
       </segment>
     </unit>
     <unit id="CLGNvQz" name="Die Nachtwächter">
@@ -340,7 +340,7 @@
       </notes>
       <segment>
         <source>Die Nachtwächter</source>
-        <target>Die Nachtwächter</target>
+        <target>Los Centinelas</target>
       </segment>
     </unit>
     <unit id="kvBwFZL" name="Recht und Gesetz">
@@ -349,7 +349,7 @@
       </notes>
       <segment>
         <source>Recht und Gesetz</source>
-        <target>Recht und Gesetz</target>
+        <target>La justicia y los crímenes</target>
       </segment>
     </unit>
     <unit id="HC3UP_X" name="Die Verbannten">
@@ -358,7 +358,7 @@
       </notes>
       <segment>
         <source>Die Verbannten</source>
-        <target>Die Verbannten</target>
+        <target>Los desterrados</target>
       </segment>
     </unit>
     <unit id="Xi0f4lt" name="Das Chaos">
@@ -367,7 +367,7 @@
       </notes>
       <segment>
         <source>Das Chaos</source>
-        <target>Das Chaos</target>
+        <target>El caos</target>
       </segment>
     </unit>
     <unit id="cbIy_th" name="Das Katapult">
@@ -376,7 +376,7 @@
       </notes>
       <segment>
         <source>Das Katapult</source>
-        <target>Das Katapult</target>
+        <target>La catapulta</target>
       </segment>
     </unit>
     <unit id="9ee2OqZ" name="Kleine Karten">
@@ -385,7 +385,7 @@
       </notes>
       <segment>
         <source>Kleine Karten</source>
-        <target>Kleine Karten</target>
+        <target>Pueblos normales</target>
       </segment>
     </unit>
     <unit id="IdXP_LT" name="Zerstörte Stadt">
@@ -394,7 +394,7 @@
       </notes>
       <segment>
         <source>Zerstörte Stadt</source>
-        <target>Zerstörte Stadt</target>
+        <target>Pueblo devastado</target>
       </segment>
     </unit>
     <unit id="tWsphBt" name="Städte des Pandämoniums">
@@ -403,7 +403,7 @@
       </notes>
       <segment>
         <source>Städte des Pandämoniums</source>
-        <target>Städte des Pandämoniums</target>
+        <target>Los pueblos del Pandemonio</target>
       </segment>
     </unit>
     <unit id="tnYIPoS" name="Privatstädte">
@@ -412,7 +412,7 @@
       </notes>
       <segment>
         <source>Privatstädte</source>
-        <target>Privatstädte</target>
+        <target>Los pueblos privados</target>
       </segment>
     </unit>
     <unit id="KUWPnt." name="Rollenspieloptionen">
@@ -421,7 +421,7 @@
       </notes>
       <segment>
         <source>Rollenspieloptionen</source>
-        <target>Rollenspieloptionen</target>
+        <target>Opciones Juego de Rol</target>
       </segment>
     </unit>
     <unit id="dyJ1Inc" name="Saisons und Ranglisten">
@@ -430,7 +430,7 @@
       </notes>
       <segment>
         <source>Saisons und Ranglisten</source>
-        <target>Saisons und Ranglisten</target>
+        <target>Temporadas y clasificaciones</target>
       </segment>
     </unit>
     <unit id="vpGUC3n" name="Support">
@@ -439,7 +439,7 @@
       </notes>
       <segment>
         <source>Support</source>
-        <target>Support</target>
+        <target>Soporte</target>
       </segment>
     </unit>
     <unit id="BKRwO03" name="1- Überprüfe deinen Browser">
@@ -448,7 +448,7 @@
       </notes>
       <segment>
         <source>1- Überprüfe deinen Browser</source>
-        <target>1- Überprüfe deinen Browser</target>
+        <target>1- Verifica tu navegador</target>
       </segment>
     </unit>
     <unit id="cm9u5KI" name="2- Überprüfe sonstige installierte Programme">
@@ -457,7 +457,7 @@
       </notes>
       <segment>
         <source>2- Überprüfe sonstige installierte Programme</source>
-        <target>2- Überprüfe sonstige installierte Programme</target>
+        <target>2- Verificar otros programas</target>
       </segment>
     </unit>
     <unit id="vm9r3tz" name="Hier erhältst du Hilfe">
@@ -466,7 +466,7 @@
       </notes>
       <segment>
         <source>Hier erhältst du Hilfe</source>
-        <target>Hier erhältst du Hilfe</target>
+        <target>Obtener ayuda</target>
       </segment>
     </unit>
     <unit id="AuzemM7" name="Wie wähle ich ein sicheres Passwort?">
@@ -475,7 +475,7 @@
       </notes>
       <segment>
         <source>Wie wähle ich ein sicheres Passwort?</source>
-        <target>Wie wähle ich ein sicheres Passwort?</target>
+        <target>Elige una buena contraseña</target>
       </segment>
     </unit>
     <unit id="Uz4L9yI" name="Stadt unter Quarantäne">
@@ -484,7 +484,7 @@
       </notes>
       <segment>
         <source>Stadt unter Quarantäne</source>
-        <target>Stadt unter Quarantäne</target>
+        <target>Pueblos en cuarentena</target>
       </segment>
     </unit>
     <unit id="TK7FpSk" name="Fehlverhalten melden">
@@ -493,7 +493,7 @@
       </notes>
       <segment>
         <source>Fehlverhalten melden</source>
-        <target>Fehlverhalten melden</target>
+        <target>¡Alguien me está molestando!</target>
       </segment>
     </unit>
     <unit id="rgL81Rn" name="Zum Thema 'Sitting'...">
@@ -502,7 +502,7 @@
       </notes>
       <segment>
         <source>Zum Thema 'Sitting'...</source>
-        <target>Zum Thema 'Sitting'...</target>
+        <target>Acerca del préstamo de cuentas</target>
       </segment>
     </unit>
     <unit id="T8fo4q1" name="Externe Webseiten und Anwendungen">
@@ -511,7 +511,7 @@
       </notes>
       <segment>
         <source>Externe Webseiten und Anwendungen</source>
-        <target>Externe Webseiten und Anwendungen</target>
+        <target>Sitios externos a MyHordes</target>
       </segment>
     </unit>
     <unit id="QZSZXLb" name="Spielanleitung">
@@ -520,7 +520,7 @@
       </notes>
       <segment>
         <source>Spielanleitung</source>
-        <target>Spielanleitung</target>
+        <target>Guía del juego</target>
       </segment>
     </unit>
     <unit id="ztIX9Q7" name="Nachts">
@@ -529,7 +529,7 @@
       </notes>
       <segment>
         <source>Nachts</source>
-        <target>Nachts</target>
+        <target>La noche</target>
       </segment>
     </unit>
     <unit id="6I1t0iJ" name="Die Rollen">
@@ -538,7 +538,7 @@
       </notes>
       <segment>
         <source>Die Rollen</source>
-        <target>Die Rollen</target>
+        <target>Los roles</target>
       </segment>
     </unit>
     <unit id="dymWtZP" name="Shamane">
@@ -547,7 +547,7 @@
       </notes>
       <segment>
         <source>Shamane</source>
-        <target>Shamane</target>
+        <target>Chamán</target>
       </segment>
     </unit>
     <unit id="EiBn7Mx" name="Der Reiseleiter in der Außenwelt">
@@ -556,7 +556,7 @@
       </notes>
       <segment>
         <source>Der Reiseleiter in der Außenwelt</source>
-        <target>Der Reiseleiter in der Außenwelt</target>
+        <target>Guía del Ultramundo</target>
       </segment>
     </unit>
     <unit id="fEPcQJL" name="794eff7">
@@ -565,7 +565,7 @@
       </notes>
       <segment>
         <source>Die Spieler (auch "Bürger" genannt) leben in kleinen Städten und müssen sich jeden Tag aufs Neue organisieren und eine Strategie finden, um die nächtlichen Zombieangriffe erfolgreich abzuwehren. Je länger sie dabei überleben, desto mehr Punkte können sie sammeln. &lt;strong&gt;Der Tod ist ein fester Bestandteil des Spiels. Alle Stadteinwohner wissen vom ersten Tag an, dass sie sterben werden. Die Frage ist nur wie und wann... &lt;/strong&gt;. Als ob das nicht genug wäre, sind die Spieler dazu verdammt, nach ihrem Tod in einer anderen Stadt wiedergeboren zu werden und das Spiel beginnt wieder von vorn...</source>
-        <target><![CDATA[Die Spieler (auch "Bürger" genannt) leben in kleinen Städten und müssen sich jeden Tag aufs Neue organisieren und eine Strategie finden, um die nächtlichen Zombieangriffe erfolgreich abzuwehren. Je länger sie dabei überleben, desto mehr Punkte können sie sammeln. <strong>Der Tod ist ein fester Bestandteil des Spiels. Alle Stadteinwohner wissen vom ersten Tag an, dass sie sterben werden. Die Frage ist nur wie und wann... </strong>. Als ob das nicht genug wäre, sind die Spieler dazu verdammt, nach ihrem Tod in einer anderen Stadt wiedergeboren zu werden und das Spiel beginnt wieder von vorn...]]></target>
+        <target><![CDATA[Organízate con tus vecinos y sobrevive a toda costa. <strong>El último superviviente se convertirá en el Héroe del Pueblo y ganará magníficos poderes.</strong>]]></target>
       </segment>
     </unit>
     <unit id="kiRQ28V" name="Ziel Nr.1: Erkundungen">
@@ -574,7 +574,7 @@
       </notes>
       <segment>
         <source>Ziel Nr.1: Erkundungen</source>
-        <target>Ziel Nr.1: Erkundungen</target>
+        <target>Misión n°1: Explora el desierto en busca de objetos</target>
       </segment>
     </unit>
     <unit id="Ty6GPyz" name="3947934">
@@ -583,7 +583,8 @@
       </notes>
       <segment>
         <source>Während des Tages verlassen die Bürger ihre schützenden Städte, um die &lt;strong&gt;Außenwelt&lt;/strong&gt; zu erkunden. In der Wüste können sie durch Graben allerlei Waffen, Baumaterialien und Nahrung finden.</source>
-        <target><![CDATA[Während des Tages verlassen die Bürger ihre schützenden Städte, um die <strong>Außenwelt</strong> zu erkunden. In der Wüste können sie durch Graben allerlei Waffen, Baumaterialien und Nahrung finden.]]></target>
+        <target><![CDATA[Durante el día, los habitantes salen del pueblo para explorar las llanuras desérticas del <strong>Ultramundo</strong>en busca de armas, materiales y alimentos.
+¡Ten cuidado, allá afuera los zombies pueden atraparte!]]></target>
       </segment>
     </unit>
     <unit id="9phHYef" name="Ziel Nr.2: Zombieangriffe überleben">
@@ -592,7 +593,7 @@
       </notes>
       <segment>
         <source>Ziel Nr.2: Zombieangriffe überleben</source>
-        <target>Ziel Nr.2: Zombieangriffe überleben</target>
+        <target>Misión n°2: Organizaos y preparad las defensas</target>
       </segment>
     </unit>
     <unit id="tmcnTX3" name="7fe1c23">
@@ -601,7 +602,7 @@
       </notes>
       <segment>
         <source>Jeden Tag um Mitternacht greift eine Zombiehorde die Stadt an. Die in der Wüste gefundenen Gegenstände wurden im Idealfall dazu benutzt, Verteidigungsanlagen zu bauen und die Häuser zu verbessern.</source>
-        <target>Jeden Tag um Mitternacht greift eine Zombiehorde die Stadt an. Die in der Wüste gefundenen Gegenstände wurden im Idealfall dazu benutzt, Verteidigungsanlagen zu bauen und die Häuser zu verbessern.</target>
+        <target>Todo lo que encuentres puede ser compartido. Coopera con tus vecinos para construir barreras, trampas, bombas de agua y todo lo que pueda ayudaros a salvar vuestro pellejo. Si te llevas bien con algunos compañeros, forma una alianza con ellos, así podréis volver a jugar juntos en otro pueblo.</target>
       </segment>
     </unit>
     <unit id="PX_pHFS" name="Ziel Nr.3: Sich gegenseitig helfen und überleben...">
@@ -610,7 +611,7 @@
       </notes>
       <segment>
         <source>Ziel Nr.3: Sich gegenseitig helfen und überleben...</source>
-        <target>Ziel Nr.3: Sich gegenseitig helfen und überleben...</target>
+        <target>Misión n°3: Apretad bien los dientes</target>
       </segment>
     </unit>
     <unit id="Itk0eeK" name="264a4b4">
@@ -619,7 +620,7 @@
       </notes>
       <segment>
         <source>Alle gefundenen Gegenstände können mit anderen Spielern geteilt werden. Vielleicht besitzt dein Nachbar ja genau die Schraube, die dir für deine Kettensäge noch fehlt. Dein Überleben hängt im entscheidendem Maße davon ab, wie gut die Kooperation und Organisation in deiner Stadt funktioniert. Das Hauptkommunikationsmittel ist ein stadtinternes Forum.</source>
-        <target>Alle gefundenen Gegenstände können mit anderen Spielern geteilt werden. Vielleicht besitzt dein Nachbar ja genau die Schraube, die dir für deine Kettensäge noch fehlt. Dein Überleben hängt im entscheidendem Maße davon ab, wie gut die Kooperation und Organisation in deiner Stadt funktioniert. Das Hauptkommunikationsmittel ist ein stadtinternes Forum.</target>
+        <target>Los ataques se realizan siempre a la misma hora. Los zombies dejarán a su paso muerte y destrucción. Pero lo que no sabes es que el peligro también puede venir de quien menos lo imaginas...</target>
       </segment>
     </unit>
     <unit id="YjauAVu" name="Welche Aufgaben muss ich tagtäglich erledigen?">
@@ -628,7 +629,7 @@
       </notes>
       <segment>
         <source>Welche Aufgaben muss ich tagtäglich erledigen?</source>
-        <target>Welche Aufgaben muss ich tagtäglich erledigen?</target>
+        <target>¿Cómo sobrevivir?</target>
       </segment>
     </unit>
     <unit id="KGODA_M" name="In 'Die Verdammten' musst du jeden Tag mehrere Aufgaben erledigen.">
@@ -637,7 +638,7 @@
       </notes>
       <segment>
         <source>In 'Die Verdammten' musst du jeden Tag mehrere Aufgaben erledigen.</source>
-        <target>In 'Die Verdammten' musst du jeden Tag mehrere Aufgaben erledigen.</target>
+        <target>MyHordes pone en tus manos una serie de herramientas:</target>
       </segment>
     </unit>
     <unit id="6umuhqS" name="Die Zeitung lesen">
@@ -646,7 +647,7 @@
       </notes>
       <segment>
         <source>Die Zeitung lesen</source>
-        <target>Die Zeitung lesen</target>
+        <target>Foros, mensajería privada y un boletín diario</target>
       </segment>
     </unit>
     <unit id="f14Qoff" name="Die wichtigsten Informationen findest du jeden Tag druckfrisch hier!">
@@ -655,7 +656,7 @@
       </notes>
       <segment>
         <source>Die wichtigsten Informationen findest du jeden Tag druckfrisch hier!</source>
-        <target>Die wichtigsten Informationen findest du jeden Tag druckfrisch hier!</target>
+        <target> Informado tendrás más oportunidades de sobrevivir.</target>
       </segment>
     </unit>
     <unit id="cqY1JTZ" name="Wasser entnehmen">
@@ -664,7 +665,7 @@
       </notes>
       <segment>
         <source>Wasser entnehmen</source>
-        <target>Wasser entnehmen</target>
+        <target>Un pozo con agua</target>
       </segment>
     </unit>
     <unit id="WIyTL.r" name="Ohne Wasser stirbst du.">
@@ -673,7 +674,7 @@
       </notes>
       <segment>
         <source>Ohne Wasser stirbst du.</source>
-        <target>Ohne Wasser stirbst du.</target>
+        <target>Si no bebes durante tres días seguidos, morirás. Es recomendable mantenerse hidratado y al mismo tiempo ahorrar agua.</target>
       </segment>
     </unit>
     <unit id="1US5NkZ" name="Die Außenwelt erkunden">
@@ -682,7 +683,7 @@
       </notes>
       <segment>
         <source>Die Außenwelt erkunden</source>
-        <target>Die Außenwelt erkunden</target>
+        <target>Muchas sorpresas en el desierto</target>
       </segment>
     </unit>
     <unit id="KEE4jQS" name="Grabe in der Wüste und sammle nützliche Gegenstände ein.">
@@ -691,7 +692,7 @@
       </notes>
       <segment>
         <source>Grabe in der Wüste und sammle nützliche Gegenstände ein.</source>
-        <target>Grabe in der Wüste und sammle nützliche Gegenstände ein.</target>
+        <target>Escarba y recoge sorprendentes objetos.</target>
       </segment>
     </unit>
     <unit id="kUTLK_h" name="Auf den Baustellen mithelfen">
@@ -700,7 +701,7 @@
       </notes>
       <segment>
         <source>Auf den Baustellen mithelfen</source>
-        <target>Auf den Baustellen mithelfen</target>
+        <target>Oficios y construcciones</target>
       </segment>
     </unit>
     <unit id="bOiwmPy" name="Wähle das Gebäude aus, welches die Stadt als nächstes bauen soll.">
@@ -709,7 +710,7 @@
       </notes>
       <segment>
         <source>Wähle das Gebäude aus, welches die Stadt als nächstes bauen soll.</source>
-        <target>Wähle das Gebäude aus, welches die Stadt als nächstes bauen soll.</target>
+        <target>Cada oficio tiene una habilidad especial. Todo lo que construyas podría salvarte de morir.</target>
       </segment>
     </unit>
     <unit id="HhS980w" name="Weiter">
@@ -718,7 +719,7 @@
       </notes>
       <segment>
         <source>Weiter</source>
-        <target>Weiter</target>
+        <target>Siguiente</target>
       </segment>
     </unit>
     <unit id="jDfhi6M" name="0fdb9c5">
@@ -727,7 +728,7 @@
       </notes>
       <segment>
         <source>Außerhalb der Stadt dehnt sich, soweit das Auge reicht, eine riesige Wüste aus. Sie wird von den Bürgern auch "Außenwelt" genannt.</source>
-        <target>Außerhalb der Stadt dehnt sich, soweit das Auge reicht, eine riesige Wüste aus. Sie wird von den Bürgern auch "Außenwelt" genannt.</target>
+        <target>El Ultramundo es el vasto desierto que rodea el pueblo hasta el horizonte.</target>
       </segment>
     </unit>
     <unit id="bUYL11a" name="In dieser gefährlichen Gegend findest du alles, was du zum Überleben brauchst.">
@@ -736,7 +737,7 @@
       </notes>
       <segment>
         <source>In dieser gefährlichen Gegend findest du alles, was du zum Überleben brauchst.</source>
-        <target>In dieser gefährlichen Gegend findest du alles, was du zum Überleben brauchst.</target>
+        <target>Es un entorno tan peligroso como vital para la comunidad.</target>
       </segment>
     </unit>
     <unit id="axtPo.U" name="d164912">
@@ -745,7 +746,7 @@
       </notes>
       <segment>
         <source>Wenn die Einwohner in ihren Häusern bleiben, werden sie eher früher als später von den Zombies überrannt und sterben. Deshalb ist es wichtig, die Stadt zu verlassen, um Baumaterialien, Waffen und Nahrung zu finden.</source>
-        <target>Wenn die Einwohner in ihren Häusern bleiben, werden sie eher früher als später von den Zombies überrannt und sterben. Deshalb ist es wichtig, die Stadt zu verlassen, um Baumaterialien, Waffen und Nahrung zu finden.</target>
+        <target>¿Prefieres quedarte escondido bajo tu cama? ¡Olvídalo! Si los humanos se enclaustran en el pueblo, serán rápidamente abatidos por las turbas de zombies. Sin materiales que les ayuden a defenderse y a mejorar su vida diaria, no hay esperanzas de sobrevivir. ¡Hay que salir a explorar el desierto!</target>
       </segment>
     </unit>
     <unit id="gx15wYF" name="Wie kann man in die Außenwelt gehen?">
@@ -754,7 +755,7 @@
       </notes>
       <segment>
         <source>Wie kann man in die Außenwelt gehen?</source>
-        <target>Wie kann man in die Außenwelt gehen?</target>
+        <target>¿Cómo ir al Ultramundo?</target>
       </segment>
     </unit>
     <unit id="7xGg.TI" name="7242c20">
@@ -763,7 +764,7 @@
       </notes>
       <segment>
         <source>Um in die Außenwelt zu treten, musst du dich zum &lt;strong&gt;Stadttor&lt;/strong&gt; begeben und es aufmachen... Doch aufgepasst! Bevor du die Stadt verlässt, solltest du folgendes beachten:</source>
-        <target><![CDATA[Um in die Außenwelt zu treten, musst du dich zum <strong>Stadttor</strong> begeben und es aufmachen... Doch aufgepasst! Bevor du die Stadt verlässt, solltest du folgendes beachten:]]></target>
+        <target><![CDATA[Para visitar el Ultramundo puedes ir a la sección <strong>Portal</strong> ¡Pero cuidado! Si sales, recuerda muy bien estas tres reglas:]]></target>
       </segment>
     </unit>
     <unit id="hJ9V9EY" name="Nimm &lt;strong&gt;Nahrung&lt;/strong&gt; oder &lt;strong&gt;Wasser&lt;/strong&gt; mit.">
@@ -772,7 +773,7 @@
       </notes>
       <segment>
         <source>Nimm &lt;strong&gt;Nahrung&lt;/strong&gt; oder &lt;strong&gt;Wasser&lt;/strong&gt; mit.</source>
-        <target><![CDATA[Nimm <strong>Nahrung</strong> oder <strong>Wasser</strong> mit.]]></target>
+        <target><![CDATA[Lleva <strong>Comida</strong> o <strong>Agua</strong> contigo.]]></target>
       </segment>
     </unit>
     <unit id="iZkIKR6" name="d79c87d">
@@ -781,7 +782,7 @@
       </notes>
       <segment>
         <source>Kehre &lt;strong&gt;vor Mitternacht&lt;/strong&gt; wieder heim oder du wirst von den Zombies gefressen...</source>
-        <target><![CDATA[Kehre <strong>vor Mitternacht</strong> wieder heim oder du wirst von den Zombies gefressen...]]></target>
+        <target><![CDATA[Nunca te quedes <strong>fuera a la hora del ataque noturno</strong> (o serás devorado por los zombies).]]></target>
       </segment>
     </unit>
     <unit id="hCNQJ1g" name="51ae16e">
@@ -790,7 +791,7 @@
       </notes>
       <segment>
         <source>Mache in der Nacht wieder das Stadttor zu, sonst erlebst du eine böse Überraschung...</source>
-        <target>Mache in der Nacht wieder das Stadttor zu, sonst erlebst du eine böse Überraschung...</target>
+        <target>De noche, cierra bien el Portal, si no, las turbas ingresarán al pueblo.</target>
       </segment>
     </unit>
     <unit id="IU7M5.G" name="Aktionspunkte und Erschöpfung">
@@ -799,7 +800,7 @@
       </notes>
       <segment>
         <source>Aktionspunkte und Erschöpfung</source>
-        <target>Aktionspunkte und Erschöpfung</target>
+        <target>Los puntos de acción y el cansancio</target>
       </segment>
     </unit>
     <unit id="bTdJb_Y" name="71b2959">
@@ -808,7 +809,7 @@
       </notes>
       <segment>
         <source>Deine Aktionspunkte werden oben rechts neben dem Hilfsbutton angezeigt. Du kannst deine &lt;strong&gt;Erschöpfung überwinden&lt;/strong&gt; und deine Aktionspunkte durch eine der folgenden Aktionen wieder &lt;strong&gt;auffüllen&lt;/strong&gt;:</source>
-        <target><![CDATA[Deine Aktionspunkte werden oben rechts neben dem Hilfsbutton angezeigt. Du kannst deine <strong>Erschöpfung überwinden</strong> und deine Aktionspunkte durch eine der folgenden Aktionen wieder <strong>auffüllen</strong>:]]></target>
+        <target><![CDATA[Estos puntos son visibles entre el menú y la barra de estado. Puedes <strong>recuperar tus Puntos de Acción</strong> y <strong>anular el cansancio</strong> de varias maneras:]]></target>
       </segment>
     </unit>
     <unit id="ghVrDw1" name="Wasser trinken (1 Mal pro Tag möglich)">
@@ -817,7 +818,7 @@
       </notes>
       <segment>
         <source>Wasser trinken (1 Mal pro Tag möglich)</source>
-        <target>Wasser trinken (1 Mal pro Tag möglich)</target>
+        <target>Bebiendo agua (1 vez al día).</target>
       </segment>
     </unit>
     <unit id="cj5diCF" name="Essen (1 Mal pro Tag möglich)">
@@ -826,7 +827,7 @@
       </notes>
       <segment>
         <source>Essen (1 Mal pro Tag möglich)</source>
-        <target>Essen (1 Mal pro Tag möglich)</target>
+        <target>Comiendo (1 vez al día).</target>
       </segment>
     </unit>
     <unit id="XuY5gcP" name="Drogen nehmen (Vorsicht: Du wirst sehr schnell abhängig!)">
@@ -835,7 +836,7 @@
       </notes>
       <segment>
         <source>Drogen nehmen (Vorsicht: Du wirst sehr schnell abhängig!)</source>
-        <target>Drogen nehmen (Vorsicht: Du wirst sehr schnell abhängig!)</target>
+        <target>Tomando estimulantes (sin límite diario, pero ¡cuidado con la dependencia!).</target>
       </segment>
     </unit>
     <unit id="KKt55ah" name="90f1a78">
@@ -844,7 +845,7 @@
       </notes>
       <segment>
         <source>Darüber hinaus gibt es noch weitere Methoden, um seine Aktionspunkte wieder aufzufüllen (manche sind durchaus gefährlich!)... Finde es am besten selbst heraus.</source>
-        <target>Darüber hinaus gibt es noch weitere Methoden, um seine Aktionspunkte wieder aufzufüllen (manche sind durchaus gefährlich!)... Finde es am besten selbst heraus.</target>
+        <target>Existen otros métodos (a veces peligrosos), pero tendrás que descubrirlos tú mismo…</target>
       </segment>
     </unit>
     <unit id="1ZAcbNG" name="Du hast keine Aktionspunkte mehr?">
@@ -853,7 +854,7 @@
       </notes>
       <segment>
         <source>Du hast keine Aktionspunkte mehr?</source>
-        <target>Du hast keine Aktionspunkte mehr?</target>
+        <target>¿Necesitas más Puntos de Acción en el Ultramundo?</target>
       </segment>
     </unit>
     <unit id="KRu9j0q" name="cceb5aa">
@@ -862,7 +863,7 @@
       </notes>
       <segment>
         <source>Bete, dass ein anderer Spieler bei dir vorbeikommt und dir eine Stärkung da lässt... Im Zweifelsfall ist es besser, im Forum um Hilfe zu bitten (der Link befindet sich oben links).</source>
-        <target>Bete, dass ein anderer Spieler bei dir vorbeikommt und dir eine Stärkung da lässt... Im Zweifelsfall ist es besser, im Forum um Hilfe zu bitten (der Link befindet sich oben links).</target>
+        <target>Reza para que un compañero pase por ahí y te deje algo para que puedas continuar. Si estás en problemas, pide ayuda en el foro.</target>
       </segment>
     </unit>
     <unit id="PDHtzSM" name="03d7b7a">
@@ -873,8 +874,7 @@ Im Schnelldurchlauf lässt du die schönen und unschönen Momente deines kurzen 
       <segment>
         <source>Die Stunde des Angriffs rückt näher und näher... Du kannst noch so viel in dein Funkgerät schreien, es wird niemand mehr kommen...
 Im Schnelldurchlauf lässt du die schönen und unschönen Momente deines kurzen Lebens noch einmal Revue passieren... Wer weiß, vielleicht hast du schon morgen selbst Appetit auf Menschenfleisch?</source>
-        <target>Die Stunde des Angriffs rückt näher und näher... Du kannst noch so viel in dein Funkgerät schreien, es wird niemand mehr kommen...
-Im Schnelldurchlauf lässt du die schönen und unschönen Momente deines kurzen Lebens noch einmal Revue passieren... Wer weiß, vielleicht hast du schon morgen selbst Appetit auf Menschenfleisch?</target>
+        <target>Cuando la hora del ataque haya llegado, podrás gritar todo lo que quieras, nada cambiará. Dependiendo de tus acciones, sobrevivirás, serás devorado vivo o quizás sea a ti a quien le antoje comer carne humana…</target>
       </segment>
     </unit>
     <unit id="kH_n4fp" name="Standortansicht">
@@ -883,7 +883,7 @@ Im Schnelldurchlauf lässt du die schönen und unschönen Momente deines kurzen 
       </notes>
       <segment>
         <source>Standortansicht</source>
-        <target>Standortansicht</target>
+        <target>La vista local</target>
       </segment>
     </unit>
     <unit id="wqinlrE" name="7a54085">
@@ -892,7 +892,7 @@ Im Schnelldurchlauf lässt du die schönen und unschönen Momente deines kurzen 
       </notes>
       <segment>
         <source>Sobald du die Stadt verlässt, ist die Karte dein einziges Hilfsmittel, um dich in der Außenwelt zu orientieren.</source>
-        <target>Sobald du die Stadt verlässt, ist die Karte dein einziges Hilfsmittel, um dich in der Außenwelt zu orientieren.</target>
+        <target>Cuando atravieses el Portal del pueblo, este mapa se convertirá en tu única guía para desplazarte en el Ultramundo.</target>
       </segment>
     </unit>
     <unit id="mT8Yf4b" name="fa18d1a">
@@ -901,7 +901,7 @@ Im Schnelldurchlauf lässt du die schönen und unschönen Momente deines kurzen 
       </notes>
       <segment>
         <source>Klicke auf die grünen Pfeile &lt;strong&gt;[1]&lt;/strong&gt;, um in die gewünschte Richtung zu gehen.</source>
-        <target><![CDATA[Klicke auf die grünen Pfeile <strong>[1]</strong>, um in die gewünschte Richtung zu gehen.]]></target>
+        <target><![CDATA[Utiliza las flechas verdes <strong>[1]</strong> para caminar en la dirección que desees.]]></target>
       </segment>
     </unit>
     <unit id="jPB67sO" name="88b6faa">
@@ -910,7 +910,7 @@ Im Schnelldurchlauf lässt du die schönen und unschönen Momente deines kurzen 
       </notes>
       <segment>
         <source>Durch Drücken des Kartenknopfes &lt;strong&gt;[2]&lt;/strong&gt; erhältst du eine Gesamtansicht deiner Welt.</source>
-        <target><![CDATA[Durch Drücken des Kartenknopfes <strong>[2]</strong> erhältst du eine Gesamtansicht deiner Welt.]]></target>
+        <target><![CDATA[El botón Mapa <strong>[2]</strong> te mostrará una imagen completa de un mundo desconocido.]]></target>
       </segment>
     </unit>
     <unit id="W3z88_o" name="Die Weltkarte">
@@ -919,7 +919,7 @@ Im Schnelldurchlauf lässt du die schönen und unschönen Momente deines kurzen 
       </notes>
       <segment>
         <source>Die Weltkarte</source>
-        <target>Die Weltkarte</target>
+        <target>El mapa del mundo</target>
       </segment>
     </unit>
     <unit id="Z7NfCH0" name="Das grün leuchtende Feld &lt;strong&gt;[1]&lt;/strong&gt; zeigt deine aktuelle Position.">
@@ -928,7 +928,7 @@ Im Schnelldurchlauf lässt du die schönen und unschönen Momente deines kurzen 
       </notes>
       <segment>
         <source>Das grün leuchtende Feld &lt;strong&gt;[1]&lt;/strong&gt; zeigt deine aktuelle Position.</source>
-        <target><![CDATA[Das grün leuchtende Feld <strong>[1]</strong> zeigt deine aktuelle Position.]]></target>
+        <target><![CDATA[El cuadrado verde luminoso <strong>[1]</strong> indica tu posición.]]></target>
       </segment>
     </unit>
     <unit id="FZo2.OI" name="8a01e00">
@@ -937,7 +937,7 @@ Im Schnelldurchlauf lässt du die schönen und unschönen Momente deines kurzen 
       </notes>
       <segment>
         <source>Orange, rot oder blau markierte Felder &lt;strong&gt;[2]&lt;/strong&gt; weisen auf Zombiepräsenz hin. Wenn du in diesen Sektoren allein unterwegs bist, ist höchste Vorsicht geboten!</source>
-        <target><![CDATA[Orange, rot oder blau markierte Felder <strong>[2]</strong> weisen auf Zombiepräsenz hin. Wenn du in diesen Sektoren allein unterwegs bist, ist höchste Vorsicht geboten!]]></target>
+        <target><![CDATA[¡Las zonas de color verde, naranja, rojo o azul <strong>[2]</strong> indican la presencia de zombies! Ten cuidado si te aventuras a caminar solo en esos sectores.]]></target>
       </segment>
     </unit>
     <unit id="U20rwj0" name="274ff01">
@@ -946,7 +946,7 @@ Im Schnelldurchlauf lässt du die schönen und unschönen Momente deines kurzen 
       </notes>
       <segment>
         <source>Der Mark.-Knopf &lt;strong&gt;[3]&lt;/strong&gt; zeigt alle von dir oder von anderen Spieler gesetzten Wegmarken an. Diese können zum Markieren von gefährlichen Zonen gesetzt werden, oder aber, um auf wichtige Gegenstände hinzuweisen.</source>
-        <target><![CDATA[Der Mark.-Knopf <strong>[3]</strong> zeigt alle von dir oder von anderen Spieler gesetzten Wegmarken an. Diese können zum Markieren von gefährlichen Zonen gesetzt werden, oder aber, um auf wichtige Gegenstände hinzuweisen.]]></target>
+        <target><![CDATA[El botón Marca <strong>[3]</strong> te muestra las marcas colocadas por otros jugadores o por ti mismo en el mapa. Estas informaciones te indicarán las zonas peligrosas, las zonas donde se encuentran objetos interesantes, etc.]]></target>
       </segment>
     </unit>
     <unit id="px25T6e" name="ef90c4f">
@@ -955,7 +955,7 @@ Im Schnelldurchlauf lässt du die schönen und unschönen Momente deines kurzen 
       </notes>
       <segment>
         <source>Der Globale Knopf &lt;strong&gt;[4]&lt;/strong&gt; zeigt alle Zonen an, die der &lt;strong&gt;Stadt als Ganzes&lt;/strong&gt; bekannt sind.</source>
-        <target><![CDATA[Der Globale Knopf <strong>[4]</strong> zeigt alle Zonen an, die der <strong>Stadt als Ganzes</strong> bekannt sind.]]></target>
+        <target><![CDATA[El botón Global <strong>[4]</strong> te muestra el mundo como es visto por <strong>todos de habitantes del pueblo</strong> (y no solo por ti en tus expediciones).]]></target>
       </segment>
     </unit>
     <unit id="Czm2yVn" name="Der Expeditionsknopf &lt;strong&gt;[4]&lt;/strong&gt; zeigt alle geplanten Expeditionen an.">
@@ -964,7 +964,7 @@ Im Schnelldurchlauf lässt du die schönen und unschönen Momente deines kurzen 
       </notes>
       <segment>
         <source>Der Expeditionsknopf &lt;strong&gt;[4]&lt;/strong&gt; zeigt alle geplanten Expeditionen an.</source>
-        <target><![CDATA[Der Expeditionsknopf <strong>[4]</strong> zeigt alle geplanten Expeditionen an.]]></target>
+        <target><![CDATA[El botón Expediciones <strong>[4]</strong> te muestra las expediciones planificadas por cualquier otro habitante.]]></target>
       </segment>
     </unit>
     <unit id="XRq1Sgx" name="Zonentypen">
@@ -973,7 +973,7 @@ Im Schnelldurchlauf lässt du die schönen und unschönen Momente deines kurzen 
       </notes>
       <segment>
         <source>Zonentypen</source>
-        <target>Zonentypen</target>
+        <target>Leyenda de las zonas</target>
       </segment>
     </unit>
     <unit id="jtZNkxE" name="206ff5d">
@@ -982,7 +982,7 @@ Im Schnelldurchlauf lässt du die schönen und unschönen Momente deines kurzen 
       </notes>
       <segment>
         <source>Es handelt sich um eine unerforschte Zone, die weder von dir, noch von sonst wem besucht wurde.</source>
-        <target>Es handelt sich um eine unerforschte Zone, die weder von dir, noch von sonst wem besucht wurde.</target>
+        <target>Sector desconocido: Nunca has estado ahí.</target>
       </segment>
     </unit>
     <unit id="4DRtW7F" name="5abb6fd">
@@ -991,7 +991,7 @@ Im Schnelldurchlauf lässt du die schönen und unschönen Momente deines kurzen 
       </notes>
       <segment>
         <source>Diese Zone wurde in den letzten Tagen schon einmal erforscht. Da heute allerdings noch niemand da war, &lt;strong&gt;weißt du nicht, ob sich dort Zombies aufhalten&lt;/strong&gt;...</source>
-        <target><![CDATA[Diese Zone wurde in den letzten Tagen schon einmal erforscht. Da heute allerdings noch niemand da war, <strong>weißt du nicht, ob sich dort Zombies aufhalten</strong>...]]></target>
+        <target><![CDATA[Sector visitado en días anteriores pero no hoy: <strong>Ignoras si aún hay zombies allí</strong>.]]></target>
       </segment>
     </unit>
     <unit id="GzqB3qA" name="84b0fd6">
@@ -1000,7 +1000,7 @@ Im Schnelldurchlauf lässt du die schönen und unschönen Momente deines kurzen 
       </notes>
       <segment>
         <source>Die Stadt: Hier solltest du jede Nacht schlafen, wenn du am Leben bleiben möchtest.</source>
-        <target>Die Stadt: Hier solltest du jede Nacht schlafen, wenn du am Leben bleiben möchtest.</target>
+        <target>El pueblo: Es allí donde debes regresar siempre.</target>
       </segment>
     </unit>
     <unit id=".tcSMXw" name="a066790">
@@ -1009,7 +1009,7 @@ Im Schnelldurchlauf lässt du die schönen und unschönen Momente deines kurzen 
       </notes>
       <segment>
         <source>Dieses Feld zeigt an, dass sich an der Stelle ein Gebäude oder eine Ruine befindet, die du erforschen kannst. In aller Regel enthalten Gebäude wertvolle Gegenstände.</source>
-        <target>Dieses Feld zeigt an, dass sich an der Stelle ein Gebäude oder eine Ruine befindet, die du erforschen kannst. In aller Regel enthalten Gebäude wertvolle Gegenstände.</target>
+        <target>Este cuadrado indica la existencia de un edificio o de una ruina por explorar. ¡Los edificios contienen en general objetos más valiosos!</target>
       </segment>
     </unit>
     <unit id="Z5M25GL" name="In einer Zone graben">
@@ -1018,7 +1018,7 @@ Im Schnelldurchlauf lässt du die schönen und unschönen Momente deines kurzen 
       </notes>
       <segment>
         <source>In einer Zone graben</source>
-        <target>In einer Zone graben</target>
+        <target>Escarbar en una zona</target>
       </segment>
     </unit>
     <unit id="W7woJZW" name="dd3b324">
@@ -1027,7 +1027,7 @@ Im Schnelldurchlauf lässt du die schönen und unschönen Momente deines kurzen 
       </notes>
       <segment>
         <source>Du kannst in jeder Zone graben und allerlei nützliche Gegenstände finden, die du entweder gleich gebrauchen oder aber in die Stadt bringen kannst. &lt;strong&gt;Jede Zone kann einmal am Tag abgesucht werden.&lt;/strong&gt;</source>
-        <target><![CDATA[Du kannst in jeder Zone graben und allerlei nützliche Gegenstände finden, die du entweder gleich gebrauchen oder aber in die Stadt bringen kannst. <strong>Jede Zone kann einmal am Tag abgesucht werden.</strong>]]></target>
+        <target><![CDATA[En cada zona es posible remover la arena para encontrar objetos que podrás utilizar inmediatamente o llevar al pueblo. <strong>Puedes iniciar una búsqueda una vez al día.</strong>]]></target>
       </segment>
     </unit>
     <unit id="4nMOP9R" name="Automatisches Graben">
@@ -1036,7 +1036,7 @@ Im Schnelldurchlauf lässt du die schönen und unschönen Momente deines kurzen 
       </notes>
       <segment>
         <source>Automatisches Graben</source>
-        <target>Automatisches Graben</target>
+        <target>La búsqueda automática</target>
       </segment>
     </unit>
     <unit id="hSPQB7N" name="c98f4a4">
@@ -1049,9 +1049,7 @@ Du kannst deinen Browser in dieser Zeit auch schließen und das Spiel verlassen.
         <source>Nachdem du in einer Zone einmal gegraben hast, wechselst du in den &lt;strong&gt;Automatisch Graben&lt;/strong&gt; Modus.
 Wenn du nach deiner Grabungsaktion in der gleichen Zone bleibst, kannst du &lt;strong&gt;alle 2 Stunden&lt;/strong&gt; erneut graben.
 Du kannst deinen Browser in dieser Zeit auch schließen und das Spiel verlassen. Um zu erfahren, ob du etwas gefunden hast, kannst du dich zu einem späteren Zeitpunkt wieder einloggen.</source>
-        <target><![CDATA[Nachdem du in einer Zone einmal gegraben hast, wechselst du in den <strong>Automatisch Graben</strong> Modus.
-Wenn du nach deiner Grabungsaktion in der gleichen Zone bleibst, kannst du <strong>alle 2 Stunden</strong> erneut graben.
-Du kannst deinen Browser in dieser Zeit auch schließen und das Spiel verlassen. Um zu erfahren, ob du etwas gefunden hast, kannst du dich zu einem späteren Zeitpunkt wieder einloggen.]]></target>
+        <target><![CDATA[Cuando rebuscas objetos en una zona, pasas inmediatamente al modo <strong>Búsqueda automática</strong> . Desde ese momento, si te quedas en esa zona, realizarás una búsqueda <strong>cada 2 horas</strong>. Ya no necesitarás tener el navegador de internet abierto, simplemente podrás volver más tarde...]]></target>
       </segment>
     </unit>
     <unit id="Tn0ydi4" name="924cb9c">
@@ -1060,7 +1058,7 @@ Du kannst deinen Browser in dieser Zeit auch schließen und das Spiel verlassen.
       </notes>
       <segment>
         <source>Beachte: Wenn du die &lt;strong&gt;Zone verlässt&lt;/strong&gt; wird der "Automatisch Graben"-Modus unterbrochen und kann nicht mehr gestartet werden. &lt;em&gt;Du kannst jedoch in einer anderen Zone wieder in den Automodus wechseln...&lt;/em&gt;</source>
-        <target><![CDATA[Beachte: Wenn du die <strong>Zone verlässt</strong> wird der "Automatisch Graben"-Modus unterbrochen und kann nicht mehr gestartet werden. <em>Du kannst jedoch in einer anderen Zone wieder in den Automodus wechseln...</em>]]></target>
+        <target><![CDATA[Cuidado, <strong>si sales de esta zona</strong> tu búsqueda será interrumpida y no podrás iniciar otra en el mismo lugar durante ese día. <em>Sin embargo podrás iniciar una búsqueda en otro lugar...</em>]]></target>
       </segment>
     </unit>
     <unit id="qKbuFIl" name="Außenweltgebäude">
@@ -1069,7 +1067,7 @@ Du kannst deinen Browser in dieser Zeit auch schließen und das Spiel verlassen.
       </notes>
       <segment>
         <source>Außenweltgebäude</source>
-        <target>Außenweltgebäude</target>
+        <target>Los edificios exteriores</target>
       </segment>
     </unit>
     <unit id="2uk6LrP" name="0bbaebc">
@@ -1078,7 +1076,7 @@ Du kannst deinen Browser in dieser Zeit auch schließen und das Spiel verlassen.
       </notes>
       <segment>
         <source>Auf deinen Streifzügen durch die Außenwelt wirst du auch auf Gebäude stoßen, die unter dem Sand vergraben sind. In ihren Ruinen kannst du oft besondere, seltene und machmal auch gefährliche Gegenstände finden. Wenn du sie erforschen möchtest, musst du sie vorher von Unrat freiräumen.</source>
-        <target>Auf deinen Streifzügen durch die Außenwelt wirst du auch auf Gebäude stoßen, die unter dem Sand vergraben sind. In ihren Ruinen kannst du oft besondere, seltene und machmal auch gefährliche Gegenstände finden. Wenn du sie erforschen möchtest, musst du sie vorher von Unrat freiräumen.</target>
+        <target>Bajo la arena, podrías descubrir edificios abandonados. Será necesario desenterrarlos antes de poder explorarlos. En esas ruinas encontrarás objetos valiosos, raros o peligrosos. Tal vez algunos puedan hasta salvar a tu comunidad.</target>
       </segment>
     </unit>
     <unit id="NBF8cbm" name="5fd3771">
@@ -1087,7 +1085,7 @@ Du kannst deinen Browser in dieser Zeit auch schließen und das Spiel verlassen.
       </notes>
       <segment>
         <source>Wenn eine Zone mehrmals hintereinander abgesucht wurde, gilt sie ab einem bestimmten Zeitpunkt als "leer". Es können dann keine wertvollen Gegenstände mehr gefunden werden. Mit etwas Glück können noch ein paar minderwertige Materialien (Holz, Metall etc.) zu Tage gefördert werden.</source>
-        <target>Wenn eine Zone mehrmals hintereinander abgesucht wurde, gilt sie ab einem bestimmten Zeitpunkt als "leer". Es können dann keine wertvollen Gegenstände mehr gefunden werden. Mit etwas Glück können noch ein paar minderwertige Materialien (Holz, Metall etc.) zu Tage gefördert werden.</target>
+        <target>Una zona del desierto que ha sido escarbada varias veces puede quedar vacía, es decir ya no contendrá ningún objeto interesante. A los sumo, encontrarás recursos de poco valor (madera y metal).</target>
       </segment>
     </unit>
     <unit id="Bk3pSor" name="1771ab2">
@@ -1096,7 +1094,7 @@ Du kannst deinen Browser in dieser Zeit auch schließen und das Spiel verlassen.
       </notes>
       <segment>
         <source>Allerdings werden in der Nacht immer wieder seltsame metereologische Phänomene beobachtet...</source>
-        <target>Allerdings werden in der Nacht immer wieder seltsame metereologische Phänomene beobachtet...</target>
+        <target>Toma en cuenta que en el desierto suelen ocurrir fenómenos meteorológicos...</target>
       </segment>
     </unit>
     <unit id="oVdK5BA" name="Meteorologische Anomalien">
@@ -1105,7 +1103,7 @@ Du kannst deinen Browser in dieser Zeit auch schließen und das Spiel verlassen.
       </notes>
       <segment>
         <source>Meteorologische Anomalien</source>
-        <target>Meteorologische Anomalien</target>
+        <target>Fenómenos meteorológicos</target>
       </segment>
     </unit>
     <unit id="59Lo3IZ" name="2f13e20">
@@ -1114,7 +1112,7 @@ Du kannst deinen Browser in dieser Zeit auch schließen und das Spiel verlassen.
       </notes>
       <segment>
         <source>In der Außenwelt wüten jede Nacht heftige Sandstürme. Bislang konnte keine logische Erklärung für diese Anomalien gefunden werden.</source>
-        <target>In der Außenwelt wüten jede Nacht heftige Sandstürme. Bislang konnte keine logische Erklärung für diese Anomalien gefunden werden.</target>
+        <target>Violentas tormentas de arena arremeten contra el Ultramundo cerca de la hora del ataque zombie, sin ninguna explicación hasta el momento.</target>
       </segment>
     </unit>
     <unit id="i4IWldb" name="a549f17">
@@ -1123,7 +1121,7 @@ Du kannst deinen Browser in dieser Zeit auch schließen und das Spiel verlassen.
       </notes>
       <segment>
         <source>Die gute Nachricht ist, dass diese Stürme in manch leergesuchten Zonen neue Gegenstände zu Tage fördern können.</source>
-        <target>Die gute Nachricht ist, dass diese Stürme in manch leergesuchten Zonen neue Gegenstände zu Tage fördern können.</target>
+        <target>La buena noticia es que, estas tormentas suelen sacar a la superficie nuevos objetos en las zonas agotadas.</target>
       </segment>
     </unit>
     <unit id=".evspwN" name="e17b44b">
@@ -1132,7 +1130,7 @@ Du kannst deinen Browser in dieser Zeit auch schließen und das Spiel verlassen.
       </notes>
       <segment>
         <source>Um diese "regenerierten" Zonen entdecken zu können, benötigt die Stadt einen &lt;strong&gt;Forschungsturm&lt;/strong&gt; (Konstruktion). Sein Bau erhöht zudem die Wahrscheinlichkeit, dass "regenerierte" Gebiete erneut Gegenstände enthalten.</source>
-        <target><![CDATA[Um diese "regenerierten" Zonen entdecken zu können, benötigt die Stadt einen <strong>Forschungsturm</strong> (Konstruktion). Sein Bau erhöht zudem die Wahrscheinlichkeit, dass "regenerierte" Gebiete erneut Gegenstände enthalten.]]></target>
+        <target><![CDATA[Para identificar estas zonas, es necesaria la construcción de un <strong>Barómetro</strong>. Además, este instrumento permite también aumentar las probabilidades de regeneración de las zonas.]]></target>
       </segment>
     </unit>
     <unit id="FYzGcLV" name="e212c39">
@@ -1143,8 +1141,7 @@ Du kannst deinen Browser in dieser Zeit auch schließen und das Spiel verlassen.
       <segment>
         <source>An den Kontrollpunkten kannst du mit einem Blick erkennen, ob eine Zone gefährlich ist oder nicht. Die
     entsprechenden Punkte werden in der Leiste unterhalb der Karte angezeigt. So wird gezählt:</source>
-        <target>An den Kontrollpunkten kannst du mit einem Blick erkennen, ob eine Zone gefährlich ist oder nicht. Die
-    entsprechenden Punkte werden in der Leiste unterhalb der Karte angezeigt. So wird gezählt:</target>
+        <target>Estos puntos representan el nivel de control de los humanos en una zona, determinando así si esta es peligrosa o no. Aparecen en la parte inferior del mapa y se cuentan así:</target>
       </segment>
     </unit>
     <unit id=".OrP_HR" name="c7b7b77">
@@ -1155,8 +1152,7 @@ Du kannst deinen Browser in dieser Zeit auch schließen und das Spiel verlassen.
       <segment>
         <source>Jeder in einer Zone anwesende %img_human% &lt;strong&gt;Mensch&lt;/strong&gt; zählt
         &lt;strong&gt;2 Punkte&lt;/strong&gt;.</source>
-        <target><![CDATA[Jeder in einer Zone anwesende %img_human% <strong>Mensch</strong> zählt
-        <strong>2 Punkte</strong>.]]></target>
+        <target><![CDATA[Cada %img_human% <strong>Humano</strong> en una zona vale <strong>2 puntos</strong>.]]></target>
       </segment>
     </unit>
     <unit id="__T7p8r" name="c9733b2">
@@ -1167,8 +1163,7 @@ Du kannst deinen Browser in dieser Zeit auch schließen und das Spiel verlassen.
       <segment>
         <source>Jeder in einer Zone anwesende %img_zombie% &lt;strong&gt;Zombie&lt;/strong&gt; zählt
         &lt;strong&gt;1 Punkt&lt;/strong&gt;.</source>
-        <target><![CDATA[Jeder in einer Zone anwesende %img_zombie% <strong>Zombie</strong> zählt
-        <strong>1 Punkt</strong>.]]></target>
+        <target><![CDATA[Cada %img_zombie% <strong>Zombie</strong> en una zona vale <strong>1 punto</strong>.]]></target>
       </segment>
     </unit>
     <unit id="V2pHQmM" name="201e78b">
@@ -1177,7 +1172,7 @@ Du kannst deinen Browser in dieser Zeit auch schließen und das Spiel verlassen.
       </notes>
       <segment>
         <source>Bestimmte Vorteile durch Berufe, Erfahrung oder Gegenstände ermöglichen das Erhöhen oder Verringern der Kontrollpunkte eines Menschen.</source>
-        <target>Bestimmte Vorteile durch Berufe, Erfahrung oder Gegenstände ermöglichen das Erhöhen oder Verringern der Kontrollpunkte eines Menschen.</target>
+        <target>Ciertas ventajas de este oficio, de experiencia o relacionadas a objetos que permiten aumentar los puntos de control de un humano o anularlos.</target>
       </segment>
     </unit>
     <unit id="ObiiIuR" name="ddbc46f">
@@ -1188,8 +1183,7 @@ Du kannst deinen Browser in dieser Zeit auch schließen und das Spiel verlassen.
       <segment>
         <source>Wenn die Punkteanzahl der Zombies höher ist als die der Menschen, handelt es sich um eine gefährliche
         Zone. Du sitzt dann in der Falle!</source>
-        <target>Wenn die Punkteanzahl der Zombies höher ist als die der Menschen, handelt es sich um eine gefährliche
-        Zone. Du sitzt dann in der Falle!</target>
+        <target>Si los zombies tienen más puntos que lo humanos, la zona es peligrosa ¡y tu vida corre peligro!</target>
       </segment>
     </unit>
     <unit id="0J9DfPq" name="Ab wann gilt eine Zone als &quot;gefährlich&quot;?">
@@ -1198,7 +1192,7 @@ Du kannst deinen Browser in dieser Zeit auch schließen und das Spiel verlassen.
       </notes>
       <segment>
         <source>Ab wann gilt eine Zone als "gefährlich"?</source>
-        <target>Ab wann gilt eine Zone als "gefährlich"?</target>
+        <target>¿Que es una zona "peligrosa"?</target>
       </segment>
     </unit>
     <unit id="W7hcwag" name="d7440e2">
@@ -1211,9 +1205,7 @@ Du kannst deinen Browser in dieser Zeit auch schließen und das Spiel verlassen.
         <source>Eine Zone gilt als gefährlich, wenn die Zombies in der Überzahl sind und du nicht mehr weg kannst, weil sie dir
     den Weg versperren! Anders gesagt: Um Mitternacht feiern sie eine kleine Party und du bist mittendrin - ob du willst
     oder nicht...</source>
-        <target>Eine Zone gilt als gefährlich, wenn die Zombies in der Überzahl sind und du nicht mehr weg kannst, weil sie dir
-    den Weg versperren! Anders gesagt: Um Mitternacht feiern sie eine kleine Party und du bist mittendrin - ob du willst
-    oder nicht...</target>
+        <target>Es una zona de la que no puedes escapar ya que los zombies tienen ventaja! Sobre todo en la noche, que es cuando son más activos.</target>
       </segment>
     </unit>
     <unit id="2CHFA23" name="Die Flucht">
@@ -1222,7 +1214,7 @@ Du kannst deinen Browser in dieser Zeit auch schließen und das Spiel verlassen.
       </notes>
       <segment>
         <source>Die Flucht</source>
-        <target>Die Flucht</target>
+        <target>La huída</target>
       </segment>
     </unit>
     <unit id="NR36Pkw" name="Wenn du in der Falle sitzt, hast du mehrere Optionen:">
@@ -1231,7 +1223,7 @@ Du kannst deinen Browser in dieser Zeit auch schließen und das Spiel verlassen.
       </notes>
       <segment>
         <source>Wenn du in der Falle sitzt, hast du mehrere Optionen:</source>
-        <target>Wenn du in der Falle sitzt, hast du mehrere Optionen:</target>
+        <target>Cuando estés acorralado, tienes varias opciones:</target>
       </segment>
     </unit>
     <unit id="G_5XfFC" name="e755ac4">
@@ -1242,8 +1234,7 @@ Du kannst deinen Browser in dieser Zeit auch schließen und das Spiel verlassen.
       <segment>
         <source>Du kannst versuchen, die Zombies einen nach dem anderen mit bloßen Händen umzubringen... Jeder Versuch kostet
         dich 1 %img_ap%. Die Erfolgsaussichten sind eher gering.</source>
-        <target>Du kannst versuchen, die Zombies einen nach dem anderen mit bloßen Händen umzubringen... Jeder Versuch kostet
-        dich 1 %img_ap%. Die Erfolgsaussichten sind eher gering.</target>
+        <target>Intentar pelear a puño limpio para eliminarlos uno por uno... Cada intento consume 1 %img_ap% y tiene pocas posibilidades de éxito.</target>
       </segment>
     </unit>
     <unit id="RTb1qPa" name="11e4145">
@@ -1254,8 +1245,7 @@ Du kannst deinen Browser in dieser Zeit auch schließen und das Spiel verlassen.
       <segment>
         <source>Du kannst deine Waffen benutzen (wenn du welche hast) und das Gleichgewicht wiederherstellen, indem du ein paar
     Zombies tötest (beachte die hier aufgeführte Kontrollpunkteregel).</source>
-        <target>Du kannst deine Waffen benutzen (wenn du welche hast) und das Gleichgewicht wiederherstellen, indem du ein paar
-    Zombies tötest (beachte die hier aufgeführte Kontrollpunkteregel).</target>
+        <target>Emplear armas, si las tienes, para eliminar zombies y controlar la situación, (según las reglas de puntos mostradas anteriormente).</target>
       </segment>
     </unit>
     <unit id="LOjH680" name="6b46d85">
@@ -1266,8 +1256,7 @@ Du kannst deinen Browser in dieser Zeit auch schließen und das Spiel verlassen.
       <segment>
         <source>Du kannst im Forum um Hilfe bitten und hoffen, dass ein anderer Spieler sich deiner erbarmt und dich besucht.
         Durch seine Anwesenheit steigt die Punkteanzahl der Menschen, sodass ihr beide wieder flüchten könnt.</source>
-        <target>Du kannst im Forum um Hilfe bitten und hoffen, dass ein anderer Spieler sich deiner erbarmt und dich besucht.
-        Durch seine Anwesenheit steigt die Punkteanzahl der Menschen, sodass ihr beide wieder flüchten könnt.</target>
+        <target>Pedir ayuda en el Foro para que otro jugador se una a ti y agregue puntos "humanos" a esa zona. De esta manera tendrías la oportunidad de salir de allí sin inconvenientes.</target>
       </segment>
     </unit>
     <unit id="fedIF9o" name="91c0157">
@@ -1278,8 +1267,7 @@ Du kannst deinen Browser in dieser Zeit auch schließen und das Spiel verlassen.
       <segment>
         <source>Es gibt noch weitere Möglichkeiten zur Flucht, wenn du von Zombies umzingelt bist. Es liegt aber an dir, diese
         zu entdecken ...</source>
-        <target>Es gibt noch weitere Möglichkeiten zur Flucht, wenn du von Zombies umzingelt bist. Es liegt aber an dir, diese
-        zu entdecken ...</target>
+        <target>Existen otros métodos para salir de un casillero cuando estés acorralado por los zombies. ¡Descúbrelos!.</target>
       </segment>
     </unit>
     <unit id="YfvqEL5" name="Kontrollverlust (Zeitzähler)">
@@ -1288,7 +1276,7 @@ Du kannst deinen Browser in dieser Zeit auch schließen und das Spiel verlassen.
       </notes>
       <segment>
         <source>Kontrollverlust (Zeitzähler)</source>
-        <target>Kontrollverlust (Zeitzähler)</target>
+        <target>Pérdida de control  (contador de tiempo)</target>
       </segment>
     </unit>
     <unit id="rYm56Mb" name="813c76e">
@@ -1301,9 +1289,7 @@ Du kannst deinen Browser in dieser Zeit auch schließen und das Spiel verlassen.
         <source>Die Spieler verlieren immer dann die Kontrolle über eine Zone, wenn sich die Punktanzahl zu Gunsten der Zombies
     verschiebt. Dies kann zum Beispiel passieren, wenn ein Spieler die Zone (unangekündigt) verlässt. Sollte dies
     geschehen, haben die übrigen Spieler &lt;strong&gt;30 Minuten&lt;/strong&gt; Zeit (und nicht eine Sekunde länger), um</source>
-        <target><![CDATA[Die Spieler verlieren immer dann die Kontrolle über eine Zone, wenn sich die Punktanzahl zu Gunsten der Zombies
-    verschiebt. Dies kann zum Beispiel passieren, wenn ein Spieler die Zone (unangekündigt) verlässt. Sollte dies
-    geschehen, haben die übrigen Spieler <strong>30 Minuten</strong> Zeit (und nicht eine Sekunde länger), um]]></target>
+        <target><![CDATA[Si la zona está bajo control de los humanos (tienen igual o más puntos que los zombies) y un jugador decide marcharse de la zona (la pérdida de control es inminente), todos los jugadores presentes serán <strong>atrapados por los zombies en 30 minutos</strong>.]]></target>
       </segment>
     </unit>
     <unit id="bhgKm6A" name="zu flüchten!">
@@ -1312,7 +1298,7 @@ Du kannst deinen Browser in dieser Zeit auch schließen und das Spiel verlassen.
       </notes>
       <segment>
         <source>zu flüchten!</source>
-        <target>zu flüchten!</target>
+        <target>¡Huir despavorido!</target>
       </segment>
     </unit>
     <unit id="PxktjOs" name="wieder die Kontrolle zu erlangen.">
@@ -1321,7 +1307,7 @@ Du kannst deinen Browser in dieser Zeit auch schließen und das Spiel verlassen.
       </notes>
       <segment>
         <source>wieder die Kontrolle zu erlangen.</source>
-        <target>wieder die Kontrolle zu erlangen.</target>
+        <target>Retomar el control</target>
       </segment>
     </unit>
     <unit id="KvyR.t." name="72bd5b1">
@@ -1332,8 +1318,7 @@ Pro Zug wird dir 1 Aktionspunkt abgezogen. Bei 0 Punkten bist du %img_tired% &lt
       <segment>
         <source>Solange du genügend %img_ap% &lt;strong&gt;Aktionspunkte&lt;/strong&gt; besitzt, kannst du dich in der Außenwelt bewegen:
 Pro Zug wird dir 1 Aktionspunkt abgezogen. Bei 0 Punkten bist du %img_tired% &lt;strong&gt;Erschöpft&lt;/strong&gt; und kannst dich nicht mehr bewegen.</source>
-        <target><![CDATA[Solange du genügend %img_ap% <strong>Aktionspunkte</strong> besitzt, kannst du dich in der Außenwelt bewegen:
-Pro Zug wird dir 1 Aktionspunkt abgezogen. Bei 0 Punkten bist du %img_tired% <strong>Erschöpft</strong> und kannst dich nicht mehr bewegen.]]></target>
+        <target><![CDATA[Puedes desplazarte en el Ultramundo mientras te queden %img_ap% <strong>Puntos de Acción</strong>: Cada Punto de Acción te permite hacer un desplazamiento. Cuando te queden 0 puntos, estarás %img_tired% <strong>Cansado</strong> y no podrás moverte.]]></target>
       </segment>
     </unit>
     <unit id="rTyffgm" name="MyHordes?">
@@ -1342,7 +1327,7 @@ Pro Zug wird dir 1 Aktionspunkt abgezogen. Bei 0 Punkten bist du %img_tired% <st
       </notes>
       <segment>
         <source>MyHordes?</source>
-        <target>MyHordes?</target>
+        <target>MyHordes ?</target>
       </segment>
     </unit>
     <unit id="JtQM0Nd" name="e6b22b6">
@@ -1351,7 +1336,7 @@ Pro Zug wird dir 1 Aktionspunkt abgezogen. Bei 0 Punkten bist du %img_tired% <st
       </notes>
       <segment>
         <source>'MyHordes' ist ein Survivalspiel, das in einer postapokalyptischen Welt voller Untoter spielt.</source>
-        <target>'MyHordes' ist ein Survivalspiel, das in einer postapokalyptischen Welt voller Untoter spielt.</target>
+        <target>'MyHordes' es un juego gratuito de rol, estrategia, cooperación y supervivencia ante un inminente ataque de zombies.</target>
       </segment>
     </unit>
     <unit id="uVaZ_gl" name="Beteilige dich im Forum">
@@ -1360,7 +1345,7 @@ Pro Zug wird dir 1 Aktionspunkt abgezogen. Bei 0 Punkten bist du %img_tired% <st
       </notes>
       <segment>
         <source>Beteilige dich im Forum</source>
-        <target>Beteilige dich im Forum</target>
+        <target>Participa en el foro de la ciudad</target>
       </segment>
     </unit>
     <unit id="vZ7tlqi" name="Organisiert euch, um zu überleben.">
@@ -1369,7 +1354,7 @@ Pro Zug wird dir 1 Aktionspunkt abgezogen. Bei 0 Punkten bist du %img_tired% <st
       </notes>
       <segment>
         <source>Organisiert euch, um zu überleben.</source>
-        <target>Organisiert euch, um zu überleben.</target>
+        <target>organizarse para sobrevivir.</target>
       </segment>
     </unit>
     <unit id="ZI9ipy1" name="b8fc43c">
@@ -1378,7 +1363,7 @@ Pro Zug wird dir 1 Aktionspunkt abgezogen. Bei 0 Punkten bist du %img_tired% <st
       </notes>
       <segment>
         <source>Du kannst versuchen, gewaltsam auszubrechen. Dabei riskierst du aber eine %img_wound% &lt;span x-ajax-href=%url_health%&gt;schwere Verletzung&lt;/span&gt;.</source>
-        <target><![CDATA[Du kannst versuchen, gewaltsam auszubrechen. Dabei riskierst du aber eine %img_wound% <span x-ajax-href=%url_health%>schwere Verletzung</span>.]]></target>
+        <target><![CDATA[Escapar abriéndote camino a la fuerza, con el riesgo de sufrir una %img_wound% <span x-ajax-href=%url_health%>Herida grave</span>.]]></target>
       </segment>
     </unit>
     <unit id="FMm6m0B" name="47e9343">
@@ -1387,7 +1372,7 @@ Pro Zug wird dir 1 Aktionspunkt abgezogen. Bei 0 Punkten bist du %img_tired% <st
       </notes>
       <segment>
         <source>Sobald du dich in der Außenwelt befindest, kannst du jederzeit den &lt;strong&gt;Eskortenmodus aktivieren und auf eine Eskorte warten.&lt;/strong&gt; Dazu musst du lediglich auf den gleichnamigen Knopf drücken.</source>
-        <target><![CDATA[Sobald du dich in der Außenwelt befindest, kannst du jederzeit den <strong>Eskortenmodus aktivieren und auf eine Eskorte warten.</strong> Dazu musst du lediglich auf den gleichnamigen Knopf drücken.]]></target>
+        <target><![CDATA[Cuando estés en el Ultramundo, <strong>puedes presionar el botón "Esperar la llegada de una escolta".</strong>]]></target>
       </segment>
     </unit>
     <unit id="o3da5QN" name="d3679c1">
@@ -1396,7 +1381,7 @@ Pro Zug wird dir 1 Aktionspunkt abgezogen. Bei 0 Punkten bist du %img_tired% <st
       </notes>
       <segment>
         <source>Im Eskortenmodus gestattest du einem &lt;strong&gt;Helden&lt;/strong&gt;, deine Spielfigur teilweise zu steuern. Deine Eskorte darf</source>
-        <target><![CDATA[Im Eskortenmodus gestattest du einem <strong>Helden</strong>, deine Spielfigur teilweise zu steuern. Deine Eskorte darf]]></target>
+        <target><![CDATA[En este modo de espera, <strong>otro habitante Héroe</strong> será capaz de tomar parcialmente el control de tu personaje, pudiendo:]]></target>
       </segment>
     </unit>
     <unit id="UkqDngj" name="dich bewegen (deine APs werden verbraucht).">
@@ -1405,7 +1390,7 @@ Pro Zug wird dir 1 Aktionspunkt abgezogen. Bei 0 Punkten bist du %img_tired% <st
       </notes>
       <segment>
         <source>dich bewegen (deine APs werden verbraucht).</source>
-        <target>dich bewegen (deine APs werden verbraucht).</target>
+        <target>Desplazarte utilizando tus Puntos de Acción.</target>
       </segment>
     </unit>
     <unit id="NlgRmmJ" name="dich graben lassen.">
@@ -1414,7 +1399,7 @@ Pro Zug wird dir 1 Aktionspunkt abgezogen. Bei 0 Punkten bist du %img_tired% <st
       </notes>
       <segment>
         <source>dich graben lassen.</source>
-        <target>dich graben lassen.</target>
+        <target>Hacerte lanzar una búsqueda.</target>
       </segment>
     </unit>
     <unit id="NA1nhgV" name="dich trinken lassen (aus deiner Flasche).">
@@ -1423,7 +1408,7 @@ Pro Zug wird dir 1 Aktionspunkt abgezogen. Bei 0 Punkten bist du %img_tired% <st
       </notes>
       <segment>
         <source>dich trinken lassen (aus deiner Flasche).</source>
-        <target>dich trinken lassen (aus deiner Flasche).</target>
+        <target>Hacerte beber una ración de agua de tu mochila.</target>
       </segment>
     </unit>
     <unit id="2J.NIaa" name="dich etwas essen lassen (aus deinem Rucksack).">
@@ -1432,7 +1417,7 @@ Pro Zug wird dir 1 Aktionspunkt abgezogen. Bei 0 Punkten bist du %img_tired% <st
       </notes>
       <segment>
         <source>dich etwas essen lassen (aus deinem Rucksack).</source>
-        <target>dich etwas essen lassen (aus deinem Rucksack).</target>
+        <target>Hacerte comer una ración de alimentos de tu mochila.</target>
       </segment>
     </unit>
     <unit id="0gZf1w8" name="dich in die Stadt zurückbringen (wenn du in der Nähe des Stadttors bist).">
@@ -1441,7 +1426,7 @@ Pro Zug wird dir 1 Aktionspunkt abgezogen. Bei 0 Punkten bist du %img_tired% <st
       </notes>
       <segment>
         <source>dich in die Stadt zurückbringen (wenn du in der Nähe des Stadttors bist).</source>
-        <target>dich in die Stadt zurückbringen (wenn du in der Nähe des Stadttors bist).</target>
+        <target>Hacerte volver al pueblo (si estás en el Portal).</target>
       </segment>
     </unit>
     <unit id="hkluwlo" name="62236b5">
@@ -1450,7 +1435,7 @@ Pro Zug wird dir 1 Aktionspunkt abgezogen. Bei 0 Punkten bist du %img_tired% <st
       </notes>
       <segment>
         <source>Dich einen Gegenstand auf- oder ablegen lassen. Allerdings musst du ihm das vorher erlaubt haben (dazu muss ein Kästchen angekreuzt sein.</source>
-        <target>Dich einen Gegenstand auf- oder ablegen lassen. Allerdings musst du ihm das vorher erlaubt haben (dazu muss ein Kästchen angekreuzt sein.</target>
+        <target>Hacerte coger o colocar un objeto, pero solo si tú lo autorizas (marcando una opción).</target>
       </segment>
     </unit>
     <unit id="uzxgIUl" name="dich auch links liegen lassen... :)">
@@ -1459,7 +1444,7 @@ Pro Zug wird dir 1 Aktionspunkt abgezogen. Bei 0 Punkten bist du %img_tired% <st
       </notes>
       <segment>
         <source>dich auch links liegen lassen... :)</source>
-        <target>dich auch links liegen lassen... :)</target>
+        <target>Abandonarte a tu suerte :)</target>
       </segment>
     </unit>
     <unit id="SHTu.Y5" name="In der Außenwelt gerettet werden">
@@ -1468,7 +1453,7 @@ Pro Zug wird dir 1 Aktionspunkt abgezogen. Bei 0 Punkten bist du %img_tired% <st
       </notes>
       <segment>
         <source>In der Außenwelt gerettet werden</source>
-        <target>In der Außenwelt gerettet werden</target>
+        <target>Rescate en el Ultramundo</target>
       </segment>
     </unit>
     <unit id="Ic3VNso" name="7bf4601">
@@ -1477,7 +1462,7 @@ Pro Zug wird dir 1 Aktionspunkt abgezogen. Bei 0 Punkten bist du %img_tired% <st
       </notes>
       <segment>
         <source>Wenn du einfach nur gerettet werden möchtest und keine Spaziergänge durch die halbe Außenwelt unternehmen willst, kannst du folgende Option wählen: "Dem Eskortenführer verbieten, mich von der Stadt zu entfernen".</source>
-        <target>Wenn du einfach nur gerettet werden möchtest und keine Spaziergänge durch die halbe Außenwelt unternehmen willst, kannst du folgende Option wählen: "Dem Eskortenführer verbieten, mich von der Stadt zu entfernen".</target>
+        <target>Si solo deseas ser auxilidado y no ir de paseo por el Ultramundo, tienes la posibilidad de impedir que el jefe de la escolta te aleje del pueblo (esta opción está activada por defecto).</target>
       </segment>
     </unit>
     <unit id="_GSJ7sz" name="d5030b5">
@@ -1486,7 +1471,7 @@ Pro Zug wird dir 1 Aktionspunkt abgezogen. Bei 0 Punkten bist du %img_tired% <st
       </notes>
       <segment>
         <source>Diese Option ist von Haus aus aktiviert und schränkt die Handlungsmöglichkeiten deines Anführers (der Bürger, der sich deiner angenommen hat) erheblich ein. &lt;strong&gt;Er darf dich dann unter keinen Umständen von der Stadt entfernen, sondern dich ihr nur näher bringen.</source>
-        <target><![CDATA[Diese Option ist von Haus aus aktiviert und schränkt die Handlungsmöglichkeiten deines Anführers (der Bürger, der sich deiner angenommen hat) erheblich ein. <strong>Er darf dich dann unter keinen Umständen von der Stadt entfernen, sondern dich ihr nur näher bringen.]]></target>
+        <target><![CDATA[Esta opción limita los desplazamientos que te impondrá el jefe de la escolta. <strong>De esta manera, el habitante que tomó el control no podrá efectuar un desplazamiento que te aleje del pueblo, solo podrá acercarte a él.</strong>]]></target>
       </segment>
     </unit>
     <unit id="3jCo8OH" name="Wie tötet man einen Zombie?">
@@ -1495,7 +1480,7 @@ Pro Zug wird dir 1 Aktionspunkt abgezogen. Bei 0 Punkten bist du %img_tired% <st
       </notes>
       <segment>
         <source>Wie tötet man einen Zombie?</source>
-        <target>Wie tötet man einen Zombie?</target>
+        <target>¿Cómo matar a un zombie?</target>
       </segment>
     </unit>
     <unit id="6P6JS.Y" name="894b1a6">
@@ -1504,7 +1489,7 @@ Pro Zug wird dir 1 Aktionspunkt abgezogen. Bei 0 Punkten bist du %img_tired% <st
       </notes>
       <segment>
         <source>Klassischerweise, indem man seinen Kopf vom Körper trennt. Neuerdings schwören manche auch auf Bowlingkugeln... Die Wahrheit allerdings ist: Erlaubt ist, was gefällt. Alle stimmen darin überein, dass &lt;strong&gt;reines Wasser&lt;/strong&gt; die Waffe der ersten Wahl ist. Dieses Wasser muss aber irgendwie transportiert werden. Plastiktüten eignen sich dazu hervorragend, denn sie geben zugleich tolle %img_grenade% Wasserbomben ab.</source>
-        <target><![CDATA[Klassischerweise, indem man seinen Kopf vom Körper trennt. Neuerdings schwören manche auch auf Bowlingkugeln... Die Wahrheit allerdings ist: Erlaubt ist, was gefällt. Alle stimmen darin überein, dass <strong>reines Wasser</strong> die Waffe der ersten Wahl ist. Dieses Wasser muss aber irgendwie transportiert werden. Plastiktüten eignen sich dazu hervorragend, denn sie geben zugleich tolle %img_grenade% Wasserbomben ab.]]></target>
+        <target><![CDATA[Cada habitante tiene sus propias técnicas. Todo el mundo coincide en que <strong>el agua pura</strong> es la mejor arma para destruirlos. Colocándola en bolsas de plástico, te servirá como %img_grenade% Bombas de agua.]]></target>
       </segment>
     </unit>
     <unit id="NFLPXTS" name="Ein paar Vorschläge">
@@ -1513,7 +1498,7 @@ Pro Zug wird dir 1 Aktionspunkt abgezogen. Bei 0 Punkten bist du %img_tired% <st
       </notes>
       <segment>
         <source>Ein paar Vorschläge</source>
-        <target>Ein paar Vorschläge</target>
+        <target>Otros métodos alternativos</target>
       </segment>
     </unit>
     <unit id="jvYEfUF" name="Je nach Geschmack könnt ihr folgendes verwenden:">
@@ -1522,7 +1507,7 @@ Pro Zug wird dir 1 Aktionspunkt abgezogen. Bei 0 Punkten bist du %img_tired% <st
       </notes>
       <segment>
         <source>Je nach Geschmack könnt ihr folgendes verwenden:</source>
-        <target>Je nach Geschmack könnt ihr folgendes verwenden:</target>
+        <target>Según tus gustos, puedes atacarlos con:</target>
       </segment>
     </unit>
     <unit id="JKpkVJV" name="Einen Holzstock... nicht gaanz so effektiv.">
@@ -1531,7 +1516,7 @@ Pro Zug wird dir 1 Aktionspunkt abgezogen. Bei 0 Punkten bist du %img_tired% <st
       </notes>
       <segment>
         <source>Einen Holzstock... nicht gaanz so effektiv.</source>
-        <target>Einen Holzstock... nicht gaanz so effektiv.</target>
+        <target>Un palo de madera. Está de más decir que no es muy eficaz.</target>
       </segment>
     </unit>
     <unit id="aSv3qDV" name="Eine Wasserpistole! Die ist ideal!">
@@ -1540,7 +1525,7 @@ Pro Zug wird dir 1 Aktionspunkt abgezogen. Bei 0 Punkten bist du %img_tired% <st
       </notes>
       <segment>
         <source>Eine Wasserpistole! Die ist ideal!</source>
-        <target>Eine Wasserpistole! Die ist ideal!</target>
+        <target>Una pistola de agua. ¡Qué divertido!</target>
       </segment>
     </unit>
     <unit id="UpyywU6" name="Ein wohlerzogenes Haustier ;-)">
@@ -1549,7 +1534,7 @@ Pro Zug wird dir 1 Aktionspunkt abgezogen. Bei 0 Punkten bist du %img_tired% <st
       </notes>
       <segment>
         <source>Ein wohlerzogenes Haustier ;-)</source>
-        <target>Ein wohlerzogenes Haustier ;-)</target>
+        <target>Un animal de compañía bien entrenado.</target>
       </segment>
     </unit>
     <unit id="kSxZoJl" name="Sonstiges nettes Spielzeug...">
@@ -1558,7 +1543,7 @@ Pro Zug wird dir 1 Aktionspunkt abgezogen. Bei 0 Punkten bist du %img_tired% <st
       </notes>
       <segment>
         <source>Sonstiges nettes Spielzeug...</source>
-        <target>Sonstiges nettes Spielzeug...</target>
+        <target>Otros juguetes interesantes...</target>
       </segment>
     </unit>
     <unit id="0nfxF12" name="0323d66">
@@ -1567,7 +1552,7 @@ Pro Zug wird dir 1 Aktionspunkt abgezogen. Bei 0 Punkten bist du %img_tired% <st
       </notes>
       <segment>
         <source>Wenn's mal Probleme geben sollte, ist eine &lt;span x-ajax-href=%url_cp%&gt;Flucht&lt;/span&gt; nicht verkehrt...</source>
-        <target><![CDATA[Wenn's mal Probleme geben sollte, ist eine <span x-ajax-href=%url_cp%>Flucht</span> nicht verkehrt...]]></target>
+        <target><![CDATA[En caso de problemas, no olvides que también puedes <span x-ajax-href=%url_cp%>huir</span>...]]></target>
       </segment>
     </unit>
     <unit id="THFtKTb" name="2547bd8">
@@ -1576,7 +1561,7 @@ Pro Zug wird dir 1 Aktionspunkt abgezogen. Bei 0 Punkten bist du %img_tired% <st
       </notes>
       <segment>
         <source>Die Nächte in der Welt von MyHordes sind kalt. Sehr kalt und selten günstig. Bestimmte Handlungen oder Regeln ändern sich in diesen Stunden großer Einsamkeit...</source>
-        <target>Die Nächte in der Welt von MyHordes sind kalt. Sehr kalt und selten günstig. Bestimmte Handlungen oder Regeln ändern sich in diesen Stunden großer Einsamkeit...</target>
+        <target>Las noches son frías y espeluznantes en el mundo de MyHordes. Algunas acciones o reglas cambian a lo largo de esas horas de tensión...</target>
       </segment>
     </unit>
     <unit id="VgYGj1w" name="Die folgenden Änderungen gelten Nachts:">
@@ -1585,7 +1570,7 @@ Pro Zug wird dir 1 Aktionspunkt abgezogen. Bei 0 Punkten bist du %img_tired% <st
       </notes>
       <segment>
         <source>Die folgenden Änderungen gelten Nachts:</source>
-        <target>Die folgenden Änderungen gelten Nachts:</target>
+        <target>De noche toma en cuenta lo siguiente:</target>
       </segment>
     </unit>
     <unit id="HhFaIrh" name="Die Spezialfähigkeit &lt;i&gt;Durchbrechen&lt;/i&gt; hat eine höhere Erfolgschance.">
@@ -1594,7 +1579,7 @@ Pro Zug wird dir 1 Aktionspunkt abgezogen. Bei 0 Punkten bist du %img_tired% <st
       </notes>
       <segment>
         <source>Die Spezialfähigkeit &lt;i&gt;Durchbrechen&lt;/i&gt; hat eine höhere Erfolgschance.</source>
-        <target><![CDATA[Die Spezialfähigkeit <i>Durchbrechen</i> hat eine höhere Erfolgschance.]]></target>
+        <target><![CDATA[La capacidad espacial <i>Abrirse camino a la fuerza</i> tiene una posibilidad de éxito superior.]]></target>
       </segment>
     </unit>
     <unit id="HnQcgq_" name="0c31592">
@@ -1603,7 +1588,7 @@ Pro Zug wird dir 1 Aktionspunkt abgezogen. Bei 0 Punkten bist du %img_tired% <st
       </notes>
       <segment>
         <source>Für Aufklärer ist die Wahrscheinlichkeit, während der Bewegung entdeckt zu werden, erheblich geringer: Die Nacht ist Ihr Verbündeter.</source>
-        <target>Für Aufklärer ist die Wahrscheinlichkeit, während der Bewegung entdeckt zu werden, erheblich geringer: Die Nacht ist Ihr Verbündeter.</target>
+        <target>Para los Exploradores, el riesgo de ser descubiertos durante un desplazamiento se reducen significativamente.</target>
       </segment>
     </unit>
     <unit id="a05ekAR" name="0f74fb4">
@@ -1612,7 +1597,7 @@ Pro Zug wird dir 1 Aktionspunkt abgezogen. Bei 0 Punkten bist du %img_tired% <st
       </notes>
       <segment>
         <source>Ein Bürger kann versuchen, ein Objekt aus der Bank zu stehlen: Er hat dann die Möglichkeit, nicht im Register identifiziert zu werden.</source>
-        <target>Ein Bürger kann versuchen, ein Objekt aus der Bank zu stehlen: Er hat dann die Möglichkeit, nicht im Register identifiziert zu werden.</target>
+        <target>Un habitante puede intentar robar un objeto del Almacén: tiene más posibilidades de no ser identificado en el Registro.</target>
       </segment>
     </unit>
     <unit id="6VYEXVB" name="1e8a126">
@@ -1621,7 +1606,7 @@ Pro Zug wird dir 1 Aktionspunkt abgezogen. Bei 0 Punkten bist du %img_tired% <st
       </notes>
       <segment>
         <source>Ausgrabungen haben eine geringere Erfolgschance (einschließlich Gebäude). Sie können jedoch bestimmte Objekte verwenden, um diese Strafe aufzuheben (insbesondere Taschenlampen oder Lampen).</source>
-        <target>Ausgrabungen haben eine geringere Erfolgschance (einschließlich Gebäude). Sie können jedoch bestimmte Objekte verwenden, um diese Strafe aufzuheben (insbesondere Taschenlampen oder Lampen).</target>
+        <target>Las búsquedas tienen menos probabilidades de éxito (incluyendo los edificios). Sin embargo, puedes usar ciertos objetos para reducir esta dificultad (antorchas o lámparas).</target>
       </segment>
     </unit>
     <unit id="nAcFRkc" name="Diese Regeln gelten nicht in &quot;Kleinstadt&quot;-Karten.">
@@ -1630,7 +1615,7 @@ Pro Zug wird dir 1 Aktionspunkt abgezogen. Bei 0 Punkten bist du %img_tired% <st
       </notes>
       <segment>
         <source>Diese Regeln gelten nicht in "Kleinstadt"-Karten.</source>
-        <target>Diese Regeln gelten nicht in "Kleinstadt"-Karten.</target>
+        <target>Estas reglas se aplican solo a los mapas de "Pueblos Leyenda" y "Pandemonio".</target>
       </segment>
     </unit>
     <unit id="iQ1y9St" name="Camper haben eine bessere Chance, ein Versteck zu finden.">
@@ -1639,7 +1624,7 @@ Pro Zug wird dir 1 Aktionspunkt abgezogen. Bei 0 Punkten bist du %img_tired% <st
       </notes>
       <segment>
         <source>Camper haben eine bessere Chance, ein Versteck zu finden.</source>
-        <target>Camper haben eine bessere Chance, ein Versteck zu finden.</target>
+        <target>Los Campistas tienen más ocasiones de encontrar un escondite.</target>
       </segment>
     </unit>
     <unit id="gxWuOUR" name="fba6242">
@@ -4311,8 +4296,7 @@ Dies bedeutet, dass dieser Bürger Expiditionen organisieren, der Anführer sein
       <segment>
         <source>Der "Reiseleiter in der Außenwelt" ist ein besonderer Bürger. Die schwere Verantwortung, seinen Kameraden bei der Navigation durch die Außenwelt zu helfen, liegt auf seinen Schultern.
 Dies bedeutet, dass dieser Bürger Expiditionen organisieren, der Anführer sein kann (auch wenn er kein Held ist) und einen Kontrollpunkt für jeden anderen Bürger in seiner Zone hinzufügen kann.</source>
-        <target>Der "Reiseleiter in der Außenwelt" ist ein besonderer Bürger. Die schwere Verantwortung, seinen Kameraden bei der Navigation durch die Außenwelt zu helfen, liegt auf seinen Schultern.
-Dies bedeutet, dass dieser Bürger Expiditionen organisieren, der Anführer sein kann (auch wenn er kein Held ist) und einen Kontrollpunkt für jeden anderen Bürger in seiner Zone hinzufügen kann.</target>
+        <target>El Guía del Ultramundo es un habitante especial. La gran responsabilidad de ayudar a sus compatriotas navegar el Ultramundo recae sobre sus hombros. Esto significa que este habitante puede organizar expediciones, ser el líder (incluso si no es un héroe), y sumarle un punto de control a cada habitante presente en su zona.</target>
       </segment>
     </unit>
     <unit id="aVNJko." name="Wie werde ich dieser Anführer, von dem du sprichst?">
@@ -4321,7 +4305,7 @@ Dies bedeutet, dass dieser Bürger Expiditionen organisieren, der Anführer sein
       </notes>
       <segment>
         <source>Wie werde ich dieser Anführer, von dem du sprichst?</source>
-        <target>Wie werde ich dieser Anführer, von dem du sprichst?</target>
+        <target>¿Cómo me convierto en este... Guía, del que hablas?</target>
       </segment>
     </unit>
     <unit id="JGKyk6g" name="4223cec">
@@ -4336,10 +4320,7 @@ Von diesem Moment an verfügt der neue Anführer über besondere Fähigkeiten, d
 In der ersten Nacht in der Stadt und nach dem Tod jedes nachfolgenden Führers (ja, es ist ein gefährlicher Job) wird eine Wahl abgehalten.
 Während dieser Manifestation der Demokratie wird eine Debatte stattfinden und die Abstimmung wird folgen. Am Ende wird der... qualifizierteste... Bürger ausgewählt, um eine Zielscheibe, ich meine Hut zu tragen...
 Von diesem Moment an verfügt der neue Anführer über besondere Fähigkeiten, die er zum Wohle der Stadt nutzen kann.</source>
-        <target>Durch eine Wahl!
-In der ersten Nacht in der Stadt und nach dem Tod jedes nachfolgenden Führers (ja, es ist ein gefährlicher Job) wird eine Wahl abgehalten.
-Während dieser Manifestation der Demokratie wird eine Debatte stattfinden und die Abstimmung wird folgen. Am Ende wird der... qualifizierteste... Bürger ausgewählt, um eine Zielscheibe, ich meine Hut zu tragen...
-Von diesem Moment an verfügt der neue Anführer über besondere Fähigkeiten, die er zum Wohle der Stadt nutzen kann.</target>
+        <target>¡Siendo elegido! En la primera noche del pueblo, y después de la muerte del Guía anterior (sí, es un duro trabajo) se harán unas elecciones. Durante esta demostración de democracia, habrá un debate, y le sucederán unas votaciones. Al final el habitante más... cualificado será elegido para llevar la diana— digo— gorra... Desde tal momento el nuevo Guía tendrá habilidades especiales que podrá aprovechar por el bien del pueblo.</target>
       </segment>
     </unit>
     <unit id="9tmUsfs" name="1277be0">
@@ -4348,7 +4329,7 @@ Von diesem Moment an verfügt der neue Anführer über besondere Fähigkeiten, d
       </notes>
       <segment>
         <source>So wird der Anführer ein wichtiger Teil des Überlebens der Stadt und seiner Nachbarn... Aber wie lange wird dieser neue Anführer überhaupt überleben???</source>
-        <target>So wird der Anführer ein wichtiger Teil des Überlebens der Stadt und seiner Nachbarn... Aber wie lange wird dieser neue Anführer überhaupt überleben???</target>
+        <target>Así que el Guía se convierte en parte vital para la supervivencia del pueblo y de sus vecinos... ¿Pero cuánto durará este Guía igualmente?</target>
       </segment>
     </unit>
     <unit id="3VWbsLn" name="5c9343c">
@@ -4359,8 +4340,7 @@ Der Schamane weiß, wie man das Nutzlose nutzt und wie man eine nützlichere Rei
       <segment>
         <source>Der Schamane ist ein unglaublich mächtiger Voodoo-Zauberer, der vom Tod anderer Bürger profitieren kann, um seine schwarze Magie auszuführen.
 Der Schamane weiß, wie man das Nutzlose nutzt und wie man eine nützlichere Reinkarnation für unsere Verstorbenen herbeiführt.</source>
-        <target>Der Schamane ist ein unglaublich mächtiger Voodoo-Zauberer, der vom Tod anderer Bürger profitieren kann, um seine schwarze Magie auszuführen.
-Der Schamane weiß, wie man das Nutzlose nutzt und wie man eine nützlichere Reinkarnation für unsere Verstorbenen herbeiführt.</target>
+        <target>El Chamán es un poderosísimo sacerdote vudú que aprovecha la muerte de otros abitantes para llevar a cabo su magia negra. El Chamán sabe cómo utilizar a los inútiles y cómo darles una vida más útil a nuestros queridos difuntos.</target>
       </segment>
     </unit>
     <unit id="TXxL0zS" name="Wie wirst du der Stadtschamane?">
@@ -4369,7 +4349,7 @@ Der Schamane weiß, wie man das Nutzlose nutzt und wie man eine nützlichere Rei
       </notes>
       <segment>
         <source>Wie wirst du der Stadtschamane?</source>
-        <target>Wie wirst du der Stadtschamane?</target>
+        <target>¿Cómo me convierto en el Chamán del pueblo?</target>
       </segment>
     </unit>
     <unit id="k1MDJd5" name="70b54b1">
@@ -4378,7 +4358,7 @@ Der Schamane weiß, wie man das Nutzlose nutzt und wie man eine nützlichere Rei
       </notes>
       <segment>
         <source>In der ersten Nacht und jedes Mal, wenn der Schamane stirbt, findet ein Stadttreffen statt. Während dieses Treffens findet eine Debatte statt und nach vielem Streiten, Ausweichen vor Verantwortung und zweifellos Trinken wird der ... "qualifizierteste" Bewohner als Schamane bezeichnet! Von diesem Moment an wird der Schamane Zugang zu neuen Kräften und neuen "Punkten" haben.</source>
-        <target>In der ersten Nacht und jedes Mal, wenn der Schamane stirbt, findet ein Stadttreffen statt. Während dieses Treffens findet eine Debatte statt und nach vielem Streiten, Ausweichen vor Verantwortung und zweifellos Trinken wird der ... "qualifizierteste" Bewohner als Schamane bezeichnet! Von diesem Moment an wird der Schamane Zugang zu neuen Kräften und neuen "Punkten" haben.</target>
+        <target>Durante la primer noche, y cada vez que el Chamán muere, habrá una asamblea en el pueblo. En esta reunión toma lugar un debate y después de mucho jaleo, escaqueo y, sin duda, bebida, ¡el habitante más... "cualificado" se elige como Chamán! Desde ese momento el Chamán tendrá cceso a nuevos poderes y a un nuevo tipo de "puntos".</target>
       </segment>
     </unit>
     <unit id="lX6N9d4" name="Ich bin der Schamane, was mache ich?">
@@ -4387,7 +4367,7 @@ Der Schamane weiß, wie man das Nutzlose nutzt und wie man eine nützlichere Rei
       </notes>
       <segment>
         <source>Ich bin der Schamane, was mache ich?</source>
-        <target>Ich bin der Schamane, was mache ich?</target>
+        <target>Soy el Chamán, ¿qué hago?</target>
       </segment>
     </unit>
     <unit id="EB1GVNp" name="4bb6b26">
@@ -4398,8 +4378,8 @@ Der Schamane kann:</note>
       <segment>
         <source>Dank ihrer einzigartigen Weltanschauung kann der Schamane einzigartige Aktionen ausführen, die ihn gleichzeitig zu einem Heiler, einem Hellseher oder einem Scharlatan machen können.
 Der Schamane kann:</source>
-        <target>Dank ihrer einzigartigen Weltanschauung kann der Schamane einzigartige Aktionen ausführen, die ihn gleichzeitig zu einem Heiler, einem Hellseher oder einem Scharlatan machen können.
-Der Schamane kann:</target>
+        <target>Gracias a su peculiar visión del mundo, el Chamán puede llevar a cabo acciones únicas, que pueden hacer las veces de curandero, psíquico, o charlatán.
+El Chamán puede:</target>
       </segment>
     </unit>
     <unit id="Jk0YceP" name="6787c91">
@@ -4408,7 +4388,7 @@ Der Schamane kann:</target>
       </notes>
       <segment>
         <source>Heile Bürger &lt;strong&gt;in der Stadt &lt;/strong&gt;. Lindere Angststarre, Infektionen oder extrahiere sogar Alkohol oder Drogen aus den Körpern deiner Kameraden. Der Erfolg ist jedoch nicht garantiert. Manchmal nimmt der Schamane während des Heilungsprozesses die Krankheit, die das Opfer plagt, in seinen eigenen Körper auf.</source>
-        <target><![CDATA[Heile Bürger <strong>in der Stadt </strong>. Lindere Angststarre, Infektionen oder extrahiere sogar Alkohol oder Drogen aus den Körpern deiner Kameraden. Der Erfolg ist jedoch nicht garantiert. Manchmal nimmt der Schamane während des Heilungsprozesses die Krankheit, die das Opfer plagt, in seinen eigenen Körper auf.]]></target>
+        <target><![CDATA[Curar a los habitantes <strong>en el pueblo</strong>. Aliviar el terror, infecciones o incluso extraer el alcohol o drogas de los cuerpos de sus camaradas. Sin embargo, el éxito no está asegurado. A veces, durante la curación, el Chamán adopta la enfermedad que porta la víctima.]]></target>
       </segment>
     </unit>
     <unit id="R8zw7sJ" name="b418440">
@@ -4417,7 +4397,7 @@ Der Schamane kann:</target>
       </notes>
       <segment>
         <source>Reinige Zonen, indem du Regen auf diese Bereiche fallen lässt. Wenn der Regen auf die Stadt fällt, füllt das Wasser den Brunnen ein wenig.</source>
-        <target>Reinige Zonen, indem du Regen auf diese Bereiche fallen lässt. Wenn der Regen auf die Stadt fällt, füllt das Wasser den Brunnen ein wenig.</target>
+        <target>Purificar zonas haciendo llover en esas áreas. Si la lluvia cae en el pueblo, el pozo de agua se rellenará un poco.</target>
       </segment>
     </unit>
     <unit id="GZCNcDN" name="Führe die Bürger zum Ort der Seelen in der Außenwelt.">
@@ -4426,7 +4406,7 @@ Der Schamane kann:</target>
       </notes>
       <segment>
         <source>Führe die Bürger zum Ort der Seelen in der Außenwelt.</source>
-        <target>Führe die Bürger zum Ort der Seelen in der Außenwelt.</target>
+        <target>Guiar a habitantes en la ubicación de almas en el Ultramundo.</target>
       </segment>
     </unit>
     <unit id="Gy1BjIf" name="5167310">
@@ -4435,7 +4415,7 @@ Der Schamane kann:</target>
       </notes>
       <segment>
         <source>Braue spezielle Tränke, die bloße Sterbliche vor dem Übel gefolterter Seelen schützen.</source>
-        <target>Braue spezielle Tränke, die bloße Sterbliche vor dem Übel gefolterter Seelen schützen.</target>
+        <target>Preparar pociones especiales que protegen a simples mortales del de las almas torturadas.</target>
       </segment>
     </unit>
     <unit id="35sXzYK" name="05c2cbe">
@@ -4444,7 +4424,7 @@ Der Schamane kann:</target>
       </notes>
       <segment>
         <source>Der Schamane ist daher eine zentrale Figur in der grausamen Komödie, die das Überleben der Stadt darstellt. Aber wie lange wird der Schamane überleben?</source>
-        <target>Der Schamane ist daher eine zentrale Figur in der grausamen Komödie, die das Überleben der Stadt darstellt. Aber wie lange wird der Schamane überleben?</target>
+        <target>Por tanto, el Chamán es un personaje central de la cruel comedia que es la vida en el pueblo. Pero, ¿cuánto tiempo sobrevivirá el Chamán?</target>
       </segment>
     </unit>
     <unit id="dI.W08W" name="Jeder Bürger beginnt als einfacher Bewohner des MyHordes-Universums.">
@@ -4471,7 +4451,7 @@ Der Schamane kann:</target>
       </notes>
       <segment>
         <source>Überleben durch Kommunikation und Kooperation</source>
-        <target>Überleben durch Kommunikation und Kooperation</target>
+        <target>Comunicarse para sobrevivir</target>
       </segment>
     </unit>
     <unit id="iGFqIbp" name="be3c446">
@@ -4480,7 +4460,7 @@ Der Schamane kann:</target>
       </notes>
       <segment>
         <source>So wie der Aufklärer eine wichtige Aufgabe für die Gemeinschaft erfüllt, trägt jeder Spieler, ungeachtet seines Berufs, zum Überleben der Gemeinschaft bei. Keine Frage, man kann auch alleine überleben. Manchmal, wenn sonst niemand mehr da ist, ist das auch die letzte Möglichkeit. Trotzdem steht die Kooperation in 'MyHordes' im Mittelpunkt. Aufgaben und Rollen sollten besprochen und aufgeteilt werden, wenn die Gemeinschaft als Ganzes überleben möchte. So können manche Spieler sich um das Einsammeln von Rohstoffen kümmern, während andere ihre Aktionspunkte auf den Baustellen einsetzen.</source>
-        <target>So wie der Aufklärer eine wichtige Aufgabe für die Gemeinschaft erfüllt, trägt jeder Spieler, ungeachtet seines Berufs, zum Überleben der Gemeinschaft bei. Keine Frage, man kann auch alleine überleben. Manchmal, wenn sonst niemand mehr da ist, ist das auch die letzte Möglichkeit. Trotzdem steht die Kooperation in 'MyHordes' im Mittelpunkt. Aufgaben und Rollen sollten besprochen und aufgeteilt werden, wenn die Gemeinschaft als Ganzes überleben möchte. So können manche Spieler sich um das Einsammeln von Rohstoffen kümmern, während andere ihre Aktionspunkte auf den Baustellen einsetzen.</target>
+        <target>Así como el oficio de Explorador es crucial por ser una formidable fuente de información, todos los oficios tienen una gran importancia. Si bien es cierto que es posible sobrevivir solo y que cada habitante debe poder salvar su propio pellejo ante los ataques de las hordas de zombies, aliarse a otros suele ser la mejor manera de hacer que el pueblo entero resista y de encontrar recursos en el Ultramundo.</target>
       </segment>
     </unit>
     <unit id="fh_ltq7" name="Die Bank">
@@ -4489,7 +4469,7 @@ Der Schamane kann:</target>
       </notes>
       <segment>
         <source>Die Bank</source>
-        <target>Die Bank</target>
+        <target>El Almacén</target>
       </segment>
     </unit>
     <unit id="HbtThHi" name="f32800d">
@@ -4498,7 +4478,7 @@ Der Schamane kann:</target>
       </notes>
       <segment>
         <source>Damit die Stadt Gebäude bauen und ihre Verteidigung verbessern kann, &lt;strong&gt;sollten&lt;/strong&gt; alle Spieler die Beute ihrer Ausflüge in der Bank abliefern. Jede gespendete Blechplatte trägt dazu bei, dass die Stadt möglichst bald ihre Stadtmauer verstärken kann. Ebenso ermöglicht das Spenden von Holz und Metall den zügigen Bau verbesserter Verteidigungsanlagen oder anderer Konstruktionen.</source>
-        <target><![CDATA[Damit die Stadt Gebäude bauen und ihre Verteidigung verbessern kann, <strong>sollten</strong> alle Spieler die Beute ihrer Ausflüge in der Bank abliefern. Jede gespendete Blechplatte trägt dazu bei, dass die Stadt möglichst bald ihre Stadtmauer verstärken kann. Ebenso ermöglicht das Spenden von Holz und Metall den zügigen Bau verbesserter Verteidigungsanlagen oder anderer Konstruktionen.]]></target>
+        <target><![CDATA[Para construir los edificios y reforzar sus defensas, los aventureros pueden donar al pueblo el fruto de sus búsquedas <strong>si lo desean</strong>. Así una lámina de metal ayudaría a reforzar el blindaje de los muros exteriores.]]></target>
       </segment>
     </unit>
     <unit id="4fvRlNu" name="0ffe272">
@@ -4507,7 +4487,7 @@ Der Schamane kann:</target>
       </notes>
       <segment>
         <source>&lt;strong&gt;Beherzige das Sprichwort&lt;/strong&gt;: Wer nichts gibt und nichts spendet, der verendet!</source>
-        <target><![CDATA[<strong>Beherzige das Sprichwort</strong>: Wer nichts gibt und nichts spendet, der verendet!]]></target>
+        <target><![CDATA[<strong>Vigila el registro del almacén</strong>: Alguien podría estar robando materiales.]]></target>
       </segment>
     </unit>
     <unit id="tPuqFSN" name="Das Stadtforum und seine Unterforen">
@@ -4516,7 +4496,7 @@ Der Schamane kann:</target>
       </notes>
       <segment>
         <source>Das Stadtforum und seine Unterforen</source>
-        <target>Das Stadtforum und seine Unterforen</target>
+        <target>El Foro y los espacios de comunicación</target>
       </segment>
     </unit>
     <unit id="xrMzlbE" name="bb5379b">
@@ -4525,7 +4505,7 @@ Der Schamane kann:</target>
       </notes>
       <segment>
         <source>Die Einwohner können sich im Stadtforum und seinen Unterforen austauschen, Verteidigungsstrategien besprechen oder einfach einen netten Plausch halten. Wichtige Orte verfügen jeweils über ein separates Forum, wie zum Beispiel die Baustelle. Im Stadtforum können auch Hilferufe abgesetzt werden, wenn man in der Wüste feststeckt...</source>
-        <target>Die Einwohner können sich im Stadtforum und seinen Unterforen austauschen, Verteidigungsstrategien besprechen oder einfach einen netten Plausch halten. Wichtige Orte verfügen jeweils über ein separates Forum, wie zum Beispiel die Baustelle. Im Stadtforum können auch Hilferufe abgesetzt werden, wenn man in der Wüste feststeckt...</target>
+        <target>Este es un espacio clave para comunicarse, planear estratégias y también para relajarse. Allí también llegan los mensajes de los aventureros perdidos en el desierto, no duden en ayudarlos...</target>
       </segment>
     </unit>
     <unit id=".pvOofi" name="Die Zeitung">
@@ -4534,7 +4514,7 @@ Der Schamane kann:</target>
       </notes>
       <segment>
         <source>Die Zeitung</source>
-        <target>Die Zeitung</target>
+        <target>El Boletín</target>
       </segment>
     </unit>
     <unit id="edCUYZ4" name="671024f">
@@ -4543,7 +4523,7 @@ Der Schamane kann:</target>
       </notes>
       <segment>
         <source>Nach dem mitternächtlichen Zombieangriff werden jede Nacht die Druckmaschinen angeworfen, um eine Zeitung zu drucken, in der die wichtigsten Ereignisse des letzten Tages noch einmal kompakt zusammengefasst werden.</source>
-        <target>Nach dem mitternächtlichen Zombieangriff werden jede Nacht die Druckmaschinen angeworfen, um eine Zeitung zu drucken, in der die wichtigsten Ereignisse des letzten Tages noch einmal kompakt zusammengefasst werden.</target>
+        <target>Después del paso de las hordas de zombies, el boletín te informará sobre los eventos más importantes del día.</target>
       </segment>
     </unit>
     <unit id="dMUwTpn" name="Das Bürgerbüro">
@@ -4552,7 +4532,7 @@ Der Schamane kann:</target>
       </notes>
       <segment>
         <source>Das Bürgerbüro</source>
-        <target>Das Bürgerbüro</target>
+        <target>El directorio ciudadano</target>
       </segment>
     </unit>
     <unit id="S3ZXK0Q" name="83094e4">
@@ -4561,7 +4541,7 @@ Der Schamane kann:</target>
       </notes>
       <segment>
         <source>Im Bürgerbüro findest du wagemutige Mitstreiter, die bereit sind, mit dir die Außenwelt zu erkunden.</source>
-        <target>Im Bürgerbüro findest du wagemutige Mitstreiter, die bereit sind, mit dir die Außenwelt zu erkunden.</target>
+        <target>Es en el directorio de ciudadanos donde encontrarás miembros del equipo para cruzar el desierto del inframundo.</target>
       </segment>
     </unit>
     <unit id="72KJHkb" name="Private Nachrichten">
@@ -4570,7 +4550,7 @@ Der Schamane kann:</target>
       </notes>
       <segment>
         <source>Private Nachrichten</source>
-        <target>Private Nachrichten</target>
+        <target>La mensajería privada</target>
       </segment>
     </unit>
     <unit id="ts5cPQf" name="7edf977">
@@ -4581,8 +4561,7 @@ Der Schamane kann:</target>
       <segment>
         <source>Du kannst deine Mitspieler auch mit einer privaten Nachricht anschreiben. Gehe dazu in den Abschnitt &lt;strong&gt;Bürger&lt;/strong&gt; und betrete ein Haus. Klick auf den Knopf:
 &lt;strong&gt;Eine Nachricht an seiner Tür hinterlassen&lt;/strong&gt;. Intimes (Infektionen und ähnliches) und Verschwörungen lassen sich zu zweit meistens besser besprechen...</source>
-        <target><![CDATA[Du kannst deine Mitspieler auch mit einer privaten Nachricht anschreiben. Gehe dazu in den Abschnitt <strong>Bürger</strong> und betrete ein Haus. Klick auf den Knopf:
-<strong>Eine Nachricht an seiner Tür hinterlassen</strong>. Intimes (Infektionen und ähnliches) und Verschwörungen lassen sich zu zweit meistens besser besprechen...]]></target>
+        <target><![CDATA[Si desea chatear en privado con otro aventurero, la mensajería es la herramienta para usted. Por lo tanto, puede ponerse de acuerdo en estrategias de grupo o conspirar contra otros jugadores ...]]></target>
       </segment>
     </unit>
     <unit id="gewChOm" name="Private Nachrichten können nur in der Stadt gelesen werden.">
@@ -4591,7 +4570,7 @@ Der Schamane kann:</target>
       </notes>
       <segment>
         <source>Private Nachrichten können nur in der Stadt gelesen werden.</source>
-        <target>Private Nachrichten können nur in der Stadt gelesen werden.</target>
+        <target>Tenga en cuenta: solo puede leer sus mensajes privados en la ciudad.</target>
       </segment>
     </unit>
     <unit id="0_C4R9z" name="d6cefb2">
@@ -4600,7 +4579,7 @@ Der Schamane kann:</target>
       </notes>
       <segment>
         <source>Die Stadt ist der Ort, an dem alles beginnt und alles endet. Hier musst du dich jeden Tag vor Mitternacht einfinden, wenn du überleben möchtest...</source>
-        <target>Die Stadt ist der Ort, an dem alles beginnt und alles endet. Hier musst du dich jeden Tag vor Mitternacht einfinden, wenn du überleben möchtest...</target>
+        <target>El pueblo es tu punto de partida. Cada día, después de explorar el Ultramundo, debes volver a allí. Fuera del pueblo, los riesgos de morir son elevados por las noches...</target>
       </segment>
     </unit>
     <unit id="5hSH6cs" name="Der Treffpunkt der Gemeinschaft">
@@ -4609,7 +4588,7 @@ Der Schamane kann:</target>
       </notes>
       <segment>
         <source>Der Treffpunkt der Gemeinschaft</source>
-        <target>Der Treffpunkt der Gemeinschaft</target>
+        <target>El centro de la comunidad</target>
       </segment>
     </unit>
     <unit id="V0J_pKJ" name="4c7de52">
@@ -4618,7 +4597,7 @@ Der Schamane kann:</target>
       </notes>
       <segment>
         <source>Die Stadt ist auch der zentrale Punkt, an dem du deine Leidensgenossen triffst, um mit ihnen die beste Überlebensstrategie zu besprechen. Sie dient euch auch als Basislager für Wüstenexpeditionen und beherbergt eine Bank, in der gefundene Gegenstände gesammelt werden.</source>
-        <target>Die Stadt ist auch der zentrale Punkt, an dem du deine Leidensgenossen triffst, um mit ihnen die beste Überlebensstrategie zu besprechen. Sie dient euch auch als Basislager für Wüstenexpeditionen und beherbergt eine Bank, in der gefundene Gegenstände gesammelt werden.</target>
+        <target>En el pueblo encontrarás a todos tus compañeros de infortunio. Allí formarás tus pequeños grupos de exploración y guardarás todo lo que encuentres.</target>
       </segment>
     </unit>
   </file>
