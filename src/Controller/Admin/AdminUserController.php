@@ -428,7 +428,11 @@ class AdminUserController extends AdminActionController
             case 'd': $users = $em->getRepository(User::class)->findByDisplayNameContains($searchName); break; // Only Display name
             case 'e': $users = $this->isGranted('ROLE_ADMIN') ? $em->getRepository(User::class)->findByMailContains($searchName) : []; break; // Mail
             case 'ue':case 'eu': $users = $this->isGranted('ROLE_ADMIN') ? $em->getRepository(User::class)->findByNameOrMailContains($searchName) : []; break; // Username & Mail
-            case 't':  $users = $em->getRepository(User::class)->findBy(['twinoidID' => (int)$searchName]); break; // Twinoid ID
+            case 't':  // Twinoid ID
+                $users = $em->getRepository(User::class)->findBy(['twinoidID' => (int)$searchName]);
+                foreach ($em->getRepository(TwinoidImportPreview::class)->findBy(['twinoidID' => (int)$searchName]) as $ip)
+                    if (!in_array($ip->getUser(), $users)) $users[] = $ip->getUser();
+                break;
             case 'et': $users = $em->getRepository(User::class)->findBy(['eternalID' => $searchName]); break; // EternalTwin ID
             case 'v0': $users = $em->getRepository(User::class)->findBy(['validated' => false]); break; // Non-validated
             case 'b':  $users = $em->getRepository(User::class)->findByBanned(); break; // Banned
