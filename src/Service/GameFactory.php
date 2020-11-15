@@ -384,7 +384,7 @@ class GameFactory
         $error = self::ErrorNone;
         $lock = $this->locksmith->waitForLock('join-town');
 
-        $followers = $this->user_handler->getAvailableCoalitionMembers( $user );
+        $followers = $town->getPassword() ? [] : $this->user_handler->getAvailableCoalitionMembers( $user );
 
         $active_citizen = $this->entity_manager->getRepository(Citizen::class)->findActiveByUser( $user );
         if ($active_citizen !== null) {
