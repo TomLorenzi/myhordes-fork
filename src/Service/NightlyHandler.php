@@ -30,24 +30,25 @@ use Psr\Log\LoggerInterface;
 
 class NightlyHandler
 {
-    private $cleanup = [];
-    private $skip_reanimation = [];
+    private array $cleanup = [];
+    private array $skip_reanimation = [];
+    private array $skip_infection = [];
 
-    private $entity_manager;
-    private $log;
-    private $citizen_handler;
-    private $random;
-    private $death_handler;
-    private $town_handler;
-    private $zone_handler;
-    private $inventory_handler;
-    private $picto_handler;
-    private $item_factory;
-    private $logTemplates;
-    private $conf;
-    private $action_handler;
-    private $maze;
-    private $crow;
+    private EntityManagerInterface $entity_manager;
+    private LoggerInterface $log;
+    private CitizenHandler $citizen_handler;
+    private RandomGenerator $random;
+    private DeathHandler $death_handler;
+    private TownHandler $town_handler;
+    private ZoneHandler $zone_handler;
+    private InventoryHandler $inventory_handler;
+    private PictoHandler $picto_handler;
+    private ItemFactory $item_factory;
+    private LogTemplateHandler $logTemplates;
+    private ConfMaster $conf;
+    private ActionHandler $action_handler;
+    private MazeMaker $maze;
+    private CrowService $crow;
 
     public function __construct(EntityManagerInterface $em, LoggerInterface $log, CitizenHandler $ch, InventoryHandler $ih,
                               RandomGenerator $rg, DeathHandler $dh, TownHandler $th, ZoneHandler $zh, PictoHandler $ph,
@@ -429,16 +430,17 @@ class NightlyHandler
                 } else if($this->random->chance($woundOrTerrorChances)){
                     if($this->random->chance(0.5)){
                         // Wound
-                        $this->citizen_handler->inflictWound($ctz);
-                        $this->log->debug("Watcher <info>{$ctz->getUser()->getUsername()}</info> is now <info>wounded</info>");
-                    } else {
-                        if(!$this->town_handler->getBuilding($town, "small_catapult3_#00", true)) {
-                            // Terror
-                            $this->citizen_handler->inflictStatus($ctz, $status_terror);
-                            $this->log->debug("Watcher <info>{$ctz->getUser()->getUsername()}</info> now suffers from <info>{$status_terror->getLabel()}</info>");
-
-                            $gazette->setTerror($gazette->getTerror() + 1);
+                        if (!$this->citizen_handler->isWounded($ctz)) {
+                            $this->citizen_handler->inflictWound($ctz);
+                            $this->log->debug("Watcher <info>{$ctz->getUser()->getUsername()}</info> is now <info>wounded</info>");
+                            $this->skip_infection[] = $ctz->getId();
                         }
+                    } elseif(!$this->town_handler->getBuilding($town, "small_catapult3_#00", true)) {
+                        // Terror
+                        $this->citizen_handler->inflictStatus($ctz, $status_terror);
+                        $this->log->debug("Watcher <info>{$ctz->getUser()->getUsername()}</info> now suffers from <info>{$status_terror->getLabel()}</info>");
+
+                        $gazette->setTerror($gazette->getTerror() + 1);
                     }
                 }
 
@@ -687,7 +689,7 @@ class NightlyHandler
                     $this->log->debug("Citizen <info>{$citizen->getUser()->getUsername()}</info> has <info>not</info> drunk today. <info>Increasing</info> thirst level.");
                     $this->citizen_handler->increaseThirstLevel( $citizen );
                 }
-                if (!$citizen->getStatus()->contains($status_infection) && $this->citizen_handler->isWounded( $citizen )) {
+                if (!$citizen->getStatus()->contains($status_infection) && $this->citizen_handler->isWounded( $citizen ) && !in_array( $citizen->getId(), $this->skip_infection )) {
                     $this->log->debug("Citizen <info>{$citizen->getUser()->getUsername()}</info> is <info>wounded</info>. Adding an <info>infection</info>.");
                     $this->citizen_handler->inflictStatus($citizen, $status_wound_infection);
                 }
