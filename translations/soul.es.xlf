@@ -2176,5 +2176,23 @@
         <target><![CDATA[<b>%u1%</b> hat sich soeben in die Stadt "<b>%town%</b>" eingeschrieben!]]></target>
       </segment>
     </unit>
+    <unit id="Hb1dhIr" name="1507816">
+      <notes>
+        <note category="german">Du wirst nun ausgeloggt. Dein Account wird in 24-48 Stunden gelöscht. Bis dahin kannst du dich jederzeit erneut einloggen und dadurch die Löschung deines Accounts abbrechen.</note>
+      </notes>
+      <segment>
+        <source>Du wirst nun ausgeloggt. Dein Account wird in 24-48 Stunden gelöscht. Bis dahin kannst du dich jederzeit erneut einloggen und dadurch die Löschung deines Accounts abbrechen.</source>
+        <target>Du wirst nun ausgeloggt. Dein Account wird in 24-48 Stunden gelöscht. Bis dahin kannst du dich jederzeit erneut einloggen und dadurch die Löschung deines Accounts abbrechen.</target>
+      </segment>
+    </unit>
+    <unit id="WbndBY4" name="Möchtest du diesem Spieler folgen?">
+      <notes>
+        <note category="german">Möchtest du diesem Spieler folgen?</note>
+      </notes>
+      <segment>
+        <source>Möchtest du diesem Spieler folgen?</source>
+        <target>Möchtest du diesem Spieler folgen?</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

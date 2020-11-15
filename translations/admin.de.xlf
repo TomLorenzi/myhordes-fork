@@ -1540,5 +1540,68 @@
         <target>Sonstiges</target>
       </segment>
     </unit>
+    <unit id="TklQ7Ze" name="AntiSpam">
+      <notes>
+        <note category="german">AntiSpam</note>
+      </notes>
+      <segment>
+        <source>AntiSpam</source>
+        <target>AntiSpam</target>
+      </segment>
+    </unit>
+    <unit id="j137AeF" name="Account zur Löschung vorgemerkt!">
+      <notes>
+        <note category="german">Account zur Löschung vorgemerkt!</note>
+      </notes>
+      <segment>
+        <source>Account zur Löschung vorgemerkt!</source>
+        <target>Account zur Löschung vorgemerkt!</target>
+      </segment>
+    </unit>
+    <unit id="_Ywx.pH" name="Anzahl der gelisteten Domains: %number%">
+      <notes>
+        <note category="german">Anzahl der gelisteten Domains: %number%</note>
+      </notes>
+      <segment>
+        <source>Anzahl der gelisteten Domains: %number%</source>
+        <target>Anzahl der gelisteten Domains: %number%</target>
+      </segment>
+    </unit>
+    <unit id="u.IOicZ" name="Domain-Suche">
+      <notes>
+        <note category="german">Domain-Suche</note>
+      </notes>
+      <segment>
+        <source>Domain-Suche</source>
+        <target>Domain-Suche</target>
+      </segment>
+    </unit>
+    <unit id="zptHdme" name="Gewählte entfernen">
+      <notes>
+        <note category="german">Gewählte entfernen</note>
+      </notes>
+      <segment>
+        <source>Gewählte entfernen</source>
+        <target>Gewählte entfernen</target>
+      </segment>
+    </unit>
+    <unit id="l.ziWyi" name="Domains hinzufügen">
+      <notes>
+        <note category="german">Domains hinzufügen</note>
+      </notes>
+      <segment>
+        <source>Domains hinzufügen</source>
+        <target>Domains hinzufügen</target>
+      </segment>
+    </unit>
+    <unit id="y7lc8Ct" name="Hinzufügen">
+      <notes>
+        <note category="german">Hinzufügen</note>
+      </notes>
+      <segment>
+        <source>Hinzufügen</source>
+        <target>Hinzufügen</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

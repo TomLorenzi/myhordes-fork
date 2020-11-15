@@ -14356,5 +14356,14 @@
         <target>Ich bin geheilt</target>
       </segment>
     </unit>
+    <unit id="exaN90z" name="Die letzten Nachrichten meiner Koalition lesen.">
+      <notes>
+        <note category="german">Die letzten Nachrichten meiner Koalition lesen.</note>
+      </notes>
+      <segment>
+        <source>Die letzten Nachrichten meiner Koalition lesen.</source>
+        <target>Die letzten Nachrichten meiner Koalition lesen.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

@@ -196,7 +196,7 @@
       </notes>
       <segment>
         <source>Haus &amp;amp; Hausarbeiten</source>
-        <target><![CDATA[Casas y construcciones]]></target>
+        <target>Casas y construcciones</target>
       </segment>
     </unit>
     <unit id="KOB6h9k" name="Ghule">
@@ -634,7 +634,7 @@
     </unit>
     <unit id="KGODA_M" name="In 'Die Verdammten' musst du jeden Tag mehrere Aufgaben erledigen.">
       <notes>
-        <note category="german">In 'Die Verdammten' musst du jeden Tag mehrere Aufgaben erledigen.</note>
+        <note category="german">In 'MyHordes' musst du jeden Tag mehrere Aufgaben erledigen.</note>
       </notes>
       <segment>
         <source>In 'Die Verdammten' musst du jeden Tag mehrere Aufgaben erledigen.</source>
@@ -4561,7 +4561,7 @@ El Chamán puede:</target>
       <segment>
         <source>Du kannst deine Mitspieler auch mit einer privaten Nachricht anschreiben. Gehe dazu in den Abschnitt &lt;strong&gt;Bürger&lt;/strong&gt; und betrete ein Haus. Klick auf den Knopf:
 &lt;strong&gt;Eine Nachricht an seiner Tür hinterlassen&lt;/strong&gt;. Intimes (Infektionen und ähnliches) und Verschwörungen lassen sich zu zweit meistens besser besprechen...</source>
-        <target><![CDATA[Si desea chatear en privado con otro aventurero, la mensajería es la herramienta para usted. Por lo tanto, puede ponerse de acuerdo en estrategias de grupo o conspirar contra otros jugadores ...]]></target>
+        <target>Si desea chatear en privado con otro aventurero, la mensajería es la herramienta para usted. Por lo tanto, puede ponerse de acuerdo en estrategias de grupo o conspirar contra otros jugadores ...</target>
       </segment>
     </unit>
     <unit id="gewChOm" name="Private Nachrichten können nur in der Stadt gelesen werden.">
