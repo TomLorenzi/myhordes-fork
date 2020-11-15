@@ -195,13 +195,21 @@
                 } );
             }
 
-            node_transfer_source.addEventListener('input', transfer_to_preview);
+            node_transfer_source.addEventListener('input', function() {
+                $.client.config.editorCache.set(node_transfer_source.value);
+                transfer_to_preview();
+            });
 
             let closeModal = function() {
                 document.getElementById('modal-backdrop').classList.remove('active');
                 let form = document.getElementById('modal-form');
                 form.parentNode.removeChild(form);
             };
+
+            if ( $.client.config.editorCache.get() ) {
+                node_transfer_source.value = $.client.config.editorCache.get();
+                transfer_to_preview();
+            }
 
             $.html.addEventListenerAll( '[x-forum-action="modal"]', 'click', function (e,elem) {
                 e.preventDefault();
@@ -484,6 +492,8 @@
                             };
                         {% endif %}
                     {% endif %}
+
+                    $.client.config.editorCache.set('');
 
                     $.ajax.easySend( target_url, target_payload,
                         function (data) {
