@@ -259,6 +259,7 @@
 
             $.ajax.easySend( '{{ path('api_soul_delete_account') }}', {'pw': pw},
                 function () {
+                    alert('{{ 'Du wirst nun ausgeloggt. Dein Account wird in 24-48 Stunden gelöscht. Bis dahin kannst du dich jederzeit erneut einloggen und dadurch die Löschung deines Accounts abbrechen.'|trans({},'soul')|e('js') }}');
                     $.ajax.load(null, '{{ path('public_welcome') }}', true);
                 } )
         });

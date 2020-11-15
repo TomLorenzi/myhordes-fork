@@ -10,11 +10,13 @@ use App\Entity\Picto;
 use App\Entity\ThreadReadMarker;
 use App\Entity\Town;
 use App\Entity\TownLogEntry;
+use App\Entity\User;
 use App\Service\AntiCheatService;
 use App\Service\ConfMaster;
 use App\Service\GameFactory;
 use App\Service\Locksmith;
 use App\Service\NightlyHandler;
+use App\Service\UserHandler;
 use App\Structures\MyHordesConf;
 use App\Structures\TownConf;
 use DateTime;
@@ -31,16 +33,18 @@ class SchedulerCommand extends Command
 {
     protected static $defaultName = 'app:schedule';
 
-    private $entityManager;
-    private $night;
-    private $locksmith;
-    private $trans;
-    private $conf;
-    private $conf_master;
-    private $anti_cheat;
-    private $gameFactory;
+    private EntityManagerInterface $entityManager;
+    private NightlyHandler $night;
+    private Locksmith $locksmith;
+    private Translator $trans;
+    private MyHordesConf $conf;
+    private ConfMaster $conf_master;
+    private AntiCheatService $anti_cheat;
+    private GameFactory $gameFactory;
+    private UserHandler $userHandler;
 
-    public function __construct(EntityManagerInterface $em, NightlyHandler $nh, Locksmith $ls, Translator $translator, ConfMaster $conf, AntiCheatService $acs, GameFactory $gf)
+    public function __construct(EntityManagerInterface $em, NightlyHandler $nh, Locksmith $ls, Translator $translator,
+                                ConfMaster $conf, AntiCheatService $acs, GameFactory $gf, UserHandler $uh)
     {
         $this->entityManager = $em;
         $this->night = $nh;
@@ -50,6 +54,7 @@ class SchedulerCommand extends Command
         $this->conf = $conf->getGlobalConf();
         $this->anti_cheat = $acs;
         $this->gameFactory = $gf;
+        $this->userHandler = $uh;
         parent::__construct();
     }
 
@@ -177,7 +182,6 @@ class SchedulerCommand extends Command
 
             $s->setCompleted( true );
             $this->entityManager->persist($s);
-            $this->anti_cheat->cleanseConnectionIdentifiers();  // Delete old connection identifiers
             $progress->finish();
 
             return true;
@@ -240,6 +244,13 @@ class SchedulerCommand extends Command
         $this->execute_clear($input,$output);
         if ($has_executed) $this->execute_next($input,$output);
         $this->execute_add($input,$output);
+
+        // Delete old connection identifiers
+        $this->anti_cheat->cleanseConnectionIdentifiers();
+
+        // Delete users marked for removal
+        foreach ($this->entityManager->getRepository(User::class)->findNeedToBeDeleted() as $delete_user)
+            $this->userHandler->deleteUser($delete_user);
 
         $this->entityManager->flush();
 

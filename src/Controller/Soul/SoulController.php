@@ -624,7 +624,8 @@ class SoulController extends AbstractController
             return AjaxResponse::error(self::ErrorUserEditPasswordIncorrect );
 
         $name = $user->getUsername();
-        $userhandler->deleteUser($user);
+        //$userhandler->deleteUser($user);
+        $user->setDeleteAfter( new DateTime('+24hour') );
         $this->entity_manager->flush();
 
         $this->addFlash( 'notice', $this->translator->trans('Auf wiedersehen, %name%. Wir werden dich vermissen und hoffen, dass du vielleicht doch noch einmal zurück kommst.', ['%name%' => $name], 'login') );

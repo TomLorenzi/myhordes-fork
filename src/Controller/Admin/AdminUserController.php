@@ -435,6 +435,7 @@ class AdminUserController extends AdminActionController
                 break;
             case 'et': $users = $em->getRepository(User::class)->findBy(['eternalID' => $searchName]); break; // EternalTwin ID
             case 'v0': $users = $em->getRepository(User::class)->findBy(['validated' => false]); break; // Non-validated
+            case 'x':  $users = $em->getRepository(User::class)->findAboutToBeDeleted(); break; // Non-validated
             case 'b':  $users = $em->getRepository(User::class)->findByBanned(); break; // Banned
             case 'ro': $users = $em->getRepository(User::class)->findBy(['rightsElevation' => [User::ROLE_ORACLE]]); break; // Is Oracle
             case 'rc': $users = $em->getRepository(User::class)->findBy(['rightsElevation' => [User::ROLE_CROW]]);   break; // Is Crow

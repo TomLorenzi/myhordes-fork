@@ -130,6 +130,27 @@ class UserRepository extends ServiceEntityRepository implements UserLoaderInterf
     }
 
     /**
+     * @return User[] Returns an array of User objects
+     */
+    public function findAboutToBeDeleted()
+    {
+        return $this->createQueryBuilder('u')
+            ->andWhere('u.deleteAfter IS NOT NULL')
+            ->getQuery()->getResult();
+    }
+
+    /**
+     * @return User[] Returns an array of User objects
+     */
+    public function findNeedToBeDeleted()
+    {
+        return $this->createQueryBuilder('u')
+            ->andWhere('u.deleteAfter IS NOT NULL')
+            ->andWhere('u.deleteAfter < :now')->setParameter('now', new \DateTime('now'))
+            ->getQuery()->getResult();
+    }
+
+    /**
      * @inheritDoc
      */
     public function loadUserByUsername(string $username)

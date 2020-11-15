@@ -492,22 +492,31 @@ class PublicController extends AbstractController
      * @Route("api/public/login", name="api_login")
      * @return Response
      */
-    public function login_api(): Response
+    public function login_api(TranslatorInterface $trans): Response
     {
         /** @var User $user */
         $user = $this->getUser();
         if (!$user)
             return new AjaxResponse( ['success' => false ] );
 
+        $flush = false;
+
         // If there is an open password reset validation, a successful login closes it
         $reset_validation = $this->entity_manager->getRepository(UserPendingValidation::class)->findOneByUserAndType($user, UserPendingValidation::ResetValidation);
-        if ($reset_validation) try {
+        if ($reset_validation)
 
-            $this->entity_manager->remove($reset_validation);
-            $user->setPendingValidation(null);
+        $this->entity_manager->remove($reset_validation);
+        $user->setPendingValidation(null);
+        $this->entity_manager->persist($user);
+
+        if ($user->getDeleteAfter() !== null) {
+            $user->setDeleteAfter(null);
             $this->entity_manager->persist($user);
-            $this->entity_manager->flush();
+            $this->addFlash('notice', $trans->trans('Willkommen zurück! Dein Account ist nicht länger zur Löschung vorgemerkt.', [], 'login'));
+        }
 
+        if ($flush) try {
+            $this->entity_manager->flush();
         } catch(Exception $e) {}
 
         if (!$user->getValidated())
