@@ -30,4 +30,6 @@ class MyHordesConf extends Conf
     const CONF_RAW_AVATARS = 'allow_raw_avatars';
 
     const CONF_COA_MAX_NUM = 'coalitions.size';
+
+    const CONF_ANTI_GRIEF_SP = 'anti-grief.min-sp';
 }

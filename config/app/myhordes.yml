@@ -3,6 +3,8 @@ parameters:
   myhordes:
     coalitions:
       size: 5
+    anti-grief:
+      min-sp: 20
     fatalmail:
       target: ~
       source: ~

@@ -27,6 +27,7 @@ use App\Entity\ZombieEstimation;
 use App\Entity\Zone;
 use App\Service\BankAntiAbuseService;
 use App\Service\ConfMaster;
+use App\Structures\MyHordesConf;
 use App\Structures\TownConf;
 use App\Translation\T;
 use App\Response\AjaxResponse;
@@ -496,7 +497,7 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
         if ($this->getActiveCitizen()->getBanished())
             return AjaxResponse::error(ErrorHelper::ErrorActionNotAvailable );
 
-        if ($this->getActiveCitizen()->getUser()->getSoulPoints() < 50)
+        if ($this->getActiveCitizen()->getUser()->getSoulPoints() < $this->conf->getGlobalConf()->get(MyHordesConf::CONF_ANTI_GRIEF_SP, 20))
             return AjaxResponse::error(ErrorHelper::ErrorActionNotAvailableSP );
 
         $severity = (int)$parser->get('severity', -1);

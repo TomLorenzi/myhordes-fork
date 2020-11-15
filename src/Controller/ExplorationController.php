@@ -57,9 +57,9 @@ use Symfony\Contracts\Translation\TranslatorInterface;
 class ExplorationController extends InventoryAwareController implements ExplorationInterfaceController, HookedInterfaceController
 {
     protected $game_factory;
-    protected $zone_handler;
+    protected ZoneHandler $zone_handler;
     protected $item_factory;
-    protected $death_handler;
+    protected DeathHandler $death_handler;
     protected $asset;
 
     /**
