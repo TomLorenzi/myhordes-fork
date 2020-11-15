@@ -176,7 +176,7 @@ class ExternalXML2Controller extends ExternalController {
                         'avatar' => $user->getId() . "/" . $user->getAvatar()->getFilename() . "." . $user->getAvatar()->getFormat(),
                         'x' => $citizen->getZone() !== null ? $citizen->getZone()->getX() : '0',
                         'y' => $citizen->getZone() !== null ? $citizen->getZone()->getY() : '0',
-                        'id' => $citizen->getId(),
+                        'id' => $citizen->getUser()->getId(),
                         'ban' => $citizen->getBanished(),
                         'job' => $citizen->getProfession()->getName(),
                         'out' => intval($citizen->getZone() !== null),
