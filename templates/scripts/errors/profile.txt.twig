@@ -2,6 +2,7 @@
 {{ constant('App\\Service\\UserFactory::ErrorUserExists') }}:       '{{'Der angegebene Name existiert bereits im Spiel.'|trans({},'login')|e('js')}}',
 {{ constant('App\\Service\\UserFactory::ErrorMailExists') }}:       '{{'Die angegebene E-Mail Adresse wird bereits von einem anderen Profil verwendet.'|trans({},'login')|e('js')}}',
 {{ constant('App\\Service\\UserFactory::ErrorValidationExists') }}: '{{'Dieses Konto wartet bereits auf eine Passwortzurücksetzung.'|trans({},'login')|e('js')}}',
+{{ constant('App\\Service\\UserFactory::ErrorTooManyRegistrations') }}: '{{'Es haben sich zu viele Nutzer aus deinem Netzwerk heraus bei MyHordes registriert. Weitere Registrierungen aus deinem Netzwerk sind für eine Weile nicht mehr möglich.'|trans({},'login')|e('js')}}',
 
 {{ constant('App\\Service\\UserHandler::ErrorAvatarBackendUnavailable') }}:     '{{'Dieser Server ist nicht für die Verarbeitung von Profilbildern konfiguriert.'|trans({},'soul')|e('js')}}',
 {{ constant('App\\Service\\UserHandler::ErrorAvatarFormatUnsupported') }}:      '{{'Dieses Dateiformat wird nicht unterstützt.'|trans({},'soul')|e('js')}}',

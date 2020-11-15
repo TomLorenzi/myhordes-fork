@@ -207,6 +207,11 @@ class User implements UserInterface, EquatableInterface
      */
     private $lastActionTimestamp;
 
+    /**
+     * @ORM\Column(type="datetime", nullable=true)
+     */
+    private $deleteAfter;
+
     public function __construct()
     {
         $this->citizens = new ArrayCollection();
@@ -911,6 +916,18 @@ class User implements UserInterface, EquatableInterface
     public function setLastActionTimestamp(?\DateTimeInterface $lastActionTimestamp): self
     {
         $this->lastActionTimestamp = $lastActionTimestamp;
+
+        return $this;
+    }
+
+    public function getDeleteAfter(): ?\DateTimeInterface
+    {
+        return $this->deleteAfter;
+    }
+
+    public function setDeleteAfter(?\DateTimeInterface $deleteAfter): self
+    {
+        $this->deleteAfter = $deleteAfter;
 
         return $this;
     }
