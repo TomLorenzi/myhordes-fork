@@ -207,7 +207,7 @@ class DebugCommand extends Command
                     $this->entity_manager->persist($citizen);
                     $this->entity_manager->flush();
 
-                    $ii = $i+1;
+                    $ii = $i + $town->getCitizenCount() + 1;
                     $output->writeln("<comment>{$user_name}</comment> joins <comment>{$town->getName()}</comment> and fills slot {$ii}/{$town->getPopulation()} as a <comment>{$pro->getLabel()}</comment>.");
                     break;
                 }

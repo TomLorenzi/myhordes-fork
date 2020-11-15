@@ -392,11 +392,13 @@ class InventoryHandler
         ) return self::ErrorHeavyLimitHit;
 
         // Check Soul limit
-        $soul_name = array("soul_blue_#00", "soul_blue_#01", "soul_red_#00");
-        if($type_to === self::TransferTypeRucksack && in_array($item->getPrototype()->getName(), $soul_name) &&
-            !$actor->hasRole("shaman") && 
-            $this->countSpecificItems($to, $item->getPrototype()) > 0){
-            return self::ErrorTooManySouls;
+        $soul_names = array("soul_blue_#00", "soul_blue_#01", "soul_red_#00", "soul_yellow_#00");
+        if($type_to === self::TransferTypeRucksack && in_array($item->getPrototype()->getName(), $soul_names) && !$actor->hasRole("shaman") && $actor->getProfession()->getName() !== "shaman"){
+            foreach($soul_names as $soul_name) {
+                if($this->countSpecificItems($actor->getInventory(), $soul_name) > 0) {
+                    return self::ErrorTooManySouls;
+                }
+            }
         }
 
         if ($type_from === self::TransferTypeEscort) {

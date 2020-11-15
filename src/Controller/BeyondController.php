@@ -942,10 +942,10 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
         $citizen = $this->getActiveCitizen();
 
         if ($escort !== null) {
-            /** @var Citizen $c */
-            $c = $this->entity_manager->getRepository(Citizen::class)->find((int)$escort);
-            if ($c && ($es = $c->getEscortSettings()) && $es->getLeader() && $es->getLeader()->getId() === $this->getActiveCitizen()->getId() && $es->getAllowInventoryAccess()) {
-                $up_inv   = $c->getInventory();
+            /** @var Citizen $citizen */
+            $citizen = $this->entity_manager->getRepository(Citizen::class)->find((int)$escort);
+            if ($citizen && ($es = $citizen->getEscortSettings()) && $es->getLeader() && $es->getLeader()->getId() === $this->getActiveCitizen()->getId() && $es->getAllowInventoryAccess()) {
+                $up_inv   = $citizen->getInventory();
             }
             else return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
         } else $up_inv   = $this->getActiveCitizen()->getInventory();
@@ -1236,6 +1236,7 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
      */
     public function desert_attack_api(int $cid): Response {
         $citizen = $this->getActiveCitizen();
+        if (!$this->activeCitizenCanAct()) return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
 
         /** @var Citizen|null $target_citizen */
         $target_citizen = $this->entity_manager->getRepository(Citizen::class)->find( $cid );
@@ -1256,6 +1257,7 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
      */
     public function desert_devour_api(int $cid): Response {
         $citizen = $this->getActiveCitizen();
+        if (!$this->activeCitizenCanAct()) return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
 
         /** @var Citizen|null $target_citizen */
         $target_citizen = $this->entity_manager->getRepository(Citizen::class)->find( $cid );
@@ -1408,15 +1410,16 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
             return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
         $citizen = $this->getActiveCitizen();
 
-        $is_shaman = $citizen->hasRole('shaman');
-
+        
         // Forbidden if not shaman
-        if(!$is_shaman){
+        if(($citizen->hasRole('shaman') && $citizen->getPM() < 3)) {
             return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
-        }
-
-        if($citizen->getPM() < 3) {
-            return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );   
+        } else if ($citizen->getProfession()->getName() == "shaman") {
+            if($citizen->getAp() < 1){
+                return AjaxResponse::error( ErrorHelper::ErrorNoAP );
+            } else if($this->inventory_handler->countSpecificItems($citizen->getInventory(), 'soul_blue_#00') <= 0) {
+                return AjaxResponse::error(ErrorHelper::ErrorItemsMissing);
+            }
         }
 
         $zone = $citizen->getZone();
@@ -1448,7 +1451,13 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
             }
         }
         
-        $citizen->setPM($citizen->getPM() - 3);
+        if ($citizen->hasRole('shaman')) {
+            $citizen->setPM($citizen->getPM() - 3);
+        } else if ($citizen->getProfession()->getName() == "shaman") {
+            $citizen->setAp($citizen->getAp() - 1);
+            $soul = $this->inventory_handler->fetchSpecificItems($citizen->getInventory(), [new ItemRequest("soul_blue_#00")]);
+            if (!empty($soul)) $this->inventory_handler->forceRemoveItem(array_pop($soul));
+        }
 
         try {
             $this->entity_manager->persist( $citizen );

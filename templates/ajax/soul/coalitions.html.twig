@@ -89,7 +89,7 @@
                 ) %}
                 {% set all_members  = all_users|filter(ac => ac.associationType == constant('App\\Entity\\UserGroupAssociation::GroupAssociationTypeCoalitionMember') and ac not in all_sleepers ) %}
 
-                {% macro display_assoc(assocs,membership) %}
+                {% macro display_assoc(assocs,membership,show_town) %}
                     {# @var assocs \App\Entity\UserGroupAssociation[] #}
                     <ul class="coa-users">
                         {% for assoc in assocs %}
@@ -103,7 +103,13 @@
                                         {{ assoc.user.name }}<br />
                                         <span>
                                             {% if assoc.user.activeCitizen is not null %}
-                                                {{ assoc.user.activeCitizen.town.name }}
+                                                {% if show_town %}
+                                                    {% if app.user.activeCitizen %}
+                                                        {{ assoc.user.activeCitizen.town.name }}
+                                                    {% else %}
+                                                        <a href="#" x-town-locked="{{ assoc.user.activeCitizen.town.password is empty ? '0' : '1' }}" x-join-id={{ assoc.user.activeCitizen.town.id }}">{{ assoc.user.activeCitizen.town.name }}</a>
+                                                    {% endif %}
+                                                {% endif %}
                                             {% else %}
                                                 <i>{{ 'Nicht in einer Stadt'|trans({},'soul') }}</i>
                                             {% endif %}
@@ -124,15 +130,15 @@
 
                 {% if all_members is not empty %}
                     <h5>{{ 'Verfügbare Mitglieder'|trans({},'soul') }}</h5>
-                    {{ _self.display_assoc(all_members,membership) }}
+                    {{ _self.display_assoc(all_members,membership,true) }}
                 {% endif %}
                 {% if all_sleepers is not empty %}
                     <h5>{{ 'Nicht verfügbar'|trans({},'soul') }} <a class="help-button"><div class="tooltip help">{% trans from "global" %}Folgende Bürger sind wahlweise: <ul><li>auf ihrer Todesanzeigeseite (sie haben ihren Tod noch nicht bestätigt),</li><li>bereits im Spiel,</li><li>sie haben sich entschieden, nicht automatisch einer Stadt und ihrer Koalition anzugehören.</li><li>oder, sie haben sich seit über 5 Tagen nicht mehr angemeldet.</li></ul>{% endtrans %}</div>{{ 'Hilfe'|trans({},'global')|raw }}</a></h5> 
-                    {{ _self.display_assoc(all_sleepers,membership) }}
+                    {{ _self.display_assoc(all_sleepers,membership,true) }}
                 {% endif %}
                 {% if all_invited is not empty %}
                     <h5>{{ 'Ausstehende Einladungen'|trans({},'soul') }}</h5>
-                    {{ _self.display_assoc(all_invited,membership) }}
+                    {{ _self.display_assoc(all_invited,membership,false) }}
                 {% endif %}
 
                 {% if membership.associationLevel == constant('App\\Entity\\UserGroupAssociation::GroupAssociationLevelFounder') %}
@@ -213,6 +219,17 @@
                     } );
         });
 
+        $.html.addEventListenerAll('[x-join-id]', 'click', function(e,elem) {
+            e.preventDefault();
+            if (confirm('{{ 'Möchtest du diesem Spieler folgen?'|trans({},'soul')|e('js') }}')) {
+                const pass = (elem.getAttribute('x-town-locked') === '1') ? prompt('{{ 'Bitte gib das Stadtpasswort ein :'|trans({}, 'ghost') }}') : '';
+                $.ajax.easySend( '{{ path('api_join')|e('js') }}', {'town':  elem.getAttribute('x-join-id'), pass: pass},
+                    function () {
+                        $.ajax.load(null, '{{ path('game_landing') }}', true);
+                    } );
+            }
+
+        });
 
         {% if membership is not null %}
             const fun_refresh = function(bg, fun = null) {

@@ -140,6 +140,8 @@ class InventoryAwareController extends AbstractController
         $data['max_pm'] = $this->citizen_handler->getMaxPM( $this->getActiveCitizen() );
         $data['username'] = $this->getUser()->getName();
         $data['is_shaman'] = $is_shaman;
+        $data['is_shaman_job'] = $this->getActiveCitizen()->getProfession()->getName() == 'shaman';
+        $data['is_shaman_role'] = $this->citizen_handler->hasRole($this->getActiveCitizen(), 'shaman');
         $data['hunger'] = $this->getActiveCitizen()->getGhulHunger();
         return $data;
     }
@@ -461,7 +463,7 @@ class InventoryAwareController extends AbstractController
         return AjaxResponse::success();
     }
 
-    public function generic_attack_api(Citizen $aggressor, Citizen $defender) {
+    public function generic_attack_api(Citizen $aggressor, Citizen $defender): Response {
         if ($aggressor->getId() === $defender->getId() || !$defender->getAlive())
             return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
 
@@ -477,7 +479,7 @@ class InventoryAwareController extends AbstractController
         if ($this->citizen_handler->isTired($aggressor) || $aggressor->getAp() < $ap)
             return AjaxResponse::error( ErrorHelper::ErrorNoAP );
 
-        $attack_protect = $this->getTownConf()->get(TownConf::CONF_MODIFIER_ATTACK_PROTECT, false);
+        $attack_protect = $this->getTownConf()->get(TownConf::CONF_MODIFIER_ATTACK_PROTECT, false) || ($aggressor->getUser()->getSoulPoints() < 50);
         if ($attack_protect) {
             foreach ($aggressor->getTown()->getCitizens() as $c)
                 if ($c->getAlive() && $c->hasRole('ghoul'))
@@ -495,6 +497,7 @@ class InventoryAwareController extends AbstractController
             $this->entity_manager->persist($this->log->citizenAttack($aggressor, $defender, true));
             $this->death_handler->kill($defender, CauseOfDeath::GhulBeaten);
             $this->entity_manager->persist($this->log->citizenDeath( $defender ) );
+
         } elseif ($attack_protect) {
 
             $this->addFlash('error', $this->translator->trans('Bleib mal ganz geschmeidig! In dieser Stadt gibt es keine Ghule, also solltest du auch nicht herumlaufen und grundlos Leute verprügeln. M\'Kay?', [], 'game'));
@@ -517,7 +520,6 @@ class InventoryAwareController extends AbstractController
             } else $this->addFlash('notice',
                 $this->translator->trans('Mit aller Gewalt greifst du %citizen% an! Ihr tauscht für eine Weile Schläge aus, bis ihr euch schließlich größtenteils unverletzt voneinander trennt.', ['%citizen%' => $defender->getUser()->getName()], 'game')
             );
-
         }
 
         $this->entity_manager->persist($aggressor);
@@ -608,7 +610,7 @@ class InventoryAwareController extends AbstractController
                             if($floor_up && $current_item->getPrototype()->getName() == 'soul_blue_#00' && $current_item->getFirstPick()) {
                                 $current_item->setFirstPick(false);
                                 // In the "Job" version of the shaman, the one that pick a blue soul for the 1st time gets the "r_collec" picto
-                                if (!$this->getTownConf()->get(TownConf::CONF_FEATURE_SHAMAN_MODE, "normal") == "job")
+                                if ($this->getTownConf()->get(TownConf::CONF_FEATURE_SHAMAN_MODE, "normal") == "job")
                                     $this->picto_handler->give_picto($target_citizen, "r_collec2_#00");
                                 $this->entity_manager->persist($current_item);
                             }
@@ -971,7 +973,7 @@ class InventoryAwareController extends AbstractController
         $citizen = $base_citizen ?? $this->getActiveCitizen();
 
         $zone = $citizen->getZone();
-        if ($zone && $zone->getZombies() > 0 && !$action->getAllowWhenTerrorized() && $this->citizen_handler->hasStatusEffect($citizen, 'terror') && !$this->zone_handler->check_cp($this->getActiveCitizen()->getZone()))
+        if ($zone && !$this->zone_handler->check_cp($zone) && !$action->getAllowWhenTerrorized() && $this->citizen_handler->hasStatusEffect($citizen, 'terror') && !$this->zone_handler->check_cp($this->getActiveCitizen()->getZone()))
             return AjaxResponse::error( BeyondController::ErrorTerrorized );
 
         $secondary_inv = $zone ? $zone->getFloor() : $citizen->getHome()->getChest();

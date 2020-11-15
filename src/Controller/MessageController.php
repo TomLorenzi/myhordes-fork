@@ -138,8 +138,9 @@ class MessageController extends AbstractController
             /** @var Thread $thread */
             /** @var ThreadReadMarker $marker */
             $marker = $em->getRepository(ThreadReadMarker::class)->findByThreadAndUser($user, $thread);
-            $lastPost = $thread->lastPost();
-            if ($marker && $lastPost && $lastPost->getDate() <= $marker->getPost()->getDate()) $thread->setNew();
+            $lastPost = $thread->lastPost( $show_hidden_threads );
+            if (!$marker || ($lastPost && $lastPost !== $marker->getPost()))
+                $thread->setNew();
         }
 
         if ( $this->perm->isPermitted( $permissions, ForumUsagePermissions::PermissionListThreads ) ) {
@@ -152,8 +153,9 @@ class MessageController extends AbstractController
             /** @var Thread $thread */
             /** @var ThreadReadMarker $marker */
             $marker = $em->getRepository(ThreadReadMarker::class)->findByThreadAndUser($user, $thread);
-            $lastPost = $thread->lastPost();
-            if ($marker && $lastPost && $lastPost->getDate() <= $marker->getPost()->getDate()) $thread->setNew();
+            $lastPost = $thread->lastPost( $show_hidden_threads );
+            if (!$marker || ($lastPost && $lastPost !== $marker->getPost()))
+                $thread->setNew();
         }
 
         return $this->render( 'ajax/forum/view.html.twig', $this->addDefaultTwigArgs([
@@ -910,19 +912,19 @@ class MessageController extends AbstractController
         $marker = $em->getRepository(ThreadReadMarker::class)->findByThreadAndUser( $user, $thread );
         if (!$marker) $marker = (new ThreadReadMarker())->setUser($user)->setThread($thread);
 
-        if ($user->getRightsElevation() >= User::ROLE_CROW)
+        if ($this->perm->isPermitted( $permissions, ForumUsagePermissions::PermissionModerate ))
             $pages = floor(max(0,$em->getRepository(Post::class)->countByThread($thread)-1) / $num_per_page) + 1;
         else
             $pages = floor(max(0,$em->getRepository(Post::class)->countUnhiddenByThread($thread)-1) / $num_per_page) + 1;
 
         if ($jump_post)
-            $page = min($pages,1 + floor((1+$em->getRepository(Post::class)->getOffsetOfPostByThread( $thread, $jump_post )) / $num_per_page));
+            $page = min($pages,1 + floor(($em->getRepository(Post::class)->getOffsetOfPostByThread( $thread, $jump_post, $this->perm->isPermitted( $permissions, ForumUsagePermissions::PermissionModerate ) )) / $num_per_page));
         elseif ($parser->has('page'))
             $page = min(max(1,$parser->get('page', 1)), $pages);
         elseif (!$marker->getPost()) $page = 1;
-        else $page = min($pages,1 + floor((1+$em->getRepository(Post::class)->getOffsetOfPostByThread( $thread, $marker->getPost() )) / $num_per_page));
+        else $page = min($pages,1 + floor(($em->getRepository(Post::class)->getOffsetOfPostByThread( $thread, $marker->getPost(), $this->perm->isPermitted( $permissions, ForumUsagePermissions::PermissionModerate ) )) / $num_per_page));
 
-        if ($user->getRightsElevation() >= User::ROLE_CROW)
+        if ($this->perm->isPermitted( $permissions, ForumUsagePermissions::PermissionModerate ))
             $posts = $em->getRepository(Post::class)->findByThread($thread, $num_per_page, ($page-1)*$num_per_page);
         else
             $posts = $em->getRepository(Post::class)->findUnhiddenByThread($thread, $num_per_page, ($page-1)*$num_per_page);
@@ -936,7 +938,7 @@ class MessageController extends AbstractController
 
         foreach ($posts as $post){
             /** @var $post Post */
-            if ($marker->getPost() === null || $marker->getPost()->getId() < $post->getId())
+            if ($marker->getPost() === null || $marker->getPost()->getDate() < $post->getDate())
                 $post->setNew();
         }
 
@@ -947,10 +949,10 @@ class MessageController extends AbstractController
             $last_read = $marker->getPost();
             if ($last_read === null || $read_post->getId() > $last_read->getId()) {
                 $marker->setPost($read_post);
-                try {
+                //try {
                     $em->persist($marker);
                     $em->flush();
-                } catch (Exception $e) {}
+                //} catch (Exception $e) {}
             }
         }
 

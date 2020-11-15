@@ -130,6 +130,12 @@ class Result
      */
     private $message;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=AffectPicto::class)
+     * @ORM\JoinTable(name="global_picto_id")
+     */
+    private $globalPicto;
+
     public function __construct()
     {
     }
@@ -394,6 +400,18 @@ class Result
     public function setMessage(?AffectMessage $message): self
     {
         $this->message = $message;
+
+        return $this;
+    }
+
+    public function getGlobalPicto(): ?AffectPicto
+    {
+        return $this->globalPicto;
+    }
+
+    public function setGlobalPicto(?AffectPicto $globalPicto): self
+    {
+        $this->globalPicto = $globalPicto;
 
         return $this;
     }

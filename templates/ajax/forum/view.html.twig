@@ -17,7 +17,7 @@
             {% else %}
                 {% set postUrlFg = postUrl %}
             {% endif %}
-            <div class="row forum-thread {% if not thread.new %}forum-thread-unread{% endif%}" x-public-route="{{ path('forum_thread_view', {fid: fid, tid: thread.id }) }}" {% if postUrl != postUrlFg %}x-post-source-next="{{ postUrlFg }}"{% endif%} x-post-source="{{ postUrl }}" x-thread-id="{{ thread.id }}">
+            <div class="row forum-thread {% if thread.new %}forum-thread-unread{% endif%}" x-public-route="{{ path('forum_thread_view', {fid: fid, tid: thread.id }) }}" {% if postUrl != postUrlFg %}x-post-source-next="{{ postUrlFg }}"{% endif%} x-post-source="{{ postUrl }}" x-thread-id="{{ thread.id }}">
                 {# @var thread \App\Entity\Thread #}
                 <div class="cell rw-1 status" style="padding: 5px;">
                     {% if thread.locked %}

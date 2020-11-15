@@ -100,9 +100,9 @@ class UserFactory
         }
 
         /** @var UserPendingValidation $existing_val */
-        if ($existing_val = $this->entity_manager
+        if (($existing_val = $this->entity_manager
             ->getRepository(UserPendingValidation::class)
-            ->findOneByUserAndType($user, UserPendingValidation::ResetValidation) &&
+            ->findOneByUserAndType($user, UserPendingValidation::ResetValidation)) &&
             (time() - $existing_val->getTime()->getTimestamp() < 3600)
         ) {
             $error = self::ErrorValidationExists;

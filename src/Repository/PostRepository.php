@@ -50,13 +50,15 @@ class PostRepository extends ServiceEntityRepository
         }
     }
 
-    public function getOffsetOfPostByThread( Thread $thread, Post $post ): int {
+    public function getOffsetOfPostByThread( Thread $thread, Post $post, bool $include_hidden = false ): int {
         try {
-            return $this->createQueryBuilder('p')
+            $qb = $this->createQueryBuilder('p')
                 ->select('COUNT(p.id)')
                 ->andWhere('p.thread = :thread')->setParameter('thread', $thread)
-                ->andWhere('p.date < :post')->setParameter('post', $post->getDate())
-                ->getQuery()
+                ->andWhere('p.date < :post')->setParameter('post', $post->getDate());
+            if (!$include_hidden)
+                $qb->andWhere('p.hidden = false OR p.hidden is NULL');
+            return $qb->getQuery()
                 ->getSingleScalarResult();
         } catch (Exception $e) {
             return 0;

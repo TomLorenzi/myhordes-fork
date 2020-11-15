@@ -213,7 +213,7 @@ class ExternalXML2Controller extends ExternalController {
                             'count' => 1,
                             'id' => $item->getPrototype()->getId(),
                             'cat' => $item->getPrototype()->getCategory()->getName(),
-                            'img' => $item->getPrototype()->getIcon(),
+                            'img' => $item->getPrototype()->getIcon(), // TODO: Fix img name to reflect real generated name
                             'broken' => intval($item->getBroken())
                         ]
                     ];
@@ -254,7 +254,7 @@ class ExternalXML2Controller extends ExternalController {
                     'name' => $trans->trans($picto['label'], [], 'game'),
                     'rare' => intval($picto['rare']),
                     'n' => $picto['c'],
-                    'img' => $picto['icon']
+                    'img' => $picto['icon'] // TODO: Fix img name to reflect real generated name
                 ],
                 'list' => [
                     'name' => 'title',
@@ -357,8 +357,8 @@ class ExternalXML2Controller extends ExternalController {
                 'headers' => [
                     'attributes' => [
                         'link' => Request::createFromGlobals()->getBaseUrl() . Request::createFromGlobals()->getPathInfo(),
-                        'iconurl' => '',
-                        'avatarurl' => '/cdn/avatar/', // Find a way to set this dynamic (see WebController::avatar for reference)
+                        'iconurl' => '', // TODO: Give relative path
+                        'avatarurl' => '/cdn/avatar/', // TODO: Find a way to set this dynamic (see WebController::avatar for reference)
                         'secure' => '1',
                         'author' => 'MyHordes',
                         'language' => $language,
@@ -379,7 +379,7 @@ class ExternalXML2Controller extends ExternalController {
                     'dead' => intval(!$citizen->getAlive()),
                     'hero' => $citizen->getProfession()->getHeroic(),
                     'name' => $user->getUsername(),
-                    'avatar' => $user->getAvatar()!= null ? $user->getId() . "/" . $user->getAvatar()->getFilename() . "." . $user->getAvatar()->getFormat() : '',
+                    'avatar' => $user->getAvatar()!= null ? $user->getId() . "/" . $user->getAvatar()->getFilename() . "." . $user->getAvatar()->getFormat() : '', // TODO: Fix avatar URL
                     'x' => $citizen->getZone() !== null ? $activeOffset['x'] + $citizen->getZone()->getX() : $activeOffset['x'],
                     'y' => $citizen->getZone() !== null ? $activeOffset['y'] - $citizen->getZone()->getY() : $activeOffset['y'],
                     'id' => $citizen->getId(),
@@ -420,7 +420,7 @@ class ExternalXML2Controller extends ExternalController {
                         'count' => 1,
                         'id' => $item->getPrototype()->getId(),
                         'cat' => $item->getPrototype()->getCategory()->getName(),
-                        'img' => $item->getPrototype()->getIcon(),
+                        'img' => $item->getPrototype()->getIcon(), // TODO: Fix img name to reflect real generated name
                         'broken' => intval($item->getBroken())
                     ]
                 ];
@@ -429,7 +429,7 @@ class ExternalXML2Controller extends ExternalController {
         $data['hordes']['headers']['game'] = [
             'attributes' => [
                 'days' => $town->getDay(),
-                'quarantine' => $town->getAttackFails() >= 3,
+                'quarantine' => intval($town->getAttackFails() >= 3),
                 'datetime' => $now->format('Y-m-d H:i:s'),
                 'id' => $town->getId(),
             ],
@@ -540,15 +540,23 @@ class ExternalXML2Controller extends ExternalController {
         foreach($town->getBuildings() as $building){
             /** @var Building $building */
             if(!$building->getComplete()) continue;
-            $data['hordes']['data']['city']['list']['items'][] = [
+
+            $buildingXml = [
                 'attributes' => [
                     'name' => $trans->trans($building->getPrototype()->getLabel(), [], 'buildings'),
                     'temporary' => intval($building->getPrototype()->getTemp()),
                     'id' => $building->getPrototype()->getId(),
-                    'img' => $building->getPrototype()->getIcon()
+                    'img' => $building->getPrototype()->getIcon() // TODO: Fix img name to reflect real generated name
                 ], 
                 'value' => $trans->trans($building->getPrototype()->getDescription(), [], 'buildings')
             ];
+
+
+            if($building->getPrototype()->getParent() !== null) {
+                $buildingXml['attributes']['parent'] = $building->getPrototype()->getParent()->getId();
+            }
+
+            $data['hordes']['data']['city']['list']['items'][] = $buildingXml;
 
             if($building->getPrototype()->getMaxLevel() > 0 && $building->getLevel() > 0){
                 $data['hordes']['data']['upgrades']['list']['items'][] = [
@@ -589,7 +597,7 @@ class ExternalXML2Controller extends ExternalController {
                     'count' => $bankItem->getCount(),
                     'id' => $bankItem->getPrototype()->getId(),
                     'cat' => $bankItem->getPrototype()->getCategory()->getName(),
-                    'img' => $bankItem->getPrototype()->getIcon(),
+                    'img' => $bankItem->getPrototype()->getIcon(), // TODO: Fix img name to reflect real generated name
                     'broken' => intval($bankItem->getBroken())
                 ]
             ];

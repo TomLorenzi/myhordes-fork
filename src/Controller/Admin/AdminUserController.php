@@ -270,6 +270,8 @@ class AdminUserController extends AdminActionController
                 switch ($param) {
                     case 'NONE':
                         $user->setRightsElevation( User::ROLE_USER );
+                        $perm->disassociate( $user, $perm->getDefaultGroup(UserGroup::GroupTypeDefaultOracleGroup));
+
                         $perm->disassociate( $user, $perm->getDefaultGroup( UserGroup::GroupTypeDefaultElevatedGroup ) );
                         $perm->disassociate( $user, $perm->getDefaultGroup( UserGroup::GroupTypeDefaultModeratorGroup ) );
                         $perm->disassociate( $user, $perm->getDefaultGroup( UserGroup::GroupTypeDefaultAdminGroup ) );
@@ -278,27 +280,29 @@ class AdminUserController extends AdminActionController
                         if ( $user->getRightsElevation() === User::ROLE_CROW )
                             $user->setRightsElevation( User::ROLE_ORACLE );
                         else $user->setRightsElevation( max($user->getRightsElevation(), User::ROLE_ORACLE) );
-
                         $perm->associate( $user, $perm->getDefaultGroup( UserGroup::GroupTypeDefaultElevatedGroup ) );
+                        $perm->associate( $user, $perm->getDefaultGroup( UserGroup::GroupTypeDefaultOracleGroup));
                         $perm->disassociate( $user, $perm->getDefaultGroup( UserGroup::GroupTypeDefaultModeratorGroup ) );
                         $perm->disassociate( $user, $perm->getDefaultGroup( UserGroup::GroupTypeDefaultAdminGroup ) );
-
                         break;
                     case 'ROLE_CROW':
                         $user->setRightsElevation( max($user->getRightsElevation(), User::ROLE_CROW) );
                         $perm->associate( $user, $perm->getDefaultGroup( UserGroup::GroupTypeDefaultElevatedGroup ) );
+                        $perm->associate( $user, $perm->getDefaultGroup( UserGroup::GroupTypeDefaultOracleGroup));
                         $perm->associate( $user, $perm->getDefaultGroup( UserGroup::GroupTypeDefaultModeratorGroup ) );
                         $perm->disassociate( $user, $perm->getDefaultGroup( UserGroup::GroupTypeDefaultAdminGroup ) );
                         break;
                     case 'ROLE_ADMIN':
                         $user->setRightsElevation( max($user->getRightsElevation(), User::ROLE_ADMIN) );
                         $perm->associate( $user, $perm->getDefaultGroup( UserGroup::GroupTypeDefaultElevatedGroup ) );
+                        $perm->associate( $user, $perm->getDefaultGroup( UserGroup::GroupTypeDefaultOracleGroup));
                         $perm->associate( $user, $perm->getDefaultGroup( UserGroup::GroupTypeDefaultModeratorGroup ) );
                         $perm->associate( $user, $perm->getDefaultGroup( UserGroup::GroupTypeDefaultAdminGroup ) );
                         break;
                     case 'ROLE_SUPER':
                         $user->setRightsElevation( max($user->getRightsElevation(), User::ROLE_SUPER) );
                         $perm->associate( $user, $perm->getDefaultGroup( UserGroup::GroupTypeDefaultElevatedGroup ) );
+                        $perm->associate( $user, $perm->getDefaultGroup( UserGroup::GroupTypeDefaultOracleGroup));
                         $perm->associate( $user, $perm->getDefaultGroup( UserGroup::GroupTypeDefaultModeratorGroup ) );
                         $perm->associate( $user, $perm->getDefaultGroup( UserGroup::GroupTypeDefaultAdminGroup ) );
                         break;
@@ -424,7 +428,11 @@ class AdminUserController extends AdminActionController
             case 'd': $users = $em->getRepository(User::class)->findByDisplayNameContains($searchName); break; // Only Display name
             case 'e': $users = $this->isGranted('ROLE_ADMIN') ? $em->getRepository(User::class)->findByMailContains($searchName) : []; break; // Mail
             case 'ue':case 'eu': $users = $this->isGranted('ROLE_ADMIN') ? $em->getRepository(User::class)->findByNameOrMailContains($searchName) : []; break; // Username & Mail
-            case 't':  $users = $em->getRepository(User::class)->findBy(['twinoidID' => (int)$searchName]); break; // Twinoid ID
+            case 't':  // Twinoid ID
+                $users = $em->getRepository(User::class)->findBy(['twinoidID' => (int)$searchName]);
+                foreach ($em->getRepository(TwinoidImportPreview::class)->findBy(['twinoidID' => (int)$searchName]) as $ip)
+                    if (!in_array($ip->getUser(), $users)) $users[] = $ip->getUser();
+                break;
             case 'et': $users = $em->getRepository(User::class)->findBy(['eternalID' => $searchName]); break; // EternalTwin ID
             case 'v0': $users = $em->getRepository(User::class)->findBy(['validated' => false]); break; // Non-validated
             case 'b':  $users = $em->getRepository(User::class)->findByBanned(); break; // Banned

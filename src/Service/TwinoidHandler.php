@@ -119,7 +119,7 @@ class TwinoidHandler
             : null;
     }
 
-    public function getData( string $service, string $api, $fields, ?string &$error ): ?array {
+    public function getData( string $service, string $api, $fields, ?string &$error, ?string &$response = null ): ?array {
 
         if (($token = $this->twinoidToken($error)) === null) return null;
 

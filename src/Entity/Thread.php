@@ -188,7 +188,7 @@ class Thread
     public function lastPost(bool $include_hidden = false): ?Post
     {
         if ($this->getPosts()->isEmpty()) return null;
-        for ($i = $this->getPosts()->count() - 1; $i > 0; $i--)
+        for ($i = $this->getPosts()->count() - 1; $i >= 0; $i--)
             if ($include_hidden || !$this->getPosts()[$i]->getHidden())
                 return $this->getPosts()[$i];
         return null;

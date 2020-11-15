@@ -75,8 +75,12 @@ class ExternalXMLController extends ExternalController {
 
         /** @var Citizen $citizen */
         $citizen = $user->getActiveCitizen();
+
+        if (!$citizen) return [];
+
         /** @var Town $town */
         $town = $citizen->getTown();
+
         /** @var Zone $citizen_zone */
         $citizen_zone = $citizen->getZone();
 

@@ -2,9 +2,6 @@
 
 namespace App\Controller\Soul;
 
-use App\Entity\Avatar;
-use App\Entity\Award;
-use App\Entity\AwardPrototype;
 use App\Entity\CauseOfDeath;
 use App\Entity\Changelog;
 use App\Entity\CitizenRankingProxy;
@@ -12,24 +9,17 @@ use App\Entity\FoundRolePlayText;
 use App\Entity\HeroSkillPrototype;
 use App\Entity\Picto;
 use App\Entity\PictoPrototype;
-use App\Entity\Shoutbox;
 use App\Entity\ShoutboxEntry;
 use App\Entity\ShoutboxReadMarker;
 use App\Entity\TownRankingProxy;
-use App\Entity\TwinoidImport;
-use App\Entity\TwinoidImportPreview;
 use App\Entity\User;
 use App\Entity\RolePlayTextPage;
 use App\Entity\Season;
-use App\Entity\UserGroup;
 use App\Entity\UserGroupAssociation;
 use App\Response\AjaxResponse;
 use App\Service\ConfMaster;
-use App\Service\DeathHandler;
 use App\Service\ErrorHelper;
 use App\Service\JSONRequestParser;
-use App\Service\PermissionHandler;
-use App\Service\TwinoidHandler;
 use App\Service\UserFactory;
 use App\Service\UserHandler;
 use App\Service\AdminActionHandler;
@@ -44,7 +34,6 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 use Symfony\Contracts\Translation\TranslatorInterface;
@@ -72,8 +61,8 @@ class SoulController extends AbstractController
     protected TranslatorInterface $translator;
     protected UserFactory $user_factory;
     protected TimeKeeperService $time_keeper;
-    private UserHandler $user_handler;
-    private Packages $asset;
+    protected UserHandler $user_handler;
+    protected Packages $asset;
 
     public function __construct(EntityManagerInterface $em, UserFactory $uf, Packages $a, UserHandler $uh, TimeKeeperService $tk, TranslatorInterface $translator)
     {
@@ -86,7 +75,6 @@ class SoulController extends AbstractController
     }
 
     protected function addDefaultTwigArgs(?string $section = null, ?array $data = null ): array {
-        /** @var User $user */
         $user = $this->getUser();
 
         $data = $data ?? [];
@@ -161,7 +149,7 @@ class SoulController extends AbstractController
 
         return $this->render( 'ajax/soul/me.html.twig', $this->addDefaultTwigArgs("soul_me", [
             'pictos' => $pictos,
-            'points' => round($points, 0),
+            'points' => round($points),
             'latestSkill' => $latestSkill,
             'progress' => floor($progress),
             'seasons' => $this->entity_manager->getRepository(Season::class)->findAll()
@@ -172,6 +160,7 @@ class SoulController extends AbstractController
      * @Route("jx/soul/fuzzyfind/{url}", name="users_fuzzyfind")
      * @param JSONRequestParser $parser
      * @param EntityManagerInterface $em
+     * @param string $url
      * @return Response
      */
     public function users_fuzzyfind(JSONRequestParser $parser, EntityManagerInterface $em, $url = 'soul_visit'): Response
@@ -194,7 +183,6 @@ class SoulController extends AbstractController
      */
     public function soul_heroskill(): Response
     {
-        /** @var User $user */
         $user = $this->getUser();
 
         /** @var CitizenRankingProxy $nextDeath */
@@ -221,11 +209,12 @@ class SoulController extends AbstractController
     /**
      * @Route("jx/soul/news/{id}", name="soul_news")
      * @param Request $request
+     * @param UserHandler $userHandler
+     * @param int $id
      * @return Response
      */
     public function soul_news(Request $request, UserHandler $userHandler, int $id = 0): Response
     {
-        /** @var User $user */
         $user = $this->getUser();
 
         if ($this->entity_manager->getRepository(CitizenRankingProxy::class)->findNextUnconfirmedDeath($user))
@@ -254,7 +243,6 @@ class SoulController extends AbstractController
      */
     public function soul_settings(): Response
     {
-        /** @var User $user */
         $user = $this->getUser();
 
         /** @var CitizenRankingProxy $nextDeath */
@@ -265,665 +253,7 @@ class SoulController extends AbstractController
         if ($this->entity_manager->getRepository(CitizenRankingProxy::class)->findNextUnconfirmedDeath($user))
             return $this->redirect($this->generateUrl( 'soul_death' ));
 
-        return $this->render( 'ajax/soul/settings.html.twig', $this->addDefaultTwigArgs("soul_settings", null) );
-    }
-
-    /**
-     * @Route("jx/soul/import/{code}", name="soul_import")
-     * @param TwinoidHandler $twin
-     * @param string $code
-     * @return Response
-     */
-    public function soul_import(TwinoidHandler $twin, string $code = ''): Response
-    {
-        if ($this->getUser()->getShadowBan()) return $this->redirect($this->generateUrl( 'soul_disabled' ));
-
-        /** @var User $user */
-        $user = $this->getUser();
-        $main = $this->entity_manager->getRepository(TwinoidImport::class)->findOneBy(['user' => $user, 'main' => true]);
-
-        if ($cache = $this->entity_manager->getRepository(TwinoidImportPreview::class)->findOneBy(['user' => $user])) {
-
-            return $this->render( 'ajax/soul/import_preview.html.twig', $this->addDefaultTwigArgs("soul_settings", [
-                'payload' => $cache->getData($this->entity_manager), 'preview' => true,
-                'main_soul' => $main !== null && $main->getScope() === $cache->getScope(), 'select_main_soul' => $main === null,
-            ]) );
-
-        } else return $this->render( 'ajax/soul/import.html.twig', $this->addDefaultTwigArgs("soul_settings", [
-            'services' => ['www.hordes.fr' => 'Hordes','www.die2nite.com' => 'Die2Nite','www.dieverdammten.de' => 'Die Verdammten','www.zombinoia.com' => 'Zombinoia'],
-            'code' => $code, 'need_sk' => !$twin->hasBuiltInTwinoidAccess(),
-            'souls' => $this->entity_manager->getRepository(TwinoidImport::class)->findBy(['user' => $user], ['created' => 'DESC']),
-            'select_main_soul' => $main === null
-        ]) );
-    }
-
-    /**
-     * @Route("jx/soul/import/view/{id}", name="soul_import_viewer")
-     * @param int $id
-     * @return Response
-     */
-    public function soul_import_viewer(int $id): Response
-    {
-        /** @var User $user */
-        $user = $this->getUser();
-
-        if ($this->getUser()->getShadowBan()) return $this->redirect($this->generateUrl( 'soul_disabled' ));
-
-        $import = $this->entity_manager->getRepository(TwinoidImport::class)->find( $id );
-        if (!$import || $import->getUser() !== $user) return $this->redirect($this->generateUrl('soul_import'));
-
-        $main = $this->entity_manager->getRepository(TwinoidImport::class)->findOneBy(['user' => $user, 'main' => true]);
-
-        return $this->render( 'ajax/soul/import_preview.html.twig', $this->addDefaultTwigArgs("soul_settings", [
-            'payload' => $import->getData($this->entity_manager), 'preview' => false,
-            'main_soul' => $main !== null && $main->getScope() === $import->getScope(), 'select_main_soul' => $main === null,
-        ]) );
-    }
-
-    private function validate_twin_json_request(JSONRequestParser $json, TwinoidHandler $twin, ?string &$sc = null, ?string &$sk = null, ?int &$app = null): bool {
-        $sc = $json->get('scope', null);
-        if (!in_array($sc, ['www.hordes.fr','www.die2nite.com','www.dieverdammten.de','www.zombinoia.com']))
-            return false;
-
-        $sk    = $json->get('sk');
-        $app   = (int)$json->get('app');
-
-        if (!$twin->hasBuiltInTwinoidAccess()) {
-            if ($app <= 0 || empty($sk))
-                return false;
-            $twin->setFallbackAccess($app,$sk);
-        }
-
-        return true;
-    }
-
-    /**
-     * @Route("api/soul/import_turl", name="soul_import_turl_api")
-     * @param JSONRequestParser $json
-     * @param TwinoidHandler $twin
-     * @return Response
-     */
-    public function soul_import_twinoid_endpoint(JSONRequestParser $json, TwinoidHandler $twin): Response
-    {
-        if (!$this->validate_twin_json_request( $json, $twin, $scope ))
-            return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
-        return AjaxResponse::success(true, ['goto' => $twin->getTwinoidAuthURL('import',$scope)]);
-    }
-
-    /**
-     * @Route("api/soul/import/{code}", name="soul_import_api")
-     * @param string $code
-     * @param JSONRequestParser $json
-     * @param TwinoidHandler $twin
-     * @return Response
-     */
-    public function soul_import_loader(string $code, JSONRequestParser $json, TwinoidHandler $twin): Response
-    {
-        $user = $this->getUser();
-
-        if ($this->getUser()->getShadowBan()) return AjaxResponse::error(ErrorHelper::ErrorPermissionError);
-
-        if ($this->isGranted('ROLE_DUMMY'))
-            return AjaxResponse::error(ErrorHelper::ErrorPermissionError);
-
-        if ($this->entity_manager->getRepository(TwinoidImportPreview::class)->findOneBy(['user' => $user]))
-            return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
-
-        if (!$this->validate_twin_json_request( $json, $twin, $scope ))
-            return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
-
-        $twin->setCode( $code );
-
-        $data1 = $twin->getData("$scope/tid",'me', [
-            'name','twinId',
-            'playedMaps' => [ 'mapId','survival','mapName','season','v1','score','dtype','msg','comment','cleanup' ]
-        ], $error);
-
-        if ($error || isset($data1['error'])) return AjaxResponse::error(self::ErrorTwinImportInvalidResponse, ['response' => $data1]);
-
-        $twin_id = (int)($data1['twinId'] ?? 0);
-        if (!$twin_id) return AjaxResponse::error(self::ErrorTwinImportInvalidResponse, ['response' => $data1]);
-
-        $data2 = $twin->getData('twinoid.com',"site?host={$scope}", [
-            'me' => [ 'points','npoints',
-                'stats' => [ 'id','score','name','rare','social' ],
-                'achievements' => [ 'id','name','stat','score','points','npoints','date','index',
-                    'data' => ['type','title','url','prefix','suffix']
-                ]
-            ]
-        ], $error);
-
-        if ($error || isset($data2['error'])) return AjaxResponse::error(self::ErrorTwinImportInvalidResponse, ['response' => $data2]);
-
-        if ($user->getTwinoidID() === null) {
-
-            if (
-                $this->entity_manager->getRepository(User::class)->findOneBy(['twinoidID' => $twin_id]) ||
-                $this->entity_manager->getRepository(TwinoidImportPreview::class)->findOneBy(['twinoidID' => $twin_id])
-            ) return AjaxResponse::error(self::ErrorTwinImportProfileInUse);
-
-        } elseif ($user->getTwinoidID() !== $twin_id)
-            return AjaxResponse::error(self::ErrorTwinImportProfileMismatch);
-
-        $user->setTwinoidImportPreview( (new TwinoidImportPreview())
-            ->setTwinoidID($twin_id)
-            ->setCreated(new DateTime())
-            ->setScope($scope)
-            ->setPayload(array_merge($data1,$data2['me'])) );
-
-        try {
-            $this->entity_manager->persist($user);
-            $this->entity_manager->flush();
-        } catch (Exception $e) {
-            return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
-        }
-
-        return AjaxResponse::success();
-    }
-
-    /**
-     * @Route("api/soul/import-cancel", name="soul_import_cancel_api")
-     * @param JSONRequestParser $json
-     * @return Response
-     */
-    public function soul_import_cancel(JSONRequestParser $json): Response
-    {
-        $user = $this->getUser();
-
-        $pending = $this->entity_manager->getRepository(TwinoidImportPreview::class)->findOneBy(['user' => $user]);
-        if (!$pending) return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
-
-        $user->setTwinoidImportPreview(null);
-        $pending->setUser(null);
-
-        try {
-            $this->entity_manager->remove($pending);
-            $this->entity_manager->flush();
-        } catch (Exception $e) {
-            return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
-        }
-
-        return AjaxResponse::success();
-    }
-
-    /**
-     * @Route("api/soul/import-confirm/{id}", name="soul_import_confirm_api")
-     * @param JSONRequestParser $json
-     * @param TwinoidHandler $twin
-     * @param int $id
-     * @return Response
-     */
-    public function soul_import_confirm(JSONRequestParser $json, TwinoidHandler $twin, int $id = -1): Response
-    {
-        $user = $this->getUser();
-
-        if ($this->getUser()->getShadowBan()) return AjaxResponse::error(ErrorHelper::ErrorPermissionError);
-
-        $to_main = (bool)$json->get('main', false);
-        $pending = null; $selected = null;
-
-        if ($id < 0) {
-            $pending = $this->entity_manager->getRepository(TwinoidImportPreview::class)->findOneBy(['user' => $user]);
-            if (!$pending) return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
-            $scope = $pending->getScope();
-            $data = $pending->getData($this->entity_manager);
-        } else {
-            $selected = $this->entity_manager->getRepository(TwinoidImport::class)->find($id);
-            if (!$selected || $selected->getUser() !== $user) return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
-            $scope = $selected->getScope();
-            $data = $selected->getData($this->entity_manager);
-        }
-
-        $main = $this->entity_manager->getRepository(TwinoidImport::class)->findOneBy(['user' => $user, 'main' => true]);
-        if ($main !== null) {
-            if ($main->getScope() !== $scope && $to_main)
-                return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
-            elseif ($main->getScope() === $scope) $to_main = true;
-        }
-
-        if ($twin->importData( $user, $scope, $data, $to_main )) {
-
-            if ($id < 0) {
-                $import_ds = $this->entity_manager->getRepository(TwinoidImport::class)->findOneBy(['user' => $user, 'scope' => $scope]);
-                if ($import_ds === null) $user->addTwinoidImport( $import_ds = new TwinoidImport() );
-
-                $import_ds->fromPreview( $pending );
-                $import_ds->setMain( $to_main );
-
-                $user->setTwinoidID( $pending->getTwinoidID() );
-                $user->setTwinoidImportPreview(null);
-                $pending->setUser(null);
-
-                $this->entity_manager->remove($pending);
-            } else $selected->setMain($to_main);
-
-            $this->entity_manager->persist( $user );
-
-            try {
-                $this->entity_manager->flush();
-            } catch (Exception $e) {
-                return AjaxResponse::error(ErrorHelper::ErrorDatabaseException, ['msg' => $e->getMessage()]);
-            }
-
-            return AjaxResponse::success();
-        } else return AjaxResponse::error(ErrorHelper::ErrorInternalError);
-    }
-
-    /**
-     * @Route("jx/soul/coalitions", name="soul_coalitions")
-     * @return Response
-     */
-    public function soul_coalitions(): Response
-    {
-        $user = $this->getUser();
-
-        /** @var CitizenRankingProxy $nextDeath */
-        if ($this->entity_manager->getRepository(CitizenRankingProxy::class)->findNextUnconfirmedDeath($user))
-            return $this->redirect($this->generateUrl( 'soul_death' ));
-
-        /** @var CitizenRankingProxy $nextDeath */
-        if ($this->entity_manager->getRepository(CitizenRankingProxy::class)->findNextUnconfirmedDeath($user))
-            return $this->redirect($this->generateUrl( 'soul_death' ));
-
-        /** @var UserGroupAssociation|null $user_coalition */
-        $user_coalition = $this->entity_manager->getRepository(UserGroupAssociation::class)->findOneBy( [
-            'user' => $user,
-            'associationType' => [UserGroupAssociation::GroupAssociationTypeCoalitionMember, UserGroupAssociation::GroupAssociationTypeCoalitionMemberInactive]
-            ]);
-
-        $all_users = $user_coalition ? $this->entity_manager->getRepository(UserGroupAssociation::class)->findBy( [
-                'association' => $user_coalition->getAssociation()
-            ]) : [];
-
-        $user_invitations = $user_coalition ? null : $this->entity_manager->getRepository(UserGroupAssociation::class)->findBy( [
-                'user' => $user,
-                'associationType' => UserGroupAssociation::GroupAssociationTypeCoalitionInvitation ]
-        );
-
-        return $this->render( 'ajax/soul/coalitions.html.twig', $this->addDefaultTwigArgs("soul_coalitions", [
-            'membership' => $user_coalition,
-            'all_users' => $all_users,
-            'invitations' => $user_invitations,
-        ]) );
-    }
-
-    /**
-     * @Route("jx/soul/shoutbox", name="soul_shoutbox")
-     * @return Response
-     */
-    public function soul_shoutbox(): Response
-    {
-        $user = $this->getUser();
-
-        $entries = [];
-
-        /** @var UserGroupAssociation|null $user_coalition */
-        if ($user_coalition = $this->user_handler->getCoalitionMembership($user)) {
-            /** @var Shoutbox $shoutbox */
-            if ($shoutbox = $this->entity_manager->getRepository(Shoutbox::class)->findOneBy(['userGroup' => $user_coalition->getAssociation()]))
-                $entries = $this->entity_manager->getRepository(ShoutboxEntry::class)->findFromShoutbox($shoutbox, new DateTime('-60day'), 100);
-        }
-
-        if (!empty($entries)) {
-            $rm = $this->entity_manager->getRepository(ShoutboxReadMarker::class)->findOneBy(['user' => $user]);
-            if (!$rm) $rm = (new ShoutboxReadMarker())->setUser($user);
-
-            if ($rm->getEntry() !== $entries[0]) {
-                $rm->setEntry($entries[0]);
-                $this->entity_manager->persist($rm);
-                try {
-                    $this->entity_manager->flush();
-                } catch (Exception $e) {}
-            }
-        }
-
-        return $this->render( 'ajax/soul/shout_content.html.twig', [
-            'entries' => $entries,
-        ] );
-    }
-
-    /**
-     * @Route("api/soul/coalition/create", name="soul_create_coalition")
-     * @param TranslatorInterface $trans
-     * @param PermissionHandler $perm
-     * @return Response
-     */
-    public function api_soul_create_coalitions(TranslatorInterface $trans, PermissionHandler $perm): Response
-    {
-        $user = $this->getUser();
-        if ($user->getIsBanned()) return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
-
-        /** @var UserGroupAssociation|null $user_coalition */
-        $user_coalitions = $this->entity_manager->getRepository(UserGroupAssociation::class)->findBy( [
-                'user' => $user,
-                'associationType' => [UserGroupAssociation::GroupAssociationTypeCoalitionMember, UserGroupAssociation::GroupAssociationTypeCoalitionMemberInactive] ]
-        );
-
-        if (!empty($user_coalitions)) return AjaxResponse::error( self::ErrorCoalitionAlreadyMember );
-
-        // Creating a coalition refuses all invitations
-        foreach ($this->entity_manager->getRepository(UserGroupAssociation::class)->findBy( [
-                'user' => $user,
-                'associationType' => UserGroupAssociation::GroupAssociationTypeCoalitionInvitation ]
-        ) as $invitation) $this->entity_manager->remove($invitation);
-
-        $this->entity_manager->persist(
-            $g = (new UserGroup())
-                ->setName($trans->trans("%name%'s Koalition", ['%name%' => $user->getUsername()], 'soul'))
-                ->setType(UserGroup::GroupSmallCoalition)
-                ->setRef1($user->getId())
-        );
-        $perm->associate( $user, $g, UserGroupAssociation::GroupAssociationTypeCoalitionMember, UserGroupAssociation::GroupAssociationLevelFounder );
-        $this->entity_manager->persist((new Shoutbox())->setUserGroup($g));
-
-        try {
-            $this->entity_manager->flush();
-        }
-        catch (Exception $e) {
-            return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
-        }
-
-        return AjaxResponse::success();
-    }
-
-    /**
-     * @Route("api/soul/coalition/toggle", name="soul_toggle_coalition")
-     * @return Response
-     */
-    public function api_soul_toggle_coalition_membership(): Response
-    {
-        $user = $this->getUser();
-
-
-        /** @var UserGroupAssociation|null $user_coalition */
-        $user_coalition = $this->user_handler->getCoalitionMembership($user);
-
-        if ($user_coalition === null) return AjaxResponse::error( self::ErrorCoalitionNotSet );
-
-        $user_coalition->setAssociationType(
-            $user_coalition->getAssociationType() === UserGroupAssociation::GroupAssociationTypeCoalitionMember
-                ? UserGroupAssociation::GroupAssociationTypeCoalitionMemberInactive
-                : UserGroupAssociation::GroupAssociationTypeCoalitionMember
-        );
-        $this->entity_manager->persist( $user_coalition );
-
-        try {
-            $this->entity_manager->flush();
-        }
-        catch (Exception $e) {
-            return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
-        }
-
-        return AjaxResponse::success();
-    }
-
-    /**
-     * @Route("api/soul/coalition/leave/{coalition<\d+>}", name="soul_leave_coalition")
-     * @param int $coalition
-     * @return Response
-     */
-    public function api_soul_leave_coalition(int $coalition): Response
-    {
-        $user = $this->getUser();
-
-        /** @var UserGroupAssociation|null $user_coalition */
-        $user_coalition = $this->entity_manager->getRepository(UserGroupAssociation::class)->find($coalition);
-
-        if ($user_coalition === null) return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
-        if (
-            $user_coalition->getUser() !== $user ||
-            $user_coalition->getAssociation()->getType() !== UserGroup::GroupSmallCoalition ||
-            !in_array($user_coalition->getAssociationType(), [
-                UserGroupAssociation::GroupAssociationTypeCoalitionInvitation,
-                UserGroupAssociation::GroupAssociationTypeCoalitionMember,
-                UserGroupAssociation::GroupAssociationTypeCoalitionMemberInactive
-            ])) return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
-
-        $destroy = $user_coalition->getAssociationLevel() === UserGroupAssociation::GroupAssociationLevelFounder;
-
-        if ($destroy) {
-
-            foreach ($this->entity_manager->getRepository(UserGroupAssociation::class)->findBy( [
-                'association' => $user_coalition->getAssociation()
-            ]) as $assoc ) $this->entity_manager->remove($assoc);
-
-            $this->entity_manager->remove( $user_coalition->getAssociation() );
-
-        } else {
-            $this->entity_manager->remove( $user_coalition );
-            /** @var Shoutbox|null $shoutbox */
-            if ($shoutbox = $this->user_handler->getShoutbox($user_coalition)) {
-                $shoutbox->addEntry(
-                    (new ShoutboxEntry())
-                        ->setType( ShoutboxEntry::SBEntryTypeLeave )
-                        ->setTimestamp( new DateTime() )
-                        ->setUser1( $user )
-                );
-                $this->entity_manager->persist($shoutbox);
-            }
-        }
-
-
-        try {
-            $this->entity_manager->flush();
-        }
-        catch (Exception $e) {
-            return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
-        }
-
-        return AjaxResponse::success();
-    }
-
-    /**
-     * @Route("api/soul/coalition/join/{coalition<\d+>}", name="soul_join_coalition")
-     * @param int $coalition
-     * @return Response
-     */
-    public function api_soul_join_coalition(int $coalition, TranslatorInterface $trans): Response
-    {
-        $user = $this->getUser();
-        if ($user->getIsBanned()) return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
-
-        /** @var UserGroupAssociation|null $user_coalition */
-        $user_coalition = $this->entity_manager->getRepository(UserGroupAssociation::class)->find($coalition);
-
-        if ($user_coalition === null) return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
-        if (
-            $user_coalition->getUser() !== $user ||
-            $user_coalition->getAssociation()->getType() !== UserGroup::GroupSmallCoalition ||
-            $user_coalition->getAssociationType() !== UserGroupAssociation::GroupAssociationTypeCoalitionInvitation
-            ) return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
-
-        $user_coalition->setAssociationType(UserGroupAssociation::GroupAssociationTypeCoalitionMember);
-        $this->entity_manager->persist($user_coalition);
-
-        // Joining a coalition refuses all other invitations
-        foreach ($this->entity_manager->getRepository(UserGroupAssociation::class)->findBy( [
-                'user' => $user,
-                'associationType' => UserGroupAssociation::GroupAssociationTypeCoalitionInvitation ]
-        ) as $invitation) if ($invitation->getId() !== $coalition) $this->entity_manager->remove($invitation);
-
-        $this->addFlash('info', $trans->trans('Herzlichen Glückwunsch, du bist der Koalition soeben beigetreten!', [], 'soul'));
-
-        /** @var Shoutbox|null $shoutbox */
-        if ($shoutbox = $this->user_handler->getShoutbox($user_coalition)) {
-            $shoutbox->addEntry(
-                (new ShoutboxEntry())
-                    ->setType( ShoutboxEntry::SBEntryTypeJoin )
-                    ->setTimestamp( new DateTime() )
-                    ->setUser1( $user )
-            );
-            $this->entity_manager->persist($shoutbox);
-        }
-
-        try {
-            $this->entity_manager->flush();
-        }
-        catch (Exception $e) {
-            return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
-        }
-
-        return AjaxResponse::success();
-    }
-
-    /**
-     * @Route("api/soul/coalition/kick/{coalition<\d+>}", name="soul_kick_coalition")
-     * @param int $coalition
-     * @return Response
-     */
-    public function api_soul_kick_coalition(int $coalition): Response
-    {
-        $user = $this->getUser();
-        if ($user->getIsBanned()) return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
-
-        /** @var UserGroupAssociation|null $user_coalition */
-        $user_coalition = $this->user_handler->getCoalitionMembership($user);
-
-        if ($user_coalition === null) return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
-        if ($user_coalition->getAssociationLevel() !== UserGroupAssociation::GroupAssociationLevelFounder)
-            return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
-
-        /** @var UserGroupAssociation|null $target_coalition */
-        $target_coalition = $this->entity_manager->getRepository(UserGroupAssociation::class)->find($coalition);
-
-        if ($target_coalition === null) return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
-        if ($target_coalition->getAssociation() !== $user_coalition->getAssociation())
-            return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
-
-        $this->entity_manager->remove( $target_coalition );
-        /** @var Shoutbox|null $shoutbox */
-        if ($shoutbox = $this->user_handler->getShoutbox($user_coalition)) {
-            $shoutbox->addEntry(
-                (new ShoutboxEntry())
-                    ->setType( ShoutboxEntry::SBEntryTypeLeave )
-                    ->setTimestamp( new DateTime() )
-                    ->setUser1( $user )
-                    ->setUser2( $target_coalition->getUser() )
-            );
-            $this->entity_manager->persist($shoutbox);
-        }
-
-        try {
-            $this->entity_manager->flush();
-        }
-        catch (Exception $e) {
-            return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
-        }
-
-        return AjaxResponse::success();
-    }
-
-    /**
-     * @Route("api/soul/coalition/invite/{id<\d+>}", name="soul_invite_coalition")
-     * @param ConfMaster $conf
-     * @param int $id
-     * @return Response
-     */
-    public function api_soul_invite_coalition(ConfMaster $conf, int $id): Response
-    {
-        $user = $this->getUser();
-
-        if ($user->getIsBanned()) return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
-
-        if ($id === $user->getId()) return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
-
-        /** @var UserGroupAssociation|null $user_coalition */
-        if (($user_coalition = $this->user_handler->getCoalitionMembership($user)) === null) return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
-        if ($user_coalition->getAssociationLevel() !== UserGroupAssociation::GroupAssociationLevelFounder)
-            return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
-
-        $all_users = $this->entity_manager->getRepository(UserGroupAssociation::class)->findBy( [
-                'association' => $user_coalition->getAssociation(),
-                'associationType' => [UserGroupAssociation::GroupAssociationTypeCoalitionMember, UserGroupAssociation::GroupAssociationTypeCoalitionMemberInactive, UserGroupAssociation::GroupAssociationTypeCoalitionInvitation] ]
-        );
-
-        if (count($all_users) >= $conf->getGlobalConf()->get(MyHordesConf::CONF_COA_MAX_NUM, 5))
-            return AjaxResponse::error( self::ErrorCoalitionFull );
-
-        $target = $this->entity_manager->getRepository(User::class)->find($id);
-        if ($target === null) return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
-
-        /** @var UserGroupAssociation|null $user_coalition */
-        $target_coalition = $this->user_handler->getCoalitionMembership($target);
-
-        /** @var UserGroupAssociation|null $user_coalition */
-        $self_coalition = $this->entity_manager->getRepository(UserGroupAssociation::class)->findOneBy( [
-                'user' => $target,
-                'association' => $user_coalition->getAssociation()
-        ] );
-
-
-        if ($target_coalition || $self_coalition) return AjaxResponse::error( self::ErrorCoalitionUserAlreadyMember );
-
-        $this->entity_manager->persist(
-            (new UserGroupAssociation)
-                ->setUser($target)
-                ->setAssociation( $user_coalition->getAssociation() )
-                ->setAssociationType( UserGroupAssociation::GroupAssociationTypeCoalitionInvitation )
-                ->setAssociationLevel( UserGroupAssociation::GroupAssociationLevelDefault )
-        );
-
-        /** @var Shoutbox|null $shoutbox */
-        if ($shoutbox = $this->user_handler->getShoutbox($user_coalition)) {
-            $shoutbox->addEntry(
-                (new ShoutboxEntry())
-                    ->setType( ShoutboxEntry::SBEntryTypeInvite )
-                    ->setTimestamp( new DateTime() )
-                    ->setUser1( $user )
-                    ->setUser2( $target )
-            );
-            $this->entity_manager->persist($shoutbox);
-        }
-
-
-        try {
-            $this->entity_manager->flush();
-        }
-        catch (Exception $e) {
-            return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
-        }
-
-        return AjaxResponse::success();
-    }
-
-    /**
-     * @Route("api/soul/coalition/shout", name="soul_shout_coalition")
-     * @param JSONRequestParser $parser
-     * @return Response
-     */
-    public function api_coalition_shout(JSONRequestParser $parser): Response
-    {
-        $user = $this->getUser();
-        $shoutbox = $this->user_handler->getShoutbox($user);
-
-        if (!$shoutbox || $user->getIsBanned()) return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
-
-        $last_chat_entries = $this->entity_manager->getRepository(ShoutboxEntry::class)->findBy(
-            ['type' => ShoutboxEntry::SBEntryTypeChat], ['timestamp' => 'DESC'], 10
-        );
-        if (count($last_chat_entries) === 10 && $last_chat_entries[9]->getTimestamp()->getTimestamp() > (time() - 30))
-            return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
-
-        $text = mb_substr( $parser->trimmed('text', ''), 0, 190);
-
-        $shoutbox = $this->user_handler->getShoutbox($user);
-        $shoutbox->addEntry(
-            (new ShoutboxEntry())
-                ->setType( ShoutboxEntry::SBEntryTypeChat )
-                ->setTimestamp( new DateTime() )
-                ->setUser1( $user )
-                ->setText( $text )
-        );
-        $this->entity_manager->persist($shoutbox);
-
-        try {
-            $this->entity_manager->flush();
-        }
-        catch (Exception $e) {
-            return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
-        }
-
-        return AjaxResponse::success();
+        return $this->render( 'ajax/soul/settings.html.twig', $this->addDefaultTwigArgs("soul_settings") );
     }
 
     /**
@@ -938,7 +268,7 @@ class SoulController extends AbstractController
         if ($this->entity_manager->getRepository(CitizenRankingProxy::class)->findNextUnconfirmedDeath($user))
             return $this->redirect($this->generateUrl( 'soul_death' ));
 
-        return $this->render( 'ajax/soul/season.html.twig', $this->addDefaultTwigArgs("soul_season", null) );
+        return $this->render( 'ajax/soul/season.html.twig', $this->addDefaultTwigArgs("soul_season") );
     }
 
     /**
@@ -961,6 +291,8 @@ class SoulController extends AbstractController
 
     /**
      * @Route("jx/soul/rps/read/{id}-{page}", name="soul_rp", requirements={"id"="\d+", "page"="\d+"})
+     * @param int $id
+     * @param int $page
      * @return Response
      */
     public function soul_view_rp(int $id, int $page): Response
@@ -1069,7 +401,7 @@ class SoulController extends AbstractController
      * @param EntityManagerInterface $entityManager
      * @return Response
      */
-    public function soul_settings_generateid(EntityManagerInterface $entityManager): Response {
+    public function soul_settings_generate_id(EntityManagerInterface $entityManager): Response {
         $user = $this->getUser();
         if (!$user)
             return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable);
@@ -1153,9 +485,10 @@ class SoulController extends AbstractController
     /**
      * @Route("api/soul/settings/defaultrole", name="api_soul_defaultrole")
      * @param JSONRequestParser $parser
+     * @param AdminActionHandler $admh
      * @return Response
      */
-    public function soul_settings_defaultrole(JSONRequestParser $parser, AdminActionHandler $admh): Response {
+    public function soul_settings_default_role(JSONRequestParser $parser, AdminActionHandler $admh): Response {
         $user = $this->getUser();
 
         $asDev = $parser->get('dev', false);
@@ -1168,13 +501,14 @@ class SoulController extends AbstractController
     /**
      * @Route("api/soul/settings/avatar", name="api_soul_avatar")
      * @param JSONRequestParser $parser
+     * @param ConfMaster $conf
      * @return Response
      */
     public function soul_settings_avatar(JSONRequestParser $parser, ConfMaster $conf): Response {
 
-        $payload = $parser->get_base64('image', null);
+        $payload = $parser->get_base64('image');
         $upload = (int)$parser->get('up', 1);
-        $mime = $parser->get('mime', null);
+        $mime = $parser->get('mime');
 
         $user = $this->getUser();
 
@@ -1297,6 +631,7 @@ class SoulController extends AbstractController
 
     /**
      * @Route("jx/soul/{id}", name="soul_visit", requirements={"id"="\d+"})
+     * @param int $id
      * @return Response
      */
     public function soul_visit(int $id): Response
@@ -1326,7 +661,7 @@ class SoulController extends AbstractController
         return $this->render( 'ajax/soul/visit.html.twig', $this->addDefaultTwigArgs("soul_visit", [
         	'user' => $user,
             'pictos' => $pictos,
-            'points' => round($points, 0),
+            'points' => round($points),
             'seasons' => $this->entity_manager->getRepository(Season::class)->findAll(),
             'returnUrl' => $returnUrl,
             'citizen_id' => $citizen_id,
@@ -1419,7 +754,7 @@ class SoulController extends AbstractController
      * @Route("jx/soul/death", name="soul_death")
      * @return Response
      */
-    public function soul_deathpage(): Response
+    public function soul_death_page(): Response
     {
         $user = $this->getUser();
 

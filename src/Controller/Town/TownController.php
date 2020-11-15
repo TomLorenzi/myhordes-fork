@@ -62,6 +62,17 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
         $town = $this->getActiveCitizen()->getTown();
         $roles = $this->entity_manager->getRepository(CitizenRole::class)->findVotable();
 
+        $disabled_roles = $this->conf->getTownConfiguration($town)->get(TownConf::CONF_DISABLED_ROLES, []);
+
+
+        for($i = count($roles) - 1; $i >= 0 ; $i--) {
+            $role = $roles[$i];
+            /** @var CitizenRole $role */
+            if(in_array($role->getName(), $disabled_roles)) {
+                unset($roles[$i]);
+            }
+        }
+
         $votesNeeded = array();
         foreach ($roles as $role)
             $votesNeeded[$role->getName()] = ($town->getChaos() || $town->isOpen()) ? null : $role;
@@ -484,6 +495,9 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
 
         if ($this->getActiveCitizen()->getBanished())
             return AjaxResponse::error(ErrorHelper::ErrorActionNotAvailable );
+
+        if ($this->getActiveCitizen()->getUser()->getSoulPoints() < 50)
+            return AjaxResponse::error(ErrorHelper::ErrorActionNotAvailableSP );
 
         $severity = (int)$parser->get('severity', -1);
         if ($severity < Complaint::SeverityNone || $severity > Complaint::SeverityKill)
@@ -1463,10 +1477,18 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
         
         $citizen = $this->getActiveCitizen();
         $message = [];
-        if($citizen->getPM() < 2 || $this->citizen_handler->hasStatusEffect($citizen, ['drugged', 'drunk', 'infected', 'terror'])) {
+        if($this->citizen_handler->hasStatusEffect($citizen, ['drugged', 'drunk', 'infected', 'terror'])) {
             $message[] = $this->translator->trans('In deinem aktuellen Zustand kannst du diese Aktion nicht ausführen.', [], 'game');
             $this->addFlash('notice', implode('<hr />', $message));
             return AjaxResponse::success();
+        }
+
+        if(($citizen->hasRole('shaman') && $citizen->getPM() < 2)) {
+            $message[] = $this->translator->trans('In deinem aktuellen Zustand kannst du diese Aktion nicht ausführen.', [], 'game');
+            $this->addFlash('notice', implode('<hr />', $message));
+            return AjaxResponse::success();
+        } else if ($citizen->getProfession()->getName() == "shaman" && $citizen->getAp() < 2) {
+            return AjaxResponse::error( ErrorHelper::ErrorNoAP );
         }
 
         /** @var Citizen $c */
@@ -1525,7 +1547,11 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
         } else {
             $message[] = $this->translator->trans($healableStatus[$healedStatus]['fail'], ['%citizen%' => "<span>" . $c->getUser()->getName() . "</span>"], 'game');
         }
-        $citizen->setPM($citizen->getPM() - 2);
+        if ($citizen->hasRole('shaman')) {
+            $citizen->setPM($citizen->getPM() - 2);
+        } else if ($citizen->getProfession()->getName() == "shaman") {
+            $citizen->setAp($citizen->getAp() - 2);
+        }
 
         $this->entity_manager->persist($c);
         $this->entity_manager->persist($citizen);
