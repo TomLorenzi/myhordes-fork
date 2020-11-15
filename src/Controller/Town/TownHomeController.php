@@ -120,10 +120,11 @@ class TownHomeController extends TownController
             $destCitizen = $this->entity_manager->getRepository(Citizen::class)->find($dest_id);
         }
 
+        /** @var PrivateMessageThread[] $nonArchivedMessages */
         $nonArchivedMessages = $this->entity_manager->getRepository(PrivateMessageThread::class)->findNonArchived($citizen);
         foreach ($nonArchivedMessages as $thread) {
             foreach ($thread->getMessages() as $message) {
-                if($message->getRecipient() == $this->getActiveCitizen() && $message->getNew())
+                if($message->getRecipient() === $this->getActiveCitizen() && $message->getNew())
                     $thread->setNew(true);
 
                 switch ($message->getTemplate()) {
