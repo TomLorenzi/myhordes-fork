@@ -603,5 +603,23 @@
         <target>Verknüpfen</target>
       </segment>
     </unit>
+    <unit id="7Nk4Nxa" name="Willkommen zurück! Dein Account ist nicht länger zur Löschung vorgemerkt.">
+      <notes>
+        <note category="german">Willkommen zurück! Dein Account ist nicht länger zur Löschung vorgemerkt.</note>
+      </notes>
+      <segment>
+        <source>Willkommen zurück! Dein Account ist nicht länger zur Löschung vorgemerkt.</source>
+        <target>Willkommen zurück! Dein Account ist nicht länger zur Löschung vorgemerkt.</target>
+      </segment>
+    </unit>
+    <unit id="n69_UZl" name="0a8ad23">
+      <notes>
+        <note category="german">Es haben sich zu viele Nutzer aus deinem Netzwerk heraus bei MyHordes registriert. Weitere Registrierungen aus deinem Netzwerk sind für eine Weile nicht mehr möglich.</note>
+      </notes>
+      <segment>
+        <source>Es haben sich zu viele Nutzer aus deinem Netzwerk heraus bei MyHordes registriert. Weitere Registrierungen aus deinem Netzwerk sind für eine Weile nicht mehr möglich.</source>
+        <target>Es haben sich zu viele Nutzer aus deinem Netzwerk heraus bei MyHordes registriert. Weitere Registrierungen aus deinem Netzwerk sind für eine Weile nicht mehr möglich.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

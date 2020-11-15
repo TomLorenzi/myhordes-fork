@@ -42,6 +42,7 @@ use App\Service\UserHandler;
 use App\Service\ZoneHandler;
 use App\Structures\BankItem;
 use App\Structures\ItemRequest;
+use App\Structures\MyHordesConf;
 use App\Structures\TownConf;
 use DateTime;
 use Doctrine\ORM\AbstractQuery;
@@ -55,24 +56,24 @@ use Symfony\Contracts\Translation\TranslatorInterface;
 class InventoryAwareController extends AbstractController
     implements GameInterfaceController, GameProfessionInterfaceController, GameAliveInterfaceController, HookedInterfaceController
 {
-    protected $entity_manager;
-    protected $inventory_handler;
-    protected $death_handler;
-    protected $citizen_handler;
-    protected $action_handler;
-    protected $picto_handler;
-    protected $translator;
-    protected $log;
-    protected $time_keeper;
-    protected $random_generator;
-    protected $conf;
-    protected $zone_handler;
-    protected $logTemplateHandler;
-    protected $user_handler;
-    protected $cache_active_citizen = null;
-    protected $crow;
+    protected EntityManagerInterface $entity_manager;
+    protected InventoryHandler $inventory_handler;
+    protected DeathHandler $death_handler;
+    protected CitizenHandler $citizen_handler;
+    protected ActionHandler $action_handler;
+    protected PictoHandler $picto_handler;
+    protected TranslatorInterface $translator;
+    protected LogTemplateHandler $log;
+    protected TimeKeeperService $time_keeper;
+    protected RandomGenerator $random_generator;
+    protected ConfMaster $conf;
+    protected ZoneHandler $zone_handler;
+    protected LogTemplateHandler $logTemplateHandler;
+    protected UserHandler $user_handler;
+    protected ?Citizen $cache_active_citizen = null;
+    protected CrowService $crow;
 
-    private $town_conf;
+    private TownConf $town_conf;
 
     public function __construct(
         EntityManagerInterface $em, InventoryHandler $ih, CitizenHandler $ch, ActionHandler $ah, DeathHandler $dh, PictoHandler $ph,
@@ -479,7 +480,8 @@ class InventoryAwareController extends AbstractController
         if ($this->citizen_handler->isTired($aggressor) || $aggressor->getAp() < $ap)
             return AjaxResponse::error( ErrorHelper::ErrorNoAP );
 
-        $attack_protect = $this->getTownConf()->get(TownConf::CONF_MODIFIER_ATTACK_PROTECT, false) || ($aggressor->getUser()->getSoulPoints() < 50);
+        $attack_protect = $this->getTownConf()->get(TownConf::CONF_MODIFIER_ATTACK_PROTECT, false) ||
+            ($aggressor->getUser()->getSoulPoints() < $this->conf->getGlobalConf()->get(MyHordesConf::CONF_ANTI_GRIEF_SP, 20));
         if ($attack_protect) {
             foreach ($aggressor->getTown()->getCitizens() as $c)
                 if ($c->getAlive() && $c->hasRole('ghoul'))

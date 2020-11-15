@@ -39,10 +39,10 @@ use Exception;
 
     class ExternalController extends InventoryAwareController {
         protected $game_factory;
-        protected $zone_handler;
+        protected ZoneHandler $zone_handler;
         protected $item_factory;
-        protected $death_handler;
-        protected $entity_manager;
+        protected DeathHandler $death_handler;
+        protected EntityManagerInterface $entity_manager;
 
         /**
          * BeyondController constructor.

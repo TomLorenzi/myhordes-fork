@@ -1730,5 +1730,14 @@
         <target>Wenn ein andered Mitglied deiner Koalition eine Stadt auswählt, schließt du dich ihm automatisch an und spielst in der gleichen Stadt wie er.</target>
       </segment>
     </unit>
+    <unit id="Ba7luCC" name="Du musst noch mehr Erfahrung sammeln, um das tun zu können...">
+      <notes>
+        <note category="german">Du musst noch mehr Erfahrung sammeln, um das tun zu können...</note>
+      </notes>
+      <segment>
+        <source>Du musst noch mehr Erfahrung sammeln, um das tun zu können...</source>
+        <target>Du musst noch mehr Erfahrung sammeln, um das tun zu können...</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

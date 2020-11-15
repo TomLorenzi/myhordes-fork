@@ -23,6 +23,14 @@
                     </div>
                 </div>
             {% endif %}
+
+            {% if user.deleteAfter is not null %}
+                <div class="row">
+                    <div class="cell padded rw-12">
+                        <b style="color: red">{{ 'Account zur Löschung vorgemerkt!'|trans({}, 'admin') }}</b>
+                    </div>
+                </div>
+            {% endif %}
             <h5>{{ 'Aktionen'|trans({}, 'admin') }}</h5>
 
             <div class="row">

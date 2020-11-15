@@ -85,7 +85,7 @@ class CitizenHandler
      * @param Citizen $citizen
      * @return bool
      */
-    public function isWounded(Citizen $citizen) {
+    public function isWounded(Citizen $citizen): bool {
         return $this->hasStatusEffect( $citizen, ['tg_meta_wound','wound1','wound2','wound3','wound4','wound5','wound6'], false );
     }
 

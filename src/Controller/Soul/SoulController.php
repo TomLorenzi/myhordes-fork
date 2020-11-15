@@ -19,6 +19,7 @@ use App\Entity\UserGroupAssociation;
 use App\Response\AjaxResponse;
 use App\Service\ConfMaster;
 use App\Service\ErrorHelper;
+use App\Service\EternalTwinHandler;
 use App\Service\JSONRequestParser;
 use App\Service\UserFactory;
 use App\Service\UserHandler;
@@ -241,7 +242,7 @@ class SoulController extends AbstractController
      * @Route("jx/soul/settings", name="soul_settings")
      * @return Response
      */
-    public function soul_settings(): Response
+    public function soul_settings(EternalTwinHandler $etwin): Response
     {
         $user = $this->getUser();
 
@@ -253,7 +254,9 @@ class SoulController extends AbstractController
         if ($this->entity_manager->getRepository(CitizenRankingProxy::class)->findNextUnconfirmedDeath($user))
             return $this->redirect($this->generateUrl( 'soul_death' ));
 
-        return $this->render( 'ajax/soul/settings.html.twig', $this->addDefaultTwigArgs("soul_settings") );
+        return $this->render( 'ajax/soul/settings.html.twig', $this->addDefaultTwigArgs("soul_settings", [
+            'et_ready' => $etwin->isReady()
+        ]) );
     }
 
     /**
@@ -621,7 +624,8 @@ class SoulController extends AbstractController
             return AjaxResponse::error(self::ErrorUserEditPasswordIncorrect );
 
         $name = $user->getUsername();
-        $userhandler->deleteUser($user);
+        //$userhandler->deleteUser($user);
+        $user->setDeleteAfter( new DateTime('+24hour') );
         $this->entity_manager->flush();
 
         $this->addFlash( 'notice', $this->translator->trans('Auf wiedersehen, %name%. Wir werden dich vermissen und hoffen, dass du vielleicht doch noch einmal zurück kommst.', ['%name%' => $name], 'login') );

@@ -2,7 +2,7 @@
 {% block soul_content %}
     <div class="row">
 
-        {% if app.user.eternalID is null %}
+        {% if et_ready and app.user.eternalID is null %}
             <div class="cell rw-12 padded">
                 <h5>{{ 'Über EternalTwin einloggen'|trans({},'login') }}</h5>
                 <div class="eternalMergeBanner">
@@ -259,6 +259,7 @@
 
             $.ajax.easySend( '{{ path('api_soul_delete_account') }}', {'pw': pw},
                 function () {
+                    alert('{{ 'Du wirst nun ausgeloggt. Dein Account wird in 24-48 Stunden gelöscht. Bis dahin kannst du dich jederzeit erneut einloggen und dadurch die Löschung deines Accounts abbrechen.'|trans({},'soul')|e('js') }}');
                     $.ajax.load(null, '{{ path('public_welcome') }}', true);
                 } )
         });

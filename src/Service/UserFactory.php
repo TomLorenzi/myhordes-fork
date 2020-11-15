@@ -39,6 +39,7 @@ class UserFactory
     const ErrorInvalidParams     = ErrorHelper::BaseUserErrors + 3;
     const ErrorDatabaseException = ErrorHelper::BaseUserErrors + 4;
     const ErrorValidationExists  = ErrorHelper::BaseUserErrors + 5;
+    const ErrorTooManyRegistrations = ErrorHelper::BaseUserErrors + 6;
 
     public function __construct( EntityManagerInterface $em, UserPasswordEncoderInterface $passwordEncoder,
                                  Locksmith $l, UrlGeneratorInterface $url, Environment $e, TranslatorInterface $t,

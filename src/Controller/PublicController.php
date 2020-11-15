@@ -7,6 +7,7 @@ use App\Controller\Soul\SoulController;
 use App\Entity\Citizen;
 use App\Entity\Picto;
 use App\Entity\PictoPrototype;
+use App\Entity\RegistrationLog;
 use App\Entity\User;
 use App\Entity\UserPendingValidation;
 use App\Exception\DynamicAjaxResetException;
@@ -221,6 +222,8 @@ class PublicController extends AbstractController
      * @return Response
      */
     public function register_api(
+        Request $request,
+        ConfMaster $conf,
         JSONRequestParser $parser,
         TranslatorInterface $translator,
         UserFactory $factory,
@@ -279,6 +282,9 @@ class PublicController extends AbstractController
 
         if ($violations->count() === 0) {
 
+            if ($entityManager->getRepository(RegistrationLog::class)->countRecentRegistrations($request->getClientIp()) >= $conf->getGlobalConf()->get(MyHordesConf::CONF_ANTI_GRIEF_REG, 2))
+                return AjaxResponse::error(UserFactory::ErrorTooManyRegistrations);
+
             $user = $factory->createUser(
                 $parser->trimmed('user'),
                 $parser->trimmed('mail1'),
@@ -290,6 +296,13 @@ class PublicController extends AbstractController
             switch ($error) {
                 case UserFactory::ErrorNone:
                     try {
+
+                        $entityManager->persist( (new RegistrationLog())
+                            ->setUser($user)
+                            ->setDate(new \DateTime())
+                            ->setIdentifier( md5($request->getClientIp()) )
+                        );
+
                         $entityManager->persist( $user );
                         $entityManager->flush();
                     } catch (Exception $e) {
@@ -365,14 +378,17 @@ class PublicController extends AbstractController
 
     /**
      * @Route("api/public/etwin/confirm", name="api_etwin_confirm")
+     * @param Request $request
      * @param JSONRequestParser $parser
      * @param SessionInterface $session
      * @param UserFactory $userFactory
      * @param UserPasswordEncoderInterface $pass
+     * @param TranslatorInterface $trans
+     * @param ConfMaster $conf
      * @return Response
      */
-    public function etwin_confirm_api(JSONRequestParser $parser, SessionInterface $session, UserFactory $userFactory,
-                                      UserPasswordEncoderInterface $pass, TranslatorInterface $trans): Response {
+    public function etwin_confirm_api(Request $request, JSONRequestParser $parser, SessionInterface $session, UserFactory $userFactory,
+                                      UserPasswordEncoderInterface $pass, TranslatorInterface $trans, ConfMaster $conf): Response {
 
         $myhordes_user = $this->getUser();
         $password = $parser->get('pass', null);
@@ -407,10 +423,19 @@ class PublicController extends AbstractController
         // Case B - Account Creation
         elseif ($myhordes_user === null && $session->has('_etwin_user') && !$session->get('_etwin_login', false)) {
 
+            if ($this->entity_manager->getRepository(RegistrationLog::class)->countRecentRegistrations($request->getClientIp()) >= $conf->getGlobalConf()->get(MyHordesConf::CONF_ANTI_GRIEF_REG, 2))
+                return AjaxResponse::error(UserFactory::ErrorTooManyRegistrations);
+
             $new_user = $userFactory->importUser( $etwin_user );
             $this->entity_manager->persist( $new_user );
 
             try {
+                $this->entity_manager->persist( (new RegistrationLog())
+                    ->setUser($new_user)
+                    ->setDate(new \DateTime())
+                    ->setIdentifier( md5($request->getClientIp()) )
+                );
+
                 $this->entity_manager->flush();
             } catch (Exception $e) {
                 return AjaxResponse::error( ErrorHelper::ErrorDatabaseException );
@@ -467,22 +492,31 @@ class PublicController extends AbstractController
      * @Route("api/public/login", name="api_login")
      * @return Response
      */
-    public function login_api(): Response
+    public function login_api(TranslatorInterface $trans): Response
     {
         /** @var User $user */
         $user = $this->getUser();
         if (!$user)
             return new AjaxResponse( ['success' => false ] );
 
+        $flush = false;
+
         // If there is an open password reset validation, a successful login closes it
         $reset_validation = $this->entity_manager->getRepository(UserPendingValidation::class)->findOneByUserAndType($user, UserPendingValidation::ResetValidation);
-        if ($reset_validation) try {
+        if ($reset_validation)
 
-            $this->entity_manager->remove($reset_validation);
-            $user->setPendingValidation(null);
+        $this->entity_manager->remove($reset_validation);
+        $user->setPendingValidation(null);
+        $this->entity_manager->persist($user);
+
+        if ($user->getDeleteAfter() !== null) {
+            $user->setDeleteAfter(null);
             $this->entity_manager->persist($user);
-            $this->entity_manager->flush();
+            $this->addFlash('notice', $trans->trans('Willkommen zurück! Dein Account ist nicht länger zur Löschung vorgemerkt.', [], 'login'));
+        }
 
+        if ($flush) try {
+            $this->entity_manager->flush();
         } catch(Exception $e) {}
 
         if (!$user->getValidated())

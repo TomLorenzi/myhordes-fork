@@ -85,8 +85,8 @@
                     {% if not citizen.banished %}
                         {% if complaint is null or complaint.severity == 0 %}<button x-complaint-severity="1">{{ 'Anzeige erstatten'|trans({},'game') }}</button>{% endif %}
                         {% if complaint is not null and complaint.severity > 0 %}<button x-complaint-severity="0">{{ 'Anzeige zurückziehen'|trans({},'game') }}</button>{% endif %}
-                        {% if complaint is not null and complaint.severity == 1 %}<button x-complaint-severity="2">{{ 'Anzeige: Todesstrafe fordern'|trans({},'game') }}</button>{% endif %}
-                        {% if complaint is not null and complaint.severity == 2 %}<button x-complaint-severity="1">{{ 'Anzeige: Verbannung fordern'|trans({},'game') }}</button>{% endif %}
+                        <!--{% if complaint is not null and complaint.severity == 1 %}<button x-complaint-severity="2">{{ 'Anzeige: Todesstrafe fordern'|trans({},'game') }}</button>{% endif %}-->
+                        <!--{% if complaint is not null and complaint.severity == 2 %}<button x-complaint-severity="1">{{ 'Anzeige: Verbannung fordern'|trans({},'game') }}</button>{% endif %}-->
                     {% endif %}
                     {% if not owner.zone %}
                         <button x-attack-citizen {% if not can_attack %}disabled{% endif %}><img alt="" src="{{ asset('build/images/icons/fist.gif') }}" /> {{ 'Diesen Bürger angreifen!'|trans({},'game') }} (<div class="ap">{{ attackAP }}</div>)</button>

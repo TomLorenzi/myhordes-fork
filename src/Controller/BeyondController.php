@@ -71,9 +71,9 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
     const ErrorTerrorized           = ErrorHelper::BaseBeyondErrors + 13;
 
     protected $game_factory;
-    protected $zone_handler;
+    protected ZoneHandler $zone_handler;
     protected $item_factory;
-    protected $death_handler;
+    protected DeathHandler $death_handler;
     protected $asset;
 
     /**

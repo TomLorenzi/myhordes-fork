@@ -30,6 +30,7 @@ class ShoutboxReadMarker
 
     /**
      * @ORM\ManyToOne(targetEntity=ShoutboxEntry::class)
+     * @ORM\JoinColumn(onDelete="CASCADE")
      */
     private $entry;
 

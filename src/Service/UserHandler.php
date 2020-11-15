@@ -262,15 +262,46 @@ class UserHandler
         $user
             ->setEmail("$ deleted <{$user->getId()}>")->setDisplayName(null)
             ->setName("$ deleted <{$user->getId()}>")
+            ->setDeleteAfter(null)
             ->setPassword(null)
             ->setLastActionTimestamp( null )
             ->setRightsElevation(0);
+
         if ($user->getAvatar()) {
             $this->entity_manager->remove($user->getAvatar());
             $user->setAvatar(null);
         }
 
+         $user_coalitions = $this->entity_manager->getRepository(UserGroupAssociation::class)->findBy( [
+                'user' => $user,
+                'associationType' => [
+                    UserGroupAssociation::GroupAssociationTypeCoalitionMember,
+                    UserGroupAssociation::GroupAssociationTypeCoalitionMemberInactive,
+                    UserGroupAssociation::GroupAssociationTypeCoalitionInvitation
+                ] ]
+        );
 
+        foreach ($user_coalitions as $coalition) {
+            $destroy = $coalition->getAssociationLevel() === UserGroupAssociation::GroupAssociationLevelFounder;
+            if ($destroy) {
+                foreach ($this->entity_manager->getRepository(UserGroupAssociation::class)->findBy( [
+                    'association' => $coalition->getAssociation()
+                ]) as $assoc ) $this->entity_manager->remove($assoc);
+                $this->entity_manager->remove( $coalition->getAssociation() );
+            } else {
+                $this->entity_manager->remove( $coalition );
+                /** @var Shoutbox|null $shoutbox */
+                if ($shoutbox = $this->getShoutbox($coalition)) {
+                    $shoutbox->addEntry(
+                        (new ShoutboxEntry())
+                            ->setType( ShoutboxEntry::SBEntryTypeLeave )
+                            ->setTimestamp( new DateTime() )
+                            ->setUser1( $user )
+                    );
+                    $this->entity_manager->persist($shoutbox);
+                }
+            }
+        }
 
         $citizen = $user->getActiveCitizen();
         if ($citizen) {
