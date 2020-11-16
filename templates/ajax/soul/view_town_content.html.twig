@@ -34,7 +34,7 @@
         {% for citizen in town.citizens|filter(c => c.end is not null or c.confirmed == true)|sort((a,b) => b.day <=> a.day) %}
             {% set days = citizen.day %}
             {% set sp = days * ( days + 1 ) / 2 %}
-        <div class="row">
+        <div class="row {% if citizen.user.id == app.user.id %}me{% endif %}">
             <div class="padded cell rw-1 rw-lg-2 rw-md-3 rw-sm-4">{{citizen.day}}</div>
             <div class="padded cell rw-1 rw-lg-2 rw-md-3 rw-sm-4 town-points bold">+{{sp}}</div>
             <div class="padded cell rw-2 rw-md-3 rw-sm-4">
