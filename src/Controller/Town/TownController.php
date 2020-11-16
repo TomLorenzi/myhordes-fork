@@ -208,7 +208,7 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
         $sb = $this->user_handler->getShoutbox($this->getUser());
         $messages = false;
         if ($sb) {
-            $last_entry = $this->entity_manager->getRepository(ShoutboxEntry::class)->findOneBy(['shoutbox' => $sb], ['timestamp' => 'DESC']);
+            $last_entry = $this->entity_manager->getRepository(ShoutboxEntry::class)->findOneBy(['shoutbox' => $sb], ['timestamp' => 'DESC', 'id' => 'DESC']);
             if ($last_entry) {
                 $marker = $this->entity_manager->getRepository(ShoutboxReadMarker::class)->findOneBy(['user' => $this->getUser()]);
                 if (!$marker || $last_entry !== $marker->getEntry()) $messages = true;
