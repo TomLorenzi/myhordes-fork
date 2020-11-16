@@ -7192,5 +7192,14 @@
         <target>Ouvrir (1 PC)</target>
       </segment>
     </unit>
+    <unit id="dXVgFVI" name="ba2998a">
+      <notes>
+        <note category="german">Es schmeckt wirklich komisch... aber es erfüllt seinen Zweck: Dein Hunger ist gestillt. Glaub aber nicht, dass du dadurch zusätzliche APs erhältst...</note>
+      </notes>
+      <segment>
+        <source>Es schmeckt wirklich komisch... aber es erfüllt seinen Zweck: Dein Hunger ist gestillt. Glaub aber nicht, dass du dadurch zusätzliche APs erhältst...</source>
+        <target>Ca a un goût vraiment bizarre, difficile à définir. Mais ça remplit son rôle : remplir votre estomac. Par contre ça ne vous donne pas de bonus d'énergie pour agir...</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
