@@ -14406,7 +14406,7 @@
       </notes>
       <segment>
         <source>Ich bin geheilt</source>
-        <target>Ich bin geheilt</target>
+        <target>Je suis guéri(e)</target>
       </segment>
     </unit>
     <unit id="exaN90z" name="Die letzten Nachrichten meiner Koalition lesen.">
@@ -14415,7 +14415,7 @@
       </notes>
       <segment>
         <source>Die letzten Nachrichten meiner Koalition lesen.</source>
-        <target>Die letzten Nachrichten meiner Koalition lesen.</target>
+        <target>Lisez les derniers messages de ma coalition.</target>
       </segment>
     </unit>
   </file>

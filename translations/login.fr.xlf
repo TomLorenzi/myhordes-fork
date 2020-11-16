@@ -432,7 +432,7 @@
       </notes>
       <segment>
         <source>Fehler bei der Datenübertragung.</source>
-        <target>Fehler bei der Datenübertragung.</target>
+        <target>Erreur de transfert de données.</target>
       </segment>
     </unit>
     <unit id="wPXsZnE" name="6842e2e">
@@ -441,7 +441,7 @@
       </notes>
       <segment>
         <source>MyHordes ist ein Teil des EternalTwin-Netzwerks. Wenn du einen EternalTwin-Account hast, kannst du MyHordes ohne zusätzliche Registrierung spielen!</source>
-        <target>MyHordes ist ein Teil des EternalTwin-Netzwerks. Wenn du einen EternalTwin-Account hast, kannst du MyHordes ohne zusätzliche Registrierung spielen!</target>
+        <target>MyHordes fait partie du réseau Eternal-Twin. Si vous avez un compte Eternal-Twin, vous pouvez jouer à MyHordes sans inscription supplémentaire !</target>
       </segment>
     </unit>
     <unit id="qo4M11k" name="Über EternalTwin einloggen">
@@ -450,7 +450,7 @@
       </notes>
       <segment>
         <source>Über EternalTwin einloggen</source>
-        <target>Über EternalTwin einloggen</target>
+        <target>Connectez-vous via EternalTwin</target>
       </segment>
     </unit>
     <unit id="LiGRhEI" name="9a73574">
@@ -459,7 +459,7 @@
       </notes>
       <segment>
         <source>Wenn du noch einen alten MyHordes-Account hast, kannst du dich vorerst auch damit einloggen.</source>
-        <target>Wenn du noch einen alten MyHordes-Account hast, kannst du dich vorerst auch damit einloggen.</target>
+        <target>Si vous avez encore un ancien compte MyHordes, vous pouvez l'utiliser pour vous connecter pour le moment.</target>
       </segment>
     </unit>
     <unit id="ho.WxzI" name="6471614">
@@ -468,7 +468,7 @@
       </notes>
       <segment>
         <source>Dies wird nicht für immer möglich sein. Wir raten dir, deinen alten MyHordes-Account so bald wie möglich mit EternalTwin zu verknüpfen.</source>
-        <target>Dies wird nicht für immer möglich sein. Wir raten dir, deinen alten MyHordes-Account so bald wie möglich mit EternalTwin zu verknüpfen.</target>
+        <target>Cela ne sera pas possible pour toujours. Nous vous conseillons de lier votre ancien compte MyHordes à EternalTwin dès que possible.</target>
       </segment>
     </unit>
     <unit id="uT6i9yH" name="bb99aa1">
@@ -477,7 +477,7 @@
       </notes>
       <segment>
         <source>Deine Seele bleibt bei der Verknüpfung mit EternalTwin selbstverständlich vollständig erhalten.</source>
-        <target>Deine Seele bleibt bei der Verknüpfung mit EternalTwin selbstverständlich vollständig erhalten.</target>
+        <target>Votre âme sera bien sûr complètement préservée lorsque vous vous connecterez à Eternal-Twin.</target>
       </segment>
     </unit>
     <unit id="RG1kp2m" name="Über MyHordes einloggen">
@@ -486,7 +486,7 @@
       </notes>
       <segment>
         <source>Über MyHordes einloggen</source>
-        <target>Über MyHordes einloggen</target>
+        <target>Connectez-vous via MyHordes</target>
       </segment>
     </unit>
     <unit id="CvfPvDp" name="Verknüpfung mit EternalTwin">
@@ -495,7 +495,7 @@
       </notes>
       <segment>
         <source>Verknüpfung mit EternalTwin</source>
-        <target>Verknüpfung mit EternalTwin</target>
+        <target>Lien avec EternalTwin</target>
       </segment>
     </unit>
     <unit id="sndALWW" name="Gleich kanns losgehen!">
@@ -504,7 +504,7 @@
       </notes>
       <segment>
         <source>Gleich kanns losgehen!</source>
-        <target>Gleich kanns losgehen!</target>
+        <target>Nous pouvons commencer tout de suite !</target>
       </segment>
     </unit>
     <unit id="NYi.sD7" name="1ba0830">
@@ -513,7 +513,7 @@
       </notes>
       <segment>
         <source>Dank deines EternalTwin-Account kannst du ohne vorherige Registrierung MyHordes spielen!</source>
-        <target>Dank deines EternalTwin-Account kannst du ohne vorherige Registrierung MyHordes spielen!</target>
+        <target>Grâce à votre compte EternalTwin, vous pouvez jouer à MyHordes sans inscription préalable !</target>
       </segment>
     </unit>
     <unit id="zK1Sfzm" name="696390f">
@@ -526,9 +526,7 @@
         <source>&lt;strong&gt;Achtung:&lt;/strong&gt; Du hast bereits einen MyHordes-Account? Dann solltest du jetzt
                                     &lt;i&gt;abbrechen&lt;/i&gt; und dich zuerst mit deinem alten MyHordes-Account einloggen. Du kannst deinen
                                     EternalTwin-Account in den Einstellungen mit deinem MyHordes-Account verknüpfen.</source>
-        <target><![CDATA[<strong>Achtung:</strong> Du hast bereits einen MyHordes-Account? Dann solltest du jetzt
-                                    <i>abbrechen</i> und dich zuerst mit deinem alten MyHordes-Account einloggen. Du kannst deinen
-                                    EternalTwin-Account in den Einstellungen mit deinem MyHordes-Account verknüpfen.]]></target>
+        <target><![CDATA[<strong>Avertissement :</strong> avez-vous déjà un compte MyHordes? Alors tu devrais maintenant <i>annuler</i> et vous connecter d'abord avec votre ancien compte MyHordes. Vous pouvez lier votre compte EternalTwin à votre compte MyHordes dans les paramètres.]]></target>
       </segment>
     </unit>
     <unit id="zHOj.3O" name="Los geht's!">
@@ -537,7 +535,7 @@
       </notes>
       <segment>
         <source>Los geht's!</source>
-        <target>Los geht's!</target>
+        <target>Et c'est parti !</target>
       </segment>
     </unit>
     <unit id="e0idyWf" name="Hallo %username%!">
@@ -546,7 +544,7 @@
       </notes>
       <segment>
         <source>Hallo %username%!</source>
-        <target>Hallo %username%!</target>
+        <target>Bonjour %username% !</target>
       </segment>
     </unit>
     <unit id="2WaNcqR" name="Dein Account wurde erfolgreich verknüpft!">
@@ -555,7 +553,7 @@
       </notes>
       <segment>
         <source>Dein Account wurde erfolgreich verknüpft!</source>
-        <target>Dein Account wurde erfolgreich verknüpft!</target>
+        <target>Votre compte a été associé avec succès !</target>
       </segment>
     </unit>
     <unit id="Oi3QrV3" name="Du wirst eingeloggt. Bitte warte eine Sekunde ...">
@@ -564,7 +562,7 @@
       </notes>
       <segment>
         <source>Du wirst eingeloggt. Bitte warte eine Sekunde ...</source>
-        <target>Du wirst eingeloggt. Bitte warte eine Sekunde ...</target>
+        <target>Vous serez connecté. Veuillez patienter une seconde...</target>
       </segment>
     </unit>
     <unit id="pEAthLZ" name="d621208">
@@ -573,7 +571,7 @@
       </notes>
       <segment>
         <source>Vielen Dank, dass du deinen MyHordes-Account %namecheck_mh% mit deinem EternalTwin-Account %namecheck_et% verknüpfst!</source>
-        <target>Vielen Dank, dass du deinen MyHordes-Account %namecheck_mh% mit deinem EternalTwin-Account %namecheck_et% verknüpfst!</target>
+        <target>Merci d'avoir associé votre compte MyHordes %namecheck_mh% à votre compte Eternal-Twin %namecheck_et% !</target>
       </segment>
     </unit>
     <unit id="7JD3pLt" name="7505c04">
@@ -582,7 +580,7 @@
       </notes>
       <segment>
         <source>Nach der Verknüpfung kannst du dich nur noch über EternalTwin in MyHordes anmelden. Deine alten Zugangsdaten werden ungültig.</source>
-        <target>Nach der Verknüpfung kannst du dich nur noch über EternalTwin in MyHordes anmelden. Deine alten Zugangsdaten werden ungültig.</target>
+        <target>Après le lien, vous ne pouvez vous connecter à MyHordes que via EternalTwin. Vos anciennes données d'accès seront invalides.</target>
       </segment>
     </unit>
     <unit id="r.jGoXw" name="d65799d">
@@ -591,7 +589,7 @@
       </notes>
       <segment>
         <source>Wenn du fortfahren möchtest, gib bitte ein letztes Mal dein MyHordes-Passwort ein und klicke auf "Verknüpfen".</source>
-        <target>Wenn du fortfahren möchtest, gib bitte ein letztes Mal dein MyHordes-Passwort ein und klicke auf "Verknüpfen".</target>
+        <target>Si vous souhaitez continuer, veuillez saisir une dernière fois votre mot de passe MyHordes et cliquez sur «Associer».</target>
       </segment>
     </unit>
     <unit id="jKP5PMR" name="Verknüpfen">
@@ -600,7 +598,7 @@
       </notes>
       <segment>
         <source>Verknüpfen</source>
-        <target>Verknüpfen</target>
+        <target>Associer</target>
       </segment>
     </unit>
     <unit id="7Nk4Nxa" name="Willkommen zurück! Dein Account ist nicht länger zur Löschung vorgemerkt.">
@@ -609,7 +607,7 @@
       </notes>
       <segment>
         <source>Willkommen zurück! Dein Account ist nicht länger zur Löschung vorgemerkt.</source>
-        <target>Willkommen zurück! Dein Account ist nicht länger zur Löschung vorgemerkt.</target>
+        <target>Nous saluons votre retour ! Votre compte n'est plus marqué pour suppression.</target>
       </segment>
     </unit>
     <unit id="n69_UZl" name="0a8ad23">
@@ -618,7 +616,7 @@
       </notes>
       <segment>
         <source>Es haben sich zu viele Nutzer aus deinem Netzwerk heraus bei MyHordes registriert. Weitere Registrierungen aus deinem Netzwerk sind für eine Weile nicht mehr möglich.</source>
-        <target>Es haben sich zu viele Nutzer aus deinem Netzwerk heraus bei MyHordes registriert. Weitere Registrierungen aus deinem Netzwerk sind für eine Weile nicht mehr möglich.</target>
+        <target>Trop d'utilisateurs de votre réseau se sont enregistrés sur MyHordes. D'autres inscriptions à partir de votre réseau ne seront pas possibles pendant un certain temps.</target>
       </segment>
     </unit>
   </file>

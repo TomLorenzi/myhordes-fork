@@ -2156,7 +2156,7 @@
       </notes>
       <segment>
         <source>Du wirst nun ausgeloggt. Dein Account wird in 24-48 Stunden gelöscht. Bis dahin kannst du dich jederzeit erneut einloggen und dadurch die Löschung deines Accounts abbrechen.</source>
-        <target>Du wirst nun ausgeloggt. Dein Account wird in 24-48 Stunden gelöscht. Bis dahin kannst du dich jederzeit erneut einloggen und dadurch die Löschung deines Accounts abbrechen.</target>
+        <target>Vous allez maintenant être déconnecté. Votre compte sera supprimé dans 24 à 48 heures. D'ici là, vous pouvez vous reconnecter à tout moment et annuler ainsi la suppression de votre compte.</target>
       </segment>
     </unit>
     <unit id="WbndBY4" name="Möchtest du diesem Spieler folgen?">
@@ -2165,7 +2165,7 @@
       </notes>
       <segment>
         <source>Möchtest du diesem Spieler folgen?</source>
-        <target>Möchtest du diesem Spieler folgen?</target>
+        <target>Rejoindre ce coéquipier ?</target>
       </segment>
     </unit>
   </file>

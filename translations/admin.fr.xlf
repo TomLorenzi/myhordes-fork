@@ -1429,7 +1429,7 @@
       </notes>
       <segment>
         <source>E-Mail eingeben.</source>
-        <target>E-Mail eingeben.</target>
+        <target>Entrez l'email.</target>
       </segment>
     </unit>
     <unit id="lJqqLMl" name="E-Mail ändern">
@@ -1438,7 +1438,7 @@
       </notes>
       <segment>
         <source>E-Mail ändern</source>
-        <target>E-Mail ändern</target>
+        <target>Changer l'e-mail</target>
       </segment>
     </unit>
     <unit id="5sAjGFp" name="Neues Passwort eingeben.">
@@ -1447,7 +1447,7 @@
       </notes>
       <segment>
         <source>Neues Passwort eingeben.</source>
-        <target>Neues Passwort eingeben.</target>
+        <target>Entrer un nouveau mot de passe.</target>
       </segment>
     </unit>
     <unit id="n2HwFFe" name="Neues Passwort setzen">
@@ -1456,7 +1456,7 @@
       </notes>
       <segment>
         <source>Neues Passwort setzen</source>
-        <target>Neues Passwort setzen</target>
+        <target>Définir un nouveau mot de passe</target>
       </segment>
     </unit>
     <unit id="V1ukt7Z" name="EternalTwin-Integration">
@@ -1465,7 +1465,7 @@
       </notes>
       <segment>
         <source>EternalTwin-Integration</source>
-        <target>EternalTwin-Integration</target>
+        <target>Intégration Eternal-Twin</target>
       </segment>
     </unit>
     <unit id="OkyzTP2" name="In lokalen Account umwandeln">
@@ -1474,7 +1474,7 @@
       </notes>
       <segment>
         <source>In lokalen Account umwandeln</source>
-        <target>In lokalen Account umwandeln</target>
+        <target>Convertir en compte local</target>
       </segment>
     </unit>
     <unit id="B9D7Dk5" name="Kartei">
@@ -1483,7 +1483,7 @@
       </notes>
       <segment>
         <source>Kartei</source>
-        <target>Kartei</target>
+        <target>Indice de la carte</target>
       </segment>
     </unit>
     <unit id="OrLqzbq" name="Anzeigename">
@@ -1492,7 +1492,7 @@
       </notes>
       <segment>
         <source>Anzeigename</source>
-        <target>Anzeigename</target>
+        <target>Afficher un nom</target>
       </segment>
     </unit>
     <unit id="14HKU3b" name="Lokal: %account%">
@@ -1501,7 +1501,7 @@
       </notes>
       <segment>
         <source>Lokal: %account%</source>
-        <target>Lokal: %account%</target>
+        <target>Local: %account%</target>
       </segment>
     </unit>
     <unit id="OaKjJho" name="Von EternalTwin verwaltet">
@@ -1510,7 +1510,7 @@
       </notes>
       <segment>
         <source>Von EternalTwin verwaltet</source>
-        <target>Von EternalTwin verwaltet</target>
+        <target>Géré par Eternal-Twin</target>
       </segment>
     </unit>
     <unit id="uCT9EnO" name="Nur für Administratoren sichtbar">
@@ -1519,7 +1519,7 @@
       </notes>
       <segment>
         <source>Nur für Administratoren sichtbar</source>
-        <target>Nur für Administratoren sichtbar</target>
+        <target>Uniquement visible par les administrateurs</target>
       </segment>
     </unit>
     <unit id="pitbSje" name="Verknüpfte Konten">
@@ -1528,7 +1528,7 @@
       </notes>
       <segment>
         <source>Verknüpfte Konten</source>
-        <target>Verknüpfte Konten</target>
+        <target>Comptes liés</target>
       </segment>
     </unit>
     <unit id="L0eG_iZ" name="EternalTwin-Konto">
@@ -1537,7 +1537,7 @@
       </notes>
       <segment>
         <source>EternalTwin-Konto</source>
-        <target>EternalTwin-Konto</target>
+        <target>Compte Eternal-Twin</target>
       </segment>
     </unit>
     <unit id="nz1fjZT" name="Sonstiges">
@@ -1546,7 +1546,7 @@
       </notes>
       <segment>
         <source>Sonstiges</source>
-        <target>Sonstiges</target>
+        <target>Divers</target>
       </segment>
     </unit>
     <unit id="TklQ7Ze" name="AntiSpam">
@@ -1564,7 +1564,7 @@
       </notes>
       <segment>
         <source>Account zur Löschung vorgemerkt!</source>
-        <target>Account zur Löschung vorgemerkt!</target>
+        <target>Compte marqué pour suppression !</target>
       </segment>
     </unit>
     <unit id="_Ywx.pH" name="Anzahl der gelisteten Domains: %number%">
@@ -1573,7 +1573,7 @@
       </notes>
       <segment>
         <source>Anzahl der gelisteten Domains: %number%</source>
-        <target>Anzahl der gelisteten Domains: %number%</target>
+        <target>Nombre de domaines répertoriés: %number%</target>
       </segment>
     </unit>
     <unit id="u.IOicZ" name="Domain-Suche">
@@ -1582,7 +1582,7 @@
       </notes>
       <segment>
         <source>Domain-Suche</source>
-        <target>Domain-Suche</target>
+        <target>Recherche de domaine</target>
       </segment>
     </unit>
     <unit id="zptHdme" name="Gewählte entfernen">
@@ -1591,7 +1591,7 @@
       </notes>
       <segment>
         <source>Gewählte entfernen</source>
-        <target>Gewählte entfernen</target>
+        <target>Enlever la sélection</target>
       </segment>
     </unit>
     <unit id="l.ziWyi" name="Domains hinzufügen">
@@ -1600,7 +1600,7 @@
       </notes>
       <segment>
         <source>Domains hinzufügen</source>
-        <target>Domains hinzufügen</target>
+        <target>Ajouter des domaines</target>
       </segment>
     </unit>
     <unit id="y7lc8Ct" name="Hinzufügen">
@@ -1609,7 +1609,7 @@
       </notes>
       <segment>
         <source>Hinzufügen</source>
-        <target>Hinzufügen</target>
+        <target>Ajouter</target>
       </segment>
     </unit>
   </file>
