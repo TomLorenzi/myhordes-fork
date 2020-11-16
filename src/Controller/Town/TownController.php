@@ -1012,8 +1012,6 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
             $ap = max(0,min( $ap, $missing_ap ) );
         }
 
-        file_put_contents("/tmp/dump.txt", "AP used : $ap\n");
-
         if (intval($ap) <= 0)
             return AjaxResponse::error(TownController::ErrorAlreadyFinished);
 
