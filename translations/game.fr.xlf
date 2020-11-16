@@ -14418,12 +14418,12 @@
         <target>Lire les derniers messages de ma coalition.</target>
       </segment>
     </unit>
-    <unit id="E6VnQSo" name="Diese Baustelle ist bereits abgeschlossen.">
+    <unit id="8DkmL.j" name="Dieses Bauprojekt wurde bereits abgeschlossen.">
       <notes>
-        <note category="german">Diese Baustelle ist bereits abgeschlossen.</note>
+        <note category="german">Dieses Bauprojekt wurde bereits abgeschlossen.</note>
       </notes>
       <segment>
-        <source>Diese Baustelle ist bereits abgeschlossen.</source>
+        <source>Dieses Bauprojekt wurde bereits abgeschlossen.</source>
         <target>Ce chantier est déjà terminé.</target>
       </segment>
     </unit>
