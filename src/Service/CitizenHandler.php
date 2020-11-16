@@ -514,7 +514,7 @@ class CitizenHandler
         $camping_values['ruin'] = $zone->getPrototype() ? $zone->getPrototype()->getCampingLevel() : 0;
 
         // Zombies in zone. Factor -1.4, for CamperPro it is -0.6. (completely false! The penalty is reduced only when you are Scout with the hood enabled)
-        $factor = $citizen->getProfession()->getName() == 'hunter' ? -0.6 : -1.4;
+        $factor = $has_pro_camper ? -0.6 : -1.4;
         $camping_values['zombies'] = $factor * $zone->getZombies();
 
         // Zone improvement level.
