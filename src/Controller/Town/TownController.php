@@ -58,6 +58,7 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
     const ErrorNotEnoughRes      = ErrorHelper::BaseTownErrors + 6;
     const ErrorAlreadyUpgraded   = ErrorHelper::BaseTownErrors + 7;
     const ErrorComplaintLimitHit = ErrorHelper::BaseTownErrors + 8;
+    const ErrorAlreadyFinished   = ErrorHelper::BaseTownErrors + 9;
 
     protected function get_needed_votes(): array {
         $town = $this->getActiveCitizen()->getTown();
@@ -1010,6 +1011,11 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
             $missing_ap = ceil( (round($neededApForFullHp) * ( $slave_bonus ? (2.0/3.0) : 1 ))) ;
             $ap = max(0,min( $ap, $missing_ap ) );
         }
+
+        file_put_contents("/tmp/dump.txt", "AP used : $ap\n");
+
+        if (intval($ap) <= 0)
+            return AjaxResponse::error(TownController::ErrorAlreadyFinished);
 
         // If the citizen has not enough AP, fail
         if ($ap > 0 && ($citizen->getAp() + $citizen->getBp()) < $ap || $this->citizen_handler->isTired( $citizen ))
