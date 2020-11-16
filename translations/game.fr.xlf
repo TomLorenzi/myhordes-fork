@@ -14406,7 +14406,7 @@
       </notes>
       <segment>
         <source>Ich bin geheilt</source>
-        <target>Ich bin geheilt</target>
+        <target>Je suis guéri(e)</target>
       </segment>
     </unit>
     <unit id="exaN90z" name="Die letzten Nachrichten meiner Koalition lesen.">
@@ -14415,7 +14415,16 @@
       </notes>
       <segment>
         <source>Die letzten Nachrichten meiner Koalition lesen.</source>
-        <target>Die letzten Nachrichten meiner Koalition lesen.</target>
+        <target>Lire les derniers messages de ma coalition.</target>
+      </segment>
+    </unit>
+    <unit id="E6VnQSo" name="Diese Baustelle ist bereits abgeschlossen.">
+      <notes>
+        <note category="german">Diese Baustelle ist bereits abgeschlossen.</note>
+      </notes>
+      <segment>
+        <source>Diese Baustelle ist bereits abgeschlossen.</source>
+        <target>Ce chantier est déjà terminé.</target>
       </segment>
     </unit>
   </file>
