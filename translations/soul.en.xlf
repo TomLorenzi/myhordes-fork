@@ -505,7 +505,7 @@
       </notes>
       <segment>
         <source>Dein eingegebenes Passwort ist nicht korrekt. Du benötigst dein aktuelles Passwort, um deinen Account zu bearbeiten.</source>
-        <target>Your password is incorrrect. You must enter your current password to modify your account.</target>
+        <target>Your password is incorrect. You must enter your current password to modify your account.</target>
       </segment>
     </unit>
     <unit id="isnXPfR" name="Standardrolle im Forum">
@@ -1633,7 +1633,7 @@
       </notes>
       <segment>
         <source>Irgend etwas erscheint an dieser Karteikarte merkwürdig...</source>
-        <target>Something seems strange on badge ...</target>
+        <target>Something seems strange about this badge ...</target>
       </segment>
     </unit>
     <unit id="KmttAsi" name="39e1986">
@@ -1696,7 +1696,7 @@
       </notes>
       <segment>
         <source>Dein Account wurde gesperrt.</source>
-        <target>Your account has been banned.</target>
+        <target>Your account was blocked.</target>
       </segment>
     </unit>
     <unit id="smLPd3k" name="Dein Account wurde von einem Administrator vom Spiel ausgeschlossen.">
@@ -1705,7 +1705,7 @@
       </notes>
       <segment>
         <source>Dein Account wurde von einem Administrator vom Spiel ausgeschlossen.</source>
-        <target>Your account has been banned from the game by an Administrator.</target>
+        <target>Your account was banned from the game by an Administrator.</target>
       </segment>
     </unit>
     <unit id="w55zJhZ" name="Diese Sperre ist permanent.">
@@ -1714,7 +1714,7 @@
       </notes>
       <segment>
         <source>Diese Sperre ist permanent.</source>
-        <target>This lock is permanent.</target>
+        <target>This blocking is permanent.</target>
       </segment>
     </unit>
     <unit id="zh9.khn" name="8177ade">
@@ -1723,7 +1723,7 @@
       </notes>
       <segment>
         <source>Wenn du dich aktuell in einer Stadt befindest, kannst du dort keine Aktionen mehr durchführen und nicht länger auf das Stadtforum zugreifen.</source>
-        <target>If you are currently in a town, you can no longer perform any actions there and no longer access the town forum.</target>
+        <target>If you are in a town right now, you can no longer perform actions there, nor can you access the town's forum.</target>
       </segment>
     </unit>
     <unit id="Abv4VOi" name="Du kannst auch keiner neuen Stadt mehr beitreten.">
@@ -1732,7 +1732,7 @@
       </notes>
       <segment>
         <source>Du kannst auch keiner neuen Stadt mehr beitreten.</source>
-        <target>Also, you can not any longer join a new town.</target>
+        <target>You can no longer join a new town.</target>
       </segment>
     </unit>
     <unit id="vTDbvR_" name="Folgende Begründung wurde für deine Sperre hinterlegt:">
@@ -1741,7 +1741,7 @@
       </notes>
       <segment>
         <source>Folgende Begründung wurde für deine Sperre hinterlegt:</source>
-        <target>The following reason was deposited for your ban:</target>
+        <target>The following reason was given for your ban:</target>
       </segment>
     </unit>
     <unit id="4pm3p5L" name="Es wurde keine Begründung für diese Sperre hinterlegt.">
