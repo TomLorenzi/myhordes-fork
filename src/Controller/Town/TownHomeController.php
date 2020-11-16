@@ -423,4 +423,64 @@ class TownHomeController extends TownController
         $this->addFlash('notice', $message);
         return AjaxResponse::success();
     }
+
+    /**
+     * @Route("api/town/house/pm/all_read", name="town_home_mark_all_read")
+     * @param EntityManagerInterfacce $em
+     * @return Response
+     */
+    public function mark_all_pm_as_read(EntityManagerInterface $em): Response
+    {
+        $user = $this->getUser();
+
+        /** @var Citizen $citizen */
+        $citizen = $user->getActiveCitizen();
+
+        /** @var PrivateMessageThread $thread */
+        $threads = $em->getRepository(PrivateMessageThread::class)->findBy( ['recipient' => $citizen] );
+        foreach ($threads as $thread){
+            $posts = $thread->getMessages();
+
+            foreach ($posts as $message) {
+                if($message->getRecipient() === $citizen) {
+                    $message->setNew(false);
+                    $em->persist($message);
+                }
+            }
+        }
+
+        $em->flush();
+        return AjaxResponse::success( true, ['url' => $this->generateUrl('town_house', ['tab' => 'messages', 'subtab' => 'received'])] );
+    }
+
+    /**
+     * @Route("api/town/house/pm/archive_all", name="town_home_archive_all_pm")
+     * @param EntityManagerInterfacce $em
+     * @return Response
+     */
+    public function archive_all_pm(EntityManagerInterface $em): Response
+    {
+        $user = $this->getUser();
+
+        /** @var Citizen $citizen */
+        $citizen = $user->getActiveCitizen();
+
+        /** @var PrivateMessageThread $thread */
+        $threads = $em->getRepository(PrivateMessageThread::class)->findBy( ['recipient' => $citizen] );
+        foreach ($threads as $thread){
+            $thread->setArchived(true);
+            $posts = $thread->getMessages();
+
+            foreach ($posts as $message) {
+                if($message->getRecipient() === $citizen) {
+                    $message->setNew(false);
+                    $em->persist($message);
+                }
+            }
+            $em->persist($thread);
+        }
+
+        $em->flush();
+        return AjaxResponse::success( true, ['url' => $this->generateUrl('town_house', ['tab' => 'messages', 'subtab' => 'received'])] );
+    }
 }
