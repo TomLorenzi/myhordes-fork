@@ -514,7 +514,7 @@ class NightlyHandler
             $this->entity_manager->persist($gazette);
             return;
         }
-
+		
         $survival_count = 0;
         /** @var Citizen[] $targets */
         $targets = [];
@@ -525,57 +525,80 @@ class NightlyHandler
                     $targets[] = $citizen;
             }
         }
+					
+		
         shuffle($targets);
-        $attack_day = $town->getDay() - 1;
+		
+        $attack_day = $town->getDay();
+		if ($attack_day <= 3) $max_active = round($zombies*0.5*mt_rand(90,140)/100); 
+		elseif ($attack_day <= 14) $max_active = $attack_day * 15;
+		elseif ($attack_day <= 18) $max_active = ($attack_day + 4)*15;
+		elseif ($attack_day <= 23) $max_active = ($attack_day + 5)*15;
+		else                       $max_active = ($attack_day + 6)*15;
+		
+		
+		//$in_town = $town->getChaos() ? max(10,count($targets)) : count($targets);
+		$in_town = min(8, ceil(count($targets) * 0.85));
+		
+		$attacking = min($max_active, $overflow);
 
-        if ($attack_day <= 5) {
-            $attacking = $overflow;
-            $targets = $this->random->pick($targets, mt_rand( ceil(count($targets) * 0.15), ceil(count($targets) * 0.35 )), true);
-        } else {
-            if     ($attack_day <= 14) $x = $attack_day + 1;
-            elseif ($attack_day <= 18) $x = $attack_day + 4;
-            elseif ($attack_day <= 23) $x = $attack_day + 5;
-            else                       $x = $attack_day + 6;
-
-            //$in_town = $town->getChaos() ? max(10,count($targets)) : count($targets);
-            $in_town = max(10,count($targets));
-            $attacking = min(($in_town * $x), $overflow);
-
-            $targets = $this->random->pick($targets, ceil(count($targets) * 0.85), true);
-        }
+		$targets = $this->random->pick($targets, $in_town, true);
 
         $this->log->debug("<info>{$attacking}</info> Zombies are attacking <info>" . count($targets) . "</info> citizens!");
         $this->entity_manager->persist( $this->logTemplates->nightlyAttackLazy($town, $attacking) );
+		
 
-        $max = empty($targets) ? 0 : ceil(4 * $attacking/count($targets));
-
-        $left = count($targets);
-        foreach ($targets as $target) {
-            $left--;
-            $home = $target->getHome();
-            if ($left <= 0) $force = $attacking;
-            else $force = $attacking > 0 ? mt_rand(1, max(1,min($max,$attacking-$left)) ) : 0;
+		$repartition = array_fill(0, count($targets), 0);
+		for ($i = 0; $i < count($repartition); $i++) {
+			$repartition[$i] =  mt_rand() / mt_getrandmax(); //random value between 0 and 1.0 with many decimals
+		}
+		
+		if(count($repartition) != 0) {
+			//one citizen gets especially unlucky
+			$repartition[mt_rand(0, count($repartition)-1)] += 0.3;
+		}
+		
+		$sum = array_sum($repartition);
+		
+		for ($i = 0; $i < count($repartition); $i++) {
+			$repartition[$i] /= $sum;
+			$repartition[$i] = round($repartition[$i]*$attacking);
+		}
+		
+		
+		//remove citizen receiving 0 zombie
+		foreach (array_keys($repartition, 0) as $key) {
+			unset($repartition[$key]);
+		}
+		
+		rsort($repartition);
+				
+        for ($i = 0; $i < count($repartition); $i++) {
+            $home = $targets[$i]->getHome();
+			
+			$force = $repartition[$i];
+			
             $def = $this->town_handler->calculate_home_def($home);
-            $this->log->debug("Citizen <info>{$target->getUser()->getUsername()}</info> is attacked by <info>{$force}</info> zombies and protected by <info>{$def}</info> home defense!");
+            $this->log->debug("Citizen <info>{$targets[$i]->getUser()->getUsername()}</info> is attacked by <info>{$force}</info> zombies and protected by <info>{$def}</info> home defense!");
+		
             if ($force > $def){
-                $this->kill_wrap($target, $cod, false, $force);
-                // he dies from the attack, he validate the new day
-                $target->setSurvivedDays($town->getDay() - 1);
+                $this->kill_wrap($targets[$i], $cod, false, $force);
+				
+                // citizen dies from the attack, citizen validate the new day
+                $targets[$i]->setSurvivedDays($town->getDay() - 1);
                 $gazette->setDeaths($gazette->getDeaths() + 1);
             }
             else {
-                $this->entity_manager->persist($this->logTemplates->citizenZombieAttackRepelled( $target, $def, $force));
+                $this->entity_manager->persist($this->logTemplates->citizenZombieAttackRepelled( $targets[$i], $def, $force));
                 if (!$has_kino && $this->random->chance( 0.75 * ($force/max(1,$def)) )) {
-                    $this->citizen_handler->inflictStatus( $target, $status_terror );
-                    $this->log->debug("Citizen <info>{$target->getUser()->getUsername()}</info> now suffers from <info>{$status_terror->getLabel()}</info>");
+                    $this->citizen_handler->inflictStatus( $targets[$i], $status_terror );
+                    $this->log->debug("Citizen <info>{$targets[$i]->getUser()->getUsername()}</info> now suffers from <info>{$status_terror->getLabel()}</info>");
 
-                    $this->crow->postAsPM( $target, '', '', PrivateMessage::TEMPLATE_CROW_TERROR, $force );
+                    $this->crow->postAsPM($targets[$i], '', '', PrivateMessage::TEMPLATE_CROW_TERROR, $force);
 
                     $gazette->setTerror($gazette->getTerror() + 1);
                 }
             }
-
-            $attacking -= $force;
         }
         $this->entity_manager->persist($gazette);
     }
