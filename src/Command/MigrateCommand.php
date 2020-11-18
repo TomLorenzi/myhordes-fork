@@ -6,6 +6,7 @@ namespace App\Command;
 
 use App\Entity\AffectStatus;
 use App\Entity\Building;
+use App\Entity\CauseOfDeath;
 use App\Entity\Citizen;
 use App\Entity\CitizenProfession;
 use App\Entity\CitizenRankingProxy;
@@ -116,6 +117,7 @@ class MigrateCommand extends Command
             ->addOption('place-explorables', null, InputOption::VALUE_NONE, 'Adds explorable ruins to all towns')
 
             ->addOption('repair-permissions', null, InputOption::VALUE_NONE, 'Makes sure forum permissions and user groups are set up properly')
+            ->addOption('repair-causesofdeath', null, InputOption::VALUE_NONE, 'Change the cause of deaths number to be like Hordes\' one')
         ;
     }
 
@@ -635,6 +637,46 @@ class MigrateCommand extends Command
 
             $this->entity_manager->flush();
 
+        }
+
+        if ($input->getOption('repair-causesofdeath')) {
+            $mappingRefs = array (
+                1 => 10,
+                2 => 6,
+                3 => 5,
+                4 => 1,
+                5 => 14,
+                6 => 7,
+                7 => 8,
+                8 => 3,
+                9 => 11,
+                10 => 12,
+                11 => 13,
+                12 => 4,
+                13 => 15,
+                14 => 2,
+                15 => 9,
+                16 => 19,
+                17 => 18,
+                18 => 17,
+                19 => 16,
+            );
+            $deadCitizens = $this->entity_manager->getRepository(Citizen::class)->findBy(['alive' => 0]);
+            foreach($deadCitizens as $deadCitizen){
+                /** @var Citizen $deadCitizen */
+                $deadCitizen->setCauseOfDeath($this->entity_manager->getRepository(CauseOfDeath::class)->findOneBy(['ref' => $mappingRefs[$deadCitizen->getCauseOfDeath()->getRef()]]));
+                $this->entity_manager->persist($deadCitizen);
+            }
+
+            $deadCitizens = $this->entity_manager->getRepository(CitizenRankingProxy::class)->findAll();
+            foreach($deadCitizens as $deadCitizen){
+                /** @var CitizenRankingProxy $deadCitizen */
+                if($deadCitizen->getCod() === null) continue;
+                $deadCitizen->setCod($this->entity_manager->getRepository(CauseOfDeath::class)->findOneBy(['ref' => $mappingRefs[$deadCitizen->getCod()->getRef()]]));
+                $this->entity_manager->persist($deadCitizen);
+            }
+
+            $this->entity_manager->flush();
         }
 
         return 1;
