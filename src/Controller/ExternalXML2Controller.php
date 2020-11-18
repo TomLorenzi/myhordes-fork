@@ -28,7 +28,6 @@ use DateTime;
 use DateTimeZone;
 use Doctrine\Common\Collections\Criteria;
 use Exception;
-use PhpParser\Node\Stmt\Continue_;
 use SimpleXMLElement;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -37,7 +36,7 @@ use Symfony\Contracts\Translation\TranslatorInterface;
 use Symfony\Component\HttpFoundation\Request;
 
 class ExternalXML2Controller extends ExternalController {
-    
+
     /**
      * Check if the appkey and userkey has been given
      *
@@ -85,7 +84,7 @@ class ExternalXML2Controller extends ExternalController {
     }
 
     /**
-     * @Route("/api/x/v2/xml", name="api_x2_xml", defaults={"_format"="xml"}, methods={"POST"})
+     * @Route("/api/x/v2/xml", name="api_x2_xml", defaults={"_format"="xml"}, methods={"GET","POST"})
      * @return Response
      */
     public function api_xml(): Response {
@@ -145,22 +144,7 @@ class ExternalXML2Controller extends ExternalController {
         $trans->setLocale($language);
 
         // Base data.
-        $data = [
-            'hordes' => [
-                'headers' => [
-                    'attributes' => [
-                        'link' => Request::createFromGlobals()->getBaseUrl() . Request::createFromGlobals()->getPathInfo(),
-                        'iconurl' => '',
-                        'avatarurl' => '/cdn/avatar/', // Find a way to set this dynamic (see WebController::avatar for reference)
-                        'secure' => '1',
-                        'author' => 'MyHordes',
-                        'language' => $language,
-                        'version' => '0.1',
-                        'generator' => 'symfony',
-                    ],
-                ]
-            ]
-        ];
+        $data = $this->getHeaders($language);
 
         /** @var Citizen $citizen */
         $citizen = $user->getActiveCitizen();
@@ -352,22 +336,7 @@ class ExternalXML2Controller extends ExternalController {
         }
 
         // Base data.
-        $data = [
-            'hordes' => [
-                'headers' => [
-                    'attributes' => [
-                        'link' => Request::createFromGlobals()->getBaseUrl() . Request::createFromGlobals()->getPathInfo(),
-                        'iconurl' => '', // TODO: Give relative path
-                        'avatarurl' => '/cdn/avatar/', // TODO: Find a way to set this dynamic (see WebController::avatar for reference)
-                        'secure' => '1',
-                        'author' => 'MyHordes',
-                        'language' => $language,
-                        'version' => '0.1',
-                        'generator' => 'symfony',
-                    ],
-                ]
-            ]
-        ];
+        $data = $this->getHeaders($language);
 
         /** @var Citizen $citizen */
         $citizen = $user->getAliveCitizen();
@@ -411,7 +380,6 @@ class ExternalXML2Controller extends ExternalController {
                     'items' => []
                 ]
             ];
-
             /** @var Item $item */
             foreach($zone->getFloor()->getItems() as $item) {
                 $data['hordes']['headers']['owner']['myZone']['list']['items'][] = [
@@ -420,7 +388,7 @@ class ExternalXML2Controller extends ExternalController {
                         'count' => 1,
                         'id' => $item->getPrototype()->getId(),
                         'cat' => $item->getPrototype()->getCategory()->getName(),
-                        'img' => $item->getPrototype()->getIcon(), // TODO: Fix img name to reflect real generated name
+                        'img' => $this->asset->getUrl( "build/images/item/item_{$item->getPrototype()->getIcon()}.gif"),
                         'broken' => intval($item->getBroken())
                     ]
                 ];
@@ -546,7 +514,7 @@ class ExternalXML2Controller extends ExternalController {
                     'name' => $trans->trans($building->getPrototype()->getLabel(), [], 'buildings'),
                     'temporary' => intval($building->getPrototype()->getTemp()),
                     'id' => $building->getPrototype()->getId(),
-                    'img' => $building->getPrototype()->getIcon() // TODO: Fix img name to reflect real generated name
+                    'img' => $this->asset->getUrl("build/images/building/{$building->getPrototype()->getIcon()}.gif")  // TODO: Fix img name to reflect real generated name
                 ], 
                 'value' => $trans->trans($building->getPrototype()->getDescription(), [], 'buildings')
             ];
@@ -597,7 +565,7 @@ class ExternalXML2Controller extends ExternalController {
                     'count' => $bankItem->getCount(),
                     'id' => $bankItem->getPrototype()->getId(),
                     'cat' => $bankItem->getPrototype()->getCategory()->getName(),
-                    'img' => $bankItem->getPrototype()->getIcon(), // TODO: Fix img name to reflect real generated name
+                    'img' => $this->asset->getUrl( "build/images/item/item_{$item->getPrototype()->getIcon()}.gif"),
                     'broken' => intval($bankItem->getBroken())
                 ]
             ];
@@ -792,6 +760,26 @@ class ExternalXML2Controller extends ExternalController {
         }
 
         return $text;
+    }
+
+    protected function getHeaders($language) {
+        file_put_contents("/tmp/dump.txt", print_r(Request::createFromGlobals(), true));
+        return [
+            'hordes' => [
+                'headers' => [
+                    'attributes' => [
+                        'link' => "//" . Request::createFromGlobals()->headers->get('host') . Request::createFromGlobals()->getPathInfo(),
+                        'iconurl' => "//" . Request::createFromGlobals()->headers->get('host') . "/", // TODO: Give base path
+                        'avatarurl' => "//" . Request::createFromGlobals()->headers->get('host') . '/cdn/avatar/', // TODO: Find a way to set this dynamic (see WebController::avatar for reference)
+                        'secure' => '1',
+                        'author' => 'MyHordes',
+                        'language' => $language,
+                        'version' => '0.1',
+                        'generator' => 'symfony',
+                    ],
+                ]
+            ]
+        ];
     }
 
 }
