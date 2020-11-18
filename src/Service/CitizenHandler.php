@@ -291,6 +291,7 @@ class CitizenHandler
                 $this->removeStatus($citizen, 'thirst1');
                 $this->removeStatus($citizen, 'thirst2');
                 $this->removeStatus($citizen, 'infection');
+                $this->removeStatus($citizen, 'tg_meta_wound');
                 $this->removeStatus($citizen, 'tg_meta_winfect');
                 $citizen->setWalkingDistance(0);
             }
