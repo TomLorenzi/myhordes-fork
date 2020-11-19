@@ -451,7 +451,8 @@ class GameController extends AbstractController implements GameInterfaceControll
             'text' => $text,
             'textClass' => $textClass,
             'wind' => $wind,
-            'windDirection' => $gazette->getWindDirection()
+            'windDirection' => intval($gazette->getWindDirection()),
+            'watertower' => intval($gazette->getWatertower()),
         ];
 
         $show_register = $in_town || !$this->getActiveCitizen()->getAlive();

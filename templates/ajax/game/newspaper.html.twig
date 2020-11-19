@@ -98,29 +98,39 @@
                                 {% endif %}
                             </div>
                         </div>
-                        {% if gazette.wind != "" %}
-                            {% if gazette.windDirection == constant('App\\Entity\\Zone::DirectionNorthWest') %}
-                                {% set dir = 'im Nordwesten'|trans({},'game') %}
-                            {% elseif gazette.windDirection == constant('App\\Entity\\Zone::DirectionNorth') %}
-                                {% set dir = "im Norden"|trans({},'game') %}
-                            {% elseif gazette.windDirection == constant('App\\Entity\\Zone::DirectionNorthEast') %}
-                                {% set dir = "im Nordosten"|trans({},'game') %}
-                            {% elseif gazette.windDirection == constant('App\\Entity\\Zone::DirectionWest') %}
-                                {% set dir = "im Westen"|trans({},'game') %}
-                            {% elseif gazette.windDirection == constant('App\\Entity\\Zone::DirectionEast') %}
-                                {% set dir = "im Osten"|trans({},'game') %}
-                            {% elseif gazette.windDirection == constant('App\\Entity\\Zone::DirectionSouthWest') %}
-                                {% set dir = "im Südwesten"|trans({},'game') %}
-                            {% elseif gazette.windDirection == constant('App\\Entity\\Zone::DirectionSouth') %}
-                                {% set dir = "im Süden"|trans({},'game') %}
-                            {% elseif gazette.windDirection == constant('App\\Entity\\Zone::DirectionSouthEast') %}
-                                {% set dir = "im Südosten"|trans({},'game') %}
+                        {% if gazette.wind != "" or gazette.watertower > 0 %}
+                            <div id="buildingdetails" class="row">
+                                {% if gazette.wind != "" %}
+                                    {% if gazette.windDirection == constant('App\\Entity\\Zone::DirectionNorthWest') %}
+                                        {% set dir = 'im Nordwesten'|trans({},'game') %}
+                                    {% elseif gazette.windDirection == constant('App\\Entity\\Zone::DirectionNorth') %}
+                                        {% set dir = "im Norden"|trans({},'game') %}
+                                    {% elseif gazette.windDirection == constant('App\\Entity\\Zone::DirectionNorthEast') %}
+                                        {% set dir = "im Nordosten"|trans({},'game') %}
+                                    {% elseif gazette.windDirection == constant('App\\Entity\\Zone::DirectionWest') %}
+                                        {% set dir = "im Westen"|trans({},'game') %}
+                                    {% elseif gazette.windDirection == constant('App\\Entity\\Zone::DirectionEast') %}
+                                        {% set dir = "im Osten"|trans({},'game') %}
+                                    {% elseif gazette.windDirection == constant('App\\Entity\\Zone::DirectionSouthWest') %}
+                                        {% set dir = "im Südwesten"|trans({},'game') %}
+                                    {% elseif gazette.windDirection == constant('App\\Entity\\Zone::DirectionSouth') %}
+                                        {% set dir = "im Süden"|trans({},'game') %}
+                                    {% elseif gazette.windDirection == constant('App\\Entity\\Zone::DirectionSouthEast') %}
+                                        {% set dir = "im Südosten"|trans({},'game') %}
+                                    {% endif %}
+                                    <div id="wind">
+                                        <a class="help-button"><div class="tooltip help">{{ 'Mysteriöse metereologische Phänomene haben gestern Nacht dafür gesorgt, dass sich bestimmte Zonen <strong>%sector% der Stadt</strong> regeneriert haben.<p><em>Es können dort durch Graben wieder Gegenstände gefunden werden, auch wenn die Zone zuvor leergesucht wurde!</em></p>'|trans({'%sector%': dir|trans({}, 'game')},'game')|raw }}</div>{{ 'Hilfe'|trans({},'global') }}</a> {{ gazette.wind|raw }}
+                                    </div>
+                                {% endif %}
+                                {% if gazette.watertower > 0 %}
+                                <div id="watertower">
+                                    {{'Verlorenes Brunnenwasser: %count% Einhet(en)'|trans({'%count%': gazette.watertower}, 'game')}}
+                                </div>
                             {% endif %}
-                            <div id="wind" class="row">
-                                <a class="help-button"><div class="tooltip help">{{ 'Mysteriöse metereologische Phänomene haben gestern Nacht dafür gesorgt, dass sich bestimmte Zonen <strong>%sector% der Stadt</strong> regeneriert haben.<p><em>Es können dort durch Graben wieder Gegenstände gefunden werden, auch wenn die Zone zuvor leergesucht wurde!</em></p>'|trans({'%sector%': dir|trans({}, 'game')},'game')|raw }}</div>{{ 'Hilfe'|trans({},'global') }}</a> {{ gazette.wind|raw }}
+                                
                             </div>
-                            <div class='separator'></div>
                         {% endif %}
+                        
                     {% else %}
                         <div id="gazette-empty"></div>
                     {% endif %}

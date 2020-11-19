@@ -14625,5 +14625,14 @@
         <target>Hier soir, plusieurs tempêtes de sable ont été observées dans %sector%.</target>
       </segment>
     </unit>
+    <unit id="88_o8Q3" name="Verlorenes Brunnenwasser: %count% Einhet(en)">
+      <notes>
+        <note category="german">Verlorenes Brunnenwasser: %count% Einhet(en)</note>
+      </notes>
+      <segment>
+        <source>Verlorenes Brunnenwasser: %count% Einhet(en)</source>
+        <target>Eau du puits perdue : %count% ration(s)</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

@@ -1045,6 +1045,9 @@ class NightlyHandler
             $n = [0,2,4,6,9,12];
             if ($town->getWell() >= $n[ $watertower->getLevel() ]) {
                 $town->setWell( $town->getWell() - $n[ $watertower->getLevel() ] );
+                $gazette = $town->findGazette( $town->getDay() );
+                $gazette->setWatertower($n[$watertower->getLevel()]);
+                $this->entity_manager->persist($gazette);
                 $this->entity_manager->persist( $this->logTemplates->nightlyAttackBuildingDefenseWater( $watertower, $n[ $watertower->getLevel() ] ) );
                 $this->log->debug( "Deducting <info>{$n[$watertower->getLevel()]}</info> water from the well to operate the <info>{$watertower->getPrototype()->getLabel()}</info>." );
             }
