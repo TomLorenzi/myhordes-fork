@@ -14427,5 +14427,203 @@
         <target>Ce chantier est déjà terminé.</target>
       </segment>
     </unit>
+    <unit id="OhpvQec" name="im Nordwesten">
+      <notes>
+        <note category="german">im Nordwesten</note>
+      </notes>
+      <segment>
+        <source>im Nordwesten</source>
+        <target>au Nord-ouest</target>
+      </segment>
+    </unit>
+    <unit id="dHF9hg3" name="im Norden">
+      <notes>
+        <note category="german">im Norden</note>
+      </notes>
+      <segment>
+        <source>im Norden</source>
+        <target>au Nord</target>
+      </segment>
+    </unit>
+    <unit id="8VW_Ac6" name="im Nordosten">
+      <notes>
+        <note category="german">im Nordosten</note>
+      </notes>
+      <segment>
+        <source>im Nordosten</source>
+        <target>au Nord-est</target>
+      </segment>
+    </unit>
+    <unit id="CGH7WpP" name="im Westen">
+      <notes>
+        <note category="german">im Westen</note>
+      </notes>
+      <segment>
+        <source>im Westen</source>
+        <target>à l'Ouest</target>
+      </segment>
+    </unit>
+    <unit id="GrDc37F" name="im Osten">
+      <notes>
+        <note category="german">im Osten</note>
+      </notes>
+      <segment>
+        <source>im Osten</source>
+        <target>à l'Est</target>
+      </segment>
+    </unit>
+    <unit id="luEGXBn" name="im Südwesten">
+      <notes>
+        <note category="german">im Südwesten</note>
+      </notes>
+      <segment>
+        <source>im Südwesten</source>
+        <target>au Sud-ouest</target>
+      </segment>
+    </unit>
+    <unit id="UpG6M6C" name="im Süden">
+      <notes>
+        <note category="german">im Süden</note>
+      </notes>
+      <segment>
+        <source>im Süden</source>
+        <target>au Sud</target>
+      </segment>
+    </unit>
+    <unit id="G2GbQ43" name="im Südosten">
+      <notes>
+        <note category="german">im Südosten</note>
+      </notes>
+      <segment>
+        <source>im Südosten</source>
+        <target>au Sud-est</target>
+      </segment>
+    </unit>
+    <unit id="Hbo1GZX" name="fe016ab">
+      <notes>
+        <note category="german">Mysteriöse metereologische Phänomene haben gestern Nacht dafür gesorgt, dass sich bestimmte Zonen &lt;strong&gt;%sector% der Stadt&lt;/strong&gt; regeneriert haben.&lt;p&gt;&lt;em&gt;Es können dort durch Graben wieder Gegenstände gefunden werden, auch wenn die Zone zuvor leergesucht wurde!&lt;/em&gt;&lt;/p&gt;</note>
+      </notes>
+      <segment>
+        <source>Mysteriöse metereologische Phänomene haben gestern Nacht dafür gesorgt, dass sich bestimmte Zonen &lt;strong&gt;%sector% der Stadt&lt;/strong&gt; regeneriert haben.&lt;p&gt;&lt;em&gt;Es können dort durch Graben wieder Gegenstände gefunden werden, auch wenn die Zone zuvor leergesucht wurde!&lt;/em&gt;&lt;/p&gt;</source>
+        <target><![CDATA[Sous l'influence des mystérieux phénomènes météorologiques qui surviennent à minuit, certaines zones <strong>%sector% de la ville</strong> se sont peut-être regénérées.<p><em>Il est alors possible d'y trouver à nouveau des objets lors de fouilles, même si la zone était déjà épuisée !</em></p>]]></target>
+      </segment>
+    </unit>
+    <unit id="sjC0QWG" name="Letzte Nacht wurde der %sector% von starken Winden heimgesucht.">
+      <notes>
+        <note category="german">Letzte Nacht wurde der %sector% von starken Winden heimgesucht.</note>
+      </notes>
+      <segment>
+        <source>Letzte Nacht wurde der %sector% von starken Winden heimgesucht.</source>
+        <target>Cette nuit, %sector% a été balayé par des vents violents.</target>
+      </segment>
+    </unit>
+    <unit id="frCGEZ6" name="Gestern Abend gab es starke Windböen im %sector%.">
+      <notes>
+        <note category="german">Gestern Abend gab es starke Windböen im %sector%.</note>
+      </notes>
+      <segment>
+        <source>Gestern Abend gab es starke Windböen im %sector%.</source>
+        <target>D'importantes bourrasques ont secoué tout %sector% cette nuit.</target>
+      </segment>
+    </unit>
+    <unit id="hAEUy6I" name="%sector2% haben gestern ein paar heftige Sandstrürme gewütet.">
+      <notes>
+        <note category="german">%sector2% haben gestern ein paar heftige Sandstrürme gewütet.</note>
+      </notes>
+      <segment>
+        <source>%sector2% haben gestern ein paar heftige Sandstrürme gewütet.</source>
+        <target>D'importantes tempêtes de sable ont sévi %sector2%.</target>
+      </segment>
+    </unit>
+    <unit id="RBsKzQj" name="%sector2% wurden gestern ein paar meteorologische Anomalien gesichtet.">
+      <notes>
+        <note category="german">%sector2% wurden gestern ein paar meteorologische Anomalien gesichtet.</note>
+      </notes>
+      <segment>
+        <source>%sector2% wurden gestern ein paar meteorologische Anomalien gesichtet.</source>
+        <target>Des anomalies météorologiques ont été aperçues %sector2%.</target>
+      </segment>
+    </unit>
+    <unit id="z07EnjT" name="Ein paar Sandstürme wurden im %sector% beobachtet.">
+      <notes>
+        <note category="german">Ein paar Sandstürme wurden im %sector% beobachtet.</note>
+      </notes>
+      <segment>
+        <source>Ein paar Sandstürme wurden im %sector% beobachtet.</source>
+        <target>Des tempêtes de sable ont été enregistrées vers %sector%.</target>
+      </segment>
+    </unit>
+    <unit id="mYTFP_x" name="Ungewöhnlich starke Winde haben gestern den Sand %sector% aufgewirbelt.">
+      <notes>
+        <note category="german">Ungewöhnlich starke Winde haben gestern den Sand %sector% aufgewirbelt.</note>
+      </notes>
+      <segment>
+        <source>Ungewöhnlich starke Winde haben gestern den Sand %sector% aufgewirbelt.</source>
+        <target>Des vents anormaux ont balayé le désert, dans %sector%.</target>
+      </segment>
+    </unit>
+    <unit id="aul2Dol" name="Verschiedene Aufzeichnungen zeigen Wetteranomalien %sector2%.">
+      <notes>
+        <note category="german">Verschiedene Aufzeichnungen zeigen Wetteranomalien %sector2%.</note>
+      </notes>
+      <segment>
+        <source>Verschiedene Aufzeichnungen zeigen Wetteranomalien %sector2%.</source>
+        <target>Hier soir, tout %sector% a été le théâtre de plusieurs anomalies météo.</target>
+      </segment>
+    </unit>
+    <unit id="ygHZbNf" name="Gestern Abend war der gesamte %sector% Schauplatz mehrerer Wetteranomalien.">
+      <notes>
+        <note category="german">Gestern Abend war der gesamte %sector% Schauplatz mehrerer Wetteranomalien.</note>
+      </notes>
+      <segment>
+        <source>Gestern Abend war der gesamte %sector% Schauplatz mehrerer Wetteranomalien.</source>
+        <target>Nos relevés signalent des anomalies météorologiques vers %sector%.</target>
+      </segment>
+    </unit>
+    <unit id="nlFSyVX" name="9e41ab9">
+      <notes>
+        <note category="german">Unsere Messungen deuten darauf hin, dass im %sector% Wetteranomalien aufgetreten sind.</note>
+      </notes>
+      <segment>
+        <source>Unsere Messungen deuten darauf hin, dass im %sector% Wetteranomalien aufgetreten sind.</source>
+        <target>Quelques phénomènes isolés ont été détectés %sector2%.</target>
+      </segment>
+    </unit>
+    <unit id="APtPn1k" name="Einige vereinzelte Phänomene wurden %sector2% entdeckt.">
+      <notes>
+        <note category="german">Einige vereinzelte Phänomene wurden %sector2% entdeckt.</note>
+      </notes>
+      <segment>
+        <source>Einige vereinzelte Phänomene wurden %sector2% entdeckt.</source>
+        <target>Nos relevés signalent des anomalies météorologiques vers %sector%.</target>
+      </segment>
+    </unit>
+    <unit id="wi_eVy6" name="In der vergangenen Nacht brach im %sector2% ein heftiger Sturm aus...">
+      <notes>
+        <note category="german">In der vergangenen Nacht brach im %sector2% ein heftiger Sturm aus...</note>
+      </notes>
+      <segment>
+        <source>In der vergangenen Nacht brach im %sector2% ein heftiger Sturm aus...</source>
+        <target>Une violente tempête a éclaté cette nuit %sector2%.</target>
+      </segment>
+    </unit>
+    <unit id="M8eGEBc" name="%sector2% wurden gestern heftige Sturmwinde beobachtet.">
+      <notes>
+        <note category="german">%sector2% wurden gestern heftige Sturmwinde beobachtet.</note>
+      </notes>
+      <segment>
+        <source>%sector2% wurden gestern heftige Sturmwinde beobachtet.</source>
+        <target>Hier, des vents violents ont été observés %sector2%.</target>
+      </segment>
+    </unit>
+    <unit id="zc640mJ" name="Gestern Natch wurden im %sector% mehrere Sandstürme beobachtet.">
+      <notes>
+        <note category="german">Gestern Natch wurden im %sector% mehrere Sandstürme beobachtet.</note>
+      </notes>
+      <segment>
+        <source>Gestern Natch wurden im %sector% mehrere Sandstürme beobachtet.</source>
+        <target>Hier soir, plusieurs tempêtes de sable ont été observées dans %sector%.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
