@@ -264,7 +264,7 @@ class RecipeFixtures extends Fixture implements DependentFixtureInterface
             ["name" => "Ventilationssystem",'desc' => 'Dieser Geheimgang erlaubt es Helden, ein- und auszugehen, ohne das Stadttor zu benutzen!', "temporary" => 0,"img" => "small_ventilation","vp" => 20,"ap" => 24, "hp" => 24,"bp" => 2,"rsc" => ["meca_parts_#00" => 1,"metal_#00" => 8,], "orderby" => 2,],
         ]],
         
-        ["name" => "Hammam",'desc' => 'Ein Ort der Entspannung und der Meditation, perfekt geeignet um eine Seele auf die Andere Seite zu geleiten.', "temporary" => 0,"img" => "small_spa4souls","vp" => 28,"ap" => 20, "hp" => 20,"bp" => 0,"rsc" => ["wood2_#00" => 2,"plate_#00" => 2,], "orderby" => 7],
+        ["name" => "Hammam",'desc' => 'Ein Ort der Entspannung und der Meditation, perfekt geeignet um eine Seele auf die Andere Seite zu geleiten.', "temporary" => 0,"img" => "small_spa4souls","vp" => 30,"ap" => 20, "hp" => 20,"bp" => 0,"rsc" => ["wood2_#00" => 2,"plate_#00" => 2,], "orderby" => 7],
     ];
 
     protected static $recipe_data = [
