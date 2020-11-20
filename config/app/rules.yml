@@ -112,7 +112,7 @@ parameters:
 
       disabled_jobs: ['shaman']
       disabled_roles: []
-      disabled_buildings: []
+      disabled_buildings: ['small_vaudoudoll_#00', 'small_bokorsword_#00', 'small_spiritmirage_#00','small_holyrain_#00']
       
     small:
       map:  { min: 12, max: 14 }
@@ -142,7 +142,6 @@ parameters:
       features:
         shaman: 'none'
       
-      disabled_jobs: ['shaman']
       disabled_roles: ['shaman']
 
     remote:
