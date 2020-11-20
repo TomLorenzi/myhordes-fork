@@ -9,7 +9,7 @@
     {% endif %}
 </div>
 
-<div class="row-table">
+<div class="row-table home-pm">
     <h5>{% trans from 'game'%}Betreff:{% endtrans %} {{thread.title}}</h5>
 
     {% for post in posts %}
@@ -53,7 +53,7 @@
             </div>
             <div class="forum-post-content" >
                 {% if not post.owner %}
-                    <div class="crowmsg">{{ 'Dies ist eine offizielle Nachricht.'|trans({},'game') }}</div>
+                    <div class="crowmsg">{{ 'Dies ist eine offizielle Nachricht.'|trans({},'game') }} <a class="help-button"><div class="tooltip help">{{ 'Diese Nachricht wurde dir vom Raben persönlich überbracht. Er schwebt über der Stadt und wirft immer ein wachsames Auge auf dich...'|trans({},'global') }}</div>{{ 'Hilfe'|trans({},'global') }}</a></div>
                 {% endif %}
                 {{ post.text|raw }}
                 {% if items[post.id] is defined and items[post.id]|length > 0 %}
