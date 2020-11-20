@@ -341,9 +341,12 @@ class NightlyHandler
                 case 3:
                     $d = min($town->getWell(), 20);
                     $this->log->debug("The corpse of citizen <info>{$corpse->getUser()->getUsername()}</info> removes <info>{$d} water rations</info> from the well.");
-                    $gazette->setWaterlost($gazette->getWaterlost() + $d);
-                    $this->entity_manager->persist( $this->logTemplates->nightlyInternalAttackWell( $corpse, $d ) );
-                    $town->setWell( $town->getWell() - $d );
+                    // Disabled because in Hordes, this is not shown as lost
+                    // $gazette->setWaterlost($gazette->getWaterlost() + $d);
+                    if($d > 0){
+                        $this->entity_manager->persist( $this->logTemplates->nightlyInternalAttackWell( $corpse, $d ) );
+                        $town->setWell( $town->getWell() - $d );
+                    }
                     break;
             }
         }

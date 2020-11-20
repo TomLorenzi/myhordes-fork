@@ -39,6 +39,7 @@ class LogEntryTemplate
     const ClassCritical = 2;
     const ClassInfo     = 3;
     const ClassChat     = 4;
+    const ClassDanger   = 5;
     const ClassGazetteNews        =  5;
     const ClassGazetteNoDeaths    =  6;
     const ClassGazetteOneDeath    =  7;

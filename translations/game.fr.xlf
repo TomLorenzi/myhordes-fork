@@ -217,15 +217,6 @@
         <target>%zombie% s'est relevé et le bâtiment %building% a été détruit !</target>
       </segment>
     </unit>
-    <unit id="kWsuJms" name="b46b79f">
-      <notes>
-        <note category="german">%zombie% ist von den Toten auferstanden und hat den Brunnen kontaminiert! Das kostet uns %num% Rationen Wasser!</note>
-      </notes>
-      <segment>
-        <source>%zombie% ist von den Toten auferstanden und hat den Brunnen kontaminiert! Das kostet uns %num% Rationen Wasser!</source>
-        <target>%zombie% s'est relevé et a contaminé le puits ! Cela nous a côté %num% ration(s) d'eau !</target>
-      </segment>
-    </unit>
     <unit id="XX6_Va3" name="%num% Zombies attackieren die Stadtbewohner!">
       <notes>
         <note category="german">%num% Zombies attackieren die Stadtbewohner!</note>
@@ -14632,6 +14623,24 @@
       <segment>
         <source>Verlorenes Brunnenwasser: %count% Einhet(en)</source>
         <target>Eau du puits perdue : %count% ration(s)</target>
+      </segment>
+    </unit>
+    <unit id="1RZZDef" name="576549b">
+      <notes>
+        <note category="german">&lt;i class="dagger"&gt;†&lt;/i&gt; %zombie% wurde schreiend und sabbernd am Brunnen angetroffen. Er hielt einen großen Felsen in seinen Händen und schickte  sich an, diesen in den Brunnen zu werfen. Leider konnte ihn keiner mehr rechtzeitig hindern, sodass uns jetzt %num% Wasserrationnen fehlen! Was für eine Katastrophe!</note>
+      </notes>
+      <segment>
+        <source>&lt;i class="dagger"&gt;†&lt;/i&gt; %zombie% wurde schreiend und sabbernd am Brunnen angetroffen. Er hielt einen großen Felsen in seinen Händen und schickte  sich an, diesen in den Brunnen zu werfen. Leider konnte ihn keiner mehr rechtzeitig hindern, sodass uns jetzt %num% Wasserrationnen fehlen! Was für eine Katastrophe!</source>
+        <target><![CDATA[<i class="dagger">†</i> %zombie% s'est relevé et a contaminé le puits ! Cela nous a coûté %num% ration(s) d'eau !]]></target>
+      </segment>
+    </unit>
+    <unit id="r9GesCe" name="d0f1cdc">
+      <notes>
+        <note category="german">Du kannst den Bürgern der Stadt die Errichtung eines bestimmten Gebäudes empfehlen. Bewege dafür den Mauszeiger über das Bauprojekt, das du empfehlen willst und klicke auf den Link &lt;strong&gt;Abstimmen&lt;/strong&gt;, der darüber erscheint.</note>
+      </notes>
+      <segment>
+        <source>Du kannst den Bürgern der Stadt die Errichtung eines bestimmten Gebäudes empfehlen. Bewege dafür den Mauszeiger über das Bauprojekt, das du empfehlen willst und klicke auf den Link &lt;strong&gt;Abstimmen&lt;/strong&gt;, der darüber erscheint.</source>
+        <target><![CDATA[Du kannst den Bürgern der Stadt die Errichtung eines bestimmten Gebäudes empfehlen. Bewege dafür den Mauszeiger über das Bauprojekt, das du empfehlen willst und klicke auf den Link <strong>Abstimmen</strong>, der darüber erscheint.]]></target>
       </segment>
     </unit>
   </file>
