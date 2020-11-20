@@ -50,7 +50,7 @@
                 </div>
                 <div class="row">
                     <div class="cell rw-5 rw-lg-6"><span class="highlight">{{ 'Anwesenheit'|trans({},'game') }} :</span></div>
-                    <div class="cell rw-7 rw-lg-6">{% if owner.online %}Online{% else %}Offline{% endif %}</div>
+                    <div class="cell rw-7 rw-lg-6">{% if owner.online %}<img alt="" src="{{ asset('build/images/icons/player_online.gif') }}" /> {{'Online'|trans({}, 'global')}}{% else %}<img alt="" src="{{ asset('build/images/icons/player_offline.gif') }}" /> {{'Offline'|trans({}, 'global')}}{% endif %}</div>
                 </div>
                 <div class="row">
                     <div class="cell rw-5 rw-lg-6"><span class="highlight">{{ 'Bauarbeiten'|trans({},'game') }} :</span></div>

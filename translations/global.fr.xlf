@@ -1756,5 +1756,14 @@
         <target>Ce message vous a été envoyé par le Corbeau lui-même, qui rôde au-dessus de votre ville...</target>
       </segment>
     </unit>
+    <unit id="EX0EUAt" name="Kein">
+      <notes>
+        <note category="german">Kein</note>
+      </notes>
+      <segment>
+        <source>Kein</source>
+        <target>Aucun</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

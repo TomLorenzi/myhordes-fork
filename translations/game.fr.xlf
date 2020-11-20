@@ -14640,7 +14640,25 @@
       </notes>
       <segment>
         <source>Du kannst den Bürgern der Stadt die Errichtung eines bestimmten Gebäudes empfehlen. Bewege dafür den Mauszeiger über das Bauprojekt, das du empfehlen willst und klicke auf den Link &lt;strong&gt;Abstimmen&lt;/strong&gt;, der darüber erscheint.</source>
-        <target><![CDATA[Du kannst den Bürgern der Stadt die Errichtung eines bestimmten Gebäudes empfehlen. Bewege dafür den Mauszeiger über das Bauprojekt, das du empfehlen willst und klicke auf den Link <strong>Abstimmen</strong>, der darüber erscheint.]]></target>
+        <target><![CDATA[Vous pouvez recommander la construction d'un chantier en particulier aux citoyens. Placez votre curseur sur la ligne du chantier à recommander, puis cliquer sur le lien <strong>Voter</strong> qui apparaît.]]></target>
+      </segment>
+    </unit>
+    <unit id="apc56SN" name="Beruf">
+      <notes>
+        <note category="german">Beruf</note>
+      </notes>
+      <segment>
+        <source>Beruf</source>
+        <target>Métier</target>
+      </segment>
+    </unit>
+    <unit id="UaAP3Pr" name="Anwesenheit">
+      <notes>
+        <note category="german">Anwesenheit</note>
+      </notes>
+      <segment>
+        <source>Anwesenheit</source>
+        <target>Statut</target>
       </segment>
     </unit>
   </file>
