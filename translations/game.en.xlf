@@ -14350,5 +14350,14 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
         <target>Die letzten Nachrichten meiner Koalition lesen.</target>
       </segment>
     </unit>
+    <unit id="8DkmL.j" name="Dieses Bauprojekt wurde bereits abgeschlossen.">
+      <notes>
+        <note category="german">Dieses Bauprojekt wurde bereits abgeschlossen.</note>
+      </notes>
+      <segment>
+        <source>Dieses Bauprojekt wurde bereits abgeschlossen.</source>
+        <target>Dieses Bauprojekt wurde bereits abgeschlossen.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
