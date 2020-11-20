@@ -14661,5 +14661,14 @@
         <target>Statut</target>
       </segment>
     </unit>
+    <unit id="UFB43D7" name="Tätigkeit">
+      <notes>
+        <note category="german">Tätigkeit</note>
+      </notes>
+      <segment>
+        <source>Tätigkeit</source>
+        <target>Activité</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
