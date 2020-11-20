@@ -569,6 +569,7 @@ class NightlyHandler
             $home = $target->getHome();
             if ($left <= 0) $force = $attacking;
             else $force = $attacking > 0 ? mt_rand(1, max(1,min($max,$attacking-$left)) ) : 0;
+            if($force <= 0) break;
             $def = $this->town_handler->calculate_home_def($home);
             $this->log->debug("Citizen <info>{$target->getUser()->getUsername()}</info> is attacked by <info>{$force}</info> zombies and protected by <info>{$def}</info> home defense!");
             if ($force > $def){

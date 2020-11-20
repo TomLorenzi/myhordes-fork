@@ -98,7 +98,7 @@
     & .glory { margin: 0; &:before { display: none; } }
   }
 
-  div.crowmsg { clear: left; margin: 4px 0; border: 1px solid #ddab76; background: #763939; padding: 3px; }
+  div.crowmsg { clear: left; margin: 4px 0; border: 1px solid #ddab76; background: #763939; padding: 3px; color: #ecb0b0 }
 
   span.rpauthor {
     background: url('../../img/forum/rp.png') left top no-repeat;
@@ -239,6 +239,23 @@
     box-shadow: 0 0 3px #ffdc00;
   };
 
+  &.crow-pm {
+    border: 1px solid red;
+    border-left: 2px solid red;
+    outline: 2px solid black;
+    background-color: #5c2b20;
+    .forum-post-header {
+      b {
+        color: #ff4111;
+      }
+    }
+    .forum-post-content {
+      color: #ecb0b0;
+      background: url('../../img/forum/crowMsg_bg.gif') no-repeat;
+      font-weight: bold;
+    }
+  }
+
   &>.forum-post-content {
     padding-left: 10px; padding-top: 10px; /*max-height: 750px; overflow: auto;*/
     background-color: #4a261e; border-top: 1px solid #00000066; padding-right: 4px; word-break: break-word;
@@ -246,6 +263,7 @@
     &.marked { background-color: #8b7700; }
 
     .forum-content-format();
+    
   }
 
   &>.forum-post-footer {

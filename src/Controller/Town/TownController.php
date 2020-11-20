@@ -22,7 +22,6 @@ use App\Entity\ShoutboxReadMarker;
 use App\Entity\TownLogEntry;
 use App\Entity\PrivateMessage;
 use App\Entity\User;
-use App\Entity\UserGroupAssociation;
 use App\Entity\ZombieEstimation;
 use App\Entity\Zone;
 use App\Service\BankAntiAbuseService;
@@ -848,6 +847,7 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
             'hidden' => $hidden,
             'prof_count' => $prof_count,
             'death_count' => $death_count,
+            'has_omniscience' => $this->user_handler->hasSkill($this->getActiveCitizen()->getUser(), 'omniscience'),
         ]) );
     }
 
