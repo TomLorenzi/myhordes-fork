@@ -463,6 +463,9 @@ class NightlyHandler
                     }
 
                 $overflow -= $def;
+            } else {
+                $watcher->setSkipped(true);
+                $this->entity_manager->persist($watcher);
             }
         }
         /* } else {
