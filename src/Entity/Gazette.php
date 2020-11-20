@@ -83,7 +83,7 @@ class Gazette
     /**
      * @ORM\Column(type="integer",  nullable=true)
      */
-    private $watertower = 0;
+    private $waterlost = 0;
 
     public function __construct()
     {
@@ -229,14 +229,14 @@ class Gazette
         return $this;
     }
 
-    public function getWatertower(): ?int
+    public function getWaterlost(): ?int
     {
-        return $this->watertower;
+        return $this->waterlost;
     }
 
-    public function setWatertower(int $watertower): self
+    public function setWaterlost(int $waterlost): self
     {
-        $this->watertower = $watertower;
+        $this->waterlost = $waterlost;
 
         return $this;
     }

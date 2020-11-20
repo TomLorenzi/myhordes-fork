@@ -78,6 +78,7 @@
 
 @myhordes-help-color: #524053;
 @myhordes-green-color: #414a31;
+@myhordes-herohelp-color: #4d5537;
 
 html { font-size: 10px; }
 
@@ -527,6 +528,13 @@ div.help {
   &>p:first-child { margin-top: 0 }
   &>p:last-child { margin-bottom: 0 }
   strong { color: #e2d890; }
+}
+
+div.hero-help {
+  &:before { content: " "; position: absolute; display: block; top: 3px; left: 5px; width: 16px; height: 16px; background: url('../img/icons/small_hero.gif') no-repeat; }
+  .box(@myhordes-herohelp-color); padding: 5px 5px 5px 26px; font-size: 1.2rem; margin: 5px 0; text-align: justify; position: relative;
+  &>p:first-child { margin-top: 0 }
+  &>p:last-child { margin-bottom: 0 }
 }
 
 div.green-note {

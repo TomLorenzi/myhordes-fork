@@ -310,6 +310,8 @@ class NightlyHandler
         $targets = $this->random->pick($targets, min(count($houses),count($targets)), true);
         $buildings = $this->random->pick($buildings, min(count($houses),count($buildings)), true);
 
+        $gazette = $town->findGazette( $town->getDay() );
+
         foreach ($houses as $id => $corpse) {
 
             $opts = [];
@@ -339,11 +341,13 @@ class NightlyHandler
                 case 3:
                     $d = min($town->getWell(), 20);
                     $this->log->debug("The corpse of citizen <info>{$corpse->getUser()->getUsername()}</info> removes <info>{$d} water rations</info> from the well.");
+                    $gazette->setWaterlost($gazette->getWaterlost() + $d);
                     $this->entity_manager->persist( $this->logTemplates->nightlyInternalAttackWell( $corpse, $d ) );
                     $town->setWell( $town->getWell() - $d );
                     break;
             }
         }
+        $this->entity_manager->persist($gazette);
     }
 
     private function stage2_attack(Town &$town) {
@@ -1046,7 +1050,7 @@ class NightlyHandler
             if ($town->getWell() >= $n[ $watertower->getLevel() ]) {
                 $town->setWell( $town->getWell() - $n[ $watertower->getLevel() ] );
                 $gazette = $town->findGazette( $town->getDay() );
-                $gazette->setWatertower($n[$watertower->getLevel()]);
+                $gazette->setWaterlost($gazette->getWaterlost() + $n[$watertower->getLevel()]);
                 $this->entity_manager->persist($gazette);
                 $this->entity_manager->persist( $this->logTemplates->nightlyAttackBuildingDefenseWater( $watertower, $n[ $watertower->getLevel() ] ) );
                 $this->log->debug( "Deducting <info>{$n[$watertower->getLevel()]}</info> water from the well to operate the <info>{$watertower->getPrototype()->getLabel()}</info>." );
