@@ -9,6 +9,7 @@
         <li class="tab selected">
             <div class="tab-link" x-ajax-sticky x-ajax-href="{{ path('town_citizens') }}">{% trans from 'game' %}Bürger{% endtrans %}</div>
         </li>
+
         {% if not town.chaos %}
             {% for name,role in votesNeeded %}
                 {% if role %}
@@ -18,6 +19,13 @@
                 {% endif %}
             {% endfor %}
         {% endif %}
+
+        {% if has_omniscience %}
+        <li class="tab">
+            <div class="tab-link" x-ajax-sticky>{{'Allwissenheit'|trans({}, 'game')}}</div>
+        </li>
+        {% endif %}
+        
     </ul>
 
     <div class="row-table citizens-list">

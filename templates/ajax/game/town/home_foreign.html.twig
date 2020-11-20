@@ -41,16 +41,36 @@
             {% endif %}
             <div class="row">
                 <div class="cell rw-5 rw-lg-6"><span class="highlight">{{ 'Haus'|trans({},'game') }} :</span></div>
-                <div class="cell rw-7 rw-lg-6"><img alt="" src="{{ asset('build/images/home/' ~ owner.home.prototype.icon ~ '.gif') }}"> {{ owner.home.prototype.label|trans({},'buildings') }}</div>
+                <div class="cell rw-7 rw-lg-6"><img alt="" src="{{ asset('build/images/home/' ~ owner.home.prototype.icon ~ '.gif') }}"> {{ owner.home.prototype.label|trans({},'buildings') }} {% if owner.alive %} [ + {{ owner.home.prototype.defense }} <img alt="" src="{{ asset('build/images/icons/def.gif') }}"> ]{% endif %}</div>
             </div>
             {% if owner.alive %}
                 <div class="row">
-                    <div class="cell rw-5 rw-lg-6"><span class="highlight">{{ 'Verteidigung'|trans({},'game') }} :</span></div>
-                    <div class="cell rw-7 rw-lg-6"><img alt="" src="{{ asset('build/images/icons/def.gif') }}"> {{ def.sum }}</div>
+                    <div class="cell rw-5 rw-lg-6"><span class="highlight">{{ 'Beruf'|trans({},'game') }} :</span></div>
+                    <div class="cell rw-7 rw-lg-6">{% if owner.profession.heroic %}<img alt="" src="{{ asset('build/images/professions/hero.gif') }}" />{% endif %} <img alt="{{ citizen.profession.label|trans({},'game') }}" src="{{ asset('build/images/professions/' ~ owner.profession.icon ~ '.gif') }}" /> {{ owner.profession.label|trans({}, 'game') }}</div>
+                </div>
+                <div class="row">
+                    <div class="cell rw-5 rw-lg-6"><span class="highlight">{{ 'Anwesenheit'|trans({},'game') }} :</span></div>
+                    <div class="cell rw-7 rw-lg-6">{% if owner.online %}Online{% else %}Offline{% endif %}</div>
+                </div>
+                <div class="row">
+                    <div class="cell rw-5 rw-lg-6"><span class="highlight">{{ 'Bauarbeiten'|trans({},'game') }} :</span></div>
+                    <div class="cell rw-7 rw-lg-6">
+                    {% if owner.home.citizenHomeUpgrades|length == 0 %}
+                        {{'Kein'|trans({}, 'global')}}
+                    {% else %}
+                    {% for upgrade in owner.home.citizenHomeUpgrades %}
+                        {% if loop.index0 > 0  %}, {% endif %}<b>{{ upgrade.prototype.label|trans({}, 'buildings') }} {{ upgrade.level }}</b> 
+                    {% endfor %}
+                    {% endif %}
+                    </div>
                 </div>
                 <div class="row">
                     <div class="cell rw-5 rw-lg-6"><span class="highlight">{{ 'Dekoration'|trans({},'game') }} :</span></div>
                     <div class="cell rw-7 rw-lg-6"><img alt="" src="{{ asset('build/images/icons/deco.gif') }}"> {{ deco }}</div>
+                </div>
+                 <div class="row">
+                    <div class="cell rw-5 rw-lg-6"><span class="highlight">{{ 'Verteidigung'|trans({},'game') }} :</span></div>
+                    <div class="cell rw-7 rw-lg-6"><img alt="" src="{{ asset('build/images/icons/def.gif') }}"> {{ def.sum }}</div>
                 </div>
             {% else %}
                 <div class="row">
