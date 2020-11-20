@@ -451,17 +451,19 @@ class NightlyHandler
                 }
             }
 
-            $this->log->debug("Watcher <info>{$watcher->getCitizen()->getUser()->getUsername()}</info> has stopped <info>$def</info> zombies from his watch");
+            if($overflow > 0){
+                $this->log->debug("Watcher <info>{$watcher->getCitizen()->getUser()->getUsername()}</info> has stopped <info>$def</info> zombies from his watch");
 
-            $null = null;
-            foreach ($watcher->getCitizen()->getInventory()->getItems() as $item)
-                if ($item->getPrototype()->getNightWatchAction()) {
-                    $this->log->debug("Executing night watch action for '<info>{$item->getPrototype()->getLabel()}</info>' held by Watcher <info>{$watcher->getCitizen()->getUser()->getUsername()}</info>.");
-                    $this->action_handler->execute( $ctz, $item, $null, $item->getPrototype()->getNightWatchAction(), $msg, $r, true);
-                    foreach ($r as $rr) $this->entity_manager->remove($rr);
-                }
+                $null = null;
+                foreach ($watcher->getCitizen()->getInventory()->getItems() as $item)
+                    if ($item->getPrototype()->getNightWatchAction()) {
+                        $this->log->debug("Executing night watch action for '<info>{$item->getPrototype()->getLabel()}</info>' held by Watcher <info>{$watcher->getCitizen()->getUser()->getUsername()}</info>.");
+                        $this->action_handler->execute( $ctz, $item, $null, $item->getPrototype()->getNightWatchAction(), $msg, $r, true);
+                        foreach ($r as $rr) $this->entity_manager->remove($rr);
+                    }
 
-            $overflow -= $def;
+                $overflow -= $def;
+            }
         }
         /* } else {
             foreach ($watchers as $watcher) {
