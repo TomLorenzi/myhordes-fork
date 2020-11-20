@@ -20,6 +20,12 @@
             </li>
             {% endif %}
         {% endfor %}
+
+        {% if has_omniscience %}
+        <li class="tab">
+            <div class="tab-link" x-ajax-sticky x-ajax-href="{{ path('town_citizens_omniscience') }}"> <img src="{{ asset('build/images/icons/small_view.gif') }}" alt="" />{{'Allwissenheit'|trans({}, 'game')}}</div>
+        </li>
+        {% endif %}
     </ul>
 
     <div class="row-table citizens-list">
@@ -55,7 +61,7 @@
                                 {{'Klicke hier, um für diesen Bürger zu stimmen.'|trans({}, 'game')}}
                             </div>
                         {% elseif vote != null and vote.votedCitizen.id == citizen.id %}
-                            <img src="{{ asset('build/images/icons/icons/small_action.gif') }}" alt="" />
+                            <img src="{{ asset('build/images/icons/small_action.gif') }}" alt="" />
                             <div class="tooltip">
                                 {{'Du hast für diesen Bürger gestimmt.'|trans({}, 'game')}}
                             </div>

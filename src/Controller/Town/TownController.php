@@ -879,7 +879,8 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
             'citizens' => $town->getCitizens(),
             'me' => $this->getActiveCitizen(),
             'selectedRole' => $role,
-            'vote' => $vote
+            'vote' => $vote,
+            'has_omniscience' => $this->user_handler->hasSkill($this->getActiveCitizen()->getUser(), 'omniscience'),
         ]) );
     }
 
@@ -932,6 +933,50 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
         }
 
         return AjaxResponse::success();
+    }
+
+    /**
+     * @Route("jx/town/citizens/omniscience", name="town_citizens_omniscience")
+     * @param EntityManagerInterface $em
+     * @return Response
+     */
+    public function citizens_omniscience(EntityManagerInterface $em): Response
+    {
+        // Get citizen & town
+        $citizen = $this->getActiveCitizen();
+        $town = $citizen->getTown();
+
+        $citizens = [];
+
+        foreach($town->getCitizens() as $citizen) {
+            $clairvoyanceLevel = 0;
+            if($this->citizen_handler->hasStatusEffect($citizen, 'tg_chk_forum')){
+                $clairvoyanceLevel++;
+            }
+            if($this->citizen_handler->hasStatusEffect($citizen, 'tg_chk_active')){
+                $clairvoyanceLevel++;
+            }
+            if($this->citizen_handler->hasStatusEffect($citizen, 'tg_chk_workshop')){
+                $clairvoyanceLevel++;
+            }
+            if($this->citizen_handler->hasStatusEffect($citizen, 'tg_chk_build')){
+                $clairvoyanceLevel++;
+            }
+            if($this->citizen_handler->hasStatusEffect($citizen, 'tg_chk_movewb')){
+                $clairvoyanceLevel++;
+            }
+            $citizens[] = [
+                'infos' => $citizen,
+                'omniscienceLevel' => $clairvoyanceLevel,
+                'soulPoint' => $citizen->getUser()->getSoulPoints()
+            ];
+        }
+
+        return $this->render( 'ajax/game/town/citizen_omniscience.html.twig', $this->addDefaultTwigArgs('citizens', [
+            'citizens' => $citizens,
+            'has_omniscience' => $this->user_handler->hasSkill($this->getActiveCitizen()->getUser(), 'omniscience'),
+            'me' => $this->getActiveCitizen(),
+        ]) );
     }
 
     /**

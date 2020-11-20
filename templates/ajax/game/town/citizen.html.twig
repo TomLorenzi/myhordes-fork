@@ -22,7 +22,7 @@
 
         {% if has_omniscience %}
         <li class="tab">
-            <div class="tab-link" x-ajax-sticky>{{'Allwissenheit'|trans({}, 'game')}}</div>
+            <div class="tab-link" x-ajax-sticky x-ajax-href="{{ path('town_citizens_omniscience') }}"> <img src="{{ asset('build/images/icons/small_view.gif') }}" alt="" />{{'Allwissenheit'|trans({}, 'game')}}</div>
         </li>
         {% endif %}
         
