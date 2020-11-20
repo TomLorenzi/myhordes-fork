@@ -14415,7 +14415,16 @@
       </notes>
       <segment>
         <source>Die letzten Nachrichten meiner Koalition lesen.</source>
-        <target>Lisez les derniers messages de ma coalition.</target>
+        <target>Lire les derniers messages de ma coalition.</target>
+      </segment>
+    </unit>
+    <unit id="8DkmL.j" name="Dieses Bauprojekt wurde bereits abgeschlossen.">
+      <notes>
+        <note category="german">Dieses Bauprojekt wurde bereits abgeschlossen.</note>
+      </notes>
+      <segment>
+        <source>Dieses Bauprojekt wurde bereits abgeschlossen.</source>
+        <target>Ce chantier est déjà terminé.</target>
       </segment>
     </unit>
   </file>

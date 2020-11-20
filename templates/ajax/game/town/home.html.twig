@@ -173,6 +173,7 @@
                         </div>
                     {% endfor %}
                 </div>
+                <div class="small"><span class="link" id="mark_all_read">Marquer tout comme lu</span> | <span class="link" id="archive_all">Archiver tout</span></div>
             {% endif %}
             </div>
         </div>
@@ -681,15 +682,31 @@
             }
         });
 
-            {% if is_granted('ROLE_CROW') %}
-                let suicidbtn = document.getElementById('suicid');
-                if(suicidbtn) suicidbtn.addEventListener('click', function(){
-                    if (confirm('{{ 'Bestätigen?'|trans({},'global') }}'))
-                        $.ajax.easySend( '{{ path('town_home_suicid') }}', {},
-                            function () {
-                                $.ajax.load(null, '{{ path('game_landing') }}', true);
-                            } );
-                });
-            {% endif %}
+        {% if is_granted('ROLE_CROW') %}
+            let suicidbtn = document.getElementById('suicid');
+            if(suicidbtn) suicidbtn.addEventListener('click', function(){
+                if (confirm('{{ 'Bestätigen?'|trans({},'global') }}'))
+                    $.ajax.easySend( '{{ path('town_home_suicid') }}', {},
+                        function () {
+                            $.ajax.load(null, '{{ path('game_landing') }}', true);
+                        } );
+            });
+        {% endif %}
+
+        let mark_all_read_btn = document.getElementById('mark_all_read');
+        if(mark_all_read_btn) mark_all_read_btn.addEventListener('click', function(){
+            $.ajax.easySend( '{{ path('town_home_mark_all_read') }}', {},
+                function () {
+                    $.ajax.load(null, '{{ path('town_house', {'tab': 'messages', 'subtab': 'received'}) }}', true);
+                } );
+        });
+
+        let archive_all_btn = document.getElementById('archive_all');
+        if(archive_all_btn) archive_all_btn.addEventListener('click', function(){
+            $.ajax.easySend( '{{ path('town_home_archive_all_pm') }}', {},
+                function () {
+                    $.ajax.load(null, '{{ path('town_house', {'tab': 'messages', 'subtab': 'received'}) }}', true);
+                } );
+        });
     </script>
 {% endblock %}

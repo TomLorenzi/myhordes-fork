@@ -291,6 +291,7 @@ class CitizenHandler
                 $this->removeStatus($citizen, 'thirst1');
                 $this->removeStatus($citizen, 'thirst2');
                 $this->removeStatus($citizen, 'infection');
+                $this->removeStatus($citizen, 'tg_meta_wound');
                 $this->removeStatus($citizen, 'tg_meta_winfect');
                 $citizen->setWalkingDistance(0);
             }
@@ -478,6 +479,9 @@ class CitizenHandler
         $zone = $citizen->getZone();
         $town = $citizen->getTown();
         $has_pro_camper = $citizen->getProfession()->getHeroic() && $this->user_handler->hasSkill($citizen->getUser(), 'procamp');
+        $has_scout_protection = $this->inventory_handler->countSpecificItems(
+                $citizen->getInventory(), $this->entity_manager->getRepository(ItemPrototype::class)->findOneBy(['name' => 'vest_on_#00'])
+            ) > 0;
 
         $config = $this->conf->getTownConfiguration($citizen->getTown());
 
@@ -513,8 +517,8 @@ class CitizenHandler
         // Ruin in zone.
         $camping_values['ruin'] = $zone->getPrototype() ? $zone->getPrototype()->getCampingLevel() : 0;
 
-        // Zombies in zone. Factor -1.4, for CamperPro it is -0.6. (completely false! The penalty is reduced only when you are Scout with the hood enabled)
-        $factor = $has_pro_camper ? -0.6 : -1.4;
+        // Zombies in zone. Factor -1.4, for hidden scouts it is -0.6.
+        $factor = $has_scout_protection ? -0.6 : -1.4;
         $camping_values['zombies'] = $factor * $zone->getZombies();
 
         // Zone improvement level.

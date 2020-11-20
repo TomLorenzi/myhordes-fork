@@ -18,6 +18,7 @@ use App\Entity\Post;
 use App\Entity\RuinZone;
 use App\Entity\Shoutbox;
 use App\Entity\ShoutboxEntry;
+use App\Entity\ShoutboxReadMarker;
 use App\Entity\Thread;
 use App\Entity\ThreadReadMarker;
 use App\Entity\Town;
@@ -432,6 +433,17 @@ class GameFactory
 
         $town_group = $this->entity_manager->getRepository(UserGroup::class)->findOneBy( ['type' => UserGroup::GroupTownInhabitants, 'ref1' => $town->getId()] );
 
+        $cx_clean_shoutbox_state = [];
+        foreach ($followers as $joining_user)
+            if ($sb = $this->user_handler->getShoutbox($joining_user)) {
+                $last_entry = $this->entity_manager->getRepository(ShoutboxEntry::class)->findOneBy(['shoutbox' => $sb], ['timestamp' => 'DESC', 'id' => 'DESC']);
+                if ($last_entry) {
+                    $marker = $this->entity_manager->getRepository(ShoutboxReadMarker::class)->findOneBy(['user' => $joining_user]);
+                    if ($marker && $last_entry === $marker->getEntry()) $cx_clean_shoutbox_state[] = $joining_user;
+                }
+            }
+
+        $entry_cache = [];
         foreach ($followers as $joining_user) {
 
             $home = new CitizenHome();
@@ -470,7 +482,7 @@ class GameFactory
             /** @var Shoutbox|null $shoutbox */
             if ($shoutbox = $this->user_handler->getShoutbox($joining_user)) {
                 $shoutbox->addEntry(
-                    (new ShoutboxEntry())
+                    $entry_cache[$shoutbox->getId()] = (new ShoutboxEntry())
                         ->setType( ShoutboxEntry::SBEntryTypeTown )
                         ->setTimestamp( new \DateTime() )
                         ->setUser1( $joining_user )
@@ -479,6 +491,17 @@ class GameFactory
                 $this->entity_manager->persist($shoutbox);
             }
         }
+
+        foreach ($cx_clean_shoutbox_state as $sb_clean_user)
+            if ($sb = $this->user_handler->getShoutbox($sb_clean_user)) {
+
+                if (isset($entry_cache[$sb->getId()])) {
+                    /** @var ShoutboxReadMarker $marker */
+                    $marker = $this->entity_manager->getRepository(ShoutboxReadMarker::class)->findOneBy(['user' => $sb_clean_user]);
+                    if ($marker)
+                        $this->entity_manager->persist($marker->setEntry( $entry_cache[$sb->getId()] ));
+                }
+            }
 
         return $main_citizen;
     }
