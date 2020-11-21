@@ -274,8 +274,16 @@ class GameFactory
 
         $spawn_ruins = $conf->get(TownConf::CONF_NUM_RUINS, 0);
 
+        $ruin_ap_range = [
+            $this->entity_manager->getRepository(ZonePrototype::class)->findMinRuinDistance(false),
+            $this->entity_manager->getRepository(ZonePrototype::class)->findMaxRuinDistance(false),
+        ];
+
         /** @var Zone[] $zone_list */
-        $zone_list = array_filter($town->getZones()->getValues(), function(Zone $z) {return $z->getX() !== 0 || $z->getY() !== 0;});
+        $zone_list = array_filter($town->getZones()->getValues(), function(Zone $z) use ($ruin_ap_range) {
+            $ap = abs($z->getX()) + abs($z->getY());
+            return $ap !== 0 && $ap >= $ruin_ap_range[0] && $ap <= $ruin_ap_range[1];
+        });
         shuffle($zone_list);
 
         $previous = [];
@@ -286,6 +294,7 @@ class GameFactory
                 $zombies_base = 1 + floor(min(1,sqrt( pow($zone_list[$i]->getX(),2) + pow($zone_list[$i]->getY(),2) )/18) * 18);
 
                 $ruin_types = $this->entity_manager->getRepository(ZonePrototype::class)->findByDistance( abs($zone_list[$i]->getX()) + abs($zone_list[$i]->getY()) );
+                if (empty($ruin_types)) continue;
 
                 $iterations = 0;
                 do {
