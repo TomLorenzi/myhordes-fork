@@ -10465,7 +10465,7 @@
       </notes>
       <segment>
         <source>Isolierte Zombies</source>
-        <target>Isolierte Zombies</target>
+        <target>Einzelner Zombie</target>
       </segment>
     </unit>
     <unit id="Yc0dhV4" name="Die Zombies verstümmeln">
@@ -10474,7 +10474,7 @@
       </notes>
       <segment>
         <source>Die Zombies verstümmeln</source>
-        <target>Die Zombies verstümmeln</target>
+        <target>Zombiemeute</target>
       </segment>
     </unit>
     <unit id="c8SXj_R" name="Horde der Zombies">
@@ -10483,7 +10483,7 @@
       </notes>
       <segment>
         <source>Horde der Zombies</source>
-        <target>Horde der Zombies</target>
+        <target>Zombiehorde</target>
       </segment>
     </unit>
     <unit id="BtRmkSS" name="Mark.">
