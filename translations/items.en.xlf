@@ -7247,5 +7247,14 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
         <target>Open (1 CP)</target>
       </segment>
     </unit>
+    <unit id="dXVgFVI" name="ba2998a">
+      <notes>
+        <note category="german">Es schmeckt wirklich komisch... aber es erfüllt seinen Zweck: Dein Hunger ist gestillt. Glaub aber nicht, dass du dadurch zusätzliche APs erhältst...</note>
+      </notes>
+      <segment>
+        <source>Es schmeckt wirklich komisch... aber es erfüllt seinen Zweck: Dein Hunger ist gestillt. Glaub aber nicht, dass du dadurch zusätzliche APs erhältst...</source>
+        <target>Es schmeckt wirklich komisch... aber es erfüllt seinen Zweck: Dein Hunger ist gestillt. Glaub aber nicht, dass du dadurch zusätzliche APs erhältst...</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

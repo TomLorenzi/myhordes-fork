@@ -2203,5 +2203,14 @@
         <target>Möchtest du diesem Spieler folgen?</target>
       </segment>
     </unit>
+    <unit id="BNXmJ_6" name="8e2de13">
+      <notes>
+        <note category="german">Der Twinoid-Server meldet, dass er dein Profil aufgrund eines internen Fehlers nicht an MyHordes übertragen kann. Dieses Problem tritt häufig auf, wenn du in deinen Letzten Worten oder Stadtkommentaren Sonderzeichen verwendet hast. Bitte prüfe deine Stadtkommentare und entferne Sonderzeichen. Wenn sich Sonderzeichen in deinen Letzten Worten befinden, wende dich auf Twinoid an einen Raben.</note>
+      </notes>
+      <segment>
+        <source>Der Twinoid-Server meldet, dass er dein Profil aufgrund eines internen Fehlers nicht an MyHordes übertragen kann. Dieses Problem tritt häufig auf, wenn du in deinen Letzten Worten oder Stadtkommentaren Sonderzeichen verwendet hast. Bitte prüfe deine Stadtkommentare und entferne Sonderzeichen. Wenn sich Sonderzeichen in deinen Letzten Worten befinden, wende dich auf Twinoid an einen Raben.</source>
+        <target>Der Twinoid-Server meldet, dass er dein Profil aufgrund eines internen Fehlers nicht an MyHordes übertragen kann. Dieses Problem tritt häufig auf, wenn du in deinen Letzten Worten oder Stadtkommentaren Sonderzeichen verwendet hast. Bitte prüfe deine Stadtkommentare und entferne Sonderzeichen. Wenn sich Sonderzeichen in deinen Letzten Worten befinden, wende dich auf Twinoid an einen Raben.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

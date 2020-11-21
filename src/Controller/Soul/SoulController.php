@@ -51,6 +51,7 @@ class SoulController extends AbstractController
     const ErrorTwinImportProfileMismatch     = ErrorHelper::BaseSoulErrors + 4;
     const ErrorTwinImportProfileInUse        = ErrorHelper::BaseSoulErrors + 5;
     const ErrorETwinImportProfileInUse       = ErrorHelper::BaseSoulErrors + 6;
+    const ErrorETwinImportServerCrash        = ErrorHelper::BaseSoulErrors + 7;
 
     const ErrorCoalitionAlreadyMember        = ErrorHelper::BaseSoulErrors + 10;
     const ErrorCoalitionNotSet               = ErrorHelper::BaseSoulErrors + 11;

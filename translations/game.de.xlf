@@ -10461,7 +10461,7 @@
     </unit>
     <unit id="W3jTpt9" name="Isolierte Zombies">
       <notes>
-        <note category="german">Isolierte Zombies</note>
+        <note category="german">Einzelner Zombie</note>
       </notes>
       <segment>
         <source>Isolierte Zombies</source>
@@ -10470,7 +10470,7 @@
     </unit>
     <unit id="Yc0dhV4" name="Die Zombies verstümmeln">
       <notes>
-        <note category="german">Die Zombies verstümmeln</note>
+        <note category="german">Zombiemeute</note>
       </notes>
       <segment>
         <source>Die Zombies verstümmeln</source>
@@ -10479,7 +10479,7 @@
     </unit>
     <unit id="c8SXj_R" name="Horde der Zombies">
       <notes>
-        <note category="german">Horde der Zombies</note>
+        <note category="german">Zombiehorde</note>
       </notes>
       <segment>
         <source>Horde der Zombies</source>
@@ -14363,6 +14363,15 @@
       <segment>
         <source>Die letzten Nachrichten meiner Koalition lesen.</source>
         <target>Die letzten Nachrichten meiner Koalition lesen.</target>
+      </segment>
+    </unit>
+    <unit id="8DkmL.j" name="Dieses Bauprojekt wurde bereits abgeschlossen.">
+      <notes>
+        <note category="german">Dieses Bauprojekt wurde bereits abgeschlossen.</note>
+      </notes>
+      <segment>
+        <source>Dieses Bauprojekt wurde bereits abgeschlossen.</source>
+        <target>Dieses Bauprojekt wurde bereits abgeschlossen.</target>
       </segment>
     </unit>
   </file>

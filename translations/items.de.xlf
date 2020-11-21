@@ -7255,5 +7255,14 @@
         <target>Öffnen (1 BP)</target>
       </segment>
     </unit>
+    <unit id="dXVgFVI" name="ba2998a">
+      <notes>
+        <note category="german">Es schmeckt wirklich komisch... aber es erfüllt seinen Zweck: Dein Hunger ist gestillt. Glaub aber nicht, dass du dadurch zusätzliche APs erhältst...</note>
+      </notes>
+      <segment>
+        <source>Es schmeckt wirklich komisch... aber es erfüllt seinen Zweck: Dein Hunger ist gestillt. Glaub aber nicht, dass du dadurch zusätzliche APs erhältst...</source>
+        <target>Es schmeckt wirklich komisch... aber es erfüllt seinen Zweck: Dein Hunger ist gestillt. Glaub aber nicht, dass du dadurch zusätzliche APs erhältst...</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
