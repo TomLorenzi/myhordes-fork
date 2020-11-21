@@ -505,6 +505,9 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
         if ($severity < Complaint::SeverityNone || $severity > Complaint::SeverityKill)
             return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest );
 
+        $has_gallows = $th->getBuilding( $town, 'r_dhang_#00', true );
+        $has_cage = $th->getBuilding( $town, 'small_fleshcage_#00', true );
+
         $author = $this->getActiveCitizen();
         $town = $author->getTown();
 
@@ -525,6 +528,7 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
             if ($counter->getCount() >= 4)
                 return AjaxResponse::error(self::ErrorComplaintLimitHit );
             $counter->increment();
+            $severity = ($has_gallows || $has_cage) ? Complaint::SeverityKill : Complaint::SeverityBanish;
             $this->entity_manager->persist($counter);
         }
 
@@ -564,7 +568,7 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
             return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
         }
 
-        if ($this->citizen_handler->updateBanishment( $culprit, $th->getBuilding( $town, 'r_dhang_#00', true ), $th->getBuilding( $town, 'small_fleshcage_#00', true ) ))
+        if ($this->citizen_handler->updateBanishment( $culprit, $has_gallows, $has_cage ))
             try {
                 $em->persist($town);
                 $em->persist($culprit);

@@ -197,7 +197,7 @@ class CitizenHandler
             if($citizen->getBanished() && $gallows)
                 $complaintNeeded = 6;
 
-            if ($this->entity_manager->getRepository(Complaint::class)->countComplaintsFor($citizen/*, Complaint::SeverityKill*/) >= $complaintNeeded)
+            if ($this->entity_manager->getRepository(Complaint::class)->countComplaintsFor($citizen, Complaint::SeverityKill) >= $complaintNeeded)
                 $action = $kill = true;
         }
 
