@@ -395,9 +395,9 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
                 'increase_lab_counter'     => [ 'counter' => ActionCounter::ActionTypeHomeLab ],
                 'increase_kitchen_counter' => [ 'counter' => ActionCounter::ActionTypeHomeKitchen ],
 
-                'become_ghoul'    => [ 'role' => 'ghoul', 'enabled' => true  ],
-                'become_ghoul_5'  => [ 'role' => 'ghoul', 'enabled' => true, 'hunger' => 5  ],
-                'become_ghoul_25' => [ 'role' => 'ghoul', 'enabled' => true, 'hunger' => 25 ],
+                'become_ghoul'    => [ 'role' => 'ghoul', 'enabled' => true, 'from' => 'tg_meta_wound', 'to' => null  ],
+                'become_ghoul_5'  => [ 'role' => 'ghoul', 'enabled' => true, 'hunger' => 5, 'from' => 'tg_meta_wound', 'to' => null  ],
+                'become_ghoul_25' => [ 'role' => 'ghoul', 'enabled' => true, 'hunger' => 25, 'from' => 'tg_meta_wound', 'to' => null ],
                 'heal_ghoul'   => [ 'role' => 'ghoul', 'enabled' => false, 'hunger' => -9999999 ],
                 'satisfy_ghoul_50' => [ 'hunger' => -50 ],
                 'satisfy_ghoul_30' => [ 'hunger' => -30 ],
@@ -520,7 +520,7 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             'watercan1_g'    => [ 'label' => 'Trinken', 'cover' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'role_ghoul', 'is_not_wounded', 'drink_cross' ], 'result' => [ 'inflict_wound', 'produce_watercan0' ] ],
 
             'alcohol'    => [ 'label' => 'Trinken', 'cover' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'not_drunk', 'not_hungover' ], 'result' => [ 'just_ap6', 'drunk', 'consume_item' ] ],
-            'alcohol_dx' => [ 'label' => 'Trinken', 'cover' => true, 'allow_when_terrorized' => true,  'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'not_drunk', 'not_hungover' ], 'result' => [ 'just_ap6', 'drunk', 'unterrorize', 'consume_item' ] ],
+            'alcohol_dx' => [ 'label' => 'Trinken', 'cover' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ ], 'result' => [ 'just_ap6', 'drunk', 'consume_item' ] ],
 
             'coffee' => [ 'label' => 'Trinken', 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ ], 'result' => [ 'plus_4ap', 'consume_item' ] ],
 
