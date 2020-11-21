@@ -173,7 +173,8 @@ class SoulController extends AbstractController
         if (!$parser->has_all(['name'], true))
             return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
         $searchName = $parser->get('name');
-        $users = mb_strlen($searchName) >= 3 ? array_filter($em->getRepository(User::class)->findByNameContains($searchName), fn(User $u) => $u !== $user) : [];
+        $users = mb_strlen($searchName) >= 3 ? array_filter($em->getRepository(User::class)->findByNameContains($searchName), fn(User $u) =>
+            ($u !== $user) && ($u->getEmail() !== 'crow') && (mb_substr($u->getEmail(), -10) !== '@localhost') && ($u->getUsername() !== $u->getEmail())) : [];
 
         return $this->render( 'ajax/soul/users_list.html.twig', [ 'users' => in_array($url, ['soul_visit','soul_invite_coalition']) ? $users : [], 'route' => $url ]);
     }
