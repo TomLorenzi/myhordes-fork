@@ -395,9 +395,9 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
                 'increase_lab_counter'     => [ 'counter' => ActionCounter::ActionTypeHomeLab ],
                 'increase_kitchen_counter' => [ 'counter' => ActionCounter::ActionTypeHomeKitchen ],
 
-                'become_ghoul'    => [ 'role' => 'ghoul', 'enabled' => true, 'from' => 'tg_meta_wound', 'to' => null  ],
-                'become_ghoul_5'  => [ 'role' => 'ghoul', 'enabled' => true, 'hunger' => 5, 'from' => 'tg_meta_wound', 'to' => null  ],
-                'become_ghoul_25' => [ 'role' => 'ghoul', 'enabled' => true, 'hunger' => 25, 'from' => 'tg_meta_wound', 'to' => null ],
+                'become_ghoul'    => [ 'role' => 'ghoul', 'enabled' => true  ],
+                'become_ghoul_5'  => [ 'role' => 'ghoul', 'enabled' => true, 'hunger' => 5  ],
+                'become_ghoul_25' => [ 'role' => 'ghoul', 'enabled' => true, 'hunger' => 25 ],
                 'heal_ghoul'   => [ 'role' => 'ghoul', 'enabled' => false, 'hunger' => -9999999 ],
                 'satisfy_ghoul_50' => [ 'hunger' => -50 ],
                 'satisfy_ghoul_30' => [ 'hunger' => -30 ],
