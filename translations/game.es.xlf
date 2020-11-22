@@ -1792,7 +1792,7 @@
       </notes>
       <segment>
         <source>Am Boden</source>
-        <target>Am Boden</target>
+        <target>Al suelo</target>
       </segment>
     </unit>
     <unit id="uBY6LwO" name="Temporäre Zonenkontrolle">
@@ -1882,7 +1882,7 @@
       </notes>
       <segment>
         <source>Diese Zone</source>
-        <target>Diese Zone</target>
+        <target>Sector</target>
       </segment>
     </unit>
     <unit id="X_hg9YY" name="Es muss noch aufgeräumt werden">
@@ -7795,7 +7795,7 @@
       </notes>
       <segment>
         <source>Zone reinigen</source>
-        <target>Zone reinigen</target>
+        <target>Purifica la zona</target>
       </segment>
     </unit>
     <unit id="Ci7U3L." name="Aktualisierung">
@@ -7804,7 +7804,7 @@
       </notes>
       <segment>
         <source>Aktualisierung</source>
-        <target>Aktualisierung</target>
+        <target>Actualizar</target>
       </segment>
     </unit>
     <unit id="i5FChQj" name="Deine Eskorte">
@@ -10342,7 +10342,7 @@
       </notes>
       <segment>
         <source>Die letzte Zeitung lesen</source>
-        <target>Die letzte Zeitung lesen</target>
+        <target>Leer la última Boletín</target>
       </segment>
     </unit>
     <unit id="v432R4L" name="Du hast bisher:">
@@ -10351,7 +10351,7 @@
       </notes>
       <segment>
         <source>Du hast bisher:</source>
-        <target>Du hast bisher:</target>
+        <target>Tú has acumulado:</target>
       </segment>
     </unit>
     <unit id="4dxmR7l" name="%days% Tage">
@@ -10369,7 +10369,7 @@
       </notes>
       <segment>
         <source>im Heldenmodus gespielt</source>
-        <target>im Heldenmodus gespielt</target>
+        <target>de Modo Héroe</target>
       </segment>
     </unit>
     <unit id="pV4nX2l" name="Fähigkeit">
@@ -10570,7 +10570,7 @@
       </notes>
       <segment>
         <source>Zum Forum</source>
-        <target>Hacia el foro</target>
+        <target>Hacia el Foro</target>
       </segment>
     </unit>
     <unit id="2fBmxk8" name="Du hast dich soeben in einen Ghul verandelt!">
@@ -10846,7 +10846,7 @@
       </notes>
       <segment>
         <source>Komm zurück zu meiner Seele</source>
-        <target>Komm zurück zu meiner Seele</target>
+        <target>Vuelve a tu alma</target>
       </segment>
     </unit>
     <unit id="wn0c1Kw" name="Die Stadt wird erst starten, wenn sie &lt;strong&gt;%population% Bürger hat&lt;/strong&gt;.">
@@ -10957,7 +10957,7 @@
       </notes>
       <segment>
         <source>Du bist</source>
-        <target>Du bist</target>
+        <target>Eres</target>
       </segment>
     </unit>
     <unit id="swizrYC" name="Erschöpft">
@@ -11017,7 +11017,7 @@
       </notes>
       <segment>
         <source>Stadtrat</source>
-        <target>Stadtrat</target>
+        <target>Ayuntamiento de la ciudad</target>
       </segment>
     </unit>
     <unit id="EEkc8Fs" name="Anzahl der Tage, die du als Schamane gespielt hast.">

@@ -3526,7 +3526,7 @@
       </notes>
       <segment>
         <source>Wasser suchen</source>
-        <target>Wasser suchen</target>
+        <target>Recoger agua</target>
       </segment>
     </unit>
     <unit id="JAlTzuc" name="Essen suchen">
@@ -3535,7 +3535,7 @@
       </notes>
       <segment>
         <source>Essen suchen</source>
-        <target>Essen suchen</target>
+        <target>Buscando comida</target>
       </segment>
     </unit>
     <unit id="TmH05e3" name="Tarnen">
@@ -6362,7 +6362,7 @@
       </notes>
       <segment>
         <source>Aufbauen</source>
-        <target>Aufbauen</target>
+        <target>Instalar</target>
       </segment>
     </unit>
     <unit id="BNi5WCM" name="Du hast das hiesige Versteck erheblich verbessert.">
@@ -6371,7 +6371,7 @@
       </notes>
       <segment>
         <source>Du hast das hiesige Versteck erheblich verbessert.</source>
-        <target>Du hast das hiesige Versteck erheblich verbessert.</target>
+        <target>Mejoraste significativamente el escondite.</target>
       </segment>
     </unit>
     <unit id="8f3LUQZ" name="Schlafplatz verbessern (schwacher permanenter Bonus, 1AP)">
@@ -6380,7 +6380,7 @@
       </notes>
       <segment>
         <source>Schlafplatz verbessern (schwacher permanenter Bonus, 1AP)</source>
-        <target>Schlafplatz verbessern (schwacher permanenter Bonus, 1AP)</target>
+        <target>Mejora un poco el campamento (bonificación permanente baja, 1PA)</target>
       </segment>
     </unit>
     <unit id="D632ww5" name="Du hast das hiesige Versteck verbessert.">
@@ -6389,7 +6389,7 @@
       </notes>
       <segment>
         <source>Du hast das hiesige Versteck verbessert.</source>
-        <target>Du hast das hiesige Versteck verbessert.</target>
+        <target>Pasaste muchos minutos preparando un escondite con todo lo que podrías querer tener ...</target>
       </segment>
     </unit>
     <unit id="I4OeVwm" name="Sich verstecken und die Nacht hier schlafen!">
@@ -6398,7 +6398,7 @@
       </notes>
       <segment>
         <source>Sich verstecken und die Nacht hier schlafen!</source>
-        <target>Sich verstecken und die Nacht hier schlafen!</target>
+        <target>¡Escóndete para pasar la noche aquí!</target>
       </segment>
     </unit>
     <unit id="VsRU9Va" name="Du hast Dich notdürftig versteckt.">
@@ -6407,7 +6407,7 @@
       </notes>
       <segment>
         <source>Du hast Dich notdürftig versteckt.</source>
-        <target>Du hast Dich notdürftig versteckt.</target>
+        <target>¡Actualmente estás escondido en el área!</target>
       </segment>
     </unit>
     <unit id="XqeL5yu" name="&quot;Grab&quot; schaufeln (mittelmäßiger vorübergehender Bonus, 1AP)">
@@ -6416,7 +6416,7 @@
       </notes>
       <segment>
         <source>"Grab" schaufeln (mittelmäßiger vorübergehender Bonus, 1AP)</source>
-        <target>"Grab" schaufeln (mittelmäßiger vorübergehender Bonus, 1AP)</target>
+        <target>Cava una "tumba" (bonificación temporal media, 1PA)</target>
       </segment>
     </unit>
     <unit id="P15D.zw" name="Du hast Dir Dein eigenes Grab geschaufelt. Oh welche Ironie!">
@@ -6425,7 +6425,7 @@
       </notes>
       <segment>
         <source>Du hast Dir Dein eigenes Grab geschaufelt. Oh welche Ironie!</source>
-        <target>Du hast Dir Dein eigenes Grab geschaufelt. Oh welche Ironie!</target>
+        <target>Cavaste tu propia tumba. ¡Oh, qué ironía!</target>
       </segment>
     </unit>
     <unit id="nv.FYHK" name="Versteck verlassen">
@@ -6434,7 +6434,7 @@
       </notes>
       <segment>
         <source>Versteck verlassen</source>
-        <target>Versteck verlassen</target>
+        <target>Deja tu escondite/target>
       </segment>
     </unit>
     <unit id="DLyYjGK" name="Du hast Dein Versteck verlassen.">
@@ -6443,7 +6443,7 @@
       </notes>
       <segment>
         <source>Du hast Dein Versteck verlassen.</source>
-        <target>Du hast Dein Versteck verlassen.</target>
+        <target>Dejaste tu escondite.</target>
       </segment>
     </unit>
     <unit id="vD_lf43" name="Grab verlassen">
@@ -6452,7 +6452,7 @@
       </notes>
       <segment>
         <source>Grab verlassen</source>
-        <target>Grab verlassen</target>
+        <target>Deja tu escondite</target>
       </segment>
     </unit>
     <unit id="fz7VoYN" name="Du hast Dein Grab verlassen. Die schöne Arbeit umsonst!">
@@ -6461,7 +6461,7 @@
       </notes>
       <segment>
         <source>Du hast Dein Grab verlassen. Die schöne Arbeit umsonst!</source>
-        <target>Du hast Dein Grab verlassen. Die schöne Arbeit umsonst!</target>
+        <target>Dejaste la tumba que cavaste. ¡Qué trabajo desperdiciado!</target>
       </segment>
     </unit>
     <unit id="A7SKfkS" name="Wandeln">
@@ -6470,7 +6470,7 @@
       </notes>
       <segment>
         <source>Wandeln</source>
-        <target>Wandeln</target>
+        <target>Transformar</target>
       </segment>
     </unit>
     <unit id="9fNbzu." name="Zerlegen">
@@ -7106,7 +7106,7 @@
       </notes>
       <segment>
         <source>Benutzen</source>
-        <target>Benutzen</target>
+        <target>Usar</target>
       </segment>
     </unit>
     <unit id="Nsd1Ael" name="6fa9fc3">
