@@ -1024,7 +1024,7 @@
       </notes>
       <segment>
         <source>Ein Mitglied deiner Koalition kann dieser Stadt nicht beitreten.</source>
-        <target>Ein Mitglied deiner Koalition kann dieser Stadt nicht beitreten.</target>
+        <target>A member of your coalition cannot join this town.</target>
       </segment>
     </unit>
     <unit id="jLPuWWW" name="In dieser Stadt ist kein Platz mehr für dich und deine Koalition.">
@@ -1033,7 +1033,7 @@
       </notes>
       <segment>
         <source>In dieser Stadt ist kein Platz mehr für dich und deine Koalition.</source>
-        <target>In dieser Stadt ist kein Platz mehr für dich und deine Koalition.</target>
+        <target>There is no more room for you and your coalition in this town.</target>
       </segment>
     </unit>
     <unit id="hMJko2L" name="6057265">
@@ -1042,7 +1042,7 @@
       </notes>
       <segment>
         <source>Achtung: Du stehst deiner Koalition NICHT ZUR VERFÜGUNG! Das bedeutet, dass du diese Partie allein spielen wirst.</source>
-        <target>Achtung: Du stehst deiner Koalition NICHT ZUR VERFÜGUNG! Das bedeutet, dass du diese Partie allein spielen wirst.</target>
+        <target>Warning: You are NOT AVAILABLE to your coalition! That means you will play this game alone.</target>
       </segment>
     </unit>
     <unit id="cglpSDE" name="6b90743">
@@ -1051,7 +1051,7 @@
       </notes>
       <segment>
         <source>Achtung: Im Moment steht kein Mitglied deiner Koalition zur Verfügung, um dir in eine Stadt zu folgen.</source>
-        <target>Achtung: Im Moment steht kein Mitglied deiner Koalition zur Verfügung, um dir in eine Stadt zu folgen.</target>
+        <target>Warning: Your coalition is not showing as "available": if you join a town now, you will do so alone!</target>
       </segment>
     </unit>
     <unit id="UtrdfFQ" name="21c3104">
@@ -1060,7 +1060,7 @@
       </notes>
       <segment>
         <source>Achtung: Im Moment stehen nicht alle Mitglieder deiner Koalition zur Verfügung, um dir in eine Stadt zu folgen.</source>
-        <target>Achtung: Im Moment stehen nicht alle Mitglieder deiner Koalition zur Verfügung, um dir in eine Stadt zu folgen.</target>
+        <target>Warning: At the moment not all members of your coalition are available to follow you into a town.</target>
       </segment>
     </unit>
     <unit id="EwLUGr9" name="8b6f59e">
@@ -1069,7 +1069,7 @@
       </notes>
       <segment>
         <source>Wenn du eine Stadt betrittst, werden folgende Mitglieder deiner Koalition dir folgen:</source>
-        <target>Wenn du eine Stadt betrittst, werden folgende Mitglieder deiner Koalition dir folgen:</target>
+        <target>When you enter a town, the following members of your coalition will follow you:</target>
       </segment>
     </unit>
   </file>
