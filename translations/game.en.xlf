@@ -8225,7 +8225,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Keine Todesopfer von letzter Nacht zu berichten. Man könnte sogar sagen, dass die Gemeinschaft (endlich) herausgefunden hat, wie sie sich organisieren muss, um nicht ausgelöscht zu werden.</source>
-        <target>Keine Todesopfer von letzter Nacht zu berichten. Man könnte sogar sagen, dass die Gemeinschaft (endlich) herausgefunden hat, wie sie sich organisieren muss, um nicht ausgelöscht zu werden.</target>
+        <target>No deaths to report from last night. It could even be said that the community has (finally) worked out how to organise itself to avoid extinction.</target>
       </segment>
     </unit>
     <unit id="xxw4YDd" name="e89d97d">
@@ -10651,7 +10651,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
     </unit>
     <unit id="W3jTpt9" name="Isolierte Zombies">
       <notes>
-        <note category="german">Isolierte Zombies</note>
+        <note category="german">Einzelner Zombie</note>
       </notes>
       <segment>
         <source>Isolierte Zombies</source>
@@ -10660,7 +10660,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
     </unit>
     <unit id="Yc0dhV4" name="Die Zombies verstümmeln">
       <notes>
-        <note category="german">Die Zombies verstümmeln</note>
+        <note category="german">Zombiemeute</note>
       </notes>
       <segment>
         <source>Die Zombies verstümmeln</source>
@@ -10669,7 +10669,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
     </unit>
     <unit id="c8SXj_R" name="Horde der Zombies">
       <notes>
-        <note category="german">Horde der Zombies</note>
+        <note category="german">Zombiehorde</note>
       </notes>
       <segment>
         <source>Horde der Zombies</source>
@@ -14348,6 +14348,15 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       <segment>
         <source>Die letzten Nachrichten meiner Koalition lesen.</source>
         <target>Die letzten Nachrichten meiner Koalition lesen.</target>
+      </segment>
+    </unit>
+    <unit id="8DkmL.j" name="Dieses Bauprojekt wurde bereits abgeschlossen.">
+      <notes>
+        <note category="german">Dieses Bauprojekt wurde bereits abgeschlossen.</note>
+      </notes>
+      <segment>
+        <source>Dieses Bauprojekt wurde bereits abgeschlossen.</source>
+        <target>Dieses Bauprojekt wurde bereits abgeschlossen.</target>
       </segment>
     </unit>
   </file>

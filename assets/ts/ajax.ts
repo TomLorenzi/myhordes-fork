@@ -205,7 +205,11 @@ export default class Ajax {
             if (this.status >= 400) {
 
                 switch (this.status) {
-                    case 403: window.location.href = ajax_instance.base; break;
+                    case 403:
+                        console.log(target === ajax_instance.defaultNode,url);
+                        if (target === ajax_instance.defaultNode)
+                            $.client.config.navigationCache.set(url);
+                        window.location.href = ajax_instance.base; break;
                     case 500: break;
                     default:
                         alert('Error loading page (' + this.status + ')');

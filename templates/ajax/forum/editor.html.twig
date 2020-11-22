@@ -69,6 +69,7 @@
                     <div x-forum-action="edit" x-text-wrap-node="spoiler" class="forum-button"><i class="fa fa-eye-slash"></i><span class="forum-button-tooltip">{{ 'Spoiler'|trans({},'global') }}</span></div>
                     <div x-forum-action="edit" x-text-wrap-node="aparte" class="forum-button"><i class="fas fa-compress-alt"></i><span class="forum-button-tooltip">{{ 'Vertraulich'|trans({},'global') }}</span></div>
                     <div x-forum-action="edit" x-text-wrap-node="glory" class="forum-button"><i class="fa fa-crown"></i><span class="forum-button-tooltip">{{ 'Ruhm'|trans({},'global') }}</span></div>
+                    <div x-forum-action="edit" x-text-wrap-node="code" class="forum-button"><i class="fa fa-code"></i><span class="forum-button-tooltip">{{ 'Code'|trans({},'global') }}</span></div>
                     <div x-forum-action="edit" x-text-insert-node="hr" class="forum-button"><i class="fa fa-grip-lines"></i><span class="forum-button-tooltip">{{ 'Linie'|trans({},'global') }}</span></div>
                     <div x-forum-action="edit" x-text-wrap-node="rp" class="forum-button"><i class="fas fa-scroll"></i><span class="forum-button-tooltip">{{ 'Rollenspiel'|trans({},'global') }}</span></div>
                 </div>
@@ -493,10 +494,9 @@
                         {% endif %}
                     {% endif %}
 
-                    $.client.config.editorCache.set('');
-
                     $.ajax.easySend( target_url, target_payload,
                         function (data) {
+                            $.client.config.editorCache.set('');
                             $.ajax.load( null, data.url, true );
                         }
                     );

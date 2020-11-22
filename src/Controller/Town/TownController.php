@@ -46,6 +46,7 @@ use Symfony\Contracts\Translation\TranslatorInterface;
 
 /**
  * @Route("/",condition="request.isXmlHttpRequest()")
+ * @method User getUser()
  */
 class TownController extends InventoryAwareController implements TownInterfaceController
 {
@@ -497,12 +498,15 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
         if ($this->getActiveCitizen()->getBanished())
             return AjaxResponse::error(ErrorHelper::ErrorActionNotAvailable );
 
-        if ($this->getActiveCitizen()->getUser()->getSoulPoints() < $this->conf->getGlobalConf()->get(MyHordesConf::CONF_ANTI_GRIEF_SP, 20))
+        if ($this->getActiveCitizen()->getUser()->getAllSoulPoints() < $this->conf->getGlobalConf()->get(MyHordesConf::CONF_ANTI_GRIEF_SP, 20))
             return AjaxResponse::error(ErrorHelper::ErrorActionNotAvailableSP );
 
         $severity = (int)$parser->get('severity', -1);
         if ($severity < Complaint::SeverityNone || $severity > Complaint::SeverityKill)
             return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest );
+
+        $has_gallows = $th->getBuilding( $town, 'r_dhang_#00', true );
+        $has_cage = $th->getBuilding( $town, 'small_fleshcage_#00', true );
 
         $author = $this->getActiveCitizen();
         $town = $author->getTown();
@@ -524,6 +528,7 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
             if ($counter->getCount() >= 4)
                 return AjaxResponse::error(self::ErrorComplaintLimitHit );
             $counter->increment();
+            $severity = ($has_gallows || $has_cage) ? Complaint::SeverityKill : Complaint::SeverityBanish;
             $this->entity_manager->persist($counter);
         }
 
@@ -563,7 +568,7 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
             return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
         }
 
-        if ($this->citizen_handler->updateBanishment( $culprit, $th->getBuilding( $town, 'r_dhang_#00', true ), $th->getBuilding( $town, 'small_fleshcage_#00', true ) ))
+        if ($this->citizen_handler->updateBanishment( $culprit, $has_gallows, $has_cage ))
             try {
                 $em->persist($town);
                 $em->persist($culprit);
@@ -968,7 +973,7 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
             $citizens[] = [
                 'infos' => $citizen,
                 'omniscienceLevel' => $clairvoyanceLevel,
-                'soulPoint' => $citizen->getUser()->getSoulPoints()
+                'soulPoint' => $citizen->getUser()->getAllSoulPoints()
             ];
         }
 
@@ -1500,7 +1505,7 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
         // Get town
         $town = $this->getActiveCitizen()->getTown();
 
-        $new_words_of_heroes = $parser->get('content');
+        $new_words_of_heroes = $parser->get('content', '');
 
         $town->setWordsOfHeroes($new_words_of_heroes);
 

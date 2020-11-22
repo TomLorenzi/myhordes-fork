@@ -9,6 +9,7 @@ class Config {
     public notificationAsPopup: conf<boolean>;
     public twinoidImport:       conf<[number,string,string]>;
     public editorCache:         conf<string>;
+    public navigationCache:     conf<string>;
 
     constructor(c:Client) {
         this.client = c;
@@ -16,6 +17,7 @@ class Config {
         this.notificationAsPopup = this.makeConf<boolean>('notifAsPopup', false);
         this.twinoidImport       = this.makeConf<[number,string,string]>('twinImport', [0,'',''], true);
         this.editorCache         = this.makeConf<string>('editorCache', '', true);
+        this.navigationCache     = this.makeConf<string>('navigationCache', null, true);
     }
 
     public get<T>(s:string): conf<T> {

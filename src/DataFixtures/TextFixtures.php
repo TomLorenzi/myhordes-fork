@@ -997,7 +997,7 @@ class TextFixtures extends Fixture
             "background" => "carton",
             "design" => "typed"
         ],
-        "news2" => [
+        "news2_fr" => [
             "title" => "Article - Meurtre sauvage",
             "author" => "anonyme",
             "content" => [
@@ -5540,8 +5540,8 @@ class TextFixtures extends Fixture
             "design" => "written"
         ],
         "sprfen" => [
-            "title" => "Alfred's Epitaph",
-            "author" => "Planeshift",
+            "title" => "Advert",
+            "author" => "Bugzilla",
             "content" => [
                 '<h1>Sparky\'s electric fences!</h1>
                 <p>The best solution for protecting your town against unwanted visitors or keeping your private stock of food and water rations out of reach of your neighbours.</p>
@@ -5614,6 +5614,19 @@ class TextFixtures extends Fixture
             "lang" => "en",
             "background" => "printer",
             "design" => "typed"
+        ],
+        "news2_en" => [
+            "title" => "Article - Vicious Killing",
+            "author" => null,
+            "content" => [
+                '<small>(Continued from page 1)</small>
+				<p>[...] the couple found dead in their kitchen bore injuries resembling "bite marks" according to a source close to the authorities.</p>
+				<p>This tragedy takes the number if incidents in the region to 9, with 16 people found dead in similar circumstances. The serial killer theory remains the most popular, but certain people are spreading a "wild beast attack" theory : in fact, primary tests have revealed the presence of modified human DNA, a fact which has yet to be confirmed by the authorities who have previously refuted these claims...</p>
+				<h1>Deepnight stole my game!</h1><p>Zuckerberg claims to own Die2Nite (and players\' souls)...</p>'
+            ],
+            "lang" => "en",
+            "background" => "news",
+            "design" => "news"
         ],
         "docgsw" => [
             "title" => "Based on a true story",
@@ -5962,6 +5975,22 @@ class TextFixtures extends Fixture
                 <p>and return it for the attention of Big Sadie, Cell Block D, Il Clinki Prisoni, Italia. </p>
                 <p>Yours Bung-requiringly,</p>
                 <p>S.B</p>'
+            ],
+            "lang" => "en",
+            "background" => "letter",
+            "design" => "typed"
+        ],
+        "slber2" => [
+            "title" => "Diplomatic Retraction",
+            "author" => "Berlusconi, S.",
+            "content" => [
+                '<p><strong>Dear <strike>Sir or</strike> Madam</strong></p>
+				<p>It is with regret that we have had to cancel the 39th parliamentary Bunga Bunga party</p>
+				<p>This is due to (not entirely) unforeseen circumstances.</p>
+				<p>Please check the box provided if you have experience in cake baking and file smuggling</p>
+				<p>and return it for the attention of Big Sadie, Cell Block D, Il Clinki Prisoni, Italia. </p>
+				<p>Yours Bung-requiringly,</p>
+				<p>S.B</p>'
             ],
             "lang" => "en",
             "background" => "letter",

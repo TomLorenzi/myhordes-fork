@@ -1804,7 +1804,7 @@
       </notes>
       <segment>
         <source>%name%'s Koalition</source>
-        <target>%name%'s Koalition</target>
+        <target>Alianza de %name%</target>
       </segment>
     </unit>
     <unit id="j8VraNU" name="Herzlichen Glückwunsch, du bist der Koalition soeben beigetreten!">
@@ -1813,7 +1813,7 @@
       </notes>
       <segment>
         <source>Herzlichen Glückwunsch, du bist der Koalition soeben beigetreten!</source>
-        <target>Herzlichen Glückwunsch, du bist der Koalition soeben beigetreten!</target>
+        <target>¡Felicitaciones, se ha unido a la alianza!</target>
       </segment>
     </unit>
     <unit id="MNqhTYg" name="Es tut uns Leid, aber dieser Spieler gehört bereits einer Koalition an.">
@@ -1822,7 +1822,7 @@
       </notes>
       <segment>
         <source>Es tut uns Leid, aber dieser Spieler gehört bereits einer Koalition an.</source>
-        <target>Es tut uns Leid, aber dieser Spieler gehört bereits einer Koalition an.</target>
+        <target>Lo siento, este jugador ya es parte de una alianza.</target>
       </segment>
     </unit>
     <unit id="3gqWAoL" name="Hierfür musst du einer Koalition angehören.">
@@ -1831,7 +1831,7 @@
       </notes>
       <segment>
         <source>Hierfür musst du einer Koalition angehören.</source>
-        <target>Hierfür musst du einer Koalition angehören.</target>
+        <target>Para ello, debes pertenecer a una coalición.</target>
       </segment>
     </unit>
     <unit id="57GeJrY" name="Du bist bereits Mitglied einer Koalition.">
@@ -1840,7 +1840,7 @@
       </notes>
       <segment>
         <source>Du bist bereits Mitglied einer Koalition.</source>
-        <target>Du bist bereits Mitglied einer Koalition.</target>
+        <target>Tu eres miembro de una coalición.</target>
       </segment>
     </unit>
     <unit id="yQfn1EC" name="Deine Koalition ist bereits voll.">
@@ -1849,7 +1849,7 @@
       </notes>
       <segment>
         <source>Deine Koalition ist bereits voll.</source>
-        <target>Deine Koalition ist bereits voll.</target>
+        <target>Tu coalición ya está llena.</target>
       </segment>
     </unit>
     <unit id="QuFqW4z" name="Spielhilfe: Kleine Koalitionen">
@@ -1858,7 +1858,7 @@
       </notes>
       <segment>
         <source>Spielhilfe: Kleine Koalitionen</source>
-        <target>Spielhilfe: Kleine Koalitionen</target>
+        <target>Guía: Alianzas</target>
       </segment>
     </unit>
     <unit id="GO1ZJcp" name="3e3b0ae">
@@ -1867,7 +1867,7 @@
       </notes>
       <segment>
         <source>Du möchtest schon seit langem &lt;strong&gt;mit deinen Freunden zusammen sterben&lt;/strong&gt;? Du möchtest die gleichen schönen und &lt;strong&gt;entsetzlichen&lt;/strong&gt; Momente mit ihnen erleben? Dann sind die &lt;strong&gt;Kleinen Koalitionen&lt;/strong&gt; genau das richtige für dich! Es handelt sich um kleine Mannschaften von &lt;strong&gt;5&lt;/strong&gt; Bürgern, die gemeinsam die Welt der Verdammten entdecken möchten.</source>
-        <target><![CDATA[Du möchtest schon seit langem <strong>mit deinen Freunden zusammen sterben</strong>? Du möchtest die gleichen schönen und <strong>entsetzlichen</strong> Momente mit ihnen erleben? Dann sind die <strong>Kleinen Koalitionen</strong> genau das richtige für dich! Es handelt sich um kleine Mannschaften von <strong>5</strong> Bürgern, die gemeinsam die Welt der Verdammten entdecken möchten.]]></target>
+        <target><![CDATA[<strong>¿Has encontrado el equipo ideal?</strong>¿Deseas compartir el mismo pueblo con <strong>habitantes de confianza</strong>? ¡Entonces, las <strong>Alianzas</strong> son ideales para ti! Son 'equipos' de <strong>5</strong> habitantes que exploran juntos el mundo de Zombinoia.]]></target>
       </segment>
     </unit>
     <unit id="_SpidlG" name="cb2469f">
@@ -1876,7 +1876,7 @@
       </notes>
       <segment>
         <source>Das Prinzip ist ganz einfach: Wenn ihr in einer Koalition spielt, &lt;strong&gt;zieht der Erste, der eine Partie anfängt, alle verfügbaren Koalitionsmitglieder mit sich ins Spiel.&lt;/strong&gt;</source>
-        <target><![CDATA[Das Prinzip ist ganz einfach: Wenn ihr in einer Koalition spielt, <strong>zieht der Erste, der eine Partie anfängt, alle verfügbaren Koalitionsmitglieder mit sich ins Spiel.</strong>]]></target>
+        <target><![CDATA[El principio es muy simple: Cuando formas parte de una alianza, <strong>el primero que se une a una partida lleva consigo a todos los miembros disponibles junto con él.</strong>]]></target>
       </segment>
     </unit>
     <unit id="vxIJV3j" name="Du möchtest deine eigene Koalition erstellen?">
@@ -1885,7 +1885,7 @@
       </notes>
       <segment>
         <source>Du möchtest deine eigene Koalition erstellen?</source>
-        <target>Du möchtest deine eigene Koalition erstellen?</target>
+        <target>¿Crear tu propia alianza?</target>
       </segment>
     </unit>
     <unit id="h_4dLhS" name="Meine Koalition erstellen">
@@ -1894,7 +1894,7 @@
       </notes>
       <segment>
         <source>Meine Koalition erstellen</source>
-        <target>Meine Koalition erstellen</target>
+        <target>¡Crea tu alianza!</target>
       </segment>
     </unit>
     <unit id="okBUp.C" name="Einer existierenden Koalition beitreten">
@@ -1903,7 +1903,7 @@
       </notes>
       <segment>
         <source>Einer existierenden Koalition beitreten</source>
-        <target>Einer existierenden Koalition beitreten</target>
+        <target>>Unirse a una alianza existente</target>
       </segment>
     </unit>
     <unit id="S6ckGt2" name="Es hat dich bisher noch niemand eingeladen.">
@@ -1912,7 +1912,7 @@
       </notes>
       <segment>
         <source>Es hat dich bisher noch niemand eingeladen.</source>
-        <target>Es hat dich bisher noch niemand eingeladen.</target>
+        <target>De momento nadie te ha enviado una invitación.</target>
       </segment>
     </unit>
     <unit id="3NHVIj9" name="Name">
@@ -1921,7 +1921,7 @@
       </notes>
       <segment>
         <source>Name</source>
-        <target>Name</target>
+        <target>Apellido</target>
       </segment>
     </unit>
     <unit id="Vlb5Lbe" name="Aktionen">
@@ -1930,7 +1930,7 @@
       </notes>
       <segment>
         <source>Aktionen</source>
-        <target>Aktionen</target>
+        <target>Acción</target>
       </segment>
     </unit>
     <unit id="ze.SRGE" name="Mitmachen!">
@@ -1939,7 +1939,7 @@
       </notes>
       <segment>
         <source>Mitmachen!</source>
-        <target>Mitmachen!</target>
+        <target>¡Vuelve!</target>
       </segment>
     </unit>
     <unit id="RRAKPkm" name="Die Einladung ablehnen.">
@@ -1948,7 +1948,7 @@
       </notes>
       <segment>
         <source>Die Einladung ablehnen.</source>
-        <target>Die Einladung ablehnen.</target>
+        <target>Rechaza la invitación.</target>
       </segment>
     </unit>
     <unit id="3hmiaVs" name="Shoutbox der Koalition">
@@ -1957,7 +1957,7 @@
       </notes>
       <segment>
         <source>Shoutbox der Koalition</source>
-        <target>Shoutbox der Koalition</target>
+        <target>Muro de la alianza</target>
       </segment>
     </unit>
     <unit id="EdbufZv" name="Verfügbare Mitglieder">
@@ -1966,7 +1966,7 @@
       </notes>
       <segment>
         <source>Verfügbare Mitglieder</source>
-        <target>Verfügbare Mitglieder</target>
+        <target>Miembros disponibles</target>
       </segment>
     </unit>
     <unit id="XblqKpM" name="Nicht verfügbar">
@@ -1975,7 +1975,7 @@
       </notes>
       <segment>
         <source>Nicht verfügbar</source>
-        <target>Nicht verfügbar</target>
+        <target>No disponibles</target>
       </segment>
     </unit>
     <unit id="3E9hxaU" name="Ausstehende Einladungen">
@@ -1984,7 +1984,7 @@
       </notes>
       <segment>
         <source>Ausstehende Einladungen</source>
-        <target>Ausstehende Einladungen</target>
+        <target>Invitaciones en espera</target>
       </segment>
     </unit>
     <unit id="RG9ZXHi" name="Einen Freund einladen">
@@ -1993,7 +1993,7 @@
       </notes>
       <segment>
         <source>Einen Freund einladen</source>
-        <target>Einen Freund einladen</target>
+        <target>Invitar a un amigo</target>
       </segment>
     </unit>
     <unit id="8dquNSH" name="Optionen">
@@ -2002,7 +2002,7 @@
       </notes>
       <segment>
         <source>Optionen</source>
-        <target>Optionen</target>
+        <target>Opciones</target>
       </segment>
     </unit>
     <unit id="Rh5HYn_" name="Du stehst &lt;strong&gt;zur Verfügung&lt;/strong&gt;.">
@@ -2011,7 +2011,7 @@
       </notes>
       <segment>
         <source>Du stehst &lt;strong&gt;zur Verfügung&lt;/strong&gt;.</source>
-        <target><![CDATA[Du stehst <strong>zur Verfügung</strong>.]]></target>
+        <target><![CDATA[Estás: <strong>disponible</strong>.]]></target>
       </segment>
     </unit>
     <unit id="o.K5fG9" name="Du stehst &lt;strong&gt;nicht zur Verfügung&lt;/strong&gt;.">
@@ -2020,7 +2020,7 @@
       </notes>
       <segment>
         <source>Du stehst &lt;strong&gt;nicht zur Verfügung&lt;/strong&gt;.</source>
-        <target><![CDATA[Du stehst <strong>nicht zur Verfügung</strong>.]]></target>
+        <target><![CDATA[Estás: <strong>no disponible</strong>.]]></target>
       </segment>
     </unit>
     <unit id="jFqiwRT" name="Meinen Status ändern">
@@ -2029,7 +2029,7 @@
       </notes>
       <segment>
         <source>Meinen Status ändern</source>
-        <target>Meinen Status ändern</target>
+        <target>Cambiar mi estado</target>
       </segment>
     </unit>
     <unit id="rq4q8kx" name="Verlassen UND auflösen">
@@ -2038,7 +2038,7 @@
       </notes>
       <segment>
         <source>Verlassen UND auflösen</source>
-        <target>Verlassen UND auflösen</target>
+        <target>¡Abandonar y disolver!</target>
       </segment>
     </unit>
     <unit id="oiwx9uP" name="Verlassen">
@@ -2047,7 +2047,7 @@
       </notes>
       <segment>
         <source>Verlassen</source>
-        <target>Verlassen</target>
+        <target>Abandonar</target>
       </segment>
     </unit>
     <unit id="sLJWy9T" name="Nicht in einer Stadt">
@@ -2056,7 +2056,7 @@
       </notes>
       <segment>
         <source>Nicht in einer Stadt</source>
-        <target>Nicht in einer Stadt</target>
+        <target>Sin pueblo</target>
       </segment>
     </unit>
     <unit id="AT.EHRB" name="Diesen Spieler ausschließen?">
@@ -2065,7 +2065,7 @@
       </notes>
       <segment>
         <source>Diesen Spieler ausschließen?</source>
-        <target>Diesen Spieler ausschließen?</target>
+        <target>¿Despide a este jugador?</target>
       </segment>
     </unit>
     <unit id="xpAtz8l" name="Diesen Spieler ausschließen.">
@@ -2074,7 +2074,7 @@
       </notes>
       <segment>
         <source>Diesen Spieler ausschließen.</source>
-        <target>Diesen Spieler ausschließen.</target>
+        <target>Despide a este jugador.</target>
       </segment>
     </unit>
     <unit id="PmiiQcl" name="Die Shoutbox ist leer...">
@@ -2083,7 +2083,7 @@
       </notes>
       <segment>
         <source>Die Shoutbox ist leer...</source>
-        <target>Die Shoutbox ist leer...</target>
+        <target>El Muro de la alianza esta vacio...</target>
       </segment>
     </unit>
     <unit id="IuHFUTo" name="Absenden">
@@ -2092,7 +2092,7 @@
       </notes>
       <segment>
         <source>Absenden</source>
-        <target>Absenden</target>
+        <target>Enviar</target>
       </segment>
     </unit>
     <unit id="FNkhsV2" name="Vor 1 Tag">
@@ -2101,7 +2101,7 @@
       </notes>
       <segment>
         <source>Vor 1 Tag</source>
-        <target>Vor 1 Tag</target>
+        <target>Hace 1 día</target>
       </segment>
     </unit>
     <unit id="BFD31Nv" name="Vor %d% Tagen">
@@ -2110,7 +2110,7 @@
       </notes>
       <segment>
         <source>Vor %d% Tagen</source>
-        <target>Vor %d% Tagen</target>
+        <target>Hace %d% Dias</target>
       </segment>
     </unit>
     <unit id="zeYLnSy" name="Klick auf diesen Link, um die Seite neu zu laden.">
@@ -2119,7 +2119,7 @@
       </notes>
       <segment>
         <source>Klick auf diesen Link, um die Seite neu zu laden.</source>
-        <target>Klick auf diesen Link, um die Seite neu zu laden.</target>
+        <target>Recargar esta página.</target>
       </segment>
     </unit>
     <unit id="flUhUW0" name="7e9e358">
@@ -2128,7 +2128,7 @@
       </notes>
       <segment>
         <source>Wenn du nicht automatisch an einer Partie teilnehmen möchtest, sobald ein anderer Spieler der Koalition einer Stadt beitritt, stelle bitte ein: nicht zur Verfügung.</source>
-        <target>Wenn du nicht automatisch an einer Partie teilnehmen möchtest, sobald ein anderer Spieler der Koalition einer Stadt beitritt, stelle bitte ein: nicht zur Verfügung.</target>
+        <target>Si no deseas sumarte automáticamente a una partida cuando un miembro de tu alianza ingrese a un pueblo, ponte en modo No disponible.</target>
       </segment>
     </unit>
     <unit id="vKZiHzm" name="&lt;b&gt;%u1%&lt;/b&gt; hat &lt;b&gt;%u2%&lt;/b&gt; in die Koalition eingeladen.">
@@ -2137,7 +2137,7 @@
       </notes>
       <segment>
         <source>&lt;b&gt;%u1%&lt;/b&gt; hat &lt;b&gt;%u2%&lt;/b&gt; in die Koalition eingeladen.</source>
-        <target><![CDATA[<b>%u1%</b> hat <b>%u2%</b> in die Koalition eingeladen.]]></target>
+        <target><![CDATA[<b>%u1%</b>ha invitado a <b>%u2%</b> a unirse a nosotros.]]></target>
       </segment>
     </unit>
     <unit id="bvTtAAO" name="&lt;b&gt;%u1%&lt;/b&gt; ist der Koalition soeben beigetreten!">
@@ -2146,7 +2146,7 @@
       </notes>
       <segment>
         <source>&lt;b&gt;%u1%&lt;/b&gt; ist der Koalition soeben beigetreten!</source>
-        <target><![CDATA[<b>%u1%</b> ist der Koalition soeben beigetreten!]]></target>
+        <target><![CDATA[¡<b>%u1%</b> acaba de unirse a la alianza!]]></target>
       </segment>
     </unit>
     <unit id="ztPAknj" name="&lt;b&gt;%u1%&lt;/b&gt; hat die Koalition verlassen.">
@@ -2155,7 +2155,7 @@
       </notes>
       <segment>
         <source>&lt;b&gt;%u1%&lt;/b&gt; hat die Koalition verlassen.</source>
-        <target><![CDATA[<b>%u1%</b> hat die Koalition verlassen.]]></target>
+        <target><![CDATA[<b>%u1%</b> ha dejado la alianza.]]></target>
       </segment>
     </unit>
     <unit id="tMzLQiv" name="&lt;b&gt;%u1%&lt;/b&gt; hat &lt;b&gt;%u2%&lt;/b&gt; aus der Koalition entfernt.">
@@ -2164,7 +2164,7 @@
       </notes>
       <segment>
         <source>&lt;b&gt;%u1%&lt;/b&gt; hat &lt;b&gt;%u2%&lt;/b&gt; aus der Koalition entfernt.</source>
-        <target><![CDATA[<b>%u1%</b> hat <b>%u2%</b> aus der Koalition entfernt.]]></target>
+        <target><![CDATA[<b>%u1%</b> despidió a <b>%u2%</b> de la alianza.]]></target>
       </segment>
     </unit>
     <unit id="bCn1heW" name="&lt;b&gt;%u1%&lt;/b&gt; hat sich soeben in die Stadt &quot;&lt;b&gt;%town%&lt;/b&gt;&quot; eingeschrieben!">
@@ -2173,7 +2173,7 @@
       </notes>
       <segment>
         <source>&lt;b&gt;%u1%&lt;/b&gt; hat sich soeben in die Stadt "&lt;b&gt;%town%&lt;/b&gt;" eingeschrieben!</source>
-        <target><![CDATA[<b>%u1%</b> hat sich soeben in die Stadt "<b>%town%</b>" eingeschrieben!]]></target>
+        <target><![CDATA[¡<b>%u1%</b> acaba de salir en "<b>%town%</b>"!]]></target>
       </segment>
     </unit>
     <unit id="Hb1dhIr" name="1507816">
@@ -2182,7 +2182,7 @@
       </notes>
       <segment>
         <source>Du wirst nun ausgeloggt. Dein Account wird in 24-48 Stunden gelöscht. Bis dahin kannst du dich jederzeit erneut einloggen und dadurch die Löschung deines Accounts abbrechen.</source>
-        <target>Du wirst nun ausgeloggt. Dein Account wird in 24-48 Stunden gelöscht. Bis dahin kannst du dich jederzeit erneut einloggen und dadurch die Löschung deines Accounts abbrechen.</target>
+        <target>Ahora se cerrará la sesión. Su cuenta se eliminará en 24-48 horas. Hasta entonces, puede volver a iniciar sesión en cualquier momento y deshacer la eliminación de tu cuenta.</target>
       </segment>
     </unit>
     <unit id="WbndBY4" name="Möchtest du diesem Spieler folgen?">
@@ -2191,7 +2191,16 @@
       </notes>
       <segment>
         <source>Möchtest du diesem Spieler folgen?</source>
-        <target>Möchtest du diesem Spieler folgen?</target>
+        <target>¿Únete a este compañero de equipo?</target>
+      </segment>
+    </unit>
+    <unit id="BNXmJ_6" name="8e2de13">
+      <notes>
+        <note category="german">Der Twinoid-Server meldet, dass er dein Profil aufgrund eines internen Fehlers nicht an MyHordes übertragen kann. Dieses Problem tritt häufig auf, wenn du in deinen Letzten Worten oder Stadtkommentaren Sonderzeichen verwendet hast. Bitte prüfe deine Stadtkommentare und entferne Sonderzeichen. Wenn sich Sonderzeichen in deinen Letzten Worten befinden, wende dich auf Twinoid an einen Raben.</note>
+      </notes>
+      <segment>
+        <source>Der Twinoid-Server meldet, dass er dein Profil aufgrund eines internen Fehlers nicht an MyHordes übertragen kann. Dieses Problem tritt häufig auf, wenn du in deinen Letzten Worten oder Stadtkommentaren Sonderzeichen verwendet hast. Bitte prüfe deine Stadtkommentare und entferne Sonderzeichen. Wenn sich Sonderzeichen in deinen Letzten Worten befinden, wende dich auf Twinoid an einen Raben.</source>
+        <target>Der Twinoid-Server meldet, dass er dein Profil aufgrund eines internen Fehlers nicht an MyHordes übertragen kann. Dieses Problem tritt häufig auf, wenn du in deinen Letzten Worten oder Stadtkommentaren Sonderzeichen verwendet hast. Bitte prüfe deine Stadtkommentare und entferne Sonderzeichen. Wenn sich Sonderzeichen in deinen Letzten Worten befinden, wende dich auf Twinoid an einen Raben.</target>
       </segment>
     </unit>
   </file>
