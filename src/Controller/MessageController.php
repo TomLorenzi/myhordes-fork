@@ -413,10 +413,20 @@ class MessageController extends AbstractController
         if (!$this->htmlValidator($this->getAllowedHTML($forum), $body->item(0),$tx_len))
             return false;
 
+        $emotes = array_keys($this->get_emotes());
+
         $cache = [
             'citizen' => [],
         ];
         $handlers = [
+            // This invalidates emote tags within code blocks to prevent them from being replaced when rendering the
+            // post
+            '//pre|//span[@class=\'inline-code\']' =>
+                function (DOMNode $d) use(&$emotes) {
+                    foreach ($emotes as $emote)
+                        $d->nodeValue = str_replace( $emote, str_replace(':', ':​', $emote),  $d->nodeValue);
+                },
+
             '//div[@class=\'dice-4\']'   => function (DOMNode $d) use(&$editable) { $editable = false; $d->nodeValue = mt_rand(1,4); },
             '//div[@class=\'dice-6\']'   => function (DOMNode $d) use(&$editable) { $editable = false; $d->nodeValue = mt_rand(1,6); },
             '//div[@class=\'dice-8\']'   => function (DOMNode $d) use(&$editable) { $editable = false; $d->nodeValue = mt_rand(1,8); },
@@ -550,7 +560,7 @@ class MessageController extends AbstractController
         $repo = $this->entityManager->getRepository(Emotes::class);
         foreach($repo->findAll() as $value)
             /** @var $value Emotes */
-        $this->emote_cache[$value->getTag()] = $url_only ? $value->getPath() : "<img alt='{$value->getTag()}' src='{$this->asset->getUrl( $value->getPath() )}'/>";
+            $this->emote_cache[$value->getTag()] = $url_only ? $value->getPath() : "<img alt='{$value->getTag()}' src='{$this->asset->getUrl( $value->getPath() )}'/>";
         return $this->emote_cache;
     }
 

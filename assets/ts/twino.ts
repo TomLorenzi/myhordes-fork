@@ -501,7 +501,10 @@ export default class TwinoAlikeParser {
                 let new_parents = [...parents];
                 if (children[i].nodeType === Node.ELEMENT_NODE) {
                     let node = (children[i]) as HTMLElement;
-                    if (node.hasAttribute( 'x-raw' )) skip = true;
+                    if (node.hasAttribute( 'x-raw' )) {
+                        node.innerHTML = node.innerHTML.replace(/{br}/gi,'\r\n');
+                        skip = true;
+                    }
                     new_parents.push(node);
                 }
 
