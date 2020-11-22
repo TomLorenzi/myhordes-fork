@@ -1562,7 +1562,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Hier findest du alle Gegenstände, die gegenwärtig in der Bank aufbewahrt werden. Bei diesen Gegenständen handelt es sich um Spenden der Bürger. Sie sind im Wesentlichen dazu da, Gemeinschaftsgebäude zu bauen und die Stadt gegen die allnächtlichen Zombieattacken zu verteidigen.</source>
-        <target>This is a complete list of everything currently stored in the Bank. These objects are the fruit of the citizens' hard work. These objects are mainly used for the construction of community buildings and to defend the town during the attack of the zombie horde.</target>
+        <target><![CDATA[This is a complete list of everything currently stored in the Bank. These objects are the <strong>fruit of the citizens' hard work</strong>. These objects are mainly used for <strong>the construction of community buildings</strong> and to <strong>defend the town</strong> during the attack of the zombie horde.]]></target>
       </segment>
     </unit>
     <unit id="U0vMVpy" name="Bankregister">

@@ -1552,7 +1552,7 @@
       </notes>
       <segment>
         <source>Hier findest du alle Gegenstände, die gegenwärtig in der Bank aufbewahrt werden. Bei diesen Gegenständen handelt es sich um Spenden der Bürger. Sie sind im Wesentlichen dazu da, Gemeinschaftsgebäude zu bauen und die Stadt gegen die allnächtlichen Zombieattacken zu verteidigen.</source>
-        <target>Hier findest du alle Gegenstände, die gegenwärtig in der Bank aufbewahrt werden. Bei diesen Gegenständen handelt es sich um Spenden der Bürger. Sie sind im Wesentlichen dazu da, Gemeinschaftsgebäude zu bauen und die Stadt gegen die allnächtlichen Zombieattacken zu verteidigen.</target>
+        <target><![CDATA[Hier findest du alle Gegenstände, die gegenwärtig in der Bank aufbewahrt werden. Bei diesen Gegenständen handelt es sich um <strong>Spenden</strong> der Bürger. Sie sind im Wesentlichen dazu da, <strong>Gemeinschaftsgebäude zu bauen</strong> und die Stadt gegen die allnächtlichen Zombieattacken zu <strong>verteidigen</strong>.]]></target>
       </segment>
     </unit>
     <unit id="U0vMVpy" name="Bankregister">
