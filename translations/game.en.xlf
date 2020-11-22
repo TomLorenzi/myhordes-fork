@@ -9377,7 +9377,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Diese heruntergekommene Gebäude scheint einmal ein Hotel gewesen zu sein. Du entdeckst einen Einstieg ins Gebäude, modriger Gestank schlägt dir entgegen. Du verziehst das Gesicht, aber hier könntest du mit ziemlicher Sicherheit etwas Nützliches finden...</source>
-        <target>Ce bâtiment délabré semble avoir été un hôtel. Vous découvrez une entrée dans le bâtiment, une odeur de moisi vous frappe. Vous faites la grimace, mais vous pourriez presque certainement trouver quelque chose d'utile ici...</target>
+        <target>_This dilapidated building appears to have been a hotel. You discover an entrance to the building, a musty smell hits you. You wince, but you could almost certainly find something useful here...</target>
       </segment>
     </unit>
     <unit id="rnmrpxG" name="Verlassenes Hospital">
@@ -9395,7 +9395,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Diese heruntergekommene Gebäude scheint einmal ein Hospital gewesen zu sein. Du entdeckst einen Einstieg ins Gebäude, modriger Gestank schlägt dir entgegen. Du verziehst das Gesicht, aber hier könntest du mit ziemlicher Sicherheit etwas Nützliches finden...</source>
-        <target>Ce bâtiment délabré semble avoir été un hôpital. Vous découvrez une entrée dans le bâtiment, une odeur de moisi vous frappe. Vous faites la grimace, mais vous pourriez presque certainement trouver quelque chose d'utile ici...</target>
+        <target>_This dilapidated building appears to have been a hospital. You discover an entrance to the building, a musty smell hits you. You wince, but you could almost certainly find something useful here...</target>
       </segment>
     </unit>
     <unit id="Ijn0xpZ" name="%ruin% betreten">
