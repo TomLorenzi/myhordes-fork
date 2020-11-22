@@ -13,6 +13,7 @@ use App\Entity\HeroSkillPrototype;
 use App\Entity\ItemPrototype;
 use App\Entity\LogEntryTemplate;
 use App\Entity\TownLogEntry;
+use App\Entity\Zone;
 use App\Response\AjaxResponse;
 use App\Service\CitizenHandler;
 use App\Service\ConfMaster;
@@ -22,8 +23,10 @@ use App\Service\ItemFactory;
 use App\Service\JSONRequestParser;
 use App\Service\LogTemplateHandler;
 use App\Service\TimeKeeperService;
+use App\Service\TownHandler;
 use App\Service\UserHandler;
 use App\Structures\TownConf;
+use App\Translation\T;
 use Doctrine\ORM\EntityManagerInterface;
 use Exception;
 use DateTime;
@@ -42,9 +45,10 @@ class GameController extends AbstractController implements GameInterfaceControll
     protected $logTemplateHandler;
     protected $time_keeper;
     protected $citizen_handler;
+    protected TownHandler $town_handler;
     private $user_handler;
 
-    public function __construct(EntityManagerInterface $em, TranslatorInterface $translator, LogTemplateHandler $lth, TimeKeeperService $tk, CitizenHandler $ch, UserHandler $uh)
+    public function __construct(EntityManagerInterface $em, TranslatorInterface $translator, LogTemplateHandler $lth, TimeKeeperService $tk, CitizenHandler $ch, UserHandler $uh, TownHandler $th)
     {
         $this->entity_manager = $em;
         $this->translator = $translator;
@@ -52,6 +56,7 @@ class GameController extends AbstractController implements GameInterfaceControll
         $this->time_keeper = $tk;
         $this->citizen_handler = $ch;
         $this->user_handler = $uh;
+        $this->town_handler = $th;
     }
 
     protected function getActiveCitizen(): Citizen {
@@ -180,8 +185,9 @@ class GameController extends AbstractController implements GameInterfaceControll
             $gazette->setDeaths(count($death_inside));
         }
 
-        $gazette_logs = $this->entity_manager->getRepository(GazetteLogEntry::class)->findByFilter($gazette);
+        $gazette_logs = $this->entity_manager->getRepository(GazetteLogEntry::class)->findByFilter($gazette, LogEntryTemplate::TypeGazetteTown);
         $text = '';
+        $wind = "";
         if (count($gazette_logs) == 0) {
             // No Gazette texts! Let's generate some...
             if ($day == 1) {
@@ -257,7 +263,6 @@ class GameController extends AbstractController implements GameInterfaceControll
                 $this->entity_manager->persist($news);
                 $text .= '<p>' . $this->parseGazetteLog($news) . '</p>';
 
-                // TODO: Add more texts.
                 // 2. INDIVIDUAL DEATHS
                 if (count($death_outside) > 0) {
                     $other_deaths = $death_outside;
@@ -349,13 +354,61 @@ class GameController extends AbstractController implements GameInterfaceControll
                     $news->setDay($day)->setGazette($gazette)->setLogEntryTemplate($townTemplate)->setVariables($variables);
                     $this->entity_manager->persist($news);
                     $text .= '<p>' . $this->parseGazetteLog($news) . '</p>';
+
                 }
 
                 // 3. TOWN DEVASTATION
                 // 4. FLAVOURS
                 // 5. ELECTION
                 // 6. SEARCH TOWER
-                
+                if($gazette->getWindDirection() !== 0) {
+                    $criteria = [
+                        'type' => LogEntryTemplate::TypeGazetteTownInfo,
+                        'class' => LogEntryTemplate::ClassGazetteWind,
+                    ];
+                    $applicableEntryTemplates = $this->entity_manager->getRepository(LogEntryTemplate::class)->findBy($criteria);
+                    shuffle($applicableEntryTemplates);
+                    /** @var LogEntryTemplate $townTemplate */
+                    $townTemplate = $applicableEntryTemplates[array_key_first($applicableEntryTemplates)];
+                    switch ($gazette->getWindDirection()){
+                        case Zone::DirectionNorthWest:
+                            $variables['sector'] = T::__('Nordwesten', 'game');
+                            $variables['sector2'] = T::__('im Nordwesten', 'game');
+                            break;
+                        case Zone::DirectionNorth:
+                            $variables['sector'] = T::__('Norden', 'game');
+                            $variables['sector2'] = T::__('im Norden', 'game');
+                            break;
+                        case Zone::DirectionNorthEast:
+                            $variables['sector'] = T::__('Nordosten', 'game');
+                            $variables['sector2'] = T::__('im Nordosten', 'game');
+                            break;
+                        case Zone::DirectionWest:
+                            $variables['sector'] = T::__('Westen', 'game');
+                            $variables['sector2'] = T::__('im Westen', 'game');
+                            break;
+                        case Zone::DirectionEast:
+                            $variables['sector'] = T::__('Osten', 'game');
+                            $variables['sector2'] = T::__('im Osten', 'game');
+                            break;
+                        case Zone::DirectionSouthWest:
+                            $variables['sector'] = T::__('Südwesten', 'game');
+                            $variables['sector2'] = T::__('im Südwesten', 'game');
+                            break;
+                        case Zone::DirectionSouth:
+                            $variables['sector'] = T::__('Süden', 'game');
+                            $variables['sector2'] = T::__('im Süden', 'game');
+                            break;
+                        case Zone::DirectionSouthEast:
+                            $variables['sector'] = T::__('Südosten', 'game');
+                            $variables['sector2'] = T::__('im Südosten', 'game');
+                            break;
+                    }
+                    $news = new GazetteLogEntry();
+                    $news->setDay($day)->setGazette($gazette)->setLogEntryTemplate($townTemplate)->setVariables($variables);
+                    $this->entity_manager->persist($news);
+                    $wind = $this->parseGazetteLog($news);
+                }
                 $this->entity_manager->flush();
             }
         }
@@ -363,6 +416,10 @@ class GameController extends AbstractController implements GameInterfaceControll
             while (count($gazette_logs) > 0) {
                 $text .= '<p>' . $this->parseGazetteLog(array_shift($gazette_logs)) . '</p>';
             }
+
+            $wind_log = $this->entity_manager->getRepository(GazetteLogEntry::class)->findByFilter($gazette, LogEntryTemplate::TypeGazetteTownInfo, LogEntryTemplate::ClassGazetteWind);
+            if(count($wind_log) > 0)
+                $wind = $this->parseGazetteLog($wind_log[0]);
 
         }
         $textClass = "day$day";
@@ -393,6 +450,9 @@ class GameController extends AbstractController implements GameInterfaceControll
             'terror' => $gazette->getTerror(),
             'text' => $text,
             'textClass' => $textClass,
+            'wind' => $wind,
+            'windDirection' => intval($gazette->getWindDirection()),
+            'waterlost' => intval($gazette->getWaterlost()),
         ];
 
         $show_register = $in_town || !$this->getActiveCitizen()->getAlive();

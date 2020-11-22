@@ -80,6 +80,11 @@ class Gazette
      */
     private $windDirection = 0;
 
+    /**
+     * @ORM\Column(type="integer",  nullable=true)
+     */
+    private $waterlost = 0;
+
     public function __construct()
     {
         $this->victims = new ArrayCollection();
@@ -220,6 +225,18 @@ class Gazette
     public function setWindDirection(?int $windDirection): self
     {
         $this->windDirection = $windDirection;
+
+        return $this;
+    }
+
+    public function getWaterlost(): ?int
+    {
+        return $this->waterlost;
+    }
+
+    public function setWaterlost(int $waterlost): self
+    {
+        $this->waterlost = $waterlost;
 
         return $this;
     }

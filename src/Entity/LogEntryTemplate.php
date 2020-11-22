@@ -17,27 +17,29 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 class LogEntryTemplate
 {
 
-    const TypeVarious       =  0;
-    const TypeCrimes        =  1;
-    const TypeBank          =  2;
-    const TypeDump          =  3;
-    const TypeConstruction  =  4;
-    const TypeWorkshop      =  5;
-    const TypeDoor          =  6;
-    const TypeWell          =  7;
-    const TypeCitizens      =  8;
-    const TypeNightly       =  9;
-    const TypeHome          = 10;
-    const TypeChat          = 11;
-    const TypeGazette       = 12;
-    const TypeGazetteTown   = 13;
-    const TypeGazetteBeyond = 14;
+    const TypeVarious         = 0;
+    const TypeCrimes          = 1;
+    const TypeBank            = 2;
+    const TypeDump            = 3;
+    const TypeConstruction    = 4;
+    const TypeWorkshop        = 5;
+    const TypeDoor            = 6;
+    const TypeWell            = 7;
+    const TypeCitizens        = 8;
+    const TypeNightly         = 9;
+    const TypeHome            = 10;
+    const TypeChat            = 11;
+    const TypeGazette         = 12;
+    const TypeGazetteTown     = 13;
+    const TypeGazetteBeyond   = 14;
+    const TypeGazetteTownInfo = 15;
 
     const ClassNone     = 0;
     const ClassWarning  = 1;
     const ClassCritical = 2;
     const ClassInfo     = 3;
     const ClassChat     = 4;
+    const ClassDanger   = 5;
     const ClassGazetteNews        =  5;
     const ClassGazetteNoDeaths    =  6;
     const ClassGazetteOneDeath    =  7;

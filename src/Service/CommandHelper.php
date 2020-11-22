@@ -287,6 +287,11 @@ class CommandHelper
                 return null;
             }
 
+            if(count($l) === 1) {
+                $out->writeln("Your query '$id' has been resolved to : <comment>{$l[array_keys($l)[0]]->getName()}</comment>");
+                return $l[array_keys($l)[0]];
+            }
+
             $result = $qh->ask($in, $out, new ChoiceQuestion(
                 "Your input for '$label' is ambiguous. Please select an option from the list below:",
                 array_keys($l)

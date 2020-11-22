@@ -22,7 +22,6 @@ use App\Entity\ShoutboxReadMarker;
 use App\Entity\TownLogEntry;
 use App\Entity\PrivateMessage;
 use App\Entity\User;
-use App\Entity\UserGroupAssociation;
 use App\Entity\ZombieEstimation;
 use App\Entity\Zone;
 use App\Service\BankAntiAbuseService;
@@ -852,6 +851,7 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
             'hidden' => $hidden,
             'prof_count' => $prof_count,
             'death_count' => $death_count,
+            'has_omniscience' => $this->user_handler->hasSkill($this->getActiveCitizen()->getUser(), 'omniscience'),
         ]) );
     }
 
@@ -883,7 +883,8 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
             'citizens' => $town->getCitizens(),
             'me' => $this->getActiveCitizen(),
             'selectedRole' => $role,
-            'vote' => $vote
+            'vote' => $vote,
+            'has_omniscience' => $this->user_handler->hasSkill($this->getActiveCitizen()->getUser(), 'omniscience'),
         ]) );
     }
 
@@ -936,6 +937,50 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
         }
 
         return AjaxResponse::success();
+    }
+
+    /**
+     * @Route("jx/town/citizens/omniscience", name="town_citizens_omniscience")
+     * @param EntityManagerInterface $em
+     * @return Response
+     */
+    public function citizens_omniscience(EntityManagerInterface $em): Response
+    {
+        // Get citizen & town
+        $citizen = $this->getActiveCitizen();
+        $town = $citizen->getTown();
+
+        $citizens = [];
+
+        foreach($town->getCitizens() as $citizen) {
+            $clairvoyanceLevel = 0;
+            if($this->citizen_handler->hasStatusEffect($citizen, 'tg_chk_forum')){
+                $clairvoyanceLevel++;
+            }
+            if($this->citizen_handler->hasStatusEffect($citizen, 'tg_chk_active')){
+                $clairvoyanceLevel++;
+            }
+            if($this->citizen_handler->hasStatusEffect($citizen, 'tg_chk_workshop')){
+                $clairvoyanceLevel++;
+            }
+            if($this->citizen_handler->hasStatusEffect($citizen, 'tg_chk_build')){
+                $clairvoyanceLevel++;
+            }
+            if($this->citizen_handler->hasStatusEffect($citizen, 'tg_chk_movewb')){
+                $clairvoyanceLevel++;
+            }
+            $citizens[] = [
+                'infos' => $citizen,
+                'omniscienceLevel' => $clairvoyanceLevel,
+                'soulPoint' => $citizen->getUser()->getSoulPoints()
+            ];
+        }
+
+        return $this->render( 'ajax/game/town/citizen_omniscience.html.twig', $this->addDefaultTwigArgs('citizens', [
+            'citizens' => $citizens,
+            'has_omniscience' => $this->user_handler->hasSkill($this->getActiveCitizen()->getUser(), 'omniscience'),
+            'me' => $this->getActiveCitizen(),
+        ]) );
     }
 
     /**
@@ -1511,7 +1556,7 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
                 'transfer' => T::__('Allerdings hat dich der Anblick dieses bis aufs Mark verängstigen Bürgers selbst in eine Angststarre versetzt.', 'game'),
                 'fail' => T::__('Nichts... du fühlst nichts, keine Energie, kein Fluss auf den du dich verlassen könntest. Das Risiko, %citizen% umzubringen ist zu hoch...', 'game'),
             ),
-            'infected' => array(
+            'infection' => array(
                 'success' => T::__('Du hebst dein heiliges Messer aus der Scheide und beginnst, dich nach einer gut eingeübten Abfolge ritueller Bewegungen "vorzubereiten". Der Energiefluss leitet dich, und ohne zu zögern machst du einen Einschnitt an der Basis des infizierten Körperteils. Der Entgiftungsprozess ist im Gange, wenn auch langsam.', 'game'),
                 'transfer' => T::__('Plötzlich platzt eine infizierte Eiterblase auf. Deine bereits verbrannte Haut bricht schnell in offene Wunden aus, und die infektiösen Keime beschließen, diese zu ihrem Zuhause zu machen.', 'game'),
                 'fail' => T::__('Nichts... du fühlst nichts, keine Energie, kein Fluss auf den du dich verlassen könntest. Das Risiko, %citizen% umzubringen ist zu hoch...', 'game'),
@@ -1545,6 +1590,9 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
         if($healChances) {
 
             $this->citizen_handler->removeStatus($c, $healedStatus);
+            if($healedStatus == 'infection') {
+                $this->citizen_handler->removeStatus($c, "tg_meta_winfect");
+            }
 
             $message[] = $this->translator->trans($healableStatus[$healedStatus]['success'], ['%citizen%' => "<span>" . $c->getUser()->getName() . "</span>"], 'game');
 

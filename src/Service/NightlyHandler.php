@@ -310,6 +310,8 @@ class NightlyHandler
         $targets = $this->random->pick($targets, min(count($houses),count($targets)), true);
         $buildings = $this->random->pick($buildings, min(count($houses),count($buildings)), true);
 
+        $gazette = $town->findGazette( $town->getDay() );
+
         foreach ($houses as $id => $corpse) {
 
             $opts = [];
@@ -339,11 +341,16 @@ class NightlyHandler
                 case 3:
                     $d = min($town->getWell(), 20);
                     $this->log->debug("The corpse of citizen <info>{$corpse->getUser()->getUsername()}</info> removes <info>{$d} water rations</info> from the well.");
-                    $this->entity_manager->persist( $this->logTemplates->nightlyInternalAttackWell( $corpse, $d ) );
-                    $town->setWell( $town->getWell() - $d );
+                    // Disabled because in Hordes, this is not shown as lost
+                    // $gazette->setWaterlost($gazette->getWaterlost() + $d);
+                    if($d > 0){
+                        $this->entity_manager->persist( $this->logTemplates->nightlyInternalAttackWell( $corpse, $d ) );
+                        $town->setWell( $town->getWell() - $d );
+                    }
                     break;
             }
         }
+        $this->entity_manager->persist($gazette);
     }
 
     private function stage2_attack(Town &$town) {
@@ -391,59 +398,60 @@ class NightlyHandler
         $watchers = $this->entity_manager->getRepository(CitizenWatch::class)->findWatchersOfDay($town, $town->getDay() - 1); // -1 because day has been advanced before stage2
 
         // Only deploy watchers if normal defense is not enough
-        if ($overflow > 0) {
+        /* if ($overflow > 0) { */
 
-            if(count($watchers) > 0)
-                $this->entity_manager->persist($this->logTemplates->nightlyAttackWatchers($town, $watchers));
+        if(count($watchers) > 0)
+            $this->entity_manager->persist($this->logTemplates->nightlyAttackWatchers($town, $watchers));
 
-            $total_watch_def = $this->town_handler->calculate_watch_def($town);
-            $zeds_each_watcher = -1;
-            if($total_watch_def > $overflow){
-                // If we have more watchpoint than the overflow,
-                // we dispatch the zeds
-                $zeds_each_watcher = $overflow / count($town->getCitizenWatches());
+        $total_watch_def = $this->town_handler->calculate_watch_def($town);
+        $zeds_each_watcher = -1;
+        if($total_watch_def > $overflow){
+            // If we have more watchpoint than the overflow,
+            // we dispatch the zeds
+            $zeds_each_watcher = $overflow / count($town->getCitizenWatches());
+        }
+
+        $this->log->debug("There are <info>".count($watchers)."</info> watchers in the town");
+
+        $defWatchers = 0;
+
+        $has_shooting_gallery = (bool)$this->town_handler->getBuilding($town, 'small_tourello_#00', true);
+        $has_trebuchet        = (bool)$this->town_handler->getBuilding($town, 'small_catapult3_#00', true);
+        $has_ikea             = (bool)$this->town_handler->getBuilding($town, 'small_ikea_#00', true);
+        $has_armory           = (bool)$this->town_handler->getBuilding($town, 'small_armor_#00', true);
+
+        foreach ($watchers as $watcher) {
+            $def = $zeds_each_watcher == -1 ? $this->citizen_handler->getNightWatchDefense($watcher->getCitizen(), $has_shooting_gallery, $has_trebuchet, $has_ikea, $has_armory) : $zeds_each_watcher;
+
+            $defWatchers += $def;
+
+            $deathChances = $this->citizen_handler->getDeathChances($watcher->getCitizen());
+            $woundOrTerrorChances = $deathChances + $this->conf->getTownConfiguration($town)->get(TownConf::CONF_MODIFIER_WOUND_TERROR_PENALTY, 0.05);
+            $ctz = $watcher->getCitizen();
+            if($this->random->chance($deathChances)){
+                $this->log->debug("Watcher <info>{$watcher->getCitizen()->getUser()->getUsername()}</info> is now <info>dead</info> because of the watch");
+                // too sad, he died by falling from the edge
+                if($overflow == 0)
+                    $this->entity_manager->persist($this->logTemplates->citizenDeathOnWatch($watcher->getCitizen(), 0, null, $town->getDay()+1));
+                $this->kill_wrap($ctz, $cod, false, ($overflow > 0 ? $def : 0));
+            } else if($overflow > 0 && $this->random->chance($woundOrTerrorChances)){
+                if($this->random->chance(0.5)){
+                    // Wound
+                    if (!$this->citizen_handler->isWounded($ctz)) {
+                        $this->citizen_handler->inflictWound($ctz);
+                        $this->log->debug("Watcher <info>{$ctz->getUser()->getUsername()}</info> is now <info>wounded</info>");
+                        $this->skip_infection[] = $ctz->getId();
+                    }
+                } elseif(!$this->town_handler->getBuilding($town, "small_catapult3_#00", true)) {
+                    // Terror
+                    $this->citizen_handler->inflictStatus($ctz, $status_terror);
+                    $this->log->debug("Watcher <info>{$ctz->getUser()->getUsername()}</info> now suffers from <info>{$status_terror->getLabel()}</info>");
+
+                    $gazette->setTerror($gazette->getTerror() + 1);
+                }
             }
 
-            $this->log->debug("There are <info>".count($watchers)."</info> watchers in the town");
-
-            $defWatchers = 0;
-
-            $has_shooting_gallery = (bool)$this->town_handler->getBuilding($town, 'small_tourello_#00', true);
-            $has_trebuchet        = (bool)$this->town_handler->getBuilding($town, 'small_catapult3_#00', true);
-            $has_ikea             = (bool)$this->town_handler->getBuilding($town, 'small_ikea_#00', true);
-            $has_armory           = (bool)$this->town_handler->getBuilding($town, 'small_armor_#00', true);
-
-            foreach ($watchers as $watcher) {
-                $def = $zeds_each_watcher == -1 ? $this->citizen_handler->getNightWatchDefense($watcher->getCitizen(), $has_shooting_gallery, $has_trebuchet, $has_ikea, $has_armory) : $zeds_each_watcher;
-
-                $defWatchers += $def;
-
-                $deathChances = $this->citizen_handler->getDeathChances($watcher->getCitizen());
-                $woundOrTerrorChances = $deathChances + $this->conf->getTownConfiguration($town)->get(TownConf::CONF_MODIFIER_WOUND_TERROR_PENALTY, 0.05);
-                $ctz = $watcher->getCitizen();
-                if($this->random->chance($deathChances)){
-                    $this->log->debug("Watcher <info>{$watcher->getCitizen()->getUser()->getUsername()}</info> is now <info>dead</info> because of the watch");
-                    // too sad, he died by falling from the edge
-                    if($overflow == 0)
-                        $this->entity_manager->persist($this->logTemplates->citizenDeathOnWatch($watcher->getCitizen(), 0, null, $town->getDay()+1));
-                    $this->kill_wrap($ctz, $cod, false, ($overflow > 0 ? $def : 0));
-                } else if($this->random->chance($woundOrTerrorChances)){
-                    if($this->random->chance(0.5)){
-                        // Wound
-                        if (!$this->citizen_handler->isWounded($ctz)) {
-                            $this->citizen_handler->inflictWound($ctz);
-                            $this->log->debug("Watcher <info>{$ctz->getUser()->getUsername()}</info> is now <info>wounded</info>");
-                            $this->skip_infection[] = $ctz->getId();
-                        }
-                    } elseif(!$this->town_handler->getBuilding($town, "small_catapult3_#00", true)) {
-                        // Terror
-                        $this->citizen_handler->inflictStatus($ctz, $status_terror);
-                        $this->log->debug("Watcher <info>{$ctz->getUser()->getUsername()}</info> now suffers from <info>{$status_terror->getLabel()}</info>");
-
-                        $gazette->setTerror($gazette->getTerror() + 1);
-                    }
-                }
-
+            if($overflow > 0){
                 $this->log->debug("Watcher <info>{$watcher->getCitizen()->getUser()->getUsername()}</info> has stopped <info>$def</info> zombies from his watch");
 
                 $null = null;
@@ -455,13 +463,17 @@ class NightlyHandler
                     }
 
                 $overflow -= $def;
-            }
-        } else {
-            foreach ($watchers as $watcher) {
+            } else {
                 $watcher->setSkipped(true);
                 $this->entity_manager->persist($watcher);
             }
         }
+        /* } else {
+            foreach ($watchers as $watcher) {
+                $watcher->setSkipped(true);
+                $this->entity_manager->persist($watcher);
+            }
+        } */
 
 
         if ($this->conf->getTownConfiguration($town)->get(TownConf::CONF_MODIFIER_BUILDING_DAMAGE)) {
@@ -1068,6 +1080,9 @@ class NightlyHandler
             $n = [0,2,4,6,9,12];
             if ($town->getWell() >= $n[ $watertower->getLevel() ]) {
                 $town->setWell( $town->getWell() - $n[ $watertower->getLevel() ] );
+                $gazette = $town->findGazette( $town->getDay() );
+                $gazette->setWaterlost($gazette->getWaterlost() + $n[$watertower->getLevel()]);
+                $this->entity_manager->persist($gazette);
                 $this->entity_manager->persist( $this->logTemplates->nightlyAttackBuildingDefenseWater( $watertower, $n[ $watertower->getLevel() ] ) );
                 $this->log->debug( "Deducting <info>{$n[$watertower->getLevel()]}</info> water from the well to operate the <info>{$watertower->getPrototype()->getLabel()}</info>." );
             }
