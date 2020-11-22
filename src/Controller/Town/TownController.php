@@ -46,6 +46,7 @@ use Symfony\Contracts\Translation\TranslatorInterface;
 
 /**
  * @Route("/",condition="request.isXmlHttpRequest()")
+ * @method User getUser()
  */
 class TownController extends InventoryAwareController implements TownInterfaceController
 {
@@ -972,7 +973,7 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
             $citizens[] = [
                 'infos' => $citizen,
                 'omniscienceLevel' => $clairvoyanceLevel,
-                'soulPoint' => $citizen->getUser()->getSoulPoints()
+                'soulPoint' => $citizen->getUser()->getAllSoulPoints()
             ];
         }
 
