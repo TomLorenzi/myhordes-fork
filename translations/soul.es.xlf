@@ -1903,7 +1903,7 @@
       </notes>
       <segment>
         <source>Einer existierenden Koalition beitreten</source>
-        <target>>Unirse a una alianza existente</target>
+        <target><![CDATA[>Unirse a una alianza existente]]></target>
       </segment>
     </unit>
     <unit id="S6ckGt2" name="Es hat dich bisher noch niemand eingeladen.">
