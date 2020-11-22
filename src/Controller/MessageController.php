@@ -255,6 +255,7 @@ class MessageController extends AbstractController
         's' => [],
         'q' => [],
         'blockquote' => [],
+        'pre' => [],
         'hr' => [],
         'ul' => [],
         'ol' => [],
@@ -297,7 +298,7 @@ class MessageController extends AbstractController
             'citizen', 'rpText',
         ],
         'span.class' => [
-            'quoteauthor','bad','rpauthor'
+            'quoteauthor','bad','rpauthor','inline-code',
         ]
     ];
 

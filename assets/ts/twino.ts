@@ -197,10 +197,13 @@ class TwinoConverterToBlocks {
         switch (match.nodeType()) {
             case 'b': case 'i': case 'u': case 's': case 'ul': case 'ol': case 'li':
                 blocks.push( new TwinoInterimBlock(match.nodeContent(), match.nodeType()) ); changed = true; break;
+            case 'c':
+                blocks.push( new TwinoInterimBlock(match.nodeContent(), 'span', ['inline-code'], [ ['x-raw','1'] ]) ); changed = true; break;
             case '**': blocks.push( new TwinoInterimBlock(match.nodeContent(), 'b') ); changed = true; break;
             case '//': blocks.push( new TwinoInterimBlock(match.nodeContent(), 'i') ); changed = true; break;
             case '--': blocks.push( new TwinoInterimBlock(match.nodeContent(), 's') ); changed = true; break;
             case 'spoiler': blocks.push( new TwinoInterimBlock(match.nodeContent(), 'div', match.nodeType()) ); changed = true; break;
+            case 'code': blocks.push( new TwinoInterimBlock(match.nodeContent(), 'pre', [], [ ['x-raw','1'] ]) ); changed = true; break;
             case 'quote':
                 if (!quotespace) {
                     if ( match.nodeInfo() )
@@ -336,10 +339,11 @@ class HTMLConverterFromBlocks {
         let quotespace = false;
         let raw_fallback = false;
         let cp = parent;
+
         while (cp) {
             if (cp.nodeType === Node.ELEMENT_NODE) {
                 if (!quotespace   && (cp.tagName === 'BLOCKQUOTE' || cp.classList.contains('no-quote'))) quotespace = true;
-                if (!raw_fallback && cp.classList.contains('raw-fallback')) raw_fallback = true;
+                if (!raw_fallback && (cp.tagName === 'PRE' || cp.classList.contains('raw-fallback'))) raw_fallback = true;
             }
 
             if (cp.nodeType === Node.ELEMENT_NODE && (cp.tagName === 'BLOCKQUOTE' || cp.classList.contains('no-quote')))
@@ -373,6 +377,9 @@ class HTMLConverterFromBlocks {
                 case 'i': case 'u': case 's': case 'ul': case 'ol': case 'li':
                     ret += HTMLConverterFromBlocks.wrapBlock( block, block.nodeName );
                     break;
+                case 'pre':
+                    ret += HTMLConverterFromBlocks.wrapBlock( block, 'code' );
+                    break;
                 case 'span':
                     if (block.hasClass('quoteauthor')) {
                         if (peek && peek.nodeName === 'blockquote') {
@@ -385,6 +392,8 @@ class HTMLConverterFromBlocks {
                     }
                     else if (block.hasClass('bad'))
                         ret += HTMLConverterFromBlocks.wrapBlock( block, 'bad' );
+                    else if (block.hasClass('inline-code'))
+                        ret += HTMLConverterFromBlocks.wrapBlock( block, 'c' );
                     else ret += block.nodeText;
                     break;
                 case 'div':
@@ -525,6 +534,7 @@ export default class TwinoAlikeParser {
 
             TwinoAlikeParser.lego(blocks,elem);
         } else {
+            if (elem.hasAttribute( 'x-raw' )) return;
             let children = elem.childNodes;
             for (let i = 0; i < children.length; i++)
                 TwinoAlikeParser.parseInsets(children[i] as HTMLElement, [...parents,elem]);
@@ -555,6 +565,7 @@ export default class TwinoAlikeParser {
 
             TwinoAlikeParser.lego(blocks,elem);
         } else {
+            if (elem.hasAttribute( 'x-raw' )) return;
             let children = elem.childNodes;
             for (let i = 0; i < children.length; i++)
                 TwinoAlikeParser.parseEmotes(children[i] as HTMLElement, resolver);
