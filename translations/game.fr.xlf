@@ -14661,12 +14661,12 @@
         <target>Statut</target>
       </segment>
     </unit>
-    <unit id="UFB43D7" name="Tätigkeit">
+    <unit id="RvCNf5O" name="Aktivität">
       <notes>
-        <note category="german">Tätigkeit</note>
+        <note category="german">Aktivität</note>
       </notes>
       <segment>
-        <source>Tätigkeit</source>
+        <source>Aktivität</source>
         <target>Activité</target>
       </segment>
     </unit>
