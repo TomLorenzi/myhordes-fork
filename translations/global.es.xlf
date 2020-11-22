@@ -1231,7 +1231,7 @@
       </notes>
       <segment>
         <source>Der Markierer ist auf der Karte für ALLE Bürger sichtbar. Benutze ihn, um der Gemeinschaft Informationen über eine bestimmte Zone mitzuteilen.</source>
-        <target>Der Markierer ist auf der Karte für ALLE Bürger sichtbar. Benutze ihn, um der Gemeinschaft Informationen über eine bestimmte Zone mitzuteilen.</target>
+        <target>El marcador es visible en el mapa por TODOS los habitantes. Úsalo para compartir información sobre esta zona con toda la comunidad.</target>
       </segment>
     </unit>
     <unit id="51m8lm3" name="7ef672f">
@@ -1240,7 +1240,7 @@
       </notes>
       <segment>
         <source>Beachte: Alle hier geschriebenen Nachrichten gehen verloren, wenn alle Bürger die Zone verlassen.</source>
-        <target>Beachte: Alle hier geschriebenen Nachrichten gehen verloren, wenn alle Bürger die Zone verlassen.</target>
+        <target>Nota: los mensajes escritos aquí se perderán si todos los habitantes abandonan la zona.</target>
       </segment>
     </unit>
     <unit id="uEQ0dag" name="7273dec">

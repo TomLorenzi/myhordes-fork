@@ -3274,7 +3274,7 @@
       </notes>
       <segment>
         <source>Du machst es dir daheim gemütlich und entspannst dich... doch dann erlebst du ein böse Überraschung: Dieses Ding ist unglaublich schmerzhaft! Du versuchst es weiter bis du Stück für Stück Gefallen daran findest. Die nach wenige Minuten einsetzende Wirkung ist berauschend! Du schwitzt und zitterst und ein wohlig-warmes Gefühl breitet sich in dir aus...Die Batterie ist komplett leer.</source>
-        <target>Texto acción ElectroGym</target>
+        <target>Vibra, hace cosquillas, y te hace olvidar tus pequeños problemas por unos instantes (necesita 1 pila).</target>
       </segment>
     </unit>
     <unit id="EoaSigx" name="Das brauchst du gerade nicht ...">
@@ -3670,7 +3670,7 @@
       </notes>
       <segment>
         <source>Heldentaten</source>
-        <target>Heldentaten</target>
+        <target>Acciones heroicas</target>
       </segment>
     </unit>
     <unit id="mXiqRuJ" name="a4c1519">
@@ -3724,7 +3724,7 @@
       </notes>
       <segment>
         <source>Der Taser ist eine kleine technische Spielerei, mit der man grässliche Elektrostöße in dem Körper seines Opfers jagen kann. Allerdings ist er nicht sehr effektiv, wenn man bedennkt dass den Zombies Schmerzen nichts ausmachen. Vielleicht gelingt es dir ja mit einem Stromstoß ein wichtiges Körperglied oder Organ zum Platzen zu bringen?</source>
-        <target>texto taser</target>
+        <target>Un arma capaz de paralizar el cuerpo de la víctima con una terrible descarga eléctrica. No es muy eficaz sabiendo que los zombies no le temen al dolor. Pero siempre puedes intentar hacer colapsar un órgano vital con él.</target>
       </segment>
     </unit>
     <unit id="MWuQ2Vl" name="Eine furchterregende Waffe, die nur noch etwas reines Wasser benötigt.">
@@ -3733,7 +3733,7 @@
       </notes>
       <segment>
         <source>Eine furchterregende Waffe, die nur noch etwas reines Wasser benötigt.</source>
-        <target>texto rifle de agua</target>
+        <target>Un arma temible, pero le falta estar cargada con agua pura.</target>
       </segment>
     </unit>
     <unit id="4e4fOhM" name="c12d998">
@@ -3742,7 +3742,7 @@
       </notes>
       <segment>
         <source>Rührt elektrisch und sehr schnell - was gibt's sonst noch zu sagen? Er hat den Vorteil, dass er nur eine Batterie braucht, die sich mit 40% Wahrscheinlichkeit entlädt.</source>
-        <target>texto batidora</target>
+        <target>Tan simple como eso. Lo bueno es que solo necesita una pila y que solo tiene 40% de probabilidades de agotarla</target>
       </segment>
     </unit>
     <unit id="fQ4FFNg" name="289efbe">
@@ -3823,7 +3823,7 @@
       </notes>
       <segment>
         <source>Das Schweizer Taschenmesser ist für viele kleinere Arbeiten nützlich. Für eine Horde lebender Untoter reicht es allerdings nicht ganz aus.</source>
-        <target>texto navaja suiza</target>
+        <target>Siempre útil para pequeños trabajos manuales, pero no ante una turba de muertos vivientes.</target>
       </segment>
     </unit>
     <unit id="LDixYks" name="4c0e4a4">
@@ -3922,7 +3922,7 @@
       </notes>
       <segment>
         <source>Leg ihn dir ins Wohnzimmer dann fallen dir all die grässlichen Dinge, die überall am Boden herum liegen nicht mehr so auf...</source>
-        <target>texto alfombra persa</target>
+        <target>Servirá para esconder la sucuiedad que cubre el suelo de tu casa.</target>
       </segment>
     </unit>
     <unit id=".hYNkub" name="796cbe4">
@@ -4021,7 +4021,7 @@
       </notes>
       <segment>
         <source>Der beste Freund des Menschen. Du kannst ihn wahlweise dein Haus bewachen lassen, ihn auf Zombies hetzen oder dir ein paar leckere Steaks braten...</source>
-        <target>texto perro guardian</target>
+        <target>Mejor amigo del hombre. Puedes elegir si protege tu casa, te salva de un zombi merodeador o termina como sabrosas hamburguesas...</target>
       </segment>
     </unit>
     <unit id="ahFtVpQ" name="17c68c9">
@@ -4084,7 +4084,7 @@
       </notes>
       <segment>
         <source>Dein idealer Begleiter für unterwegs! Massage im Schulter- und Lendenbereich, zweistufig regulierbar und mit großen Seitentaschen. Ein hübsches Logo aus Chrom mit der Auffschrift "Desert Addict" verziert ihn zusätzlich.</source>
-        <target>texto mochila super practica</target>
+        <target>¡El accesorio de viaje ideal! Bolsillos laterales, impermeable, ergonómica, masajea la espalda mientras caminas y lleva un bonito logo "Man vs Wild"</target>
       </segment>
     </unit>
     <unit id="e27ikOJ" name="5f84684">
@@ -4165,7 +4165,7 @@
       </notes>
       <segment>
         <source>Dieser defekte Videoprojektor ist zu nichts mehr zu gebrauchen. Die Linse sieht allerdings noch halbwegs intakt aus....nur hast du nichts, um sie zu entfernen...</source>
-        <target>texto proyector de cine</target>
+        <target>Este proyector defectuoso ya no se puede utilizar para nada. Sin embargo, la lente todavía parece relativamente intacta... Desafortunadamente no tienes nada para desarmarla...</target>
       </segment>
     </unit>
     <unit id="3YrxlcA" name="Booom! ">
@@ -4246,7 +4246,7 @@
       </notes>
       <segment>
         <source>DAS klassische Gerät für die Gartenarbeit. Es funktioniert ohne Strom und ist in seine Einzelteile zerlegt...Du musst ihn zusammenbauen.</source>
-        <target>texto cortacésped incompleto</target>
+        <target>Una herramienta indispensable, funciona sin energía, pero requiere ser armada.</target>
       </segment>
     </unit>
     <unit id="IA_f5AZ" name="Ein schmutziges Rohr aus Kupfer, für das dir noch keine Verwendung einfällt...">
@@ -4372,7 +4372,7 @@
       </notes>
       <segment>
         <source>Das ultimative Gerät für den Abenteuerer, der in dir schlummert. Sein einzigartiges Filtersystem stellt den besten Kaffee her, den man mit den hier erhältlichen Zutaten brühen kann. Frag besser nicht nach....</source>
-        <target>texto cafetera</target>
+        <target>Ideal para despertar al aventurero que hay en ti. Su sistema de filtrado te permite preparar un delicioso café a base de ingredientes... Insólitos.</target>
       </segment>
     </unit>
     <unit id="yV0vZzB" name="Diese Kaffeemaschine könnte sehr nützlich sein, nur ist sie komplett zerlegt.">
@@ -4489,7 +4489,7 @@
       </notes>
       <segment>
         <source>Die Aqua-Splash-Kanone ist die Lieblingswaffe aller Wüstenwanderer! Nicht geeignet für Kinder unter 8 Jahren.</source>
-        <target>texto rifle de agua cargado</target>
+        <target>¡Un arma super poderosa en el Ultramundo! La etiqueta dice de 8 años a más.</target>
       </segment>
     </unit>
     <unit id="5MqdOSf" name="445e515">
@@ -4759,7 +4759,7 @@
       </notes>
       <segment>
         <source>Ein altes Spiel welches du noch nicht kennst. Wow!</source>
-        <target>texto caja de juegos</target>
+        <target>Te servirá para entretenerte en medio de tanta desgracia, ¡claro que sí!</target>
       </segment>
     </unit>
     <unit id="X08nMan" name="Eine furchterregende Waffe, der nur ein paar Teile fehlen...">
@@ -5048,7 +5048,7 @@
       </notes>
       <segment>
         <source>Ein aufgewelltes, sprödes Blatt Papier. Du hast nicht den blassesten Schimmer, was es sein könnte. Versuche es vorsichtig zu reinigen, vielleicht kannst du ja was eintziffern.</source>
-        <target>texto hoja de papel</target>
+        <target>Cayó en un charco de lodo y se secó. No sabes realmente lo que es. ¿Quizás limpiándola un poco encuentres alguna información interesante?</target>
       </segment>
     </unit>
     <unit id="Z67cMEI" name="b3f5397">
@@ -5057,7 +5057,7 @@
       </notes>
       <segment>
         <source>Eine Gebrauchsanweisung mit komplizierten Diagrammen, die detailliert beschreiben, wie man eine obskure Maschine zusammensetzt. Es scheint schlecht aus einer asiatischen Sprache übersetzt zu sein, aber auf der Rückseite ist eine interessantere Handschrift von jemandem zu finden.</source>
-        <target>texto manual de instrucciones</target>
+        <target>Una serie de hojas con instrucciones para reparar y armar cosas. Algunas páginas tienen notas...</target>
       </segment>
     </unit>
     <unit id="FAJrvsa" name="ebd7c61">
@@ -5066,7 +5066,7 @@
       </notes>
       <segment>
         <source>Wer weiß, was in diesem Notizbuch stehen könnte? Die dunkelsten Geheimnisse von jemandem? Eine Schatzkarte? Wenn du es nur lesen könntest... </source>
-        <target>texto libreta ilegible</target>
+        <target>Debió pertenecer a otro habitante. Si la perdió, ahora es tuya. ¿Qué contendrá?</target>
       </segment>
     </unit>
     <unit id="MDAgpcM" name="bc71201">
@@ -5075,7 +5075,7 @@
       </notes>
       <segment>
         <source>Sieht wie ein alter Schuljahresbericht aus. Die Fotos sind stinklangweilig. Beim Durchblättern fällt dir ein dazwischengeschobenes Blatt in die Hände...</source>
-        <target>texto álbum de fotos</target>
+        <target>Un viejo álbum de fotos de escuela o algo así, hay muchos rostros casi borrados por el tiempo. Pero al ojearlo, un papel cae de su interior...</target>
       </segment>
     </unit>
     <unit id="7qJ2jFW" name="cbb7e57">
@@ -5084,7 +5084,7 @@
       </notes>
       <segment>
         <source>Ein Haufen Papierkram, das aus einer Verwaltung stammt.Nichts Interessantes, wobei manche Blätter Handnotizen erkennen lassen...</source>
-        <target>texto pila de papeles</target>
+        <target>Un viejo álbum de fotos de escuela o algo así, hay muchos rostros casi borrados por el tiempo. Pero al ojearlo, un papel cae de su interior...</target>
       </segment>
     </unit>
     <unit id="d9rguud" name="2d2e9ae">
@@ -5282,7 +5282,7 @@
       </notes>
       <segment>
         <source>Da Du hier kein richtiges Dinner mit Freunden erleben kannst, hast du dir ein paar leckere Happen beiseite gelegt und in dieser Lunch-Box aufbewahrt. Ab und zu muss man sich mal was gönnen ...</source>
-        <target>texto lonchera</target>
+        <target>A falta de una buena comida en una mesa. con cubiertos y amigos, tienes esta lonchera Armagedón que habías escondido hace un tiempo bajo tu cama...</target>
       </segment>
     </unit>
     <unit id="2822bF5" name="Beim Anblick dieser Bonbons kommen dir die Tränen...">
@@ -5462,7 +5462,7 @@
       </notes>
       <segment>
         <source>Dieser total verformte Eisenbehälter enthält eine kleine Menge gereinigtes Wasser. Es ist nicht viel, aber besser als nichts.)</source>
-        <target>texto agua estancada purificada</target>
+        <target>Una pieza de metal oxidado ha conservado una pequeña cantidad de agua. El problema es que no es potable.</target>
       </segment>
     </unit>
     <unit id="DEEL_WT" name="07168c9">
@@ -5624,7 +5624,7 @@
       </notes>
       <segment>
         <source>Dieser Koffer enthält mehrere Dokumente und obskure Gegenstände (Bleistift, Kompass, Plastiklineale,...). Nichts was dir irgendwie helfen würde, in der Wüste zu überleben. ...zumindest auf den ersten Blick.</source>
-        <target>texto maletín de arquitecto</target>
+        <target>Contiene documentos y artículos de escritorio (lápices, compás, reglas...). Nada útil para sobrevivir en el desierto... O eso parece.</target>
       </segment>
     </unit>
     <unit id="yDTEmRX" name="b69341f">
@@ -5633,7 +5633,7 @@
       </notes>
       <segment>
         <source>Dieser Koffer enthält höchstwahrscheinlich ein sehr seltenes und kostbares Dokument...</source>
-        <target>texto cofre de arquitecto sellado</target>
+        <target>Contiene seguramente un documento importante y raro...</target>
       </segment>
     </unit>
     <unit id="ZtqvzjI" name="fa3a6c4">
@@ -5678,7 +5678,7 @@
       </notes>
       <segment>
         <source>Mit diesem HighTech-Schlüssel lassen sich Türen der Sicherheitsklasse 6.2 AOC öffnen. Nur Angehörige der Elite können sich damit brüsten, so einen Schlüssel zu besitzen. Leider ist der Schlüssel in einem so schlechten Zustand, dass er nur eine einzige Tür öffnet.</source>
-        <target>texto llave magnética</target>
+        <target>Esta llave de alta tecnología le permite abrir puertas aseguradas hasta el nivel 6.2 AOC, solo los técnicos de élite están dignos de tener una en su poder. Desafortunadamente, como el tuyo está en lamentables condiciones, esta llave solo abrirá una puerta más.</target>
       </segment>
     </unit>
     <unit id="5ufgUwK" name="6fe0542">
@@ -5714,7 +5714,7 @@
       </notes>
       <segment>
         <source>Dieses extrem seltene Serum wurde durch der Untersuchung der DNA eines fast immunen Wesens gewonnen. Es hatte zuvor 3 Tage überlebt, obwohl es von einem Infizierten gebissen wurde. Mit dem Serum kann man einen Ghul wieder in einen normalen Menschen verwandeln.</source>
-        <target>texto vacuna para mutante</target>
+        <target>Este suero extremadamente raro se ha desarrollado a partir del ADN de una muestra casi inmune que ha resistido una picadura infecciosa durante más de 3 días. Permite que un mutante vuelva a su estado humano normal.</target>
       </segment>
     </unit>
     <unit id="tea5si." name="d9a4611">
@@ -5768,7 +5768,7 @@
       </notes>
       <segment>
         <source>Der Pfahlwerfer kann dazu verwendet werden, Barrikaden zu verstärken oder jede Art von Gegner abzuwehren. Leider ist nur noch ein Pfahl übrig...</source>
-        <target>texto lanzadardos</target>
+        <target>Esta arma debió ser construida por algún maniático de las armas y el bricolage, solo queda un dardo dentro del aparato.</target>
       </segment>
     </unit>
     <unit id="6XdodLe" name="66391c4">
@@ -5795,7 +5795,7 @@
       </notes>
       <segment>
         <source>Ich weiß was du denkst: "Kann dieser Automat nicht 20 Rationen Wasser und 50 Tüten Chips enthalten?!?" Dummerweise sieht das nicht so aus...aber immerhin ist er sehr klotzig und enthält ein paar Knochen.</source>
-        <target>texto cajero vacío</target>
+        <target>Es tan inútil como pesado, sin embargo podría ayudarte a aplastar algunos zombies si lo lanzas desde una muralla.</target>
       </segment>
     </unit>
     <unit id="143H2cZ" name="c37fc5e">
@@ -5822,7 +5822,7 @@
       </notes>
       <segment>
         <source>Du siehst ein glitzernden Gegenstand. Beim näheren Betrachten fällt dir auf, dass es ein Abzeichen ist. Das Abzeichen gibt dir die Kraft von 10 Männern. Du fühlst, dass dieser legendäre Gegenstand was besonderes ist.</source>
-        <target>texto placa de sheriff</target>
+        <target>Hurgando en los desperdicios, un destello apagado llama la atención. En una inspección más cercana, encontrará que es una insignia ANZAC. Inmediatamente sientes la fuerza de diez guerreros dentro de ti. Guarda esta insignia con tu vida y la vida de aquellos que han caído antes que tú. Este objeto legendario debe tener algún tipo de efecto sobre la horda malvada...</target>
       </segment>
     </unit>
     <unit id="9Yy7MEf" name="4c8196d">
@@ -5876,7 +5876,7 @@
       </notes>
       <segment>
         <source>Irgendwer hat sie mal in der Wüste vergraben, vermutlich um die Zombies aufzuhalten… Bisher haben sie sich nur als effektiv gegen unvorsichtige Mitbürger erwiesen.</source>
-        <target>texto mina antipersona</target>
+        <target>Aún quedan minas en el desierto. En general, son más los humanos que los zombies quienes caminan sobre ellas. ¿Quién es el ser inferior en este caso?</target>
       </segment>
     </unit>
     <unit id="JcYgft_" name="bc47d7d">
@@ -5984,7 +5984,7 @@
       </notes>
       <segment>
         <source>Gesöff der Krieger, Trank der Könige, Cocktail der Götter! Zweifelst Du an der Stärke dieses Getränkes, dann lass ruhig erst einmal Deine Nachbarn probieren.</source>
-        <target>texto cidra claviceps artesanal</target>
+        <target>"Saltapatrás", "7 pecados", Nos vemos en el suelo"... Un licor exótico más, si quieres comprobar sus efectos, invítale un trago a un vecino.</target>
       </segment>
     </unit>
     <unit id="910sonF" name="febf617">
@@ -6380,7 +6380,7 @@
       </notes>
       <segment>
         <source>Schlafplatz verbessern (schwacher permanenter Bonus, 1AP)</source>
-        <target>Mejora un poco el campamento (bonificación permanente baja, 1PA)</target>
+        <target>Mejora un poco el campamento (bonus permanente débil, 1PA)</target>
       </segment>
     </unit>
     <unit id="D632ww5" name="Du hast das hiesige Versteck verbessert.">
@@ -6398,7 +6398,7 @@
       </notes>
       <segment>
         <source>Sich verstecken und die Nacht hier schlafen!</source>
-        <target>¡Escóndete para pasar la noche aquí!</target>
+        <target>¡Escóndete y pasar la noche aquí!</target>
       </segment>
     </unit>
     <unit id="VsRU9Va" name="Du hast Dich notdürftig versteckt.">
@@ -6416,7 +6416,7 @@
       </notes>
       <segment>
         <source>"Grab" schaufeln (mittelmäßiger vorübergehender Bonus, 1AP)</source>
-        <target>Cava una "tumba" (bonificación temporal media, 1PA)</target>
+        <target>Cavar una "tumba" (bonus temporal medio, 1PA)</target>
       </segment>
     </unit>
     <unit id="P15D.zw" name="Du hast Dir Dein eigenes Grab geschaufelt. Oh welche Ironie!">
@@ -6434,7 +6434,7 @@
       </notes>
       <segment>
         <source>Versteck verlassen</source>
-        <target>Deja tu escondite/target>
+        <target>Deja tu escondite</target>
       </segment>
     </unit>
     <unit id="DLyYjGK" name="Du hast Dein Versteck verlassen.">
@@ -7025,7 +7025,7 @@
       </notes>
       <segment>
         <source>Mit diesem Abdruck des HighTech-Schlüssels lassen sich Türen der Sicherheitsklasse 6.2 AOC öffnen.</source>
-        <target>Mit diesem Abdruck des HighTech-Schlüssels lassen sich Türen der Sicherheitsklasse 6.2 AOC öffnen.</target>
+        <target>Este espacio en blanco de alta tecnología le permitirá abrir puertas seguras clasificadas hasta el nivel 6.2 AOC.</target>
       </segment>
     </unit>
     <unit id="fU86IJs" name="Abdruck vom Flaschenöffner">
@@ -7106,7 +7106,7 @@
       </notes>
       <segment>
         <source>Benutzen</source>
-        <target>Usar</target>
+        <target>Utilizar</target>
       </segment>
     </unit>
     <unit id="Nsd1Ael" name="6fa9fc3">
@@ -7223,7 +7223,7 @@
       </notes>
       <segment>
         <source>Gequälte Seele</source>
-        <target>Gequälte Seele</target>
+        <target>Alma torturada</target>
       </segment>
     </unit>
     <unit id="US6ub3j" name="0d35708">
@@ -7232,7 +7232,7 @@
       </notes>
       <segment>
         <source>Die Seele dieses Bürgers wurde schon zu lange ohne Rücksicht auf Rücksicht verlassen. Heute kommt dieses von Hass erfüllte Wesen, um die schlechten Vibes der Überseewelt zu nähren, ihr solltet euch schnell darum kümmern!</source>
-        <target>Die Seele dieses Bürgers wurde schon zu lange ohne Rücksicht auf Rücksicht verlassen. Heute kommt dieses von Hass erfüllte Wesen, um die schlechten Vibes der Überseewelt zu nähren, ihr solltet euch schnell darum kümmern!</target>
+        <target>Esto no se parece al alma perdida promedio ... Tal vez deberías tener un poco de cuidado con esta. De hecho, tal vez deberías hablar con tu vudú residente ...</target>
       </segment>
     </unit>
     <unit id="SLJtaFf" name="Öffnen (1 BP)">
@@ -7241,7 +7241,7 @@
       </notes>
       <segment>
         <source>Öffnen (1 BP)</source>
-        <target>Öffnen (1 BP)</target>
+        <target>Abrir (1 CP)</target>
       </segment>
     </unit>
   </file>
