@@ -132,7 +132,9 @@ class SoulImportController extends SoulController
 
         if ($error || isset($data1['error'])) {
             $logger->alert( 'Twinoid import failed at stage 1.', [ 'raw' => $raw_data, 'error' => $error ] );
-            return AjaxResponse::error(self::ErrorTwinImportInvalidResponse, ['response' => $data1]);
+            if (isset($data1['error']) && $data1['error'] === 'server_error')
+                return AjaxResponse::error(self::ErrorETwinImportServerCrash, ['response' => $data1]);
+            else return AjaxResponse::error(self::ErrorTwinImportInvalidResponse, ['response' => $data1]);
         }
 
         $twin_id = (int)($data1['twinId'] ?? 0);

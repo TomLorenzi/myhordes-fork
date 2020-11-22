@@ -1747,5 +1747,23 @@
         <target>Vous devez acquérir plus d'expérience pour pouvoir le faire ...</target>
       </segment>
     </unit>
+    <unit id="Yx7n3Xy" name="728d63e">
+      <notes>
+        <note category="german">Diese Nachricht wurde dir vom Raben persönlich überbracht. Er schwebt über der Stadt und wirft immer ein wachsames Auge auf dich...</note>
+      </notes>
+      <segment>
+        <source>Diese Nachricht wurde dir vom Raben persönlich überbracht. Er schwebt über der Stadt und wirft immer ein wachsames Auge auf dich...</source>
+        <target>Ce message vous a été envoyé par le Corbeau lui-même, qui rôde au-dessus de votre ville...</target>
+      </segment>
+    </unit>
+    <unit id="EX0EUAt" name="Kein">
+      <notes>
+        <note category="german">Kein</note>
+      </notes>
+      <segment>
+        <source>Kein</source>
+        <target>Aucun</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

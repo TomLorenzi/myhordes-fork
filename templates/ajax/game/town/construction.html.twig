@@ -34,6 +34,11 @@
         </div>
     </div>
 
+    {% if canvote %}
+        <div class="hero-help">{{'Du kannst den Bürgern der Stadt die Errichtung eines bestimmten Gebäudes empfehlen. Bewege dafür den Mauszeiger über das Bauprojekt, das du empfehlen willst und klicke auf den Link <strong>Abstimmen</strong>, der darüber erscheint.'|trans({}, 'game')|raw}}</div>
+    {% endif %}
+    
+
     {% if not voted_building is null %}
         <div class="voted-building">
             {{'Das folgende Bauprojekt wurde empfohlen:'|trans({}, 'game')}}<br />

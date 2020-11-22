@@ -49,6 +49,40 @@ class ZonePrototypeRepository extends ServiceEntityRepository
         ;
     }
 
+    /**
+     * @param bool $explorable
+     * @return int Minimum ruin distance (AP)
+     */
+    public function findMinRuinDistance(bool $explorable = false): int
+    {
+        try {
+            return $this->createQueryBuilder('z')
+                ->select('MIN(z.minDistance)')
+                ->andWhere('z.explorable = :exp')->setParameter('exp', $explorable)
+                ->getQuery()
+                ->getSingleScalarResult();
+        } catch (\Exception $e) {
+            return 1;
+        }
+    }
+
+    /**
+     * @param bool $explorable
+     * @return int Maximum ruin distance (AP)
+     */
+    public function findMaxRuinDistance(bool $explorable = false): int
+    {
+        try {
+            return $this->createQueryBuilder('z')
+                ->select('MAX(z.maxDistance)')
+                ->andWhere('z.explorable = :exp')->setParameter('exp', $explorable)
+                ->getQuery()
+                ->getSingleScalarResult();
+        } catch (\Exception $e) {
+            return 28;
+        }
+    }
+
     // /**
     //  * @return ZonePrototype[] Returns an array of ZonePrototype objects
     //  */

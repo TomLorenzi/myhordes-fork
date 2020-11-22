@@ -359,8 +359,12 @@ class SoulCoalitionController extends SoulController
         if (count($all_users) >= $conf->getGlobalConf()->get(MyHordesConf::CONF_COA_MAX_NUM, 5))
             return AjaxResponse::error( self::ErrorCoalitionFull );
 
+        /** @var User $target */
         $target = $this->entity_manager->getRepository(User::class)->find($id);
         if ($target === null) return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
+
+        if ($target->getEmail() === 'crow' || $target->getEmail() === $target->getUsername() || mb_substr($target->getEmail(), -10) === '@localhost')
+            return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
 
         /** @var UserGroupAssociation|null $user_coalition */
         $target_coalition = $this->user_handler->getCoalitionMembership($target);

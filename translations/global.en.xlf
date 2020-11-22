@@ -1709,7 +1709,7 @@
       </notes>
       <segment>
         <source>oder</source>
-        <target>oder</target>
+        <target>or</target>
       </segment>
     </unit>
     <unit id="1N_y7nB" name="d3efb5f">
@@ -1727,7 +1727,7 @@
       </notes>
       <segment>
         <source>Wenn ein andered Mitglied deiner Koalition eine Stadt auswählt, schließt du dich ihm automatisch an und spielst in der gleichen Stadt wie er.</source>
-        <target>Wenn ein andered Mitglied deiner Koalition eine Stadt auswählt, schließt du dich ihm automatisch an und spielst in der gleichen Stadt wie er.</target>
+        <target>If another member of your coalition chooses a town, you will automatically join them and play in the same town as them.</target>
       </segment>
     </unit>
     <unit id="Ba7luCC" name="Du musst noch mehr Erfahrung sammeln, um das tun zu können...">
@@ -1736,7 +1736,7 @@
       </notes>
       <segment>
         <source>Du musst noch mehr Erfahrung sammeln, um das tun zu können...</source>
-        <target>Du musst noch mehr Erfahrung sammeln, um das tun zu können...</target>
+        <target>You need to earn more experience to be able to do this ...</target>
       </segment>
     </unit>
   </file>

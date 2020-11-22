@@ -64,6 +64,12 @@ class TownHandler
         return $b;
     }
 
+    /**
+     * Triggers that should be always run once a day
+     *
+     * @param Town $town The town on which we run the triggers
+     * @return boolean Did something changed ?
+     */
     public function triggerAlways( Town $town ): bool {
         $changed = false;
 
@@ -94,6 +100,13 @@ class TownHandler
         return $changed;
     }
 
+    /**
+     * Triggers the events that should happen upon a building completion
+     *
+     * @param Town $town The town concerned by the trigger
+     * @param Building $building The building that has just been finished
+     * @return void
+     */
     public function triggerBuildingCompletion( Town &$town, Building $building ) {
         $well = 0;
 
@@ -212,6 +225,13 @@ class TownHandler
         }
     }
 
+    /**
+     * Add a building to the list of unlocked building
+     *
+     * @param Town $town The town we want to add a building to
+     * @param BuildingPrototype $prototype The prototype we want to add
+     * @return Building|null The building of the town, or null if it is not unlockable yet
+     */
     public function addBuilding( Town &$town, BuildingPrototype $prototype ): ?Building {
 
         // Do not add a building that already exist
@@ -228,6 +248,14 @@ class TownHandler
         return $this->internalAddBuilding( $town, $prototype );
     }
 
+    /**
+     * Return the wanted building
+     *
+     * @param Town $town The town we're looking the building into
+     * @param String|BuildingPrototype $prototype The prototype of the building (name of prototype or Prototype Entity)
+     * @param boolean $finished Do we want the building if is finished, null otherwise ?
+     * @return Building|null
+     */
     public function getBuilding(Town $town, $prototype, $finished = true): ?Building {
         if (is_string($prototype))
             $prototype = $this->entity_manager->getRepository(BuildingPrototype::class)->findOneByName($prototype);
@@ -239,6 +267,13 @@ class TownHandler
         return null;
     }
 
+    /**
+     * Calculate the citizen's home defense
+     *
+     * @param CitizenHome $home The citizen home
+     * @param HomeDefenseSummary|null $summary The defense summary
+     * @return integer The total home defense
+     */
     public function calculate_home_def( CitizenHome &$home, ?HomeDefenseSummary &$summary = null): int {
         $town = $home->getCitizen()->getTown();
 

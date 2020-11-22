@@ -31,7 +31,8 @@ class ShoutboxEntryRepository extends ServiceEntityRepository
     {
         $qb = $this->createQueryBuilder('s')
             ->andWhere('s.shoutbox = :val')->setParameter('val', $s)
-            ->orderBy('s.timestamp', 'DESC');
+            ->orderBy('s.timestamp', 'DESC')
+            ->orderBy('s.id', 'DESC');
         if ($cutoff !== null) $qb->andWhere('s.timestamp > :cut')->setParameter('cut', $cutoff);
         if ($limit !== null) $qb->setMaxResults($limit);
         return $qb->getQuery()

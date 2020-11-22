@@ -82,7 +82,10 @@
 
         {% if current_user is null and target_user is not null %}
             $.ajax.easySend( '{{ path('api_login') }}', [], function() {
-                $.ajax.load(null, '{{ path('initial_landing') }}', true)
+                if ($.client.config.navigationCache.get()) {
+                    $.ajax.load(null, $.client.config.navigationCache.get(), true);
+                    $.client.config.navigationCache.set(null);
+                } else $.ajax.load(null, '{{ path('initial_landing') }}', true)
             });
         {% else %}
             document.getElementById('et_confirm').addEventListener('click', function () {

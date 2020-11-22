@@ -481,7 +481,7 @@ class InventoryAwareController extends AbstractController
             return AjaxResponse::error( ErrorHelper::ErrorNoAP );
 
         $attack_protect = $this->getTownConf()->get(TownConf::CONF_MODIFIER_ATTACK_PROTECT, false) ||
-            ($aggressor->getUser()->getSoulPoints() < $this->conf->getGlobalConf()->get(MyHordesConf::CONF_ANTI_GRIEF_SP, 20));
+            ($aggressor->getUser()->getAllSoulPoints() < $this->conf->getGlobalConf()->get(MyHordesConf::CONF_ANTI_GRIEF_SP, 20));
         if ($attack_protect) {
             foreach ($aggressor->getTown()->getCitizens() as $c)
                 if ($c->getAlive() && $c->hasRole('ghoul'))
