@@ -5525,7 +5525,7 @@
       </notes>
       <segment>
         <source>Viele seltsame Gestalten haben diese stinkende Mütze schon getragen, und trotzdem geht dein Herz auf, als du sie aufsetzt.</source>
-        <target>teto gorro rojo maloliente</target>
+        <target>texto gorro rojo maloliente</target>
       </segment>
     </unit>
     <unit id="5tx1Ts1" name="7936bd8">
@@ -6776,7 +6776,7 @@
       </notes>
       <segment>
         <source>Gegenstände suchen</source>
-        <target>Gegenstände suchen</target>
+        <target>Busca un objeto</target>
       </segment>
     </unit>
     <unit id="R2RcDum" name="Kompass">

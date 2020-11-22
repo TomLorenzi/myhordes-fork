@@ -1154,7 +1154,7 @@
       </notes>
       <segment>
         <source>In der Stadt</source>
-        <target>In der Stadt</target>
+        <target>En el pueblo</target>
       </segment>
     </unit>
     <unit id="5TOztAt" name="Am Stadttor">
@@ -1554,7 +1554,7 @@
       </notes>
       <segment>
         <source>Hier findest du alle Gegenstände, die gegenwärtig in der Bank aufbewahrt werden. Bei diesen Gegenständen handelt es sich um Spenden der Bürger. Sie sind im Wesentlichen dazu da, Gemeinschaftsgebäude zu bauen und die Stadt gegen die allnächtlichen Zombieattacken zu verteidigen.</source>
-        <target>Hier findest du alle Gegenstände, die gegenwärtig in der Bank aufbewahrt werden. Bei diesen Gegenständen handelt es sich um Spenden der Bürger. Sie sind im Wesentlichen dazu da, Gemeinschaftsgebäude zu bauen und die Stadt gegen die allnächtlichen Zombieattacken zu verteidigen.</target>
+        <target><![CDATA[<strong>Estos son</strong> los objetos almacenados para <strong>construcciones útiles para el pueblo</strong> o <strong>sus defensas</strong>. Deposita aquí lo que encuentres. Cada ingreso o retiro será registrado.]]></target>
       </segment>
     </unit>
     <unit id="U0vMVpy" name="Bankregister">
@@ -3148,7 +3148,7 @@
       </notes>
       <segment>
         <source>%citizen% hat das Stadtgebiet aus Richtung %direction% betreten.</source>
-        <target>%citizen% hat das Stadtgebiet aus Richtung %direction% betreten.</target>
+        <target>%citizen% ha entrado al pueblo desde %direction%.</target>
       </segment>
     </unit>
     <unit id="PFgh04I" name="%citizen% (%profession%) ist Richtung %direction% aufgebrochen.">
@@ -4840,7 +4840,7 @@
       </notes>
       <segment>
         <source>Nachricht</source>
-        <target>Nachricht</target>
+        <target>Anuncio personal</target>
       </segment>
     </unit>
     <unit id="UHGC2Ea" name="Draußen?">
@@ -4849,7 +4849,7 @@
       </notes>
       <segment>
         <source>Draußen?</source>
-        <target>Draußen?</target>
+        <target>¿Afuera?</target>
       </segment>
     </unit>
     <unit id="zenlipp" name="Ja">
@@ -5083,7 +5083,7 @@
       </notes>
       <segment>
         <source>Verteidigungsgegenstände</source>
-        <target>Verteidigungsgegenstände</target>
+        <target>Objetos de defensa</target>
       </segment>
     </unit>
     <unit id="FAUZkS8" name="Häuser">
@@ -5236,7 +5236,7 @@
       </notes>
       <segment>
         <source>@citizens Bürger</source>
-        <target>@citizens Bürger</target>
+        <target>@citizens habitante</target>
       </segment>
     </unit>
     <unit id="bULZzW5" name="97ff2c6">
@@ -10009,7 +10009,7 @@
       </notes>
       <segment>
         <source>Stadtverteidigung</source>
-        <target>Stadtverteidigung</target>
+        <target>Defensas del pueblo</target>
       </segment>
     </unit>
     <unit id="75J9B.d" name="Details ansehen">
@@ -10018,7 +10018,7 @@
       </notes>
       <segment>
         <source>Details ansehen</source>
-        <target>Details ansehen</target>
+        <target>Ver el detalle</target>
       </segment>
     </unit>
     <unit id="KVApIB1" name="Lage">
@@ -10027,7 +10027,7 @@
       </notes>
       <segment>
         <source>Lage</source>
-        <target>Lage</target>
+        <target>Estado</target>
       </segment>
     </unit>
     <unit id="0jW7cq9" name="Stadttor geöffnet">
@@ -10036,7 +10036,7 @@
       </notes>
       <segment>
         <source>Stadttor geöffnet</source>
-        <target>Stadttor geöffnet</target>
+        <target>Portal abierto</target>
       </segment>
     </unit>
     <unit id="_DKPL9S" name="Wer ist draußen?">
@@ -10045,7 +10045,7 @@
       </notes>
       <segment>
         <source>Wer ist draußen?</source>
-        <target>Wer ist draußen?</target>
+        <target>¿Quién está afuera?</target>
       </segment>
     </unit>
     <unit id="rRAcec3" name="Stadttor geschlossen">
@@ -10054,7 +10054,7 @@
       </notes>
       <segment>
         <source>Stadttor geschlossen</source>
-        <target>Stadttor geschlossen</target>
+        <target>Portal cerrado</target>
       </segment>
     </unit>
     <unit id="9NwZjWy" name="Teilnehmen">
@@ -14068,7 +14068,7 @@
       </notes>
       <segment>
         <source>Das Stadttor ist Teil einer Festungsmauer, die den Großteil der Zombies abwehrt. Solltest du vergessen es am Abend zu schließen, kannst du dich auf Qualen einstellen, die deine schlimmsten Alpträume weit übertreffen.</source>
-        <target>Das Stadttor ist Teil einer Festungsmauer, die den Großteil der Zombies abwehrt. Solltest du vergessen es am Abend zu schließen, kannst du dich auf Qualen einstellen, die deine schlimmsten Alpträume weit übertreffen.</target>
+        <target>El Gran Portal protege al pueblo de los zombies que proliferan alrededor. Si por descuido, queda abierto durante el ataque, vivirás la peor pesadilla que jamás hayas imaginado.</target>
       </segment>
     </unit>
     <unit id="jImJojV" name="Der Batterienator">

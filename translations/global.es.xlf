@@ -1672,7 +1672,7 @@
       </notes>
       <segment>
         <source>Jeder &lt;strong&gt;Verteidigungsgegenstand&lt;/strong&gt;, der sich in der Bank befindet, bringt der Stadt &lt;strong&gt;1 Verteidigungspunkte&lt;/strong&gt;.</source>
-        <target><![CDATA[Jeder <strong>Verteidigungsgegenstand</strong>, der sich in der Bank befindet, bringt der Stadt <strong>1 Verteidigungspunkte</strong>.]]></target>
+        <target><![CDATA[Cada <strong>objeto de defensa</strong> colocado en el Almacén le da <strong>1 punto de defensa al pueblo</strong>.]]></target>
       </segment>
     </unit>
     <unit id="uB2Vk6P" name="oder">
@@ -1681,7 +1681,7 @@
       </notes>
       <segment>
         <source>oder</source>
-        <target>oder</target>
+        <target>o</target>
       </segment>
     </unit>
     <unit id="1N_y7nB" name="d3efb5f">
