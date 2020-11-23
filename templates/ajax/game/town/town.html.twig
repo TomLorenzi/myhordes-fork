@@ -75,7 +75,7 @@
                         {% if building.hp != building.prototype.hp %}
                             <span class="float-right">
                                 <div class="life-bar">
-                                    <div class="life-progress" style="width: {{building.hp / building.prototype.hp * 100}}%;"></div>
+                                    <div class="life-progress {% if building.hp / building.prototype.hp < 0.15 %}life-critical{% elseif building.hp / building.prototype.hp < 0.50 %}life-warning{% endif %}" style="width: {{building.hp / building.prototype.hp * 100}}%;"></div>
                                 </div>
                             </span>
                         {% endif %}
