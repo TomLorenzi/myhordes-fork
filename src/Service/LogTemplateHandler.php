@@ -983,12 +983,15 @@ class LogTemplateHandler
             ->setTimestamp( new DateTime('now') );
     }
 
-    public function townSteal( Citizen $victim, ?Citizen $actor, ItemPrototype $item, bool $up, bool $santa = false, $broken = false): TownLogEntry {
+    public function townSteal( Citizen $victim, ?Citizen $actor, ItemPrototype $item, bool $up, bool $santa = false, $broken = false, bool $leprechaun = false): TownLogEntry {
 
         if ($up){
-            if($santa){
+            if($santa || $leprechaun){
                 $variables = array('victim' => $victim->getId(), 'item' => $item->getId(), 'broken' => $broken);
-                $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneBy(['name' => 'townStealSanta']);
+                if($santa)
+                    $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneBy(['name' => 'townStealSanta']);
+                else
+                    $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneBy(['name' => 'townStealLeprechaun']);
             } 
             else {
                 if ($actor) {

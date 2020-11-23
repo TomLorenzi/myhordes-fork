@@ -619,7 +619,7 @@ class PictoFixtures extends Fixture
             'description' => 'Wie viele Seelen hat Ihre Stadt befreien können. (job)',
             'icon' => 'r_mystic2',
             'rare' => false
-        ],
+        ]
     ];
 
     private $entityManager;

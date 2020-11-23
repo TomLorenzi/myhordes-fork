@@ -7216,7 +7216,7 @@
       </notes>
       <segment>
         <source>Krähenelfe</source>
-        <target>Elf corbeau</target>
+        <target>Elfe corbeau</target>
       </segment>
     </unit>
     <unit id="dxVqvZU" name="fb77d9b">
@@ -7244,6 +7244,24 @@
       <segment>
         <source>Entweder ein verschrumpelter alter Weihnachtskuchen oder etwas weniger Schmackhaftes, das dennoch am Weihnachtstag gebacken wird! Genießen Sie auf jeden Fall diesen Kuchen... Ding...</source>
         <target>Soit un vieux gâteau de Noël ratatiné, soit quelque chose d'un peu moins appétissant, fait le jour de Noël tout de même ! Quoi qu'il en soit, profitez de ce... gâteau ?</target>
+      </segment>
+    </unit>
+    <unit id="S17luT0" name="Grüner Kobold-Anzug">
+      <notes>
+        <note category="german">Grüner Kobold-Anzug</note>
+      </notes>
+      <segment>
+        <source>Grüner Kobold-Anzug</source>
+        <target>Costume de Lutin Vert</target>
+      </segment>
+    </unit>
+    <unit id="0TddDiL" name="7fd5428">
+      <notes>
+        <note category="german">In dieser Aufmachung sind Sie so auffällig, dass Sie niemand bemerkt oder glaubt, sich das eingebildet zu haben! Sie würden es nicht missbrauchen, oder?</note>
+      </notes>
+      <segment>
+        <source>In dieser Aufmachung sind Sie so auffällig, dass Sie niemand bemerkt oder glaubt, sich das eingebildet zu haben! Sie würden es nicht missbrauchen, oder?</source>
+        <target>Avec ce déguisement, vous êtes tellement voyant que personne ne vous remarquera, ou ils penserront qu'ils l'ont imaginé ! Vous n'en abuseriez pas, n'est-ce pas ?</target>
       </segment>
     </unit>
   </file>

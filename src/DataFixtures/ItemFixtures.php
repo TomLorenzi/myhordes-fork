@@ -397,6 +397,7 @@ class ItemFixtures extends Fixture
         ['label' => 'Mystischer Trank','icon' => 'potion','category' => 'root_food','deco' => 0,'heavy' => false, 'watchpoint' => 0],                              // -- Out
         ['label' => 'Krähenelfe','icon' => 'food_xmas','category' => 'root_food','deco' => 0,'heavy' => false, 'watchpoint' => 0],                              // -- Out
         ['label' => 'Logbuch Schokolade','icon' => 'wood_xmas','category' => 'root_food','deco' => 8,'heavy' => true, 'watchpoint' => 0],                              // -- Out
+        ['label' => 'Grüner Kobold-Anzug','icon'=>'leprechaun_suit','category'=>'misc','deco'=>0,'heavy'=>false, 'watchpoint' => 0], //
     ];
     
     public static $item_desc_data = [
@@ -742,6 +743,7 @@ class ItemFixtures extends Fixture
         'photo_off_#00' => 'Diese nostalgische Knipse aus dem letzten Jahrhundert wirkt, als hätte sie schon Aberhunderten Leuten die Netzhaut verbrannt. Ihr schwacher Blitz könnte dich aus brenzligen Situationen retten, wenn du Zombies damit blendest!',
         'food_xmas_#00' => 'Das ist eine seltsam aussehende kleine Bestie... Scheint einer Krähe zu ähneln... Aber es ist grün und trägt einen komischen Hut...',
         'wood_xmas_#00' => 'Entweder ein verschrumpelter alter Weihnachtskuchen oder etwas weniger Schmackhaftes, das dennoch am Weihnachtstag gebacken wird! Genießen Sie auf jeden Fall diesen Kuchen... Ding...',
+        'leprechaun_suit_#00' => 'In dieser Aufmachung sind Sie so auffällig, dass Sie niemand bemerkt oder glaubt, sich das eingebildet zu haben! Sie würden es nicht missbrauchen, oder?',
     ];
     
     public static $item_prototype_properties = [
