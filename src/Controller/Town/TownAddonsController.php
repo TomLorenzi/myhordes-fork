@@ -505,7 +505,7 @@ class TownAddonsController extends TownController
                             'icon' => $status->getIcon(),
                             'label' => $status->getLabel(),
                             'defImpact' => 15,
-                            'deathImpact' => 10
+                            'deathImpact' => 15
                         );
                         break;
                     case 'wound1':
@@ -553,7 +553,7 @@ class TownAddonsController extends TownController
                     'icon' => 'ghoul',
                     'label' => 'Ghul',
                     'defImpact' => 0,
-                    'deathImpact' => -5
+                    'deathImpact' => +5
                 );
 
             foreach ($watcher->getCitizen()->getInventory()->getItems() as $item) {
