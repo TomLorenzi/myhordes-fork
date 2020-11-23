@@ -7207,7 +7207,43 @@
       </notes>
       <segment>
         <source>Einmal ist zwar keinmal, dennoch genießt du dein(e) {item}. Das ist mal ne echte Abwechslung zu dem sonstigen Fraß... Du spürst deine Kräfte wieder zurückkehren. Du hast 1 zusätzlichen AP erhalten!</source>
-        <target>Einmal ist zwar keinmal, dennoch genießt du dein(e) {item}. Das ist mal ne echte Abwechslung zu dem sonstigen Fraß... Du spürst deine Kräfte wieder zurückkehren. Du hast 1 zusätzlichen AP erhalten!</target>
+        <target>Une fois n'est pas coutume, vous vous faîtes plaisir en avalant {item} . Ca change des rations quotidiennes infectes... Vous reprenez du poil de la bête. Vous recevez un bonus de 1 PA !</target>
+      </segment>
+    </unit>
+    <unit id="wDKaGfq" name="Krähenelfe">
+      <notes>
+        <note category="german">Krähenelfe</note>
+      </notes>
+      <segment>
+        <source>Krähenelfe</source>
+        <target>Elf corbeau</target>
+      </segment>
+    </unit>
+    <unit id="dxVqvZU" name="fb77d9b">
+      <notes>
+        <note category="german">Das ist eine seltsam aussehende kleine Bestie... Scheint einer Krähe zu ähneln... Aber es ist grün und trägt einen komischen Hut...</note>
+      </notes>
+      <segment>
+        <source>Das ist eine seltsam aussehende kleine Bestie... Scheint einer Krähe zu ähneln... Aber es ist grün und trägt einen komischen Hut...</source>
+        <target>C'est une petite bête à l'apparence étrange... Ça ressemble à un corbeau... Mais en vert et il a un chapeau étrange...</target>
+      </segment>
+    </unit>
+    <unit id="VVXkyRX" name="Logbuch Schokolade">
+      <notes>
+        <note category="german">Logbuch Schokolade</note>
+      </notes>
+      <segment>
+        <source>Logbuch Schokolade</source>
+        <target>Bûche en chocolat</target>
+      </segment>
+    </unit>
+    <unit id="WSBb1y." name="66b1acc">
+      <notes>
+        <note category="german">Entweder ein verschrumpelter alter Weihnachtskuchen oder etwas weniger Schmackhaftes, das dennoch am Weihnachtstag gebacken wird! Genießen Sie auf jeden Fall diesen Kuchen... Ding...</note>
+      </notes>
+      <segment>
+        <source>Entweder ein verschrumpelter alter Weihnachtskuchen oder etwas weniger Schmackhaftes, das dennoch am Weihnachtstag gebacken wird! Genießen Sie auf jeden Fall diesen Kuchen... Ding...</source>
+        <target>Soit un vieux gâteau de Noël ratatiné, soit quelque chose d'un peu moins appétissant, fait le jour de Noël tout de même ! Quoi qu'il en soit, profitez de ce... gâteau ?</target>
       </segment>
     </unit>
   </file>
