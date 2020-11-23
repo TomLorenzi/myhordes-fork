@@ -7265,5 +7265,59 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
         <target>Einmal ist zwar keinmal, dennoch genießt du dein(e) {item}. Das ist mal ne echte Abwechslung zu dem sonstigen Fraß... Du spürst deine Kräfte wieder zurückkehren. Du hast 1 zusätzlichen AP erhalten!</target>
       </segment>
     </unit>
+    <unit id="wDKaGfq" name="Krähenelfe">
+      <notes>
+        <note category="german">Krähenelfe</note>
+      </notes>
+      <segment>
+        <source>Krähenelfe</source>
+        <target>Krähenelfe</target>
+      </segment>
+    </unit>
+    <unit id="dxVqvZU" name="fb77d9b">
+      <notes>
+        <note category="german">Das ist eine seltsam aussehende kleine Bestie... Scheint einer Krähe zu ähneln... Aber es ist grün und trägt einen komischen Hut...</note>
+      </notes>
+      <segment>
+        <source>Das ist eine seltsam aussehende kleine Bestie... Scheint einer Krähe zu ähneln... Aber es ist grün und trägt einen komischen Hut...</source>
+        <target>Das ist eine seltsam aussehende kleine Bestie... Scheint einer Krähe zu ähneln... Aber es ist grün und trägt einen komischen Hut...</target>
+      </segment>
+    </unit>
+    <unit id="VVXkyRX" name="Logbuch Schokolade">
+      <notes>
+        <note category="german">Schokoladenklumpen</note>
+      </notes>
+      <segment>
+        <source>Logbuch Schokolade</source>
+        <target>Logbuch Schokolade</target>
+      </segment>
+    </unit>
+    <unit id="WSBb1y." name="66b1acc">
+      <notes>
+        <note category="german">Entweder ein verschrumpelter alter Weihnachtskuchen oder etwas noch weniger Schmackhaftes, was am Weihnachtstag gebacken wird! Auf jeden Fall solltest du dieses Kuchen... artige Ding genießen.</note>
+      </notes>
+      <segment>
+        <source>Entweder ein verschrumpelter alter Weihnachtskuchen oder etwas weniger Schmackhaftes, das dennoch am Weihnachtstag gebacken wird! Genießen Sie auf jeden Fall diesen Kuchen... Ding...</source>
+        <target>Entweder ein verschrumpelter alter Weihnachtskuchen oder etwas weniger Schmackhaftes, das dennoch am Weihnachtstag gebacken wird! Genießen Sie auf jeden Fall diesen Kuchen... Ding...</target>
+      </segment>
+    </unit>
+    <unit id="S17luT0" name="Grüner Kobold-Anzug">
+      <notes>
+        <note category="german">Grüner Kobold-Anzug</note>
+      </notes>
+      <segment>
+        <source>Grüner Kobold-Anzug</source>
+        <target>Grüner Kobold-Anzug</target>
+      </segment>
+    </unit>
+    <unit id="0TddDiL" name="7fd5428">
+      <notes>
+        <note category="german">In dieser Aufmachung bist du so auffällig, dass dich niemand bemerkt oder zumindest glaubt, sich das nur eingebildet zu haben! Das würdest du doch nicht missbrauchen, oder?</note>
+      </notes>
+      <segment>
+        <source>In dieser Aufmachung sind Sie so auffällig, dass Sie niemand bemerkt oder glaubt, sich das eingebildet zu haben! Sie würden es nicht missbrauchen, oder?</source>
+        <target>In dieser Aufmachung sind Sie so auffällig, dass Sie niemand bemerkt oder glaubt, sich das eingebildet zu haben! Sie würden es nicht missbrauchen, oder?</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
