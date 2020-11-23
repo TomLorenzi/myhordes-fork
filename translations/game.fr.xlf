@@ -11328,7 +11328,7 @@
       </notes>
       <segment>
         <source>Der Kobold hat dich erwischt</source>
-        <target>Le lutin t'a bien eu</target>
+        <target>Le lutin vous a bien eu</target>
       </segment>
     </unit>
     <unit id="3FbjOB1" name="Anzahl der Gegenstände, die du von deinen Freunden gestohlen hast">
@@ -14661,13 +14661,22 @@
         <target>Statut</target>
       </segment>
     </unit>
-    <unit id="UFB43D7" name="Tätigkeit">
+    <unit id="RvCNf5O" name="Aktivität">
       <notes>
-        <note category="german">Tätigkeit</note>
+        <note category="german">Aktivität</note>
       </notes>
       <segment>
-        <source>Tätigkeit</source>
+        <source>Aktivität</source>
         <target>Activité</target>
+      </segment>
+    </unit>
+    <unit id="qjYW_3_" name="Leprechaun wurde gesehen, wie er den %item% von %victim% stahl!">
+      <notes>
+        <note category="german">Leprechaun wurde gesehen, wie er den %item% von %victim% stahl!</note>
+      </notes>
+      <segment>
+        <source>Leprechaun wurde gesehen, wie er den %item% von %victim% stahl!</source>
+        <target>Le lutin vert a été vu volant %item% à %victim% !</target>
       </segment>
     </unit>
   </file>

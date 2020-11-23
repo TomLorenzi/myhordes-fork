@@ -677,7 +677,7 @@ class CitizenHandler
             'drunk'     => -0.04,
             'hungover'  =>  0.05,
             'terror'    =>  0.45,
-            'addict'    =>  0.01,
+            'addict'    =>  0.15,
             'healed'    =>  0.10,
             'infection' =>  0.20,
         ];

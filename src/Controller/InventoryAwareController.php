@@ -629,12 +629,19 @@ class InventoryAwareController extends AbstractController
                                 $pictoName = "r_plundr_#00";
 
                             $isSanta = false;
+                            $isLeprechaun = false;
                             $hasExplodingDoormat = false;
 
                             if ($this->inventory_handler->countSpecificItems($citizen->getInventory(), "christmas_suit_full_#00") > 0){
                                 $pictoName = "r_santac_#00";
                                 $isSanta = true;
                             }
+
+                            if ($this->inventory_handler->countSpecificItems($citizen->getInventory(), "leprechaun_suit_#00") > 0){
+                                $pictoName = "r_lepre_#00";
+                                $isLeprechaun = true;
+                            }
+
                             if ($this->inventory_handler->countSpecificItems($victim_home->getChest(), "trapma_#00") > 0)
                                 $hasExplodingDoormat = true;
 
@@ -653,8 +660,8 @@ class InventoryAwareController extends AbstractController
                                 $this->entity_manager->persist( $this->log->townSteal( $victim_home->getCitizen(), $citizen, $current_item->getPrototype(), $steal_up, false, $current_item->getBroken() ) );
                                 $this->addFlash( 'notice', $this->translator->trans('"Einen Schritt weiter..." stand auf %victim%s Fußmatte. Ihre Explosion hat einen bleibenden Eindruck bei dir hinterlassen. Wenn du noch laufen kannst, such dir besser einen Arzt.', 
                                 ['%victim%' => $victim_home->getCitizen()->getUser()->getName()], 'game') );
-                            } elseif ($isSanta) {
-                                $this->entity_manager->persist( $this->log->townSteal( $victim_home->getCitizen(), null, $current_item->getPrototype(), $steal_up, true, $current_item->getBroken() ) );
+                            } elseif ($isSanta || $isLeprechaun) {
+                                $this->entity_manager->persist( $this->log->townSteal( $victim_home->getCitizen(), null, $current_item->getPrototype(), $steal_up, $isSanta, $current_item->getBroken(), $isLeprechaun ) );
                                 $this->addFlash( 'notice', $this->translator->trans('Dank deines Kostüms konntest du %item% von %victim% stehlen, ohne erkannt zu werden', [
                                     '%victim%' => $victim_home->getCitizen()->getUser()->getName(),
                                     '%item%' => "<span>" . $this->translator->trans($current_item->getPrototype()->getLabel(),[], 'items') . "</span>"], 'game') );

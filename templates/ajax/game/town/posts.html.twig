@@ -37,9 +37,9 @@
                     {% endif %}
                 {% else %}
                     {% if app.user.preferSmallAvatars %}
-                        <div class="avatarcrow small"><img alt="" src="{{ path('app_web_avatar', {'uid': thecrow.id, 'name': thecrow.avatar.smallName, 'ext': thecrow.avatar.format}) }}"></div>
+                        <div class="avatarcrow small"><img alt="" src="{{ asset('build/images/forum/crow/crow.small.' ~ (app.request.locale|e('html_attr')|split('_', 2))[0] ~ '.png') }}"></div>
                     {% else %}
-                        <div class="avatarcrow"><img alt="" src="{{ path('app_web_avatar', {'uid': thecrow.id, 'name': thecrow.avatar.filename, 'ext': thecrow.avatar.format}) }}"></div>
+                        <div class="avatarcrow"><img alt="" src="{{ asset('build/images/forum/crow/crow.' ~ (app.request.locale|e('html_attr')|split('_', 2))[0] ~ '.png') }}"></div>
                     {% endif %}
                 {% endif %}
 
@@ -53,7 +53,7 @@
             </div>
             <div class="forum-post-content" >
                 {% if not post.owner %}
-                    <div class="crowmsg">{{ 'Dies ist eine offizielle Nachricht.'|trans({},'game') }} <a class="help-button"><div class="tooltip help">{{ 'Diese Nachricht wurde dir vom Raben persönlich überbracht. Er schwebt über der Stadt und wirft immer ein wachsames Auge auf dich...'|trans({},'global') }}</div>{{ 'Hilfe'|trans({},'global') }}</a></div>
+                    <div class="crowmsg {% if not app.user.preferSmallAvatars %}fixMargin{% endif %}">{{ 'Dies ist eine offizielle Nachricht.'|trans({},'game') }} <a class="help-button"><div class="tooltip help">{{ 'Diese Nachricht wurde dir vom Raben persönlich überbracht. Er schwebt über der Stadt und wirft immer ein wachsames Auge auf dich...'|trans({},'global') }}</div>{{ 'Hilfe'|trans({},'global') }}</a></div>
                 {% endif %}
                 {{ post.text|raw }}
                 {% if items[post.id] is defined and items[post.id]|length > 0 %}

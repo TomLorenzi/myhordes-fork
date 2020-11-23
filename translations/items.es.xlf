@@ -6434,7 +6434,7 @@
       </notes>
       <segment>
         <source>Versteck verlassen</source>
-        <target>Deja tu escondite</target>
+	<target>Deja tu escondite</target>
       </segment>
     </unit>
     <unit id="DLyYjGK" name="Du hast Dein Versteck verlassen.">

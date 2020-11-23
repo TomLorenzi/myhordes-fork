@@ -505,7 +505,7 @@ class TownAddonsController extends TownController
                             'icon' => $status->getIcon(),
                             'label' => $status->getLabel(),
                             'defImpact' => 15,
-                            'deathImpact' => 10
+                            'deathImpact' => 15
                         );
                         break;
                     case 'wound1':

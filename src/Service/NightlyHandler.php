@@ -604,7 +604,7 @@ class NightlyHandler
             }
             else {
                 $this->entity_manager->persist($this->logTemplates->citizenZombieAttackRepelled( $targets[$i], $def, $force));
-                if (!$has_kino && $this->random->chance( 0.75 * ($force/max(1,$def)) )) {
+                if (!$has_kino && $this->random->chance(0.75 * ($force/max(1,$def))) && !$this->citizen_handler->hasStatusEffect($targets[$i], $status_terror)) {
                     $this->citizen_handler->inflictStatus( $targets[$i], $status_terror );
                     $this->log->debug("Citizen <info>{$targets[$i]->getUser()->getUsername()}</info> now suffers from <info>{$status_terror->getLabel()}</info>");
 

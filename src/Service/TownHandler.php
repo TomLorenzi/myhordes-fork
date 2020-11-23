@@ -402,6 +402,12 @@ class TownHandler
         $summary->soul_defense = $town->getSoulDefense();
 
         $summary->nightwatch_defense = $this->calculate_watch_def($town);
+
+        $dump = $this->getBuilding($town, 'small_trash_#00', true);
+
+        if($dump) {
+            $summary->dump_defense = $dump->getTempDefenseBonus();
+        }
         
         return $summary->sum();
     }
