@@ -2177,5 +2177,14 @@
         <target>Der Twinoid-Server meldet, dass er dein Profil aufgrund eines internen Fehlers nicht an MyHordes übertragen kann. Dieses Problem tritt häufig auf, wenn du in deinen Letzten Worten oder Stadtkommentaren Sonderzeichen verwendet hast. Bitte prüfe deine Stadtkommentare und entferne Sonderzeichen. Wenn sich Sonderzeichen in deinen Letzten Worten befinden, wende dich auf Twinoid an einen Raben.</target>
       </segment>
     </unit>
+    <unit id="lXmZ79T" name="Tod nicht validiert">
+      <notes>
+        <note category="german">Tod nicht validiert</note>
+      </notes>
+      <segment>
+        <source>Tod nicht validiert</source>
+        <target>Mort non validée</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

@@ -104,7 +104,9 @@
                                         <span>
                                             {% if assoc.user.activeCitizen is not null %}
                                                 {% if show_town %}
-                                                    {% if app.user.activeCitizen or not assoc.user.activeCitizen.town.open %}
+                                                    {% if not assoc.user.activeCitizen.alive %}
+                                                        <i>{{'Tod nicht validiert'|trans({}, 'soul')}}</i>
+                                                    {% elseif app.user.activeCitizen or not assoc.user.activeCitizen.town.open %}
                                                         {{ assoc.user.activeCitizen.town.name }}
                                                     {% else %}
                                                         <a href="#" x-town-locked="{{ assoc.user.activeCitizen.town.password is empty ? '0' : '1' }}" x-join-id={{ assoc.user.activeCitizen.town.id }}">{{ assoc.user.activeCitizen.town.name }}</a>
