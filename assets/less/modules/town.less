@@ -186,6 +186,24 @@ div.town-banner {
         padding-left: 20px;
         font-style: normal;
       }
+
+      & .life-bar {
+        margin-top: .25em;
+        margin-right: 1em;
+        height: .5em;
+        border: 1px solid black;
+        background-color: black;
+        position: relative;
+        width: 30px;
+    
+        & > * {
+          height: 100%;
+          position: absolute;
+        }
+        & .life-progress {
+          background-color: #696486;
+        }
+      }
     }
   }
 }

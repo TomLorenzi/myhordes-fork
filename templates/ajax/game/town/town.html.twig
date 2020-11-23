@@ -70,7 +70,16 @@
                 <ul>
                 {% for building in builtbuildings|sort((a, b) => a.prototype.orderBy <=> b.prototype.orderBy) %}
                     <li class="cell padded-small rw-12">
-                        <img alt="" src="{{ asset('build/images/building/' ~ building.prototype.icon ~ '.gif' ) }}" /> {{ building.prototype.label|trans({},'buildings') }}<br />
+                        <img alt="" src="{{ asset('build/images/building/' ~ building.prototype.icon ~ '.gif' ) }}" />
+                        {{ building.prototype.label|trans({},'buildings') }}
+                        {% if building.hp != building.prototype.hp %}
+                            <span class="float-right">
+                                <div class="life-bar">
+                                    <div class="life-progress" style="width: {{building.hp / building.prototype.hp * 100}}%;"></div>
+                                </div>
+                            </span>
+                        {% endif %}
+                        <br />
                         {% if building.defense > 0 %}<em>+ {{building.defense}} {% trans from "buildings" %}Verteidigung{% endtrans %} </em>{% endif %}
                         {% if building.prototype.maxLevel > 0 and building.level > 0 %}<em>{% trans with {'%lv%': building.level} from 'game' %}Level %lv%{% endtrans %}</em>{% endif %}
                     </li>
