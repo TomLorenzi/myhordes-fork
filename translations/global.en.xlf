@@ -1739,5 +1739,32 @@
         <target>You need to earn more experience to be able to do this ...</target>
       </segment>
     </unit>
+    <unit id="NA9GMDP" name="Code">
+      <notes>
+        <note category="german">Code</note>
+      </notes>
+      <segment>
+        <source>Code</source>
+        <target>Code</target>
+      </segment>
+    </unit>
+    <unit id="EX0EUAt" name="Kein">
+      <notes>
+        <note category="german">Kein</note>
+      </notes>
+      <segment>
+        <source>Kein</source>
+        <target>Kein</target>
+      </segment>
+    </unit>
+    <unit id="Yx7n3Xy" name="728d63e">
+      <notes>
+        <note category="german">Diese Nachricht wurde dir vom Raben persönlich überbracht. Er schwebt über der Stadt und wirft immer ein wachsames Auge auf dich...</note>
+      </notes>
+      <segment>
+        <source>Diese Nachricht wurde dir vom Raben persönlich überbracht. Er schwebt über der Stadt und wirft immer ein wachsames Auge auf dich...</source>
+        <target>Diese Nachricht wurde dir vom Raben persönlich überbracht. Er schwebt über der Stadt und wirft immer ein wachsames Auge auf dich...</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

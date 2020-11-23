@@ -1231,7 +1231,7 @@
       </notes>
       <segment>
         <source>Der Markierer ist auf der Karte für ALLE Bürger sichtbar. Benutze ihn, um der Gemeinschaft Informationen über eine bestimmte Zone mitzuteilen.</source>
-        <target>Der Markierer ist auf der Karte für ALLE Bürger sichtbar. Benutze ihn, um der Gemeinschaft Informationen über eine bestimmte Zone mitzuteilen.</target>
+        <target>El marcador es visible en el mapa por TODOS los habitantes. Úsalo para compartir información sobre esta zona con toda la comunidad.</target>
       </segment>
     </unit>
     <unit id="51m8lm3" name="7ef672f">
@@ -1240,7 +1240,7 @@
       </notes>
       <segment>
         <source>Beachte: Alle hier geschriebenen Nachrichten gehen verloren, wenn alle Bürger die Zone verlassen.</source>
-        <target>Beachte: Alle hier geschriebenen Nachrichten gehen verloren, wenn alle Bürger die Zone verlassen.</target>
+        <target>Nota: los mensajes escritos aquí se perderán si todos los habitantes abandonan la zona.</target>
       </segment>
     </unit>
     <unit id="uEQ0dag" name="7273dec">
@@ -1672,7 +1672,7 @@
       </notes>
       <segment>
         <source>Jeder &lt;strong&gt;Verteidigungsgegenstand&lt;/strong&gt;, der sich in der Bank befindet, bringt der Stadt &lt;strong&gt;1 Verteidigungspunkte&lt;/strong&gt;.</source>
-        <target><![CDATA[Jeder <strong>Verteidigungsgegenstand</strong>, der sich in der Bank befindet, bringt der Stadt <strong>1 Verteidigungspunkte</strong>.]]></target>
+        <target><![CDATA[Cada <strong>objeto de defensa</strong> colocado en el Almacén le da <strong>1 punto de defensa al pueblo</strong>.]]></target>
       </segment>
     </unit>
     <unit id="uB2Vk6P" name="oder">
@@ -1681,7 +1681,7 @@
       </notes>
       <segment>
         <source>oder</source>
-        <target>oder</target>
+        <target>o</target>
       </segment>
     </unit>
     <unit id="1N_y7nB" name="d3efb5f">
@@ -1709,6 +1709,33 @@
       <segment>
         <source>Du musst noch mehr Erfahrung sammeln, um das tun zu können...</source>
         <target>Du musst noch mehr Erfahrung sammeln, um das tun zu können...</target>
+      </segment>
+    </unit>
+    <unit id="NA9GMDP" name="Code">
+      <notes>
+        <note category="german">Code</note>
+      </notes>
+      <segment>
+        <source>Code</source>
+        <target>Code</target>
+      </segment>
+    </unit>
+    <unit id="EX0EUAt" name="Kein">
+      <notes>
+        <note category="german">Kein</note>
+      </notes>
+      <segment>
+        <source>Kein</source>
+        <target>Kein</target>
+      </segment>
+    </unit>
+    <unit id="Yx7n3Xy" name="728d63e">
+      <notes>
+        <note category="german">Diese Nachricht wurde dir vom Raben persönlich überbracht. Er schwebt über der Stadt und wirft immer ein wachsames Auge auf dich...</note>
+      </notes>
+      <segment>
+        <source>Diese Nachricht wurde dir vom Raben persönlich überbracht. Er schwebt über der Stadt und wirft immer ein wachsames Auge auf dich...</source>
+        <target>Diese Nachricht wurde dir vom Raben persönlich überbracht. Er schwebt über der Stadt und wirft immer ein wachsames Auge auf dich...</target>
       </segment>
     </unit>
   </file>

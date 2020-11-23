@@ -1154,7 +1154,7 @@
       </notes>
       <segment>
         <source>In der Stadt</source>
-        <target>In der Stadt</target>
+        <target>En el pueblo</target>
       </segment>
     </unit>
     <unit id="5TOztAt" name="Am Stadttor">
@@ -1554,7 +1554,7 @@
       </notes>
       <segment>
         <source>Hier findest du alle Gegenstände, die gegenwärtig in der Bank aufbewahrt werden. Bei diesen Gegenständen handelt es sich um Spenden der Bürger. Sie sind im Wesentlichen dazu da, Gemeinschaftsgebäude zu bauen und die Stadt gegen die allnächtlichen Zombieattacken zu verteidigen.</source>
-        <target>Hier findest du alle Gegenstände, die gegenwärtig in der Bank aufbewahrt werden. Bei diesen Gegenständen handelt es sich um Spenden der Bürger. Sie sind im Wesentlichen dazu da, Gemeinschaftsgebäude zu bauen und die Stadt gegen die allnächtlichen Zombieattacken zu verteidigen.</target>
+        <target><![CDATA[<strong>Estos son</strong> los objetos almacenados para <strong>construcciones útiles para el pueblo</strong> o <strong>sus defensas</strong>. Deposita aquí lo que encuentres. Cada ingreso o retiro será registrado.]]></target>
       </segment>
     </unit>
     <unit id="U0vMVpy" name="Bankregister">
@@ -1792,7 +1792,7 @@
       </notes>
       <segment>
         <source>Am Boden</source>
-        <target>Al suelo</target>
+        <target>En el suelo</target>
       </segment>
     </unit>
     <unit id="uBY6LwO" name="Temporäre Zonenkontrolle">
@@ -1900,7 +1900,7 @@
       </notes>
       <segment>
         <source>Ruine</source>
-        <target>Ruine</target>
+        <target>Ruina</target>
       </segment>
     </unit>
     <unit id="UKXXzW6" name="b23ec99">
@@ -2026,7 +2026,7 @@
       </notes>
       <segment>
         <source>Das Stadtregister steht nicht zur Verfügung.</source>
-        <target>Das Stadtregister steht nicht zur Verfügung.</target>
+        <target>El Registro del Pueblo (donde todas las acciones de los habitantes quedan registradas) no es accesible cuando estás en el Ultramundo...</target>
       </segment>
     </unit>
     <unit id="V3rm2Ma" name="Herzlichen Glückwunsch, du bist TOT!">
@@ -2248,7 +2248,7 @@
       </notes>
       <segment>
         <source>Alle Einträge anzeigen</source>
-        <target>Alle Einträge anzeigen</target>
+        <target>Mostrar todas las entradas</target>
       </segment>
     </unit>
     <unit id="FQORaiq" name="Tag">
@@ -3148,7 +3148,7 @@
       </notes>
       <segment>
         <source>%citizen% hat das Stadtgebiet aus Richtung %direction% betreten.</source>
-        <target>%citizen% hat das Stadtgebiet aus Richtung %direction% betreten.</target>
+        <target>%citizen% ha entrado al pueblo desde %direction%.</target>
       </segment>
     </unit>
     <unit id="PFgh04I" name="%citizen% (%profession%) ist Richtung %direction% aufgebrochen.">
@@ -3544,7 +3544,7 @@
       </notes>
       <segment>
         <source>Meine objekte</source>
-        <target>Mis objetos</target>
+        <target>Objetos</target>
       </segment>
     </unit>
     <unit id="f1TzhOn" name="Gammler">
@@ -4786,7 +4786,7 @@
       </notes>
       <segment>
         <source>Trotz all deiner Anstrengungen hast du hier leider nichts gefunden ...</source>
-        <target>Trotz all deiner Anstrengungen hast du hier leider nichts gefunden ...</target>
+        <target>Te echas a buscar y no encuentras nada.¡Grrrr!...</target>
       </segment>
     </unit>
     <unit id="vR5IoMk" name="Nach einigen Anstrengungen hast du folgendes gefunden: %item%!">
@@ -4795,7 +4795,7 @@
       </notes>
       <segment>
         <source>Nach einigen Anstrengungen hast du folgendes gefunden: %item%!</source>
-        <target>Nach einigen Anstrengungen hast du folgendes gefunden: %item%!</target>
+        <target>Encontraste a %item% removiendo objetos en esa mísera habitación.</target>
       </segment>
     </unit>
     <unit id="1GkRZwk" name="Du gräbst schon seit einiger Zeit und hast mehrere Gegenstände gefunden.">
@@ -4822,7 +4822,7 @@
       </notes>
       <segment>
         <source>Die Wüste erstreckt sich, so weit das Auge reicht... Wie viele Männer sind in dieser Weite verloren gegangen? Wer weiß, ob Sie nicht der Nächste sind?</source>
-        <target>Die Wüste erstreckt sich, so weit das Auge reicht... Wie viele Männer sind in dieser Weite verloren gegangen? Wer weiß, ob Sie nicht der Nächste sind?</target>
+        <target>El desierto parece infinito... ¿Cuántos habrán perdido la vida en ese mar de arena? ¿Tendrás tú el mismo destino?</target>
       </segment>
     </unit>
     <unit id="B.iCi_d" name="Sie sind allein in dieser Gegend...">
@@ -4831,7 +4831,7 @@
       </notes>
       <segment>
         <source>Sie sind allein in dieser Gegend...</source>
-        <target>Sie sind allein in dieser Gegend...</target>
+        <target>Estás solo en esta zona.</target>
       </segment>
     </unit>
     <unit id="UzZ7xlJ" name="Nachricht">
@@ -4840,7 +4840,7 @@
       </notes>
       <segment>
         <source>Nachricht</source>
-        <target>Nachricht</target>
+        <target>Anuncio personal</target>
       </segment>
     </unit>
     <unit id="UHGC2Ea" name="Draußen?">
@@ -4849,7 +4849,7 @@
       </notes>
       <segment>
         <source>Draußen?</source>
-        <target>Draußen?</target>
+        <target>¿Afuera?</target>
       </segment>
     </unit>
     <unit id="zenlipp" name="Ja">
@@ -5083,7 +5083,7 @@
       </notes>
       <segment>
         <source>Verteidigungsgegenstände</source>
-        <target>Verteidigungsgegenstände</target>
+        <target>Objetos de defensa</target>
       </segment>
     </unit>
     <unit id="FAUZkS8" name="Häuser">
@@ -5236,7 +5236,7 @@
       </notes>
       <segment>
         <source>@citizens Bürger</source>
-        <target>@citizens Bürger</target>
+        <target>@citizens habitante</target>
       </segment>
     </unit>
     <unit id="bULZzW5" name="97ff2c6">
@@ -6883,7 +6883,7 @@
       </notes>
       <segment>
         <source>Du hast noch keine Drogen genommen.</source>
-        <target>Du hast noch keine Drogen genommen.</target>
+        <target>Nunca consumiste estimulantes.</target>
       </segment>
     </unit>
     <unit id="Tzmt5qh" name="d848698">
@@ -7333,7 +7333,7 @@
       </notes>
       <segment>
         <source>In diesem Thread dreht sich alles um die Bank.</source>
-        <target>In diesem Thread dreht sich alles um die Bank.</target>
+        <target>Aquí hablamos sobre el Almacén del Pueblo.</target>
       </segment>
     </unit>
     <unit id="I8m37R7" name="In diesem Thread dreht sich alles um die geplanten Verbesserungen des Tages.">
@@ -7342,7 +7342,7 @@
       </notes>
       <segment>
         <source>In diesem Thread dreht sich alles um die geplanten Verbesserungen des Tages.</source>
-        <target>In diesem Thread dreht sich alles um die geplanten Verbesserungen des Tages.</target>
+        <target>Aquí hablamos sobre las mejoras del día que deseas realizar...</target>
       </segment>
     </unit>
     <unit id="1moRVN8" name="In diesem Thread dreht sich alles um die Werkstatt und um Ressourcen.">
@@ -7351,7 +7351,7 @@
       </notes>
       <segment>
         <source>In diesem Thread dreht sich alles um die Werkstatt und um Ressourcen.</source>
-        <target>In diesem Thread dreht sich alles um die Werkstatt und um Ressourcen.</target>
+        <target>Aquí hablamos sobre el taller y la producción de recursos en el pueblo...</target>
       </segment>
     </unit>
     <unit id="R.vbGQY" name="In diesem Thread dreht sich alles um zukünftige Bauprojekte.">
@@ -7360,7 +7360,7 @@
       </notes>
       <segment>
         <source>In diesem Thread dreht sich alles um zukünftige Bauprojekte.</source>
-        <target>In diesem Thread dreht sich alles um zukünftige Bauprojekte.</target>
+        <target>Hablemos sobre las obras en curso y nuestros proyectos...</target>
       </segment>
     </unit>
     <unit id="skuy31m" name="%citizen% starb, als er auf lächerliche Weise von der Mauer fiel!">
@@ -7858,7 +7858,7 @@
       </notes>
       <segment>
         <source>Eskorte</source>
-        <target>Eskorte</target>
+        <target>Escolta</target>
       </segment>
     </unit>
     <unit id="fWKRZJU" name="Eskorte aktivieren">
@@ -7867,7 +7867,7 @@
       </notes>
       <segment>
         <source>Eskorte aktivieren</source>
-        <target>Eskorte aktivieren</target>
+        <target>Esperar la llegada de una escolta</target>
       </segment>
     </unit>
     <unit id="DvcImFR" name="Ich will auf direktem Weg zurück zur Stadt">
@@ -7876,7 +7876,7 @@
       </notes>
       <segment>
         <source>Ich will auf direktem Weg zurück zur Stadt</source>
-        <target>Ich will auf direktem Weg zurück zur Stadt</target>
+        <target>Prohibir al jefe de la escolta alejarme del pueblo.</target>
       </segment>
     </unit>
     <unit id="td.v3Fq" name="Zugriff auf meinen Rucksack zulassen">
@@ -7885,7 +7885,7 @@
       </notes>
       <segment>
         <source>Zugriff auf meinen Rucksack zulassen</source>
-        <target>Zugriff auf meinen Rucksack zulassen</target>
+        <target>Permitir ver y manipular los objetos en mi mochila.</target>
       </segment>
     </unit>
     <unit id="dV_nb5u" name="Eskorte deaktivieren">
@@ -7894,7 +7894,7 @@
       </notes>
       <segment>
         <source>Eskorte deaktivieren</source>
-        <target>Eskorte deaktivieren</target>
+        <target>Anular la escolta</target>
       </segment>
     </unit>
     <unit id="B5vvTiM" name="Senden">
@@ -8875,7 +8875,7 @@
       </notes>
       <segment>
         <source>[nights]</source>
-        <target>[nights]</target>
+        <target>[ ninguno ]</target>
       </segment>
     </unit>
     <unit id="r_z_E60" name="Notruf">
@@ -8884,7 +8884,7 @@
       </notes>
       <segment>
         <source>Notruf</source>
-        <target>Notruf</target>
+        <target>Pedido de ayuda</target>
       </segment>
     </unit>
     <unit id="BUwKVvO" name="Rohstoff am Boden (Holz, Metall...)">
@@ -8893,7 +8893,7 @@
       </notes>
       <segment>
         <source>Rohstoff am Boden (Holz, Metall...)</source>
-        <target>Rohstoff am Boden (Holz, Metall...)</target>
+        <target>Recursos en el suelo (madera, metal, etc.)</target>
       </segment>
     </unit>
     <unit id="xsEeh5A" name="Verschiedene Gegenstände am Boden">
@@ -8902,7 +8902,7 @@
       </notes>
       <segment>
         <source>Verschiedene Gegenstände am Boden</source>
-        <target>Verschiedene Gegenstände am Boden</target>
+        <target>Objetos diversos en el suelo</target>
       </segment>
     </unit>
     <unit id="KVObx2I" name="Wichtige(r) Gegenstand/-ände!">
@@ -8911,7 +8911,7 @@
       </notes>
       <segment>
         <source>Wichtige(r) Gegenstand/-ände!</source>
-        <target>Wichtige(r) Gegenstand/-ände!</target>
+        <target>¡Objeto(s) importante(s)!</target>
       </segment>
     </unit>
     <unit id="Zu.dPP1" name="Zone leer">
@@ -8920,7 +8920,7 @@
       </notes>
       <segment>
         <source>Zone leer</source>
-        <target>Zone leer</target>
+        <target>Zona agotada</target>
       </segment>
     </unit>
     <unit id="0KEaBmR" name="Zone tempörar gesichert">
@@ -8929,7 +8929,7 @@
       </notes>
       <segment>
         <source>Zone tempörar gesichert</source>
-        <target>Zone tempörar gesichert</target>
+        <target>Zona segura temporalmente</target>
       </segment>
     </unit>
     <unit id="phjYDRS" name="Zone muss freigeräumt werden">
@@ -8938,7 +8938,7 @@
       </notes>
       <segment>
         <source>Zone muss freigeräumt werden</source>
-        <target>Zone muss freigeräumt werden</target>
+        <target>Zona a despejar</target>
       </segment>
     </unit>
     <unit id="zUCrZ7p" name="Zwichen 5 und 8 Zombies">
@@ -8947,7 +8947,7 @@
       </notes>
       <segment>
         <source>Zwichen 5 und 8 Zombies</source>
-        <target>Zwichen 5 und 8 Zombies</target>
+        <target>Entre 5 y 8 zombies</target>
       </segment>
     </unit>
     <unit id="63m90pZ" name="9 oder mehr Zombies!">
@@ -8956,7 +8956,7 @@
       </notes>
       <segment>
         <source>9 oder mehr Zombies!</source>
-        <target>9 oder mehr Zombies!</target>
+        <target>¡9 zombies o más!</target>
       </segment>
     </unit>
     <unit id="RIRNP.t" name="Camping geplant">
@@ -8965,7 +8965,7 @@
       </notes>
       <segment>
         <source>Camping geplant</source>
-        <target>Camping geplant</target>
+        <target>Campamente posible</target>
       </segment>
     </unit>
     <unit id="t2sF_L3" name="Zu untersuchende Ruine">
@@ -8974,7 +8974,7 @@
       </notes>
       <segment>
         <source>Zu untersuchende Ruine</source>
-        <target>Zu untersuchende Ruine</target>
+        <target>Ruina a explorar</target>
       </segment>
     </unit>
     <unit id="k0fexBD" name="Verlorene Seele">
@@ -8983,7 +8983,7 @@
       </notes>
       <segment>
         <source>Verlorene Seele</source>
-        <target>Verlorene Seele</target>
+        <target>Alma perdida</target>
       </segment>
     </unit>
     <unit id="7aJRY_e" name="Zeuge von Harmagedon">
@@ -9325,7 +9325,7 @@
       </notes>
       <segment>
         <source>Zonenmarkierer</source>
-        <target>Zonenmarkierer</target>
+        <target>Marcador de zona</target>
       </segment>
     </unit>
     <unit id="dY6rVb6" name="Tor ist offen!">
@@ -9406,7 +9406,7 @@
       </notes>
       <segment>
         <source>Verlassener Bunker</source>
-        <target>Verlassener Bunker</target>
+        <target>Bunker Abandonado</target>
       </segment>
     </unit>
     <unit id="BRZGIi8" name="8183632">
@@ -9415,7 +9415,7 @@
       </notes>
       <segment>
         <source>Diese heruntergekommene Gebäude scheint einmal ein Bunker gewesen zu sein. Du entdeckst einen Einstieg ins Gebäude, modriger Gestank schlägt dir entgegen. Du verziehst das Gesicht, aber hier könntest du mit ziemlicher Sicherheit etwas Nützliches finden...</source>
-        <target>Diese heruntergekommene Gebäude scheint einmal ein Bunker gewesen zu sein. Du entdeckst einen Einstieg ins Gebäude, modriger Gestank schlägt dir entgegen. Du verziehst das Gesicht, aber hier könntest du mit ziemlicher Sicherheit etwas Nützliches finden...</target>
+        <target>Los bunkers son refugios antiguos construidos por los militares para contener la pandemia. Si los soldados en ese momento todavía fueran humanos, seguramente habrían aconsejado a sus oficiales que no trataran de "educar" a los primeros portadores del virus.</target>
       </segment>
     </unit>
     <unit id="oxlDhWv" name="Verlassenes Hotel">
@@ -9424,7 +9424,7 @@
       </notes>
       <segment>
         <source>Verlassenes Hotel</source>
-        <target>Verlassenes Hotel</target>
+        <target>Hotel Abandonado</target>
       </segment>
     </unit>
     <unit id="hP.60KS" name="150bce3">
@@ -9433,7 +9433,7 @@
       </notes>
       <segment>
         <source>Diese heruntergekommene Gebäude scheint einmal ein Hotel gewesen zu sein. Du entdeckst einen Einstieg ins Gebäude, modriger Gestank schlägt dir entgegen. Du verziehst das Gesicht, aber hier könntest du mit ziemlicher Sicherheit etwas Nützliches finden...</source>
-        <target>Diese heruntergekommene Gebäude scheint einmal ein Hotel gewesen zu sein. Du entdeckst einen Einstieg ins Gebäude, modriger Gestank schlägt dir entgegen. Du verziehst das Gesicht, aber hier könntest du mit ziemlicher Sicherheit etwas Nützliches finden...</target>
+        <target>Antiguos hoteles de lujo que acogieron a los ricos en alguna época, no mucho después el edificio fue atacado por las hordas de indigentes zombies infectados en las calles.</target>
       </segment>
     </unit>
     <unit id="rnmrpxG" name="Verlassenes Hospital">
@@ -9442,7 +9442,7 @@
       </notes>
       <segment>
         <source>Verlassenes Hospital</source>
-        <target>Verlassenes Hospital</target>
+        <target>Hospital Abandonado</target>
       </segment>
     </unit>
     <unit id="PAKqkOM" name="1a6b1bb">
@@ -9451,7 +9451,7 @@
       </notes>
       <segment>
         <source>Diese heruntergekommene Gebäude scheint einmal ein Hospital gewesen zu sein. Du entdeckst einen Einstieg ins Gebäude, modriger Gestank schlägt dir entgegen. Du verziehst das Gesicht, aber hier könntest du mit ziemlicher Sicherheit etwas Nützliches finden...</source>
-        <target>Diese heruntergekommene Gebäude scheint einmal ein Hospital gewesen zu sein. Du entdeckst einen Einstieg ins Gebäude, modriger Gestank schlägt dir entgegen. Du verziehst das Gesicht, aber hier könntest du mit ziemlicher Sicherheit etwas Nützliches finden...</target>
+        <target>Este edificio en ruinas parece haber sido un hospital. Descubres una entrada al edificio, te golpea un olor a humedad. Haces una mueca, pero es casi seguro que encontrarás algo útil aquí...</target>
       </segment>
     </unit>
     <unit id="rGmg51l" name="[nichts]">
@@ -9460,7 +9460,7 @@
       </notes>
       <segment>
         <source>[nichts]</source>
-        <target>[nichts]</target>
+        <target>[ninguno]</target>
       </segment>
     </unit>
     <unit id="9cNHWGl" name="Seelenpunkte">
@@ -9946,7 +9946,7 @@
       </notes>
       <segment>
         <source>Du benötigst %item%, um diese Tür zu öffnen.</source>
-        <target>Du benötigst %item%, um diese Tür zu öffnen.</target>
+        <target>Para abrir esta puerta necesitas algo que se parece mucho a un %item%.</target>
       </segment>
     </unit>
     <unit id="Rc83IVi" name="Mithilfe des %item% hast du die Tür aufgeschlossen!">
@@ -10009,7 +10009,7 @@
       </notes>
       <segment>
         <source>Stadtverteidigung</source>
-        <target>Stadtverteidigung</target>
+        <target>Defensas del pueblo</target>
       </segment>
     </unit>
     <unit id="75J9B.d" name="Details ansehen">
@@ -10018,7 +10018,7 @@
       </notes>
       <segment>
         <source>Details ansehen</source>
-        <target>Details ansehen</target>
+        <target>Ver el detalle</target>
       </segment>
     </unit>
     <unit id="KVApIB1" name="Lage">
@@ -10027,7 +10027,7 @@
       </notes>
       <segment>
         <source>Lage</source>
-        <target>Lage</target>
+        <target>Estado</target>
       </segment>
     </unit>
     <unit id="0jW7cq9" name="Stadttor geöffnet">
@@ -10036,7 +10036,7 @@
       </notes>
       <segment>
         <source>Stadttor geöffnet</source>
-        <target>Stadttor geöffnet</target>
+        <target>Portal abierto</target>
       </segment>
     </unit>
     <unit id="_DKPL9S" name="Wer ist draußen?">
@@ -10045,7 +10045,7 @@
       </notes>
       <segment>
         <source>Wer ist draußen?</source>
-        <target>Wer ist draußen?</target>
+        <target>¿Quién está afuera?</target>
       </segment>
     </unit>
     <unit id="rRAcec3" name="Stadttor geschlossen">
@@ -10054,7 +10054,7 @@
       </notes>
       <segment>
         <source>Stadttor geschlossen</source>
-        <target>Stadttor geschlossen</target>
+        <target>Portal cerrado</target>
       </segment>
     </unit>
     <unit id="9NwZjWy" name="Teilnehmen">
@@ -10225,7 +10225,7 @@
       </notes>
       <segment>
         <source>Flüchten</source>
-        <target>Flüchten</target>
+        <target>Huir</target>
       </segment>
     </unit>
     <unit id="_KlLZBG" name="Gebäude verlassen">
@@ -10234,7 +10234,7 @@
       </notes>
       <segment>
         <source>Gebäude verlassen</source>
-        <target>Gebäude verlassen</target>
+        <target>Salir del edificio</target>
       </segment>
     </unit>
     <unit id="OqMz83X" name="Raum durchsuchen">
@@ -10243,7 +10243,7 @@
       </notes>
       <segment>
         <source>Raum durchsuchen</source>
-        <target>Raum durchsuchen</target>
+        <target>Rebuscar en la pieza</target>
       </segment>
     </unit>
     <unit id="LcBC2EZ" name="Raum verlassen">
@@ -10252,7 +10252,7 @@
       </notes>
       <segment>
         <source>Raum verlassen</source>
-        <target>Raum verlassen</target>
+        <target>Salir de la pieza</target>
       </segment>
     </unit>
     <unit id="LXYdYwf" name="Raum betreten">
@@ -10261,7 +10261,7 @@
       </notes>
       <segment>
         <source>Raum betreten</source>
-        <target>Raum betreten</target>
+        <target>Entrar en la pieza</target>
       </segment>
     </unit>
     <unit id="nnL4vYm" name="Abdruck nehmen">
@@ -10279,7 +10279,7 @@
       </notes>
       <segment>
         <source>Tür aufschließen</source>
-        <target>Tür aufschließen</target>
+        <target>Desbloquear la puerta</target>
       </segment>
     </unit>
     <unit id="Ijn0xpZ" name="%ruin% betreten">
@@ -10288,7 +10288,7 @@
       </notes>
       <segment>
         <source>%ruin% betreten</source>
-        <target>%ruin% betreten</target>
+        <target>Entrar en %ruin%</target>
       </segment>
     </unit>
     <unit id="29AAorN" name="Rucksack verstecken">
@@ -11512,7 +11512,7 @@
       </notes>
       <segment>
         <source>Wenn diese Option aktiviert ist, kann dich ein anderer Bürger nicht weiter von der Stadt entfernen. Er darf dich in diesem Fall nur näher bringen.</source>
-        <target>Wenn diese Option aktiviert ist, kann dich ein anderer Bürger nicht weiter von der Stadt entfernen. Er darf dich in diesem Fall nur näher bringen.</target>
+        <target>Si esta opción está marcada, un héroe que acepte desplazarte no podrá alejarte del pueblo. Solo podrá acercarte a él.</target>
       </segment>
     </unit>
     <unit id="zLtHCGI" name="472d56a">
@@ -11521,7 +11521,7 @@
       </notes>
       <segment>
         <source>Wenn diese Option aktiviert ist, kann dir ein anderer Spieler befehlen, Gegenstände einzusammeln oder abzulegen. BEACHTE: Einige "persönliche" Gegenstände können unter keinen Umständen abgelegt werden (Texte, Waffen u.a.)</source>
-        <target>Wenn diese Option aktiviert ist, kann dir ein anderer Spieler befehlen, Gegenstände einzusammeln oder abzulegen. BEACHTE: Einige "persönliche" Gegenstände können unter keinen Umständen abgelegt werden (Texte, Waffen u.a.)</target>
+        <target>Si esta opción está marcada, un héroe que acepte desplazarte podrá obligarte a sacar o colocar un objeto. NOTA: Algunos objetos "personales" no podraán ser retirados de ninguna manera (por ejemplo: las armas)</target>
       </segment>
     </unit>
     <unit id="ymSCpCu" name="Explosion">
@@ -14068,7 +14068,7 @@
       </notes>
       <segment>
         <source>Das Stadttor ist Teil einer Festungsmauer, die den Großteil der Zombies abwehrt. Solltest du vergessen es am Abend zu schließen, kannst du dich auf Qualen einstellen, die deine schlimmsten Alpträume weit übertreffen.</source>
-        <target>Das Stadttor ist Teil einer Festungsmauer, die den Großteil der Zombies abwehrt. Solltest du vergessen es am Abend zu schließen, kannst du dich auf Qualen einstellen, die deine schlimmsten Alpträume weit übertreffen.</target>
+        <target>El Gran Portal protege al pueblo de los zombies que proliferan alrededor. Si por descuido, queda abierto durante el ataque, vivirás la peor pesadilla que jamás hayas imaginado.</target>
       </segment>
     </unit>
     <unit id="jImJojV" name="Der Batterienator">
@@ -14366,6 +14366,258 @@
       <segment>
         <source>Dieses Bauprojekt wurde bereits abgeschlossen.</source>
         <target>Dieses Bauprojekt wurde bereits abgeschlossen.</target>
+      </segment>
+    </unit>
+    <unit id="1RZZDef" name="576549b">
+      <notes>
+        <note category="german">&lt;i class="dagger"&gt;†&lt;/i&gt; %zombie% wurde schreiend und sabbernd am Brunnen angetroffen. Er hielt einen großen Felsen in seinen Händen und schickte  sich an, diesen in den Brunnen zu werfen. Leider konnte ihn keiner mehr rechtzeitig hindern, sodass uns jetzt %num% Wasserrationnen fehlen! Was für eine Katastrophe!</note>
+      </notes>
+      <segment>
+        <source>&lt;i class="dagger"&gt;†&lt;/i&gt; %zombie% wurde schreiend und sabbernd am Brunnen angetroffen. Er hielt einen großen Felsen in seinen Händen und schickte  sich an, diesen in den Brunnen zu werfen. Leider konnte ihn keiner mehr rechtzeitig hindern, sodass uns jetzt %num% Wasserrationnen fehlen! Was für eine Katastrophe!</source>
+        <target><![CDATA[<i class="dagger">†</i> %zombie% wurde schreiend und sabbernd am Brunnen angetroffen. Er hielt einen großen Felsen in seinen Händen und schickte  sich an, diesen in den Brunnen zu werfen. Leider konnte ihn keiner mehr rechtzeitig hindern, sodass uns jetzt %num% Wasserrationnen fehlen! Was für eine Katastrophe!]]></target>
+      </segment>
+    </unit>
+    <unit id="sjC0QWG" name="Letzte Nacht wurde der %sector% von starken Winden heimgesucht.">
+      <notes>
+        <note category="german">Letzte Nacht wurde der %sector% von starken Winden heimgesucht.</note>
+      </notes>
+      <segment>
+        <source>Letzte Nacht wurde der %sector% von starken Winden heimgesucht.</source>
+        <target>Letzte Nacht wurde der %sector% von starken Winden heimgesucht.</target>
+      </segment>
+    </unit>
+    <unit id="frCGEZ6" name="Gestern Abend gab es starke Windböen im %sector%.">
+      <notes>
+        <note category="german">Gestern Abend gab es starke Windböen im %sector%.</note>
+      </notes>
+      <segment>
+        <source>Gestern Abend gab es starke Windböen im %sector%.</source>
+        <target>Gestern Abend gab es starke Windböen im %sector%.</target>
+      </segment>
+    </unit>
+    <unit id="hAEUy6I" name="%sector2% haben gestern ein paar heftige Sandstrürme gewütet.">
+      <notes>
+        <note category="german">%sector2% haben gestern ein paar heftige Sandstrürme gewütet.</note>
+      </notes>
+      <segment>
+        <source>%sector2% haben gestern ein paar heftige Sandstrürme gewütet.</source>
+        <target>%sector2% haben gestern ein paar heftige Sandstrürme gewütet.</target>
+      </segment>
+    </unit>
+    <unit id="RBsKzQj" name="%sector2% wurden gestern ein paar meteorologische Anomalien gesichtet.">
+      <notes>
+        <note category="german">%sector2% wurden gestern ein paar meteorologische Anomalien gesichtet.</note>
+      </notes>
+      <segment>
+        <source>%sector2% wurden gestern ein paar meteorologische Anomalien gesichtet.</source>
+        <target>%sector2% wurden gestern ein paar meteorologische Anomalien gesichtet.</target>
+      </segment>
+    </unit>
+    <unit id="z07EnjT" name="Ein paar Sandstürme wurden im %sector% beobachtet.">
+      <notes>
+        <note category="german">Ein paar Sandstürme wurden im %sector% beobachtet.</note>
+      </notes>
+      <segment>
+        <source>Ein paar Sandstürme wurden im %sector% beobachtet.</source>
+        <target>Ein paar Sandstürme wurden im %sector% beobachtet.</target>
+      </segment>
+    </unit>
+    <unit id="mYTFP_x" name="Ungewöhnlich starke Winde haben gestern den Sand %sector% aufgewirbelt.">
+      <notes>
+        <note category="german">Ungewöhnlich starke Winde haben gestern den Sand %sector% aufgewirbelt.</note>
+      </notes>
+      <segment>
+        <source>Ungewöhnlich starke Winde haben gestern den Sand %sector% aufgewirbelt.</source>
+        <target>Ungewöhnlich starke Winde haben gestern den Sand %sector% aufgewirbelt.</target>
+      </segment>
+    </unit>
+    <unit id="aul2Dol" name="Verschiedene Aufzeichnungen zeigen Wetteranomalien %sector2%.">
+      <notes>
+        <note category="german">Verschiedene Aufzeichnungen zeigen Wetteranomalien %sector2%.</note>
+      </notes>
+      <segment>
+        <source>Verschiedene Aufzeichnungen zeigen Wetteranomalien %sector2%.</source>
+        <target>Verschiedene Aufzeichnungen zeigen Wetteranomalien %sector2%.</target>
+      </segment>
+    </unit>
+    <unit id="ygHZbNf" name="Gestern Abend war der gesamte %sector% Schauplatz mehrerer Wetteranomalien.">
+      <notes>
+        <note category="german">Gestern Abend war der gesamte %sector% Schauplatz mehrerer Wetteranomalien.</note>
+      </notes>
+      <segment>
+        <source>Gestern Abend war der gesamte %sector% Schauplatz mehrerer Wetteranomalien.</source>
+        <target>Gestern Abend war der gesamte %sector% Schauplatz mehrerer Wetteranomalien.</target>
+      </segment>
+    </unit>
+    <unit id="nlFSyVX" name="9e41ab9">
+      <notes>
+        <note category="german">Unsere Messungen deuten darauf hin, dass im %sector% Wetteranomalien aufgetreten sind.</note>
+      </notes>
+      <segment>
+        <source>Unsere Messungen deuten darauf hin, dass im %sector% Wetteranomalien aufgetreten sind.</source>
+        <target>Unsere Messungen deuten darauf hin, dass im %sector% Wetteranomalien aufgetreten sind.</target>
+      </segment>
+    </unit>
+    <unit id="APtPn1k" name="Einige vereinzelte Phänomene wurden %sector2% entdeckt.">
+      <notes>
+        <note category="german">Einige vereinzelte Phänomene wurden %sector2% entdeckt.</note>
+      </notes>
+      <segment>
+        <source>Einige vereinzelte Phänomene wurden %sector2% entdeckt.</source>
+        <target>Einige vereinzelte Phänomene wurden %sector2% entdeckt.</target>
+      </segment>
+    </unit>
+    <unit id="wi_eVy6" name="In der vergangenen Nacht brach im %sector2% ein heftiger Sturm aus...">
+      <notes>
+        <note category="german">In der vergangenen Nacht brach im %sector2% ein heftiger Sturm aus...</note>
+      </notes>
+      <segment>
+        <source>In der vergangenen Nacht brach im %sector2% ein heftiger Sturm aus...</source>
+        <target>In der vergangenen Nacht brach im %sector2% ein heftiger Sturm aus...</target>
+      </segment>
+    </unit>
+    <unit id="M8eGEBc" name="%sector2% wurden gestern heftige Sturmwinde beobachtet.">
+      <notes>
+        <note category="german">%sector2% wurden gestern heftige Sturmwinde beobachtet.</note>
+      </notes>
+      <segment>
+        <source>%sector2% wurden gestern heftige Sturmwinde beobachtet.</source>
+        <target>%sector2% wurden gestern heftige Sturmwinde beobachtet.</target>
+      </segment>
+    </unit>
+    <unit id="zc640mJ" name="Gestern Natch wurden im %sector% mehrere Sandstürme beobachtet.">
+      <notes>
+        <note category="german">Gestern Natch wurden im %sector% mehrere Sandstürme beobachtet.</note>
+      </notes>
+      <segment>
+        <source>Gestern Natch wurden im %sector% mehrere Sandstürme beobachtet.</source>
+        <target>Gestern Natch wurden im %sector% mehrere Sandstürme beobachtet.</target>
+      </segment>
+    </unit>
+    <unit id="OhpvQec" name="im Nordwesten">
+      <notes>
+        <note category="german">im Nordwesten</note>
+      </notes>
+      <segment>
+        <source>im Nordwesten</source>
+        <target>im Nordwesten</target>
+      </segment>
+    </unit>
+    <unit id="dHF9hg3" name="im Norden">
+      <notes>
+        <note category="german">im Norden</note>
+      </notes>
+      <segment>
+        <source>im Norden</source>
+        <target>im Norden</target>
+      </segment>
+    </unit>
+    <unit id="8VW_Ac6" name="im Nordosten">
+      <notes>
+        <note category="german">im Nordosten</note>
+      </notes>
+      <segment>
+        <source>im Nordosten</source>
+        <target>im Nordosten</target>
+      </segment>
+    </unit>
+    <unit id="CGH7WpP" name="im Westen">
+      <notes>
+        <note category="german">im Westen</note>
+      </notes>
+      <segment>
+        <source>im Westen</source>
+        <target>im Westen</target>
+      </segment>
+    </unit>
+    <unit id="GrDc37F" name="im Osten">
+      <notes>
+        <note category="german">im Osten</note>
+      </notes>
+      <segment>
+        <source>im Osten</source>
+        <target>im Osten</target>
+      </segment>
+    </unit>
+    <unit id="luEGXBn" name="im Südwesten">
+      <notes>
+        <note category="german">im Südwesten</note>
+      </notes>
+      <segment>
+        <source>im Südwesten</source>
+        <target>im Südwesten</target>
+      </segment>
+    </unit>
+    <unit id="UpG6M6C" name="im Süden">
+      <notes>
+        <note category="german">im Süden</note>
+      </notes>
+      <segment>
+        <source>im Süden</source>
+        <target>im Süden</target>
+      </segment>
+    </unit>
+    <unit id="G2GbQ43" name="im Südosten">
+      <notes>
+        <note category="german">im Südosten</note>
+      </notes>
+      <segment>
+        <source>im Südosten</source>
+        <target>im Südosten</target>
+      </segment>
+    </unit>
+    <unit id="Hbo1GZX" name="fe016ab">
+      <notes>
+        <note category="german">Mysteriöse metereologische Phänomene haben gestern Nacht dafür gesorgt, dass sich bestimmte Zonen &lt;strong&gt;%sector% der Stadt&lt;/strong&gt; regeneriert haben.&lt;p&gt;&lt;em&gt;Es können dort durch Graben wieder Gegenstände gefunden werden, auch wenn die Zone zuvor leergesucht wurde!&lt;/em&gt;&lt;/p&gt;</note>
+      </notes>
+      <segment>
+        <source>Mysteriöse metereologische Phänomene haben gestern Nacht dafür gesorgt, dass sich bestimmte Zonen &lt;strong&gt;%sector% der Stadt&lt;/strong&gt; regeneriert haben.&lt;p&gt;&lt;em&gt;Es können dort durch Graben wieder Gegenstände gefunden werden, auch wenn die Zone zuvor leergesucht wurde!&lt;/em&gt;&lt;/p&gt;</source>
+        <target><![CDATA[Mysteriöse metereologische Phänomene haben gestern Nacht dafür gesorgt, dass sich bestimmte Zonen <strong>%sector% der Stadt</strong> regeneriert haben.<p><em>Es können dort durch Graben wieder Gegenstände gefunden werden, auch wenn die Zone zuvor leergesucht wurde!</em></p>]]></target>
+      </segment>
+    </unit>
+    <unit id="88_o8Q3" name="Verlorenes Brunnenwasser: %count% Einhet(en)">
+      <notes>
+        <note category="german">Verlorenes Brunnenwasser: %count% Einhet(en)</note>
+      </notes>
+      <segment>
+        <source>Verlorenes Brunnenwasser: %count% Einhet(en)</source>
+        <target>Verlorenes Brunnenwasser: %count% Einhet(en)</target>
+      </segment>
+    </unit>
+    <unit id="UFB43D7" name="Tätigkeit">
+      <notes>
+        <note category="german">Tätigkeit</note>
+      </notes>
+      <segment>
+        <source>Tätigkeit</source>
+        <target>Tätigkeit</target>
+      </segment>
+    </unit>
+    <unit id="r9GesCe" name="d0f1cdc">
+      <notes>
+        <note category="german">Du kannst den Bürgern der Stadt die Errichtung eines bestimmten Gebäudes empfehlen. Bewege dafür den Mauszeiger über das Bauprojekt, das du empfehlen willst und klicke auf den Link &lt;strong&gt;Abstimmen&lt;/strong&gt;, der darüber erscheint.</note>
+      </notes>
+      <segment>
+        <source>Du kannst den Bürgern der Stadt die Errichtung eines bestimmten Gebäudes empfehlen. Bewege dafür den Mauszeiger über das Bauprojekt, das du empfehlen willst und klicke auf den Link &lt;strong&gt;Abstimmen&lt;/strong&gt;, der darüber erscheint.</source>
+        <target><![CDATA[Du kannst den Bürgern der Stadt die Errichtung eines bestimmten Gebäudes empfehlen. Bewege dafür den Mauszeiger über das Bauprojekt, das du empfehlen willst und klicke auf den Link <strong>Abstimmen</strong>, der darüber erscheint.]]></target>
+      </segment>
+    </unit>
+    <unit id="apc56SN" name="Beruf">
+      <notes>
+        <note category="german">Beruf</note>
+      </notes>
+      <segment>
+        <source>Beruf</source>
+        <target>Beruf</target>
+      </segment>
+    </unit>
+    <unit id="UaAP3Pr" name="Anwesenheit">
+      <notes>
+        <note category="german">Anwesenheit</note>
+      </notes>
+      <segment>
+        <source>Anwesenheit</source>
+        <target>Anwesenheit</target>
       </segment>
     </unit>
   </file>

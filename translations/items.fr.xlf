@@ -7198,7 +7198,7 @@
       </notes>
       <segment>
         <source>Es schmeckt wirklich komisch... aber es erfüllt seinen Zweck: Dein Hunger ist gestillt. Glaub aber nicht, dass du dadurch zusätzliche APs erhältst...</source>
-        <target>Ca a un goût vraiment bizarre, difficile à définir. Mais ça remplit son rôle : remplir votre estomac. Par contre ça ne vous donne pas de bonus d'énergie pour agir...</target>
+        <target>Ça a un goût vraiment bizarre, difficile à définir. Mais ça remplit son rôle : remplir votre estomac. Par contre ça ne vous donne pas de bonus d'énergie pour agir...</target>
       </segment>
     </unit>
     <unit id="kUD78DD" name="4f2517e">
@@ -7207,7 +7207,7 @@
       </notes>
       <segment>
         <source>Einmal ist zwar keinmal, dennoch genießt du dein(e) {item}. Das ist mal ne echte Abwechslung zu dem sonstigen Fraß... Du spürst deine Kräfte wieder zurückkehren. Du hast 1 zusätzlichen AP erhalten!</source>
-        <target>Einmal ist zwar keinmal, dennoch genießt du dein(e) {item}. Das ist mal ne echte Abwechslung zu dem sonstigen Fraß... Du spürst deine Kräfte wieder zurückkehren. Du hast 1 zusätzlichen AP erhalten!</target>
+        <target>Une fois n'est pas coutume, vous appréciez votre {item}. C'est un vrai changement par rapport à la nourriture habituelle .. Vous pouvez sentir votre force revenir. Vous avez reçu 1 PA supplémentaire !</target>
       </segment>
     </unit>
   </file>

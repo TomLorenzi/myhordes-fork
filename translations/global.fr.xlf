@@ -1765,5 +1765,14 @@
         <target>Aucun</target>
       </segment>
     </unit>
+    <unit id="NA9GMDP" name="Code">
+      <notes>
+        <note category="german">Code</note>
+      </notes>
+      <segment>
+        <source>Code</source>
+        <target>Code</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

@@ -1550,7 +1550,7 @@
       </notes>
       <segment>
         <source>Hier findest du alle Gegenstände, die gegenwärtig in der Bank aufbewahrt werden. Bei diesen Gegenständen handelt es sich um Spenden der Bürger. Sie sind im Wesentlichen dazu da, Gemeinschaftsgebäude zu bauen und die Stadt gegen die allnächtlichen Zombieattacken zu verteidigen.</source>
-        <target>Voici l'intégralité des objets qui sont actuellement stockés à la Banque. Ces objets sont le fruit des dons des citoyens. Ils serviront notamment à construire des bâtiments communautaires ou défendre la ville lors des attaques quotidiennes de la Horde.</target>
+        <target><![CDATA[Voici l'intégralité des objets qui sont actuellement stockés à la Banque. Ces objets sont le fruit des <strong>dons</strong> des citoyens. Ils serviront notamment à <strong>construire des bâtiments communautaires </strong>ou<strong> défendre la ville</strong> lors des attaques quotidiennes de la Horde.]]></target>
       </segment>
     </unit>
     <unit id="U0vMVpy" name="Bankregister">
