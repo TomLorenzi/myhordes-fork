@@ -20,6 +20,7 @@ use App\Entity\ItemPrototype;
 use App\Entity\ItemTargetDefinition;
 use App\Entity\PictoPrototype;
 use App\Entity\Recipe;
+use App\Entity\RequireDay;
 use App\Entity\RequireLocation;
 use App\Entity\Requirement;
 use App\Entity\Result;
@@ -264,6 +265,15 @@ class ActionHandler
                 elseif ($building_condition->getComplete() === true) $current_state = min( $current_state, $this_state );
                 elseif ($building_condition->getMinLevel() !== null) $current_state = min( $current_state, $this_state );
                 elseif ($building_condition->getMaxLevel() !== null) $current_state = min( $current_state, $this_state );
+            }
+
+            if ($day = $meta_requirement->getDay()) {
+                file_put_contents("/tmp/dump.txt", "Day requirement");
+                /** @var RequireDay $day */
+                $town = $citizen->getTown();
+                if($day->getMin() > $town->getDay() || $day->getMax() < $town->getDay()) {
+                    $current_state = min( $current_state, $this_state );
+                }
             }
 
 
