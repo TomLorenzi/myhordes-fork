@@ -3805,7 +3805,7 @@
       </notes>
       <segment>
         <source>Heute ist nichts Erwähnenswertes passiert...</source>
-        <target>Heute ist nichts Erwähnenswertes passiert...</target>
+        <target>Nada particular el día de hoy.</target>
       </segment>
     </unit>
     <unit id="IYYfo2O" name="Unbekannte Todesursache">
@@ -9514,7 +9514,7 @@
       </notes>
       <segment>
         <source>Der Bürger %citizen% hat ein geheimes Versteck gefunden (vermutlich das eines verbannten Mitbürgers)! Es enthielt %items%.</source>
-        <target>Der Bürger %citizen% hat ein geheimes Versteck gefunden (vermutlich das eines verbannten Mitbürgers)! Es enthielt %items%.</target>
+        <target>¡El habitante %citizen% ha descubierto un escondite de objetos (tal vez de un desterrado)! Contenía: %items%.</target>
       </segment>
     </unit>
     <unit id="aKJtN4V" name="Tipp-Ex">
@@ -11449,7 +11449,7 @@
       </notes>
       <segment>
         <source>Bauprojekte, die mit dem Symbol "&lt;img alt="(!)" src="%path%" /&gt;" gekennzeichnet sind, können nur einmal verwendet werden. Sie werden nach dem Angriff der Zombiehorde wieder abgerissen. Wenn ihr wollt, könnt ihr sie morgen nochmal bauen.</source>
-        <target><![CDATA[Bauprojekte, die mit dem Symbol "<img alt="(!)" src="%path%" />" gekennzeichnet sind, können nur einmal verwendet werden. Sie werden nach dem Angriff der Zombiehorde wieder abgerissen. Wenn ihr wollt, könnt ihr sie morgen nochmal bauen.]]></target>
+        <target><![CDATA[Las construcciones con el símbolo "<img alt="(!)" src="%path%" />" son temporales: Se derrumban con el ataque nocturno. Si las necesitas de nuevo, deberéis volver a construirlas.]]></target>
       </segment>
     </unit>
     <unit id="rmqJTg6" name="70903c1">
