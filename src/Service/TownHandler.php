@@ -341,11 +341,14 @@ class TownHandler
                 $d += $building->getDefenseBonus();
             $d += $building->getDefense();
 
-        } elseif ($building->getPrototype()->getName() === 'small_cemetery_#00' || $building->getPrototype()->getName() === 'small_coffin_#00') {
+        } elseif ($building->getPrototype()->getName() === 'small_cemetery_#00') {
 
             $c = 0;
             foreach ($town->getCitizens() as $citizen) if (!$citizen->getAlive()) $c++;
-            $d += ( 10*$c + $building->getDefenseBonus() + $building->getDefense() );
+            $ratio = 10;
+            if ($this->getBuilding($town, 'small_coffin_#00'))
+                $ratio = 20;
+            $d += ( $ratio * $c + $building->getDefenseBonus() + $building->getDefense() );
 
         }
         else $d += ( $building->getDefenseBonus() + $building->getDefense() );
@@ -392,12 +395,9 @@ class TownHandler
             }
 
 
-        $summary->item_defense = floor($this->inventory_handler->countSpecificItems( $town->getBank(),
+        $summary->item_defense = min(500, floor($this->inventory_handler->countSpecificItems( $town->getBank(),
             $this->inventory_handler->resolveItemProperties( 'defence' ), false, false
-        ) * $item_def_factor);
-
-        if ($summary->item_defense > 500)
-            $summary->item_defense = 500;
+        ) * $item_def_factor));
 
         $summary->soul_defense = $town->getSoulDefense();
 
@@ -407,6 +407,18 @@ class TownHandler
 
         if($dump) {
             $summary->dump_defense = $dump->getTempDefenseBonus();
+        }
+
+        $cemetery = $this->getBuilding($town, 'small_cemetery_#00');
+        $cemeteryv2 = $this->getBuilding($town, 'small_coffin_#00');
+
+        if ($cemetery) {
+            $c = 0;
+            foreach ($town->getCitizens() as $citizen) if (!$citizen->getAlive()) $c++;
+            $ratio = 10;
+            if ($cemeteryv2)
+                $ratio = 20;
+            $summary->cemetery = $ratio * $c;
         }
         
         return $summary->sum();
