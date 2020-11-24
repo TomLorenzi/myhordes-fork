@@ -1558,7 +1558,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     </unit>
     <unit id="hbYU0EF" name="095757a">
       <notes>
-        <note category="german">Hier findest du alle Gegenstände, die gegenwärtig in der Bank aufbewahrt werden. Bei diesen Gegenständen handelt es sich um Spenden der Bürger. Sie sind im Wesentlichen dazu da, Gemeinschaftsgebäude zu bauen und die Stadt gegen die allnächtlichen Zombieattacken zu verteidigen.</note>
+        <note category="german">Hier findest du alle Gegenstände, die gegenwärtig in der Bank aufbewahrt werden. Bei diesen Gegenständen handelt es sich um &lt;strong&gt;Spenden&lt;/strong&gt; der Bürger. Sie sind im Wesentlichen dazu da, &lt;strong&gt;Gemeinschaftsgebäude zu bauen&lt;/strong&gt; und die Stadt gegen die allnächtlichen Zombieattacken zu &lt;strong&gt;verteidigen&lt;/strong&gt;.</note>
       </notes>
       <segment>
         <source>Hier findest du alle Gegenstände, die gegenwärtig in der Bank aufbewahrt werden. Bei diesen Gegenständen handelt es sich um Spenden der Bürger. Sie sind im Wesentlichen dazu da, Gemeinschaftsgebäude zu bauen und die Stadt gegen die allnächtlichen Zombieattacken zu verteidigen.</source>
@@ -14609,6 +14609,24 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       <segment>
         <source>Anwesenheit</source>
         <target>Anwesenheit</target>
+      </segment>
+    </unit>
+    <unit id="qjYW_3_" name="Leprechaun wurde gesehen, wie er den %item% von %victim% stahl!">
+      <notes>
+        <note category="german">Leprechaun wurde gesehen, wie er den %item% von %victim% stahl!</note>
+      </notes>
+      <segment>
+        <source>Leprechaun wurde gesehen, wie er den %item% von %victim% stahl!</source>
+        <target>Leprechaun wurde gesehen, wie er den %item% von %victim% stahl!</target>
+      </segment>
+    </unit>
+    <unit id="RvCNf5O" name="Aktivität">
+      <notes>
+        <note category="german">Aktivität</note>
+      </notes>
+      <segment>
+        <source>Aktivität</source>
+        <target>Aktivität</target>
       </segment>
     </unit>
   </file>

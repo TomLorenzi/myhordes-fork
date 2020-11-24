@@ -33,7 +33,7 @@
             <div class="padded cell rw-4 left rw-md-5">{{ 'Bürger'|trans({},'game') }}</div>
             <div class="padded cell rw-4 rw-md-2 center">{{ 'Truhe'|trans({},'game') }}</div>
             <div class="padded cell rw-2 rw-md-1 center">{{ 'Seele'|trans({},'soul') }}</div>
-            <div class="padded cell rw-1 center">{{ 'Tätigkeit'|trans({},'game') }}</div>
+            <div class="padded cell rw-1 center">{{ 'Aktivität'|trans({},'game') }}</div>
         </div>
         {% for citizen in citizens|sort((a,b) => (a.infos.alive == b.infos.alive) ? ((a.infos.alive) ? a.infos.user.name|lower <=> b.infos.user.name|lower : b.infos.survivedDays <=> a.infos.survivedDays) : b.infos.alive <=> a.infos.alive) %}
             {# @var \App\Entity\Citizen citizen  #}

@@ -2177,5 +2177,14 @@
         <target>Le serveur Twinoid signale qu'il ne peut pas transférer votre profil vers MyHordes en raison d'une erreur interne. Ce problème est courant si vous avez utilisé des caractères spéciaux dans vos derniers mots ou commentaires de ville. Veuillez vérifier les commentaires de vos villes et supprimer les caractères spéciaux. S'il y a des caractères spéciaux dans vos derniers mots, tournez-vous vers un corbeau sur Twinoid.</target>
       </segment>
     </unit>
+    <unit id="lXmZ79T" name="Tod nicht validiert">
+      <notes>
+        <note category="german">Tod nicht validiert</note>
+      </notes>
+      <segment>
+        <source>Tod nicht validiert</source>
+        <target>Mort non validée</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
