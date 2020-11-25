@@ -561,7 +561,8 @@ class TownAddonsController extends TownController
                     $has_counsel = true;
 
             	if($item->getPrototype()->getWatchpoint() <= 0)
-            		continue;
+                    continue;
+                    
             	$watchers[$watcher->getId()]['items'][] = array(
                     'prototype' => $item->getPrototype(),
                     'defImpact' => $this->citizen_handler->getNightWatchItemDefense($item, $has_shooting_gallery, $has_trebuchet, $has_ikea, $has_armory),

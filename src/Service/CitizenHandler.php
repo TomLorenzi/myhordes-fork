@@ -689,18 +689,23 @@ class CitizenHandler
         if($this->isWounded($citizen)) $chances += 0.20;
         if($citizen->hasRole('ghoul')) $chances -= 0.05;
 
-        $chances = max($baseChance, $chances);
+        $chances = min($baseChance, $chances);
 
         return $chances;
     }
 
     public function getNightWatchItemDefense( Item $item, bool $shooting_gallery, bool $trebuchet, bool $ikea, bool $armory ): int {
         if ($item->getBroken()) return 0;
+        if ($item->getPrototype()->getName() == "chkspk_#00") {
+            $watchers = $this->entity_manager->getRepository(CitizenWatch::class)->findWatchersOfDay($item->getInventory()->getCitizen()->getTown(), $item->getInventory()->getCitizen()->getTown()->getDay() - 1);
+            return 20 * count($watchers);
+        }
         $bonus = 1.0;
         if ($shooting_gallery && $item->getPrototype()->hasProperty('nw_shooting'))  $bonus += 0.2;
         if ($trebuchet        && $item->getPrototype()->hasProperty('nw_trebuchet')) $bonus += 0.2;
         if ($ikea             && $item->getPrototype()->hasProperty('nw_ikea'))      $bonus += 0.2;
         if ($armory           && $item->getPrototype()->hasProperty('nw_armory'))    $bonus += 0.2;
+
         return floor( $item->getPrototype()->getWatchpoint() * $bonus );
     }
 

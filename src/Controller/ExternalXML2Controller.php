@@ -434,8 +434,8 @@ class ExternalXML2Controller extends ExternalController {
                         'items' => $def->item_defense,
                         'citizen_guardians' => $def->guardian_defense,
                         'citizen_homes' => $def->house_defense,
-                        'upgrades' => '0',
-                        'buildings' => $def->building_defense,
+                        'upgrades' => $def->building_def_vote,
+                        'buildings' => $def->building_def_base,
                         'total' => $def->sum(),
                         'itemsMul' => $th->getBuilding($town, 'item_meca_parts_#00', true) ? (1.0 + 1+$th->getBuilding($town, 'item_meca_parts_#00', true)->getLevel()) * 0.5 : 1.0
                     ]

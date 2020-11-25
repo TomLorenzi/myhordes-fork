@@ -33,7 +33,7 @@ class TownHandler
     private $item_factory;
     private $log;
     private $timeKeeper;
-    private $citizen_handler;
+    private CitizenHandler $citizen_handler;
     private $picto_handler;
     private $conf;
 
@@ -352,7 +352,10 @@ class TownHandler
 
         }
         else $d += ( $building->getDefenseBonus() + $building->getDefense() );
-        $d += $building->getTempDefenseBonus();
+        // $d += $building->getTempDefenseBonus();
+        // Temp defense is handled separately
+
+        file_put_contents("/home/ludovic/dump.txt", "Building {$building->getPrototype()->getLabel()} / {$building->getPrototype()->getName()}, base def {$building->getDefense()} / bonus {$building->getDefenseBonus()} / temp {$building->getTempDefenseBonus()}\n", FILE_APPEND);
 
         return $d;
     }
@@ -383,15 +386,25 @@ class TownHandler
                     $summary->guardian_defense += $guardian_bonus;
             }
         $summary->house_defense = floor($f_house_def);
-        $summary->building_defense = 0;
         $item_def_factor = 1.0;
         foreach ($town->getBuildings() as $building)
             if ($building->getComplete()) {
 
                 $summary->building_defense += $this->calculate_building_def( $town, $building );
+                $summary->building_def_base += $building->getDefense();
+                $summary->building_def_vote += $building->getDefenseBonus();
+                $summary->temp_defense += $building->getTempDefenseBonus();
 
                 if ($building->getPrototype()->getName() === 'item_meca_parts_#00')
                     $item_def_factor += (1+$building->getLevel()) * 0.5;
+                else if ($building->getPrototype()->getName() === "small_cemetery_#00") {
+                    $c = 0;
+                    foreach ($town->getCitizens() as $citizen) if (!$citizen->getAlive()) $c++;
+                    $ratio = 10;
+                    if ($this->getBuilding($town, 'small_coffin_#00'))
+                        $ratio = 20;
+                    $summary->cemetery = $ratio * $c;
+                }
             }
 
 
@@ -402,24 +415,6 @@ class TownHandler
         $summary->soul_defense = $town->getSoulDefense();
 
         $summary->nightwatch_defense = $this->calculate_watch_def($town);
-
-        $dump = $this->getBuilding($town, 'small_trash_#00', true);
-
-        if($dump) {
-            $summary->dump_defense = $dump->getTempDefenseBonus();
-        }
-
-        $cemetery = $this->getBuilding($town, 'small_cemetery_#00');
-        $cemeteryv2 = $this->getBuilding($town, 'small_coffin_#00');
-
-        if ($cemetery) {
-            $c = 0;
-            foreach ($town->getCitizens() as $citizen) if (!$citizen->getAlive()) $c++;
-            $ratio = 10;
-            if ($cemeteryv2)
-                $ratio = 20;
-            $summary->cemetery = $ratio * $c;
-        }
         
         return $summary->sum();
     }
