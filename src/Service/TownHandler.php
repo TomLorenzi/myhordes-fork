@@ -355,8 +355,6 @@ class TownHandler
         // $d += $building->getTempDefenseBonus();
         // Temp defense is handled separately
 
-        file_put_contents("/home/ludovic/dump.txt", "Building {$building->getPrototype()->getLabel()} / {$building->getPrototype()->getName()}, base def {$building->getDefense()} / bonus {$building->getDefenseBonus()} / temp {$building->getTempDefenseBonus()}\n", FILE_APPEND);
-
         return $d;
     }
 

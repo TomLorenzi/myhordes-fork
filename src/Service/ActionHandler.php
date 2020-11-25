@@ -268,7 +268,6 @@ class ActionHandler
             }
 
             if ($day = $meta_requirement->getDay()) {
-                file_put_contents("/tmp/dump.txt", "Day requirement");
                 /** @var RequireDay $day */
                 $town = $citizen->getTown();
                 if($day->getMin() > $town->getDay() || $day->getMax() < $town->getDay()) {

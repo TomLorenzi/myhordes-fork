@@ -763,7 +763,6 @@ class ExternalXML2Controller extends ExternalController {
     }
 
     protected function getHeaders($language) {
-        file_put_contents("/tmp/dump.txt", print_r(Request::createFromGlobals(), true));
         return [
             'hordes' => [
                 'headers' => [
