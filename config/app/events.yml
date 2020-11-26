@@ -1,0 +1,28 @@
+parameters:
+  events:
+    arma:
+      begin: 12-04
+      end: 12-04
+      css: 'arma'
+      items: []
+      effects:
+        town_name: ':hordes_arma_10:'
+        attack: random
+    christmas:
+      begin: 12-07
+      end: 01-07
+      css: 'christmas'
+      items: 
+        renne_#00 : 14
+        sand_ball_#00 : 8
+        christmas_suit_3_#00 : 4
+        christmas_suit_2_#00 : 3
+        christmas_suit_1_#00 : 2
+        food_xmas_#00 : 5
+      effects:
+    thanksgiving:
+      begin: 11-26
+      end: 11-26
+      css: 'thanksgiving'
+      items: 
+      effects:

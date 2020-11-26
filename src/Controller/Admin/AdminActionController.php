@@ -15,7 +15,6 @@ use App\Service\LogTemplateHandler;
 use App\Service\ZoneHandler;
 use App\Translation\T;
 use Doctrine\ORM\EntityManagerInterface;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Response;
@@ -26,11 +25,10 @@ use Symfony\Contracts\Translation\TranslatorInterface;
 /**
  * @Route("/",condition="request.isXmlHttpRequest()")
  */
-class AdminActionController extends AbstractController
+class AdminActionController extends CustomAbstractController
 {
     protected $entity_manager;
     protected $logTemplateHandler;
-    protected $conf;
     protected $zone_handler;
     protected $translator;
 

@@ -75,5 +75,9 @@
                 dropdown.style.height = Math.ceil(target_height) + 'px';
             }
         });
+        {% if custom_css is defined %}
+        if(!document.getElementsByTagName('body')[0].classList.contains('{{ custom_css }}'))
+            document.getElementsByTagName('body')[0].classList.add('{{ custom_css }}');
+        {% endif %}
     </script>
 {% endblock %}

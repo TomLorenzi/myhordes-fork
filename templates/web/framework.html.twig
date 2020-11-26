@@ -31,7 +31,7 @@
         {% endif %}
     {% endblock %}
 </head>
-<body class="{% if is_granted('ROLE_USER') %} online_body {% else %} offline_body {% endif %}">
+<body class="{% if is_granted('ROLE_USER') %}online_body{% else %}offline_body{% endif %} {{ custom_css }}">
 <div id="notifications"></div>
 <div id="wrapper">
     <div id="header">

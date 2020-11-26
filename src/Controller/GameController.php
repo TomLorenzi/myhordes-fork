@@ -30,7 +30,6 @@ use App\Translation\T;
 use Doctrine\ORM\EntityManagerInterface;
 use Exception;
 use DateTime;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Contracts\Translation\TranslatorInterface;
@@ -38,7 +37,7 @@ use Symfony\Contracts\Translation\TranslatorInterface;
 /**
  * @Route("/",condition="request.isXmlHttpRequest()")
  */
-class GameController extends AbstractController implements GameInterfaceController
+class GameController extends CustomAbstractController implements GameInterfaceController
 {
     protected $entity_manager;
     protected $translator;
@@ -48,7 +47,7 @@ class GameController extends AbstractController implements GameInterfaceControll
     protected TownHandler $town_handler;
     private $user_handler;
 
-    public function __construct(EntityManagerInterface $em, TranslatorInterface $translator, LogTemplateHandler $lth, TimeKeeperService $tk, CitizenHandler $ch, UserHandler $uh, TownHandler $th)
+    public function __construct(EntityManagerInterface $em, TranslatorInterface $translator, LogTemplateHandler $lth, TimeKeeperService $tk, CitizenHandler $ch, UserHandler $uh, TownHandler $th, ConfMaster $conf)
     {
         $this->entity_manager = $em;
         $this->translator = $translator;
@@ -57,6 +56,7 @@ class GameController extends AbstractController implements GameInterfaceControll
         $this->citizen_handler = $ch;
         $this->user_handler = $uh;
         $this->town_handler = $th;
+        $this->conf = $conf;
     }
 
     protected function getActiveCitizen(): Citizen {

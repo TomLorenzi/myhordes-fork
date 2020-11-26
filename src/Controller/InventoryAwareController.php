@@ -53,7 +53,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
-class InventoryAwareController extends AbstractController
+class InventoryAwareController extends CustomAbstractController
     implements GameInterfaceController, GameProfessionInterfaceController, GameAliveInterfaceController, HookedInterfaceController
 {
     protected EntityManagerInterface $entity_manager;
@@ -66,7 +66,6 @@ class InventoryAwareController extends AbstractController
     protected LogTemplateHandler $log;
     protected TimeKeeperService $time_keeper;
     protected RandomGenerator $random_generator;
-    protected ConfMaster $conf;
     protected ZoneHandler $zone_handler;
     protected LogTemplateHandler $logTemplateHandler;
     protected UserHandler $user_handler;

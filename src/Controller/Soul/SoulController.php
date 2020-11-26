@@ -2,6 +2,7 @@
 
 namespace App\Controller\Soul;
 
+use App\Controller\CustomAbstractController;
 use App\Entity\CauseOfDeath;
 use App\Entity\Changelog;
 use App\Entity\CitizenRankingProxy;
@@ -29,7 +30,6 @@ use App\Structures\MyHordesConf;
 use DateTime;
 use Doctrine\ORM\EntityManagerInterface;
 use Exception;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Asset\Packages;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -43,7 +43,7 @@ use Symfony\Contracts\Translation\TranslatorInterface;
  * @Route("/",condition="request.isXmlHttpRequest()")
  * @method User getUser
  */
-class SoulController extends AbstractController
+class SoulController extends CustomAbstractController
 {
     const ErrorUserEditPasswordIncorrect     = ErrorHelper::BaseSoulErrors + 1;
     const ErrorTwinImportInvalidResponse     = ErrorHelper::BaseSoulErrors + 2;
@@ -66,7 +66,7 @@ class SoulController extends AbstractController
     protected UserHandler $user_handler;
     protected Packages $asset;
 
-    public function __construct(EntityManagerInterface $em, UserFactory $uf, Packages $a, UserHandler $uh, TimeKeeperService $tk, TranslatorInterface $translator)
+    public function __construct(EntityManagerInterface $em, UserFactory $uf, Packages $a, UserHandler $uh, TimeKeeperService $tk, TranslatorInterface $translator, ConfMaster $conf)
     {
         $this->entity_manager = $em;
         $this->user_factory = $uf;
@@ -74,6 +74,7 @@ class SoulController extends AbstractController
         $this->translator = $translator;
         $this->user_handler = $uh;
         $this->time_keeper = $tk;
+        $this->conf = $conf;
     }
 
     protected function addDefaultTwigArgs(?string $section = null, ?array $data = null ): array {

@@ -2,10 +2,9 @@
 
 namespace App\Controller;
 
-use App\Response\AjaxResponse;
+use App\Service\ConfMaster;
 use Doctrine\ORM\EntityManagerInterface;
 use Exception;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -14,15 +13,16 @@ use Symfony\Contracts\Translation\TranslatorInterface;
 /**
  * @Route("/",condition="request.isXmlHttpRequest()")
  */
-class HelpController extends AbstractController
+class HelpController extends CustomAbstractController
 {
     protected $entity_manager;
     protected $translator;
 
-    public function __construct(EntityManagerInterface $em, TranslatorInterface $translator)
+    public function __construct(EntityManagerInterface $em, TranslatorInterface $translator, ConfMaster $conf)
     {
         $this->entity_manager = $em;
         $this->translator = $translator;
+        $this->conf = $conf;
     }
 
     /**

@@ -31,6 +31,7 @@ use App\Service\PictoHandler;
 use App\Service\RandomGenerator;
 use App\Service\TimeKeeperService;
 use App\Response\AjaxResponse;
+use App\Service\ConfMaster;
 use App\Structures\ForumPermissionAccessor;
 use DateTime;
 use Doctrine\ORM\EntityManagerInterface;
@@ -39,7 +40,6 @@ use DOMNode;
 use DOMXPath;
 use Exception;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Asset\Packages;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -50,7 +50,7 @@ use Symfony\Contracts\Translation\TranslatorInterface;
  * @IsGranted("ROLE_USER")
  * @method User getUser
  */
-class MessageController extends AbstractController
+class MessageController extends CustomAbstractController
 {
     const ErrorForumNotFound    = ErrorHelper::BaseForumErrors + 1;
     const ErrorPostTextLength   = ErrorHelper::BaseForumErrors + 2;
@@ -66,7 +66,7 @@ class MessageController extends AbstractController
     private TimeKeeperService $time_keeper;
     private PermissionHandler $perm;
 
-    public function __construct(RandomGenerator $r, TranslatorInterface $t, Packages $a, EntityManagerInterface $em, InventoryHandler $ih, TimeKeeperService $tk, PermissionHandler $p)
+    public function __construct(RandomGenerator $r, TranslatorInterface $t, Packages $a, EntityManagerInterface $em, InventoryHandler $ih, TimeKeeperService $tk, PermissionHandler $p, ConfMaster $conf)
     {
         $this->asset = $a;
         $this->rand = $r;
@@ -75,6 +75,7 @@ class MessageController extends AbstractController
         $this->entityManager = $em;
         $this->inventory_handler = $ih;
         $this->perm = $p;
+        $this->conf = $conf;
     }
 
     protected function addDefaultTwigArgs( ?array $data = null ): array {

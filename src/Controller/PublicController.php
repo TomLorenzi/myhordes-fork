@@ -20,7 +20,6 @@ use App\Response\AjaxResponse;
 use App\Structures\MyHordesConf;
 use Doctrine\ORM\EntityManagerInterface;
 use Exception;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -40,13 +39,14 @@ use Symfony\Contracts\Translation\TranslatorInterface;
  * @Route("/",condition="request.isXmlHttpRequest()")
  * @method User|null getUser
  */
-class PublicController extends AbstractController
+class PublicController extends CustomAbstractController
 {
     protected $entity_manager;
 
-    public function __construct(EntityManagerInterface $em)
+    public function __construct(EntityManagerInterface $em, ConfMaster $conf)
     {
         $this->entity_manager = $em;
+        $this->conf = $conf;
     }
 
     protected function addDefaultTwigArgs( ?array $data = null ): array {
