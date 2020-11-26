@@ -31,10 +31,10 @@
         {% endif %}
     {% endblock %}
 </head>
-<body class="{% if is_granted('ROLE_USER') %} online_body {% else %} offline_body {% endif %}">
+<body class="{% if is_granted('ROLE_USER') %} online_body {% else %} offline_body {% endif %} arma">
 <div id="notifications"></div>
 <div id="wrapper">
-    <div id="header">
+    <div id="header" class="arma">
         <div id="header-reload-area"></div>
         {% if is_granted('ROLE_USER') %}
             <div id="apps">

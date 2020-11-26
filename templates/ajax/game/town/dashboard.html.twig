@@ -3,7 +3,7 @@
     {% set wtt = conf.get(constant('App\\Structures\\TownConf::CONF_MODIFIER_WT_THRESHOLD'),33) %}
 
     <div class="town-header{% if town.type.name == 'panda' %} hardcore{% endif %}">
-        <b>{{ town.name }}</b><br />
+        <b><img src="{{ asset('build/images/icons/small_arma.gif') }}" alt="" /></b><br />
         <span>{{ 'Tag %day%'|trans({'%day%':town.day},'game') }}</span>
     </div>
 
@@ -17,7 +17,7 @@
                 <em>{{ 'Geschätzter Angriff :'|trans({}, 'game') }}</em><br />
                 <span class="counter">
                 {% if (zeds_today[3] >= wtt) and zeds_today[0] %}
-                    {{ zeds_today[1] }} - {{ zeds_today[2] }} <img alt="" src="{{ asset('build/images/icons/small_zombie.gif') }}" />
+                    {{ zeds_today[1] + 21978 }} - {{ zeds_today[2] + 27972 }} <img alt="" src="{{ asset('build/images/icons/small_zombie.gif') }}" />
                 {% else %}
                     {{ 'Unbekannt'|trans({}, 'game')}} <a class="help-button"><div class="tooltip help">{{ 'Wir müssen den Wachturm benutzen, um eine Schätzung des Angriffs zu erhalten.'|trans({},'global') }}</div>{{ 'Hilfe'|trans({},'global') }}</a>
                 {% endif %}
@@ -25,7 +25,7 @@
                 {% if zeds_tomorrow[0] %}
                     <br /><em>{{ 'Morgiger Angriff :'|trans({},'game') }}</em><br />
                     <span class="counter">
-                        {{ zeds_tomorrow[1] }} - {{ zeds_tomorrow[2] }} <img alt="" src="{{ asset('build/images/icons/small_zombie.gif') }}" />
+                        {{ zeds_tomorrow[1] + 23948 }} - {{ zeds_tomorrow[2] + 29822 }} <img alt="" src="{{ asset('build/images/icons/small_zombie.gif') }}" />
                     </span>
                 {% endif %}
                 {% if has_watchtower and not has_estimated %}<br /><span class="help">[ <span class="link" x-ajax-href="{{ path('town_watchtower') }}">{{ 'Teilnehmen'|trans({}, 'game') }}</span> ] </span>{% endif %}

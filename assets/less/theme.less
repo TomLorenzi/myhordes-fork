@@ -88,10 +88,12 @@ body {
 
 .offline_body {
   background: @myhordes-background;
+  &.arma { background: url("../img/anims/skull_laugh.gif"); }
 }
 
 .online_body {
   background: @myhordes-background-online;
+  &.arma { background: url("../img/anims/skull_laugh.gif"); }
 }
 
 div.debug_info {
@@ -207,6 +209,8 @@ x-message {
     &>#header-reload-area { position: absolute; left: 0; top: 0; height: 135px; width: 375px; cursor: pointer; }
     background: @myhordes-content-header-background; height: @myhordes-content-header-height;
     margin: 0 0 @myhordes-content-header-margin;
+
+    &.arma { background: url(../img/background/header_arma_animated.gif); }
 
     & #modeCommand {
       position: absolute;
