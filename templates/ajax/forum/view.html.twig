@@ -63,22 +63,24 @@
                         {{ thread.visiblePosts|length - 1 }}
                     {% endif %}
                     <br />
+                    <div>
                     {% set last_post = thread.lastPost %}
                     {% if last_post and last_post.owner %}
                         {% if last_post.owner.name == 'Der Rabe' %}
                             {{ 'Der Rabe'|trans({},'global') }}
                         {% else %}
-                            {{ 'ERROR' }}
+                            {{ last_post.owner.name }}
                         {% endif %}
                     {% elseif thread.owner %}
                         {% if thread.owner.name == 'Der Rabe' %}
                             {{ 'Der Rabe'|trans({},'global') }}
                         {% else %}
-                            {{ 'ERROR' }}
+                            {{ last_post.owner.name }}
                         {% endif %}
                     {% else %}
                         {{ 'Der Rabe'|trans({},'global') }}
                     {% endif %}
+                    </div>
                 </div>
             </div>
         {% endfor %}

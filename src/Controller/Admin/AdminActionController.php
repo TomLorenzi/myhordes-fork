@@ -2,6 +2,7 @@
 
 namespace App\Controller\Admin;
 
+use App\Controller\CustomAbstractController;
 use App\Entity\AttackSchedule;
 use App\Entity\LogEntryTemplate;
 use App\Entity\User;

@@ -1,13 +1,13 @@
 parameters:
   events:
     arma:
-      begin: 12-04
-      end: 12-04
+      begin: 01-01
+      end: 12-31
       css: 'arma'
       items: []
       effects:
         town_name: ':hordes_arma_10:'
-        attack: random
+        watchtower: 'random'
     christmas:
       begin: 12-07
       end: 01-07
@@ -19,10 +19,4 @@ parameters:
         christmas_suit_2_#00 : 3
         christmas_suit_1_#00 : 2
         food_xmas_#00 : 5
-      effects:
-    thanksgiving:
-      begin: 11-26
-      end: 11-26
-      css: 'thanksgiving'
-      items: 
       effects:

@@ -1,0 +1,59 @@
+body.arma {
+    background: url("../../img/anims/skull_laugh.gif");
+    #wrapper {
+        &>#header {
+            background: url(../../img/background/header_arma_animated.gif);
+        }
+    }
+
+    .town-header {
+        b {
+            visibility: hidden;
+            &:before {
+                content: url(../../img/icons/small_arma.gif);
+                visibility: visible;
+                display: block;
+            }
+        }
+    }
+
+    .forum-post > .forum-post-header,
+    .forum-post > .forum-post-header {
+        > .avatar,
+        > .avatarcrow {
+            visibility: hidden;
+            > img {
+                height: 0;
+                width: 0;
+            }
+            &:before {
+                content: url(../../img/anims/all_doomed.gif);
+                visibility: visible;
+                display: block;
+            }
+        }
+
+        > a.link,
+        > b {
+            visibility: hidden;
+            &:before {
+                content: "CRITICAL_ERROR";
+                visibility: visible;
+            }
+        }
+    }
+
+    .forum-thread {
+        .count {
+            div {
+                visibility: hidden;
+                line-height: 0;
+                &:before {
+                    content: "CRITICAL_ERROR";
+                    visibility: visible;
+                    line-height: initial;
+                }
+            }
+        }
+    }
+}

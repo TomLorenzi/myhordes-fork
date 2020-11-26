@@ -13,6 +13,7 @@
 @import (once) "modules/admin";
 @import (once) "modules/help";
 @import (once) "modules/docs";
+@import (once) "modules/events";
 
 @import (css) url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 @import (css) url('https://fonts.googleapis.com/css?family=Courier+Prime&display=swap');
@@ -209,8 +210,6 @@ x-message {
     &>#header-reload-area { position: absolute; left: 0; top: 0; height: 135px; width: 375px; cursor: pointer; }
     background: @myhordes-content-header-background; height: @myhordes-content-header-height;
     margin: 0 0 @myhordes-content-header-margin;
-
-    &.arma { background: url(../img/background/header_arma_animated.gif); }
 
     & #modeCommand {
       position: absolute;
