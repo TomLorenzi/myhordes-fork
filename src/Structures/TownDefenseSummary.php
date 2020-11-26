@@ -19,6 +19,6 @@ class TownDefenseSummary
     public $temp_defense = 0;
 
     public function sum(): int {
-        return $this->overall_scale * ($this->base_defense + $this->house_defense + $this->guardian_defense + $this->building_def_base + $this->building_def_vote + $this->item_defense + $this->nightwatch_defense + $this->soul_defense + $this->temp_defense + $this->cemetery);
+        return $this->overall_scale * ($this->base_defense + $this->item_defense + $this->building_def_base + $this->building_def_vote + $this->house_defense + $this->guardian_defense + $this->temp_defense + $this->nightwatch_defense + $this->soul_defense + $this->cemetery);
     }
 }

@@ -4028,12 +4028,12 @@
         <target>Objets de défense</target>
       </segment>
     </unit>
-    <unit id="FAUZkS8" name="Häuser">
+    <unit id="jA6Q6MW" name="Häuser der Bürger">
       <notes>
-        <note category="german">Häuser</note>
+        <note category="german">Häuser der Bürger</note>
       </notes>
       <segment>
-        <source>Häuser</source>
+        <source>Häuser der Bürger</source>
         <target>Maisons citoyens</target>
       </segment>
     </unit>
@@ -14688,12 +14688,12 @@
         <target>Apports temporaires</target>
       </segment>
     </unit>
-    <unit id="mSZqzlK" name="Leichen auf dem Friedhof">
+    <unit id="9_pNKlL" name="Leichen-Bonus">
       <notes>
-        <note category="german">Leichen auf dem Friedhof</note>
+        <note category="german">Leichen-Bonus</note>
       </notes>
       <segment>
-        <source>Leichen auf dem Friedhof</source>
+        <source>Leichen-Bonus</source>
         <target>Bonus cadavres</target>
       </segment>
     </unit>

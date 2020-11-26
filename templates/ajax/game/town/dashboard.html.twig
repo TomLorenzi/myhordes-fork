@@ -136,7 +136,7 @@
                 <li>{{'Grundbefestigungsmauer'|trans({}, 'game')}} : + {{def_summary.base_defense}} <img src="{{ asset('build/images/icons/small_def.gif') }}" /></li>
                 <li>{{'Verteidigungsgegenstände'|trans({}, 'game')}} : + {{def_summary.item_defense}} <img src="{{ asset('build/images/icons/small_def.gif') }}" /> ({{ item_def_count }} {{'Gegenstände'|trans({}, 'game')}} x {{ item_def_factor }} <img src="{{ asset('build/images/icons/small_def.gif') }}" /> ) <a class="help-button"><div class="tooltip help">{{ '<strong>Wichtig:</strong> Verteidigungsgegenstände können maximal <strong>500</strong> Verteidigungspunkte vergeben!'|trans({},'global')|raw }}</div>{{ 'Hilfe'|trans({},'global')|raw }}</a></li>
                 <li>{{'Konstruktionen'|trans({}, 'game')}} : {{def_summary.building_def_base + def_summary.building_def_vote }} <img src="{{ asset('build/images/icons/small_def.gif') }}" /> {% if def_summary.building_def_vote > 0 %}( {{ def_summary.building_def_base }} <img src="{{ asset('build/images/icons/small_def.gif') }}" /> + {{ def_summary.building_def_vote }} <img src="{{ asset('build/images/icons/small_def.gif') }}" /> ){% endif %}</li>
-                <li>{{'Häuser'|trans({}, 'game')}} : + {{def_summary.house_defense}} <img src="{{ asset('build/images/icons/small_def.gif') }}" /></li>
+                <li>{{'Häuser der Bürger'|trans({}, 'game')}} : + {{def_summary.house_defense}} <img src="{{ asset('build/images/icons/small_def.gif') }}" /></li>
                 {% if def_summary.guardian_defense > 0 %}
                 <li>{{'Wächter'|trans({}, 'game')}} : + {{ def_summary.guardian_defense }} <img src="{{ asset('build/images/icons/small_def.gif') }}" /> <a class="help-button"><div class="tooltip help">{{ 'Diesen Bonus gibt es nur dann, wenn sich die Wächter während eines Angriffs in der Stadt befinden.'|trans({},'global') }}</div>{{ 'Hilfe'|trans({},'global') }}</a></li>
                 {% endif %}
@@ -144,7 +144,7 @@
                 <li>{{'Befristete Beiträge'|trans({}, 'game')}} : + {{def_summary.temp_defense}} <img src="{{ asset('build/images/icons/small_def.gif') }}" /></li>
                 {% endif %}
                 {% if def_summary.cemetery > 0 %}
-                <li>{{'Leichen auf dem Friedhof'|trans({}, 'game')}} : + {{def_summary.cemetery}} <img src="{{ asset('build/images/icons/small_def.gif') }}" /></li>
+                <li>{{'Leichen-Bonus'|trans({}, 'game')}} : + {{def_summary.cemetery}} <img src="{{ asset('build/images/icons/small_def.gif') }}" /> <a class="help-button"><div class="tooltip help">{{ 'Diesen Bonus gibt es dank eurer alten Freunde und dem Gebäude <strong>Kleiner Friedhof</strong>.'|trans({},'global')|raw }}</div>{{ 'Hilfe'|trans({},'global')|raw }}</a> </li>
                 {% endif %}
                 {% if def_summary.overall_scale > 1 %}
                 <li>{{'Bonus'|trans({}, 'game')}} : + {{ (def_summary.overall_scale - 1) * 100}} % </li>
