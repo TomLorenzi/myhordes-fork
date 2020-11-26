@@ -1,12 +1,11 @@
 parameters:
   events:
     arma:
-      begin: 01-01
-      end: 12-31
+      begin: 12-04
+      end: 12-04
       css: 'arma'
       items: []
       effects:
-        town_name: ':hordes_arma_10:'
         watchtower: 'random'
     christmas:
       begin: 12-07
