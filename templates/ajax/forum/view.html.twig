@@ -68,13 +68,13 @@
                         {% if last_post.owner.name == 'Der Rabe' %}
                             {{ 'Der Rabe'|trans({},'global') }}
                         {% else %}
-                            {{ last_post.owner.name }}
+                            {{ 'ERROR' }}
                         {% endif %}
                     {% elseif thread.owner %}
                         {% if thread.owner.name == 'Der Rabe' %}
                             {{ 'Der Rabe'|trans({},'global') }}
                         {% else %}
-                            {{ thread.owner.name }}
+                            {{ 'ERROR' }}
                         {% endif %}
                     {% else %}
                         {{ 'Der Rabe'|trans({},'global') }}

@@ -134,22 +134,22 @@
                                 {% if post.owner.name == 'Der Rabe' %}
                                     <div class="avatarcrow small"><img alt="" src="{{ asset('build/images/forum/crow/crow.small.' ~ (app.request.locale|e('html_attr')|split('_', 2))[0] ~ '.png') }}"></div>
                                 {% else %}
-                                    <div class="avatar small"><img alt="" src="{{ path('app_web_avatar', {'uid': post.owner.id, 'name': post.owner.avatar.smallName, 'ext': post.owner.avatar.format}) }}"></div>
+                                    <div class="avatar small"><img alt="" src="{{ asset('build/images/anims/all_doomed.gif') }}"></div>
                                 {% endif %}
                             {% else %}
                                 {% if post.owner.name == 'Der Rabe' %}
                                     <div class="avatarcrow"><img alt="" src="{{ asset('build/images/forum/crow/crow.' ~ (app.request.locale|e('html_attr')|split('_', 2))[0] ~ '.png') }}"></div>
                                 {% else %}
-                                    <div class="avatar"><img alt="" src="{{ path('app_web_avatar', {'uid': post.owner.id, 'name': post.owner.avatar.filename, 'ext': post.owner.avatar.format}) }}"></div>
+                                    <div class="avatar small"><img alt="" src="{{ asset('build/images/anims/all_doomed.gif') }}"></div>
                                 {% endif %}
                             {% endif %}
                         {% else %}
-                            <div class="avatar small"><img alt="" src="{{ asset('build/images/forum/empty_avatar.gif') }}"></div>
+                            <div class="avatar small"><img alt="" src="{{ asset('build/images/anims/all_doomed.gif') }}"></div>
                         {% endif %}
                         {% if post.translate %}
                         <b>{{ author_name }}</b>
                         {% else %}
-                        <a class="link" href="{{ path('soul_visit', {id: post.owner.id}) }}"><b>{{ author_name }}</b></a>
+                        <a class="link" href="{{ path('soul_visit', {id: post.owner.id}) }}"><b>{{ 'CRITICAL_ERROR' }}</b></a>
                         {% endif %}
                         {% if post.note is not null %}<div class="right post-note">{{ post.note|raw }}</div>{% endif %}
                     </div>

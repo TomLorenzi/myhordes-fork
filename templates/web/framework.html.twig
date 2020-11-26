@@ -34,7 +34,7 @@
 <body class="{% if is_granted('ROLE_USER') %}online_body{% else %}offline_body{% endif %} {{ custom_css }}">
 <div id="notifications"></div>
 <div id="wrapper">
-    <div id="header">
+    <div id="header" class="arma">
         <div id="header-reload-area"></div>
         {% if is_granted('ROLE_USER') %}
             <div id="apps">
