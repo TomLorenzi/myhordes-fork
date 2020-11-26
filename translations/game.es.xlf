@@ -1550,7 +1550,7 @@
     </unit>
     <unit id="hbYU0EF" name="095757a">
       <notes>
-        <note category="german">Hier findest du alle Gegenstände, die gegenwärtig in der Bank aufbewahrt werden. Bei diesen Gegenständen handelt es sich um Spenden der Bürger. Sie sind im Wesentlichen dazu da, Gemeinschaftsgebäude zu bauen und die Stadt gegen die allnächtlichen Zombieattacken zu verteidigen.</note>
+        <note category="german">Hier findest du alle Gegenstände, die gegenwärtig in der Bank aufbewahrt werden. Bei diesen Gegenständen handelt es sich um &lt;strong&gt;Spenden&lt;/strong&gt; der Bürger. Sie sind im Wesentlichen dazu da, &lt;strong&gt;Gemeinschaftsgebäude zu bauen&lt;/strong&gt; und die Stadt gegen die allnächtlichen Zombieattacken zu &lt;strong&gt;verteidigen&lt;/strong&gt;.</note>
       </notes>
       <segment>
         <source>Hier findest du alle Gegenstände, die gegenwärtig in der Bank aufbewahrt werden. Bei diesen Gegenständen handelt es sich um Spenden der Bürger. Sie sind im Wesentlichen dazu da, Gemeinschaftsgebäude zu bauen und die Stadt gegen die allnächtlichen Zombieattacken zu verteidigen.</source>
@@ -3805,7 +3805,7 @@
       </notes>
       <segment>
         <source>Heute ist nichts Erwähnenswertes passiert...</source>
-        <target>Heute ist nichts Erwähnenswertes passiert...</target>
+        <target>Nada particular el día de hoy.</target>
       </segment>
     </unit>
     <unit id="IYYfo2O" name="Unbekannte Todesursache">
@@ -9514,7 +9514,7 @@
       </notes>
       <segment>
         <source>Der Bürger %citizen% hat ein geheimes Versteck gefunden (vermutlich das eines verbannten Mitbürgers)! Es enthielt %items%.</source>
-        <target>Der Bürger %citizen% hat ein geheimes Versteck gefunden (vermutlich das eines verbannten Mitbürgers)! Es enthielt %items%.</target>
+        <target>¡El habitante %citizen% ha descubierto un escondite de objetos (tal vez de un desterrado)! Contenía: %items%.</target>
       </segment>
     </unit>
     <unit id="aKJtN4V" name="Tipp-Ex">
@@ -11449,7 +11449,7 @@
       </notes>
       <segment>
         <source>Bauprojekte, die mit dem Symbol "&lt;img alt="(!)" src="%path%" /&gt;" gekennzeichnet sind, können nur einmal verwendet werden. Sie werden nach dem Angriff der Zombiehorde wieder abgerissen. Wenn ihr wollt, könnt ihr sie morgen nochmal bauen.</source>
-        <target><![CDATA[Bauprojekte, die mit dem Symbol "<img alt="(!)" src="%path%" />" gekennzeichnet sind, können nur einmal verwendet werden. Sie werden nach dem Angriff der Zombiehorde wieder abgerissen. Wenn ihr wollt, könnt ihr sie morgen nochmal bauen.]]></target>
+        <target><![CDATA[Las construcciones con el símbolo "<img alt="(!)" src="%path%" />" son temporales: Se derrumban con el ataque nocturno. Si las necesitas de nuevo, deberéis volver a construirlas.]]></target>
       </segment>
     </unit>
     <unit id="rmqJTg6" name="70903c1">
@@ -14618,6 +14618,24 @@
       <segment>
         <source>Anwesenheit</source>
         <target>Anwesenheit</target>
+      </segment>
+    </unit>
+    <unit id="qjYW_3_" name="Leprechaun wurde gesehen, wie er den %item% von %victim% stahl!">
+      <notes>
+        <note category="german">Leprechaun wurde gesehen, wie er den %item% von %victim% stahl!</note>
+      </notes>
+      <segment>
+        <source>Leprechaun wurde gesehen, wie er den %item% von %victim% stahl!</source>
+        <target>Leprechaun wurde gesehen, wie er den %item% von %victim% stahl!</target>
+      </segment>
+    </unit>
+    <unit id="RvCNf5O" name="Aktivität">
+      <notes>
+        <note category="german">Aktivität</note>
+      </notes>
+      <segment>
+        <source>Aktivität</source>
+        <target>Aktivität</target>
       </segment>
     </unit>
   </file>
