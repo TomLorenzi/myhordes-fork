@@ -150,7 +150,7 @@
                 <li>{{'Bonus'|trans({}, 'game')}} : + {{ (def_summary.overall_scale - 1) * 100}} % </li>
                 {% endif %}
                 {% if has_battlement and def_summary.nightwatch_defense > 0 %}
-                <li>{{'Nachtwächter'|trans({}, 'game')}} : + {{def_summary.nightwatch_defense}} <img src="{{ asset('build/images/icons/small_def.gif') }}" /></li>
+                <li>{{'Nachtwächter'|trans({}, 'game')}} : + {{def_summary.nightwatch_defense}} <img src="{{ asset('build/images/icons/small_def.gif') }}" /> <a class="help-button"><div class="tooltip help">{{ 'Diesen Bonus gibt es nur dann, wenn sich die Wächter wärhend eines Angriffs in det Stadt befinden.'|trans({},'global') }}</div>{{ 'Hilfe'|trans({},'global') }}</a></li>
                 {% endif %}
                 {% if def_summary.soul_defense > 0 %}
                 <li>{{'Gereinigte Seelen'|trans({}, 'game')}} : + {{def_summary.soul_defense}} <img src="{{ asset('build/images/icons/small_def.gif') }}" /> <a class="help-button"><div class="tooltip help">{{ 'Diese Abwehrkräfte werden von gereinigten Seelen gebracht.'|trans({},'global') }}</div>{{ 'Hilfe'|trans({},'global') }}</a></li>
