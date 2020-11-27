@@ -10,7 +10,7 @@ class EventConf extends Conf
 {
     const EVENT_CSS = 'css';
 
-    const EVENT_ITEMS = 'items';
+    const EVENT_GROUP_DIG = 'group_dig';
 
     const EVENT_HOOK_WATCHTOWER   = 'hooks.watchtower';
     const EVENT_HOOK_DOOR         = 'hooks.door';

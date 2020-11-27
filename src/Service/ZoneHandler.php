@@ -18,6 +18,7 @@ use App\Entity\RuinZone;
 use App\Entity\Town;
 use App\Entity\TownLogEntry;
 use App\Entity\Zone;
+use App\Structures\EventConf;
 use App\Structures\TownConf;
 use App\Translation\T;
 use DateTime;
@@ -120,9 +121,9 @@ class ZoneHandler
         $event_group = null;
 
         // Get event specific items
-        $event = $this->conf->getCurrentEvent();
-        if($event !== null && isset($event['group_dig'])) {
-            $event_group = $this->entity_manager->getRepository(ItemGroup::class)->findOneBy(['name' => $event['group_dig']]);
+        $event = $this->conf->getCurrentEvent()->get(EventConf::EVENT_GROUP_DIG, '');
+        if($event !== '') {
+            $event_group = $this->entity_manager->getRepository(ItemGroup::class)->findOneBy(['name' => $event]);
         }
 
         $wrap = function(array $a) {
