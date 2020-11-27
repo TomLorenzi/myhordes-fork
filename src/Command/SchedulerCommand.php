@@ -17,6 +17,7 @@ use App\Service\GameFactory;
 use App\Service\Locksmith;
 use App\Service\NightlyHandler;
 use App\Service\UserHandler;
+use App\Structures\EventConf;
 use App\Structures\MyHordesConf;
 use App\Structures\TownConf;
 use DateTime;
@@ -85,9 +86,8 @@ class SchedulerCommand extends Command
             $output->writeln( 'Beginning <info>execution</info>...' );
 
             $event = $this->conf_master->getCurrentEvent();
-            if($event !== null){
-                $output->writeln("An event is currently ongoing : <info>{$event['css']} !</info>");
-            }
+            if ($event->active())
+                $output->writeln("An event is currently ongoing : <info>{$event->get(EventConf::EVENT_CSS, 'unknown')} !</info>");
 
             $towns = $this->entityManager->getRepository(Town::class)->findAll();
 

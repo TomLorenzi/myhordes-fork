@@ -5,16 +5,18 @@ namespace App\Service;
 
 
 use App\Entity\Town;
+use App\Structures\EventConf;
 use App\Structures\MyHordesConf;
 use App\Structures\TownConf;
 
 class ConfMaster
 {
-    private $global;
-    private $game_rules;
-    private $events;
+    private array $global;
+    private array $game_rules;
+    private array $events;
 
-    private $global_conf;
+    private ?MyHordesConf $global_conf = null;
+    private ?EventConf $event_conf = null;
 
     public function __construct( array $global, array $local, array $rules, array $events) {
         $this->global = array_merge($global,$local);
@@ -32,23 +34,34 @@ class ConfMaster
         return $tc->complete();
     }
 
-    public function getCurrentEvent(): ?array {
+    public function getCurrentEvent(): EventConf {
+        if ($this->event_conf !== null)
+            return $this->event_conf;
+
         $curDate = new \DateTime();
-        $begin = new \DateTime();
-        $end = new \DateTime();
+
         foreach($this->events as $conf){
-            $beginDate = explode(' ', $conf['begin'])[0];
-            $beginTime = explode(' ', $conf['begin'])[1];
-            $endDate = explode(' ', $conf['end'])[0];
-            $endTime = explode(' ', $conf['end'])[1];
 
-            $begin = $begin->setDate($begin->format('Y'), explode('-', $beginDate)[0], explode('-', $beginDate)[1])->setTime(explode(':', $beginTime)[0], explode(':', $beginTime)[1], 0);
-            $end = $end->setDate($end->format('Y'), explode('-', $endDate)[0], explode('-', $endDate)[1])->setTime(explode(':', $endTime)[0], explode(':', $endTime)[1], 0);
+            if (empty($conf['trigger']) || empty($conf['trigger']['type'])) continue;
 
-            if($curDate >= $begin && $curDate <= $end)
-                return $conf;
+            switch ($conf['trigger']['type']) {
+                case 'on':
+                    return ($this->event_conf = (new EventConf( $conf['conf'] ))->complete());
+                case 'datetime':
+                    list($beginDate, $beginTime) = explode(' ', $conf['trigger']['begin']);
+                    list($endDate, $endTime) = explode(' ', $conf['trigger']['end']);
+
+                    $begin = (new \DateTime())->setDate((int)$curDate->format('Y'), explode('-', $beginDate)[0], explode('-', $beginDate)[1])->setTime(explode(':', $beginTime)[0], explode(':', $beginTime)[1], 0);
+                    $end = (new \DateTime())->setDate((int)$curDate->format('Y'), explode('-', $endDate)[0], explode('-', $endDate)[1])->setTime(explode(':', $endTime)[0], explode(':', $endTime)[1], 0);
+
+                    while ($begin > $end) $end->modify("+1 year");
+
+                    if ($curDate >= $begin && $curDate <= $end)
+                        return ($this->event_conf = (new EventConf( $conf['conf'] ))->complete());
+                    break;
+            }
         }
 
-        return null;
+        return ($this->event_conf = (new EventConf( [] ))->complete());
     }
 }

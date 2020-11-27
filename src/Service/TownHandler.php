@@ -458,15 +458,8 @@ class TownHandler
         $min = round($min * $soulFactor, 0);
         $max = round($max * $soulFactor, 0);
 
-        $event = $this->conf->getCurrentEvent();
+        $this->conf->getCurrentEvent()->hook_watchtower_estimations($min,$max);
 
-        if(isset($event['hooks']) && isset($event['hooks']['watchtower'])) {
-            $edits = array('min' => $min, 'max' => $max);
-            $edits = call_user_func($event['hooks']['watchtower'], $edits);
-            $min = $edits['min'];
-            $max = $edits['max'];
-        }
-        
         return min((1 - (($offsetMin + $offsetMax) - 10) / 24), 1);
     }
 

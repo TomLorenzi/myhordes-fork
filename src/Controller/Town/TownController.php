@@ -1301,13 +1301,8 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
         if ($citizen->getAp() < 1 || $this->citizen_handler->isTired( $citizen ))
             return AjaxResponse::error( ErrorHelper::ErrorNoAP );
 
-        $event = $this->conf->getCurrentEvent();
-
-        if(isset($event['hooks']) && isset($event['hooks']['door'])) {
-            $result = call_user_func($event['hooks']['door'], $action);
-            if($result)
-                return $result;
-        }
+        if ($result = $this->conf->getCurrentEvent()->hook_door($action))
+            return $result;
 
         $this->citizen_handler->setAP($citizen, true, -1);
         $town->setDoor( $action === 'open' );

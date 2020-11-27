@@ -3,13 +3,14 @@
 namespace App\Controller;
 
 use App\Service\ConfMaster;
+use App\Structures\EventConf;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 
 class CustomAbstractController extends AbstractController {
 
     protected ConfMaster $conf;
-    protected $current_event;
+    protected EventConf $current_event;
 
     public function __construct(ConfMaster $conf) {
         $this->conf = $conf;
@@ -18,9 +19,9 @@ class CustomAbstractController extends AbstractController {
     
     protected function render(string $view, array $parameters = [], Response $response = null): Response
     {
-        if ($this->current_event !== null) {
+        if ($this->current_event->active()) {
             $parameters = array_merge($parameters, [
-                'custom_css' => $this->current_event['css']
+                'custom_css' => $this->current_event->get(EventConf::EVENT_CSS, 'event')
             ]);
         }
 
