@@ -1,15 +1,17 @@
 parameters:
   events:
     arma:
-      begin: 12-04
-      end: 12-04
+      begin: 12-04 00:26
+      end: 12-04 00:26
       css: 'arma'
       items: []
-      effects:
-        watchtower: 'random'
+      hooks:
+        watchtower: 'App\Structures\Hook::watchtower_arma'
+        door: 'App\Structures\Hook::door_arma'
+        night: 'App\Structures\Hook::night_arma'
     christmas:
-      begin: 12-07
-      end: 01-07
+      begin: 12-07 00:26
+      end: 01-07 00:26
       css: 'christmas'
       items: 
         renne_#00 : 14
@@ -18,4 +20,4 @@ parameters:
         christmas_suit_2_#00 : 3
         christmas_suit_1_#00 : 2
         food_xmas_#00 : 5
-      effects:
+      hooks:

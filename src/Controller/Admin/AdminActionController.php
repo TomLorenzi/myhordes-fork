@@ -46,8 +46,8 @@ class AdminActionController extends CustomAbstractController
 
     public function __construct(EntityManagerInterface $em, ConfMaster $conf, LogTemplateHandler $lth, TranslatorInterface $translator, ZoneHandler $zh)
     {
+        parent::__construct($conf);
         $this->entity_manager = $em;
-        $this->conf = $conf;
         $this->logTemplateHandler = $lth;
         $this->translator = $translator;
         $this->zone_handler = $zh;

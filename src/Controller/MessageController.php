@@ -68,6 +68,7 @@ class MessageController extends CustomAbstractController
 
     public function __construct(RandomGenerator $r, TranslatorInterface $t, Packages $a, EntityManagerInterface $em, InventoryHandler $ih, TimeKeeperService $tk, PermissionHandler $p, ConfMaster $conf)
     {
+        parent::__construct($conf);
         $this->asset = $a;
         $this->rand = $r;
         $this->trans = $t;
@@ -75,7 +76,6 @@ class MessageController extends CustomAbstractController
         $this->entityManager = $em;
         $this->inventory_handler = $ih;
         $this->perm = $p;
-        $this->conf = $conf;
     }
 
     protected function addDefaultTwigArgs( ?array $data = null ): array {

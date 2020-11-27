@@ -1258,7 +1258,7 @@ class NightlyHandler
         }
     }
 
-    public function advance_day(Town $town): bool {
+    public function advance_day(Town $town, array $event): bool {
         $this->skip_reanimation = [];
 
         $this->log->info( "Nightly attack request received for town <info>{$town->getId()}</info> (<info>{$town->getName()}</info>)." );
@@ -1267,6 +1267,10 @@ class NightlyHandler
             $town->setDayWithoutAttack($town->getDayWithoutAttack() + 1);
             return false;
         } else $this->log->info("Precondition checks passed. Attack can <info>commence</info>.");
+
+        if(isset($event['hooks']) && isset($event['hooks']['night'])) {
+            call_user_func($event['hooks']['night'], array(&$town));
+        }
 
         $this->town_handler->triggerAlways( $town );
 

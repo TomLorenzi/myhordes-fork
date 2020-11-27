@@ -34,11 +34,11 @@ class GhostController extends CustomAbstractController implements GhostInterface
 
     public function __construct(EntityManagerInterface $em, UserHandler $uh, TimeKeeperService $tk, TranslatorInterface $translator, ConfMaster $conf)
     {
+        parent::__construct($conf);
         $this->translator = $translator;
         $this->entity_manager = $em;
         $this->user_handler = $uh;
         $this->time_keeper = $tk;
-        $this->conf = $conf;
     }
 
     protected function addDefaultTwigArgs( ?array $data = null ): array {

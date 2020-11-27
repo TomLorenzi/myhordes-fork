@@ -32,18 +32,23 @@ class ConfMaster
         return $tc->complete();
     }
 
-    public function getCurrentEvent(): array {
+    public function getCurrentEvent(): ?array {
         $curDate = new \DateTime();
         $begin = new \DateTime();
         $end = new \DateTime();
         foreach($this->events as $conf){
-            $begin = $begin->setDate($begin->format('Y'), explode('-', $conf['begin'])[0], explode('-', $conf['begin'])[1])->setTime(0, 0, 0);
-            $end = $end->setDate($end->format('Y'), explode('-', $conf['end'])[0], explode('-', $conf['end'])[1])->setTime(23, 59, 59);
+            $beginDate = explode(' ', $conf['begin'])[0];
+            $beginTime = explode(' ', $conf['begin'])[1];
+            $endDate = explode(' ', $conf['end'])[0];
+            $endTime = explode(' ', $conf['end'])[1];
+
+            $begin = $begin->setDate($begin->format('Y'), explode('-', $beginDate)[0], explode('-', $beginDate)[1])->setTime(explode(':', $beginTime)[0], explode(':', $beginTime)[1], 0);
+            $end = $end->setDate($end->format('Y'), explode('-', $endDate)[0], explode('-', $endDate)[1])->setTime(explode(':', $endTime)[0], explode(':', $endTime)[1], 0);
 
             if($curDate >= $begin && $curDate <= $end)
                 return $conf;
         }
 
-        return ['css' => '', 'items' => [], 'effects' => []];
+        return null;
     }
 }

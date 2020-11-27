@@ -79,6 +79,7 @@ class InventoryAwareController extends CustomAbstractController
         TranslatorInterface $translator, LogTemplateHandler $lt, TimeKeeperService $tk, RandomGenerator $rd, ConfMaster $conf,
         ZoneHandler $zh, UserHandler $uh, CrowService $armbrust)
     {
+        parent::__construct($conf);
         $this->entity_manager = $em;
         $this->inventory_handler = $ih;
         $this->citizen_handler = $ch;
@@ -88,7 +89,6 @@ class InventoryAwareController extends CustomAbstractController
         $this->log = $lt;
         $this->time_keeper = $tk;
         $this->random_generator = $rd;
-        $this->conf = $conf;
         $this->zone_handler = $zh;
         $this->death_handler = $dh;
         $this->logTemplateHandler = $lt;

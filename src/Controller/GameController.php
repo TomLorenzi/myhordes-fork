@@ -49,6 +49,7 @@ class GameController extends CustomAbstractController implements GameInterfaceCo
 
     public function __construct(EntityManagerInterface $em, TranslatorInterface $translator, LogTemplateHandler $lth, TimeKeeperService $tk, CitizenHandler $ch, UserHandler $uh, TownHandler $th, ConfMaster $conf)
     {
+        parent::__construct($conf);
         $this->entity_manager = $em;
         $this->translator = $translator;
         $this->logTemplateHandler = $lth;
@@ -56,7 +57,6 @@ class GameController extends CustomAbstractController implements GameInterfaceCo
         $this->citizen_handler = $ch;
         $this->user_handler = $uh;
         $this->town_handler = $th;
-        $this->conf = $conf;
     }
 
     protected function getActiveCitizen(): Citizen {

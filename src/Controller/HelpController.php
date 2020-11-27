@@ -20,9 +20,9 @@ class HelpController extends CustomAbstractController
 
     public function __construct(EntityManagerInterface $em, TranslatorInterface $translator, ConfMaster $conf)
     {
+        parent::__construct($conf);
         $this->entity_manager = $em;
         $this->translator = $translator;
-        $this->conf = $conf;
     }
 
     /**

@@ -37,12 +37,12 @@ class WebController extends CustomAbstractController
 
     public function __construct(VersionManager $v, KernelInterface $k, EntityManagerInterface $e, AdminActionHandler $admh, TranslatorInterface $translator, ConfMaster $conf)
     {
+        parent::__construct($conf);
         $this->version_manager = $v;
         $this->kernel = $k;
         $this->entityManager = $e;
         $this->adminAction_handler = $admh;
         $this->translator = $translator;
-        $this->conf = $conf;
     }
 
     private function render_web_framework(string $ajax_landing) {

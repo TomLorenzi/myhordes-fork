@@ -68,13 +68,13 @@ class SoulController extends CustomAbstractController
 
     public function __construct(EntityManagerInterface $em, UserFactory $uf, Packages $a, UserHandler $uh, TimeKeeperService $tk, TranslatorInterface $translator, ConfMaster $conf)
     {
+        parent::__construct($conf);
         $this->entity_manager = $em;
         $this->user_factory = $uf;
         $this->asset = $a;
         $this->translator = $translator;
         $this->user_handler = $uh;
         $this->time_keeper = $tk;
-        $this->conf = $conf;
     }
 
     protected function addDefaultTwigArgs(?string $section = null, ?array $data = null ): array {

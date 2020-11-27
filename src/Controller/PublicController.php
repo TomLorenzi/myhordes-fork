@@ -45,8 +45,8 @@ class PublicController extends CustomAbstractController
 
     public function __construct(EntityManagerInterface $em, ConfMaster $conf)
     {
+        parent::__construct($conf);
         $this->entity_manager = $em;
-        $this->conf = $conf;
     }
 
     protected function addDefaultTwigArgs( ?array $data = null ): array {
