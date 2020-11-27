@@ -505,8 +505,8 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
         if ($severity < Complaint::SeverityNone || $severity > Complaint::SeverityKill)
             return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest );
 
-        $has_gallows = $th->getBuilding( $town, 'r_dhang_#00', true );
-        $has_cage = $th->getBuilding( $town, 'small_fleshcage_#00', true );
+        $has_gallows = $th->getBuilding( $this->getActiveCitizen()->getTown(), 'r_dhang_#00', true );
+        $has_cage = $th->getBuilding( $this->getActiveCitizen()->getTown(), 'small_fleshcage_#00', true );
 
         $author = $this->getActiveCitizen();
         $town = $author->getTown();
@@ -1300,6 +1300,9 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
 
         if ($citizen->getAp() < 1 || $this->citizen_handler->isTired( $citizen ))
             return AjaxResponse::error( ErrorHelper::ErrorNoAP );
+
+        if ($result = $this->conf->getCurrentEvent()->hook_door($action))
+            return $result;
 
         $this->citizen_handler->setAP($citizen, true, -1);
         $town->setDoor( $action === 'open' );

@@ -119,7 +119,7 @@ class ExternalFixtures extends Fixture
         foreach (static::$apps as $entry) {
 
             // Get existing entry, or create new one
-            $entity = $this->entityManager->getRepository(ExternalApp::class)->findOneByName($entry['name']);
+            $entity = $this->entityManager->getRepository(ExternalApp::class)->findOneBy(['name' => $entry['name']]);
             if ($entity === null) $entity = new ExternalApp();
 
             // Set property

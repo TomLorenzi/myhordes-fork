@@ -23,6 +23,7 @@ use App\Entity\Town;
 use App\Entity\TownRankingProxy;
 use App\Entity\ZombieEstimation;
 use App\Entity\Zone;
+use App\Structures\EventConf;
 use App\Structures\ItemRequest;
 use App\Structures\TownConf;
 use Doctrine\ORM\EntityManagerInterface;
@@ -1072,6 +1073,11 @@ class NightlyHandler
                     $this->entity_manager->persist( $this->logTemplates->nightlyAttackUpgradeBuildingItems( $target_building, array_map( function(Item $e) { return  array($e->getPrototype()) ;}, $plans ) ));
                     $this->log->debug("Leveling up <info>{$target_building->getPrototype()->getLabel()}</info>: Placing " . implode(', ', $tx) . " in the bank.");
                     break;
+                case 'item_home_def_#00':
+                    $def_add = [0,30,35,50,65,80];
+                    $target_building->setDefenseBonus( $target_building->getDefenseBonus() + $def_add[ $target_building->getLevel() ] );
+                    $this->log->debug("Leveling up <info>{$target_building->getPrototype()->getLabel()}</info>: Increasing variable defense by <info>{$def_add[ $target_building->getLevel() ] }</info>.");
+                    break;
             }
         }
 
@@ -1253,7 +1259,7 @@ class NightlyHandler
         }
     }
 
-    public function advance_day(Town $town): bool {
+    public function advance_day(Town $town, EventConf $event): bool {
         $this->skip_reanimation = [];
 
         $this->log->info( "Nightly attack request received for town <info>{$town->getId()}</info> (<info>{$town->getName()}</info>)." );
@@ -1262,6 +1268,8 @@ class NightlyHandler
             $town->setDayWithoutAttack($town->getDayWithoutAttack() + 1);
             return false;
         } else $this->log->info("Precondition checks passed. Attack can <info>commence</info>.");
+
+        $event->hook_nightly_pre($town);
 
         $this->town_handler->triggerAlways( $town );
 
@@ -1284,6 +1292,8 @@ class NightlyHandler
         $this->stage3_zones($town);
         $this->stage3_items($town);
         $this->stage3_pictos($town);
+
+        $event->hook_nightly_post($town);
 
         TownRankingProxy::fromTown( $town, true );
         foreach ($town->getCitizens() as $citizen) CitizenRankingProxy::fromCitizen( $citizen, true );

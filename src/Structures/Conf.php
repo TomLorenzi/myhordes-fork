@@ -5,9 +5,9 @@ namespace App\Structures;
 
 class Conf
 {
-    private $data;
-    private $flat;
-    private $is_complete = false;
+    private array $data;
+    private array $flat = [];
+    private bool $is_complete = false;
 
     private function deep_merge( array &$base, array $inc ) {
         foreach ($inc as $key => $data) {
