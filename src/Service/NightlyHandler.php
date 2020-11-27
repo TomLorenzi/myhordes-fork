@@ -1268,8 +1268,8 @@ class NightlyHandler
             return false;
         } else $this->log->info("Precondition checks passed. Attack can <info>commence</info>.");
 
-        if(isset($event['hooks']) && isset($event['hooks']['night'])) {
-            call_user_func($event['hooks']['night'], array(&$town));
+        if(isset($event['hooks']) && isset($event['hooks']['night_before'])) {
+            call_user_func($event['hooks']['night_before'], array(&$town));
         }
 
         $this->town_handler->triggerAlways( $town );
@@ -1293,6 +1293,10 @@ class NightlyHandler
         $this->stage3_zones($town);
         $this->stage3_items($town);
         $this->stage3_pictos($town);
+
+        if(isset($event['hooks']) && isset($event['hooks']['night_after'])) {
+            call_user_func($event['hooks']['night_after'], array(&$town));
+        }
 
         TownRankingProxy::fromTown( $town, true );
         foreach ($town->getCitizens() as $citizen) CitizenRankingProxy::fromCitizen( $citizen, true );
