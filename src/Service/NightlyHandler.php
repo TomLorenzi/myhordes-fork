@@ -23,6 +23,7 @@ use App\Entity\Town;
 use App\Entity\TownRankingProxy;
 use App\Entity\ZombieEstimation;
 use App\Entity\Zone;
+use App\Structures\EventConf;
 use App\Structures\ItemRequest;
 use App\Structures\TownConf;
 use Doctrine\ORM\EntityManagerInterface;
@@ -1258,7 +1259,7 @@ class NightlyHandler
         }
     }
 
-    public function advance_day(Town $town, array $event): bool {
+    public function advance_day(Town $town, EventConf $event): bool {
         $this->skip_reanimation = [];
 
         $this->log->info( "Nightly attack request received for town <info>{$town->getId()}</info> (<info>{$town->getName()}</info>)." );
@@ -1268,9 +1269,7 @@ class NightlyHandler
             return false;
         } else $this->log->info("Precondition checks passed. Attack can <info>commence</info>.");
 
-        if(isset($event['hooks']) && isset($event['hooks']['night_before'])) {
-            call_user_func($event['hooks']['night_before'], array(&$town));
-        }
+        $event->hook_nightly_pre($town);
 
         $this->town_handler->triggerAlways( $town );
 
@@ -1294,9 +1293,7 @@ class NightlyHandler
         $this->stage3_items($town);
         $this->stage3_pictos($town);
 
-        if(isset($event['hooks']) && isset($event['hooks']['night_after'])) {
-            call_user_func($event['hooks']['night_after'], array(&$town));
-        }
+        $event->hook_nightly_post($town);
 
         TownRankingProxy::fromTown( $town, true );
         foreach ($town->getCitizens() as $citizen) CitizenRankingProxy::fromCitizen( $citizen, true );

@@ -1,18 +1,23 @@
 parameters:
   events:
     arma:
-      begin: 12-04 00:26
-      end: 12-04 00:26
-      css: 'arma'
-      group_dig: ''
-      hooks:
-        watchtower: 'App\Structures\Hook::watchtower_arma'
-        door: 'App\Structures\Hook::door_arma'
-        night_before: 'App\Structures\Hook::night_arma'
+      trigger:
+        type: datetime
+        begin: 12-04 00:26
+        end: 12-04 00:26
+      conf:
+        css: 'arma'
+        group_dig: ''
+        hooks:
+          watchtower: 'App\Structures\Hook::watchtower_arma'
+          door: 'App\Structures\Hook::door_arma'
+          night_before: 'App\Structures\Hook::night_arma'
     christmas:
-      begin: 12-07 00:26
-      end: 13-07 00:26
-      css: 'christmas'
-      group_dig: 'christmas_dig'
-      hooks:
-        night_after: 'App\Structures\Hook::night_christmas'
+      trigger:
+        type: datetime
+        begin: 12-07 00:26
+        end: 01-07 00:26
+      conf:
+        css: 'christmas'
+        group_dig: 'christmas_dig'
+        hooks:
