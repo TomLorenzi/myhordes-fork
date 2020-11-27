@@ -2,6 +2,7 @@
 
 namespace App\Controller\Admin;
 
+use App\Controller\CustomAbstractController;
 use App\Entity\AttackSchedule;
 use App\Entity\LogEntryTemplate;
 use App\Entity\User;
@@ -15,7 +16,6 @@ use App\Service\LogTemplateHandler;
 use App\Service\ZoneHandler;
 use App\Translation\T;
 use Doctrine\ORM\EntityManagerInterface;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Response;
@@ -26,11 +26,10 @@ use Symfony\Contracts\Translation\TranslatorInterface;
 /**
  * @Route("/",condition="request.isXmlHttpRequest()")
  */
-class AdminActionController extends AbstractController
+class AdminActionController extends CustomAbstractController
 {
     protected $entity_manager;
     protected $logTemplateHandler;
-    protected $conf;
     protected $zone_handler;
     protected $translator;
 
@@ -47,8 +46,8 @@ class AdminActionController extends AbstractController
 
     public function __construct(EntityManagerInterface $em, ConfMaster $conf, LogTemplateHandler $lth, TranslatorInterface $translator, ZoneHandler $zh)
     {
+        parent::__construct($conf);
         $this->entity_manager = $em;
-        $this->conf = $conf;
         $this->logTemplateHandler = $lth;
         $this->translator = $translator;
         $this->zone_handler = $zh;

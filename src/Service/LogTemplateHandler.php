@@ -151,7 +151,7 @@ class LogTemplateHandler
                     $listArray = array_map( function($e) use ($listType) { if(array_key_exists('count', $e)) {return array('item' => $this->fetchVariableObject($listType, $e['id']),'count' => $e['count']);}
                         else { return $this->fetchVariableObject($listType, $e['id']); } }, $variables[$typeEntry['name']] );
                     if (isset($listArray)) {
-                        $transParams['%'.$typeEntry['name'].'%'] = implode( ', ', array_map( function($e) { return $this->wrap( $this->iconize( $e ) ); }, $listArray ) );
+                        $transParams['%'.$typeEntry['name'].'%'] = implode( ', ', array_map( function($e) { return $this->wrap( $this->iconize( $e ), 'tool' ); }, $listArray ) );
                     }
                     else
                         $transParams['%'.$typeEntry['name'].'%'] = "null";

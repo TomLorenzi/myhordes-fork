@@ -142,6 +142,15 @@
                         {% trans from 'game' %}
                             Diese Zone ist leergesucht. Du wirst hier keine wertvollen Gegenstände mehr finden können.
                         {% endtrans %}
+                        <a class="help-button">
+                            <div class="tooltip help">
+                                {% trans from 'global' %}
+                                Die große Anzahl an Erdhaufen und an herumliegenden Müll sind ein Indiz dafür, dass hier wahrscheinlich nichts mehr zu finden ist.
+                                <p><em>Wenn du möchtest, kannst du allerdings weitergraben und ein paar minderwertige Materialien für die verschiedenen Baustellen der Stadt zu Tage fördern..</em></p>
+                                {% endtrans %}
+                            </div>
+                            {{ 'Hilfe'|trans({},'global') }}
+                        </a>
                     </div>
                 {% endif %}
 

@@ -84,11 +84,18 @@ class SchedulerCommand extends Command
                 sleep( (int)$input->getOption('delay') );
             $output->writeln( 'Beginning <info>execution</info>...' );
 
+            $event = $this->conf_master->getCurrentEvent();
+            if($event !== null){
+                $output->writeln("An event is currently ongoing : <info>{$event['css']} !</info>");
+            }
+
             $towns = $this->entityManager->getRepository(Town::class)->findAll();
 
             // Set up console
             $progress = new ProgressBar( $output->section() );
             $progress->start( count($towns) );
+
+            
 
             foreach ( $towns as $town ) {
 
@@ -114,7 +121,7 @@ class SchedulerCommand extends Command
                     $this->entityManager->persist($town);
                     $this->entityManager->flush();
 
-                    if ($this->night->advance_day($town)) {
+                    if ($this->night->advance_day($town, $event)) {
                         foreach ($this->night->get_cleanup_container() as $c) $this->entityManager->remove($c);
 
                         $town->setLastAttack($s)->setAttackFails(0);

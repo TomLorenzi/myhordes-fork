@@ -242,7 +242,7 @@ class DeathHandler
         // If the souls are enabled, spawn a soul
         if($this->conf->getTownConfiguration( $citizen->getTown() )->get(TownConf::CONF_FEATURE_SHAMAN_MODE, 'normal') != 'none') {
             $minDistance = min(4, $citizen->getTown()->getDay());
-            $maxDistance = max($citizen->getTown()->getDay() + 6, 15);
+            $maxDistance = min($citizen->getTown()->getDay() + 6, 15);
 
             $spawnZone = $this->random_generator->pickLocationBetweenFromList($citizen->getTown()->getZones()->toArray(), $minDistance, $maxDistance);
             $soulItem = $this->item_factory->createItem( "soul_blue_#00");

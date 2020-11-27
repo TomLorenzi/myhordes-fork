@@ -6,7 +6,6 @@ use App\Entity\CitizenRankingProxy;
 use App\Entity\Town;
 use App\Entity\TownClass;
 use App\Entity\User;
-use App\Entity\UserGroupAssociation;
 use App\Response\AjaxResponse;
 use App\Service\ConfMaster;
 use App\Service\ErrorHelper;
@@ -15,12 +14,9 @@ use App\Service\JSONRequestParser;
 use App\Service\LogTemplateHandler;
 use App\Service\TimeKeeperService;
 use App\Service\UserHandler;
-use App\Structures\Conf;
 use App\Structures\MyHordesConf;
-use App\Structures\TownConf;
 use Doctrine\ORM\EntityManagerInterface;
 use Exception;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Contracts\Translation\TranslatorInterface;
@@ -28,7 +24,7 @@ use Symfony\Contracts\Translation\TranslatorInterface;
 /**
  * @Route("/",condition="request.isXmlHttpRequest()")
  */
-class GhostController extends AbstractController implements GhostInterfaceController
+class GhostController extends CustomAbstractController implements GhostInterfaceController
 {
     protected $entity_manager;
     protected $translator;
@@ -36,8 +32,9 @@ class GhostController extends AbstractController implements GhostInterfaceContro
     private $user_handler;
     const ErrorWrongTownPassword          = ErrorHelper::BaseGhostErrors + 1;
 
-    public function __construct(EntityManagerInterface $em, UserHandler $uh, TimeKeeperService $tk, TranslatorInterface $translator)
+    public function __construct(EntityManagerInterface $em, UserHandler $uh, TimeKeeperService $tk, TranslatorInterface $translator, ConfMaster $conf)
     {
+        parent::__construct($conf);
         $this->translator = $translator;
         $this->entity_manager = $em;
         $this->user_handler = $uh;

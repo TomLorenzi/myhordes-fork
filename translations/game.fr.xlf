@@ -4028,12 +4028,12 @@
         <target>Objets de défense</target>
       </segment>
     </unit>
-    <unit id="FAUZkS8" name="Häuser">
+    <unit id="jA6Q6MW" name="Häuser der Bürger">
       <notes>
-        <note category="german">Häuser</note>
+        <note category="german">Häuser der Bürger</note>
       </notes>
       <segment>
-        <source>Häuser</source>
+        <source>Häuser der Bürger</source>
         <target>Maisons citoyens</target>
       </segment>
     </unit>
@@ -14677,6 +14677,33 @@
       <segment>
         <source>Leprechaun wurde gesehen, wie er den %item% von %victim% stahl!</source>
         <target>Le lutin vert a été vu volant %item% à %victim% !</target>
+      </segment>
+    </unit>
+    <unit id="dcfxfNT" name="Befristete Beiträge">
+      <notes>
+        <note category="german">Befristete Beiträge</note>
+      </notes>
+      <segment>
+        <source>Befristete Beiträge</source>
+        <target>Apports temporaires</target>
+      </segment>
+    </unit>
+    <unit id="9_pNKlL" name="Leichen-Bonus">
+      <notes>
+        <note category="german">Leichen-Bonus</note>
+      </notes>
+      <segment>
+        <source>Leichen-Bonus</source>
+        <target>Bonus cadavres</target>
+      </segment>
+    </unit>
+    <unit id="1YdiLSd" name="Bonus">
+      <notes>
+        <note category="german">Bonus</note>
+      </notes>
+      <segment>
+        <source>Bonus</source>
+        <target>Bonus</target>
       </segment>
     </unit>
   </file>

@@ -232,9 +232,9 @@ class ItemFixtures extends Fixture
         ['label' =>'Ein Briefumschlag','icon'=>'book_gen_letter','category'=>'imp','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                                // In Out
         ['label' =>'Ein Paket','icon'=>'book_gen_box','category'=>'box','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                                           // In Out
         ['label' =>'Maschendrahtzaunstück','icon'=>'fence','category'=>'rsc','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                                      // -- ---
-        ['label' =>'Wasserpistole (3 Ladungen)','icon'=>'watergun_3','category'=>'root_weapon','deco'=>0,'heavy'=>false, 'watchpoint' => 8],                         // -- Out
-        ['label' =>'Wasserpistole (2 Ladungen)','icon'=>'watergun_2','category'=>'root_weapon','deco'=>0,'heavy'=>false, 'watchpoint' => 8],                         // -- Out
-        ['label' =>'Wasserpistole (1 Ladung)','icon'=>'watergun_1','category'=>'root_weapon','deco'=>0,'heavy'=>false, 'watchpoint' => 8],                           // -- Out
+        ['label' =>'Wasserpistole (3 Ladungen)','icon'=>'watergun_3','category'=>'root_weapon','deco'=>0,'heavy'=>false, 'watchpoint' => 9],                         // -- Out
+        ['label' =>'Wasserpistole (2 Ladungen)','icon'=>'watergun_2','category'=>'root_weapon','deco'=>0,'heavy'=>false, 'watchpoint' => 9],                         // -- Out
+        ['label' =>'Wasserpistole (1 Ladung)','icon'=>'watergun_1','category'=>'root_weapon','deco'=>0,'heavy'=>false, 'watchpoint' => 9],                           // -- Out
         ['label' =>'Aqua-Splash (5 Ladungen)','icon'=>'watergun_opt_5','category'=>'root_weapon','deco'=>0,'heavy'=>false, 'watchpoint' => 8],                       // -- Out
         ['label' =>'Aqua-Splash (4 Ladungen)','icon'=>'watergun_opt_4','category'=>'root_weapon','deco'=>0,'heavy'=>false, 'watchpoint' => 8],                       // -- Out
         ['label' =>'Angefangene Zigarettenschachtel','icon'=>'cigs','category'=>'misc','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                            //
@@ -789,8 +789,8 @@ class ItemFixtures extends Fixture
         'grenade_#00'          => [ 'impoundable', 'weapon', 'hero_find', 'esc_fixed', 'nw_armory', 'hero_find_lucky' ],
         'bgrenade_#00'         => [ 'impoundable', 'weapon', 'nw_armory' ],
         'boomfruit_#00'        => [ 'impoundable', 'weapon', 'nw_armory' ],
-        'pilegun_#00'          => [ 'impoundable', 'weapon' ],
-        'pilegun_up_#00'       => [ 'impoundable', 'weapon', 'esc_fixed' ],
+        'pilegun_#00'          => [ 'impoundable', 'weapon', 'nw_armory' ],
+        'pilegun_up_#00'       => [ 'impoundable', 'weapon', 'esc_fixed', 'nw_armory' ],
         'big_pgun_#00'         => [ 'impoundable', 'weapon', 'esc_fixed', 'nw_armory' ],
         'big_pgun_empty_#00'   => [ 'esc_fixed' ],
         'mixergun_#00'         => [ 'impoundable', 'weapon', 'nw_armory' ],
@@ -806,9 +806,9 @@ class ItemFixtures extends Fixture
         'watergun_opt_2_#00'   => [ 'impoundable', 'weapon', 'esc_fixed', 'nw_shooting', 'nw_armory' ],
         'watergun_opt_1_#00'   => [ 'impoundable', 'weapon', 'esc_fixed', 'nw_shooting', 'nw_armory' ],
         'kalach_#00'           => [ 'nw_shooting', 'nw_armory' ],
-        'watergun_3_#00'       => [ 'impoundable', 'weapon', 'nw_shooting', 'nw_armory' ],
-        'watergun_2_#00'       => [ 'impoundable', 'weapon', 'nw_shooting', 'nw_armory' ],
-        'watergun_1_#00'       => [ 'impoundable', 'weapon', 'nw_shooting', 'nw_armory' ],
+        'watergun_3_#00'       => [ 'impoundable', 'weapon', 'nw_shooting' ],
+        'watergun_2_#00'       => [ 'impoundable', 'weapon', 'nw_shooting' ],
+        'watergun_1_#00'       => [ 'impoundable', 'weapon', 'nw_shooting' ],
         'jerrygun_#00'         => [ 'impoundable', 'weapon', 'esc_fixed' ],
         'jerrycan_#00'         => [ 'hero_find_lucky' ],
         'knife_#00'            => [ 'impoundable', 'weapon', 'box_opener', 'esc_fixed', 'nw_armory' ],
