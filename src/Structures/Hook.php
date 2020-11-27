@@ -38,9 +38,9 @@ class Hook
      *
      * @param Town $town
      */
-    public static function night_arma(&$town) {
+    public static function night_arma($town) {
         /** @var Town $town */
-        if(!$town->getDevastated())
-            $town->setDoor(false);
+        if(!$town[0]->getDevastated())
+            $town[0]->setDoor(false);
     }
 }
