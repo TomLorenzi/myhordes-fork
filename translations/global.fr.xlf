@@ -1794,5 +1794,23 @@
         <target><![CDATA[Ce bonus est obtenu grace à vos anciens amis et au bâtiment <strong>Cimetière cadenassé</strong>.]]></target>
       </segment>
     </unit>
+    <unit id="zTo.6Bl" name="1fa3771">
+      <notes>
+        <note category="german">Diesen Bonus gibt es nur dann, wenn sich die Wächter wärhend eines Angriffs in det Stadt befinden.</note>
+      </notes>
+      <segment>
+        <source>Diesen Bonus gibt es nur dann, wenn sich die Wächter wärhend eines Angriffs in det Stadt befinden.</source>
+        <target>Diesen Bonus gibt es nur dann, wenn sich die Wächter wärhend eines Angriffs in det Stadt befinden.</target>
+      </segment>
+    </unit>
+    <unit id="zF4ERQG" name="Diese Kosten können durch den Aufbau der &lt;strong&gt;Müll für Alle&lt;/strong&gt;.">
+      <notes>
+        <note category="german">Diese Kosten können durch den Aufbau der &lt;strong&gt;Müll für Alle&lt;/strong&gt;.</note>
+      </notes>
+      <segment>
+        <source>Diese Kosten können durch den Aufbau der &lt;strong&gt;Müll für Alle&lt;/strong&gt;.</source>
+        <target><![CDATA[Ce coût peut être réduit en construisant une <strong>Décharge organisée</strong>.]]></target>
+      </segment>
+    </unit>
   </file>
 </xliff>

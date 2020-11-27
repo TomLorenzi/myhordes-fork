@@ -5042,7 +5042,7 @@
       </notes>
       <segment>
         <source>Gesamt: %def%</source>
-        <target>Défense : %def%</target>
+        <target>Défense de la ville : %def%</target>
       </segment>
     </unit>
     <unit id="cuLzNYJ" name="Gegenstand">
@@ -14704,6 +14704,15 @@
       <segment>
         <source>Bonus</source>
         <target>Bonus</target>
+      </segment>
+    </unit>
+    <unit id="6PPO5fH" name="Dieser Abwehrbonus verschwindet um Mitternacht, nach dem Angriff.">
+      <notes>
+        <note category="german">Dieser Abwehrbonus verschwindet um Mitternacht, nach dem Angriff.</note>
+      </notes>
+      <segment>
+        <source>Dieser Abwehrbonus verschwindet um Mitternacht, nach dem Angriff.</source>
+        <target>Ce bonus défensif disparaîtra à minuit, après l'attaque.</target>
       </segment>
     </unit>
   </file>
