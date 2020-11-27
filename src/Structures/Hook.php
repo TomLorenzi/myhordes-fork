@@ -3,9 +3,11 @@
 
 namespace App\Structures;
 
+use App\Entity\Citizen;
 use App\Entity\Town;
 use App\Response\AjaxResponse;
 use App\Service\ErrorHelper;
+use App\Service\InventoryHandler;
 
 class Hook
 {
@@ -42,5 +44,12 @@ class Hook
         /** @var Town $town */
         if(!$town[0]->getDevastated())
             $town[0]->setDoor(false);
+    }
+
+    public static function night_christmas($town) {
+        /** @var Town $town */
+        foreach ($town[0]->getCitizens() as $citizen){
+            /** @var Citizen $citizen */
+        }
     }
 }
