@@ -619,6 +619,12 @@ class PictoFixtures extends Fixture
             'description' => 'Wie viele Seelen hat Ihre Stadt befreien können. (job)',
             'icon' => 'r_mystic2',
             'rare' => false
+        ],
+        [
+            'label' => 'UFC',
+            'description' => 'Ehrenpreis für die Teilnahme am UFC!',
+            'icon' => 'r_ufc',
+            'rare' => false
         ]
     ];
 
