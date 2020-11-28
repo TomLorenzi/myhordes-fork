@@ -121,7 +121,7 @@ class ZoneHandler
         $event_group = null;
 
         // Get event specific items
-        $event = $this->conf->getCurrentEvent()->get(EventConf::EVENT_GROUP_DIG, '');
+        $event = $this->conf->getCurrentEvent($zone->getTown())->get(EventConf::EVENT_GROUP_DIG, '');
         if($event !== '') {
             $event_group = $this->entity_manager->getRepository(ItemGroup::class)->findOneBy(['name' => $event]);
         }

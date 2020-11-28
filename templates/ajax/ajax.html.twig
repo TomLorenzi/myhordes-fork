@@ -81,7 +81,7 @@
         {% else %}
         for (let index = 0; index < document.getElementsByTagName('body')[0].classList.length; index++) {
             let css = document.getElementsByTagName('body')[0].classList[index];
-            if(css != 'online_body' && css != 'offline_body') {
+            if(css !== 'online_body' && css !== 'offline_body') {
                 document.getElementsByTagName('body')[0].classList.remove(css);
             }
         }

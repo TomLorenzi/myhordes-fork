@@ -6,11 +6,13 @@ namespace App\Service;
 
 use App\Entity\Building;
 use App\Entity\BuildingPrototype;
+use App\Entity\Citizen;
 use App\Entity\CitizenHome;
 use App\Entity\CitizenHomeUpgrade;
 use App\Entity\CitizenHomeUpgradePrototype;
 use App\Entity\CitizenWatch;
 use App\Entity\Complaint;
+use App\Entity\EventActivationMarker;
 use App\Entity\Gazette;
 use App\Entity\Item;
 use App\Entity\ItemPrototype;
@@ -19,6 +21,7 @@ use App\Entity\PictoPrototype;
 use App\Entity\Town;
 use App\Entity\ZombieEstimation;
 use App\Entity\Zone;
+use App\Structures\EventConf;
 use App\Structures\HomeDefenseSummary;
 use App\Structures\TownDefenseSummary;
 use App\Service\ConfMaster;
@@ -458,7 +461,7 @@ class TownHandler
         $min = round($min * $soulFactor, 0);
         $max = round($max * $soulFactor, 0);
 
-        $this->conf->getCurrentEvent()->hook_watchtower_estimations($min,$max);
+        $this->conf->getCurrentEvent($town)->hook_watchtower_estimations($min,$max);
 
         return min((1 - (($offsetMin + $offsetMax) - 10) / 24), 1);
     }
@@ -573,5 +576,52 @@ class TownHandler
         $redSoulsCount = $query->getSingleScalarResult();
 
         return $redSoulsCount;
+    }
+
+    protected function updateCurrentCitizenEvent( Citizen $citizen, EventConf $event): bool {
+        /** @var EventActivationMarker $citizen_marker */
+        $old_event = $this->conf->getCurrentEvent($citizen, $citizen_marker);
+        if ($old_event->name() !== $event->name()) {
+
+            if ($old_event->active()) {
+                if (!$old_event->hook_disable_citizen($citizen)) return false;
+                if ($citizen_marker) $this->entity_manager->persist($citizen_marker->setActive(false));
+            }
+
+            if ($event->active()) {
+                if (!$event->hook_enable_citizen($citizen)) return false;
+                $this->entity_manager->persist( (new EventActivationMarker())
+                    ->setCitizen($citizen)
+                    ->setActive(true)
+                    ->setEvent( $event->name() )
+                );
+            }
+        }
+
+        return true;
+    }
+
+    public function updateCurrentEvent(Town $town, EventConf $event): bool {
+        /** @var EventActivationMarker $town_marker */
+        $old_event = $this->conf->getCurrentEvent($town, $town_marker);
+
+        foreach ($town->getCitizens() as $citizen)
+            if (!$this->updateCurrentCitizenEvent( $citizen, $event )) return false;
+
+        if ($old_event->active()) {
+            if (!$old_event->hook_disable_town($town)) return false;
+            if ($town_marker) $this->entity_manager->persist($town_marker->setActive(false));
+        }
+
+        if ($event->active()) {
+            if (!$event->hook_enable_town($town)) return false;
+            $this->entity_manager->persist( (new EventActivationMarker())
+                ->setTown($town)
+                ->setActive(true)
+                ->setEvent( $event->name() )
+            );
+        }
+
+        return true;
     }
 }
