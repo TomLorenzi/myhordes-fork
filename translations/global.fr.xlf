@@ -1794,5 +1794,14 @@
         <target><![CDATA[Ce bonus est obtenu grace à vos anciens amis et au bâtiment <strong>Cimetière cadenassé</strong>.]]></target>
       </segment>
     </unit>
+    <unit id="zTo.6Bl" name="1fa3771">
+      <notes>
+        <note category="german">Diesen Bonus gibt es nur dann, wenn sich die Wächter wärhend eines Angriffs in det Stadt befinden.</note>
+      </notes>
+      <segment>
+        <source>Diesen Bonus gibt es nur dann, wenn sich die Wächter wärhend eines Angriffs in det Stadt befinden.</source>
+        <target>Ces défenses sont apportées par les joueurs jouant le rôle de veilleur la nuit au moment de l'attaque.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

@@ -14343,7 +14343,7 @@
       </notes>
       <segment>
         <source>HAZ-Gewinner</source>
-        <target>HAZ-Gewinner</target>
+        <target>Gagnant de GSP</target>
       </segment>
     </unit>
     <unit id="ltZ7BR_" name="Ehrenauszeichnung für den Gewinner der Heilung für die Auszeichnungssucht.">
@@ -14352,7 +14352,7 @@
       </notes>
       <segment>
         <source>Ehrenauszeichnung für den Gewinner der Heilung für die Auszeichnungssucht.</source>
-        <target>Ehrenauszeichnung für den Gewinner der Heilung für die Auszeichnungssucht.</target>
+        <target>Récompense honorique décernée au gagnant de Guérir sa Pictophilie !</target>
       </segment>
     </unit>
     <unit id="YZc0dgj" name="Kernsammler (job)">
