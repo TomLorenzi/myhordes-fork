@@ -633,7 +633,7 @@
     </unit>
     <unit id="KGODA_M" name="In 'Die Verdammten' musst du jeden Tag mehrere Aufgaben erledigen.">
       <notes>
-        <note category="german">In 'Die Verdammten' musst du jeden Tag mehrere Aufgaben erledigen.</note>
+        <note category="german">In 'MyHordes' musst du jeden Tag mehrere Aufgaben erledigen.</note>
       </notes>
       <segment>
         <source>In 'Die Verdammten' musst du jeden Tag mehrere Aufgaben erledigen.</source>
@@ -4619,6 +4619,15 @@ Der Schamane kann:</target>
       <segment>
         <source>Die Stadt ist auch der zentrale Punkt, an dem du deine Leidensgenossen triffst, um mit ihnen die beste Überlebensstrategie zu besprechen. Sie dient euch auch als Basislager für Wüstenexpeditionen und beherbergt eine Bank, in der gefundene Gegenstände gesammelt werden.</source>
         <target>Die Stadt ist auch der zentrale Punkt, an dem du deine Leidensgenossen triffst, um mit ihnen die beste Überlebensstrategie zu besprechen. Sie dient euch auch als Basislager für Wüstenexpeditionen und beherbergt eine Bank, in der gefundene Gegenstände gesammelt werden.</target>
+      </segment>
+    </unit>
+    <unit id="IIBtwzC" name="Zeit: Lieber nachts als tagsüber verstecken.">
+      <notes>
+        <note category="german">Zeit: Lieber nachts als tagsüber verstecken.</note>
+      </notes>
+      <segment>
+        <source>Zeit: Lieber nachts als tagsüber verstecken.</source>
+        <target>Zeit: Lieber nachts als tagsüber verstecken.</target>
       </segment>
     </unit>
   </file>
