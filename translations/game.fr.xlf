@@ -9601,7 +9601,7 @@
       </notes>
       <segment>
         <source>Du hast mit dieser Nachricht folgende Gegenstände erhalten. Sie müssten sich in deiner Truhe befinden (insofern noch niemand vor dir vorbei geschaut hat... ).</source>
-        <target>Vous avez reçu les éléments suivants avec ce message. Ils doivent être dans votre coffre (dans la mesure où personne ne vous a devancé ...).</target>
+        <target>Les objets suivants ont été envoyés avec ce message. Ils devraient être dans votre coffre ( si personne n'est passé par là entre-temps... ).</target>
       </segment>
     </unit>
     <unit id="YrqIO5c" name="Meine Nachrichten lesen.">
