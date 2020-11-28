@@ -1803,5 +1803,14 @@
         <target>Ces défenses sont apportées par les joueurs jouant le rôle de veilleur la nuit au moment de l'attaque.</target>
       </segment>
     </unit>
+    <unit id="zF4ERQG" name="Diese Kosten können durch den Aufbau der &lt;strong&gt;Müll für Alle&lt;/strong&gt;.">
+      <notes>
+        <note category="german">Diese Kosten können durch den Aufbau der &lt;strong&gt;Müll für Alle&lt;/strong&gt;.</note>
+      </notes>
+      <segment>
+        <source>Diese Kosten können durch den Aufbau der &lt;strong&gt;Müll für Alle&lt;/strong&gt;.</source>
+        <target><![CDATA[Ce coût peut être réduit en construisant une <strong>Décharge organisée</strong>.]]></target>
+      </segment>
+    </unit>
   </file>
 </xliff>

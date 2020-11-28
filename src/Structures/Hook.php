@@ -3,9 +3,9 @@
 
 namespace App\Structures;
 
+use App\Entity\Citizen;
 use App\Entity\Town;
 use App\Response\AjaxResponse;
-use App\Service\ErrorHelper;
 
 class Hook
 {
@@ -38,5 +38,12 @@ class Hook
      */
     public static function night_arma(Town $town): void {
         if(!$town->getDevastated()) $town->setDoor(false);
+    }
+
+    public static function night_christmas($town) {
+        /** @var Town $town */
+        foreach ($town[0]->getCitizens() as $citizen){
+            /** @var Citizen $citizen */
+        }
     }
 }
