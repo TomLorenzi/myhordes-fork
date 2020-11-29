@@ -727,7 +727,7 @@
       </notes>
       <segment>
         <source>Gürtel mit Tasche</source>
-        <target>Cinturón con bolsillos</target>
+        <target>Cinturón de herramientas</target>
       </segment>
     </unit>
     <unit id="E_mYVPX" name="Twinoid 500mg">
@@ -6380,7 +6380,7 @@
       </notes>
       <segment>
         <source>Schlafplatz verbessern (schwacher permanenter Bonus, 1AP)</source>
-        <target>Mejora un poco el campamento (bonus permanente débil, 1PA)</target>
+        <target>Mejorar un poco el campamento (bonus permanente débil, 1PA)</target>
       </segment>
     </unit>
     <unit id="D632ww5" name="Du hast das hiesige Versteck verbessert.">
@@ -6389,7 +6389,7 @@
       </notes>
       <segment>
         <source>Du hast das hiesige Versteck verbessert.</source>
-        <target>Pasaste muchos minutos preparando un escondite con todo lo que podrías querer tener ...</target>
+        <target>Pasaste muchos minutos preparando un escondite con todo lo que podrías querer tener...</target>
       </segment>
     </unit>
     <unit id="I4OeVwm" name="Sich verstecken und die Nacht hier schlafen!">
@@ -6398,7 +6398,7 @@
       </notes>
       <segment>
         <source>Sich verstecken und die Nacht hier schlafen!</source>
-        <target>¡Escóndete y pasar la noche aquí!</target>
+        <target>¡Escónderse y pasar la noche aquí!</target>
       </segment>
     </unit>
     <unit id="VsRU9Va" name="Du hast Dich notdürftig versteckt.">
@@ -6479,7 +6479,7 @@
       </notes>
       <segment>
         <source>Zerlegen</source>
-        <target>Cortar</target>
+        <target>Desmontar</target>
       </segment>
     </unit>
     <unit id="1PXqODy" name="Baustoffe">
@@ -6587,7 +6587,7 @@
       </notes>
       <segment>
         <source>Ausweiden</source>
-        <target>Ausweiden</target>
+        <target>Cortar</target>
       </segment>
     </unit>
     <unit id="24l83Eh" name="7fe00d0">
@@ -6641,7 +6641,7 @@
       </notes>
       <segment>
         <source>Heilen (5AP)</source>
-        <target>Heilen (5AP)</target>
+        <target>Curar (5AP)</target>
       </segment>
     </unit>
     <unit id="8.uDazR" name="Heilen (6AP)">
@@ -6650,7 +6650,7 @@
       </notes>
       <segment>
         <source>Heilen (6AP)</source>
-        <target>Heilen (6AP)</target>
+        <target>Curar (6AP)</target>
       </segment>
     </unit>
     <unit id="H0NWl9b" name="Verteidigung organisieren (1 AP)">
@@ -6659,7 +6659,7 @@
       </notes>
       <segment>
         <source>Verteidigung organisieren (1 AP)</source>
-        <target>Verteidigung organisieren (1 AP)</target>
+        <target>Organizar Defensas (1 AP)</target>
       </segment>
     </unit>
     <unit id="vte2QYO" name="Du hast dir etwas Zeit genommen und zur Verteidigung der Stadt beigetragen.">
@@ -6695,7 +6695,7 @@
       </notes>
       <segment>
         <source>Wasserwaffen füllen</source>
-        <target>Wasserwaffen füllen</target>
+        <target>Llenar armas de agua</target>
       </segment>
     </unit>
     <unit id="5yZkmMK" name="Ins Kino gehen">
@@ -6704,7 +6704,7 @@
       </notes>
       <segment>
         <source>Ins Kino gehen</source>
-        <target>Ins Kino gehen</target>
+        <target>Ir al Cine</target>
       </segment>
     </unit>
     <unit id="poR1ekb" name="Läutern">
@@ -6776,7 +6776,7 @@
       </notes>
       <segment>
         <source>Gegenstände suchen</source>
-        <target>Busca un objeto</target>
+        <target>Buscar un objeto</target>
       </segment>
     </unit>
     <unit id="R2RcDum" name="Kompass">
