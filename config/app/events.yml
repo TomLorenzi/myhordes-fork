@@ -3,8 +3,8 @@ parameters:
     arma:
       trigger:
         type: datetime
-        begin: 12-04 00:26
-        end: 12-04 00:26
+        begin: 12-04 00:00
+        end: 12-05 00:00
       conf:
         css: 'arma'
         group_dig: ''
@@ -15,8 +15,8 @@ parameters:
     christmas:
       trigger:
         type: datetime
-        begin: 12-07 00:26
-        end: 01-07 00:26
+        begin: 12-23 00:00
+        end: 01-06 00:00
       conf:
         css: 'christmas'
         group_dig: 'christmas_dig'
