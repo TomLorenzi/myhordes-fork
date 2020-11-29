@@ -1803,5 +1803,41 @@
         <target>Ces défenses sont apportées par les joueurs jouant le rôle de veilleur la nuit au moment de l'attaque.</target>
       </segment>
     </unit>
+    <unit id="zF4ERQG" name="Diese Kosten können durch den Aufbau der &lt;strong&gt;Müll für Alle&lt;/strong&gt;.">
+      <notes>
+        <note category="german">Diese Kosten können durch den Aufbau der &lt;strong&gt;Müll für Alle&lt;/strong&gt;.</note>
+      </notes>
+      <segment>
+        <source>Diese Kosten können durch den Aufbau der &lt;strong&gt;Müll für Alle&lt;/strong&gt;.</source>
+        <target><![CDATA[Ce coût peut être réduit en construisant une <strong>Décharge organisée</strong>.]]></target>
+      </segment>
+    </unit>
+    <unit id="BC_uip5" name="Ausblenden">
+      <notes>
+        <note category="german">Ausblenden</note>
+      </notes>
+      <segment>
+        <source>Ausblenden</source>
+        <target>Ausblenden</target>
+      </segment>
+    </unit>
+    <unit id="UzZ7xlJ" name="Nachricht">
+      <notes>
+        <note category="german">Nachricht</note>
+      </notes>
+      <segment>
+        <source>Nachricht</source>
+        <target>Nachricht</target>
+      </segment>
+    </unit>
+    <unit id="dJK8aO8" name="Ausb.+Nachr.">
+      <notes>
+        <note category="german">Ausb.+Nachr.</note>
+      </notes>
+      <segment>
+        <source>Ausb.+Nachr.</source>
+        <target>Ausb.+Nachr.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

@@ -87,15 +87,8 @@ body {
   font-family: @myhordes-font; font-size: 1.6rem; margin: 0;
 }
 
-.offline_body {
-  background: @myhordes-background;
-  &.arma { background: url("../img/anims/skull_laugh.gif"); }
-}
-
-.online_body {
-  background: @myhordes-background-online;
-  &.arma { background: url("../img/anims/skull_laugh.gif"); }
-}
+.offline_body { background: @myhordes-background; }
+.online_body { background: @myhordes-background-online; }
 
 div.debug_info {
   margin: 2px 10px; padding: 3px; background: #750000; border: 1px solid #ff0000; outline: 1px solid black;
@@ -404,6 +397,9 @@ x-message {
         text-transform: uppercase;
         color: #f86;
         font-weight: bold;
+        b {
+          color: #f8eacb;
+        }
       }
 
       & h4.title {
@@ -440,6 +436,10 @@ x-message {
 .warning {
   color: #f86;
   font-weight: bold;
+  font-variant: small-caps;
+  b {
+    color: #f8eacb;
+  }
 }
 
 img {

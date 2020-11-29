@@ -16,6 +16,7 @@ use App\Service\ConfMaster;
 use App\Service\GameFactory;
 use App\Service\Locksmith;
 use App\Service\NightlyHandler;
+use App\Service\TownHandler;
 use App\Service\UserHandler;
 use App\Structures\EventConf;
 use App\Structures\MyHordesConf;
@@ -43,9 +44,10 @@ class SchedulerCommand extends Command
     private AntiCheatService $anti_cheat;
     private GameFactory $gameFactory;
     private UserHandler $userHandler;
+    private TownHandler $townHandler;
 
     public function __construct(EntityManagerInterface $em, NightlyHandler $nh, Locksmith $ls, Translator $translator,
-                                ConfMaster $conf, AntiCheatService $acs, GameFactory $gf, UserHandler $uh)
+                                ConfMaster $conf, AntiCheatService $acs, GameFactory $gf, UserHandler $uh, TownHandler $th)
     {
         $this->entityManager = $em;
         $this->night = $nh;
@@ -56,6 +58,7 @@ class SchedulerCommand extends Command
         $this->anti_cheat = $acs;
         $this->gameFactory = $gf;
         $this->userHandler = $uh;
+        $this->townHandler = $th;
         parent::__construct();
     }
 
@@ -87,7 +90,7 @@ class SchedulerCommand extends Command
 
             $event = $this->conf_master->getCurrentEvent();
             if ($event->active())
-                $output->writeln("An event is currently ongoing : <info>{$event->get(EventConf::EVENT_CSS, 'unknown')} !</info>");
+                $output->writeln("An event is currently ongoing : <info>{$event->name()} !</info>");
 
             $towns = $this->entityManager->getRepository(Town::class)->findAll();
 
@@ -121,7 +124,7 @@ class SchedulerCommand extends Command
                     $this->entityManager->persist($town);
                     $this->entityManager->flush();
 
-                    if ($this->night->advance_day($town, $event)) {
+                    if ($this->night->advance_day($town, $town_event = $this->conf_master->getCurrentEvent( $town ))) {
                         foreach ($this->night->get_cleanup_container() as $c) $this->entityManager->remove($c);
 
                         $town->setLastAttack($s)->setAttackFails(0);
@@ -129,6 +132,15 @@ class SchedulerCommand extends Command
                         $last_op = 'adv';
                         $this->entityManager->persist($town);
                         $this->entityManager->flush();
+
+                        // Enable or disable events
+                        if ($town_event->name() !== $event->name()) {
+                            $last_op = 'ev_a';
+                            if ($this->townHandler->updateCurrentEvent($town, $event)) {
+                                $this->entityManager->persist($town);
+                                $this->entityManager->flush();
+                            } else $this->entityManager->clear();
+                        }
 
                     } else {
 
@@ -153,6 +165,15 @@ class SchedulerCommand extends Command
                         } else {
                             $town->setAttackFails(0);
                             $this->entityManager->persist($town);
+
+                            // Enable or disable events
+                            if ($town_event->name() !== $event->name()) {
+                                $this->entityManager->flush();
+                                $last_op = 'ev_s';
+                                if ($this->townHandler->updateCurrentEvent($town, $event))
+                                    $this->entityManager->persist($town);
+                                else $this->entityManager->clear();
+                            }
                         }
                         $this->entityManager->flush();
                     }

@@ -13,6 +13,7 @@ use App\Service\GameFactory;
 use App\Service\JSONRequestParser;
 use App\Service\LogTemplateHandler;
 use App\Service\TimeKeeperService;
+use App\Service\TownHandler;
 use App\Service\UserHandler;
 use App\Structures\MyHordesConf;
 use Doctrine\ORM\EntityManagerInterface;
@@ -110,12 +111,18 @@ class GhostController extends CustomAbstractController implements GhostInterface
 
     /**
      * @Route("api/ghost/create_town", name="ghost_process_create_town")
+     * @param JSONRequestParser $parser
      * @param EntityManagerInterface $em
+     * @param ConfMaster $conf
+     * @param UserHandler $uh
+     * @param GameFactory $gf
+     * @param LogTemplateHandler $log
      * @return Response
      */
-    public function process_create_town(JSONRequestParser $parser, EntityManagerInterface $em, ConfMaster $conf, UserHandler $uh, GameFactory $gf, LogTemplateHandler $log): Response
+    public function process_create_town(JSONRequestParser $parser, EntityManagerInterface $em, ConfMaster $conf,
+                                        UserHandler $uh, GameFactory $gf, LogTemplateHandler $log,
+                                        TownHandler $townHandler): Response
     {
-        /** @var User $user */
         $user = $this->getUser();
 
         /** @var CitizenRankingProxy $nextDeath */
@@ -268,6 +275,16 @@ class GhostController extends CustomAbstractController implements GhostInterface
             return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
         }
 
+        $current_event = $this->conf->getCurrentEvent();
+        if ($current_event->active()) {
+            if (!$townHandler->updateCurrentEvent($town, $current_event)) {
+                $em->clear();
+            } else try {
+                $em->persist($town);
+                $em->flush();
+            } catch (Exception $e) {}
+        }
+
         return AjaxResponse::success( true, ['url' => $this->generateUrl('game_jobs')] );
     }
 
@@ -278,9 +295,11 @@ class GhostController extends CustomAbstractController implements GhostInterface
      * @param EntityManagerInterface $em
      * @param ConfMaster $conf
      * @param LogTemplateHandler $log
+     * @param TownHandler $townHandler
      * @return Response
      */
-    public function join_api(JSONRequestParser $parser, GameFactory $factory, EntityManagerInterface $em, ConfMaster $conf, LogTemplateHandler $log) {
+    public function join_api(JSONRequestParser $parser, GameFactory $factory, EntityManagerInterface $em,
+                             ConfMaster $conf, LogTemplateHandler $log, TownHandler $townHandler) {
         /** @var User $user */
         $user = $this->getUser();
 
@@ -296,7 +315,6 @@ class GhostController extends CustomAbstractController implements GhostInterface
 
         /** @var Town $town */
         $town = $em->getRepository(Town::class)->find( $town_id );
-        /** @var User $user */
         $user = $this->getUser();
 
         if (!$town || !$user) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
@@ -311,6 +329,33 @@ class GhostController extends CustomAbstractController implements GhostInterface
 
         $citizen = $factory->createCitizen($town, $user, $error, $all);
         if (!$citizen) return AjaxResponse::error($error);
+
+        try {
+            $em->persist($town);
+            $em->persist($citizen);
+            $em->flush();
+        } catch (Exception $e) {
+            return AjaxResponse::error(ErrorHelper::ErrorDatabaseException, ['e' => $e->getMessage()]);
+        }
+
+        try {
+            foreach ($all as $new_citizen)
+                $em->persist( $log->citizenJoin( $new_citizen ) );
+            $em->flush();
+        }
+        catch (Exception $e) {
+            return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
+        }
+
+        $current_town_event = $this->conf->getCurrentEvent($town);
+        if ($current_town_event->active()) {
+            if (!$townHandler->updateCurrentEvent($town, $current_town_event))
+                $em->clear();
+            else {
+                $em->persist($town);
+                $em->flush();
+            }
+        }
 
         // Let's check if there is enough opened town
         $openTowns = $em->getRepository(Town::class)->findOpenTown();
@@ -360,32 +405,26 @@ class GhostController extends CustomAbstractController implements GhostInterface
                     for($i = 0 ; $i < $minOpenTown[$townClass] - $openCount ; $i++){
                         $newTown = $factory->createTown(null, $townLang, null, $townClass);
                         $em->persist($newTown);
+                        $em->flush();
+
+                        $current_event = $this->conf->getCurrentEvent();
+                        if ($current_event->active()) {
+                            if (!$townHandler->updateCurrentEvent($newTown, $current_event))
+                                $em->clear();
+                            else {
+                                $em->persist($newTown);
+                                $em->flush();
+                            }
+                        }
                     }
                 }
             }
-        }
-
-        try {
-            $em->persist($town);
-            $em->persist($citizen);
-            $em->flush();
-        } catch (Exception $e) {
-            return AjaxResponse::error(ErrorHelper::ErrorDatabaseException, ['e' => $e->getMessage()]);
-        }
-        try {
-            foreach ($all as $new_citizen)
-                $em->persist( $log->citizenJoin( $new_citizen ) );
-            $em->flush();
-        }
-        catch (Exception $e) {
-            return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
         }
 
         return AjaxResponse::success();
     }
 
     public function getUserTownClassAccess(MyHordesConf $conf): array {
-        /** @var User $user */
         $user = $this->getUser();
         return [
             'small' =>

@@ -18,7 +18,7 @@ class AdminReport
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Post", inversedBy="adminReports")
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\JoinColumn(nullable=true)
      */
     private $post;
 
@@ -37,6 +37,12 @@ class AdminReport
      * @ORM\Column(type="boolean")
      */
     private $seen = false;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=PrivateMessage::class, inversedBy="adminReports")
+     * @ORM\JoinColumn(nullable=true)
+     */
+    private $pm;
 
     public function getId(): ?int
     {
@@ -87,6 +93,18 @@ class AdminReport
     public function setSeen(bool $seen): self
     {
         $this->seen = $seen;
+
+        return $this;
+    }
+
+    public function getPm(): ?PrivateMessage
+    {
+        return $this->pm;
+    }
+
+    public function setPm(?PrivateMessage $pm): self
+    {
+        $this->pm = $pm;
 
         return $this;
     }

@@ -1564,6 +1564,48 @@ class MessageController extends CustomAbstractController
     }
 
     /**
+     * @Route("api/town/house/pm/report", name="home_report_pm_controller")
+     * @param JSONRequestParser $parser
+     * @param EntityManagerInterface $em
+     * @param TranslatorInterface $ti
+     * @return Response
+     */
+    public function pm_report_api(JSONRequestParser $parser, EntityManagerInterface $em, TranslatorInterface $ti): Response {
+        $user = $this->getUser();
+
+        $id = $parser->get('pmid', null);
+        if ($id === null) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+        /** @var Citizen $citizen */
+        if (!($citizen = $user->getActiveCitizen())) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+        /** @var PrivateMessage $post */
+        $post = $em->getRepository(PrivateMessage::class)->find( $id );
+        if ($post === null) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+        $thread = $post->getPrivateMessageThread();
+        if (!$thread || $post->getOwner() === $citizen || !$thread->getSender() || ($thread->getRecipient()->getId() !== $citizen->getId() && $thread->getSender()->getId() !== $citizen->getId())) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+        $reports = $post->getAdminReports();
+        foreach ($reports as $report)
+            if ($report->getSourceUser()->getId() == $user->getId())
+                return AjaxResponse::success();
+
+        $newReport = (new AdminReport())
+            ->setSourceUser($user)
+            ->setTs(new DateTime('now'))
+            ->setPm($post);
+
+        $em->persist($newReport);
+        $em->flush();
+
+        $message = $ti->trans('Du hast die Nachricht von %username% dem Raben gemeldet. Wer weiß, vielleicht wird %username% heute Nacht stääärben...', ['%username%' => '<span>' . $post->getOwner()->getUser()->getName() . '</span>'], 'game');
+        $this->addFlash('notice', $message);
+
+        return AjaxResponse::success();
+    }
+
+    /**
      * @Route("town/house/pm/{tid<\d+>}/editor", name="home_answer_post_editor_controller")
      * @param int $tid
      * @param EntityManagerInterface $em

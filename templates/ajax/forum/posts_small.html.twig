@@ -23,10 +23,10 @@
                             {% if post.owner.name == 'Der Rabe' %}
                                 <div class="avatarcrow small"><img alt="" src="{{ asset('build/images/forum/crow/crow.small.' ~ (app.request.locale|e('html_attr')|split('_', 2))[0] ~ '.png') }}"></div>
                             {% else %}
-                                <div class="avatar small"><img alt="" src="{{ path('app_web_avatar', {'uid': post.owner.id, 'name': post.owner.avatar.smallName, 'ext': post.owner.avatar.format}) }}"></div>
+                                <div class="avatar small ua-{{ post.owner.id % 10 }}"><img alt="" src="{{ path('app_web_avatar', {'uid': post.owner.id, 'name': post.owner.avatar.smallName, 'ext': post.owner.avatar.format}) }}"></div>
                             {% endif %}
                         {% else %}
-                            <div class="avatar small"><img alt="" src="{{ asset('build/images/forum/empty_avatar.gif') }}"></div>
+                            <div class="avatar small ua-{{ post.owner.id % 10 }}"><img alt="" src="{{ asset('build/images/forum/empty_avatar.gif') }}"></div>
                         {% endif %}
                         <b>
                             {% if post.owner.name == 'Der Rabe' %}
