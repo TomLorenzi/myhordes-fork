@@ -14730,7 +14730,7 @@
       </notes>
       <segment>
         <source>Ehrenpreis für die Teilnahme am UFC!</source>
-        <target>Ehrenpreis für die Teilnahme am UFC!</target>
+        <target>Prix d'honneur pour la participation à l'UFC!</target>
       </segment>
     </unit>
     <unit id="67K3DmE" name="Seelenführer der Gemeinschaft">
@@ -14739,7 +14739,7 @@
       </notes>
       <segment>
         <source>Seelenführer der Gemeinschaft</source>
-        <target>Seelenführer der Gemeinschaft</target>
+        <target>Guide des âmes communautaires</target>
       </segment>
     </unit>
     <unit id="fxrMNw." name="Charismatischer Prophet">
@@ -14748,7 +14748,7 @@
       </notes>
       <segment>
         <source>Charismatischer Prophet</source>
-        <target>Charismatischer Prophet</target>
+        <target>Prophète charismatique</target>
       </segment>
     </unit>
     <unit id="WlT3ppX" name="Der Rabe hat diese Nachricht zerrissen.">
@@ -14757,7 +14757,7 @@
       </notes>
       <segment>
         <source>Der Rabe hat diese Nachricht zerrissen.</source>
-        <target>Der Rabe hat diese Nachricht zerrissen.</target>
+        <target>Le Corbeau a déchiré ce message.</target>
       </segment>
     </unit>
   </file>
