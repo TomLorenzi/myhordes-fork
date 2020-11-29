@@ -14715,5 +14715,50 @@
         <target>Ce bonus défensif disparaîtra à minuit, après l'attaque.</target>
       </segment>
     </unit>
+    <unit id="X7RHtVg" name="UFC">
+      <notes>
+        <note category="german">UFC</note>
+      </notes>
+      <segment>
+        <source>UFC</source>
+        <target>UFC</target>
+      </segment>
+    </unit>
+    <unit id="FeUmzHX" name="Ehrenpreis für die Teilnahme am UFC!">
+      <notes>
+        <note category="german">Ehrenpreis für die Teilnahme am UFC!</note>
+      </notes>
+      <segment>
+        <source>Ehrenpreis für die Teilnahme am UFC!</source>
+        <target>Ehrenpreis für die Teilnahme am UFC!</target>
+      </segment>
+    </unit>
+    <unit id="67K3DmE" name="Seelenführer der Gemeinschaft">
+      <notes>
+        <note category="german">Seelenführer der Gemeinschaft</note>
+      </notes>
+      <segment>
+        <source>Seelenführer der Gemeinschaft</source>
+        <target>Seelenführer der Gemeinschaft</target>
+      </segment>
+    </unit>
+    <unit id="fxrMNw." name="Charismatischer Prophet">
+      <notes>
+        <note category="german">Charismatischer Prophet</note>
+      </notes>
+      <segment>
+        <source>Charismatischer Prophet</source>
+        <target>Charismatischer Prophet</target>
+      </segment>
+    </unit>
+    <unit id="WlT3ppX" name="Der Rabe hat diese Nachricht zerrissen.">
+      <notes>
+        <note category="german">Der Rabe hat diese Nachricht zerrissen.</note>
+      </notes>
+      <segment>
+        <source>Der Rabe hat diese Nachricht zerrissen.</source>
+        <target>Der Rabe hat diese Nachricht zerrissen.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
