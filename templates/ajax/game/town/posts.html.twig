@@ -55,7 +55,17 @@
                 {% if not post.owner %}
                     <div class="crowmsg {% if not app.user.preferSmallAvatars %}fixMargin{% endif %}">{{ 'Dies ist eine offizielle Nachricht.'|trans({},'game') }} <a class="help-button"><div class="tooltip help">{{ 'Diese Nachricht wurde dir vom Raben persönlich überbracht. Er schwebt über der Stadt und wirft immer ein wachsames Auge auf dich...'|trans({},'global') }}</div>{{ 'Hilfe'|trans({},'global') }}</a></div>
                 {% endif %}
-                {{ post.text|raw }}
+
+                {% if post.hidden %}
+                    <div class="crowmsg {% if not app.user.preferSmallAvatars %}fixMargin{% endif %}">{{ 'Der Rabe hat diese Nachricht zerrissen.'|trans({},'game') }}</div>
+                {% else %}
+                    {{ post.text|raw }}
+                {% endif %}
+
+                {% if post.modMessage %}
+                    <div class="modAnnounce">{{ post.modMessage }}</div>
+                {% endif %}
+
                 {% if items[post.id] is defined and items[post.id]|length > 0 %}
                     <hr />
                     <div class="help">
@@ -68,7 +78,13 @@
                     </div>
                 {% endif %}
             </div>
-            <div class="forum-post-footer right"></div>
+            <div class="forum-post-footer right">
+                {% if post.owner and post.owner.user != app.user %}
+                    <div class="float-right small">
+                        [ <a class="action-button" id="report_post" x-forum-action="report-post" x-post-id={{ post.id }}><img alt="!" src="{{ asset('build/images/forum/warning.png') }}"><div class="tooltip forum-tooltip">{{'Unangemessene Nachricht blockieren'|trans({}, 'global')}}</div></a> ]
+                    </div>
+                {% endif %}
+            </div>
         </div>
     {% endfor %}
 
@@ -118,5 +134,12 @@
         e.preventDefault();
         replybtn.style.display = "none";
         $.ajax.no_history().load( document.getElementById('forum-editor'), '{{ path('home_answer_post_editor_controller', {tid: thread.id}) }}', false )
+    });
+
+    $.html.addEventListenerAll('[x-forum-action="report-post"]', 'click', function(e,elem) {
+        if (confirm('{{ 'Bist du sicher, dass du diesen Post an die Moderatoren melden willst?'|trans({},'global')|e('js') }}'))
+            $.ajax.easySend( '{{ url('home_report_pm_controller') }}', {pmid: parseInt( elem.getAttribute('x-post-id')) }, function () {
+                $.ajax.load(null, '{{ path('town_house', {'tab': 'messages', 'subtab': 'received'}) }}', true);
+            } );
     });
 </script>

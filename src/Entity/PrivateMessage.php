@@ -75,8 +75,29 @@ class PrivateMessage
      */
     private $foreignID;
 
+    /**
+     * @ORM\OneToMany(targetEntity=AdminReport::class, mappedBy="pm", cascade={"remove"})
+     */
+    private $adminReports;
+
+    /**
+     * @ORM\Column(type="boolean", nullable=true)
+     */
+    private $hidden = false;
+
+    /**
+     * @ORM\Column(type="text", nullable=true)
+     */
+    private $modMessage;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=User::class)
+     */
+    private $moderator;
+
     public function __construct()
     {
+        $this->adminReports = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -188,6 +209,73 @@ class PrivateMessage
     public function setForeignID(?int $foreignID): self
     {
         $this->foreignID = $foreignID;
+
+        return $this;
+    }
+
+    /**
+     * @param bool|null $unseen
+     * @return Collection|AdminReport[]
+     */
+    public function getAdminReports(?bool $unseen = false): Collection
+    {
+        return $unseen ? $this->adminReports->filter(fn(AdminReport $a) => !$a->getSeen()) : $this->adminReports;
+    }
+
+    public function addAdminReport(AdminReport $adminReport): self
+    {
+        if (!$this->adminReports->contains($adminReport)) {
+            $this->adminReports[] = $adminReport;
+            $adminReport->setPm($this);
+        }
+
+        return $this;
+    }
+
+    public function removeAdminReport(AdminReport $adminReport): self
+    {
+        if ($this->adminReports->removeElement($adminReport)) {
+            // set the owning side to null (unless already changed)
+            if ($adminReport->getPm() === $this) {
+                $adminReport->setPm(null);
+            }
+        }
+
+        return $this;
+    }
+
+    public function getHidden(): ?bool
+    {
+        return $this->hidden;
+    }
+
+    public function setHidden(?bool $hidden): self
+    {
+        $this->hidden = $hidden;
+
+        return $this;
+    }
+
+    public function getModMessage(): ?string
+    {
+        return $this->modMessage;
+    }
+
+    public function setModMessage(?string $modMessage): self
+    {
+        $this->modMessage = $modMessage;
+
+        return $this;
+    }
+
+    public function getModerator(): ?User
+    {
+        return $this->moderator;
+    }
+
+    public function setModerator(?User $moderator): self
+    {
+        $this->moderator = $moderator;
 
         return $this;
     }
