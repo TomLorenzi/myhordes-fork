@@ -4561,5 +4561,14 @@ Der Schamane kann:</source>
         <target>La ville vous permet de retrouver tous vos compagnons d'infortune, de discuter avec eux près du puits, près des Grandes Portes... C'est en ville que vous créez des petites équipes d'exploration, c'est également en ville que vous pourrez stocker vos trouvailles.</target>
       </segment>
     </unit>
+    <unit id="IIBtwzC" name="Zeit: Lieber nachts als tagsüber verstecken.">
+      <notes>
+        <note category="german">Zeit: Lieber nachts als tagsüber verstecken.</note>
+      </notes>
+      <segment>
+        <source>Zeit: Lieber nachts als tagsüber verstecken.</source>
+        <target>L'heure : Mieux vaut se cacher la nuit que le jour.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
