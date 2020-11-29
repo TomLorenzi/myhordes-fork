@@ -31,12 +31,24 @@ body.arma {
         }
     }
 
-    .forum-thread .count div {
-        visibility: hidden; line-height: 0;
-        &:before {
-            content: "CRITICAL_ERROR";
-            visibility: visible;
-            line-height: initial;
+    .forum-thread .count {
+        div {
+            visibility: hidden;
+            line-height: 0;
+            &.author {
+                &:before {
+                    content: "ERROR";
+                    visibility: visible;
+                    line-height: initial;
+                }
+            }
+            &.nbPost {
+                &:before {
+                    content: "666";
+                    visibility: visible;
+                    line-height: initial;
+                }
+            }
         }
     }
 
