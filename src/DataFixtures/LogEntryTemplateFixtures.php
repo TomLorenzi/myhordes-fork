@@ -4,13 +4,10 @@ namespace App\DataFixtures;
 
 use App\Entity\GazetteLogEntry;
 use App\Entity\LogEntryTemplate;
-use App\Entity\TownClass;
-use App\Entity\TownLogEntry;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\Persistence\ObjectManager;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Console\Helper\ProgressBar;
-use Symfony\Component\Console\Helper\Table;
 use Symfony\Component\Console\Output\ConsoleOutput;
 use Symfony\Component\Console\Output\ConsoleOutputInterface;
 
@@ -676,7 +673,7 @@ class LogEntryTemplateFixtures extends Fixture
         // Iterate over all entries
         foreach (static::$log_entry_template_data as $entry) {
             // Get existing entry, or create new one
-            $entity = $this->entityManager->getRepository(LogEntryTemplate::class)->findOneByName( $entry['name'] );
+            $entity = $this->entityManager->getRepository(LogEntryTemplate::class)->findOneBy( ['name' => $entry['name']] );
             if ($entity === null) $entity = new LogEntryTemplate();
 
             // Set property
