@@ -28,12 +28,12 @@
 
                     {% if (post.owner.user.avatar) %}
                         {% if app.user.preferSmallAvatars %}
-                            <div class="avatar small"><img alt="" src="{{ path('app_web_avatar', {'uid': post.owner.user.id, 'name': post.owner.user.avatar.smallName, 'ext': post.owner.user.avatar.format}) }}"></div>
+                            <div class="avatar small ua-{{ post.owner.user.id % 10 }}"><img alt="" src="{{ path('app_web_avatar', {'uid': post.owner.user.id, 'name': post.owner.user.avatar.smallName, 'ext': post.owner.user.avatar.format}) }}"></div>
                         {% else %}
-                            <div class="avatar"><img alt="" src="{{ path('app_web_avatar', {'uid': post.owner.user.id, 'name': post.owner.user.avatar.filename, 'ext': post.owner.user.avatar.format}) }}"></div>
+                            <div class="avatar ua-{{ post.owner.user.id % 10 }}"><img alt="" src="{{ path('app_web_avatar', {'uid': post.owner.user.id, 'name': post.owner.user.avatar.filename, 'ext': post.owner.user.avatar.format}) }}"></div>
                         {% endif %}
                     {% else %}
-                        <div class="avatar small"><img alt="" src="{{ asset('build/images/forum/empty_avatar.gif') }}"></div>
+                        <div class="avatar small ua-{{ post.owner.user.id % 10 }}"><img alt="" src="{{ asset('build/images/forum/empty_avatar.gif') }}"></div>
                     {% endif %}
                 {% else %}
                     {% if app.user.preferSmallAvatars %}
