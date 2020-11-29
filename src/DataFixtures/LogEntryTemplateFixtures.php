@@ -534,6 +534,7 @@ class LogEntryTemplateFixtures extends Fixture
             'secondaryType'=>GazetteLogEntry::RequiresNothing,
             'variableTypes'=>[
                 ['type'=>"transString",'name'=>'sector'],
+                ['type'=>"transString",'name'=>'sector2'],
             ],
         ],
         ['text'=>'Gestern Abend gab es starke Windböen im %sector%.',
@@ -543,6 +544,7 @@ class LogEntryTemplateFixtures extends Fixture
             'secondaryType'=>GazetteLogEntry::RequiresNothing,
             'variableTypes'=>[
                 ['type'=>"transString",'name'=>'sector'],
+                ['type'=>"transString",'name'=>'sector2'],
             ],
         ],
         ['text'=>'%sector2% haben gestern ein paar heftige Sandstrürme gewütet.',
@@ -551,6 +553,7 @@ class LogEntryTemplateFixtures extends Fixture
             'class'=>LogEntryTemplate::ClassGazetteWind,
             'secondaryType'=>GazetteLogEntry::RequiresNothing,
             'variableTypes'=>[
+                ['type'=>"transString",'name'=>'sector'],
                 ['type'=>"transString",'name'=>'sector2'],
             ],
         ],
@@ -560,6 +563,7 @@ class LogEntryTemplateFixtures extends Fixture
             'class'=>LogEntryTemplate::ClassGazetteWind,
             'secondaryType'=>GazetteLogEntry::RequiresNothing,
             'variableTypes'=>[
+                ['type'=>"transString",'name'=>'sector'],
                 ['type'=>"transString",'name'=>'sector2'],
             ],
         ],
@@ -570,6 +574,7 @@ class LogEntryTemplateFixtures extends Fixture
             'secondaryType'=>GazetteLogEntry::RequiresNothing,
             'variableTypes'=>[
                 ['type'=>"transString",'name'=>'sector'],
+                ['type'=>"transString",'name'=>'sector2'],
             ],
         ],
         ['text'=>'Ungewöhnlich starke Winde haben gestern den Sand %sector% aufgewirbelt.',
@@ -579,6 +584,7 @@ class LogEntryTemplateFixtures extends Fixture
             'secondaryType'=>GazetteLogEntry::RequiresNothing,
             'variableTypes'=>[
                 ['type'=>"transString",'name'=>'sector'],
+                ['type'=>"transString",'name'=>'sector2'],
             ],
         ],
         ['text'=>'Verschiedene Aufzeichnungen zeigen Wetteranomalien %sector2%.',
@@ -587,6 +593,7 @@ class LogEntryTemplateFixtures extends Fixture
             'class'=>LogEntryTemplate::ClassGazetteWind,
             'secondaryType'=>GazetteLogEntry::RequiresNothing,
             'variableTypes'=>[
+                ['type'=>"transString",'name'=>'sector'],
                 ['type'=>"transString",'name'=>'sector2'],
             ],
         ],
@@ -597,6 +604,7 @@ class LogEntryTemplateFixtures extends Fixture
             'secondaryType'=>GazetteLogEntry::RequiresNothing,
             'variableTypes'=>[
                 ['type'=>"transString",'name'=>'sector'],
+                ['type'=>"transString",'name'=>'sector2'],
             ],
         ],
         ['text'=>'Unsere Messungen deuten darauf hin, dass im %sector% Wetteranomalien aufgetreten sind.',
@@ -606,6 +614,7 @@ class LogEntryTemplateFixtures extends Fixture
             'secondaryType'=>GazetteLogEntry::RequiresNothing,
             'variableTypes'=>[
                 ['type'=>"transString",'name'=>'sector'],
+                ['type'=>"transString",'name'=>'sector2'],
             ],
         ],
         ['text'=>'Einige vereinzelte Phänomene wurden %sector2% entdeckt.',
@@ -614,6 +623,7 @@ class LogEntryTemplateFixtures extends Fixture
             'class'=>LogEntryTemplate::ClassGazetteWind,
             'secondaryType'=>GazetteLogEntry::RequiresNothing,
             'variableTypes'=>[
+                ['type'=>"transString",'name'=>'sector'],
                 ['type'=>"transString",'name'=>'sector2'],
             ],
         ],
@@ -623,6 +633,7 @@ class LogEntryTemplateFixtures extends Fixture
             'class'=>LogEntryTemplate::ClassGazetteWind,
             'secondaryType'=>GazetteLogEntry::RequiresNothing,
             'variableTypes'=>[
+                ['type'=>"transString",'name'=>'sector'],
                 ['type'=>"transString",'name'=>'sector2'],
             ],
         ],
@@ -632,6 +643,7 @@ class LogEntryTemplateFixtures extends Fixture
             'class'=>LogEntryTemplate::ClassGazetteWind,
             'secondaryType'=>GazetteLogEntry::RequiresNothing,
             'variableTypes'=>[
+                ['type'=>"transString",'name'=>'sector'],
                 ['type'=>"transString",'name'=>'sector2'],
             ],
         ],
@@ -642,6 +654,7 @@ class LogEntryTemplateFixtures extends Fixture
             'secondaryType'=>GazetteLogEntry::RequiresNothing,
             'variableTypes'=>[
                 ['type'=>"transString",'name'=>'sector'],
+                ['type'=>"transString",'name'=>'sector2'],
             ],
         ],
     ];
