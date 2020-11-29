@@ -1483,7 +1483,7 @@
       </notes>
       <segment>
         <source>Riesige Sandburg</source>
-        <target>Castillo de arena</target>
+        <target>Gran Castillo de Arena</target>
       </segment>
     </unit>
     <unit id="Pp2_CqH" name="Leuchtfeuer">
@@ -3040,7 +3040,7 @@
       </notes>
       <segment>
         <source>Wenn es eines gibt, woran hier wahrlich kein Mangel herrscht, dann ist es Sand. Dieses Wunderwerk strahlt im Glanze seiner Nutzlosigkeit: Seine Errichtung bringt allen Bürgern der Stadt eine seltene Auszeichnung ein.</source>
-        <target>Wenn es eines gibt, woran hier wahrlich kein Mangel herrscht, dann ist es Sand. Dieses Wunderwerk strahlt im Glanze seiner Nutzlosigkeit: Seine Errichtung bringt allen Bürgern der Stadt eine seltene Auszeichnung ein.</target>
+        <target>Si algo podíamos hacer con tanta arena, lo hicimos.  Esta maravilla brilla por su gran inutilidad, pero su construcción otorga una distinción rarísima a todos los habitantes del pueblo.</target>
       </segment>
     </unit>
     <unit id="D_tzr7L" name="0872a56">
@@ -3067,7 +3067,7 @@
       </notes>
       <segment>
         <source>Dieses furchterregende Konstrukt stammt aus einem sowjetischen U-Boot und sendet gleißende Blitze knisternder Elektrizität rund um die Stadt aus. Einziger Haken an der Sache: Es muss jeden Tag repariert werden. Falls es zerstört wird, würde die Stadt mitsamt der gesamten Umgebung augenblicklich ausradiert werden (inklusive euch). Das Schild am Reaktor besagt: sowjetische Bauweise, hergestellt in « вшивый ».</source>
-        <target>Dieses furchterregende Konstrukt stammt aus einem sowjetischen U-Boot und sendet gleißende Blitze knisternder Elektrizität rund um die Stadt aus. Einziger Haken an der Sache: Es muss jeden Tag repariert werden. Falls es zerstört wird, würde die Stadt mitsamt der gesamten Umgebung augenblicklich ausradiert werden (inklusive euch). Das Schild am Reaktor besagt: sowjetische Bauweise, hergestellt in « вшивый ».</target>
+        <target>Esta horrenda máquina proviene de un submarino de la Guerra Fría y lanza poderosos rayos eléctricos alrededor del pueblo con un ruido ensordecedor. El único inconveniente es que debe ser reparado diariamente. Si es destruido, todo el pueblo y sus alrededores quedarán hechos polvo, matando a todos estén donde estén. La etiqueta dice: Diseñado en la Unión Soviética, armado en « вшивый ».</target>
       </segment>
     </unit>
     <unit id="0XMhjon" name="d9d68d6">
@@ -3103,7 +3103,7 @@
       </notes>
       <segment>
         <source>Es ist wirklich eine enorme und beeindruckente Konstruktion. Ihr habt eure kostbarsten Materialien an dieses verdammte Ding verschwendet, und denoch seid ihr irgendwie stolz darauf. Dieses Wunderwerk strahlt im Glanze seiner Nutzlosigkeit: Seine Errichtung bringt allen Bürgern der Stadt eine seltene Auszeichnung ein.</source>
-        <target>Es ist wirklich eine enorme und beeindruckente Konstruktion. Ihr habt eure kostbarsten Materialien an dieses verdammte Ding verschwendet, und denoch seid ihr irgendwie stolz darauf. Dieses Wunderwerk strahlt im Glanze seiner Nutzlosigkeit: Seine Errichtung bringt allen Bürgern der Stadt eine seltene Auszeichnung ein.</target>
+        <target>Es una bella y gran construcción. Ha consumido una buena parte de nuestros recursos pero estás orgulloso. Esta maravilla brilla por su gran inutilidad, pero su construcción otorga una distinción rarísima a todos los habitantes del pueblo.</target>
       </segment>
     </unit>
     <unit id="IakGX2Y" name="f02f3e0">
