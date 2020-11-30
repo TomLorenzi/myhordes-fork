@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+		<?xml version="1.0" encoding="utf-8"?>
 <xliff xmlns="urn:oasis:names:tc:xliff:document:2.0" version="2.0" srcLang="de" trgLang="en">
   <file id="items.en">
     <unit id="lKc.7ub" name="Du hast folgendes gewürfelt: {dc1}, {dc2} und {dc3}.">
@@ -3427,7 +3427,7 @@
       </notes>
       <segment>
         <source>Mithilfe der {item} hast du dir etwas Zeit erkauft ... du solltest diesen Ort schnell verlassen!</source>
-        <target>Mithilfe der {item} hast du dir etwas Zeit erkauft ... du solltest diesen Ort schnell verlassen!</target>
+        <target>With the help of the {item} you bought yourself some time ... you should leave this place quickly!</target>
       </segment>
     </unit>
     <unit id="InvhyVo" name="Knuddeln">
@@ -7208,7 +7208,7 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
       </notes>
       <segment>
         <source>Das {item} beginnt rasch zu wirken. Das Fieber klingt ab, dein Herz beginnt wieder in einem halbwegs normalen Takt zu schlagen... Du warst nicht weit von einem schrecklichen Tod entfernt.</source>
-        <target>Das {item} beginnt rasch zu wirken. Das Fieber klingt ab, dein Herz beginnt wieder in einem halbwegs normalen Takt zu schlagen... Du warst nicht weit von einem schrecklichen Tod entfernt.</target>
+        <target>The {item} rapidly takes effect. The fever subsides, your heart starts beating at a a semi-normal rate again... You weren't far away from a horrible death.</target>
       </segment>
     </unit>
     <unit id="SJ.JIzZ" name="5e75224">

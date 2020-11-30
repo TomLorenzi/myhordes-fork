@@ -3109,7 +3109,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>%citizen% hat dem Druck nicht länger standgehalten und sein Leben beendet: %cod%.</source>
-        <target>%citizen% hat dem Druck nicht länger standgehalten und sein Leben beendet: %cod%.</target>
+        <target>%citizen% no longer withstood the pressure and ended his life: %cod%.</target>
       </segment>
     </unit>
     <unit id="1DaM5oy" name="Verrat! %citizen% ist gestorben: %cod%.">
@@ -14338,7 +14338,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Ich bin geheilt</source>
-        <target>Ich bin geheilt</target>
+        <target>I am healed</target>
       </segment>
     </unit>
     <unit id="exaN90z" name="Die letzten Nachrichten meiner Koalition lesen.">
@@ -14347,7 +14347,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Die letzten Nachrichten meiner Koalition lesen.</source>
-        <target>Die letzten Nachrichten meiner Koalition lesen.</target>
+        <target>Read the latest messages from my coalition.</target>
       </segment>
     </unit>
     <unit id="8DkmL.j" name="Dieses Bauprojekt wurde bereits abgeschlossen.">
@@ -14356,7 +14356,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Dieses Bauprojekt wurde bereits abgeschlossen.</source>
-        <target>Dieses Bauprojekt wurde bereits abgeschlossen.</target>
+        <target>This construction project has already been completed.</target>
       </segment>
     </unit>
   </file>
