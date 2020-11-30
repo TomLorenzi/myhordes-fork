@@ -205,6 +205,9 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
      */
     public function desert(TownHandler $th): Response
     {
+        if (!$this->getActiveCitizen()->getHasSeenGazette())
+            return $this->redirect($this->generateUrl('game_newspaper'));
+            
         $town = $this->getActiveCitizen()->getTown();
         $zone = $this->getActiveCitizen()->getZone();
 
