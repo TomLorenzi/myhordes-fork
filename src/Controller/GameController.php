@@ -620,7 +620,7 @@ class GameController extends CustomAbstractController implements GameInterfaceCo
         }
 
         if(!$parser->has('log_entry_id'))
-            return AjaxResponse::ErrorInvalidRequest;
+            return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
         $log = $this->entity_manager->getRepository(TownLogEntry::class)->find($parser->get('log_entry_id'));
         if($log->getHidden()){
