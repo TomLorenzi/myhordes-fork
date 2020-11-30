@@ -205,11 +205,11 @@ class NightlyHandler
             if (!$citizen->getAlive()) continue;
             $citizen->setSurvivedDays( $citizen->getTown()->getDay() - 1 );
 
-            // Check hero skills
-            $nextSkill = $this->entity_manager->getRepository(HeroSkillPrototype::class)->getNextUnlockable($citizen->getUser()->getAllHeroDaysSpent());
-
             if (!$citizen->getProfession()->getHeroic())
                 continue;
+
+            // Check hero skills
+            $nextSkill = $this->entity_manager->getRepository(HeroSkillPrototype::class)->getNextUnlockable($citizen->getUser()->getAllHeroDaysSpent());
             
             $citizen->getUser()->setHeroDaysSpent($citizen->getUser()->getHeroDaysSpent() + 1);
 
@@ -220,6 +220,9 @@ class NightlyHandler
                     case "brothers":
                         //TODO: add the heroic power
                         break;
+                    case "largerucksack1":
+                        $citizen->getInventory->setAdditionalStorage($citizen->getAdditionalStorage() + 1);
+                        break;
                     case "largechest1":
                     case "largechest2":
                         $citizen->getHome()->setAdditionalStorage($citizen->getHome()->getAdditionalStorage() + 1);
@@ -227,12 +230,10 @@ class NightlyHandler
                     case "secondwind":
                         $heroic_action = $this->entity_manager->getRepository(HeroicActionPrototype::class)->findOneBy(['name' => "hero_generic_ap"]);
                         $citizen->addHeroicAction($heroic_action);
-                        $this->entity_manager->persist($citizen);
                         break;
                     case "cheatdeath":
                         $heroic_action = $this->entity_manager->getRepository(HeroicActionPrototype::class)->findOneBy(['name' => "hero_generic_immune"]);
                         $citizen->addHeroicAction($heroic_action);
-                        $this->entity_manager->persist($citizen);
                         break;
                     case 'luckyfind':
                         $oldfind = $this->entity_manager->getRepository(HeroicActionPrototype::class)->findOneBy(['name' => "hero_generic_find"]);
@@ -243,6 +244,8 @@ class NightlyHandler
                             $citizen->addHeroicAction($newfind);
                         }
                 }
+                $this->entity_manager->persist($citizen);
+                $this->entity_manager->persist($citizen->getHome());
             }
         }
     }
