@@ -122,7 +122,7 @@ class DeathHandler
         $citizen->setCauseOfDeath($cod);
         $citizen->setAlive(false);
 
-        $gazette = $citizen->getTown()->findGazette( ($citizen->getTown()->getDay() + ($cod->getId() == CauseOfDeath::NightlyAttack ? 0 : 1)) );
+        $gazette = $citizen->getTown()->findGazette( ($citizen->getTown()->getDay() + ($cod->getRef() == CauseOfDeath::NightlyAttack ? 0 : 1)) );
         if($gazette !== null){
             $gazette->addVictim($citizen);
             $this->entity_manager->persist($gazette);

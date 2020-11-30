@@ -398,9 +398,6 @@ class NightlyHandler
         /** @var CitizenWatch[] $watchers */
         $watchers = $this->entity_manager->getRepository(CitizenWatch::class)->findWatchersOfDay($town, $town->getDay() - 1); // -1 because day has been advanced before stage2
 
-        // Only deploy watchers if normal defense is not enough
-        /* if ($overflow > 0) { */
-
         if(count($watchers) > 0)
             $this->entity_manager->persist($this->logTemplates->nightlyAttackWatchers($town, $watchers));
 
@@ -412,7 +409,7 @@ class NightlyHandler
             $zeds_each_watcher = $overflow / count($town->getCitizenWatches());
         }
 
-        $this->log->debug("There are <info>".count($watchers)."</info> watchers in the town");
+        $this->log->debug("There are <info>".count($watchers)."</info> watchers in the town, against <info>$overflow</info> zombies");
 
         $defWatchers = 0;
 
@@ -422,19 +419,22 @@ class NightlyHandler
         $has_armory           = (bool)$this->town_handler->getBuilding($town, 'small_armor_#00', true);
 
         foreach ($watchers as $watcher) {
-            $def = $zeds_each_watcher == -1 ? $this->citizen_handler->getNightWatchDefense($watcher->getCitizen(), $has_shooting_gallery, $has_trebuchet, $has_ikea, $has_armory) : $zeds_each_watcher;
+            $defBonus = $zeds_each_watcher == -1 ? $this->citizen_handler->getNightWatchDefense($watcher->getCitizen(), $has_shooting_gallery, $has_trebuchet, $has_ikea, $has_armory) : $zeds_each_watcher;
 
-            $defWatchers += $def;
+            $defWatchers += $defBonus;
 
             $deathChances = $this->citizen_handler->getDeathChances($watcher->getCitizen());
             $woundOrTerrorChances = $deathChances + $this->conf->getTownConfiguration($town)->get(TownConf::CONF_MODIFIER_WOUND_TERROR_PENALTY, 0.05);
             $ctz = $watcher->getCitizen();
             if($this->random->chance($deathChances)){
                 $this->log->debug("Watcher <info>{$watcher->getCitizen()->getUser()->getUsername()}</info> is now <info>dead</info> because of the watch");
+                $skip = false;
                 // too sad, he died by falling from the edge
-                if($overflow == 0)
-                    $this->entity_manager->persist($this->logTemplates->citizenDeathOnWatch($watcher->getCitizen(), 0, null, $town->getDay()+1));
-                $this->kill_wrap($ctz, $cod, false, ($overflow > 0 ? $def : 0));
+                if($overflow <= 0) {
+                    $this->entity_manager->persist($this->logTemplates->citizenDeathOnWatch($watcher->getCitizen(), 0));
+                    $skip = true;
+                }
+                $this->kill_wrap($ctz, $cod, false, ($zeds_each_watcher > 0 ? $zeds_each_watcher : 0), $skip);
             } else if($overflow > 0 && $this->random->chance($woundOrTerrorChances)){
                 if($this->random->chance(0.5)){
                     // Wound
@@ -453,7 +453,7 @@ class NightlyHandler
             }
 
             if($overflow > 0){
-                $this->log->debug("Watcher <info>{$watcher->getCitizen()->getUser()->getUsername()}</info> has stopped <info>$def</info> zombies from his watch");
+                $this->log->debug("Watcher <info>{$watcher->getCitizen()->getUser()->getUsername()}</info> has stopped <info>$defBonus</info> zombies from his watch");
 
                 $null = null;
                 foreach ($watcher->getCitizen()->getInventory()->getItems() as $item)
@@ -463,18 +463,12 @@ class NightlyHandler
                         foreach ($r as $rr) $this->entity_manager->remove($rr);
                     }
 
-                $overflow -= $def;
+                $overflow -= $defBonus;
             } else {
                 $watcher->setSkipped(true);
                 $this->entity_manager->persist($watcher);
             }
         }
-        /* } else {
-            foreach ($watchers as $watcher) {
-                $watcher->setSkipped(true);
-                $this->entity_manager->persist($watcher);
-            }
-        } */
 
 
         if ($this->conf->getTownConfiguration($town)->get(TownConf::CONF_MODIFIER_BUILDING_DAMAGE)) {
