@@ -421,7 +421,7 @@
       </notes>
       <segment>
         <source>Hierfür brauchst du klares Wasser (keine Kanister)!</source>
-        <target>You need a Water Ration to do this !</target>
+        <target>You need a Water Ration to do this!</target>
       </segment>
     </unit>
     <unit id="TEo9cyt" name="Das Tor ist bereits geschlossen.">
@@ -1144,7 +1144,7 @@
       </notes>
       <segment>
         <source>Leiche nicht beseitigt!</source>
-        <target>Corps non retiré !</target>
+        <target>Corpse not removed!</target>
       </segment>
     </unit>
     <unit id="u_yrL5q" name="Tot!">
@@ -2938,7 +2938,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Verlassener Brunnen</source>
-        <target>Abandonned Well</target>
+        <target>Abandoned Well</target>
       </segment>
     </unit>
     <unit id="c9WjvSB" name="Verlassene Silos">
@@ -3208,7 +3208,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>%citizen% hat diese Ruine freigelegt. Es handelt sich um %type%. Hurra!</source>
-        <target>Thanks to %citizen%, the zone has been completely cleared, revealing a: %type%. Hurray !</target>
+        <target>Thanks to %citizen%, the zone has been completely cleared, revealing a: %type%. Hurray!</target>
       </segment>
     </unit>
     <unit id="zTh0a4e" name="a30f81a">
@@ -3839,7 +3839,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Zombieangriff</source>
-        <target>Lacerated... Devoured... during the night's attack !</target>
+        <target>Lacerated... Devoured... during the night's attack!</target>
       </segment>
     </unit>
     <unit id="M2sMvSZ" name="f2733ef">
@@ -3857,7 +3857,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Außerhalb der Stadt verschwunden</source>
-        <target>Disappeared in the World Beyond during the night !</target>
+        <target>Disappeared in the World Beyond during the night!</target>
       </segment>
     </unit>
     <unit id="sYsJdGM" name="0616d18">
@@ -3965,7 +3965,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Sorglos hast du dieses Produkt runtergeschluckt... Das darin enthaltene Gift hat nur wenige Sekunden gebraucht, um über dein Blutkreislaufsystem zum Herzen zu gelangen. Du hast dein Bewusstsein verloren. Atemstillstand und Herzversagen haben dir dann den Rest gegeben. Du wurdest vergifet!! Wie hinterhältig!</source>
-        <target>You swallow the product without a second thought... It only took a few seconds for the poison contained within to hit your bloodstream, causing your blood vessels to dilate almost instantly. First, you collapse, then your whole body begins to spasm. Then your heart stops. You have been murdered! !</target>
+        <target>You swallow the product without a second thought... It only took a few seconds for the poison contained within to hit your bloodstream, causing your blood vessels to dilate almost instantly. First, you collapse, then your whole body begins to spasm. Then your heart stops. You have been murdered!!</target>
       </segment>
     </unit>
     <unit id="b15cXr8" name="Mord">
@@ -4172,7 +4172,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Das Atomic Cafe ist (oder war) der Ort, an dem man sein sollte: Ein verblichenes Plakat lädt Sie zum Sommerfest am 2. Mai 2010 ein: Hawaiianisches Thema, Preis für den bestangezogenen (halbnackten Mädchen + Jungs) DJ Dave ab 13.00 Uhr, kostenloses BBQ, Biergarten mit verbessertem Look, Partyspiele, Live-Fußball, Cocktails, £2 Flaschenbier, £2 Alcopop, £1 Tequila... Beteiligen Sie sich!</source>
-        <target>The Atomic Cafe is (or was) the place to be: A faded poster invites you to come to the summer party on 2 May 2010: Hawaiian Theme, Prize for Best Dressed (Half Naked Girls + Guys) DJ Dave from 1pm, Free BBQ, Improved Look Beer Garden, Party Games, Live Football, Cocktails, £2 Bottled Beer, £2 Alcopop, £1 Tequila... Get Involved !</target>
+        <target>The Atomic Cafe is (or was) the place to be: A faded poster invites you to come to the summer party on 2 May 2010: Hawaiian Theme, Prize for Best Dressed (Half Naked Girls + Guys) DJ Dave from 1pm, Free BBQ, Improved Look Beer Garden, Party Games, Live Football, Cocktails, £2 Bottled Beer, £2 Alcopop, £1 Tequila... Get Involved!</target>
       </segment>
     </unit>
     <unit id="gINGGfh" name="defa5f9">
@@ -4208,7 +4208,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Der Baumarkt ist das zweite Zuhause eines jeden Handwerkers. In dieser Welt avanciert er jedoch zu einem wahren Paradies! Gegenstände von unschätzbarem Wert warten nur darauf von dir entdeckt zu werden... Der Werbespruch auf dem Dach hat zudem nichts von seiner Aktualität eingebüßt: 'Plündern Sie uns bevor es andere tun!'</source>
-        <target>A veritable Mecca for the DIY enthusiast. A paradise full of invaluable treasures for a world like ours... Their advertising slogan is even more appropriate nowadays: Pillage our store before someone else beats you to it !</target>
+        <target>A veritable Mecca for the DIY enthusiast. A paradise full of invaluable treasures for a world like ours... Their advertising slogan is even more appropriate nowadays: Pillage our store before someone else beats you to it!</target>
       </segment>
     </unit>
     <unit id="bhwk0Sz" name="63b8c04">
@@ -4226,7 +4226,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Von wegen Döner macht schöner. Scheint so als hätte der Besitzer dieser Bude das mit den Dönern und den Spießen missverstanden. Wer hier reingeht kommt garantiert nicht mehr raus. </source>
-        <target>If you're a bit peckish, esurient or just plain hungry, whatever you do, don't stop here ! Here it's the chef that wants to eat... you... after he cuts off your head with a circular saw.</target>
+        <target>If you're a bit peckish, esurient or just plain hungry, whatever you do, don't stop here! Here it's the chef that wants to eat... you... after he cuts off your head with a circular saw.</target>
       </segment>
     </unit>
     <unit id="Y107l78" name="4da0502">
@@ -4253,7 +4253,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Diese alte Mine hat es nicht vermocht den Wetterwidrigkeiten Stand zu halten. Nur Gott weiß, was die Menschen damals angetrieben hat, so tief zu graben, um der Erde nützliche Rohstoffe zu entreißen. Dabei reicht es mit den Füßen leicht am Boden zu kratzen und schon kommt eine leckere Kakerlake vorbeigehuscht. Du denkst dir: 'Lecker, die esse ich doch mal gleich'</source>
-        <target>An old mine which has not resisted the ravages of time well. God knows what caprice could have led people to look so deep underground to find something useful. Especially when you only just have to scratch the surface to find some delicious cockroaches to crunch on ! You start to feel hungry just thinking about it...</target>
+        <target>An old mine which has not resisted the ravages of time well. God knows what caprice could have led people to look so deep underground to find something useful. Especially when you only just have to scratch the surface to find some delicious cockroaches to crunch on! You start to feel hungry just thinking about it...</target>
       </segment>
     </unit>
     <unit id="aR2iiDZ" name="ca3fe4e">
@@ -4433,7 +4433,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Die hier stationierten Soldaten waren auf alles vorbereitet: Waffen, Vorräte und eine 150 m lange Sicherheitszone. Auf alles, außer darauf, dass ihr Leutnant sie während der Nacht verspeiste. Spaß beiseite, mit einer soliden Mauer und einer gesunden Diktatur gibt es (unter dem Gesichtspunkt des Überlebens) nichts Vergleichbares !</source>
-        <target>The soldiers stationed here were prepared for anything: weapons, supplies, and a 150m security perimeter. Anything except their lieutenant eating them during the night. Joking aside, with a solid wall and a healthy dictatorship, (from a survival point of view) there's nothing like it !</target>
+        <target>The soldiers stationed here were prepared for anything: weapons, supplies, and a 150m security perimeter. Anything except their lieutenant eating them during the night. Joking aside, with a solid wall and a healthy dictatorship, (from a survival point of view) there's nothing like it!</target>
       </segment>
     </unit>
     <unit id=".bMEBv6" name="9af8819">
@@ -4514,7 +4514,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>In dieses schöne Gebäude gingen die Menschen früher zur Arbeit. Pünktlichkeit und Dresscode waren Pflicht. Die tägliche Routine bestand darin, mit einer Gruppe unbekannter Kollegen Zielvorgaben zu erreichen und um sein eigenes Überleben zu kämpfen... Hhmmm, wenn du so drüber nachdenkst: So viel hat sich gar nicht geändert - bis auf den Dresscode vielleicht.</source>
-        <target>A nice office building where people used to get on with their work, starting early in the morning, surrounded by anonymous colleagues, trying to finish who knows what project but with one clear goal : their own survival. You think to yourself that maybe things haven't really changed all that much...</target>
+        <target>A nice office building where people used to get on with their work, starting early in the morning, surrounded by anonymous colleagues, trying to finish who knows what project but with one clear goal: their own survival. You think to yourself that maybe things haven't really changed all that much...</target>
       </segment>
     </unit>
     <unit id="uy1WNX." name="70d717e">
@@ -4541,7 +4541,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Wow - das ist ein verdammtes Geschenk des Himmels! Ein Brunnen, der immer noch funktioniert ! Völlig verloren in der Mitte von Nirgendwo gibt es hier niemanden mit seinem Regelwerk, der Ihnen sagt: 'Tun Sie dies nicht, tun Sie das nicht, nehmen Sie nicht zu viel Wasser, bla bla bla bla...'. Na los, nimm einen Drink, es wird unser kleines Geheimnis sein...</source>
-        <target>Wow - this is a bloody godsend ! A well which still works ! Completely lost in the middle of nowhere there is nobody here with their rulebook to tell you 'Don't do this, don't do that, don't take too much water, blah blah blah...' Go on, take a drink, it'll be our little secret...</target>
+        <target>Wow - this is a bloody godsend! A well which still works! Completely lost in the middle of nowhere there is nobody here with their rulebook to tell you 'Don't do this, don't do that, don't take too much water, blah blah blah...' Go on, take a drink, it'll be our little secret...</target>
       </segment>
     </unit>
     <unit id="nIZoj0r" name="1e1578a">
@@ -4559,7 +4559,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Was hier passiert ist erschließt sich dir nicht so ganz... Ein riesiger Felsen ist mit voller Wucht auf die Straße geschleudert worden - doch woher kam er? Rings um dich ist nichts als Wüste...</source>
-        <target>Something truly bizarre seems to have happened here : a huge rock seems to have crash landed in the middle of the road, like some kind of tombstone...Something truly bizarre seems to have happened here : a huge rock seems to have crash landed in the middle of the road, like some kind of tombstone...</target>
+        <target>Something truly bizarre seems to have happened here: a huge rock seems to have crash landed in the middle of the road, like some kind of tombstone...Something truly bizarre seems to have happened here: a huge rock seems to have crash landed in the middle of the road, like some kind of tombstone...</target>
       </segment>
     </unit>
     <unit id="yFJW.aK" name="8bf8201">

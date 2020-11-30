@@ -1885,7 +1885,7 @@
       </notes>
       <segment>
         <source>Das Prinzip ist ganz einfach: Wenn ihr in einer Koalition spielt, &lt;strong&gt;zieht der Erste, der eine Partie anfängt, alle verfügbaren Koalitionsmitglieder mit sich ins Spiel.&lt;/strong&gt;</source>
-        <target><![CDATA[The way it works is really simple: when you are a member of a coalition, <strong>zthe first member to join a town will take all available members with them.</strong>]]></target>
+        <target><![CDATA[The way it works is really simple: when you are a member of a coalition, <strong>the first member to join a town will take all available members with them.</strong>]]></target>
       </segment>
     </unit>
     <unit id="vxIJV3j" name="Du möchtest deine eigene Koalition erstellen?">
@@ -1984,7 +1984,7 @@
       </notes>
       <segment>
         <source>Nicht verfügbar</source>
-        <target>Not available</target>
+        <target>Unavailable</target>
       </segment>
     </unit>
     <unit id="3E9hxaU" name="Ausstehende Einladungen">
@@ -2119,7 +2119,7 @@
       </notes>
       <segment>
         <source>Wenn du nicht automatisch an einer Partie teilnehmen möchtest, sobald ein anderer Spieler der Koalition einer Stadt beitritt, stelle bitte ein: nicht zur Verfügung.</source>
-        <target>If you don't want to automatically join a game when another member of your coalition joins a town, activate Unavailable mode!.</target>
+        <target>If you don't want to automatically join a game when another member of your coalition joins a town, activate Unavailable mode!</target>
       </segment>
     </unit>
     <unit id="FNkhsV2" name="Vor 1 Tag">
