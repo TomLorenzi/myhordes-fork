@@ -64,7 +64,7 @@ class ExternalXML2Controller extends ExternalController {
         }
 
         if(trim($user_key) == '')
-        return new Response($this->arrayToXml( ["Error" => "Access Denied", "ErrorCode" => "403", "ErrorMessage" => "No user key found in request."], '<hordes xmlns:dc="http://purl.org/dc/elements/1.1" xmlns:content="http://purl.org/rss/1.0/modules/content/" />' ));
+            return new Response($this->arrayToXml( ["Error" => "Access Denied", "ErrorCode" => "403", "ErrorMessage" => "No user key found in request."], '<hordes xmlns:dc="http://purl.org/dc/elements/1.1" xmlns:content="http://purl.org/rss/1.0/modules/content/" />' ));
 
         // Get the app.
         /** @var ExternalApp $app */
@@ -565,7 +565,7 @@ class ExternalXML2Controller extends ExternalController {
                     'count' => $bankItem->getCount(),
                     'id' => $bankItem->getPrototype()->getId(),
                     'cat' => $bankItem->getPrototype()->getCategory()->getName(),
-                    'img' => $this->asset->getUrl( "build/images/item/item_{$item->getPrototype()->getIcon()}.gif"),
+                    'img' => $this->asset->getUrl( "build/images/item/item_{$bankItem->getPrototype()->getIcon()}.gif"),
                     'broken' => intval($bankItem->getBroken())
                 ]
             ];
