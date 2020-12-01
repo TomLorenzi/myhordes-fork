@@ -341,6 +341,18 @@ class LogTemplateHandler
             ->setCitizen( null );
     }
 
+    public function fireworkExplosion( Town $town, BuildingPrototype $proto ): TownLogEntry {
+        $variables = array('plan' => $proto->getId());
+        $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneBy(['name' => 'fireworkExplosion']);
+        return (new TownLogEntry())
+            ->setLogEntryTemplate($template)
+            ->setVariables($variables)
+            ->setTown( $town )
+            ->setDay( $town->getDay() )
+            ->setTimestamp( new DateTime('now') )
+            ->setCitizen( null );
+    }
+
     public function constructionsNewSite( Citizen $citizen, BuildingPrototype $proto ): TownLogEntry {
         if ($proto->getParent()){
             $variables = array('citizen' => $citizen->getId(), 'plan' => $proto->getId(), 'parent' => $proto->getParent()->getId());

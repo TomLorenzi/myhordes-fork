@@ -14760,5 +14760,86 @@
         <target>Der Rabe hat diese Nachricht zerrissen.</target>
       </segment>
     </unit>
+    <unit id="dm7lYmp" name="e20fc42">
+      <notes>
+        <note category="german">Die &lt;strong&gt;Explosion des %plan%&lt;/strong&gt; hat den ganzen Sektor in Mitleidenschaft gezogen! Das wird sicher Spuren hinterlassen ...</note>
+      </notes>
+      <segment>
+        <source>Die &lt;strong&gt;Explosion des %plan%&lt;/strong&gt; hat den ganzen Sektor in Mitleidenschaft gezogen! Das wird sicher Spuren hinterlassen ...</source>
+        <target><![CDATA[Toute la région a été touchée par la <strong>destruction de %plan%</strong> ! Il est à parier que cela va laisser des traces ...]]></target>
+      </segment>
+    </unit>
+    <unit id="ViEKCFv" name="Die Zukunft">
+      <notes>
+        <note category="german">Die Zukunft</note>
+      </notes>
+      <segment>
+        <source>Die Zukunft</source>
+        <target>Die Zukunft</target>
+      </segment>
+    </unit>
+    <unit id="nPZDQO6" name="Ranglisten der Saison">
+      <notes>
+        <note category="german">Ranglisten der Saison</note>
+      </notes>
+      <segment>
+        <source>Ranglisten der Saison</source>
+        <target>Ranglisten der Saison</target>
+      </segment>
+    </unit>
+    <unit id="JAkgM4Z" name="Kleine Koalitionen">
+      <notes>
+        <note category="german">Kleine Koalitionen</note>
+      </notes>
+      <segment>
+        <source>Kleine Koalitionen</source>
+        <target>Kleine Koalitionen</target>
+      </segment>
+    </unit>
+    <unit id="aGs0YSI" name="Die verfluchten Schriften">
+      <notes>
+        <note category="german">Die verfluchten Schriften</note>
+      </notes>
+      <segment>
+        <source>Die verfluchten Schriften</source>
+        <target>Die verfluchten Schriften</target>
+      </segment>
+    </unit>
+    <unit id="9XUKXXI" name="Einstellungen">
+      <notes>
+        <note category="german">Einstellungen</note>
+      </notes>
+      <segment>
+        <source>Einstellungen</source>
+        <target>Einstellungen</target>
+      </segment>
+    </unit>
+    <unit id="wUzzlwQ" name="Meine Seele">
+      <notes>
+        <note category="german">Meine Seele</note>
+      </notes>
+      <segment>
+        <source>Meine Seele</source>
+        <target>Meine Seele</target>
+      </segment>
+    </unit>
+    <unit id="lUcvZQo" name="Hilfe">
+      <notes>
+        <note category="german">Hilfe</note>
+      </notes>
+      <segment>
+        <source>Hilfe</source>
+        <target>Hilfe</target>
+      </segment>
+    </unit>
+    <unit id="r_d2gWQ" name="Die Außenwelt...">
+      <notes>
+        <note category="german">Die Außenwelt...</note>
+      </notes>
+      <segment>
+        <source>Die Außenwelt...</source>
+        <target>Die Außenwelt...</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

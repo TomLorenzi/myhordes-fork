@@ -629,7 +629,7 @@ class NightlyHandler
             $fireworks->setDefense($newDef);
             if($fireworks->getHp() <= 0) {
                 // It is destroyed, let's do this !
-                $this->entity_manager->persist($this->logTemplates->constructionsDestroy($town, $fireworks->getPrototype(), 20 ));
+                $this->entity_manager->persist($this->logTemplates->fireworkExplosion($town, $fireworks->getPrototype()));
 
                 $this->town_handler->destroy_building($town, $fireworks);
 
@@ -640,7 +640,8 @@ class NightlyHandler
                 $toInfect = [];
                 // Keeping citizens in town
                 foreach ($citizens as $citizen) {
-                    if(!$citizen->getZone()) continue;
+                    /** @var Citizen $citizen */
+                    if($citizen->getZone() || !$citizen->getAlive()) continue;
                     $toInfect[] = $citizen;
                 }
 
