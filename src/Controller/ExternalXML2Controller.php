@@ -160,7 +160,7 @@ class ExternalXML2Controller extends ExternalController {
                         'avatar' => $user->getId() . "/" . $user->getAvatar()->getFilename() . "." . $user->getAvatar()->getFormat(),
                         'x' => $citizen->getZone() !== null ? $citizen->getZone()->getX() : '0',
                         'y' => $citizen->getZone() !== null ? $citizen->getZone()->getY() : '0',
-                        'id' => $citizen->getUser()->getId(),
+                        'id' => $user->getId(),
                         'ban' => $citizen->getBanished(),
                         'job' => $citizen->getProfession()->getName(),
                         'out' => intval($citizen->getZone() !== null),
@@ -354,7 +354,7 @@ class ExternalXML2Controller extends ExternalController {
                         'avatar' => $user->getAvatar()!= null ? $user->getId() . "/" . $user->getAvatar()->getFilename() . "." . $user->getAvatar()->getFormat() : '', // TODO: Fix avatar URL
                         'x' => $citizen->getZone() !== null ? $activeOffset['x'] + $citizen->getZone()->getX() : $activeOffset['x'],
                         'y' => $citizen->getZone() !== null ? $activeOffset['y'] - $citizen->getZone()->getY() : $activeOffset['y'],
-                        'id' => $citizen->getId(),
+                        'id' => $citizen->getUser()->getId(),
                         'ban' => $citizen->getBanished(),
                         'job' => $citizen->getProfession()->getName(),
                         'out' => intval($citizen->getZone() !== null),
