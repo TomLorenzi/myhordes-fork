@@ -157,7 +157,7 @@ class ExternalXML2Controller extends ExternalController {
                         'dead' => intval(!$citizen->getAlive()),
                         'hero' => $citizen->getProfession()->getHeroic(),
                         'name' => $user->getUsername(),
-                        'avatar' => $user->getId() . "/" . $user->getAvatar()->getFilename() . "." . $user->getAvatar()->getFormat(),
+                        'avatar' => $user->getAvatar() !== null ? $user->getId() . "/" . $user->getAvatar()->getFilename() . "." . $user->getAvatar()->getFormat() : "",
                         'x' => $citizen->getZone() !== null ? $citizen->getZone()->getX() : '0',
                         'y' => $citizen->getZone() !== null ? $citizen->getZone()->getY() : '0',
                         'id' => $user->getId(),
@@ -237,6 +237,7 @@ class ExternalXML2Controller extends ExternalController {
                         'rare' => intval($picto['rare']),
                         'n' => $picto['c'],
                         'img' => $this->asset->getUrl( "build/images/pictos/{$picto['icon']}.gif"), // TODO: Fix img name to reflect real generated name
+                        'desc' => $trans->trans($picto['description'], [], "game"),
                     ],
                     'list' => [
                         'name' => 'title',
@@ -555,7 +556,7 @@ class ExternalXML2Controller extends ExternalController {
                         'z' => $gazette->getAttack(),
                         'def' => $gazette->getDefense()
                     ], 
-                    'value' => $text
+                    'content' => $text
                 ];
             }
 
