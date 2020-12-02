@@ -5,8 +5,10 @@
     {{'An einem kalten Morgen'|trans({}, 'game')|raw}}
 {% elseif "now"|date('H') < 18 %}
     {{"Die Außenwelt"|trans({}, 'game')|raw}}
-{% elseif "now"|date('H') < 24 %}
+{% elseif "now"|date('H') < 20 %}
     {{"Ein beunruhigender Sonnenuntergang"|trans({}, 'game')|raw}}
+{% else %}
+    {{"Eine eisige Nacht"|trans({}, 'game')|raw}}
 {% endif %}
 {# Alone or not #}
 {% if other_citizens|length == 1 %}
@@ -36,7 +38,11 @@
     {% set dir = 'im Südosten'|trans({},'game') %}
 {% endif %}
 {% if dir != "" %}
-, {{'irgendwo %location% der Stadt...'|trans({'%location%': dir}, 'game')|raw}}
+    {% if not zone.prototype %}
+        , {{'irgendwo %location% der Stadt...'|trans({'%location%': dir}, 'game')|raw}}
+    {% else %}
+        {{"Au pied d'une ruine inquiétante dans %location%"|trans({'%location%': dir}, 'game')|raw}}
+    {% endif %}    
 {% endif %}
 {% endblock %}
 {% block menu_text %}

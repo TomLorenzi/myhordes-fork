@@ -15012,5 +15012,14 @@
         <target>Le crépuscule inquiétant</target>
       </segment>
     </unit>
+    <unit id="XRqPUn0" name="Eine eisige Nacht">
+      <notes>
+        <note category="german">Eine eisige Nacht</note>
+      </notes>
+      <segment>
+        <source>Eine eisige Nacht</source>
+        <target>Une nuit glaciale</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
