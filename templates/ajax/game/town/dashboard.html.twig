@@ -1,4 +1,5 @@
 {% extends "ajax/game/town/town.html.twig" %}
+{% block title %}{{'Gemantansicht der Stadt'|trans({}, 'game')}}{% endblock %}
 {% block content %}
     {% set wtt = conf.get(constant('App\\Structures\\TownConf::CONF_MODIFIER_WT_THRESHOLD'),33) %}
 
