@@ -14922,22 +14922,22 @@
         <target>Der Brunnen</target>
       </segment>
     </unit>
-    <unit id="HMlOmzD" name="An einem kalten Morgen...">
+    <unit id="QA25eiQ" name="An einem kalten Morgen">
       <notes>
-        <note category="german">An einem kalten Morgen...</note>
+        <note category="german">An einem kalten Morgen</note>
       </notes>
       <segment>
-        <source>An einem kalten Morgen...</source>
-        <target>Par une froide matinée...</target>
+        <source>An einem kalten Morgen</source>
+        <target>Par une froide matinée</target>
       </segment>
     </unit>
-    <unit id="qdWhHOA" name="allein">
+    <unit id="E2tLR1n" name="... allein">
       <notes>
-        <note category="german">allein</note>
+        <note category="german">... allein</note>
       </notes>
       <segment>
-        <source>allein</source>
-        <target>seul(e)</target>
+        <source>... allein</source>
+        <target>... seul(e)</target>
       </segment>
     </unit>
     <unit id="8HYFzPV" name="irgendwo %location% der Stadt...">
@@ -14985,13 +14985,22 @@
         <target>Wiedergeburt: Wähle einen Beruf</target>
       </segment>
     </unit>
-    <unit id="r_d2gWQ" name="Die Außenwelt...">
+    <unit id="FvwX8Vo" name="Die Außenwelt">
       <notes>
-        <note category="german">Die Außenwelt...</note>
+        <note category="german">Die Außenwelt</note>
       </notes>
       <segment>
-        <source>Die Außenwelt...</source>
-        <target>L'outre-monde...</target>
+        <source>Die Außenwelt</source>
+        <target>L'outre-monde</target>
+      </segment>
+    </unit>
+    <unit id="spLHhcB" name="an der Seite von %citizen%">
+      <notes>
+        <note category="german">an der Seite von %citizen%</note>
+      </notes>
+      <segment>
+        <source>an der Seite von %citizen%</source>
+        <target>aux côtés de %citizen%</target>
       </segment>
     </unit>
   </file>

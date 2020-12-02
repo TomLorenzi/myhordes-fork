@@ -2,13 +2,17 @@
 {% block title %}
 {# Time of day #}
 {% if "now"|date('H') < 12 %}
-    {{'An einem kalten Morgen...'|trans({}, 'game')|raw}}
+    {{'An einem kalten Morgen'|trans({}, 'game')|raw}}
 {% else %}
-    {{"Die Außenwelt..."|trans({}, 'game')|raw}}
+    {{"Die Außenwelt"|trans({}, 'game')|raw}}
 {% endif %}
 {# Alone or not #}
 {% if other_citizens|length == 1 %}
-{{'allein'|trans({}, 'game')|raw}}
+    {{'... allein'|trans({}, 'game')|raw}}
+{% elseif other_citizens|length == 2 %}
+    {% set othername = other_citizens[0].user.name %}
+    {% if other_citizens[0].user == app.user %}{% set othername = other_citizens[1].user.name %}{% endif %}
+    {{'an der Seite von %citizen%'|trans({"%citizen%": othername}, 'game')|raw}}
 {% endif %}
 {# Direction #}
 {% set dir = "" %}
