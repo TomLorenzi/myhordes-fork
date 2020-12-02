@@ -153,7 +153,7 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
         return parent::addDefaultTwigArgs( $section,array_merge( [
             'zone_players' => count($zone->getCitizens()),
             'zone_zombies' => max(0,$zone->getZombies()),
-            'can_attack_citizen' => !$this->citizen_handler->isTired($this->getActiveCitizen()) && $this->getActiveCitizen()->getAp() >= 5,
+            'can_attack_citizen' => !$this->citizen_handler->isTired($this->getActiveCitizen()) && $this->getActiveCitizen()->getAp() >= 5 && !$this->citizen_handler->isWounded($this->getActiveCitizen()),
             'can_devour_citizen' => $this->getActiveCitizen()->hasRole('ghoul'),
             'allow_devour_citizen' => !$this->citizen_handler->hasStatusEffect($this->getActiveCitizen(), 'tg_ghoul_eat'),
             'zone_cp' => $cp,
@@ -340,7 +340,7 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
             'enter_costs_ap' => $require_ap,
             'allow_floor_access' => !$is_on_zero,
             'can_escape' => !$this->citizen_handler->isWounded( $this->getActiveCitizen() ),
-            'can_attack' => !$citizen_tired,
+            'can_attack' => !$citizen_tired && !$this->citizen_handler->isWounded($this->getActiveCitizen()),
             'zone_blocked' => $blocked,
             'zone_escape' => $escape,
             'digging' => $this->getActiveCitizen()->isDigging(),
@@ -1011,26 +1011,28 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
         if ($this->zone_handler->check_cp( $zone ) || $this->get_escape_timeout( $citizen ) > 0)
             return AjaxResponse::error( self::ErrorZoneUnderControl );
 
-        if ($this->inventory_handler->countSpecificItems(
-            $this->getActiveCitizen()->getInventory(), $this->entity_manager->getRepository(ItemPrototype::class)->findOneBy(['name' => 'vest_on_#00'])
-        ) > 0)
+        if ($this->inventory_handler->countSpecificItems($this->getActiveCitizen()->getInventory(), $this->entity_manager->getRepository(ItemPrototype::class)->findOneBy(['name' => 'vest_on_#00'])) > 0)
             return AjaxResponse::error( self::ErrorZoneUnderControl );
 
-            if ($citizen->getAp() <= 0 || $this->citizen_handler->isTired( $citizen ))
-                return AjaxResponse::error( ErrorHelper::ErrorNoAP );
+        if ($this->citizen_handler->isWounded($citizen)) {
+            return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailableWounded);
+        }
 
-            $this->citizen_handler->setAP( $citizen, true, -1 );
-            if ($generator->chance( 0.1 )) {
-                $zone->setZombies( $zone->getZombies() - 1 );
-                $this->entity_manager->persist( $this->log->zombieKill($citizen, null, 1));
-                // Add the picto Bare hands
-                $this->picto_handler->give_picto($citizen, 'r_wrestl_#00');
-                // Add the picto zed kill
-                $this->picto_handler->give_picto($citizen, 'r_killz_#00');
+        if ($citizen->getAp() <= 0 || $this->citizen_handler->isTired( $citizen ))
+            return AjaxResponse::error( ErrorHelper::ErrorNoAP );
 
-                $this->addFlash('notice', $this->translator->trans('Nach einem harten Kampf gelingt es dir schließlich, einen Zombie gegen einen Felsen fallen zu lassen... Sein Kopf explodiert buchstäblich und sein Inhalt spritz auf deine Schuhe! Du taumelst zurück, außer Atem: einer weniger...', [], 'game'));
+        $this->citizen_handler->setAP( $citizen, true, -1 );
+        if ($generator->chance( 0.1 )) {
+            $zone->setZombies( $zone->getZombies() - 1 );
+            $this->entity_manager->persist( $this->log->zombieKill($citizen, null, 1));
+            // Add the picto Bare hands
+            $this->picto_handler->give_picto($citizen, 'r_wrestl_#00');
+            // Add the picto zed kill
+            $this->picto_handler->give_picto($citizen, 'r_killz_#00');
 
-            } else $this->addFlash('notice', $this->translator->trans('Du schlägst mehrmals mit aller Kraft auf einen Zombie ein, aber es scheint ihm nichts auszumachen!', [], 'game'));
+            $this->addFlash('notice', $this->translator->trans('Nach einem harten Kampf gelingt es dir schließlich, einen Zombie gegen einen Felsen fallen zu lassen... Sein Kopf explodiert buchstäblich und sein Inhalt spritz auf deine Schuhe! Du taumelst zurück, außer Atem: einer weniger...', [], 'game'));
+
+        } else $this->addFlash('notice', $this->translator->trans('Du schlägst mehrmals mit aller Kraft auf einen Zombie ein, aber es scheint ihm nichts auszumachen!', [], 'game'));
 
 
         try {
