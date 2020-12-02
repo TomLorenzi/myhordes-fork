@@ -102,7 +102,7 @@
         <div class="padded cell rw-6 rw-md-8 rw-sm-12">
             <button x-ajax-href="{{ url('game_newspaper') }}">{% trans from 'game' %}Lesen Sie das Mitteilungsblatt{% endtrans %}</button>
         </div>
-            {% if town.dayWithoutAttack > 0 and (app.user == town.creator or is_granted('ROLE_CROW')) %}
+            {% if town.dayWithoutAttack > 0 and (app.user == town.creator or is_granted('ROLE_CROW')) and town.type.name == 'custom' %}
             <h5>{{ 'Deine Stadt'|trans({}, 'game') }}</h5>
             <ul class="overview-checklist">
                 {% if town.dayWithoutAttack > 0 %}
