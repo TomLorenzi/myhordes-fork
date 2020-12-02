@@ -56,6 +56,8 @@ class TownHomeController extends TownController
      */
     public function house(?string $tab, ?string $subtab, EntityManagerInterface $em, TownHandler $th, Request $request, TranslatorInterface $trans): Response
     {
+        if (!$this->getActiveCitizen()->getHasSeenGazette())
+            return $this->redirect($this->generateUrl('game_newspaper'));
 
         // Get citizen, town and home objects
         $citizen = $this->getActiveCitizen();
@@ -265,7 +267,7 @@ class TownHomeController extends TownController
         $home = $citizen->getHome();
 
         // Attempt to get the next house level; fail if none exists
-        $next = $em->getRepository(CitizenHomePrototype::class)->findOneByLevel( $home->getPrototype()->getLevel() + 1 );
+        $next = $em->getRepository(CitizenHomePrototype::class)->findOneBy( ['level' => $home->getPrototype()->getLevel() + 1] );
         if (!$next) return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
 
         // Make sure the citizen is not tired

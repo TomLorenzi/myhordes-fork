@@ -40,6 +40,11 @@ class Hook
         if(!$town->getDevastated()) $town->setDoor(false);
     }
 
+    /**
+     * For christmas, if we're on the 25th or 31st, we spawn items
+     *
+     * @param Town $town
+     */
     public static function night_christmas($town) {
         /** @var Town $town */
         foreach ($town[0]->getCitizens() as $citizen){

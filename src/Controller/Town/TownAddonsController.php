@@ -44,6 +44,9 @@ class TownAddonsController extends TownController
      */
     public function addon_upgrades(): Response
     {
+        if (!$this->getActiveCitizen()->getHasSeenGazette())
+            return $this->redirect($this->generateUrl('game_newspaper'));
+
         $town = $this->getActiveCitizen()->getTown();
         $buildings = [];
         $max_votes = 0;
@@ -105,6 +108,9 @@ class TownAddonsController extends TownController
      */
     public function addon_watchtower(TownHandler $th, InventoryHandler $iv): Response
     {
+        if (!$this->getActiveCitizen()->getHasSeenGazette())
+            return $this->redirect($this->generateUrl('game_newspaper'));
+
         $town = $this->getActiveCitizen()->getTown();
         if (!$th->getBuilding($town, 'item_tagger_#00', true))
             return $this->redirect($this->generateUrl('town_dashboard'));
@@ -116,9 +122,9 @@ class TownAddonsController extends TownController
         if ($has_zombie_est_tomorrow && $z_q1 >= 1) $z_q2 = $th->get_zombie_estimation_quality( $town, 1, $z_tomorrow_min, $z_tomorrow_max );
 
         /** @var ZombieEstimation $est0 */
-        $est0 = $this->entity_manager->getRepository(ZombieEstimation::class)->findOneByTown($town,$town->getDay());
+        $est0 = $this->entity_manager->getRepository(ZombieEstimation::class)->findOneBy(['town' => $town, 'day' => $town->getDay()]);
         /** @var ZombieEstimation $est1 */
-        $est1 = $this->entity_manager->getRepository(ZombieEstimation::class)->findOneByTown($town,$town->getDay()+1);
+        $est1 = $this->entity_manager->getRepository(ZombieEstimation::class)->findOneBy(['town' => $town, 'day' => $town->getDay()+1]);
 
         return $this->render( 'ajax/game/town/watchtower.html.twig', $this->addDefaultTwigArgs('watchtower', [
             'z0' => [ true, true, $z_today_min, $z_today_max, round($z_q1*100) ],
@@ -157,7 +163,7 @@ class TownAddonsController extends TownController
         }
 
         /** @var ZombieEstimation $est */
-        $est = $this->entity_manager->getRepository(ZombieEstimation::class)->findOneByTown($town,$town->getDay()+$day);
+        $est = $this->entity_manager->getRepository(ZombieEstimation::class)->findOneBy(['town' => $town, 'day' => $town->getDay() + $day]);
         if (!$est) return AjaxResponse::error( ErrorHelper::ErrorInternalError );
 
         if ($est->getCitizens()->contains($this->getActiveCitizen()))
@@ -177,7 +183,7 @@ class TownAddonsController extends TownController
 
         if($day === 1) {
             // If we are calculating for tomorrow, we also add that this citizen estimated for today
-            $est_current = $this->entity_manager->getRepository(ZombieEstimation::class)->findOneByTown($town,$town->getDay());
+            $est_current = $this->entity_manager->getRepository(ZombieEstimation::class)->findOneBy(['town' => $town, 'day' => $town->getDay()]);
             if(!$est_current->getCitizens()->contains($this->getActiveCitizen())) {
                 $est_current->addCitizen($this->getActiveCitizen());
                 $this->entity_manager->persist($est_current);    
@@ -202,6 +208,9 @@ class TownAddonsController extends TownController
      */
     public function addon_workshop(TownHandler $th, InventoryHandler $iv): Response
     {
+        if (!$this->getActiveCitizen()->getHasSeenGazette())
+            return $this->redirect($this->generateUrl('game_newspaper'));
+
         $town = $this->getActiveCitizen()->getTown();
         $c_inv = $this->getActiveCitizen()->getInventory();
         $t_inv = $town->getBank();
@@ -209,7 +218,7 @@ class TownAddonsController extends TownController
         if (!$th->getBuilding($town, 'small_refine_#00', true))
             return $this->redirect($this->generateUrl('town_dashboard'));
 
-        $have_saw  = $iv->countSpecificItems( $c_inv, $this->entity_manager->getRepository( ItemPrototype::class )->findOneByName( 'saw_tool_#00' ), false, false ) > 0;
+        $have_saw  = $iv->countSpecificItems( $c_inv, $this->entity_manager->getRepository( ItemPrototype::class )->findOneBy( ['name' => 'saw_tool_#00'] ), false, false ) > 0;
         $have_manu = $th->getBuilding($town, 'small_factory_#00', true) !== null;
 
         $recipes = $this->entity_manager->getRepository(Recipe::class)->findBy( ['type' => Recipe::WorkshopType] );
@@ -336,6 +345,9 @@ class TownAddonsController extends TownController
      */
     public function addon_dump(TownHandler $th): Response
     {
+        if (!$this->getActiveCitizen()->getHasSeenGazette())
+            return $this->redirect($this->generateUrl('game_newspaper'));
+
         $town = $this->getActiveCitizen()->getTown();
 
         if (!($dump = $th->getBuilding($town, 'small_trash_#00', true)))
@@ -431,6 +443,9 @@ class TownAddonsController extends TownController
      */
     public function addon_nightwatch(TownHandler $th): Response
     {
+        if (!$this->getActiveCitizen()->getHasSeenGazette())
+            return $this->redirect($this->generateUrl('game_newspaper'));
+
         $town = $this->getActiveCitizen()->getTown();
         if (!$this->getTownConf()->get(TownConf::CONF_FEATURE_NIGHTWATCH, true))
             return $this->redirect($this->generateUrl('town_dashboard'));
