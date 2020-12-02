@@ -1818,7 +1818,7 @@
       </notes>
       <segment>
         <source>Ausblenden</source>
-        <target>Ausblenden</target>
+        <target>Cacher</target>
       </segment>
     </unit>
     <unit id="UzZ7xlJ" name="Nachricht">
@@ -1827,7 +1827,7 @@
       </notes>
       <segment>
         <source>Nachricht</source>
-        <target>Nachricht</target>
+        <target>Message</target>
       </segment>
     </unit>
     <unit id="dJK8aO8" name="Ausb.+Nachr.">
@@ -1836,7 +1836,7 @@
       </notes>
       <segment>
         <source>Ausb.+Nachr.</source>
-        <target>Ausb.+Nachr.</target>
+        <target>Masquer + Message</target>
       </segment>
     </unit>
   </file>
