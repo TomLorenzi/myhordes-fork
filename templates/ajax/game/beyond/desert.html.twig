@@ -4,7 +4,7 @@
 {% if "now"|date('H') < 12 %}
     {{'An einem kalten Morgen...'|trans({}, 'game')|raw}}
 {% else %}
-    Die Außenwelt...
+    {{"Die Außenwelt..."|trans({}, 'game')|raw}}
 {% endif %}
 {# Alone or not #}
 {% if other_citizens|length == 1 %}
