@@ -14985,5 +14985,14 @@
         <target>Wiedergeburt: Wähle einen Beruf</target>
       </segment>
     </unit>
+    <unit id="r_d2gWQ" name="Die Außenwelt...">
+      <notes>
+        <note category="german">Die Außenwelt...</note>
+      </notes>
+      <segment>
+        <source>Die Außenwelt...</source>
+        <target>L'outre-monde...</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
