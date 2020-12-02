@@ -14775,7 +14775,7 @@
       </notes>
       <segment>
         <source>Die Zukunft</source>
-        <target>Die Zukunft</target>
+        <target>L'avenir</target>
       </segment>
     </unit>
     <unit id="nPZDQO6" name="Ranglisten der Saison">
@@ -14784,7 +14784,7 @@
       </notes>
       <segment>
         <source>Ranglisten der Saison</source>
-        <target>Ranglisten der Saison</target>
+        <target>Classement de la saison</target>
       </segment>
     </unit>
     <unit id="JAkgM4Z" name="Kleine Koalitionen">
@@ -14793,7 +14793,7 @@
       </notes>
       <segment>
         <source>Kleine Koalitionen</source>
-        <target>Kleine Koalitionen</target>
+        <target>Petites coalitions</target>
       </segment>
     </unit>
     <unit id="aGs0YSI" name="Die verfluchten Schriften">
@@ -14802,7 +14802,7 @@
       </notes>
       <segment>
         <source>Die verfluchten Schriften</source>
-        <target>Die verfluchten Schriften</target>
+        <target>Les écrits maudits</target>
       </segment>
     </unit>
     <unit id="9XUKXXI" name="Einstellungen">
@@ -14811,7 +14811,7 @@
       </notes>
       <segment>
         <source>Einstellungen</source>
-        <target>Einstellungen</target>
+        <target>Réglages</target>
       </segment>
     </unit>
     <unit id="wUzzlwQ" name="Meine Seele">
@@ -14820,7 +14820,7 @@
       </notes>
       <segment>
         <source>Meine Seele</source>
-        <target>Meine Seele</target>
+        <target>Mon Âme</target>
       </segment>
     </unit>
     <unit id="lUcvZQo" name="Hilfe">
@@ -14829,16 +14829,124 @@
       </notes>
       <segment>
         <source>Hilfe</source>
-        <target>Hilfe</target>
+        <target>Aide</target>
       </segment>
     </unit>
-    <unit id="r_d2gWQ" name="Die Außenwelt...">
+    <unit id="fh_ltq7" name="Die Bank">
       <notes>
-        <note category="german">Die Außenwelt...</note>
+        <note category="german">Die Bank</note>
       </notes>
       <segment>
-        <source>Die Außenwelt...</source>
-        <target>Die Außenwelt...</target>
+        <source>Die Bank</source>
+        <target>La banque</target>
+      </segment>
+    </unit>
+    <unit id="WLvQ7GY" name="Mein Zuhause (Truhe)">
+      <notes>
+        <note category="german">Mein Zuhause (Truhe)</note>
+      </notes>
+      <segment>
+        <source>Mein Zuhause (Truhe)</source>
+        <target>Mein Zuhause (Truhe)</target>
+      </segment>
+    </unit>
+    <unit id="sK6WW0q" name="Gemantansicht der Stadt">
+      <notes>
+        <note category="german">Gemantansicht der Stadt</note>
+      </notes>
+      <segment>
+        <source>Gemantansicht der Stadt</source>
+        <target>Gemantansicht der Stadt</target>
+      </segment>
+    </unit>
+    <unit id="D80Dpwo" name="Das Stadttor von &quot;%townname%&quot;">
+      <notes>
+        <note category="german">Das Stadttor von "%townname%"</note>
+      </notes>
+      <segment>
+        <source>Das Stadttor von "%townname%"</source>
+        <target>Das Stadttor von "%townname%"</target>
+      </segment>
+    </unit>
+    <unit id="CGisub9" name="Bauprojekte der Stadt">
+      <notes>
+        <note category="german">Bauprojekte der Stadt</note>
+      </notes>
+      <segment>
+        <source>Bauprojekte der Stadt</source>
+        <target>Bauprojekte der Stadt</target>
+      </segment>
+    </unit>
+    <unit id="L2mGaV4" name="Expeditionen">
+      <notes>
+        <note category="german">Expeditionen</note>
+      </notes>
+      <segment>
+        <source>Expeditionen</source>
+        <target>Expeditionen</target>
+      </segment>
+    </unit>
+    <unit id="honrhKi" name="Die Bürger">
+      <notes>
+        <note category="german">Die Bürger</note>
+      </notes>
+      <segment>
+        <source>Die Bürger</source>
+        <target>Die Bürger</target>
+      </segment>
+    </unit>
+    <unit id="VP5Pzpa" name="Verbessrung des Tages">
+      <notes>
+        <note category="german">Verbessrung des Tages</note>
+      </notes>
+      <segment>
+        <source>Verbessrung des Tages</source>
+        <target>Verbessrung des Tages</target>
+      </segment>
+    </unit>
+    <unit id="STRIX5b" name="Wätcher">
+      <notes>
+        <note category="german">Wätcher</note>
+      </notes>
+      <segment>
+        <source>Wätcher</source>
+        <target>Wätcher</target>
+      </segment>
+    </unit>
+    <unit id="Qs_pglW" name="Der Brunnen">
+      <notes>
+        <note category="german">Der Brunnen</note>
+      </notes>
+      <segment>
+        <source>Der Brunnen</source>
+        <target>Der Brunnen</target>
+      </segment>
+    </unit>
+    <unit id="HMlOmzD" name="An einem kalten Morgen...">
+      <notes>
+        <note category="german">An einem kalten Morgen...</note>
+      </notes>
+      <segment>
+        <source>An einem kalten Morgen...</source>
+        <target>Par une froide matinée...</target>
+      </segment>
+    </unit>
+    <unit id="qdWhHOA" name="allein">
+      <notes>
+        <note category="german">allein</note>
+      </notes>
+      <segment>
+        <source>allein</source>
+        <target>seul(e)</target>
+      </segment>
+    </unit>
+    <unit id="8HYFzPV" name="irgendwo %location% der Stadt...">
+      <notes>
+        <note category="german">irgendwo %location% der Stadt...</note>
+      </notes>
+      <segment>
+        <source>irgendwo %location% der Stadt...</source>
+        <target>quelque part %location% de la ville...</target>
       </segment>
     </unit>
   </file>

@@ -1,5 +1,38 @@
 {% extends "ajax/game/beyond/beyond.html.twig" %}
-{% block title %}{{'Die Außenwelt...'|trans({}, 'game')}}{% endblock %}
+{% block title %}
+{# Time of day #}
+{% if "now"|date('H') < 12 %}
+    {{'An einem kalten Morgen...'|trans({}, 'game')|raw}}
+{% else %}
+    Die Außenwelt...
+{% endif %}
+{# Alone or not #}
+{% if other_citizens|length == 1 %}
+{{'allein'|trans({}, 'game')|raw}}
+{% endif %}
+{# Direction #}
+{% set dir = "" %}
+{% if zone.getDirection == constant('App\\Entity\\Zone::DirectionNorthWest') %}
+    {% set dir = "im Nordwesten"|trans({},'game') %}
+{% elseif zone.getDirection == constant('App\\Entity\\Zone::DirectionNorth') %}
+    {% set dir = "im Norden"|trans({},'game') %}
+{% elseif zone.getDirection == constant('App\\Entity\\Zone::DirectionNorthEast') %}
+    {% set dir = "im Nordosten"|trans({},'game') %}
+{% elseif zone.getDirection == constant('App\\Entity\\Zone::DirectionWest') %}
+    {% set dir = "im Westen"|trans({},'game') %}
+{% elseif zone.getDirection == constant('App\\Entity\\Zone::DirectionEast') %}
+    {% set dir = "im Osten"|trans({},'game') %}
+{% elseif zone.getDirection == constant('App\\Entity\\Zone::DirectionSouthWest') %}
+    {% set dir = "im Südwesten"|trans({},'game') %}
+{% elseif zone.getDirection == constant('App\\Entity\\Zone::DirectionSouth') %}
+    {% set dir = "im Süden"|trans({},'game') %}
+{% elseif zone.getDirection == constant('App\\Entity\\Zone::DirectionSouthEast') %}
+    {% set dir = 'im Südosten'|trans({},'game') %}
+{% endif %}
+{% if dir != "" %}
+, {{'irgendwo %location% der Stadt...'|trans({'%location%': dir}, 'game')|raw}}
+{% endif %}
+{% endblock %}
 {% block menu_text %}
     {{ parent() }}
 {% endblock %}
