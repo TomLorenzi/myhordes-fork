@@ -14847,7 +14847,7 @@
       </notes>
       <segment>
         <source>Mein Zuhause (Truhe)</source>
-        <target>Mein Zuhause (Truhe)</target>
+        <target>Ma maison (Coffre)</target>
       </segment>
     </unit>
     <unit id="sK6WW0q" name="Gemantansicht der Stadt">
@@ -14856,7 +14856,7 @@
       </notes>
       <segment>
         <source>Gemantansicht der Stadt</source>
-        <target>Gemantansicht der Stadt</target>
+        <target>Vue d'ensemble</target>
       </segment>
     </unit>
     <unit id="D80Dpwo" name="Das Stadttor von &quot;%townname%&quot;">
@@ -14865,7 +14865,7 @@
       </notes>
       <segment>
         <source>Das Stadttor von "%townname%"</source>
-        <target>Das Stadttor von "%townname%"</target>
+        <target>La porte de "%townname%"</target>
       </segment>
     </unit>
     <unit id="CGisub9" name="Bauprojekte der Stadt">
@@ -14874,7 +14874,7 @@
       </notes>
       <segment>
         <source>Bauprojekte der Stadt</source>
-        <target>Bauprojekte der Stadt</target>
+        <target>Les chantiers de la ville</target>
       </segment>
     </unit>
     <unit id="L2mGaV4" name="Expeditionen">
@@ -14883,7 +14883,7 @@
       </notes>
       <segment>
         <source>Expeditionen</source>
-        <target>Expeditionen</target>
+        <target>Expéditions</target>
       </segment>
     </unit>
     <unit id="honrhKi" name="Die Bürger">
@@ -14892,7 +14892,7 @@
       </notes>
       <segment>
         <source>Die Bürger</source>
-        <target>Die Bürger</target>
+        <target>Les citoyens</target>
       </segment>
     </unit>
     <unit id="VP5Pzpa" name="Verbessrung des Tages">
@@ -14901,7 +14901,7 @@
       </notes>
       <segment>
         <source>Verbessrung des Tages</source>
-        <target>Verbessrung des Tages</target>
+        <target>Évolutions du jour</target>
       </segment>
     </unit>
     <unit id="STRIX5b" name="Wätcher">
@@ -14910,7 +14910,7 @@
       </notes>
       <segment>
         <source>Wätcher</source>
-        <target>Wätcher</target>
+        <target>Veilleurs</target>
       </segment>
     </unit>
     <unit id="Qs_pglW" name="Der Brunnen">
@@ -14919,7 +14919,7 @@
       </notes>
       <segment>
         <source>Der Brunnen</source>
-        <target>Der Brunnen</target>
+        <target>Le puits</target>
       </segment>
     </unit>
     <unit id="QA25eiQ" name="An einem kalten Morgen">
