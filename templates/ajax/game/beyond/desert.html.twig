@@ -3,8 +3,10 @@
 {# Time of day #}
 {% if "now"|date('H') < 12 %}
     {{'An einem kalten Morgen'|trans({}, 'game')|raw}}
-{% else %}
+{% elseif "now"|date('H') < 18 %}
     {{"Die Außenwelt"|trans({}, 'game')|raw}}
+{% elseif "now"|date('H') < 24 %}
+    {{"Ein beunruhigender Sonnenuntergang"|trans({}, 'game')|raw}}
 {% endif %}
 {# Alone or not #}
 {% if other_citizens|length == 1 %}

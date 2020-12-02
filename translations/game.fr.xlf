@@ -15003,5 +15003,14 @@
         <target>aux côtés de %citizen%</target>
       </segment>
     </unit>
+    <unit id="hZyt4RO" name="Ein beunruhigender Sonnenuntergang">
+      <notes>
+        <note category="german">Ein beunruhigender Sonnenuntergang</note>
+      </notes>
+      <segment>
+        <source>Ein beunruhigender Sonnenuntergang</source>
+        <target>Le crépuscule inquiétant</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
