@@ -1618,7 +1618,7 @@
       </notes>
       <segment>
         <source>Nachricht?</source>
-        <target>Nachricht?</target>
+        <target>Message?</target>
       </segment>
     </unit>
     <unit id="XCTslOz" name="Foren-Meldungen">
@@ -1627,7 +1627,7 @@
       </notes>
       <segment>
         <source>Foren-Meldungen</source>
-        <target>Foren-Meldungen</target>
+        <target>Messages du forum</target>
       </segment>
     </unit>
     <unit id="EdJ7diC" name="PN-Meldungen">
@@ -1636,7 +1636,7 @@
       </notes>
       <segment>
         <source>PN-Meldungen</source>
-        <target>PN-Meldungen</target>
+        <target>Messages MP</target>
       </segment>
     </unit>
     <unit id="vDhaMLU" name="Öffnen">
@@ -1645,7 +1645,7 @@
       </notes>
       <segment>
         <source>Öffnen</source>
-        <target>Öffnen</target>
+        <target>Ouvrir</target>
       </segment>
     </unit>
   </file>

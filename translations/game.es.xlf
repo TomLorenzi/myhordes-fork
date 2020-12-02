@@ -14293,7 +14293,7 @@
       </notes>
       <segment>
         <source>HAZ-Gewinner</source>
-        <target>HAZ-Gewinner</target>
+        <target>Ganador del CTP</target>
       </segment>
     </unit>
     <unit id="ltZ7BR_" name="Ehrenauszeichnung für den Gewinner der Heilung für die Auszeichnungssucht.">
@@ -14302,7 +14302,7 @@
       </notes>
       <segment>
         <source>Ehrenauszeichnung für den Gewinner der Heilung für die Auszeichnungssucht.</source>
-        <target>Ehrenauszeichnung für den Gewinner der Heilung für die Auszeichnungssucht.</target>
+        <target>¡Premio honorario dado al ganador de "Curando tu Pictofilia"!</target>
       </segment>
     </unit>
     <unit id="YZc0dgj" name="Kernsammler (job)">
@@ -14347,7 +14347,7 @@
       </notes>
       <segment>
         <source>Ich bin geheilt</source>
-        <target>Ich bin geheilt</target>
+        <target>Estoy curado</target>
       </segment>
     </unit>
     <unit id="exaN90z" name="Die letzten Nachrichten meiner Koalition lesen.">
