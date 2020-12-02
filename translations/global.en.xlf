@@ -1718,7 +1718,7 @@
       </notes>
       <segment>
         <source>Folgende Bürger sind wahlweise: &lt;ul&gt;&lt;li&gt;auf ihrer Todesanzeigeseite (sie haben ihren Tod noch nicht bestätigt),&lt;/li&gt;&lt;li&gt;bereits im Spiel,&lt;/li&gt;&lt;li&gt;sie haben sich entschieden, nicht automatisch einer Stadt und ihrer Koalition anzugehören.&lt;/li&gt;&lt;li&gt;oder, sie haben sich seit über 5 Tagen nicht mehr angemeldet.&lt;/li&gt;&lt;/ul&gt;</source>
-        <target><![CDATA[Folgende Bürger sind wahlweise: <ul><li>auf ihrer Todesanzeigeseite (sie haben ihren Tod noch nicht bestätigt),</li><li>bereits im Spiel,</li><li>sie haben sich entschieden, nicht automatisch einer Stadt und ihrer Koalition anzugehören.</li><li>oder, sie haben sich seit über 5 Tagen nicht mehr angemeldet.</li></ul>]]></target>
+        <target><![CDATA[The following citizens are: <ul><li>either on their 'Death' page (they have not yet confirmed their death),</li><li>are already in a game,</li><li>they have chosen not to automatically join towns with the rest of the coalition,</li><li>they have not connected in more than 5 days.</li></ul>]]></target>
       </segment>
     </unit>
     <unit id="Dhx3Fbp" name="212f094">
