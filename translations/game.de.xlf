@@ -14644,5 +14644,95 @@
         <target>Aktivität</target>
       </segment>
     </unit>
+    <unit id="jA6Q6MW" name="Häuser der Bürger">
+      <notes>
+        <note category="german">Häuser der Bürger</note>
+      </notes>
+      <segment>
+        <source>Häuser der Bürger</source>
+        <target>Häuser der Bürger</target>
+      </segment>
+    </unit>
+    <unit id="dcfxfNT" name="Befristete Beiträge">
+      <notes>
+        <note category="german">Befristete Beiträge</note>
+      </notes>
+      <segment>
+        <source>Befristete Beiträge</source>
+        <target>Befristete Beiträge</target>
+      </segment>
+    </unit>
+    <unit id="9_pNKlL" name="Leichen-Bonus">
+      <notes>
+        <note category="german">Leichen-Bonus</note>
+      </notes>
+      <segment>
+        <source>Leichen-Bonus</source>
+        <target>Leichen-Bonus</target>
+      </segment>
+    </unit>
+    <unit id="1YdiLSd" name="Bonus">
+      <notes>
+        <note category="german">Bonus</note>
+      </notes>
+      <segment>
+        <source>Bonus</source>
+        <target>Bonus</target>
+      </segment>
+    </unit>
+    <unit id="X7RHtVg" name="UFC">
+      <notes>
+        <note category="german">UFC</note>
+      </notes>
+      <segment>
+        <source>UFC</source>
+        <target>UFC</target>
+      </segment>
+    </unit>
+    <unit id="FeUmzHX" name="Ehrenpreis für die Teilnahme am UFC!">
+      <notes>
+        <note category="german">Ehrenpreis für die Teilnahme am UFC!</note>
+      </notes>
+      <segment>
+        <source>Ehrenpreis für die Teilnahme am UFC!</source>
+        <target>Ehrenpreis für die Teilnahme am UFC!</target>
+      </segment>
+    </unit>
+    <unit id="67K3DmE" name="Seelenführer der Gemeinschaft">
+      <notes>
+        <note category="german">Seelenführer der Gemeinschaft</note>
+      </notes>
+      <segment>
+        <source>Seelenführer der Gemeinschaft</source>
+        <target>Seelenführer der Gemeinschaft</target>
+      </segment>
+    </unit>
+    <unit id="fxrMNw." name="Charismatischer Prophet">
+      <notes>
+        <note category="german">Charismatischer Prophet</note>
+      </notes>
+      <segment>
+        <source>Charismatischer Prophet</source>
+        <target>Charismatischer Prophet</target>
+      </segment>
+    </unit>
+    <unit id="WlT3ppX" name="Der Rabe hat diese Nachricht zerrissen.">
+      <notes>
+        <note category="german">Der Rabe hat diese Nachricht zerrissen.</note>
+      </notes>
+      <segment>
+        <source>Der Rabe hat diese Nachricht zerrissen.</source>
+        <target>Der Rabe hat diese Nachricht zerrissen.</target>
+      </segment>
+    </unit>
+    <unit id="6PPO5fH" name="Dieser Abwehrbonus verschwindet um Mitternacht, nach dem Angriff.">
+      <notes>
+        <note category="german">Dieser Abwehrbonus verschwindet um Mitternacht, nach dem Angriff.</note>
+      </notes>
+      <segment>
+        <source>Dieser Abwehrbonus verschwindet um Mitternacht, nach dem Angriff.</source>
+        <target>Dieser Abwehrbonus verschwindet um Mitternacht, nach dem Angriff.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

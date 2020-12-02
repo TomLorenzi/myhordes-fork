@@ -59,10 +59,15 @@
                     </div>
                 </div>
                 <div class="cell rw-3 right count" style="background:#593223; padding: 5px;">
+                    <div class='nbPost'>
                     {% if thread.visiblePosts|length > 1 %}
                         {{ thread.visiblePosts|length - 1 }}
+                    {% else %}
+                        &nbsp;
                     {% endif %}
+                    </div>
                     <br />
+                    <div class="author">
                     {% set last_post = thread.lastPost %}
                     {% if last_post and last_post.owner %}
                         {% if last_post.owner.name == 'Der Rabe' %}
@@ -74,11 +79,12 @@
                         {% if thread.owner.name == 'Der Rabe' %}
                             {{ 'Der Rabe'|trans({},'global') }}
                         {% else %}
-                            {{ thread.owner.name }}
+                            {{ last_post.owner.name }}
                         {% endif %}
                     {% else %}
                         {{ 'Der Rabe'|trans({},'global') }}
                     {% endif %}
+                    </div>
                 </div>
             </div>
         {% endfor %}

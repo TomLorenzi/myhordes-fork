@@ -16,7 +16,7 @@
       </notes>
       <segment>
         <source>Wow, du hast einen Trippel geworfen. Das hat so viel Spaß gemacht, dass du 1AP gewinnst!</source>
-        <target>Bravo, vous obtenez un triplet ! Qu'est-ce qu'on s'amuse ! Ca vous fait tellement plaisir que vous gagnez 1 PA.</target>
+        <target>Bravo, vous obtenez un triplet ! Qu'est-ce qu'on s'amuse ! Ça vous fait tellement plaisir que vous gagnez 1 PA.</target>
       </segment>
     </unit>
     <unit id="rmGP8Al" name="15675e8">
@@ -34,7 +34,7 @@
       </notes>
       <segment>
         <source>Wow, du hast beim ersten Versuch eine 4-2-1 geworfen. Das hat so viel Spaß gemacht, dass du 1AP gewinnst!</source>
-        <target>Vous obtenez un 421 du premier coup… Pas mal. D'ailleurs, ça vous remonte tellement le moral que vous gagnez 1 PA.</target>
+        <target>Vous obtenez un 421 du premier coup... Pas mal. D'ailleurs, ça vous remonte tellement le moral que vous gagnez 1 PA.</target>
       </segment>
     </unit>
     <unit id="087WiZd" name="Nicht schlecht, du hast einen Pasch geworfen.">
@@ -52,7 +52,7 @@
       </notes>
       <segment>
         <source>Was für ein Spaß!</source>
-        <target>C'était fun !</target>
+        <target></target>
       </segment>
     </unit>
     <unit id="zcpU78C" name="3649d62">

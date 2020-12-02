@@ -75,5 +75,21 @@
                 dropdown.style.height = Math.ceil(target_height) + 'px';
             }
         });
+        {% if custom_css is defined and custom_css != '' %}
+        if(!document.getElementsByTagName('body')[0].classList.contains('{{ custom_css }}'))
+            document.getElementsByTagName('body')[0].classList.add('{{ custom_css }}');
+        {% else %}
+        for (let index = 0; index < document.getElementsByTagName('body')[0].classList.length; index++) {
+            let css = document.getElementsByTagName('body')[0].classList[index];
+            if(css !== 'online_body' && css !== 'offline_body') {
+                document.getElementsByTagName('body')[0].classList.remove(css);
+            }
+        }
+        {% endif %}
+        {% if block('title') is defined %}
+        window.document.title = 'MyHordes - {{ block('title')|replace({"\n": "", "\r": "", "\t": "", "'": "\\\'", "&amp;":"&"})|raw }}';
+        {% else %}
+        window.document.title = 'MyHordes';
+        {% endif %}
     </script>
 {% endblock %}

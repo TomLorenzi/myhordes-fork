@@ -7,7 +7,7 @@
       </notes>
       <segment>
         <source>Du hast folgendes gewürfelt: {dc1}, {dc2} und {dc3}.</source>
-        <target>texto dados 5</target>
+        <target>Lanzas los dados y obtienes {dc1}, {dc2} y {dc3}.</target>
       </segment>
     </unit>
     <unit id="yeqnW9g" name="15fb7cd">
@@ -16,7 +16,7 @@
       </notes>
       <segment>
         <source>Wow, du hast einen Trippel geworfen. Das hat so viel Spaß gemacht, dass du 1AP gewinnst!</source>
-        <target>texto dados 4</target>
+        <target>¡Bravo, obtienes un Trío! ¡Es genial! Eso te pone tan contento que ganas 1PA.</target>
       </segment>
     </unit>
     <unit id="rmGP8Al" name="15675e8">
@@ -25,7 +25,7 @@
       </notes>
       <segment>
         <source>Wow, du hast eine Straße geworfen. Das hat so viel Spaß gemacht, dass du 1AP gewinnst!</source>
-        <target>texto dados 3</target>
+        <target>¡Formas una escalera! Eso te pone tan contento que ganas 1PA.</target>
       </segment>
     </unit>
     <unit id="Gk9gFU8" name="8a7fa90">
@@ -34,7 +34,7 @@
       </notes>
       <segment>
         <source>Wow, du hast beim ersten Versuch eine 4-2-1 geworfen. Das hat so viel Spaß gemacht, dass du 1AP gewinnst!</source>
-        <target>texto dados 2</target>
+        <target>Obtienes un 421 al primer intento... Nada mal. Eso te pone tan contento que ganas 1PA.</target>
       </segment>
     </unit>
     <unit id="087WiZd" name="Nicht schlecht, du hast einen Pasch geworfen.">
@@ -43,7 +43,7 @@
       </notes>
       <segment>
         <source>Nicht schlecht, du hast einen Pasch geworfen.</source>
-        <target>texto dados?</target>
+        <target>¡Obtienes un par! ¡Qué suerte!</target>
       </segment>
     </unit>
     <unit id="oGFgAoX" name="Was für ein Spaß!">
@@ -52,7 +52,7 @@
       </notes>
       <segment>
         <source>Was für ein Spaß!</source>
-        <target>texto dados 1</target>
+        <target>¡Qué divertido!</target>
       </segment>
     </unit>
     <unit id="zcpU78C" name="3649d62">
@@ -79,7 +79,7 @@
       </notes>
       <segment>
         <source>Das muss ein Zeichen sein! In dieser Welt ist kein Platz für Moral... du erhälst 1AP.</source>
-        <target>texto cartas 2</target>
+        <target>¡Es una señal! Simplemente demuestra que no hay lugar para la moral en este mundo... Has ganado 1AP.</target>
       </segment>
     </unit>
     <unit id="i6dx5ZQ" name="Das Symbol der Liebe... dein Herz schmilzt dahin und du erhälst 1AP.">
@@ -88,7 +88,7 @@
       </notes>
       <segment>
         <source>Das Symbol der Liebe... dein Herz schmilzt dahin und du erhälst 1AP.</source>
-        <target>texto cartas 1</target>
+        <target>La Reina de Corazones... El símbolo del amor... suspiro... Has ganado 1AP como compensación por tu desilusión.</target>
       </segment>
     </unit>
     <unit id="9tVy8rd" name="99bed0a">
@@ -727,7 +727,7 @@
       </notes>
       <segment>
         <source>Gürtel mit Tasche</source>
-        <target>Cinturón con bolsillos</target>
+        <target>Cinturón de herramientas</target>
       </segment>
     </unit>
     <unit id="E_mYVPX" name="Twinoid 500mg">
@@ -5039,7 +5039,7 @@
       </notes>
       <segment>
         <source>Ein blutbefleckter Briefumschlag, auf dem die Empfängeradresse nicht mehr lesbar ist... Der Umschlag ist noch zu.</source>
-        <target>texto carta</target>
+        <target>Un sobre que se ha salpicado de sangre donde debería de estar la dirección</target>
       </segment>
     </unit>
     <unit id="Uiv2jm2" name="aea44b8">
@@ -5156,7 +5156,7 @@
       </notes>
       <segment>
         <source>Die Adresse ist nicht mehr lesbar. Beim Schütteln hörst du ein raschelndes Geräusch...</source>
-        <target>texto un paquete</target>
+        <target>Parece que no hay dirección ni detalles de reenvío en este paquete. Lo sacudes y escuchas algo traqueteando en el interior</target>
       </segment>
     </unit>
     <unit id="Aly3gnM" name="Ein kleines, verrostetes Stück Maschendrahtzaun. ">
@@ -5507,7 +5507,7 @@
       </notes>
       <segment>
         <source>Ein wenig zu gross für dich. Sieht so aus als waren seine Vorbesitzer ein wenig beleibter und hatten schlechten Geschmack...was man ohne Zweifel erkennen kann.</source>
-        <target>texto chaqueta roja usada</target>
+        <target>Es un poco grande para ti:parece haber pertenecido a alguien con una gran barriga y mal gusto, como se puede ver claramente en el blanco del cuello y los puños</target>
       </segment>
     </unit>
     <unit id="1LbsOcT" name="b63710a">
@@ -5516,7 +5516,7 @@
       </notes>
       <segment>
         <source>Diese alten Fetzen riechen nach Urin und wurden mehrmals geflickt. Besser aussehen würden sie....ohh, sie passt Dir perfekt.</source>
-        <target>texto pantalones rojos usados</target>
+        <target>Estos viejos pantalones huelen a orina y se han reparado con regularidad. Probablemente se vean mejor en... (¡ENCENDIDO!) ¡Te quedarán perfectamente!</target>
       </segment>
     </unit>
     <unit id="BIIad8x" name="07ec21d">
@@ -5525,7 +5525,7 @@
       </notes>
       <segment>
         <source>Viele seltsame Gestalten haben diese stinkende Mütze schon getragen, und trotzdem geht dein Herz auf, als du sie aufsetzt.</source>
-        <target>texto gorro rojo maloliente</target>
+        <target>Un sombrero que ha sido utilizado como nido por varias generaciones de palomas y otros animales malolientes. El revestimiento interior de excrementos secos le da una textura extraña... Y te pica la cabeza cuando te lo pones.</target>
       </segment>
     </unit>
     <unit id="5tx1Ts1" name="7936bd8">
@@ -5534,7 +5534,7 @@
       </notes>
       <segment>
         <source>Als du diesen Anzug anziehst, verspürst du den Drang, deinen Nachbarn eine Freude zu machen und seltsame Eintrittswege zu wählen. Nutze die Chance und bestehle deine Nachbarn nach Herzenslust.</source>
-        <target>texto traje de papá noel</target>
+        <target>Este atuendo te queda hasta el suelo (alunoes dicen que incluso huele a ti). De repente sientes que deberías alegrar a tus vecinos deslizandote discretamente por sus chimeneas  con los brazos llenos de regalos. Puedes usar esto como una táctica para robar, saquear y birlar su camino hacia la felicidad a tus vecinos. Ah, la magia de la Navidad...</target>
       </segment>
     </unit>
     <unit id="GxbOAHZ" name="ded1192">
@@ -5606,7 +5606,7 @@
       </notes>
       <segment>
         <source>Du hältst eine schlichte Sandkugel in der Hand, die du vorher mit ein paar fiesen Kieselsteinchen angereicherst hast. HeHe! Irgendwie verspürst du gerade eine unglaubliche Lust diesen Ball jemanden ins Gesicht zu werfen. Wenn schon kein Schnee, dann wenigstens 'ne Sandballschlacht!</source>
-        <target>texto bola de arena</target>
+        <target>Una bola de arena inofensiva (con un poco de grava por si acaso) que estás deseando lanzar a la cara de otro. No tienes idea de dónde vino este extraño deseo.</target>
       </segment>
     </unit>
     <unit id="WG3v7xc" name="Dieser Bauplan ermöglicht es, ein neues Gebäude in der Stadt zu bauen.">
@@ -5777,7 +5777,7 @@
       </notes>
       <segment>
         <source>Eine mächtige Wasserwaffe, dessen defeker Mechanismus nur noch für einen Schuss reicht.</source>
-        <target>texto aquachnikov</target>
+        <target>Una poderosa arma de agua, cuyo mecanismo roto solo alcanza para un disparo</target>
       </segment>
     </unit>
     <unit id="RDf9WEe" name="bba3476">
@@ -5786,7 +5786,7 @@
       </notes>
       <segment>
         <source>Dieser wackelige Tisch wurde offensichtlich in Eile gebaut. Doch könnte er, von den Barrikaden geworfen, bestimmt gut einige Zombies zerquetschen.</source>
-        <target>texto escritorio mal montado</target>
+        <target>Este escritorio destartalado ue claramente construido con prisa. Sin embargo, lanzado desde lo alto de las murallas podría resultar más útil aplastando a algunos zombis.</target>
       </segment>
     </unit>
     <unit id="2goA6JI" name="cd7f656">
@@ -5804,7 +5804,7 @@
       </notes>
       <segment>
         <source>Es gab eine Zeit, da waren diese edlen Tiere legendär. Naja...diese Zeiten sind zwar vorbei, aber edel sind sie trotzdem noch.</source>
-        <target>texto reno de papa noel</target>
+        <target>Hubo un tiempo en que este magnífico animal se asoció con maravillosas leyendas... Esos días ya pasaron, pero sirven para otra cosa...</target>
       </segment>
     </unit>
     <unit id="UuhpHIu" name="86ec8bc">
@@ -5813,7 +5813,7 @@
       </notes>
       <segment>
         <source>Ein weitgehend verschimmeltes Osterei. Sein fauliger Gestank erinnert ein wenig an Schießpulver. Hat der Schimmel etwa seine physikalischen Eigenschaften verändert? Könnte sich lohnen, auf einen Zombie zu werfen.</source>
-        <target>texto huevo de pascua</target>
+        <target>Un huevo de Pascua en gran parte mohoso, su hedor pútrido es un poco como la pólvora, ¿podría el moho haber cambiado sus propiedades físicas? Podría vvaler la pena probar con los zombis.</target>
       </segment>
     </unit>
     <unit id="5vtPi6E" name="d5ea829">
@@ -5831,7 +5831,7 @@
       </notes>
       <segment>
         <source>Eine Wasserwaffe ist immer sehr effektiv gegen Zombies.Das zählt allerdings nicht für leere...</source>
-        <target>texto aquachnikov 2</target>
+        <target>Una poderosa arma de agua contra zombis. Como sea, no mata a mucha gente cuando está vacío...</target>
       </segment>
     </unit>
     <unit id="qHYIgFE" name="e7fefa9">
@@ -5939,7 +5939,7 @@
       </notes>
       <segment>
         <source>Nichts sagt "Willkommen zuhause" mehr als eine spontane Fußamputation.</source>
-        <target>texto felpudo explosivo</target>
+        <target>Una excelente manera de hacer que alguien se sienta realmente mal acogido, ¡Una bomba debajo del felpudo! ¡Por qué no pensamos en esto antes!</target>
       </segment>
     </unit>
     <unit id="AXX0tVc" name="9f0cbb1">
@@ -5993,7 +5993,7 @@
       </notes>
       <segment>
         <source>Wenn kombiniert mit einer CD, diese HiFi Anlage hat das Potential zu einer Massenvernichtungswaffe zu werden.</source>
-        <target>texto hifi encendido?</target>
+        <target>Cuando es usado con un CD, esta unidad tiene el potencial de convertirse en un arma de destrucción masiva.</target>
       </segment>
     </unit>
     <unit id="qWTnZIC" name="72d7e00">
@@ -6029,7 +6029,7 @@
       </notes>
       <segment>
         <source>Trotz dass Du glaubst, dies ist Musik für kleine Mädchen , ist das eine ernsthafte Verteidigungsmaßnahme . Sobald die ersten Töne von der Mini Hi-Fi Anlage erklingen, wird kein normaler Mensch in der Lage sein, sich deinem Haus zu nähern. Vorrausgesetzt unsere Zombies waren mal normal und kennen Facebook ....</source>
-        <target>texto cd de Britney spears</target>
+        <target>A pesar de su inofensiva aparencia, que te lleva a creer que esto es música para niñas, esta es una seria medida defensiva. Tan pronto como las primeras ondas de del disco emanen de un HIFI, ninguna persona normal podrá acercarse a tu casa. Dicho esto, si nuestros zombis fueran normales, MyHordes estaría disponible en Facebook, así que no pongas toda tu fe en ello...</target>
       </segment>
     </unit>
     <unit id="2AXaCrg" name="dad7df7">
@@ -6047,7 +6047,7 @@
       </notes>
       <segment>
         <source>Beflügelt durch die Hits des Kings, bist du motivierter als jemals zuvor!</source>
-        <target>texto equipo hi fi maldito</target>
+        <target>¡Girando los golpes del Rey, te despertarás más motivado y con más energía que nunca!</target>
       </segment>
     </unit>
     <unit id="DSKGDc3" name="82cb701">
@@ -6056,7 +6056,7 @@
       </notes>
       <segment>
         <source>Mit der richtigen CD und ein paar guten Ohrstöpseln wird diese HiFi zu einer gefährlichen Waffe, die dich und deine Mitbürger sicher schlafen lässt (zumindest in einiger Distanz)</source>
-        <target>texto hi fi 2</target>
+        <target>El CD adecuado y unos buenos protectores auditivos forman esta poderosa arma que te permite descansar tranquilamente mientras otros se mantienen a una distancia segura.</target>
       </segment>
     </unit>
     <unit id="g93.YNB" name="fd51afb">
@@ -6380,7 +6380,7 @@
       </notes>
       <segment>
         <source>Schlafplatz verbessern (schwacher permanenter Bonus, 1AP)</source>
-        <target>Mejora un poco el campamento (bonus permanente débil, 1PA)</target>
+        <target>Mejorar un poco el campamento (bonus permanente débil, 1PA)</target>
       </segment>
     </unit>
     <unit id="D632ww5" name="Du hast das hiesige Versteck verbessert.">
@@ -6389,7 +6389,7 @@
       </notes>
       <segment>
         <source>Du hast das hiesige Versteck verbessert.</source>
-        <target>Pasaste muchos minutos preparando un escondite con todo lo que podrías querer tener ...</target>
+        <target>Pasaste muchos minutos preparando un escondite con todo lo que podrías querer tener...</target>
       </segment>
     </unit>
     <unit id="I4OeVwm" name="Sich verstecken und die Nacht hier schlafen!">
@@ -6398,7 +6398,7 @@
       </notes>
       <segment>
         <source>Sich verstecken und die Nacht hier schlafen!</source>
-        <target>¡Escóndete y pasar la noche aquí!</target>
+        <target>¡Escónderse y pasar la noche aquí!</target>
       </segment>
     </unit>
     <unit id="VsRU9Va" name="Du hast Dich notdürftig versteckt.">
@@ -6479,7 +6479,7 @@
       </notes>
       <segment>
         <source>Zerlegen</source>
-        <target>Cortar</target>
+        <target>Desmontar</target>
       </segment>
     </unit>
     <unit id="1PXqODy" name="Baustoffe">
@@ -6587,7 +6587,7 @@
       </notes>
       <segment>
         <source>Ausweiden</source>
-        <target>Ausweiden</target>
+        <target>Cortar</target>
       </segment>
     </unit>
     <unit id="24l83Eh" name="7fe00d0">
@@ -6623,7 +6623,7 @@
       </notes>
       <segment>
         <source>Duschen</source>
-        <target>texto duchas 1</target>
+        <target>Tomar una ducha</target>
       </segment>
     </unit>
     <unit id="DEHdLNl" name="a36d6fe">
@@ -6632,7 +6632,7 @@
       </notes>
       <segment>
         <source>Du springst unter die hausgemachte Dusche ohne weiter darüber nachzudenken. Das eiskalte Wasser erschreckt dich, aber dennoch bleibst du für einige Augenblicke unter dem schwachen Wasserstrahl stehen. In Ermangelung von Seife reibst du dich mit einem glatten Stein ab und versuchst, den Schlamm und die Blutflecken abzuwaschen. Dabei versuchst du, dir einzureden, dass es sich gut anfühlt.</source>
-        <target>texto duchas 2</target>
+        <target>Te colocas bajo la ducha artesanal sin pensarlo mucho. El agua está helada pero haces el esfuerzo de permanecer bajo el fino chorro. Sin jabón, te lavas con una piedra lisa, tratando de quitarte las manchas de barro y de sangre. Intentas convencerte de que eso te hace sentir bien.</target>
       </segment>
     </unit>
     <unit id="ZM5U_5i" name="Heilen (5AP)">
@@ -6641,7 +6641,7 @@
       </notes>
       <segment>
         <source>Heilen (5AP)</source>
-        <target>Heilen (5AP)</target>
+        <target>Curar (5AP)</target>
       </segment>
     </unit>
     <unit id="8.uDazR" name="Heilen (6AP)">
@@ -6650,7 +6650,7 @@
       </notes>
       <segment>
         <source>Heilen (6AP)</source>
-        <target>Heilen (6AP)</target>
+        <target>Curar (6AP)</target>
       </segment>
     </unit>
     <unit id="H0NWl9b" name="Verteidigung organisieren (1 AP)">
@@ -6659,7 +6659,7 @@
       </notes>
       <segment>
         <source>Verteidigung organisieren (1 AP)</source>
-        <target>Verteidigung organisieren (1 AP)</target>
+        <target>Organizar Defensas (1 AP)</target>
       </segment>
     </unit>
     <unit id="vte2QYO" name="Du hast dir etwas Zeit genommen und zur Verteidigung der Stadt beigetragen.">
@@ -6695,7 +6695,7 @@
       </notes>
       <segment>
         <source>Wasserwaffen füllen</source>
-        <target>Wasserwaffen füllen</target>
+        <target>Llenar armas de agua</target>
       </segment>
     </unit>
     <unit id="5yZkmMK" name="Ins Kino gehen">
@@ -6704,7 +6704,7 @@
       </notes>
       <segment>
         <source>Ins Kino gehen</source>
-        <target>Ins Kino gehen</target>
+        <target>Ir al Cine</target>
       </segment>
     </unit>
     <unit id="poR1ekb" name="Läutern">
@@ -6776,7 +6776,7 @@
       </notes>
       <segment>
         <source>Gegenstände suchen</source>
-        <target>Busca un objeto</target>
+        <target>Buscar un objeto</target>
       </segment>
     </unit>
     <unit id="R2RcDum" name="Kompass">

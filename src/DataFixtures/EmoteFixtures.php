@@ -146,6 +146,7 @@ class EmoteFixtures extends Fixture {
         ['tag'=>':pande:', 'path'=>'build/images/emotes/pande.gif', 'isactive'=> true, 'requiresunlock'=> true, 'index'=> 122],
         ['tag'=>':lepre:', 'path'=>'build/images/emotes/lepre.gif', 'isactive'=> true, 'requiresunlock'=> true, 'index'=> 123],
         ['tag'=>':gsp:', 'path'=>'build/images/emotes/gsp.gif', 'isactive'=> true, 'requiresunlock'=> true, 'index'=> 124],
+        ['tag'=>':ufc:', 'path'=>'build/images/emotes/ufc.gif', 'isactive'=> true, 'requiresunlock'=> true, 'index'=> 125],
     ];
 
     private function insertEmotes(ObjectManager $manager, ConsoleOutputInterface $out) {

@@ -265,6 +265,8 @@ class AwardFixtures extends Fixture implements DependentFixtureInterface {
         ['title'=>'Sudoku ist anders', 'unlockquantity'=>15, 'associatedtag'=>':bgum:', 'associatedpicto'=>'r_bgum_#00'],
         ['title'=>'Siebenseitiger Würfel', 'unlockquantity'=>20, 'associatedtag'=>':bgum:', 'associatedpicto'=>'r_bgum_#00'],
         ['title'=>'Einarmiger Bandit', 'unlockquantity'=>30, 'associatedtag'=>':bgum:', 'associatedpicto'=>'r_bgum_#00'],
+        ['title'=>'Seelenführer der Gemeinschaft', 'unlockquantity'=>50, 'associatedtag'=>':bgum:', 'associatedpicto'=>'r_bgum_#00'],
+        ['title'=>'Charismatischer Prophet', 'unlockquantity'=>100, 'associatedtag'=>':bgum:', 'associatedpicto'=>'r_bgum_#00'],
         ['title'=>'Motivierter Messebesucher', 'unlockquantity'=>1, 'associatedtag'=>':fjv2:', 'associatedpicto'=>'r_fjv2_#00'],
         ['title'=>'Verdammt in Saarbrücken', 'unlockquantity'=>1, 'associatedtag'=>':fjvani:', 'associatedpicto'=>'r_fjvani_#00'],
         ['title'=>'Kleiner Guru', 'unlockquantity'=>1, 'associatedtag'=>':rrefer:', 'associatedpicto'=>'r_rrefer_#00'],

@@ -1,0 +1,65 @@
+body.arma {
+    background: url("../../img/anims/skull_laugh.gif") !important;
+    #wrapper>#header { background: url(../../img/background/header_arma_animated.gif); }
+
+    .town-header b {
+        visibility: hidden;
+        &:before { content: url(../../img/icons/small_arma.gif); visibility: visible; display: block; }
+    }
+
+    .avatar:not(.no-arma), .avatarcrow {
+        &>img { height: 30px; width: 90px; opacity: 0 }
+        background: url(../../img/anims/all_doomed.gif);
+        &.ua-0 { background: url(../../img/anims/doomed1.gif);  }
+        &.ua-1 { background: url(../../img/anims/doomed2.gif);  }
+        &.ua-2 { background: url(../../img/anims/doomed3.gif);  }
+        &.ua-3 { background: url(../../img/anims/doomed4.gif);  }
+        &.ua-4 { background: url(../../img/anims/doomed5.gif);  }
+        &.ua-5 { background: url(../../img/anims/doomed6.gif);  }
+        &.ua-6 { background: url(../../img/anims/doomed7.gif);  }
+        &.ua-7 { background: url(../../img/anims/doomed8.gif);  }
+        &.ua-8 { background: url(../../img/anims/doomed9.gif);  }
+        &.ua-9 { background: url(../../img/anims/doomed10.gif);  }
+    }
+
+    .forum-post > .forum-post-header,
+    .forum-post > .forum-post-header {
+
+        &>a.link,&>b {
+            visibility: hidden;
+            &:before { content: "CRITICAL_ERROR"; visibility: visible;}
+        }
+    }
+
+    .forum-thread .count {
+        div {
+            visibility: hidden;
+            line-height: 0;
+            &.author {
+                &:before {
+                    content: "ERROR";
+                    visibility: visible;
+                    line-height: initial;
+                }
+            }
+            &.nbPost {
+                &:before {
+                    content: "666";
+                    visibility: visible;
+                    line-height: initial;
+                }
+            }
+        }
+    }
+
+    .citizens-list .avatar.ua-0 { background: url(../../img/anims/doomed1.gif)  !important; }
+    .citizens-list .avatar.ua-1 { background: url(../../img/anims/doomed2.gif)  !important; }
+    .citizens-list .avatar.ua-2 { background: url(../../img/anims/doomed3.gif)  !important; }
+    .citizens-list .avatar.ua-3 { background: url(../../img/anims/doomed4.gif)  !important; }
+    .citizens-list .avatar.ua-4 { background: url(../../img/anims/doomed5.gif)  !important; }
+    .citizens-list .avatar.ua-5 { background: url(../../img/anims/doomed6.gif)  !important; }
+    .citizens-list .avatar.ua-6 { background: url(../../img/anims/doomed7.gif)  !important; }
+    .citizens-list .avatar.ua-7 { background: url(../../img/anims/doomed8.gif)  !important; }
+    .citizens-list .avatar.ua-8 { background: url(../../img/anims/doomed9.gif)  !important; }
+    .citizens-list .avatar.ua-9 { background: url(../../img/anims/doomed10.gif) !important; }
+}

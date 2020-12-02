@@ -1690,7 +1690,7 @@
       </notes>
       <segment>
         <source>Folgende Bürger sind wahlweise: &lt;ul&gt;&lt;li&gt;auf ihrer Todesanzeigeseite (sie haben ihren Tod noch nicht bestätigt),&lt;/li&gt;&lt;li&gt;bereits im Spiel,&lt;/li&gt;&lt;li&gt;sie haben sich entschieden, nicht automatisch einer Stadt und ihrer Koalition anzugehören.&lt;/li&gt;&lt;li&gt;oder, sie haben sich seit über 5 Tagen nicht mehr angemeldet.&lt;/li&gt;&lt;/ul&gt;</source>
-        <target><![CDATA[Folgende Bürger sind wahlweise: <ul><li>auf ihrer Todesanzeigeseite (sie haben ihren Tod noch nicht bestätigt),</li><li>bereits im Spiel,</li><li>sie haben sich entschieden, nicht automatisch einer Stadt und ihrer Koalition anzugehören.</li><li>oder, sie haben sich seit über 5 Tagen nicht mehr angemeldet.</li></ul>]]></target>
+        <target><![CDATA[Los siguientes habitantes no están disponibles por una o varias de estas razones: <ul><li>Están en su página de Muerte (no han validado su deceso).</li><li>Están en una partida.</li><li>Han elegido no unirse a un pueblo con el resto de la alianza.</li><li>No se han conectado desde hace más de 5 días.</li></ul>]]></target>
       </segment>
     </unit>
     <unit id="Dhx3Fbp" name="212f094">
@@ -1699,7 +1699,7 @@
       </notes>
       <segment>
         <source>Wenn ein andered Mitglied deiner Koalition eine Stadt auswählt, schließt du dich ihm automatisch an und spielst in der gleichen Stadt wie er.</source>
-        <target>Wenn ein andered Mitglied deiner Koalition eine Stadt auswählt, schließt du dich ihm automatisch an und spielst in der gleichen Stadt wie er.</target>
+        <target>Si otro miembro de la alianza se une a un pueblo, le seguirás y comenzarás a jugar en su mismo pueblo.</target>
       </segment>
     </unit>
     <unit id="Ba7luCC" name="Du musst noch mehr Erfahrung sammeln, um das tun zu können...">
@@ -1736,6 +1736,72 @@
       <segment>
         <source>Diese Nachricht wurde dir vom Raben persönlich überbracht. Er schwebt über der Stadt und wirft immer ein wachsames Auge auf dich...</source>
         <target>Diese Nachricht wurde dir vom Raben persönlich überbracht. Er schwebt über der Stadt und wirft immer ein wachsames Auge auf dich...</target>
+      </segment>
+    </unit>
+    <unit id="rtJUaLn" name="f14ccda">
+      <notes>
+        <note category="german">Die große Anzahl an Erdhaufen und an herumliegenden Müll sind ein Indiz dafür, dass hier wahrscheinlich nichts mehr zu finden ist.
+                                &lt;p&gt;&lt;em&gt;Wenn du möchtest, kannst du allerdings weitergraben und ein paar minderwertige Materialien für die verschiedenen Baustellen der Stadt zu Tage fördern..&lt;/em&gt;&lt;/p&gt;</note>
+      </notes>
+      <segment>
+        <source>Die große Anzahl an Erdhaufen und an herumliegenden Müll sind ein Indiz dafür, dass hier wahrscheinlich nichts mehr zu finden ist.
+                                &lt;p&gt;&lt;em&gt;Wenn du möchtest, kannst du allerdings weitergraben und ein paar minderwertige Materialien für die verschiedenen Baustellen der Stadt zu Tage fördern..&lt;/em&gt;&lt;/p&gt;</source>
+        <target><![CDATA[Die große Anzahl an Erdhaufen und an herumliegenden Müll sind ein Indiz dafür, dass hier wahrscheinlich nichts mehr zu finden ist.
+                                <p><em>Wenn du möchtest, kannst du allerdings weitergraben und ein paar minderwertige Materialien für die verschiedenen Baustellen der Stadt zu Tage fördern..</em></p>]]></target>
+      </segment>
+    </unit>
+    <unit id="i4kWNY_" name="c911391">
+      <notes>
+        <note category="german">Diesen Bonus gibt es dank eurer alten Freunde und dem Gebäude &lt;strong&gt;Kleiner Friedhof&lt;/strong&gt;.</note>
+      </notes>
+      <segment>
+        <source>Diesen Bonus gibt es dank eurer alten Freunde und dem Gebäude &lt;strong&gt;Kleiner Friedhof&lt;/strong&gt;.</source>
+        <target><![CDATA[Diesen Bonus gibt es dank eurer alten Freunde und dem Gebäude <strong>Kleiner Friedhof</strong>.]]></target>
+      </segment>
+    </unit>
+    <unit id="zTo.6Bl" name="1fa3771">
+      <notes>
+        <note category="german">Diesen Bonus gibt es nur dann, wenn sich die Wächter wärhend eines Angriffs in det Stadt befinden.</note>
+      </notes>
+      <segment>
+        <source>Diesen Bonus gibt es nur dann, wenn sich die Wächter wärhend eines Angriffs in det Stadt befinden.</source>
+        <target>Diesen Bonus gibt es nur dann, wenn sich die Wächter wärhend eines Angriffs in det Stadt befinden.</target>
+      </segment>
+    </unit>
+    <unit id="zF4ERQG" name="Diese Kosten können durch den Aufbau der &lt;strong&gt;Müll für Alle&lt;/strong&gt;.">
+      <notes>
+        <note category="german">Diese Kosten können durch den Aufbau der &lt;strong&gt;Müll für Alle&lt;/strong&gt;.</note>
+      </notes>
+      <segment>
+        <source>Diese Kosten können durch den Aufbau der &lt;strong&gt;Müll für Alle&lt;/strong&gt;.</source>
+        <target><![CDATA[Diese Kosten können durch den Aufbau der <strong>Müll für Alle</strong>.]]></target>
+      </segment>
+    </unit>
+    <unit id="BC_uip5" name="Ausblenden">
+      <notes>
+        <note category="german">Ausblenden</note>
+      </notes>
+      <segment>
+        <source>Ausblenden</source>
+        <target>Ausblenden</target>
+      </segment>
+    </unit>
+    <unit id="UzZ7xlJ" name="Nachricht">
+      <notes>
+        <note category="german">Nachricht</note>
+      </notes>
+      <segment>
+        <source>Nachricht</source>
+        <target>Nachricht</target>
+      </segment>
+    </unit>
+    <unit id="dJK8aO8" name="Ausb.+Nachr.">
+      <notes>
+        <note category="german">Ausb.+Nachr.</note>
+      </notes>
+      <segment>
+        <source>Ausb.+Nachr.</source>
+        <target>Ausb.+Nachr.</target>
       </segment>
     </unit>
   </file>

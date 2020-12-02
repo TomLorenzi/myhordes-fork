@@ -169,7 +169,7 @@
       </notes>
       <segment>
         <source>Dein Profil</source>
-        <target>Tu perfil</target>
+        <target>Tú perfil</target>
       </segment>
     </unit>
     <unit id="Mi9Pj.n" name="Normale Anzeige">
@@ -196,7 +196,7 @@
       </notes>
       <segment>
         <source>Damit andere Spieler dich besser erkennen, kannst du hier ein Profilbild hochladen</source>
-        <target>Para que los demás jugadores puedan reconocerte más fácilmente, puede subir un avatar aquí.</target>
+        <target>Para que los demás jugadores puedan reconocerte más fácilmente, puedes subir un avatar aquí.</target>
       </segment>
     </unit>
     <unit id="C.B17ya" name="Neues Profilbild hochladen">
@@ -424,7 +424,7 @@
       </notes>
       <segment>
         <source>Bitte wähle nur eine einzige Datei aus.</source>
-        <target>Por favor, selecciona un solo archivo.</target>
+        <target>Por favor, selecciona un sólo archivo.</target>
       </segment>
     </unit>
     <unit id="KJJicse" name="36b050a">
@@ -577,7 +577,7 @@
       </notes>
       <segment>
         <source>Version</source>
-        <target>Version</target>
+        <target>Versión</target>
       </segment>
     </unit>
     <unit id="737Zdf." name="Hier findet ihr alle vorangegangenen Updates:">
@@ -688,7 +688,7 @@
       </notes>
       <segment>
         <source>Haus besuchen</source>
-        <target>Visite Casa</target>
+        <target>Visitar Casa</target>
       </segment>
     </unit>
     <unit id="q4I8gVL" name="Eine neue Seele importieren">
@@ -706,7 +706,7 @@
       </notes>
       <segment>
         <source>Twinoid Application ID</source>
-        <target>Twinoid Aplicación ID</target>
+        <target>ID de aplicación Twinoid</target>
       </segment>
     </unit>
     <unit id="GT7Cwam" name="Twinoid Secret Key">
@@ -778,7 +778,7 @@
       </notes>
       <segment>
         <source>Twinoid-Profil</source>
-        <target>Twinoid-Perfil</target>
+        <target>Perfil-Twinoid</target>
       </segment>
     </unit>
     <unit id="22.0Wcj" name="Profil ansehen">
@@ -859,7 +859,7 @@
       </notes>
       <segment>
         <source>Letzte Worte</source>
-        <target>Ultimas palabras</target>
+        <target>Últimas palabras</target>
       </segment>
     </unit>
     <unit id="N5nG16_" name="Import bestätigen">
@@ -1021,7 +1021,7 @@
       </notes>
       <segment>
         <source>%c% Titel, %cc% Icons</source>
-        <target>%c% Títulos, %cc% Iconos</target>
+        <target>%c% Títulos, %cc% Íconos</target>
       </segment>
     </unit>
     <unit id="xhN5lts" name="%num% unbekannte Objekte!">
@@ -1165,7 +1165,7 @@
       </notes>
       <segment>
         <source>%d% Tage</source>
-        <target>%d% Dias</target>
+        <target>%d% Días</target>
       </segment>
     </unit>
     <unit id="fcC4_EM" name="Auszeichnungen">
@@ -1417,7 +1417,7 @@
       </notes>
       <segment>
         <source>Als Hauptseele wählen</source>
-        <target>Elige como alma principal</target>
+        <target>Elegir como alma principal</target>
       </segment>
     </unit>
     <unit id="ltYAKjD" name="338e6bd">
@@ -1426,7 +1426,7 @@
       </notes>
       <segment>
         <source>Legt diese Seele als Hauptseele fest und importiert Seelenpunkte und Heldenerfahrung.</source>
-        <target>Establece esta alma como alma principal e importa puntos de Alma y experiencia de héroe.</target>
+        <target>Establecer esta alma como alma principal e importar puntos de Alma y experiencia de héroe.</target>
       </segment>
     </unit>
     <unit id="NBJR5jI" name="2c9ce98">
@@ -1507,7 +1507,7 @@
       </notes>
       <segment>
         <source>Du musst diese Entscheidung nicht jetzt treffen, sondern kannst diese Seele auch nachträglich noch zu deiner Hauptseele erklären - solange du inzwischen nicht bereits eine andere Seele als Hauptseele gewählt hast.</source>
-        <target>No tiene que tomar esta decisión ahora, pero también puede posteriormente declarar esta Alma como su Alma Principal, siempre y cuando no haya elegido otra Alma como Alma Principal.</target>
+        <target>No tienes que tomar esta decisión ahora, ya que también puedes declarar esta Alma más tarde como Alma Principal, siempre y cuando no hayas elegido otra Alma como la Principal.</target>
       </segment>
     </unit>
     <unit id="1MRAxNt" name="3ad4558">
@@ -1516,7 +1516,7 @@
       </notes>
       <segment>
         <source>Unabhängig davon, ob du diese Seele zu deiner Hauptseele machst oder nicht, kannst du ihre Daten bei Bedarf selbstverständlich erneut mit Twinoid abgleichen und ihre Daten aktualisieren.</source>
-        <target>Independientemente de si hace de este Soul su Alma principal o no, por supuesto, puede conciliar sus datos con Twinoid y actualizar sus datos si es necesario.</target>
+        <target>Independientemente de si hacea de esta Alma tu Alma principal o no, por supuesto, puede conciliar sus datos con Twinoid y actualizar sus datos si es necesario.</target>
       </segment>
     </unit>
     <unit id="eoeG3zx" name="Diese Seele zu meiner Hauptseele machen!">
@@ -1525,7 +1525,7 @@
       </notes>
       <segment>
         <source>Diese Seele zu meiner Hauptseele machen!</source>
-        <target>¡Haz de esta alma mi Alma Principal!</target>
+        <target>¡Hacer de esta alma mi Alma Principal!</target>
       </segment>
     </unit>
     <unit id="s9icea7" name="b46b9e2">
@@ -1534,7 +1534,7 @@
       </notes>
       <segment>
         <source>Um diese Seele zu deiner Hauptseele zu machen, verwende die Schaltfläche auf der vorherigen Seite.</source>
-        <target>Para hacer de esta alma tu alma principal, utilice el botón de la página anterior.</target>
+        <target>Para hacer de esta alma tu alma principal, utiliza el botón de la página anterior.</target>
       </segment>
     </unit>
     <unit id="nrZhqLF" name="Diese Daten können nur von deiner Hauptseele importiert werden.">
@@ -1759,7 +1759,7 @@
       </notes>
       <segment>
         <source>Dieser Spieler verwendet einen EternalTwin-Account. Wir feuen uns, ihn bei MyHordes begrüßen zu dürfen!</source>
-        <target>Dieser Spieler verwendet einen EternalTwin-Account. Wir feuen uns, ihn bei MyHordes begrüßen zu dürfen!</target>
+        <target>Éste jugador está utilizando una cuenta de EternalTwin. Nos alegramos de poder darle la bienvenida a MyHordes!</target>
       </segment>
     </unit>
     <unit id="XRvl7w0" name="ce071ab">
@@ -1768,7 +1768,7 @@
       </notes>
       <segment>
         <source>Das angegebene Profil kann nicht importiert werden, da es bereits einem anderen MyHordes-Konto zugeordnet ist.</source>
-        <target>Das angegebene Profil kann nicht importiert werden, da es bereits einem anderen MyHordes-Konto zugeordnet ist.</target>
+        <target>El perfil seleccionado no ha podido ser importado, ya que está enlazado a otra cuenta de MyHordes.</target>
       </segment>
     </unit>
     <unit id="wstj04z" name="MyHordes ist ein stolzer Bestandteil des EternalTwin-Netzwerkes!">
@@ -1777,7 +1777,7 @@
       </notes>
       <segment>
         <source>MyHordes ist ein stolzer Bestandteil des EternalTwin-Netzwerkes!</source>
-        <target>MyHordes ist ein stolzer Bestandteil des EternalTwin-Netzwerkes!</target>
+        <target>MyHordes es una orgullosa parte de la Red EternalTwin!</target>
       </segment>
     </unit>
     <unit id="WVIMH8t" name="a7e6e46">
@@ -1786,7 +1786,7 @@
       </notes>
       <segment>
         <source>Um MyHordes auch in Zukunft weiter spielen zu können, musst du deinen alten MyHordes-Account mit einem EternalTwin-Account verknüpfen.</source>
-        <target>Um MyHordes auch in Zukunft weiter spielen zu können, musst du deinen alten MyHordes-Account mit einem EternalTwin-Account verknüpfen.</target>
+        <target>Para poder seguir jugando a MyHordes en un futuro, debes de enlazar tu cuenta de MyHordes con una cuenta de EternalTwin.</target>
       </segment>
     </unit>
     <unit id="CACKQCH" name="EternalTwin-Account verknüpfen">
@@ -1795,7 +1795,7 @@
       </notes>
       <segment>
         <source>EternalTwin-Account verknüpfen</source>
-        <target>EternalTwin-Account verknüpfen</target>
+        <target>Enlazar cuenta de EternalTwin</target>
       </segment>
     </unit>
     <unit id="lqipl75" name="%name%'s Koalition">
@@ -1831,7 +1831,7 @@
       </notes>
       <segment>
         <source>Hierfür musst du einer Koalition angehören.</source>
-        <target>Para ello, debes pertenecer a una coalición.</target>
+        <target>Para ello, debes pertenecer a una alianza.</target>
       </segment>
     </unit>
     <unit id="57GeJrY" name="Du bist bereits Mitglied einer Koalition.">
@@ -1840,7 +1840,7 @@
       </notes>
       <segment>
         <source>Du bist bereits Mitglied einer Koalition.</source>
-        <target>Tu eres miembro de una coalición.</target>
+        <target>Tu eres miembro de una alianza.</target>
       </segment>
     </unit>
     <unit id="yQfn1EC" name="Deine Koalition ist bereits voll.">
@@ -1849,7 +1849,7 @@
       </notes>
       <segment>
         <source>Deine Koalition ist bereits voll.</source>
-        <target>Tu coalición ya está llena.</target>
+        <target>Tu alianza ya está llena.</target>
       </segment>
     </unit>
     <unit id="QuFqW4z" name="Spielhilfe: Kleine Koalitionen">
@@ -1858,7 +1858,7 @@
       </notes>
       <segment>
         <source>Spielhilfe: Kleine Koalitionen</source>
-        <target>Guía: Alianzas</target>
+        <target>Guía: Pequeñas Alianzas</target>
       </segment>
     </unit>
     <unit id="GO1ZJcp" name="3e3b0ae">
@@ -1921,7 +1921,7 @@
       </notes>
       <segment>
         <source>Name</source>
-        <target>Apellido</target>
+        <target>Nombre</target>
       </segment>
     </unit>
     <unit id="Vlb5Lbe" name="Aktionen">
@@ -1939,7 +1939,7 @@
       </notes>
       <segment>
         <source>Mitmachen!</source>
-        <target>¡Vuelve!</target>
+        <target>¡Unirme!</target>
       </segment>
     </unit>
     <unit id="RRAKPkm" name="Die Einladung ablehnen.">
@@ -1948,7 +1948,7 @@
       </notes>
       <segment>
         <source>Die Einladung ablehnen.</source>
-        <target>Rechaza la invitación.</target>
+        <target>Rechazar la invitación.</target>
       </segment>
     </unit>
     <unit id="3hmiaVs" name="Shoutbox der Koalition">
@@ -2065,7 +2065,7 @@
       </notes>
       <segment>
         <source>Diesen Spieler ausschließen?</source>
-        <target>¿Despide a este jugador?</target>
+        <target>¿Expulsar a este compañero?</target>
       </segment>
     </unit>
     <unit id="xpAtz8l" name="Diesen Spieler ausschließen.">
@@ -2074,7 +2074,7 @@
       </notes>
       <segment>
         <source>Diesen Spieler ausschließen.</source>
-        <target>Despide a este jugador.</target>
+        <target>Expulsar a este jugador.</target>
       </segment>
     </unit>
     <unit id="PmiiQcl" name="Die Shoutbox ist leer...">
@@ -2083,7 +2083,7 @@
       </notes>
       <segment>
         <source>Die Shoutbox ist leer...</source>
-        <target>El Muro de la alianza esta vacio...</target>
+        <target>El Muro de la alianza está vacio...</target>
       </segment>
     </unit>
     <unit id="IuHFUTo" name="Absenden">
@@ -2110,7 +2110,7 @@
       </notes>
       <segment>
         <source>Vor %d% Tagen</source>
-        <target>Hace %d% Dias</target>
+        <target>Hace %d% Días</target>
       </segment>
     </unit>
     <unit id="zeYLnSy" name="Klick auf diesen Link, um die Seite neu zu laden.">
@@ -2191,7 +2191,7 @@
       </notes>
       <segment>
         <source>Möchtest du diesem Spieler folgen?</source>
-        <target>¿Únete a este compañero de equipo?</target>
+        <target>¿Unirse a este compañero de equipo?</target>
       </segment>
     </unit>
     <unit id="BNXmJ_6" name="8e2de13">
@@ -2200,7 +2200,7 @@
       </notes>
       <segment>
         <source>Der Twinoid-Server meldet, dass er dein Profil aufgrund eines internen Fehlers nicht an MyHordes übertragen kann. Dieses Problem tritt häufig auf, wenn du in deinen Letzten Worten oder Stadtkommentaren Sonderzeichen verwendet hast. Bitte prüfe deine Stadtkommentare und entferne Sonderzeichen. Wenn sich Sonderzeichen in deinen Letzten Worten befinden, wende dich auf Twinoid an einen Raben.</source>
-        <target>Der Twinoid-Server meldet, dass er dein Profil aufgrund eines internen Fehlers nicht an MyHordes übertragen kann. Dieses Problem tritt häufig auf, wenn du in deinen Letzten Worten oder Stadtkommentaren Sonderzeichen verwendet hast. Bitte prüfe deine Stadtkommentare und entferne Sonderzeichen. Wenn sich Sonderzeichen in deinen Letzten Worten befinden, wende dich auf Twinoid an einen Raben.</target>
+        <target>El Servidor de Twinoid ha reportado que no puede transferir tu perfil a MyHordes debido a un error interno. Este es un problema común si has utilizado carácteres especiales en tus últimas palabras o los comentarios de tus antiguos pueblos. Por favor revisa los comentarios de tus antiguos pueblos y remueve éstos carácteres si los hay. Si están en alguna de tus últimas palabras, debes de contactar con un Cuervo de Twinoid.</target>
       </segment>
     </unit>
     <unit id="lXmZ79T" name="Tod nicht validiert">
@@ -2209,7 +2209,7 @@
       </notes>
       <segment>
         <source>Tod nicht validiert</source>
-        <target>Tod nicht validiert</target>
+        <target>Muerte no validada</target>
       </segment>
     </unit>
   </file>

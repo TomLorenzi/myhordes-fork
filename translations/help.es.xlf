@@ -1633,7 +1633,7 @@ Pro Zug wird dir 1 Aktionspunkt abgezogen. Bei 0 Punkten bist du %img_tired% &lt
       </notes>
       <segment>
         <source>Im Laufe deines Spielerlebens wirst du in MyHordes zahlreiche Gegenstände in der Wüste finden, beim Bau verschiedener Gebäude mithelfen, dir Krankheiten einfangen und auch Drogen konsumieren...</source>
-        <target>Im Laufe deines Spielerlebens wirst du in MyHordes zahlreiche Gegenstände in der Wüste finden, beim Bau verschiedener Gebäude mithelfen, dir Krankheiten einfangen und auch Drogen konsumieren...</target>
+        <target>En el transcurso de tu vida en MyHordes, acumularás muchos objetos encontrados en el desierto, construirás edificios, contraerás enfermedades...</target>
       </segment>
     </unit>
     <unit id="Qo0UDUa" name="9c0157d">
@@ -1642,7 +1642,7 @@ Pro Zug wird dir 1 Aktionspunkt abgezogen. Bei 0 Punkten bist du %img_tired% &lt
       </notes>
       <segment>
         <source>Damit du immer die richtigen Entscheidungen triffst, ist es wichtig, die Übersicht zu behalten.</source>
-        <target>Damit du immer die richtigen Entscheidungen triffst, ist es wichtig, die Übersicht zu behalten.</target>
+        <target>Toma siempre en cuenta la situación en la que te encuentras para decidir tus acciones futuras.</target>
       </segment>
     </unit>
     <unit id="8OTtw8S" name="7be03fa">
@@ -1651,7 +1651,7 @@ Pro Zug wird dir 1 Aktionspunkt abgezogen. Bei 0 Punkten bist du %img_tired% &lt
       </notes>
       <segment>
         <source>Wildes Campen ist eine etwas gewagte, aber erfolgreiche Spielweise, die darin besteht, sich beim Angriff um Mitternacht draußen zu verstecken.</source>
-        <target>Wildes Campen ist eine etwas gewagte, aber erfolgreiche Spielweise, die darin besteht, sich beim Angriff um Mitternacht draußen zu verstecken.</target>
+        <target>El campamento salvaje es una táctica arriesgada pero provechosa, que consiste en esconderse fuera del pueblo durante los ataques nocturnos.</target>
       </segment>
     </unit>
     <unit id="a8U92l3" name="bb1556b">
@@ -1660,7 +1660,7 @@ Pro Zug wird dir 1 Aktionspunkt abgezogen. Bei 0 Punkten bist du %img_tired% &lt
       </notes>
       <segment>
         <source>Ihr geht dabei folgendermaßen vor: Ihr sucht euch ein passendes Versteck und dann kneift ihr die Arschbacken zusammen und betet, dass die Nacht schnell vorbei ist.</source>
-        <target>Ihr geht dabei folgendermaßen vor: Ihr sucht euch ein passendes Versteck und dann kneift ihr die Arschbacken zusammen und betet, dass die Nacht schnell vorbei ist.</target>
+        <target>Su funcionamiento es simple: encuentras un buen escondite en el Ultramundo y cierras bien los ojos esperando que todo pase.</target>
       </segment>
     </unit>
     <unit id=".4GI52S" name="Aus dieser Spielweise ergeben sich mehrere Vorteile:">
@@ -1669,7 +1669,7 @@ Pro Zug wird dir 1 Aktionspunkt abgezogen. Bei 0 Punkten bist du %img_tired% &lt
       </notes>
       <segment>
         <source>Aus dieser Spielweise ergeben sich mehrere Vorteile:</source>
-        <target>Aus dieser Spielweise ergeben sich mehrere Vorteile:</target>
+        <target>Entre otras cosas te permite:</target>
       </segment>
     </unit>
     <unit id="cWBqfQ." name="0734aa3">
@@ -1680,8 +1680,7 @@ Wenn du überlebst, kannst du bei deiner Rückkehr deinen Freunden mitteilen, wi
       <segment>
         <source>&lt;strong&gt;Du bist imstande zu überleben, wenn das Stadttor mal wieder vor deiner Nase geschlossen wurde&lt;/strong&gt;: Das kommt öfters vor als du denkst!
 Wenn du überlebst, kannst du bei deiner Rückkehr deinen Freunden mitteilen, wie sehr du ihren kleinen Scherz genossen hast...</source>
-        <target><![CDATA[<strong>Du bist imstande zu überleben, wenn das Stadttor mal wieder vor deiner Nase geschlossen wurde</strong>: Das kommt öfters vor als du denkst!
-Wenn du überlebst, kannst du bei deiner Rückkehr deinen Freunden mitteilen, wie sehr du ihren kleinen Scherz genossen hast...]]></target>
+        <target><![CDATA[<strong>Sobrevivir fuera del pueblo si el Portal fue cerrado.</strong> ¡Eso puede suceder! Si regresas vivo, no olvides agradecer a tus camaradas por la graciosa "bromita".]]></target>
       </segment>
     </unit>
     <unit id="t8doMhI" name="fe0bae5">
@@ -1690,7 +1689,7 @@ Wenn du überlebst, kannst du bei deiner Rückkehr deinen Freunden mitteilen, wi
       </notes>
       <segment>
         <source>&lt;strong&gt;Du kannst ausgedehnte Expeditionen unternehmen&lt;/strong&gt;. Lange Erkundungsmärsche können auf zwei oder mehr Tage verteilt werden!</source>
-        <target><![CDATA[<strong>Du kannst ausgedehnte Expeditionen unternehmen</strong>. Lange Erkundungsmärsche können auf zwei oder mehr Tage verteilt werden!]]></target>
+        <target><![CDATA[<strong>Emprender una expedición lejana</strong>: Así puedes emprender una larga expedición de 2 días, ¡o más!]]></target>
       </segment>
     </unit>
     <unit id="i1Wu8tt" name="ba74249">
@@ -1701,8 +1700,7 @@ Der Grund dafür ist, dass du über Nacht die Wüstenwinde und Dünenverschiebun
       <segment>
         <source>&lt;strong&gt;Du erhältst einen Bonus für alle deine Grabungsaktionen&lt;/strong&gt;: Wenn du beim Zombieangriff draußen bist, erhältst du am nächsten Tag beim Graben einen Bonus (deine Wahrscheinlichkeit etwas zu finden steigt).
 Der Grund dafür ist, dass du über Nacht die Wüstenwinde und Dünenverschiebungen besser studieren konntest (ja, ja!).</source>
-        <target><![CDATA[<strong>Du erhältst einen Bonus für alle deine Grabungsaktionen</strong>: Wenn du beim Zombieangriff draußen bist, erhältst du am nächsten Tag beim Graben einen Bonus (deine Wahrscheinlichkeit etwas zu finden steigt).
-Der Grund dafür ist, dass du über Nacht die Wüstenwinde und Dünenverschiebungen besser studieren konntest (ja, ja!).]]></target>
+        <target><![CDATA[<strong>Recibir un bonus por las búsquedas</strong>: Si estás afuera durante las tormentas, recibirás un bonus el día siguiente a todas tus búsquedas (oportunidades de encontrar algo). Los vientos y los movimientos de las dunas te ayudarán a encontrar lugares interesantes donde escarbar.]]></target>
       </segment>
     </unit>
     <unit id="VVo2ZSG" name="ba71709">
@@ -1711,7 +1709,7 @@ Der Grund dafür ist, dass du über Nacht die Wüstenwinde und Dünenverschiebun
       </notes>
       <segment>
         <source>&lt;strong&gt;Eine Auszeichnung&lt;/strong&gt;: Nicht jeder, der draußen überlebt, erhält eine Auszeichnung!</source>
-        <target><![CDATA[<strong>Eine Auszeichnung</strong>: Nicht jeder, der draußen überlebt, erhält eine Auszeichnung!]]></target>
+        <target><![CDATA[<strong>Tu premio</strong>: ¡Estar vivo! No todo el mundo sobrevive allá afuera.]]></target>
       </segment>
     </unit>
     <unit id="_cYKNb9" name="79cb454">
@@ -1722,8 +1720,7 @@ bekommst du zusätzlich eine seltene Auszeichnung (lies dazu auch den folgenden 
       <segment>
         <source>&lt;strong&gt;Du erhältst eine seltene Auszeichnung&lt;/strong&gt;: Für jede Nacht, die du draußen überlebst während die Stadt schon zerstört ist, 
 bekommst du zusätzlich eine seltene Auszeichnung (lies dazu auch den folgenden Abschnitt: &lt;i&gt;"Auszeichnung: Camper im Jenseits"&lt;/i&gt;).</source>
-        <target><![CDATA[<strong>Du erhältst eine seltene Auszeichnung</strong>: Für jede Nacht, die du draußen überlebst während die Stadt schon zerstört ist, 
-bekommst du zusätzlich eine seltene Auszeichnung (lies dazu auch den folgenden Abschnitt: <i>"Auszeichnung: Camper im Jenseits"</i>).]]></target>
+        <target><![CDATA[<strong>Otra distinción rara</strong>: Por cada noche que resistas mientras que el pueblo ha sido devastado, recibirás, una distinción especial (Ver el capítulo: <i>"Distinción: Campista del Más Allá"</i>).]]></target>
       </segment>
     </unit>
     <unit id="sMhdxRS" name="Wie kann ich draußen campen?">
@@ -1732,7 +1729,7 @@ bekommst du zusätzlich eine seltene Auszeichnung (lies dazu auch den folgenden 
       </notes>
       <segment>
         <source>Wie kann ich draußen campen?</source>
-        <target>Wie kann ich draußen campen?</target>
+        <target>¿Cómo acampar?</target>
       </segment>
     </unit>
     <unit id="Gg6bH7K" name="a40b212">
@@ -1741,7 +1738,7 @@ bekommst du zusätzlich eine seltene Auszeichnung (lies dazu auch den folgenden 
       </notes>
       <segment>
         <source>Klicke auf den Link &lt;strong&gt;Umgebung untersuchen&lt;/strong&gt;. Du kannst anschließend mehrere Aktionen ausführen:</source>
-        <target><![CDATA[Klicke auf den Link <strong>Umgebung untersuchen</strong>. Du kannst anschließend mehrere Aktionen ausführen:]]></target>
+        <target><![CDATA[Cuentas con un enlace <strong>Inspeccionar los alrededores</strong> que te lleva a varias acciones:]]></target>
       </segment>
     </unit>
     <unit id="FCBsJmN" name="ac94a20">
@@ -1752,8 +1749,8 @@ bekommst du zusätzlich eine seltene Auszeichnung (lies dazu auch den folgenden 
       <segment>
         <source>&lt;strong&gt;Ein Versteck vorbereiten&lt;/strong&gt;: Du suchst dir ein paar Steintrümmer, ein paar verdörrte Baumzweige und gräbst ein Loch, um in der Nacht nicht von den Zombies entdeckt zu werden. Jeder Versteckausbau erhöht deine Überlebenschance in dieser Zone &lt;i&gt;ein wenig&lt;/i&gt;.
 &lt;strong&gt;Alle überlebenden Bürger, die sich in der betreffenden Zone befinden, ziehen einen Vorteil von Versteckausbauten. Außerdem gilt der Bonus der Ausbauten auch für alle folgenden Tage. Allerdings wird jede Nacht ein Teil dieser Ausbauten von den Zombies beschädigt.&lt;/strong&gt;</source>
-        <target><![CDATA[<strong>Ein Versteck vorbereiten</strong>: Du suchst dir ein paar Steintrümmer, ein paar verdörrte Baumzweige und gräbst ein Loch, um in der Nacht nicht von den Zombies entdeckt zu werden. Jeder Versteckausbau erhöht deine Überlebenschance in dieser Zone <i>ein wenig</i>.
-<strong>Alle überlebenden Bürger, die sich in der betreffenden Zone befinden, ziehen einen Vorteil von Versteckausbauten. Außerdem gilt der Bonus der Ausbauten auch für alle folgenden Tage. Allerdings wird jede Nacht ein Teil dieser Ausbauten von den Zombies beschädigt.</strong>]]></target>
+        <target><![CDATA[<strong>Mejorar tu campamento</strong>: Despejas las ramas secas y cavas un hoyo para aumentar <i>ligeramente</i> tus probabilidades sobrevivir pasando la noche allí.
+<strong>Esas mejoras benefician a todos los habitantes presentes en la zona y permanecen los días siguientes. No obstante, una parte de las mejoras se pierde cada noche (dañada por los zombies).</strong>]]></target>
       </segment>
     </unit>
     <unit id="BX84.Qk" name="d7b4cf1">
@@ -1762,7 +1759,7 @@ bekommst du zusätzlich eine seltene Auszeichnung (lies dazu auch den folgenden 
       </notes>
       <segment>
         <source>&lt;strong&gt;Verstecken&lt;/strong&gt;: Du legst dich auf die Lauer und kannst während dieser Zeit nichts anderes mehr machen. Wenn du wieder eine Aktion ausführen möchtest, musst du aus deinem Versteck hervorkriechen.</source>
-        <target><![CDATA[<strong>Verstecken</strong>: Du legst dich auf die Lauer und kannst während dieser Zeit nichts anderes mehr machen. Wenn du wieder eine Aktion ausführen möchtest, musst du aus deinem Versteck hervorkriechen.]]></target>
+        <target><![CDATA[<strong>Esconderse</strong>: Te instalas allí, sin moverte, hasta que decidas salir de nuevo a la superficie.]]></target>
       </segment>
     </unit>
     <unit id="2CR0YgI" name="07b43cb">
@@ -1771,7 +1768,7 @@ bekommst du zusätzlich eine seltene Auszeichnung (lies dazu auch den folgenden 
       </notes>
       <segment>
         <source>&lt;strong&gt;Ein "Grab" schaufeln&lt;/strong&gt;: Du gräbst ein Loch und bedeckst dich mit allem, was du in deiner unmittelbaren Umgebung auftreiben kannst. Diese Aktion verleiht dir einen größeren Bonus als die Verbesserung deines Campingplatzes. Allerdings kannst du dich danach nicht mehr bewegen. Du verlierst diesen Bonus, wenn du aus deinem Versteck hervorkriechst.</source>
-        <target><![CDATA[<strong>Ein "Grab" schaufeln</strong>: Du gräbst ein Loch und bedeckst dich mit allem, was du in deiner unmittelbaren Umgebung auftreiben kannst. Diese Aktion verleiht dir einen größeren Bonus als die Verbesserung deines Campingplatzes. Allerdings kannst du dich danach nicht mehr bewegen. Du verlierst diesen Bonus, wenn du aus deinem Versteck hervorkriechst.]]></target>
+        <target><![CDATA[<strong>Cavar una tumba</strong>: Te entierras como puedas, cubriéndote con todo lo que encuentres en el lugar, quedando totalmente escondido. Esta acción otorga un mejor bonus que la mejora del campamento, pero lo pierdes si sales a la superficie.]]></target>
       </segment>
     </unit>
     <unit id="kWTiIOz" name="e476432">
@@ -1780,7 +1777,7 @@ bekommst du zusätzlich eine seltene Auszeichnung (lies dazu auch den folgenden 
       </notes>
       <segment>
         <source>&lt;strong&gt;Verteidigungsgegenstände gebrauchen&lt;/strong&gt;: Mit manchen Gegenständen kannst du deinen Campingplatz erheblich verbessern. Der Gebrauch dieser Gegenstände verbraucht allerdings 1 %img_ap%.</source>
-        <target><![CDATA[<strong>Verteidigungsgegenstände gebrauchen</strong>: Mit manchen Gegenständen kannst du deinen Campingplatz erheblich verbessern. Der Gebrauch dieser Gegenstände verbraucht allerdings 1 %img_ap%.]]></target>
+        <target><![CDATA[<strong>Utilizar los objetos de defensa</strong>: Algunos objetos permiten mejorar significativamente el campamento. El uso de tales objetos requiere 1 %img_ap%.]]></target>
       </segment>
     </unit>
     <unit id="A3wujEo" name="a6858a6">
@@ -1789,7 +1786,7 @@ bekommst du zusätzlich eine seltene Auszeichnung (lies dazu auch den folgenden 
       </notes>
       <segment>
         <source>Es gibt andere Möglichkeiten, deine Überlebenschancen beim Campen in Bezug auf Berufe, Objekte und Gebiete zu erhöhen. Es liegt an dir das herauszufinden.</source>
-        <target>Es gibt andere Möglichkeiten, deine Überlebenschancen beim Campen in Bezug auf Berufe, Objekte und Gebiete zu erhöhen. Es liegt an dir das herauszufinden.</target>
+        <target>Hay otras maneras de incrementar tus chances de sobrevivir acampando en el desierto, las cuales están relacionadas a profesiones, objetos y áreas. ¡Queda en ti averiguarlas!</target>
       </segment>
     </unit>
     <unit id="qQ6FYAf" name="77120ab">
@@ -1798,7 +1795,7 @@ bekommst du zusätzlich eine seltene Auszeichnung (lies dazu auch den folgenden 
       </notes>
       <segment>
         <source>&lt;strong&gt;Unmittelbar vor dem Stadttor kannst du nicht campen, denn das ist zu gefährlich.&lt;/strong&gt; Die Zombiehorde würde dich überrennen. Such dir einen besseren Platz aus.</source>
-        <target><![CDATA[<strong>Unmittelbar vor dem Stadttor kannst du nicht campen, denn das ist zu gefährlich.</strong> Die Zombiehorde würde dich überrennen. Such dir einen besseren Platz aus.]]></target>
+        <target><![CDATA[<strong>Es posible acampar en el Portal del pueblo</strong>. Efectivamente, es allí donde llegan las turbas de zombies a la hora del ataque. Como podrás ver, es el peor lugar para acampar.]]></target>
       </segment>
     </unit>
     <unit id="hGPfqUo" name="5c39619">
@@ -1807,7 +1804,7 @@ bekommst du zusätzlich eine seltene Auszeichnung (lies dazu auch den folgenden 
       </notes>
       <segment>
         <source>Wie gut dein Versteck auch sein mag, deine Überlebenschancen sind begrenzt. Ein (kleines) Restrisiko besteht immer! Deine Überlebenschancen hängen von zahlreichen Faktoren ab: Gegenstände, Anzahl der Verbesserungsarbeiten, Grab etc... Ab einer bestimmten Stufe, kann die Überlebenschance nicht weiter erhöht werden.</source>
-        <target>Wie gut dein Versteck auch sein mag, deine Überlebenschancen sind begrenzt. Ein (kleines) Restrisiko besteht immer! Deine Überlebenschancen hängen von zahlreichen Faktoren ab: Gegenstände, Anzahl der Verbesserungsarbeiten, Grab etc... Ab einer bestimmten Stufe, kann die Überlebenschance nicht weiter erhöht werden.</target>
+        <target>Las probabilidades de sobrevivir que te dan las mejoras manuales del campamento tienen un límite. Pasado el límite, utilizar mejoras se vuelve inútil.</target>
       </segment>
     </unit>
     <unit id="lOUtB9j" name="Wie hoch sind meine Überlebenschancen?">
@@ -1816,7 +1813,7 @@ bekommst du zusätzlich eine seltene Auszeichnung (lies dazu auch den folgenden 
       </notes>
       <segment>
         <source>Wie hoch sind meine Überlebenschancen?</source>
-        <target>Wie hoch sind meine Überlebenschancen?</target>
+        <target>Entonces, ¿cuáles son mis probabilidades de sobrevivir?</target>
       </segment>
     </unit>
     <unit id="moEXpA8" name="1ee9475">
@@ -1825,7 +1822,7 @@ bekommst du zusätzlich eine seltene Auszeichnung (lies dazu auch den folgenden 
       </notes>
       <segment>
         <source>Deine Überlebenschancen werden &lt;strong&gt;zu dem Zeitpunkt berechnet, an dem du auf "&lt;i&gt;Verstecken&lt;/i&gt;" oder ein "&lt;i&gt;'Grab' schaufeln&lt;/i&gt;"&lt;/strong&gt; klickst. Eine spätere Änderung der Situation wirkt sich nicht auf deine Überlebenschance aus. Zum Beispiel:</source>
-        <target><![CDATA[Deine Überlebenschancen werden <strong>zu dem Zeitpunkt berechnet, an dem du auf "<i>Verstecken</i>" oder ein "<i>'Grab' schaufeln</i>"</strong> klickst. Eine spätere Änderung der Situation wirkt sich nicht auf deine Überlebenschance aus. Zum Beispiel:]]></target>
+        <target><![CDATA[Éstas se evalúan <strong>al momento de utilizar la acción "<i>esconderse</i>" o "<i>cavar una tumba</i>"</strong>. Si la situación de la zona cambia, tus probabilidades de sobrevivir no. Por ejemplo:]]></target>
       </segment>
     </unit>
     <unit id="O7aoiYZ" name="e7830d9">
@@ -1836,8 +1833,7 @@ Zu einem späteren Zeitpunkt kommt ein anderer Bürger vorbeigestapft und bringt
       <segment>
         <source>Du hast beschlossen, dich in einer Zone zu verstecken, in der 6 Zombies rumlungern (du erhälst dafür einen Malus).
 Zu einem späteren Zeitpunkt kommt ein anderer Bürger vorbeigestapft und bringt alle Untoten um. Dies wirkt sich nicht auf deine Überlebenschancen aus. Als du dich entschieden hattest, in besagter Zone dein Versteck zu bauen, hast du mit den aktuellen Gegebenheiten gerechnet (die Zone war voller Zombies). Wenn du in den Genuss der neuen Ausgangslage kommen möchtest (alle Zombies sind tot), musst du dein Versteck verlassen und dich erneut verstecken.</source>
-        <target>Du hast beschlossen, dich in einer Zone zu verstecken, in der 6 Zombies rumlungern (du erhälst dafür einen Malus).
-Zu einem späteren Zeitpunkt kommt ein anderer Bürger vorbeigestapft und bringt alle Untoten um. Dies wirkt sich nicht auf deine Überlebenschancen aus. Als du dich entschieden hattest, in besagter Zone dein Versteck zu bauen, hast du mit den aktuellen Gegebenheiten gerechnet (die Zone war voller Zombies). Wenn du in den Genuss der neuen Ausgangslage kommen möchtest (alle Zombies sind tot), musst du dein Versteck verlassen und dich erneut verstecken.</target>
+        <target>Decides esconderte en una zona donde se encuentran 6 zombies (tus probabilidades de sobrevivir son bajas). Un habitante llega después de ti y mata a algunos zombies. Tus probabilidades de sobrevivir no mejorarán. De este modo, se toman en cuenta los inconvenientes que tenía tu escondite cuando lo elegiste (estaba rodeado de zombies). Para aprovechar la nueva situación, debes salir de tu hoyo y esconderte de nuevo.</target>
       </segment>
     </unit>
     <unit id="EoQj_AI" name="Deine Überlebenschancen hängen von zahlreichen Faktoren ab:">
@@ -1846,7 +1842,7 @@ Zu einem späteren Zeitpunkt kommt ein anderer Bürger vorbeigestapft und bringt
       </notes>
       <segment>
         <source>Deine Überlebenschancen hängen von zahlreichen Faktoren ab:</source>
-        <target>Deine Überlebenschancen hängen von zahlreichen Faktoren ab:</target>
+        <target>Tu supervivencia depende además de varios factores:</target>
       </segment>
     </unit>
     <unit id="xpSubH2" name="9eb5825">
@@ -1855,7 +1851,7 @@ Zu einem späteren Zeitpunkt kommt ein anderer Bürger vorbeigestapft und bringt
       </notes>
       <segment>
         <source>Anzahl der Zombies in der Umgebung (dieser Nachteil wird etwas abgemildert, wenn du als Aufklärer spielst und deine Tarnkleidung anhast).</source>
-        <target>Anzahl der Zombies in der Umgebung (dieser Nachteil wird etwas abgemildert, wenn du als Aufklärer spielst und deine Tarnkleidung anhast).</target>
+        <target>La presencia de zombies en los alrededores (el peligro puede reducirse si eres un Explorador y estás camuflado).</target>
       </segment>
     </unit>
     <unit id="lOEPC3J" name="9a2aa6c">
@@ -1864,7 +1860,7 @@ Zu einem späteren Zeitpunkt kommt ein anderer Bürger vorbeigestapft und bringt
       </notes>
       <segment>
         <source>Anwesenheit anderer Bürger, die sich &lt;strong&gt;vor dir&lt;/strong&gt; hier ein Versteck gesucht haben (Nachteil). Es sollte jedem klar sein, dass man sich allein unauffälliger verhält als zu fünft.</source>
-        <target><![CDATA[Anwesenheit anderer Bürger, die sich <strong>vor dir</strong> hier ein Versteck gesucht haben (Nachteil). Es sollte jedem klar sein, dass man sich allein unauffälliger verhält als zu fünft.]]></target>
+        <target><![CDATA[La presencia de  otros habitantes escondidos allí mismo <strong>antes que tú</strong> (el peligro es mayor porque se es más discreto solo que a 5, por ejemplo).]]></target>
       </segment>
     </unit>
     <unit id="BTUfzKK" name="d75d90b">
@@ -1873,7 +1869,7 @@ Zu einem späteren Zeitpunkt kommt ein anderer Bürger vorbeigestapft und bringt
       </notes>
       <segment>
         <source>Präsenz eines freigeschaufelten Gebäudes (je nach Art des Gebäudes kann das ein Vor- oder ein Nachteil sein).</source>
-        <target>Präsenz eines freigeschaufelten Gebäudes (je nach Art des Gebäudes kann das ein Vor- oder ein Nachteil sein).</target>
+        <target>La presencia de un edificio desenterrado (bonus o penalidad según el edificio. Si acampas en el campo abierto, el peligro aumenta).</target>
       </segment>
     </unit>
     <unit id="0pwi3zg" name="Präsenz eines &lt;strong&gt; nicht freigeschaufelten&lt;/strong&gt; Gebäudes (Vorteil).">
@@ -1882,7 +1878,7 @@ Zu einem späteren Zeitpunkt kommt ein anderer Bürger vorbeigestapft und bringt
       </notes>
       <segment>
         <source>Präsenz eines &lt;strong&gt; nicht freigeschaufelten&lt;/strong&gt; Gebäudes (Vorteil).</source>
-        <target><![CDATA[Präsenz eines <strong> nicht freigeschaufelten</strong> Gebäudes (Vorteil).]]></target>
+        <target><![CDATA[La presencia de un edificio <strong>enterrado</strong> (bonus).]]></target>
       </segment>
     </unit>
     <unit id="DXqk0B2" name="Die Stadt wurde &lt;strong&gt;zerstört&lt;/strong&gt; (großer Nachteil)">
@@ -1891,7 +1887,7 @@ Zu einem späteren Zeitpunkt kommt ein anderer Bürger vorbeigestapft und bringt
       </notes>
       <segment>
         <source>Die Stadt wurde &lt;strong&gt;zerstört&lt;/strong&gt; (großer Nachteil)</source>
-        <target><![CDATA[Die Stadt wurde <strong>zerstört</strong> (großer Nachteil)]]></target>
+        <target><![CDATA[Pueblo <strong>devastado</strong> (penalidad importante).]]></target>
       </segment>
     </unit>
     <unit id="OdsD2OY" name="9ee2716">
@@ -1900,7 +1896,7 @@ Zu einem späteren Zeitpunkt kommt ein anderer Bürger vorbeigestapft und bringt
       </notes>
       <segment>
         <source>Die Entfernung zur Stadt: Je weiter du beim Angriff von der Stadt weg bist, umso besser!</source>
-        <target>Die Entfernung zur Stadt: Je weiter du beim Angriff von der Stadt weg bist, umso besser!</target>
+        <target>Distancia del pueblo: Mientras más lejos estés durante el ataque, ¡mejor será para ti!</target>
       </segment>
     </unit>
     <unit id="TX1UQMr" name="Spezialausrüstung (Bonus), die im Spiel gefunden werden kann.">
@@ -1909,7 +1905,7 @@ Zu einem späteren Zeitpunkt kommt ein anderer Bürger vorbeigestapft und bringt
       </notes>
       <segment>
         <source>Spezialausrüstung (Bonus), die im Spiel gefunden werden kann.</source>
-        <target>Spezialausrüstung (Bonus), die im Spiel gefunden werden kann.</target>
+        <target>Equipamientos especiales (bonus).</target>
       </segment>
     </unit>
     <unit id="peMsrIw" name="Pandämonium: In Pandämoniumsstädten ist das Campen sehr schwierig.">
@@ -1918,7 +1914,7 @@ Zu einem späteren Zeitpunkt kommt ein anderer Bürger vorbeigestapft und bringt
       </notes>
       <segment>
         <source>Pandämonium: In Pandämoniumsstädten ist das Campen sehr schwierig.</source>
-        <target>Pandämonium: In Pandämoniumsstädten ist das Campen sehr schwierig.</target>
+        <target>Pandemonio: Es muy difícil acampar en un pueblo del Pandemonio.</target>
       </segment>
     </unit>
     <unit id="l4xSyG6" name="1d2b6f5">
@@ -1929,8 +1925,7 @@ zweite ist etwas unsicherer, das dritte noch unsicherer etc...).</note>
       <segment>
         <source>Anzahl der Nächte, die du in einer Partie draußen verbracht hast (dein erstes Camping ist sicher, das 
 zweite ist etwas unsicherer, das dritte noch unsicherer etc...).</source>
-        <target>Anzahl der Nächte, die du in einer Partie draußen verbracht hast (dein erstes Camping ist sicher, das 
-zweite ist etwas unsicherer, das dritte noch unsicherer etc...).</target>
+        <target>La cantidad de noches que has pasado afuera durante esta partida (tu primer campamento es seguro, el segundo menos, el tercero aún menos, etc.).</target>
       </segment>
     </unit>
     <unit id="CMw.m2Z" name="b187712">
@@ -1941,8 +1936,7 @@ mag, ein kleines Restrisiko besteht immer!</note>
       <segment>
         <source>&lt;strong&gt;ACHTUNG:&lt;/strong&gt; Deine Überlebenschancen sind auf 90% begrenzt! Wie gut dein Versteck auch sein 
 mag, ein kleines Restrisiko besteht immer!</source>
-        <target><![CDATA[<strong>ACHTUNG:</strong> Deine Überlebenschancen sind auf 90% begrenzt! Wie gut dein Versteck auch sein 
-mag, ein kleines Restrisiko besteht immer!]]></target>
+        <target><![CDATA[<strong>CUIDADO</strong>: ¡Tus posibilidades de superviviencia están limitadas a 90%! Hagas lo que hagas, siempre tendrás un riesgo (bajo, pero existente) de morir afuera.]]></target>
       </segment>
     </unit>
     <unit id="OqVqAxa" name="9af0d7c">
@@ -1953,8 +1947,8 @@ sind &lt;strong&gt;nicht auf 90%&lt;/strong&gt; beschränkt.</note>
       <segment>
         <source>Der Beruf des &lt;strong&gt;Einsiedlers&lt;/strong&gt; verfügt über einen entscheidenden Vorteil: Seine Überlebenschancen 
 sind &lt;strong&gt;nicht auf 90%&lt;/strong&gt; beschränkt.</source>
-        <target><![CDATA[Der Beruf des <strong>Einsiedlers</strong> verfügt über einen entscheidenden Vorteil: Seine Überlebenschancen 
-sind <strong>nicht auf 90%</strong> beschränkt.]]></target>
+        <target><![CDATA[Toma en cuenta que el oficio <strong>Ermitaño</strong> goza de una ventaja al acampar:
+<strong>Sus probabilidades de supervivencia no están limitadas a 90%.</strong>]]></target>
       </segment>
     </unit>
     <unit id="TnJAv.." name="Wie läuft der Angriff um Mitternacht ab?">
@@ -1963,7 +1957,7 @@ sind <strong>nicht auf 90%</strong> beschränkt.]]></target>
       </notes>
       <segment>
         <source>Wie läuft der Angriff um Mitternacht ab?</source>
-        <target>Wie läuft der Angriff um Mitternacht ab?</target>
+        <target>¿Cómo se desarrollan los ataques de los zombies?</target>
       </segment>
     </unit>
     <unit id="y72QNPI" name="dce0e41">
@@ -1972,7 +1966,7 @@ sind <strong>nicht auf 90%</strong> beschränkt.]]></target>
       </notes>
       <segment>
         <source>Spätestens um Mitternacht musst du in deinem Versteck sein. Abhängig von der Qualität deines Verstecks und der Höhe deiner Überlebenschancen, wirst du von den Untoten verschont, oder aber in Stücke gerissen.</source>
-        <target>Spätestens um Mitternacht musst du in deinem Versteck sein. Abhängig von der Qualität deines Verstecks und der Höhe deiner Überlebenschancen, wirst du von den Untoten verschont, oder aber in Stücke gerissen.</target>
+        <target>A la hora del ataque, ¡debes permanecer escondido! en función de tus suerte y tus acciones, sobrevivirás o morirás devorado.</target>
       </segment>
     </unit>
     <unit id="dK2DHZj" name="ba5dc11">
@@ -1981,7 +1975,7 @@ sind <strong>nicht auf 90%</strong> beschränkt.]]></target>
       </notes>
       <segment>
         <source>Wenn du überlebst, &lt;strong&gt;erhältst du neue %img_ap% sowie verschiedene Auszeichnungen.&lt;/strong&gt;</source>
-        <target><![CDATA[Wenn du überlebst, <strong>erhältst du neue %img_ap% sowie verschiedene Auszeichnungen.</strong>]]></target>
+        <target><![CDATA[Si sobrevives, <strong>recuperarás tus %img_ap% y ganarás diferentes recompensas.</strong>]]></target>
       </segment>
     </unit>
     <unit id="Cua0mtD" name="ed7cc09">
@@ -1990,7 +1984,7 @@ sind <strong>nicht auf 90%</strong> beschränkt.]]></target>
       </notes>
       <segment>
         <source>Wichtig zu wissen ist, dass die Zombieaktivität um Mitternacht besonders stark ist. Das bedeutet, dass&amp;nbsp;die Verteidigung deines Verstecks jedes Mal in Mitleidenschaft gezogen wird.</source>
-        <target><![CDATA[Wichtig zu wissen ist, dass die Zombieaktivität um Mitternacht besonders stark ist. Das bedeutet, dass&nbsp;die Verteidigung deines Verstecks jedes Mal in Mitleidenschaft gezogen wird.]]></target>
+        <target>La actividad de los zombies a cierta hora de la noche es particularmente violenta: La eficacia de las mejoras que hayas instalado en tu campamento se reducirá el día siguiente.</target>
       </segment>
     </unit>
     <unit id="Cvh3WWe" name="c6bae94">
@@ -1999,7 +1993,7 @@ sind <strong>nicht auf 90%</strong> beschränkt.]]></target>
       </notes>
       <segment>
         <source>&lt;strong&gt;Achtung: &lt;/strong&gt; Wenn du die Nacht in der Wüste überlebst, fliegt deine Tarnung am nächsten Morgen auf! Solltest du beabsichtigen wieder draußen zu schlafen, musst du dein Versteck &lt;strong&gt;erneut&lt;/strong&gt; ausbauen.</source>
-        <target><![CDATA[<strong>Achtung: </strong> Wenn du die Nacht in der Wüste überlebst, fliegt deine Tarnung am nächsten Morgen auf! Solltest du beabsichtigen wieder draußen zu schlafen, musst du dein Versteck <strong>erneut</strong> ausbauen.]]></target>
+        <target><![CDATA[<strong>Atención: </strong> ¡Si sobrevives a tu noche en el desierto, ya no serás considerado como escondido! Tendrás que utilizar <strong>de nuevo</strong> la acción "esconderse" si deseas pasar otra noche fuera.]]></target>
       </segment>
     </unit>
     <unit id="iBuxE_N" name="25a5a4f">
@@ -2008,7 +2002,7 @@ sind <strong>nicht auf 90%</strong> beschränkt.]]></target>
       </notes>
       <segment>
         <source>Sollte der Fall eintreten, dass sich beim Angriff der Zombiehorde niemand mehr in der Stadt befindet (da zum Beispiel alle Überlebenden draußen campen), wird die Stadt von den Untoten &lt;span x-ajax-href=%url_devast%&gt;zerstört&lt;/span&gt;.</source>
-        <target><![CDATA[Sollte der Fall eintreten, dass sich beim Angriff der Zombiehorde niemand mehr in der Stadt befindet (da zum Beispiel alle Überlebenden draußen campen), wird die Stadt von den Untoten <span x-ajax-href=%url_devast%>zerstört</span>.]]></target>
+        <target><![CDATA[Si el pueblo fue abandonado (todos salieron a acampar), será considerado como <span x-ajax-href=%url_devast%>devastado</span>.]]></target>
       </segment>
     </unit>
     <unit id="DV.uQFd" name="&quot;Auszeichnung: Camper im Jenseits&quot;">
@@ -2017,7 +2011,7 @@ sind <strong>nicht auf 90%</strong> beschränkt.]]></target>
       </notes>
       <segment>
         <source>"Auszeichnung: Camper im Jenseits"</source>
-        <target>"Auszeichnung: Camper im Jenseits"</target>
+        <target>Distinción: "Campista del Más Alla"</target>
       </segment>
     </unit>
     <unit id="eK5ymSE" name="9446ac1">
@@ -2026,7 +2020,7 @@ sind <strong>nicht auf 90%</strong> beschränkt.]]></target>
       </notes>
       <segment>
         <source>Für jede Nacht, die du draußen überlebt hast, als die Stadt schon &lt;span x-ajax-href=%url_devast%&gt;zerstört&lt;/span&gt; war, bekommst du zusätzlich zu der normalen Auszeichnung, eine &lt;strong&gt;besonders seltene Auszeichnung&lt;/strong&gt;.</source>
-        <target><![CDATA[Für jede Nacht, die du draußen überlebt hast, als die Stadt schon <span x-ajax-href=%url_devast%>zerstört</span> war, bekommst du zusätzlich zu der normalen Auszeichnung, eine <strong>besonders seltene Auszeichnung</strong>.]]></target>
+        <target><![CDATA[Por cada noche que los campistas sobrevivan mientras que el pueblo ha sido <span x-ajax-href=%url_devast%>devastado</span> recibirán una <strong>distinción especial</strong>.]]></target>
       </segment>
     </unit>
     <unit id="x56srvE" name="e01909b">
@@ -2035,7 +2029,7 @@ sind <strong>nicht auf 90%</strong> beschränkt.]]></target>
       </notes>
       <segment>
         <source>Um diese Auszeichnung zu erhalten, muss die Stadt mindestens &lt;strong&gt;10 volle Tage&lt;/strong&gt; überlebt haben.</source>
-        <target><![CDATA[Um diese Auszeichnung zu erhalten, muss die Stadt mindestens <strong>10 volle Tage</strong> überlebt haben.]]></target>
+        <target><![CDATA[Sin embargo, el pueblo debe haber resistido <strong>10 días completos como mínimo</strong> para que esta distinción sea entregada.]]></target>
       </segment>
     </unit>
     <unit id="XQ0dCN1" name="23ad46c">
@@ -2044,7 +2038,7 @@ sind <strong>nicht auf 90%</strong> beschränkt.]]></target>
       </notes>
       <segment>
         <source>Um möglichst lange zu überleben, solltest du auf deine &lt;strong&gt;Gesundheit&lt;/strong&gt; achten.</source>
-        <target><![CDATA[Um möglichst lange zu überleben, solltest du auf deine <strong>Gesundheit</strong> achten.]]></target>
+        <target><![CDATA[Para sobrevivir en un tal mundo, es primordial <strong>vigilar tu estado de salud</strong>. Encontrarás diferentes indicadores en la parte superior de la pantalla.]]></target>
       </segment>
     </unit>
     <unit id="ZiakJdT" name="0b7efac">
@@ -2053,7 +2047,7 @@ sind <strong>nicht auf 90%</strong> beschränkt.]]></target>
       </notes>
       <segment>
         <source>Eine oben auf der Seite platzierte Anzeige verrät dir mit einem Blick deinen aktuellen Gesundheitszustand und sagt dir, ob du etwas trinken musst, ob du verletzt bist usw. ...</source>
-        <target>Eine oben auf der Seite platzierte Anzeige verrät dir mit einem Blick deinen aktuellen Gesundheitszustand und sagt dir, ob du etwas trinken musst, ob du verletzt bist usw. ...</target>
+        <target>Con un solo vistazo sabrás si debes beber, curarte, etc.</target>
       </segment>
     </unit>
     <unit id="OAnJvWx" name="Erschöpfung">
@@ -2062,7 +2056,7 @@ sind <strong>nicht auf 90%</strong> beschränkt.]]></target>
       </notes>
       <segment>
         <source>Erschöpfung</source>
-        <target>Erschöpfung</target>
+        <target>Cansancio</target>
       </segment>
     </unit>
     <unit id="LosQOVV" name="44ab0f2">
@@ -2071,7 +2065,7 @@ sind <strong>nicht auf 90%</strong> beschränkt.]]></target>
       </notes>
       <segment>
         <source>Wenn du keine %img_ap% Aktionspunkte mehr hast, bist du erschöpft und kannst dich nicht mehr bewegen (siehe: &lt;span x-ajax-href=%url_move%&gt;Sich bewegen&lt;/span&gt;).</source>
-        <target><![CDATA[Wenn du keine %img_ap% Aktionspunkte mehr hast, bist du erschöpft und kannst dich nicht mehr bewegen (siehe: <span x-ajax-href=%url_move%>Sich bewegen</span>).]]></target>
+        <target><![CDATA[Cuando ya no te queden más %img_ap% Puntos de Acción, estarás cansado y ya no podrás caminar (ver <span x-ajax-href=%url_move%>Desplazarse</span>).]]></target>
       </segment>
     </unit>
     <unit id="MDmkyh9" name="Durst">
@@ -2080,7 +2074,7 @@ sind <strong>nicht auf 90%</strong> beschränkt.]]></target>
       </notes>
       <segment>
         <source>Durst</source>
-        <target>Durst</target>
+        <target>Sed</target>
       </segment>
     </unit>
     <unit id="g0AGvrO" name="7f9ab9f">
@@ -2091,8 +2085,7 @@ sind <strong>nicht auf 90%</strong> beschränkt.]]></target>
       <segment>
         <source>Du musst etwas trinken... Warte nicht zu lang, sonst bist du
 &lt;strong&gt;%img_dehy% Dehydriert&lt;/strong&gt;!</source>
-        <target><![CDATA[Du musst etwas trinken... Warte nicht zu lang, sonst bist du
-<strong>%img_dehy% Dehydriert</strong>!]]></target>
+        <target><![CDATA[Necesitas beber... No tardes mucho en hacerlo, ¡corres el riesgo de quedar <strong>%img_dehy% Deshidratado</strong>!]]></target>
       </segment>
     </unit>
     <unit id="uB2Vk6P" name="oder">
@@ -2101,7 +2094,7 @@ sind <strong>nicht auf 90%</strong> beschränkt.]]></target>
       </notes>
       <segment>
         <source>oder</source>
-        <target>oder</target>
+        <target>o</target>
       </segment>
     </unit>
     <unit id="_akkbne" name="Satt">
@@ -2110,7 +2103,7 @@ sind <strong>nicht auf 90%</strong> beschränkt.]]></target>
       </notes>
       <segment>
         <source>Satt</source>
-        <target>Satt</target>
+        <target>Saciado</target>
       </segment>
     </unit>
     <unit id="kyN1oc5" name="e5500e3">
@@ -2119,7 +2112,7 @@ sind <strong>nicht auf 90%</strong> beschränkt.]]></target>
       </notes>
       <segment>
         <source>Diese zwei Zustände zeigen an, dass du heute bereits getrunken und/oder gegessen hast. Solltest du noch mehr essen oder trinken, erhältst du für diesen Tag keine zusätzlichen Aktionspunkte mehr.</source>
-        <target>Diese zwei Zustände zeigen an, dass du heute bereits getrunken und/oder gegessen hast. Solltest du noch mehr essen oder trinken, erhältst du für diesen Tag keine zusätzlichen Aktionspunkte mehr.</target>
+        <target>Este estado indica que has comido y/o bebido hoy. Repetir esta acción no te hará recuperar más Puntos de Acción durante el día.</target>
       </segment>
     </unit>
     <unit id="dCCM5aI" name="de432cc">
@@ -2128,7 +2121,7 @@ sind <strong>nicht auf 90%</strong> beschränkt.]]></target>
       </notes>
       <segment>
         <source>Beispiel: Du hast heute morgen deine Trinkflasche getrunken, um deine Aktionspunkte aufzufüllen und um den DURST zu beseitigen. Wenn du heute erneut trinkst, kannst du zwar wieder deinen DURST löschen, aber nicht mehr deine Aktionspunkte zurückbekommen.</source>
-        <target>Beispiel: Du hast heute morgen deine Trinkflasche getrunken, um deine Aktionspunkte aufzufüllen und um den DURST zu beseitigen. Wenn du heute erneut trinkst, kannst du zwar wieder deinen DURST löschen, aber nicht mehr deine Aktionspunkte zurückbekommen.</target>
+        <target>Ejemplo: Has bebido una cantimplora esta mañana para recuperar tus Puntos de Acción y anular el estado de SED. Si vuelves a beber hoy, podrás anular la SED pero no recuperarás Puntos de Acción.</target>
       </segment>
     </unit>
     <unit id="Wq9s4CS" name="Verwundung">
@@ -2137,7 +2130,7 @@ sind <strong>nicht auf 90%</strong> beschränkt.]]></target>
       </notes>
       <segment>
         <source>Verwundung</source>
-        <target>Verwundung</target>
+        <target>Herida</target>
       </segment>
     </unit>
     <unit id="CXdRrv3" name="Infektion">
@@ -2146,7 +2139,7 @@ sind <strong>nicht auf 90%</strong> beschränkt.]]></target>
       </notes>
       <segment>
         <source>Infektion</source>
-        <target>Infektion</target>
+        <target>Infección</target>
       </segment>
     </unit>
     <unit id="xHOr0iD" name="8d215e8">
@@ -2155,7 +2148,7 @@ sind <strong>nicht auf 90%</strong> beschränkt.]]></target>
       </notes>
       <segment>
         <source>Das liegt an einer Wunde oder daran, etwas zu essen, das etwas zu veraltet war. Heile dich schnell, eine Infektion hat eine Sterblichkeitsrate von 50%, 75% in Pandemonium-Städten.</source>
-        <target>Das liegt an einer Wunde oder daran, etwas zu essen, das etwas zu veraltet war. Heile dich schnell, eine Infektion hat eine Sterblichkeitsrate von 50%, 75% in Pandemonium-Städten.</target>
+        <target>Es provocada por una herida o el consumo de alimentos de dudosa calidad, cúrate rápido, una infección tiene 50% probabilidades de ser mortal, 75% en las ciudades del Pandemonio.</target>
       </segment>
     </unit>
     <unit id="4cxMzfa" name="Rauschzustand">
@@ -2164,7 +2157,7 @@ sind <strong>nicht auf 90%</strong> beschränkt.]]></target>
       </notes>
       <segment>
         <source>Rauschzustand</source>
-        <target>Rauschzustand</target>
+        <target>Drogado</target>
       </segment>
     </unit>
     <unit id="J35wjTS" name="Angst">
@@ -2173,7 +2166,7 @@ sind <strong>nicht auf 90%</strong> beschränkt.]]></target>
       </notes>
       <segment>
         <source>Angst</source>
-        <target>Angst</target>
+        <target>Terror</target>
       </segment>
     </unit>
     <unit id="OcEgNTY" name="1da5284">
@@ -2184,8 +2177,7 @@ Die in diesen Stunden erlittene panische &lt;strong&gt;Angst&lt;/strong&gt; ist 
       <segment>
         <source>00:10 Uhr - Die Zombiemeute hat es in die Stadt geschafft und trommelt nun wutschnaubend und gröhlend gegen deine Haustür. Dir gelingt es zwar sie aus deinem Haus zu halten, aber diesen Schock wirst du nicht so schnell vergessen... du bist &lt;strong&gt;vor Angst erstarrt&lt;/strong&gt;.
 Die in diesen Stunden erlittene panische &lt;strong&gt;Angst&lt;/strong&gt; ist dir ins Rückenmark gegangen und geblieben. Deine Aktions- und Bewegungsfreiheit ist seitdem erheblich eingeschränkt: Du kannst dich unter keinen Umständen in die Nähe von Zombies begeben! Solltest du in diesem Zustand dennoch auf welche stoßen, verfällst du in eine Angststarre und kannst dich nicht mehr bewegen... bis sie dich auffressen. In der Wüste zählst du, ungeachtet deines Berufs und deiner Ausrüstung, 0 Kontrollpunkte. Alle Zonen, in denen die Zombies mehr Punkte haben, sind für dich tabu.</source>
-        <target><![CDATA[00:10 Uhr - Die Zombiemeute hat es in die Stadt geschafft und trommelt nun wutschnaubend und gröhlend gegen deine Haustür. Dir gelingt es zwar sie aus deinem Haus zu halten, aber diesen Schock wirst du nicht so schnell vergessen... du bist <strong>vor Angst erstarrt</strong>.
-Die in diesen Stunden erlittene panische <strong>Angst</strong> ist dir ins Rückenmark gegangen und geblieben. Deine Aktions- und Bewegungsfreiheit ist seitdem erheblich eingeschränkt: Du kannst dich unter keinen Umständen in die Nähe von Zombies begeben! Solltest du in diesem Zustand dennoch auf welche stoßen, verfällst du in eine Angststarre und kannst dich nicht mehr bewegen... bis sie dich auffressen. In der Wüste zählst du, ungeachtet deines Berufs und deiner Ausrüstung, 0 Kontrollpunkte. Alle Zonen, in denen die Zombies mehr Punkte haben, sind für dich tabu.]]></target>
+        <target><![CDATA[Es la hora del ataque. los zombies se avalanchan rabiosos contra tu casa, pero logras impedir su avance. La imagen de una muerte cercana va a <strong>aterrorizarte</strong>. Bajo los efectos del <strong>terror</strong>, tus reflejos quedarán muy limitados... Sea como sea, ¡nunca permanezcas cerca de ellos! De otro modo, quedarás totalmente paralizado por el terror... hasta que uno de ellos te devore. En el desierto, cuentas como 0 Puntos de Control, sin importar tu oficio o tu equipamiento. No puedes actuar en una zona si los puntos de control de los zombies son superiores al de los humanos.]]></target>
       </segment>
     </unit>
     <unit id="isD8Ydk" name="183bf89">
@@ -2194,7 +2186,7 @@ Die in diesen Stunden erlittene panische <strong>Angst</strong> ist dir ins Rüc
       </notes>
       <segment>
         <source>Es gibt andere Wege, um in Angststarre zu enden, aber die musst du selbst erleben.</source>
-        <target>Es gibt andere Wege, um in Angststarre zu enden, aber die musst du selbst erleben.</target>
+        <target>Hay otras maneras de quedar aterrorizado, ¡cuidado!</target>
       </segment>
     </unit>
     <unit id="3dkb1Z2" name="Trunkenheit">
@@ -2203,7 +2195,7 @@ Die in diesen Stunden erlittene panische <strong>Angst</strong> ist dir ins Rüc
       </notes>
       <segment>
         <source>Trunkenheit</source>
-        <target>Trunkenheit</target>
+        <target>Ebrio</target>
       </segment>
     </unit>
     <unit id="UTfIdgy" name="Clean">
@@ -2212,7 +2204,7 @@ Die in diesen Stunden erlittene panische <strong>Angst</strong> ist dir ins Rüc
       </notes>
       <segment>
         <source>Clean</source>
-        <target>Clean</target>
+        <target>Limpio</target>
       </segment>
     </unit>
     <unit id="J.9tdfY" name="de3df07">
@@ -2221,7 +2213,7 @@ Die in diesen Stunden erlittene panische <strong>Angst</strong> ist dir ins Rüc
       </notes>
       <segment>
         <source>Das Symbol zeigt an, dass du noch keine Drogen genommen hast. Das ist durchaus eine Spitzenleistung, wenn man bedenkt, welch wunderschöne Halluzination und Trips dir entgangen sind...</source>
-        <target>Das Symbol zeigt an, dass du noch keine Drogen genommen hast. Das ist durchaus eine Spitzenleistung, wenn man bedenkt, welch wunderschöne Halluzination und Trips dir entgangen sind...</target>
+        <target>Este estado significa que no has probado estimulante alguno hasta el momento. Una gran proeza, sabiendo que las alucinaciones provocadas por esas sustancias pueden ser sumamente reconfortantes.</target>
       </segment>
     </unit>
     <unit id="LoyMaAF" name="Immunisiert">
@@ -2230,7 +2222,7 @@ Die in diesen Stunden erlittene panische <strong>Angst</strong> ist dir ins Rüc
       </notes>
       <segment>
         <source>Immunisiert</source>
-        <target>Immunisiert</target>
+        <target>Inmunizado</target>
       </segment>
     </unit>
     <unit id="Hs1ihif" name="c887a1d">
@@ -2243,9 +2235,7 @@ Der Schutz endet nach dem Angriff um Mitternacht.</note>
         <source>Du hast dich durch die Einnahme eines Medikamentes oder eines ähnlichen Produktes erfolgreich gegen eine Infektion immunisiert!
 Außerdem kannst du damit verhindern, dass du dich um Mitternacht in einen Ghul verwandelst.
 Der Schutz endet nach dem Angriff um Mitternacht.</source>
-        <target>Du hast dich durch die Einnahme eines Medikamentes oder eines ähnlichen Produktes erfolgreich gegen eine Infektion immunisiert!
-Außerdem kannst du damit verhindern, dass du dich um Mitternacht in einen Ghul verwandelst.
-Der Schutz endet nach dem Angriff um Mitternacht.</target>
+        <target>¡Un medicamento u otro producto te ha inmunizado contra la infección! También te salvarás de convertirte en un mutante en la noche. Este efecto desaparecerá después del ataque.</target>
       </segment>
     </unit>
     <unit id="LQhKsMz" name="Umsichtiger Camper">
@@ -2254,7 +2244,7 @@ Der Schutz endet nach dem Angriff um Mitternacht.</target>
       </notes>
       <segment>
         <source>Umsichtiger Camper</source>
-        <target>Umsichtiger Camper</target>
+        <target>Campista astuto</target>
       </segment>
     </unit>
     <unit id="B3tVRRs" name="aaa6834">
@@ -2263,7 +2253,7 @@ Der Schutz endet nach dem Angriff um Mitternacht.</target>
       </notes>
       <segment>
         <source>Wenn es dir gelingt eine Nacht draußen zu campen und dabei zu überleben, bekommst du für den darauf folgenden Tag einen besonderen Status verliehen, der deine Grabungsaktionen verbessert!</source>
-        <target>Wenn es dir gelingt eine Nacht draußen zu campen und dabei zu überleben, bekommst du für den darauf folgenden Tag einen besonderen Status verliehen, der deine Grabungsaktionen verbessert!</target>
+        <target>Si sobrevives una noche fuera por haber acampado, ¡este estado le dará un bonus a todas tus búsquedas durante el día!</target>
       </segment>
     </unit>
     <unit id="72h0.SN" name="Ghul">
@@ -2272,7 +2262,7 @@ Der Schutz endet nach dem Angriff um Mitternacht.</target>
       </notes>
       <segment>
         <source>Ghul</source>
-        <target>Ghul</target>
+        <target>Mutante</target>
       </segment>
     </unit>
     <unit id="FAn5Q8v" name="f30c55c">
@@ -2281,7 +2271,7 @@ Der Schutz endet nach dem Angriff um Mitternacht.</target>
       </notes>
       <segment>
         <source>Du wurdest von einer unheilbaren Krankheit infiziert und hast dich jetzt in einen &lt;span x-ajax-href=%url_ghoul%&gt;Ghul&lt;/span&gt; verwandelt.</source>
-        <target><![CDATA[Du wurdest von einer unheilbaren Krankheit infiziert und hast dich jetzt in einen <span x-ajax-href=%url_ghoul%>Ghul</span> verwandelt.]]></target>
+        <target><![CDATA[Has sido infectado por un mal incurable que te convierte en un monstruoso <span x-ajax-href=%url_ghoul%>mutante</span>.]]></target>
       </segment>
     </unit>
     <unit id="gPbg.WJ" name="Die Drogenabhängigkeit">
@@ -2290,7 +2280,7 @@ Der Schutz endet nach dem Angriff um Mitternacht.</target>
       </notes>
       <segment>
         <source>Die Drogenabhängigkeit</source>
-        <target>Die Drogenabhängigkeit</target>
+        <target>La dependencia a los estimulantes</target>
       </segment>
     </unit>
     <unit id="A79xfl2" name="ec57694">
@@ -2301,8 +2291,7 @@ Der Schutz endet nach dem Angriff um Mitternacht.</target>
       <segment>
         <source>Wenn du zu viele Drogen nimmst (mehr als eine Dosis am Tag), wirst du
 &lt;strong&gt;%img_addict% Abhängig&lt;/strong&gt;! Darüber hinaus wirst du diese &lt;strong&gt;Sucht auch nicht mehr los&lt;/strong&gt;.</source>
-        <target><![CDATA[Wenn du zu viele Drogen nimmst (mehr als eine Dosis am Tag), wirst du
-<strong>%img_addict% Abhängig</strong>! Darüber hinaus wirst du diese <strong>Sucht auch nicht mehr los</strong>.]]></target>
+        <target><![CDATA[Cuando consumes demasiados estimulantes (más de uno al día), ¡te vuelves <strong>%img_addict% Dependiente</strong>! Y es <strong>imposible salir de esa depedencia</strong>.]]></target>
       </segment>
     </unit>
     <unit id="Ye1f5W8" name="731711b">
@@ -2311,7 +2300,8 @@ Der Schutz endet nach dem Angriff um Mitternacht.</target>
       </notes>
       <segment>
         <source>Wenn du dann erstmal süchtig bist &lt;strong&gt;musst du jeden Tag vor Mitternacht etwas zu dir nehmen&lt;/strong&gt;, andersfall stirbst du und das ist nicht gerade nett anzusehen: Unter starken Schmerzen, zitternd und sabbernd halluzinierst du dich in eine andere Welt...</source>
-        <target><![CDATA[Wenn du dann erstmal süchtig bist <strong>musst du jeden Tag vor Mitternacht etwas zu dir nehmen</strong>, andersfall stirbst du und das ist nicht gerade nett anzusehen: Unter starken Schmerzen, zitternd und sabbernd halluzinierst du dich in eine andere Welt...]]></target>
+        <target><![CDATA[Desde ese momento, estarás condenado a consumir <strong>por lo menos una dosis diaria antes de la hora del ataque</strong>,
+o morirás (babeando abundantemente y temblando sin parar, algo demasiado horrible para ser visto...).]]></target>
       </segment>
     </unit>
     <unit id="hbwi0z1" name="Verwundungsarten">
@@ -2320,7 +2310,7 @@ Der Schutz endet nach dem Angriff um Mitternacht.</target>
       </notes>
       <segment>
         <source>Verwundungsarten</source>
-        <target>Verwundungsarten</target>
+        <target>Tipos de heridas</target>
       </segment>
     </unit>
     <unit id="uQUc62A" name="Du kannst im Spiel an verschiedenen Körperteilen verwundet werden:">
@@ -2329,7 +2319,7 @@ Der Schutz endet nach dem Angriff um Mitternacht.</target>
       </notes>
       <segment>
         <source>Du kannst im Spiel an verschiedenen Körperteilen verwundet werden:</source>
-        <target>Du kannst im Spiel an verschiedenen Körperteilen verwundet werden:</target>
+        <target>Cuando eres herido, un órgano de tu cuerpo es afectado.</target>
       </segment>
     </unit>
     <unit id="l2sp7PJ" name="Kopf">
@@ -2338,7 +2328,7 @@ Der Schutz endet nach dem Angriff um Mitternacht.</target>
       </notes>
       <segment>
         <source>Kopf</source>
-        <target>Kopf</target>
+        <target>Cabeza</target>
       </segment>
     </unit>
     <unit id="HblgYqB" name="Du gibst wirres Zeug von dir.">
@@ -2347,7 +2337,7 @@ Der Schutz endet nach dem Angriff um Mitternacht.</target>
       </notes>
       <segment>
         <source>Du gibst wirres Zeug von dir.</source>
-        <target>Du gibst wirres Zeug von dir.</target>
+        <target>Tus pensamientos se vuelven incoherentes...</target>
       </segment>
     </unit>
     <unit id="rhC.oAK" name="Hände">
@@ -2356,7 +2346,7 @@ Der Schutz endet nach dem Angriff um Mitternacht.</target>
       </notes>
       <segment>
         <source>Hände</source>
-        <target>Hände</target>
+        <target>Manos</target>
       </segment>
     </unit>
     <unit id="rdYTYJe" name="Du kannst bestimmte Gegenstände nicht mehr benutzen.">
@@ -2365,7 +2355,7 @@ Der Schutz endet nach dem Angriff um Mitternacht.</target>
       </notes>
       <segment>
         <source>Du kannst bestimmte Gegenstände nicht mehr benutzen.</source>
-        <target>Du kannst bestimmte Gegenstände nicht mehr benutzen.</target>
+        <target>Te será imposible utilizar ciertos objetos.</target>
       </segment>
     </unit>
     <unit id="fweEsGL" name="Arme">
@@ -2374,7 +2364,7 @@ Der Schutz endet nach dem Angriff um Mitternacht.</target>
       </notes>
       <segment>
         <source>Arme</source>
-        <target>Arme</target>
+        <target>Brazo</target>
       </segment>
     </unit>
     <unit id="_RuCwTX" name="1658d91">
@@ -2383,7 +2373,7 @@ Der Schutz endet nach dem Angriff um Mitternacht.</target>
       </notes>
       <segment>
         <source>Du kannst nicht mehr auf den Baustellen arbeiten und das Stadttor nicht schließen...</source>
-        <target>Du kannst nicht mehr auf den Baustellen arbeiten und das Stadttor nicht schließen...</target>
+        <target>Tus heridas te impiden participar en las obras del pueblo, así como abrir o cerrar el Portal.</target>
       </segment>
     </unit>
     <unit id="xXqHDly" name="Bein">
@@ -2392,7 +2382,7 @@ Der Schutz endet nach dem Angriff um Mitternacht.</target>
       </notes>
       <segment>
         <source>Bein</source>
-        <target>Bein</target>
+        <target>Pierna</target>
       </segment>
     </unit>
     <unit id="TFtve.d" name="3ee81de">
@@ -2401,7 +2391,7 @@ Der Schutz endet nach dem Angriff um Mitternacht.</target>
       </notes>
       <segment>
         <source>In der Außenwelt besteht mit jedem Schritt das Risiko, dass du zusammenbrichst und dich nicht mehr bewegen kannst (Du verlierst einen Aktionspunkt)!</source>
-        <target>In der Außenwelt besteht mit jedem Schritt das Risiko, dass du zusammenbrichst und dich nicht mehr bewegen kannst (Du verlierst einen Aktionspunkt)!</target>
+        <target>Cada paso en el Ultramundo puede desmoronarte. ¡Perderás tu Punto de Acción y no podrás salir de la casilla en la que te encuentras!</target>
       </segment>
     </unit>
     <unit id="oFtlo8T" name="Auge">
@@ -2410,7 +2400,7 @@ Der Schutz endet nach dem Angriff um Mitternacht.</target>
       </notes>
       <segment>
         <source>Auge</source>
-        <target>Auge</target>
+        <target>Ojo</target>
       </segment>
     </unit>
     <unit id="BLh5Li2" name="6688a00">
@@ -2419,7 +2409,7 @@ Der Schutz endet nach dem Angriff um Mitternacht.</target>
       </notes>
       <segment>
         <source>Die Wahrscheinlichkeit in der Wüste oder in einer Ruine einen Gegenstand zu finden sinkt erheblich.</source>
-        <target>Die Wahrscheinlichkeit in der Wüste oder in einer Ruine einen Gegenstand zu finden sinkt erheblich.</target>
+        <target>Tus probabilidades de encontrar un objeto en una búsqueda (desierto o edificio) son muy reducidas.</target>
       </segment>
     </unit>
     <unit id="4CY2vtO" name="Fuß">
@@ -2428,7 +2418,7 @@ Der Schutz endet nach dem Angriff um Mitternacht.</target>
       </notes>
       <segment>
         <source>Fuß</source>
-        <target>Fuß</target>
+        <target>Pie</target>
       </segment>
     </unit>
     <unit id="seK9BoL" name="Bringt dir keine Nachteile.">
@@ -2437,7 +2427,7 @@ Der Schutz endet nach dem Angriff um Mitternacht.</target>
       </notes>
       <segment>
         <source>Bringt dir keine Nachteile.</source>
-        <target>Bringt dir keine Nachteile.</target>
+        <target>No tiene penalidades adicionales.</target>
       </segment>
     </unit>
     <unit id="dVwApzS" name="Der Rucksack">
@@ -2446,7 +2436,7 @@ Der Schutz endet nach dem Angriff um Mitternacht.</target>
       </notes>
       <segment>
         <source>Der Rucksack</source>
-        <target>Der Rucksack</target>
+        <target>Tu mochila</target>
       </segment>
     </unit>
     <unit id="fo2jRnp" name="074fa9a">
@@ -2455,7 +2445,7 @@ Der Schutz endet nach dem Angriff um Mitternacht.</target>
       </notes>
       <segment>
         <source>Im Rucksack kannst du Nahrung, Wasser und Waffen mit dir tragen. Seine Größe ist auf 4 freie Plätze beschränkt. Ein Platz ist für deine Kleidung vorgesehen.</source>
-        <target>Im Rucksack kannst du Nahrung, Wasser und Waffen mit dir tragen. Seine Größe ist auf 4 freie Plätze beschränkt. Ein Platz ist für deine Kleidung vorgesehen.</target>
+        <target>En ella llevas tus raciones de alimentos, agua y armas. Su capacidad es limitada... tiene 4 compartimentos + 1 reservado a tu ropa de habitante.</target>
       </segment>
     </unit>
     <unit id="jSYnX6p" name="6e20269">
@@ -2466,8 +2456,7 @@ Außerdem führst du &lt;strong&gt;zusätzlich&lt;/strong&gt; zu deiner normalen
       <segment>
         <source>&lt;strong&gt;Helden&lt;/strong&gt; verfügen in ihrem Rucksack über einen zusätzlichen freien Platz!
 Außerdem führst du &lt;strong&gt;zusätzlich&lt;/strong&gt; zu deiner normalen Bürgerkleidung einen berufsspezifischen Anzug mit.</source>
-        <target><![CDATA[<strong>Helden</strong> verfügen in ihrem Rucksack über einen zusätzlichen freien Platz!
-Außerdem führst du <strong>zusätzlich</strong> zu deiner normalen Bürgerkleidung einen berufsspezifischen Anzug mit.]]></target>
+        <target><![CDATA[Si estás en <strong>modo Héroe</strong>, ¡contarás con un compartimento suplementario! Transportarás <strong>además </strong>, la vestimenta de habitante y el uniforme de un oficio.]]></target>
       </segment>
     </unit>
     <unit id="kx13MUV" name="Dein Zuhause">
@@ -2476,7 +2465,7 @@ Außerdem führst du <strong>zusätzlich</strong> zu deiner normalen Bürgerklei
       </notes>
       <segment>
         <source>Dein Zuhause</source>
-        <target>Dein Zuhause</target>
+        <target>Tu casa</target>
       </segment>
     </unit>
     <unit id="C2_sPwU" name="cd055d8">
@@ -2485,7 +2474,7 @@ Außerdem führst du <strong>zusätzlich</strong> zu deiner normalen Bürgerklei
       </notes>
       <segment>
         <source>Wenn du von deinen ausgedehnten Wüstenwanderungen zurückkehrst, kannst du deinen Rucksack daheim ausleeren. Deine Reisevorbereitungen erledigst du ebenfalls am besten daheim. Es gilt Lunchpaket, Wasser, Waffen und, wenn vorhanden, Drogen mitzunehmen.</source>
-        <target>Wenn du von deinen ausgedehnten Wüstenwanderungen zurückkehrst, kannst du deinen Rucksack daheim ausleeren. Deine Reisevorbereitungen erledigst du ebenfalls am besten daheim. Es gilt Lunchpaket, Wasser, Waffen und, wenn vorhanden, Drogen mitzunehmen.</target>
+        <target>Cuando vuelves del Ultramundo, tu casa es el lugar donde puedes vaciar tu mochila y uno de los lugares donde puedes volverla a llenar antes de salir de nuevo.</target>
       </segment>
     </unit>
     <unit id="4diEY6x" name="Deine persönliche Truhe">
@@ -2494,7 +2483,7 @@ Außerdem führst du <strong>zusätzlich</strong> zu deiner normalen Bürgerklei
       </notes>
       <segment>
         <source>Deine persönliche Truhe</source>
-        <target>Deine persönliche Truhe</target>
+        <target>Tu baúl personal</target>
       </segment>
     </unit>
     <unit id="hSaAdB3" name="eede599">
@@ -2503,7 +2492,7 @@ Außerdem führst du <strong>zusätzlich</strong> zu deiner normalen Bürgerklei
       </notes>
       <segment>
         <source>In deine Truhe passen bis zu 4 Gegenstände (5 wenn du ein Held bist). Einige Gegenstände, sowie manche Hausverbesserungen ermöglich dir noch mehr aufzubewahren.</source>
-        <target>In deine Truhe passen bis zu 4 Gegenstände (5 wenn du ein Held bist). Einige Gegenstände, sowie manche Hausverbesserungen ermöglich dir noch mehr aufzubewahren.</target>
+        <target>Puede contener básicamente 4 objetos (5 para los Héroes). Ciertos objetos y mejoras de casa pueden aumentar este límite.</target>
       </segment>
     </unit>
     <unit id="P6K6ed5" name="a644e62">
@@ -2689,7 +2678,7 @@ Leider ist es unmöglich, Karten von diesen Gebäuden aufzustöbern. Aber es bes
       </notes>
       <segment>
         <source>Deine Existenz in 'MyHordes' ist vergänglich und nur von kurzer Dauer. Sterben ist etwas ganz gewöhnliches und nicht weiter schlimm.</source>
-        <target>Deine Existenz in 'MyHordes' ist vergänglich und nur von kurzer Dauer. Sterben ist etwas ganz gewöhnliches und nicht weiter schlimm.</target>
+        <target>En MyHordes, tu cuerpo no vale nada, dura tan poco...</target>
       </segment>
     </unit>
     <unit id="ZAcOqcY" name="6d2d9d1">
@@ -2698,7 +2687,7 @@ Leider ist es unmöglich, Karten von diesen Gebäuden aufzustöbern. Aber es bes
       </notes>
       <segment>
         <source>Deine Seele ist der rote Faden des Spiels. In ihr werden all deine gemachten Erfahrungen und Auszeichnungen gesammelt. Außerdem wird dort auch dein aktueller Listenplatz in der Seelenrangliste angezeigt.</source>
-        <target>Deine Seele ist der rote Faden des Spiels. In ihr werden all deine gemachten Erfahrungen und Auszeichnungen gesammelt. Außerdem wird dort auch dein aktueller Listenplatz in der Seelenrangliste angezeigt.</target>
+        <target>Tu alma es el hilo conductor que enlaza todas tus encarnaciones. Ella guarda en su memoria todas tus vidas pasadas, tu posición en la Gran Clasificación y tus distinciones.</target>
       </segment>
     </unit>
     <unit id="27FD0EG" name="Die Auszeichnungen">
@@ -2707,7 +2696,7 @@ Leider ist es unmöglich, Karten von diesen Gebäuden aufzustöbern. Aber es bes
       </notes>
       <segment>
         <source>Die Auszeichnungen</source>
-        <target>Die Auszeichnungen</target>
+        <target>Las distinciones</target>
       </segment>
     </unit>
     <unit id="_1Ab7yD" name="d46f2cc">
@@ -2716,7 +2705,7 @@ Leider ist es unmöglich, Karten von diesen Gebäuden aufzustöbern. Aber es bes
       </notes>
       <segment>
         <source>Nach jedem Tod erhältst für bestimmte Taten oder Erfolge ein paar Auszeichungen. Dies wird unter anderem gezählt: Anzahl der getöteten Zombies, Anzahl der seltenen gefundenen Gegenstände, Anzahl der APs, die du in Baustellen investiert hast...</source>
-        <target>Nach jedem Tod erhältst für bestimmte Taten oder Erfolge ein paar Auszeichungen. Dies wird unter anderem gezählt: Anzahl der getöteten Zombies, Anzahl der seltenen gefundenen Gegenstände, Anzahl der APs, die du in Baustellen investiert hast...</target>
+        <target>Cada vez que mueres, recibes distinciones por los logros que alcanzas a lo largo del juego: cantidad de zombies eliminados, objetos raros encontrados, etc.</target>
       </segment>
     </unit>
     <unit id="wCuacLL" name="20f1b74">
@@ -2725,7 +2714,7 @@ Leider ist es unmöglich, Karten von diesen Gebäuden aufzustöbern. Aber es bes
       </notes>
       <segment>
         <source>Diese Informationen sind für alle Spieler sichtbar und stellen einen Leistungsspiegel all deiner Partien dar.</source>
-        <target>Diese Informationen sind für alle Spieler sichtbar und stellen einen Leistungsspiegel all deiner Partien dar.</target>
+        <target>Son visibles para todos los jugadores en tu ficha y refleja todo lo que has realizado en tus diferentes vidas.</target>
       </segment>
     </unit>
     <unit id="PoMJK5K" name="8b272ca">
@@ -2734,7 +2723,7 @@ Leider ist es unmöglich, Karten von diesen Gebäuden aufzustöbern. Aber es bes
       </notes>
       <segment>
         <source>&lt;strong&gt;Achtung:&lt;/strong&gt; Alle am letzten Tag erworbenen Auszeichungen werden nicht gezählt (Manche Auszeichungen, wie die Verbannung oder die Todesart sind davon ausgenommen.).</source>
-        <target><![CDATA[<strong>Achtung:</strong> Alle am letzten Tag erworbenen Auszeichungen werden nicht gezählt (Manche Auszeichungen, wie die Verbannung oder die Todesart sind davon ausgenommen.).]]></target>
+        <target><![CDATA[<strong>Cuidado:</strong> Si mueres, no recibirás distinciones por tus logros del último día (con excepción de algunas, como las distinciones de muerte, por ejemplo.).]]></target>
       </segment>
     </unit>
     <unit id="LiN0qWx" name="0160004">
@@ -2745,8 +2734,7 @@ Wenn du in einer "Kleinen Karte" spielst und &lt;strong&gt;100 Seelenpunkte oder
       <segment>
         <source>Die Grundregel lautet: Ab dem 5. Tag werden dir alle Auszeichnungen gutgeschrieben.
 Wenn du in einer "Kleinen Karte" spielst und &lt;strong&gt;100 Seelenpunkte oder mehr hast&lt;/strong&gt;, werden Auszeichnungen erst ab Tag 8 vergeben!</source>
-        <target><![CDATA[Die Grundregel lautet: Ab dem 5. Tag werden dir alle Auszeichnungen gutgeschrieben.
-Wenn du in einer "Kleinen Karte" spielst und <strong>100 Seelenpunkte oder mehr hast</strong>, werden Auszeichnungen erst ab Tag 8 vergeben!]]></target>
+        <target><![CDATA[Sin embargo, desde el día 5, esta regla ya no se aplica: ganarás siempre todas tus distinciones. En un pueblo amateur, <strong>tan pronto como tienes 100 puntos de alma</strong>, ninguna distinción es validada antes del octavo día.]]></target>
       </segment>
     </unit>
     <unit id="LoWYOXM" name="Die Titel">
@@ -2755,7 +2743,7 @@ Wenn du in einer "Kleinen Karte" spielst und <strong>100 Seelenpunkte oder mehr 
       </notes>
       <segment>
         <source>Die Titel</source>
-        <target>Die Titel</target>
+        <target>Los títulos</target>
       </segment>
     </unit>
     <unit id="12Oiou9" name="886aecf">
@@ -2764,7 +2752,7 @@ Wenn du in einer "Kleinen Karte" spielst und <strong>100 Seelenpunkte oder mehr 
       </notes>
       <segment>
         <source>Für manche Auszeichnungen erhältst du bei einer entsprechend hohen Anzahl einen &lt;strong&gt;speziellen Titel!&lt;/strong&gt;</source>
-        <target><![CDATA[Für manche Auszeichnungen erhältst du bei einer entsprechend hohen Anzahl einen <strong>speziellen Titel!</strong>]]></target>
+        <target><![CDATA[Algunas distinciones liberan títulos: cuando alcanzas una cantidad determinada de ciertas disnticiones, un <strong>título especial</strong> aparecerá en tu ficha Twinoid.]]></target>
       </segment>
     </unit>
     <unit id="2pL5J7A" name="b79dc67">
@@ -2773,7 +2761,7 @@ Wenn du in einer "Kleinen Karte" spielst und <strong>100 Seelenpunkte oder mehr 
       </notes>
       <segment>
         <source>Beispiel: Für jeden erledigten Zombie erhältst du die Auszeichung "Erlegte Zombies". Sobald du 100 Untote umgebracht hast erscheint der Titel "Brutalo" in deinem Profil! Je mehr Zombies du danach tötest, desto besser wird dein Titel.</source>
-        <target>Beispiel: Für jeden erledigten Zombie erhältst du die Auszeichung "Erlegte Zombies". Sobald du 100 Untote umgebracht hast erscheint der Titel "Brutalo" in deinem Profil! Je mehr Zombies du danach tötest, desto besser wird dein Titel.</target>
+        <target>Ejemplo: Recibes la distinción "Zombies eliminados" por la cantidad de muertos vivientes que elimines. ¡Cuando llegues a 100, un título especial aparece en tu Nexus! Sigue ganando distinciones para que nuevos títulos aparezcan.</target>
       </segment>
     </unit>
     <unit id="33cFnv8" name="7dd845b">
@@ -2782,7 +2770,7 @@ Wenn du in einer "Kleinen Karte" spielst und <strong>100 Seelenpunkte oder mehr 
       </notes>
       <segment>
         <source>Wenn du deinem Nicknamen einen zusätzlichen Titel geben möchtest, musst du auf deiner Seelenseite auf den gewünschten Titel klicken!</source>
-        <target>Wenn du deinem Nicknamen einen zusätzlichen Titel geben möchtest, musst du auf deiner Seelenseite auf den gewünschten Titel klicken!</target>
+        <target>Para que un título se muestre junto a tu nick, haz clic en el título deseado en la página de tu alma.</target>
       </segment>
     </unit>
     <unit id="5bXhBKp" name="Seelenrangliste">
@@ -2791,7 +2779,7 @@ Wenn du in einer "Kleinen Karte" spielst und <strong>100 Seelenpunkte oder mehr 
       </notes>
       <segment>
         <source>Seelenrangliste</source>
-        <target>Seelenrangliste</target>
+        <target>La escala de almas (Clasificación)</target>
       </segment>
     </unit>
     <unit id="6YDiz37" name="f944b3c">
@@ -2800,7 +2788,7 @@ Wenn du in einer "Kleinen Karte" spielst und <strong>100 Seelenpunkte oder mehr 
       </notes>
       <segment>
         <source>Für jeden Tag, den du in einer Stadt überlebst, bekommst du Punkte. In den ersten Tagen erhältst du nur wenige Punkte. Je länger du allerdings durchhältst, desto mehr Punkte werden es!</source>
-        <target>Für jeden Tag, den du in einer Stadt überlebst, bekommst du Punkte. In den ersten Tagen erhältst du nur wenige Punkte. Je länger du allerdings durchhältst, desto mehr Punkte werden es!</target>
+        <target>Cada día que pases en un pueblo te dará puntos. Los primeros días ganarás pocos, ¡pero a medida que avances ganarás más!</target>
       </segment>
     </unit>
     <unit id="bekk9Oq" name="Deine Punktanzahl ist in der Großen Seelenrangliste aufgeführt.">
@@ -2809,7 +2797,7 @@ Wenn du in einer "Kleinen Karte" spielst und <strong>100 Seelenpunkte oder mehr 
       </notes>
       <segment>
         <source>Deine Punktanzahl ist in der Großen Seelenrangliste aufgeführt.</source>
-        <target>Deine Punktanzahl ist in der Großen Seelenrangliste aufgeführt.</target>
+        <target>Esos puntos te hacen participar en una clasificación de almas.</target>
       </segment>
     </unit>
     <unit id="5mPpD9Q" name="222be22">
@@ -2820,8 +2808,8 @@ Wenn du in einer "Kleinen Karte" spielst und <strong>100 Seelenpunkte oder mehr 
       <segment>
         <source>&lt;strong&gt;Sobald ein Spieler mehr als 100 Seelenpunkte gesammelt hat, wird er nur noch in Städten wiedergeboren, in denen ebenfalls Spieler mit 100 Punkten spielen&lt;/strong&gt;
 (so dass die besten Spieler unter sich bleiben).</source>
-        <target><![CDATA[<strong>Sobald ein Spieler mehr als 100 Seelenpunkte gesammelt hat, wird er nur noch in Städten wiedergeboren, in denen ebenfalls Spieler mit 100 Punkten spielen</strong>
-(so dass die besten Spieler unter sich bleiben).]]></target>
+        <target><![CDATA[<strong>Cuando un jugador cuenta con más de 100 Puntos de Alma, todas sus próximas vidas tendrán lugar en pueblos donde todos los jugadores tienen más de 100 puntos</strong>
+(de esta manera, los mejores juegan entre sí).]]></target>
       </segment>
     </unit>
     <unit id="GVvf.A." name="9ebce8d">
@@ -2830,7 +2818,7 @@ Wenn du in einer "Kleinen Karte" spielst und <strong>100 Seelenpunkte oder mehr 
       </notes>
       <segment>
         <source>Du wurdest schwer verletzt... Verarzte dich so schnell wie möglich mit einem Verband oder etwas ähnlichem, sonst riskierst du eine &lt;strong&gt;%img_infect% Infektion&lt;/strong&gt; (geht in der Regel tödlich aus...)!</source>
-        <target><![CDATA[Du wurdest schwer verletzt... Verarzte dich so schnell wie möglich mit einem Verband oder etwas ähnlichem, sonst riskierst du eine <strong>%img_infect% Infektion</strong> (geht in der Regel tödlich aus...)!]]></target>
+        <target><![CDATA[Has sido gravemente herido... Cúrate rápidamente con vendas o alguna otra cosa, o correrás el riesgo de contraer una <strong>%img_infect% Infección</strong> ...¡casi siempre mortal!]]></target>
       </segment>
     </unit>
     <unit id="DwNHYeS" name="c387eb6">
@@ -2841,8 +2829,7 @@ werden &lt;strong&gt;automatisch&lt;/strong&gt; der &lt;strong&gt;Hauseinrichtun
       <segment>
         <source>Manche Gegenstände, wie zum Beispiel der &lt;strong&gt;%img_carpet% Teppich&lt;/strong&gt;,
 werden &lt;strong&gt;automatisch&lt;/strong&gt; der &lt;strong&gt;Hauseinrichtung&lt;/strong&gt; hinzugefügt, wenn du sie in der Truhe ablegst. Einrichtungsgegenstände verschaffen dir verschiedene Vorteile (Deko, Diebstahlschutz, Schutz gegen Zombies...)</source>
-        <target><![CDATA[Manche Gegenstände, wie zum Beispiel der <strong>%img_carpet% Teppich</strong>,
-werden <strong>automatisch</strong> der <strong>Hauseinrichtung</strong> hinzugefügt, wenn du sie in der Truhe ablegst. Einrichtungsgegenstände verschaffen dir verschiedene Vorteile (Deko, Diebstahlschutz, Schutz gegen Zombies...)]]></target>
+        <target><![CDATA[Algunos objetos como el <strong>%img_carpet% Tapís</strong> son <strong>automáticamente</strong> utilizados en el <strong>Equipamiento</strong> de tu casa si los colocas en tu baúl. Los equipamientos te dan diversos bonus (decoración, protección contra robos, defensas contra zombies, etc.)]]></target>
       </segment>
     </unit>
     <unit id="_PQd7sk" name="ad9208e">
@@ -2851,7 +2838,7 @@ werden <strong>automatisch</strong> der <strong>Hauseinrichtung</strong> hinzuge
       </notes>
       <segment>
         <source>Es gibt in 'MyHordes' mächtige Drogen, die alle unterschiedliche Effekte haben: Sie lindern Erschöpfungszustände, bekämpfen Infektionen, bringen dich bei Panikattacken wieder runter oder rehydrieren dich... Allerdings ist Vorsicht geboten: Wenn du zu viele nimmst, kannst du &lt;strong&gt;%img_addict% Abhängig&lt;/strong&gt; werden.</source>
-        <target><![CDATA[Es gibt in 'MyHordes' mächtige Drogen, die alle unterschiedliche Effekte haben: Sie lindern Erschöpfungszustände, bekämpfen Infektionen, bringen dich bei Panikattacken wieder runter oder rehydrieren dich... Allerdings ist Vorsicht geboten: Wenn du zu viele nimmst, kannst du <strong>%img_addict% Abhängig</strong> werden.]]></target>
+        <target><![CDATA[Los estimulantes son poderosos en MyHordes y tienen diversas utilidades: quitar el cansancio, curar una infección, calmar los nervios, hidratarse... Pero ten cuidado al consumirlos. La <strong>%img_addict% Dependencia</strong> es un riesgo real y particularmente peligroso.]]></target>
       </segment>
     </unit>
     <unit id="ywk869u" name="6603e25">
@@ -2887,7 +2874,7 @@ werden <strong>automatisch</strong> der <strong>Hauseinrichtung</strong> hinzuge
       </notes>
       <segment>
         <source>Der Tod</source>
-        <target>Der Tod</target>
+        <target>La muerte</target>
       </segment>
     </unit>
     <unit id="vc97FEy" name="In &quot;MyHordes&quot; ist der Tod nicht weiter tragisch.">
@@ -2896,7 +2883,7 @@ werden <strong>automatisch</strong> der <strong>Hauseinrichtung</strong> hinzuge
       </notes>
       <segment>
         <source>In "MyHordes" ist der Tod nicht weiter tragisch.</source>
-        <target>In "MyHordes" ist der Tod nicht weiter tragisch.</target>
+        <target>En MyHordes, la muerte es grave, pero no es el fin.</target>
       </segment>
     </unit>
     <unit id="MLk.yRi" name="473b48d">
@@ -2905,7 +2892,7 @@ werden <strong>automatisch</strong> der <strong>Hauseinrichtung</strong> hinzuge
       </notes>
       <segment>
         <source>Der Tod stellt das Ende deiner Existenz in einer bestimmten Stadt dar und ermöglicht dir im Anschluss in einer neuen Stadt wiedergeboren zu werden.</source>
-        <target>Der Tod stellt das Ende deiner Existenz in einer bestimmten Stadt dar und ermöglicht dir im Anschluss in einer neuen Stadt wiedergeboren zu werden.</target>
+        <target>Representa el inicio de una nueva existencia en otro pueblo.</target>
       </segment>
     </unit>
     <unit id="B6yhspG" name="Seelenpunkte nach dem Tod">
@@ -2914,7 +2901,7 @@ werden <strong>automatisch</strong> der <strong>Hauseinrichtung</strong> hinzuge
       </notes>
       <segment>
         <source>Seelenpunkte nach dem Tod</source>
-        <target>Seelenpunkte nach dem Tod</target>
+        <target>Ganancia de Puntos de Alma en caso de muerte</target>
       </segment>
     </unit>
     <unit id="XFgRKGC" name="a24c090">
@@ -2923,7 +2910,7 @@ werden <strong>automatisch</strong> der <strong>Hauseinrichtung</strong> hinzuge
       </notes>
       <segment>
         <source>Nach jedem Tod erhältst du eine bestimmte Anzahl an Punkten, die sich an der &lt;strong&gt;Anzahl der Tage&lt;/strong&gt; bemisst, die du in einer Stadt "vollkommen überlebt" hast.</source>
-        <target><![CDATA[Nach jedem Tod erhältst du eine bestimmte Anzahl an Punkten, die sich an der <strong>Anzahl der Tage</strong> bemisst, die du in einer Stadt "vollkommen überlebt" hast.]]></target>
+        <target><![CDATA[Cuando mueres, recibes una cantidad de puntos que corresponden a la <strong>cantidad de días íntegros que sobreviviste en el transcurso de tu última vida</strong>.]]></target>
       </segment>
     </unit>
     <unit id="Cg_7jr3" name="e65fd93">
@@ -2936,9 +2923,7 @@ Wenn du im Laufe des Tages stirbst, gilt der Tag als nicht überlebt.</note>
         <source>Ein Tag gilt immer dann als "vollkommen überlebt",
 &lt;strong&gt;wenn du beim Zombieangriff um Mitternacht stirbst&lt;/strong&gt;.
 Wenn du im Laufe des Tages stirbst, gilt der Tag als nicht überlebt.</source>
-        <target><![CDATA[Ein Tag gilt immer dann als "vollkommen überlebt",
-<strong>wenn du beim Zombieangriff um Mitternacht stirbst</strong>.
-Wenn du im Laufe des Tages stirbst, gilt der Tag als nicht überlebt.]]></target>
+        <target><![CDATA[Un día es considerado como "integralmente vivido" <strong>si sobrevives hasta la hora del ataque de los zombies</strong>. Todo otro tipo de muerte invalidará el día.]]></target>
       </segment>
     </unit>
     <unit id="KsSxKXH" name="Mehrere Fälle sind denkbar:">
@@ -2947,7 +2932,7 @@ Wenn du im Laufe des Tages stirbst, gilt der Tag als nicht überlebt.]]></target
       </notes>
       <segment>
         <source>Mehrere Fälle sind denkbar:</source>
-        <target>Mehrere Fälle sind denkbar:</target>
+        <target>Estos son los casos posibles:</target>
       </segment>
     </unit>
     <unit id="db1JVra" name="d3597e9">
@@ -2958,8 +2943,7 @@ Der angebrochene Tag gilt dann als nicht überlebt. &lt;em&gt;Solltest du zum Be
       <segment>
         <source>&lt;strong&gt;Du stirbst im Laufe des Tages (Vergiftung, Wassermangel ...):&lt;/strong&gt;
 Der angebrochene Tag gilt dann als nicht überlebt. &lt;em&gt;Solltest du zum Beispiel am fünften Tag an einer Zyanidvergiftung sterben, wird deine Punktanzahl auf Grundlage der vier vollständig überlebten Tag berechnet.&lt;/em&gt;</source>
-        <target><![CDATA[<strong>Du stirbst im Laufe des Tages (Vergiftung, Wassermangel ...):</strong>
-Der angebrochene Tag gilt dann als nicht überlebt. <em>Solltest du zum Beispiel am fünften Tag an einer Zyanidvergiftung sterben, wird deine Punktanzahl auf Grundlage der vier vollständig überlebten Tag berechnet.</em>]]></target>
+        <target><![CDATA[<strong>Si mueres en el transcurso del día (envenenamiento, deshidratación, etc.):</strong> El día en curso no es considerado como integralmente sobrevivido. <em>Por ejemplo, si mueres por envenenamiento con Cianuro durante el día 5 en tu pueblo, recibirás solo 4 puntos.</em>]]></target>
       </segment>
     </unit>
     <unit id="sIyefIc" name="d145a33">
@@ -2972,9 +2956,7 @@ Auch dieser Tag wird nicht gezählt, da du nicht in der Lage warst, deine Grundb
         <source>&lt;strong&gt;Du stirbst um Mitternacht, allerdings nicht durch die Zombies, sondern an Wassermangel, an einer Infektion oder etwas ähnlichem:&lt;/strong&gt;
 Auch dieser Tag wird nicht gezählt, da du nicht in der Lage warst, deine Grundbedürfnisse zu befriedigen und für dich zu sorgen.
 &lt;em&gt;Solltest du zum Beispiel in der Nacht vom fünften auf den sechsten Tag an Wassermangel sterben, erhältst du Punkte nur für die vier überlebten Tage.&lt;/em&gt;</source>
-        <target><![CDATA[<strong>Du stirbst um Mitternacht, allerdings nicht durch die Zombies, sondern an Wassermangel, an einer Infektion oder etwas ähnlichem:</strong>
-Auch dieser Tag wird nicht gezählt, da du nicht in der Lage warst, deine Grundbedürfnisse zu befriedigen und für dich zu sorgen.
-<em>Solltest du zum Beispiel in der Nacht vom fünften auf den sechsten Tag an Wassermangel sterben, erhältst du Punkte nur für die vier überlebten Tage.</em>]]></target>
+        <target><![CDATA[<strong>Si mueres en la noche pero por deshidratación, infección o cualquier otra causa no relacionada con el ataque de los zombies:</strong> Tu día no será validado, pues no lograste completarlo. <em>Por ejemplo, si mueres en la noche del día 5 al 6 por deshidratación, recibirás 4 puntos por los días sobrevividos.</em>]]></target>
       </segment>
     </unit>
     <unit id="IwZcTox" name="e59c65e">
@@ -2985,8 +2967,7 @@ Der Tag wird nicht gezählt (siehe vorangegangenes Beispiel).</note>
       <segment>
         <source>&lt;strong&gt;Du stirbst um Mitternacht in der Wüste:&lt;/strong&gt;
 Der Tag wird nicht gezählt (siehe vorangegangenes Beispiel).</source>
-        <target><![CDATA[<strong>Du stirbst um Mitternacht in der Wüste:</strong>
-Der Tag wird nicht gezählt (siehe vorangegangenes Beispiel).]]></target>
+        <target><![CDATA[<strong>Si mueres en el desierto por la noche:</strong> Tu último día tampoco es validado (ver ejemplo precedente).]]></target>
       </segment>
     </unit>
     <unit id="7V87v1y" name="7ec3b81">
@@ -2997,8 +2978,7 @@ Dein überlebter Tag wird gezählt! &lt;em&gt;Wenn du zum Beispiel in der Nacht 
       <segment>
         <source>&lt;strong&gt;Du stirbst in der Stadt und dies während des Zombieangriffs:&lt;/strong&gt;
 Dein überlebter Tag wird gezählt! &lt;em&gt;Wenn du zum Beispiel in der Nacht vom fünften auf den sechsten Tag beim Angriff der Zombiemeute umkommst, bekommst du deine Punkte für insgesamt fünf Tage (der fünfte Tag wird gezählt).&lt;/em&gt;</source>
-        <target><![CDATA[<strong>Du stirbst in der Stadt und dies während des Zombieangriffs:</strong>
-Dein überlebter Tag wird gezählt! <em>Wenn du zum Beispiel in der Nacht vom fünften auf den sechsten Tag beim Angriff der Zombiemeute umkommst, bekommst du deine Punkte für insgesamt fünf Tage (der fünfte Tag wird gezählt).</em>]]></target>
+        <target><![CDATA[<strong>Si mueres en el pueblo durante un ataque zombie:</strong> ¡Tu día será validado! <em>Por ejemplo, si mueres en la noche del día 5 al 6 durante el ataque de los zombies, recibirás 5 puntos correspondientes a los días sobrevividos (tu último y 5to. día será validado).</em>]]></target>
       </segment>
     </unit>
     <unit id="hRyFeHQ" name="54e1be5">
@@ -3007,7 +2987,7 @@ Dein überlebter Tag wird gezählt! <em>Wenn du zum Beispiel in der Nacht vom f�
       </notes>
       <segment>
         <source>Du stirbst beim Campen und deine Stadt war nicht zerstört:&lt;/strong&gt; Dein überlebter Tag wird &lt;strong&gt;nicht&lt;/strong&gt; gezählt!</source>
-        <target><![CDATA[Du stirbst beim Campen und deine Stadt war nicht zerstört:</strong> Dein überlebter Tag wird <strong>nicht</strong> gezählt!]]></target>
+        <target><![CDATA[<strong>Si mueres en el campamento mientras que tu pueblo no ha sido devastado:</strong> Tu día <strong>no será</strong> validado.]]></target>
       </segment>
     </unit>
     <unit id="wS0eiAx" name="2f5be52">
@@ -3016,7 +2996,7 @@ Dein überlebter Tag wird gezählt! <em>Wenn du zum Beispiel in der Nacht vom f�
       </notes>
       <segment>
         <source>Du stirbst beim Campen während deine Stadt bereits zerstört ist:&lt;/strong&gt; Dein überlebter Tag wird gezählt.</source>
-        <target><![CDATA[Du stirbst beim Campen während deine Stadt bereits zerstört ist:</strong> Dein überlebter Tag wird gezählt.]]></target>
+        <target><![CDATA[<strong>Si mueres en el campamento mientras que tu pueblo ha sido devastado:</strong> Tu día será validado.]]></target>
       </segment>
     </unit>
     <unit id="gyD1cj7" name="202ab24">
@@ -3025,7 +3005,7 @@ Dein überlebter Tag wird gezählt! <em>Wenn du zum Beispiel in der Nacht vom f�
       </notes>
       <segment>
         <source>Im Spiel gibt es eine ganz besondere Auszeichung, die den besten (oder hinterhältigsten) Bürgern vorbehalten ist: &lt;strong&gt;Der letzte Tod!&lt;/strong&gt;</source>
-        <target><![CDATA[Im Spiel gibt es eine ganz besondere Auszeichung, die den besten (oder hinterhältigsten) Bürgern vorbehalten ist: <strong>Der letzte Tod!</strong>]]></target>
+        <target><![CDATA[Existe una distinción muy particular en el juego, que recompensa a los jugadores que hayan sobresalido por su resistencia (o su bajeza): <strong>¡El Último Habitante!</strong>]]></target>
       </segment>
     </unit>
     <unit id="kNwp_aT" name="Um die Auszeichung zu erhalten, müssen drei Regeln beachtet werden:">
@@ -3034,7 +3014,7 @@ Dein überlebter Tag wird gezählt! <em>Wenn du zum Beispiel in der Nacht vom f�
       </notes>
       <segment>
         <source>Um die Auszeichung zu erhalten, müssen drei Regeln beachtet werden:</source>
-        <target>Um die Auszeichung zu erhalten, müssen drei Regeln beachtet werden:</target>
+        <target>Pero, para ganar esta distinción existen 3 condiciones:</target>
       </segment>
     </unit>
     <unit id="IPmacZS" name="9bcb92b">
@@ -3043,7 +3023,7 @@ Dein überlebter Tag wird gezählt! <em>Wenn du zum Beispiel in der Nacht vom f�
       </notes>
       <segment>
         <source>Die Stadt muss insgesamt &lt;strong&gt;mindestens 5 volle Tage&lt;/strong&gt; überlebt haben.</source>
-        <target><![CDATA[Die Stadt muss insgesamt <strong>mindestens 5 volle Tage</strong> überlebt haben.]]></target>
+        <target><![CDATA[El pueblo debe haber resistido <strong>por lo menos 5 días completos</strong>.]]></target>
       </segment>
     </unit>
     <unit id="umhoIqi" name="8cb76f5">
@@ -3052,7 +3032,7 @@ Dein überlebter Tag wird gezählt! <em>Wenn du zum Beispiel in der Nacht vom f�
       </notes>
       <segment>
         <source>Der letzte Bürger muss während des &lt;strong&gt;letzten Zombieangriffs&lt;/strong&gt; aufgefressen worden sein.</source>
-        <target><![CDATA[Der letzte Bürger muss während des <strong>letzten Zombieangriffs</strong> aufgefressen worden sein.]]></target>
+        <target><![CDATA[El habitante debe haber sido el último en morir dentro del pueblo <strong>devorado en un ataque de zombies</strong>.]]></target>
       </segment>
     </unit>
     <unit id="8I4_Kv5" name="271e995">
@@ -3061,7 +3041,7 @@ Dein überlebter Tag wird gezählt! <em>Wenn du zum Beispiel in der Nacht vom f�
       </notes>
       <segment>
         <source>Die Stadt darf in den vorangegangenen Tagen nicht &lt;span x-ajax-href=%url_devast%&gt;zerstört&lt;/span&gt; worden sein. &lt;i&gt;Eine Stadt gilt dann als zerstört, wenn sich in einer Nacht keine Bürger in ihr ("intra muros") aufgehalten haben.&lt;/i&gt;</source>
-        <target><![CDATA[Die Stadt darf in den vorangegangenen Tagen nicht <span x-ajax-href=%url_devast%>zerstört</span> worden sein. <i>Eine Stadt gilt dann als zerstört, wenn sich in einer Nacht keine Bürger in ihr ("intra muros") aufgehalten haben.</i>]]></target>
+        <target><![CDATA[El pueblo no debe haber sido <span x-ajax-href=%url_devast%>devastado</span> los días anteriores (<i>un pueblo es considerado como devastado si queda vacío durante una noche</i>).]]></target>
       </segment>
     </unit>
     <unit id="9xaYy6q" name="931f8ab">
@@ -3070,7 +3050,7 @@ Dein überlebter Tag wird gezählt! <em>Wenn du zum Beispiel in der Nacht vom f�
       </notes>
       <segment>
         <source>Dementsprechend können &lt;strong&gt;Selbstmörder, Bürger die am letzten Abend in Folge einer Dehydratation sterben oder Spieler, die in der Außenwelt umkommen&lt;/strong&gt;, diese Auszeichnung nicht bekommen.</source>
-        <target><![CDATA[Dementsprechend können <strong>Selbstmörder, Bürger die am letzten Abend in Folge einer Dehydratation sterben oder Spieler, die in der Außenwelt umkommen</strong>, diese Auszeichnung nicht bekommen.]]></target>
+        <target><![CDATA[De esta manera, <strong>un habitante que se suicida, muere deshidratado la noche anterior o en el Ultramundo, no ganará esta distinción.</strong>]]></target>
       </segment>
     </unit>
     <unit id="NbJkxgg" name="15c2361">
@@ -3079,7 +3059,7 @@ Dein überlebter Tag wird gezählt! <em>Wenn du zum Beispiel in der Nacht vom f�
       </notes>
       <segment>
         <source>Bürger, die beim letzten Angriff auf die Stadt draußen gecampt haben, können die Auszeichnung auch nicht bekommen.</source>
-        <target>Bürger, die beim letzten Angriff auf die Stadt draußen gecampt haben, können die Auszeichnung auch nicht bekommen.</target>
+        <target>Igualmente, un habitante que acampa en el Ultramundo la noche de la destrucción de su pueblo, no recibirá esta distinción.</target>
       </segment>
     </unit>
     <unit id="QbzljWZ" name="1a35249">
@@ -3088,7 +3068,7 @@ Dein überlebter Tag wird gezählt! <em>Wenn du zum Beispiel in der Nacht vom f�
       </notes>
       <segment>
         <source>Falls mehrere Bürger beim letzten Zombieangriff in der Stadt noch am Leben sind, bestimmt sich &lt;strong&gt;der letzte Tote&lt;/strong&gt; nach dem Zufallsprinzip.</source>
-        <target><![CDATA[Falls mehrere Bürger beim letzten Zombieangriff in der Stadt noch am Leben sind, bestimmt sich <strong>der letzte Tote</strong> nach dem Zufallsprinzip.]]></target>
+        <target><![CDATA[El último superviviente será seleccionado de manera totalmente aleatoria <strong>y recibirá la distinción "El Último Habitante".</strong>]]></target>
       </segment>
     </unit>
     <unit id="C0Rhk.N" name="Vorteile der altgedienten Helden">
@@ -3097,7 +3077,7 @@ Dein überlebter Tag wird gezählt! <em>Wenn du zum Beispiel in der Nacht vom f�
       </notes>
       <segment>
         <source>Vorteile der altgedienten Helden</source>
-        <target>Vorteile der altgedienten Helden</target>
+        <target>Ventajas de los héroes</target>
       </segment>
     </unit>
     <unit id="t9ux.G_" name="226e909">
@@ -3106,7 +3086,7 @@ Dein überlebter Tag wird gezählt! <em>Wenn du zum Beispiel in der Nacht vom f�
       </notes>
       <segment>
         <source>Neben den zahlreichen Vorteilen, über die du im Heldenmodus verfügst, kannst du mit fortschreitender Heldenerfahrung weitere Vorteile freispielen!</source>
-        <target>Neben den zahlreichen Vorteilen, über die du im Heldenmodus verfügst, kannst du mit fortschreitender Heldenerfahrung weitere Vorteile freispielen!</target>
+        <target>¡Además de todas las ventajas obtenidas como Héroe, acumulas otros beneficios!</target>
       </segment>
     </unit>
     <unit id="i5ckZqP" name="42d8ce6">
@@ -3115,7 +3095,7 @@ Dein überlebter Tag wird gezählt! <em>Wenn du zum Beispiel in der Nacht vom f�
       </notes>
       <segment>
         <source>Jeder Tag, den du im Heldenmodus spielst, wird in deiner Seelenseite eingetragen. Sobald du eine gewisse Anzahl an Heldentagen gesammelt hast, bist du in der Lage neue Heldenvorteile freizuschalten!</source>
-        <target>Jeder Tag, den du im Heldenmodus spielst, wird in deiner Seelenseite eingetragen. Sobald du eine gewisse Anzahl an Heldentagen gesammelt hast, bist du in der Lage neue Heldenvorteile freizuschalten!</target>
+        <target>Cada día que vives como Héroe es contabilizado en tu Alma. Liberarás ventajas excepcionales cuando hayas acumulado una cierta cantidad de días.</target>
       </segment>
     </unit>
     <unit id="spWGaZU" name="72f4edd">
@@ -3124,7 +3104,7 @@ Dein überlebter Tag wird gezählt! <em>Wenn du zum Beispiel in der Nacht vom f�
       </notes>
       <segment>
         <source>Der erste Heldenveteranenbonus ist bereits nach 3 Tagen erhältlich. Alle weiteren Boni werden mit zunehmender Anzahl an gespielten Heldentagen freigeschaltet.</source>
-        <target>Der erste Heldenveteranenbonus ist bereits nach 3 Tagen erhältlich. Alle weiteren Boni werden mit zunehmender Anzahl an gespielten Heldentagen freigeschaltet.</target>
+        <target>La primera de estas ventajas se obtiene al cabo de 3 días. Las siguientes se obtienen cada 15 días en promedio.</target>
       </segment>
     </unit>
     <unit id="pMxpfAN" name="Wichtiger Hinweis:">
@@ -3133,7 +3113,7 @@ Dein überlebter Tag wird gezählt! <em>Wenn du zum Beispiel in der Nacht vom f�
       </notes>
       <segment>
         <source>Wichtiger Hinweis:</source>
-        <target>Wichtiger Hinweis:</target>
+        <target>Recuerda:</target>
       </segment>
     </unit>
     <unit id="rbZWeqs" name="d7684b4">
@@ -3142,7 +3122,7 @@ Dein überlebter Tag wird gezählt! <em>Wenn du zum Beispiel in der Nacht vom f�
       </notes>
       <segment>
         <source>Solange du im Heldenmodus spielst, verfügst du über alle freigespielten Vorteile und Boni.</source>
-        <target>Solange du im Heldenmodus spielst, verfügst du über alle freigespielten Vorteile und Boni.</target>
+        <target>Mientras estés en Modo Héroe, disfrutarás todos los poderes.</target>
       </segment>
     </unit>
     <unit id="tDYCTbh" name="Wenn du nicht mehr als Held spielst, verfallen diese Vorteile.">
@@ -3151,7 +3131,7 @@ Dein überlebter Tag wird gezählt! <em>Wenn du zum Beispiel in der Nacht vom f�
       </notes>
       <segment>
         <source>Wenn du nicht mehr als Held spielst, verfallen diese Vorteile.</source>
-        <target>Wenn du nicht mehr als Held spielst, verfallen diese Vorteile.</target>
+        <target>Si ya no eres Héroe, tus poderes no estarán disponibles.</target>
       </segment>
     </unit>
     <unit id="jxtizxy" name="09277f1">
@@ -3160,7 +3140,7 @@ Dein überlebter Tag wird gezählt! <em>Wenn du zum Beispiel in der Nacht vom f�
       </notes>
       <segment>
         <source>Wechselst du wieder in den Heldenmodus, erhältst du alle Heldenvorteile und es wird da weitergezählt, wo du aufgehört hast.</source>
-        <target>Wechselst du wieder in den Heldenmodus, erhältst du alle Heldenvorteile und es wird da weitergezählt, wo du aufgehört hast.</target>
+        <target>Si vuelves a ser Héroe, recuperarás tus poderes y tus logros exactamente como la última vez.</target>
       </segment>
     </unit>
     <unit id="TqrEFjN" name="1be791e">
@@ -4598,6 +4578,15 @@ El Chamán puede:</target>
       <segment>
         <source>Die Stadt ist auch der zentrale Punkt, an dem du deine Leidensgenossen triffst, um mit ihnen die beste Überlebensstrategie zu besprechen. Sie dient euch auch als Basislager für Wüstenexpeditionen und beherbergt eine Bank, in der gefundene Gegenstände gesammelt werden.</source>
         <target>En el pueblo encontrarás a todos tus compañeros de infortunio. Allí formarás tus pequeños grupos de exploración y guardarás todo lo que encuentres.</target>
+      </segment>
+    </unit>
+    <unit id="IIBtwzC" name="Zeit: Lieber nachts als tagsüber verstecken.">
+      <notes>
+        <note category="german">Zeit: Lieber nachts als tagsüber verstecken.</note>
+      </notes>
+      <segment>
+        <source>Zeit: Lieber nachts als tagsüber verstecken.</source>
+        <target>La hora: Más vale esconderse de noche que de día.</target>
       </segment>
     </unit>
   </file>

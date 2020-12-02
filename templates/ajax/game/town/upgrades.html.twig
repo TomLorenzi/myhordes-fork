@@ -1,4 +1,5 @@
 {% extends "ajax/game/town/town.html.twig" %}
+{% block title %}{{'Verbessrung des Tages'|trans({}, 'game')}}{% endblock %}
 {% block content %}
     <div class="help">
         {% trans from 'game' %}
@@ -31,7 +32,7 @@
     <div class="town-upgrades">
         {% for building in buildings %}
             {# @var building \App\Entity\Building #}
-            <div class="row {% if building.level >= building.prototype.maxLevel %}complete{% endif %}">
+            <div class="row {% if building.level >= 1 %}complete{% endif %}">
                 <div class="padded cell rw-10 rw-md-12">
                     <strong>{{ building.prototype.label|trans({},'buildings') }}{% if building.level > 0 %} ({% trans with {'%lv%': building.level} from 'game' %}Level %lv%{% endtrans %}/{{building.prototype.maxLevel}}){% endif %}</strong>
                     {% if building.prototype.upgradeTexts %}
