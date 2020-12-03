@@ -531,6 +531,7 @@ class ExternalXML2Controller extends ExternalController {
                 $data['hordes']['data']['city']['list']['items'][] = $buildingXml;
 
                 if($building->getPrototype()->getMaxLevel() > 0 && $building->getLevel() > 0){
+                    $data['hordes']['data']['upgrades']['attributes']['total'] += $building->getLevel();
                     $data['hordes']['data']['upgrades']['list']['items'][] = [
                         'attributes' => [
                             'name' => $trans->trans($building->getPrototype()->getLabel(), [], 'buildings'),
