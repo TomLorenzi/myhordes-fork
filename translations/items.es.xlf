@@ -3407,9 +3407,9 @@
       <notes>
         <note category="german">Du hast das {item} verwendet, um einen Teil der Ruine freizulegen.</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Du hast das {item} verwendet, um einen Teil der Ruine freizulegen.</source>
-        <target>texto herbicida Ness-quick</target>
+        <target>Has limpiado parcialmente la zona gracias a {item}</target>
       </segment>
     </unit>
     <unit id="ufBL9cN" name="Das kannst du nicht tun während du umzingelt bist...">
@@ -3425,9 +3425,10 @@
       <notes>
         <note category="german">Mithilfe der {item} hast du dir etwas Zeit erkauft ... du solltest diesen Ort schnell verlassen!</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Mithilfe der {item} hast du dir etwas Zeit erkauft ... du solltest diesen Ort schnell verlassen!</source>
-        <target>texto bomba carnaval/cámara</target>
+        <target>Enciendes {item}… ¡El violento flash luminoso siembra el pánico entre los zombies! Cegados, caminan sin sentido y sin lograr localizarte.
+¡Deberías dejar este lugar rápidamente!</target>
       </segment>
     </unit>
     <unit id="InvhyVo" name="Knuddeln">
@@ -3560,18 +3561,23 @@
       <notes>
         <note category="german">Äußerst erfrischend, und sogar mit einer leichten Note von Cholera.</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Äußerst erfrischend, und sogar mit einer leichten Note von Cholera.</source>
-        <target>texto ermitaño 1</target>
+        <target>Hurgando en los alrededores descubres un pequeño charco de agua estancada. Como no tienes otra opción, empiezas a beber su contenido (así como todo lo que flota dentro)...
+
+&lt;strong&gt;Has recuperado todos tus PA.&lt;/strong&gt;</target>
       </segment>
     </unit>
     <unit id=".jOYrxS" name="Immer noch besser als das Zeug, was die Köche in der Stadt zubereiten....">
       <notes>
         <note category="german">Immer noch besser als das Zeug, was die Köche in der Stadt zubereiten....</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Immer noch besser als das Zeug, was die Köche in der Stadt zubereiten....</source>
-        <target>texto ermitaño 2</target>
+        <target>Sales en busca de alimentos en los alrededores...
+Después de varios largos minutos de búsqueda, terminas por encontrar &lt;strong&gt;un puñado de gusanos gordos y viscosos que se enredan entre sí&lt;/strong&gt;. La guía es clara al respecto: ¡son comestibles! &lt;strong&gt;Los devoras antes de que se te escapen de las manos y de la boca&lt;/strong&gt;.
+
+&lt;strong&gt;Has recuperado todos tus PA.&lt;/strong&gt;</target>
       </segment>
     </unit>
     <unit id="Kl2AzsC" name="Du ziehst eine Karte... es ist: {color} {value}.">
@@ -3596,9 +3602,9 @@
       <notes>
         <note category="german">Hierfür bist du zu weit von der Stadt entfernt ...</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Hierfür bist du zu weit von der Stadt entfernt ...</source>
-        <target>texto retorno del héroe 1</target>
+        <target>¡Estás demasiado lejos del pueblo para utilizar este poder! La distancia máxima es 11km.</target>
       </segment>
     </unit>
     <unit id="9XqTW0w" name="Fund">
@@ -3650,9 +3656,9 @@
       <notes>
         <note category="german">Du hast {citizen} auf heldenhafte Weise in die Stadt gebracht!</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Du hast {citizen} auf heldenhafte Weise in die Stadt gebracht!</source>
-        <target>texto rescate</target>
+        <target>¡Dando pruebas de tu valentía, has enfrentado los peligros del Ultramundo, salvado a {citizen} y has vuelto ileso!</target>
       </segment>
     </unit>
     <unit id="vgypnNf" name="%action%: %item%">
@@ -3758,9 +3764,9 @@
       <notes>
         <note category="german">Du magst es wenn es sauber ist und frisch nach Gras duftet? Vergiss das mal lieber ganz schnell. Wenn du ihn verwendest, wird es ganz anders riechen...</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Du magst es wenn es sauber ist und frisch nach Gras duftet? Vergiss das mal lieber ganz schnell. Wenn du ihn verwendest, wird es ganz anders riechen...</source>
-        <target>texto cortacesped</target>
+        <target>¿Te gusta que quede parejo, limpio y que huela a jardín primaveral? Olvídalo, cuando lo utilices será todo lo contrario</target>
       </segment>
     </unit>
     <unit id="kPJuOfz" name="23fc5bc">
@@ -6576,9 +6582,9 @@
       <notes>
         <note category="german">__Du bist der Ansicht, dass du diese Zone nicht besser ausbauen kannst, da du schon dein Bestes gegeben hast.</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Du bist der Ansicht, dass du diese Zone nicht besser ausbauen kannst, da du schon dein Bestes gegeben hast.</source>
-        <target>texto ruina 1</target>
+        <target>No crees poder mejorar más la zona. Hiciste lo que pudiste.</target>
       </segment>
     </unit>
     <unit id="fZlwOf2" name="Ausweiden">
@@ -6594,9 +6600,9 @@
       <notes>
         <note category="german">Der Metzger hat sich gut um {item} gekümmert... Dafür hast du nun {items_spawn} erhalten. Auf wiedersehen, mein Freund!</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Der Metzger hat sich gut um {item} gekümmert... Dafür hast du nun {items_spawn} erhalten. Auf wiedersehen, mein Freund!</source>
-        <target>texto carnicero 1</target>
+        <target>El carnicero hizo lo que pudo para salvar a {item}… Recibes {items_spawn}. Adiós fiel amigo.</target>
       </segment>
     </unit>
     <unit id="OeuOyF4" name="Haus aufräumen und putzen">
@@ -7212,9 +7218,9 @@
       <notes>
         <note category="german">&lt;t-fail&gt;&lt;t-no-room&gt;Du hast nicht genug Platz für diese Gegenstände...&lt;/t-no-room&gt;&lt;t-door-closed&gt;Das Stadttor ist geschlossen...&lt;/t-door-closed&gt;&lt;t-too-heavy&gt;{item} kann keine schweren Gegenstände tragen...&lt;/t-too-heavy&gt;&lt;/t-fail&gt;&lt;nt-fail&gt;Du hast den {item} mit deinen Gegenständen in die Stadt geschickt.&lt;/nt-fail&gt;</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>&lt;t-fail&gt;&lt;t-no-room&gt;Du hast nicht genug Platz für diese Gegenstände...&lt;/t-no-room&gt;&lt;t-door-closed&gt;Das Stadttor ist geschlossen...&lt;/t-door-closed&gt;&lt;t-too-heavy&gt;{item} kann keine schweren Gegenstände tragen...&lt;/t-too-heavy&gt;&lt;/t-fail&gt;&lt;nt-fail&gt;Du hast den {item} mit deinen Gegenständen in die Stadt geschickt.&lt;/nt-fail&gt;</source>
-        <target><![CDATA[<t-fail><t-no-room>Du hast nicht genug Platz für diese Gegenstände...</t-no-room><t-door-closed>Das Stadttor ist geschlossen...</t-door-closed><t-too-heavy>{item} kann keine schweren Gegenstände tragen...</t-too-heavy></t-fail><nt-fail>Du hast den {item} mit deinen Gegenständen in die Stadt geschickt.</nt-fail>]]></target>
+        <target><![CDATA[<t-fail><t-no-room>No hay suficiente espacio en tu baúl para enviar estos objetos</t-no-room><t-door-closed>{item} se pone a chillar. Si su instinto no falla, eso quiere decir que <strong>el Portal del pueblo está cerrado...</strong></t-door-closed><t-too-heavy>{item} no podrá llevar el contenido de tu mochila: ¡tienes un <strong>objeto voluminoso</strong> que no podrá transportar!</t-too-heavy></t-fail><nt-fail>Envías a {item} con dirección al pueblo llevando todo el contenido de tu mochila.</nt-fail>]]></target>
       </segment>
     </unit>
     <unit id="xWENNfP" name="Gequälte Seele">
