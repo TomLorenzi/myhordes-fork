@@ -15021,5 +15021,14 @@
         <target>Une nuit glaciale</target>
       </segment>
     </unit>
+    <unit id="8l_i1Ah" name="Ein neuer Tag bricht an">
+      <notes>
+        <note category="german">Ein neuer Tag bricht an</note>
+      </notes>
+      <segment>
+        <source>Ein neuer Tag bricht an</source>
+        <target>Un nouveau jour se lève</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

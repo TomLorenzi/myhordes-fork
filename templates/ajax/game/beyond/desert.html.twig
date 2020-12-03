@@ -1,7 +1,9 @@
 {% extends "ajax/game/beyond/beyond.html.twig" %}
 {% block title %}
 {# Time of day #}
-{% if "now"|date('H') < 12 %}
+{% if "now"|date('H') >= 6 and "now"|date('H') < 8 %}
+    {{'Ein neuer Tag bricht an'|trans({}, 'game')|raw}}
+{% elseif "now"|date('H') < 12 %}
     {{'An einem kalten Morgen'|trans({}, 'game')|raw}}
 {% elseif "now"|date('H') < 18 %}
     {{"Die Außenwelt"|trans({}, 'game')|raw}}
