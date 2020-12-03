@@ -70,7 +70,7 @@ class InventoryHandler
             // Check upgrades
             $upgrade = $this->entity_manager->getRepository(CitizenHomeUpgrade::class)->findOneByPrototype(
                 $inventory->getHome(),
-                $this->entity_manager->getRepository( CitizenHomeUpgradePrototype::class )->findOneByName( 'chest' )
+                $this->entity_manager->getRepository( CitizenHomeUpgradePrototype::class )->findOneBy( ['name' => 'chest'] )
             );
             /** @var CitizenHomeUpgrade $upgrade */
             if ($upgrade) $base += $upgrade->getLevel();
@@ -112,7 +112,7 @@ class InventoryHandler
         if (!is_array( $props )) $props = [$props];
         $props = array_map(function($e):ItemProperty {
             if (!is_string($e)) return $e;
-            return $this->entity_manager->getRepository(ItemProperty::class)->findOneByName( $e );
+            return $this->entity_manager->getRepository(ItemProperty::class)->findOneBy( ['name' => $e] );
         }, $props);
 
         $tmp = [];
@@ -131,8 +131,8 @@ class InventoryHandler
      */
     public function countSpecificItems($inventory, $prototype, bool $is_property = false, ?bool $broken = null): int {
         if (is_string( $prototype )) $prototype = $is_property
-            ? $this->entity_manager->getRepository(ItemProperty::class)->findOneByName( $prototype )->getItemPrototypes()->getValues()
-            : $this->entity_manager->getRepository(ItemPrototype::class)->findOneByName( $prototype );
+            ? $this->entity_manager->getRepository(ItemProperty::class)->findOneBy( ['name' => $prototype] )->getItemPrototypes()->getValues()
+            : $this->entity_manager->getRepository(ItemPrototype::class)->findOneBy( ['name' => $prototype] );
         if (!is_array($prototype)) $prototype = [$prototype];
         if (!is_array($inventory)) $inventory = [$inventory];
         try {
@@ -171,7 +171,7 @@ class InventoryHandler
         foreach ($requests as $request) {
             $id_list = [];
             if ($request->isProperty()) {
-                $prop = $this->entity_manager->getRepository(ItemProperty::class)->findOneByName( $request->getItemPropertyName() );
+                $prop = $this->entity_manager->getRepository(ItemProperty::class)->findOneBy( ['name' => $request->getItemPropertyName()] );
                 if ($prop) $id_list = array_map(function(ItemPrototype $p): int {
                     return $p->getId();
                 }, $prop->getItemPrototypes()->getValues() );
@@ -423,7 +423,7 @@ class InventoryHandler
 
         if ($type_from === self::TransferTypeSteal || $type_to === self::TransferTypeSteal) {
 
-            if ($type_from === self::TransferTypeSteal && !$actor->getTown()->getChaos() && $actor->getStatus()->contains( $this->entity_manager->getRepository(CitizenStatus::class)->findOneByName( 'tg_steal' ) ))
+            if ($type_from === self::TransferTypeSteal && !$actor->getTown()->getChaos() && $actor->getStatus()->contains( $this->entity_manager->getRepository(CitizenStatus::class)->findOneBy( ['name' => 'tg_steal'] ) ))
                 return self::ErrorStealLimitHit;
 
             if ($type_to === self::TransferTypeSteal && $actor->getTown()->getChaos() )
@@ -433,7 +433,7 @@ class InventoryHandler
             if ($victim->getAlive()) {
                 $ch = $this->container->get(CitizenHandler::class);
                 if ($ch->houseIsProtected( $victim )) return self::ErrorStealBlocked;
-                if ($item->getPrototype() === $this->entity_manager->getRepository(ItemPrototype::class)->findOneByName("trapma_#00"))
+                if ($item->getPrototype() === $this->entity_manager->getRepository(ItemPrototype::class)->findOneBy(['name' => "trapma_#00"]))
                     return self::ErrorUnstealableItem;
             }
         }
