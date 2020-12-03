@@ -683,19 +683,16 @@ class ExternalXML2Controller extends ExternalController {
             $has_zombie_est    = !empty($th->getBuilding($town, 'item_tagger_#00'));
             if ($has_zombie_est){
                 // Zombies estimations
-                $estimations = $this->entity_manager->getRepository(ZombieEstimation::class)->findBy(['town' => $town]);
-                foreach($estimations as $estimation){
-                    /** @var ZombieEstimation $estimation */
-                    if($estimation->getDay() > $town->getDay()) continue;
-                    $quality = $th->get_zombie_estimation_quality( $town, 1 - $estimation->getDay(), $z_today_min, $z_today_max );
+                for ($i = $town->getDay() + 1 ;  $i > 0 ; $i--) {
+                    $quality = $th->get_zombie_estimation_quality( $town, $town->getDay() - $i, $z_today_min, $z_today_max );
                     $watchtrigger = $conf->getTownConfiguration($town)->get(TownConf::CONF_MODIFIER_WT_THRESHOLD, 33);
                     if($watchtrigger >= $quality) continue;
 
                     $data['hordes']['data']['estimations']['list']['items'][] = [
                         'attributes' => [
-                            'day' => $estimation->getDay(),
-                            'max' => $estimation->getOffsetMax(),
-                            'min' => $estimation->getOffsetMin(),
+                            'day' => $i,
+                            'max' => $z_today_max,
+                            'min' => $z_today_min,
                             'maxed' => intval($quality >= 100)
                         ]
                     ];
