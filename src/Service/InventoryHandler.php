@@ -329,8 +329,8 @@ class InventoryHandler
     }
 
     protected function transferType( Item &$item, Citizen &$citizen, ?Inventory &$target, ?Inventory &$source, ?int &$target_type, ?int &$source_type): bool {
-        $source_type = !$source ? self::TransferTypeSpawn   : self::singularTransferType( $citizen, $source );
-        $target_type = !$target ? self::TransferTypeConsume : self::singularTransferType( $citizen, $target );
+        $source_type = !$source ? self::TransferTypeSpawn   : $this->singularTransferType( $citizen, $source );
+        $target_type = !$target ? self::TransferTypeConsume : $this->singularTransferType( $citizen, $target );
         return $this->validateTransferTypes($item, $target_type, $source_type);
     }
 
@@ -371,7 +371,6 @@ class InventoryHandler
         if ($modality !== self::ModalityEnforcePlacement && ($to && ($max_size = $this->getSize($to)) > 0 && count($to->getItems()) >= $max_size ) ) return self::ErrorInventoryFull;
 
         // Check exp_b items already in inventory
-        // This snippet restores original Hordes functionality, but was intentionally left out.
 
         if(!$allow_extra_bag){
             if (($type_to === self::TransferTypeRucksack || $type_to === self::TransferTypeEscort) &&
