@@ -215,7 +215,7 @@ class CitizenFixtures extends Fixture implements DependentFixtureInterface
             }
 
             foreach ( $entry['items_alt'] as $p_item ) {
-                $i = $manager->getRepository(ItemPrototype::class)->findOneByName( $p_item );
+                $i = $manager->getRepository(ItemPrototype::class)->findOneBy( ['name' => $p_item] );
                 if (!$i) throw new Exception('Item prototype not found: ' . $p_item);
                 $entity->addAltProfessionItem($i);
             }
@@ -240,7 +240,7 @@ class CitizenFixtures extends Fixture implements DependentFixtureInterface
         // Iterate over all entries
         foreach (static::$citizen_status as $entry) {
             // Get existing entry, or create new one
-            $entity = $this->entityManager->getRepository(CitizenStatus::class)->findOneByName( $entry['name'] );
+            $entity = $this->entityManager->getRepository(CitizenStatus::class)->findOneBy( ['name' =>  $entry['name']] );
             if ($entity === null) $entity = new CitizenStatus();
 
             // Set property
@@ -277,7 +277,7 @@ class CitizenFixtures extends Fixture implements DependentFixtureInterface
         // Iterate over all entries
         foreach (static::$home_levels as $level => $entry) {
             // Get existing entry, or create new one
-            $entity = $this->entityManager->getRepository(CitizenHomePrototype::class)->findOneByLevel( $level );
+            $entity = $this->entityManager->getRepository(CitizenHomePrototype::class)->findOneBy( ['level' => $level] );
             if ($entity === null) $entity = new CitizenHomePrototype();
 
             $entity->setLevel($level)->setAp( $entry['ap'] )->setIcon( $entry['icon'] )
@@ -300,7 +300,7 @@ class CitizenFixtures extends Fixture implements DependentFixtureInterface
 
                 foreach ( $entry['resources'] as $item => $count ) {
 
-                    $ip = $manager->getRepository(ItemPrototype::class)->findOneByName( $item );
+                    $ip = $manager->getRepository(ItemPrototype::class)->findOneBy( ['name' => $item] );
                     if (!$item) throw new Exception("Unable to locate item prototype '{$item}'");
                     $entity->getResources()->addEntry( (new ItemGroupEntry())->setPrototype( $ip )->setChance( $count ) );
 
@@ -334,7 +334,7 @@ class CitizenFixtures extends Fixture implements DependentFixtureInterface
         // Iterate over all entries
         foreach (static::$home_upgrades as $entry) {
             // Get existing entry, or create new one
-            $entity = $this->entityManager->getRepository(CitizenHomeUpgradePrototype::class)->findOneByName( $entry['name'] );
+            $entity = $this->entityManager->getRepository(CitizenHomeUpgradePrototype::class)->findOneBy( ['name' => $entry['name']] );
             if ($entity === null) $entity = new CitizenHomeUpgradePrototype();
 
             $entity->setName( $entry['name'] )->setLabel( $entry['label'] )->setDescription( $entry['desc'] )
@@ -345,7 +345,7 @@ class CitizenFixtures extends Fixture implements DependentFixtureInterface
             $manager->flush();
 
             // Refresh
-            $entity = $this->entityManager->getRepository(CitizenHomeUpgradePrototype::class)->findOneByName( $entry['name'] );
+            $entity = $this->entityManager->getRepository(CitizenHomeUpgradePrototype::class)->findOneBy( ['name' => $entry['name']] );
 
             foreach ( $entry['levels'] as $level => $res ) {
                 $lv_entry = $manager->getRepository(CitizenHomeUpgradeCosts::class)->findOneByPrototype( $entity, $level );
@@ -364,7 +364,7 @@ class CitizenFixtures extends Fixture implements DependentFixtureInterface
 
                     foreach ( $res[1] as $item => $count ) {
 
-                        $ip = $manager->getRepository(ItemPrototype::class)->findOneByName( $item );
+                        $ip = $manager->getRepository(ItemPrototype::class)->findOneBy( ['name' => $item] );
                         if (!$item) throw new Exception("Unable to locate item prototype '{$item}'");
                         $lv_entry->getResources()->addEntry( (new ItemGroupEntry())->setPrototype( $ip )->setChance( $count ) );
 
@@ -393,7 +393,7 @@ class CitizenFixtures extends Fixture implements DependentFixtureInterface
         foreach (static::$causes_of_death as $entry) {
             // Get existing entry, or create new one
             /** @var CauseOfDeath $entity */
-            $entity = $this->entityManager->getRepository(CauseOfDeath::class)->findOneByRef( $entry['ref'] );
+            $entity = $this->entityManager->getRepository(CauseOfDeath::class)->findOneBy( ['ref' => $entry['ref']] );
             if ($entity === null) $entity = (new CauseOfDeath())->setRef( $entry['ref'] );
 
             // Set property
@@ -428,7 +428,7 @@ class CitizenFixtures extends Fixture implements DependentFixtureInterface
         foreach (static::$role_data as $entry) {
             // Get existing entry, or create new one
             /** @var CitizenRole $entity */
-            $entity = $this->entityManager->getRepository(CitizenRole::class)->findOneByName( $entry['name'] );
+            $entity = $this->entityManager->getRepository(CitizenRole::class)->findOneBy( ['name' => $entry['name']] );
             if ($entity === null) $entity = new CitizenRole();
 
             // Set property
@@ -457,7 +457,7 @@ class CitizenFixtures extends Fixture implements DependentFixtureInterface
         // Iterate over all entries
         foreach (static::$notificationMarkers as $entry) {
 
-            if (!$manager->getRepository(HelpNotificationMarker::class)->findOneByName($entry))
+            if (!$manager->getRepository(HelpNotificationMarker::class)->findOneBy(['name' => $entry]))
                 $manager->persist( (new HelpNotificationMarker())->setName( $entry ) );
 
         }
