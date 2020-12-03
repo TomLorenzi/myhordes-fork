@@ -93,10 +93,10 @@ class ExternalController extends InventoryAwareController {
     */
     public function disclaimer(int $id): Response {
         $app = $this->entity_manager->getRepository(ExternalApp::class)->find($id);
-        if(!$app||$app->getTesting())
+        $user = $this->getUser();
+        if(!$app||$app->getTesting()||!$user)
         return $this->redirect($this->generateUrl('initial_landing'));
         /** @var User $user */
-        $user = $this->getUser();
         $key = $user->getExternalId();
         
         return $this->render('ajax/public/disclaimer.html.twig', [
