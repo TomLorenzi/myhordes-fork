@@ -14847,7 +14847,7 @@
       </notes>
       <segment>
         <source>Mein Zuhause (Truhe)</source>
-        <target>Mein Zuhause (Truhe)</target>
+        <target>Ma maison (Coffre)</target>
       </segment>
     </unit>
     <unit id="sK6WW0q" name="Gemantansicht der Stadt">
@@ -14856,7 +14856,7 @@
       </notes>
       <segment>
         <source>Gemantansicht der Stadt</source>
-        <target>Gemantansicht der Stadt</target>
+        <target>Vue d'ensemble</target>
       </segment>
     </unit>
     <unit id="D80Dpwo" name="Das Stadttor von &quot;%townname%&quot;">
@@ -14865,7 +14865,7 @@
       </notes>
       <segment>
         <source>Das Stadttor von "%townname%"</source>
-        <target>Das Stadttor von "%townname%"</target>
+        <target>La porte de "%townname%"</target>
       </segment>
     </unit>
     <unit id="CGisub9" name="Bauprojekte der Stadt">
@@ -14874,7 +14874,7 @@
       </notes>
       <segment>
         <source>Bauprojekte der Stadt</source>
-        <target>Bauprojekte der Stadt</target>
+        <target>Les chantiers de la ville</target>
       </segment>
     </unit>
     <unit id="L2mGaV4" name="Expeditionen">
@@ -14883,7 +14883,7 @@
       </notes>
       <segment>
         <source>Expeditionen</source>
-        <target>Expeditionen</target>
+        <target>Expéditions</target>
       </segment>
     </unit>
     <unit id="honrhKi" name="Die Bürger">
@@ -14892,7 +14892,7 @@
       </notes>
       <segment>
         <source>Die Bürger</source>
-        <target>Die Bürger</target>
+        <target>Les citoyens</target>
       </segment>
     </unit>
     <unit id="VP5Pzpa" name="Verbessrung des Tages">
@@ -14901,7 +14901,7 @@
       </notes>
       <segment>
         <source>Verbessrung des Tages</source>
-        <target>Verbessrung des Tages</target>
+        <target>Évolutions du jour</target>
       </segment>
     </unit>
     <unit id="STRIX5b" name="Wätcher">
@@ -14910,7 +14910,7 @@
       </notes>
       <segment>
         <source>Wätcher</source>
-        <target>Wätcher</target>
+        <target>Veilleurs</target>
       </segment>
     </unit>
     <unit id="Qs_pglW" name="Der Brunnen">
@@ -14919,25 +14919,25 @@
       </notes>
       <segment>
         <source>Der Brunnen</source>
-        <target>Der Brunnen</target>
+        <target>Le puits</target>
       </segment>
     </unit>
-    <unit id="HMlOmzD" name="An einem kalten Morgen...">
+    <unit id="QA25eiQ" name="An einem kalten Morgen">
       <notes>
-        <note category="german">An einem kalten Morgen...</note>
+        <note category="german">An einem kalten Morgen</note>
       </notes>
       <segment>
-        <source>An einem kalten Morgen...</source>
-        <target>Par une froide matinée...</target>
+        <source>An einem kalten Morgen</source>
+        <target>Par une froide matinée</target>
       </segment>
     </unit>
-    <unit id="qdWhHOA" name="allein">
+    <unit id="E2tLR1n" name="... allein">
       <notes>
-        <note category="german">allein</note>
+        <note category="german">... allein</note>
       </notes>
       <segment>
-        <source>allein</source>
-        <target>seul(e)</target>
+        <source>... allein</source>
+        <target>... seul(e)</target>
       </segment>
     </unit>
     <unit id="8HYFzPV" name="irgendwo %location% der Stadt...">
@@ -14983,6 +14983,69 @@
       <segment>
         <source>Wiedergeburt: Wähle einen Beruf</source>
         <target>Wiedergeburt: Wähle einen Beruf</target>
+      </segment>
+    </unit>
+    <unit id="FvwX8Vo" name="Die Außenwelt">
+      <notes>
+        <note category="german">Die Außenwelt</note>
+      </notes>
+      <segment>
+        <source>Die Außenwelt</source>
+        <target>L'outre-monde</target>
+      </segment>
+    </unit>
+    <unit id="spLHhcB" name="an der Seite von %citizen%">
+      <notes>
+        <note category="german">an der Seite von %citizen%</note>
+      </notes>
+      <segment>
+        <source>an der Seite von %citizen%</source>
+        <target>aux côtés de %citizen%</target>
+      </segment>
+    </unit>
+    <unit id="hZyt4RO" name="Ein beunruhigender Sonnenuntergang">
+      <notes>
+        <note category="german">Ein beunruhigender Sonnenuntergang</note>
+      </notes>
+      <segment>
+        <source>Ein beunruhigender Sonnenuntergang</source>
+        <target>Le crépuscule inquiétant</target>
+      </segment>
+    </unit>
+    <unit id="XRqPUn0" name="Eine eisige Nacht">
+      <notes>
+        <note category="german">Eine eisige Nacht</note>
+      </notes>
+      <segment>
+        <source>Eine eisige Nacht</source>
+        <target>Une nuit glaciale</target>
+      </segment>
+    </unit>
+    <unit id="8l_i1Ah" name="Ein neuer Tag bricht an">
+      <notes>
+        <note category="german">Ein neuer Tag bricht an</note>
+      </notes>
+      <segment>
+        <source>Ein neuer Tag bricht an</source>
+        <target>Un nouveau jour se lève</target>
+      </segment>
+    </unit>
+    <unit id="LV5ZZVt" name="an den Toren der Stadt">
+      <notes>
+        <note category="german">an den Toren der Stadt</note>
+      </notes>
+      <segment>
+        <source>an den Toren der Stadt</source>
+        <target>aux portes de la ville</target>
+      </segment>
+    </unit>
+    <unit id="kwY8tj3" name="Au pied d'une ruine inquiétante dans %location%">
+      <notes>
+        <note category="german">Au pied d'une ruine inquiétante dans %location%</note>
+      </notes>
+      <segment>
+        <source>Au pied d'une ruine inquiétante dans %location%</source>
+        <target>Au pied d'une ruine inquiétante dans %location%</target>
       </segment>
     </unit>
   </file>
