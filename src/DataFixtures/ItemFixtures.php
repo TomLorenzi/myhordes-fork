@@ -135,7 +135,6 @@ class ItemFixtures extends Fixture
         ['label' =>'Solide Holzplatte','icon'=>'wood_plate','category'=>'armor','deco'=>0,'heavy'=>true, 'watchpoint' => 0],                                    // -- ---
         ['label' =>'Autotür','icon'=>'car_door','category'=>'armor','deco'=>0,'heavy'=>true, 'watchpoint' => 40],                                                // -- ---
         ['label' =>'Fackel','icon'=>'torch','category'=>'armor','deco'=>0,'heavy'=>false, 'watchpoint' => 15],                                                   // -- Out
-        ['label' =>'ANZAC Badge','icon'=>'badge','category'=>'armor','deco'=>0,'heavy'=>false, 'watchpoint' => 40],                                              // -- ---
 		['label' =>'Dackel','icon'=>'tekel','category'=>'armor','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                                                  // -- Out
 		
 		
@@ -151,6 +150,7 @@ class ItemFixtures extends Fixture
         ['label' =>'Zerstörer (entladen)','icon'=>'big_pgun_empty','category'=>'aud_n','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                            // In Out
         ['label' =>'Batteriewerfer Mark II (leer)','icon'=>'pilegun_up_empty','category'=>'aud_n','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                 // In Out
 		['label' =>'Große rostige Kette','icon'=>'chain','category'=>'aud_n','deco'=>0,'heavy'=>false, 'watchpoint' => 8],                                        // -- Out
+        ['label' =>'ANZAC Badge','icon'=>'badge','category'=>'root_weapon','deco'=>0,'heavy'=>false, 'watchpoint' => 40],                                              // -- ---
 		
 		
 		['label' =>'Batteriewerfer 1-PDTG (geladen)','icon'=>'pilegun','category'=>'root_weapon','deco'=>0,'heavy'=>false, 'watchpoint' => 10],                       // -- Out
