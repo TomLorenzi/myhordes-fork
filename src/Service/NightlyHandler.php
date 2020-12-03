@@ -225,7 +225,7 @@ class NightlyHandler
                         break;
                     case "largechest1":
                     case "largechest2":
-                        $citizen->getHome()->setAdditionalStorage($citizen->getHome()->getAdditionalStorage() + 1);
+                        $citizen->getHome()->getChest()->setAdditionalStorage($citizen->getHome()->getChest()->getAdditionalStorage() + 1);
                         break;
                     case "secondwind":
                         $heroic_action = $this->entity_manager->getRepository(HeroicActionPrototype::class)->findOneBy(['name' => "hero_generic_ap"]);

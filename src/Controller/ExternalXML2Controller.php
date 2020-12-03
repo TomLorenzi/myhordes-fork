@@ -654,7 +654,7 @@ class ExternalXML2Controller extends ExternalController {
                         'attributes' => [
                             'x' => $offset['x'] + $zone->getX(),
                             'y' => $offset['y'] - $zone->getY(),
-                            'nvt' => intval($zone->getDiscoveryStatus() == Zone::DiscoveryStatePast)
+                            'nvt' => intval($zone->getDiscoveryStatus() != Zone::DiscoveryStateCurrent)
                         ]
                     ];
                     
