@@ -15030,5 +15030,23 @@
         <target>Un nouveau jour se lève</target>
       </segment>
     </unit>
+    <unit id="LV5ZZVt" name="an den Toren der Stadt">
+      <notes>
+        <note category="german">an den Toren der Stadt</note>
+      </notes>
+      <segment>
+        <source>an den Toren der Stadt</source>
+        <target>aux portes de la ville</target>
+      </segment>
+    </unit>
+    <unit id="kwY8tj3" name="Au pied d'une ruine inquiétante dans %location%">
+      <notes>
+        <note category="german">Au pied d'une ruine inquiétante dans %location%</note>
+      </notes>
+      <segment>
+        <source>Au pied d'une ruine inquiétante dans %location%</source>
+        <target>Au pied d'une ruine inquiétante dans %location%</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

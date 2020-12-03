@@ -1,7 +1,7 @@
 {% extends "ajax/game/beyond/beyond.html.twig" %}
 {% block title %}
 {# Time of day #}
-{% if "now"|date('H') >= 6 and "now"|date('H') < 8 %}
+{% if "now"|date('H') >= 6 and "now"|date('H') < 9 %}
     {{'Ein neuer Tag bricht an'|trans({}, 'game')|raw}}
 {% elseif "now"|date('H') < 12 %}
     {{'An einem kalten Morgen'|trans({}, 'game')|raw}}
@@ -45,6 +45,8 @@
     {% else %}
         {{"Au pied d'une ruine inquiétante dans %location%"|trans({'%location%': dir}, 'game')|raw}}
     {% endif %}    
+{% else %}
+    {{'an den Toren der Stadt'|trans({}, 'game')|raw}}
 {% endif %}
 {% endblock %}
 {% block menu_text %}
