@@ -26,15 +26,15 @@ use Symfony\Component\Console\Output\ConsoleOutputInterface;
 class CitizenFixtures extends Fixture implements DependentFixtureInterface
 {
     public static $profession_data = [
-        ['hero' => false, 'icon' => 'looser', 'name'=>'none'        ,'label'=>'Gammler',    'items' => ['basic_suit_#00'], 'items_alt' => ['basic_suit_dirt_#00'] ],
-        ['hero' => false, 'icon' => 'basic',  'name'=>'basic'       ,'label'=>'Einwohner',  'items' => ['basic_suit_#00'], 'items_alt' => ['basic_suit_dirt_#00'] ],
-        ['hero' => true, 'icon' => 'dig',    'name'=>'collec'      ,'label'=>'Buddler',    'items' => ['basic_suit_#00','pelle_#00'], 'items_alt' => ['basic_suit_dirt_#00'] ],
-        ['hero' => true, 'icon' => 'shield', 'name'=>'guardian'    ,'label'=>'Wächter',    'items' => ['basic_suit_#00','shield_#00'], 'items_alt' => ['basic_suit_dirt_#00'] ],
-        ['hero' => true, 'icon' => 'vest',   'name'=>'hunter'      ,'label'=>'Aufklärer',  'items' => ['basic_suit_#00','vest_on_#00'], 'items_alt' => ['basic_suit_dirt_#00','vest_off_#00'] ],
-        ['hero' => true, 'icon' => 'tamer',  'name'=>'tamer'       ,'label'=>'Dompteur',   'items' => ['basic_suit_#00','tamed_pet_#00'], 'items_alt' => ['basic_suit_dirt_#00','tamed_pet_drug_#00','tamed_pet_off_#00'] ],
-        ['hero' => true, 'icon' => 'tech',   'name'=>'tech'        ,'label'=>'Techniker',  'items' => ['basic_suit_#00','keymol_#00'], 'items_alt' => ['basic_suit_dirt_#00'] ],
-        ['hero' => true, 'icon' => 'shaman', 'name'=>'shaman'      ,'label'=>'Schamane',   'items' => ['basic_suit_#00','shaman_#00'], 'items_alt' => ['basic_suit_dirt_#00'] ],
-        ['hero' => true, 'icon' => 'book',   'name'=>'survivalist' ,'label'=>'Einsiedler', 'items' => ['basic_suit_#00','surv_book_#00'], 'items_alt' => ['basic_suit_dirt_#00'] ],
+        ['hero' => false, 'icon' => 'looser', 'name'=>'none',        'desc' => '', 'label'=>'Gammler',    'items' => ['basic_suit_#00'],                  'items_alt' => ['basic_suit_dirt_#00'] ],
+        ['hero' => false, 'icon' => 'basic',  'name'=>'basic',       'desc' => 'Der Einwohner ist einfacher Bürger. Er verfügt über keine spezielle Fähigkeit.', 'label'=>'Einwohner',  'items' => ['basic_suit_#00'],                  'items_alt' => ['basic_suit_dirt_#00'] ],
+        ['hero' => true,  'icon' => 'dig',    'name'=>'collec',      'desc' => '', 'label'=>'Buddler',    'items' => ['basic_suit_#00','pelle_#00'],      'items_alt' => ['basic_suit_dirt_#00'] ],
+        ['hero' => true,  'icon' => 'shield', 'name'=>'guardian',    'desc' => '', 'label'=>'Wächter',    'items' => ['basic_suit_#00','shield_#00'],     'items_alt' => ['basic_suit_dirt_#00'] ],
+        ['hero' => true,  'icon' => 'vest',   'name'=>'hunter',      'desc' => '', 'label'=>'Aufklärer',  'items' => ['basic_suit_#00','vest_on_#00'],    'items_alt' => ['basic_suit_dirt_#00','vest_off_#00'] ],
+        ['hero' => true,  'icon' => 'tamer',  'name'=>'tamer',       'desc' => '', 'label'=>'Dompteur',   'items' => ['basic_suit_#00','tamed_pet_#00'],  'items_alt' => ['basic_suit_dirt_#00','tamed_pet_drug_#00','tamed_pet_off_#00'] ],
+        ['hero' => true,  'icon' => 'tech',   'name'=>'tech',        'desc' => '', 'label'=>'Techniker',  'items' => ['basic_suit_#00','keymol_#00'],     'items_alt' => ['basic_suit_dirt_#00'] ],
+        ['hero' => true,  'icon' => 'shaman', 'name'=>'shaman',      'desc' => '', 'label'=>'Schamane',   'items' => ['basic_suit_#00','shaman_#00'],     'items_alt' => ['basic_suit_dirt_#00'] ],
+        ['hero' => true,  'icon' => 'book',   'name'=>'survivalist', 'desc' => '', 'label'=>'Einsiedler', 'items' => ['basic_suit_#00','surv_book_#00'],  'items_alt' => ['basic_suit_dirt_#00'] ],
     ];
 
     public static $citizen_status = [
@@ -193,7 +193,7 @@ class CitizenFixtures extends Fixture implements DependentFixtureInterface
         foreach (static::$profession_data as $entry) {
             // Get existing entry, or create new one
             /** @var CitizenProfession $entity */
-            $entity = $this->entityManager->getRepository(CitizenProfession::class)->findOneByName( $entry['name'] );
+            $entity = $this->entityManager->getRepository(CitizenProfession::class)->findOneBy( ['name' => $entry['name']] );
             if ($entity === null) $entity = new CitizenProfession();
             else {
                 $entity->getProfessionItems()->clear();
@@ -205,10 +205,11 @@ class CitizenFixtures extends Fixture implements DependentFixtureInterface
                 ->setName( $entry['name'] )
                 ->setLabel( $entry['label'] )
                 ->setIcon( $entry['icon'] )
-                ->setHeroic( $entry['hero'] );
+                ->setHeroic( $entry['hero'] )
+                ->setDescription( $entry['desc']);
 
             foreach ( $entry['items'] as $p_item ) {
-                $i = $manager->getRepository(ItemPrototype::class)->findOneByName( $p_item );
+                $i = $manager->getRepository(ItemPrototype::class)->findOneBy( ['name' => $p_item] );
                 if (!$i) throw new Exception('Item prototype not found: ' . $p_item);
                 $entity->addProfessionItem($i);
             }

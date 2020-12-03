@@ -492,6 +492,18 @@ class GameController extends CustomAbstractController implements GameInterfaceCo
         $disabledJobs = $cf->getTownConfiguration($this->getActiveCitizen()->getTown())->get(TownConf::CONF_DISABLED_JOBS, ['shaman']);
 
         $selectablesJobs = [];
+        $prof_count = [];
+
+        foreach ($this->getActiveCitizen()->getTown()->getCitizens() as $c) {
+            if ($c->getProfession()->getName() === CitizenProfession::DEFAULT) continue;
+
+            if (!isset($prof_count[ $c->getProfession()->getId() ])) {
+                $prof_count[ $c->getProfession()->getId() ] = [
+                    1,
+                    $c->getProfession()
+                ];
+            } else $prof_count[ $c->getProfession()->getId() ][0]++;
+        }
 
         foreach($jobs as $job){
             if(!in_array($job->getName(), $disabledJobs))
@@ -499,7 +511,8 @@ class GameController extends CustomAbstractController implements GameInterfaceCo
         }
 
         return $this->render( 'ajax/game/jobs.html.twig', [
-            'professions' => $selectablesJobs
+            'professions' => $selectablesJobs,
+            'prof_count' => $prof_count
         ] );
     }
 
