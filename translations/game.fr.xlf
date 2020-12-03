@@ -15039,5 +15039,104 @@
         <target>aux portes de la ville</target>
       </segment>
     </unit>
+    <unit id="JPF0EfZ" name="Klick hier, um mehr über diesen Beruf zu erfahren...">
+      <notes>
+        <note category="german">Klick hier, um mehr über diesen Beruf zu erfahren...</note>
+      </notes>
+      <segment>
+        <source>Klick hier, um mehr über diesen Beruf zu erfahren...</source>
+        <target>Cliquez ici pour plus d'informations sur le métier...</target>
+      </segment>
+    </unit>
+    <unit id="GErJWB." name="Zur zeit in der Stadt">
+      <notes>
+        <note category="german">Zur zeit in der Stadt</note>
+      </notes>
+      <segment>
+        <source>Zur zeit in der Stadt</source>
+        <target>Actuellement en ville</target>
+      </segment>
+    </unit>
+    <unit id="dC.LILA" name="Die Bürger dieser Stadt haben die unten aufgeführten Berufe gewählt.">
+      <notes>
+        <note category="german">Die Bürger dieser Stadt haben die unten aufgeführten Berufe gewählt.</note>
+      </notes>
+      <segment>
+        <source>Die Bürger dieser Stadt haben die unten aufgeführten Berufe gewählt.</source>
+        <target>Les citoyens de cette ville ont déjà choisi les métiers suivant.</target>
+      </segment>
+    </unit>
+    <unit id="gkceIWw" name="dbc810c">
+      <notes>
+        <note category="german">Der Einwohner ist einfacher Bürger. Er verfügt über keine spezielle Fähigkeit.</note>
+      </notes>
+      <segment>
+        <source>Der Einwohner ist einfacher Bürger. Er verfügt über keine spezielle Fähigkeit.</source>
+        <target>L'habitant est un citoyen tout à fait normal, sans aucune capacité notable...</target>
+      </segment>
+    </unit>
+    <unit id="1sFu13W" name="6d96558">
+      <notes>
+        <note category="german">Buddler können eine Zone im Vergleich zu den normalen Einwohnern schneller absuchen. Darüber hinaus haben sie eine höhere Chance, wertvolle Gegenstände zu finden.</note>
+      </notes>
+      <segment>
+        <source>Buddler können eine Zone im Vergleich zu den normalen Einwohnern schneller absuchen. Darüber hinaus haben sie eine höhere Chance, wertvolle Gegenstände zu finden.</source>
+        <target>Les Fouineurs sont plus rapides que n'importe quel citoyen pour fouiller une zone dans le désert. De plus, leurs chances de trouver un objet sont sensiblement plus élevées.</target>
+      </segment>
+    </unit>
+    <unit id="BusTGgv" name="ca16d49">
+      <notes>
+        <note category="german">Der Wächter ist der geborener Kämpfer. In der Wüste kann er es mit weitaus mehr Zombies aufnehmen als jeder andere durchschnittliche Einwohner.</note>
+      </notes>
+      <segment>
+        <source>Der Wächter ist der geborener Kämpfer. In der Wüste kann er es mit weitaus mehr Zombies aufnehmen als jeder andere durchschnittliche Einwohner.</source>
+        <target>Dans le désert, le Gardien est capable de tenir face à beaucoup plus de zombies qu'un citoyen moyen. Il apporte aussi des défenses supplémentaires à la ville.</target>
+      </segment>
+    </unit>
+    <unit id="7hINRyx" name="59298e1">
+      <notes>
+        <note category="german">Der Aufklärer weiß sich geschickt zu tarnen, um sich mühelos selbst durch große Zombieansammlungen zu schleichen und Zonen aufzusuchen, in die sich keiner alleine trauen würde.</note>
+      </notes>
+      <segment>
+        <source>Der Aufklärer weiß sich geschickt zu tarnen, um sich mühelos selbst durch große Zombieansammlungen zu schleichen und Zonen aufzusuchen, in die sich keiner alleine trauen würde.</source>
+        <target>Les éclaireurs savent utiliser les ombres à leur avantage pour se faufiler au milieu des zombies dans le désert, là où personne n'ose aller seul.</target>
+      </segment>
+    </unit>
+    <unit id="U1ZJKmn" name="798e354">
+      <notes>
+        <note category="german">Der Dompteur setzt seinen treuen Hund dazu ein, um in der Wüste gefundene Gegenstände in die Stadt zu bringen.</note>
+      </notes>
+      <segment>
+        <source>Der Dompteur setzt seinen treuen Hund dazu ein, um in der Wüste gefundene Gegenstände in die Stadt zu bringen.</source>
+        <target>L'apprivoiseur peut utiliser son fidèle chien pour rappatrier en ville les objets qu'il a trouvé dans le désert.</target>
+      </segment>
+    </unit>
+    <unit id="cPQAM2U" name="f829667">
+      <notes>
+        <note category="german">Der Techniker kann besser als jeder andere Einwohner an Bauprojekten mitwirken. Außerdem ist er sehr geübt darin, Schlösser und versperrte Türen zu öffnen.</note>
+      </notes>
+      <segment>
+        <source>Der Techniker kann besser als jeder andere Einwohner an Bauprojekten mitwirken. Außerdem ist er sehr geübt darin, Schlösser und versperrte Türen zu öffnen.</source>
+        <target>Le technicien possède plus d'aptitude qu'un citoyen ordinaire pour mener à bien les différents chantiers, il est aussi très habile pour ouvrir les portes verrouillées.</target>
+      </segment>
+    </unit>
+    <unit id="2Cxepy1" name="719ff91">
+      <notes>
+        <note category="german">Der Schamane verfügt über mystische Fähigkeiten. Er kann die Seelen kürzlich verstorbener Bürger orten, die in der Außenwelt umher irren.</note>
+      </notes>
+      <segment>
+        <source>Der Schamane verfügt über mystische Fähigkeiten. Er kann die Seelen kürzlich verstorbener Bürger orten, die in der Außenwelt umher irren.</source>
+        <target>Le Chaman possède des pouvoirs mystiques, il peut connaître la position des âmes de citoyen fraîchement décédé, perdues dans l'outre-monde.</target>
+      </segment>
+    </unit>
+    <unit id="W8fp4NH" name="7b13048">
+      <notes>
+        <note category="german">Der Einsiedler ist ein Typ, mit dem seit Jahren niemand mehr geredet hat. Ganz auf sich allein gestellt, lebt er still vor sich hin. Wenn es ums Überleben geht, weiß sich der Einsiedler seit jeher zu helfen: Er findet immer etwas Ess- oder Trinkbares in der Wüste - egal, wo er sich gerade befindet.</note>
+      </notes>
+      <segment>
+        <source>Der Einsiedler ist ein Typ, mit dem seit Jahren niemand mehr geredet hat. Ganz auf sich allein gestellt, lebt er still vor sich hin. Wenn es ums Überleben geht, weiß sich der Einsiedler seit jeher zu helfen: Er findet immer etwas Ess- oder Trinkbares in der Wüste - egal, wo er sich gerade befindet.</source>
+        <target>L'ermite est capable de subvenir à ses besoins élémentaires en trouvant par lui même sa nourriture et son eau. Il est également avantagé en Camping.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

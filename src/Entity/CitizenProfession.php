@@ -61,7 +61,7 @@ class CitizenProfession implements NamedEntity
     private $heroic;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="text")
      */
     private $description;
 

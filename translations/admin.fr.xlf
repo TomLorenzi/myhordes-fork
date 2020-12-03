@@ -1648,5 +1648,14 @@
         <target>Ouvrir</target>
       </segment>
     </unit>
+    <unit id="Z7aWRoY" name="Dashboard">
+      <notes>
+        <note category="german">Dashboard</note>
+      </notes>
+      <segment>
+        <source>Dashboard</source>
+        <target>Dashboard</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

@@ -43,7 +43,7 @@
                         <label for="jb_{{ job.name }}">
                             <div class="helpbtn">
                                 <a class="help-button" x-ajax-href="{{ url('help', {'name': job.name}) }}">
-                                    <div class="tooltip help">{{ job.description|trans({}, 'game')}}<br /><em>{{ 'Klicken Sie hier, um mehr über diesen Beruf zu erfahren.'|trans({},'game') }}</em></div>
+                                    <div class="tooltip help">{{ job.description|trans({}, 'game')}}<br /><em>{{ 'Klick hier, um mehr über diesen Beruf zu erfahren...'|trans({},'game') }}</em></div>
                                     {{ 'Hilfe'|trans({},'global') }}
                                 </a>
                             </div>
@@ -54,7 +54,7 @@
                 {% endfor %}
             </div>
             <br />
-            <h5>{{'Zurzeit in der Stadt'|trans({}, 'game')}} <a class="help-button"><div class="tooltip help">{{ 'Die Bürger dieser Stadt haben die unten aufgeführten Berufe gewählt.'|trans({},'game') }}</div>{{ 'Hilfe'|trans({},'global') }}</a></h5>
+            <h5>{{'Zur zeit in der Stadt'|trans({}, 'game')}} <a class="help-button"><div class="tooltip help">{{ 'Die Bürger dieser Stadt haben die unten aufgeführten Berufe gewählt.'|trans({},'game') }}</div>{{ 'Hilfe'|trans({},'global') }}</a></h5>
             <div class="row prof-list">
             {% for elem in prof_count %}
                 <div class="padded cell small center rw-4">
