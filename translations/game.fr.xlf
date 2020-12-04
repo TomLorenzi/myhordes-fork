@@ -15147,5 +15147,14 @@
         <target>Cette ville est morte... Fuyez pauvres fous !</target>
       </segment>
     </unit>
+    <unit id="Rv1P1LM" name="Diese Bürger is der %role% der Stadt">
+      <notes>
+        <note category="german">Diese Bürger is der %role% der Stadt</note>
+      </notes>
+      <segment>
+        <source>Diese Bürger is der %role% der Stadt</source>
+        <target>Ce citoyen est le %role% de la ville</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
