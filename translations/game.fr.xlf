@@ -14679,12 +14679,12 @@
         <target>Le lutin vert a été vu volant %item% à %victim% !</target>
       </segment>
     </unit>
-    <unit id="dcfxfNT" name="Befristete Beiträge">
+    <unit id="dcfxfNT" name="Temporäre Verteidigung">
       <notes>
-        <note category="german">Befristete Beiträge</note>
+        <note category="german">Temporäre Verteidigung</note>
       </notes>
       <segment>
-        <source>Befristete Beiträge</source>
+        <source>Temporäre Verteidigung</source>
         <target>Apports temporaires</target>
       </segment>
     </unit>
@@ -14850,12 +14850,12 @@
         <target>Ma maison (Coffre)</target>
       </segment>
     </unit>
-    <unit id="sK6WW0q" name="Gemantansicht der Stadt">
+    <unit id="sK6WW0q" name="Gesamtansicht der Stadt">
       <notes>
-        <note category="german">Gemantansicht der Stadt</note>
+        <note category="german">Gesamtansicht der Stadt</note>
       </notes>
       <segment>
-        <source>Gemantansicht der Stadt</source>
+        <source>Gesamtansicht der Stadt</source>
         <target>Vue d'ensemble</target>
       </segment>
     </unit>

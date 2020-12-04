@@ -14638,13 +14638,13 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
         <target>Häuser der Bürger</target>
       </segment>
     </unit>
-    <unit id="dcfxfNT" name="Befristete Beiträge">
+    <unit id="dcfxfNT" name="Temporäre Verteidigung">
       <notes>
-        <note category="german">Befristete Beiträge</note>
+        <note category="german">Temporäre Verteidigung</note>
       </notes>
       <segment>
-        <source>Befristete Beiträge</source>
-        <target>Befristete Beiträge</target>
+        <source>Temporäre Verteidigung</source>
+        <target>Temporäre Verteidigung</target>
       </segment>
     </unit>
     <unit id="9_pNKlL" name="Leichen-Bonus">

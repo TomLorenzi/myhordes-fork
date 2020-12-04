@@ -1,5 +1,5 @@
 {% extends "ajax/game/town/town.html.twig" %}
-{% block title %}{{'Gemantansicht der Stadt'|trans({}, 'game')|raw}}{% endblock %}
+{% block title %}{{'Gesamtansicht der Stadt'|trans({}, 'game')|raw}}{% endblock %}
 {% block content %}
     {% set wtt = conf.get(constant('App\\Structures\\TownConf::CONF_MODIFIER_WT_THRESHOLD'),33) %}
 
@@ -142,7 +142,7 @@
                 <li>{{'Wächter'|trans({}, 'game')}} : + {{ def_summary.guardian_defense }} <img src="{{ asset('build/images/icons/small_def.gif') }}" /> <a class="help-button"><div class="tooltip help">{{ 'Diesen Bonus gibt es nur dann, wenn sich die Wächter während eines Angriffs in der Stadt befinden.'|trans({},'global') }}</div>{{ 'Hilfe'|trans({},'global') }}</a></li>
                 {% endif %}
                 {% if def_summary.temp_defense > 0 %}
-                <li>{{'Befristete Beiträge'|trans({}, 'game')}} : + {{def_summary.temp_defense}} <img src="{{ asset('build/images/icons/small_def.gif') }}" /></li>
+                <li>{{'Temporäre Verteidigung'|trans({}, 'game')}} : + {{def_summary.temp_defense}} <img src="{{ asset('build/images/icons/small_def.gif') }}" /></li>
                 {% endif %}
                 {% if def_summary.cemetery > 0 %}
                 <li>{{'Leichen-Bonus'|trans({}, 'game')}} : + {{def_summary.cemetery}} <img src="{{ asset('build/images/icons/small_def.gif') }}" /> <a class="help-button"><div class="tooltip help">{{ 'Diesen Bonus gibt es dank eurer alten Freunde und dem Gebäude <strong>Kleiner Friedhof</strong>.'|trans({},'global')|raw }}</div>{{ 'Hilfe'|trans({},'global')|raw }}</a> </li>
