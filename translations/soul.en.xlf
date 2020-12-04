@@ -2173,7 +2173,7 @@
       </notes>
       <segment>
         <source>&lt;b&gt;%u1%&lt;/b&gt; hat &lt;b&gt;%u2%&lt;/b&gt; aus der Koalition entfernt.</source>
-        <target><![CDATA[<b>%u1%</b> has invited <b>%u2%</b> to join us.]]></target>
+        <target><![CDATA[<b>%u1%</b> has removed <b>%u2%</b> from the coalition.]]></target>
       </segment>
     </unit>
     <unit id="bCn1heW" name="&lt;b&gt;%u1%&lt;/b&gt; hat sich soeben in die Stadt &quot;&lt;b&gt;%town%&lt;/b&gt;&quot; eingeschrieben!">
