@@ -367,7 +367,7 @@ class ExternalXML2Controller extends ExternalController {
                         'x' => $citizen->getZone() !== null ? $activeOffset['x'] + $citizen->getZone()->getX() : $activeOffset['x'],
                         'y' => $citizen->getZone() !== null ? $activeOffset['y'] - $citizen->getZone()->getY() : $activeOffset['y'],
                         'id' => $citizen->getUser()->getId(),
-                        'ban' => $citizen->getBanished(),
+                        'ban' => intval($citizen->getBanished()),
                         'job' => $citizen->getProfession()->getName(),
                         'out' => intval($citizen->getZone() !== null),
                         'baseDef' => '0'
