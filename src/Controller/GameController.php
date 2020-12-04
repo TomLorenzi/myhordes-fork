@@ -66,36 +66,32 @@ class GameController extends CustomAbstractController implements GameInterfaceCo
     protected function renderLog( ?int $day, $citizen = null, $zone = null, ?int $type = null, ?int $max = null ): Response {
         $entries = [];
         /** @var TownLogEntry $entity */
-        foreach ($this->entity_manager->getRepository(TownLogEntry::class)->findByFilter(
-            $this->getActiveCitizen()->getTown(),
-            $day, $citizen, $zone, $type, $max ) as $idx=>$entity) {
-                /** @var LogEntryTemplate $template */
-                $template = $entity->getLogEntryTemplate();
-                if (!$template)
-                    continue;
-                $entityVariables = $entity->getVariables();
-                $entries[$idx]['timestamp'] = $entity->getTimestamp();
-                $entries[$idx]['class'] = $template->getClass();
-                $entries[$idx]['type'] = $template->getType();
-                $entries[$idx]['id'] = $entity->getId();
-                $entries[$idx]['hidden'] = $entity->getHidden();
+        foreach ($this->entity_manager->getRepository(TownLogEntry::class)->findByFilter($this->getActiveCitizen()->getTown(),$day, $citizen, $zone, $type, $max ) as $idx=>$entity) {
+            /** @var LogEntryTemplate $template */
+            $template = $entity->getLogEntryTemplate();
+            if (!$template)
+                continue;
+            $entityVariables = $entity->getVariables();
+            $entries[$idx]['timestamp'] = $entity->getTimestamp();
+            $entries[$idx]['class'] = $template->getClass();
+            $entries[$idx]['type'] = $template->getType();
+            $entries[$idx]['id'] = $entity->getId();
+            $entries[$idx]['hidden'] = $entity->getHidden();
 
-                $variableTypes = $template->getVariableTypes();
-                $transParams = $this->logTemplateHandler->parseTransParams($variableTypes, $entityVariables);
+            $variableTypes = $template->getVariableTypes();
+            $transParams = $this->logTemplateHandler->parseTransParams($variableTypes, $entityVariables);
 
-                try {
-                    $entries[$idx]['text'] = $this->translator->trans($template->getText(), $transParams, 'game');
-                }
-                catch (Exception $e) {
-                    $entries[$idx]['text'] = "null";
-                }             
+            try {
+                $entries[$idx]['text'] = $this->translator->trans($template->getText(), $transParams, 'game');
             }
-
-        // $entries = array($entity->find($id), $entity->find($id)->findRelatedEntity());
+            catch (Exception $e) {
+                $entries[$idx]['text'] = "null";
+            }             
+        }
 
         return $this->render( 'ajax/game/log_content.html.twig', [
             'entries' => $entries,
-            'canHideEntry' => $this->getActiveCitizen()->getAlive() && $this->getActiveCitizen()->getProfession()->getHeroic() && $this->user_handler->hasSkill($citizen !== null ? $citizen->getUser() : $this->getActiveCitizen()->getUser(), 'manipulator'),
+            'canHideEntry' => $this->getActiveCitizen()->getAlive() && $this->getActiveCitizen()->getProfession()->getHeroic() && $this->user_handler->hasSkill($this->getUser(), 'manipulator'),
         ] );
     }
 
@@ -496,6 +492,18 @@ class GameController extends CustomAbstractController implements GameInterfaceCo
         $disabledJobs = $cf->getTownConfiguration($this->getActiveCitizen()->getTown())->get(TownConf::CONF_DISABLED_JOBS, ['shaman']);
 
         $selectablesJobs = [];
+        $prof_count = [];
+
+        foreach ($this->getActiveCitizen()->getTown()->getCitizens() as $c) {
+            if ($c->getProfession()->getName() === CitizenProfession::DEFAULT) continue;
+
+            if (!isset($prof_count[ $c->getProfession()->getId() ])) {
+                $prof_count[ $c->getProfession()->getId() ] = [
+                    1,
+                    $c->getProfession()
+                ];
+            } else $prof_count[ $c->getProfession()->getId() ][0]++;
+        }
 
         foreach($jobs as $job){
             if(!in_array($job->getName(), $disabledJobs))
@@ -503,7 +511,8 @@ class GameController extends CustomAbstractController implements GameInterfaceCo
         }
 
         return $this->render( 'ajax/game/jobs.html.twig', [
-            'professions' => $selectablesJobs
+            'professions' => $selectablesJobs,
+            'prof_count' => $prof_count
         ] );
     }
 

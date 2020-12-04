@@ -15,7 +15,6 @@ use App\Entity\Picto;
 use App\Entity\PictoPrototype;
 use App\Entity\Town;
 use App\Entity\User;
-use App\Entity\ZombieEstimation;
 use App\Entity\Zone;
 use App\Entity\ZoneTag;
 use App\Service\CitizenHandler;
@@ -42,7 +41,7 @@ class ExternalXML2Controller extends ExternalController {
      *
      * @return Response|User Error or the user linked to the user_key
      */
-    private function check_keys() {
+    private function check_keys($must_be_secure = false) {
         $request = Request::createFromGlobals();
 
         // Try POST data
@@ -57,27 +56,46 @@ class ExternalXML2Controller extends ExternalController {
         if (trim($user_key) == '') {
             $user_key = $request->request->get('userkey');
         }
+        // Try POST data
+        $language = $request->query->get('lang');
 
-        // If still no key, none was sent correctly.
-        if (trim($app_key) == '') {
-            return new Response($this->arrayToXml( ["Error" => "Access Denied", "ErrorCode" => "403", "ErrorMessage" => "No app key found in request."], '<hordes xmlns:dc="http://purl.org/dc/elements/1.1" xmlns:content="http://purl.org/rss/1.0/modules/content/" />' ));
+        if (trim($language) == '') {
+            $language = $request->request->get('lang');
         }
 
-        if(trim($user_key) == '')
-            return new Response($this->arrayToXml( ["Error" => "Access Denied", "ErrorCode" => "403", "ErrorMessage" => "No user key found in request."], '<hordes xmlns:dc="http://purl.org/dc/elements/1.1" xmlns:content="http://purl.org/rss/1.0/modules/content/" />' ));
+        $data = $this->getHeaders($language);
 
-        // Get the app.
-        /** @var ExternalApp $app */
-        $app = $this->entity_manager->getRepository(ExternalApp::class)->findOneBy(['secret' => $app_key]);
-        if (!$app) {
-            return new Response($this->arrayToXml( ["Error" => "Access Denied", "ErrorCode" => "403", "ErrorMessage" => "Access not allowed for application."], '<hordes xmlns:dc="http://purl.org/dc/elements/1.1" xmlns:content="http://purl.org/rss/1.0/modules/content/" />' ));
+        if(trim($user_key) == '') {
+            $data['error']['attributes'] = ['code' => "missing_key"];
+            $data['status']['attributes'] = ['open' => "1", "msg" => ""];
+            return new Response($this->arrayToXml( $data, '<hordes xmlns:dc="http://purl.org/dc/elements/1.1" xmlns:content="http://purl.org/rss/1.0/modules/content/" />' ));
+        }
+
+        // If still no key, none was sent correctly.
+        if ($must_be_secure) {
+            if(trim($app_key) == '') {
+                $data['error']['attributes'] = ['code' => "only_available_to_secure_request"];
+                $data['status']['attributes'] = ['open' => "1", "msg" => ""];
+                return new Response($this->arrayToXml( $data, '<hordes xmlns:dc="http://purl.org/dc/elements/1.1" xmlns:content="http://purl.org/rss/1.0/modules/content/" />' ));
+            }
+
+            // Get the app.
+            /** @var ExternalApp $app */
+            $app = $this->entity_manager->getRepository(ExternalApp::class)->findOneBy(['secret' => $app_key]);
+            if (!$app) {
+                $data['error']['attributes'] = ['code' => "only_available_to_secure_request"];
+                $data['status']['attributes'] = ['open' => "1", "msg" => ""];
+                return new Response($this->arrayToXml( $data, '<hordes xmlns:dc="http://purl.org/dc/elements/1.1" xmlns:content="http://purl.org/rss/1.0/modules/content/" />' ));
+            }
         }
 
         // Get the user.
         /** @var User $user */
         $user = $this->entity_manager->getRepository(User::class)->findOneBy(['externalId' => $user_key]);
         if (!$user) {
-            return new Response($this->arrayToXml( ["Error" => "Access Denied", "ErrorCode" => "403", "ErrorMessage" => "Access not allowed for user."], '<hordes xmlns:dc="http://purl.org/dc/elements/1.1" xmlns:content="http://purl.org/rss/1.0/modules/content/" />' ));
+            $data['error']['attributes'] = ['code' => "user_not_found"];
+            $data['status']['attributes'] = ['open' => "1", "msg" => ""];
+            return new Response($this->arrayToXml( $data, '<hordes xmlns:dc="http://purl.org/dc/elements/1.1" xmlns:content="http://purl.org/rss/1.0/modules/content/" />' ));
         }
 
         return $user;
@@ -117,7 +135,7 @@ class ExternalXML2Controller extends ExternalController {
      * @return Response
      */
     public function api_xml_user(TranslatorInterface $trans, ZoneHandler $zh, CitizenHandler $ch): Response {
-        $user = $this->check_keys();
+        $user = $this->check_keys(true);
 
         if($user instanceof Response)
             return $user;
@@ -151,7 +169,7 @@ class ExternalXML2Controller extends ExternalController {
         if($citizen !== null){
             /** @var Town $town */
             $town = $citizen->getTown();
-            $data['hordes']['headers']['owner'] = [
+            $data['headers']['owner'] = [
                 'citizen' => [
                     "attributes" => [
                         'dead' => intval(!$citizen->getAlive()),
@@ -161,7 +179,7 @@ class ExternalXML2Controller extends ExternalController {
                         'x' => $citizen->getZone() !== null ? $citizen->getZone()->getX() : '0',
                         'y' => $citizen->getZone() !== null ? $citizen->getZone()->getY() : '0',
                         'id' => $user->getId(),
-                        'ban' => $citizen->getBanished(),
+                        'ban' => intval($citizen->getBanished()),
                         'job' => $citizen->getProfession()->getName(),
                         'out' => intval($citizen->getZone() !== null),
                         'baseDef' => '0'
@@ -177,7 +195,7 @@ class ExternalXML2Controller extends ExternalController {
                 foreach ($zone->getCitizens() as $c)
                     if ($c->getAlive())
                         $cp += $ch->getCP($c);
-                $data['hordes']['headers']['owner']['myZone'] = [
+                $data['headers']['owner']['myZone'] = [
                     "attributes" => [
                         'dried' => intval($zone->getDigs() == 0),
                         'h' => $cp,
@@ -191,7 +209,7 @@ class ExternalXML2Controller extends ExternalController {
                 
                 /** @var Item $item */
                 foreach($zone->getFloor()->getItems() as $item) {
-                    $data['hordes']['headers']['owner']['myZone']['list']['items'][] = [
+                    $data['headers']['owner']['myZone']['list']['items'][] = [
                         'attributes' => [
                             'name' => $trans->trans($item->getPrototype()->getLabel(), [], 'items'),
                             'count' => 1,
@@ -203,7 +221,7 @@ class ExternalXML2Controller extends ExternalController {
                     ];
                 }
             }
-            $data['hordes']['headers']['game'] = [
+            $data['headers']['game'] = [
                 'attributes' => [
                     'days' => $town->getDay(),
                     'quarantine' => $town->getAttackFails() >= 3,
@@ -212,7 +230,7 @@ class ExternalXML2Controller extends ExternalController {
                 ],
             ];
         
-            $data['hordes']['data'] = [
+            $data['data'] = [
                 'rewards' => [
                     'list' => [
                         'name' => 'r', 
@@ -256,13 +274,13 @@ class ExternalXML2Controller extends ExternalController {
                         ]
                     ];
                 }
-                $data['hordes']['data']['rewards']['list']['items'][] = $node;
+                $data['data']['rewards']['list']['items'][] = $node;
             }
     
             foreach($user->getPastLifes() as $pastLife){
                 /** @var CitizenRankingProxy $pastLife */
                 if($pastLife->getCitizen() && $pastLife->getCitizen()->getAlive()) continue;
-                $data['hordes']['data']['maps']['list']['items'][] = [
+                $data['data']['maps']['list']['items'][] = [
                     'attributes' => [
                         'name' => $pastLife->getTown()->getName(),
                         'season' => $pastLife->getTown()->getSeason() ? $pastLife->getTown()->getSeason()->getNumber() : 0,
@@ -278,18 +296,17 @@ class ExternalXML2Controller extends ExternalController {
                 ];
             }
         } else {
-            $data['hordes']['error']['attributes'] = ['code' => "not_in_game"];
-            $data['hordes']['status']['attributes'] = ['open' => "1", "msg" => ""];
+            $data['error']['attributes'] = ['code' => "not_in_game"];
+            $data['status']['attributes'] = ['open' => "1", "msg" => ""];
         }
 
-        $response = new Response($this->arrayToXml( $data['hordes'], '<hordes xmlns:dc="http://purl.org/dc/elements/1.1" xmlns:content="http://purl.org/rss/1.0/modules/content/" />' ));
+        $response = new Response($this->arrayToXml( $data, '<hordes xmlns:dc="http://purl.org/dc/elements/1.1" xmlns:content="http://purl.org/rss/1.0/modules/content/" />' ));
         $response->headers->set('Content-Type', 'text/xml');
         return $response;
     }
 
     /**
-     * @Route("/api/x/v2/xml/town/{townId}", name="api_x2_xml_town", defaults={"_format"="xml"}, methods={"GET","POST"})
-     * @param int $townId
+     * @Route("/api/x/v2/xml/town", name="api_x2_xml_town", defaults={"_format"="xml"}, methods={"GET","POST"})
      * @param $trans TranslatorInterface
      * @param $zh ZoneHandler
      * @param $ch CitizenHandler
@@ -297,8 +314,8 @@ class ExternalXML2Controller extends ExternalController {
      * @param ConfMaster $conf
      * @return Response
      */
-    public function api_xml_town(int $townId, TranslatorInterface $trans, ZoneHandler $zh, CitizenHandler $ch, TownHandler $th, ConfMaster $conf): Response {
-        $user = $this->check_keys();
+    public function api_xml_town(TranslatorInterface $trans, ZoneHandler $zh, CitizenHandler $ch, TownHandler $th, ConfMaster $conf): Response {
+        $user = $this->check_keys(false);
 
         if($user instanceof Response)
             return $user;
@@ -309,44 +326,38 @@ class ExternalXML2Controller extends ExternalController {
             $now = date('Y-m-d H:i:s');
         }
 
-        /** @var Town $town */
-        $town = $this->entity_manager->getRepository(Town::class)->find($townId);
-        if($town === null)
-            return new Response($this->arrayToXml( ["Error" => "Not Found", "ErrorCode" => "404", "ErrorMessage" => "Town not found"], '<hordes xmlns:dc="http://purl.org/dc/elements/1.1" xmlns:content="http://purl.org/rss/1.0/modules/content/" />' ));
-
-
         /** @var User $user */
-        if (!$user->getAliveCitizen() || $user->getAliveCitizen()->getTown() !== $town )
-            return new Response($this->arrayToXml( ["Error" => "Access Denied", "ErrorCode" => "403", "ErrorMessage" => "User is not within this towns domain"], '<hordes xmlns:dc="http://purl.org/dc/elements/1.1" xmlns:content="http://purl.org/rss/1.0/modules/content/" />' ));
-
-        $request = Request::createFromGlobals();
-
-        // Try POST data
-        $language = $request->query->get('lang');
-
-        if (trim($language) == '') {
-            // No POST data, we use GET datas
-            $language = $request->request->get('lang');
-        }
-
-        if(!in_array($language, ['en', 'fr', 'de', 'es', 'all'])) {
-            // Still no data, we use the user lang, or the deutsch as latest fallback
-            $language = $user->getLanguage() ?? 'de';
-        }
-
-        if($language !== 'all') {
-            $trans->setLocale($language);
-        }
-
-        // Base data.
-        $data = $this->getHeaders($language);
-
         /** @var Citizen $citizen */
         $citizen = $user->getAliveCitizen();
+        if (!$user->getAliveCitizen()) {
+            $data['error']['attributes'] = ['code' => "not_in_game"];
+            $data['status']['attributes'] = ['open' => "1", "msg" => ""];
+        } else {
+            $request = Request::createFromGlobals();
 
-        if($citizen !== null) {
+            // Try POST data
+            $language = $request->query->get('lang');
+    
+            if (trim($language) == '') {
+                // No POST data, we use GET datas
+                $language = $request->request->get('lang');
+            }
+    
+            if(!in_array($language, ['en', 'fr', 'de', 'es', 'all'])) {
+                // Still no data, we use the user lang, or the deutsch as latest fallback
+                $language = $user->getLanguage() ?? 'de';
+            }
+    
+            if($language !== 'all') {
+                $trans->setLocale($language);
+            }
+    
+            // Base data.
+            $data = $this->getHeaders($language);
+            $town = $user->getAliveCitizen()->getTown();
+    
             $activeOffset = $town->getMapOffset();
-            $data['hordes']['headers']['owner'] = [
+            $data['headers']['owner'] = [
                 'citizen' => [
                     "attributes" => [
                         'dead' => intval(!$citizen->getAlive()),
@@ -356,7 +367,7 @@ class ExternalXML2Controller extends ExternalController {
                         'x' => $citizen->getZone() !== null ? $activeOffset['x'] + $citizen->getZone()->getX() : $activeOffset['x'],
                         'y' => $citizen->getZone() !== null ? $activeOffset['y'] - $citizen->getZone()->getY() : $activeOffset['y'],
                         'id' => $citizen->getUser()->getId(),
-                        'ban' => $citizen->getBanished(),
+                        'ban' => intval($citizen->getBanished()),
                         'job' => $citizen->getProfession()->getName(),
                         'out' => intval($citizen->getZone() !== null),
                         'baseDef' => '0'
@@ -373,7 +384,7 @@ class ExternalXML2Controller extends ExternalController {
                     if ($c->getAlive())
                         $cp += $ch->getCP($c);
 
-                $data['hordes']['headers']['owner']['myZone'] = [
+                $data['headers']['owner']['myZone'] = [
                     "attributes" => [
                         'dried' => intval($zone->getDigs() == 0),
                         'h' => $cp,
@@ -386,7 +397,7 @@ class ExternalXML2Controller extends ExternalController {
                 ];
                 /** @var Item $item */
                 foreach($zone->getFloor()->getItems() as $item) {
-                    $data['hordes']['headers']['owner']['myZone']['list']['items'][] = [
+                    $data['headers']['owner']['myZone']['list']['items'][] = [
                         'attributes' => [
                             'name' => $trans->trans($item->getPrototype()->getLabel(), [], 'items'),
                             'count' => 1,
@@ -398,7 +409,7 @@ class ExternalXML2Controller extends ExternalController {
                     ];
                 }
             }
-            $data['hordes']['headers']['game'] = [
+            $data['headers']['game'] = [
                 'attributes' => [
                     'days' => $town->getDay(),
                     'quarantine' => intval($town->getAttackFails() >= 3),
@@ -413,7 +424,7 @@ class ExternalXML2Controller extends ExternalController {
             $def = new TownDefenseSummary();
             $th->calculate_town_def($town, $def);
 
-            $data['hordes']['data'] = [
+            $data['data'] = [
                 'city' => [
                     'attributes' => [
                         'city' => $town->getName(),
@@ -528,10 +539,11 @@ class ExternalXML2Controller extends ExternalController {
                     $buildingXml['attributes']['parent'] = $building->getPrototype()->getParent()->getId();
                 }
 
-                $data['hordes']['data']['city']['list']['items'][] = $buildingXml;
+                $data['data']['city']['list']['items'][] = $buildingXml;
 
                 if($building->getPrototype()->getMaxLevel() > 0 && $building->getLevel() > 0){
-                    $data['hordes']['data']['upgrades']['list']['items'][] = [
+                    $data['data']['upgrades']['attributes']['total'] += $building->getLevel();
+                    $data['data']['upgrades']['list']['items'][] = [
                         'attributes' => [
                             'name' => $trans->trans($building->getPrototype()->getLabel(), [], 'buildings'),
                             'level' => $building->getLevel(),
@@ -551,7 +563,7 @@ class ExternalXML2Controller extends ExternalController {
                 while (count($gazette_logs) > 0) {
                     $text .= '<p>' . $this->parseGazetteLog(array_shift($gazette_logs)) . '</p>';
                 }
-                $data['hordes']['data']['city']['news'] = [
+                $data['data']['city']['news'] = [
                     'attributes' => [
                         'z' => $gazette->getAttack(),
                         'def' => $gazette->getDefense()
@@ -563,7 +575,7 @@ class ExternalXML2Controller extends ExternalController {
             // The town bank
             foreach($town->getBank()->getItems() as $bankItem){
                 /** @var Item $bankItem */
-                $data['hordes']['data']['bank']['list']['items'][] = [
+                $data['data']['bank']['list']['items'][] = [
                     'attributes' => [
                         'name' => $trans->trans($bankItem->getPrototype()->getLabel(), [], 'items'),
                         'count' => $bankItem->getCount(),
@@ -600,14 +612,14 @@ class ExternalXML2Controller extends ExternalController {
                         ]
                     ];
                 }
-                $data['hordes']['data']['expeditions']['list']['items'][] = $expe;
+                $data['data']['expeditions']['list']['items'][] = $expe;
             }
 
             // Citizens
             foreach($town->getCitizens() as $citizen){
                 /** @var Citizen $citizen */
                 if($citizen->getAlive()){
-                    $data['hordes']['data']['citizens']['list']['items'][] = [
+                    $data['data']['citizens']['list']['items'][] = [
                         'attributes' => [
                             'dead' => '0',
                             'hero' => intval($citizen->getProfession()->getHeroic()),
@@ -619,12 +631,12 @@ class ExternalXML2Controller extends ExternalController {
                             'ban' => intval($citizen->getBanished()),
                             'job' => $citizen->getProfession()->getName(),
                             'out' => intval($citizen->getZone() !== null),
-                            'baseDef' => '???'
+                            'baseDef' => $citizen->getHome()->getPrototype()->getDefense()
                         ],
                         'value' => $citizen->getHome()->getDescription()
                     ];
                 } else {
-                    $data['hordes']['data']['cadavers']['list']['items'][] = [
+                    $data['data']['cadavers']['list']['items'][] = [
                         'attributes' => [
                             'name' => $citizen->getUser()->getUsername(),
                             'dtype' => $citizen->getCauseOfDeath()->getRef(),
@@ -653,7 +665,7 @@ class ExternalXML2Controller extends ExternalController {
                         'attributes' => [
                             'x' => $offset['x'] + $zone->getX(),
                             'y' => $offset['y'] - $zone->getY(),
-                            'nvt' => intval($zone->getDiscoveryStatus() == Zone::DiscoveryStatePast)
+                            'nvt' => intval($zone->getDiscoveryStatus() != Zone::DiscoveryStateCurrent)
                         ]
                     ];
                     
@@ -676,37 +688,31 @@ class ExternalXML2Controller extends ExternalController {
                         ];
                     }
 
-                    $data['hordes']['data']['map']['list']['items'][] = $item;
+                    $data['data']['map']['list']['items'][] = $item;
                 }
             }
 
             $has_zombie_est    = !empty($th->getBuilding($town, 'item_tagger_#00'));
             if ($has_zombie_est){
                 // Zombies estimations
-                $estimations = $this->entity_manager->getRepository(ZombieEstimation::class)->findBy(['town' => $town]);
-                foreach($estimations as $estimation){
-                    /** @var ZombieEstimation $estimation */
-                    if($estimation->getDay() > $town->getDay()) continue;
-                    $quality = $th->get_zombie_estimation_quality( $town, 1 - $estimation->getDay(), $z_today_min, $z_today_max );
+                for ($i = $town->getDay() + 1 ;  $i > 0 ; $i--) {
+                    $quality = $th->get_zombie_estimation_quality( $town, $town->getDay() - $i, $z_today_min, $z_today_max );
                     $watchtrigger = $conf->getTownConfiguration($town)->get(TownConf::CONF_MODIFIER_WT_THRESHOLD, 33);
                     if($watchtrigger >= $quality) continue;
 
-                    $data['hordes']['data']['estimations']['list']['items'][] = [
+                    $data['data']['estimations']['list']['items'][] = [
                         'attributes' => [
-                            'day' => $estimation->getDay(),
-                            'max' => $estimation->getOffsetMax(),
-                            'min' => $estimation->getOffsetMin(),
+                            'day' => $i,
+                            'max' => $z_today_max,
+                            'min' => $z_today_min,
                             'maxed' => intval($quality >= 100)
                         ]
                     ];
                 }
             }
-        }  else {
-            $data['hordes']['error']['attributes'] = ['code' => "not_in_game"];
-            $data['hordes']['status']['attributes'] = ['open' => "1", "msg" => ""];
         }
 
-        $response = new Response($this->arrayToXml( $data['hordes'], '<hordes xmlns:dc="http://purl.org/dc/elements/1.1" xmlns:content="http://purl.org/rss/1.0/modules/content/" />' ));
+        $response = new Response($this->arrayToXml( $data, '<hordes xmlns:dc="http://purl.org/dc/elements/1.1" xmlns:content="http://purl.org/rss/1.0/modules/content/" />' ));
         $response->headers->set('Content-Type', 'text/xml');
         return $response;
     }
@@ -771,20 +777,19 @@ class ExternalXML2Controller extends ExternalController {
     }
 
     protected function getHeaders($language) {
+
         return [
-            'hordes' => [
-                'headers' => [
-                    'attributes' => [
-                        'link' => "//" . Request::createFromGlobals()->headers->get('host') . Request::createFromGlobals()->getPathInfo(),
-                        'iconurl' => "//" . Request::createFromGlobals()->headers->get('host'), // TODO: Give base path
-                        'avatarurl' => "//" . Request::createFromGlobals()->headers->get('host') . '/cdn/avatar/', // TODO: Find a way to set this dynamic (see WebController::avatar for reference)
-                        'secure' => '1',
-                        'author' => 'MyHordes',
-                        'language' => $language,
-                        'version' => '0.1',
-                        'generator' => 'symfony',
-                    ],
-                ]
+            'headers' => [
+                'attributes' => [
+                    'link' => "//" . Request::createFromGlobals()->headers->get('host') . Request::createFromGlobals()->getPathInfo(),
+                    'iconurl' => "//" . Request::createFromGlobals()->headers->get('host'), // TODO: Give base path
+                    'avatarurl' => "//" . Request::createFromGlobals()->headers->get('host') . '/cdn/avatar/', // TODO: Find a way to set this dynamic (see WebController::avatar for reference)
+                    'secure' => intval($this->isSecureRequest()),
+                    'author' => 'MyHordes',
+                    'language' => $language,
+                    'version' => '0.1',
+                    'generator' => 'symfony',
+                ],
             ]
         ];
     }
