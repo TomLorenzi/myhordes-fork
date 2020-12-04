@@ -10153,7 +10153,7 @@
       </notes>
       <segment>
         <source>Du hast mit dieser Nachricht folgende Gegenstände erhalten. Sie müssten sich in deiner Truhe befinden (insofern noch niemand vor dir vorbei geschaut hat... ).</source>
-        <target>Du hast mit dieser Nachricht folgende Gegenstände erhalten. Sie müssten sich in deiner Truhe befinden (insofern noch niemand vor dir vorbei geschaut hat... ).</target>
+        <target>Los siguientes objetos han sido enviados con el mensaje. Deberían estar ahora en tu baúl (si nadie pasó por ahí antes que tú...).</target>
       </segment>
     </unit>
     <unit id="fICCxje" name="Seine Seele ansehen">
@@ -10450,7 +10450,7 @@
       </notes>
       <segment>
         <source>Es sind nicht mehr genügend Einwohner in der Stadt. Der Zombieangriff und die Wiederherstellung der AP wurden auf morgen Abend verschoben.</source>
-        <target>Es sind nicht mehr genügend Einwohner in der Stadt. Der Zombieangriff und die Wiederherstellung der AP wurden auf morgen Abend verschoben.</target>
+        <target>Todavía no hay suficientes ciudadanos en el pueblo. El ataque zombie y la restauración de PAs se han pospuesto hasta mañana.</target>
       </segment>
     </unit>
     <unit id="mjwvinZ" name="Heute Morgen ist kein Artikel erschienen...">
@@ -10459,7 +10459,7 @@
       </notes>
       <segment>
         <source>Heute Morgen ist kein Artikel erschienen...</source>
-        <target>Heute Morgen ist kein Artikel erschienen...</target>
+        <target>No hay noticias hoy...</target>
       </segment>
     </unit>
     <unit id="z3Y3jVt" name="Anonyme Beschwerde">
@@ -10468,7 +10468,7 @@
       </notes>
       <segment>
         <source>Anonyme Beschwerde</source>
-        <target>Anonyme Beschwerde</target>
+        <target>Denuncia Anónima</target>
       </segment>
     </unit>
     <unit id="tlOTwnM" name="Es wurde eine neue anonyme Beschwerde gegen dich eingelegt: &quot;%reason%&quot;">
@@ -10477,7 +10477,7 @@
       </notes>
       <segment>
         <source>Es wurde eine neue anonyme Beschwerde gegen dich eingelegt: "%reason%"</source>
-        <target>Es wurde eine neue anonyme Beschwerde gegen dich eingelegt: "%reason%"</target>
+        <target>Has recibido una nueva denuncia anónima: "%reason%"</target>
       </segment>
     </unit>
     <unit id="1VFuVbv" name="Beschwerde zurückgezogen">
@@ -10486,7 +10486,7 @@
       </notes>
       <segment>
         <source>Beschwerde zurückgezogen</source>
-        <target>Beschwerde zurückgezogen</target>
+        <target>Denuncia Retirada</target>
       </segment>
     </unit>
     <unit id="xllGfth" name="Es gibt gute Nachrichten! Folgende Beschwerde wurde zurückgezogen: &quot;%reason%&quot;">
@@ -10495,7 +10495,7 @@
       </notes>
       <segment>
         <source>Es gibt gute Nachrichten! Folgende Beschwerde wurde zurückgezogen: "%reason%"</source>
-        <target>Es gibt gute Nachrichten! Folgende Beschwerde wurde zurückgezogen: "%reason%"</target>
+        <target>¡Buenas Noticias! La siguiente denuncia ha sido retirada: "%reason%"</target>
       </segment>
     </unit>
     <unit id="d7mV6VK" name="Du bist vor Angst erstarrt!!">
@@ -10504,7 +10504,7 @@
       </notes>
       <segment>
         <source>Du bist vor Angst erstarrt!!</source>
-        <target>Du bist vor Angst erstarrt!!</target>
+        <target>¡¡Aterrorizado!!</target>
       </segment>
     </unit>
     <unit id="k9lty2j" name="6fedae5">
@@ -10513,7 +10513,7 @@
       </notes>
       <segment>
         <source>Wir haben zwei Neuigkeiten für dich. Eine gute und eine schlechte. Zuerst die gute: Trotz ihrer hartnäckigen Versuche, ist es den %num% Zombie(s) nicht gelungen, dich aufzufressen. Du hast dich wacker geschlagen. Bravo! Die schlechte: Das Erlebnis war so schlimm, dass du in eine Angststarre verfallen bist. So etwas möchtest du nicht wieder erleben...</source>
-        <target>Wir haben zwei Neuigkeiten für dich. Eine gute und eine schlechte. Zuerst die gute: Trotz ihrer hartnäckigen Versuche, ist es den %num% Zombie(s) nicht gelungen, dich aufzufressen. Du hast dich wacker geschlagen. Bravo! Die schlechte: Das Erlebnis war so schlimm, dass du in eine Angststarre verfallen bist. So etwas möchtest du nicht wieder erleben...</target>
+        <target>OK. Tenemos buenas y malas noticias. La buena noticia es que a pesar del esfuerzo de %num% zombis para comerte, haz salido de ésta! La mala noticia es que la experiencia realmente te afectó, por lo que ahora estás aterrorizado por la idea de tener que pasar por todo eso de nuevo...</target>
       </segment>
     </unit>
     <unit id="Efbc_qn" name="Haltet den Dieb!">
@@ -10522,7 +10522,7 @@
       </notes>
       <segment>
         <source>Haltet den Dieb!</source>
-        <target>Haltet den Dieb!</target>
+        <target>¡Robo!</target>
       </segment>
     </unit>
     <unit id="DiWxu8O" name="9a7499d">
@@ -10531,7 +10531,7 @@
       </notes>
       <segment>
         <source>Es scheint so, als ob ein anderer Bürger Gefallen an deinem Inventar gefunden hätte... Dir wurde folgendes gestohlen: %icon% %item%</source>
-        <target>Es scheint so, als ob ein anderer Bürger Gefallen an deinem Inventar gefunden hätte... Dir wurde folgendes gestohlen: %icon% %item%</target>
+        <target>Aparentemente, a uno de tus compañeros del pueblo realmente le gustó tu baúl... alguien ha robado tu: %icon% %item%</target>
       </segment>
     </unit>
     <unit id="RrPwAW." name="Zufälliger Bürger">
@@ -10540,7 +10540,7 @@
       </notes>
       <segment>
         <source>Zufälliger Bürger</source>
-        <target>Zufälliger Bürger</target>
+        <target>Ciudadano Aleatorio</target>
       </segment>
     </unit>
     <unit id="dTDcH8R" name="c8e86c4">
@@ -10551,8 +10551,8 @@
       <segment>
         <source>Hiermit kannst du den Namen eines zufälligen Bürgers in deinen Post anfügen.
                                                 Bei Bedarf kannst du die Auswahl auf bestimmte Berufe, Helden oder bereits gestorbene Bürger eingrenzen.</source>
-        <target>Hiermit kannst du den Namen eines zufälligen Bürgers in deinen Post anfügen.
-                                                Bei Bedarf kannst du die Auswahl auf bestimmte Berufe, Helden oder bereits gestorbene Bürger eingrenzen.</target>
+        <target>Puedes utilizar esto para añadir el nombre de un ciudadano al azar a tu publicación.
+                                                Si es necesario, también puedes limitar la selección a un numero específico de profesiones, héroes o ciudadanos que ya hayan muerto.</target>
       </segment>
     </unit>
     <unit id="lpSEXvf" name="71134d2">
@@ -10561,7 +10561,7 @@
       </notes>
       <segment>
         <source>Wenn zu den gleichen zufällig gewählten Bürger mehrfach in deinem Text verwenden willst, kannst du ihm eine Nummer zuweisen, beispielsweise:</source>
-        <target>Wenn zu den gleichen zufällig gewählten Bürger mehrfach in deinem Text verwenden willst, kannst du ihm eine Nummer zuweisen, beispielsweise:</target>
+        <target>Si deseas usar el mismo ciudadano elegido al azar más de una vez en tu texto, puedes asignarle un número, por ejemplo:</target>
       </segment>
     </unit>
     <unit id="znr86lo" name="Zum Forum">
@@ -10855,7 +10855,7 @@
       </notes>
       <segment>
         <source>Die Stadt wird erst starten, wenn sie &lt;strong&gt;%population% Bürger hat&lt;/strong&gt;.</source>
-        <target><![CDATA[Die Stadt wird erst starten, wenn sie <strong>%population% Bürger hat</strong>.]]></target>
+        <target><![CDATA[El pueblo sólo comenzará una vez que <strong>%population% ciudadanos</strong> se hayan unido al pueblo.]]></target>
       </segment>
     </unit>
     <unit id="RbJEkic" name="Mit den anderen Bürgern reden...">
@@ -14293,7 +14293,7 @@
       </notes>
       <segment>
         <source>HAZ-Gewinner</source>
-        <target>HAZ-Gewinner</target>
+        <target>Ganador del CTP</target>
       </segment>
     </unit>
     <unit id="ltZ7BR_" name="Ehrenauszeichnung für den Gewinner der Heilung für die Auszeichnungssucht.">
@@ -14302,7 +14302,7 @@
       </notes>
       <segment>
         <source>Ehrenauszeichnung für den Gewinner der Heilung für die Auszeichnungssucht.</source>
-        <target>Ehrenauszeichnung für den Gewinner der Heilung für die Auszeichnungssucht.</target>
+        <target>¡Premio honorario dado al ganador de "Curando tu Pictofilia"!</target>
       </segment>
     </unit>
     <unit id="YZc0dgj" name="Kernsammler (job)">
@@ -14347,7 +14347,7 @@
       </notes>
       <segment>
         <source>Ich bin geheilt</source>
-        <target>Ich bin geheilt</target>
+        <target>Estoy curado</target>
       </segment>
     </unit>
     <unit id="exaN90z" name="Die letzten Nachrichten meiner Koalition lesen.">
@@ -14636,6 +14636,96 @@
       <segment>
         <source>Aktivität</source>
         <target>Aktivität</target>
+      </segment>
+    </unit>
+    <unit id="jA6Q6MW" name="Häuser der Bürger">
+      <notes>
+        <note category="german">Häuser der Bürger</note>
+      </notes>
+      <segment>
+        <source>Häuser der Bürger</source>
+        <target>Häuser der Bürger</target>
+      </segment>
+    </unit>
+    <unit id="dcfxfNT" name="Befristete Beiträge">
+      <notes>
+        <note category="german">Befristete Beiträge</note>
+      </notes>
+      <segment>
+        <source>Befristete Beiträge</source>
+        <target>Befristete Beiträge</target>
+      </segment>
+    </unit>
+    <unit id="9_pNKlL" name="Leichen-Bonus">
+      <notes>
+        <note category="german">Leichen-Bonus</note>
+      </notes>
+      <segment>
+        <source>Leichen-Bonus</source>
+        <target>Leichen-Bonus</target>
+      </segment>
+    </unit>
+    <unit id="1YdiLSd" name="Bonus">
+      <notes>
+        <note category="german">Bonus</note>
+      </notes>
+      <segment>
+        <source>Bonus</source>
+        <target>Bonus</target>
+      </segment>
+    </unit>
+    <unit id="X7RHtVg" name="UFC">
+      <notes>
+        <note category="german">UFC</note>
+      </notes>
+      <segment>
+        <source>UFC</source>
+        <target>UFC</target>
+      </segment>
+    </unit>
+    <unit id="FeUmzHX" name="Ehrenpreis für die Teilnahme am UFC!">
+      <notes>
+        <note category="german">Ehrenpreis für die Teilnahme am UFC!</note>
+      </notes>
+      <segment>
+        <source>Ehrenpreis für die Teilnahme am UFC!</source>
+        <target>Ehrenpreis für die Teilnahme am UFC!</target>
+      </segment>
+    </unit>
+    <unit id="67K3DmE" name="Seelenführer der Gemeinschaft">
+      <notes>
+        <note category="german">Seelenführer der Gemeinschaft</note>
+      </notes>
+      <segment>
+        <source>Seelenführer der Gemeinschaft</source>
+        <target>Seelenführer der Gemeinschaft</target>
+      </segment>
+    </unit>
+    <unit id="fxrMNw." name="Charismatischer Prophet">
+      <notes>
+        <note category="german">Charismatischer Prophet</note>
+      </notes>
+      <segment>
+        <source>Charismatischer Prophet</source>
+        <target>Charismatischer Prophet</target>
+      </segment>
+    </unit>
+    <unit id="WlT3ppX" name="Der Rabe hat diese Nachricht zerrissen.">
+      <notes>
+        <note category="german">Der Rabe hat diese Nachricht zerrissen.</note>
+      </notes>
+      <segment>
+        <source>Der Rabe hat diese Nachricht zerrissen.</source>
+        <target>Der Rabe hat diese Nachricht zerrissen.</target>
+      </segment>
+    </unit>
+    <unit id="6PPO5fH" name="Dieser Abwehrbonus verschwindet um Mitternacht, nach dem Angriff.">
+      <notes>
+        <note category="german">Dieser Abwehrbonus verschwindet um Mitternacht, nach dem Angriff.</note>
+      </notes>
+      <segment>
+        <source>Dieser Abwehrbonus verschwindet um Mitternacht, nach dem Angriff.</source>
+        <target>Dieser Abwehrbonus verschwindet um Mitternacht, nach dem Angriff.</target>
       </segment>
     </unit>
   </file>

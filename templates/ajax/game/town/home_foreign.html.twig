@@ -29,14 +29,14 @@
         <div class="row">
             {% if (owner.user.avatar) %}
                 <div class="cell rw-12 hide-desktop hide-lg center">
-                    <div class="avatar small"><img alt="" src="{{ path('app_web_avatar', {'uid': owner.user.id, 'name': owner.user.avatar.smallName, 'ext': owner.user.avatar.format}) }}"></div><br />&nbsp;
+                    <div class="avatar small ua-{{ owner.user.id % 10 }}"><img alt="" src="{{ path('app_web_avatar', {'uid': owner.user.id, 'name': owner.user.avatar.smallName, 'ext': owner.user.avatar.format}) }}"></div><br />&nbsp;
                 </div>
 
                 <div class="cell rw-3 rw-lg-4 rw-md-0">
                     {% if app.user.preferSmallAvatars %}
-                        <div class="avatar small"><img alt="" src="{{ path('app_web_avatar', {'uid': owner.user.id, 'name': owner.user.avatar.smallName, 'ext': owner.user.avatar.format}) }}"></div>
+                        <div class="avatar small ua-{{ owner.user.id % 10 }}"><img alt="" src="{{ path('app_web_avatar', {'uid': owner.user.id, 'name': owner.user.avatar.smallName, 'ext': owner.user.avatar.format}) }}"></div>
                     {% else %}
-                        <div class="avatar"><img alt="" src="{{ path('app_web_avatar', {'uid': owner.user.id, 'name': owner.user.avatar.filename, 'ext': owner.user.avatar.format}) }}"></div>
+                        <div class="avatar ua-{{ owner.user.id % 10 }}"><img alt="" src="{{ path('app_web_avatar', {'uid': owner.user.id, 'name': owner.user.avatar.filename, 'ext': owner.user.avatar.format}) }}"></div>
                     {% endif %}
                 </div>
             {% endif %}

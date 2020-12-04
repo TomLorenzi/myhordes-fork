@@ -4028,12 +4028,12 @@
         <target>Objets de défense</target>
       </segment>
     </unit>
-    <unit id="FAUZkS8" name="Häuser">
+    <unit id="jA6Q6MW" name="Häuser der Bürger">
       <notes>
-        <note category="german">Häuser</note>
+        <note category="german">Häuser der Bürger</note>
       </notes>
       <segment>
-        <source>Häuser</source>
+        <source>Häuser der Bürger</source>
         <target>Maisons citoyens</target>
       </segment>
     </unit>
@@ -5042,7 +5042,7 @@
       </notes>
       <segment>
         <source>Gesamt: %def%</source>
-        <target>Défense : %def%</target>
+        <target>Défense de la ville : %def%</target>
       </segment>
     </unit>
     <unit id="cuLzNYJ" name="Gegenstand">
@@ -9601,7 +9601,7 @@
       </notes>
       <segment>
         <source>Du hast mit dieser Nachricht folgende Gegenstände erhalten. Sie müssten sich in deiner Truhe befinden (insofern noch niemand vor dir vorbei geschaut hat... ).</source>
-        <target>Vous avez reçu les éléments suivants avec ce message. Ils doivent être dans votre coffre (dans la mesure où personne ne vous a devancé ...).</target>
+        <target>Les objets suivants ont été envoyés avec ce message. Ils devraient être dans votre coffre ( si personne n'est passé par là entre-temps... ).</target>
       </segment>
     </unit>
     <unit id="YrqIO5c" name="Meine Nachrichten lesen.">
@@ -14343,7 +14343,7 @@
       </notes>
       <segment>
         <source>HAZ-Gewinner</source>
-        <target>HAZ-Gewinner</target>
+        <target>Gagnant de GSP</target>
       </segment>
     </unit>
     <unit id="ltZ7BR_" name="Ehrenauszeichnung für den Gewinner der Heilung für die Auszeichnungssucht.">
@@ -14352,7 +14352,7 @@
       </notes>
       <segment>
         <source>Ehrenauszeichnung für den Gewinner der Heilung für die Auszeichnungssucht.</source>
-        <target>Ehrenauszeichnung für den Gewinner der Heilung für die Auszeichnungssucht.</target>
+        <target>Récompense honorique décernée au gagnant de Guérir sa Pictophilie !</target>
       </segment>
     </unit>
     <unit id="YZc0dgj" name="Kernsammler (job)">
@@ -14677,6 +14677,312 @@
       <segment>
         <source>Leprechaun wurde gesehen, wie er den %item% von %victim% stahl!</source>
         <target>Le lutin vert a été vu volant %item% à %victim% !</target>
+      </segment>
+    </unit>
+    <unit id="dcfxfNT" name="Befristete Beiträge">
+      <notes>
+        <note category="german">Befristete Beiträge</note>
+      </notes>
+      <segment>
+        <source>Befristete Beiträge</source>
+        <target>Apports temporaires</target>
+      </segment>
+    </unit>
+    <unit id="9_pNKlL" name="Leichen-Bonus">
+      <notes>
+        <note category="german">Leichen-Bonus</note>
+      </notes>
+      <segment>
+        <source>Leichen-Bonus</source>
+        <target>Bonus cadavres</target>
+      </segment>
+    </unit>
+    <unit id="1YdiLSd" name="Bonus">
+      <notes>
+        <note category="german">Bonus</note>
+      </notes>
+      <segment>
+        <source>Bonus</source>
+        <target>Bonus</target>
+      </segment>
+    </unit>
+    <unit id="6PPO5fH" name="Dieser Abwehrbonus verschwindet um Mitternacht, nach dem Angriff.">
+      <notes>
+        <note category="german">Dieser Abwehrbonus verschwindet um Mitternacht, nach dem Angriff.</note>
+      </notes>
+      <segment>
+        <source>Dieser Abwehrbonus verschwindet um Mitternacht, nach dem Angriff.</source>
+        <target>Ce bonus défensif disparaîtra à minuit, après l'attaque.</target>
+      </segment>
+    </unit>
+    <unit id="X7RHtVg" name="UFC">
+      <notes>
+        <note category="german">UFC</note>
+      </notes>
+      <segment>
+        <source>UFC</source>
+        <target>UFC</target>
+      </segment>
+    </unit>
+    <unit id="FeUmzHX" name="Ehrenpreis für die Teilnahme am UFC!">
+      <notes>
+        <note category="german">Ehrenpreis für die Teilnahme am UFC!</note>
+      </notes>
+      <segment>
+        <source>Ehrenpreis für die Teilnahme am UFC!</source>
+        <target>Prix d'honneur pour la participation à l'UFC!</target>
+      </segment>
+    </unit>
+    <unit id="67K3DmE" name="Seelenführer der Gemeinschaft">
+      <notes>
+        <note category="german">Seelenführer der Gemeinschaft</note>
+      </notes>
+      <segment>
+        <source>Seelenführer der Gemeinschaft</source>
+        <target>Guide des âmes communautaires</target>
+      </segment>
+    </unit>
+    <unit id="fxrMNw." name="Charismatischer Prophet">
+      <notes>
+        <note category="german">Charismatischer Prophet</note>
+      </notes>
+      <segment>
+        <source>Charismatischer Prophet</source>
+        <target>Prophète charismatique</target>
+      </segment>
+    </unit>
+    <unit id="WlT3ppX" name="Der Rabe hat diese Nachricht zerrissen.">
+      <notes>
+        <note category="german">Der Rabe hat diese Nachricht zerrissen.</note>
+      </notes>
+      <segment>
+        <source>Der Rabe hat diese Nachricht zerrissen.</source>
+        <target>Le Corbeau a déchiré ce message.</target>
+      </segment>
+    </unit>
+    <unit id="dm7lYmp" name="e20fc42">
+      <notes>
+        <note category="german">Die &lt;strong&gt;Explosion des %plan%&lt;/strong&gt; hat den ganzen Sektor in Mitleidenschaft gezogen! Das wird sicher Spuren hinterlassen ...</note>
+      </notes>
+      <segment>
+        <source>Die &lt;strong&gt;Explosion des %plan%&lt;/strong&gt; hat den ganzen Sektor in Mitleidenschaft gezogen! Das wird sicher Spuren hinterlassen ...</source>
+        <target><![CDATA[Toute la région a été touchée par la <strong>destruction de %plan%</strong> ! Il est à parier que cela va laisser des traces ...]]></target>
+      </segment>
+    </unit>
+    <unit id="ViEKCFv" name="Die Zukunft">
+      <notes>
+        <note category="german">Die Zukunft</note>
+      </notes>
+      <segment>
+        <source>Die Zukunft</source>
+        <target>L'avenir</target>
+      </segment>
+    </unit>
+    <unit id="nPZDQO6" name="Ranglisten der Saison">
+      <notes>
+        <note category="german">Ranglisten der Saison</note>
+      </notes>
+      <segment>
+        <source>Ranglisten der Saison</source>
+        <target>Classement de la saison</target>
+      </segment>
+    </unit>
+    <unit id="JAkgM4Z" name="Kleine Koalitionen">
+      <notes>
+        <note category="german">Kleine Koalitionen</note>
+      </notes>
+      <segment>
+        <source>Kleine Koalitionen</source>
+        <target>Petites coalitions</target>
+      </segment>
+    </unit>
+    <unit id="aGs0YSI" name="Die verfluchten Schriften">
+      <notes>
+        <note category="german">Die verfluchten Schriften</note>
+      </notes>
+      <segment>
+        <source>Die verfluchten Schriften</source>
+        <target>Les écrits maudits</target>
+      </segment>
+    </unit>
+    <unit id="9XUKXXI" name="Einstellungen">
+      <notes>
+        <note category="german">Einstellungen</note>
+      </notes>
+      <segment>
+        <source>Einstellungen</source>
+        <target>Réglages</target>
+      </segment>
+    </unit>
+    <unit id="wUzzlwQ" name="Meine Seele">
+      <notes>
+        <note category="german">Meine Seele</note>
+      </notes>
+      <segment>
+        <source>Meine Seele</source>
+        <target>Mon Âme</target>
+      </segment>
+    </unit>
+    <unit id="lUcvZQo" name="Hilfe">
+      <notes>
+        <note category="german">Hilfe</note>
+      </notes>
+      <segment>
+        <source>Hilfe</source>
+        <target>Aide</target>
+      </segment>
+    </unit>
+    <unit id="fh_ltq7" name="Die Bank">
+      <notes>
+        <note category="german">Die Bank</note>
+      </notes>
+      <segment>
+        <source>Die Bank</source>
+        <target>La banque</target>
+      </segment>
+    </unit>
+    <unit id="WLvQ7GY" name="Mein Zuhause (Truhe)">
+      <notes>
+        <note category="german">Mein Zuhause (Truhe)</note>
+      </notes>
+      <segment>
+        <source>Mein Zuhause (Truhe)</source>
+        <target>Mein Zuhause (Truhe)</target>
+      </segment>
+    </unit>
+    <unit id="sK6WW0q" name="Gemantansicht der Stadt">
+      <notes>
+        <note category="german">Gemantansicht der Stadt</note>
+      </notes>
+      <segment>
+        <source>Gemantansicht der Stadt</source>
+        <target>Gemantansicht der Stadt</target>
+      </segment>
+    </unit>
+    <unit id="D80Dpwo" name="Das Stadttor von &quot;%townname%&quot;">
+      <notes>
+        <note category="german">Das Stadttor von "%townname%"</note>
+      </notes>
+      <segment>
+        <source>Das Stadttor von "%townname%"</source>
+        <target>Das Stadttor von "%townname%"</target>
+      </segment>
+    </unit>
+    <unit id="CGisub9" name="Bauprojekte der Stadt">
+      <notes>
+        <note category="german">Bauprojekte der Stadt</note>
+      </notes>
+      <segment>
+        <source>Bauprojekte der Stadt</source>
+        <target>Bauprojekte der Stadt</target>
+      </segment>
+    </unit>
+    <unit id="L2mGaV4" name="Expeditionen">
+      <notes>
+        <note category="german">Expeditionen</note>
+      </notes>
+      <segment>
+        <source>Expeditionen</source>
+        <target>Expeditionen</target>
+      </segment>
+    </unit>
+    <unit id="honrhKi" name="Die Bürger">
+      <notes>
+        <note category="german">Die Bürger</note>
+      </notes>
+      <segment>
+        <source>Die Bürger</source>
+        <target>Die Bürger</target>
+      </segment>
+    </unit>
+    <unit id="VP5Pzpa" name="Verbessrung des Tages">
+      <notes>
+        <note category="german">Verbessrung des Tages</note>
+      </notes>
+      <segment>
+        <source>Verbessrung des Tages</source>
+        <target>Verbessrung des Tages</target>
+      </segment>
+    </unit>
+    <unit id="STRIX5b" name="Wätcher">
+      <notes>
+        <note category="german">Wätcher</note>
+      </notes>
+      <segment>
+        <source>Wätcher</source>
+        <target>Wätcher</target>
+      </segment>
+    </unit>
+    <unit id="Qs_pglW" name="Der Brunnen">
+      <notes>
+        <note category="german">Der Brunnen</note>
+      </notes>
+      <segment>
+        <source>Der Brunnen</source>
+        <target>Der Brunnen</target>
+      </segment>
+    </unit>
+    <unit id="HMlOmzD" name="An einem kalten Morgen...">
+      <notes>
+        <note category="german">An einem kalten Morgen...</note>
+      </notes>
+      <segment>
+        <source>An einem kalten Morgen...</source>
+        <target>Par une froide matinée...</target>
+      </segment>
+    </unit>
+    <unit id="qdWhHOA" name="allein">
+      <notes>
+        <note category="german">allein</note>
+      </notes>
+      <segment>
+        <source>allein</source>
+        <target>seul(e)</target>
+      </segment>
+    </unit>
+    <unit id="8HYFzPV" name="irgendwo %location% der Stadt...">
+      <notes>
+        <note category="german">irgendwo %location% der Stadt...</note>
+      </notes>
+      <segment>
+        <source>irgendwo %location% der Stadt...</source>
+        <target>quelque part %location% de la ville...</target>
+      </segment>
+    </unit>
+    <unit id="LCh7GiT" name="Wiedergeburt: Wahl der Partie">
+      <notes>
+        <note category="german">Wiedergeburt: Wahl der Partie</note>
+      </notes>
+      <segment>
+        <source>Wiedergeburt: Wahl der Partie</source>
+        <target>Wiedergeburt: Wahl der Partie</target>
+      </segment>
+    </unit>
+    <unit id="TIikksZ" name="Wiedergeburt: Privatstadt gründen">
+      <notes>
+        <note category="german">Wiedergeburt: Privatstadt gründen</note>
+      </notes>
+      <segment>
+        <source>Wiedergeburt: Privatstadt gründen</source>
+        <target>Wiedergeburt: Privatstadt gründen</target>
+      </segment>
+    </unit>
+    <unit id="IIcAXEH" name="Das Leichsblatt, Ausgabe vom %day%. Tag">
+      <notes>
+        <note category="german">Das Leichsblatt, Ausgabe vom %day%. Tag</note>
+      </notes>
+      <segment>
+        <source>Das Leichsblatt, Ausgabe vom %day%. Tag</source>
+        <target>Le cadavre enchaîné, édition du jour %day%</target>
+      </segment>
+    </unit>
+    <unit id="iqRYPYk" name="Wiedergeburt: Wähle einen Beruf">
+      <notes>
+        <note category="german">Wiedergeburt: Wähle einen Beruf</note>
+      </notes>
+      <segment>
+        <source>Wiedergeburt: Wähle einen Beruf</source>
+        <target>Wiedergeburt: Wähle einen Beruf</target>
       </segment>
     </unit>
   </file>

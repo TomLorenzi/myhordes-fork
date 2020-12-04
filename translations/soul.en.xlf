@@ -1759,7 +1759,7 @@
       </notes>
       <segment>
         <source>EternalTwin-Nutzer</source>
-        <target>EternalTwin-Nutzer</target>
+        <target>EternalTwin users</target>
       </segment>
     </unit>
     <unit id="0T9At.g" name="32951b2">
@@ -1768,7 +1768,7 @@
       </notes>
       <segment>
         <source>Dieser Spieler verwendet einen EternalTwin-Account. Wir feuen uns, ihn bei MyHordes begrüßen zu dürfen!</source>
-        <target>Dieser Spieler verwendet einen EternalTwin-Account. Wir feuen uns, ihn bei MyHordes begrüßen zu dürfen!</target>
+        <target>This player is using an Eternal Twin account. We look forward to welcome him to MyHordes!</target>
       </segment>
     </unit>
     <unit id="XRvl7w0" name="ce071ab">
@@ -1777,7 +1777,7 @@
       </notes>
       <segment>
         <source>Das angegebene Profil kann nicht importiert werden, da es bereits einem anderen MyHordes-Konto zugeordnet ist.</source>
-        <target>Das angegebene Profil kann nicht importiert werden, da es bereits einem anderen MyHordes-Konto zugeordnet ist.</target>
+        <target>The specified profile cannot be imported because it is already assigned to another MyHordes account.</target>
       </segment>
     </unit>
     <unit id="wstj04z" name="MyHordes ist ein stolzer Bestandteil des EternalTwin-Netzwerkes!">
@@ -1786,7 +1786,7 @@
       </notes>
       <segment>
         <source>MyHordes ist ein stolzer Bestandteil des EternalTwin-Netzwerkes!</source>
-        <target>MyHordes ist ein stolzer Bestandteil des EternalTwin-Netzwerkes!</target>
+        <target>MyHordes is a proud part of the EternalTwin network!</target>
       </segment>
     </unit>
     <unit id="WVIMH8t" name="a7e6e46">
@@ -1795,7 +1795,7 @@
       </notes>
       <segment>
         <source>Um MyHordes auch in Zukunft weiter spielen zu können, musst du deinen alten MyHordes-Account mit einem EternalTwin-Account verknüpfen.</source>
-        <target>Um MyHordes auch in Zukunft weiter spielen zu können, musst du deinen alten MyHordes-Account mit einem EternalTwin-Account verknüpfen.</target>
+        <target>In order to be able to continue playing MyHordes in the future, you have to link your old MyHordes account to an EternalTwin account.</target>
       </segment>
     </unit>
     <unit id="CACKQCH" name="EternalTwin-Account verknüpfen">
@@ -1804,7 +1804,7 @@
       </notes>
       <segment>
         <source>EternalTwin-Account verknüpfen</source>
-        <target>EternalTwin-Account verknüpfen</target>
+        <target>Link your EternalTwin account</target>
       </segment>
     </unit>
     <unit id="lqipl75" name="%name%'s Koalition">
@@ -1813,7 +1813,7 @@
       </notes>
       <segment>
         <source>%name%'s Koalition</source>
-        <target>%name%'s Koalition</target>
+        <target>%name%'s Coalition</target>
       </segment>
     </unit>
     <unit id="j8VraNU" name="Herzlichen Glückwunsch, du bist der Koalition soeben beigetreten!">
@@ -1822,7 +1822,7 @@
       </notes>
       <segment>
         <source>Herzlichen Glückwunsch, du bist der Koalition soeben beigetreten!</source>
-        <target>Herzlichen Glückwunsch, du bist der Koalition soeben beigetreten!</target>
+        <target>Congratulations, you have just joined the coalition!</target>
       </segment>
     </unit>
     <unit id="MNqhTYg" name="Es tut uns Leid, aber dieser Spieler gehört bereits einer Koalition an.">
@@ -1831,7 +1831,7 @@
       </notes>
       <segment>
         <source>Es tut uns Leid, aber dieser Spieler gehört bereits einer Koalition an.</source>
-        <target>Es tut uns Leid, aber dieser Spieler gehört bereits einer Koalition an.</target>
+        <target>We're sorry, this player is already part of a coalition.</target>
       </segment>
     </unit>
     <unit id="3gqWAoL" name="Hierfür musst du einer Koalition angehören.">
@@ -1840,7 +1840,7 @@
       </notes>
       <segment>
         <source>Hierfür musst du einer Koalition angehören.</source>
-        <target>Hierfür musst du einer Koalition angehören.</target>
+        <target>For this you have to belong to a coalition.</target>
       </segment>
     </unit>
     <unit id="57GeJrY" name="Du bist bereits Mitglied einer Koalition.">
@@ -1849,7 +1849,7 @@
       </notes>
       <segment>
         <source>Du bist bereits Mitglied einer Koalition.</source>
-        <target>Du bist bereits Mitglied einer Koalition.</target>
+        <target>You are already a member of a coalition.</target>
       </segment>
     </unit>
     <unit id="yQfn1EC" name="Deine Koalition ist bereits voll.">
@@ -1858,7 +1858,7 @@
       </notes>
       <segment>
         <source>Deine Koalition ist bereits voll.</source>
-        <target>Deine Koalition ist bereits voll.</target>
+        <target>Your coalition is already full.</target>
       </segment>
     </unit>
     <unit id="QuFqW4z" name="Spielhilfe: Kleine Koalitionen">
@@ -1867,7 +1867,7 @@
       </notes>
       <segment>
         <source>Spielhilfe: Kleine Koalitionen</source>
-        <target>Spielhilfe: Kleine Koalitionen</target>
+        <target>Guide: Coalitions</target>
       </segment>
     </unit>
     <unit id="GO1ZJcp" name="3e3b0ae">
@@ -1885,7 +1885,7 @@
       </notes>
       <segment>
         <source>Das Prinzip ist ganz einfach: Wenn ihr in einer Koalition spielt, &lt;strong&gt;zieht der Erste, der eine Partie anfängt, alle verfügbaren Koalitionsmitglieder mit sich ins Spiel.&lt;/strong&gt;</source>
-        <target><![CDATA[The way it works is really simple: when you are a member of a coalition, <strong>zthe first member to join a town will take all available members with them.</strong>]]></target>
+        <target><![CDATA[The way it works is really simple: when you are a member of a coalition, <strong>the first member to join a town will take all available members with them.</strong>]]></target>
       </segment>
     </unit>
     <unit id="vxIJV3j" name="Du möchtest deine eigene Koalition erstellen?">
@@ -1984,7 +1984,7 @@
       </notes>
       <segment>
         <source>Nicht verfügbar</source>
-        <target>Not available</target>
+        <target>Unavailable</target>
       </segment>
     </unit>
     <unit id="3E9hxaU" name="Ausstehende Einladungen">
@@ -2020,7 +2020,7 @@
       </notes>
       <segment>
         <source>Du stehst &lt;strong&gt;zur Verfügung&lt;/strong&gt;.</source>
-        <target><![CDATA[Du stehst <strong>zur Verfügung</strong>.]]></target>
+        <target><![CDATA[You are : <strong>ready</strong>.]]></target>
       </segment>
     </unit>
     <unit id="o.K5fG9" name="Du stehst &lt;strong&gt;nicht zur Verfügung&lt;/strong&gt;.">
@@ -2029,7 +2029,7 @@
       </notes>
       <segment>
         <source>Du stehst &lt;strong&gt;nicht zur Verfügung&lt;/strong&gt;.</source>
-        <target><![CDATA[Du stehst <strong>nicht zur Verfügung</strong>.]]></target>
+        <target><![CDATA[You are : <strong>unavailable</strong>.]]></target>
       </segment>
     </unit>
     <unit id="jFqiwRT" name="Meinen Status ändern">
@@ -2119,7 +2119,7 @@
       </notes>
       <segment>
         <source>Wenn du nicht automatisch an einer Partie teilnehmen möchtest, sobald ein anderer Spieler der Koalition einer Stadt beitritt, stelle bitte ein: nicht zur Verfügung.</source>
-        <target>Wenn du nicht automatisch an einer Partie teilnehmen möchtest, sobald ein anderer Spieler der Koalition einer Stadt beitritt, stelle bitte ein: nicht zur Verfügung.</target>
+        <target>If you don't want to automatically join a game when another member of your coalition joins a town, activate Unavailable mode!</target>
       </segment>
     </unit>
     <unit id="FNkhsV2" name="Vor 1 Tag">

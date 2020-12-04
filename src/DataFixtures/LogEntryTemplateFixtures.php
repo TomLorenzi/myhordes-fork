@@ -4,13 +4,10 @@ namespace App\DataFixtures;
 
 use App\Entity\GazetteLogEntry;
 use App\Entity\LogEntryTemplate;
-use App\Entity\TownClass;
-use App\Entity\TownLogEntry;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\Persistence\ObjectManager;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Console\Helper\ProgressBar;
-use Symfony\Component\Console\Helper\Table;
 use Symfony\Component\Console\Output\ConsoleOutput;
 use Symfony\Component\Console\Output\ConsoleOutputInterface;
 
@@ -40,7 +37,7 @@ class LogEntryTemplateFixtures extends Fixture
         ['text'=>'Das Stadttor wurde automatisch %action%.', 'name'=>'doorControlAuto', 'type'=>LogEntryTemplate::TypeDoor, 'class'=>LogEntryTemplate::ClassInfo, 'secondaryType'=>null, 'variableTypes'=>array(['type'=>"transString",'name'=>'action'])],
         ['text'=>'%citizen% hat die Stadt %action%.', 'name'=>'doorPass', 'type'=>LogEntryTemplate::TypeDoor, 'class'=>LogEntryTemplate::ClassNone, 'secondaryType'=>null, 'variableTypes'=>array(['type'=>"citizen",'name'=>'citizen'],['type'=>"transString",'name'=>'action'])],
         ['text'=>'Ein neuer Bürger ist in der Stadt angekommen: %citizen%.', 'name'=>'citizenJoin', 'type'=>LogEntryTemplate::TypeCitizens, 'class'=>LogEntryTemplate::ClassInfo, 'secondaryType'=>null, 'variableTypes'=>array(['type'=>"citizen",'name'=>'citizen'])],
-        ['text'=>'%citizen% hat seine neue Berufung als %profession% gefunden.', 'name'=>'citizenProfession', 'type'=>LogEntryTemplate::TypeCitizens, 'class'=>LogEntryTemplate::ClassNone, 'secondaryType'=>null, 'variableTypes'=>array(['type'=>"citizen",'name'=>'citizen'],['type'=>"profession",'name'=>'profession'])],
+        ['text'=>'%citizen% hat seine neue Berufung als %profession% gefunden.', 'name'=>'citizenProfession', 'type'=>LogEntryTemplate::TypeCitizens, 'class'=>LogEntryTemplate::ClassInfo, 'secondaryType'=>null, 'variableTypes'=>array(['type'=>"citizen",'name'=>'citizen'],['type'=>"profession",'name'=>'profession'])],
         ['text'=>'%num% Zombies haben vergeblich versucht, in das Haus von %citizen% einzudringen.', 'name'=>'citizenZombieAttackRepelled', 'type'=>LogEntryTemplate::TypeCitizens, 'class'=>LogEntryTemplate::ClassCritical, 'secondaryType'=>null, 'variableTypes'=>array(['type'=>"citizen",'name'=>'citizen'],['type'=>"num",'name'=>'num'])],
         ['text'=>'%citizen% hat seinen letzten Atemzug getan: %cod%!', 'name'=>'citizenDeathDefault', 'type'=>LogEntryTemplate::TypeCitizens, 'class'=>LogEntryTemplate::ClassCritical, 'secondaryType'=>null, 'variableTypes'=>array(['type'=>"citizen",'name'=>'citizen'],['type'=>"num",'name'=>'num'],['type'=>"cod",'name'=>'cod'])],
         ['text'=>'%citizen% wurde von %num% Zombies zerfleischt!', 'name'=>'citizenDeathNightlyAttack', 'type'=>LogEntryTemplate::TypeCitizens, 'class'=>LogEntryTemplate::ClassCritical, 'secondaryType'=>null, 'variableTypes'=>array(['type'=>"citizen",'name'=>'citizen'],['type'=>"num",'name'=>'num'])],
@@ -121,7 +118,7 @@ class LogEntryTemplateFixtures extends Fixture
         ['text'=>'Das Bauwerk %plan% hat %damage% Punkte Schaden genommen und wurde daraufhin von den Zombies vollständig zerstört.', 'name'=>'constructionsDestroy', 'type'=>LogEntryTemplate::TypeNightly, 'class'=>LogEntryTemplate::ClassCritical, 'secondaryType'=>null, 'variableTypes'=>array(['type'=>"plan",'name'=>'plan'],['type'=>"num",'name'=>'damage'])],
 
         ['text'=>'Niemand weiß, wie ein solches Wunder möglich ist, aber %hero% hat %citizen% (der sich auf %pos% befand), auf seinen Schultern heim getragen. Lang leben unsere Helden!', 'name'=>'heroRescue', 'type'=>LogEntryTemplate::TypeDoor, 'class'=>LogEntryTemplate::ClassInfo, 'secondaryType'=>null, 'variableTypes'=>array(['type'=>"citizen",'name'=>'hero'],['type'=>"citizen",'name'=>'citizen'],['type'=>"string",'name'=>'pos'])],
-
+        ['text'=>'Die <strong>Explosion des %plan%</strong> hat den ganzen Sektor in Mitleidenschaft gezogen! Das wird sicher Spuren hinterlassen ...', 'name'=>'fireworkExplosion', 'type'=>LogEntryTemplate::TypeNightly,'class'=>LogEntryTemplate::ClassCritical, 'secondaryType'=>null,'variableTypes'=>array(['type'=>"plan",'name'=>'plan'])],
         // Gazette: Fun Texts
         ['text'=>'Gestern war ein unbedeutender Tag. Einem Gerücht zufolge wurden %citizen1% und %citizen2% dabei beobachtet, wie sie zusammen im Brunnen badeten. Wenn morgen alle mit einer Pilzinfektion flach liegen, ist ja wohl klar, an wem das lag.',
             'name'=>'gazetteFun_001',
@@ -534,6 +531,7 @@ class LogEntryTemplateFixtures extends Fixture
             'secondaryType'=>GazetteLogEntry::RequiresNothing,
             'variableTypes'=>[
                 ['type'=>"transString",'name'=>'sector'],
+                ['type'=>"transString",'name'=>'sector2'],
             ],
         ],
         ['text'=>'Gestern Abend gab es starke Windböen im %sector%.',
@@ -543,6 +541,7 @@ class LogEntryTemplateFixtures extends Fixture
             'secondaryType'=>GazetteLogEntry::RequiresNothing,
             'variableTypes'=>[
                 ['type'=>"transString",'name'=>'sector'],
+                ['type'=>"transString",'name'=>'sector2'],
             ],
         ],
         ['text'=>'%sector2% haben gestern ein paar heftige Sandstrürme gewütet.',
@@ -551,6 +550,7 @@ class LogEntryTemplateFixtures extends Fixture
             'class'=>LogEntryTemplate::ClassGazetteWind,
             'secondaryType'=>GazetteLogEntry::RequiresNothing,
             'variableTypes'=>[
+                ['type'=>"transString",'name'=>'sector'],
                 ['type'=>"transString",'name'=>'sector2'],
             ],
         ],
@@ -560,6 +560,7 @@ class LogEntryTemplateFixtures extends Fixture
             'class'=>LogEntryTemplate::ClassGazetteWind,
             'secondaryType'=>GazetteLogEntry::RequiresNothing,
             'variableTypes'=>[
+                ['type'=>"transString",'name'=>'sector'],
                 ['type'=>"transString",'name'=>'sector2'],
             ],
         ],
@@ -570,6 +571,7 @@ class LogEntryTemplateFixtures extends Fixture
             'secondaryType'=>GazetteLogEntry::RequiresNothing,
             'variableTypes'=>[
                 ['type'=>"transString",'name'=>'sector'],
+                ['type'=>"transString",'name'=>'sector2'],
             ],
         ],
         ['text'=>'Ungewöhnlich starke Winde haben gestern den Sand %sector% aufgewirbelt.',
@@ -579,6 +581,7 @@ class LogEntryTemplateFixtures extends Fixture
             'secondaryType'=>GazetteLogEntry::RequiresNothing,
             'variableTypes'=>[
                 ['type'=>"transString",'name'=>'sector'],
+                ['type'=>"transString",'name'=>'sector2'],
             ],
         ],
         ['text'=>'Verschiedene Aufzeichnungen zeigen Wetteranomalien %sector2%.',
@@ -587,6 +590,7 @@ class LogEntryTemplateFixtures extends Fixture
             'class'=>LogEntryTemplate::ClassGazetteWind,
             'secondaryType'=>GazetteLogEntry::RequiresNothing,
             'variableTypes'=>[
+                ['type'=>"transString",'name'=>'sector'],
                 ['type'=>"transString",'name'=>'sector2'],
             ],
         ],
@@ -597,6 +601,7 @@ class LogEntryTemplateFixtures extends Fixture
             'secondaryType'=>GazetteLogEntry::RequiresNothing,
             'variableTypes'=>[
                 ['type'=>"transString",'name'=>'sector'],
+                ['type'=>"transString",'name'=>'sector2'],
             ],
         ],
         ['text'=>'Unsere Messungen deuten darauf hin, dass im %sector% Wetteranomalien aufgetreten sind.',
@@ -606,6 +611,7 @@ class LogEntryTemplateFixtures extends Fixture
             'secondaryType'=>GazetteLogEntry::RequiresNothing,
             'variableTypes'=>[
                 ['type'=>"transString",'name'=>'sector'],
+                ['type'=>"transString",'name'=>'sector2'],
             ],
         ],
         ['text'=>'Einige vereinzelte Phänomene wurden %sector2% entdeckt.',
@@ -614,6 +620,7 @@ class LogEntryTemplateFixtures extends Fixture
             'class'=>LogEntryTemplate::ClassGazetteWind,
             'secondaryType'=>GazetteLogEntry::RequiresNothing,
             'variableTypes'=>[
+                ['type'=>"transString",'name'=>'sector'],
                 ['type'=>"transString",'name'=>'sector2'],
             ],
         ],
@@ -623,6 +630,7 @@ class LogEntryTemplateFixtures extends Fixture
             'class'=>LogEntryTemplate::ClassGazetteWind,
             'secondaryType'=>GazetteLogEntry::RequiresNothing,
             'variableTypes'=>[
+                ['type'=>"transString",'name'=>'sector'],
                 ['type'=>"transString",'name'=>'sector2'],
             ],
         ],
@@ -632,6 +640,7 @@ class LogEntryTemplateFixtures extends Fixture
             'class'=>LogEntryTemplate::ClassGazetteWind,
             'secondaryType'=>GazetteLogEntry::RequiresNothing,
             'variableTypes'=>[
+                ['type'=>"transString",'name'=>'sector'],
                 ['type'=>"transString",'name'=>'sector2'],
             ],
         ],
@@ -642,6 +651,7 @@ class LogEntryTemplateFixtures extends Fixture
             'secondaryType'=>GazetteLogEntry::RequiresNothing,
             'variableTypes'=>[
                 ['type'=>"transString",'name'=>'sector'],
+                ['type'=>"transString",'name'=>'sector2'],
             ],
         ],
     ];
@@ -663,7 +673,7 @@ class LogEntryTemplateFixtures extends Fixture
         // Iterate over all entries
         foreach (static::$log_entry_template_data as $entry) {
             // Get existing entry, or create new one
-            $entity = $this->entityManager->getRepository(LogEntryTemplate::class)->findOneByName( $entry['name'] );
+            $entity = $this->entityManager->getRepository(LogEntryTemplate::class)->findOneBy( ['name' => $entry['name']] );
             if ($entity === null) $entity = new LogEntryTemplate();
 
             // Set property

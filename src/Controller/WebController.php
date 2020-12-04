@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Controller\Admin\AdminActionController;
+use App\Controller\CustomAbstractController;
 use App\Entity\AdminAction;
 use App\Entity\ExternalApp;
 use App\Entity\User;
@@ -17,7 +18,6 @@ use Exception;
 use App\Translation\T;
 use Psr\Cache\InvalidArgumentException;
 use Shivas\VersioningBundle\Service\VersionManager;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\HeaderUtils;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -27,7 +27,7 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
-class WebController extends AbstractController
+class WebController extends CustomAbstractController
 {
     private $version_manager;
     private $kernel;
@@ -35,8 +35,9 @@ class WebController extends AbstractController
     private $adminAction_handler;
     protected $translator;
 
-    public function __construct(VersionManager $v, KernelInterface $k, EntityManagerInterface $e, AdminActionHandler $admh, TranslatorInterface $translator)
+    public function __construct(VersionManager $v, KernelInterface $k, EntityManagerInterface $e, AdminActionHandler $admh, TranslatorInterface $translator, ConfMaster $conf)
     {
+        parent::__construct($conf);
         $this->version_manager = $v;
         $this->kernel = $k;
         $this->entityManager = $e;

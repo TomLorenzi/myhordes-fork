@@ -49,7 +49,7 @@ class HeroSkillFixtures extends Fixture {
         $progress->start( count(static::$hero_skills) );
 
         foreach(static::$hero_skills as $entry) {
-            $entity = $this->entityManager->getRepository(HeroSkillPrototype::class)->findOneByName($entry['name']);
+            $entity = $this->entityManager->getRepository(HeroSkillPrototype::class)->findOneBy(['name' => $entry['name']]);
 
             if($entity === null) {
                 $entity = (new HeroSkillPrototype())->setName($entry['name']);

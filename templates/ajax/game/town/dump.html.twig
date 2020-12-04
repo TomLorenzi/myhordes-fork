@@ -5,11 +5,16 @@
         {% trans from 'game' %}
             Auf der Müllhalde kannst du Gegenstände aus der Bank verwenden, um temporär die Verteidigung der Stadt zu verbessern.
         {% endtrans %}
-        {% if not free_dumps %}
-            <br />
-            <b>{{ 'Hinweis'|trans({},'global') }}</b>: {{ 'Jeder so zerstörte Gegenstand kostet dich %ap%.'|trans({'%ap%': '<div class=ap>1</div>'},'game')|raw }}
-        {% endif %}
+        <br />
+        {% trans from 'game'%}
+            Dieser Abwehrbonus verschwindet um Mitternacht, nach dem Angriff.
+        {% endtrans %}
     </div>
+    {% if not free_dumps %}
+    <div class="help warning">
+        <b>{{ 'Achtung'|trans({},'global') }} :</b> {{ 'Jeder so zerstörte Gegenstand kostet dich %ap%.'|trans({'%ap%': '<div class=ap>1</div>'},'game')|raw }} <a class="help-button"><div class="tooltip help">{{ 'Diese Kosten können durch den Aufbau der <strong>Müll für Alle</strong>.'|trans({},'global')|raw }}</div>{{ 'Hilfe'|trans({},'global') }}</a>
+    </div>
+    {% endif %}
 
     {% if banished %}
         <div class="note note-warning">

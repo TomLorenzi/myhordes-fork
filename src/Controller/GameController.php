@@ -30,7 +30,6 @@ use App\Translation\T;
 use Doctrine\ORM\EntityManagerInterface;
 use Exception;
 use DateTime;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Contracts\Translation\TranslatorInterface;
@@ -38,7 +37,7 @@ use Symfony\Contracts\Translation\TranslatorInterface;
 /**
  * @Route("/",condition="request.isXmlHttpRequest()")
  */
-class GameController extends AbstractController implements GameInterfaceController
+class GameController extends CustomAbstractController implements GameInterfaceController
 {
     protected $entity_manager;
     protected $translator;
@@ -48,8 +47,9 @@ class GameController extends AbstractController implements GameInterfaceControll
     protected TownHandler $town_handler;
     private $user_handler;
 
-    public function __construct(EntityManagerInterface $em, TranslatorInterface $translator, LogTemplateHandler $lth, TimeKeeperService $tk, CitizenHandler $ch, UserHandler $uh, TownHandler $th)
+    public function __construct(EntityManagerInterface $em, TranslatorInterface $translator, LogTemplateHandler $lth, TimeKeeperService $tk, CitizenHandler $ch, UserHandler $uh, TownHandler $th, ConfMaster $conf)
     {
+        parent::__construct($conf);
         $this->entity_manager = $em;
         $this->translator = $translator;
         $this->logTemplateHandler = $lth;
@@ -214,28 +214,25 @@ class GameController extends AbstractController implements GameInterfaceControll
                 if ($requirements == GazetteLogEntry::RequiresNothing) {
                     $variables = [];
                 }
-                elseif (floor($requirements / 10) === 1) {
+                elseif (intval(floor($requirements / 10)) === 1) {
                     $citizens = $survivors;
                     shuffle($citizens);
-                    $variables = [];
                     for ($i = 1; $i <= $requirements - 10; $i++) {
                         $variables['citizen' . $i] = (array_shift($citizens))->getId();
                     }
                 }
-                elseif (floor($requirements / 10) === 2) {
+                elseif (intval(floor($requirements / 10)) === 2) {
                     $cadavers = $death_inside;
                     shuffle($cadavers);
-                    $variables = [];
                     for ($i = 1; $i <= $requirements - 20; $i++) {
                         $variables['cadaver' . $i] = (array_shift($cadavers))->getId();
                     }
                 }
-                elseif (floor($requirements / 10) === 3) {
+                elseif (intval(floor($requirements / 10)) === 3) {
                     $citizens = $survivors;
                     shuffle($citizens);
                     $cadavers = $death_inside;
                     shuffle($cadavers);
-                    $variables = [];
                     for ($i = 1; $i <= $requirements - 30; $i++) {
                         $variables['citizen' . $i] = (array_shift($citizens))->getId();
                     }
@@ -244,17 +241,14 @@ class GameController extends AbstractController implements GameInterfaceControll
                     }
                 }
                 elseif ($requirements == GazetteLogEntry::RequiresAttack) {
-                    $variables = [];
                     $attack = $gazette->getAttack();
                     $variables['attack'] = $attack < 2000 ? 10 * (round($attack / 10)) : 100 * (round($attack / 100));
                 }
                 elseif ($requirements == GazetteLogEntry::RequiresDefense) {
-                    $variables = [];
                     $defense = $gazette->getDefense();
                     $variables['defense'] = $defense < 2000 ? 10 * (round($defense / 10)) : 100 * (round($defense / 100));
                 }
                 elseif ($requirements == GazetteLogEntry::RequiresDeaths) {
-                    $variables = [];
                     $variables['deaths'] = $gazette->getDeaths();
                 }
 
@@ -626,7 +620,7 @@ class GameController extends AbstractController implements GameInterfaceControll
         }
 
         if(!$parser->has('log_entry_id'))
-            return AjaxResponse::ErrorInvalidRequest;
+            return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
         $log = $this->entity_manager->getRepository(TownLogEntry::class)->find($parser->get('log_entry_id'));
         if($log->getHidden()){
