@@ -655,12 +655,12 @@ class CitizenHandler
         return 0;
     }
 
-    public function getDeathChances(Citizen $citizen): float {
+    public function getDeathChances(Citizen $citizen, bool $during_attack = false): float {
         $baseChance = 0.05;
         $baseChance -= $this->getNightwatchProfessionSurvivalBonus($citizen);
 
         $chances = $baseChance;
-        for($i = 0 ; $i < $citizen->getTown()->getDay() - 1; $i++){
+        for($i = 0 ; $i < $citizen->getTown()->getDay() - ($during_attack ? 2 : 1); $i++){
             /** @var CitizenWatch|null $previousWatches */
             $previousWatches = $this->entity_manager->getRepository(CitizenWatch::class)->findWatchOfCitizenForADay($citizen, $i + 1);
             if($previousWatches === null || $previousWatches->getSkipped()) {
@@ -689,9 +689,7 @@ class CitizenHandler
         if($this->isWounded($citizen)) $chances += 0.20;
         if($citizen->hasRole('ghoul')) $chances -= 0.05;
 
-        $chances = min($baseChance, $chances);
-
-        return $chances;
+        return max(0.0, min($chances, 1.0));
     }
 
     public function getNightWatchItemDefense( Item $item, bool $shooting_gallery, bool $trebuchet, bool $ikea, bool $armory ): int {
