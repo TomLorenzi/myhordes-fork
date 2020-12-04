@@ -15138,5 +15138,14 @@
         <target>L'ermite est capable de subvenir à ses besoins élémentaires en trouvant par lui même sa nourriture et son eau. Il est également avantagé en Camping.</target>
       </segment>
     </unit>
+    <unit id="qX1gDpX" name="Die Stadt ist zerstört! Flieht, irh Narren!">
+      <notes>
+        <note category="german">Die Stadt ist zerstört! Flieht, irh Narren!</note>
+      </notes>
+      <segment>
+        <source>Die Stadt ist zerstört! Flieht, irh Narren!</source>
+        <target>Cette ville est morte... Fuyez pauvres fous !</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

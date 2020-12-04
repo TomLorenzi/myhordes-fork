@@ -196,10 +196,20 @@ class GameController extends CustomAbstractController implements GameInterfaceCo
                 }
             } else {
                 // 1. TOWN
-                $criteria = [
-                    'type'  => LogEntryTemplate::TypeGazetteTown,
-                    'class' => LogEntryTemplate::ClassGazetteNoDeaths + (count($death_inside) < 3 ? count($death_inside) : 3),
-                ];
+                if($town->getDevastated()){
+                    $criteria = [
+                        'type' => LogEntryTemplate::TypeGazetteTown,
+                        'class' => LogEntryTemplate::ClassGazetteNews,
+                        'secondaryType' => GazetteLogEntry::RequiresDevastated
+                    ];
+                } else {
+                    $criteria = [
+                        'type'  => LogEntryTemplate::TypeGazetteTown,
+                        'class' => LogEntryTemplate::ClassGazetteNoDeaths + (count($death_inside) < 3 ? count($death_inside) : 3),
+                    ];
+                }
+
+                file_put_contents("/home/ludovic/dump.txt", print_r($criteria, true));
 
                 $applicableEntryTemplates = $this->entity_manager->getRepository(LogEntryTemplate::class)->findBy($criteria);
                 shuffle($applicableEntryTemplates);
@@ -254,7 +264,7 @@ class GameController extends CustomAbstractController implements GameInterfaceCo
                 $text .= '<p>' . $this->parseGazetteLog($news) . '</p>';
 
                 // 2. INDIVIDUAL DEATHS
-                if (count($death_outside) > 0) {
+                if (!$town->getDevastated() && count($death_outside) > 0) {
                     $other_deaths = $death_outside;
                     shuffle($other_deaths);
                     /** @var Citizen $featured_cadaver */
@@ -347,10 +357,9 @@ class GameController extends CustomAbstractController implements GameInterfaceCo
 
                 }
 
-                // 3. TOWN DEVASTATION
-                // 4. FLAVOURS
-                // 5. ELECTION
-                // 6. SEARCH TOWER
+                // 3. FLAVOURS
+                // 4. ELECTION
+                // 5. SEARCH TOWER
                 if($gazette->getWindDirection() !== 0) {
                     $criteria = [
                         'type' => LogEntryTemplate::TypeGazetteTownInfo,
