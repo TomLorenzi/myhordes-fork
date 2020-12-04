@@ -622,7 +622,8 @@ class CitizenHandler
         // Night time bonus.
         $camping_values['night'] = 0;
         $camping_datetime = new DateTime();
-        $camping_datetime->setTimestamp( $citizen->getCampingTimestamp() );
+        if ($citizen->getCampingTimestamp() > 0)
+            $camping_datetime->setTimestamp( $citizen->getCampingTimestamp() );
         if ($camping_datetime->format('G') >= 19 || $camping_datetime->format('G') < 7) {
             $camping_values['night'] = 2;
         }
