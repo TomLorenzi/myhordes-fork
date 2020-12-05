@@ -659,6 +659,25 @@ class TownAddonsController extends TownController
         return AjaxResponse::success();
     }
 
-    
+    /**
+     * @Route("jx/town/catapult", name="town_catapult")
+     * @param TownHandler $th
+     * @return Response
+     */
+    public function addon_catapult(TownHandler $th): Response
+    {
+        if (!$this->getActiveCitizen()->getHasSeenGazette())
+            return $this->redirect($this->generateUrl('game_newspaper'));
+
+        $town = $this->getActiveCitizen()->getTown();
+
+        if (!($catapult = $th->getBuilding($town, 'item_courroie_#00', true)))
+            return $this->redirect($this->generateUrl('town_dashboard'));
+
+        return $this->render( 'ajax/game/town/catapult.html.twig', $this->addDefaultTwigArgs('catapult', [
+            'catapult_improved' => $th->getBuilding( $town, 'item_courroie_#01', true ) !== null,
+            'is_catapult_master' => true,
+        ]) );
+    }
 
 }

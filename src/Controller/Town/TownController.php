@@ -120,7 +120,7 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
                 $addons['dump'] = [T::__('Müllhalde', 'game'), 'town_dump', 4];
 
             if ($b->getPrototype()->getName() === 'item_courroie_#00')
-                $addons['catapult'] = [T::__('Katapult', 'game'), 'town_dashboard', 5];
+                $addons['catapult'] = [T::__('Katapult', 'game'), 'town_catapult', 5];
             
 
             $data["builtbuildings"][] = $b;

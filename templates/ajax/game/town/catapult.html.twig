@@ -1,0 +1,28 @@
+{% extends "ajax/game/town/town.html.twig" %}
+{% block title %}{{'Katapult'|trans({}, 'game')}}{% endblock %}
+{% block content %}
+
+    <h1 class="page-head">{{'Katapult'|trans({}, 'game')}}</h1>
+
+    <div class="help">
+        <strong>{{ 'Das Katapult ist ein wirklich mächtiges Instrument, um jeden beliebigen Gegenstand zu einer Zone in der Wüste zu schicken.'|trans({},'game') }}</strong>
+        {{ 'Praktisch zur Versorgung aus der Ferne.'|trans({},'game') }}
+        <br />
+        {{ 'Denke daran, dass das Katapult manchmal sein Ziel verfehlt und den Gegenstand in eine angrenzende Zone befördert...'|trans({},'game')}}
+        {% if is_catapult_master %}
+            <br />
+            {{'Du wurdest als Verantwortlicher für das Katapult bestimmt! Wähle einen Gegenstand aus deinem Inventar und gib die Zielkoordinaten ein.'|trans({},'game')}}
+            {% if catapult_improved %}
+                {{ 'Die Aktivierung des Katapults kostet %ap%.'|trans({'%ap%': '<div class="ap">2</div>'},'game')|raw }}
+            {% else %}
+                {{ 'Die Aktivierung des Katapults kostet %ap% (diese Kosten können durch den Bau eines besseren Katapults gesenkt werden).'|trans({'%ap%': '<div class="ap">4</div>'},'game')|raw }}
+            {% endif %}
+        {% endif %}
+    </div>
+
+{% endblock %}
+{% block js %}
+    {{ parent() }}
+    <script>
+    </script>
+{% endblock %}
