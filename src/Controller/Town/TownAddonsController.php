@@ -722,6 +722,26 @@ class TownAddonsController extends TownController
         // Make sure the citizen has enough AP
         if ($citizen->getAp() < $ap || $ch->isTired($citizen)) return AjaxResponse::error(ErrorHelper::ErrorNoAP);
 
+        // Different target zone
+        if ($this->random_generator->chance(0.15)) {
+
+            $alt_zones = [];
+
+            $alt_zone = ($x === 1 && $y === 0) ? null : $this->entity_manager->getRepository(Zone::class)->findOneByPosition($town,$x-1,$y);
+            if ($alt_zone) $alt_zones[] = $alt_zone;
+
+            $alt_zone = ($x === -1 && $y === 0) ? null : $this->entity_manager->getRepository(Zone::class)->findOneByPosition($town,$x+1,$y);
+            if ($alt_zone) $alt_zones[] = $alt_zone;
+
+            $alt_zone = ($x === 0 && $y === 1) ? null : $this->entity_manager->getRepository(Zone::class)->findOneByPosition($town,$x,$y-1);
+            if ($alt_zone) $alt_zones[] = $alt_zone;
+
+            $alt_zone = ($x === 0 && $y === -1) ? null : $this->entity_manager->getRepository(Zone::class)->findOneByPosition($town,$x,$y+1);
+            if ($alt_zone) $alt_zones[] = $alt_zone;
+
+            if (!empty($alt_zones)) $target_zone = $this->random_generator->pick($alt_zones);
+        }
+
         // Deduct AP
         $this->citizen_handler->setAP($citizen, true, -4);
 
