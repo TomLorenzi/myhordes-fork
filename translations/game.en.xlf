@@ -15187,5 +15187,32 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
         <target>Die Aktivierung des Katapults kostet %ap% (diese Kosten können durch den Bau eines besseren Katapults gesenkt werden).</target>
       </segment>
     </unit>
+    <unit id="vGJYt6I" name="Du wurdest als Verantwortlicher für das Katapult bestimmt!">
+      <notes>
+        <note category="german">Du wurdest als Verantwortlicher für das Katapult bestimmt!</note>
+      </notes>
+      <segment>
+        <source>Du wurdest als Verantwortlicher für das Katapult bestimmt!</source>
+        <target>Du wurdest als Verantwortlicher für das Katapult bestimmt!</target>
+      </segment>
+    </unit>
+    <unit id="F85kERo" name="Wähle einen Gegenstand aus deinem Inventar und gib die Zielkoordinaten ein.">
+      <notes>
+        <note category="german">Wähle einen Gegenstand aus deinem Inventar und gib die Zielkoordinaten ein.</note>
+      </notes>
+      <segment>
+        <source>Wähle einen Gegenstand aus deinem Inventar und gib die Zielkoordinaten ein.</source>
+        <target>Wähle einen Gegenstand aus deinem Inventar und gib die Zielkoordinaten ein.</target>
+      </segment>
+    </unit>
+    <unit id="om1Y5tE" name="6a37406">
+      <notes>
+        <note category="german">Unser Katapult wird von dem vom Schicksal auserwählten Bürger %citizen% gesteuert. Sollte ihm etwas Schreckliches zustoßen, könnte dann ein neuer Bürger gewählt werden.</note>
+      </notes>
+      <segment>
+        <source>Unser Katapult wird von dem vom Schicksal auserwählten Bürger %citizen% gesteuert. Sollte ihm etwas Schreckliches zustoßen, könnte dann ein neuer Bürger gewählt werden.</source>
+        <target>Unser Katapult wird von dem vom Schicksal auserwählten Bürger %citizen% gesteuert. Sollte ihm etwas Schreckliches zustoßen, könnte dann ein neuer Bürger gewählt werden.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

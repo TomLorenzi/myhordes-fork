@@ -676,6 +676,7 @@ class TownAddonsController extends TownController
 
         return $this->render( 'ajax/game/town/catapult.html.twig', $this->addDefaultTwigArgs('catapult', [
             'catapult_improved' => $th->getBuilding( $town, 'item_courroie_#01', true ) !== null,
+            'catapult_master' => $this->getActiveCitizen(),
             'is_catapult_master' => true,
         ]) );
     }
