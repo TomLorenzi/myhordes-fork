@@ -15183,5 +15183,59 @@
         <target>eingeschlossen und auf den Tod wartend...</target>
       </segment>
     </unit>
+    <unit id="mfY9mWB" name="68142c8">
+      <notes>
+        <note category="german">Das Katapult ist ein wirklich mächtiges Instrument, um jeden beliebigen Gegenstand zu einer Zone in der Wüste zu schicken.</note>
+      </notes>
+      <segment>
+        <source>Das Katapult ist ein wirklich mächtiges Instrument, um jeden beliebigen Gegenstand zu einer Zone in der Wüste zu schicken.</source>
+        <target>La catapulte est un outil vraiment très puissant permettant d'envoyer dans un secteur du désert n'importe quel objet.</target>
+      </segment>
+    </unit>
+    <unit id="qavmsbg" name="Praktisch zur Versorgung aus der Ferne.">
+      <notes>
+        <note category="german">Praktisch zur Versorgung aus der Ferne.</note>
+      </notes>
+      <segment>
+        <source>Praktisch zur Versorgung aus der Ferne.</source>
+        <target>Pratique pour les ravitaillements à distance.</target>
+      </segment>
+    </unit>
+    <unit id="L.iYdPu" name="a71fb1a">
+      <notes>
+        <note category="german">Denke daran, dass das Katapult manchmal sein Ziel verfehlt und den Gegenstand in eine angrenzende Zone befördert...</note>
+      </notes>
+      <segment>
+        <source>Denke daran, dass das Katapult manchmal sein Ziel verfehlt und den Gegenstand in eine angrenzende Zone befördert...</source>
+        <target>Notez qu'il arrive parfois que la catapulte manque sa cible et envoie l'objet dans une zone voisine...</target>
+      </segment>
+    </unit>
+    <unit id="xDLABuz" name="6e6c122">
+      <notes>
+        <note category="german">Du wurdest als Verantwortlicher für das Katapult bestimmt! Wähle einen Gegenstand aus deinem Inventar und gib die Zielkoordinaten ein.</note>
+      </notes>
+      <segment>
+        <source>Du wurdest als Verantwortlicher für das Katapult bestimmt! Wähle einen Gegenstand aus deinem Inventar und gib die Zielkoordinaten ein.</source>
+        <target>Vous avez été désigné(e) responsable de la catapulte ! Vous pouvez choisir un objet (parmi ceux présents dans votre inventaire) et une coordonnée.</target>
+      </segment>
+    </unit>
+    <unit id="TV74CjO" name="Die Aktivierung des Katapults kostet %ap%.">
+      <notes>
+        <note category="german">Die Aktivierung des Katapults kostet %ap%.</note>
+      </notes>
+      <segment>
+        <source>Die Aktivierung des Katapults kostet %ap%.</source>
+        <target>Activer la catapulte coûte %ap% .</target>
+      </segment>
+    </unit>
+    <unit id="NnDz_H4" name="6b04ecf">
+      <notes>
+        <note category="german">Die Aktivierung des Katapults kostet %ap% (diese Kosten können durch den Bau eines besseren Katapults gesenkt werden).</note>
+      </notes>
+      <segment>
+        <source>Die Aktivierung des Katapults kostet %ap% (diese Kosten können durch den Bau eines besseren Katapults gesenkt werden).</source>
+        <target>Activer la catapulte coûte %ap% (ce coût peut être réduit en construisant une meilleure catapulte) .</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

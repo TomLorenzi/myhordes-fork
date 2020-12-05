@@ -15148,5 +15148,59 @@
         <target>Kleine Koalitionen</target>
       </segment>
     </unit>
+    <unit id="mfY9mWB" name="68142c8">
+      <notes>
+        <note category="german">Das Katapult ist ein wirklich mächtiges Instrument, um jeden beliebigen Gegenstand zu einer Zone in der Wüste zu schicken.</note>
+      </notes>
+      <segment>
+        <source>Das Katapult ist ein wirklich mächtiges Instrument, um jeden beliebigen Gegenstand zu einer Zone in der Wüste zu schicken.</source>
+        <target>Das Katapult ist ein wirklich mächtiges Instrument, um jeden beliebigen Gegenstand zu einer Zone in der Wüste zu schicken.</target>
+      </segment>
+    </unit>
+    <unit id="qavmsbg" name="Praktisch zur Versorgung aus der Ferne.">
+      <notes>
+        <note category="german">Praktisch zur Versorgung aus der Ferne.</note>
+      </notes>
+      <segment>
+        <source>Praktisch zur Versorgung aus der Ferne.</source>
+        <target>Praktisch zur Versorgung aus der Ferne.</target>
+      </segment>
+    </unit>
+    <unit id="L.iYdPu" name="a71fb1a">
+      <notes>
+        <note category="german">Denke daran, dass das Katapult manchmal sein Ziel verfehlt und den Gegenstand in eine angrenzende Zone befördert...</note>
+      </notes>
+      <segment>
+        <source>Denke daran, dass das Katapult manchmal sein Ziel verfehlt und den Gegenstand in eine angrenzende Zone befördert...</source>
+        <target>Denke daran, dass das Katapult manchmal sein Ziel verfehlt und den Gegenstand in eine angrenzende Zone befördert...</target>
+      </segment>
+    </unit>
+    <unit id="xDLABuz" name="6e6c122">
+      <notes>
+        <note category="german">Du wurdest als Verantwortlicher für das Katapult bestimmt! Wähle einen Gegenstand aus deinem Inventar und gib die Zielkoordinaten ein.</note>
+      </notes>
+      <segment>
+        <source>Du wurdest als Verantwortlicher für das Katapult bestimmt! Wähle einen Gegenstand aus deinem Inventar und gib die Zielkoordinaten ein.</source>
+        <target>Du wurdest als Verantwortlicher für das Katapult bestimmt! Wähle einen Gegenstand aus deinem Inventar und gib die Zielkoordinaten ein.</target>
+      </segment>
+    </unit>
+    <unit id="TV74CjO" name="Die Aktivierung des Katapults kostet %ap%.">
+      <notes>
+        <note category="german">Die Aktivierung des Katapults kostet %ap%.</note>
+      </notes>
+      <segment>
+        <source>Die Aktivierung des Katapults kostet %ap%.</source>
+        <target>Die Aktivierung des Katapults kostet %ap%.</target>
+      </segment>
+    </unit>
+    <unit id="NnDz_H4" name="6b04ecf">
+      <notes>
+        <note category="german">Die Aktivierung des Katapults kostet %ap% (diese Kosten können durch den Bau eines besseren Katapults gesenkt werden).</note>
+      </notes>
+      <segment>
+        <source>Die Aktivierung des Katapults kostet %ap% (diese Kosten können durch den Bau eines besseren Katapults gesenkt werden).</source>
+        <target>Die Aktivierung des Katapults kostet %ap% (diese Kosten können durch den Bau eines besseren Katapults gesenkt werden).</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
