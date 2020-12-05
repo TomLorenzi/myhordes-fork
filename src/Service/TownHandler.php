@@ -244,7 +244,7 @@ class TownHandler
         $current = 0;
 
         foreach($town->getCitizens() as $citizen) {
-            if (!$citizen->getAlive()) continue;
+            if (!$citizen->getAlive() || $citizen->getBanished()) continue;
             if (!$allow_multi && $citizen->hasRole('cata')) return null;
 
             $level = 0;

@@ -42,7 +42,7 @@ class CitizenHandler
 
     public function __construct(EntityManagerInterface $em, StatusFactory $sf, RandomGenerator $g, InventoryHandler $ih,
                                 PictoHandler $ph, ItemFactory $if, LogTemplateHandler $lh, ContainerInterface $c, UserHandler $uh,
-                                ConfMaster $conf)
+                                ConfMaster $conf )
     {
         $this->entity_manager = $em;
         $this->status_factory = $sf;
@@ -205,6 +205,8 @@ class CitizenHandler
         if ($action) {
             if (!$citizen->getBanished()) $this->entity_manager->persist( $this->log->citizenBanish( $citizen ) );
             $citizen->setBanished( true );
+            if ($citizen->hasRole('cata'))
+                $citizen->removeRole($this->entity_manager->getRepository(CitizenRole::class)->findOneByName('cata'));
 
             // Disable escort on banishment
             if ($citizen->getEscortSettings()) {
