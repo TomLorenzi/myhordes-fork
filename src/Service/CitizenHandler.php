@@ -690,7 +690,7 @@ class CitizenHandler
         if($this->isWounded($citizen)) $chances += 0.20;
         if($citizen->hasRole('ghoul')) $chances -= 0.05;
 
-        return max(0.0, min($chances, 1.0));
+        return $chances;
     }
 
     public function getNightWatchItemDefense( Item $item, bool $shooting_gallery, bool $trebuchet, bool $ikea, bool $armory ): int {

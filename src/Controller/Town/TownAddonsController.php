@@ -596,8 +596,8 @@ class TownAddonsController extends TownController
         return $this->render( 'ajax/game/town/nightwatch.html.twig', $this->addDefaultTwigArgs('battlement', [
             'watchers' => $watchers,
             'is_watcher' => $is_watcher,
-            'deathChance' => $deathChance,
-            'woundAndTerrorChance' => $deathChance + $this->getTownConf()->get(TownConf::CONF_MODIFIER_WOUND_TERROR_PENALTY, 0.05),
+            'deathChance' => max(0.0, min($deathChance, 1.0)),
+            'woundAndTerrorChance' => max(0.0, min($deathChance + $this->getTownConf()->get(TownConf::CONF_MODIFIER_WOUND_TERROR_PENALTY, 0.05), 1.0)),
             'me' => $this->getActiveCitizen(),
             'total_def' => $total_def,
             'has_counsel' => $has_counsel
