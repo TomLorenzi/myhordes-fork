@@ -15264,5 +15264,86 @@
         <target>Notre catapulte est gérée par le citoyen %citizen% qui a été désigné par le sort. Si quoi que ce soit d'affreux devait lui arriver, un nouveau citoyen pourrait alors être choisi</target>
       </segment>
     </unit>
+    <unit id="G93YC9H" name="8f993e1">
+      <notes>
+        <note category="german">%master% hat %item% nach &lt;strong&gt;[%x%/%y%]&lt;/strong&gt; &lt;strong&gt;katapultiert&lt;/strong&gt;!</note>
+      </notes>
+      <segment>
+        <source>%master% hat %item% nach &lt;strong&gt;[%x%/%y%]&lt;/strong&gt; &lt;strong&gt;katapultiert&lt;/strong&gt;!</source>
+        <target><![CDATA[%master% a <strong>catapulté</strong> %item% dans le secteur <strong>[%x%/%y%]</strong> !]]></target>
+      </segment>
+    </unit>
+    <unit id="QmxirCQ" name="Das Katapult der Stadt hat %item% auf diese Zone geschleudert.">
+      <notes>
+        <note category="german">Das Katapult der Stadt hat %item% auf diese Zone geschleudert.</note>
+      </notes>
+      <segment>
+        <source>Das Katapult der Stadt hat %item% auf diese Zone geschleudert.</source>
+        <target>La catapulte de la ville a projeté %item% dans ce secteur !</target>
+      </segment>
+    </unit>
+    <unit id="c8o8Cvb" name="Zu verschickender Gegenstand:">
+      <notes>
+        <note category="german">Zu verschickender Gegenstand:</note>
+      </notes>
+      <segment>
+        <source>Zu verschickender Gegenstand:</source>
+        <target>Objet à envoyer :</target>
+      </segment>
+    </unit>
+    <unit id="HseCFgo" name="Gegenstand auswählen">
+      <notes>
+        <note category="german">Gegenstand auswählen</note>
+      </notes>
+      <segment>
+        <source>Gegenstand auswählen</source>
+        <target>Choisir un objet</target>
+      </segment>
+    </unit>
+    <unit id="3LNO13M" name="Gegenstand katapultieren">
+      <notes>
+        <note category="german">Gegenstand katapultieren</note>
+      </notes>
+      <segment>
+        <source>Gegenstand katapultieren</source>
+        <target>Catapulter cet objet !</target>
+      </segment>
+    </unit>
+    <unit id="vKTmXMp" name="Katapultregister">
+      <notes>
+        <note category="german">Katapultregister</note>
+      </notes>
+      <segment>
+        <source>Katapultregister</source>
+        <target>Katapultregister</target>
+      </segment>
+    </unit>
+    <unit id="XhfFUUF" name="Bitte wähle einen Gegenstand.">
+      <notes>
+        <note category="german">Bitte wähle einen Gegenstand.</note>
+      </notes>
+      <segment>
+        <source>Bitte wähle einen Gegenstand.</source>
+        <target>Veuillez sélectionner un objet.</target>
+      </segment>
+    </unit>
+    <unit id="k2rA792" name="Bitte gib die Zielkoordinaten ein.">
+      <notes>
+        <note category="german">Bitte gib die Zielkoordinaten ein.</note>
+      </notes>
+      <segment>
+        <source>Bitte gib die Zielkoordinaten ein.</source>
+        <target>Veuillez entrer les coordonnées de la cible.</target>
+      </segment>
+    </unit>
+    <unit id="bh3ikqp" name="6a59fc2">
+      <notes>
+        <note category="german">Sorgfältig verpackt hast du %item% in das Katapult gelegt. Der Gegenstand wurde auf %zone% geschleudert.</note>
+      </notes>
+      <segment>
+        <source>Sorgfältig verpackt hast du %item% in das Katapult gelegt. Der Gegenstand wurde auf %zone% geschleudert.</source>
+        <target>Vous emballez soigneusement, lestez puis placez %item% dans la catapulte. L'objet a été projeté en %zone%.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

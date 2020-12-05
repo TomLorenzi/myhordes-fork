@@ -15214,5 +15214,95 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
         <target>Unser Katapult wird von dem vom Schicksal auserwählten Bürger %citizen% gesteuert. Sollte ihm etwas Schreckliches zustoßen, könnte dann ein neuer Bürger gewählt werden.</target>
       </segment>
     </unit>
+    <unit id="qX1gDpX" name="Die Stadt ist zerstört! Flieht, irh Narren!">
+      <notes>
+        <note category="german">Die Stadt ist zerstört! Flieht, irh Narren!</note>
+      </notes>
+      <segment>
+        <source>Die Stadt ist zerstört! Flieht, irh Narren!</source>
+        <target>Die Stadt ist zerstört! Flieht, irh Narren!</target>
+      </segment>
+    </unit>
+    <unit id="G93YC9H" name="8f993e1">
+      <notes>
+        <note category="german">%master% hat %item% nach &lt;strong&gt;[%x%/%y%]&lt;/strong&gt; &lt;strong&gt;katapultiert&lt;/strong&gt;!</note>
+      </notes>
+      <segment>
+        <source>%master% hat %item% nach &lt;strong&gt;[%x%/%y%]&lt;/strong&gt; &lt;strong&gt;katapultiert&lt;/strong&gt;!</source>
+        <target><![CDATA[%master% hat %item% nach <strong>[%x%/%y%]</strong> <strong>katapultiert</strong>!]]></target>
+      </segment>
+    </unit>
+    <unit id="QmxirCQ" name="Das Katapult der Stadt hat %item% auf diese Zone geschleudert.">
+      <notes>
+        <note category="german">Das Katapult der Stadt hat %item% auf diese Zone geschleudert.</note>
+      </notes>
+      <segment>
+        <source>Das Katapult der Stadt hat %item% auf diese Zone geschleudert.</source>
+        <target>Das Katapult der Stadt hat %item% auf diese Zone geschleudert.</target>
+      </segment>
+    </unit>
+    <unit id="c8o8Cvb" name="Zu verschickender Gegenstand:">
+      <notes>
+        <note category="german">Zu verschickender Gegenstand:</note>
+      </notes>
+      <segment>
+        <source>Zu verschickender Gegenstand:</source>
+        <target>Zu verschickender Gegenstand:</target>
+      </segment>
+    </unit>
+    <unit id="HseCFgo" name="Gegenstand auswählen">
+      <notes>
+        <note category="german">Gegenstand auswählen</note>
+      </notes>
+      <segment>
+        <source>Gegenstand auswählen</source>
+        <target>Gegenstand auswählen</target>
+      </segment>
+    </unit>
+    <unit id="3LNO13M" name="Gegenstand katapultieren">
+      <notes>
+        <note category="german">Gegenstand katapultieren</note>
+      </notes>
+      <segment>
+        <source>Gegenstand katapultieren</source>
+        <target>Gegenstand katapultieren</target>
+      </segment>
+    </unit>
+    <unit id="vKTmXMp" name="Katapultregister">
+      <notes>
+        <note category="german">Katapultregister</note>
+      </notes>
+      <segment>
+        <source>Katapultregister</source>
+        <target>Katapultregister</target>
+      </segment>
+    </unit>
+    <unit id="XhfFUUF" name="Bitte wähle einen Gegenstand.">
+      <notes>
+        <note category="german">Bitte wähle einen Gegenstand.</note>
+      </notes>
+      <segment>
+        <source>Bitte wähle einen Gegenstand.</source>
+        <target>Bitte wähle einen Gegenstand.</target>
+      </segment>
+    </unit>
+    <unit id="k2rA792" name="Bitte gib die Zielkoordinaten ein.">
+      <notes>
+        <note category="german">Bitte gib die Zielkoordinaten ein.</note>
+      </notes>
+      <segment>
+        <source>Bitte gib die Zielkoordinaten ein.</source>
+        <target>Bitte gib die Zielkoordinaten ein.</target>
+      </segment>
+    </unit>
+    <unit id="bh3ikqp" name="6a59fc2">
+      <notes>
+        <note category="german">Sorgfältig verpackt hast du %item% in das Katapult gelegt. Der Gegenstand wurde auf %zone% geschleudert.</note>
+      </notes>
+      <segment>
+        <source>Sorgfältig verpackt hast du %item% in das Katapult gelegt. Der Gegenstand wurde auf %zone% geschleudert.</source>
+        <target>Sorgfältig verpackt hast du %item% in das Katapult gelegt. Der Gegenstand wurde auf %zone% geschleudert.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

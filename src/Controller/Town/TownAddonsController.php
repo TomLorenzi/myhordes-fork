@@ -4,21 +4,17 @@ namespace App\Controller\Town;
 
 use App\Entity\Building;
 use App\Entity\CitizenWatch;
-use App\Entity\CitizenHomePrototype;
-use App\Entity\CitizenHomeUpgrade;
-use App\Entity\CitizenHomeUpgradeCosts;
-use App\Entity\CitizenHomeUpgradePrototype;
 use App\Entity\DailyUpgradeVote;
+use App\Entity\Item;
 use App\Entity\ItemPrototype;
 use App\Entity\Recipe;
-use App\Entity\TownLogEntry;
+use App\Entity\LogEntryTemplate;
 use App\Entity\ZombieEstimation;
 use App\Entity\Zone;
 use App\Response\AjaxResponse;
 use App\Service\ActionHandler;
 use App\Service\CitizenHandler;
 use App\Service\ErrorHelper;
-use App\Service\GameFactory;
 use App\Service\InventoryHandler;
 use App\Service\ItemFactory;
 use App\Service\JSONRequestParser;
@@ -26,12 +22,11 @@ use App\Service\RandomGenerator;
 use App\Service\TownHandler;
 use App\Structures\ItemRequest;
 use App\Structures\TownConf;
-use Doctrine\ORM\EntityManager;
-use Doctrine\ORM\EntityManagerInterface;
 use Exception;
-use Monolog\ErrorHandler;
+use Symfony\Component\Asset\Packages;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Contracts\Translation\TranslatorInterface;
 
 /**
  * @Route("/",condition="request.isXmlHttpRequest()")
@@ -244,7 +239,7 @@ class TownAddonsController extends TownController
             'need_ap' => 3 - ($have_saw ? 1 : 0) - ($have_manu ? 1 : 0),
             'source' => $source_db, 'result' => $result_db,
 
-            'log' => $this->renderLog( -1, null, false, TownLogEntry::TypeWorkshop, 10 )->getContent(),
+            'log' => $this->renderLog( -1, null, false, LogEntryTemplate::TypeWorkshop, 10 )->getContent(),
             'day' => $this->getActiveCitizen()->getTown()->getDay()
         ]) );
     }
@@ -255,7 +250,7 @@ class TownAddonsController extends TownController
      * @return Response
      */
     public function log_workshop_api(JSONRequestParser $parser): Response {
-        return $this->renderLog((int)$parser->get('day', -1), null, false, TownLogEntry::TypeWorkshop, null);
+        return $this->renderLog((int)$parser->get('day', -1), null, false, LogEntryTemplate::TypeWorkshop, null);
     }
 
     /**
@@ -678,7 +673,87 @@ class TownAddonsController extends TownController
             'catapult_improved' => $th->getBuilding( $town, 'item_courroie_#01', true ) !== null,
             'catapult_master' => $this->getActiveCitizen(),
             'is_catapult_master' => true,
+            'log' => $this->renderLog( -1, null, false, LogEntryTemplate::TypeCatapult, 10 )->getContent(),
         ]) );
     }
+
+    /**
+     * @Route("api/town/catapult/log", name="town_catapult_log_controller")
+     * @param JSONRequestParser $parser
+     * @return Response
+     */
+    public function log_catapult_api(JSONRequestParser $parser): Response {
+        return $this->renderLog((int)$parser->get('day', -1), null, false, LogEntryTemplate::TypeCatapult, null);
+    }
+
+    /**
+     * @Route("api/town/catapult/do", name="town_catapult_do_controller")
+     * @param JSONRequestParser $parser
+     * @param CitizenHandler $ch
+     * @param TownHandler $th
+     * @return Response
+     */
+    public function catapult_do_api(JSONRequestParser $parser, CitizenHandler $ch, TownHandler $th, ItemFactory $if, Packages $asset, TranslatorInterface $trans): Response {
+        $citizen = $this->getActiveCitizen();
+        $town = $citizen->getTown();
+
+        // Check if catapult is build
+        if (!$th->getBuilding($town, 'item_courroie_#00', true))
+            return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
+
+        // Get prototype ID
+        if (!$parser->has_all(['item','x','y'], false))
+            return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
+        $item_id = (int)$parser->get('item');
+        $x = (int)$parser->get('x');
+        $y = (int)$parser->get('y');
+
+        $item = $this->entity_manager->getRepository(Item::class)->find($item_id);
+
+        if ($item === null || $item->getEssential() || !$citizen->getInventory()->getItems()->contains($item) || ($x === 0 && $y === 0))
+            return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
+
+        $target_zone = $this->entity_manager->getRepository(Zone::class)->findOneByPosition($town,$x,$y);
+        if (!$target_zone) return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
+
+        // Check if the improved catapult is built
+        $ap = ($catapult = $th->getBuilding($town, 'item_courroie_#01', true)) ? 2 : 4;
+
+        // Make sure the citizen has enough AP
+        if ($citizen->getAp() < $ap || $ch->isTired($citizen)) return AjaxResponse::error(ErrorHelper::ErrorNoAP);
+
+        // Deduct AP
+        $this->citizen_handler->setAP($citizen, true, -4);
+
+        $this->entity_manager->persist($this->log->catapultUsage($citizen, $item, $target_zone));
+
+        if ($item->getPrototype()->getFragile()) {
+            $this->inventory_handler->forceMoveItem($target_zone->getFloor(), $debris = $if->createItem('broken_#00'));
+            $this->inventory_handler->forceRemoveItem($item);
+            $this->entity_manager->persist($this->log->catapultImpact($debris, $target_zone));
+        } else {
+            $this->entity_manager->persist($this->log->catapultImpact($item, $target_zone));
+            $this->inventory_handler->forceMoveItem( $target_zone->getFloor(), $item );
+        }
+
+        $this->addFlash('notice', $trans->trans('Sorgfältig verpackt hast du %item% in das Katapult gelegt. Der Gegenstand wurde auf %zone% geschleudert.', [
+            '%item%' => "<span><img alt='' src='" . $asset->getUrl("build/images/item/item_{$item->getPrototype()->getIcon()}.gif") . "' />" . $trans->trans($item->getPrototype()->getLabel(), [], 'items') . "</span>",
+            '%zone%' => "<strong>[{$target_zone->getX()}/{$target_zone->getY()}]</strong>"
+        ], 'game'));
+
+        // Persist
+        $this->entity_manager->persist( $citizen );
+        $this->entity_manager->persist( $target_zone );
+
+        // Flush
+        try {
+
+            $this->entity_manager->flush();
+            return AjaxResponse::success();
+        } catch (Exception $e) {
+            return AjaxResponse::error( ErrorHelper::ErrorDatabaseException );
+        }
+    }
+
 
 }

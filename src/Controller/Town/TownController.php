@@ -16,6 +16,7 @@ use App\Entity\CitizenVote;
 use App\Entity\Complaint;
 use App\Entity\ExpeditionRoute;
 use App\Entity\ItemPrototype;
+use App\Entity\LogEntryTemplate;
 use App\Entity\PictoPrototype;
 use App\Entity\ShoutboxEntry;
 use App\Entity\ShoutboxReadMarker;
@@ -664,7 +665,7 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
             'allow_take' => $this->getActiveCitizen()->getSpecificActionCounterValue( ActionCounter::ActionTypeWell ) < $allow_take,
             'pump' => $pump,
 
-            'log' => $this->renderLog( -1, null, false, TownLogEntry::TypeWell, 10 )->getContent(),
+            'log' => $this->renderLog( -1, null, false, LogEntryTemplate::TypeWell, 10 )->getContent(),
             'day' => $this->getActiveCitizen()->getTown()->getDay()
         ]) );
     }
@@ -675,7 +676,7 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
      * @return Response
      */
     public function log_well_api(JSONRequestParser $parser): Response {
-        return $this->renderLog((int)$parser->get('day', -1), null, false, TownLogEntry::TypeWell, null);
+        return $this->renderLog((int)$parser->get('day', -1), null, false, LogEntryTemplate::TypeWell, null);
     }
 
     /**
@@ -790,7 +791,7 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
             'item_def_factor' => $item_def_factor,
             'item_def_count' => $this->inventory_handler->countSpecificItems($town->getBank(),$this->inventory_handler->resolveItemProperties( 'defence' ), false, false),
             'bank' => $this->renderInventoryAsBank( $town->getBank() ),
-            'log' => $this->renderLog( -1, null, false, TownLogEntry::TypeBank, 10 )->getContent(),
+            'log' => $this->renderLog( -1, null, false, LogEntryTemplate::TypeBank, 10 )->getContent(),
             'day' => $town->getDay()
         ]) );
     }
@@ -801,7 +802,7 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
      * @return Response
      */
     public function log_bank_api(JSONRequestParser $parser): Response {
-        return $this->renderLog((int)$parser->get('day', -1), null, false, TownLogEntry::TypeBank, null);
+        return $this->renderLog((int)$parser->get('day', -1), null, false, LogEntryTemplate::TypeBank, null);
     }
 
     /**
@@ -1246,7 +1247,7 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
             'slavery' => $th->getBuilding($town, 'small_slave_#00', true) !== null,
             'workshopBonus' => $workshopBonus,
             'hpToAp' => $hpToAp,
-            'log' => $this->renderLog( -1, null, false, TownLogEntry::TypeConstruction, 10 )->getContent(),
+            'log' => $this->renderLog( -1, null, false, LogEntryTemplate::TypeConstruction, 10 )->getContent(),
             'day' => $this->getActiveCitizen()->getTown()->getDay(),
             'canvote' => $this->user_handler->hasSkill($this->getActiveCitizen()->getUser(), "dictator") && !$this->citizen_handler->hasStatusEffect($this->getActiveCitizen(), 'tg_build_vote'),
             'voted_building' => $votedBuilding,
@@ -1292,7 +1293,7 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
      * @return Response
      */
     public function log_constructions_api(JSONRequestParser $parser): Response {
-        return $this->renderLog((int)$parser->get('day', -1), null, false, TownLogEntry::TypeConstruction, null);
+        return $this->renderLog((int)$parser->get('day', -1), null, false, LogEntryTemplate::TypeConstruction, null);
     }
 
     /**
@@ -1429,7 +1430,7 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
             'show_ventilation'  => $th->getBuilding($this->getActiveCitizen()->getTown(), 'small_ventilation_#00',  true) !== null,
             'allow_ventilation' => $this->getActiveCitizen()->getProfession()->getHeroic(),
             'show_sneaky'       => $this->getActiveCitizen()->hasRole('ghoul'),
-            'log'               => $this->renderLog( -1, null, false, TownLogEntry::TypeDoor, 10 )->getContent(),
+            'log'               => $this->renderLog( -1, null, false, LogEntryTemplate::TypeDoor, 10 )->getContent(),
             'day'               => $this->getActiveCitizen()->getTown()->getDay(),
         ], $this->get_map_blob())) );
     }
@@ -1440,7 +1441,7 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
      * @return Response
      */
     public function log_door_api(JSONRequestParser $parser): Response {
-        return $this->renderLog((int)$parser->get('day', -1), null, false, TownLogEntry::TypeDoor, null);
+        return $this->renderLog((int)$parser->get('day', -1), null, false, LogEntryTemplate::TypeDoor, null);
     }
 
     /**

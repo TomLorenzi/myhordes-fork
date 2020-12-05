@@ -41,7 +41,8 @@ class LogTemplateHandler
     }
 
     private function wrap(?string $obj, ?string $class = null): string {
-        return $obj ? ("<span" . ($class ? " class='$class'" : '') . ">$obj</span>") : '';
+        //if (!($obj || $obj != 0)) {var_dump($obj); die;}
+        return ($obj === "0" || $obj) ? ("<span" . ($class ? " class='$class'" : '') . ">$obj</span>") : '';
     }
 
     /**
@@ -1267,6 +1268,36 @@ class LogTemplateHandler
             ->setTown( $attacker->getTown() )
             ->setDay( $attacker->getTown()->getDay() )
             ->setZone( $attacker->getZone() )
+            ->setTimestamp( new DateTime('now') );
+    }
+
+    public function catapultUsage( Citizen $master, Item $item, Zone $target ): TownLogEntry {
+        $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneBy(['name' => 'catapultUsage']);
+
+        return (new TownLogEntry())
+            ->setLogEntryTemplate($template)
+            ->setVariables([
+                'master' => $master->getId(),
+                'item' => $item->getPrototype()->getId(),
+                'x' => $target->getX(),
+                'y' => $target->getY()
+            ])
+            ->setTown( $master->getTown() )
+            ->setDay( $master->getTown()->getDay() )
+            ->setTimestamp( new DateTime('now') );
+    }
+
+    public function catapultImpact( Item $item, Zone $target ): TownLogEntry {
+        $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneBy(['name' => 'catapultImpact']);
+
+        return (new TownLogEntry())
+            ->setLogEntryTemplate($template)
+            ->setVariables([
+                'item' => $item->getPrototype()->getId(),
+            ])
+            ->setTown( $target->getTown() )
+            ->setDay( $target->getTown()->getDay() )
+            ->setZone( $target )
             ->setTimestamp( new DateTime('now') );
     }
 }

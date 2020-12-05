@@ -7327,5 +7327,23 @@
         <target>In dieser Aufmachung bist du so auffällig, dass dich niemand bemerkt oder zumindest glaubt, sich das nur eingebildet zu haben! Das würdest du doch nicht missbrauchen, oder?</target>
       </segment>
     </unit>
+    <unit id="QcqmVZM" name="Unidentifizierbare Trümmerstücke">
+      <notes>
+        <note category="german">Unidentifizierbare Trümmerstücke</note>
+      </notes>
+      <segment>
+        <source>Unidentifizierbare Trümmerstücke</source>
+        <target>Unidentifizierbare Trümmerstücke</target>
+      </segment>
+    </unit>
+    <unit id="ug9P8X6" name="4b4524c">
+      <notes>
+        <note category="german">Diese Trümmerstücke waren mal Teil eines Gegenstandes, den du nicht mehr identifizieren kannst. Die Verformung der Teile lassen vermuten, dass dieser Gegenstand mit hoher Geschwindigkeit am Boden aufgeprallt ist...</note>
+      </notes>
+      <segment>
+        <source>Diese Trümmerstücke waren mal Teil eines Gegenstandes, den du nicht mehr identifizieren kannst. Die Verformung der Teile lassen vermuten, dass dieser Gegenstand mit hoher Geschwindigkeit am Boden aufgeprallt ist...</source>
+        <target>Diese Trümmerstücke waren mal Teil eines Gegenstandes, den du nicht mehr identifizieren kannst. Die Verformung der Teile lassen vermuten, dass dieser Gegenstand mit hoher Geschwindigkeit am Boden aufgeprallt ist...</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

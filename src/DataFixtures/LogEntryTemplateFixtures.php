@@ -119,7 +119,10 @@ class LogEntryTemplateFixtures extends Fixture
 
         ['text'=>'Niemand weiß, wie ein solches Wunder möglich ist, aber %hero% hat %citizen% (der sich auf %pos% befand), auf seinen Schultern heim getragen. Lang leben unsere Helden!', 'name'=>'heroRescue', 'type'=>LogEntryTemplate::TypeDoor, 'class'=>LogEntryTemplate::ClassInfo, 'secondaryType'=>null, 'variableTypes'=>array(['type'=>"citizen",'name'=>'hero'],['type'=>"citizen",'name'=>'citizen'],['type'=>"string",'name'=>'pos'])],
         ['text'=>'Die <strong>Explosion des %plan%</strong> hat den ganzen Sektor in Mitleidenschaft gezogen! Das wird sicher Spuren hinterlassen ...', 'name'=>'fireworkExplosion', 'type'=>LogEntryTemplate::TypeNightly,'class'=>LogEntryTemplate::ClassCritical, 'secondaryType'=>null,'variableTypes'=>array(['type'=>"plan",'name'=>'plan'])],
-        
+
+        ['text'=>'%master% hat %item% nach <strong>[%x%/%y%]</strong> <strong>katapultiert</strong>!', 'name'=>'catapultUsage',  'type'=>LogEntryTemplate::TypeCatapult,'class'=>LogEntryTemplate::ClassInfo, 'secondaryType'=>null,'variableTypes'=>array(['type'=>"citizen",'name'=>'master'],['type'=>'num','name'=>'x'],['type'=>'num','name'=>'y'],['type'=>"item",'name'=>'item'])],
+        ['text'=>'Das Katapult der Stadt hat %item% auf diese Zone geschleudert.', 'name'=>'catapultImpact', 'type'=>LogEntryTemplate::TypeVarious, 'class'=>LogEntryTemplate::ClassCritical, 'secondaryType'=>null,'variableTypes'=>array(['type'=>"item",'name'=>'item'])],
+
         // Gazette: Fun Texts
         ['text'=>'Gestern war ein unbedeutender Tag. Einem Gerücht zufolge wurden %citizen1% und %citizen2% dabei beobachtet, wie sie zusammen im Brunnen badeten. Wenn morgen alle mit einer Pilzinfektion flach liegen, ist ja wohl klar, an wem das lag.',
             'name'=>'gazetteFun_001',

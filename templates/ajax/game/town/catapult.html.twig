@@ -23,9 +23,62 @@
         {% endif %}
     </div>
 
+    {% if is_catapult_master %}
+        <div class="row">
+            <div class="cell-small rw-10 ro-7 rw-md-14 ro-md-5 rw-sm-24 ro-sm-0">
+                <div class="note">
+                    <div class="center"><strong>{{ 'Zu verschickender Gegenstand:'|trans({},'game') }}</strong></div>
+                    <div><label><select id="cata_what">
+                        <option value="-1">-- {{ 'Gegenstand auswählen'|trans({},'game') }} --</option>
+                        {% for item in app.user.activeCitizen.inventory.items %}
+                            {# @var item \App\Entity\Item #}
+                            {% if not item.essential %}
+                                <option value="{{ item.id }}">{{ item.prototype.label|trans({},'items') }}</option>
+                            {% endif %}
+                        {% endfor %}
+                    </select></label></div>
+                    <div class="row">
+                        <div class="padded cell rw-6">
+                            <div class="center"><label for="cata_x"><strong>X</strong></label></div>
+                            <input id="cata_x" type="number" />
+                        </div>
+                        <div class="padded cell rw-6">
+                            <div class="center"><label for="cata_y"><strong>Y</strong></label></div>
+                            <input id="cata_y" type="number" />
+                        </div>
+                    </div>
+                    <div class="row"><div class="padded cell rw-12"><button id="cata_do">{{ 'Gegenstand katapultieren'|trans({},'game') }}</button></div></div>
+                </div>
+            </div>
+        </div>
+    {% endif %}
+
+    <div class="row">
+        <h5>{% trans from 'game' %}Katapultregister{% endtrans %}</h5>
+        <div class="cell rw-12">
+            {% embed "ajax/game/log.html.twig" with {'log_content': log, 'log_source': path('town_catapult_log_controller') } %}
+            {% endembed %}
+        </div>
+    </div>
+
 {% endblock %}
 {% block js %}
     {{ parent() }}
     <script>
+        {% if is_catapult_master %}
+            $.html.addEventListenerAll('#cata_do', 'click', function () {
+                const item = parseInt(document.getElementById('cata_what').value);
+                const x = parseInt(document.getElementById('cata_x').value);
+                const y = parseInt(document.getElementById('cata_y').value);
+
+                if (item <= 0) $.html.message('error', '{{ 'Bitte wähle einen Gegenstand.'|trans({},'game') }}');
+                if (isNaN(x) || isNaN(y) || (x === 0 && y === 0)) $.html.message('error', '{{ 'Bitte gib die Zielkoordinaten ein.'|trans({},'game') }}');
+
+                $.ajax.easySend( '{{ path('town_catapult_do_controller') }}', {item: item, x: x, y: y},
+                    function () {
+                        $.ajax.load(null, '{{ path('town_catapult') }}', true);
+                    } );
+            });
+        {% endif %}
     </script>
 {% endblock %}

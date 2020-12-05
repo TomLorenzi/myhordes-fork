@@ -172,8 +172,8 @@ class ItemFixtures extends Fixture
         ['label' =>'Schweizer Taschenmesser','icon'=>'swiss_knife','category'=>'root_weapon','deco'=>0,'heavy'=>false, 'watchpoint' => 10],                           // -- Out
         ['label' =>'Teppichmesser','icon'=>'cutter','category'=>'root_weapon','deco'=>0,'heavy'=>false, 'watchpoint' => 10],                                          // -- Out
         ['label' =>'Dosenöffner','icon'=>'can_opener','category'=>'root_weapon','deco'=>0,'heavy'=>false, 'watchpoint' => 4],                                        // -- Out
-        ['label' =>'Wasserbombe','icon'=>'grenade','category'=>'root_weapon','deco'=>0,'heavy'=>false, 'watchpoint' => 8],                                           // -- Out
-        ['label' =>'Explodierende Wasserbombe','icon'=>'bgrenade','category'=>'root_weapon','deco'=>0,'heavy'=>false, 'watchpoint' => 20],                            // -- Out
+        ['label' =>'Wasserbombe','icon'=>'grenade','category'=>'root_weapon','deco'=>0,'heavy'=>false, 'watchpoint' => 8, 'fragile' => true],                                           // -- Out
+        ['label' =>'Explodierende Wasserbombe','icon'=>'bgrenade','category'=>'root_weapon','deco'=>0,'heavy'=>false, 'watchpoint' => 20, 'fragile' => true],                            // -- Out
         ['label' =>'Aqua-Splash (3 Ladungen)','icon'=>'watergun_opt_3','category'=>'root_weapon','deco'=>0,'heavy'=>false, 'watchpoint' => 8],                       // -- Out
         ['label' =>'Aqua-Splash (2 Ladungen)','icon'=>'watergun_opt_2','category'=>'root_weapon','deco'=>0,'heavy'=>false, 'watchpoint' => 8],                       // -- Out
         ['label' =>'Aqua-Splash (1 Ladung)','icon'=>'watergun_opt_1','category'=>'root_weapon','deco'=>0,'heavy'=>false, 'watchpoint' => 8],                         // -- Out
@@ -265,7 +265,7 @@ class ItemFixtures extends Fixture
         ['label' =>'Ration Wasser','icon'=>'water','category'=>'food','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                                             // In Out                                            
         ['label' =>'Offene Konservendose','icon'=>'can_open','category'=>'food','deco'=>0,'heavy'=>false, 'watchpoint' => 2],                                   // In Out
         ['label' =>'Undefinierbares Fleisch','icon'=>'undef','category'=>'food','deco'=>0,'heavy'=>false, 'watchpoint' => 2],                                   // In Out
-        ['label' =>'Heißer Kaffee','icon'=>'coffee','category'=>'food','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                                            // In Out
+        ['label' =>'Heißer Kaffee','icon'=>'coffee','category'=>'food','deco'=>0,'heavy'=>false, 'watchpoint' => 0, 'fragile' => true],                                            // In Out
         ['label' =>'Verdächtiges Gemüse','icon'=>'vegetable','category'=>'food','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                                   // In Out
         ['label' =>'Doggybag','icon'=>'food_bag','category'=>'food','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                                               // In Out
         ['label' =>'Tüte mit labbrigen Chips','icon'=>'food_bar1','category'=>'food','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                              // In Out
@@ -301,10 +301,10 @@ class ItemFixtures extends Fixture
         ['label' =>'Apfel','icon'=>'apple','category'=>'food_7','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                                                   // In Out
 		
 		
-        ['label' =>'Grüne Bierflasche','icon'=>'vodka_de','category'=>'food_a','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                                    // In Out
-        ['label' =>'Vodka Marinostov','icon'=>'vodka','category'=>'food_a','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                                    // In Out
-        ['label' =>"'Wake The Dead'",'icon'=>'rhum','category'=>'food_a','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                                          // In Out
-        ['label' =>'Bierkrug','icon'=>'fest','category'=>'food_a','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                                                 // In Out
+        ['label' =>'Grüne Bierflasche','icon'=>'vodka_de','category'=>'food_a','deco'=>0,'heavy'=>false, 'watchpoint' => 0, 'fragile' => true],                                    // In Out
+        ['label' =>'Vodka Marinostov','icon'=>'vodka','category'=>'food_a','deco'=>0,'heavy'=>false, 'watchpoint' => 0, 'fragile' => true],                                    // In Out
+        ['label' =>"'Wake The Dead'",'icon'=>'rhum','category'=>'food_a','deco'=>0,'heavy'=>false, 'watchpoint' => 0, 'fragile' => true],                                          // In Out
+        ['label' =>'Bierkrug','icon'=>'fest','category'=>'food_a','deco'=>0,'heavy'=>false, 'watchpoint' => 0, 'fragile' => true],                                                 // In Out
 		
         ['label' =>'Menschenfleisch','icon'=>'hmeat','category'=>'food_g','deco'=>0,'heavy'=>false, 'watchpoint' => 20],                                         // In Out
         ['label' =>'Knochen mit Fleisch','icon'=>'bone_meat','category'=>'food_g','deco'=>0,'heavy'=>false, 'watchpoint' => 10],                                 // In Out
@@ -416,7 +416,8 @@ class ItemFixtures extends Fixture
 		['label' =>'Eisengefäß mit modrigem Wasser','icon'=>'water_cup_part','category'=>'misc','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                 // In Out
 		['label' =>'Möbelpackung','icon'=>'deco_box','category'=>'misc','deco'=>0,'heavy'=>true, 'watchpoint' => 8],                                             // -- ---
 		['label' =>'Abgenutzte Kuriertasche','icon'=>'bplan_drop','category'=>'misc','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                               // In Out
-		
+		['label' =>'Unidentifizierbare Trümmerstücke','icon'=>'broken','category'=>'misc','deco'=>0,'heavy'=>false, 'watchpoint' => 0],
+
 		
         ['label' => 'Super-Flaum-Pulver','icon' => 'firework_powder','category' => 'root_ein','deco' => 5,'heavy' => false, 'watchpoint' => 0],                       // -- ---
         ['label' => 'Flush-Abschussrohr','icon' => 'firework_tube','category' => 'root_ein','deco' => 2,'heavy' => true, 'watchpoint' => 0],                                 // In Out
@@ -774,6 +775,7 @@ class ItemFixtures extends Fixture
         'food_xmas_#00' => 'Das ist eine seltsam aussehende kleine Bestie... Scheint einer Krähe zu ähneln... Aber es ist grün und trägt einen komischen Hut...',
         'wood_xmas_#00' => 'Entweder ein verschrumpelter alter Weihnachtskuchen oder etwas weniger Schmackhaftes, das dennoch am Weihnachtstag gebacken wird! Genießen Sie auf jeden Fall diesen Kuchen... Ding...',
         'leprechaun_suit_#00' => 'In dieser Aufmachung sind Sie so auffällig, dass Sie niemand bemerkt oder glaubt, sich das eingebildet zu haben! Sie würden es nicht missbrauchen, oder?',
+        'broken_#00' => 'Diese Trümmerstücke waren mal Teil eines Gegenstandes, den du nicht mehr identifizieren kannst. Die Verformung der Teile lassen vermuten, dass dieser Gegenstand mit hoher Geschwindigkeit am Boden aufgeprallt ist...',
     ];
     
     public static $item_prototype_properties = [
@@ -1228,8 +1230,9 @@ class ItemFixtures extends Fixture
                 ->setHideInForeignChest( $entry['hideInForeignChest'] ?? false )
                 ->getProperties()->clear();
 
-            if(isset($entry['watchpoint']))
-                $entity->setWatchpoint($entry['watchpoint']);
+            $entity
+                ->setWatchpoint($entry['watchpoint'] ?? 0)
+                ->setFragile( $entry['fragile'] ?? false );
 
             if (isset(static::$item_prototype_properties[$entry_unique_id]))
                 foreach (static::$item_prototype_properties[$entry_unique_id] as $property) {
