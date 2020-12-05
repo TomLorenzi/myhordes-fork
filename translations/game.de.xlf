@@ -14653,7 +14653,7 @@
         <target>Häuser der Bürger</target>
       </segment>
     </unit>
-    <unit id="dcfxfNT" name="Temporäre Verteidigung">
+    <unit id="7ufciQ4" name="Temporäre Verteidigung">
       <notes>
         <note category="german">Temporäre Verteidigung</note>
       </notes>
@@ -14732,6 +14732,420 @@
       <segment>
         <source>Dieser Abwehrbonus verschwindet um Mitternacht, nach dem Angriff.</source>
         <target>Dieser Abwehrbonus verschwindet um Mitternacht, nach dem Angriff.</target>
+      </segment>
+    </unit>
+    <unit id="gkceIWw" name="dbc810c">
+      <notes>
+        <note category="german">Der Einwohner ist einfacher Bürger. Er verfügt über keine spezielle Fähigkeit.</note>
+      </notes>
+      <segment>
+        <source>Der Einwohner ist einfacher Bürger. Er verfügt über keine spezielle Fähigkeit.</source>
+        <target>Der Einwohner ist einfacher Bürger. Er verfügt über keine spezielle Fähigkeit.</target>
+      </segment>
+    </unit>
+    <unit id="1sFu13W" name="6d96558">
+      <notes>
+        <note category="german">Buddler können eine Zone im Vergleich zu den normalen Einwohnern schneller absuchen. Darüber hinaus haben sie eine höhere Chance, wertvolle Gegenstände zu finden.</note>
+      </notes>
+      <segment>
+        <source>Buddler können eine Zone im Vergleich zu den normalen Einwohnern schneller absuchen. Darüber hinaus haben sie eine höhere Chance, wertvolle Gegenstände zu finden.</source>
+        <target>Buddler können eine Zone im Vergleich zu den normalen Einwohnern schneller absuchen. Darüber hinaus haben sie eine höhere Chance, wertvolle Gegenstände zu finden.</target>
+      </segment>
+    </unit>
+    <unit id="BusTGgv" name="ca16d49">
+      <notes>
+        <note category="german">Der Wächter ist der geborener Kämpfer. In der Wüste kann er es mit weitaus mehr Zombies aufnehmen als jeder andere durchschnittliche Einwohner.</note>
+      </notes>
+      <segment>
+        <source>Der Wächter ist der geborener Kämpfer. In der Wüste kann er es mit weitaus mehr Zombies aufnehmen als jeder andere durchschnittliche Einwohner.</source>
+        <target>Der Wächter ist der geborener Kämpfer. In der Wüste kann er es mit weitaus mehr Zombies aufnehmen als jeder andere durchschnittliche Einwohner.</target>
+      </segment>
+    </unit>
+    <unit id="7hINRyx" name="59298e1">
+      <notes>
+        <note category="german">Der Aufklärer weiß sich geschickt zu tarnen, um sich mühelos selbst durch große Zombieansammlungen zu schleichen und Zonen aufzusuchen, in die sich keiner alleine trauen würde.</note>
+      </notes>
+      <segment>
+        <source>Der Aufklärer weiß sich geschickt zu tarnen, um sich mühelos selbst durch große Zombieansammlungen zu schleichen und Zonen aufzusuchen, in die sich keiner alleine trauen würde.</source>
+        <target>Der Aufklärer weiß sich geschickt zu tarnen, um sich mühelos selbst durch große Zombieansammlungen zu schleichen und Zonen aufzusuchen, in die sich keiner alleine trauen würde.</target>
+      </segment>
+    </unit>
+    <unit id="U1ZJKmn" name="798e354">
+      <notes>
+        <note category="german">Der Dompteur setzt seinen treuen Hund dazu ein, um in der Wüste gefundene Gegenstände in die Stadt zu bringen.</note>
+      </notes>
+      <segment>
+        <source>Der Dompteur setzt seinen treuen Hund dazu ein, um in der Wüste gefundene Gegenstände in die Stadt zu bringen.</source>
+        <target>Der Dompteur setzt seinen treuen Hund dazu ein, um in der Wüste gefundene Gegenstände in die Stadt zu bringen.</target>
+      </segment>
+    </unit>
+    <unit id="cPQAM2U" name="f829667">
+      <notes>
+        <note category="german">Der Techniker kann besser als jeder andere Einwohner an Bauprojekten mitwirken. Außerdem ist er sehr geübt darin, Schlösser und versperrte Türen zu öffnen.</note>
+      </notes>
+      <segment>
+        <source>Der Techniker kann besser als jeder andere Einwohner an Bauprojekten mitwirken. Außerdem ist er sehr geübt darin, Schlösser und versperrte Türen zu öffnen.</source>
+        <target>Der Techniker kann besser als jeder andere Einwohner an Bauprojekten mitwirken. Außerdem ist er sehr geübt darin, Schlösser und versperrte Türen zu öffnen.</target>
+      </segment>
+    </unit>
+    <unit id="2Cxepy1" name="719ff91">
+      <notes>
+        <note category="german">Der Schamane verfügt über mystische Fähigkeiten. Er kann die Seelen kürzlich verstorbener Bürger orten, die in der Außenwelt umher irren.</note>
+      </notes>
+      <segment>
+        <source>Der Schamane verfügt über mystische Fähigkeiten. Er kann die Seelen kürzlich verstorbener Bürger orten, die in der Außenwelt umher irren.</source>
+        <target>Der Schamane verfügt über mystische Fähigkeiten. Er kann die Seelen kürzlich verstorbener Bürger orten, die in der Außenwelt umher irren.</target>
+      </segment>
+    </unit>
+    <unit id="W8fp4NH" name="7b13048">
+      <notes>
+        <note category="german">Der Einsiedler ist ein Typ, mit dem seit Jahren niemand mehr geredet hat. Ganz auf sich allein gestellt, lebt er still vor sich hin. Wenn es ums Überleben geht, weiß sich der Einsiedler seit jeher zu helfen: Er findet immer etwas Ess- oder Trinkbares in der Wüste - egal, wo er sich gerade befindet.</note>
+      </notes>
+      <segment>
+        <source>Der Einsiedler ist ein Typ, mit dem seit Jahren niemand mehr geredet hat. Ganz auf sich allein gestellt, lebt er still vor sich hin. Wenn es ums Überleben geht, weiß sich der Einsiedler seit jeher zu helfen: Er findet immer etwas Ess- oder Trinkbares in der Wüste - egal, wo er sich gerade befindet.</source>
+        <target>Der Einsiedler ist ein Typ, mit dem seit Jahren niemand mehr geredet hat. Ganz auf sich allein gestellt, lebt er still vor sich hin. Wenn es ums Überleben geht, weiß sich der Einsiedler seit jeher zu helfen: Er findet immer etwas Ess- oder Trinkbares in der Wüste - egal, wo er sich gerade befindet.</target>
+      </segment>
+    </unit>
+    <unit id="dm7lYmp" name="e20fc42">
+      <notes>
+        <note category="german">Die &lt;strong&gt;Explosion des %plan%&lt;/strong&gt; hat den ganzen Sektor in Mitleidenschaft gezogen! Das wird sicher Spuren hinterlassen ...</note>
+      </notes>
+      <segment>
+        <source>Die &lt;strong&gt;Explosion des %plan%&lt;/strong&gt; hat den ganzen Sektor in Mitleidenschaft gezogen! Das wird sicher Spuren hinterlassen ...</source>
+        <target><![CDATA[Die <strong>Explosion des %plan%</strong> hat den ganzen Sektor in Mitleidenschaft gezogen! Das wird sicher Spuren hinterlassen ...]]></target>
+      </segment>
+    </unit>
+    <unit id="D80Dpwo" name="Das Stadttor von &quot;%townname%&quot;">
+      <notes>
+        <note category="german">Das Stadttor von "%townname%"</note>
+      </notes>
+      <segment>
+        <source>Das Stadttor von "%townname%"</source>
+        <target>Das Stadttor von "%townname%"</target>
+      </segment>
+    </unit>
+    <unit id=".i5DFTm" name="Gesamtansicht der Stadt">
+      <notes>
+        <note category="german">Gesamtansicht der Stadt</note>
+      </notes>
+      <segment>
+        <source>Gesamtansicht der Stadt</source>
+        <target>Gesamtansicht der Stadt</target>
+      </segment>
+    </unit>
+    <unit id="WLvQ7GY" name="Mein Zuhause (Truhe)">
+      <notes>
+        <note category="german">Mein Zuhause (Truhe)</note>
+      </notes>
+      <segment>
+        <source>Mein Zuhause (Truhe)</source>
+        <target>Mein Zuhause (Truhe)</target>
+      </segment>
+    </unit>
+    <unit id="honrhKi" name="Die Bürger">
+      <notes>
+        <note category="german">Die Bürger</note>
+      </notes>
+      <segment>
+        <source>Die Bürger</source>
+        <target>Die Bürger</target>
+      </segment>
+    </unit>
+    <unit id="STRIX5b" name="Wätcher">
+      <notes>
+        <note category="german">Wätcher</note>
+      </notes>
+      <segment>
+        <source>Wätcher</source>
+        <target>Wätcher</target>
+      </segment>
+    </unit>
+    <unit id="Rv1P1LM" name="Diese Bürger is der %role% der Stadt">
+      <notes>
+        <note category="german">Diese Bürger is der %role% der Stadt</note>
+      </notes>
+      <segment>
+        <source>Diese Bürger is der %role% der Stadt</source>
+        <target>Diese Bürger is der %role% der Stadt</target>
+      </segment>
+    </unit>
+    <unit id="L2mGaV4" name="Expeditionen">
+      <notes>
+        <note category="german">Expeditionen</note>
+      </notes>
+      <segment>
+        <source>Expeditionen</source>
+        <target>Expeditionen</target>
+      </segment>
+    </unit>
+    <unit id="VP5Pzpa" name="Verbessrung des Tages">
+      <notes>
+        <note category="german">Verbessrung des Tages</note>
+      </notes>
+      <segment>
+        <source>Verbessrung des Tages</source>
+        <target>Verbessrung des Tages</target>
+      </segment>
+    </unit>
+    <unit id="fh_ltq7" name="Die Bank">
+      <notes>
+        <note category="german">Die Bank</note>
+      </notes>
+      <segment>
+        <source>Die Bank</source>
+        <target>Die Bank</target>
+      </segment>
+    </unit>
+    <unit id="CGisub9" name="Bauprojekte der Stadt">
+      <notes>
+        <note category="german">Bauprojekte der Stadt</note>
+      </notes>
+      <segment>
+        <source>Bauprojekte der Stadt</source>
+        <target>Bauprojekte der Stadt</target>
+      </segment>
+    </unit>
+    <unit id="Qs_pglW" name="Der Brunnen">
+      <notes>
+        <note category="german">Der Brunnen</note>
+      </notes>
+      <segment>
+        <source>Der Brunnen</source>
+        <target>Der Brunnen</target>
+      </segment>
+    </unit>
+    <unit id="8l_i1Ah" name="Ein neuer Tag bricht an">
+      <notes>
+        <note category="german">Ein neuer Tag bricht an</note>
+      </notes>
+      <segment>
+        <source>Ein neuer Tag bricht an</source>
+        <target>Ein neuer Tag bricht an</target>
+      </segment>
+    </unit>
+    <unit id="QA25eiQ" name="An einem kalten Morgen">
+      <notes>
+        <note category="german">An einem kalten Morgen</note>
+      </notes>
+      <segment>
+        <source>An einem kalten Morgen</source>
+        <target>An einem kalten Morgen</target>
+      </segment>
+    </unit>
+    <unit id="FvwX8Vo" name="Die Außenwelt">
+      <notes>
+        <note category="german">Die Außenwelt</note>
+      </notes>
+      <segment>
+        <source>Die Außenwelt</source>
+        <target>Die Außenwelt</target>
+      </segment>
+    </unit>
+    <unit id="hZyt4RO" name="Ein beunruhigender Sonnenuntergang">
+      <notes>
+        <note category="german">Ein beunruhigender Sonnenuntergang</note>
+      </notes>
+      <segment>
+        <source>Ein beunruhigender Sonnenuntergang</source>
+        <target>Ein beunruhigender Sonnenuntergang</target>
+      </segment>
+    </unit>
+    <unit id="XRqPUn0" name="Eine eisige Nacht">
+      <notes>
+        <note category="german">Eine eisige Nacht</note>
+      </notes>
+      <segment>
+        <source>Eine eisige Nacht</source>
+        <target>Eine eisige Nacht</target>
+      </segment>
+    </unit>
+    <unit id="E2tLR1n" name="... allein">
+      <notes>
+        <note category="german">... allein</note>
+      </notes>
+      <segment>
+        <source>... allein</source>
+        <target>... allein</target>
+      </segment>
+    </unit>
+    <unit id="spLHhcB" name="an der Seite von %citizen%">
+      <notes>
+        <note category="german">an der Seite von %citizen%</note>
+      </notes>
+      <segment>
+        <source>an der Seite von %citizen%</source>
+        <target>an der Seite von %citizen%</target>
+      </segment>
+    </unit>
+    <unit id="8HYFzPV" name="irgendwo %location% der Stadt...">
+      <notes>
+        <note category="german">irgendwo %location% der Stadt...</note>
+      </notes>
+      <segment>
+        <source>irgendwo %location% der Stadt...</source>
+        <target>irgendwo %location% der Stadt...</target>
+      </segment>
+    </unit>
+    <unit id="3NwI9Wy" name="allein inmitten eines Labyrinths aus Schutt...">
+      <notes>
+        <note category="german">allein inmitten eines Labyrinths aus Schutt...</note>
+      </notes>
+      <segment>
+        <source>allein inmitten eines Labyrinths aus Schutt...</source>
+        <target>allein inmitten eines Labyrinths aus Schutt...</target>
+      </segment>
+    </unit>
+    <unit id="nQkFEwA" name="Am Eingang einer beängstigenden Ruine %location%">
+      <notes>
+        <note category="german">Am Eingang einer beängstigenden Ruine %location%</note>
+      </notes>
+      <segment>
+        <source>Am Eingang einer beängstigenden Ruine %location%</source>
+        <target>Am Eingang einer beängstigenden Ruine %location%</target>
+      </segment>
+    </unit>
+    <unit id="LV5ZZVt" name="an den Toren der Stadt">
+      <notes>
+        <note category="german">an den Toren der Stadt</note>
+      </notes>
+      <segment>
+        <source>an den Toren der Stadt</source>
+        <target>an den Toren der Stadt</target>
+      </segment>
+    </unit>
+    <unit id="yI_KLzz" name="eingeschlossen und auf den Tod wartend...">
+      <notes>
+        <note category="german">eingeschlossen und auf den Tod wartend...</note>
+      </notes>
+      <segment>
+        <source>eingeschlossen und auf den Tod wartend...</source>
+        <target>eingeschlossen und auf den Tod wartend...</target>
+      </segment>
+    </unit>
+    <unit id="IIcAXEH" name="Das Leichsblatt, Ausgabe vom %day%. Tag">
+      <notes>
+        <note category="german">Das Leichsblatt, Ausgabe vom %day%. Tag</note>
+      </notes>
+      <segment>
+        <source>Das Leichsblatt, Ausgabe vom %day%. Tag</source>
+        <target>Das Leichsblatt, Ausgabe vom %day%. Tag</target>
+      </segment>
+    </unit>
+    <unit id="iqRYPYk" name="Wiedergeburt: Wähle einen Beruf">
+      <notes>
+        <note category="german">Wiedergeburt: Wähle einen Beruf</note>
+      </notes>
+      <segment>
+        <source>Wiedergeburt: Wähle einen Beruf</source>
+        <target>Wiedergeburt: Wähle einen Beruf</target>
+      </segment>
+    </unit>
+    <unit id="JPF0EfZ" name="Klick hier, um mehr über diesen Beruf zu erfahren...">
+      <notes>
+        <note category="german">Klick hier, um mehr über diesen Beruf zu erfahren...</note>
+      </notes>
+      <segment>
+        <source>Klick hier, um mehr über diesen Beruf zu erfahren...</source>
+        <target>Klick hier, um mehr über diesen Beruf zu erfahren...</target>
+      </segment>
+    </unit>
+    <unit id="GErJWB." name="Zur zeit in der Stadt">
+      <notes>
+        <note category="german">Zur zeit in der Stadt</note>
+      </notes>
+      <segment>
+        <source>Zur zeit in der Stadt</source>
+        <target>Zur zeit in der Stadt</target>
+      </segment>
+    </unit>
+    <unit id="dC.LILA" name="Die Bürger dieser Stadt haben die unten aufgeführten Berufe gewählt.">
+      <notes>
+        <note category="german">Die Bürger dieser Stadt haben die unten aufgeführten Berufe gewählt.</note>
+      </notes>
+      <segment>
+        <source>Die Bürger dieser Stadt haben die unten aufgeführten Berufe gewählt.</source>
+        <target>Die Bürger dieser Stadt haben die unten aufgeführten Berufe gewählt.</target>
+      </segment>
+    </unit>
+    <unit id="TIikksZ" name="Wiedergeburt: Privatstadt gründen">
+      <notes>
+        <note category="german">Wiedergeburt: Privatstadt gründen</note>
+      </notes>
+      <segment>
+        <source>Wiedergeburt: Privatstadt gründen</source>
+        <target>Wiedergeburt: Privatstadt gründen</target>
+      </segment>
+    </unit>
+    <unit id="LCh7GiT" name="Wiedergeburt: Wahl der Partie">
+      <notes>
+        <note category="german">Wiedergeburt: Wahl der Partie</note>
+      </notes>
+      <segment>
+        <source>Wiedergeburt: Wahl der Partie</source>
+        <target>Wiedergeburt: Wahl der Partie</target>
+      </segment>
+    </unit>
+    <unit id="lUcvZQo" name="Hilfe">
+      <notes>
+        <note category="german">Hilfe</note>
+      </notes>
+      <segment>
+        <source>Hilfe</source>
+        <target>Hilfe</target>
+      </segment>
+    </unit>
+    <unit id="9XUKXXI" name="Einstellungen">
+      <notes>
+        <note category="german">Einstellungen</note>
+      </notes>
+      <segment>
+        <source>Einstellungen</source>
+        <target>Einstellungen</target>
+      </segment>
+    </unit>
+    <unit id="nPZDQO6" name="Ranglisten der Saison">
+      <notes>
+        <note category="german">Ranglisten der Saison</note>
+      </notes>
+      <segment>
+        <source>Ranglisten der Saison</source>
+        <target>Ranglisten der Saison</target>
+      </segment>
+    </unit>
+    <unit id="ViEKCFv" name="Die Zukunft">
+      <notes>
+        <note category="german">Die Zukunft</note>
+      </notes>
+      <segment>
+        <source>Die Zukunft</source>
+        <target>Die Zukunft</target>
+      </segment>
+    </unit>
+    <unit id="aGs0YSI" name="Die verfluchten Schriften">
+      <notes>
+        <note category="german">Die verfluchten Schriften</note>
+      </notes>
+      <segment>
+        <source>Die verfluchten Schriften</source>
+        <target>Die verfluchten Schriften</target>
+      </segment>
+    </unit>
+    <unit id="wUzzlwQ" name="Meine Seele">
+      <notes>
+        <note category="german">Meine Seele</note>
+      </notes>
+      <segment>
+        <source>Meine Seele</source>
+        <target>Meine Seele</target>
+      </segment>
+    </unit>
+    <unit id="JAkgM4Z" name="Kleine Koalitionen">
+      <notes>
+        <note category="german">Kleine Koalitionen</note>
+      </notes>
+      <segment>
+        <source>Kleine Koalitionen</source>
+        <target>Kleine Koalitionen</target>
       </segment>
     </unit>
   </file>

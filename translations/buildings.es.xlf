@@ -653,7 +653,7 @@
       <notes>
         <note category="german">Der Verteidigungsbonus von Gegenständen in der Bank steigt um 100%.</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Der Verteidigungsbonus von Gegenständen in der Bank steigt um 100%.</source>
         <target>Cada objeto de defensa en el Almacén aporta 1 punto de defensa adicional al pueblo.</target>
       </segment>
@@ -662,7 +662,7 @@
       <notes>
         <note category="german">Der Verteidigungsbonus von Gegenständen in der Bank steigt um 150%.</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Der Verteidigungsbonus von Gegenständen in der Bank steigt um 150%.</source>
         <target>Cada objeto de defensa en el Almacén aporta 1.5 puntos de defensa adicionales al pueblo.</target>
       </segment>
@@ -671,7 +671,7 @@
       <notes>
         <note category="german">Der Verteidigungsbonus von Gegenständen in der Bank steigt um 200%.</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Der Verteidigungsbonus von Gegenständen in der Bank steigt um 200%.</source>
         <target>Cada objeto de defensa en el Almacén aporta 2 puntos de defensa adicionales al pueblo.</target>
       </segment>
@@ -680,7 +680,7 @@
       <notes>
         <note category="german">Der Verteidigungsbonus von Gegenständen in der Bank steigt um 250%.</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Der Verteidigungsbonus von Gegenständen in der Bank steigt um 250%.</source>
         <target>Cada objeto de defensa en el Almacén aporta 2.5 puntos de defensa adicionales al pueblo.</target>
       </segment>
@@ -689,7 +689,7 @@
       <notes>
         <note category="german">Der Verteidigungsbonus von Gegenständen in der Bank steigt um 300%.</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Der Verteidigungsbonus von Gegenständen in der Bank steigt um 300%.</source>
         <target>Cada objeto de defensa en el Almacén aporta 3 puntos de defensa adicionales al pueblo.</target>
       </segment>
@@ -2579,7 +2579,7 @@
       <notes>
         <note category="german">Dank diesem wahrlich großen Bauwerk können Bürger ihre Häuser noch aufwändiger ausbauen.</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Dank diesem wahrlich großen Bauwerk können Bürger ihre Häuser noch aufwändiger ausbauen.</source>
         <target>Te provee las estructuras necesarias para construir casas individuales más avanzadas.</target>
       </segment>
@@ -2741,7 +2741,7 @@
       <notes>
         <note category="german">Nur der Schamane kennt das Geheimnis dieses rituellen Feuertanzes. Richtig ausgeführt, steigt eine kleine Wolke in den Himmel und bewirkt, dass ein Schauer heiligen Wassers auf die Zombiehorde niedergeht.</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Nur der Schamane kennt das Geheimnis dieses rituellen Feuertanzes. Richtig ausgeführt, steigt eine kleine Wolke in den Himmel und bewirkt, dass ein Schauer heiligen Wassers auf die Zombiehorde niedergeht.</source>
         <target>Un ritual que consiste en una danza alrededor de un fuego encendido. Solo el chamán conoce su secreto. Crea una nube que flota en el aire y hace que una lluvia de agua bendita caiga sobre la horda de zombis.</target>
       </segment>
@@ -2750,7 +2750,7 @@
       <notes>
         <note category="german">Ein über 2 Meter hoher, schimmliger Wollballen, über und über mit Stricken und Nadeln bedeckt. In den mächtigen Händen des Schamanen wird dieses *Ding* zu einem XXL-Püppchen, das etliche Zombies niederstreckt, ehe es wieder eine unförmige, unbewegliche Masse wird.</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Ein über 2 Meter hoher, schimmliger Wollballen, über und über mit Stricken und Nadeln bedeckt. In den mächtigen Händen des Schamanen wird dieses *Ding* zu einem XXL-Püppchen, das etliche Zombies niederstreckt, ehe es wieder eine unförmige, unbewegliche Masse wird.</source>
         <target>Una estructura de lana mohosa de más de 2 metros de altura, cubierto con cuerdas y agujas. En las manos del chamán, este muñeco XXL derriba a varios zombis antes de convertirse en una masa inmóvil de nuevo.</target>
       </segment>
@@ -2759,7 +2759,7 @@
       <notes>
         <note category="german">Dieser Zauber des Schamanen erschafft ein Trugbild der Stadt. Als Folge verliert sich eine beträchtliche Anzahl Zombies heillos in der Wüste.</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Dieser Zauber des Schamanen erschafft ein Trugbild der Stadt. Als Folge verliert sich eine beträchtliche Anzahl Zombies heillos in der Wüste.</source>
         <target>El Chamán crea una ilusión de la ciudad. Como resultado, un gran número de zombis irán hacia allá.</target>
       </segment>
@@ -2768,7 +2768,7 @@
       <notes>
         <note category="german">Mit Hilfe einer teuflischen Guillotine und einer provisorischen Schaufensterpuppe, kann der Schamane aus der Entfernung den Kopf eines Zombierudel-Führers abschlagen. Die Zombies die ihm folgen, werden daraufhin abdrehen und wieder in die Wüste wandern.</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Mit Hilfe einer teuflischen Guillotine und einer provisorischen Schaufensterpuppe, kann der Schamane aus der Entfernung den Kopf eines Zombierudel-Führers abschlagen. Die Zombies die ihm folgen, werden daraufhin abdrehen und wieder in die Wüste wandern.</source>
         <target>Con la ayuda de una Guillotina diabólica y un maniquí provisional, el Chamán puede cortar la cabeza del líder de la horda de los zombis a distancia. Todos los zombis que lo siguen no sabrán continuar el camino y se quedarán vagando por el desierto.</target>
       </segment>
@@ -2804,7 +2804,7 @@
       <notes>
         <note category="german">Diese Waffenwerkstatt ist euer Trumpf für die Nachtwache. Wird sie gebaut, wird jede Waffe, die während der Wacht zum Einsatz kommt um 20% verstärkt.</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Diese Waffenwerkstatt ist euer Trumpf für die Nachtwache. Wird sie gebaut, wird jede Waffe, die während der Wacht zum Einsatz kommt um 20% verstärkt.</source>
         <target>Esta armería será de gran utilidad para los centinelas, construyendo esto, cada arma utilizada por ellos recibirá una eficacia adicional de 20%</target>
       </segment>
@@ -3128,7 +3128,7 @@
       <notes>
         <note category="german">Sie zeigen Dawn of the Dead... zum 636. Mal. Bisher war dir die überzeugende Darstellung eines Nebendarstellers noch nie so richtig aufgefallen. Es gibt tatsächlich noch etwas Neues zu entdecken. Und wer weiß? Mit ein bisschen Glück bringt dich der Film ja sogar zum Lachen.</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Sie zeigen Dawn of the Dead... zum 636. Mal. Bisher war dir die überzeugende Darstellung eines Nebendarstellers noch nie so richtig aufgefallen. Es gibt tatsächlich noch etwas Neues zu entdecken. Und wer weiß? Mit ein bisschen Glück bringt dich der Film ja sogar zum Lachen.</source>
         <target>Proyectamos por milésima vez "Down of the Dead" por si no viste algunos detalles. Con un poco de suerte hasta te hará reír.</target>
       </segment>
@@ -3155,7 +3155,7 @@
       <notes>
         <note category="german">Da selbst der Bohrer des Bohrturms nicht durch jede Schicht durchkommt, muss man hin und wieder kleine und mit Dynamit bestückte Tiere in die Tiefe schicken. Dieses Projekt fügt den städtischen Wasserreserven +150 Rationen hinzu.</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Da selbst der Bohrer des Bohrturms nicht durch jede Schicht durchkommt, muss man hin und wieder kleine und mit Dynamit bestückte Tiere in die Tiefe schicken. Dieses Projekt fügt den städtischen Wasserreserven +150 Rationen hinzu.</source>
         <target>Porque el extractor de agua no puede atravesar algunas rocas, es a veces útil enviar pequeños animales con dinamita por los conductos. Esta construcción aporta +150 raciones de agua al pozo.</target>
       </segment>
@@ -3227,7 +3227,7 @@
       <notes>
         <note category="german">Ein Ort der Entspannung und der Meditation, perfekt geeignet um eine Seele auf die Andere Seite zu geleiten.</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Ein Ort der Entspannung und der Meditation, perfekt geeignet um eine Seele auf die Andere Seite zu geleiten.</source>
         <target>Un lugar de calma y relajación, especialmente preparado para favorecer la transición de las almas hacia el otro lado.</target>
       </segment>
@@ -3236,7 +3236,7 @@
       <notes>
         <note category="german">Die Verteidigung der Stadt wird um 12% erhöht.</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Die Verteidigung der Stadt wird um 12% erhöht.</source>
         <target>La organización de la defensa total del pueblo aumenta a 12%</target>
       </segment>
@@ -3245,7 +3245,7 @@
       <notes>
         <note category="german">Die Verteidigung der Stadt wird um 14% erhöht.</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Die Verteidigung der Stadt wird um 14% erhöht.</source>
         <target>La organización de la defensa total del pueblo aumenta a 14%</target>
       </segment>
@@ -3254,7 +3254,7 @@
       <notes>
         <note category="german">Zaun (Baustellen)</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Zaun (Baustellen)</source>
         <target>Valla de madera</target>
       </segment>
@@ -3263,7 +3263,7 @@
       <notes>
         <note category="german">Die AP-Kosten aller Bauprojekte werden um 20% gesenkt. Erhöht die Effektivität von Reparaturen um einen Punkt.</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Die AP-Kosten aller Bauprojekte werden um 20% gesenkt. Erhöht die Effektivität von Reparaturen um einen Punkt.</source>
         <target>Los costos en PA de todas las obras se reducen en 20%. Aumenta la efectividad de las reparaciones en un punto.</target>
       </segment>
@@ -3272,7 +3272,7 @@
       <notes>
         <note category="german">Die AP-Kosten aller Bauprojekte werden um 25% gesenkt. Erhöht die Effektivität von Reparaturen um zwei Punkte.</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Die AP-Kosten aller Bauprojekte werden um 25% gesenkt. Erhöht die Effektivität von Reparaturen um zwei Punkte.</source>
         <target>Los costos en PA de todas las obras se reducen en 25%. Aumenta la efectividad de las reparaciones en dos puntos.</target>
       </segment>
@@ -3281,7 +3281,7 @@
       <notes>
         <note category="german">Zaun (Haus)</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Zaun (Haus)</source>
         <target>Valla</target>
       </segment>

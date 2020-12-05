@@ -43,15 +43,15 @@
     {% if not zone.prototype %}
         , {{'irgendwo %location% der Stadt...'|trans({'%location%': dir}, 'game')|raw}}
     {% elseif zone.buryCount > 0 %}
-        {{"alone in the middle of an insescapable forest of debris..."|trans({'%location%': dir}, 'game')|raw}}
+        {{"allein inmitten eines Labyrinths aus Schutt..."|trans({'%location%': dir}, 'game')|raw}}
     {% else %}
-        {{"Au pied d'une ruine inquiétante dans %location%"|trans({'%location%': dir}, 'game')|raw}}
+        {{"Am Eingang einer beängstigenden Ruine %location%"|trans({'%location%': dir}, 'game')|raw}}
     {% endif %}    
 {% else %}
     {{'an den Toren der Stadt'|trans({}, 'game')|raw}}
 {% endif %}
 {% if zone_blocked %}
-    , {{'trapped and waiting for death...'|trans({}, 'game')|raw}}
+    , {{'eingeschlossen und auf den Tod wartend...'|trans({}, 'game')|raw}}
 {% endif %}
 {% endblock %}
 {% block menu_text %}
