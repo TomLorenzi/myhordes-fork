@@ -731,7 +731,7 @@ class TownAddonsController extends TownController
 
         $item = $this->entity_manager->getRepository(Item::class)->find($item_id);
 
-        if ($item === null || $item->getEssential() || !$citizen->getInventory()->getItems()->contains($item) || ($x === 0 && $y === 0))
+        if ($item === null || $item->getEssential() || $item->getBroken() || !$citizen->getInventory()->getItems()->contains($item))
             return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
 
         $target_zone = $this->entity_manager->getRepository(Zone::class)->findOneByPosition($town,$x,$y);
@@ -748,16 +748,16 @@ class TownAddonsController extends TownController
 
             $alt_zones = [];
 
-            $alt_zone = ($x === 1 && $y === 0) ? null : $this->entity_manager->getRepository(Zone::class)->findOneByPosition($town,$x-1,$y);
+            $alt_zone = $this->entity_manager->getRepository(Zone::class)->findOneByPosition($town,$x-1,$y);
             if ($alt_zone) $alt_zones[] = $alt_zone;
 
-            $alt_zone = ($x === -1 && $y === 0) ? null : $this->entity_manager->getRepository(Zone::class)->findOneByPosition($town,$x+1,$y);
+            $alt_zone = $this->entity_manager->getRepository(Zone::class)->findOneByPosition($town,$x+1,$y);
             if ($alt_zone) $alt_zones[] = $alt_zone;
 
-            $alt_zone = ($x === 0 && $y === 1) ? null : $this->entity_manager->getRepository(Zone::class)->findOneByPosition($town,$x,$y-1);
+            $alt_zone = $this->entity_manager->getRepository(Zone::class)->findOneByPosition($town,$x,$y-1);
             if ($alt_zone) $alt_zones[] = $alt_zone;
 
-            $alt_zone = ($x === 0 && $y === -1) ? null : $this->entity_manager->getRepository(Zone::class)->findOneByPosition($town,$x,$y+1);
+            $alt_zone = $this->entity_manager->getRepository(Zone::class)->findOneByPosition($town,$x,$y+1);
             if ($alt_zone) $alt_zones[] = $alt_zone;
 
             if (!empty($alt_zones)) $target_zone = $this->random_generator->pick($alt_zones);
@@ -768,15 +768,17 @@ class TownAddonsController extends TownController
 
         $this->entity_manager->persist($this->log->catapultUsage($citizen, $item, $target_zone));
 
+        $target_inv = ($target_zone->getX() === 0 && $target_zone->getY() === 0) ? $town->getBank() : $target_zone->getFloor();
+
         if ($item->getPrototype()->getFragile()) {
             $debris_item = $item->getPrototype()->hasProperty('pet') ? 'undef_#00' : 'broken_#00';
 
-            $this->inventory_handler->forceMoveItem($target_zone->getFloor(), $debris = $if->createItem($debris_item));
+            $this->inventory_handler->forceMoveItem($target_inv, $debris = $if->createItem($debris_item));
             $this->inventory_handler->forceRemoveItem($item);
             $this->entity_manager->persist($this->log->catapultImpact($debris, $target_zone));
         } else {
             $this->entity_manager->persist($this->log->catapultImpact($item, $target_zone));
-            $this->inventory_handler->forceMoveItem( $target_zone->getFloor(), $item );
+            $this->inventory_handler->forceMoveItem( $target_inv, $item );
         }
 
         $this->addFlash('notice', $trans->trans('Sorgfältig verpackt hast du %item% in das Katapult gelegt. Der Gegenstand wurde auf %zone% geschleudert.', [
@@ -787,6 +789,7 @@ class TownAddonsController extends TownController
         // Persist
         $this->entity_manager->persist( $citizen );
         $this->entity_manager->persist( $target_zone );
+        $this->entity_manager->persist( $town );
 
         // Flush
         try {

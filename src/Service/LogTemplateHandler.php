@@ -1297,7 +1297,7 @@ class LogTemplateHandler
             ])
             ->setTown( $target->getTown() )
             ->setDay( $target->getTown()->getDay() )
-            ->setZone( $target )
+            ->setZone( ($target->getX() === 0 && $target->getY() === 0) ? null : $target )
             ->setTimestamp( new DateTime('now') );
     }
 }

@@ -38,7 +38,7 @@
                         <option value="-1">-- {{ 'Gegenstand auswählen'|trans({},'game') }} --</option>
                         {% for item in app.user.activeCitizen.inventory.items %}
                             {# @var item \App\Entity\Item #}
-                            {% if not item.essential %}
+                            {% if not item.essential and not item.broken %}
                                 <option value="{{ item.id }}">{{ item.prototype.label|trans({},'items') }}</option>
                             {% endif %}
                         {% endfor %}
@@ -77,8 +77,14 @@
                 const x = parseInt(document.getElementById('cata_x').value);
                 const y = parseInt(document.getElementById('cata_y').value);
 
-                if (item <= 0) $.html.message('error', '{{ 'Bitte wähle einen Gegenstand.'|trans({},'game') }}');
-                if (isNaN(x) || isNaN(y) || (x === 0 && y === 0)) $.html.message('error', '{{ 'Bitte gib die Zielkoordinaten ein.'|trans({},'game') }}');
+                if (item <= 0) {
+                    $.html.message('error', '{{ 'Bitte wähle einen Gegenstand.'|trans({},'game') }}');
+                    return;
+                }
+                if (isNaN(x) || isNaN(y)) {
+                    $.html.message('error', '{{ 'Bitte gib die Zielkoordinaten ein.'|trans({},'game') }}');
+                    return;
+                }
 
                 $.ajax.easySend( '{{ path('town_catapult_do_controller') }}', {item: item, x: x, y: y},
                     function () {

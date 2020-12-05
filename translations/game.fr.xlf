@@ -15345,5 +15345,41 @@
         <target>Vous emballez soigneusement, lestez puis placez %item% dans la catapulte. L'objet a été projeté en %zone%.</target>
       </segment>
     </unit>
+    <unit id="4UUmkln" name="Katapult-Bediener">
+      <notes>
+        <note category="german">Katapult-Bediener</note>
+      </notes>
+      <segment>
+        <source>Katapult-Bediener</source>
+        <target>Katapult-Bediener</target>
+      </segment>
+    </unit>
+    <unit id="AISIM8E" name="Du bist für das Katapult verantwortlich">
+      <notes>
+        <note category="german">Du bist für das Katapult verantwortlich</note>
+      </notes>
+      <segment>
+        <source>Du bist für das Katapult verantwortlich</source>
+        <target>Vous êtes responsable de la catapulte !</target>
+      </segment>
+    </unit>
+    <unit id="hCYUVMS" name="5c5e382">
+      <notes>
+        <note category="german">Du bist zum offiziellen Katapult-Bediener der Stadt ernannt worden. Diese Ernennung erfolgte durch Auslosung; Herzlichen Glückwunsch! Finde dich so bald wie Möglich beim städtischen Katapult ein.</note>
+      </notes>
+      <segment>
+        <source>Du bist zum offiziellen Katapult-Bediener der Stadt ernannt worden. Diese Ernennung erfolgte durch Auslosung; Herzlichen Glückwunsch! Finde dich so bald wie Möglich beim städtischen Katapult ein.</source>
+        <target>Vous avez été désigné(e) comme citoyen officiel responsable de la Catapulte de la ville ! Ceüe nomination s'est déroulée par tirage au sort, félicitations. Rendez-vous dans la section Catapulte de votre ville.</target>
+      </segment>
+    </unit>
+    <unit id=".SXRDqM" name="Einen zufälligen Bürger als Katapult-Bediener auslosen">
+      <notes>
+        <note category="german">Einen zufälligen Bürger als Katapult-Bediener auslosen</note>
+      </notes>
+      <segment>
+        <source>Einen zufälligen Bürger als Katapult-Bediener auslosen</source>
+        <target>Einen zufälligen Bürger als Katapult-Bediener auslosen</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
