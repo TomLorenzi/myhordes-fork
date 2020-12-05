@@ -723,7 +723,7 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
                     $citizen,
                     $item,$inv_source, $inv_target
                 )) === InventoryHandler::ErrorNone) {
-                    if ($counter->getCount() > 1)
+                    if ($counter->getCount() > 0)
                         $ba->increaseBankCount( $citizen );
 
                     $this->entity_manager->persist( $this->log->wellLog( $citizen, $counter->getCount() >= 1 ) );
