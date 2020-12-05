@@ -14679,7 +14679,7 @@
         <target>Le lutin vert a été vu volant %item% à %victim% !</target>
       </segment>
     </unit>
-    <unit id="dcfxfNT" name="Temporäre Verteidigung">
+    <unit id="7ufciQ4" name="Temporäre Verteidigung">
       <notes>
         <note category="german">Temporäre Verteidigung</note>
       </notes>
@@ -14850,7 +14850,7 @@
         <target>Ma maison (Coffre)</target>
       </segment>
     </unit>
-    <unit id="sK6WW0q" name="Gesamtansicht der Stadt">
+    <unit id=".i5DFTm" name="Gesamtansicht der Stadt">
       <notes>
         <note category="german">Gesamtansicht der Stadt</note>
       </notes>
@@ -15154,6 +15154,33 @@
       <segment>
         <source>Diese Bürger is der %role% der Stadt</source>
         <target>Ce citoyen est le %role% de la ville</target>
+      </segment>
+    </unit>
+    <unit id="3NwI9Wy" name="allein inmitten eines Labyrinths aus Schutt...">
+      <notes>
+        <note category="german">allein inmitten eines Labyrinths aus Schutt...</note>
+      </notes>
+      <segment>
+        <source>allein inmitten eines Labyrinths aus Schutt...</source>
+        <target>allein inmitten eines Labyrinths aus Schutt...</target>
+      </segment>
+    </unit>
+    <unit id="nQkFEwA" name="Am Eingang einer beängstigenden Ruine %location%">
+      <notes>
+        <note category="german">Am Eingang einer beängstigenden Ruine %location%</note>
+      </notes>
+      <segment>
+        <source>Am Eingang einer beängstigenden Ruine %location%</source>
+        <target>Am Eingang einer beängstigenden Ruine %location%</target>
+      </segment>
+    </unit>
+    <unit id="yI_KLzz" name="eingeschlossen und auf den Tod wartend...">
+      <notes>
+        <note category="german">eingeschlossen und auf den Tod wartend...</note>
+      </notes>
+      <segment>
+        <source>eingeschlossen und auf den Tod wartend...</source>
+        <target>eingeschlossen und auf den Tod wartend...</target>
       </segment>
     </unit>
   </file>
