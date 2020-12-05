@@ -88,7 +88,7 @@ class ItemFixtures extends Fixture
         ['label' =>'MagLite Kinderlampe (2 Ladungen)','icon'=>'maglite_2','category'=>'furniture','deco'=>5,'heavy'=>false, 'watchpoint' => 0],                     // -- ---
 		['label' =>'Krebserregender Ofen','icon'=>'machine_2','category'=>'furniture','deco'=>2,'heavy'=>true, 'watchpoint' => 15],                                    // -- Out
 		['label' =>'Alte Waschmaschine','icon'=>'machine_1','category'=>'furniture','deco'=>2,'heavy'=>true, 'watchpoint' => 19],                                      // -- Out
-		['label' =>'Wütende Mieze (halb verdaut)','icon'=>'angryc','category'=>'furniture','deco'=>1,'heavy'=>false, 'watchpoint' => 0],                           // --
+		['label' =>'Wütende Mieze (halb verdaut)','icon'=>'angryc','category'=>'furniture','deco'=>1,'heavy'=>false, 'watchpoint' => 0, 'fragile' => true],                           // --
 		['label' =>'Kassettenradio','icon'=>'radio_on','category'=>'furniture','deco'=>2,'heavy'=>false, 'watchpoint' => -10],                                    // -- ---
         ['label' =>'Schaukelstuhl','icon'=>'chair','category'=>'furniture','deco'=>5,'heavy'=>true, 'watchpoint' => 15],                                         // -- ---
         ['label' =>'Ausgeschaltete Nachttischlampe','icon'=>'lamp','category'=>'furniture','deco'=>1,'heavy'=>false, 'watchpoint' => 4],                        // In Out
@@ -119,14 +119,14 @@ class ItemFixtures extends Fixture
         ['label' =>'Best of The King CD','icon'=>'cdelvi','category'=>'furniture','deco'=>7,'heavy'=>false, 'watchpoint' => 0],                                 // -- ---
         ['label' =>'Rock n Roll HiFi','icon'=>'dfhifi','category'=>'furniture','deco'=>10,'heavy'=>true, 'watchpoint' => 0],                                     // -- ---
         ['label' =>'Verteidigende HiFi','icon'=>'dfhifi','category'=>'furniture','deco'=>10,'heavy'=>true, 'watchpoint' => 0],                                   // -- ---
-		['label' =>'Großer knuddeliger Kater','icon'=>'pet_cat','category'=>'furniture','deco'=>5,'heavy'=>false, 'watchpoint' => 10],                              // -- Out
+		['label' =>'Großer knuddeliger Kater','icon'=>'pet_cat','category'=>'furniture','deco'=>5,'heavy'=>false, 'watchpoint' => 10, 'fragile' => true],                              // -- Out
 		['label' =>'Kaffeekocher','icon'=>'coffee_machine','category'=>'furniture','deco'=>5,'heavy'=>true, 'watchpoint' => 0],                                       // -- ---
 		['label' =>'PC-Gehäuse','icon'=>'pc','category'=>'furniture','deco'=>3,'heavy'=>true, 'watchpoint' => 11],                                                  // -- Out
 		['label' =>'Selbstgebaute Gitarre','icon'=>'guitar','category'=>'furniture','deco'=>6,'heavy'=>false, 'watchpoint' => 19],                                     // In ---
 		
 	
         ['label' =>'Matratze','icon'=>'bed','category'=>'armor','deco'=>3,'heavy'=>true, 'watchpoint' => 25],                                                    // -- ---
-        ['label' =>'Bissiger Hund','icon'=>'pet_dog','category'=>'armor','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                                          // -- Out
+        ['label' =>'Bissiger Hund','icon'=>'pet_dog','category'=>'armor','deco'=>0,'heavy'=>false, 'watchpoint' => 0, 'fragile' => true],                                          // -- Out
         ['label' =>'Blechplatte','icon'=>'plate','category'=>'armor','deco'=>0,'heavy'=>true, 'watchpoint' => 0],                                               // -- ---
         ['label' =>'Alte Tür','icon'=>'door','category'=>'armor','deco'=>0,'heavy'=>true, 'watchpoint' => 10],                                                   // -- ---
         ['label' =>'Unförmige Zementblöcke','icon'=>'concrete_wall','category'=>'armor','deco'=>0,'heavy'=>true, 'watchpoint' => 0],                            // -- Out
@@ -382,7 +382,7 @@ class ItemFixtures extends Fixture
         ['label' =>'Santas Rentier','icon'=>'renne','category'=>'misc','deco'=>0,'heavy'=>true, 'watchpoint' => 30],                                             // -- ---
         ['label' =>'Osterei','icon'=>'paques','category'=>'misc','deco'=>0,'heavy'=>false, 'watchpoint' => 38],                                                  // -- ---
         ['label' =>'Geistiger Beistand','icon'=>'chkspk','category'=>'misc','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                                       // -- ---
-        ['label' =>'Fette Python','icon'=>'pet_snake2','category'=>'misc','deco'=>0,'heavy'=>true, 'watchpoint' => 0],                                          // -- ---
+        ['label' =>'Fette Python','icon'=>'pet_snake2','category'=>'misc','deco'=>0,'heavy'=>true, 'watchpoint' => 0, 'fragile' => true],                                          // -- ---
         ['label' =>'Bürgerbekleidung','icon'=>'basic_suit','category'=>'misc','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                                     // -- ---
         ['label' =>'Dreckige Bürgerbekleidung','icon'=>'basic_suit_dirt','category'=>'misc','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                       // -- ---
         ['label' =>'Tarnanzug','icon'=>'vest_on','category'=>'misc','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                                               // -- ---
@@ -399,10 +399,10 @@ class ItemFixtures extends Fixture
         ['label' =>'Kamera aus Vorkriegs-Tagen','icon'=>'photo_2','category'=>'misc','deco'=>0,'heavy'=>false, 'watchpoint' => 0], 
         ['label' =>'Kamera aus Vorkriegs-Tagen','icon'=>'photo_1','category'=>'misc','deco'=>0,'heavy'=>false, 'watchpoint' => 0], 
         ['label' =>'Kamera aus Vorkriegs-Tagen','icon'=>'photo_off','category'=>'misc','deco'=>0,'heavy'=>false, 'watchpoint' => 0], 
-		['label' =>'Huhn','icon'=>'pet_chick','category'=>'misc','deco'=>0,'heavy'=>false, 'watchpoint' => 8],                                                // -- Out
-        ['label' =>'Übelriechendes Schwein','icon'=>'pet_pig','category'=>'misc','deco'=>0,'heavy'=>true, 'watchpoint' => 20],                                 // -- Out
-        ['label' =>'Riesige Ratte','icon'=>'pet_rat','category'=>'misc','deco'=>0,'heavy'=>false, 'watchpoint' => 4],                                         // -- Out
-        ['label' =>'Zwei-Meter Schlange','icon'=>'pet_snake','category'=>'misc','deco'=>0,'heavy'=>true, 'watchpoint' => 20],                                  // -- Out
+		['label' =>'Huhn','icon'=>'pet_chick','category'=>'misc','deco'=>0,'heavy'=>false, 'watchpoint' => 8, 'fragile' => true],                                                // -- Out
+        ['label' =>'Übelriechendes Schwein','icon'=>'pet_pig','category'=>'misc','deco'=>0,'heavy'=>true, 'watchpoint' => 20, 'fragile' => true],                                 // -- Out
+        ['label' =>'Riesige Ratte','icon'=>'pet_rat','category'=>'misc','deco'=>0,'heavy'=>false, 'watchpoint' => 4, 'fragile' => true],                                         // -- Out
+        ['label' =>'Zwei-Meter Schlange','icon'=>'pet_snake','category'=>'misc','deco'=>0,'heavy'=>true, 'watchpoint' => 20, 'fragile' => true],                                  // -- Out
 		['label' =>'Holzkistendeckel','icon'=>'wood_plate_part','category'=>'misc','deco'=>0,'heavy'=>true, 'watchpoint' => 0],                                // -- ---
 		['label' =>'Unverarbeitete Blechplatten','icon'=>'plate_raw','category'=>'misc','deco'=>0,'heavy'=>true, 'watchpoint' => 0],                           // -- ---
 		['label' =>'Kanisterpumpe (zerlegt)','icon'=>'jerrygun_part','category'=>'misc','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                          // -- ---

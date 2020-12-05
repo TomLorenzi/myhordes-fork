@@ -728,7 +728,9 @@ class TownAddonsController extends TownController
         $this->entity_manager->persist($this->log->catapultUsage($citizen, $item, $target_zone));
 
         if ($item->getPrototype()->getFragile()) {
-            $this->inventory_handler->forceMoveItem($target_zone->getFloor(), $debris = $if->createItem('broken_#00'));
+            $debris_item = $item->getPrototype()->hasProperty('pet') ? 'undef_#00' : 'broken_#00';
+
+            $this->inventory_handler->forceMoveItem($target_zone->getFloor(), $debris = $if->createItem($debris_item));
             $this->inventory_handler->forceRemoveItem($item);
             $this->entity_manager->persist($this->log->catapultImpact($debris, $target_zone));
         } else {
