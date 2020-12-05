@@ -275,7 +275,7 @@ class Zone
         return $this;
     }
 
-    public function getCampers() {
+    public function getCampers(): array {
         // No citizens = no campers.
         if ($this->citizens->isEmpty()) {
             return [];
