@@ -221,7 +221,7 @@ class NightlyHandler
                         //TODO: add the heroic power
                         break;
                     case "largerucksack1":
-                        $citizen->getInventory->setAdditionalStorage($citizen->getAdditionalStorage() + 1);
+                        $citizen->getInventory()->setAdditionalStorage($citizen->getAdditionalStorage() + 1);
                         break;
                     case "largechest1":
                     case "largechest2":
