@@ -187,7 +187,7 @@ class ItemFixtures extends Fixture
         ['label' =>'Aqua-Splash (4 Ladungen)','icon'=>'watergun_opt_4','category'=>'root_weapon','deco'=>0,'heavy'=>false, 'watchpoint' => 8],                       // -- Out
         ['label' =>'Batteriewerfer Mark II (geladen)','icon'=>'pilegun_up','category'=>'root_weapon','deco'=>0,'heavy'=>false, 'watchpoint' => 11],                   // -- Out
         ['label' =>'Verbrauchte Fackel','icon'=>'torch_off','category'=>'root_weapon','deco'=>0,'heavy'=>false, 'watchpoint' => 4],                                  // -- Out
-        ['label' =>'Mobiltelefon','icon'=>'iphone','category'=>'root_weapon','deco'=>0,'heavy'=>false, 'watchpoint' => 8],                                           // -- Out
+        ['label' =>'Mobiltelefon','icon'=>'iphone','category'=>'root_weapon','deco'=>0,'heavy'=>false, 'watchpoint' => 8, 'fragile' => true],                                           // -- Out
         ['label' =>'Explosive Pampelmuse','icon'=>'boomfruit','category'=>'root_weapon','deco'=>0,'heavy'=>false, 'watchpoint' => 8],                                // -- Out
         ['label' =>'Pfahlwerfer','icon'=>'rlaunc','category'=>'root_weapon','deco'=>0,'heavy'=>false, 'watchpoint' => 8],                                            // --
         ['label' =>'Kalaschni-Splash','icon'=>'kalach','category'=>'root_weapon','deco'=>0,'heavy'=>true, 'watchpoint' => 11],                                        // -- ---
@@ -285,7 +285,7 @@ class ItemFixtures extends Fixture
         ['label' =>'Gereinigtes modriges Wasser','icon'=>'water_cup','category'=>'food','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                           // In Out
         ['label' =>'Brezel','icon'=>'bretz','category'=>'food','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                                                    // In Out
         ['label' =>'Mutterkorn','icon'=>'fungus','category'=>'food','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                                               // -- ---
-        ['label' =>'Korn-Bräu','icon'=>'hmbrew','category'=>'food','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                                                // In Out
+        ['label' =>'Korn-Bräu','icon'=>'hmbrew','category'=>'food','deco'=>0,'heavy'=>false, 'watchpoint' => 0, 'fragile' => true],                                                // In Out
         ['label' =>'Verdächtiger Traubensaft','icon'=>'omg_this_will_kill_you','category'=>'food','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                 //
 		['label' =>'Nahrungsmittelkiste','icon'=>'chest_food','category'=>'food','deco'=>0,'heavy'=>true, 'watchpoint' => 0],                                    // In Out
 		

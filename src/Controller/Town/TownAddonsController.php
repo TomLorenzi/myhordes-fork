@@ -734,6 +734,9 @@ class TownAddonsController extends TownController
         if ($item === null || $item->getEssential() || $item->getBroken() || !$citizen->getInventory()->getItems()->contains($item))
             return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
 
+        if (in_array($item->getPrototype()->getName(), ['bagxl_#00', 'bag_#00', 'cart_#00']))
+            return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
+
         $target_zone = $this->entity_manager->getRepository(Zone::class)->findOneByPosition($town,$x,$y);
         if (!$target_zone) return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
 
