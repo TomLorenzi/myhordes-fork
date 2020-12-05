@@ -685,6 +685,7 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
      * @param InventoryHandler $handler
      * @param ItemFactory $factory
      * @param TownHandler $th
+     * @param BankAntiAbuseService $ba
      * @return Response
      */
     public function well_api(JSONRequestParser $parser, InventoryHandler $handler, ItemFactory $factory, TownHandler $th, BankAntiAbuseService $ba): Response {
@@ -722,7 +723,7 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
                     $citizen,
                     $item,$inv_source, $inv_target
                 )) === InventoryHandler::ErrorNone) {
-                    if ($counter->getCount() > 0)
+                    if ($counter->getCount() > 1)
                         $ba->increaseBankCount( $citizen );
 
                     $this->entity_manager->persist( $this->log->wellLog( $citizen, $counter->getCount() >= 1 ) );

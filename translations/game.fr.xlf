@@ -8224,7 +8224,7 @@
       </notes>
       <segment>
         <source>%citizen% hat einen Bauplan für %plan% gefunden.</source>
-        <target>%citizen% a trouvé un plan pour %plan%.</target>
+        <target>%citizen% a découvert le plan de construction du chantier %plan%.</target>
       </segment>
     </unit>
     <unit id="2jSPgup" name="c7e40ad">
@@ -8233,7 +8233,7 @@
       </notes>
       <segment>
         <source>%citizen% hat einen Bauplan für %plan% gefunden. Dafür ist das Bauprojekt %parent% nötig.</source>
-        <target>%citizen% a trouvé un plan pour %plan%. Le projet de construction %parent% est nécessaire pour cela.</target>
+        <target>%citizen% a découvert le plan de construction du chantier %plan%. Il requiert la construction de %parent%.</target>
       </segment>
     </unit>
     <unit id="_VJJKap" name="%num% Zombies haben vergeblich versucht, in das Haus von %citizen% einzudringen.">
