@@ -133,7 +133,7 @@ class InventoryAwareController extends CustomAbstractController
         $data['bp'] = $this->getActiveCitizen()->getBp();
         $data['max_bp'] = $this->citizen_handler->getMaxBP( $this->getActiveCitizen() );
         $data['status'] = $this->getActiveCitizen()->getStatus();
-        $data['roles'] = $this->getActiveCitizen()->getRoles();
+        $data['roles'] = $this->getActiveCitizen()->getVisibleRoles();
         $data['rucksack'] = $this->getActiveCitizen()->getInventory();
         $data['rucksack_size'] = $this->inventory_handler->getSize( $this->getActiveCitizen()->getInventory() );
         $data['pm'] = $this->getActiveCitizen()->getPm();

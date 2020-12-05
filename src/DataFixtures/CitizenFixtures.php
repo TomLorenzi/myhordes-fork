@@ -164,6 +164,7 @@ class CitizenFixtures extends Fixture implements DependentFixtureInterface
         ['label' => 'Schamane'                    , 'vote' => true,  'icon' => 'shaman', 'name'=>'shaman', 'hidden' => false, 'secret' => false ],
         ['label' => 'Reiseleiter in der Außenwelt', 'vote' => true,  'icon' => 'guide',  'name'=>'guide' , 'hidden' => false, 'secret' => false ],
         ['label' => 'Ghul',                         'vote' => false, 'icon' => 'ghoul',  'name'=>'ghoul' , 'hidden' => false, 'secret' => true, 'message' => 'Du hast dich in einen Ghul verwandelt!' ],
+        ['label' => 'Katapult-Bediener',            'vote' => false, 'icon' => '',  'name'=>'cata', 'hidden' => true, 'secret' => false ],
     ];
 
     public static $notificationMarkers = [

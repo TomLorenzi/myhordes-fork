@@ -3,6 +3,8 @@
 namespace App\Controller\Town;
 
 use App\Entity\Building;
+use App\Entity\Citizen;
+use App\Entity\CitizenRole;
 use App\Entity\CitizenWatch;
 use App\Entity\DailyUpgradeVote;
 use App\Entity\Item;
@@ -669,10 +671,14 @@ class TownAddonsController extends TownController
         if (!($catapult = $th->getBuilding($town, 'item_courroie_#00', true)))
             return $this->redirect($this->generateUrl('town_dashboard'));
 
+        /** @var Citizen $cata_master */
+        $cata_master = $this->entity_manager->getRepository(Citizen::class)->findLastOneByRoleAndTown($this->entity_manager->getRepository(CitizenRole::class)->findOneByName('cata'), $town);
+        if ($cata_master && !$cata_master->getAlive()) $cata_master = null;
+
         return $this->render( 'ajax/game/town/catapult.html.twig', $this->addDefaultTwigArgs('catapult', [
             'catapult_improved' => $th->getBuilding( $town, 'item_courroie_#01', true ) !== null,
-            'catapult_master' => $this->getActiveCitizen(),
-            'is_catapult_master' => true,
+            'catapult_master' => $cata_master,
+            'is_catapult_master' => $this->getActiveCitizen()->hasRole('cata'),
             'log' => $this->renderLog( -1, null, false, LogEntryTemplate::TypeCatapult, 10 )->getContent(),
         ]) );
     }
@@ -687,6 +693,21 @@ class TownAddonsController extends TownController
     }
 
     /**
+     * @Route("api/town/catapult/assign", name="town_catapult_assign_controller")
+     * @param TownHandler $townHandler
+     * @return Response
+     */
+    public function catapult_new_api(TownHandler $townHandler): Response
+    {
+        $selection = $townHandler->assignCatapultMaster( $this->getActiveCitizen()->getTown(), false );
+        if ($selection) {
+            $this->entity_manager->persist($selection);
+            $this->entity_manager->flush();
+            return AjaxResponse::success();
+        } else return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
+    }
+
+        /**
      * @Route("api/town/catapult/do", name="town_catapult_do_controller")
      * @param JSONRequestParser $parser
      * @param CitizenHandler $ch
@@ -698,7 +719,7 @@ class TownAddonsController extends TownController
         $town = $citizen->getTown();
 
         // Check if catapult is build
-        if (!$th->getBuilding($town, 'item_courroie_#00', true))
+        if (!$th->getBuilding($town, 'item_courroie_#00', true) || !$citizen->hasRole('cata'))
             return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
 
         // Get prototype ID

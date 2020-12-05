@@ -12,7 +12,7 @@
             {% if is_catapult_master %}
                 <strong>{{'Du wurdest als Verantwortlicher für das Katapult bestimmt!'|trans({},'game')}}</strong>
                 {{'Wähle einen Gegenstand aus deinem Inventar und gib die Zielkoordinaten ein.'|trans({},'game')}}
-            {% else %}
+            {% elseif catapult_master is not null %}
                 {{'Unser Katapult wird von dem vom Schicksal auserwählten Bürger %citizen% gesteuert. Sollte ihm etwas Schreckliches zustoßen, könnte dann ein neuer Bürger gewählt werden.'|trans({'%citizen%': ('<span class="link" x-ajax-href="' ~ path('town_visit', {id: catapult_master.id}) ~ '"><b>' ~ catapult_master.user.name ~ '</b></span>')},'game')|raw}}
             {% endif %}
         </p>
@@ -22,6 +22,12 @@
             {{ 'Die Aktivierung des Katapults kostet %ap% (diese Kosten können durch den Bau eines besseren Katapults gesenkt werden).'|trans({'%ap%': '<div class="ap">4</div>'},'game')|raw }}
         {% endif %}
     </div>
+
+    {% if catapult_master is null %}
+        <p>
+            <button id="cata_new">{{ 'Einen zufälligen Bürger als Katapult-Bediener auslosen'|trans({},'game') }}</button>
+        </p>
+    {% endif %}
 
     {% if is_catapult_master %}
         <div class="row">
@@ -75,6 +81,15 @@
                 if (isNaN(x) || isNaN(y) || (x === 0 && y === 0)) $.html.message('error', '{{ 'Bitte gib die Zielkoordinaten ein.'|trans({},'game') }}');
 
                 $.ajax.easySend( '{{ path('town_catapult_do_controller') }}', {item: item, x: x, y: y},
+                    function () {
+                        $.ajax.load(null, '{{ path('town_catapult') }}', true);
+                    } );
+            });
+        {% endif %}
+
+        {% if catapult_master is null %}
+            $.html.addEventListenerAll('#cata_new', 'click', function () {
+                $.ajax.easySend( '{{ path('town_catapult_assign_controller') }}', {},
                     function () {
                         $.ajax.load(null, '{{ path('town_catapult') }}', true);
                     } );
