@@ -7337,5 +7337,23 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
         <target>Diese Trümmerstücke waren mal Teil eines Gegenstandes, den du nicht mehr identifizieren kannst. Die Verformung der Teile lassen vermuten, dass dieser Gegenstand mit hoher Geschwindigkeit am Boden aufgeprallt ist...</target>
       </segment>
     </unit>
+    <unit id="sGKanc7" name="Abstimmen">
+      <notes>
+        <note category="german">Abstimmen</note>
+      </notes>
+      <segment>
+        <source>Abstimmen</source>
+        <target>Abstimmen</target>
+      </segment>
+    </unit>
+    <unit id="Rrf3E_z" name="Vous avez voté pour {citizen} en tant que {role} !">
+      <notes>
+        <note category="german">Vous avez voté pour {citizen} en tant que {role} !</note>
+      </notes>
+      <segment>
+        <source>Vous avez voté pour {citizen} en tant que {role} !</source>
+        <target>Vous avez voté pour {citizen} en tant que {role} !</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

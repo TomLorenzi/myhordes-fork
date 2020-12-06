@@ -15156,31 +15156,31 @@
         <target>Ce citoyen est le %role% de la ville</target>
       </segment>
     </unit>
-    <unit id="3NwI9Wy" name="allein inmitten eines Labyrinths aus Schutt...">
+    <unit id="FgE68_." name="inmitten eines unentwirrbaren Trümmerhaufens...">
       <notes>
-        <note category="german">allein inmitten eines Labyrinths aus Schutt...</note>
+        <note category="german">inmitten eines unentwirrbaren Trümmerhaufens...</note>
       </notes>
       <segment>
-        <source>allein inmitten eines Labyrinths aus Schutt...</source>
-        <target>allein inmitten eines Labyrinths aus Schutt...</target>
+        <source>inmitten eines unentwirrbaren Trümmerhaufens...</source>
+        <target>inmitten eines unentwirrbaren Trümmerhaufens...</target>
       </segment>
     </unit>
-    <unit id="nQkFEwA" name="Am Eingang einer beängstigenden Ruine %location%">
+    <unit id="xTpU96B" name="in einer unheimlichen Ruine %location%">
       <notes>
-        <note category="german">Am Eingang einer beängstigenden Ruine %location%</note>
+        <note category="german">in einer unheimlichen Ruine %location%</note>
       </notes>
       <segment>
-        <source>Am Eingang einer beängstigenden Ruine %location%</source>
-        <target>Am Eingang einer beängstigenden Ruine %location%</target>
+        <source>in einer unheimlichen Ruine %location%</source>
+        <target>in einer unheimlichen Ruine %location%</target>
       </segment>
     </unit>
-    <unit id="yI_KLzz" name="eingeschlossen und auf den Tod wartend...">
+    <unit id="TP3m8zB" name="sitzt in der Falle und wartet auf den Tod...">
       <notes>
-        <note category="german">eingeschlossen und auf den Tod wartend...</note>
+        <note category="german">sitzt in der Falle und wartet auf den Tod...</note>
       </notes>
       <segment>
-        <source>eingeschlossen und auf den Tod wartend...</source>
-        <target>eingeschlossen und auf den Tod wartend...</target>
+        <source>sitzt in der Falle und wartet auf den Tod...</source>
+        <target>sitzt in der Falle und wartet auf den Tod...</target>
       </segment>
     </unit>
     <unit id="mfY9mWB" name="68142c8">
@@ -15379,6 +15379,15 @@
       <segment>
         <source>Einen zufälligen Bürger als Katapult-Bediener auslosen</source>
         <target>Einen zufälligen Bürger als Katapult-Bediener auslosen</target>
+      </segment>
+    </unit>
+    <unit id="k9pQbZw" name="inmitten eines unentwirrbaren Trümmerhaufens">
+      <notes>
+        <note category="german">inmitten eines unentwirrbaren Trümmerhaufens</note>
+      </notes>
+      <segment>
+        <source>inmitten eines unentwirrbaren Trümmerhaufens</source>
+        <target>inmitten eines unentwirrbaren Trümmerhaufens</target>
       </segment>
     </unit>
   </file>
