@@ -77,9 +77,9 @@
       <notes>
         <note category="german">Das muss ein Zeichen sein! In dieser Welt ist kein Platz für Moral... du erhälst 1AP.</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Das muss ein Zeichen sein! In dieser Welt ist kein Platz für Moral... du erhälst 1AP.</source>
-        <target>¡Es una señal! Simplemente demuestra que no hay lugar para la moral en este mundo... Has ganado 1AP.</target>
+        <target>¡Es una señal! Simplemente demuestra que no hay lugar para la moral en este mundo... Has ganado 1PA.</target>
       </segment>
     </unit>
     <unit id="i6dx5ZQ" name="Das Symbol der Liebe... dein Herz schmilzt dahin und du erhälst 1AP.">
@@ -2327,9 +2327,9 @@
       <notes>
         <note category="german">Explosive Pampelmuse</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Explosive Pampelmuse</source>
-        <target>Pomelo eplosivo</target>
+        <target>Pomelo explosivo</target>
       </segment>
     </unit>
     <unit id="mxzzIXh" name="Abgenutzte Kuriertasche">
@@ -2669,9 +2669,9 @@
       <notes>
         <note category="german">Selbstgebaute Gitarre</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Selbstgebaute Gitarre</source>
-        <target>Selbstgebaute Gitarre</target>
+        <target>Guitarra artesanal</target>
       </segment>
     </unit>
     <unit id="lIXVQdW" name="LSD">
@@ -3110,18 +3110,18 @@
       <notes>
         <note category="german">Einnehmen</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Einnehmen</source>
-        <target>Einnehmen</target>
+        <target>Utilizar</target>
       </segment>
     </unit>
     <unit id="yvLm0Wo" name="Einsetzen">
       <notes>
         <note category="german">Einsetzen</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Einsetzen</source>
-        <target>Einsetzen</target>
+        <target>Utilizar</target>
       </segment>
     </unit>
     <unit id="0yUwJX." name="Du hast dein {item} ausgepackt und {items_spawn} erhalten!">
@@ -3146,9 +3146,9 @@
       <notes>
         <note category="german">&lt;nt-spawned&gt;Trotz aller Anstrengungen ist es dir nicht gelungen, den {item} zu öffnen...&lt;/nt-spawned&gt;&lt;t-spawned&gt;Du hast die {item} geöffnet und darin {items_spawn} gefunden!&lt;/t-spawned&gt;</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>&lt;nt-spawned&gt;Trotz aller Anstrengungen ist es dir nicht gelungen, den {item} zu öffnen...&lt;/nt-spawned&gt;&lt;t-spawned&gt;Du hast die {item} geöffnet und darin {items_spawn} gefunden!&lt;/t-spawned&gt;</source>
-        <target><![CDATA[<nt-spawned>Trotz aller Anstrengungen ist es dir nicht gelungen, den {item} zu öffnen...</nt-spawned><t-spawned>Du hast die {item} geöffnet und darin {items_spawn} gefunden!</t-spawned>]]></target>
+        <target>&lt;nt-spawned&gt;Pierdes un tiempo precioso buscando la combinación de ese baúl en vano...&lt;/nt-spawned&gt;&lt;t-spawned&gt;¡Ya está! &lt;strong&gt;¡Encontraste la combinación secreta del baúl!&lt;/strong&gt; Era 3141... Y descubres {items_spawn} en su interior.&lt;/t-spawned&gt;</target>
       </segment>
     </unit>
     <unit id="ANXSLZW" name="Laden">
@@ -3164,9 +3164,9 @@
       <notes>
         <note category="german">Du hast eine {items_consume} in dein/e/n {item_from} eingelegt und {item_to} erhalten!</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Du hast eine {items_consume} in dein/e/n {item_from} eingelegt und {item_to} erhalten!</source>
-        <target>Du hast eine {items_consume} in dein/e/n {item_from} eingelegt und {item_to} erhalten!</target>
+        <target>Has fabricado {item_to} combinando {items_consume} y {items_from}.</target>
       </segment>
     </unit>
     <unit id="80ooJ7d" name="Hierfür brauchst du eine Batterie.">
@@ -3191,18 +3191,18 @@
       <notes>
         <note category="german">Waffe einsetzen</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Waffe einsetzen</source>
-        <target>Waffe einsetzen</target>
+        <target>Atac. con</target>
       </segment>
     </unit>
     <unit id="LNBNFk1" name="Zum Glück sind hier keine Zombies...">
       <notes>
         <note category="german">Zum Glück sind hier keine Zombies...</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Zum Glück sind hier keine Zombies...</source>
-        <target>Zum Glück sind hier keine Zombies...</target>
+        <target>No hay zombies por aquí...</target>
       </segment>
     </unit>
     <unit id="3Kj2SRD" name="Lesen">
@@ -3218,18 +3218,18 @@
       <notes>
         <note category="german">Der Text ist überschrieben mit {rp_text}. Du beginnst, ihn zu lesen&lt;t-rp_ok&gt;! Der Text wurde deinem Archiv hinzugefügt.&lt;/t-rp_ok&gt;&lt;t-rp_fail&gt;... Leider stellst du fest, dass du diesen Text bereits kennst.&lt;/t-rp_fail&gt;</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Der Text ist überschrieben mit {rp_text}. Du beginnst, ihn zu lesen&lt;t-rp_ok&gt;! Der Text wurde deinem Archiv hinzugefügt.&lt;/t-rp_ok&gt;&lt;t-rp_fail&gt;... Leider stellst du fest, dass du diesen Text bereits kennst.&lt;/t-rp_fail&gt;</source>
-        <target><![CDATA[Der Text ist überschrieben mit {rp_text}. Du beginnst, ihn zu lesen<t-rp_ok>! Der Text wurde deinem Archiv hinzugefügt.</t-rp_ok><t-rp_fail>... Leider stellst du fest, dass du diesen Text bereits kennst.</t-rp_fail>]]></target>
+        <target><![CDATA[Examinas minuciosamente el texto {rp_text}. Lo lees con mucha atención...<t-rp_ok>¡Un nuevo documento ha sido agregado a tus Escritos!</t-rp_ok><t-rp_fail>Ya habías descubierto esos escritos. Por lo tanto no recibirás una distinción adicional.</t-rp_fail>]]></target>
       </segment>
     </unit>
     <unit id="glkUAZ8" name="Werfen">
       <notes>
         <note category="german">Werfen</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Werfen</source>
-        <target>Werfen</target>
+        <target>Utilizar</target>
       </segment>
     </unit>
     <unit id="UWEMZ3x" name="{casino}">
@@ -3245,9 +3245,9 @@
       <notes>
         <note category="german">Karte ziehen</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Karte ziehen</source>
-        <target>Karte ziehen</target>
+        <target>Utilizar</target>
       </segment>
     </unit>
     <unit id="WPixbld" name="Spielen">
@@ -3281,27 +3281,27 @@
       <notes>
         <note category="german">Das brauchst du gerade nicht ...</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Das brauchst du gerade nicht ...</source>
-        <target>Das brauchst du gerade nicht ...</target>
+        <target>No necesitas eso ahora mismo...</target>
       </segment>
     </unit>
     <unit id="INqBtd7" name="Aufstellen">
       <notes>
         <note category="german">Aufstellen</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Aufstellen</source>
-        <target>Aufstellen</target>
+        <target>Instalar</target>
       </segment>
     </unit>
     <unit id="Du_7vOz" name="Verbinden">
       <notes>
         <note category="german">Verbinden</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Verbinden</source>
-        <target>Verbinden</target>
+        <target>Utilizar</target>
       </segment>
     </unit>
     <unit id="j6UDssn" name="Reinigen">
@@ -5511,9 +5511,9 @@ Después de varios largos minutos de búsqueda, terminas por encontrar &lt;stron
       <notes>
         <note category="german">Ein wenig zu gross für dich. Sieht so aus als waren seine Vorbesitzer ein wenig beleibter und hatten schlechten Geschmack...was man ohne Zweifel erkennen kann.</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Ein wenig zu gross für dich. Sieht so aus als waren seine Vorbesitzer ein wenig beleibter und hatten schlechten Geschmack...was man ohne Zweifel erkennen kann.</source>
-        <target>Es un poco grande para ti:parece haber pertenecido a alguien con una gran barriga y mal gusto, como se puede ver claramente en el blanco del cuello y los puños</target>
+        <target>Es un poco grande para ti: parece haber pertenecido a alguien con una gran barriga y mal gusto, como se puede ver claramente en el blanco del cuello y los puños</target>
       </segment>
     </unit>
     <unit id="1LbsOcT" name="b63710a">
@@ -7020,9 +7020,9 @@ Después de varios largos minutos de búsqueda, terminas por encontrar &lt;stron
       <notes>
         <note category="german">Reinigen (Kleidung)</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Reinigen (Kleidung)</source>
-        <target>Reinigen (Kleidung)</target>
+        <target>Limpiar</target>
       </segment>
     </unit>
     <unit id="CW6G1J5" name="5e04d7b">
