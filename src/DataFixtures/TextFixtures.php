@@ -500,16 +500,13 @@ class TextFixtures extends Fixture
             'background' => 'notepad',
         ],
         'dv_024' => [
-            'title' => 'Mitteilung',
+            'title' => 'Mitteilung: Diebe',
             'author' => 'DBDevil',
             'content' => [
-                '<br/><br/><br/><b>Mitteilung</b><br /><br />
-                Hiermit werden die Strafen für Diebstahl
-                verschärft. Die Verbrecher werden ab sofort im
-                Kremato-Cue verbrannt. Um weitere Unfälle zu
-                verhindern, bleiben Haustiere als
-                Diebstahlschutz weiterhin verboten und sind beim
-                Metzger abzuliefern.<br/><br/>- Die Bürgerversammlung'
+                '<div class="hr"></div>
+				<h1>Mitteilung</h1>
+				<p>Hiermit werden die Strafen für Diebstahl verschärft. Die Verbrecher werden ab sofort im Kremato-Cue verbrannt. Um weitere Unfälle zu verhindern, bleiben Haustiere als Diebstahlschutz weiterhin verboten und sind beim Metzger abzuliefern.</p>
+				<p>- Die Bürgerversammlung</p>'
             ],
             'lang' => 'de',
             'design' => 'typed',
