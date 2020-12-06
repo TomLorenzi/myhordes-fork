@@ -698,12 +698,13 @@ class InventoryAwareController extends CustomAbstractController
                 }
             }
 
+            try {
+                $this->entity_manager->flush();
+            } catch (Exception $e) {
+                return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
+            }
+
             if (count($errors) < $item_count) {
-                try {
-                    $this->entity_manager->flush();
-                } catch (Exception $e) {
-                    return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
-                }
                 return AjaxResponse::success();
             } else if (count($errors) > 0)
                 return AjaxResponse::error($errors[0]);
