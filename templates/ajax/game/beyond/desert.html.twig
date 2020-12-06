@@ -1,4 +1,38 @@
 {% extends "ajax/game/beyond/beyond.html.twig" %}
+{% block title %}
+{# Time of day #}
+{% if "now"|date('H') < 12 %}
+    {{'An einem kalten Morgen...'|trans({}, 'game')|raw}}
+{% else %}
+    {{"Die Außenwelt..."|trans({}, 'game')|raw}}
+{% endif %}
+{# Alone or not #}
+{% if other_citizens|length == 1 %}
+{{'allein'|trans({}, 'game')|raw}}
+{% endif %}
+{# Direction #}
+{% set dir = "" %}
+{% if zone.getDirection == constant('App\\Entity\\Zone::DirectionNorthWest') %}
+    {% set dir = "im Nordwesten"|trans({},'game') %}
+{% elseif zone.getDirection == constant('App\\Entity\\Zone::DirectionNorth') %}
+    {% set dir = "im Norden"|trans({},'game') %}
+{% elseif zone.getDirection == constant('App\\Entity\\Zone::DirectionNorthEast') %}
+    {% set dir = "im Nordosten"|trans({},'game') %}
+{% elseif zone.getDirection == constant('App\\Entity\\Zone::DirectionWest') %}
+    {% set dir = "im Westen"|trans({},'game') %}
+{% elseif zone.getDirection == constant('App\\Entity\\Zone::DirectionEast') %}
+    {% set dir = "im Osten"|trans({},'game') %}
+{% elseif zone.getDirection == constant('App\\Entity\\Zone::DirectionSouthWest') %}
+    {% set dir = "im Südwesten"|trans({},'game') %}
+{% elseif zone.getDirection == constant('App\\Entity\\Zone::DirectionSouth') %}
+    {% set dir = "im Süden"|trans({},'game') %}
+{% elseif zone.getDirection == constant('App\\Entity\\Zone::DirectionSouthEast') %}
+    {% set dir = 'im Südosten'|trans({},'game') %}
+{% endif %}
+{% if dir != "" %}
+, {{'irgendwo %location% der Stadt...'|trans({'%location%': dir}, 'game')|raw}}
+{% endif %}
+{% endblock %}
 {% block menu_text %}
     {{ parent() }}
 {% endblock %}
@@ -142,6 +176,15 @@
                         {% trans from 'game' %}
                             Diese Zone ist leergesucht. Du wirst hier keine wertvollen Gegenstände mehr finden können.
                         {% endtrans %}
+                        <a class="help-button">
+                            <div class="tooltip help">
+                                {% trans from 'global' %}
+                                Die große Anzahl an Erdhaufen und an herumliegenden Müll sind ein Indiz dafür, dass hier wahrscheinlich nichts mehr zu finden ist.
+                                <p><em>Wenn du möchtest, kannst du allerdings weitergraben und ein paar minderwertige Materialien für die verschiedenen Baustellen der Stadt zu Tage fördern..</em></p>
+                                {% endtrans %}
+                            </div>
+                            {{ 'Hilfe'|trans({},'global') }}
+                        </a>
                     </div>
                 {% endif %}
 

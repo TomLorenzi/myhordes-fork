@@ -146,6 +146,9 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
      */
     public function dashboard(TownHandler $th): Response
     {
+        if (!$this->getActiveCitizen()->getHasSeenGazette())
+            return $this->redirect($this->generateUrl('game_newspaper'));
+
         $town = $this->getActiveCitizen()->getTown();
 
         $has_zombie_est_today    = !empty($th->getBuilding($town, 'item_tagger_#00'));
@@ -263,6 +266,9 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
      */
     public function visit(int $id, EntityManagerInterface $em, TownHandler $th): Response
     {
+        if (!$this->getActiveCitizen()->getHasSeenGazette())
+            return $this->redirect($this->generateUrl('game_newspaper'));
+
         if ($id === $this->getActiveCitizen()->getId())
             return $this->redirect($this->generateUrl('town_house'));
 
@@ -505,8 +511,8 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
         if ($severity < Complaint::SeverityNone || $severity > Complaint::SeverityKill)
             return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest );
 
-        $has_gallows = $th->getBuilding( $town, 'r_dhang_#00', true );
-        $has_cage = $th->getBuilding( $town, 'small_fleshcage_#00', true );
+        $has_gallows = $th->getBuilding( $this->getActiveCitizen()->getTown(), 'r_dhang_#00', true );
+        $has_cage = $th->getBuilding( $this->getActiveCitizen()->getTown(), 'small_fleshcage_#00', true );
 
         $author = $this->getActiveCitizen();
         $town = $author->getTown();
@@ -637,6 +643,9 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
      */
     public function well(TownHandler $th): Response
     {
+        if (!$this->getActiveCitizen()->getHasSeenGazette())
+            return $this->redirect($this->generateUrl('game_newspaper'));
+
         $town = $this->getActiveCitizen()->getTown();
         $pump = $th->getBuilding( $town, 'small_water_#00', true );
 
@@ -766,6 +775,8 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
      */
     public function bank(TownHandler $th): Response
     {
+        if (!$this->getActiveCitizen()->getHasSeenGazette())
+            return $this->redirect($this->generateUrl('game_newspaper'));
         $town = $this->getActiveCitizen()->getTown();
         $item_def_factor = 1;
         
@@ -814,6 +825,9 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
      */
     public function citizens(EntityManagerInterface $em, TownHandler $th): Response
     {
+        if (!$this->getActiveCitizen()->getHasSeenGazette())
+            return $this->redirect($this->generateUrl('game_newspaper'));
+
         $citizenInfos = [];
         $hidden = [];
 
@@ -863,6 +877,9 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
      */
     public function citizens_vote(int $roleId, EntityManagerInterface $em): Response
     {
+        if (!$this->getActiveCitizen()->getHasSeenGazette())
+            return $this->redirect($this->generateUrl('game_newspaper'));
+
         // Get citizen & town
         $citizen = $this->getActiveCitizen();
         $town = $citizen->getTown();
@@ -947,6 +964,9 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
      */
     public function citizens_omniscience(EntityManagerInterface $em): Response
     {
+        if (!$this->getActiveCitizen()->getHasSeenGazette())
+            return $this->redirect($this->generateUrl('game_newspaper'));
+            
         // Get citizen & town
         $citizen = $this->getActiveCitizen();
         $town = $citizen->getTown();
@@ -1162,6 +1182,8 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
      */
     public function constructions(TownHandler $th): Response
     {
+        if (!$this->getActiveCitizen()->getHasSeenGazette())
+            return $this->redirect($this->generateUrl('game_newspaper'));
         $town = $this->getActiveCitizen()->getTown();
         $buildings = $town->getBuildings();
 
@@ -1301,6 +1323,9 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
         if ($citizen->getAp() < 1 || $this->citizen_handler->isTired( $citizen ))
             return AjaxResponse::error( ErrorHelper::ErrorNoAP );
 
+        if ($result = $this->conf->getCurrentEvent($town)->hook_door($action))
+            return $result;
+
         $this->citizen_handler->setAP($citizen, true, -1);
         $town->setDoor( $action === 'open' );
 
@@ -1389,7 +1414,8 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
      */
     public function door(TownHandler $th): Response
     {
-
+        if (!$this->getActiveCitizen()->getHasSeenGazette())
+            return $this->redirect($this->generateUrl('game_newspaper'));
         $door_locked = $this->door_is_locked($th,$this->conf);
         $can_go_out = !$this->citizen_handler->hasStatusEffect($this->getActiveCitizen(), 'tired') && $this->getActiveCitizen()->getAp() > 0;
 
@@ -1484,6 +1510,9 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
      */
     public function planner(): Response
     {
+        if (!$this->getActiveCitizen()->getHasSeenGazette())
+            return $this->redirect($this->generateUrl('game_newspaper'));
+
         return $this->render( 'ajax/game/town/planner.html.twig', $this->addDefaultTwigArgs('door', array_merge([
             'town'  =>  $this->getActiveCitizen()->getTown(),
             'allow_extended' => $this->getActiveCitizen()->getProfession()->getHeroic()

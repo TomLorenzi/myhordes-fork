@@ -89,3 +89,4 @@ services:
             $global: '%myhordes%'
             $local:  '%local%'
             $rules:  '%rules%'
+            $events: '%events%'

@@ -942,7 +942,7 @@ class BeyondFixtures extends Fixture implements DependentFixtureInterface
         // Iterate over all entries
         foreach (static::$zone_class_data as $entry) {
             // Get existing entry, or create new one
-            $entity = $this->entityManager->getRepository(ZonePrototype::class)->findOneByLabel( $entry['label'] );
+            $entity = $this->entityManager->getRepository(ZonePrototype::class)->findOneBy( ['label' => $entry['label']] );
             if ($entity === null) $entity = new ZonePrototype();
 
             // Set property
@@ -979,12 +979,12 @@ class BeyondFixtures extends Fixture implements DependentFixtureInterface
         // Iterate over all entries
         foreach (static::$room_prototypes as $entry) {
             // Get existing entry, or create new one
-            $entity = $this->entityManager->getRepository(RuinZonePrototype::class)->findOneByLabel( $entry['label'] );
+            $entity = $this->entityManager->getRepository(RuinZonePrototype::class)->findOneBy( ['label' => $entry['label']] );
             if ($entity === null) $entity = new RuinZonePrototype();
 
             // Items
-            $lock_mold = ($entry['lock_mold'] ?? null) ? $this->entityManager->getRepository(ItemPrototype::class)->findOneByName($entry['lock_mold']) : null;
-            $lock_item = ($entry['lock_item'] ?? null) ? $this->entityManager->getRepository(ItemPrototype::class)->findOneByName($entry['lock_item']) : null;
+            $lock_mold = ($entry['lock_mold'] ?? null) ? $this->entityManager->getRepository(ItemPrototype::class)->findOneBy(['name' => $entry['lock_mold']]) : null;
+            $lock_item = ($entry['lock_item'] ?? null) ? $this->entityManager->getRepository(ItemPrototype::class)->findOneBy(['name' => $entry['lock_item']]) : null;
 
             if ( !is_null($entry['lock_mold'] ?? $entry['lock_item'] ?? null) && ($lock_mold === null || $lock_item === null) )
                 throw new Exception('Lock configuration invalid.');
@@ -1015,7 +1015,7 @@ class BeyondFixtures extends Fixture implements DependentFixtureInterface
         // Iterate over all entries
         foreach (static::$zone_tags as $name => $entry) {
             // Get existing entry, or create new one
-            $entity = $this->entityManager->getRepository(ZoneTag::class)->findOneByName( $name );
+            $entity = $this->entityManager->getRepository(ZoneTag::class)->findOneBy( ['name' => $name] );
             if ($entity === null) $entity = (new ZoneTag())->setName($name);
 
             // Set property

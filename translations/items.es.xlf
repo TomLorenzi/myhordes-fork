@@ -6647,7 +6647,7 @@ Después de varios largos minutos de búsqueda, terminas por encontrar &lt;stron
       </notes>
       <segment>
         <source>Heilen (5AP)</source>
-        <target>Curar (5AP)</target>
+        <target>Curar (5PA)</target>
       </segment>
     </unit>
     <unit id="8.uDazR" name="Heilen (6AP)">
@@ -6656,7 +6656,7 @@ Después de varios largos minutos de búsqueda, terminas por encontrar &lt;stron
       </notes>
       <segment>
         <source>Heilen (6AP)</source>
-        <target>Curar (6AP)</target>
+        <target>Curar (6PA)</target>
       </segment>
     </unit>
     <unit id="H0NWl9b" name="Verteidigung organisieren (1 AP)">
@@ -6665,7 +6665,7 @@ Después de varios largos minutos de búsqueda, terminas por encontrar &lt;stron
       </notes>
       <segment>
         <source>Verteidigung organisieren (1 AP)</source>
-        <target>Organizar Defensas (1 AP)</target>
+        <target>Organizar Defensas (1 PA)</target>
       </segment>
     </unit>
     <unit id="vte2QYO" name="Du hast dir etwas Zeit genommen und zur Verteidigung der Stadt beigetragen.">
@@ -6737,7 +6737,7 @@ Después de varios largos minutos de búsqueda, terminas por encontrar &lt;stron
       </notes>
       <segment>
         <source>Droge herstellen</source>
-        <target>Droge herstellen</target>
+        <target>Preparar un Estimulante</target>
       </segment>
     </unit>
     <unit id="0V2NUu6" name="In deinem Labor hast du {items_consume} in {items_spawn} umgewandelt.">
@@ -6746,7 +6746,7 @@ Después de varios largos minutos de búsqueda, terminas por encontrar &lt;stron
       </notes>
       <segment>
         <source>In deinem Labor hast du {items_consume} in {items_spawn} umgewandelt.</source>
-        <target>In deinem Labor hast du {items_consume} in {items_spawn} umgewandelt.</target>
+        <target>Mueles el contenido de {items_consume} sobre la mesa y haces una mezcla con todo lo que tienes a la vista... Lo dejas reposar. Te ha quedado <strong>buenísimo</strong>: ¡Ahora tienes {items_spawn}!</target>
       </segment>
     </unit>
     <unit id="6NDJKlk" name="Hierfür brauchst du 2x Pharmazeutische Substanz...">
@@ -6887,7 +6887,7 @@ Después de varios largos minutos de búsqueda, terminas por encontrar &lt;stron
       </notes>
       <segment>
         <source>Angriff und Verteidigung</source>
-        <target>Angriff und Verteidigung</target>
+        <target>Ataque y Defensa</target>
       </segment>
     </unit>
     <unit id="s1_qYeB" name="Kreuz">
@@ -6995,7 +6995,7 @@ Después de varios largos minutos de búsqueda, terminas por encontrar &lt;stron
       </notes>
       <segment>
         <source>Heilen</source>
-        <target>Heilen</target>
+        <target>Curar</target>
       </segment>
     </unit>
     <unit id="zEs55xR" name="Verteidigung organisieren">
@@ -7004,7 +7004,7 @@ Después de varios largos minutos de búsqueda, terminas por encontrar &lt;stron
       </notes>
       <segment>
         <source>Verteidigung organisieren</source>
-        <target>Verteidigung organisieren</target>
+        <target>Organizar defensas</target>
       </segment>
     </unit>
     <unit id="brwfS0V" name="Reinigen (Wasser)">
@@ -7085,7 +7085,7 @@ Después de varios largos minutos de búsqueda, terminas por encontrar &lt;stron
       </notes>
       <segment>
         <source>Zur Bank schicken</source>
-        <target>Zur Bank schicken</target>
+        <target>El almacén del pueblo</target>
       </segment>
     </unit>
     <unit id="OXWKuXW" name="b549796">
@@ -7130,7 +7130,7 @@ Después de varios largos minutos de búsqueda, terminas por encontrar &lt;stron
       </notes>
       <segment>
         <source>Schönes Fundstück</source>
-        <target>Schönes Fundstück</target>
+        <target>Hallazgo</target>
       </segment>
     </unit>
     <unit id="khQvNdC" name="Zur Truhe schicken">
@@ -7139,7 +7139,7 @@ Después de varios largos minutos de búsqueda, terminas por encontrar &lt;stron
       </notes>
       <segment>
         <source>Zur Truhe schicken</source>
-        <target>Zur Truhe schicken</target>
+        <target>Mi baúl personal</target>
       </segment>
     </unit>
     <unit id="NEVAuft" name="0671c26">

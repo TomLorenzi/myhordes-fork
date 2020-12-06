@@ -1,4 +1,5 @@
 {% extends "ajax/soul/shell.html.twig" %}
+{% block title %}{{'Einstellungen'|trans({}, 'game')}}{% endblock %}
 {% block soul_content %}
     <div class="row">
 
@@ -32,13 +33,13 @@
                             {% if not app.user.avatar.classic %}
                                 <span class="small">{{ 'Normale Anzeige'|trans({},'soul') }}</span><br />
                             {% endif %}
-                            <div class="avatar">
+                            <div class="avatar no-arma">
                                 <img alt="" src="{{ path('app_web_avatar', {'uid': app.user.id, 'name': app.user.avatar.filename, 'ext': app.user.avatar.format}) }}">
                             </div>
                             {% if not app.user.avatar.classic %}
                                 <br /><br />
                                 <span class="small">{{ 'Komprimierte Anzeige'|trans({},'soul') }}</span><br />
-                                <div class="avatar small">
+                                <div class="avatar small no-arma">
                                     <img alt="" src="{{ path('app_web_avatar', {'uid': app.user.id, 'name': app.user.avatar.smallName, 'ext': app.user.avatar.format}) }}">
                                 </div>
                             {% endif %}
@@ -72,7 +73,7 @@
                                     </div>
                                 </div>
                                 <div class="padded cell rw-6 center">
-                                    <div class="avatar full">
+                                    <div class="avatar no-arma full">
                                         <div class="crop" id="crop_bar"><div id="crop-bar-inner"></div></div>
                                         <img alt="" src="{{ path('app_web_avatar', {'uid': app.user.id, 'name': app.user.avatar.filename, 'ext': app.user.avatar.format}) }}">
                                     </div>

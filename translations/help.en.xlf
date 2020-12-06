@@ -4545,5 +4545,14 @@ Der Schamane kann:</source>
         <target>The town is where you can meet all your unfortunate comrades, talk to them at the Well or at the Town Gates... It is in town that you will arrange expeditions, and also where you will store the items you find.</target>
       </segment>
     </unit>
+    <unit id="IIBtwzC" name="Zeit: Lieber nachts als tagsüber verstecken.">
+      <notes>
+        <note category="german">Zeit: Lieber nachts als tagsüber verstecken.</note>
+      </notes>
+      <segment>
+        <source>Zeit: Lieber nachts als tagsüber verstecken.</source>
+        <target>Time: Better to hide at night than during the day.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

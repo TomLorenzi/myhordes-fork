@@ -31,6 +31,7 @@ use App\Service\PictoHandler;
 use App\Service\RandomGenerator;
 use App\Service\TimeKeeperService;
 use App\Response\AjaxResponse;
+use App\Service\ConfMaster;
 use App\Structures\ForumPermissionAccessor;
 use DateTime;
 use Doctrine\ORM\EntityManagerInterface;
@@ -39,7 +40,6 @@ use DOMNode;
 use DOMXPath;
 use Exception;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Asset\Packages;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -50,7 +50,7 @@ use Symfony\Contracts\Translation\TranslatorInterface;
  * @IsGranted("ROLE_USER")
  * @method User getUser
  */
-class MessageController extends AbstractController
+class MessageController extends CustomAbstractController
 {
     const ErrorForumNotFound    = ErrorHelper::BaseForumErrors + 1;
     const ErrorPostTextLength   = ErrorHelper::BaseForumErrors + 2;
@@ -66,8 +66,9 @@ class MessageController extends AbstractController
     private TimeKeeperService $time_keeper;
     private PermissionHandler $perm;
 
-    public function __construct(RandomGenerator $r, TranslatorInterface $t, Packages $a, EntityManagerInterface $em, InventoryHandler $ih, TimeKeeperService $tk, PermissionHandler $p)
+    public function __construct(RandomGenerator $r, TranslatorInterface $t, Packages $a, EntityManagerInterface $em, InventoryHandler $ih, TimeKeeperService $tk, PermissionHandler $p, ConfMaster $conf)
     {
+        parent::__construct($conf);
         $this->asset = $a;
         $this->rand = $r;
         $this->trans = $t;
@@ -1558,6 +1559,48 @@ class MessageController extends AbstractController
 
         $em->persist($thread);
         $em->flush();
+
+        return AjaxResponse::success();
+    }
+
+    /**
+     * @Route("api/town/house/pm/report", name="home_report_pm_controller")
+     * @param JSONRequestParser $parser
+     * @param EntityManagerInterface $em
+     * @param TranslatorInterface $ti
+     * @return Response
+     */
+    public function pm_report_api(JSONRequestParser $parser, EntityManagerInterface $em, TranslatorInterface $ti): Response {
+        $user = $this->getUser();
+
+        $id = $parser->get('pmid', null);
+        if ($id === null) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+        /** @var Citizen $citizen */
+        if (!($citizen = $user->getActiveCitizen())) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+        /** @var PrivateMessage $post */
+        $post = $em->getRepository(PrivateMessage::class)->find( $id );
+        if ($post === null) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+        $thread = $post->getPrivateMessageThread();
+        if (!$thread || $post->getOwner() === $citizen || !$thread->getSender() || ($thread->getRecipient()->getId() !== $citizen->getId() && $thread->getSender()->getId() !== $citizen->getId())) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+        $reports = $post->getAdminReports();
+        foreach ($reports as $report)
+            if ($report->getSourceUser()->getId() == $user->getId())
+                return AjaxResponse::success();
+
+        $newReport = (new AdminReport())
+            ->setSourceUser($user)
+            ->setTs(new DateTime('now'))
+            ->setPm($post);
+
+        $em->persist($newReport);
+        $em->flush();
+
+        $message = $ti->trans('Du hast die Nachricht von %username% dem Raben gemeldet. Wer weiß, vielleicht wird %username% heute Nacht stääärben...', ['%username%' => '<span>' . $post->getOwner()->getUser()->getName() . '</span>'], 'game');
+        $this->addFlash('notice', $message);
 
         return AjaxResponse::success();
     }
