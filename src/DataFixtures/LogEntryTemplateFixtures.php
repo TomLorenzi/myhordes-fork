@@ -526,12 +526,24 @@ class LogEntryTemplateFixtures extends Fixture
                 ['type'=>"citizen",'name'=>'cadaver1'],
             ],
         ],
-        // Devastated town
-        ['text'=>'Die Stadt ist zerstört! Flieht, irh Narren!',
-            'name'=>'gazetteTownVanished_001',
+
+        // Text that appears the night the town gets Devastated
+        ['text'=>'HARDCODED: La ville n\'est plus qu\'un vaste cimetière nauséabond. Plus personne n\'était là hier pour retenir le dernier assaut des hordes : <strong>les portes de la ville ont été enfoncées</strong> et <strong>réduites en miettes</strong>. %town% n\'est plus..',
+            'name'=>'gazetteTownLastAttack',
             'type'=>LogEntryTemplate::TypeGazetteTown,
             'class'=>LogEntryTemplate::ClassGazetteNews,
-            'secondaryType'=>GazetteLogEntry::RequiresDevastated,
+            'secondaryType'=>GazetteLogEntry::RequiresNothing,
+            'variableTypes'=>[
+                ['type'=>"string",'name'=>'town'],
+            ],
+        ],
+
+        // Devastated town
+        ['text'=>'Die Stadt ist zerstört! Flieht, irh Narren!',
+            'name'=>'gazetteTownDevastated',
+            'type'=>LogEntryTemplate::TypeGazetteTown,
+            'class'=>LogEntryTemplate::ClassGazetteNews,
+            'secondaryType'=>GazetteLogEntry::RequiresNothing,
             'variableTypes'=>[],
         ],
 

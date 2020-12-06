@@ -198,9 +198,7 @@ class GameController extends CustomAbstractController implements GameInterfaceCo
                 // 1. TOWN
                 if($town->getDevastated()){
                     $criteria = [
-                        'type' => LogEntryTemplate::TypeGazetteTown,
-                        'class' => LogEntryTemplate::ClassGazetteNews,
-                        'secondaryType' => GazetteLogEntry::RequiresDevastated
+                        'name' => 'gazetteTownDevastated'
                     ];
                 } else {
                     $criteria = [

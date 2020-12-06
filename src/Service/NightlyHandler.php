@@ -12,11 +12,13 @@ use App\Entity\CitizenWatch;
 use App\Entity\DigRuinMarker;
 use App\Entity\EscapeTimer;
 use App\Entity\Gazette;
+use App\Entity\GazetteLogEntry;
 use App\Entity\HeroicActionPrototype;
 use App\Entity\Inventory;
 use App\Entity\Item;
 use App\Entity\ItemPrototype;
 use App\Entity\HeroSkillPrototype;
+use App\Entity\LogEntryTemplate;
 use App\Entity\PictoPrototype;
 use App\Entity\PrivateMessage;
 use App\Entity\Town;
@@ -810,6 +812,14 @@ class NightlyHandler
                 $town->setDevastated(true);
                 $town->setChaos(true);
                 $town->setDoor(true);
+
+                $gazette = $town->findGazette($town->getDay());
+
+                $townTemplate = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneBy(['name' => 'gazetteTownLastAttack']);
+                $news = new GazetteLogEntry();
+                $news->setDay($town->getDay())->setGazette($gazette)->setLogEntryTemplate($townTemplate)->setVariables(['town' => $town->getName()]);
+                $this->entity_manager->persist($news);
+
 
                 foreach ($town->getCitizens() as $target_citizen)
                     $target_citizen->setBanished(false);
