@@ -209,8 +209,6 @@ class GameController extends CustomAbstractController implements GameInterfaceCo
                     ];
                 }
 
-                file_put_contents("/home/ludovic/dump.txt", print_r($criteria, true));
-
                 $applicableEntryTemplates = $this->entity_manager->getRepository(LogEntryTemplate::class)->findBy($criteria);
                 shuffle($applicableEntryTemplates);
                 /** @var LogEntryTemplate $townTemplate */

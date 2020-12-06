@@ -80,8 +80,13 @@
 
             <div x-tab-group="admin-town" x-tab-id="citizens" x-tab-target>
                 <div class="row">
-                    <div class="cell rw-8 ro-2 padded">
-                        <button id="townpm" style="max-width: 25rem;">{{ 'Rundmail als Rabe'|trans({},'admin') }}</button>
+                    <div class="cell padded rw-4 rw-sm-12">
+                    {% for citizen in town.citizens %}
+                        {{citizen.user.name}}<br />
+                    {% endfor %}
+                    </div>
+                    <div class="cell rw-8 rw-sm-12 padded">
+                        <button id="townpm">{{ 'Rundmail als Rabe'|trans({},'admin') }}</button>
                         <input type="hidden" id="pmidrecipient" value="{{ town.id }}">
                         <div id="forum-content">
 
