@@ -655,7 +655,7 @@
       </notes>
       <segment>
         <source>Der Verteidigungsbonus von Gegenständen in der Bank steigt um 100%.</source>
-        <target>Der Verteidigungsbonus von Gegenständen in der Bank steigt um 100%.</target>
+        <target>Cada objeto de defensa en el Almacén aporta 1 punto de defensa adicional al pueblo.</target>
       </segment>
     </unit>
     <unit id="GLo_FzK" name="Der Verteidigungsbonus von Gegenständen in der Bank steigt um 150%.">
@@ -664,7 +664,7 @@
       </notes>
       <segment>
         <source>Der Verteidigungsbonus von Gegenständen in der Bank steigt um 150%.</source>
-        <target>Der Verteidigungsbonus von Gegenständen in der Bank steigt um 150%.</target>
+        <target>Cada objeto de defensa en el Almacén aporta 1.5 puntos de defensa adicionales al pueblo.</target>
       </segment>
     </unit>
     <unit id="l3tFIbP" name="Der Verteidigungsbonus von Gegenständen in der Bank steigt um 200%.">
@@ -673,7 +673,7 @@
       </notes>
       <segment>
         <source>Der Verteidigungsbonus von Gegenständen in der Bank steigt um 200%.</source>
-        <target>Der Verteidigungsbonus von Gegenständen in der Bank steigt um 200%.</target>
+        <target>Cada objeto de defensa en el Almacén aporta 2 puntos de defensa adicionales al pueblo.</target>
       </segment>
     </unit>
     <unit id="FXvZuCC" name="Der Verteidigungsbonus von Gegenständen in der Bank steigt um 250%.">
@@ -682,7 +682,7 @@
       </notes>
       <segment>
         <source>Der Verteidigungsbonus von Gegenständen in der Bank steigt um 250%.</source>
-        <target>Der Verteidigungsbonus von Gegenständen in der Bank steigt um 250%.</target>
+        <target>Cada objeto de defensa en el Almacén aporta 2.5 puntos de defensa adicionales al pueblo.</target>
       </segment>
     </unit>
     <unit id="fPl.xwk" name="Der Verteidigungsbonus von Gegenständen in der Bank steigt um 300%.">
@@ -691,7 +691,7 @@
       </notes>
       <segment>
         <source>Der Verteidigungsbonus von Gegenständen in der Bank steigt um 300%.</source>
-        <target>Der Verteidigungsbonus von Gegenständen in der Bank steigt um 300%.</target>
+        <target>Cada objeto de defensa en el Almacén aporta 3 puntos de defensa adicionales al pueblo.</target>
       </segment>
     </unit>
     <unit id="Vln90x5" name="Steinkanone">
@@ -1483,7 +1483,7 @@
       </notes>
       <segment>
         <source>Riesige Sandburg</source>
-        <target>Castillo de arena</target>
+        <target>Gran Castillo de Arena</target>
       </segment>
     </unit>
     <unit id="Pp2_CqH" name="Leuchtfeuer">
@@ -2581,7 +2581,7 @@
       </notes>
       <segment>
         <source>Dank diesem wahrlich großen Bauwerk können Bürger ihre Häuser noch aufwändiger ausbauen.</source>
-        <target>Dank diesem wahrlich großen Bauwerk können Bürger ihre Häuser noch aufwändiger ausbauen.</target>
+        <target>Te provee las estructuras necesarias para construir casas individuales más avanzadas.</target>
       </segment>
     </unit>
     <unit id="rEndNN5" name="098dd57">
@@ -2743,7 +2743,7 @@
       </notes>
       <segment>
         <source>Nur der Schamane kennt das Geheimnis dieses rituellen Feuertanzes. Richtig ausgeführt, steigt eine kleine Wolke in den Himmel und bewirkt, dass ein Schauer heiligen Wassers auf die Zombiehorde niedergeht.</source>
-        <target>Nur der Schamane kennt das Geheimnis dieses rituellen Feuertanzes. Richtig ausgeführt, steigt eine kleine Wolke in den Himmel und bewirkt, dass ein Schauer heiligen Wassers auf die Zombiehorde niedergeht.</target>
+        <target>Un ritual que consiste en una danza alrededor de un fuego encendido. Solo el chamán conoce su secreto. Crea una nube que flota en el aire y hace que una lluvia de agua bendita caiga sobre la horda de zombis.</target>
       </segment>
     </unit>
     <unit id="30PQngM" name="289e4b7">
@@ -2752,7 +2752,7 @@
       </notes>
       <segment>
         <source>Ein über 2 Meter hoher, schimmliger Wollballen, über und über mit Stricken und Nadeln bedeckt. In den mächtigen Händen des Schamanen wird dieses *Ding* zu einem XXL-Püppchen, das etliche Zombies niederstreckt, ehe es wieder eine unförmige, unbewegliche Masse wird.</source>
-        <target>Ein über 2 Meter hoher, schimmliger Wollballen, über und über mit Stricken und Nadeln bedeckt. In den mächtigen Händen des Schamanen wird dieses *Ding* zu einem XXL-Püppchen, das etliche Zombies niederstreckt, ehe es wieder eine unförmige, unbewegliche Masse wird.</target>
+        <target>Una estructura de lana mohosa de más de 2 metros de altura, cubierto con cuerdas y agujas. En las manos del chamán, este muñeco XXL derriba a varios zombis antes de convertirse en una masa inmóvil de nuevo.</target>
       </segment>
     </unit>
     <unit id="K1dTRCS" name="b50a4cc">
@@ -2761,7 +2761,7 @@
       </notes>
       <segment>
         <source>Dieser Zauber des Schamanen erschafft ein Trugbild der Stadt. Als Folge verliert sich eine beträchtliche Anzahl Zombies heillos in der Wüste.</source>
-        <target>Dieser Zauber des Schamanen erschafft ein Trugbild der Stadt. Als Folge verliert sich eine beträchtliche Anzahl Zombies heillos in der Wüste.</target>
+        <target>El Chamán crea una ilusión de la ciudad. Como resultado, un gran número de zombis irán hacia allá.</target>
       </segment>
     </unit>
     <unit id="e1g.XXY" name="9ab481c">
@@ -2770,7 +2770,7 @@
       </notes>
       <segment>
         <source>Mit Hilfe einer teuflischen Guillotine und einer provisorischen Schaufensterpuppe, kann der Schamane aus der Entfernung den Kopf eines Zombierudel-Führers abschlagen. Die Zombies die ihm folgen, werden daraufhin abdrehen und wieder in die Wüste wandern.</source>
-        <target>Mit Hilfe einer teuflischen Guillotine und einer provisorischen Schaufensterpuppe, kann der Schamane aus der Entfernung den Kopf eines Zombierudel-Führers abschlagen. Die Zombies die ihm folgen, werden daraufhin abdrehen und wieder in die Wüste wandern.</target>
+        <target>Con la ayuda de una Guillotina diabólica y un maniquí provisional, el Chamán puede cortar la cabeza del líder de la horda de los zombis a distancia. Todos los zombis que lo siguen no sabrán continuar el camino y se quedarán vagando por el desierto.</target>
       </segment>
     </unit>
     <unit id="ThoJe4k" name="0d84ba4">
@@ -2806,7 +2806,7 @@
       </notes>
       <segment>
         <source>Diese Waffenwerkstatt ist euer Trumpf für die Nachtwache. Wird sie gebaut, wird jede Waffe, die während der Wacht zum Einsatz kommt um 20% verstärkt.</source>
-        <target>Diese Waffenwerkstatt ist euer Trumpf für die Nachtwache. Wird sie gebaut, wird jede Waffe, die während der Wacht zum Einsatz kommt um 20% verstärkt.</target>
+        <target>Esta armería será de gran utilidad para los centinelas, construyendo esto, cada arma utilizada por ellos recibirá una eficacia adicional de 20%</target>
       </segment>
     </unit>
     <unit id="gpk5Kg3" name="f9257d7">
@@ -3040,7 +3040,7 @@
       </notes>
       <segment>
         <source>Wenn es eines gibt, woran hier wahrlich kein Mangel herrscht, dann ist es Sand. Dieses Wunderwerk strahlt im Glanze seiner Nutzlosigkeit: Seine Errichtung bringt allen Bürgern der Stadt eine seltene Auszeichnung ein.</source>
-        <target>Wenn es eines gibt, woran hier wahrlich kein Mangel herrscht, dann ist es Sand. Dieses Wunderwerk strahlt im Glanze seiner Nutzlosigkeit: Seine Errichtung bringt allen Bürgern der Stadt eine seltene Auszeichnung ein.</target>
+        <target>Si algo podíamos hacer con tanta arena, lo hicimos.  Esta maravilla brilla por su gran inutilidad, pero su construcción otorga una distinción rarísima a todos los habitantes del pueblo.</target>
       </segment>
     </unit>
     <unit id="D_tzr7L" name="0872a56">
@@ -3067,7 +3067,7 @@
       </notes>
       <segment>
         <source>Dieses furchterregende Konstrukt stammt aus einem sowjetischen U-Boot und sendet gleißende Blitze knisternder Elektrizität rund um die Stadt aus. Einziger Haken an der Sache: Es muss jeden Tag repariert werden. Falls es zerstört wird, würde die Stadt mitsamt der gesamten Umgebung augenblicklich ausradiert werden (inklusive euch). Das Schild am Reaktor besagt: sowjetische Bauweise, hergestellt in « вшивый ».</source>
-        <target>Dieses furchterregende Konstrukt stammt aus einem sowjetischen U-Boot und sendet gleißende Blitze knisternder Elektrizität rund um die Stadt aus. Einziger Haken an der Sache: Es muss jeden Tag repariert werden. Falls es zerstört wird, würde die Stadt mitsamt der gesamten Umgebung augenblicklich ausradiert werden (inklusive euch). Das Schild am Reaktor besagt: sowjetische Bauweise, hergestellt in « вшивый ».</target>
+        <target>Esta horrenda máquina proviene de un submarino de la Guerra Fría y lanza poderosos rayos eléctricos alrededor del pueblo con un ruido ensordecedor. El único inconveniente es que debe ser reparado diariamente. Si es destruido, todo el pueblo y sus alrededores quedarán hechos polvo, matando a todos estén donde estén. La etiqueta dice: Diseñado en la Unión Soviética, armado en « вшивый ».</target>
       </segment>
     </unit>
     <unit id="0XMhjon" name="d9d68d6">
@@ -3103,7 +3103,7 @@
       </notes>
       <segment>
         <source>Es ist wirklich eine enorme und beeindruckente Konstruktion. Ihr habt eure kostbarsten Materialien an dieses verdammte Ding verschwendet, und denoch seid ihr irgendwie stolz darauf. Dieses Wunderwerk strahlt im Glanze seiner Nutzlosigkeit: Seine Errichtung bringt allen Bürgern der Stadt eine seltene Auszeichnung ein.</source>
-        <target>Es ist wirklich eine enorme und beeindruckente Konstruktion. Ihr habt eure kostbarsten Materialien an dieses verdammte Ding verschwendet, und denoch seid ihr irgendwie stolz darauf. Dieses Wunderwerk strahlt im Glanze seiner Nutzlosigkeit: Seine Errichtung bringt allen Bürgern der Stadt eine seltene Auszeichnung ein.</target>
+        <target>Es una bella y gran construcción. Ha consumido una buena parte de nuestros recursos pero estás orgulloso. Esta maravilla brilla por su gran inutilidad, pero su construcción otorga una distinción rarísima a todos los habitantes del pueblo.</target>
       </segment>
     </unit>
     <unit id="IakGX2Y" name="f02f3e0">
@@ -3130,7 +3130,7 @@
       </notes>
       <segment>
         <source>Sie zeigen Dawn of the Dead... zum 636. Mal. Bisher war dir die überzeugende Darstellung eines Nebendarstellers noch nie so richtig aufgefallen. Es gibt tatsächlich noch etwas Neues zu entdecken. Und wer weiß? Mit ein bisschen Glück bringt dich der Film ja sogar zum Lachen.</source>
-        <target>Sie zeigen Dawn of the Dead... zum 636. Mal. Bisher war dir die überzeugende Darstellung eines Nebendarstellers noch nie so richtig aufgefallen. Es gibt tatsächlich noch etwas Neues zu entdecken. Und wer weiß? Mit ein bisschen Glück bringt dich der Film ja sogar zum Lachen.</target>
+        <target>Proyectamos por milésima vez "Down of the Dead" por si no viste algunos detalles. Con un poco de suerte hasta te hará reír.</target>
       </segment>
     </unit>
     <unit id="GBviw9H" name="984e5b8">
@@ -3157,7 +3157,7 @@
       </notes>
       <segment>
         <source>Da selbst der Bohrer des Bohrturms nicht durch jede Schicht durchkommt, muss man hin und wieder kleine und mit Dynamit bestückte Tiere in die Tiefe schicken. Dieses Projekt fügt den städtischen Wasserreserven +150 Rationen hinzu.</source>
-        <target>Da selbst der Bohrer des Bohrturms nicht durch jede Schicht durchkommt, muss man hin und wieder kleine und mit Dynamit bestückte Tiere in die Tiefe schicken. Dieses Projekt fügt den städtischen Wasserreserven +150 Rationen hinzu.</target>
+        <target>Porque el extractor de agua no puede atravesar algunas rocas, es a veces útil enviar pequeños animales con dinamita por los conductos. Esta construcción aporta +150 raciones de agua al pozo.</target>
       </segment>
     </unit>
     <unit id="ZGSZ8Y0" name="9c6c617">
@@ -3229,7 +3229,7 @@
       </notes>
       <segment>
         <source>Ein Ort der Entspannung und der Meditation, perfekt geeignet um eine Seele auf die Andere Seite zu geleiten.</source>
-        <target>Un lugar de calma y relajación, epecialmente preprado para favorecer la transición de las almas hacia el otro lado.</target>
+        <target>Un lugar de calma y relajación, especialmente preparado para favorecer la transición de las almas hacia el otro lado.</target>
       </segment>
     </unit>
     <unit id="R_OfhbT" name="Die Verteidigung der Stadt wird um 12% erhöht.">
@@ -3238,7 +3238,7 @@
       </notes>
       <segment>
         <source>Die Verteidigung der Stadt wird um 12% erhöht.</source>
-        <target>Die Verteidigung der Stadt wird um 12% erhöht.</target>
+        <target>La organización de la defensa total del pueblo aumenta a 12%</target>
       </segment>
     </unit>
     <unit id="ZSyuopW" name="Die Verteidigung der Stadt wird um 14% erhöht.">
@@ -3247,7 +3247,7 @@
       </notes>
       <segment>
         <source>Die Verteidigung der Stadt wird um 14% erhöht.</source>
-        <target>Die Verteidigung der Stadt wird um 14% erhöht.</target>
+        <target>La organización de la defensa total del pueblo aumenta a 14%</target>
       </segment>
     </unit>
     <unit id="K_1scXO" name="Zaun (Baustellen)">
@@ -3256,7 +3256,7 @@
       </notes>
       <segment>
         <source>Zaun (Baustellen)</source>
-        <target>Zaun (Baustellen)</target>
+        <target>Valla de madera</target>
       </segment>
     </unit>
     <unit id="R.TLWup" name="aed3fec">
@@ -3265,7 +3265,7 @@
       </notes>
       <segment>
         <source>Die AP-Kosten aller Bauprojekte werden um 20% gesenkt. Erhöht die Effektivität von Reparaturen um einen Punkt.</source>
-        <target>Die AP-Kosten aller Bauprojekte werden um 20% gesenkt. Erhöht die Effektivität von Reparaturen um einen Punkt.</target>
+        <target>Los costos en PA de todas las obras se reducen en 20%. Aumenta la efectividad de las reparaciones en un punto.</target>
       </segment>
     </unit>
     <unit id="JLugykh" name="124a889">
@@ -3274,7 +3274,7 @@
       </notes>
       <segment>
         <source>Die AP-Kosten aller Bauprojekte werden um 25% gesenkt. Erhöht die Effektivität von Reparaturen um zwei Punkte.</source>
-        <target>Die AP-Kosten aller Bauprojekte werden um 25% gesenkt. Erhöht die Effektivität von Reparaturen um zwei Punkte.</target>
+        <target>Los costos en PA de todas las obras se reducen en 25%. Aumenta la efectividad de las reparaciones en dos puntos.</target>
       </segment>
     </unit>
     <unit id="OK7fp_k" name="Zaun (Haus)">
@@ -3283,7 +3283,7 @@
       </notes>
       <segment>
         <source>Zaun (Haus)</source>
-        <target>Zaun (Haus)</target>
+        <target>Valla</target>
       </segment>
     </unit>
   </file>

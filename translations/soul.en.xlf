@@ -2173,7 +2173,7 @@
       </notes>
       <segment>
         <source>&lt;b&gt;%u1%&lt;/b&gt; hat &lt;b&gt;%u2%&lt;/b&gt; aus der Koalition entfernt.</source>
-        <target><![CDATA[<b>%u1%</b> has invited <b>%u2%</b> to join us.]]></target>
+        <target><![CDATA[<b>%u1%</b> has removed <b>%u2%</b> from the coalition.]]></target>
       </segment>
     </unit>
     <unit id="bCn1heW" name="&lt;b&gt;%u1%&lt;/b&gt; hat sich soeben in die Stadt &quot;&lt;b&gt;%town%&lt;/b&gt;&quot; eingeschrieben!">
@@ -2201,6 +2201,24 @@
       <segment>
         <source>Möchtest du diesem Spieler folgen?</source>
         <target>Do you want to follow this player?</target>
+      </segment>
+    </unit>
+    <unit id="BNXmJ_6" name="8e2de13">
+      <notes>
+        <note category="german">Der Twinoid-Server meldet, dass er dein Profil aufgrund eines internen Fehlers nicht an MyHordes übertragen kann. Dieses Problem tritt häufig auf, wenn du in deinen Letzten Worten oder Stadtkommentaren Sonderzeichen verwendet hast. Bitte prüfe deine Stadtkommentare und entferne Sonderzeichen. Wenn sich Sonderzeichen in deinen Letzten Worten befinden, wende dich auf Twinoid an einen Raben.</note>
+      </notes>
+      <segment>
+        <source>Der Twinoid-Server meldet, dass er dein Profil aufgrund eines internen Fehlers nicht an MyHordes übertragen kann. Dieses Problem tritt häufig auf, wenn du in deinen Letzten Worten oder Stadtkommentaren Sonderzeichen verwendet hast. Bitte prüfe deine Stadtkommentare und entferne Sonderzeichen. Wenn sich Sonderzeichen in deinen Letzten Worten befinden, wende dich auf Twinoid an einen Raben.</source>
+        <target>Der Twinoid-Server meldet, dass er dein Profil aufgrund eines internen Fehlers nicht an MyHordes übertragen kann. Dieses Problem tritt häufig auf, wenn du in deinen Letzten Worten oder Stadtkommentaren Sonderzeichen verwendet hast. Bitte prüfe deine Stadtkommentare und entferne Sonderzeichen. Wenn sich Sonderzeichen in deinen Letzten Worten befinden, wende dich auf Twinoid an einen Raben.</target>
+      </segment>
+    </unit>
+    <unit id="lXmZ79T" name="Tod nicht validiert">
+      <notes>
+        <note category="german">Tod nicht validiert</note>
+      </notes>
+      <segment>
+        <source>Tod nicht validiert</source>
+        <target>Tod nicht validiert</target>
       </segment>
     </unit>
   </file>

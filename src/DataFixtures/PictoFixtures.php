@@ -620,6 +620,12 @@ class PictoFixtures extends Fixture
             'icon' => 'r_mystic2',
             'rare' => false
         ],
+        [
+            'label' => 'UFC',
+            'description' => 'Ehrenpreis für die Teilnahme am UFC!',
+            'icon' => 'r_ufc',
+            'rare' => false
+        ]
     ];
 
     private $entityManager;

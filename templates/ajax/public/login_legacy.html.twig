@@ -59,6 +59,10 @@
             $.ajax.easySend( '{{ path('api_login') }}', $.html.serializeForm(document.getElementById('login-form')),
                 function (data) {
                     if (data.require_validation) $.ajax.load(null, '{{ path('public_validate') }}', true);
+                    else if ($.client.config.navigationCache.get()) {
+                        $.ajax.load(null, $.client.config.navigationCache.get(), true);
+                        $.client.config.navigationCache.set(null);
+                    }
                     else $.ajax.load(null, '{{ path('initial_landing') }}', true);
                 }, {'default': '{% trans from 'login' %}Login fehlgeschlagen. Bitte prüfe deine Eingaben.{% endtrans %}'} )
         });

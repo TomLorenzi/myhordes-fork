@@ -31,6 +31,7 @@ use App\Service\PictoHandler;
 use App\Service\RandomGenerator;
 use App\Service\TimeKeeperService;
 use App\Response\AjaxResponse;
+use App\Service\ConfMaster;
 use App\Structures\ForumPermissionAccessor;
 use DateTime;
 use Doctrine\ORM\EntityManagerInterface;
@@ -39,7 +40,6 @@ use DOMNode;
 use DOMXPath;
 use Exception;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Asset\Packages;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -50,7 +50,7 @@ use Symfony\Contracts\Translation\TranslatorInterface;
  * @IsGranted("ROLE_USER")
  * @method User getUser
  */
-class MessageController extends AbstractController
+class MessageController extends CustomAbstractController
 {
     const ErrorForumNotFound    = ErrorHelper::BaseForumErrors + 1;
     const ErrorPostTextLength   = ErrorHelper::BaseForumErrors + 2;
@@ -66,8 +66,9 @@ class MessageController extends AbstractController
     private TimeKeeperService $time_keeper;
     private PermissionHandler $perm;
 
-    public function __construct(RandomGenerator $r, TranslatorInterface $t, Packages $a, EntityManagerInterface $em, InventoryHandler $ih, TimeKeeperService $tk, PermissionHandler $p)
+    public function __construct(RandomGenerator $r, TranslatorInterface $t, Packages $a, EntityManagerInterface $em, InventoryHandler $ih, TimeKeeperService $tk, PermissionHandler $p, ConfMaster $conf)
     {
+        parent::__construct($conf);
         $this->asset = $a;
         $this->rand = $r;
         $this->trans = $t;
@@ -255,6 +256,7 @@ class MessageController extends AbstractController
         's' => [],
         'q' => [],
         'blockquote' => [],
+        'pre' => [],
         'hr' => [],
         'ul' => [],
         'ol' => [],
@@ -297,7 +299,7 @@ class MessageController extends AbstractController
             'citizen', 'rpText',
         ],
         'span.class' => [
-            'quoteauthor','bad','rpauthor'
+            'quoteauthor','bad','rpauthor','inline-code',
         ]
     ];
 
@@ -412,10 +414,20 @@ class MessageController extends AbstractController
         if (!$this->htmlValidator($this->getAllowedHTML($forum), $body->item(0),$tx_len))
             return false;
 
+        $emotes = array_keys($this->get_emotes());
+
         $cache = [
             'citizen' => [],
         ];
         $handlers = [
+            // This invalidates emote tags within code blocks to prevent them from being replaced when rendering the
+            // post
+            '//pre|//span[@class=\'inline-code\']' =>
+                function (DOMNode $d) use(&$emotes) {
+                    foreach ($emotes as $emote)
+                        $d->nodeValue = str_replace( $emote, str_replace(':', ':​', $emote),  $d->nodeValue);
+                },
+
             '//div[@class=\'dice-4\']'   => function (DOMNode $d) use(&$editable) { $editable = false; $d->nodeValue = mt_rand(1,4); },
             '//div[@class=\'dice-6\']'   => function (DOMNode $d) use(&$editable) { $editable = false; $d->nodeValue = mt_rand(1,6); },
             '//div[@class=\'dice-8\']'   => function (DOMNode $d) use(&$editable) { $editable = false; $d->nodeValue = mt_rand(1,8); },
@@ -549,7 +561,7 @@ class MessageController extends AbstractController
         $repo = $this->entityManager->getRepository(Emotes::class);
         foreach($repo->findAll() as $value)
             /** @var $value Emotes */
-        $this->emote_cache[$value->getTag()] = $url_only ? $value->getPath() : "<img alt='{$value->getTag()}' src='{$this->asset->getUrl( $value->getPath() )}'/>";
+            $this->emote_cache[$value->getTag()] = $url_only ? $value->getPath() : "<img alt='{$value->getTag()}' src='{$this->asset->getUrl( $value->getPath() )}'/>";
         return $this->emote_cache;
     }
 
@@ -1511,6 +1523,10 @@ class MessageController extends AbstractController
                     $name = $this->trans->trans( $item ? $item->getLabel() : '', [], 'items' );
                     $post->setText( $this->prepareEmotes($post->getText()) . $this->trans->trans( 'Es scheint so, als ob ein anderer Bürger Gefallen an deinem Inventar gefunden hätte... Dir wurde folgendes gestohlen: %icon% %item%', ['%icon%' => $img, '%item%' => $name], 'game' ) );
                     break;
+                case PrivateMessage::TEMPLATE_CROW_CATAPULT:
+                    $thread->setTitle( $this->trans->trans('Du bist für das Katapult verantwortlich', [], 'game') );
+                    $post->setText( $this->prepareEmotes($post->getText()) . $this->trans->trans( 'Du bist zum offiziellen Katapult-Bediener der Stadt ernannt worden. Diese Ernennung erfolgte durch Auslosung; Herzlichen Glückwunsch! Finde dich so bald wie Möglich beim städtischen Katapult ein.', [], 'game' ) );
+                    break;
                 default:
                     $post->setText($this->prepareEmotes($post->getText()));
             }
@@ -1547,6 +1563,48 @@ class MessageController extends AbstractController
 
         $em->persist($thread);
         $em->flush();
+
+        return AjaxResponse::success();
+    }
+
+    /**
+     * @Route("api/town/house/pm/report", name="home_report_pm_controller")
+     * @param JSONRequestParser $parser
+     * @param EntityManagerInterface $em
+     * @param TranslatorInterface $ti
+     * @return Response
+     */
+    public function pm_report_api(JSONRequestParser $parser, EntityManagerInterface $em, TranslatorInterface $ti): Response {
+        $user = $this->getUser();
+
+        $id = $parser->get('pmid', null);
+        if ($id === null) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+        /** @var Citizen $citizen */
+        if (!($citizen = $user->getActiveCitizen())) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+        /** @var PrivateMessage $post */
+        $post = $em->getRepository(PrivateMessage::class)->find( $id );
+        if ($post === null) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+        $thread = $post->getPrivateMessageThread();
+        if (!$thread || $post->getOwner() === $citizen || !$thread->getSender() || ($thread->getRecipient()->getId() !== $citizen->getId() && $thread->getSender()->getId() !== $citizen->getId())) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+        $reports = $post->getAdminReports();
+        foreach ($reports as $report)
+            if ($report->getSourceUser()->getId() == $user->getId())
+                return AjaxResponse::success();
+
+        $newReport = (new AdminReport())
+            ->setSourceUser($user)
+            ->setTs(new DateTime('now'))
+            ->setPm($post);
+
+        $em->persist($newReport);
+        $em->flush();
+
+        $message = $ti->trans('Du hast die Nachricht von %username% dem Raben gemeldet. Wer weiß, vielleicht wird %username% heute Nacht stääärben...', ['%username%' => '<span>' . $post->getOwner()->getUser()->getName() . '</span>'], 'game');
+        $this->addFlash('notice', $message);
 
         return AjaxResponse::success();
     }

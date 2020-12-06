@@ -13,6 +13,7 @@ use App\Entity\HeroSkillPrototype;
 use App\Entity\ItemPrototype;
 use App\Entity\LogEntryTemplate;
 use App\Entity\TownLogEntry;
+use App\Entity\Zone;
 use App\Response\AjaxResponse;
 use App\Service\CitizenHandler;
 use App\Service\ConfMaster;
@@ -22,12 +23,13 @@ use App\Service\ItemFactory;
 use App\Service\JSONRequestParser;
 use App\Service\LogTemplateHandler;
 use App\Service\TimeKeeperService;
+use App\Service\TownHandler;
 use App\Service\UserHandler;
 use App\Structures\TownConf;
+use App\Translation\T;
 use Doctrine\ORM\EntityManagerInterface;
 use Exception;
 use DateTime;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Contracts\Translation\TranslatorInterface;
@@ -35,23 +37,26 @@ use Symfony\Contracts\Translation\TranslatorInterface;
 /**
  * @Route("/",condition="request.isXmlHttpRequest()")
  */
-class GameController extends AbstractController implements GameInterfaceController
+class GameController extends CustomAbstractController implements GameInterfaceController
 {
     protected $entity_manager;
     protected $translator;
     protected $logTemplateHandler;
     protected $time_keeper;
     protected $citizen_handler;
+    protected TownHandler $town_handler;
     private $user_handler;
 
-    public function __construct(EntityManagerInterface $em, TranslatorInterface $translator, LogTemplateHandler $lth, TimeKeeperService $tk, CitizenHandler $ch, UserHandler $uh)
+    public function __construct(EntityManagerInterface $em, TranslatorInterface $translator, LogTemplateHandler $lth, TimeKeeperService $tk, CitizenHandler $ch, UserHandler $uh, TownHandler $th, ConfMaster $conf)
     {
+        parent::__construct($conf);
         $this->entity_manager = $em;
         $this->translator = $translator;
         $this->logTemplateHandler = $lth;
         $this->time_keeper = $tk;
         $this->citizen_handler = $ch;
         $this->user_handler = $uh;
+        $this->town_handler = $th;
     }
 
     protected function getActiveCitizen(): Citizen {
@@ -61,36 +66,32 @@ class GameController extends AbstractController implements GameInterfaceControll
     protected function renderLog( ?int $day, $citizen = null, $zone = null, ?int $type = null, ?int $max = null ): Response {
         $entries = [];
         /** @var TownLogEntry $entity */
-        foreach ($this->entity_manager->getRepository(TownLogEntry::class)->findByFilter(
-            $this->getActiveCitizen()->getTown(),
-            $day, $citizen, $zone, $type, $max ) as $idx=>$entity) {
-                /** @var LogEntryTemplate $template */
-                $template = $entity->getLogEntryTemplate();
-                if (!$template)
-                    continue;
-                $entityVariables = $entity->getVariables();
-                $entries[$idx]['timestamp'] = $entity->getTimestamp();
-                $entries[$idx]['class'] = $template->getClass();
-                $entries[$idx]['type'] = $template->getType();
-                $entries[$idx]['id'] = $entity->getId();
-                $entries[$idx]['hidden'] = $entity->getHidden();
+        foreach ($this->entity_manager->getRepository(TownLogEntry::class)->findByFilter($this->getActiveCitizen()->getTown(),$day, $citizen, $zone, $type, $max ) as $idx=>$entity) {
+            /** @var LogEntryTemplate $template */
+            $template = $entity->getLogEntryTemplate();
+            if (!$template)
+                continue;
+            $entityVariables = $entity->getVariables();
+            $entries[$idx]['timestamp'] = $entity->getTimestamp();
+            $entries[$idx]['class'] = $template->getClass();
+            $entries[$idx]['type'] = $template->getType();
+            $entries[$idx]['id'] = $entity->getId();
+            $entries[$idx]['hidden'] = $entity->getHidden();
 
-                $variableTypes = $template->getVariableTypes();
-                $transParams = $this->logTemplateHandler->parseTransParams($variableTypes, $entityVariables);
+            $variableTypes = $template->getVariableTypes();
+            $transParams = $this->logTemplateHandler->parseTransParams($variableTypes, $entityVariables);
 
-                try {
-                    $entries[$idx]['text'] = $this->translator->trans($template->getText(), $transParams, 'game');
-                }
-                catch (Exception $e) {
-                    $entries[$idx]['text'] = "null";
-                }             
+            try {
+                $entries[$idx]['text'] = $this->translator->trans($template->getText(), $transParams, 'game');
             }
-
-        // $entries = array($entity->find($id), $entity->find($id)->findRelatedEntity());
+            catch (Exception $e) {
+                $entries[$idx]['text'] = "null";
+            }             
+        }
 
         return $this->render( 'ajax/game/log_content.html.twig', [
             'entries' => $entries,
-            'canHideEntry' => $this->getActiveCitizen()->getAlive() && $this->getActiveCitizen()->getProfession()->getHeroic() && $this->user_handler->hasSkill($citizen !== null ? $citizen->getUser() : $this->getActiveCitizen()->getUser(), 'manipulator'),
+            'canHideEntry' => $this->getActiveCitizen()->getAlive() && $this->getActiveCitizen()->getProfession()->getHeroic() && $this->user_handler->hasSkill($this->getUser(), 'manipulator'),
         ] );
     }
 
@@ -180,8 +181,9 @@ class GameController extends AbstractController implements GameInterfaceControll
             $gazette->setDeaths(count($death_inside));
         }
 
-        $gazette_logs = $this->entity_manager->getRepository(GazetteLogEntry::class)->findByFilter($gazette);
+        $gazette_logs = $this->entity_manager->getRepository(GazetteLogEntry::class)->findByFilter($gazette, LogEntryTemplate::TypeGazetteTown);
         $text = '';
+        $wind = "";
         if (count($gazette_logs) == 0) {
             // No Gazette texts! Let's generate some...
             if ($day == 1) {
@@ -194,10 +196,20 @@ class GameController extends AbstractController implements GameInterfaceControll
                 }
             } else {
                 // 1. TOWN
-                $criteria = [
-                    'type'  => LogEntryTemplate::TypeGazetteTown,
-                    'class' => LogEntryTemplate::ClassGazetteNoDeaths + (count($death_inside) < 3 ? count($death_inside) : 3),
-                ];
+                if($town->getDevastated()){
+                    $criteria = [
+                        'type' => LogEntryTemplate::TypeGazetteTown,
+                        'class' => LogEntryTemplate::ClassGazetteNews,
+                        'secondaryType' => GazetteLogEntry::RequiresDevastated
+                    ];
+                } else {
+                    $criteria = [
+                        'type'  => LogEntryTemplate::TypeGazetteTown,
+                        'class' => LogEntryTemplate::ClassGazetteNoDeaths + (count($death_inside) < 3 ? count($death_inside) : 3),
+                    ];
+                }
+
+                file_put_contents("/home/ludovic/dump.txt", print_r($criteria, true));
 
                 $applicableEntryTemplates = $this->entity_manager->getRepository(LogEntryTemplate::class)->findBy($criteria);
                 shuffle($applicableEntryTemplates);
@@ -208,28 +220,25 @@ class GameController extends AbstractController implements GameInterfaceControll
                 if ($requirements == GazetteLogEntry::RequiresNothing) {
                     $variables = [];
                 }
-                elseif (floor($requirements / 10) === 1) {
+                elseif (intval(floor($requirements / 10)) === 1) {
                     $citizens = $survivors;
                     shuffle($citizens);
-                    $variables = [];
                     for ($i = 1; $i <= $requirements - 10; $i++) {
                         $variables['citizen' . $i] = (array_shift($citizens))->getId();
                     }
                 }
-                elseif (floor($requirements / 10) === 2) {
+                elseif (intval(floor($requirements / 10)) === 2) {
                     $cadavers = $death_inside;
                     shuffle($cadavers);
-                    $variables = [];
                     for ($i = 1; $i <= $requirements - 20; $i++) {
                         $variables['cadaver' . $i] = (array_shift($cadavers))->getId();
                     }
                 }
-                elseif (floor($requirements / 10) === 3) {
+                elseif (intval(floor($requirements / 10)) === 3) {
                     $citizens = $survivors;
                     shuffle($citizens);
                     $cadavers = $death_inside;
                     shuffle($cadavers);
-                    $variables = [];
                     for ($i = 1; $i <= $requirements - 30; $i++) {
                         $variables['citizen' . $i] = (array_shift($citizens))->getId();
                     }
@@ -238,17 +247,14 @@ class GameController extends AbstractController implements GameInterfaceControll
                     }
                 }
                 elseif ($requirements == GazetteLogEntry::RequiresAttack) {
-                    $variables = [];
                     $attack = $gazette->getAttack();
                     $variables['attack'] = $attack < 2000 ? 10 * (round($attack / 10)) : 100 * (round($attack / 100));
                 }
                 elseif ($requirements == GazetteLogEntry::RequiresDefense) {
-                    $variables = [];
                     $defense = $gazette->getDefense();
                     $variables['defense'] = $defense < 2000 ? 10 * (round($defense / 10)) : 100 * (round($defense / 100));
                 }
                 elseif ($requirements == GazetteLogEntry::RequiresDeaths) {
-                    $variables = [];
                     $variables['deaths'] = $gazette->getDeaths();
                 }
 
@@ -257,9 +263,8 @@ class GameController extends AbstractController implements GameInterfaceControll
                 $this->entity_manager->persist($news);
                 $text .= '<p>' . $this->parseGazetteLog($news) . '</p>';
 
-                // TODO: Add more texts.
                 // 2. INDIVIDUAL DEATHS
-                if (count($death_outside) > 0) {
+                if (!$town->getDevastated() && count($death_outside) > 0) {
                     $other_deaths = $death_outside;
                     shuffle($other_deaths);
                     /** @var Citizen $featured_cadaver */
@@ -349,13 +354,60 @@ class GameController extends AbstractController implements GameInterfaceControll
                     $news->setDay($day)->setGazette($gazette)->setLogEntryTemplate($townTemplate)->setVariables($variables);
                     $this->entity_manager->persist($news);
                     $text .= '<p>' . $this->parseGazetteLog($news) . '</p>';
+
                 }
 
-                // 3. TOWN DEVASTATION
-                // 4. FLAVOURS
-                // 5. ELECTION
-                // 6. SEARCH TOWER
-                
+                // 3. FLAVOURS
+                // 4. ELECTION
+                // 5. SEARCH TOWER
+                if($gazette->getWindDirection() !== 0) {
+                    $criteria = [
+                        'type' => LogEntryTemplate::TypeGazetteTownInfo,
+                        'class' => LogEntryTemplate::ClassGazetteWind,
+                    ];
+                    $applicableEntryTemplates = $this->entity_manager->getRepository(LogEntryTemplate::class)->findBy($criteria);
+                    shuffle($applicableEntryTemplates);
+                    /** @var LogEntryTemplate $townTemplate */
+                    $townTemplate = $applicableEntryTemplates[array_key_first($applicableEntryTemplates)];
+                    switch ($gazette->getWindDirection()){
+                        case Zone::DirectionNorthWest:
+                            $variables['sector'] = T::__('Nordwesten', 'game');
+                            $variables['sector2'] = T::__('im Nordwesten', 'game');
+                            break;
+                        case Zone::DirectionNorth:
+                            $variables['sector'] = T::__('Norden', 'game');
+                            $variables['sector2'] = T::__('im Norden', 'game');
+                            break;
+                        case Zone::DirectionNorthEast:
+                            $variables['sector'] = T::__('Nordosten', 'game');
+                            $variables['sector2'] = T::__('im Nordosten', 'game');
+                            break;
+                        case Zone::DirectionWest:
+                            $variables['sector'] = T::__('Westen', 'game');
+                            $variables['sector2'] = T::__('im Westen', 'game');
+                            break;
+                        case Zone::DirectionEast:
+                            $variables['sector'] = T::__('Osten', 'game');
+                            $variables['sector2'] = T::__('im Osten', 'game');
+                            break;
+                        case Zone::DirectionSouthWest:
+                            $variables['sector'] = T::__('Südwesten', 'game');
+                            $variables['sector2'] = T::__('im Südwesten', 'game');
+                            break;
+                        case Zone::DirectionSouth:
+                            $variables['sector'] = T::__('Süden', 'game');
+                            $variables['sector2'] = T::__('im Süden', 'game');
+                            break;
+                        case Zone::DirectionSouthEast:
+                            $variables['sector'] = T::__('Südosten', 'game');
+                            $variables['sector2'] = T::__('im Südosten', 'game');
+                            break;
+                    }
+                    $news = new GazetteLogEntry();
+                    $news->setDay($day)->setGazette($gazette)->setLogEntryTemplate($townTemplate)->setVariables($variables);
+                    $this->entity_manager->persist($news);
+                    $wind = $this->parseGazetteLog($news);
+                }
                 $this->entity_manager->flush();
             }
         }
@@ -363,6 +415,10 @@ class GameController extends AbstractController implements GameInterfaceControll
             while (count($gazette_logs) > 0) {
                 $text .= '<p>' . $this->parseGazetteLog(array_shift($gazette_logs)) . '</p>';
             }
+
+            $wind_log = $this->entity_manager->getRepository(GazetteLogEntry::class)->findByFilter($gazette, LogEntryTemplate::TypeGazetteTownInfo, LogEntryTemplate::ClassGazetteWind);
+            if(count($wind_log) > 0)
+                $wind = $this->parseGazetteLog($wind_log[0]);
 
         }
         $textClass = "day$day";
@@ -393,6 +449,9 @@ class GameController extends AbstractController implements GameInterfaceControll
             'terror' => $gazette->getTerror(),
             'text' => $text,
             'textClass' => $textClass,
+            'wind' => $wind,
+            'windDirection' => intval($gazette->getWindDirection()),
+            'waterlost' => intval($gazette->getWaterlost()),
         ];
 
         $show_register = $in_town || !$this->getActiveCitizen()->getAlive();
@@ -442,6 +501,18 @@ class GameController extends AbstractController implements GameInterfaceControll
         $disabledJobs = $cf->getTownConfiguration($this->getActiveCitizen()->getTown())->get(TownConf::CONF_DISABLED_JOBS, ['shaman']);
 
         $selectablesJobs = [];
+        $prof_count = [];
+
+        foreach ($this->getActiveCitizen()->getTown()->getCitizens() as $c) {
+            if ($c->getProfession()->getName() === CitizenProfession::DEFAULT) continue;
+
+            if (!isset($prof_count[ $c->getProfession()->getId() ])) {
+                $prof_count[ $c->getProfession()->getId() ] = [
+                    1,
+                    $c->getProfession()
+                ];
+            } else $prof_count[ $c->getProfession()->getId() ][0]++;
+        }
 
         foreach($jobs as $job){
             if(!in_array($job->getName(), $disabledJobs))
@@ -449,7 +520,8 @@ class GameController extends AbstractController implements GameInterfaceControll
         }
 
         return $this->render( 'ajax/game/jobs.html.twig', [
-            'professions' => $selectablesJobs
+            'professions' => $selectablesJobs,
+            'prof_count' => $prof_count
         ] );
     }
 
@@ -566,7 +638,7 @@ class GameController extends AbstractController implements GameInterfaceControll
         }
 
         if(!$parser->has('log_entry_id'))
-            return AjaxResponse::ErrorInvalidRequest;
+            return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
         $log = $this->entity_manager->getRepository(TownLogEntry::class)->find($parser->get('log_entry_id'));
         if($log->getHidden()){

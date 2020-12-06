@@ -1603,5 +1603,50 @@
         <target>Hinzufügen</target>
       </segment>
     </unit>
+    <unit id="_b4bK2O" name="Nachricht?">
+      <notes>
+        <note category="german">Nachricht?</note>
+      </notes>
+      <segment>
+        <source>Nachricht?</source>
+        <target>Nachricht?</target>
+      </segment>
+    </unit>
+    <unit id="XCTslOz" name="Foren-Meldungen">
+      <notes>
+        <note category="german">Foren-Meldungen</note>
+      </notes>
+      <segment>
+        <source>Foren-Meldungen</source>
+        <target>Foren-Meldungen</target>
+      </segment>
+    </unit>
+    <unit id="EdJ7diC" name="PN-Meldungen">
+      <notes>
+        <note category="german">PN-Meldungen</note>
+      </notes>
+      <segment>
+        <source>PN-Meldungen</source>
+        <target>PN-Meldungen</target>
+      </segment>
+    </unit>
+    <unit id="vDhaMLU" name="Öffnen">
+      <notes>
+        <note category="german">Öffnen</note>
+      </notes>
+      <segment>
+        <source>Öffnen</source>
+        <target>Öffnen</target>
+      </segment>
+    </unit>
+    <unit id="Z7aWRoY" name="Dashboard">
+      <notes>
+        <note category="german">Dashboard</note>
+      </notes>
+      <segment>
+        <source>Dashboard</source>
+        <target>Dashboard</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

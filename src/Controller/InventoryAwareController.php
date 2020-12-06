@@ -53,7 +53,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
-class InventoryAwareController extends AbstractController
+class InventoryAwareController extends CustomAbstractController
     implements GameInterfaceController, GameProfessionInterfaceController, GameAliveInterfaceController, HookedInterfaceController
 {
     protected EntityManagerInterface $entity_manager;
@@ -66,7 +66,6 @@ class InventoryAwareController extends AbstractController
     protected LogTemplateHandler $log;
     protected TimeKeeperService $time_keeper;
     protected RandomGenerator $random_generator;
-    protected ConfMaster $conf;
     protected ZoneHandler $zone_handler;
     protected LogTemplateHandler $logTemplateHandler;
     protected UserHandler $user_handler;
@@ -80,6 +79,7 @@ class InventoryAwareController extends AbstractController
         TranslatorInterface $translator, LogTemplateHandler $lt, TimeKeeperService $tk, RandomGenerator $rd, ConfMaster $conf,
         ZoneHandler $zh, UserHandler $uh, CrowService $armbrust)
     {
+        parent::__construct($conf);
         $this->entity_manager = $em;
         $this->inventory_handler = $ih;
         $this->citizen_handler = $ch;
@@ -89,7 +89,6 @@ class InventoryAwareController extends AbstractController
         $this->log = $lt;
         $this->time_keeper = $tk;
         $this->random_generator = $rd;
-        $this->conf = $conf;
         $this->zone_handler = $zh;
         $this->death_handler = $dh;
         $this->logTemplateHandler = $lt;
@@ -134,7 +133,7 @@ class InventoryAwareController extends AbstractController
         $data['bp'] = $this->getActiveCitizen()->getBp();
         $data['max_bp'] = $this->citizen_handler->getMaxBP( $this->getActiveCitizen() );
         $data['status'] = $this->getActiveCitizen()->getStatus();
-        $data['roles'] = $this->getActiveCitizen()->getRoles();
+        $data['roles'] = $this->getActiveCitizen()->getVisibleRoles();
         $data['rucksack'] = $this->getActiveCitizen()->getInventory();
         $data['rucksack_size'] = $this->inventory_handler->getSize( $this->getActiveCitizen()->getInventory() );
         $data['pm'] = $this->getActiveCitizen()->getPm();
@@ -185,7 +184,7 @@ class InventoryAwareController extends AbstractController
             }
         return $this->render( 'ajax/game/log_content.html.twig', [
             'entries' => $entries,
-            'canHideEntry' => $this->getActiveCitizen()->getAlive() && $this->getActiveCitizen()->getProfession()->getHeroic() && $this->user_handler->hasSkill($this->getActiveCitizen()->getUser(), 'manipulator') && $this->getActiveCitizen()->getZone() === null,
+            'canHideEntry' => $this->getActiveCitizen()->getAlive() && $this->getActiveCitizen()->getProfession()->getHeroic() && $this->user_handler->hasSkill($this->getUser(), 'manipulator') && $this->getActiveCitizen()->getZone() === null,
         ] );
     }
 
@@ -481,7 +480,7 @@ class InventoryAwareController extends AbstractController
             return AjaxResponse::error( ErrorHelper::ErrorNoAP );
 
         $attack_protect = $this->getTownConf()->get(TownConf::CONF_MODIFIER_ATTACK_PROTECT, false) ||
-            ($aggressor->getUser()->getSoulPoints() < $this->conf->getGlobalConf()->get(MyHordesConf::CONF_ANTI_GRIEF_SP, 20));
+            ($aggressor->getUser()->getAllSoulPoints() < $this->conf->getGlobalConf()->get(MyHordesConf::CONF_ANTI_GRIEF_SP, 20));
         if ($attack_protect) {
             foreach ($aggressor->getTown()->getCitizens() as $c)
                 if ($c->getAlive() && $c->hasRole('ghoul'))
@@ -629,12 +628,19 @@ class InventoryAwareController extends AbstractController
                                 $pictoName = "r_plundr_#00";
 
                             $isSanta = false;
+                            $isLeprechaun = false;
                             $hasExplodingDoormat = false;
 
                             if ($this->inventory_handler->countSpecificItems($citizen->getInventory(), "christmas_suit_full_#00") > 0){
                                 $pictoName = "r_santac_#00";
                                 $isSanta = true;
                             }
+
+                            if ($this->inventory_handler->countSpecificItems($citizen->getInventory(), "leprechaun_suit_#00") > 0){
+                                $pictoName = "r_lepre_#00";
+                                $isLeprechaun = true;
+                            }
+
                             if ($this->inventory_handler->countSpecificItems($victim_home->getChest(), "trapma_#00") > 0)
                                 $hasExplodingDoormat = true;
 
@@ -653,8 +659,8 @@ class InventoryAwareController extends AbstractController
                                 $this->entity_manager->persist( $this->log->townSteal( $victim_home->getCitizen(), $citizen, $current_item->getPrototype(), $steal_up, false, $current_item->getBroken() ) );
                                 $this->addFlash( 'notice', $this->translator->trans('"Einen Schritt weiter..." stand auf %victim%s Fußmatte. Ihre Explosion hat einen bleibenden Eindruck bei dir hinterlassen. Wenn du noch laufen kannst, such dir besser einen Arzt.', 
                                 ['%victim%' => $victim_home->getCitizen()->getUser()->getName()], 'game') );
-                            } elseif ($isSanta) {
-                                $this->entity_manager->persist( $this->log->townSteal( $victim_home->getCitizen(), null, $current_item->getPrototype(), $steal_up, true, $current_item->getBroken() ) );
+                            } elseif ($isSanta || $isLeprechaun) {
+                                $this->entity_manager->persist( $this->log->townSteal( $victim_home->getCitizen(), null, $current_item->getPrototype(), $steal_up, $isSanta, $current_item->getBroken(), $isLeprechaun ) );
                                 $this->addFlash( 'notice', $this->translator->trans('Dank deines Kostüms konntest du %item% von %victim% stehlen, ohne erkannt zu werden', [
                                     '%victim%' => $victim_home->getCitizen()->getUser()->getName(),
                                     '%item%' => "<span>" . $this->translator->trans($current_item->getPrototype()->getLabel(),[], 'items') . "</span>"], 'game') );

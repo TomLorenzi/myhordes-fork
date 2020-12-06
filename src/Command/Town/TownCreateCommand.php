@@ -8,6 +8,7 @@ use App\Service\ConfMaster;
 use App\Service\GameFactory;
 use App\Service\GameValidator;
 use App\Service\Locksmith;
+use App\Service\TownHandler;
 use Doctrine\ORM\EntityManagerInterface;
 use Exception;
 use Symfony\Component\Console\Command\Command;
@@ -21,17 +22,20 @@ class TownCreateCommand extends Command
 {
     protected static $defaultName = 'app:town:create';
 
-    private $entityManager;
-    private $gameFactory;
-    private $gameValidator;
-    private $conf;
+    private EntityManagerInterface $entityManager;
+    private GameFactory $gameFactory;
+    private GameValidator $gameValidator;
+    private ConfMaster $conf;
+    private TownHandler $townHandler;
 
-    public function __construct(EntityManagerInterface $em, GameFactory $f, GameValidator $v, ConfMaster $conf)
+    public function __construct(EntityManagerInterface $em, GameFactory $f, GameValidator $v, ConfMaster $conf,
+                                TownHandler $th)
     {
         $this->entityManager = $em;
         $this->gameFactory = $f;
         $this->gameValidator = $v;
         $this->conf = $conf;
+        $this->townHandler = $th;
         parent::__construct();
     }
 
@@ -78,8 +82,21 @@ class TownCreateCommand extends Command
                 $output->writeln('<error>' . $e->getMessage() . '</error>');
                 return -3;
             }
-            //$this->gameFactory->createExplorableMaze($town);
             $output->writeln('<info>OK!</info>');
+
+            $current_event = $this->conf->getCurrentEvent();
+            if ($current_event->active()) {
+                $output->write("Applying current event '{$current_event->name()}' ... ");
+                if (!$this->townHandler->updateCurrentEvent($town, $current_event)) {
+                    $this->entityManager->clear();
+                    $output->writeln('<error>Failed!</error>');
+                } else {
+                    $this->entityManager->persist($town);
+                    $this->entityManager->flush();
+                    $output->writeln('<info>OK!</info>');
+                }
+            }
+
             $output->writeln("<comment>Empty town '" . $town->getName() . "' was created successfully!</comment>");
         }
 

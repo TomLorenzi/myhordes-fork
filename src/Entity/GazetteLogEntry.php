@@ -13,17 +13,6 @@ class GazetteLogEntry
     const TypeGazetteTown   = 13;
     const TypeGazetteBeyond = 14;
 
-    const ClassGazetteNews        =  5;
-    const ClassGazetteNoDeaths    =  6;
-    const ClassGazetteOneDeath    =  7;
-    const ClassGazetteTwoDeaths   =  8;
-    const ClassGazetteMultiDeaths =  9;
-    const ClassGazetteSuicide     = 10;
-    const ClassGazetteAddiction   = 11;
-    const ClassGazetteDehydration = 12;
-    const ClassGazettePoison      = 13;
-    const ClassGazetteVanished    = 14;
-
     const RequiresNothing       =  0;
     const RequiresOneCitizen    = 11;
     const RequiresTwoCitizens   = 12;
@@ -37,6 +26,7 @@ class GazetteLogEntry
     const RequiresDeaths        = 42;
     const RequiresInvasion      = 43;
     const RequiresAttackDeaths  = 44;
+    const RequiresDevastated    = 45;
 
     /**
      * @ORM\Id()

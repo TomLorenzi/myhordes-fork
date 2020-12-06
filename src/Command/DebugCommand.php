@@ -13,10 +13,12 @@ use App\Entity\Town;
 use App\Entity\TownRankingProxy;
 use App\Entity\User;
 use App\Service\CitizenHandler;
+use App\Service\ConfMaster;
 use App\Service\GameFactory;
 use App\Service\InventoryHandler;
 use App\Service\ItemFactory;
 use App\Service\RandomGenerator;
+use App\Service\TownHandler;
 use Doctrine\ORM\EntityManagerInterface;
 use Exception;
 use Symfony\Component\Console\Application;
@@ -36,18 +38,23 @@ class DebugCommand extends Command
 {
     protected static $defaultName = 'app:debug';
 
-    private $kernel;
+    private KernelInterface $kernel;
 
-    private $game_factory;
-    private $entity_manager;
-    private $citizen_handler;
-    private $randomizer;
-    private $trans;
-    private $inventory_handler;
-    private $item_factory;
-    private $encoder;
+    private GameFactory $game_factory;
+    private EntityManagerInterface $entity_manager;
+    private CitizenHandler $citizen_handler;
+    private RandomGenerator $randomizer;
+    private Translator $trans;
+    private InventoryHandler $inventory_handler;
+    private ItemFactory $item_factory;
+    private UserPasswordEncoderInterface $encoder;
+    private ConfMaster $conf;
+    private TownHandler $townHandler;
 
-    public function __construct(KernelInterface $kernel, GameFactory $gf, EntityManagerInterface $em, RandomGenerator $rg, CitizenHandler $ch, Translator $translator, InventoryHandler $ih, ItemFactory $if, UserPasswordEncoderInterface $passwordEncoder)
+    public function __construct(KernelInterface $kernel, GameFactory $gf, EntityManagerInterface $em,
+                                RandomGenerator $rg, CitizenHandler $ch, Translator $translator, InventoryHandler $ih,
+                                ItemFactory $if, UserPasswordEncoderInterface $passwordEncoder, ConfMaster $c,
+                                TownHandler $th)
     {
         $this->kernel = $kernel;
 
@@ -59,6 +66,8 @@ class DebugCommand extends Command
         $this->inventory_handler = $ih;
         $this->item_factory = $if;
         $this->encoder = $passwordEncoder;
+        $this->conf = $c;
+        $this->townHandler = $th;
 
         parent::__construct();
     }
@@ -83,6 +92,8 @@ class DebugCommand extends Command
             ->addOption('purge-rankings', null, InputOption::VALUE_NONE, 'Will end all current towns and completely wipe the ranking.')
             ->addOption('keep-imported', null, InputOption::VALUE_NONE, 'When used together with --purge-rankings, imported entries will not be deleted.')
             ->addOption('chunk-size', null, InputOption::VALUE_REQUIRED, 'When used together with --purge-active-towns or --purge-rankings, determines how many towns are deleted for each flush (default: 1).')
+
+            ->addOption('update-events', null, InputOption::VALUE_NONE, 'Will check the current event schedule and process hooks accordingly')
         ;
     }
 
@@ -158,6 +169,7 @@ class DebugCommand extends Command
             }
             $this->entity_manager->flush();
             $output->writeln("All citizen from <info>{$town->getName()}</info> are full of water now.");
+            return 0;
         }
 
         if ($tid = $input->getOption('fill-town')) {
@@ -247,15 +259,49 @@ class DebugCommand extends Command
                 $count[$openTown->getLanguage()][$openTown->getType()->getName()]++;
             }
 
+            $current_event = $this->conf->getCurrentEvent();
             foreach ($count as $townLang => $array) {
                 foreach ($array as $townClass => $openCount) {
                     if($openCount < 1){
                         $newTown = $this->game_factory->createTown(null, $townLang, null, $townClass);
                         $this->entity_manager->persist($newTown);
                         $this->entity_manager->flush();
+
+                        if ($current_event->active()) {
+                            if (!$this->townHandler->updateCurrentEvent($newTown, $current_event))
+                                $this->entity_manager->clear();
+                            else {
+                                $this->entity_manager->persist($newTown);
+                                $this->entity_manager->flush();
+                            }
+                        }
                     }
                 }
             }
+        }
+
+        if ($input->getOption('update-events')) {
+            $current_event = $this->conf->getCurrentEvent();
+            $towns = $this->entity_manager->getRepository(Town::class)->findAll();
+            foreach ($towns as $town) {
+
+                $town_event = $this->conf->getCurrentEvent($town);
+                if ($town_event->name() !== $current_event->name()) {
+
+                    $output->write("Town '<info>{$town->getName()}</info>' (<info>{$town->getId()}</info>): Changing currently registered event '<info>{$town_event->name()}</info>' to '<info>{$current_event->name()}</info>'... ");
+                    if (!$this->townHandler->updateCurrentEvent($town, $current_event)) {
+                        $this->entity_manager->clear();
+                        $output->writeln('<error>Failed!</error>');
+                    } else {
+                        $this->entity_manager->persist($town);
+                        $this->entity_manager->flush();
+                        $output->writeln('<info>OK.</info>');
+                    }
+
+                }
+
+            }
+
         }
 
         if ($tid = $input->getOption('fill-bank')) {

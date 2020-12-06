@@ -32,6 +32,7 @@
     .newspage {
       width: 90%; height: 0; margin: 0; display: block; vertical-align: top; position: absolute; padding-bottom: 75%;
       background-size: cover; transform-style: preserve-3d; transition: all 1.0s linear; backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
       left: 5%; z-index: 0;
 
       &#newspage-front {
@@ -44,6 +45,7 @@
       &#newspage-back {
         width: 90%; margin-left: 0; transform: rotateY(-180deg); z-index: 1;
         .nightstat { font-size: 3vw; }
+        #buildingdetails { top: 140px; }
       }
     }
   }

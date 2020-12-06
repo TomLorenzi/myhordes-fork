@@ -62,6 +62,18 @@ class TextFixtures extends Fixture
             'design' => 'typed',
             'background' => 'carton',
         ],
+        'citya3_de' => [
+            'title' => 'Bekanntmachung: Bank',
+            'author' => 'Sigma',
+            'content' => [
+                '<div class="hr"></div>
+				<h1>Öffentliche Bekanntmachung</h1>
+				<p>Die Bank gibt hiermit bekannt, dass ab sofort keine Lebensmittelkarten mehr angenommen werden. Ein paar Witzbolde wurden gestern beim Versuch erwischt, dem kurzsichtigen Bankverwalter ein paar schlecht gefälschte Karten anzudrehen.</p>'
+            ],
+            'lang' => 'de',
+            'design' => 'typed',
+            'background' => 'carton',
+        ],
         'bwas' => [
             'title' => 'Bekanntmachung: Wasser',
             'author' => 'Fyodor',
@@ -95,6 +107,21 @@ class TextFixtures extends Fixture
             'design' => 'small',
             'background' => 'noteup',
         ],
+        'sophie' => [
+            'title' => 'Brief nach Hause',
+            'author' => 'SixSixSeven',
+            'content' => [
+                '<p>Meine allerliebste Sophie,</p>
+                <p>ich weiß nicht ob euch dieser Brief erreicht oder ob er überhaupt jemals gefunden wird.</p>
+                <p>In diesen Minuten, welche allem Anschein nach die Letzten in meinem Leben sein werden, möchte ich euch mitteilen wie sehr ich euch liebe. Meine einzigen Gedanken in diesen schweren Zeiten gelten Dir und dem Baby. Alle Kraft, über die ich jetzt noch verfüge, stammt allein aus der Tatsache, euch in Sicherheit zu wissen.</p>
+                <p>Ich habe mich in dieser alten Tankstelle verschanzt, habe die Türen und Fenster verbarrikadiert und alles was ich an Wasservorräten und sonstigen Waffen finden konnte zusammengetragen.</p>',
+				'<p>Trotz allem wütet draußen eine so gewaltige Horde dieser Höllenbrut, dass ich keine Hoffnung haben kann euch jemals wieder in meine Arme zu schließen.</p>
+				<p>Ich liebe euch über alles und kann nur hoffen, dass ihr den tag erl</p>'
+            ],
+            'lang' => 'de',
+            'design' => 'written',
+            'background' => 'letter',
+        ],
         'nancy' => [
             'title' => 'Brief an Nancy',
             'author' => 'Zekjostov',
@@ -109,9 +136,17 @@ class TextFixtures extends Fixture
             'title' => 'Brief an Nelly',
             'author' => 'aera10',
             'content' => [
-                ''
+                '<p>Liebe Nelly,</p>
+				<p>ich schreibe dir, weil ich es hier nicht mehr aushalte.</p>
+				<p>In der ganzen Stadt gibt es seit Tagen keinen Strom mehr, wir haben kein Internet und alle Telefonleitungen sind tot. Vor allem aber passieren seltsame Dinge. Auf einigen Straßen liegen riesige Felsen, die vom Himmel gefallen zu sein scheinen.</p>
+				<p>Gestern habe ich einen Mann gesehen... na ja, ich weiß nicht mal, ob es ein Mann war. Dieser Typ hatte ein Bettlaken auf dem Kopf und wühlte in einer Mülltonne. Ich weiß nicht, was er darin suchte. Nach zirka 2 Minuten drehte er sich um und wankte in das Haus von dieser verrückten Malerin. Ein Polizist hat sie heute morgen in ihrem Wohnzimmer aufgefunden und prompt einen Schock erlebt. Die Malerin muss ziemlich übel ausgesehen haben.</p>',
+				'<p>Ich habe diesen Brief in der Nachbargemeinde abgesendet. Will dir damit nur sagen, dass ich dich besuchen komme.</p>
+				<p>Während du diese Zeilen liest, bin ich schon unterwegs.</p>
+				<p>Herbert.</p>'
             ],
-            'lang' => 'de'
+            'lang' => 'de',
+            'design' => 'written',
+            'background' => 'letter',
         ],
         'brmu1' => [
             'title' => 'Brief einer Mutter',
@@ -606,6 +641,17 @@ class TextFixtures extends Fixture
             'design' => 'small',
             'background' => 'notepad',
         ],
+        'sos1_de' => [
+            'title' => 'S.O.S.',
+            'author' => 'ChrisCool',
+            'content' => [
+                '<div class="hr"></div>
+				<p>Das ist ein Hilferuf! Ich befinde mich in der Stadt <strong>Brutstätte der Verdammten</strong>! Wenn jemand diese Nachricht lesen sollte: BRINGT MIR BITTE EINEN VIBRATOR!! Es geht um LEBEN ODER TOD!</p>'
+            ],
+            'lang' => 'de',
+            'design' => 'postit',
+            'background' => 'carton',
+        ],
         'dv_031' => [
             'title' => 'Schmerzengels Überlebensregeln',
             'author' => 'Schmerzengel',
@@ -663,6 +709,20 @@ class TextFixtures extends Fixture
             'design' => 'typed',
             'background' => 'grid',
         ],
+        'heimw' => [
+            'title' => 'Seite 134 - Sprinkleranlage im Eigenbau',
+            'author' => 'Tycho',
+            'content' => [
+                    '<p>Eine einfache Bewässerungsanlage für Ihren heimischen Garten selbst zu bauen ist gar nicht kompliziert. Hauptsächlich gehört dazu: Ein Anschluss an einen Wasserhahn, eine Befestigungsmöglichkeit für den Bewässerungskopf, der Bewässerungskopf selber und optional ein Mechanismus zur regelmäßigen Bewegung des Bewässerungskopfes.</p>
+					<p>Zentral wichtig bei einer guten Sprinkleranlage ist die gleichmäßige Verteilung. Eine sehr einfache und effiziente Variante besteht aus einem längeren Stück Rohr (Länge sollte vom verfügbaren Wasserdruck abhängen), in das ein oder zwei Reihen kleiner Löcher gebohrt werden, als Bewässerungskopf. Am Ende des Rohres wird ein druckbelastetes wasserführendes System angeschlossen – beispielsweise der Wasserhahn ihres Gartenhauses.</p>',
+					'<p>Ein Teil des Wassers wird über eine separate Zuleitung abgezweigt und gegen ein kleines Wasserrad mit einer Rückstellfeder geleitet. Dreht nun das einströmende Wasser das Rad, so wird dadurch der Bewässerungskopf entlang seiner Längsachse gedreht. Ab einem gewissen Drehwinkel verschließt ein Teil des Wasserrades die Zuleitung und die Rückstellfeder dreht den Bewässerungskopf in die entgegengesetzte Richtung zurück. Dadurch schwingt der Bewässerungskopf vor und zurück, um somit abwechselnd den Boden auf beiden Seiten der Anlage zu bewässern.</p>
+					<p>Soll die Anlage nur stationär eingesetzt werden, empfiehlt es sich, den Bewässerungskopf an einer Holzkonstruktion über dem Feld aufzuhängen.</p>
+					<p>Exemplarische Konstruktionsskizzen und Berechnungshilfen finden sie auf der beigelegten CD unter dem Menüpunkt "Sprinkleranlage".</p>'
+            ],
+            'lang' => 'de',
+            'design' => 'classic',
+            'background' => 'old',
+        ],
         'dv_033' => [
             'title' => 'Seite 62 eines Buches',
             'author' => 'kozi',
@@ -687,6 +747,51 @@ class TextFixtures extends Fixture
             'lang' => 'de',
             'design' => 'typed',
             'background' => 'white',
+        ],
+        'stxt' => [
+            'title' => 'Seltsamer Text',
+            'author' => 'Sardock4r',
+            'content' => [
+                    '<p>08 Wüste</p>
+					<p>67 Die Entdeckung von Goldvorkommen in den fünfziger Jahren</p>
+                    <p>74 Gebote gilt es zu beachten</p>
+                    <p>13 Die Reihenfolge</p>
+                    <p>67 Über dem Dorf erhebt sich auf einem Hügel die Ruine</p>
+                    <p>40 Kaktus</p>
+                    <p>03 ist mir egal</p>
+                    <p>89 Addy</p>
+                    <p>96 Le canelé est un petit gâteau</p>',
+                    '<p>00 Ich bin das Alpha und das Omega</p>
+                    <p>78 Alteisen und Holzbrett</p>
+                    <p>99 Aurum summum bonum est</p>
+                    <p>93 Der Naturforscher ist der Mann des strukturierten Sichtbaren</p>
+                    <p>78 Miss den Nächsten nicht nach dem eigenen Maß!</p>
+                    <p>05 Ich konnte mir seit 5 Monaten nicht die Fußnägel schneiden</p>
+                    <p>35 Durst kann tödlich sein</p>
+                    <p>25 Ein Mensch hatte zwei Söhne</p>
+                    <p>61 Worte aber kann ich nicht lieben.</p>',
+                    '<p>93 Das Leben kann kurz oder lang sein.</p>
+                    <p>63 Geschlechtsreif sind Löwen mit 2-3 Jahren</p>
+                    <p>12 Hat hier nichts zu bedeuten</p>
+                    <p>32 Man kann vieles unbewusst wissen, indem man es nur fühlt.</p>
+                    <p>72 Hat was mit dem Bürger Dayan zu tun</p>
+                    <p>98 Freundschaft, das ist eine Seele in zwei Körpern.</p>
+                    <p>96 Ein wird ein Hund mit drei Beinen kommen</p>
+                    <p>18 Fantasie kennt keine Grenzen</p>
+                    <p>46 Mathematiker sind dumm</p>',
+                    '<p>80 Pi ist unendlich</p>
+                    <p>84 Scharlachrote Paradeuniformen</p>
+                    <p>96 Trennen ist wichtig</p>
+                    <p>42 Du schlugst die Augen auf</p>
+                    <p>31 Ich seh mein Dunkel leben.</p>
+                    <p>95 Ich seh ihm auf den Grund.</p>
+                    <p>41 auch da ists mein und lebt.</p>
+                    <p>20 Schwelle zu Schwelle</p>
+                    <p>52 Das meiste ist unwichtig</p>'
+            ],
+            'lang' => 'de',
+            'design' => 'written',
+            'background' => 'carton',
         ],
         'refabr_de' => [
             'title' => 'Sicherer Unterschlupf',
@@ -726,6 +831,26 @@ class TextFixtures extends Fixture
             'design' => 'classic',
             'background' => 'old',
         ],
+        'stafel' => [
+            'title' => 'Sprechtafel',
+            'author' => 'Nobbz',
+            'content' => [
+                '<p>[Sprechtafel]</p>
+                <p>0 - AG | Verpflegung - Welpen</p>
+                <p>1 - HJ | Kompaniefeldwebel - Dosenöffner</p>
+                <p>2 - DP | Feind - Kartoffel</p>
+                <p>3 - XP | Anzahl - Gemüse</p>
+                <p>4 - PO | Kompanie - Löwe</p>
+                <p>5 - YQ | Hamburg - Baum</p>
+                <p>6 - XO | Kompaniechef - Pickelhaube</p>
+                <p>7 - KL | Kampfeinheit - Rasenmäher</p>
+                <p>8 - PU | Truppenteile - Garage</p>
+                <p>9 - QM | Kampf - Frikadelle</p>'
+            ],
+            'lang' => 'de',
+            'design' => 'typed',
+            'background' => 'printer',
+        ],
         'citsig_de' => [
             'title' => 'Stadtschild',
             'author' => 'coctail',
@@ -759,9 +884,24 @@ class TextFixtures extends Fixture
             'title' => 'Twinoidetikett',
             'author' => null,
             'content' => [
-                ''
+                '<h1>Twinoid 500mg</h1>
+                <table>
+                <tbody><tr><td>Nandrolon</td><td>0.70 %</td></tr>
+                <tr><td>Allicin</td><td>0.03 %</td></tr>
+                <tr><td>Nitroglyzerin</td><td>3.0 %</td></tr>
+                <tr><td>Octanitrocuban</td><td>4.0 %</td></tr>
+                <tr><td>Knallquecksilber</td><td>2.5 %</td></tr>
+                <tr><td>Perchlorat</td><td>0.02 %</td></tr>
+                <tr><td>Bleiazid</td><td>3.00 %</td></tr>
+                <tr><td>RDX</td><td>0.02 %</td></tr>
+                <tr><td>Natürliches Erdbeeraroma</td><td>86.73 %</td></tr>
+                </tbody></table>
+                <p><small>Anmerkung: Einige Wirkstoffe in diesem Medikament können unerwünschte Nebenwirkungen hervorrufen. Dazu zählen: Übelkeit, Erbrechen, Krämpfe, plötzlicher Tod und Explosion.</small></p>
+                <p><small>Enthält leichtentzündliche Stoffe.</small></p>'
             ],
-            'lang' => 'de'
+            'lang' => 'de',
+            'design' => 'stamp',
+            'background' => 'stamp',
         ],
         'santw' => [
             'title' => 'Verstanden!',
@@ -2136,7 +2276,7 @@ class TextFixtures extends Fixture
                 <p>En ne comptant pas Hector qui s\'était tiré notre unique balle dans la tête à la vu de la ville, nous étions 41 je crois.</p>
                 <p>Les charognards se rapprochent déjà de nous, hardi par la faim et le cadavre frais. Nous partons, mais pas à cause d\'eux.</p>',
                 '<h2>Jour 27, 10h23.</h2>
-                <p>La ville était déserte comme nous l\'avions tous prévu. Il semblerait <em[ un="" trou="" empêche="" de="" lire="" la="" suite="" ]<="" em=""> avec eux.</em[></p>
+                <p>La ville était déserte comme nous l\'avions tous prévu. Il semblerait qu\'<em>un trou empêche de lire la suite</em> avec eux.</p>
                 <h2>Jour 27, 12h58.</h2>
                 <p>Les choses nous ont suivit jusqu\'ici, nous nous sommes barricadé mais on les entends dehors, cognant parfois sur la frêle muraille qui était érigé là. Nous décidons tout de suite de la consolider.</p>',
                 '<h2>Jour 27, 14h18.</h2>

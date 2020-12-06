@@ -9,11 +9,11 @@
     {% endif %}
 </div>
 
-<div class="row-table">
+<div class="row-table home-pm">
     <h5>{% trans from 'game'%}Betreff:{% endtrans %} {{thread.title}}</h5>
 
     {% for post in posts %}
-        <div class="forum-post">
+        <div class="forum-post {% if not post.owner %}crow-pm{% endif %}">
             <div class="forum-post-header {% if not post.owner or post.owner.user.name == 'Der Rabe' %}header-variant-crow{% endif %}">
                 <i>
                     {% if post.date.format('Ymd') == today|date("Ymd") %}
@@ -28,18 +28,18 @@
 
                     {% if (post.owner.user.avatar) %}
                         {% if app.user.preferSmallAvatars %}
-                            <div class="avatar small"><img alt="" src="{{ path('app_web_avatar', {'uid': post.owner.user.id, 'name': post.owner.user.avatar.smallName, 'ext': post.owner.user.avatar.format}) }}"></div>
+                            <div class="avatar small ua-{{ post.owner.user.id % 10 }}"><img alt="" src="{{ path('app_web_avatar', {'uid': post.owner.user.id, 'name': post.owner.user.avatar.smallName, 'ext': post.owner.user.avatar.format}) }}"></div>
                         {% else %}
-                            <div class="avatar"><img alt="" src="{{ path('app_web_avatar', {'uid': post.owner.user.id, 'name': post.owner.user.avatar.filename, 'ext': post.owner.user.avatar.format}) }}"></div>
+                            <div class="avatar ua-{{ post.owner.user.id % 10 }}"><img alt="" src="{{ path('app_web_avatar', {'uid': post.owner.user.id, 'name': post.owner.user.avatar.filename, 'ext': post.owner.user.avatar.format}) }}"></div>
                         {% endif %}
                     {% else %}
-                        <div class="avatar small"><img alt="" src="{{ asset('build/images/forum/empty_avatar.gif') }}"></div>
+                        <div class="avatar small ua-{{ post.owner.user.id % 10 }}"><img alt="" src="{{ asset('build/images/forum/empty_avatar.gif') }}"></div>
                     {% endif %}
                 {% else %}
                     {% if app.user.preferSmallAvatars %}
-                        <div class="avatarcrow small"><img alt="" src="{{ path('app_web_avatar', {'uid': thecrow.id, 'name': thecrow.avatar.smallName, 'ext': thecrow.avatar.format}) }}"></div>
+                        <div class="avatarcrow small"><img alt="" src="{{ asset('build/images/forum/crow/crow.small.' ~ (app.request.locale|e('html_attr')|split('_', 2))[0] ~ '.png') }}"></div>
                     {% else %}
-                        <div class="avatarcrow"><img alt="" src="{{ path('app_web_avatar', {'uid': thecrow.id, 'name': thecrow.avatar.filename, 'ext': thecrow.avatar.format}) }}"></div>
+                        <div class="avatarcrow"><img alt="" src="{{ asset('build/images/forum/crow/crow.' ~ (app.request.locale|e('html_attr')|split('_', 2))[0] ~ '.png') }}"></div>
                     {% endif %}
                 {% endif %}
 
@@ -51,11 +51,21 @@
                     {% endif %}
                 </b>
             </div>
-            <div class="forum-post-content">
+            <div class="forum-post-content" >
                 {% if not post.owner %}
-                    <div class="crowmsg">{{ 'Dies ist eine offizielle Nachricht.'|trans({},'game') }}</div>
+                    <div class="crowmsg {% if not app.user.preferSmallAvatars %}fixMargin{% endif %}">{{ 'Dies ist eine offizielle Nachricht.'|trans({},'game') }} <a class="help-button"><div class="tooltip help">{{ 'Diese Nachricht wurde dir vom Raben persönlich überbracht. Er schwebt über der Stadt und wirft immer ein wachsames Auge auf dich...'|trans({},'global') }}</div>{{ 'Hilfe'|trans({},'global') }}</a></div>
                 {% endif %}
-                {{ post.text|raw }}
+
+                {% if post.hidden %}
+                    <div class="crowmsg {% if not app.user.preferSmallAvatars %}fixMargin{% endif %}">{{ 'Der Rabe hat diese Nachricht zerrissen.'|trans({},'game') }}</div>
+                {% else %}
+                    {{ post.text|raw }}
+                {% endif %}
+
+                {% if post.modMessage %}
+                    <div class="modAnnounce">{{ post.modMessage }}</div>
+                {% endif %}
+
                 {% if items[post.id] is defined and items[post.id]|length > 0 %}
                     <hr />
                     <div class="help">
@@ -68,7 +78,13 @@
                     </div>
                 {% endif %}
             </div>
-            <div class="forum-post-footer right"></div>
+            <div class="forum-post-footer right">
+                {% if post.owner and post.owner.user != app.user %}
+                    <div class="float-right small">
+                        [ <a class="action-button" id="report_post" x-forum-action="report-post" x-post-id={{ post.id }}><img alt="!" src="{{ asset('build/images/forum/warning.png') }}"><div class="tooltip forum-tooltip">{{'Unangemessene Nachricht blockieren'|trans({}, 'global')}}</div></a> ]
+                    </div>
+                {% endif %}
+            </div>
         </div>
     {% endfor %}
 
@@ -118,5 +134,12 @@
         e.preventDefault();
         replybtn.style.display = "none";
         $.ajax.no_history().load( document.getElementById('forum-editor'), '{{ path('home_answer_post_editor_controller', {tid: thread.id}) }}', false )
+    });
+
+    $.html.addEventListenerAll('[x-forum-action="report-post"]', 'click', function(e,elem) {
+        if (confirm('{{ 'Bist du sicher, dass du diesen Post an die Moderatoren melden willst?'|trans({},'global')|e('js') }}'))
+            $.ajax.easySend( '{{ url('home_report_pm_controller') }}', {pmid: parseInt( elem.getAttribute('x-post-id')) }, function () {
+                $.ajax.load(null, '{{ path('town_house', {'tab': 'messages', 'subtab': 'received'}) }}', true);
+            } );
     });
 </script>

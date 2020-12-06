@@ -8,53 +8,89 @@
             </ul>
 
             <div x-tab-group="admin-forum" x-tab-id="dash" x-tab-target>
+                <h5>{{ 'Foren-Meldungen'|trans({},'admin') }}</h5>
                 {% if not all_shown %}
                     <div class="note">
                         {{ 'Posts mit nur einer Meldung werden ausgeblendet.'|trans({},'admin') }}
                         <a href="#" x-ajax-href="{{ path('admin_reports', {opt: 'all'}) }}">{{ 'Alle anzeigen'|trans({},'admin') }}</a>
                     </div>
                 {% endif %}
-                <div class="row">
-                    <div class="cell padded rw-3 rw-sm-12">
-                        <span>{{ "Forum" |trans({}, 'admin') }}</span>
+                <div class="row-table">
+                    <div class="row header">
+                        <div class="cell rw-3 rw-sm-12 padded">{{ "Forum" |trans({}, 'admin') }}</div>
+                        <div class="cell rw-2 rw-sm-12 padded">{{ "Autor" |trans({}, 'admin') }}</div>
+                        <div class="cell rw-1 rw-sm-12 padded">#</div>
+                        <div class="cell rw-4 rw-sm-12 padded">{{ "gemeldet von" |trans({}, 'admin') }}</div>
+                        <div class="cell rw-2 rw-sm-12 padded">{{ "Aktionen" |trans({}, 'admin') }}</div>
                     </div>
-                    <div class="cell padded rw-2 rw-sm-12">
-                        <span>{{ "Autor" |trans({}, 'admin') }}</span>
-                    </div>
-                    <div class="cell padded rw-2 rw-sm-12">
-                        <span>{{ "Meldungen" |trans({}, 'admin') }}</span>
-                    </div>
-                    <div class="cell padded rw-4 rw-sm-12">
-                        <span>{{ "gemeldet von" |trans({}, 'admin') }}</span>
-                    </div>
+                    {% for post in posts %}
+                        <div class="row">
+                            <div class="cell padded rw-3 rw-sm-12">
+                                <a href="{{path('forum_jump_view', {pid: post['post'].id})}}" target="_blank">{{ post['post'].thread.forum.title }}</a>
+                            </div>
+                            <div class="cell padded rw-2 rw-sm-12">
+                                <span>{{ post['post'].owner.name }}</span>
+                            </div>
+                            <div class="cell padded rw-1 rw-sm-12">
+                                <span>{{ post['count'] }}</span>
+                            </div>
+                            <div class="cell padded rw-4 rw-sm-12">
+                                {% set iteration = 0 %}
+                                {% for reporter in post['reporters'] %}
+                                    {% if iteration > 0 %}
+                                        <span>{{ ", " ~ reporter.name }}</span>
+                                    {% else %}
+                                        <span>{{ reporter.name }}</span>
+                                    {% endif %}
+                                    {% set iteration = iteration + 1 %}
+                                {% endfor %}
+                            </div>
+                            <div class="cell padded rw-2 rw-sm-12 right">
+                                <button class="small inline" x-report-action="clear-reports" x-post-id={{ post['post'].id }}>{{ 'Gesehen'|trans({}, 'admin') }}</button>
+                            </div>
+                        </div>
+                    {% endfor %}
                 </div>
-                {% for post in posts %}
-                    <div class="row">
-                        <div class="cell padded rw-3 rw-sm-12">
-                            <a href="{{path('forum_jump_view', {pid: post['post'].id})}}" target="_blank">{{ post['post'].thread.forum.title }}</a>
-                        </div>
-                        <div class="cell padded rw-2 rw-sm-12">
-                            <span>{{ post['post'].owner.name }}</span>
-                        </div>
-                        <div class="cell padded rw-2 rw-sm-12">
-                            <span>{{ post['count'] }}</span>
-                        </div>
-                        <div class="cell padded rw-4 rw-sm-12">
-                            {% set iteration = 0 %}
-                            {% for reporter in post['reporters'] %}
-                                {% if iteration > 0 %}
-                                    <span>{{ ", " ~ reporter.name }}</span>
-                                {% else %}
-                                    <span>{{ reporter.name }}</span>
-                                {% endif %}
-                                {% set iteration = iteration + 1 %}
-                            {% endfor %}
-                        </div>
-                        <div class="cell padded rw-1 rw-sm-12">
-                            <button x-report-action="clear-reports" x-post-id={{ post['post'].id }}>{{ 'Gesehen'|trans({}, 'admin') }}</button>
-                        </div>
+
+                <h5>{{ 'PN-Meldungen'|trans({},'admin') }}</h5>
+                <div class="row-table">
+                    <div class="row header">
+                        <div class="cell rw-3 rw-sm-12 padded">{{ "Titel" |trans({}, 'admin') }}</div>
+                        <div class="cell rw-2 rw-sm-12 padded">{{ "Autor" |trans({}, 'admin') }}</div>
+                        <div class="cell rw-1 rw-sm-12 padded">#</div>
+                        <div class="cell rw-4 rw-sm-12 padded">{{ "gemeldet von" |trans({}, 'admin') }}</div>
+                        <div class="cell rw-2 rw-sm-12 padded">{{ "Aktionen" |trans({}, 'admin') }}</div>
                     </div>
-                {% endfor %}
+                    {% for pm in pms %}
+                        <div class="row">
+                            <div class="cell padded rw-3 rw-sm-12">
+                                <span>{{ pm.post.privateMessageThread.title }}</span>
+                            </div>
+                            <div class="cell padded rw-2 rw-sm-12">
+                                <span>{{ pm.post.owner.user.name }}</span>
+                            </div>
+                            <div class="cell padded rw-1 rw-sm-12">
+                                <span>{{ pm.count }}</span>
+                            </div>
+                            <div class="cell padded rw-4 rw-sm-12">
+                                {% set iteration = 0 %}
+                                {% for reporter in pm.reporters %}
+                                    {% if iteration > 0 %}
+                                        <span>{{ ", " ~ reporter.name }}</span>
+                                    {% else %}
+                                        <span>{{ reporter.name }}</span>
+                                    {% endif %}
+                                    {% set iteration = iteration + 1 %}
+                                {% endfor %}
+                            </div>
+                            <div class="cell padded rw-2 rw-sm-12 right">
+                                <button class="small inline" x-report-action="open-pn-reports" x-post-id={{ pm.post.id }}>{{ 'Öffnen'|trans({}, 'admin') }}</button>
+                                <button class="small inline" x-report-action="clear-pn-reports" x-post-id={{ pm.post.id }}>{{ 'Gesehen'|trans({}, 'admin') }}</button>
+                            </div>
+                            <div class="hidden cell padded rw-12" x-pm-target="{{ pm.post.id }}"></div>
+                        </div>
+                    {% endfor %}
+                </div>
             </div>
         </div>
     </div>
@@ -67,6 +103,31 @@
                 function () {
                     $.ajax.load(null, '{{ path('admin_reports', {opt: all_shown ? 'all' : ''}) }}', true);
                 } )
+        } );
+
+        $.html.addEventListenerAll('[x-report-action=clear-pn-reports]', 'click', function(e,elem) {
+            $.ajax.easySend( '{{ path('admin_reports_mod_pn') }}', {pmid: parseInt(elem.getAttribute('x-post-id')), seen: true},
+                function () {
+                    $.ajax.load(null, '{{ path('admin_reports', {opt: all_shown ? 'all' : ''}) }}', true);
+                } );
+        } );
+
+        $.html.addEventListenerAll('[x-report-action=open-pn-reports]', 'click', function(e,elem) {
+            const pm_id = parseInt( elem.getAttribute('x-post-id'));
+            let target = document.querySelector('[x-pm-target="' + pm_id + '"]');
+            if (!target) return;
+
+            $.html.forEach( '[x-pm-target]', e => {
+                e.innerHTML = '';
+                e.classList.add('hidden')
+            } );
+            $.html.forEach( '[x-report-action="open-pn-reports"]', e => e.classList.remove('hidden') );
+
+            elem.classList.add('hidden');
+            target.innerHTML = '<div class="center"><i class="fa fa-pulse fa-spinner"></i></div>';
+            target.classList.remove('hidden');
+
+            $.ajax.background().load(target, '{{ path('admin_pm_viewer')|e('js') }}', false, {pmid: pm_id})
         } );
     </script>
 {% endblock %}

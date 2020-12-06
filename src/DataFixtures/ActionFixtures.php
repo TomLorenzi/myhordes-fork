@@ -43,6 +43,7 @@ use App\Entity\RequireBuilding;
 use App\Entity\RequireConf;
 use App\Entity\RequireCounter;
 use App\Entity\RequireCP;
+use App\Entity\RequireDay;
 use App\Entity\RequireHome;
 use App\Entity\RequireItem;
 use App\Entity\RequireLocation;
@@ -52,7 +53,6 @@ use App\Entity\RequireStatus;
 use App\Entity\RequireZombiePresence;
 use App\Entity\RequireZone;
 use App\Entity\Result;
-use App\Repository\RequireLocationRepository;
 use App\Structures\TownConf;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\DataFixtures\DependentFixtureInterface;
@@ -222,6 +222,7 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             'must_not_be_tombed' => [ 'type' => Requirement::HideOnFail, 'collection' => [ 'status' => [ 'enabled' => false, 'status' => 'tg_tomb' ] ] ],
             'must_be_hidden' => [ 'type' => Requirement::HideOnFail, 'collection' => [ 'status' => [ 'enabled' => true, 'status' => 'tg_hide' ] ] ],
             'must_be_tombed' => [ 'type' => Requirement::HideOnFail, 'collection' => [ 'status' => [ 'enabled' => true, 'status' => 'tg_tomb' ] ] ],
+            'not_before_day_2' => [ 'type' => Requirement::CrossOnFail, 'collection' => [ 'day' => [ 'min' => 2, 'max' => 99 ] ] ],
         ],
 
         'requirements' => [
@@ -232,7 +233,7 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             'location' => [],
             'zombies' => [],
             'building' => [],
-
+            'day' => [],
         ],
 
         'meta_results' => [
@@ -261,7 +262,7 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             'reset_thirst_counter' => [ 'status' => 'reset_thirst_counter' ],
 
             'eat_ap6'     => [ 'status' => 'add_has_eaten', 'ap' => 'to_max_plus_0', 'message' => ['text' => 'Es schmeckt wirklich komisch... aber es erfüllt seinen Zweck: Dein Hunger ist gestillt. Glaub aber nicht, dass du dadurch zusätzliche APs erhältst...'] ],
-            'eat_ap7'     => [ 'status' => 'add_has_eaten', 'ap' => 'to_max_plus_1' ],
+            'eat_ap7'     => [ 'status' => 'add_has_eaten', 'ap' => 'to_max_plus_1', 'message' => ['text' => 'Einmal ist zwar keinmal, dennoch genießt du dein(e) {item}. Das ist mal ne echte Abwechslung zu dem sonstigen Fraß... Du spürst deine Kräfte wieder zurückkehren. Du hast 1 zusätzlichen AP erhalten!'] ],
 
             'drunk' => [ 'status' => 'add_drunk', 'picto' => ['r_alcool_#00']],
 
@@ -520,7 +521,7 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             'watercan1_g'    => [ 'label' => 'Trinken', 'cover' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'role_ghoul', 'is_not_wounded', 'drink_cross' ], 'result' => [ 'inflict_wound', 'produce_watercan0' ] ],
 
             'alcohol'    => [ 'label' => 'Trinken', 'cover' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'not_drunk', 'not_hungover' ], 'result' => [ 'just_ap6', 'drunk', 'consume_item' ] ],
-            'alcohol_dx' => [ 'label' => 'Trinken', 'cover' => true, 'allow_when_terrorized' => true,  'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'not_drunk', 'not_hungover' ], 'result' => [ 'just_ap6', 'drunk', 'unterrorize', 'consume_item' ] ],
+            'alcohol_dx' => [ 'label' => 'Trinken', 'cover' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ ], 'result' => [ 'just_ap6', 'drunk', 'consume_item' ] ],
 
             'coffee' => [ 'label' => 'Trinken', 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ ], 'result' => [ 'plus_4ap', 'consume_item' ] ],
 
@@ -554,7 +555,7 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             'drug_hyd_6' => [ 'label' => 'Einnehmen', 'cover' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'drug_2', 'drink_tl2' ], 'result' => [ 'reset_thirst_counter', 'drug_addict', 'drink_no_ap', 'consume_item' ] ],
 
             'drug_beta'  => [ 'label' => 'Einnehmen', 'cover' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'not_yet_beta' ], 'result' => [ ['ap' => [ 'max' => true,  'num' => 20 ], 'status' => [ 'from' => null, 'to' => 'tg_betadrug' ]] ] ],
-            'cyanide'    => [ 'label' => 'Einnehmen', 'cover' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ ], 'result' => [ 'cyanide', 'consume_item' ] ],
+            'cyanide'    => [ 'label' => 'Einnehmen', 'cover' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'not_before_day_2' ], 'result' => [ 'cyanide', 'consume_item' ] ],
 
             'bandage' => [ 'label' => 'Verbinden', 'meta' => [ 'is_wounded', 'is_not_bandaged' ], 'result' => [ 'heal_wound', 'consume_item', 'add_bandage' ] ],
             'emt'     => [ 'label' => 'Einsetzen', 'cover' => true, 'meta' => [ 'is_not_wounded' ], 'result' => [ 'just_ap6', 'inflict_wound', ['item' => [ 'consume' => false, 'morph' => 'sport_elec_empty_#00' ]], ['picto' => ['r_maso_#00']] ] ],
@@ -915,6 +916,7 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             'food_tarte_#00'      => [ 'eat_6ap'],
             'food_sandw_#00'      => [ 'eat_6ap'],
             'food_noodles_#00'    => [ 'eat_6ap'],
+            'wood_xmas_#00'    => [ 'eat_6ap'],
             'fruit_#00'           => [ 'eat_fleshroom_1', 'eat_fleshroom_2'],
             'hmeat_#00'           => [ 'eat_meat_1', 'eat_meat_2' ],
             'bone_meat_#00'       => [ 'eat_bone_1', 'eat_bone_2' ],
@@ -1319,6 +1321,9 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
                     case 'conf':
                         $requirement->setConf( $this->process_conf_requirement( $manager, $out, $sub_cache[$sub_id], $sub_req, $sub_data ) );
                         break;
+                    case 'day':
+                        $requirement->setDay( $this->process_day_requirement( $manager, $out, $sub_cache[$sub_id], $sub_req, $sub_data ) );
+                        break;
                     default:
                         throw new Exception('No handler for requirement type ' . $sub_id);
                 }
@@ -1382,6 +1387,34 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             $requirement->setName( $id )->setMin( $data['min'] )->setMax( $data['max'] )->setRelativeMax( $data['relative'] );
             $manager->persist( $cache[$id] = $requirement );
         } else $out->writeln( "\t\t\t<comment>Skip</comment> condition <info>pm/{$id}</info>", OutputInterface::VERBOSITY_DEBUG );
+
+        return $cache[$id];
+    }
+
+    /**
+     * @param ObjectManager $manager
+     * @param ConsoleOutputInterface $out
+     * @param array $cache
+     * @param string $id
+     * @param array $data
+     * @return RequireDay
+     * @throws Exception
+     */
+    private function process_day_requirement(
+        ObjectManager $manager, ConsoleOutputInterface $out,
+        array &$cache, string $id, array $data): RequireDay
+    {
+        if (!isset($cache[$id])) {
+            $requirement = $manager->getRepository(RequireDay::class)->findOneBy(['name' => $id]);
+            if ($requirement) $out->writeln( "\t\t\t<comment>Update</comment> condition <info>day/{$id}</info>", OutputInterface::VERBOSITY_DEBUG );
+            else {
+                $requirement = new RequireDay();
+                $out->writeln( "\t\t\t<comment>Create</comment> condition <info>day/{$id}</info>", OutputInterface::VERBOSITY_DEBUG );
+            }
+
+            $requirement->setName( $id )->setMin( $data['min'] )->setMax( $data['max'] );
+            $manager->persist( $cache[$id] = $requirement );
+        } else $out->writeln( "\t\t\t<comment>Skip</comment> condition <info>day/{$id}</info>", OutputInterface::VERBOSITY_DEBUG );
 
         return $cache[$id];
     }

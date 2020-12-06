@@ -7255,5 +7255,95 @@
         <target>Öffnen (1 BP)</target>
       </segment>
     </unit>
+    <unit id="dXVgFVI" name="ba2998a">
+      <notes>
+        <note category="german">Es schmeckt wirklich komisch... aber es erfüllt seinen Zweck: Dein Hunger ist gestillt. Glaub aber nicht, dass du dadurch zusätzliche APs erhältst...</note>
+      </notes>
+      <segment>
+        <source>Es schmeckt wirklich komisch... aber es erfüllt seinen Zweck: Dein Hunger ist gestillt. Glaub aber nicht, dass du dadurch zusätzliche APs erhältst...</source>
+        <target>Es schmeckt wirklich komisch... aber es erfüllt seinen Zweck: Dein Hunger ist gestillt. Glaub aber nicht, dass du dadurch zusätzliche APs erhältst...</target>
+      </segment>
+    </unit>
+    <unit id="kUD78DD" name="4f2517e">
+      <notes>
+        <note category="german">Einmal ist zwar keinmal, dennoch genießt du dein(e) {item}. Das ist mal ne echte Abwechslung zu dem sonstigen Fraß... Du spürst deine Kräfte wieder zurückkehren. Du hast 1 zusätzlichen AP erhalten!</note>
+      </notes>
+      <segment>
+        <source>Einmal ist zwar keinmal, dennoch genießt du dein(e) {item}. Das ist mal ne echte Abwechslung zu dem sonstigen Fraß... Du spürst deine Kräfte wieder zurückkehren. Du hast 1 zusätzlichen AP erhalten!</source>
+        <target>Einmal ist zwar keinmal, dennoch genießt du dein(e) {item}. Das ist mal ne echte Abwechslung zu dem sonstigen Fraß... Du spürst deine Kräfte wieder zurückkehren. Du hast 1 zusätzlichen AP erhalten!</target>
+      </segment>
+    </unit>
+    <unit id="wDKaGfq" name="Krähenelfe">
+      <notes>
+        <note category="german">Krähenelfe</note>
+      </notes>
+      <segment>
+        <source>Krähenelfe</source>
+        <target>Krähenelfe</target>
+      </segment>
+    </unit>
+    <unit id="dxVqvZU" name="fb77d9b">
+      <notes>
+        <note category="german">Das ist eine seltsam aussehende kleine Bestie... Scheint einer Krähe zu ähneln... Aber es ist grün und trägt einen komischen Hut...</note>
+      </notes>
+      <segment>
+        <source>Das ist eine seltsam aussehende kleine Bestie... Scheint einer Krähe zu ähneln... Aber es ist grün und trägt einen komischen Hut...</source>
+        <target>Das ist eine seltsam aussehende kleine Bestie... Scheint einer Krähe zu ähneln... Aber es ist grün und trägt einen komischen Hut...</target>
+      </segment>
+    </unit>
+    <unit id="VVXkyRX" name="Logbuch Schokolade">
+      <notes>
+        <note category="german">Schokoladenklumpen</note>
+      </notes>
+      <segment>
+        <source>Logbuch Schokolade</source>
+        <target>Schokoladenklumpen</target>
+      </segment>
+    </unit>
+    <unit id="WSBb1y." name="66b1acc">
+      <notes>
+        <note category="german">Entweder ein verschrumpelter alter Weihnachtskuchen oder etwas noch weniger Schmackhaftes, was am Weihnachtstag gebacken wird! Auf jeden Fall solltest du dieses Kuchen... artige Ding genießen.</note>
+      </notes>
+      <segment>
+        <source>Entweder ein verschrumpelter alter Weihnachtskuchen oder etwas weniger Schmackhaftes, das dennoch am Weihnachtstag gebacken wird! Genießen Sie auf jeden Fall diesen Kuchen... Ding...</source>
+        <target>Entweder ein verschrumpelter alter Weihnachtskuchen oder etwas noch weniger Schmackhaftes, was am Weihnachtstag gebacken wird! Auf jeden Fall solltest du dieses Kuchen... artige Ding genießen.</target>
+      </segment>
+    </unit>
+    <unit id="S17luT0" name="Grüner Kobold-Anzug">
+      <notes>
+        <note category="german">Grüner Kobold-Anzug</note>
+      </notes>
+      <segment>
+        <source>Grüner Kobold-Anzug</source>
+        <target>Grüner Kobold-Anzug</target>
+      </segment>
+    </unit>
+    <unit id="0TddDiL" name="7fd5428">
+      <notes>
+        <note category="german">In dieser Aufmachung bist du so auffällig, dass dich niemand bemerkt oder zumindest glaubt, sich das nur eingebildet zu haben! Das würdest du doch nicht missbrauchen, oder?</note>
+      </notes>
+      <segment>
+        <source>In dieser Aufmachung sind Sie so auffällig, dass Sie niemand bemerkt oder glaubt, sich das eingebildet zu haben! Sie würden es nicht missbrauchen, oder?</source>
+        <target>In dieser Aufmachung bist du so auffällig, dass dich niemand bemerkt oder zumindest glaubt, sich das nur eingebildet zu haben! Das würdest du doch nicht missbrauchen, oder?</target>
+      </segment>
+    </unit>
+    <unit id="QcqmVZM" name="Unidentifizierbare Trümmerstücke">
+      <notes>
+        <note category="german">Unidentifizierbare Trümmerstücke</note>
+      </notes>
+      <segment>
+        <source>Unidentifizierbare Trümmerstücke</source>
+        <target>Unidentifizierbare Trümmerstücke</target>
+      </segment>
+    </unit>
+    <unit id="ug9P8X6" name="4b4524c">
+      <notes>
+        <note category="german">Diese Trümmerstücke waren mal Teil eines Gegenstandes, den du nicht mehr identifizieren kannst. Die Verformung der Teile lassen vermuten, dass dieser Gegenstand mit hoher Geschwindigkeit am Boden aufgeprallt ist...</note>
+      </notes>
+      <segment>
+        <source>Diese Trümmerstücke waren mal Teil eines Gegenstandes, den du nicht mehr identifizieren kannst. Die Verformung der Teile lassen vermuten, dass dieser Gegenstand mit hoher Geschwindigkeit am Boden aufgeprallt ist...</source>
+        <target>Diese Trümmerstücke waren mal Teil eines Gegenstandes, den du nicht mehr identifizieren kannst. Die Verformung der Teile lassen vermuten, dass dieser Gegenstand mit hoher Geschwindigkeit am Boden aufgeprallt ist...</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

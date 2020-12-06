@@ -1739,5 +1739,98 @@
         <target>You need to earn more experience to be able to do this ...</target>
       </segment>
     </unit>
+    <unit id="NA9GMDP" name="Code">
+      <notes>
+        <note category="german">Code</note>
+      </notes>
+      <segment>
+        <source>Code</source>
+        <target>Code</target>
+      </segment>
+    </unit>
+    <unit id="EX0EUAt" name="Kein">
+      <notes>
+        <note category="german">Kein</note>
+      </notes>
+      <segment>
+        <source>Kein</source>
+        <target>Kein</target>
+      </segment>
+    </unit>
+    <unit id="Yx7n3Xy" name="728d63e">
+      <notes>
+        <note category="german">Diese Nachricht wurde dir vom Raben persönlich überbracht. Er schwebt über der Stadt und wirft immer ein wachsames Auge auf dich...</note>
+      </notes>
+      <segment>
+        <source>Diese Nachricht wurde dir vom Raben persönlich überbracht. Er schwebt über der Stadt und wirft immer ein wachsames Auge auf dich...</source>
+        <target>Diese Nachricht wurde dir vom Raben persönlich überbracht. Er schwebt über der Stadt und wirft immer ein wachsames Auge auf dich...</target>
+      </segment>
+    </unit>
+    <unit id="rtJUaLn" name="f14ccda">
+      <notes>
+        <note category="german">Die große Anzahl an Erdhaufen und an herumliegenden Müll sind ein Indiz dafür, dass hier wahrscheinlich nichts mehr zu finden ist.
+                                &lt;p&gt;&lt;em&gt;Wenn du möchtest, kannst du allerdings weitergraben und ein paar minderwertige Materialien für die verschiedenen Baustellen der Stadt zu Tage fördern..&lt;/em&gt;&lt;/p&gt;</note>
+      </notes>
+      <segment>
+        <source>Die große Anzahl an Erdhaufen und an herumliegenden Müll sind ein Indiz dafür, dass hier wahrscheinlich nichts mehr zu finden ist.
+                                &lt;p&gt;&lt;em&gt;Wenn du möchtest, kannst du allerdings weitergraben und ein paar minderwertige Materialien für die verschiedenen Baustellen der Stadt zu Tage fördern..&lt;/em&gt;&lt;/p&gt;</source>
+        <target><![CDATA[Die große Anzahl an Erdhaufen und an herumliegenden Müll sind ein Indiz dafür, dass hier wahrscheinlich nichts mehr zu finden ist.
+                                <p><em>Wenn du möchtest, kannst du allerdings weitergraben und ein paar minderwertige Materialien für die verschiedenen Baustellen der Stadt zu Tage fördern..</em></p>]]></target>
+      </segment>
+    </unit>
+    <unit id="i4kWNY_" name="c911391">
+      <notes>
+        <note category="german">Diesen Bonus gibt es dank eurer alten Freunde und dem Gebäude &lt;strong&gt;Kleiner Friedhof&lt;/strong&gt;.</note>
+      </notes>
+      <segment>
+        <source>Diesen Bonus gibt es dank eurer alten Freunde und dem Gebäude &lt;strong&gt;Kleiner Friedhof&lt;/strong&gt;.</source>
+        <target><![CDATA[Diesen Bonus gibt es dank eurer alten Freunde und dem Gebäude <strong>Kleiner Friedhof</strong>.]]></target>
+      </segment>
+    </unit>
+    <unit id="zTo.6Bl" name="1fa3771">
+      <notes>
+        <note category="german">Diesen Bonus gibt es nur dann, wenn sich die Wächter wärhend eines Angriffs in det Stadt befinden.</note>
+      </notes>
+      <segment>
+        <source>Diesen Bonus gibt es nur dann, wenn sich die Wächter wärhend eines Angriffs in det Stadt befinden.</source>
+        <target>Diesen Bonus gibt es nur dann, wenn sich die Wächter wärhend eines Angriffs in det Stadt befinden.</target>
+      </segment>
+    </unit>
+    <unit id="zF4ERQG" name="Diese Kosten können durch den Aufbau der &lt;strong&gt;Müll für Alle&lt;/strong&gt;.">
+      <notes>
+        <note category="german">Diese Kosten können durch den Aufbau der &lt;strong&gt;Müll für Alle&lt;/strong&gt;.</note>
+      </notes>
+      <segment>
+        <source>Diese Kosten können durch den Aufbau der &lt;strong&gt;Müll für Alle&lt;/strong&gt;.</source>
+        <target><![CDATA[Diese Kosten können durch den Aufbau der <strong>Müll für Alle</strong>.]]></target>
+      </segment>
+    </unit>
+    <unit id="BC_uip5" name="Ausblenden">
+      <notes>
+        <note category="german">Ausblenden</note>
+      </notes>
+      <segment>
+        <source>Ausblenden</source>
+        <target>Ausblenden</target>
+      </segment>
+    </unit>
+    <unit id="UzZ7xlJ" name="Nachricht">
+      <notes>
+        <note category="german">Nachricht</note>
+      </notes>
+      <segment>
+        <source>Nachricht</source>
+        <target>Nachricht</target>
+      </segment>
+    </unit>
+    <unit id="dJK8aO8" name="Ausb.+Nachr.">
+      <notes>
+        <note category="german">Ausb.+Nachr.</note>
+      </notes>
+      <segment>
+        <source>Ausb.+Nachr.</source>
+        <target>Ausb.+Nachr.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

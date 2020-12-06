@@ -48,7 +48,7 @@
                         <b>{{ 'Geplante Angriffe'|trans({},'admin') }}</b><br />
                         {% for schedule in schedules %}
                             <div>
-                                {{ schedule.timestamp|date }}
+                                {{ schedule.timestamp|format_datetime('long', 'short') }}
                                 {% if schedule.timestamp.timestamp < now %}
                                     <span style="color: red">{{ 'Überfällig seit %s% Sekunden!'|trans({'%s%': now - schedule.timestamp.timestamp},'admin') }}</span>
                                 {% endif %}

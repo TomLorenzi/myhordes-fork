@@ -6,39 +6,47 @@ namespace App\Service;
 
 use App\Entity\Building;
 use App\Entity\BuildingPrototype;
+use App\Entity\Citizen;
 use App\Entity\CitizenHome;
 use App\Entity\CitizenHomeUpgrade;
 use App\Entity\CitizenHomeUpgradePrototype;
+use App\Entity\CitizenRole;
 use App\Entity\CitizenWatch;
 use App\Entity\Complaint;
+use App\Entity\EventActivationMarker;
 use App\Entity\Gazette;
 use App\Entity\Item;
 use App\Entity\ItemPrototype;
 use App\Entity\Inventory;
 use App\Entity\PictoPrototype;
+use App\Entity\PrivateMessage;
 use App\Entity\Town;
 use App\Entity\ZombieEstimation;
 use App\Entity\Zone;
+use App\Structures\EventConf;
 use App\Structures\HomeDefenseSummary;
 use App\Structures\TownDefenseSummary;
 use App\Service\ConfMaster;
 use App\Structures\TownConf;
 use Doctrine\ORM\EntityManagerInterface;
-use function Couchbase\basicEncoderV1;
 
 class TownHandler
 {
-    private $entity_manager;
-    private $inventory_handler;
-    private $item_factory;
-    private $log;
-    private $timeKeeper;
-    private $citizen_handler;
-    private $picto_handler;
-    private $conf;
+    private EntityManagerInterface $entity_manager;
+    private InventoryHandler $inventory_handler;
+    private ItemFactory $item_factory;
+    private LogTemplateHandler $log;
+    private TimeKeeperService $timeKeeper;
+    private CitizenHandler $citizen_handler;
+    private PictoHandler $picto_handler;
+    private RandomGenerator $random;
+    private ConfMaster $conf;
+    private CrowService $crowService;
 
     public function __construct(
-        EntityManagerInterface $em, InventoryHandler $ih, ItemFactory $if, LogTemplateHandler $lh, TimeKeeperService $tk, CitizenHandler $ch, PictoHandler $ph, ConfMaster $conf)
+        EntityManagerInterface $em, InventoryHandler $ih, ItemFactory $if, LogTemplateHandler $lh,
+        TimeKeeperService $tk, CitizenHandler $ch, PictoHandler $ph, ConfMaster $conf, RandomGenerator $rand,
+        CrowService $armbrust)
     {
         $this->entity_manager = $em;
         $this->inventory_handler = $ih;
@@ -48,6 +56,8 @@ class TownHandler
         $this->citizen_handler = $ch;
         $this->picto_handler = $ph;
         $this->conf = $conf;
+        $this->random = $rand;
+        $this->crowService = $armbrust;
     }
 
     private function internalAddBuilding( Town &$town, BuildingPrototype $prototype ): ?Building {
@@ -64,6 +74,12 @@ class TownHandler
         return $b;
     }
 
+    /**
+     * Triggers that should be always run once a day
+     *
+     * @param Town $town The town on which we run the triggers
+     * @return boolean Did something changed ?
+     */
     public function triggerAlways( Town $town ): bool {
         $changed = false;
 
@@ -94,6 +110,13 @@ class TownHandler
         return $changed;
     }
 
+    /**
+     * Triggers the events that should happen upon a building completion
+     *
+     * @param Town $town The town concerned by the trigger
+     * @param Building $building The building that has just been finished
+     * @return void
+     */
     public function triggerBuildingCompletion( Town &$town, Building $building ) {
         $well = 0;
 
@@ -195,6 +218,9 @@ class TownHandler
                     $this->entity_manager->persist($zone);
                 }
                 break;
+            case "item_courroie_#00":
+                $this->assignCatapultMaster($town);
+                break;
             default: break;
         }
 
@@ -212,6 +238,50 @@ class TownHandler
         }
     }
 
+    public function assignCatapultMaster(Town $town, bool $allow_multi = false): ?Citizen {
+
+        $choice = [];
+        $current = 0;
+
+        foreach($town->getCitizens() as $citizen) {
+            if (!$citizen->getAlive() || $citizen->getBanished()) continue;
+            if (!$allow_multi && $citizen->hasRole('cata')) return null;
+
+            $level = 0;
+            if($this->citizen_handler->hasStatusEffect($citizen, 'tg_chk_forum')) $level++;
+            if($this->citizen_handler->hasStatusEffect($citizen, 'tg_chk_active')) $level++;
+            if($this->citizen_handler->hasStatusEffect($citizen, 'tg_chk_workshop')) $level++;
+            if($this->citizen_handler->hasStatusEffect($citizen, 'tg_chk_build')) $level++;
+            if($this->citizen_handler->hasStatusEffect($citizen, 'tg_chk_movewb')) $level++;
+
+            if ($citizen->getProfession()->getHeroic()) $level *= 10;
+
+            if ($level > $current) {
+                $choice = [$citizen];
+                $current = $level;
+            } elseif ($level === $current) {
+                $choice[] = $citizen;
+            }
+        }
+
+        /** @var Citizen|null $selected */
+        $selected = empty($choice) ? null : $this->random->pick($choice);
+
+        if ($selected) {
+            $selected->addRole( $this->entity_manager->getRepository(CitizenRole::class)->findOneByName('cata') );
+            $this->crowService->postAsPM($selected, '', '', PrivateMessage::TEMPLATE_CROW_CATAPULT, $selected->getId());
+        }
+
+        return $selected;
+    }
+
+    /**
+     * Add a building to the list of unlocked building
+     *
+     * @param Town $town The town we want to add a building to
+     * @param BuildingPrototype $prototype The prototype we want to add
+     * @return Building|null The building of the town, or null if it is not unlockable yet
+     */
     public function addBuilding( Town &$town, BuildingPrototype $prototype ): ?Building {
 
         // Do not add a building that already exist
@@ -228,6 +298,14 @@ class TownHandler
         return $this->internalAddBuilding( $town, $prototype );
     }
 
+    /**
+     * Return the wanted building
+     *
+     * @param Town $town The town we're looking the building into
+     * @param String|BuildingPrototype $prototype The prototype of the building (name of prototype or Prototype Entity)
+     * @param boolean $finished Do we want the building if is finished, null otherwise ?
+     * @return Building|null
+     */
     public function getBuilding(Town $town, $prototype, $finished = true): ?Building {
         if (is_string($prototype))
             $prototype = $this->entity_manager->getRepository(BuildingPrototype::class)->findOneByName($prototype);
@@ -239,6 +317,13 @@ class TownHandler
         return null;
     }
 
+    /**
+     * Calculate the citizen's home defense
+     *
+     * @param CitizenHome $home The citizen home
+     * @param HomeDefenseSummary|null $summary The defense summary
+     * @return integer The total home defense
+     */
     public function calculate_home_def( CitizenHome &$home, ?HomeDefenseSummary &$summary = null): int {
         $town = $home->getCitizen()->getTown();
 
@@ -306,15 +391,19 @@ class TownHandler
                 $d += $building->getDefenseBonus();
             $d += $building->getDefense();
 
-        } elseif ($building->getPrototype()->getName() === 'small_cemetery_#00' || $building->getPrototype()->getName() === 'small_coffin_#00') {
+        } elseif ($building->getPrototype()->getName() === 'small_cemetery_#00') {
 
             $c = 0;
             foreach ($town->getCitizens() as $citizen) if (!$citizen->getAlive()) $c++;
-            $d += ( 10*$c + $building->getDefenseBonus() + $building->getDefense() );
+            $ratio = 10;
+            if ($this->getBuilding($town, 'small_coffin_#00'))
+                $ratio = 20;
+            $d += ( $ratio * $c + $building->getDefenseBonus() + $building->getDefense() );
 
         }
         else $d += ( $building->getDefenseBonus() + $building->getDefense() );
-        $d += $building->getTempDefenseBonus();
+        // $d += $building->getTempDefenseBonus();
+        // Temp defense is handled separately
 
         return $d;
     }
@@ -345,24 +434,31 @@ class TownHandler
                     $summary->guardian_defense += $guardian_bonus;
             }
         $summary->house_defense = floor($f_house_def);
-        $summary->building_defense = 0;
         $item_def_factor = 1.0;
         foreach ($town->getBuildings() as $building)
             if ($building->getComplete()) {
 
                 $summary->building_defense += $this->calculate_building_def( $town, $building );
+                $summary->building_def_base += $building->getDefense();
+                $summary->building_def_vote += $building->getDefenseBonus();
+                $summary->temp_defense += $building->getTempDefenseBonus();
 
                 if ($building->getPrototype()->getName() === 'item_meca_parts_#00')
                     $item_def_factor += (1+$building->getLevel()) * 0.5;
+                else if ($building->getPrototype()->getName() === "small_cemetery_#00") {
+                    $c = 0;
+                    foreach ($town->getCitizens() as $citizen) if (!$citizen->getAlive()) $c++;
+                    $ratio = 10;
+                    if ($this->getBuilding($town, 'small_coffin_#00'))
+                        $ratio = 20;
+                    $summary->cemetery = $ratio * $c;
+                }
             }
 
 
-        $summary->item_defense = floor($this->inventory_handler->countSpecificItems( $town->getBank(),
+        $summary->item_defense = min(500, floor($this->inventory_handler->countSpecificItems( $town->getBank(),
             $this->inventory_handler->resolveItemProperties( 'defence' ), false, false
-        ) * $item_def_factor);
-
-        if ($summary->item_defense > 500)
-            $summary->item_defense = 500;
+        ) * $item_def_factor));
 
         $summary->soul_defense = $town->getSoulDefense();
 
@@ -412,6 +508,8 @@ class TownHandler
 
         $min = round($min * $soulFactor, 0);
         $max = round($max * $soulFactor, 0);
+
+        $this->conf->getCurrentEvent($town)->hook_watchtower_estimations($min,$max, $town);
 
         return min((1 - (($offsetMin + $offsetMax) - 10) / 24), 1);
     }
@@ -526,5 +624,52 @@ class TownHandler
         $redSoulsCount = $query->getSingleScalarResult();
 
         return $redSoulsCount;
+    }
+
+    protected function updateCurrentCitizenEvent( Citizen $citizen, EventConf $event): bool {
+        /** @var EventActivationMarker $citizen_marker */
+        $old_event = $this->conf->getCurrentEvent($citizen, $citizen_marker);
+        if ($old_event->name() !== $event->name()) {
+
+            if ($old_event->active()) {
+                if (!$old_event->hook_disable_citizen($citizen)) return false;
+                if ($citizen_marker) $this->entity_manager->persist($citizen_marker->setActive(false));
+            }
+
+            if ($event->active()) {
+                if (!$event->hook_enable_citizen($citizen)) return false;
+                $this->entity_manager->persist( (new EventActivationMarker())
+                    ->setCitizen($citizen)
+                    ->setActive(true)
+                    ->setEvent( $event->name() )
+                );
+            }
+        }
+
+        return true;
+    }
+
+    public function updateCurrentEvent(Town $town, EventConf $event): bool {
+        /** @var EventActivationMarker $town_marker */
+        $old_event = $this->conf->getCurrentEvent($town, $town_marker);
+
+        foreach ($town->getCitizens() as $citizen)
+            if (!$this->updateCurrentCitizenEvent( $citizen, $event )) return false;
+
+        if ($old_event->active()) {
+            if (!$old_event->hook_disable_town($town)) return false;
+            if ($town_marker) $this->entity_manager->persist($town_marker->setActive(false));
+        }
+
+        if ($event->active()) {
+            if (!$event->hook_enable_town($town)) return false;
+            $this->entity_manager->persist( (new EventActivationMarker())
+                ->setTown($town)
+                ->setActive(true)
+                ->setEvent( $event->name() )
+            );
+        }
+
+        return true;
     }
 }

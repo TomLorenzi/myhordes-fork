@@ -1,4 +1,5 @@
 {% extends "ajax/game/game.html.twig" %}
+{%block title %}{{'Hilfe'|trans({}, 'game')}}{% endblock %}
 {% block menu_text %}
     {{parent()}}
     <li class="back-dash" x-ajax-href="{{ url('game_landing') }}">{{ 'Zum Spiel'|trans({},'global') }}</li>
@@ -119,17 +120,17 @@
 
                     <li class="sublist">
                         <ul>
-                            <li class="{% if section == 'resident' %}active{% endif %}">
+                            <li class="{% if section == 'basic' %}active{% endif %}">
                                 <img src="{{ asset('build/images/professions/basic.gif') }}" alt="job_basic">
-                                <span class="link" x-ajax-href="{{ url('help', {'name': 'resident'}) }}">{{ 'Einwohner'|trans({},'help') }}</span>
+                                <span class="link" x-ajax-href="{{ url('help', {'name': 'basic'}) }}">{{ 'Einwohner'|trans({},'help') }}</span>
                             </li>
-                            <li class="{% if section == 'scavenger' %}active{% endif %}">
+                            <li class="{% if section == 'collec' %}active{% endif %}">
                                 <img src="{{ asset('build/images/professions/dig.gif') }}" alt="job_collec">
-                                <span class="link" x-ajax-href="{{ url('help', {'name': 'scavenger'}) }}">{{ 'Buddler'|trans({},'help') }}</span>
+                                <span class="link" x-ajax-href="{{ url('help', {'name': 'collec'}) }}">{{ 'Buddler'|trans({},'help') }}</span>
                             </li>
-                            <li class="{% if section == 'scout' %}active{% endif %}">
+                            <li class="{% if section == 'hunter' %}active{% endif %}">
                                 <img src="{{ asset('build/images/professions/vest.gif') }}" alt="job_eclair">
-                                <span class="link" x-ajax-href="{{ url('help', {'name': 'scout'}) }}">{{ 'Aufklärer'|trans({},'help') }}</span>
+                                <span class="link" x-ajax-href="{{ url('help', {'name': 'hunter'}) }}">{{ 'Aufklärer'|trans({},'help') }}</span>
                             </li>
                             <li class="{% if section == 'guardian' %}active{% endif %}">
                                 <img src="{{ asset('build/images/professions/shield.gif') }}" alt="job_guardian">
@@ -143,9 +144,9 @@
                                 <img src="{{ asset('build/images/professions/tamer.gif') }}" alt="job_tamer">
                                 <span class="link" x-ajax-href="{{ url('help', {'name': 'tamer'}) }}">{{ 'Dompteur'|trans({},'help') }}</span>
                             </li>
-                            <li class="{% if section == 'technician' %}active{% endif %}">
+                            <li class="{% if section == 'tech' %}active{% endif %}">
                                 <img src="{{ asset('build/images/professions/tech.gif') }}" alt="job_tech">
-                                <span class="link" x-ajax-href="{{ url('help', {'name': 'technician'}) }}">{{ 'Techniker'|trans({},'help') }}</span>
+                                <span class="link" x-ajax-href="{{ url('help', {'name': 'tech'}) }}">{{ 'Techniker'|trans({},'help') }}</span>
                             </li>
                         </ul>
                     </li>

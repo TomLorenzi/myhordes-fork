@@ -16,7 +16,7 @@
       </notes>
       <segment>
         <source>Wow, du hast einen Trippel geworfen. Das hat so viel Spaß gemacht, dass du 1AP gewinnst!</source>
-        <target>Bravo, vous obtenez un triplet ! Qu'est-ce qu'on s'amuse ! Ca vous fait tellement plaisir que vous gagnez 1 PA.</target>
+        <target>Bravo, vous obtenez un triplet ! Qu'est-ce qu'on s'amuse ! Ça vous fait tellement plaisir que vous gagnez 1 PA.</target>
       </segment>
     </unit>
     <unit id="rmGP8Al" name="15675e8">
@@ -34,7 +34,7 @@
       </notes>
       <segment>
         <source>Wow, du hast beim ersten Versuch eine 4-2-1 geworfen. Das hat so viel Spaß gemacht, dass du 1AP gewinnst!</source>
-        <target>Vous obtenez un 421 du premier coup… Pas mal. D'ailleurs, ça vous remonte tellement le moral que vous gagnez 1 PA.</target>
+        <target>Vous obtenez un 421 du premier coup... Pas mal. D'ailleurs, ça vous remonte tellement le moral que vous gagnez 1 PA.</target>
       </segment>
     </unit>
     <unit id="087WiZd" name="Nicht schlecht, du hast einen Pasch geworfen.">
@@ -52,7 +52,7 @@
       </notes>
       <segment>
         <source>Was für ein Spaß!</source>
-        <target>C'était fun !</target>
+        <target></target>
       </segment>
     </unit>
     <unit id="zcpU78C" name="3649d62">
@@ -7198,7 +7198,106 @@
       </notes>
       <segment>
         <source>Es schmeckt wirklich komisch... aber es erfüllt seinen Zweck: Dein Hunger ist gestillt. Glaub aber nicht, dass du dadurch zusätzliche APs erhältst...</source>
-        <target>Ca a un goût vraiment bizarre, difficile à définir. Mais ça remplit son rôle : remplir votre estomac. Par contre ça ne vous donne pas de bonus d'énergie pour agir...</target>
+        <target>Ça a un goût vraiment bizarre, difficile à définir. Mais ça remplit son rôle : remplir votre estomac. Par contre ça ne vous donne pas de bonus d'énergie pour agir...</target>
+      </segment>
+    </unit>
+    <unit id="kUD78DD" name="4f2517e">
+      <notes>
+        <note category="german">Einmal ist zwar keinmal, dennoch genießt du dein(e) {item}. Das ist mal ne echte Abwechslung zu dem sonstigen Fraß... Du spürst deine Kräfte wieder zurückkehren. Du hast 1 zusätzlichen AP erhalten!</note>
+      </notes>
+      <segment>
+        <source>Einmal ist zwar keinmal, dennoch genießt du dein(e) {item}. Das ist mal ne echte Abwechslung zu dem sonstigen Fraß... Du spürst deine Kräfte wieder zurückkehren. Du hast 1 zusätzlichen AP erhalten!</source>
+        <target>Une fois n'est pas coutume, vous vous faîtes plaisir en avalant {item} . Ca change des rations quotidiennes infectes... Vous reprenez du poil de la bête. Vous recevez un bonus de 1 PA !</target>
+      </segment>
+    </unit>
+    <unit id="wDKaGfq" name="Krähenelfe">
+      <notes>
+        <note category="german">Krähenelfe</note>
+      </notes>
+      <segment>
+        <source>Krähenelfe</source>
+        <target>Elfe corbeau</target>
+      </segment>
+    </unit>
+    <unit id="dxVqvZU" name="fb77d9b">
+      <notes>
+        <note category="german">Das ist eine seltsam aussehende kleine Bestie... Scheint einer Krähe zu ähneln... Aber es ist grün und trägt einen komischen Hut...</note>
+      </notes>
+      <segment>
+        <source>Das ist eine seltsam aussehende kleine Bestie... Scheint einer Krähe zu ähneln... Aber es ist grün und trägt einen komischen Hut...</source>
+        <target>C'est une petite bête à l'apparence étrange... Ça ressemble à un corbeau... Mais en vert et il a un chapeau étrange...</target>
+      </segment>
+    </unit>
+    <unit id="VVXkyRX" name="Logbuch Schokolade">
+      <notes>
+        <note category="german">Schokoladenklumpen</note>
+      </notes>
+      <segment>
+        <source>Logbuch Schokolade</source>
+        <target>Bûche en chocolat</target>
+      </segment>
+    </unit>
+    <unit id="WSBb1y." name="66b1acc">
+      <notes>
+        <note category="german">Entweder ein verschrumpelter alter Weihnachtskuchen oder etwas noch weniger Schmackhaftes, was am Weihnachtstag gebacken wird! Auf jeden Fall solltest du dieses Kuchen... artige Ding genießen.</note>
+      </notes>
+      <segment>
+        <source>Entweder ein verschrumpelter alter Weihnachtskuchen oder etwas weniger Schmackhaftes, das dennoch am Weihnachtstag gebacken wird! Genießen Sie auf jeden Fall diesen Kuchen... Ding...</source>
+        <target>Soit un vieux gâteau de Noël ratatiné, soit quelque chose d'un peu moins appétissant, fait le jour de Noël tout de même ! Quoi qu'il en soit, profitez de ce... gâteau ?</target>
+      </segment>
+    </unit>
+    <unit id="S17luT0" name="Grüner Kobold-Anzug">
+      <notes>
+        <note category="german">Grüner Kobold-Anzug</note>
+      </notes>
+      <segment>
+        <source>Grüner Kobold-Anzug</source>
+        <target>Costume de Lutin Vert</target>
+      </segment>
+    </unit>
+    <unit id="0TddDiL" name="7fd5428">
+      <notes>
+        <note category="german">In dieser Aufmachung bist du so auffällig, dass dich niemand bemerkt oder zumindest glaubt, sich das nur eingebildet zu haben! Das würdest du doch nicht missbrauchen, oder?</note>
+      </notes>
+      <segment>
+        <source>In dieser Aufmachung sind Sie so auffällig, dass Sie niemand bemerkt oder glaubt, sich das eingebildet zu haben! Sie würden es nicht missbrauchen, oder?</source>
+        <target>Avec ce déguisement, vous êtes tellement voyant que personne ne vous remarquera, ou ils penserront qu'ils l'ont imaginé ! Vous n'en abuseriez pas, n'est-ce pas ?</target>
+      </segment>
+    </unit>
+    <unit id="sGKanc7" name="Abstimmen">
+      <notes>
+        <note category="german">Abstimmen</note>
+      </notes>
+      <segment>
+        <source>Abstimmen</source>
+        <target>Abstimmen</target>
+      </segment>
+    </unit>
+    <unit id="Rrf3E_z" name="Vous avez voté pour {citizen} en tant que {role} !">
+      <notes>
+        <note category="german">Vous avez voté pour {citizen} en tant que {role} !</note>
+      </notes>
+      <segment>
+        <source>Vous avez voté pour {citizen} en tant que {role} !</source>
+        <target>Vous avez voté pour {citizen} en tant que {role} !</target>
+      </segment>
+    </unit>
+    <unit id="QcqmVZM" name="Unidentifizierbare Trümmerstücke">
+      <notes>
+        <note category="german">Unidentifizierbare Trümmerstücke</note>
+      </notes>
+      <segment>
+        <source>Unidentifizierbare Trümmerstücke</source>
+        <target>Débris méconnaissables</target>
+      </segment>
+    </unit>
+    <unit id="ug9P8X6" name="4b4524c">
+      <notes>
+        <note category="german">Diese Trümmerstücke waren mal Teil eines Gegenstandes, den du nicht mehr identifizieren kannst. Die Verformung der Teile lassen vermuten, dass dieser Gegenstand mit hoher Geschwindigkeit am Boden aufgeprallt ist...</note>
+      </notes>
+      <segment>
+        <source>Diese Trümmerstücke waren mal Teil eines Gegenstandes, den du nicht mehr identifizieren kannst. Die Verformung der Teile lassen vermuten, dass dieser Gegenstand mit hoher Geschwindigkeit am Boden aufgeprallt ist...</source>
+        <target>Diese Trümmerstücke waren mal Teil eines Gegenstandes, den du nicht mehr identifizieren kannst. Die Verformung der Teile lassen vermuten, dass dieser Gegenstand mit hoher Geschwindigkeit am Boden aufgeprallt ist...</target>
       </segment>
     </unit>
   </file>

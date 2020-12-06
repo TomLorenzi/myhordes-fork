@@ -2,7 +2,6 @@
 
 namespace App\Controller;
 
-use App\Entity\Changelog;
 use App\Entity\Citizen;
 use App\Entity\CitizenRankingProxy;
 use App\Entity\User;
@@ -10,12 +9,11 @@ use App\Service\RandomGenerator;
 use App\Service\TimeKeeperService;
 use App\Service\UserHandler;
 use Doctrine\ORM\EntityManagerInterface;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-class LandingController extends AbstractController
+class LandingController extends CustomAbstractController
 {
 
     /**

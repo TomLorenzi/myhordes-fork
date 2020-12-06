@@ -186,6 +186,30 @@ div.town-banner {
         padding-left: 20px;
         font-style: normal;
       }
+
+      & .life-bar {
+        margin-top: .25em;
+        margin-right: 1em;
+        height: .5em;
+        border: 1px solid black;
+        background-color: black;
+        position: relative;
+        width: 30px;
+    
+        & > * {
+          height: 100%;
+          position: absolute;
+        }
+        & .life-progress {
+          background-color: #696486;
+          &.life-warning {
+            background-color:yellow;
+          }
+          &.life-critical {
+            background-color:#f86;
+          }
+        }
+      }
     }
   }
 }
@@ -708,6 +732,28 @@ div.town-banner {
           margin-top: .5em;
           color: #600;
         }
+      }
+
+      #buildingdetails {
+        font-size: 1.1rem;
+        left: 25px;
+        top: 200px;
+        width: 91%;
+        font-family: @myhordes-fixed-font;
+        span {
+          color: #773939;
+          font-weight: bold;
+        }
+      }
+
+      #wind {
+        
+        background: url('../../img/icons/small_action.gif') top left no-repeat;
+        margin-left: -25px;
+        padding-left: 18px;
+        margin-bottom: 2px;
+        border-bottom: 1px dashed #3b3249;
+        
       }
 
       #gazette-empty {

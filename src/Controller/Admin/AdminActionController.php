@@ -2,6 +2,7 @@
 
 namespace App\Controller\Admin;
 
+use App\Controller\CustomAbstractController;
 use App\Entity\AttackSchedule;
 use App\Entity\LogEntryTemplate;
 use App\Entity\User;
@@ -15,7 +16,6 @@ use App\Service\LogTemplateHandler;
 use App\Service\ZoneHandler;
 use App\Translation\T;
 use Doctrine\ORM\EntityManagerInterface;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Response;
@@ -26,29 +26,29 @@ use Symfony\Contracts\Translation\TranslatorInterface;
 /**
  * @Route("/",condition="request.isXmlHttpRequest()")
  */
-class AdminActionController extends AbstractController
+class AdminActionController extends CustomAbstractController
 {
     protected $entity_manager;
     protected $logTemplateHandler;
-    protected $conf;
     protected $zone_handler;
     protected $translator;
 
 
     public static function getAdminActions(): array {
         return [
-            ['name' => T::__('Users', 'admin'),     'id' => 1],
-            ['name' => T::__('Meldungen', 'admin'), 'id' => 2],
-            ['name' => T::__('Städte', 'admin'),    'id' => 3],
-            ['name' => T::__('Zukunft', 'admin'),   'id' => 4],
-            ['name' => T::__('AntiSpam', 'admin'),  'id' => 5],
+            ['name' => T::__('Dashboard', 'admin'),  'id' => 0],
+            ['name' => T::__('Users', 'admin'),      'id' => 1],
+            ['name' => T::__('Meldungen', 'admin'),  'id' => 2],
+            ['name' => T::__('Städte', 'admin'),     'id' => 3],
+            ['name' => T::__('Zukunft', 'admin'),    'id' => 4],
+            ['name' => T::__('AntiSpam', 'admin'),   'id' => 5],
         ];
     }
 
     public function __construct(EntityManagerInterface $em, ConfMaster $conf, LogTemplateHandler $lth, TranslatorInterface $translator, ZoneHandler $zh)
     {
+        parent::__construct($conf);
         $this->entity_manager = $em;
-        $this->conf = $conf;
         $this->logTemplateHandler = $lth;
         $this->translator = $translator;
         $this->zone_handler = $zh;
@@ -167,6 +167,7 @@ class AdminActionController extends AbstractController
     public function index(int $id): Response
     {
         switch ($id) {
+            case 0: return $this->redirect($this->generateUrl('admin_dashboard'));
             case 1: return $this->redirect($this->generateUrl('admin_users'));
             case 2: return $this->redirect($this->generateUrl('admin_reports'));
             case 3: return $this->redirect($this->generateUrl('admin_town_list'));

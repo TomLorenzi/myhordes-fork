@@ -2,6 +2,7 @@
 
 namespace App\Controller\Soul;
 
+use App\Controller\CustomAbstractController;
 use App\Entity\CauseOfDeath;
 use App\Entity\Changelog;
 use App\Entity\CitizenRankingProxy;
@@ -29,7 +30,6 @@ use App\Structures\MyHordesConf;
 use DateTime;
 use Doctrine\ORM\EntityManagerInterface;
 use Exception;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Asset\Packages;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -43,7 +43,7 @@ use Symfony\Contracts\Translation\TranslatorInterface;
  * @Route("/",condition="request.isXmlHttpRequest()")
  * @method User getUser
  */
-class SoulController extends AbstractController
+class SoulController extends CustomAbstractController
 {
     const ErrorUserEditPasswordIncorrect     = ErrorHelper::BaseSoulErrors + 1;
     const ErrorTwinImportInvalidResponse     = ErrorHelper::BaseSoulErrors + 2;
@@ -51,6 +51,7 @@ class SoulController extends AbstractController
     const ErrorTwinImportProfileMismatch     = ErrorHelper::BaseSoulErrors + 4;
     const ErrorTwinImportProfileInUse        = ErrorHelper::BaseSoulErrors + 5;
     const ErrorETwinImportProfileInUse       = ErrorHelper::BaseSoulErrors + 6;
+    const ErrorETwinImportServerCrash        = ErrorHelper::BaseSoulErrors + 7;
 
     const ErrorCoalitionAlreadyMember        = ErrorHelper::BaseSoulErrors + 10;
     const ErrorCoalitionNotSet               = ErrorHelper::BaseSoulErrors + 11;
@@ -65,8 +66,9 @@ class SoulController extends AbstractController
     protected UserHandler $user_handler;
     protected Packages $asset;
 
-    public function __construct(EntityManagerInterface $em, UserFactory $uf, Packages $a, UserHandler $uh, TimeKeeperService $tk, TranslatorInterface $translator)
+    public function __construct(EntityManagerInterface $em, UserFactory $uf, Packages $a, UserHandler $uh, TimeKeeperService $tk, TranslatorInterface $translator, ConfMaster $conf)
     {
+        parent::__construct($conf);
         $this->entity_manager = $em;
         $this->user_factory = $uf;
         $this->asset = $a;
@@ -172,7 +174,8 @@ class SoulController extends AbstractController
         if (!$parser->has_all(['name'], true))
             return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
         $searchName = $parser->get('name');
-        $users = mb_strlen($searchName) >= 3 ? array_filter($em->getRepository(User::class)->findByNameContains($searchName), fn(User $u) => $u !== $user) : [];
+        $users = mb_strlen($searchName) >= 3 ? array_filter($em->getRepository(User::class)->findByNameContains($searchName), fn(User $u) =>
+            ($u !== $user) && ($u->getEmail() !== 'crow') && (mb_substr($u->getEmail(), -10) !== '@localhost') && ($u->getUsername() !== $u->getEmail())) : [];
 
         return $this->render( 'ajax/soul/users_list.html.twig', [ 'users' => in_array($url, ['soul_visit','soul_invite_coalition']) ? $users : [], 'route' => $url ]);
     }

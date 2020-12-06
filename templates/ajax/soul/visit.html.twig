@@ -5,7 +5,7 @@
             <div class="row tabs">
                 <div class="cell-small rw-8 rw-lg-12">
                     {% if user.avatar %}
-                        <div class="avatar small"><img alt="" src="{{ path('app_web_avatar', {'uid': user.id, 'name': user.avatar.smallName, 'ext': user.avatar.format}) }}"></div>
+                        <div class="avatar small ua-{{ user.id % 10 }}"><img alt="" src="{{ path('app_web_avatar', {'uid': user.id, 'name': user.avatar.smallName, 'ext': user.avatar.format}) }}"></div>
                     {% endif %}
                     <h4 class="soul-name">
                         <img src="{{ asset('build/images/icons/small_ghost_red.gif') }}" alt="{{'Held'|trans({}, 'game')}}" /> {{ user.name }}

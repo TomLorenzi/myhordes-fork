@@ -10,7 +10,7 @@
                 <div class="tab-floater">
                     <div class="tab left inline">
                         {% if app.user.avatar %}
-                            <div class="avatar small"><img alt="" src="{{ path('app_web_avatar', {'uid': app.user.id, 'name': app.user.avatar.smallName, 'ext': app.user.avatar.format}) }}"></div>
+                            <div class="avatar small ua-{{ app.user.id % 10 }}"><img alt="" src="{{ path('app_web_avatar', {'uid': app.user.id, 'name': app.user.avatar.smallName, 'ext': app.user.avatar.format}) }}"></div>
                         {% endif %}
                         <h4 class="soul-name">
                             <img src="{{ asset('build/images/icons/small_ghost_red.gif') }}" alt="{{'Held'|trans({}, 'game')}}" /> {{ app.user.name }}

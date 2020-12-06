@@ -122,7 +122,7 @@ class GateKeeperSubscriber implements EventSubscriberInterface
                     throw new DynamicAjaxResetException($event->getRequest());
             }
 
-            if ($controller instanceof BeyondInterfaceController && !($controller instanceof ExplorationInterfaceController)) {
+            if ($controller instanceof BeyondInterfaceController) {
                 // This is a beyond controller; it is not available to players inside a town
                 if (!$citizen->getZone())
                     throw new DynamicAjaxResetException($event->getRequest());
