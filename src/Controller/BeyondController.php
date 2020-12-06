@@ -942,7 +942,6 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
     public function item_desert_api(JSONRequestParser $parser, InventoryHandler $handler): Response {
         $down_inv = $this->getActiveCitizen()->getZone()->getFloor();
         $escort = $parser->get('escort', null);
-        $citizen = $this->getActiveCitizen();
 
         if ($escort !== null) {
             /** @var Citizen $citizen */
@@ -955,7 +954,7 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
 
         if (!$this->zone_handler->check_cp( $this->getActiveCitizen()->getZone() ) && $this->uncoverHunter($this->getActiveCitizen()))
             $this->addFlash( 'notice', $this->translator->trans('Deine Tarnung ist aufgeflogen!',[], 'game') );
-        return $this->generic_item_api( $up_inv, $down_inv, true, $parser, $handler, $citizen);
+        return $this->generic_item_api( $up_inv, $down_inv, true, $parser, $handler, $this->getActiveCitizen());
     }
 
     /**

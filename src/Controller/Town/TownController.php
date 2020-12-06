@@ -716,8 +716,11 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
                 $inv_source = null;
                 $item = $factory->createItem( 'water_#00' );
 
-                if ($counter->getCount() > 0 && !$ba->allowedToTake( $citizen ))
-                    return AjaxResponse::error( InventoryHandler::ErrorBankLimitHit );
+                if ($counter->getCount() > 0 && !$ba->allowedToTake( $citizen )) {
+                    $ba->increaseBankCount($citizen);
+                    $this->entity_manager->flush();
+                    return AjaxResponse::error(InventoryHandler::ErrorBankLimitHit);
+                }
 
                 if (($error = $handler->transferItem(
                     $citizen,
