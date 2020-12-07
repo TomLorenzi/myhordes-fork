@@ -20,7 +20,6 @@ use App\Entity\LogEntryTemplate;
 use App\Entity\PictoPrototype;
 use App\Entity\ShoutboxEntry;
 use App\Entity\ShoutboxReadMarker;
-use App\Entity\TownLogEntry;
 use App\Entity\PrivateMessage;
 use App\Entity\User;
 use App\Entity\ZombieEstimation;
@@ -796,7 +795,7 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
             'item_def_count' => $this->inventory_handler->countSpecificItems($town->getBank(),$this->inventory_handler->resolveItemProperties( 'defence' ), false, false),
             'bank' => $this->renderInventoryAsBank( $town->getBank() ),
             'log' => $this->renderLog( -1, null, false, LogEntryTemplate::TypeBank, 10 )->getContent(),
-            'day' => $town->getDay()
+            'day' => $town->getDay(),
         ]) );
     }
 

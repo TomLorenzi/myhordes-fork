@@ -18,9 +18,10 @@
 
     <div class="row">
         <div class="cell padded rw-12">
-            <ul class="tabs plain" x-tab-group="admin-town" x-tab-control x-tab-default="dash">
+            <ul class="tabs plain" x-tab-group="admin-town" x-tab-control x-tab-default="{{ tab }}">
             	<div class="tab-floater">
                 <li class="tab" x-tab-id="dash"><div class="tab-link">{{ 'Übersicht'|trans({},'admin') }}</div></li>
+                <li class="tab" x-tab-id="bank"><div class="tab-link">{{ 'Bank'|trans({},'admin') }}</div></li>
                 <li class="tab" x-tab-id="citizens"><div class="tab-link">{{ 'Bürger'|trans({},'admin') }}</div></li>
                 <li class="tab" x-tab-id="register"><div class="tab-link">{{ 'Stadtregister'|trans({},'admin') }}</div></li>
                 <li class="tab" x-tab-id="estimations"><div class="tab-link">{{ 'Admin-Wachturm'|trans({},'admin') }}</div></li>
@@ -74,6 +75,32 @@
                     </div>
                     <div class="cell padded rw-6 rw-sm-12">
                         {% embed "ajax/admin/towns/map.html.twig" with {'default_zoom': 0, 'default_show_zone': false, 'allow_zone_view': false, 'map': map_data} %}
+                        {% endembed %}
+                    </div>
+                </div>
+            </div>
+
+            <div x-tab-group="admin-town" x-tab-id="bank" x-tab-target>
+                <div class="row-flex">
+                    {% if is_granted("ROLE_ADMIN") %}
+                    <div class="padded cell rw-6 rw-sm-12">
+                        <label for="spawnItem">HARDCODED: Spawn an item:</label>
+                        <select id="spawnItem">
+                        {% for itemPrototype in itemPrototypes %}
+                            <option value="{{itemPrototype.id}}">{{ itemPrototype.label|trans({}, 'items') }}</option>
+                        {% endfor %}
+                        </select>
+                        <label for="number">
+                            HARDCODED: Number of item to spawn:
+                        </label>
+                        <input type="number" id="number" value="1"/>
+                        <button id="spawnbtn">HARDCODED: Spawn!</button>
+                    </div>
+                    {% endif %}
+                    <div class="padded cell rw-6 rw-sm-12">
+                        {% embed "ajax/game/inventory.html.twig" with {'size': 0, 'items': bank, 'bankmode': true} %}
+                            {% block class %}bank{% endblock %}
+                            {% block title %}{% endblock %}
                         {% endembed %}
                     </div>
                 </div>
@@ -291,6 +318,41 @@
                     control_bwd.addEventListener('click', function() { fun_adjust(-1) });
                 }
             }
+
+            {% if is_granted("ROLE_ADMIN") %}
+
+            let items = document.querySelectorAll('.bank>.item:not(.locked)[x-item-id]');
+            for (let i = 0; i < items.length; i++)
+                items[i].addEventListener('click', function(ev) {
+                    let change = "add";
+                    if (ev.ctrlKey)
+                        change = "remove";
+                    const item_id = this.getAttribute('x-item-id');
+                    $.ajax.easySend('{{ path('admin_bank_item', {id: town.id}) }}', {
+                            item: item_id, change: change
+                        },
+                        function () {
+                            $.ajax.load(null, '{{ path('admin_town_explorer', {id: town.id, tab: "bank"}) }}', true);
+                        }
+                    );
+                });
+            
+            let spawnbtn = document.getElementById("spawnbtn");
+            if (spawnbtn) spawnbtn.addEventListener('click', function(){
+                let number = document.getElementById("number").value;
+                if(isNaN(number)) number = 1;
+
+                let item = document.getElementById('spawnItem').value;
+                $.ajax.easySend('{{ path('admin_bank_spawn_item', {id: town.id}) }}', {
+                        prototype: item, number: number
+                    },
+                    function () {
+                        $.ajax.load(null, '{{ path('admin_town_explorer', {id: town.id, tab: "bank"}) }}', true);
+                    }
+                );
+            });
+
+            {% endif %}
         })();
 
     </script>
