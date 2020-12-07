@@ -28,6 +28,7 @@ use DateTimeZone;
 use Doctrine\Common\Collections\Criteria;
 use Exception;
 use SimpleXMLElement;
+use SimpleXMLExtended;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
@@ -721,7 +722,7 @@ class ExternalXML2Controller extends ExternalController {
         $_xml = $xml;
         // If there is no Root Element then insert root
         if ($_xml === null) {
-            $_xml = new SimpleXMLElement($rootElement !== null ? $rootElement : '<root/>');
+            $_xml = new SimpleXMLExtended($rootElement !== null ? $rootElement : '<root/>');
         }
         // Visit all key value pair
         foreach ($array as $k => $v) {
@@ -740,7 +741,8 @@ class ExternalXML2Controller extends ExternalController {
                     unset($v['list']);
                 }
                 if(array_key_exists('value', $v)) {
-                    $child[0] = $v["value"];
+                    $child[0]->addCData($v["value"]);
+                    // $child[0] = $v["value"];
                     unset($v["value"]);
                 }
             }
