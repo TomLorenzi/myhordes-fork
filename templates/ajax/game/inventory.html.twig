@@ -38,6 +38,7 @@
 </ul>
 
 <script>
+    {% if bankmode is defined and bankmode %}
     const bankHandler = function() {
         var input, filter, ul, li, img, i, txt;
         input = document.getElementById('banksearch');
@@ -68,4 +69,5 @@
         }
     };
     document.getElementById('banksearch').addEventListener('keyup', bankHandler);
+    {% endif %}
 </script>
