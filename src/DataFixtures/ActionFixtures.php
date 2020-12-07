@@ -1216,7 +1216,7 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             'water_can_2_#00'    => 'nw_empty_watercan',
             'water_can_3_#00'    => 'nw_empty_watercan',
             'iphone_#00'         => 'nw_empty_phone',
-            'boomfruit_#00'      => 'nw_break',
+            'boomfruit_#00'      => 'nw_destroy',
             'rlaunc_#00'         => 'nw_destroy',
             'kalach_#00'         => 'nw_empty_kalach',
             'bureau_#00'         => 'nw_destroy',

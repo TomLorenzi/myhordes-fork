@@ -1,4 +1,5 @@
 {% extends "ajax/ajax.html.twig" %}
+{% block title %}{{'Stadt %townname%'|trans({'%townname%': town.name}, 'admin')}}{% endblock %}
 {% block ajax %}
     {% macro valuelist(prop,val) %}
         <div class="row">
@@ -81,9 +82,46 @@
             <div x-tab-group="admin-town" x-tab-id="citizens" x-tab-target>
                 <div class="row">
                     <div class="cell padded rw-4 rw-sm-12">
-                    {% for citizen in town.citizens %}
-                        {{citizen.user.name}}<br />
-                    {% endfor %}
+                        <div class="row-table citizens-list">
+                            <div class="row header">
+                                <div class="padded cell left">{{ 'Bürger'|trans({},'game') }}</div>
+                            </div>
+                            {% for citizen in town.citizens|sort((a,b) => (a.alive == b.alive) ? ((a.alive) ? a.user.name|lower <=> b.user.name|lower : b.survivedDays <=> a.survivedDays) : b.alive <=> a.alive) %}
+                                {# @var \App\Entity\Citizen citizen  #}
+                                <div class="row-flex stretch pointer" style="max-height: 100px;">
+                                    <div class="cell factor-0 avatar ua-{{ random(0,9) }}" style="flex-basis: 90px; background: url('{{ citizen.user.avatar ? path('app_web_avatar', {'uid': citizen.user.id, 'name': citizen.user.avatar.smallName, 'ext': citizen.user.avatar.format}) : asset('build/images/forum/empty_avatar.gif') }}') center/cover no-repeat;" x-ajax-href="{{ path('town_visit', {id: citizen.id}) }}">&nbsp;</div>
+                                    <div class="cell factor-0 citizen-{{ citizen.alive ? (citizen.online ? 'online' : 'offline') : 'dead' }}" style="flex-basis: 8px;" x-ajax-href="{{ path('town_visit', {id: citizen.id}) }}">&nbsp;</div>
+                                    
+                                    <div class="padded cell rw-4 factor-1 small content-center-vertical citizen-box citizen-box-name">
+                                        {% if citizen.banished %}
+                                        <img alt="" src="{{ asset('build/images/icons/banished.gif') }}" />
+                                        {% endif %}
+                                        {% if not citizen.alive %}
+                                        <img alt="{{ 'Tot!'|trans({},'game') }}" src="{{ asset('build/images/professions/death.gif') }}" />
+                                        {% endif %}
+                                        
+                                        {% if citizen.profession.heroic %}
+                                            <img alt="" src="{{ asset('build/images/professions/hero.gif') }}" />
+                                        {% else %}
+                                            <img alt="" src="{{ asset('build/images/professions/void.gif') }}" />
+                                        {% endif %}
+                                        <img alt="{{ citizen.profession.label|trans({},'game') }}" src="{{ asset('build/images/professions/' ~ citizen.profession.icon ~ '.gif') }}" />
+                                        <a class="link" href="{{ url('admin_users_citizen_view', {id: citizen.user.id}) }}">
+                                            <b class="citizen-name">{{ citizen.user.name }}</b>
+                                        </a>&nbsp;
+                                        {% if citizen.alive %}
+                                            <span class="zone">
+                                            {% if citizen.zone %}
+                                            [{{citizen.zone.x}},{{citizen.zone.y}}]
+                                            {% else %}
+                                            [0, 0]
+                                            {% endif %}
+                                            </span>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
                     </div>
                     <div class="cell rw-8 rw-sm-12 padded">
                         <button id="townpm">{{ 'Rundmail als Rabe'|trans({},'admin') }}</button>
