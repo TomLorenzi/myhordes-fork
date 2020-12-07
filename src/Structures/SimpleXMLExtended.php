@@ -1,5 +1,9 @@
 <?php
 
+namespace App\Structures;
+
+use SimpleXMLElement;
+
 // http://coffeerings.posterous.com/php-simplexml-and-cdata
 /**
  * Custom XML class to handle easily CData
