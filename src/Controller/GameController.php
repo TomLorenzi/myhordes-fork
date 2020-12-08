@@ -605,6 +605,10 @@ class GameController extends CustomAbstractController implements GameInterfaceCo
             $citizen->addSpecialAction($armag);
         }
 
+        if($this->picto_handler->has_picto($citizen, 'r_ginfec')) {
+            $this->citizen_handler->inflictStatus($citizen, 'tg_witness_infect');
+        }
+
         try {
             $this->entity_manager->persist( $citizen );
             $this->entity_manager->flush();
