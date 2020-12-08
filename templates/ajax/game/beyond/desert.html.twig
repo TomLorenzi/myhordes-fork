@@ -798,6 +798,11 @@
             '{{ path('beyond_desert_heroic_controller') }}', '{{ path('beyond_dashboard') }}'
         );
 
+        handleSpecialActions(
+            document.querySelectorAll('ul.special_actions li[x-action-id]:not([disabled])'),
+            '{{ path('beyond_desert_special_action_controller') }}', '{{ path('beyond_dashboard') }}'
+        );
+
         handleActions(
             document.querySelectorAll('ul.actions li[x-action-id][x-provoking-id]:not([disabled])'),
             '{{ path('beyond_desert_action_controller') }}', '{{ path('beyond_dashboard') }}'

@@ -893,6 +893,15 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
     }
 
     /**
+     * @Route("api/beyond/desert/special_action", name="beyond_desert_special_action_controller")
+     * @param JSONRequestParser $parser
+     * @return Response
+     */
+    public function special_action_house_api(JSONRequestParser $parser): Response {
+        return $this->generic_special_action_api( $parser );
+    }
+
+    /**
      * @Route("api/beyond/desert/camping", name="beyond_desert_camping_controller")
      * @param JSONRequestParser $parser
      * @param InventoryHandler $handler
