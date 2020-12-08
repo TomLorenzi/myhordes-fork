@@ -7318,5 +7318,14 @@
         <target>Une poignée de munitions. Mais à quoi cela peut-il bien servir ?</target>
       </segment>
     </unit>
+    <unit id="gN7yVQC" name="Durchgang in Kraft">
+      <notes>
+        <note category="german">Durchgang in Kraft</note>
+      </notes>
+      <segment>
+        <source>Durchgang in Kraft</source>
+        <target>Passage en Force</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
