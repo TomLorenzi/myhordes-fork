@@ -650,20 +650,61 @@ class TextFixtures extends Fixture
             'background' => 'carton',
         ],
         'dv_031' => [
-            'title' => 'Schmerzengels Überlebensregeln',
+            'title' => 'Überlebensregeln',
             'author' => 'Schmerzengel',
             'content' => [
-                ''
+                '<h1>Schmerzengels Überlebensregeln</h1>
+                <p>Punkt 1.
+                <br>
+                Stehle niemandem sein Wasser, außer Du hast keines.	
+                </p>
+                <p>Punkt 2.
+                <br>
+                Gehe nur mit Waffen und Proviant in die Außenwelt. Solltest Du beides nicht haben. Nimm jemanden mit, der langsamer läuft als DU.	
+                </p>
+                <p>Punkt 3.
+                <br>
+                Wenn Du Nahrung findest, laß erst Deinen Kameraden davon essen. Er ist bestimmt genau so hungrig wie Du.	
+                </p>',
+                '<p>Punkt 4.
+                <br>
+                Mit einer Fackel in der Hand ist der Verdammte gleich entbrannt.	
+                </p>
+                <p>Punkt 5.
+                <br>
+                Wenn Du meinst es geht nichts mehr kommt von irgendwo ....ach was soll´s. Ich bin ehrlich zu Dir. Du hast verschissen. Punkt.	
+                </p>'
             ],
-            'lang' => 'de'
+            'lang' => 'de',
+            'design' => 'typed',
+            'background' => 'grid',
         ],
         'dv_032' => [
-            'title' => 'Sprinkleranlage im Eigenbau',
+            'title' => 'Seite 134 - Sprinkleranlage im Eigenbau',
             'author' => 'Tycho',
             'content' => [
-                ''
+                    '<p>Eine einfache Bewässerungsanlage für Ihren heimischen Garten selbst zu bauen ist gar nicht kompliziert. Hauptsächlich gehört dazu: Ein Anschluss an einen Wasserhahn, eine Befestigungsmöglichkeit für den Bewässerungskopf, der Bewässerungskopf selber und optional ein Mechanismus zur regelmäßigen Bewegung des Bewässerungskopfes.</p>
+					<p>Zentral wichtig bei einer guten Sprinkleranlage ist die gleichmäßige Verteilung. Eine sehr einfache und effiziente Variante besteht aus einem längeren Stück Rohr (Länge sollte vom verfügbaren Wasserdruck abhängen), in das ein oder zwei Reihen kleiner Löcher gebohrt werden, als Bewässerungskopf. Am Ende des Rohres wird ein druckbelastetes wasserführendes System angeschlossen – beispielsweise der Wasserhahn ihres Gartenhauses.</p>',
+					'<p>Ein Teil des Wassers wird über eine separate Zuleitung abgezweigt und gegen ein kleines Wasserrad mit einer Rückstellfeder geleitet. Dreht nun das einströmende Wasser das Rad, so wird dadurch der Bewässerungskopf entlang seiner Längsachse gedreht. Ab einem gewissen Drehwinkel verschließt ein Teil des Wasserrades die Zuleitung und die Rückstellfeder dreht den Bewässerungskopf in die entgegengesetzte Richtung zurück. Dadurch schwingt der Bewässerungskopf vor und zurück, um somit abwechselnd den Boden auf beiden Seiten der Anlage zu bewässern.</p>
+					<p>Soll die Anlage nur stationär eingesetzt werden, empfiehlt es sich, den Bewässerungskopf an einer Holzkonstruktion über dem Feld aufzuhängen.</p>
+					<p>Exemplarische Konstruktionsskizzen und Berechnungshilfen finden sie auf der beigelegten CD unter dem Menüpunkt "Sprinkleranlage".</p>'
             ],
-            'lang' => 'de'
+            'lang' => 'de',
+            'design' => 'classic',
+            'background' => 'old',
+        ],
+        'death' => [
+            'title' => 'Spruch',
+            'author' => 'Nomad',
+            'content' => [
+                '<div class="hr"></div>
+				<center>
+				<div>Spiele nicht mit dem Tod, sonst spielen die Toten noch mit dir.</div>
+				</center>'
+            ],
+            'lang' => 'de',
+            'design' => 'written',
+            'background' => 'blood',
         ],
         'gbuch' => [
             'title' => 'Seite aus einem alten Gesangsbuch',
@@ -705,20 +746,6 @@ class TextFixtures extends Fixture
             'lang' => 'de',
             'design' => 'typed',
             'background' => 'grid',
-        ],
-        'heimw' => [
-            'title' => 'Seite 134 - Sprinkleranlage im Eigenbau',
-            'author' => 'Tycho',
-            'content' => [
-                    '<p>Eine einfache Bewässerungsanlage für Ihren heimischen Garten selbst zu bauen ist gar nicht kompliziert. Hauptsächlich gehört dazu: Ein Anschluss an einen Wasserhahn, eine Befestigungsmöglichkeit für den Bewässerungskopf, der Bewässerungskopf selber und optional ein Mechanismus zur regelmäßigen Bewegung des Bewässerungskopfes.</p>
-					<p>Zentral wichtig bei einer guten Sprinkleranlage ist die gleichmäßige Verteilung. Eine sehr einfache und effiziente Variante besteht aus einem längeren Stück Rohr (Länge sollte vom verfügbaren Wasserdruck abhängen), in das ein oder zwei Reihen kleiner Löcher gebohrt werden, als Bewässerungskopf. Am Ende des Rohres wird ein druckbelastetes wasserführendes System angeschlossen – beispielsweise der Wasserhahn ihres Gartenhauses.</p>',
-					'<p>Ein Teil des Wassers wird über eine separate Zuleitung abgezweigt und gegen ein kleines Wasserrad mit einer Rückstellfeder geleitet. Dreht nun das einströmende Wasser das Rad, so wird dadurch der Bewässerungskopf entlang seiner Längsachse gedreht. Ab einem gewissen Drehwinkel verschließt ein Teil des Wasserrades die Zuleitung und die Rückstellfeder dreht den Bewässerungskopf in die entgegengesetzte Richtung zurück. Dadurch schwingt der Bewässerungskopf vor und zurück, um somit abwechselnd den Boden auf beiden Seiten der Anlage zu bewässern.</p>
-					<p>Soll die Anlage nur stationär eingesetzt werden, empfiehlt es sich, den Bewässerungskopf an einer Holzkonstruktion über dem Feld aufzuhängen.</p>
-					<p>Exemplarische Konstruktionsskizzen und Berechnungshilfen finden sie auf der beigelegten CD unter dem Menüpunkt "Sprinkleranlage".</p>'
-            ],
-            'lang' => 'de',
-            'design' => 'classic',
-            'background' => 'old',
         ],
         'dv_033' => [
             'title' => 'Seite 62 eines Buches',
@@ -988,36 +1015,6 @@ class TextFixtures extends Fixture
             'lang' => 'de',
             'design' => 'typed',
             'background' => 'printer',
-        ],
-        'uereg' => [
-            'title' => 'Überlebensregeln',
-            'author' => 'Schmerzengel',
-            'content' => [
-                '<h1>Schmerzengels Überlebensregeln</h1>
-                <p>Punkt 1.
-                <br>
-                Stehle niemandem sein Wasser, außer Du hast keines.	
-                </p>
-                <p>Punkt 2.
-                <br>
-                Gehe nur mit Waffen und Proviant in die Außenwelt. Solltest Du beides nicht haben. Nimm jemanden mit, der langsamer läuft als DU.	
-                </p>
-                <p>Punkt 3.
-                <br>
-                Wenn Du Nahrung findest, laß erst Deinen Kameraden davon essen. Er ist bestimmt genau so hungrig wie Du.	
-                </p>',
-                '<p>Punkt 4.
-                <br>
-                Mit einer Fackel in der Hand ist der Verdammte gleich entbrannt.	
-                </p>
-                <p>Punkt 5.
-                <br>
-                Wenn Du meinst es geht nichts mehr kommt von irgendwo ....ach was soll´s. Ich bin ehrlich zu Dir. Du hast verschissen. Punkt.	
-                </p>'
-            ],
-            'lang' => 'de',
-            'design' => 'typed',
-            'background' => 'grid',
         ],
         /**
          * FRENCH ROLE PLAY TEXTS
