@@ -15435,5 +15435,149 @@
         <target>%count% Zombies wurden in der Stadt gesichtet, aber sie haben niemanden angegriffen: Was für ein Glücksfall...</target>
       </segment>
     </unit>
+    <unit id="PgQR75x" name="Zahlreiche Diebstähle begangen">
+      <notes>
+        <note category="german">Zahlreiche Diebstähle begangen</note>
+      </notes>
+      <segment>
+        <source>Zahlreiche Diebstähle begangen</source>
+        <target>Trop de vols</target>
+      </segment>
+    </unit>
+    <unit id="dD9OHg_" name="Verbraucht zuviel Wasser">
+      <notes>
+        <note category="german">Verbraucht zuviel Wasser</note>
+      </notes>
+      <segment>
+        <source>Verbraucht zuviel Wasser</source>
+        <target>Consomme trop d'eau</target>
+      </segment>
+    </unit>
+    <unit id="W43lmes" name="Beleidigendes Verhalten">
+      <notes>
+        <note category="german">Beleidigendes Verhalten</note>
+      </notes>
+      <segment>
+        <source>Beleidigendes Verhalten</source>
+        <target>Beleidigendes Verhalten</target>
+      </segment>
+    </unit>
+    <unit id="rnxNxyC" name="Blockiert die Baustelle">
+      <notes>
+        <note category="german">Blockiert die Baustelle</note>
+      </notes>
+      <segment>
+        <source>Blockiert die Baustelle</source>
+        <target>Bloque les chantiers</target>
+      </segment>
+    </unit>
+    <unit id="GTtLJm1" name="Expeditionssaboteur">
+      <notes>
+        <note category="german">Expeditionssaboteur</note>
+      </notes>
+      <segment>
+        <source>Expeditionssaboteur</source>
+        <target>Saboteur d'expéditions</target>
+      </segment>
+    </unit>
+    <unit id="qSX7vRE" name="Geht kein Risiko ein">
+      <notes>
+        <note category="german">Geht kein Risiko ein</note>
+      </notes>
+      <segment>
+        <source>Geht kein Risiko ein</source>
+        <target>Ne prend aucun risque</target>
+      </segment>
+    </unit>
+    <unit id="Dn0tq6e" name="Handelt zu egoistisch">
+      <notes>
+        <note category="german">Handelt zu egoistisch</note>
+      </notes>
+      <segment>
+        <source>Handelt zu egoistisch</source>
+        <target>Égoïste</target>
+      </segment>
+    </unit>
+    <unit id="g8qlqWr" name="Gemeinschaftsfreak">
+      <notes>
+        <note category="german">Gemeinschaftsfreak</note>
+      </notes>
+      <segment>
+        <source>Gemeinschaftsfreak</source>
+        <target>Extrémiste communautaire</target>
+      </segment>
+    </unit>
+    <unit id="SuxYV1H" name="Bringt sich nicht genug ein">
+      <notes>
+        <note category="german">Bringt sich nicht genug ein</note>
+      </notes>
+      <segment>
+        <source>Bringt sich nicht genug ein</source>
+        <target>Bringt sich nicht genug ein</target>
+      </segment>
+    </unit>
+    <unit id="NghQlFT" name="Hortet zu viele Gegenstände">
+      <notes>
+        <note category="german">Hortet zu viele Gegenstände</note>
+      </notes>
+      <segment>
+        <source>Hortet zu viele Gegenstände</source>
+        <target>Hortet zu viele Gegenstände</target>
+      </segment>
+    </unit>
+    <unit id="aCap5cU" name="Aggressiver Mitbürger">
+      <notes>
+        <note category="german">Aggressiver Mitbürger</note>
+      </notes>
+      <segment>
+        <source>Aggressiver Mitbürger</source>
+        <target>Citoyen aggressif</target>
+      </segment>
+    </unit>
+    <unit id="zLJ.A.A" name="Anzeigen">
+      <notes>
+        <note category="german">Anzeigen</note>
+      </notes>
+      <segment>
+        <source>Anzeigen</source>
+        <target>Plaintes</target>
+      </segment>
+    </unit>
+    <unit id="pFLOI._" name="Grund:">
+      <notes>
+        <note category="german">Grund:</note>
+      </notes>
+      <segment>
+        <source>Grund:</source>
+        <target>Raison :</target>
+      </segment>
+    </unit>
+    <unit id="7aCcCH1" name="Wählen">
+      <notes>
+        <note category="german">Wählen</note>
+      </notes>
+      <segment>
+        <source>Wählen</source>
+        <target>Sélectionner</target>
+      </segment>
+    </unit>
+    <unit id="rZrohjN" name="Du hast %num% anonyme Anzeige(n) erhalten.">
+      <notes>
+        <note category="german">Du hast %num% anonyme Anzeige(n) erhalten.</note>
+      </notes>
+      <segment>
+        <source>Du hast %num% anonyme Anzeige(n) erhalten.</source>
+        <target>Vous avez reçu %num% plainte(s) anonyme(s).</target>
+      </segment>
+    </unit>
+    <unit id="khbCWBV" name="Sollte diese Zahl auf 8 ansteigen, wirst du verbannt!">
+      <notes>
+        <note category="german">Sollte diese Zahl auf 8 ansteigen, wirst du verbannt!</note>
+      </notes>
+      <segment>
+        <source>Sollte diese Zahl auf 8 ansteigen, wirst du verbannt!</source>
+        <target>Au bout de 8 plaintes, vous serez banni(e) !</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

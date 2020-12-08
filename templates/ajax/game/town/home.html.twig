@@ -287,7 +287,10 @@
 
     <div x-tab-group="home-main" x-tab-id="complaints" x-tab-target>
         <div class="row">
-            {{ 'Du hast %num% anonyme Anzeige(n) erhalten. Sollte diese Zahl auf 8 ansteigen, wirst du verbannt!'|trans({'%num%': '<b>' ~ complaints|length ~ '</b>'}, 'game')|raw }}<br />
+            {{ 'Du hast %num% anonyme Anzeige(n) erhalten.'|trans({'%num%': '<b>' ~ complaints|length ~ '</b>'}, 'game')|raw }}
+            {% if not citizen.banished %}
+            {{'Sollte diese Zahl auf 8 ansteigen, wirst du verbannt!'|trans({}, 'game')}}
+            {% endif %}
             <ul class="overview-list">
             {% for complaint in complaints %}
                 {% if not complaint.linkedReason is null %}
