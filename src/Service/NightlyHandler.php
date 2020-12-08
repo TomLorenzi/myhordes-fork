@@ -300,7 +300,8 @@ class NightlyHandler
         $cod = $this->entity_manager->getRepository(CauseOfDeath::class)->findOneBy(['ref' => CauseOfDeath::NightlyAttack]);
 
         foreach ($town->getCitizens() as $citizen) {
-            if ($citizen->getAlive() && !$citizen->getZone())
+            /** @var Citizen $citizen */
+            if ($citizen->getAlive() && !$citizen->getZone() && $citizen->getUser()->getName() !== "user_001")
                 $targets[] = $citizen;
             elseif (!$citizen->getAlive() && $citizen->getHome()->getHoldsBody() && !in_array($citizen->getId(), $this->skip_reanimation))
                 $houses[] = $citizen;
@@ -318,22 +319,30 @@ class NightlyHandler
         }
 
         $gazette = $town->findGazette( $town->getDay() );
+        $useless = 0;
 
         foreach ($houses as $id => $corpse) {
             /** @var Citizen $corpse */
 
             $opts = [];
+            $opts[] = 0;
             if (!empty( $targets )) $opts[] = 1;
             if (!empty( $buildings )) $opts[] = 2;
             if ($town->getWell() > 0) $opts[] = 3;
 
-            if (empty($opts)) {
+
+            /*if (empty($opts)) {
                 $this->log->debug("The corpse of citizen <info>{$corpse->getUser()->getUsername()}</info> has nothing to do.");
                 $this->entity_manager->persist( $this->logTemplates->nightlyInternalAttackNothing( $corpse ) );
                 continue;
-            }
+            }*/
 
             switch ($this->random->pick($opts, 1)) {
+                case 0:
+                    $useless++;
+                    $this->log->debug("The corpse of citizen <info>{$corpse->getUser()->getUsername()}</info> has nothing to do.");
+                    $this->entity_manager->persist( $this->logTemplates->nightlyInternalAttackNothing( $corpse ) );
+                    break;
                 case 1:
                     $victim = array_pop($targets);
                     $this->log->debug("The corpse of citizen <info>{$corpse->getUser()->getUsername()}</info> attacks and kills <info>{$victim->getUser()->getUsername()}</info>.");
@@ -360,6 +369,10 @@ class NightlyHandler
                     break;
             }
         }
+        if($useless > 0){
+            $this->entity_manager->persist( $this->logTemplates->nightlyInternalAttackNothingSummary( $town, $useless ) );
+        }
+
         $this->entity_manager->persist($gazette);
     }
 
