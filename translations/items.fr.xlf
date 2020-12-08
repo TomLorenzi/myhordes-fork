@@ -7300,5 +7300,23 @@
         <target>Diese Trümmerstücke waren mal Teil eines Gegenstandes, den du nicht mehr identifizieren kannst. Die Verformung der Teile lassen vermuten, dass dieser Gegenstand mit hoher Geschwindigkeit am Boden aufgeprallt ist...</target>
       </segment>
     </unit>
+    <unit id="aKn4VEo" name="Munitionsgriff">
+      <notes>
+        <note category="german">Munitionsgriff</note>
+      </notes>
+      <segment>
+        <source>Munitionsgriff</source>
+        <target>Poignée de munitions</target>
+      </segment>
+    </unit>
+    <unit id="oFVqj4C" name="Eine Handvoll Munition. Aber was hat das für einen Sinn?">
+      <notes>
+        <note category="german">Eine Handvoll Munition. Aber was hat das für einen Sinn?</note>
+      </notes>
+      <segment>
+        <source>Eine Handvoll Munition. Aber was hat das für einen Sinn?</source>
+        <target>Une poignée de munitions. Mais à quoi cela peut-il bien servir ?</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

@@ -15426,5 +15426,14 @@
         <target>%citizen% a comblé une partie de sa fringale en croquant des petits bouts de ses concitoyens. La prochaine fois, arrosez les morts pour être sûrs qu'ils ne se lèvent pas dès le lendemain...</target>
       </segment>
     </unit>
+    <unit id="Oys88cl" name="1a715ee">
+      <notes>
+        <note category="german">%count% Zombies wurden in der Stadt gesichtet, aber sie haben niemanden angegriffen: Was für ein Glücksfall...</note>
+      </notes>
+      <segment>
+        <source>%count% Zombies wurden in der Stadt gesichtet, aber sie haben niemanden angegriffen: Was für ein Glücksfall...</source>
+        <target>%count% Zombies wurden in der Stadt gesichtet, aber sie haben niemanden angegriffen: Was für ein Glücksfall...</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
