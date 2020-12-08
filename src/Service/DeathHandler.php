@@ -251,24 +251,5 @@ class DeathHandler
             $soulItem->setFirstPick(true);
             $this->inventory_handler->forceMoveItem($spawnZone->getFloor(), $soulItem);
         }
-
-        if(count($citizen->getRoles()) > 0) {
-            // The victim has roles, it should be added as votable !
-            foreach ($citizen->getRoles() as $role) {
-                /** @var CitizenRole $role */
-                if (!$role->getVotable()) continue;
-                
-                $special_vote = $this->entity_manager->getRepository(SpecialActionPrototype::class)->findOneBy(['name' => 'special_vote_' . $role->getName()]);
-                if($special_vote) {
-                    foreach ($citizen->getTown()->getCitizens() as $target) {
-                        /** @var Citizen $target */
-                        if(!$target->getSpecialActions()->contains($special_vote)) {
-                            $target->addSpecialAction($special_vote);
-                            $this->entity_manager->persist($target);
-                        }
-                    }
-                }
-            }
-        }
     }
 }

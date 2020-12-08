@@ -633,6 +633,7 @@ class NightlyHandler
                 }
             }
         }
+
         $this->entity_manager->persist($gazette);
     }
 
