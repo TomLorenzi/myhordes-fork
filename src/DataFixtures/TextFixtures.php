@@ -5098,6 +5098,25 @@ class TextFixtures extends Fixture
             "background" => "notepad",
             "design" => "poem"
         ],
+        "seven" => [
+            "title" => "Sept jours pour en finir",
+            "author" => "csbilouze",
+            "content" => [
+                '>
+                <p>Au commencement Dieu créa la terre.<br>
+                - Le premier jour, Dieu créa la lumière, séparant ainsi le jour et la nuit.<br>
+                - Le second jour, Dieu créa le ciel<br>
+                - Le troisième jour, Dieu créa la végétation<br>
+                - Le quatrième jour, Dieu créa les animaux<br>
+                - Le cinquième jour, Dieu créa l\'homme à son image.<br>
+                - Le sixième jour, l\'Homme créa les zombies.<br>
+                - Le septième jour, Dieu dit: "débrouillez-vous"<br>
+                </p>'
+            ],
+            "lang" => "fr",
+            "background" => "carton",
+            "design" => "written"
+        ],
         "acorr_es" => [
             "title" => "Acorralado",
             "author" => "GeneralCross",
