@@ -265,8 +265,8 @@ class ExternalXML2Controller extends ExternalController {
                 ],
             ];
             $criteria = new Criteria();
-            $criteria->where($criteria->expr()->gte('unlockQuantity', $picto['c']));
-            $criteria->where($criteria->expr()->eq('associatedPicto', $this->entity_manager->getRepository(PictoPrototype::class)->find($picto['id'])));
+            $criteria->andWhere($criteria->expr()->gte('unlockQuantity', $picto['c']));
+            $criteria->andWhere($criteria->expr()->eq('associatedPicto', $this->entity_manager->getRepository(PictoPrototype::class)->find($picto['id'])));
             $titles = $this->entity_manager->getRepository(AwardPrototype::class)->matching($criteria);
             foreach($titles as $title){
                 /** @var AwardPrototype $title */

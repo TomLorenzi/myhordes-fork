@@ -32,6 +32,7 @@ use App\Service\TownHandler;
 use App\Structures\ItemRequest;
 use Doctrine\ORM\EntityManagerInterface;
 use DateTime;
+use Doctrine\Common\Collections\Criteria;
 use Exception;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -163,6 +164,10 @@ class TownHomeController extends TownController
             $sendable_items[] = $item;
         }
 
+        $criteria = new Criteria();
+        $criteria->andWhere($criteria->expr()->gte('severity', Complaint::SeverityBanish));
+        $criteria->andWhere($criteria->expr()->eq('culprit', $citizen));
+
         // Render
         return $this->render( 'ajax/game/town/home.html.twig', $this->addDefaultTwigArgs('house', [
             'home' => $home,
@@ -179,7 +184,7 @@ class TownHomeController extends TownController
             'upgrades' => $upgrade_proto,
             'upgrade_levels' => $upgrade_proto_lv,
             'upgrade_costs' => $upgrade_cost,
-            'complaints' => $this->entity_manager->getRepository(Complaint::class)->countComplaintsFor( $citizen ),
+            'complaints' => $this->entity_manager->getRepository(Complaint::class)->matching( $criteria ),
 
             'def' => $summary,
             'deco' => $deco,

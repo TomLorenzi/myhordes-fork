@@ -53,6 +53,11 @@ class Complaint
      */
     private $reason;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=ComplaintReason::class)
+     */
+    private $linked_reason;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -114,6 +119,18 @@ class Complaint
     public function setReason(?string $reason): self
     {
         $this->reason = $reason;
+
+        return $this;
+    }
+
+    public function getLinkedReason(): ?ComplaintReason
+    {
+        return $this->linked_reason;
+    }
+
+    public function setLinkedReason(?ComplaintReason $linked_reason): self
+    {
+        $this->linked_reason = $linked_reason;
 
         return $this;
     }

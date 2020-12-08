@@ -14,6 +14,7 @@ use App\Entity\CitizenHomeUpgradePrototype;
 use App\Entity\CitizenRole;
 use App\Entity\CitizenVote;
 use App\Entity\Complaint;
+use App\Entity\ComplaintReason;
 use App\Entity\ExpeditionRoute;
 use App\Entity\ItemPrototype;
 use App\Entity\LogEntryTemplate;
@@ -313,7 +314,7 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
         }
 
         $hidden = (bool)($em->getRepository(CitizenHomeUpgrade::class)->findOneByPrototype($home,
-            $em->getRepository(CitizenHomeUpgradePrototype::class)->findOneByName('curtain')
+            $em->getRepository(CitizenHomeUpgradePrototype::class)->findOneBy(['name' => 'curtain'])
         )) && $this->citizen_handler->houseIsProtected($c);
 
         $is_injured    = $this->citizen_handler->isWounded($c);
@@ -357,6 +358,7 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
             'actions' => $this->getItemActions(),
             'complaint' => $this->entity_manager->getRepository(Complaint::class)->findByCitizens( $this->getActiveCitizen(), $c ),
             'complaints' => $this->entity_manager->getRepository(Complaint::class)->countComplaintsFor( $c ),
+            'complaintreasons' => $this->entity_manager->getRepository(ComplaintReason::class)->findAll(),
             'chest' => $home->getChest(),
             'chest_size' => $this->inventory_handler->getSize($home->getChest()),
             'has_cremato' => $th->getBuilding($town, 'item_hmeat_#00', true) !== null,
@@ -511,6 +513,14 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
         if ($severity < Complaint::SeverityNone || $severity > Complaint::SeverityKill)
             return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest );
 
+        $reason = (int)$parser->get('reason', 0);
+        if($severity != Complaint::SeverityNone && $reason <= 0)
+            return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+        $complaintReason = $this->entity_manager->getRepository(ComplaintReason::class)->find($reason);
+        if ($severity != Complaint::SeverityNone && !$complaintReason)
+            return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
         $has_gallows = $th->getBuilding( $this->getActiveCitizen()->getTown(), 'r_dhang_#00', true );
         $has_cage = $th->getBuilding( $this->getActiveCitizen()->getTown(), 'small_fleshcage_#00', true );
 
@@ -545,7 +555,10 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
                 ->setCulprit( $culprit )
                 ->setSeverity( $severity )
                 ->setCount( ($author->getProfession()->getHeroic() && $th->getBuilding( $town, 'small_court_#00', true )) ? 2 : 1 );
-            $culprit->addComplaint( $existing_complaint );
+            
+            if($reason > 0)
+                $existing_complaint->setLinkedReason($complaintReason);
+            $culprit->addComplaint($existing_complaint);
 
             $complaint_level = ($severity > Complaint::SeverityNone) ? 1 : 0;
 
@@ -555,6 +568,9 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
                 $complaint_level = -1;
             else if ($existing_complaint->getSeverity() === Complaint::SeverityNone && $severity > Complaint::SeverityNone)
                 $complaint_level = 1;
+            
+            if($reason > 0)
+                $existing_complaint->setLinkedReason($complaintReason);
 
             $existing_complaint->setSeverity( $severity );
         }

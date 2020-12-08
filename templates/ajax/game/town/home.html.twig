@@ -31,6 +31,14 @@
                 <div class="tooltip normal">{{ 'Deine privaten Nachrichten'|trans({},'game') }}</div>
             </div>
         </li>
+        {% if complaints|length > 0 %}
+        <li class="tab" x-tab-id="complaints">
+            <div class="tab-link">
+                <img alt="" src="{{ asset('build/images/icons/scout_lv0.gif') }}">
+                <span class="hide-lg hide-md hide-sm">{{ 'Anzeigen'|trans({},'game') }}</span>
+            </div>
+        </li>
+        {% endif %}
         <li class="tab" x-tab-id="build">
             <div class="tab-link">
                 <img alt="" src="{{ asset('build/images/icons/small_home_up.gif') }}">
@@ -68,9 +76,9 @@
             </div>
         </div>
 
-        {% if complaints > 0 %}
+        {% if complaints|length > 0 %}
             <div class="note note-warning">
-                {{ 'Du hast %num% anonyme Anzeige(n).'|trans({'%num%': '<b>' ~ complaints ~ '</b>'}, 'game')|raw }}<br />
+                {{ 'Du hast %num% anonyme Anzeige(n).'|trans({'%num%': '<b>' ~ complaints|length ~ '</b>'}, 'game')|raw }}<br />
                 {% trans from 'game' %}
                     Anzeigen können zu deiner Verbannung oder sogar Hinrichtung führen. Vielleicht solltest du das Verhältnis zwischen dir und dem Rest der Stadt verbessern ...
                 {% endtrans %}
@@ -274,6 +282,21 @@
         {% endif %}
         <div id="forum-content">
 
+        </div>
+    </div>
+
+    <div x-tab-group="home-main" x-tab-id="complaints" x-tab-target>
+        <div class="row">
+            {{ 'Du hast %num% anonyme Anzeige(n) erhalten. Sollte diese Zahl auf 8 ansteigen, wirst du verbannt!'|trans({'%num%': '<b>' ~ complaints|length ~ '</b>'}, 'game')|raw }}<br />
+            <ul class="overview-list">
+            {% for complaint in complaints %}
+                {% if not complaint.linkedReason is null %}
+                <li>{{complaint.linkedReason.text|trans({}, 'game')}}</li>
+                {% else %}
+                <li>{{complaint.reason}}</li>
+                {% endif %}
+            {% endfor %}
+            </ul>
         </div>
     </div>
 
