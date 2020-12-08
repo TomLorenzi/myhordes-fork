@@ -1654,7 +1654,25 @@
       </notes>
       <segment>
         <source>Dashboard</source>
-        <target>Dashboard</target>
+        <target>Tableau de bord</target>
+      </segment>
+    </unit>
+    <unit id="KVK60jg" name="Stadt %townname%">
+      <notes>
+        <note category="german">Stadt %townname%</note>
+      </notes>
+      <segment>
+        <source>Stadt %townname%</source>
+        <target>Ville %townname%</target>
+      </segment>
+    </unit>
+    <unit id="Z2xHG8j" name="Bank">
+      <notes>
+        <note category="german">Bank</note>
+      </notes>
+      <segment>
+        <source>Bank</source>
+        <target>Banque</target>
       </segment>
     </unit>
   </file>

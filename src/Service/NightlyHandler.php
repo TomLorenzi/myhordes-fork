@@ -313,9 +313,14 @@ class NightlyHandler
         $targets = $this->random->pick($targets, min(count($houses),count($targets)), true);
         $buildings = $this->random->pick($buildings, min(count($houses),count($buildings)), true);
 
+        if(count($houses) > 0){
+            $this->entity_manager->persist( $this->logTemplates->nightlyInternalAttackStart() );
+        }
+
         $gazette = $town->findGazette( $town->getDay() );
 
         foreach ($houses as $id => $corpse) {
+            /** @var Citizen $corpse */
 
             $opts = [];
             if (!empty( $targets )) $opts[] = 1;
@@ -333,6 +338,8 @@ class NightlyHandler
                     $victim = array_pop($targets);
                     $this->log->debug("The corpse of citizen <info>{$corpse->getUser()->getUsername()}</info> attacks and kills <info>{$victim->getUser()->getUsername()}</info>.");
                     $this->entity_manager->persist( $this->logTemplates->nightlyInternalAttackKill( $corpse, $victim ) );
+                    $corpse->setHasEaten(true);
+                    $this->entity_manager->persist($corpse);
                     $this->kill_wrap( $victim, $cod, false, 1, true );
                     break;
                 case 2:

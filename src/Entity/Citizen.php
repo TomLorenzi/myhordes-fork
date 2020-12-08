@@ -256,6 +256,11 @@ class Citizen
      */
     private $hasSeenGazette = false;
 
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $hasEaten = false;
+
     public function __construct()
     {
         $this->status = new ArrayCollection();
@@ -1164,6 +1169,18 @@ class Citizen
     public function setHasSeenGazette(bool $hasSeenGazette): self
     {
         $this->hasSeenGazette = $hasSeenGazette;
+
+        return $this;
+    }
+
+    public function getHasEaten(): ?bool
+    {
+        return $this->hasEaten;
+    }
+
+    public function setHasEaten(bool $hasEaten): self
+    {
+        $this->hasEaten = $hasEaten;
 
         return $this;
     }

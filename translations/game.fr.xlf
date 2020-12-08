@@ -15390,5 +15390,32 @@
         <target>inmitten eines unentwirrbaren Trümmerhaufens</target>
       </segment>
     </unit>
+    <unit id="WFILm.J" name="8a84bed">
+      <notes>
+        <note category="german">&lt;i class="dagger"&gt;†&lt;/i&gt; %zombie% ist gestern hungrig zum Haus von %victim% gestapft. Nachdem er die Tür mit voller Wucht eingetreten hatte, packte er sein Opfer am Haar und schleuderte es mit voller Wucht gegen die Wand... Einige Schädelsplitter wurden sogar im Schlafzimmer gefunden. Vergesst nie die Leichen zu recyclen. Nie!!</note>
+      </notes>
+      <segment>
+        <source>&lt;i class="dagger"&gt;†&lt;/i&gt; %zombie% ist gestern hungrig zum Haus von %victim% gestapft. Nachdem er die Tür mit voller Wucht eingetreten hatte, packte er sein Opfer am Haar und schleuderte es mit voller Wucht gegen die Wand... Einige Schädelsplitter wurden sogar im Schlafzimmer gefunden. Vergesst nie die Leichen zu recyclen. Nie!!</source>
+        <target><![CDATA[<i class="dagger">†</i> %zombie% s'est trainé affamé jusqu'à la maison de %victim%, a ouvert sa porte tranquillement (ça aide d'être frais), lui a pris la tête et la lui a explosé contre un mur dans un feu d'artifice de bouts de cervelle sanguinolents. N'oubliez jamais de recycler les morts. Jamais !!]]></target>
+      </segment>
+    </unit>
+    <unit id="HABjCVJ" name="955146b">
+      <notes>
+        <note category="german">Die in der Stadt liegengebliebenen Körper der ehemaligen Einwohner erwachten in der Zwischenzeit wieder zu Leben...</note>
+      </notes>
+      <segment>
+        <source>Die in der Stadt liegengebliebenen Körper der ehemaligen Einwohner erwachten in der Zwischenzeit wieder zu Leben...</source>
+        <target>Pendant ce temps les ex-citoyens dont les corps étaient restés dans la ville se sont réveillés...</target>
+      </segment>
+    </unit>
+    <unit id="b4uaoGt" name="b63e901">
+      <notes>
+        <note category="german">Die Stadt ist nichts weiter als ein widerwärtiger Friedhof. Es war niemand hier, der den letzten Angriff der Zombies hätte aufhalten können: &lt;strong&gt;das Stadttor wurde aufgebrochen&lt;/strong&gt; und &lt;strong&gt;liegt nun in Trümmern&lt;/strong&gt;. %town% existiert nicht mehr...</note>
+      </notes>
+      <segment>
+        <source>Die Stadt ist nichts weiter als ein widerwärtiger Friedhof. Es war niemand hier, der den letzten Angriff der Zombies hätte aufhalten können: &lt;strong&gt;das Stadttor wurde aufgebrochen&lt;/strong&gt; und &lt;strong&gt;liegt nun in Trümmern&lt;/strong&gt;. %town% existiert nicht mehr...</source>
+        <target><![CDATA[La ville n'est plus qu'un vaste cimetière nauséabond. Plus personne n'était là hier pour retenir le dernier assaut des hordes : <strong>les portes de la ville ont été enfoncées</strong> et <strong>réduites en miettes</strong>. %town% n'est plus.]]></target>
+      </segment>
+    </unit>
   </file>
 </xliff>

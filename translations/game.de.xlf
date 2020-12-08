@@ -199,15 +199,6 @@
         <target>%citizen% folgendes hergestellt: %list2%; dabei wurden folgende Gegenstände verbraucht: %list1%.</target>
       </segment>
     </unit>
-    <unit id="wxkGehN" name="%zombie% ist von den Toten auferstanden und hat %victim% zerfleischt!">
-      <notes>
-        <note category="german">%zombie% ist von den Toten auferstanden und hat %victim% zerfleischt!</note>
-      </notes>
-      <segment>
-        <source>%zombie% ist von den Toten auferstanden und hat %victim% zerfleischt!</source>
-        <target>%zombie% ist von den Toten auferstanden und hat %victim% zerfleischt!</target>
-      </segment>
-    </unit>
     <unit id="Wqb2b8u" name="219fbe6">
       <notes>
         <note category="german">%zombie% ist von den Toten auferstanden und hat die Baustelle für %building% verwüstet!</note>
@@ -15362,6 +15353,33 @@
       <segment>
         <source>inmitten eines unentwirrbaren Trümmerhaufens</source>
         <target>inmitten eines unentwirrbaren Trümmerhaufens</target>
+      </segment>
+    </unit>
+    <unit id="WFILm.J" name="8a84bed">
+      <notes>
+        <note category="german">&lt;i class="dagger"&gt;†&lt;/i&gt; %zombie% ist gestern hungrig zum Haus von %victim% gestapft. Nachdem er die Tür mit voller Wucht eingetreten hatte, packte er sein Opfer am Haar und schleuderte es mit voller Wucht gegen die Wand... Einige Schädelsplitter wurden sogar im Schlafzimmer gefunden. Vergesst nie die Leichen zu recyclen. Nie!!</note>
+      </notes>
+      <segment>
+        <source>&lt;i class="dagger"&gt;†&lt;/i&gt; %zombie% ist gestern hungrig zum Haus von %victim% gestapft. Nachdem er die Tür mit voller Wucht eingetreten hatte, packte er sein Opfer am Haar und schleuderte es mit voller Wucht gegen die Wand... Einige Schädelsplitter wurden sogar im Schlafzimmer gefunden. Vergesst nie die Leichen zu recyclen. Nie!!</source>
+        <target><![CDATA[<i class="dagger">†</i> %zombie% ist gestern hungrig zum Haus von %victim% gestapft. Nachdem er die Tür mit voller Wucht eingetreten hatte, packte er sein Opfer am Haar und schleuderte es mit voller Wucht gegen die Wand... Einige Schädelsplitter wurden sogar im Schlafzimmer gefunden. Vergesst nie die Leichen zu recyclen. Nie!!]]></target>
+      </segment>
+    </unit>
+    <unit id="HABjCVJ" name="955146b">
+      <notes>
+        <note category="german">Die in der Stadt liegengebliebenen Körper der ehemaligen Einwohner erwachten in der Zwischenzeit wieder zu Leben...</note>
+      </notes>
+      <segment>
+        <source>Die in der Stadt liegengebliebenen Körper der ehemaligen Einwohner erwachten in der Zwischenzeit wieder zu Leben...</source>
+        <target>Die in der Stadt liegengebliebenen Körper der ehemaligen Einwohner erwachten in der Zwischenzeit wieder zu Leben...</target>
+      </segment>
+    </unit>
+    <unit id="b4uaoGt" name="b63e901">
+      <notes>
+        <note category="german">Die Stadt ist nichts weiter als ein widerwärtiger Friedhof. Es war niemand hier, der den letzten Angriff der Zombies hätte aufhalten können: &lt;strong&gt;das Stadttor wurde aufgebrochen&lt;/strong&gt; und &lt;strong&gt;liegt nun in Trümmern&lt;/strong&gt;. %town% existiert nicht mehr...</note>
+      </notes>
+      <segment>
+        <source>Die Stadt ist nichts weiter als ein widerwärtiger Friedhof. Es war niemand hier, der den letzten Angriff der Zombies hätte aufhalten können: &lt;strong&gt;das Stadttor wurde aufgebrochen&lt;/strong&gt; und &lt;strong&gt;liegt nun in Trümmern&lt;/strong&gt;. %town% existiert nicht mehr...</source>
+        <target><![CDATA[Die Stadt ist nichts weiter als ein widerwärtiger Friedhof. Es war niemand hier, der den letzten Angriff der Zombies hätte aufhalten können: <strong>das Stadttor wurde aufgebrochen</strong> und <strong>liegt nun in Trümmern</strong>. %town% existiert nicht mehr...]]></target>
       </segment>
     </unit>
   </file>
