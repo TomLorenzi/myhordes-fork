@@ -5197,6 +5197,18 @@ class TextFixtures extends Fixture
             "background" => "old",
             "design" => "written"
         ],
+        "dest" => [
+            "title" => "Diario de un desterrado",
+            "author" => "Mellaa",
+            "content" => [
+                '<p>Es el tercer día desde que volví infectado del Ultramundo y los aldeanos decidieron echarme... ¡Malditos desgraciados! (la escritura se vuelve ilegible...)</p>
+				<p>Si alguien lee esto seguramente ya seré uno de esos que arañan las murallas cada noche, o quizás lo que quede de mi cuerpo esté atrapado entre los alambre de púas... si todavía me quedan dedos, dale mi anillo a mi hija Ireth... (las lagrimas emborronan el resto del papel).</p>
+				<p><small>Autor: Mellaa</small></p>'
+            ],
+            "lang" => "es",
+            "background" => "letter",
+            "design" => "written"
+        ],
         "divv1_es" => [
             "title" => "Diario de un Moribundo",
             "author" => "Arkham Stranger",
