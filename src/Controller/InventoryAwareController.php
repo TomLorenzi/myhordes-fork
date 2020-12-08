@@ -240,6 +240,20 @@ class InventoryAwareController extends CustomAbstractController
         return $ret;
     }
 
+    protected function getSpecialActions(): array {
+        $ret = [];
+
+        $av_inv = [$this->getActiveCitizen()->getInventory(), $this->getActiveCitizen()->getZone() ? $this->getActiveCitizen()->getZone()->getFloor() : $this->getActiveCitizen()->getHome()->getChest()];
+
+        $this->action_handler->getAvailableISpecialActions( $this->getActiveCitizen(),  $available, $crossed );
+        if (empty($available) && empty($crossed)) return [];
+
+        foreach ($available as $a) $ret[] = [ 'id' => $a->getId(), 'icon' => $a->getIcon(), 'action' => $a->getAction(), 'targets' => $a->getAction()->getTarget() ? $this->decodeActionItemTargets( $av_inv, $a->getAction()->getTarget() ) : null, 'target_mode' => $a->getAction()->getTarget() ? $a->getAction()->getTarget()->getSpawner() : 0, 'crossed' => false ];
+        foreach ($crossed as $c)   $ret[] = [ 'id' => $c->getId(), 'icon' => $a->getIcon(), 'action' => $c->getAction(), 'targets' => null, 'target_mode' => 0, 'crossed' => true ];
+
+        return $ret;
+    }
+
     protected function getCampingActions(): array {
       $ret = [];
       if (!$this->getTownConf()->get(TownConf::CONF_FEATURE_CAMPING, false)) return $ret;

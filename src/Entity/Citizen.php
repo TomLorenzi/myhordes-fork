@@ -261,6 +261,11 @@ class Citizen
      */
     private $hasEaten = false;
 
+    /**
+     * @ORM\ManyToMany(targetEntity=SpecialActionPrototype::class)
+     */
+    private $specialActions;
+
     public function __construct()
     {
         $this->status = new ArrayCollection();
@@ -277,6 +282,7 @@ class Citizen
         $this->privateMessageThreads = new ArrayCollection();
         $this->explorerStats = new ArrayCollection();
         $this->helpNotifications = new ArrayCollection();
+        $this->specialActions = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -1181,6 +1187,30 @@ class Citizen
     public function setHasEaten(bool $hasEaten): self
     {
         $this->hasEaten = $hasEaten;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|SpecialActionPrototype[]
+     */
+    public function getSpecialActions(): Collection
+    {
+        return $this->specialActions;
+    }
+
+    public function addSpecialAction(SpecialActionPrototype $specialAction): self
+    {
+        if (!$this->specialActions->contains($specialAction)) {
+            $this->specialActions[] = $specialAction;
+        }
+
+        return $this;
+    }
+
+    public function removeSpecialAction(SpecialActionPrototype $specialAction): self
+    {
+        $this->specialActions->removeElement($specialAction);
 
         return $this;
     }

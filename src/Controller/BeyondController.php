@@ -164,6 +164,7 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
             'scout_sense' => $scout_sense,
             'scavenger_sense' => $scavenger_sense,
             'heroics' => $this->getHeroicActions(),
+            'specials' => $this->getSpecialActions(),
             'actions' => $this->getItemActions(),
             'camping' => $this->getCampingActions(),
             'recipes' => $this->getItemCombinations(false),

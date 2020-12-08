@@ -12,6 +12,7 @@ use App\Entity\HeroicActionPrototype;
 use App\Entity\HeroSkillPrototype;
 use App\Entity\ItemPrototype;
 use App\Entity\LogEntryTemplate;
+use App\Entity\SpecialActionPrototype;
 use App\Entity\TownLogEntry;
 use App\Entity\Zone;
 use App\Response\AjaxResponse;
@@ -597,12 +598,11 @@ class GameController extends CustomAbstractController implements GameInterfaceCo
                         break;
                 }
             }
+        }
 
-            if($this->picto_handler->has_picto($citizen, 'r_armag')) {
-                $armag = $this->entity_manager->getRepository(HeroicActionPrototype::class)->findOneBy(['name' => "hero_generic_armag"]);
-                $citizen->addHeroicAction($armag);
-            }
-
+        if($this->picto_handler->has_picto($citizen, 'r_armag')) {
+            $armag = $this->entity_manager->getRepository(SpecialActionPrototype::class)->findOneBy(['name' => "special_generic_armag"]);
+            $citizen->addSpecialAction($armag);
         }
 
         try {
@@ -615,7 +615,7 @@ class GameController extends CustomAbstractController implements GameInterfaceCo
         $item_spawns = $cf->getTownConfiguration($citizen->getTown())->get(TownConf::CONF_DEFAULT_CHEST_ITEMS, []);
         $chest = $citizen->getHome()->getChest();
         foreach ($item_spawns as $spawn)
-            $invh->placeItem($citizen, $if->createItem($this->entity_manager->getRepository(ItemPrototype::class)->findOneByName($spawn)), [$chest]);
+            $invh->placeItem($citizen, $if->createItem($this->entity_manager->getRepository(ItemPrototype::class)->findOneBy(['name' => $spawn])), [$chest]);
 
         try {
             $this->entity_manager->persist( $chest );

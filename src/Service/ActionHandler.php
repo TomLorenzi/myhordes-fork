@@ -400,6 +400,22 @@ class ActionHandler
     }
 
     /**
+     * @param Citizen $citizen
+     * @param ItemAction[] $available
+     * @param ItemAction[] $crossed
+     */
+    public function getAvailableISpecialActions(Citizen $citizen, ?array &$available, ?array &$crossed ) {
+        $available = $crossed = [];
+
+        foreach ($citizen->getSpecialActions() as $special) {
+            $mode = $this->evaluate( $citizen, null, null, $special->getAction(), $tx );
+            if ($mode >= self::ActionValidityAllow) $available[] = $special;
+            else if ($mode >= self::ActionValidityCrossed) $crossed[] = $special;
+        }
+
+    }
+
+    /**
      * @param Item|ItemPrototype|Citizen $target
      * @param ItemTargetDefinition $definition
      * @return bool

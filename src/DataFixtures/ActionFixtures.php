@@ -53,6 +53,7 @@ use App\Entity\RequireStatus;
 use App\Entity\RequireZombiePresence;
 use App\Entity\RequireZone;
 use App\Entity\Result;
+use App\Entity\SpecialActionPrototype;
 use App\Structures\TownConf;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\DataFixtures\DependentFixtureInterface;
@@ -785,7 +786,8 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             'hero_generic_ap'     => [ 'label' => 'Zweite Lunge','cover' => true, 'meta' => [ 'no_full_ap', 'not_yet_hero'], 'result' => [ 'hero_act', 'just_ap6' ] ],
             'hero_generic_immune' => [ 'label' => 'Den Tod besiegen','cover' => true, 'meta' => [ 'not_yet_hero'], 'result' => [ 'hero_act', 'hero_immune' ] ],
             'hero_generic_rescue' => [ 'label' => 'Rettung', 'target' => ['type' => ItemTargetDefinition::ItemHeroicRescueType], 'meta' => [ 'must_be_inside', 'not_yet_hero'], 'result' => [ 'hero_act', ['custom' => [9]] ], 'message' => 'Du hast {citizen} auf heldenhafte Weise in die Stadt gebracht!' ],
-            'hero_generic_armag'  => [ 'label' => 'Durchgang in Kraft', 'meta' => [ 'not_yet_hero', 'must_be_outside', 'must_have_zombies', 'must_be_blocked'], 'result' => [ ['group' => [ [['do_nothing'], 10], [[ ['zone' => ['escape' => 600] ], 'kill_1_zombie'], 90]]] ], 'message' => 'Du hast {citizen} auf heldenhafte Weise in die Stadt gebracht!' ],
+            
+            'special_armag'  => [ 'label' => 'Durchgang in Kraft', 'meta' => [ 'must_be_outside', 'must_have_zombies', 'must_be_blocked'], 'result' => [ ['group' => [ [['do_nothing'], 10], [[ ['zone' => ['escape' => 600] ], 'kill_1_zombie'], 90]]] ], 'message' => '' ],
 
             'improve' => [ 'label' => 'Aufbauen', 'meta' => [ 'must_be_outside', 'zone_is_improvable', 'min_1_ap', 'must_be_outside_not_at_doors', 'feature_camping' ], 'result' => [ 'minus_1ap', 'consume_item', [ 'zone' => ['improve' =>  1.8] ] ], 'message' => 'Du befestigst den {item} und bedeckst ihn zur Tarnung mit herumliegendem Müll und vertrockneten Zweigen. Na bitte, das sollte hoffentlich deine Überlebenschancen heute Nacht verbessern. Du hast dafür 1 Aktionspunkt verbraucht.' ],
 
@@ -863,8 +865,10 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             ['name' => 'hero_generic_immune', 'unlockable' => true],
             ['name' => 'hero_generic_find_lucky', 'unlockable' => true],
             ['name' => 'hero_generic_rescue', 'unlockable' => false],
-            ['name' => 'hero_generic_armag', 'unlockable' => true],
+        ],
 
+        'specials' => [
+            ['name' => 'special_armag', 'icon' => 'armag'],
         ],
 
         'camping' => [
@@ -2536,6 +2540,18 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
 
             $out->writeln( "Compiling action set for heroic action <info>{$action['name']}</info>...", OutputInterface::VERBOSITY_DEBUG);
 
+            $action_proto->setAction( $this->generate_action( $manager, $out, $action['name'], $set_meta_requirements, $set_sub_requirements, $set_meta_results, $set_sub_results, $set_actions ) );
+
+            $manager->persist( $action_proto );
+        }
+
+        foreach (static::$item_actions['specials'] as $action) {
+            $action_proto = $manager->getRepository(SpecialActionPrototype::class)->findOneBy(['name' => $action['name']]);
+            if (!$action_proto) $action_proto = (new SpecialActionPrototype)->setName( $action['name'] );
+            $action_proto->setIcon($action['icon']);
+
+            $out->writeln( "Compiling action set for special action <info>{$action['name']}</info>...", OutputInterface::VERBOSITY_DEBUG);
+            echo "Compiling action set for special action <info>{$action['name']}</info>...";
             $action_proto->setAction( $this->generate_action( $manager, $out, $action['name'], $set_meta_requirements, $set_sub_requirements, $set_meta_results, $set_sub_results, $set_actions ) );
 
             $manager->persist( $action_proto );

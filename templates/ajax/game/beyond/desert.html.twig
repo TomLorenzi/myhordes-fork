@@ -269,7 +269,7 @@
                     {% endif %}
 
 
-                    {% embed "ajax/game/actions.html.twig" with {'heroic_action_list': heroics, 'item_action_list': actions, 'recipe_list': recipes, 'scout': (zone_blocked and active_scout_mode), 'hidden': citizen_hidden} %}
+                    {% embed "ajax/game/actions.html.twig" with {'heroic_action_list': heroics, 'special_action_list': specials, 'item_action_list': actions, 'recipe_list': recipes, 'scout': (zone_blocked and active_scout_mode), 'hidden': citizen_hidden} %}
                     {% endembed %}
 
                     {% if banished or town_chaos %}
