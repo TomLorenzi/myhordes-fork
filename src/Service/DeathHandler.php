@@ -7,6 +7,7 @@ namespace App\Service;
 use App\Entity\CauseOfDeath;
 use App\Entity\Citizen;
 use App\Entity\CitizenRankingProxy;
+use App\Entity\CitizenRole;
 use App\Entity\DigTimer;
 use App\Entity\EscapeTimer;
 use App\Entity\Gazette;
@@ -14,6 +15,7 @@ use App\Entity\ItemProperty;
 use App\Entity\PictoPrototype;
 use App\Entity\RuinZone;
 use App\Entity\Soul;
+use App\Entity\SpecialActionPrototype;
 use App\Entity\TownRankingProxy;
 use App\Entity\UserGroup;
 use App\Structures\TownConf;
@@ -248,6 +250,25 @@ class DeathHandler
             $soulItem = $this->item_factory->createItem( "soul_blue_#00");
             $soulItem->setFirstPick(true);
             $this->inventory_handler->forceMoveItem($spawnZone->getFloor(), $soulItem);
+        }
+
+        if(count($citizen->getRoles()) > 0) {
+            // The victim has roles, it should be added as votable !
+            foreach ($citizen->getRoles() as $role) {
+                /** @var CitizenRole $role */
+                if (!$role->getVotable()) continue;
+                
+                $special_vote = $this->entity_manager->getRepository(SpecialActionPrototype::class)->findOneBy(['name' => 'special_vote_' . $role->getName()]);
+                if($special_vote) {
+                    foreach ($citizen->getTown()->getCitizens() as $target) {
+                        /** @var Citizen $target */
+                        if(!$target->getSpecialActions()->contains($special_vote)) {
+                            $target->addSpecialAction($special_vote);
+                            $this->entity_manager->persist($target);
+                        }
+                    }
+                }
+            }
         }
     }
 }
