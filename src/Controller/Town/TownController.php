@@ -22,6 +22,7 @@ use App\Entity\PictoPrototype;
 use App\Entity\ShoutboxEntry;
 use App\Entity\ShoutboxReadMarker;
 use App\Entity\PrivateMessage;
+use App\Entity\SpecialActionPrototype;
 use App\Entity\User;
 use App\Entity\ZombieEstimation;
 use App\Entity\Zone;
@@ -949,6 +950,7 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
         // and, of course, if you voted for yourself
         // and if town is not in chaos
         $role = $this->entity_manager->getRepository(CitizenRole::class)->find($role_id);
+        /** @var CitizenRole $role */
         $voted_citizen = $this->entity_manager->getRepository(Citizen::class)->find($voted_citizen_id);
         if($role === null || $voted_citizen === null || $voted_citizen->getTown() != $citizen->getTown() || !$voted_citizen->getAlive() || $citizen === $voted_citizen || $town->getChaos())
             return AjaxResponse::error(ErrorHelper::ErrorActionNotAvailable);
@@ -964,6 +966,11 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
             ->setRole($role);
 
         $citizen->addVote($citizenVote);
+
+        // We remove the ability to vote from the WB
+        $special_action = $this->entity_manager->getRepository(SpecialActionPrototype::class)->findOneBy(['name' => 'special_vote_' . $role->getName()]);
+        if($special_action && $citizen->getSpecialActions()->contains($special_action))
+            $citizen->removeSpecialAction($special_action);
 
         // Persist
         try {

@@ -7327,5 +7327,23 @@
         <target>Passage en Force</target>
       </segment>
     </unit>
+    <unit id="KXx_GUV" name="Den Shamane wählen">
+      <notes>
+        <note category="german">Den Shamane wählen</note>
+      </notes>
+      <segment>
+        <source>Den Shamane wählen</source>
+        <target>Voter pour le chaman</target>
+      </segment>
+    </unit>
+    <unit id="Rrvjw6U" name="Den Reiseleiter in der Außenwelt wählen">
+      <notes>
+        <note category="german">Den Reiseleiter in der Außenwelt wählen</note>
+      </notes>
+      <segment>
+        <source>Den Reiseleiter in der Außenwelt wählen</source>
+        <target>Voter pour le guide de l'Outre-Monde</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

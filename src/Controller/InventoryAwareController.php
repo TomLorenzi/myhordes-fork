@@ -222,6 +222,13 @@ class InventoryAwareController extends CustomAbstractController
                         $targets[] = [ $citizen->getId(), $citizen->getUser()->getName(), "build/images/professions/{$citizen->getProfession()->getIcon()}.gif" ];
 
                 break;
+            case ItemTargetDefinition::ItemCitizenType:
+
+                foreach ($this->getActiveCitizen()->getTown()->getCitizens() as $citizen)
+                    if ($citizen->getAlive() && $citizen != $this->getActiveCitizen())
+                        $targets[] = [ $citizen->getId(), $citizen->getUser()->getName(), "build/images/professions/{$citizen->getProfession()->getIcon()}.gif" ];
+
+                break;
         }
 
         return $targets;
@@ -832,6 +839,14 @@ class InventoryAwareController extends CustomAbstractController
             case ItemTargetDefinition::ItemHeroicRescueType:
                 $return = $this->entity_manager->getRepository(Citizen::class)->find( $id );
                 if ($return->getTown()->getId() !== $this->getActiveCitizen()->getTown()->getId()) {
+                    $return = null;
+                    return false;
+                }
+                return true;
+                break;
+            case ItemTargetDefinition::ItemCitizenType:
+                $return = $this->entity_manager->getRepository(Citizen::class)->find( $id );
+                if (!$return->getAlive() || $return->getTown()->getId() !== $this->getActiveCitizen()->getTown()->getId()) {
                     $return = null;
                     return false;
                 }

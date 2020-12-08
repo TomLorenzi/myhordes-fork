@@ -612,11 +612,25 @@ class GameController extends CustomAbstractController implements GameInterfaceCo
             return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
         }
 
+        if(!$citizen->getTown()->isOpen()) {
+            // We add voting capability to every heroic citizen
+            foreach ($citizen->getTown()->getCitizens() as $foreign) {
+                /** @var Citizen $foreign */
+                if(!$foreign->getProfession()->getHeroic()) continue;
+
+                $vote_shaman = $this->entity_manager->getRepository(SpecialActionPrototype::class)->findOneBy(['name' => "special_generic_shaman"]);
+                $vote_guide = $this->entity_manager->getRepository(SpecialActionPrototype::class)->findOneBy(['name' => "special_generic_guide"]);
+                $foreign->addSpecialAction($vote_shaman);
+                $foreign->addSpecialAction($vote_guide);
+                $this->entity_manager->persist( $foreign );
+            }
+            $this->entity_manager->flush();
+        }
+
         $item_spawns = $cf->getTownConfiguration($citizen->getTown())->get(TownConf::CONF_DEFAULT_CHEST_ITEMS, []);
         $chest = $citizen->getHome()->getChest();
         foreach ($item_spawns as $spawn)
             $invh->placeItem($citizen, $if->createItem($this->entity_manager->getRepository(ItemPrototype::class)->findOneBy(['name' => $spawn])), [$chest]);
-
         try {
             $this->entity_manager->persist( $chest );
             $this->entity_manager->flush();

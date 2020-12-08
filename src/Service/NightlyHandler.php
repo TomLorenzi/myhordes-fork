@@ -21,6 +21,7 @@ use App\Entity\HeroSkillPrototype;
 use App\Entity\LogEntryTemplate;
 use App\Entity\PictoPrototype;
 use App\Entity\PrivateMessage;
+use App\Entity\SpecialActionPrototype;
 use App\Entity\Town;
 use App\Entity\TownRankingProxy;
 use App\Entity\ZombieEstimation;
@@ -1206,6 +1207,8 @@ class NightlyHandler
         $votes = array();
 
         foreach ($roles as $role) {
+            /** @var CitizenRole $role */
+            $special_vote = $this->entity_manager->getRepository(SpecialActionPrototype::class)->findOneBy(['name' => 'special_vote_' . $role->getName()]);
 
             /** @var Citizen $last_one */
             $last_one = $this->entity_manager->getRepository(Citizen::class)->findLastOneByRoleAndTown($role, $town);
@@ -1281,6 +1284,15 @@ class NightlyHandler
             $votes = $this->entity_manager->getRepository(CitizenVote::class)->findBy(['role' => $role]);
             foreach ($votes as $vote) {
                 $this->entity_manager->remove($vote);
+            }
+
+            // we remove the ability to vote from the WB
+            foreach ($citizens as $citizen) {
+                /** @var Citizen $citizen */
+                if($citizen->getSpecialActions()->contains($special_vote)) {
+                    $citizen->removeSpecialAction($special_vote);
+                    $this->entity_manager->persist($citizen);
+                }
             }
         }
     }

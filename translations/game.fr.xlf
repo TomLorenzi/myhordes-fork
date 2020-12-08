@@ -3557,7 +3557,7 @@
       </notes>
       <segment>
         <source>Bitte wähle einen Bürger:</source>
-        <target>Ramener un citoyen :</target>
+        <target>Veuillez choisir un citoyen :</target>
       </segment>
     </unit>
     <unit id="MgtBTg_" name="Es ist kein Bürger in der Nähe...">
@@ -15577,6 +15577,15 @@
       <segment>
         <source>Sollte diese Zahl auf 8 ansteigen, wirst du verbannt!</source>
         <target>Au bout de 8 plaintes, vous serez banni(e) !</target>
+      </segment>
+    </unit>
+    <unit id="X.vNUqq" name="Einen Bürger heimbringen:">
+      <notes>
+        <note category="german">Einen Bürger heimbringen:</note>
+      </notes>
+      <segment>
+        <source>Einen Bürger heimbringen:</source>
+        <target>Ramener un citoyen:</target>
       </segment>
     </unit>
   </file>

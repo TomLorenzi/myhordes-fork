@@ -9,6 +9,8 @@ use App\Entity\CampingActionPrototype;
 use App\Entity\CauseOfDeath;
 use App\Entity\Citizen;
 use App\Entity\CitizenHomeUpgrade;
+use App\Entity\CitizenRole;
+use App\Entity\CitizenVote;
 use App\Entity\DigTimer;
 use App\Entity\EscapeTimer;
 use App\Entity\EscortActionGroup;
@@ -440,6 +442,10 @@ class ActionHandler
                 if (!is_a( $target, Citizen::class )) return false;
                 if (!$target->getZone() || !$target->getAlive()) return false;
                 if ( round( sqrt(pow($target->getZone()->getX(),2 ) + pow($target->getZone()->getY(),2 )) ) > 2 ) return false;
+                break;
+            case ItemTargetDefinition::ItemCitizenType:
+                if (!is_a( $target, Citizen::class )) return false;
+                if (!$target->getAlive()) return false;
                 break;
 
             default: return false;
@@ -1142,6 +1148,43 @@ class ActionHandler
                         } else {
                             $tags[] = 'bannote_fail';
                         }
+                        break;
+                    }
+
+                    // Vote for a role
+                    case 18:case 19: {
+                        $role_name = "";
+                        switch($result->getCustom()){
+                            case 18:
+                                $role_name = "shaman";
+                                break;
+                            case 19:
+                                $role_name = "guide";
+                                break;
+                        }
+                        if($role_name == "") break;
+
+                        if (!is_a( $target, Citizen::class )) break;
+
+                        $role = $this->entity_manager->getRepository(CitizenRole::class)->findOneBy(['name' => $role_name]);
+                        if(!$role) break;
+
+                        $last_one = $this->entity_manager->getRepository(Citizen::class)->findLastOneByRoleAndTown($role, $target->getTown());
+                        if($last_one->getAlive()) break;
+                        
+                        // Add our vote !
+                        $citizenVote = new CitizenVote();
+                        $citizenVote->setAutor($citizen)
+                            ->setVotedCitizen($target)
+                            ->setRole($role);
+
+                        $citizen->addVote($citizenVote);
+
+                        // Persist
+                        $this->entity_manager->persist($citizenVote);
+                        $this->entity_manager->persist($citizen);
+                        $this->entity_manager->flush();
+                        
                         break;
                     }
                 }
