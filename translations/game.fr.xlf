@@ -15417,5 +15417,14 @@
         <target><![CDATA[La ville n'est plus qu'un vaste cimetière nauséabond. Plus personne n'était là hier pour retenir le dernier assaut des hordes : <strong>les portes de la ville ont été enfoncées</strong> et <strong>réduites en miettes</strong>. %town% n'est plus.]]></target>
       </segment>
     </unit>
+    <unit id="cA3yYGh" name="343918b">
+      <notes>
+        <note category="german">%citizen% hat einen Teil seines Heißhungers gestillt, indem er Teile seiner Mitbürger gegessen hat. Um sicherzustellen, dass so etwas nicht noch einmal passiert, übergieße die Verstorbenen das nächste Mal mit Wasser...</note>
+      </notes>
+      <segment>
+        <source>%citizen% hat einen Teil seines Heißhungers gestillt, indem er Teile seiner Mitbürger gegessen hat. Um sicherzustellen, dass so etwas nicht noch einmal passiert, übergieße die Verstorbenen das nächste Mal mit Wasser...</source>
+        <target>%citizen% a comblé une partie de sa fringale en croquant des petits bouts de ses concitoyens. La prochaine fois, arrosez les morts pour être sûrs qu'ils ne se lèvent pas dès le lendemain...</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

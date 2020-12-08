@@ -314,7 +314,7 @@ class NightlyHandler
         $buildings = $this->random->pick($buildings, min(count($houses),count($buildings)), true);
 
         if(count($houses) > 0){
-            $this->entity_manager->persist( $this->logTemplates->nightlyInternalAttackStart() );
+            $this->entity_manager->persist( $this->logTemplates->nightlyInternalAttackStart($town) );
         }
 
         $gazette = $town->findGazette( $town->getDay() );
