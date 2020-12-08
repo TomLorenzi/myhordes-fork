@@ -606,7 +606,7 @@ class GameController extends CustomAbstractController implements GameInterfaceCo
         }
 
         if($this->picto_handler->has_picto($citizen, 'r_ginfec')) {
-            $this->citizen_handler->inflictStatus($citizen, 'tg_witness_infect');
+            $this->citizen_handler->inflictStatus($citizen, 'tg_infect_wtns');
         }
 
         try {
