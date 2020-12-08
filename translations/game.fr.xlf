@@ -14631,7 +14631,7 @@
       </notes>
       <segment>
         <source>&lt;i class="dagger"&gt;†&lt;/i&gt; %zombie% wurde schreiend und sabbernd am Brunnen angetroffen. Er hielt einen großen Felsen in seinen Händen und schickte  sich an, diesen in den Brunnen zu werfen. Leider konnte ihn keiner mehr rechtzeitig hindern, sodass uns jetzt %num% Wasserrationnen fehlen! Was für eine Katastrophe!</source>
-        <target><![CDATA[<i class="dagger">†</i> %zombie% s'est relevé et a contaminé le puits ! Cela nous a coûté %num% ration(s) d'eau !]]></target>
+        <target><![CDATA[<i class="dagger">†</i> %zombie% a été retrouvé bavant, hurlant et brandissant une grosse pierre à bout de bras. Arrivé au Puits il l'a jeté dedans faisant perdre %num% rations d'eau ! Quel désastre !]]></target>
       </segment>
     </unit>
     <unit id="r9GesCe" name="d0f1cdc">
