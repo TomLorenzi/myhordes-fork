@@ -22,6 +22,7 @@ use App\Service\InventoryHandler;
 use App\Service\ItemFactory;
 use App\Service\JSONRequestParser;
 use App\Service\LogTemplateHandler;
+use App\Service\PictoHandler;
 use App\Service\TimeKeeperService;
 use App\Service\TownHandler;
 use App\Service\UserHandler;
@@ -46,8 +47,9 @@ class GameController extends CustomAbstractController implements GameInterfaceCo
     protected $citizen_handler;
     protected TownHandler $town_handler;
     private $user_handler;
+    protected PictoHandler $picto_handler;
 
-    public function __construct(EntityManagerInterface $em, TranslatorInterface $translator, LogTemplateHandler $lth, TimeKeeperService $tk, CitizenHandler $ch, UserHandler $uh, TownHandler $th, ConfMaster $conf)
+    public function __construct(EntityManagerInterface $em, TranslatorInterface $translator, LogTemplateHandler $lth, TimeKeeperService $tk, CitizenHandler $ch, UserHandler $uh, TownHandler $th, ConfMaster $conf, PictoHandler $ph)
     {
         parent::__construct($conf);
         $this->entity_manager = $em;
@@ -57,6 +59,7 @@ class GameController extends CustomAbstractController implements GameInterfaceCo
         $this->citizen_handler = $ch;
         $this->user_handler = $uh;
         $this->town_handler = $th;
+        $this->picto_handler = $ph;
     }
 
     protected function getActiveCitizen(): Citizen {
@@ -594,6 +597,12 @@ class GameController extends CustomAbstractController implements GameInterfaceCo
                         break;
                 }
             }
+
+            if($this->picto_handler->has_picto($citizen, 'r_armag')) {
+                $armag = $this->entity_manager->getRepository(HeroicActionPrototype::class)->findOneBy(['name' => "hero_generic_armag"]);
+                $citizen->addHeroicAction($armag);
+            }
+
         }
 
         try {
