@@ -3089,7 +3089,7 @@
       </notes>
       <segment>
         <source>Es wurde ein neues Gebäude gebaut: %plan%. Der Bau hat folgende Ressourcen verbraucht: %list%</source>
-        <target>Un nouveau chantier a été construit : %plan%. La construction a utilisé : %list%</target>
+        <target>Un nouveau bâtiment a été construit : %plan%. Cette construction a utilisé : %list%</target>
       </segment>
     </unit>
     <unit id="T6_1xeh" name="Es wurde ein neues Gebäude gebaut: %plan%.">
@@ -3098,7 +3098,7 @@
       </notes>
       <segment>
         <source>Es wurde ein neues Gebäude gebaut: %plan%.</source>
-        <target>Un nouveau chantier a été construit : %plan%.</target>
+        <target>Un nouveau bâtiment a été construit : %plan%.</target>
       </segment>
     </unit>
     <unit id="WsxqQWs" name="%citizen% wurde von %zombies% zerfleischt!">
@@ -15613,6 +15613,15 @@
       <segment>
         <source>Mit dem Bau der(s) %upgrade% hat dein Haus Stufe %level% erreicht!</source>
         <target>L'évolution %upgrade% est passée niveau %level% avec succès !</target>
+      </segment>
+    </unit>
+    <unit id="xb8cXJh" name="f44cd76">
+      <notes>
+        <note category="german">Du hast am Bauprojekt %plan% mitgeholfen. Du hast dafür %count% Aktionspunkt(e) verbraucht.</note>
+      </notes>
+      <segment>
+        <source>Du hast am Bauprojekt %plan% mitgeholfen. Du hast dafür %count% Aktionspunkt(e) verbraucht.</source>
+        <target>Vous avez contribué à la construction du chantier %plan%. Vous avez utilisé %count% point(s) d'action..</target>
       </segment>
     </unit>
   </file>

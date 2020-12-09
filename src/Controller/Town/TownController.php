@@ -1142,6 +1142,7 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
             else
                 $this->entity_manager->persist( $this->log->constructionsInvestRepairAP( $citizen, $building->getPrototype(), $ap ) );
         }
+        }
 
 
         // Calculate the amount of AP that will be invested in the construction
@@ -1149,6 +1150,11 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
 
         // Deduct AP and increase completion of the building
         $this->citizen_handler->deductAPBP( $citizen, $ap );
+
+        // Notice
+        if(!$was_completed) {
+            $this->addFlash('notice', $this->translator->trans("Du hast am Bauprojekt %plan% mitgeholfen. Du hast dafür %count% Aktionspunkt(e) verbraucht.", ["%plan%" => "<span>" . $this->translator->trans($building->getPrototype()->getLabel(), [], 'buildings') . "</span>", "%count%" => $ap], 'game'));
+        }
 
         if($missing_ap <= 0 || $missing_ap - $ap <= 0){
             // Missing ap == 0, the building has been completed by the workshop upgrade.

@@ -315,7 +315,7 @@ class TownHomeController extends TownController
         $this->picto_handler->give_picto( $citizen, "r_homeup_#00" );
 
         $text = [];
-        $text[] = $this->translator->trans('Herzlichen Glückwunsch! Du hast deine Behausung in ein(e) %home%.', ['%home%' => "<strong>" . $this->translator->trans($next->getLabel(), [], 'buildings') . "</strong>"], 'game');
+        $text[] = $this->translator->trans('Herzlichen Glückwunsch! Du hast deine Behausung in ein(e) %home%.', ['%home%' => "<span>" . $this->translator->trans($next->getLabel(), [], 'buildings') . "</span>"], 'game');
         if($next->getResources()){
             /** @var ItemGroupEntry $r */
             $resText = " " . $this->translator->trans('Folgenden Dinge wurden dazu gebraucht:', [], 'game');
