@@ -329,8 +329,6 @@ class TownHomeController extends TownController
 
         $this->addFlash('notice', implode("<hr />", $text));
 
-        return AjaxResponse::success();
-
         // Create log & persist
         try {
             $em->persist( $this->log->homeUpgrade( $citizen ) );
