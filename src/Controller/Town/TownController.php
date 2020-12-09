@@ -1142,7 +1142,6 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
             else
                 $this->entity_manager->persist( $this->log->constructionsInvestRepairAP( $citizen, $building->getPrototype(), $ap ) );
         }
-        }
 
 
         // Calculate the amount of AP that will be invested in the construction

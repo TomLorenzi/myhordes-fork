@@ -821,6 +821,7 @@ class NightlyHandler
 
                     $last_stand_picto = $this->conf->getTownConfiguration($town)->get(TownConf::CONF_FEATURE_LAST_DEATH, 'r_surlst_#00');
                     if($last_stand_picto && count($citizen_eligible) > 0) {
+                        /** @var Citizen $winner */
                         $winner = $this->random->pick($citizen_eligible);
                         $this->log->debug("We give the picto <info>$last_stand_picto</info> to the lucky citizen {$winner->getUser()->getUsername()}");
                         $this->picto_handler->give_validated_picto($winner, $last_stand_picto);
@@ -841,7 +842,6 @@ class NightlyHandler
                 $news = new GazetteLogEntry();
                 $news->setDay($town->getDay())->setGazette($gazette)->setLogEntryTemplate($townTemplate)->setVariables(['town' => $town->getName()]);
                 $this->entity_manager->persist($news);
-
 
                 foreach ($town->getCitizens() as $target_citizen)
                     $target_citizen->setBanished(false);
