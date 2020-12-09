@@ -15606,5 +15606,14 @@
         <target>Vous avez utilisé :</target>
       </segment>
     </unit>
+    <unit id="2VisPD1" name="Mit dem Bau der(s) %upgrade% hat dein Haus Stufe %level% erreicht!">
+      <notes>
+        <note category="german">Mit dem Bau der(s) %upgrade% hat dein Haus Stufe %level% erreicht!</note>
+      </notes>
+      <segment>
+        <source>Mit dem Bau der(s) %upgrade% hat dein Haus Stufe %level% erreicht!</source>
+        <target>L'évolution %upgrade% est passée niveau %level% avec succès !</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

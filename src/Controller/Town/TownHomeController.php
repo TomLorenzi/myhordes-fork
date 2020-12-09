@@ -419,7 +419,7 @@ class TownHomeController extends TownController
         $this->citizen_handler->deductAPBP( $citizen, $costs->getAp() );
 
         // Give picto
-        $pictoPrototype = $em->getRepository(PictoPrototype::class)->findOneByName("r_hbuild_#00");
+        $pictoPrototype = $em->getRepository(PictoPrototype::class)->findOneBy(['name' => "r_hbuild_#00"]);
         $this->picto_handler->give_picto($citizen, $pictoPrototype);
 
         // Consume items
@@ -427,6 +427,11 @@ class TownHomeController extends TownController
             $r = $costs->getResources()->findEntry( $item->getPrototype()->getName() );
             $this->inventory_handler->forceRemoveItem( $item, $r ? $r->getChance() : 1 );
         }
+
+        // Mit dem Bau der(s) %name% hat dein Haus %level% erreicht!
+        $text = $this->translator->trans("Mit dem Bau der(s) %upgrade% hat dein Haus Stufe %level% erreicht!", ['%upgrade%' => $this->translator->trans($proto->getLabel(), [], 'buildings'), '%level%' => $current->getLevel()], 'game');
+
+        $this->addFlash('notice', $text);
 
         // Persist and flush
         try {
