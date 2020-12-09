@@ -80,8 +80,11 @@
                             </span>
                         {% endif %}
                         <br />
-                        {% if building.defense > 0 %}<em>+ {{building.defense}} {% trans from "buildings" %}Verteidigung{% endtrans %} </em>{% endif %}
+                        {% if building.defense > 0 %}<em>+ {{building.defense + building.defenseBonus}} {% trans from "buildings" %}Verteidigung{% endtrans %} </em>{% endif %}
                         {% if building.prototype.maxLevel > 0 and building.level > 0 %}<em>{% trans with {'%lv%': building.level} from 'game' %}Level %lv%{% endtrans %}</em>{% endif %}
+                        <div class='tooltip normal'>
+                            {{ building.prototype.description|trans({}, 'buildings') }}
+                        </div>
                     </li>
                 {% endfor %}
                 </ul>
