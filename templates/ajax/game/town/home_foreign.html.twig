@@ -97,9 +97,9 @@
                 <h5>{% trans from 'game' %}Meine Spezialaktionen{% endtrans %}</h5>
                 {% if owner.alive %}
                     {# @var complaint \App\Entity\Complaint|null #}
-                    {% if complaints > 0 %}
+                    {% if complaints|length > 0 %}
                         <div class="note">
-                            {{ '%citizen% hat bereits %num% Anzeige(n).'|trans({'%citizen%': owner.user.name, '%num%': '<b>' ~ complaints ~ '</b>'}, 'game')|raw }}<br />
+                            {{ '%citizen% hat bereits %num% Anzeige(n).'|trans({'%citizen%': owner.user.name, '%num%': '<b>' ~ complaints|length ~ '</b>'}, 'game')|raw }}<br />
                             {% set names = ['', 'Verbannung'|trans({},'game'), 'Todesstrafe'|trans({},'game') ] %}
                             {% if complaint is not null and complaint.severity > 0 %}
                                 {{ 'Eine davon stammt von dir. Du hast %punishment% gefordert.'|trans({'%punishment%': '<b>' ~ names[complaint.severity] ~ '</b>'}, 'game')|raw }}<br />
@@ -165,6 +165,19 @@
                 {% endif %}
             {% endif %}
             {% if owner.alive %}
+            {% if complaints|length > 0 %}
+            <h5><img alt="" src="{{ asset('build/images/icons/scout_lv0.gif') }}"> {% trans from 'game' %}Anzeigen{% endtrans %}</h5>
+            <ul class='gossips'>
+            {% for complaint in complaints %}
+                {% if not complaint.linkedReason is null %}
+                <li>{{complaint.linkedReason.text|trans({}, 'game')}}</li>
+                {% else %}
+                <li>{{complaint.reason}}</li>
+                {% endif %}
+            {% endfor %}
+            </ul>
+            {% endif %}
+            
             <h5>{% trans from 'game' %}Gemeinschaft{% endtrans %}</h5>
             <ul class='gossips'>
                 {% if owner.lastActionTimestamp == 0 %}

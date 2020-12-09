@@ -40,6 +40,7 @@ use App\Service\JSONRequestParser;
 use App\Service\TownHandler;
 use App\Structures\ItemRequest;
 use App\Structures\CitizenInfo;
+use Doctrine\Common\Collections\Criteria;
 use Doctrine\ORM\EntityManagerInterface;
 use Exception;
 use Symfony\Component\HttpFoundation\Response;
@@ -349,6 +350,10 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
             }
         }
 
+        $criteria = new Criteria();
+        $criteria->andWhere($criteria->expr()->gte('severity', Complaint::SeverityBanish));
+        $criteria->andWhere($criteria->expr()->eq('culprit', $c));
+
         return $this->render( 'ajax/game/town/home_foreign.html.twig', $this->addDefaultTwigArgs('citizens', [
             'owner' => $c,
             'can_attack' => !$this->citizen_handler->isTired($this->getActiveCitizen()) && $this->getActiveCitizen()->getAp() >= 5,
@@ -358,7 +363,7 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
             'home' => $home,
             'actions' => $this->getItemActions(),
             'complaint' => $this->entity_manager->getRepository(Complaint::class)->findByCitizens( $this->getActiveCitizen(), $c ),
-            'complaints' => $this->entity_manager->getRepository(Complaint::class)->countComplaintsFor( $c ),
+            'complaints' => $this->entity_manager->getRepository(Complaint::class)->matching( $criteria ),
             'complaintreasons' => $this->entity_manager->getRepository(ComplaintReason::class)->findAll(),
             'chest' => $home->getChest(),
             'chest_size' => $this->inventory_handler->getSize($home->getChest()),

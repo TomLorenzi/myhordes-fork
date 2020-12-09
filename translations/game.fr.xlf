@@ -15441,7 +15441,7 @@
       </notes>
       <segment>
         <source>Zahlreiche Diebstähle begangen</source>
-        <target>Trop de vols</target>
+        <target>Nombreux vols d'objets</target>
       </segment>
     </unit>
     <unit id="dD9OHg_" name="Verbraucht zuviel Wasser">
@@ -15459,7 +15459,7 @@
       </notes>
       <segment>
         <source>Beleidigendes Verhalten</source>
-        <target>Beleidigendes Verhalten</target>
+        <target>Insulte ou comportement</target>
       </segment>
     </unit>
     <unit id="rnxNxyC" name="Blockiert die Baustelle">
@@ -15477,7 +15477,7 @@
       </notes>
       <segment>
         <source>Expeditionssaboteur</source>
-        <target>Saboteur d'expéditions</target>
+        <target>Sabotage d'expéditions</target>
       </segment>
     </unit>
     <unit id="qSX7vRE" name="Geht kein Risiko ein">
@@ -15486,7 +15486,7 @@
       </notes>
       <segment>
         <source>Geht kein Risiko ein</source>
-        <target>Ne prend aucun risque</target>
+        <target>Reste toujours au chaud</target>
       </segment>
     </unit>
     <unit id="Dn0tq6e" name="Handelt zu egoistisch">
@@ -15495,7 +15495,7 @@
       </notes>
       <segment>
         <source>Handelt zu egoistisch</source>
-        <target>Égoïste</target>
+        <target>Joue trop perso</target>
       </segment>
     </unit>
     <unit id="g8qlqWr" name="Gemeinschaftsfreak">
@@ -15513,7 +15513,7 @@
       </notes>
       <segment>
         <source>Bringt sich nicht genug ein</source>
-        <target>Bringt sich nicht genug ein</target>
+        <target>Ne participe quasiment pas</target>
       </segment>
     </unit>
     <unit id="NghQlFT" name="Hortet zu viele Gegenstände">
@@ -15522,7 +15522,7 @@
       </notes>
       <segment>
         <source>Hortet zu viele Gegenstände</source>
-        <target>Hortet zu viele Gegenstände</target>
+        <target>Garde trop de choses pour lui</target>
       </segment>
     </unit>
     <unit id="aCap5cU" name="Aggressiver Mitbürger">
@@ -15531,7 +15531,7 @@
       </notes>
       <segment>
         <source>Aggressiver Mitbürger</source>
-        <target>Citoyen aggressif</target>
+        <target>Citoyen aggressif !</target>
       </segment>
     </unit>
     <unit id="zLJ.A.A" name="Anzeigen">
