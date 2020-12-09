@@ -3398,9 +3398,9 @@
       <notes>
         <note category="german">Mithilfe des {item} hast du die Umgebung gescannt.</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Mithilfe des {item} hast du die Umgebung gescannt.</source>
-        <target>Mithilfe des {item} hast du die Umgebung gescannt.</target>
+        <target>Con la ayuda de {item} has escaneado el entorno.</target>
       </segment>
     </unit>
     <unit id="2lPNuwg" name="Du hast das {item} verwendet, um einen Teil der Ruine freizulegen.">
@@ -3506,9 +3506,9 @@
       <notes>
         <note category="german">Du hast den {item} mit einem {items_consume} ordentlich aufgeputscht!</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Du hast den {item} mit einem {items_consume} ordentlich aufgeputscht!</source>
-        <target>Du hast den {item} mit einem {items_consume} ordentlich aufgeputscht!</target>
+        <target>Le das {items_consume} a {item} en un solo bocado.</target>
       </segment>
     </unit>
     <unit id="Gn7WeIB" name="Hierfür brauchst du ein Steroid.">
