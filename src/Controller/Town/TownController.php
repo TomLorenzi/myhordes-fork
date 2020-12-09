@@ -1667,10 +1667,10 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
                     $this->citizen_handler->inflictStatus($citizen, $healedStatus);
                     $message[] = $this->translator->trans($healableStatus[$healedStatus]['transfer'], ['%citizen%' => "<span>" . $c->getUser()->getName() . "</span>"], 'game');
                     if($witness){
-                        $message[] = 'HARDCODED: Avoir été victime de la Grande Contamination ne vous aura pas sauvé cette fois-ci... et ça pique un peu.';
+                    $message[] = $this->translator->trans('Ein Opfer der Großen Seuche zu sein hat dir diesmal nicht viel gebracht... und es sieht nicht gut aus...', [], 'items');
                     }
                 } else if($witness) {
-                    $message[] = 'HARDCODED: On peut dire que vous avez eu de la chance... Avoir été victime de la Grande Contamination vous aura pour le moins sauvé cette fois-ci. Vous évitez une très désagréable infection.';
+                    $message[] = $this->translator->trans('Da hast du wohl Glück gehabt... Als Opfer der Großen Seuche bist du diesmal um eine unangenehme Infektion herumgekommen.', [], 'items');
                 }
             }
         } else {

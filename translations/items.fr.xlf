@@ -7345,5 +7345,32 @@
         <target>Voter pour le guide de l'Outre-Monde</target>
       </segment>
     </unit>
+    <unit id="jHDRi5S" name="ae104e2">
+      <notes>
+        <note category="german">Schlechte Nachrichten, das hättest du nicht in den Mund nehmen sollen... Du bist infiziert!</note>
+      </notes>
+      <segment>
+        <source>Schlechte Nachrichten, das hättest du nicht in den Mund nehmen sollen... Du bist infiziert!</source>
+        <target>Mauvaise nouvelle, vous n'auriez peut-être pas dû l'avaler... Vous avez été infecté(e) !</target>
+      </segment>
+    </unit>
+    <unit id="UhcYCoM" name="8c7950c">
+      <notes>
+        <note category="german">Ein Opfer der Großen Seuche zu sein hat dir diesmal nicht viel gebracht... und es sieht nicht gut aus...</note>
+      </notes>
+      <segment>
+        <source>Ein Opfer der Großen Seuche zu sein hat dir diesmal nicht viel gebracht... und es sieht nicht gut aus...</source>
+        <target>Avoir été victime de la Grande Contamination ne vous aura pas sauvé cette fois-ci... et ça pique un peu.</target>
+      </segment>
+    </unit>
+    <unit id="OyENKXh" name="379ab50">
+      <notes>
+        <note category="german">Da hast du wohl Glück gehabt... Als Opfer der Großen Seuche bist du diesmal um eine unangenehme Infektion herumgekommen.</note>
+      </notes>
+      <segment>
+        <source>Da hast du wohl Glück gehabt... Als Opfer der Großen Seuche bist du diesmal um eine unangenehme Infektion herumgekommen.</source>
+        <target>On peut dire que vous avez eu de la chance... Avoir été victime de la Grande Contamination vous aura pour le moins sauvé cette fois-ci. Vous évitez une très désagréable infection.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

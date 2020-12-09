@@ -241,7 +241,7 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
 
         'meta_results' => [
             'do_nothing' => [],
-            'do_nothing_wtns' => ['status' => 'lose_wtns', 'message' => ['text' => 'On peut dire que vous avez eu de la chance... Avoir été victime de la Grande Contamination vous aura pour le moins sauvé cette fois-ci. Vous évitez une très désagréable infection.']],
+            'do_nothing_wtns' => ['status' => 'lose_wtns', 'message' => ['text' => 'Da hast du wohl Glück gehabt... Als Opfer der Großen Seuche bist du diesmal um eine unangenehme Infektion herumgekommen.']],
 
             'consume_item'    => [ 'item' => [ 'consume' => true,  'morph' => null, 'break' => null, 'poison' => null ] ],
             'break_item'      => [ 'item' => [ 'consume' => false, 'morph' => null, 'break' => true, 'poison' => null ] ],
@@ -275,8 +275,8 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             'terrorize'    => [ 'status' => 'add_terror' ],
             'unterrorize'  => [ 'status' => 'remove_terror' ],
 
-            'infect_wtns'  => [ 'status' => 'lose_wtns', 'message' => ['text' => 'Avoir été victime de la Grande Contamination ne vous aura pas sauvé cette fois-ci...'] ],
-            'infect'       => [ 'status' => 'add_infection', 'message' => ['text' => 'Mauvaise nouvelle, vous n\'auriez peut-être pas dû l\'avaler... Vous avez été infecté(e) !'] ],
+            'infect_wtns'  => [ 'status' => 'lose_wtns', 'message' => ['text' => 'Ein Opfer der Großen Seuche zu sein hat dir diesmal nicht viel gebracht... und es sieht nicht gut aus...'] ],
+            'infect'       => [ 'status' => 'add_infection', 'message' => ['text' => 'Schlechte Nachrichten, das hättest du nicht in den Mund nehmen sollen... Du bist infiziert!'] ],
             'disinfect'    => [ 'status' => 'remove_infection' ],
             'immune'       => [ 'status' => 'add_immune' ],
             'give_shaman_immune'  => [ 'status' => 'shaman_immune'],
