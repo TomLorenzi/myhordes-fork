@@ -241,7 +241,7 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
 
         'meta_results' => [
             'do_nothing' => [],
-            'do_nothing_wtns' => ['message' => ['text' => 'On peut dire que vous avez eu de la chance... Avoir été victime de la Grande Contamination vous aura pour le moins sauvé cette fois-ci. Vous évitez une très désagréable infection.']],
+            'do_nothing_wtns' => ['status' => [ 'from' => 'tg_infect_wtns', 'to' => null ], 'message' => ['text' => 'On peut dire que vous avez eu de la chance... Avoir été victime de la Grande Contamination vous aura pour le moins sauvé cette fois-ci. Vous évitez une très désagréable infection.']],
 
             'consume_item'    => [ 'item' => [ 'consume' => true,  'morph' => null, 'break' => null, 'poison' => null ] ],
             'break_item'      => [ 'item' => [ 'consume' => false, 'morph' => null, 'break' => true, 'poison' => null ] ],
@@ -275,10 +275,9 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             'terrorize'    => [ 'status' => 'add_terror' ],
             'unterrorize'  => [ 'status' => 'remove_terror' ],
 
-            'infect'       => [ 'status' => 'add_infection' ],
+            'infect_wtns'  => [ 'status' => [ 'from' => 'tg_infect_wtns', 'to' => null ], 'message' => ['text' => 'Avoir été victime de la Grande Contamination ne vous aura pas sauvé cette fois-ci...'] ],
+            'infect'       => [ 'status' => 'add_infection', 'message' => ['text' => 'Mauvaise nouvelle, vous n\'auriez peut-être pas dû l\'avaler... Vous avez été infecté(e) !'] ],
             'disinfect'    => [ 'status' => 'remove_infection' ],
-            'infect_wtns'  => [ 'status' => 'add_infection', 'message' => ['text' => 'Avoir été victime de la Grande Contamination ne vous aura pas sauvé cette fois-ci... et ça pique un peu. Mauvaise nouvelle, vous n\'auriez peut-être pas dû l\'avaler... Vous avez été infecté(e) !'] ],
-            'lose_wtns'    => [ 'status' => [ 'from' => 'tg_infect_wtns', 'to' => null ] ],
             'immune'       => [ 'status' => 'add_immune' ],
             'give_shaman_immune'  => [ 'status' => 'shaman_immune'],
 
@@ -755,12 +754,13 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             'eat_meat_1'    => [ 'label' => 'Essen', 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'eat_ap', 'not_role_ghoul' ], 'result' => [ 'eat_ap6', 'consume_item', ['picto' => ['r_cannib_#00'], 'group' => [ ['do_nothing', 9], ['become_ghoul_25', 1] ]] ] ],
             'eat_meat_2'    => [ 'label' => 'Essen', 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'eat_ap', 'role_ghoul' ],     'result' => [ 'eat_ap6', 'consume_item', ['picto' => ['r_cannib_#00'], 'status' => 'satisfy_ghoul_10' ] ], ],
 
-            'eat_bone_1'    => [ 'label' => 'Essen', 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'eat_ap', 'not_role_ghoul', 'is_witness' ],     'result' => [ 'eat_ap6', ['picto' => ['r_cannib_#00'], 'item' => ['consume' => false, 'morph' => 'bone_#00'], 'group' => [ ['do_nothing', 9], [ ['group' => [[['do_nothing_wtns', 'lose_wtns'], 5], [['infect_wtns', 'lose_wtns'], 5]]], 9], ['become_ghoul_25', 2] ]] ] ],
+            'eat_bone_1'    => [ 'label' => 'Essen', 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'eat_ap', 'not_role_ghoul', 'is_not_witness' ], 'result' => [ 'eat_ap6', ['picto' => ['r_cannib_#00'], 'item' => ['consume' => false, 'morph' => 'bone_#00'], 'group' => [ ['do_nothing', 9], [ 'infect', 9 ], ['become_ghoul_25', 2] ]] ] ],
             'eat_bone_2'    => [ 'label' => 'Essen', 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'eat_ap', 'role_ghoul' ],                       'result' => [ 'eat_ap6', ['picto' => ['r_cannib_#00'], 'item' => ['consume' => false, 'morph' => 'bone_#00'], 'status' => 'satisfy_ghoul_10' ] ], ],
-            'eat_bone_3'    => [ 'label' => 'Essen', 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'eat_ap', 'not_role_ghoul', 'is_not_witness' ], 'result' => [ 'eat_ap6', ['picto' => ['r_cannib_#00'], 'item' => ['consume' => false, 'morph' => 'bone_#00'], 'group' => [ ['do_nothing', 9], [ 'infect', 9 ], ['become_ghoul_25', 2] ]] ] ],
+            'eat_bone_3'    => [ 'label' => 'Essen', 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'eat_ap', 'not_role_ghoul', 'is_witness' ],     'result' => [ 'eat_ap6', ['picto' => ['r_cannib_#00'], 'item' => ['consume' => false, 'morph' => 'bone_#00'], 'group' => [ ['do_nothing', 9], [ ['group' => [ [[ 'infect', 'infect_wtns' ], 5], [['do_nothing_wtns'], 5]]], 9], ['become_ghoul_25', 2] ]] ] ],
 
-            'eat_cadaver_1' => [ 'label' => 'Essen', 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'eat_ap', 'not_role_ghoul' ], 'result' => [ 'eat_ap6', ['picto' => ['r_cannib_#00'], 'item' => ['consume' => false, 'morph' => 'cadaver_remains_#00'] ], ['group' => [ ['do_nothing', 1], [ 'infect', 1 ], ['become_ghoul_5', 18] ]] ] ],
+            'eat_cadaver_1' => [ 'label' => 'Essen', 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'eat_ap', 'not_role_ghoul', 'is_not_witness' ], 'result' => [ 'eat_ap6', ['picto' => ['r_cannib_#00'], 'item' => ['consume' => false, 'morph' => 'cadaver_remains_#00'] ], ['group' => [ ['do_nothing', 1], [ 'infect', 1 ], ['become_ghoul_5', 18] ]] ] ],
             'eat_cadaver_2' => [ 'label' => 'Essen', 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'eat_ap', 'role_ghoul' ],     'result' => [ 'eat_ap6', ['picto' => ['r_cannib_#00'], 'item' => ['consume' => false, 'morph' => 'cadaver_remains_#00'], 'status' => 'satisfy_ghoul_30' ] ] ],
+            'eat_cadaver_3' => [ 'label' => 'Essen', 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'eat_ap', 'not_role_ghoul', 'is_witness' ], 'result' => [ 'eat_ap6', ['picto' => ['r_cannib_#00'], 'item' => ['consume' => false, 'morph' => 'cadaver_remains_#00'] ], ['group' => [ ['do_nothing', 1], [ ['group' => [ [[ 'infect', 'infect_wtns' ], 5], [['do_nothing_wtns'], 5]]], 1], ['become_ghoul_5', 18] ]] ] ],
 
             'ghoul_serum' => [ 'label' => 'Einnehmen', 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'role_ghoul' ], 'result' => [ 'consume_item', ['status' => 'heal_ghoul' ] ] ],
 
@@ -937,7 +937,7 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             'fruit_#00'           => [ 'eat_fleshroom_1', 'eat_fleshroom_2'],
             'hmeat_#00'           => [ 'eat_meat_1', 'eat_meat_2' ],
             'bone_meat_#00'       => [ 'eat_bone_1', 'eat_bone_2', 'eat_bone_3' ],
-            'cadaver_#00'         => [ 'eat_cadaver_1', 'eat_cadaver_2'],
+            'cadaver_#00'         => [ 'eat_cadaver_1', 'eat_cadaver_2', 'eat_cadaver_3'],
             'vagoul_#00'          => [ 'ghoul_serum'],
 
             'food_noodles_hot_#00'=> [ 'eat_7ap'],

@@ -1655,8 +1655,23 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
 
             $transfer = $this->random_generator->chance(0.1);
             if($transfer){
-                $this->citizen_handler->inflictStatus($citizen, $healedStatus);
-                $message[] = $this->translator->trans($healableStatus[$healedStatus]['transfer'], ['%citizen%' => "<span>" . $c->getUser()->getName() . "</span>"], 'game');
+                $do_transfer = true;
+                $witness = false;
+                if($this->citizen_handler->hasStatusEffect($citizen, 'tg_infect_wtns')) {
+                    if($this->random_generator->chance(0.5)){
+                        $do_transfer = false;
+                    }
+                    $this->citizen_handler->removeStatus($citizen, 'th_infect_wtns');
+                }
+                if($do_transfer) {
+                    $this->citizen_handler->inflictStatus($citizen, $healedStatus);
+                    $message[] = $this->translator->trans($healableStatus[$healedStatus]['transfer'], ['%citizen%' => "<span>" . $c->getUser()->getName() . "</span>"], 'game');
+                    if($witness){
+                        $message[] = 'HARDCODED: Avoir été victime de la Grande Contamination ne vous aura pas sauvé cette fois-ci... et ça pique un peu.';
+                    }
+                } else if($witness) {
+                    $message[] = 'HARDCODED: On peut dire que vous avez eu de la chance... Avoir été victime de la Grande Contamination vous aura pour le moins sauvé cette fois-ci. Vous évitez une très désagréable infection.';
+                }
             }
         } else {
             $message[] = $this->translator->trans($healableStatus[$healedStatus]['fail'], ['%citizen%' => "<span>" . $c->getUser()->getName() . "</span>"], 'game');
