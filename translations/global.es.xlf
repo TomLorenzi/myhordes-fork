@@ -727,7 +727,7 @@
       </notes>
       <segment>
         <source>Meldungen</source>
-        <target>Meldungen</target>
+        <target>Mensajes</target>
       </segment>
     </unit>
     <unit id="qyBuyhw" name="Du wurdest aus dem Forum verbannt.">
@@ -862,7 +862,7 @@
       </notes>
       <segment>
         <source>Datum</source>
-        <target>Datum</target>
+        <target>Fecha</target>
       </segment>
     </unit>
     <unit id="BGGdaRH" name="Züruck">
@@ -871,7 +871,7 @@
       </notes>
       <segment>
         <source>Züruck</source>
-        <target>Züruck</target>
+        <target>Volver</target>
       </segment>
     </unit>
     <unit id="pUyN66u" name="Archivieren">
@@ -880,7 +880,7 @@
       </notes>
       <segment>
         <source>Archivieren</source>
-        <target>Archivieren</target>
+        <target>Archivar</target>
       </segment>
     </unit>
     <unit id="_J8vap3" name="Fett">
@@ -889,7 +889,7 @@
       </notes>
       <segment>
         <source>Fett</source>
-        <target>Fett</target>
+        <target>Grueso</target>
       </segment>
     </unit>
     <unit id="6XYRB0Q" name="Kursiv">
@@ -898,7 +898,7 @@
       </notes>
       <segment>
         <source>Kursiv</source>
-        <target>Kursiv</target>
+        <target>Cursiva</target>
       </segment>
     </unit>
     <unit id="RuL1D2i" name="Unterstreichen">
@@ -907,7 +907,7 @@
       </notes>
       <segment>
         <source>Unterstreichen</source>
-        <target>Unterstreichen</target>
+        <target>Subrayar</target>
       </segment>
     </unit>
     <unit id="AsD_uy4" name="Durchstreichen">
@@ -916,7 +916,7 @@
       </notes>
       <segment>
         <source>Durchstreichen</source>
-        <target>Durchstreichen</target>
+        <target>Tachar</target>
       </segment>
     </unit>
     <unit id="aZc6vxf" name="Einfache Liste">
@@ -925,7 +925,7 @@
       </notes>
       <segment>
         <source>Einfache Liste</source>
-        <target>Einfache Liste</target>
+        <target>Lista simple</target>
       </segment>
     </unit>
     <unit id="1CuRrf_" name="Nummerierte Liste">
@@ -934,7 +934,7 @@
       </notes>
       <segment>
         <source>Nummerierte Liste</source>
-        <target>Nummerierte Liste</target>
+        <target>Lista numerada</target>
       </segment>
     </unit>
     <unit id="Sk04seo" name="Listenpunkt">
@@ -943,7 +943,7 @@
       </notes>
       <segment>
         <source>Listenpunkt</source>
-        <target>Listenpunkt</target>
+        <target>Elemento de lista</target>
       </segment>
     </unit>
     <unit id="jlAJmOo" name="Spoiler">
@@ -961,7 +961,7 @@
       </notes>
       <segment>
         <source>Zitat</source>
-        <target>Zitat</target>
+        <target>Citar</target>
       </segment>
     </unit>
     <unit id="Fxoqglo" name="Ruhm">
@@ -970,7 +970,7 @@
       </notes>
       <segment>
         <source>Ruhm</source>
-        <target>Ruhm</target>
+        <target>Gloria</target>
       </segment>
     </unit>
     <unit id="0OPnj4A" name="Linie">
@@ -979,7 +979,7 @@
       </notes>
       <segment>
         <source>Linie</source>
-        <target>Linie</target>
+        <target>Línea</target>
       </segment>
     </unit>
     <unit id="7WQ2SM6" name="Entstauben">
@@ -988,7 +988,7 @@
       </notes>
       <segment>
         <source>Entstauben</source>
-        <target>Entstauben</target>
+        <target>Desempolvar</target>
       </segment>
     </unit>
     <unit id="lqB1Bvf" name="Einfügen">
@@ -997,7 +997,7 @@
       </notes>
       <segment>
         <source>Einfügen</source>
-        <target>Einfügen</target>
+        <target>Insertar</target>
       </segment>
     </unit>
     <unit id="P1mgGT4" name="Du kannst keine weiteren Gegenstände senden.">
@@ -1006,7 +1006,7 @@
       </notes>
       <segment>
         <source>Du kannst keine weiteren Gegenstände senden.</source>
-        <target>Du kannst keine weiteren Gegenstände senden.</target>
+        <target>No puede enviar más Objetos.</target>
       </segment>
     </unit>
     <unit id="xtJ2E4o" name="Verräter">
@@ -1015,7 +1015,7 @@
       </notes>
       <segment>
         <source>Verräter</source>
-        <target>Verräter</target>
+        <target>Traidor</target>
       </segment>
     </unit>
     <unit id="siULJza" name="Link einfügen">
@@ -1024,7 +1024,7 @@
       </notes>
       <segment>
         <source>Link einfügen</source>
-        <target>Link einfügen</target>
+        <target>Insertar enlace</target>
       </segment>
     </unit>
     <unit id="HqBDmKX" name="Bild einfügen">
@@ -1033,7 +1033,7 @@
       </notes>
       <segment>
         <source>Bild einfügen</source>
-        <target>Bild einfügen</target>
+        <target>Insertar imágen</target>
       </segment>
     </unit>
     <unit id="EOVP1fz" name="Admin Ankündigung">
@@ -1042,7 +1042,7 @@
       </notes>
       <segment>
         <source>Admin Ankündigung</source>
-        <target>Admin Ankündigung</target>
+        <target>Anuncio de Administrador</target>
       </segment>
     </unit>
     <unit id="jszJ4cS" name="Mod Ankündigung">
@@ -1051,7 +1051,7 @@
       </notes>
       <segment>
         <source>Mod Ankündigung</source>
-        <target>Mod Ankündigung</target>
+        <target>Anuncio de Moderador</target>
       </segment>
     </unit>
     <unit id="eh2CqIr" name="Orakel Ankündigung">
@@ -1060,7 +1060,7 @@
       </notes>
       <segment>
         <source>Orakel Ankündigung</source>
-        <target>Orakel Ankündigung</target>
+        <target>Anuncio de Oráculo</target>
       </segment>
     </unit>
     <unit id="eS7iMaa" name="Rollenspiel">
@@ -1069,7 +1069,7 @@
       </notes>
       <segment>
         <source>Rollenspiel</source>
-        <target>Rollenspiel</target>
+        <target>Juego de Rol</target>
       </segment>
     </unit>
     <unit id="9H7C4W9" name="Link-Text">
@@ -1078,7 +1078,7 @@
       </notes>
       <segment>
         <source>Link-Text</source>
-        <target>Link-Text</target>
+        <target>Texto del enlace</target>
       </segment>
     </unit>
     <unit id="nE4T9Ox" name="Link-URL">
@@ -1087,7 +1087,7 @@
       </notes>
       <segment>
         <source>Link-URL</source>
-        <target>Link-URL</target>
+        <target>Enlace</target>
       </segment>
     </unit>
     <unit id="d1AmbOG" name="Bildtitel">
@@ -1096,7 +1096,7 @@
       </notes>
       <segment>
         <source>Bildtitel</source>
-        <target>Bildtitel</target>
+        <target>Título de imágen</target>
       </segment>
     </unit>
     <unit id="Q0tlYyY" name="Bild-URL">
@@ -1105,7 +1105,7 @@
       </notes>
       <segment>
         <source>Bild-URL</source>
-        <target>Bild-URL</target>
+        <target>Url de imagen</target>
       </segment>
     </unit>
     <unit id="peFFaP2" name="Liste der Themen aktualisieren">
@@ -1168,7 +1168,7 @@
       </notes>
       <segment>
         <source>Falls sich dieser Zustand auch um Mitternacht noch nicht geändert hat, findet kein Zombieangriff statt. Der Tag wird dann künstlich verlängert.</source>
-        <target>Falls sich dieser Zustand auch um Mitternacht noch nicht geändert hat, findet kein Zombieangriff statt. Der Tag wird dann künstlich verlängert.</target>
+        <target>Si se da el caso de que esto no cambie para la media noche, no habrá ningún ataque Zombi. El día se extenderá artificialmente.</target>
       </segment>
     </unit>
     <unit id="FbY7TeM" name="Bestätigen">
@@ -1204,7 +1204,7 @@
       </notes>
       <segment>
         <source>Num. Listenpunkt</source>
-        <target>Num. Listenpunkt</target>
+        <target>Enúmerar elemento</target>
       </segment>
     </unit>
     <unit id="81XajEF" name="Vertraulich">
@@ -1213,7 +1213,7 @@
       </notes>
       <segment>
         <source>Vertraulich</source>
-        <target>Vertraulich</target>
+        <target>Confidencial</target>
       </segment>
     </unit>
     <unit id="jsMx6ao" name="a848169">
@@ -1222,7 +1222,7 @@
       </notes>
       <segment>
         <source>Wenn du nichts zur Hand hast, um deine Erschöpfung zu lindern, dann bitte im Forum um Hilfe...</source>
-        <target>Wenn du nichts zur Hand hast, um deine Erschöpfung zu lindern, dann bitte im Forum um Hilfe...</target>
+        <target>Si no tienes nada a mano para aliviar tu cansancio, entonces pide un poco de ayuda en el foro...</target>
       </segment>
     </unit>
     <unit id="QuMXv7I" name="a023548">
@@ -1311,7 +1311,7 @@
         <note category="german">Schreien</note>
       </notes>
       <segment>
-        <source>Schreien</source>
+        <source>Gritar</source>
         <target>Schreien</target>
       </segment>
     </unit>
@@ -1429,7 +1429,7 @@
       </notes>
       <segment>
         <source>Ruhig bleiben...</source>
-        <target>Ruhig bleiben...</target>
+        <target>Mantener la calma...</target>
       </segment>
     </unit>
     <unit id="LxIgZj7" name="In die Fötusstellung zusammenrollen">
@@ -1456,7 +1456,7 @@
       </notes>
       <segment>
         <source>Um dein Leben beten</source>
-        <target>Um dein Leben beten</target>
+        <target>Rezar por tu vida</target>
       </segment>
     </unit>
     <unit id="0HFdAAh" name="Die Backen halten">
@@ -1474,7 +1474,7 @@
       </notes>
       <segment>
         <source>Mehr anzeigen</source>
-        <target>Mehr anzeigen</target>
+        <target>Motstar más</target>
       </segment>
     </unit>
     <unit id="GgZ6pgy" name="Bist du sicher, dass du diesen Post an die Moderatoren melden willst?">
@@ -1483,7 +1483,7 @@
       </notes>
       <segment>
         <source>Bist du sicher, dass du diesen Post an die Moderatoren melden willst?</source>
-        <target>Bist du sicher, dass du diesen Post an die Moderatoren melden willst?</target>
+        <target>¿Estás seguro de que quieres informar de esta publicación a los moderadores?</target>
       </segment>
     </unit>
     <unit id="H_X7U1o" name="Schön hier im Warmen bleiben">
@@ -1492,7 +1492,7 @@
       </notes>
       <segment>
         <source>Schön hier im Warmen bleiben</source>
-        <target>Schön hier im Warmen bleiben</target>
+        <target>Quedarse en Zombinoia</target>
       </segment>
     </unit>
     <unit id="VpbGnR1" name="Spamschutz: Du musst eine Weile warten, bis du wieder schreiben kannst.">
@@ -1501,7 +1501,7 @@
       </notes>
       <segment>
         <source>Spamschutz: Du musst eine Weile warten, bis du wieder schreiben kannst.</source>
-        <target>Spamschutz: Du musst eine Weile warten, bis du wieder schreiben kannst.</target>
+        <target>Protección anti-spam: Debes esperar un rato para poder volver a escribir.</target>
       </segment>
     </unit>
     <unit id="1C4wDLS" name="Ursprünglichen Text anzeigen">
@@ -1510,7 +1510,7 @@
       </notes>
       <segment>
         <source>Ursprünglichen Text anzeigen</source>
-        <target>Ursprünglichen Text anzeigen</target>
+        <target>Mostrar texto original</target>
       </segment>
     </unit>
     <unit id="HsL9Oin" name="Mehrsprachig">
@@ -1519,7 +1519,7 @@
       </notes>
       <segment>
         <source>Mehrsprachig</source>
-        <target>Mehrsprachig</target>
+        <target>Multilingüe</target>
       </segment>
     </unit>
     <unit id="soKCKr9" name="Wir müssen den Wachturm benutzen, um eine Schätzung des Angriffs zu erhalten.">
@@ -1528,7 +1528,7 @@
       </notes>
       <segment>
         <source>Wir müssen den Wachturm benutzen, um eine Schätzung des Angriffs zu erhalten.</source>
-        <target>Wir müssen den Wachturm benutzen, um eine Schätzung des Angriffs zu erhalten.</target>
+        <target>Tenemos que utilzar la Torre de Vigilancia, para así poder obtener una estimación del ataque.</target>
       </segment>
     </unit>
     <unit id="pET9_Tj" name="Du weißt nicht, was du tun sollst? Folge den Empfehlungen hier unten :)">
@@ -1537,7 +1537,7 @@
       </notes>
       <segment>
         <source>Du weißt nicht, was du tun sollst? Folge den Empfehlungen hier unten :)</source>
-        <target>Du weißt nicht, was du tun sollst? Folge den Empfehlungen hier unten :)</target>
+        <target>¿No sabes que hacer? Sigue las recomendaciones a continuación :)</target>
       </segment>
     </unit>
     <unit id="AsaB86B" name="1acd778">
@@ -1546,7 +1546,7 @@
       </notes>
       <segment>
         <source>Diesen Bonus gibt es nur dann, wenn sich die Wächter während eines Angriffs in der Stadt befinden.</source>
-        <target>Diesen Bonus gibt es nur dann, wenn sich die Wächter während eines Angriffs in der Stadt befinden.</target>
+        <target>Este Bonus sólo se encuentra disponible si los Guardianes se encuentran en la ciudad.</target>
       </segment>
     </unit>
     <unit id="FbU8Rr0" name="782996d">
@@ -1591,7 +1591,7 @@
       </notes>
       <segment>
         <source>Mindestens ein Post in diesem Thema wurde den Moderatoren gemeldet.</source>
-        <target>Mindestens ein Post in diesem Thema wurde den Moderatoren gemeldet.</target>
+        <target>Se ha informado a los moderadores de al menos una publicación sobre este tema.</target>
       </segment>
     </unit>
     <unit id="KV1uMW3" name="Dieses Thema enthält %count% gemeldete Posts:">
@@ -1600,7 +1600,7 @@
       </notes>
       <segment>
         <source>Dieses Thema enthält %count% gemeldete Posts:</source>
-        <target>Dieses Thema enthält %count% gemeldete Posts:</target>
+        <target>Este tema contiene %count% publicaciones reportadas:</target>
       </segment>
     </unit>
     <unit id="XvJRBeq" name="%num% Meldungen. Klicken, um Benutzer anzuzeigen.">
@@ -1609,7 +1609,7 @@
       </notes>
       <segment>
         <source>%num% Meldungen. Klicken, um Benutzer anzuzeigen.</source>
-        <target>%num% Meldungen. Klicken, um Benutzer anzuzeigen.</target>
+        <target>%num% Mensajes. Haz click para mostrar quién los ha enviado.</target>
       </segment>
     </unit>
     <unit id="uVEhYFM" name="Gelöscht von %user% (%time%). Klicken, um den Grund einzublenden.">
@@ -1618,7 +1618,7 @@
       </notes>
       <segment>
         <source>Gelöscht von %user% (%time%). Klicken, um den Grund einzublenden.</source>
-        <target>Gelöscht von %user% (%time%). Klicken, um den Grund einzublenden.</target>
+        <target>Eliminado por %user% (%time%). Haz clic para revelar el motivo.</target>
       </segment>
     </unit>
     <unit id="gAhtva3" name="Überprüft">
@@ -1627,7 +1627,7 @@
       </notes>
       <segment>
         <source>Überprüft</source>
-        <target>Überprüft</target>
+        <target>Examinar</target>
       </segment>
     </unit>
     <unit id="q5mhXGv" name="Wiederherstellen">
@@ -1636,7 +1636,7 @@
       </notes>
       <segment>
         <source>Wiederherstellen</source>
-        <target>Wiederherstellen</target>
+        <target>Reparar</target>
       </segment>
     </unit>
     <unit id="p47NfhB" name="37691d8">
@@ -1645,7 +1645,7 @@
       </notes>
       <segment>
         <source>Wir sollten mehr Verteidigungsanlagen bauen. Falls Ressourcen dafür fehlen, geh in die Außenwelt (die Wüste außerhalb der Stadt) und suche danach.</source>
-        <target>Wir sollten mehr Verteidigungsanlagen bauen. Falls Ressourcen dafür fehlen, geh in die Außenwelt (die Wüste außerhalb der Stadt) und suche danach.</target>
+        <target>Necesitamos crear más defensas. Si faltan recursos, ve al Ultramundo (el desierto fuera de la ciudad) y búscalos ahí.</target>
       </segment>
     </unit>
     <unit id="6gPmw1f" name="05b29ea">
@@ -1663,7 +1663,7 @@
       </notes>
       <segment>
         <source>Diese Abwehrkräfte werden von gereinigten Seelen gebracht.</source>
-        <target>Diese Abwehrkräfte werden von gereinigten Seelen gebracht.</target>
+        <target>Éstas defensas son obtenidas gracias a las Almas Purificadas.</target>
       </segment>
     </unit>
     <unit id="mhXv42Q" name="735ca7b">
@@ -1708,7 +1708,7 @@
       </notes>
       <segment>
         <source>Du musst noch mehr Erfahrung sammeln, um das tun zu können...</source>
-        <target>Du musst noch mehr Erfahrung sammeln, um das tun zu können...</target>
+        <target>Necesita ganar más experiencia para poder hacer esto...</target>
       </segment>
     </unit>
     <unit id="NA9GMDP" name="Code">
@@ -1717,7 +1717,7 @@
       </notes>
       <segment>
         <source>Code</source>
-        <target>Code</target>
+        <target>Código</target>
       </segment>
     </unit>
     <unit id="EX0EUAt" name="Kein">
@@ -1726,7 +1726,7 @@
       </notes>
       <segment>
         <source>Kein</source>
-        <target>Kein</target>
+        <target>No</target>
       </segment>
     </unit>
     <unit id="Yx7n3Xy" name="728d63e">
@@ -1735,7 +1735,7 @@
       </notes>
       <segment>
         <source>Diese Nachricht wurde dir vom Raben persönlich überbracht. Er schwebt über der Stadt und wirft immer ein wachsames Auge auf dich...</source>
-        <target>Diese Nachricht wurde dir vom Raben persönlich überbracht. Er schwebt über der Stadt und wirft immer ein wachsames Auge auf dich...</target>
+        <target>Éste mensaje te lo trajo personalmente el Cuervo. Él siempre vuela sobre el pueblo y tiene un ojo clavado en tí...</target>
       </segment>
     </unit>
     <unit id="rtJUaLn" name="f14ccda">
@@ -1756,7 +1756,7 @@
       </notes>
       <segment>
         <source>Diesen Bonus gibt es dank eurer alten Freunde und dem Gebäude &lt;strong&gt;Kleiner Friedhof&lt;/strong&gt;.</source>
-        <target><![CDATA[Diesen Bonus gibt es dank eurer alten Freunde und dem Gebäude <strong>Kleiner Friedhof</strong>.]]></target>
+        <target><![CDATA[Este bonus se encuentra disponible gracias a tus antiguos camaradas y a la Construcción <strong>Defensa Post-Mortem</strong>.]]></target>
       </segment>
     </unit>
     <unit id="zTo.6Bl" name="1fa3771">
@@ -1765,7 +1765,7 @@
       </notes>
       <segment>
         <source>Diesen Bonus gibt es nur dann, wenn sich die Wächter wärhend eines Angriffs in det Stadt befinden.</source>
-        <target>Diesen Bonus gibt es nur dann, wenn sich die Wächter wärhend eines Angriffs in det Stadt befinden.</target>
+        <target>Este Bonus sólo se encuentra disponible si los Guardianes se encuentran en la ciudad.</target>
       </segment>
     </unit>
     <unit id="zF4ERQG" name="Diese Kosten können durch den Aufbau der &lt;strong&gt;Müll für Alle&lt;/strong&gt;.">
@@ -1783,7 +1783,7 @@
       </notes>
       <segment>
         <source>Ausblenden</source>
-        <target>Ausblenden</target>
+        <target>Esconder</target>
       </segment>
     </unit>
     <unit id="UzZ7xlJ" name="Nachricht">
@@ -1792,7 +1792,7 @@
       </notes>
       <segment>
         <source>Nachricht</source>
-        <target>Nachricht</target>
+        <target>Noticia</target>
       </segment>
     </unit>
     <unit id="dJK8aO8" name="Ausb.+Nachr.">
