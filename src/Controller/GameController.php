@@ -27,6 +27,7 @@ use App\Service\PictoHandler;
 use App\Service\TimeKeeperService;
 use App\Service\TownHandler;
 use App\Service\UserHandler;
+use App\Structures\ItemRequest;
 use App\Structures\TownConf;
 use App\Translation\T;
 use Doctrine\ORM\EntityManagerInterface;
@@ -600,12 +601,15 @@ class GameController extends CustomAbstractController implements GameInterfaceCo
             }
         }
 
-        if($this->picto_handler->has_picto($citizen, 'r_armag')) {
-            $armag = $this->entity_manager->getRepository(SpecialActionPrototype::class)->findOneBy(['name' => "special_generic_armag"]);
+        if($this->picto_handler->has_picto($citizen, 'r_armag_#00')) {
+            $armag = $this->entity_manager->getRepository(SpecialActionPrototype::class)->findOneBy(['name' => "special_armag"]);
             $citizen->addSpecialAction($armag);
+            $invh->forceMoveItem($citizen->getHome()->getChest(), $if->createItem( 'food_armag_#00' ));
+            $doggy = $invh->fetchSpecificItems( $citizen->getHome()->getChest(), [new ItemRequest('food_bag_#00')] );
+            $invh->forceRemoveItem($doggy[0]);
         }
 
-        if($this->picto_handler->has_picto($citizen, 'r_ginfec')) {
+        if($this->picto_handler->has_picto($citizen, 'r_ginfec_#00')) {
             $this->citizen_handler->inflictStatus($citizen, 'tg_infect_wtns');
         }
 

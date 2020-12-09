@@ -118,6 +118,8 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             'not_yet_rested'   => [ 'type' => Requirement::CrossOnFail, 'collection' => [ 'status' => [ 'enabled' => false, 'status' => 'tg_rested' ]  ]],
             'not_yet_immune'   => [ 'type' => Requirement::HideOnFail, 'collection' => [ 'status' => [ 'enabled' => false, 'status' => 'tg_shaman_immune' ]  ]],
             'immune'           => [ 'type' => Requirement::HideOnFail, 'collection' => [ 'status' => [ 'enabled' => true, 'status' => 'tg_shaman_immune' ]  ]],
+            'is_witness'       => [ 'type' => Requirement::HideOnFail, 'collection' => [ 'status' => [ 'enabled' => true, 'status' => 'tg_infect_wtns' ]  ]],
+            'is_not_witness'   => [ 'type' => Requirement::HideOnFail, 'collection' => [ 'status' => [ 'enabled' => false, 'status' => 'tg_infect_wtns' ]  ]],
 
             'eat_ap'      => [ 'type' => Requirement::CrossOnFail, 'collection' => [ 'status' => [ 'enabled' => false, 'status' => 'haseaten' ] ]],
 
@@ -239,6 +241,7 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
 
         'meta_results' => [
             'do_nothing' => [],
+            'do_nothing_wtns' => ['message' => ['text' => 'On peut dire que vous avez eu de la chance... Avoir été victime de la Grande Contamination vous aura pour le moins sauvé cette fois-ci. Vous évitez une très désagréable infection.']],
 
             'consume_item'    => [ 'item' => [ 'consume' => true,  'morph' => null, 'break' => null, 'poison' => null ] ],
             'break_item'      => [ 'item' => [ 'consume' => false, 'morph' => null, 'break' => true, 'poison' => null ] ],
@@ -274,6 +277,8 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
 
             'infect'       => [ 'status' => 'add_infection' ],
             'disinfect'    => [ 'status' => 'remove_infection' ],
+            'infect_wtns'  => [ 'status' => 'add_infection', 'message' => ['text' => 'Avoir été victime de la Grande Contamination ne vous aura pas sauvé cette fois-ci... et ça pique un peu. Mauvaise nouvelle, vous n\'auriez peut-être pas dû l\'avaler... Vous avez été infecté(e) !'] ],
+            'lose_wtns'    => [ 'status' => [ 'from' => 'tg_infect_wtns', 'to' => null ] ],
             'immune'       => [ 'status' => 'add_immune' ],
             'give_shaman_immune'  => [ 'status' => 'shaman_immune'],
 
@@ -750,8 +755,9 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             'eat_meat_1'    => [ 'label' => 'Essen', 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'eat_ap', 'not_role_ghoul' ], 'result' => [ 'eat_ap6', 'consume_item', ['picto' => ['r_cannib_#00'], 'group' => [ ['do_nothing', 9], ['become_ghoul_25', 1] ]] ] ],
             'eat_meat_2'    => [ 'label' => 'Essen', 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'eat_ap', 'role_ghoul' ],     'result' => [ 'eat_ap6', 'consume_item', ['picto' => ['r_cannib_#00'], 'status' => 'satisfy_ghoul_10' ] ], ],
 
-            'eat_bone_1'    => [ 'label' => 'Essen', 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'eat_ap', 'not_role_ghoul' ], 'result' => [ 'eat_ap6', ['picto' => ['r_cannib_#00'], 'item' => ['consume' => false, 'morph' => 'bone_#00'], 'group' => [ ['do_nothing', 9], [ 'infect', 9 ], ['become_ghoul_25', 2] ]] ] ],
-            'eat_bone_2'    => [ 'label' => 'Essen', 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'eat_ap', 'role_ghoul' ],     'result' => [ 'eat_ap6', ['picto' => ['r_cannib_#00'], 'item' => ['consume' => false, 'morph' => 'bone_#00'], 'status' => 'satisfy_ghoul_10' ] ], ],
+            'eat_bone_1'    => [ 'label' => 'Essen', 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'eat_ap', 'not_role_ghoul', 'is_witness' ],     'result' => [ 'eat_ap6', ['picto' => ['r_cannib_#00'], 'item' => ['consume' => false, 'morph' => 'bone_#00'], 'group' => [ ['do_nothing', 9], [ ['group' => [[['do_nothing_wtns', 'lose_wtns'], 5], [['infect_wtns', 'lose_wtns'], 5]]], 9], ['become_ghoul_25', 2] ]] ] ],
+            'eat_bone_2'    => [ 'label' => 'Essen', 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'eat_ap', 'role_ghoul' ],                       'result' => [ 'eat_ap6', ['picto' => ['r_cannib_#00'], 'item' => ['consume' => false, 'morph' => 'bone_#00'], 'status' => 'satisfy_ghoul_10' ] ], ],
+            'eat_bone_3'    => [ 'label' => 'Essen', 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'eat_ap', 'not_role_ghoul', 'is_not_witness' ], 'result' => [ 'eat_ap6', ['picto' => ['r_cannib_#00'], 'item' => ['consume' => false, 'morph' => 'bone_#00'], 'group' => [ ['do_nothing', 9], [ 'infect', 9 ], ['become_ghoul_25', 2] ]] ] ],
 
             'eat_cadaver_1' => [ 'label' => 'Essen', 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'eat_ap', 'not_role_ghoul' ], 'result' => [ 'eat_ap6', ['picto' => ['r_cannib_#00'], 'item' => ['consume' => false, 'morph' => 'cadaver_remains_#00'] ], ['group' => [ ['do_nothing', 1], [ 'infect', 1 ], ['become_ghoul_5', 18] ]] ] ],
             'eat_cadaver_2' => [ 'label' => 'Essen', 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'eat_ap', 'role_ghoul' ],     'result' => [ 'eat_ap6', ['picto' => ['r_cannib_#00'], 'item' => ['consume' => false, 'morph' => 'cadaver_remains_#00'], 'status' => 'satisfy_ghoul_30' ] ] ],
@@ -787,7 +793,7 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             'hero_generic_immune' => [ 'label' => 'Den Tod besiegen','cover' => true, 'meta' => [ 'not_yet_hero'], 'result' => [ 'hero_act', 'hero_immune' ] ],
             'hero_generic_rescue' => [ 'label' => 'Rettung', 'target' => ['type' => ItemTargetDefinition::ItemHeroicRescueType], 'meta' => [ 'must_be_inside', 'not_yet_hero'], 'result' => [ 'hero_act', ['custom' => [9]] ], 'message' => 'Du hast {citizen} auf heldenhafte Weise in die Stadt gebracht!' ],
             
-            'special_armag'        => [ 'label' => 'Durchgang in Kraft', 'meta' => [ 'must_be_outside', 'must_have_zombies', 'must_be_blocked'], 'result' => [ ['group' => [ [['do_nothing'], 50], [[ ['zone' => ['escape' => 600] ], 'kill_1_zombie'], 50]]] ] ],
+            'special_armag'        => [ 'label' => 'Durchgang in Kraft', 'allow_when_terrorized' => true, 'meta' => [ 'must_be_outside', 'must_have_zombies', 'must_be_blocked'], 'result' => [ ['group' => [ [['do_nothing'], 50], [[ ['zone' => ['escape' => 600] ], 'kill_1_zombie'], 50]]] ] ],
             'special_vote_shaman'  => [ 'label' => 'Den Shamane wählen', 'target' => ['type' => ItemTargetDefinition::ItemCitizenType], 'meta' => [ 'must_be_outside' ], 'result' => [ ['custom' => [18]] ] ],
             'special_vote_guide'   => [ 'label' => 'Den Reiseleiter in der Außenwelt wählen', 'target' => ['type' => ItemTargetDefinition::ItemCitizenType], 'meta' => [ 'must_be_outside' ], 'result' => [ ['custom' => [19]] ] ],
 
@@ -930,7 +936,7 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             'wood_xmas_#00'    => [ 'eat_6ap'],
             'fruit_#00'           => [ 'eat_fleshroom_1', 'eat_fleshroom_2'],
             'hmeat_#00'           => [ 'eat_meat_1', 'eat_meat_2' ],
-            'bone_meat_#00'       => [ 'eat_bone_1', 'eat_bone_2' ],
+            'bone_meat_#00'       => [ 'eat_bone_1', 'eat_bone_2', 'eat_bone_3' ],
             'cadaver_#00'         => [ 'eat_cadaver_1', 'eat_cadaver_2'],
             'vagoul_#00'          => [ 'ghoul_serum'],
 
@@ -2555,7 +2561,6 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             $action_proto->setIcon($action['icon']);
 
             $out->writeln( "Compiling action set for special action <info>{$action['name']}</info>...", OutputInterface::VERBOSITY_DEBUG);
-            echo "Compiling action set for special action <info>{$action['name']}</info>...";
             $action_proto->setAction( $this->generate_action( $manager, $out, $action['name'], $set_meta_requirements, $set_sub_requirements, $set_meta_results, $set_sub_results, $set_actions ) );
 
             $manager->persist( $action_proto );
