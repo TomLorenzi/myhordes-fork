@@ -582,7 +582,7 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
         }
 
         try {
-            if ($severity !== $severity_before && ($severity === 0 || $severity_before === 0)) $em->persist( $this->log->citizenComplaint( $existing_complaint ) );
+            // if ($severity !== $severity_before && ($severity === 0 || $severity_before === 0)) $em->persist( $this->log->citizenComplaint( $existing_complaint ) );
             $em->persist($culprit);
             $em->persist($existing_complaint);
             $em->flush();
