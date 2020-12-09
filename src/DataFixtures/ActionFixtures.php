@@ -241,7 +241,7 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
 
         'meta_results' => [
             'do_nothing' => [],
-            'do_nothing_wtns' => ['status' => [ 'from' => 'tg_infect_wtns', 'to' => null ], 'message' => ['text' => 'On peut dire que vous avez eu de la chance... Avoir été victime de la Grande Contamination vous aura pour le moins sauvé cette fois-ci. Vous évitez une très désagréable infection.']],
+            'do_nothing_wtns' => ['status' => 'lose_wtns', 'message' => ['text' => 'On peut dire que vous avez eu de la chance... Avoir été victime de la Grande Contamination vous aura pour le moins sauvé cette fois-ci. Vous évitez une très désagréable infection.']],
 
             'consume_item'    => [ 'item' => [ 'consume' => true,  'morph' => null, 'break' => null, 'poison' => null ] ],
             'break_item'      => [ 'item' => [ 'consume' => false, 'morph' => null, 'break' => true, 'poison' => null ] ],
@@ -275,7 +275,7 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             'terrorize'    => [ 'status' => 'add_terror' ],
             'unterrorize'  => [ 'status' => 'remove_terror' ],
 
-            'infect_wtns'  => [ 'status' => [ 'from' => 'tg_infect_wtns', 'to' => null ], 'message' => ['text' => 'Avoir été victime de la Grande Contamination ne vous aura pas sauvé cette fois-ci...'] ],
+            'infect_wtns'  => [ 'status' => 'lose_wtns', 'message' => ['text' => 'Avoir été victime de la Grande Contamination ne vous aura pas sauvé cette fois-ci...'] ],
             'infect'       => [ 'status' => 'add_infection', 'message' => ['text' => 'Mauvaise nouvelle, vous n\'auriez peut-être pas dû l\'avaler... Vous avez été infecté(e) !'] ],
             'disinfect'    => [ 'status' => 'remove_infection' ],
             'immune'       => [ 'status' => 'add_immune' ],
@@ -384,6 +384,7 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
                 'add_infection'   => [ 'from' => null, 'to' => 'infection' ],
                 'remove_infection'=> [ 'from' => 'infection', 'to' => null ],
                 'add_immune'      => [ 'from' => null, 'to' => 'immune'],
+                'lose_wtns'       => [ 'from' => 'tg_infect_wtns', 'to' => null ],
 
                 'add_drunk' => [ 'from' => null, 'to' => 'drunk' ],
 
