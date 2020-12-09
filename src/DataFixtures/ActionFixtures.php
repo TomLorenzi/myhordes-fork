@@ -1920,7 +1920,6 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
                 ->setCounter( $data['counter'] ?? null );
 
             if (!$status_from && !$status_to && !$result->getResetThirstCounter() && !$result->getCitizenHunger() && $result->getCounter() === null && $role === null) {
-                debug_print_backtrace(DEBUG_BACKTRACE_IGNORE_ARGS);
                 throw new Exception('Status effects must have at least one attached status.');
             }
 
