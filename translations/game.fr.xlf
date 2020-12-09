@@ -15588,5 +15588,23 @@
         <target>Ramener un citoyen:</target>
       </segment>
     </unit>
+    <unit id="mVtk8KY" name="Herzlichen Glückwunsch! Du hast deine Behausung in ein(e) %home%.">
+      <notes>
+        <note category="german">Herzlichen Glückwunsch! Du hast deine Behausung in ein(e) %home%.</note>
+      </notes>
+      <segment>
+        <source>Herzlichen Glückwunsch! Du hast deine Behausung in ein(e) %home%.</source>
+        <target>Félicitations ! Vous avez amélioré votre habitation en %home%.</target>
+      </segment>
+    </unit>
+    <unit id="CZg55p2" name="Folgenden Dinge wurden dazu gebraucht:">
+      <notes>
+        <note category="german">Folgenden Dinge wurden dazu gebraucht:</note>
+      </notes>
+      <segment>
+        <source>Folgenden Dinge wurden dazu gebraucht:</source>
+        <target>Vous avez utilisé :</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

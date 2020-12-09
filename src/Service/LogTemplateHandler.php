@@ -40,7 +40,7 @@ class LogTemplateHandler
         $this->entity_manager = $em;
     }
 
-    private function wrap(?string $obj, ?string $class = null): string {
+    public function wrap(?string $obj, ?string $class = null): string {
         //if (!($obj || $obj != 0)) {var_dump($obj); die;}
         return ($obj === "0" || $obj) ? ("<span" . ($class ? " class='$class'" : '') . ">$obj</span>") : '';
     }
@@ -50,7 +50,7 @@ class LogTemplateHandler
      * @param bool $small
      * @return string
      */
-    private function iconize($obj, bool $small = false, bool $broken = false): string {
+    public function iconize($obj, bool $small = false, bool $broken = false): string {
         if (is_array($obj) && count($obj) === 2) return $this->iconize( $obj['item'], $small) . ' x ' . $obj['count'];
 
         if ($obj instanceof Item) {

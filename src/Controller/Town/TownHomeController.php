@@ -13,6 +13,7 @@ use App\Entity\CitizenHomeUpgradePrototype;
 use App\Entity\Complaint;
 use App\Entity\Emotes;
 use App\Entity\ExpeditionRoute;
+use App\Entity\ItemGroupEntry;
 use App\Entity\ItemPrototype;
 use App\Entity\Picto;
 use App\Entity\PictoPrototype;
@@ -275,6 +276,7 @@ class TownHomeController extends TownController
         $home = $citizen->getHome();
 
         // Attempt to get the next house level; fail if none exists
+        /** @var CitizenHomePrototype $next */
         $next = $em->getRepository(CitizenHomePrototype::class)->findOneBy( ['level' => $home->getPrototype()->getLevel() + 1] );
         if (!$next) return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
 
@@ -311,6 +313,23 @@ class TownHomeController extends TownController
 
         // Give picto
         $this->picto_handler->give_picto( $citizen, "r_homeup_#00" );
+
+        $text = [];
+        $text[] = $this->translator->trans('Herzlichen Glückwunsch! Du hast deine Behausung in ein(e) %home%.', ['%home%' => "<strong>" . $this->translator->trans($next->getLabel(), [], 'buildings') . "</strong>"], 'game');
+        if($next->getResources()){
+            /** @var ItemGroupEntry $r */
+            $resText = " " . $this->translator->trans('Folgenden Dinge wurden dazu gebraucht:', [], 'game');
+            foreach ($next->getResources()->getEntries() as $item) {
+                $resText .= " " . $this->log->wrap($this->log->iconize($item));
+            }
+            $text[] = $resText;
+        }
+
+        $text[]= " " . $this->translator->trans("Du hast %count% Aktionspunkt(e) benutzt.", ['%count%' => "<strong>" . $next->getAp() . "</strong>"], "game");
+
+        $this->addFlash('notice', implode("<hr />", $text));
+
+        return AjaxResponse::success();
 
         // Create log & persist
         try {
