@@ -84,17 +84,24 @@
                 <div class="row-flex">
                     {% if is_granted("ROLE_ADMIN") %}
                     <div class="padded cell rw-6 rw-sm-12">
-                        <label for="spawnItem">HARDCODED: Spawn an item:</label>
+                        <label for="spawnItem">{{'Einen Gegenstand erzeugen:'|trans({}, 'admin')}}</label>
                         <select id="spawnItem">
                         {% for itemPrototype in itemPrototypes %}
                             <option value="{{itemPrototype.id}}">{{ itemPrototype.label|trans({}, 'items') }}</option>
                         {% endfor %}
                         </select>
                         <label for="number">
-                            HARDCODED: Number of item to spawn:
+                            {{'Nummer des Gegenstandes:'|trans({}, 'admin')}}
                         </label>
                         <input type="number" id="number" value="1"/>
-                        <button id="spawnbtn">HARDCODED: Spawn!</button>
+                        <label for="poison">{{'Vergiftet:'|trans({}, 'admin')}}</label>
+                        <input type="checkbox" id="poison" />
+                        <label for="broken">{{'Zerstört:'|trans({}, 'admin')}}</label>
+                        <input type="checkbox" id="broken" />
+                        <label for="essential">{{'Essentiell:'|trans({}, 'admin')}}</label>
+                        <input type="checkbox" id="essential" />
+                        <br />
+                        <button id="spawnbtn">{{'Erzeugen!'|trans({}, 'admin')}}</button>
                     </div>
                     {% endif %}
                     <div class="padded cell rw-6 rw-sm-12">
@@ -108,14 +115,42 @@
 
             <div x-tab-group="admin-town" x-tab-id="citizens" x-tab-target>
                 <div class="row">
-                    <div class="cell padded rw-4 rw-sm-12">
+                    <div class="cell padded rw-5 rw-sm-12">
                         <div class="row-table citizens-list">
                             <div class="row header">
-                                <div class="padded cell left">{{ 'Bürger'|trans({},'game') }}</div>
+                                <div class="padded cell rw-1">{{'Rucksack'|trans({}, 'admin')|slice(0,1)}}<div class="tooltip help">{{'Rucksack'|trans({}, 'admin')}}</div></div>
+                                <div class="padded cell rw-1">{{'Truhe'|trans({}, 'admin')|slice(0,1)}}<div class="tooltip help">{{'Truhe'|trans({}, 'admin')}}</div></div>
+                                <div class="padded cell left rw-10">{{ 'Bürger'|trans({},'game') }}</div>
                             </div>
                             {% for citizen in town.citizens|sort((a,b) => (a.alive == b.alive) ? ((a.alive) ? a.user.name|lower <=> b.user.name|lower : b.survivedDays <=> a.survivedDays) : b.alive <=> a.alive) %}
                                 {# @var \App\Entity\Citizen citizen  #}
                                 <div class="row-flex stretch pointer" style="max-height: 100px;">
+                                    <div class="cell rw-1">
+                                    {% if citizen.alive %}
+                                        <input type="checkbox" target='rucksack' id="r-{{citizen.id}}" />
+                                        <div class="tooltip normal">
+                                            <em>{{ 'Rucksack'|trans({},'admin') }}</em><br />
+                                            {% for item in citizen.inventory.items %}
+                                                {# @var \App\Entity\Item item #}
+                                                <img alt="{{ item.prototype.label|trans({},'items') }}" src="{{ asset('build/images/item/item_' ~ item.prototype.icon ~ '.gif') }}" />
+                                            {% endfor %}
+                                        </div>
+                                    {% endif %}
+                                    </div>
+                                    <div class="cell rw-1">
+                                        <input type="checkbox" target='chest' id="t-{{citizen.id}}" />
+                                        <div class="tooltip normal">
+                                            {% if citizen.home.chest.items|length == 0 %}
+                                                <em>{{ 'Leere Truhe'|trans({},'admin') }}</em>
+                                            {% else %}
+                                                <em>{{ 'Truhe'|trans({},'admin') }}</em><br />
+                                            {% endif %}
+                                            {% for item in citizen.home.chest.items %}
+                                                {# @var \App\Entity\Item item #}
+                                                <img alt="{{ item.prototype.label|trans({},'items') }}" src="{{ asset('build/images/item/item_' ~ item.prototype.icon ~ '.gif') }}" />
+                                            {% endfor %}
+                                        </div>
+                                    </div>
                                     <div class="cell factor-0 avatar ua-{{ random(0,9) }}" style="flex-basis: 90px; background: url('{{ citizen.user.avatar ? path('app_web_avatar', {'uid': citizen.user.id, 'name': citizen.user.avatar.smallName, 'ext': citizen.user.avatar.format}) : asset('build/images/forum/empty_avatar.gif') }}') center/cover no-repeat;" x-ajax-href="{{ path('town_visit', {id: citizen.id}) }}">&nbsp;</div>
                                     <div class="cell factor-0 citizen-{{ citizen.alive ? (citizen.online ? 'online' : 'offline') : 'dead' }}" style="flex-basis: 8px;" x-ajax-href="{{ path('town_visit', {id: citizen.id}) }}">&nbsp;</div>
                                     
@@ -141,7 +176,7 @@
                                             {% if citizen.zone %}
                                             [{{citizen.zone.x}},{{citizen.zone.y}}]
                                             {% else %}
-                                            [0, 0]
+                                            [{{'In der Stadt'|trans({}, 'admin')}}]
                                             {% endif %}
                                             </span>
                                         {% endif %}
@@ -150,7 +185,30 @@
                             {% endfor %}
                         </div>
                     </div>
-                    <div class="cell rw-8 rw-sm-12 padded">
+                    <div class="cell rw-7 rw-sm-12 padded">
+                        {% if is_granted("ROLE_ADMIN") %}
+                        <div class="padded cell">
+                            <label for="spawnItemcitizen">{{'Einen Gegenstand erzeugen:'|trans({}, 'admin')}}</label>
+                            <select id="spawnItemcitizen">
+                            {% for itemPrototype in itemPrototypes %}
+                                <option value="{{itemPrototype.id}}">{{ itemPrototype.label|trans({}, 'items') }}</option>
+                            {% endfor %}
+                            </select>
+                            <label for="numbercitizen">
+                                {{'Nummer des Gegenstandes:'|trans({}, 'admin')}}
+                            </label>
+                            <input type="number" id="numbercitizen" value="1"/>
+                            <label for="poisoncitizen">{{'Vergiftet:'|trans({}, 'admin')}}</label>
+                            <input type="checkbox" id="poisoncitizen" />
+                            <label for="brokencitizen">{{'Zerstört:'|trans({}, 'admin')}}</label>
+                            <input type="checkbox" id="brokencitizen" />
+                            <label for="essentialcitizen">{{'Essentiell:'|trans({}, 'admin')}}</label>
+                            <input type="checkbox" id="essentialcitizen" />
+                            <br />
+                            <button id="spawnbtncitizen">{{'Erzeugen!'|trans({}, 'admin')}}</button>
+                        </div>
+                        <br />
+                        {% endif %}
                         <button id="townpm">{{ 'Rundmail als Rabe'|trans({},'admin') }}</button>
                         <input type="hidden" id="pmidrecipient" value="{{ town.id }}">
                         <div id="forum-content">
@@ -343,11 +401,44 @@
                 if(isNaN(number)) number = 1;
 
                 let item = document.getElementById('spawnItem').value;
+                let poison = document.getElementById('poison').checked;
+                let broken = document.getElementById('broken').checked;
+                let essential = document.getElementById('essential').checked;
+
                 $.ajax.easySend('{{ path('admin_bank_spawn_item', {id: town.id}) }}', {
-                        prototype: item, number: number
+                        prototype: item, number: number, poison: poison, broken: broken, essential: essential
                     },
                     function () {
                         $.ajax.load(null, '{{ path('admin_town_explorer', {id: town.id, tab: "bank"}) }}', true);
+                    }
+                );
+            });
+
+            let spawnbtncitizen = document.getElementById("spawnbtncitizen");
+            if (spawnbtncitizen) spawnbtncitizen.addEventListener('click', function(){
+                let number = document.getElementById("numbercitizen").value;
+                if(isNaN(number)) number = 1;
+
+                let citizen_sack = document.querySelectorAll("input[target='rucksack']:checked");
+                let citizen_chest = document.querySelectorAll("input[target='chest']:checked");
+
+                let targets = [];
+                citizen_sack.forEach(element => {
+                    targets.push(element.getAttribute('id'));
+                });
+                citizen_chest.forEach(element => {
+                    targets.push(element.getAttribute('id'));
+                });
+
+                let item = document.getElementById('spawnItemcitizen').value;
+                let poison = document.getElementById('poisoncitizen').checked;
+                let broken = document.getElementById('brokencitizen').checked;
+                let essential = document.getElementById('essentialcitizen').checked;
+                $.ajax.easySend('{{ path('admin_citizen_spawn_item', {id: town.id}) }}', {
+                        prototype: item, number: number, targets: targets.join(','), poison: poison, broken: broken, essential: essential
+                    },
+                    function () {
+                        $.ajax.load(null, '{{ path('admin_town_explorer', {id: town.id, tab: "citizens"}) }}', true);
                     }
                 );
             });

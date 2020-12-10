@@ -2,6 +2,7 @@
 
 namespace App\Controller\Admin;
 
+use App\Entity\Citizen;
 use App\Entity\ExpeditionRoute;
 use App\Entity\Item;
 use App\Entity\ItemPrototype;
@@ -14,6 +15,7 @@ use App\Service\InventoryHandler;
 use App\Service\ItemFactory;
 use App\Service\JSONRequestParser;
 use App\Service\NightlyHandler;
+use Error;
 use Exception;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Response;
@@ -208,13 +210,70 @@ class AdminTownController extends AdminActionController
 
         $prototype_id = $parser->get('prototype');
         $number = $parser->get('number');
+        $poison = $parser->get('poison', false);
+        $broken = $parser->get('broken', false);
+        $essential = $parser->get('essential', false);
 
-        $item = $this->entity_manager->getRepository(ItemPrototype::class)->find($prototype_id);
+        /** @var ItemPrototype $itemPrototype */
+        $itemPrototype = $this->entity_manager->getRepository(ItemPrototype::class)->find($prototype_id);
 
-        for ($i = 0 ; $i < $number ; $i++)
-            $handler->forceMoveItem( $town->getBank(), $itemFactory->createItem( $item->getName()) );
+        for ($i = 0 ; $i < $number ; $i++){
+            /** @var Item $item */
+            $item = $itemFactory->createItem($itemPrototype->getName(), $broken, $poison);
+            $item->setEssential($essential);
+            $handler->forceMoveItem($town->getBank(), $item);
+        }
 
         $this->entity_manager->persist($town->getBank());
+        $this->entity_manager->flush();
+
+        return AjaxResponse::success();
+    }
+
+    /**
+     * @Route("/api/admin/town/{id}/citizen/spawn_item", name="admin_citizen_spawn_item", requirements={"id"="\d+"})
+     * Add or remove an item from the bank
+     * @param int $id Town ID
+     * @param JSONRequestParser $parser
+     * @param InventoryHandler $handler
+     * @return Response
+     */
+    public function citizen_spawn_item($id, JSONRequestParser $parser, InventoryHandler $handler, ItemFactory $itemFactory): Response
+    {
+        $town = $this->entity_manager->getRepository(Town::class)->find($id);
+        if(!$town) {
+            return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+        }
+
+        $prototype_id = $parser->get('prototype');
+        $number = $parser->get('number');
+        $targets = $parser->get('targets', "");
+        $poison = $parser->get('poison', false);
+        $broken = $parser->get('broken', false);
+        $essential = $parser->get('essential', false);
+
+        if(empty($targets))
+            return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+        /** @var ItemPrototype $itemPrototype */
+        $itemPrototype = $this->entity_manager->getRepository(ItemPrototype::class)->find($prototype_id);
+        
+        $targets = explode(",", $targets);
+        foreach ($targets as $target) {
+            $infos = explode("-", $target);
+            /** @var Citizen $citizen */
+            $citizen = $this->entity_manager->getRepository(Citizen::class)->find($infos[1]);
+            /** @var Item $item */
+            $item = $itemFactory->createItem($itemPrototype->getName(), $broken, $poison);
+            $item->setEssential($essential);
+
+            for ($i = 0 ; $i < $number ; $i++)
+                $handler->forceMoveItem($infos[0] == "r" ? $citizen->getInventory() : $citizen->getHome()->getChest(), $item);
+            
+            $this->entity_manager->persist($citizen);
+            $this->entity_manager->persist($citizen->getHome()->getChest());
+        }
+
         $this->entity_manager->flush();
 
         return AjaxResponse::success();
