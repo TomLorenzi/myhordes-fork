@@ -485,6 +485,12 @@ class ActionHandler
         }, $this->reformat_prototype_list($c)));
     }
 
+    private function wrap_concat_hierarchy(array $c) {
+        return implode(' > ', array_map(function(array $e): string {
+            return $this->wrap( $e[1], $e[0] );
+        }, $this->reformat_prototype_list($c)));
+    }
+
     const ErrorNone = 0;
     const ErrorActionUnregistered = ErrorHelper::BaseActionErrors + 1;
     const ErrorActionForbidden    = ErrorHelper::BaseActionErrors + 2;
@@ -537,6 +543,7 @@ class ActionHandler
             'items_consume' => [],
             'items_spawn' => [],
             'bp_spawn' => [],
+            'bp_parent' => [],
             'rp_text' => '',
             'casino' => '',
             'zone' => null,
@@ -658,12 +665,22 @@ class ActionHandler
                 } );
 
                 if (!empty($filtered)) {
+                    /** @var BuildingPrototype $pick */
                     $pick = $this->random_generator->pick( $filtered );
                     $town = $citizen->getTown();
                     if ($this->town_handler->addBuilding( $town, $pick )) {
                         $tags[] = 'bp_ok';
                         $execute_info_cache['bp_spawn'][] = $pick;
                         $this->entity_manager->persist( $this->log->constructionsNewSite( $citizen, $pick ) );
+                        if($pick->getParent()){
+                            $tags[] = 'bp_parent';
+                            $parent = $pick->getParent();
+                            do {
+                                $execute_info_cache['bp_parent'][] = $parent;
+                                $parent = $parent->getParent();
+                            } while($parent !== null);
+                            $execute_info_cache['bp_parent'] = array_reverse($execute_info_cache['bp_parent']);
+                        }
                     }
 
                 } else $tags[] = 'bp_fail';
@@ -1234,8 +1251,6 @@ class ActionHandler
         if(!empty($execute_info_cache['message'])) {
         	// We order the messages
         	ksort($execute_info_cache['message']);
-            file_put_contents("/tmp/dump.txt", print_r($tags, true));
-            file_put_contents("/tmp/dump.txt", print_r($execute_info_cache['message'], true), FILE_APPEND);
         	// We translate & replace placeholders in each messages
         	$addedContent = [];
         	foreach ($execute_info_cache['message'] as $contentMessage) {
@@ -1254,6 +1269,7 @@ class ActionHandler
 	                '{items_consume}' => $this->wrap_concat($execute_info_cache['items_consume']),
 	                '{items_spawn}'   => $this->wrap_concat($execute_info_cache['items_spawn']),
 	                '{bp_spawn}'      => $this->wrap_concat($execute_info_cache['bp_spawn']),
+	                '{bp_parent}'      => $this->wrap_concat_hierarchy($execute_info_cache['bp_parent']),
 	                '{rp_text}'       => $this->wrap( $execute_info_cache['rp_text'] ),
 	                '{zone}'          => $execute_info_cache['zone'] ? $this->wrap( "{$execute_info_cache['zone']->getX()} / {$execute_info_cache['zone']->getY()}" ) : '',
                     '{casino}'        => $execute_info_cache['casino'],
@@ -1270,7 +1286,6 @@ class ActionHandler
 	                }, $contentMessage, -1, $d);
 	            } while ($c > 0 || $d > 0);
                 $addedContent[] = $contentMessage;
-                file_put_contents("/tmp/dump.txt", $contentMessage, FILE_APPEND);
         	}
 
         	// We remove empty elements
