@@ -19,20 +19,21 @@ class BankAntiAbuseService {
     }
 
     public function increaseBankCount(Citizen $citizen) {
-
         if (($bankAntiAbuse = $citizen->getBankAntiAbuse()) === null)
-        {
-            $bankAntiAbuse = new BankAntiAbuse();
-            $bankAntiAbuse->setCitizen($citizen);
+            $this->em->persist(
+                (new BankAntiAbuse())
+                    ->setCitizen($citizen)
+                    ->setNbItemTaken(1)
+                    ->setUpdated(new \DateTime())
+            );
+        else {
+            if ($this->inRangeOfTaking($citizen, $bankAntiAbuse->getUpdated()))
+                $bankAntiAbuse->increaseNbItemTaken();
+            else
+                $bankAntiAbuse->setNbItemTaken(1);
             $bankAntiAbuse->setUpdated(new \DateTime());
+            $this->em->persist($bankAntiAbuse);
         }
-
-        if ($this->inRangeOfTaking($citizen, $bankAntiAbuse->getUpdated()))
-            $bankAntiAbuse->increaseNbItemTaken();
-        else
-            $bankAntiAbuse->setNbItemTaken(1);
-
-        $this->em->persist($bankAntiAbuse);
     }
 
     public function allowedToTake(Citizen $citizen): bool {

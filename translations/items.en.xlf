@@ -7319,5 +7319,23 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
         <target>In dieser Aufmachung sind Sie so auffällig, dass Sie niemand bemerkt oder glaubt, sich das eingebildet zu haben! Sie würden es nicht missbrauchen, oder?</target>
       </segment>
     </unit>
+    <unit id="QcqmVZM" name="Unidentifizierbare Trümmerstücke">
+      <notes>
+        <note category="german">Unidentifizierbare Trümmerstücke</note>
+      </notes>
+      <segment>
+        <source>Unidentifizierbare Trümmerstücke</source>
+        <target>Unidentifizierbare Trümmerstücke</target>
+      </segment>
+    </unit>
+    <unit id="ug9P8X6" name="4b4524c">
+      <notes>
+        <note category="german">Diese Trümmerstücke waren mal Teil eines Gegenstandes, den du nicht mehr identifizieren kannst. Die Verformung der Teile lassen vermuten, dass dieser Gegenstand mit hoher Geschwindigkeit am Boden aufgeprallt ist...</note>
+      </notes>
+      <segment>
+        <source>Diese Trümmerstücke waren mal Teil eines Gegenstandes, den du nicht mehr identifizieren kannst. Die Verformung der Teile lassen vermuten, dass dieser Gegenstand mit hoher Geschwindigkeit am Boden aufgeprallt ist...</source>
+        <target>Diese Trümmerstücke waren mal Teil eines Gegenstandes, den du nicht mehr identifizieren kannst. Die Verformung der Teile lassen vermuten, dass dieser Gegenstand mit hoher Geschwindigkeit am Boden aufgeprallt ist...</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

@@ -19,6 +19,7 @@ class PrivateMessage
     const TEMPLATE_CROW_THEFT              = 4;
     const TEMPLATE_CROW_AGGRESSION_FAIL    = 5;
     const TEMPLATE_CROW_AGGRESSION_SUCCESS = 6;
+    const TEMPLATE_CROW_CATAPULT = 7;
 
     /**
      * @ORM\Id()

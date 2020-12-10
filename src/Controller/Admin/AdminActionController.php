@@ -36,11 +36,12 @@ class AdminActionController extends CustomAbstractController
 
     public static function getAdminActions(): array {
         return [
-            ['name' => T::__('Users', 'admin'),     'id' => 1],
-            ['name' => T::__('Meldungen', 'admin'), 'id' => 2],
-            ['name' => T::__('Städte', 'admin'),    'id' => 3],
-            ['name' => T::__('Zukunft', 'admin'),   'id' => 4],
-            ['name' => T::__('AntiSpam', 'admin'),  'id' => 5],
+            ['name' => T::__('Dashboard', 'admin'),  'id' => 0],
+            ['name' => T::__('Users', 'admin'),      'id' => 1],
+            ['name' => T::__('Meldungen', 'admin'),  'id' => 2],
+            ['name' => T::__('Städte', 'admin'),     'id' => 3],
+            ['name' => T::__('Zukunft', 'admin'),    'id' => 4],
+            ['name' => T::__('AntiSpam', 'admin'),   'id' => 5],
         ];
     }
 
@@ -166,6 +167,7 @@ class AdminActionController extends CustomAbstractController
     public function index(int $id): Response
     {
         switch ($id) {
+            case 0: return $this->redirect($this->generateUrl('admin_dashboard'));
             case 1: return $this->redirect($this->generateUrl('admin_users'));
             case 2: return $this->redirect($this->generateUrl('admin_reports'));
             case 3: return $this->redirect($this->generateUrl('admin_town_list'));

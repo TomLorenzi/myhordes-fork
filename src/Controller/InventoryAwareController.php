@@ -133,7 +133,7 @@ class InventoryAwareController extends CustomAbstractController
         $data['bp'] = $this->getActiveCitizen()->getBp();
         $data['max_bp'] = $this->citizen_handler->getMaxBP( $this->getActiveCitizen() );
         $data['status'] = $this->getActiveCitizen()->getStatus();
-        $data['roles'] = $this->getActiveCitizen()->getRoles();
+        $data['roles'] = $this->getActiveCitizen()->getVisibleRoles();
         $data['rucksack'] = $this->getActiveCitizen()->getInventory();
         $data['rucksack_size'] = $this->inventory_handler->getSize( $this->getActiveCitizen()->getInventory() );
         $data['pm'] = $this->getActiveCitizen()->getPm();
@@ -184,7 +184,7 @@ class InventoryAwareController extends CustomAbstractController
             }
         return $this->render( 'ajax/game/log_content.html.twig', [
             'entries' => $entries,
-            'canHideEntry' => $this->getActiveCitizen()->getAlive() && $this->getActiveCitizen()->getProfession()->getHeroic() && $this->user_handler->hasSkill($this->getActiveCitizen()->getUser(), 'manipulator') && $this->getActiveCitizen()->getZone() === null,
+            'canHideEntry' => $this->getActiveCitizen()->getAlive() && $this->getActiveCitizen()->getProfession()->getHeroic() && $this->user_handler->hasSkill($this->getUser(), 'manipulator') && $this->getActiveCitizen()->getZone() === null,
         ] );
     }
 
@@ -698,12 +698,13 @@ class InventoryAwareController extends CustomAbstractController
                 }
             }
 
+            try {
+                $this->entity_manager->flush();
+            } catch (Exception $e) {
+                return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
+            }
+
             if (count($errors) < $item_count) {
-                try {
-                    $this->entity_manager->flush();
-                } catch (Exception $e) {
-                    return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
-                }
                 return AjaxResponse::success();
             } else if (count($errors) > 0)
                 return AjaxResponse::error($errors[0]);

@@ -19,7 +19,7 @@
         <div class="padded cell rw-8 row-detail">{{item_defense}} {{'Punkte'|trans({}, 'global')}} ({{item_def_count}} {{'Gegenstände'|trans({}, 'game')}} x {{item_def_factor}} <img src="{{ asset('build/images/icons/small_def.gif') }}" /> ) <a class="help-button"><div class="tooltip help">{{ 'Jeder <strong>Verteidigungsgegenstand</strong>, der sich in der Bank befindet, bringt der Stadt <strong>1 Verteidigungspunkte</strong>.'|trans({},'global')|raw }}</div>{{ 'Hilfe'|trans({},'global') }}</a> </div>
     </div>
 
-    <div class="row">
+    <div class="row-flex">
         <div class="padded cell rw-6 rw-lg-12">
             {% embed "ajax/game/inventory.html.twig" with {'size': rucksack_size, 'items': rucksack.items} %}
                 {% block class %}rucksack{% endblock %}
@@ -34,8 +34,8 @@
             {% endembed %}
         </div>
 
-        <div class="padded cell rw-6 rw-lg-12">
-            <div class="forum-preview-container hide-sm">
+        <div class="padded cell rw-6 rw-lg-12" style="position: relative">
+            <div class="forum-preview-container hide-sm" style="position: absolute; left: 3px; top: 3px; right: 3px; bottom: 3px">
                 <div id="forum-content">
                     <div class="center"><i class="fa fa-spin fa-circle-notch"></i> {{ 'Lade Forum...'|trans({},'game') }}</div>
                 </div>
