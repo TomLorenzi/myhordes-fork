@@ -17,6 +17,7 @@ use App\Service\JSONRequestParser;
 use App\Service\NightlyHandler;
 use Error;
 use Exception;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -163,6 +164,7 @@ class AdminTownController extends AdminActionController
 
     /**
      * @Route("/api/admin/town/{id}/bank/item", name="admin_bank_item", requirements={"id"="\d+"})
+     * @Security("is_granted('ROLE_ADMIN')")
      * Add or remove an item from the bank
      * @param int $id Town ID
      * @param JSONRequestParser $parser
@@ -195,6 +197,7 @@ class AdminTownController extends AdminActionController
 
     /**
      * @Route("/api/admin/town/{id}/bank/spawn_item", name="admin_bank_spawn_item", requirements={"id"="\d+"})
+     * @Security("is_granted('ROLE_ADMIN')")
      * Add or remove an item from the bank
      * @param int $id Town ID
      * @param JSONRequestParser $parser
@@ -232,6 +235,7 @@ class AdminTownController extends AdminActionController
 
     /**
      * @Route("/api/admin/town/{id}/citizen/spawn_item", name="admin_citizen_spawn_item", requirements={"id"="\d+"})
+     * @Security("is_granted('ROLE_ADMIN')")
      * Add or remove an item from the bank
      * @param int $id Town ID
      * @param JSONRequestParser $parser
