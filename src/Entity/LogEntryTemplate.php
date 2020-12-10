@@ -33,6 +33,7 @@ class LogEntryTemplate
     const TypeGazetteTown     = 13;
     const TypeGazetteBeyond   = 14;
     const TypeGazetteTownInfo = 15;
+    const TypeCatapult = 16;
 
     const ClassNone                 = 0;
     const ClassWarning              = 1;

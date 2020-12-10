@@ -26,6 +26,7 @@ class GazetteLogEntry
     const RequiresDeaths        = 42;
     const RequiresInvasion      = 43;
     const RequiresAttackDeaths  = 44;
+    const RequiresDevastated    = 45;
 
     /**
      * @ORM\Id()

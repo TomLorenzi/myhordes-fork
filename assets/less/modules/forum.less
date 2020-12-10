@@ -236,6 +236,7 @@
     background: linear-gradient(to top, #784a2b, 50%, #965c36);
     &.header-variant-crow { background: linear-gradient(to top, #522828, 50%, #773939); }
     &.header-variant-dev { background: #006495; }
+    a.link { color: white; text-decoration: none }
   }
 
   &.forum-post-hidden>.forum-post-header { background: #ff0000; }
@@ -493,8 +494,8 @@
 
 .forum-preview-container {
   border: 1px solid @myhordes-smalltext; padding: 3px;
-  max-height: 300px; overflow: auto; font-size: 0.8em;
-  &.fix-height { height: 300px; }
+  overflow: auto; font-size: 0.8em;
+  &.fix-height { max-height: 300px; }
 
   .forum-post-header .post-note { display: none; }
   .forum-post-content {

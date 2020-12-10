@@ -87,6 +87,11 @@ class ItemPrototype implements NamedEntity
      */
     private $hideInForeignChest;
 
+    /**
+     * @ORM\Column(type="boolean", nullable=true)
+     */
+    private $fragile;
+
     public function __construct()
     {
         $this->properties = new ArrayCollection();
@@ -272,6 +277,18 @@ class ItemPrototype implements NamedEntity
     public function setHideInForeignChest(bool $hideInForeignChest): self
     {
         $this->hideInForeignChest = $hideInForeignChest;
+
+        return $this;
+    }
+
+    public function getFragile(): ?bool
+    {
+        return $this->fragile;
+    }
+
+    public function setFragile(?bool $fragile): self
+    {
+        $this->fragile = $fragile;
 
         return $this;
     }

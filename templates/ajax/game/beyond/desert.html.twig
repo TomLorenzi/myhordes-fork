@@ -1,14 +1,24 @@
 {% extends "ajax/game/beyond/beyond.html.twig" %}
 {% block title %}
 {# Time of day #}
-{% if "now"|date('H') < 12 %}
-    {{'An einem kalten Morgen...'|trans({}, 'game')|raw}}
+{% if "now"|date('H') >= 6 and "now"|date('H') < 9 %}
+    {{'Ein neuer Tag bricht an'|trans({}, 'game')|raw}}
+{% elseif "now"|date('H') < 12 %}
+    {{'An einem kalten Morgen'|trans({}, 'game')|raw}}
+{% elseif "now"|date('H') < 18 %}
+    {{"Die Außenwelt"|trans({}, 'game')|raw}}
+{% elseif "now"|date('H') < 20 %}
+    {{"Ein beunruhigender Sonnenuntergang"|trans({}, 'game')|raw}}
 {% else %}
-    {{"Die Außenwelt..."|trans({}, 'game')|raw}}
+    {{"Eine eisige Nacht"|trans({}, 'game')|raw}}
 {% endif %}
 {# Alone or not #}
 {% if other_citizens|length == 1 %}
-{{'allein'|trans({}, 'game')|raw}}
+    {{'... allein'|trans({}, 'game')|raw}}
+{% elseif other_citizens|length == 2 %}
+    {% set othername = other_citizens[0].user.name %}
+    {% if other_citizens[0].user == app.user %}{% set othername = other_citizens[1].user.name %}{% endif %}
+    {{'an der Seite von %citizen%'|trans({"%citizen%": othername}, 'game')|raw}}
 {% endif %}
 {# Direction #}
 {% set dir = "" %}
@@ -30,7 +40,18 @@
     {% set dir = 'im Südosten'|trans({},'game') %}
 {% endif %}
 {% if dir != "" %}
-, {{'irgendwo %location% der Stadt...'|trans({'%location%': dir}, 'game')|raw}}
+    {% if not zone.prototype %}
+        , {{'irgendwo %location% der Stadt...'|trans({'%location%': dir}, 'game')|raw}}
+    {% elseif zone.buryCount > 0 %}
+        {{"allein inmitten eines Labyrinths aus Schutt..."|trans({'%location%': dir}, 'game')|raw}}
+    {% else %}
+        {{"Am Eingang einer beängstigenden Ruine %location%"|trans({'%location%': dir}, 'game')|raw}}
+    {% endif %}    
+{% else %}
+    {{'an den Toren der Stadt'|trans({}, 'game')|raw}}
+{% endif %}
+{% if zone_blocked %}
+    , {{'eingeschlossen und auf den Tod wartend...'|trans({}, 'game')|raw}}
 {% endif %}
 {% endblock %}
 {% block menu_text %}

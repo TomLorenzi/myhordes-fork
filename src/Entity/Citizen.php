@@ -373,6 +373,14 @@ class Citizen
         return $this->roles;
     }
 
+    /**
+     * @return Collection|CitizenRole[]
+     */
+    public function getVisibleRoles(): Collection
+    {
+        return $this->getRoles()->filter(fn(CitizenRole $r) => !$r->getHidden());
+    }
+
     public function addRole(CitizenRole $role): self
     {
         if (!$this->roles->contains($role)) {

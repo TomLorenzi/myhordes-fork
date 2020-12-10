@@ -138,10 +138,13 @@ class DatabaseExtractor implements ExtractorInterface
                 $this->insert( $c, $causeOfDeath->getDescription(), 'game' );
         }
 
-        foreach ($this->em->getRepository(CitizenProfession::class)->findAll() as $profession)
+        foreach ($this->em->getRepository(CitizenProfession::class)->findAll() as $profession) {
             /** @var CitizenProfession $profession */
             if ($profession->getLabel())
                 $this->insert( $c, $profession->getLabel(), 'game' );
+            if ($profession->getDescription())
+                $this->insert( $c, $profession->getDescription(), 'game' );
+        }
 
         foreach ($this->em->getRepository(CitizenRole::class)->findAll() as $role) {
             /** @var CitizenRole $role */

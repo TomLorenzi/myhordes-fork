@@ -1523,6 +1523,10 @@ class MessageController extends CustomAbstractController
                     $name = $this->trans->trans( $item ? $item->getLabel() : '', [], 'items' );
                     $post->setText( $this->prepareEmotes($post->getText()) . $this->trans->trans( 'Es scheint so, als ob ein anderer Bürger Gefallen an deinem Inventar gefunden hätte... Dir wurde folgendes gestohlen: %icon% %item%', ['%icon%' => $img, '%item%' => $name], 'game' ) );
                     break;
+                case PrivateMessage::TEMPLATE_CROW_CATAPULT:
+                    $thread->setTitle( $this->trans->trans('Du bist für das Katapult verantwortlich', [], 'game') );
+                    $post->setText( $this->prepareEmotes($post->getText()) . $this->trans->trans( 'Du bist zum offiziellen Katapult-Bediener der Stadt ernannt worden. Diese Ernennung erfolgte durch Auslosung; Herzlichen Glückwunsch! Finde dich so bald wie Möglich beim städtischen Katapult ein.', [], 'game' ) );
+                    break;
                 default:
                     $post->setText($this->prepareEmotes($post->getText()));
             }

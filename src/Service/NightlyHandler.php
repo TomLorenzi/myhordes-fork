@@ -214,14 +214,11 @@ class NightlyHandler
             $citizen->getUser()->setHeroDaysSpent($citizen->getUser()->getHeroDaysSpent() + 1);
 
             if($nextSkill !== null && $citizen->getUser()->getAllHeroDaysSpent() >= $nextSkill->getDaysNeeded()){
-                $this->log->debug("Citizen <info>{$citizen->getUser()->getUsername()}</info> has unlocked a new skill : <info>{$nextSkill->getTitle()}</info>");
+                $this->log->info("Citizen <info>{$citizen->getUser()->getUsername()}</info> has unlocked a new skill : <info>{$nextSkill->getTitle()}</info>");
 
                 switch($nextSkill->getName()){
                     case "brothers":
                         //TODO: add the heroic power
-                        break;
-                    case "largerucksack1":
-                        $citizen->getInventory->setAdditionalStorage($citizen->getAdditionalStorage() + 1);
                         break;
                     case "largechest1":
                     case "largechest2":
@@ -394,8 +391,7 @@ class NightlyHandler
         $gazette->setInvasion($overflow);
 
         $this->entity_manager->persist( $this->logTemplates->nightlyAttackBegin($town, $zombies) );
-        $this->entity_manager->persist( $this->logTemplates->nightlyAttackSummary($town, $town->getDoor(), $overflow) );
-
+        
         $this->log->debug("Getting watchers for day " . $town->getDay());
 
         /** @var CitizenWatch[] $watchers */
@@ -403,6 +399,8 @@ class NightlyHandler
 
         if(count($watchers) > 0)
             $this->entity_manager->persist($this->logTemplates->nightlyAttackWatchers($town, $watchers));
+
+        $this->entity_manager->persist( $this->logTemplates->nightlyAttackSummary($town, $town->getDoor(), $overflow) );
 
         $total_watch_def = $this->town_handler->calculate_watch_def($town);
         $zeds_each_watcher = -1;
@@ -426,7 +424,7 @@ class NightlyHandler
 
             $defWatchers += $defBonus;
 
-            $deathChances = $this->citizen_handler->getDeathChances($watcher->getCitizen());
+            $deathChances = $this->citizen_handler->getDeathChances($watcher->getCitizen(), true);
             $woundOrTerrorChances = $deathChances + $this->conf->getTownConfiguration($town)->get(TownConf::CONF_MODIFIER_WOUND_TERROR_PENALTY, 0.05);
             $ctz = $watcher->getCitizen();
             if($this->random->chance($deathChances)){

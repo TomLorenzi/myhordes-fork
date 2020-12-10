@@ -42,7 +42,7 @@ class CitizenHandler
 
     public function __construct(EntityManagerInterface $em, StatusFactory $sf, RandomGenerator $g, InventoryHandler $ih,
                                 PictoHandler $ph, ItemFactory $if, LogTemplateHandler $lh, ContainerInterface $c, UserHandler $uh,
-                                ConfMaster $conf)
+                                ConfMaster $conf )
     {
         $this->entity_manager = $em;
         $this->status_factory = $sf;
@@ -205,6 +205,8 @@ class CitizenHandler
         if ($action) {
             if (!$citizen->getBanished()) $this->entity_manager->persist( $this->log->citizenBanish( $citizen ) );
             $citizen->setBanished( true );
+            if ($citizen->hasRole('cata'))
+                $citizen->removeRole($this->entity_manager->getRepository(CitizenRole::class)->findOneByName('cata'));
 
             // Disable escort on banishment
             if ($citizen->getEscortSettings()) {
@@ -622,7 +624,8 @@ class CitizenHandler
         // Night time bonus.
         $camping_values['night'] = 0;
         $camping_datetime = new DateTime();
-        $camping_datetime->setTimestamp( $citizen->getCampingTimestamp() );
+        if ($citizen->getCampingTimestamp() > 0)
+            $camping_datetime->setTimestamp( $citizen->getCampingTimestamp() );
         if ($camping_datetime->format('G') >= 19 || $camping_datetime->format('G') < 7) {
             $camping_values['night'] = 2;
         }
@@ -655,12 +658,12 @@ class CitizenHandler
         return 0;
     }
 
-    public function getDeathChances(Citizen $citizen): float {
+    public function getDeathChances(Citizen $citizen, bool $during_attack = false): float {
         $baseChance = 0.05;
         $baseChance -= $this->getNightwatchProfessionSurvivalBonus($citizen);
 
         $chances = $baseChance;
-        for($i = 0 ; $i < $citizen->getTown()->getDay() - 1; $i++){
+        for($i = 0 ; $i < $citizen->getTown()->getDay() - ($during_attack ? 2 : 1); $i++){
             /** @var CitizenWatch|null $previousWatches */
             $previousWatches = $this->entity_manager->getRepository(CitizenWatch::class)->findWatchOfCitizenForADay($citizen, $i + 1);
             if($previousWatches === null || $previousWatches->getSkipped()) {
@@ -688,8 +691,6 @@ class CitizenHandler
 
         if($this->isWounded($citizen)) $chances += 0.20;
         if($citizen->hasRole('ghoul')) $chances -= 0.05;
-
-        $chances = min($baseChance, $chances);
 
         return $chances;
     }
