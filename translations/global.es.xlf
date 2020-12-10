@@ -1303,7 +1303,7 @@
       </notes>
       <segment>
         <source>Deinen Rucksack umklammern</source>
-        <target>Deinen Rucksack umklammern</target>
+        <target>¡Tengo esposa e hijos!</target>
       </segment>
     </unit>
     <unit id="My.PxrH" name="Schreien">
@@ -1311,8 +1311,8 @@
         <note category="german">Schreien</note>
       </notes>
       <segment>
-        <source>Gritar</source>
-        <target>Schreien</target>
+        <source>Schreien</source>
+        <target>¡Nooooooo!</target>
       </segment>
     </unit>
     <unit id="pBxprfI" name="Rotz und Wasser heulen">
@@ -1321,7 +1321,7 @@
       </notes>
       <segment>
         <source>Rotz und Wasser heulen</source>
-        <target>Rotz und Wasser heulen</target>
+        <target>¡Me muero!</target>
       </segment>
     </unit>
     <unit id="0GmUL4e" name="Die Zähne zusammenbeißen">
@@ -1330,7 +1330,7 @@
       </notes>
       <segment>
         <source>Die Zähne zusammenbeißen</source>
-        <target>Die Zähne zusammenbeißen</target>
+        <target>¡Me vengaré!</target>
       </segment>
     </unit>
     <unit id="VgN.Hot" name="Eine Gitarre umarmen">
@@ -1339,7 +1339,7 @@
       </notes>
       <segment>
         <source>Eine Gitarre umarmen</source>
-        <target>Eine Gitarre umarmen</target>
+        <target>¡No se lleven a mi amigo!</target>
       </segment>
     </unit>
     <unit id="PeITDbg" name="Nervös weinen">
@@ -1348,7 +1348,7 @@
       </notes>
       <segment>
         <source>Nervös weinen</source>
-        <target>Nervös weinen</target>
+        <target>¡Que se coman a mis vecinos!</target>
       </segment>
     </unit>
     <unit id="Qi1mhHC" name="In Panik ausbrechen">
@@ -1357,7 +1357,7 @@
       </notes>
       <segment>
         <source>In Panik ausbrechen</source>
-        <target>In Panik ausbrechen</target>
+        <target>¡Esta vez no podrán conmigo!</target>
       </segment>
     </unit>
     <unit id="BCykX16" name="Hinter dem Wrack verstecken">
@@ -1366,7 +1366,7 @@
       </notes>
       <segment>
         <source>Hinter dem Wrack verstecken</source>
-        <target>Hinter dem Wrack verstecken</target>
+        <target>¡Ay que miedo!</target>
       </segment>
     </unit>
     <unit id="ho1chRn" name="Die Tür zuhalten">
@@ -1375,7 +1375,7 @@
       </notes>
       <segment>
         <source>Die Tür zuhalten</source>
-        <target>Die Tür zuhalten</target>
+        <target>¿Por qué a mí?</target>
       </segment>
     </unit>
     <unit id="7ajXkGq" name="Unter der Decke verstecken">
@@ -1384,7 +1384,7 @@
       </notes>
       <segment>
         <source>Unter der Decke verstecken</source>
-        <target>Unter der Decke verstecken</target>
+        <target>¡Mi carne apesta!</target>
       </segment>
     </unit>
     <unit id="F87Kxz9" name="Nach Hilfe schreien">
@@ -1393,7 +1393,7 @@
       </notes>
       <segment>
         <source>Nach Hilfe schreien</source>
-        <target>Nach Hilfe schreien</target>
+        <target>¡Auxiliooo!</target>
       </segment>
     </unit>
     <unit id="UC2Xq1w" name="&quot;Hilfe&quot; schreien">
@@ -1402,7 +1402,7 @@
       </notes>
       <segment>
         <source>"Hilfe" schreien</source>
-        <target>"Hilfe" schreien</target>
+        <target>¡Adiós mundo cruel!</target>
       </segment>
     </unit>
     <unit id="IzxXFRY" name="Unter einem Karton verstecken">
@@ -1411,7 +1411,7 @@
       </notes>
       <segment>
         <source>Unter einem Karton verstecken</source>
-        <target>Unter einem Karton verstecken</target>
+        <target>¡Malditos zombies!</target>
       </segment>
     </unit>
     <unit id="68aHwRD" name="Unter dem Bett verstecken">
@@ -1420,7 +1420,7 @@
       </notes>
       <segment>
         <source>Unter dem Bett verstecken</source>
-        <target>Unter dem Bett verstecken</target>
+        <target>Esconderse bajo la cama</target>
       </segment>
     </unit>
     <unit id=".md5gGf" name="Ruhig bleiben...">
@@ -1438,7 +1438,7 @@
       </notes>
       <segment>
         <source>In die Fötusstellung zusammenrollen</source>
-        <target>In die Fötusstellung zusammenrollen</target>
+        <target>Llorar en posición fetal</target>
       </segment>
     </unit>
     <unit id="1uUvkyM" name="Alleine laut singen">
@@ -1447,7 +1447,7 @@
       </notes>
       <segment>
         <source>Alleine laut singen</source>
-        <target>Alleine laut singen</target>
+        <target>¡Maaadre mía!</target>
       </segment>
     </unit>
     <unit id="V3ZrObm" name="Um dein Leben beten">
@@ -1456,7 +1456,7 @@
       </notes>
       <segment>
         <source>Um dein Leben beten</source>
-        <target>Rezar por tu vida</target>
+        <target>¡Soy demasiado joven!</target>
       </segment>
     </unit>
     <unit id="0HFdAAh" name="Die Backen halten">
@@ -1465,7 +1465,7 @@
       </notes>
       <segment>
         <source>Die Backen halten</source>
-        <target>Die Backen halten</target>
+        <target>Apretar el puño</target>
       </segment>
     </unit>
     <unit id="5m866jG" name="Mehr anzeigen">
