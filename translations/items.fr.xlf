@@ -7372,5 +7372,14 @@
         <target>On peut dire que vous avez eu de la chance... Avoir été victime de la Grande Contamination vous aura pour le moins sauvé cette fois-ci. Vous évitez une très désagréable infection.</target>
       </segment>
     </unit>
+    <unit id="tT6PQwS" name="Deine Waffe ist durch den harten Aufschlag &lt;strong&gt;kaputt&lt;/strong&gt; gegangen...">
+      <notes>
+        <note category="german">Deine Waffe ist durch den harten Aufschlag &lt;strong&gt;kaputt&lt;/strong&gt; gegangen...</note>
+      </notes>
+      <segment>
+        <source>Deine Waffe ist durch den harten Aufschlag &lt;strong&gt;kaputt&lt;/strong&gt; gegangen...</source>
+        <target><![CDATA[Toutefois, votre arme s'est <strong>cassée</strong> sous le choc...]]></target>
+      </segment>
+    </unit>
   </file>
 </xliff>

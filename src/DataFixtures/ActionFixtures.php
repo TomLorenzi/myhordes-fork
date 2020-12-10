@@ -244,7 +244,7 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             'do_nothing_wtns' => ['status' => 'lose_wtns', 'message' => ['text' => 'Da hast du wohl Glück gehabt... Als Opfer der Großen Seuche bist du diesmal um eine unangenehme Infektion herumgekommen.']],
 
             'consume_item'    => [ 'item' => [ 'consume' => true,  'morph' => null, 'break' => null, 'poison' => null ] ],
-            'break_item'      => [ 'item' => [ 'consume' => false, 'morph' => null, 'break' => true, 'poison' => null ] ],
+            'break_item'      => [ 'item' => [ 'consume' => false, 'morph' => null, 'break' => true, 'poison' => null ], "message" => ['text' => 'Deine Waffe ist durch den harten Aufschlag <strong>kaputt</strong> gegangen...', 'ordering' => 99999] ],
             'cleanse_item'    => [ 'item' => [ 'consume' => false, 'morph' => null, 'break' => true, 'poison' => false ] ],
             'empty_jerrygun'  => [ 'item' => [ 'consume' => false, 'morph' => 'jerrygun_off_#00', 'break' => null, 'poison' => null ] ],
 
@@ -300,9 +300,9 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             'produce_watercan1' => [ 'item' => [ 'consume' => false, 'morph' => 'water_can_1_#00' ] ],
             'produce_watercan0' => [ 'item' => [ 'consume' => false, 'morph' => 'water_can_empty_#00', 'break' => null, 'poison' => false ] ],
 
-            'kill_1_zombie' => [ 'zombies' => 'kill_1z' ],
-            'kill_1_2_zombie' => [ 'zombies' => 'kill_1z_2z' ],
-            'kill_2_zombie' => [ 'zombies' => 'kill_2z' ],
+            'kill_1_zombie' => [ 'zombies' => 'kill_1z', 'message' => ['text' => '<t-kill-latest>Du hast alle Zombies in dieser Zone mit dieser Waffe umgebracht: {item} ! Entspann dich mal... oder vielleicht besser nicht?</t-kill-latest><t-kills>Vous avez éliminé {kills} zombie en utilisant {item} . Ha ! Ha ! Un peu plus de chair étalée... Ca soulage de supprimer du zombie de temps en temps.</t-kills>'] ],
+            'kill_1_2_zombie' => [ 'zombies' => 'kill_1z_2z', 'message' => ['text' => '<t-kill-latest>Du hast alle Zombies in dieser Zone mit dieser Waffe umgebracht: {item} ! Entspann dich mal... oder vielleicht besser nicht?</t-kill-latest><t-kills>Vous avez éliminé {kills} zombie en utilisant {item} . Ha ! Ha ! Un peu plus de chair étalée... Ca soulage de supprimer du zombie de temps en temps.</t-kills>'] ],
+            'kill_2_zombie' => [ 'zombies' => 'kill_2z', 'message' => ['text' => '<t-kill-latest>Du hast alle Zombies in dieser Zone mit dieser Waffe umgebracht: {item} ! Entspann dich mal... oder vielleicht besser nicht?</t-kill-latest><t-kills>Vous avez éliminé {kills} zombie en utilisant {item} . Ha ! Ha ! Un peu plus de chair étalée... Ca soulage de supprimer du zombie de temps en temps.</t-kills>'] ],
             'kill_all_zombie' => [ 'zombies' => 'kill_all_z' ],
 
             'find_rp' => [ 'rp' => [true] ],

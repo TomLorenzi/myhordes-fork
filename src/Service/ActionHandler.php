@@ -545,6 +545,7 @@ class ActionHandler
             'message' => [
             	$action->getMessage()
             ],
+            'kills' => 0
         ];
 
         if ($citizen->activeExplorerStats())
@@ -737,10 +738,15 @@ class ActionHandler
                 if ($citizen->getZone() && !$citizen->activeExplorerStats()) {
                     $kills = min($citizen->getZone()->getZombies(), mt_rand( $zombie_kill->getMin(), $zombie_kill->getMax() ));
                     if ($kills > 0) {
-                        $tags[] = 'kills';
                         $citizen->getZone()->setZombies( $citizen->getZone()->getZombies() - $kills );
+                        $execute_info_cache['kills'] = $kills;
                         $this->entity_manager->persist( $this->log->zombieKill( $citizen, $item ? $item->getPrototype() : null, $kills ) );
                         $this->picto_handler->give_picto($citizen, 'r_killz_#00', $kills);
+                        if($citizen->getZone()->getZombies() <= 0){
+                            $tags[] = 'kill-latest';
+                        } else {
+                            $tags[] = 'kills';
+                        }
                     }
                 }
 
@@ -1228,7 +1234,8 @@ class ActionHandler
         if(!empty($execute_info_cache['message'])) {
         	// We order the messages
         	ksort($execute_info_cache['message']);
-
+            file_put_contents("/tmp/dump.txt", print_r($tags, true));
+            file_put_contents("/tmp/dump.txt", print_r($execute_info_cache['message'], true), FILE_APPEND);
         	// We translate & replace placeholders in each messages
         	$addedContent = [];
         	foreach ($execute_info_cache['message'] as $contentMessage) {
@@ -1249,7 +1256,8 @@ class ActionHandler
 	                '{bp_spawn}'      => $this->wrap_concat($execute_info_cache['bp_spawn']),
 	                '{rp_text}'       => $this->wrap( $execute_info_cache['rp_text'] ),
 	                '{zone}'          => $execute_info_cache['zone'] ? $this->wrap( "{$execute_info_cache['zone']->getX()} / {$execute_info_cache['zone']->getY()}" ) : '',
-	                '{casino}'        => $execute_info_cache['casino'],
+                    '{casino}'        => $execute_info_cache['casino'],
+                    '{kills}'         => $execute_info_cache['kills'],
 	            ], 'items' );
 	        	do {
 	                $contentMessage = preg_replace_callback( '/<t-(.*?)>(.*?)<\/t-\1>/' , function(array $m) use ($tags): string {
@@ -1261,7 +1269,8 @@ class ActionHandler
 	                    return !in_array( $tag, $tags ) ? $text : '';
 	                }, $contentMessage, -1, $d);
 	            } while ($c > 0 || $d > 0);
-	            $addedContent[] = $contentMessage;
+                $addedContent[] = $contentMessage;
+                file_put_contents("/tmp/dump.txt", $contentMessage, FILE_APPEND);
         	}
 
         	// We remove empty elements
