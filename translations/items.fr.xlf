@@ -6301,13 +6301,13 @@
         <target>Divers</target>
       </segment>
     </unit>
-    <unit id="9VFJt3E" name="9e61209">
+    <unit id="Rjbh1eD" name="a214ff9">
       <notes>
-        <note category="german">&lt;t-bp_ok&gt;Du liest den {item} und stellst fest, dass es sich um einen Plan für {bp_spawn} handelt.&lt;/t-bp_ok&gt;&lt;t-bp_parent&gt;Dafür ist das Bauprojekt {bp_parent} nötig.&lt;/t-bp_parent&gt;&lt;t-bp_fail&gt;Du versuchst den {item} zu lesen, kannst seinen Inhalt aber nicht verstehen ...&lt;/t-bp_fail&gt;</note>
+        <note category="german">&lt;t-bp_ok&gt;Du liest den {item} und stellst fest, dass es sich um einen Plan für {bp_spawn} handelt.&lt;/t-bp_ok&gt;&lt;t-bp_parent&gt;{hr}Dafür ist das Bauprojekt {bp_parent} nötig.&lt;/t-bp_parent&gt;&lt;t-bp_fail&gt;Du versuchst den {item} zu lesen, kannst seinen Inhalt aber nicht verstehen ...&lt;/t-bp_fail&gt;</note>
       </notes>
       <segment>
-        <source>&lt;t-bp_ok&gt;Du liest den {item} und stellst fest, dass es sich um einen Plan für {bp_spawn} handelt.&lt;/t-bp_ok&gt;&lt;t-bp_parent&gt;Dafür ist das Bauprojekt {bp_parent} nötig.&lt;/t-bp_parent&gt;&lt;t-bp_fail&gt;Du versuchst den {item} zu lesen, kannst seinen Inhalt aber nicht verstehen ...&lt;/t-bp_fail&gt;</source>
-        <target><![CDATA[<t-bp_ok>Après examen du plan, vous découvrez qu'il décrit précisément la construction de {bp_spawn}.</t-bp_ok><t-bp_parent>Ce projet nécessite la construction préalable de : {bp_parent}.</t-bp_parent><t-bp_fail>Vous essayez de lire le {item} mais vous ne comprenez pas un mot de ce qui est écrit...</t-bp_fail>]]></target>
+        <source>&lt;t-bp_ok&gt;Du liest den {item} und stellst fest, dass es sich um einen Plan für {bp_spawn} handelt.&lt;/t-bp_ok&gt;&lt;t-bp_parent&gt;{hr}Dafür ist das Bauprojekt {bp_parent} nötig.&lt;/t-bp_parent&gt;&lt;t-bp_fail&gt;Du versuchst den {item} zu lesen, kannst seinen Inhalt aber nicht verstehen ...&lt;/t-bp_fail&gt;</source>
+        <target><![CDATA[<t-bp_ok>Après examen du plan, vous découvrez qu'il décrit précisément la construction de {bp_spawn}.</t-bp_ok><t-bp_parent>{hr}Ce projet nécessite la construction préalable de : {bp_parent}.</t-bp_parent><t-bp_fail>Vous essayez de lire le {item} mais vous ne comprenez pas un mot de ce qui est écrit...</t-bp_fail>]]></target>
       </segment>
     </unit>
     <unit id="77.Cp5H" name="Verteidigung">
@@ -7379,6 +7379,15 @@
       <segment>
         <source>Deine Waffe ist durch den harten Aufschlag &lt;strong&gt;kaputt&lt;/strong&gt; gegangen...</source>
         <target><![CDATA[Toutefois, votre arme s'est <strong>cassée</strong> sous le choc...]]></target>
+      </segment>
+    </unit>
+    <unit id="uHEMxan" name="430096c">
+      <notes>
+        <note category="german">&lt;t-kill-latest&gt;Du hast alle Zombies in dieser Zone mit dieser Waffe umgebracht: {item} ! Entspann dich mal... oder vielleicht besser nicht?&lt;/t-kill-latest&gt;&lt;t-kills&gt;Vous avez éliminé {kills} zombie en utilisant {item} . Ha ! Ha ! Un peu plus de chair étalée... Ca soulage de supprimer du zombie de temps en temps.&lt;/t-kills&gt;</note>
+      </notes>
+      <segment>
+        <source>&lt;t-kill-latest&gt;Du hast alle Zombies in dieser Zone mit dieser Waffe umgebracht: {item} ! Entspann dich mal... oder vielleicht besser nicht?&lt;/t-kill-latest&gt;&lt;t-kills&gt;Vous avez éliminé {kills} zombie en utilisant {item} . Ha ! Ha ! Un peu plus de chair étalée... Ca soulage de supprimer du zombie de temps en temps.&lt;/t-kills&gt;</source>
+        <target><![CDATA[<t-kill-latest>Tous les zombies de la zone ont été pulvérisés en utilisant {item} ! Vous pouvez vous détendre... Ou pas...</t-kill-latest><t-kills>Vous avez éliminé {kills} zombie en utilisant {item} . Ha ! Ha ! Un peu plus de chair étalée... Ca soulage de supprimer du zombie de temps en temps.</t-kills>]]></target>
       </segment>
     </unit>
   </file>
