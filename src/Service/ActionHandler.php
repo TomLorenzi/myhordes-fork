@@ -7,6 +7,7 @@ namespace App\Service;
 use App\Entity\BuildingPrototype;
 use App\Entity\CampingActionPrototype;
 use App\Entity\CauseOfDeath;
+use App\Entity\ChatSilenceTimer;
 use App\Entity\Citizen;
 use App\Entity\CitizenHomeUpgrade;
 use App\Entity\CitizenRole;
@@ -819,14 +820,15 @@ class ActionHandler
                         $base_zone->addEscapeTimer((new EscapeTimer())->setTime(new DateTime("+{$zoneEffect->getEscape()}sec")));
                         $tags[] = 'escape';
                     }
-
-
                 }
 
+                if ($zoneEffect->getImproveLevel()) {
+                    $base_zone->setImprovementLevel( $base_zone->getImprovementLevel() + $zoneEffect->getImproveLevel() );
+                }
 
-              if ($zoneEffect->getImproveLevel()) {
-                $base_zone->setImprovementLevel( $base_zone->getImprovementLevel() + $zoneEffect->getImproveLevel() );
-              }
+                if($zoneEffect->getChatSilence() !== null && $zoneEffect->getChatSilence() > 0) {
+                    $base_zone->addChatSilenceTimer((new ChatSilenceTimer())->setTime(new DateTime("+{$zoneEffect->getChatSilence()}sec")));
+                }
             }
 
             if ($well = $result->getWell()) {

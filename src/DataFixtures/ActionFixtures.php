@@ -2302,6 +2302,7 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
     {
         if (!isset($cache[$id])) {
             $result = $manager->getRepository(AffectZone::class)->findOneBy(['name' => $id]);
+            /** @var AffectZone $result */
             if ($result) $out->writeln( "\t\t\t<comment>Update</comment> effect <info>zone/{$id}</info>", OutputInterface::VERBOSITY_DEBUG );
             else {
                 $result = new AffectZone();
@@ -2312,7 +2313,8 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
                 ->setUncoverZones( $data['scout'] ?? false )
                 ->setUncoverRuin( $data['uncover'] ?? false )
                 ->setEscape( $data['escape'] ?? null )
-                ->setImproveLevel( $data['improve'] ?? null );
+                ->setImproveLevel( $data['improve'] ?? null )
+                ->setChatSilence( $data['chatSilence'] ?? null);
             $manager->persist( $cache[$id] = $result );
         } else $out->writeln( "\t\t\t<comment>Skip</comment> effect <info>zone/{$id}</info>", OutputInterface::VERBOSITY_DEBUG );
 
