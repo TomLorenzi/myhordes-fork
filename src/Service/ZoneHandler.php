@@ -285,7 +285,7 @@ class ZoneHandler
 
         // Respawn
         $d = $town->getDay();
-        if ($mode === self::RespawnModeForce || ($mode === self::RespawnModeAuto && $d < 3 && count($empty_zones) > (count($zones)* 18/20))) {
+        if ($mode === self::RespawnModeForce || ($mode === self::RespawnModeAuto && count($empty_zones) > (count($zones)* 18/20))) {
             $keys = $d == 1 ? [array_rand($empty_zones)] : array_rand($empty_zones, $d);
             foreach ($keys as $spawn_zone_id)
                 /** @var Zone $spawn_zone */
