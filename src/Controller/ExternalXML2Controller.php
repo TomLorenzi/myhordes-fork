@@ -160,7 +160,8 @@ class ExternalXML2Controller extends ExternalController {
             $language = $user->getLanguage() ?? 'de';
         }
 
-        $trans->setLocale($language);
+        if($language !== 'all')
+            $trans->setLocale($language);
 
         // Base data.
         $data = $this->getHeaders($language);
@@ -210,9 +211,8 @@ class ExternalXML2Controller extends ExternalController {
                 
                 /** @var Item $item */
                 foreach($zone->getFloor()->getItems() as $item) {
-                    $data['headers']['owner']['myZone']['list']['items'][] = [
+                    $node = [
                         'attributes' => [
-                            'name' => $trans->trans($item->getPrototype()->getLabel(), [], 'items'),
                             'count' => 1,
                             'id' => $item->getPrototype()->getId(),
                             'cat' => $item->getPrototype()->getCategory()->getName(),
@@ -220,6 +220,15 @@ class ExternalXML2Controller extends ExternalController {
                             'broken' => intval($item->getBroken())
                         ]
                     ];
+
+                    if($language !== "all")
+                        $node['attributes']['name'] = $trans->trans($item->getPrototype()->getLabel(), [], 'items');
+                    else {
+                        foreach ($this->available_langs as $lang) {
+                            $node['attributes']["name-$lang"] = $trans->trans($item->getPrototype()->getLabel(), [], 'items', $lang);
+                        }
+                    }
+                    $data['headers']['owner']['myZone']['list']['items'][] = $node;
                 }
             }
             $data['headers']['game'] = [
@@ -257,24 +266,41 @@ class ExternalXML2Controller extends ExternalController {
                     'rare' => intval($picto['rare']),
                     'n' => $picto['c'],
                     'img' => $this->asset->getUrl( "build/images/pictos/{$picto['icon']}.gif"), // TODO: Fix img name to reflect real generated name
-                    'desc' => $trans->trans($picto['description'], [], "game"),
                 ],
                 'list' => [
                     'name' => 'title',
                     'items' => []
                 ],
             ];
+            if($language !== "all") {
+                $node['attributes']['name'] = $trans->trans($picto['label'], [], 'game');
+                $node['attributes']['desc'] = $trans->trans($picto['description'], [], 'game');
+            } else {
+                foreach ($this->available_langs as $lang) {
+                    $node['attributes']["name-$lang"] = $trans->trans($picto['label'], [], 'game', $lang);
+                    $node['attributes']["desc-$lang"] = $trans->trans($picto['description'], [], 'game', $lang);
+                }
+            }
+            
             $criteria = new Criteria();
-            $criteria->andWhere($criteria->expr()->gte('unlockQuantity', $picto['c']));
+            $criteria->andWhere($criteria->expr()->lte('unlockQuantity', $picto['c']));
             $criteria->andWhere($criteria->expr()->eq('associatedPicto', $this->entity_manager->getRepository(PictoPrototype::class)->find($picto['id'])));
+
             $titles = $this->entity_manager->getRepository(AwardPrototype::class)->matching($criteria);
             foreach($titles as $title){
                 /** @var AwardPrototype $title */
-                $node['list']['items'][] = [
+                $nodeTitle = [
                     'attributes' => [
-                        'name' => $trans->trans($title->getTitle(), [], 'game')
                     ]
                 ];
+                if($language !== 'all'){
+                    $nodeTitle['attributes']["name"] = $trans->trans($title->getTitle(), [], 'game');
+                } else {
+                    foreach ($this->available_langs as $lang) {
+                        $nodeTitle['attributes']["name-$lang"] = $trans->trans($title->getTitle(), [], 'game');
+                    }
+                }
+                $node['list']['items'][] = $nodeTitle;
             }
             $data['data']['rewards']['list']['items'][] = $node;
         }
@@ -380,8 +406,9 @@ class ExternalXML2Controller extends ExternalController {
             if($zone !== null){
                 $cp = 0;
                 foreach ($zone->getCitizens() as $c)
-                    if ($c->getAlive())
+                    if ($c->getAlive()){
                         $cp += $ch->getCP($c);
+                    }
 
                 $data['headers']['owner']['myZone'] = [
                     "attributes" => [
@@ -394,18 +421,27 @@ class ExternalXML2Controller extends ExternalController {
                         'items' => []
                     ]
                 ];
+                
                 /** @var Item $item */
                 foreach($zone->getFloor()->getItems() as $item) {
-                    $data['headers']['owner']['myZone']['list']['items'][] = [
+                    $node = [
                         'attributes' => [
-                            'name' => $trans->trans($item->getPrototype()->getLabel(), [], 'items'),
                             'count' => 1,
                             'id' => $item->getPrototype()->getId(),
                             'cat' => $item->getPrototype()->getCategory()->getName(),
-                            'img' => $this->asset->getUrl( "build/images/item/item_{$item->getPrototype()->getIcon()}.gif"),
+                            'img' => $this->asset->getUrl( "build/images/item/item_{$item->getPrototype()->getIcon()}.gif"), // TODO: Fix img name to reflect real generated name
                             'broken' => intval($item->getBroken())
                         ]
                     ];
+
+                    if($language !== "all")
+                        $node['attributes']['name'] = $trans->trans($item->getPrototype()->getLabel(), [], 'items');
+                    else {
+                        foreach ($this->available_langs as $lang) {
+                            $node['attributes']["name-$lang"] = $trans->trans($item->getPrototype()->getLabel(), [], 'items', $lang);
+                        }
+                    }
+                    $data['headers']['owner']['myZone']['list']['items'][] = $node;
                 }
             }
             $data['headers']['game'] = [
