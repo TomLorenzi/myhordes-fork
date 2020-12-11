@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\ActionCounter;
+use App\Entity\ChatSilenceTimer;
 use App\Entity\Citizen;
 use App\Entity\CitizenEscortSettings;
 use App\Entity\CitizenRole;
@@ -779,7 +780,16 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
             $this->citizen_handler->inflictStatus($mover, "tg_chk_movewb");
 
             // This text is a newly added one, but it breaks the "Sneak out of town"
-            if ($others_are_here && !($zone->getX() === 0 && $zone->getY() === 0)) $this->entity_manager->persist( $this->log->outsideMove( $mover, $zone, $new_zone, true  ) );
+            $smokeBombs = $zone->getChatSilenceTimers();
+            $hideMove = false;
+            foreach ($smokeBombs as $smokeBomb) {
+                /** @var ChatSilenceTimer $smokeBomb */
+                if($smokeBomb->getTime() > new \DateTime("-1min") && $smokeBomb->getCitizen() == $mover) {
+                    $hideMove = true;
+                    break;
+                }
+            }
+            if ($others_are_here && !($zone->getX() === 0 && $zone->getY() === 0) && !$hideMove) $this->entity_manager->persist( $this->log->outsideMove( $mover, $zone, $new_zone, true  ) );
             if (!($new_zone->getX() === 0 && $new_zone->getY() === 0)) $this->entity_manager->persist( $this->log->outsideMove( $mover, $new_zone, $zone, false ) );
 
             // Banished citizen's stash check

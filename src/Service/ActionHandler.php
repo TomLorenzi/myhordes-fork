@@ -21,6 +21,7 @@ use App\Entity\Item;
 use App\Entity\ItemAction;
 use App\Entity\ItemPrototype;
 use App\Entity\ItemTargetDefinition;
+use App\Entity\LogEntryTemplate;
 use App\Entity\PictoPrototype;
 use App\Entity\Recipe;
 use App\Entity\RequireDay;
@@ -29,6 +30,7 @@ use App\Entity\Requirement;
 use App\Entity\Result;
 use App\Entity\RolePlayText;
 use App\Entity\RuinZone;
+use App\Entity\TownLogEntry;
 use App\Entity\Zone;
 use App\Structures\EscortItemActionSet;
 use App\Structures\ItemRequest;
@@ -827,7 +829,18 @@ class ActionHandler
                 }
 
                 if($zoneEffect->getChatSilence() !== null && $zoneEffect->getChatSilence() > 0) {
-                    $base_zone->addChatSilenceTimer((new ChatSilenceTimer())->setTime(new DateTime("+{$zoneEffect->getChatSilence()}sec")));
+                    $base_zone->addChatSilenceTimer((new ChatSilenceTimer())->setTime(new DateTime("+{$zoneEffect->getChatSilence()}sec"))->setCitizen($citizen));
+                    $limit = new DateTime("-3min");
+                    $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneBy(['name' => 'smokeBombReplacement']);
+
+                    foreach ($this->entity_manager->getRepository(TownLogEntry::class)->findByFilter( $base_zone->getTown(), null, null, $base_zone, null, null ) as $entry)
+                        /** @var TownLogEntry $entry */
+                        if ($entry->getLogEntryTemplate() !== null){
+                            if($entry->getTimestamp() > $limit) {
+                                $entry->setLogEntryTemplate($template);
+                                $this->entity_manager->persist( $entry );
+                            }
+                        }
                 }
             }
 

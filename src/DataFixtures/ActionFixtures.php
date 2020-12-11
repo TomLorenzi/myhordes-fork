@@ -168,8 +168,8 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             'must_not_be_terrorized' => [ 'type' => Requirement::HideOnFail,    'collection' => [ 'status' => [ 'enabled' => false, 'status' => 'terror' ] ], 'text' => 'Das brauchst du gerade nicht ...' ],
 
             'must_be_outside'              => [ 'type' => Requirement::HideOnFail,    'collection' => [ 'location' => [ RequireLocation::LocationOutside ] ]],
-            'must_be_outside_or_exploring' => [ 'type' => Requirement::HideOnFail,  'collection' => [ 'location' => [ RequireLocation::LocationOutsideOrExploring ] ]],
-            'must_be_exploring'            => [ 'type' => Requirement::HideOnFail,  'collection' => [ 'location' => [ RequireLocation::LocationExploring ] ]],
+            'must_be_outside_or_exploring' => [ 'type' => Requirement::HideOnFail,    'collection' => [ 'location' => [ RequireLocation::LocationOutsideOrExploring ] ]],
+            'must_be_exploring'            => [ 'type' => Requirement::HideOnFail,    'collection' => [ 'location' => [ RequireLocation::LocationExploring ] ]],
             'must_be_inside'               => [ 'type' => Requirement::HideOnFail,    'collection' => [ 'location' => [ RequireLocation::LocationInTown  ] ]],
             'must_be_at_buried_ruin'       => [ 'type' => Requirement::CrossOnFail,   'collection' => [ 'location' => [ RequireLocation::LocationOutsideBuried ] ]],
             'must_be_outside_not_at_doors' => [ 'type' => Requirement::HideOnFail,    'collection' => [ 'location' => [ 'min' => 1 ] ] ],
@@ -750,6 +750,8 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
 
             'bomb_1'    => [ 'label' => 'Werfen', 'meta' => [ 'must_be_outside', 'must_be_blocked' ], 'result' => [ 'consume_item', [ 'zone' => ['escape' =>  40] ] ], 'message' => 'Mithilfe der {item} hast du dir etwas Zeit erkauft ... du solltest diesen Ort schnell verlassen!' ],
             'bomb_2'    => [ 'label' => 'Werfen', 'meta' => [ 'must_be_outside', 'must_be_blocked' ], 'result' => [ 'consume_item', [ 'zone' => ['escape' => 300] ] ], 'message' => 'Mithilfe der {item} hast du dir etwas Zeit erkauft ... du solltest diesen Ort schnell verlassen!' ],
+            
+            'smokebomb' => [ 'label' => 'Werfen', 'meta' => [ 'must_be_outside_not_at_doors' ], 'result' => [ 'consume_item', [ 'zone' => ['chatSilence' => 60] ] ], 'message' => 'Du wirfst eine Rauchbombe in diese Zone und ein Großes Durcheinander bricht aus!{hr}Deine <strong>nächste Bewegungsaktion</strong> wird night in das Register eingetragen, wenn sie <strong>innerhalb von 1 Minute</strong> erfolgt.' ],
 
             'eat_fleshroom_1'  => [ 'label' => 'Essen', 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'eat_ap', 'not_role_ghoul' ], 'result' => [ 'eat_ap6', 'consume_item', ['group' => [ ['do_nothing', 9], ['become_ghoul_25', 1] ]] ] ],
             'eat_fleshroom_2'  => [ 'label' => 'Essen', 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'eat_ap', 'role_ghoul' ],     'result' => [ 'eat_ap6', 'consume_item' ], ],
@@ -796,7 +798,7 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             'hero_generic_immune' => [ 'label' => 'Den Tod besiegen','cover' => true, 'meta' => [ 'not_yet_hero'], 'result' => [ 'hero_act', 'hero_immune' ] ],
             'hero_generic_rescue' => [ 'label' => 'Rettung', 'target' => ['type' => ItemTargetDefinition::ItemHeroicRescueType], 'meta' => [ 'must_be_inside', 'not_yet_hero'], 'result' => [ 'hero_act', ['custom' => [9]] ], 'message' => 'Du hast {citizen} auf heldenhafte Weise in die Stadt gebracht!' ],
             
-            'special_armag'        => [ 'label' => 'Durchgang in Kraft', 'allow_when_terrorized' => true, 'meta' => [ 'must_be_outside', 'must_have_zombies', 'must_be_blocked'], 'result' => [ ['group' => [ [['do_nothing'], 50], [[ ['zone' => ['escape' => 600] ], 'zombies' => ['kill_1z']], 50]]] ] ],
+            'special_armag'        => [ 'label' => 'Durchgang in Kraft', 'allow_when_terrorized' => true, 'meta' => [ 'must_be_outside', 'must_have_zombies', 'must_be_blocked'], 'result' => [ ['group' => [ [['do_nothing'], 50], [[ ['zone' => ['escape' => 600] ], ['zombies' => 'kill_1z']], 50]]] ] ],
             'special_vote_shaman'  => [ 'label' => 'Den Shamane wählen', 'target' => ['type' => ItemTargetDefinition::ItemCitizenType], 'meta' => [ 'must_be_outside' ], 'result' => [ ['custom' => [18]] ] ],
             'special_vote_guide'   => [ 'label' => 'Den Reiseleiter in der Außenwelt wählen', 'target' => ['type' => ItemTargetDefinition::ItemCitizenType], 'meta' => [ 'must_be_outside' ], 'result' => [ ['custom' => [19]] ] ],
 
@@ -1131,6 +1133,8 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             'digger_#00'         => ['nessquick'],
             'flesh_#00'          => ['bomb_1'],
             'flash_#00'          => ['bomb_2'],
+
+            'smoke_bomb_#00'     => ['smokebomb'],
 
             'teddy_#00'          => ['cuddle_teddy_1'],
             'teddy_#01'          => ['cuddle_teddy_2'],

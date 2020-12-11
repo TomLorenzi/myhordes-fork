@@ -7417,5 +7417,14 @@
         <target>Vous frappez un zombie de toutes vos forces, plusieurs fois, mais celui-ci ne s'effrondre pas sous vos coups !</target>
       </segment>
     </unit>
+    <unit id="vjGT4IQ" name="52f9bac">
+      <notes>
+        <note category="german">Du wirfst eine Rauchbombe in diese Zone und ein Großes Durcheinander bricht aus!{hr}Deine &lt;strong&gt;nächste Bewegungsaktion&lt;/strong&gt; wird night in das Register eingetragen, wenn sie &lt;strong&gt;innerhalb von 1 Minute&lt;/strong&gt; erfolgt.</note>
+      </notes>
+      <segment>
+        <source>Du wirfst eine Rauchbombe in diese Zone und ein Großes Durcheinander bricht aus!{hr}Deine &lt;strong&gt;nächste Bewegungsaktion&lt;/strong&gt; wird night in das Register eingetragen, wenn sie &lt;strong&gt;innerhalb von 1 Minute&lt;/strong&gt; erfolgt.</source>
+        <target><![CDATA[Vous jetez votre fumigène dans la zone, semant la plus grande confusion !{hr}Votre <strong>prochain déplacement</strong> ne sera pas consigné au registre s'il est effectué <strong>d'ici 1 minute au plus tard</strong>.]]></target>
+      </segment>
+    </unit>
   </file>
 </xliff>

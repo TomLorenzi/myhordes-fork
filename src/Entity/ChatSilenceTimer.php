@@ -28,6 +28,12 @@ class ChatSilenceTimer
      */
     private $time;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Citizen::class)
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $citizen;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -53,6 +59,18 @@ class ChatSilenceTimer
     public function setTime(\DateTimeInterface $time): self
     {
         $this->time = $time;
+
+        return $this;
+    }
+
+    public function getCitizen(): ?Citizen
+    {
+        return $this->citizen;
+    }
+
+    public function setCitizen(?Citizen $citizen): self
+    {
+        $this->citizen = $citizen;
 
         return $this;
     }

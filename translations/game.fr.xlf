@@ -15624,5 +15624,14 @@
         <target>Vous avez contribué à la construction du chantier %plan%. Vous avez utilisé %count% point(s) d'action..</target>
       </segment>
     </unit>
+    <unit id="b5TnxTe" name="[ Es riecht nach Tannenzapfen... ]">
+      <notes>
+        <note category="german">[ Es riecht nach Tannenzapfen... ]</note>
+      </notes>
+      <segment>
+        <source>[ Es riecht nach Tannenzapfen... ]</source>
+        <target>[ Ça sent le sapin... ]</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
