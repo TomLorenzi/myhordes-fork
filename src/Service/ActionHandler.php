@@ -552,7 +552,8 @@ class ActionHandler
             'message' => [
             	$action->getMessage()
             ],
-            'kills' => 0
+            'kills' => 0,
+            'bury_count' => 0
         ];
 
         if ($citizen->activeExplorerStats())
@@ -799,7 +800,9 @@ class ActionHandler
                         }
 
                 if ($zoneEffect->getUncoverRuin()) {
-                    $base_zone->setBuryCount( max(0, $base_zone->getBuryCount() - mt_rand(2,3)) );
+                    $count = min(mt_rand(2,5), $base_zone->getBuryCount());
+                    $execute_info_cache['bury_count'] = $count;
+                    $base_zone->setBuryCount( max(0, $base_zone->getBuryCount() - $count ));
                     if ($base_zone->getPrototype())
                         $this->entity_manager->persist( $this->log->outsideUncover( $citizen ) );
                 }
@@ -1274,6 +1277,7 @@ class ActionHandler
 	                '{zone}'          => $execute_info_cache['zone'] ? $this->wrap( "{$execute_info_cache['zone']->getX()} / {$execute_info_cache['zone']->getY()}" ) : '',
 	                '{casino}'        => $execute_info_cache['casino'],
 	                '{kills}'         => $execute_info_cache['kills'],
+	                '{bury_count}'    => $execute_info_cache['bury_count'],
 	                '{hr}'            => "<hr />",
 	            ], 'items' );
 	        	do {

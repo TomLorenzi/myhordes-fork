@@ -7390,5 +7390,32 @@
         <target><![CDATA[<t-kill-latest>Tous les zombies de la zone ont été pulvérisés en utilisant {item} ! Vous pouvez vous détendre... Ou pas...</t-kill-latest><t-kills>Vous avez éliminé {kills} zombie en utilisant {item} . Ha ! Ha ! Un peu plus de chair étalée... Ca soulage de supprimer du zombie de temps en temps.</t-kills>]]></target>
       </segment>
     </unit>
+    <unit id="Ri.5LgC" name="1376d54">
+      <notes>
+        <note category="german">Du hast das Gebiet mit deinem {item} teilweise geräumt ({bury_count} Punkte geräumt).</note>
+      </notes>
+      <segment>
+        <source>Du hast das Gebiet mit deinem {item} teilweise geräumt ({bury_count} Punkte geräumt).</source>
+        <target>Vous avez partiellement nettoyé la zone grace à votre {item} ({bury_count} points déblayés)...</target>
+      </segment>
+    </unit>
+    <unit id="byQCsY5" name="6ddde30">
+      <notes>
+        <note category="german">Du hast alle Zombies in dieser Zone mit dieser Waffe umgebracht: {item} ! Entspann dich mal... oder vielleicht besser nicht?</note>
+      </notes>
+      <segment>
+        <source>Du hast alle Zombies in dieser Zone mit dieser Waffe umgebracht: {item} ! Entspann dich mal... oder vielleicht besser nicht?</source>
+        <target>Tous les zombies de la zone ont été pulvérisés en utilisant {item} ! Vous pouvez vous détendre... Ou pas...</target>
+      </segment>
+    </unit>
+    <unit id="5DH1uFn" name="b181e5d">
+      <notes>
+        <note category="german">Du schlägst einen Zombie mit aller Kraft, mehrmals, aber er bricht nicht unter deinen Schlägen zusammen!</note>
+      </notes>
+      <segment>
+        <source>Du schlägst einen Zombie mit aller Kraft, mehrmals, aber er bricht nicht unter deinen Schlägen zusammen!</source>
+        <target>Vous frappez un zombie de toutes vos forces, plusieurs fois, mais celui-ci ne s'effrondre pas sous vos coups !</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
