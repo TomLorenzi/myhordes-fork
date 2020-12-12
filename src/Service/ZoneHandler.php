@@ -360,6 +360,8 @@ class ZoneHandler
         if (!count($zone->getCitizens())) {
             foreach ($zone->getEscapeTimers() as $et)
                 $this->entity_manager->remove( $et );
+            foreach ($zone->getChatSilenceTimers() as $cst)
+                $this->entity_manager->remove( $cst );
             foreach ($this->entity_manager->getRepository(TownLogEntry::class)->findByFilter( $zone->getTown(), null, null, $zone, null, null ) as $entry)
                 /** @var TownLogEntry $entry */
                 if ($entry->getLogEntryTemplate() === null || $entry->getLogEntryTemplate()->getClass() !== LogEntryTemplate::ClassCritical)
