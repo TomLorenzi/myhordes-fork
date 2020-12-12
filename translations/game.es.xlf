@@ -15290,63 +15290,63 @@
       <notes>
         <note category="german">Bitte wähle einen Gegenstand.</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Bitte wähle einen Gegenstand.</source>
-        <target>Bitte wähle einen Gegenstand.</target>
+        <target>Por favor, elija el objeto.</target>
       </segment>
     </unit>
     <unit id="k2rA792" name="Bitte gib die Zielkoordinaten ein.">
       <notes>
         <note category="german">Bitte gib die Zielkoordinaten ein.</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Bitte gib die Zielkoordinaten ein.</source>
-        <target>Bitte gib die Zielkoordinaten ein.</target>
+        <target>Por favor, introduzca la zona de destino.</target>
       </segment>
     </unit>
     <unit id="bh3ikqp" name="6a59fc2">
       <notes>
         <note category="german">Sorgfältig verpackt hast du %item% in das Katapult gelegt. Der Gegenstand wurde auf %zone% geschleudert.</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Sorgfältig verpackt hast du %item% in das Katapult gelegt. Der Gegenstand wurde auf %zone% geschleudert.</source>
-        <target>Sorgfältig verpackt hast du %item% in das Katapult gelegt. Der Gegenstand wurde auf %zone% geschleudert.</target>
+        <target>Colocas cuidadosamente %item% en la catapulta. El objeto ha sido lanzado a %zone%.</target>
       </segment>
     </unit>
     <unit id="4UUmkln" name="Katapult-Bediener">
       <notes>
         <note category="german">Katapult-Bediener</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Katapult-Bediener</source>
-        <target>Katapult-Bediener</target>
+        <target>Operador de la Catapulta</target>
       </segment>
     </unit>
     <unit id="AISIM8E" name="Du bist für das Katapult verantwortlich">
       <notes>
         <note category="german">Du bist für das Katapult verantwortlich</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Du bist für das Katapult verantwortlich</source>
-        <target>Du bist für das Katapult verantwortlich</target>
+        <target>Usted es el responsable de la catapulta.</target>
       </segment>
     </unit>
     <unit id="hCYUVMS" name="5c5e382">
       <notes>
         <note category="german">Du bist zum offiziellen Katapult-Bediener der Stadt ernannt worden. Diese Ernennung erfolgte durch Auslosung; Herzlichen Glückwunsch! Finde dich so bald wie Möglich beim städtischen Katapult ein.</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Du bist zum offiziellen Katapult-Bediener der Stadt ernannt worden. Diese Ernennung erfolgte durch Auslosung; Herzlichen Glückwunsch! Finde dich so bald wie Möglich beim städtischen Katapult ein.</source>
-        <target>Du bist zum offiziellen Katapult-Bediener der Stadt ernannt worden. Diese Ernennung erfolgte durch Auslosung; Herzlichen Glückwunsch! Finde dich so bald wie Möglich beim städtischen Katapult ein.</target>
+        <target>Has sido nombrado el operador oficial de la Catapulta de la ciudad. Este nombramiento se hizo por sorteo; ¡felicidades! Preséntate en la Catapulta de la ciudad lo antes posible.</target>
       </segment>
     </unit>
     <unit id=".SXRDqM" name="Einen zufälligen Bürger als Katapult-Bediener auslosen">
       <notes>
         <note category="german">Einen zufälligen Bürger als Katapult-Bediener auslosen</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Einen zufälligen Bürger als Katapult-Bediener auslosen</source>
-        <target>Einen zufälligen Bürger als Katapult-Bediener auslosen</target>
+        <target>Elige un habitante al azar como operador de la Catapulta</target>
       </segment>
     </unit>
   </file>
