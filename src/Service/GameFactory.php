@@ -396,6 +396,11 @@ class GameFactory
 
         $followers = $town->getPassword() ? [] : $this->user_handler->getAvailableCoalitionMembers( $user );
 
+        if ($this->user_handler->getConsecutiveDeathLock($user)) {
+            $error = ErrorHelper::ErrorPermissionError;
+            return null;
+        }
+
         $active_citizen = $this->entity_manager->getRepository(Citizen::class)->findActiveByUser( $user );
         if ($active_citizen !== null) {
             $error = self::ErrorUserAlreadyInGame;

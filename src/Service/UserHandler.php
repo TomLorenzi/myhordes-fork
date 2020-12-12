@@ -5,6 +5,7 @@ namespace App\Service;
 use App\Entity\Avatar;
 use App\Entity\CauseOfDeath;
 use App\Entity\Changelog;
+use App\Entity\ConsecutiveDeathMarker;
 use App\Entity\HeroSkillPrototype;
 use App\Entity\Picto;
 use App\Entity\Shoutbox;
@@ -567,6 +568,14 @@ class UserHandler
         return null;
     }
 
+    public function getConsecutiveDeathLock(User $user, bool &$warning = null): bool {
+        /** @var ConsecutiveDeathMarker $cdm */
+        $cdm = $this->entity_manager->getRepository(ConsecutiveDeathMarker::class)->findOneBy(['user' => $user]);
+
+        $warning = $cdm ? ($cdm->getDeath()->getRef() === CauseOfDeath::Dehydration && $cdm->getNumber() === 2) : false;
+        return $cdm ? ($cdm->getDeath()->getRef() === CauseOfDeath::Dehydration && $cdm->getNumber() >= 3 && $cdm->getTimestamp() > (new \DateTime('today - 2week'))) : false;
+    }
+
     /**
      * @param User $user
      * @param int|null $full_member_count
@@ -595,11 +604,13 @@ class UserHandler
                 $member->getAssociationType() === UserGroupAssociation::GroupAssociationTypeCoalitionMember &&
                 $member->getUser()->getLastActionTimestamp() !== null &&
                 $member->getUser()->getLastActionTimestamp()->getTimestamp() > (time() - 432000) &&
-                $member->getUser()->getActiveCitizen() === null
+                $member->getUser()->getActiveCitizen() === null &&
+                !$this->getConsecutiveDeathLock($member->getUser())
             ) {
                 if ($member->getUser() === $user) $active = true;
                 else $valid_members[] = $member->getUser();
             }
+
 
         return $active ? $valid_members : [];
     }

@@ -2,7 +2,9 @@
 
 namespace App\Controller;
 
+use App\Entity\CauseOfDeath;
 use App\Entity\CitizenRankingProxy;
+use App\Entity\ConsecutiveDeathMarker;
 use App\Entity\Town;
 use App\Entity\TownClass;
 use App\Entity\User;
@@ -63,7 +65,6 @@ class GhostController extends CustomAbstractController implements GhostInterface
      */
     public function welcome(EntityManagerInterface $em, ConfMaster $conf, UserHandler $uh): Response
     {
-        /** @var User $user */
         $user = $this->getUser();
 
         if ($user->getShadowBan())
@@ -74,12 +75,14 @@ class GhostController extends CustomAbstractController implements GhostInterface
             return $this->redirect($this->generateUrl( 'soul_death' ));
 
         $coa_members = $this->user_handler->getAvailableCoalitionMembers($user, $count, $active);
+        $cdm_lock = $this->user_handler->getConsecutiveDeathLock( $user, $cdm_warn );
 
         return $this->render( 'ajax/ghost/intro.html.twig', $this->addDefaultTwigArgs([
             'warnCoaInactive'    => $count > 0 && !$active,
             'warnCoaNotComplete' => $count > 0 && (count($coa_members) + 1) < $count,
             'warnCoaEmpty'       => $count > 1 && empty($coa_members),
             'coa'                => $coa_members,
+            'cdm_level'          => $cdm_lock ? 2 : ( $cdm_warn ? 1 : 0 ),
             'townClasses' => $em->getRepository(TownClass::class)->findAll(),
             'userCanJoin' => $this->getUserTownClassAccess($conf->getGlobalConf()),
             'canCreateTown' => $uh->hasSkill($user, 'mayor') || $user->getRightsElevation() >= User::ROLE_CROW,

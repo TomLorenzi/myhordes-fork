@@ -8,6 +8,7 @@ use App\Entity\CauseOfDeath;
 use App\Entity\Citizen;
 use App\Entity\CitizenRankingProxy;
 use App\Entity\CitizenRole;
+use App\Entity\ConsecutiveDeathMarker;
 use App\Entity\DigTimer;
 use App\Entity\EscapeTimer;
 use App\Entity\Gazette;
@@ -123,6 +124,15 @@ class DeathHandler
 
         $citizen->setCauseOfDeath($cod);
         $citizen->setAlive(false);
+
+        if ($citizen->getTown()->getDay() <= 3) {
+            $cdm = $this->entity_manager->getRepository(ConsecutiveDeathMarker::class)->findOneBy( ['user' => $citizen->getUser()] )
+                ?? (new ConsecutiveDeathMarker)->setUser($citizen->getUser())->setDeath( $cod )->setNumber(0);
+            if ($cdm->getDeath() === $cod) $cdm->setNumber($cdm->getNumber()+1);
+            else $cdm->setNumber(1)->setDeath($cod);
+
+            $this->entity_manager->persist($cdm->setTimestamp(new \DateTime()));
+        }
 
         $gazette = $citizen->getTown()->findGazette( ($citizen->getTown()->getDay() + ($cod->getRef() == CauseOfDeath::NightlyAttack ? 0 : 1)) );
         if($gazette !== null){
