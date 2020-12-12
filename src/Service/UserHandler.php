@@ -5,9 +5,14 @@ namespace App\Service;
 use App\Entity\Avatar;
 use App\Entity\CauseOfDeath;
 use App\Entity\Changelog;
+use App\Entity\ConsecutiveDeathMarker;
 use App\Entity\HeroSkillPrototype;
 use App\Entity\Picto;
+use App\Entity\Shoutbox;
+use App\Entity\ShoutboxEntry;
 use App\Entity\User;
+use App\Entity\UserGroup;
+use App\Entity\UserGroupAssociation;
 use Imagick;
 use DateTime;
 use Doctrine\ORM\EntityManagerInterface;
@@ -255,11 +260,50 @@ class UserHandler
     }
 
     public function deleteUser(User $user) {
-        $user->setEmail("$ deleted <{$user->getId()}>")->setName("$ deleted <{$user->getId()}>")->setPassword(null)->setRightsElevation(0);
+        $user
+            ->setEmail("$ deleted <{$user->getId()}>")->setDisplayName(null)
+            ->setName("$ deleted <{$user->getId()}>")
+            ->setDeleteAfter(null)
+            ->setPassword(null)
+            ->setLastActionTimestamp( null )
+            ->setRightsElevation(0);
+
         if ($user->getAvatar()) {
             $this->entity_manager->remove($user->getAvatar());
             $user->setAvatar(null);
         }
+
+         $user_coalitions = $this->entity_manager->getRepository(UserGroupAssociation::class)->findBy( [
+                'user' => $user,
+                'associationType' => [
+                    UserGroupAssociation::GroupAssociationTypeCoalitionMember,
+                    UserGroupAssociation::GroupAssociationTypeCoalitionMemberInactive,
+                    UserGroupAssociation::GroupAssociationTypeCoalitionInvitation
+                ] ]
+        );
+
+        foreach ($user_coalitions as $coalition) {
+            $destroy = $coalition->getAssociationLevel() === UserGroupAssociation::GroupAssociationLevelFounder;
+            if ($destroy) {
+                foreach ($this->entity_manager->getRepository(UserGroupAssociation::class)->findBy( [
+                    'association' => $coalition->getAssociation()
+                ]) as $assoc ) $this->entity_manager->remove($assoc);
+                $this->entity_manager->remove( $coalition->getAssociation() );
+            } else {
+                $this->entity_manager->remove( $coalition );
+                /** @var Shoutbox|null $shoutbox */
+                if ($shoutbox = $this->getShoutbox($coalition)) {
+                    $shoutbox->addEntry(
+                        (new ShoutboxEntry())
+                            ->setType( ShoutboxEntry::SBEntryTypeLeave )
+                            ->setTimestamp( new DateTime() )
+                            ->setUser1( $user )
+                    );
+                    $this->entity_manager->persist($shoutbox);
+                }
+            }
+        }
+
         $citizen = $user->getActiveCitizen();
         if ($citizen) {
             $r = [];
@@ -499,5 +543,75 @@ class UserHandler
             ->setSmallImage( $processed_image_data );
 
         return self::NoError;
+    }
+
+    public function getCoalitionMembership(User $user): ?UserGroupAssociation {
+        return $this->entity_manager->getRepository(UserGroupAssociation::class)->findOneBy( [
+                'user' => $user,
+                'associationType' => [UserGroupAssociation::GroupAssociationTypeCoalitionMember, UserGroupAssociation::GroupAssociationTypeCoalitionMemberInactive] ]
+        );
+    }
+
+    /**
+     * @param User|UserGroup|UserGroupAssociation $principal
+     * @return Shoutbox|null
+     */
+    public function getShoutbox($principal): ?Shoutbox {
+
+        if (is_a($principal, User::class)) $principal = $this->getCoalitionMembership($principal);
+        if (is_a($principal, UserGroupAssociation::class) && in_array($principal->getAssociationType(),
+            [UserGroupAssociation::GroupAssociationTypeCoalitionMember, UserGroupAssociation::GroupAssociationTypeCoalitionMemberInactive]
+            )) $principal = $principal->getAssociation();
+        if (is_a($principal, UserGroup::class) && $principal->getType() === UserGroup::GroupSmallCoalition)
+            return $this->entity_manager->getRepository(Shoutbox::class)->findOneBy(['userGroup' => $principal]);
+
+        return null;
+    }
+
+    public function getConsecutiveDeathLock(User $user, bool &$warning = null): bool {
+        /** @var ConsecutiveDeathMarker $cdm */
+        $cdm = $this->entity_manager->getRepository(ConsecutiveDeathMarker::class)->findOneBy(['user' => $user]);
+
+        $warning = $cdm ? ($cdm->getDeath()->getRef() === CauseOfDeath::Dehydration && $cdm->getNumber() === 2) : false;
+        return $cdm ? ($cdm->getDeath()->getRef() === CauseOfDeath::Dehydration && $cdm->getNumber() >= 3 && $cdm->getTimestamp() > (new \DateTime('today - 2week'))) : false;
+    }
+
+    /**
+     * @param User $user
+     * @param int|null $full_member_count
+     * @param bool|null $active
+     * @return User[]
+     */
+    public function getAvailableCoalitionMembers(User $user, ?int &$full_member_count = null, ?bool &$active = null): array {
+        /** @var UserGroupAssociation|null $user_coalition */
+        $user_coalition = $this->entity_manager->getRepository(UserGroupAssociation::class)->findOneBy( [
+                'user' => $user,
+                'associationType' => [UserGroupAssociation::GroupAssociationTypeCoalitionMember, UserGroupAssociation::GroupAssociationTypeCoalitionMemberInactive] ]
+        );
+
+        /** @var UserGroupAssociation[] $all_coalition_members */
+        $all_coalition_members = $user_coalition ? $this->entity_manager->getRepository(UserGroupAssociation::class)->findBy( [
+            'association' => $user_coalition->getAssociation(),
+            'associationType' => [UserGroupAssociation::GroupAssociationTypeCoalitionMember, UserGroupAssociation::GroupAssociationTypeCoalitionMemberInactive]
+        ]) : [];
+
+        $full_member_count = count($all_coalition_members);
+        $active = false;
+
+        $valid_members = [];
+        foreach ($all_coalition_members as $member)
+            if (
+                $member->getAssociationType() === UserGroupAssociation::GroupAssociationTypeCoalitionMember &&
+                $member->getUser()->getLastActionTimestamp() !== null &&
+                $member->getUser()->getLastActionTimestamp()->getTimestamp() > (time() - 432000) &&
+                $member->getUser()->getActiveCitizen() === null &&
+                !$this->getConsecutiveDeathLock($member->getUser())
+            ) {
+                if ($member->getUser() === $user) $active = true;
+                else $valid_members[] = $member->getUser();
+            }
+
+
+        return $active ? $valid_members : [];
     }
 }

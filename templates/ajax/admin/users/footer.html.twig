@@ -9,12 +9,16 @@
                     {{ 'Verwende folgende Syntax, um deine Suche zu spezifizieren:'|trans({},'admin') }}<br />
                     <ul>
                         <li><b>i:</b><i>number</i> <span class="float-right">User ID</span></li>
-                        <li><b>u:</b><i>sting</i> <span class="float-right">User Name (fuzzy)</span></li>
+                        <li><b>u:</b><i>sting</i> <span class="float-right">User Name or Display Name (fuzzy)</span></li>
+                        <li><b>d:</b><i>sting</i> <span class="float-right">Display Name (fuzzy)</span></li>
                         {% if is_granted('ROLE_ADMIN') %}
                             <li><b>e:</b><i>sting</i> <span class="float-right">EMail (fuzzy)</span></li>
                             <li><b>eu:</b><i>sting</i> <span class="float-right">User Name/EMail (fuzzy)</span></li>
                         {% endif %}
                         <li><b>t:</b><i>number</i> <span class="float-right">Twinoid ID</span></li>
+                        <li><b>et:</b><i>string</i> <span class="float-right">EternalTwin ID</span></li>
+                        <li><b>v0:</b> <span class="float-right">Not validated</span></li>
+                        <li><b>x:</b> <span class="float-right">Removal Scheduled</span></li>
                         <li><b>b:</b> <span class="float-right">Banned</span></li>
                         <li><b>ro:</b> <span class="float-right">Oracle</span></li>
                         <li><b>rc:</b> <span class="float-right">Crow</span></li>

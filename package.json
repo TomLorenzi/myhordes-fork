@@ -1,5 +1,6 @@
 {
     "devDependencies": {
+        "@eternal-twin/website": "^0.3.1",
         "@fortawesome/fontawesome-free": "^5.14.0",
         "@symfony/webpack-encore": "^0.28.3",
         "core-js": "^3.6.5",
@@ -12,11 +13,15 @@
     },
     "license": "UNLICENSED",
     "private": true,
+    "engines": {
+        "node": ">=14.13.1"
+    },
     "scripts": {
         "dev-server": "encore dev-server",
         "dev": "encore dev",
         "watch": "encore dev --watch",
-        "build": "encore production --progress"
+        "build": "encore production --progress",
+        "etwin": "etwin"
     },
     "dependencies": {
         "latest-createjs": "^1.0.24",

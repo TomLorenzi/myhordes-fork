@@ -1,4 +1,5 @@
 {% extends "ajax/soul/shell.html.twig" %}
+{% block title %}{{'Meine Seele'|trans({}, 'game')}}{% endblock %}
 {% block soul_content %}
     <div class="row me">
         {% include 'ajax/soul/badges.html.twig' with {badger: app.user} %}
@@ -142,7 +143,12 @@
                 document.getElementById('users-list'),
                 '{{ path('users_fuzzyfind') }}',
                 false,
-                {'name': searchBox.value}
+                {'name': searchBox.value},
+                function() {
+                    $.html.addEventListenerAll('#users-list>.users-list-entry>div', 'click', function (e,elem) {
+                        $.ajax.load(document.getElementById('content'), elem.getAttribute('x-soul-url'));
+                    })
+                }
             );
         else document.getElementById('users-list').innerHTML = '';
     };

@@ -102,6 +102,11 @@ class Requirement
      */
     private $conf;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=RequireDay::class)
+     */
+    private $day;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -289,6 +294,18 @@ class Requirement
     public function setConf(?RequireConf $conf): self
     {
         $this->conf = $conf;
+
+        return $this;
+    }
+
+    public function getDay(): ?RequireDay
+    {
+        return $this->day;
+    }
+
+    public function setDay(?RequireDay $day): self
+    {
+        $this->day = $day;
 
         return $this;
     }

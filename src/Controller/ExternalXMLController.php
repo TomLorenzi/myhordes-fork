@@ -75,8 +75,12 @@ class ExternalXMLController extends ExternalController {
 
         /** @var Citizen $citizen */
         $citizen = $user->getActiveCitizen();
+
+        if (!$citizen) return [];
+
         /** @var Town $town */
         $town = $citizen->getTown();
+
         /** @var Zone $citizen_zone */
         $citizen_zone = $citizen->getZone();
 
@@ -242,7 +246,7 @@ class ExternalXMLController extends ExternalController {
                     'attributes' => [
                         'dead' => 0,
                         'hero' => $citizen->getProfession()->getHeroic(),
-                        'name' => $citizen->getUser()->getUsername(),
+                        'name' => $citizen->getUser()->getName(),
                         'avatar' => '',
                         'x' => !is_null($citizen->getZone()) ? $citizen->getZone()->getX() - $x_min : -$x_min,
                         'y' => !is_null($citizen->getZone()) ? $y_max - $citizen->getZone()->getY() : $y_max,
@@ -289,7 +293,7 @@ class ExternalXMLController extends ExternalController {
             } else {
                 $citizen_data = [
                     'attributes' => [
-                        'name' => $citizen->getUser()->getUsername(),
+                        'name' => $citizen->getUser()->getName(),
                         'id' => $citizen->getId(),
                         'dtype' => $citizen->getCauseOfDeath()->getId(),
                         'day' => $citizen->getSurvivedDays(),

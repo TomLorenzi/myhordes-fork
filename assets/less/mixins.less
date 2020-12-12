@@ -23,6 +23,12 @@ h5 {
   background: linear-gradient(to top, #643b25 0%, rgba(100, 59, 37, 0) 50%, rgba(100, 59, 37, 0) 100%);
 }
 
+h1.page-head {
+	height: 32px; padding: 7px 0 0 48px; margin: 0 0 8px; color: #f0d79e;
+	font-size: 1.4rem; line-height: 17px; letter-spacing: 1px; text-transform: uppercase;
+	background-image: url("../img/h1.gif");	background-repeat: no-repeat;
+	clear: both;
+}
 
 *[disabled] { pointer-events: none; filter: saturate(0%) contrast(50%) brightness(110%); }
 
@@ -49,3 +55,12 @@ button {
 .content-center-vertical { display: flex; align-items: center; }
 
 .pad { padding: 5px; }
+
+div.band {
+	border: 1px solid @myhordes-smalltext; position: relative; text-align: center; height: 0; margin: 30px 0;
+	filter: drop-shadow(0 0 4px black);
+	>span {
+		display: inline-block; position: relative; top: -15px; height: 30px; text-transform: uppercase;
+		background: @myhordes-smalltext; color: white; padding: 5px 15px; font-weight: bold; border-radius: 15px;
+	}
+}

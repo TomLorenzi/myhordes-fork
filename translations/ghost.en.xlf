@@ -910,7 +910,7 @@
       </notes>
       <segment>
         <source>Nicht als Privatstadt erstellen:</source>
-        <target>Nicht als Privatstadt erstellen:</target>
+        <target>Do not create as a private town:</target>
       </segment>
     </unit>
     <unit id="QFPVvM5" name="e82f193">
@@ -919,7 +919,7 @@
       </notes>
       <segment>
         <source>Die Stadt wird nicht in der Liste der Privatstädte, sondern in der oben gewählten Gruppe erscheinen. Diese Option hat keine Auswirkungen auf die Spielregeln oder die Vergabe von Auszeichnungen und Seelenpunkten!</source>
-        <target>Die Stadt wird nicht in der Liste der Privatstädte, sondern in der oben gewählten Gruppe erscheinen. Diese Option hat keine Auswirkungen auf die Spielregeln oder die Vergabe von Auszeichnungen und Seelenpunkten!</target>
+        <target>The Town will not appear in the list of Private Towns, but in the Group selected above. This option has no effect on the rules of the game or the award of Distinctions and Soul Points!</target>
       </segment>
     </unit>
     <unit id="Y1vuSS7" name="Kein XML Feed:">
@@ -928,7 +928,7 @@
       </notes>
       <segment>
         <source>Kein XML Feed:</source>
-        <target>Kein XML Feed:</target>
+        <target>No XML feed:</target>
       </segment>
     </unit>
     <unit id="dSkZ2BY" name="ee8a5d1">
@@ -941,9 +941,9 @@
         <source>Seed, das eine kontrollierte Kartenerstellung ermöglicht. Erlaubt im Falle von Ereignissen, ähnliche Karten zu generieren.
                                     Gib eine positive ganze Zahl ein, um es zu aktivieren.
                                     DENKT DARÜBER NACH, DIESE GANZE ZAHL VON EINEM EREIGNIS ZUM ANDEREN ZU ÄNDERN !</source>
-        <target>Seed, das eine kontrollierte Kartenerstellung ermöglicht. Erlaubt im Falle von Ereignissen, ähnliche Karten zu generieren.
-                                    Gib eine positive ganze Zahl ein, um es zu aktivieren.
-                                    DENKT DARÜBER NACH, DIESE GANZE ZAHL VON EINEM EREIGNIS ZUM ANDEREN ZU ÄNDERN !</target>
+        <target>Seed that enables controlled map creation. Allows similar maps to be generated in case of events.
+                                     Enter a positive integer to activate it.
+                                     THINK ABOUT CHANGING THIS WHOLE NUMBER FROM ONE EVENT TO ANOTHER!</target>
       </segment>
     </unit>
     <unit id="9SrqJ_A" name="Strikte Vergabe von Auszeichnungen:">
@@ -952,7 +952,7 @@
       </notes>
       <segment>
         <source>Strikte Vergabe von Auszeichnungen:</source>
-        <target>Strikte Vergabe von Auszeichnungen:</target>
+        <target>Strict award of awards:</target>
       </segment>
     </unit>
     <unit id="FtgTDco" name="Vergabe von Auszeichnungen folgt den Regeln kleiner Städte.">
@@ -961,7 +961,7 @@
       </notes>
       <segment>
         <source>Vergabe von Auszeichnungen folgt den Regeln kleiner Städte.</source>
-        <target>Vergabe von Auszeichnungen folgt den Regeln kleiner Städte.</target>
+        <target>Awarding of awards follows the rules of Small Towns.</target>
       </segment>
     </unit>
     <unit id="wuiQkOi" name="Nach 2 Tagen negieren:">
@@ -970,7 +970,7 @@
       </notes>
       <segment>
         <source>Nach 2 Tagen negieren:</source>
-        <target>Nach 2 Tagen negieren:</target>
+        <target>Cancel after 2 days:</target>
       </segment>
     </unit>
     <unit id="q64vyDh" name="Negiert die Stadt, wenn sie nach 2 Tagen nicht gefüllt ist.">
@@ -979,7 +979,7 @@
       </notes>
       <segment>
         <source>Negiert die Stadt, wenn sie nach 2 Tagen nicht gefüllt ist.</source>
-        <target>Negiert die Stadt, wenn sie nach 2 Tagen nicht gefüllt ist.</target>
+        <target>Cancel the Town if it is not filled after 2 days.</target>
       </segment>
     </unit>
     <unit id="MOZLgFu" name="Tor versperren:">
@@ -988,7 +988,7 @@
       </notes>
       <segment>
         <source>Tor versperren:</source>
-        <target>Tor versperren:</target>
+        <target>Block the gates:</target>
       </segment>
     </unit>
     <unit id="lC8mS57" name="Das Stadttor kann erst geöffnet werden, wenn die Stadt voll ist.">
@@ -997,7 +997,7 @@
       </notes>
       <segment>
         <source>Das Stadttor kann erst geöffnet werden, wenn die Stadt voll ist.</source>
-        <target>Das Stadttor kann erst geöffnet werden, wenn die Stadt voll ist.</target>
+        <target>The town gates cannot be opened until the city is full.</target>
       </segment>
     </unit>
     <unit id="8UBVWFJ" name="Betapropin steht nicht zur Verfügung.">
@@ -1006,7 +1006,7 @@
       </notes>
       <segment>
         <source>Betapropin steht nicht zur Verfügung.</source>
-        <target>Betapropin steht nicht zur Verfügung.</target>
+        <target>Betapropine is not available.</target>
       </segment>
     </unit>
     <unit id="QjQvnlj" name="Beta-Funktionen deaktivieren">
@@ -1015,7 +1015,61 @@
       </notes>
       <segment>
         <source>Beta-Funktionen deaktivieren</source>
-        <target>Beta-Funktionen deaktivieren</target>
+        <target>Disable Beta features</target>
+      </segment>
+    </unit>
+    <unit id="VoOkBZ0" name="Ein Mitglied deiner Koalition kann dieser Stadt nicht beitreten.">
+      <notes>
+        <note category="german">Ein Mitglied deiner Koalition kann dieser Stadt nicht beitreten.</note>
+      </notes>
+      <segment>
+        <source>Ein Mitglied deiner Koalition kann dieser Stadt nicht beitreten.</source>
+        <target>A member of your coalition cannot join this town.</target>
+      </segment>
+    </unit>
+    <unit id="jLPuWWW" name="In dieser Stadt ist kein Platz mehr für dich und deine Koalition.">
+      <notes>
+        <note category="german">In dieser Stadt ist kein Platz mehr für dich und deine Koalition.</note>
+      </notes>
+      <segment>
+        <source>In dieser Stadt ist kein Platz mehr für dich und deine Koalition.</source>
+        <target>There is no more room for you and your coalition in this town.</target>
+      </segment>
+    </unit>
+    <unit id="hMJko2L" name="6057265">
+      <notes>
+        <note category="german">Achtung: Du stehst deiner Koalition NICHT ZUR VERFÜGUNG! Das bedeutet, dass du diese Partie allein spielen wirst.</note>
+      </notes>
+      <segment>
+        <source>Achtung: Du stehst deiner Koalition NICHT ZUR VERFÜGUNG! Das bedeutet, dass du diese Partie allein spielen wirst.</source>
+        <target>Warning: You are NOT AVAILABLE to your coalition! That means you will play this game alone.</target>
+      </segment>
+    </unit>
+    <unit id="cglpSDE" name="6b90743">
+      <notes>
+        <note category="german">Achtung: Im Moment steht kein Mitglied deiner Koalition zur Verfügung, um dir in eine Stadt zu folgen.</note>
+      </notes>
+      <segment>
+        <source>Achtung: Im Moment steht kein Mitglied deiner Koalition zur Verfügung, um dir in eine Stadt zu folgen.</source>
+        <target>Warning: Your coalition is not showing as "available": if you join a town now, you will do so alone!</target>
+      </segment>
+    </unit>
+    <unit id="UtrdfFQ" name="21c3104">
+      <notes>
+        <note category="german">Achtung: Im Moment stehen nicht alle Mitglieder deiner Koalition zur Verfügung, um dir in eine Stadt zu folgen.</note>
+      </notes>
+      <segment>
+        <source>Achtung: Im Moment stehen nicht alle Mitglieder deiner Koalition zur Verfügung, um dir in eine Stadt zu folgen.</source>
+        <target>Warning: At the moment not all members of your coalition are available to follow you into a town.</target>
+      </segment>
+    </unit>
+    <unit id="EwLUGr9" name="8b6f59e">
+      <notes>
+        <note category="german">Wenn du eine Stadt betrittst, werden folgende Mitglieder deiner Koalition dir folgen:</note>
+      </notes>
+      <segment>
+        <source>Wenn du eine Stadt betrittst, werden folgende Mitglieder deiner Koalition dir folgen:</source>
+        <target>When you enter a town, the following members of your coalition will follow you:</target>
       </segment>
     </unit>
   </file>

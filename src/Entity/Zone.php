@@ -100,7 +100,7 @@ class Zone
     private $digTimers;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\EscapeTimer", mappedBy="zone", orphanRemoval=true, cascade={"persist","remove"}, orphanRemoval=true)
+     * @ORM\OneToMany(targetEntity="App\Entity\EscapeTimer", mappedBy="zone", orphanRemoval=true, cascade={"persist","remove"})
      */
     private $escapeTimers;
 
@@ -164,6 +164,12 @@ class Zone
      */
     private $explorerStats;
 
+    /**
+     * @ORM\OneToMany(targetEntity=ChatSilenceTimer::class, mappedBy="zone", orphanRemoval=true, cascade={"persist","remove"})
+     
+     */
+    private $chatSilenceTimers;
+
     public function __construct()
     {
         $this->citizens = new ArrayCollection();
@@ -173,6 +179,7 @@ class Zone
         $this->scoutVisits = new ArrayCollection();
         $this->ruinZones = new ArrayCollection();
         $this->explorerStats = new ArrayCollection();
+        $this->chatSilenceTimers = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -275,7 +282,7 @@ class Zone
         return $this;
     }
 
-    public function getCampers() {
+    public function getCampers(): array {
         // No citizens = no campers.
         if ($this->citizens->isEmpty()) {
             return [];
@@ -642,6 +649,36 @@ class Zone
             // set the owning side to null (unless already changed)
             if ($explorerStat->getZone() === $this) {
                 $explorerStat->setZone(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|ChatSilenceTimer[]
+     */
+    public function getChatSilenceTimers(): Collection
+    {
+        return $this->chatSilenceTimers;
+    }
+
+    public function addChatSilenceTimer(ChatSilenceTimer $chatSilenceTimer): self
+    {
+        if (!$this->chatSilenceTimers->contains($chatSilenceTimer)) {
+            $this->chatSilenceTimers[] = $chatSilenceTimer;
+            $chatSilenceTimer->setZone($this);
+        }
+
+        return $this;
+    }
+
+    public function removeChatSilenceTimer(ChatSilenceTimer $chatSilenceTimer): self
+    {
+        if ($this->chatSilenceTimers->removeElement($chatSilenceTimer)) {
+            // set the owning side to null (unless already changed)
+            if ($chatSilenceTimer->getZone() === $this) {
+                $chatSilenceTimer->setZone(null);
             }
         }
 

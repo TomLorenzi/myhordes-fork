@@ -13,6 +13,7 @@ use App\Entity\CitizenHomeUpgradePrototype;
 use App\Entity\Complaint;
 use App\Entity\Emotes;
 use App\Entity\ExpeditionRoute;
+use App\Entity\ItemGroupEntry;
 use App\Entity\ItemPrototype;
 use App\Entity\Picto;
 use App\Entity\PictoPrototype;
@@ -32,6 +33,7 @@ use App\Service\TownHandler;
 use App\Structures\ItemRequest;
 use Doctrine\ORM\EntityManagerInterface;
 use DateTime;
+use Doctrine\Common\Collections\Criteria;
 use Exception;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -56,6 +58,8 @@ class TownHomeController extends TownController
      */
     public function house(?string $tab, ?string $subtab, EntityManagerInterface $em, TownHandler $th, Request $request, TranslatorInterface $trans): Response
     {
+        if (!$this->getActiveCitizen()->getHasSeenGazette())
+            return $this->redirect($this->generateUrl('game_newspaper'));
 
         // Get citizen, town and home objects
         $citizen = $this->getActiveCitizen();
@@ -120,10 +124,11 @@ class TownHomeController extends TownController
             $destCitizen = $this->entity_manager->getRepository(Citizen::class)->find($dest_id);
         }
 
+        /** @var PrivateMessageThread[] $nonArchivedMessages */
         $nonArchivedMessages = $this->entity_manager->getRepository(PrivateMessageThread::class)->findNonArchived($citizen);
         foreach ($nonArchivedMessages as $thread) {
             foreach ($thread->getMessages() as $message) {
-                if($message->getRecipient() == $this->getActiveCitizen() && $message->getNew())
+                if($message->getRecipient() === $this->getActiveCitizen() && $message->getNew())
                     $thread->setNew(true);
 
                 switch ($message->getTemplate()) {
@@ -139,6 +144,9 @@ class TownHomeController extends TownController
                         break;
                     case PrivateMessage::TEMPLATE_CROW_THEFT:
                         $thread->setTitle( $trans->trans('Haltet den Dieb!', [], 'game') );
+                        break;
+                    case PrivateMessage::TEMPLATE_CROW_CATAPULT:
+                        $thread->setTitle( $trans->trans('Du bist für das Katapult verantwortlich', [], 'game') );
                         break;
                     default: break;
                 }
@@ -157,6 +165,10 @@ class TownHomeController extends TownController
             $sendable_items[] = $item;
         }
 
+        $criteria = new Criteria();
+        $criteria->andWhere($criteria->expr()->gte('severity', Complaint::SeverityBanish));
+        $criteria->andWhere($criteria->expr()->eq('culprit', $citizen));
+
         // Render
         return $this->render( 'ajax/game/town/home.html.twig', $this->addDefaultTwigArgs('house', [
             'home' => $home,
@@ -173,7 +185,7 @@ class TownHomeController extends TownController
             'upgrades' => $upgrade_proto,
             'upgrade_levels' => $upgrade_proto_lv,
             'upgrade_costs' => $upgrade_cost,
-            'complaints' => $this->entity_manager->getRepository(Complaint::class)->countComplaintsFor( $citizen ),
+            'complaints' => $this->entity_manager->getRepository(Complaint::class)->matching( $criteria ),
 
             'def' => $summary,
             'deco' => $deco,
@@ -264,7 +276,8 @@ class TownHomeController extends TownController
         $home = $citizen->getHome();
 
         // Attempt to get the next house level; fail if none exists
-        $next = $em->getRepository(CitizenHomePrototype::class)->findOneByLevel( $home->getPrototype()->getLevel() + 1 );
+        /** @var CitizenHomePrototype $next */
+        $next = $em->getRepository(CitizenHomePrototype::class)->findOneBy( ['level' => $home->getPrototype()->getLevel() + 1] );
         if (!$next) return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
 
         // Make sure the citizen is not tired
@@ -300,6 +313,21 @@ class TownHomeController extends TownController
 
         // Give picto
         $this->picto_handler->give_picto( $citizen, "r_homeup_#00" );
+
+        $text = [];
+        $text[] = $this->translator->trans('Herzlichen Glückwunsch! Du hast deine Behausung in ein(e) %home%.', ['%home%' => "<span>" . $this->translator->trans($next->getLabel(), [], 'buildings') . "</span>"], 'game');
+        if($next->getResources()){
+            /** @var ItemGroupEntry $r */
+            $resText = " " . $this->translator->trans('Folgenden Dinge wurden dazu gebraucht:', [], 'game');
+            foreach ($next->getResources()->getEntries() as $item) {
+                $resText .= " " . $this->log->wrap($this->log->iconize($item));
+            }
+            $text[] = $resText;
+        }
+
+        $text[]= " " . $this->translator->trans("Du hast %count% Aktionspunkt(e) benutzt.", ['%count%' => "<strong>" . $next->getAp() . "</strong>"], "game");
+
+        $this->addFlash('notice', implode("<hr />", $text));
 
         // Create log & persist
         try {
@@ -391,7 +419,7 @@ class TownHomeController extends TownController
         $this->citizen_handler->deductAPBP( $citizen, $costs->getAp() );
 
         // Give picto
-        $pictoPrototype = $em->getRepository(PictoPrototype::class)->findOneByName("r_hbuild_#00");
+        $pictoPrototype = $em->getRepository(PictoPrototype::class)->findOneBy(['name' => "r_hbuild_#00"]);
         $this->picto_handler->give_picto($citizen, $pictoPrototype);
 
         // Consume items
@@ -399,6 +427,11 @@ class TownHomeController extends TownController
             $r = $costs->getResources()->findEntry( $item->getPrototype()->getName() );
             $this->inventory_handler->forceRemoveItem( $item, $r ? $r->getChance() : 1 );
         }
+
+        // Mit dem Bau der(s) %name% hat dein Haus %level% erreicht!
+        $text = $this->translator->trans("Mit dem Bau der(s) %upgrade% hat dein Haus Stufe %level% erreicht!", ['%upgrade%' => $this->translator->trans($proto->getLabel(), [], 'buildings'), '%level%' => $current->getLevel()], 'game');
+
+        $this->addFlash('notice', $text);
 
         // Persist and flush
         try {
@@ -421,5 +454,65 @@ class TownHomeController extends TownController
         $message = $admh->suicid($this->getUser()->getId());
         $this->addFlash('notice', $message);
         return AjaxResponse::success();
+    }
+
+    /**
+     * @Route("api/town/house/pm/all_read", name="town_home_mark_all_read")
+     * @param EntityManagerInterfacce $em
+     * @return Response
+     */
+    public function mark_all_pm_as_read(EntityManagerInterface $em): Response
+    {
+        $user = $this->getUser();
+
+        /** @var Citizen $citizen */
+        $citizen = $user->getActiveCitizen();
+
+        /** @var PrivateMessageThread $thread */
+        $threads = $em->getRepository(PrivateMessageThread::class)->findBy( ['recipient' => $citizen] );
+        foreach ($threads as $thread){
+            $posts = $thread->getMessages();
+
+            foreach ($posts as $message) {
+                if($message->getRecipient() === $citizen) {
+                    $message->setNew(false);
+                    $em->persist($message);
+                }
+            }
+        }
+
+        $em->flush();
+        return AjaxResponse::success( true, ['url' => $this->generateUrl('town_house', ['tab' => 'messages', 'subtab' => 'received'])] );
+    }
+
+    /**
+     * @Route("api/town/house/pm/archive_all", name="town_home_archive_all_pm")
+     * @param EntityManagerInterfacce $em
+     * @return Response
+     */
+    public function archive_all_pm(EntityManagerInterface $em): Response
+    {
+        $user = $this->getUser();
+
+        /** @var Citizen $citizen */
+        $citizen = $user->getActiveCitizen();
+
+        /** @var PrivateMessageThread $thread */
+        $threads = $em->getRepository(PrivateMessageThread::class)->findBy( ['recipient' => $citizen] );
+        foreach ($threads as $thread){
+            $thread->setArchived(true);
+            $posts = $thread->getMessages();
+
+            foreach ($posts as $message) {
+                if($message->getRecipient() === $citizen) {
+                    $message->setNew(false);
+                    $em->persist($message);
+                }
+            }
+            $em->persist($thread);
+        }
+
+        $em->flush();
+        return AjaxResponse::success( true, ['url' => $this->generateUrl('town_house', ['tab' => 'messages', 'subtab' => 'received'])] );
     }
 }

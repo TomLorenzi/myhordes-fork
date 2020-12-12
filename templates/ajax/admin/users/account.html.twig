@@ -1,106 +1,39 @@
 {% extends "ajax/ajax.html.twig" %}
 {% block ajax %}
     {# @var user \App\Entity\User#}
+
+    {% set has_main_soul = false %}
+    {% for soul in user.twinoidImports %}
+        {% if soul.main %}
+            {% set has_main_soul = true %}
+        {% endif %}
+    {% endfor %}
+
     <div class="row soul">
         <div class="cell padded header rw-12">
             {% embed "ajax/admin/users/tabs.html.twig" %}{% endembed %}
-            <div class="row">
-                {% if user.shadowBan %}
-                    <div class="cell padded rw-3 rw-sm-12">
-                        &nbsp;
-                    </div>
-                    <div class="cell padded rw-9 rw-sm-12">
-                        <b style="color: red">{{ 'Durch %admin% vom Spiel ausgeschlossen!'|trans({'%admin%': user.shadowBan.admin.username}, 'admin') }}</b>
+
+            {% if user.shadowBan %}
+                <div class="row">
+                    <div class="cell padded rw-12">
+                        <b style="color: red">{{ 'Durch %admin% vom Spiel ausgeschlossen!'|trans({'%admin%': user.shadowBan.admin.name}, 'admin') }}</b>
                         {% if user.shadowBan.reason is not null %}
                             <br /><i style="color: red">"{{ user.shadowBan.reason }}"</i>
                         {% endif %}
                     </div>
-                {% endif %}
-                <div class="cell padded rw-3 rw-sm-12">
-                    <b>{{ 'Benutzername'|trans({}, 'admin') }}</b>
                 </div>
-                <div class="cell padded rw-9 rw-sm-12">
-                    {{ user.username }}
-                </div>
+            {% endif %}
 
-                {% if is_granted("ROLE_ADMIN") %}
-                    <div class="cell padded rw-3 rw-sm-12">
-                        <b>{{ 'E-Mail'|trans({}, 'admin') }}</b>
+            {% if user.deleteAfter is not null %}
+                <div class="row">
+                    <div class="cell padded rw-12">
+                        <b style="color: red">{{ 'Account zur Löschung vorgemerkt!'|trans({}, 'admin') }}</b>
                     </div>
-                    <div class="cell padded rw-9 rw-sm-12">
-                        {{ user.email }}
-                    </div>
-                {% endif %}
-
-                <div class="cell padded rw-3 rw-sm-12">
-                    <b>{{ 'Twinoid-Konto'|trans({}, 'admin') }}</b>
                 </div>
-                <div class="cell padded rw-9 rw-sm-12">
-                    {% set has_main_soul = false %}
-                    {% if user.twinoidID is not null %}
-                        <a target="_blank" href="https://twinoid.com/user/{{ user.twinoidID }}"><i class="fa fa-external-link-alt"></i> {{ user.twinoidID }}</a><br />
-                        {% for soul in user.twinoidImports %}
-                            {% if soul.main %}
-                                {% set has_main_soul = true %}
-                                <div><i class="fa fa-arrow-right"></i> <img alt="" src="{{ asset('build/images/icons/small_hero_up.gif') }}"> <b>{{ soul.scope }}</b></div>
-                            {% else %}
-                                <div><i class="fa fa-arrow-right"></i> <i>{{ soul.scope }}</i></div>
-                            {% endif %}
-                        {% endfor %}
-                    {% else %} - {% endif %}
-                </div>
+            {% endif %}
+            <h5>{{ 'Aktionen'|trans({}, 'admin') }}</h5>
 
-
-                <div class="cell padded rw-3 rw-sm-12">
-                    <b>{{ 'Validiert'|trans({}, 'admin') }}</b>
-                </div>
-                <div class="cell padded rw-9 rw-sm-12">
-                    {% if user.validated %}{{ 'Ja'|trans({}, 'admin') }}{% else %}{{ 'Nein'|trans({}, 'admin') }}{% endif %}
-                </div>
-
-                <div class="cell padded rw-3 rw-sm-12">
-                    <b>{{ 'Berechtigungsstufe'|trans({}, 'admin') }}</b>
-                </div>
-                <div class="cell padded rw-9 rw-sm-12">
-                    {% if     user.rightsElevation == 0 %} {{ 'Spieler'|trans({}, 'admin') }}
-                    {% elseif user.rightsElevation == 2 %} {{ 'Orakel'|trans({}, 'admin') }}
-                    {% elseif user.rightsElevation == 3 %} {{ 'Krähe'|trans({}, 'admin') }}
-                    {% elseif user.rightsElevation == 4 %} {{ 'Admin'|trans({}, 'admin') }}
-                    {% elseif user.rightsElevation == 5 %} {{ 'Admin'|trans({}, 'admin') }}[+]
-                    {% else                             %} {{ user.rightsElevation }} {% endif %}
-                </div>
-
-                {% if is_granted("ROLE_ADMIN") %}
-                    <div class="cell padded rw-3 rw-sm-12">
-                        <b>{{ 'Validierungstokens'|trans({}, 'admin') }}</b>
-                    </div>
-                    <div class="cell padded rw-9 rw-sm-12">
-                        {% if validations|length == 0 %}{{ 'Keine'|trans({}, 'admin') }}{% endif %}
-                        {% for token in validations %}
-                            {# @var token \App\Entity\UserPendingValidation #}
-                            <div>{{ token.pkey }}
-                                ({% if     token.type ==  constant('App\\Entity\\UserPendingValidation::EMailValidation') %} EMailValidation
-                                {% elseif token.type ==  constant('App\\Entity\\UserPendingValidation::ResetValidation') %} ResetValidation
-                                {% else                                                                                  %} {{ token.type }} {% endif %})
-                                <div x-delete-token="{{ token.id }}" class="button small inline"><i class="fa fa-trash"></i></div>
-                            </div>
-                        {% endfor %}
-                    </div>
-                    <div class="cell padded rw-3 rw-sm-12">
-                        <b>{{ 'Multi-Account Whitelist'|trans({}, 'admin') }}</b>
-                    </div>
-                    <div class="cell padded rw-9 rw-sm-12">
-                        {% if user.connectionWhitelists|length == 0 %}{{ 'Keine'|trans({}, 'admin') }}{% endif %}
-                        {% for list in user.connectionWhitelists %}
-                            {% for other_user in list.users %}
-                                {% if other_user.id != user.id %}
-                                    <div>{{ other_user.username }} <span class="pointer" x-unwhitelist="{{ other_user.id }}"><i class="fa fa-trash"></i></span></div>
-                                {% endif %}
-                            {% endfor %}
-                        {% endfor %}
-                    </div>
-                {% endif %}
-
+            <div class="row">
                 <div class="cell padded rw-3 rw-sm-12">
                     <b><label for="administer-user">{{ 'User administrieren'|trans({}, 'admin') }}</label></b>
                 </div>
@@ -108,23 +41,28 @@
                     {% if (user_handler.admin_canAdminister(app.user,user)) %}
                         <select id="administer-user" style="width: 30rem;">
                             <option value="">-</option>
-                            <optgroup label="{{ 'Validierung'|trans({},'admin') }}">
-                                {% if is_granted("ROLE_ADMIN") %}
-                                    {% if user.validated %}
-                                        <option value="{{ url('admin_users_account_manage', {action: 'invalidate', id: user.id}) }}">{{ 'Erneute Validierung erzwingen'|trans({},'admin') }}</option>
-                                    {% else %}
-                                        <option value="{{ url('admin_users_account_manage', {action: 'validate', id: user.id}) }}">{{ 'Manuell validieren'|trans({},'admin') }}</option>
+                            {% if user.eternalID is null %}
+                                <optgroup label="{{ 'Validierung'|trans({},'admin') }}">
+                                    {% if is_granted("ROLE_ADMIN") %}
+                                        {% if user.validated %}
+                                            <option value="{{ url('admin_users_account_manage', {action: 'invalidate', id: user.id}) }}">{{ 'Erneute Validierung erzwingen'|trans({},'admin') }}</option>
+                                        {% else %}
+                                            <option value="{{ url('admin_users_account_manage', {action: 'validate', id: user.id}) }}">{{ 'Manuell validieren'|trans({},'admin') }}</option>
+                                        {% endif %}
                                     {% endif %}
-                                {% endif %}
-                                {% if not is_granted("ROLE_ADMIN") or validations|length > 0 %}
-                                    <option value="{{ url('admin_users_account_manage', {action: 'refresh_tokens', id: user.id}) }}">{{ 'Offene Token erneut ankündigen'|trans({},'admin') }}</option>
-                                    <option value="{{ url('admin_users_account_manage', {action: 'regen_tokens', id: user.id}) }}">{{ 'Offene Token regenerieren'|trans({},'admin') }}</option>
-                                {% endif %}
-                            </optgroup>
+                                    {% if not is_granted("ROLE_ADMIN") or validations|length > 0 %}
+                                        <option value="{{ url('admin_users_account_manage', {action: 'refresh_tokens', id: user.id}) }}">{{ 'Offene Token erneut ankündigen'|trans({},'admin') }}</option>
+                                        <option value="{{ url('admin_users_account_manage', {action: 'regen_tokens', id: user.id}) }}">{{ 'Offene Token regenerieren'|trans({},'admin') }}</option>
+                                    {% endif %}
+                                </optgroup>
+                            {% endif %}
                             {% if is_granted("ROLE_ADMIN") %}
                                 <optgroup label="{{ 'Profil'|trans({},'admin') }}">
                                     <option value="{{ url('admin_users_account_manage', {action: 'rename', id: user.id}) }}" x-confirm="RENAME" x-query="{{ 'Neuen Namen eingeben.'|trans({},'admin') }}">{{ 'Umbenennen'|trans({},'admin') }}</option>
-                                    <option value="{{ url('admin_users_account_manage', {action: 'delete', id: user.id}) }}" x-confirm="DELETE">{{ 'Löschen'|trans({},'admin') }}</option>
+                                    {% if user.eternalID is null %}
+                                        <option value="{{ url('admin_users_account_manage', {action: 'delete', id: user.id}) }}" x-confirm="DELETE">{{ 'Löschen'|trans({},'admin') }}</option>
+                                        <option value="{{ url('admin_users_account_manage', {action: 'change_mail', id: user.id}) }}" x-query="{{ 'E-Mail eingeben.'|trans({},'admin') }}">{{ 'E-Mail ändern'|trans({},'admin') }}</option>
+                                    {% endif %}
                                     {% if user.shadowBan is null %}
                                         <option value="{{ url('admin_users_account_manage', {action: 'shadow', id: user.id}) }}" x-confirm="SHADOW" x-query="{{ 'Grund angeben'|trans({},'admin') }}">{{ 'Spielbann'|trans({},'admin') }}</option>
                                     {% else %}
@@ -135,6 +73,9 @@
                                 <optgroup label="{{ 'Sicherheit'|trans({},'admin') }}">
                                     <option value="{{ url('admin_users_account_manage', {action: 'initiate_pw_reset', id: user.id}) }}">{{ 'Passwort-Reset auslösen'|trans({},'admin') }}</option>
                                     <option value="{{ url('admin_users_account_manage', {action: 'enforce_pw_reset', id: user.id}) }}">{{ 'Passwort-Reset erzwingen'|trans({},'admin') }}</option>
+                                    {% if user.eternalID is null %}
+                                        <option value="{{ url('admin_users_account_manage', {action: 'overwrite_pw', id: user.id}) }}" x-query="{{ 'Neues Passwort eingeben.'|trans({},'admin') }}">{{ 'Neues Passwort setzen'|trans({},'admin') }}</option>
+                                    {% endif %}
                                 </optgroup>
                                 <optgroup label="{{ 'Berechtigungen'|trans({},'admin') }}">
                                     {% for role in user_handler.admin_validRoles %}
@@ -154,7 +95,11 @@
                                         {% endif %}
                                     </optgroup>
                                 {% endif %}
-
+                                {% if user.eternalID is not null %}
+                                    <optgroup label="{{ 'EternalTwin-Integration'|trans({},'admin') }}">
+                                        <option value="{{ url('admin_users_account_manage', {action: 'etwin_reset', id: user.id}) }}" x-query="{{ 'E-Mail eingeben.'|trans({},'admin') }}">{{ 'In lokalen Account umwandeln'|trans({},'admin') }}</option>
+                                    </optgroup>
+                                {% endif %}
                             {% endif %}
                         </select>
                         <div id="execute_button" class="button inline small">{{ 'Ausführen'|trans({},'admin') }}</div>
@@ -162,6 +107,127 @@
                         <span class="critical">{{ 'Du hast keine Berechtigung, diesen Benutzer zu administrieren!'|trans({},'admin') }}</span>
                     {% endif %}
                 </div>
+            </div>
+
+            <h5>{{ 'Kartei'|trans({}, 'admin') }}</h5>
+
+            <div class="row">
+                <div class="cell padded rw-3 rw-sm-12">
+                    <b>{{ 'Benutzername'|trans({}, 'admin') }}</b>
+                </div>
+                <div class="cell padded rw-3 rw-sm-12">
+                    {{ user.username }}
+                </div>
+                <div class="cell padded rw-3 rw-sm-12">
+                    <b>{{ 'Anzeigename'|trans({}, 'admin') }}</b>
+                </div>
+                <div class="cell padded rw-3 rw-sm-12">
+                    {{ user.displayName ?? '-' }}
+                </div>
+                <div class="cell padded rw-3 rw-sm-12">
+                    <b>{{ 'Berechtigungsstufe'|trans({}, 'admin') }}</b>
+                </div>
+                <div class="cell padded rw-9 rw-sm-12">
+                    {% if     user.rightsElevation == 0 %} {{ 'Spieler'|trans({}, 'admin') }}
+                    {% elseif user.rightsElevation == 2 %} {{ 'Orakel'|trans({}, 'admin') }}
+                    {% elseif user.rightsElevation == 3 %} {{ 'Krähe'|trans({}, 'admin') }}
+                    {% elseif user.rightsElevation == 4 %} {{ 'Admin'|trans({}, 'admin') }}
+                    {% elseif user.rightsElevation == 5 %} {{ 'Admin'|trans({}, 'admin') }}[+]
+                    {% else                             %} {{ user.rightsElevation }} {% endif %}
+                </div>
+                <div class="cell padded rw-3 rw-sm-12">
+                    <b>{{ 'E-Mail'|trans({}, 'admin') }}</b>
+                </div>
+                <div class="cell padded rw-9 rw-sm-12">
+                    {% set parts = user.email|split('@',2) %}
+                    {% if parts|length > 1 and parts[1] == 'localhost' %}
+                        {% if is_granted("ROLE_ADMIN") %}
+                            {{ 'Lokal: %account%'|trans({'%account%': parts[0]}, 'admin') }}
+                        {% else %}
+                            [{{ 'Nur für Administratoren sichtbar'|trans({}, 'admin') }}]
+                        {% endif %}
+                    {% elseif parts|length > 1 and parts[1] == 'user.eternal-twin.net' %}
+                        [{{ 'Von EternalTwin verwaltet'|trans({}, 'admin') }}]
+                    {% else %}
+                        {% if is_granted("ROLE_ADMIN") %}
+                            {{ user.email }}
+                        {% else %}
+                            [{{ 'Nur für Administratoren sichtbar'|trans({}, 'admin') }}]
+                        {% endif %}
+                    {% endif %}
+                </div>
+            </div>
+
+            <h5>{{ 'Verknüpfte Konten'|trans({}, 'admin') }}</h5>
+
+            <div class="row">
+                <div class="cell padded rw-3 rw-sm-12">
+                    <b>{{ 'EternalTwin-Konto'|trans({}, 'admin') }}</b>
+                </div>
+                <div class="cell padded rw-3 rw-sm-12">
+                    {{ user.eternalID ?? '-' }}
+                </div>
+                <div class="cell padded rw-3 rw-sm-12">
+                    <b>{{ 'Twinoid-Konto'|trans({}, 'admin') }}</b>
+                </div>
+                <div class="cell padded rw-3 rw-sm-12">
+                    {% if user.twinoidID is not null %}
+                        <a target="_blank" href="https://twinoid.com/user/{{ user.twinoidID }}"><i class="fa fa-external-link-alt"></i> {{ user.twinoidID }}</a><br />
+                        {% for soul in user.twinoidImports %}
+                            {% if soul.main %}
+                                <div><i class="fa fa-arrow-right"></i> <img alt="" src="{{ asset('build/images/icons/small_hero_up.gif') }}"> <b>{{ soul.scope }}</b></div>
+                            {% else %}
+                                <div><i class="fa fa-arrow-right"></i> <i>{{ soul.scope }}</i></div>
+                            {% endif %}
+                        {% endfor %}
+                    {% else %} - {% endif %}
+                </div>
+            </div>
+
+            <h5>{{ 'Sonstiges'|trans({}, 'admin') }}</h5>
+
+            <div class="row">
+                {% if user.eternalID is null %}
+                    <div class="cell padded rw-3 rw-sm-12">
+                        <b>{{ 'Validiert'|trans({}, 'admin') }}</b>
+                    </div>
+                    <div class="cell padded rw-9 rw-sm-12">
+                        {% if user.validated %}{{ 'Ja'|trans({}, 'admin') }}{% else %}{{ 'Nein'|trans({}, 'admin') }}{% endif %}
+                    </div>
+                {% endif %}
+
+                {% if is_granted("ROLE_ADMIN") %}
+                    {% if user.eternalID is null %}
+                        <div class="cell padded rw-3 rw-sm-12">
+                            <b>{{ 'Validierungstokens'|trans({}, 'admin') }}</b>
+                        </div>
+                        <div class="cell padded rw-9 rw-sm-12">
+                            {% if validations|length == 0 %}{{ 'Keine'|trans({}, 'admin') }}{% endif %}
+                            {% for token in validations %}
+                                {# @var token \App\Entity\UserPendingValidation #}
+                                <div>{{ token.pkey }}
+                                    ({% if     token.type ==  constant('App\\Entity\\UserPendingValidation::EMailValidation') %} EMailValidation
+                                {% elseif token.type ==  constant('App\\Entity\\UserPendingValidation::ResetValidation') %} ResetValidation
+                                {% else                                                                                  %} {{ token.type }} {% endif %})
+                                    <div x-delete-token="{{ token.id }}" class="button small inline"><i class="fa fa-trash"></i></div>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                    <div class="cell padded rw-3 rw-sm-12">
+                        <b>{{ 'Multi-Account Whitelist'|trans({}, 'admin') }}</b>
+                    </div>
+                    <div class="cell padded rw-9 rw-sm-12">
+                        {% if user.connectionWhitelists|length == 0 %}{{ 'Keine'|trans({}, 'admin') }}{% endif %}
+                        {% for list in user.connectionWhitelists %}
+                            {% for other_user in list.users %}
+                                {% if other_user.id != user.id %}
+                                    <div>{{ other_user.name }} <span class="pointer" x-unwhitelist="{{ other_user.id }}"><i class="fa fa-trash"></i></span></div>
+                                {% endif %}
+                            {% endfor %}
+                        {% endfor %}
+                    </div>
+                {% endif %}
             </div>
         </div>
     </div>

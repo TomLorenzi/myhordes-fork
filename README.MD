@@ -1,3 +1,8 @@
+MyHordes is an open implementation of the browser game "Hordes" and its other versions by Motion-Twin and developed by the community.
+All files into folder `assets/img` are the proprety of Motion-Twin, and are under [CC BY-NC-SA 4.0 license](license_url_et).
+The rest of the project, is under [AGPL license](license_url_et).
+
+
 # MyHordes Setup
 
 ## Development Installation
@@ -6,6 +11,13 @@
 # Install Composer
 wget https://raw.githubusercontent.com/composer/getcomposer.org/76a7060ccb93902cd7576b67264ad91c8a2700e2/web/installer -O - -q | php -- --quiet
 php composer.phar update
+
+# Update the Eternal-Twin config
+# In the `clients.myhordes` section replace all occurences of
+# `myhordes.localhost` with the path to the website root on your computer.
+# If you have a Postgres database, you may also change the `api_backend`
+# value and the database config to persist Eternal-Twin data.
+cp etwin.toml.example etwin.toml
 
 # Update .env file
 cp .env .env.local
@@ -18,6 +30,11 @@ bin/console doctrine:fixtures:load --append
 # Install yarn
 yarn install
 yarn encore dev
+
+# Start the local Eternal-Twin server
+yarn run etwin
+# Or start it in the background
+# yarn run etwin &
 
 # Create the crow account (plus 80 debug accounts in case there are none)
 bin/console app:debug --add-crow

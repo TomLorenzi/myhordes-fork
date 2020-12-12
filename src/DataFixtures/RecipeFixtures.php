@@ -42,7 +42,7 @@ class RecipeFixtures extends Fixture implements DependentFixtureInterface
                     ["name" => "Groooße Mauer", 'desc' => 'Was ist besser als eine Mauer?... eine groooße Mauer.',"temporary" => 0,"img" => "item_plate","vp" => 80,"ap" => 50, "hp" => 50,"bp" => 2,"rsc" => ["wood2_#00" => 10,"concrete_wall_#00" => 2,"wood_beam_#00" => 15,"metal_beam_#00" => 10,], "orderby" => 0],
                 ]],
                 ["name" => "Zweite Schicht",'desc' => 'Damit selbst hartnäckige Zombies draußen bleiben, bekommt die gesamte Stadtmauer eine zusätzliche Schicht verpasst.', "temporary" => 0,"img" => "item_plate","vp" => 75,"ap" => 65, "hp" => 65,"bp" => 1,"rsc" => ["wood2_#00" => 35,"metal_beam_#00" => 5,], "orderby" => 1, "children" => [
-                    ["name" => "Dritte Schicht", 'desc' => 'Eine dritte Schicht über der bestehenden Mauer bietet noch besseren Schutz gegen untote Eindringlinge.',"temporary" => 0,"img" => "item_plate","vp" => 95,"ap" => 65, "hp" => 65,"bp" => 2,"rsc" => ["metal_#00" => 30,"plate_#00" => 5,"metal_beam_#00" => 5,], "orderby" => 0],
+                    ["name" => "Dritte Schicht", 'desc' => 'Eine dritte Schicht über der bestehenden Mauer bietet noch besseren Schutz gegen untote Eindringlinge.',"temporary" => 0,"img" => "item_plate","vp" => 100,"ap" => 65, "hp" => 65,"bp" => 2,"rsc" => ["metal_#00" => 30,"plate_#00" => 5,"metal_beam_#00" => 5,], "orderby" => 0],
                 ]],
                 ["name" => "Entwicklungsfähige Stadtmauer", 'desc' => 'Die Stadtmauer wird mit einem Eisengestell verstärkt und kann ab sofort jeden Tag ganz leicht um ein Stück erweitert werden!',"maxLevel" => 5,"temporary" => 0,"img" => "item_home_def","vp" => 55,"ap" => 65, "hp" => 65,"bp" => 3,"rsc" => ["wood2_#00" => 5,"metal_#00" => 20,"concrete_wall_#00" => 1,], "orderby" => 2,
                     "upgradeTexts" => [
@@ -158,7 +158,7 @@ class RecipeFixtures extends Fixture implements DependentFixtureInterface
                     'Die Verteidigung der Stadt wird um 14% erhöht.'
                 ]],
             ["name" => "Kleines Cafe",'desc' => 'Das Mittagessen liegt schon lange zurück... Was gibt\'s da besseres als eine solide Holzplanke und altbackenes Brot.', "temporary" => 1,"img" => "small_cafet","vp" => 0,"ap" => 6, "hp" => 0,"bp" => 0,"rsc" => ["water_#00" => 1,"wood2_#00" => 2,"pharma_#00" => 1,], "orderby" => 9],
-            ["name" => "Kleiner Friedhof",'desc' => 'Bringt eure Toten! Denn diesmal werden sie sich noch als nützlich erweisen. Macht das beste aus ihnen und verbessert damit gemeinsam eure Verteidigung. Jeder zum Friedhof gebrachte tote Mitbürger bringt +10 Verteidigungspunkte für die Gesamtverteidigung der Stadt. Hinweis: Es spielt keine Rolle, wo und woran ein Mitbürger verstarb.', "temporary" => 0,"img" => "small_cemetery","vp" => 60,"ap" => 36, "hp" => 36,"bp" => 1,"rsc" => ["meca_parts_#00" => 1,"wood2_#00" => 10,], "orderby" => 10, "children" => [
+            ["name" => "Kleiner Friedhof",'desc' => 'Bringt eure Toten! Denn diesmal werden sie sich noch als nützlich erweisen. Macht das beste aus ihnen und verbessert damit gemeinsam eure Verteidigung. Jeder zum Friedhof gebrachte tote Mitbürger bringt +10 Verteidigungspunkte für die Gesamtverteidigung der Stadt. Hinweis: Es spielt keine Rolle, wo und woran ein Mitbürger verstarb.', "temporary" => 0,"img" => "small_cemetery","vp" => 0,"ap" => 36, "hp" => 36,"bp" => 1,"rsc" => ["meca_parts_#00" => 1,"wood2_#00" => 10,], "orderby" => 10, "children" => [
                 ["name" => "Sarg-Katapult",'desc' => 'Von 2 Toten hat derjenige, der sich bewegt, die besten Chancen, dich zu verspeisen. Trickst eure Feinde aus, indem ihr eure Leichen in die herankommende Zombiehorde schleudert. Jeder Tote bringt +20 anstelle von +10 Verteidigungspunkten.', "temporary" => 0,"img" => "small_coffin","vp" => 60,"ap" => 100, "hp" => 100,"bp" => 4,"rsc" => ["courroie_#00" => 1,"meca_parts_#00" => 5,"wood2_#00" => 5,"metal_#00" => 15,], "orderby" => 0],
             ]],
             ["name" => "Kantine",'desc' => 'Die Kantine verbessert die Produktion in den Küchen, die die Helden in eurer Stadt gebaut haben.', "temporary" => 0,"img" => "small_cafet","vp" => 0,"ap" => 20, "hp" => 20,"bp" => 1,"rsc" => ["pharma_#00" => 1,"wood_beam_#00" => 5,"metal_beam_#00" => 1,"table_#00" => 1,], "orderby" => 11],
@@ -245,14 +245,12 @@ class RecipeFixtures extends Fixture implements DependentFixtureInterface
             ["name" => "Labyrinth",'desc' => 'Zombies sind bekanntermaßen einfach gestrickt. Warum ihnen dann nicht einfach ein kleines Labyrinth vor die Nase (das Stadttor) setzen und dabei zusehen, wie ihr Angriff an Schwung verliert. Das Ganze ist äußerst effektiv. Doch jeder Bürger, der die Stadt betreten will, muss dann 1 AP aufbringen.', "temporary" => 0,"img" => "small_labyrinth","vp" => 150,"ap" => 200, "hp" => 200,"bp" => 3,"rsc" => ["meca_parts_#00" => 2,"wood2_#00" => 20,"metal_#00" => 10,"concrete_wall_#00" => 4,], "orderby" => 15],
             ["name" => "Alles oder nichts",'desc' => 'Nicht mehr als ein Akt der Verzweiflung! Alle Gegenstände in der Bank werden zerstört und bringen jeweils +1 vorübergehende Verteidigung.', "temporary" => 0,"img" => "small_lastchance","vp" => 55,"ap" => 150, "hp" => 150,"bp" => 3,"rsc" => ["meca_parts_#00" => 4,"wood_beam_#00" => 15,"metal_beam_#00" => 15,], "orderby" => 16],
             ["name" => "Luftschlag",'desc' => 'Vier feine Raketen werden gestartet und auf vier strategische Ziele rund um die Stadt (Norden, Süden, Osten, Westen) abgefeuert. Auf ihrem Weg töten sie jeden Zombie.', "temporary" => 1,"img" => "small_rocket","vp" => 0,"ap" => 50, "hp" => 0,"bp" => 3,"rsc" => ["water_#00" => 10,"meca_parts_#00" => 1,"metal_#00" => 5,"explo_#00" => 1,"deto_#00" => 2,], "orderby" => 17],
-            // TODO: Destroyable, infect half citizen, kill zombies around city
             ["name" => "Feuerwerk",'desc' => 'Es gibt nichts Besseres, um die Tristesse langer Wüstennächte zu vertreiben, als ein schönes, großes Feuerwerk. Diese spezielle Variante geht so: Man feuert die Raketen in die Bereiche rund um die Stadt ab und zündet sie dann um Punkt Mitternacht inmitten der Zombiehorden.', "temporary" => 0,"img" => "small_fireworks","vp" => 100,"ap" => 90, "hp" => 90,"bp" => 0,"rsc" => ["firework_powder_#00" => 1,"firework_tube_#00" => 1,"firework_box_#00" => 2], "orderby" => 18],
             ["name" => "Altar",'desc' => 'Weil der Rabe gut und gerecht ist, befreit dieser zu seinen Ehren errichtete Schrein alle Bürger, die aus der Stadt verbannt wurden.', "temporary" => 0,"img" => "small_redemption","vp" => 0,"ap" => 24, "hp" => 24,"bp" => 2,"rsc" => ["pet_pig_#00" => 1,"wood_beam_#00" => 3,"metal_beam_#00" => 2,], "orderby" => 19],
             ["name" => "Riesiger KVF",'desc' => 'Ein wirklich riesiger KVF, auf dem die Namen aller Bürger der Stadt eingraviert sind, erhebt sich stolz in den Himmel... äh. Genau, ein KVF. Niemand weiß warum, aber jemand hat am Fuße des Bauwerks "Eigentum der tiefsinnigen Nacht" eingraviert. Dieses Wunderwerk strahlt im Glanze seiner Nutzlosigkeit: Seine Errichtung bringt allen Bürgern der Stadt eine seltene Auszeichnung ein.', "temporary" => 0,"img" => "small_pmvbig","vp" => 0,"ap" => 300, "hp" => 0,"bp" => 4,"rsc" => ["meca_parts_#00" => 2,"metal_#00" => 30,], "orderby" => 20],
             ["name" => "Krähenstatue",'desc' => 'Huldigt den Raben! Gelobt sei deine Milde und deine erhabene Austrahlung! Befreie uns vom Spam und vergib uns unsere Trollenbeiträge so wie auch wir vergeben anderen Trollen. Dieses Wunderwerk strahlt im Glanze seiner Nutzlosigkeit: Seine Errichtung bringt allen Bürgern der Stadt eine seltene Auszeichnung ein.', "temporary" => 0,"img" => "small_crow","vp" => 0,"ap" => 300, "hp" => 0,"bp" => 4,"rsc" => ["hmeat_#00" => 3,"wood_beam_#00" => 35,], "orderby" => 21],
             ["name" => "Riesenrad",'desc' => 'Es ist wirklich eine enorme und beeindruckente Konstruktion. Ihr habt eure kostbarsten Materialien an dieses verdammte Ding verschwendet, und denoch seid ihr irgendwie stolz darauf. Dieses Wunderwerk strahlt im Glanze seiner Nutzlosigkeit: Seine Errichtung bringt allen Bürgern der Stadt eine seltene Auszeichnung ein.', "temporary" => 0,"img" => "small_wheel","vp" => 0,"ap" => 300, "hp" => 0,"bp" => 4,"rsc" => ["water_#00" => 20,"meca_parts_#00" => 5,"concrete_wall_#00" => 3,"metal_beam_#00" => 5,], "orderby" => 22],
             ["name" => "Riesige Sandburg",'desc' => 'Wenn es eines gibt, woran hier wahrlich kein Mangel herrscht, dann ist es Sand. Dieses Wunderwerk strahlt im Glanze seiner Nutzlosigkeit: Seine Errichtung bringt allen Bürgern der Stadt eine seltene Auszeichnung ein.', "temporary" => 0,"img" => "small_castle","vp" => 0,"ap" => 300, "hp" => 0,"bp" => 4,"rsc" => ["water_#00" => 30,"wood_beam_#00" => 15,"metal_beam_#00" => 10,], "orderby" => 23],
-            // TODO: Destroyable, kill everyone, give picto
             ["name" => "Reaktor",'desc' => 'Dieses furchterregende Konstrukt stammt aus einem sowjetischen U-Boot und sendet gleißende Blitze knisternder Elektrizität rund um die Stadt aus. Einziger Haken an der Sache: Es muss jeden Tag repariert werden. Falls es zerstört wird, würde die Stadt mitsamt der gesamten Umgebung augenblicklich ausradiert werden (inklusive euch). Das Schild am Reaktor besagt: sowjetische Bauweise, hergestellt in « вшивый ».', "temporary" => 0,"img" => "small_arma","vp" => 500,"ap" => 100, "hp" => 250,"bp" => 4,"rsc" => ["pile_#00" => 10,"engine_#00" => 1,"electro_#00" => 4,"concrete_wall_#00" => 2,"metal_beam_#00" => 15,], "orderby" => 24],
         ]],
 
@@ -264,7 +262,7 @@ class RecipeFixtures extends Fixture implements DependentFixtureInterface
             ["name" => "Ventilationssystem",'desc' => 'Dieser Geheimgang erlaubt es Helden, ein- und auszugehen, ohne das Stadttor zu benutzen!', "temporary" => 0,"img" => "small_ventilation","vp" => 20,"ap" => 24, "hp" => 24,"bp" => 2,"rsc" => ["meca_parts_#00" => 1,"metal_#00" => 8,], "orderby" => 2,],
         ]],
         
-        ["name" => "Hammam",'desc' => 'Ein Ort der Entspannung und der Meditation, perfekt geeignet um eine Seele auf die Andere Seite zu geleiten.', "temporary" => 0,"img" => "small_spa4souls","vp" => 28,"ap" => 20, "hp" => 20,"bp" => 0,"rsc" => ["wood2_#00" => 2,"plate_#00" => 2,], "orderby" => 7],
+        ["name" => "Hammam",'desc' => 'Ein Ort der Entspannung und der Meditation, perfekt geeignet um eine Seele auf die Andere Seite zu geleiten.', "temporary" => 0,"img" => "small_spa4souls","vp" => 30,"ap" => 20, "hp" => 20,"bp" => 0,"rsc" => ["wood2_#00" => 2,"plate_#00" => 2,], "orderby" => 7],
     ];
 
     protected static $recipe_data = [
@@ -289,9 +287,10 @@ class RecipeFixtures extends Fixture implements DependentFixtureInterface
         'ws019' => ['type' => Recipe::WorkshopType, 'in' => 'prints_#00',          'out' => 'magneticKey_#00', 'action' => 'Wandeln' ],   // Abdruck vom Magnet-Schlüssel
         'ws020' => ['type' => Recipe::WorkshopType, 'in' => 'prints_#01',          'out' => 'bumpKey_#00', 'action' => 'Wandeln' ],       // Abdruck vom Schlagschlüssel
         'ws021' => ['type' => Recipe::WorkshopType, 'in' => 'prints_#02',          'out' => 'classicKey_#00', 'action' => 'Wandeln' ],    // Abdruck vom Flaschenöffner
+        'ws023' => ['type' => Recipe::WorkshopType, 'in' => 'food_xmas_#00',       'out' => 'wood_xmas_#00', 'action' => 'Wandeln' ],    // Krähenelfe
 
         // Shaman Specific recipes
-        'ws022' => ['type' => Recipe::WorkshopTypeShamanSpecific, 'in' => 'soul_blue_#00',      'out' => 'soul_yellow_#00', 'action' => 'Wandeln'],
+        'ws022' => ['type' => Recipe::WorkshopTypeShamanSpecific, 'in' => 'soul_blue_#00',      'out' => 'soul_yellow_#00', 'action' => 'Wandeln', "picto"=> "r_mystic2_#00" ],
 
         'com001' => ['type' => Recipe::ManualAnywhere, 'out' => 'coffee_machine_#00',     'provoking' => 'coffee_machine_part_#00','in' => ['coffee_machine_part_#00', 'cyanure_#00', 'electro_#00', 'meca_parts_#00', 'rustine_#00', 'metal_#00', 'tube_#00' ] ],
         'com002' => ['type' => Recipe::ManualAnywhere, 'out' => 'music_#00',              'provoking' => 'music_part_#00',         'in' => ['music_part_#00', 'pile_#00', 'electro_#00'] ],
@@ -331,12 +330,17 @@ class RecipeFixtures extends Fixture implements DependentFixtureInterface
         'com032' => ['type' => Recipe::ManualAnywhere, 'out' => 'fungus_#00',     'provoking' => 'ryebag_#00', 'in' => ['ryebag_#00', 'lens_#00'] ],
         'com033' => ['type' => Recipe::ManualAnywhere, 'out' => 'lsd_#00',        'provoking' => 'fungus_#00', 'in' => ['fungus_#00', 'poison_part_#00'] ],
         'com034' => ['type' => Recipe::ManualAnywhere, 'out' => 'chkspk_#00',     'provoking' => 'chudol_#00', 'in' => ['chudol_#00', 'lsd_#00'] ],
-        'com035' => ['type' => Recipe::ManualAnywhere, 'out' => 'fruit_#00',      'provoking' => 'fruit_part_#00', 'in' => ['fruit_sub_part_#00', 'fruit_part_#00'] ],
+        'com035' => ['type' => Recipe::ManualAnywhere, 'out' => 'fruit_#00',      'provoking' => 'fruit_part_#00', 'in' => ['fruit_sub_part_#00', 'fruit_part_#00'], "picto"=> "r_solban_#00" ],
         'com036' => ['type' => Recipe::ManualAnywhere, 'out' => 'dfhifi_#00',     'provoking' => 'cdelvi_#00', 'in' => ['cdelvi_#00', 'music_#00'] ],
         'com037' => ['type' => Recipe::ManualAnywhere, 'out' => 'hifiev_#00',     'provoking' => 'cdphil_#00', 'in' => ['cdphil_#00', 'music_#00'] ],
-        'com039' => ['type' => Recipe::ManualAnywhere, 'out' => 'hifiev_#00',     'provoking' => 'cdbrit_#00', 'in' => ['cdbrit_#00', 'music_#00'] ],
-        'com038' => ['type' => Recipe::ManualAnywhere, 'out' => 'dfhifi_#01',     'provoking' => 'hifiev_#00', 'in' => ['hifiev_#00', 'bquies_#00'] ],
-        'com038' => ['type' => Recipe::ManualAnywhere, 'out' => 'lpoint4_#00',    'provoking' => 'diode_#00', 'in' => ['wire_#00', 'meca_parts_#00', 'tube_#00', 'maglite_2_#00', 'diode_#00'] ],
+        'com038' => ['type' => Recipe::ManualAnywhere, 'out' => 'hifiev_#00',     'provoking' => 'cdbrit_#00', 'in' => ['cdbrit_#00', 'music_#00'] ],
+        'com039' => ['type' => Recipe::ManualAnywhere, 'out' => 'dfhifi_#01',     'provoking' => 'hifiev_#00', 'in' => ['hifiev_#00', 'bquies_#00'] ],
+        'com040' => ['type' => Recipe::ManualAnywhere, 'out' => 'lpoint4_#00',    'provoking' => 'diode_#00',  'in' => ['wire_#00', 'meca_parts_#00', 'tube_#00', 'maglite_2_#00', 'diode_#00'] ],
+        'com041' => ['type' => Recipe::ManualAnywhere, 'out' => 'hmbrew_#00',     'provoking' => 'fungus_#00', 'in' => ['fungus_#00', 'vodka_#00', 'oilcan_#00'] ],
+        'com042' => ['type' => Recipe::ManualAnywhere, 'out' => 'wood_xmas_#00',  'provoking' => 'food_xmas_#00', 'in' => ['food_xmas_#00', 'can_open_#00'] ],
+        'com043' => ['type' => Recipe::ManualAnywhere, 'out' => 'wood_xmas_#00',  'provoking' => 'food_xmas_#00', 'in' => ['food_xmas_#00', 'can_open_#00'] ],
+        'com044' => ['type' => Recipe::ManualAnywhere, 'out' => 'gun_#00',        'provoking' => 'gun_#00', 'in' => ['gun_#00', 'bullets_#00'] ],
+        'com045' => ['type' => Recipe::ManualAnywhere, 'out' => 'machine_gun_#00','provoking' => 'machine_gun_#00', 'in' => ['machine_gun_#00', 'bullets_#00'] ],
     ];
 
     private $entityManager;
@@ -394,7 +398,7 @@ class RecipeFixtures extends Fixture implements DependentFixtureInterface
             $group = (new ItemGroup())->setName( "{$entry_unique_id}_rsc" );
             foreach ($data['rsc'] as $item_name => $count) {
 
-                $item = $manager->getRepository(ItemPrototype::class)->findOneByName( $item_name );
+                $item = $manager->getRepository(ItemPrototype::class)->findOneBy( ['name' => $item_name] );
                 if (!$item) throw new Exception( "Item class not found: " . $item_name );
 
                 $group->addEntry( (new ItemGroupEntry())->setPrototype( $item )->setChance( $count ) );
@@ -446,7 +450,7 @@ class RecipeFixtures extends Fixture implements DependentFixtureInterface
 
         $cache = [];
         foreach (static::$recipe_data as $name => $recipe_data) {
-            $recipe = $manager->getRepository(Recipe::class)->findOneByName( $name );
+            $recipe = $manager->getRepository(Recipe::class)->findOneBy( ['name' => $name] );
             if ($recipe === null) $recipe = (new Recipe())->setName( $name );
 
             if ($recipe->getSource()) { $manager->remove( $recipe->getSource() ); $recipe->setSource( null ); }
@@ -482,7 +486,7 @@ class RecipeFixtures extends Fixture implements DependentFixtureInterface
 
             $in_group = (new ItemGroup())->setName("rc_{$name}_in");
             foreach ( $in as $id => $count ) {
-                $proto = $manager->getRepository(ItemPrototype::class)->findOneByName( $id );
+                $proto = $manager->getRepository(ItemPrototype::class)->findOneBy( ['name' => $id] );
                 if (!$proto) throw new Exception("Item prototype not found: '$id'");
                 $in_group->addEntry( (new ItemGroupEntry())->setChance( $count )->setPrototype( $proto ) );
             }
@@ -490,14 +494,14 @@ class RecipeFixtures extends Fixture implements DependentFixtureInterface
 
             $out_group = (new ItemGroup())->setName("rc_{$name}_out");
             foreach ( $out as $id => $count ) {
-                $proto = $manager->getRepository(ItemPrototype::class)->findOneByName( $id );
+                $proto = $manager->getRepository(ItemPrototype::class)->findOneBy( ['name' => $id] );
                 if (!$proto) throw new Exception("Item prototype not found: '$id'");
                 $out_group->addEntry( (new ItemGroupEntry())->setChance( $count )->setPrototype( $proto ) );
             }
             $recipe->setResult($out_group);
 
             foreach ($provoking as $item)
-                $recipe->addProvoking( $manager->getRepository(ItemPrototype::class)->findOneByName( $item ) );
+                $recipe->addProvoking( $manager->getRepository(ItemPrototype::class)->findOneBy( ['name' => $item] ) );
 
             $recipe->setType( $recipe_data['type'] );
             if (array_key_exists('action', $recipe_data)) {
@@ -505,12 +509,12 @@ class RecipeFixtures extends Fixture implements DependentFixtureInterface
             }
 
             if(isset($recipe_data['picto'])){
-                $recipe->setPictoPrototype($manager->getRepository(PictoPrototype::class)->findOneByName($recipe_data['picto']));
+                $recipe->setPictoPrototype($manager->getRepository(PictoPrototype::class)->findOneBy(['name' => $recipe_data['picto']]));
             }
 
             if(isset($recipe_data['keep'])){
                 foreach ($recipe_data['keep'] as $item)
-                    $recipe->addKeep( $manager->getRepository(ItemPrototype::class)->findOneByName($item));
+                    $recipe->addKeep( $manager->getRepository(ItemPrototype::class)->findOneBy(['name' => $item]));
             }
             $manager->persist($recipe);
 

@@ -1,10 +1,61 @@
 {% extends "ajax/game/game.html.twig" %}
+{% block title %}{{'Wiedergeburt: Wahl der Partie'|trans({}, 'game')|raw}}{% endblock %}
 {% block ajax %}
     <div class="row">
         <div class="cell padded header rw-12">
             <h4>{% trans from 'ghost' %}Wähle eine Stadt{% endtrans %}{% if canCreateTown %}<span class="link float-right" x-ajax-href="{{ path('ghost_create_town') }}">{{'Privatstadt gründen'|trans({}, 'ghost')}}</span>{% endif %}</h4>
             <div class="row">
                 <div class="cell rw-8 rw-md-12">
+                    {% if cdm_level == 2 %}
+
+                        <div class="note note-warning">
+                            {% trans from 'ghost' %}
+                                Da du in mehreren deiner letzten Städte frühzeitig durch Verdursten gestorben bist, bist du für einige Zeit vom Spiel ausgeschlossen. Du kannst aktuell keine neue Stadt betreten.
+                            {% endtrans %}
+                        </div>
+
+                    {% else %}
+                        {% if cdm_level == 1 %}
+                            <div class="note note-warning">
+                                {% trans from 'ghost' %}
+                                    Du bist in mehreren deiner letzten Städte frühzeitig durch Verdursten gestorben. Sollte dies in deiner nächsten Stadt erneut geschehen, wirst du für einige Wochen vom Spiel ausgeschlossen.
+                                {% endtrans %}
+                            </div>
+                        {% endif %}
+
+                        {% if warnCoaInactive %}
+                            <div class="note note-warning">
+                                {% trans from 'ghost' %}
+                                    Achtung: Du stehst deiner Koalition NICHT ZUR VERFÜGUNG! Das bedeutet, dass du diese Partie allein spielen wirst.
+                                {% endtrans %}
+                            </div>
+                        {% elseif warnCoaEmpty %}
+                            <div class="note note-warning">
+                                {% trans from 'ghost' %}
+                                    Achtung: Im Moment steht kein Mitglied deiner Koalition zur Verfügung, um dir in eine Stadt zu folgen.
+                                {% endtrans %}
+                            </div>
+                        {% elseif warnCoaNotComplete %}
+                            <div class="note note-warning">
+                                {% trans from 'ghost' %}
+                                    Achtung: Im Moment stehen nicht alle Mitglieder deiner Koalition zur Verfügung, um dir in eine Stadt zu folgen.
+                                {% endtrans %}
+                            </div>
+                        {% endif %}
+
+                        {% if coa is not empty %}
+                            <div class="note">
+                                {% trans from 'ghost' %}
+                                Wenn du eine Stadt betrittst, werden folgende Mitglieder deiner Koalition dir folgen:
+                                {% endtrans %}<br />
+                                {% for member in coa %}
+                                    <strong>{{ member.name }}</strong><br />
+                                {% endfor %}
+                            </div>
+                        {% endif %}
+
+                    {% endif %}
+
                     {% for townClass in townClasses %}
 
                         {% set joinable = userCanJoin[townClass.name] %}
@@ -30,7 +81,11 @@
                                             <div class="padded cell rw-5">{% if town.password is not null %}<img src="{{ asset('build/images/item/item_lock.gif') }}" alt="Verrouillé" />{% endif %} {{ town.getName }}</div>
                                             <div class="padded cell rw-2">{{ town.citizens|length }}/{{ town.population }}</div>
                                             <div class="padded cell rw-1 center"><img x-town-details="{{ town.id }}" x-town-toggle="{{ town.id }}" class="pointer" alt="+" src="{{ asset('build/images/icons/small_more.gif') }}" /><div class="tooltip help">{{ 'Die Liste der eingeschriebenen Spieler ansehen.'|trans({},'game') }}</div></div>
-                                            <div class="padded cell rw-3"><button {% if joinable %}x-town-lang="{{ town.getLanguage }}" x-town-id="{{ town.id }}" x-town-name="{{ town.getName }}" x-town-locked="{% if town.password is not null %}1{% else %}0{% endif %}" {% else %}disabled="disabled" title="{{ 'Deine Seele genügt den Anforderungen für diesen Stadttypen.'|trans({}, 'ghost') }}"{% endif %}>{% trans from 'ghost' %}Beitreten{% endtrans %}</button></div>
+                                            <div class="padded cell rw-3">
+                                                {% if cdm_level != 2 %}
+                                                    <button {% if joinable %}x-town-lang="{{ town.getLanguage }}" x-town-id="{{ town.id }}" x-town-name="{{ town.getName }}" x-town-locked="{% if town.password is not null %}1{% else %}0{% endif %}" {% else %}disabled="disabled" title="{{ 'Deine Seele genügt den Anforderungen für diesen Stadttypen.'|trans({}, 'ghost') }}"{% endif %}>{% trans from 'ghost' %}Beitreten{% endtrans %}</button>
+                                                {% endif %}
+                                            </div>
                                             <div x-town-details="{{ town.id }}" class="padded cell rw-12 hidden" style="background-color: #3b3249;">
                                                 <ul class="citizen-list">
                                                     {% for denizen in town.citizens %}
@@ -41,7 +96,7 @@
                                                             {% else %}
                                                                 <img src="{{ asset('build/images/professions/death.gif') }}" alt="{{ denizen.profession.label|trans({},'game') }}" />
                                                             {% endif %}
-                                                            <a class="link" href="{{ path('soul_visit', {id: denizen.user.id}) }}">{{ denizen.user.username }}</a>
+                                                            <a class="link" href="{{ path('soul_visit', {id: denizen.user.id}) }}">{{ denizen.user.name }}</a>
                                                         </li>
                                                     {% endfor %}
                                                 </ul>
@@ -93,20 +148,16 @@
             } else if (!confirm('{{ 'Möchtest du die schreckliche Welt der Verdammten als Bürge der Stadt %town_name% betreten'|trans({},'ghost')|e('js') }} ?'.replace('%town_name%', town_name)))
                 return;
 
-            if (elem.getAttribute('x-town-locked') == 1) {
-                let pass = prompt('{{ 'Bitte gib das Stadtpasswort ein :'|trans({}, 'ghost') }}');
-                $.ajax.easySend( '{{ path('api_check_town_pw') }}', {town: elem.getAttribute('x-town-id'), pass: pass},
-                    function (response) {
-                        $.ajax.load(null, '{{ path('game_landing') }}', true);
-                    }
-                );
-            } else {
-                $.ajax.easySend( '{{ path('api_join') }}', {town: elem.getAttribute('x-town-id')},
-                    function () {
-                        $.ajax.load(null, '{{ path('game_landing') }}', true);
-                    }
-                );
-            }
+            {% if cdm_level == 1 %}
+                if (!confirm('{{ 'Du bist in mehreren deiner letzten Städte frühzeitig durch Verdursten gestorben. Sollte dies in deiner nächsten Stadt erneut geschehen, wirst du für einige Wochen vom Spiel ausgeschlossen.'|trans({},'ghost')|e('js') }}')) return;
+            {% endif %}
+
+            const pass = (elem.getAttribute('x-town-locked') === '1') ? prompt('{{ 'Bitte gib das Stadtpasswort ein :'|trans({}, 'ghost') }}') : '';
+            $.ajax.easySend( '{{ path('api_join') }}', {town: elem.getAttribute('x-town-id'), pass: pass},
+                function () {
+                    $.ajax.load(null, '{{ path('game_landing') }}', true);
+                }
+            );
         } );
     </script>
 {% endblock %}

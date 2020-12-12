@@ -1,4 +1,5 @@
 {% extends "ajax/help/shell.html.twig" %}
+{% block title %}{{'Hilfe'|trans({}, 'game')}} - {{'Dompteur'|trans({}, 'help')|raw}}{% endblock %}
 {% block helpContent %}
 <div class="helpArt">{{ 'Spielanleitung'|trans({},'help')|raw }}</div>
 <h1>{{ 'Dompteur'|trans({},'help')|raw }}</h1>
@@ -22,5 +23,5 @@ Du kannst dieses "Manko" allerdings durch Steroide beseitigen... Hör auf zu gri
 {{ 'Malteser verfügen über eine ausgesprochen gute Nase und einen ausgeprägten Orientierungssinn. Er kann damit seinem Herrchen die Richtung zeigen, in der ein Eingang zu einer Ruine liegt. Folge dem blauen Blitz!'|trans({},'help')|raw }}
 </p>
 <div class="clear"></div>
-<a class="button" x-ajax-href="{{ url('help', {'name': 'technician'}) }}"><img src="{{ asset('build/images/icons/small_move.gif') }}" alt="move"> {{'Weiter'|trans({}, 'help')}}:<strong> {{ 'Techniker'|trans({},'help') }}</strong></a>
+<a class="button" x-ajax-href="{{ url('help', {'name': 'tech'}) }}"><img src="{{ asset('build/images/icons/small_move.gif') }}" alt="move"> {{'Weiter'|trans({}, 'help')}}:<strong> {{ 'Techniker'|trans({},'help') }}</strong></a>
 {% endblock %}

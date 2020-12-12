@@ -1,4 +1,5 @@
 {% extends "ajax/game/town/town.html.twig" %}
+{% block title %}{{'Gesamtansicht der Stadt'|trans({}, 'game')|raw}}{% endblock %}
 {% block content %}
     {% set wtt = conf.get(constant('App\\Structures\\TownConf::CONF_MODIFIER_WT_THRESHOLD'),33) %}
 
@@ -73,6 +74,9 @@
                 {% if new_message %}
                     <li x-ajax-href="{{ path('town_house', {tab: 'messages', subtab: 'received'}) }}">{{ 'Meine Nachrichten lesen.'|trans({}, 'game') }} <img src="{{ asset("build/images/icons/anim_icon_mail.gif") }}" alt="" /> </li>
                 {% endif %}
+                {% if new_coa_message %}
+                    <li x-ajax-href="{{ path('soul_coalitions') }}">{{ 'Die letzten Nachrichten meiner Koalition lesen.'|trans({}, 'game') }} <img src="{{ asset("build/images/icons/anim_icon_mail.gif") }}" alt="" /> </li>
+                {% endif %}
                 {% for name,role in votes_needed %}
                     {% if role %}
                     <li x-ajax-href="{{ path('town_citizen_vote', {roleId: role.id}) }}" {% if has_voted[role.name] %}class="checked"{% endif %}>
@@ -98,7 +102,7 @@
         <div class="padded cell rw-6 rw-md-8 rw-sm-12">
             <button x-ajax-href="{{ url('game_newspaper') }}">{% trans from 'game' %}Lesen Sie das Mitteilungsblatt{% endtrans %}</button>
         </div>
-            {% if town.dayWithoutAttack > 0 and (app.user == town.creator or is_granted('ROLE_CROW')) %}
+            {% if town.dayWithoutAttack > 0 and (app.user == town.creator or is_granted('ROLE_CROW')) and town.type.name == 'custom' %}
             <h5>{{ 'Deine Stadt'|trans({}, 'game') }}</h5>
             <ul class="overview-checklist">
                 {% if town.dayWithoutAttack > 0 %}
@@ -131,18 +135,28 @@
         <div class="padded cell rw-12 defense-detail">
             <ul class="overview-list">
                 <li>{{'Grundbefestigungsmauer'|trans({}, 'game')}} : + {{def_summary.base_defense}} <img src="{{ asset('build/images/icons/small_def.gif') }}" /></li>
-                <li>{{'Konstruktionen'|trans({}, 'game')}} : {{def_summary.building_defense }} <img src="{{ asset('build/images/icons/small_def.gif') }}" /></li>
                 <li>{{'Verteidigungsgegenstände'|trans({}, 'game')}} : + {{def_summary.item_defense}} <img src="{{ asset('build/images/icons/small_def.gif') }}" /> ({{ item_def_count }} {{'Gegenstände'|trans({}, 'game')}} x {{ item_def_factor }} <img src="{{ asset('build/images/icons/small_def.gif') }}" /> ) <a class="help-button"><div class="tooltip help">{{ '<strong>Wichtig:</strong> Verteidigungsgegenstände können maximal <strong>500</strong> Verteidigungspunkte vergeben!'|trans({},'global')|raw }}</div>{{ 'Hilfe'|trans({},'global')|raw }}</a></li>
+                <li>{{'Konstruktionen'|trans({}, 'game')}} : {{def_summary.building_def_base + def_summary.building_def_vote }} <img src="{{ asset('build/images/icons/small_def.gif') }}" /> {% if def_summary.building_def_vote > 0 %}( {{ def_summary.building_def_base }} <img src="{{ asset('build/images/icons/small_def.gif') }}" /> + {{ def_summary.building_def_vote }} <img src="{{ asset('build/images/icons/small_def.gif') }}" /> ){% endif %}</li>
+                <li>{{'Häuser der Bürger'|trans({}, 'game')}} : + {{def_summary.house_defense}} <img src="{{ asset('build/images/icons/small_def.gif') }}" /></li>
                 {% if def_summary.guardian_defense > 0 %}
                 <li>{{'Wächter'|trans({}, 'game')}} : + {{ def_summary.guardian_defense }} <img src="{{ asset('build/images/icons/small_def.gif') }}" /> <a class="help-button"><div class="tooltip help">{{ 'Diesen Bonus gibt es nur dann, wenn sich die Wächter während eines Angriffs in der Stadt befinden.'|trans({},'global') }}</div>{{ 'Hilfe'|trans({},'global') }}</a></li>
                 {% endif %}
-                <li>{{'Häuser'|trans({}, 'game')}} : + {{def_summary.house_defense}} <img src="{{ asset('build/images/icons/small_def.gif') }}" /></li>
+                {% if def_summary.temp_defense > 0 %}
+                <li>{{'Temporäre Verteidigung'|trans({}, 'game')}} : + {{def_summary.temp_defense}} <img src="{{ asset('build/images/icons/small_def.gif') }}" /></li>
+                {% endif %}
+                {% if def_summary.cemetery > 0 %}
+                <li>{{'Leichen-Bonus'|trans({}, 'game')}} : + {{def_summary.cemetery}} <img src="{{ asset('build/images/icons/small_def.gif') }}" /> <a class="help-button"><div class="tooltip help">{{ 'Diesen Bonus gibt es dank eurer alten Freunde und dem Gebäude <strong>Kleiner Friedhof</strong>.'|trans({},'global')|raw }}</div>{{ 'Hilfe'|trans({},'global')|raw }}</a> </li>
+                {% endif %}
+                {% if def_summary.overall_scale > 1 %}
+                <li>{{'Bonus'|trans({}, 'game')}} : + {{ (def_summary.overall_scale - 1) * 100}} % </li>
+                {% endif %}
                 {% if has_battlement and def_summary.nightwatch_defense > 0 %}
-                <li>{{'Nachtwächter'|trans({}, 'game')}} : + {{def_summary.nightwatch_defense}} <img src="{{ asset('build/images/icons/small_def.gif') }}" /></li>
+                <li>{{'Nachtwächter'|trans({}, 'game')}} : + {{def_summary.nightwatch_defense}} <img src="{{ asset('build/images/icons/small_def.gif') }}" /> <a class="help-button"><div class="tooltip help">{{ 'Diesen Bonus gibt es nur dann, wenn sich die Wächter wärhend eines Angriffs in det Stadt befinden.'|trans({},'global') }}</div>{{ 'Hilfe'|trans({},'global') }}</a></li>
                 {% endif %}
                 {% if def_summary.soul_defense > 0 %}
                 <li>{{'Gereinigte Seelen'|trans({}, 'game')}} : + {{def_summary.soul_defense}} <img src="{{ asset('build/images/icons/small_def.gif') }}" /> <a class="help-button"><div class="tooltip help">{{ 'Diese Abwehrkräfte werden von gereinigten Seelen gebracht.'|trans({},'global') }}</div>{{ 'Hilfe'|trans({},'global') }}</a></li>
                 {% endif %}
+                
                 <li class="separator">TOTAL : {{def}} <img src="{{ asset('build/images/icons/small_def.gif') }}" /></li>
             </ul>
 

@@ -15,7 +15,7 @@
                     {# @var table \App\Structures\CheatTable #}
                         <div class="row">
                             <div class="cell rw-4 padded">
-                                <b>{{ table.principal.username }}</b>
+                                <b>{{ table.principal.name }}</b>
                                 {% if is_granted('ROLE_ADMIN') %}
                                     <br /><span>{{ table.principal.email }}</span>
                                 {% endif %}
@@ -28,7 +28,7 @@
                                 {% for multi in table.users %}
                                     {% set group = group|merge([multi.id]) %}
                                     <span class="small pointer" x-whitelist-alt="{{ url('admin_users_account_view', {id: multi.id}) }}" x-whitelist="{{ group|join('|') }}" x-api-endpoint="{{ url('admin_users_account_manage', {action: 'whitelist', id: table.principal.id}) }}" {% if multi.shadowBan %}style="color:red; font-weight: bold"{% endif%} >
-                                        {{ multi.username }}
+                                        {{ multi.name }}
                                         {% if is_granted('ROLE_ADMIN') %}
                                             <div class="tooltip">
                                                 <i>({{ multi.id }})</i> <b>{{ multi.email }}</b>

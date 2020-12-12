@@ -2,7 +2,9 @@
 
 namespace App\Controller;
 
+use App\Entity\CauseOfDeath;
 use App\Entity\CitizenRankingProxy;
+use App\Entity\ConsecutiveDeathMarker;
 use App\Entity\Town;
 use App\Entity\TownClass;
 use App\Entity\User;
@@ -13,13 +15,11 @@ use App\Service\GameFactory;
 use App\Service\JSONRequestParser;
 use App\Service\LogTemplateHandler;
 use App\Service\TimeKeeperService;
+use App\Service\TownHandler;
 use App\Service\UserHandler;
-use App\Structures\Conf;
 use App\Structures\MyHordesConf;
-use App\Structures\TownConf;
 use Doctrine\ORM\EntityManagerInterface;
 use Exception;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Contracts\Translation\TranslatorInterface;
@@ -27,7 +27,7 @@ use Symfony\Contracts\Translation\TranslatorInterface;
 /**
  * @Route("/",condition="request.isXmlHttpRequest()")
  */
-class GhostController extends AbstractController implements GhostInterfaceController
+class GhostController extends CustomAbstractController implements GhostInterfaceController
 {
     protected $entity_manager;
     protected $translator;
@@ -35,8 +35,9 @@ class GhostController extends AbstractController implements GhostInterfaceContro
     private $user_handler;
     const ErrorWrongTownPassword          = ErrorHelper::BaseGhostErrors + 1;
 
-    public function __construct(EntityManagerInterface $em, UserHandler $uh, TimeKeeperService $tk, TranslatorInterface $translator)
+    public function __construct(EntityManagerInterface $em, UserHandler $uh, TimeKeeperService $tk, TranslatorInterface $translator, ConfMaster $conf)
     {
+        parent::__construct($conf);
         $this->translator = $translator;
         $this->entity_manager = $em;
         $this->user_handler = $uh;
@@ -64,7 +65,6 @@ class GhostController extends AbstractController implements GhostInterfaceContro
      */
     public function welcome(EntityManagerInterface $em, ConfMaster $conf, UserHandler $uh): Response
     {
-        /** @var User $user */
         $user = $this->getUser();
 
         if ($user->getShadowBan())
@@ -74,7 +74,15 @@ class GhostController extends AbstractController implements GhostInterfaceContro
         if ($em->getRepository(CitizenRankingProxy::class)->findNextUnconfirmedDeath($user))
             return $this->redirect($this->generateUrl( 'soul_death' ));
 
+        $coa_members = $this->user_handler->getAvailableCoalitionMembers($user, $count, $active);
+        $cdm_lock = $this->user_handler->getConsecutiveDeathLock( $user, $cdm_warn );
+
         return $this->render( 'ajax/ghost/intro.html.twig', $this->addDefaultTwigArgs([
+            'warnCoaInactive'    => $count > 0 && !$active,
+            'warnCoaNotComplete' => $count > 0 && (count($coa_members) + 1) < $count,
+            'warnCoaEmpty'       => $count > 1 && empty($coa_members),
+            'coa'                => $coa_members,
+            'cdm_level'          => $cdm_lock ? 2 : ( $cdm_warn ? 1 : 0 ),
             'townClasses' => $em->getRepository(TownClass::class)->findAll(),
             'userCanJoin' => $this->getUserTownClassAccess($conf->getGlobalConf()),
             'canCreateTown' => $uh->hasSkill($user, 'mayor') || $user->getRightsElevation() >= User::ROLE_CROW,
@@ -106,12 +114,18 @@ class GhostController extends AbstractController implements GhostInterfaceContro
 
     /**
      * @Route("api/ghost/create_town", name="ghost_process_create_town")
+     * @param JSONRequestParser $parser
      * @param EntityManagerInterface $em
+     * @param ConfMaster $conf
+     * @param UserHandler $uh
+     * @param GameFactory $gf
+     * @param LogTemplateHandler $log
      * @return Response
      */
-    public function process_create_town(JSONRequestParser $parser, EntityManagerInterface $em, ConfMaster $conf, UserHandler $uh, GameFactory $gf, LogTemplateHandler $log): Response
+    public function process_create_town(JSONRequestParser $parser, EntityManagerInterface $em, ConfMaster $conf,
+                                        UserHandler $uh, GameFactory $gf, LogTemplateHandler $log,
+                                        TownHandler $townHandler): Response
     {
-        /** @var User $user */
         $user = $this->getUser();
 
         /** @var CitizenRankingProxy $nextDeath */
@@ -134,7 +148,7 @@ class GhostController extends AbstractController implements GhostInterfaceContro
                 'xml_feed' => !(bool)$parser->get('disablexml', false),
 
                 'ghoul_mode'    => $parser->get('ghoulType', 'normal'),
-                'shamanMode'    => $parser->get('shamanMode', 'normal', ['normal','job','none']),
+                'shaman'    => $parser->get('shamanMode', 'normal', ['normal','job','none']),
                 'shun'          => (bool)$parser->get('shun', true),
                 'nightmode'     => (bool)$parser->get('nightmode', true),
                 'camping'       => (bool)$parser->get('camp', true),
@@ -197,9 +211,12 @@ class GhostController extends AbstractController implements GhostInterfaceContro
 
         $disabled_jobs   = [];
         $disabled_builds = [];
+        $disabled_roles  = [];
 
-        if($customConf['features']['shamanMode'] == "normal" || $customConf['features']['shamanMode'] == "none")
+        if($customConf['features']['shaman'] == "normal" || $customConf['features']['shaman'] == "none")
             $disabled_jobs[] = 'shaman';
+        else if ($customConf['features']['shaman'] == "job" || $customConf['features']['shaman'] == "none")
+            $disabled_roles[] = 'shaman';
 
         if(!(bool)$parser->get('basic', true)) $disabled_jobs[] = 'basic';
         if(!(bool)$parser->get('collec', true)) $disabled_jobs[] = 'collec';
@@ -216,14 +233,14 @@ class GhostController extends AbstractController implements GhostInterfaceContro
             $disabled_jobs = array_diff($disabled_jobs, ['shaman']);
         }
 
-        if ($customConf['features']['shamanMode'] !== 'job') {
+        if ($customConf['features']['shaman'] !== 'job') {
             $disabled_builds[] = 'small_vaudoudoll_#00';
             $disabled_builds[] = 'small_bokorsword_#00';
             $disabled_builds[] = 'small_spiritmirage_#00';
             $disabled_builds[] = 'small_holyrain_#00';
         }
 
-        if ($customConf['features']['shamanMode'] !== 'normal')
+        if ($customConf['features']['shaman'] !== 'normal')
             $disabled_builds[] = 'small_spa4souls_#00';
 
         if ($nightwatch !== 'normal')
@@ -231,6 +248,7 @@ class GhostController extends AbstractController implements GhostInterfaceContro
 
         $customConf['disabled_jobs']['replace']      = $disabled_jobs;
         $customConf['disabled_buildings']['replace'] = $disabled_builds;
+        $customConf['disabled_roles']['replace']     = $disabled_roles;
 
         $type = $parser->get('townType', 'remote', array_map(fn(TownClass $t) => $t->getName(), $em->getRepository(TownClass::class)->findBy(['hasPreset' => true])));
         if ($crow_permissions && (bool)$parser->get('unprivate', false))
@@ -260,6 +278,16 @@ class GhostController extends AbstractController implements GhostInterfaceContro
             return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
         }
 
+        $current_event = $this->conf->getCurrentEvent();
+        if ($current_event->active()) {
+            if (!$townHandler->updateCurrentEvent($town, $current_event)) {
+                $em->clear();
+            } else try {
+                $em->persist($town);
+                $em->flush();
+            } catch (Exception $e) {}
+        }
+
         return AjaxResponse::success( true, ['url' => $this->generateUrl('game_jobs')] );
     }
 
@@ -269,9 +297,12 @@ class GhostController extends AbstractController implements GhostInterfaceContro
      * @param GameFactory $factory
      * @param EntityManagerInterface $em
      * @param ConfMaster $conf
+     * @param LogTemplateHandler $log
+     * @param TownHandler $townHandler
      * @return Response
      */
-    public function join_api(JSONRequestParser $parser, GameFactory $factory, EntityManagerInterface $em, ConfMaster $conf, LogTemplateHandler $log) {
+    public function join_api(JSONRequestParser $parser, GameFactory $factory, EntityManagerInterface $em,
+                             ConfMaster $conf, LogTemplateHandler $log, TownHandler $townHandler) {
         /** @var User $user */
         $user = $this->getUser();
 
@@ -287,18 +318,47 @@ class GhostController extends AbstractController implements GhostInterfaceContro
 
         /** @var Town $town */
         $town = $em->getRepository(Town::class)->find( $town_id );
-        /** @var User $user */
         $user = $this->getUser();
 
         if (!$town || !$user) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+        if(!empty($town->getPassword()) && $town->getPassword() !== $parser->get('pass', ''))
+            return AjaxResponse::error(self::ErrorWrongTownPassword);
 
         $allowedTownClasses = $this->getUserTownClassAccess($conf->getGlobalConf());
         if (!$allowedTownClasses[$town->getType()->getName()]) {
             return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
         }
 
-        $citizen = $factory->createCitizen($town, $user, $error);
+        $citizen = $factory->createCitizen($town, $user, $error, $all);
         if (!$citizen) return AjaxResponse::error($error);
+
+        try {
+            $em->persist($town);
+            $em->persist($citizen);
+            $em->flush();
+        } catch (Exception $e) {
+            return AjaxResponse::error(ErrorHelper::ErrorDatabaseException, ['e' => $e->getMessage()]);
+        }
+
+        try {
+            foreach ($all as $new_citizen)
+                $em->persist( $log->citizenJoin( $new_citizen ) );
+            $em->flush();
+        }
+        catch (Exception $e) {
+            return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
+        }
+
+        $current_town_event = $this->conf->getCurrentEvent($town);
+        if ($current_town_event->active()) {
+            if (!$townHandler->updateCurrentEvent($town, $current_town_event))
+                $em->clear();
+            else {
+                $em->persist($town);
+                $em->flush();
+            }
+        }
 
         // Let's check if there is enough opened town
         $openTowns = $em->getRepository(Town::class)->findOpenTown();
@@ -348,55 +408,26 @@ class GhostController extends AbstractController implements GhostInterfaceContro
                     for($i = 0 ; $i < $minOpenTown[$townClass] - $openCount ; $i++){
                         $newTown = $factory->createTown(null, $townLang, null, $townClass);
                         $em->persist($newTown);
+                        $em->flush();
+
+                        $current_event = $this->conf->getCurrentEvent();
+                        if ($current_event->active()) {
+                            if (!$townHandler->updateCurrentEvent($newTown, $current_event))
+                                $em->clear();
+                            else {
+                                $em->persist($newTown);
+                                $em->flush();
+                            }
+                        }
                     }
                 }
             }
         }
 
-        try {
-            $em->persist($town);
-            $em->persist($citizen);
-            $em->flush();
-        } catch (Exception $e) {
-            return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
-        }
-        try {
-            $em->persist( $log->citizenJoin( $citizen ) );
-            $em->flush();
-        }
-        catch (Exception $e) {
-            return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
-        }
-
         return AjaxResponse::success();
     }
 
-    /**
-     * @Route("api/ghost/check_town_pw", name="api_check_town_pw")
-     * @param JSONRequestParser $parser
-     * @param EntityManagerInterface $em
-     * @return Response
-     */
-    public function check_town_pw_api(JSONRequestParser $parser, EntityManagerInterface $em) {
-
-        if (!$parser->has('town') || !$parser->has('pass')) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
-        $town_id = (int)$parser->get('town', -1);
-        $pass = $parser->get('pass', '');
-        if ($town_id <= 0 || empty($pass)) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
-
-        /** @var Town $town */
-        $town = $em->getRepository(Town::class)->find( $town_id );
-
-        if (!$town) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
-
-        if($town->getPassword() != $pass)
-            return AjaxResponse::error(self::ErrorWrongTownPassword);
-
-        return $this->redirectToRoute("api_join", ['town' => $town_id], 307);
-    }
-
     public function getUserTownClassAccess(MyHordesConf $conf): array {
-        /** @var User $user */
         $user = $this->getUser();
         return [
             'small' =>

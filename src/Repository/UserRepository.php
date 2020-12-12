@@ -66,7 +66,17 @@ class UserRepository extends ServiceEntityRepository implements UserLoaderInterf
     public function findByNameContains(string $value)
     {
         return $this->createQueryBuilder('u')
-            ->andWhere('u.name LIKE :val')->setParameter('val', '%' . $value . '%')
+            ->andWhere('u.name LIKE :val OR u.displayName LIKE :val')->setParameter('val', '%' . $value . '%')
+            ->getQuery()->getResult();
+    }
+
+    /**
+     * @return User[] Returns an array of User objects
+     */
+    public function findByDisplayNameContains(string $value)
+    {
+        return $this->createQueryBuilder('u')
+            ->andWhere('u.displayName LIKE :val')->setParameter('val', '%' . $value . '%')
             ->getQuery()->getResult();
     }
 
@@ -86,7 +96,7 @@ class UserRepository extends ServiceEntityRepository implements UserLoaderInterf
     public function findByNameOrMailContains(string $value)
     {
         return $this->createQueryBuilder('u')
-            ->andWhere('u.name LIKE :val')
+            ->andWhere('u.name LIKE :val OR u.displayName LIKE :val')
             ->orWhere('u.email LIKE :val')->setParameter('val', '%' . $value . '%')
             ->getQuery()->getResult();
     }
@@ -110,14 +120,52 @@ class UserRepository extends ServiceEntityRepository implements UserLoaderInterf
         } catch (NonUniqueResultException $e) { return null; }
     }
 
+    public function findOneByEternalID(string $value): ?User
+    {
+        try {
+            return $this->createQueryBuilder('u')
+                ->andWhere('u.eternalID = :val')->setParameter('val', $value)
+                ->getQuery()->getOneOrNullResult();
+        } catch (NonUniqueResultException $e) { return null; }
+    }
+
+    /**
+     * @return User[] Returns an array of User objects
+     */
+    public function findAboutToBeDeleted()
+    {
+        return $this->createQueryBuilder('u')
+            ->andWhere('u.deleteAfter IS NOT NULL')
+            ->getQuery()->getResult();
+    }
+
+    /**
+     * @return User[] Returns an array of User objects
+     */
+    public function findNeedToBeDeleted()
+    {
+        return $this->createQueryBuilder('u')
+            ->andWhere('u.deleteAfter IS NOT NULL')
+            ->andWhere('u.deleteAfter < :now')->setParameter('now', new \DateTime('now'))
+            ->getQuery()->getResult();
+    }
+
     /**
      * @inheritDoc
      */
     public function loadUserByUsername(string $username)
     {
-        $user = $this->findOneByName($username);
-        if (!$user && strpos($username, '@') !== false )
-            $user = $this->findOneByMail($username);
-        return $user;
+        $components = explode('::', $username, 2);
+        list( $domain, $name ) = count($components) === 2 ? $components : ['myh',$components[0]];
+
+        switch ($domain) {
+            case 'myh':
+                $user = $this->findOneByName($name);
+                if (!$user && strpos($name, '@') !== false )
+                    $user = $this->findOneByMail($name);
+                return $user;
+            case 'etwin':
+                return $this->findOneByEternalID( $name );
+        }
     }
 }

@@ -256,6 +256,16 @@ class Citizen
      */
     private $hasSeenGazette = false;
 
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $hasEaten = false;
+
+    /**
+     * @ORM\ManyToMany(targetEntity=SpecialActionPrototype::class)
+     */
+    private $specialActions;
+
     public function __construct()
     {
         $this->status = new ArrayCollection();
@@ -272,6 +282,7 @@ class Citizen
         $this->privateMessageThreads = new ArrayCollection();
         $this->explorerStats = new ArrayCollection();
         $this->helpNotifications = new ArrayCollection();
+        $this->specialActions = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -371,6 +382,14 @@ class Citizen
     public function getRoles(): Collection
     {
         return $this->roles;
+    }
+
+    /**
+     * @return Collection|CitizenRole[]
+     */
+    public function getVisibleRoles(): Collection
+    {
+        return $this->getRoles()->filter(fn(CitizenRole $r) => !$r->getHidden());
     }
 
     public function addRole(CitizenRole $role): self
@@ -1156,6 +1175,42 @@ class Citizen
     public function setHasSeenGazette(bool $hasSeenGazette): self
     {
         $this->hasSeenGazette = $hasSeenGazette;
+
+        return $this;
+    }
+
+    public function getHasEaten(): ?bool
+    {
+        return $this->hasEaten;
+    }
+
+    public function setHasEaten(bool $hasEaten): self
+    {
+        $this->hasEaten = $hasEaten;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|SpecialActionPrototype[]
+     */
+    public function getSpecialActions(): Collection
+    {
+        return $this->specialActions;
+    }
+
+    public function addSpecialAction(SpecialActionPrototype $specialAction): self
+    {
+        if (!$this->specialActions->contains($specialAction)) {
+            $this->specialActions[] = $specialAction;
+        }
+
+        return $this;
+    }
+
+    public function removeSpecialAction(SpecialActionPrototype $specialAction): self
+    {
+        $this->specialActions->removeElement($specialAction);
 
         return $this;
     }

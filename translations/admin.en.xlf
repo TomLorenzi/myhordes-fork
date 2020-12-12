@@ -1402,7 +1402,259 @@
       </notes>
       <segment>
         <source>Verwende folgende Syntax, um deine Suche zu spezifizieren:</source>
-        <target>Verwende folgende Syntax, um deine Suche zu spezifizieren:</target>
+        <target>Use the following syntax to specify your search:</target>
+      </segment>
+    </unit>
+    <unit id="GEzMtJe" name="E-Mail eingeben.">
+      <notes>
+        <note category="german">E-Mail eingeben.</note>
+      </notes>
+      <segment>
+        <source>E-Mail eingeben.</source>
+        <target>E-Mail eingeben.</target>
+      </segment>
+    </unit>
+    <unit id="lJqqLMl" name="E-Mail ändern">
+      <notes>
+        <note category="german">E-Mail ändern</note>
+      </notes>
+      <segment>
+        <source>E-Mail ändern</source>
+        <target>E-Mail ändern</target>
+      </segment>
+    </unit>
+    <unit id="5sAjGFp" name="Neues Passwort eingeben.">
+      <notes>
+        <note category="german">Neues Passwort eingeben.</note>
+      </notes>
+      <segment>
+        <source>Neues Passwort eingeben.</source>
+        <target>Neues Passwort eingeben.</target>
+      </segment>
+    </unit>
+    <unit id="n2HwFFe" name="Neues Passwort setzen">
+      <notes>
+        <note category="german">Neues Passwort setzen</note>
+      </notes>
+      <segment>
+        <source>Neues Passwort setzen</source>
+        <target>Neues Passwort setzen</target>
+      </segment>
+    </unit>
+    <unit id="V1ukt7Z" name="EternalTwin-Integration">
+      <notes>
+        <note category="german">EternalTwin-Integration</note>
+      </notes>
+      <segment>
+        <source>EternalTwin-Integration</source>
+        <target>EternalTwin-Integration</target>
+      </segment>
+    </unit>
+    <unit id="OkyzTP2" name="In lokalen Account umwandeln">
+      <notes>
+        <note category="german">In lokalen Account umwandeln</note>
+      </notes>
+      <segment>
+        <source>In lokalen Account umwandeln</source>
+        <target>In lokalen Account umwandeln</target>
+      </segment>
+    </unit>
+    <unit id="B9D7Dk5" name="Kartei">
+      <notes>
+        <note category="german">Kartei</note>
+      </notes>
+      <segment>
+        <source>Kartei</source>
+        <target>Kartei</target>
+      </segment>
+    </unit>
+    <unit id="OrLqzbq" name="Anzeigename">
+      <notes>
+        <note category="german">Anzeigename</note>
+      </notes>
+      <segment>
+        <source>Anzeigename</source>
+        <target>Anzeigename</target>
+      </segment>
+    </unit>
+    <unit id="14HKU3b" name="Lokal: %account%">
+      <notes>
+        <note category="german">Lokal: %account%</note>
+      </notes>
+      <segment>
+        <source>Lokal: %account%</source>
+        <target>Lokal: %account%</target>
+      </segment>
+    </unit>
+    <unit id="OaKjJho" name="Von EternalTwin verwaltet">
+      <notes>
+        <note category="german">Von EternalTwin verwaltet</note>
+      </notes>
+      <segment>
+        <source>Von EternalTwin verwaltet</source>
+        <target>Von EternalTwin verwaltet</target>
+      </segment>
+    </unit>
+    <unit id="uCT9EnO" name="Nur für Administratoren sichtbar">
+      <notes>
+        <note category="german">Nur für Administratoren sichtbar</note>
+      </notes>
+      <segment>
+        <source>Nur für Administratoren sichtbar</source>
+        <target>Nur für Administratoren sichtbar</target>
+      </segment>
+    </unit>
+    <unit id="pitbSje" name="Verknüpfte Konten">
+      <notes>
+        <note category="german">Verknüpfte Konten</note>
+      </notes>
+      <segment>
+        <source>Verknüpfte Konten</source>
+        <target>Verknüpfte Konten</target>
+      </segment>
+    </unit>
+    <unit id="L0eG_iZ" name="EternalTwin-Konto">
+      <notes>
+        <note category="german">EternalTwin-Konto</note>
+      </notes>
+      <segment>
+        <source>EternalTwin-Konto</source>
+        <target>EternalTwin-Konto</target>
+      </segment>
+    </unit>
+    <unit id="nz1fjZT" name="Sonstiges">
+      <notes>
+        <note category="german">Sonstiges</note>
+      </notes>
+      <segment>
+        <source>Sonstiges</source>
+        <target>Sonstiges</target>
+      </segment>
+    </unit>
+    <unit id="TklQ7Ze" name="AntiSpam">
+      <notes>
+        <note category="german">AntiSpam</note>
+      </notes>
+      <segment>
+        <source>AntiSpam</source>
+        <target>AntiSpam</target>
+      </segment>
+    </unit>
+    <unit id="j137AeF" name="Account zur Löschung vorgemerkt!">
+      <notes>
+        <note category="german">Account zur Löschung vorgemerkt!</note>
+      </notes>
+      <segment>
+        <source>Account zur Löschung vorgemerkt!</source>
+        <target>Account zur Löschung vorgemerkt!</target>
+      </segment>
+    </unit>
+    <unit id="_Ywx.pH" name="Anzahl der gelisteten Domains: %number%">
+      <notes>
+        <note category="german">Anzahl der gelisteten Domains: %number%</note>
+      </notes>
+      <segment>
+        <source>Anzahl der gelisteten Domains: %number%</source>
+        <target>Anzahl der gelisteten Domains: %number%</target>
+      </segment>
+    </unit>
+    <unit id="u.IOicZ" name="Domain-Suche">
+      <notes>
+        <note category="german">Domain-Suche</note>
+      </notes>
+      <segment>
+        <source>Domain-Suche</source>
+        <target>Domain-Suche</target>
+      </segment>
+    </unit>
+    <unit id="zptHdme" name="Gewählte entfernen">
+      <notes>
+        <note category="german">Gewählte entfernen</note>
+      </notes>
+      <segment>
+        <source>Gewählte entfernen</source>
+        <target>Gewählte entfernen</target>
+      </segment>
+    </unit>
+    <unit id="l.ziWyi" name="Domains hinzufügen">
+      <notes>
+        <note category="german">Domains hinzufügen</note>
+      </notes>
+      <segment>
+        <source>Domains hinzufügen</source>
+        <target>Domains hinzufügen</target>
+      </segment>
+    </unit>
+    <unit id="y7lc8Ct" name="Hinzufügen">
+      <notes>
+        <note category="german">Hinzufügen</note>
+      </notes>
+      <segment>
+        <source>Hinzufügen</source>
+        <target>Hinzufügen</target>
+      </segment>
+    </unit>
+    <unit id="_b4bK2O" name="Nachricht?">
+      <notes>
+        <note category="german">Nachricht?</note>
+      </notes>
+      <segment>
+        <source>Nachricht?</source>
+        <target>Nachricht?</target>
+      </segment>
+    </unit>
+    <unit id="XCTslOz" name="Foren-Meldungen">
+      <notes>
+        <note category="german">Foren-Meldungen</note>
+      </notes>
+      <segment>
+        <source>Foren-Meldungen</source>
+        <target>Foren-Meldungen</target>
+      </segment>
+    </unit>
+    <unit id="EdJ7diC" name="PN-Meldungen">
+      <notes>
+        <note category="german">PN-Meldungen</note>
+      </notes>
+      <segment>
+        <source>PN-Meldungen</source>
+        <target>PN-Meldungen</target>
+      </segment>
+    </unit>
+    <unit id="vDhaMLU" name="Öffnen">
+      <notes>
+        <note category="german">Öffnen</note>
+      </notes>
+      <segment>
+        <source>Öffnen</source>
+        <target>Öffnen</target>
+      </segment>
+    </unit>
+    <unit id="Z7aWRoY" name="Dashboard">
+      <notes>
+        <note category="german">Dashboard</note>
+      </notes>
+      <segment>
+        <source>Dashboard</source>
+        <target>Dashboard</target>
+      </segment>
+    </unit>
+    <unit id="KVK60jg" name="Stadt %townname%">
+      <notes>
+        <note category="german">Stadt %townname%</note>
+      </notes>
+      <segment>
+        <source>Stadt %townname%</source>
+        <target>Stadt %townname%</target>
+      </segment>
+    </unit>
+    <unit id="Z2xHG8j" name="Bank">
+      <notes>
+        <note category="german">Bank</note>
+      </notes>
+      <segment>
+        <source>Bank</source>
+        <target>Bank</target>
       </segment>
     </unit>
   </file>

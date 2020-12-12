@@ -10,13 +10,16 @@ use App\Entity\EscapeTimer;
 use App\Entity\Inventory;
 use App\Entity\Item;
 use App\Entity\ItemGroup;
+use App\Entity\ItemGroupEntry;
 use App\Entity\ItemPrototype;
+use App\Entity\LogEntryTemplate;
 use App\Entity\PictoPrototype;
 use App\Entity\RuinExplorerStats;
 use App\Entity\RuinZone;
 use App\Entity\Town;
 use App\Entity\TownLogEntry;
 use App\Entity\Zone;
+use App\Structures\EventConf;
 use App\Structures\TownConf;
 use App\Translation\T;
 use DateTime;
@@ -114,16 +117,14 @@ class ZoneHandler
                 ($a->getTimestamp() < $b->getTimestamp() ? -1 : 1);
         };
 
-        $empty_group = $this->entity_manager->getRepository(ItemGroup::class)->findOneByName('empty_dig');
-        $base_group = $this->entity_manager->getRepository(ItemGroup::class)->findOneByName('base_dig');
+        $empty_group = $this->entity_manager->getRepository(ItemGroup::class)->findOneBy(['name' => 'empty_dig']);
+        $base_group = $this->entity_manager->getRepository(ItemGroup::class)->findOneBy(['name' => 'base_dig']);
+        $event_group = null;
 
         // Get event specific items
-        $event_group_name = $this->getDigGroupEventName();
-        if($event_group_name != null){
-            $event_group = $this->entity_manager->getRepository(ItemGroup::class)->findOneByName($event_group_name);
-            foreach ($event_group->getEntries() as $entry) {
-                $base_group->addEntry($entry);
-            }
+        $event = $this->conf->getCurrentEvent($zone->getTown())->get(EventConf::EVENT_GROUP_DIG, '');
+        if($event !== '') {
+            $event_group = $this->entity_manager->getRepository(ItemGroup::class)->findOneBy(['name' => $event]);
         }
 
         $wrap = function(array $a) {
@@ -144,9 +145,6 @@ class ZoneHandler
         while ($not_up_to_date) {
 
             usort( $active_dig_timers, $sort_func );
-
-
-
             foreach ($active_dig_timers as &$timer)
                 if ($timer->getTimestamp() <= $up_to) {
 
@@ -161,7 +159,7 @@ class ZoneHandler
                     if ($this->citizen_handler->hasStatusEffect( $timer->getCitizen(), 'wound5' )) $factor -= 0.3; // Totally arbitrary
                     if ($this->citizen_handler->hasStatusEffect( $timer->getCitizen(), 'drunk'  )) $factor -= 0.3; // Totally arbitrary
                     $item_prototype = $this->random_generator->chance(max(0.1, $factor * ($zone->getDigs() > 0 ? 0.6 : 0.3 )))
-                        ? $this->random_generator->pickItemPrototypeFromGroup( $zone->getDigs() > 0 ? $base_group : $empty_group )
+                        ? $this->random_generator->pickItemPrototypeFromGroup( $zone->getDigs() > 0 ? ($event_group !== null ? ($this->random_generator->chance(0.5) ? $base_group : $event_group) : $base_group) : $empty_group )
                         : null;
 
                     if ($active && $current_citizen->getId() === $active->getId()) {
@@ -287,11 +285,11 @@ class ZoneHandler
 
         // Respawn
         $d = $town->getDay();
-        if ($mode === self::RespawnModeForce || ($mode === self::RespawnModeAuto && $d < 3 && count($empty_zones) > (count($zones)* 18/20))) {
+        if ($mode === self::RespawnModeForce || ($mode === self::RespawnModeAuto && $d >= 3 && count($empty_zones) > (count($zones)* 18/20))) {
             $keys = $d == 1 ? [array_rand($empty_zones)] : array_rand($empty_zones, $d);
             foreach ($keys as $spawn_zone_id)
                 /** @var Zone $spawn_zone */
-                $zone_db[ $zones[$spawn_zone_id]->getX() ][ $zones[$spawn_zone_id]->getY() ] = mt_rand(1,6);
+                $zone_db[ $zones[$spawn_zone_id]->getX() ][ $zones[$spawn_zone_id]->getY() ] = mt_rand(1,intval($town->getDay() / 2));
             $cycles += ceil($d/2);
         }
 
@@ -362,9 +360,11 @@ class ZoneHandler
         if (!count($zone->getCitizens())) {
             foreach ($zone->getEscapeTimers() as $et)
                 $this->entity_manager->remove( $et );
+            foreach ($zone->getChatSilenceTimers() as $cst)
+                $this->entity_manager->remove( $cst );
             foreach ($this->entity_manager->getRepository(TownLogEntry::class)->findByFilter( $zone->getTown(), null, null, $zone, null, null ) as $entry)
                 /** @var TownLogEntry $entry */
-                if ($entry->getLogEntryTemplate() === null || $entry->getLogEntryTemplate()->getClass() !== TownLogEntry::ClassCritical)
+                if ($entry->getLogEntryTemplate() === null || $entry->getLogEntryTemplate()->getClass() !== LogEntryTemplate::ClassCritical)
                     $this->entity_manager->remove( $entry );
         }
         // If zombies can take control after leaving the zone and there are citizens remaining, install a grace escape timer

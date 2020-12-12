@@ -265,6 +265,8 @@ class AwardFixtures extends Fixture implements DependentFixtureInterface {
         ['title'=>'Sudoku ist anders', 'unlockquantity'=>15, 'associatedtag'=>':bgum:', 'associatedpicto'=>'r_bgum_#00'],
         ['title'=>'Siebenseitiger Würfel', 'unlockquantity'=>20, 'associatedtag'=>':bgum:', 'associatedpicto'=>'r_bgum_#00'],
         ['title'=>'Einarmiger Bandit', 'unlockquantity'=>30, 'associatedtag'=>':bgum:', 'associatedpicto'=>'r_bgum_#00'],
+        ['title'=>'Seelenführer der Gemeinschaft', 'unlockquantity'=>50, 'associatedtag'=>':bgum:', 'associatedpicto'=>'r_bgum_#00'],
+        ['title'=>'Charismatischer Prophet', 'unlockquantity'=>100, 'associatedtag'=>':bgum:', 'associatedpicto'=>'r_bgum_#00'],
         ['title'=>'Motivierter Messebesucher', 'unlockquantity'=>1, 'associatedtag'=>':fjv2:', 'associatedpicto'=>'r_fjv2_#00'],
         ['title'=>'Verdammt in Saarbrücken', 'unlockquantity'=>1, 'associatedtag'=>':fjvani:', 'associatedpicto'=>'r_fjvani_#00'],
         ['title'=>'Kleiner Guru', 'unlockquantity'=>1, 'associatedtag'=>':rrefer:', 'associatedpicto'=>'r_rrefer_#00'],
@@ -291,7 +293,6 @@ class AwardFixtures extends Fixture implements DependentFixtureInterface {
         ['title'=>'Open-chakra', 'unlockquantity'=>7000, 'associatedtag'=>':ptame:', 'associatedpicto'=>'r_ptame_#00'],
         ['title'=>'Tausend-und-ein-Leben', 'unlockquantity'=>9000, 'associatedtag'=>':ptame:', 'associatedpicto'=>'r_ptame_#00'],
         ['title'=>'Buddha', 'unlockquantity'=>12000, 'associatedtag'=>':ptame:', 'associatedpicto'=>'r_ptame_#00'],
-        ['title'=>'Messie der verlorenen Welt', 'unlockquantity'=>500, 'associatedtag'=>':hero:', 'associatedpicto'=>'r_heroac_#00'],
         ['title'=>'Ich bin ein Gott! Ich werde ewig leben!', 'unlockquantity'=>1, 'associatedtag'=>':ermwin:', 'associatedpicto'=>'r_ermwin_#00'],
         ['title'=>'Eine Stadt sie zu knechten!', 'unlockquantity'=>1, 'associatedtag'=>':cott:', 'associatedpicto'=>'r_cott_#00'],
         ['title'=>'Verrückter Skeptiker', 'unlockquantity'=>10, 'associatedtag'=>':mystic:', 'associatedpicto'=>'r_mystic_#00'],
@@ -316,6 +317,7 @@ class AwardFixtures extends Fixture implements DependentFixtureInterface {
         ['title'=>'Dieser Kobold ist unaufhaltbar.', 'unlockquantity'=>50, 'associatedtag'=>':lepre:', 'associatedpicto'=>'r_lepre_#00'],
         ['title'=>'Verbrennt ihn! Sieh nach ob seine Asche grün wird!', 'unlockquantity'=>75, 'associatedtag'=>':lepre:', 'associatedpicto'=>'r_lepre_#00'],
         ['title'=>'Ein Wohnwagen ohne Räder???', 'unlockquantity'=>100, 'associatedtag'=>':lepre:', 'associatedpicto'=>'r_lepre_#00'],
+        ['title'=>'Ich bin geheilt', 'unlockquantity'=>1, 'associatedtag'=>':gsp:', 'associatedpicto'=>'r_gsp_#00'],
     ];
 
     private function insertAwards(ObjectManager $manager, ConsoleOutputInterface $out) {

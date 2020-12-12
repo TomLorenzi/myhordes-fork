@@ -3,26 +3,31 @@
 namespace App\Controller;
 
 use App\Controller\Admin\AdminActionController;
+use App\Controller\CustomAbstractController;
 use App\Entity\AdminAction;
 use App\Entity\ExternalApp;
 use App\Entity\User;
 use App\Service\AdminActionHandler;
+use App\Service\ConfMaster;
+use App\Service\EternalTwinHandler;
 use App\Service\JSONRequestParser;
+use App\Structures\MyHordesConf;
 use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\EntityManagerInterface;
 use Exception;
 use App\Translation\T;
 use Psr\Cache\InvalidArgumentException;
 use Shivas\VersioningBundle\Service\VersionManager;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\HeaderUtils;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\KernelInterface;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
-class WebController extends AbstractController
+class WebController extends CustomAbstractController
 {
     private $version_manager;
     private $kernel;
@@ -30,8 +35,9 @@ class WebController extends AbstractController
     private $adminAction_handler;
     protected $translator;
 
-    public function __construct(VersionManager $v, KernelInterface $k, EntityManagerInterface $e, AdminActionHandler $admh, TranslatorInterface $translator)
+    public function __construct(VersionManager $v, KernelInterface $k, EntityManagerInterface $e, AdminActionHandler $admh, TranslatorInterface $translator, ConfMaster $conf)
     {
+        parent::__construct($conf);
         $this->version_manager = $v;
         $this->kernel = $k;
         $this->entityManager = $e;
@@ -83,6 +89,16 @@ class WebController extends AbstractController
     }
 
     /**
+     * @Route("gateway/eternal-twin", name="gateway-etwin")
+     * @param EternalTwinHandler $etwin
+     * @return Response
+     */
+    public function gateway_etwin(EternalTwinHandler $etwin): Response {
+        if (!$etwin->isReady()) return new Response('Error: No gateway to EternalTwin is configured.');
+        return new RedirectResponse($etwin->createAuthorizationRequest('etwin-login'));
+    }
+
+    /**
      * @Route("/twinoid", name="twinoid_auth_endpoint")
      * @return Response
      */
@@ -98,6 +114,7 @@ class WebController extends AbstractController
 
         switch ($state) {
             case 'import': return $this->render_web_framework($this->generateUrl('soul_import', ['code' => $code]));
+            case 'etwin-login': return $this->render_web_framework($this->generateUrl('etwin_login', ['code' => $code]));
             default: return new Response('Error: Invalid state, can\'t redirect!');
         }
 

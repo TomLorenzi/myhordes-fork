@@ -8,7 +8,7 @@
     {# @var \App\Entity\Citizen owner #}
     {# @var \App\Structures\HomeDefenseSummary def #}
     <h5>
-        <b>{{ owner.user.username }}</b>
+        <b>{{ owner.user.name }}</b>
         ({% if owner.alive %}
             <img alt="{{ owner.profession.label|trans({},'game') }}" src="{{ asset('build/images/professions/' ~ owner.profession.icon ~ '.gif') }}" />
         {% else %}
@@ -29,39 +29,65 @@
         <div class="row">
             {% if (owner.user.avatar) %}
                 <div class="cell rw-12 hide-desktop hide-lg center">
-                    <div class="avatar small"><img alt="" src="{{ path('app_web_avatar', {'uid': owner.user.id, 'name': owner.user.avatar.smallName, 'ext': owner.user.avatar.format}) }}"></div><br />&nbsp;
+                    <div class="avatar small ua-{{ owner.user.id % 10 }}"><img alt="" src="{{ path('app_web_avatar', {'uid': owner.user.id, 'name': owner.user.avatar.smallName, 'ext': owner.user.avatar.format}) }}"></div><br />&nbsp;
                 </div>
+
                 <div class="cell rw-3 rw-lg-4 rw-md-0">
                     {% if app.user.preferSmallAvatars %}
-                        <div class="avatar small"><img alt="" src="{{ path('app_web_avatar', {'uid': owner.user.id, 'name': owner.user.avatar.smallName, 'ext': owner.user.avatar.format}) }}"></div>
+                        <div class="avatar small ua-{{ owner.user.id % 10 }}"><img alt="" src="{{ path('app_web_avatar', {'uid': owner.user.id, 'name': owner.user.avatar.smallName, 'ext': owner.user.avatar.format}) }}"></div>
                     {% else %}
-                        <div class="avatar"><img alt="" src="{{ path('app_web_avatar', {'uid': owner.user.id, 'name': owner.user.avatar.filename, 'ext': owner.user.avatar.format}) }}"></div>
+                        <div class="avatar ua-{{ owner.user.id % 10 }}"><img alt="" src="{{ path('app_web_avatar', {'uid': owner.user.id, 'name': owner.user.avatar.filename, 'ext': owner.user.avatar.format}) }}"></div>
                     {% endif %}
                 </div>
             {% endif %}
-            <div class="row">
-                <div class="cell rw-5 rw-lg-6"><span class="highlight">{{ 'Haus'|trans({},'game') }} :</span></div>
-                <div class="cell rw-7 rw-lg-6"><img alt="" src="{{ asset('build/images/home/' ~ owner.home.prototype.icon ~ '.gif') }}"> {{ owner.home.prototype.label|trans({},'buildings') }}</div>
+
+            <div class="cell {% if owner.user.avatar %}rw-9 rw-lg-8 rw-md-12{% else %}rw-12{% endif %}">
+                <div class="row">
+                    <div class="cell rw-5 rw-lg-6"><span class="highlight">{{ 'Haus'|trans({},'game') }} :</span></div>
+                    <div class="cell rw-7 rw-lg-6"><img alt="" src="{{ asset('build/images/home/' ~ owner.home.prototype.icon ~ '.gif') }}"> {{ owner.home.prototype.label|trans({},'buildings') }} {% if owner.alive %} [ + {{ owner.home.prototype.defense }} <img alt="" src="{{ asset('build/images/icons/def.gif') }}"> ]{% endif %}</div>
+                </div>
+                {% if owner.alive %}
+                    <div class="row">
+                        <div class="cell rw-5 rw-lg-6"><span class="highlight">{{ 'Beruf'|trans({},'game') }} :</span></div>
+                        <div class="cell rw-7 rw-lg-6">{% if owner.profession.heroic %}<img alt="" src="{{ asset('build/images/professions/hero.gif') }}" />{% endif %} <img alt="{{ citizen.profession.label|trans({},'game') }}" src="{{ asset('build/images/professions/' ~ owner.profession.icon ~ '.gif') }}" /> {{ owner.profession.label|trans({}, 'game') }}</div>
+                    </div>
+                    <div class="row">
+                        <div class="cell rw-5 rw-lg-6"><span class="highlight">{{ 'Anwesenheit'|trans({},'game') }} :</span></div>
+                        <div class="cell rw-7 rw-lg-6">{% if owner.online %}<img alt="" src="{{ asset('build/images/icons/player_online.gif') }}" /> {{'Online'|trans({}, 'global')}}{% else %}<img alt="" src="{{ asset('build/images/icons/player_offline.gif') }}" /> {{'Offline'|trans({}, 'global')}}{% endif %}</div>
+                    </div>
+                    <div class="row">
+                        <div class="cell rw-5 rw-lg-6"><span class="highlight">{{ 'Bauarbeiten'|trans({},'game') }} :</span></div>
+                        <div class="cell rw-7 rw-lg-6">
+                            {% if owner.home.citizenHomeUpgrades|length == 0 %}
+                                {{'Kein'|trans({}, 'global')}}
+                            {% else %}
+                                {% for upgrade in owner.home.citizenHomeUpgrades %}
+                                    {% if loop.index0 > 0  %}, {% endif %}<b>{{ upgrade.prototype.label|trans({}, 'buildings') }} {{ upgrade.level }}</b>
+                                {% endfor %}
+                            {% endif %}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="cell rw-5 rw-lg-6"><span class="highlight">{{ 'Dekoration'|trans({},'game') }} :</span></div>
+                        <div class="cell rw-7 rw-lg-6"><img alt="" src="{{ asset('build/images/icons/deco.gif') }}"> {{ deco }}</div>
+                    </div>
+                    <div class="row">
+                        <div class="cell rw-5 rw-lg-6"><span class="highlight">{{ 'Verteidigung'|trans({},'game') }} :</span></div>
+                        <div class="cell rw-7 rw-lg-6"><img alt="" src="{{ asset('build/images/icons/def.gif') }}"> {{ def.sum }}</div>
+                    </div>
+                {% else %}
+                    <div class="row">
+                        <div class="cell rw-5 rw-lg-6"><span class="highlight">{{ 'Todesursache'|trans({},'game') }} :</span></div>
+                        <div class="cell rw-7 rw-lg-6">{{ owner.causeOfDeath.label|trans({},'game') }} (<a x-ajax-href="{{ path('soul_visit', {id: owner.user.id}) }}" style="cursor: pointer; text-decoration: underline;"><img src="{{ asset('build/images/icons/small_ghost_red.gif') }}" alt=""/> {{'Seine Seele ansehen'|trans({}, 'game')}}</a>)</div>
+                    </div>
+                    <div class="row">
+                        <div class="cell rw-5 rw-lg-6"><span class="highlight">{{ 'Letzte Worte:'|trans({},'game') }}</span></div>
+                        <div class="cell rw-7 rw-lg-6"> {{ owner.lastWords }}</div>
+                    </div>
+                {% endif %}
             </div>
-            {% if owner.alive %}
-                <div class="row">
-                    <div class="cell rw-5 rw-lg-6"><span class="highlight">{{ 'Verteidigung'|trans({},'game') }} :</span></div>
-                    <div class="cell rw-7 rw-lg-6"><img alt="" src="{{ asset('build/images/icons/def.gif') }}"> {{ def.sum }}</div>
-                </div>
-                <div class="row">
-                    <div class="cell rw-5 rw-lg-6"><span class="highlight">{{ 'Dekoration'|trans({},'game') }} :</span></div>
-                    <div class="cell rw-7 rw-lg-6"><img alt="" src="{{ asset('build/images/icons/deco.gif') }}"> {{ deco }}</div>
-                </div>
-            {% else %}
-                <div class="row">
-                    <div class="cell rw-5 rw-lg-6"><span class="highlight">{{ 'Todesursache'|trans({},'game') }} :</span></div>
-                    <div class="cell rw-7 rw-lg-6">{{ owner.causeOfDeath.label|trans({},'game') }} (<a x-ajax-href="{{ path('soul_visit', {id: owner.user.id}) }}" style="cursor: pointer; text-decoration: underline;"><img src="{{ asset('build/images/icons/small_ghost_red.gif') }}" alt=""/> {{'Seine Seele ansehen'|trans({}, 'game')}}</a>)</div>
-                </div>
-                <div class="row">
-                    <div class="cell rw-5 rw-lg-6"><span class="highlight">{{ 'Letzte Worte:'|trans({},'game') }}</span></div>
-                    <div class="cell rw-7 rw-lg-6"> {{ owner.lastWords }}</div>
-                </div>
-            {% endif %}
+
+
         </div>
     </div>
 
@@ -71,9 +97,9 @@
                 <h5>{% trans from 'game' %}Meine Spezialaktionen{% endtrans %}</h5>
                 {% if owner.alive %}
                     {# @var complaint \App\Entity\Complaint|null #}
-                    {% if complaints > 0 %}
+                    {% if complaints|length > 0 %}
                         <div class="note">
-                            {{ '%citizen% hat bereits %num% Anzeige(n).'|trans({'%citizen%': owner.user.username, '%num%': '<b>' ~ complaints ~ '</b>'}, 'game')|raw }}<br />
+                            {{ '%citizen% hat bereits %num% Anzeige(n).'|trans({'%citizen%': owner.user.name, '%num%': '<b>' ~ complaints|length ~ '</b>'}, 'game')|raw }}<br />
                             {% set names = ['', 'Verbannung'|trans({},'game'), 'Todesstrafe'|trans({},'game') ] %}
                             {% if complaint is not null and complaint.severity > 0 %}
                                 {{ 'Eine davon stammt von dir. Du hast %punishment% gefordert.'|trans({'%punishment%': '<b>' ~ names[complaint.severity] ~ '</b>'}, 'game')|raw }}<br />
@@ -82,20 +108,32 @@
                     {% endif %}
                     <button x-ajax-href="{{ path('soul_visit', {id: owner.user.id}) }}"><img src="{{ asset('build/images/icons/small_ghost_red.gif') }}" alt="" />{{'Seine Seele ansehen'|trans({}, 'game')}}</button>
                     <button x-ajax-href="{{ path('town_house', {tab: 'messages', subtab: 'write', dest: owner.id}) }}"><img src="{{ asset('build/images/icons/small_mail.gif') }}" alt="" />{{'Eine Nachricht hinterlassen'|trans({}, 'game')}}</button>
-                    {% if not citizen.banished %}
-                        {% if complaint is null or complaint.severity == 0 %}<button x-complaint-severity="1">{{ 'Anzeige erstatten'|trans({},'game') }}</button>{% endif %}
-                        {% if complaint is not null and complaint.severity > 0 %}<button x-complaint-severity="0">{{ 'Anzeige zurückziehen'|trans({},'game') }}</button>{% endif %}
-                        {% if complaint is not null and complaint.severity == 1 %}<button x-complaint-severity="2">{{ 'Anzeige: Todesstrafe fordern'|trans({},'game') }}</button>{% endif %}
-                        {% if complaint is not null and complaint.severity == 2 %}<button x-complaint-severity="1">{{ 'Anzeige: Verbannung fordern'|trans({},'game') }}</button>{% endif %}
-                    {% endif %}
                     {% if not owner.zone %}
                         <button x-attack-citizen {% if not can_attack %}disabled{% endif %}><img alt="" src="{{ asset('build/images/icons/fist.gif') }}" /> {{ 'Diesen Bürger angreifen!'|trans({},'game') }} (<div class="ap">{{ attackAP }}</div>)</button>
                         {% if can_devour %}
                             <button x-devour-citizen {% if not allow_devour %}disabled{% endif %}><img alt="" src="{{ asset('build/images/roles/ghoul.gif') }}" /> {{ 'Diesen Bürger verspeisen!'|trans({},'game') }}</button>
                         {% endif %}
 	                    {% if is_shaman and not banished %}
-	                        <button x-heal-citizen>{{'Nutze deine heilenden Hände'|trans({}, 'game')}} (2 <div class="pm"></div>)</button>
+	                        <button x-heal-citizen>{{'Nutze deine heilenden Hände'|trans({}, 'game')}} ({% if is_shaman_role %}2 <div class="pm"></div>{% else %}2 <div class="ap"></div>{% endif %})</button>
 	                    {% endif %}
+                    {% endif %}
+                    {% if not citizen.banished %}
+                        {% if complaint is null or complaint.severity == 0 %}
+                        <button x-show-reason>{{ 'Anzeige erstatten'|trans({},'game') }}</button>
+                        <div class="lightbox" id="complain_reason" style="display: none";>
+                            <label for="reason">{{'Grund:'|trans({}, 'game')}}</label>
+                            <select id="reason">
+                                <option value="0" selected>-- {{'Wählen'|trans({}, 'game')}} --</option>
+                                {% for complaintreason in complaintreasons %}
+                                <option value="{{complaintreason.id}}">{{complaintreason.text|trans({}, 'game')}}</option>
+                                {% endfor %}
+                            </select>
+                            <button x-complaint-severity="1">{{ 'Anzeige erstatten'|trans({},'game') }}</button>
+                        </div>
+                        {% endif %}
+                        {% if complaint is not null and complaint.severity > 0 %}<button x-complaint-severity="0">{{ 'Anzeige zurückziehen'|trans({},'game') }}</button>{% endif %}
+                        <!--{% if complaint is not null and complaint.severity == 1 %}<button x-complaint-severity="2">{{ 'Anzeige: Todesstrafe fordern'|trans({},'game') }}</button>{% endif %}-->
+                        <!--{% if complaint is not null and complaint.severity == 2 %}<button x-complaint-severity="1">{{ 'Anzeige: Verbannung fordern'|trans({},'game') }}</button>{% endif %}-->
                     {% endif %}
                 {% endif %}
                 {% if owner.home.holdsBody %}
@@ -111,15 +149,15 @@
             {% else %}
                 <h5>{% trans from 'game' %}Was ist mit ihm geschehen?{% endtrans %}</h5>
                 {% if owner.disposed is null %}
-                    {{'Nach außen hin tot, wird %citizen% seinen Mitbürgern keine Ruhe geboten haben.'|trans({'%citizen%': "<strong>" ~ owner.user.username ~ "</strong>"}, 'game')|raw}}
+                    {{'Nach außen hin tot, wird %citizen% seinen Mitbürgern keine Ruhe geboten haben.'|trans({'%citizen%': "<strong>" ~ owner.user.name ~ "</strong>"}, 'game')|raw}}
                 {% elseif owner.disposed is not null and owner.disposedBy|length > 0 %}
                 <span class="disposal">
                     {% if owner.disposed == constant('App\\Entity\\Citizen::Thrown') %}
-                        {{'Nicht ganz ekelfrei hat %disposing_citizen% den leblosen Körper von %citizen% entsorgt.'|trans({'%disposing_citizen%': "<em>" ~ owner.disposedBy[0].user.username ~ "</em>", '%citizen%': "<em>" ~ owner.user.username ~ "</em>"}, 'game')|raw}}
+                        {{'Nicht ganz ekelfrei hat %disposing_citizen% den leblosen Körper von %citizen% entsorgt.'|trans({'%disposing_citizen%': "<em>" ~ owner.disposedBy[0].user.name ~ "</em>", '%citizen%': "<em>" ~ owner.user.name ~ "</em>"}, 'game')|raw}}
                     {% elseif owner.disposed == constant('App\\Entity\\Citizen::Watered') %}
-                        {{'Dank %disposing_citizen% hat sich der Körper von %citizen% in verfaultes Wasser verwandelt.'|trans({'%disposing_citizen%': "<em>" ~ owner.disposedBy[0].user.username ~ "</em>", '%citizen%': "<em>" ~ owner.user.username ~ "</em>"}, 'game')|raw}}
+                        {{'Dank %disposing_citizen% hat sich der Körper von %citizen% in verfaultes Wasser verwandelt.'|trans({'%disposing_citizen%': "<em>" ~ owner.disposedBy[0].user.name ~ "</em>", '%citizen%': "<em>" ~ owner.user.name ~ "</em>"}, 'game')|raw}}
                     {% elseif owner.disposed == constant('App\\Entity\\Citizen::Cooked') %}
-                        Grâce aux efforts de <em>{{owner.disposedBy[0].user.username}}</em>, le corps de <em>{{owner.user.username}}</em> a été cuisiné en bon p'tit plat.
+                        HARDCODED: Grâce aux efforts de <em>{{owner.disposedBy[0].user.name}}</em>, le corps de <em>{{owner.user.name}}</em> a été cuisiné en bon p'tit plat.
                     {% endif %}
                 </span>
                 {% else %}
@@ -127,6 +165,19 @@
                 {% endif %}
             {% endif %}
             {% if owner.alive %}
+            {% if complaints|length > 0 %}
+            <h5><img alt="" src="{{ asset('build/images/icons/scout_lv0.gif') }}"> {% trans from 'game' %}Anzeigen{% endtrans %}</h5>
+            <ul class='gossips'>
+            {% for complaint in complaints %}
+                {% if not complaint.linkedReason is null %}
+                <li>{{complaint.linkedReason.text|trans({}, 'game')}}</li>
+                {% else %}
+                <li>{{complaint.reason}}</li>
+                {% endif %}
+            {% endfor %}
+            </ul>
+            {% endif %}
+            
             <h5>{% trans from 'game' %}Gemeinschaft{% endtrans %}</h5>
             <ul class='gossips'>
                 {% if owner.lastActionTimestamp == 0 %}
@@ -156,7 +207,7 @@
             {% endif %}
         </div>
         <div class="padded cell rw-6 citizen-chest">
-            <h5>{{ '%citizen%s Truhe'|trans({'%citizen%': owner.user.username}, 'game') }}</h5>
+            <h5>{{ '%citizen%s Truhe'|trans({'%citizen%': owner.user.name}, 'game') }}</h5>
             {% if not hidden %}
                 <p>{{ 'Wenn Sie aus dem Fenster schauen, können Sie die folgenden Dinge im Haus sehen:'|trans({},'game') }}</p>
                 {% embed "ajax/game/inventory.html.twig" with {'size': chest_size, 'items': chest.items, 'foreignChestMode': true} %}
@@ -178,7 +229,7 @@
     </div>
 
     <div class="row">
-        <h5>{{ '%citizen%s Register'|trans({'%citizen%': owner.user.username},'game') }}</h5>
+        <h5>{{ '%citizen%s Register'|trans({'%citizen%': owner.user.name},'game') }}</h5>
         <div class="cell rw-12">
             {% embed "ajax/game/log.html.twig" with {'log_content': log, 'log_source': path('town_visit_log_controller', {'id': owner.id}) } %}
             {% endembed %}
@@ -223,10 +274,20 @@
         );
 
         {% if owner.alive %}
+            const show_complain = document.querySelectorAll('[x-show-reason]');
+            for (let i = 0 ; i < show_complain.length ; i++){
+                show_complain[i].addEventListener('click', function(){
+                    this.style.display = "none";
+                    document.getElementById("complain_reason").style.display = "block";
+                });
+            }
             const complainButtons = document.querySelectorAll('[x-complaint-severity]');
             for (let i = 0; i < complainButtons.length; i++)
                 complainButtons[i].addEventListener('click', function() {
-                    $.ajax.easySend( '{{ path('town_visit_complain_controller', {id: owner.id}) }}', {severity: parseInt(complainButtons[i].getAttribute('x-complaint-severity'))},
+                    let reason = 0;
+                    if(document.getElementById("reason"))
+                        reason = document.getElementById("reason").value;
+                    $.ajax.easySend( '{{ path('town_visit_complain_controller', {id: owner.id}) }}', {severity: parseInt(complainButtons[i].getAttribute('x-complaint-severity')), reason: reason},
                         function () {
                             $.ajax.load(null, '{{ path('town_visit', {id: owner.id}) }}', true);
                         } );

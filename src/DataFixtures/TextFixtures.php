@@ -62,6 +62,18 @@ class TextFixtures extends Fixture
             'design' => 'typed',
             'background' => 'carton',
         ],
+        'citya3_de' => [
+            'title' => 'Bekanntmachung: Bank',
+            'author' => 'Sigma',
+            'content' => [
+                '<div class="hr"></div>
+				<h1>Öffentliche Bekanntmachung</h1>
+				<p>Die Bank gibt hiermit bekannt, dass ab sofort keine Lebensmittelkarten mehr angenommen werden. Ein paar Witzbolde wurden gestern beim Versuch erwischt, dem kurzsichtigen Bankverwalter ein paar schlecht gefälschte Karten anzudrehen.</p>'
+            ],
+            'lang' => 'de',
+            'design' => 'typed',
+            'background' => 'carton',
+        ],
         'bwas' => [
             'title' => 'Bekanntmachung: Wasser',
             'author' => 'Fyodor',
@@ -95,6 +107,21 @@ class TextFixtures extends Fixture
             'design' => 'small',
             'background' => 'noteup',
         ],
+        'sophie' => [
+            'title' => 'Brief nach Hause',
+            'author' => 'SixSixSeven',
+            'content' => [
+                '<p>Meine allerliebste Sophie,</p>
+                <p>ich weiß nicht ob euch dieser Brief erreicht oder ob er überhaupt jemals gefunden wird.</p>
+                <p>In diesen Minuten, welche allem Anschein nach die Letzten in meinem Leben sein werden, möchte ich euch mitteilen wie sehr ich euch liebe. Meine einzigen Gedanken in diesen schweren Zeiten gelten Dir und dem Baby. Alle Kraft, über die ich jetzt noch verfüge, stammt allein aus der Tatsache, euch in Sicherheit zu wissen.</p>
+                <p>Ich habe mich in dieser alten Tankstelle verschanzt, habe die Türen und Fenster verbarrikadiert und alles was ich an Wasservorräten und sonstigen Waffen finden konnte zusammengetragen.</p>',
+				'<p>Trotz allem wütet draußen eine so gewaltige Horde dieser Höllenbrut, dass ich keine Hoffnung haben kann euch jemals wieder in meine Arme zu schließen.</p>
+				<p>Ich liebe euch über alles und kann nur hoffen, dass ihr den tag erl</p>'
+            ],
+            'lang' => 'de',
+            'design' => 'written',
+            'background' => 'letter',
+        ],
         'nancy' => [
             'title' => 'Brief an Nancy',
             'author' => 'Zekjostov',
@@ -109,9 +136,17 @@ class TextFixtures extends Fixture
             'title' => 'Brief an Nelly',
             'author' => 'aera10',
             'content' => [
-                ''
+                '<p>Liebe Nelly,</p>
+				<p>ich schreibe dir, weil ich es hier nicht mehr aushalte.</p>
+				<p>In der ganzen Stadt gibt es seit Tagen keinen Strom mehr, wir haben kein Internet und alle Telefonleitungen sind tot. Vor allem aber passieren seltsame Dinge. Auf einigen Straßen liegen riesige Felsen, die vom Himmel gefallen zu sein scheinen.</p>
+				<p>Gestern habe ich einen Mann gesehen... na ja, ich weiß nicht mal, ob es ein Mann war. Dieser Typ hatte ein Bettlaken auf dem Kopf und wühlte in einer Mülltonne. Ich weiß nicht, was er darin suchte. Nach zirka 2 Minuten drehte er sich um und wankte in das Haus von dieser verrückten Malerin. Ein Polizist hat sie heute morgen in ihrem Wohnzimmer aufgefunden und prompt einen Schock erlebt. Die Malerin muss ziemlich übel ausgesehen haben.</p>',
+				'<p>Ich habe diesen Brief in der Nachbargemeinde abgesendet. Will dir damit nur sagen, dass ich dich besuchen komme.</p>
+				<p>Während du diese Zeilen liest, bin ich schon unterwegs.</p>
+				<p>Herbert.</p>'
             ],
-            'lang' => 'de'
+            'lang' => 'de',
+            'design' => 'written',
+            'background' => 'letter',
         ],
         'brmu1' => [
             'title' => 'Brief einer Mutter',
@@ -465,16 +500,13 @@ class TextFixtures extends Fixture
             'background' => 'notepad',
         ],
         'dv_024' => [
-            'title' => 'Mitteilung',
+            'title' => 'Mitteilung: Diebe',
             'author' => 'DBDevil',
             'content' => [
-                '<br/><br/><br/><b>Mitteilung</b><br /><br />
-                Hiermit werden die Strafen für Diebstahl
-                verschärft. Die Verbrecher werden ab sofort im
-                Kremato-Cue verbrannt. Um weitere Unfälle zu
-                verhindern, bleiben Haustiere als
-                Diebstahlschutz weiterhin verboten und sind beim
-                Metzger abzuliefern.<br/><br/>- Die Bürgerversammlung'
+                '<div class="hr"></div>
+				<h1>Mitteilung</h1>
+				<p>Hiermit werden die Strafen für Diebstahl verschärft. Die Verbrecher werden ab sofort im Kremato-Cue verbrannt. Um weitere Unfälle zu verhindern, bleiben Haustiere als Diebstahlschutz weiterhin verboten und sind beim Metzger abzuliefern.</p>
+				<p>- Die Bürgerversammlung</p>'
             ],
             'lang' => 'de',
             'design' => 'typed',
@@ -606,21 +638,73 @@ class TextFixtures extends Fixture
             'design' => 'small',
             'background' => 'notepad',
         ],
+        'sos1_de' => [
+            'title' => 'S.O.S.',
+            'author' => 'ChrisCool',
+            'content' => [
+                '<div class="hr"></div>
+				<p>Das ist ein Hilferuf! Ich befinde mich in der Stadt <strong>Brutstätte der Verdammten</strong>! Wenn jemand diese Nachricht lesen sollte: BRINGT MIR BITTE EINEN VIBRATOR!! Es geht um LEBEN ODER TOD!</p>'
+            ],
+            'lang' => 'de',
+            'design' => 'postit',
+            'background' => 'carton',
+        ],
         'dv_031' => [
-            'title' => 'Schmerzengels Überlebensregeln',
+            'title' => 'Überlebensregeln',
             'author' => 'Schmerzengel',
             'content' => [
-                ''
+                '<h1>Schmerzengels Überlebensregeln</h1>
+                <p>Punkt 1.
+                <br>
+                Stehle niemandem sein Wasser, außer Du hast keines.	
+                </p>
+                <p>Punkt 2.
+                <br>
+                Gehe nur mit Waffen und Proviant in die Außenwelt. Solltest Du beides nicht haben. Nimm jemanden mit, der langsamer läuft als DU.	
+                </p>
+                <p>Punkt 3.
+                <br>
+                Wenn Du Nahrung findest, laß erst Deinen Kameraden davon essen. Er ist bestimmt genau so hungrig wie Du.	
+                </p>',
+                '<p>Punkt 4.
+                <br>
+                Mit einer Fackel in der Hand ist der Verdammte gleich entbrannt.	
+                </p>
+                <p>Punkt 5.
+                <br>
+                Wenn Du meinst es geht nichts mehr kommt von irgendwo ....ach was soll´s. Ich bin ehrlich zu Dir. Du hast verschissen. Punkt.	
+                </p>'
             ],
-            'lang' => 'de'
+            'lang' => 'de',
+            'design' => 'typed',
+            'background' => 'grid',
         ],
         'dv_032' => [
-            'title' => 'Sprinkleranlage im Eigenbau',
+            'title' => 'Seite 134 - Sprinkleranlage im Eigenbau',
             'author' => 'Tycho',
             'content' => [
-                ''
+                    '<p>Eine einfache Bewässerungsanlage für Ihren heimischen Garten selbst zu bauen ist gar nicht kompliziert. Hauptsächlich gehört dazu: Ein Anschluss an einen Wasserhahn, eine Befestigungsmöglichkeit für den Bewässerungskopf, der Bewässerungskopf selber und optional ein Mechanismus zur regelmäßigen Bewegung des Bewässerungskopfes.</p>
+					<p>Zentral wichtig bei einer guten Sprinkleranlage ist die gleichmäßige Verteilung. Eine sehr einfache und effiziente Variante besteht aus einem längeren Stück Rohr (Länge sollte vom verfügbaren Wasserdruck abhängen), in das ein oder zwei Reihen kleiner Löcher gebohrt werden, als Bewässerungskopf. Am Ende des Rohres wird ein druckbelastetes wasserführendes System angeschlossen – beispielsweise der Wasserhahn ihres Gartenhauses.</p>',
+					'<p>Ein Teil des Wassers wird über eine separate Zuleitung abgezweigt und gegen ein kleines Wasserrad mit einer Rückstellfeder geleitet. Dreht nun das einströmende Wasser das Rad, so wird dadurch der Bewässerungskopf entlang seiner Längsachse gedreht. Ab einem gewissen Drehwinkel verschließt ein Teil des Wasserrades die Zuleitung und die Rückstellfeder dreht den Bewässerungskopf in die entgegengesetzte Richtung zurück. Dadurch schwingt der Bewässerungskopf vor und zurück, um somit abwechselnd den Boden auf beiden Seiten der Anlage zu bewässern.</p>
+					<p>Soll die Anlage nur stationär eingesetzt werden, empfiehlt es sich, den Bewässerungskopf an einer Holzkonstruktion über dem Feld aufzuhängen.</p>
+					<p>Exemplarische Konstruktionsskizzen und Berechnungshilfen finden sie auf der beigelegten CD unter dem Menüpunkt "Sprinkleranlage".</p>'
             ],
-            'lang' => 'de'
+            'lang' => 'de',
+            'design' => 'classic',
+            'background' => 'old',
+        ],
+        'death' => [
+            'title' => 'Spruch',
+            'author' => 'Nomad',
+            'content' => [
+                '<div class="hr"></div>
+				<center>
+				<div>Spiele nicht mit dem Tod, sonst spielen die Toten noch mit dir.</div>
+				</center>'
+            ],
+            'lang' => 'de',
+            'design' => 'written',
+            'background' => 'blood',
         ],
         'gbuch' => [
             'title' => 'Seite aus einem alten Gesangsbuch',
@@ -688,6 +772,51 @@ class TextFixtures extends Fixture
             'design' => 'typed',
             'background' => 'white',
         ],
+        'stxt' => [
+            'title' => 'Seltsamer Text',
+            'author' => 'Sardock4r',
+            'content' => [
+                    '<p>08 Wüste</p>
+					<p>67 Die Entdeckung von Goldvorkommen in den fünfziger Jahren</p>
+                    <p>74 Gebote gilt es zu beachten</p>
+                    <p>13 Die Reihenfolge</p>
+                    <p>67 Über dem Dorf erhebt sich auf einem Hügel die Ruine</p>
+                    <p>40 Kaktus</p>
+                    <p>03 ist mir egal</p>
+                    <p>89 Addy</p>
+                    <p>96 Le canelé est un petit gâteau</p>',
+                    '<p>00 Ich bin das Alpha und das Omega</p>
+                    <p>78 Alteisen und Holzbrett</p>
+                    <p>99 Aurum summum bonum est</p>
+                    <p>93 Der Naturforscher ist der Mann des strukturierten Sichtbaren</p>
+                    <p>78 Miss den Nächsten nicht nach dem eigenen Maß!</p>
+                    <p>05 Ich konnte mir seit 5 Monaten nicht die Fußnägel schneiden</p>
+                    <p>35 Durst kann tödlich sein</p>
+                    <p>25 Ein Mensch hatte zwei Söhne</p>
+                    <p>61 Worte aber kann ich nicht lieben.</p>',
+                    '<p>93 Das Leben kann kurz oder lang sein.</p>
+                    <p>63 Geschlechtsreif sind Löwen mit 2-3 Jahren</p>
+                    <p>12 Hat hier nichts zu bedeuten</p>
+                    <p>32 Man kann vieles unbewusst wissen, indem man es nur fühlt.</p>
+                    <p>72 Hat was mit dem Bürger Dayan zu tun</p>
+                    <p>98 Freundschaft, das ist eine Seele in zwei Körpern.</p>
+                    <p>96 Ein wird ein Hund mit drei Beinen kommen</p>
+                    <p>18 Fantasie kennt keine Grenzen</p>
+                    <p>46 Mathematiker sind dumm</p>',
+                    '<p>80 Pi ist unendlich</p>
+                    <p>84 Scharlachrote Paradeuniformen</p>
+                    <p>96 Trennen ist wichtig</p>
+                    <p>42 Du schlugst die Augen auf</p>
+                    <p>31 Ich seh mein Dunkel leben.</p>
+                    <p>95 Ich seh ihm auf den Grund.</p>
+                    <p>41 auch da ists mein und lebt.</p>
+                    <p>20 Schwelle zu Schwelle</p>
+                    <p>52 Das meiste ist unwichtig</p>'
+            ],
+            'lang' => 'de',
+            'design' => 'written',
+            'background' => 'carton',
+        ],
         'refabr_de' => [
             'title' => 'Sicherer Unterschlupf',
             'author' => 'Loadim',
@@ -726,6 +855,26 @@ class TextFixtures extends Fixture
             'design' => 'classic',
             'background' => 'old',
         ],
+        'stafel' => [
+            'title' => 'Sprechtafel',
+            'author' => 'Nobbz',
+            'content' => [
+                '<p>[Sprechtafel]</p>
+                <p>0 - AG | Verpflegung - Welpen</p>
+                <p>1 - HJ | Kompaniefeldwebel - Dosenöffner</p>
+                <p>2 - DP | Feind - Kartoffel</p>
+                <p>3 - XP | Anzahl - Gemüse</p>
+                <p>4 - PO | Kompanie - Löwe</p>
+                <p>5 - YQ | Hamburg - Baum</p>
+                <p>6 - XO | Kompaniechef - Pickelhaube</p>
+                <p>7 - KL | Kampfeinheit - Rasenmäher</p>
+                <p>8 - PU | Truppenteile - Garage</p>
+                <p>9 - QM | Kampf - Frikadelle</p>'
+            ],
+            'lang' => 'de',
+            'design' => 'typed',
+            'background' => 'printer',
+        ],
         'citsig_de' => [
             'title' => 'Stadtschild',
             'author' => 'coctail',
@@ -759,9 +908,24 @@ class TextFixtures extends Fixture
             'title' => 'Twinoidetikett',
             'author' => null,
             'content' => [
-                ''
+                '<h1>Twinoid 500mg</h1>
+                <table>
+                <tbody><tr><td>Nandrolon</td><td>0.70 %</td></tr>
+                <tr><td>Allicin</td><td>0.03 %</td></tr>
+                <tr><td>Nitroglyzerin</td><td>3.0 %</td></tr>
+                <tr><td>Octanitrocuban</td><td>4.0 %</td></tr>
+                <tr><td>Knallquecksilber</td><td>2.5 %</td></tr>
+                <tr><td>Perchlorat</td><td>0.02 %</td></tr>
+                <tr><td>Bleiazid</td><td>3.00 %</td></tr>
+                <tr><td>RDX</td><td>0.02 %</td></tr>
+                <tr><td>Natürliches Erdbeeraroma</td><td>86.73 %</td></tr>
+                </tbody></table>
+                <p><small>Anmerkung: Einige Wirkstoffe in diesem Medikament können unerwünschte Nebenwirkungen hervorrufen. Dazu zählen: Übelkeit, Erbrechen, Krämpfe, plötzlicher Tod und Explosion.</small></p>
+                <p><small>Enthält leichtentzündliche Stoffe.</small></p>'
             ],
-            'lang' => 'de'
+            'lang' => 'de',
+            'design' => 'stamp',
+            'background' => 'stamp',
         ],
         'santw' => [
             'title' => 'Verstanden!',
@@ -851,36 +1015,6 @@ class TextFixtures extends Fixture
             'lang' => 'de',
             'design' => 'typed',
             'background' => 'printer',
-        ],
-        'uereg' => [
-            'title' => 'Überlebensregeln',
-            'author' => 'Schmerzengel',
-            'content' => [
-                '<h1>Schmerzengels Überlebensregeln</h1>
-                <p>Punkt 1.
-                <br>
-                Stehle niemandem sein Wasser, außer Du hast keines.	
-                </p>
-                <p>Punkt 2.
-                <br>
-                Gehe nur mit Waffen und Proviant in die Außenwelt. Solltest Du beides nicht haben. Nimm jemanden mit, der langsamer läuft als DU.	
-                </p>
-                <p>Punkt 3.
-                <br>
-                Wenn Du Nahrung findest, laß erst Deinen Kameraden davon essen. Er ist bestimmt genau so hungrig wie Du.	
-                </p>',
-                '<p>Punkt 4.
-                <br>
-                Mit einer Fackel in der Hand ist der Verdammte gleich entbrannt.	
-                </p>
-                <p>Punkt 5.
-                <br>
-                Wenn Du meinst es geht nichts mehr kommt von irgendwo ....ach was soll´s. Ich bin ehrlich zu Dir. Du hast verschissen. Punkt.	
-                </p>'
-            ],
-            'lang' => 'de',
-            'design' => 'typed',
-            'background' => 'grid',
         ],
         /**
          * FRENCH ROLE PLAY TEXTS
@@ -997,7 +1131,7 @@ class TextFixtures extends Fixture
             "background" => "carton",
             "design" => "typed"
         ],
-        "news2" => [
+        "news2_fr" => [
             "title" => "Article - Meurtre sauvage",
             "author" => "anonyme",
             "content" => [
@@ -1534,6 +1668,25 @@ class TextFixtures extends Fixture
             "background" => "white",
             "design" => "white"
         ],
+        "epit" => [
+            "title" => "Épitaphe",
+            "author" => "aeniln57",
+            "content" => [
+                '>
+                <h1>Epitaphe</h1>
+                <p>Nous perdons aujourd\'hui notre dernier Heros,<br>
+                En veillant sur nos vies, il croisa son destin<br>
+                Et ces immondes choses s\'en sont fait un festin,<br>
+                N\'en laissant qu\'une épaule, un pied, et quelques os.<br>
+                La Horde chaque jour rend rouges nos aurores ;<br>
+                La Horde chaque nuit nous ronge et nous consume…<br>
+                Hommes, sonnez le glas de l’ami qu’on inhume,<br>
+                Mais bientôt soyez sûrs qu’il sonnera encore…</p>'
+            ],
+            "lang" => "fr",
+            "background" => "notepad",
+            "design" => "written"
+        ],
         "dead1" => [
             "title" => "Épitaphe pour Alfred",
             "author" => "Planeshift",
@@ -1556,6 +1709,29 @@ class TextFixtures extends Fixture
             ],
             "lang" => "fr",
             "background" => "carton",
+            "design" => "written"
+        ],
+        "espece" => [
+            "title" => "Espèce en voie de disparition",
+            "author" => "Aknarintja",
+            "content" => [
+                '>
+                <p>
+                Réveil à 6 heures.<br>
+                Il pleut à verse, mais c\'est décidé, aujourd\'hui je retourne à la Villa.<br>
+                Ces derniers jours nous avons retrouvé une bande de chats puants et hirsutes comme s\'ils avaient été caressés à rebrousse-poil pendant des mois,<br>
+                et aucune trace de la chienne de mon père.<br>
+                </p>
+                <p>
+                Quelle rincée !<br>
+                J\'aperçois enfin cette maison jadis charmante et harmonieuse, maintenant crasseuse et dévastée.<br>
+                Est-ce que tu es là ma belle ?<br>
+                Où t\'es Pepette, où t\'es ?<br>
+                Dis moi où tu es cachée.<br>
+                </p>'
+            ],
+            "lang" => "fr",
+            "background" => "notepad",
             "design" => "written"
         ],
         "ster" => [
@@ -1890,6 +2066,21 @@ class TextFixtures extends Fixture
             "background" => "notepad",
             "design" => "written"
         ],
+        "kirou" => [
+            "title" => "Il était un temps",
+            "author" => "kiroukou",
+            "content" => [
+                '>
+				<h1>L\'admin Kiroukou</h1>
+				<p>
+				Il était un temps où le réveil était synonyme de travail et le travail était synonyme de jeux et de joueurs. <br>
+				A cette époque, il était coutume de faire briller la belle balise violette sur les forums. <br>
+				</p>'
+            ],
+            "lang" => "fr",
+            "background" => "notepad",
+            "design" => "poem"
+        ],
         "infect" => [
             "title" => "Infection",
             "author" => "anonyme",
@@ -2079,7 +2270,7 @@ class TextFixtures extends Fixture
                 <p>En ne comptant pas Hector qui s\'était tiré notre unique balle dans la tête à la vu de la ville, nous étions 41 je crois.</p>
                 <p>Les charognards se rapprochent déjà de nous, hardi par la faim et le cadavre frais. Nous partons, mais pas à cause d\'eux.</p>',
                 '<h2>Jour 27, 10h23.</h2>
-                <p>La ville était déserte comme nous l\'avions tous prévu. Il semblerait <em[ un="" trou="" empêche="" de="" lire="" la="" suite="" ]<="" em=""> avec eux.</em[></p>
+                <p>La ville était déserte comme nous l\'avions tous prévu. Il semblerait qu\'<em>un trou empêche de lire la suite</em> avec eux.</p>
                 <h2>Jour 27, 12h58.</h2>
                 <p>Les choses nous ont suivit jusqu\'ici, nous nous sommes barricadé mais on les entends dehors, cognant parfois sur la frêle muraille qui était érigé là. Nous décidons tout de suite de la consolider.</p>',
                 '<h2>Jour 27, 14h18.</h2>
@@ -3967,7 +4158,7 @@ class TextFixtures extends Fixture
             "design" => "written"
         ],
         "ensole" => [
-             "title" => "Souvenirs d'un survivant perdu",
+             "title" => "Souvenir d'un été ensoleillé",
              "author" => "Drozera",
              "content" => [
                 '>
@@ -4141,6 +4332,25 @@ class TextFixtures extends Fixture
             "background" => "notepad",
             "design" => "written"
         ],
+        "tobego" => [
+             "title" => "To be goule or not to be ?",
+             "author" => "Aaku",
+             "content" => [
+                '>
+                <p>Ma persévérance s’éloigne avec mes derniers espoirs de survie sur le dos,
+                juste car je ne voudrais pas en arriver à sacrifier leur vie pour sauver la mienne.</p>
+                <p>
+                A quoi bon agir si égoïstement, après tout… ?</p>
+                <p>
+                En me laissant mourir, j’avais des chances de rejoindre ceux qui n’étaient déjà plus des nôtres, au paradis. Mais mon dieu accepterait-t-il un monstre dans son royaume ?</p>
+                <p>
+                Bannie, ma seule chance de survie reste de dévorer un citoyen à portée de ma nature goulesque.
+                Alors que je suis bientôt épuisée, oserai-je tuer cet homme, qui campe misérablement dans l’Outre-monde ?</p>'
+             ],
+             "lang" => "fr",
+             "background" => "notepad",
+             "design" => "written"
+         ],
         "tomb_fr" => [
              "title" => "Tombe d'un poète",
              "author" => "Emmatopiak",
@@ -4540,7 +4750,35 @@ class TextFixtures extends Fixture
              "lang" => "fr",
              "background" => "old",
              "design" => "poem"
-         ],
+        ],
+         "conti" => [
+             "title" => "Contine des jours sans lendemain",
+             "author" => "Prostipoulpe",
+             "content" => [
+                '>
+                <p>Un, deux, trois, de l\'eau je ne bois,<br>
+                Quatre, cinq, six, je chasse les écrits,<br>
+                Sept, huit, neuf, maintenant jmange mon oeuf,<br>
+                Dix, onze, douze, une petite fouille piquouze,<br>
+                Treize, quatorze, quinze, un teddy contre une guinze,<br>
+                Seize, dix-sept, dix-huit, l\'ETL réussie,<br>
+                Dix-neuf, vingt, vingt et un, jmarche avec entrain,<br>
+                Vingt-deux, vingt-trois, vingt-quatre, des zombies à abattre,<br>
+                Vingt-cinq, vingt-six, vingt-sept, twino, alcool, machette,<br>
+                Vingt-huit, vingt-neuf, trente, mourir J1, une constante,<br>
+                Trente et un, trente-deux, trente-trois, picto déshydratation encore une fois.<br>
+                </p>',
+                'Cloaque étrange (1)
+                <p>Disette chez la Horde : aucun des 35 zombies n\'a eu quoi que ce soit à se mettre sous la dent hier soir en ville, nos défenses ont bien tenu.</p>
+                <p>Amusant, † Bistouflex n\'est toujours pas rentré(e) en ville depuis hier…</p>
+                - Le Corbeau
+                Morts en ville : Aucun !
+                Autres Victimes (1) : Bistouflex'
+             ],
+             "lang" => "fr",
+             "background" => "secret",
+             "design" => "written"
+        ],
         "regler_fr" => [
             "title" => "Regretté Regler",
             "author" => "Darkhan",
@@ -4860,6 +5098,25 @@ class TextFixtures extends Fixture
             "background" => "notepad",
             "design" => "poem"
         ],
+        "seven" => [
+            "title" => "Sept jours pour en finir",
+            "author" => "csbilouze",
+            "content" => [
+                '>
+                <p>Au commencement Dieu créa la terre.<br>
+                - Le premier jour, Dieu créa la lumière, séparant ainsi le jour et la nuit.<br>
+                - Le second jour, Dieu créa le ciel<br>
+                - Le troisième jour, Dieu créa la végétation<br>
+                - Le quatrième jour, Dieu créa les animaux<br>
+                - Le cinquième jour, Dieu créa l\'homme à son image.<br>
+                - Le sixième jour, l\'Homme créa les zombies.<br>
+                - Le septième jour, Dieu dit: "débrouillez-vous"<br>
+                </p>'
+            ],
+            "lang" => "fr",
+            "background" => "carton",
+            "design" => "written"
+        ],
         "acorr_es" => [
             "title" => "Acorralado",
             "author" => "GeneralCross",
@@ -4954,6 +5211,18 @@ class TextFixtures extends Fixture
             ],
             "lang" => "es",
             "background" => "old",
+            "design" => "written"
+        ],
+        "dest" => [
+            "title" => "Diario de un desterrado",
+            "author" => "Mellaa",
+            "content" => [
+                '<p>Es el tercer día desde que volví infectado del Ultramundo y los aldeanos decidieron echarme... ¡Malditos desgraciados! (la escritura se vuelve ilegible...)</p>
+				<p>Si alguien lee esto seguramente ya seré uno de esos que arañan las murallas cada noche, o quizás lo que quede de mi cuerpo esté atrapado entre los alambre de púas... si todavía me quedan dedos, dale mi anillo a mi hija Ireth... (las lagrimas emborronan el resto del papel).</p>
+				<p><small>Autor: Mellaa</small></p>'
+            ],
+            "lang" => "es",
+            "background" => "letter",
             "design" => "written"
         ],
         "divv1_es" => [
@@ -5436,8 +5705,8 @@ class TextFixtures extends Fixture
             "design" => "written"
         ],
         "sprfen" => [
-            "title" => "Alfred's Epitaph",
-            "author" => "Planeshift",
+            "title" => "Advert",
+            "author" => "Bugzilla",
             "content" => [
                 '<h1>Sparky\'s electric fences!</h1>
                 <p>The best solution for protecting your town against unwanted visitors or keeping your private stock of food and water rations out of reach of your neighbours.</p>
@@ -5510,6 +5779,19 @@ class TextFixtures extends Fixture
             "lang" => "en",
             "background" => "printer",
             "design" => "typed"
+        ],
+        "news2_en" => [
+            "title" => "Article - Vicious Killing",
+            "author" => null,
+            "content" => [
+                '<small>(Continued from page 1)</small>
+				<p>[...] the couple found dead in their kitchen bore injuries resembling "bite marks" according to a source close to the authorities.</p>
+				<p>This tragedy takes the number if incidents in the region to 9, with 16 people found dead in similar circumstances. The serial killer theory remains the most popular, but certain people are spreading a "wild beast attack" theory : in fact, primary tests have revealed the presence of modified human DNA, a fact which has yet to be confirmed by the authorities who have previously refuted these claims...</p>
+				<h1>Deepnight stole my game!</h1><p>Zuckerberg claims to own Die2Nite (and players\' souls)...</p>'
+            ],
+            "lang" => "en",
+            "background" => "news",
+            "design" => "news"
         ],
         "docgsw" => [
             "title" => "Based on a true story",
@@ -5858,6 +6140,22 @@ class TextFixtures extends Fixture
                 <p>and return it for the attention of Big Sadie, Cell Block D, Il Clinki Prisoni, Italia. </p>
                 <p>Yours Bung-requiringly,</p>
                 <p>S.B</p>'
+            ],
+            "lang" => "en",
+            "background" => "letter",
+            "design" => "typed"
+        ],
+        "slber2" => [
+            "title" => "Diplomatic Retraction",
+            "author" => "Berlusconi, S.",
+            "content" => [
+                '<p><strong>Dear <strike>Sir or</strike> Madam</strong></p>
+				<p>It is with regret that we have had to cancel the 39th parliamentary Bunga Bunga party</p>
+				<p>This is due to (not entirely) unforeseen circumstances.</p>
+				<p>Please check the box provided if you have experience in cake baking and file smuggling</p>
+				<p>and return it for the attention of Big Sadie, Cell Block D, Il Clinki Prisoni, Italia. </p>
+				<p>Yours Bung-requiringly,</p>
+				<p>S.B</p>'
             ],
             "lang" => "en",
             "background" => "letter",

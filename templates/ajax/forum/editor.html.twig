@@ -12,7 +12,7 @@
             {% else %}
                 <i>{{ 'Bearbeiten'|trans({},'global') }}</i>
             {% endif %}
-            <b>{{ app.user.username }}</b>
+            <b>{{ app.user.name }}</b>
         </div>
         {% if tid is null %}
             <div class="row">
@@ -69,6 +69,7 @@
                     <div x-forum-action="edit" x-text-wrap-node="spoiler" class="forum-button"><i class="fa fa-eye-slash"></i><span class="forum-button-tooltip">{{ 'Spoiler'|trans({},'global') }}</span></div>
                     <div x-forum-action="edit" x-text-wrap-node="aparte" class="forum-button"><i class="fas fa-compress-alt"></i><span class="forum-button-tooltip">{{ 'Vertraulich'|trans({},'global') }}</span></div>
                     <div x-forum-action="edit" x-text-wrap-node="glory" class="forum-button"><i class="fa fa-crown"></i><span class="forum-button-tooltip">{{ 'Ruhm'|trans({},'global') }}</span></div>
+                    <div x-forum-action="edit" x-text-wrap-node="code" class="forum-button"><i class="fa fa-code"></i><span class="forum-button-tooltip">{{ 'Code'|trans({},'global') }}</span></div>
                     <div x-forum-action="edit" x-text-insert-node="hr" class="forum-button"><i class="fa fa-grip-lines"></i><span class="forum-button-tooltip">{{ 'Linie'|trans({},'global') }}</span></div>
                     <div x-forum-action="edit" x-text-wrap-node="rp" class="forum-button"><i class="fas fa-scroll"></i><span class="forum-button-tooltip">{{ 'Rollenspiel'|trans({},'global') }}</span></div>
                 </div>
@@ -165,7 +166,7 @@
                         {% if permission.post_as_dev() %}
                             <input class="forum-checkbox" type="radio" id="radio-dev" name="post-type" value="DEV" {% if app.user.postAsDefault == "DEV" %}checked{% endif %}>
                         {% endif %}
-                        <span id="crow_answer_content">{% if not permission.post_as_dev() or app.user.postAsDefault != "DEV" %}{{ app.user.username }}{% else %}{{ 'Dev'|trans({},'global') }}{% endif %}</span>
+                        <span id="crow_answer_content">{% if not permission.post_as_dev() or app.user.postAsDefault != "DEV" %}{{ app.user.name }}{% else %}{{ 'Dev'|trans({},'global') }}{% endif %}</span>
                     </div>
                 {% endif %}
                 <div x-forum-action="send" class="forum-button">{{ 'Absenden'|trans({},'global') }}</div>
@@ -195,13 +196,21 @@
                 } );
             }
 
-            node_transfer_source.addEventListener('input', transfer_to_preview);
+            node_transfer_source.addEventListener('input', function() {
+                $.client.config.editorCache.set(node_transfer_source.value);
+                transfer_to_preview();
+            });
 
             let closeModal = function() {
                 document.getElementById('modal-backdrop').classList.remove('active');
                 let form = document.getElementById('modal-form');
                 form.parentNode.removeChild(form);
             };
+
+            if ( $.client.config.editorCache.get() ) {
+                node_transfer_source.value = $.client.config.editorCache.get();
+                transfer_to_preview();
+            }
 
             $.html.addEventListenerAll( '[x-forum-action="modal"]', 'click', function (e,elem) {
                 e.preventDefault();
@@ -397,7 +406,7 @@
                                 document.getElementById('crow_answer_content').innerHTML = "{{ 'Dev'|trans({},'global') }}";
                             {% else %}
                                 document.getElementById("radio-user").checked = true;
-                                document.getElementById('crow_answer_content').innerHTML = "{{ app.user.username }}";
+                                document.getElementById('crow_answer_content').innerHTML = "{{ app.user.name }}";
                             {% endif %}
                             break;
                         case "CROW":
@@ -407,13 +416,13 @@
                                 document.getElementById('crow_answer_content').innerHTML = "{{ 'Dev'|trans({},'global') }}";
                             {% else %}
                                 document.getElementById("radio-user").checked = true;
-                                document.getElementById('crow_answer_content').innerHTML = "{{ app.user.username }}";
+                                document.getElementById('crow_answer_content').innerHTML = "{{ app.user.name }}";
                             {% endif %}
                             break;
                         case "DEV":
                             document.getElementById("radio-dev").checked = false;
                             document.getElementById("radio-user").checked = true;
-                            document.getElementById('crow_answer_content').innerHTML = "{{ app.user.username }}";
+                            document.getElementById('crow_answer_content').innerHTML = "{{ app.user.name }}";
                             break;
                     }
                 }
@@ -487,6 +496,7 @@
 
                     $.ajax.easySend( target_url, target_payload,
                         function (data) {
+                            $.client.config.editorCache.set('');
                             $.ajax.load( null, data.url, true );
                         }
                     );

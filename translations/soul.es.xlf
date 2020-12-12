@@ -167,7 +167,7 @@
       <notes>
         <note category="german">Dein Profil</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Dein Profil</source>
         <target>Tu perfil</target>
       </segment>
@@ -196,7 +196,7 @@
       </notes>
       <segment>
         <source>Damit andere Spieler dich besser erkennen, kannst du hier ein Profilbild hochladen</source>
-        <target>Para que los demás jugadores puedan reconocerte más fácilmente, puede subir un avatar aquí.</target>
+        <target>Para que los demás jugadores puedan reconocerte más fácilmente, puedes subir un avatar aquí.</target>
       </segment>
     </unit>
     <unit id="C.B17ya" name="Neues Profilbild hochladen">
@@ -424,7 +424,7 @@
       </notes>
       <segment>
         <source>Bitte wähle nur eine einzige Datei aus.</source>
-        <target>Por favor, selecciona un solo archivo.</target>
+        <target>Por favor, selecciona un sólo archivo.</target>
       </segment>
     </unit>
     <unit id="KJJicse" name="36b050a">
@@ -577,7 +577,7 @@
       </notes>
       <segment>
         <source>Version</source>
-        <target>Version</target>
+        <target>Versión</target>
       </segment>
     </unit>
     <unit id="737Zdf." name="Hier findet ihr alle vorangegangenen Updates:">
@@ -586,7 +586,7 @@
       </notes>
       <segment>
         <source>Hier findet ihr alle vorangegangenen Updates:</source>
-        <target>Hier findet ihr alle vorangegangenen Updates:</target>
+        <target>Acceda a actualizaciones importantes anteriores:</target>
       </segment>
     </unit>
     <unit id="EHTi.hN" name="ea67ed1">
@@ -597,8 +597,8 @@
       <segment>
         <source>Wähle aus, welcher Teil deines Profilbilds für die komprimierte Darstellung verwendet werden soll.
                                             Bewege den Ausschnitt mit der Maus und vergrößere oder verkleinere ihn mit dem Mausrad.</source>
-        <target>Wähle aus, welcher Teil deines Profilbilds für die komprimierte Darstellung verwendet werden soll.
-                                            Bewege den Ausschnitt mit der Maus und vergrößere oder verkleinere ihn mit dem Mausrad.</target>
+        <target>Elija qué parte de tu foto de perfil se debe utilizar para la pantalla comprimida.
+                                             Mueva la sección con el ratón y amplíela o redúzcala con la rueda del ratón.</target>
       </segment>
     </unit>
     <unit id="XqSrbwp" name="Browser-Einstellungen">
@@ -607,7 +607,7 @@
       </notes>
       <segment>
         <source>Browser-Einstellungen</source>
-        <target>Browser-Einstellungen</target>
+        <target>Configuración del navegador</target>
       </segment>
     </unit>
     <unit id="ZSg.7.l" name="9c781e6">
@@ -616,7 +616,7 @@
       </notes>
       <segment>
         <source>Die folgenden Einstellungen werden in deinem Browser gespeichert und sind damit nur für dein aktuelles Gerät und deinen aktuellen Browser gültig.</source>
-        <target>Die folgenden Einstellungen werden in deinem Browser gespeichert und sind damit nur für dein aktuelles Gerät und deinen aktuellen Browser gültig.</target>
+        <target>Los siguientes ajustes se guardan en tu navegador y, por lo tanto, solo son válidos para tu dispositivo actual y tu navegador actual.</target>
       </segment>
     </unit>
     <unit id="_rP15cP" name="Benachrichtigungen als Popups anzeigen">
@@ -625,7 +625,7 @@
       </notes>
       <segment>
         <source>Benachrichtigungen als Popups anzeigen</source>
-        <target>Benachrichtigungen als Popups anzeigen</target>
+        <target>Mostrar notificaciones como ventanas emergentes</target>
       </segment>
     </unit>
     <unit id="cSCIhqi" name="Deine Einstellung wurde gespeichert.">
@@ -634,7 +634,7 @@
       </notes>
       <segment>
         <source>Deine Einstellung wurde gespeichert.</source>
-        <target>Deine Einstellung wurde gespeichert.</target>
+        <target>Tu configuración ha sido guardada.</target>
       </segment>
     </unit>
     <unit id="lJGEo3w" name="Koalition">
@@ -643,7 +643,7 @@
       </notes>
       <segment>
         <source>Koalition</source>
-        <target>Koalition</target>
+        <target>Alianza</target>
       </segment>
     </unit>
     <unit id="svF8aFT" name="Saison 15">
@@ -652,7 +652,7 @@
       </notes>
       <segment>
         <source>Saison 15</source>
-        <target>Saison 15</target>
+        <target>Temporada 15</target>
       </segment>
     </unit>
     <unit id="x3_4s4O" name="Alte Städte">
@@ -661,7 +661,7 @@
       </notes>
       <segment>
         <source>Alte Städte</source>
-        <target>Alte Städte</target>
+        <target>Pueblos antiguos</target>
       </segment>
     </unit>
     <unit id="hU1AUQF" name="Nur 10 Städte anzeigen">
@@ -670,7 +670,7 @@
       </notes>
       <segment>
         <source>Nur 10 Städte anzeigen</source>
-        <target>Nur 10 Städte anzeigen</target>
+        <target>Limitar la vista a 10 pueblos</target>
       </segment>
     </unit>
     <unit id="1vjIGbE" name="Kartei schließen">
@@ -679,7 +679,7 @@
       </notes>
       <segment>
         <source>Kartei schließen</source>
-        <target>Kartei schließen</target>
+        <target>Cerrar esta ficha</target>
       </segment>
     </unit>
     <unit id="TP_RyxL" name="Haus besuchen">
@@ -688,7 +688,7 @@
       </notes>
       <segment>
         <source>Haus besuchen</source>
-        <target>Haus besuchen</target>
+        <target>Visitar Casa</target>
       </segment>
     </unit>
     <unit id="q4I8gVL" name="Eine neue Seele importieren">
@@ -697,7 +697,7 @@
       </notes>
       <segment>
         <source>Eine neue Seele importieren</source>
-        <target>Eine neue Seele importieren</target>
+        <target>Importar una nueva Alma</target>
       </segment>
     </unit>
     <unit id="Oh71xYO" name="Twinoid Application ID">
@@ -706,7 +706,7 @@
       </notes>
       <segment>
         <source>Twinoid Application ID</source>
-        <target>Twinoid Application ID</target>
+        <target>ID de aplicación Twinoid</target>
       </segment>
     </unit>
     <unit id="GT7Cwam" name="Twinoid Secret Key">
@@ -724,7 +724,7 @@
       </notes>
       <segment>
         <source>Seele auswählen</source>
-        <target>Seele auswählen</target>
+        <target>Seleccionar Alma</target>
       </segment>
     </unit>
     <unit id="KVqdEan" name="Import starten">
@@ -733,7 +733,7 @@
       </notes>
       <segment>
         <source>Import starten</source>
-        <target>Import starten</target>
+        <target>Iniciar importación</target>
       </segment>
     </unit>
     <unit id="WeNNcNG" name="Deine importierten Seelen">
@@ -742,7 +742,7 @@
       </notes>
       <segment>
         <source>Deine importierten Seelen</source>
-        <target>Deine importierten Seelen</target>
+        <target>Tus almas importadas</target>
       </segment>
     </unit>
     <unit id="aTN.bek" name="Vorschau">
@@ -751,7 +751,7 @@
       </notes>
       <segment>
         <source>Vorschau</source>
-        <target>Vorschau</target>
+        <target>Avance</target>
       </segment>
     </unit>
     <unit id="pGqYh1Z" name="Hurra, wir haben dein Profil heruntergeladen!">
@@ -760,7 +760,7 @@
       </notes>
       <segment>
         <source>Hurra, wir haben dein Profil heruntergeladen!</source>
-        <target>Hurra, wir haben dein Profil heruntergeladen!</target>
+        <target>¡Hurra, hemos descargado tu perfil!</target>
       </segment>
     </unit>
     <unit id="j_qDUZ2" name="39b14b5">
@@ -769,7 +769,7 @@
       </notes>
       <segment>
         <source>Bitte prüfe die unten angegebenen Daten und bestätige den Import, wenn alles OK ist.</source>
-        <target>Bitte prüfe die unten angegebenen Daten und bestätige den Import, wenn alles OK ist.</target>
+        <target>Verifique los datos a continuación y confirme la importación si todo está bien.</target>
       </segment>
     </unit>
     <unit id="HwA4Kx3" name="Twinoid-Profil">
@@ -778,7 +778,7 @@
       </notes>
       <segment>
         <source>Twinoid-Profil</source>
-        <target>Twinoid-Profil</target>
+        <target>Perfil-Twinoid</target>
       </segment>
     </unit>
     <unit id="22.0Wcj" name="Profil ansehen">
@@ -787,7 +787,7 @@
       </notes>
       <segment>
         <source>Profil ansehen</source>
-        <target>Profil ansehen</target>
+        <target>Ver perfil</target>
       </segment>
     </unit>
     <unit id="heTnD9H" name="Seelen-ID">
@@ -796,7 +796,7 @@
       </notes>
       <segment>
         <source>Seelen-ID</source>
-        <target>Seelen-ID</target>
+        <target>Alma-ID</target>
       </segment>
     </unit>
     <unit id="fmZlI_I" name="Saison">
@@ -805,7 +805,7 @@
       </notes>
       <segment>
         <source>Saison</source>
-        <target>Saison</target>
+        <target>Temporada</target>
       </segment>
     </unit>
     <unit id="FQORaiq" name="Tag">
@@ -814,7 +814,7 @@
       </notes>
       <segment>
         <source>Tag</source>
-        <target>Tag</target>
+        <target>Día</target>
       </segment>
     </unit>
     <unit id="Bfb7kn4" name="Stadtname">
@@ -823,7 +823,7 @@
       </notes>
       <segment>
         <source>Stadtname</source>
-        <target>Stadtname</target>
+        <target>Nombre del pueblo</target>
       </segment>
     </unit>
     <unit id="H9ZffoW" name="Nachrichten">
@@ -832,7 +832,7 @@
       </notes>
       <segment>
         <source>Nachrichten</source>
-        <target>Nachrichten</target>
+        <target>Noticias</target>
       </segment>
     </unit>
     <unit id="hn7LsRJ" name="Punkte">
@@ -841,7 +841,7 @@
       </notes>
       <segment>
         <source>Punkte</source>
-        <target>Punkte</target>
+        <target>Puntos</target>
       </segment>
     </unit>
     <unit id="bRng7VP" name="%d% überlebt">
@@ -850,7 +850,7 @@
       </notes>
       <segment>
         <source>%d% überlebt</source>
-        <target>%d% überlebt</target>
+        <target>%d% sobrevivió</target>
       </segment>
     </unit>
     <unit id="rD2ZHAN" name="Letzte Worte">
@@ -859,7 +859,7 @@
       </notes>
       <segment>
         <source>Letzte Worte</source>
-        <target>Letzte Worte</target>
+        <target>Últimas palabras</target>
       </segment>
     </unit>
     <unit id="N5nG16_" name="Import bestätigen">
@@ -868,7 +868,7 @@
       </notes>
       <segment>
         <source>Import bestätigen</source>
-        <target>Import bestätigen</target>
+        <target>Confirmar importación</target>
       </segment>
     </unit>
     <unit id="Asz_NPm" name="Hast du ein Seele bei %hordes%, %dv%, %d2n% oder %zn%?">
@@ -877,7 +877,7 @@
       </notes>
       <segment>
         <source>Hast du ein Seele bei %hordes%, %dv%, %d2n% oder %zn%?</source>
-        <target>Hast du ein Seele bei %hordes%, %dv%, %d2n% oder %zn%?</target>
+        <target>¿Tienes un alma en %d2n%, %hordes%, %dv%, o %zn%?</target>
       </segment>
     </unit>
     <unit id="VVu6KAH" name="Seele importieren">
@@ -886,7 +886,7 @@
       </notes>
       <segment>
         <source>Seele importieren</source>
-        <target>Seele importieren</target>
+        <target>Importar Alma</target>
       </segment>
     </unit>
     <unit id="CezJVcA" name="Dein Profil konnte nicht geladen werden, da Twinoid die Anfrage abgelehnt hat.">
@@ -895,7 +895,7 @@
       </notes>
       <segment>
         <source>Dein Profil konnte nicht geladen werden, da Twinoid die Anfrage abgelehnt hat.</source>
-        <target>Dein Profil konnte nicht geladen werden, da Twinoid die Anfrage abgelehnt hat.</target>
+        <target>No se pudo cargar tu perfil porque Twinoid rechazó la solicitud.</target>
       </segment>
     </unit>
     <unit id="q3h_whw" name="1260b6c">
@@ -904,16 +904,16 @@
       </notes>
       <segment>
         <source>Dein Profil konnte nicht geladen werden, da die Datenverarbeitung fehlgeschlagen ist.</source>
-        <target>Dein Profil konnte nicht geladen werden, da die Datenverarbeitung fehlgeschlagen ist.</target>
+        <target>Tu perfil no se pudo cargar porque falló el procesamiento de datos.</target>
       </segment>
     </unit>
     <unit id="oF2e3r3" name="3bce6e7">
       <notes>
         <note category="german">Das angegebene Profil kann nicht importiert werden, da es bereits einem anderen MyHordes-Spieler zugeordnet ist.</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Das angegebene Profil kann nicht importiert werden, da es bereits einem anderen MyHordes-Spieler zugeordnet ist.</source>
-        <target>Das angegebene Profil kann nicht importiert werden, da es bereits einem anderen MyHordes-Spieler zugeordnet ist.</target>
+        <target>El perfil especificado no se puede importar porque ya está asignado a otro jugador de MyHordes.</target>
       </segment>
     </unit>
     <unit id="VYR1ULC" name="5cf3dce">
@@ -922,7 +922,7 @@
       </notes>
       <segment>
         <source>Das angegebene Profil kann nicht importiert werden, da es einem fremden Twinoid-Konto zugeordnet ist.</source>
-        <target>Das angegebene Profil kann nicht importiert werden, da es einem fremden Twinoid-Konto zugeordnet ist.</target>
+        <target>El perfil especificado no se puede importar porque está asignado a una cuenta Twinoid extranjera.</target>
       </segment>
     </unit>
     <unit id="D24hLqy" name="Informationen über dein Twinoid-Konto">
@@ -931,7 +931,7 @@
       </notes>
       <segment>
         <source>Informationen über dein Twinoid-Konto</source>
-        <target>Informationen über dein Twinoid-Konto</target>
+        <target>Información sobre tu cuenta Twinoid</target>
       </segment>
     </unit>
     <unit id="1tzbb8." name="3d4c753">
@@ -940,7 +940,7 @@
       </notes>
       <segment>
         <source>Bitte stelle sicher, dass du das korrekte Twinoid-Konto mit deinem MyHordes-Account verbindest.</source>
-        <target>Bitte stelle sicher, dass du das korrekte Twinoid-Konto mit deinem MyHordes-Account verbindest.</target>
+        <target>Asegúrese de vincular la cuenta Twinoid correcta a su cuenta MyHordes.</target>
       </segment>
     </unit>
     <unit id="nVicoPO" name="Zusammenfassung">
@@ -949,7 +949,7 @@
       </notes>
       <segment>
         <source>Zusammenfassung</source>
-        <target>Zusammenfassung</target>
+        <target>Resumen</target>
       </segment>
     </unit>
     <unit id="iDRsxF8" name="%c% Städte">
@@ -958,7 +958,7 @@
       </notes>
       <segment>
         <source>%c% Städte</source>
-        <target>%c% Städte</target>
+        <target>%c% Pueblos</target>
       </segment>
     </unit>
     <unit id="URb5dXE" name="zwischen Saison %smin% und %smax%">
@@ -967,7 +967,7 @@
       </notes>
       <segment>
         <source>zwischen Saison %smin% und %smax%</source>
-        <target>zwischen Saison %smin% und %smax%</target>
+        <target>entre Temporada %smin% y %smax%</target>
       </segment>
     </unit>
     <unit id="tZke4d7" name="%num% Städte zw. Saison %smin% und %smax%">
@@ -976,7 +976,7 @@
       </notes>
       <segment>
         <source>%num% Städte zw. Saison %smin% und %smax%</source>
-        <target>%num% Städte zw. Saison %smin% und %smax%</target>
+        <target>%num% Ciudades entre Temporada %smin% y %smax%</target>
       </segment>
     </unit>
     <unit id=".j1I3aE" name="aus vergangener Zeit">
@@ -985,7 +985,7 @@
       </notes>
       <segment>
         <source>aus vergangener Zeit</source>
-        <target>aus vergangener Zeit</target>
+        <target>de tiempos pasados</target>
       </segment>
     </unit>
     <unit id="uHHqmXL" name="%num% Städte aus vergangener Zeit">
@@ -994,7 +994,7 @@
       </notes>
       <segment>
         <source>%num% Städte aus vergangener Zeit</source>
-        <target>%num% Städte aus vergangener Zeit</target>
+        <target>%num% Pueblos de tiempos pasados</target>
       </segment>
     </unit>
     <unit id="vGn3Jql" name="Keine Städte">
@@ -1003,7 +1003,7 @@
       </notes>
       <segment>
         <source>Keine Städte</source>
-        <target>Keine Städte</target>
+        <target>Sin ciudades</target>
       </segment>
     </unit>
     <unit id="3Nam8Wg" name="%c% Titel &amp; Icons">
@@ -1012,7 +1012,7 @@
       </notes>
       <segment>
         <source>%c% Titel &amp; Icons</source>
-        <target><![CDATA[%c% Titel & Icons]]></target>
+        <target><![CDATA[%c% Títulos & Iconos]]></target>
       </segment>
     </unit>
     <unit id="VDr4lbM" name="%c% Titel, %cc% Icons">
@@ -1021,7 +1021,7 @@
       </notes>
       <segment>
         <source>%c% Titel, %cc% Icons</source>
-        <target>%c% Titel, %cc% Icons</target>
+        <target>%c% Títulos, %cc% Íconos</target>
       </segment>
     </unit>
     <unit id="xhN5lts" name="%num% unbekannte Objekte!">
@@ -1030,7 +1030,7 @@
       </notes>
       <segment>
         <source>%num% unbekannte Objekte!</source>
-        <target>%num% unbekannte Objekte!</target>
+        <target>%num% objetos desconocidos!</target>
       </segment>
     </unit>
     <unit id="tJ5C7kL" name="Keine Freischaltungen">
@@ -1039,7 +1039,7 @@
       </notes>
       <segment>
         <source>Keine Freischaltungen</source>
-        <target>Keine Freischaltungen</target>
+        <target>Sin activaciones</target>
       </segment>
     </unit>
     <unit id="DW8tL5I" name="%c% Seelenpunkte">
@@ -1048,7 +1048,7 @@
       </notes>
       <segment>
         <source>%c% Seelenpunkte</source>
-        <target>%c% Seelenpunkte</target>
+        <target>%c% Puntos de Alma</target>
       </segment>
     </unit>
     <unit id="_GxcfFk" name="%c% Auszeichnungen">
@@ -1057,7 +1057,7 @@
       </notes>
       <segment>
         <source>%c% Auszeichnungen</source>
-        <target>%c% Auszeichnungen</target>
+        <target>%c% Premios</target>
       </segment>
     </unit>
     <unit id="v2GNzO7" name="%c% Auszeichnungs-Typen, %cc% davon selten">
@@ -1066,7 +1066,7 @@
       </notes>
       <segment>
         <source>%c% Auszeichnungs-Typen, %cc% davon selten</source>
-        <target>%c% Auszeichnungs-Typen, %cc% davon selten</target>
+        <target>%c% Tipos de premios y %cc% que son raros</target>
       </segment>
     </unit>
     <unit id="2lB01ka" name="%c% Auszeichnungs-Typen">
@@ -1075,7 +1075,7 @@
       </notes>
       <segment>
         <source>%c% Auszeichnungs-Typen</source>
-        <target>%c% Auszeichnungs-Typen</target>
+        <target>%c% Tipos de premios</target>
       </segment>
     </unit>
     <unit id="mgoVWcN" name="%num% unbekannte Auszeichnungen!">
@@ -1084,7 +1084,7 @@
       </notes>
       <segment>
         <source>%num% unbekannte Auszeichnungen!</source>
-        <target>%num% unbekannte Auszeichnungen!</target>
+        <target>%num% premios desconocidos!</target>
       </segment>
     </unit>
     <unit id="304pJcq" name="Keine Auszeichnungen">
@@ -1093,7 +1093,7 @@
       </notes>
       <segment>
         <source>Keine Auszeichnungen</source>
-        <target>Keine Auszeichnungen</target>
+        <target>Sin premios</target>
       </segment>
     </unit>
     <unit id="8p1rMBE" name="%c% Tage als Held">
@@ -1102,7 +1102,7 @@
       </notes>
       <segment>
         <source>%c% Tage als Held</source>
-        <target>%c% Tage als Held</target>
+        <target>%c% Días como héroe</target>
       </segment>
     </unit>
     <unit id="WE..GeJ" name="95cf6e6">
@@ -1111,7 +1111,7 @@
       </notes>
       <segment>
         <source>Dieser Wert ist geschätzt und kann vom tatsächlichen Wert abweichen. Dies lässt sich leider nicht vermeiden.</source>
-        <target>Dieser Wert ist geschätzt und kann vom tatsächlichen Wert abweichen. Dies lässt sich leider nicht vermeiden.</target>
+        <target>Este valor es estimado y puede diferir del valor real. Desafortunadamente, esto no se puede evitar.</target>
       </segment>
     </unit>
     <unit id="Bg3kbdW" name="Vergangene Städte">
@@ -1120,7 +1120,7 @@
       </notes>
       <segment>
         <source>Vergangene Städte</source>
-        <target>Vergangene Städte</target>
+        <target>Ciudades pasadas</target>
       </segment>
     </unit>
     <unit id="gNXU40u" name="98f9be8">
@@ -1129,7 +1129,7 @@
       </notes>
       <segment>
         <source>Hier werden die Städte angezeigt, die du in der vergangenheit gespielt hast. Wenn du dich aktuell in einer Stadt befindest, wird diese hier nicht angezeigt und auch nicht importiert.</source>
-        <target>Hier werden die Städte angezeigt, die du in der vergangenheit gespielt hast. Wenn du dich aktuell in einer Stadt befindest, wird diese hier nicht angezeigt und auch nicht importiert.</target>
+        <target>Esto muestra las ciudades en las que ha jugado en el pasado. Si se encuentra actualmente en una ciudad, no se mostrará aquí y no se importará.</target>
       </segment>
     </unit>
     <unit id="qrK4heb" name="Infos">
@@ -1147,7 +1147,7 @@
       </notes>
       <segment>
         <source>Todesart</source>
-        <target>Todesart</target>
+        <target>Causa de la muerte</target>
       </segment>
     </unit>
     <unit id="hYONYc." name="Überlebt">
@@ -1156,7 +1156,7 @@
       </notes>
       <segment>
         <source>Überlebt</source>
-        <target>Überlebt</target>
+        <target>Sobrevivió</target>
       </segment>
     </unit>
     <unit id="ymT9mze" name="%d% Tage">
@@ -1165,7 +1165,7 @@
       </notes>
       <segment>
         <source>%d% Tage</source>
-        <target>%d% Tage</target>
+        <target>%d% Días</target>
       </segment>
     </unit>
     <unit id="fcC4_EM" name="Auszeichnungen">
@@ -1174,7 +1174,7 @@
       </notes>
       <segment>
         <source>Auszeichnungen</source>
-        <target>Auszeichnungen</target>
+        <target>Premios</target>
       </segment>
     </unit>
     <unit id="D8ATKTz" name="bf9c5fb">
@@ -1183,7 +1183,7 @@
       </notes>
       <segment>
         <source>Hier werden dir die Auszeichnungen angezeigt, welche du im Laufe der Zeit verdient hast.</source>
-        <target>Hier werden dir die Auszeichnungen angezeigt, welche du im Laufe der Zeit verdient hast.</target>
+        <target>Aquí puede ver los premios que ha ganado a lo largo del tiempo.</target>
       </segment>
     </unit>
     <unit id="mxKbILU" name="Auszeichnung">
@@ -1192,7 +1192,7 @@
       </notes>
       <segment>
         <source>Auszeichnung</source>
-        <target>Auszeichnung</target>
+        <target>Premio</target>
       </segment>
     </unit>
     <unit id="cXTeIrr" name="Anzahl">
@@ -1201,7 +1201,7 @@
       </notes>
       <segment>
         <source>Anzahl</source>
-        <target>Anzahl</target>
+        <target>Número</target>
       </segment>
     </unit>
     <unit id="42T5e3_" name="Freischaltbares">
@@ -1210,7 +1210,7 @@
       </notes>
       <segment>
         <source>Freischaltbares</source>
-        <target>Freischaltbares</target>
+        <target>Desbloqueable</target>
       </segment>
     </unit>
     <unit id="8xUTLg1" name="Hier siehst du deine Titel und Icons.">
@@ -1219,7 +1219,7 @@
       </notes>
       <segment>
         <source>Hier siehst du deine Titel und Icons.</source>
-        <target>Hier siehst du deine Titel und Icons.</target>
+        <target>Aquí puede ver sus títulos e íconos.</target>
       </segment>
     </unit>
     <unit id="GwJBg8s" name="Typ">
@@ -1228,7 +1228,7 @@
       </notes>
       <segment>
         <source>Typ</source>
-        <target>Typ</target>
+        <target>Tipo</target>
       </segment>
     </unit>
     <unit id="cTrAfF8" name="Name &amp; Infos">
@@ -1237,7 +1237,7 @@
       </notes>
       <segment>
         <source>Name &amp; Infos</source>
-        <target><![CDATA[Name & Infos]]></target>
+        <target><![CDATA[Nombre & información]]></target>
       </segment>
     </unit>
     <unit id="fjR9ql7" name="Wert">
@@ -1246,7 +1246,7 @@
       </notes>
       <segment>
         <source>Wert</source>
-        <target>Wert</target>
+        <target>Valor</target>
       </segment>
     </unit>
     <unit id="kTWILTI" name="Datum">
@@ -1255,7 +1255,7 @@
       </notes>
       <segment>
         <source>Datum</source>
-        <target>Datum</target>
+        <target>Fecha</target>
       </segment>
     </unit>
     <unit id="4wcEbqc" name="132563f">
@@ -1264,7 +1264,7 @@
       </notes>
       <segment>
         <source>Einmal bestätigt, kann die Verknüpfung nicht mehr aufgehoben werden und du kannst kein anderes Twinoid-Konto mehr verknüpfen.</source>
-        <target>Einmal bestätigt, kann die Verknüpfung nicht mehr aufgehoben werden und du kannst kein anderes Twinoid-Konto mehr verknüpfen.</target>
+        <target>Una vez confirmado, el vínculo ya no se puede romper y ya no puede vincular otra cuenta Twinoid.</target>
       </segment>
     </unit>
     <unit id="tyVSys4" name="227ba37">
@@ -1273,7 +1273,7 @@
       </notes>
       <segment>
         <source>Du kannst natürlich weiterhin Konten von Hordes, DieVerdammten, Die2Nite und Zombinoia importieren, welche mit dem selben Twinoid-Konto verbunden sind.</source>
-        <target>Du kannst natürlich weiterhin Konten von Hordes, DieVerdammten, Die2Nite und Zombinoia importieren, welche mit dem selben Twinoid-Konto verbunden sind.</target>
+        <target>Por supuesto, todavía puede importar cuentas de Hordes, DieVerdammten, Die2Nite y Zombinoia, que están vinculadas a la misma cuenta Twinoid.</target>
       </segment>
     </unit>
     <unit id="fz.4cY3" name="Deine Seele wurde erfolgreich importiert!">
@@ -1282,7 +1282,7 @@
       </notes>
       <segment>
         <source>Deine Seele wurde erfolgreich importiert!</source>
-        <target>Deine Seele wurde erfolgreich importiert!</target>
+        <target>¡Tu alma se importó con éxito!</target>
       </segment>
     </unit>
     <unit id="p3Cx_go" name="Saison %n%">
@@ -1291,7 +1291,7 @@
       </notes>
       <segment>
         <source>Saison %n%</source>
-        <target>Saison %n%</target>
+        <target>Temporada %n%</target>
       </segment>
     </unit>
     <unit id="yoZbT75" name="Gute Alte Zeit">
@@ -1300,7 +1300,7 @@
       </notes>
       <segment>
         <source>Gute Alte Zeit</source>
-        <target>Gute Alte Zeit</target>
+        <target>Buenos viejos tiempos</target>
       </segment>
     </unit>
     <unit id="c9falYV" name="Dann musst du nicht von Vorne beginnen!">
@@ -1309,7 +1309,7 @@
       </notes>
       <segment>
         <source>Dann musst du nicht von Vorne beginnen!</source>
-        <target>Dann musst du nicht von Vorne beginnen!</target>
+        <target>¡Entonces no tienes que empezar de nuevo!</target>
       </segment>
     </unit>
     <unit id="Av6Ro2b" name="Importiere deine Seele und mache dort weiter, wo du aufgehört hast.">
@@ -1318,7 +1318,7 @@
       </notes>
       <segment>
         <source>Importiere deine Seele und mache dort weiter, wo du aufgehört hast.</source>
-        <target>Importiere deine Seele und mache dort weiter, wo du aufgehört hast.</target>
+        <target>Importa tu alma y continúa donde lo dejaste.</target>
       </segment>
     </unit>
     <unit id="kRUPFo6" name="Unbekannte Auszeichnung">
@@ -1327,7 +1327,7 @@
       </notes>
       <segment>
         <source>Unbekannte Auszeichnung</source>
-        <target>Unbekannte Auszeichnung</target>
+        <target>Premio desconocido</target>
       </segment>
     </unit>
     <unit id="Pu6LW8D" name="Du hast bisher keine Seelen importiert.">
@@ -1336,7 +1336,7 @@
       </notes>
       <segment>
         <source>Du hast bisher keine Seelen importiert.</source>
-        <target>Du hast bisher keine Seelen importiert.</target>
+        <target>Aún no has importado Almas.</target>
       </segment>
     </unit>
     <unit id="xroX___" name="Angelegt: %d%">
@@ -1345,7 +1345,7 @@
       </notes>
       <segment>
         <source>Angelegt: %d%</source>
-        <target>Angelegt: %d%</target>
+        <target>Creado: %d%</target>
       </segment>
     </unit>
     <unit id="wgHBoF8" name="Letztes Update: %d%">
@@ -1354,7 +1354,7 @@
       </notes>
       <segment>
         <source>Letztes Update: %d%</source>
-        <target>Letztes Update: %d%</target>
+        <target>Última actualización: %d%</target>
       </segment>
     </unit>
     <unit id="eJBYptN" name="Daten aktualisieren">
@@ -1363,7 +1363,7 @@
       </notes>
       <segment>
         <source>Daten aktualisieren</source>
-        <target>Daten aktualisieren</target>
+        <target>Actualizar datos</target>
       </segment>
     </unit>
     <unit id="DlYgqsn" name="ac4aa86">
@@ -1372,7 +1372,7 @@
       </notes>
       <segment>
         <source>Ruft deine Seele erneut von Twinoid ab und aktualisiert die gespeicherten Informationen. Bevor die neuen Daten gespeichert werden, wird dir eine Vorschau angezeigt.</source>
-        <target>Ruft deine Seele erneut von Twinoid ab und aktualisiert die gespeicherten Informationen. Bevor die neuen Daten gespeichert werden, wird dir eine Vorschau angezeigt.</target>
+        <target>Recupera tu alma de Twinoid y actualiza la información almacenada. Antes de que se guarden los nuevos datos, verá una vista previa.</target>
       </segment>
     </unit>
     <unit id="lNxrHuq" name="Daten ansehen">
@@ -1381,7 +1381,7 @@
       </notes>
       <segment>
         <source>Daten ansehen</source>
-        <target>Daten ansehen</target>
+        <target>Ver datos</target>
       </segment>
     </unit>
     <unit id="XlXtL3B" name="Zeigt die zuletzt importierten Informationen an.">
@@ -1390,7 +1390,7 @@
       </notes>
       <segment>
         <source>Zeigt die zuletzt importierten Informationen an.</source>
-        <target>Zeigt die zuletzt importierten Informationen an.</target>
+        <target>Muestra la información importada más recientemente.</target>
       </segment>
     </unit>
     <unit id="ExfqGAW" name="Erneut importieren">
@@ -1399,7 +1399,7 @@
       </notes>
       <segment>
         <source>Erneut importieren</source>
-        <target>Erneut importieren</target>
+        <target>Importar de nuevo</target>
       </segment>
     </unit>
     <unit id="YhqHcco" name="a48eb2e">
@@ -1408,7 +1408,7 @@
       </notes>
       <segment>
         <source>Führt den Import-Vorgang erneut durch, ohne frische Daten von Twinoid abzurufen. Dies ist nützlich, wenn die importierten Daten durch ein MyHordes-Update nun besser verarbeitet werden können als dies beim letzten Import der Fall war. Diese Funktion wird auch nach der Abschaltung von Twinoid weiter zur Verfügung stehen.</source>
-        <target>Führt den Import-Vorgang erneut durch, ohne frische Daten von Twinoid abzurufen. Dies ist nützlich, wenn die importierten Daten durch ein MyHordes-Update nun besser verarbeitet werden können als dies beim letzten Import der Fall war. Diese Funktion wird auch nach der Abschaltung von Twinoid weiter zur Verfügung stehen.</target>
+        <target>Repite el proceso de importación sin obtener datos nuevos de Twinoid. Esto es útil si los datos importados ahora se pueden procesar mejor mediante una actualización de MyHordes que en el caso de la última importación. Esta función seguirá estando disponible incluso después de que se haya apagado Twinoid.</target>
       </segment>
     </unit>
     <unit id="DBQkWUr" name="Als Hauptseele wählen">
@@ -1417,7 +1417,7 @@
       </notes>
       <segment>
         <source>Als Hauptseele wählen</source>
-        <target>Als Hauptseele wählen</target>
+        <target>Elegir como alma principal</target>
       </segment>
     </unit>
     <unit id="ltYAKjD" name="338e6bd">
@@ -1426,7 +1426,7 @@
       </notes>
       <segment>
         <source>Legt diese Seele als Hauptseele fest und importiert Seelenpunkte und Heldenerfahrung.</source>
-        <target>Legt diese Seele als Hauptseele fest und importiert Seelenpunkte und Heldenerfahrung.</target>
+        <target>Establecer esta alma como alma principal e importar puntos de Alma y experiencia de héroe.</target>
       </segment>
     </unit>
     <unit id="NBJR5jI" name="2c9ce98">
@@ -1435,7 +1435,7 @@
       </notes>
       <segment>
         <source>Bist du sicher, dass du diese Seele als deine Hauptseele festlegen willst. Dieser Vorgang kann nicht rückgängig gemacht werden!</source>
-        <target>Bist du sicher, dass du diese Seele als deine Hauptseele festlegen willst. Dieser Vorgang kann nicht rückgängig gemacht werden!</target>
+        <target>¿Estás seguro de que quieres establecer esta alma como tu alma principal? ¡Esta acción no se puede deshacer!</target>
       </segment>
     </unit>
     <unit id="fA1pnvC" name="Diese Seele wurde erfolgreich als deine Hauptseele registriert!">
@@ -1444,7 +1444,7 @@
       </notes>
       <segment>
         <source>Diese Seele wurde erfolgreich als deine Hauptseele registriert!</source>
-        <target>Diese Seele wurde erfolgreich als deine Hauptseele registriert!</target>
+        <target>¡Esta alma se registró con éxito como su alma principal!</target>
       </segment>
     </unit>
     <unit id="a7xlwVJ" name="Dies ist deine Hauptseele.">
@@ -1453,7 +1453,7 @@
       </notes>
       <segment>
         <source>Dies ist deine Hauptseele.</source>
-        <target>Dies ist deine Hauptseele.</target>
+        <target>Esta es tu Alma principal.</target>
       </segment>
     </unit>
     <unit id="uFlUkcE" name="8798d28">
@@ -1462,7 +1462,7 @@
       </notes>
       <segment>
         <source>Seelenpunkte, Auszeichnungen und Heldenerfahrung von dieser Seele können in dein MyHordes-Profil importiert werden.</source>
-        <target>Seelenpunkte, Auszeichnungen und Heldenerfahrung von dieser Seele können in dein MyHordes-Profil importiert werden.</target>
+        <target>Los puntos de alma, los premios y la experiencia de héroe de esta alma se pueden importar a tu perfil de MyHordes.</target>
       </segment>
     </unit>
     <unit id=".NldYpW" name="Dies ist nicht deine Hauptseele.">
@@ -1471,7 +1471,7 @@
       </notes>
       <segment>
         <source>Dies ist nicht deine Hauptseele.</source>
-        <target>Dies ist nicht deine Hauptseele.</target>
+        <target>Esta no es tu alma principal.</target>
       </segment>
     </unit>
     <unit id="mtD8S3s" name="ab7a6b2">
@@ -1480,7 +1480,7 @@
       </notes>
       <segment>
         <source>Seelenpunkte, Auszeichnungen und Heldenerfahrung können nur von deiner Hauptseele in dein MyHordes-Profil importiert werden.</source>
-        <target>Seelenpunkte, Auszeichnungen und Heldenerfahrung können nur von deiner Hauptseele in dein MyHordes-Profil importiert werden.</target>
+        <target>Los puntos de alma, los premios y la experiencia de héroe solo se pueden importar de tu alma principal a tu perfil de MyHordes.</target>
       </segment>
     </unit>
     <unit id="ujVgB2r" name="Möchtest du diese Seele zu deiner Hauptseele erklären?">
@@ -1489,7 +1489,7 @@
       </notes>
       <segment>
         <source>Möchtest du diese Seele zu deiner Hauptseele erklären?</source>
-        <target>Möchtest du diese Seele zu deiner Hauptseele erklären?</target>
+        <target>¿Quieres declarar esta alma como tu alma principal?</target>
       </segment>
     </unit>
     <unit id="NC78n6U" name="7eac7ed">
@@ -1498,7 +1498,7 @@
       </notes>
       <segment>
         <source>Seelenpunkte, Auszeichnungen und Heldenerfahrung können nur von einer Seele importiert werden - deiner Hauptseele. Überlege dir deine Entscheidung gut, denn du kannst die Wahl deiner Hauptseele später nicht mehr ändern!</source>
-        <target>Seelenpunkte, Auszeichnungen und Heldenerfahrung können nur von einer Seele importiert werden - deiner Hauptseele. Überlege dir deine Entscheidung gut, denn du kannst die Wahl deiner Hauptseele später nicht mehr ändern!</target>
+        <target>Los puntos de alma, los premios y la experiencia de héroe solo pueden ser importados por un alma: tu alma principal. Piensa cuidadosamente en tu decisión, ¡porque no podrás cambiar la elección de tu alma principal más tarde!</target>
       </segment>
     </unit>
     <unit id="DJ.7w.9" name="8ccb170">
@@ -1507,7 +1507,7 @@
       </notes>
       <segment>
         <source>Du musst diese Entscheidung nicht jetzt treffen, sondern kannst diese Seele auch nachträglich noch zu deiner Hauptseele erklären - solange du inzwischen nicht bereits eine andere Seele als Hauptseele gewählt hast.</source>
-        <target>Du musst diese Entscheidung nicht jetzt treffen, sondern kannst diese Seele auch nachträglich noch zu deiner Hauptseele erklären - solange du inzwischen nicht bereits eine andere Seele als Hauptseele gewählt hast.</target>
+        <target>No tienes que tomar esta decisión ahora, ya que también puedes declarar esta Alma más tarde como Alma Principal, siempre y cuando no hayas elegido otra Alma como la Principal.</target>
       </segment>
     </unit>
     <unit id="1MRAxNt" name="3ad4558">
@@ -1516,7 +1516,7 @@
       </notes>
       <segment>
         <source>Unabhängig davon, ob du diese Seele zu deiner Hauptseele machst oder nicht, kannst du ihre Daten bei Bedarf selbstverständlich erneut mit Twinoid abgleichen und ihre Daten aktualisieren.</source>
-        <target>Unabhängig davon, ob du diese Seele zu deiner Hauptseele machst oder nicht, kannst du ihre Daten bei Bedarf selbstverständlich erneut mit Twinoid abgleichen und ihre Daten aktualisieren.</target>
+        <target>Independientemente de si hacea de esta Alma tu Alma principal o no, por supuesto, puede conciliar sus datos con Twinoid y actualizar sus datos si es necesario.</target>
       </segment>
     </unit>
     <unit id="eoeG3zx" name="Diese Seele zu meiner Hauptseele machen!">
@@ -1525,7 +1525,7 @@
       </notes>
       <segment>
         <source>Diese Seele zu meiner Hauptseele machen!</source>
-        <target>Diese Seele zu meiner Hauptseele machen!</target>
+        <target>¡Hacer de esta alma mi Alma Principal!</target>
       </segment>
     </unit>
     <unit id="s9icea7" name="b46b9e2">
@@ -1534,7 +1534,7 @@
       </notes>
       <segment>
         <source>Um diese Seele zu deiner Hauptseele zu machen, verwende die Schaltfläche auf der vorherigen Seite.</source>
-        <target>Um diese Seele zu deiner Hauptseele zu machen, verwende die Schaltfläche auf der vorherigen Seite.</target>
+        <target>Para hacer de esta alma tu alma principal, utiliza el botón de la página anterior.</target>
       </segment>
     </unit>
     <unit id="nrZhqLF" name="Diese Daten können nur von deiner Hauptseele importiert werden.">
@@ -1543,7 +1543,7 @@
       </notes>
       <segment>
         <source>Diese Daten können nur von deiner Hauptseele importiert werden.</source>
-        <target>Diese Daten können nur von deiner Hauptseele importiert werden.</target>
+        <target>Estos datos solo se pueden importar desde tu Alma principal.</target>
       </segment>
     </unit>
     <unit id="p2vFHLe" name="Es ist deine Hauptseele">
@@ -1552,7 +1552,7 @@
       </notes>
       <segment>
         <source>Es ist deine Hauptseele</source>
-        <target>Es ist deine Hauptseele</target>
+        <target>Esta es tu alma principal</target>
       </segment>
     </unit>
     <unit id="WPvMZd7" name="52d83c2">
@@ -1561,7 +1561,7 @@
       </notes>
       <segment>
         <source>Du kannst nur eine deiner Seelen als Hauptseele festlegen und diese Auswahl auch nicht mehr ändern! Wähle also weise...</source>
-        <target>Du kannst nur eine deiner Seelen als Hauptseele festlegen und diese Auswahl auch nicht mehr ändern! Wähle also weise...</target>
+        <target>¡Solo puedes establecer una de tus almas como alma principal y no puedes cambiar esta selección después! Así que elige sabiamente ...</target>
       </segment>
     </unit>
     <unit id="59PnafP" name="Administrator">
@@ -1570,7 +1570,7 @@
       </notes>
       <segment>
         <source>Administrator</source>
-        <target>Administrator</target>
+        <target>Administrador</target>
       </segment>
     </unit>
     <unit id="Ij9qHqJ" name="65633af">
@@ -1579,7 +1579,7 @@
       </notes>
       <segment>
         <source>Diese Karteikarte gehört einem Administrator. Wenn ihr darauf komische, abnormale oder gar furchteinflößende Dinge entdeckt: Das ist völlig normal. Macht euch keine Sorgen, er weiß wahrscheinlich schon Bescheid :).</source>
-        <target>Diese Karteikarte gehört einem Administrator. Wenn ihr darauf komische, abnormale oder gar furchteinflößende Dinge entdeckt: Das ist völlig normal. Macht euch keine Sorgen, er weiß wahrscheinlich schon Bescheid :).</target>
+        <target>Esta ficha es la de un administrador. Si lees cosas extrañas, anormales o espantosas, no te preocupes. Él es así...</target>
       </segment>
     </unit>
     <unit id="Oxu558J" name="Der Rabe">
@@ -1588,7 +1588,7 @@
       </notes>
       <segment>
         <source>Der Rabe</source>
-        <target>Der Rabe</target>
+        <target>El Cuervo</target>
       </segment>
     </unit>
     <unit id="YKiLytV" name="29f69eb">
@@ -1597,7 +1597,7 @@
       </notes>
       <segment>
         <source>Diese Karteikarte gehört einem Raben. Du solltest sie lieber wieder zurücklegen... langsam und ohne plötzliche Bewegungen.</source>
-        <target>Diese Karteikarte gehört einem Raben. Du solltest sie lieber wieder zurücklegen... langsam und ohne plötzliche Bewegungen.</target>
+        <target>Este perfil pertenece a un Cuervo. Será mejor que lo guardes ... lentamente y sin movimientos bruscos.</target>
       </segment>
     </unit>
     <unit id="BCS.RQ1" name="Orakel">
@@ -1606,7 +1606,7 @@
       </notes>
       <segment>
         <source>Orakel</source>
-        <target>Orakel</target>
+        <target>Oráculo</target>
       </segment>
     </unit>
     <unit id="GMmC34." name="fa5585a">
@@ -1615,7 +1615,7 @@
       </notes>
       <segment>
         <source>Diese Karteikarte gehört einem Orakel. Orakel sind Bindeglieder zwischen der Community und den Entwicklern. Du kannst dich bei Fragen und Problemen vertrauensvoll an sie wenden.</source>
-        <target>Diese Karteikarte gehört einem Orakel. Orakel sind Bindeglieder zwischen der Community und den Entwicklern. Du kannst dich bei Fragen und Problemen vertrauensvoll an sie wenden.</target>
+        <target>Este perfil pertenece a un Oráculo. Los Oráculos son vínculos entre la comunidad y los Desarrolladores. Puede contactarlos con confianza si tiene alguna pregunta o problema.</target>
       </segment>
     </unit>
     <unit id="qPDF80G" name="Irgend etwas erscheint an dieser Karteikarte merkwürdig...">
@@ -1624,7 +1624,7 @@
       </notes>
       <segment>
         <source>Irgend etwas erscheint an dieser Karteikarte merkwürdig...</source>
-        <target>Irgend etwas erscheint an dieser Karteikarte merkwürdig...</target>
+        <target>Algo parece extraño en la placa ...</target>
       </segment>
     </unit>
     <unit id="KmttAsi" name="39e1986">
@@ -1633,7 +1633,7 @@
       </notes>
       <segment>
         <source>Dieser Spieler hat mindestens eine Seele von Twinoid importiert. Wir feuen uns, ihn bei MyHordes begrüßen zu dürfen!</source>
-        <target>Dieser Spieler hat mindestens eine Seele von Twinoid importiert. Wir feuen uns, ihn bei MyHordes begrüßen zu dürfen!</target>
+        <target>Este jugador importó al menos un alma de Twinoid. ¡Esperamos darle la bienvenida a MyHordes!</target>
       </segment>
     </unit>
     <unit id="BvaERjQ" name="Twinoid-Nutzer">
@@ -1642,7 +1642,7 @@
       </notes>
       <segment>
         <source>Twinoid-Nutzer</source>
-        <target>Twinoid-Nutzer</target>
+        <target>Usuario de Twinoid</target>
       </segment>
     </unit>
     <unit id="1xiOB2G" name="Seele suchen">
@@ -1651,7 +1651,7 @@
       </notes>
       <segment>
         <source>Seele suchen</source>
-        <target>Seele suchen</target>
+        <target>Buscar un alma</target>
       </segment>
     </unit>
     <unit id="XRr8eU." name="Gib den Pseudo des Bürgers ein.">
@@ -1660,7 +1660,7 @@
       </notes>
       <segment>
         <source>Gib den Pseudo des Bürgers ein.</source>
-        <target>Gib den Pseudo des Bürgers ein.</target>
+        <target>Ingresa el nick del habitante.</target>
       </segment>
     </unit>
     <unit id="stLn0.b" name="97e820f">
@@ -1669,7 +1669,7 @@
       </notes>
       <segment>
         <source>Diese Stadt wurde von %host% importiert. Die angezeigten Informationen sind möglicherweise unvollständig.</source>
-        <target>Diese Stadt wurde von %host% importiert. Die angezeigten Informationen sind möglicherweise unvollständig.</target>
+        <target>Esta ciudad ha sido importada de %host%. La información de esta página puede estar incompleta.</target>
       </segment>
     </unit>
     <unit id="Z3DDGf9" name="Tage">
@@ -1678,7 +1678,7 @@
       </notes>
       <segment>
         <source>Tage</source>
-        <target>Tage</target>
+        <target>Dias</target>
       </segment>
     </unit>
     <unit id="3CKPuqs" name="Dein Account wurde gesperrt.">
@@ -1687,7 +1687,7 @@
       </notes>
       <segment>
         <source>Dein Account wurde gesperrt.</source>
-        <target>Dein Account wurde gesperrt.</target>
+        <target>Tu cuenta ha sido bloqueada.</target>
       </segment>
     </unit>
     <unit id="smLPd3k" name="Dein Account wurde von einem Administrator vom Spiel ausgeschlossen.">
@@ -1696,7 +1696,7 @@
       </notes>
       <segment>
         <source>Dein Account wurde von einem Administrator vom Spiel ausgeschlossen.</source>
-        <target>Dein Account wurde von einem Administrator vom Spiel ausgeschlossen.</target>
+        <target>Un administrador ha prohibido tu cuenta del juego.</target>
       </segment>
     </unit>
     <unit id="w55zJhZ" name="Diese Sperre ist permanent.">
@@ -1705,7 +1705,7 @@
       </notes>
       <segment>
         <source>Diese Sperre ist permanent.</source>
-        <target>Diese Sperre ist permanent.</target>
+        <target>Este bloqueo es permanente.</target>
       </segment>
     </unit>
     <unit id="zh9.khn" name="8177ade">
@@ -1714,7 +1714,7 @@
       </notes>
       <segment>
         <source>Wenn du dich aktuell in einer Stadt befindest, kannst du dort keine Aktionen mehr durchführen und nicht länger auf das Stadtforum zugreifen.</source>
-        <target>Wenn du dich aktuell in einer Stadt befindest, kannst du dort keine Aktionen mehr durchführen und nicht länger auf das Stadtforum zugreifen.</target>
+        <target>Si se encuentra actualmente en una ciudad, ya no podrá realizar ninguna acción allí y ya no podrá acceder al foro de la ciudad.</target>
       </segment>
     </unit>
     <unit id="Abv4VOi" name="Du kannst auch keiner neuen Stadt mehr beitreten.">
@@ -1723,7 +1723,7 @@
       </notes>
       <segment>
         <source>Du kannst auch keiner neuen Stadt mehr beitreten.</source>
-        <target>Du kannst auch keiner neuen Stadt mehr beitreten.</target>
+        <target>Tampoco puedes unirte a una nueva ciudad.</target>
       </segment>
     </unit>
     <unit id="vTDbvR_" name="Folgende Begründung wurde für deine Sperre hinterlegt:">
@@ -1732,7 +1732,7 @@
       </notes>
       <segment>
         <source>Folgende Begründung wurde für deine Sperre hinterlegt:</source>
-        <target>Folgende Begründung wurde für deine Sperre hinterlegt:</target>
+        <target>El siguiente motivo fue depositado para tu prohibición:</target>
       </segment>
     </unit>
     <unit id="4pm3p5L" name="Es wurde keine Begründung für diese Sperre hinterlegt.">
@@ -1741,7 +1741,475 @@
       </notes>
       <segment>
         <source>Es wurde keine Begründung für diese Sperre hinterlegt.</source>
-        <target>Es wurde keine Begründung für diese Sperre hinterlegt.</target>
+        <target>No se dio ninguna razón para esta prohibición..</target>
+      </segment>
+    </unit>
+    <unit id="clP2Rxk" name="EternalTwin-Nutzer">
+      <notes>
+        <note category="german">EternalTwin-Nutzer</note>
+      </notes>
+      <segment state="translated">
+        <source>EternalTwin-Nutzer</source>
+        <target>Usuario de EternalTwin</target>
+      </segment>
+    </unit>
+    <unit id="0T9At.g" name="32951b2">
+      <notes>
+        <note category="german">Dieser Spieler verwendet einen EternalTwin-Account. Wir feuen uns, ihn bei MyHordes begrüßen zu dürfen!</note>
+      </notes>
+      <segment>
+        <source>Dieser Spieler verwendet einen EternalTwin-Account. Wir feuen uns, ihn bei MyHordes begrüßen zu dürfen!</source>
+        <target>Éste jugador está utilizando una cuenta de EternalTwin. Nos alegramos de poder darle la bienvenida a MyHordes!</target>
+      </segment>
+    </unit>
+    <unit id="XRvl7w0" name="ce071ab">
+      <notes>
+        <note category="german">Das angegebene Profil kann nicht importiert werden, da es bereits einem anderen MyHordes-Konto zugeordnet ist.</note>
+      </notes>
+      <segment>
+        <source>Das angegebene Profil kann nicht importiert werden, da es bereits einem anderen MyHordes-Konto zugeordnet ist.</source>
+        <target>El perfil seleccionado no ha podido ser importado, ya que está enlazado a otra cuenta de MyHordes.</target>
+      </segment>
+    </unit>
+    <unit id="wstj04z" name="MyHordes ist ein stolzer Bestandteil des EternalTwin-Netzwerkes!">
+      <notes>
+        <note category="german">MyHordes ist ein stolzer Bestandteil des EternalTwin-Netzwerkes!</note>
+      </notes>
+      <segment>
+        <source>MyHordes ist ein stolzer Bestandteil des EternalTwin-Netzwerkes!</source>
+        <target>MyHordes es una orgullosa parte de la Red EternalTwin!</target>
+      </segment>
+    </unit>
+    <unit id="WVIMH8t" name="a7e6e46">
+      <notes>
+        <note category="german">Um MyHordes auch in Zukunft weiter spielen zu können, musst du deinen alten MyHordes-Account mit einem EternalTwin-Account verknüpfen.</note>
+      </notes>
+      <segment>
+        <source>Um MyHordes auch in Zukunft weiter spielen zu können, musst du deinen alten MyHordes-Account mit einem EternalTwin-Account verknüpfen.</source>
+        <target>Para poder seguir jugando a MyHordes en un futuro, debes de enlazar tu cuenta de MyHordes con una cuenta de EternalTwin.</target>
+      </segment>
+    </unit>
+    <unit id="CACKQCH" name="EternalTwin-Account verknüpfen">
+      <notes>
+        <note category="german">EternalTwin-Account verknüpfen</note>
+      </notes>
+      <segment>
+        <source>EternalTwin-Account verknüpfen</source>
+        <target>Enlazar cuenta de EternalTwin</target>
+      </segment>
+    </unit>
+    <unit id="lqipl75" name="%name%'s Koalition">
+      <notes>
+        <note category="german">%name%'s Koalition</note>
+      </notes>
+      <segment>
+        <source>%name%'s Koalition</source>
+        <target>Alianza de %name%</target>
+      </segment>
+    </unit>
+    <unit id="j8VraNU" name="Herzlichen Glückwunsch, du bist der Koalition soeben beigetreten!">
+      <notes>
+        <note category="german">Herzlichen Glückwunsch, du bist der Koalition soeben beigetreten!</note>
+      </notes>
+      <segment>
+        <source>Herzlichen Glückwunsch, du bist der Koalition soeben beigetreten!</source>
+        <target>¡Felicitaciones, se ha unido a la alianza!</target>
+      </segment>
+    </unit>
+    <unit id="MNqhTYg" name="Es tut uns Leid, aber dieser Spieler gehört bereits einer Koalition an.">
+      <notes>
+        <note category="german">Es tut uns Leid, aber dieser Spieler gehört bereits einer Koalition an.</note>
+      </notes>
+      <segment>
+        <source>Es tut uns Leid, aber dieser Spieler gehört bereits einer Koalition an.</source>
+        <target>Lo siento, este jugador ya es parte de una alianza.</target>
+      </segment>
+    </unit>
+    <unit id="3gqWAoL" name="Hierfür musst du einer Koalition angehören.">
+      <notes>
+        <note category="german">Hierfür musst du einer Koalition angehören.</note>
+      </notes>
+      <segment>
+        <source>Hierfür musst du einer Koalition angehören.</source>
+        <target>Para ello, debes pertenecer a una alianza.</target>
+      </segment>
+    </unit>
+    <unit id="57GeJrY" name="Du bist bereits Mitglied einer Koalition.">
+      <notes>
+        <note category="german">Du bist bereits Mitglied einer Koalition.</note>
+      </notes>
+      <segment>
+        <source>Du bist bereits Mitglied einer Koalition.</source>
+        <target>Tu eres miembro de una alianza.</target>
+      </segment>
+    </unit>
+    <unit id="yQfn1EC" name="Deine Koalition ist bereits voll.">
+      <notes>
+        <note category="german">Deine Koalition ist bereits voll.</note>
+      </notes>
+      <segment>
+        <source>Deine Koalition ist bereits voll.</source>
+        <target>Tu alianza ya está llena.</target>
+      </segment>
+    </unit>
+    <unit id="QuFqW4z" name="Spielhilfe: Kleine Koalitionen">
+      <notes>
+        <note category="german">Spielhilfe: Kleine Koalitionen</note>
+      </notes>
+      <segment state="translated">
+        <source>Spielhilfe: Kleine Koalitionen</source>
+        <target>Guía: Alianzas</target>
+      </segment>
+    </unit>
+    <unit id="GO1ZJcp" name="3e3b0ae">
+      <notes>
+        <note category="german">Du möchtest schon seit langem &lt;strong&gt;mit deinen Freunden zusammen sterben&lt;/strong&gt;? Du möchtest die gleichen schönen und &lt;strong&gt;entsetzlichen&lt;/strong&gt; Momente mit ihnen erleben? Dann sind die &lt;strong&gt;Kleinen Koalitionen&lt;/strong&gt; genau das richtige für dich! Es handelt sich um kleine Mannschaften von &lt;strong&gt;5&lt;/strong&gt; Bürgern, die gemeinsam die Welt der Verdammten entdecken möchten.</note>
+      </notes>
+      <segment>
+        <source>Du möchtest schon seit langem &lt;strong&gt;mit deinen Freunden zusammen sterben&lt;/strong&gt;? Du möchtest die gleichen schönen und &lt;strong&gt;entsetzlichen&lt;/strong&gt; Momente mit ihnen erleben? Dann sind die &lt;strong&gt;Kleinen Koalitionen&lt;/strong&gt; genau das richtige für dich! Es handelt sich um kleine Mannschaften von &lt;strong&gt;5&lt;/strong&gt; Bürgern, die gemeinsam die Welt der Verdammten entdecken möchten.</source>
+        <target><![CDATA[<strong>¿Has encontrado el equipo ideal?</strong>¿Deseas compartir el mismo pueblo con <strong>habitantes de confianza</strong>? ¡Entonces, las <strong>Alianzas</strong> son ideales para ti! Son 'equipos' de <strong>5</strong> habitantes que exploran juntos el mundo de Zombinoia.]]></target>
+      </segment>
+    </unit>
+    <unit id="_SpidlG" name="cb2469f">
+      <notes>
+        <note category="german">Das Prinzip ist ganz einfach: Wenn ihr in einer Koalition spielt, &lt;strong&gt;zieht der Erste, der eine Partie anfängt, alle verfügbaren Koalitionsmitglieder mit sich ins Spiel.&lt;/strong&gt;</note>
+      </notes>
+      <segment>
+        <source>Das Prinzip ist ganz einfach: Wenn ihr in einer Koalition spielt, &lt;strong&gt;zieht der Erste, der eine Partie anfängt, alle verfügbaren Koalitionsmitglieder mit sich ins Spiel.&lt;/strong&gt;</source>
+        <target><![CDATA[El principio es muy simple: Cuando formas parte de una alianza, <strong>el primero que se une a una partida lleva consigo a todos los miembros disponibles junto con él.</strong>]]></target>
+      </segment>
+    </unit>
+    <unit id="vxIJV3j" name="Du möchtest deine eigene Koalition erstellen?">
+      <notes>
+        <note category="german">Du möchtest deine eigene Koalition erstellen?</note>
+      </notes>
+      <segment>
+        <source>Du möchtest deine eigene Koalition erstellen?</source>
+        <target>¿Crear tu propia alianza?</target>
+      </segment>
+    </unit>
+    <unit id="h_4dLhS" name="Meine Koalition erstellen">
+      <notes>
+        <note category="german">Meine Koalition erstellen</note>
+      </notes>
+      <segment>
+        <source>Meine Koalition erstellen</source>
+        <target>¡Crea tu alianza!</target>
+      </segment>
+    </unit>
+    <unit id="okBUp.C" name="Einer existierenden Koalition beitreten">
+      <notes>
+        <note category="german">Einer existierenden Koalition beitreten</note>
+      </notes>
+      <segment>
+        <source>Einer existierenden Koalition beitreten</source>
+        <target><![CDATA[>Unirse a una alianza existente]]></target>
+      </segment>
+    </unit>
+    <unit id="S6ckGt2" name="Es hat dich bisher noch niemand eingeladen.">
+      <notes>
+        <note category="german">Es hat dich bisher noch niemand eingeladen.</note>
+      </notes>
+      <segment>
+        <source>Es hat dich bisher noch niemand eingeladen.</source>
+        <target>De momento nadie te ha enviado una invitación.</target>
+      </segment>
+    </unit>
+    <unit id="3NHVIj9" name="Name">
+      <notes>
+        <note category="german">Name</note>
+      </notes>
+      <segment>
+        <source>Name</source>
+        <target>Nombre</target>
+      </segment>
+    </unit>
+    <unit id="Vlb5Lbe" name="Aktionen">
+      <notes>
+        <note category="german">Aktionen</note>
+      </notes>
+      <segment>
+        <source>Aktionen</source>
+        <target>Acción</target>
+      </segment>
+    </unit>
+    <unit id="ze.SRGE" name="Mitmachen!">
+      <notes>
+        <note category="german">Mitmachen!</note>
+      </notes>
+      <segment>
+        <source>Mitmachen!</source>
+        <target>¡Unirme!</target>
+      </segment>
+    </unit>
+    <unit id="RRAKPkm" name="Die Einladung ablehnen.">
+      <notes>
+        <note category="german">Die Einladung ablehnen.</note>
+      </notes>
+      <segment>
+        <source>Die Einladung ablehnen.</source>
+        <target>Rechazar la invitación.</target>
+      </segment>
+    </unit>
+    <unit id="3hmiaVs" name="Shoutbox der Koalition">
+      <notes>
+        <note category="german">Shoutbox der Koalition</note>
+      </notes>
+      <segment>
+        <source>Shoutbox der Koalition</source>
+        <target>Muro de la alianza</target>
+      </segment>
+    </unit>
+    <unit id="EdbufZv" name="Verfügbare Mitglieder">
+      <notes>
+        <note category="german">Verfügbare Mitglieder</note>
+      </notes>
+      <segment>
+        <source>Verfügbare Mitglieder</source>
+        <target>Miembros disponibles</target>
+      </segment>
+    </unit>
+    <unit id="XblqKpM" name="Nicht verfügbar">
+      <notes>
+        <note category="german">Nicht verfügbar</note>
+      </notes>
+      <segment>
+        <source>Nicht verfügbar</source>
+        <target>No disponibles</target>
+      </segment>
+    </unit>
+    <unit id="3E9hxaU" name="Ausstehende Einladungen">
+      <notes>
+        <note category="german">Ausstehende Einladungen</note>
+      </notes>
+      <segment>
+        <source>Ausstehende Einladungen</source>
+        <target>Invitaciones en espera</target>
+      </segment>
+    </unit>
+    <unit id="RG9ZXHi" name="Einen Freund einladen">
+      <notes>
+        <note category="german">Einen Freund einladen</note>
+      </notes>
+      <segment>
+        <source>Einen Freund einladen</source>
+        <target>Invitar a un amigo</target>
+      </segment>
+    </unit>
+    <unit id="8dquNSH" name="Optionen">
+      <notes>
+        <note category="german">Optionen</note>
+      </notes>
+      <segment>
+        <source>Optionen</source>
+        <target>Opciones</target>
+      </segment>
+    </unit>
+    <unit id="Rh5HYn_" name="Du stehst &lt;strong&gt;zur Verfügung&lt;/strong&gt;.">
+      <notes>
+        <note category="german">Du stehst &lt;strong&gt;zur Verfügung&lt;/strong&gt;.</note>
+      </notes>
+      <segment>
+        <source>Du stehst &lt;strong&gt;zur Verfügung&lt;/strong&gt;.</source>
+        <target><![CDATA[Estás: <strong>disponible</strong>.]]></target>
+      </segment>
+    </unit>
+    <unit id="o.K5fG9" name="Du stehst &lt;strong&gt;nicht zur Verfügung&lt;/strong&gt;.">
+      <notes>
+        <note category="german">Du stehst &lt;strong&gt;nicht zur Verfügung&lt;/strong&gt;.</note>
+      </notes>
+      <segment>
+        <source>Du stehst &lt;strong&gt;nicht zur Verfügung&lt;/strong&gt;.</source>
+        <target><![CDATA[Estás: <strong>no disponible</strong>.]]></target>
+      </segment>
+    </unit>
+    <unit id="jFqiwRT" name="Meinen Status ändern">
+      <notes>
+        <note category="german">Meinen Status ändern</note>
+      </notes>
+      <segment>
+        <source>Meinen Status ändern</source>
+        <target>Cambiar mi estado</target>
+      </segment>
+    </unit>
+    <unit id="rq4q8kx" name="Verlassen UND auflösen">
+      <notes>
+        <note category="german">Verlassen UND auflösen</note>
+      </notes>
+      <segment>
+        <source>Verlassen UND auflösen</source>
+        <target>¡Abandonar y disolver!</target>
+      </segment>
+    </unit>
+    <unit id="oiwx9uP" name="Verlassen">
+      <notes>
+        <note category="german">Verlassen</note>
+      </notes>
+      <segment>
+        <source>Verlassen</source>
+        <target>Abandonar</target>
+      </segment>
+    </unit>
+    <unit id="sLJWy9T" name="Nicht in einer Stadt">
+      <notes>
+        <note category="german">Nicht in einer Stadt</note>
+      </notes>
+      <segment>
+        <source>Nicht in einer Stadt</source>
+        <target>Sin pueblo</target>
+      </segment>
+    </unit>
+    <unit id="AT.EHRB" name="Diesen Spieler ausschließen?">
+      <notes>
+        <note category="german">Diesen Spieler ausschließen?</note>
+      </notes>
+      <segment>
+        <source>Diesen Spieler ausschließen?</source>
+        <target>¿Expulsar a este compañero?</target>
+      </segment>
+    </unit>
+    <unit id="xpAtz8l" name="Diesen Spieler ausschließen.">
+      <notes>
+        <note category="german">Diesen Spieler ausschließen.</note>
+      </notes>
+      <segment>
+        <source>Diesen Spieler ausschließen.</source>
+        <target>Expulsar a este jugador.</target>
+      </segment>
+    </unit>
+    <unit id="PmiiQcl" name="Die Shoutbox ist leer...">
+      <notes>
+        <note category="german">Die Shoutbox ist leer...</note>
+      </notes>
+      <segment>
+        <source>Die Shoutbox ist leer...</source>
+        <target>El Muro de la alianza está vacio...</target>
+      </segment>
+    </unit>
+    <unit id="IuHFUTo" name="Absenden">
+      <notes>
+        <note category="german">Absenden</note>
+      </notes>
+      <segment>
+        <source>Absenden</source>
+        <target>Enviar</target>
+      </segment>
+    </unit>
+    <unit id="FNkhsV2" name="Vor 1 Tag">
+      <notes>
+        <note category="german">Vor 1 Tag</note>
+      </notes>
+      <segment>
+        <source>Vor 1 Tag</source>
+        <target>Hace 1 día</target>
+      </segment>
+    </unit>
+    <unit id="BFD31Nv" name="Vor %d% Tagen">
+      <notes>
+        <note category="german">Vor %d% Tagen</note>
+      </notes>
+      <segment>
+        <source>Vor %d% Tagen</source>
+        <target>Hace %d% Días</target>
+      </segment>
+    </unit>
+    <unit id="zeYLnSy" name="Klick auf diesen Link, um die Seite neu zu laden.">
+      <notes>
+        <note category="german">Klick auf diesen Link, um die Seite neu zu laden.</note>
+      </notes>
+      <segment>
+        <source>Klick auf diesen Link, um die Seite neu zu laden.</source>
+        <target>Recargar esta página.</target>
+      </segment>
+    </unit>
+    <unit id="flUhUW0" name="7e9e358">
+      <notes>
+        <note category="german">Wenn du nicht automatisch an einer Partie teilnehmen möchtest, sobald ein anderer Spieler der Koalition einer Stadt beitritt, stelle bitte ein: nicht zur Verfügung.</note>
+      </notes>
+      <segment>
+        <source>Wenn du nicht automatisch an einer Partie teilnehmen möchtest, sobald ein anderer Spieler der Koalition einer Stadt beitritt, stelle bitte ein: nicht zur Verfügung.</source>
+        <target>Si no deseas sumarte automáticamente a una partida cuando un miembro de tu alianza ingrese a un pueblo, ponte en modo No disponible.</target>
+      </segment>
+    </unit>
+    <unit id="vKZiHzm" name="&lt;b&gt;%u1%&lt;/b&gt; hat &lt;b&gt;%u2%&lt;/b&gt; in die Koalition eingeladen.">
+      <notes>
+        <note category="german">&lt;b&gt;%u1%&lt;/b&gt; hat &lt;b&gt;%u2%&lt;/b&gt; in die Koalition eingeladen.</note>
+      </notes>
+      <segment>
+        <source>&lt;b&gt;%u1%&lt;/b&gt; hat &lt;b&gt;%u2%&lt;/b&gt; in die Koalition eingeladen.</source>
+        <target><![CDATA[<b>%u1%</b>ha invitado a <b>%u2%</b> a unirse a nosotros.]]></target>
+      </segment>
+    </unit>
+    <unit id="bvTtAAO" name="&lt;b&gt;%u1%&lt;/b&gt; ist der Koalition soeben beigetreten!">
+      <notes>
+        <note category="german">&lt;b&gt;%u1%&lt;/b&gt; ist der Koalition soeben beigetreten!</note>
+      </notes>
+      <segment>
+        <source>&lt;b&gt;%u1%&lt;/b&gt; ist der Koalition soeben beigetreten!</source>
+        <target><![CDATA[¡<b>%u1%</b> acaba de unirse a la alianza!]]></target>
+      </segment>
+    </unit>
+    <unit id="ztPAknj" name="&lt;b&gt;%u1%&lt;/b&gt; hat die Koalition verlassen.">
+      <notes>
+        <note category="german">&lt;b&gt;%u1%&lt;/b&gt; hat die Koalition verlassen.</note>
+      </notes>
+      <segment>
+        <source>&lt;b&gt;%u1%&lt;/b&gt; hat die Koalition verlassen.</source>
+        <target><![CDATA[<b>%u1%</b> ha dejado la alianza.]]></target>
+      </segment>
+    </unit>
+    <unit id="tMzLQiv" name="&lt;b&gt;%u1%&lt;/b&gt; hat &lt;b&gt;%u2%&lt;/b&gt; aus der Koalition entfernt.">
+      <notes>
+        <note category="german">&lt;b&gt;%u1%&lt;/b&gt; hat &lt;b&gt;%u2%&lt;/b&gt; aus der Koalition entfernt.</note>
+      </notes>
+      <segment>
+        <source>&lt;b&gt;%u1%&lt;/b&gt; hat &lt;b&gt;%u2%&lt;/b&gt; aus der Koalition entfernt.</source>
+        <target><![CDATA[<b>%u1%</b> despidió a <b>%u2%</b> de la alianza.]]></target>
+      </segment>
+    </unit>
+    <unit id="bCn1heW" name="&lt;b&gt;%u1%&lt;/b&gt; hat sich soeben in die Stadt &quot;&lt;b&gt;%town%&lt;/b&gt;&quot; eingeschrieben!">
+      <notes>
+        <note category="german">&lt;b&gt;%u1%&lt;/b&gt; hat sich soeben in die Stadt "&lt;b&gt;%town%&lt;/b&gt;" eingeschrieben!</note>
+      </notes>
+      <segment>
+        <source>&lt;b&gt;%u1%&lt;/b&gt; hat sich soeben in die Stadt "&lt;b&gt;%town%&lt;/b&gt;" eingeschrieben!</source>
+        <target><![CDATA[¡<b>%u1%</b> acaba de salir en "<b>%town%</b>"!]]></target>
+      </segment>
+    </unit>
+    <unit id="Hb1dhIr" name="1507816">
+      <notes>
+        <note category="german">Du wirst nun ausgeloggt. Dein Account wird in 24-48 Stunden gelöscht. Bis dahin kannst du dich jederzeit erneut einloggen und dadurch die Löschung deines Accounts abbrechen.</note>
+      </notes>
+      <segment>
+        <source>Du wirst nun ausgeloggt. Dein Account wird in 24-48 Stunden gelöscht. Bis dahin kannst du dich jederzeit erneut einloggen und dadurch die Löschung deines Accounts abbrechen.</source>
+        <target>Ahora se cerrará la sesión. Su cuenta se eliminará en 24-48 horas. Hasta entonces, puede volver a iniciar sesión en cualquier momento y deshacer la eliminación de tu cuenta.</target>
+      </segment>
+    </unit>
+    <unit id="WbndBY4" name="Möchtest du diesem Spieler folgen?">
+      <notes>
+        <note category="german">Möchtest du diesem Spieler folgen?</note>
+      </notes>
+      <segment>
+        <source>Möchtest du diesem Spieler folgen?</source>
+        <target>¿Unirse a este compañero de equipo?</target>
+      </segment>
+    </unit>
+    <unit id="BNXmJ_6" name="8e2de13">
+      <notes>
+        <note category="german">Der Twinoid-Server meldet, dass er dein Profil aufgrund eines internen Fehlers nicht an MyHordes übertragen kann. Dieses Problem tritt häufig auf, wenn du in deinen Letzten Worten oder Stadtkommentaren Sonderzeichen verwendet hast. Bitte prüfe deine Stadtkommentare und entferne Sonderzeichen. Wenn sich Sonderzeichen in deinen Letzten Worten befinden, wende dich auf Twinoid an einen Raben.</note>
+      </notes>
+      <segment>
+        <source>Der Twinoid-Server meldet, dass er dein Profil aufgrund eines internen Fehlers nicht an MyHordes übertragen kann. Dieses Problem tritt häufig auf, wenn du in deinen Letzten Worten oder Stadtkommentaren Sonderzeichen verwendet hast. Bitte prüfe deine Stadtkommentare und entferne Sonderzeichen. Wenn sich Sonderzeichen in deinen Letzten Worten befinden, wende dich auf Twinoid an einen Raben.</source>
+        <target>El Servidor de Twinoid ha reportado que no puede transferir tu perfil a MyHordes debido a un error interno. Este es un problema común si has utilizado carácteres especiales en tus últimas palabras o los comentarios de tus antiguos pueblos. Por favor revisa los comentarios de tus antiguos pueblos y remueve éstos carácteres si los hay. Si están en alguna de tus últimas palabras, debes de contactar con un Cuervo de Twinoid.</target>
+      </segment>
+    </unit>
+    <unit id="lXmZ79T" name="Tod nicht validiert">
+      <notes>
+        <note category="german">Tod nicht validiert</note>
+      </notes>
+      <segment>
+        <source>Tod nicht validiert</source>
+        <target>Muerte no validada</target>
       </segment>
     </unit>
   </file>

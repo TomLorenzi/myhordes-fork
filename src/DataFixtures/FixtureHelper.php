@@ -13,7 +13,7 @@ class FixtureHelper extends Fixture
 
     public static function createItemGroup( ObjectManager $manager, string $name, array $data ): ItemGroup {
 
-        $group = $manager->getRepository(ItemGroup::class)->findOneByName($name);
+        $group = $manager->getRepository(ItemGroup::class)->findOneBy(['name' => $name]);
         if (!$group) {
             $group = new ItemGroup();
             $group->setName( $name );
@@ -21,7 +21,7 @@ class FixtureHelper extends Fixture
         else $group->getEntries()->clear();
 
         foreach ($data as $entry) {
-            $pt = $manager->getRepository(ItemPrototype::class)->findOneByName( $entry['item'] );
+            $pt = $manager->getRepository(ItemPrototype::class)->findOneBy(['name' => $entry['item']]);
             $group->addEntry(
                 (new ItemGroupEntry())
                     ->setChance( (int)$entry['count'] )

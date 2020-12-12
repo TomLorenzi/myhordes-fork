@@ -72,9 +72,11 @@ class GateKeeperSubscriber implements EventSubscriberInterface
 
         /** @var User $user */
         $user = $this->security->getUser();
-
-        $this->anti_cheat->recordConnection($user, $event->getRequest());
-        try { $this->em->flush(); } catch (Exception $e) {}
+        if ($user) {
+            $this->anti_cheat->recordConnection($user, $event->getRequest());
+            $this->em->persist( $user->setLastActionTimestamp( new \DateTime() ) );
+            try { $this->em->flush(); } catch (Exception $e) {}
+        }
 
         if ($user && $user->getLanguage() && $event->getRequest()->getLocale() !== $user->getLanguage())
             $event->getRequest()->getSession()->set('_user_lang', $user->getLanguage());
@@ -120,7 +122,7 @@ class GateKeeperSubscriber implements EventSubscriberInterface
                     throw new DynamicAjaxResetException($event->getRequest());
             }
 
-            if ($controller instanceof BeyondInterfaceController && !($controller instanceof ExplorationInterfaceController)) {
+            if ($controller instanceof BeyondInterfaceController) {
                 // This is a beyond controller; it is not available to players inside a town
                 if (!$citizen->getZone())
                     throw new DynamicAjaxResetException($event->getRequest());

@@ -5,7 +5,7 @@
             <h4>{% trans from 'login' %}E-Mail Adresse validieren{% endtrans %}</h4>
             <p class="justify">
                 {% if is_granted('ROLE_REGISTERED') %}
-                    <b>{% trans with {'%name%': app.user.username} from 'login' %}Hallo %name%!{% endtrans %}</b>
+                    <b>{% trans with {'%name%': app.user.name} from 'login' %}Hallo %name%!{% endtrans %}</b>
                     {% trans from 'login' %}Bevor du loslegen kannst, musst du noch deine E-Mail Adresse validieren.{% endtrans %}<br /><br />
                 {% endif %}
                 {% trans from 'login' %}Bitte gib den Validierungscode ein, den du via E-Mail erhalten hast.{% endtrans %}

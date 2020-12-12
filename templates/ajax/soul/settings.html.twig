@@ -1,6 +1,29 @@
 {% extends "ajax/soul/shell.html.twig" %}
+{% block title %}{{'Einstellungen'|trans({}, 'game')}}{% endblock %}
 {% block soul_content %}
     <div class="row">
+
+        {% if et_ready and app.user.eternalID is null %}
+            <div class="cell rw-12 padded">
+                <h5>{{ 'Über EternalTwin einloggen'|trans({},'login') }}</h5>
+                <div class="eternalMergeBanner">
+                    <div class="row">
+                        <div class="cell rw-2 padded">
+                            <img class="fit" alt="" src="{{ asset('build/images/eternal-twin/icon_large.png') }}">
+                        </div>
+                        <div class="cell rw-10 padded">
+                            <strong>{{ 'MyHordes ist ein stolzer Bestandteil des EternalTwin-Netzwerkes!'|trans({},'soul') }}</strong>
+                            {{ 'Um MyHordes auch in Zukunft weiter spielen zu können, musst du deinen alten MyHordes-Account mit einem EternalTwin-Account verknüpfen.'|trans({},'soul') }}
+                            {{ 'Deine Seele bleibt bei der Verknüpfung mit EternalTwin selbstverständlich vollständig erhalten.'|trans({},'login') }}
+                            <br />
+                            <a class="button" target="_self" href="{{ url('gateway-etwin') }}">{{ 'EternalTwin-Account verknüpfen'|trans({},'soul') }}</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        {% endif %}
+
         <div class="cell rw-12 padded">
             <h5>{{ 'Dein Profil'|trans({},'soul') }}</h5>
             <div class="row">
@@ -10,13 +33,13 @@
                             {% if not app.user.avatar.classic %}
                                 <span class="small">{{ 'Normale Anzeige'|trans({},'soul') }}</span><br />
                             {% endif %}
-                            <div class="avatar">
+                            <div class="avatar no-arma">
                                 <img alt="" src="{{ path('app_web_avatar', {'uid': app.user.id, 'name': app.user.avatar.filename, 'ext': app.user.avatar.format}) }}">
                             </div>
                             {% if not app.user.avatar.classic %}
                                 <br /><br />
                                 <span class="small">{{ 'Komprimierte Anzeige'|trans({},'soul') }}</span><br />
-                                <div class="avatar small">
+                                <div class="avatar small no-arma">
                                     <img alt="" src="{{ path('app_web_avatar', {'uid': app.user.id, 'name': app.user.avatar.smallName, 'ext': app.user.avatar.format}) }}">
                                 </div>
                             {% endif %}
@@ -50,7 +73,7 @@
                                     </div>
                                 </div>
                                 <div class="padded cell rw-6 center">
-                                    <div class="avatar full">
+                                    <div class="avatar no-arma full">
                                         <div class="crop" id="crop_bar"><div id="crop-bar-inner"></div></div>
                                         <img alt="" src="{{ path('app_web_avatar', {'uid': app.user.id, 'name': app.user.avatar.filename, 'ext': app.user.avatar.format}) }}">
                                     </div>
@@ -73,9 +96,10 @@
             {% else %}
                 {% set preferredLanguage = 'de' %}
             {% endif %}
-            <h5>{{ 'Standardsprache'|trans({},'soul') }}</h5>
+
             <div class="row">
                 <div class="padded cell rw-12">
+                    <h5>{{ 'Standardsprache'|trans({},'soul') }}</h5>
                     <div class="language-picker">
                         <div class="note note-lightest">
                             <input x-lang-setting {% if preferredLanguage == 'de' %}checked{% endif%} value="de" type="radio" name="setting_preferred_language" id="setting_preferred_language_de">&nbsp;<label for="setting_preferred_language_de">{{ 'Deutsch'|trans({}, 'global') }}</label>
@@ -153,29 +177,30 @@
                 </div>
             {% endif %}
 
-            <h5>{{ 'Login und Sicherheit'|trans({},'soul') }}</h5>
-            <div class="row">
-                <div class="cell padded rw-4 rw-sm-12">
-                    <label for="app_mail">{% trans from 'soul' %}E-Mail-Adresse{% endtrans %}</label>
-                </div>
-                <div class="cell padded rw-8 rw-sm-12">
-                    <input id="app_mail" type="text" disabled value="{{ app.user.email }}" />
-                </div>
-            </div>
-            <div class="row">
-                <div class="cell padded rw-4 rw-sm-12">
-                    {% trans from 'soul' %}Passwort ändern{% endtrans %}
-                </div>
-                <div class="cell rw-8 rw-sm-12">
-                    <div class="row">
-                        <div class="cell padded rw-6"><label><input id="app_pw_change_new1" placeholder="{{ 'Neues Passwort'|trans({},'soul') }}" type="password" value="" /></label></div>
-                        <div class="cell padded rw-6"><label><input id="app_pw_change_new2" placeholder="{{ 'Neues Passwort wiederholen'|trans({},'soul') }}" type="password" value="" /></label></div>
-                        <div class="cell padded rw-6"><label><input id="app_pw_change_old" placeholder="{{ 'Aktuelles Passwort'|trans({},'soul') }}" type="password" value="" /></label></div>
-                        <div class="cell padded rw-6"><button id="acc_ch_pw">{{ 'Passwort aktualisieren'|trans({},'soul') }}</button></div>
+            {% if not is_granted('ROLE_ETERNAL') %}
+                <h5>{{ 'Login und Sicherheit'|trans({},'soul') }}</h5>
+                <div class="row">
+                    <div class="cell padded rw-4 rw-sm-12">
+                        <label for="app_mail">{% trans from 'soul' %}E-Mail-Adresse{% endtrans %}</label>
                     </div>
-
+                    <div class="cell padded rw-8 rw-sm-12">
+                        <input id="app_mail" type="text" disabled value="{{ app.user.email }}" />
+                    </div>
                 </div>
-            </div>
+                <div class="row">
+                    <div class="cell padded rw-4 rw-sm-12">
+                        {% trans from 'soul' %}Passwort ändern{% endtrans %}
+                    </div>
+                    <div class="cell rw-8 rw-sm-12">
+                        <div class="row">
+                            <div class="cell padded rw-6"><label><input id="app_pw_change_new1" placeholder="{{ 'Neues Passwort'|trans({},'soul') }}" type="password" value="" /></label></div>
+                            <div class="cell padded rw-6"><label><input id="app_pw_change_new2" placeholder="{{ 'Neues Passwort wiederholen'|trans({},'soul') }}" type="password" value="" /></label></div>
+                            <div class="cell padded rw-6"><label><input id="app_pw_change_old" placeholder="{{ 'Aktuelles Passwort'|trans({},'soul') }}" type="password" value="" /></label></div>
+                            <div class="cell padded rw-6"><button id="acc_ch_pw">{{ 'Passwort aktualisieren'|trans({},'soul') }}</button></div>
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
 
             {% if not is_granted('ROLE_SHADOW_BANNED') %}
                 <h5>{{ 'Externe Anwendungen'|trans({},'soul') }}</h5>
@@ -193,12 +218,14 @@
                     </div>
                 </div>
 
-                <h5>{{ 'Account löschen'|trans({},'soul') }}</h5>
-                <div class="row">
-                    <div class="padded cell rw-4"><label for="acc_del_input">{{ 'Aktuelles Passwort'|trans({},'login') }}</label></div>
-                    <div class="padded cell rw-4"><input id="acc_del_input" type="password" /></div>
-                    <div class="padded cell rw-4"><button id="acc_del_btn"><i class="fa fa-trash"></i> {{ 'Meinen Account löschen'|trans({},'soul') }}</button></div>
-                </div>
+                {% if not is_granted('ROLE_ETERNAL') %}
+                    <h5>{{ 'Account löschen'|trans({},'soul') }}</h5>
+                    <div class="row">
+                        <div class="padded cell rw-4"><label for="acc_del_input">{{ 'Aktuelles Passwort'|trans({},'login') }}</label></div>
+                        <div class="padded cell rw-4"><input id="acc_del_input" type="password" /></div>
+                        <div class="padded cell rw-4"><button id="acc_del_btn"><i class="fa fa-trash"></i> {{ 'Meinen Account löschen'|trans({},'soul') }}</button></div>
+                    </div>
+                {% endif %}
             {% endif %}
 
         </div>
@@ -233,11 +260,13 @@
 
             $.ajax.easySend( '{{ path('api_soul_delete_account') }}', {'pw': pw},
                 function () {
+                    alert('{{ 'Du wirst nun ausgeloggt. Dein Account wird in 24-48 Stunden gelöscht. Bis dahin kannst du dich jederzeit erneut einloggen und dadurch die Löschung deines Accounts abbrechen.'|trans({},'soul')|e('js') }}');
                     $.ajax.load(null, '{{ path('public_welcome') }}', true);
                 } )
         });
 
-        document.getElementById('acc_ch_pw').addEventListener('click', function(e) {
+
+        $.html.addEventListenerAll('#acc_ch_pw', 'click', function(e) {
             e.preventDefault();
             const pw_old = document.getElementById('app_pw_change_old').value;
             const pw_new1 = document.getElementById('app_pw_change_new1').value;

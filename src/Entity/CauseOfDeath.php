@@ -16,25 +16,46 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
  */
 class CauseOfDeath
 {
-    const Unknown = 1;
-    const NightlyAttack = 2;
-    const Vanished = 3;
-    const Dehydration = 4;
-    const GhulStarved = 5;
-    const Addiction = 6;
-    const Infection = 7;
-    const Cyanide = 8;
-    const Poison = 9;
-    const GhulEaten = 10;
-    const GhulBeaten = 11;
-    const Hanging = 12;
-    const FleshCage = 13;
-    const Strangulation = 14;
-    const Headshot = 15;
-    const Radiations = 16;
-    const Haunted = 17;
-    const ExplosiveDoormat = 18;
-    const ChocolateCross = 19;
+    /*
+        FROM BBH
+        1 Déshydratation terminale
+        2 Strangulation
+        3 Suicide par ingestion de Cyanure
+        4 Justice populaire (mort par Pendaison) !
+        5 Disparu(e) dans l'Outre-Monde pendant la nuit !
+        6 Lacéré(e)... Dévoré(e)... pendant l'attaque de la nuit !
+        7 Pénurie de drogue
+        8 Infection généralisée
+        9 Balle dans la tête
+        10 Raison inconnue
+        11 Meurtre par empoisonnement !
+        12 Dévoré(e) par une Goule !
+        13 Goule abattue au cours d'une agression !
+        14 Goule affamée
+        15 Cage à viande
+        16 Crucifixion
+        17 Pulvérisé un peu partout
+        18 Possédé par une âme torturée 
+    */
+    const Dehydration      = 1;   // Old : 4;
+    const Strangulation    = 2;   // Old : 14;
+    const Cyanide          = 3;   // Old : 8;
+    const Hanging          = 4;   // Old : 12;
+    const Vanished         = 5;   // Old : 3;
+    const NightlyAttack    = 6;   // Old : 2;
+    const Addiction        = 7;   // Old : 6;
+    const Infection        = 8;   // Old : 7;
+    const Headshot         = 9;   // Old : 15;
+    const Unknown          = 10;  // Old : 1;
+    const Poison           = 11;  // Old : 9;
+    const GhulEaten        = 12;  // Old : 10;
+    const GhulBeaten       = 13;  // Old : 11;
+    const GhulStarved      = 14;  // Old : 5;
+    const FleshCage        = 15;  // Old : 13;
+    const ChocolateCross   = 16;  // Old : 19;
+    const ExplosiveDoormat = 17;  // Old : 18;
+    const Haunted          = 18;  // Old : 17;
+    const Radiations       = 19;  // Old : 16;
 
     /**
      * @ORM\Id()

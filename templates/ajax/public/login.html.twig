@@ -13,48 +13,120 @@
     <div class="row">
         <div class="cell padded header rw-8 ro-2 rw-lg-12 ro-lg-0">
             <h4>{% trans from 'login' %}Einloggen{% endtrans %}</h4>
-            <p class="justify">
-                {% trans from 'login' %}Bitte gib deinen Spielernamen und dein Passwort ein.{% endtrans %}
-            </p>
-            <form id="login-form">
-                <div class="row">
-                    <div class="cell padded-small rw-4 rw-md-12"><b><label for="login-name">{% trans from 'login' %}Spielername{% endtrans %}</label></b></div>
-                    <div class="cell padded-small rw-8 rw-md-12"><input name="login_user" id="login-name" type="text" /></div>
-                </div>
-                <div class="row">
-                    <div class="cell padded-small rw-4 rw-md-12"><b><label for="login-password">{% trans from 'login' %}Passwort{% endtrans %}</label></b></div>
-                    <div class="cell padded-small rw-8 rw-md-12"><input name="login_pass" id="login-password" type="password" /></div>
-                </div>
-                <div class="row">
-                    <div class="cell padded-small rw-4 rw-md-8"><b><label for="remember_me">{% trans from 'login' %}Angemeldet bleiben{% endtrans %}</label></b></div>
-                    <div class="cell padded-small rw-8 rw-md-4"><input type="checkbox" id="remember_me" name="_remember_me" checked/></div>
-                </div>
-                <div class="row-flex bottom right wrap">
-                    <div class="cell padded-small rw-4 rw-md-6 rw-sm-12">
-                        <button id="login_button">{% trans from 'login' %}Einloggen{% endtrans %}</button>
+
+            <br /><br />
+
+            <div id="login-etwin">
+                <div class="row-flex v-center">
+                    <div class="padded cell rw-8">
+                        <img alt="eternal-twin" src="{{ asset('build/images/eternal-twin/logo.png') }}" class="fit" />
                     </div>
-                    <div class="cell padded-small rw-4 rw-md-6 rw-sm-12">
-                        <span class="small hide-sm">{% trans from 'login' %}Du hast noch keinen Account?{% endtrans %}</span>
-                        <button x-ajax-href="{{ path('public_register') }}" class="blue">{% trans from 'login' %}Registrieren!{% endtrans %}</button>
+                    <div class="padded cell rw-4">
+                        <div class="note justify">
+                            {{ 'MyHordes ist ein Teil des EternalTwin-Netzwerks. Wenn du einen EternalTwin-Account hast, kannst du MyHordes ohne zusätzliche Registrierung spielen!'|trans({},'login') }}
+                        </div>
                     </div>
                 </div>
-            </form>
-            <p class="right small">
-                <a href="" x-ajax-href="{{ path('public_reset') }}">{% trans from 'login' %}Passwort vergessen?{% endtrans %}</a>
-            </p>
+                <div class="row-flex">
+                    <div class="padded cell rw-12">
+                        <a href="{{ url('gateway-etwin') }}" target="_self"><button><img style="width: 16px;" alt="" src="{{ asset('build/images/eternal-twin/icon_small.png') }}">{{ 'Über EternalTwin einloggen'|trans({},'login') }}</button></a>
+                    </div>
+                </div>
+
+                {% if myh %}
+                    <div class="band"><span>{{ 'oder'|trans({},'global') }}</span></div>
+                    <div class="row-flex v-center">
+                        <div class="padded cell rw-6">
+                            <div class="note justify">
+                                {{ 'Wenn du noch einen alten MyHordes-Account hast, kannst du dich vorerst auch damit einloggen.'|trans({},'login') }}
+                                <strong>{{ 'Dies wird nicht für immer möglich sein. Wir raten dir, deinen alten MyHordes-Account so bald wie möglich mit EternalTwin zu verknüpfen.'|trans({},'login') }}</strong>
+                                {{ 'Deine Seele bleibt bei der Verknüpfung mit EternalTwin selbstverständlich vollständig erhalten.'|trans({},'login') }}
+                            </div>
+                        </div>
+
+                        <div class="padded cell rw-6">
+                            <img alt="myhordes" src="{{ asset('build/images/eternal-twin/legacy.png') }}" class="fit" />
+                        </div>
+                    </div>
+                    <div class="row-flex">
+                        <div class="padded cell rw-12">
+                            <button id="myh">{{ 'Über MyHordes einloggen'|trans({},'login') }}</button>
+                        </div>
+                    </div>
+                {% endif %}
+            </div>
+
+            {% if etwin is null or myh %}
+                <div id="login-myhordes" {% if etwin is not null %}style="display: none"{% endif %}>
+                    <p class="justify">
+                        {% trans from 'login' %}Bitte gib deinen Spielernamen und dein Passwort ein.{% endtrans %}
+                    </p>
+                    <form id="login-form">
+                        <div class="row">
+                            <div class="cell padded-small rw-4 rw-md-12"><b><label for="login-name">{% trans from 'login' %}Spielername{% endtrans %}</label></b></div>
+                            <div class="cell padded-small rw-8 rw-md-12"><input name="login_user" id="login-name" type="text" /></div>
+                        </div>
+                        <div class="row">
+                            <div class="cell padded-small rw-4 rw-md-12"><b><label for="login-password">{% trans from 'login' %}Passwort{% endtrans %}</label></b></div>
+                            <div class="cell padded-small rw-8 rw-md-12"><input name="login_pass" id="login-password" type="password" /></div>
+                        </div>
+                        <div class="row">
+                            <div class="cell padded-small rw-4 rw-md-8"><b><label for="remember_me">{% trans from 'login' %}Angemeldet bleiben{% endtrans %}</label></b></div>
+                            <div class="cell padded-small rw-8 rw-md-4"><input type="checkbox" id="remember_me" name="_remember_me" checked/></div>
+                        </div>
+                        <div class="row-flex bottom right wrap">
+                            <div class="cell padded-small rw-4 rw-md-6 rw-sm-12">
+                                <button id="login_button">{% trans from 'login' %}Einloggen{% endtrans %}</button>
+                            </div>
+                            {% if etwin is null %}
+                                <div class="cell padded-small rw-4 rw-md-6 rw-sm-12">
+                                    <span class="small hide-sm">{% trans from 'login' %}Du hast noch keinen Account?{% endtrans %}</span>
+                                    <button x-ajax-href="{{ path('public_register') }}" class="blue">{% trans from 'login' %}Registrieren!{% endtrans %}</button>
+                                </div>
+                            {% endif %}
+                        </div>
+                    </form>
+                    <p class="right small">
+                        <a href="" x-ajax-href="{{ path('public_reset') }}">{% trans from 'login' %}Passwort vergessen?{% endtrans %}</a>
+                        {% if etwin is not null %}
+                            <br /><a href="" id="etwin">{% trans from 'login' %}Über EternalTwin einloggen{% endtrans %}</a>
+                        {% endif %}
+                    </p>
+                </div>
+            {% endif %}
+
         </div>
     </div>
 {% endblock %}
 
 {% block js %}
     <script>
-        document.getElementById('login_button').addEventListener('click', function(e) {
-            e.preventDefault();
-            $.ajax.easySend( '{{ path('api_login') }}', $.html.serializeForm(document.getElementById('login-form')),
-                function (data) {
-                    if (data.require_validation) $.ajax.load(null, '{{ path('public_validate') }}', true);
-                    else $.ajax.load(null, '{{ path('initial_landing') }}', true);
-                }, {'default': '{% trans from 'login' %}Login fehlgeschlagen. Bitte prüfe deine Eingaben.{% endtrans %}'} )
-        });
+        {% if etwin is null or myh %}
+            document.getElementById('login_button').addEventListener('click', function(e) {
+                e.preventDefault();
+                $.ajax.easySend( '{{ path('api_login') }}', $.html.serializeForm(document.getElementById('login-form')),
+                    function (data) {
+                        if (data.require_validation) $.ajax.load(null, '{{ path('public_validate') }}', true);
+                        else if ($.client.config.navigationCache.get()) {
+                            $.ajax.load(null, $.client.config.navigationCache.get(), true);
+                            $.client.config.navigationCache.set(null);
+                        }
+                        else $.ajax.load(null, '{{ path('initial_landing') }}', true);
+                    }, {'default': '{% trans from 'login' %}Login fehlgeschlagen. Bitte prüfe deine Eingaben.{% endtrans %}'} )
+            });
+        {% endif %}
+
+        {% if etwin is not null and myh %}
+            document.getElementById('myh').addEventListener('click', function(e) {
+                document.getElementById('login-myhordes').style.display = null;
+                document.getElementById('login-etwin').style.display = 'none';
+                e.preventDefault();
+            });
+            document.getElementById('etwin').addEventListener('click', function(e) {
+                document.getElementById('login-myhordes').style.display = 'none';
+                document.getElementById('login-etwin').style.display = null;
+                e.preventDefault();
+            });
+        {% endif %}
     </script>
 {% endblock %}

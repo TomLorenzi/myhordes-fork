@@ -31,6 +31,7 @@ use App\Service\PictoHandler;
 use App\Service\RandomGenerator;
 use App\Service\TimeKeeperService;
 use App\Response\AjaxResponse;
+use App\Service\ConfMaster;
 use App\Structures\ForumPermissionAccessor;
 use DateTime;
 use Doctrine\ORM\EntityManagerInterface;
@@ -39,7 +40,6 @@ use DOMNode;
 use DOMXPath;
 use Exception;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Asset\Packages;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -50,7 +50,7 @@ use Symfony\Contracts\Translation\TranslatorInterface;
  * @IsGranted("ROLE_USER")
  * @method User getUser
  */
-class MessageController extends AbstractController
+class MessageController extends CustomAbstractController
 {
     const ErrorForumNotFound    = ErrorHelper::BaseForumErrors + 1;
     const ErrorPostTextLength   = ErrorHelper::BaseForumErrors + 2;
@@ -66,8 +66,9 @@ class MessageController extends AbstractController
     private TimeKeeperService $time_keeper;
     private PermissionHandler $perm;
 
-    public function __construct(RandomGenerator $r, TranslatorInterface $t, Packages $a, EntityManagerInterface $em, InventoryHandler $ih, TimeKeeperService $tk, PermissionHandler $p)
+    public function __construct(RandomGenerator $r, TranslatorInterface $t, Packages $a, EntityManagerInterface $em, InventoryHandler $ih, TimeKeeperService $tk, PermissionHandler $p, ConfMaster $conf)
     {
+        parent::__construct($conf);
         $this->asset = $a;
         $this->rand = $r;
         $this->trans = $t;
@@ -111,16 +112,18 @@ class MessageController extends AbstractController
             $em->flush();
         }
 
+        $show_hidden_threads = $this->perm->isPermitted( $permissions, ForumUsagePermissions::PermissionModerate );
+
         if ( $this->perm->isPermitted( $permissions, ForumUsagePermissions::PermissionListThreads ) ) {
-            $pages = floor(max(0,$em->getRepository(Thread::class)->countByForum($forum)-1) / $num_per_page) + 1;
+            $pages = floor(max(0,$em->getRepository(Thread::class)->countByForum($forum, $show_hidden_threads)-1) / $num_per_page) + 1;
             if ($parser->has('page'))
                 $page = min(max(1,$parser->get('page', 1)), $pages);
             else $page = 1;
 
-            $threads = $em->getRepository(Thread::class)->findByForum($forum, $num_per_page, ($page-1)*$num_per_page);
+            $threads = $em->getRepository(Thread::class)->findByForum($forum, $num_per_page, ($page-1)*$num_per_page, $show_hidden_threads);
         } elseif ( $this->perm->isPermitted( $permissions, ForumUsagePermissions::PermissionModerate ) ) {
 
-            $threads = array_filter( $em->getRepository(Thread::class)->findByForum($forum), fn(Thread $t): bool => $t->hasReportedPosts() );
+            $threads = array_filter( $em->getRepository(Thread::class)->findByForum($forum, null, null, $show_hidden_threads), fn(Thread $t): bool => $t->hasReportedPosts() );
             $pages = floor(max(0,count($threads)-1) / $num_per_page) + 1;
             if ($parser->has('page'))
                 $page = min(max(1,$parser->get('page', 1)), $pages);
@@ -136,20 +139,24 @@ class MessageController extends AbstractController
             /** @var Thread $thread */
             /** @var ThreadReadMarker $marker */
             $marker = $em->getRepository(ThreadReadMarker::class)->findByThreadAndUser($user, $thread);
-            if ($marker && $thread->getLastPost() <= $marker->getPost()->getDate()) $thread->setNew();
+            $lastPost = $thread->lastPost( $show_hidden_threads );
+            if (!$marker || ($lastPost && $lastPost !== $marker->getPost()))
+                $thread->setNew();
         }
 
         if ( $this->perm->isPermitted( $permissions, ForumUsagePermissions::PermissionListThreads ) ) {
-            $pinned_threads = $em->getRepository(Thread::class)->findPinnedByForum($forum);
+            $pinned_threads = $em->getRepository(Thread::class)->findPinnedByForum($forum, null, null, $show_hidden_threads);
         } elseif ( $this->perm->isPermitted( $permissions, ForumUsagePermissions::PermissionModerate ) ) {
-            $pinned_threads = array_filter( $em->getRepository(Thread::class)->findPinnedByForum($forum), fn(Thread $t): bool => $t->hasReportedPosts() );
+            $pinned_threads = array_filter( $em->getRepository(Thread::class)->findPinnedByForum($forum, null, null, $show_hidden_threads), fn(Thread $t): bool => $t->hasReportedPosts() );
         } else $pinned_threads = [];
 
         foreach ($pinned_threads as $thread) {
             /** @var Thread $thread */
             /** @var ThreadReadMarker $marker */
             $marker = $em->getRepository(ThreadReadMarker::class)->findByThreadAndUser($user, $thread);
-            if ($marker && $thread->getLastPost() <= $marker->getPost()->getDate()) $thread->setNew();
+            $lastPost = $thread->lastPost( $show_hidden_threads );
+            if (!$marker || ($lastPost && $lastPost !== $marker->getPost()))
+                $thread->setNew();
         }
 
         return $this->render( 'ajax/forum/view.html.twig', $this->addDefaultTwigArgs([
@@ -249,6 +256,7 @@ class MessageController extends AbstractController
         's' => [],
         'q' => [],
         'blockquote' => [],
+        'pre' => [],
         'hr' => [],
         'ul' => [],
         'ol' => [],
@@ -270,14 +278,14 @@ class MessageController extends AbstractController
         ]
     ];
 
-    private const HTML_ATTRIB_ALLOWED_ORACLE = [ 
-        'div.class' => [ 
+    private const HTML_ATTRIB_ALLOWED_ORACLE = [
+        'div.class' => [
             'oracleAnnounce'
         ]
     ];
 
-    private const HTML_ATTRIB_ALLOWED_CROW = [ 
-        'div.class' => [ 
+    private const HTML_ATTRIB_ALLOWED_CROW = [
+        'div.class' => [
             'modAnnounce', 'html'
         ]
     ];
@@ -288,10 +296,10 @@ class MessageController extends AbstractController
             'dice-4', 'dice-6', 'dice-8', 'dice-10', 'dice-12', 'dice-20', 'dice-100',
             'letter-a', 'letter-v', 'letter-c',
             'rps', 'coin', 'card',
-             'citizen', 'rpText',
+            'citizen', 'rpText',
         ],
         'span.class' => [
-            'quoteauthor','bad','rpauthor'
+            'quoteauthor','bad','rpauthor','inline-code',
         ]
     ];
 
@@ -406,10 +414,20 @@ class MessageController extends AbstractController
         if (!$this->htmlValidator($this->getAllowedHTML($forum), $body->item(0),$tx_len))
             return false;
 
+        $emotes = array_keys($this->get_emotes());
+
         $cache = [
             'citizen' => [],
         ];
         $handlers = [
+            // This invalidates emote tags within code blocks to prevent them from being replaced when rendering the
+            // post
+            '//pre|//span[@class=\'inline-code\']' =>
+                function (DOMNode $d) use(&$emotes) {
+                    foreach ($emotes as $emote)
+                        $d->nodeValue = str_replace( $emote, str_replace(':', ':​', $emote),  $d->nodeValue);
+                },
+
             '//div[@class=\'dice-4\']'   => function (DOMNode $d) use(&$editable) { $editable = false; $d->nodeValue = mt_rand(1,4); },
             '//div[@class=\'dice-6\']'   => function (DOMNode $d) use(&$editable) { $editable = false; $d->nodeValue = mt_rand(1,6); },
             '//div[@class=\'dice-8\']'   => function (DOMNode $d) use(&$editable) { $editable = false; $d->nodeValue = mt_rand(1,8); },
@@ -469,7 +487,7 @@ class MessageController extends AbstractController
                 /** @var Citizen $cc */
                 $cc = $this->rand->pick($valid);
                 if ($group !== null) $cache['citizen'][$group] = $cc->getId();
-                $d->nodeValue = $cc->getUser()->getUsername();
+                $d->nodeValue = $cc->getUser()->getName();
             },
 
             // This MUST be the last element!
@@ -543,7 +561,7 @@ class MessageController extends AbstractController
         $repo = $this->entityManager->getRepository(Emotes::class);
         foreach($repo->findAll() as $value)
             /** @var $value Emotes */
-        $this->emote_cache[$value->getTag()] = $url_only ? $value->getPath() : "<img alt='{$value->getTag()}' src='{$this->asset->getUrl( $value->getPath() )}'/>";
+            $this->emote_cache[$value->getTag()] = $url_only ? $value->getPath() : "<img alt='{$value->getTag()}' src='{$this->asset->getUrl( $value->getPath() )}'/>";
         return $this->emote_cache;
     }
 
@@ -698,7 +716,7 @@ class MessageController extends AbstractController
             else return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
         }
 
-        if ($thread->getLocked() && !$this->perm->isPermitted($permissions, ForumUsagePermissions::PermissionModerate))
+        if (($thread->getLocked() || $thread->getHidden()) && !$this->perm->isPermitted($permissions, ForumUsagePermissions::PermissionModerate))
             return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
 
         // Check the last 4 threads; if they were all made by the same user, they must wait 4h before they can post again
@@ -796,7 +814,7 @@ class MessageController extends AbstractController
         if ((($post->getOwner() !== $user && $post->getOwner()->getId() !== 66) || !$post->isEditable()) && !$mod_permissions && !$this->perm->isPermitted($permission, ForumUsagePermissions::PermissionModerate | ForumUsagePermissions::PermissionEditPost) )
             return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
 
-        if ($thread->getLocked() && !$mod_permissions && !$this->perm->isPermitted($permission, ForumUsagePermissions::PermissionModerate))
+        if (($thread->getLocked() || $thread->getHidden()) && !$mod_permissions && !$this->perm->isPermitted($permission, ForumUsagePermissions::PermissionModerate))
             return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
 
         /** @var Forum $forum */
@@ -859,7 +877,7 @@ class MessageController extends AbstractController
 
         /** @var Thread $thread */
         $thread = $em->getRepository(Thread::class)->findByForumSemantic( $forum, $sem );
-        if (!$thread || $thread->getForum()->getId() !== $fid) return new Response(' ');
+        if (!$thread || $thread->getHidden() || $thread->getForum()->getId() !== $fid) return new Response(' ');
 
         $posts = $em->getRepository(Post::class)->findUnhiddenByThread($thread, 5, -5);
 
@@ -891,6 +909,10 @@ class MessageController extends AbstractController
         /** @var Forum $forum */
         $forum = $em->getRepository(Forum::class)->find($fid);
         $permissions = $this->perm->getEffectivePermissions( $user, $forum );
+
+        if ($thread->getHidden() && !$this->perm->isPermitted( $permissions, ForumUsagePermissions::PermissionModerate ))
+            return new Response('');
+
         if (!$this->perm->isPermitted( $permissions, ForumUsagePermissions::PermissionReadThreads )) {
             if (!$thread->hasReportedPosts() || !$this->perm->isPermitted( $permissions, ForumUsagePermissions::PermissionModerate ) )
                 return new Response('', 200, ['X-AJAX-Control' => 'reload']);
@@ -902,19 +924,19 @@ class MessageController extends AbstractController
         $marker = $em->getRepository(ThreadReadMarker::class)->findByThreadAndUser( $user, $thread );
         if (!$marker) $marker = (new ThreadReadMarker())->setUser($user)->setThread($thread);
 
-        if ($user->getRightsElevation() >= User::ROLE_CROW)
+        if ($this->perm->isPermitted( $permissions, ForumUsagePermissions::PermissionModerate ))
             $pages = floor(max(0,$em->getRepository(Post::class)->countByThread($thread)-1) / $num_per_page) + 1;
         else
             $pages = floor(max(0,$em->getRepository(Post::class)->countUnhiddenByThread($thread)-1) / $num_per_page) + 1;
 
         if ($jump_post)
-            $page = min($pages,1 + floor((1+$em->getRepository(Post::class)->getOffsetOfPostByThread( $thread, $jump_post )) / $num_per_page));
+            $page = min($pages,1 + floor(($em->getRepository(Post::class)->getOffsetOfPostByThread( $thread, $jump_post, $this->perm->isPermitted( $permissions, ForumUsagePermissions::PermissionModerate ) )) / $num_per_page));
         elseif ($parser->has('page'))
             $page = min(max(1,$parser->get('page', 1)), $pages);
         elseif (!$marker->getPost()) $page = 1;
-        else $page = min($pages,1 + floor((1+$em->getRepository(Post::class)->getOffsetOfPostByThread( $thread, $marker->getPost() )) / $num_per_page));
+        else $page = min($pages,1 + floor(($em->getRepository(Post::class)->getOffsetOfPostByThread( $thread, $marker->getPost(), $this->perm->isPermitted( $permissions, ForumUsagePermissions::PermissionModerate ) )) / $num_per_page));
 
-        if ($user->getRightsElevation() >= User::ROLE_CROW)
+        if ($this->perm->isPermitted( $permissions, ForumUsagePermissions::PermissionModerate ))
             $posts = $em->getRepository(Post::class)->findByThread($thread, $num_per_page, ($page-1)*$num_per_page);
         else
             $posts = $em->getRepository(Post::class)->findUnhiddenByThread($thread, $num_per_page, ($page-1)*$num_per_page);
@@ -928,7 +950,7 @@ class MessageController extends AbstractController
 
         foreach ($posts as $post){
             /** @var $post Post */
-            if ($marker->getPost() === null || $marker->getPost()->getId() < $post->getId())
+            if ($marker->getPost() === null || $marker->getPost()->getDate() < $post->getDate())
                 $post->setNew();
         }
 
@@ -939,10 +961,10 @@ class MessageController extends AbstractController
             $last_read = $marker->getPost();
             if ($last_read === null || $read_post->getId() > $last_read->getId()) {
                 $marker->setPost($read_post);
-                try {
+                //try {
                     $em->persist($marker);
                     $em->flush();
-                } catch (Exception $e) {}
+                //} catch (Exception $e) {}
             }
         }
 
@@ -985,7 +1007,7 @@ class MessageController extends AbstractController
             'permission' => $this->getPermissionObject( $permissions ),
 
             'emotes' => $this->getEmotesByUser($this->getUser(),true),
-            'username' => $this->getUser()->getUsername(),
+            'username' => $this->getUser()->getName(),
             'forum' => true,
             'town_controls' => $forum->getTown() !== null,
         ] );
@@ -1137,6 +1159,12 @@ class MessageController extends AbstractController
                     $reports = $post->getAdminReports(true);
                     foreach ($reports as $report)
                         $this->entityManager->persist($report->setSeen(true));
+
+                    if ($post === $thread->firstPost(true)) {
+                        $thread->setHidden(true)->setLocked(true);
+                        $this->entityManager->persist($thread);
+                    }
+
                     $this->entityManager->flush();
                     return AjaxResponse::success();
                 }
@@ -1214,7 +1242,7 @@ class MessageController extends AbstractController
             return AjaxResponse::error(ErrorHelper::ErrorPermissionError);
 
         $targetUser = $post->getOwner();
-        if ($targetUser->getUsername() === "Der Rabe" ) {
+        if ($targetUser->getName() === "Der Rabe" ) {
             $message = $ti->trans('Das ist keine gute Idee, das ist dir doch wohl klar!', [], 'game');
             $this->addFlash('notice', $message);
             return AjaxResponse::success();
@@ -1225,21 +1253,21 @@ class MessageController extends AbstractController
             if ($report->getSourceUser()->getId() == $user->getId())
                 return AjaxResponse::success();
 
-            $newReport = (new AdminReport())
+        $newReport = (new AdminReport())
             ->setSourceUser($user)
             ->setTs(new DateTime('now'))
             ->setPost($post);
 
-            try {
-                $em->persist($newReport);
-                $em->flush();
-            } catch (Exception $e) {
-                return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
-            }
-            $message = $ti->trans('Du hast die Nachricht von %username% dem Raben gemeldet. Wer weiß, vielleicht wird %username% heute Nacht stääärben...', ['%username%' => '<span>' . $post->getOwner()->getUsername() . '</span>'], 'game');
-            $this->addFlash('notice', $message);
-            return AjaxResponse::success( );
+        try {
+            $em->persist($newReport);
+            $em->flush();
+        } catch (Exception $e) {
+            return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
         }
+        $message = $ti->trans('Du hast die Nachricht von %username% dem Raben gemeldet. Wer weiß, vielleicht wird %username% heute Nacht stääärben...', ['%username%' => '<span>' . $post->getOwner()->getName() . '</span>'], 'game');
+        $this->addFlash('notice', $message);
+        return AjaxResponse::success( );
+    }
 
     /**
      * @Route("api/town/house/sendpm", name="town_house_send_pm_controller")
@@ -1473,14 +1501,32 @@ class MessageController extends AbstractController
             switch ($post->getTemplate()) {
 
                 case PrivateMessage::TEMPLATE_CROW_COMPLAINT_ON:
+                    /** @var Complaint $complaint */
                     $complaint = $this->entityManager->getRepository(Complaint::class)->find( $post->getForeignID() );
+                    $reason = '';
+                    if($complaint){
+                        if ($complaint->getLinkedReason() != null)
+                            $reason = $complaint->getLinkedReason()->getText();
+                        else
+                            $reason = $complaint->getReason();
+                    }
+
                     $thread->setTitle( $this->trans->trans('Anonyme Beschwerde', [], 'game') );
-                    $post->setText( $this->prepareEmotes($post->getText()) . $this->trans->trans( 'Es wurde eine neue anonyme Beschwerde gegen dich eingelegt: "%reason%"', ['%reason%' => $this->trans->trans( $complaint ? $complaint->getReason() : '', [], 'game' )], 'game' ) );
+                    $post->setText( $this->prepareEmotes($post->getText()) . $this->trans->trans( 'Es wurde eine neue anonyme Beschwerde gegen dich eingelegt: "%reason%"', ['%reason%' => $this->trans->trans( $reason, [], 'game' )], 'game' ) );
                     break;
                 case PrivateMessage::TEMPLATE_CROW_COMPLAINT_OFF:
+                    /** @var Complaint $complaint */
                     $complaint = $this->entityManager->getRepository(Complaint::class)->find( $post->getForeignID() );
+                    $reason = '';
+                    if($complaint){
+                        if ($complaint->getLinkedReason() != null)
+                            $reason = $complaint->getLinkedReason()->getText();
+                        else
+                            $reason = $complaint->getReason();
+                    }
+
                     $thread->setTitle( $this->trans->trans('Beschwerde zurückgezogen', [], 'game') );
-                    $post->setText( $this->prepareEmotes($post->getText()) . $this->trans->trans( 'Es gibt gute Nachrichten! Folgende Beschwerde wurde zurückgezogen: "%reason%"', ['%reason%' => $this->trans->trans( $complaint ? $complaint->getReason() : '', [], 'game' )], 'game' ) );
+                    $post->setText( $this->prepareEmotes($post->getText()) . $this->trans->trans( 'Es gibt gute Nachrichten! Folgende Beschwerde wurde zurückgezogen: "%reason%"', ['%reason%' => $this->trans->trans( $reason, [], 'game' )], 'game' ) );
                     break;
                 case PrivateMessage::TEMPLATE_CROW_TERROR:
                     $thread->setTitle( $this->trans->trans('Du bist vor Angst erstarrt!!', [], 'game') );
@@ -1494,6 +1540,10 @@ class MessageController extends AbstractController
                     $img = "<img src='{$this->asset->getUrl('build/images/item/item_' . ($item ? $item->getIcon() : 'none') . '.gif')}' alt='' />";
                     $name = $this->trans->trans( $item ? $item->getLabel() : '', [], 'items' );
                     $post->setText( $this->prepareEmotes($post->getText()) . $this->trans->trans( 'Es scheint so, als ob ein anderer Bürger Gefallen an deinem Inventar gefunden hätte... Dir wurde folgendes gestohlen: %icon% %item%', ['%icon%' => $img, '%item%' => $name], 'game' ) );
+                    break;
+                case PrivateMessage::TEMPLATE_CROW_CATAPULT:
+                    $thread->setTitle( $this->trans->trans('Du bist für das Katapult verantwortlich', [], 'game') );
+                    $post->setText( $this->prepareEmotes($post->getText()) . $this->trans->trans( 'Du bist zum offiziellen Katapult-Bediener der Stadt ernannt worden. Diese Ernennung erfolgte durch Auslosung; Herzlichen Glückwunsch! Finde dich so bald wie Möglich beim städtischen Katapult ein.', [], 'game' ) );
                     break;
                 default:
                     $post->setText($this->prepareEmotes($post->getText()));
@@ -1531,6 +1581,48 @@ class MessageController extends AbstractController
 
         $em->persist($thread);
         $em->flush();
+
+        return AjaxResponse::success();
+    }
+
+    /**
+     * @Route("api/town/house/pm/report", name="home_report_pm_controller")
+     * @param JSONRequestParser $parser
+     * @param EntityManagerInterface $em
+     * @param TranslatorInterface $ti
+     * @return Response
+     */
+    public function pm_report_api(JSONRequestParser $parser, EntityManagerInterface $em, TranslatorInterface $ti): Response {
+        $user = $this->getUser();
+
+        $id = $parser->get('pmid', null);
+        if ($id === null) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+        /** @var Citizen $citizen */
+        if (!($citizen = $user->getActiveCitizen())) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+        /** @var PrivateMessage $post */
+        $post = $em->getRepository(PrivateMessage::class)->find( $id );
+        if ($post === null) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+        $thread = $post->getPrivateMessageThread();
+        if (!$thread || $post->getOwner() === $citizen || !$thread->getSender() || ($thread->getRecipient()->getId() !== $citizen->getId() && $thread->getSender()->getId() !== $citizen->getId())) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+        $reports = $post->getAdminReports();
+        foreach ($reports as $report)
+            if ($report->getSourceUser()->getId() == $user->getId())
+                return AjaxResponse::success();
+
+        $newReport = (new AdminReport())
+            ->setSourceUser($user)
+            ->setTs(new DateTime('now'))
+            ->setPm($post);
+
+        $em->persist($newReport);
+        $em->flush();
+
+        $message = $ti->trans('Du hast die Nachricht von %username% dem Raben gemeldet. Wer weiß, vielleicht wird %username% heute Nacht stääärben...', ['%username%' => '<span>' . $post->getOwner()->getUser()->getName() . '</span>'], 'game');
+        $this->addFlash('notice', $message);
 
         return AjaxResponse::success();
     }

@@ -1,12 +1,23 @@
 parameters:
   local: []
   myhordes:
+    coalitions:
+      size: 5
+    anti-grief:
+      min-sp: 20
+      reg-limit: 2
     fatalmail:
       target: ~
       source: ~
     twinoid:
       sk: ~
       id: ~
+    etwin:
+      auth: ~
+      api: ~
+      sk: ~
+      app: myhordes
+      dual-stack: true
     allow_raw_avatars: false
     soulpoints:
       limits:

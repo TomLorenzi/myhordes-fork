@@ -87,6 +87,7 @@ class TownConf extends Conf
     const CONF_FEATURE_LAST_DEATH      = 'features.last_death';
 
     const CONF_DISABLED_JOBS = 'disabled_jobs';
+    const CONF_DISABLED_ROLES = 'disabled_roles';
     const CONF_DISABLED_BUILDINGS = 'disabled_buildings';
 
     public function __construct(array $data)

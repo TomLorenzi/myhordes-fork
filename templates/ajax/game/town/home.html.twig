@@ -1,4 +1,5 @@
 {% extends "ajax/game/town/town.html.twig" %}
+{% block title %}{{'Mein Zuhause (Truhe)'|trans({}, 'game')}}{% endblock %}
 {% block content %}
     {% set hour = "now"|date("G") %}
     <div class="row">
@@ -30,6 +31,14 @@
                 <div class="tooltip normal">{{ 'Deine privaten Nachrichten'|trans({},'game') }}</div>
             </div>
         </li>
+        {% if complaints|length > 0 %}
+        <li class="tab" x-tab-id="complaints">
+            <div class="tab-link">
+                <img alt="" src="{{ asset('build/images/icons/scout_lv0.gif') }}">
+                <span class="hide-lg hide-md hide-sm">{{ 'Anzeigen'|trans({},'game') }}</span>
+            </div>
+        </li>
+        {% endif %}
         <li class="tab" x-tab-id="build">
             <div class="tab-link">
                 <img alt="" src="{{ asset('build/images/icons/small_home_up.gif') }}">
@@ -67,9 +76,9 @@
             </div>
         </div>
 
-        {% if complaints > 0 %}
+        {% if complaints|length > 0 %}
             <div class="note note-warning">
-                {{ 'Du hast %num% anonyme Anzeige(n).'|trans({'%num%': '<b>' ~ complaints ~ '</b>'}, 'game')|raw }}<br />
+                {{ 'Du hast %num% anonyme Anzeige(n).'|trans({'%num%': '<b>' ~ complaints|length ~ '</b>'}, 'game')|raw }}<br />
                 {% trans from 'game' %}
                     Anzeigen können zu deiner Verbannung oder sogar Hinrichtung führen. Vielleicht solltest du das Verhältnis zwischen dir und dem Rest der Stadt verbessern ...
                 {% endtrans %}
@@ -167,12 +176,13 @@
                     {% for thread in nonArchivedMessages %}
                         <div class="row small link {% if thread.new %}new{% endif %}" x-thread-id="{{ thread.id }}" x-pm-source="{{ path('home_view_thread_controller', {tid: thread.id }) }}">
                             <div class="padded cell rw-6">{% if thread.new %}<img src="{{ asset("build/images/icons/small_new.gif") }}" alt="*" /> {% endif %}{% if thread.hasItems %}<img src="{{ asset("build/images/icons/small_attach.gif") }}" alt="" /> {% endif %} {{ thread.title }}</div>
-                            <div class="padded cell rw-2">{{ thread.sender ? thread.sender.user.username : ('Der Rabe'|trans({},'global')) }}</div>
+                            <div class="padded cell rw-2">{{ thread.sender ? (thread.sender.user == app.user ? thread.recipient.user.name : thread.sender.user.name) : ('Der Rabe'|trans({},'global')) }}</div>
                             <div class="padded cell rw-1">{{ thread.messages|length }}</div>
                             <div class="padded cell rw-3">{{ thread.lastMessage|format_datetime('short', 'short') }}</div>
                         </div>
                     {% endfor %}
                 </div>
+                <div class="small"><span class="link" id="mark_all_read">Marquer tout comme lu</span> | <span class="link" id="archive_all">Archiver tout</span></div>
             {% endif %}
             </div>
         </div>
@@ -195,7 +205,7 @@
                     {% for thread in archivedMessages %}
                         <div class="row small link {% if thread.new %}new{% endif %}" x-archived-thread-id="{{ thread.id }}" x-pm-source="{{ path('home_view_thread_controller', {tid: thread.id }) }}">
                             <div class="padded cell rw-6">{% if thread.hasItems %}<img src="{{ asset("build/images/icons/small_attach.gif") }}" alt="" /> {% endif %} {{ thread.title }}</div>
-                            <div class="padded cell rw-2">{{ thread.sender ? thread.sender.user.username : ('Der Rabe'|trans({},'global')) }}</div>
+                            <div class="padded cell rw-2">{{ thread.sender ? thread.sender.user.name : ('Der Rabe'|trans({},'global')) }}</div>
                             <div class="padded cell rw-1">{{ thread.messages|length }}</div>
                             <div class="padded cell rw-3">{{ thread.lastMessage|format_datetime('short', 'short') }}</div>
                         </div>
@@ -209,7 +219,7 @@
             <div class="row">
                 <div class="cell padded rw-2"><span class="small">{% trans from 'game'%}Empfänger:{% endtrans %}</span></div>
                 <div class="cell padded rw-6">
-                    <input type="text" id="pmrecipient" disabled {% if dest_citizen is not null %}value="{{dest_citizen.user.username}}"{% endif %} />
+                    <input type="text" id="pmrecipient" disabled {% if dest_citizen is not null %}value="{{dest_citizen.user.name}}"{% endif %} />
                     <input type="hidden" id="pmidrecipient" {% if dest_citizen is not null %}value="{{dest_citizen.id}}"{% endif %}/>
                 </div>
                 {% if dest_citizen is null %}
@@ -225,7 +235,7 @@
                     <div id="recipient_list">
                         <div class="list">
                             {% for citizen in possible_dests %}
-                                <div class="recipient small link" x-citizen-id="{{citizen.id}}">{{citizen.user.username}}</div>
+                                <div class="recipient small link" x-citizen-id="{{citizen.id}}">{{citizen.user.name}}</div>
                             {% endfor %}
                         </div>
                         <button id="close_list">{% trans from 'global'%}Abbrechen{% endtrans %}</button>
@@ -272,6 +282,24 @@
         {% endif %}
         <div id="forum-content">
 
+        </div>
+    </div>
+
+    <div x-tab-group="home-main" x-tab-id="complaints" x-tab-target>
+        <div class="row">
+            {{ 'Du hast %num% anonyme Anzeige(n) erhalten.'|trans({'%num%': '<b>' ~ complaints|length ~ '</b>'}, 'game')|raw }}
+            {% if not citizen.banished %}
+            {{'Sollte diese Zahl auf 8 ansteigen, wirst du verbannt!'|trans({}, 'game')}}
+            {% endif %}
+            <ul class="overview-list">
+            {% for complaint in complaints %}
+                {% if not complaint.linkedReason is null %}
+                <li>{{complaint.linkedReason.text|trans({}, 'game')}}</li>
+                {% else %}
+                <li>{{complaint.reason}}</li>
+                {% endif %}
+            {% endfor %}
+            </ul>
         </div>
     </div>
 
@@ -681,15 +709,31 @@
             }
         });
 
-            {% if is_granted('ROLE_CROW') %}
-                let suicidbtn = document.getElementById('suicid');
-                if(suicidbtn) suicidbtn.addEventListener('click', function(){
-                    if (confirm('{{ 'Bestätigen?'|trans({},'global') }}'))
-                        $.ajax.easySend( '{{ path('town_home_suicid') }}', {},
-                            function () {
-                                $.ajax.load(null, '{{ path('game_landing') }}', true);
-                            } );
-                });
-            {% endif %}
+        {% if is_granted('ROLE_CROW') %}
+            let suicidbtn = document.getElementById('suicid');
+            if(suicidbtn) suicidbtn.addEventListener('click', function(){
+                if (confirm('{{ 'Bestätigen?'|trans({},'global') }}'))
+                    $.ajax.easySend( '{{ path('town_home_suicid') }}', {},
+                        function () {
+                            $.ajax.load(null, '{{ path('game_landing') }}', true);
+                        } );
+            });
+        {% endif %}
+
+        let mark_all_read_btn = document.getElementById('mark_all_read');
+        if(mark_all_read_btn) mark_all_read_btn.addEventListener('click', function(){
+            $.ajax.easySend( '{{ path('town_home_mark_all_read') }}', {},
+                function () {
+                    $.ajax.load(null, '{{ path('town_house', {'tab': 'messages', 'subtab': 'received'}) }}', true);
+                } );
+        });
+
+        let archive_all_btn = document.getElementById('archive_all');
+        if(archive_all_btn) archive_all_btn.addEventListener('click', function(){
+            $.ajax.easySend( '{{ path('town_home_archive_all_pm') }}', {},
+                function () {
+                    $.ajax.load(null, '{{ path('town_house', {'tab': 'messages', 'subtab': 'received'}) }}', true);
+                } );
+        });
     </script>
 {% endblock %}

@@ -2,6 +2,7 @@
 {{ constant('App\\Service\\UserFactory::ErrorUserExists') }}:       '{{'Der angegebene Name existiert bereits im Spiel.'|trans({},'login')|e('js')}}',
 {{ constant('App\\Service\\UserFactory::ErrorMailExists') }}:       '{{'Die angegebene E-Mail Adresse wird bereits von einem anderen Profil verwendet.'|trans({},'login')|e('js')}}',
 {{ constant('App\\Service\\UserFactory::ErrorValidationExists') }}: '{{'Dieses Konto wartet bereits auf eine Passwortzurücksetzung.'|trans({},'login')|e('js')}}',
+{{ constant('App\\Service\\UserFactory::ErrorTooManyRegistrations') }}: '{{'Es haben sich zu viele Nutzer aus deinem Netzwerk heraus bei MyHordes registriert. Weitere Registrierungen aus deinem Netzwerk sind für eine Weile nicht mehr möglich.'|trans({},'login')|e('js')}}',
 
 {{ constant('App\\Service\\UserHandler::ErrorAvatarBackendUnavailable') }}:     '{{'Dieser Server ist nicht für die Verarbeitung von Profilbildern konfiguriert.'|trans({},'soul')|e('js')}}',
 {{ constant('App\\Service\\UserHandler::ErrorAvatarFormatUnsupported') }}:      '{{'Dieses Dateiformat wird nicht unterstützt.'|trans({},'soul')|e('js')}}',
@@ -11,8 +12,15 @@
 {{ constant('App\\Service\\UserHandler::ErrorAvatarTooLarge') }}:               '{{'Die Datei ist zu groß.'|trans({},'soul')|e('js')}}',
 {{ constant('App\\Service\\UserHandler::ErrorAvatarResolutionUnacceptable') }}: '{{'Die Auflösung des Bildes ist nicht geeignet, um es als Profilbild zu verwenden.'|trans({},'soul')|e('js')}}',
 
-{{ constant('App\\Controller\\SoulController::ErrorUserEditPasswordIncorrect') }}:  '{{'Dein eingegebenes Passwort ist nicht korrekt. Du benötigst dein aktuelles Passwort, um deinen Account zu bearbeiten.'|trans({},'soul')|e('js')}}',
-{{ constant('App\\Controller\\SoulController::ErrorTwinImportNoToken') }}:  '{{'Dein Profil konnte nicht geladen werden, da Twinoid die Anfrage abgelehnt hat.'|trans({},'soul')|e('js')}}',
-{{ constant('App\\Controller\\SoulController::ErrorTwinImportInvalidResponse') }}:  '{{'Dein Profil konnte nicht geladen werden, da die Datenverarbeitung fehlgeschlagen ist.'|trans({},'soul')|e('js')}}',
-{{ constant('App\\Controller\\SoulController::ErrorTwinImportProfileInUse') }}:  '{{'Das angegebene Profil kann nicht importiert werden, da es bereits einem anderen MyHordes-Spieler zugeordnet ist.'|trans({},'soul')|e('js')}}',
-{{ constant('App\\Controller\\SoulController::ErrorTwinImportProfileMismatch') }}:  '{{'Das angegebene Profil kann nicht importiert werden, da es einem fremden Twinoid-Konto zugeordnet ist.'|trans({},'soul')|e('js')}}',
+{{ constant('App\\Controller\\Soul\\SoulController::ErrorUserEditPasswordIncorrect') }}:  '{{'Dein eingegebenes Passwort ist nicht korrekt. Du benötigst dein aktuelles Passwort, um deinen Account zu bearbeiten.'|trans({},'soul')|e('js')}}',
+{{ constant('App\\Controller\\Soul\\SoulController::ErrorTwinImportNoToken') }}:  '{{'Dein Profil konnte nicht geladen werden, da Twinoid die Anfrage abgelehnt hat.'|trans({},'soul')|e('js')}}',
+{{ constant('App\\Controller\\Soul\\SoulController::ErrorTwinImportInvalidResponse') }}:  '{{'Dein Profil konnte nicht geladen werden, da die Datenverarbeitung fehlgeschlagen ist.'|trans({},'soul')|e('js')}}',
+{{ constant('App\\Controller\\Soul\\SoulController::ErrorTwinImportProfileInUse') }}:  '{{'Das angegebene Profil kann nicht importiert werden, da es bereits einem anderen MyHordes-Spieler zugeordnet ist.'|trans({},'soul')|e('js')}}',
+{{ constant('App\\Controller\\Soul\\SoulController::ErrorTwinImportProfileMismatch') }}:  '{{'Das angegebene Profil kann nicht importiert werden, da es einem fremden Twinoid-Konto zugeordnet ist.'|trans({},'soul')|e('js')}}',
+{{ constant('App\\Controller\\Soul\\SoulController::ErrorETwinImportProfileInUse') }}:  '{{'Das angegebene Profil kann nicht importiert werden, da es bereits einem anderen MyHordes-Konto zugeordnet ist.'|trans({},'soul')|e('js')}}',
+{{ constant('App\\Controller\\Soul\\SoulController::ErrorETwinImportServerCrash') }}:  '{{'Der Twinoid-Server meldet, dass er dein Profil aufgrund eines internen Fehlers nicht an MyHordes übertragen kann. Dieses Problem tritt häufig auf, wenn du in deinen Letzten Worten oder Stadtkommentaren Sonderzeichen verwendet hast. Bitte prüfe deine Stadtkommentare und entferne Sonderzeichen. Wenn sich Sonderzeichen in deinen Letzten Worten befinden, wende dich auf Twinoid an einen Raben.'|trans({},'soul')|e('js')}}',
+
+{{ constant('App\\Controller\\Soul\\SoulController::ErrorCoalitionUserAlreadyMember') }}:  '{{'Es tut uns Leid, aber dieser Spieler gehört bereits einer Koalition an.'|trans({},'soul')|e('js')}}',
+{{ constant('App\\Controller\\Soul\\SoulController::ErrorCoalitionNotSet') }}:  '{{'Hierfür musst du einer Koalition angehören.'|trans({},'soul')|e('js')}}',
+{{ constant('App\\Controller\\Soul\\SoulController::ErrorCoalitionAlreadyMember') }}:  '{{'Du bist bereits Mitglied einer Koalition.'|trans({},'soul')|e('js')}}',
+{{ constant('App\\Controller\\Soul\\SoulController::ErrorCoalitionFull') }}:  '{{'Deine Koalition ist bereits voll.'|trans({},'soul')|e('js')}}',

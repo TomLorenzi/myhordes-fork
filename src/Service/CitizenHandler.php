@@ -42,7 +42,7 @@ class CitizenHandler
 
     public function __construct(EntityManagerInterface $em, StatusFactory $sf, RandomGenerator $g, InventoryHandler $ih,
                                 PictoHandler $ph, ItemFactory $if, LogTemplateHandler $lh, ContainerInterface $c, UserHandler $uh,
-                                ConfMaster $conf)
+                                ConfMaster $conf )
     {
         $this->entity_manager = $em;
         $this->status_factory = $sf;
@@ -85,7 +85,7 @@ class CitizenHandler
      * @param Citizen $citizen
      * @return bool
      */
-    public function isWounded(Citizen $citizen) {
+    public function isWounded(Citizen $citizen): bool {
         return $this->hasStatusEffect( $citizen, ['tg_meta_wound','wound1','wound2','wound3','wound4','wound5','wound6'], false );
     }
 
@@ -197,14 +197,16 @@ class CitizenHandler
             if($citizen->getBanished() && $gallows)
                 $complaintNeeded = 6;
 
-            if ($this->entity_manager->getRepository(Complaint::class)->countComplaintsFor($citizen/*, Complaint::SeverityKill*/) >= $complaintNeeded)
+            if ($this->entity_manager->getRepository(Complaint::class)->countComplaintsFor($citizen, Complaint::SeverityKill) >= $complaintNeeded)
                 $action = $kill = true;
         }
 
 
         if ($action) {
-            if (!$citizen->getBanished()) $this->entity_manager->persist( $this->log->citizenBanish( $citizen ) );
+            if (!$citizen->getBanished() && !$kill) $this->entity_manager->persist( $this->log->citizenBanish( $citizen ) );
             $citizen->setBanished( true );
+            if ($citizen->hasRole('cata'))
+                $citizen->removeRole($this->entity_manager->getRepository(CitizenRole::class)->findOneBy(['name' => 'cata']));
 
             // Disable escort on banishment
             if ($citizen->getEscortSettings()) {
@@ -213,13 +215,13 @@ class CitizenHandler
             }
 
             if (!$kill) {
-                $pictoPrototype = $this->entity_manager->getRepository(PictoPrototype::class)->findOneByName('r_ban_#00');
+                $pictoPrototype = $this->entity_manager->getRepository(PictoPrototype::class)->findOneBy(['name' => 'r_ban_#00' ]);
                 $this->picto_handler->give_picto($citizen, $pictoPrototype);
             }
 
             /** @var Item[] $items */
             $items = [];
-            $impound_prop = $this->entity_manager->getRepository(ItemProperty::class)->findOneByName( 'impoundable' );
+            $impound_prop = $this->entity_manager->getRepository(ItemProperty::class)->findOneBy(['name' => 'impoundable' ]);
             foreach ( $citizen->getInventory()->getItems() as $item )
                 if ($item->getPrototype()->getProperties()->contains( $impound_prop ))
                     $items[] = $item;
@@ -291,6 +293,7 @@ class CitizenHandler
                 $this->removeStatus($citizen, 'thirst1');
                 $this->removeStatus($citizen, 'thirst2');
                 $this->removeStatus($citizen, 'infection');
+                $this->removeStatus($citizen, 'tg_meta_wound');
                 $this->removeStatus($citizen, 'tg_meta_winfect');
                 $citizen->setWalkingDistance(0);
             }
@@ -478,6 +481,9 @@ class CitizenHandler
         $zone = $citizen->getZone();
         $town = $citizen->getTown();
         $has_pro_camper = $citizen->getProfession()->getHeroic() && $this->user_handler->hasSkill($citizen->getUser(), 'procamp');
+        $has_scout_protection = $this->inventory_handler->countSpecificItems(
+                $citizen->getInventory(), $this->entity_manager->getRepository(ItemPrototype::class)->findOneBy(['name' => 'vest_on_#00'])
+            ) > 0;
 
         $config = $this->conf->getTownConfiguration($citizen->getTown());
 
@@ -513,8 +519,8 @@ class CitizenHandler
         // Ruin in zone.
         $camping_values['ruin'] = $zone->getPrototype() ? $zone->getPrototype()->getCampingLevel() : 0;
 
-        // Zombies in zone. Factor -1.4, for CamperPro it is -0.6. (completely false! The penalty is reduced only when you are Scout with the hood enabled)
-        $factor = $has_pro_camper ? -0.6 : -1.4;
+        // Zombies in zone. Factor -1.4, for hidden scouts it is -0.6.
+        $factor = $has_scout_protection ? -0.6 : -1.4;
         $camping_values['zombies'] = $factor * $zone->getZombies();
 
         // Zone improvement level.
@@ -618,7 +624,8 @@ class CitizenHandler
         // Night time bonus.
         $camping_values['night'] = 0;
         $camping_datetime = new DateTime();
-        $camping_datetime->setTimestamp( $citizen->getCampingTimestamp() );
+        if ($citizen->getCampingTimestamp() > 0)
+            $camping_datetime->setTimestamp( $citizen->getCampingTimestamp() );
         if ($camping_datetime->format('G') >= 19 || $camping_datetime->format('G') < 7) {
             $camping_values['night'] = 2;
         }
@@ -651,12 +658,12 @@ class CitizenHandler
         return 0;
     }
 
-    public function getDeathChances(Citizen $citizen): float {
+    public function getDeathChances(Citizen $citizen, bool $during_attack = false): float {
         $baseChance = 0.05;
         $baseChance -= $this->getNightwatchProfessionSurvivalBonus($citizen);
 
         $chances = $baseChance;
-        for($i = 0 ; $i < $citizen->getTown()->getDay() - 1; $i++){
+        for($i = 0 ; $i < $citizen->getTown()->getDay() - ($during_attack ? 2 : 1); $i++){
             /** @var CitizenWatch|null $previousWatches */
             $previousWatches = $this->entity_manager->getRepository(CitizenWatch::class)->findWatchOfCitizenForADay($citizen, $i + 1);
             if($previousWatches === null || $previousWatches->getSkipped()) {
@@ -673,7 +680,7 @@ class CitizenHandler
             'drunk'     => -0.04,
             'hungover'  =>  0.05,
             'terror'    =>  0.45,
-            'addict'    =>  0.01,
+            'addict'    =>  0.15,
             'healed'    =>  0.10,
             'infection' =>  0.20,
         ];
@@ -685,18 +692,18 @@ class CitizenHandler
         if($this->isWounded($citizen)) $chances += 0.20;
         if($citizen->hasRole('ghoul')) $chances -= 0.05;
 
-        $chances = max($baseChance, $chances);
-
         return $chances;
     }
 
     public function getNightWatchItemDefense( Item $item, bool $shooting_gallery, bool $trebuchet, bool $ikea, bool $armory ): int {
         if ($item->getBroken()) return 0;
+
         $bonus = 1.0;
         if ($shooting_gallery && $item->getPrototype()->hasProperty('nw_shooting'))  $bonus += 0.2;
         if ($trebuchet        && $item->getPrototype()->hasProperty('nw_trebuchet')) $bonus += 0.2;
         if ($ikea             && $item->getPrototype()->hasProperty('nw_ikea'))      $bonus += 0.2;
         if ($armory           && $item->getPrototype()->hasProperty('nw_armory'))    $bonus += 0.2;
+
         return floor( $item->getPrototype()->getWatchpoint() * $bonus );
     }
 

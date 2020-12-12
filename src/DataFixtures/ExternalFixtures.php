@@ -97,6 +97,16 @@ class ExternalFixtures extends Fixture
             'key' => null,
             'linkOnly' => true,
         ],
+        [
+            'name' => 'Zombie Survival Almanac',
+            'active' => 1,
+            'url' => 'http://annetteannette.net/die2nite/almanac/',
+            'icon' => 'zsa',
+            'contact' => 'annette.die2nite@gmail.com',
+            'owner' => 'Annette',
+            'key' => null,
+            'linkOnly' => true,
+        ],
     ];
 
     private $entityManager;
@@ -119,7 +129,7 @@ class ExternalFixtures extends Fixture
         foreach (static::$apps as $entry) {
 
             // Get existing entry, or create new one
-            $entity = $this->entityManager->getRepository(ExternalApp::class)->findOneByName($entry['name']);
+            $entity = $this->entityManager->getRepository(ExternalApp::class)->findOneBy(['name' => $entry['name']]);
             if ($entity === null) $entity = new ExternalApp();
 
             // Set property

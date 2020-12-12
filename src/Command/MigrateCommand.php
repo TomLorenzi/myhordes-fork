@@ -6,6 +6,7 @@ namespace App\Command;
 
 use App\Entity\AffectStatus;
 use App\Entity\Building;
+use App\Entity\CauseOfDeath;
 use App\Entity\Citizen;
 use App\Entity\CitizenProfession;
 use App\Entity\CitizenRankingProxy;
@@ -15,6 +16,7 @@ use App\Entity\ForumUsagePermissions;
 use App\Entity\HeroicActionPrototype;
 use App\Entity\Item;
 use App\Entity\Picto;
+use App\Entity\SpecialActionPrototype;
 use App\Entity\Town;
 use App\Entity\TownLogEntry;
 use App\Entity\TownRankingProxy;
@@ -105,6 +107,7 @@ class MigrateCommand extends Command
             ->addOption('update-trans', 't', InputOption::VALUE_REQUIRED, 'Updates all translation files for a single language')
 
             ->addOption('assign-heroic-actions-all', null, InputOption::VALUE_NONE, 'Resets the heroic actions for all citizens in all towns.')
+            ->addOption('assign-special-actions-all', null, InputOption::VALUE_NONE, 'Resets the special actions for all citizens in all towns.')
             ->addOption('init-item-stacks', null, InputOption::VALUE_NONE, 'Sets item count for items without a counter to 1')
             ->addOption('delete-legacy-logs', null, InputOption::VALUE_NONE, 'Deletes legacy log entries')
 
@@ -116,6 +119,7 @@ class MigrateCommand extends Command
             ->addOption('place-explorables', null, InputOption::VALUE_NONE, 'Adds explorable ruins to all towns')
 
             ->addOption('repair-permissions', null, InputOption::VALUE_NONE, 'Makes sure forum permissions and user groups are set up properly')
+            ->addOption('repair-causesofdeath', null, InputOption::VALUE_NONE, 'Change the cause of deaths number to be like Hordes\' one')
         ;
     }
 
@@ -192,12 +196,14 @@ class MigrateCommand extends Command
 
             if (!$input->getOption('fast')) {
                 if ($env === 'dev') {
-                    if (!$this->capsule( ($input->getOption('phar') ? 'php composer.phar' : 'composer') . " update", $output, 'Updating composer dependencies...', false )) return 3;
-                } else if (!$this->capsule( ($input->getOption('phar') ? 'php composer.phar' : 'composer') . " update --no-dev --optimize-autoloader", $output, 'Updating composer production dependencies... ', false )) return 4;
+                    if (!$this->capsule( ($input->getOption('phar') ? 'php composer.phar' : 'composer') . " install", $output, 'Updating composer dependencies...', false )) return 3;
+                } else if (!$this->capsule( ($input->getOption('phar') ? 'php composer.phar' : 'composer') . " install --no-dev --optimize-autoloader", $output, 'Updating composer production dependencies... ', false )) return 4;
                 if (!$this->capsule( "yarn install", $output, 'Updating yarn dependencies... ', false )) return 5;
             } else $output->writeln("Skipping <info>dependency updates</info>.");
 
-            if (!$this->capsule( "yarn encore {$env}", $output, 'Building web assets... ', false )) return 6;
+            if (!$input->getOption('fast')) {
+                if (!$this->capsule( "yarn encore {$env}", $output, 'Building web assets... ', false )) return 6;
+            } else $output->writeln("Skipping <info>web asset updates</info>.");
 
             $version_lines = $this->bin( 'git describe --tags', $ret );
             if (count($version_lines) >= 1) {
@@ -291,6 +297,21 @@ class MigrateCommand extends Command
                     return 1;
                 }
 
+            } elseif (extension_loaded('pthreads')) {
+                $threads = [];
+                foreach ($langs as $current_lang) {
+
+                    $threads[] = new class(function () use ($current_lang,$output) {
+                        $this->capsule("app:migrate -t $current_lang", $output);
+                    }) extends \Worker {
+                        private $_f;
+                        public function __construct(callable $fun) { $this->_f = $fun; }
+                        public function run() { ($this->_f)(); }
+                    };
+                }
+
+                foreach ($threads as $thread) $thread->start();
+                foreach ($threads as $thread) $thread->join();
             } else foreach ($langs as $current_lang)
                 $this->capsule("app:migrate -t $current_lang", $output);
 
@@ -303,6 +324,21 @@ class MigrateCommand extends Command
                 foreach ($heroic_actions as $heroic_action)
                     /** @var $heroic_action HeroicActionPrototype */
                     $citizen->addHeroicAction( $heroic_action );
+                $this->entity_manager->persist( $citizen );
+            }
+            $this->entity_manager->flush();
+            $output->writeln('OK!');
+
+            return 0;
+        }
+
+        if ($input->getOption('assign-special-actions-all')) {
+            $special_actions = $this->entity_manager->getRepository(SpecialActionPrototype::class)->findAll();
+            foreach ($this->entity_manager->getRepository(Citizen::class)->findAll() as $citizen) {
+                /** @var Citizen $citizen */
+                foreach ($special_actions as $special_action)
+                    /** @var SpecialActionPrototype $special_action */
+                    $citizen->addSpecialAction( $special_action );
                 $this->entity_manager->persist( $citizen );
             }
             $this->entity_manager->flush();
@@ -618,6 +654,46 @@ class MigrateCommand extends Command
 
             $this->entity_manager->flush();
 
+        }
+
+        if ($input->getOption('repair-causesofdeath')) {
+            $mappingRefs = array (
+                1 => 10,
+                2 => 6,
+                3 => 5,
+                4 => 1,
+                5 => 14,
+                6 => 7,
+                7 => 8,
+                8 => 3,
+                9 => 11,
+                10 => 12,
+                11 => 13,
+                12 => 4,
+                13 => 15,
+                14 => 2,
+                15 => 9,
+                16 => 19,
+                17 => 18,
+                18 => 17,
+                19 => 16,
+            );
+            $deadCitizens = $this->entity_manager->getRepository(Citizen::class)->findBy(['alive' => 0]);
+            foreach($deadCitizens as $deadCitizen){
+                /** @var Citizen $deadCitizen */
+                $deadCitizen->setCauseOfDeath($this->entity_manager->getRepository(CauseOfDeath::class)->findOneBy(['ref' => $mappingRefs[$deadCitizen->getCauseOfDeath()->getRef()]]));
+                $this->entity_manager->persist($deadCitizen);
+            }
+
+            $deadCitizens = $this->entity_manager->getRepository(CitizenRankingProxy::class)->findAll();
+            foreach($deadCitizens as $deadCitizen){
+                /** @var CitizenRankingProxy $deadCitizen */
+                if($deadCitizen->getCod() === null) continue;
+                $deadCitizen->setCod($this->entity_manager->getRepository(CauseOfDeath::class)->findOneBy(['ref' => $mappingRefs[$deadCitizen->getCod()->getRef()]]));
+                $this->entity_manager->persist($deadCitizen);
+            }
+
+            $this->entity_manager->flush();
         }
 
         return 1;

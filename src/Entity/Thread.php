@@ -77,6 +77,11 @@ class Thread
      */
     private $semantic = 0;
 
+    /**
+     * @ORM\Column(type="boolean", nullable=true)
+     */
+    private $hidden;
+
     public function __construct()
     {
         $this->posts = new ArrayCollection();
@@ -167,10 +172,23 @@ class Thread
      * @param bool $include_hidden
      * @return null|Post
      */
+    public function firstPost(bool $include_hidden = false): ?Post
+    {
+        if ($this->getPosts()->isEmpty()) return null;
+        for ($i = 0; $i < $this->getPosts()->count(); $i++)
+            if ($include_hidden || !$this->getPosts()[$i]->getHidden())
+                return $this->getPosts()[$i];
+        return null;
+    }
+
+    /**
+     * @param bool $include_hidden
+     * @return null|Post
+     */
     public function lastPost(bool $include_hidden = false): ?Post
     {
         if ($this->getPosts()->isEmpty()) return null;
-        for ($i = $this->getPosts()->count() - 1; $i > 0; $i--)
+        for ($i = $this->getPosts()->count() - 1; $i >= 0; $i--)
             if ($include_hidden || !$this->getPosts()[$i]->getHidden())
                 return $this->getPosts()[$i];
         return null;
@@ -280,6 +298,18 @@ class Thread
     public function setSemantic(int $semantic): self
     {
         $this->semantic = $semantic;
+
+        return $this;
+    }
+
+    public function getHidden(): ?bool
+    {
+        return $this->hidden;
+    }
+
+    public function setHidden(?bool $hidden): self
+    {
+        $this->hidden = $hidden;
 
         return $this;
     }

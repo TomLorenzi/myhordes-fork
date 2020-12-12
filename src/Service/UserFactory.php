@@ -39,6 +39,7 @@ class UserFactory
     const ErrorInvalidParams     = ErrorHelper::BaseUserErrors + 3;
     const ErrorDatabaseException = ErrorHelper::BaseUserErrors + 4;
     const ErrorValidationExists  = ErrorHelper::BaseUserErrors + 5;
+    const ErrorTooManyRegistrations = ErrorHelper::BaseUserErrors + 6;
 
     public function __construct( EntityManagerInterface $em, UserPasswordEncoderInterface $passwordEncoder,
                                  Locksmith $l, UrlGeneratorInterface $url, Environment $e, TranslatorInterface $t,
@@ -100,9 +101,9 @@ class UserFactory
         }
 
         /** @var UserPendingValidation $existing_val */
-        if ($existing_val = $this->entity_manager
+        if (($existing_val = $this->entity_manager
             ->getRepository(UserPendingValidation::class)
-            ->findOneByUserAndType($user, UserPendingValidation::ResetValidation) &&
+            ->findOneByUserAndType($user, UserPendingValidation::ResetValidation)) &&
             (time() - $existing_val->getTime()->getTimestamp() < 3600)
         ) {
             $error = self::ErrorValidationExists;
@@ -152,8 +153,33 @@ class UserFactory
 
         if (!$validated)
             $this->announceValidationToken( $this->ensureValidation( $new_user, UserPendingValidation::EMailValidation ) );
-        else $this->perm->associate($new_user, $this->perm->getDefaultGroup( UserGroup::GroupTypeDefaultUserGroup ));
+        else $this->entity_manager->persist($this->perm->associate($new_user, $this->perm->getDefaultGroup( UserGroup::GroupTypeDefaultUserGroup )));
 
+        return $new_user;
+    }
+
+    public function importUser( \EternalTwinClient\Object\User $etwin_user ): User {
+        $i = 0;
+        $new_name = $etwin_user->getDisplayName();
+
+        if ($this->entity_manager->getRepository(User::class)->findOneByName($new_name))
+            do {
+                $it = "" . (++$i);
+                $new_name = substr( $etwin_user->getUsername(), 0, 16 - mb_strlen( $it ) ) . $it;
+            } while (!$this->entity_manager->getRepository(User::class)->findOneByName($new_name));
+
+        $new_user = (new User())
+            ->setName( $new_name )
+            ->setEmail( "{$etwin_user->getID()}@user.eternal-twin.net" )
+            ->setPassword( null )
+            ->setValidated( true )
+            ->setEternalID( $etwin_user->getID() )
+            ->setSoulPoints(0);
+
+        if ($new_name !== $etwin_user->getUsername())
+            $new_user->setDisplayName( $etwin_user->getUsername() );
+
+        $this->entity_manager->persist($this->perm->associate($new_user, $this->perm->getDefaultGroup( UserGroup::GroupTypeDefaultUserGroup )));
         return $new_user;
     }
 
@@ -178,7 +204,7 @@ class UserFactory
 
         try {
             $user->setValidated( true );
-            $this->perm->associate( $user, $this->perm->getDefaultGroup( UserGroup::GroupTypeDefaultUserGroup ) );
+            $this->entity_manager->persist($this->perm->associate( $user, $this->perm->getDefaultGroup( UserGroup::GroupTypeDefaultUserGroup ) ) );
             $this->entity_manager->persist( $user );
             $this->entity_manager->remove( $pending );
             $this->entity_manager->flush();
@@ -224,7 +250,7 @@ class UserFactory
             [
                 'MIME-Version' => '1.0',
                 'Content-type' => 'text/html; charset=UTF-8',
-                'From' => 'The Undead Mailman <mailzombie@' . $_SERVER['SERVER_NAME'] . '>'
+                'From' => 'The Undead Mailman <mailzombie@' . ($_SERVER['SERVER_NAME'] ?? 'localhost') . '>'
             ]
         );
     }

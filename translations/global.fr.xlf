@@ -1663,7 +1663,7 @@
       </notes>
       <segment>
         <source>Mindestens ein Post in diesem Thema wurde den Moderatoren gemeldet.</source>
-        <target>Mindestens ein Post in diesem Thema wurde den Moderatoren gemeldet.</target>
+        <target>Au moins un message sur ce sujet a été signalé aux modérateurs.</target>
       </segment>
     </unit>
     <unit id="KV1uMW3" name="Dieses Thema enthält %count% gemeldete Posts:">
@@ -1672,7 +1672,7 @@
       </notes>
       <segment>
         <source>Dieses Thema enthält %count% gemeldete Posts:</source>
-        <target>Dieses Thema enthält %count% gemeldete Posts:</target>
+        <target>Ce sujet contient %count% message(s) signalé(s) :</target>
       </segment>
     </unit>
     <unit id="XvJRBeq" name="%num% Meldungen. Klicken, um Benutzer anzuzeigen.">
@@ -1681,7 +1681,7 @@
       </notes>
       <segment>
         <source>%num% Meldungen. Klicken, um Benutzer anzuzeigen.</source>
-        <target>%num% Meldungen. Klicken, um Benutzer anzuzeigen.</target>
+        <target>%num% Messages. Cliquez pour voir les utilisateurs.</target>
       </segment>
     </unit>
     <unit id="uVEhYFM" name="Gelöscht von %user% (%time%). Klicken, um den Grund einzublenden.">
@@ -1690,7 +1690,7 @@
       </notes>
       <segment>
         <source>Gelöscht von %user% (%time%). Klicken, um den Grund einzublenden.</source>
-        <target>Gelöscht von %user% (%time%). Klicken, um den Grund einzublenden.</target>
+        <target>Supprimé par %user% (%time%). Cliquez pour révéler la raison.</target>
       </segment>
     </unit>
     <unit id="gAhtva3" name="Überprüft">
@@ -1699,7 +1699,7 @@
       </notes>
       <segment>
         <source>Überprüft</source>
-        <target>Überprüft</target>
+        <target>Vérifié</target>
       </segment>
     </unit>
     <unit id="q5mhXGv" name="Wiederherstellen">
@@ -1708,7 +1708,144 @@
       </notes>
       <segment>
         <source>Wiederherstellen</source>
-        <target>Wiederherstellen</target>
+        <target>Restaurer</target>
+      </segment>
+    </unit>
+    <unit id="uB2Vk6P" name="oder">
+      <notes>
+        <note category="german">oder</note>
+      </notes>
+      <segment>
+        <source>oder</source>
+        <target>ou</target>
+      </segment>
+    </unit>
+    <unit id="1N_y7nB" name="d3efb5f">
+      <notes>
+        <note category="german">Folgende Bürger sind wahlweise: &lt;ul&gt;&lt;li&gt;auf ihrer Todesanzeigeseite (sie haben ihren Tod noch nicht bestätigt),&lt;/li&gt;&lt;li&gt;bereits im Spiel,&lt;/li&gt;&lt;li&gt;sie haben sich entschieden, nicht automatisch einer Stadt und ihrer Koalition anzugehören.&lt;/li&gt;&lt;li&gt;oder, sie haben sich seit über 5 Tagen nicht mehr angemeldet.&lt;/li&gt;&lt;/ul&gt;</note>
+      </notes>
+      <segment>
+        <source>Folgende Bürger sind wahlweise: &lt;ul&gt;&lt;li&gt;auf ihrer Todesanzeigeseite (sie haben ihren Tod noch nicht bestätigt),&lt;/li&gt;&lt;li&gt;bereits im Spiel,&lt;/li&gt;&lt;li&gt;sie haben sich entschieden, nicht automatisch einer Stadt und ihrer Koalition anzugehören.&lt;/li&gt;&lt;li&gt;oder, sie haben sich seit über 5 Tagen nicht mehr angemeldet.&lt;/li&gt;&lt;/ul&gt;</source>
+        <target><![CDATA[Les citoyens suivants sont : <ul><li>soit sur leur page de Mort (ils n\'ont pas validé leur décès),</li><li>soit déjà en jeu,</li><li>soit ils ont choisi de ne pas rejoindre automatiquement une ville avec le reste de la coalition.</li><li>non reconnectés depuis plus de 5 jours.</li></ul>]]></target>
+      </segment>
+    </unit>
+    <unit id="Dhx3Fbp" name="212f094">
+      <notes>
+        <note category="german">Wenn ein andered Mitglied deiner Koalition eine Stadt auswählt, schließt du dich ihm automatisch an und spielst in der gleichen Stadt wie er.</note>
+      </notes>
+      <segment>
+        <source>Wenn ein andered Mitglied deiner Koalition eine Stadt auswählt, schließt du dich ihm automatisch an und spielst in der gleichen Stadt wie er.</source>
+        <target>Si un autre membre de la coalition rejoint une ville, vous le suivrez et commencerez dans la même ville que lui.</target>
+      </segment>
+    </unit>
+    <unit id="Ba7luCC" name="Du musst noch mehr Erfahrung sammeln, um das tun zu können...">
+      <notes>
+        <note category="german">Du musst noch mehr Erfahrung sammeln, um das tun zu können...</note>
+      </notes>
+      <segment>
+        <source>Du musst noch mehr Erfahrung sammeln, um das tun zu können...</source>
+        <target>Vous devez acquérir plus d'expérience pour pouvoir le faire ...</target>
+      </segment>
+    </unit>
+    <unit id="Yx7n3Xy" name="728d63e">
+      <notes>
+        <note category="german">Diese Nachricht wurde dir vom Raben persönlich überbracht. Er schwebt über der Stadt und wirft immer ein wachsames Auge auf dich...</note>
+      </notes>
+      <segment>
+        <source>Diese Nachricht wurde dir vom Raben persönlich überbracht. Er schwebt über der Stadt und wirft immer ein wachsames Auge auf dich...</source>
+        <target>Ce message vous a été envoyé par le Corbeau lui-même, qui rôde au-dessus de votre ville...</target>
+      </segment>
+    </unit>
+    <unit id="EX0EUAt" name="Kein">
+      <notes>
+        <note category="german">Kein</note>
+      </notes>
+      <segment>
+        <source>Kein</source>
+        <target>Aucun</target>
+      </segment>
+    </unit>
+    <unit id="NA9GMDP" name="Code">
+      <notes>
+        <note category="german">Code</note>
+      </notes>
+      <segment>
+        <source>Code</source>
+        <target>Code</target>
+      </segment>
+    </unit>
+    <unit id="rtJUaLn" name="f14ccda">
+      <notes>
+        <note category="german">Die große Anzahl an Erdhaufen und an herumliegenden Müll sind ein Indiz dafür, dass hier wahrscheinlich nichts mehr zu finden ist.
+                                &lt;p&gt;&lt;em&gt;Wenn du möchtest, kannst du allerdings weitergraben und ein paar minderwertige Materialien für die verschiedenen Baustellen der Stadt zu Tage fördern..&lt;/em&gt;&lt;/p&gt;</note>
+      </notes>
+      <segment>
+        <source>Die große Anzahl an Erdhaufen und an herumliegenden Müll sind ein Indiz dafür, dass hier wahrscheinlich nichts mehr zu finden ist.
+                                &lt;p&gt;&lt;em&gt;Wenn du möchtest, kannst du allerdings weitergraben und ein paar minderwertige Materialien für die verschiedenen Baustellen der Stadt zu Tage fördern..&lt;/em&gt;&lt;/p&gt;</source>
+        <target><![CDATA[Le nombre de monticules de terre et de déchets vous indique qu'il n'y a sans doute plus grand chose à trouver ici. <p><em>Vous pouvez toutefois continuer à creuser pour trouver des ressources de mauvaise qualité pour les chantiers en ville.</em></p>]]></target>
+      </segment>
+    </unit>
+    <unit id="i4kWNY_" name="c911391">
+      <notes>
+        <note category="german">Diesen Bonus gibt es dank eurer alten Freunde und dem Gebäude &lt;strong&gt;Kleiner Friedhof&lt;/strong&gt;.</note>
+      </notes>
+      <segment>
+        <source>Diesen Bonus gibt es dank eurer alten Freunde und dem Gebäude &lt;strong&gt;Kleiner Friedhof&lt;/strong&gt;.</source>
+        <target><![CDATA[Ce bonus est obtenu grace à vos anciens amis et au bâtiment <strong>Cimetière cadenassé</strong>.]]></target>
+      </segment>
+    </unit>
+    <unit id="zTo.6Bl" name="1fa3771">
+      <notes>
+        <note category="german">Diesen Bonus gibt es nur dann, wenn sich die Wächter wärhend eines Angriffs in det Stadt befinden.</note>
+      </notes>
+      <segment>
+        <source>Diesen Bonus gibt es nur dann, wenn sich die Wächter wärhend eines Angriffs in det Stadt befinden.</source>
+        <target>Ces défenses sont apportées par les joueurs jouant le rôle de veilleur la nuit au moment de l'attaque.</target>
+      </segment>
+    </unit>
+    <unit id="zF4ERQG" name="Diese Kosten können durch den Aufbau der &lt;strong&gt;Müll für Alle&lt;/strong&gt;.">
+      <notes>
+        <note category="german">Diese Kosten können durch den Aufbau der &lt;strong&gt;Müll für Alle&lt;/strong&gt;.</note>
+      </notes>
+      <segment>
+        <source>Diese Kosten können durch den Aufbau der &lt;strong&gt;Müll für Alle&lt;/strong&gt;.</source>
+        <target><![CDATA[Ce coût peut être réduit en construisant une <strong>Décharge organisée</strong>.]]></target>
+      </segment>
+    </unit>
+    <unit id="BC_uip5" name="Ausblenden">
+      <notes>
+        <note category="german">Ausblenden</note>
+      </notes>
+      <segment>
+        <source>Ausblenden</source>
+        <target>Cacher</target>
+      </segment>
+    </unit>
+    <unit id="UzZ7xlJ" name="Nachricht">
+      <notes>
+        <note category="german">Nachricht</note>
+      </notes>
+      <segment>
+        <source>Nachricht</source>
+        <target>Message</target>
+      </segment>
+    </unit>
+    <unit id="dJK8aO8" name="Ausb.+Nachr.">
+      <notes>
+        <note category="german">Ausb.+Nachr.</note>
+      </notes>
+      <segment>
+        <source>Ausb.+Nachr.</source>
+        <target>Masquer + Message</target>
+      </segment>
+    </unit>
+    <unit id="k30IQ7V" name="e678701">
+      <notes>
+        <note category="german">&lt;strong&gt;Die Stadt versinkt im Chaos!&lt;/strong&gt;&lt;/p&gt;Es gilt kein Gesetz mehr... Ihr müsst jetzt alle zusammenhalten und mit den Übriggebliebenen auskommen!&lt;p&gt;&lt;em&gt;... Oder euch gegenseitig abschlachten, je nachdem.&lt;/em&gt;</note>
+      </notes>
+      <segment>
+        <source>&lt;strong&gt;Die Stadt versinkt im Chaos!&lt;/strong&gt;&lt;/p&gt;Es gilt kein Gesetz mehr... Ihr müsst jetzt alle zusammenhalten und mit den Übriggebliebenen auskommen!&lt;p&gt;&lt;em&gt;... Oder euch gegenseitig abschlachten, je nachdem.&lt;/em&gt;</source>
+        <target><![CDATA[<strong>Die Stadt versinkt im Chaos!</strong></p>Es gilt kein Gesetz mehr... Ihr müsst jetzt alle zusammenhalten und mit den Übriggebliebenen auskommen!<p><em>... Oder euch gegenseitig abschlachten, je nachdem.</em>]]></target>
       </segment>
     </unit>
   </file>

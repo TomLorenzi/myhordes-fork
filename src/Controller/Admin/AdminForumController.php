@@ -4,7 +4,12 @@ namespace App\Controller\Admin;
 
 use App\DataFixtures\PermissionFixtures;
 use App\Entity\AdminReport;
+use App\Entity\Citizen;
+use App\Entity\Complaint;
 use App\Entity\ForumUsagePermissions;
+use App\Entity\ItemPrototype;
+use App\Entity\PrivateMessage;
+use App\Entity\PrivateMessageThread;
 use App\Entity\User;
 use App\Entity\UserPendingValidation;
 use App\Response\AjaxResponse;
@@ -38,7 +43,8 @@ class AdminForumController extends AdminActionController
 
         $reports = $this->entity_manager->getRepository(AdminReport::class)->findBy(['seen' => false]);
 
-        $reports = array_filter($reports, function(AdminReport $r) use (&$allowed_forums, $perm) {
+        $forum_reports = array_filter($reports, function(AdminReport $r) use (&$allowed_forums, $perm) {
+            if ($r->getPost() === null) return false;
             $tid = $r->getPost()->getThread()->getForum()->getId();
             if (isset($allowed_forums[$tid])) return $allowed_forums[$tid];
             else return $allowed_forums[$tid] = $perm->checkAnyEffectivePermissions($this->getUser(), $r->getPost()->getThread()->getForum(), [ForumUsagePermissions::PermissionReadThreads, ForumUsagePermissions::PermissionModerate]);
@@ -46,8 +52,8 @@ class AdminForumController extends AdminActionController
 
         // Make sure to fetch only unseen reports for posts with at least 2 unseen reports
         $postsList = [
-            'post' => array_map(function($report) { return $report->getPost(); }, $reports),
-            'reporter' => array_map(function($report) { return $report->getSourceUser(); }, $reports)
+            'post' => array_map(function($report) { return $report->getPost(); }, $forum_reports),
+            'reporter' => array_map(function($report) { return $report->getSourceUser(); }, $forum_reports)
         ];
 
         $alreadyCountedIndexes = [];
@@ -67,14 +73,70 @@ class AdminForumController extends AdminActionController
             }
         }
 
+        /** @var AdminReport[] $pm_reports */
+        $pm_reports = array_filter($reports, function(AdminReport $r) use (&$allowed_forums, $perm) {
+            if ($r->getPm() === null || $r->getPm()->getOwner() === null || $r->getPm()->getOwner()->getTown()->getForum() === null) return false;
+            $tid = $r->getPm()->getOwner()->getTown()->getForum()->getId();
+            if (isset($allowed_forums[$tid])) return $allowed_forums[$tid];
+            else return $allowed_forums[$tid] = $perm->checkAnyEffectivePermissions($this->getUser(), $r->getPm()->getOwner()->getTown()->getForum(), [ForumUsagePermissions::PermissionModerate]);
+        });
+
+        $pm_cache = [];
+        foreach ($pm_reports as $report)
+            if (!isset($pm_cache[$report->getPm()->getId()]))
+                $pm_cache[$report->getPm()->getId()] = [
+                    'post' => $report->getPm(), 'count' => 1, 'reporters' => [ $report->getSourceUser() ]
+                ];
+            else {
+                $pm_cache[$report->getPm()->getId()]['count']++;
+                $pm_cache[$report->getPm()->getId()]['reporters'][] = $report->getSourceUser();
+            }
+
         return $this->render( 'ajax/admin/reports/reports.html.twig', [
             'posts' => $selectedReports,
+            'pms' => $pm_cache,
             'all_shown' => $show_all
         ]);      
     }
 
     /**
+     * @Route("jx/admin/forum/report/pm", name="admin_pm_viewer")
+     * @param JSONRequestParser $parser
+     * @param PermissionHandler $perm
+     * @return Response
+     */
+    public function render_pm(JSONRequestParser $parser, PermissionHandler $perm) {
+        $user = $this->getUser();
+
+        $pmid = $parser->get('pmid', null);
+        if ($pmid === null) return new Response();
+
+        /** @var PrivateMessage $pm */
+        if (!($pm = $this->entity_manager->getRepository(PrivateMessage::class)->find($pmid)))
+            return new Response();
+
+        if ($pm->getAdminReports(true)->isEmpty())  return new Response();
+
+        $thread = $pm->getPrivateMessageThread();
+        if (!$thread || !$thread->getSender() || !$thread->getSender()->getTown()->getForum()) return new Response();
+
+        if (!$perm->checkAnyEffectivePermissions($user, $thread->getSender()->getTown()->getForum(), [ForumUsagePermissions::PermissionModerate]))
+            return new Response();
+
+        $posts = $thread->getMessages();
+
+        return $this->render( 'ajax/admin/reports/pn-viewer.html.twig', [
+            'thread' => $thread,
+            'posts' => $posts,
+            'markedPost' => $pmid,
+            'emotes' => []
+        ] );
+    }
+
+    /**
      * @Route("api/admin/forum/reports/clear", name="admin_reports_clear")
+     * @param JSONRequestParser $parser
+     * @param AdminActionHandler $admh
      * @return Response
      */
     public function reports_clear(JSONRequestParser $parser, AdminActionHandler $admh): Response
@@ -87,5 +149,57 @@ class AdminForumController extends AdminActionController
         if ($admh->clearReports($user->getId(), $postId))
             return AjaxResponse::success();
         return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
+    }
+
+    /**
+     * @Route("api/admin/forum/reports/moderate-pm", name="admin_reports_mod_pn")
+     * @param JSONRequestParser $parser
+     * @param PermissionHandler $perm
+     * @return Response
+     */
+    public function reports_moderate_pm(JSONRequestParser $parser, PermissionHandler $perm): Response
+    {
+        $user = $this->getUser();
+
+        $pmid = $parser->get('pmid', null);
+        if ($pmid === null) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+        /** @var PrivateMessage $pm */
+        if (!($pm = $this->entity_manager->getRepository(PrivateMessage::class)->find($pmid)))
+            return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+        $has_report = false;
+        foreach ($pm->getPrivateMessageThread()->getMessages() as $ppm)
+        if (!$ppm->getAdminReports(true)->isEmpty()) $has_report = true;
+
+        if (!$has_report) return AjaxResponse::error(ErrorHelper::ErrorPermissionError);
+
+        $thread = $pm->getPrivateMessageThread();
+        if (!$thread || !$thread->getSender() || !$thread->getSender()->getTown()->getForum()) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+        if (!$perm->checkAnyEffectivePermissions($user, $thread->getSender()->getTown()->getForum(), [ForumUsagePermissions::PermissionModerate]))
+            return AjaxResponse::error(ErrorHelper::ErrorPermissionError);
+
+        $seen = (bool)$parser->get('seen', false);
+        $hide = (bool)$parser->get('hide', false);
+        $message = $parser->get('message', null);
+
+        if (!$seen && !$hide && !$message) return AjaxResponse::success();
+
+        if ($seen)
+            foreach ($pm->getAdminReports(true) as $report)
+                $this->entity_manager->persist($report->setSeen(true));
+
+        if ($hide) $pm->setHidden(true);
+        if ($message) $pm->setModMessage( $message );
+        $this->entity_manager->persist($pm->setModerator($user));
+
+        try {
+            $this->entity_manager->flush();
+        } catch (\Exception $e) {
+            AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
+        }
+
+        return AjaxResponse::success();
     }
 }

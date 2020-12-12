@@ -41,10 +41,10 @@
             </div>
         </div>
     {% endblock %}
-    {% block pagenav %}
+    {% macro pagenav(pages,current_page,id) %}
         {% if pages > 1 %}
             <div class="row">
-                <div class="cell rw-12 padded center">
+                <div id="pagenav-{{ id }}" class="cell rw-12 padded center">
                     {% if current_page > 1 %}
                         <div class="forum-button" x-forum-action="post-pager" x-to-page="1"><i class="fa fa-fast-backward"></i></div>
                         <div class="forum-button" x-forum-action="post-pager" x-to-page="{{ current_page - 1 }}"><i class="fa fa-backward"></i></div>
@@ -63,7 +63,8 @@
                 </div>
             </div>
         {% endif %}
-    {% endblock %}
+    {% endmacro %}
+    {{ _self.pagenav(pages,current_page,'top') }}
 
     {% if permission.moderate and announces.reported|length > 0 %}
         <div class="row">
@@ -116,9 +117,9 @@
         {% for post in posts %}
             {# @var post \App\Entity\Post #}
             {% if not post.hidden or permission.moderate() %}
-                {% set author_name = (post.owner.username == 'Der Rabe') ? 'Der Rabe'|trans({},'global') : post.owner.username %}
+                {% set author_name = (post.owner.name == 'Der Rabe') ? 'Der Rabe'|trans({},'global') : post.owner.name %}
                 <div x-post-wrapper-id="{{ post.id }}" class="forum-post {% if not post.hidden %}{% else %}forum-post-hidden{% endif %} {% if post.new %}forum-post-new{% endif %} {% if markedPost is defined and post.id == markedPost %}forum-post-marked{% endif %}">
-                    <div class="forum-post-header {% if post.owner.username == 'Der Rabe' %}header-variant-crow{% elseif post.type == "DEV" %}header-variant-dev{% endif %}">
+                    <div class="forum-post-header {% if post.owner.name == 'Der Rabe' %}header-variant-crow{% elseif post.type == "DEV" %}header-variant-dev{% endif %}">
                         <i>
                             {% if post.date.format('Ymd') == today|date("Ymd") %}
                                 {{ 'Heute um'|trans({},'global') }} {{ post.date|format_datetime('none', 'short') }}
@@ -128,19 +129,17 @@
                                 {{ post.date|format_datetime('medium', 'short') }}
                             {% endif %}
                         </i>
-                        {% if (post.owner.avatar) %}
+                        {% if post.owner.name == 'Der Rabe' %}
                             {% if app.user.preferSmallAvatars %}
-                                {% if post.owner.username == 'Der Rabe' %}
-                                    <div class="avatarcrow small"><img alt="" src="{{ path('app_web_avatar', {'uid': post.owner.id, 'name': post.owner.avatar.smallName, 'ext': post.owner.avatar.format}) }}"></div>
-                                {% else %}
-                                    <div class="avatar small"><img alt="" src="{{ path('app_web_avatar', {'uid': post.owner.id, 'name': post.owner.avatar.smallName, 'ext': post.owner.avatar.format}) }}"></div>
-                                {% endif %}
+                                <div class="avatarcrow small"><img alt="" src="{{ asset('build/images/forum/crow/crow.small.' ~ (app.request.locale|e('html_attr')|split('_', 2))[0] ~ '.png') }}"></div>
                             {% else %}
-                                {% if post.owner.username == 'Der Rabe' %}
-                                    <div class="avatarcrow"><img alt="" src="{{ path('app_web_avatar', {'uid': post.owner.id, 'name': post.owner.avatar.filename, 'ext': post.owner.avatar.format}) }}"></div>
-                                {% else %}
-                                    <div class="avatar"><img alt="" src="{{ path('app_web_avatar', {'uid': post.owner.id, 'name': post.owner.avatar.filename, 'ext': post.owner.avatar.format}) }}"></div>
-                                {% endif %}
+                                <div class="avatarcrow"><img alt="" src="{{ asset('build/images/forum/crow/crow.' ~ (app.request.locale|e('html_attr')|split('_', 2))[0] ~ '.png') }}"></div>
+                            {% endif %}
+                        {% elseif (post.owner.avatar) %}
+                            {% if app.user.preferSmallAvatars %}
+                                <div class="avatar small ua-{{random(0,9)}}"><img alt="" src="{{ path('app_web_avatar', {'uid': post.owner.id, 'name': post.owner.avatar.smallName, 'ext': post.owner.avatar.format}) }}"></div>
+                            {% else %}
+                                <div class="avatar ua-{{random(0,9)}}"><img alt="" src="{{ path('app_web_avatar', {'uid': post.owner.id, 'name': post.owner.avatar.filename, 'ext': post.owner.avatar.format}) }}"></div>
                             {% endif %}
                         {% else %}
                             <div class="avatar small"><img alt="" src="{{ asset('build/images/forum/empty_avatar.gif') }}"></div>
@@ -158,7 +157,7 @@
                                 <span>{{ '%num% Meldungen. Klicken, um Benutzer anzuzeigen.'|trans({'%num%': post.adminReports(true)|length},'global') }}</span>
                                 <div>
                                     {% for report in post.adminReports(true) %}
-                                        <span class="pointer" x-ajax-href="{{ path('soul_visit', {id: report.sourceUser.id}) }}">{{ report.sourceUser.username }}</span>
+                                        <span class="pointer" x-ajax-href="{{ path('soul_visit', {id: report.sourceUser.id}) }}">{{ report.sourceUser.name }}</span>
                                     {% endfor %}
                                 </div>
                             </div>
@@ -172,7 +171,7 @@
                         {% if post.adminDeletion is not null %}
                             <div class="modrev modInfoText pointer">
                             <span>{{ 'Gelöscht von %user% (%time%). Klicken, um den Grund einzublenden.'|trans({
-                                    '%user%': post.adminDeletion.sourceUser.username,
+                                    '%user%': post.adminDeletion.sourceUser.name,
                                     '%time%': post.adminDeletion.timestamp|format_datetime('medium', 'short'),
                                 },'global') }}</span>
                                 <div>{{ post.adminDeletion.reason }}</div>
@@ -195,9 +194,9 @@
                             {% else %}
                                 {% if post.lastAdminActionBy is not null and post.edited is not null %}
                                     {{ 'Zuletzt bearbeitet: %date%'|trans({'%date%': post.edited|format_datetime('medium', 'short')},'game') }}
-                                    {{ ' ~ MOD: ' ~ post.lastAdminActionBy.username }}
+                                    {{ ' ~ MOD: ' ~ post.lastAdminActionBy.name }}
                                 {% elseif post.lastAdminActionBy is not null and post.edited is null %}
-                                    {{ 'MOD: ' ~ post.lastAdminActionBy.username }}
+                                    {{ 'MOD: ' ~ post.lastAdminActionBy.name }}
                                 {% endif %}
                             {% endif %}
                         </div>
@@ -241,7 +240,7 @@
         {% endfor %}
     </div>
     {{ block('buttons') }}
-    {{ block('pagenav') }}
+    {{ _self.pagenav(pages,current_page,'bottom') }}
 {% endblock %}
 {% block js %}
     {{ parent() }}
@@ -363,8 +362,15 @@
             {% if editor is defined %}
                 {let c; while ((c = editor.firstChild)) editor.removeChild(c);}
             {% endif %}
-            $.ajax.no_history().load( document.getElementById('forum-content'), '{{ path('forum_viewer_controller', {fid: fid, tid: tid}) }}', false, {page: parseInt( elem.getAttribute('x-to-page') ) },
-                () => document.querySelector('.forum-post:last-child').scrollIntoView()
+            const from_page = {{ current_page|e('js') }};
+            const to_page = parseInt( elem.getAttribute('x-to-page') );
+            $.ajax.no_history().load( document.getElementById('forum-content'), '{{ path('forum_viewer_controller', {fid: fid, tid: tid}) }}', false, {page: to_page},
+                function() {
+                    let scrollTo = null;
+                    if (from_page > to_page)      scrollTo = document.querySelector('#pagenav-bottom');
+                    else if (from_page < to_page) scrollTo = document.querySelector('#pagenav-top');
+                    if (scrollTo) scrollTo.scrollIntoView();
+                }
             );
         } );
 

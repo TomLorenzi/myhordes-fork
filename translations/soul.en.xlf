@@ -505,7 +505,7 @@
       </notes>
       <segment>
         <source>Dein eingegebenes Passwort ist nicht korrekt. Du benötigst dein aktuelles Passwort, um deinen Account zu bearbeiten.</source>
-        <target>Your password is incorrrect. You must enter your current password to modify your account.</target>
+        <target>Your password is incorrect. You must enter your current password to modify your account.</target>
       </segment>
     </unit>
     <unit id="isnXPfR" name="Standardrolle im Forum">
@@ -1633,7 +1633,7 @@
       </notes>
       <segment>
         <source>Irgend etwas erscheint an dieser Karteikarte merkwürdig...</source>
-        <target>Something seems strange on badge ...</target>
+        <target>Something seems strange about this badge ...</target>
       </segment>
     </unit>
     <unit id="KmttAsi" name="39e1986">
@@ -1696,7 +1696,7 @@
       </notes>
       <segment>
         <source>Dein Account wurde gesperrt.</source>
-        <target>Dein Account wurde gesperrt.</target>
+        <target>Your account was blocked.</target>
       </segment>
     </unit>
     <unit id="smLPd3k" name="Dein Account wurde von einem Administrator vom Spiel ausgeschlossen.">
@@ -1705,7 +1705,7 @@
       </notes>
       <segment>
         <source>Dein Account wurde von einem Administrator vom Spiel ausgeschlossen.</source>
-        <target>Dein Account wurde von einem Administrator vom Spiel ausgeschlossen.</target>
+        <target>Your account was banned from the game by an Administrator.</target>
       </segment>
     </unit>
     <unit id="w55zJhZ" name="Diese Sperre ist permanent.">
@@ -1714,7 +1714,7 @@
       </notes>
       <segment>
         <source>Diese Sperre ist permanent.</source>
-        <target>Diese Sperre ist permanent.</target>
+        <target>This blocking is permanent.</target>
       </segment>
     </unit>
     <unit id="zh9.khn" name="8177ade">
@@ -1723,7 +1723,7 @@
       </notes>
       <segment>
         <source>Wenn du dich aktuell in einer Stadt befindest, kannst du dort keine Aktionen mehr durchführen und nicht länger auf das Stadtforum zugreifen.</source>
-        <target>Wenn du dich aktuell in einer Stadt befindest, kannst du dort keine Aktionen mehr durchführen und nicht länger auf das Stadtforum zugreifen.</target>
+        <target>If you are in a town right now, you can no longer perform actions there, nor can you access the town's forum.</target>
       </segment>
     </unit>
     <unit id="Abv4VOi" name="Du kannst auch keiner neuen Stadt mehr beitreten.">
@@ -1732,7 +1732,7 @@
       </notes>
       <segment>
         <source>Du kannst auch keiner neuen Stadt mehr beitreten.</source>
-        <target>Du kannst auch keiner neuen Stadt mehr beitreten.</target>
+        <target>You can no longer join a new town.</target>
       </segment>
     </unit>
     <unit id="vTDbvR_" name="Folgende Begründung wurde für deine Sperre hinterlegt:">
@@ -1741,7 +1741,7 @@
       </notes>
       <segment>
         <source>Folgende Begründung wurde für deine Sperre hinterlegt:</source>
-        <target>Folgende Begründung wurde für deine Sperre hinterlegt:</target>
+        <target>The following reason was given for your ban:</target>
       </segment>
     </unit>
     <unit id="4pm3p5L" name="Es wurde keine Begründung für diese Sperre hinterlegt.">
@@ -1750,7 +1750,475 @@
       </notes>
       <segment>
         <source>Es wurde keine Begründung für diese Sperre hinterlegt.</source>
-        <target>Es wurde keine Begründung für diese Sperre hinterlegt.</target>
+        <target>No reason was given for this ban.</target>
+      </segment>
+    </unit>
+    <unit id="clP2Rxk" name="EternalTwin-Nutzer">
+      <notes>
+        <note category="german">EternalTwin-Nutzer</note>
+      </notes>
+      <segment>
+        <source>EternalTwin-Nutzer</source>
+        <target>EternalTwin users</target>
+      </segment>
+    </unit>
+    <unit id="0T9At.g" name="32951b2">
+      <notes>
+        <note category="german">Dieser Spieler verwendet einen EternalTwin-Account. Wir feuen uns, ihn bei MyHordes begrüßen zu dürfen!</note>
+      </notes>
+      <segment>
+        <source>Dieser Spieler verwendet einen EternalTwin-Account. Wir feuen uns, ihn bei MyHordes begrüßen zu dürfen!</source>
+        <target>This player is using an Eternal Twin account. We look forward to welcome him to MyHordes!</target>
+      </segment>
+    </unit>
+    <unit id="XRvl7w0" name="ce071ab">
+      <notes>
+        <note category="german">Das angegebene Profil kann nicht importiert werden, da es bereits einem anderen MyHordes-Konto zugeordnet ist.</note>
+      </notes>
+      <segment>
+        <source>Das angegebene Profil kann nicht importiert werden, da es bereits einem anderen MyHordes-Konto zugeordnet ist.</source>
+        <target>The specified profile cannot be imported because it is already assigned to another MyHordes account.</target>
+      </segment>
+    </unit>
+    <unit id="wstj04z" name="MyHordes ist ein stolzer Bestandteil des EternalTwin-Netzwerkes!">
+      <notes>
+        <note category="german">MyHordes ist ein stolzer Bestandteil des EternalTwin-Netzwerkes!</note>
+      </notes>
+      <segment>
+        <source>MyHordes ist ein stolzer Bestandteil des EternalTwin-Netzwerkes!</source>
+        <target>MyHordes is a proud part of the EternalTwin network!</target>
+      </segment>
+    </unit>
+    <unit id="WVIMH8t" name="a7e6e46">
+      <notes>
+        <note category="german">Um MyHordes auch in Zukunft weiter spielen zu können, musst du deinen alten MyHordes-Account mit einem EternalTwin-Account verknüpfen.</note>
+      </notes>
+      <segment>
+        <source>Um MyHordes auch in Zukunft weiter spielen zu können, musst du deinen alten MyHordes-Account mit einem EternalTwin-Account verknüpfen.</source>
+        <target>In order to be able to continue playing MyHordes in the future, you have to link your old MyHordes account to an EternalTwin account.</target>
+      </segment>
+    </unit>
+    <unit id="CACKQCH" name="EternalTwin-Account verknüpfen">
+      <notes>
+        <note category="german">EternalTwin-Account verknüpfen</note>
+      </notes>
+      <segment>
+        <source>EternalTwin-Account verknüpfen</source>
+        <target>Link your EternalTwin account</target>
+      </segment>
+    </unit>
+    <unit id="lqipl75" name="%name%'s Koalition">
+      <notes>
+        <note category="german">%name%'s Koalition</note>
+      </notes>
+      <segment>
+        <source>%name%'s Koalition</source>
+        <target>%name%'s Coalition</target>
+      </segment>
+    </unit>
+    <unit id="j8VraNU" name="Herzlichen Glückwunsch, du bist der Koalition soeben beigetreten!">
+      <notes>
+        <note category="german">Herzlichen Glückwunsch, du bist der Koalition soeben beigetreten!</note>
+      </notes>
+      <segment>
+        <source>Herzlichen Glückwunsch, du bist der Koalition soeben beigetreten!</source>
+        <target>Congratulations, you have just joined the coalition!</target>
+      </segment>
+    </unit>
+    <unit id="MNqhTYg" name="Es tut uns Leid, aber dieser Spieler gehört bereits einer Koalition an.">
+      <notes>
+        <note category="german">Es tut uns Leid, aber dieser Spieler gehört bereits einer Koalition an.</note>
+      </notes>
+      <segment>
+        <source>Es tut uns Leid, aber dieser Spieler gehört bereits einer Koalition an.</source>
+        <target>We're sorry, this player is already part of a coalition.</target>
+      </segment>
+    </unit>
+    <unit id="3gqWAoL" name="Hierfür musst du einer Koalition angehören.">
+      <notes>
+        <note category="german">Hierfür musst du einer Koalition angehören.</note>
+      </notes>
+      <segment>
+        <source>Hierfür musst du einer Koalition angehören.</source>
+        <target>For this you have to belong to a coalition.</target>
+      </segment>
+    </unit>
+    <unit id="57GeJrY" name="Du bist bereits Mitglied einer Koalition.">
+      <notes>
+        <note category="german">Du bist bereits Mitglied einer Koalition.</note>
+      </notes>
+      <segment>
+        <source>Du bist bereits Mitglied einer Koalition.</source>
+        <target>You are already a member of a coalition.</target>
+      </segment>
+    </unit>
+    <unit id="yQfn1EC" name="Deine Koalition ist bereits voll.">
+      <notes>
+        <note category="german">Deine Koalition ist bereits voll.</note>
+      </notes>
+      <segment>
+        <source>Deine Koalition ist bereits voll.</source>
+        <target>Your coalition is already full.</target>
+      </segment>
+    </unit>
+    <unit id="QuFqW4z" name="Spielhilfe: Kleine Koalitionen">
+      <notes>
+        <note category="german">Spielhilfe: Kleine Koalitionen</note>
+      </notes>
+      <segment>
+        <source>Spielhilfe: Kleine Koalitionen</source>
+        <target>Guide: Coalitions</target>
+      </segment>
+    </unit>
+    <unit id="GO1ZJcp" name="3e3b0ae">
+      <notes>
+        <note category="german">Du möchtest schon seit langem &lt;strong&gt;mit deinen Freunden zusammen sterben&lt;/strong&gt;? Du möchtest die gleichen schönen und &lt;strong&gt;entsetzlichen&lt;/strong&gt; Momente mit ihnen erleben? Dann sind die &lt;strong&gt;Kleinen Koalitionen&lt;/strong&gt; genau das richtige für dich! Es handelt sich um kleine Mannschaften von &lt;strong&gt;5&lt;/strong&gt; Bürgern, die gemeinsam die Welt der Verdammten entdecken möchten.</note>
+      </notes>
+      <segment>
+        <source>Du möchtest schon seit langem &lt;strong&gt;mit deinen Freunden zusammen sterben&lt;/strong&gt;? Du möchtest die gleichen schönen und &lt;strong&gt;entsetzlichen&lt;/strong&gt; Momente mit ihnen erleben? Dann sind die &lt;strong&gt;Kleinen Koalitionen&lt;/strong&gt; genau das richtige für dich! Es handelt sich um kleine Mannschaften von &lt;strong&gt;5&lt;/strong&gt; Bürgern, die gemeinsam die Welt der Verdammten entdecken möchten.</source>
+        <target><![CDATA[Do you dream of <strong>dying amongst friends</strong>? Do you want to share the same moments of tenderness and <strong>terror</strong>? Well, <strong>Coalitions </strong> are a great tool for you! Coalitions are powerhouse teams of <strong>5</strong> who explore the world of Die2Nite together.]]></target>
+      </segment>
+    </unit>
+    <unit id="_SpidlG" name="cb2469f">
+      <notes>
+        <note category="german">Das Prinzip ist ganz einfach: Wenn ihr in einer Koalition spielt, &lt;strong&gt;zieht der Erste, der eine Partie anfängt, alle verfügbaren Koalitionsmitglieder mit sich ins Spiel.&lt;/strong&gt;</note>
+      </notes>
+      <segment>
+        <source>Das Prinzip ist ganz einfach: Wenn ihr in einer Koalition spielt, &lt;strong&gt;zieht der Erste, der eine Partie anfängt, alle verfügbaren Koalitionsmitglieder mit sich ins Spiel.&lt;/strong&gt;</source>
+        <target><![CDATA[The way it works is really simple: when you are a member of a coalition, <strong>the first member to join a town will take all available members with them.</strong>]]></target>
+      </segment>
+    </unit>
+    <unit id="vxIJV3j" name="Du möchtest deine eigene Koalition erstellen?">
+      <notes>
+        <note category="german">Du möchtest deine eigene Koalition erstellen?</note>
+      </notes>
+      <segment>
+        <source>Du möchtest deine eigene Koalition erstellen?</source>
+        <target>Form your own coalition?</target>
+      </segment>
+    </unit>
+    <unit id="h_4dLhS" name="Meine Koalition erstellen">
+      <notes>
+        <note category="german">Meine Koalition erstellen</note>
+      </notes>
+      <segment>
+        <source>Meine Koalition erstellen</source>
+        <target>Form a coalition</target>
+      </segment>
+    </unit>
+    <unit id="okBUp.C" name="Einer existierenden Koalition beitreten">
+      <notes>
+        <note category="german">Einer existierenden Koalition beitreten</note>
+      </notes>
+      <segment>
+        <source>Einer existierenden Koalition beitreten</source>
+        <target>JOIN AN EXISTING COALITION</target>
+      </segment>
+    </unit>
+    <unit id="S6ckGt2" name="Es hat dich bisher noch niemand eingeladen.">
+      <notes>
+        <note category="german">Es hat dich bisher noch niemand eingeladen.</note>
+      </notes>
+      <segment>
+        <source>Es hat dich bisher noch niemand eingeladen.</source>
+        <target>You have no pending invitations at the moment.</target>
+      </segment>
+    </unit>
+    <unit id="3NHVIj9" name="Name">
+      <notes>
+        <note category="german">Name</note>
+      </notes>
+      <segment>
+        <source>Name</source>
+        <target>Name</target>
+      </segment>
+    </unit>
+    <unit id="Vlb5Lbe" name="Aktionen">
+      <notes>
+        <note category="german">Aktionen</note>
+      </notes>
+      <segment>
+        <source>Aktionen</source>
+        <target>Action</target>
+      </segment>
+    </unit>
+    <unit id="ze.SRGE" name="Mitmachen!">
+      <notes>
+        <note category="german">Mitmachen!</note>
+      </notes>
+      <segment>
+        <source>Mitmachen!</source>
+        <target>Participate!</target>
+      </segment>
+    </unit>
+    <unit id="RRAKPkm" name="Die Einladung ablehnen.">
+      <notes>
+        <note category="german">Die Einladung ablehnen.</note>
+      </notes>
+      <segment>
+        <source>Die Einladung ablehnen.</source>
+        <target>Decline the invitation.</target>
+      </segment>
+    </unit>
+    <unit id="3hmiaVs" name="Shoutbox der Koalition">
+      <notes>
+        <note category="german">Shoutbox der Koalition</note>
+      </notes>
+      <segment>
+        <source>Shoutbox der Koalition</source>
+        <target>Coalition shoutbox</target>
+      </segment>
+    </unit>
+    <unit id="EdbufZv" name="Verfügbare Mitglieder">
+      <notes>
+        <note category="german">Verfügbare Mitglieder</note>
+      </notes>
+      <segment>
+        <source>Verfügbare Mitglieder</source>
+        <target>Available members</target>
+      </segment>
+    </unit>
+    <unit id="XblqKpM" name="Nicht verfügbar">
+      <notes>
+        <note category="german">Nicht verfügbar</note>
+      </notes>
+      <segment>
+        <source>Nicht verfügbar</source>
+        <target>Unavailable</target>
+      </segment>
+    </unit>
+    <unit id="3E9hxaU" name="Ausstehende Einladungen">
+      <notes>
+        <note category="german">Ausstehende Einladungen</note>
+      </notes>
+      <segment>
+        <source>Ausstehende Einladungen</source>
+        <target>Pending invitations</target>
+      </segment>
+    </unit>
+    <unit id="RG9ZXHi" name="Einen Freund einladen">
+      <notes>
+        <note category="german">Einen Freund einladen</note>
+      </notes>
+      <segment>
+        <source>Einen Freund einladen</source>
+        <target>Invite a friend</target>
+      </segment>
+    </unit>
+    <unit id="8dquNSH" name="Optionen">
+      <notes>
+        <note category="german">Optionen</note>
+      </notes>
+      <segment>
+        <source>Optionen</source>
+        <target>Options</target>
+      </segment>
+    </unit>
+    <unit id="Rh5HYn_" name="Du stehst &lt;strong&gt;zur Verfügung&lt;/strong&gt;.">
+      <notes>
+        <note category="german">Du stehst &lt;strong&gt;zur Verfügung&lt;/strong&gt;.</note>
+      </notes>
+      <segment>
+        <source>Du stehst &lt;strong&gt;zur Verfügung&lt;/strong&gt;.</source>
+        <target><![CDATA[You are : <strong>ready</strong>.]]></target>
+      </segment>
+    </unit>
+    <unit id="o.K5fG9" name="Du stehst &lt;strong&gt;nicht zur Verfügung&lt;/strong&gt;.">
+      <notes>
+        <note category="german">Du stehst &lt;strong&gt;nicht zur Verfügung&lt;/strong&gt;.</note>
+      </notes>
+      <segment>
+        <source>Du stehst &lt;strong&gt;nicht zur Verfügung&lt;/strong&gt;.</source>
+        <target><![CDATA[You are : <strong>unavailable</strong>.]]></target>
+      </segment>
+    </unit>
+    <unit id="jFqiwRT" name="Meinen Status ändern">
+      <notes>
+        <note category="german">Meinen Status ändern</note>
+      </notes>
+      <segment>
+        <source>Meinen Status ändern</source>
+        <target>Change my status</target>
+      </segment>
+    </unit>
+    <unit id="rq4q8kx" name="Verlassen UND auflösen">
+      <notes>
+        <note category="german">Verlassen UND auflösen</note>
+      </notes>
+      <segment>
+        <source>Verlassen UND auflösen</source>
+        <target>Leave AND dissolve</target>
+      </segment>
+    </unit>
+    <unit id="oiwx9uP" name="Verlassen">
+      <notes>
+        <note category="german">Verlassen</note>
+      </notes>
+      <segment>
+        <source>Verlassen</source>
+        <target>Quit the coalition!</target>
+      </segment>
+    </unit>
+    <unit id="sLJWy9T" name="Nicht in einer Stadt">
+      <notes>
+        <note category="german">Nicht in einer Stadt</note>
+      </notes>
+      <segment>
+        <source>Nicht in einer Stadt</source>
+        <target>Not in a town</target>
+      </segment>
+    </unit>
+    <unit id="AT.EHRB" name="Diesen Spieler ausschließen?">
+      <notes>
+        <note category="german">Diesen Spieler ausschließen?</note>
+      </notes>
+      <segment>
+        <source>Diesen Spieler ausschließen?</source>
+        <target>Exclude this player?</target>
+      </segment>
+    </unit>
+    <unit id="xpAtz8l" name="Diesen Spieler ausschließen.">
+      <notes>
+        <note category="german">Diesen Spieler ausschließen.</note>
+      </notes>
+      <segment>
+        <source>Diesen Spieler ausschließen.</source>
+        <target>Exclude this player.</target>
+      </segment>
+    </unit>
+    <unit id="PmiiQcl" name="Die Shoutbox ist leer...">
+      <notes>
+        <note category="german">Die Shoutbox ist leer...</note>
+      </notes>
+      <segment>
+        <source>Die Shoutbox ist leer...</source>
+        <target>The shoutbox is empty...</target>
+      </segment>
+    </unit>
+    <unit id="IuHFUTo" name="Absenden">
+      <notes>
+        <note category="german">Absenden</note>
+      </notes>
+      <segment>
+        <source>Absenden</source>
+        <target>Send</target>
+      </segment>
+    </unit>
+    <unit id="zeYLnSy" name="Klick auf diesen Link, um die Seite neu zu laden.">
+      <notes>
+        <note category="german">Klick auf diesen Link, um die Seite neu zu laden.</note>
+      </notes>
+      <segment>
+        <source>Klick auf diesen Link, um die Seite neu zu laden.</source>
+        <target>Click this link to reload the page.</target>
+      </segment>
+    </unit>
+    <unit id="flUhUW0" name="7e9e358">
+      <notes>
+        <note category="german">Wenn du nicht automatisch an einer Partie teilnehmen möchtest, sobald ein anderer Spieler der Koalition einer Stadt beitritt, stelle bitte ein: nicht zur Verfügung.</note>
+      </notes>
+      <segment>
+        <source>Wenn du nicht automatisch an einer Partie teilnehmen möchtest, sobald ein anderer Spieler der Koalition einer Stadt beitritt, stelle bitte ein: nicht zur Verfügung.</source>
+        <target>If you don't want to automatically join a game when another member of your coalition joins a town, activate Unavailable mode!</target>
+      </segment>
+    </unit>
+    <unit id="FNkhsV2" name="Vor 1 Tag">
+      <notes>
+        <note category="german">Vor 1 Tag</note>
+      </notes>
+      <segment>
+        <source>Vor 1 Tag</source>
+        <target>1 day ago</target>
+      </segment>
+    </unit>
+    <unit id="BFD31Nv" name="Vor %d% Tagen">
+      <notes>
+        <note category="german">Vor %d% Tagen</note>
+      </notes>
+      <segment>
+        <source>Vor %d% Tagen</source>
+        <target>%d% days ago</target>
+      </segment>
+    </unit>
+    <unit id="vKZiHzm" name="&lt;b&gt;%u1%&lt;/b&gt; hat &lt;b&gt;%u2%&lt;/b&gt; in die Koalition eingeladen.">
+      <notes>
+        <note category="german">&lt;b&gt;%u1%&lt;/b&gt; hat &lt;b&gt;%u2%&lt;/b&gt; in die Koalition eingeladen.</note>
+      </notes>
+      <segment>
+        <source>&lt;b&gt;%u1%&lt;/b&gt; hat &lt;b&gt;%u2%&lt;/b&gt; in die Koalition eingeladen.</source>
+        <target><![CDATA[<b>%u1%</b> hat <b>%u2%</b> in die Koalition eingeladen.]]></target>
+      </segment>
+    </unit>
+    <unit id="bvTtAAO" name="&lt;b&gt;%u1%&lt;/b&gt; ist der Koalition soeben beigetreten!">
+      <notes>
+        <note category="german">&lt;b&gt;%u1%&lt;/b&gt; ist der Koalition soeben beigetreten!</note>
+      </notes>
+      <segment>
+        <source>&lt;b&gt;%u1%&lt;/b&gt; ist der Koalition soeben beigetreten!</source>
+        <target><![CDATA[<b>%u1%</b> has just joined coalition!]]></target>
+      </segment>
+    </unit>
+    <unit id="ztPAknj" name="&lt;b&gt;%u1%&lt;/b&gt; hat die Koalition verlassen.">
+      <notes>
+        <note category="german">&lt;b&gt;%u1%&lt;/b&gt; hat die Koalition verlassen.</note>
+      </notes>
+      <segment>
+        <source>&lt;b&gt;%u1%&lt;/b&gt; hat die Koalition verlassen.</source>
+        <target><![CDATA[<b>%u1%</b> has just left the coalition.]]></target>
+      </segment>
+    </unit>
+    <unit id="tMzLQiv" name="&lt;b&gt;%u1%&lt;/b&gt; hat &lt;b&gt;%u2%&lt;/b&gt; aus der Koalition entfernt.">
+      <notes>
+        <note category="german">&lt;b&gt;%u1%&lt;/b&gt; hat &lt;b&gt;%u2%&lt;/b&gt; aus der Koalition entfernt.</note>
+      </notes>
+      <segment>
+        <source>&lt;b&gt;%u1%&lt;/b&gt; hat &lt;b&gt;%u2%&lt;/b&gt; aus der Koalition entfernt.</source>
+        <target><![CDATA[<b>%u1%</b> has removed <b>%u2%</b> from the coalition.]]></target>
+      </segment>
+    </unit>
+    <unit id="bCn1heW" name="&lt;b&gt;%u1%&lt;/b&gt; hat sich soeben in die Stadt &quot;&lt;b&gt;%town%&lt;/b&gt;&quot; eingeschrieben!">
+      <notes>
+        <note category="german">&lt;b&gt;%u1%&lt;/b&gt; hat sich soeben in die Stadt "&lt;b&gt;%town%&lt;/b&gt;" eingeschrieben!</note>
+      </notes>
+      <segment>
+        <source>&lt;b&gt;%u1%&lt;/b&gt; hat sich soeben in die Stadt "&lt;b&gt;%town%&lt;/b&gt;" eingeschrieben!</source>
+        <target><![CDATA[<b>%u1%</b> has just joined <b>%town%</b>!]]></target>
+      </segment>
+    </unit>
+    <unit id="Hb1dhIr" name="1507816">
+      <notes>
+        <note category="german">Du wirst nun ausgeloggt. Dein Account wird in 24-48 Stunden gelöscht. Bis dahin kannst du dich jederzeit erneut einloggen und dadurch die Löschung deines Accounts abbrechen.</note>
+      </notes>
+      <segment>
+        <source>Du wirst nun ausgeloggt. Dein Account wird in 24-48 Stunden gelöscht. Bis dahin kannst du dich jederzeit erneut einloggen und dadurch die Löschung deines Accounts abbrechen.</source>
+        <target>You will now be logged out. Your account will be deleted in 24-48 hours. Until then, you can log in again at any time and thereby cancel the deletion of your account.</target>
+      </segment>
+    </unit>
+    <unit id="WbndBY4" name="Möchtest du diesem Spieler folgen?">
+      <notes>
+        <note category="german">Möchtest du diesem Spieler folgen?</note>
+      </notes>
+      <segment>
+        <source>Möchtest du diesem Spieler folgen?</source>
+        <target>Do you want to follow this player?</target>
+      </segment>
+    </unit>
+    <unit id="BNXmJ_6" name="8e2de13">
+      <notes>
+        <note category="german">Der Twinoid-Server meldet, dass er dein Profil aufgrund eines internen Fehlers nicht an MyHordes übertragen kann. Dieses Problem tritt häufig auf, wenn du in deinen Letzten Worten oder Stadtkommentaren Sonderzeichen verwendet hast. Bitte prüfe deine Stadtkommentare und entferne Sonderzeichen. Wenn sich Sonderzeichen in deinen Letzten Worten befinden, wende dich auf Twinoid an einen Raben.</note>
+      </notes>
+      <segment>
+        <source>Der Twinoid-Server meldet, dass er dein Profil aufgrund eines internen Fehlers nicht an MyHordes übertragen kann. Dieses Problem tritt häufig auf, wenn du in deinen Letzten Worten oder Stadtkommentaren Sonderzeichen verwendet hast. Bitte prüfe deine Stadtkommentare und entferne Sonderzeichen. Wenn sich Sonderzeichen in deinen Letzten Worten befinden, wende dich auf Twinoid an einen Raben.</source>
+        <target>Der Twinoid-Server meldet, dass er dein Profil aufgrund eines internen Fehlers nicht an MyHordes übertragen kann. Dieses Problem tritt häufig auf, wenn du in deinen Letzten Worten oder Stadtkommentaren Sonderzeichen verwendet hast. Bitte prüfe deine Stadtkommentare und entferne Sonderzeichen. Wenn sich Sonderzeichen in deinen Letzten Worten befinden, wende dich auf Twinoid an einen Raben.</target>
+      </segment>
+    </unit>
+    <unit id="lXmZ79T" name="Tod nicht validiert">
+      <notes>
+        <note category="german">Tod nicht validiert</note>
+      </notes>
+      <segment>
+        <source>Tod nicht validiert</source>
+        <target>Tod nicht validiert</target>
       </segment>
     </unit>
   </file>

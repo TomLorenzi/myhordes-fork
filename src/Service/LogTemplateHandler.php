@@ -40,8 +40,9 @@ class LogTemplateHandler
         $this->entity_manager = $em;
     }
 
-    private function wrap(?string $obj, ?string $class = null): string {
-        return $obj ? ("<span" . ($class ? " class='$class'" : '') . ">$obj</span>") : '';
+    public function wrap(?string $obj, ?string $class = null): string {
+        //if (!($obj || $obj != 0)) {var_dump($obj); die;}
+        return ($obj === "0" || $obj) ? ("<span" . ($class ? " class='$class'" : '') . ">$obj</span>") : '';
     }
 
     /**
@@ -49,7 +50,7 @@ class LogTemplateHandler
      * @param bool $small
      * @return string
      */
-    private function iconize($obj, bool $small = false, bool $broken = false): string {
+    public function iconize($obj, bool $small = false, bool $broken = false): string {
         if (is_array($obj) && count($obj) === 2) return $this->iconize( $obj['item'], $small) . ' x ' . $obj['count'];
 
         if ($obj instanceof Item) {
@@ -71,7 +72,7 @@ class LogTemplateHandler
         }
         if ($obj instanceof ItemGroupEntry)       return "<img alt='' src='{$this->asset->getUrl( "build/images/item/item_{$obj->getPrototype()->getIcon()}.gif" )}' /> {$this->trans->trans($obj->getPrototype()->getLabel(), [], 'items')} <i>x {$obj->getChance()}</i>";
         if ($obj instanceof BuildingPrototype)    return "<img alt='' src='{$this->asset->getUrl( "build/images/building/{$obj->getIcon()}.gif" )}' /> {$this->trans->trans($obj->getLabel(), [], 'buildings')}";
-        if ($obj instanceof Citizen)              return $obj->getUser()->getUsername();
+        if ($obj instanceof Citizen)              return $obj->getUser()->getName();
         if ($obj instanceof CitizenProfession)    return "<img alt='' src='{$this->asset->getUrl( "build/images/professions/{$obj->getIcon()}.gif" )}' /> {$this->trans->trans($obj->getLabel(), [], 'game')}";
         if ($obj instanceof CitizenHomePrototype) return "<img alt='' src='{$this->asset->getUrl( "build/images/home/{$obj->getIcon()}.gif" )}' /> {$this->trans->trans($obj->getLabel(), [], 'buildings')}";
         if ($obj instanceof CauseOfDeath)         return $this->trans->trans($obj->getLabel(), [], 'game');
@@ -151,7 +152,7 @@ class LogTemplateHandler
                     $listArray = array_map( function($e) use ($listType) { if(array_key_exists('count', $e)) {return array('item' => $this->fetchVariableObject($listType, $e['id']),'count' => $e['count']);}
                         else { return $this->fetchVariableObject($listType, $e['id']); } }, $variables[$typeEntry['name']] );
                     if (isset($listArray)) {
-                        $transParams['%'.$typeEntry['name'].'%'] = implode( ', ', array_map( function($e) { return $this->wrap( $this->iconize( $e ) ); }, $listArray ) );
+                        $transParams['%'.$typeEntry['name'].'%'] = implode( ', ', array_map( function($e) { return $this->wrap( $this->iconize( $e ), 'tool' ); }, $listArray ) );
                     }
                     else
                         $transParams['%'.$typeEntry['name'].'%'] = "null";
@@ -332,6 +333,18 @@ class LogTemplateHandler
     public function constructionsDestroy( Town $town, BuildingPrototype $proto, int $damage ): TownLogEntry {
         $variables = array('plan' => $proto->getId(), 'damage' => $damage);
         $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneBy(['name' => 'constructionsDestroy']);
+        return (new TownLogEntry())
+            ->setLogEntryTemplate($template)
+            ->setVariables($variables)
+            ->setTown( $town )
+            ->setDay( $town->getDay() )
+            ->setTimestamp( new DateTime('now') )
+            ->setCitizen( null );
+    }
+
+    public function fireworkExplosion( Town $town, BuildingPrototype $proto ): TownLogEntry {
+        $variables = array('plan' => $proto->getId());
+        $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneBy(['name' => 'fireworkExplosion']);
         return (new TownLogEntry())
             ->setLogEntryTemplate($template)
             ->setVariables($variables)
@@ -743,6 +756,18 @@ class LogTemplateHandler
             ->setCitizen( $zombie );
     }
 
+    public function nightlyInternalAttackStart(Town $town): TownLogEntry {
+        $variables = array();
+        $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneBy(['name' => 'nightlyInternalAttackStart']);
+
+        return (new TownLogEntry())
+            ->setLogEntryTemplate($template)
+            ->setVariables($variables)
+            ->setTown( $town )
+            ->setDay( $town->getDay() )
+            ->setTimestamp( new DateTime('now') );
+    }
+
     public function nightlyInternalAttackNothing( Citizen $zombie ): TownLogEntry {
         $templateList = [
             'nightlyInternalAttackNothing1',
@@ -760,6 +785,18 @@ class LogTemplateHandler
             ->setDay( $zombie->getTown()->getDay() )
             ->setTimestamp( new DateTime('now') )
             ->setCitizen( $zombie );
+    }
+
+    public function nightlyInternalAttackNothingSummary( Town $town, $useless ): TownLogEntry {
+        $variables = array('count' => $useless);
+        $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneBy(['name' => 'nightlyInternalAttackNothingSummary']);
+
+        return (new TownLogEntry())
+            ->setLogEntryTemplate($template)
+            ->setVariables($variables)
+            ->setTown( $town )
+            ->setDay( $town->getDay() )
+            ->setTimestamp( new DateTime('now') );
     }
 
     public function nightlyAttackCancelled( Town $town ): TownLogEntry {
@@ -983,12 +1020,15 @@ class LogTemplateHandler
             ->setTimestamp( new DateTime('now') );
     }
 
-    public function townSteal( Citizen $victim, ?Citizen $actor, ItemPrototype $item, bool $up, bool $santa = false, $broken = false): TownLogEntry {
+    public function townSteal( Citizen $victim, ?Citizen $actor, ItemPrototype $item, bool $up, bool $santa = false, $broken = false, bool $leprechaun = false): TownLogEntry {
 
         if ($up){
-            if($santa){
+            if($santa || $leprechaun){
                 $variables = array('victim' => $victim->getId(), 'item' => $item->getId(), 'broken' => $broken);
-                $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneBy(['name' => 'townStealSanta']);
+                if($santa)
+                    $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneBy(['name' => 'townStealSanta']);
+                else
+                    $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneBy(['name' => 'townStealLeprechaun']);
             } 
             else {
                 if ($actor) {
@@ -1252,6 +1292,36 @@ class LogTemplateHandler
             ->setTown( $attacker->getTown() )
             ->setDay( $attacker->getTown()->getDay() )
             ->setZone( $attacker->getZone() )
+            ->setTimestamp( new DateTime('now') );
+    }
+
+    public function catapultUsage( Citizen $master, Item $item, Zone $target ): TownLogEntry {
+        $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneBy(['name' => 'catapultUsage']);
+
+        return (new TownLogEntry())
+            ->setLogEntryTemplate($template)
+            ->setVariables([
+                'master' => $master->getId(),
+                'item' => $item->getPrototype()->getId(),
+                'x' => $target->getX(),
+                'y' => $target->getY()
+            ])
+            ->setTown( $master->getTown() )
+            ->setDay( $master->getTown()->getDay() )
+            ->setTimestamp( new DateTime('now') );
+    }
+
+    public function catapultImpact( Item $item, Zone $target ): TownLogEntry {
+        $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneBy(['name' => 'catapultImpact']);
+
+        return (new TownLogEntry())
+            ->setLogEntryTemplate($template)
+            ->setVariables([
+                'item' => $item->getPrototype()->getId(),
+            ])
+            ->setTown( $target->getTown() )
+            ->setDay( $target->getTown()->getDay() )
+            ->setZone( ($target->getX() === 0 && $target->getY() === 0) ? null : $target )
             ->setTimestamp( new DateTime('now') );
     }
 }

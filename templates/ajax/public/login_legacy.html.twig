@@ -1,0 +1,70 @@
+{% extends "ajax/ajax.html.twig" %}
+{% block menu_bar %}
+    <div class="header-stats">
+        <ul>
+            <li><span class='count'>{{deadCitizenCount|number_format(0, ',', ' ')}}</span> {{'Bürger gestorben'|trans({}, 'welcome')}}</li>
+            <li><span class='count'>{{zombiesKilled|number_format(0, ',', ' ')}}</span> {{'Zombies gekillt'|trans({}, 'welcome')}}</li>
+            <li><span class='count'>{{canibalismCount|number_format(0, ',', ' ')}}</span> {{'Akte von Kannibalismus'|trans({}, 'welcome')}}</li>
+            <li class="end-stat">{{'Und das wird kaum besser werden...'|trans({}, 'welcome')}}</li>
+        </ul>
+    </div>
+{% endblock %}
+{% block ajax %}
+    <div class="row">
+        <div class="cell padded header rw-8 ro-2 rw-lg-12 ro-lg-0">
+            <h4>{% trans from 'login' %}Einloggen{% endtrans %}</h4>
+
+            <p class="justify">
+                {% trans from 'login' %}Bitte gib deinen Spielernamen und dein Passwort ein.{% endtrans %}
+            </p>
+            <form id="login-form">
+                <div class="row">
+                    <div class="cell padded-small rw-4 rw-md-12"><b><label for="login-name">{% trans from 'login' %}Spielername{% endtrans %}</label></b></div>
+                    <div class="cell padded-small rw-8 rw-md-12"><input name="login_user" id="login-name" type="text" /></div>
+                </div>
+                <div class="row">
+                    <div class="cell padded-small rw-4 rw-md-12"><b><label for="login-password">{% trans from 'login' %}Passwort{% endtrans %}</label></b></div>
+                    <div class="cell padded-small rw-8 rw-md-12"><input name="login_pass" id="login-password" type="password" /></div>
+                </div>
+                <div class="row">
+                    <div class="cell padded-small rw-4 rw-md-8"><b><label for="remember_me">{% trans from 'login' %}Angemeldet bleiben{% endtrans %}</label></b></div>
+                    <div class="cell padded-small rw-8 rw-md-4"><input type="checkbox" id="remember_me" name="_remember_me" checked/></div>
+                </div>
+                <div class="row-flex bottom right wrap">
+                    <div class="cell padded-small rw-4 rw-md-6 rw-sm-12">
+                        <button id="login_button">{% trans from 'login' %}Einloggen{% endtrans %}</button>
+                    </div>
+                    {% if not etwin %}
+                        <div class="cell padded-small rw-4 rw-md-6 rw-sm-12">
+                            <span class="small hide-sm">{% trans from 'login' %}Du hast noch keinen Account?{% endtrans %}</span>
+                            <button x-ajax-href="{{ path('public_register') }}" class="blue">{% trans from 'login' %}Registrieren!{% endtrans %}</button>
+                        </div>
+                    {% endif %}
+                </div>
+            </form>
+            <p class="right small">
+                <a href="" x-ajax-href="{{ path('public_reset') }}">{% trans from 'login' %}Passwort vergessen?{% endtrans %}</a>
+                {% if etwin %}
+                    <br /><a href="{{ url('gateway-etwin') }}">{% trans from 'login' %}Über EternalTwin einloggen{% endtrans %}</a>
+                {% endif %}
+            </p>
+        </div>
+    </div>
+{% endblock %}
+
+{% block js %}
+    <script>
+        document.getElementById('login_button').addEventListener('click', function(e) {
+            e.preventDefault();
+            $.ajax.easySend( '{{ path('api_login') }}', $.html.serializeForm(document.getElementById('login-form')),
+                function (data) {
+                    if (data.require_validation) $.ajax.load(null, '{{ path('public_validate') }}', true);
+                    else if ($.client.config.navigationCache.get()) {
+                        $.ajax.load(null, $.client.config.navigationCache.get(), true);
+                        $.client.config.navigationCache.set(null);
+                    }
+                    else $.ajax.load(null, '{{ path('initial_landing') }}', true);
+                }, {'default': '{% trans from 'login' %}Login fehlgeschlagen. Bitte prüfe deine Eingaben.{% endtrans %}'} )
+        });
+    </script>
+{% endblock %}

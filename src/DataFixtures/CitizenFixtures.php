@@ -10,6 +10,7 @@ use App\Entity\CitizenHomeUpgradePrototype;
 use App\Entity\CitizenProfession;
 use App\Entity\CitizenRole;
 use App\Entity\CitizenStatus;
+use App\Entity\ComplaintReason;
 use App\Entity\HelpNotificationMarker;
 use App\Entity\ItemGroup;
 use App\Entity\ItemGroupEntry;
@@ -26,15 +27,15 @@ use Symfony\Component\Console\Output\ConsoleOutputInterface;
 class CitizenFixtures extends Fixture implements DependentFixtureInterface
 {
     public static $profession_data = [
-        ['hero' => false, 'icon' => 'looser', 'name'=>'none'        ,'label'=>'Gammler',    'items' => ['basic_suit_#00'], 'items_alt' => ['basic_suit_dirt_#00'] ],
-        ['hero' => false, 'icon' => 'basic',  'name'=>'basic'       ,'label'=>'Einwohner',  'items' => ['basic_suit_#00'], 'items_alt' => ['basic_suit_dirt_#00'] ],
-        ['hero' => true, 'icon' => 'dig',    'name'=>'collec'      ,'label'=>'Buddler',    'items' => ['basic_suit_#00','pelle_#00'], 'items_alt' => ['basic_suit_dirt_#00'] ],
-        ['hero' => true, 'icon' => 'shield', 'name'=>'guardian'    ,'label'=>'Wächter',    'items' => ['basic_suit_#00','shield_#00'], 'items_alt' => ['basic_suit_dirt_#00'] ],
-        ['hero' => true, 'icon' => 'vest',   'name'=>'hunter'      ,'label'=>'Aufklärer',  'items' => ['basic_suit_#00','vest_on_#00'], 'items_alt' => ['basic_suit_dirt_#00','vest_off_#00'] ],
-        ['hero' => true, 'icon' => 'tamer',  'name'=>'tamer'       ,'label'=>'Dompteur',   'items' => ['basic_suit_#00','tamed_pet_#00'], 'items_alt' => ['basic_suit_dirt_#00','tamed_pet_drug_#00','tamed_pet_off_#00'] ],
-        ['hero' => true, 'icon' => 'tech',   'name'=>'tech'        ,'label'=>'Techniker',  'items' => ['basic_suit_#00','keymol_#00'], 'items_alt' => ['basic_suit_dirt_#00'] ],
-        ['hero' => true, 'icon' => 'shaman', 'name'=>'shaman'      ,'label'=>'Schamane',   'items' => ['basic_suit_#00','shaman_#00'], 'items_alt' => ['basic_suit_dirt_#00'] ],
-        ['hero' => true, 'icon' => 'book',   'name'=>'survivalist' ,'label'=>'Einsiedler', 'items' => ['basic_suit_#00','surv_book_#00'], 'items_alt' => ['basic_suit_dirt_#00'] ],
+        ['hero' => false, 'icon' => 'looser', 'name'=>'none',        'desc' => '', 'label'=>'Gammler',    'items' => ['basic_suit_#00'],                  'items_alt' => ['basic_suit_dirt_#00'] ],
+        ['hero' => false, 'icon' => 'basic',  'name'=>'basic',       'desc' => 'Der Einwohner ist einfacher Bürger. Er verfügt über keine spezielle Fähigkeit.', 'label'=>'Einwohner',  'items' => ['basic_suit_#00'],                  'items_alt' => ['basic_suit_dirt_#00'] ],
+        ['hero' => true,  'icon' => 'dig',    'name'=>'collec',      'desc' => 'Buddler können eine Zone im Vergleich zu den normalen Einwohnern schneller absuchen. Darüber hinaus haben sie eine höhere Chance, wertvolle Gegenstände zu finden.', 'label'=>'Buddler',    'items' => ['basic_suit_#00','pelle_#00'],      'items_alt' => ['basic_suit_dirt_#00'] ],
+        ['hero' => true,  'icon' => 'shield', 'name'=>'guardian',    'desc' => 'Der Wächter ist der geborener Kämpfer. In der Wüste kann er es mit weitaus mehr Zombies aufnehmen als jeder andere durchschnittliche Einwohner.', 'label'=>'Wächter',    'items' => ['basic_suit_#00','shield_#00'],     'items_alt' => ['basic_suit_dirt_#00'] ],
+        ['hero' => true,  'icon' => 'vest',   'name'=>'hunter',      'desc' => 'Der Aufklärer weiß sich geschickt zu tarnen, um sich mühelos selbst durch große Zombieansammlungen zu schleichen und Zonen aufzusuchen, in die sich keiner alleine trauen würde.', 'label'=>'Aufklärer',  'items' => ['basic_suit_#00','vest_on_#00'],    'items_alt' => ['basic_suit_dirt_#00','vest_off_#00'] ],
+        ['hero' => true,  'icon' => 'tamer',  'name'=>'tamer',       'desc' => 'Der Dompteur setzt seinen treuen Hund dazu ein, um in der Wüste gefundene Gegenstände in die Stadt zu bringen.', 'label'=>'Dompteur',   'items' => ['basic_suit_#00','tamed_pet_#00'],  'items_alt' => ['basic_suit_dirt_#00','tamed_pet_drug_#00','tamed_pet_off_#00'] ],
+        ['hero' => true,  'icon' => 'tech',   'name'=>'tech',        'desc' => 'Der Techniker kann besser als jeder andere Einwohner an Bauprojekten mitwirken. Außerdem ist er sehr geübt darin, Schlösser und versperrte Türen zu öffnen.', 'label'=>'Techniker',  'items' => ['basic_suit_#00','keymol_#00'],     'items_alt' => ['basic_suit_dirt_#00'] ],
+        ['hero' => true,  'icon' => 'shaman', 'name'=>'shaman',      'desc' => 'Der Schamane verfügt über mystische Fähigkeiten. Er kann die Seelen kürzlich verstorbener Bürger orten, die in der Außenwelt umher irren.', 'label'=>'Schamane',   'items' => ['basic_suit_#00','shaman_#00'],     'items_alt' => ['basic_suit_dirt_#00'] ],
+        ['hero' => true,  'icon' => 'book',   'name'=>'survivalist', 'desc' => 'Der Einsiedler ist ein Typ, mit dem seit Jahren niemand mehr geredet hat. Ganz auf sich allein gestellt, lebt er still vor sich hin. Wenn es ums Überleben geht, weiß sich der Einsiedler seit jeher zu helfen: Er findet immer etwas Ess- oder Trinkbares in der Wüste - egal, wo er sich gerade befindet.', 'label'=>'Einsiedler', 'items' => ['basic_suit_#00','surv_book_#00'],  'items_alt' => ['basic_suit_dirt_#00'] ],
     ];
 
     public static $citizen_status = [
@@ -93,6 +94,7 @@ class CitizenFixtures extends Fixture implements DependentFixtureInterface
         ['name' => 'tg_betadrug' ],
         ['name' => 'tg_build_vote' ],
         ['name' => 'tg_meta_winfect' ],
+        ['name' => 'tg_infect_wtns' ],
     ];
 
     public static $causes_of_death = [
@@ -164,10 +166,25 @@ class CitizenFixtures extends Fixture implements DependentFixtureInterface
         ['label' => 'Schamane'                    , 'vote' => true,  'icon' => 'shaman', 'name'=>'shaman', 'hidden' => false, 'secret' => false ],
         ['label' => 'Reiseleiter in der Außenwelt', 'vote' => true,  'icon' => 'guide',  'name'=>'guide' , 'hidden' => false, 'secret' => false ],
         ['label' => 'Ghul',                         'vote' => false, 'icon' => 'ghoul',  'name'=>'ghoul' , 'hidden' => false, 'secret' => true, 'message' => 'Du hast dich in einen Ghul verwandelt!' ],
+        ['label' => 'Katapult-Bediener',            'vote' => false, 'icon' => '',  'name'=>'cata', 'hidden' => true, 'secret' => false ],
     ];
 
     public static $notificationMarkers = [
-        'ghoul',
+        'ghoul'
+    ];
+
+    public static $complaintReasons = [
+        ['name' => 'theft', 'text' => 'Zahlreiche Diebstähle begangen'],
+        ['name' => 'water', 'text' => 'Verbraucht zuviel Wasser'],
+        ['name' => 'insulting', 'text' => 'Beleidigendes Verhalten'],
+        ['name' => 'buildings', 'text' => 'Blockiert die Baustelle'],
+        ['name' => 'expeditions', 'text' => 'Expeditionssaboteur'],
+        ['name' => 'wimp', 'text' => 'Geht kein Risiko ein'],
+        ['name' => 'selfish', 'text' => 'Handelt zu egoistisch'],
+        ['name' => 'communautary', 'text' => 'Gemeinschaftsfreak'],
+        ['name' => 'noinvolvment', 'text' => 'Bringt sich nicht genug ein'],
+        ['name' => 'toomanyitems', 'text' => 'Hortet zu viele Gegenstände'],
+        ['name' => 'violent', 'text' => 'Aggressiver Mitbürger'],
     ];
 
     private $entityManager;
@@ -193,7 +210,7 @@ class CitizenFixtures extends Fixture implements DependentFixtureInterface
         foreach (static::$profession_data as $entry) {
             // Get existing entry, or create new one
             /** @var CitizenProfession $entity */
-            $entity = $this->entityManager->getRepository(CitizenProfession::class)->findOneByName( $entry['name'] );
+            $entity = $this->entityManager->getRepository(CitizenProfession::class)->findOneBy( ['name' => $entry['name']] );
             if ($entity === null) $entity = new CitizenProfession();
             else {
                 $entity->getProfessionItems()->clear();
@@ -205,16 +222,17 @@ class CitizenFixtures extends Fixture implements DependentFixtureInterface
                 ->setName( $entry['name'] )
                 ->setLabel( $entry['label'] )
                 ->setIcon( $entry['icon'] )
-                ->setHeroic( $entry['hero'] );
+                ->setHeroic( $entry['hero'] )
+                ->setDescription( $entry['desc']);
 
             foreach ( $entry['items'] as $p_item ) {
-                $i = $manager->getRepository(ItemPrototype::class)->findOneByName( $p_item );
+                $i = $manager->getRepository(ItemPrototype::class)->findOneBy( ['name' => $p_item] );
                 if (!$i) throw new Exception('Item prototype not found: ' . $p_item);
                 $entity->addProfessionItem($i);
             }
 
             foreach ( $entry['items_alt'] as $p_item ) {
-                $i = $manager->getRepository(ItemPrototype::class)->findOneByName( $p_item );
+                $i = $manager->getRepository(ItemPrototype::class)->findOneBy( ['name' => $p_item] );
                 if (!$i) throw new Exception('Item prototype not found: ' . $p_item);
                 $entity->addAltProfessionItem($i);
             }
@@ -239,7 +257,7 @@ class CitizenFixtures extends Fixture implements DependentFixtureInterface
         // Iterate over all entries
         foreach (static::$citizen_status as $entry) {
             // Get existing entry, or create new one
-            $entity = $this->entityManager->getRepository(CitizenStatus::class)->findOneByName( $entry['name'] );
+            $entity = $this->entityManager->getRepository(CitizenStatus::class)->findOneBy( ['name' =>  $entry['name']] );
             if ($entity === null) $entity = new CitizenStatus();
 
             // Set property
@@ -276,7 +294,7 @@ class CitizenFixtures extends Fixture implements DependentFixtureInterface
         // Iterate over all entries
         foreach (static::$home_levels as $level => $entry) {
             // Get existing entry, or create new one
-            $entity = $this->entityManager->getRepository(CitizenHomePrototype::class)->findOneByLevel( $level );
+            $entity = $this->entityManager->getRepository(CitizenHomePrototype::class)->findOneBy( ['level' => $level] );
             if ($entity === null) $entity = new CitizenHomePrototype();
 
             $entity->setLevel($level)->setAp( $entry['ap'] )->setIcon( $entry['icon'] )
@@ -299,7 +317,7 @@ class CitizenFixtures extends Fixture implements DependentFixtureInterface
 
                 foreach ( $entry['resources'] as $item => $count ) {
 
-                    $ip = $manager->getRepository(ItemPrototype::class)->findOneByName( $item );
+                    $ip = $manager->getRepository(ItemPrototype::class)->findOneBy( ['name' => $item] );
                     if (!$item) throw new Exception("Unable to locate item prototype '{$item}'");
                     $entity->getResources()->addEntry( (new ItemGroupEntry())->setPrototype( $ip )->setChance( $count ) );
 
@@ -333,7 +351,7 @@ class CitizenFixtures extends Fixture implements DependentFixtureInterface
         // Iterate over all entries
         foreach (static::$home_upgrades as $entry) {
             // Get existing entry, or create new one
-            $entity = $this->entityManager->getRepository(CitizenHomeUpgradePrototype::class)->findOneByName( $entry['name'] );
+            $entity = $this->entityManager->getRepository(CitizenHomeUpgradePrototype::class)->findOneBy( ['name' => $entry['name']] );
             if ($entity === null) $entity = new CitizenHomeUpgradePrototype();
 
             $entity->setName( $entry['name'] )->setLabel( $entry['label'] )->setDescription( $entry['desc'] )
@@ -344,7 +362,7 @@ class CitizenFixtures extends Fixture implements DependentFixtureInterface
             $manager->flush();
 
             // Refresh
-            $entity = $this->entityManager->getRepository(CitizenHomeUpgradePrototype::class)->findOneByName( $entry['name'] );
+            $entity = $this->entityManager->getRepository(CitizenHomeUpgradePrototype::class)->findOneBy( ['name' => $entry['name']] );
 
             foreach ( $entry['levels'] as $level => $res ) {
                 $lv_entry = $manager->getRepository(CitizenHomeUpgradeCosts::class)->findOneByPrototype( $entity, $level );
@@ -363,7 +381,7 @@ class CitizenFixtures extends Fixture implements DependentFixtureInterface
 
                     foreach ( $res[1] as $item => $count ) {
 
-                        $ip = $manager->getRepository(ItemPrototype::class)->findOneByName( $item );
+                        $ip = $manager->getRepository(ItemPrototype::class)->findOneBy( ['name' => $item] );
                         if (!$item) throw new Exception("Unable to locate item prototype '{$item}'");
                         $lv_entry->getResources()->addEntry( (new ItemGroupEntry())->setPrototype( $ip )->setChance( $count ) );
 
@@ -392,7 +410,7 @@ class CitizenFixtures extends Fixture implements DependentFixtureInterface
         foreach (static::$causes_of_death as $entry) {
             // Get existing entry, or create new one
             /** @var CauseOfDeath $entity */
-            $entity = $this->entityManager->getRepository(CauseOfDeath::class)->findOneByRef( $entry['ref'] );
+            $entity = $this->entityManager->getRepository(CauseOfDeath::class)->findOneBy( ['ref' => $entry['ref']] );
             if ($entity === null) $entity = (new CauseOfDeath())->setRef( $entry['ref'] );
 
             // Set property
@@ -427,7 +445,7 @@ class CitizenFixtures extends Fixture implements DependentFixtureInterface
         foreach (static::$role_data as $entry) {
             // Get existing entry, or create new one
             /** @var CitizenRole $entity */
-            $entity = $this->entityManager->getRepository(CitizenRole::class)->findOneByName( $entry['name'] );
+            $entity = $this->entityManager->getRepository(CitizenRole::class)->findOneBy( ['name' => $entry['name']] );
             if ($entity === null) $entity = new CitizenRole();
 
             // Set property
@@ -456,8 +474,27 @@ class CitizenFixtures extends Fixture implements DependentFixtureInterface
         // Iterate over all entries
         foreach (static::$notificationMarkers as $entry) {
 
-            if (!$manager->getRepository(HelpNotificationMarker::class)->findOneByName($entry))
+            if (!$manager->getRepository(HelpNotificationMarker::class)->findOneBy(['name' => $entry]))
                 $manager->persist( (new HelpNotificationMarker())->setName( $entry ) );
+
+        }
+
+        $manager->flush();
+    }
+
+    protected function insert_complaint_reasons(ObjectManager $manager, ConsoleOutputInterface $out) {
+        $out->writeln( '<comment>Complaint reasons: ' . count(static::$complaintReasons) . ' fixture entries available.</comment>' );
+
+        // Iterate over all entries
+        foreach (static::$complaintReasons as $entry) {
+            /** @var ComplaintReason $reason */
+            $reason = $manager->getRepository(ComplaintReason::class)->findOneBy(['name' => $entry]);
+
+            if (!$reason)
+                $reason = (new ComplaintReason())->setName( $entry['name'] );
+            
+            $reason->setText($entry['text']);
+            $manager->persist($reason);
 
         }
 
@@ -487,6 +524,8 @@ class CitizenFixtures extends Fixture implements DependentFixtureInterface
             $this->insert_cod($manager, $output);
             $output->writeln("");
             $this->insert_hnm($manager, $output);
+            $output->writeln("");
+            $this->insert_complaint_reasons($manager, $output);
 
         } catch (Exception $e) {
             $output->writeln('<error>' . $e->getMessage() . '</error>');

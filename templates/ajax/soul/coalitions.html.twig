@@ -1,7 +1,304 @@
 {% extends "ajax/soul/shell.html.twig" %}
+{% block title %}{{'Kleine Koalitionen'|trans({}, 'game')}}{% endblock %}
 {% block menu_text %}
     {{ parent() }}
 {% endblock %}
 {% block soul_content %}
-    COMING SOON
+
+    {# @var membership \App\Entity\UserGroupAssociation #}
+    {# @var all_users \App\Entity\UserGroupAssociation[] #}
+    {# @var invitations \App\Entity\UserGroupAssociation[] #}
+
+    <div class="row">
+        <div class="cell rw-12 padded">
+            <a class="small" href="{{ path('help', {'name': 'coalitions'}) }}" target="_blank"><img alt="" src="{{ asset('build/images/assets/img/icons/small_help.gif') }}"> {{ 'Spielhilfe: Kleine Koalitionen'|trans({}, 'soul') }}</a>
+        </div>
+    </div>
+
+    <div class="row">
+        {% if membership is null %}
+            <div class="cell rw-12 padded">
+                <div class="help">
+                    {% trans from 'soul' %}
+                        Du möchtest schon seit langem <strong>mit deinen Freunden zusammen sterben</strong>? Du möchtest die gleichen schönen und <strong>entsetzlichen</strong> Momente mit ihnen erleben? Dann sind die <strong>Kleinen Koalitionen</strong> genau das richtige für dich! Es handelt sich um kleine Mannschaften von <strong>5</strong> Bürgern, die gemeinsam die Welt der Verdammten entdecken möchten.
+                    {% endtrans %}
+                    <br />
+                    {% trans from 'soul' %}
+                        Das Prinzip ist ganz einfach: Wenn ihr in einer Koalition spielt, <strong>zieht der Erste, der eine Partie anfängt, alle verfügbaren Koalitionsmitglieder mit sich ins Spiel.</strong>
+                    {% endtrans %}
+                </div>
+            </div>
+            <div class="cell padded rw-6 rw-md-8 rw-sm-12">
+                <button x-confirm="{{ 'Du möchtest deine eigene Koalition erstellen?'|trans({},'soul') }}" x-api-endpoint="{{ path('soul_create_coalition') }}">{{ 'Meine Koalition erstellen'|trans({},'soul') }}</button>
+            </div>
+            <div class="cell rw-12 padded">
+                <h5>{{ 'Einer existierenden Koalition beitreten'|trans({},'soul') }}</h5>
+                {% if invitations is empty %}
+                    <span class="small">{{ 'Es hat dich bisher noch niemand eingeladen.'|trans({},'soul') }}</span>
+                {% else %}
+                    <div class="row-table">
+                        <div class="row header hide-sm">
+                            <div class="padded cell rw-5">{{ 'Name'|trans({},'soul') }}</div>
+                            <div class="padded cell rw-7">{{ 'Aktionen'|trans({},'soul') }}</div>
+                        </div>
+                        {% for invitation in invitations %}
+                            {# @var invitation \App\Entity\UserGroupAssociation #}
+                            <div class="row">
+                                <div class="padded cell rw-5 rw-sm-12">
+                                    <img alt="!" src="{{ asset('build/images/icons/anim_icon_mail.gif') }}" />
+                                    {{ invitation.association.name }}
+                                </div>
+                                <div class="padded cell rw-7 rw-sm-12">
+                                    <button x-api-endpoint="{{ path('soul_join_coalition', {'coalition': invitation.id}) }}">{{ 'Mitmachen!'|trans({},'soul') }}</button>
+                                    <button x-api-endpoint="{{ path('soul_leave_coalition', {'coalition': invitation.id}) }}">{{ 'Die Einladung ablehnen.'|trans({},'soul') }}</button>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            </div>
+        {% else %}
+            <div class="cell rw-8 rw-lg-7 rw-md-6 rw-sm-12 padded">
+                <h5>{{ 'Shoutbox der Koalition'|trans({},'soul') }}</h5>
+                <div class="row-flex">
+                    <div class="cell padded-small grow-1">
+                        <label><input type="text" id="shoutbox_chat" /></label>
+                    </div>
+                    <div class="cell padded-small">
+                        <button id="shoutbox_send">{{ 'Absenden'|trans({},'soul') }}</button>
+                    </div>
+                    <div class="cell padded-small">
+                        <button id="shoutbox_refresh"><i class="fa fa-sync-alt"></i></button> <div class="tooltip normal">{{ 'Klick auf diesen Link, um die Seite neu zu laden.'|trans({},'soul') }}</div>
+                    </div>
+                </div>
+                <div class="shout-container">
+                    <div class="shoutbox">
+                        <div class="shout-content">
+                            <div class="shout-loader"><i class="fa fa-pulse fa-spinner"></i></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="cell rw-4 rw-lg-5 rw-md-6 rw-sm-12 padded">
+                {% set all_invited  = all_users|filter(ac => ac.associationType == constant('App\\Entity\\UserGroupAssociation::GroupAssociationTypeCoalitionInvitation') ) %}
+                {% set all_sleepers = all_users|filter(ac => (
+                    ac.associationType == constant('App\\Entity\\UserGroupAssociation::GroupAssociationTypeCoalitionMemberInactive') or
+                    ac.user.lastActionTimestamp is null or
+                    ac.user.lastActionTimestamp.timestamp < ('now'|date('U') - 432000) or
+                    ac.user.activeCitizen is not null
+                    ) and ac not in all_invited
+                ) %}
+                {% set all_members  = all_users|filter(ac => ac.associationType == constant('App\\Entity\\UserGroupAssociation::GroupAssociationTypeCoalitionMember') and ac not in all_sleepers ) %}
+
+                {% macro display_assoc(assocs,allow_to_fire,show_town) %}
+                    {# @var assocs \App\Entity\UserGroupAssociation[] #}
+                    <ul class="coa-users">
+                        {% for assoc in assocs %}
+                            <li class="{{ assoc.user == app.user ? 'my-entry' : '' }}">
+                                <div class="row-flex v-center">
+                                    <div class="padded cell">
+                                        <img alt="o" src="{{ asset( assoc.user.lastActionTimestamp is not null and assoc.user.lastActionTimestamp.timestamp > ('now'|date('U') - 300) ? 'build/images/icons/player_online.gif' : 'build/images/icons/player_offline.gif') }}">
+                                    </div>
+                                    <div class="cell"><div class="avatar small ua-{{ assoc.user.id % 10 }}"><img alt="" src="{{ assoc.user.avatar ? path('app_web_avatar', {'uid': assoc.user.id, 'name': assoc.user.avatar.smallName, 'ext': assoc.user.avatar.format}) : asset('build/images/forum/empty_avatar.gif') }}" style="margin-right: 0;"></div></div>
+                                    <div class="cell grow-1" style="margin-left: 4px;">
+                                        {{ assoc.user.name }}<br />
+                                        <span>
+                                            {% if assoc.user.activeCitizen is not null %}
+                                                {% if show_town %}
+                                                    {% if not assoc.user.activeCitizen.alive %}
+                                                        <i>{{'Tod nicht validiert'|trans({}, 'soul')}}</i>
+                                                    {% elseif app.user.activeCitizen or not assoc.user.activeCitizen.town.open %}
+                                                        {{ assoc.user.activeCitizen.town.name }}
+                                                    {% else %}
+                                                        <a href="#" x-town-locked="{{ assoc.user.activeCitizen.town.password is empty ? '0' : '1' }}" x-join-id="{{ assoc.user.activeCitizen.town.id }}">{{ assoc.user.activeCitizen.town.name }}</a>
+                                                    {% endif %}
+                                                {% endif %}
+                                            {% else %}
+                                                <i>{{ 'Nicht in einer Stadt'|trans({},'soul') }}</i>
+                                            {% endif %}
+                                        </span>
+                                    </div>
+                                    {% if assoc.user != app.user and allow_to_fire %}
+                                        <div class="cell">
+                                            <img x-confirm="{{ 'Diesen Spieler ausschließen?'|trans({},'soul') }}" x-api-endpoint="{{ path('soul_kick_coalition', {'coalition': assoc.id}) }}" class="pointer" alt="[x]" src="{{ asset('build/images/icons/fired.gif') }}" />
+                                            <div class="tooltip help">{{ 'Diesen Spieler ausschließen.'|trans({},'soul') }}</div>
+                                        </div>
+                                    {% endif %}
+
+                                </div>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                {% endmacro %}
+
+                {% if all_members is not empty %}
+                    <h5>{{ 'Verfügbare Mitglieder'|trans({},'soul') }}</h5>
+                    {{ _self.display_assoc(all_members,membership.associationLevel == constant('App\\Entity\\UserGroupAssociation::GroupAssociationLevelFounder'),true) }}
+                {% endif %}
+                {% if all_sleepers is not empty %}
+                    <h5>{{ 'Nicht verfügbar'|trans({},'soul') }} <a class="help-button"><div class="tooltip help">{% trans from "global" %}Folgende Bürger sind wahlweise: <ul><li>auf ihrer Todesanzeigeseite (sie haben ihren Tod noch nicht bestätigt),</li><li>bereits im Spiel,</li><li>sie haben sich entschieden, nicht automatisch einer Stadt und ihrer Koalition anzugehören.</li><li>oder, sie haben sich seit über 5 Tagen nicht mehr angemeldet.</li></ul>{% endtrans %}</div>{{ 'Hilfe'|trans({},'global')|raw }}</a></h5> 
+                    {{ _self.display_assoc(all_sleepers,membership.associationLevel == constant('App\\Entity\\UserGroupAssociation::GroupAssociationLevelFounder'),true) }}
+                {% endif %}
+                {% if all_invited is not empty %}
+                    <h5>{{ 'Ausstehende Einladungen'|trans({},'soul') }}</h5>
+                    {{ _self.display_assoc(all_invited,membership.associationLevel == constant('App\\Entity\\UserGroupAssociation::GroupAssociationLevelFounder') or membership.associationLevel == constant('App\\Entity\\UserGroupAssociation::GroupAssociationLevelDefault'),false) }}
+                {% endif %}
+
+                {% if membership.associationLevel == constant('App\\Entity\\UserGroupAssociation::GroupAssociationLevelFounder') %}
+                    <div id="users-list-soul">
+                        <h5>{{'Einen Freund einladen'|trans({}, "soul")}}</h5>
+                        <div><label><input type="text" id="users-search" style="margin-top: 5px" /></label><div class="tooltip help">{{ 'Gib den Pseudo des Bürgers ein.'|trans({},'soul') }}</div></div>
+                        <div id="users-list"></div>
+                    </div>
+                {% endif %}
+
+                <h5>{{ 'Optionen'|trans({},'soul') }}</h5>
+                {% if membership.associationType == constant('App\\Entity\\UserGroupAssociation::GroupAssociationTypeCoalitionMember') %}
+                    <span class="small">{% trans from "soul" %}Du stehst <strong>zur Verfügung</strong>.{% endtrans %}</span> <a class="help-button"><div class="tooltip help">{{ 'Wenn ein andered Mitglied deiner Koalition eine Stadt auswählt, schließt du dich ihm automatisch an und spielst in der gleichen Stadt wie er.'|trans({},'global') }}</div>{{ 'Hilfe'|trans({},'global') }}</a>
+                {% else %}
+                    <span class="small">{% trans from "soul" %}Du stehst <strong>nicht zur Verfügung</strong>.{% endtrans %}</span>
+                {% endif %}
+                <button x-api-endpoint="{{ path('soul_toggle_coalition') }}">{{ 'Meinen Status ändern'|trans({},'soul') }}<div class="tooltip help">{{ 'Wenn du nicht automatisch an einer Partie teilnehmen möchtest, sobald ein anderer Spieler der Koalition einer Stadt beitritt, stelle bitte ein: nicht zur Verfügung.'|trans({},'soul') }}</div></button>
+                <button x-confirm="{{ (membership.associationLevel == constant('App\\Entity\\UserGroupAssociation::GroupAssociationLevelFounder') ? 'Möchtest du diese Koalition verlassen und somit auflösen?' : 'Möchtest du diese Koalition verlassen?')|trans({},'soul') }}" x-api-endpoint="{{ path('soul_leave_coalition', {'coalition': membership.id}) }}">{{ membership.associationLevel == constant('App\\Entity\\UserGroupAssociation::GroupAssociationLevelFounder') ? 'Verlassen UND auflösen'|trans({},'soul') : 'Verlassen'|trans({},'soul') }}</button>
+                <span class="small"></span>
+            </div>
+        {% endif %}
+    </div>
+{% endblock %}
+
+{% block js %}
+    {{parent()}}
+    <script>
+        {% if membership is not null %}
+
+            {% if membership.associationLevel == constant('App\\Entity\\UserGroupAssociation::GroupAssociationLevelFounder') %}
+                let typingTimer, doneTypingInterval = 500;
+                let searchBox = document.getElementById('users-search');
+
+                const userSearchHandler = function() {
+                    if (searchBox.value.length >= 3)
+                        $.ajax.background().load(
+                            document.getElementById('users-list'),
+                            '{{ path('users_fuzzyfind', {url: 'soul_invite_coalition'}) }}',
+                            false,
+                            {'name': searchBox.value},
+                            function () {
+                                $.html.addEventListenerAll('#users-list>.users-list-entry>div', 'click', function (e,elem) {
+                                    $.ajax.easySend( elem.getAttribute('x-soul-url'), {},
+                                        function () {
+                                            $.ajax.load(null, '{{ path('soul_coalitions') }}', true);
+                                        } );
+                                })
+                            }
+                        );
+                    else document.getElementById('users-list').innerHTML = '';
+                };
+
+                const userSearchHandlerUp = function () {
+                    clearTimeout(typingTimer);
+                    typingTimer = setTimeout(userSearchHandler, doneTypingInterval);
+                };
+
+                const userSearchHandlerDown = function () {
+                    clearTimeout(typingTimer);
+                };
+
+                if (searchBox) {
+                    searchBox.addEventListener('keyup', userSearchHandlerUp);
+                    searchBox.addEventListener('keydown', userSearchHandlerDown);
+                    searchBox.addEventListener('focus', () => userSearchHandler());
+                    searchBox.addEventListener('blur', () => setTimeout( () => document.getElementById('users-list').innerHTML = '', 100));
+                }
+
+            {% endif %}
+        {% endif %}
+
+        $.html.addEventListenerAll('[x-api-endpoint]', 'click', function(e,elem) {
+            const cn = elem.getAttribute('x-confirm');
+            if (!cn || confirm(cn))
+                $.ajax.easySend( elem.getAttribute('x-api-endpoint'), {},
+                    function () {
+                        $.ajax.load(null, '{{ path('soul_coalitions') }}', true);
+                    } );
+        });
+
+        $.html.addEventListenerAll('[x-join-id]', 'click', function(e,elem) {
+            e.preventDefault();
+            if (confirm('{{ 'Möchtest du diesem Spieler folgen?'|trans({},'soul')|e('js') }}')) {
+                const pass = (elem.getAttribute('x-town-locked') === '1') ? prompt('{{ 'Bitte gib das Stadtpasswort ein :'|trans({}, 'ghost') }}') : '';
+                $.ajax.easySend( '{{ path('api_join')|e('js') }}', {'town':  elem.getAttribute('x-join-id'), pass: pass},
+                    function () {
+                        $.ajax.load(null, '{{ path('game_landing') }}', true);
+                    } );
+            }
+
+        });
+
+        {% if membership is not null %}
+            const fun_refresh = function(bg, fun = null) {
+                let content_box = document.querySelector('.shout-container .shout-content');
+                const callback = function() {
+                    if (fun) fun();
+                    let coa_icon = document.querySelector('img#shell_coa_icon[x-src-default]');
+                    if (coa_icon) coa_icon.setAttribute('src', coa_icon.getAttribute('x-src-default'));
+                };
+
+                if (bg) $.ajax.background().load( content_box, '{{ path('soul_shoutbox')|e('js') }}', false, {}, callback );
+                else $.ajax.load( content_box, '{{ path('soul_shoutbox')|e('js') }}', false, {}, callback )
+            };
+
+            fun_refresh(true);
+
+            let fun_send_working = false;
+            const fun_send_shout = function() {
+                let box = document.getElementById('shoutbox_chat');
+                if (!box.value || fun_send_working) return;
+                box.setAttribute('disabled','disabled');
+
+                let button = document.getElementById('shoutbox_send');
+                button.setAttribute('disabled','disabled');
+
+                let ref = document.getElementById('shoutbox_refresh');
+                ref.setAttribute('disabled','disabled');
+
+                fun_send_working = true;
+
+                $.ajax.no_loader().easySend( '{{ path('soul_shout_coalition') }}', {text: box.value},
+                    () => {
+                        fun_refresh(true, () => {
+                            box.value = '';
+                            box.removeAttribute('disabled');
+                            button.removeAttribute('disabled');
+                            ref.removeAttribute('disabled');
+                            fun_send_working = false;
+                        });
+                    }, null,  () => {
+                        box.removeAttribute('disabled');
+                        button.removeAttribute('disabled');
+                        ref.removeAttribute('disabled');
+                        fun_send_working = false;
+                    } );
+            };
+
+            $.html.addEventListenerAll('#shoutbox_send', 'click', fun_send_shout);
+            $.html.addEventListenerAll('#shoutbox_chat', 'keypress', e => e.key === "Enter" ? fun_send_shout() : null)
+            $.html.addEventListenerAll('#shoutbox_refresh', 'click', function() {
+                let box = document.getElementById('shoutbox_chat');
+                box.setAttribute('disabled','disabled');
+                let button = document.getElementById('shoutbox_send');
+                button.setAttribute('disabled','disabled');
+                let ref = document.getElementById('shoutbox_refresh');
+                ref.setAttribute('disabled','disabled');
+                fun_send_working = true;
+
+                fun_refresh(true, () => {
+                    box.value = '';
+                    box.removeAttribute('disabled');
+                    button.removeAttribute('disabled');
+                    ref.removeAttribute('disabled');
+                    fun_send_working = false;
+                });
+            });
+        {% endif %}
+    </script>
 {% endblock %}

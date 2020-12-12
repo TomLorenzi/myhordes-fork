@@ -1718,5 +1718,473 @@
         <target>Aucune raison n'a été donnée pour ce bannissement.</target>
       </segment>
     </unit>
+    <unit id="clP2Rxk" name="EternalTwin-Nutzer">
+      <notes>
+        <note category="german">EternalTwin-Nutzer</note>
+      </notes>
+      <segment>
+        <source>EternalTwin-Nutzer</source>
+        <target>EternalTwin-Nutzer</target>
+      </segment>
+    </unit>
+    <unit id="0T9At.g" name="32951b2">
+      <notes>
+        <note category="german">Dieser Spieler verwendet einen EternalTwin-Account. Wir feuen uns, ihn bei MyHordes begrüßen zu dürfen!</note>
+      </notes>
+      <segment>
+        <source>Dieser Spieler verwendet einen EternalTwin-Account. Wir feuen uns, ihn bei MyHordes begrüßen zu dürfen!</source>
+        <target>Dieser Spieler verwendet einen EternalTwin-Account. Wir feuen uns, ihn bei MyHordes begrüßen zu dürfen!</target>
+      </segment>
+    </unit>
+    <unit id="XRvl7w0" name="ce071ab">
+      <notes>
+        <note category="german">Das angegebene Profil kann nicht importiert werden, da es bereits einem anderen MyHordes-Konto zugeordnet ist.</note>
+      </notes>
+      <segment>
+        <source>Das angegebene Profil kann nicht importiert werden, da es bereits einem anderen MyHordes-Konto zugeordnet ist.</source>
+        <target>Das angegebene Profil kann nicht importiert werden, da es bereits einem anderen MyHordes-Konto zugeordnet ist.</target>
+      </segment>
+    </unit>
+    <unit id="wstj04z" name="MyHordes ist ein stolzer Bestandteil des EternalTwin-Netzwerkes!">
+      <notes>
+        <note category="german">MyHordes ist ein stolzer Bestandteil des EternalTwin-Netzwerkes!</note>
+      </notes>
+      <segment>
+        <source>MyHordes ist ein stolzer Bestandteil des EternalTwin-Netzwerkes!</source>
+        <target>MyHordes ist ein stolzer Bestandteil des EternalTwin-Netzwerkes!</target>
+      </segment>
+    </unit>
+    <unit id="WVIMH8t" name="a7e6e46">
+      <notes>
+        <note category="german">Um MyHordes auch in Zukunft weiter spielen zu können, musst du deinen alten MyHordes-Account mit einem EternalTwin-Account verknüpfen.</note>
+      </notes>
+      <segment>
+        <source>Um MyHordes auch in Zukunft weiter spielen zu können, musst du deinen alten MyHordes-Account mit einem EternalTwin-Account verknüpfen.</source>
+        <target>Um MyHordes auch in Zukunft weiter spielen zu können, musst du deinen alten MyHordes-Account mit einem EternalTwin-Account verknüpfen.</target>
+      </segment>
+    </unit>
+    <unit id="CACKQCH" name="EternalTwin-Account verknüpfen">
+      <notes>
+        <note category="german">EternalTwin-Account verknüpfen</note>
+      </notes>
+      <segment>
+        <source>EternalTwin-Account verknüpfen</source>
+        <target>EternalTwin-Account verknüpfen</target>
+      </segment>
+    </unit>
+    <unit id="lqipl75" name="%name%'s Koalition">
+      <notes>
+        <note category="german">%name%'s Koalition</note>
+      </notes>
+      <segment>
+        <source>%name%'s Koalition</source>
+        <target>Coalition de %name%</target>
+      </segment>
+    </unit>
+    <unit id="j8VraNU" name="Herzlichen Glückwunsch, du bist der Koalition soeben beigetreten!">
+      <notes>
+        <note category="german">Herzlichen Glückwunsch, du bist der Koalition soeben beigetreten!</note>
+      </notes>
+      <segment>
+        <source>Herzlichen Glückwunsch, du bist der Koalition soeben beigetreten!</source>
+        <target>Félicitations, vous avez rejoint la coalition !</target>
+      </segment>
+    </unit>
+    <unit id="MNqhTYg" name="Es tut uns Leid, aber dieser Spieler gehört bereits einer Koalition an.">
+      <notes>
+        <note category="german">Es tut uns Leid, aber dieser Spieler gehört bereits einer Koalition an.</note>
+      </notes>
+      <segment>
+        <source>Es tut uns Leid, aber dieser Spieler gehört bereits einer Koalition an.</source>
+        <target>Désolé, ce joueur fait déjà partie d'une coalition.</target>
+      </segment>
+    </unit>
+    <unit id="3gqWAoL" name="Hierfür musst du einer Koalition angehören.">
+      <notes>
+        <note category="german">Hierfür musst du einer Koalition angehören.</note>
+      </notes>
+      <segment>
+        <source>Hierfür musst du einer Koalition angehören.</source>
+        <target>Pour cela, vous devez appartenir à une coalition.</target>
+      </segment>
+    </unit>
+    <unit id="57GeJrY" name="Du bist bereits Mitglied einer Koalition.">
+      <notes>
+        <note category="german">Du bist bereits Mitglied einer Koalition.</note>
+      </notes>
+      <segment>
+        <source>Du bist bereits Mitglied einer Koalition.</source>
+        <target>Vous êtes déjà membre d'une coalition.</target>
+      </segment>
+    </unit>
+    <unit id="yQfn1EC" name="Deine Koalition ist bereits voll.">
+      <notes>
+        <note category="german">Deine Koalition ist bereits voll.</note>
+      </notes>
+      <segment>
+        <source>Deine Koalition ist bereits voll.</source>
+        <target>Votre coalition est déjà pleine.</target>
+      </segment>
+    </unit>
+    <unit id="QuFqW4z" name="Spielhilfe: Kleine Koalitionen">
+      <notes>
+        <note category="german">Spielhilfe: Kleine Koalitionen</note>
+      </notes>
+      <segment>
+        <source>Spielhilfe: Kleine Koalitionen</source>
+        <target>Guide: Petites coalitions</target>
+      </segment>
+    </unit>
+    <unit id="GO1ZJcp" name="3e3b0ae">
+      <notes>
+        <note category="german">Du möchtest schon seit langem &lt;strong&gt;mit deinen Freunden zusammen sterben&lt;/strong&gt;? Du möchtest die gleichen schönen und &lt;strong&gt;entsetzlichen&lt;/strong&gt; Momente mit ihnen erleben? Dann sind die &lt;strong&gt;Kleinen Koalitionen&lt;/strong&gt; genau das richtige für dich! Es handelt sich um kleine Mannschaften von &lt;strong&gt;5&lt;/strong&gt; Bürgern, die gemeinsam die Welt der Verdammten entdecken möchten.</note>
+      </notes>
+      <segment>
+        <source>Du möchtest schon seit langem &lt;strong&gt;mit deinen Freunden zusammen sterben&lt;/strong&gt;? Du möchtest die gleichen schönen und &lt;strong&gt;entsetzlichen&lt;/strong&gt; Momente mit ihnen erleben? Dann sind die &lt;strong&gt;Kleinen Koalitionen&lt;/strong&gt; genau das richtige für dich! Es handelt sich um kleine Mannschaften von &lt;strong&gt;5&lt;/strong&gt; Bürgern, die gemeinsam die Welt der Verdammten entdecken möchten.</source>
+        <target><![CDATA[Vous rêvez de <strong>mourir entre amis</strong> ? Vous souhaitez partager les mêmes moments de tendresse et d'<strong>horreur</strong> ? Alors les <strong>Petites Coalitions</strong> sont un outil idée pour vous ! Ce sont des 'équipes' de choc de <strong>5</strong> citoyens qui traversent le monde des Hordes ensemble.]]></target>
+      </segment>
+    </unit>
+    <unit id="_SpidlG" name="cb2469f">
+      <notes>
+        <note category="german">Das Prinzip ist ganz einfach: Wenn ihr in einer Koalition spielt, &lt;strong&gt;zieht der Erste, der eine Partie anfängt, alle verfügbaren Koalitionsmitglieder mit sich ins Spiel.&lt;/strong&gt;</note>
+      </notes>
+      <segment>
+        <source>Das Prinzip ist ganz einfach: Wenn ihr in einer Koalition spielt, &lt;strong&gt;zieht der Erste, der eine Partie anfängt, alle verfügbaren Koalitionsmitglieder mit sich ins Spiel.&lt;/strong&gt;</source>
+        <target><![CDATA[Le principe est ultra simple : quand vous faites partie d'une coalition, <strong>le premier qui rejoint une partie entraîne tous les membres disponibles de la coalition avec lui</strong>.]]></target>
+      </segment>
+    </unit>
+    <unit id="vxIJV3j" name="Du möchtest deine eigene Koalition erstellen?">
+      <notes>
+        <note category="german">Du möchtest deine eigene Koalition erstellen?</note>
+      </notes>
+      <segment>
+        <source>Du möchtest deine eigene Koalition erstellen?</source>
+        <target>Créer votre propre coalition ?</target>
+      </segment>
+    </unit>
+    <unit id="h_4dLhS" name="Meine Koalition erstellen">
+      <notes>
+        <note category="german">Meine Koalition erstellen</note>
+      </notes>
+      <segment>
+        <source>Meine Koalition erstellen</source>
+        <target>Créer ma coalition</target>
+      </segment>
+    </unit>
+    <unit id="okBUp.C" name="Einer existierenden Koalition beitreten">
+      <notes>
+        <note category="german">Einer existierenden Koalition beitreten</note>
+      </notes>
+      <segment>
+        <source>Einer existierenden Koalition beitreten</source>
+        <target>Rejoindre une coalition existante</target>
+      </segment>
+    </unit>
+    <unit id="S6ckGt2" name="Es hat dich bisher noch niemand eingeladen.">
+      <notes>
+        <note category="german">Es hat dich bisher noch niemand eingeladen.</note>
+      </notes>
+      <segment>
+        <source>Es hat dich bisher noch niemand eingeladen.</source>
+        <target>Pour l'instant personne ne vous envoyé d'invitation.</target>
+      </segment>
+    </unit>
+    <unit id="3NHVIj9" name="Name">
+      <notes>
+        <note category="german">Name</note>
+      </notes>
+      <segment>
+        <source>Name</source>
+        <target>Nom</target>
+      </segment>
+    </unit>
+    <unit id="Vlb5Lbe" name="Aktionen">
+      <notes>
+        <note category="german">Aktionen</note>
+      </notes>
+      <segment>
+        <source>Aktionen</source>
+        <target>Action</target>
+      </segment>
+    </unit>
+    <unit id="ze.SRGE" name="Mitmachen!">
+      <notes>
+        <note category="german">Mitmachen!</note>
+      </notes>
+      <segment>
+        <source>Mitmachen!</source>
+        <target>Rejoindre !</target>
+      </segment>
+    </unit>
+    <unit id="RRAKPkm" name="Die Einladung ablehnen.">
+      <notes>
+        <note category="german">Die Einladung ablehnen.</note>
+      </notes>
+      <segment>
+        <source>Die Einladung ablehnen.</source>
+        <target>Refuser l'invitation.</target>
+      </segment>
+    </unit>
+    <unit id="3hmiaVs" name="Shoutbox der Koalition">
+      <notes>
+        <note category="german">Shoutbox der Koalition</note>
+      </notes>
+      <segment>
+        <source>Shoutbox der Koalition</source>
+        <target>Shoutbox de la coalition</target>
+      </segment>
+    </unit>
+    <unit id="EdbufZv" name="Verfügbare Mitglieder">
+      <notes>
+        <note category="german">Verfügbare Mitglieder</note>
+      </notes>
+      <segment>
+        <source>Verfügbare Mitglieder</source>
+        <target>Membres disponibles</target>
+      </segment>
+    </unit>
+    <unit id="XblqKpM" name="Nicht verfügbar">
+      <notes>
+        <note category="german">Nicht verfügbar</note>
+      </notes>
+      <segment>
+        <source>Nicht verfügbar</source>
+        <target>Indisponibles</target>
+      </segment>
+    </unit>
+    <unit id="3E9hxaU" name="Ausstehende Einladungen">
+      <notes>
+        <note category="german">Ausstehende Einladungen</note>
+      </notes>
+      <segment>
+        <source>Ausstehende Einladungen</source>
+        <target>Invitations en attente</target>
+      </segment>
+    </unit>
+    <unit id="RG9ZXHi" name="Einen Freund einladen">
+      <notes>
+        <note category="german">Einen Freund einladen</note>
+      </notes>
+      <segment>
+        <source>Einen Freund einladen</source>
+        <target>Ajouter un ami</target>
+      </segment>
+    </unit>
+    <unit id="8dquNSH" name="Optionen">
+      <notes>
+        <note category="german">Optionen</note>
+      </notes>
+      <segment>
+        <source>Optionen</source>
+        <target>Options</target>
+      </segment>
+    </unit>
+    <unit id="Rh5HYn_" name="Du stehst &lt;strong&gt;zur Verfügung&lt;/strong&gt;.">
+      <notes>
+        <note category="german">Du stehst &lt;strong&gt;zur Verfügung&lt;/strong&gt;.</note>
+      </notes>
+      <segment>
+        <source>Du stehst &lt;strong&gt;zur Verfügung&lt;/strong&gt;.</source>
+        <target><![CDATA[Vous êtes <strong>disponible</strong>.]]></target>
+      </segment>
+    </unit>
+    <unit id="o.K5fG9" name="Du stehst &lt;strong&gt;nicht zur Verfügung&lt;/strong&gt;.">
+      <notes>
+        <note category="german">Du stehst &lt;strong&gt;nicht zur Verfügung&lt;/strong&gt;.</note>
+      </notes>
+      <segment>
+        <source>Du stehst &lt;strong&gt;nicht zur Verfügung&lt;/strong&gt;.</source>
+        <target><![CDATA[Vous êtes <strong>indisponible</strong>.]]></target>
+      </segment>
+    </unit>
+    <unit id="jFqiwRT" name="Meinen Status ändern">
+      <notes>
+        <note category="german">Meinen Status ändern</note>
+      </notes>
+      <segment>
+        <source>Meinen Status ändern</source>
+        <target>Changer mon statut</target>
+      </segment>
+    </unit>
+    <unit id="rq4q8kx" name="Verlassen UND auflösen">
+      <notes>
+        <note category="german">Verlassen UND auflösen</note>
+      </notes>
+      <segment>
+        <source>Verlassen UND auflösen</source>
+        <target>Quitter ET Dissoudre</target>
+      </segment>
+    </unit>
+    <unit id="oiwx9uP" name="Verlassen">
+      <notes>
+        <note category="german">Verlassen</note>
+      </notes>
+      <segment>
+        <source>Verlassen</source>
+        <target>Quitter</target>
+      </segment>
+    </unit>
+    <unit id="sLJWy9T" name="Nicht in einer Stadt">
+      <notes>
+        <note category="german">Nicht in einer Stadt</note>
+      </notes>
+      <segment>
+        <source>Nicht in einer Stadt</source>
+        <target>Pas de ville</target>
+      </segment>
+    </unit>
+    <unit id="AT.EHRB" name="Diesen Spieler ausschließen?">
+      <notes>
+        <note category="german">Diesen Spieler ausschließen?</note>
+      </notes>
+      <segment>
+        <source>Diesen Spieler ausschließen?</source>
+        <target>Renvoyer ce coéquipier?</target>
+      </segment>
+    </unit>
+    <unit id="xpAtz8l" name="Diesen Spieler ausschließen.">
+      <notes>
+        <note category="german">Diesen Spieler ausschließen.</note>
+      </notes>
+      <segment>
+        <source>Diesen Spieler ausschließen.</source>
+        <target>Renvoyer ce joueur.</target>
+      </segment>
+    </unit>
+    <unit id="PmiiQcl" name="Die Shoutbox ist leer...">
+      <notes>
+        <note category="german">Die Shoutbox ist leer...</note>
+      </notes>
+      <segment>
+        <source>Die Shoutbox ist leer...</source>
+        <target>La shoutbox est vide...</target>
+      </segment>
+    </unit>
+    <unit id="IuHFUTo" name="Absenden">
+      <notes>
+        <note category="german">Absenden</note>
+      </notes>
+      <segment>
+        <source>Absenden</source>
+        <target>Envoyer</target>
+      </segment>
+    </unit>
+    <unit id="FNkhsV2" name="Vor 1 Tag">
+      <notes>
+        <note category="german">Vor 1 Tag</note>
+      </notes>
+      <segment>
+        <source>Vor 1 Tag</source>
+        <target>Il y a 1 jour</target>
+      </segment>
+    </unit>
+    <unit id="BFD31Nv" name="Vor %d% Tagen">
+      <notes>
+        <note category="german">Vor %d% Tagen</note>
+      </notes>
+      <segment>
+        <source>Vor %d% Tagen</source>
+        <target>Il y a %d% jours</target>
+      </segment>
+    </unit>
+    <unit id="zeYLnSy" name="Klick auf diesen Link, um die Seite neu zu laden.">
+      <notes>
+        <note category="german">Klick auf diesen Link, um die Seite neu zu laden.</note>
+      </notes>
+      <segment>
+        <source>Klick auf diesen Link, um die Seite neu zu laden.</source>
+        <target>Cliquez sur ce lien pour actualiser la page.</target>
+      </segment>
+    </unit>
+    <unit id="flUhUW0" name="7e9e358">
+      <notes>
+        <note category="german">Wenn du nicht automatisch an einer Partie teilnehmen möchtest, sobald ein anderer Spieler der Koalition einer Stadt beitritt, stelle bitte ein: nicht zur Verfügung.</note>
+      </notes>
+      <segment>
+        <source>Wenn du nicht automatisch an einer Partie teilnehmen möchtest, sobald ein anderer Spieler der Koalition einer Stadt beitritt, stelle bitte ein: nicht zur Verfügung.</source>
+        <target>Si vous ne souhaitez pas rejoindre automatiquement une partie lorsqu\'un autre membre de la Coalition rejoint une ville, mettez vous en mode Indisponible !</target>
+      </segment>
+    </unit>
+    <unit id="vKZiHzm" name="&lt;b&gt;%u1%&lt;/b&gt; hat &lt;b&gt;%u2%&lt;/b&gt; in die Koalition eingeladen.">
+      <notes>
+        <note category="german">&lt;b&gt;%u1%&lt;/b&gt; hat &lt;b&gt;%u2%&lt;/b&gt; in die Koalition eingeladen.</note>
+      </notes>
+      <segment>
+        <source>&lt;b&gt;%u1%&lt;/b&gt; hat &lt;b&gt;%u2%&lt;/b&gt; in die Koalition eingeladen.</source>
+        <target><![CDATA[<b>%u1%</b> a invité <b>%u2%</b> à nous rejoindre.]]></target>
+      </segment>
+    </unit>
+    <unit id="bvTtAAO" name="&lt;b&gt;%u1%&lt;/b&gt; ist der Koalition soeben beigetreten!">
+      <notes>
+        <note category="german">&lt;b&gt;%u1%&lt;/b&gt; ist der Koalition soeben beigetreten!</note>
+      </notes>
+      <segment>
+        <source>&lt;b&gt;%u1%&lt;/b&gt; ist der Koalition soeben beigetreten!</source>
+        <target><![CDATA[<b>%u1%</b> vient de rejoindre la coalition !]]></target>
+      </segment>
+    </unit>
+    <unit id="ztPAknj" name="&lt;b&gt;%u1%&lt;/b&gt; hat die Koalition verlassen.">
+      <notes>
+        <note category="german">&lt;b&gt;%u1%&lt;/b&gt; hat die Koalition verlassen.</note>
+      </notes>
+      <segment>
+        <source>&lt;b&gt;%u1%&lt;/b&gt; hat die Koalition verlassen.</source>
+        <target><![CDATA[<b>%u1%</b> a quitté la coalition.]]></target>
+      </segment>
+    </unit>
+    <unit id="tMzLQiv" name="&lt;b&gt;%u1%&lt;/b&gt; hat &lt;b&gt;%u2%&lt;/b&gt; aus der Koalition entfernt.">
+      <notes>
+        <note category="german">&lt;b&gt;%u1%&lt;/b&gt; hat &lt;b&gt;%u2%&lt;/b&gt; aus der Koalition entfernt.</note>
+      </notes>
+      <segment>
+        <source>&lt;b&gt;%u1%&lt;/b&gt; hat &lt;b&gt;%u2%&lt;/b&gt; aus der Koalition entfernt.</source>
+        <target><![CDATA[<b>%u1%</b> a renvoyé(e) <b>%u2%</b> de la coalition.]]></target>
+      </segment>
+    </unit>
+    <unit id="bCn1heW" name="&lt;b&gt;%u1%&lt;/b&gt; hat sich soeben in die Stadt &quot;&lt;b&gt;%town%&lt;/b&gt;&quot; eingeschrieben!">
+      <notes>
+        <note category="german">&lt;b&gt;%u1%&lt;/b&gt; hat sich soeben in die Stadt "&lt;b&gt;%town%&lt;/b&gt;" eingeschrieben!</note>
+      </notes>
+      <segment>
+        <source>&lt;b&gt;%u1%&lt;/b&gt; hat sich soeben in die Stadt "&lt;b&gt;%town%&lt;/b&gt;" eingeschrieben!</source>
+        <target><![CDATA[<b>%u1%</b> vient de partir sur "<b>%town%</b>" !]]></target>
+      </segment>
+    </unit>
+    <unit id="Hb1dhIr" name="1507816">
+      <notes>
+        <note category="german">Du wirst nun ausgeloggt. Dein Account wird in 24-48 Stunden gelöscht. Bis dahin kannst du dich jederzeit erneut einloggen und dadurch die Löschung deines Accounts abbrechen.</note>
+      </notes>
+      <segment>
+        <source>Du wirst nun ausgeloggt. Dein Account wird in 24-48 Stunden gelöscht. Bis dahin kannst du dich jederzeit erneut einloggen und dadurch die Löschung deines Accounts abbrechen.</source>
+        <target>Vous allez maintenant être déconnecté. Votre compte sera supprimé dans 24 à 48 heures. D'ici là, vous pouvez vous reconnecter à tout moment et annuler ainsi la suppression de votre compte.</target>
+      </segment>
+    </unit>
+    <unit id="WbndBY4" name="Möchtest du diesem Spieler folgen?">
+      <notes>
+        <note category="german">Möchtest du diesem Spieler folgen?</note>
+      </notes>
+      <segment>
+        <source>Möchtest du diesem Spieler folgen?</source>
+        <target>Rejoindre ce coéquipier ?</target>
+      </segment>
+    </unit>
+    <unit id="BNXmJ_6" name="8e2de13">
+      <notes>
+        <note category="german">Der Twinoid-Server meldet, dass er dein Profil aufgrund eines internen Fehlers nicht an MyHordes übertragen kann. Dieses Problem tritt häufig auf, wenn du in deinen Letzten Worten oder Stadtkommentaren Sonderzeichen verwendet hast. Bitte prüfe deine Stadtkommentare und entferne Sonderzeichen. Wenn sich Sonderzeichen in deinen Letzten Worten befinden, wende dich auf Twinoid an einen Raben.</note>
+      </notes>
+      <segment>
+        <source>Der Twinoid-Server meldet, dass er dein Profil aufgrund eines internen Fehlers nicht an MyHordes übertragen kann. Dieses Problem tritt häufig auf, wenn du in deinen Letzten Worten oder Stadtkommentaren Sonderzeichen verwendet hast. Bitte prüfe deine Stadtkommentare und entferne Sonderzeichen. Wenn sich Sonderzeichen in deinen Letzten Worten befinden, wende dich auf Twinoid an einen Raben.</source>
+        <target>Le serveur Twinoid signale qu'il ne peut pas transférer votre profil vers MyHordes en raison d'une erreur interne. Ce problème est courant si vous avez utilisé des caractères spéciaux dans vos derniers mots ou commentaires de ville. Veuillez vérifier les commentaires de vos villes et supprimer les caractères spéciaux. S'il y a des caractères spéciaux dans vos derniers mots, tournez-vous vers un corbeau sur Twinoid.</target>
+      </segment>
+    </unit>
+    <unit id="lXmZ79T" name="Tod nicht validiert">
+      <notes>
+        <note category="german">Tod nicht validiert</note>
+      </notes>
+      <segment>
+        <source>Tod nicht validiert</source>
+        <target>Mort non validée</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

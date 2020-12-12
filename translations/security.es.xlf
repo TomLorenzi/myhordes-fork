@@ -136,5 +136,23 @@
         <target>La cuenta está bloqueada.</target>
       </segment>
     </unit>
+    <unit id="gd.MOnZ" name="Too many failed login attempts, please try again later.">
+      <notes>
+        <note category="german">Zu viele fehlgeschlagene Anmeldeversuche, bitte versuchen Sie es später noch einmal.</note>
+      </notes>
+      <segment>
+        <source>Too many failed login attempts, please try again later.</source>
+        <target>Demasiados intentos fallidos de inicio de sesión, inténtelo de nuevo más tarde.</target>
+      </segment>
+    </unit>
+    <unit id="l9VYRj0" name="Invalid or expired login link.">
+      <notes>
+        <note category="german">Ungültiger oder abgelaufener Anmelde-Link.</note>
+      </notes>
+      <segment>
+        <source>Invalid or expired login link.</source>
+        <target>Enlace de inicio de sesión inválido o expirado.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

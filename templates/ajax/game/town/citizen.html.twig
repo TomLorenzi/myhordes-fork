@@ -1,4 +1,5 @@
 {% extends "ajax/game/town/town.html.twig" %}
+{% block title %}{{'Die Bürger'|trans({}, 'game')}}{% endblock %}
 {% block content %}
     {# @var citizen \App\Entity\Citizen #}
     {% set hour = "now"|date("G") %}
@@ -9,6 +10,7 @@
         <li class="tab selected">
             <div class="tab-link" x-ajax-sticky x-ajax-href="{{ path('town_citizens') }}">{% trans from 'game' %}Bürger{% endtrans %}</div>
         </li>
+
         {% if not town.chaos %}
             {% for name,role in votesNeeded %}
                 {% if role %}
@@ -18,6 +20,13 @@
                 {% endif %}
             {% endfor %}
         {% endif %}
+
+        {% if has_omniscience %}
+        <li class="tab">
+            <div class="tab-link" x-ajax-sticky x-ajax-href="{{ path('town_citizens_omniscience') }}"> <img src="{{ asset('build/images/icons/small_view.gif') }}" alt="" />{{'Allwissenheit'|trans({}, 'game')}}</div>
+        </li>
+        {% endif %}
+        
     </ul>
 
     <div class="row-table citizens-list">
@@ -26,12 +35,12 @@
             <div class="padded cell rw-4 hide-md hide-sm center">{{ 'Nachricht'|trans({},'game') }}</div>
             <div class="padded cell rw-3 rw-md-5 right">{{ 'Draußen?'|trans({},'game') }}</div>
         </div>
-        {% for citizenInfo in citizens|sort((a,b) => (a.citizen.alive == b.citizen.alive) ? ((a.citizen.alive) ? a.citizen.user.username|lower <=> b.citizen.user.username|lower : b.citizen.survivedDays <=> a.citizen.survivedDays) : b.citizen.alive <=> a.citizen.alive) %}
+        {% for citizenInfo in citizens|sort((a,b) => (a.citizen.alive == b.citizen.alive) ? ((a.citizen.alive) ? a.citizen.user.name|lower <=> b.citizen.user.name|lower : b.citizen.survivedDays <=> a.citizen.survivedDays) : b.citizen.alive <=> a.citizen.alive) %}
             {% set citizen = citizenInfo.citizen %}
             {# @var \App\Entity\Citizen citizen  #}
             <div class="row-flex stretch pointer{% if citizen == me%} me{% endif %}" style="max-height: 100px;">
-                <div class="cell factor-0" style="flex-basis: 90px; background: url('{{ citizen.user.avatar ? path('app_web_avatar', {'uid': citizen.user.id, 'name': citizen.user.avatar.smallName, 'ext': citizen.user.avatar.format}) : asset('build/images/forum/empty_avatar.gif') }}') center/cover no-repeat;">&nbsp;</div>
-                <div class="cell factor-0 citizen-{{ citizen.alive ? (citizen.online ? 'online' : 'offline') : 'dead' }}" style="flex-basis: 8px;">&nbsp;</div>
+                <div class="cell factor-0 avatar ua-{{ random(0,9) }}" style="flex-basis: 90px; background: url('{{ citizen.user.avatar ? path('app_web_avatar', {'uid': citizen.user.id, 'name': citizen.user.avatar.smallName, 'ext': citizen.user.avatar.format}) : asset('build/images/forum/empty_avatar.gif') }}') center/cover no-repeat;" x-ajax-href="{{ path('town_visit', {id: citizen.id}) }}">&nbsp;</div>
+                <div class="cell factor-0 citizen-{{ citizen.alive ? (citizen.online ? 'online' : 'offline') : 'dead' }}" style="flex-basis: 8px;" x-ajax-href="{{ path('town_visit', {id: citizen.id}) }}">&nbsp;</div>
                 
                 <div class="padded cell rw-4 factor-1 small content-center-vertical citizen-box {% if citizen == me%} citizen-box-name-me {% else %} citizen-box-name {% endif %}">
                     <div>
@@ -52,12 +61,18 @@
                                     <img alt="" src="{{ asset('build/images/professions/void.gif') }}" />
                                 {% endif %}
                                 <img alt="{{ 'Tot!'|trans({},'game') }}" src="{{ asset('build/images/professions/death.gif') }}" />
+                                {% if citizen.hasEaten %}
+                                <img alt="" src="{{ asset('build/images/professions/cannib.gif') }}" />
+                                {% endif %}
                             {% endif %}
-                            <a class="link" href="{{ path('soul_visit', {id: citizen.user.id}) }}"><b class="citizen-name">{{ citizen.user.username }}</b></a>
+                            <a class="link" href="{{ path('soul_visit', {id: citizen.user.id}) }}"><b class="citizen-name">{{ citizen.user.name }}</b></a>
                             {% if citizen.alive %}
                                 {% for role in citizen.roles %}
                                     {% if not role.secret and not role.hidden %}
+                                    <span>
                                         <img alt="" src="{{ asset('build/images/roles/' ~ role.icon ~ '.gif') }}" />
+                                        <div class="tooltip">{{'Diese Bürger is der %role% der Stadt'|trans({'%role%': role.label|trans({}, 'game')}, 'game')}}</div>
+                                    </span>
                                     {% endif %}
                                 {% endfor %}
                             {% endif %}
@@ -73,6 +88,23 @@
                 {% if citizen.alive %}
                     <div class="padded cell rw-8 hide-md factor-2 small citizen-box" x-ajax-href="{{ path('town_visit', {id: citizen.id}) }}">
                         {{ citizen.home.description }}
+                        <div class="tooltip normal">
+                            {% if not hidden[citizen.id] %}
+                                {% if citizen.home.chest.items|length == 0 %}
+                                    <em>{{ 'Leere Truhe'|trans({},'game') }}</em>
+                                {% else %}
+                                    <em>{{ 'Truhe'|trans({},'game') }}</em><br />
+                                {% endif %}
+                                {% for item in citizen.home.chest.items %}
+                                    {# @var \App\Entity\Item item #}
+                                    {% if (citizen == me or not item.prototype.hideInForeignChest) %}
+                                        <img alt="{{ item.prototype.label|trans({},'items') }}" src="{{ asset('build/images/item/item_' ~ item.prototype.icon ~ '.gif') }}" />
+                                    {% endif %}
+                                {% endfor %}
+                            {% else %}
+                                <em>{{ 'Ein Vorhang blockiert die Sicht ...'|trans({},'game') }}</em>
+                            {% endif %}
+                        </div>
                     </div>
                     <div class="padded cell factor-0 citizen-box hide-lg hide-md hide-sm" x-ajax-href="{{ path('town_visit', {id: citizen.id}) }}" style="flex-basis: 80px">
                         <img alt="{{ citizen.home.prototype.level }}" src="{{ asset('build/images/home/' ~ citizen.home.prototype.icon ~ '.gif') }}" />
@@ -102,6 +134,13 @@
                             {# @var \App\Entity\Item item #}
                             <img alt="{{ item.prototype.label|trans({},'items') }}" src="{{ asset('build/images/item/item_' ~ item.prototype.icon ~ '.gif') }}" />
                         {% endfor %}
+                        <div class="tooltip normal">
+                        {% if citizen.hasEaten %}
+                            {{'%citizen% hat einen Teil seines Heißhungers gestillt, indem er Teile seiner Mitbürger gegessen hat. Um sicherzustellen, dass so etwas nicht noch einmal passiert, übergieße die Verstorbenen das nächste Mal mit Wasser...'|trans({'%citizen%':citizen.user.name}, 'game')}}
+                        {% else %}
+                            <strong class="warning">{{'Todesursache'|trans({}, 'game')}}</strong> : {{ citizen.causeOfDeath.label|trans({}, "game") }}
+                        {% endif %}
+                        </div>
                     </div>
                     <div class="padded cell factor-0 small citizen-box hide-lg hide-md hide-sm" x-ajax-href="{{ path('town_visit', {id: citizen.id}) }}" style="flex-basis: 160px;">
                         {% if citizen.lastWords is null %}
@@ -122,27 +161,6 @@
                         {% endif %}
                     </div>
                 {% endif %}
-                <div class="tooltip normal">
-                    {% if citizen.alive %}
-                        {% if not hidden[citizen.id] %}
-                            {% if citizen.home.chest.items|length == 0 %}
-                                <em>{{ 'Leere Truhe'|trans({},'game') }}</em>
-                            {% else %}
-                                <em>{{ 'Truhe'|trans({},'game') }}</em><br />
-                            {% endif %}
-                            {% for item in citizen.home.chest.items %}
-                                {# @var \App\Entity\Item item #}
-                                {% if (citizen == me or not item.prototype.hideInForeignChest) %}
-                                    <img alt="{{ item.prototype.label|trans({},'items') }}" src="{{ asset('build/images/item/item_' ~ item.prototype.icon ~ '.gif') }}" />
-                                {% endif %}
-                            {% endfor %}
-                        {% else %}
-                            <em>{{ 'Ein Vorhang blockiert die Sicht ...'|trans({},'game') }}</em>
-                        {% endif %}
-                    {% else %}
-                        <h1>{{'Todesursache'|trans({}, 'game')}}</h1><br />{{ citizen.causeOfDeath.label|trans({}, "game") }}
-                    {% endif %}
-                </div>
             </div>
         {% endfor %}
     </div>

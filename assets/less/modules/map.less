@@ -228,7 +228,6 @@ div.map_area {
             background-repeat: no-repeat;
             background-size: contain;
             animation: zone-soul 18s infinite linear;
-            transform-origin: 50% 85%;
           }
         }
         &:nth-child(2n)>div.soul-area { transform: rotate(60deg); }
@@ -359,7 +358,7 @@ div.map_area {
 }
 
 .tooltip.tooltip-map {
-  border: 1px solid #b4da4c; background: fade(@myhordes-map-background,80%); color: #b4da4c; min-width: 100px;
+  border: 1px solid #b4da4c; background: fade(@myhordes-map-background,80%); color: #b4da4c; min-width: 175px;
   &:after { content: " "; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
     background: url("../../img/anims/noise.gif") repeat; opacity: 0.02; }
 }
@@ -368,22 +367,22 @@ div.map_area {
 /* Animation presets */
 @keyframes zone-soul {
   0%    { left: 30%; top: -30%; transform: rotate( -35deg);  }
-  10.7%  { left: 80%; top:  30%; transform: rotate( -35deg);  }
-  11.8%  { left: 80%; top:  30%; transform: rotate( 106deg);  }
+  10.7%  { left: 50%; top:  30%; transform: rotate( -35deg);  }
+  11.8%  { left: 50%; top:  30%; transform: rotate( 106deg);  }
   21.4% { left: 10%; top:  20%; transform: rotate( 106deg);  }
   22.5% { left: 10%; top:  20%; transform: rotate(-120deg); }
-  32.1% { left: 70%; top: -20%; transform: rotate(-120deg); }
-  33.2% { left: 70%; top: -20%; transform: rotate(  35deg);   }
+  32.1% { left: 50%; top: -20%; transform: rotate(-120deg); }
+  33.2% { left: 50%; top: -20%; transform: rotate(  35deg);   }
   41.8% { left: 20%; top:  50%; transform: rotate(  35deg);   }
   42.9% { left: 20%; top:  50%; transform: rotate(-173deg); }
   53.6% { left: 30%; top: -30%; transform: rotate(-173deg); }
   54.7% { left: 30%; top: -30%; transform: rotate( -35deg);  }
-  64.4% { left: 80%; top:  30%; transform: rotate( -35deg);  }
-  65.5% { left: 80%; top:  30%; transform: rotate( 106deg);  }
+  64.4% { left: 50%; top:  30%; transform: rotate( -35deg);  }
+  65.5% { left: 50%; top:  30%; transform: rotate( 106deg);  }
   74.2% { left: 10%; top:  20%; transform: rotate( 106deg);  }
   75.3% { left: 10%; top:  20%; transform: rotate(-120deg); }
-  85.9% { left: 70%; top: -20%; transform: rotate(-120deg); }
-  87.0% { left: 70%; top: -20%; transform: rotate(  35deg);   }
+  85.9% { left: 50%; top: -20%; transform: rotate(-120deg); }
+  87.0% { left: 50%; top: -20%; transform: rotate(  35deg);   }
   92.9% { left: 20%; top:  50%; transform: rotate(  35deg);   }
   94.0% { left: 20%; top:  50%; transform: rotate(-173deg); }
   100%  { left: 30%; top: -30%; transform: rotate(-173deg); }

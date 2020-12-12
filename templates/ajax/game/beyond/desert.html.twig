@@ -1,4 +1,59 @@
 {% extends "ajax/game/beyond/beyond.html.twig" %}
+{% block title %}
+{# Time of day #}
+{% if "now"|date('H') >= 6 and "now"|date('H') < 9 %}
+    {{'Ein neuer Tag bricht an'|trans({}, 'game')|raw}}
+{% elseif "now"|date('H') < 12 %}
+    {{'An einem kalten Morgen'|trans({}, 'game')|raw}}
+{% elseif "now"|date('H') < 18 %}
+    {{"Die Außenwelt"|trans({}, 'game')|raw}}
+{% elseif "now"|date('H') < 20 %}
+    {{"Ein beunruhigender Sonnenuntergang"|trans({}, 'game')|raw}}
+{% else %}
+    {{"Eine eisige Nacht"|trans({}, 'game')|raw}}
+{% endif %}
+{# Alone or not #}
+{% if other_citizens|length == 1 %}
+    {{'... allein'|trans({}, 'game')|raw}}
+{% elseif other_citizens|length == 2 %}
+    {% set othername = other_citizens[0].user.name %}
+    {% if other_citizens[0].user == app.user %}{% set othername = other_citizens[1].user.name %}{% endif %}
+    {{'an der Seite von %citizen%'|trans({"%citizen%": othername}, 'game')|raw}}
+{% endif %}
+{# Direction #}
+{% set dir = "" %}
+{% if zone.getDirection == constant('App\\Entity\\Zone::DirectionNorthWest') %}
+    {% set dir = "im Nordwesten"|trans({},'game') %}
+{% elseif zone.getDirection == constant('App\\Entity\\Zone::DirectionNorth') %}
+    {% set dir = "im Norden"|trans({},'game') %}
+{% elseif zone.getDirection == constant('App\\Entity\\Zone::DirectionNorthEast') %}
+    {% set dir = "im Nordosten"|trans({},'game') %}
+{% elseif zone.getDirection == constant('App\\Entity\\Zone::DirectionWest') %}
+    {% set dir = "im Westen"|trans({},'game') %}
+{% elseif zone.getDirection == constant('App\\Entity\\Zone::DirectionEast') %}
+    {% set dir = "im Osten"|trans({},'game') %}
+{% elseif zone.getDirection == constant('App\\Entity\\Zone::DirectionSouthWest') %}
+    {% set dir = "im Südwesten"|trans({},'game') %}
+{% elseif zone.getDirection == constant('App\\Entity\\Zone::DirectionSouth') %}
+    {% set dir = "im Süden"|trans({},'game') %}
+{% elseif zone.getDirection == constant('App\\Entity\\Zone::DirectionSouthEast') %}
+    {% set dir = 'im Südosten'|trans({},'game') %}
+{% endif %}
+{% if dir != "" %}
+    {% if not zone.prototype %}
+        , {{'irgendwo %location% der Stadt...'|trans({'%location%': dir}, 'game')|raw}}
+    {% elseif zone.buryCount > 0 %}
+        {{"inmitten eines unentwirrbaren Trümmerhaufens"|trans({'%location%': dir}, 'game')|raw}}
+    {% else %}
+        {{"in einer unheimlichen Ruine %location%"|trans({'%location%': dir}, 'game')|raw}}
+    {% endif %}    
+{% else %}
+    {{'an den Toren der Stadt'|trans({}, 'game')|raw}}
+{% endif %}
+{% if zone_blocked %}
+    , {{'sitzt in der Falle und wartet auf den Tod...'|trans({}, 'game')|raw}}
+{% endif %}
+{% endblock %}
 {% block menu_text %}
     {{ parent() }}
 {% endblock %}
@@ -45,7 +100,7 @@
 
     {% if citizen.escortSettings is not null and citizen.escortSettings.leader is not null %}
         <div class="help">
-            <b>{{ 'Du folgst aktuell %citizen%.'|trans({'%citizen%': citizen.escortSettings.leader.user.username}, 'game') }}</b>
+            <b>{{ 'Du folgst aktuell %citizen%.'|trans({'%citizen%': citizen.escortSettings.leader.user.name}, 'game') }}</b>
             <p>
                 {% trans from 'game' %}
                     Solange du einem anderen Bürger folgst, sind deine Handlungsmöglichkeiten eingeschränkt.
@@ -142,6 +197,15 @@
                         {% trans from 'game' %}
                             Diese Zone ist leergesucht. Du wirst hier keine wertvollen Gegenstände mehr finden können.
                         {% endtrans %}
+                        <a class="help-button">
+                            <div class="tooltip help">
+                                {% trans from 'global' %}
+                                Die große Anzahl an Erdhaufen und an herumliegenden Müll sind ein Indiz dafür, dass hier wahrscheinlich nichts mehr zu finden ist.
+                                <p><em>Wenn du möchtest, kannst du allerdings weitergraben und ein paar minderwertige Materialien für die verschiedenen Baustellen der Stadt zu Tage fördern..</em></p>
+                                {% endtrans %}
+                            </div>
+                            {{ 'Hilfe'|trans({},'global') }}
+                        </a>
                     </div>
                 {% endif %}
 
@@ -205,7 +269,7 @@
                     {% endif %}
 
 
-                    {% embed "ajax/game/actions.html.twig" with {'heroic_action_list': heroics, 'item_action_list': actions, 'recipe_list': recipes, 'scout': (zone_blocked and active_scout_mode), 'hidden': citizen_hidden} %}
+                    {% embed "ajax/game/actions.html.twig" with {'heroic_action_list': heroics, 'special_action_list': specials, 'item_action_list': actions, 'recipe_list': recipes, 'scout': (zone_blocked and active_scout_mode), 'hidden': citizen_hidden} %}
                     {% endembed %}
 
                     {% if banished or town_chaos %}
@@ -248,9 +312,9 @@
                 {% if is_shaman %}
                     <button id="fall_rain">
                         {% if zone.x != 0 or zone.y != 0 %}
-                            <img alt="" src="{{ asset('build/images/icons/water.gif') }}">{{'Zone reinigen'|trans({}, 'game')}} (3 <div class="pm"></div>)
+                            <img alt="" src="{{ asset('build/images/icons/water.gif') }}">{{'Zone reinigen'|trans({}, 'game')}} ({% if is_shaman_role %}3 <div class="pm">{% else %}1 <div class="ap"></div> + 1 <img style="float: none;vertical-align: baseline;" src="{{ asset('build/images/item/item_soul_blue.gif') }}" alt="" />{% endif %})</div>
                         {% else %}
-                            <img alt="" src="{{ asset('build/images/icons/water.gif') }}">{{'Regentanz ausführen'|trans({}, 'game')}} (3 <div class="pm"></div>)
+                            <img alt="" src="{{ asset('build/images/icons/water.gif') }}">{{'Regentanz ausführen'|trans({}, 'game')}} ({% if is_shaman_role %}3 <div class="pm">{% else %}1 <div class="ap"></div> + 1 <img style="float: none;vertical-align: baseline;" src="{{ asset('build/images/item/item_soul_blue.gif') }}" alt="" />{% endif %})</div>
                         {% endif %}
                     </button>
                 {% endif %}
@@ -319,7 +383,7 @@
                                     <img src="{{ asset('build/images/icons/player_offline.gif') }}" alt="{{ 'Offline'|trans({},'global') }}">
                                 {% endif %}
                                 <img alt="{{ other_citizen.profession.label|trans({}, 'game') }}" src="{{ asset('build/images/professions/' ~ other_citizen.profession.icon ~ '.gif') }}">
-                                <b>{{ other_citizen.user.username }}</b>
+                                <b>{{ other_citizen.user.name }}</b>
                             </div>
                             <div class="padded cell rw-3">
                                 <ul class="status">
@@ -457,7 +521,7 @@
                                     <img src="{{ asset('build/images/icons/player_offline.gif') }}" alt="{{ 'Offline'|trans({},'global') }}">
                                 {% endif %}
                                 <img alt="{{ other_citizen.profession.label|trans({}, 'game') }}" src="{{ asset('build/images/professions/' ~ other_citizen.profession.icon ~ '.gif') }}">
-                                <b>{{ other_citizen.user.username }}</b>
+                                <b>{{ other_citizen.user.name }}</b>
                             </div>
                             <div class="padded cell rw-4">
                                 <ul class="status">
@@ -471,7 +535,7 @@
                                         <li class="status">
                                             <img src="{{ asset('build/images/icons/escort_other.gif') }}" alt="{{ 'Eskorte'|trans({},'game') }}">
                                             <div class="tooltip">
-                                                {{ 'Dieser Bürger wird aktuell von %leader% eskortiert.'|trans({'%leader%': other_citizen.escortSettings.leader.user.username},'game') }}
+                                                {{ 'Dieser Bürger wird aktuell von %leader% eskortiert.'|trans({'%leader%': other_citizen.escortSettings.leader.user.name},'game') }}
                                             </div>
                                         </li>
                                     {% endif %}
@@ -734,6 +798,11 @@
             '{{ path('beyond_desert_heroic_controller') }}', '{{ path('beyond_dashboard') }}'
         );
 
+        handleSpecialActions(
+            document.querySelectorAll('ul.special_actions li[x-action-id]:not([disabled])'),
+            '{{ path('beyond_desert_special_action_controller') }}', '{{ path('beyond_dashboard') }}'
+        );
+
         handleActions(
             document.querySelectorAll('ul.actions li[x-action-id][x-provoking-id]:not([disabled])'),
             '{{ path('beyond_desert_action_controller') }}', '{{ path('beyond_dashboard') }}'
@@ -746,6 +815,7 @@
 
         handleActionPopups( document.querySelectorAll('ul.actions>li[x-target-definition]') );
         handleActionPopups( document.querySelectorAll('ul.heroic_actions>li[x-target-definition]') );
+        handleActionPopups( document.querySelectorAll('ul.special_actions>li[x-target-definition]') );
 
         handleRecipes(
             document.querySelectorAll('ul.actions>li[x-recipe-id]:not([disabled])'),
