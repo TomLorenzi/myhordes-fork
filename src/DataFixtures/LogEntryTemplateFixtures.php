@@ -528,7 +528,7 @@ class LogEntryTemplateFixtures extends Fixture
         ],
         // Devastated town
         ['text'=>'Die Stadt ist zerstört! Flieht, irh Narren!',
-            'name'=>'gazetteTownVanished_001',
+            'name'=>'gazetteTownDestroyed_001',
             'type'=>LogEntryTemplate::TypeGazetteTown,
             'class'=>LogEntryTemplate::ClassGazetteNews,
             'secondaryType'=>GazetteLogEntry::RequiresDevastated,
