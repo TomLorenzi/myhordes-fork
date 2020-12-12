@@ -16,6 +16,7 @@ use App\Entity\ForumUsagePermissions;
 use App\Entity\HeroicActionPrototype;
 use App\Entity\Item;
 use App\Entity\Picto;
+use App\Entity\SpecialActionPrototype;
 use App\Entity\Town;
 use App\Entity\TownLogEntry;
 use App\Entity\TownRankingProxy;
@@ -106,6 +107,7 @@ class MigrateCommand extends Command
             ->addOption('update-trans', 't', InputOption::VALUE_REQUIRED, 'Updates all translation files for a single language')
 
             ->addOption('assign-heroic-actions-all', null, InputOption::VALUE_NONE, 'Resets the heroic actions for all citizens in all towns.')
+            ->addOption('assign-special-actions-all', null, InputOption::VALUE_NONE, 'Resets the special actions for all citizens in all towns.')
             ->addOption('init-item-stacks', null, InputOption::VALUE_NONE, 'Sets item count for items without a counter to 1')
             ->addOption('delete-legacy-logs', null, InputOption::VALUE_NONE, 'Deletes legacy log entries')
 
@@ -322,6 +324,21 @@ class MigrateCommand extends Command
                 foreach ($heroic_actions as $heroic_action)
                     /** @var $heroic_action HeroicActionPrototype */
                     $citizen->addHeroicAction( $heroic_action );
+                $this->entity_manager->persist( $citizen );
+            }
+            $this->entity_manager->flush();
+            $output->writeln('OK!');
+
+            return 0;
+        }
+
+        if ($input->getOption('assign-special-actions-all')) {
+            $special_actions = $this->entity_manager->getRepository(SpecialActionPrototype::class)->findAll();
+            foreach ($this->entity_manager->getRepository(Citizen::class)->findAll() as $citizen) {
+                /** @var Citizen $citizen */
+                foreach ($special_actions as $special_action)
+                    /** @var SpecialActionPrototype $special_action */
+                    $citizen->addSpecialAction( $special_action );
                 $this->entity_manager->persist( $citizen );
             }
             $this->entity_manager->flush();

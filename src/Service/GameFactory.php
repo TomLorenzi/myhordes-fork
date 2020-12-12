@@ -458,7 +458,7 @@ class GameFactory
             $home = new CitizenHome();
             $home
                 ->setChest( $chest = new Inventory() )
-                ->setPrototype( $this->entity_manager->getRepository( CitizenHomePrototype::class )->findOneByLevel(0) )
+                ->setPrototype( $this->entity_manager->getRepository( CitizenHomePrototype::class )->findOneBy(['level' => 0]) )
             ;
 
             $citizen = new Citizen();
@@ -466,7 +466,7 @@ class GameFactory
                 ->setTown( $town )
                 ->setInventory( new Inventory() )
                 ->setHome( $home )
-                ->setCauseOfDeath( $this->entity_manager->getRepository( CauseOfDeath::class )->findOneByRef( CauseOfDeath::Unknown ) )
+                ->setCauseOfDeath( $this->entity_manager->getRepository( CauseOfDeath::class )->findOneBy( ['ref' => CauseOfDeath::Unknown] ) )
                 ->setHasSeenGazette( true );
             (new Inventory())->setCitizen( $citizen );
             $this->citizen_handler->inflictStatus( $citizen, 'clean' );

@@ -225,7 +225,7 @@ class DebugCommand extends Command
                 }
 
             // Ensure we still have an open town after filling it with dumb users
-
+            
             $openTowns = $this->entity_manager->getRepository(Town::class)->findOpenTown();
             $count = array(
                 "fr" => array(

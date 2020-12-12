@@ -12,6 +12,7 @@ use App\Entity\HeroicActionPrototype;
 use App\Entity\HeroSkillPrototype;
 use App\Entity\ItemPrototype;
 use App\Entity\LogEntryTemplate;
+use App\Entity\SpecialActionPrototype;
 use App\Entity\TownLogEntry;
 use App\Entity\Zone;
 use App\Response\AjaxResponse;
@@ -22,9 +23,11 @@ use App\Service\InventoryHandler;
 use App\Service\ItemFactory;
 use App\Service\JSONRequestParser;
 use App\Service\LogTemplateHandler;
+use App\Service\PictoHandler;
 use App\Service\TimeKeeperService;
 use App\Service\TownHandler;
 use App\Service\UserHandler;
+use App\Structures\ItemRequest;
 use App\Structures\TownConf;
 use App\Translation\T;
 use Doctrine\ORM\EntityManagerInterface;
@@ -46,8 +49,9 @@ class GameController extends CustomAbstractController implements GameInterfaceCo
     protected $citizen_handler;
     protected TownHandler $town_handler;
     private $user_handler;
+    protected PictoHandler $picto_handler;
 
-    public function __construct(EntityManagerInterface $em, TranslatorInterface $translator, LogTemplateHandler $lth, TimeKeeperService $tk, CitizenHandler $ch, UserHandler $uh, TownHandler $th, ConfMaster $conf)
+    public function __construct(EntityManagerInterface $em, TranslatorInterface $translator, LogTemplateHandler $lth, TimeKeeperService $tk, CitizenHandler $ch, UserHandler $uh, TownHandler $th, ConfMaster $conf, PictoHandler $ph)
     {
         parent::__construct($conf);
         $this->entity_manager = $em;
@@ -57,6 +61,7 @@ class GameController extends CustomAbstractController implements GameInterfaceCo
         $this->citizen_handler = $ch;
         $this->user_handler = $uh;
         $this->town_handler = $th;
+        $this->picto_handler = $ph;
     }
 
     protected function getActiveCitizen(): Citizen {
@@ -198,9 +203,7 @@ class GameController extends CustomAbstractController implements GameInterfaceCo
                 // 1. TOWN
                 if($town->getDevastated()){
                     $criteria = [
-                        'type' => LogEntryTemplate::TypeGazetteTown,
-                        'class' => LogEntryTemplate::ClassGazetteNews,
-                        'secondaryType' => GazetteLogEntry::RequiresDevastated
+                        'name' => 'gazetteTownDevastated'
                     ];
                 } else {
                     $criteria = [
@@ -208,8 +211,6 @@ class GameController extends CustomAbstractController implements GameInterfaceCo
                         'class' => LogEntryTemplate::ClassGazetteNoDeaths + (count($death_inside) < 3 ? count($death_inside) : 3),
                     ];
                 }
-
-                file_put_contents("/home/ludovic/dump.txt", print_r($criteria, true));
 
                 $applicableEntryTemplates = $this->entity_manager->getRepository(LogEntryTemplate::class)->findBy($criteria);
                 shuffle($applicableEntryTemplates);
@@ -600,6 +601,18 @@ class GameController extends CustomAbstractController implements GameInterfaceCo
             }
         }
 
+        if($this->picto_handler->has_picto($citizen, 'r_armag_#00')) {
+            $armag = $this->entity_manager->getRepository(SpecialActionPrototype::class)->findOneBy(['name' => "special_armag"]);
+            $citizen->addSpecialAction($armag);
+            $invh->forceMoveItem($citizen->getHome()->getChest(), $if->createItem( 'food_armag_#00' ));
+            $doggy = $invh->fetchSpecificItems( $citizen->getHome()->getChest(), [new ItemRequest('food_bag_#00')] );
+            $invh->forceRemoveItem($doggy[0]);
+        }
+
+        if($this->picto_handler->has_picto($citizen, 'r_ginfec_#00')) {
+            $this->citizen_handler->inflictStatus($citizen, 'tg_infect_wtns');
+        }
+
         try {
             $this->entity_manager->persist( $citizen );
             $this->entity_manager->flush();
@@ -607,11 +620,25 @@ class GameController extends CustomAbstractController implements GameInterfaceCo
             return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
         }
 
+        if(!$citizen->getTown()->isOpen()) {
+            // We add voting capability to every heroic citizen
+            foreach ($citizen->getTown()->getCitizens() as $foreign) {
+                /** @var Citizen $foreign */
+                if(!$foreign->getProfession()->getHeroic()) continue;
+
+                $vote_shaman = $this->entity_manager->getRepository(SpecialActionPrototype::class)->findOneBy(['name' => "special_generic_shaman"]);
+                $vote_guide = $this->entity_manager->getRepository(SpecialActionPrototype::class)->findOneBy(['name' => "special_generic_guide"]);
+                $foreign->addSpecialAction($vote_shaman);
+                $foreign->addSpecialAction($vote_guide);
+                $this->entity_manager->persist( $foreign );
+            }
+            $this->entity_manager->flush();
+        }
+
         $item_spawns = $cf->getTownConfiguration($citizen->getTown())->get(TownConf::CONF_DEFAULT_CHEST_ITEMS, []);
         $chest = $citizen->getHome()->getChest();
         foreach ($item_spawns as $spawn)
-            $invh->placeItem($citizen, $if->createItem($this->entity_manager->getRepository(ItemPrototype::class)->findOneByName($spawn)), [$chest]);
-
+            $invh->placeItem($citizen, $if->createItem($this->entity_manager->getRepository(ItemPrototype::class)->findOneBy(['name' => $spawn])), [$chest]);
         try {
             $this->entity_manager->persist( $chest );
             $this->entity_manager->flush();

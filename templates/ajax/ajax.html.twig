@@ -86,6 +86,7 @@
             }
         }
         {% endif %}
+        
         {% if block('title') is defined %}
         window.document.title = 'MyHordes - {{ block('title')|replace({"\n": "", "\r": "", "\t": "", "'": "\\\'", "&amp;":"&"})|raw }}';
         {% else %}

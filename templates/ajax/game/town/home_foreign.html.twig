@@ -97,9 +97,9 @@
                 <h5>{% trans from 'game' %}Meine Spezialaktionen{% endtrans %}</h5>
                 {% if owner.alive %}
                     {# @var complaint \App\Entity\Complaint|null #}
-                    {% if complaints > 0 %}
+                    {% if complaints|length > 0 %}
                         <div class="note">
-                            {{ '%citizen% hat bereits %num% Anzeige(n).'|trans({'%citizen%': owner.user.name, '%num%': '<b>' ~ complaints ~ '</b>'}, 'game')|raw }}<br />
+                            {{ '%citizen% hat bereits %num% Anzeige(n).'|trans({'%citizen%': owner.user.name, '%num%': '<b>' ~ complaints|length ~ '</b>'}, 'game')|raw }}<br />
                             {% set names = ['', 'Verbannung'|trans({},'game'), 'Todesstrafe'|trans({},'game') ] %}
                             {% if complaint is not null and complaint.severity > 0 %}
                                 {{ 'Eine davon stammt von dir. Du hast %punishment% gefordert.'|trans({'%punishment%': '<b>' ~ names[complaint.severity] ~ '</b>'}, 'game')|raw }}<br />
@@ -108,12 +108,6 @@
                     {% endif %}
                     <button x-ajax-href="{{ path('soul_visit', {id: owner.user.id}) }}"><img src="{{ asset('build/images/icons/small_ghost_red.gif') }}" alt="" />{{'Seine Seele ansehen'|trans({}, 'game')}}</button>
                     <button x-ajax-href="{{ path('town_house', {tab: 'messages', subtab: 'write', dest: owner.id}) }}"><img src="{{ asset('build/images/icons/small_mail.gif') }}" alt="" />{{'Eine Nachricht hinterlassen'|trans({}, 'game')}}</button>
-                    {% if not citizen.banished %}
-                        {% if complaint is null or complaint.severity == 0 %}<button x-complaint-severity="1">{{ 'Anzeige erstatten'|trans({},'game') }}</button>{% endif %}
-                        {% if complaint is not null and complaint.severity > 0 %}<button x-complaint-severity="0">{{ 'Anzeige zurückziehen'|trans({},'game') }}</button>{% endif %}
-                        <!--{% if complaint is not null and complaint.severity == 1 %}<button x-complaint-severity="2">{{ 'Anzeige: Todesstrafe fordern'|trans({},'game') }}</button>{% endif %}-->
-                        <!--{% if complaint is not null and complaint.severity == 2 %}<button x-complaint-severity="1">{{ 'Anzeige: Verbannung fordern'|trans({},'game') }}</button>{% endif %}-->
-                    {% endif %}
                     {% if not owner.zone %}
                         <button x-attack-citizen {% if not can_attack %}disabled{% endif %}><img alt="" src="{{ asset('build/images/icons/fist.gif') }}" /> {{ 'Diesen Bürger angreifen!'|trans({},'game') }} (<div class="ap">{{ attackAP }}</div>)</button>
                         {% if can_devour %}
@@ -122,6 +116,24 @@
 	                    {% if is_shaman and not banished %}
 	                        <button x-heal-citizen>{{'Nutze deine heilenden Hände'|trans({}, 'game')}} ({% if is_shaman_role %}2 <div class="pm"></div>{% else %}2 <div class="ap"></div>{% endif %})</button>
 	                    {% endif %}
+                    {% endif %}
+                    {% if not citizen.banished %}
+                        {% if complaint is null or complaint.severity == 0 %}
+                        <button x-show-reason>{{ 'Anzeige erstatten'|trans({},'game') }}</button>
+                        <div class="lightbox" id="complain_reason" style="display: none";>
+                            <label for="reason">{{'Grund:'|trans({}, 'game')}}</label>
+                            <select id="reason">
+                                <option value="0" selected>-- {{'Wählen'|trans({}, 'game')}} --</option>
+                                {% for complaintreason in complaintreasons %}
+                                <option value="{{complaintreason.id}}">{{complaintreason.text|trans({}, 'game')}}</option>
+                                {% endfor %}
+                            </select>
+                            <button x-complaint-severity="1">{{ 'Anzeige erstatten'|trans({},'game') }}</button>
+                        </div>
+                        {% endif %}
+                        {% if complaint is not null and complaint.severity > 0 %}<button x-complaint-severity="0">{{ 'Anzeige zurückziehen'|trans({},'game') }}</button>{% endif %}
+                        <!--{% if complaint is not null and complaint.severity == 1 %}<button x-complaint-severity="2">{{ 'Anzeige: Todesstrafe fordern'|trans({},'game') }}</button>{% endif %}-->
+                        <!--{% if complaint is not null and complaint.severity == 2 %}<button x-complaint-severity="1">{{ 'Anzeige: Verbannung fordern'|trans({},'game') }}</button>{% endif %}-->
                     {% endif %}
                 {% endif %}
                 {% if owner.home.holdsBody %}
@@ -145,7 +157,7 @@
                     {% elseif owner.disposed == constant('App\\Entity\\Citizen::Watered') %}
                         {{'Dank %disposing_citizen% hat sich der Körper von %citizen% in verfaultes Wasser verwandelt.'|trans({'%disposing_citizen%': "<em>" ~ owner.disposedBy[0].user.name ~ "</em>", '%citizen%': "<em>" ~ owner.user.name ~ "</em>"}, 'game')|raw}}
                     {% elseif owner.disposed == constant('App\\Entity\\Citizen::Cooked') %}
-                        Grâce aux efforts de <em>{{owner.disposedBy[0].user.name}}</em>, le corps de <em>{{owner.user.name}}</em> a été cuisiné en bon p'tit plat.
+                        HARDCODED: Grâce aux efforts de <em>{{owner.disposedBy[0].user.name}}</em>, le corps de <em>{{owner.user.name}}</em> a été cuisiné en bon p'tit plat.
                     {% endif %}
                 </span>
                 {% else %}
@@ -153,6 +165,19 @@
                 {% endif %}
             {% endif %}
             {% if owner.alive %}
+            {% if complaints|length > 0 %}
+            <h5><img alt="" src="{{ asset('build/images/icons/scout_lv0.gif') }}"> {% trans from 'game' %}Anzeigen{% endtrans %}</h5>
+            <ul class='gossips'>
+            {% for complaint in complaints %}
+                {% if not complaint.linkedReason is null %}
+                <li>{{complaint.linkedReason.text|trans({}, 'game')}}</li>
+                {% else %}
+                <li>{{complaint.reason}}</li>
+                {% endif %}
+            {% endfor %}
+            </ul>
+            {% endif %}
+            
             <h5>{% trans from 'game' %}Gemeinschaft{% endtrans %}</h5>
             <ul class='gossips'>
                 {% if owner.lastActionTimestamp == 0 %}
@@ -249,10 +274,20 @@
         );
 
         {% if owner.alive %}
+            const show_complain = document.querySelectorAll('[x-show-reason]');
+            for (let i = 0 ; i < show_complain.length ; i++){
+                show_complain[i].addEventListener('click', function(){
+                    this.style.display = "none";
+                    document.getElementById("complain_reason").style.display = "block";
+                });
+            }
             const complainButtons = document.querySelectorAll('[x-complaint-severity]');
             for (let i = 0; i < complainButtons.length; i++)
                 complainButtons[i].addEventListener('click', function() {
-                    $.ajax.easySend( '{{ path('town_visit_complain_controller', {id: owner.id}) }}', {severity: parseInt(complainButtons[i].getAttribute('x-complaint-severity'))},
+                    let reason = 0;
+                    if(document.getElementById("reason"))
+                        reason = document.getElementById("reason").value;
+                    $.ajax.easySend( '{{ path('town_visit_complain_controller', {id: owner.id}) }}', {severity: parseInt(complainButtons[i].getAttribute('x-complaint-severity')), reason: reason},
                         function () {
                             $.ajax.load(null, '{{ path('town_visit', {id: owner.id}) }}', true);
                         } );
