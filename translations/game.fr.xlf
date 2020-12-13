@@ -3089,7 +3089,7 @@
       </notes>
       <segment>
         <source>Es wurde ein neues Gebäude gebaut: %plan%. Der Bau hat folgende Ressourcen verbraucht: %list%</source>
-        <target>Un nouveau chantier a été construit : %plan%. La construction a utilisé : %list%</target>
+        <target>Un nouveau bâtiment a été construit : %plan%. Cette construction a utilisé : %list%</target>
       </segment>
     </unit>
     <unit id="T6_1xeh" name="Es wurde ein neues Gebäude gebaut: %plan%.">
@@ -3098,7 +3098,7 @@
       </notes>
       <segment>
         <source>Es wurde ein neues Gebäude gebaut: %plan%.</source>
-        <target>Un nouveau chantier a été construit : %plan%.</target>
+        <target>Un nouveau bâtiment a été construit : %plan%.</target>
       </segment>
     </unit>
     <unit id="WsxqQWs" name="%citizen% wurde von %zombies% zerfleischt!">
@@ -3557,7 +3557,7 @@
       </notes>
       <segment>
         <source>Bitte wähle einen Bürger:</source>
-        <target>Ramener un citoyen :</target>
+        <target>Veuillez choisir un citoyen :</target>
       </segment>
     </unit>
     <unit id="MgtBTg_" name="Es ist kein Bürger in der Nähe...">
@@ -8224,7 +8224,7 @@
       </notes>
       <segment>
         <source>%citizen% hat einen Bauplan für %plan% gefunden.</source>
-        <target>%citizen% a trouvé un plan pour %plan%.</target>
+        <target>%citizen% a découvert le plan de construction du chantier %plan%.</target>
       </segment>
     </unit>
     <unit id="2jSPgup" name="c7e40ad">
@@ -8233,7 +8233,7 @@
       </notes>
       <segment>
         <source>%citizen% hat einen Bauplan für %plan% gefunden. Dafür ist das Bauprojekt %parent% nötig.</source>
-        <target>%citizen% a trouvé un plan pour %plan%. Le projet de construction %parent% est nécessaire pour cela.</target>
+        <target>%citizen% a découvert le plan de construction du chantier %plan%. Il requiert la construction de %parent%.</target>
       </segment>
     </unit>
     <unit id="_VJJKap" name="%num% Zombies haben vergeblich versucht, in das Haus von %citizen% einzudringen.">
@@ -14631,7 +14631,7 @@
       </notes>
       <segment>
         <source>&lt;i class="dagger"&gt;†&lt;/i&gt; %zombie% wurde schreiend und sabbernd am Brunnen angetroffen. Er hielt einen großen Felsen in seinen Händen und schickte  sich an, diesen in den Brunnen zu werfen. Leider konnte ihn keiner mehr rechtzeitig hindern, sodass uns jetzt %num% Wasserrationnen fehlen! Was für eine Katastrophe!</source>
-        <target><![CDATA[<i class="dagger">†</i> %zombie% s'est relevé et a contaminé le puits ! Cela nous a coûté %num% ration(s) d'eau !]]></target>
+        <target><![CDATA[<i class="dagger">†</i> %zombie% a été retrouvé bavant, hurlant et brandissant une grosse pierre à bout de bras. Arrivé au Puits il l'a jeté dedans faisant perdre %num% rations d'eau ! Quel désastre !]]></target>
       </segment>
     </unit>
     <unit id="r9GesCe" name="d0f1cdc">
@@ -15156,31 +15156,31 @@
         <target>Ce citoyen est le %role% de la ville</target>
       </segment>
     </unit>
-    <unit id="3NwI9Wy" name="allein inmitten eines Labyrinths aus Schutt...">
+    <unit id="FgE68_." name="inmitten eines unentwirrbaren Trümmerhaufens...">
       <notes>
-        <note category="german">allein inmitten eines Labyrinths aus Schutt...</note>
+        <note category="german">inmitten eines unentwirrbaren Trümmerhaufens...</note>
       </notes>
       <segment>
-        <source>allein inmitten eines Labyrinths aus Schutt...</source>
-        <target>allein inmitten eines Labyrinths aus Schutt...</target>
+        <source>inmitten eines unentwirrbaren Trümmerhaufens...</source>
+        <target>inmitten eines unentwirrbaren Trümmerhaufens...</target>
       </segment>
     </unit>
-    <unit id="nQkFEwA" name="Am Eingang einer beängstigenden Ruine %location%">
+    <unit id="xTpU96B" name="in einer unheimlichen Ruine %location%">
       <notes>
-        <note category="german">Am Eingang einer beängstigenden Ruine %location%</note>
+        <note category="german">in einer unheimlichen Ruine %location%</note>
       </notes>
       <segment>
-        <source>Am Eingang einer beängstigenden Ruine %location%</source>
-        <target>Am Eingang einer beängstigenden Ruine %location%</target>
+        <source>in einer unheimlichen Ruine %location%</source>
+        <target>in einer unheimlichen Ruine %location%</target>
       </segment>
     </unit>
-    <unit id="yI_KLzz" name="eingeschlossen und auf den Tod wartend...">
+    <unit id="TP3m8zB" name="sitzt in der Falle und wartet auf den Tod...">
       <notes>
-        <note category="german">eingeschlossen und auf den Tod wartend...</note>
+        <note category="german">sitzt in der Falle und wartet auf den Tod...</note>
       </notes>
       <segment>
-        <source>eingeschlossen und auf den Tod wartend...</source>
-        <target>eingeschlossen und auf den Tod wartend...</target>
+        <source>sitzt in der Falle und wartet auf den Tod...</source>
+        <target>sitzt in der Falle und wartet auf den Tod...</target>
       </segment>
     </unit>
     <unit id="mfY9mWB" name="68142c8">
@@ -15379,6 +15379,258 @@
       <segment>
         <source>Einen zufälligen Bürger als Katapult-Bediener auslosen</source>
         <target>Einen zufälligen Bürger als Katapult-Bediener auslosen</target>
+      </segment>
+    </unit>
+    <unit id="k9pQbZw" name="inmitten eines unentwirrbaren Trümmerhaufens">
+      <notes>
+        <note category="german">inmitten eines unentwirrbaren Trümmerhaufens</note>
+      </notes>
+      <segment>
+        <source>inmitten eines unentwirrbaren Trümmerhaufens</source>
+        <target>inmitten eines unentwirrbaren Trümmerhaufens</target>
+      </segment>
+    </unit>
+    <unit id="WFILm.J" name="8a84bed">
+      <notes>
+        <note category="german">&lt;i class="dagger"&gt;†&lt;/i&gt; %zombie% ist gestern hungrig zum Haus von %victim% gestapft. Nachdem er die Tür mit voller Wucht eingetreten hatte, packte er sein Opfer am Haar und schleuderte es mit voller Wucht gegen die Wand... Einige Schädelsplitter wurden sogar im Schlafzimmer gefunden. Vergesst nie die Leichen zu recyclen. Nie!!</note>
+      </notes>
+      <segment>
+        <source>&lt;i class="dagger"&gt;†&lt;/i&gt; %zombie% ist gestern hungrig zum Haus von %victim% gestapft. Nachdem er die Tür mit voller Wucht eingetreten hatte, packte er sein Opfer am Haar und schleuderte es mit voller Wucht gegen die Wand... Einige Schädelsplitter wurden sogar im Schlafzimmer gefunden. Vergesst nie die Leichen zu recyclen. Nie!!</source>
+        <target><![CDATA[<i class="dagger">†</i> %zombie% s'est trainé affamé jusqu'à la maison de %victim%, a ouvert sa porte tranquillement (ça aide d'être frais), lui a pris la tête et la lui a explosé contre un mur dans un feu d'artifice de bouts de cervelle sanguinolents. N'oubliez jamais de recycler les morts. Jamais !!]]></target>
+      </segment>
+    </unit>
+    <unit id="HABjCVJ" name="955146b">
+      <notes>
+        <note category="german">Die in der Stadt liegengebliebenen Körper der ehemaligen Einwohner erwachten in der Zwischenzeit wieder zu Leben...</note>
+      </notes>
+      <segment>
+        <source>Die in der Stadt liegengebliebenen Körper der ehemaligen Einwohner erwachten in der Zwischenzeit wieder zu Leben...</source>
+        <target>Pendant ce temps les ex-citoyens dont les corps étaient restés dans la ville se sont réveillés...</target>
+      </segment>
+    </unit>
+    <unit id="b4uaoGt" name="b63e901">
+      <notes>
+        <note category="german">Die Stadt ist nichts weiter als ein widerwärtiger Friedhof. Es war niemand hier, der den letzten Angriff der Zombies hätte aufhalten können: &lt;strong&gt;das Stadttor wurde aufgebrochen&lt;/strong&gt; und &lt;strong&gt;liegt nun in Trümmern&lt;/strong&gt;. %town% existiert nicht mehr...</note>
+      </notes>
+      <segment>
+        <source>Die Stadt ist nichts weiter als ein widerwärtiger Friedhof. Es war niemand hier, der den letzten Angriff der Zombies hätte aufhalten können: &lt;strong&gt;das Stadttor wurde aufgebrochen&lt;/strong&gt; und &lt;strong&gt;liegt nun in Trümmern&lt;/strong&gt;. %town% existiert nicht mehr...</source>
+        <target><![CDATA[La ville n'est plus qu'un vaste cimetière nauséabond. Plus personne n'était là hier pour retenir le dernier assaut des hordes : <strong>les portes de la ville ont été enfoncées</strong> et <strong>réduites en miettes</strong>. %town% n'est plus.]]></target>
+      </segment>
+    </unit>
+    <unit id="cA3yYGh" name="343918b">
+      <notes>
+        <note category="german">%citizen% hat einen Teil seines Heißhungers gestillt, indem er Teile seiner Mitbürger gegessen hat. Um sicherzustellen, dass so etwas nicht noch einmal passiert, übergieße die Verstorbenen das nächste Mal mit Wasser...</note>
+      </notes>
+      <segment>
+        <source>%citizen% hat einen Teil seines Heißhungers gestillt, indem er Teile seiner Mitbürger gegessen hat. Um sicherzustellen, dass so etwas nicht noch einmal passiert, übergieße die Verstorbenen das nächste Mal mit Wasser...</source>
+        <target>%citizen% a comblé une partie de sa fringale en croquant des petits bouts de ses concitoyens. La prochaine fois, arrosez les morts pour être sûrs qu'ils ne se lèvent pas dès le lendemain...</target>
+      </segment>
+    </unit>
+    <unit id="Oys88cl" name="1a715ee">
+      <notes>
+        <note category="german">%count% Zombies wurden in der Stadt gesichtet, aber sie haben niemanden angegriffen: Was für ein Glücksfall...</note>
+      </notes>
+      <segment>
+        <source>%count% Zombies wurden in der Stadt gesichtet, aber sie haben niemanden angegriffen: Was für ein Glücksfall...</source>
+        <target>%count% Zombies wurden in der Stadt gesichtet, aber sie haben niemanden angegriffen: Was für ein Glücksfall...</target>
+      </segment>
+    </unit>
+    <unit id="PgQR75x" name="Zahlreiche Diebstähle begangen">
+      <notes>
+        <note category="german">Zahlreiche Diebstähle begangen</note>
+      </notes>
+      <segment>
+        <source>Zahlreiche Diebstähle begangen</source>
+        <target>Nombreux vols d'objets</target>
+      </segment>
+    </unit>
+    <unit id="dD9OHg_" name="Verbraucht zuviel Wasser">
+      <notes>
+        <note category="german">Verbraucht zuviel Wasser</note>
+      </notes>
+      <segment>
+        <source>Verbraucht zuviel Wasser</source>
+        <target>Consomme trop d'eau</target>
+      </segment>
+    </unit>
+    <unit id="W43lmes" name="Beleidigendes Verhalten">
+      <notes>
+        <note category="german">Beleidigendes Verhalten</note>
+      </notes>
+      <segment>
+        <source>Beleidigendes Verhalten</source>
+        <target>Insulte ou comportement</target>
+      </segment>
+    </unit>
+    <unit id="rnxNxyC" name="Blockiert die Baustelle">
+      <notes>
+        <note category="german">Blockiert die Baustelle</note>
+      </notes>
+      <segment>
+        <source>Blockiert die Baustelle</source>
+        <target>Bloque les chantiers</target>
+      </segment>
+    </unit>
+    <unit id="GTtLJm1" name="Expeditionssaboteur">
+      <notes>
+        <note category="german">Expeditionssaboteur</note>
+      </notes>
+      <segment>
+        <source>Expeditionssaboteur</source>
+        <target>Sabotage d'expéditions</target>
+      </segment>
+    </unit>
+    <unit id="qSX7vRE" name="Geht kein Risiko ein">
+      <notes>
+        <note category="german">Geht kein Risiko ein</note>
+      </notes>
+      <segment>
+        <source>Geht kein Risiko ein</source>
+        <target>Reste toujours au chaud</target>
+      </segment>
+    </unit>
+    <unit id="Dn0tq6e" name="Handelt zu egoistisch">
+      <notes>
+        <note category="german">Handelt zu egoistisch</note>
+      </notes>
+      <segment>
+        <source>Handelt zu egoistisch</source>
+        <target>Joue trop perso</target>
+      </segment>
+    </unit>
+    <unit id="g8qlqWr" name="Gemeinschaftsfreak">
+      <notes>
+        <note category="german">Gemeinschaftsfreak</note>
+      </notes>
+      <segment>
+        <source>Gemeinschaftsfreak</source>
+        <target>Extrémiste communautaire</target>
+      </segment>
+    </unit>
+    <unit id="SuxYV1H" name="Bringt sich nicht genug ein">
+      <notes>
+        <note category="german">Bringt sich nicht genug ein</note>
+      </notes>
+      <segment>
+        <source>Bringt sich nicht genug ein</source>
+        <target>Ne participe quasiment pas</target>
+      </segment>
+    </unit>
+    <unit id="NghQlFT" name="Hortet zu viele Gegenstände">
+      <notes>
+        <note category="german">Hortet zu viele Gegenstände</note>
+      </notes>
+      <segment>
+        <source>Hortet zu viele Gegenstände</source>
+        <target>Garde trop de choses pour lui</target>
+      </segment>
+    </unit>
+    <unit id="aCap5cU" name="Aggressiver Mitbürger">
+      <notes>
+        <note category="german">Aggressiver Mitbürger</note>
+      </notes>
+      <segment>
+        <source>Aggressiver Mitbürger</source>
+        <target>Citoyen aggressif !</target>
+      </segment>
+    </unit>
+    <unit id="zLJ.A.A" name="Anzeigen">
+      <notes>
+        <note category="german">Anzeigen</note>
+      </notes>
+      <segment>
+        <source>Anzeigen</source>
+        <target>Plaintes</target>
+      </segment>
+    </unit>
+    <unit id="pFLOI._" name="Grund:">
+      <notes>
+        <note category="german">Grund:</note>
+      </notes>
+      <segment>
+        <source>Grund:</source>
+        <target>Raison :</target>
+      </segment>
+    </unit>
+    <unit id="7aCcCH1" name="Wählen">
+      <notes>
+        <note category="german">Wählen</note>
+      </notes>
+      <segment>
+        <source>Wählen</source>
+        <target>Sélectionner</target>
+      </segment>
+    </unit>
+    <unit id="rZrohjN" name="Du hast %num% anonyme Anzeige(n) erhalten.">
+      <notes>
+        <note category="german">Du hast %num% anonyme Anzeige(n) erhalten.</note>
+      </notes>
+      <segment>
+        <source>Du hast %num% anonyme Anzeige(n) erhalten.</source>
+        <target>Vous avez reçu %num% plainte(s) anonyme(s).</target>
+      </segment>
+    </unit>
+    <unit id="khbCWBV" name="Sollte diese Zahl auf 8 ansteigen, wirst du verbannt!">
+      <notes>
+        <note category="german">Sollte diese Zahl auf 8 ansteigen, wirst du verbannt!</note>
+      </notes>
+      <segment>
+        <source>Sollte diese Zahl auf 8 ansteigen, wirst du verbannt!</source>
+        <target>Au bout de 8 plaintes, vous serez banni(e) !</target>
+      </segment>
+    </unit>
+    <unit id="X.vNUqq" name="Einen Bürger heimbringen:">
+      <notes>
+        <note category="german">Einen Bürger heimbringen:</note>
+      </notes>
+      <segment>
+        <source>Einen Bürger heimbringen:</source>
+        <target>Ramener un citoyen:</target>
+      </segment>
+    </unit>
+    <unit id="mVtk8KY" name="Herzlichen Glückwunsch! Du hast deine Behausung in ein(e) %home%.">
+      <notes>
+        <note category="german">Herzlichen Glückwunsch! Du hast deine Behausung in ein(e) %home%.</note>
+      </notes>
+      <segment>
+        <source>Herzlichen Glückwunsch! Du hast deine Behausung in ein(e) %home%.</source>
+        <target>Félicitations ! Vous avez amélioré votre habitation en %home%.</target>
+      </segment>
+    </unit>
+    <unit id="CZg55p2" name="Folgenden Dinge wurden dazu gebraucht:">
+      <notes>
+        <note category="german">Folgenden Dinge wurden dazu gebraucht:</note>
+      </notes>
+      <segment>
+        <source>Folgenden Dinge wurden dazu gebraucht:</source>
+        <target>Vous avez utilisé :</target>
+      </segment>
+    </unit>
+    <unit id="2VisPD1" name="Mit dem Bau der(s) %upgrade% hat dein Haus Stufe %level% erreicht!">
+      <notes>
+        <note category="german">Mit dem Bau der(s) %upgrade% hat dein Haus Stufe %level% erreicht!</note>
+      </notes>
+      <segment>
+        <source>Mit dem Bau der(s) %upgrade% hat dein Haus Stufe %level% erreicht!</source>
+        <target>L'évolution %upgrade% est passée niveau %level% avec succès !</target>
+      </segment>
+    </unit>
+    <unit id="xb8cXJh" name="f44cd76">
+      <notes>
+        <note category="german">Du hast am Bauprojekt %plan% mitgeholfen. Du hast dafür %count% Aktionspunkt(e) verbraucht.</note>
+      </notes>
+      <segment>
+        <source>Du hast am Bauprojekt %plan% mitgeholfen. Du hast dafür %count% Aktionspunkt(e) verbraucht.</source>
+        <target>Vous avez contribué à la construction du chantier %plan%. Vous avez utilisé %count% point(s) d'action..</target>
+      </segment>
+    </unit>
+    <unit id="b5TnxTe" name="[ Es riecht nach Tannenzapfen... ]">
+      <notes>
+        <note category="german">[ Es riecht nach Tannenzapfen... ]</note>
+      </notes>
+      <segment>
+        <source>[ Es riecht nach Tannenzapfen... ]</source>
+        <target>[ Ça sent le sapin... ]</target>
       </segment>
     </unit>
   </file>

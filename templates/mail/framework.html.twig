@@ -1,4 +1,4 @@
-<html lang="{{ app.request.locale|e('html_attr') }}">
+<html {% if app.request is not null %}lang="{{ app.request.locale|e('html_attr') }}"{% endif %}>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta charset="UTF-8" />

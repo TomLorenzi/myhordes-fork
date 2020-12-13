@@ -21,13 +21,14 @@ use App\Service\CitizenHandler;
 use App\Service\ConfMaster;
 use App\Service\TownHandler;
 use App\Service\ZoneHandler;
+use App\Structures\SimpleXMLExtended;
 use App\Structures\TownConf;
 use App\Structures\TownDefenseSummary;
 use DateTime;
 use DateTimeZone;
 use Doctrine\Common\Collections\Criteria;
 use Exception;
-use SimpleXMLElement;
+use Symfony\Component\Config\Util\Exception\InvalidXmlException;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
@@ -159,7 +160,8 @@ class ExternalXML2Controller extends ExternalController {
             $language = $user->getLanguage() ?? 'de';
         }
 
-        $trans->setLocale($language);
+        if($language !== 'all')
+            $trans->setLocale($language);
 
         // Base data.
         $data = $this->getHeaders($language);
@@ -184,7 +186,7 @@ class ExternalXML2Controller extends ExternalController {
                         'out' => intval($citizen->getZone() !== null),
                         'baseDef' => '0'
                     ],
-                    "value" => $citizen->getHome()->getDescription()
+                    "cdata_value" => $citizen->getHome()->getDescription()
                 ],
                 "myZone" => []
             ];
@@ -209,9 +211,8 @@ class ExternalXML2Controller extends ExternalController {
                 
                 /** @var Item $item */
                 foreach($zone->getFloor()->getItems() as $item) {
-                    $data['headers']['owner']['myZone']['list']['items'][] = [
+                    $node = [
                         'attributes' => [
-                            'name' => $trans->trans($item->getPrototype()->getLabel(), [], 'items'),
                             'count' => 1,
                             'id' => $item->getPrototype()->getId(),
                             'cat' => $item->getPrototype()->getCategory()->getName(),
@@ -219,6 +220,15 @@ class ExternalXML2Controller extends ExternalController {
                             'broken' => intval($item->getBroken())
                         ]
                     ];
+
+                    if($language !== "all")
+                        $node['attributes']['name'] = $trans->trans($item->getPrototype()->getLabel(), [], 'items');
+                    else {
+                        foreach ($this->available_langs as $lang) {
+                            $node['attributes']["name-$lang"] = $trans->trans($item->getPrototype()->getLabel(), [], 'items', $lang);
+                        }
+                    }
+                    $data['headers']['owner']['myZone']['list']['items'][] = $node;
                 }
             }
             $data['headers']['game'] = [
@@ -229,75 +239,89 @@ class ExternalXML2Controller extends ExternalController {
                     'id' => $town->getId(),
                 ],
             ];
+        }
         
-            $data['data'] = [
-                'rewards' => [
-                    'list' => [
-                        'name' => 'r', 
-                        'items' => []
-                    ]
-                ],
-                'maps' => [
-                    'list' => [
-                        'name' => 'm', 
-                        'items' => []
-                    ]
+        $data['data'] = [
+            'rewards' => [
+                'list' => [
+                    'name' => 'r', 
+                    'items' => []
                 ]
+            ],
+            'maps' => [
+                'list' => [
+                    'name' => 'm', 
+                    'items' => []
+                ]
+            ]
+        ];
+
+        $pictos = $this->entity_manager->getRepository(Picto::class)->findNotPendingByUser($user);
+
+        foreach ($pictos as $picto){
+            /** @var Picto $picto */
+            $node = [
+                'attributes' => [
+                    'name' => $trans->trans($picto['label'], [], 'game'),
+                    'rare' => intval($picto['rare']),
+                    'n' => $picto['c'],
+                    'img' => $this->asset->getUrl( "build/images/pictos/{$picto['icon']}.gif"), // TODO: Fix img name to reflect real generated name
+                ],
+                'list' => [
+                    'name' => 'title',
+                    'items' => []
+                ],
             ];
-    
-            $pictos = $this->entity_manager->getRepository(Picto::class)->findNotPendingByUser($user);
-    
-            foreach ($pictos as $picto){
-                /** @var Picto $picto */
-                $node = [
-                    'attributes' => [
-                        'name' => $trans->trans($picto['label'], [], 'game'),
-                        'rare' => intval($picto['rare']),
-                        'n' => $picto['c'],
-                        'img' => $this->asset->getUrl( "build/images/pictos/{$picto['icon']}.gif"), // TODO: Fix img name to reflect real generated name
-                        'desc' => $trans->trans($picto['description'], [], "game"),
-                    ],
-                    'list' => [
-                        'name' => 'title',
-                        'items' => []
-                    ],
-                ];
-                $criteria = new Criteria();
-                $criteria->where($criteria->expr()->gte('unlockQuantity', $picto['c']));
-                $criteria->where($criteria->expr()->eq('associatedPicto', $this->entity_manager->getRepository(PictoPrototype::class)->find($picto['id'])));
-                $titles = $this->entity_manager->getRepository(AwardPrototype::class)->matching($criteria);
-                foreach($titles as $title){
-                    /** @var AwardPrototype $title */
-                    $node['list']['items'][] = [
-                        'attributes' => [
-                            'name' => $trans->trans($title->getTitle(), [], 'game')
-                        ]
-                    ];
+            if($language !== "all") {
+                $node['attributes']['name'] = $trans->trans($picto['label'], [], 'game');
+                $node['attributes']['desc'] = $trans->trans($picto['description'], [], 'game');
+            } else {
+                foreach ($this->available_langs as $lang) {
+                    $node['attributes']["name-$lang"] = $trans->trans($picto['label'], [], 'game', $lang);
+                    $node['attributes']["desc-$lang"] = $trans->trans($picto['description'], [], 'game', $lang);
                 }
-                $data['data']['rewards']['list']['items'][] = $node;
             }
-    
-            foreach($user->getPastLifes() as $pastLife){
-                /** @var CitizenRankingProxy $pastLife */
-                if($pastLife->getCitizen() && $pastLife->getCitizen()->getAlive()) continue;
-                $data['data']['maps']['list']['items'][] = [
+            
+            $criteria = new Criteria();
+            $criteria->andWhere($criteria->expr()->lte('unlockQuantity', $picto['c']));
+            $criteria->andWhere($criteria->expr()->eq('associatedPicto', $this->entity_manager->getRepository(PictoPrototype::class)->find($picto['id'])));
+
+            $titles = $this->entity_manager->getRepository(AwardPrototype::class)->matching($criteria);
+            foreach($titles as $title){
+                /** @var AwardPrototype $title */
+                $nodeTitle = [
                     'attributes' => [
-                        'name' => $pastLife->getTown()->getName(),
-                        'season' => $pastLife->getTown()->getSeason() ? $pastLife->getTown()->getSeason()->getNumber() : 0,
-                        'score' => $pastLife->getPoints(),
-                        'd' => $pastLife->getDay(),
-                        'id' => $pastLife->getTown()->getId(),
-                        'v1' => 0,
-                        'origin' => ($pastLife->getTown()->getSeason() && $pastLife->getTown()->getSeason()->getNumber() === 0)
-                            ? strtolower($pastLife->getTown()->getLanguage()) . "-{$pastLife->getTown()->getSeason()->getSubNumber()}"
-                            : '',
-                    ], 
-                    'value' => $pastLife->getLastWords()
+                    ]
                 ];
+                if($language !== 'all'){
+                    $nodeTitle['attributes']["name"] = $trans->trans($title->getTitle(), [], 'game');
+                } else {
+                    foreach ($this->available_langs as $lang) {
+                        $nodeTitle['attributes']["name-$lang"] = $trans->trans($title->getTitle(), [], 'game');
+                    }
+                }
+                $node['list']['items'][] = $nodeTitle;
             }
-        } else {
-            $data['error']['attributes'] = ['code' => "not_in_game"];
-            $data['status']['attributes'] = ['open' => "1", "msg" => ""];
+            $data['data']['rewards']['list']['items'][] = $node;
+        }
+
+        foreach($user->getPastLifes() as $pastLife){
+            /** @var CitizenRankingProxy $pastLife */
+            if($pastLife->getCitizen() && $pastLife->getCitizen()->getAlive()) continue;
+            $data['data']['maps']['list']['items'][] = [
+                'attributes' => [
+                    'name' => $pastLife->getTown()->getName(),
+                    'season' => $pastLife->getTown()->getSeason() ? $pastLife->getTown()->getSeason()->getNumber() : 0,
+                    'score' => $pastLife->getPoints(),
+                    'd' => $pastLife->getDay(),
+                    'id' => $pastLife->getTown()->getId(),
+                    'v1' => 0,
+                    'origin' => ($pastLife->getTown()->getSeason() && $pastLife->getTown()->getSeason()->getNumber() === 0)
+                        ? strtolower($pastLife->getTown()->getLanguage()) . "-{$pastLife->getTown()->getSeason()->getSubNumber()}"
+                        : '',
+                ], 
+                'cdata_value' => $pastLife->getLastWords()
+            ];
         }
 
         $response = new Response($this->arrayToXml( $data, '<hordes xmlns:dc="http://purl.org/dc/elements/1.1" xmlns:content="http://purl.org/rss/1.0/modules/content/" />' ));
@@ -326,6 +350,28 @@ class ExternalXML2Controller extends ExternalController {
             $now = date('Y-m-d H:i:s');
         }
 
+        $request = Request::createFromGlobals();
+
+        // Try POST data
+        $language = $request->query->get('lang');
+
+        if (trim($language) == '') {
+            // No POST data, we use GET datas
+            $language = $request->request->get('lang');
+        }
+
+        if(!in_array($language, ['en', 'fr', 'de', 'es', 'all'])) {
+            // Still no data, we use the user lang, or the deutsch as latest fallback
+            $language = $user->getLanguage() ?? 'de';
+        }
+
+        if($language !== 'all') {
+            $trans->setLocale($language);
+        }
+
+        // Base data.
+        $data = $this->getHeaders($language);
+
         /** @var User $user */
         /** @var Citizen $citizen */
         $citizen = $user->getAliveCitizen();
@@ -333,27 +379,6 @@ class ExternalXML2Controller extends ExternalController {
             $data['error']['attributes'] = ['code' => "not_in_game"];
             $data['status']['attributes'] = ['open' => "1", "msg" => ""];
         } else {
-            $request = Request::createFromGlobals();
-
-            // Try POST data
-            $language = $request->query->get('lang');
-    
-            if (trim($language) == '') {
-                // No POST data, we use GET datas
-                $language = $request->request->get('lang');
-            }
-    
-            if(!in_array($language, ['en', 'fr', 'de', 'es', 'all'])) {
-                // Still no data, we use the user lang, or the deutsch as latest fallback
-                $language = $user->getLanguage() ?? 'de';
-            }
-    
-            if($language !== 'all') {
-                $trans->setLocale($language);
-            }
-    
-            // Base data.
-            $data = $this->getHeaders($language);
             $town = $user->getAliveCitizen()->getTown();
     
             $activeOffset = $town->getMapOffset();
@@ -372,7 +397,7 @@ class ExternalXML2Controller extends ExternalController {
                         'out' => intval($citizen->getZone() !== null),
                         'baseDef' => '0'
                     ],
-                    "value" => $citizen->getHome()->getDescription()
+                    "cdata_value" => $citizen->getHome()->getDescription()
                 ]
             ];
 
@@ -381,8 +406,9 @@ class ExternalXML2Controller extends ExternalController {
             if($zone !== null){
                 $cp = 0;
                 foreach ($zone->getCitizens() as $c)
-                    if ($c->getAlive())
+                    if ($c->getAlive()){
                         $cp += $ch->getCP($c);
+                    }
 
                 $data['headers']['owner']['myZone'] = [
                     "attributes" => [
@@ -395,18 +421,27 @@ class ExternalXML2Controller extends ExternalController {
                         'items' => []
                     ]
                 ];
+                
                 /** @var Item $item */
                 foreach($zone->getFloor()->getItems() as $item) {
-                    $data['headers']['owner']['myZone']['list']['items'][] = [
+                    $node = [
                         'attributes' => [
-                            'name' => $trans->trans($item->getPrototype()->getLabel(), [], 'items'),
                             'count' => 1,
                             'id' => $item->getPrototype()->getId(),
                             'cat' => $item->getPrototype()->getCategory()->getName(),
-                            'img' => $this->asset->getUrl( "build/images/item/item_{$item->getPrototype()->getIcon()}.gif"),
+                            'img' => $this->asset->getUrl( "build/images/item/item_{$item->getPrototype()->getIcon()}.gif"), // TODO: Fix img name to reflect real generated name
                             'broken' => intval($item->getBroken())
                         ]
                     ];
+
+                    if($language !== "all")
+                        $node['attributes']['name'] = $trans->trans($item->getPrototype()->getLabel(), [], 'items');
+                    else {
+                        foreach ($this->available_langs as $lang) {
+                            $node['attributes']["name-$lang"] = $trans->trans($item->getPrototype()->getLabel(), [], 'items', $lang);
+                        }
+                    }
+                    $data['headers']['owner']['myZone']['list']['items'][] = $node;
                 }
             }
             $data['headers']['game'] = [
@@ -531,7 +566,7 @@ class ExternalXML2Controller extends ExternalController {
                         'id' => $building->getPrototype()->getId(),
                         'img' => $this->asset->getUrl("build/images/building/{$building->getPrototype()->getIcon()}.gif")
                     ], 
-                    'value' => $trans->trans($building->getPrototype()->getDescription(), [], 'buildings')
+                    'cdata_value' => $trans->trans($building->getPrototype()->getDescription(), [], 'buildings')
                 ];
 
 
@@ -549,7 +584,7 @@ class ExternalXML2Controller extends ExternalController {
                             'level' => $building->getLevel(),
                             'buildingid' => $building->getPrototype()->getId(),
                         ], 
-                        'value' => $trans->trans($building->getPrototype()->getUpgradeTexts()[$building->getLevel() - 1], [], 'buildings')
+                        'cdata_value' => $trans->trans($building->getPrototype()->getUpgradeTexts()[$building->getLevel() - 1], [], 'buildings')
                     ];
                 }
             }
@@ -633,7 +668,7 @@ class ExternalXML2Controller extends ExternalController {
                             'out' => intval($citizen->getZone() !== null),
                             'baseDef' => $citizen->getHome()->getPrototype()->getDefense()
                         ],
-                        'value' => $citizen->getHome()->getDescription()
+                        'cdata_value' => $citizen->getHome()->getDescription()
                     ];
                 } else {
                     $data['data']['cadavers']['list']['items'][] = [
@@ -643,7 +678,7 @@ class ExternalXML2Controller extends ExternalController {
                             'id' => $citizen->getUser()->getId(),
                             'day' => $citizen->getSurvivedDays(),
                         ],
-                        'value' => $citizen->getLastWords()
+                        'cdata_value' => $citizen->getLastWords()
                     ];
                 }
             }
@@ -684,7 +719,7 @@ class ExternalXML2Controller extends ExternalController {
                                 'type' => $zone->getBuryCount() > 0 ? -1 : $zone->getPrototype()->getId(),
                                 'dig' => $zone->getBuryCount()
                             ],
-                            'value' => $zone->getBuryCount() > 0 ? $trans->trans('Die Zone ist vollständig mit verrottender Vegetation, Sand und allem möglichen Schrott bedeckt. Du bist dir sicher, dass es hier etwas zu finden gibt, aber zunächst musst du diesen gesamten Sektor aufräumen um ihn vernünftig durchsuchen zu können.', [], 'game') : $trans->trans($zone->getPrototype()->getDescription(), [], 'game')
+                            'cdata_value' => $zone->getBuryCount() > 0 ? $trans->trans('Die Zone ist vollständig mit verrottender Vegetation, Sand und allem möglichen Schrott bedeckt. Du bist dir sicher, dass es hier etwas zu finden gibt, aber zunächst musst du diesen gesamten Sektor aufräumen um ihn vernünftig durchsuchen zu können.', [], 'game') : $trans->trans($zone->getPrototype()->getDescription(), [], 'game')
                         ];
                     }
 
@@ -721,7 +756,7 @@ class ExternalXML2Controller extends ExternalController {
         $_xml = $xml;
         // If there is no Root Element then insert root
         if ($_xml === null) {
-            $_xml = new SimpleXMLElement($rootElement !== null ? $rootElement : '<root/>');
+            $_xml = new SimpleXMLExtended($rootElement !== null ? $rootElement : '<root/>');
         }
         // Visit all key value pair
         foreach ($array as $k => $v) {
@@ -739,9 +774,17 @@ class ExternalXML2Controller extends ExternalController {
                     $this->arrayToXml($v['list']['items'], $name, $child, $v['list']['name']);
                     unset($v['list']);
                 }
+
+                if(array_key_exists('value', $v) && array_key_exists('cdata_value', $v))
+                    throw new InvalidXmlException("You cannot have both value and cdata_value in a node");
+
                 if(array_key_exists('value', $v)) {
                     $child[0] = $v["value"];
                     unset($v["value"]);
+                }
+                if(array_key_exists('cdata_value', $v)) {
+                    $child[0]->addCData($v["cdata_value"]);
+                    unset($v["cdata_value"]);
                 }
             }
             // If there is nested array then

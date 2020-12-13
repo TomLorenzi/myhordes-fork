@@ -97,6 +97,16 @@ class ExternalFixtures extends Fixture
             'key' => null,
             'linkOnly' => true,
         ],
+        [
+            'name' => 'Zombie Survival Almanac',
+            'active' => 1,
+            'url' => 'http://annetteannette.net/die2nite/almanac/',
+            'icon' => 'zsa',
+            'contact' => 'annette.die2nite@gmail.com',
+            'owner' => 'Annette',
+            'key' => null,
+            'linkOnly' => true,
+        ],
     ];
 
     private $entityManager;

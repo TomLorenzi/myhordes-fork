@@ -203,10 +203,10 @@ class CitizenHandler
 
 
         if ($action) {
-            if (!$citizen->getBanished()) $this->entity_manager->persist( $this->log->citizenBanish( $citizen ) );
+            if (!$citizen->getBanished() && !$kill) $this->entity_manager->persist( $this->log->citizenBanish( $citizen ) );
             $citizen->setBanished( true );
             if ($citizen->hasRole('cata'))
-                $citizen->removeRole($this->entity_manager->getRepository(CitizenRole::class)->findOneByName('cata'));
+                $citizen->removeRole($this->entity_manager->getRepository(CitizenRole::class)->findOneBy(['name' => 'cata']));
 
             // Disable escort on banishment
             if ($citizen->getEscortSettings()) {
@@ -215,13 +215,13 @@ class CitizenHandler
             }
 
             if (!$kill) {
-                $pictoPrototype = $this->entity_manager->getRepository(PictoPrototype::class)->findOneByName('r_ban_#00');
+                $pictoPrototype = $this->entity_manager->getRepository(PictoPrototype::class)->findOneBy(['name' => 'r_ban_#00' ]);
                 $this->picto_handler->give_picto($citizen, $pictoPrototype);
             }
 
             /** @var Item[] $items */
             $items = [];
-            $impound_prop = $this->entity_manager->getRepository(ItemProperty::class)->findOneByName( 'impoundable' );
+            $impound_prop = $this->entity_manager->getRepository(ItemProperty::class)->findOneBy(['name' => 'impoundable' ]);
             foreach ( $citizen->getInventory()->getItems() as $item )
                 if ($item->getPrototype()->getProperties()->contains( $impound_prop ))
                     $items[] = $item;

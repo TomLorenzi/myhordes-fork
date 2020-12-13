@@ -10,6 +10,7 @@ use App\Entity\CitizenHomeUpgradePrototype;
 use App\Entity\CitizenProfession;
 use App\Entity\CitizenRole;
 use App\Entity\CitizenStatus;
+use App\Entity\ComplaintReason;
 use App\Entity\HelpNotificationMarker;
 use App\Entity\ItemGroup;
 use App\Entity\ItemGroupEntry;
@@ -93,6 +94,7 @@ class CitizenFixtures extends Fixture implements DependentFixtureInterface
         ['name' => 'tg_betadrug' ],
         ['name' => 'tg_build_vote' ],
         ['name' => 'tg_meta_winfect' ],
+        ['name' => 'tg_infect_wtns' ],
     ];
 
     public static $causes_of_death = [
@@ -168,7 +170,21 @@ class CitizenFixtures extends Fixture implements DependentFixtureInterface
     ];
 
     public static $notificationMarkers = [
-        'ghoul',
+        'ghoul'
+    ];
+
+    public static $complaintReasons = [
+        ['name' => 'theft', 'text' => 'Zahlreiche Diebstähle begangen'],
+        ['name' => 'water', 'text' => 'Verbraucht zuviel Wasser'],
+        ['name' => 'insulting', 'text' => 'Beleidigendes Verhalten'],
+        ['name' => 'buildings', 'text' => 'Blockiert die Baustelle'],
+        ['name' => 'expeditions', 'text' => 'Expeditionssaboteur'],
+        ['name' => 'wimp', 'text' => 'Geht kein Risiko ein'],
+        ['name' => 'selfish', 'text' => 'Handelt zu egoistisch'],
+        ['name' => 'communautary', 'text' => 'Gemeinschaftsfreak'],
+        ['name' => 'noinvolvment', 'text' => 'Bringt sich nicht genug ein'],
+        ['name' => 'toomanyitems', 'text' => 'Hortet zu viele Gegenstände'],
+        ['name' => 'violent', 'text' => 'Aggressiver Mitbürger'],
     ];
 
     private $entityManager;
@@ -466,6 +482,25 @@ class CitizenFixtures extends Fixture implements DependentFixtureInterface
         $manager->flush();
     }
 
+    protected function insert_complaint_reasons(ObjectManager $manager, ConsoleOutputInterface $out) {
+        $out->writeln( '<comment>Complaint reasons: ' . count(static::$complaintReasons) . ' fixture entries available.</comment>' );
+
+        // Iterate over all entries
+        foreach (static::$complaintReasons as $entry) {
+            /** @var ComplaintReason $reason */
+            $reason = $manager->getRepository(ComplaintReason::class)->findOneBy(['name' => $entry]);
+
+            if (!$reason)
+                $reason = (new ComplaintReason())->setName( $entry['name'] );
+            
+            $reason->setText($entry['text']);
+            $manager->persist($reason);
+
+        }
+
+        $manager->flush();
+    }
+
 
     public function load(ObjectManager $manager) {
         $output = new ConsoleOutput();
@@ -489,6 +524,8 @@ class CitizenFixtures extends Fixture implements DependentFixtureInterface
             $this->insert_cod($manager, $output);
             $output->writeln("");
             $this->insert_hnm($manager, $output);
+            $output->writeln("");
+            $this->insert_complaint_reasons($manager, $output);
 
         } catch (Exception $e) {
             $output->writeln('<error>' . $e->getMessage() . '</error>');
