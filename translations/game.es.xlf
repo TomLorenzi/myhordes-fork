@@ -15625,7 +15625,7 @@
       </notes>
       <segment>
         <source>Beta-Tester der neuen Zeit</source>
-        <target>Beta-Tester der neuen Zeit</target>
+        <target>Beta-tester de próxima generación</target>
       </segment>
     </unit>
     <unit id="OnjQ_HM" name="Keine Fehler hi&amp;e%12;r">
@@ -15634,7 +15634,7 @@
       </notes>
       <segment>
         <source>Keine Fehler hi&amp;e%12;r</source>
-        <target><![CDATA[Keine Fehler hi&e%12;r]]></target>
+        <target><![CDATA[Sin bugs a&q%12;uí]]></target>
       </segment>
     </unit>
     <unit id="y013sMW" name="Patient Null">
@@ -15643,7 +15643,7 @@
       </notes>
       <segment>
         <source>Patient Null</source>
-        <target>Patient Null</target>
+        <target>Paciente cero</target>
       </segment>
     </unit>
   </file>
