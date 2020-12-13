@@ -199,13 +199,22 @@
         <target>%citizen% produced one %list2% from a %list1%.</target>
       </segment>
     </unit>
+    <unit id="wxkGehN" name="%zombie% ist von den Toten auferstanden und hat %victim% zerfleischt!">
+      <notes>
+        <note category="german">%zombie% ist von den Toten auferstanden und hat %victim% zerfleischt!</note>
+      </notes>
+      <segment>
+        <source>%zombie% ist von den Toten auferstanden und hat %victim% zerfleischt!</source>
+        <target>%zombie% came back from the dead and mauled %victim%!</target>
+      </segment>
+    </unit>
     <unit id="Wqb2b8u" name="219fbe6">
       <notes>
         <note category="german">%zombie% ist von den Toten auferstanden und hat die Baustelle für %building% verwüstet!</note>
       </notes>
       <segment>
         <source>%zombie% ist von den Toten auferstanden und hat die Baustelle für %building% verwüstet!</source>
-        <target>%zombie% came back from the dead and and devastated the construction site for the %building%!</target>
+        <target>%zombie% came back from the dead and devastated the construction site for the %building%!</target>
       </segment>
     </unit>
     <unit id="kWsuJms" name="b46b79f">

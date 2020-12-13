@@ -199,6 +199,15 @@
         <target>%citizen% folgendes hergestellt: %list2%; dabei wurden folgende Gegenstände verbraucht: %list1%.</target>
       </segment>
     </unit>
+    <unit id="wxkGehN" name="%zombie% ist von den Toten auferstanden und hat %victim% zerfleischt!">
+      <notes>
+        <note category="german">%zombie% ist von den Toten auferstanden und hat %victim% zerfleischt!</note>
+      </notes>
+      <segment>
+        <source>%zombie% ist von den Toten auferstanden und hat %victim% zerfleischt!</source>
+        <target>%zombie% ist von den Toten auferstanden und hat %victim% zerfleischt!</target>
+      </segment>
+    </unit>
     <unit id="Wqb2b8u" name="219fbe6">
       <notes>
         <note category="german">%zombie% ist von den Toten auferstanden und hat die Baustelle für %building% verwüstet!</note>
