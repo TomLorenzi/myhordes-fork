@@ -3182,9 +3182,9 @@
       <notes>
         <note category="german">Hierfür brauchst du einen Kanister.</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Hierfür brauchst du einen Kanister.</source>
-        <target>Hierfür brauchst du einen Kanister.</target>
+        <target>Imposible, necesitas: Cantimplora llena.</target>
       </segment>
     </unit>
     <unit id="4W5shcA" name="Waffe einsetzen">
@@ -3443,18 +3443,18 @@
       <notes>
         <note category="german">Du drückst den {item} eng an deine Brust... &lt;t-stat-down-terror&gt;Tränen laufen über deine Wange, als du an die Hölle denkst, in der du lebst. Nach ein paar Minuten fühlst du dich besser!&lt;/t-stat-down-terror&gt;&lt;nt-stat-down-terror&gt;Aber nichts geschieht!&lt;/nt-stat-down-terror&gt;</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Du drückst den {item} eng an deine Brust... &lt;t-stat-down-terror&gt;Tränen laufen über deine Wange, als du an die Hölle denkst, in der du lebst. Nach ein paar Minuten fühlst du dich besser!&lt;/t-stat-down-terror&gt;&lt;nt-stat-down-terror&gt;Aber nichts geschieht!&lt;/nt-stat-down-terror&gt;</source>
-        <target><![CDATA[Coges {item} fuertemente contra ti... <t-stat-down-terror>Tränen laufen über deine Wange, als du an die Hölle denkst, in der du lebst. Nach ein paar Minuten fühlst du dich besser!</t-stat-down-terror><nt-stat-down-terror>Aber nichts geschieht!</nt-stat-down-terror>]]></target>
+        <target><![CDATA[Coges {item} fuertemente contra ti... <t-stat-down-terror>Te sientes aún más triste que antes. ¿Y para qué sirve "vivir" después de todo?</t-stat-down-terror><nt-stat-down-terror>Pero nada cambia.</nt-stat-down-terror>]]></target>
       </segment>
     </unit>
     <unit id="4TKj72Z" name="ba451af">
       <notes>
         <note category="german">Du drückst den {item} eng an deine Brust... &lt;t-stat-up-terror&gt;Panik steigt in dir auf!&lt;/t-stat-up-terror&gt;&lt;nt-stat-up-terror&gt;Aber nichts geschieht!&lt;/nt-stat-up-terror&gt;</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Du drückst den {item} eng an deine Brust... &lt;t-stat-up-terror&gt;Panik steigt in dir auf!&lt;/t-stat-up-terror&gt;&lt;nt-stat-up-terror&gt;Aber nichts geschieht!&lt;/nt-stat-up-terror&gt;</source>
-        <target><![CDATA[Du drückst den {item} eng an deine Brust... <t-stat-up-terror>Panik steigt in dir auf!</t-stat-up-terror><nt-stat-up-terror>Aber nichts geschieht!</nt-stat-up-terror>]]></target>
+        <target><![CDATA[Coges {item} fuertemente contra ti... <t-stat-up-terror>¡El pánico aumenta en tu interior!</t-stat-up-terror><nt-stat-up-terror>Pero nada cambia.</nt-stat-up-terror>]]></target>
       </segment>
     </unit>
     <unit id="kp6Ik3m" name="Rauchen">
@@ -6691,7 +6691,7 @@ Después de varios largos minutos de búsqueda, terminas por encontrar <strong>u
       </notes>
       <segment state="translated">
         <source>&lt;t-zone&gt;Du hast eine neue Ruine auf {zone} entdeckt!&lt;/t-zone&gt;&lt;nt-zone&gt;Es scheint, als gäbe es nichts mehr zu entdecken ...&lt;/nt-zone&gt;</source>
-        <target><![CDATA[<t-zone>¡Has detectado un nuevo edificio en las coordenadas {zone}!</t-zone><nt-zone>Es scheint, als gäbe es nichts mehr zu entdecken ...</nt-zone>]]></target>
+        <target><![CDATA[<t-zone>¡Has detectado un nuevo edificio en las coordenadas {zone}!</t-zone><nt-zone>Parece que todas las ruinas ya han sido descubiertas...</nt-zone>]]></target>
       </segment>
     </unit>
     <unit id="zI0j8nd" name="Wasserwaffen füllen">
@@ -7191,9 +7191,9 @@ Preparas algo con mucho esmero. Después de unos minutos de cocción, sacas del 
       <notes>
         <note category="german">Vielleicht solltest du stattdessen dein Labor benutzen...</note>
       </notes>
-      <segment>
+      <segment state="translated">
         <source>Vielleicht solltest du stattdessen dein Labor benutzen...</source>
-        <target>Vielleicht solltest du stattdessen dein Labor benutzen...</target>
+        <target>Deberías utilizar tu &lt;strong&gt;Laboratorio&lt;/strong&gt; personal para hacer eso.</target>
       </segment>
     </unit>
     <unit id="zvBNa7R" name="c3f47db">
