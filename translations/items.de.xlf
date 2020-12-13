@@ -6346,7 +6346,7 @@
         <target>Eine Girlande einer scheinbar uralten Tradition. Es wird empfohlen, es zu Hause als Dekoration aufzuhängen, es könnte gut für die Moral der Stadt sein.</target>
       </segment>
     </unit>
-    <unit id="9VFJt3E" name="9e61209">
+    <unit id="Rjbh1eD" name="a214ff9">
       <notes>
         <note category="german">&lt;t-bp_ok&gt;Du liest den {item} und stellst fest, dass es sich um einen Plan für {bp_spawn} handelt.&lt;/t-bp_ok&gt;&lt;t-bp_parent&gt;{hr}Dafür ist das Bauprojekt {bp_parent} nötig.&lt;/t-bp_parent&gt;&lt;t-bp_fail&gt;Du versuchst den {item} zu lesen, kannst seinen Inhalt aber nicht verstehen ...&lt;/t-bp_fail&gt;</note>
       </notes>
@@ -7361,6 +7361,123 @@
       <segment>
         <source>Vous avez voté pour {citizen} en tant que {role} !</source>
         <target>Vous avez voté pour {citizen} en tant que {role} !</target>
+      </segment>
+    </unit>
+    <unit id="aKn4VEo" name="Munitionsgriff">
+      <notes>
+        <note category="german">Munitionsgriff</note>
+      </notes>
+      <segment>
+        <source>Munitionsgriff</source>
+        <target>Munitionsgriff</target>
+      </segment>
+    </unit>
+    <unit id="oFVqj4C" name="Eine Handvoll Munition. Aber was hat das für einen Sinn?">
+      <notes>
+        <note category="german">Eine Handvoll Munition. Aber was hat das für einen Sinn?</note>
+      </notes>
+      <segment>
+        <source>Eine Handvoll Munition. Aber was hat das für einen Sinn?</source>
+        <target>Eine Handvoll Munition. Aber was hat das für einen Sinn?</target>
+      </segment>
+    </unit>
+    <unit id="Ri.5LgC" name="1376d54">
+      <notes>
+        <note category="german">Du hast das Gebiet mit deinem {item} teilweise geräumt ({bury_count} Punkte geräumt).</note>
+      </notes>
+      <segment>
+        <source>Du hast das Gebiet mit deinem {item} teilweise geräumt ({bury_count} Punkte geräumt).</source>
+        <target>Du hast das Gebiet mit deinem {item} teilweise geräumt ({bury_count} Punkte geräumt).</target>
+      </segment>
+    </unit>
+    <unit id="y3qU7qO" name="b9071fe">
+      <notes>
+        <note category="german">Du wirfst eine Rauchbombe in diese Zone und ein Großes Durcheinander bricht aus!{hr}Deine &lt;strong&gt;nächste Bewegungsaktion&lt;/strong&gt; wird night in das Register eingetragen, wenn sie &lt;strong&gt;innerhalb von 1 Minute&lt;/strong&gt; erfolgt.</note>
+      </notes>
+      <segment>
+        <source>Du wirfst eine Rauchbombe in diese Zone und ein Großes Durcheinander bricht aus!{hr}Deine &lt;strong&gt;nächste Bewegungsaktion&lt;/strong&gt; wird night in das Register eingetragen, wenn sie &lt;strong&gt;innerhalb von 1 Minute&lt;/strong&gt; erfolgt.</source>
+        <target><![CDATA[Du wirfst eine Rauchbombe in diese Zone und ein Großes Durcheinander bricht aus!{hr}Deine <strong>nächste Bewegungsaktion</strong> wird night in das Register eingetragen, wenn sie <strong>innerhalb von 1 Minute</strong> erfolgt.]]></target>
+      </segment>
+    </unit>
+    <unit id="gN7yVQC" name="Durchgang in Kraft">
+      <notes>
+        <note category="german">Durchgang in Kraft</note>
+      </notes>
+      <segment>
+        <source>Durchgang in Kraft</source>
+        <target>Durchgang in Kraft</target>
+      </segment>
+    </unit>
+    <unit id="KXx_GUV" name="Den Shamane wählen">
+      <notes>
+        <note category="german">Den Shamane wählen</note>
+      </notes>
+      <segment>
+        <source>Den Shamane wählen</source>
+        <target>Den Shamane wählen</target>
+      </segment>
+    </unit>
+    <unit id="Rrvjw6U" name="Den Reiseleiter in der Außenwelt wählen">
+      <notes>
+        <note category="german">Den Reiseleiter in der Außenwelt wählen</note>
+      </notes>
+      <segment>
+        <source>Den Reiseleiter in der Außenwelt wählen</source>
+        <target>Den Reiseleiter in der Außenwelt wählen</target>
+      </segment>
+    </unit>
+    <unit id="jHDRi5S" name="ae104e2">
+      <notes>
+        <note category="german">Schlechte Nachrichten, das hättest du nicht in den Mund nehmen sollen... Du bist infiziert!</note>
+      </notes>
+      <segment>
+        <source>Schlechte Nachrichten, das hättest du nicht in den Mund nehmen sollen... Du bist infiziert!</source>
+        <target>Schlechte Nachrichten, das hättest du nicht in den Mund nehmen sollen... Du bist infiziert!</target>
+      </segment>
+    </unit>
+    <unit id="UhcYCoM" name="8c7950c">
+      <notes>
+        <note category="german">Ein Opfer der Großen Seuche zu sein hat dir diesmal nicht viel gebracht... und es sieht nicht gut aus...</note>
+      </notes>
+      <segment>
+        <source>Ein Opfer der Großen Seuche zu sein hat dir diesmal nicht viel gebracht... und es sieht nicht gut aus...</source>
+        <target>Ein Opfer der Großen Seuche zu sein hat dir diesmal nicht viel gebracht... und es sieht nicht gut aus...</target>
+      </segment>
+    </unit>
+    <unit id="OyENKXh" name="379ab50">
+      <notes>
+        <note category="german">Da hast du wohl Glück gehabt... Als Opfer der Großen Seuche bist du diesmal um eine unangenehme Infektion herumgekommen.</note>
+      </notes>
+      <segment>
+        <source>Da hast du wohl Glück gehabt... Als Opfer der Großen Seuche bist du diesmal um eine unangenehme Infektion herumgekommen.</source>
+        <target>Da hast du wohl Glück gehabt... Als Opfer der Großen Seuche bist du diesmal um eine unangenehme Infektion herumgekommen.</target>
+      </segment>
+    </unit>
+    <unit id="uHEMxan" name="430096c">
+      <notes>
+        <note category="german">&lt;t-kill-latest&gt;Du hast alle Zombies in dieser Zone mit dieser Waffe umgebracht: {item} ! Entspann dich mal... oder vielleicht besser nicht?&lt;/t-kill-latest&gt;&lt;t-kills&gt;Vous avez éliminé {kills} zombie en utilisant {item} . Ha ! Ha ! Un peu plus de chair étalée... Ca soulage de supprimer du zombie de temps en temps.&lt;/t-kills&gt;</note>
+      </notes>
+      <segment>
+        <source>&lt;t-kill-latest&gt;Du hast alle Zombies in dieser Zone mit dieser Waffe umgebracht: {item} ! Entspann dich mal... oder vielleicht besser nicht?&lt;/t-kill-latest&gt;&lt;t-kills&gt;Vous avez éliminé {kills} zombie en utilisant {item} . Ha ! Ha ! Un peu plus de chair étalée... Ca soulage de supprimer du zombie de temps en temps.&lt;/t-kills&gt;</source>
+        <target><![CDATA[<t-kill-latest>Du hast alle Zombies in dieser Zone mit dieser Waffe umgebracht: {item} ! Entspann dich mal... oder vielleicht besser nicht?</t-kill-latest><t-kills>Vous avez éliminé {kills} zombie en utilisant {item} . Ha ! Ha ! Un peu plus de chair étalée... Ca soulage de supprimer du zombie de temps en temps.</t-kills>]]></target>
+      </segment>
+    </unit>
+    <unit id="5DH1uFn" name="b181e5d">
+      <notes>
+        <note category="german">Du schlägst einen Zombie mit aller Kraft, mehrmals, aber er bricht nicht unter deinen Schlägen zusammen!</note>
+      </notes>
+      <segment>
+        <source>Du schlägst einen Zombie mit aller Kraft, mehrmals, aber er bricht nicht unter deinen Schlägen zusammen!</source>
+        <target>Du schlägst einen Zombie mit aller Kraft, mehrmals, aber er bricht nicht unter deinen Schlägen zusammen!</target>
+      </segment>
+    </unit>
+    <unit id="tT6PQwS" name="Deine Waffe ist durch den harten Aufschlag &lt;strong&gt;kaputt&lt;/strong&gt; gegangen...">
+      <notes>
+        <note category="german">Deine Waffe ist durch den harten Aufschlag &lt;strong&gt;kaputt&lt;/strong&gt; gegangen...</note>
+      </notes>
+      <segment>
+        <source>Deine Waffe ist durch den harten Aufschlag &lt;strong&gt;kaputt&lt;/strong&gt; gegangen...</source>
+        <target><![CDATA[Deine Waffe ist durch den harten Aufschlag <strong>kaputt</strong> gegangen...]]></target>
       </segment>
     </unit>
   </file>

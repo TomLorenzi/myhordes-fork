@@ -1,0 +1,53 @@
+{% extends "ajax/ajax.html.twig" %}
+{% block ajax %}
+    <div class="row">
+        <div class="padded cell rw-12">
+            <div class="row-table">
+                <div class="row header">
+                    <div class="padded cell rw-4">{{ 'Anwendung'|trans({},'admin') }}</div>
+                    <div class="padded cell rw-3">{{ 'Besitzer'|trans({},'admin') }}</div>
+                    <div class="padded cell rw-4">{{ 'Kontakt'|trans({},'admin') }}</div>
+                </div>
+
+                {% for current_app in apps %}
+                    {# @var current_app \App\Entity\ExternalApp #}
+                    <div class="row">
+                        <div class="padded cell-small rw-1"><img alt="" class="pointer" x-app-control="{{ path('admin_toggle_ext_app', {id: current_app.id}) }}" x-toggle-app="{{ current_app.active ? 0 : 1 }}" src="{{ current_app.active ? asset('build/images/icons/player_online.gif') : asset('build/images/icons/player_offline.gif') }}" /></div>
+                        <div class="padded cell-small rw-1">
+                            {% if current_app.imageName is not null %}
+                                <img alt="" src="{{ path('app_web_app_icon', { aid: current_app.id, name: current_app.imageName, ext: current_app.imageFormat }) }}" />
+                            {% endif %}
+                        </div>
+                        <div class="padded cell rw-3">{{ current_app.name }}</div>
+                        <div class="padded cell rw-3">{{ current_app.owner ? current_app.owner.name : '--' }}</div>
+                        <div class="padded cell rw-4">{{ current_app.contact }}</div>
+                        <div class="padded cell rw-1 right">
+                            {% if is_granted("ROLE_ADMIN") %}
+                                <button x-ajax-href="{{ path('admin_app_edit', {id: current_app.id}) }}" class="small inline"><i class="fa fa-edit"></i></button>
+                            {% endif %}
+                        </div>
+                    </div>
+                {% endfor %}
+
+                {% if is_granted("ROLE_ADMIN") %}
+                    <div class="row">
+                        <div class="padded cell ro-11 rw-1 right">
+                            <button x-ajax-href="{{ path('admin_app_new') }}" class="small inline"><i class="fa fa-plus"></i></button>
+                        </div>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+{% block js %}
+    <script>
+        $.html.addEventListenerAll('[x-app-control][x-toggle-app]', 'click', (e,elem) => {
+            $.ajax.easySend( elem.getAttribute('x-app-control'), {on: elem.getAttribute('x-toggle-app') === '1'},
+                function () {
+                    $.ajax.load(null, '{{ path('admin_app_view') }}', true);
+                } );
+        });
+    </script>
+{% endblock %}
