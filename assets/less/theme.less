@@ -642,7 +642,12 @@ ul.inventory {
   &.rucksack-escort { background: rgba(0,0,0,0.1); border: 1px solid @myhordes-cell-header-background-color; margin: 0; }
   &.desert, &.desert-escort { background: url("../img/background/inventory/inv_ground.gif") repeat top left;}
   &.desert-escort { border: 1px solid @myhordes-cell-header-background-color; }
-  &.chest { background: url("../img/background/inventory/inv_home.gif") repeat center;}
+  &.chest {
+    background: url("../img/background/inventory/inv_home.gif") repeat center;
+    &.locked li {
+      opacity: 0.50;
+    }
+  }
   &.bank { background: url("../img/background/inventory/inv_bank.gif") repeat center; min-height: 100px;}
 }
 
