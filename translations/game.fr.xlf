@@ -15651,5 +15651,32 @@
         <target>C'est une récompense extrêmement rare réservée aux premiers joueurs de MyHordes ayant vécu la fin avec un grand F.</target>
       </segment>
     </unit>
+    <unit id="GZZJnSZ" name="Beta-Tester der neuen Zeit">
+      <notes>
+        <note category="german">Beta-Tester der neuen Zeit</note>
+      </notes>
+      <segment>
+        <source>Beta-Tester der neuen Zeit</source>
+        <target>Beta-testeur next gen</target>
+      </segment>
+    </unit>
+    <unit id="OnjQ_HM" name="Keine Fehler hi&amp;e%12;r">
+      <notes>
+        <note category="german">Keine Fehler hi&amp;e%12;r</note>
+      </notes>
+      <segment>
+        <source>Keine Fehler hi&amp;e%12;r</source>
+        <target><![CDATA[Plus d&apos;erreurs ici]]></target>
+      </segment>
+    </unit>
+    <unit id="y013sMW" name="Patient Null">
+      <notes>
+        <note category="german">Patient Null</note>
+      </notes>
+      <segment>
+        <source>Patient Null</source>
+        <target>Patient Zéro</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

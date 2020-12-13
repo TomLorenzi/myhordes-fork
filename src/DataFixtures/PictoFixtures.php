@@ -597,7 +597,7 @@ class PictoFixtures extends Fixture
             'rare' => true
         ],
         [
-            'label' => 'Ehemaliger Beta-Tester',
+            'label' => 'Beta-Tester der neuen Zeit',
             'description' => 'Dies ist eine äußert seltene Auszeichnung, die den ersten Spielern von \'MyHordes\' vorbehalten ist. Drogen sind nicht gut.',
             'icon' => 'r_beta2',
             'rare' => true
