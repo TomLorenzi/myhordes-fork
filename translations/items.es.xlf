@@ -7193,7 +7193,7 @@ Preparas algo con mucho esmero. Después de unos minutos de cocción, sacas del 
       </notes>
       <segment>
         <source>Vielleicht solltest du stattdessen dein Labor benutzen...</source>
-        <target>Vielleicht solltest du stattdessen dein Labor benutzen...</target>
+        <target>Deberías utilizar tu <strong>Laboratorio</strong> personal para hacer eso.</target>
       </segment>
     </unit>
     <unit id="zvBNa7R" name="c3f47db">
