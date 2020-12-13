@@ -344,6 +344,7 @@
                         );
                         break;
                     case "enablesneak":
+                        document.querySelector(".citizen-chest ul.rucksack").parentElement.classList.remove('hidden');
                         handleItems(
                             document.querySelectorAll('.rucksack>.item:not(.locked)[x-item-id]'),
                             '{{ path('town_visit_item_controller', {id: owner.id}) }}',

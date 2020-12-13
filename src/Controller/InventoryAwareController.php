@@ -639,7 +639,7 @@ class InventoryAwareController extends CustomAbstractController
                             }
                             if (!$hide && !$current_item->getHidden()) $this->entity_manager->persist( $this->log->beyondItemLog( $target_citizen, $current_item->getPrototype(), !$floor_up, $current_item->getBroken() ) );
                         }
-                        
+
                         if ($steal_up !== null) {
 
                             $this->citizen_handler->inflictStatus($target_citizen, 'tg_steal');
@@ -669,7 +669,7 @@ class InventoryAwareController extends CustomAbstractController
 
                             $this->picto_handler->give_picto($citizen, $pictoName);
 
-                            if($direction == "down") {
+                            if($steal_up) {
                                 if ($hasExplodingDoormat && $victim_home->getCitizen()->getAlive()) {
 
                                     if ($this->citizen_handler->isWounded($citizen))
@@ -708,6 +708,8 @@ class InventoryAwareController extends CustomAbstractController
                                 }
     
                                 $this->crow->postAsPM( $victim_home->getCitizen(), '', '', PrivateMessage::TEMPLATE_CROW_THEFT, $current_item->getPrototype()->getId() );
+                            } else if($this->random_generator->chance(0.1)) {
+                                $this->entity_manager->persist( $this->log->townSteal( $victim_home->getCitizen(), $citizen, $current_item->getPrototype(), $steal_up, false, $current_item->getBroken() ) );
                             }
                         }
                         if(!$floor_up && $hide) {

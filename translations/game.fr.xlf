@@ -3350,7 +3350,7 @@
       </notes>
       <segment>
         <source>%actor% ist bei %victim% eingebrochen und hat %item% hinterlassen...</source>
-        <target>%actor% est entré par effraction chez %victim% et a laissé %item%...</target>
+        <target>%actor% a tenté de déposer %item% chez %victim%... Malheureusement pour ce citoyen, il a été remarqué ! Mais que manigançait-il ?</target>
       </segment>
     </unit>
     <unit id="Lzd32wL" name="Es scheint, jemand ist bei %victim% eingebrochen und hat %item% hinterlassen...">
