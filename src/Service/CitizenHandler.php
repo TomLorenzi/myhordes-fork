@@ -186,8 +186,9 @@ class CitizenHandler
         if (!$citizen->getAlive() || $citizen->getTown()->getChaos()) return false;
 
         $action = false; $kill = false;
+        $nbComplaint = $this->entity_manager->getRepository(Complaint::class)->countComplaintsFor($citizen, Complaint::SeverityBanish);
         if (!$citizen->getBanished()) {
-            if ($this->entity_manager->getRepository(Complaint::class)->countComplaintsFor($citizen, Complaint::SeverityBanish) >= 8)
+            if ($nbComplaint >= 8)
                 $action = true;
         }
 
@@ -197,7 +198,7 @@ class CitizenHandler
             if($citizen->getBanished() && $gallows)
                 $complaintNeeded = 6;
 
-            if ($this->entity_manager->getRepository(Complaint::class)->countComplaintsFor($citizen, Complaint::SeverityKill) >= $complaintNeeded)
+            if ($nbComplaint >= $complaintNeeded)
                 $action = $kill = true;
         }
 
@@ -248,7 +249,7 @@ class CitizenHandler
             // The gallow is used before the cage
             if ($gallows) {
                 $this->container->get(DeathHandler::class)->kill( $citizen, CauseOfDeath::Hanging, $rem );
-                $pictoPrototype = $this->entity_manager->getRepository(PictoPrototype::class)->findOneByName('r_dhang_#00');
+                $pictoPrototype = $this->entity_manager->getRepository(PictoPrototype::class)->findOneBy(['name' => 'r_dhang_#00']);
                 $this->picto_handler->give_picto($citizen, $pictoPrototype);
 
                 // The gallow gets destroyed
