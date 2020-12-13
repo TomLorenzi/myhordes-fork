@@ -639,6 +639,7 @@ class InventoryAwareController extends CustomAbstractController
                             }
                             if (!$hide && !$current_item->getHidden()) $this->entity_manager->persist( $this->log->beyondItemLog( $target_citizen, $current_item->getPrototype(), !$floor_up, $current_item->getBroken() ) );
                         }
+                        
                         if ($steal_up !== null) {
 
                             $this->citizen_handler->inflictStatus($target_citizen, 'tg_steal');
