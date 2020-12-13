@@ -1795,5 +1795,14 @@
         <target>Ausb.+Nachr.</target>
       </segment>
     </unit>
+    <unit id="k30IQ7V" name="e678701">
+      <notes>
+        <note category="german">&lt;strong&gt;Die Stadt versinkt im Chaos!&lt;/strong&gt;&lt;/p&gt;Es gilt kein Gesetz mehr... Ihr müsst jetzt alle zusammenhalten und mit den Übriggebliebenen auskommen!&lt;p&gt;&lt;em&gt;... Oder euch gegenseitig abschlachten, je nachdem.&lt;/em&gt;</note>
+      </notes>
+      <segment>
+        <source>&lt;strong&gt;Die Stadt versinkt im Chaos!&lt;/strong&gt;&lt;/p&gt;Es gilt kein Gesetz mehr... Ihr müsst jetzt alle zusammenhalten und mit den Übriggebliebenen auskommen!&lt;p&gt;&lt;em&gt;... Oder euch gegenseitig abschlachten, je nachdem.&lt;/em&gt;</source>
+        <target><![CDATA[<strong>Die Stadt versinkt im Chaos!</strong></p>Es gilt kein Gesetz mehr... Ihr müsst jetzt alle zusammenhalten und mit den Übriggebliebenen auskommen!<p><em>... Oder euch gegenseitig abschlachten, je nachdem.</em>]]></target>
+      </segment>
+    </unit>
   </file>
 </xliff>

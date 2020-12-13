@@ -896,11 +896,17 @@ class NightlyHandler
         $wind_dist = $this->conf->getTownConfiguration($town)->get(TownConf::CONF_MODIFIER_WIND_DISTANCE, 2);
 
         foreach ($town->getZones() as $zone) {
+            /** @var Zone $zone */
 
             if ($zone->getPrototype() && $zone->getPrototype()->getExplorable()) {
                 foreach ($zone->getExplorerStats() as $ex) {
                     $ex->getCitizen()->removeExplorerStat( $ex );
                     $this->entity_manager->remove($ex);
+                }
+
+                foreach ($zone->getChatSilenceTimers() as $timer) {
+                    $zone->removeChatSilenceTimer($timer);
+                    $this->entity_manager->remove($timer);
                 }
                 $this->maze->populateMaze( $zone, $maze_zeds, true, true );
             }

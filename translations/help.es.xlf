@@ -2847,7 +2847,7 @@ werden &lt;strong&gt;automatisch&lt;/strong&gt; der &lt;strong&gt;Hauseinrichtun
       </notes>
       <segment>
         <source>Durch das Trinken von Alkohol kommst du wieder zu Kräften (hebt die Erschöpfung auf), allerdings bist du danach nicht mehr ganz Herr deiner Sinne... Deine %img_drunk% &lt;strong&gt;Trunkenheit&lt;/strong&gt; weicht am nächsten Tag einem üblen %img_hung% &lt;strong&gt;Kater&lt;/strong&gt;... Allgemein gilt: Wenn du betrunken oder verkatert bist, kannst du keine weiteren alkoholischen Getränke zu dir nehmen.</source>
-        <target><![CDATA[Durch das Trinken von Alkohol kommst du wieder zu Kräften (hebt die Erschöpfung auf), allerdings bist du danach nicht mehr ganz Herr deiner Sinne... Deine %img_drunk% <strong>Trunkenheit</strong> weicht am nächsten Tag einem üblen %img_hung% <strong>Kater</strong>... Allgemein gilt: Wenn du betrunken oder verkatert bist, kannst du keine weiteren alkoholischen Getränke zu dir nehmen.]]></target>
+        <target><![CDATA[El alcohol te permite recuperarte de un gran cansancio, pero es posible que hagas alguna tontería... El día siguiente, el estado %img_drunk% <strong>Ebrio</strong> desaparecerá pero será remplazado por el estado %img_hung% <strong>Resaca</strong>. No podrás seguir consumiendo bebidas alcohólicas en cualquiera de estos dos estados.]]></target>
       </segment>
     </unit>
     <unit id="Ltaudos" name="27de32f">
@@ -3151,8 +3151,7 @@ Es basiert auf folgenden zwei Konzepten:</note>
       <segment>
         <source>Der Spielmodus &lt;strong&gt;Kleine Koalitionen&lt;/strong&gt; ist sehr einfach und sehr effektiv.
 Es basiert auf folgenden zwei Konzepten:</source>
-        <target><![CDATA[Der Spielmodus <strong>Kleine Koalitionen</strong> ist sehr einfach und sehr effektiv.
-Es basiert auf folgenden zwei Konzepten:]]></target>
+        <target><![CDATA[El sistema de <strong>Alianzas</strong> es un sistema de equipo bastante básico y poderoso a la vez.]]></target>
       </segment>
     </unit>
     <unit id="NxiEK7R" name="b1589ab">
@@ -3161,7 +3160,7 @@ Es basiert auf folgenden zwei Konzepten:]]></target>
       </notes>
       <segment>
         <source>1 - Manche Spieler möchten 'MyHordes' gerne mit ihren Freunden spielen und gemeinsam leiden.</source>
-        <target>1 - Manche Spieler möchten 'MyHordes' gerne mit ihren Freunden spielen und gemeinsam leiden.</target>
+        <target>1 - Un jugador puede invitar a sus amigos a formar una alianza.</target>
       </segment>
     </unit>
     <unit id="syTxQPv" name="2 - Die entsprechende Stadtauswahl muss dementsprechend einfach sein.">
@@ -3170,7 +3169,7 @@ Es basiert auf folgenden zwei Konzepten:]]></target>
       </notes>
       <segment>
         <source>2 - Die entsprechende Stadtauswahl muss dementsprechend einfach sein.</source>
-        <target>2 - Die entsprechende Stadtauswahl muss dementsprechend einfach sein.</target>
+        <target>2 - Los miembros de una alianza ingresarán juntos a un pueblo.</target>
       </segment>
     </unit>
     <unit id="2n8_pNk" name="Wie funktionieren Kleine Koalitionen?">
@@ -3179,7 +3178,7 @@ Es basiert auf folgenden zwei Konzepten:]]></target>
       </notes>
       <segment>
         <source>Wie funktionieren Kleine Koalitionen?</source>
-        <target>Wie funktionieren Kleine Koalitionen?</target>
+        <target>¿Cómo funciona?</target>
       </segment>
     </unit>
     <unit id="R5h.W4u" name="f1a605e">
@@ -3188,7 +3187,7 @@ Es basiert auf folgenden zwei Konzepten:]]></target>
       </notes>
       <segment>
         <source>Ein Spieler erstellt auf seiner Seelenseite eine Koalition und versendet anschließend Einladungen an seine Freunde.</source>
-        <target>Ein Spieler erstellt auf seiner Seelenseite eine Koalition und versendet anschließend Einladungen an seine Freunde.</target>
+        <target>Uno de los jugadores crea una alianza desde su Alma, y enseguida envía invitaciones a sus amigos para que se unan a su alianza.</target>
       </segment>
     </unit>
     <unit id="vQbgI60" name="e1d6b89">
@@ -3197,7 +3196,7 @@ Es basiert auf folgenden zwei Konzepten:]]></target>
       </notes>
       <segment>
         <source>Die Koalition wird gebildet, sobald ihr 5 Spieler beigetreten sind. Die Spieler können anschließend Strategien besprechen, etc...</source>
-        <target>Die Koalition wird gebildet, sobald ihr 5 Spieler beigetreten sind. Die Spieler können anschließend Strategien besprechen, etc...</target>
+        <target>Cuando 5 jugadores se hayan unido a la alianza, pueden conversar, definir estrategias, etc.</target>
       </segment>
     </unit>
     <unit id="yr8y3nx" name="19526d0">
@@ -3206,7 +3205,7 @@ Es basiert auf folgenden zwei Konzepten:]]></target>
       </notes>
       <segment>
         <source>Das Abenteuer kann sodann beginnen! &lt;strong&gt;Der erste &lt;i&gt;verfügbare&lt;/i&gt; Spieler einer Gruppe, der sich für eine Stadt entscheidet, zieht die übrigen (verfügbaren) Spieler mit!&lt;/strong&gt;. Die Koalition benötigt einen Helden, wenn sie sich eine Stadt aussuchen möchte. Wenn sich in der Koalition kein Held befindet, wird die Koalition automatisch in die nächstbeste Stadt gezogen.</source>
-        <target><![CDATA[Das Abenteuer kann sodann beginnen! <strong>Der erste <i>verfügbare</i> Spieler einer Gruppe, der sich für eine Stadt entscheidet, zieht die übrigen (verfügbaren) Spieler mit!</strong>. Die Koalition benötigt einen Helden, wenn sie sich eine Stadt aussuchen möchte. Wenn sich in der Koalition kein Held befindet, wird die Koalition automatisch in die nächstbeste Stadt gezogen.]]></target>
+        <target><![CDATA[¡Ahora es tiempo de iniciar la aventura! <strong>El primer miembro <i>disponible</i> que ingrese a un mundo llevará consigo a los otros que estén disponibles. Tan simple como eso.</strong>]]></target>
       </segment>
     </unit>
     <unit id="js0aDbK" name="f3ef2b7">
@@ -3215,7 +3214,7 @@ Es basiert auf folgenden zwei Konzepten:]]></target>
       </notes>
       <segment>
         <source>Selbstverständlich ist in einer Koalition eine gehörige Portion Organisation vonnöten. Ein privater Chat wird den Spieler hierfür zur Verfügung gestellt.</source>
-        <target>Selbstverständlich ist in einer Koalition eine gehörige Portion Organisation vonnöten. Ein privater Chat wird den Spieler hierfür zur Verfügung gestellt.</target>
+        <target>Por supuesto, este sistema exige una buena comunicación entre los jugadores. Para eso está el chat privado :)</target>
       </segment>
     </unit>
     <unit id="BvIp2WN" name="c5d97bf">
@@ -3224,7 +3223,7 @@ Es basiert auf folgenden zwei Konzepten:]]></target>
       </notes>
       <segment>
         <source>Jeder Teilnehmer kann die Koalition jederzeit verlassen und der Gründer kann sie jederzeit auflösen.</source>
-        <target>Jeder Teilnehmer kann die Koalition jederzeit verlassen und der Gründer kann sie jederzeit auflösen.</target>
+        <target>Además, un jugador puede salir de la alianza en todo momento, así como el creador puede disolver la alianza.</target>
       </segment>
     </unit>
     <unit id="P7hm9z." name="Wenn der Gründer seine Koalition verlässt, wird diese mit ihm aufgelöst.">
@@ -3233,7 +3232,7 @@ Es basiert auf folgenden zwei Konzepten:]]></target>
       </notes>
       <segment>
         <source>Wenn der Gründer seine Koalition verlässt, wird diese mit ihm aufgelöst.</source>
-        <target>Wenn der Gründer seine Koalition verlässt, wird diese mit ihm aufgelöst.</target>
+        <target>Sin olvidar que: Si el creador abandona la alianza, ésta desaparece.</target>
       </segment>
     </unit>
     <unit id="Vvun1Sq" name="Ausnahmen und Besonderheiten">
@@ -3242,7 +3241,7 @@ Es basiert auf folgenden zwei Konzepten:]]></target>
       </notes>
       <segment>
         <source>Ausnahmen und Besonderheiten</source>
-        <target>Ausnahmen und Besonderheiten</target>
+        <target>Reglas particulares</target>
       </segment>
     </unit>
     <unit id="MdieWou" name="6b77b65">
@@ -3251,7 +3250,7 @@ Es basiert auf folgenden zwei Konzepten:]]></target>
       </notes>
       <segment>
         <source>Du kannst einer Koalition nicht beitreten, wenn dieser ein Spieler angehört, der verdächtig wird, ein Multiaccount von dir zu sein.</source>
-        <target>Du kannst einer Koalition nicht beitreten, wenn dieser ein Spieler angehört, der verdächtig wird, ein Multiaccount von dir zu sein.</target>
+        <target>No puedes unirte a una alianza que tenga como miembro a un jugador detectado como multicuenta.</target>
       </segment>
     </unit>
     <unit id="sHGNd4c" name="bda7671">
@@ -3260,7 +3259,7 @@ Es basiert auf folgenden zwei Konzepten:]]></target>
       </notes>
       <segment>
         <source>Du kannst einer Koalition ebenfalls nicht beitreten, wenn 2 (oder mehr) Mitglieder dieser Koalition sich in den letzten 15 Tagen vom gleichen Rechner aus eingeloggt haben.</source>
-        <target>Du kannst einer Koalition ebenfalls nicht beitreten, wenn 2 (oder mehr) Mitglieder dieser Koalition sich in den letzten 15 Tagen vom gleichen Rechner aus eingeloggt haben.</target>
+        <target>Además, no pudes ingresar a una alianza si 2 miembros (o más) de esa alianza se han conectado desde el mismo PC, en los últimos 15 días.</target>
       </segment>
     </unit>
     <unit id="G0k099k" name="5383c4b">
@@ -3273,9 +3272,7 @@ ACHTUNG: Wir raten dir wärmstens davon ab uns anzuschreiben, wenn du ganz siche
         <source>Wenn du der Meinung bist, dass wir dich zu unrecht verdächtigen, kannst du dich an unseren Technischen Support 	
 wenden. Wir werden dann prüfen, ob wir dir weiterhelfen können oder nicht.
 ACHTUNG: Wir raten dir wärmstens davon ab uns anzuschreiben, wenn du ganz sicher weißt, dass du verbotenerweise mehrere Accounts spielst! Du könntest deine Aktion bereuen....</source>
-        <target>Wenn du der Meinung bist, dass wir dich zu unrecht verdächtigen, kannst du dich an unseren Technischen Support 	
-wenden. Wir werden dann prüfen, ob wir dir weiterhelfen können oder nicht.
-ACHTUNG: Wir raten dir wärmstens davon ab uns anzuschreiben, wenn du ganz sicher weißt, dass du verbotenerweise mehrere Accounts spielst! Du könntest deine Aktion bereuen....</target>
+        <target>Si crees que esto ha sido detectado erróneamente, contacta al soporte técnico: haremos lo necesario para ayudarte. ADVERTENCIA: te recomendamos encarecidamente que no los contactes si es que estás equivocado, ya que podrías llegar a arrepentirte.</target>
       </segment>
     </unit>
     <unit id="kKnuEUv" name="Häufig gestellte Fragen">
@@ -3293,7 +3290,7 @@ ACHTUNG: Wir raten dir wärmstens davon ab uns anzuschreiben, wenn du ganz siche
       </notes>
       <segment>
         <source>Spielt die GESAMTE Koalition in der vom Gründer ausgesuchten Stadt? Schließt das auch die Spieler ein, die offline sind?</source>
-        <target>Spielt die GESAMTE Koalition in der vom Gründer ausgesuchten Stadt? Schließt das auch die Spieler ein, die offline sind?</target>
+        <target>Cuando el jugador que ha creado la alianza entra al pueblo, ¿TODA la alianza entra con él (incluso aquellos que no están conectados)?</target>
       </segment>
     </unit>
     <unit id="SA9u7H3" name="db10250">
@@ -3302,7 +3299,7 @@ ACHTUNG: Wir raten dir wärmstens davon ab uns anzuschreiben, wenn du ganz siche
       </notes>
       <segment>
         <source>&lt;strong&gt;Nein,&lt;/strong&gt; es werden nur eingeladene Spieler mitgenommen, die ihrerseits noch keine Stadt gewählt haben. Ob jemand off- oder online ist, spielt keine Rolle.</source>
-        <target><![CDATA[<strong>Nein,</strong> es werden nur eingeladene Spieler mitgenommen, die ihrerseits noch keine Stadt gewählt haben. Ob jemand off- oder online ist, spielt keine Rolle.]]></target>
+        <target><![CDATA[<strong>No,</strong> solo los jugadores que no tengan pueblo le seguirán, sin importar si están conectados o no en ese momento.]]></target>
       </segment>
     </unit>
     <unit id="xWRwURq" name="273690f">
@@ -3311,7 +3308,7 @@ ACHTUNG: Wir raten dir wärmstens davon ab uns anzuschreiben, wenn du ganz siche
       </notes>
       <segment>
         <source>Wenn eine Stadt mehr als 35 Einwohner hat und eine Koalition der Stadt beitreten möchte, hat dies dann zur Folge, dass die Stadt mehr als 40 Bürger hat?</source>
-        <target>Wenn eine Stadt mehr als 35 Einwohner hat und eine Koalition der Stadt beitreten möchte, hat dies dann zur Folge, dass die Stadt mehr als 40 Bürger hat?</target>
+        <target>Si el pueblo tiene más de 35 personas y una alianza ingresa a él, ¿el pueblo tendrá más de 40 habitantes?</target>
       </segment>
     </unit>
     <unit id="xpgRvT_" name="9a2e84e">
@@ -3320,7 +3317,7 @@ ACHTUNG: Wir raten dir wärmstens davon ab uns anzuschreiben, wenn du ganz siche
       </notes>
       <segment>
         <source>&lt;strong&gt; Nein,&lt;/strong&gt; es werden nur die übrigen Plätze aufgefüllt. Wenn noch 4 Plätze frei sind, werden nur 4 Spieler aus einer Koalition aufgenommen. Um sicher zu stellen, dass alle Koalitionsmitglieder in der gleichen Stadt spielen können, ist es ratsam das Programm eine Stadt nach dem Zufallsprinzip auswählen zu lassen.</source>
-        <target><![CDATA[<strong> Nein,</strong> es werden nur die übrigen Plätze aufgefüllt. Wenn noch 4 Plätze frei sind, werden nur 4 Spieler aus einer Koalition aufgenommen. Um sicher zu stellen, dass alle Koalitionsmitglieder in der gleichen Stadt spielen können, ist es ratsam das Programm eine Stadt nach dem Zufallsprinzip auswählen zu lassen.]]></target>
+        <target><![CDATA[<strong>No,</strong> aparecerá un candado en los pueblos que la alianza.]]></target>
       </segment>
     </unit>
     <unit id="K3mRnjG" name="Für wie lange wird eine Koalition gebildet?">
@@ -3329,7 +3326,7 @@ ACHTUNG: Wir raten dir wärmstens davon ab uns anzuschreiben, wenn du ganz siche
       </notes>
       <segment>
         <source>Für wie lange wird eine Koalition gebildet?</source>
-        <target>Für wie lange wird eine Koalition gebildet?</target>
+        <target>¿La alianza sirve solo una vez?</target>
       </segment>
     </unit>
     <unit id="nTUJUCy" name="beb8dbc">
@@ -3338,7 +3335,7 @@ ACHTUNG: Wir raten dir wärmstens davon ab uns anzuschreiben, wenn du ganz siche
       </notes>
       <segment>
         <source>Die Lebensdauer einer Koalition ist &lt;strong&gt;unbegrenzt&lt;/strong&gt;! Sie hört auf zu existieren, wenn der Gründer sie auflöst oder wenn alle Spieler sie verlassen.</source>
-        <target><![CDATA[Die Lebensdauer einer Koalition ist <strong>unbegrenzt</strong>! Sie hört auf zu existieren, wenn der Gründer sie auflöst oder wenn alle Spieler sie verlassen.]]></target>
+        <target><![CDATA[<strong>No,</strong> la vida de la alianza es infinita hasta que sea disuelta por su fundador o todos sus miembos la hayan abandonado.]]></target>
       </segment>
     </unit>
     <unit id="Cm86Dx2" name="f8608fa">
@@ -3347,7 +3344,7 @@ ACHTUNG: Wir raten dir wärmstens davon ab uns anzuschreiben, wenn du ganz siche
       </notes>
       <segment>
         <source>&lt;strong&gt;Beachte&lt;/strong&gt;: Wenn der Koalitionsgründer seine Koalition verlässt, wird diese ebenfalls aufgelöst!</source>
-        <target><![CDATA[<strong>Beachte</strong>: Wenn der Koalitionsgründer seine Koalition verlässt, wird diese ebenfalls aufgelöst!]]></target>
+        <target><![CDATA[<strong>Recuerda</strong>: Si el creador sale de la alianza, ¡esta será disuelta!]]></target>
       </segment>
     </unit>
     <unit id="iFHNOV4" name="3ffbd3c">
@@ -3356,7 +3353,7 @@ ACHTUNG: Wir raten dir wärmstens davon ab uns anzuschreiben, wenn du ganz siche
       </notes>
       <segment>
         <source>Was passiert wenn ein anderer Spieler aus meiner Koalition eine Stadt wählt und ich offline bin?</source>
-        <target>Was passiert wenn ein anderer Spieler aus meiner Koalition eine Stadt wählt und ich offline bin?</target>
+        <target>Si no estoy conectado al sitio cuando otro jugador de alianza elige un pueblo, ¿qué sucede?</target>
       </segment>
     </unit>
     <unit id="Rsmj9VE" name="c4633da">
@@ -3365,7 +3362,7 @@ ACHTUNG: Wir raten dir wärmstens davon ab uns anzuschreiben, wenn du ganz siche
       </notes>
       <segment>
         <source>Wenn du noch keine Stadt gewählt hast, spielst du automatisch in der Stadt deines Freundes. Sobald du dich das nächste Mal einloggst, bist du in der gewählten Stadt.</source>
-        <target>Wenn du noch keine Stadt gewählt hast, spielst du automatisch in der Stadt deines Freundes. Sobald du dich das nächste Mal einloggst, bist du in der gewählten Stadt.</target>
+        <target>Si aún no estás en un pueblo, ingresarás al pueblo elegido por el jugador si tu estado es disponible. En tu próxima conexión aparecerás en ese pueblo. Si tu estado es "no disponible" por alguna razón y hay espacio libre en el pueblo, aparecerá un botón para que puedas unirte a tu alianza.</target>
       </segment>
     </unit>
     <unit id="byHsL3D" name="a8b530a">
@@ -3374,7 +3371,7 @@ ACHTUNG: Wir raten dir wärmstens davon ab uns anzuschreiben, wenn du ganz siche
       </notes>
       <segment>
         <source>Dein Haus ist eine Oase der Ruhe und dein ganz privater Rückzugsraum, wenn du mal abschalten möchtest.</source>
-        <target>Dein Haus ist eine Oase der Ruhe und dein ganz privater Rückzugsraum, wenn du mal abschalten möchtest.</target>
+        <target>Tu casa es tu remanso de paz y tranquilidad en el terrorífico mundo de MyHordes.</target>
       </segment>
     </unit>
     <unit id="ML1xoWn" name="Es handelt sich um einen &lt;strong&gt;sehr wichtigen Ort&lt;/strong&gt;, an dem du:">
@@ -3383,7 +3380,7 @@ ACHTUNG: Wir raten dir wärmstens davon ab uns anzuschreiben, wenn du ganz siche
       </notes>
       <segment>
         <source>Es handelt sich um einen &lt;strong&gt;sehr wichtigen Ort&lt;/strong&gt;, an dem du:</source>
-        <target><![CDATA[Es handelt sich um einen <strong>sehr wichtigen Ort</strong>, an dem du:]]></target>
+        <target><![CDATA[¡Es un <strong>lugar esencial!</strong> Es allí donde puedes:]]></target>
       </segment>
     </unit>
     <unit id="WUwx9ZR" name="Persönliche Dinge erledigen kannst.">
@@ -3392,7 +3389,7 @@ ACHTUNG: Wir raten dir wärmstens davon ab uns anzuschreiben, wenn du ganz siche
       </notes>
       <segment>
         <source>Persönliche Dinge erledigen kannst.</source>
-        <target>Persönliche Dinge erledigen kannst.</target>
+        <target>Efectuar acciones personales</target>
       </segment>
     </unit>
     <unit id="RkI3NUA" name="822873f">
@@ -3401,7 +3398,7 @@ ACHTUNG: Wir raten dir wärmstens davon ab uns anzuschreiben, wenn du ganz siche
       </notes>
       <segment>
         <source>Gegenstände in deiner Truhe aufbewahren kannst (4 Plätze stehen hierzu standardmäßig zur Verfügung).</source>
-        <target>Gegenstände in deiner Truhe aufbewahren kannst (4 Plätze stehen hierzu standardmäßig zur Verfügung).</target>
+        <target>Almacenar objetos en tu baúl (4 compartimentos por defecto)</target>
       </segment>
     </unit>
     <unit id="2Zlr.jK" name="Dein Rucksack und deine Truhe">
@@ -3410,7 +3407,7 @@ ACHTUNG: Wir raten dir wärmstens davon ab uns anzuschreiben, wenn du ganz siche
       </notes>
       <segment>
         <source>Dein Rucksack und deine Truhe</source>
-        <target>Dein Rucksack und deine Truhe</target>
+        <target>Tu mochila y tu baúl</target>
       </segment>
     </unit>
     <unit id="1y.FMB4" name="0c71e39">
@@ -3419,7 +3416,7 @@ ACHTUNG: Wir raten dir wärmstens davon ab uns anzuschreiben, wenn du ganz siche
       </notes>
       <segment>
         <source>In deinem Rucksack und in deiner Truhe kannst du Gegenstände ablegen, die du in der Außenwelt gefunden hast oder die du aus der Bank genommen hast.</source>
-        <target>In deinem Rucksack und in deiner Truhe kannst du Gegenstände ablegen, die du in der Außenwelt gefunden hast oder die du aus der Bank genommen hast.</target>
+        <target>En tu mochila y tu baúl puedes almacenar los objetos que encuentres en el Ultramundo o que hayas sacado del Almacén.</target>
       </segment>
     </unit>
     <unit id="yg15KnG" name="a9dbd06">
@@ -3428,7 +3425,7 @@ ACHTUNG: Wir raten dir wärmstens davon ab uns anzuschreiben, wenn du ganz siche
       </notes>
       <segment>
         <source>Beide haben eine begrenzte Anzahl an Aufbewahrungsplätzen. Es ist jedoch möglich, ihre &lt;strong&gt; Aufnahmekapazität&lt;/strong&gt; mit bestimmten Gegenständen oder durch einen Ausbau (nur die Truhe) zu vergrößern.</source>
-        <target><![CDATA[Beide haben eine begrenzte Anzahl an Aufbewahrungsplätzen. Es ist jedoch möglich, ihre <strong> Aufnahmekapazität</strong> mit bestimmten Gegenständen oder durch einen Ausbau (nur die Truhe) zu vergrößern.]]></target>
+        <target><![CDATA[Aunque al inicio su espacio es limitado, pero es <strong>posible aumentar su capacidad de almacenamiento</strong>.]]></target>
       </segment>
     </unit>
     <unit id="Nb_xRXS" name="996c759">
@@ -3437,7 +3434,7 @@ ACHTUNG: Wir raten dir wärmstens davon ab uns anzuschreiben, wenn du ganz siche
       </notes>
       <segment>
         <source>Dazu musst du nur die richtigen Gegenstände finden (Rucksack und Truhe) oder deine Einrichtung ausbauen (gilt nur für die Truhe).</source>
-        <target>Dazu musst du nur die richtigen Gegenstände finden (Rucksack und Truhe) oder deine Einrichtung ausbauen (gilt nur für die Truhe).</target>
+        <target>Para ellos deberás encontrar los objetos destinados a ello (mochila y baúl) o construir mejoras (baúl únicamente).</target>
       </segment>
     </unit>
     <unit id="QEyrv7n" name="Die Hausverteidigung verbessern">
@@ -3446,7 +3443,7 @@ ACHTUNG: Wir raten dir wärmstens davon ab uns anzuschreiben, wenn du ganz siche
       </notes>
       <segment>
         <source>Die Hausverteidigung verbessern</source>
-        <target>Die Hausverteidigung verbessern</target>
+        <target>Mejorar tus defensas</target>
       </segment>
     </unit>
     <unit id="0sZ2Bu8" name="4757264">
@@ -3455,7 +3452,7 @@ ACHTUNG: Wir raten dir wärmstens davon ab uns anzuschreiben, wenn du ganz siche
       </notes>
       <segment>
         <source>Du kannst die Verteidigungfähigkeit deines Hauses durch bestimmte Ausbauten verbessern. &lt;strong&gt;Mit jeder Ausbaustufe steigt auch der Verteidigungswert&lt;/strong&gt;, allerdings benötigst du eine bestimmte Anzahl an Materialien.</source>
-        <target><![CDATA[Du kannst die Verteidigungfähigkeit deines Hauses durch bestimmte Ausbauten verbessern. <strong>Mit jeder Ausbaustufe steigt auch der Verteidigungswert</strong>, allerdings benötigst du eine bestimmte Anzahl an Materialien.]]></target>
+        <target><![CDATA[Es posible mejorar las defensas de tu casa construyendo mejoras. <strong>Cada mejora te aporta puntos de defensa.</strong> Cada mejora tiene un costo de recursos.]]></target>
       </segment>
     </unit>
     <unit id="iyArRrk" name="Verteidigungsbauten wirken sich wie folgt aus:">
@@ -3464,7 +3461,7 @@ ACHTUNG: Wir raten dir wärmstens davon ab uns anzuschreiben, wenn du ganz siche
       </notes>
       <segment>
         <source>Verteidigungsbauten wirken sich wie folgt aus:</source>
-        <target>Verteidigungsbauten wirken sich wie folgt aus:</target>
+        <target>Las defensas en tu casa tienen 2 efectos:</target>
       </segment>
     </unit>
     <unit id="1kFgpdL" name="Sie halten Zombies davon ab, bei dir einzudringen.">
@@ -3473,7 +3470,7 @@ ACHTUNG: Wir raten dir wärmstens davon ab uns anzuschreiben, wenn du ganz siche
       </notes>
       <segment>
         <source>Sie halten Zombies davon ab, bei dir einzudringen.</source>
-        <target>Sie halten Zombies davon ab, bei dir einzudringen.</target>
+        <target>Impiden a los zombies de devorarte enla noche.</target>
       </segment>
     </unit>
     <unit id=".sNRTps" name="Sie verbessern allgemein die Verteidigung der Stadt.">
@@ -3482,7 +3479,7 @@ ACHTUNG: Wir raten dir wärmstens davon ab uns anzuschreiben, wenn du ganz siche
       </notes>
       <segment>
         <source>Sie verbessern allgemein die Verteidigung der Stadt.</source>
-        <target>Sie verbessern allgemein die Verteidigung der Stadt.</target>
+        <target>Aumenta las defensas del pueblo.</target>
       </segment>
     </unit>
     <unit id="XLhfWZv" name="Deine Einrichtung verbessern">
@@ -3491,7 +3488,7 @@ ACHTUNG: Wir raten dir wärmstens davon ab uns anzuschreiben, wenn du ganz siche
       </notes>
       <segment>
         <source>Deine Einrichtung verbessern</source>
-        <target>Deine Einrichtung verbessern</target>
+        <target>Mejorar tu habitación</target>
       </segment>
     </unit>
     <unit id="A_.d_sj" name="bc2b68c">
@@ -3500,7 +3497,7 @@ ACHTUNG: Wir raten dir wärmstens davon ab uns anzuschreiben, wenn du ganz siche
       </notes>
       <segment>
         <source>Neben deinem Haus selbst kannst du auch deine Einrichtung verschönern und verbessern. Auch diese &lt;strong&gt;Maßnahmen&lt;/strong&gt; bringen dir einige Vorteile, wie zum Beispiel mehr Aufbewahrungsmöglichkeiten, besserer Diebstahlschutz u.v.m!</source>
-        <target><![CDATA[Neben deinem Haus selbst kannst du auch deine Einrichtung verschönern und verbessern. Auch diese <strong>Maßnahmen</strong> bringen dir einige Vorteile, wie zum Beispiel mehr Aufbewahrungsmöglichkeiten, besserer Diebstahlschutz u.v.m!]]></target>
+        <target><![CDATA[Tu casa requiere ser construida y mejorada. Zombinoia presenta un sistema de <strong>Construcciones</strong> que te permite mejorar tus defensas, aumentar tu capacidad de almacenamiento... ¡y hasta convertirte en obrero!]]></target>
       </segment>
     </unit>
     <unit id="vHP_r22" name="5e61d3b">
@@ -3509,7 +3506,7 @@ ACHTUNG: Wir raten dir wärmstens davon ab uns anzuschreiben, wenn du ganz siche
       </notes>
       <segment>
         <source>Jede Einrichtungsverbesserung benötigt &lt;strong&gt;APs&lt;/strong&gt; und/oder &lt;strong&gt;Materialien&lt;/strong&gt;.</source>
-        <target><![CDATA[Jede Einrichtungsverbesserung benötigt <strong>APs</strong> und/oder <strong>Materialien</strong>.]]></target>
+        <target><![CDATA[Para mejorar tu casa deberás invertir <strong>Puntos de Acción</strong> y/o <strong>recursos</strong>.]]></target>
       </segment>
     </unit>
     <unit id="Qpnsaa." name="Hierbei gibt es verschiedene Verbesserungsarten:">
@@ -3518,7 +3515,7 @@ ACHTUNG: Wir raten dir wärmstens davon ab uns anzuschreiben, wenn du ganz siche
       </notes>
       <segment>
         <source>Hierbei gibt es verschiedene Verbesserungsarten:</source>
-        <target>Hierbei gibt es verschiedene Verbesserungsarten:</target>
+        <target>Existen varios tipos de mejoras:</target>
       </segment>
     </unit>
     <unit id="BchHNdu" name="&lt;strong&gt;Stauraum&lt;/strong&gt;: Vergrößert deinen Lagerplatz.">
@@ -3527,7 +3524,7 @@ ACHTUNG: Wir raten dir wärmstens davon ab uns anzuschreiben, wenn du ganz siche
       </notes>
       <segment>
         <source>&lt;strong&gt;Stauraum&lt;/strong&gt;: Vergrößert deinen Lagerplatz.</source>
-        <target><![CDATA[<strong>Stauraum</strong>: Vergrößert deinen Lagerplatz.]]></target>
+        <target><![CDATA[<strong>Almacén</strong>: Aumenta tu capacidad de almacenamiento.]]></target>
       </segment>
     </unit>
     <unit id="qpGJItt" name="&lt;strong&gt;Verteidigung&lt;/strong&gt;: Verbessert deine Fähigkeit Zombies abzuwehren.">
@@ -3536,7 +3533,7 @@ ACHTUNG: Wir raten dir wärmstens davon ab uns anzuschreiben, wenn du ganz siche
       </notes>
       <segment>
         <source>&lt;strong&gt;Verteidigung&lt;/strong&gt;: Verbessert deine Fähigkeit Zombies abzuwehren.</source>
-        <target><![CDATA[<strong>Verteidigung</strong>: Verbessert deine Fähigkeit Zombies abzuwehren.]]></target>
+        <target><![CDATA[<strong>Defensa</strong>: Aumenta tu capacidad de repeler a los zombies durante sus ataques noturnos.]]></target>
       </segment>
     </unit>
     <unit id="2ICld5d" name="627af64">
@@ -3545,7 +3542,7 @@ ACHTUNG: Wir raten dir wärmstens davon ab uns anzuschreiben, wenn du ganz siche
       </notes>
       <segment>
         <source>&lt;strong&gt;Türschloss&lt;/strong&gt;: Hindert deine lieben Mitbürger daran, sich mal was "auszuleihen"...</source>
-        <target><![CDATA[<strong>Türschloss</strong>: Hindert deine lieben Mitbürger daran, sich mal was "auszuleihen"...]]></target>
+        <target><![CDATA[<strong>Cerrojo</strong>: Impide a los otros habitantes entrar a tu casa y "tomar prestados" tus objetos.]]></target>
       </segment>
     </unit>
     <unit id="GiAhDRG" name="e57645e">
@@ -3554,7 +3551,7 @@ ACHTUNG: Wir raten dir wärmstens davon ab uns anzuschreiben, wenn du ganz siche
       </notes>
       <segment>
         <source>&lt;strong&gt;Alarm&lt;/strong&gt;: Macht sich bemerkbar, wenn sich jemand was "leihen" möchte.</source>
-        <target><![CDATA[<strong>Alarm</strong>: Macht sich bemerkbar, wenn sich jemand was "leihen" möchte.]]></target>
+        <target><![CDATA[<strong>Alarma</strong>: Te avisa si otros habitantes intentan "tomar prestados" tus objetos.]]></target>
       </segment>
     </unit>
     <unit id="2trN91i" name="&lt;strong&gt;Vorhang&lt;/strong&gt;: Verhindert allzu neugierige Blicke auf deine Truhe.">
@@ -3563,7 +3560,7 @@ ACHTUNG: Wir raten dir wärmstens davon ab uns anzuschreiben, wenn du ganz siche
       </notes>
       <segment>
         <source>&lt;strong&gt;Vorhang&lt;/strong&gt;: Verhindert allzu neugierige Blicke auf deine Truhe.</source>
-        <target><![CDATA[<strong>Vorhang</strong>: Verhindert allzu neugierige Blicke auf deine Truhe.]]></target>
+        <target><![CDATA[<strong>Cortina</strong>: Esconde el contenido de tu baúl de la vista de tus camaradas indiscretos...]]></target>
       </segment>
     </unit>
     <unit id="j5QIYAA" name="11bfbf5">
@@ -3572,7 +3569,7 @@ ACHTUNG: Wir raten dir wärmstens davon ab uns anzuschreiben, wenn du ganz siche
       </notes>
       <segment>
         <source>Dieses Einrichtungsverbesserungssystem ist den &lt;strong&gt;Helden&lt;/strong&gt; vorbehalten.</source>
-        <target><![CDATA[Dieses Einrichtungsverbesserungssystem ist den <strong>Helden</strong> vorbehalten.]]></target>
+        <target><![CDATA[Para utilizar este sistema, debes ser un <strong>Héroe</strong>.]]></target>
       </segment>
     </unit>
     <unit id="3K7RUJG" name="0208218">
@@ -3583,8 +3580,7 @@ ACHTUNG: Wir raten dir wärmstens davon ab uns anzuschreiben, wenn du ganz siche
       <segment>
         <source>&lt;strong&gt;Bei den Ghulen handelt es sich um infizierte Einwohner, die sich noch nicht ganz in Zombies verwandelt haben&lt;/strong&gt;
 (Auch die liebe Mutter Natur treibt ab und zu ihre Späßchen).</source>
-        <target><![CDATA[<strong>Bei den Ghulen handelt es sich um infizierte Einwohner, die sich noch nicht ganz in Zombies verwandelt haben</strong>
-(Auch die liebe Mutter Natur treibt ab und zu ihre Späßchen).]]></target>
+        <target><![CDATA[<strong>Los mutantes son habitantes parcialmente infectados pero que no se convirtieron totalmente en zombies</strong> (la vida fue muy cruel con ellos).]]></target>
       </segment>
     </unit>
     <unit id="i1wTSyA" name="b0fa4d3">
@@ -3593,7 +3589,7 @@ ACHTUNG: Wir raten dir wärmstens davon ab uns anzuschreiben, wenn du ganz siche
       </notes>
       <segment>
         <source>Es ist so gut wie unmöglich einen Ghul von einem normalen Bürger zu unterscheiden. Wenn ihr nicht aufpasst, kann schon ein Ghul eine ganze Stadt innerhalb kürzester Zeit dezimieren.</source>
-        <target>Es ist so gut wie unmöglich einen Ghul von einem normalen Bürger zu unterscheiden. Wenn ihr nicht aufpasst, kann schon ein Ghul eine ganze Stadt innerhalb kürzester Zeit dezimieren.</target>
+        <target>A simple vista, casi no podemos distinguir a un mutante de un habitante sano y esto podría diezmar una buena parte de los habitantes de un pueblo si no se toman medidas rápidas al respecto.</target>
       </segment>
     </unit>
     <unit id="d4P2O7p" name="Hilfe, ich bin ein Ghul!">
@@ -3602,7 +3598,7 @@ ACHTUNG: Wir raten dir wärmstens davon ab uns anzuschreiben, wenn du ganz siche
       </notes>
       <segment>
         <source>Hilfe, ich bin ein Ghul!</source>
-        <target>Hilfe, ich bin ein Ghul!</target>
+        <target>¡Por ejemplo, yo soy un mutante!</target>
       </segment>
     </unit>
     <unit id="forco.9" name="e3d64a2">
@@ -3611,7 +3607,7 @@ ACHTUNG: Wir raten dir wärmstens davon ab uns anzuschreiben, wenn du ganz siche
       </notes>
       <segment>
         <source>Als Ghul musst du jeden Tag deinen Hunger nach Menschenfleisch stillen. Dein &lt;strong&gt;Hunger&lt;/strong&gt; wird durch eine Leiste angezeigt, die du oben auf der Seite direkt unter deinem Gesundheitszustand findest.</source>
-        <target><![CDATA[Als Ghul musst du jeden Tag deinen Hunger nach Menschenfleisch stillen. Dein <strong>Hunger</strong> wird durch eine Leiste angezeigt, die du oben auf der Seite direkt unter deinem Gesundheitszustand findest.]]></target>
+        <target><![CDATA[Para sobrevivir, no debes perder de vista tu barra de <strong>Voracidad</strong> que aparece arriba a la derecha, bajo tu estado.]]></target>
       </segment>
     </unit>
     <unit id="xwV.CDq" name="5c10877">
@@ -3620,7 +3616,7 @@ ACHTUNG: Wir raten dir wärmstens davon ab uns anzuschreiben, wenn du ganz siche
       </notes>
       <segment>
         <source>Um deinen Hunger zu stillen, musst du einen lebenden Mitbürger oder kaltes Menschenfleisch essen (in was für einer Form auch immer...).</source>
-        <target>Um deinen Hunger zu stillen, musst du einen lebenden Mitbürger oder kaltes Menschenfleisch essen (in was für einer Form auch immer...).</target>
+        <target>Devora un habitante o consume carne humana fría (en todas sus formas) para reducir tu Voracidad.</target>
       </segment>
     </unit>
     <unit id="l_nvwuf" name="Vorteile">
@@ -3629,7 +3625,7 @@ ACHTUNG: Wir raten dir wärmstens davon ab uns anzuschreiben, wenn du ganz siche
       </notes>
       <segment>
         <source>Vorteile</source>
-        <target>Vorteile</target>
+        <target>Ventajas</target>
       </segment>
     </unit>
     <unit id="LGXhz7Z" name="Nachteile">
@@ -3638,7 +3634,7 @@ ACHTUNG: Wir raten dir wärmstens davon ab uns anzuschreiben, wenn du ganz siche
       </notes>
       <segment>
         <source>Nachteile</source>
-        <target>Nachteile</target>
+        <target>Desventajas</target>
       </segment>
     </unit>
     <unit id="I5rvSru" name="4757914">
@@ -3647,7 +3643,7 @@ ACHTUNG: Wir raten dir wärmstens davon ab uns anzuschreiben, wenn du ganz siche
       </notes>
       <segment>
         <source>Der Verzehr von kalten oder warmen Menschenfleisch gibt dir %img_ap% zurück und senkt deinen Heißhunger.</source>
-        <target>Der Verzehr von kalten oder warmen Menschenfleisch gibt dir %img_ap% zurück und senkt deinen Heißhunger.</target>
+        <target>Consumir carne humana viva o muerta regenera tus %img_ap% y reduce tu Voracidad.</target>
       </segment>
     </unit>
     <unit id="h_gD9Uq" name="76fcd15">
@@ -3656,7 +3652,7 @@ ACHTUNG: Wir raten dir wärmstens davon ab uns anzuschreiben, wenn du ganz siche
       </notes>
       <segment>
         <source>Pro gefressenem Mitbürger gewinnst du &lt;strong&gt;1 Heldentag&lt;/strong&gt; (Du erhältst sie nach deinem Tod).</source>
-        <target><![CDATA[Pro gefressenem Mitbürger gewinnst du <strong>1 Heldentag</strong> (Du erhältst sie nach deinem Tod).]]></target>
+        <target><![CDATA[Ganarás <strong>1 día de Modo Héroe por habitante devorado</strong> (entregados cuando mueres).]]></target>
       </segment>
     </unit>
     <unit id="v4LpsCZ" name="ddfab5c">
@@ -3665,7 +3661,7 @@ ACHTUNG: Wir raten dir wärmstens davon ab uns anzuschreiben, wenn du ganz siche
       </notes>
       <segment>
         <source>Du bist gegen die Wirkungen einer &lt;strong&gt;Infektion&lt;/strong&gt; immun und verspürst keinen &lt;strong&gt;Durst&lt;/strong&gt;.</source>
-        <target><![CDATA[Du bist gegen die Wirkungen einer <strong>Infektion</strong> immun und verspürst keinen <strong>Durst</strong>.]]></target>
+        <target><![CDATA[Estarás inmunizado contra los efectos de <strong>la infección</strong> y de <strong>la sed</strong>; no morirás nunca durante tus expediciones en el Ultramundo o como producto de una herida provocada por los ataques nocturnos.]]></target>
       </segment>
     </unit>
     <unit id="SY1__db" name="897fd94">
@@ -3674,7 +3670,7 @@ ACHTUNG: Wir raten dir wärmstens davon ab uns anzuschreiben, wenn du ganz siche
       </notes>
       <segment>
         <source>Du kannst die Stadt unerkannt betreten und verlassen (d.h.: Es wird nicht ins Register eingetragen).</source>
-        <target>Du kannst die Stadt unerkannt betreten und verlassen (d.h.: Es wird nicht ins Register eingetragen).</target>
+        <target>Puedes, si lo deseas, entrar o salir discretamente del pueblo (sin quedar anotado en el Registro).</target>
       </segment>
     </unit>
     <unit id="87181SX" name="9718572">
@@ -3683,7 +3679,7 @@ ACHTUNG: Wir raten dir wärmstens davon ab uns anzuschreiben, wenn du ganz siche
       </notes>
       <segment>
         <source>Wenn deine Hungerleiste die &lt;strong&gt;rote Linie&lt;/strong&gt; überschreitet, stirbst du beim Zombieangriff um Mitternacht.</source>
-        <target><![CDATA[Wenn deine Hungerleiste die <strong>rote Linie</strong> überschreitet, stirbst du beim Zombieangriff um Mitternacht.]]></target>
+        <target><![CDATA[Si tu barra de Voracidad <strong>sobrepasa el límite rojo</strong>, morirás en el ataque nocturno.]]></target>
       </segment>
     </unit>
     <unit id="5afbmiP" name="Wenn du Wasser trinkst, bist du &lt;strong&gt;verletzt&lt;/strong&gt;.">
@@ -3692,7 +3688,7 @@ ACHTUNG: Wir raten dir wärmstens davon ab uns anzuschreiben, wenn du ganz siche
       </notes>
       <segment>
         <source>Wenn du Wasser trinkst, bist du &lt;strong&gt;verletzt&lt;/strong&gt;.</source>
-        <target><![CDATA[Wenn du Wasser trinkst, bist du <strong>verletzt</strong>.]]></target>
+        <target><![CDATA[Sufrirás una <strong>herida</strong> si bebes agua.]]></target>
       </segment>
     </unit>
     <unit id="BxAsI52" name="8612213">
@@ -3701,7 +3697,7 @@ ACHTUNG: Wir raten dir wärmstens davon ab uns anzuschreiben, wenn du ganz siche
       </notes>
       <segment>
         <source>Die Wahrscheinlichkeit beim Töten eines Mitbürgers ertappt zu werden, verhält sich proportional zur der Anzahl der noch lebenden Stadtbürger.</source>
-        <target>Die Wahrscheinlichkeit beim Töten eines Mitbürgers ertappt zu werden, verhält sich proportional zur der Anzahl der noch lebenden Stadtbürger.</target>
+        <target>Si decides devorar a un habitante en el pueblo, tus probabilidades de ser visto serán proporcionales a la cantidad de habitantes actualmente presentes en él.</target>
       </segment>
     </unit>
     <unit id="rgpo1TM" name="e8b8d67">
@@ -3710,7 +3706,7 @@ ACHTUNG: Wir raten dir wärmstens davon ab uns anzuschreiben, wenn du ganz siche
       </notes>
       <segment>
         <source>Dein Hunger wird jeden Tag nach dem Angriff um Mitternacht größer: Wenn du als Ghul überleben möchtest, solltest du darauf achten, rechtzeitig "Nahrung" zu dir zu nehmen. Wenn die Stadt allerdings zerstört wurde, sinkt deine Lust und dein Hunger ein wenig.</source>
-        <target>Dein Hunger wird jeden Tag nach dem Angriff um Mitternacht größer: Wenn du als Ghul überleben möchtest, solltest du darauf achten, rechtzeitig "Nahrung" zu dir zu nehmen. Wenn die Stadt allerdings zerstört wurde, sinkt deine Lust und dein Hunger ein wenig.</target>
+        <target>Tu voracidad aumenta en la noche, después del ataque deberás entonces devorar regularmente un habitante para sobrevivir. Sin embargo, si el pueblo es devastado, la tentación y el hambre se harán sentir menos.</target>
       </segment>
     </unit>
     <unit id="4t8w_0b" name="40a4909">
@@ -3719,7 +3715,7 @@ ACHTUNG: Wir raten dir wärmstens davon ab uns anzuschreiben, wenn du ganz siche
       </notes>
       <segment>
         <source>Wenn du einen Menschen frisst, wird sein Zustand auf dich übertragen. Suche dir deine Opfer also sorgfältig aus und widerstehe der Versuchung, den erstbesten Drogensüchtigen zu verspeisen!</source>
-        <target>Wenn du einen Menschen frisst, wird sein Zustand auf dich übertragen. Suche dir deine Opfer also sorgfältig aus und widerstehe der Versuchung, den erstbesten Drogensüchtigen zu verspeisen!</target>
+        <target>Si devoras un humano que tiene un estado particular, ese estado te será transmitido en ese momento: intenta elegir bien tus víctimas, ¡y no sucumbir a la tentación de devorar al primer drogado que cruce tu camino!</target>
       </segment>
     </unit>
     <unit id="zP1fcqT" name="Wie kann man ein Ghul werden?">
@@ -3728,7 +3724,7 @@ ACHTUNG: Wir raten dir wärmstens davon ab uns anzuschreiben, wenn du ganz siche
       </notes>
       <segment>
         <source>Wie kann man ein Ghul werden?</source>
-        <target>Wie kann man ein Ghul werden?</target>
+        <target>¿Cómo nos convertimos en mutantes?</target>
       </segment>
     </unit>
     <unit id="C2V9vFV" name="472a94d">
@@ -3737,7 +3733,7 @@ ACHTUNG: Wir raten dir wärmstens davon ab uns anzuschreiben, wenn du ganz siche
       </notes>
       <segment>
         <source>Dieser Zustand kann nicht gewählt werden. Vielmehr handelt es sich um einen Fluch, von dem jeder Spieler, egal ob in der Stadt oder in der Außenwelt, getroffen werden kann.</source>
-        <target>Dieser Zustand kann nicht gewählt werden. Vielmehr handelt es sich um einen Fluch, von dem jeder Spieler, egal ob in der Stadt oder in der Außenwelt, getroffen werden kann.</target>
+        <target>Un habitante podría convertirse en mutante al comer alimentos sospechosos: Cadáver de viajero, raros bichos y cosas así. Las posibilidades son remotas, ¿pero realmente quieres correr el riesgo de convertirte en uno de esos monstruos?</target>
       </segment>
     </unit>
     <unit id="5JpviwY" name="7439588">
@@ -3746,7 +3742,7 @@ ACHTUNG: Wir raten dir wärmstens davon ab uns anzuschreiben, wenn du ganz siche
       </notes>
       <segment>
         <source>Man kann sich mit bestimmten Produkten gegen die Verwandlung in einen Ghul schützen!</source>
-        <target>Man kann sich mit bestimmten Produkten gegen die Verwandlung in einen Ghul schützen!</target>
+        <target>Es posible curarse gracias a la vacuna anti-mutante.</target>
       </segment>
     </unit>
     <unit id="m270tVB" name="Wie tötet man einen Ghul?">
@@ -3755,7 +3751,7 @@ ACHTUNG: Wir raten dir wärmstens davon ab uns anzuschreiben, wenn du ganz siche
       </notes>
       <segment>
         <source>Wie tötet man einen Ghul?</source>
-        <target>Wie tötet man einen Ghul?</target>
+        <target>¿Cómo matar a un mutante?</target>
       </segment>
     </unit>
     <unit id="NqWgUq6" name="77a41fb">
@@ -3764,7 +3760,7 @@ ACHTUNG: Wir raten dir wärmstens davon ab uns anzuschreiben, wenn du ganz siche
       </notes>
       <segment>
         <source>Ein Ghul ist noch kein Zombie. Sein Körper kann sich nur schlecht gegen Angriffe wehren. Sowohl der Galgen, als auch Drogenabhängigkeit können einen Ghul umbringen. Allerdings kann ein Ghul weder verdursten, noch an einer Infektion sterben.</source>
-        <target>Ein Ghul ist noch kein Zombie. Sein Körper kann sich nur schlecht gegen Angriffe wehren. Sowohl der Galgen, als auch Drogenabhängigkeit können einen Ghul umbringen. Allerdings kann ein Ghul weder verdursten, noch an einer Infektion sterben.</target>
+        <target>Un mutante no un es totalmente un zombie y puede morir por ciertas causas "normales": ahorcamiento y adicción a los estimulantes. Sin embargo, es inmune a la sed y a la infección.</target>
       </segment>
     </unit>
     <unit id="w0OQSf1" name="acbb19c">
@@ -3777,9 +3773,7 @@ es besteht eine erhöhte Wahrscheinlichkeit sein Opfer zu verletzen. Versucht au
         <source>&lt;strong&gt;Die effektivste Methode einen Ghul zu töten, ist es ihn anzugreifen. Er stirbt dann sofort.&lt;/strong&gt;
 Doch aufgepasst: Ein körperlicher Angriff kostet einiges an %img_ap% und
 es besteht eine erhöhte Wahrscheinlichkeit sein Opfer zu verletzen. Versucht auch nicht den/die falschen anzugreifen, es könnte auf euch zurückfallen. ;)</source>
-        <target><![CDATA[<strong>Die effektivste Methode einen Ghul zu töten, ist es ihn anzugreifen. Er stirbt dann sofort.</strong>
-Doch aufgepasst: Ein körperlicher Angriff kostet einiges an %img_ap% und
-es besteht eine erhöhte Wahrscheinlichkeit sein Opfer zu verletzen. Versucht auch nicht den/die falschen anzugreifen, es könnte auf euch zurückfallen. ;)]]></target>
+        <target><![CDATA[<strong>La agresión es la solución más eficaz y mata instantáneamente a un mutante. </strong> Atención: la agresión cuesta cara en %img_ap% y tiene una alta posibilidad de herir a la víctima. Cuidado con las agresiones injustificadas.]]></target>
       </segment>
     </unit>
     <unit id="DeovMmE" name="Wie erkenne ich einen Ghul?">
@@ -3788,7 +3782,7 @@ es besteht eine erhöhte Wahrscheinlichkeit sein Opfer zu verletzen. Versucht au
       </notes>
       <segment>
         <source>Wie erkenne ich einen Ghul?</source>
-        <target>Wie erkenne ich einen Ghul?</target>
+        <target>¿Cómo identificar a un mutante?</target>
       </segment>
     </unit>
     <unit id="EYzcm1C" name="2c95215">
@@ -3797,7 +3791,7 @@ es besteht eine erhöhte Wahrscheinlichkeit sein Opfer zu verletzen. Versucht au
       </notes>
       <segment>
         <source>Das Stadtregister ist dein wichtigster Anhaltspunkt. Außerdem solltest du einen Blick auf die An- und Abwesenheit bestimmter Spieler achten.</source>
-        <target>Das Stadtregister ist dein wichtigster Anhaltspunkt. Außerdem solltest du einen Blick auf die An- und Abwesenheit bestimmter Spieler achten.</target>
+        <target>El Registro del pueblo será tu mejor aliado. Vigila también las presencias y ausencias de jugadores.</target>
       </segment>
     </unit>
     <unit id="biUg0kY" name="d68835e">
@@ -3806,7 +3800,7 @@ es besteht eine erhöhte Wahrscheinlichkeit sein Opfer zu verletzen. Versucht au
       </notes>
       <segment>
         <source>Vergiss nie, dass sich jeder Spieler urplötzlich in einen Ghul verwandeln kann! Es kann auch den charismatischen Anführer deiner Stadt treffen, der dir immer so wertvolle Tipps gibt...</source>
-        <target>Vergiss nie, dass sich jeder Spieler urplötzlich in einen Ghul verwandeln kann! Es kann auch den charismatischen Anführer deiner Stadt treffen, der dir immer so wertvolle Tipps gibt...</target>
+        <target>¡No olvides que todos pueden convertirse en mutantes! Incluso el muy simpático líder de tu pueblo o aquella persona que tanto aprecias...</target>
       </segment>
     </unit>
     <unit id="m3f6S65" name="8f8917d">
@@ -3819,9 +3813,7 @@ Diese Berufe sind aber den Spielern vorbehalten sind, die als Held spielen.</not
         <source>Jeder Spieler startet in "Die Verdammten" als einfacher Bürger. 
 Daneben gibt es jedoch noch &lt;strong&gt;7 außergewöhnliche Berufe&lt;/strong&gt;. 
 Diese Berufe sind aber den Spielern vorbehalten sind, die als Held spielen.</source>
-        <target><![CDATA[Jeder Spieler startet in "Die Verdammten" als einfacher Bürger. 
-Daneben gibt es jedoch noch <strong>7 außergewöhnliche Berufe</strong>. 
-Diese Berufe sind aber den Spielern vorbehalten sind, die als Held spielen.]]></target>
+        <target><![CDATA[<strong>En MyHordes, cada habitante comienza como una persona común y corriente.</strong>. Los héroes, pueden elegir un oficio que les dé una ventaja en un dominio específico: El oficio de Excavador permite encontrarmás objetos en el desierto que el promedio.]]></target>
       </segment>
     </unit>
     <unit id="9ySXrH1" name="b148883">
@@ -3838,11 +3830,7 @@ Der Buddler zum Beispiel findet in der Wüste im Durchschnitt mehr Gegenstände 
 Einwohner. Der Einsiedler hat bessere Überlebenschancen beim Campen in der Wildnis.
 Darüber hinaus erhält man je nach Beruf einen &lt;strong&gt;speziellen Gegenstand&lt;/strong&gt;. 
 Der Aufklärer besitzt eine Tarnkleidung, der Buddler eine Schaufel usw...</source>
-        <target><![CDATA[Helden können zum Beginn einer Stadt einen Beruf wählen. Jeder Beruf bietet besondere Vorteile. 
-Der Buddler zum Beispiel findet in der Wüste im Durchschnitt mehr Gegenstände als ein normaler 
-Einwohner. Der Einsiedler hat bessere Überlebenschancen beim Campen in der Wildnis.
-Darüber hinaus erhält man je nach Beruf einen <strong>speziellen Gegenstand</strong>. 
-Der Aufklärer besitzt eine Tarnkleidung, der Buddler eine Schaufel usw...]]></target>
+        <target><![CDATA[Un oficio <strong>te da acceso a un objeto especial y exclusivo</strong>. El traje de camuflaje para el Explorador, una pala para el Excavador, etc.]]></target>
       </segment>
     </unit>
     <unit id="gkceIWw" name="dbc810c">
@@ -3851,7 +3839,7 @@ Der Aufklärer besitzt eine Tarnkleidung, der Buddler eine Schaufel usw...]]></t
       </notes>
       <segment>
         <source>Der Einwohner ist einfacher Bürger. Er verfügt über keine spezielle Fähigkeit.</source>
-        <target>Der Einwohner ist einfacher Bürger. Er verfügt über keine spezielle Fähigkeit.</target>
+        <target>En su estado más básico no tiene ninguna capacidad particular.</target>
       </segment>
     </unit>
     <unit id="6t2A8hx" name="Startausrüstung">
@@ -3860,7 +3848,7 @@ Der Aufklärer besitzt eine Tarnkleidung, der Buddler eine Schaufel usw...]]></t
       </notes>
       <segment>
         <source>Startausrüstung</source>
-        <target>Startausrüstung</target>
+        <target>Equipo de partida</target>
       </segment>
     </unit>
     <unit id="tIJY2yE" name="Bürgerkleidung">
@@ -3869,7 +3857,7 @@ Der Aufklärer besitzt eine Tarnkleidung, der Buddler eine Schaufel usw...]]></t
       </notes>
       <segment>
         <source>Bürgerkleidung</source>
-        <target>Bürgerkleidung</target>
+        <target>Vestimenta de habitante</target>
       </segment>
     </unit>
     <unit id="liDUE4L" name="811ca45">
@@ -3878,7 +3866,7 @@ Der Aufklärer besitzt eine Tarnkleidung, der Buddler eine Schaufel usw...]]></t
       </notes>
       <segment>
         <source>Die Klamotten, die du schon seit ein paar Jahren trägst. Sie sind abgetragen, erfüllen aber ihren Zweck: Sie sind bequem. In diesen Kleidern wirst du auch sterben, soviel steht schon einmal fest.</source>
-        <target>Die Klamotten, die du schon seit ein paar Jahren trägst. Sie sind abgetragen, erfüllen aber ihren Zweck: Sie sind bequem. In diesen Kleidern wirst du auch sterben, soviel steht schon einmal fest.</target>
+        <target>Tu único y usado uniforme que llevarás puesto durante tu vida. Sin embargo es muy práctico y relativamente cómodo, no te puedes quejar...</target>
       </segment>
     </unit>
     <unit id=".km5yno" name="Wie wird diese Figur gespielt?">
@@ -3887,7 +3875,7 @@ Der Aufklärer besitzt eine Tarnkleidung, der Buddler eine Schaufel usw...]]></t
       </notes>
       <segment>
         <source>Wie wird diese Figur gespielt?</source>
-        <target>Wie wird diese Figur gespielt?</target>
+        <target>¿Como jugar con él?</target>
       </segment>
     </unit>
     <unit id="4VWEE9m" name="Es gibt nichts Besonderes zu erwähnen, du kannst spielen wie du möchtest...">
@@ -3896,7 +3884,7 @@ Der Aufklärer besitzt eine Tarnkleidung, der Buddler eine Schaufel usw...]]></t
       </notes>
       <segment>
         <source>Es gibt nichts Besonderes zu erwähnen, du kannst spielen wie du möchtest...</source>
-        <target>Es gibt nichts Besonderes zu erwähnen, du kannst spielen wie du möchtest...</target>
+        <target>Puedes hacer un poco de todo... no tiene nada de especial.</target>
       </segment>
     </unit>
     <unit id="g2PQAEX" name="Der Buddler findet in der Wüste mehr Gegenstände.">
@@ -3905,7 +3893,7 @@ Der Aufklärer besitzt eine Tarnkleidung, der Buddler eine Schaufel usw...]]></t
       </notes>
       <segment>
         <source>Der Buddler findet in der Wüste mehr Gegenstände.</source>
-        <target>Der Buddler findet in der Wüste mehr Gegenstände.</target>
+        <target>El Excavador es capaz de encontrar más cosas en el desierto que sus camaradas.</target>
       </segment>
     </unit>
     <unit id="zozlCDV" name="Kleine Schaufel">
@@ -3914,7 +3902,7 @@ Der Aufklärer besitzt eine Tarnkleidung, der Buddler eine Schaufel usw...]]></t
       </notes>
       <segment>
         <source>Kleine Schaufel</source>
-        <target>Kleine Schaufel</target>
+        <target>Pala pequeña</target>
       </segment>
     </unit>
     <unit id="IU3Z1xk" name="c85cf59">
@@ -3923,7 +3911,7 @@ Der Aufklärer besitzt eine Tarnkleidung, der Buddler eine Schaufel usw...]]></t
       </notes>
       <segment>
         <source>Mit der kleinen Schaufel musst du in der Wüste nicht so lange graben (automatisch aktiviert). Die Wahrscheinlichkeit einen Gegenstand zu finden ist ebenfalls größer.</source>
-        <target>Mit der kleinen Schaufel musst du in der Wüste nicht so lange graben (automatisch aktiviert). Die Wahrscheinlichkeit einen Gegenstand zu finden ist ebenfalls größer.</target>
+        <target>La pala pequeña permite reducir (automáticamente) el tiempo de búsqueda en el desierto... Las probabilidades de encontrar un objeto son mucho más elevadas.</target>
       </segment>
     </unit>
     <unit id="6lyOEYJ" name="c880d28">
@@ -3932,7 +3920,7 @@ Der Aufklärer besitzt eine Tarnkleidung, der Buddler eine Schaufel usw...]]></t
       </notes>
       <segment>
         <source>Deine automatischen Grabungsaktionen dauern &lt;strong&gt;30 Minuten weniger&lt;/strong&gt; als bei anderen Bürgern. Du kannst pro Tag also öfters graben! Die Wahrscheinlichkeit einen Gegenstand zu finden ist größer als bei den anderen Bürgern.</source>
-        <target><![CDATA[Deine automatischen Grabungsaktionen dauern <strong>30 Minuten weniger</strong> als bei anderen Bürgern. Du kannst pro Tag also öfters graben! Die Wahrscheinlichkeit einen Gegenstand zu finden ist größer als bei den anderen Bürgern.]]></target>
+        <target><![CDATA[Tus búsquedas duran automáticamente <strong>30 minutos menos</strong> que las de los otros habitantes, por lo tanto, ¡puedes hacer más búsquedas al día! Tus probabilidades de encontrar un objetos son más altas que el promedio.]]></target>
       </segment>
     </unit>
     <unit id="FGMXL35" name="58be565">
@@ -3941,7 +3929,7 @@ Der Aufklärer besitzt eine Tarnkleidung, der Buddler eine Schaufel usw...]]></t
       </notes>
       <segment>
         <source>In der Außenwelt verfügst du über einen "sechsten Sinn", der dir im voraus ermöglicht zu wissen, ob eine benachbarte Zone Gegenstände enthält oder ob sie leer ist. Du weißt dann auch, ob ein Gebäude Gegenstände enthält oder nicht!</source>
-        <target>In der Außenwelt verfügst du über einen "sechsten Sinn", der dir im voraus ermöglicht zu wissen, ob eine benachbarte Zone Gegenstände enthält oder ob sie leer ist. Du weißt dann auch, ob ein Gebäude Gegenstände enthält oder nicht!</target>
+        <target>Además, en el Ultramundo, tu instinto agudo de Excavador te dirá previamente si una zona vecina tiene objetos escondidos o si está agotada, ¡esta aptitud permite igualmente identificar edificios que aún contienen objetos!</target>
       </segment>
     </unit>
     <unit id="5fEzGrz" name="091d519">
@@ -3952,8 +3940,7 @@ Sauerstoffvorrats&lt;/strong&gt; kann er verlassenene Gebäude länger und somit
       <segment>
         <source>Der Buddler hat einen großen Vorteil beim Untersuchen verlassener Gebäude. Dank seines &lt;strong&gt;50% größeren 
 Sauerstoffvorrats&lt;/strong&gt; kann er verlassenene Gebäude länger und somit gründlicher untersuchen als andere Bürger.</source>
-        <target><![CDATA[Der Buddler hat einen großen Vorteil beim Untersuchen verlassener Gebäude. Dank seines <strong>50% größeren 
-Sauerstoffvorrats</strong> kann er verlassenene Gebäude länger und somit gründlicher untersuchen als andere Bürger.]]></target>
+        <target><![CDATA[Como es sabido, el Excavador se desenvuelve bien los lugares estrechos y laberínticos. Tendrá <strong>50% de oxígeno adicional</strong> para explorar a fondo los edificios abandonados.]]></target>
       </segment>
     </unit>
     <unit id="MpbQcuA" name="bed09b2">
@@ -3964,8 +3951,7 @@ Achtung: Wenn er in seiner Deckung eine Aktion ausführt, verliert er seine Tarn
       <segment>
         <source>Der Aufklärer weiß sich geschickt zu tarnen, um sich mühelos selbst durch große Zombieansammlungen zu schleichen und Zonen aufzusuchen, in die sich keiner alleine trauen würde.
 Achtung: Wenn er in seiner Deckung eine Aktion ausführt, verliert er seine Tarnung!</source>
-        <target>Der Aufklärer weiß sich geschickt zu tarnen, um sich mühelos selbst durch große Zombieansammlungen zu schleichen und Zonen aufzusuchen, in die sich keiner alleine trauen würde.
-Achtung: Wenn er in seiner Deckung eine Aktion ausführt, verliert er seine Tarnung!</target>
+        <target>Como Explorador serás capaz de desplazarte furtivamente para sondear las zonas lejanas del desierto, casi sin riesgo de ser visto por los zombies. ¡Cuidado! Si actúas mientras estás escondido, ¡perderás tu camuflaje!</target>
       </segment>
     </unit>
     <unit id="Ppxhgkz" name="Tarnanzug">
@@ -3974,7 +3960,7 @@ Achtung: Wenn er in seiner Deckung eine Aktion ausführt, verliert er seine Tarn
       </notes>
       <segment>
         <source>Tarnanzug</source>
-        <target>Tarnanzug</target>
+        <target>Traje de camuflaje</target>
       </segment>
     </unit>
     <unit id="PnRAHcb" name="3c6105a">
@@ -3983,7 +3969,7 @@ Achtung: Wenn er in seiner Deckung eine Aktion ausführt, verliert er seine Tarn
       </notes>
       <segment>
         <source>Mit dieser Kleidung kannst du dich in der Wüste unerkannt fortbewegen. Dennoch ist Vorsicht geboten: Wenn sich in einer Zone zu viele Zombies aufhalten, kannst du erkannt werden.</source>
-        <target>Mit dieser Kleidung kannst du dich in der Wüste unerkannt fortbewegen. Dennoch ist Vorsicht geboten: Wenn sich in einer Zone zu viele Zombies aufhalten, kannst du erkannt werden.</target>
+        <target>Con él caminarás en el desierto sin despertar la sospecha de los zombies. Sé prudente, puedes ser descubierto si atraviesas un sector controlado por los muertos vivientes.</target>
       </segment>
     </unit>
     <unit id="5QvwN2P" name="6d823b2">
@@ -3992,7 +3978,7 @@ Achtung: Wenn er in seiner Deckung eine Aktion ausführt, verliert er seine Tarn
       </notes>
       <segment>
         <source>Auf sich allein gestellt, schleicht sich der Aufklärer tief hinter die feindlichen Linien und erfüllt somit ganz klar die Funktion eines Spähers.</source>
-        <target>Auf sich allein gestellt, schleicht sich der Aufklärer tief hinter die feindlichen Linien und erfüllt somit ganz klar die Funktion eines Spähers.</target>
+        <target>Tienes un rol de localización y de exploración avanzada. Usa su capacidad de esconderse para ir más allá de las líneas enemigas para hallar las ruinas del Ultramundo.</target>
       </segment>
     </unit>
     <unit id="gJaUe_I" name="ea16ba6">
@@ -4001,7 +3987,7 @@ Achtung: Wenn er in seiner Deckung eine Aktion ausführt, verliert er seine Tarn
       </notes>
       <segment>
         <source>Wenn er getarnt ist, kann der Aufklärer nur bestimmte Aktionen ausführen: Trinken, Essen und Drogen konsumieren.</source>
-        <target>Wenn er getarnt ist, kann der Aufklärer nur bestimmte Aktionen ausführen: Trinken, Essen und Drogen konsumieren.</target>
+        <target>Solo algunas acciones te son permitidas si estás camuflado: beber, comer y tomar estimulantes si es necesario.</target>
       </segment>
     </unit>
     <unit id="IuyPBh5" name="3090dc0">
@@ -4010,7 +3996,7 @@ Achtung: Wenn er in seiner Deckung eine Aktion ausführt, verliert er seine Tarn
       </notes>
       <segment>
         <source>In der Außenwelt ist der Aufklärer imstande, die Anzahl der Zombies in einer benachbarten Zone ziemlich genau vorherzusagen.</source>
-        <target>In der Außenwelt ist der Aufklärer imstande, die Anzahl der Zombies in einer benachbarten Zone ziemlich genau vorherzusagen.</target>
+        <target>En el Ultramundo, puedes tener una idea previa de la cantidad de zombies presentes en las zonas vecinas (con cierto margen de error).</target>
       </segment>
     </unit>
     <unit id="4yfi7Cc" name="4bdcd55">
@@ -4019,7 +4005,7 @@ Achtung: Wenn er in seiner Deckung eine Aktion ausführt, verliert er seine Tarn
       </notes>
       <segment>
         <source>Der Aufklärer hat beim Camping gegenüber anderen Spielern einen Vorteil, wenn sich in der betroffenen Zone Zombies aufhalten.</source>
-        <target>Der Aufklärer hat beim Camping gegenüber anderen Spielern einen Vorteil, wenn sich in der betroffenen Zone Zombies aufhalten.</target>
+        <target>En resumen, tiene menos dificultades al acampar si los zombies están en esa zona.</target>
       </segment>
     </unit>
     <unit id=".Pu8sJx" name="3c2bc83">
@@ -4030,8 +4016,8 @@ Achtung: Wenn er in seiner Deckung eine Aktion ausführt, verliert er seine Tarn
       <segment>
         <source>Der Wächter ist der geborene Kämpfer. In der Wüste kann er es mit weitaus mehr Zombies aufnehmen als jeder andere durchschnittliche Einwohner.
 &lt;strong&gt;Dieser Vorteil überträgt sich auf alle Mitspieler, die ihn begleiten&lt;/strong&gt;!</source>
-        <target><![CDATA[Der Wächter ist der geborene Kämpfer. In der Wüste kann er es mit weitaus mehr Zombies aufnehmen als jeder andere durchschnittliche Einwohner.
-<strong>Dieser Vorteil überträgt sich auf alle Mitspieler, die ihn begleiten</strong>!]]></target>
+        <target><![CDATA[En el Ultramundo, el Guardián es capaz de contener el ataque de más zombies que los demás.
+<strong>¡Todos los aliados que le acompañan estarán mejor protegidos!</strong>]]></target>
       </segment>
     </unit>
     <unit id="ZnKlh2A" name="Schutzschild">
@@ -4040,7 +4026,7 @@ Achtung: Wenn er in seiner Deckung eine Aktion ausführt, verliert er seine Tarn
       </notes>
       <segment>
         <source>Schutzschild</source>
-        <target>Schutzschild</target>
+        <target>Escudo antimotín</target>
       </segment>
     </unit>
     <unit id="WCCJVAm" name="c4e3047">
@@ -4049,7 +4035,7 @@ Achtung: Wenn er in seiner Deckung eine Aktion ausführt, verliert er seine Tarn
       </notes>
       <segment>
         <source>Ein großer Schutzschild, der keine Wünsche offen lässt, ermöglicht es dir, in der Wüste bis zu 2 zusätzliche Zombies auf Distanz zu halten.</source>
-        <target>Ein großer Schutzschild, der keine Wünsche offen lässt, ermöglicht es dir, in der Wüste bis zu 2 zusätzliche Zombies auf Distanz zu halten.</target>
+        <target>En el desierto, detiene a 4 zombies en lugar de 2 (el caso de un habitante normal).</target>
       </segment>
     </unit>
     <unit id="NZvEP3R" name="b0c75c5">
@@ -4058,7 +4044,7 @@ Achtung: Wenn er in seiner Deckung eine Aktion ausführt, verliert er seine Tarn
       </notes>
       <segment>
         <source>Der gewöhnliche Bürger kann in der Wüste höchstens 2 Zombies in Schach halten. Wenn es mehr werden, sitzt er in der Falle und kann nicht mehr flüchten. &lt;strong&gt;Der Wächter hingegen kann es dank seines großen Schildes mit bis zu 4 Zombies aufnehmen!&lt;/strong&gt;</source>
-        <target><![CDATA[Der gewöhnliche Bürger kann in der Wüste höchstens 2 Zombies in Schach halten. Wenn es mehr werden, sitzt er in der Falle und kann nicht mehr flüchten. <strong>Der Wächter hingegen kann es dank seines großen Schildes mit bis zu 4 Zombies aufnehmen!</strong>]]></target>
+        <target><![CDATA[En tiempo normal, en el desierto un habitante normal puede contener el ataque de 2 zombies como máximo. Después de eso, quedará acorralado y no podrá escapar. <strong>Como Guardián, podrás atajar hasta 4 zombies.</strong> gracias a su escudo.]]></target>
       </segment>
     </unit>
     <unit id="B6Xc1Cw" name="Jeder Wächter bringt der Stadt einen Verteidigungsbonus ein.">
@@ -4067,7 +4053,7 @@ Achtung: Wenn er in seiner Deckung eine Aktion ausführt, verliert er seine Tarn
       </notes>
       <segment>
         <source>Jeder Wächter bringt der Stadt einen Verteidigungsbonus ein.</source>
-        <target>Jeder Wächter bringt der Stadt einen Verteidigungsbonus ein.</target>
+        <target>Cada Guardián aporta un bonus de defensa a todo el pueblo.</target>
       </segment>
     </unit>
     <unit id="SoFK1VJ" name="0c7fe1d">
@@ -4076,7 +4062,7 @@ Achtung: Wenn er in seiner Deckung eine Aktion ausführt, verliert er seine Tarn
       </notes>
       <segment>
         <source>Wenn ein Wächter Nachtwache hält, gibt er der Stadt 30 zusätzliche Verteidigungspunkte. Außerdem haben sie eine um 5% höhere Überlebenschance, wenn der Angriff der Zombiehorden den Verteidigungspunkten der Stadt unterlegen ist.</source>
-        <target>Wenn ein Wächter Nachtwache hält, gibt er der Stadt 30 zusätzliche Verteidigungspunkte. Außerdem haben sie eine um 5% höhere Überlebenschance, wenn der Angriff der Zombiehorden den Verteidigungspunkten der Stadt unterlegen ist.</target>
+        <target>Cuando están de centinelas, los Guardianes dan un bonus de 30 puntos adicionales a la defensa del pueblo, también tienen un 5% más de sobrevivir si la horda es inferior a los puntos de defensa del pueblo.</target>
       </segment>
     </unit>
     <unit id="xfwq_Tw" name="0c99e67">
@@ -4085,7 +4071,7 @@ Achtung: Wenn er in seiner Deckung eine Aktion ausführt, verliert er seine Tarn
       </notes>
       <segment>
         <source>Der Einsiedler ist ein Typ, mit dem seit Jahren niemand mehr geredet hat. Ganz auf sich allein gestellt, lebt er still vor sich hin. Wenn es ums Überleben geht, weiß sich der Einsiedler seit jeher zu helfen: &lt;strong&gt;Er findet immer etwas Ess- oder Trinkbares - egal, wo er sich gerade befindet.&lt;/strong&gt;</source>
-        <target><![CDATA[Der Einsiedler ist ein Typ, mit dem seit Jahren niemand mehr geredet hat. Ganz auf sich allein gestellt, lebt er still vor sich hin. Wenn es ums Überleben geht, weiß sich der Einsiedler seit jeher zu helfen: <strong>Er findet immer etwas Ess- oder Trinkbares - egal, wo er sich gerade befindet.</strong>]]></target>
+        <target><![CDATA[Un ermitaño es un tipo al que nadie ha hablado desde hace años, recluido en la más grande soledad. Lo bueno, es que ha aprendido a arreglárselas por sí mismo cuando se trata de sobrevivir. <strong>Un ermitaño siempre encontrará algo comestible (comida o agua) en cualquier lugar del desierto apenas sienta la necesidad</strong>.]]></target>
       </segment>
     </unit>
     <unit id="iZtaOjI" name="Survivalbuch">
@@ -4094,7 +4080,7 @@ Achtung: Wenn er in seiner Deckung eine Aktion ausführt, verliert er seine Tarn
       </notes>
       <segment>
         <source>Survivalbuch</source>
-        <target>Survivalbuch</target>
+        <target>Manual de sobrevivencia</target>
       </segment>
     </unit>
     <unit id="1AGCtVy" name="c84c963">
@@ -4103,7 +4089,7 @@ Achtung: Wenn er in seiner Deckung eine Aktion ausführt, verliert er seine Tarn
       </notes>
       <segment>
         <source>Auch wenn der Titel anderes vermuten lässt: "Tick, Trick und Tracks Schlaues Buch" ist von unschätzbarem Wert. Es enthält zahlreiche Tipps und Tricks, wie man in der Natur am besten überleben und Nahrung finden kann.</source>
-        <target>Auch wenn der Titel anderes vermuten lässt: "Tick, Trick und Tracks Schlaues Buch" ist von unschätzbarem Wert. Es enthält zahlreiche Tipps und Tricks, wie man in der Natur am besten überleben und Nahrung finden kann.</target>
+        <target>Tu preciosa guía, titulada "El Manual de los Jóvenes Castores". Aunque parezca un libro para niños, contiene una cantidad impresionante de información sobre cómo sobrevivir en la naturaleza. Te ayudará a encontrar alimentos fácilmente. Ten cuidado, ya que, las chances de conseguir algo para comer cambiarán según pasen los días. Luego de 20 días, será más complicado encontrar comida o agua, incluso más si el pueblo está devastado...</target>
       </segment>
     </unit>
     <unit id="ZT85L51" name="4dca042">
@@ -4112,7 +4098,7 @@ Achtung: Wenn er in seiner Deckung eine Aktion ausführt, verliert er seine Tarn
       </notes>
       <segment>
         <source>Mit dieser Spielfigur brauchst du keine Nahrung mehr mit dir führen, denn du findest immer etwas zum Futtern - egal wo, egal wie. Wenn die anderen Spieler nach einer wilden Campingnacht kurz vorm Verhungern sind, genießt du, was Mutter Natur auftischt: Ein kleiner Wurm hier, eine leckere Wurzel dort.</source>
-        <target>Mit dieser Spielfigur brauchst du keine Nahrung mehr mit dir führen, denn du findest immer etwas zum Futtern - egal wo, egal wie. Wenn die anderen Spieler nach einer wilden Campingnacht kurz vorm Verhungern sind, genießt du, was Mutter Natur auftischt: Ein kleiner Wurm hier, eine leckere Wurzel dort.</target>
+        <target>Ya no necesitarás llevar alimentos contigo, siempre encontrarás lo que necesitas, no importa donde. Los demás habitantes podrán morir de hambre al amanecer de un campamento, mientras que tú siempre tendrás un gusano o una raíz para comer.</target>
       </segment>
     </unit>
     <unit id="343Nda0" name="ea0d29b">
@@ -4121,7 +4107,7 @@ Achtung: Wenn er in seiner Deckung eine Aktion ausführt, verliert er seine Tarn
       </notes>
       <segment>
         <source>Deine Fähigkeit sollte dich allerdings nicht zu Leichtsinn verführen: Pro Tag kannst du nur EINE Ration Wasser ODER Nahrung finden.</source>
-        <target>Deine Fähigkeit sollte dich allerdings nicht zu Leichtsinn verführen: Pro Tag kannst du nur EINE Ration Wasser ODER Nahrung finden.</target>
+        <target>Pero no te confíes tanto, tu habilidad solo es utilizable una vez al día: encontrarás ya sea una ración de comida o una de agua.</target>
       </segment>
     </unit>
     <unit id="h45Kn82" name="f3f691f">
@@ -4130,7 +4116,7 @@ Achtung: Wenn er in seiner Deckung eine Aktion ausführt, verliert er seine Tarn
       </notes>
       <segment>
         <source>Außerdem verfügst du über einen Vorteil beim Campen: Während die Überlebenschancen der anderen Einwohner nie mehr als 90% betragen (selbst wenn sie alles richtig gemacht haben, bleibt ein Restrisiko...), gilt diese Beschränkung beim Einsiedler nicht! Wenn er sich geschickt anstellt, kann er eine Überlebenschance von 100% erreichen!</source>
-        <target>Außerdem verfügst du über einen Vorteil beim Campen: Während die Überlebenschancen der anderen Einwohner nie mehr als 90% betragen (selbst wenn sie alles richtig gemacht haben, bleibt ein Restrisiko...), gilt diese Beschränkung beim Einsiedler nicht! Wenn er sich geschickt anstellt, kann er eine Überlebenschance von 100% erreichen!</target>
+        <target>Por otro lado, tiene una importante ventaja en el campamento salvaje: las probabilidades de supervivencia de un habitante tiene como tope 90% (incluso con toda la voluntad del mundo, el riesgo de morir durante el ataque estará latente). Un ermitaño no se verá afectado por este riesgo: si se desenvuelve bien, puede acampar teniendo hasta 100% de posibilidades de amanecer vivo.</target>
       </segment>
     </unit>
     <unit id="xJMePl2" name="f852d46">
@@ -4141,8 +4127,7 @@ kann er weder Nahrung noch Wasser finden, wenn er sich in Zonen aufhält, die we
       <segment>
         <source>Da der Einsiedler psychologisch "ein schwieriger Fall" ist und deutlich soziopathische Tendenzen aufweist, 
 kann er weder Nahrung noch Wasser finden, wenn er sich in Zonen aufhält, die weniger als 4 km von einer Stadt entfernt sind.</source>
-        <target>Da der Einsiedler psychologisch "ein schwieriger Fall" ist und deutlich soziopathische Tendenzen aufweist, 
-kann er weder Nahrung noch Wasser finden, wenn er sich in Zonen aufhält, die weniger als 4 km von einer Stadt entfernt sind.</target>
+        <target>Como el ermitaño es un huraño neurótico con tendencias antisociales, solo encontrará agua y alimentos si se encuentra a más de 4 Km del pueblo.</target>
       </segment>
     </unit>
     <unit id="_9s0i6Q" name="9655f71">
@@ -4151,7 +4136,7 @@ kann er weder Nahrung noch Wasser finden, wenn er sich in Zonen aufhält, die we
       </notes>
       <segment>
         <source>Der Dompteur wird jederzeit von seinem treuen dreibeinigen Malteser begleitet. (Was gibt es da zu Lachen? Das ist eine äußerst noble Rasse.) Als Dompteur ist er in der Lage, &lt;strong&gt;einen Teil seines Rucksackinhaltes von jeder Zone aus zurück in die Stadt zu senden.&lt;/strong&gt;.</source>
-        <target><![CDATA[Der Dompteur wird jederzeit von seinem treuen dreibeinigen Malteser begleitet. (Was gibt es da zu Lachen? Das ist eine äußerst noble Rasse.) Als Dompteur ist er in der Lage, <strong>einen Teil seines Rucksackinhaltes von jeder Zone aus zurück in die Stadt zu senden.</strong>.]]></target>
+        <target><![CDATA[Siempre acompañado por su perro maltés de 3 patas (una raza de perro noble y para nada ridículo), el domador es capaz de <strong>enviar al pueblo una parte del contenido de su mochila desde cualquier sector del Ultramundo.</strong>.]]></target>
       </segment>
     </unit>
     <unit id="6nEfpGY" name="Dreibeiniger Malteser">
@@ -4160,7 +4145,7 @@ kann er weder Nahrung noch Wasser finden, wenn er sich in Zonen aufhält, die we
       </notes>
       <segment>
         <source>Dreibeiniger Malteser</source>
-        <target>Dreibeiniger Malteser</target>
+        <target>Perro maltés de 3 patas</target>
       </segment>
     </unit>
     <unit id="AVr9MAl" name="e516e52">
@@ -4169,7 +4154,7 @@ kann er weder Nahrung noch Wasser finden, wenn er sich in Zonen aufhält, die we
       </notes>
       <segment>
         <source>Der kleine kläffende Malteser stinkt nach nassem Fell, humpelt und sabbert ohne Ende. Einmal pro Tag kannst du ihn mit deinem Rucksackinhalt in die Stadt schicken. Dabei spielt es keine Rolle, wo du dich gerade befindest... Dein treuer Begleiter schlägt sich immer durch.</source>
-        <target>Der kleine kläffende Malteser stinkt nach nassem Fell, humpelt und sabbert ohne Ende. Einmal pro Tag kannst du ihn mit deinem Rucksackinhalt in die Stadt schicken. Dabei spielt es keine Rolle, wo du dich gerade befindest... Dein treuer Begleiter schlägt sich immer durch.</target>
+        <target>Te sigue a todas partes, huele mal, cojea y babea en abundancia. También ladra mucho. Una vez al día, puedes pedirle que te traiga el contenido de tu mochila que se encuentra en el pueblo hacia cualquier parte del desierto.</target>
       </segment>
     </unit>
     <unit id="KDJYaCc" name="40592c7">
@@ -4178,7 +4163,7 @@ kann er weder Nahrung noch Wasser finden, wenn er sich in Zonen aufhält, die we
       </notes>
       <segment>
         <source>Der Dompteur ist die ideale Figur für Wüstenwanderer: Wenn du in deinem Rucksack wieder etwas Platz brauchst, dann schnall deinen ganzen Plunder der Töle drauf. Dein kleiner dreibeiniger Freund kann auch anderen Expeditionsteilnehmern seine Dienste erweisen.</source>
-        <target>Der Dompteur ist die ideale Figur für Wüstenwanderer: Wenn du in deinem Rucksack wieder etwas Platz brauchst, dann schnall deinen ganzen Plunder der Töle drauf. Dein kleiner dreibeiniger Freund kann auch anderen Expeditionsteilnehmern seine Dienste erweisen.</target>
+        <target>Un personaje ideal para las excursiones a tierras lejanas, tu fiel amigo cargará con tus objetos. Tus compañeros de expedición también estarán contentos de contar con él.</target>
       </segment>
     </unit>
     <unit id="N_8QsJy" name="1dfcb32">
@@ -4189,8 +4174,7 @@ Du kannst dieses "Manko" allerdings durch Steroide beseitigen... Hör auf zu gri
       <segment>
         <source>Dein Hund kann keine sperrigen Gegenstände tragen. 
 Du kannst dieses "Manko" allerdings durch Steroide beseitigen... Hör auf zu grinsen, das ist NICHT GUT für seine Gesundheit.</source>
-        <target>Dein Hund kann keine sperrigen Gegenstände tragen. 
-Du kannst dieses "Manko" allerdings durch Steroide beseitigen... Hör auf zu grinsen, das ist NICHT GUT für seine Gesundheit.</target>
+        <target>Normalmente no puede cargar objetos voluminosos, pero con una dosis de Esteroides puede lograrlo... Vamos, no te preocupes, no es tan malo para su salud.</target>
       </segment>
     </unit>
     <unit id="e_quqhc" name="ae322d0">
@@ -4199,7 +4183,7 @@ Du kannst dieses "Manko" allerdings durch Steroide beseitigen... Hör auf zu gri
       </notes>
       <segment>
         <source>Malteser verfügen über eine ausgesprochen gute Nase und einen ausgeprägten Orientierungssinn. Er kann damit seinem Herrchen die Richtung zeigen, in der ein Eingang zu einer Ruine liegt. Folge dem blauen Blitz!</source>
-        <target>Malteser verfügen über eine ausgesprochen gute Nase und einen ausgeprägten Orientierungssinn. Er kann damit seinem Herrchen die Richtung zeigen, in der ein Eingang zu einer Ruine liegt. Folge dem blauen Blitz!</target>
+        <target>El perro, fiel compañero de su domador, indica a su amo la salida de las ruinas (flecha azul).</target>
       </segment>
     </unit>
     <unit id=".dXyrBS" name="80c7b2d">
@@ -4208,7 +4192,7 @@ Du kannst dieses "Manko" allerdings durch Steroide beseitigen... Hör auf zu gri
       </notes>
       <segment>
         <source>Als *Hans Dampf auf jeder Baustelle* kann der Techniker - und zwar nur er - extra Aktionspunkte auf den Baustellen der Stadt einsetzen.</source>
-        <target>Als *Hans Dampf auf jeder Baustelle* kann der Techniker - und zwar nur er - extra Aktionspunkte auf den Baustellen der Stadt einsetzen.</target>
+        <target>Siempre listo para participar en cualquier construcción, el técnico es capaz de construir él solo y con un mondadientes, una rueda gigante de parque de atracciones. Con un juego de herramientas completo, ¿qué será capaz de construir?</target>
       </segment>
     </unit>
     <unit id="y1Nwhhg" name="Schraubenschlüssel">
@@ -4217,7 +4201,7 @@ Du kannst dieses "Manko" allerdings durch Steroide beseitigen... Hör auf zu gri
       </notes>
       <segment>
         <source>Schraubenschlüssel</source>
-        <target>Schraubenschlüssel</target>
+        <target>Kit de herramientas</target>
       </segment>
     </unit>
     <unit id="zNdPJiM" name="b1076bd">
@@ -4226,7 +4210,7 @@ Du kannst dieses "Manko" allerdings durch Steroide beseitigen... Hör auf zu gri
       </notes>
       <segment>
         <source>Unverzichtbar, um auf den Baustellen der Stadt herumzuwuseln, kann der Schraubenschlüssel auch dazu verwendet werden, verschlossene Türen ganz einfach zu öffnen.</source>
-        <target>Unverzichtbar, um auf den Baustellen der Stadt herumzuwuseln, kann der Schraubenschlüssel auch dazu verwendet werden, verschlossene Türen ganz einfach zu öffnen.</target>
+        <target>Indispensable para romper todos los récords de construcción, incluye una llave inglesa profesional.</target>
       </segment>
     </unit>
     <unit id="EPAYkGB" name="77fd34a">
@@ -4241,10 +4225,7 @@ Motivation und kann seine &lt;strong&gt;%img_bp% Baupunkte&lt;/strong&gt; nicht 
 Jeden Tag besitzt er &lt;strong&gt;6%img_bp% Baupunkte&lt;/strong&gt;, mit denen er auch dann noch auf den Baustellen arbeiten kann, wenn andere Bürger schon längst müde sind.
 Um seine Baupunkte einsetzen zu können, muss er jedoch mindestens noch &lt;strong&gt;1%img_ap% Aktionspunkt&lt;/strong&gt; übrig haben. Ansonsten verliert er seine gesamte
 Motivation und kann seine &lt;strong&gt;%img_bp% Baupunkte&lt;/strong&gt; nicht einsetzen.</source>
-        <target><![CDATA[Dank seines unglaublichen Potentials, ist der Techniker eine große Hilfe beim Bauen &amp; Reparieren von Gebäuden.
-Jeden Tag besitzt er <strong>6%img_bp% Baupunkte</strong>, mit denen er auch dann noch auf den Baustellen arbeiten kann, wenn andere Bürger schon längst müde sind.
-Um seine Baupunkte einsetzen zu können, muss er jedoch mindestens noch <strong>1%img_ap% Aktionspunkt</strong> übrig haben. Ansonsten verliert er seine gesamte
-Motivation und kann seine <strong>%img_bp% Baupunkte</strong> nicht einsetzen.]]></target>
+        <target><![CDATA[Gracias a su gran potencial, el Técnico será de gran ayuda en las obras y en el taller. Recibe cada día <strong>%img_bp% Puntos de Construcción</strong> que le permiten seguir trabajando aunque que los otros habitantes ya estén exhaustos, necesita sin embargo <strong>1%img_ap% Punto de Acción</strong> para poder utilizarlos, en caso contrario perderá su motivación y su capacidad de usar sus <strong>%img_bp% Puntos de Construcción</strong>.]]></target>
       </segment>
     </unit>
     <unit id=".pjn_lU" name="89c184b">
@@ -4253,7 +4234,7 @@ Motivation und kann seine <strong>%img_bp% Baupunkte</strong> nicht einsetzen.]]
       </notes>
       <segment>
         <source>Der Techniker kann seine Baupunkte auf Baustellen zum Bauen und Reparieren, sowie in der Werkstatt zum Umwandeln von Gegenständen einsetzen.</source>
-        <target>Der Techniker kann seine Baupunkte auf Baustellen zum Bauen und Reparieren, sowie in der Werkstatt zum Umwandeln von Gegenständen einsetzen.</target>
+        <target>El Técnico puede usar sus Puntos de Construcción para reparar construcciones y transformar objetos en su taller.</target>
       </segment>
     </unit>
     <unit id="Du2KItX" name="06fa837">
@@ -4264,8 +4245,7 @@ Aus dem Abdruck eines bestimmten Schlosses kann er außerdem einen Einmal-Schlü
       <segment>
         <source>Er ist daneben eine wertvolle Hilfe in den verlassenen Gebäuden. Mit seinem Talent und seinem Werkzeug zum Öffnen von Türen werdet ihr solche Gebäude einfacher untersuchen können.
 Aus dem Abdruck eines bestimmten Schlosses kann er außerdem einen Einmal-Schlüssel herstellen, mit dem sich ebendiese Tür später öffnen lässt.</source>
-        <target>Er ist daneben eine wertvolle Hilfe in den verlassenen Gebäuden. Mit seinem Talent und seinem Werkzeug zum Öffnen von Türen werdet ihr solche Gebäude einfacher untersuchen können.
-Aus dem Abdruck eines bestimmten Schlosses kann er außerdem einen Einmal-Schlüssel herstellen, mit dem sich ebendiese Tür später öffnen lässt.</target>
+        <target>Su ayuda será valiosa en las ruinas abandonadas: su talento y sus herramientas le permitirá hacer llaves para abrir cerraduras a partir de un molde. Tendrá que acabar las llaves en el pueblo y regresar a la puerta que desea abrir.</target>
       </segment>
     </unit>
     <unit id="iZhm0MR" name="7185590">
@@ -4413,7 +4393,7 @@ El Chamán puede:</target>
       </notes>
       <segment>
         <source>Jeder Bürger beginnt als einfacher Bewohner des MyHordes-Universums.</source>
-        <target>Jeder Bürger beginnt als einfacher Bewohner des MyHordes-Universums.</target>
+        <target>Cada ciudadano comienza como un simple habitante en el universo de MyHordes.</target>
       </segment>
     </unit>
     <unit id="CzB7SzY" name="c1878ff">
@@ -4422,7 +4402,7 @@ El Chamán puede:</target>
       </notes>
       <segment>
         <source>Doch manchmal greift das Schicksal ein und zerrt dich aus Ihrem kleinen Leben in große Abenteuer und kühne Taten.</source>
-        <target>Doch manchmal greift das Schicksal ein und zerrt dich aus Ihrem kleinen Leben in große Abenteuer und kühne Taten.</target>
+        <target>Sin embargo, algunas veces la fortuna interviene y te lleva desde tu pequeña existencia hasta grandes aventuras y acciones audaces.</target>
       </segment>
     </unit>
     <unit id="djKCii7" name="Überleben durch Kommunikation und Kooperation">
@@ -4587,6 +4567,315 @@ El Chamán puede:</target>
       <segment>
         <source>Zeit: Lieber nachts als tagsüber verstecken.</source>
         <target>La hora: Más vale esconderse de noche que de día.</target>
+      </segment>
+    </unit>
+    <unit id="hN_xNWd" name="954e1d7">
+      <notes>
+        <note category="german">Manch innovative oder ambitionierte Bauprojekte sind den Städten nicht sofort bekannt, sondern müssen erst entdeckt werden.</note>
+      </notes>
+      <segment>
+        <source>Manch innovative oder ambitionierte Bauprojekte sind den Städten nicht sofort bekannt, sondern müssen erst entdeckt werden.</source>
+        <target>Manch innovative oder ambitionierte Bauprojekte sind den Städten nicht sofort bekannt, sondern müssen erst entdeckt werden.</target>
+      </segment>
+    </unit>
+    <unit id="BKhfiS_" name="bde43b2">
+      <notes>
+        <note category="german">Um diese Bauprojekte freizuschalten, muss die Stadt in den Besitz der entsprechenden "Blaupausen" gelangen.</note>
+      </notes>
+      <segment>
+        <source>Um diese Bauprojekte freizuschalten, muss die Stadt in den Besitz der entsprechenden "Blaupausen" gelangen.</source>
+        <target>Um diese Bauprojekte freizuschalten, muss die Stadt in den Besitz der entsprechenden "Blaupausen" gelangen.</target>
+      </segment>
+    </unit>
+    <unit id="BqAO5Ji" name="Wie kriegt man diesen Pläne?">
+      <notes>
+        <note category="german">Wie kriegt man diesen Pläne?</note>
+      </notes>
+      <segment>
+        <source>Wie kriegt man diesen Pläne?</source>
+        <target>Wie kriegt man diesen Pläne?</target>
+      </segment>
+    </unit>
+    <unit id="lxoDYCn" name="9285820">
+      <notes>
+        <note category="german">Man kann einfach in der Wüste danach buddeln. Doch einige Pläne sind schwieriger zu finden als andere.</note>
+      </notes>
+      <segment>
+        <source>Man kann einfach in der Wüste danach buddeln. Doch einige Pläne sind schwieriger zu finden als andere.</source>
+        <target>Man kann einfach in der Wüste danach buddeln. Doch einige Pläne sind schwieriger zu finden als andere.</target>
+      </segment>
+    </unit>
+    <unit id="cetj9mW" name="af26da2">
+      <notes>
+        <note category="german">Jede neue Stadt beginnt mit 3 Bauplänen "gratis", die sich irgendwo in der Außenwelt befinden. Diese Blaupausen befinden sich in Truhen, im Gegensatz zu denen, die Sie beim Graben finden können. Alles was Sie tun müssen, ist es zu finden!</note>
+      </notes>
+      <segment>
+        <source>Jede neue Stadt beginnt mit 3 Bauplänen "gratis", die sich irgendwo in der Außenwelt befinden. Diese Blaupausen befinden sich in Truhen, im Gegensatz zu denen, die Sie beim Graben finden können. Alles was Sie tun müssen, ist es zu finden!</source>
+        <target>Jede neue Stadt beginnt mit 3 Bauplänen "gratis", die sich irgendwo in der Außenwelt befinden. Diese Blaupausen befinden sich in Truhen, im Gegensatz zu denen, die Sie beim Graben finden können. Alles was Sie tun müssen, ist es zu finden!</target>
+      </segment>
+    </unit>
+    <unit id="ZfnVioE" name="Normale Karte: 3 seltene Pläne + 1 sehr seltener Plan">
+      <notes>
+        <note category="german">Normale Karte: 3 seltene Pläne + 1 sehr seltener Plan</note>
+      </notes>
+      <segment>
+        <source>Normale Karte: 3 seltene Pläne + 1 sehr seltener Plan</source>
+        <target>Normale Karte: 3 seltene Pläne + 1 sehr seltener Plan</target>
+      </segment>
+    </unit>
+    <unit id="CsvbdA6" name="Entfernte Regionen: 5 seltene Pläne + 2 sehr seltene Pläne">
+      <notes>
+        <note category="german">Entfernte Regionen: 5 seltene Pläne + 2 sehr seltene Pläne</note>
+      </notes>
+      <segment>
+        <source>Entfernte Regionen: 5 seltene Pläne + 2 sehr seltene Pläne</source>
+        <target>Entfernte Regionen: 5 seltene Pläne + 2 sehr seltene Pläne</target>
+      </segment>
+    </unit>
+    <unit id="Pvai66w" name="161e679">
+      <notes>
+        <note category="german">Durch Campen: Falls du in einem Gebäude die Nacht verbringst und überlebst, erhältst Du automatisch einen Bauplan 
+(ungewöhnliche in Gebäuden nahe der Stadt, seltenere in weit entfernt liegenden Gebäuden). Beachtet, dass man 
+in einem Gebäude nur &lt;strong&gt;einmal pro Partie&lt;/strong&gt; einen Bauplan erhalten kann (mehrfaches Campen im selben Gebäude bringt also nichts).</note>
+      </notes>
+      <segment>
+        <source>Durch Campen: Falls du in einem Gebäude die Nacht verbringst und überlebst, erhältst Du automatisch einen Bauplan 
+(ungewöhnliche in Gebäuden nahe der Stadt, seltenere in weit entfernt liegenden Gebäuden). Beachtet, dass man 
+in einem Gebäude nur &lt;strong&gt;einmal pro Partie&lt;/strong&gt; einen Bauplan erhalten kann (mehrfaches Campen im selben Gebäude bringt also nichts).</source>
+        <target><![CDATA[Durch Campen: Falls du in einem Gebäude die Nacht verbringst und überlebst, erhältst Du automatisch einen Bauplan 
+(ungewöhnliche in Gebäuden nahe der Stadt, seltenere in weit entfernt liegenden Gebäuden). Beachtet, dass man 
+in einem Gebäude nur <strong>einmal pro Partie</strong> einen Bauplan erhalten kann (mehrfaches Campen im selben Gebäude bringt also nichts).]]></target>
+      </segment>
+    </unit>
+    <unit id="64IvvtG" name="Es gibt noch mehr Möglichkeiten, Bauplände zu finden: Findet es heraus!">
+      <notes>
+        <note category="german">Es gibt noch mehr Möglichkeiten, Bauplände zu finden: Findet es heraus!</note>
+      </notes>
+      <segment>
+        <source>Es gibt noch mehr Möglichkeiten, Bauplände zu finden: Findet es heraus!</source>
+        <target>Es gibt noch mehr Möglichkeiten, Bauplände zu finden: Findet es heraus!</target>
+      </segment>
+    </unit>
+    <unit id="9jsK10O" name="Wie benutzt man Bauplände?">
+      <notes>
+        <note category="german">Wie benutzt man Bauplände?</note>
+      </notes>
+      <segment>
+        <source>Wie benutzt man Bauplände?</source>
+        <target>Wie benutzt man Bauplände?</target>
+      </segment>
+    </unit>
+    <unit id="sP_HS28" name="f8980a4">
+      <notes>
+        <note category="german">Sie sind nur in der Stadt benutzbar: Klickt auf den Plan, um ihn genauer zu studieren.</note>
+      </notes>
+      <segment>
+        <source>Sie sind nur in der Stadt benutzbar: Klickt auf den Plan, um ihn genauer zu studieren.</source>
+        <target>Sie sind nur in der Stadt benutzbar: Klickt auf den Plan, um ihn genauer zu studieren.</target>
+      </segment>
+    </unit>
+    <unit id="eaB0Ldc" name="56d967c">
+      <notes>
+        <note category="german">Das freigeschaltete Bauwerk wird zur Liste der verfügbaren Gebäude der Stadt hinzugefügt. Ein Eintrag im Stadtregister verkündet das neue Gebäude.</note>
+      </notes>
+      <segment>
+        <source>Das freigeschaltete Bauwerk wird zur Liste der verfügbaren Gebäude der Stadt hinzugefügt. Ein Eintrag im Stadtregister verkündet das neue Gebäude.</source>
+        <target>Das freigeschaltete Bauwerk wird zur Liste der verfügbaren Gebäude der Stadt hinzugefügt. Ein Eintrag im Stadtregister verkündet das neue Gebäude.</target>
+      </segment>
+    </unit>
+    <unit id="pyjThlW" name="7d8d5ba">
+      <notes>
+        <note category="german">Die Städte in MyHordes sind nicht statisch, in der alles so bleibt wie es vorgefunden wird. Es ist deine Aufgabe deine Stadt auszubauen und ihre Verteidigung zu verbessern. Dazu sind folgende Schritte notwendig:</note>
+      </notes>
+      <segment>
+        <source>Die Städte in MyHordes sind nicht statisch, in der alles so bleibt wie es vorgefunden wird. Es ist deine Aufgabe deine Stadt auszubauen und ihre Verteidigung zu verbessern. Dazu sind folgende Schritte notwendig:</source>
+        <target>Die Städte in MyHordes sind nicht statisch, in der alles so bleibt wie es vorgefunden wird. Es ist deine Aufgabe deine Stadt auszubauen und ihre Verteidigung zu verbessern. Dazu sind folgende Schritte notwendig:</target>
+      </segment>
+    </unit>
+    <unit id="bKmByuC" name="5a8d545">
+      <notes>
+        <note category="german">Sammle in der Wüste &lt;strong&gt;Rohstoffe&lt;/strong&gt; (Holz, Metall, Batterien...) ein und lege alles in der &lt;strong&gt;Bank&lt;/strong&gt; ab.</note>
+      </notes>
+      <segment>
+        <source>Sammle in der Wüste &lt;strong&gt;Rohstoffe&lt;/strong&gt; (Holz, Metall, Batterien...) ein und lege alles in der &lt;strong&gt;Bank&lt;/strong&gt; ab.</source>
+        <target><![CDATA[Sammle in der Wüste <strong>Rohstoffe</strong> (Holz, Metall, Batterien...) ein und lege alles in der <strong>Bank</strong> ab.]]></target>
+      </segment>
+    </unit>
+    <unit id="Tnym34G" name="Gehe in deiner Stadt in den Abschnitt &lt;strong&gt;Baustelle&lt;/strong&gt;.">
+      <notes>
+        <note category="german">Gehe in deiner Stadt in den Abschnitt &lt;strong&gt;Baustelle&lt;/strong&gt;.</note>
+      </notes>
+      <segment>
+        <source>Gehe in deiner Stadt in den Abschnitt &lt;strong&gt;Baustelle&lt;/strong&gt;.</source>
+        <target><![CDATA[Gehe in deiner Stadt in den Abschnitt <strong>Baustelle</strong>.]]></target>
+      </segment>
+    </unit>
+    <unit id="D.p71_K" name="30a3308">
+      <notes>
+        <note category="german">Suche dir ein Gebäude aus, für dessen Bau genügend Ressourcen zur Verfügung stehen. Daneben, auf der selben Linie, findest du den Knopf &lt;strong&gt;Teilnehmen&lt;/strong&gt;.</note>
+      </notes>
+      <segment>
+        <source>Suche dir ein Gebäude aus, für dessen Bau genügend Ressourcen zur Verfügung stehen. Daneben, auf der selben Linie, findest du den Knopf &lt;strong&gt;Teilnehmen&lt;/strong&gt;.</source>
+        <target><![CDATA[Suche dir ein Gebäude aus, für dessen Bau genügend Ressourcen zur Verfügung stehen. Daneben, auf der selben Linie, findest du den Knopf <strong>Teilnehmen</strong>.]]></target>
+      </segment>
+    </unit>
+    <unit id="sV3TVhz" name="fde5c11">
+      <notes>
+        <note category="german">Klicke auf den Knopf &lt;strong&gt;Teilnehmen&lt;/strong&gt;. Es wird dir &lt;strong&gt;1 %img_ap%&lt;/strong&gt; abgezogen.</note>
+      </notes>
+      <segment>
+        <source>Klicke auf den Knopf &lt;strong&gt;Teilnehmen&lt;/strong&gt;. Es wird dir &lt;strong&gt;1 %img_ap%&lt;/strong&gt; abgezogen.</source>
+        <target><![CDATA[Klicke auf den Knopf <strong>Teilnehmen</strong>. Es wird dir <strong>1 %img_ap%</strong> abgezogen.]]></target>
+      </segment>
+    </unit>
+    <unit id="SXMlsAY" name="745638b">
+      <notes>
+        <note category="german">Wenn genügend Aktionspunkte (APs) für eine Konstruktion oder ein Gebäude ausgegeben werden, kann es &lt;strong&gt;sofort&lt;/strong&gt; fertig gestellt werden!</note>
+      </notes>
+      <segment>
+        <source>Wenn genügend Aktionspunkte (APs) für eine Konstruktion oder ein Gebäude ausgegeben werden, kann es &lt;strong&gt;sofort&lt;/strong&gt; fertig gestellt werden!</source>
+        <target><![CDATA[Wenn genügend Aktionspunkte (APs) für eine Konstruktion oder ein Gebäude ausgegeben werden, kann es <strong>sofort</strong> fertig gestellt werden!]]></target>
+      </segment>
+    </unit>
+    <unit id="AAwApXd" name="e5b946e">
+      <notes>
+        <note category="german">Der Bau eines Gebäudes oder einer Konstruktion kann sich über mehrere Tage hinziehen. Wenn etwas nicht fertig gestellt wurde, kannst du am nächsten Tag erneut daran arbeiten. Wenn die Zeit drängt, können außerdem mehrere APs auf einmal für ein Gebäude ausgegeben werden...</note>
+      </notes>
+      <segment>
+        <source>Der Bau eines Gebäudes oder einer Konstruktion kann sich über mehrere Tage hinziehen. Wenn etwas nicht fertig gestellt wurde, kannst du am nächsten Tag erneut daran arbeiten. Wenn die Zeit drängt, können außerdem mehrere APs auf einmal für ein Gebäude ausgegeben werden...</source>
+        <target>Der Bau eines Gebäudes oder einer Konstruktion kann sich über mehrere Tage hinziehen. Wenn etwas nicht fertig gestellt wurde, kannst du am nächsten Tag erneut daran arbeiten. Wenn die Zeit drängt, können außerdem mehrere APs auf einmal für ein Gebäude ausgegeben werden...</target>
+      </segment>
+    </unit>
+    <unit id="2qCroxz" name="Temporäre Konstruktionen">
+      <notes>
+        <note category="german">Temporäre Konstruktionen</note>
+      </notes>
+      <segment>
+        <source>Temporäre Konstruktionen</source>
+        <target>Temporäre Konstruktionen</target>
+      </segment>
+    </unit>
+    <unit id="tuJeoVX" name="b049ea1">
+      <notes>
+        <note category="german">"Temporäre" Konstruktionen und Gebäude sind für den "einmaligen Gebrauch" gedacht: Nach dem Angriff der Zombiehorde werden sie zerstört oder abgebaut.
+Es handelt sich in aller Regel um sehr effektive Verteidigungsmaßnahmen, die nicht sehr teuer sind, dafür aber jeden Tag neu aufgebaut werden müssen.</note>
+      </notes>
+      <segment>
+        <source>"Temporäre" Konstruktionen und Gebäude sind für den "einmaligen Gebrauch" gedacht: Nach dem Angriff der Zombiehorde werden sie zerstört oder abgebaut.
+Es handelt sich in aller Regel um sehr effektive Verteidigungsmaßnahmen, die nicht sehr teuer sind, dafür aber jeden Tag neu aufgebaut werden müssen.</source>
+        <target>"Temporäre" Konstruktionen und Gebäude sind für den "einmaligen Gebrauch" gedacht: Nach dem Angriff der Zombiehorde werden sie zerstört oder abgebaut.
+Es handelt sich in aller Regel um sehr effektive Verteidigungsmaßnahmen, die nicht sehr teuer sind, dafür aber jeden Tag neu aufgebaut werden müssen.</target>
+      </segment>
+    </unit>
+    <unit id="CdAcNKs" name="ef531b3">
+      <notes>
+        <note category="german">Manche Gebäude und Konstruktionen (z.B. der Große Graben) können nach Fertigstellung verbessert und weiterentwickelt werden. Diese Ausbauten werden auch &lt;strong&gt;Weiterentwicklungen&lt;/strong&gt; genannt.
+Die Stadteinwohner können  &lt;strong&gt;einmal&lt;/strong&gt; pro Tag für eine Weiterentwicklung stimmen.</note>
+      </notes>
+      <segment>
+        <source>Manche Gebäude und Konstruktionen (z.B. der Große Graben) können nach Fertigstellung verbessert und weiterentwickelt werden. Diese Ausbauten werden auch &lt;strong&gt;Weiterentwicklungen&lt;/strong&gt; genannt.
+Die Stadteinwohner können  &lt;strong&gt;einmal&lt;/strong&gt; pro Tag für eine Weiterentwicklung stimmen.</source>
+        <target><![CDATA[Manche Gebäude und Konstruktionen (z.B. der Große Graben) können nach Fertigstellung verbessert und weiterentwickelt werden. Diese Ausbauten werden auch <strong>Weiterentwicklungen</strong> genannt.
+Die Stadteinwohner können  <strong>einmal</strong> pro Tag für eine Weiterentwicklung stimmen.]]></target>
+      </segment>
+    </unit>
+    <unit id="PQQjbRN" name="c444d23">
+      <notes>
+        <note category="german">Kurz vor Mitternacht wird dann jene &lt;strong&gt;Weiterentwicklung gebaut, die die meisten Stimmen bekommen hat&lt;/strong&gt;.</note>
+      </notes>
+      <segment>
+        <source>Kurz vor Mitternacht wird dann jene &lt;strong&gt;Weiterentwicklung gebaut, die die meisten Stimmen bekommen hat&lt;/strong&gt;.</source>
+        <target><![CDATA[Kurz vor Mitternacht wird dann jene <strong>Weiterentwicklung gebaut, die die meisten Stimmen bekommen hat</strong>.]]></target>
+      </segment>
+    </unit>
+    <unit id="lWknzoV" name="8567031">
+      <notes>
+        <note category="german">Der Bau einer Weiterentwicklung ist umsonst. Es werden &lt;strong&gt;weder APs noch Ressourcen verbraucht&lt;/strong&gt;.</note>
+      </notes>
+      <segment>
+        <source>Der Bau einer Weiterentwicklung ist umsonst. Es werden &lt;strong&gt;weder APs noch Ressourcen verbraucht&lt;/strong&gt;.</source>
+        <target><![CDATA[Der Bau einer Weiterentwicklung ist umsonst. Es werden <strong>weder APs noch Ressourcen verbraucht</strong>.]]></target>
+      </segment>
+    </unit>
+    <unit id="y0gi2eh" name="45c0a22">
+      <notes>
+        <note category="german">Es gibt bis zu &lt;strong&gt;5&lt;/strong&gt; verschiedene Entwicklungsstufen. Je höher die Stufe, desto effektiver das Gebäude oder die Konstruktion.
+Die Stadt kann in vielerlei Hinsicht von diesen Weiterentwicklungen profitieren:</note>
+      </notes>
+      <segment>
+        <source>Es gibt bis zu &lt;strong&gt;5&lt;/strong&gt; verschiedene Entwicklungsstufen. Je höher die Stufe, desto effektiver das Gebäude oder die Konstruktion.
+Die Stadt kann in vielerlei Hinsicht von diesen Weiterentwicklungen profitieren:</source>
+        <target><![CDATA[Es gibt bis zu <strong>5</strong> verschiedene Entwicklungsstufen. Je höher die Stufe, desto effektiver das Gebäude oder die Konstruktion.
+Die Stadt kann in vielerlei Hinsicht von diesen Weiterentwicklungen profitieren:]]></target>
+      </segment>
+    </unit>
+    <unit id="01pp8mB" name="Eine bessere Verteidigung.">
+      <notes>
+        <note category="german">Eine bessere Verteidigung.</note>
+      </notes>
+      <segment>
+        <source>Eine bessere Verteidigung.</source>
+        <target>Eine bessere Verteidigung.</target>
+      </segment>
+    </unit>
+    <unit id="t4YYjIT" name="Eine verbesserte Wasserversorgung.">
+      <notes>
+        <note category="german">Eine verbesserte Wasserversorgung.</note>
+      </notes>
+      <segment>
+        <source>Eine verbesserte Wasserversorgung.</source>
+        <target>Eine verbesserte Wasserversorgung.</target>
+      </segment>
+    </unit>
+    <unit id="COncilF" name="Eine Senkung der Baukosten.">
+      <notes>
+        <note category="german">Eine Senkung der Baukosten.</note>
+      </notes>
+      <segment>
+        <source>Eine Senkung der Baukosten.</source>
+        <target>Eine Senkung der Baukosten.</target>
+      </segment>
+    </unit>
+    <unit id="I.YvVbm" name="Eine bessere Zombie(früh)erkennung.">
+      <notes>
+        <note category="german">Eine bessere Zombie(früh)erkennung.</note>
+      </notes>
+      <segment>
+        <source>Eine bessere Zombie(früh)erkennung.</source>
+        <target>Eine bessere Zombie(früh)erkennung.</target>
+      </segment>
+    </unit>
+    <unit id="loYBC17" name="... weitere spezielle Fähigkeiten.">
+      <notes>
+        <note category="german">... weitere spezielle Fähigkeiten.</note>
+      </notes>
+      <segment>
+        <source>... weitere spezielle Fähigkeiten.</source>
+        <target>... weitere spezielle Fähigkeiten.</target>
+      </segment>
+    </unit>
+    <unit id="cuq3Fy5" name="92d5771">
+      <notes>
+        <note category="german">Achtung: Die Wahl einer Weiterentwicklung ist sehr wichtig! Da eine Stadt nur eine Weiterentwicklung pro 
+Tag bauen kann, kann eine Stadt, die 10 Tage überlebt, insgesamt nur 10 Weiterentwicklungen bauen. Diese 
+müssen durchdacht geplant werden.</note>
+      </notes>
+      <segment>
+        <source>Achtung: Die Wahl einer Weiterentwicklung ist sehr wichtig! Da eine Stadt nur eine Weiterentwicklung pro 
+Tag bauen kann, kann eine Stadt, die 10 Tage überlebt, insgesamt nur 10 Weiterentwicklungen bauen. Diese 
+müssen durchdacht geplant werden.</source>
+        <target>Achtung: Die Wahl einer Weiterentwicklung ist sehr wichtig! Da eine Stadt nur eine Weiterentwicklung pro 
+Tag bauen kann, kann eine Stadt, die 10 Tage überlebt, insgesamt nur 10 Weiterentwicklungen bauen. Diese 
+müssen durchdacht geplant werden.</target>
+      </segment>
+    </unit>
+    <unit id="EhwEkpO" name="Besprecht das am besten im Forum eurer Stadt!">
+      <notes>
+        <note category="german">Besprecht das am besten im Forum eurer Stadt!</note>
+      </notes>
+      <segment>
+        <source>Besprecht das am besten im Forum eurer Stadt!</source>
+        <target>Besprecht das am besten im Forum eurer Stadt!</target>
       </segment>
     </unit>
   </file>

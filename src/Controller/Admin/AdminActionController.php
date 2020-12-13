@@ -47,6 +47,7 @@ class AdminActionController extends CustomAbstractController
             ['name' => T::__('Städte', 'admin'),     'id' => 3],
             ['name' => T::__('Zukunft', 'admin'),    'id' => 4],
             ['name' => T::__('AntiSpam', 'admin'),   'id' => 5],
+            ['name' => T::__('Apps', 'admin'),   'id' => 6],
         ];
     }
 
@@ -178,6 +179,7 @@ class AdminActionController extends CustomAbstractController
             case 3: return $this->redirect($this->generateUrl('admin_town_list'));
             case 4: return $this->redirect($this->generateUrl('admin_changelogs'));
             case 5: return $this->redirect($this->generateUrl('admin_spam_domain_view'));
+            case 6: return $this->redirect($this->generateUrl('admin_app_view'));
             default: break;
         }
         return AjaxResponse::error(ErrorHelper::ErrorPermissionError);

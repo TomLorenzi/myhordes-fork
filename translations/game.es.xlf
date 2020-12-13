@@ -199,6 +199,15 @@
         <target>%citizen% folgendes hergestellt: %list2%; dabei wurden folgende Gegenstände verbraucht: %list1%.</target>
       </segment>
     </unit>
+    <unit id="wxkGehN" name="%zombie% ist von den Toten auferstanden und hat %victim% zerfleischt!">
+      <notes>
+        <note category="german">%zombie% ist von den Toten auferstanden und hat %victim% zerfleischt!</note>
+      </notes>
+      <segment>
+        <source>%zombie% ist von den Toten auferstanden und hat %victim% zerfleischt!</source>
+        <target>%zombie% ist von den Toten auferstanden und hat %victim% zerfleischt!</target>
+      </segment>
+    </unit>
     <unit id="Wqb2b8u" name="219fbe6">
       <notes>
         <note category="german">%zombie% ist von den Toten auferstanden und hat die Baustelle für %building% verwüstet!</note>
@@ -15280,7 +15289,7 @@
       <notes>
         <note category="german">Bitte wähle einen Gegenstand.</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Bitte wähle einen Gegenstand.</source>
         <target>Por favor, elija el objeto.</target>
       </segment>
@@ -15289,7 +15298,7 @@
       <notes>
         <note category="german">Bitte gib die Zielkoordinaten ein.</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Bitte gib die Zielkoordinaten ein.</source>
         <target>Por favor, introduzca la zona de destino.</target>
       </segment>
@@ -15298,7 +15307,7 @@
       <notes>
         <note category="german">Sorgfältig verpackt hast du %item% in das Katapult gelegt. Der Gegenstand wurde auf %zone% geschleudert.</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Sorgfältig verpackt hast du %item% in das Katapult gelegt. Der Gegenstand wurde auf %zone% geschleudert.</source>
         <target>Colocas cuidadosamente %item% en la catapulta. El objeto ha sido lanzado a %zone%.</target>
       </segment>
@@ -15307,7 +15316,7 @@
       <notes>
         <note category="german">Katapult-Bediener</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Katapult-Bediener</source>
         <target>Operador de la Catapulta</target>
       </segment>
@@ -15316,7 +15325,7 @@
       <notes>
         <note category="german">Du bist für das Katapult verantwortlich</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Du bist für das Katapult verantwortlich</source>
         <target>Usted es el responsable de la catapulta.</target>
       </segment>
@@ -15325,7 +15334,7 @@
       <notes>
         <note category="german">Du bist zum offiziellen Katapult-Bediener der Stadt ernannt worden. Diese Ernennung erfolgte durch Auslosung; Herzlichen Glückwunsch! Finde dich so bald wie Möglich beim städtischen Katapult ein.</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Du bist zum offiziellen Katapult-Bediener der Stadt ernannt worden. Diese Ernennung erfolgte durch Auslosung; Herzlichen Glückwunsch! Finde dich so bald wie Möglich beim städtischen Katapult ein.</source>
         <target>Has sido nombrado el operador oficial de la Catapulta de la ciudad. Este nombramiento se hizo por sorteo; ¡felicidades! Preséntate en la Catapulta de la ciudad lo antes posible.</target>
       </segment>
@@ -15334,7 +15343,7 @@
       <notes>
         <note category="german">Einen zufälligen Bürger als Katapult-Bediener auslosen</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Einen zufälligen Bürger als Katapult-Bediener auslosen</source>
         <target>Elige un habitante al azar como operador de la Catapulta</target>
       </segment>
@@ -15373,6 +15382,240 @@
       <segment>
         <source>Die Stadt ist nichts weiter als ein widerwärtiger Friedhof. Es war niemand hier, der den letzten Angriff der Zombies hätte aufhalten können: &lt;strong&gt;das Stadttor wurde aufgebrochen&lt;/strong&gt; und &lt;strong&gt;liegt nun in Trümmern&lt;/strong&gt;. %town% existiert nicht mehr...</source>
         <target><![CDATA[Die Stadt ist nichts weiter als ein widerwärtiger Friedhof. Es war niemand hier, der den letzten Angriff der Zombies hätte aufhalten können: <strong>das Stadttor wurde aufgebrochen</strong> und <strong>liegt nun in Trümmern</strong>. %town% existiert nicht mehr...]]></target>
+      </segment>
+    </unit>
+    <unit id="V.GaRUl" name="Sind wir noch in der Alpha?">
+      <notes>
+        <note category="german">Sind wir noch in der Alpha?</note>
+      </notes>
+      <segment>
+        <source>Sind wir noch in der Alpha?</source>
+        <target>Sind wir noch in der Alpha?</target>
+      </segment>
+    </unit>
+    <unit id="OA64trN" name="f4f78aa">
+      <notes>
+        <note category="german">Dies ist eine äußerst seltene Belohnung, die den ersten MyHordes-Spielern vorbehalten ist, die das Finale mit großem F erlebt haben.</note>
+      </notes>
+      <segment>
+        <source>Dies ist eine äußerst seltene Belohnung, die den ersten MyHordes-Spielern vorbehalten ist, die das Finale mit großem F erlebt haben.</source>
+        <target>Dies ist eine äußerst seltene Belohnung, die den ersten MyHordes-Spielern vorbehalten ist, die das Finale mit großem F erlebt haben.</target>
+      </segment>
+    </unit>
+    <unit id="Oys88cl" name="1a715ee">
+      <notes>
+        <note category="german">%count% Zombies wurden in der Stadt gesichtet, aber sie haben niemanden angegriffen: Was für ein Glücksfall...</note>
+      </notes>
+      <segment>
+        <source>%count% Zombies wurden in der Stadt gesichtet, aber sie haben niemanden angegriffen: Was für ein Glücksfall...</source>
+        <target>%count% Zombies wurden in der Stadt gesichtet, aber sie haben niemanden angegriffen: Was für ein Glücksfall...</target>
+      </segment>
+    </unit>
+    <unit id="b5TnxTe" name="[ Es riecht nach Tannenzapfen... ]">
+      <notes>
+        <note category="german">[ Es riecht nach Tannenzapfen... ]</note>
+      </notes>
+      <segment>
+        <source>[ Es riecht nach Tannenzapfen... ]</source>
+        <target>[ Es riecht nach Tannenzapfen... ]</target>
+      </segment>
+    </unit>
+    <unit id="PgQR75x" name="Zahlreiche Diebstähle begangen">
+      <notes>
+        <note category="german">Zahlreiche Diebstähle begangen</note>
+      </notes>
+      <segment>
+        <source>Zahlreiche Diebstähle begangen</source>
+        <target>Zahlreiche Diebstähle begangen</target>
+      </segment>
+    </unit>
+    <unit id="dD9OHg_" name="Verbraucht zuviel Wasser">
+      <notes>
+        <note category="german">Verbraucht zuviel Wasser</note>
+      </notes>
+      <segment>
+        <source>Verbraucht zuviel Wasser</source>
+        <target>Verbraucht zuviel Wasser</target>
+      </segment>
+    </unit>
+    <unit id="W43lmes" name="Beleidigendes Verhalten">
+      <notes>
+        <note category="german">Beleidigendes Verhalten</note>
+      </notes>
+      <segment>
+        <source>Beleidigendes Verhalten</source>
+        <target>Beleidigendes Verhalten</target>
+      </segment>
+    </unit>
+    <unit id="rnxNxyC" name="Blockiert die Baustelle">
+      <notes>
+        <note category="german">Blockiert die Baustelle</note>
+      </notes>
+      <segment>
+        <source>Blockiert die Baustelle</source>
+        <target>Blockiert die Baustelle</target>
+      </segment>
+    </unit>
+    <unit id="GTtLJm1" name="Expeditionssaboteur">
+      <notes>
+        <note category="german">Expeditionssaboteur</note>
+      </notes>
+      <segment>
+        <source>Expeditionssaboteur</source>
+        <target>Expeditionssaboteur</target>
+      </segment>
+    </unit>
+    <unit id="qSX7vRE" name="Geht kein Risiko ein">
+      <notes>
+        <note category="german">Geht kein Risiko ein</note>
+      </notes>
+      <segment>
+        <source>Geht kein Risiko ein</source>
+        <target>Geht kein Risiko ein</target>
+      </segment>
+    </unit>
+    <unit id="Dn0tq6e" name="Handelt zu egoistisch">
+      <notes>
+        <note category="german">Handelt zu egoistisch</note>
+      </notes>
+      <segment>
+        <source>Handelt zu egoistisch</source>
+        <target>Handelt zu egoistisch</target>
+      </segment>
+    </unit>
+    <unit id="g8qlqWr" name="Gemeinschaftsfreak">
+      <notes>
+        <note category="german">Gemeinschaftsfreak</note>
+      </notes>
+      <segment>
+        <source>Gemeinschaftsfreak</source>
+        <target>Gemeinschaftsfreak</target>
+      </segment>
+    </unit>
+    <unit id="SuxYV1H" name="Bringt sich nicht genug ein">
+      <notes>
+        <note category="german">Bringt sich nicht genug ein</note>
+      </notes>
+      <segment>
+        <source>Bringt sich nicht genug ein</source>
+        <target>Bringt sich nicht genug ein</target>
+      </segment>
+    </unit>
+    <unit id="NghQlFT" name="Hortet zu viele Gegenstände">
+      <notes>
+        <note category="german">Hortet zu viele Gegenstände</note>
+      </notes>
+      <segment>
+        <source>Hortet zu viele Gegenstände</source>
+        <target>Hortet zu viele Gegenstände</target>
+      </segment>
+    </unit>
+    <unit id="aCap5cU" name="Aggressiver Mitbürger">
+      <notes>
+        <note category="german">Aggressiver Mitbürger</note>
+      </notes>
+      <segment>
+        <source>Aggressiver Mitbürger</source>
+        <target>Aggressiver Mitbürger</target>
+      </segment>
+    </unit>
+    <unit id="xb8cXJh" name="f44cd76">
+      <notes>
+        <note category="german">Du hast am Bauprojekt %plan% mitgeholfen. Du hast dafür %count% Aktionspunkt(e) verbraucht.</note>
+      </notes>
+      <segment>
+        <source>Du hast am Bauprojekt %plan% mitgeholfen. Du hast dafür %count% Aktionspunkt(e) verbraucht.</source>
+        <target>Du hast am Bauprojekt %plan% mitgeholfen. Du hast dafür %count% Aktionspunkt(e) verbraucht.</target>
+      </segment>
+    </unit>
+    <unit id="mVtk8KY" name="Herzlichen Glückwunsch! Du hast deine Behausung in ein(e) %home%.">
+      <notes>
+        <note category="german">Herzlichen Glückwunsch! Du hast deine Behausung in ein(e) %home%.</note>
+      </notes>
+      <segment>
+        <source>Herzlichen Glückwunsch! Du hast deine Behausung in ein(e) %home%.</source>
+        <target>Herzlichen Glückwunsch! Du hast deine Behausung in ein(e) %home%.</target>
+      </segment>
+    </unit>
+    <unit id="CZg55p2" name="Folgenden Dinge wurden dazu gebraucht:">
+      <notes>
+        <note category="german">Folgenden Dinge wurden dazu gebraucht:</note>
+      </notes>
+      <segment>
+        <source>Folgenden Dinge wurden dazu gebraucht:</source>
+        <target>Folgenden Dinge wurden dazu gebraucht:</target>
+      </segment>
+    </unit>
+    <unit id="2VisPD1" name="Mit dem Bau der(s) %upgrade% hat dein Haus Stufe %level% erreicht!">
+      <notes>
+        <note category="german">Mit dem Bau der(s) %upgrade% hat dein Haus Stufe %level% erreicht!</note>
+      </notes>
+      <segment>
+        <source>Mit dem Bau der(s) %upgrade% hat dein Haus Stufe %level% erreicht!</source>
+        <target>Mit dem Bau der(s) %upgrade% hat dein Haus Stufe %level% erreicht!</target>
+      </segment>
+    </unit>
+    <unit id="X.vNUqq" name="Einen Bürger heimbringen:">
+      <notes>
+        <note category="german">Einen Bürger heimbringen:</note>
+      </notes>
+      <segment>
+        <source>Einen Bürger heimbringen:</source>
+        <target>Einen Bürger heimbringen:</target>
+      </segment>
+    </unit>
+    <unit id="cA3yYGh" name="343918b">
+      <notes>
+        <note category="german">%citizen% hat einen Teil seines Heißhungers gestillt, indem er Teile seiner Mitbürger gegessen hat. Um sicherzustellen, dass so etwas nicht noch einmal passiert, übergieße die Verstorbenen das nächste Mal mit Wasser...</note>
+      </notes>
+      <segment>
+        <source>%citizen% hat einen Teil seines Heißhungers gestillt, indem er Teile seiner Mitbürger gegessen hat. Um sicherzustellen, dass so etwas nicht noch einmal passiert, übergieße die Verstorbenen das nächste Mal mit Wasser...</source>
+        <target>%citizen% hat einen Teil seines Heißhungers gestillt, indem er Teile seiner Mitbürger gegessen hat. Um sicherzustellen, dass so etwas nicht noch einmal passiert, übergieße die Verstorbenen das nächste Mal mit Wasser...</target>
+      </segment>
+    </unit>
+    <unit id="zLJ.A.A" name="Anzeigen">
+      <notes>
+        <note category="german">Anzeigen</note>
+      </notes>
+      <segment>
+        <source>Anzeigen</source>
+        <target>Anzeigen</target>
+      </segment>
+    </unit>
+    <unit id="rZrohjN" name="Du hast %num% anonyme Anzeige(n) erhalten.">
+      <notes>
+        <note category="german">Du hast %num% anonyme Anzeige(n) erhalten.</note>
+      </notes>
+      <segment>
+        <source>Du hast %num% anonyme Anzeige(n) erhalten.</source>
+        <target>Du hast %num% anonyme Anzeige(n) erhalten.</target>
+      </segment>
+    </unit>
+    <unit id="khbCWBV" name="Sollte diese Zahl auf 8 ansteigen, wirst du verbannt!">
+      <notes>
+        <note category="german">Sollte diese Zahl auf 8 ansteigen, wirst du verbannt!</note>
+      </notes>
+      <segment>
+        <source>Sollte diese Zahl auf 8 ansteigen, wirst du verbannt!</source>
+        <target>Sollte diese Zahl auf 8 ansteigen, wirst du verbannt!</target>
+      </segment>
+    </unit>
+    <unit id="pFLOI._" name="Grund:">
+      <notes>
+        <note category="german">Grund:</note>
+      </notes>
+      <segment>
+        <source>Grund:</source>
+        <target>Grund:</target>
+      </segment>
+    </unit>
+    <unit id="7aCcCH1" name="Wählen">
+      <notes>
+        <note category="german">Wählen</note>
+      </notes>
+      <segment>
+        <source>Wählen</source>
+        <target>Wählen</target>
       </segment>
     </unit>
   </file>

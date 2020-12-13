@@ -199,13 +199,22 @@
         <target>%citizen% produced one %list2% from a %list1%.</target>
       </segment>
     </unit>
+    <unit id="wxkGehN" name="%zombie% ist von den Toten auferstanden und hat %victim% zerfleischt!">
+      <notes>
+        <note category="german">%zombie% ist von den Toten auferstanden und hat %victim% zerfleischt!</note>
+      </notes>
+      <segment>
+        <source>%zombie% ist von den Toten auferstanden und hat %victim% zerfleischt!</source>
+        <target>%zombie% came back from the dead and mauled %victim%!</target>
+      </segment>
+    </unit>
     <unit id="Wqb2b8u" name="219fbe6">
       <notes>
         <note category="german">%zombie% ist von den Toten auferstanden und hat die Baustelle für %building% verwüstet!</note>
       </notes>
       <segment>
         <source>%zombie% ist von den Toten auferstanden und hat die Baustelle für %building% verwüstet!</source>
-        <target>%zombie% came back from the dead and and devastated the construction site for the %building%!</target>
+        <target>%zombie% came back from the dead and devastated the construction site for the %building%!</target>
       </segment>
     </unit>
     <unit id="kWsuJms" name="b46b79f">
@@ -1553,7 +1562,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Hier findest du alle Gegenstände, die gegenwärtig in der Bank aufbewahrt werden. Bei diesen Gegenständen handelt es sich um Spenden der Bürger. Sie sind im Wesentlichen dazu da, Gemeinschaftsgebäude zu bauen und die Stadt gegen die allnächtlichen Zombieattacken zu verteidigen.</source>
-        <target><![CDATA[This is a complete list of everything currently stored in the Bank. These objects are the <strong>fruit of the citizens' hard work</strong>. These objects are mainly used for <strong>the construction of community buildings</strong> and to <strong>defend the town</strong> during the attack of the zombie horde.]]></target>
+        <target>This is a complete list of everything currently stored in the Bank. These objects are the fruit of the citizens' hard work. These objects are mainly used for the construction of community buildings and to defend the town during the attack of the zombie horde.</target>
       </segment>
     </unit>
     <unit id="U0vMVpy" name="Bankregister">
@@ -8189,7 +8198,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Nahrungsmittelknappheit bei der Horde : %attack% Zombies, und nicht einer von ihnen bekam letzte Nacht etwas zu fressen, unsere Abwehr hielt gut stand.</source>
-        <target>Nahrungsmittelknappheit bei der Horde : %attack% Zombies, und nicht einer von ihnen bekam letzte Nacht etwas zu fressen, unsere Abwehr hielt gut stand.</target>
+        <target>Furthermore, horde food shortage : %attack% Zombies, and not one of them got anything to eat last night, our defences held up well.</target>
       </segment>
     </unit>
     <unit id="ra16zgk" name="cd7fba2">
@@ -8315,7 +8324,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Da gestern Abend rund %attack% Zombies vor den Toren standen, hätten wir das Schlimmste befürchten können, aber kein einziger ist reingekommen: gute Zeiten! Brecht Euch sich aber nicht den Arm, wenn Ihr Euch gegenseitig auf die Schulter klopft!</source>
-        <target>Da gestern Abend rund %attack% Zombies vor den Toren standen, hätten wir das Schlimmste befürchten können, aber kein einziger ist reingekommen: gute Zeiten! Brecht Euch sich aber nicht den Arm, wenn Ihr Euch gegenseitig auf die Schulter klopft!</target>
+        <target>With around %attack% zombies at the gates last night, we could have feared the worst, but not a single one got in : good times ! Don't break your arm patting yourself on the back just yet !</target>
       </segment>
     </unit>
     <unit id="DHLa_0B" name="55f668d">
@@ -9368,7 +9377,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Diese heruntergekommene Gebäude scheint einmal ein Hotel gewesen zu sein. Du entdeckst einen Einstieg ins Gebäude, modriger Gestank schlägt dir entgegen. Du verziehst das Gesicht, aber hier könntest du mit ziemlicher Sicherheit etwas Nützliches finden...</source>
-        <target>_This dilapidated building appears to have been a hotel. You discover an entrance to the building, a musty smell hits you. You wince, but you could almost certainly find something useful here...</target>
+        <target>This dilapidated building appears to have been a hotel. You discover an entrance to the building, a musty smell hits you. You wince, but you could almost certainly find something useful here...</target>
       </segment>
     </unit>
     <unit id="rnmrpxG" name="Verlassenes Hospital">
@@ -9386,7 +9395,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Diese heruntergekommene Gebäude scheint einmal ein Hospital gewesen zu sein. Du entdeckst einen Einstieg ins Gebäude, modriger Gestank schlägt dir entgegen. Du verziehst das Gesicht, aber hier könntest du mit ziemlicher Sicherheit etwas Nützliches finden...</source>
-        <target>_This dilapidated building appears to have been a hospital. You discover an entrance to the building, a musty smell hits you. You wince, but you could almost certainly find something useful here...</target>
+        <target>This dilapidated building appears to have been a hospital. You discover an entrance to the building, a musty smell hits you. You wince, but you could almost certainly find something useful here...</target>
       </segment>
     </unit>
     <unit id="Ijn0xpZ" name="%ruin% betreten">
@@ -14050,7 +14059,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Das Stadttor ist Teil einer Festungsmauer, die den Großteil der Zombies abwehrt. Solltest du vergessen es am Abend zu schließen, kannst du dich auf Qualen einstellen, die deine schlimmsten Alpträume weit übertreffen.</source>
-        <target>Das Stadttor ist Teil einer Festungsmauer, die den Großteil der Zombies abwehrt. Solltest du vergessen es am Abend zu schließen, kannst du dich auf Qualen einstellen, die deine schlimmsten Alpträume weit übertreffen.</target>
+        <target>The Town Gates serve as a defence against a large number of the Horde who will congregate outside the town. Forget to lock it at night and you will experience greater suffering than in your worst nightmares.</target>
       </segment>
     </unit>
     <unit id="jImJojV" name="Der Batterienator">
@@ -14266,7 +14275,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Die Zone ist vollständig mit verrottender Vegetation, Sand und allem möglichen Schrott bedeckt. Du bist dir sicher, dass es hier etwas zu finden gibt, aber zunächst musst du diesen gesamten Sektor aufräumen um ihn vernünftig durchsuchen zu können.</source>
-        <target>Die Zone ist vollständig mit verrottender Vegetation, Sand und allem möglichen Schrott bedeckt. Du bist dir sicher, dass es hier etwas zu finden gibt, aber zunächst musst du diesen gesamten Sektor aufräumen um ihn vernünftig durchsuchen zu können.</target>
+        <target>The zone is completely covered with rotting vegetation, sand and all manner of debris. You are certain that there is something hidden here, but the whole sector needs to be cleared before it can be searched properly...</target>
       </segment>
     </unit>
     <unit id="IDhWsfU" name="HAZ-Gewinner">
@@ -14329,7 +14338,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Ich bin geheilt</source>
-        <target>I am cured</target>
+        <target>I am healed</target>
       </segment>
     </unit>
     <unit id="exaN90z" name="Die letzten Nachrichten meiner Koalition lesen.">
@@ -14581,7 +14590,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Du kannst den Bürgern der Stadt die Errichtung eines bestimmten Gebäudes empfehlen. Bewege dafür den Mauszeiger über das Bauprojekt, das du empfehlen willst und klicke auf den Link &lt;strong&gt;Abstimmen&lt;/strong&gt;, der darüber erscheint.</source>
-        <target><![CDATA[Du kannst den Bürgern der Stadt die Errichtung eines bestimmten Gebäudes empfehlen. Bewege dafür den Mauszeiger über das Bauprojekt, das du empfehlen willst und klicke auf den Link <strong>Abstimmen</strong>, der darüber erscheint.]]></target>
+        <target><![CDATA[You can express your preference for a particular project to other citizens by moving your cursor over the line of the construction you with to recommend and click on the <strong>Vote</strong> link which will appear.]]></target>
       </segment>
     </unit>
     <unit id="apc56SN" name="Beruf">
@@ -14590,7 +14599,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Beruf</source>
-        <target>Beruf</target>
+        <target>Profession</target>
       </segment>
     </unit>
     <unit id="UaAP3Pr" name="Anwesenheit">
@@ -14599,7 +14608,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Anwesenheit</source>
-        <target>Anwesenheit</target>
+        <target>Presence</target>
       </segment>
     </unit>
     <unit id="qjYW_3_" name="Leprechaun wurde gesehen, wie er den %item% von %victim% stahl!">
@@ -14617,7 +14626,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Aktivität</source>
-        <target>Aktivität</target>
+        <target>Activity</target>
       </segment>
     </unit>
     <unit id="jA6Q6MW" name="Häuser der Bürger">
@@ -14626,7 +14635,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Häuser der Bürger</source>
-        <target>Häuser der Bürger</target>
+        <target>Citizens' Houses</target>
       </segment>
     </unit>
     <unit id="7ufciQ4" name="Temporäre Verteidigung">
@@ -14635,7 +14644,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Temporäre Verteidigung</source>
-        <target>Temporäre Verteidigung</target>
+        <target>Temporary Defence</target>
       </segment>
     </unit>
     <unit id="9_pNKlL" name="Leichen-Bonus">
@@ -14644,7 +14653,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Leichen-Bonus</source>
-        <target>Leichen-Bonus</target>
+        <target>Cadaver Bonus</target>
       </segment>
     </unit>
     <unit id="1YdiLSd" name="Bonus">
@@ -14797,7 +14806,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Das Stadttor von "%townname%"</source>
-        <target>Das Stadttor von "%townname%"</target>
+        <target>The Town gates of "%townname%"</target>
       </segment>
     </unit>
     <unit id=".i5DFTm" name="Gesamtansicht der Stadt">
@@ -14806,7 +14815,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Gesamtansicht der Stadt</source>
-        <target>Gesamtansicht der Stadt</target>
+        <target>General view of the Town</target>
       </segment>
     </unit>
     <unit id="WLvQ7GY" name="Mein Zuhause (Truhe)">
@@ -14833,7 +14842,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Wätcher</source>
-        <target>Wätcher</target>
+        <target>Watchmen</target>
       </segment>
     </unit>
     <unit id="Rv1P1LM" name="Diese Bürger is der %role% der Stadt">
@@ -14842,7 +14851,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Diese Bürger is der %role% der Stadt</source>
-        <target>Diese Bürger is der %role% der Stadt</target>
+        <target>This citizen is the %role% of the Town</target>
       </segment>
     </unit>
     <unit id="L2mGaV4" name="Expeditionen">
@@ -14851,7 +14860,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Expeditionen</source>
-        <target>Expeditionen</target>
+        <target>Expeditions</target>
       </segment>
     </unit>
     <unit id="VP5Pzpa" name="Verbessrung des Tages">
@@ -14860,7 +14869,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Verbessrung des Tages</source>
-        <target>Verbessrung des Tages</target>
+        <target>Improvement of the day</target>
       </segment>
     </unit>
     <unit id="fh_ltq7" name="Die Bank">
@@ -15013,7 +15022,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Wiedergeburt: Wähle einen Beruf</source>
-        <target>Wiedergeburt: Wähle einen Beruf</target>
+        <target>Rebirth: Choose a Profession</target>
       </segment>
     </unit>
     <unit id="JPF0EfZ" name="Klick hier, um mehr über diesen Beruf zu erfahren...">
@@ -15022,7 +15031,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Klick hier, um mehr über diesen Beruf zu erfahren...</source>
-        <target>Klick hier, um mehr über diesen Beruf zu erfahren...</target>
+        <target>Click here to learn more about this profession ...</target>
       </segment>
     </unit>
     <unit id="GErJWB." name="Zur zeit in der Stadt">
@@ -15031,7 +15040,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Zur zeit in der Stadt</source>
-        <target>Zur zeit in der Stadt</target>
+        <target>Currently in town</target>
       </segment>
     </unit>
     <unit id="dC.LILA" name="Die Bürger dieser Stadt haben die unten aufgeführten Berufe gewählt.">
@@ -15040,7 +15049,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Die Bürger dieser Stadt haben die unten aufgeführten Berufe gewählt.</source>
-        <target>Die Bürger dieser Stadt haben die unten aufgeführten Berufe gewählt.</target>
+        <target>The citizens of this city have chosen the professions listed below.</target>
       </segment>
     </unit>
     <unit id="TIikksZ" name="Wiedergeburt: Privatstadt gründen">
@@ -15067,7 +15076,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Hilfe</source>
-        <target>Hilfe</target>
+        <target>Help</target>
       </segment>
     </unit>
     <unit id="9XUKXXI" name="Einstellungen">
@@ -15076,7 +15085,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Einstellungen</source>
-        <target>Einstellungen</target>
+        <target>Settings</target>
       </segment>
     </unit>
     <unit id="nPZDQO6" name="Ranglisten der Saison">
@@ -15085,7 +15094,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Ranglisten der Saison</source>
-        <target>Ranglisten der Saison</target>
+        <target>Season's Rankings</target>
       </segment>
     </unit>
     <unit id="ViEKCFv" name="Die Zukunft">
@@ -15094,7 +15103,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Die Zukunft</source>
-        <target>Die Zukunft</target>
+        <target>The Future</target>
       </segment>
     </unit>
     <unit id="aGs0YSI" name="Die verfluchten Schriften">
@@ -15112,7 +15121,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Meine Seele</source>
-        <target>Meine Seele</target>
+        <target>My Soul</target>
       </segment>
     </unit>
     <unit id="JAkgM4Z" name="Kleine Koalitionen">
@@ -15121,7 +15130,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Kleine Koalitionen</source>
-        <target>Kleine Koalitionen</target>
+        <target>Small Coalition</target>
       </segment>
     </unit>
     <unit id="mfY9mWB" name="68142c8">
@@ -15151,40 +15160,13 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
         <target>Denke daran, dass das Katapult manchmal sein Ziel verfehlt und den Gegenstand in eine angrenzende Zone befördert...</target>
       </segment>
     </unit>
-    <unit id="xDLABuz" name="6e6c122">
-      <notes>
-        <note category="german">Du wurdest als Verantwortlicher für das Katapult bestimmt! Wähle einen Gegenstand aus deinem Inventar und gib die Zielkoordinaten ein.</note>
-      </notes>
-      <segment>
-        <source>Du wurdest als Verantwortlicher für das Katapult bestimmt! Wähle einen Gegenstand aus deinem Inventar und gib die Zielkoordinaten ein.</source>
-        <target>Du wurdest als Verantwortlicher für das Katapult bestimmt! Wähle einen Gegenstand aus deinem Inventar und gib die Zielkoordinaten ein.</target>
-      </segment>
-    </unit>
-    <unit id="TV74CjO" name="Die Aktivierung des Katapults kostet %ap%.">
-      <notes>
-        <note category="german">Die Aktivierung des Katapults kostet %ap%.</note>
-      </notes>
-      <segment>
-        <source>Die Aktivierung des Katapults kostet %ap%.</source>
-        <target>Die Aktivierung des Katapults kostet %ap%.</target>
-      </segment>
-    </unit>
-    <unit id="NnDz_H4" name="6b04ecf">
-      <notes>
-        <note category="german">Die Aktivierung des Katapults kostet %ap% (diese Kosten können durch den Bau eines besseren Katapults gesenkt werden).</note>
-      </notes>
-      <segment>
-        <source>Die Aktivierung des Katapults kostet %ap% (diese Kosten können durch den Bau eines besseren Katapults gesenkt werden).</source>
-        <target>Die Aktivierung des Katapults kostet %ap% (diese Kosten können durch den Bau eines besseren Katapults gesenkt werden).</target>
-      </segment>
-    </unit>
     <unit id="vGJYt6I" name="Du wurdest als Verantwortlicher für das Katapult bestimmt!">
       <notes>
         <note category="german">Du wurdest als Verantwortlicher für das Katapult bestimmt!</note>
       </notes>
       <segment>
         <source>Du wurdest als Verantwortlicher für das Katapult bestimmt!</source>
-        <target>Du wurdest als Verantwortlicher für das Katapult bestimmt!</target>
+        <target>You have been chosen to be in charge of the catapult!</target>
       </segment>
     </unit>
     <unit id="F85kERo" name="Wähle einen Gegenstand aus deinem Inventar und gib die Zielkoordinaten ein.">
@@ -15247,7 +15229,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Gegenstand auswählen</source>
-        <target>Gegenstand auswählen</target>
+        <target>Select object</target>
       </segment>
     </unit>
     <unit id="3LNO13M" name="Gegenstand katapultieren">
@@ -15256,7 +15238,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Gegenstand katapultieren</source>
-        <target>Gegenstand katapultieren</target>
+        <target>Catapult the object</target>
       </segment>
     </unit>
     <unit id="vKTmXMp" name="Katapultregister">
@@ -15265,7 +15247,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Katapultregister</source>
-        <target>Katapultregister</target>
+        <target>Catapult registry</target>
       </segment>
     </unit>
     <unit id="XhfFUUF" name="Bitte wähle einen Gegenstand.">
@@ -15274,7 +15256,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Bitte wähle einen Gegenstand.</source>
-        <target>Bitte wähle einen Gegenstand.</target>
+        <target>Please choose an object.</target>
       </segment>
     </unit>
     <unit id="k2rA792" name="Bitte gib die Zielkoordinaten ein.">
@@ -15283,7 +15265,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Bitte gib die Zielkoordinaten ein.</source>
-        <target>Bitte gib die Zielkoordinaten ein.</target>
+        <target>Please enter the destination coordinates.</target>
       </segment>
     </unit>
     <unit id="bh3ikqp" name="6a59fc2">
@@ -15365,6 +15347,258 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       <segment>
         <source>Die Stadt ist nichts weiter als ein widerwärtiger Friedhof. Es war niemand hier, der den letzten Angriff der Zombies hätte aufhalten können: &lt;strong&gt;das Stadttor wurde aufgebrochen&lt;/strong&gt; und &lt;strong&gt;liegt nun in Trümmern&lt;/strong&gt;. %town% existiert nicht mehr...</source>
         <target><![CDATA[Die Stadt ist nichts weiter als ein widerwärtiger Friedhof. Es war niemand hier, der den letzten Angriff der Zombies hätte aufhalten können: <strong>das Stadttor wurde aufgebrochen</strong> und <strong>liegt nun in Trümmern</strong>. %town% existiert nicht mehr...]]></target>
+      </segment>
+    </unit>
+    <unit id="V.GaRUl" name="Sind wir noch in der Alpha?">
+      <notes>
+        <note category="german">Sind wir noch in der Alpha?</note>
+      </notes>
+      <segment>
+        <source>Sind wir noch in der Alpha?</source>
+        <target>Sind wir noch in der Alpha?</target>
+      </segment>
+    </unit>
+    <unit id="OA64trN" name="f4f78aa">
+      <notes>
+        <note category="german">Dies ist eine äußerst seltene Belohnung, die den ersten MyHordes-Spielern vorbehalten ist, die das Finale mit großem F erlebt haben.</note>
+      </notes>
+      <segment>
+        <source>Dies ist eine äußerst seltene Belohnung, die den ersten MyHordes-Spielern vorbehalten ist, die das Finale mit großem F erlebt haben.</source>
+        <target>Dies ist eine äußerst seltene Belohnung, die den ersten MyHordes-Spielern vorbehalten ist, die das Finale mit großem F erlebt haben.</target>
+      </segment>
+    </unit>
+    <unit id="Oys88cl" name="1a715ee">
+      <notes>
+        <note category="german">%count% Zombies wurden in der Stadt gesichtet, aber sie haben niemanden angegriffen: Was für ein Glücksfall...</note>
+      </notes>
+      <segment>
+        <source>%count% Zombies wurden in der Stadt gesichtet, aber sie haben niemanden angegriffen: Was für ein Glücksfall...</source>
+        <target>%count% Zombies wurden in der Stadt gesichtet, aber sie haben niemanden angegriffen: Was für ein Glücksfall...</target>
+      </segment>
+    </unit>
+    <unit id="b5TnxTe" name="[ Es riecht nach Tannenzapfen... ]">
+      <notes>
+        <note category="german">[ Es riecht nach Tannenzapfen... ]</note>
+      </notes>
+      <segment>
+        <source>[ Es riecht nach Tannenzapfen... ]</source>
+        <target>[ Es riecht nach Tannenzapfen... ]</target>
+      </segment>
+    </unit>
+    <unit id="PgQR75x" name="Zahlreiche Diebstähle begangen">
+      <notes>
+        <note category="german">Zahlreiche Diebstähle begangen</note>
+      </notes>
+      <segment>
+        <source>Zahlreiche Diebstähle begangen</source>
+        <target>Zahlreiche Diebstähle begangen</target>
+      </segment>
+    </unit>
+    <unit id="dD9OHg_" name="Verbraucht zuviel Wasser">
+      <notes>
+        <note category="german">Verbraucht zuviel Wasser</note>
+      </notes>
+      <segment>
+        <source>Verbraucht zuviel Wasser</source>
+        <target>Verbraucht zuviel Wasser</target>
+      </segment>
+    </unit>
+    <unit id="W43lmes" name="Beleidigendes Verhalten">
+      <notes>
+        <note category="german">Beleidigendes Verhalten</note>
+      </notes>
+      <segment>
+        <source>Beleidigendes Verhalten</source>
+        <target>Beleidigendes Verhalten</target>
+      </segment>
+    </unit>
+    <unit id="rnxNxyC" name="Blockiert die Baustelle">
+      <notes>
+        <note category="german">Blockiert die Baustelle</note>
+      </notes>
+      <segment>
+        <source>Blockiert die Baustelle</source>
+        <target>Blockiert die Baustelle</target>
+      </segment>
+    </unit>
+    <unit id="GTtLJm1" name="Expeditionssaboteur">
+      <notes>
+        <note category="german">Expeditionssaboteur</note>
+      </notes>
+      <segment>
+        <source>Expeditionssaboteur</source>
+        <target>Expeditionssaboteur</target>
+      </segment>
+    </unit>
+    <unit id="qSX7vRE" name="Geht kein Risiko ein">
+      <notes>
+        <note category="german">Geht kein Risiko ein</note>
+      </notes>
+      <segment>
+        <source>Geht kein Risiko ein</source>
+        <target>Geht kein Risiko ein</target>
+      </segment>
+    </unit>
+    <unit id="Dn0tq6e" name="Handelt zu egoistisch">
+      <notes>
+        <note category="german">Handelt zu egoistisch</note>
+      </notes>
+      <segment>
+        <source>Handelt zu egoistisch</source>
+        <target>Handelt zu egoistisch</target>
+      </segment>
+    </unit>
+    <unit id="g8qlqWr" name="Gemeinschaftsfreak">
+      <notes>
+        <note category="german">Gemeinschaftsfreak</note>
+      </notes>
+      <segment>
+        <source>Gemeinschaftsfreak</source>
+        <target>Gemeinschaftsfreak</target>
+      </segment>
+    </unit>
+    <unit id="SuxYV1H" name="Bringt sich nicht genug ein">
+      <notes>
+        <note category="german">Bringt sich nicht genug ein</note>
+      </notes>
+      <segment>
+        <source>Bringt sich nicht genug ein</source>
+        <target>Bringt sich nicht genug ein</target>
+      </segment>
+    </unit>
+    <unit id="NghQlFT" name="Hortet zu viele Gegenstände">
+      <notes>
+        <note category="german">Hortet zu viele Gegenstände</note>
+      </notes>
+      <segment>
+        <source>Hortet zu viele Gegenstände</source>
+        <target>Hortet zu viele Gegenstände</target>
+      </segment>
+    </unit>
+    <unit id="aCap5cU" name="Aggressiver Mitbürger">
+      <notes>
+        <note category="german">Aggressiver Mitbürger</note>
+      </notes>
+      <segment>
+        <source>Aggressiver Mitbürger</source>
+        <target>Aggressiver Mitbürger</target>
+      </segment>
+    </unit>
+    <unit id="xb8cXJh" name="f44cd76">
+      <notes>
+        <note category="german">Du hast am Bauprojekt %plan% mitgeholfen. Du hast dafür %count% Aktionspunkt(e) verbraucht.</note>
+      </notes>
+      <segment>
+        <source>Du hast am Bauprojekt %plan% mitgeholfen. Du hast dafür %count% Aktionspunkt(e) verbraucht.</source>
+        <target>Du hast am Bauprojekt %plan% mitgeholfen. Du hast dafür %count% Aktionspunkt(e) verbraucht.</target>
+      </segment>
+    </unit>
+    <unit id="mVtk8KY" name="Herzlichen Glückwunsch! Du hast deine Behausung in ein(e) %home%.">
+      <notes>
+        <note category="german">Herzlichen Glückwunsch! Du hast deine Behausung in ein(e) %home%.</note>
+      </notes>
+      <segment>
+        <source>Herzlichen Glückwunsch! Du hast deine Behausung in ein(e) %home%.</source>
+        <target>Herzlichen Glückwunsch! Du hast deine Behausung in ein(e) %home%.</target>
+      </segment>
+    </unit>
+    <unit id="CZg55p2" name="Folgenden Dinge wurden dazu gebraucht:">
+      <notes>
+        <note category="german">Folgenden Dinge wurden dazu gebraucht:</note>
+      </notes>
+      <segment>
+        <source>Folgenden Dinge wurden dazu gebraucht:</source>
+        <target>Folgenden Dinge wurden dazu gebraucht:</target>
+      </segment>
+    </unit>
+    <unit id="2VisPD1" name="Mit dem Bau der(s) %upgrade% hat dein Haus Stufe %level% erreicht!">
+      <notes>
+        <note category="german">Mit dem Bau der(s) %upgrade% hat dein Haus Stufe %level% erreicht!</note>
+      </notes>
+      <segment>
+        <source>Mit dem Bau der(s) %upgrade% hat dein Haus Stufe %level% erreicht!</source>
+        <target>Mit dem Bau der(s) %upgrade% hat dein Haus Stufe %level% erreicht!</target>
+      </segment>
+    </unit>
+    <unit id="X.vNUqq" name="Einen Bürger heimbringen:">
+      <notes>
+        <note category="german">Einen Bürger heimbringen:</note>
+      </notes>
+      <segment>
+        <source>Einen Bürger heimbringen:</source>
+        <target>Einen Bürger heimbringen:</target>
+      </segment>
+    </unit>
+    <unit id="TV74CjO" name="Die Aktivierung des Katapults kostet %ap%.">
+      <notes>
+        <note category="german">Die Aktivierung des Katapults kostet %ap%.</note>
+      </notes>
+      <segment>
+        <source>Die Aktivierung des Katapults kostet %ap%.</source>
+        <target>Die Aktivierung des Katapults kostet %ap%.</target>
+      </segment>
+    </unit>
+    <unit id="NnDz_H4" name="6b04ecf">
+      <notes>
+        <note category="german">Die Aktivierung des Katapults kostet %ap% (diese Kosten können durch den Bau eines besseren Katapults gesenkt werden).</note>
+      </notes>
+      <segment>
+        <source>Die Aktivierung des Katapults kostet %ap% (diese Kosten können durch den Bau eines besseren Katapults gesenkt werden).</source>
+        <target>Die Aktivierung des Katapults kostet %ap% (diese Kosten können durch den Bau eines besseren Katapults gesenkt werden).</target>
+      </segment>
+    </unit>
+    <unit id="cA3yYGh" name="343918b">
+      <notes>
+        <note category="german">%citizen% hat einen Teil seines Heißhungers gestillt, indem er Teile seiner Mitbürger gegessen hat. Um sicherzustellen, dass so etwas nicht noch einmal passiert, übergieße die Verstorbenen das nächste Mal mit Wasser...</note>
+      </notes>
+      <segment>
+        <source>%citizen% hat einen Teil seines Heißhungers gestillt, indem er Teile seiner Mitbürger gegessen hat. Um sicherzustellen, dass so etwas nicht noch einmal passiert, übergieße die Verstorbenen das nächste Mal mit Wasser...</source>
+        <target>%citizen% hat einen Teil seines Heißhungers gestillt, indem er Teile seiner Mitbürger gegessen hat. Um sicherzustellen, dass so etwas nicht noch einmal passiert, übergieße die Verstorbenen das nächste Mal mit Wasser...</target>
+      </segment>
+    </unit>
+    <unit id="zLJ.A.A" name="Anzeigen">
+      <notes>
+        <note category="german">Anzeigen</note>
+      </notes>
+      <segment>
+        <source>Anzeigen</source>
+        <target>Anzeigen</target>
+      </segment>
+    </unit>
+    <unit id="rZrohjN" name="Du hast %num% anonyme Anzeige(n) erhalten.">
+      <notes>
+        <note category="german">Du hast %num% anonyme Anzeige(n) erhalten.</note>
+      </notes>
+      <segment>
+        <source>Du hast %num% anonyme Anzeige(n) erhalten.</source>
+        <target>Du hast %num% anonyme Anzeige(n) erhalten.</target>
+      </segment>
+    </unit>
+    <unit id="khbCWBV" name="Sollte diese Zahl auf 8 ansteigen, wirst du verbannt!">
+      <notes>
+        <note category="german">Sollte diese Zahl auf 8 ansteigen, wirst du verbannt!</note>
+      </notes>
+      <segment>
+        <source>Sollte diese Zahl auf 8 ansteigen, wirst du verbannt!</source>
+        <target>Sollte diese Zahl auf 8 ansteigen, wirst du verbannt!</target>
+      </segment>
+    </unit>
+    <unit id="pFLOI._" name="Grund:">
+      <notes>
+        <note category="german">Grund:</note>
+      </notes>
+      <segment>
+        <source>Grund:</source>
+        <target>Grund:</target>
+      </segment>
+    </unit>
+    <unit id="7aCcCH1" name="Wählen">
+      <notes>
+        <note category="german">Wählen</note>
+      </notes>
+      <segment>
+        <source>Wählen</source>
+        <target>Wählen</target>
       </segment>
     </unit>
   </file>

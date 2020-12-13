@@ -784,10 +784,15 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
             $hideMove = false;
             foreach ($smokeBombs as $smokeBomb) {
                 /** @var ChatSilenceTimer $smokeBomb */
-                if($smokeBomb->getTime() > new \DateTime("-1min") && $smokeBomb->getCitizen() == $mover) {
-                    $hideMove = true;
-                    break;
+                if($smokeBomb->getCitizen() == $mover){
+                    if($smokeBomb->getTime() > new \DateTime("-1min")) {
+                        $hideMove = true;
+                    } else {
+                        $zone->removeChatSilenceTimer($smokeBomb);
+                        $this->entity_manager->remove($smokeBomb);
+                    }
                 }
+                
             }
             if ($others_are_here && !($zone->getX() === 0 && $zone->getY() === 0) && !$hideMove) $this->entity_manager->persist( $this->log->outsideMove( $mover, $zone, $new_zone, true  ) );
             if (!($new_zone->getX() === 0 && $new_zone->getY() === 0)) $this->entity_manager->persist( $this->log->outsideMove( $mover, $new_zone, $zone, false ) );

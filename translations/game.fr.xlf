@@ -15633,5 +15633,23 @@
         <target>[ Ça sent le sapin... ]</target>
       </segment>
     </unit>
+    <unit id="V.GaRUl" name="Sind wir noch in der Alpha?">
+      <notes>
+        <note category="german">Sind wir noch in der Alpha?</note>
+      </notes>
+      <segment>
+        <source>Sind wir noch in der Alpha?</source>
+        <target>Sind wir noch in der Alpha?</target>
+      </segment>
+    </unit>
+    <unit id="OA64trN" name="f4f78aa">
+      <notes>
+        <note category="german">Dies ist eine äußerst seltene Belohnung, die den ersten MyHordes-Spielern vorbehalten ist, die das Finale mit großem F erlebt haben.</note>
+      </notes>
+      <segment>
+        <source>Dies ist eine äußerst seltene Belohnung, die den ersten MyHordes-Spielern vorbehalten ist, die das Finale mit großem F erlebt haben.</source>
+        <target>Dies ist eine äußerst seltene Belohnung, die den ersten MyHordes-Spielern vorbehalten ist, die das Finale mit großem F erlebt haben.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

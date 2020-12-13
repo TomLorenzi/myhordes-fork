@@ -2,7 +2,13 @@
 {% block ajax %}
     <div class="row external-app">
         <div class="cell padded header rw-6 ro-3 rw-lg-12 ro-lg-0">
-            <h4 class="title"><img src="{{ asset('build/images/apps/' ~ ex.icon ~ '.gif') }}" /><span>{{ ex.name }}</span></h4>
+            <h4 class="title">
+                {% if ex.imageName is not null %}
+                    <img alt="" src="{{ path('app_web_app_icon', { aid: ex.id, name: ex.imageName, ext: ex.imageFormat }) }}" />
+                {% else %}
+                    <img alt="" src="{{ asset('build/images/apps/null.gif') }}" />
+                {% endif %}
+                <span>{{ ex.name }}</span></h4>
             <p>
                 {% trans from 'global' %}
                     Achtung! Der von dir ausgewählte Link, leitet dich auf eine nicht-offizielle Seite weiter (sprich: eine Fan- oder Spielerseite).

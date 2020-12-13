@@ -625,7 +625,13 @@ class PictoFixtures extends Fixture
             'description' => 'Ehrenpreis für die Teilnahme am UFC!',
             'icon' => 'r_ufc',
             'rare' => false
-        ]
+        ],
+        [
+            'label' => 'Sind wir noch in der Alpha?',
+            'description' => 'Dies ist eine äußerst seltene Belohnung, die den ersten MyHordes-Spielern vorbehalten ist, die das Finale mit großem F erlebt haben.',
+            'icon' => 'r_ripflash',
+            'rare' => true
+        ],
     ];
 
     private $entityManager;
