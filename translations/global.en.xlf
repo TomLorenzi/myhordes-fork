@@ -1691,7 +1691,7 @@
       </notes>
       <segment>
         <source>Diese Abwehrkräfte werden von gereinigten Seelen gebracht.</source>
-        <target>These defences are brought about by purified souls.</target>
+        <target>This defense is from purified souls.</target>
       </segment>
     </unit>
     <unit id="mhXv42Q" name="735ca7b">
@@ -1784,7 +1784,7 @@
       </notes>
       <segment>
         <source>Diesen Bonus gibt es dank eurer alten Freunde und dem Gebäude &lt;strong&gt;Kleiner Friedhof&lt;/strong&gt;.</source>
-        <target><![CDATA[Diesen Bonus gibt es dank eurer alten Freunde und dem Gebäude <strong>Kleiner Friedhof</strong>.]]></target>
+        <target><![CDATA[This bonus has been obtained thanks to your old friends and the <strong>Small Cemetary</strong> building.]]></target>
       </segment>
     </unit>
     <unit id="zTo.6Bl" name="1fa3771">
@@ -1793,7 +1793,7 @@
       </notes>
       <segment>
         <source>Diesen Bonus gibt es nur dann, wenn sich die Wächter wärhend eines Angriffs in det Stadt befinden.</source>
-        <target>Diesen Bonus gibt es nur dann, wenn sich die Wächter wärhend eines Angriffs in det Stadt befinden.</target>
+        <target>This bonus is only available if the Guardians are in the Town during an attack.</target>
       </segment>
     </unit>
     <unit id="zF4ERQG" name="Diese Kosten können durch den Aufbau der &lt;strong&gt;Müll für Alle&lt;/strong&gt;.">
