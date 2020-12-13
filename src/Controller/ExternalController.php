@@ -35,6 +35,7 @@ class ExternalController extends InventoryAwareController {
     protected DeathHandler $death_handler;
     protected EntityManagerInterface $entity_manager;
     protected Packages $asset;
+    protected $available_langs = ['en', 'fr', 'de', 'es'];
     
     /**
     * BeyondController constructor.

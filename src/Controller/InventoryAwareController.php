@@ -21,6 +21,7 @@ use App\Entity\LogEntryTemplate;
 use App\Entity\PictoPrototype;
 use App\Entity\PrivateMessage;
 use App\Entity\Recipe;
+use App\Entity\SpecialActionPrototype;
 use App\Entity\TownLogEntry;
 use App\Entity\User;
 use App\Entity\Zone;
@@ -221,6 +222,13 @@ class InventoryAwareController extends CustomAbstractController
                         $targets[] = [ $citizen->getId(), $citizen->getUser()->getName(), "build/images/professions/{$citizen->getProfession()->getIcon()}.gif" ];
 
                 break;
+            case ItemTargetDefinition::ItemCitizenType:
+
+                foreach ($this->getActiveCitizen()->getTown()->getCitizens() as $citizen)
+                    if ($citizen->getAlive() && $citizen != $this->getActiveCitizen())
+                        $targets[] = [ $citizen->getId(), $citizen->getUser()->getName(), "build/images/professions/{$citizen->getProfession()->getIcon()}.gif" ];
+
+                break;
         }
 
         return $targets;
@@ -238,6 +246,20 @@ class InventoryAwareController extends CustomAbstractController
         foreach ($crossed as $c)   $ret[] = [ 'id' => $c->getId(), 'action' => $c->getAction(), 'targets' => null, 'target_mode' => 0, 'crossed' => true ];
 
         return $ret;
+    }
+
+    protected function getSpecialActions(): array {
+        $ret = [];
+
+        $av_inv = [$this->getActiveCitizen()->getInventory(), $this->getActiveCitizen()->getZone() ? $this->getActiveCitizen()->getZone()->getFloor() : $this->getActiveCitizen()->getHome()->getChest()];
+
+        $this->action_handler->getAvailableISpecialActions( $this->getActiveCitizen(),  $available, $crossed );
+        if (empty($available) && empty($crossed)) return [];
+
+        foreach ($available as $a) $ret[] = [ 'id' => $a->getId(), 'icon' => $a->getIcon(), 'action' => $a->getAction(), 'targets' => $a->getAction()->getTarget() ? $this->decodeActionItemTargets( $av_inv, $a->getAction()->getTarget() ) : null, 'target_mode' => $a->getAction()->getTarget() ? $a->getAction()->getTarget()->getSpawner() : 0, 'crossed' => false ];
+        foreach ($crossed as $c)   $ret[] = [ 'id' => $c->getId(), 'icon' => $a->getIcon(), 'action' => $c->getAction(), 'targets' => null, 'target_mode' => 0, 'crossed' => true ];
+        return $ret;
+        
     }
 
     protected function getCampingActions(): array {
@@ -457,7 +479,7 @@ class InventoryAwareController extends CustomAbstractController
         try {
             $this->entity_manager->flush();
         } catch (Exception $e) {
-            return AjaxResponse::error( ErrorHelper::ErrorDatabaseException );
+            return AjaxResponse::error( ErrorHelper::ErrorDatabaseException, ['msg' => $e->getMessage()]  );
         }
 
         return AjaxResponse::success();
@@ -822,6 +844,14 @@ class InventoryAwareController extends CustomAbstractController
                 }
                 return true;
                 break;
+            case ItemTargetDefinition::ItemCitizenType:
+                $return = $this->entity_manager->getRepository(Citizen::class)->find( $id );
+                if (!$return->getAlive() || $return->getTown()->getId() !== $this->getActiveCitizen()->getTown()->getId()) {
+                    $return = null;
+                    return false;
+                }
+                return true;
+                break;
 
             default: return false;
         }
@@ -855,6 +885,50 @@ class InventoryAwareController extends CustomAbstractController
             // Add the picto Heroic Action
             $picto = $this->entity_manager->getRepository(PictoPrototype::class)->findOneByName("r_heroac_#00");
             $this->picto_handler->give_picto($citizen, $picto);
+
+            $this->entity_manager->persist($citizen);
+            foreach ($remove as $remove_entry)
+                $this->entity_manager->remove($remove_entry);
+            try {
+                $this->entity_manager->flush();
+            } catch (Exception $e) {
+                return AjaxResponse::error( ErrorHelper::ErrorDatabaseException, ['msg' => $e->getMessage()] );
+            }
+
+            if ($msg) $this->addFlash( 'notice', $msg );
+        } elseif ($error === ActionHandler::ErrorActionForbidden) {
+            if (!empty($msg)) $msg = $this->translator->trans($msg, [], 'game');
+            return AjaxResponse::error($error, ['message' => $msg]);
+        }
+        else return AjaxResponse::error( $error );
+
+        return AjaxResponse::success();
+    }
+
+    public function generic_special_action_api(JSONRequestParser $parser, ?callable $trigger_after = null): Response {
+        $target_id = (int)$parser->get('target', -1);
+        $action_id = (int)$parser->get('action', -1);
+
+        /** @var Item|ItemPrototype|null $target */
+        $target = null;
+        /** @var SpecialActionPrototype|null $heroic */
+        $special = ($action_id < 0) ? null : $this->entity_manager->getRepository(SpecialActionPrototype::class)->find( $action_id );
+
+        if ( !$special ) return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
+        $citizen = $this->getActiveCitizen();
+
+        $zone = $citizen->getZone();
+        if (!$citizen->getSpecialActions()->contains( $special )) return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
+
+        if (!$this->extract_target_object( $target_id, $special->getAction()->getTarget(), [ $citizen->getInventory(), $zone ? $zone->getFloor() : $citizen->getHome()->getChest() ], $target ))
+            return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
+
+        $item = null;
+        if (($error = $this->action_handler->execute( $citizen, $item, $target, $special->getAction(), $msg, $remove )) === ActionHandler::ErrorNone) {
+
+            $special_action = $special->getAction();
+            if ($trigger_after) $trigger_after($special_action);
+            $citizen->removeSpecialAction($special);
 
             $this->entity_manager->persist($citizen);
             foreach ($remove as $remove_entry)

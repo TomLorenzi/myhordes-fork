@@ -80,7 +80,7 @@ Save the file.
 If you would like to override the application config (for example to create custom game rules for your local installation), copy the `config/app` folder to `config/packages/dev/app`. 
 All config files in there will overwrite default config files without being pushed to the repository.
 
-If you do not run MyHordes within the web root (i.e. you have it running in a folder such as `example.com/myhordes`), you need to create an additional config file in the root directory called `webpack.local.conf`. The content should look like this:
+If you do not run MyHordes within the web root (i.e. you have it running in a folder such as `example.com/myhordes`), you need to create an additional config file in the root directory called `webpack.config.local.js`. The content should look like this:
 ```javascript
 module.exports = {
     // Relative path to the build folder from the MyHordes root folder

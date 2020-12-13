@@ -48,6 +48,11 @@ class AffectZone
      */
     private $improveLevel;
 
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $chatSilence;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -111,5 +116,17 @@ class AffectZone
       $this->improveLevel = $improveLevel;
 
       return $this;
+    }
+
+    public function getChatSilence(): ?int
+    {
+        return $this->chatSilence;
+    }
+
+    public function setChatSilence(?int $chatSilence): self
+    {
+        $this->chatSilence = $chatSilence;
+
+        return $this;
     }
 }

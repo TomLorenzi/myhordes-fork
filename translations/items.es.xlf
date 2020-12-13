@@ -3182,9 +3182,9 @@
       <notes>
         <note category="german">Hierfür brauchst du einen Kanister.</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Hierfür brauchst du einen Kanister.</source>
-        <target>Imposible, necesitas: Cantimplora llena.</target>
+        <target>Hierfür brauchst du einen Kanister.</target>
       </segment>
     </unit>
     <unit id="4W5shcA" name="Waffe einsetzen">
@@ -3443,18 +3443,18 @@
       <notes>
         <note category="german">Du drückst den {item} eng an deine Brust... &lt;t-stat-down-terror&gt;Tränen laufen über deine Wange, als du an die Hölle denkst, in der du lebst. Nach ein paar Minuten fühlst du dich besser!&lt;/t-stat-down-terror&gt;&lt;nt-stat-down-terror&gt;Aber nichts geschieht!&lt;/nt-stat-down-terror&gt;</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Du drückst den {item} eng an deine Brust... &lt;t-stat-down-terror&gt;Tränen laufen über deine Wange, als du an die Hölle denkst, in der du lebst. Nach ein paar Minuten fühlst du dich besser!&lt;/t-stat-down-terror&gt;&lt;nt-stat-down-terror&gt;Aber nichts geschieht!&lt;/nt-stat-down-terror&gt;</source>
-        <target><![CDATA[Coges {item} fuertemente contra ti... <t-stat-down-terror>Te sientes aún más triste que antes. ¿Y para qué sirve "vivir" después de todo?</t-stat-down-terror><nt-stat-down-terror>Pero nada cambia.</nt-stat-down-terror>]]></target>
+        <target><![CDATA[Coges {item} fuertemente contra ti... <t-stat-down-terror>Tränen laufen über deine Wange, als du an die Hölle denkst, in der du lebst. Nach ein paar Minuten fühlst du dich besser!</t-stat-down-terror><nt-stat-down-terror>Aber nichts geschieht!</nt-stat-down-terror>]]></target>
       </segment>
     </unit>
     <unit id="4TKj72Z" name="ba451af">
       <notes>
         <note category="german">Du drückst den {item} eng an deine Brust... &lt;t-stat-up-terror&gt;Panik steigt in dir auf!&lt;/t-stat-up-terror&gt;&lt;nt-stat-up-terror&gt;Aber nichts geschieht!&lt;/nt-stat-up-terror&gt;</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Du drückst den {item} eng an deine Brust... &lt;t-stat-up-terror&gt;Panik steigt in dir auf!&lt;/t-stat-up-terror&gt;&lt;nt-stat-up-terror&gt;Aber nichts geschieht!&lt;/nt-stat-up-terror&gt;</source>
-        <target><![CDATA[Coges {item} fuertemente contra ti... <t-stat-up-terror>¡El pánico aumenta en tu interior!</t-stat-up-terror><nt-stat-up-terror>Pero nada cambia.</nt-stat-up-terror>]]></target>
+        <target><![CDATA[Du drückst den {item} eng an deine Brust... <t-stat-up-terror>Panik steigt in dir auf!</t-stat-up-terror><nt-stat-up-terror>Aber nichts geschieht!</nt-stat-up-terror>]]></target>
       </segment>
     </unit>
     <unit id="kp6Ik3m" name="Rauchen">
@@ -6354,11 +6354,11 @@ Después de varios largos minutos de búsqueda, terminas por encontrar <strong>u
     </unit>
     <unit id="9VFJt3E" name="9e61209">
       <notes>
-        <note category="german">&lt;t-bp_ok&gt;Du liest den {item} und stellst fest, dass es sich um einen Plan für {bp_spawn} handelt.&lt;/t-bp_ok&gt;&lt;t-bp_fail&gt;Du versuchst den {item} zu lesen, kannst seinen Inhalt aber nicht verstehen ...&lt;/t-bp_fail&gt;</note>
+        <note category="german">&lt;t-bp_ok&gt;Du liest den {item} und stellst fest, dass es sich um einen Plan für {bp_spawn} handelt.&lt;/t-bp_ok&gt;&lt;t-bp_parent&gt;{hr}Dafür ist das Bauprojekt {bp_parent} nötig.&lt;/t-bp_parent&gt;&lt;t-bp_fail&gt;Du versuchst den {item} zu lesen, kannst seinen Inhalt aber nicht verstehen ...&lt;/t-bp_fail&gt;</note>
       </notes>
-      <segment state="translated">
-        <source>&lt;t-bp_ok&gt;Du liest den {item} und stellst fest, dass es sich um einen Plan für {bp_spawn} handelt.&lt;/t-bp_ok&gt;&lt;t-bp_fail&gt;Du versuchst den {item} zu lesen, kannst seinen Inhalt aber nicht verstehen ...&lt;/t-bp_fail&gt;</source>
-        <target><![CDATA[<t-bp_ok>¡Examinando el plano, te das cuenta de que describe detalladamente la construcción de {bp_spawn}!</t-bp_ok><t-bp_fail>Intentas leer el contenido de {item} pero no entiendes lo que está escrito...</t-bp_fail>]]></target>
+      <segment>
+        <source>&lt;t-bp_ok&gt;Du liest den {item} und stellst fest, dass es sich um einen Plan für {bp_spawn} handelt.&lt;/t-bp_ok&gt;&lt;t-bp_parent&gt;{hr}Dafür ist das Bauprojekt {bp_parent} nötig.&lt;/t-bp_parent&gt;&lt;t-bp_fail&gt;Du versuchst den {item} zu lesen, kannst seinen Inhalt aber nicht verstehen ...&lt;/t-bp_fail&gt;</source>
+        <target><![CDATA[<t-bp_ok>¡Examinando el plano, te das cuenta de que describe detalladamente la construcción de {bp_spawn}!</t-bp_ok><t-bp_parent>{hr}El proyecto de construcción {bp_parent} es necesario para esto.</t-bp_parent><t-bp_fail>Intentas leer el contenido de {item} pero no entiendes lo que está escrito...</t-bp_fail>]]></target>
       </segment>
     </unit>
     <unit id="V2fAVB5" name="Aufbauen">
@@ -6691,7 +6691,7 @@ Después de varios largos minutos de búsqueda, terminas por encontrar <strong>u
       </notes>
       <segment state="translated">
         <source>&lt;t-zone&gt;Du hast eine neue Ruine auf {zone} entdeckt!&lt;/t-zone&gt;&lt;nt-zone&gt;Es scheint, als gäbe es nichts mehr zu entdecken ...&lt;/nt-zone&gt;</source>
-        <target><![CDATA[<t-zone>¡Has detectado un nuevo edificio en las coordenadas {zone}!</t-zone><nt-zone>Parece que todas las ruinas ya han sido descubiertas...</nt-zone>]]></target>
+        <target><![CDATA[<t-zone>¡Has detectado un nuevo edificio en las coordenadas {zone}!</t-zone><nt-zone>Es scheint, als gäbe es nichts mehr zu entdecken ...</nt-zone>]]></target>
       </segment>
     </unit>
     <unit id="zI0j8nd" name="Wasserwaffen füllen">
@@ -7191,9 +7191,9 @@ Preparas algo con mucho esmero. Después de unos minutos de cocción, sacas del 
       <notes>
         <note category="german">Vielleicht solltest du stattdessen dein Labor benutzen...</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Vielleicht solltest du stattdessen dein Labor benutzen...</source>
-        <target>Deberías utilizar tu &lt;strong&gt;Laboratorio&lt;/strong&gt; personal para hacer eso.</target>
+        <target>Deberías utilizar tu <strong>Laboratorio</strong> personal para hacer eso.</target>
       </segment>
     </unit>
     <unit id="zvBNa7R" name="c3f47db">
@@ -7338,6 +7338,24 @@ Preparas algo con mucho esmero. Después de unos minutos de cocción, sacas del 
       <segment>
         <source>Diese Trümmerstücke waren mal Teil eines Gegenstandes, den du nicht mehr identifizieren kannst. Die Verformung der Teile lassen vermuten, dass dieser Gegenstand mit hoher Geschwindigkeit am Boden aufgeprallt ist...</source>
         <target>Diese Trümmerstücke waren mal Teil eines Gegenstandes, den du nicht mehr identifizieren kannst. Die Verformung der Teile lassen vermuten, dass dieser Gegenstand mit hoher Geschwindigkeit am Boden aufgeprallt ist...</target>
+      </segment>
+    </unit>
+    <unit id="sGKanc7" name="Abstimmen">
+      <notes>
+        <note category="german">Abstimmen</note>
+      </notes>
+      <segment>
+        <source>Abstimmen</source>
+        <target>Abstimmen</target>
+      </segment>
+    </unit>
+    <unit id="Rrf3E_z" name="Vous avez voté pour {citizen} en tant que {role} !">
+      <notes>
+        <note category="german">Vous avez voté pour {citizen} en tant que {role} !</note>
+      </notes>
+      <segment>
+        <source>Vous avez voté pour {citizen} en tant que {role} !</source>
+        <target>Vous avez voté pour {citizen} en tant que {role} !</target>
       </segment>
     </unit>
   </file>

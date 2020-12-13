@@ -13,6 +13,7 @@ use App\Entity\CitizenHomeUpgradePrototype;
 use App\Entity\Complaint;
 use App\Entity\Emotes;
 use App\Entity\ExpeditionRoute;
+use App\Entity\ItemGroupEntry;
 use App\Entity\ItemPrototype;
 use App\Entity\Picto;
 use App\Entity\PictoPrototype;
@@ -32,6 +33,7 @@ use App\Service\TownHandler;
 use App\Structures\ItemRequest;
 use Doctrine\ORM\EntityManagerInterface;
 use DateTime;
+use Doctrine\Common\Collections\Criteria;
 use Exception;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -163,6 +165,10 @@ class TownHomeController extends TownController
             $sendable_items[] = $item;
         }
 
+        $criteria = new Criteria();
+        $criteria->andWhere($criteria->expr()->gte('severity', Complaint::SeverityBanish));
+        $criteria->andWhere($criteria->expr()->eq('culprit', $citizen));
+
         // Render
         return $this->render( 'ajax/game/town/home.html.twig', $this->addDefaultTwigArgs('house', [
             'home' => $home,
@@ -179,7 +185,7 @@ class TownHomeController extends TownController
             'upgrades' => $upgrade_proto,
             'upgrade_levels' => $upgrade_proto_lv,
             'upgrade_costs' => $upgrade_cost,
-            'complaints' => $this->entity_manager->getRepository(Complaint::class)->countComplaintsFor( $citizen ),
+            'complaints' => $this->entity_manager->getRepository(Complaint::class)->matching( $criteria ),
 
             'def' => $summary,
             'deco' => $deco,
@@ -270,6 +276,7 @@ class TownHomeController extends TownController
         $home = $citizen->getHome();
 
         // Attempt to get the next house level; fail if none exists
+        /** @var CitizenHomePrototype $next */
         $next = $em->getRepository(CitizenHomePrototype::class)->findOneBy( ['level' => $home->getPrototype()->getLevel() + 1] );
         if (!$next) return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
 
@@ -306,6 +313,21 @@ class TownHomeController extends TownController
 
         // Give picto
         $this->picto_handler->give_picto( $citizen, "r_homeup_#00" );
+
+        $text = [];
+        $text[] = $this->translator->trans('Herzlichen Glückwunsch! Du hast deine Behausung in ein(e) %home%.', ['%home%' => "<span>" . $this->translator->trans($next->getLabel(), [], 'buildings') . "</span>"], 'game');
+        if($next->getResources()){
+            /** @var ItemGroupEntry $r */
+            $resText = " " . $this->translator->trans('Folgenden Dinge wurden dazu gebraucht:', [], 'game');
+            foreach ($next->getResources()->getEntries() as $item) {
+                $resText .= " " . $this->log->wrap($this->log->iconize($item));
+            }
+            $text[] = $resText;
+        }
+
+        $text[]= " " . $this->translator->trans("Du hast %count% Aktionspunkt(e) benutzt.", ['%count%' => "<strong>" . $next->getAp() . "</strong>"], "game");
+
+        $this->addFlash('notice', implode("<hr />", $text));
 
         // Create log & persist
         try {
@@ -397,7 +419,7 @@ class TownHomeController extends TownController
         $this->citizen_handler->deductAPBP( $citizen, $costs->getAp() );
 
         // Give picto
-        $pictoPrototype = $em->getRepository(PictoPrototype::class)->findOneByName("r_hbuild_#00");
+        $pictoPrototype = $em->getRepository(PictoPrototype::class)->findOneBy(['name' => "r_hbuild_#00"]);
         $this->picto_handler->give_picto($citizen, $pictoPrototype);
 
         // Consume items
@@ -405,6 +427,11 @@ class TownHomeController extends TownController
             $r = $costs->getResources()->findEntry( $item->getPrototype()->getName() );
             $this->inventory_handler->forceRemoveItem( $item, $r ? $r->getChance() : 1 );
         }
+
+        // Mit dem Bau der(s) %name% hat dein Haus %level% erreicht!
+        $text = $this->translator->trans("Mit dem Bau der(s) %upgrade% hat dein Haus Stufe %level% erreicht!", ['%upgrade%' => $this->translator->trans($proto->getLabel(), [], 'buildings'), '%level%' => $current->getLevel()], 'game');
+
+        $this->addFlash('notice', $text);
 
         // Persist and flush
         try {

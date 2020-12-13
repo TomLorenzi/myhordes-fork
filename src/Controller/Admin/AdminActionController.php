@@ -4,6 +4,8 @@ namespace App\Controller\Admin;
 
 use App\Controller\CustomAbstractController;
 use App\Entity\AttackSchedule;
+use App\Entity\Inventory;
+use App\Entity\Item;
 use App\Entity\LogEntryTemplate;
 use App\Entity\User;
 use App\Entity\Town;
@@ -14,8 +16,12 @@ use App\Service\ErrorHelper;
 use App\Service\JSONRequestParser;
 use App\Service\LogTemplateHandler;
 use App\Service\ZoneHandler;
+use App\Structures\BankItem;
 use App\Translation\T;
+use Doctrine\ORM\AbstractQuery;
 use Doctrine\ORM\EntityManagerInterface;
+use Doctrine\ORM\Query\Expr\Join;
+use Exception;
 use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Response;
@@ -32,7 +38,6 @@ class AdminActionController extends CustomAbstractController
     protected $logTemplateHandler;
     protected $zone_handler;
     protected $translator;
-
 
     public static function getAdminActions(): array {
         return [
@@ -187,5 +192,38 @@ class AdminActionController extends CustomAbstractController
         $town_id = $parser->get('town', -1);
         $town = $this->entity_manager->getRepository(Town::class)->find($town_id);
         return $this->renderLog((int)$parser->get('day', -1), $town, false, null, null);
+    }
+
+    protected function renderInventoryAsBank( Inventory $inventory ) {
+        $qb = $this->entity_manager->createQueryBuilder();
+        $qb
+            ->select('i.id', 'c.label as l1', 'cr.label as l2', 'SUM(i.count) as n')->from('App:Item','i')
+            ->where('i.inventory = :inv')->setParameter('inv', $inventory);
+        $qb->groupBy('i.prototype', 'i.broken');
+        $qb
+            ->leftJoin('App:ItemPrototype', 'p', Join::WITH, 'i.prototype = p.id')
+            ->leftJoin('App:ItemCategory', 'c', Join::WITH, 'p.category = c.id')
+            ->leftJoin('App:ItemCategory', 'cr', Join::WITH, 'c.parent = cr.id')
+            ->addOrderBy('c.ordering','ASC')
+            ->addOrderBy('p.id', 'ASC')
+            ->addOrderBy('i.id', 'ASC');
+
+        $data = $qb->getQuery()->getResult(AbstractQuery::HYDRATE_ARRAY);
+
+        $final = [];
+        $cache = [];
+
+        foreach ($data as $entry) {
+            $label = $entry['l2'] ?? $entry['l1'] ?? 'Sonstiges';
+            if (!isset($final[$label])) $final[$label] = [];
+            $final[$label][] = [ $entry['id'], $entry['n'] ];
+            $cache[] = $entry['id'];
+        }
+
+        $item_list = $this->entity_manager->getRepository(Item::class)->findAllByIds($cache);
+        foreach ( $final as $label => &$entries )
+            $entries = array_map(function( array $entry ) use (&$item_list): BankItem { return new BankItem( $item_list[$entry[0]], $entry[1] ); }, $entries);
+
+        return $final;
     }
 }
