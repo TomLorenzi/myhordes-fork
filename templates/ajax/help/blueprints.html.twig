@@ -1,0 +1,46 @@
+{% extends "ajax/help/shell.html.twig" %}
+{% block title %}{{'Hilfe'|trans({}, 'game')}} - {{'Neue Gebäude bauen'|trans({}, 'help')|raw}}{% endblock %}
+{% block helpContent %}
+<div class="helpArt">{{ 'Spielanleitung'|trans({},'help')|raw }}</div>
+<h1>{{ 'Baupläne'|trans({},'help')|raw }}</h1>
+<p>
+{{ 'Manch innovative oder ambitionierte Bauprojekte sind den Städten nicht sofort bekannt, sondern müssen erst entdeckt werden.'|trans({},'help')|raw }}
+</p>
+<p>
+<strong>{{ 'Um diese Bauprojekte freizuschalten, muss die Stadt in den Besitz der entsprechenden "Blaupausen" gelangen.'|trans({},'help')|raw }}</strong>
+</p>
+<h2>{{ 'Wie kriegt man diesen Pläne?'|trans({},'help')|raw }}</h2>
+<ul>
+<li>
+{{ 'Man kann einfach in der Wüste danach buddeln. Doch einige Pläne sind schwieriger zu finden als andere.'|trans({},'help')|raw }}
+</li>
+<li>
+{{ 'Jede neue Stadt beginnt mit 3 Bauplänen "gratis", die sich irgendwo in der Außenwelt befinden. Diese Blaupausen befinden sich in Truhen, im Gegensatz zu denen, die Sie beim Graben finden können. Alles was Sie tun müssen, ist es zu finden!'|trans({},'help')|raw }}
+<ul>
+<li>
+{{ 'Normale Karte: 3 seltene Pläne + 1 sehr seltener Plan'|trans({},'help')|raw }}
+</li>
+<li>
+{{ 'Entfernte Regionen: 5 seltene Pläne + 2 sehr seltene Pläne'|trans({},'help')|raw }}
+</li>
+</ul>
+</li>
+<li>
+{{ 'Durch Campen: Falls du in einem Gebäude die Nacht verbringst und überlebst, erhältst Du automatisch einen Bauplan 
+(ungewöhnliche in Gebäuden nahe der Stadt, seltenere in weit entfernt liegenden Gebäuden). Beachtet, dass man 
+in einem Gebäude nur <strong>einmal pro Partie</strong> einen Bauplan erhalten kann (mehrfaches Campen im selben Gebäude bringt also nichts).'|trans({},'help')|raw }}
+</li>
+<li>
+{{ 'Es gibt noch mehr Möglichkeiten, Bauplände zu finden: Findet es heraus!'|trans({},'help')|raw }}
+</li>
+</ul>
+<h2>{{ 'Wie benutzt man Bauplände?'|trans({},'help')|raw }}</h2>
+<p>
+{{ 'Sie sind nur in der Stadt benutzbar: Klickt auf den Plan, um ihn genauer zu studieren.'|trans({},'help')|raw }}
+</p>
+<p>
+{{ 'Das freigeschaltete Bauwerk wird zur Liste der verfügbaren Gebäude der Stadt hinzugefügt. Ein Eintrag im Stadtregister verkündet das neue Gebäude.'|trans({},'help')|raw }}
+</p>
+<div class="clear"></div>
+<a class="button" x-ajax-href="{{ url('help', {'name': 'daily_upgrades'}) }}"><img src="{{ asset('build/images/icons/small_move.gif') }}" alt="move"> {{'Weiter'|trans({}, 'help')}}:<strong> {{ 'Weiterentwicklung des Tages'|trans({},'help') }}</strong></a>
+{% endblock %}
