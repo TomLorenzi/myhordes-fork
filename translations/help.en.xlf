@@ -4560,7 +4560,7 @@ Der Schamane kann:</source>
       </notes>
       <segment>
         <source>Manch innovative oder ambitionierte Bauprojekte sind den Städten nicht sofort bekannt, sondern müssen erst entdeckt werden.</source>
-        <target>Manch innovative oder ambitionierte Bauprojekte sind den Städten nicht sofort bekannt, sondern müssen erst entdeckt werden.</target>
+        <target>Some particularly innovative or ambitious construction projects cannot be carried out when the town is just starting out.</target>
       </segment>
     </unit>
     <unit id="BKhfiS_" name="bde43b2">
@@ -4569,7 +4569,7 @@ Der Schamane kann:</source>
       </notes>
       <segment>
         <source>Um diese Bauprojekte freizuschalten, muss die Stadt in den Besitz der entsprechenden "Blaupausen" gelangen.</source>
-        <target>Um diese Bauprojekte freizuschalten, muss die Stadt in den Besitz der entsprechenden "Blaupausen" gelangen.</target>
+        <target>You can unlock certain projects by getting your hands on blueprints.</target>
       </segment>
     </unit>
     <unit id="BqAO5Ji" name="Wie kriegt man diesen Pläne?">
@@ -4578,7 +4578,7 @@ Der Schamane kann:</source>
       </notes>
       <segment>
         <source>Wie kriegt man diesen Pläne?</source>
-        <target>Wie kriegt man diesen Pläne?</target>
+        <target>How do I find blueprints?</target>
       </segment>
     </unit>
     <unit id="lxoDYCn" name="9285820">
@@ -4587,7 +4587,7 @@ Der Schamane kann:</source>
       </notes>
       <segment>
         <source>Man kann einfach in der Wüste danach buddeln. Doch einige Pläne sind schwieriger zu finden als andere.</source>
-        <target>Man kann einfach in der Wüste danach buddeln. Doch einige Pläne sind schwieriger zu finden als andere.</target>
+        <target>it is possible to find them just by scavenging in the World Beyond, but they're reputed to be difficult to find,</target>
       </segment>
     </unit>
     <unit id="cetj9mW" name="af26da2">
@@ -4596,7 +4596,7 @@ Der Schamane kann:</source>
       </notes>
       <segment>
         <source>Jede neue Stadt beginnt mit 3 Bauplänen "gratis", die sich irgendwo in der Außenwelt befinden. Diese Blaupausen befinden sich in Truhen, im Gegensatz zu denen, die Sie beim Graben finden können. Alles was Sie tun müssen, ist es zu finden!</source>
-        <target>Jede neue Stadt beginnt mit 3 Bauplänen "gratis", die sich irgendwo in der Außenwelt befinden. Diese Blaupausen befinden sich in Truhen, im Gegensatz zu denen, die Sie beim Graben finden können. Alles was Sie tun müssen, ist es zu finden!</target>
+        <target>each new town starts with 3 "free" plans left in the World Beyond into chests. These plans are diferent from those found by scavenging, because they are already uncovered, sitting on the ground. All you need to do is find them!</target>
       </segment>
     </unit>
     <unit id="ZfnVioE" name="Normale Karte: 3 seltene Pläne + 1 sehr seltener Plan">
@@ -4605,7 +4605,7 @@ Der Schamane kann:</source>
       </notes>
       <segment>
         <source>Normale Karte: 3 seltene Pläne + 1 sehr seltener Plan</source>
-        <target>Normale Karte: 3 seltene Pläne + 1 sehr seltener Plan</target>
+        <target>non-distant regions: 3 rare plans + 1 very rare plan</target>
       </segment>
     </unit>
     <unit id="CsvbdA6" name="Entfernte Regionen: 5 seltene Pläne + 2 sehr seltene Pläne">
@@ -4614,7 +4614,7 @@ Der Schamane kann:</source>
       </notes>
       <segment>
         <source>Entfernte Regionen: 5 seltene Pläne + 2 sehr seltene Pläne</source>
-        <target>Entfernte Regionen: 5 seltene Pläne + 2 sehr seltene Pläne</target>
+        <target>distant regions: 5 rare plans + 2 very rare plans</target>
       </segment>
     </unit>
     <unit id="Pvai66w" name="161e679">
@@ -4627,9 +4627,7 @@ in einem Gebäude nur &lt;strong&gt;einmal pro Partie&lt;/strong&gt; einen Baupl
         <source>Durch Campen: Falls du in einem Gebäude die Nacht verbringst und überlebst, erhältst Du automatisch einen Bauplan 
 (ungewöhnliche in Gebäuden nahe der Stadt, seltenere in weit entfernt liegenden Gebäuden). Beachtet, dass man 
 in einem Gebäude nur &lt;strong&gt;einmal pro Partie&lt;/strong&gt; einen Bauplan erhalten kann (mehrfaches Campen im selben Gebäude bringt also nichts).</source>
-        <target><![CDATA[Durch Campen: Falls du in einem Gebäude die Nacht verbringst und überlebst, erhältst Du automatisch einen Bauplan 
-(ungewöhnliche in Gebäuden nahe der Stadt, seltenere in weit entfernt liegenden Gebäuden). Beachtet, dass man 
-in einem Gebäude nur <strong>einmal pro Partie</strong> einen Bauplan erhalten kann (mehrfaches Campen im selben Gebäude bringt also nichts).]]></target>
+        <target><![CDATA[camping: if you survive an evening camping in a building, you will automatically find a blueprint ("uncommon" in buildings close to the town, and "rare" for faraway buildings). Note that one building can only provide <strong>one blueprint per game</strong> (there is no point in camping in the same building multiple times),]]></target>
       </segment>
     </unit>
     <unit id="64IvvtG" name="Es gibt noch mehr Möglichkeiten, Bauplände zu finden: Findet es heraus!">
@@ -4638,7 +4636,7 @@ in einem Gebäude nur <strong>einmal pro Partie</strong> einen Bauplan erhalten 
       </notes>
       <segment>
         <source>Es gibt noch mehr Möglichkeiten, Bauplände zu finden: Findet es heraus!</source>
-        <target>Es gibt noch mehr Möglichkeiten, Bauplände zu finden: Findet es heraus!</target>
+        <target>there are other methods for discovering these plans: you just need to discover them!</target>
       </segment>
     </unit>
     <unit id="9jsK10O" name="Wie benutzt man Bauplände?">
@@ -4647,7 +4645,7 @@ in einem Gebäude nur <strong>einmal pro Partie</strong> einen Bauplan erhalten 
       </notes>
       <segment>
         <source>Wie benutzt man Bauplände?</source>
-        <target>Wie benutzt man Bauplände?</target>
+        <target>How do I use them?</target>
       </segment>
     </unit>
     <unit id="sP_HS28" name="f8980a4">
@@ -4656,7 +4654,7 @@ in einem Gebäude nur <strong>einmal pro Partie</strong> einen Bauplan erhalten 
       </notes>
       <segment>
         <source>Sie sind nur in der Stadt benutzbar: Klickt auf den Plan, um ihn genauer zu studieren.</source>
-        <target>Sie sind nur in der Stadt benutzbar: Klickt auf den Plan, um ihn genauer zu studieren.</target>
+        <target>They can only be used in town: click on the plan when you're in your home to study it.</target>
       </segment>
     </unit>
     <unit id="eaB0Ldc" name="56d967c">
@@ -4665,7 +4663,7 @@ in einem Gebäude nur <strong>einmal pro Partie</strong> einen Bauplan erhalten 
       </notes>
       <segment>
         <source>Das freigeschaltete Bauwerk wird zur Liste der verfügbaren Gebäude der Stadt hinzugefügt. Ein Eintrag im Stadtregister verkündet das neue Gebäude.</source>
-        <target>Das freigeschaltete Bauwerk wird zur Liste der verfügbaren Gebäude der Stadt hinzugefügt. Ein Eintrag im Stadtregister verkündet das neue Gebäude.</target>
+        <target>The project that it unlocks will be added to the list of projects available to the town and an announcement will be made in the town register.</target>
       </segment>
     </unit>
     <unit id="pyjThlW" name="7d8d5ba">
@@ -4674,7 +4672,7 @@ in einem Gebäude nur <strong>einmal pro Partie</strong> einen Bauplan erhalten 
       </notes>
       <segment>
         <source>Die Städte in MyHordes sind nicht statisch, in der alles so bleibt wie es vorgefunden wird. Es ist deine Aufgabe deine Stadt auszubauen und ihre Verteidigung zu verbessern. Dazu sind folgende Schritte notwendig:</source>
-        <target>Die Städte in MyHordes sind nicht statisch, in der alles so bleibt wie es vorgefunden wird. Es ist deine Aufgabe deine Stadt auszubauen und ihre Verteidigung zu verbessern. Dazu sind folgende Schritte notwendig:</target>
+        <target>The town is not a static location. You need it to evolve. This is how to proceed to get new builings in the town :</target>
       </segment>
     </unit>
     <unit id="bKmByuC" name="5a8d545">
@@ -4683,7 +4681,7 @@ in einem Gebäude nur <strong>einmal pro Partie</strong> einen Bauplan erhalten 
       </notes>
       <segment>
         <source>Sammle in der Wüste &lt;strong&gt;Rohstoffe&lt;/strong&gt; (Holz, Metall, Batterien...) ein und lege alles in der &lt;strong&gt;Bank&lt;/strong&gt; ab.</source>
-        <target><![CDATA[Sammle in der Wüste <strong>Rohstoffe</strong> (Holz, Metall, Batterien...) ein und lege alles in der <strong>Bank</strong> ab.]]></target>
+        <target><![CDATA[collect <strong>resources in the desert</strong> (wood, metal, armour...) and drop them off at the <strong>Bank</strong>]]></target>
       </segment>
     </unit>
     <unit id="Tnym34G" name="Gehe in deiner Stadt in den Abschnitt &lt;strong&gt;Baustelle&lt;/strong&gt;.">
@@ -4692,7 +4690,7 @@ in einem Gebäude nur <strong>einmal pro Partie</strong> einen Bauplan erhalten 
       </notes>
       <segment>
         <source>Gehe in deiner Stadt in den Abschnitt &lt;strong&gt;Baustelle&lt;/strong&gt;.</source>
-        <target><![CDATA[Gehe in deiner Stadt in den Abschnitt <strong>Baustelle</strong>.]]></target>
+        <target><![CDATA[go to the  <strong>Construction Sites</strong> in the town]]></target>
       </segment>
     </unit>
     <unit id="D.p71_K" name="30a3308">
@@ -4701,7 +4699,7 @@ in einem Gebäude nur <strong>einmal pro Partie</strong> einen Bauplan erhalten 
       </notes>
       <segment>
         <source>Suche dir ein Gebäude aus, für dessen Bau genügend Ressourcen zur Verfügung stehen. Daneben, auf der selben Linie, findest du den Knopf &lt;strong&gt;Teilnehmen&lt;/strong&gt;.</source>
-        <target><![CDATA[Suche dir ein Gebäude aus, für dessen Bau genügend Ressourcen zur Verfügung stehen. Daneben, auf der selben Linie, findest du den Knopf <strong>Teilnehmen</strong>.]]></target>
+        <target><![CDATA[find out which buildings can be constructed from resources currently available from the bank: they will have a <strong>Build</strong> button next to them]]></target>
       </segment>
     </unit>
     <unit id="sV3TVhz" name="fde5c11">
@@ -4710,7 +4708,7 @@ in einem Gebäude nur <strong>einmal pro Partie</strong> einen Bauplan erhalten 
       </notes>
       <segment>
         <source>Klicke auf den Knopf &lt;strong&gt;Teilnehmen&lt;/strong&gt;. Es wird dir &lt;strong&gt;1 %img_ap%&lt;/strong&gt; abgezogen.</source>
-        <target><![CDATA[Klicke auf den Knopf <strong>Teilnehmen</strong>. Es wird dir <strong>1 %img_ap%</strong> abgezogen.]]></target>
+        <target><![CDATA[click once on the <strong>Build</strong> button next to the building you wish to work on. This will use <strong>1 %img_ap%</strong> from your reserves.]]></target>
       </segment>
     </unit>
     <unit id="SXMlsAY" name="745638b">
@@ -4719,7 +4717,7 @@ in einem Gebäude nur <strong>einmal pro Partie</strong> einen Bauplan erhalten 
       </notes>
       <segment>
         <source>Wenn genügend Aktionspunkte (APs) für eine Konstruktion oder ein Gebäude ausgegeben werden, kann es &lt;strong&gt;sofort&lt;/strong&gt; fertig gestellt werden!</source>
-        <target><![CDATA[Wenn genügend Aktionspunkte (APs) für eine Konstruktion oder ein Gebäude ausgegeben werden, kann es <strong>sofort</strong> fertig gestellt werden!]]></target>
+        <target><![CDATA[As soon as a building has been sufficiently worked on (sufficient APs have been invested), the building is constructed <strong>immediately</strong>!]]></target>
       </segment>
     </unit>
     <unit id="AAwApXd" name="e5b946e">
@@ -4728,7 +4726,7 @@ in einem Gebäude nur <strong>einmal pro Partie</strong> einen Bauplan erhalten 
       </notes>
       <segment>
         <source>Der Bau eines Gebäudes oder einer Konstruktion kann sich über mehrere Tage hinziehen. Wenn etwas nicht fertig gestellt wurde, kannst du am nächsten Tag erneut daran arbeiten. Wenn die Zeit drängt, können außerdem mehrere APs auf einmal für ein Gebäude ausgegeben werden...</source>
-        <target>Der Bau eines Gebäudes oder einer Konstruktion kann sich über mehrere Tage hinziehen. Wenn etwas nicht fertig gestellt wurde, kannst du am nächsten Tag erneut daran arbeiten. Wenn die Zeit drängt, können außerdem mehrere APs auf einmal für ein Gebäude ausgegeben werden...</target>
+        <target>Buildings can be constructed over several days. Just come back the next day to continue working on an incomplete building! You can invest more than 1 AP on a given site, if you really want the building to get finished...</target>
       </segment>
     </unit>
     <unit id="2qCroxz" name="Temporäre Konstruktionen">
@@ -4737,7 +4735,7 @@ in einem Gebäude nur <strong>einmal pro Partie</strong> einen Bauplan erhalten 
       </notes>
       <segment>
         <source>Temporäre Konstruktionen</source>
-        <target>Temporäre Konstruktionen</target>
+        <target>Temporary buildings</target>
       </segment>
     </unit>
     <unit id="tuJeoVX" name="b049ea1">
@@ -4748,8 +4746,7 @@ Es handelt sich in aller Regel um sehr effektive Verteidigungsmaßnahmen, die ni
       <segment>
         <source>"Temporäre" Konstruktionen und Gebäude sind für den "einmaligen Gebrauch" gedacht: Nach dem Angriff der Zombiehorde werden sie zerstört oder abgebaut.
 Es handelt sich in aller Regel um sehr effektive Verteidigungsmaßnahmen, die nicht sehr teuer sind, dafür aber jeden Tag neu aufgebaut werden müssen.</source>
-        <target>"Temporäre" Konstruktionen und Gebäude sind für den "einmaligen Gebrauch" gedacht: Nach dem Angriff der Zombiehorde werden sie zerstört oder abgebaut.
-Es handelt sich in aller Regel um sehr effektive Verteidigungsmaßnahmen, die nicht sehr teuer sind, dafür aber jeden Tag neu aufgebaut werden müssen.</target>
+        <target>"Temporary" buildings are "single use" constructions: they only last for the duration of the Horde's attack, then are destroyed. These are generally cheap, but powerful defences which need to be rebuilt each day.</target>
       </segment>
     </unit>
     <unit id="CdAcNKs" name="ef531b3">
@@ -4760,8 +4757,7 @@ Die Stadteinwohner können  &lt;strong&gt;einmal&lt;/strong&gt; pro Tag für ein
       <segment>
         <source>Manche Gebäude und Konstruktionen (z.B. der Große Graben) können nach Fertigstellung verbessert und weiterentwickelt werden. Diese Ausbauten werden auch &lt;strong&gt;Weiterentwicklungen&lt;/strong&gt; genannt.
 Die Stadteinwohner können  &lt;strong&gt;einmal&lt;/strong&gt; pro Tag für eine Weiterentwicklung stimmen.</source>
-        <target><![CDATA[Manche Gebäude und Konstruktionen (z.B. der Große Graben) können nach Fertigstellung verbessert und weiterentwickelt werden. Diese Ausbauten werden auch <strong>Weiterentwicklungen</strong> genannt.
-Die Stadteinwohner können  <strong>einmal</strong> pro Tag für eine Weiterentwicklung stimmen.]]></target>
+        <target><![CDATA[Once they have been built, certain construction sites (like the Great Pit, for example) can be <strong>upgraded</strong>. Each day, the citizens can vote for <strong>one, and only one</strong> upgrade. Citizens should vote for whichever upgrade is more useful for the town.]]></target>
       </segment>
     </unit>
     <unit id="PQQjbRN" name="c444d23">
@@ -4770,7 +4766,7 @@ Die Stadteinwohner können  <strong>einmal</strong> pro Tag für eine Weiterentw
       </notes>
       <segment>
         <source>Kurz vor Mitternacht wird dann jene &lt;strong&gt;Weiterentwicklung gebaut, die die meisten Stimmen bekommen hat&lt;/strong&gt;.</source>
-        <target><![CDATA[Kurz vor Mitternacht wird dann jene <strong>Weiterentwicklung gebaut, die die meisten Stimmen bekommen hat</strong>.]]></target>
+        <target><![CDATA[Just before the 23h00 (server time) attack, <strong>the upgrade which has received the most votes is accepted and constructed immediately.</strong>]]></target>
       </segment>
     </unit>
     <unit id="lWknzoV" name="8567031">
@@ -4779,7 +4775,7 @@ Die Stadteinwohner können  <strong>einmal</strong> pro Tag für eine Weiterentw
       </notes>
       <segment>
         <source>Der Bau einer Weiterentwicklung ist umsonst. Es werden &lt;strong&gt;weder APs noch Ressourcen verbraucht&lt;/strong&gt;.</source>
-        <target><![CDATA[Der Bau einer Weiterentwicklung ist umsonst. Es werden <strong>weder APs noch Ressourcen verbraucht</strong>.]]></target>
+        <target><![CDATA[Upgrades are free: <strong> they require neither AP nor resources</strong>.]]></target>
       </segment>
     </unit>
     <unit id="y0gi2eh" name="45c0a22">
@@ -4790,8 +4786,7 @@ Die Stadt kann in vielerlei Hinsicht von diesen Weiterentwicklungen profitieren:
       <segment>
         <source>Es gibt bis zu &lt;strong&gt;5&lt;/strong&gt; verschiedene Entwicklungsstufen. Je höher die Stufe, desto effektiver das Gebäude oder die Konstruktion.
 Die Stadt kann in vielerlei Hinsicht von diesen Weiterentwicklungen profitieren:</source>
-        <target><![CDATA[Es gibt bis zu <strong>5</strong> verschiedene Entwicklungsstufen. Je höher die Stufe, desto effektiver das Gebäude oder die Konstruktion.
-Die Stadt kann in vielerlei Hinsicht von diesen Weiterentwicklungen profitieren:]]></target>
+        <target><![CDATA[Each upgrade can be improved up to <strong>5 times</strong>, each level being increasingly powerful. These upgrades can have numerous effects on a town :]]></target>
       </segment>
     </unit>
     <unit id="01pp8mB" name="Eine bessere Verteidigung.">
@@ -4800,7 +4795,7 @@ Die Stadt kann in vielerlei Hinsicht von diesen Weiterentwicklungen profitieren:
       </notes>
       <segment>
         <source>Eine bessere Verteidigung.</source>
-        <target>Eine bessere Verteidigung.</target>
+        <target>improved defences,</target>
       </segment>
     </unit>
     <unit id="t4YYjIT" name="Eine verbesserte Wasserversorgung.">
@@ -4809,7 +4804,7 @@ Die Stadt kann in vielerlei Hinsicht von diesen Weiterentwicklungen profitieren:
       </notes>
       <segment>
         <source>Eine verbesserte Wasserversorgung.</source>
-        <target>Eine verbesserte Wasserversorgung.</target>
+        <target>increased water reserves,</target>
       </segment>
     </unit>
     <unit id="COncilF" name="Eine Senkung der Baukosten.">
@@ -4818,7 +4813,7 @@ Die Stadt kann in vielerlei Hinsicht von diesen Weiterentwicklungen profitieren:
       </notes>
       <segment>
         <source>Eine Senkung der Baukosten.</source>
-        <target>Eine Senkung der Baukosten.</target>
+        <target>reduced construction costs,</target>
       </segment>
     </unit>
     <unit id="I.YvVbm" name="Eine bessere Zombie(früh)erkennung.">
@@ -4827,7 +4822,7 @@ Die Stadt kann in vielerlei Hinsicht von diesen Weiterentwicklungen profitieren:
       </notes>
       <segment>
         <source>Eine bessere Zombie(früh)erkennung.</source>
-        <target>Eine bessere Zombie(früh)erkennung.</target>
+        <target>detection of zombies,</target>
       </segment>
     </unit>
     <unit id="loYBC17" name="... weitere spezielle Fähigkeiten.">
@@ -4836,7 +4831,7 @@ Die Stadt kann in vielerlei Hinsicht von diesen Weiterentwicklungen profitieren:
       </notes>
       <segment>
         <source>... weitere spezielle Fähigkeiten.</source>
-        <target>... weitere spezielle Fähigkeiten.</target>
+        <target>special abilities...</target>
       </segment>
     </unit>
     <unit id="cuq3Fy5" name="92d5771">
@@ -4849,9 +4844,7 @@ müssen durchdacht geplant werden.</note>
         <source>Achtung: Die Wahl einer Weiterentwicklung ist sehr wichtig! Da eine Stadt nur eine Weiterentwicklung pro 
 Tag bauen kann, kann eine Stadt, die 10 Tage überlebt, insgesamt nur 10 Weiterentwicklungen bauen. Diese 
 müssen durchdacht geplant werden.</source>
-        <target>Achtung: Die Wahl einer Weiterentwicklung ist sehr wichtig! Da eine Stadt nur eine Weiterentwicklung pro 
-Tag bauen kann, kann eine Stadt, die 10 Tage überlebt, insgesamt nur 10 Weiterentwicklungen bauen. Diese 
-müssen durchdacht geplant werden.</target>
+        <target>Warning: choosing one upgrade over another is very important! Bearing in mind that a town is limited to one upgrade per day, a town which lasts 10 days is only entitled to 10 upgrades, so choose wisely!</target>
       </segment>
     </unit>
     <unit id="EhwEkpO" name="Besprecht das am besten im Forum eurer Stadt!">
@@ -4860,7 +4853,7 @@ müssen durchdacht geplant werden.</target>
       </notes>
       <segment>
         <source>Besprecht das am besten im Forum eurer Stadt!</source>
-        <target>Besprecht das am besten im Forum eurer Stadt!</target>
+        <target>Discuss it in the forum!</target>
       </segment>
     </unit>
   </file>
