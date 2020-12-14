@@ -560,12 +560,16 @@ class TownHomeController extends TownController
                 
                 if($foreinCitizen->getBanished())
                     $foreinCitizen->setBanished(false);
-                else
+                else {
                     $foreinCitizen->setBanished(true);
+                    $this->picto_handler->give_picto($foreinCitizen, "r_ban_#00");
+                }
                 
                 $this->entity_manager->persist($foreinCitizen);
             }
         }
+
+        $this->citizen_handler->inflictStatus($citizen, "tg_insurrection");
 
         $this->entity_manager->persist($town);
         $em->flush();

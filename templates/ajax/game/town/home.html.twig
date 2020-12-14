@@ -103,12 +103,14 @@
 
                 {% if can_do_insurrection %}
                     <button id="do_insurrection"><img alt="" src="{{ asset('build/images/actions/insurrect.gif') }}" /> {{'Auf den Aufstand hinarbeiten'|trans({}, 'game')}}</button>
-                    {% if citizen.town.insurrectionProgress > 0 %}
-                    <div class="vote-bar small">
-                        <div class="vote-progress" style="width: {{citizen.town.insurrectionProgress}}%;"></div>
-                    </div>
-                    {% endif %}
                 {% endif %}
+
+                {% if citizen.banished and citizen.town.insurrectionProgress > 0 %}
+                <div class="vote-bar small">
+                    <div class="vote-progress" style="width: {{citizen.town.insurrectionProgress}}%;"></div>
+                </div>
+                {% endif %}
+                
 
                 {% if is_granted('ROLE_CROW') %}
                     <button id="suicid" class="mt-1"><img alt="" src="{{ asset('build/images/building/r_dhang.gif') }}" /> {{'Selbstmord begehen'|trans({}, 'admin')}}</button>
