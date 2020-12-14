@@ -333,33 +333,16 @@ x-message {
       &:hover #apps-list {
         display: block;
 
-        & p {
-          color: white;
-          font-size: 1.3rem;
-        }
+        & p { color: white; font-size: 1.3rem; }
 
         & ul {
-          margin: 0;
-          padding: 0;
-          float: left;
-          position: relative;
-          margin-bottom: 8px;
-          list-style: none;
+          padding: 0; float: left; position: relative; margin: 0 0 8px; list-style: none;
 
           & li.app-external {
-            margin: 0 0 .5em;
-            padding: 0;
-            font-size: 1.3rem;
-            color: #ddab76;
-            cursor: pointer;
-
-            img {
-              vertical-align: middle;
-              margin-right: 1em;
-            }
-            span {
-              font-weight: normal;
-            }
+            margin: 0 0 .5em; padding: 0; font-size: 1.3rem; color: #ddab76; cursor: pointer;
+            img { vertical-align: middle; margin-right: 10px; }
+            span { font-weight: normal; }
+            div.small { margin-left: 26px; font-size: 0.75em; font-variant: small-caps; }
           }
         }
       }
@@ -591,7 +574,7 @@ button, *.button, *.modal-button {
   &.blue { background: url(../img/background/bg_button_blue.gif) 50%/cover no-repeat; }
 }
 
-input[type='text'],input[type='number'],input[type='password'],input[type='email'],textarea {
+input[type='text'],input[type='number'],input[type='password'],input[type='email'],input[type='url'],textarea {
   transition: outline-color 0.5s; outline: 1px solid rgba(0,0,0,0);
   &:not(textarea) { background: @myhordes-input-background; }
   &:not(input)    { background: @myhordes-input-text-background; resize: vertical; max-width: 100%; min-height: 250px; }
@@ -1371,4 +1354,19 @@ select {
 
 i.dagger {
   font-style: normal;
+}
+
+.form {
+  div.note.note-lightest { margin: 5px 0; }
+
+  .mod {
+    font-size: 1.2rem; color: @myhordes-cell-header-text-color;
+    strong { color: white; text-transform: uppercase; }
+  }
+
+  .warning {
+    color: #f86; font-size: 1.2rem; font-variant: small-caps; margin-top: 5px;
+    padding: 5px; background-color: #5c2b20; border: 1px solid #f0d79e; outline: 1px solid #5c2b20;
+    strong { text-transform: uppercase; color: #f8eacb; }
+  }
 }

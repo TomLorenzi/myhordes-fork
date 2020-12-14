@@ -65,7 +65,7 @@ class WebController extends CustomAbstractController
         ];
         shuffle($devs);
 
-        $apps = $this->entity_manager->getRepository(ExternalApp::class)->findBy(['testing' => false]);
+        $apps = $this->entityManager->getRepository(ExternalApp::class)->findBy(['active' => true]);
 
         return $this->render( 'web/framework.html.twig', [
             'version' => $version, 'debug' => $is_debug_version, 'env' => $this->kernel->getEnvironment(),
@@ -128,6 +128,18 @@ class WebController extends CustomAbstractController
         return $this->render_web_framework(Request::createFromGlobals()->getBasePath() . '/jx/' . $ajax);
     }
 
+    private function image_output($data, string $name, string $ext): Response {
+        $response = new Response(stream_get_contents( $data ));
+        $disposition = HeaderUtils::makeDisposition(
+            HeaderUtils::DISPOSITION_INLINE,
+            "{$name}.{$ext}"
+        );
+        $response->headers->set('Content-Disposition', $disposition);
+        $response->headers->set('Content-Type', "image/{$ext}");
+        $response->headers->set('Cache-Control', ['public','max-age=157680000','immutable']);
+        return $response;
+    }
+
     /**
      * @Route("/cdn/avatar/{uid<\d+>}/{name}.{ext<[\w\d]+>}",requirements={"name"="[0123456789abcdef]{32}"},condition="!request.isXmlHttpRequest()")
      * @param int $uid
@@ -144,15 +156,25 @@ class WebController extends CustomAbstractController
             return $this->cdn_fallback( "avatar/{$uid}/{$name}/{$ext}" );
 
         $target = ($user->getAvatar()->getFilename() === $name || !$user->getAvatar()->getSmallImage()) ? $user->getAvatar()->getImage() : $user->getAvatar()->getSmallImage();
-        $response = new Response(stream_get_contents( $target));
-        $disposition = HeaderUtils::makeDisposition(
-            HeaderUtils::DISPOSITION_INLINE,
-            "{$name}.{$ext}"
-        );
-        $response->headers->set('Content-Disposition', $disposition);
-        $response->headers->set('Content-Type', "image/{$ext}");
-        $response->headers->set('Cache-Control', ['public','max-age=157680000','immutable']);
-        return $response;
+        return $this->image_output($target, $name, $ext);
+    }
+
+    /**
+     * @Route("/cdn/app/{aid<\d+>}/{name}.{ext<[\w\d]+>}",requirements={"name"="[0123456789abcdef]{32}"},condition="!request.isXmlHttpRequest()")
+     * @param int $aid
+     * @param string $name
+     * @param string $ext
+     * @return Response
+     */
+    public function app_icon(int $aid, string $name, string $ext): Response
+    {
+        /** @var ExternalApp $app */
+        $app = $this->entityManager->getRepository(ExternalApp::class)->find( $aid );
+        if (!$app || !$app->getImage()) return $this->cdn_fallback( "app/{$aid}/{$name}/{$ext}" );
+        if ($app->getImageName() !== $name || $app->getImageFormat() !== $ext)
+            return $this->cdn_fallback( "avatar/{$aid}/{$name}/{$ext}" );
+
+        return $this->image_output($app->getImage(), $name, $ext);
     }
 
     /**

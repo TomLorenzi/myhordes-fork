@@ -77,7 +77,7 @@
       <notes>
         <note category="german">Das muss ein Zeichen sein! In dieser Welt ist kein Platz für Moral... du erhälst 1AP.</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Das muss ein Zeichen sein! In dieser Welt ist kein Platz für Moral... du erhälst 1AP.</source>
         <target>¡Es una señal! Simplemente demuestra que no hay lugar para la moral en este mundo... Has ganado 1PA.</target>
       </segment>
@@ -2327,7 +2327,7 @@
       <notes>
         <note category="german">Explosive Pampelmuse</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Explosive Pampelmuse</source>
         <target>Pomelo explosivo</target>
       </segment>
@@ -2669,7 +2669,7 @@
       <notes>
         <note category="german">Selbstgebaute Gitarre</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Selbstgebaute Gitarre</source>
         <target>Guitarra artesanal</target>
       </segment>
@@ -3110,7 +3110,7 @@
       <notes>
         <note category="german">Einnehmen</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Einnehmen</source>
         <target>Utilizar</target>
       </segment>
@@ -3119,7 +3119,7 @@
       <notes>
         <note category="german">Einsetzen</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Einsetzen</source>
         <target>Utilizar</target>
       </segment>
@@ -3146,9 +3146,9 @@
       <notes>
         <note category="german">&lt;nt-spawned&gt;Trotz aller Anstrengungen ist es dir nicht gelungen, den {item} zu öffnen...&lt;/nt-spawned&gt;&lt;t-spawned&gt;Du hast die {item} geöffnet und darin {items_spawn} gefunden!&lt;/t-spawned&gt;</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>&lt;nt-spawned&gt;Trotz aller Anstrengungen ist es dir nicht gelungen, den {item} zu öffnen...&lt;/nt-spawned&gt;&lt;t-spawned&gt;Du hast die {item} geöffnet und darin {items_spawn} gefunden!&lt;/t-spawned&gt;</source>
-        <target>&lt;nt-spawned&gt;Pierdes un tiempo precioso buscando la combinación de ese baúl en vano...&lt;/nt-spawned&gt;&lt;t-spawned&gt;¡Ya está! &lt;strong&gt;¡Encontraste la combinación secreta del baúl!&lt;/strong&gt; Era 3141... Y descubres {items_spawn} en su interior.&lt;/t-spawned&gt;</target>
+        <target><![CDATA[<nt-spawned>Pierdes un tiempo precioso buscando la combinación de ese baúl en vano...</nt-spawned><t-spawned>¡Ya está! <strong>¡Encontraste la combinación secreta del baúl!</strong> Era 3141... Y descubres {items_spawn} en su interior.</t-spawned>]]></target>
       </segment>
     </unit>
     <unit id="ANXSLZW" name="Laden">
@@ -3164,7 +3164,7 @@
       <notes>
         <note category="german">Du hast eine {items_consume} in dein/e/n {item_from} eingelegt und {item_to} erhalten!</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Du hast eine {items_consume} in dein/e/n {item_from} eingelegt und {item_to} erhalten!</source>
         <target>Has fabricado {item_to} combinando {items_consume} y {items_from}.</target>
       </segment>
@@ -3191,7 +3191,7 @@
       <notes>
         <note category="german">Waffe einsetzen</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Waffe einsetzen</source>
         <target>Atac. con</target>
       </segment>
@@ -3200,7 +3200,7 @@
       <notes>
         <note category="german">Zum Glück sind hier keine Zombies...</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Zum Glück sind hier keine Zombies...</source>
         <target>No hay zombies por aquí...</target>
       </segment>
@@ -3218,7 +3218,7 @@
       <notes>
         <note category="german">Der Text ist überschrieben mit {rp_text}. Du beginnst, ihn zu lesen&lt;t-rp_ok&gt;! Der Text wurde deinem Archiv hinzugefügt.&lt;/t-rp_ok&gt;&lt;t-rp_fail&gt;... Leider stellst du fest, dass du diesen Text bereits kennst.&lt;/t-rp_fail&gt;</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Der Text ist überschrieben mit {rp_text}. Du beginnst, ihn zu lesen&lt;t-rp_ok&gt;! Der Text wurde deinem Archiv hinzugefügt.&lt;/t-rp_ok&gt;&lt;t-rp_fail&gt;... Leider stellst du fest, dass du diesen Text bereits kennst.&lt;/t-rp_fail&gt;</source>
         <target><![CDATA[Examinas minuciosamente el texto {rp_text}. Lo lees con mucha atención...<t-rp_ok>¡Un nuevo documento ha sido agregado a tus Escritos!</t-rp_ok><t-rp_fail>Ya habías descubierto esos escritos. Por lo tanto no recibirás una distinción adicional.</t-rp_fail>]]></target>
       </segment>
@@ -3227,7 +3227,7 @@
       <notes>
         <note category="german">Werfen</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Werfen</source>
         <target>Utilizar</target>
       </segment>
@@ -3245,7 +3245,7 @@
       <notes>
         <note category="german">Karte ziehen</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Karte ziehen</source>
         <target>Utilizar</target>
       </segment>
@@ -3281,7 +3281,7 @@
       <notes>
         <note category="german">Das brauchst du gerade nicht ...</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Das brauchst du gerade nicht ...</source>
         <target>No necesitas eso ahora mismo...</target>
       </segment>
@@ -3290,7 +3290,7 @@
       <notes>
         <note category="german">Aufstellen</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Aufstellen</source>
         <target>Instalar</target>
       </segment>
@@ -3299,7 +3299,7 @@
       <notes>
         <note category="german">Verbinden</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Verbinden</source>
         <target>Utilizar</target>
       </segment>
@@ -3317,7 +3317,7 @@
       <notes>
         <note category="german">Du hast den Inhalt des {item} gereinigt und {items_spawn} erhalten.</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Du hast den Inhalt des {item} gereinigt und {items_spawn} erhalten.</source>
         <target>Has limpiado el contenido del {item} y has recibido {items_spawn}.</target>
       </segment>
@@ -3326,7 +3326,7 @@
       <notes>
         <note category="german">Hierfür brauchst du eine Micropur Brausetablette.</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Hierfür brauchst du eine Micropur Brausetablette.</source>
         <target>Para esto necesitas un desinfectante efervescente.</target>
       </segment>
@@ -3335,7 +3335,7 @@
       <notes>
         <note category="german">In den Brunnen schütten</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>In den Brunnen schütten</source>
         <target>Verter en el pozo</target>
       </segment>
@@ -3344,7 +3344,7 @@
       <notes>
         <note category="german">Du hast den Inhalt des {item} in den Brunnen geschüttet. Der Brunnen wurde um {well} Rationen Wasser aufgefüllt..</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Du hast den Inhalt des {item} in den Brunnen geschüttet. Der Brunnen wurde um {well} Rationen Wasser aufgefüllt..</source>
         <target>Gracias al Purificador, {well} raciones de agua se han agregado al pozo.</target>
       </segment>
@@ -3353,7 +3353,7 @@
       <notes>
         <note category="german">Du hast den Inhalt des {item} in den Brunnen geschüttet. Der Brunnen wurde um {well} Rationen Wasser aufgefüllt.</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Du hast den Inhalt des {item} in den Brunnen geschüttet. Der Brunnen wurde um {well} Rationen Wasser aufgefüllt.</source>
         <target>Gracias al Purificador, {well} raciones de agua se han agregado al pozo.</target>
       </segment>
@@ -3371,7 +3371,7 @@
       <notes>
         <note category="german">Du hast das {item} verbraucht, um damit {target} zu reparieren. Dabei hast du {minus_ap} AP eingesetzt.</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Du hast das {item} verbraucht, um damit {target} zu reparieren. Dabei hast du {minus_ap} AP eingesetzt.</source>
         <target>Has reparado {target} con {item}. Has utilizado {minus_ap} Punto(s) de Acción.</target>
       </segment>
@@ -3380,7 +3380,7 @@
       <notes>
         <note category="german">Vergiften mit</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Vergiften mit</source>
         <target>Envenenamiento por</target>
       </segment>
@@ -3389,7 +3389,7 @@
       <notes>
         <note category="german">Du hast {target} mit {item} vergiftet!</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Du hast {target} mit {item} vergiftet!</source>
         <target>Has envenenado a {target} con {item}</target>
       </segment>
@@ -3398,7 +3398,7 @@
       <notes>
         <note category="german">Mithilfe des {item} hast du die Umgebung gescannt.</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Mithilfe des {item} hast du die Umgebung gescannt.</source>
         <target>Con la ayuda de {item} has escaneado el entorno.</target>
       </segment>
@@ -3416,7 +3416,7 @@
       <notes>
         <note category="german">Das kannst du nicht tun während du umzingelt bist...</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Das kannst du nicht tun während du umzingelt bist...</source>
         <target>No puedes hacer eso mientras estás atrapado...</target>
       </segment>
@@ -3506,7 +3506,7 @@
       <notes>
         <note category="german">Du hast den {item} mit einem {items_consume} ordentlich aufgeputscht!</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Du hast den {item} mit einem {items_consume} ordentlich aufgeputscht!</source>
         <target>Le das {items_consume} a {item} en un solo bocado.</target>
       </segment>
@@ -5510,7 +5510,7 @@ Después de varios largos minutos de búsqueda, terminas por encontrar <strong>u
       <notes>
         <note category="german">Ein wenig zu gross für dich. Sieht so aus als waren seine Vorbesitzer ein wenig beleibter und hatten schlechten Geschmack...was man ohne Zweifel erkennen kann.</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Ein wenig zu gross für dich. Sieht so aus als waren seine Vorbesitzer ein wenig beleibter und hatten schlechten Geschmack...was man ohne Zweifel erkennen kann.</source>
         <target>Es un poco grande para ti: parece haber pertenecido a alguien con una gran barriga y mal gusto, como se puede ver claramente en el blanco del cuello y los puños</target>
       </segment>
@@ -6352,7 +6352,7 @@ Después de varios largos minutos de búsqueda, terminas por encontrar <strong>u
         <target>Una guirnalda de una tradición aparentemente antigua. Se recomienda colgarla en casa como decoración, podría ser bueno para la moral del pueblo.</target>
       </segment>
     </unit>
-    <unit id="9VFJt3E" name="9e61209">
+    <unit id="Rjbh1eD" name="a214ff9">
       <notes>
         <note category="german">&lt;t-bp_ok&gt;Du liest den {item} und stellst fest, dass es sich um einen Plan für {bp_spawn} handelt.&lt;/t-bp_ok&gt;&lt;t-bp_parent&gt;{hr}Dafür ist das Bauprojekt {bp_parent} nötig.&lt;/t-bp_parent&gt;&lt;t-bp_fail&gt;Du versuchst den {item} zu lesen, kannst seinen Inhalt aber nicht verstehen ...&lt;/t-bp_fail&gt;</note>
       </notes>
@@ -6671,16 +6671,16 @@ Después de varios largos minutos de búsqueda, terminas por encontrar <strong>u
       <notes>
         <note category="german">Du hast dir etwas Zeit genommen und zur Verteidigung der Stadt beigetragen.</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Du hast dir etwas Zeit genommen und zur Verteidigung der Stadt beigetragen.</source>
-        <target>Te das una vuelta por el pueblo para revisar la existencia de fallas y les das algunas patadas a cosas mal puestas. El pueblo ha ganado &lt;strong&gt;+10 puntos de defensa temporales&lt;/strong&gt;.</target>
+        <target><![CDATA[Te das una vuelta por el pueblo para revisar la existencia de fallas y les das algunas patadas a cosas mal puestas. El pueblo ha ganado <strong>+10 puntos de defensa temporales</strong>.]]></target>
       </segment>
     </unit>
     <unit id="V1W3ATr" name="Nach Ruinen Ausschau halten">
       <notes>
         <note category="german">Nach Ruinen Ausschau halten</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Nach Ruinen Ausschau halten</source>
         <target>Revelar una construcción</target>
       </segment>
@@ -6689,7 +6689,7 @@ Después de varios largos minutos de búsqueda, terminas por encontrar <strong>u
       <notes>
         <note category="german">&lt;t-zone&gt;Du hast eine neue Ruine auf {zone} entdeckt!&lt;/t-zone&gt;&lt;nt-zone&gt;Es scheint, als gäbe es nichts mehr zu entdecken ...&lt;/nt-zone&gt;</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>&lt;t-zone&gt;Du hast eine neue Ruine auf {zone} entdeckt!&lt;/t-zone&gt;&lt;nt-zone&gt;Es scheint, als gäbe es nichts mehr zu entdecken ...&lt;/nt-zone&gt;</source>
         <target><![CDATA[<t-zone>¡Has detectado un nuevo edificio en las coordenadas {zone}!</t-zone><nt-zone>Es scheint, als gäbe es nichts mehr zu entdecken ...</nt-zone>]]></target>
       </segment>
@@ -6725,7 +6725,7 @@ Después de varios largos minutos de búsqueda, terminas por encontrar <strong>u
       <notes>
         <note category="german">Du hast die Seele gereinigt und sie friedlich gemacht.</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Du hast die Seele gereinigt und sie friedlich gemacht.</source>
         <target>Has purificado un alma perdida. Se evapora, camina hacia un lugar mejor dejándote en un estado de serenidad y paz...</target>
       </segment>
@@ -6752,7 +6752,7 @@ Después de varios largos minutos de búsqueda, terminas por encontrar <strong>u
       <notes>
         <note category="german">Hierfür brauchst du 2x Pharmazeutische Substanz...</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Hierfür brauchst du 2x Pharmazeutische Substanz...</source>
         <target>Necesitas 2 x Productos Farmacéuticos, para hacer eso...</target>
       </segment>
@@ -6770,7 +6770,7 @@ Después de varios largos minutos de búsqueda, terminas por encontrar <strong>u
       <notes>
         <note category="german">In deiner Küche hast du {items_consume} in {items_spawn} umgewandelt.</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>In deiner Küche hast du {items_consume} in {items_spawn} umgewandelt.</source>
         <target>Empiezas a utilizar {items_consume} y otras cosas más.
 Preparas algo con mucho esmero. Después de unos minutos de cocción, sacas del fuego un {items_spawn} .</target>
@@ -6813,7 +6813,7 @@ Preparas algo con mucho esmero. Después de unos minutos de cocción, sacas del 
       <notes>
         <note category="german">Nimm einen kräftigen Schluck aus der Pulle und deine Lebenskräfte werden wieder geweckt (Du erhältst alle deine AP zurück!). Da nimmt man die lose darin herum schwimmenden organischen Substanzen doch gerne in Kauf. Prost Kameraden!</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Nimm einen kräftigen Schluck aus der Pulle und deine Lebenskräfte werden wieder geweckt (Du erhältst alle deine AP zurück!). Da nimmt man die lose darin herum schwimmenden organischen Substanzen doch gerne in Kauf. Prost Kameraden!</source>
         <target>Un buen trago que quema la garganta y te quita el cansancio, ¡recuperando además puntos de Acción!... 85º de alcohol puro, con algunos bichos flotando en el fondo. ¡Salud camarada!</target>
       </segment>
@@ -6849,7 +6849,7 @@ Preparas algo con mucho esmero. Después de unos minutos de cocción, sacas del 
       <notes>
         <note category="german">Nickerchen machen</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Nickerchen machen</source>
         <target>Echarse una siesta</target>
       </segment>
@@ -6858,7 +6858,7 @@ Preparas algo con mucho esmero. Después de unos minutos de cocción, sacas del 
       <notes>
         <note category="german">Du versuchst dich ein paar Minuten auszuruhen.&lt;t-ap-up&gt;Nach einer kurzen Pause fühlst du dich nun viel besser. Du hast 2 AP erhalten !&lt;/t-ap-up&gt;&lt;nt-ap-up&gt;Leider bekommst du kein Auge zu: Der Gedanke an heute Abend, deinen Tod, sowie deine geringen Überlebenschancen lassen dir keine Ruhe...&lt;/nt-ap-up&gt;</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Du versuchst dich ein paar Minuten auszuruhen.&lt;t-ap-up&gt;Nach einer kurzen Pause fühlst du dich nun viel besser. Du hast 2 AP erhalten !&lt;/t-ap-up&gt;&lt;nt-ap-up&gt;Leider bekommst du kein Auge zu: Der Gedanke an heute Abend, deinen Tod, sowie deine geringen Überlebenschancen lassen dir keine Ruhe...&lt;/nt-ap-up&gt;</source>
         <target><![CDATA[Descansas unos minutos...<t-ap-up><strong>¡Una pequeña pausa te hará mucho bien!</strong>¡Recuperas <strong>2 PA</strong>!</t-ap-up><nt-ap-up>Desgraciadamente, no llegas a cerrar los ojos. Piensas en esta noche, tienes mucho miedo de morir y ves el fin cada vez más cerca...</nt-ap-up>]]></target>
       </segment>
@@ -6867,7 +6867,7 @@ Preparas algo con mucho esmero. Después de unos minutos de cocción, sacas del 
       <notes>
         <note category="german">Du hast soeben den mystischen Trank getrunken. Hoffen wir, dass dieser Schamane weiß, was er tut...</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Du hast soeben den mystischen Trank getrunken. Hoffen wir, dass dieser Schamane weiß, was er tut...</source>
         <target>Acabas de beber una poción chamánica... Esperemos que este chamán sepa lo que está haciendo...</target>
       </segment>
@@ -6876,7 +6876,7 @@ Preparas algo con mucho esmero. Después de unos minutos de cocción, sacas del 
       <notes>
         <note category="german">Tja, Vertrauen ist gut, Kontrolle ist besser... Ja, du wurdest bereits geschützt!</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Tja, Vertrauen ist gut, Kontrolle ist besser... Ja, du wurdest bereits geschützt!</source>
         <target>Tus vecinos pueden oler la confianza que desprendes... Como si ya estuvieses protegido de algún modo.</target>
       </segment>
@@ -6984,7 +6984,7 @@ Preparas algo con mucho esmero. Después de unos minutos de cocción, sacas del 
       <notes>
         <note category="german">&lt;t-fail&gt;{item} kann keine schweren Gegenstände tragen...&lt;/t-fail&gt;&lt;nt-fail&gt;Du hast den {item} mit deinen Gegenständen in die Stadt geschickt.&lt;/nt-fail&gt;</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>&lt;t-fail&gt;{item} kann keine schweren Gegenstände tragen...&lt;/t-fail&gt;&lt;nt-fail&gt;Du hast den {item} mit deinen Gegenständen in die Stadt geschickt.&lt;/nt-fail&gt;</source>
         <target><![CDATA[<t-fail>{item} no puede llevar el contenido de tu mochila: ¡tienes un <strong>objeto voluminoso</strong> que no podrá transportar!</t-fail><nt-fail>Envías a {item} con dirección al pueblo llevando todo el contenido de tu mochila.</nt-fail>]]></target>
       </segment>
@@ -7011,7 +7011,7 @@ Preparas algo con mucho esmero. Después de unos minutos de cocción, sacas del 
       <notes>
         <note category="german">Reinigen (Wasser)</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Reinigen (Wasser)</source>
         <target>Limpiar</target>
       </segment>
@@ -7020,7 +7020,7 @@ Preparas algo con mucho esmero. Después de unos minutos de cocción, sacas del 
       <notes>
         <note category="german">Reinigen (Kleidung)</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Reinigen (Kleidung)</source>
         <target>Limpiar</target>
       </segment>
@@ -7038,7 +7038,7 @@ Preparas algo con mucho esmero. Después de unos minutos de cocción, sacas del 
       <notes>
         <note category="german">Abdruck vom Flaschenöffner</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Abdruck vom Flaschenöffner</source>
         <target>Molde para abrebotellas</target>
       </segment>
@@ -7065,7 +7065,7 @@ Preparas algo con mucho esmero. Después de unos minutos de cocción, sacas del 
       <notes>
         <note category="german">Du nimmst das {item} ein, aber es scheint keinen Effekt zu haben... Vielleicht hast du das gar nicht gebraucht?</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Du nimmst das {item} ein, aber es scheint keinen Effekt zu haben... Vielleicht hast du das gar nicht gebraucht?</source>
         <target>Estás usando {item}, pero no parece estar haciendo ningún efecto. ¿Será que no era necesario?</target>
       </segment>
@@ -7074,7 +7074,7 @@ Preparas algo con mucho esmero. Después de unos minutos de cocción, sacas del 
       <notes>
         <note category="german">Du nimmst dir ein paar Minuten, um deine {item} zu reinigen. Du schrubbst sorgfältig die Blutflecken ab und flickst ein paar kleine Löcher.</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Du nimmst dir ein paar Minuten, um deine {item} zu reinigen. Du schrubbst sorgfältig die Blutflecken ab und flickst ein paar kleine Löcher.</source>
         <target>Te das unos minutos para limpiar tu {item}. Le quitas las manchas de sangre y zurces algunos agujeros.</target>
       </segment>
@@ -7092,7 +7092,7 @@ Preparas algo con mucho esmero. Después de unos minutos de cocción, sacas del 
       <notes>
         <note category="german">Du befestigst den {item} und bedeckst ihn zur Tarnung mit herumliegendem Müll und vertrockneten Zweigen. Na bitte, das sollte hoffentlich deine Überlebenschancen heute Nacht verbessern. Du hast dafür 1 Aktionspunkt verbraucht.</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Du befestigst den {item} und bedeckst ihn zur Tarnung mit herumliegendem Müll und vertrockneten Zweigen. Na bitte, das sollte hoffentlich deine Überlebenschancen heute Nacht verbessern. Du hast dafür 1 Aktionspunkt verbraucht.</source>
         <target>Instalas {item} y colocas escombros y ramas secas encima para que sea invisible. Eso debería mejorar tus posibilidades de ocultarte allí esta noche. Has utilizado 1 Punto de Acción.</target>
       </segment>
@@ -7101,7 +7101,7 @@ Preparas algo con mucho esmero. Después de unos minutos de cocción, sacas del 
       <notes>
         <note category="german">Der Text ist überschrieben mit {item}. Du beginnst, ihn zu lesen.&lt;t-bannote_ok&gt;Diese gekritzelte Notiz gehörte früher einem verbanntem Bürger... Das einzige, was du lesen kannst, ist "{zone}"... Seltsam. Du zerstörst die Seite, nur um sicherzugehen, dass niemand die Nachricht liest...&lt;/t-bannote_ok&gt;&lt;t-bannote_fail&gt;Leider ist der Inhalt dieses Manuskripts völlig unleserlich.&lt;/t-bannote_fail&gt;</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Der Text ist überschrieben mit {item}. Du beginnst, ihn zu lesen.&lt;t-bannote_ok&gt;Diese gekritzelte Notiz gehörte früher einem verbanntem Bürger... Das einzige, was du lesen kannst, ist "{zone}"... Seltsam. Du zerstörst die Seite, nur um sicherzugehen, dass niemand die Nachricht liest...&lt;/t-bannote_ok&gt;&lt;t-bannote_fail&gt;Leider ist der Inhalt dieses Manuskripts völlig unleserlich.&lt;/t-bannote_fail&gt;</source>
         <target><![CDATA[Esta nota arrugada perteneció seguramente a un desterrado... <t-bannote_ok>Solo se llegas a leer "{zone}"... Muy extraño. Destruyes el papel para asegurarte de que nadie más lea ese mensaje.</t-bannote_ok><t-bannote_fail>¡Qué mala suerte! el contenido de esa nota manuscrita es totalmente ilegible.</t-bannote_fail>]]></target>
       </segment>
@@ -7119,7 +7119,7 @@ Preparas algo con mucho esmero. Después de unos minutos de cocción, sacas del 
       <notes>
         <note category="german">&lt;t-escape&gt;Du setzt {item} in Gang. Ein gewaltiger Blitz schießt heraus und blendet die Zombies! Du solltest diese Gelegenheit zur Flucht nutzen.&lt;/t-escape&gt;&lt;t-reverse-escape&gt;Du setzt {item} in Gang. Ein gewaltiger Blitz schießt heraus, mitten in die Reihen der Zombies! Geblendet ergreifen {zombies} Zombies die Flucht.&lt;/t-reverse-escape&gt;</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>&lt;t-escape&gt;Du setzt {item} in Gang. Ein gewaltiger Blitz schießt heraus und blendet die Zombies! Du solltest diese Gelegenheit zur Flucht nutzen.&lt;/t-escape&gt;&lt;t-reverse-escape&gt;Du setzt {item} in Gang. Ein gewaltiger Blitz schießt heraus, mitten in die Reihen der Zombies! Geblendet ergreifen {zombies} Zombies die Flucht.&lt;/t-reverse-escape&gt;</source>
         <target><![CDATA[<t-escape>Pones {item} en marcha. ¡Un tremendo rayo sale disparado y ciega a los zombis! Deberías aprovechar esta oportunidad para escapar.</t-escape><t-reverse-escape>Enciendes {item}… El violento flash luminoso siembra el pánico entre los zombies! Cegados, {zombies} zombi(s) se aleja(n) arrastrando sus huesos.</t-reverse-escape>]]></target>
       </segment>
@@ -7146,7 +7146,7 @@ Preparas algo con mucho esmero. Después de unos minutos de cocción, sacas del 
       <notes>
         <note category="german">Die Medizin gibt dir Kraft: Du bist jetzt immun gegen Infektionen und kannst nicht in einen Ghul verwandelt werden. Diese Wirkung lässt nach dem Angriff nach.</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Die Medizin gibt dir Kraft: Du bist jetzt immun gegen Infektionen und kannst nicht in einen Ghul verwandelt werden. Diese Wirkung lässt nach dem Angriff nach.</source>
         <target>Ese medicamento ha reforzado tu organismo: no sufrirás de infección ni te transformarás en Mutante. Su efecto desaparecerá después del ataque nocturno. Nota: No te protege de las infecciones por heridas no tratadas antes del ataque.</target>
       </segment>
@@ -7155,7 +7155,7 @@ Preparas algo con mucho esmero. Después de unos minutos de cocción, sacas del 
       <notes>
         <note category="german">&lt;t-stat-up-addict&gt;Schlechte Neuigkeiten! Du bist jetzt abhängig! Von nun an musst du jeden Tag eine Droge nehmen... oder STERBEN!&lt;/t-stat-up-addict&gt;</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>&lt;t-stat-up-addict&gt;Schlechte Neuigkeiten! Du bist jetzt abhängig! Von nun an musst du jeden Tag eine Droge nehmen... oder STERBEN!&lt;/t-stat-up-addict&gt;</source>
         <target><![CDATA[<t-stat-up-addict>Una mala noticia. ¡Te vuelves dependiente! ¡Desde ahora deberás consumir al menos una dosis al día o morirás</t-stat-up-addict>]]></target>
       </segment>
@@ -7164,7 +7164,7 @@ Preparas algo con mucho esmero. Después de unos minutos de cocción, sacas del 
       <notes>
         <note category="german">&lt;nt-any-escape&gt;Ein stumpfes Klicken ertönt und ein wenig grünlicher Rauch entschwebt der {item} ...&lt;/nt-any-escape&gt;&lt;t-escape&gt;Du setzt {item} in Gang. Ein gewaltiger Blitz schießt heraus und blendet die Zombies! Du solltest diese Gelegenheit zur Flucht nutzen.&lt;/t-escape&gt;&lt;t-reverse-escape&gt;Du setzt {item} in Gang. Ein gewaltiger Blitz schießt heraus, mitten in die Reihen der Zombies! Geblendet ergreifen {zombies} Zombies die Flucht.&lt;/t-reverse-escape&gt;</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>&lt;nt-any-escape&gt;Ein stumpfes Klicken ertönt und ein wenig grünlicher Rauch entschwebt der {item} ...&lt;/nt-any-escape&gt;&lt;t-escape&gt;Du setzt {item} in Gang. Ein gewaltiger Blitz schießt heraus und blendet die Zombies! Du solltest diese Gelegenheit zur Flucht nutzen.&lt;/t-escape&gt;&lt;t-reverse-escape&gt;Du setzt {item} in Gang. Ein gewaltiger Blitz schießt heraus, mitten in die Reihen der Zombies! Geblendet ergreifen {zombies} Zombies die Flucht.&lt;/t-reverse-escape&gt;</source>
         <target><![CDATA[<nt-any-escape>Se oye un ruido hueco y un humo verdoso sale de {item} ...</nt-any-escape><t-escape>Pones {item} en marcha. ¡Un tremendo rayo sale disparado y ciega a los zombis! Deberías aprovechar esta oportunidad para escapar.</t-escape><t-reverse-escape>Enciendes {item}… El violento flash luminoso siembra el pánico entre los zombies! Cegados, {zombies} zombi(s) se aleja(n) arrastrando sus huesos.</t-reverse-escape>]]></target>
       </segment>
@@ -7173,7 +7173,7 @@ Preparas algo con mucho esmero. Después de unos minutos de cocción, sacas del 
       <notes>
         <note category="german">&lt;nt-any-escape&gt;Ein stumpfes Klicken ertönt und ein wenig grünlicher Rauch entschwebt der {item} ...&lt;/nt-any-escape&gt;&lt;t-escape&gt;Du setzt {item} in Gang. Ein gewaltiger Blitz schießt heraus, mitten in die Reihen der Zombies! Geblendet stolpern sie umher und sind nicht länger in der Lage, dich zu finden.&lt;/t-escape&gt;&lt;t-reverse-escape&gt;Du setzt {item} in Gang. Ein gewaltiger Blitz schießt heraus, mitten in die Reihen der Zombies! Geblendet ergreifen {zombies} Zombies die Flucht.&lt;/t-reverse-escape&gt;</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>&lt;nt-any-escape&gt;Ein stumpfes Klicken ertönt und ein wenig grünlicher Rauch entschwebt der {item} ...&lt;/nt-any-escape&gt;&lt;t-escape&gt;Du setzt {item} in Gang. Ein gewaltiger Blitz schießt heraus, mitten in die Reihen der Zombies! Geblendet stolpern sie umher und sind nicht länger in der Lage, dich zu finden.&lt;/t-escape&gt;&lt;t-reverse-escape&gt;Du setzt {item} in Gang. Ein gewaltiger Blitz schießt heraus, mitten in die Reihen der Zombies! Geblendet ergreifen {zombies} Zombies die Flucht.&lt;/t-reverse-escape&gt;</source>
         <target><![CDATA[<nt-any-escape>Se oye un ruido hueco y un humo verdoso sale de {item} ...</nt-any-escape><t-escape>Pones {item} en marcha. ¡Un tremendo rayo sale disparado en dirección a los zombis! Cegados, se tropiezan y ya no son capaces de encontrarte.</t-escape><t-reverse-escape>Enciendes {item}… El violento flash luminoso siembra el pánico entre los zombies! Cegados, {zombies} zombi(s) se aleja(n) arrastrando sus huesos.</t-reverse-escape>]]></target>
       </segment>
@@ -7182,7 +7182,7 @@ Preparas algo con mucho esmero. Después de unos minutos de cocción, sacas del 
       <notes>
         <note category="german">&lt;nt-any-escape&gt;Ein stumpfes Klicken ertönt und ein wenig grünlicher Rauch entschwebt der {item} ...&lt;/nt-any-escape&gt;&lt;t-escape&gt;Du setzt {item} in Gang. Ein gewaltiger Blitz schießt heraus und blendet die Zombies! Geblendet stolpern sie umher und sind nicht länger in der Lage, dich zu finden.&lt;/t-escape&gt;&lt;t-reverse-escape&gt;Du setzt {item} in Gang. Ein gewaltiger Blitz schießt heraus, mitten in die Reihen der Zombies! Geblendet ergreifen {zombies} Zombies die Flucht.&lt;/t-reverse-escape&gt;</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>&lt;nt-any-escape&gt;Ein stumpfes Klicken ertönt und ein wenig grünlicher Rauch entschwebt der {item} ...&lt;/nt-any-escape&gt;&lt;t-escape&gt;Du setzt {item} in Gang. Ein gewaltiger Blitz schießt heraus und blendet die Zombies! Geblendet stolpern sie umher und sind nicht länger in der Lage, dich zu finden.&lt;/t-escape&gt;&lt;t-reverse-escape&gt;Du setzt {item} in Gang. Ein gewaltiger Blitz schießt heraus, mitten in die Reihen der Zombies! Geblendet ergreifen {zombies} Zombies die Flucht.&lt;/t-reverse-escape&gt;</source>
         <target><![CDATA[<nt-any-escape>Se oye un ruido hueco y un humo verdoso sale de {item} ...</nt-any-escape><t-escape>Pones {item} en marcha. ¡Un tremendo rayo sale disparado y ciega a los zombis! Cegados, se tropiezan y ya no son capaces de encontrarte.</t-escape><t-reverse-escape>Enciendes {item}… El violento flash luminoso siembra el pánico entre los zombies! Cegados, {zombies} zombi(s) se aleja(n) arrastrando sus huesos.</t-reverse-escape>]]></target>
       </segment>
@@ -7200,7 +7200,7 @@ Preparas algo con mucho esmero. Después de unos minutos de cocción, sacas del 
       <notes>
         <note category="german">&lt;t-stat-up-tg_meta_wound&gt;Diese Katze ist unglaublich! Sie scheint keine Angst zu haben, nicht einmal vor dir. Das Tier springt dir an die Kehle und vergräbt seine Krallen tief in deinem Fleisch.&lt;/t-stat-up-tg_meta_wound&gt;&lt;t-kills&gt;Diese Katze ist unglaublich! Sie scheint keine Angst zu haben, nicht einmal vor dem abartigen Gestank der Zombies. Mit mehr Zerstörungskraft als der Duracell-Hase und das Killer-Kaninchen von Caerbannog hat sie die Zone komplett bereinigt.&lt;/t-kills&gt;</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>&lt;t-stat-up-tg_meta_wound&gt;Diese Katze ist unglaublich! Sie scheint keine Angst zu haben, nicht einmal vor dir. Das Tier springt dir an die Kehle und vergräbt seine Krallen tief in deinem Fleisch.&lt;/t-stat-up-tg_meta_wound&gt;&lt;t-kills&gt;Diese Katze ist unglaublich! Sie scheint keine Angst zu haben, nicht einmal vor dem abartigen Gestank der Zombies. Mit mehr Zerstörungskraft als der Duracell-Hase und das Killer-Kaninchen von Caerbannog hat sie die Zone komplett bereinigt.&lt;/t-kills&gt;</source>
         <target><![CDATA[<t-stat-up-tg_meta_wound>Este gato es fenomenal, no le teme a nada, ¡ni siquiera a ti! De pronto te salta al cuello y clava sus filudas garras en tu carne.</t-stat-up-tg_meta_wound><t-kills>Este gato es increíble, no le teme a nada, ni a la pestilencia de los zombies. Mejor que el conejo de Duracell y los Monty Python reunidos, este felino limpiará la zona por ti.</t-kills>]]></target>
       </segment>
@@ -7209,7 +7209,7 @@ Preparas algo con mucho esmero. Después de unos minutos de cocción, sacas del 
       <notes>
         <note category="german">Das {item} beginnt rasch zu wirken. Das Fieber klingt ab, dein Herz beginnt wieder in einem halbwegs normalen Takt zu schlagen... Du warst nicht weit von einem schrecklichen Tod entfernt.</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Das {item} beginnt rasch zu wirken. Das Fieber klingt ab, dein Herz beginnt wieder in einem halbwegs normalen Takt zu schlagen... Du warst nicht weit von einem schrecklichen Tod entfernt.</source>
         <target>Tu {item} hace efecto rápidamente. La fiebre desaparece, tu corazón late a un ritmo normal... Estuviste cerca de una muerte atroz.</target>
       </segment>
@@ -7254,7 +7254,7 @@ Preparas algo con mucho esmero. Después de unos minutos de cocción, sacas del 
       <notes>
         <note category="german">Es schmeckt wirklich komisch... aber es erfüllt seinen Zweck: Dein Hunger ist gestillt. Glaub aber nicht, dass du dadurch zusätzliche APs erhältst...</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Es schmeckt wirklich komisch... aber es erfüllt seinen Zweck: Dein Hunger ist gestillt. Glaub aber nicht, dass du dadurch zusätzliche APs erhältst...</source>
         <target>Tiene un sabor muy raro, difícil de describir. Al menos cumple con su misión: llenar tu estómago. Pero no te da un bonus de energía.</target>
       </segment>
@@ -7263,7 +7263,7 @@ Preparas algo con mucho esmero. Después de unos minutos de cocción, sacas del 
       <notes>
         <note category="german">Einmal ist zwar keinmal, dennoch genießt du dein(e) {item}. Das ist mal ne echte Abwechslung zu dem sonstigen Fraß... Du spürst deine Kräfte wieder zurückkehren. Du hast 1 zusätzlichen AP erhalten!</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Einmal ist zwar keinmal, dennoch genießt du dein(e) {item}. Das ist mal ne echte Abwechslung zu dem sonstigen Fraß... Du spürst deine Kräfte wieder zurückkehren. Du hast 1 zusätzlichen AP erhalten!</source>
         <target>Te das un gusto comiendo {item} , de vez en cuando no está mal para cambiar de esas raciones pútridas. ¡Recibes un bonus de 1 PA!</target>
       </segment>
@@ -7272,7 +7272,7 @@ Preparas algo con mucho esmero. Después de unos minutos de cocción, sacas del 
       <notes>
         <note category="german">Krähenelfe</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Krähenelfe</source>
         <target>Cuervo navideño</target>
       </segment>
@@ -7281,7 +7281,7 @@ Preparas algo con mucho esmero. Después de unos minutos de cocción, sacas del 
       <notes>
         <note category="german">Das ist eine seltsam aussehende kleine Bestie... Scheint einer Krähe zu ähneln... Aber es ist grün und trägt einen komischen Hut...</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Das ist eine seltsam aussehende kleine Bestie... Scheint einer Krähe zu ähneln... Aber es ist grün und trägt einen komischen Hut...</source>
         <target>Una pequeña bestia de aspecto extraño. Se asemeja a un cuervo... pero es verde y lleva un sombrero...</target>
       </segment>
@@ -7290,7 +7290,7 @@ Preparas algo con mucho esmero. Después de unos minutos de cocción, sacas del 
       <notes>
         <note category="german">Schokoladenklumpen</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Logbuch Schokolade</source>
         <target>Tronco de Navidad</target>
       </segment>
@@ -7299,7 +7299,7 @@ Preparas algo con mucho esmero. Después de unos minutos de cocción, sacas del 
       <notes>
         <note category="german">Entweder ein verschrumpelter alter Weihnachtskuchen oder etwas noch weniger Schmackhaftes, was am Weihnachtstag gebacken wird! Auf jeden Fall solltest du dieses Kuchen... artige Ding genießen.</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Entweder ein verschrumpelter alter Weihnachtskuchen oder etwas weniger Schmackhaftes, das dennoch am Weihnachtstag gebacken wird! Genießen Sie auf jeden Fall diesen Kuchen... Ding...</source>
         <target>¡Oh, un viejo pastel navideño arrugado! O algo menos sabroso... ¡Pero aún así horneado el día de Navidad! De cualquier modo, disfruta de este... pastel...</target>
       </segment>
@@ -7308,7 +7308,7 @@ Preparas algo con mucho esmero. Después de unos minutos de cocción, sacas del 
       <notes>
         <note category="german">Grüner Kobold-Anzug</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Grüner Kobold-Anzug</source>
         <target>Traje de duendecillo</target>
       </segment>
@@ -7317,7 +7317,7 @@ Preparas algo con mucho esmero. Después de unos minutos de cocción, sacas del 
       <notes>
         <note category="german">In dieser Aufmachung bist du so auffällig, dass dich niemand bemerkt oder zumindest glaubt, sich das nur eingebildet zu haben! Das würdest du doch nicht missbrauchen, oder?</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>In dieser Aufmachung sind Sie so auffällig, dass Sie niemand bemerkt oder glaubt, sich das eingebildet zu haben! Sie würden es nicht missbrauchen, oder?</source>
         <target>¡En este traje, eres tan llamativo que los que te miran piensan que te han imaginado! No abusarías de ello, ¿verdad?</target>
       </segment>
@@ -7356,6 +7356,123 @@ Preparas algo con mucho esmero. Después de unos minutos de cocción, sacas del 
       <segment>
         <source>Vous avez voté pour {citizen} en tant que {role} !</source>
         <target>Vous avez voté pour {citizen} en tant que {role} !</target>
+      </segment>
+    </unit>
+    <unit id="aKn4VEo" name="Munitionsgriff">
+      <notes>
+        <note category="german">Munitionsgriff</note>
+      </notes>
+      <segment>
+        <source>Munitionsgriff</source>
+        <target>Munitionsgriff</target>
+      </segment>
+    </unit>
+    <unit id="oFVqj4C" name="Eine Handvoll Munition. Aber was hat das für einen Sinn?">
+      <notes>
+        <note category="german">Eine Handvoll Munition. Aber was hat das für einen Sinn?</note>
+      </notes>
+      <segment>
+        <source>Eine Handvoll Munition. Aber was hat das für einen Sinn?</source>
+        <target>Eine Handvoll Munition. Aber was hat das für einen Sinn?</target>
+      </segment>
+    </unit>
+    <unit id="Ri.5LgC" name="1376d54">
+      <notes>
+        <note category="german">Du hast das Gebiet mit deinem {item} teilweise geräumt ({bury_count} Punkte geräumt).</note>
+      </notes>
+      <segment>
+        <source>Du hast das Gebiet mit deinem {item} teilweise geräumt ({bury_count} Punkte geräumt).</source>
+        <target>Du hast das Gebiet mit deinem {item} teilweise geräumt ({bury_count} Punkte geräumt).</target>
+      </segment>
+    </unit>
+    <unit id="y3qU7qO" name="b9071fe">
+      <notes>
+        <note category="german">Du wirfst eine Rauchbombe in diese Zone und ein Großes Durcheinander bricht aus!{hr}Deine &lt;strong&gt;nächste Bewegungsaktion&lt;/strong&gt; wird night in das Register eingetragen, wenn sie &lt;strong&gt;innerhalb von 1 Minute&lt;/strong&gt; erfolgt.</note>
+      </notes>
+      <segment>
+        <source>Du wirfst eine Rauchbombe in diese Zone und ein Großes Durcheinander bricht aus!{hr}Deine &lt;strong&gt;nächste Bewegungsaktion&lt;/strong&gt; wird night in das Register eingetragen, wenn sie &lt;strong&gt;innerhalb von 1 Minute&lt;/strong&gt; erfolgt.</source>
+        <target><![CDATA[Du wirfst eine Rauchbombe in diese Zone und ein Großes Durcheinander bricht aus!{hr}Deine <strong>nächste Bewegungsaktion</strong> wird night in das Register eingetragen, wenn sie <strong>innerhalb von 1 Minute</strong> erfolgt.]]></target>
+      </segment>
+    </unit>
+    <unit id="gN7yVQC" name="Durchgang in Kraft">
+      <notes>
+        <note category="german">Durchgang in Kraft</note>
+      </notes>
+      <segment>
+        <source>Durchgang in Kraft</source>
+        <target>Durchgang in Kraft</target>
+      </segment>
+    </unit>
+    <unit id="KXx_GUV" name="Den Shamane wählen">
+      <notes>
+        <note category="german">Den Shamane wählen</note>
+      </notes>
+      <segment>
+        <source>Den Shamane wählen</source>
+        <target>Den Shamane wählen</target>
+      </segment>
+    </unit>
+    <unit id="Rrvjw6U" name="Den Reiseleiter in der Außenwelt wählen">
+      <notes>
+        <note category="german">Den Reiseleiter in der Außenwelt wählen</note>
+      </notes>
+      <segment>
+        <source>Den Reiseleiter in der Außenwelt wählen</source>
+        <target>Den Reiseleiter in der Außenwelt wählen</target>
+      </segment>
+    </unit>
+    <unit id="jHDRi5S" name="ae104e2">
+      <notes>
+        <note category="german">Schlechte Nachrichten, das hättest du nicht in den Mund nehmen sollen... Du bist infiziert!</note>
+      </notes>
+      <segment>
+        <source>Schlechte Nachrichten, das hättest du nicht in den Mund nehmen sollen... Du bist infiziert!</source>
+        <target>Schlechte Nachrichten, das hättest du nicht in den Mund nehmen sollen... Du bist infiziert!</target>
+      </segment>
+    </unit>
+    <unit id="UhcYCoM" name="8c7950c">
+      <notes>
+        <note category="german">Ein Opfer der Großen Seuche zu sein hat dir diesmal nicht viel gebracht... und es sieht nicht gut aus...</note>
+      </notes>
+      <segment>
+        <source>Ein Opfer der Großen Seuche zu sein hat dir diesmal nicht viel gebracht... und es sieht nicht gut aus...</source>
+        <target>Ein Opfer der Großen Seuche zu sein hat dir diesmal nicht viel gebracht... und es sieht nicht gut aus...</target>
+      </segment>
+    </unit>
+    <unit id="OyENKXh" name="379ab50">
+      <notes>
+        <note category="german">Da hast du wohl Glück gehabt... Als Opfer der Großen Seuche bist du diesmal um eine unangenehme Infektion herumgekommen.</note>
+      </notes>
+      <segment>
+        <source>Da hast du wohl Glück gehabt... Als Opfer der Großen Seuche bist du diesmal um eine unangenehme Infektion herumgekommen.</source>
+        <target>Da hast du wohl Glück gehabt... Als Opfer der Großen Seuche bist du diesmal um eine unangenehme Infektion herumgekommen.</target>
+      </segment>
+    </unit>
+    <unit id="uHEMxan" name="430096c">
+      <notes>
+        <note category="german">&lt;t-kill-latest&gt;Du hast alle Zombies in dieser Zone mit dieser Waffe umgebracht: {item} ! Entspann dich mal... oder vielleicht besser nicht?&lt;/t-kill-latest&gt;&lt;t-kills&gt;Vous avez éliminé {kills} zombie en utilisant {item} . Ha ! Ha ! Un peu plus de chair étalée... Ca soulage de supprimer du zombie de temps en temps.&lt;/t-kills&gt;</note>
+      </notes>
+      <segment>
+        <source>&lt;t-kill-latest&gt;Du hast alle Zombies in dieser Zone mit dieser Waffe umgebracht: {item} ! Entspann dich mal... oder vielleicht besser nicht?&lt;/t-kill-latest&gt;&lt;t-kills&gt;Vous avez éliminé {kills} zombie en utilisant {item} . Ha ! Ha ! Un peu plus de chair étalée... Ca soulage de supprimer du zombie de temps en temps.&lt;/t-kills&gt;</source>
+        <target><![CDATA[<t-kill-latest>Du hast alle Zombies in dieser Zone mit dieser Waffe umgebracht: {item} ! Entspann dich mal... oder vielleicht besser nicht?</t-kill-latest><t-kills>Vous avez éliminé {kills} zombie en utilisant {item} . Ha ! Ha ! Un peu plus de chair étalée... Ca soulage de supprimer du zombie de temps en temps.</t-kills>]]></target>
+      </segment>
+    </unit>
+    <unit id="5DH1uFn" name="b181e5d">
+      <notes>
+        <note category="german">Du schlägst einen Zombie mit aller Kraft, mehrmals, aber er bricht nicht unter deinen Schlägen zusammen!</note>
+      </notes>
+      <segment>
+        <source>Du schlägst einen Zombie mit aller Kraft, mehrmals, aber er bricht nicht unter deinen Schlägen zusammen!</source>
+        <target>Du schlägst einen Zombie mit aller Kraft, mehrmals, aber er bricht nicht unter deinen Schlägen zusammen!</target>
+      </segment>
+    </unit>
+    <unit id="tT6PQwS" name="Deine Waffe ist durch den harten Aufschlag &lt;strong&gt;kaputt&lt;/strong&gt; gegangen...">
+      <notes>
+        <note category="german">Deine Waffe ist durch den harten Aufschlag &lt;strong&gt;kaputt&lt;/strong&gt; gegangen...</note>
+      </notes>
+      <segment>
+        <source>Deine Waffe ist durch den harten Aufschlag &lt;strong&gt;kaputt&lt;/strong&gt; gegangen...</source>
+        <target><![CDATA[Deine Waffe ist durch den harten Aufschlag <strong>kaputt</strong> gegangen...]]></target>
       </segment>
     </unit>
   </file>

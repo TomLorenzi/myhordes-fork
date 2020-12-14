@@ -195,8 +195,8 @@ class CitizenHandler
         if ($gallows || $cage) {
             $complaintNeeded = 8;
             // If the citizen is already shunned, we need 6 more complains to hang him
-            if($citizen->getBanished() && $gallows)
-                $complaintNeeded = 6;
+            if($citizen->getBanished())
+                $complaintNeeded += 6;
 
             if ($nbComplaint >= $complaintNeeded)
                 $action = $kill = true;
@@ -235,12 +235,6 @@ class CitizenHandler
                 $source = $item->getInventory();
                 if ($this->inventory_handler->transferItem( $citizen, $item, $source, $bank, InventoryHandler::ModalityImpound ) === InventoryHandler::ErrorNone)
                     $this->entity_manager->persist( $this->log->bankItemLog( $citizen, $item->getPrototype(), true ) );
-            }
-
-            // As he is shunned, we remove all the complaints
-            $complaints = $this->entity_manager->getRepository(Complaint::class)->findByCulprit($citizen);
-            foreach ($complaints as $complaint) {
-                $this->entity_manager->remove($complaint);
             }
         }
 

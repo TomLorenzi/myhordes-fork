@@ -446,6 +446,7 @@ class AdminUserController extends AdminActionController
 
         return $this->render( 'ajax/admin/users/list.html.twig', $this->addDefaultTwigArgs("admin_users_citizen", [
             'users' => $users,
+            'nohref' => $parser->get('no-href',false)
         ]));
     }
 
