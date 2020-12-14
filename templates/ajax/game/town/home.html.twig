@@ -105,7 +105,7 @@
                     <button id="do_insurrection"><img alt="" src="{{ asset('build/images/actions/insurrect.gif') }}" /> {{'Auf den Aufstand hinarbeiten'|trans({}, 'game')}}</button>
                 {% endif %}
 
-                {% if citizen.banished and citizen.town.insurrectionProgress > 0 %}
+                {% if citizen.banished and citizen.town.insurrectionProgress > 0 and citizen.town.insurrectionProgress < 100 %}
                 <div class="vote-bar small">
                     <div class="vote-progress" style="width: {{citizen.town.insurrectionProgress}}%;"></div>
                 </div>
