@@ -61,17 +61,15 @@ class SoulController extends CustomAbstractController
     const ErrorCoalitionFull                 = ErrorHelper::BaseSoulErrors + 13;
 
 
-    protected TranslatorInterface $translator;
     protected UserFactory $user_factory;
     protected UserHandler $user_handler;
     protected Packages $asset;
 
     public function __construct(EntityManagerInterface $em, UserFactory $uf, Packages $a, UserHandler $uh, TimeKeeperService $tk, TranslatorInterface $translator, ConfMaster $conf, CitizenHandler $ch, InventoryHandler $ih)
     {
-        parent::__construct($conf, $em, $tk, $ch, $ih);
+        parent::__construct($conf, $em, $tk, $ch, $ih, $translator);
         $this->user_factory = $uf;
         $this->asset = $a;
-        $this->translator = $translator;
         $this->user_handler = $uh;
     }
 

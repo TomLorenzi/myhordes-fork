@@ -60,7 +60,6 @@ class InventoryAwareController extends CustomAbstractController
     protected DeathHandler $death_handler;
     protected ActionHandler $action_handler;
     protected PictoHandler $picto_handler;
-    protected TranslatorInterface $translator;
     protected LogTemplateHandler $log;
     protected RandomGenerator $random_generator;
     protected ZoneHandler $zone_handler;
@@ -73,10 +72,9 @@ class InventoryAwareController extends CustomAbstractController
         TranslatorInterface $translator, LogTemplateHandler $lt, TimeKeeperService $tk, RandomGenerator $rd, ConfMaster $conf,
         ZoneHandler $zh, UserHandler $uh, CrowService $armbrust)
     {
-        parent::__construct($conf, $em, $tk, $ch, $ih);
+        parent::__construct($conf, $em, $tk, $ch, $ih, $translator);
         $this->action_handler = $ah;
         $this->picto_handler = $ph;
-        $this->translator = $translator;
         $this->log = $lt;
         $this->random_generator = $rd;
         $this->zone_handler = $zh;

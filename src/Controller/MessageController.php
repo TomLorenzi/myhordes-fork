@@ -60,15 +60,13 @@ class MessageController extends CustomAbstractController
 
     private RandomGenerator $rand;
     private Packages $asset;
-    private TranslatorInterface $trans;
     private PermissionHandler $perm;
 
     public function __construct(RandomGenerator $r, TranslatorInterface $t, Packages $a, EntityManagerInterface $em, InventoryHandler $ih, TimeKeeperService $tk, PermissionHandler $p, ConfMaster $conf, CitizenHandler $ch)
     {
-        parent::__construct($conf, $em, $tk, $ch, $ih);
+        parent::__construct($conf, $em, $tk, $ch, $ih, $t);
         $this->asset = $a;
         $this->rand = $r;
-        $this->trans = $t;
         $this->perm = $p;
     }
 
@@ -418,13 +416,13 @@ class MessageController extends CustomAbstractController
             '//div[@class=\'letter-a\']' => function (DOMNode $d) use(&$editable) { $editable = false; $l = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'; $d->nodeValue = $l[mt_rand(0,strlen($l)-1)]; },
             '//div[@class=\'letter-c\']' => function (DOMNode $d) use(&$editable) { $editable = false; $l = 'BCDFGHJKLMNPQRSTVWXZ'; $d->nodeValue = $l[mt_rand(0,strlen($l)-1)]; },
             '//div[@class=\'letter-v\']' => function (DOMNode $d) use(&$editable) { $editable = false; $l = 'AEIOUY'; $d->nodeValue = $l[mt_rand(0,strlen($l)-1)]; },
-            '//div[@class=\'rps\']'      => function (DOMNode $d) use(&$editable) { $editable = false; $d->nodeValue = $this->rand->pick([$this->trans->trans('Schere',[],'global'),$this->trans->trans('Stein',[],'global'),$this->trans->trans('Papier',[],'global')]); },
-            '//div[@class=\'coin\']'     => function (DOMNode $d) use(&$editable) { $editable = false; $d->nodeValue = $this->rand->pick([$this->trans->trans('Kopf',[],'global'),$this->trans->trans('Zahl',[],'global')]); },
+            '//div[@class=\'rps\']'      => function (DOMNode $d) use(&$editable) { $editable = false; $d->nodeValue = $this->rand->pick([$this->translator->trans('Schere',[],'global'),$this->translator->trans('Stein',[],'global'),$this->translator->trans('Papier',[],'global')]); },
+            '//div[@class=\'coin\']'     => function (DOMNode $d) use(&$editable) { $editable = false; $d->nodeValue = $this->rand->pick([$this->translator->trans('Kopf',[],'global'),$this->translator->trans('Zahl',[],'global')]); },
             '//div[@class=\'card\']'     => function (DOMNode $d) use(&$editable) { $editable = false;
-                $s_color = $this->rand->pick([$this->trans->trans('Kreuz',[],'items'),$this->trans->trans('Pik',[],'items'),$this->trans->trans('Herz',[],'items'),$this->trans->trans('Karo',[],'items')]);
+                $s_color = $this->rand->pick([$this->translator->trans('Kreuz',[],'items'),$this->translator->trans('Pik',[],'items'),$this->translator->trans('Herz',[],'items'),$this->translator->trans('Karo',[],'items')]);
                 $value = mt_rand(1,12);
-                $s_value = $value < 9 ? ('' . ($value+2)) : [$this->trans->trans('Bube',[],'items'),$this->trans->trans('Dame',[],'items'),$this->trans->trans('König',[],'items'),$this->trans->trans('Ass',[],'items')][$value-9];
-                $d->nodeValue = $this->trans->trans('{color} {value}', ['{color}' => $s_color, '{value}' => $s_value], 'global');
+                $s_value = $value < 9 ? ('' . ($value+2)) : [$this->translator->trans('Bube',[],'items'),$this->translator->trans('Dame',[],'items'),$this->translator->trans('König',[],'items'),$this->translator->trans('Ass',[],'items')][$value-9];
+                $d->nodeValue = $this->translator->trans('{color} {value}', ['{color}' => $s_color, '{value}' => $s_value], 'global');
             },
             '//div[@class=\'citizen\']'   => function (DOMNode $d) use ($user,$town,&$cache,&$editable) {
                 $editable = false;
@@ -515,13 +513,13 @@ class MessageController extends CustomAbstractController
 
                 if ($citizen->getZone() && ($citizen->getZone()->getX() !== 0 || $citizen->getZone()->getY() !== 0))  {
                     if($citizen->getTown()->getChaos()){
-                        $note = $this->trans->trans('Draußen', [], 'game');
+                        $note = $this->translator->trans('Draußen', [], 'game');
                     } else {
                         $note = "[{$citizen->getZone()->getX()}, {$citizen->getZone()->getY()}]";
                     }
                 }
                 else {
-                    $note = $this->trans->trans('in der Stadt oder am Stadttor', [], 'game');
+                    $note = $this->translator->trans('in der Stadt oder am Stadttor', [], 'game');
                 }
 
                 $post->setNote("<img alt='' src='{$this->asset->getUrl("build/images/professions/{$citizen->getProfession()->getIcon()}.gif")}' /> <img alt='' src='{$this->asset->getUrl('build/images/icons/item_map.gif')}' /> <span>$note</span>");
@@ -1491,8 +1489,8 @@ class MessageController extends CustomAbstractController
                             $reason = $complaint->getReason();
                     }
 
-                    $thread->setTitle( $this->trans->trans('Anonyme Beschwerde', [], 'game') );
-                    $post->setText( $this->prepareEmotes($post->getText()) . $this->trans->trans( 'Es wurde eine neue anonyme Beschwerde gegen dich eingelegt: "%reason%"', ['%reason%' => $this->trans->trans( $reason, [], 'game' )], 'game' ) );
+                    $thread->setTitle( $this->translator->trans('Anonyme Beschwerde', [], 'game') );
+                    $post->setText( $this->prepareEmotes($post->getText()) . $this->translator->trans( 'Es wurde eine neue anonyme Beschwerde gegen dich eingelegt: "%reason%"', ['%reason%' => $this->translator->trans( $reason, [], 'game' )], 'game' ) );
                     break;
                 case PrivateMessage::TEMPLATE_CROW_COMPLAINT_OFF:
                     /** @var Complaint $complaint */
@@ -1505,25 +1503,25 @@ class MessageController extends CustomAbstractController
                             $reason = $complaint->getReason();
                     }
 
-                    $thread->setTitle( $this->trans->trans('Beschwerde zurückgezogen', [], 'game') );
-                    $post->setText( $this->prepareEmotes($post->getText()) . $this->trans->trans( 'Es gibt gute Nachrichten! Folgende Beschwerde wurde zurückgezogen: "%reason%"', ['%reason%' => $this->trans->trans( $reason, [], 'game' )], 'game' ) );
+                    $thread->setTitle( $this->translator->trans('Beschwerde zurückgezogen', [], 'game') );
+                    $post->setText( $this->prepareEmotes($post->getText()) . $this->translator->trans( 'Es gibt gute Nachrichten! Folgende Beschwerde wurde zurückgezogen: "%reason%"', ['%reason%' => $this->translator->trans( $reason, [], 'game' )], 'game' ) );
                     break;
                 case PrivateMessage::TEMPLATE_CROW_TERROR:
-                    $thread->setTitle( $this->trans->trans('Du bist vor Angst erstarrt!!', [], 'game') );
-                    $post->setText( $this->prepareEmotes($post->getText()) . $this->trans->trans( 'Wir haben zwei Neuigkeiten für dich. Eine gute und eine schlechte. Zuerst die gute: Trotz ihrer hartnäckigen Versuche, ist es den %num% Zombie(s) nicht gelungen, dich aufzufressen. Du hast dich wacker geschlagen. Bravo! Die schlechte: Das Erlebnis war so schlimm, dass du in eine Angststarre verfallen bist. So etwas möchtest du nicht wieder erleben...', ['%num%' => $post->getForeignID()], 'game' ) );
+                    $thread->setTitle( $this->translator->trans('Du bist vor Angst erstarrt!!', [], 'game') );
+                    $post->setText( $this->prepareEmotes($post->getText()) . $this->translator->trans( 'Wir haben zwei Neuigkeiten für dich. Eine gute und eine schlechte. Zuerst die gute: Trotz ihrer hartnäckigen Versuche, ist es den %num% Zombie(s) nicht gelungen, dich aufzufressen. Du hast dich wacker geschlagen. Bravo! Die schlechte: Das Erlebnis war so schlimm, dass du in eine Angststarre verfallen bist. So etwas möchtest du nicht wieder erleben...', ['%num%' => $post->getForeignID()], 'game' ) );
                     break;
                 case PrivateMessage::TEMPLATE_CROW_THEFT:
                     /** @var ItemPrototype $item */
                     $item = $this->entity_manager->getRepository(ItemPrototype::class)->find( $post->getForeignID() );
-                    $thread->setTitle( $this->trans->trans('Haltet den Dieb!', [], 'game') );
+                    $thread->setTitle( $this->translator->trans('Haltet den Dieb!', [], 'game') );
 
                     $img = "<img src='{$this->asset->getUrl('build/images/item/item_' . ($item ? $item->getIcon() : 'none') . '.gif')}' alt='' />";
-                    $name = $this->trans->trans( $item ? $item->getLabel() : '', [], 'items' );
-                    $post->setText( $this->prepareEmotes($post->getText()) . $this->trans->trans( 'Es scheint so, als ob ein anderer Bürger Gefallen an deinem Inventar gefunden hätte... Dir wurde folgendes gestohlen: %icon% %item%', ['%icon%' => $img, '%item%' => $name], 'game' ) );
+                    $name = $this->translator->trans( $item ? $item->getLabel() : '', [], 'items' );
+                    $post->setText( $this->prepareEmotes($post->getText()) . $this->translator->trans( 'Es scheint so, als ob ein anderer Bürger Gefallen an deinem Inventar gefunden hätte... Dir wurde folgendes gestohlen: %icon% %item%', ['%icon%' => $img, '%item%' => $name], 'game' ) );
                     break;
                 case PrivateMessage::TEMPLATE_CROW_CATAPULT:
-                    $thread->setTitle( $this->trans->trans('Du bist für das Katapult verantwortlich', [], 'game') );
-                    $post->setText( $this->prepareEmotes($post->getText()) . $this->trans->trans( 'Du bist zum offiziellen Katapult-Bediener der Stadt ernannt worden. Diese Ernennung erfolgte durch Auslosung; Herzlichen Glückwunsch! Finde dich so bald wie Möglich beim städtischen Katapult ein.', [], 'game' ) );
+                    $thread->setTitle( $this->translator->trans('Du bist für das Katapult verantwortlich', [], 'game') );
+                    $post->setText( $this->prepareEmotes($post->getText()) . $this->translator->trans( 'Du bist zum offiziellen Katapult-Bediener der Stadt ernannt worden. Diese Ernennung erfolgte durch Auslosung; Herzlichen Glückwunsch! Finde dich so bald wie Möglich beim städtischen Katapult ein.', [], 'game' ) );
                     break;
                 default:
                     $post->setText($this->prepareEmotes($post->getText()));

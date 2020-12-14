@@ -18,14 +18,6 @@ use Symfony\Contracts\Translation\TranslatorInterface;
  */
 class HelpController extends CustomAbstractController
 {
-    protected $translator;
-
-    public function __construct(EntityManagerInterface $em, TranslatorInterface $translator, ConfMaster $conf, TimeKeeperService $tk, CitizenHandler $ch, InventoryHandler $ih)
-    {
-        parent::__construct($conf, $em, $tk, $ch, $ih);
-        $this->translator = $translator;
-    }
-
     /**
      * @Route("jx/help/{name}", name="help")
      * @param Request $request

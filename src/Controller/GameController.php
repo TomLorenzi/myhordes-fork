@@ -42,7 +42,6 @@ use Symfony\Contracts\Translation\TranslatorInterface;
  */
 class GameController extends CustomAbstractController implements GameInterfaceController
 {
-    protected $translator;
     protected $logTemplateHandler;
     protected TownHandler $town_handler;
     private $user_handler;
@@ -50,8 +49,7 @@ class GameController extends CustomAbstractController implements GameInterfaceCo
 
     public function __construct(EntityManagerInterface $em, TranslatorInterface $translator, LogTemplateHandler $lth, TimeKeeperService $tk, CitizenHandler $ch, UserHandler $uh, TownHandler $th, ConfMaster $conf, PictoHandler $ph, InventoryHandler $ih)
     {
-        parent::__construct($conf, $em, $tk, $ch, $ih);
-        $this->translator = $translator;
+        parent::__construct($conf, $em, $tk, $ch, $ih, $translator);
         $this->logTemplateHandler = $lth;
         $this->user_handler = $uh;
         $this->town_handler = $th;
@@ -455,7 +453,7 @@ class GameController extends CustomAbstractController implements GameInterfaceCo
         $this->entity_manager->persist($this->getActiveCitizen());
         $this->entity_manager->flush();
 
-        return $this->render( 'ajax/game/newspaper.html.twig', [
+        return $this->render( 'ajax/game/newspaper.html.twig', $this->addDefaultTwigArgs(null, [
             'show_register'  => $show_register,
             'show_town_link'  => $in_town,
             'day' => $town->getDay(),
@@ -469,7 +467,7 @@ class GameController extends CustomAbstractController implements GameInterfaceCo
                 'attack'    => $this->time_keeper->secondsUntilNextAttack(null, true),
                 'towntype'  => $this->getActiveCitizen()->getTown()->getType()->getName(),
             ],
-        ] );
+        ]));
     }
 
     /**

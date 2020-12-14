@@ -39,7 +39,6 @@ class AdminActionController extends CustomAbstractController
 {
     protected $logTemplateHandler;
     protected $zone_handler;
-    protected $translator;
 
     public static function getAdminActions(): array {
         return [
@@ -54,9 +53,8 @@ class AdminActionController extends CustomAbstractController
 
     public function __construct(EntityManagerInterface $em, ConfMaster $conf, LogTemplateHandler $lth, TranslatorInterface $translator, ZoneHandler $zh, TimeKeeperService $tk, CitizenHandler $ch, InventoryHandler $ih)
     {
-        parent::__construct($conf, $em, $tk, $ch, $ih);
+        parent::__construct($conf, $em, $tk, $ch, $ih, $translator);
         $this->logTemplateHandler = $lth;
-        $this->translator = $translator;
         $this->zone_handler = $zh;
 
     }

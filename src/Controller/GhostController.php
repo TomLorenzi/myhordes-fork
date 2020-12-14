@@ -31,14 +31,12 @@ use Symfony\Contracts\Translation\TranslatorInterface;
  */
 class GhostController extends CustomAbstractController implements GhostInterfaceController
 {
-    protected $translator;
     private $user_handler;
     const ErrorWrongTownPassword          = ErrorHelper::BaseGhostErrors + 1;
 
     public function __construct(EntityManagerInterface $em, UserHandler $uh, TimeKeeperService $tk, TranslatorInterface $translator, ConfMaster $conf, CitizenHandler $ch, InventoryHandler $ih)
     {
-        parent::__construct($conf, $em, $tk, $ch, $ih);
-        $this->translator = $translator;
+        parent::__construct($conf, $em, $tk, $ch, $ih, $translator);
         $this->user_handler = $uh;
     }
 

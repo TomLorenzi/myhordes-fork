@@ -34,14 +34,12 @@ class WebController extends CustomAbstractController
 {
     private $version_manager;
     private $kernel;
-    protected $translator;
 
     public function __construct(VersionManager $v, KernelInterface $k, EntityManagerInterface $e, TranslatorInterface $translator, ConfMaster $conf, TimeKeeperService $tk, CitizenHandler $ch, InventoryHandler $ih)
     {
-        parent::__construct($conf, $e, $tk, $ch, $ih);
+        parent::__construct($conf, $e, $tk, $ch, $ih, $translator);
         $this->version_manager = $v;
         $this->kernel = $k;
-        $this->translator = $translator;
     }
 
     private function render_web_framework(string $ajax_landing) {
