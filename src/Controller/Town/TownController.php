@@ -362,6 +362,7 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
             'allow_devour_corpse' => !$this->citizen_handler->hasStatusEffect($this->getActiveCitizen(), 'tg_ghoul_corpse'),
             'home' => $home,
             'actions' => $this->getItemActions(),
+            'can_complain' => !$this->getActiveCitizen()->getBanished() && ( !$c->getBanished() || $th->getBuilding( $this->getActiveCitizen()->getTown(), 'r_dhang_#00', true ) || $th->getBuilding( $this->getActiveCitizen()->getTown(), 'small_fleshcage_#00', true )),
             'complaint' => $this->entity_manager->getRepository(Complaint::class)->findByCitizens( $this->getActiveCitizen(), $c ),
             'complaints' => $this->entity_manager->getRepository(Complaint::class)->matching( $criteria ),
             'complaintreasons' => $this->entity_manager->getRepository(ComplaintReason::class)->findAll(),
@@ -538,12 +539,14 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
         if (!$culprit || $culprit->getTown()->getId() !== $town->getId() || !$culprit->getAlive() )
             return AjaxResponse::error(ErrorHelper::ErrorActionNotAvailable );
 
+        if ($culprit->getBanished() && !$has_gallows && !$has_cage && $severity > Complaint::SeverityNone)
+            return AjaxResponse::error(ErrorHelper::ErrorActionNotAvailable );
+
         // Check permission: dummy accounts may not complain against non-dummy accounts (dummy is any account which email ends on @localhost)
         if ($this->isGranted('ROLE_DUMMY', $author) && !$this->isGranted('ROLE_DUMMY', $culprit))
             return AjaxResponse::error(ErrorHelper::ErrorPermissionError );
 
         $existing_complaint = $em->getRepository( Complaint::class )->findByCitizens($author, $culprit);
-        $severity_before = $existing_complaint ? $existing_complaint->getSeverity() : 0;
 
         if ($severity > Complaint::SeverityNone) {
             $counter = $this->getActiveCitizen()->getSpecificActionCounter(ActionCounter::ActionTypeComplaint);

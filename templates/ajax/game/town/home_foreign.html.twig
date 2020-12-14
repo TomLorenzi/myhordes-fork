@@ -117,7 +117,7 @@
 	                        <button x-heal-citizen>{{'Nutze deine heilenden Hände'|trans({}, 'game')}} ({% if is_shaman_role %}2 <div class="pm"></div>{% else %}2 <div class="ap"></div>{% endif %})</button>
 	                    {% endif %}
                     {% endif %}
-                    {% if not citizen.banished %}
+                    {% if can_complain %}
                         {% if complaint is null or complaint.severity == 0 %}
                         <button x-show-reason>{{ 'Anzeige erstatten'|trans({},'game') }}</button>
                         <div class="lightbox" id="complain_reason" style="display: none";>
