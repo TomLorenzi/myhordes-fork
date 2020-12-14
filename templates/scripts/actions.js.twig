@@ -23,7 +23,9 @@ const handleSpecialActions = function( actions, api_path, return_path ) {
             let obj = { action: action_id };
             if (target_id) obj.target = target_id;
             $.ajax.easySend( api_path, obj,
-                function () {
+                function (data) {
+                    if(data.url)
+                        return_path = data.url;
                     $.ajax.load(null, return_path, true);
                 }, {
                     '{{ constant('App\\Service\\ActionHandler::ErrorActionForbidden') }}': function(data) {
@@ -89,7 +91,9 @@ const handleActions = function( actions, api_path, return_path ) {
                 : { item: item_id, action: action_id };
             if (target_id) obj.target = target_id;
             $.ajax.easySend( api_path, obj,
-                function () {
+                function (data) {
+                    if(data.url)
+                        return_path = data.url;
                     $.ajax.load(null, return_path, true);
                 }, {
                     '{{ constant('App\\Service\\ActionHandler::ErrorActionForbidden') }}': function(data) {

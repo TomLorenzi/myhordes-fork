@@ -8,6 +8,7 @@ use App\Entity\Citizen;
 use App\Entity\CitizenHomeUpgrade;
 use App\Entity\CitizenHomeUpgradePrototype;
 use App\Entity\ExpeditionRoute;
+use App\Entity\FoundRolePlayText;
 use App\Entity\HelpNotificationMarker;
 use App\Entity\HeroicActionPrototype;
 use App\Entity\HomeActionPrototype;
@@ -1045,12 +1046,13 @@ class InventoryAwareController extends CustomAbstractController
         if (!$citizen->getInventory()->getItems()->contains( $item ) && !$secondary_inv->getItems()->contains( $item )) return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
         if (!$this->extract_target_object( $target_id, $action->getTarget(), [ $citizen->getInventory(), $zone ? $zone->getFloor() : $citizen->getHome()->getChest() ], $target ))
             return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
+        $url = null;
 
         if (($error = $this->action_handler->execute( $citizen, $item, $target, $action, $msg, $remove )) === ActionHandler::ErrorNone) {
 
             if ($trigger_after) $trigger_after($action);
 
-            if($action->getName() == 'improve') {
+            if ($action->getName() == 'improve') {
                 $this->entity_manager->persist($this->log->beyondCampingItemImprovement($citizen, $item->getPrototype()));
             }
 
@@ -1066,12 +1068,17 @@ class InventoryAwareController extends CustomAbstractController
             }
 
             if ($msg) $this->addFlash( 'notice', $msg );
+            
+            if($text = $this->entity_manager->getRepository(FoundRolePlayText::class)->findNextUnreadText($this->getUser())){
+                /** @var FoundRolePlayText $text */
+                $url = $this->generateUrl("soul_rp", ['page' => 1, 'id' => $text->getId()]);
+            }
+
         } elseif ($error === ActionHandler::ErrorActionForbidden) {
             if (!empty($msg)) $msg = $this->translator->trans($msg, [], 'items');
             return AjaxResponse::error($error, ['message' => $msg]);
         }
         else return AjaxResponse::error( $error );
-
-        return AjaxResponse::success();
+        return AjaxResponse::success( true, ['url' => $url] );
     }
 }
