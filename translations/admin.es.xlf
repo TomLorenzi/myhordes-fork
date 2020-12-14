@@ -1051,7 +1051,7 @@
       </notes>
       <segment>
         <source>PM vom Raben</source>
-        <target>MP desde El Cuervo</target>
+        <target>MP de El Cuervo</target>
       </segment>
     </unit>
     <unit id="nq1XXly" name="Stadtregister">
@@ -1411,7 +1411,7 @@
       </notes>
       <segment>
         <source>E-Mail eingeben.</source>
-        <target>E-Mail eingeben.</target>
+        <target>Ingresar e-mail.</target>
       </segment>
     </unit>
     <unit id="lJqqLMl" name="E-Mail ändern">
@@ -1420,7 +1420,7 @@
       </notes>
       <segment>
         <source>E-Mail ändern</source>
-        <target>E-Mail ändern</target>
+        <target>Cambiar e-mail</target>
       </segment>
     </unit>
     <unit id="5sAjGFp" name="Neues Passwort eingeben.">
@@ -1429,7 +1429,7 @@
       </notes>
       <segment>
         <source>Neues Passwort eingeben.</source>
-        <target>Neues Passwort eingeben.</target>
+        <target>Ingresar una nueva contraseña.</target>
       </segment>
     </unit>
     <unit id="n2HwFFe" name="Neues Passwort setzen">
@@ -1438,7 +1438,7 @@
       </notes>
       <segment>
         <source>Neues Passwort setzen</source>
-        <target>Neues Passwort setzen</target>
+        <target>Cambiar contraseña</target>
       </segment>
     </unit>
     <unit id="V1ukt7Z" name="EternalTwin-Integration">
@@ -1447,7 +1447,7 @@
       </notes>
       <segment>
         <source>EternalTwin-Integration</source>
-        <target>EternalTwin-Integration</target>
+        <target>Integración a EternalTwin</target>
       </segment>
     </unit>
     <unit id="OkyzTP2" name="In lokalen Account umwandeln">
@@ -1456,7 +1456,7 @@
       </notes>
       <segment>
         <source>In lokalen Account umwandeln</source>
-        <target>In lokalen Account umwandeln</target>
+        <target>Cambiar en Cuenta Local</target>
       </segment>
     </unit>
     <unit id="B9D7Dk5" name="Kartei">
@@ -1465,7 +1465,7 @@
       </notes>
       <segment>
         <source>Kartei</source>
-        <target>Kartei</target>
+        <target>Índice</target>
       </segment>
     </unit>
     <unit id="OrLqzbq" name="Anzeigename">
@@ -1474,7 +1474,7 @@
       </notes>
       <segment>
         <source>Anzeigename</source>
-        <target>Anzeigename</target>
+        <target>Nombre de Muestra</target>
       </segment>
     </unit>
     <unit id="14HKU3b" name="Lokal: %account%">
@@ -1483,7 +1483,7 @@
       </notes>
       <segment>
         <source>Lokal: %account%</source>
-        <target>Lokal: %account%</target>
+        <target>Local: %account%</target>
       </segment>
     </unit>
     <unit id="OaKjJho" name="Von EternalTwin verwaltet">
@@ -1492,7 +1492,7 @@
       </notes>
       <segment>
         <source>Von EternalTwin verwaltet</source>
-        <target>Von EternalTwin verwaltet</target>
+        <target>Gestionado por EternalTwin</target>
       </segment>
     </unit>
     <unit id="uCT9EnO" name="Nur für Administratoren sichtbar">
@@ -1501,7 +1501,7 @@
       </notes>
       <segment>
         <source>Nur für Administratoren sichtbar</source>
-        <target>Nur für Administratoren sichtbar</target>
+        <target>Sólo visible para Administradores</target>
       </segment>
     </unit>
     <unit id="pitbSje" name="Verknüpfte Konten">
@@ -1510,7 +1510,7 @@
       </notes>
       <segment>
         <source>Verknüpfte Konten</source>
-        <target>Verknüpfte Konten</target>
+        <target>Cuentas Vinculadas</target>
       </segment>
     </unit>
     <unit id="L0eG_iZ" name="EternalTwin-Konto">
@@ -1519,7 +1519,7 @@
       </notes>
       <segment>
         <source>EternalTwin-Konto</source>
-        <target>EternalTwin-Konto</target>
+        <target>Cuenta de EternalTwin</target>
       </segment>
     </unit>
     <unit id="nz1fjZT" name="Sonstiges">
@@ -1528,7 +1528,7 @@
       </notes>
       <segment>
         <source>Sonstiges</source>
-        <target>Sonstiges</target>
+        <target>Otros</target>
       </segment>
     </unit>
     <unit id="TklQ7Ze" name="AntiSpam">
@@ -1537,7 +1537,7 @@
       </notes>
       <segment>
         <source>AntiSpam</source>
-        <target>AntiSpam</target>
+        <target>Anti-spam</target>
       </segment>
     </unit>
     <unit id="j137AeF" name="Account zur Löschung vorgemerkt!">
@@ -1546,7 +1546,7 @@
       </notes>
       <segment>
         <source>Account zur Löschung vorgemerkt!</source>
-        <target>Account zur Löschung vorgemerkt!</target>
+        <target>Cuenta marcada para eliminiación!</target>
       </segment>
     </unit>
     <unit id="_Ywx.pH" name="Anzahl der gelisteten Domains: %number%">
@@ -1555,7 +1555,7 @@
       </notes>
       <segment>
         <source>Anzahl der gelisteten Domains: %number%</source>
-        <target>Anzahl der gelisteten Domains: %number%</target>
+        <target>Cantidad de dominios listados: %number%</target>
       </segment>
     </unit>
     <unit id="u.IOicZ" name="Domain-Suche">
@@ -1564,7 +1564,7 @@
       </notes>
       <segment>
         <source>Domain-Suche</source>
-        <target>Domain-Suche</target>
+        <target>Búsqueda por dominio</target>
       </segment>
     </unit>
     <unit id="zptHdme" name="Gewählte entfernen">
@@ -1573,7 +1573,7 @@
       </notes>
       <segment>
         <source>Gewählte entfernen</source>
-        <target>Gewählte entfernen</target>
+        <target>Eliminar selección</target>
       </segment>
     </unit>
     <unit id="l.ziWyi" name="Domains hinzufügen">
@@ -1582,7 +1582,7 @@
       </notes>
       <segment>
         <source>Domains hinzufügen</source>
-        <target>Domains hinzufügen</target>
+        <target>Agregar dominios</target>
       </segment>
     </unit>
     <unit id="y7lc8Ct" name="Hinzufügen">
@@ -1591,7 +1591,7 @@
       </notes>
       <segment>
         <source>Hinzufügen</source>
-        <target>Hinzufügen</target>
+        <target>Agregar</target>
       </segment>
     </unit>
     <unit id="_b4bK2O" name="Nachricht?">
@@ -1600,7 +1600,7 @@
       </notes>
       <segment>
         <source>Nachricht?</source>
-        <target>Nachricht?</target>
+        <target>¿Noticia?</target>
       </segment>
     </unit>
     <unit id="XCTslOz" name="Foren-Meldungen">
@@ -1609,7 +1609,7 @@
       </notes>
       <segment>
         <source>Foren-Meldungen</source>
-        <target>Foren-Meldungen</target>
+        <target>Mensajes de foros</target>
       </segment>
     </unit>
     <unit id="EdJ7diC" name="PN-Meldungen">
@@ -1618,7 +1618,7 @@
       </notes>
       <segment>
         <source>PN-Meldungen</source>
-        <target>PN-Meldungen</target>
+        <target>Mensajes Privados</target>
       </segment>
     </unit>
     <unit id="vDhaMLU" name="Öffnen">
@@ -1645,7 +1645,7 @@
       </notes>
       <segment>
         <source>Stadt %townname%</source>
-        <target>Stadt %townname%</target>
+        <target>Pueblo %townname%</target>
       </segment>
     </unit>
     <unit id="Z2xHG8j" name="Bank">
@@ -1654,7 +1654,7 @@
       </notes>
       <segment>
         <source>Bank</source>
-        <target>Bank</target>
+        <target>Almacén</target>
       </segment>
     </unit>
     <unit id="id10hEL" name="Apps">
@@ -1672,7 +1672,7 @@
       </notes>
       <segment>
         <source>Einen Gegenstand erzeugen:</source>
-        <target>Einen Gegenstand erzeugen:</target>
+        <target>Generar un objeto:</target>
       </segment>
     </unit>
     <unit id="pkg069a" name="Nummer des Gegenstandes:">
@@ -1681,7 +1681,7 @@
       </notes>
       <segment>
         <source>Nummer des Gegenstandes:</source>
-        <target>Nummer des Gegenstandes:</target>
+        <target>Cantidad del objeto:</target>
       </segment>
     </unit>
     <unit id="9B3v_rN" name="Vergiftet:">
@@ -1690,7 +1690,7 @@
       </notes>
       <segment>
         <source>Vergiftet:</source>
-        <target>Vergiftet:</target>
+        <target>Envenenado:</target>
       </segment>
     </unit>
     <unit id="ba2jGNX" name="Zerstört:">
@@ -1699,7 +1699,7 @@
       </notes>
       <segment>
         <source>Zerstört:</source>
-        <target>Zerstört:</target>
+        <target>Roto:</target>
       </segment>
     </unit>
     <unit id="_vIjrdl" name="Essentiell:">
@@ -1708,7 +1708,7 @@
       </notes>
       <segment>
         <source>Essentiell:</source>
-        <target>Essentiell:</target>
+        <target>Escencial:</target>
       </segment>
     </unit>
     <unit id="pAhkch3" name="Erzeugen!">
@@ -1717,7 +1717,7 @@
       </notes>
       <segment>
         <source>Erzeugen!</source>
-        <target>Erzeugen!</target>
+        <target>Crear!</target>
       </segment>
     </unit>
     <unit id="HMtmyP_" name="Rucksack">
@@ -1726,7 +1726,7 @@
       </notes>
       <segment>
         <source>Rucksack</source>
-        <target>Rucksack</target>
+        <target>Mochila</target>
       </segment>
     </unit>
     <unit id="n__v7g9" name="Truhe">
@@ -1735,7 +1735,7 @@
       </notes>
       <segment>
         <source>Truhe</source>
-        <target>Truhe</target>
+        <target>Cofre</target>
       </segment>
     </unit>
     <unit id="fUbvGiO" name="Leere Truhe">
@@ -1744,7 +1744,7 @@
       </notes>
       <segment>
         <source>Leere Truhe</source>
-        <target>Leere Truhe</target>
+        <target>Cofre vacío</target>
       </segment>
     </unit>
     <unit id="fV5wxwj" name="In der Stadt">
@@ -1753,7 +1753,7 @@
       </notes>
       <segment>
         <source>In der Stadt</source>
-        <target>In der Stadt</target>
+        <target>En el pueblo</target>
       </segment>
     </unit>
     <unit id="I5qOX6_" name="Anwendung">
@@ -1762,7 +1762,7 @@
       </notes>
       <segment>
         <source>Anwendung</source>
-        <target>Anwendung</target>
+        <target>Aplicación</target>
       </segment>
     </unit>
     <unit id="zO1HXOo" name="Besitzer">
@@ -1771,7 +1771,7 @@
       </notes>
       <segment>
         <source>Besitzer</source>
-        <target>Besitzer</target>
+        <target>Propietario</target>
       </segment>
     </unit>
     <unit id="Ml7s_dM" name="Kontakt">
@@ -1780,7 +1780,7 @@
       </notes>
       <segment>
         <source>Kontakt</source>
-        <target>Kontakt</target>
+        <target>Contacto</target>
       </segment>
     </unit>
     <unit id="zYXso4d" name="Name der Anwendung">
@@ -1789,7 +1789,7 @@
       </notes>
       <segment>
         <source>Name der Anwendung</source>
-        <target>Name der Anwendung</target>
+        <target>Nombre de la aplicación</target>
       </segment>
     </unit>
     <unit id="gwaSbiX" name="Niemand">
@@ -1798,7 +1798,7 @@
       </notes>
       <segment>
         <source>Niemand</source>
-        <target>Niemand</target>
+        <target>Nadie</target>
       </segment>
     </unit>
     <unit id="56JB3rr" name="URL">
@@ -1816,7 +1816,7 @@
       </notes>
       <segment>
         <source>Anzeige</source>
-        <target>Anzeige</target>
+        <target>Anuncio</target>
       </segment>
     </unit>
     <unit id="YIZ57UG" name="Anwendungen im Testbetrieb können nur von ihrem Besitzer verwendet werden.">
@@ -1825,7 +1825,7 @@
       </notes>
       <segment>
         <source>Anwendungen im Testbetrieb können nur von ihrem Besitzer verwendet werden.</source>
-        <target>Anwendungen im Testbetrieb können nur von ihrem Besitzer verwendet werden.</target>
+        <target>Las aplicaciones en fase de testing, sólo pueden ser utilizadas por su propietario.</target>
       </segment>
     </unit>
     <unit id="pmqhEIB" name="Testbetrieb">
@@ -1834,7 +1834,7 @@
       </notes>
       <segment>
         <source>Testbetrieb</source>
-        <target>Testbetrieb</target>
+        <target>Fase de Prueba</target>
       </segment>
     </unit>
     <unit id="o1q81tr" name="Icon">
@@ -1843,7 +1843,7 @@
       </notes>
       <segment>
         <source>Icon</source>
-        <target>Icon</target>
+        <target>Ícono</target>
       </segment>
     </unit>
     <unit id="CgS2hD0" name="Datenzugriff">
@@ -1852,7 +1852,7 @@
       </notes>
       <segment>
         <source>Datenzugriff</source>
-        <target>Datenzugriff</target>
+        <target>Acceso a datos</target>
       </segment>
     </unit>
     <unit id="PgM27MC" name="Anwendungen ohne API-Zugang werden nur als Links eingebunden.">
@@ -1861,7 +1861,7 @@
       </notes>
       <segment>
         <source>Anwendungen ohne API-Zugang werden nur als Links eingebunden.</source>
-        <target>Anwendungen ohne API-Zugang werden nur als Links eingebunden.</target>
+        <target>Las aplicaciones que no utilizan la API, sólo se acceden mediante un link.</target>
       </segment>
     </unit>
     <unit id="ftE4M1T" name="Zugang zur API">
@@ -1870,7 +1870,7 @@
       </notes>
       <segment>
         <source>Zugang zur API</source>
-        <target>Zugang zur API</target>
+        <target>Acceso a la API</target>
       </segment>
     </unit>
     <unit id="oFJRNSD" name="Wird automatisch generiert">
@@ -1879,7 +1879,7 @@
       </notes>
       <segment>
         <source>Wird automatisch generiert</source>
-        <target>Wird automatisch generiert</target>
+        <target>Generado automáticamente</target>
       </segment>
     </unit>
     <unit id="NoNAzwa" name="Schlüssel regenerieren">
@@ -1888,7 +1888,7 @@
       </notes>
       <segment>
         <source>Schlüssel regenerieren</source>
-        <target>Schlüssel regenerieren</target>
+        <target>Volver a generar clave</target>
       </segment>
     </unit>
   </file>
