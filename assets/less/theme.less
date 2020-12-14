@@ -333,16 +333,19 @@ x-message {
       &:hover #apps-list {
         display: block;
 
+        & a { text-decoration: none !important;}
+
         & p { color: white; font-size: 1.3rem; }
 
         & ul {
-          padding: 0; float: left; position: relative; margin: 0 0 8px; list-style: none;
+          padding: 0; position: relative; margin: 0 0 8px; list-style: none;
 
           & li.app-external {
+            display: inline-block; width: 50%; float: left;
             margin: 0 0 .5em; padding: 0; font-size: 1.3rem; color: #ddab76; cursor: pointer;
             img { vertical-align: middle; margin-right: 10px; }
             span { font-weight: normal; }
-            div.small { margin-left: 26px; font-size: 0.75em; font-variant: small-caps; }
+            div.small { margin-left: 26px; font-size: 0.6em; font-variant: small-caps; }
           }
         }
       }
@@ -369,12 +372,8 @@ x-message {
     }
 
     &>.row.external-app>.cell {
-      margin-top: 40px;
-      color: #f0d79e;
-      border: 1px solid #773939;
-      outline: 3px solid #5c2b20;
-      background: none;
-      background-color: #5c2b20;
+      margin-top: 40px; border: 1px solid #773939; outline: 3px solid #5c2b20;
+      background: #5c2b20 none; color: #f0d79e;
 
       & span.critical {
         text-transform: uppercase;
@@ -575,14 +574,13 @@ button, *.button, *.modal-button {
 }
 
 input[type='text'],input[type='number'],input[type='password'],input[type='email'],input[type='url'],textarea {
-  transition: outline-color 0.5s; outline: 1px solid rgba(0,0,0,0);
+  transition: outline-color 0.5s; outline: 1px solid rgba(0,0,0,0); color: black;
   &:not(textarea) { background: @myhordes-input-background; }
   &:not(input)    { background: @myhordes-input-text-background; resize: vertical; max-width: 100%; min-height: 250px; }
   border: 1px solid @myhordes-input-border; height: 25px;
   &:not(.inline) { display: block; width: 100%; }
   &:focus { outline-color: @myhordes-input-border; }
   &:invalid,&.invalid { box-shadow: 0 0 4px red; }
-  &[disabled] { color: black; }
 }
 
 a { color: @myhordes-smalltext; font-weight: bold; }

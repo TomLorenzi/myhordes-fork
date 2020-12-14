@@ -6,6 +6,7 @@ use App\Controller\CustomAbstractController;
 use App\Entity\CauseOfDeath;
 use App\Entity\Changelog;
 use App\Entity\CitizenRankingProxy;
+use App\Entity\ExternalApp;
 use App\Entity\FoundRolePlayText;
 use App\Entity\HeroSkillPrototype;
 use App\Entity\Picto;
@@ -22,6 +23,7 @@ use App\Service\ConfMaster;
 use App\Service\ErrorHelper;
 use App\Service\EternalTwinHandler;
 use App\Service\JSONRequestParser;
+use App\Service\RandomGenerator;
 use App\Service\UserFactory;
 use App\Service\UserHandler;
 use App\Service\AdminActionHandler;
@@ -37,7 +39,10 @@ use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
+use Symfony\Component\Validator\ConstraintViolationInterface;
 use Symfony\Contracts\Translation\TranslatorInterface;
+use Symfony\Component\Validator\Constraints;
+use Symfony\Component\Validator\Validation;
 
 /**
  * @Route("/",condition="request.isXmlHttpRequest()")
@@ -837,5 +842,46 @@ class SoulController extends CustomAbstractController
     public function help_me(): Response
     {
         return $this->render( 'ajax/help/shell.html.twig');
+    }
+
+    /**
+     * @Route("api/soul/app/{id<\d+>}", name="soul_own_app_update")
+     * @param int $id
+     * @param JSONRequestParser $parser
+     * @param RandomGenerator $rand
+     * @return Response
+     */
+    public function api_update_own_app(int $id, JSONRequestParser $parser, RandomGenerator $rand) {
+        /** @var ExternalApp $app */
+        $app = $this->entity_manager->getRepository(ExternalApp::class)->find($id);
+
+        if ($app === null) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+        if ($app->getOwner() === null || $app->getOwner() !== $this->getUser()) return AjaxResponse::error(ErrorHelper::ErrorPermissionError);
+
+        if (!$parser->has_all( ['contact','url'], true )) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+        $violations = Validation::createValidator()->validate( $parser->all( true ), new Constraints\Collection([
+            'url' => [ new Constraints\Url( ['relativeProtocol' => false, 'protocols' => ['http', 'https'], 'message' => 'a' ] ) ],
+            'contact' => [ new Constraints\Email( ['message' => 'v']) ],
+            'sk' => [  ]
+        ]) );
+
+        if ($violations->count() > 0) return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
+
+        $app->setUrl( $parser->trimmed('url') )->setContact( $parser->trimmed('contact') );
+        if ( !$app->getLinkOnly() && $parser->get('sk', null) ) {
+            $s = '';
+            for ($i = 0; $i < 32; $i++) $s .= $rand->pick(['0','1','2','3','4','5','6','7','8','9','a','b','c','d','e','f']);
+            $app->setSecret( $s );
+        }
+
+        $this->entity_manager->persist($app);
+        try {
+            $this->entity_manager->flush();
+        } catch (\Exception $e) {
+            AjaxResponse::error( ErrorHelper::ErrorDatabaseException );
+        }
+
+        return AjaxResponse::success();
     }
 }
