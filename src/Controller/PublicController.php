@@ -41,15 +41,8 @@ use Symfony\Contracts\Translation\TranslatorInterface;
  */
 class PublicController extends CustomAbstractController
 {
-    protected $entity_manager;
-
-    public function __construct(EntityManagerInterface $em, ConfMaster $conf)
-    {
-        parent::__construct($conf);
-        $this->entity_manager = $em;
-    }
-
-    protected function addDefaultTwigArgs( ?array $data = null ): array {
+    protected function addDefaultTwigArgs(?string $section = null, ?array $data = null ): array {
+        parent::addDefaultTwigArgs($section, $data);
         $data = $data ?? [];
 
         $deadCitizenCount = count($this->entity_manager->getRepository(Citizen::class)->findBy(['alive' => 0]));
@@ -81,7 +74,7 @@ class PublicController extends CustomAbstractController
         $global = $conf->getGlobalConf();
         $allow_dual_stack = $global->get(MyHordesConf::CONF_ETWIN_DUAL_STACK, true);
 
-        return $this->render(  $etwin->isReady() ? 'ajax/public/login.html.twig' : 'ajax/public/login_legacy.html.twig', $this->addDefaultTwigArgs([
+        return $this->render(  $etwin->isReady() ? 'ajax/public/login.html.twig' : 'ajax/public/login_legacy.html.twig', $this->addDefaultTwigArgs(null, [
             'etwin' => $etwin->isReady(),
             'myh' => $allow_dual_stack,
         ]) );

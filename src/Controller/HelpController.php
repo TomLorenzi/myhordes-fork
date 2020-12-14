@@ -2,7 +2,10 @@
 
 namespace App\Controller;
 
+use App\Service\CitizenHandler;
 use App\Service\ConfMaster;
+use App\Service\InventoryHandler;
+use App\Service\TimeKeeperService;
 use Doctrine\ORM\EntityManagerInterface;
 use Exception;
 use Symfony\Component\HttpFoundation\Request;
@@ -15,16 +18,6 @@ use Symfony\Contracts\Translation\TranslatorInterface;
  */
 class HelpController extends CustomAbstractController
 {
-    protected $entity_manager;
-    protected $translator;
-
-    public function __construct(EntityManagerInterface $em, TranslatorInterface $translator, ConfMaster $conf)
-    {
-        parent::__construct($conf);
-        $this->entity_manager = $em;
-        $this->translator = $translator;
-    }
-
     /**
      * @Route("jx/help/{name}", name="help")
      * @param Request $request
@@ -35,7 +28,7 @@ class HelpController extends CustomAbstractController
     {
         if ($name === 'shell') return $this->redirect($this->generateUrl('help'));
         try {
-            return $this->render( "ajax/help/$name.html.twig", ['section' => $name]);
+            return $this->render( "ajax/help/$name.html.twig", $this->addDefaultTwigArgs(null, ['section' => $name]));
         } catch (Exception $e){
             return $this->redirect($this->generateUrl('help'));
         }

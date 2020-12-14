@@ -11,10 +11,13 @@ use App\Entity\User;
 use App\Entity\Town;
 use App\Entity\TownLogEntry;
 use App\Response\AjaxResponse;
+use App\Service\CitizenHandler;
 use App\Service\ConfMaster;
 use App\Service\ErrorHelper;
+use App\Service\InventoryHandler;
 use App\Service\JSONRequestParser;
 use App\Service\LogTemplateHandler;
+use App\Service\TimeKeeperService;
 use App\Service\ZoneHandler;
 use App\Structures\BankItem;
 use App\Translation\T;
@@ -34,10 +37,8 @@ use Symfony\Contracts\Translation\TranslatorInterface;
  */
 class AdminActionController extends CustomAbstractController
 {
-    protected $entity_manager;
     protected $logTemplateHandler;
     protected $zone_handler;
-    protected $translator;
 
     public static function getAdminActions(): array {
         return [
@@ -51,12 +52,10 @@ class AdminActionController extends CustomAbstractController
         ];
     }
 
-    public function __construct(EntityManagerInterface $em, ConfMaster $conf, LogTemplateHandler $lth, TranslatorInterface $translator, ZoneHandler $zh)
+    public function __construct(EntityManagerInterface $em, ConfMaster $conf, LogTemplateHandler $lth, TranslatorInterface $translator, ZoneHandler $zh, TimeKeeperService $tk, CitizenHandler $ch, InventoryHandler $ih)
     {
-        parent::__construct($conf);
-        $this->entity_manager = $em;
+        parent::__construct($conf, $em, $tk, $ch, $ih, $translator);
         $this->logTemplateHandler = $lth;
-        $this->translator = $translator;
         $this->zone_handler = $zh;
 
     }

@@ -27,6 +27,8 @@ use App\Service\RandomGenerator;
 use App\Service\UserFactory;
 use App\Service\UserHandler;
 use App\Service\AdminActionHandler;
+use App\Service\CitizenHandler;
+use App\Service\InventoryHandler;
 use App\Service\TimeKeeperService;
 use App\Structures\MyHordesConf;
 use DateTime;
@@ -64,25 +66,21 @@ class SoulController extends CustomAbstractController
     const ErrorCoalitionFull                 = ErrorHelper::BaseSoulErrors + 13;
 
 
-    protected EntityManagerInterface $entity_manager;
-    protected TranslatorInterface $translator;
     protected UserFactory $user_factory;
-    protected TimeKeeperService $time_keeper;
     protected UserHandler $user_handler;
     protected Packages $asset;
 
-    public function __construct(EntityManagerInterface $em, UserFactory $uf, Packages $a, UserHandler $uh, TimeKeeperService $tk, TranslatorInterface $translator, ConfMaster $conf)
+    public function __construct(EntityManagerInterface $em, UserFactory $uf, Packages $a, UserHandler $uh, TimeKeeperService $tk, TranslatorInterface $translator, ConfMaster $conf, CitizenHandler $ch, InventoryHandler $ih)
     {
-        parent::__construct($conf);
-        $this->entity_manager = $em;
+        parent::__construct($conf, $em, $tk, $ch, $ih, $translator);
         $this->user_factory = $uf;
         $this->asset = $a;
-        $this->translator = $translator;
         $this->user_handler = $uh;
-        $this->time_keeper = $tk;
     }
 
     protected function addDefaultTwigArgs(?string $section = null, ?array $data = null ): array {
+        $data = parent::addDefaultTwigArgs($section, $data);
+
         $user = $this->getUser();
 
         $data = $data ?? [];
@@ -109,14 +107,6 @@ class SoulController extends CustomAbstractController
 
         $data["soul_tab"] = $section;
         $data["new_message"] = !empty($user_invitations) || $messages;
-
-        $data['clock'] = [
-            'desc'      => $user->getActiveCitizen() !== null ? $user->getActiveCitizen()->getTown()->getName() : $this->translator->trans('Worauf warten Sie noch?', [], 'ghost'),
-            'day'       => $user->getActiveCitizen() !== null ? $user->getActiveCitizen()->getTown()->getDay() : "",
-            'timestamp' => new DateTime('now'),
-            'attack'    => $this->time_keeper->secondsUntilNextAttack(null, true),
-            'towntype'  => $user->getActiveCitizen() !== null ? $user->getActiveCitizen()->getTown()->getType()->getName() : "",
-        ];
 
         return $data;
     }

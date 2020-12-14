@@ -113,9 +113,7 @@ class AdminAppController extends AdminActionController
             ->setLinkOnly( !(bool)$parser->get('flux') );
 
         if ($parser->get('icon') !== false) {
-
             if ($parser->get('icon') === null)
-
                 $app->setImage(null)->setImageName(null)->setImageFormat(null);
             else {
                 $payload = $parser->get_base64('icon');
