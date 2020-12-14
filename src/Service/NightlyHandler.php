@@ -1145,8 +1145,8 @@ class NightlyHandler
 
         $db = [
             'small_appletree_#00'      => [ 'apple_#00' => mt_rand(3,5) ],
-            'item_vegetable_tasty_#00' => [ 'vegetable_#00' => !$has_fertilizer ? mt_rand(4,8) : mt_rand(8,14), 'vegetable_tasty_#00' => !$has_fertilizer ? mt_rand(0,2) : mt_rand(2,5) ],
-            'item_bgrenade_#01'        => [ 'boomfruit_#00' => !$has_fertilizer ? mt_rand(3,5) : mt_rand(5,8) ],
+            'item_vegetable_tasty_#00' => [ 'vegetable_#00' => !$has_fertilizer ? mt_rand(4,8) : mt_rand(6,8), 'vegetable_tasty_#00' => !$has_fertilizer ? mt_rand(0,2) : mt_rand(3,5) ],
+            'item_bgrenade_#01'        => [ 'boomfruit_#00' => !$has_fertilizer ? mt_rand(3,7) : mt_rand(5,8) ],
             'small_chicken_#00'        => [ 'egg_#00' => 3 ],
         ];
 
