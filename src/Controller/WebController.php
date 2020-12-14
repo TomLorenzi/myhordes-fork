@@ -169,7 +169,7 @@ class WebController extends CustomAbstractController
     public function app_icon(int $aid, string $name, string $ext): Response
     {
         /** @var ExternalApp $app */
-        $app = $this->entityManager->getRepository(ExternalApp::class)->find( $aid );
+        $app = $this->entity_manager->getRepository(ExternalApp::class)->find( $aid );
         if (!$app || !$app->getImage()) return $this->cdn_fallback( "app/{$aid}/{$name}/{$ext}" );
         if ($app->getImageName() !== $name || $app->getImageFormat() !== $ext)
             return $this->cdn_fallback( "avatar/{$aid}/{$name}/{$ext}" );
