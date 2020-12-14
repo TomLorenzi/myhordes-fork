@@ -57,38 +57,27 @@ use Symfony\Contracts\Translation\TranslatorInterface;
 class InventoryAwareController extends CustomAbstractController
     implements GameInterfaceController, GameProfessionInterfaceController, GameAliveInterfaceController, HookedInterfaceController
 {
-    protected EntityManagerInterface $entity_manager;
-    protected InventoryHandler $inventory_handler;
     protected DeathHandler $death_handler;
-    protected CitizenHandler $citizen_handler;
     protected ActionHandler $action_handler;
     protected PictoHandler $picto_handler;
     protected TranslatorInterface $translator;
     protected LogTemplateHandler $log;
-    protected TimeKeeperService $time_keeper;
     protected RandomGenerator $random_generator;
     protected ZoneHandler $zone_handler;
     protected LogTemplateHandler $logTemplateHandler;
     protected UserHandler $user_handler;
-    protected ?Citizen $cache_active_citizen = null;
     protected CrowService $crow;
-
-    private TownConf $town_conf;
 
     public function __construct(
         EntityManagerInterface $em, InventoryHandler $ih, CitizenHandler $ch, ActionHandler $ah, DeathHandler $dh, PictoHandler $ph,
         TranslatorInterface $translator, LogTemplateHandler $lt, TimeKeeperService $tk, RandomGenerator $rd, ConfMaster $conf,
         ZoneHandler $zh, UserHandler $uh, CrowService $armbrust)
     {
-        parent::__construct($conf);
-        $this->entity_manager = $em;
-        $this->inventory_handler = $ih;
-        $this->citizen_handler = $ch;
+        parent::__construct($conf, $em, $tk, $ch, $ih);
         $this->action_handler = $ah;
         $this->picto_handler = $ph;
         $this->translator = $translator;
         $this->log = $lt;
-        $this->time_keeper = $tk;
         $this->random_generator = $rd;
         $this->zone_handler = $zh;
         $this->death_handler = $dh;
@@ -106,10 +95,6 @@ class InventoryAwareController extends CustomAbstractController
             $this->entity_manager->flush();
         }
         return true;
-    }
-
-    protected function getTownConf() {
-        return $this->town_conf ?? ($this->town_conf = $this->conf->getTownConfiguration( $this->getActiveCitizen()->getTown() ));
     }
 
     protected function addDefaultTwigArgs( ?string $section = null, ?array $data = null ): array {
@@ -145,12 +130,6 @@ class InventoryAwareController extends CustomAbstractController
         $data['is_shaman_role'] = $this->citizen_handler->hasRole($this->getActiveCitizen(), 'shaman');
         $data['hunger'] = $this->getActiveCitizen()->getGhulHunger();
         return $data;
-    }
-
-    protected function getActiveCitizen(): Citizen {
-        /** @var User $user */
-        $user = $this->getUser();
-        return $this->cache_active_citizen ?? ($this->cache_active_citizen = $this->entity_manager->getRepository(Citizen::class)->findActiveByUser($user));
     }
 
     protected function renderLog( ?int $day, $citizen = null, $zone = null, ?int $type = null, ?int $max = null ): Response {

@@ -42,23 +42,17 @@ use Symfony\Contracts\Translation\TranslatorInterface;
  */
 class GameController extends CustomAbstractController implements GameInterfaceController
 {
-    protected $entity_manager;
     protected $translator;
     protected $logTemplateHandler;
-    protected $time_keeper;
-    protected $citizen_handler;
     protected TownHandler $town_handler;
     private $user_handler;
     protected PictoHandler $picto_handler;
 
-    public function __construct(EntityManagerInterface $em, TranslatorInterface $translator, LogTemplateHandler $lth, TimeKeeperService $tk, CitizenHandler $ch, UserHandler $uh, TownHandler $th, ConfMaster $conf, PictoHandler $ph)
+    public function __construct(EntityManagerInterface $em, TranslatorInterface $translator, LogTemplateHandler $lth, TimeKeeperService $tk, CitizenHandler $ch, UserHandler $uh, TownHandler $th, ConfMaster $conf, PictoHandler $ph, InventoryHandler $ih)
     {
-        parent::__construct($conf);
-        $this->entity_manager = $em;
+        parent::__construct($conf, $em, $tk, $ch, $ih);
         $this->translator = $translator;
         $this->logTemplateHandler = $lth;
-        $this->time_keeper = $tk;
-        $this->citizen_handler = $ch;
         $this->user_handler = $uh;
         $this->town_handler = $th;
         $this->picto_handler = $ph;
@@ -532,12 +526,11 @@ class GameController extends CustomAbstractController implements GameInterfaceCo
     /**
      * @Route("api/game/job", name="api_jobcenter")
      * @param JSONRequestParser $parser
-     * @param InventoryHandler $invh
      * @param ItemFactory $if
      * @param ConfMaster $cf
      * @return Response
      */
-    public function job_select_api(JSONRequestParser $parser, InventoryHandler $invh, ItemFactory $if, ConfMaster $cf): Response {
+    public function job_select_api(JSONRequestParser $parser, ItemFactory $if, ConfMaster $cf): Response {
 
         $citizen = $this->getActiveCitizen();
         if ($citizen->getProfession()->getName() !== CitizenProfession::DEFAULT)
@@ -559,14 +552,14 @@ class GameController extends CustomAbstractController implements GameInterfaceCo
             $item = $if->createItem( "photo_3_#00" );
             $item->setEssential(true);
             $null = null;
-            $invh->transferItem($citizen,$item,$null,$inventory);
+            $this->inventory_handler->transferItem($citizen,$item,$null,$inventory);
             foreach ($skills as $skill) {
                 switch($skill->getName()){
                     case "brothers":
                         //TODO: add the heroic power
                         break;
                     case "resourcefulness":
-                        $invh->forceMoveItem( $citizen->getHome()->getChest(), $if->createItem( 'chest_hero_#00' ) );
+                        $this->inventory_handler->forceMoveItem( $citizen->getHome()->getChest(), $if->createItem( 'chest_hero_#00' ) );
                         break;
                     case "largechest1":
                     case "largechest2":
@@ -578,10 +571,10 @@ class GameController extends CustomAbstractController implements GameInterfaceCo
                         $this->entity_manager->persist($citizen);
                         break;
                     case 'breakfast1':
-                        $invh->forceMoveItem( $citizen->getHome()->getChest(), $if->createItem( 'food_bag_#00' ) );
+                        $this->inventory_handler->forceMoveItem( $citizen->getHome()->getChest(), $if->createItem( 'food_bag_#00' ) );
                         break;
                     case 'medicine1':
-                        $invh->forceMoveItem( $citizen->getHome()->getChest(), $if->createItem( 'disinfect_#00' ) );
+                        $this->inventory_handler->forceMoveItem( $citizen->getHome()->getChest(), $if->createItem( 'disinfect_#00' ) );
                         break;
                     case "cheatdeath":
                         $heroic_action = $this->entity_manager->getRepository(HeroicActionPrototype::class)->findOneBy(['name' => "hero_generic_immune"]);
@@ -589,7 +582,7 @@ class GameController extends CustomAbstractController implements GameInterfaceCo
                         $this->entity_manager->persist($citizen);
                         break;
                     case 'architect':
-                        $invh->forceMoveItem( $citizen->getHome()->getChest(), $if->createItem( 'bplan_c_#00' ) );
+                        $this->inventory_handler->forceMoveItem( $citizen->getHome()->getChest(), $if->createItem( 'bplan_c_#00' ) );
                         break;
                     case 'luckyfind':
                         $oldfind = $this->entity_manager->getRepository(HeroicActionPrototype::class)->findOneBy(['name' => "hero_generic_find"]);
@@ -604,9 +597,9 @@ class GameController extends CustomAbstractController implements GameInterfaceCo
         if($this->picto_handler->has_picto($citizen, 'r_armag_#00')) {
             $armag = $this->entity_manager->getRepository(SpecialActionPrototype::class)->findOneBy(['name' => "special_armag"]);
             $citizen->addSpecialAction($armag);
-            $invh->forceMoveItem($citizen->getHome()->getChest(), $if->createItem( 'food_armag_#00' ));
-            $doggy = $invh->fetchSpecificItems( $citizen->getHome()->getChest(), [new ItemRequest('food_bag_#00')] );
-            $invh->forceRemoveItem($doggy[0]);
+            $this->inventory_handler->forceMoveItem($citizen->getHome()->getChest(), $if->createItem( 'food_armag_#00' ));
+            $doggy = $this->inventory_handler->fetchSpecificItems( $citizen->getHome()->getChest(), [new ItemRequest('food_bag_#00')] );
+            $this->inventory_handler->forceRemoveItem($doggy[0]);
         }
 
         if($this->picto_handler->has_picto($citizen, 'r_ginfec_#00')) {
@@ -638,7 +631,7 @@ class GameController extends CustomAbstractController implements GameInterfaceCo
         $item_spawns = $cf->getTownConfiguration($citizen->getTown())->get(TownConf::CONF_DEFAULT_CHEST_ITEMS, []);
         $chest = $citizen->getHome()->getChest();
         foreach ($item_spawns as $spawn)
-            $invh->placeItem($citizen, $if->createItem($this->entity_manager->getRepository(ItemPrototype::class)->findOneBy(['name' => $spawn])), [$chest]);
+            $this->inventory_handler->placeItem($citizen, $if->createItem($this->entity_manager->getRepository(ItemPrototype::class)->findOneBy(['name' => $spawn])), [$chest]);
         try {
             $this->entity_manager->persist( $chest );
             $this->entity_manager->flush();
@@ -652,10 +645,9 @@ class GameController extends CustomAbstractController implements GameInterfaceCo
     /**
      * @Route("api/game/delete_log_entry", name="delete_log_entry")
      * @param JSONRequestParser $parser
-     * @param CitizenHandler $ch
      * @return Response
      */
-    public function delete_log_entry(JSONRequestParser $parser, CitizenHandler $ch): Response {
+    public function delete_log_entry(JSONRequestParser $parser): Response {
 
         $citizen = $this->getActiveCitizen();
         $counter = $citizen->getSpecificActionCounter(ActionCounter::ActionTypeRemoveLog);

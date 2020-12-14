@@ -8,9 +8,12 @@ use App\Entity\AdminAction;
 use App\Entity\ExternalApp;
 use App\Entity\User;
 use App\Service\AdminActionHandler;
+use App\Service\CitizenHandler;
 use App\Service\ConfMaster;
 use App\Service\EternalTwinHandler;
+use App\Service\InventoryHandler;
 use App\Service\JSONRequestParser;
+use App\Service\TimeKeeperService;
 use App\Structures\MyHordesConf;
 use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\EntityManagerInterface;
@@ -31,17 +34,13 @@ class WebController extends CustomAbstractController
 {
     private $version_manager;
     private $kernel;
-    private $entityManager;
-    private $adminAction_handler;
     protected $translator;
 
-    public function __construct(VersionManager $v, KernelInterface $k, EntityManagerInterface $e, AdminActionHandler $admh, TranslatorInterface $translator, ConfMaster $conf)
+    public function __construct(VersionManager $v, KernelInterface $k, EntityManagerInterface $e, TranslatorInterface $translator, ConfMaster $conf, TimeKeeperService $tk, CitizenHandler $ch, InventoryHandler $ih)
     {
-        parent::__construct($conf);
+        parent::__construct($conf, $e, $tk, $ch, $ih);
         $this->version_manager = $v;
         $this->kernel = $k;
-        $this->entityManager = $e;
-        $this->adminAction_handler = $admh;
         $this->translator = $translator;
     }
 
@@ -68,7 +67,7 @@ class WebController extends CustomAbstractController
         ];
         shuffle($devs);
 
-        $apps = $this->entityManager->getRepository(ExternalApp::class)->findBy(['testing' => false]);
+        $apps = $this->entity_manager->getRepository(ExternalApp::class)->findBy(['testing' => false]);
 
         return $this->render( 'web/framework.html.twig', [
             'version' => $version, 'debug' => $is_debug_version, 'env' => $this->kernel->getEnvironment(),
@@ -141,7 +140,7 @@ class WebController extends CustomAbstractController
     public function avatar(int $uid, string $name, string $ext): Response
     {
         /** @var User $user */
-        $user = $this->entityManager->getRepository(User::class)->find( $uid );
+        $user = $this->entity_manager->getRepository(User::class)->find( $uid );
         if (!$user || !$user->getAvatar()) return $this->cdn_fallback( "avatar/{$uid}/{$name}/{$ext}" );
         if (($user->getAvatar()->getFilename() !== $name && $user->getAvatar()->getSmallName() !== $name) || $user->getAvatar()->getFormat() !== $ext)
             return $this->cdn_fallback( "avatar/{$uid}/{$name}/{$ext}" );
