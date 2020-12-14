@@ -92,7 +92,7 @@
         </div>
 
         <div class="row">
-            <div class="padded cell rw-6 rw-md-12">
+            <div class="padded cell rw-6 rw-md-12 citizen-home">
                 <h5>{% trans from 'game' %}Meine Spezialaktionen{% endtrans %}</h5>
                 {% embed "ajax/game/actions.html.twig" with {'special_action_list': special_actions} %}
                 {% endembed %}
@@ -101,8 +101,17 @@
                 {% embed "ajax/game/actions.html.twig" with {'heroic_action_list': heroics, 'item_action_list': actions, 'recipe_list': recipes} %}
                 {% endembed %}
 
+                {% if can_do_insurrection %}
+                    <button id="do_insurrection"><img alt="" src="{{ asset('build/images/actions/insurrect.gif') }}" /> {{'Auf den Aufstand hinarbeiten'|trans({}, 'game')}}</button>
+                    {% if citizen.town.insurrectionProgress > 0 %}
+                    <div class="vote-bar small">
+                        <div class="vote-progress" style="width: {{citizen.town.insurrectionProgress}}%;"></div>
+                    </div>
+                    {% endif %}
+                {% endif %}
+
                 {% if is_granted('ROLE_CROW') %}
-                    <button id="suicid"><img alt="" src="{{ asset('build/images/building/r_dhang.gif') }}" /> {{'Selbstmord begehen'|trans({}, 'admin')}}</button>
+                    <button id="suicid" class="mt-1"><img alt="" src="{{ asset('build/images/building/r_dhang.gif') }}" /> {{'Selbstmord begehen'|trans({}, 'admin')}}</button>
                 {% endif %}
             </div>
 
@@ -708,6 +717,17 @@
                 });
             }
         });
+
+        {% if can_do_insurrection %}
+            let insurrectbtn = document.getElementById('do_insurrection');
+            if(insurrectbtn) insurrectbtn.addEventListener('click', function(){
+                if (confirm('{{ 'Bestätigen?'|trans({},'global') }}'))
+                    $.ajax.easySend( '{{ path('town_home_insurect') }}', {},
+                        function () {
+                            $.ajax.load(null, '{{ path('town_house') }}', true);
+                        } );
+            });
+        {% endif %}
 
         {% if is_granted('ROLE_CROW') %}
             let suicidbtn = document.getElementById('suicid');

@@ -711,7 +711,7 @@ class NightlyHandler
 
         $status_wound_infection = $this->entity_manager->getRepository(CitizenStatus::class)->findOneBy( ['name' => 'tg_meta_winfect'] );
 
-        $status_clear_list = ['hasdrunk','haseaten','immune','hsurvive','drunk','drugged','healed','hungover','tg_dice','tg_cards','tg_clothes','tg_teddy','tg_guitar','tg_sbook','tg_steal','tg_home_upgrade','tg_hero','tg_chk_forum','tg_chk_active', 'tg_chk_workshop', 'tg_chk_build', 'tg_chk_movewb', 'tg_hide','tg_tomb', 'tg_home_clean', 'tg_home_shower', 'tg_home_heal_1', 'tg_home_heal_2', 'tg_home_defbuff', 'tg_rested', 'tg_shaman_heal', 'tg_ghoul_eat', 'tg_no_hangover', 'tg_ghoul_corpse', 'tg_betadrug', 'tg_build_vote'];
+        $status_clear_list = ['hasdrunk','haseaten','immune','hsurvive','drunk','drugged','healed','hungover','tg_dice','tg_cards','tg_clothes','tg_teddy','tg_guitar','tg_sbook','tg_steal','tg_home_upgrade','tg_hero','tg_chk_forum','tg_chk_active', 'tg_chk_workshop', 'tg_chk_build', 'tg_chk_movewb', 'tg_hide','tg_tomb', 'tg_home_clean', 'tg_home_shower', 'tg_home_heal_1', 'tg_home_heal_2', 'tg_home_defbuff', 'tg_rested', 'tg_shaman_heal', 'tg_ghoul_eat', 'tg_no_hangover', 'tg_ghoul_corpse', 'tg_betadrug', 'tg_build_vote', 'tg_insurrection'];
 
         $aliveCitizenInTown = 0;
         $aliveCitizen = 0;
