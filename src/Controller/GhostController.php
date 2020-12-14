@@ -40,21 +40,6 @@ class GhostController extends CustomAbstractController implements GhostInterface
         $this->user_handler = $uh;
     }
 
-    protected function addDefaultTwigArgs(?string $section = null, ?array $data = null ): array {
-        parent::addDefaultTwigArgs($section, $data);
-        $data = $data ?? [];
-
-        $data['clock'] = [
-            'desc'      => $this->translator->trans('Worauf warten Sie noch?', [], 'ghost'),
-            'day'       => "",
-            'timestamp' => new \DateTime('now'),
-            'attack'    => $this->time_keeper->secondsUntilNextAttack(null, true),
-            'towntype'  => "",
-        ];
-
-        return $data;
-    }
-
     /**
      * @Route("jx/ghost/welcome", name="ghost_welcome")
      * @param EntityManagerInterface $em
@@ -74,7 +59,7 @@ class GhostController extends CustomAbstractController implements GhostInterface
         $coa_members = $this->user_handler->getAvailableCoalitionMembers($user, $count, $active);
         $cdm_lock = $this->user_handler->getConsecutiveDeathLock( $user, $cdm_warn );
 
-        return $this->render( 'ajax/ghost/intro.html.twig', $this->addDefaultTwigArgs([
+        return $this->render( 'ajax/ghost/intro.html.twig', $this->addDefaultTwigArgs(null, [
             'warnCoaInactive'    => $count > 0 && !$active,
             'warnCoaNotComplete' => $count > 0 && (count($coa_members) + 1) < $count,
             'warnCoaEmpty'       => $count > 1 && empty($coa_members),
@@ -104,7 +89,7 @@ class GhostController extends CustomAbstractController implements GhostInterface
             return $this->redirect($this->generateUrl( 'initial_landing' ));
         }
 
-        return $this->render( 'ajax/ghost/create_town.html.twig', $this->addDefaultTwigArgs([
+        return $this->render( 'ajax/ghost/create_town.html.twig', $this->addDefaultTwigArgs(null, [
             'townClasses' => $em->getRepository(TownClass::class)->findBy(['hasPreset' => true]),
         ]));
     }

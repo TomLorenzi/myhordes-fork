@@ -30,7 +30,6 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
 class CitizenHandler
 {
     private EntityManagerInterface $entity_manager;
-    private StatusFactory $status_factory;
     private ItemFactory $item_factory;
     private RandomGenerator $random_generator;
     private InventoryHandler $inventory_handler;
@@ -40,12 +39,11 @@ class CitizenHandler
     private UserHandler $user_handler;
     private ConfMaster $conf;
 
-    public function __construct(EntityManagerInterface $em, StatusFactory $sf, RandomGenerator $g, InventoryHandler $ih,
+    public function __construct(EntityManagerInterface $em, RandomGenerator $g, InventoryHandler $ih,
                                 PictoHandler $ph, ItemFactory $if, LogTemplateHandler $lh, ContainerInterface $c, UserHandler $uh,
                                 ConfMaster $conf )
     {
         $this->entity_manager = $em;
-        $this->status_factory = $sf;
         $this->random_generator = $g;
         $this->inventory_handler = $ih;
         $this->picto_handler = $ph;
@@ -174,6 +172,7 @@ class CitizenHandler
 
         if ($citizen->getStatus()->contains( $lv2 )) {
             $this->container->get(DeathHandler::class)->kill($citizen, CauseOfDeath::Dehydration);
+            $this->entity_manager->persist( $this->log->citizenDeath( $citizen ) );
         } elseif ($citizen->getStatus()->contains( $lv1 )) {
             $this->removeStatus( $citizen, $lv1 );
             $this->inflictStatus( $citizen, $lv2 );

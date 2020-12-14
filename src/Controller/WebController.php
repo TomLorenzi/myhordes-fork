@@ -65,7 +65,7 @@ class WebController extends CustomAbstractController
         ];
         shuffle($devs);
 
-        $apps = $this->entityManager->getRepository(ExternalApp::class)->findBy(['active' => true]);
+        $apps = $this->entity_manager->getRepository(ExternalApp::class)->findBy(['active' => true]);
 
         return $this->render( 'web/framework.html.twig', [
             'version' => $version, 'debug' => $is_debug_version, 'env' => $this->kernel->getEnvironment(),
