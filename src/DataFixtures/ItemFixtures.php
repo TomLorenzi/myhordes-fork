@@ -828,7 +828,7 @@ class ItemFixtures extends Fixture
         'big_pgun_#00'         => [ 'impoundable', 'weapon', 'esc_fixed', 'nw_armory' ],
         'big_pgun_empty_#00'   => [ 'esc_fixed' ],
         'mixergun_#00'         => [ 'impoundable', 'weapon', 'nw_armory' ],
-        'chainsaw_#00'         => [ 'impoundable', 'weapon', 'esc_fixed', 'nw_armory' ],
+        'chainsaw_#00'         => [ 'impoundable', 'weapon', 'box_opener', 'esc_fixed', 'nw_armory' ],
         'taser_#00'            => [ 'impoundable', 'weapon', 'nw_armory' ],
         'lpoint4_#00'          => [ 'impoundable', 'weapon', 'esc_fixed', 'nw_armory' ],
         'lpoint3_#00'          => [ 'impoundable', 'weapon', 'esc_fixed', 'nw_armory' ],
