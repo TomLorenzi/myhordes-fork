@@ -95,6 +95,7 @@ class CitizenFixtures extends Fixture implements DependentFixtureInterface
         ['name' => 'tg_build_vote' ],
         ['name' => 'tg_meta_winfect' ],
         ['name' => 'tg_infect_wtns' ],
+        ['name' => 'tg_insurrection'],
     ];
 
     public static $causes_of_death = [
@@ -166,7 +167,7 @@ class CitizenFixtures extends Fixture implements DependentFixtureInterface
         ['label' => 'Schamane'                    , 'vote' => true,  'icon' => 'shaman', 'name'=>'shaman', 'hidden' => false, 'secret' => false ],
         ['label' => 'Reiseleiter in der Außenwelt', 'vote' => true,  'icon' => 'guide',  'name'=>'guide' , 'hidden' => false, 'secret' => false ],
         ['label' => 'Ghul',                         'vote' => false, 'icon' => 'ghoul',  'name'=>'ghoul' , 'hidden' => false, 'secret' => true, 'message' => 'Du hast dich in einen Ghul verwandelt!' ],
-        ['label' => 'Katapult-Bediener',            'vote' => false, 'icon' => '',  'name'=>'cata', 'hidden' => true, 'secret' => false ],
+        ['label' => 'Katapult-Bediener',            'vote' => false, 'icon' => '',       'name'=>'cata'  , 'hidden' => true,  'secret' => false ],
     ];
 
     public static $notificationMarkers = [

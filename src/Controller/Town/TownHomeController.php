@@ -19,6 +19,7 @@ use App\Entity\Picto;
 use App\Entity\PictoPrototype;
 use App\Entity\PrivateMessage;
 use App\Entity\PrivateMessageThread;
+use App\Entity\Town;
 use App\Entity\TownLogEntry;
 use App\Entity\Zone;
 use App\Response\AjaxResponse;
@@ -199,6 +200,7 @@ class TownHomeController extends TownController
             'possible_dests' => $possible_dests,
             'dest_citizen' => $destCitizen,
             'sendable_items' => $sendable_items,
+            'can_do_insurrection' => $citizen->getBanished() && !$this->citizen_handler->hasStatusEffect($citizen, "tg_insurrection") && $citizen->getTown()->getInsurrectionProgress() < 100
         ]) );
     }
 
@@ -513,6 +515,68 @@ class TownHomeController extends TownController
         }
 
         $em->flush();
+        return AjaxResponse::success( true, ['url' => $this->generateUrl('town_house', ['tab' => 'messages', 'subtab' => 'received'])] );
+    }
+
+    /**
+     * @Route("api/town/house/insurrect", name="town_home_insurect")
+     * @param EntityManagerInterfacce $em
+     * @return Response
+     */
+    public function do_insurrection(EntityManagerInterface $em): Response
+    {
+        /** @var Citizen $citizen */
+        $citizen = $this->getUser()->getActiveCitizen();
+
+        if($this->citizen_handler->hasStatusEffect($citizen, "tg_insurrection"))
+            return AjaxResponse::error(ErrorHelper::ErrorActionNotAvailable);
+
+        /** @var Town $town */
+        $town = $citizen->getTown();
+
+        $progress = 1;
+
+        $alive = $shunned = 0;
+
+        //TODO: This needs huuuuge statistics
+
+        foreach ($town->getCitizens() as $foreinCitizen) {
+            /** @var Citizen $foreinCitizen */
+            if($foreinCitizen->getAlive())
+                $alive++;
+            
+            if($foreinCitizen->getBanished())
+                $shunned++;
+        }
+
+        $progress = intval($shunned / $alive * 100);
+
+        $town->setInsurrectionProgress($town->getInsurrectionProgress() + $progress);
+
+        if ($town->getInsurrectionProgress() >= 100) {
+            // Let's do the insurrection !
+            $town->setInsurrectionProgress(100);
+            foreach ($town->getCitizens() as $foreinCitizen) {
+                /** @var Citizen $foreinCitizen */
+                if(!$foreinCitizen->getAlive())
+                    continue;
+                
+                if($foreinCitizen->getBanished())
+                    $foreinCitizen->setBanished(false);
+                else {
+                    $foreinCitizen->setBanished(true);
+                    $this->picto_handler->give_picto($foreinCitizen, "r_ban_#00");
+                }
+                
+                $this->entity_manager->persist($foreinCitizen);
+            }
+        }
+
+        $this->citizen_handler->inflictStatus($citizen, "tg_insurrection");
+
+        $this->entity_manager->persist($town);
+        $em->flush();
+
         return AjaxResponse::success( true, ['url' => $this->generateUrl('town_house', ['tab' => 'messages', 'subtab' => 'received'])] );
     }
 }

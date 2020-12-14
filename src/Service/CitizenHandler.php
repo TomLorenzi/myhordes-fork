@@ -167,8 +167,8 @@ class CitizenHandler
 
         if ($citizen->hasRole('ghoul')) return;
 
-        $lv2 = $this->entity_manager->getRepository(CitizenStatus::class)->findOneByName('thirst2');
-        $lv1 = $this->entity_manager->getRepository(CitizenStatus::class)->findOneByName('thirst1');
+        $lv2 = $this->entity_manager->getRepository(CitizenStatus::class)->findOneBy(['name' => 'thirst2']);
+        $lv1 = $this->entity_manager->getRepository(CitizenStatus::class)->findOneBy(['name' => 'thirst1']);
 
         if ($citizen->getStatus()->contains( $lv2 )) {
             $this->container->get(DeathHandler::class)->kill($citizen, CauseOfDeath::Dehydration);

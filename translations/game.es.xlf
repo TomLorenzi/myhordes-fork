@@ -295,7 +295,7 @@
       </notes>
       <segment>
         <source>Die letzte Anzeige hat das Fass zum Überlaufen gebracht. %citizen% wurde von den Bürgern der Stadt verbannt!</source>
-        <target>¡Los habitantes han decidido <strong>desterrar a %citizen%</strong> de la comunidad!</target>
+        <target><![CDATA[¡Los habitantes han decidido <strong>desterrar a %citizen%</strong> de la comunidad!]]></target>
       </segment>
     </unit>
     <unit id="gaDgdbl" name="Du kannst die Stadt von hier aus nicht betreten.">
@@ -457,7 +457,7 @@
       </notes>
       <segment>
         <source>Du hast heute bereits eine Verbesserung deines Hauses vorgenommen.</source>
-        <target>Ya has hecho eso hoy... Espera a <strong>mañana</strong> para intentarlo de nuevo.</target>
+        <target><![CDATA[Ya has hecho eso hoy... Espera a <strong>mañana</strong> para intentarlo de nuevo.]]></target>
       </segment>
     </unit>
     <unit id="s1D0Mug" name="Dieser Gegenstand ist außerhalb deiner Reichweite.">
@@ -520,7 +520,7 @@
       </notes>
       <segment>
         <source>Als Verbannter darfst du keine Gegenstände aus der Bank entnehmen.</source>
-        <target>¡Has sido <strong>deterrado de la comunidad</strong>, y por ello no puedes tomar ningún objeto del Almacén!</target>
+        <target><![CDATA[¡Has sido <strong>deterrado de la comunidad</strong>, y por ello no puedes tomar ningún objeto del Almacén!]]></target>
       </segment>
     </unit>
     <unit id="2HhqG76" name="Diese Aktion ist ungültig.">
@@ -673,7 +673,7 @@
       </notes>
       <segment>
         <source>Du wurdest verbannt und kannst daher das Stadttor weder öffnen noch schließen.</source>
-        <target>¡Has sido <strong>deterrado de la comunidad</strong>, y por ello no puedes ni abrir ni cerrar <em>El Gran Portal</em>!</target>
+        <target><![CDATA[¡Has sido <strong>deterrado de la comunidad</strong>, y por ello no puedes ni abrir ni cerrar <em>El Gran Portal</em>!]]></target>
       </segment>
     </unit>
     <unit id="_rfFVtg" name="Meine Aktionen">
@@ -871,7 +871,7 @@
       </notes>
       <segment>
         <source>Du hast %num% anonyme Anzeige(n).</source>
-        <target>Has recibido <strong>%num% denuncias</strong> anónimas. ¡Si acumulas 8 denuncias, serás desterrado!</target>
+        <target><![CDATA[Has recibido <strong>%num% denuncias</strong> anónimas. ¡Si acumulas 8 denuncias, serás desterrado!]]></target>
       </segment>
     </unit>
     <unit id="0drragL" name="4a5cb7a">
@@ -1391,7 +1391,7 @@
       </notes>
       <segment>
         <source>Du wurdest verbannt und kannst daher nicht länger für eine Verbesserung des Tages abstimmen.</source>
-        <target>¡Has sido <strong>deterrado de la comunidad</strong>, y por ello no puedes votar por la Mejora Del Día!</target>
+        <target><![CDATA[¡Has sido <strong>deterrado de la comunidad</strong>, y por ello no puedes votar por la Mejora Del Día!]]></target>
       </segment>
     </unit>
     <unit id="_LKq1VW" name="Du hast bereits für folgendes Projekt abgestimmt:">
@@ -1472,7 +1472,7 @@
       </notes>
       <segment>
         <source>Du wurdest verbannt und kannst daher nicht länger in der Werkstatt arbeiten.</source>
-        <target>¡Has sido <strong>deterrado de la comunidad</strong>, y por ello no puedes trabajar en el Taller!</target>
+        <target><![CDATA[¡Has sido <strong>deterrado de la comunidad</strong>, y por ello no puedes trabajar en el Taller!]]></target>
       </segment>
     </unit>
     <unit id="x01nfA5" name="ea122a1">
@@ -1584,7 +1584,7 @@
       </notes>
       <segment>
         <source>Du wurdest verbannt und kannst daher nicht länger auf einer Baustelle arbeiten.</source>
-        <target>¡Has sido <strong>deterrado de la comunidad</strong>, y por ello no puedes trabajar en una Obra!</target>
+        <target><![CDATA[¡Has sido <strong>deterrado de la comunidad</strong>, y por ello no puedes trabajar en una Obra!]]></target>
       </segment>
     </unit>
     <unit id="m_7J.WC" name="Baustellenregister">
@@ -5136,7 +5136,7 @@
       </notes>
       <segment>
         <source>Du wurdest verbannt und kannst die Müllhalde daher nicht länger nutzen.</source>
-        <target>¡Has sido <strong>deterrado de la comunidad</strong>, y por ello no puedes utilizar el Vertedero Público!</target>
+        <target><![CDATA[¡Has sido <strong>deterrado de la comunidad</strong>, y por ello no puedes utilizar el Vertedero Público!]]></target>
       </segment>
     </unit>
     <unit id="j88Eyne" name="Gesamt: %def%">

@@ -285,6 +285,13 @@ class SoulController extends CustomAbstractController
             return $this->redirect($this->generateUrl( 'soul_death' ));
 
         $rps = $this->entity_manager->getRepository(FoundRolePlayText::class)->findByUser($user);
+        foreach ($rps as $rp) {
+            // We mark as new RPs found in the last 5 minutes
+            /** @var FoundRolePlayText $rp */
+            $elapsed = $rp->getDateFound()->diff(new \DateTime());
+            if ($elapsed->y == 0 && $elapsed->m == 0 && $elapsed->d == 0 && $elapsed->h == 0 && $elapsed->i <= 5)
+                $rp->setNew(true);
+        }
         return $this->render( 'ajax/soul/rps.html.twig', $this->addDefaultTwigArgs("soul_rps", array(
             'rps' => $rps
         )));
@@ -303,7 +310,7 @@ class SoulController extends CustomAbstractController
         /** @var CitizenRankingProxy $nextDeath */
         if ($this->entity_manager->getRepository(CitizenRankingProxy::class)->findNextUnconfirmedDeath($user))
             return $this->redirect($this->generateUrl( 'soul_death' ));
-
+        /** @var FoundRolePlayText $rp */
         $rp = $this->entity_manager->getRepository(FoundRolePlayText::class)->find($id);
         if($rp === null || !$user->getFoundTexts()->contains($rp)){
             return $this->redirect($this->generateUrl('soul_rps'));
@@ -312,6 +319,9 @@ class SoulController extends CustomAbstractController
         if($page > count($rp->getText()->getPages()))
             return $this->redirect($this->generateUrl('soul_rps'));
 
+        $rp->setNew(false);
+        $this->entity_manager->persist($rp);
+
         $pageContent = $this->entity_manager->getRepository(RolePlayTextPage::class)->findOneByRpAndPageNumber($rp->getText(), $page);
 
         preg_match('/%asset%([a-zA-Z0-9.\/]+)%endasset%/', $pageContent->getContent(), $matches);
@@ -319,6 +329,8 @@ class SoulController extends CustomAbstractController
         if(count($matches) > 0) {
             $pageContent->setContent(preg_replace("={$matches[0]}=", "<img src='" . $this->asset->getUrl($matches[1]) . "' alt='' />", $pageContent->getContent()));
         }
+        
+        $this->entity_manager->flush();
 
         return $this->render( 'ajax/soul/view_rp.html.twig', $this->addDefaultTwigArgs("soul_rps", array(
             'page' => $pageContent,

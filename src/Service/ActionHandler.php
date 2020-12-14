@@ -864,7 +864,7 @@ class ActionHandler
                 elseif ($text) {
                     $tags[] = 'rp_ok';
                     $foundrp = new FoundRolePlayText();
-                    $foundrp->setUser($citizen->getUser())->setText($text);
+                    $foundrp->setUser($citizen->getUser())->setText($text)->setNew(true);
                     $citizen->getUser()->getFoundTexts()->add($foundrp);
 
                     $this->entity_manager->persist($foundrp);

@@ -56,6 +56,24 @@ class FoundRolePlayTextRepository extends ServiceEntityRepository
         ;
     }
 
+    /**
+     * @param User $user
+     * @param RolePlayText $text
+     * @return FoundRolePlayText Returns an array of FoundRolePlayText objects
+     * @throws NonUniqueResultException
+     */
+    public function findNextUnreadText(User $user)
+    {
+        return $this->createQueryBuilder('f')
+            ->andWhere('f.user = :user')
+            ->andWhere('f.new = :new')
+            ->setParameter('user', $user)
+            ->setParameter('new', true)
+            ->getQuery()
+            ->getOneOrNullResult()
+        ;
+    }
+
     // /**
     //  * @return FoundRolePlayText[] Returns an array of FoundRolePlayText objects
     //  */

@@ -143,7 +143,7 @@
     {% endif %}
 
     {% if heroic_action_list is defined and heroic_action_list|length > 0 %}
-        <button x-heroic-toggle="1"><img src="{{ asset('build/images/icons/star.gif') }}" alt="">{{ 'Heldentaten'|trans({},'items')  }}</button>
+        <button x-heroic-toggle="1" class="mb-1"><img src="{{ asset('build/images/icons/star.gif') }}" alt="">{{ 'Heldentaten'|trans({},'items')  }}</button>
         <ul class="heroic_actions">
             {% for entry in heroic_action_list %}
                 <li class="heroic_action" {% if entry.crossed %}disabled{% elseif entry.targets is null %}x-action-id="{{ entry.id }}" x-action-confirm="1" {% else %}x-target-definition="{{ entry.id }}--hero"{% endif %}>
