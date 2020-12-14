@@ -15723,5 +15723,14 @@
         <target>Patient Zéro</target>
       </segment>
     </unit>
+    <unit id="GeJZ7mU" name="Auf den Aufstand hinarbeiten">
+      <notes>
+        <note category="german">Auf den Aufstand hinarbeiten</note>
+      </notes>
+      <segment>
+        <source>Auf den Aufstand hinarbeiten</source>
+        <target>Préparer une insurrection</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
