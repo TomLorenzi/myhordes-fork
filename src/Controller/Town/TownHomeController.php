@@ -528,6 +528,9 @@ class TownHomeController extends TownController
         /** @var Citizen $citizen */
         $citizen = $this->getUser()->getActiveCitizen();
 
+        if($this->citizen_handler->hasStatusEffect($citizen, "tg_insurrection"))
+            return AjaxResponse::error(ErrorHelper::ErrorActionNotAvailable);
+
         /** @var Town $town */
         $town = $citizen->getTown();
 
