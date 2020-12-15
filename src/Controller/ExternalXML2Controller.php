@@ -18,7 +18,6 @@ use App\Entity\User;
 use App\Entity\Zone;
 use App\Entity\ZoneTag;
 use App\Service\CitizenHandler;
-use App\Service\ConfMaster;
 use App\Service\TownHandler;
 use App\Service\ZoneHandler;
 use App\Structures\SimpleXMLExtended;
@@ -32,7 +31,6 @@ use Symfony\Component\Config\Util\Exception\InvalidXmlException;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
-use Symfony\Contracts\Translation\TranslatorInterface;
 use Symfony\Component\HttpFoundation\Request;
 
 class ExternalXML2Controller extends ExternalController {
