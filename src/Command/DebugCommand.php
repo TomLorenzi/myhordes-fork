@@ -169,6 +169,7 @@ class DebugCommand extends Command
             }
             $this->entity_manager->flush();
             $output->writeln("All citizen from <info>{$town->getName()}</info> are full of water now.");
+            return 0;
         }
 
         if ($tid = $input->getOption('fill-town')) {
@@ -224,7 +225,7 @@ class DebugCommand extends Command
                 }
 
             // Ensure we still have an open town after filling it with dumb users
-
+            
             $openTowns = $this->entity_manager->getRepository(Town::class)->findOpenTown();
             $count = array(
                 "fr" => array(

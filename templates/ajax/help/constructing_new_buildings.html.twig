@@ -1,0 +1,28 @@
+{% extends "ajax/help/shell.html.twig" %}
+{% block title %}{{'Hilfe'|trans({}, 'game')}} - {{'Neue Gebäude bauen'|trans({}, 'help')|raw}}{% endblock %}
+{% block helpContent %}
+<div class="helpArt">{{ 'Spielanleitung'|trans({},'help')|raw }}</div>
+<h1>{{ 'Neue Gebäude bauen'|trans({},'help')|raw }}</h1>
+<p>
+{{'Die Städte in MyHordes sind nicht statisch, in der alles so bleibt wie es vorgefunden wird. Es ist deine Aufgabe deine Stadt auszubauen und ihre Verteidigung zu verbessern. Dazu sind folgende Schritte notwendig:'|trans({},'help')|raw }}
+</p>
+<ul>
+<li>{{'Sammle in der Wüste <strong>Rohstoffe</strong> (Holz, Metall, Batterien...) ein und lege alles in der <strong>Bank</strong> ab.'|trans({},'help')|raw }}</li>
+<li>{{'Gehe in deiner Stadt in den Abschnitt <strong>Baustelle</strong>.'|trans({},'help')|raw }}</li>
+<li>{{'Suche dir ein Gebäude aus, für dessen Bau genügend Ressourcen zur Verfügung stehen. Daneben, auf der selben Linie, findest du den Knopf <strong>Teilnehmen</strong>.'|trans({},'help')|raw }}</li>
+<li>{{'Klicke auf den Knopf <strong>Teilnehmen</strong>. Es wird dir <strong>1 %img_ap%</strong> abgezogen.'|trans({'%img_ap%' : '<span class="ap"></span>'},'help')|raw }}</li>
+</ul>
+<p>
+{{'Wenn genügend Aktionspunkte (APs) für eine Konstruktion oder ein Gebäude ausgegeben werden, kann es <strong>sofort</strong> fertig gestellt werden!'|trans({},'help')|raw }}
+</p>
+<p>
+{{'Der Bau eines Gebäudes oder einer Konstruktion kann sich über mehrere Tage hinziehen. Wenn etwas nicht fertig gestellt wurde, kannst du am nächsten Tag erneut daran arbeiten. Wenn die Zeit drängt, können außerdem mehrere APs auf einmal für ein Gebäude ausgegeben werden...'|trans({},'help')|raw }}
+</p>
+<h2>{{'Temporäre Konstruktionen'|trans({},'help')|raw }}</h2>
+<p>
+{{'"Temporäre" Konstruktionen und Gebäude sind für den "einmaligen Gebrauch" gedacht: Nach dem Angriff der Zombiehorde werden sie zerstört oder abgebaut.
+Es handelt sich in aller Regel um sehr effektive Verteidigungsmaßnahmen, die nicht sehr teuer sind, dafür aber jeden Tag neu aufgebaut werden müssen.'|trans({},'help')|raw }}
+</p>
+<div class="clear"></div>
+<a class="button" x-ajax-href="{{ url('help', {'name': 'blueprints'}) }}"><img src="{{ asset('build/images/icons/small_move.gif') }}" alt="move"> {{'Weiter'|trans({}, 'help')}}:<strong> {{ 'Baupläne'|trans({},'help') }}</strong></a>
+{% endblock %}

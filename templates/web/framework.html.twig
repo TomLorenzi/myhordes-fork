@@ -44,9 +44,20 @@
                     <ul>
                     {% for ex in apps %}
                         {# @var ex \App\Entity\ExternalApp #}
-                        <li class="app-external" data-id="{{ ex.id }}">
-                            <a target="_blank" href="{{ path('disclaimer', { 'id': ex.id }) }}"><img src="{{ asset('build/images/apps/' ~ ex.icon ~ '.gif') }}" /><span>{{ ex.name }}</span></a>
-                        </li>
+                        {% if not ex.testing or ex.owner == app.user %}
+                            <li class="app-external" data-id="{{ ex.id }}">
+                                <a target="_blank" href="{{ path('disclaimer', { 'id': ex.id }) }}">
+                                    {% if ex.imageName is not null %}
+                                        <img alt="" src="{{ path('app_web_app_icon', { aid: ex.id, name: ex.imageName, ext: ex.imageFormat }) }}" />
+                                    {% else %}
+                                        <img alt="" src="{{ asset('build/images/apps/null.gif') }}" />
+                                    {% endif %}
+                                    <span>{{ ex.name }}</span></a>
+                                {% if ex.owner == app.user and not ex.linkOnly %}
+                                    <div class="small"><strong>SK:</strong> {{ ex.secret }}</div>
+                                {% endif %}
+                            </li>
+                        {% endif %}
                     {% endfor %}
                     </ul>
                 </div>

@@ -1,4 +1,5 @@
 {% extends "ajax/game/town/town.html.twig" %}
+{% block title %}{{'Mein Zuhause (Truhe)'|trans({}, 'game')}}{% endblock %}
 {% block content %}
     {% set hour = "now"|date("G") %}
     <div class="row">
@@ -30,6 +31,14 @@
                 <div class="tooltip normal">{{ 'Deine privaten Nachrichten'|trans({},'game') }}</div>
             </div>
         </li>
+        {% if complaints|length > 0 %}
+        <li class="tab" x-tab-id="complaints">
+            <div class="tab-link">
+                <img alt="" src="{{ asset('build/images/icons/scout_lv0.gif') }}">
+                <span class="hide-lg hide-md hide-sm">{{ 'Anzeigen'|trans({},'game') }}</span>
+            </div>
+        </li>
+        {% endif %}
         <li class="tab" x-tab-id="build">
             <div class="tab-link">
                 <img alt="" src="{{ asset('build/images/icons/small_home_up.gif') }}">
@@ -67,9 +76,9 @@
             </div>
         </div>
 
-        {% if complaints > 0 %}
+        {% if complaints|length > 0 %}
             <div class="note note-warning">
-                {{ 'Du hast %num% anonyme Anzeige(n).'|trans({'%num%': '<b>' ~ complaints ~ '</b>'}, 'game')|raw }}<br />
+                {{ 'Du hast %num% anonyme Anzeige(n).'|trans({'%num%': '<b>' ~ complaints|length ~ '</b>'}, 'game')|raw }}<br />
                 {% trans from 'game' %}
                     Anzeigen können zu deiner Verbannung oder sogar Hinrichtung führen. Vielleicht solltest du das Verhältnis zwischen dir und dem Rest der Stadt verbessern ...
                 {% endtrans %}
@@ -83,7 +92,7 @@
         </div>
 
         <div class="row">
-            <div class="padded cell rw-6 rw-md-12">
+            <div class="padded cell rw-6 rw-md-12 citizen-home">
                 <h5>{% trans from 'game' %}Meine Spezialaktionen{% endtrans %}</h5>
                 {% embed "ajax/game/actions.html.twig" with {'special_action_list': special_actions} %}
                 {% endembed %}
@@ -92,8 +101,19 @@
                 {% embed "ajax/game/actions.html.twig" with {'heroic_action_list': heroics, 'item_action_list': actions, 'recipe_list': recipes} %}
                 {% endembed %}
 
+                {% if can_do_insurrection %}
+                    <button id="do_insurrection"><img alt="" src="{{ asset('build/images/actions/insurrect.gif') }}" /> {{'Auf den Aufstand hinarbeiten'|trans({}, 'game')}}</button>
+                {% endif %}
+
+                {% if citizen.banished and citizen.town.insurrectionProgress > 0 and citizen.town.insurrectionProgress < 100 %}
+                <div class="vote-bar small">
+                    <div class="vote-progress" style="width: {{citizen.town.insurrectionProgress}}%;"></div>
+                </div>
+                {% endif %}
+                
+
                 {% if is_granted('ROLE_CROW') %}
-                    <button id="suicid"><img alt="" src="{{ asset('build/images/building/r_dhang.gif') }}" /> {{'Selbstmord begehen'|trans({}, 'admin')}}</button>
+                    <button id="suicid" class="mt-1"><img alt="" src="{{ asset('build/images/building/r_dhang.gif') }}" /> {{'Selbstmord begehen'|trans({}, 'admin')}}</button>
                 {% endif %}
             </div>
 
@@ -273,6 +293,24 @@
         {% endif %}
         <div id="forum-content">
 
+        </div>
+    </div>
+
+    <div x-tab-group="home-main" x-tab-id="complaints" x-tab-target>
+        <div class="row">
+            {{ 'Du hast %num% anonyme Anzeige(n) erhalten.'|trans({'%num%': '<b>' ~ complaints|length ~ '</b>'}, 'game')|raw }}
+            {% if not citizen.banished %}
+            {{'Sollte diese Zahl auf 8 ansteigen, wirst du verbannt!'|trans({}, 'game')}}
+            {% endif %}
+            <ul class="overview-list">
+            {% for complaint in complaints %}
+                {% if not complaint.linkedReason is null %}
+                <li>{{complaint.linkedReason.text|trans({}, 'game')}}</li>
+                {% else %}
+                <li>{{complaint.reason}}</li>
+                {% endif %}
+            {% endfor %}
+            </ul>
         </div>
     </div>
 
@@ -681,6 +719,17 @@
                 });
             }
         });
+
+        {% if can_do_insurrection %}
+            let insurrectbtn = document.getElementById('do_insurrection');
+            if(insurrectbtn) insurrectbtn.addEventListener('click', function(){
+                if (confirm('{{ 'Bestätigen?'|trans({},'global') }}'))
+                    $.ajax.easySend( '{{ path('town_home_insurect') }}', {},
+                        function () {
+                            $.ajax.load(null, '{{ path('town_house') }}', true);
+                        } );
+            });
+        {% endif %}
 
         {% if is_granted('ROLE_CROW') %}
             let suicidbtn = document.getElementById('suicid');

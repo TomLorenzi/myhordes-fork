@@ -1,0 +1,41 @@
+{% extends "ajax/help/shell.html.twig" %}
+{% block title %}{{'Hilfe'|trans({}, 'game')}} - {{'Neue Gebäude bauen'|trans({}, 'help')|raw}}{% endblock %}
+{% block helpContent %}
+<div class="helpArt">{{ 'Spielanleitung'|trans({},'help')|raw }}</div>
+<h1>{{ 'Weiterentwicklung des Tages'|trans({},'help')|raw }}</h1>
+<img class="art" alt="" src="{{ asset('build/images/help/upgrades.gif') }}">
+<p>
+{{ 'Manche Gebäude und Konstruktionen (z.B. der Große Graben) können nach Fertigstellung verbessert und weiterentwickelt werden. Diese Ausbauten werden auch <strong>Weiterentwicklungen</strong> genannt.
+Die Stadteinwohner können  <strong>einmal</strong> pro Tag für eine Weiterentwicklung stimmen.'|trans({},'help')|raw }}
+</p>
+<div class="clear"></div>
+<p>
+{{ 'Kurz vor Mitternacht wird dann jene <strong>Weiterentwicklung gebaut, die die meisten Stimmen bekommen hat</strong>.'|trans({},'help')|raw }}
+</p>
+<p>
+{{ 'Der Bau einer Weiterentwicklung ist umsonst. Es werden <strong>weder APs noch Ressourcen verbraucht</strong>.'|trans({},'help')|raw }}
+</p>
+<p>
+{{ 'Es gibt bis zu <strong>5</strong> verschiedene Entwicklungsstufen. Je höher die Stufe, desto effektiver das Gebäude oder die Konstruktion.
+Die Stadt kann in vielerlei Hinsicht von diesen Weiterentwicklungen profitieren:'|trans({},'help')|raw }}
+</p>
+<ul>
+<li>{{ 'Eine bessere Verteidigung.'|trans({},'help')|raw }}</li>
+<li>{{ 'Eine verbesserte Wasserversorgung.'|trans({},'help')|raw }}</li>
+<li>{{ 'Eine Senkung der Baukosten.'|trans({},'help')|raw }}</li>
+<li>{{ 'Eine bessere Zombie(früh)erkennung.'|trans({},'help')|raw }}</li>
+<li>{{ '... weitere spezielle Fähigkeiten.'|trans({},'help')|raw }}</li>
+</ul>
+<div class="help">
+<p>
+{{ 'Achtung: Die Wahl einer Weiterentwicklung ist sehr wichtig! Da eine Stadt nur eine Weiterentwicklung pro 
+Tag bauen kann, kann eine Stadt, die 10 Tage überlebt, insgesamt nur 10 Weiterentwicklungen bauen. Diese 
+müssen durchdacht geplant werden.'|trans({},'help')|raw }}
+</p>
+<p>
+{{ 'Besprecht das am besten im Forum eurer Stadt!'|trans({},'help')|raw }}
+</p>
+</div>
+<div class="clear"></div>
+<a class="button" x-ajax-href="{{ url('help', {'name': 'the_attack_of_the_hordes'}) }}"><img src="{{ asset('build/images/icons/small_move.gif') }}" alt="move"> {{'Weiter'|trans({}, 'help')}}:<strong> {{ 'Der Angriff der Zombiehorde'|trans({},'help') }}</strong></a>
+{% endblock %}

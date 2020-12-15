@@ -1,4 +1,4 @@
-<?php /** @noinspection PhpComposerExtensionStubsInspection */
+<?php
 
 namespace App\Controller\Soul;
 
@@ -297,16 +297,18 @@ class SoulCoalitionController extends SoulController
 
         /** @var UserGroupAssociation|null $user_coalition */
         $user_coalition = $this->user_handler->getCoalitionMembership($user);
-
-        if ($user_coalition === null) return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
-        if ($user_coalition->getAssociationLevel() !== UserGroupAssociation::GroupAssociationLevelFounder)
-            return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
+        if ($user_coalition === null || !in_array($user_coalition->getAssociationType(), [UserGroupAssociation::GroupAssociationTypeCoalitionMember,UserGroupAssociation::GroupAssociationTypeCoalitionMemberInactive]))
+            return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
 
         /** @var UserGroupAssociation|null $target_coalition */
         $target_coalition = $this->entity_manager->getRepository(UserGroupAssociation::class)->find($coalition);
-
         if ($target_coalition === null) return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
+
         if ($target_coalition->getAssociation() !== $user_coalition->getAssociation())
+            return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
+
+
+        if ($target_coalition->getAssociationType() !== UserGroupAssociation::GroupAssociationTypeCoalitionInvitation && $user_coalition->getAssociationLevel() !== UserGroupAssociation::GroupAssociationLevelFounder)
             return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
 
         $this->entity_manager->remove( $target_coalition );

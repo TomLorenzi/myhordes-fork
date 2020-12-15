@@ -34,6 +34,10 @@ class ItemPrototypeRepository extends ServiceEntityRepository
         }
     }
 
+    public function findAll() {
+        return $this->findBy(array(), array("id" => "ASC"));
+    }
+
 
     // /**
     //  * @return ItemPrototype[] Returns an array of ItemPrototype objects

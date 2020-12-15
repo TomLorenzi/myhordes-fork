@@ -337,7 +337,10 @@ class RecipeFixtures extends Fixture implements DependentFixtureInterface
         'com039' => ['type' => Recipe::ManualAnywhere, 'out' => 'dfhifi_#01',     'provoking' => 'hifiev_#00', 'in' => ['hifiev_#00', 'bquies_#00'] ],
         'com040' => ['type' => Recipe::ManualAnywhere, 'out' => 'lpoint4_#00',    'provoking' => 'diode_#00',  'in' => ['wire_#00', 'meca_parts_#00', 'tube_#00', 'maglite_2_#00', 'diode_#00'] ],
         'com041' => ['type' => Recipe::ManualAnywhere, 'out' => 'hmbrew_#00',     'provoking' => 'fungus_#00', 'in' => ['fungus_#00', 'vodka_#00', 'oilcan_#00'] ],
-        'com042' => ['type' => Recipe::ManualAnywhere, 'out' => 'wood_xmas_#00',     'provoking' => 'food_xmas_#00', 'in' => ['food_xmas_#00', 'can_open_#00'] ],
+        'com042' => ['type' => Recipe::ManualAnywhere, 'out' => 'wood_xmas_#00',  'provoking' => 'food_xmas_#00', 'in' => ['food_xmas_#00', 'can_open_#00'] ],
+        'com043' => ['type' => Recipe::ManualAnywhere, 'out' => 'wood_xmas_#00',  'provoking' => 'food_xmas_#00', 'in' => ['food_xmas_#00', 'can_open_#00'] ],
+        'com044' => ['type' => Recipe::ManualAnywhere, 'out' => 'gun_#00',        'provoking' => 'gun_#00', 'in' => ['gun_#00', 'bullets_#00'] ],
+        'com045' => ['type' => Recipe::ManualAnywhere, 'out' => 'machine_gun_#00','provoking' => 'machine_gun_#00', 'in' => ['machine_gun_#00', 'bullets_#00'] ],
     ];
 
     private $entityManager;
@@ -395,7 +398,7 @@ class RecipeFixtures extends Fixture implements DependentFixtureInterface
             $group = (new ItemGroup())->setName( "{$entry_unique_id}_rsc" );
             foreach ($data['rsc'] as $item_name => $count) {
 
-                $item = $manager->getRepository(ItemPrototype::class)->findOneByName( $item_name );
+                $item = $manager->getRepository(ItemPrototype::class)->findOneBy( ['name' => $item_name] );
                 if (!$item) throw new Exception( "Item class not found: " . $item_name );
 
                 $group->addEntry( (new ItemGroupEntry())->setPrototype( $item )->setChance( $count ) );
@@ -447,7 +450,7 @@ class RecipeFixtures extends Fixture implements DependentFixtureInterface
 
         $cache = [];
         foreach (static::$recipe_data as $name => $recipe_data) {
-            $recipe = $manager->getRepository(Recipe::class)->findOneByName( $name );
+            $recipe = $manager->getRepository(Recipe::class)->findOneBy( ['name' => $name] );
             if ($recipe === null) $recipe = (new Recipe())->setName( $name );
 
             if ($recipe->getSource()) { $manager->remove( $recipe->getSource() ); $recipe->setSource( null ); }
@@ -483,7 +486,7 @@ class RecipeFixtures extends Fixture implements DependentFixtureInterface
 
             $in_group = (new ItemGroup())->setName("rc_{$name}_in");
             foreach ( $in as $id => $count ) {
-                $proto = $manager->getRepository(ItemPrototype::class)->findOneByName( $id );
+                $proto = $manager->getRepository(ItemPrototype::class)->findOneBy( ['name' => $id] );
                 if (!$proto) throw new Exception("Item prototype not found: '$id'");
                 $in_group->addEntry( (new ItemGroupEntry())->setChance( $count )->setPrototype( $proto ) );
             }
@@ -491,14 +494,14 @@ class RecipeFixtures extends Fixture implements DependentFixtureInterface
 
             $out_group = (new ItemGroup())->setName("rc_{$name}_out");
             foreach ( $out as $id => $count ) {
-                $proto = $manager->getRepository(ItemPrototype::class)->findOneByName( $id );
+                $proto = $manager->getRepository(ItemPrototype::class)->findOneBy( ['name' => $id] );
                 if (!$proto) throw new Exception("Item prototype not found: '$id'");
                 $out_group->addEntry( (new ItemGroupEntry())->setChance( $count )->setPrototype( $proto ) );
             }
             $recipe->setResult($out_group);
 
             foreach ($provoking as $item)
-                $recipe->addProvoking( $manager->getRepository(ItemPrototype::class)->findOneByName( $item ) );
+                $recipe->addProvoking( $manager->getRepository(ItemPrototype::class)->findOneBy( ['name' => $item] ) );
 
             $recipe->setType( $recipe_data['type'] );
             if (array_key_exists('action', $recipe_data)) {
@@ -506,12 +509,12 @@ class RecipeFixtures extends Fixture implements DependentFixtureInterface
             }
 
             if(isset($recipe_data['picto'])){
-                $recipe->setPictoPrototype($manager->getRepository(PictoPrototype::class)->findOneByName($recipe_data['picto']));
+                $recipe->setPictoPrototype($manager->getRepository(PictoPrototype::class)->findOneBy(['name' => $recipe_data['picto']]));
             }
 
             if(isset($recipe_data['keep'])){
                 foreach ($recipe_data['keep'] as $item)
-                    $recipe->addKeep( $manager->getRepository(ItemPrototype::class)->findOneByName($item));
+                    $recipe->addKeep( $manager->getRepository(ItemPrototype::class)->findOneBy(['name' => $item]));
             }
             $manager->persist($recipe);
 

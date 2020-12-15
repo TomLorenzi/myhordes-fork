@@ -40,8 +40,9 @@ class LogTemplateHandler
         $this->entity_manager = $em;
     }
 
-    private function wrap(?string $obj, ?string $class = null): string {
-        return $obj ? ("<span" . ($class ? " class='$class'" : '') . ">$obj</span>") : '';
+    public function wrap(?string $obj, ?string $class = null): string {
+        //if (!($obj || $obj != 0)) {var_dump($obj); die;}
+        return ($obj === "0" || $obj) ? ("<span" . ($class ? " class='$class'" : '') . ">$obj</span>") : '';
     }
 
     /**
@@ -49,7 +50,7 @@ class LogTemplateHandler
      * @param bool $small
      * @return string
      */
-    private function iconize($obj, bool $small = false, bool $broken = false): string {
+    public function iconize($obj, bool $small = false, bool $broken = false): string {
         if (is_array($obj) && count($obj) === 2) return $this->iconize( $obj['item'], $small) . ' x ' . $obj['count'];
 
         if ($obj instanceof Item) {
@@ -332,6 +333,18 @@ class LogTemplateHandler
     public function constructionsDestroy( Town $town, BuildingPrototype $proto, int $damage ): TownLogEntry {
         $variables = array('plan' => $proto->getId(), 'damage' => $damage);
         $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneBy(['name' => 'constructionsDestroy']);
+        return (new TownLogEntry())
+            ->setLogEntryTemplate($template)
+            ->setVariables($variables)
+            ->setTown( $town )
+            ->setDay( $town->getDay() )
+            ->setTimestamp( new DateTime('now') )
+            ->setCitizen( null );
+    }
+
+    public function fireworkExplosion( Town $town, BuildingPrototype $proto ): TownLogEntry {
+        $variables = array('plan' => $proto->getId());
+        $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneBy(['name' => 'fireworkExplosion']);
         return (new TownLogEntry())
             ->setLogEntryTemplate($template)
             ->setVariables($variables)
@@ -743,6 +756,18 @@ class LogTemplateHandler
             ->setCitizen( $zombie );
     }
 
+    public function nightlyInternalAttackStart(Town $town): TownLogEntry {
+        $variables = array();
+        $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneBy(['name' => 'nightlyInternalAttackStart']);
+
+        return (new TownLogEntry())
+            ->setLogEntryTemplate($template)
+            ->setVariables($variables)
+            ->setTown( $town )
+            ->setDay( $town->getDay() )
+            ->setTimestamp( new DateTime('now') );
+    }
+
     public function nightlyInternalAttackNothing( Citizen $zombie ): TownLogEntry {
         $templateList = [
             'nightlyInternalAttackNothing1',
@@ -760,6 +785,18 @@ class LogTemplateHandler
             ->setDay( $zombie->getTown()->getDay() )
             ->setTimestamp( new DateTime('now') )
             ->setCitizen( $zombie );
+    }
+
+    public function nightlyInternalAttackNothingSummary( Town $town, $useless ): TownLogEntry {
+        $variables = array('count' => $useless);
+        $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneBy(['name' => 'nightlyInternalAttackNothingSummary']);
+
+        return (new TownLogEntry())
+            ->setLogEntryTemplate($template)
+            ->setVariables($variables)
+            ->setTown( $town )
+            ->setDay( $town->getDay() )
+            ->setTimestamp( new DateTime('now') );
     }
 
     public function nightlyAttackCancelled( Town $town ): TownLogEntry {
@@ -1255,6 +1292,36 @@ class LogTemplateHandler
             ->setTown( $attacker->getTown() )
             ->setDay( $attacker->getTown()->getDay() )
             ->setZone( $attacker->getZone() )
+            ->setTimestamp( new DateTime('now') );
+    }
+
+    public function catapultUsage( Citizen $master, Item $item, Zone $target ): TownLogEntry {
+        $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneBy(['name' => 'catapultUsage']);
+
+        return (new TownLogEntry())
+            ->setLogEntryTemplate($template)
+            ->setVariables([
+                'master' => $master->getId(),
+                'item' => $item->getPrototype()->getId(),
+                'x' => $target->getX(),
+                'y' => $target->getY()
+            ])
+            ->setTown( $master->getTown() )
+            ->setDay( $master->getTown()->getDay() )
+            ->setTimestamp( new DateTime('now') );
+    }
+
+    public function catapultImpact( Item $item, Zone $target ): TownLogEntry {
+        $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneBy(['name' => 'catapultImpact']);
+
+        return (new TownLogEntry())
+            ->setLogEntryTemplate($template)
+            ->setVariables([
+                'item' => $item->getPrototype()->getId(),
+            ])
+            ->setTown( $target->getTown() )
+            ->setDay( $target->getTown()->getDay() )
+            ->setZone( ($target->getX() === 0 && $target->getY() === 0) ? null : $target )
             ->setTimestamp( new DateTime('now') );
     }
 }

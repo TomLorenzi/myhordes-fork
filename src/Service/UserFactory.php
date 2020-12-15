@@ -250,7 +250,7 @@ class UserFactory
             [
                 'MIME-Version' => '1.0',
                 'Content-type' => 'text/html; charset=UTF-8',
-                'From' => 'The Undead Mailman <mailzombie@' . $_SERVER['SERVER_NAME'] . '>'
+                'From' => 'The Undead Mailman <mailzombie@' . ($_SERVER['SERVER_NAME'] ?? 'localhost') . '>'
             ]
         );
     }

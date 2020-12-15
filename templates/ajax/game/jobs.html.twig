@@ -1,5 +1,5 @@
 {% extends "ajax/ajax.html.twig" %}
-
+{% block title %}{{'Wiedergeburt: Wähle einen Beruf'|trans({}, 'game')|raw}}{% endblock %}
 {% block jobhelp %}
     <div class="help">
         <p>{% trans from 'game' %}
@@ -33,19 +33,37 @@
                 {% for job in professions %}
                     {# @var job \App\Entity\CitizenProfession #}
                     <div class="jobs-choice padded cell rw-4 rw-lg-6">
-                        <label for="jb_{{ job.name }}">
-                            <img alt="{{ job.label|trans({}, 'game') }}" src="{{ asset('build/images/professions/select/' ~ job.icon ~ '.gif') }}">
-                        </label>
-                        <div class="text">
+                        <div class="text center">
                             <input type="radio" id="jb_{{ job.name }}" name="job" value="{{ job.id }}">
                             <label for="jb_{{ job.name }}">
-                                    <img src="{{ asset('build/images/professions/' ~ job.icon ~ '.gif') }}">
+                                <img src="{{ asset('build/images/professions/' ~ job.icon ~ '.gif') }}">
                                 {{ job.label|trans({}, 'game') }}
                             </label>
                         </div>
+                        <label for="jb_{{ job.name }}">
+                            <div class="helpbtn">
+                                <a class="help-button" x-ajax-href="{{ url('help', {'name': job.name}) }}">
+                                    <div class="tooltip help">{{ job.description|trans({}, 'game')}}<br /><em>{{ 'Klick hier, um mehr über diesen Beruf zu erfahren...'|trans({},'game') }}</em></div>
+                                    {{ 'Hilfe'|trans({},'global') }}
+                                </a>
+                            </div>
+                            <img alt="{{ job.label|trans({}, 'game') }}" src="{{ asset('build/images/professions/select/' ~ job.icon ~ '.gif') }}">
+                        </label>
+                        
                     </div>
                 {% endfor %}
-            </div><br /><br />
+            </div>
+            <br />
+            <h5>{{'Zur zeit in der Stadt'|trans({}, 'game')}} <a class="help-button"><div class="tooltip help">{{ 'Die Bürger dieser Stadt haben die unten aufgeführten Berufe gewählt.'|trans({},'game') }}</div>{{ 'Hilfe'|trans({},'global') }}</a></h5>
+            <div class="row prof-list">
+            {% for elem in prof_count %}
+                <div class="padded cell small center rw-4">
+                    <img alt="{{ elem[1].label|trans({},'game') }}" src="{{ asset('build/images/professions/' ~ elem[1].icon ~ '.gif') }}" />
+                    {{ elem[1].label|trans({},'game') }} x {{ elem[0] }}
+                </div>
+            {% endfor %}
+        </div>
+            <br />
             <div class="cell rw-12">
                 <div class="row">
                     <div class="cell ro-8 rw-4 ro-lg-7 rw-lg-5 ro-md-6 rw-md-6 ro-sm-0 rw-sm-12 right">

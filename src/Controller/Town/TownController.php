@@ -14,13 +14,15 @@ use App\Entity\CitizenHomeUpgradePrototype;
 use App\Entity\CitizenRole;
 use App\Entity\CitizenVote;
 use App\Entity\Complaint;
+use App\Entity\ComplaintReason;
 use App\Entity\ExpeditionRoute;
 use App\Entity\ItemPrototype;
+use App\Entity\LogEntryTemplate;
 use App\Entity\PictoPrototype;
 use App\Entity\ShoutboxEntry;
 use App\Entity\ShoutboxReadMarker;
-use App\Entity\TownLogEntry;
 use App\Entity\PrivateMessage;
+use App\Entity\SpecialActionPrototype;
 use App\Entity\User;
 use App\Entity\ZombieEstimation;
 use App\Entity\Zone;
@@ -38,6 +40,7 @@ use App\Service\JSONRequestParser;
 use App\Service\TownHandler;
 use App\Structures\ItemRequest;
 use App\Structures\CitizenInfo;
+use Doctrine\Common\Collections\Criteria;
 use Doctrine\ORM\EntityManagerInterface;
 use Exception;
 use Symfony\Component\HttpFoundation\Response;
@@ -120,7 +123,7 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
                 $addons['dump'] = [T::__('Müllhalde', 'game'), 'town_dump', 4];
 
             if ($b->getPrototype()->getName() === 'item_courroie_#00')
-                $addons['catapult'] = [T::__('Katapult', 'game'), 'town_dashboard', 5];
+                $addons['catapult'] = [T::__('Katapult', 'game'), 'town_catapult', 5];
             
 
             $data["builtbuildings"][] = $b;
@@ -146,6 +149,9 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
      */
     public function dashboard(TownHandler $th): Response
     {
+        if (!$this->getActiveCitizen()->getHasSeenGazette())
+            return $this->redirect($this->generateUrl('game_newspaper'));
+
         $town = $this->getActiveCitizen()->getTown();
 
         $has_zombie_est_today    = !empty($th->getBuilding($town, 'item_tagger_#00'));
@@ -263,6 +269,9 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
      */
     public function visit(int $id, EntityManagerInterface $em, TownHandler $th): Response
     {
+        if (!$this->getActiveCitizen()->getHasSeenGazette())
+            return $this->redirect($this->generateUrl('game_newspaper'));
+
         if ($id === $this->getActiveCitizen()->getId())
             return $this->redirect($this->generateUrl('town_house'));
 
@@ -307,7 +316,7 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
         }
 
         $hidden = (bool)($em->getRepository(CitizenHomeUpgrade::class)->findOneByPrototype($home,
-            $em->getRepository(CitizenHomeUpgradePrototype::class)->findOneByName('curtain')
+            $em->getRepository(CitizenHomeUpgradePrototype::class)->findOneBy(['name' => 'curtain'])
         )) && $this->citizen_handler->houseIsProtected($c);
 
         $is_injured    = $this->citizen_handler->isWounded($c);
@@ -341,6 +350,10 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
             }
         }
 
+        $criteria = new Criteria();
+        $criteria->andWhere($criteria->expr()->gte('severity', Complaint::SeverityBanish));
+        $criteria->andWhere($criteria->expr()->eq('culprit', $c));
+
         return $this->render( 'ajax/game/town/home_foreign.html.twig', $this->addDefaultTwigArgs('citizens', [
             'owner' => $c,
             'can_attack' => !$this->citizen_handler->isTired($this->getActiveCitizen()) && $this->getActiveCitizen()->getAp() >= 5,
@@ -349,8 +362,10 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
             'allow_devour_corpse' => !$this->citizen_handler->hasStatusEffect($this->getActiveCitizen(), 'tg_ghoul_corpse'),
             'home' => $home,
             'actions' => $this->getItemActions(),
+            'can_complain' => !$this->getActiveCitizen()->getBanished() && ( !$c->getBanished() || $th->getBuilding( $this->getActiveCitizen()->getTown(), 'r_dhang_#00', true ) || $th->getBuilding( $this->getActiveCitizen()->getTown(), 'small_fleshcage_#00', true )),
             'complaint' => $this->entity_manager->getRepository(Complaint::class)->findByCitizens( $this->getActiveCitizen(), $c ),
-            'complaints' => $this->entity_manager->getRepository(Complaint::class)->countComplaintsFor( $c ),
+            'complaints' => $this->entity_manager->getRepository(Complaint::class)->matching( $criteria ),
+            'complaintreasons' => $this->entity_manager->getRepository(ComplaintReason::class)->findAll(),
             'chest' => $home->getChest(),
             'chest_size' => $this->inventory_handler->getSize($home->getChest()),
             'has_cremato' => $th->getBuilding($town, 'item_hmeat_#00', true) !== null,
@@ -505,6 +520,14 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
         if ($severity < Complaint::SeverityNone || $severity > Complaint::SeverityKill)
             return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest );
 
+        $reason = (int)$parser->get('reason', 0);
+        if($severity != Complaint::SeverityNone && $reason <= 0)
+            return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+        $complaintReason = $this->entity_manager->getRepository(ComplaintReason::class)->find($reason);
+        if ($severity != Complaint::SeverityNone && !$complaintReason)
+            return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
         $has_gallows = $th->getBuilding( $this->getActiveCitizen()->getTown(), 'r_dhang_#00', true );
         $has_cage = $th->getBuilding( $this->getActiveCitizen()->getTown(), 'small_fleshcage_#00', true );
 
@@ -516,12 +539,14 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
         if (!$culprit || $culprit->getTown()->getId() !== $town->getId() || !$culprit->getAlive() )
             return AjaxResponse::error(ErrorHelper::ErrorActionNotAvailable );
 
+        if ($culprit->getBanished() && !$has_gallows && !$has_cage && $severity > Complaint::SeverityNone)
+            return AjaxResponse::error(ErrorHelper::ErrorActionNotAvailable );
+
         // Check permission: dummy accounts may not complain against non-dummy accounts (dummy is any account which email ends on @localhost)
         if ($this->isGranted('ROLE_DUMMY', $author) && !$this->isGranted('ROLE_DUMMY', $culprit))
             return AjaxResponse::error(ErrorHelper::ErrorPermissionError );
 
         $existing_complaint = $em->getRepository( Complaint::class )->findByCitizens($author, $culprit);
-        $severity_before = $existing_complaint ? $existing_complaint->getSeverity() : 0;
 
         if ($severity > Complaint::SeverityNone) {
             $counter = $this->getActiveCitizen()->getSpecificActionCounter(ActionCounter::ActionTypeComplaint);
@@ -539,7 +564,10 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
                 ->setCulprit( $culprit )
                 ->setSeverity( $severity )
                 ->setCount( ($author->getProfession()->getHeroic() && $th->getBuilding( $town, 'small_court_#00', true )) ? 2 : 1 );
-            $culprit->addComplaint( $existing_complaint );
+            
+            if($reason > 0)
+                $existing_complaint->setLinkedReason($complaintReason);
+            $culprit->addComplaint($existing_complaint);
 
             $complaint_level = ($severity > Complaint::SeverityNone) ? 1 : 0;
 
@@ -549,12 +577,15 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
                 $complaint_level = -1;
             else if ($existing_complaint->getSeverity() === Complaint::SeverityNone && $severity > Complaint::SeverityNone)
                 $complaint_level = 1;
+            
+            if($reason > 0)
+                $existing_complaint->setLinkedReason($complaintReason);
 
             $existing_complaint->setSeverity( $severity );
         }
 
         try {
-            if ($severity !== $severity_before && ($severity === 0 || $severity_before === 0)) $em->persist( $this->log->citizenComplaint( $existing_complaint ) );
+            // if ($severity !== $severity_before && ($severity === 0 || $severity_before === 0)) $em->persist( $this->log->citizenComplaint( $existing_complaint ) );
             $em->persist($culprit);
             $em->persist($existing_complaint);
             $em->flush();
@@ -637,6 +668,9 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
      */
     public function well(TownHandler $th): Response
     {
+        if (!$this->getActiveCitizen()->getHasSeenGazette())
+            return $this->redirect($this->generateUrl('game_newspaper'));
+
         $town = $this->getActiveCitizen()->getTown();
         $pump = $th->getBuilding( $town, 'small_water_#00', true );
 
@@ -655,7 +689,7 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
             'allow_take' => $this->getActiveCitizen()->getSpecificActionCounterValue( ActionCounter::ActionTypeWell ) < $allow_take,
             'pump' => $pump,
 
-            'log' => $this->renderLog( -1, null, false, TownLogEntry::TypeWell, 10 )->getContent(),
+            'log' => $this->renderLog( -1, null, false, LogEntryTemplate::TypeWell, 10 )->getContent(),
             'day' => $this->getActiveCitizen()->getTown()->getDay()
         ]) );
     }
@@ -666,7 +700,7 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
      * @return Response
      */
     public function log_well_api(JSONRequestParser $parser): Response {
-        return $this->renderLog((int)$parser->get('day', -1), null, false, TownLogEntry::TypeWell, null);
+        return $this->renderLog((int)$parser->get('day', -1), null, false, LogEntryTemplate::TypeWell, null);
     }
 
     /**
@@ -675,6 +709,7 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
      * @param InventoryHandler $handler
      * @param ItemFactory $factory
      * @param TownHandler $th
+     * @param BankAntiAbuseService $ba
      * @return Response
      */
     public function well_api(JSONRequestParser $parser, InventoryHandler $handler, ItemFactory $factory, TownHandler $th, BankAntiAbuseService $ba): Response {
@@ -705,8 +740,11 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
                 $inv_source = null;
                 $item = $factory->createItem( 'water_#00' );
 
-                if ($counter->getCount() > 0 && !$ba->allowedToTake( $citizen ))
-                    return AjaxResponse::error( InventoryHandler::ErrorBankLimitHit );
+                if ($counter->getCount() > 0 && !$ba->allowedToTake( $citizen )) {
+                    $ba->increaseBankCount($citizen);
+                    $this->entity_manager->flush();
+                    return AjaxResponse::error(InventoryHandler::ErrorBankLimitHit);
+                }
 
                 if (($error = $handler->transferItem(
                     $citizen,
@@ -766,6 +804,8 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
      */
     public function bank(TownHandler $th): Response
     {
+        if (!$this->getActiveCitizen()->getHasSeenGazette())
+            return $this->redirect($this->generateUrl('game_newspaper'));
         $town = $this->getActiveCitizen()->getTown();
         $item_def_factor = 1;
         
@@ -779,8 +819,8 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
             'item_def_factor' => $item_def_factor,
             'item_def_count' => $this->inventory_handler->countSpecificItems($town->getBank(),$this->inventory_handler->resolveItemProperties( 'defence' ), false, false),
             'bank' => $this->renderInventoryAsBank( $town->getBank() ),
-            'log' => $this->renderLog( -1, null, false, TownLogEntry::TypeBank, 10 )->getContent(),
-            'day' => $town->getDay()
+            'log' => $this->renderLog( -1, null, false, LogEntryTemplate::TypeBank, 10 )->getContent(),
+            'day' => $town->getDay(),
         ]) );
     }
 
@@ -790,7 +830,7 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
      * @return Response
      */
     public function log_bank_api(JSONRequestParser $parser): Response {
-        return $this->renderLog((int)$parser->get('day', -1), null, false, TownLogEntry::TypeBank, null);
+        return $this->renderLog((int)$parser->get('day', -1), null, false, LogEntryTemplate::TypeBank, null);
     }
 
     /**
@@ -814,6 +854,9 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
      */
     public function citizens(EntityManagerInterface $em, TownHandler $th): Response
     {
+        if (!$this->getActiveCitizen()->getHasSeenGazette())
+            return $this->redirect($this->generateUrl('game_newspaper'));
+
         $citizenInfos = [];
         $hidden = [];
 
@@ -863,6 +906,9 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
      */
     public function citizens_vote(int $roleId, EntityManagerInterface $em): Response
     {
+        if (!$this->getActiveCitizen()->getHasSeenGazette())
+            return $this->redirect($this->generateUrl('game_newspaper'));
+
         // Get citizen & town
         $citizen = $this->getActiveCitizen();
         $town = $citizen->getTown();
@@ -912,6 +958,7 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
         // and, of course, if you voted for yourself
         // and if town is not in chaos
         $role = $this->entity_manager->getRepository(CitizenRole::class)->find($role_id);
+        /** @var CitizenRole $role */
         $voted_citizen = $this->entity_manager->getRepository(Citizen::class)->find($voted_citizen_id);
         if($role === null || $voted_citizen === null || $voted_citizen->getTown() != $citizen->getTown() || !$voted_citizen->getAlive() || $citizen === $voted_citizen || $town->getChaos())
             return AjaxResponse::error(ErrorHelper::ErrorActionNotAvailable);
@@ -927,6 +974,11 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
             ->setRole($role);
 
         $citizen->addVote($citizenVote);
+
+        // We remove the ability to vote from the WB
+        $special_action = $this->entity_manager->getRepository(SpecialActionPrototype::class)->findOneBy(['name' => 'special_vote_' . $role->getName()]);
+        if($special_action && $citizen->getSpecialActions()->contains($special_action))
+            $citizen->removeSpecialAction($special_action);
 
         // Persist
         try {
@@ -947,6 +999,9 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
      */
     public function citizens_omniscience(EntityManagerInterface $em): Response
     {
+        if (!$this->getActiveCitizen()->getHasSeenGazette())
+            return $this->redirect($this->generateUrl('game_newspaper'));
+            
         // Get citizen & town
         $citizen = $this->getActiveCitizen();
         $town = $citizen->getTown();
@@ -1098,6 +1153,11 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
         // Deduct AP and increase completion of the building
         $this->citizen_handler->deductAPBP( $citizen, $ap );
 
+        // Notice
+        if(!$was_completed) {
+            $this->addFlash('notice', $this->translator->trans("Du hast am Bauprojekt %plan% mitgeholfen. Du hast dafür %count% Aktionspunkt(e) verbraucht.", ["%plan%" => "<span>" . $this->translator->trans($building->getPrototype()->getLabel(), [], 'buildings') . "</span>", "%count%" => $ap], 'game'));
+        }
+
         if($missing_ap <= 0 || $missing_ap - $ap <= 0){
             // Missing ap == 0, the building has been completed by the workshop upgrade.
             $building->setAp($building->getPrototype()->getAp());
@@ -1162,6 +1222,8 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
      */
     public function constructions(TownHandler $th): Response
     {
+        if (!$this->getActiveCitizen()->getHasSeenGazette())
+            return $this->redirect($this->generateUrl('game_newspaper'));
         $town = $this->getActiveCitizen()->getTown();
         $buildings = $town->getBuildings();
 
@@ -1224,7 +1286,7 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
             'slavery' => $th->getBuilding($town, 'small_slave_#00', true) !== null,
             'workshopBonus' => $workshopBonus,
             'hpToAp' => $hpToAp,
-            'log' => $this->renderLog( -1, null, false, TownLogEntry::TypeConstruction, 10 )->getContent(),
+            'log' => $this->renderLog( -1, null, false, LogEntryTemplate::TypeConstruction, 10 )->getContent(),
             'day' => $this->getActiveCitizen()->getTown()->getDay(),
             'canvote' => $this->user_handler->hasSkill($this->getActiveCitizen()->getUser(), "dictator") && !$this->citizen_handler->hasStatusEffect($this->getActiveCitizen(), 'tg_build_vote'),
             'voted_building' => $votedBuilding,
@@ -1270,7 +1332,7 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
      * @return Response
      */
     public function log_constructions_api(JSONRequestParser $parser): Response {
-        return $this->renderLog((int)$parser->get('day', -1), null, false, TownLogEntry::TypeConstruction, null);
+        return $this->renderLog((int)$parser->get('day', -1), null, false, LogEntryTemplate::TypeConstruction, null);
     }
 
     /**
@@ -1392,7 +1454,8 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
      */
     public function door(TownHandler $th): Response
     {
-
+        if (!$this->getActiveCitizen()->getHasSeenGazette())
+            return $this->redirect($this->generateUrl('game_newspaper'));
         $door_locked = $this->door_is_locked($th,$this->conf);
         $can_go_out = !$this->citizen_handler->hasStatusEffect($this->getActiveCitizen(), 'tired') && $this->getActiveCitizen()->getAp() > 0;
 
@@ -1406,7 +1469,7 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
             'show_ventilation'  => $th->getBuilding($this->getActiveCitizen()->getTown(), 'small_ventilation_#00',  true) !== null,
             'allow_ventilation' => $this->getActiveCitizen()->getProfession()->getHeroic(),
             'show_sneaky'       => $this->getActiveCitizen()->hasRole('ghoul'),
-            'log'               => $this->renderLog( -1, null, false, TownLogEntry::TypeDoor, 10 )->getContent(),
+            'log'               => $this->renderLog( -1, null, false, LogEntryTemplate::TypeDoor, 10 )->getContent(),
             'day'               => $this->getActiveCitizen()->getTown()->getDay(),
         ], $this->get_map_blob())) );
     }
@@ -1417,7 +1480,7 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
      * @return Response
      */
     public function log_door_api(JSONRequestParser $parser): Response {
-        return $this->renderLog((int)$parser->get('day', -1), null, false, TownLogEntry::TypeDoor, null);
+        return $this->renderLog((int)$parser->get('day', -1), null, false, LogEntryTemplate::TypeDoor, null);
     }
 
     /**
@@ -1487,6 +1550,9 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
      */
     public function planner(): Response
     {
+        if (!$this->getActiveCitizen()->getHasSeenGazette())
+            return $this->redirect($this->generateUrl('game_newspaper'));
+
         return $this->render( 'ajax/game/town/planner.html.twig', $this->addDefaultTwigArgs('door', array_merge([
             'town'  =>  $this->getActiveCitizen()->getTown(),
             'allow_extended' => $this->getActiveCitizen()->getProfession()->getHeroic()
@@ -1602,8 +1668,23 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
 
             $transfer = $this->random_generator->chance(0.1);
             if($transfer){
-                $this->citizen_handler->inflictStatus($citizen, $healedStatus);
-                $message[] = $this->translator->trans($healableStatus[$healedStatus]['transfer'], ['%citizen%' => "<span>" . $c->getUser()->getName() . "</span>"], 'game');
+                $do_transfer = true;
+                $witness = false;
+                if($this->citizen_handler->hasStatusEffect($citizen, 'tg_infect_wtns')) {
+                    if($this->random_generator->chance(0.5)){
+                        $do_transfer = false;
+                    }
+                    $this->citizen_handler->removeStatus($citizen, 'th_infect_wtns');
+                }
+                if($do_transfer) {
+                    $this->citizen_handler->inflictStatus($citizen, $healedStatus);
+                    $message[] = $this->translator->trans($healableStatus[$healedStatus]['transfer'], ['%citizen%' => "<span>" . $c->getUser()->getName() . "</span>"], 'game');
+                    if($witness){
+                    $message[] = $this->translator->trans('Ein Opfer der Großen Seuche zu sein hat dir diesmal nicht viel gebracht... und es sieht nicht gut aus...', [], 'items');
+                    }
+                } else if($witness) {
+                    $message[] = $this->translator->trans('Da hast du wohl Glück gehabt... Als Opfer der Großen Seuche bist du diesmal um eine unangenehme Infektion herumgekommen.', [], 'items');
+                }
             }
         } else {
             $message[] = $this->translator->trans($healableStatus[$healedStatus]['fail'], ['%citizen%' => "<span>" . $c->getUser()->getName() . "</span>"], 'game');

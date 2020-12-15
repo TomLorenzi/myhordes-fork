@@ -50,7 +50,6 @@ class BankAntiAbuse
     public function setNbItemTaken(int $nbItemTaken): self
     {
         $this->nbItemTaken = $nbItemTaken;
-
         return $this;
     }
 

@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\ActionCounter;
+use App\Entity\ChatSilenceTimer;
 use App\Entity\Citizen;
 use App\Entity\CitizenEscortSettings;
 use App\Entity\CitizenRole;
@@ -153,7 +154,7 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
         return parent::addDefaultTwigArgs( $section,array_merge( [
             'zone_players' => count($zone->getCitizens()),
             'zone_zombies' => max(0,$zone->getZombies()),
-            'can_attack_citizen' => !$this->citizen_handler->isTired($this->getActiveCitizen()) && $this->getActiveCitizen()->getAp() >= 5,
+            'can_attack_citizen' => !$this->citizen_handler->isTired($this->getActiveCitizen()) && $this->getActiveCitizen()->getAp() >= 5 && !$this->citizen_handler->isWounded($this->getActiveCitizen()),
             'can_devour_citizen' => $this->getActiveCitizen()->hasRole('ghoul'),
             'allow_devour_citizen' => !$this->citizen_handler->hasStatusEffect($this->getActiveCitizen(), 'tg_ghoul_eat'),
             'zone_cp' => $cp,
@@ -164,6 +165,7 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
             'scout_sense' => $scout_sense,
             'scavenger_sense' => $scavenger_sense,
             'heroics' => $this->getHeroicActions(),
+            'specials' => $this->getSpecialActions(),
             'actions' => $this->getItemActions(),
             'camping' => $this->getCampingActions(),
             'recipes' => $this->getItemCombinations(false),
@@ -205,6 +207,9 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
      */
     public function desert(TownHandler $th): Response
     {
+        if (!$this->getActiveCitizen()->getHasSeenGazette())
+            return $this->redirect($this->generateUrl('game_newspaper'));
+            
         $town = $this->getActiveCitizen()->getTown();
         $zone = $this->getActiveCitizen()->getZone();
 
@@ -337,7 +342,7 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
             'enter_costs_ap' => $require_ap,
             'allow_floor_access' => !$is_on_zero,
             'can_escape' => !$this->citizen_handler->isWounded( $this->getActiveCitizen() ),
-            'can_attack' => !$citizen_tired,
+            'can_attack' => !$citizen_tired && !$this->citizen_handler->isWounded($this->getActiveCitizen()),
             'zone_blocked' => $blocked,
             'zone_escape' => $escape,
             'digging' => $this->getActiveCitizen()->isDigging(),
@@ -775,7 +780,21 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
             $this->citizen_handler->inflictStatus($mover, "tg_chk_movewb");
 
             // This text is a newly added one, but it breaks the "Sneak out of town"
-            if ($others_are_here && !($zone->getX() === 0 && $zone->getY() === 0)) $this->entity_manager->persist( $this->log->outsideMove( $mover, $zone, $new_zone, true  ) );
+            $smokeBombs = $zone->getChatSilenceTimers();
+            $hideMove = false;
+            foreach ($smokeBombs as $smokeBomb) {
+                /** @var ChatSilenceTimer $smokeBomb */
+                if($smokeBomb->getCitizen() == $mover){
+                    if($smokeBomb->getTime() > new \DateTime("-1min")) {
+                        $hideMove = true;
+                    } else {
+                        $zone->removeChatSilenceTimer($smokeBomb);
+                        $this->entity_manager->remove($smokeBomb);
+                    }
+                }
+                
+            }
+            if ($others_are_here && !($zone->getX() === 0 && $zone->getY() === 0) && !$hideMove) $this->entity_manager->persist( $this->log->outsideMove( $mover, $zone, $new_zone, true  ) );
             if (!($new_zone->getX() === 0 && $new_zone->getY() === 0)) $this->entity_manager->persist( $this->log->outsideMove( $mover, $new_zone, $zone, false ) );
 
             // Banished citizen's stash check
@@ -889,6 +908,15 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
     }
 
     /**
+     * @Route("api/beyond/desert/special_action", name="beyond_desert_special_action_controller")
+     * @param JSONRequestParser $parser
+     * @return Response
+     */
+    public function special_action_house_api(JSONRequestParser $parser): Response {
+        return $this->generic_special_action_api( $parser );
+    }
+
+    /**
      * @Route("api/beyond/desert/camping", name="beyond_desert_camping_controller")
      * @param JSONRequestParser $parser
      * @param InventoryHandler $handler
@@ -939,7 +967,6 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
     public function item_desert_api(JSONRequestParser $parser, InventoryHandler $handler): Response {
         $down_inv = $this->getActiveCitizen()->getZone()->getFloor();
         $escort = $parser->get('escort', null);
-        $citizen = $this->getActiveCitizen();
 
         if ($escort !== null) {
             /** @var Citizen $citizen */
@@ -952,7 +979,7 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
 
         if (!$this->zone_handler->check_cp( $this->getActiveCitizen()->getZone() ) && $this->uncoverHunter($this->getActiveCitizen()))
             $this->addFlash( 'notice', $this->translator->trans('Deine Tarnung ist aufgeflogen!',[], 'game') );
-        return $this->generic_item_api( $up_inv, $down_inv, true, $parser, $handler, $citizen);
+        return $this->generic_item_api( $up_inv, $down_inv, true, $parser, $handler, $this->getActiveCitizen());
     }
 
     /**
@@ -1008,26 +1035,28 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
         if ($this->zone_handler->check_cp( $zone ) || $this->get_escape_timeout( $citizen ) > 0)
             return AjaxResponse::error( self::ErrorZoneUnderControl );
 
-        if ($this->inventory_handler->countSpecificItems(
-            $this->getActiveCitizen()->getInventory(), $this->entity_manager->getRepository(ItemPrototype::class)->findOneBy(['name' => 'vest_on_#00'])
-        ) > 0)
+        if ($this->inventory_handler->countSpecificItems($this->getActiveCitizen()->getInventory(), $this->entity_manager->getRepository(ItemPrototype::class)->findOneBy(['name' => 'vest_on_#00'])) > 0)
             return AjaxResponse::error( self::ErrorZoneUnderControl );
 
-            if ($citizen->getAp() <= 0 || $this->citizen_handler->isTired( $citizen ))
-                return AjaxResponse::error( ErrorHelper::ErrorNoAP );
+        if ($this->citizen_handler->isWounded($citizen)) {
+            return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailableWounded);
+        }
 
-            $this->citizen_handler->setAP( $citizen, true, -1 );
-            if ($generator->chance( 0.1 )) {
-                $zone->setZombies( $zone->getZombies() - 1 );
-                $this->entity_manager->persist( $this->log->zombieKill($citizen, null, 1));
-                // Add the picto Bare hands
-                $this->picto_handler->give_picto($citizen, 'r_wrestl_#00');
-                // Add the picto zed kill
-                $this->picto_handler->give_picto($citizen, 'r_killz_#00');
+        if ($citizen->getAp() <= 0 || $this->citizen_handler->isTired( $citizen ))
+            return AjaxResponse::error( ErrorHelper::ErrorNoAP );
 
-                $this->addFlash('notice', $this->translator->trans('Nach einem harten Kampf gelingt es dir schließlich, einen Zombie gegen einen Felsen fallen zu lassen... Sein Kopf explodiert buchstäblich und sein Inhalt spritz auf deine Schuhe! Du taumelst zurück, außer Atem: einer weniger...', [], 'game'));
+        $this->citizen_handler->setAP( $citizen, true, -1 );
+        if ($generator->chance( 0.1 )) {
+            $zone->setZombies( $zone->getZombies() - 1 );
+            $this->entity_manager->persist( $this->log->zombieKill($citizen, null, 1));
+            // Add the picto Bare hands
+            $this->picto_handler->give_picto($citizen, 'r_wrestl_#00');
+            // Add the picto zed kill
+            $this->picto_handler->give_picto($citizen, 'r_killz_#00');
 
-            } else $this->addFlash('notice', $this->translator->trans('Du schlägst mehrmals mit aller Kraft auf einen Zombie ein, aber es scheint ihm nichts auszumachen!', [], 'game'));
+            $this->addFlash('notice', $this->translator->trans('Nach einem harten Kampf gelingt es dir schließlich, einen Zombie gegen einen Felsen fallen zu lassen... Sein Kopf explodiert buchstäblich und sein Inhalt spritz auf deine Schuhe! Du taumelst zurück, außer Atem: einer weniger...', [], 'game'));
+
+        } else $this->addFlash('notice', $this->translator->trans('Du schlägst mehrmals mit aller Kraft auf einen Zombie ein, aber es scheint ihm nichts auszumachen!', [], 'game'));
 
 
         try {

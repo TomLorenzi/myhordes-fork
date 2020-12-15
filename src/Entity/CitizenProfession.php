@@ -60,6 +60,11 @@ class CitizenProfession implements NamedEntity
      */
     private $heroic;
 
+    /**
+     * @ORM\Column(type="text")
+     */
+    private $description;
+
     public function __construct()
     {
         $this->professionItems = new ArrayCollection();
@@ -167,6 +172,18 @@ class CitizenProfession implements NamedEntity
     public function setHeroic(bool $heroic): self
     {
         $this->heroic = $heroic;
+
+        return $this;
+    }
+
+    public function getDescription(): ?string
+    {
+        return $this->description;
+    }
+
+    public function setDescription(string $description): self
+    {
+        $this->description = $description;
 
         return $this;
     }

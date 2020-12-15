@@ -10,6 +10,7 @@ use App\Entity\Citizen;
 use App\Entity\CitizenHome;
 use App\Entity\CitizenHomeUpgrade;
 use App\Entity\CitizenHomeUpgradePrototype;
+use App\Entity\CitizenRole;
 use App\Entity\CitizenWatch;
 use App\Entity\Complaint;
 use App\Entity\EventActivationMarker;
@@ -18,6 +19,7 @@ use App\Entity\Item;
 use App\Entity\ItemPrototype;
 use App\Entity\Inventory;
 use App\Entity\PictoPrototype;
+use App\Entity\PrivateMessage;
 use App\Entity\Town;
 use App\Entity\ZombieEstimation;
 use App\Entity\Zone;
@@ -30,17 +32,21 @@ use Doctrine\ORM\EntityManagerInterface;
 
 class TownHandler
 {
-    private $entity_manager;
-    private $inventory_handler;
-    private $item_factory;
-    private $log;
-    private $timeKeeper;
+    private EntityManagerInterface $entity_manager;
+    private InventoryHandler $inventory_handler;
+    private ItemFactory $item_factory;
+    private LogTemplateHandler $log;
+    private TimeKeeperService $timeKeeper;
     private CitizenHandler $citizen_handler;
-    private $picto_handler;
-    private $conf;
+    private PictoHandler $picto_handler;
+    private RandomGenerator $random;
+    private ConfMaster $conf;
+    private CrowService $crowService;
 
     public function __construct(
-        EntityManagerInterface $em, InventoryHandler $ih, ItemFactory $if, LogTemplateHandler $lh, TimeKeeperService $tk, CitizenHandler $ch, PictoHandler $ph, ConfMaster $conf)
+        EntityManagerInterface $em, InventoryHandler $ih, ItemFactory $if, LogTemplateHandler $lh,
+        TimeKeeperService $tk, CitizenHandler $ch, PictoHandler $ph, ConfMaster $conf, RandomGenerator $rand,
+        CrowService $armbrust)
     {
         $this->entity_manager = $em;
         $this->inventory_handler = $ih;
@@ -50,6 +56,8 @@ class TownHandler
         $this->citizen_handler = $ch;
         $this->picto_handler = $ph;
         $this->conf = $conf;
+        $this->random = $rand;
+        $this->crowService = $armbrust;
     }
 
     private function internalAddBuilding( Town &$town, BuildingPrototype $prototype ): ?Building {
@@ -154,7 +162,7 @@ class TownHandler
                     }
                 break;
             case 'small_cafet_#00':
-                $proto = $this->entity_manager->getRepository(ItemPrototype::class)->findOneByName( 'woodsteak_#00' );
+                $proto = $this->entity_manager->getRepository(ItemPrototype::class)->findOneBy( ['name' => 'woodsteak_#00'] );
                 $this->inventory_handler->forceMoveItem( $town->getBank(), $this->item_factory->createItem( $proto ) );
                 $this->inventory_handler->forceMoveItem( $town->getBank(), $this->item_factory->createItem( $proto ) );
                 $this->entity_manager->persist( $this->log->constructionsBuildingCompleteSpawnItems( $building, [ ['item'=>$proto,'count'=>2] ] ) );
@@ -210,6 +218,9 @@ class TownHandler
                     $this->entity_manager->persist($zone);
                 }
                 break;
+            case "item_courroie_#00":
+                $this->assignCatapultMaster($town);
+                break;
             default: break;
         }
 
@@ -225,6 +236,43 @@ class TownHandler
                 $this->picto_handler->give_picto($target_citizen, $picto);
             }
         }
+    }
+
+    public function assignCatapultMaster(Town $town, bool $allow_multi = false): ?Citizen {
+
+        $choice = [];
+        $current = 0;
+
+        foreach($town->getCitizens() as $citizen) {
+            if (!$citizen->getAlive() || $citizen->getBanished()) continue;
+            if (!$allow_multi && $citizen->hasRole('cata')) return null;
+
+            $level = 0;
+            if($this->citizen_handler->hasStatusEffect($citizen, 'tg_chk_forum')) $level++;
+            if($this->citizen_handler->hasStatusEffect($citizen, 'tg_chk_active')) $level++;
+            if($this->citizen_handler->hasStatusEffect($citizen, 'tg_chk_workshop')) $level++;
+            if($this->citizen_handler->hasStatusEffect($citizen, 'tg_chk_build')) $level++;
+            if($this->citizen_handler->hasStatusEffect($citizen, 'tg_chk_movewb')) $level++;
+
+            if ($citizen->getProfession()->getHeroic()) $level *= 10;
+
+            if ($level > $current) {
+                $choice = [$citizen];
+                $current = $level;
+            } elseif ($level === $current) {
+                $choice[] = $citizen;
+            }
+        }
+
+        /** @var Citizen|null $selected */
+        $selected = empty($choice) ? null : $this->random->pick($choice);
+
+        if ($selected) {
+            $selected->addRole( $this->entity_manager->getRepository(CitizenRole::class)->findOneByName('cata') );
+            $this->crowService->postAsPM($selected, '', '', PrivateMessage::TEMPLATE_CROW_CATAPULT, $selected->getId());
+        }
+
+        return $selected;
     }
 
     /**
@@ -461,7 +509,7 @@ class TownHandler
         $min = round($min * $soulFactor, 0);
         $max = round($max * $soulFactor, 0);
 
-        $this->conf->getCurrentEvent($town)->hook_watchtower_estimations($min,$max);
+        $this->conf->getCurrentEvent($town)->hook_watchtower_estimations($min,$max, $town);
 
         return min((1 - (($offsetMin + $offsetMax) - 10) / 24), 1);
     }

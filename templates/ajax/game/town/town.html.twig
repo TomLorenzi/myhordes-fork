@@ -5,7 +5,9 @@
     <div class="row">
         <div class="padded-small cell rw-4 rw-sm-12">
             {% if chaos %}
-	           <div class="header-menu-chaos"></div>
+	           <div class="header-menu chaos"><a class="help-button"><div class="tooltip help">{{ '<strong>Die Stadt versinkt im Chaos!</strong></p>Es gilt kein Gesetz mehr... Ihr müsst jetzt alle zusammenhalten und mit den Übriggebliebenen auskommen!<p><em>... Oder euch gegenseitig abschlachten, je nachdem.</em>'|trans({},'global')|raw }}</div>{{ 'Hilfe'|trans({},'global') }}</a></div>
+            {% elseif town.insurrectionProgress >= 100 %}
+	           <div class="header-menu insurrect"></div>
             {% endif %}
             {% set hour = "now"|date("G") %}
             <div class="row town-menu {% if town.isNight %}night{% endif %}">
@@ -80,8 +82,11 @@
                             </span>
                         {% endif %}
                         <br />
-                        {% if building.defense > 0 %}<em>+ {{building.defense}} {% trans from "buildings" %}Verteidigung{% endtrans %} </em>{% endif %}
+                        {% if building.defense > 0 %}<em>+ {{building.defense + building.defenseBonus}} {% trans from "buildings" %}Verteidigung{% endtrans %} </em>{% endif %}
                         {% if building.prototype.maxLevel > 0 and building.level > 0 %}<em>{% trans with {'%lv%': building.level} from 'game' %}Level %lv%{% endtrans %}</em>{% endif %}
+                        <div class='tooltip normal'>
+                            {{ building.prototype.description|trans({}, 'buildings') }}
+                        </div>
                     </li>
                 {% endfor %}
                 </ul>

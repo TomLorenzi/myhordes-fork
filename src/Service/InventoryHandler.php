@@ -70,7 +70,7 @@ class InventoryHandler
             // Check upgrades
             $upgrade = $this->entity_manager->getRepository(CitizenHomeUpgrade::class)->findOneByPrototype(
                 $inventory->getHome(),
-                $this->entity_manager->getRepository( CitizenHomeUpgradePrototype::class )->findOneByName( 'chest' )
+                $this->entity_manager->getRepository( CitizenHomeUpgradePrototype::class )->findOneBy( ['name' => 'chest'] )
             );
             /** @var CitizenHomeUpgrade $upgrade */
             if ($upgrade) $base += $upgrade->getLevel();
@@ -112,7 +112,7 @@ class InventoryHandler
         if (!is_array( $props )) $props = [$props];
         $props = array_map(function($e):ItemProperty {
             if (!is_string($e)) return $e;
-            return $this->entity_manager->getRepository(ItemProperty::class)->findOneByName( $e );
+            return $this->entity_manager->getRepository(ItemProperty::class)->findOneBy( ['name' => $e] );
         }, $props);
 
         $tmp = [];
@@ -131,8 +131,8 @@ class InventoryHandler
      */
     public function countSpecificItems($inventory, $prototype, bool $is_property = false, ?bool $broken = null): int {
         if (is_string( $prototype )) $prototype = $is_property
-            ? $this->entity_manager->getRepository(ItemProperty::class)->findOneByName( $prototype )->getItemPrototypes()->getValues()
-            : $this->entity_manager->getRepository(ItemPrototype::class)->findOneByName( $prototype );
+            ? $this->entity_manager->getRepository(ItemProperty::class)->findOneBy( ['name' => $prototype] )->getItemPrototypes()->getValues()
+            : $this->entity_manager->getRepository(ItemPrototype::class)->findOneBy( ['name' => $prototype] );
         if (!is_array($prototype)) $prototype = [$prototype];
         if (!is_array($inventory)) $inventory = [$inventory];
         try {
@@ -171,7 +171,7 @@ class InventoryHandler
         foreach ($requests as $request) {
             $id_list = [];
             if ($request->isProperty()) {
-                $prop = $this->entity_manager->getRepository(ItemProperty::class)->findOneByName( $request->getItemPropertyName() );
+                $prop = $this->entity_manager->getRepository(ItemProperty::class)->findOneBy( ['name' => $request->getItemPropertyName()] );
                 if ($prop) $id_list = array_map(function(ItemPrototype $p): int {
                     return $p->getId();
                 }, $prop->getItemPrototypes()->getValues() );
@@ -329,8 +329,8 @@ class InventoryHandler
     }
 
     protected function transferType( Item &$item, Citizen &$citizen, ?Inventory &$target, ?Inventory &$source, ?int &$target_type, ?int &$source_type): bool {
-        $source_type = !$source ? self::TransferTypeSpawn   : self::singularTransferType( $citizen, $source );
-        $target_type = !$target ? self::TransferTypeConsume : self::singularTransferType( $citizen, $target );
+        $source_type = !$source ? self::TransferTypeSpawn   : $this->singularTransferType( $citizen, $source );
+        $target_type = !$target ? self::TransferTypeConsume : $this->singularTransferType( $citizen, $target );
         return $this->validateTransferTypes($item, $target_type, $source_type);
     }
 
@@ -371,7 +371,6 @@ class InventoryHandler
         if ($modality !== self::ModalityEnforcePlacement && ($to && ($max_size = $this->getSize($to)) > 0 && count($to->getItems()) >= $max_size ) ) return self::ErrorInventoryFull;
 
         // Check exp_b items already in inventory
-        // This snippet restores original Hordes functionality, but was intentionally left out.
 
         if(!$allow_extra_bag){
             if (($type_to === self::TransferTypeRucksack || $type_to === self::TransferTypeEscort) &&
@@ -412,6 +411,7 @@ class InventoryHandler
             //Bank Anti abuse system
             if (!$this->bankAbuseService->allowedToTake($actor))
             {
+                $this->bankAbuseService->increaseBankCount($actor);
                 return InventoryHandler::ErrorBankLimitHit;
             }
 
@@ -424,7 +424,7 @@ class InventoryHandler
 
         if ($type_from === self::TransferTypeSteal || $type_to === self::TransferTypeSteal) {
 
-            if ($type_from === self::TransferTypeSteal && !$actor->getTown()->getChaos() && $actor->getStatus()->contains( $this->entity_manager->getRepository(CitizenStatus::class)->findOneByName( 'tg_steal' ) ))
+            if ($type_from === self::TransferTypeSteal && !$actor->getTown()->getChaos() && $actor->getStatus()->contains( $this->entity_manager->getRepository(CitizenStatus::class)->findOneBy( ['name' => 'tg_steal'] ) ))
                 return self::ErrorStealLimitHit;
 
             if ($type_to === self::TransferTypeSteal && $actor->getTown()->getChaos() )
@@ -434,7 +434,7 @@ class InventoryHandler
             if ($victim->getAlive()) {
                 $ch = $this->container->get(CitizenHandler::class);
                 if ($ch->houseIsProtected( $victim )) return self::ErrorStealBlocked;
-                if ($item->getPrototype() === $this->entity_manager->getRepository(ItemPrototype::class)->findOneByName("trapma_#00"))
+                if ($item->getPrototype() === $this->entity_manager->getRepository(ItemPrototype::class)->findOneBy(['name' => "trapma_#00"]))
                     return self::ErrorUnstealableItem;
             }
         }

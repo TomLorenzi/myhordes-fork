@@ -12,6 +12,7 @@ use App\Entity\Item;
 use App\Entity\ItemGroup;
 use App\Entity\ItemGroupEntry;
 use App\Entity\ItemPrototype;
+use App\Entity\LogEntryTemplate;
 use App\Entity\PictoPrototype;
 use App\Entity\RuinExplorerStats;
 use App\Entity\RuinZone;
@@ -284,11 +285,11 @@ class ZoneHandler
 
         // Respawn
         $d = $town->getDay();
-        if ($mode === self::RespawnModeForce || ($mode === self::RespawnModeAuto && $d < 3 && count($empty_zones) > (count($zones)* 18/20))) {
+        if ($mode === self::RespawnModeForce || ($mode === self::RespawnModeAuto && $d >= 3 && count($empty_zones) > (count($zones)* 18/20))) {
             $keys = $d == 1 ? [array_rand($empty_zones)] : array_rand($empty_zones, $d);
             foreach ($keys as $spawn_zone_id)
                 /** @var Zone $spawn_zone */
-                $zone_db[ $zones[$spawn_zone_id]->getX() ][ $zones[$spawn_zone_id]->getY() ] = mt_rand(1,6);
+                $zone_db[ $zones[$spawn_zone_id]->getX() ][ $zones[$spawn_zone_id]->getY() ] = mt_rand(1,intval($town->getDay() / 2));
             $cycles += ceil($d/2);
         }
 
@@ -359,9 +360,11 @@ class ZoneHandler
         if (!count($zone->getCitizens())) {
             foreach ($zone->getEscapeTimers() as $et)
                 $this->entity_manager->remove( $et );
+            foreach ($zone->getChatSilenceTimers() as $cst)
+                $this->entity_manager->remove( $cst );
             foreach ($this->entity_manager->getRepository(TownLogEntry::class)->findByFilter( $zone->getTown(), null, null, $zone, null, null ) as $entry)
                 /** @var TownLogEntry $entry */
-                if ($entry->getLogEntryTemplate() === null || $entry->getLogEntryTemplate()->getClass() !== TownLogEntry::ClassCritical)
+                if ($entry->getLogEntryTemplate() === null || $entry->getLogEntryTemplate()->getClass() !== LogEntryTemplate::ClassCritical)
                     $this->entity_manager->remove( $entry );
         }
         // If zombies can take control after leaving the zone and there are citizens remaining, install a grace escape timer

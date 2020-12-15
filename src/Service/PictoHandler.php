@@ -104,15 +104,15 @@ class PictoHandler
             if(in_array($picto->getPrototype()->getName(), $pictoAlwaysPersisted)){
                 $persistPicto = true;
             } else if ($this->conf->getTownConfiguration($citizen->getTown())->get(TownConf::CONF_MODIFIER_STRICT_PICTOS, false) && $citizen->getUser()->getAllSoulPoints() >= 100) {
-                if($citizen->getSurvivedDays() < 8 && ($citizen->getCauseOfDeath() === null || $citizen->getCauseOfDeath()->getRef() === CauseOfDeath::Unknown))
+                if($citizen->getSurvivedDays() < 7 && ($citizen->getCauseOfDeath() === null || $citizen->getCauseOfDeath()->getRef() === CauseOfDeath::Unknown))
                     $persistPicto = true;
-                else if($citizen->getSurvivedDays() == 8 && $citizen->getCauseOfDeath() !== null && $citizen->getCauseOfDeath()->getRef() === CauseOfDeath::NightlyAttack)
+                else if($citizen->getSurvivedDays() == 7 && $citizen->getCauseOfDeath() !== null && $citizen->getCauseOfDeath()->getRef() === CauseOfDeath::NightlyAttack)
                     $persistPicto = true;
-                else if ($citizen->getSurvivedDays() > 8)
+                else if ($citizen->getSurvivedDays() > 7)
                     $persistPicto = true;
-            } else if ($citizen->getSurvivedDays() < 5 && ($citizen->getCauseOfDeath() === null || $citizen->getCauseOfDeath()->getRef() === CauseOfDeath::Unknown)) {
+            } else if ($citizen->getSurvivedDays() < 4 && ($citizen->getCauseOfDeath() === null || $citizen->getCauseOfDeath()->getRef() === CauseOfDeath::Unknown)) {
                 $persistPicto = true;
-            } else if ($citizen->getSurvivedDays() >= 5) {
+            } else if ($citizen->getSurvivedDays() >= 4) {
                 $persistPicto = true;
             }
 

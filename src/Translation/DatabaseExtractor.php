@@ -13,6 +13,7 @@ use App\Entity\CitizenHomeUpgradePrototype;
 use App\Entity\CitizenProfession;
 use App\Entity\CitizenRole;
 use App\Entity\CitizenStatus;
+use App\Entity\ComplaintReason;
 use App\Entity\EscortActionGroup;
 use App\Entity\HeroSkillPrototype;
 use App\Entity\ItemAction;
@@ -138,10 +139,13 @@ class DatabaseExtractor implements ExtractorInterface
                 $this->insert( $c, $causeOfDeath->getDescription(), 'game' );
         }
 
-        foreach ($this->em->getRepository(CitizenProfession::class)->findAll() as $profession)
+        foreach ($this->em->getRepository(CitizenProfession::class)->findAll() as $profession) {
             /** @var CitizenProfession $profession */
             if ($profession->getLabel())
                 $this->insert( $c, $profession->getLabel(), 'game' );
+            if ($profession->getDescription())
+                $this->insert( $c, $profession->getDescription(), 'game' );
+        }
 
         foreach ($this->em->getRepository(CitizenRole::class)->findAll() as $role) {
             /** @var CitizenRole $role */
@@ -202,6 +206,12 @@ class DatabaseExtractor implements ExtractorInterface
 
             if ($heroSkill->getDescription())
                 $this->insert( $c, $heroSkill->getDescription(), 'game' );
+        }
+
+        foreach ($this->em->getRepository(ComplaintReason::class)->findAll() as $reason) {
+            /** @var ComplaintReason $reason */
+            if ($reason->getText())
+                $this->insert( $c, $reason->getText(), 'game' );
         }
         //</editor-fold>
     }

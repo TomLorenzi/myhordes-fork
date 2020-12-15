@@ -2270,7 +2270,7 @@ class TextFixtures extends Fixture
                 <p>En ne comptant pas Hector qui s\'était tiré notre unique balle dans la tête à la vu de la ville, nous étions 41 je crois.</p>
                 <p>Les charognards se rapprochent déjà de nous, hardi par la faim et le cadavre frais. Nous partons, mais pas à cause d\'eux.</p>',
                 '<h2>Jour 27, 10h23.</h2>
-                <p>La ville était déserte comme nous l\'avions tous prévu. Il semblerait <em[ un="" trou="" empêche="" de="" lire="" la="" suite="" ]<="" em=""> avec eux.</em[></p>
+                <p>La ville était déserte comme nous l\'avions tous prévu. Il semblerait qu\'<em>un trou empêche de lire la suite</em> avec eux.</p>
                 <h2>Jour 27, 12h58.</h2>
                 <p>Les choses nous ont suivit jusqu\'ici, nous nous sommes barricadé mais on les entends dehors, cognant parfois sur la frêle muraille qui était érigé là. Nous décidons tout de suite de la consolider.</p>',
                 '<h2>Jour 27, 14h18.</h2>

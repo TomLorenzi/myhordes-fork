@@ -1,11 +1,12 @@
 {% extends "ajax/game/game.html.twig" %}
+{% block title %}{{'Wiedergeburt: Privatstadt gründen'|trans({}, 'game')|raw}}{% endblock %}
 {% block menu_text %}
     {{ parent() }}
     <li class="back-dash" x-ajax-href="{{ url('game_landing') }}">{{ 'Zum Spiel'|trans({},'global') }}</li>
 {% endblock %}
 
 {% block ajax %}
-    <div class="row create-town">
+    <div class="row form">
         <div class="cell header rw-12">
             <h4>{{'Privatstadt gründen'|trans({}, 'ghost')}}</h4>
             <div class="row">

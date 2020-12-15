@@ -1,0 +1,105 @@
+{% extends "ajax/game/town/town.html.twig" %}
+{% block title %}{{'Katapult'|trans({}, 'game')}}{% endblock %}
+{% block content %}
+
+    <h1 class="page-head">{{'Katapult'|trans({}, 'game')}}</h1>
+
+    <div class="help">
+        <strong>{{ 'Das Katapult ist ein wirklich mächtiges Instrument, um jeden beliebigen Gegenstand zu einer Zone in der Wüste zu schicken.'|trans({},'game') }}</strong>
+        {{ 'Praktisch zur Versorgung aus der Ferne.'|trans({},'game') }}
+        <p>{{ 'Denke daran, dass das Katapult manchmal sein Ziel verfehlt und den Gegenstand in eine angrenzende Zone befördert...'|trans({},'game')}}</p>
+        <p>
+            {% if is_catapult_master %}
+                <strong>{{'Du wurdest als Verantwortlicher für das Katapult bestimmt!'|trans({},'game')}}</strong>
+                {{'Wähle einen Gegenstand aus deinem Inventar und gib die Zielkoordinaten ein.'|trans({},'game')}}
+            {% elseif catapult_master is not null %}
+                {{'Unser Katapult wird von dem vom Schicksal auserwählten Bürger %citizen% gesteuert. Sollte ihm etwas Schreckliches zustoßen, könnte dann ein neuer Bürger gewählt werden.'|trans({'%citizen%': ('<span class="link" x-ajax-href="' ~ path('town_visit', {id: catapult_master.id}) ~ '"><b>' ~ catapult_master.user.name ~ '</b></span>')},'game')|raw}}
+            {% endif %}
+        </p>
+        {% if catapult_improved %}
+            {{ 'Die Aktivierung des Katapults kostet %ap%.'|trans({'%ap%': '<div class="ap">2</div>'},'game')|raw }}
+        {% else %}
+            {{ 'Die Aktivierung des Katapults kostet %ap% (diese Kosten können durch den Bau eines besseren Katapults gesenkt werden).'|trans({'%ap%': '<div class="ap">4</div>'},'game')|raw }}
+        {% endif %}
+    </div>
+
+    {% if catapult_master is null %}
+        <p>
+            <button id="cata_new">{{ 'Einen zufälligen Bürger als Katapult-Bediener auslosen'|trans({},'game') }}</button>
+        </p>
+    {% endif %}
+
+    {% if is_catapult_master %}
+        <div class="row">
+            <div class="cell-small rw-10 ro-7 rw-md-14 ro-md-5 rw-sm-24 ro-sm-0">
+                <div class="note">
+                    <div class="center"><strong>{{ 'Zu verschickender Gegenstand:'|trans({},'game') }}</strong></div>
+                    <div><label><select id="cata_what">
+                        <option value="-1">-- {{ 'Gegenstand auswählen'|trans({},'game') }} --</option>
+                        {% for item in app.user.activeCitizen.inventory.items %}
+                            {# @var item \App\Entity\Item #}
+                            {% if not item.essential and not item.broken %}
+                                <option value="{{ item.id }}">{{ item.prototype.label|trans({},'items') }}</option>
+                            {% endif %}
+                        {% endfor %}
+                    </select></label></div>
+                    <div class="row">
+                        <div class="padded cell rw-6">
+                            <div class="center"><label for="cata_x"><strong>X</strong></label></div>
+                            <input id="cata_x" type="number" />
+                        </div>
+                        <div class="padded cell rw-6">
+                            <div class="center"><label for="cata_y"><strong>Y</strong></label></div>
+                            <input id="cata_y" type="number" />
+                        </div>
+                    </div>
+                    <div class="row"><div class="padded cell rw-12"><button id="cata_do">{{ 'Gegenstand katapultieren'|trans({},'game') }}</button></div></div>
+                </div>
+            </div>
+        </div>
+    {% endif %}
+
+    <div class="row">
+        <h5>{% trans from 'game' %}Katapultregister{% endtrans %}</h5>
+        <div class="cell rw-12">
+            {% embed "ajax/game/log.html.twig" with {'log_content': log, 'log_source': path('town_catapult_log_controller') } %}
+            {% endembed %}
+        </div>
+    </div>
+
+{% endblock %}
+{% block js %}
+    {{ parent() }}
+    <script>
+        {% if is_catapult_master %}
+            $.html.addEventListenerAll('#cata_do', 'click', function () {
+                const item = parseInt(document.getElementById('cata_what').value);
+                const x = parseInt(document.getElementById('cata_x').value);
+                const y = parseInt(document.getElementById('cata_y').value);
+
+                if (item <= 0) {
+                    $.html.message('error', '{{ 'Bitte wähle einen Gegenstand.'|trans({},'game') }}');
+                    return;
+                }
+                if (isNaN(x) || isNaN(y)) {
+                    $.html.message('error', '{{ 'Bitte gib die Zielkoordinaten ein.'|trans({},'game') }}');
+                    return;
+                }
+
+                $.ajax.easySend( '{{ path('town_catapult_do_controller') }}', {item: item, x: x, y: y},
+                    function () {
+                        $.ajax.load(null, '{{ path('town_catapult') }}', true);
+                    } );
+            });
+        {% endif %}
+
+        {% if catapult_master is null %}
+            $.html.addEventListenerAll('#cata_new', 'click', function () {
+                $.ajax.easySend( '{{ path('town_catapult_assign_controller') }}', {},
+                    function () {
+                        $.ajax.load(null, '{{ path('town_catapult') }}', true);
+                    } );
+            });
+        {% endif %}
+    </script>
+{% endblock %}

@@ -7,6 +7,8 @@ namespace App\Service;
 use App\Entity\CauseOfDeath;
 use App\Entity\Citizen;
 use App\Entity\CitizenRankingProxy;
+use App\Entity\CitizenRole;
+use App\Entity\ConsecutiveDeathMarker;
 use App\Entity\DigTimer;
 use App\Entity\EscapeTimer;
 use App\Entity\Gazette;
@@ -14,6 +16,7 @@ use App\Entity\ItemProperty;
 use App\Entity\PictoPrototype;
 use App\Entity\RuinZone;
 use App\Entity\Soul;
+use App\Entity\SpecialActionPrototype;
 use App\Entity\TownRankingProxy;
 use App\Entity\UserGroup;
 use App\Structures\TownConf;
@@ -22,7 +25,6 @@ use Doctrine\ORM\EntityManagerInterface;
 class DeathHandler
 {
     private $entity_manager;
-    private $status_factory;
     private $item_factory;
     private $inventory_handler;
     private $citizen_handler;
@@ -34,12 +36,11 @@ class DeathHandler
     private $perm;
 
     public function __construct(
-        EntityManagerInterface $em, StatusFactory $sf, ZoneHandler $zh, InventoryHandler $ih, CitizenHandler $ch,
+        EntityManagerInterface $em, ZoneHandler $zh, InventoryHandler $ih, CitizenHandler $ch,
         ItemFactory $if, LogTemplateHandler $lt, PictoHandler $ph, RandomGenerator $rg, ConfMaster $conf,
         PermissionHandler $perm)
     {
         $this->entity_manager = $em;
-        $this->status_factory = $sf;
         $this->inventory_handler = $ih;
         $this->item_factory = $if;
         $this->zone_handler = $zh;
@@ -122,7 +123,16 @@ class DeathHandler
         $citizen->setCauseOfDeath($cod);
         $citizen->setAlive(false);
 
-        $gazette = $citizen->getTown()->findGazette( ($citizen->getTown()->getDay() + ($cod->getId() == CauseOfDeath::NightlyAttack ? 0 : 1)) );
+        if ($citizen->getTown()->getDay() <= 3) {
+            $cdm = $this->entity_manager->getRepository(ConsecutiveDeathMarker::class)->findOneBy( ['user' => $citizen->getUser()] )
+                ?? (new ConsecutiveDeathMarker)->setUser($citizen->getUser())->setDeath( $cod )->setNumber(0);
+            if ($cdm->getDeath() === $cod) $cdm->setNumber($cdm->getNumber()+1);
+            else $cdm->setNumber(1)->setDeath($cod);
+
+            $this->entity_manager->persist($cdm->setTimestamp(new \DateTime()));
+        }
+
+        $gazette = $citizen->getTown()->findGazette( ($citizen->getTown()->getDay() + ($cod->getRef() == CauseOfDeath::NightlyAttack ? 0 : 1)) );
         if($gazette !== null){
             $gazette->addVictim($citizen);
             $this->entity_manager->persist($gazette);
@@ -241,8 +251,8 @@ class DeathHandler
         if ($handle_em) foreach ($remove as $r) $this->entity_manager->remove($r);
         // If the souls are enabled, spawn a soul
         if($this->conf->getTownConfiguration( $citizen->getTown() )->get(TownConf::CONF_FEATURE_SHAMAN_MODE, 'normal') != 'none') {
-            $minDistance = min(4, $citizen->getTown()->getDay());
-            $maxDistance = min($citizen->getTown()->getDay() + 6, 15);
+            $minDistance = min(10, 3+intval($citizen->getTown()->getDay()*0.75));
+            $maxDistance = min(15, 6+$citizen->getTown()->getDay());
 
             $spawnZone = $this->random_generator->pickLocationBetweenFromList($citizen->getTown()->getZones()->toArray(), $minDistance, $maxDistance);
             $soulItem = $this->item_factory->createItem( "soul_blue_#00");

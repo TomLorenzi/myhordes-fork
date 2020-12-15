@@ -54,8 +54,8 @@ class EventConf extends Conf
         return call_user_func( $this->get(self::EVENT_HOOK_DOOR, 'App\Structures\EventConf::Void') , $action);
     }
 
-    public function hook_watchtower_estimations(int &$min, int &$max): void {
-        call_user_func( $this->get(self::EVENT_HOOK_WATCHTOWER, 'App\Structures\EventConf::Void') , array(&$min, &$max));
+    public function hook_watchtower_estimations(int &$min, int &$max, Town $town): void {
+        call_user_func( $this->get(self::EVENT_HOOK_WATCHTOWER, 'App\Structures\EventConf::Void') , array(&$min, &$max, $town));
     }
 
     public function hook_enable_town(Town $town): bool {

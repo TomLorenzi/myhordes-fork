@@ -7,7 +7,7 @@
       </notes>
       <segment>
         <source>Verbannung</source>
-        <target>Verbannung</target>
+        <target>Destierro</target>
       </segment>
     </unit>
     <unit id="FlZntyi" name="Bürger">
@@ -25,7 +25,7 @@
       </notes>
       <segment>
         <source>Beginne, einen Namen zu tippen, um alle passenden Nutzer anzuzeigen:</source>
-        <target>Beginne, einen Namen zu tippen, um alle passenden Nutzer anzuzeigen:</target>
+        <target>Comienza a escribir un nombre para ver todos los usuarios coincidentes:</target>
       </segment>
     </unit>
     <unit id="kg5BPH1" name="Status">
@@ -34,7 +34,7 @@
       </notes>
       <segment>
         <source>Status</source>
-        <target>Status</target>
+        <target>Estatus</target>
       </segment>
     </unit>
     <unit id="1BvDdjk" name="Verbannt bis">
@@ -43,7 +43,7 @@
       </notes>
       <segment>
         <source>Verbannt bis</source>
-        <target>Verbannt bis</target>
+        <target>Desterrado hasta</target>
       </segment>
     </unit>
     <unit id="bZx3MQe" name="Aufheben">
@@ -52,7 +52,7 @@
       </notes>
       <segment>
         <source>Aufheben</source>
-        <target>Aufheben</target>
+        <target>Abolir</target>
       </segment>
     </unit>
     <unit id="gswoKQz" name="Letzte Verbannung">
@@ -61,7 +61,7 @@
       </notes>
       <segment>
         <source>Letzte Verbannung</source>
-        <target>Letzte Verbannung</target>
+        <target>Último destierro</target>
       </segment>
     </unit>
     <unit id="KqvNLEL" name="Verbannungen">
@@ -70,7 +70,7 @@
       </notes>
       <segment>
         <source>Verbannungen</source>
-        <target>Verbannungen</target>
+        <target>Destierros totales</target>
       </segment>
     </unit>
     <unit id="0.QpL14" name="Verbannen">
@@ -88,7 +88,7 @@
       </notes>
       <segment>
         <source>Dauer</source>
-        <target>Dauer</target>
+        <target>Duración</target>
       </segment>
     </unit>
     <unit id="1E2BbPr" name="1 Tag">
@@ -169,7 +169,7 @@
       </notes>
       <segment>
         <source>TOD NICHT BESTÄTIGT</source>
-        <target>TOD NICHT BESTÄTIGT</target>
+        <target>MUERTE NO VALIDADA</target>
       </segment>
     </unit>
     <unit id="Cp7etpd" name="Kopfschuss">
@@ -178,7 +178,7 @@
       </notes>
       <segment>
         <source>Kopfschuss</source>
-        <target>Kopfschuss</target>
+        <target>Tiro en la cabeza</target>
       </segment>
     </unit>
     <unit id="Kt_pe8F" name="Tod bestätigen">
@@ -187,7 +187,7 @@
       </notes>
       <segment>
         <source>Tod bestätigen</source>
-        <target>Tod bestätigen</target>
+        <target>Validar muerte</target>
       </segment>
     </unit>
     <unit id="lS.zZKk" name="Das Leben dieses Bürgers sofort beenden?">
@@ -196,7 +196,7 @@
       </notes>
       <segment>
         <source>Das Leben dieses Bürgers sofort beenden?</source>
-        <target>Das Leben dieses Bürgers sofort beenden?</target>
+        <target>¿Terminar con la vida de este habitante inmediatamente?</target>
       </segment>
     </unit>
     <unit id=".fEIHVH" name="Tod dieses Bürgers zwangsweise bestätigen?">
@@ -205,7 +205,7 @@
       </notes>
       <segment>
         <source>Tod dieses Bürgers zwangsweise bestätigen?</source>
-        <target>Tod dieses Bürgers zwangsweise bestätigen?</target>
+        <target>¿Forzar la validación de muerte de este habitante?</target>
       </segment>
     </unit>
     <unit id="Tae9Qqu" name="Forum">
@@ -232,7 +232,7 @@
       </notes>
       <segment>
         <source>Meldungen</source>
-        <target>Meldungen</target>
+        <target>Reportes</target>
       </segment>
     </unit>
     <unit id="YlkNCJx" name="gemeldet von">
@@ -241,7 +241,7 @@
       </notes>
       <segment>
         <source>gemeldet von</source>
-        <target>gemeldet von</target>
+        <target>Reportado por</target>
       </segment>
     </unit>
     <unit id="wbOHhHO" name="Gesehen">
@@ -250,7 +250,7 @@
       </notes>
       <segment>
         <source>Gesehen</source>
-        <target>Gesehen</target>
+        <target>Visto</target>
       </segment>
     </unit>
     <unit id="KANZ2Py" name="Diesen Bürger töten?">
@@ -259,7 +259,7 @@
       </notes>
       <segment>
         <source>Diesen Bürger töten?</source>
-        <target>Diesen Bürger töten?</target>
+        <target>¿Matar a este habitante?</target>
       </segment>
     </unit>
     <unit id="UNGMFAu" name="Suche:">
@@ -268,7 +268,7 @@
       </notes>
       <segment>
         <source>Suche:</source>
-        <target>Suche:</target>
+        <target>Buscar:</target>
       </segment>
     </unit>
     <unit id="fhsNVkH" name="Account">
@@ -277,7 +277,7 @@
       </notes>
       <segment>
         <source>Account</source>
-        <target>Account</target>
+        <target>Cuenta</target>
       </segment>
     </unit>
     <unit id=".DCeMNu" name="Benutzername">
@@ -286,7 +286,7 @@
       </notes>
       <segment>
         <source>Benutzername</source>
-        <target>Benutzername</target>
+        <target>Nombre de usuario</target>
       </segment>
     </unit>
     <unit id="L65vsws" name="E-Mail">
@@ -304,7 +304,7 @@
       </notes>
       <segment>
         <source>Validiert</source>
-        <target>Validiert</target>
+        <target>Validado</target>
       </segment>
     </unit>
     <unit id="zenlipp" name="Ja">
@@ -313,7 +313,7 @@
       </notes>
       <segment>
         <source>Ja</source>
-        <target>Ja</target>
+        <target>Sí</target>
       </segment>
     </unit>
     <unit id="kOvBveb" name="Nein">
@@ -322,7 +322,7 @@
       </notes>
       <segment>
         <source>Nein</source>
-        <target>Nein</target>
+        <target>No</target>
       </segment>
     </unit>
     <unit id="yhpV6j2" name="Berechtigungsstufe">
@@ -331,7 +331,7 @@
       </notes>
       <segment>
         <source>Berechtigungsstufe</source>
-        <target>Berechtigungsstufe</target>
+        <target>Nivel de autorización</target>
       </segment>
     </unit>
     <unit id="9DAxndj" name="Spieler">
@@ -340,7 +340,7 @@
       </notes>
       <segment>
         <source>Spieler</source>
-        <target>Spieler</target>
+        <target>Jugador</target>
       </segment>
     </unit>
     <unit id="mP_cZCA" name="Krähe">
@@ -349,7 +349,7 @@
       </notes>
       <segment>
         <source>Krähe</source>
-        <target>Krähe</target>
+        <target>Cuervo</target>
       </segment>
     </unit>
     <unit id="wcIksDz" name="Admin">
@@ -367,7 +367,7 @@
       </notes>
       <segment>
         <source>Validierungstokens</source>
-        <target>Validierungstokens</target>
+        <target>Token de validación</target>
       </segment>
     </unit>
     <unit id="ilcgFcS" name="Keine">
@@ -376,7 +376,7 @@
       </notes>
       <segment>
         <source>Keine</source>
-        <target>Keine</target>
+        <target>Ninguno</target>
       </segment>
     </unit>
     <unit id="89Qjza1" name="User administrieren">
@@ -385,7 +385,7 @@
       </notes>
       <segment>
         <source>User administrieren</source>
-        <target>User administrieren</target>
+        <target>Administración de usuario</target>
       </segment>
     </unit>
     <unit id="1L8hv8q" name="Validierung">
@@ -394,7 +394,7 @@
       </notes>
       <segment>
         <source>Validierung</source>
-        <target>Validierung</target>
+        <target>Validación</target>
       </segment>
     </unit>
     <unit id="fMUMZY4" name="Erneute Validierung erzwingen">
@@ -403,7 +403,7 @@
       </notes>
       <segment>
         <source>Erneute Validierung erzwingen</source>
-        <target>Erneute Validierung erzwingen</target>
+        <target>Forzar revalidación</target>
       </segment>
     </unit>
     <unit id="1oFUORm" name="Manuell validieren">
@@ -412,7 +412,7 @@
       </notes>
       <segment>
         <source>Manuell validieren</source>
-        <target>Manuell validieren</target>
+        <target>Validación manual</target>
       </segment>
     </unit>
     <unit id="TkGKlfl" name="Offene Token erneut ankündigen">
@@ -421,7 +421,7 @@
       </notes>
       <segment>
         <source>Offene Token erneut ankündigen</source>
-        <target>Offene Token erneut ankündigen</target>
+        <target>Reenviar token</target>
       </segment>
     </unit>
     <unit id="2EfsA22" name="Offene Token regenerieren">
@@ -430,7 +430,7 @@
       </notes>
       <segment>
         <source>Offene Token regenerieren</source>
-        <target>Offene Token regenerieren</target>
+        <target>Generar un nuevo token</target>
       </segment>
     </unit>
     <unit id="RHTHUmC" name="Sicherheit">
@@ -439,7 +439,7 @@
       </notes>
       <segment>
         <source>Sicherheit</source>
-        <target>Sicherheit</target>
+        <target>Seguridad</target>
       </segment>
     </unit>
     <unit id="gJTkU2W" name="Passwort-Reset auslösen">
@@ -448,7 +448,7 @@
       </notes>
       <segment>
         <source>Passwort-Reset auslösen</source>
-        <target>Passwort-Reset auslösen</target>
+        <target>Iniciar restablecimiento de contraseña</target>
       </segment>
     </unit>
     <unit id="GdwECmm" name="Passwort-Reset erzwingen">
@@ -457,7 +457,7 @@
       </notes>
       <segment>
         <source>Passwort-Reset erzwingen</source>
-        <target>Passwort-Reset erzwingen</target>
+        <target>Forzar restablecimiento de contraseña</target>
       </segment>
     </unit>
     <unit id="6KnH3XO" name="Ausführen">
@@ -466,7 +466,7 @@
       </notes>
       <segment>
         <source>Ausführen</source>
-        <target>Ausführen</target>
+        <target>Ejecutar</target>
       </segment>
     </unit>
     <unit id="TSuzaPk" name="Übersicht">
@@ -475,7 +475,7 @@
       </notes>
       <segment>
         <source>Übersicht</source>
-        <target>Übersicht</target>
+        <target>Vista general</target>
       </segment>
     </unit>
     <unit id="gw9T6N6" name="Gewähltes Forum">
@@ -484,7 +484,7 @@
       </notes>
       <segment>
         <source>Gewähltes Forum</source>
-        <target>Gewähltes Forum</target>
+        <target>Foro seleccionado</target>
       </segment>
     </unit>
     <unit id="zTivRKG" name="Posts mit nur einer Meldung werden ausgeblendet.">
@@ -493,7 +493,7 @@
       </notes>
       <segment>
         <source>Posts mit nur einer Meldung werden ausgeblendet.</source>
-        <target>Posts mit nur einer Meldung werden ausgeblendet.</target>
+        <target>Las publicaciones con un solo mensaje están ocultas.</target>
       </segment>
     </unit>
     <unit id="2GEnVsN" name="Alle anzeigen">
@@ -502,7 +502,7 @@
       </notes>
       <segment>
         <source>Alle anzeigen</source>
-        <target>Alle anzeigen</target>
+        <target>Ver todo</target>
       </segment>
     </unit>
     <unit id="lb_oeKi" name="Du hast kein Forum ausgewählt.">
@@ -511,7 +511,7 @@
       </notes>
       <segment>
         <source>Du hast kein Forum ausgewählt.</source>
-        <target>Du hast kein Forum ausgewählt.</target>
+        <target>No has seleccionado un foro.</target>
       </segment>
     </unit>
     <unit id="awzJBNC" name="Users">
@@ -520,7 +520,7 @@
       </notes>
       <segment>
         <source>Users</source>
-        <target>Users</target>
+        <target>Usuarios</target>
       </segment>
     </unit>
     <unit id="h7YL9VW" name="Städte">
@@ -529,7 +529,7 @@
       </notes>
       <segment>
         <source>Städte</source>
-        <target>Städte</target>
+        <target>Pueblo</target>
       </segment>
     </unit>
     <unit id="jA6UdTz" name="Zukunft">
@@ -538,7 +538,7 @@
       </notes>
       <segment>
         <source>Zukunft</source>
-        <target>Zukunft</target>
+        <target>Actualizaciones</target>
       </segment>
     </unit>
     <unit id="fcC4_EM" name="Auszeichnungen">
@@ -547,7 +547,7 @@
       </notes>
       <segment>
         <source>Auszeichnungen</source>
-        <target>Auszeichnungen</target>
+        <target>Distinciones</target>
       </segment>
     </unit>
     <unit id="8KPM2IV" name="Admin-Wachturm">
@@ -565,7 +565,7 @@
       </notes>
       <segment>
         <source>Ruinenscanner</source>
-        <target>Ruinenscanner</target>
+        <target>Escáner de ruinas</target>
       </segment>
     </unit>
     <unit id="OEOXHc." name="ID">
@@ -583,7 +583,7 @@
       </notes>
       <segment>
         <source>Stadtname</source>
-        <target>Stadtname</target>
+        <target>Nombre del pueblo</target>
       </segment>
     </unit>
     <unit id="8qHMcfp" name="Sprache">
@@ -592,7 +592,7 @@
       </notes>
       <segment>
         <source>Sprache</source>
-        <target>Sprache</target>
+        <target>Idioma</target>
       </segment>
     </unit>
     <unit id="GwJBg8s" name="Typ">
@@ -601,7 +601,7 @@
       </notes>
       <segment>
         <source>Typ</source>
-        <target>Typ</target>
+        <target>Tipo</target>
       </segment>
     </unit>
     <unit id="W4KIYa7" name="Population">
@@ -610,7 +610,7 @@
       </notes>
       <segment>
         <source>Population</source>
-        <target>Population</target>
+        <target>Población</target>
       </segment>
     </unit>
     <unit id="fmZlI_I" name="Saison">
@@ -619,7 +619,7 @@
       </notes>
       <segment>
         <source>Saison</source>
-        <target>Saison</target>
+        <target>Temporada</target>
       </segment>
     </unit>
     <unit id="FQORaiq" name="Tag">
@@ -628,7 +628,7 @@
       </notes>
       <segment>
         <source>Tag</source>
-        <target>Tag</target>
+        <target>Día</target>
       </segment>
     </unit>
     <unit id="ZFCeGvS" name="Offen">
@@ -637,7 +637,7 @@
       </notes>
       <segment>
         <source>Offen</source>
-        <target>Offen</target>
+        <target>Disponible</target>
       </segment>
     </unit>
     <unit id="eoUwOj7" name="Chaos">
@@ -646,7 +646,7 @@
       </notes>
       <segment>
         <source>Chaos</source>
-        <target>Chaos</target>
+        <target>Caos</target>
       </segment>
     </unit>
     <unit id="QO.RSCl" name="Zerstört">
@@ -655,7 +655,7 @@
       </notes>
       <segment>
         <source>Zerstört</source>
-        <target>Zerstört</target>
+        <target>Devastado</target>
       </segment>
     </unit>
     <unit id="vZWh3VH" name="Tor offen">
@@ -664,7 +664,7 @@
       </notes>
       <segment>
         <source>Tor offen</source>
-        <target>Tor offen</target>
+        <target>Portal Abierto</target>
       </segment>
     </unit>
     <unit id="lQNhv.P" name="Brunnen">
@@ -673,7 +673,7 @@
       </notes>
       <segment>
         <source>Brunnen</source>
-        <target>Brunnen</target>
+        <target>Raciones del pozo</target>
       </segment>
     </unit>
     <unit id="DNyzXO8" name="Angriff">
@@ -682,7 +682,7 @@
       </notes>
       <segment>
         <source>Angriff</source>
-        <target>Angriff</target>
+        <target>Ataque</target>
       </segment>
     </unit>
     <unit id="ROsRjPo" name="Bereich Min">
@@ -691,7 +691,7 @@
       </notes>
       <segment>
         <source>Bereich Min</source>
-        <target>Bereich Min</target>
+        <target>Mínimo</target>
       </segment>
     </unit>
     <unit id="nwAUKAU" name="Bereich Max">
@@ -700,7 +700,7 @@
       </notes>
       <segment>
         <source>Bereich Max</source>
-        <target>Bereich Max</target>
+        <target>Máximo</target>
       </segment>
     </unit>
     <unit id="bQMa8Q2" name="Position">
@@ -709,7 +709,7 @@
       </notes>
       <segment>
         <source>Position</source>
-        <target>Position</target>
+        <target>Posición</target>
       </segment>
     </unit>
     <unit id="_ZJhoqB" name="Distanz">
@@ -718,7 +718,7 @@
       </notes>
       <segment>
         <source>Distanz</source>
-        <target>Distanz</target>
+        <target>Distancia</target>
       </segment>
     </unit>
     <unit id="8N0dl_g" name="Zombies">
@@ -736,7 +736,7 @@
       </notes>
       <segment>
         <source>Abdruck</source>
-        <target>Abdruck</target>
+        <target>Huella</target>
       </segment>
     </unit>
     <unit id="H716AMr" name="Schlüssel">
@@ -745,7 +745,7 @@
       </notes>
       <segment>
         <source>Schlüssel</source>
-        <target>Schlüssel</target>
+        <target>Llave</target>
       </segment>
     </unit>
     <unit id="Q2ZDp94" name="Durchsucht">
@@ -754,7 +754,7 @@
       </notes>
       <segment>
         <source>Durchsucht</source>
-        <target>Durchsucht</target>
+        <target>Buscado</target>
       </segment>
     </unit>
     <unit id="VxMRN_s" name="Aktuelle Sitzung">
@@ -763,7 +763,7 @@
       </notes>
       <segment>
         <source>Aktuelle Sitzung</source>
-        <target>Aktuelle Sitzung</target>
+        <target>Sesión actual</target>
       </segment>
     </unit>
     <unit id="ajNZZUO" name="Flucht">
@@ -772,7 +772,7 @@
       </notes>
       <segment>
         <source>Flucht</source>
-        <target>Flucht</target>
+        <target>Huir</target>
       </segment>
     </unit>
     <unit id="0vxeWOf" name="Raum">
@@ -781,7 +781,7 @@
       </notes>
       <segment>
         <source>Raum</source>
-        <target>Raum</target>
+        <target>Habitación</target>
       </segment>
     </unit>
     <unit id="dPJJMfT" name="Zeit">
@@ -790,7 +790,7 @@
       </notes>
       <segment>
         <source>Zeit</source>
-        <target>Zeit</target>
+        <target>Tiempo</target>
       </segment>
     </unit>
     <unit id="ILol6i6" name="Alle Sitzungen">
@@ -799,7 +799,7 @@
       </notes>
       <segment>
         <source>Alle Sitzungen</source>
-        <target>Alle Sitzungen</target>
+        <target>Todas las sesiones</target>
       </segment>
     </unit>
     <unit id="kc92YAV" name="Stadtübersicht">
@@ -808,7 +808,7 @@
       </notes>
       <segment>
         <source>Stadtübersicht</source>
-        <target>Stadtübersicht</target>
+        <target>Vista general de los pueblos</target>
       </segment>
     </unit>
     <unit id="4Gs3q79" name="Liste aller Städte">
@@ -817,7 +817,7 @@
       </notes>
       <segment>
         <source>Liste aller Städte</source>
-        <target>Liste aller Städte</target>
+        <target>Lista de pueblos</target>
       </segment>
     </unit>
     <unit id="47Pj4uU" name="Pop.">
@@ -835,7 +835,7 @@
       </notes>
       <segment>
         <source>Aktionen</source>
-        <target>Aktionen</target>
+        <target>Acciones</target>
       </segment>
     </unit>
     <unit id="ygfGVvY" name="Tot">
@@ -844,7 +844,7 @@
       </notes>
       <segment>
         <source>Tot</source>
-        <target>Tot</target>
+        <target>Muertes</target>
       </segment>
     </unit>
     <unit id="sMr3P0Z" name="Getrennt">
@@ -853,7 +853,7 @@
       </notes>
       <segment>
         <source>Getrennt</source>
-        <target>Getrennt</target>
+        <target>Disparado en la cabeza</target>
       </segment>
     </unit>
     <unit id="RZid5J_" name="Details">
@@ -862,7 +862,7 @@
       </notes>
       <segment>
         <source>Details</source>
-        <target>Details</target>
+        <target>Detalles</target>
       </segment>
     </unit>
     <unit id="q8r8gtq" name="Titel">
@@ -880,7 +880,7 @@
       </notes>
       <segment>
         <source>Version</source>
-        <target>Version</target>
+        <target>Versión</target>
       </segment>
     </unit>
     <unit id="gvEcbOu" name="Neue Update">
@@ -889,7 +889,7 @@
       </notes>
       <segment>
         <source>Neue Update</source>
-        <target>Neue Update</target>
+        <target>Nueva actualización</target>
       </segment>
     </unit>
     <unit id="eFGF2zF" name="Dieser Login ist ausschließlich für Administratoren gedacht.">
@@ -898,7 +898,7 @@
       </notes>
       <segment>
         <source>Dieser Login ist ausschließlich für Administratoren gedacht.</source>
-        <target>Dieser Login ist ausschließlich für Administratoren gedacht.</target>
+        <target>Este inicio de sesión solo está permitido para administradores.</target>
       </segment>
     </unit>
     <unit id="ZtFgVEb" name="Admin Dashboard">
@@ -916,7 +916,7 @@
       </notes>
       <segment>
         <source>Server-Log herunterladen</source>
-        <target>Server-Log herunterladen</target>
+        <target>Descargar los registros del servidor</target>
       </segment>
     </unit>
     <unit id="yvg6S11" name="Server-Log ansehen">
@@ -925,7 +925,7 @@
       </notes>
       <segment>
         <source>Server-Log ansehen</source>
-        <target>Server-Log ansehen</target>
+        <target>Ver los registros del servidor</target>
       </segment>
     </unit>
     <unit id="UYFKH.u" name="Server-Log löschen">
@@ -934,7 +934,7 @@
       </notes>
       <segment>
         <source>Server-Log löschen</source>
-        <target>Server-Log löschen</target>
+        <target>Limpiar los registros del servidor</target>
       </segment>
     </unit>
     <unit id="LzfXrql" name="Geplante Angriffe">
@@ -943,7 +943,7 @@
       </notes>
       <segment>
         <source>Geplante Angriffe</source>
-        <target>Geplante Angriffe</target>
+        <target>Ataques planeados</target>
       </segment>
     </unit>
     <unit id="5HWWJl3" name="Überfällig seit %s% Sekunden!">
@@ -952,7 +952,7 @@
       </notes>
       <segment>
         <source>Überfällig seit %s% Sekunden!</source>
-        <target>Überfällig seit %s% Sekunden!</target>
+        <target>¡Atrasado por %s% segundos!</target>
       </segment>
     </unit>
     <unit id=".vvAKHY" name="Soldatenberuf freischalten">
@@ -961,7 +961,7 @@
       </notes>
       <segment>
         <source>Soldatenberuf freischalten</source>
-        <target>Soldatenberuf freischalten</target>
+        <target>Desbloquear profesiones militares</target>
       </segment>
     </unit>
     <unit id="rhc00FL" name="999 AP zuweisen">
@@ -970,7 +970,7 @@
       </notes>
       <segment>
         <source>999 AP zuweisen</source>
-        <target>999 AP zuweisen</target>
+        <target>Dar 999 PA</target>
       </segment>
     </unit>
     <unit id="hkxRxBa" name="Munition erzeugen">
@@ -979,7 +979,7 @@
       </notes>
       <segment>
         <source>Munition erzeugen</source>
-        <target>Munition erzeugen</target>
+        <target>Generar munición</target>
       </segment>
     </unit>
     <unit id="Hizwkp7" name="Admin-Berechtigung setzen">
@@ -988,7 +988,7 @@
       </notes>
       <segment>
         <source>Admin-Berechtigung setzen</source>
-        <target>Admin-Berechtigung setzen</target>
+        <target>Establecer autorización de administración</target>
       </segment>
     </unit>
     <unit id="zbkR0H6" name="+ 9999 Seelenpunkte">
@@ -997,7 +997,7 @@
       </notes>
       <segment>
         <source>+ 9999 Seelenpunkte</source>
-        <target>+ 9999 Seelenpunkte</target>
+        <target>+ 9999 Puntos de Alma</target>
       </segment>
     </unit>
     <unit id="WgSXz1." name="Geheime Saison freischalten">
@@ -1006,7 +1006,7 @@
       </notes>
       <segment>
         <source>Geheime Saison freischalten</source>
-        <target>Geheime Saison freischalten</target>
+        <target>Desbloquear temporada secreta</target>
       </segment>
     </unit>
     <unit id="B6BJJfF" name="Computer sagt nein.">
@@ -1015,7 +1015,7 @@
       </notes>
       <segment>
         <source>Computer sagt nein.</source>
-        <target>Computer sagt nein.</target>
+        <target>¡No puedes PASAR!.</target>
       </segment>
     </unit>
     <unit id="yu8TLDr" name="Du hast dich umgebracht.">
@@ -1024,7 +1024,7 @@
       </notes>
       <segment>
         <source>Du hast dich umgebracht.</source>
-        <target>Du hast dich umgebracht.</target>
+        <target>Has terminado tu miserable existencia.</target>
       </segment>
     </unit>
     <unit id="xkgfKms" name="Du gehörst keiner Stadt an.">
@@ -1033,7 +1033,7 @@
       </notes>
       <segment>
         <source>Du gehörst keiner Stadt an.</source>
-        <target>Du gehörst keiner Stadt an.</target>
+        <target>No perteneces a un pueblo.</target>
       </segment>
     </unit>
     <unit id="jnQ5tRO" name="Selbstmord begehen">
@@ -1042,7 +1042,7 @@
       </notes>
       <segment>
         <source>Selbstmord begehen</source>
-        <target>Selbstmord begehen</target>
+        <target>Cometer suicidio</target>
       </segment>
     </unit>
     <unit id="K_rzvjv" name="PM vom Raben">
@@ -1051,7 +1051,7 @@
       </notes>
       <segment>
         <source>PM vom Raben</source>
-        <target>PM vom Raben</target>
+        <target>MP de El Cuervo</target>
       </segment>
     </unit>
     <unit id="nq1XXly" name="Stadtregister">
@@ -1060,7 +1060,7 @@
       </notes>
       <segment>
         <source>Stadtregister</source>
-        <target>Stadtregister</target>
+        <target>Registro del pueblo</target>
       </segment>
     </unit>
     <unit id="l2_e9hX" name="Stadt administrieren">
@@ -1069,7 +1069,7 @@
       </notes>
       <segment>
         <source>Stadt administrieren</source>
-        <target>Stadt administrieren</target>
+        <target>Administración del pueblo</target>
       </segment>
     </unit>
     <unit id="Enh.KhP" name="Nächtlicher Angriff">
@@ -1078,7 +1078,7 @@
       </notes>
       <segment>
         <source>Nächtlicher Angriff</source>
-        <target>Nächtlicher Angriff</target>
+        <target>Ataque Nocturno</target>
       </segment>
     </unit>
     <unit id="YBKE35r" name="Quarantäne aufheben">
@@ -1087,7 +1087,7 @@
       </notes>
       <segment>
         <source>Quarantäne aufheben</source>
-        <target>Quarantäne aufheben</target>
+        <target>Levantar Cuarentena</target>
       </segment>
     </unit>
     <unit id="ZG32Cjn" name="Unter Quarantäne stellen">
@@ -1096,7 +1096,7 @@
       </notes>
       <segment>
         <source>Unter Quarantäne stellen</source>
-        <target>Unter Quarantäne stellen</target>
+        <target>Poner bajo Cuarentena</target>
       </segment>
     </unit>
     <unit id="akWsVTF" name="Manueller Tageswechsel">
@@ -1105,7 +1105,7 @@
       </notes>
       <segment>
         <source>Manueller Tageswechsel</source>
-        <target>Manueller Tageswechsel</target>
+        <target>Cambiar el día manualmente</target>
       </segment>
     </unit>
     <unit id="sqS3JFR" name="Rundmail als Rabe">
@@ -1114,7 +1114,7 @@
       </notes>
       <segment>
         <source>Rundmail als Rabe</source>
-        <target>Rundmail als Rabe</target>
+        <target>Mensaje Global como Cuervo</target>
       </segment>
     </unit>
     <unit id="w84b5LJ" name="Twinoid-Konto">
@@ -1123,7 +1123,7 @@
       </notes>
       <segment>
         <source>Twinoid-Konto</source>
-        <target>Twinoid-Konto</target>
+        <target>Cuenta de Twinoid</target>
       </segment>
     </unit>
     <unit id="BCS.RQ1" name="Orakel">
@@ -1132,7 +1132,7 @@
       </notes>
       <segment>
         <source>Orakel</source>
-        <target>Orakel</target>
+        <target>Oráculo</target>
       </segment>
     </unit>
     <unit id="HkzsKIz" name="Twinoid-Integration">
@@ -1141,7 +1141,7 @@
       </notes>
       <segment>
         <source>Twinoid-Integration</source>
-        <target>Twinoid-Integration</target>
+        <target>Integración de Twinoid</target>
       </segment>
     </unit>
     <unit id="p2lp75S" name="Integrationen löschen">
@@ -1150,7 +1150,7 @@
       </notes>
       <segment>
         <source>Integrationen löschen</source>
-        <target>Integrationen löschen</target>
+        <target>Borrar integración</target>
       </segment>
     </unit>
     <unit id="oL3B9wW" name="Hauptseele zurücksetzen">
@@ -1159,7 +1159,7 @@
       </notes>
       <segment>
         <source>Hauptseele zurücksetzen</source>
-        <target>Hauptseele zurücksetzen</target>
+        <target>Reiniciar alma principal</target>
       </segment>
     </unit>
     <unit id="Le1sVIR" name="Du hast keine Berechtigung, diesen Benutzer zu administrieren!">
@@ -1168,7 +1168,7 @@
       </notes>
       <segment>
         <source>Du hast keine Berechtigung, diesen Benutzer zu administrieren!</source>
-        <target>Du hast keine Berechtigung, diesen Benutzer zu administrieren!</target>
+        <target>¡Wow, wow, wow! ¿Qué estás tratando de hacer? Lol</target>
       </segment>
     </unit>
     <unit id="4mfTQ4I" name="Profil">
@@ -1177,7 +1177,7 @@
       </notes>
       <segment>
         <source>Profil</source>
-        <target>Profil</target>
+        <target>Perfil</target>
       </segment>
     </unit>
     <unit id="dbuAR1O" name="Neuen Namen eingeben.">
@@ -1186,7 +1186,7 @@
       </notes>
       <segment>
         <source>Neuen Namen eingeben.</source>
-        <target>Neuen Namen eingeben.</target>
+        <target>Ingresar nuevo nombre.</target>
       </segment>
     </unit>
     <unit id="g_B_0fN" name="Umbenennen">
@@ -1195,7 +1195,7 @@
       </notes>
       <segment>
         <source>Umbenennen</source>
-        <target>Umbenennen</target>
+        <target>Renombrar</target>
       </segment>
     </unit>
     <unit id="bC01IWH" name="Löschen">
@@ -1204,7 +1204,7 @@
       </notes>
       <segment>
         <source>Löschen</source>
-        <target>Löschen</target>
+        <target>Quitar</target>
       </segment>
     </unit>
     <unit id="A2t0n2E" name="Berechtigungen">
@@ -1213,7 +1213,7 @@
       </notes>
       <segment>
         <source>Berechtigungen</source>
-        <target>Berechtigungen</target>
+        <target>Permisos</target>
       </segment>
     </unit>
     <unit id="E4Jlo35" name="Gewähren: %role%">
@@ -1222,7 +1222,7 @@
       </notes>
       <segment>
         <source>Gewähren: %role%</source>
-        <target>Gewähren: %role%</target>
+        <target>Permitir: %role%</target>
       </segment>
     </unit>
     <unit id="BiuEB.T" name="Berechtigungsstufe zurücksetzen">
@@ -1231,7 +1231,7 @@
       </notes>
       <segment>
         <source>Berechtigungsstufe zurücksetzen</source>
-        <target>Berechtigungsstufe zurücksetzen</target>
+        <target>Reiniciar nivel de autorización</target>
       </segment>
     </unit>
     <unit id="EHG8mpy" name="Bitte bestätige folgende Aktion:">
@@ -1240,7 +1240,7 @@
       </notes>
       <segment>
         <source>Bitte bestätige folgende Aktion:</source>
-        <target>Bitte bestätige folgende Aktion:</target>
+        <target>Por favor confirma la siguiente acción:</target>
       </segment>
     </unit>
     <unit id="XCp8Tn4" name="Multi-Account Report">
@@ -1249,7 +1249,7 @@
       </notes>
       <segment>
         <source>Multi-Account Report</source>
-        <target>Multi-Account Report</target>
+        <target>Reporte de Multi-Cuenta</target>
       </segment>
     </unit>
     <unit id="NBT1t.l" name="Verdacht">
@@ -1258,7 +1258,7 @@
       </notes>
       <segment>
         <source>Verdacht</source>
-        <target>Verdacht</target>
+        <target>Sospecha</target>
       </segment>
     </unit>
     <unit id="5D_B4LJ" name="Andere Accounts">
@@ -1267,7 +1267,7 @@
       </notes>
       <segment>
         <source>Andere Accounts</source>
-        <target>Andere Accounts</target>
+        <target>Otras cuentas</target>
       </segment>
     </unit>
     <unit id="E6OsQAN" name="Bann">
@@ -1276,7 +1276,7 @@
       </notes>
       <segment>
         <source>Bann</source>
-        <target>Bann</target>
+        <target>Ban</target>
       </segment>
     </unit>
     <unit id="mXRxJwB" name="Durch %admin% vom Spiel ausgeschlossen!">
@@ -1285,7 +1285,7 @@
       </notes>
       <segment>
         <source>Durch %admin% vom Spiel ausgeschlossen!</source>
-        <target>Durch %admin% vom Spiel ausgeschlossen!</target>
+        <target>Excluido del juego por %admin%</target>
       </segment>
     </unit>
     <unit id="jyuOkNg" name="Grund angeben">
@@ -1294,7 +1294,7 @@
       </notes>
       <segment>
         <source>Grund angeben</source>
-        <target>Grund angeben</target>
+        <target>Establecer razón</target>
       </segment>
     </unit>
     <unit id="Gn20uPe" name="Spielbann">
@@ -1303,7 +1303,7 @@
       </notes>
       <segment>
         <source>Spielbann</source>
-        <target>Spielbann</target>
+        <target>Prohibición de jugar</target>
       </segment>
     </unit>
     <unit id="BfojyKe" name="Spielbann aufheben">
@@ -1312,7 +1312,7 @@
       </notes>
       <segment>
         <source>Spielbann aufheben</source>
-        <target>Spielbann aufheben</target>
+        <target>Remover la prohibición de jugar</target>
       </segment>
     </unit>
     <unit id="JFa7jtc" name="Verwaltung">
@@ -1321,7 +1321,7 @@
       </notes>
       <segment>
         <source>Verwaltung</source>
-        <target>Verwaltung</target>
+        <target>Administración</target>
       </segment>
     </unit>
     <unit id="OEN26ap" name="Annulieren">
@@ -1330,7 +1330,7 @@
       </notes>
       <segment>
         <source>Annulieren</source>
-        <target>Annulieren</target>
+        <target>Abortar pueblo</target>
       </segment>
     </unit>
     <unit id="OasWqCK" name="Verschüttet">
@@ -1339,7 +1339,7 @@
       </notes>
       <segment>
         <source>Verschüttet</source>
-        <target>Verschüttet</target>
+        <target>Enterrado</target>
       </segment>
     </unit>
     <unit id="XGKeQ9m" name="Multi-Account Whitelist">
@@ -1348,7 +1348,7 @@
       </notes>
       <segment>
         <source>Multi-Account Whitelist</source>
-        <target>Multi-Account Whitelist</target>
+        <target>Lista blanca de Multi-Cuentas</target>
       </segment>
     </unit>
     <unit id="8slYyDF" name="Spieler-ID">
@@ -1357,7 +1357,7 @@
       </notes>
       <segment>
         <source>Spieler-ID</source>
-        <target>Spieler-ID</target>
+        <target>ID de Jugador</target>
       </segment>
     </unit>
     <unit id="101JnrD" name="Multi-Account Whitelist-Eintrag hinzufügen">
@@ -1366,7 +1366,7 @@
       </notes>
       <segment>
         <source>Multi-Account Whitelist-Eintrag hinzufügen</source>
-        <target>Multi-Account Whitelist-Eintrag hinzufügen</target>
+        <target>Agregar una entrada a la lista blanca de Multi-Cuentas</target>
       </segment>
     </unit>
     <unit id=".rV_1n2" name="Verwende folgende Syntax, um deine Suche zu spezifizieren:">
@@ -1375,7 +1375,7 @@
       </notes>
       <segment>
         <source>Verwende folgende Syntax, um deine Suche zu spezifizieren:</source>
-        <target>Verwende folgende Syntax, um deine Suche zu spezifizieren:</target>
+        <target>Usa la siguiente sintaxis para especificar tu búsqueda:</target>
       </segment>
     </unit>
     <unit id="E26lZPz" name="Klick, um Profil in neuem Tab zu öffnen">
@@ -1384,7 +1384,7 @@
       </notes>
       <segment>
         <source>Klick, um Profil in neuem Tab zu öffnen</source>
-        <target>Klick, um Profil in neuem Tab zu öffnen</target>
+        <target>Hacer clic para abrir el perfil en una nueva pestaña</target>
       </segment>
     </unit>
     <unit id="KQDagiG" name="STRG+Klick, um zur Whitelist hinzuzufügen">
@@ -1393,7 +1393,7 @@
       </notes>
       <segment>
         <source>STRG+Klick, um zur Whitelist hinzuzufügen</source>
-        <target>STRG+Klick, um zur Whitelist hinzuzufügen</target>
+        <target>CTRL + CLIC para añadir a la lista blanca</target>
       </segment>
     </unit>
     <unit id="hVmvpi1" name="Whitelist">
@@ -1402,7 +1402,7 @@
       </notes>
       <segment>
         <source>Whitelist</source>
-        <target>Whitelist</target>
+        <target>Lista blanca</target>
       </segment>
     </unit>
     <unit id="GEzMtJe" name="E-Mail eingeben.">
@@ -1411,7 +1411,7 @@
       </notes>
       <segment>
         <source>E-Mail eingeben.</source>
-        <target>E-Mail eingeben.</target>
+        <target>Ingresar e-mail.</target>
       </segment>
     </unit>
     <unit id="lJqqLMl" name="E-Mail ändern">
@@ -1420,7 +1420,7 @@
       </notes>
       <segment>
         <source>E-Mail ändern</source>
-        <target>E-Mail ändern</target>
+        <target>Cambiar e-mail</target>
       </segment>
     </unit>
     <unit id="5sAjGFp" name="Neues Passwort eingeben.">
@@ -1429,7 +1429,7 @@
       </notes>
       <segment>
         <source>Neues Passwort eingeben.</source>
-        <target>Neues Passwort eingeben.</target>
+        <target>Ingresar una nueva contraseña.</target>
       </segment>
     </unit>
     <unit id="n2HwFFe" name="Neues Passwort setzen">
@@ -1438,7 +1438,7 @@
       </notes>
       <segment>
         <source>Neues Passwort setzen</source>
-        <target>Neues Passwort setzen</target>
+        <target>Cambiar contraseña</target>
       </segment>
     </unit>
     <unit id="V1ukt7Z" name="EternalTwin-Integration">
@@ -1447,7 +1447,7 @@
       </notes>
       <segment>
         <source>EternalTwin-Integration</source>
-        <target>EternalTwin-Integration</target>
+        <target>Integración a EternalTwin</target>
       </segment>
     </unit>
     <unit id="OkyzTP2" name="In lokalen Account umwandeln">
@@ -1456,7 +1456,7 @@
       </notes>
       <segment>
         <source>In lokalen Account umwandeln</source>
-        <target>In lokalen Account umwandeln</target>
+        <target>Cambiar en Cuenta Local</target>
       </segment>
     </unit>
     <unit id="B9D7Dk5" name="Kartei">
@@ -1465,7 +1465,7 @@
       </notes>
       <segment>
         <source>Kartei</source>
-        <target>Kartei</target>
+        <target>Índice</target>
       </segment>
     </unit>
     <unit id="OrLqzbq" name="Anzeigename">
@@ -1474,7 +1474,7 @@
       </notes>
       <segment>
         <source>Anzeigename</source>
-        <target>Anzeigename</target>
+        <target>Nombre de Muestra</target>
       </segment>
     </unit>
     <unit id="14HKU3b" name="Lokal: %account%">
@@ -1483,7 +1483,7 @@
       </notes>
       <segment>
         <source>Lokal: %account%</source>
-        <target>Lokal: %account%</target>
+        <target>Local: %account%</target>
       </segment>
     </unit>
     <unit id="OaKjJho" name="Von EternalTwin verwaltet">
@@ -1492,7 +1492,7 @@
       </notes>
       <segment>
         <source>Von EternalTwin verwaltet</source>
-        <target>Von EternalTwin verwaltet</target>
+        <target>Gestionado por EternalTwin</target>
       </segment>
     </unit>
     <unit id="uCT9EnO" name="Nur für Administratoren sichtbar">
@@ -1501,7 +1501,7 @@
       </notes>
       <segment>
         <source>Nur für Administratoren sichtbar</source>
-        <target>Nur für Administratoren sichtbar</target>
+        <target>Sólo visible para Administradores</target>
       </segment>
     </unit>
     <unit id="pitbSje" name="Verknüpfte Konten">
@@ -1510,7 +1510,7 @@
       </notes>
       <segment>
         <source>Verknüpfte Konten</source>
-        <target>Verknüpfte Konten</target>
+        <target>Cuentas Vinculadas</target>
       </segment>
     </unit>
     <unit id="L0eG_iZ" name="EternalTwin-Konto">
@@ -1519,7 +1519,7 @@
       </notes>
       <segment>
         <source>EternalTwin-Konto</source>
-        <target>EternalTwin-Konto</target>
+        <target>Cuenta de EternalTwin</target>
       </segment>
     </unit>
     <unit id="nz1fjZT" name="Sonstiges">
@@ -1528,7 +1528,7 @@
       </notes>
       <segment>
         <source>Sonstiges</source>
-        <target>Sonstiges</target>
+        <target>Otros</target>
       </segment>
     </unit>
     <unit id="TklQ7Ze" name="AntiSpam">
@@ -1537,7 +1537,7 @@
       </notes>
       <segment>
         <source>AntiSpam</source>
-        <target>AntiSpam</target>
+        <target>Anti-spam</target>
       </segment>
     </unit>
     <unit id="j137AeF" name="Account zur Löschung vorgemerkt!">
@@ -1546,7 +1546,7 @@
       </notes>
       <segment>
         <source>Account zur Löschung vorgemerkt!</source>
-        <target>Account zur Löschung vorgemerkt!</target>
+        <target>Cuenta marcada para eliminiación!</target>
       </segment>
     </unit>
     <unit id="_Ywx.pH" name="Anzahl der gelisteten Domains: %number%">
@@ -1555,7 +1555,7 @@
       </notes>
       <segment>
         <source>Anzahl der gelisteten Domains: %number%</source>
-        <target>Anzahl der gelisteten Domains: %number%</target>
+        <target>Cantidad de dominios listados: %number%</target>
       </segment>
     </unit>
     <unit id="u.IOicZ" name="Domain-Suche">
@@ -1564,7 +1564,7 @@
       </notes>
       <segment>
         <source>Domain-Suche</source>
-        <target>Domain-Suche</target>
+        <target>Búsqueda por dominio</target>
       </segment>
     </unit>
     <unit id="zptHdme" name="Gewählte entfernen">
@@ -1573,7 +1573,7 @@
       </notes>
       <segment>
         <source>Gewählte entfernen</source>
-        <target>Gewählte entfernen</target>
+        <target>Eliminar selección</target>
       </segment>
     </unit>
     <unit id="l.ziWyi" name="Domains hinzufügen">
@@ -1582,7 +1582,7 @@
       </notes>
       <segment>
         <source>Domains hinzufügen</source>
-        <target>Domains hinzufügen</target>
+        <target>Agregar dominios</target>
       </segment>
     </unit>
     <unit id="y7lc8Ct" name="Hinzufügen">
@@ -1591,7 +1591,7 @@
       </notes>
       <segment>
         <source>Hinzufügen</source>
-        <target>Hinzufügen</target>
+        <target>Agregar</target>
       </segment>
     </unit>
     <unit id="_b4bK2O" name="Nachricht?">
@@ -1600,7 +1600,7 @@
       </notes>
       <segment>
         <source>Nachricht?</source>
-        <target>Nachricht?</target>
+        <target>¿Noticia?</target>
       </segment>
     </unit>
     <unit id="XCTslOz" name="Foren-Meldungen">
@@ -1609,7 +1609,7 @@
       </notes>
       <segment>
         <source>Foren-Meldungen</source>
-        <target>Foren-Meldungen</target>
+        <target>Mensajes de foros</target>
       </segment>
     </unit>
     <unit id="EdJ7diC" name="PN-Meldungen">
@@ -1618,7 +1618,7 @@
       </notes>
       <segment>
         <source>PN-Meldungen</source>
-        <target>PN-Meldungen</target>
+        <target>Mensajes Privados</target>
       </segment>
     </unit>
     <unit id="vDhaMLU" name="Öffnen">
@@ -1628,6 +1628,267 @@
       <segment>
         <source>Öffnen</source>
         <target>Öffnen</target>
+      </segment>
+    </unit>
+    <unit id="Z7aWRoY" name="Dashboard">
+      <notes>
+        <note category="german">Dashboard</note>
+      </notes>
+      <segment>
+        <source>Dashboard</source>
+        <target>Dashboard</target>
+      </segment>
+    </unit>
+    <unit id="KVK60jg" name="Stadt %townname%">
+      <notes>
+        <note category="german">Stadt %townname%</note>
+      </notes>
+      <segment>
+        <source>Stadt %townname%</source>
+        <target>Pueblo %townname%</target>
+      </segment>
+    </unit>
+    <unit id="Z2xHG8j" name="Bank">
+      <notes>
+        <note category="german">Bank</note>
+      </notes>
+      <segment>
+        <source>Bank</source>
+        <target>Almacén</target>
+      </segment>
+    </unit>
+    <unit id="id10hEL" name="Apps">
+      <notes>
+        <note category="german">Apps</note>
+      </notes>
+      <segment>
+        <source>Apps</source>
+        <target>Apps</target>
+      </segment>
+    </unit>
+    <unit id="r.FNJtH" name="Einen Gegenstand erzeugen:">
+      <notes>
+        <note category="german">Einen Gegenstand erzeugen:</note>
+      </notes>
+      <segment>
+        <source>Einen Gegenstand erzeugen:</source>
+        <target>Generar un objeto:</target>
+      </segment>
+    </unit>
+    <unit id="pkg069a" name="Nummer des Gegenstandes:">
+      <notes>
+        <note category="german">Nummer des Gegenstandes:</note>
+      </notes>
+      <segment>
+        <source>Nummer des Gegenstandes:</source>
+        <target>Cantidad del objeto:</target>
+      </segment>
+    </unit>
+    <unit id="9B3v_rN" name="Vergiftet:">
+      <notes>
+        <note category="german">Vergiftet:</note>
+      </notes>
+      <segment>
+        <source>Vergiftet:</source>
+        <target>Envenenado:</target>
+      </segment>
+    </unit>
+    <unit id="ba2jGNX" name="Zerstört:">
+      <notes>
+        <note category="german">Zerstört:</note>
+      </notes>
+      <segment>
+        <source>Zerstört:</source>
+        <target>Roto:</target>
+      </segment>
+    </unit>
+    <unit id="_vIjrdl" name="Essentiell:">
+      <notes>
+        <note category="german">Essentiell:</note>
+      </notes>
+      <segment>
+        <source>Essentiell:</source>
+        <target>Escencial:</target>
+      </segment>
+    </unit>
+    <unit id="pAhkch3" name="Erzeugen!">
+      <notes>
+        <note category="german">Erzeugen!</note>
+      </notes>
+      <segment>
+        <source>Erzeugen!</source>
+        <target>Crear!</target>
+      </segment>
+    </unit>
+    <unit id="HMtmyP_" name="Rucksack">
+      <notes>
+        <note category="german">Rucksack</note>
+      </notes>
+      <segment>
+        <source>Rucksack</source>
+        <target>Mochila</target>
+      </segment>
+    </unit>
+    <unit id="n__v7g9" name="Truhe">
+      <notes>
+        <note category="german">Truhe</note>
+      </notes>
+      <segment>
+        <source>Truhe</source>
+        <target>Cofre</target>
+      </segment>
+    </unit>
+    <unit id="fUbvGiO" name="Leere Truhe">
+      <notes>
+        <note category="german">Leere Truhe</note>
+      </notes>
+      <segment>
+        <source>Leere Truhe</source>
+        <target>Cofre vacío</target>
+      </segment>
+    </unit>
+    <unit id="fV5wxwj" name="In der Stadt">
+      <notes>
+        <note category="german">In der Stadt</note>
+      </notes>
+      <segment>
+        <source>In der Stadt</source>
+        <target>En el pueblo</target>
+      </segment>
+    </unit>
+    <unit id="I5qOX6_" name="Anwendung">
+      <notes>
+        <note category="german">Anwendung</note>
+      </notes>
+      <segment>
+        <source>Anwendung</source>
+        <target>Aplicación</target>
+      </segment>
+    </unit>
+    <unit id="zO1HXOo" name="Besitzer">
+      <notes>
+        <note category="german">Besitzer</note>
+      </notes>
+      <segment>
+        <source>Besitzer</source>
+        <target>Propietario</target>
+      </segment>
+    </unit>
+    <unit id="Ml7s_dM" name="Kontakt">
+      <notes>
+        <note category="german">Kontakt</note>
+      </notes>
+      <segment>
+        <source>Kontakt</source>
+        <target>Contacto</target>
+      </segment>
+    </unit>
+    <unit id="zYXso4d" name="Name der Anwendung">
+      <notes>
+        <note category="german">Name der Anwendung</note>
+      </notes>
+      <segment>
+        <source>Name der Anwendung</source>
+        <target>Nombre de la aplicación</target>
+      </segment>
+    </unit>
+    <unit id="gwaSbiX" name="Niemand">
+      <notes>
+        <note category="german">Niemand</note>
+      </notes>
+      <segment>
+        <source>Niemand</source>
+        <target>Nadie</target>
+      </segment>
+    </unit>
+    <unit id="56JB3rr" name="URL">
+      <notes>
+        <note category="german">URL</note>
+      </notes>
+      <segment>
+        <source>URL</source>
+        <target>URL</target>
+      </segment>
+    </unit>
+    <unit id="Li9tZI." name="Anzeige">
+      <notes>
+        <note category="german">Anzeige</note>
+      </notes>
+      <segment>
+        <source>Anzeige</source>
+        <target>Anuncio</target>
+      </segment>
+    </unit>
+    <unit id="YIZ57UG" name="Anwendungen im Testbetrieb können nur von ihrem Besitzer verwendet werden.">
+      <notes>
+        <note category="german">Anwendungen im Testbetrieb können nur von ihrem Besitzer verwendet werden.</note>
+      </notes>
+      <segment>
+        <source>Anwendungen im Testbetrieb können nur von ihrem Besitzer verwendet werden.</source>
+        <target>Las aplicaciones en fase de testing, sólo pueden ser utilizadas por su propietario.</target>
+      </segment>
+    </unit>
+    <unit id="pmqhEIB" name="Testbetrieb">
+      <notes>
+        <note category="german">Testbetrieb</note>
+      </notes>
+      <segment>
+        <source>Testbetrieb</source>
+        <target>Fase de Prueba</target>
+      </segment>
+    </unit>
+    <unit id="o1q81tr" name="Icon">
+      <notes>
+        <note category="german">Icon</note>
+      </notes>
+      <segment>
+        <source>Icon</source>
+        <target>Ícono</target>
+      </segment>
+    </unit>
+    <unit id="CgS2hD0" name="Datenzugriff">
+      <notes>
+        <note category="german">Datenzugriff</note>
+      </notes>
+      <segment>
+        <source>Datenzugriff</source>
+        <target>Acceso a datos</target>
+      </segment>
+    </unit>
+    <unit id="PgM27MC" name="Anwendungen ohne API-Zugang werden nur als Links eingebunden.">
+      <notes>
+        <note category="german">Anwendungen ohne API-Zugang werden nur als Links eingebunden.</note>
+      </notes>
+      <segment>
+        <source>Anwendungen ohne API-Zugang werden nur als Links eingebunden.</source>
+        <target>Las aplicaciones que no utilizan la API, sólo se acceden mediante un link.</target>
+      </segment>
+    </unit>
+    <unit id="ftE4M1T" name="Zugang zur API">
+      <notes>
+        <note category="german">Zugang zur API</note>
+      </notes>
+      <segment>
+        <source>Zugang zur API</source>
+        <target>Acceso a la API</target>
+      </segment>
+    </unit>
+    <unit id="oFJRNSD" name="Wird automatisch generiert">
+      <notes>
+        <note category="german">Wird automatisch generiert</note>
+      </notes>
+      <segment>
+        <source>Wird automatisch generiert</source>
+        <target>Generado automáticamente</target>
+      </segment>
+    </unit>
+    <unit id="NoNAzwa" name="Schlüssel regenerieren">
+      <notes>
+        <note category="german">Schlüssel regenerieren</note>
+      </notes>
+      <segment>
+        <source>Schlüssel regenerieren</source>
+        <target>Volver a generar clave</target>
       </segment>
     </unit>
   </file>

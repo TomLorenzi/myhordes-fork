@@ -15,8 +15,9 @@ class Hook
      * @param array $est
      */
     public static function watchtower_arma(array $est): void{
-        $est[0] += mt_rand(10000, 15000);
-        $est[1] += mt_rand(15000, 20000);
+        $town = $est[2];
+        $est[0] *= mt_rand($town->getDay(), $town->getDay() + 4);
+        $est[1] *= mt_rand($town->getDay() + 3, $town->getDay() + 8);
     }
 
     /**
@@ -40,6 +41,11 @@ class Hook
         if(!$town->getDevastated()) $town->setDoor(false);
     }
 
+    /**
+     * For christmas, if we're on the 25th or 31st, we spawn items
+     *
+     * @param Town $town
+     */
     public static function night_christmas($town) {
         /** @var Town $town */
         foreach ($town[0]->getCitizens() as $citizen){

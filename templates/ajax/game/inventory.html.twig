@@ -36,3 +36,38 @@
 
     {% endif %}
 </ul>
+
+<script>
+    {% if bankmode is defined and bankmode %}
+    const bankHandler = function() {
+        var input, filter, ul, li, img, i, txt;
+        input = document.getElementById('banksearch');
+        filter = input.value.toUpperCase();
+        ul = document.getElementById("bank-inventory");
+        li = ul.getElementsByTagName('li');
+
+        if (filter.length === 0 || filter.trim === '') {
+            for (i = 0; i < li.length; i++) {
+                li[i].classList.remove('blur');
+                li[i].classList.remove('focus');
+            }
+        }
+        else {
+            for (i = 0; i < li.length; i++) {
+                if (!li[i].classList.contains('category')) {
+                    img = li[i].getElementsByTagName("img");
+                    txt = img[0].alt;
+                    if (txt.toUpperCase().indexOf(filter) > -1) {
+                        li[i].classList.remove('blur');
+                        li[i].classList.add('focus');
+                    } else {
+                        li[i].classList.add('blur');
+                        li[i].classList.remove('focus');
+                    }
+                }
+            }
+        }
+    };
+    document.getElementById('banksearch').addEventListener('keyup', bankHandler);
+    {% endif %}
+</script>

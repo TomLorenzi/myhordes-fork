@@ -33,24 +33,25 @@ class LogEntryTemplate
     const TypeGazetteTown     = 13;
     const TypeGazetteBeyond   = 14;
     const TypeGazetteTownInfo = 15;
+    const TypeCatapult = 16;
 
-    const ClassNone     = 0;
-    const ClassWarning  = 1;
-    const ClassCritical = 2;
-    const ClassInfo     = 3;
-    const ClassChat     = 4;
-    const ClassDanger   = 5;
-    const ClassGazetteNews        =  5;
-    const ClassGazetteNoDeaths    =  6;
-    const ClassGazetteOneDeath    =  7;
-    const ClassGazetteTwoDeaths   =  8;
-    const ClassGazetteMultiDeaths =  9;
-    const ClassGazetteSuicide     = 10;
-    const ClassGazetteAddiction   = 11;
-    const ClassGazetteDehydration = 12;
-    const ClassGazettePoison      = 13;
-    const ClassGazetteVanished    = 14;
-    const ClassGazetteWind        = 15;
+    const ClassNone                 = 0;
+    const ClassWarning              = 1;
+    const ClassCritical             = 2;
+    const ClassInfo                 = 3;
+    const ClassChat                 = 4;
+    const ClassDanger               = 5;
+    const ClassGazetteNews          = 6;
+    const ClassGazetteNoDeaths      = 7;
+    const ClassGazetteOneDeath      = 8;
+    const ClassGazetteTwoDeaths     = 9;
+    const ClassGazetteMultiDeaths   = 10;
+    const ClassGazetteSuicide       = 11;
+    const ClassGazetteAddiction     = 12;
+    const ClassGazetteDehydration   = 13;
+    const ClassGazettePoison        = 14;
+    const ClassGazetteVanished      = 15;
+    const ClassGazetteWind          = 16;
 
     /**
      * @ORM\Id()

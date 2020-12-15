@@ -1,4 +1,5 @@
 {% extends "ajax/soul/shell.html.twig" %}
+{% block title %}{{'Kleine Koalitionen'|trans({}, 'game')}}{% endblock %}
 {% block menu_text %}
     {{ parent() }}
 {% endblock %}
@@ -89,7 +90,7 @@
                 ) %}
                 {% set all_members  = all_users|filter(ac => ac.associationType == constant('App\\Entity\\UserGroupAssociation::GroupAssociationTypeCoalitionMember') and ac not in all_sleepers ) %}
 
-                {% macro display_assoc(assocs,membership,show_town) %}
+                {% macro display_assoc(assocs,allow_to_fire,show_town) %}
                     {# @var assocs \App\Entity\UserGroupAssociation[] #}
                     <ul class="coa-users">
                         {% for assoc in assocs %}
@@ -109,7 +110,7 @@
                                                     {% elseif app.user.activeCitizen or not assoc.user.activeCitizen.town.open %}
                                                         {{ assoc.user.activeCitizen.town.name }}
                                                     {% else %}
-                                                        <a href="#" x-town-locked="{{ assoc.user.activeCitizen.town.password is empty ? '0' : '1' }}" x-join-id={{ assoc.user.activeCitizen.town.id }}">{{ assoc.user.activeCitizen.town.name }}</a>
+                                                        <a href="#" x-town-locked="{{ assoc.user.activeCitizen.town.password is empty ? '0' : '1' }}" x-join-id="{{ assoc.user.activeCitizen.town.id }}">{{ assoc.user.activeCitizen.town.name }}</a>
                                                     {% endif %}
                                                 {% endif %}
                                             {% else %}
@@ -117,7 +118,7 @@
                                             {% endif %}
                                         </span>
                                     </div>
-                                    {% if assoc.user != app.user and membership.associationLevel == constant('App\\Entity\\UserGroupAssociation::GroupAssociationLevelFounder') %}
+                                    {% if assoc.user != app.user and allow_to_fire %}
                                         <div class="cell">
                                             <img x-confirm="{{ 'Diesen Spieler ausschließen?'|trans({},'soul') }}" x-api-endpoint="{{ path('soul_kick_coalition', {'coalition': assoc.id}) }}" class="pointer" alt="[x]" src="{{ asset('build/images/icons/fired.gif') }}" />
                                             <div class="tooltip help">{{ 'Diesen Spieler ausschließen.'|trans({},'soul') }}</div>
@@ -132,15 +133,15 @@
 
                 {% if all_members is not empty %}
                     <h5>{{ 'Verfügbare Mitglieder'|trans({},'soul') }}</h5>
-                    {{ _self.display_assoc(all_members,membership,true) }}
+                    {{ _self.display_assoc(all_members,membership.associationLevel == constant('App\\Entity\\UserGroupAssociation::GroupAssociationLevelFounder'),true) }}
                 {% endif %}
                 {% if all_sleepers is not empty %}
                     <h5>{{ 'Nicht verfügbar'|trans({},'soul') }} <a class="help-button"><div class="tooltip help">{% trans from "global" %}Folgende Bürger sind wahlweise: <ul><li>auf ihrer Todesanzeigeseite (sie haben ihren Tod noch nicht bestätigt),</li><li>bereits im Spiel,</li><li>sie haben sich entschieden, nicht automatisch einer Stadt und ihrer Koalition anzugehören.</li><li>oder, sie haben sich seit über 5 Tagen nicht mehr angemeldet.</li></ul>{% endtrans %}</div>{{ 'Hilfe'|trans({},'global')|raw }}</a></h5> 
-                    {{ _self.display_assoc(all_sleepers,membership,true) }}
+                    {{ _self.display_assoc(all_sleepers,membership.associationLevel == constant('App\\Entity\\UserGroupAssociation::GroupAssociationLevelFounder'),true) }}
                 {% endif %}
                 {% if all_invited is not empty %}
                     <h5>{{ 'Ausstehende Einladungen'|trans({},'soul') }}</h5>
-                    {{ _self.display_assoc(all_invited,membership,false) }}
+                    {{ _self.display_assoc(all_invited,membership.associationLevel == constant('App\\Entity\\UserGroupAssociation::GroupAssociationLevelFounder') or membership.associationLevel == constant('App\\Entity\\UserGroupAssociation::GroupAssociationLevelDefault'),false) }}
                 {% endif %}
 
                 {% if membership.associationLevel == constant('App\\Entity\\UserGroupAssociation::GroupAssociationLevelFounder') %}

@@ -295,7 +295,7 @@
       </notes>
       <segment>
         <source>Die letzte Anzeige hat das Fass zum Überlaufen gebracht. %citizen% wurde von den Bürgern der Stadt verbannt!</source>
-        <target>Die letzte Anzeige hat das Fass zum Überlaufen gebracht. %citizen% wurde von den Bürgern der Stadt verbannt!</target>
+        <target><![CDATA[¡Los habitantes han decidido <strong>desterrar a %citizen%</strong> de la comunidad!]]></target>
       </segment>
     </unit>
     <unit id="gaDgdbl" name="Du kannst die Stadt von hier aus nicht betreten.">
@@ -304,7 +304,7 @@
       </notes>
       <segment>
         <source>Du kannst die Stadt von hier aus nicht betreten.</source>
-        <target>Du kannst die Stadt von hier aus nicht betreten.</target>
+        <target>No puedes entrar al pueblo desde aquí.</target>
       </segment>
     </unit>
     <unit id="4rHd9Vd" name="Du kannst diese Zone von hier aus nicht betreten.">
@@ -322,7 +322,7 @@
       </notes>
       <segment>
         <source>Zombies blockieren deine Zone!</source>
-        <target>Zombies blockieren deine Zone!</target>
+        <target>Los Zombies han tomado el control de la zona!</target>
       </segment>
     </unit>
     <unit id="eDXR6Le" name="a506be7">
@@ -358,7 +358,7 @@
       </notes>
       <segment>
         <source>Das Stadttor ist geschlossen!</source>
-        <target>Das Stadttor ist geschlossen!</target>
+        <target>¡El Gran Portal está cerrado!</target>
       </segment>
     </unit>
     <unit id="Wevnltm" name="Deine Nachricht muss zwischen 2 und 256 Zeichen haben.">
@@ -367,7 +367,7 @@
       </notes>
       <segment>
         <source>Deine Nachricht muss zwischen 2 und 256 Zeichen haben.</source>
-        <target>Deine Nachricht muss zwischen 2 und 256 Zeichen haben.</target>
+        <target>Tu texto debe de contener entre 2 y 256 caracteres.</target>
       </segment>
     </unit>
     <unit id="7CYUPCo" name="Heute wirst du nichts mehr im Müll finden.">
@@ -457,7 +457,7 @@
       </notes>
       <segment>
         <source>Du hast heute bereits eine Verbesserung deines Hauses vorgenommen.</source>
-        <target>Du hast heute bereits eine Verbesserung deines Hauses vorgenommen.</target>
+        <target><![CDATA[Ya has hecho eso hoy... Espera a <strong>mañana</strong> para intentarlo de nuevo.]]></target>
       </segment>
     </unit>
     <unit id="s1D0Mug" name="Dieser Gegenstand ist außerhalb deiner Reichweite.">
@@ -502,7 +502,7 @@
       </notes>
       <segment>
         <source>Du kannst heute keinen weiteren Gegenstand stehlen.</source>
-        <target>Du kannst heute keinen weiteren Gegenstand stehlen.</target>
+        <target>Ya has entrado en una casa ajena hoy.</target>
       </segment>
     </unit>
     <unit id="2BZWXxV" name="Du siehst keine Möglichkeit, hier einzubrechen ...">
@@ -520,7 +520,7 @@
       </notes>
       <segment>
         <source>Als Verbannter darfst du keine Gegenstände aus der Bank entnehmen.</source>
-        <target>Als Verbannter darfst du keine Gegenstände aus der Bank entnehmen.</target>
+        <target><![CDATA[¡Has sido <strong>deterrado de la comunidad</strong>, y por ello no puedes tomar ningún objeto del Almacén!]]></target>
       </segment>
     </unit>
     <unit id="2HhqG76" name="Diese Aktion ist ungültig.">
@@ -529,7 +529,7 @@
       </notes>
       <segment>
         <source>Diese Aktion ist ungültig.</source>
-        <target>Diese Aktion ist ungültig.</target>
+        <target>Esta acción es inválida.</target>
       </segment>
     </unit>
     <unit id="RvTmYTp" name="Diese Aktion ist nicht verfügbar.">
@@ -538,7 +538,7 @@
       </notes>
       <segment>
         <source>Diese Aktion ist nicht verfügbar.</source>
-        <target>Diese Aktion ist nicht verfügbar.</target>
+        <target>Esta acción no está disponible.</target>
       </segment>
     </unit>
     <unit id="UK6Ie5i" name="Das kannst du zur Zeit nicht tun.">
@@ -547,7 +547,7 @@
       </notes>
       <segment>
         <source>Das kannst du zur Zeit nicht tun.</source>
-        <target>Das kannst du zur Zeit nicht tun.</target>
+        <target>No puedes hacer eso por el momento.</target>
       </segment>
     </unit>
     <unit id="2dPpxn7" name="960101b">
@@ -556,7 +556,7 @@
       </notes>
       <segment>
         <source>Leider gibt es aktuell keine Foren, auf die zu Zugriff hast. Bitte versuche es später erneut.</source>
-        <target>Leider gibt es aktuell keine Foren, auf die zu Zugriff hast. Bitte versuche es später erneut.</target>
+        <target>Lamentablemente no tienes acceso a ningún foro. Por favor trata nuevamente más tarde.</target>
       </segment>
     </unit>
     <unit id="QI_O4UJ" name="Verschüttete Ruine">
@@ -619,7 +619,7 @@
       </notes>
       <segment>
         <source>Bitte wähle einen Gegenstand:</source>
-        <target>Bitte wähle einen Gegenstand:</target>
+        <target>Selecciona un objeto:</target>
       </segment>
     </unit>
     <unit id="m.LKoYd" name="Du verfügst über keine geeigneten Gegenstände">
@@ -628,7 +628,7 @@
       </notes>
       <segment>
         <source>Du verfügst über keine geeigneten Gegenstände</source>
-        <target>Du verfügst über keine geeigneten Gegenstände</target>
+        <target>No tienes ningún item adecuado para esto.</target>
       </segment>
     </unit>
     <unit id="bxRbnw9" name="Herstellen">
@@ -646,7 +646,7 @@
       </notes>
       <segment>
         <source>aus</source>
-        <target>aus</target>
+        <target>requiere</target>
       </segment>
     </unit>
     <unit id="SQxs_a5" name="Kombinieren">
@@ -673,7 +673,7 @@
       </notes>
       <segment>
         <source>Du wurdest verbannt und kannst daher das Stadttor weder öffnen noch schließen.</source>
-        <target>Du wurdest verbannt und kannst daher das Stadttor weder öffnen noch schließen.</target>
+        <target><![CDATA[¡Has sido <strong>deterrado de la comunidad</strong>, y por ello no puedes ni abrir ni cerrar <em>El Gran Portal</em>!]]></target>
       </segment>
     </unit>
     <unit id="_rfFVtg" name="Meine Aktionen">
@@ -826,7 +826,7 @@
       </notes>
       <segment>
         <source>Truhe und Aktionen</source>
-        <target>Truhe und Aktionen</target>
+        <target>Inventario y Acciones</target>
       </segment>
     </unit>
     <unit id="jsTL6lr" name="Mein(e) %type%">
@@ -853,7 +853,7 @@
       </notes>
       <segment>
         <source>Dein Beschreibungstext</source>
-        <target>Dein Beschreibungstext</target>
+        <target>Descripción personal</target>
       </segment>
     </unit>
     <unit id="9rL.OfV" name="Speichern">
@@ -862,7 +862,7 @@
       </notes>
       <segment>
         <source>Speichern</source>
-        <target>Speichern</target>
+        <target>Publicar mi anuncio</target>
       </segment>
     </unit>
     <unit id="vwfykUF" name="Du hast %num% anonyme Anzeige(n).">
@@ -871,7 +871,7 @@
       </notes>
       <segment>
         <source>Du hast %num% anonyme Anzeige(n).</source>
-        <target>Du hast %num% anonyme Anzeige(n).</target>
+        <target><![CDATA[Has recibido <strong>%num% denuncias</strong> anónimas. ¡Si acumulas 8 denuncias, serás desterrado!]]></target>
       </segment>
     </unit>
     <unit id="0drragL" name="4a5cb7a">
@@ -880,7 +880,7 @@
       </notes>
       <segment>
         <source>Anzeigen können zu deiner Verbannung oder sogar Hinrichtung führen. Vielleicht solltest du das Verhältnis zwischen dir und dem Rest der Stadt verbessern ...</source>
-        <target>Anzeigen können zu deiner Verbannung oder sogar Hinrichtung führen. Vielleicht solltest du das Verhältnis zwischen dir und dem Rest der Stadt verbessern ...</target>
+        <target>Las denuncias pueden acabar en un destierro o incluso en una ejecución. Tal vez deberías mejorar tus relaciones con el resto del pueblo...</target>
       </segment>
     </unit>
     <unit id="mvdJ1gZ" name="Meine Spezialaktionen">
@@ -934,7 +934,7 @@
       </notes>
       <segment>
         <source>durch Haus</source>
-        <target>durch Haus</target>
+        <target>Vivienda</target>
       </segment>
     </unit>
     <unit id="bhU20pv" name="durch Beruf">
@@ -943,7 +943,7 @@
       </notes>
       <segment>
         <source>durch Beruf</source>
-        <target>durch Beruf</target>
+        <target>Oficio</target>
       </segment>
     </unit>
     <unit id="d5El4_h" name="durch Ausbauten">
@@ -952,7 +952,7 @@
       </notes>
       <segment>
         <source>durch Ausbauten</source>
-        <target>durch Ausbauten</target>
+        <target>Mejoras</target>
       </segment>
     </unit>
     <unit id="0Rphz24" name="durch Gegenstände">
@@ -961,7 +961,7 @@
       </notes>
       <segment>
         <source>durch Gegenstände</source>
-        <target>durch Gegenstände</target>
+        <target>Objetos</target>
       </segment>
     </unit>
     <unit id=".k1cQGO" name="Dekoration">
@@ -988,7 +988,7 @@
       </notes>
       <segment>
         <source>Ausbauten</source>
-        <target>Ausbauten</target>
+        <target>Mejoras del Hogar</target>
       </segment>
     </unit>
     <unit id="32LY7bW" name="3f5fb3f">
@@ -1000,8 +1000,7 @@
       <segment>
         <source>Ausbauten stehen nur Helden zur Verfügung. Solange du nur ein normaler Einwohner bist, sind deine
                         Ausbauten funktionslos.</source>
-        <target>Ausbauten stehen nur Helden zur Verfügung. Solange du nur ein normaler Einwohner bist, sind deine
-                        Ausbauten funktionslos.</target>
+        <target>Las mejoras del hogar son sólo para héroes. Como eres un simple habitante, no te puedes beneficiar de ellas.</target>
       </segment>
     </unit>
     <unit id="XhECS_Z" name="Stufe %level%">
@@ -1010,7 +1009,7 @@
       </notes>
       <segment>
         <source>Stufe %level%</source>
-        <target>Stufe %level%</target>
+        <target>Vivienda %level%</target>
       </segment>
     </unit>
     <unit id="RmaV9PR" name="Mein Haus ausbauen">
@@ -1028,7 +1027,7 @@
       </notes>
       <segment>
         <source>Du kannst die Widerstandsfähigkeit deines Hauses verbessern, indem du es ausbaust.</source>
-        <target>Du kannst die Widerstandsfähigkeit deines Hauses verbessern, indem du es ausbaust.</target>
+        <target>Mejorando tu casa, ¡aumentarás sus defensas para resistir a los ataques nocturnos!</target>
       </segment>
     </unit>
     <unit id="9.thJKR" name="235f5fc">
@@ -1037,7 +1036,7 @@
       </notes>
       <segment>
         <source>Mit der ersten Verbesserungstufe bekommst du die Möglichkeit private Bauarbeiten durchführen zu können.</source>
-        <target>Mit der ersten Verbesserungstufe bekommst du die Möglichkeit private Bauarbeiten durchführen zu können.</target>
+        <target>El primer nivel de mejoras te da también acceso a otras obras individuales.</target>
       </segment>
     </unit>
     <unit id="LpICvqt" name="Bauen">
@@ -1392,7 +1391,7 @@
       </notes>
       <segment>
         <source>Du wurdest verbannt und kannst daher nicht länger für eine Verbesserung des Tages abstimmen.</source>
-        <target>Du wurdest verbannt und kannst daher nicht länger für eine Verbesserung des Tages abstimmen.</target>
+        <target><![CDATA[¡Has sido <strong>deterrado de la comunidad</strong>, y por ello no puedes votar por la Mejora Del Día!]]></target>
       </segment>
     </unit>
     <unit id="_LKq1VW" name="Du hast bereits für folgendes Projekt abgestimmt:">
@@ -1473,7 +1472,7 @@
       </notes>
       <segment>
         <source>Du wurdest verbannt und kannst daher nicht länger in der Werkstatt arbeiten.</source>
-        <target>Du wurdest verbannt und kannst daher nicht länger in der Werkstatt arbeiten.</target>
+        <target><![CDATA[¡Has sido <strong>deterrado de la comunidad</strong>, y por ello no puedes trabajar en el Taller!]]></target>
       </segment>
     </unit>
     <unit id="x01nfA5" name="ea122a1">
@@ -1585,7 +1584,7 @@
       </notes>
       <segment>
         <source>Du wurdest verbannt und kannst daher nicht länger auf einer Baustelle arbeiten.</source>
-        <target>Du wurdest verbannt und kannst daher nicht länger auf einer Baustelle arbeiten.</target>
+        <target><![CDATA[¡Has sido <strong>deterrado de la comunidad</strong>, y por ello no puedes trabajar en una Obra!]]></target>
       </segment>
     </unit>
     <unit id="m_7J.WC" name="Baustellenregister">
@@ -5137,7 +5136,7 @@
       </notes>
       <segment>
         <source>Du wurdest verbannt und kannst die Müllhalde daher nicht länger nutzen.</source>
-        <target>Du wurdest verbannt und kannst die Müllhalde daher nicht länger nutzen.</target>
+        <target><![CDATA[¡Has sido <strong>deterrado de la comunidad</strong>, y por ello no puedes utilizar el Vertedero Público!]]></target>
       </segment>
     </unit>
     <unit id="j88Eyne" name="Gesamt: %def%">
@@ -14647,13 +14646,13 @@
         <target>Häuser der Bürger</target>
       </segment>
     </unit>
-    <unit id="dcfxfNT" name="Befristete Beiträge">
+    <unit id="7ufciQ4" name="Temporäre Verteidigung">
       <notes>
-        <note category="german">Befristete Beiträge</note>
+        <note category="german">Temporäre Verteidigung</note>
       </notes>
       <segment>
-        <source>Befristete Beiträge</source>
-        <target>Befristete Beiträge</target>
+        <source>Temporäre Verteidigung</source>
+        <target>Temporäre Verteidigung</target>
       </segment>
     </unit>
     <unit id="9_pNKlL" name="Leichen-Bonus">
@@ -15292,7 +15291,7 @@
       </notes>
       <segment>
         <source>Bitte wähle einen Gegenstand.</source>
-        <target>Bitte wähle einen Gegenstand.</target>
+        <target>Por favor, elija el objeto.</target>
       </segment>
     </unit>
     <unit id="k2rA792" name="Bitte gib die Zielkoordinaten ein.">
@@ -15301,7 +15300,7 @@
       </notes>
       <segment>
         <source>Bitte gib die Zielkoordinaten ein.</source>
-        <target>Bitte gib die Zielkoordinaten ein.</target>
+        <target>Por favor, introduzca la zona de destino.</target>
       </segment>
     </unit>
     <unit id="bh3ikqp" name="6a59fc2">
@@ -15310,7 +15309,7 @@
       </notes>
       <segment>
         <source>Sorgfältig verpackt hast du %item% in das Katapult gelegt. Der Gegenstand wurde auf %zone% geschleudert.</source>
-        <target>Sorgfältig verpackt hast du %item% in das Katapult gelegt. Der Gegenstand wurde auf %zone% geschleudert.</target>
+        <target>Colocas cuidadosamente %item% en la catapulta. El objeto ha sido lanzado a %zone%.</target>
       </segment>
     </unit>
     <unit id="4UUmkln" name="Katapult-Bediener">
@@ -15319,7 +15318,7 @@
       </notes>
       <segment>
         <source>Katapult-Bediener</source>
-        <target>Katapult-Bediener</target>
+        <target>Operador de la Catapulta</target>
       </segment>
     </unit>
     <unit id="AISIM8E" name="Du bist für das Katapult verantwortlich">
@@ -15328,7 +15327,7 @@
       </notes>
       <segment>
         <source>Du bist für das Katapult verantwortlich</source>
-        <target>Du bist für das Katapult verantwortlich</target>
+        <target>Usted es el responsable de la catapulta.</target>
       </segment>
     </unit>
     <unit id="hCYUVMS" name="5c5e382">
@@ -15337,7 +15336,7 @@
       </notes>
       <segment>
         <source>Du bist zum offiziellen Katapult-Bediener der Stadt ernannt worden. Diese Ernennung erfolgte durch Auslosung; Herzlichen Glückwunsch! Finde dich so bald wie Möglich beim städtischen Katapult ein.</source>
-        <target>Du bist zum offiziellen Katapult-Bediener der Stadt ernannt worden. Diese Ernennung erfolgte durch Auslosung; Herzlichen Glückwunsch! Finde dich so bald wie Möglich beim städtischen Katapult ein.</target>
+        <target>Has sido nombrado el operador oficial de la Catapulta de la ciudad. Este nombramiento se hizo por sorteo; ¡felicidades! Preséntate en la Catapulta de la ciudad lo antes posible.</target>
       </segment>
     </unit>
     <unit id=".SXRDqM" name="Einen zufälligen Bürger als Katapult-Bediener auslosen">
@@ -15346,7 +15345,7 @@
       </notes>
       <segment>
         <source>Einen zufälligen Bürger als Katapult-Bediener auslosen</source>
-        <target>Einen zufälligen Bürger als Katapult-Bediener auslosen</target>
+        <target>Elige un habitante al azar como operador de la Catapulta</target>
       </segment>
     </unit>
     <unit id="k9pQbZw" name="inmitten eines unentwirrbaren Trümmerhaufens">
@@ -15391,7 +15390,7 @@
       </notes>
       <segment>
         <source>Sind wir noch in der Alpha?</source>
-        <target>¿Ya hemos salido de la versión Alfa?</target>
+        <target>Sind wir noch in der Alpha?</target>
       </segment>
     </unit>
     <unit id="OA64trN" name="f4f78aa">
@@ -15400,7 +15399,7 @@
       </notes>
       <segment>
         <source>Dies ist eine äußerst seltene Belohnung, die den ersten MyHordes-Spielern vorbehalten ist, die das Finale mit großem F erlebt haben.</source>
-        <target>Esta es una distinción extremadamente rara reservada a los primeros jugadores de MyHordes, quienes presenciaron el final, uno con F mayúscula.</target>
+        <target>Dies ist eine äußerst seltene Belohnung, die den ersten MyHordes-Spielern vorbehalten ist, die das Finale mit großem F erlebt haben.</target>
       </segment>
     </unit>
     <unit id="Oys88cl" name="1a715ee">
