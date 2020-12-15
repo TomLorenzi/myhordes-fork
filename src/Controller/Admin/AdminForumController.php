@@ -6,6 +6,7 @@ use App\DataFixtures\PermissionFixtures;
 use App\Entity\AdminReport;
 use App\Entity\Citizen;
 use App\Entity\Complaint;
+use App\Entity\ForumModerationSnippet;
 use App\Entity\ForumUsagePermissions;
 use App\Entity\ItemPrototype;
 use App\Entity\PrivateMessage;
@@ -30,12 +31,12 @@ use Symfony\Component\HttpFoundation\Response;
 class AdminForumController extends AdminActionController
 {
     /**
-     * @Route("jx/admin/forum/reports/{opt}", name="admin_reports")
+     * @Route("jx/admin/forum/{tab}/{opt}", name="admin_reports")
      * @param PermissionHandler $perm
      * @param string $opt
      * @return Response
      */
-    public function reports(PermissionHandler $perm, string $opt = ''): Response
+    public function reports(PermissionHandler $perm, string $tab = 'reports', string $opt = ''): Response
     {
         $show_all = $opt === 'all';
 
@@ -93,9 +94,13 @@ class AdminForumController extends AdminActionController
             }
 
         return $this->render( 'ajax/admin/reports/reports.html.twig', [
+            'tab' => $tab,
+
             'posts' => $selectedReports,
             'pms' => $pm_cache,
-            'all_shown' => $show_all
+            'all_shown' => $show_all,
+
+            'snippets' => $this->entity_manager->getRepository(ForumModerationSnippet::class)->findAll()
         ]);      
     }
 
@@ -201,5 +206,59 @@ class AdminForumController extends AdminActionController
         }
 
         return AjaxResponse::success();
+    }
+
+    /**
+     * @Route("api/admin/forum/reports/snippet/add", name="admin_reports_add_snippet")
+     * @param JSONRequestParser $parser
+     * @return Response
+     */
+    public function add_snippet(JSONRequestParser $parser): Response {
+
+        if (!$parser->has_all(['id','lang','content'],true)) return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
+        $lang = strtolower( $parser->trimmed('lang') );
+
+        if (!in_array($lang, ['de','en','fr','es'])) return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
+
+        if ($this->entity_manager->getRepository(ForumModerationSnippet::class)->findOneBy(['id' => $parser->trimmed('id'), 'lang' => $lang]))
+            return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
+
+
+
+        $this->entity_manager->persist( (new ForumModerationSnippet)
+            ->setShort( $parser->trimmed('id') )
+            ->setLang( $lang )
+            ->setText( $parser->trimmed( 'content' ) )
+        );
+
+        try {
+            $this->entity_manager->flush();
+        } catch (\Exception $e) {
+            return AjaxResponse::error( ErrorHelper::ErrorDatabaseException );
+        }
+
+        return AjaxResponse::success();
+    }
+
+    /**
+     * @Route("api/admin/forum/reports/snippet/remove/{id<\d+>}", name="admin_reports_remove_snippet")
+     * @param int $id
+     * @return Response
+     */
+    public function remove_snippet(int $id): Response {
+
+
+        $snippet = $this->entity_manager->getRepository(ForumModerationSnippet::class)->find($id);
+
+        if ($snippet) {
+            $this->entity_manager->remove($snippet);
+            try {
+                $this->entity_manager->flush();
+            } catch (\Exception $e) {
+                return AjaxResponse::error( ErrorHelper::ErrorDatabaseException );
+            }
+
+            return AjaxResponse::success();
+        } else return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
     }
 }

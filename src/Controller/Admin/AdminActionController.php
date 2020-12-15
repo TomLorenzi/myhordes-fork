@@ -44,7 +44,7 @@ class AdminActionController extends CustomAbstractController
         return [
             ['name' => T::__('Dashboard', 'admin'),  'id' => 0],
             ['name' => T::__('Users', 'admin'),      'id' => 1],
-            ['name' => T::__('Meldungen', 'admin'),  'id' => 2],
+            ['name' => T::__('Foren-Mod.', 'admin'),  'id' => 2],
             ['name' => T::__('Städte', 'admin'),     'id' => 3],
             ['name' => T::__('Zukunft', 'admin'),    'id' => 4],
             ['name' => T::__('AntiSpam', 'admin'),   'id' => 5],

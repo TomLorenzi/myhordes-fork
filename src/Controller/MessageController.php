@@ -11,6 +11,7 @@ use App\Entity\Citizen;
 use App\Entity\Complaint;
 use App\Entity\Emotes;
 use App\Entity\Forum;
+use App\Entity\ForumModerationSnippet;
 use App\Entity\ForumUsagePermissions;
 use App\Entity\Item;
 use App\Entity\ItemPrototype;
@@ -983,6 +984,7 @@ class MessageController extends CustomAbstractController
             'pid' => null,
 
             'permission' => $this->getPermissionObject( $permissions ),
+            'snippets' => $this->perm->isPermitted( $permissions, ForumUsagePermissions::PermissionPostAsCrow ) ? $this->entity_manager->getRepository(ForumModerationSnippet::class)->findAll() : [],
 
             'emotes' => $this->getEmotesByUser($this->getUser(),true),
             'username' => $this->getUser()->getName(),
@@ -1033,10 +1035,11 @@ class MessageController extends CustomAbstractController
             'pid' => $pid,
 
             'permission' => $this->getPermissionObject( $permissions ),
+            'snippets' => $this->perm->isPermitted( $permissions, ForumUsagePermissions::PermissionPostAsCrow ) ? $this->entity_manager->getRepository(ForumModerationSnippet::class)->findAll() : [],
 
             'emotes' => $this->getEmotesByUser($this->getUser(),true),
             'forum' => true,
-            'town_controls' => isset($forums[0]) ? $forums[0]->getTown() !== null : null,
+            'town_controls' => $thread->getForum()->getTown() !== null,
         ] );
     }
 
@@ -1623,6 +1626,7 @@ class MessageController extends CustomAbstractController
             'pid' => null,
 
             'permission' => $this->getPermissionObject( ForumUsagePermissions::PermissionCreatePost ),
+            'snippets' => [],
             'emotes' => $this->getEmotesByUser($user,true),
 
             'forum' => false,
@@ -1649,6 +1653,7 @@ class MessageController extends CustomAbstractController
             'pid' => null,
 
             'permission' => $this->getPermissionObject( ForumUsagePermissions::PermissionWrite ),
+            'snippets' => [],
 
             'emotes' => $this->getEmotesByUser($user,true),
             'forum' => false,
@@ -1675,6 +1680,7 @@ class MessageController extends CustomAbstractController
             'pid' => null,
 
             'permission' => $this->getPermissionObject( ForumUsagePermissions::PermissionOwn ),
+            'snippets' => [],
 
             'emotes' => $this->getEmotesByUser($user,true),
             'forum' => false,
@@ -1698,6 +1704,7 @@ class MessageController extends CustomAbstractController
             'pid' => null,
 
             'permission' => $this->getPermissionObject( ForumUsagePermissions::PermissionOwn ),
+            'snippets' => [],
             'emotes' => $this->getEmotesByUser($user,true),
 
             'forum' => false,
