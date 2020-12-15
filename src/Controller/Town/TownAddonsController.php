@@ -194,6 +194,8 @@ class TownAddonsController extends TownController
             return AjaxResponse::error( ErrorHelper::ErrorDatabaseException );
         }
 
+        $this->addFlash('notice', $this->translator->trans('Vom Turm aus hast du eine guten Überblick über die Wüste. Du musterst die Umgebung, versuchst die Zombies zu zählen und ihre Bewegungsrichtung vorauszuberechnen... <br />Nachdem du einige Minuten die Lage gecheckt hast, schreibst du deine Ergebnisse in das <strong>Wachturmregister</strong>.<hr />Zusammen mit den Informationen der anderen Bürger sollten wir eine korrekte Angriffsschätzung bekommen.', [], 'game'));
+
         return AjaxResponse::success();
     }
 

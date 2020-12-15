@@ -253,7 +253,7 @@
         <div class="cell rw-14">
             {% if is_granted('ROLE_ADMIN') %}
                 {% if owner.alive %}
-                        <button x-admin-action="1">{{ 'Headshot'|trans({},'game') }} <div class="kill"></div></button>
+                        <button x-admin-action="1"><img src="{{ asset('build/images/actions/bullets.gif') }}" alt="" /> {{ 'Headshot'|trans({},'game') }} <div class="kill"></div></button>
                 {% endif %}
             {% endif %}
         </div>
