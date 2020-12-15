@@ -52,7 +52,7 @@ class CustomAbstractController extends AbstractController {
             'towntype'  => $this->getActiveCitizen() !== null ? $this->getActiveCitizen()->getTown()->getType()->getName() : "",
         ];
 
-        if($this->getActiveCitizen() !== null){
+        if($this->getActiveCitizen() !== null && $this->getActiveCitizen()->getAlive()){
             $is_shaman = $this->citizen_handler->hasRole($this->getActiveCitizen(), 'shaman') || $this->getActiveCitizen()->getProfession()->getName() == 'shaman';
             $data['citizen'] = $this->getActiveCitizen();
             $data['conf'] = $this->getTownConf();

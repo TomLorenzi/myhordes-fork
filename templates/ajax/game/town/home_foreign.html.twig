@@ -211,7 +211,7 @@
             {% if not hidden %}
                 <p>{% if owner.zone %}{{ '%citizen% ist ausgegangen...'|trans({'%citizen%': owner.user.name}, 'game') }} {% endif %}{{ 'Wenn Sie aus dem Fenster schauen, können Sie die folgenden Dinge im Haus sehen:'|trans({},'game') }}</p>
                 {% embed "ajax/game/inventory.html.twig" with {'size': chest_size, 'items': chest.items, 'foreignChestMode': true} %}
-                    {% block class %}chest locked{% endblock %}
+                    {% block class %}chest {% if owner.alive %}locked{% endif %}{% endblock %}
                     {% block title %}{% endblock %}
                 {% endembed %}
                 <div class="help stealhelp hidden">
@@ -232,6 +232,8 @@
                     {% else %}
                         <div class="notice">{{'Du kannst nichts von %citizen% stehlen, solange <strong>er (sie) in der Stadt ist</strong>... '|trans({'%citizen%': owner.user.name}, 'game')|raw}}</div>
                     {% endif %}
+                {% else %}
+                    
                 {% endif %}
             {% else %}
                 <p>{{ 'Ein Vorhang blockiert die Sicht ...'|trans({},'game') }}</p>
@@ -253,7 +255,7 @@
         <div class="cell rw-14">
             {% if is_granted('ROLE_ADMIN') %}
                 {% if owner.alive %}
-                        <button x-admin-action="1">{{ 'Headshot'|trans({},'game') }} <div class="kill"></div></button>
+                        <button x-admin-action="1"><img src="{{ asset('build/images/actions/bullets.gif') }}" alt="" /> {{ 'Headshot'|trans({},'game') }} <div class="kill"></div></button>
                 {% endif %}
             {% endif %}
         </div>
@@ -354,6 +356,11 @@
                 }
             });
         {% else %}
+            handleItems(
+                document.querySelectorAll('.chest>.item:not(.locked)[x-item-id]'),
+                '{{ path('town_visit_item_controller', {id: owner.id}) }}',
+                'up', '{{ path('town_visit', {id: owner.id}) }}'
+            );
             const recycleBtn = document.querySelectorAll('[x-recycle-home]');
             for (let i = 0; i < recycleBtn.length; i++) {
                 recycleBtn[i].addEventListener('click', function() {
