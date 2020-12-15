@@ -1891,5 +1891,50 @@
         <target>Schlüssel regenerieren</target>
       </segment>
     </unit>
+    <unit id="i2H25l5" name="Foren-Mod.">
+      <notes>
+        <note category="german">Foren-Mod.</note>
+      </notes>
+      <segment>
+        <source>Foren-Mod.</source>
+        <target>Foren-Mod.</target>
+      </segment>
+    </unit>
+    <unit id="EK4cGZo" name="Kurztexte">
+      <notes>
+        <note category="german">Kurztexte</note>
+      </notes>
+      <segment>
+        <source>Kurztexte</source>
+        <target>Kurztexte</target>
+      </segment>
+    </unit>
+    <unit id="PMRlWSR" name="Inhalt">
+      <notes>
+        <note category="german">Inhalt</note>
+      </notes>
+      <segment>
+        <source>Inhalt</source>
+        <target>Inhalt</target>
+      </segment>
+    </unit>
+    <unit id="yqFNLUk" name="Neuen Kurztext anlegen">
+      <notes>
+        <note category="german">Neuen Kurztext anlegen</note>
+      </notes>
+      <segment>
+        <source>Neuen Kurztext anlegen</source>
+        <target>Neuen Kurztext anlegen</target>
+      </segment>
+    </unit>
+    <unit id="EA6TVUx" name="ID eingeben">
+      <notes>
+        <note category="german">ID eingeben</note>
+      </notes>
+      <segment>
+        <source>ID eingeben</source>
+        <target>ID eingeben</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

@@ -1780,7 +1780,7 @@
       </notes>
       <segment>
         <source>Anwendung</source>
-        <target>Anwendung</target>
+        <target>Application</target>
       </segment>
     </unit>
     <unit id="zO1HXOo" name="Besitzer">
@@ -1789,7 +1789,7 @@
       </notes>
       <segment>
         <source>Besitzer</source>
-        <target>Besitzer</target>
+        <target>Propriétaire</target>
       </segment>
     </unit>
     <unit id="Ml7s_dM" name="Kontakt">
@@ -1798,7 +1798,7 @@
       </notes>
       <segment>
         <source>Kontakt</source>
-        <target>Kontakt</target>
+        <target>Contact</target>
       </segment>
     </unit>
     <unit id="zYXso4d" name="Name der Anwendung">
@@ -1807,7 +1807,7 @@
       </notes>
       <segment>
         <source>Name der Anwendung</source>
-        <target>Name der Anwendung</target>
+        <target>Nom de l'application</target>
       </segment>
     </unit>
     <unit id="gwaSbiX" name="Niemand">
@@ -1816,7 +1816,7 @@
       </notes>
       <segment>
         <source>Niemand</source>
-        <target>Niemand</target>
+        <target>Aucun</target>
       </segment>
     </unit>
     <unit id="56JB3rr" name="URL">
@@ -1834,7 +1834,7 @@
       </notes>
       <segment>
         <source>Anzeige</source>
-        <target>Anzeige</target>
+        <target>Afficher</target>
       </segment>
     </unit>
     <unit id="YIZ57UG" name="Anwendungen im Testbetrieb können nur von ihrem Besitzer verwendet werden.">
@@ -1843,7 +1843,7 @@
       </notes>
       <segment>
         <source>Anwendungen im Testbetrieb können nur von ihrem Besitzer verwendet werden.</source>
-        <target>Anwendungen im Testbetrieb können nur von ihrem Besitzer verwendet werden.</target>
+        <target>Les applications en mode test ne peuvent être utilisées que par leur propriétaire.</target>
       </segment>
     </unit>
     <unit id="pmqhEIB" name="Testbetrieb">
@@ -1852,7 +1852,7 @@
       </notes>
       <segment>
         <source>Testbetrieb</source>
-        <target>Testbetrieb</target>
+        <target>Test de fonctionnement</target>
       </segment>
     </unit>
     <unit id="o1q81tr" name="Icon">
@@ -1861,7 +1861,7 @@
       </notes>
       <segment>
         <source>Icon</source>
-        <target>Icon</target>
+        <target>Icône</target>
       </segment>
     </unit>
     <unit id="CgS2hD0" name="Datenzugriff">
@@ -1870,7 +1870,7 @@
       </notes>
       <segment>
         <source>Datenzugriff</source>
-        <target>Datenzugriff</target>
+        <target>Accès aux données</target>
       </segment>
     </unit>
     <unit id="PgM27MC" name="Anwendungen ohne API-Zugang werden nur als Links eingebunden.">
@@ -1879,7 +1879,7 @@
       </notes>
       <segment>
         <source>Anwendungen ohne API-Zugang werden nur als Links eingebunden.</source>
-        <target>Anwendungen ohne API-Zugang werden nur als Links eingebunden.</target>
+        <target>Les applications sans accès API ne sont intégrées que sous forme de liens.</target>
       </segment>
     </unit>
     <unit id="ftE4M1T" name="Zugang zur API">
@@ -1888,7 +1888,7 @@
       </notes>
       <segment>
         <source>Zugang zur API</source>
-        <target>Zugang zur API</target>
+        <target>Accès à l'API</target>
       </segment>
     </unit>
     <unit id="oFJRNSD" name="Wird automatisch generiert">
@@ -1897,7 +1897,7 @@
       </notes>
       <segment>
         <source>Wird automatisch generiert</source>
-        <target>Wird automatisch generiert</target>
+        <target>Est généré automatiquement</target>
       </segment>
     </unit>
     <unit id="NoNAzwa" name="Schlüssel regenerieren">
@@ -1906,7 +1906,52 @@
       </notes>
       <segment>
         <source>Schlüssel regenerieren</source>
-        <target>Schlüssel regenerieren</target>
+        <target>Régénérer la clé</target>
+      </segment>
+    </unit>
+    <unit id="i2H25l5" name="Foren-Mod.">
+      <notes>
+        <note category="german">Foren-Mod.</note>
+      </notes>
+      <segment>
+        <source>Foren-Mod.</source>
+        <target>Forum-Mod.</target>
+      </segment>
+    </unit>
+    <unit id="EK4cGZo" name="Kurztexte">
+      <notes>
+        <note category="german">Kurztexte</note>
+      </notes>
+      <segment>
+        <source>Kurztexte</source>
+        <target>Fast-Replace</target>
+      </segment>
+    </unit>
+    <unit id="PMRlWSR" name="Inhalt">
+      <notes>
+        <note category="german">Inhalt</note>
+      </notes>
+      <segment>
+        <source>Inhalt</source>
+        <target>Contenu</target>
+      </segment>
+    </unit>
+    <unit id="yqFNLUk" name="Neuen Kurztext anlegen">
+      <notes>
+        <note category="german">Neuen Kurztext anlegen</note>
+      </notes>
+      <segment>
+        <source>Neuen Kurztext anlegen</source>
+        <target>Créer un nouveau Fast-Replace</target>
+      </segment>
+    </unit>
+    <unit id="EA6TVUx" name="ID eingeben">
+      <notes>
+        <note category="german">ID eingeben</note>
+      </notes>
+      <segment>
+        <source>ID eingeben</source>
+        <target>Entrer l'ID</target>
       </segment>
     </unit>
   </file>

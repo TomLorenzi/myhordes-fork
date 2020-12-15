@@ -15628,5 +15628,68 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
         <target>Patient Zero</target>
       </segment>
     </unit>
+    <unit id="_40Ez0e" name="076e6dc">
+      <notes>
+        <note category="german">Vom Turm aus hast du eine guten Überblick über die Wüste. Du musterst die Umgebung, versuchst die Zombies zu zählen und ihre Bewegungsrichtung vorauszuberechnen... &lt;br /&gt;Nachdem du einige Minuten die Lage gecheckt hast, schreibst du deine Ergebnisse in das &lt;strong&gt;Wachturmregister&lt;/strong&gt;.&lt;hr /&gt;Zusammen mit den Informationen der anderen Bürger sollten wir eine korrekte Angriffsschätzung bekommen.</note>
+      </notes>
+      <segment>
+        <source>Vom Turm aus hast du eine guten Überblick über die Wüste. Du musterst die Umgebung, versuchst die Zombies zu zählen und ihre Bewegungsrichtung vorauszuberechnen... &lt;br /&gt;Nachdem du einige Minuten die Lage gecheckt hast, schreibst du deine Ergebnisse in das &lt;strong&gt;Wachturmregister&lt;/strong&gt;.&lt;hr /&gt;Zusammen mit den Informationen der anderen Bürger sollten wir eine korrekte Angriffsschätzung bekommen.</source>
+        <target><![CDATA[Vom Turm aus hast du eine guten Überblick über die Wüste. Du musterst die Umgebung, versuchst die Zombies zu zählen und ihre Bewegungsrichtung vorauszuberechnen... <br />Nachdem du einige Minuten die Lage gecheckt hast, schreibst du deine Ergebnisse in das <strong>Wachturmregister</strong>.<hr />Zusammen mit den Informationen der anderen Bürger sollten wir eine korrekte Angriffsschätzung bekommen.]]></target>
+      </segment>
+    </unit>
+    <unit id="GeJZ7mU" name="Auf den Aufstand hinarbeiten">
+      <notes>
+        <note category="german">Auf den Aufstand hinarbeiten</note>
+      </notes>
+      <segment>
+        <source>Auf den Aufstand hinarbeiten</source>
+        <target>Auf den Aufstand hinarbeiten</target>
+      </segment>
+    </unit>
+    <unit id="krk9RGq" name="%citizen% ist ausgegangen...">
+      <notes>
+        <note category="german">%citizen% ist ausgegangen...</note>
+      </notes>
+      <segment>
+        <source>%citizen% ist ausgegangen...</source>
+        <target>%citizen% ist ausgegangen...</target>
+      </segment>
+    </unit>
+    <unit id="NLrfO4J" name="1ee9e8e">
+      <notes>
+        <note category="german">Wähle den &lt;strong&gt;zu stehlenden Gegenstand&lt;/strong&gt; hier oben aus. &lt;strong&gt;Achtung!&lt;/strong&gt; Es besteht die Gefahr, dass du dabei gesehen wirst. In diesem Fall musst du dich auf unangenehme Konsequenzen gefasst machen.</note>
+      </notes>
+      <segment>
+        <source>Wähle den &lt;strong&gt;zu stehlenden Gegenstand&lt;/strong&gt; hier oben aus. &lt;strong&gt;Achtung!&lt;/strong&gt; Es besteht die Gefahr, dass du dabei gesehen wirst. In diesem Fall musst du dich auf unangenehme Konsequenzen gefasst machen.</source>
+        <target><![CDATA[Wähle den <strong>zu stehlenden Gegenstand</strong> hier oben aus. <strong>Achtung!</strong> Es besteht die Gefahr, dass du dabei gesehen wirst. In diesem Fall musst du dich auf unangenehme Konsequenzen gefasst machen.]]></target>
+      </segment>
+    </unit>
+    <unit id="tVbgO4A" name="Einen Gegenstand stehlen">
+      <notes>
+        <note category="german">Einen Gegenstand stehlen</note>
+      </notes>
+      <segment>
+        <source>Einen Gegenstand stehlen</source>
+        <target>Einen Gegenstand stehlen</target>
+      </segment>
+    </unit>
+    <unit id="Wq3dzPg" name="Einen Gegenstand hinterlassen">
+      <notes>
+        <note category="german">Einen Gegenstand hinterlassen</note>
+      </notes>
+      <segment>
+        <source>Einen Gegenstand hinterlassen</source>
+        <target>Einen Gegenstand hinterlassen</target>
+      </segment>
+    </unit>
+    <unit id="o5dw7G5" name="15ac09f">
+      <notes>
+        <note category="german">Du kannst nichts von %citizen% stehlen, solange &lt;strong&gt;er (sie) in der Stadt ist&lt;/strong&gt;...</note>
+      </notes>
+      <segment>
+        <source>Du kannst nichts von %citizen% stehlen, solange &lt;strong&gt;er (sie) in der Stadt ist&lt;/strong&gt;...</source>
+        <target><![CDATA[Du kannst nichts von %citizen% stehlen, solange <strong>er (sie) in der Stadt ist</strong>...]]></target>
+      </segment>
+    </unit>
   </file>
 </xliff>
