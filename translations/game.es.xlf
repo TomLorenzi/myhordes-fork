@@ -52,7 +52,7 @@
       </notes>
       <segment>
         <source>%citizen% hat %item% in den Brunnen geschüttet und damit %num% Rationen Wasser hinzugefügt.</source>
-        <target>%citizen% ha <strong>tirado %item% al Pozo</strong>, y con ello <strong>obtuvimos %num% Raciones de Agua.</strong></target>
+        <target><![CDATA[%citizen% ha <strong>tirado %item% al Pozo</strong>, y con ello <strong>obtuvimos %num% Raciones de Agua.</strong>]]></target>
       </segment>
     </unit>
     <unit id="uHRiWHu" name="%citizen% hat an dem Bauprojekt %plan% mitgearbeitet und dabei %ap% ausgegeben.">
@@ -1381,7 +1381,7 @@
       </notes>
       <segment>
         <source>Einmal pro Tag können bestimmte Konstruktionen umsonst verbessert werden (ohne Einsatz von AP oder Ressourcen). Das nennt sich die Verbesserung des Tages. Jede Verbesserung bringt verschiedene Vorteile mit sich (Verteidigung, Wasser, spezielle Fähigkeiten...). Es ist eure Aufgabe die Verbesserung des Tages zu wählen, die euch am geeignetsten scheint.</source>
-        <target>Una vez al día, algunas construcciones pueden ser mejoradas gratuitamente (sin PA, ni recursos): A esto le llamamos <strong>la mejora del día</strong>. Cada mejora aporta diversas ventajas (defensas, agua, capacidades especiales...). <strong>Sois vosotros quienes elegís la mejora del día que más os convenga a través de vuestros votos</strong>.</target>
+        <target><![CDATA[Una vez al día, algunas construcciones pueden ser mejoradas gratuitamente (sin PA, ni recursos): A esto le llamamos <strong>la mejora del día</strong>. Cada mejora aporta diversas ventajas (defensas, agua, capacidades especiales...). <strong>Sois vosotros quienes elegís la mejora del día que más os convenga a través de vuestros votos</strong>.]]></target>
       </segment>
     </unit>
     <unit id="PhutSSq" name="667676b">
