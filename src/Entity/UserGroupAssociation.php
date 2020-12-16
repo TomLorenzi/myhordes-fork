@@ -20,6 +20,9 @@ class UserGroupAssociation
     const GroupAssociationTypeCoalitionMember         = 1001;
     const GroupAssociationTypeCoalitionMemberInactive = 1002;
 
+    const GroupAssociationTypePrivateMessageMember         = 2000;
+    const GroupAssociationTypePrivateMessageMemberInactive = 2001;
+
     const GroupAssociationLevelDefault = 0;
     const GroupAssociationLevelFounder = 100;
 
