@@ -15708,5 +15708,14 @@
         <target><![CDATA[Du kannst nichts von %citizen% stehlen, solange <strong>er (sie) in der Stadt ist</strong>...]]></target>
       </segment>
     </unit>
+    <unit id="uEhXFSv" name="3cb07f6">
+      <notes>
+        <note category="german">Dank %disposing_citizen% wurde aus dem Körper von %citizen% ein leckeres kleines Mahl gekocht.</note>
+      </notes>
+      <segment>
+        <source>Dank %disposing_citizen% wurde aus dem Körper von %citizen% ein leckeres kleines Mahl gekocht.</source>
+        <target>Dank %disposing_citizen% wurde aus dem Körper von %citizen% ein leckeres kleines Mahl gekocht.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
