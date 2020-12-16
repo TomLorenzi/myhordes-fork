@@ -277,13 +277,13 @@ export default class Ajax {
         request.send( JSON.stringify(data) );
     };
 
-    easySend( url: string, data: object, success: ajaxCallback, errors: object = null, error: ajaxCallback|null = null ) {
+    easySend( url: string, data: object, success: ajaxCallback, errors: object = null, error: ajaxCallback|null = null, handleErrors: boolean = true ) {
         this.send( url, data,function (data: ajaxResponse, code) {
             if (code < 200 || code >= 300) {
-                $.html.selectErrorMessage( 'com', {}, c.errors );
+                if (handleErrors || !error) $.html.selectErrorMessage( 'com', {}, c.errors );
                 if (error) error(null,code);
             } else if (data.error) {
-                $.html.selectErrorMessage( data.error, errors, c.errors, data );
+                if (handleErrors || !error) $.html.selectErrorMessage( data.error, errors, c.errors, data );
                 if (error) error(data,code);
             } else if (data.success)
                 success(data,code);
