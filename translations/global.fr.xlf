@@ -1854,7 +1854,7 @@
       </notes>
       <segment>
         <source>Entwickler-Einstellungen</source>
-        <target>Entwickler-Einstellungen</target>
+        <target>Paramètres de développeur</target>
       </segment>
     </unit>
     <unit id="kSLdLqi" name="Als Entwickler dieser Webseite kannst du hier einige Einstellungen anpassen.">
@@ -1863,7 +1863,7 @@
       </notes>
       <segment>
         <source>Als Entwickler dieser Webseite kannst du hier einige Einstellungen anpassen.</source>
-        <target>Als Entwickler dieser Webseite kannst du hier einige Einstellungen anpassen.</target>
+        <target>En tant que développeur de ce site Web, vous pouvez régler certains paramètres ici.</target>
       </segment>
     </unit>
     <unit id="8uGl2Hb" name="Diese E-Mail Adresse wird als Kontakt-Adresse angezeigt.">
@@ -1872,7 +1872,7 @@
       </notes>
       <segment>
         <source>Diese E-Mail Adresse wird als Kontakt-Adresse angezeigt.</source>
-        <target>Diese E-Mail Adresse wird als Kontakt-Adresse angezeigt.</target>
+        <target>Cette adresse e-mail sera affichée comme adresse de contact.</target>
       </segment>
     </unit>
     <unit id="1iip6iA" name="2250af0">
@@ -1881,7 +1881,7 @@
       </notes>
       <segment>
         <source>Dies ist die URL, zu der Spieler weitergeleitet werden, wenn sie auf den Link klicken.</source>
-        <target>Dies ist die URL, zu der Spieler weitergeleitet werden, wenn sie auf den Link klicken.</target>
+        <target>Il s'agit de l'URL vers laquelle les joueurs seront dirigés lorsqu'ils cliquent sur le lien.</target>
       </segment>
     </unit>
     <unit id="sZ8ns1I" name="Mit diesem Schlüssel authentifiziert sich deine Webseite gegenüber MyHordes.">
@@ -1890,7 +1890,7 @@
       </notes>
       <segment>
         <source>Mit diesem Schlüssel authentifiziert sich deine Webseite gegenüber MyHordes.</source>
-        <target>Mit diesem Schlüssel authentifiziert sich deine Webseite gegenüber MyHordes.</target>
+        <target>Votre site Web utilise cette clé pour s'authentifier auprès de MyHordes.</target>
       </segment>
     </unit>
     <unit id="r1SbraZ" name="29f4438">
@@ -1899,7 +1899,7 @@
       </notes>
       <segment>
         <source>Du darfst ihn keinesfalls weitergeben oder öffentlich verfügbar machen, beispielsweise in einem Code-Repository.</source>
-        <target>Du darfst ihn keinesfalls weitergeben oder öffentlich verfügbar machen, beispielsweise in einem Code-Repository.</target>
+        <target>Vous ne pouvez pas la distribuer ou la rendre public, par exemple dans un référentiel de code.</target>
       </segment>
     </unit>
     <unit id="hnZ6._r" name="d66dfe5">
@@ -1908,7 +1908,7 @@
       </notes>
       <segment>
         <source>Wenn du den Verdacht hast, dass dein Schlüssel kompromittiert wurde, kannst du einen neuen Schlüssel anfordern.</source>
-        <target>Wenn du den Verdacht hast, dass dein Schlüssel kompromittiert wurde, kannst du einen neuen Schlüssel anfordern.</target>
+        <target>Si vous pensez que votre clé a été compromise, vous pouvez demander une nouvelle clé.</target>
       </segment>
     </unit>
   </file>

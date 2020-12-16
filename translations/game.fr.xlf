@@ -15732,5 +15732,14 @@
         <target>Préparer une insurrection</target>
       </segment>
     </unit>
+    <unit id="_40Ez0e" name="076e6dc">
+      <notes>
+        <note category="german">Vom Turm aus hast du eine guten Überblick über die Wüste. Du musterst die Umgebung, versuchst die Zombies zu zählen und ihre Bewegungsrichtung vorauszuberechnen... &lt;br /&gt;Nachdem du einige Minuten die Lage gecheckt hast, schreibst du deine Ergebnisse in das &lt;strong&gt;Wachturmregister&lt;/strong&gt;.&lt;hr /&gt;Zusammen mit den Informationen der anderen Bürger sollten wir eine korrekte Angriffsschätzung bekommen.</note>
+      </notes>
+      <segment>
+        <source>Vom Turm aus hast du eine guten Überblick über die Wüste. Du musterst die Umgebung, versuchst die Zombies zu zählen und ihre Bewegungsrichtung vorauszuberechnen... &lt;br /&gt;Nachdem du einige Minuten die Lage gecheckt hast, schreibst du deine Ergebnisse in das &lt;strong&gt;Wachturmregister&lt;/strong&gt;.&lt;hr /&gt;Zusammen mit den Informationen der anderen Bürger sollten wir eine korrekte Angriffsschätzung bekommen.</source>
+        <target><![CDATA[Du haut de la tour, vous examinez le désert environnant, puis tentez de compter les zombies présents, pour enfin essayer de prévoir leurs déplacements... <br />Après quelques minutes d'intense réflexion, vous consignez ces informations dans le <strong>registre de la Tour de Guet</strong>.<hr />Avec ces informations et celles d'autres citoyens, on devrait pouvoir faire une estimation correcte de l'attaque...]]></target>
+      </segment>
+    </unit>
   </file>
 </xliff>

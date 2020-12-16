@@ -1813,5 +1813,68 @@
         <target><![CDATA[<strong>Die Stadt versinkt im Chaos!</strong></p>Es gilt kein Gesetz mehr... Ihr müsst jetzt alle zusammenhalten und mit den Übriggebliebenen auskommen!<p><em>... Oder euch gegenseitig abschlachten, je nachdem.</em>]]></target>
       </segment>
     </unit>
+    <unit id="aGhiyb5" name="Entwickler-Einstellungen">
+      <notes>
+        <note category="german">Entwickler-Einstellungen</note>
+      </notes>
+      <segment>
+        <source>Entwickler-Einstellungen</source>
+        <target>Entwickler-Einstellungen</target>
+      </segment>
+    </unit>
+    <unit id="kSLdLqi" name="Als Entwickler dieser Webseite kannst du hier einige Einstellungen anpassen.">
+      <notes>
+        <note category="german">Als Entwickler dieser Webseite kannst du hier einige Einstellungen anpassen.</note>
+      </notes>
+      <segment>
+        <source>Als Entwickler dieser Webseite kannst du hier einige Einstellungen anpassen.</source>
+        <target>Als Entwickler dieser Webseite kannst du hier einige Einstellungen anpassen.</target>
+      </segment>
+    </unit>
+    <unit id="8uGl2Hb" name="Diese E-Mail Adresse wird als Kontakt-Adresse angezeigt.">
+      <notes>
+        <note category="german">Diese E-Mail Adresse wird als Kontakt-Adresse angezeigt.</note>
+      </notes>
+      <segment>
+        <source>Diese E-Mail Adresse wird als Kontakt-Adresse angezeigt.</source>
+        <target>Diese E-Mail Adresse wird als Kontakt-Adresse angezeigt.</target>
+      </segment>
+    </unit>
+    <unit id="1iip6iA" name="2250af0">
+      <notes>
+        <note category="german">Dies ist die URL, zu der Spieler weitergeleitet werden, wenn sie auf den Link klicken.</note>
+      </notes>
+      <segment>
+        <source>Dies ist die URL, zu der Spieler weitergeleitet werden, wenn sie auf den Link klicken.</source>
+        <target>Dies ist die URL, zu der Spieler weitergeleitet werden, wenn sie auf den Link klicken.</target>
+      </segment>
+    </unit>
+    <unit id="sZ8ns1I" name="Mit diesem Schlüssel authentifiziert sich deine Webseite gegenüber MyHordes.">
+      <notes>
+        <note category="german">Mit diesem Schlüssel authentifiziert sich deine Webseite gegenüber MyHordes.</note>
+      </notes>
+      <segment>
+        <source>Mit diesem Schlüssel authentifiziert sich deine Webseite gegenüber MyHordes.</source>
+        <target>Mit diesem Schlüssel authentifiziert sich deine Webseite gegenüber MyHordes.</target>
+      </segment>
+    </unit>
+    <unit id="r1SbraZ" name="29f4438">
+      <notes>
+        <note category="german">Du darfst ihn keinesfalls weitergeben oder öffentlich verfügbar machen, beispielsweise in einem Code-Repository.</note>
+      </notes>
+      <segment>
+        <source>Du darfst ihn keinesfalls weitergeben oder öffentlich verfügbar machen, beispielsweise in einem Code-Repository.</source>
+        <target>Du darfst ihn keinesfalls weitergeben oder öffentlich verfügbar machen, beispielsweise in einem Code-Repository.</target>
+      </segment>
+    </unit>
+    <unit id="hnZ6._r" name="d66dfe5">
+      <notes>
+        <note category="german">Wenn du den Verdacht hast, dass dein Schlüssel kompromittiert wurde, kannst du einen neuen Schlüssel anfordern.</note>
+      </notes>
+      <segment>
+        <source>Wenn du den Verdacht hast, dass dein Schlüssel kompromittiert wurde, kannst du einen neuen Schlüssel anfordern.</source>
+        <target>Wenn du den Verdacht hast, dass dein Schlüssel kompromittiert wurde, kannst du einen neuen Schlüssel anfordern.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
