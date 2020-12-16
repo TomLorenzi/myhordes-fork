@@ -682,6 +682,7 @@ class TownAddonsController extends TownController
             'catapult_master' => $cata_master,
             'is_catapult_master' => $this->getActiveCitizen()->hasRole('cata'),
             'log' => $this->renderLog( -1, null, false, LogEntryTemplate::TypeCatapult, 10 )->getContent(),
+            'day' => $this->getActiveCitizen()->getTown()->getDay(),
         ]) );
     }
 
