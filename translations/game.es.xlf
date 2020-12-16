@@ -1135,7 +1135,7 @@
       </notes>
       <segment>
         <source>Leiche nicht beseitigt!</source>
-        <target>Cuerpo no deshecho!</target>
+        <target>¡Cuerpo no deshecho!</target>
       </segment>
     </unit>
     <unit id="u_yrL5q" name="Tot!">
@@ -1144,7 +1144,7 @@
       </notes>
       <segment>
         <source>Tot!</source>
-        <target>Muerto!</target>
+        <target>¡Muerto!</target>
       </segment>
     </unit>
     <unit id="fV5wxwj" name="In der Stadt">
