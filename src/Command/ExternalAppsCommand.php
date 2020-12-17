@@ -117,12 +117,6 @@ class ExternalAppsCommand extends Command
                 throw new \Exception($errors);
             }
 
-            $question = new Question('What is the icon name of the app: ');
-            $icon = $helper->ask($input, $output, $question);
-            if(empty(trim($icon))) {
-                throw new \Exception("Icon is mandatory");
-            }
-
             $question = new Question('Is the external app active (Y/n): ');
             $active = $helper->ask($input, $output, $question);
             if (strtolower($active) == "n") {
@@ -172,7 +166,6 @@ class ExternalAppsCommand extends Command
                         ->setOwner($owner)
                         ->setSecret($pkey)
                         ->setUrl($url)
-                        ->setIcon($icon)
                         ->setLinkOnly($linkonly)
                         ->setTesting($testing);
 
@@ -182,7 +175,6 @@ class ExternalAppsCommand extends Command
                 $newApp->getActive(),
                 $newApp->getOwner() !== null ? $newApp->getOwner()->getUsername() : "NULL",
                 $newApp->getUrl(),
-                $newApp->getIcon(),
                 $newApp->getSecret(),
                 $newApp->getContact(),
                 $newApp->getTesting(),
@@ -202,7 +194,6 @@ class ExternalAppsCommand extends Command
                     $app->getActive(),
                     $app->getOwner() !== null ? $app->getOwner()->getUsername() : "NULL",
                     $app->getUrl(),
-                    $app->getIcon(),
                     $app->getSecret(),
                     $app->getContact(),
                     $app->getTesting(),
