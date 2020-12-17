@@ -2132,7 +2132,7 @@
       </notes>
       <segment>
         <source>Baupunkte</source>
-        <target>Baupunkte</target>
+        <target>Puntos de Construcción</target>
       </segment>
     </unit>
     <unit id="cycrpjD" name="fba1e38">
@@ -2236,7 +2236,7 @@
       </notes>
       <segment>
         <source>Wähle einen Beruf</source>
-        <target>Wähle einen Beruf</target>
+        <target>Elige un Oficio</target>
       </segment>
     </unit>
     <unit id="CreTS5x" name="Alle Einträge anzeigen">
@@ -3667,7 +3667,7 @@
       </notes>
       <segment>
         <source>Wir haben noch nicht die Technologie, um den morgigen Angriff zu beurteilen.</source>
-        <target>Wir haben noch nicht die Technologie, um den morgigen Angriff zu beurteilen.</target>
+        <target>No contamos con la tecnología necesaria para hacer este cálculo.</target>
       </segment>
     </unit>
     <unit id="cHKuQLy" name="Den morgigen Angriff berechnen">
@@ -3694,7 +3694,7 @@
       </notes>
       <segment>
         <source>Leere Truhe</source>
-        <target>Leere Truhe</target>
+        <target>Baúl vacío...</target>
       </segment>
     </unit>
     <unit id="476j_uq" name="Wenn Sie aus dem Fenster schauen, können Sie die folgenden Dinge im Haus sehen:">
@@ -3703,7 +3703,7 @@
       </notes>
       <segment>
         <source>Wenn Sie aus dem Fenster schauen, können Sie die folgenden Dinge im Haus sehen:</source>
-        <target>Wenn Sie aus dem Fenster schauen, können Sie die folgenden Dinge im Haus sehen:</target>
+        <target>Echando un vistazo por la ventana, encuentras los siguientes objetos en su vivienda:</target>
       </segment>
     </unit>
     <unit id="fIJzVR7" name="44e527a">
@@ -3712,7 +3712,7 @@
       </notes>
       <segment>
         <source>Der Brunnen ist der Ort, an dem sich die Bürger jeden Tag ihre Ration Wasser holen.</source>
-        <target>Der Brunnen ist der Ort, an dem sich die Bürger jeden Tag ihre Ration Wasser holen.</target>
+        <target>El Pozo es el jugar en el que los habitantes pueden recoger diariamente su ración de agua.</target>
       </segment>
     </unit>
     <unit id="TSuzaPk" name="Übersicht">
