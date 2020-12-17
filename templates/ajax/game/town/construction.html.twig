@@ -159,7 +159,8 @@
                 <li class="tab" x-tab-id="type_{{ building.prototype.icon }}">
                     <div class="tab-link">
                         <img class="hide-desktop" alt="" src="{{ asset('build/images/building/' ~ building.prototype.icon ~ '.gif' ) }}" >
-                        <span class="hide-lg hide-md hide-sm">{{building.prototype.label|trans({}, 'buildings')}}</span>
+                        {% set label = building.prototype.label|trans({}, 'buildings') %}
+                        <span class="hide-lg hide-md hide-sm">{{ label|length > 12 ? (label|slice(0,10) ~ '...') : label }}</span>
                     </div>
                 </li>
             {% endfor %}

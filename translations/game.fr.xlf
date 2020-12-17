@@ -15741,5 +15741,14 @@
         <target><![CDATA[Du haut de la tour, vous examinez le désert environnant, puis tentez de compter les zombies présents, pour enfin essayer de prévoir leurs déplacements... <br />Après quelques minutes d'intense réflexion, vous consignez ces informations dans le <strong>registre de la Tour de Guet</strong>.<hr />Avec ces informations et celles d'autres citoyens, on devrait pouvoir faire une estimation correcte de l'attaque...]]></target>
       </segment>
     </unit>
+    <unit id="uEhXFSv" name="3cb07f6">
+      <notes>
+        <note category="german">Dank %disposing_citizen% wurde aus dem Körper von %citizen% ein leckeres kleines Mahl gekocht.</note>
+      </notes>
+      <segment>
+        <source>Dank %disposing_citizen% wurde aus dem Körper von %citizen% ein leckeres kleines Mahl gekocht.</source>
+        <target>Grâce aux efforts de %disposing_citizen%, le corps de %citizen% a été cuisiné en bon p'tit plat.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
