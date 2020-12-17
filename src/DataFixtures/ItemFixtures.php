@@ -288,8 +288,8 @@ class ItemFixtures extends Fixture
         ['label' =>'Korn-Bräu','icon'=>'hmbrew','category'=>'food','deco'=>0,'heavy'=>false, 'watchpoint' => 0, 'fragile' => true],                                                // In Out
         ['label' =>'Verdächtiger Traubensaft','icon'=>'omg_this_will_kill_you','category'=>'food','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                 //
 		['label' =>'Nahrungsmittelkiste','icon'=>'chest_food','category'=>'food','deco'=>0,'heavy'=>true, 'watchpoint' => 0],                                    // In Out
-		
-		
+		['label' =>'Weihnachts-Süßigkeiten','icon'=>'christmas_candy','category'=>'food','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                                    // In Out
+
         ['label' =>'Leckeres Steak','icon'=>'meat','category'=>'food_7','deco'=>0,'heavy'=>false, 'watchpoint' => 4],                                           // In Out
         ['label' =>'Gewürzte chinesische Nudeln','icon'=>'food_noodles_hot','category'=>'food_7','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                  // In Out
         ['label' =>'Darmmelone','icon'=>'vegetable_tasty','category'=>'food_7','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                                    // In Out
@@ -778,6 +778,7 @@ class ItemFixtures extends Fixture
         'leprechaun_suit_#00' => 'In dieser Aufmachung sind Sie so auffällig, dass Sie niemand bemerkt oder glaubt, sich das eingebildet zu haben! Sie würden es nicht missbrauchen, oder?',
         'broken_#00' => 'Diese Trümmerstücke waren mal Teil eines Gegenstandes, den du nicht mehr identifizieren kannst. Die Verformung der Teile lassen vermuten, dass dieser Gegenstand mit hoher Geschwindigkeit am Boden aufgeprallt ist...',
         'bullets_#00' => 'Eine Handvoll Munition. Aber was hat das für einen Sinn?',
+        'christmas_candy_#00' => 'Es sieht aus wie eine Art Schokoladenbonbon mit alkoholischem Likör darin. Oder eine andere Füllung...'
     ];
     
     public static $item_prototype_properties = [
@@ -936,7 +937,8 @@ class ItemFixtures extends Fixture
         'bureau_#00'           => [ 'nw_ikea' ],
         'rlaunc_#00'           => [ 'nw_armory' ],
         'repair_one_#00'       => [ 'hero_find_lucky' ],
-        'electro_box_#00'      => [ 'hero_find_lucky' ]
+        'electro_box_#00'      => [ 'hero_find_lucky' ],
+        'christmas_candy_#00'  => [ 'can_cook' ]
     ];
 
     public static $item_groups = [
