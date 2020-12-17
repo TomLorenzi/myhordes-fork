@@ -3919,7 +3919,7 @@
       </notes>
       <segment>
         <source>Stück für Stück hat dich die Krankheit von innen her aufgefressen... Die Infektionssymptome waren auch nicht mehr zu übersehen: eiternde Wunden, Hematome, faulendes Fleisch... Nach mehreren Stunden Leiden hast du den Tod schließlich als Erleichterung empfunden.</source>
-        <target>Una horrible enfermedad que te carcome desde el interior... La mejor manera de combatir a la enfermedad es con ciertas substancias autorizadas... Si no haces nada, tienes una probabilidad entre dos de morir en tu próximo despertar (y aún más si estás en un pueblo Pandemonio).</target>
+        <target>Stück für Stück hat dich die Krankheit von innen her aufgefressen... Die Infektionssymptome waren auch nicht mehr zu übersehen: eiternde Wunden, Hematome, faulendes Fleisch... Nach mehreren Stunden Leiden hast du den Tod schließlich als Erleichterung empfunden.</target>
       </segment>
     </unit>
     <unit id="pVtld9L" name="Zyanid">
@@ -6952,7 +6952,7 @@
       </notes>
       <segment>
         <source>Du bist durstig... Das passiert immer dann wenn du am Vortag nichts getrunken hast oder wenn du in der Wüste lange Strecken gelaufen bist...</source>
-        <target>Du bist durstig... Das passiert immer dann wenn du am Vortag nichts getrunken hast oder wenn du in der Wüste lange Strecken gelaufen bist...</target>
+        <target>Tendrás sed en la mañana si no bebiste el día anterior, o si caminas mucho tiempo en el desierto...</target>
       </segment>
     </unit>
     <unit id="E5louWx" name="5a4098f">
@@ -6988,7 +6988,7 @@
       </notes>
       <segment>
         <source>Eine furchtbare Krankheit brennt sich durch dein Innerstes... Vielleicht eine Art Infektion? Das beste, was du jetzt tun kannst, ist die richtige Medizin einzunehmen... Wenn du hingegen nichts tust, hast du eine 50/50 Chance, morgen tot aufzuwachen.</source>
-        <target>Eine furchtbare Krankheit brennt sich durch dein Innerstes... Vielleicht eine Art Infektion? Das beste, was du jetzt tun kannst, ist die richtige Medizin einzunehmen... Wenn du hingegen nichts tust, hast du eine 50/50 Chance, morgen tot aufzuwachen.</target>
+        <target>Una horrible enfermedad que te carcome desde el interior... La mejor manera de combatir a la enfermedad es con ciertas substancias autorizadas... Si no haces nada, tienes una probabilidad entre dos de morir en tu próximo despertar (y aún más si estás en un pueblo Pandemonio).</target>
       </segment>
     </unit>
     <unit id="J1MlEZA" name="4c8ec9e">
@@ -6997,7 +6997,7 @@
       </notes>
       <segment>
         <source>Du stehst unter dem Einfluss von ziemlich starkem Alkohol... Du kannst vorerst keinen weiteren Alkohol zu dir nehmen.</source>
-        <target>Du stehst unter dem Einfluss von ziemlich starkem Alkohol... Du kannst vorerst keinen weiteren Alkohol zu dir nehmen.</target>
+        <target>Estás bajo los efectos de un alcohol fuerte... De momento no puedes consumir otras bebidas alcohólicas.</target>
       </segment>
     </unit>
     <unit id="n2cxTOK" name="63e4f16">
