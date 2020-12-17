@@ -122,10 +122,9 @@ class ZoneHandler
         $event_group = null;
 
         // Get event specific items
-        $event = $this->conf->getCurrentEvent($zone->getTown())->get(EventConf::EVENT_GROUP_DIG, '');
-        if($event !== '') {
-            $event_group = $this->entity_manager->getRepository(ItemGroup::class)->findOneBy(['name' => $event]);
-        }
+        $event = $this->conf->getCurrentEvent($zone->getTown())->get(EventConf::EVENT_DIG_DESERT_GROUP, null);
+        $event_chance = $this->conf->getCurrentEvent($zone->getTown())->get(EventConf::EVENT_DIG_DESERT_CHANCE, 1.0);
+        if ($event && $event_chance > 0) $event_group = $this->entity_manager->getRepository(ItemGroup::class)->findOneBy(['name' => $event]);
 
         $wrap = function(array $a) {
             return implode(', ', array_map(function(ItemPrototype $p) {
@@ -158,9 +157,14 @@ class ZoneHandler
                     if ($this->citizen_handler->hasStatusEffect( $timer->getCitizen(), 'camper' )) $factor += 0.1;
                     if ($this->citizen_handler->hasStatusEffect( $timer->getCitizen(), 'wound5' )) $factor -= 0.3; // Totally arbitrary
                     if ($this->citizen_handler->hasStatusEffect( $timer->getCitizen(), 'drunk'  )) $factor -= 0.3; // Totally arbitrary
-                    $item_prototype = $this->random_generator->chance(max(0.1, $factor * ($zone->getDigs() > 0 ? 0.6 : 0.3 )))
-                        ? $this->random_generator->pickItemPrototypeFromGroup( $zone->getDigs() > 0 ? ($event_group !== null ? ($this->random_generator->chance(0.5) ? $base_group : $event_group) : $base_group) : $empty_group )
-                        : null;
+
+                    $total_dig_chance = max(0.1, $factor * ($zone->getDigs() > 0 ? 0.6 : 0.3 ));
+
+                    $item_prototype = $this->random_generator->chance($total_dig_chance)
+                        ? $this->random_generator->pickItemPrototypeFromGroup( $zone->getDigs() > 0 ? $base_group : $empty_group )
+                        : ($event_group && $zone->getDigs() > 0 && $this->random_generator->chance($total_dig_chance * $event_chance)
+                            ? $this->random_generator->pickItemPrototypeFromGroup( $event_group )
+                            : null);
 
                     if ($active && $current_citizen->getId() === $active->getId()) {
                         $chances_by_player++;

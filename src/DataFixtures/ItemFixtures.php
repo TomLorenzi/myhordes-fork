@@ -222,8 +222,9 @@ class ItemFixtures extends Fixture
         ['label' =>'Überraschungskiste (1 Geschenk)','icon'=>'chest_christmas_1','category'=>'box','deco'=>0,'heavy'=>true, 'watchpoint' => 0],                // In Out
 		['label' =>'Lunch-Box','icon'=>'food_armag','category'=>'box','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                                          // In Out
 		['label' =>'Gesellschaftsspiel','icon'=>'game_box','category'=>'box','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                                      // In Out
-		
-		
+        ['label' =>'Geschenkpaket','icon'=>'postal_box','category'=>'box','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                // In Out
+        ['label' =>'Großes Geschenkpaket','icon'=>'postal_box_xl','category'=>'box','deco'=>0,'heavy'=>true, 'watchpoint' => 0],                // In Out
+
         ['label' =>'Zeltplane','icon'=>'sheet','category'=>'camp','deco'=>0,'heavy'=>false, 'watchpoint' => 10],                                                 // -- ---
         ['label' =>'Sperrholzstück','icon'=>'out_def','category'=>'camp','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                                          // -- ---
         ['label' =>'Ekliger Hautfetzen','icon'=>'smelly_meat','category'=>'camp','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                                  // -- ---
@@ -631,6 +632,8 @@ class ItemFixtures extends Fixture
         'poison_part_#00' => 'Mit den richtigen Zutaten kannst du dir ein schönes Gift mischen. Musst du denn unbedingt jemanden umbringen? Das willst du doch nicht wirklich... oder doch?', // Ätzmittel
         'chest_hero_#00' => 'Sobald du in dieser Welt ein wenig Erfahrung gesammelt hast, weißt du, dass es wichtig ist, ein paar Gegenstände bei sich zu behalten. Denn eines Tages könnten sie dir das Leben retten.', // Vorräte eines umsichtigen Bürgers
         'postal_box_#00' => 'Die Adresse ist nicht mehr lesbar. Es scheint etwas drin zu sein... Das ist ja besser als Weihnachten!', // Postpaket
+        'postal_box_#01' => 'Die Adresse ist nicht mehr lesbar. Es scheint etwas drin zu sein... Frohe Weihnachten!', // Postpaket (xmas variant)
+        'postal_box_xl_#00' => 'Die Adresse ist nicht mehr lesbar. Es scheint etwas drin zu sein... Frohe Weihnachten!', // Großes Postpaket (xmas)
         'food_armag_#00' => 'Da Du hier kein richtiges Dinner mit Freunden erleben kannst, hast du dir ein paar leckere Happen beiseite gelegt und in dieser Lunch-Box aufbewahrt. Ab und zu muss man sich mal was gönnen ...', // Lunch-Box
         'food_candies_#00' => 'Beim Anblick dieser Bonbons kommen dir die Tränen...', // Eine Handvoll Bonbons
         'out_def_#00' => 'Dieses alte Sperrholzstück stammt aus irgendeinem alten Gebäude. Mit ein wenig Einfallsreichtum könntest du es für eine neue Konstruktion wiederverwerten.', // Sperrholzstück
@@ -914,6 +917,7 @@ class ItemFixtures extends Fixture
         'book_gen_letter_#00'  => [ 'esc_fixed' ],
         'book_gen_box_#00'     => [ 'esc_fixed' ],
         'postal_box_#00'       => [ 'esc_fixed' ],
+        'postal_box_#01'       => [ 'esc_fixed' ],
         'pocket_belt_#00'      => [ 'esc_fixed' ],
         'bag_#00'              => [ 'esc_fixed' ],
         'bagxl_#00'            => [ 'esc_fixed' ],
@@ -1089,6 +1093,10 @@ class ItemFixtures extends Fixture
             array('item' => 'christmas_suit_1_#00','count' => '3'),
             array('item' => 'christmas_suit_2_#00','count' => '1'),
             array('item' => 'food_xmas_#00','count' => '2'),
+        ],
+        'christmas_dig_post' => [
+            array('item' => 'postal_box_#01','count' => '3'),
+            array('item' => 'postal_box_xl_#00','count' => '1'),
         ],
         'easter_dig' => [
             array('item' => 'paques_#00','count' => '207'),
