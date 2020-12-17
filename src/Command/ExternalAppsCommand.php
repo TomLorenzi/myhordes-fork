@@ -53,7 +53,7 @@ class ExternalAppsCommand extends Command
     {
         $id = $input->getArgument('ExternalAppId');
         $table = new Table($output);
-        $table->setHeaders(['ID', 'Name', 'Active', 'Owner', 'URL', 'Icon', 'Secret', 'Contact', 'Testing', 'LinkOnly']);
+        $table->setHeaders(['ID', 'Name', 'Active', 'Owner', 'URL', 'Secret', 'Contact', 'Testing', 'LinkOnly']);
 
         if ($id !== null && $id > 0) {
             /** @var ExternalApp $app */
@@ -66,7 +66,6 @@ class ExternalAppsCommand extends Command
                 $app->getActive(),
                 $app->getOwner() !== null ? $app->getOwner()->getUsername() : "NULL",
                 $app->getUrl(),
-                $app->getIcon(),
                 $app->getSecret(),
                 $app->getContact(),
                 $app->getTesting(),
