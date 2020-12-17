@@ -7,7 +7,11 @@ parameters:
         end: 12-05 00:00
       conf:
         css: 'arma'
-        group_dig: ''
+        event_dig:
+          desert:
+            group: ~
+            chance: ~
+          ruins:
         hooks:
           watchtower: 'App\Structures\Hook::watchtower_arma'
           door: 'App\Structures\Hook::door_arma'
@@ -19,5 +23,10 @@ parameters:
         end: 01-06 00:00
       conf:
         css: 'christmas'
-        group_dig: 'christmas_dig'
+        event_dig:
+          desert:
+            group: 'christmas_dig'
+            chance: 0.1
+          ruins:
+            - [name: 'post', group: 'christmas_dig_post', chance: 0.25]
         hooks:

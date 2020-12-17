@@ -595,6 +595,7 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             'open_c_chest'   => [ 'label' => 'Öffnen', 'meta' => [], 'result' => [ 'consume_item', [ 'spawn' => [ 'pile_#00', 'radio_off_#00', 'pharma_#00', 'lights_#00' ] ] ], 'message' => 'Du hast die {item} geöffnet und darin {items_spawn} gefunden!' ],
             'open_h_chest'   => [ 'label' => 'Öffnen', 'meta' => [], 'result' => [ 'consume_item', [ 'spawn' => [ 'watergun_empty_#00', 'pilegun_empty_#00', 'flash_#00', 'repair_one_#00', 'smoke_bomb_#00' ] ] ], 'message' => 'Du hast die {item} geöffnet und darin {items_spawn} gefunden!' ],
             'open_postbox'   => [ 'label' => 'Öffnen', 'meta' => [], 'result' => [ 'consume_item', [ 'spawn' => [ 'money_#00', 'rp_book_#00', 'rp_book_#01', 'rp_sheets_#00' ] ] ], 'message' => 'Du hast die {item} geöffnet und darin {items_spawn} gefunden!' ],
+            'open_postbox_xl'=> [ 'label' => 'Öffnen', 'meta' => [], 'result' => [ 'consume_item', [ 'spawn' => [ 'machine_gun_#00', 'rsc_pack_2_#00', 'rhum_#00', 'vibr_empty_#00' ] ] ], 'message' => 'Du hast die {item} geöffnet und darin {items_spawn} gefunden!' ],
             'open_letterbox' => [ 'label' => 'Öffnen', 'meta' => [], 'result' => [ 'consume_item', [ 'spawn' => [ 'rp_book2_#00', 'rp_manual_#00', 'rp_scroll_#00', 'rp_scroll_#01', 'rp_sheets_#00', 'rp_letter_#00' ] ] ], 'message' => 'Du hast die {item} geöffnet und darin {items_spawn} gefunden!' ],
             'open_justbox'   => [ 'label' => 'Öffnen', 'meta' => [], 'result' => [ 'consume_item', [ 'spawn' => [ 'money_#00', 'rp_book_#00', 'rp_book_#01', 'rp_sheets_#00' ] ] ], 'message' => 'Du hast die {item} geöffnet und darin {items_spawn} gefunden!' ],
 
@@ -979,6 +980,8 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             'chest_citizen_#00'   => [ 'open_c_chest' ],
             'chest_hero_#00'      => [ 'open_h_chest' ],
             'postal_box_#00'      => [ 'open_postbox' ],
+            'postal_box_#01'      => [ 'open_postbox' ],
+            'postal_box_xl_#00'   => [ 'open_postbox_xl' ],
             'book_gen_letter_#00' => [ 'open_letterbox' ],
             'book_gen_box_#00'    => [ 'open_justbox' ],
 
