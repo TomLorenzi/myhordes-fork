@@ -6,6 +6,8 @@ use App\Entity\Citizen;
 use App\Entity\ExpeditionRoute;
 use App\Entity\Item;
 use App\Entity\ItemPrototype;
+use App\Entity\Picto;
+use App\Entity\PictoPrototype;
 use App\Entity\Town;
 use App\Entity\Zone;
 use App\Response\AjaxResponse;
@@ -58,6 +60,16 @@ class AdminTownController extends AdminActionController
                 foreach ($rz as $r)
                     $explorables[ $zone->getId() ]['rz'][] = $r;
             }
+        
+        $pictoProtos = $this->entity_manager->getRepository(PictoPrototype::class)->findAll();
+        usort($pictoProtos, function($a, $b) {
+            return strcmp($this->translator->trans($a->getLabel(), [], 'game'), $this->translator->trans($b->getLabel(), [], 'game'));
+        });
+
+        $itemPrototypes = $this->entity_manager->getRepository(ItemPrototype::class)->findAll();
+        usort($itemPrototypes, function($a, $b) {
+            return strcmp($this->translator->trans($a->getLabel(), [], 'items'), $this->translator->trans($b->getLabel(), [], 'items'));
+        });
 
         return $this->render( 'ajax/admin/towns/explorer.html.twig', array_merge([
             'town' => $town,
@@ -66,7 +78,8 @@ class AdminTownController extends AdminActionController
             'log' => $this->renderLog( -1, $town, false, null, null )->getContent(),
             'day' => $town->getDay(),
             'bank' => $this->renderInventoryAsBank( $town->getBank() ),
-            'itemPrototypes' => $this->entity_manager->getRepository(ItemPrototype::class)->findAll(),
+            'itemPrototypes' => $itemPrototypes,
+            'pictoPrototypes' => $pictoProtos,
             'tab' => $tab
         ], $this->get_map_blob($town)));
     }
@@ -276,6 +289,53 @@ class AdminTownController extends AdminActionController
             
             $this->entity_manager->persist($citizen);
             $this->entity_manager->persist($citizen->getHome()->getChest());
+        }
+
+        $this->entity_manager->flush();
+
+        return AjaxResponse::success();
+    }
+
+    /**
+     * @Route("/api/admin/town/{id}/picto/give", name="admin_town_give_picto", requirements={"id"="\d+"})
+     * @Security("is_granted('ROLE_ADMIN')")
+     * Add or remove an item from the bank
+     * @param int $id User ID
+     * @param JSONRequestParser $parser The Request Parser
+     * @return Response
+     */
+    public function town_give_picto($id, JSONRequestParser $parser): Response
+    {
+        $town = $this->entity_manager->getRepository(Town::class)->find($id);
+        /** @var Town $town */
+        if(!$town) {
+            return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+        }
+
+        $prototype_id = $parser->get('prototype');
+        $number = $parser->get('number', 1);
+
+        /** @var PictoPrototype $pictoPrototype */
+        $pictoPrototype = $this->entity_manager->getRepository(PictoPrototype::class)->find($prototype_id);
+
+        foreach ($town->getCitizens() as $citizen){
+            /** @var Citizen $citizen */
+            // if(!$citizen->getAlive()) continue;
+
+            $picto = $this->entity_manager->getRepository(Picto::class)->findByUserAndTownAndPrototype($citizen->getUser(), $town, $pictoPrototype);
+            if (null === $picto) {
+                $picto = new Picto();
+                $picto->setPrototype($pictoPrototype)
+                    ->setPersisted(2)
+                    ->setTown($town)
+                    ->setUser($citizen->getUser());
+                $citizen->getUser()->addPicto($picto);
+                $this->entity_manager->persist($citizen->getUser());
+            }
+
+            $picto->setCount($picto->getCount() + $number);
+
+            $this->entity_manager->persist($picto);
         }
 
         $this->entity_manager->flush();
