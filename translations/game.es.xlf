@@ -3919,7 +3919,7 @@
       </notes>
       <segment>
         <source>Stück für Stück hat dich die Krankheit von innen her aufgefressen... Die Infektionssymptome waren auch nicht mehr zu übersehen: eiternde Wunden, Hematome, faulendes Fleisch... Nach mehreren Stunden Leiden hast du den Tod schließlich als Erleichterung empfunden.</source>
-        <target>Stück für Stück hat dich die Krankheit von innen her aufgefressen... Die Infektionssymptome waren auch nicht mehr zu übersehen: eiternde Wunden, Hematome, faulendes Fleisch... Nach mehreren Stunden Leiden hast du den Tod schließlich als Erleichterung empfunden.</target>
+        <target>Una horrible enfermedad que te carcome desde el interior... La mejor manera de combatir a la enfermedad es con ciertas substancias autorizadas... Si no haces nada, tienes una probabilidad entre dos de morir en tu próximo despertar (y aún más si estás en un pueblo Pandemonio).</target>
       </segment>
     </unit>
     <unit id="pVtld9L" name="Zyanid">
@@ -6889,7 +6889,7 @@
       </notes>
       <segment>
         <source>Du hast heute bereits getrunken. Eine weitere Essensration erlaubt dir heute nicht weitere AP.</source>
-        <target>Du hast heute bereits getrunken. Eine weitere Essensration erlaubt dir heute nicht weitere AP.</target>
+        <target>Has bebido hoy. Una nueva ración de agua no te hará recuperar más PA este día.</target>
       </segment>
     </unit>
     <unit id="9hu_P2F" name="f13ed10">
@@ -6898,7 +6898,7 @@
       </notes>
       <segment>
         <source>Du hast heute bereits gegessen. Eine weitere Essensration erlaubt dir heute nicht weitere AP.</source>
-        <target>Du hast heute bereits gegessen. Eine weitere Essensration erlaubt dir heute nicht weitere AP.</target>
+        <target>Has comido hoy. Una nueva ración de alimentos no te hará recuperar más PA este día.</target>
       </segment>
     </unit>
     <unit id="GbpuPWq" name="d8005f5">
@@ -6934,7 +6934,7 @@
       </notes>
       <segment>
         <source>Du bist völlig erschöpft... Ruh dich aus oder iss etwas, um wieder zu Kräften zu kommen!</source>
-        <target>Du bist völlig erschöpft... Ruh dich aus oder iss etwas, um wieder zu Kräften zu kommen!</target>
+        <target>Estás agotado... ¡Descansa un poco o aliméntate para recuperarte!</target>
       </segment>
     </unit>
     <unit id="PoxvW0_" name="62457fd">
@@ -6970,7 +6970,7 @@
       </notes>
       <segment>
         <source>Du hast heute bereits Drogen konsumiert. Wenn du noch weitere Drogen nimmst, riskierst du eine Abhängigkeit!</source>
-        <target>Du hast heute bereits Drogen konsumiert. Wenn du noch weitere Drogen nimmst, riskierst du eine Abhängigkeit!</target>
+        <target>Has consumido un estimulante hoy. Cuidado, si consumes otro, corres el riesgo de contraer <strong>una grave dependencia de por vida</strong>!</target>
       </segment>
     </unit>
     <unit id="UL1uoY5" name="dd7f91a">
@@ -7033,7 +7033,7 @@
       </notes>
       <segment>
         <source>Du hast dich bereits von einer Verletzung erholt. Du kannst heute nicht erneut geheilt werden.</source>
-        <target>Du hast dich bereits von einer Verletzung erholt. Du kannst heute nicht erneut geheilt werden.</target>
+        <target>Tu herida ha sido curada recientemente. No puedes volver a ser curado este día.</target>
       </segment>
     </unit>
     <unit id="4W0mT8f" name="Reiseleiter in der Außenwelt">
