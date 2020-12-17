@@ -82,6 +82,12 @@
 
             <div x-tab-group="admin-town" x-tab-id="bank" x-tab-target>
                 <div class="row-flex">
+                    <div class="padded cell rw-6 rw-sm-12">
+                        {% embed "ajax/game/inventory.html.twig" with {'size': 0, 'items': bank, 'bankmode': true} %}
+                            {% block class %}bank{% endblock %}
+                            {% block title %}{% endblock %}
+                        {% endembed %}
+                    </div>
                     {% if is_granted("ROLE_ADMIN") %}
                     <div class="padded cell rw-6 rw-sm-12">
                         <label for="spawnItem">{{'Einen Gegenstand erzeugen:'|trans({}, 'admin')}}</label>
@@ -104,12 +110,6 @@
                         <button id="spawnbtn">{{'Erzeugen!'|trans({}, 'admin')}}</button>
                     </div>
                     {% endif %}
-                    <div class="padded cell rw-6 rw-sm-12">
-                        {% embed "ajax/game/inventory.html.twig" with {'size': 0, 'items': bank, 'bankmode': true} %}
-                            {% block class %}bank{% endblock %}
-                            {% block title %}{% endblock %}
-                        {% endembed %}
-                    </div>
                 </div>
             </div>
 

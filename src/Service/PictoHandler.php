@@ -45,7 +45,7 @@ class PictoHandler
             $is_new = true;
         }
         $picto->setPrototype($pictoPrototype)
-            ->setPersisted(0)
+            ->setPersisted($citizen->getTown()->getDay() < 5 ? 0 : 1)
             ->setTown($citizen->getTown())
             ->setUser($citizen->getUser())
             ->setCount($picto->getCount()+$count);
