@@ -15724,5 +15724,23 @@
         <target>Dank %disposing_citizen% wurde aus dem Körper von %citizen% ein leckeres kleines Mahl gekocht.</target>
       </segment>
     </unit>
+    <unit id="GH4aDYM" name="feb2e53">
+      <notes>
+        <note category="german">%attacker% hat %defender% mit einem üblen Sandballwurf verwundet. Autsch, das hat sicher weh getan...!</note>
+      </notes>
+      <segment>
+        <source>%attacker% hat %defender% mit einem üblen Sandballwurf verwundet. Autsch, das hat sicher weh getan...!</source>
+        <target>%attacker% hat %defender% mit einem üblen Sandballwurf verwundet. Autsch, das hat sicher weh getan...!</target>
+      </segment>
+    </unit>
+    <unit id="BaTN5Rg" name="%attacker% hat %defender% einen Sandball direkt ins Gesicht geworfen!">
+      <notes>
+        <note category="german">%attacker% hat %defender% einen Sandball direkt ins Gesicht geworfen!</note>
+      </notes>
+      <segment>
+        <source>%attacker% hat %defender% einen Sandball direkt ins Gesicht geworfen!</source>
+        <target>%attacker% hat %defender% einen Sandball direkt ins Gesicht geworfen!</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
