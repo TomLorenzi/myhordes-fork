@@ -2,12 +2,11 @@
 
 namespace App\Controller\Admin;
 
-use App\Entity\AdminReport;
 use App\Entity\Citizen;
 use App\Entity\ConnectionWhitelist;
 use App\Entity\Picto;
+use App\Entity\PictoPrototype;
 use App\Entity\ShadowBan;
-use App\Entity\Town;
 use App\Entity\TwinoidImport;
 use App\Entity\TwinoidImportPreview;
 use App\Entity\User;
@@ -23,7 +22,7 @@ use App\Service\TwinoidHandler;
 use App\Service\UserFactory;
 use App\Service\UserHandler;
 use Doctrine\ORM\EntityManagerInterface;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
@@ -520,9 +519,55 @@ class AdminUserController extends AdminActionController
         $user = $this->entity_manager->getRepository(User::class)->find($id);
 
         $pictos = $this->entity_manager->getRepository(Picto::class)->findByUser($user);
+        $protos = $this->entity_manager->getRepository(PictoPrototype::class)->findAll();
+        usort($protos, function($a, $b) {
+            return strcmp($this->translator->trans($a->getLabel(), [], 'game'), $this->translator->trans($b->getLabel(), [], 'game'));
+        });
+
         return $this->render( 'ajax/admin/users/pictos.html.twig', $this->addDefaultTwigArgs("admin_users_pictos", [
             'user' => $user,
-            'pictos' => $pictos
+            'pictos' => $pictos,
+            'pictoPrototypes' => $protos
         ]));        
     }
+
+    /**
+     * @Route("/api/admin/users/{id}/picto/give", name="admin_user_give_picto", requirements={"id"="\d+"})
+     * @Security("is_granted('ROLE_ADMIN')")
+     * Add or remove an item from the bank
+     * @param int $id User ID
+     * @param JSONRequestParser $parser The Request Parser
+     * @return Response
+     */
+    public function user_give_picto($id, JSONRequestParser $parser): Response
+    {
+        $user = $this->entity_manager->getRepository(User::class)->find($id);
+        if(!$user) {
+            return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+        }
+
+        $prototype_id = $parser->get('prototype');
+        $number = $parser->get('number', 1);
+
+        /** @var PictoPrototype $pictoPrototype */
+        $pictoPrototype = $this->entity_manager->getRepository(PictoPrototype::class)->find($prototype_id);
+
+        $picto = $this->entity_manager->getRepository(Picto::class)->findByUserAndTownAndPrototype($user, null, $pictoPrototype);
+        if (null === $picto) {
+            $picto = new Picto();
+            $picto->setPrototype($pictoPrototype)
+                ->setPersisted(2)
+                ->setUser($user);
+            $user->addPicto($picto);
+            $this->entity_manager->persist($user);
+        }
+
+        $picto->setCount($picto->getCount() + $number);
+
+        $this->entity_manager->persist($picto);
+        $this->entity_manager->flush();
+
+        return AjaxResponse::success();
+    }
+
 }

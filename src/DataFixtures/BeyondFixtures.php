@@ -697,7 +697,7 @@ class BeyondFixtures extends Fixture implements DependentFixtureInterface
             array('item' => 'big_pgun_part_#00','count' => 4),
             array('item' => 'chainsaw_part_#00','count' => 1),
         ], 'desc' => 'Wenn Sie drohen, verstümmeln oder morden wollen, haben Sie hier die Hauptader getroffen... Die in den Wänden steckenden Schrapnelle, Einschusslöcher und Trümmer ringsum geben Ihnen eine gute Vorstellung davon, welche Art von \'Ereignissen\' sich hier abgespielt haben...'],
-        ["label" => "Warenlager",'icon' => 'warehouse',"camping" => 7,"min_dist" => 2, "max_dist" => 5, "chance" => 181, "drops" => [
+        ["label" => "Warenlager",'icon' => 'warehouse2',"camping" => 7,"min_dist" => 2, "max_dist" => 5, "chance" => 181, "drops" => [
             array('item' => 'chest_food_#00','count' => 43),
             array('item' => 'chest_citizen_#00','count' => 34),
             array('item' => 'chest_tools_#00','count' => 31),
@@ -818,7 +818,7 @@ class BeyondFixtures extends Fixture implements DependentFixtureInterface
                 array('item' => 'deco_box_#00','count' => 4),
                 array('item' => 'lamp_#00','count' => 4),
         ], 'desc' => 'Diese heruntergekommene Gebäude scheint einmal ein Hotel gewesen zu sein. Du entdeckst einen Einstieg ins Gebäude, modriger Gestank schlägt dir entgegen. Du verziehst das Gesicht, aber hier könntest du mit ziemlicher Sicherheit etwas Nützliches finden...'],
-        ["label" => "Verlassenes Hospital",'icon' => 'deserted_hotel',"camping" => 1,"min_dist" => 5, "max_dist" => 100, "chance" => 0, "explorable" => true,
+        ["label" => "Verlassenes Hospital",'icon' => 'deserted_hospital',"camping" => 1,"min_dist" => 5, "max_dist" => 100, "chance" => 0, "explorable" => true,
             "explorable_skin" => 'hospital', "explorable_desc" => null,
             "drops" => [
                 array('item' => 'mbplan_u_#00','count' => 14),

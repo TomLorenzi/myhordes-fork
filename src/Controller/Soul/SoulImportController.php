@@ -96,8 +96,10 @@ class SoulImportController extends SoulController
      */
     public function soul_import_twinoid_endpoint(JSONRequestParser $json, TwinoidHandler $twin): Response
     {
-        if (!$this->validate_twin_json_request( $json, $twin, $scope ))
+        if (!$this->validate_twin_json_request( $json, $twin, $scope )) {
             return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+        }
+
         return AjaxResponse::success(true, ['goto' => $twin->getTwinoidAuthURL('import',$scope)]);
     }
 

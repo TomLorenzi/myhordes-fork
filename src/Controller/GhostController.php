@@ -2,9 +2,7 @@
 
 namespace App\Controller;
 
-use App\Entity\CauseOfDeath;
 use App\Entity\CitizenRankingProxy;
-use App\Entity\ConsecutiveDeathMarker;
 use App\Entity\Town;
 use App\Entity\TownClass;
 use App\Entity\User;
@@ -45,7 +43,7 @@ class GhostController extends CustomAbstractController implements GhostInterface
      * @param EntityManagerInterface $em
      * @return Response
      */
-    public function welcome(EntityManagerInterface $em, ConfMaster $conf, UserHandler $uh): Response
+    public function welcome(EntityManagerInterface $em): Response
     {
         $user = $this->getUser();
 
@@ -66,8 +64,8 @@ class GhostController extends CustomAbstractController implements GhostInterface
             'coa'                => $coa_members,
             'cdm_level'          => $cdm_lock ? 2 : ( $cdm_warn ? 1 : 0 ),
             'townClasses' => $em->getRepository(TownClass::class)->findAll(),
-            'userCanJoin' => $this->getUserTownClassAccess($conf->getGlobalConf()),
-            'canCreateTown' => $uh->hasSkill($user, 'mayor') || $user->getRightsElevation() >= User::ROLE_CROW,
+            'userCanJoin' => $this->getUserTownClassAccess($this->conf->getGlobalConf()),
+            'canCreateTown' => $this->user_handler->hasSkill($user, 'mayor') || $user->getRightsElevation() >= User::ROLE_CROW,
         ] ));
     }
 
@@ -76,7 +74,7 @@ class GhostController extends CustomAbstractController implements GhostInterface
      * @param EntityManagerInterface $em
      * @return Response
      */
-    public function create_town(EntityManagerInterface $em, ConfMaster $conf, UserHandler $uh): Response
+    public function create_town(EntityManagerInterface $em): Response
     {
         /** @var User $user */
         $user = $this->getUser();
@@ -85,7 +83,7 @@ class GhostController extends CustomAbstractController implements GhostInterface
         if ($em->getRepository(CitizenRankingProxy::class)->findNextUnconfirmedDeath($user))
             return $this->redirect($this->generateUrl( 'soul_death' ));
 
-        if(!$uh->hasSkill($user, 'mayor') && $user->getRightsElevation() < User::ROLE_CROW){
+        if(!$this->user_handler->hasSkill($user, 'mayor') && $user->getRightsElevation() < User::ROLE_CROW){
             return $this->redirect($this->generateUrl( 'initial_landing' ));
         }
 
@@ -104,8 +102,8 @@ class GhostController extends CustomAbstractController implements GhostInterface
      * @param LogTemplateHandler $log
      * @return Response
      */
-    public function process_create_town(JSONRequestParser $parser, EntityManagerInterface $em, ConfMaster $conf,
-                                        UserHandler $uh, GameFactory $gf, LogTemplateHandler $log,
+    public function process_create_town(JSONRequestParser $parser, EntityManagerInterface $em,
+                                        GameFactory $gf, LogTemplateHandler $log,
                                         TownHandler $townHandler): Response
     {
         $user = $this->getUser();
@@ -114,7 +112,7 @@ class GhostController extends CustomAbstractController implements GhostInterface
         if ($em->getRepository(CitizenRankingProxy::class)->findNextUnconfirmedDeath($user))
             return AjaxResponse::success( true, ['url' => $this->generateUrl('soul_death')] );
 
-        if(!$uh->hasSkill($user, 'mayor') && $user->getRightsElevation() < User::ROLE_CROW){
+        if(!$this->user_handler->hasSkill($user, 'mayor') && $user->getRightsElevation() < User::ROLE_CROW){
             return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable, ['url' => $this->generateUrl('initial_landing')] );
         }
 

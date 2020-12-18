@@ -101,6 +101,7 @@ class MigrateCommand extends Command
             ->addOption('fast', null,InputOption::VALUE_NONE, 'If set, composer and yarn updates will be skipped')
             ->addOption('stay-offline', null,InputOption::VALUE_NONE, 'If set, maintenance mode will be kept active after the update')
 
+            ->addOption('install-db', 'i', InputOption::VALUE_NONE, 'Creates and performs the creation of the database and fixtures.')
             ->addOption('update-db', 'u', InputOption::VALUE_NONE, 'Creates and performs a doctrine migration, updates fixtures.')
             ->addOption('recover', 'r',   InputOption::VALUE_NONE, 'When used together with --update-db, will clear all previous migrations and try again after an error.')
 
@@ -222,6 +223,36 @@ class MigrateCommand extends Command
                 if (!$this->capsule( "app:migrate --maintenance off", $output, 'Disable maintenance mode... ', true )) return -1;
             } else $output->writeln("Maintenance is kept active. Disable with '<info>app:migrate --maintenance off</info>'");
 
+        }
+
+        if ($input->getOption('install-db')) {
+
+            if (!$this->capsule( 'doctrine:database:create', $output )) {
+                $output->writeln("<error>Unable to create database.</error>");
+                return 1;
+            }
+
+            if (!$this->capsule( 'doctrine:schema:update --force', $output )) {
+                $output->writeln("<error>Unable to create schema.</error>");
+                return 2;
+            }
+
+            if (!$this->capsule( 'doctrine:fixtures:load --append', $output )) {
+                $output->writeln("<error>Unable to update fixtures.</error>");
+                return 3;
+            }
+
+            if (!$this->capsule( 'app:debug --add-crow', $output )) {
+                $output->writeln("<error>Unable to add users and create crow.</error>");
+                return 4;
+            }
+
+            if (!$this->capsule( 'app:town:create remote 40 en', $output )) {
+                $output->writeln("<error>Unable to create french town.</error>");
+                return 5;
+            }
+
+            return 0;
         }
 
         if ($input->getOption('update-db')) {

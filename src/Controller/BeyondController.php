@@ -40,6 +40,7 @@ use App\Service\TimeKeeperService;
 use App\Service\TownHandler;
 use App\Service\UserHandler;
 use App\Service\ZoneHandler;
+use App\Structures\EventConf;
 use App\Structures\ItemRequest;
 use App\Structures\TownConf;
 use App\Translation\T;
@@ -47,6 +48,7 @@ use DateTime;
 use Doctrine\ORM\EntityManagerInterface;
 use Exception;
 use Symfony\Component\Asset\Packages;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Contracts\Translation\TranslatorInterface;
@@ -121,7 +123,7 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
         } else return false;
     }
 
-    protected function addDefaultTwigArgs( ?string $section = null, ?array $data = null ): array {
+    protected function addDefaultTwigArgs( ?string $section = null, ?array $data = null, $locale = null ): array {
         $zone = $this->getActiveCitizen()->getZone();
         $blocked = !$this->zone_handler->check_cp($zone, $cp);
         $escape = $this->get_escape_timeout( $this->getActiveCitizen() );
@@ -151,7 +153,7 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
                 $escort_actions[ $escort->getCitizen()->getId() ] = $this->action_handler->getAvailableItemEscortActions( $escort->getCitizen() );
             }
 
-        return parent::addDefaultTwigArgs( $section,array_merge( [
+        return parent::addDefaultTwigArgs( $section, array_merge( [
             'zone_players' => count($zone->getCitizens()),
             'zone_zombies' => max(0,$zone->getZombies()),
             'can_attack_citizen' => !$this->citizen_handler->isTired($this->getActiveCitizen()) && $this->getActiveCitizen()->getAp() >= 5 && !$this->citizen_handler->isWounded($this->getActiveCitizen()),
@@ -184,7 +186,7 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
                 'can_drink' => !$this->citizen_handler->hasStatusEffect($this->getActiveCitizen(), 'hasdrunk'),
                 'can_eat' => !$this->citizen_handler->hasStatusEffect($this->getActiveCitizen(), 'haseaten')
             ]
-        ], $data, $this->get_map_blob()) );
+        ], $data, $this->get_map_blob()), $locale );
     }
 
     public function get_escape_timeout(Citizen $c): int {
@@ -205,7 +207,7 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
      * @param TownHandler $th
      * @return Response
      */
-    public function desert(TownHandler $th): Response
+    public function desert(TownHandler $th, Request $r): Response
     {
         if (!$this->getActiveCitizen()->getHasSeenGazette())
             return $this->redirect($this->generateUrl('game_newspaper'));
@@ -360,7 +362,7 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
             'blueprintFound' => $blueprintFound ?? '',
             'camping_debug' => $camping_debug ?? '',
             'zone_tags' => $zone_tags ?? [],
-        ]) );
+        ], $r->getLocale()) );
     }
 
     /**
@@ -1161,7 +1163,20 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
 
         if ($zone->getRuinDigs() > 0) {
             $zone->setRuinDigs( $zone->getRuinDigs() - 1 );
-            $group = $zone->getPrototype()->getDrops();
+
+            $event_conf_list = $this->conf->getCurrentEvent($zone->getTown())->get(EventConf::EVENT_DIG_RUINS, []);
+            $event_conf = null;
+            foreach ($event_conf_list as $e)
+                if ($e['name'] === $zone->getPrototype()->getIcon())
+                    $event_conf = $e;
+
+
+            $group = $event_conf
+                ? ( $this->random_generator->chance($event_conf['chance'])
+                    ? $this->entity_manager->getRepository(ItemGroup::class)->findOneBy(['name' => $event_conf['group']])
+                    : $zone->getPrototype()->getDrops() )
+                : $zone->getPrototype()->getDrops();
+
             $prototype = $group ? $this->random_generator->pickItemPrototypeFromGroup( $group ) : null;
             if ($prototype) {
                 $item = $this->item_factory->createItem( $prototype );

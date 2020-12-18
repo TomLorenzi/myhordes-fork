@@ -201,7 +201,7 @@ class TownHomeController extends TownController
             'dest_citizen' => $destCitizen,
             'sendable_items' => $sendable_items,
             'can_do_insurrection' => $citizen->getBanished() && !$this->citizen_handler->hasStatusEffect($citizen, "tg_insurrection") && $citizen->getTown()->getInsurrectionProgress() < 100
-        ]) );
+        ], $request->getLocale()) );
     }
 
     /**

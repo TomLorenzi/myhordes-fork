@@ -4,6 +4,7 @@
 namespace App\Service;
 
 
+use App\Entity\ActionCounter;
 use App\Entity\BuildingPrototype;
 use App\Entity\CampingActionPrototype;
 use App\Entity\CauseOfDeath;
@@ -34,6 +35,7 @@ use App\Entity\TownLogEntry;
 use App\Entity\Zone;
 use App\Structures\EscortItemActionSet;
 use App\Structures\ItemRequest;
+use App\Structures\MyHordesConf;
 use App\Structures\TownConf;
 use App\Translation\T;
 use DateTime;
@@ -446,11 +448,10 @@ class ActionHandler
                 if (!$target->getZone() || !$target->getAlive()) return false;
                 if ( round( sqrt(pow($target->getZone()->getX(),2 ) + pow($target->getZone()->getY(),2 )) ) > 2 ) return false;
                 break;
-            case ItemTargetDefinition::ItemCitizenType:
+            case ItemTargetDefinition::ItemCitizenType: case ItemTargetDefinition::ItemCitizenOnZoneType: case ItemTargetDefinition::ItemCitizenOnZoneSBType:
                 if (!is_a( $target, Citizen::class )) return false;
                 if (!$target->getAlive()) return false;
                 break;
-
             default: return false;
         }
 
@@ -1229,10 +1230,22 @@ class ActionHandler
                         // Persist
                         $this->entity_manager->persist($citizenVote);
                         $this->entity_manager->persist($citizen);
-                        $this->entity_manager->flush();
                         
                         break;
                     }
+
+                    // Sandballs, bitches!
+                    case 20: {
+                        $target->getSpecificActionCounter(ActionCounter::ActionTypeSandballHit)->increment();
+
+                        $hurt = !$this->citizen_handler->isWounded($target) && $this->random_generator->chance( $town_conf->get(TownConf::CONF_MODIFIER_SANDBALL_NASTYNESS, 0.0) );
+                        if ($hurt) $this->citizen_handler->inflictWound($target);
+
+                        $this->entity_manager->persist( $this->log->sandballAttack( $citizen, $target, $hurt ) );
+                        $this->entity_manager->persist($target);
+                        break;
+                    }
+
                 }
 
                 if ($ap) {
