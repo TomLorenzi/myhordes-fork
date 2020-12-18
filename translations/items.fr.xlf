@@ -7441,7 +7441,7 @@
       </notes>
       <segment>
         <source>Es sieht aus wie eine Art Schokoladenbonbon mit alkoholischem Likör darin. Oder eine andere Füllung...</source>
-        <target>Ça ressemble à un genre de petit bonbon au chocolat, qui contient de la liqueur alcoolisé. Ou un quelconque autre produit…</target>
+        <target>Ça ressemble à un genre de petit bonbon au chocolat, qui contient de la liqueur alcoolisé. Ou un quelconque autre produit...</target>
       </segment>
     </unit>
     <unit id="1cAIp2n" name="Du hast {item} getrunken, aber scheinbar geschieht nichts...">
@@ -7450,7 +7450,7 @@
       </notes>
       <segment>
         <source>Du hast {item} getrunken, aber scheinbar geschieht nichts...</source>
-        <target>Du hast {item} getrunken, aber scheinbar geschieht nichts...</target>
+        <target>Vous avez bu {item} mais rien ne semble se passer ...</target>
       </segment>
     </unit>
     <unit id="MDcK7Yw" name="Geschenkpaket">
@@ -7459,7 +7459,7 @@
       </notes>
       <segment>
         <source>Geschenkpaket</source>
-        <target>Geschenkpaket</target>
+        <target>Colis postal</target>
       </segment>
     </unit>
     <unit id="kdGOsHH" name="cfe7609">
@@ -7468,7 +7468,7 @@
       </notes>
       <segment>
         <source>Die Adresse ist nicht mehr lesbar. Es scheint etwas drin zu sein... Frohe Weihnachten!</source>
-        <target>Die Adresse ist nicht mehr lesbar. Es scheint etwas drin zu sein... Frohe Weihnachten!</target>
+        <target>Un colis dont l'adresse est aujourd'hui illisible. Et on dirait bien qu'il y a quelque chose à l'intérieur... C'est Noël.</target>
       </segment>
     </unit>
     <unit id="YqfUhZc" name="Großes Geschenkpaket">
@@ -7477,7 +7477,7 @@
       </notes>
       <segment>
         <source>Großes Geschenkpaket</source>
-        <target>Großes Geschenkpaket</target>
+        <target>Gros colis postal</target>
       </segment>
     </unit>
     <unit id="r4cpVVY" name="Du hast einen Sandball in {citizen}s Gesicht geworfen.">
@@ -7486,7 +7486,7 @@
       </notes>
       <segment>
         <source>Du hast einen Sandball in {citizen}s Gesicht geworfen.</source>
-        <target>Du hast einen Sandball in {citizen}s Gesicht geworfen.</target>
+        <target>Vous avez jeté une boule de sable au visage de {citizen}.</target>
       </segment>
     </unit>
     <unit id="_2J5LX7" name="Du schluckst das Bonbon mit einem Lächeln auf den Lippen herunter.">
@@ -7495,7 +7495,7 @@
       </notes>
       <segment>
         <source>Du schluckst das Bonbon mit einem Lächeln auf den Lippen herunter.</source>
-        <target>Du schluckst das Bonbon mit einem Lächeln auf den Lippen herunter.</target>
+        <target>Vous avalez un bonbon de Noël en souriant...</target>
       </segment>
     </unit>
     <unit id="n50zH5w" name="59a5c87">
@@ -7504,7 +7504,7 @@
       </notes>
       <segment>
         <source>Du schluckst das Bonbon mit einem Lächeln auf den Lippen herunter... das jedoch schnell wieder verschwindet! Die Füllung besteht aus einem starken psychoaktiven Gift!&lt;t-stat-up-terror&gt;{hr}Du bist vor Angst erstarrt!&lt;/t-stat-up-terror&gt;</source>
-        <target><![CDATA[Du schluckst das Bonbon mit einem Lächeln auf den Lippen herunter... das jedoch schnell wieder verschwindet! Die Füllung besteht aus einem starken psychoaktiven Gift!<t-stat-up-terror>{hr}Du bist vor Angst erstarrt!</t-stat-up-terror>]]></target>
+        <target><![CDATA[Vous avalez un bonbon de Noël en souriant... mais vous déchantez rapidement. Le bonbon contenait un puissant poison psychotrope !<t-stat-up-terror>{hr}Vous êtes maintenant terrorisé(e)</t-stat-up-terror>]]></target>
       </segment>
     </unit>
   </file>

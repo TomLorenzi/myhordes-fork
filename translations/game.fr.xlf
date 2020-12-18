@@ -15756,7 +15756,7 @@
       </notes>
       <segment>
         <source>%attacker% hat %defender% mit einem üblen Sandballwurf verwundet. Autsch, das hat sicher weh getan...!</source>
-        <target>%attacker% hat %defender% mit einem üblen Sandballwurf verwundet. Autsch, das hat sicher weh getan...!</target>
+        <target>%attacker% a jeté une boule de sable directement dans le visage de %defender% !</target>
       </segment>
     </unit>
     <unit id="BaTN5Rg" name="%attacker% hat %defender% einen Sandball direkt ins Gesicht geworfen!">
@@ -15765,7 +15765,7 @@
       </notes>
       <segment>
         <source>%attacker% hat %defender% einen Sandball direkt ins Gesicht geworfen!</source>
-        <target>%attacker% hat %defender% einen Sandball direkt ins Gesicht geworfen!</target>
+        <target>%attacker% a blessé %defender% avec sa sale boule de sable. Aïe ça fait mal...!</target>
       </segment>
     </unit>
   </file>
