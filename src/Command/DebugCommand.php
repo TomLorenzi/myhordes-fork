@@ -13,6 +13,7 @@ use App\Entity\Town;
 use App\Entity\TownRankingProxy;
 use App\Entity\User;
 use App\Service\CitizenHandler;
+use App\Service\CommandHelper;
 use App\Service\ConfMaster;
 use App\Service\GameFactory;
 use App\Service\InventoryHandler;
@@ -50,11 +51,12 @@ class DebugCommand extends Command
     private UserPasswordEncoderInterface $encoder;
     private ConfMaster $conf;
     private TownHandler $townHandler;
+    private CommandHelper $helper;
 
     public function __construct(KernelInterface $kernel, GameFactory $gf, EntityManagerInterface $em,
                                 RandomGenerator $rg, CitizenHandler $ch, Translator $translator, InventoryHandler $ih,
                                 ItemFactory $if, UserPasswordEncoderInterface $passwordEncoder, ConfMaster $c,
-                                TownHandler $th)
+                                TownHandler $th, CommandHelper $h)
     {
         $this->kernel = $kernel;
 
@@ -68,6 +70,7 @@ class DebugCommand extends Command
         $this->encoder = $passwordEncoder;
         $this->conf = $c;
         $this->townHandler = $th;
+        $this->helper = $h;
 
         parent::__construct();
     }
@@ -305,7 +308,7 @@ class DebugCommand extends Command
         }
 
         if ($tid = $input->getOption('fill-bank')) {
-            $town = $this->entity_manager->getRepository(Town::class)->find( $tid );
+            $town = $this->helper->resolve_string($tid, Town::class, 'Town', $this->getHelper('question'), $input, $output);
             if (!$town) {
                 $output->writeln('<error>Town not found!</error>');
                 return 2;

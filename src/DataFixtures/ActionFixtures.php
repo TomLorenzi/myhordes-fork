@@ -295,6 +295,7 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             'just_ap6'     => [ 'ap' => 'to_max_plus_0' ],
             'just_ap7'     => [ 'ap' => 'to_max_plus_1' ],
             'just_ap8'     => [ 'ap' => 'to_max_plus_2' ],
+            'plus_ap8_30'  => [ 'ap' => 'plus_8_30' ],
 
             'produce_watercan3' => [ 'item' => [ 'consume' => false, 'morph' => 'water_can_3_#00' ] ],
             'produce_watercan2' => [ 'item' => [ 'consume' => false, 'morph' => 'water_can_2_#00' ] ],
@@ -363,7 +364,8 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
                 'to_max_plus_3' => [ 'max' => true,  'num' => 3 ],
                 'plus_4'        => [ 'max' => false, 'num' => 4 ],
                 'plus_2'        => [ 'max' => false, 'num' => 2 ],
-                'plus_2_7'      => [ 'max' => false, 'num' => 2, 'bonus' => 1 ],
+                'plus_2_7'      => [ 'max' => false, 'num' => 2, 'bonus' => 1  ],
+                'plus_8_30'     => [ 'max' => false, 'num' => 8, 'bonus' => 24 ],
                 'minus_1'       => [ 'max' => false, 'num' => -1 ],
                 'minus_5'       => [ 'max' => false, 'num' => -5 ],
                 'minus_6'       => [ 'max' => false, 'num' => -6 ],
@@ -582,12 +584,12 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
                 [ ['drug_addict', 'just_ap7'], 2 ],
                 [ ['do_nothing'], 1 ],
             ]] ] ] ,
-            'drug_rand_xmas'  => [ 'label' => 'Essen', 'cover' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ ], 'result' => [ 'consume_item', ['group' => [
-                [ ['just_ap8'], 8 ],
-                [ ['drug_addict'], 2 ],
-                [ ['terrorize'], 2 ],
-                [ ['infect'], 2 ],
-                [ ['death_poison'], 1 ],
+            'drug_rand_xmas'  => [ 'label' => 'Essen', 'cover' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ ], 'result' => [ 'consume_item', ['picto' => ['r_cobaye_#00']], ['group' => [
+                [ ['plus_ap8_30', ['message' => ['text' => 'Du schluckst das Bonbon mit einem Lächeln auf den Lippen herunter.']]], 15 ],
+                [ ['plus_ap8_30', 'drug_addict', ['message' => ['text' => 'Du schluckst das Bonbon mit einem Lächeln auf den Lippen herunter... das jedoch schnell wieder verschwindet! Die Füllung besteht aus einem starken psychoaktiven Gift!<t-stat-up-terror>{hr}Du bist vor Angst erstarrt!</t-stat-up-terror>']]], 20 ],
+                [ ['plus_ap8_30', 'terrorize', ['message' => ['text' => 'Du schluckst das Bonbon mit einem Lächeln auf den Lippen herunter... das jedoch schnell wieder verschwindet! Die Füllung besteht aus einem starken psychoaktiven Gift!<t-stat-up-terror>{hr}Du bist vor Angst erstarrt!</t-stat-up-terror>']]], 60 ],
+                [ ['plus_ap8_30', 'infect', ['message' => ['text' => 'Du schluckst das Bonbon mit einem Lächeln auf den Lippen herunter... das jedoch schnell wieder verschwindet! Die Füllung besteht aus einem starken psychoaktiven Gift!<t-stat-up-terror>{hr}Du bist vor Angst erstarrt!</t-stat-up-terror>']]], 3 ],
+                [ ['death_poison'], 2 ],
             ]] ] ] ,
 
             'open_doggybag'  => [ 'label' => 'Öffnen', 'meta' => [], 'result' => [ 'consume_item', [ 'spawn' => [ 'food_pims_#00', 'food_tarte_#00', 'food_chick_#00', 'food_biscuit_#00', 'food_bar3_#00', 'food_bar1_#00', 'food_sandw_#00', 'food_bar2_#00' ] ] ], 'message' => 'Du hast dein {item} ausgepackt und {items_spawn} erhalten!' ],
