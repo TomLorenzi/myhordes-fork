@@ -569,8 +569,8 @@ class InventoryAwareController extends CustomAbstractController
                     if($target_citizen && !$this->citizen_handler->hasStatusEffect($target_citizen, "tg_shaman_immune")) {
                         $dead = true;
                         // He is not immune, he dies.
-                        $rem = [];
-                        $this->death_handler->kill( $target_citizen, CauseOfDeath::Haunted, $rem );
+                        $null = null;
+                        $this->death_handler->kill( $target_citizen, CauseOfDeath::Haunted, $null );
                         $this->entity_manager->persist( $this->log->citizenDeath( $target_citizen ) );
 
                         // The red soul vanishes too
