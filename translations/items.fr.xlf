@@ -7426,5 +7426,32 @@
         <target><![CDATA[Vous jetez votre fumigène dans la zone, semant la plus grande confusion !{hr}Votre <strong>prochain déplacement</strong> ne sera pas consigné au registre s'il est effectué <strong>d'ici 1 minute au plus tard</strong>.]]></target>
       </segment>
     </unit>
+    <unit id="fqH14J." name="Weihnachts-Süßigkeiten">
+      <notes>
+        <note category="german">Weihnachts-Süßigkeiten</note>
+      </notes>
+      <segment>
+        <source>Weihnachts-Süßigkeiten</source>
+        <target>Bonbon de Noël</target>
+      </segment>
+    </unit>
+    <unit id="ijOQByU" name="309fa3e">
+      <notes>
+        <note category="german">Es sieht aus wie eine Art Schokoladenbonbon mit alkoholischem Likör darin. Oder eine andere Füllung...</note>
+      </notes>
+      <segment>
+        <source>Es sieht aus wie eine Art Schokoladenbonbon mit alkoholischem Likör darin. Oder eine andere Füllung...</source>
+        <target>Ça ressemble à un genre de petit bonbon au chocolat, qui contient de la liqueur alcoolisé. Ou un quelconque autre produit…</target>
+      </segment>
+    </unit>
+    <unit id="1cAIp2n" name="Du hast {item} getrunken, aber scheinbar geschieht nichts...">
+      <notes>
+        <note category="german">Du hast {item} getrunken, aber scheinbar geschieht nichts...</note>
+      </notes>
+      <segment>
+        <source>Du hast {item} getrunken, aber scheinbar geschieht nichts...</source>
+        <target>Du hast {item} getrunken, aber scheinbar geschieht nichts...</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

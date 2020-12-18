@@ -609,7 +609,7 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
 
             'open_xmasbox3'  => [ 'label' => 'Öffnen', 'meta' => [], 'result' => [ [ 'item' => [ 'consume' => false, 'morph' => 'chest_christmas_2_#00' ],  'spawn' => 'xmas' ] ], 'message' => 'Du hast die {item} geöffnet und darin {items_spawn} gefunden!' ],
             'open_xmasbox2'  => [ 'label' => 'Öffnen', 'meta' => [], 'result' => [ [ 'item' => [ 'consume' => false, 'morph' => 'chest_christmas_1_#00' ],  'spawn' => 'xmas' ] ], 'message' => 'Du hast die {item} geöffnet und darin {items_spawn} gefunden!' ],
-            'open_xmasbox1'  => [ 'label' => 'Öffnen', 'meta' => [], 'result' => [ 'consume_item', [ 'spawn' => 'xmas' ] ] ],
+            'open_xmasbox1'  => [ 'label' => 'Öffnen', 'meta' => [], 'result' => [ 'consume_item', [ 'spawn' => 'xmas' ] ], 'message' => 'Du hast die {item} geöffnet und darin {items_spawn} gefunden!' ],
 
             'open_metalbox'  => [ 'label' => 'Öffnen', 'meta' => [ 'not_profession_tech', 'have_can_opener' ], 'result' => [ 'consume_item', [ 'spawn' => 'metalbox' ] ], 'message' => 'Du hast die {item} geöffnet und darin {items_spawn} gefunden!' ],
             'open_metalbox2' => [ 'label' => 'Öffnen', 'meta' => [ 'not_profession_tech', 'have_can_opener' ], 'result' => [ 'consume_item', [ 'spawn' => 'metalbox2' ] ], 'message' => 'Du hast die {item} geöffnet und darin {items_spawn} gefunden!' ],

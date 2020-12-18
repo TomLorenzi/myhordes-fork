@@ -242,6 +242,16 @@ class MigrateCommand extends Command
                 return 3;
             }
 
+            if (!$this->capsule( 'app:debug --add-crow', $output )) {
+                $output->writeln("<error>Unable to add users and create crow.</error>");
+                return 4;
+            }
+
+            if (!$this->capsule( 'app:town:create remote 40 en', $output )) {
+                $output->writeln("<error>Unable to create french town.</error>");
+                return 5;
+            }
+
             return 0;
         }
 

@@ -249,6 +249,12 @@ class ExternalXML2Controller extends ExternalController {
                     'name' => 'm', 
                     'items' => []
                 ]
+            ],
+            'imported-maps' => [
+                'list' => [
+                    'name' => 'm',
+                    'items' => []
+                ]
             ]
         ];
 
@@ -304,7 +310,11 @@ class ExternalXML2Controller extends ExternalController {
         foreach($user->getPastLifes() as $pastLife){
             /** @var CitizenRankingProxy $pastLife */
             if($pastLife->getCitizen() && $pastLife->getCitizen()->getAlive()) continue;
-            $data['data']['maps']['list']['items'][] = [
+            $node = "maps";
+            if ($pastLife->getTown()->getImported()){
+                $node = "imported-maps";
+            }
+            $data['data'][$node]['list']['items'][] = [
                 'attributes' => [
                     'name' => $pastLife->getTown()->getName(),
                     'season' => $pastLife->getTown()->getSeason() ? $pastLife->getTown()->getSeason()->getNumber() : 0,
@@ -315,8 +325,8 @@ class ExternalXML2Controller extends ExternalController {
                     'origin' => ($pastLife->getTown()->getSeason() && $pastLife->getTown()->getSeason()->getNumber() === 0)
                         ? strtolower($pastLife->getTown()->getLanguage()) . "-{$pastLife->getTown()->getSeason()->getSubNumber()}"
                         : '',
-                ], 
-                'cdata_value' => $pastLife->getLastWords()
+                ],
+                'cdata_value' => html_entity_decode($pastLife->getLastWords())
             ];
         }
 
