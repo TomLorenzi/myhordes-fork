@@ -19,6 +19,7 @@ class EventConf extends Conf
     const EVENT_HOOK_DOOR         = 'hooks.door';
     const EVENT_HOOK_NIGHTLY_PRE  = 'hooks.night_before';
     const EVENT_HOOK_NIGHTLY_POST = 'hooks.night_after';
+    const EVENT_HOOK_NIGHTLY_NONE = 'hooks.night_none';
 
     const EVENT_HOOK_ENABLE_TOWN     = 'hooks.enable_town';
     const EVENT_HOOK_DISABLE_TOWN    = 'hooks.disable_town';
@@ -50,6 +51,10 @@ class EventConf extends Conf
 
     public function hook_nightly_post(Town $town): void {
         call_user_func( $this->get(self::EVENT_HOOK_NIGHTLY_POST, 'App\Structures\EventConf::Void') , $town);
+    }
+
+    public function hook_nightly_none(Town $town): void {
+        call_user_func( $this->get(self::EVENT_HOOK_NIGHTLY_NONE, 'App\Structures\EventConf::Void') , $town);
     }
 
     public function hook_door(string $action): ?Response {
