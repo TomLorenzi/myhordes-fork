@@ -129,8 +129,8 @@ class HordesFactFixtures extends Fixture implements DependentFixtureInterface {
 
             $entity
                 ->setAuthor($entry['author'])
-                ->setContent($entity['content'])
-                ->setLang($entity['lang']);
+                ->setContent($entry['content'])
+                ->setLang($entry['lang']);
 
             $manager->persist($entity);
             $progress->advance();
