@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\AntiSpamDomains;
 use App\Controller\Soul\SoulController;
 use App\Entity\Citizen;
+use App\Entity\HordesFact;
 use App\Entity\Picto;
 use App\Entity\PictoPrototype;
 use App\Entity\RegistrationLog;
@@ -56,6 +57,12 @@ class PublicController extends CustomAbstractController
         $data['deadCitizenCount'] = $deadCitizenCount;
         $data['zombiesKilled'] = $zombiesKilled;
         $data['canibalismCount'] = $canibalismCount;
+        $request = Request::createFromGlobals();
+
+        $facts = $this->entity_manager->getRepository(HordesFact::class)->findBy(['lang' => $request->getLocale() ?? 'de']);
+        shuffle($facts);
+
+        $data['fact'] = $facts[0];
 
         return $data;
     }
