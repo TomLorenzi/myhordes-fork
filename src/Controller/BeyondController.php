@@ -40,6 +40,7 @@ use App\Service\TimeKeeperService;
 use App\Service\TownHandler;
 use App\Service\UserHandler;
 use App\Service\ZoneHandler;
+use App\Structures\EventConf;
 use App\Structures\ItemRequest;
 use App\Structures\TownConf;
 use App\Translation\T;
@@ -1161,7 +1162,18 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
 
         if ($zone->getRuinDigs() > 0) {
             $zone->setRuinDigs( $zone->getRuinDigs() - 1 );
-            $group = $zone->getPrototype()->getDrops();
+
+            $event_conf_list = $this->conf->getCurrentEvent($zone->getTown())->get(EventConf::EVENT_DIG_RUINS, []);
+            $event_conf = null;
+            foreach ($event_conf_list as $e) if ($e['name'] === $zone->getPrototype()->getIcon())
+                $event_conf = $e;
+
+            $group = $event_conf
+                ? ( $this->random_generator->chance($event_conf['chance'])
+                    ? $this->entity_manager->getRepository(ItemGroup::class)->findOneBy(['name' => $event_conf['group']])
+                    : $zone->getPrototype()->getDrops() )
+                : $zone->getPrototype()->getDrops();
+
             $prototype = $group ? $this->random_generator->pickItemPrototypeFromGroup( $group ) : null;
             if ($prototype) {
                 $item = $this->item_factory->createItem( $prototype );
