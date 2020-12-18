@@ -591,5 +591,4 @@ class PublicController extends CustomAbstractController
     {
         return $this->render('ajax/public/privacy.html.twig', $this->addDefaultTwigArgs());
     }
-
 }

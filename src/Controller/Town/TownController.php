@@ -43,6 +43,7 @@ use App\Structures\CitizenInfo;
 use Doctrine\Common\Collections\Criteria;
 use Doctrine\ORM\EntityManagerInterface;
 use Exception;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Contracts\Translation\TranslatorInterface;
@@ -139,7 +140,7 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
             $data['votesNeeded'] = $this->get_needed_votes();
 
         $data["new_message"] = $this->citizen_handler->hasNewMessage($this->getActiveCitizen());
-        return parent::addDefaultTwigArgs( $section, $data );
+        return parent::addDefaultTwigArgs( $section, $data, $locale );
     }
 
     /**
@@ -147,7 +148,7 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
      * @param TownHandler $th
      * @return Response
      */
-    public function dashboard(TownHandler $th): Response
+    public function dashboard(TownHandler $th, Request $r): Response
     {
         if (!$this->getActiveCitizen()->getHasSeenGazette())
             return $this->redirect($this->generateUrl('game_newspaper'));
@@ -243,7 +244,7 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
             'has_upgraded_house' => $this->citizen_handler->hasStatusEffect($this->getActiveCitizen(), 'tg_home_upgrade'),
             'can_edit_blackboard' => $can_edit_blackboard,
             'new_coa_message' => $messages
-        ]) );
+        ], $r->getLocale()) );
     }
 
     /**
@@ -666,7 +667,7 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
      * @param TownHandler $th
      * @return Response
      */
-    public function well(TownHandler $th): Response
+    public function well(TownHandler $th, Request $r): Response
     {
         if (!$this->getActiveCitizen()->getHasSeenGazette())
             return $this->redirect($this->generateUrl('game_newspaper'));
@@ -691,7 +692,7 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
 
             'log' => $this->renderLog( -1, null, false, LogEntryTemplate::TypeWell, 10 )->getContent(),
             'day' => $this->getActiveCitizen()->getTown()->getDay()
-        ]) );
+        ], $r->getLocale()) );
     }
 
     /**
@@ -802,7 +803,7 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
      * @param TownHandler $th
      * @return Response
      */
-    public function bank(TownHandler $th): Response
+    public function bank(TownHandler $th, Request $r): Response
     {
         if (!$this->getActiveCitizen()->getHasSeenGazette())
             return $this->redirect($this->generateUrl('game_newspaper'));
@@ -821,7 +822,7 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
             'bank' => $this->renderInventoryAsBank( $town->getBank() ),
             'log' => $this->renderLog( -1, null, false, LogEntryTemplate::TypeBank, 10 )->getContent(),
             'day' => $town->getDay(),
-        ]) );
+        ], $r->getLocale()) );
     }
 
     /**
@@ -852,7 +853,7 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
      * @param TownHandler $th
      * @return Response
      */
-    public function citizens(EntityManagerInterface $em, TownHandler $th): Response
+    public function citizens(EntityManagerInterface $em, TownHandler $th, Request $r): Response
     {
         if (!$this->getActiveCitizen()->getHasSeenGazette())
             return $this->redirect($this->generateUrl('game_newspaper'));
@@ -896,15 +897,17 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
             'prof_count' => $prof_count,
             'death_count' => $death_count,
             'has_omniscience' => $this->user_handler->hasSkill($this->getActiveCitizen()->getUser(), 'omniscience'),
-        ]) );
+        ], $r->getLocale()) );
     }
 
     /**
      * @Route("jx/town/citizens/vote/{roleId}", name="town_citizen_vote", requirements={"id"="\d+"})
-     * @param EntityManagerInterface $em
+     * Show the citizens eligible to vote for a role
+     * @param int $roleId The role we want to vote for
+     * @param Request $r The HTTP Request
      * @return Response
      */
-    public function citizens_vote(int $roleId, EntityManagerInterface $em): Response
+    public function citizens_vote(int $roleId, Request $r): Response
     {
         if (!$this->getActiveCitizen()->getHasSeenGazette())
             return $this->redirect($this->generateUrl('game_newspaper'));
@@ -932,7 +935,7 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
             'selectedRole' => $role,
             'vote' => $vote,
             'has_omniscience' => $this->user_handler->hasSkill($this->getActiveCitizen()->getUser(), 'omniscience'),
-        ]) );
+        ], $r->getLocale()) );
     }
 
     /**
@@ -994,10 +997,10 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
 
     /**
      * @Route("jx/town/citizens/omniscience", name="town_citizens_omniscience")
-     * @param EntityManagerInterface $em
+     * @param Request $r The HTTP Request
      * @return Response
      */
-    public function citizens_omniscience(EntityManagerInterface $em): Response
+    public function citizens_omniscience(Request $r): Response
     {
         if (!$this->getActiveCitizen()->getHasSeenGazette())
             return $this->redirect($this->generateUrl('game_newspaper'));
@@ -1036,7 +1039,7 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
             'citizens' => $citizens,
             'has_omniscience' => $this->user_handler->hasSkill($this->getActiveCitizen()->getUser(), 'omniscience'),
             'me' => $this->getActiveCitizen(),
-        ]) );
+        ], $r->getLocale()) );
     }
 
     /**
@@ -1220,7 +1223,7 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
      * @param TownHandler $th
      * @return Response
      */
-    public function constructions(TownHandler $th): Response
+    public function constructions(TownHandler $th, Request $r): Response
     {
         if (!$this->getActiveCitizen()->getHasSeenGazette())
             return $this->redirect($this->generateUrl('game_newspaper'));
@@ -1290,7 +1293,7 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
             'day' => $this->getActiveCitizen()->getTown()->getDay(),
             'canvote' => $this->user_handler->hasSkill($this->getActiveCitizen()->getUser(), "dictator") && !$this->citizen_handler->hasStatusEffect($this->getActiveCitizen(), 'tg_build_vote'),
             'voted_building' => $votedBuilding,
-        ]) );
+        ], $r->getLocale()) );
     }
 
     /**
@@ -1452,7 +1455,7 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
      * @param TownHandler $th
      * @return Response
      */
-    public function door(TownHandler $th): Response
+    public function door(TownHandler $th, Request $r): Response
     {
         if (!$this->getActiveCitizen()->getHasSeenGazette())
             return $this->redirect($this->generateUrl('game_newspaper'));
@@ -1471,7 +1474,7 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
             'show_sneaky'       => $this->getActiveCitizen()->hasRole('ghoul'),
             'log'               => $this->renderLog( -1, null, false, LogEntryTemplate::TypeDoor, 10 )->getContent(),
             'day'               => $this->getActiveCitizen()->getTown()->getDay(),
-        ], $this->get_map_blob())) );
+        ], $this->get_map_blob()), $r->getLocale()) );
     }
 
     /**

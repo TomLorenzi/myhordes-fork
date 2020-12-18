@@ -21,6 +21,7 @@ use App\Entity\ItemTargetDefinition;
 use App\Entity\LogEntryTemplate;
 use App\Entity\PictoPrototype;
 use App\Entity\PrivateMessage;
+use App\Entity\Quote;
 use App\Entity\Recipe;
 use App\Entity\SpecialActionPrototype;
 use App\Entity\TownLogEntry;
@@ -99,6 +100,11 @@ class InventoryAwareController extends CustomAbstractController
     protected function addDefaultTwigArgs( ?string $section = null, ?array $data = null, $locale = null ): array {
         $data = parent::addDefaultTwigArgs($section, $data, $locale);
         $data['menu_section'] = $section;
+
+        $quotes = $this->entity_manager->getRepository(Quote::class)->findBy(['lang' => $locale ?? 'de']);
+        shuffle($quotes);
+
+        $data['quote'] = $quotes[0];
 
         return $data;
     }

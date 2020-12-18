@@ -48,6 +48,7 @@ use DateTime;
 use Doctrine\ORM\EntityManagerInterface;
 use Exception;
 use Symfony\Component\Asset\Packages;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Contracts\Translation\TranslatorInterface;
@@ -123,7 +124,6 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
     }
 
     protected function addDefaultTwigArgs( ?string $section = null, ?array $data = null, $locale = null ): array {
-        $data = parent::addDefaultTwigArgs($section,$data, $locale);
         $zone = $this->getActiveCitizen()->getZone();
         $blocked = !$this->zone_handler->check_cp($zone, $cp);
         $escape = $this->get_escape_timeout( $this->getActiveCitizen() );
@@ -153,7 +153,7 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
                 $escort_actions[ $escort->getCitizen()->getId() ] = $this->action_handler->getAvailableItemEscortActions( $escort->getCitizen() );
             }
 
-        return parent::addDefaultTwigArgs( $section,array_merge( [
+        return parent::addDefaultTwigArgs( $section, array_merge( [
             'zone_players' => count($zone->getCitizens()),
             'zone_zombies' => max(0,$zone->getZombies()),
             'can_attack_citizen' => !$this->citizen_handler->isTired($this->getActiveCitizen()) && $this->getActiveCitizen()->getAp() >= 5 && !$this->citizen_handler->isWounded($this->getActiveCitizen()),
@@ -186,7 +186,7 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
                 'can_drink' => !$this->citizen_handler->hasStatusEffect($this->getActiveCitizen(), 'hasdrunk'),
                 'can_eat' => !$this->citizen_handler->hasStatusEffect($this->getActiveCitizen(), 'haseaten')
             ]
-        ], $data, $this->get_map_blob()) );
+        ], $data, $this->get_map_blob()), $locale );
     }
 
     public function get_escape_timeout(Citizen $c): int {
@@ -207,7 +207,7 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
      * @param TownHandler $th
      * @return Response
      */
-    public function desert(TownHandler $th): Response
+    public function desert(TownHandler $th, Request $r): Response
     {
         if (!$this->getActiveCitizen()->getHasSeenGazette())
             return $this->redirect($this->generateUrl('game_newspaper'));
@@ -362,7 +362,7 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
             'blueprintFound' => $blueprintFound ?? '',
             'camping_debug' => $camping_debug ?? '',
             'zone_tags' => $zone_tags ?? [],
-        ]) );
+        ], $r->getLocale()) );
     }
 
     /**
