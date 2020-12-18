@@ -812,7 +812,9 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             'hero_generic_ap'     => [ 'label' => 'Zweite Lunge','cover' => true, 'meta' => [ 'no_full_ap', 'not_yet_hero'], 'result' => [ 'hero_act', 'just_ap6' ] ],
             'hero_generic_immune' => [ 'label' => 'Den Tod besiegen','cover' => true, 'meta' => [ 'not_yet_hero'], 'result' => [ 'hero_act', 'hero_immune' ] ],
             'hero_generic_rescue' => [ 'label' => 'Rettung', 'target' => ['type' => ItemTargetDefinition::ItemHeroicRescueType], 'meta' => [ 'must_be_inside', 'not_yet_hero'], 'result' => [ 'hero_act', ['custom' => [9]] ], 'message' => 'Du hast {citizen} auf heldenhafte Weise in die Stadt gebracht!' ],
-            
+
+            'throw_sandball' => [ 'label' => 'Werfen', 'target' => ['type' => ItemTargetDefinition::ItemCitizenOnZoneSBType], 'meta' => [ 'must_be_outside'], 'result' => [ 'consume_item', ['picto' => ['r_sandb_#00']], ['custom' => [20]] ], 'message' => 'Du hast einen Sandball in {citizen}s Gesicht geworfen.' ],
+
             'special_armag'        => [ 'label' => 'Durchgang in Kraft', 'allow_when_terrorized' => true, 'meta' => [ 'must_be_outside', 'must_have_zombies', 'must_be_blocked'], 'result' => [ ['group' => [ [['do_nothing'], 50], [[ ['zone' => ['escape' => 600] ], ['zombies' => 'kill_1z']], 50]]] ] ],
             'special_vote_shaman'  => [ 'label' => 'Den Shamane wählen', 'target' => ['type' => ItemTargetDefinition::ItemCitizenType], 'meta' => [ 'must_be_outside' ], 'result' => [ ['custom' => [18]] ] ],
             'special_vote_guide'   => [ 'label' => 'Den Reiseleiter in der Außenwelt wählen', 'target' => ['type' => ItemTargetDefinition::ItemCitizenType], 'meta' => [ 'must_be_outside' ], 'result' => [ ['custom' => [19]] ] ],
@@ -1183,7 +1185,8 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             'photo_1_#00' => ['flash_photo_1'],
 
             'omg_this_will_kill_you_#00' => ['water_no_effect'],
-            'christmas_candy_#00' => ['drug_rand_xmas']
+            'christmas_candy_#00' => ['drug_rand_xmas'],
+            'sand_ball_#00' => ['throw_sandball']
         ],
 
         'items_nw' => [

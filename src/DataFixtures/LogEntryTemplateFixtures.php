@@ -126,6 +126,9 @@ class LogEntryTemplateFixtures extends Fixture
         ['text'=>'%master% hat %item% nach <strong>[%x%/%y%]</strong> <strong>katapultiert</strong>!', 'name'=>'catapultUsage',  'type'=>LogEntryTemplate::TypeCatapult,'class'=>LogEntryTemplate::ClassInfo, 'secondaryType'=>null,'variableTypes'=>array(['type'=>"citizen",'name'=>'master'],['type'=>'num','name'=>'x'],['type'=>'num','name'=>'y'],['type'=>"item",'name'=>'item'])],
         ['text'=>'Das Katapult der Stadt hat %item% auf diese Zone geschleudert.', 'name'=>'catapultImpact', 'type'=>LogEntryTemplate::TypeVarious, 'class'=>LogEntryTemplate::ClassCritical, 'secondaryType'=>LogEntryTemplate::TypeBank,'variableTypes'=>array(['type'=>"item",'name'=>'item'])],
 
+        ['text'=>'%attacker% hat %defender% mit einem üblen Sandballwurf verwundet. Autsch, das hat sicher weh getan...!', 'name'=>'sandballAttackWounded', 'type'=>LogEntryTemplate::TypeVarious, 'class'=>LogEntryTemplate::ClassWarning, 'secondaryType'=>null, 'variableTypes'=>array(['type'=>"citizen",'name'=>'attacker'], ['type'=>"citizen",'name'=>'defender'])],
+        ['text'=>'%attacker% hat %defender% einen Sandball direkt ins Gesicht geworfen!', 'name'=>'sandballAttack', 'type'=>LogEntryTemplate::TypeVarious, 'class'=>LogEntryTemplate::ClassWarning, 'secondaryType'=>null, 'variableTypes'=>array(['type'=>"citizen",'name'=>'attacker'], ['type'=>"citizen",'name'=>'defender'])],
+
         // Gazette: Fun Texts
         ['text'=>'Gestern war ein unbedeutender Tag. Einem Gerücht zufolge wurden %citizen1% und %citizen2% dabei beobachtet, wie sie zusammen im Brunnen badeten. Wenn morgen alle mit einer Pilzinfektion flach liegen, ist ja wohl klar, an wem das lag.',
             'name'=>'gazetteFun_001',

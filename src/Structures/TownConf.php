@@ -64,6 +64,7 @@ class TownConf extends Conf
     const CONF_MODIFIER_CAMPING_BONUS        = 'modifiers.camping.default_bonus';
     const CONF_MODIFIER_CAMPING_CHANCE_MAP   = 'modifiers.camping.map';
     const CONF_MODIFIER_RED_SOUL_FACTOR      = 'modifiers.red_soul_max_factor';
+    const CONF_MODIFIER_SANDBALL_NASTYNESS   = 'modifiers.sandball_nastyness';
     const CONF_MODIFIER_WIND_DISTANCE        = 'modifiers.wind_distance';
     const CONF_MODIFIER_STRICT_PICTOS        = 'modifiers.strict_picto_distribution';
 

@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\ActionCounter;
 use App\Entity\CampingActionPrototype;
 use App\Entity\CauseOfDeath;
 use App\Entity\Citizen;
@@ -205,6 +206,15 @@ class InventoryAwareController extends CustomAbstractController
                 foreach ($this->getActiveCitizen()->getTown()->getCitizens() as $citizen)
                     if ($citizen->getAlive() && $citizen != $this->getActiveCitizen())
                         $targets[] = [ $citizen->getId(), $citizen->getUser()->getName(), "build/images/professions/{$citizen->getProfession()->getIcon()}.gif" ];
+
+                break;
+            case ItemTargetDefinition::ItemCitizenOnZoneType: case ItemTargetDefinition::ItemCitizenOnZoneSBType:
+
+                foreach ($this->getActiveCitizen()->getTown()->getCitizens() as $citizen)
+                    if ($citizen->getAlive() && $citizen != $this->getActiveCitizen() && $citizen->getZone() === $this->getActiveCitizen()->getZone()) {
+                        if ($definition->getSpawner() !== ItemTargetDefinition::ItemCitizenOnZoneSBType || $citizen->getSpecificActionCounter(ActionCounter::ActionTypeSandballHit)->getLast() === null || $citizen->getSpecificActionCounter(ActionCounter::ActionTypeSandballHit)->getLast()->getTimestamp() < (time() - 1800))
+                            $targets[] = [ $citizen->getId(), $citizen->getUser()->getName(), "build/images/professions/{$citizen->getProfession()->getIcon()}.gif" ];
+                    }
 
                 break;
         }
@@ -826,7 +836,6 @@ class InventoryAwareController extends CustomAbstractController
                     return false;
                 }
                 return true;
-                break;
             case ItemTargetDefinition::ItemCitizenType:
                 $return = $this->entity_manager->getRepository(Citizen::class)->find( $id );
                 if (!$return->getAlive() || $return->getTown()->getId() !== $this->getActiveCitizen()->getTown()->getId()) {
@@ -834,8 +843,16 @@ class InventoryAwareController extends CustomAbstractController
                     return false;
                 }
                 return true;
-                break;
-
+            case ItemTargetDefinition::ItemCitizenOnZoneType: case ItemTargetDefinition::ItemCitizenOnZoneSBType:
+                $return = $this->entity_manager->getRepository(Citizen::class)->find( $id );
+                if (!$return->getAlive() || $return->getZone() !== $this->getActiveCitizen()->getZone()) {
+                    $return = null;
+                    return false;
+                } else if ( $target->getSpawner() === ItemTargetDefinition::ItemCitizenOnZoneSBType && $return->getSpecificActionCounter(ActionCounter::ActionTypeSandballHit)->getLast() !== null && $return->getSpecificActionCounter(ActionCounter::ActionTypeSandballHit)->getLast()->getTimestamp() >= (time() - 1800) ) {
+                    $return = null;
+                    return false;
+                }
+                return true;
             default: return false;
         }
     }
