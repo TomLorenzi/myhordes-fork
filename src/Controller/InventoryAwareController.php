@@ -102,6 +102,9 @@ class InventoryAwareController extends CustomAbstractController
         $data = parent::addDefaultTwigArgs($section, $data, $locale);
         $data['menu_section'] = $section;
 
+        if ($locale) $locale = explode('_', $locale)[0];
+        if (!in_array($locale, ['de','en','es','fr'])) $locale = null;
+
         $quotes = $this->entity_manager->getRepository(Quote::class)->findBy(['lang' => $locale ?? 'de']);
         shuffle($quotes);
 
