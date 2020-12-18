@@ -6925,7 +6925,7 @@
       </notes>
       <segment>
         <source>Du hast deine Heldenfähigkeit "Den Tod besiegen" verwendet!</source>
-        <target>Du hast deine Heldenfähigkeit "Den Tod besiegen" verwendet!</target>
+        <target>¡Has usado tu poder de héroe "Vencer a la muerte"!</target>
       </segment>
     </unit>
     <unit id="y0fyg0y" name="fc54baa">
@@ -6961,7 +6961,7 @@
       </notes>
       <segment>
         <source>Dein Durst hat ein kritisches Level erreicht! Trinke schnell etwas, oder du riskierst zu sterben!</source>
-        <target>Dein Durst hat ein kritisches Level erreicht! Trinke schnell etwas, oder du riskierst zu sterben!</target>
+        <target>Tu falta de agua se ha vuelto crítica. ¡Bebe algo rápidamente o morirás!</target>
       </segment>
     </unit>
     <unit id="Y2xlrZs" name="3043837">
@@ -7006,7 +7006,7 @@
       </notes>
       <segment>
         <source>Du hast furchtbare Kopfschmerzen... Keinesfalls kannst du heute weiteren Alkohol zu dir nehmen.</source>
-        <target>Du hast furchtbare Kopfschmerzen... Keinesfalls kannst du heute weiteren Alkohol zu dir nehmen.</target>
+        <target>Te duele la cabeza... No puedes beber ni una gota de alcohol hasta mañana.</target>
       </segment>
     </unit>
     <unit id="IYIMtxo" name="81a014d">
@@ -7015,7 +7015,7 @@
       </notes>
       <segment>
         <source>Du wurdest ernsthaft verletzt! Essen, trinken und Ausruhen wird dir 1AP weniger verschaffen.</source>
-        <target>Du wurdest ernsthaft verletzt! Essen, trinken und Ausruhen wird dir 1AP weniger verschaffen.</target>
+        <target>¡Has sido gravemente herido! Recuperarás 1PA menos cuando comas, bebas o descanses.</target>
       </segment>
     </unit>
     <unit id="E6vRFnM" name="Endlich kannst du deine Schwiegermutter loswerden!">
