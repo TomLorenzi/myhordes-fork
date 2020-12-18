@@ -1936,5 +1936,32 @@
         <target>ID eingeben</target>
       </segment>
     </unit>
+    <unit id="GYf8Lr5" name="Eine Auszeichnungen auswählen:">
+      <notes>
+        <note category="german">Eine Auszeichnungen auswählen:</note>
+      </notes>
+      <segment>
+        <source>Eine Auszeichnungen auswählen:</source>
+        <target>Eine Auszeichnungen auswählen:</target>
+      </segment>
+    </unit>
+    <unit id="jm_rhmk" name="Anzahl der Auszeichnungen:">
+      <notes>
+        <note category="german">Anzahl der Auszeichnungen:</note>
+      </notes>
+      <segment>
+        <source>Anzahl der Auszeichnungen:</source>
+        <target>Anzahl der Auszeichnungen:</target>
+      </segment>
+    </unit>
+    <unit id="XtyN3Vk" name="Vergeben!">
+      <notes>
+        <note category="german">Vergeben!</note>
+      </notes>
+      <segment>
+        <source>Vergeben!</source>
+        <target>Vergeben!</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

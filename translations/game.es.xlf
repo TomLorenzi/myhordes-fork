@@ -6970,7 +6970,7 @@
       </notes>
       <segment>
         <source>Du hast heute bereits Drogen konsumiert. Wenn du noch weitere Drogen nimmst, riskierst du eine Abhängigkeit!</source>
-        <target>Has consumido un estimulante hoy. Cuidado, si consumes otro, corres el riesgo de contraer <strong>una grave dependencia de por vida</strong>!</target>
+        <target><![CDATA[Has consumido un estimulante hoy. Cuidado, si consumes otro, corres el riesgo de contraer <strong>una grave dependencia de por vida</strong>!]]></target>
       </segment>
     </unit>
     <unit id="UL1uoY5" name="dd7f91a">
@@ -12799,9 +12799,9 @@
         <target>Reparador Dominguero</target>
       </segment>
     </unit>
-    <unit id="rEGk1G9" name="Meisterbastler ">
+    <unit id="nabXPNF" name="Meisterbastler">
       <notes>
-        <note category="german">Meisterbastler </note>
+        <note category="german">Meisterbastler</note>
       </notes>
       <segment>
         <source>Meisterbastler</source>
@@ -15713,6 +15713,33 @@
       <segment>
         <source>Dank %disposing_citizen% wurde aus dem Körper von %citizen% ein leckeres kleines Mahl gekocht.</source>
         <target>Dank %disposing_citizen% wurde aus dem Körper von %citizen% ein leckeres kleines Mahl gekocht.</target>
+      </segment>
+    </unit>
+    <unit id="rEGk1G9" name="Meisterbastler ">
+      <notes>
+        <note category="german">Meisterbastler </note>
+      </notes>
+      <segment>
+        <source>Meisterbastler </source>
+        <target>Meisterbastler </target>
+      </segment>
+    </unit>
+    <unit id="GH4aDYM" name="feb2e53">
+      <notes>
+        <note category="german">%attacker% hat %defender% mit einem üblen Sandballwurf verwundet. Autsch, das hat sicher weh getan...!</note>
+      </notes>
+      <segment>
+        <source>%attacker% hat %defender% mit einem üblen Sandballwurf verwundet. Autsch, das hat sicher weh getan...!</source>
+        <target>%attacker% hat %defender% mit einem üblen Sandballwurf verwundet. Autsch, das hat sicher weh getan...!</target>
+      </segment>
+    </unit>
+    <unit id="BaTN5Rg" name="%attacker% hat %defender% einen Sandball direkt ins Gesicht geworfen!">
+      <notes>
+        <note category="german">%attacker% hat %defender% einen Sandball direkt ins Gesicht geworfen!</note>
+      </notes>
+      <segment>
+        <source>%attacker% hat %defender% einen Sandball direkt ins Gesicht geworfen!</source>
+        <target>%attacker% hat %defender% einen Sandball direkt ins Gesicht geworfen!</target>
       </segment>
     </unit>
   </file>
