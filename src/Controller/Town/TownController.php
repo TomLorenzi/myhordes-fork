@@ -94,7 +94,7 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
         return $votesNeeded;
     }
 
-    protected function addDefaultTwigArgs( ?string $section = null, ?array $data = null ): array {
+    protected function addDefaultTwigArgs( ?string $section = null, ?array $data = null, $locale = null ): array {
         $data = $data ?? [];
 
         $addons = [];

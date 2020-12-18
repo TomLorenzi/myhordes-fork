@@ -40,7 +40,7 @@ class CustomAbstractController extends AbstractController {
         $this->translator = $translator;
     }
 
-    protected function addDefaultTwigArgs( ?string $section = null, ?array $data = null ): array {
+    protected function addDefaultTwigArgs( ?string $section = null, ?array $data = null, $locale = null ): array {
         $data = $data ?? [];
         $data['menu_section'] = $section;
 
