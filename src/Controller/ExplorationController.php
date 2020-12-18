@@ -101,11 +101,7 @@ class ExplorationController extends InventoryAwareController implements Explorat
             return false;
         } else return true;
     }
-
-    protected function addDefaultTwigArgs( ?string $section = null, ?array $data = null ): array {
-        return parent::addDefaultTwigArgs( $section,array_merge( [], $data) );
-    }
-
+    
     protected function getCurrentRuinZone(): RuinZone {
         $citizen = $this->getActiveCitizen();
         $ex = $citizen->activeExplorerStats();
