@@ -26,7 +26,7 @@ parameters:
         event_dig:
           desert:
             group: 'christmas_dig'
-            chance: 0.1
+            chance: 0.75
           ruins:
-            - [name: 'post', group: 'christmas_dig_post', chance: 0.25]
+            - {name: 'post', group: 'christmas_dig_post', chance: 0.5}
         hooks:

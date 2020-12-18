@@ -1165,8 +1165,9 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
 
             $event_conf_list = $this->conf->getCurrentEvent($zone->getTown())->get(EventConf::EVENT_DIG_RUINS, []);
             $event_conf = null;
-            foreach ($event_conf_list as $e) if ($e['name'] === $zone->getPrototype()->getIcon())
-                $event_conf = $e;
+            foreach ($event_conf_list as $e)
+                if ($e['name'] === $zone->getPrototype()->getIcon())
+                    $event_conf = $e;
 
             $group = $event_conf
                 ? ( $this->random_generator->chance($event_conf['chance'])
