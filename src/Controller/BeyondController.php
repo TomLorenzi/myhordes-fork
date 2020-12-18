@@ -1169,6 +1169,7 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
                 if ($e['name'] === $zone->getPrototype()->getIcon())
                     $event_conf = $e;
 
+
             $group = $event_conf
                 ? ( $this->random_generator->chance($event_conf['chance'])
                     ? $this->entity_manager->getRepository(ItemGroup::class)->findOneBy(['name' => $event_conf['group']])
