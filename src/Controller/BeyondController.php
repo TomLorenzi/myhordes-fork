@@ -123,7 +123,7 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
     }
 
     protected function addDefaultTwigArgs( ?string $section = null, ?array $data = null, $locale = null ): array {
-        parent::addDefaultTwigArgs($section,$data, $locale);
+        $data = parent::addDefaultTwigArgs($section,$data, $locale);
         $zone = $this->getActiveCitizen()->getZone();
         $blocked = !$this->zone_handler->check_cp($zone, $cp);
         $escape = $this->get_escape_timeout( $this->getActiveCitizen() );

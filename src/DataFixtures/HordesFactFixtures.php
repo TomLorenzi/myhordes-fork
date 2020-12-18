@@ -145,7 +145,7 @@ class HordesFactFixtures extends Fixture implements DependentFixtureInterface {
 
     public function load(ObjectManager $manager) {
         $output = new ConsoleOutput();
-        $output->writeln( '<info>Installing fixtures: AwardPrototype Database</info>' );
+        $output->writeln( '<info>Installing fixtures: HordesFacts Database</info>' );
         $output->writeln("");
 
         $this->insertAwards($manager, $output);

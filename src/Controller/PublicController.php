@@ -43,8 +43,7 @@ use Symfony\Contracts\Translation\TranslatorInterface;
 class PublicController extends CustomAbstractController
 {
     protected function addDefaultTwigArgs(?string $section = null, ?array $data = null, $locale = null ): array {
-        parent::addDefaultTwigArgs($section, $data);
-        $data = $data ?? [];
+        $data = parent::addDefaultTwigArgs($section, $data);
 
         $deadCitizenCount = count($this->entity_manager->getRepository(Citizen::class)->findBy(['alive' => 0]));
         
