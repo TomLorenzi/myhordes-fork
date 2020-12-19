@@ -38,14 +38,16 @@ class PictoHandler
         if ($pictoPrototype->getName() === 'r_solban_#00' && !$citizen->getBanished())
             return;
 
+        $persistance = $citizen->getTown()->getDay() < 5 ? 0 : 1;
+
         $is_new = false;
-        $picto = $citizen->getUser()->findPicto( 0, $pictoPrototype, $citizen->getTown() );
+        $picto = $citizen->getUser()->findPicto( $persistance, $pictoPrototype, $citizen->getTown() );
         if($picto === null){
             $picto = new Picto();
             $is_new = true;
         }
         $picto->setPrototype($pictoPrototype)
-            ->setPersisted($citizen->getTown()->getDay() < 5 ? 0 : 1)
+            ->setPersisted($persistance)
             ->setTown($citizen->getTown())
             ->setUser($citizen->getUser())
             ->setCount($picto->getCount()+$count);
@@ -129,6 +131,8 @@ class PictoHandler
                 // And remove the picto from today
                 $previousPicto->setCount($previousPicto->getCount() + $picto->getCount());
                 $this->entity_manager->persist($previousPicto);
+                $picto->setCount(0);
+                $citizen->getUser()->removePicto($picto);
                 $this->entity_manager->remove($picto);
             }
         }
