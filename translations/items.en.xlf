@@ -7478,7 +7478,7 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
       </notes>
       <segment>
         <source>Weihnachts-Süßigkeiten</source>
-        <target>Weihnachts-Süßigkeiten</target>
+        <target>Christmas candy</target>
       </segment>
     </unit>
     <unit id="ijOQByU" name="309fa3e">
@@ -7487,7 +7487,7 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
       </notes>
       <segment>
         <source>Es sieht aus wie eine Art Schokoladenbonbon mit alkoholischem Likör darin. Oder eine andere Füllung...</source>
-        <target>Es sieht aus wie eine Art Schokoladenbonbon mit alkoholischem Likör darin. Oder eine andere Füllung...</target>
+        <target>It looks like a kind of little chocolate candy, which contains alcoholic liquor. Or any other product...</target>
       </segment>
     </unit>
     <unit id="MDcK7Yw" name="Geschenkpaket">
@@ -7496,7 +7496,7 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
       </notes>
       <segment>
         <source>Geschenkpaket</source>
-        <target>Geschenkpaket</target>
+        <target>Gift Parcel</target>
       </segment>
     </unit>
     <unit id="kdGOsHH" name="cfe7609">
@@ -7505,7 +7505,7 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
       </notes>
       <segment>
         <source>Die Adresse ist nicht mehr lesbar. Es scheint etwas drin zu sein... Frohe Weihnachten!</source>
-        <target>Die Adresse ist nicht mehr lesbar. Es scheint etwas drin zu sein... Frohe Weihnachten!</target>
+        <target>The address has become illegible, but there's definitely something inside... Merry Christmass !!!</target>
       </segment>
     </unit>
     <unit id="YqfUhZc" name="Großes Geschenkpaket">
@@ -7514,7 +7514,7 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
       </notes>
       <segment>
         <source>Großes Geschenkpaket</source>
-        <target>Großes Geschenkpaket</target>
+        <target>Large Gift Parcel</target>
       </segment>
     </unit>
     <unit id="1cAIp2n" name="Du hast {item} getrunken, aber scheinbar geschieht nichts...">
@@ -7523,7 +7523,7 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
       </notes>
       <segment>
         <source>Du hast {item} getrunken, aber scheinbar geschieht nichts...</source>
-        <target>Du hast {item} getrunken, aber scheinbar geschieht nichts...</target>
+        <target>You drank {item} but nothing seems to be happening...</target>
       </segment>
     </unit>
     <unit id="r4cpVVY" name="Du hast einen Sandball in {citizen}s Gesicht geworfen.">
@@ -7532,7 +7532,7 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
       </notes>
       <segment>
         <source>Du hast einen Sandball in {citizen}s Gesicht geworfen.</source>
-        <target>Du hast einen Sandball in {citizen}s Gesicht geworfen.</target>
+        <target>You threw a Sandball in {citizen}'s face.</target>
       </segment>
     </unit>
     <unit id="_2J5LX7" name="Du schluckst das Bonbon mit einem Lächeln auf den Lippen herunter.">
@@ -7541,7 +7541,7 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
       </notes>
       <segment>
         <source>Du schluckst das Bonbon mit einem Lächeln auf den Lippen herunter.</source>
-        <target>Du schluckst das Bonbon mit einem Lächeln auf den Lippen herunter.</target>
+        <target>You swallow a Christmas candy with a smile on your face...</target>
       </segment>
     </unit>
     <unit id="n50zH5w" name="59a5c87">
@@ -7550,7 +7550,7 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
       </notes>
       <segment>
         <source>Du schluckst das Bonbon mit einem Lächeln auf den Lippen herunter... das jedoch schnell wieder verschwindet! Die Füllung besteht aus einem starken psychoaktiven Gift!&lt;t-stat-up-terror&gt;{hr}Du bist vor Angst erstarrt!&lt;/t-stat-up-terror&gt;</source>
-        <target><![CDATA[Du schluckst das Bonbon mit einem Lächeln auf den Lippen herunter... das jedoch schnell wieder verschwindet! Die Füllung besteht aus einem starken psychoaktiven Gift!<t-stat-up-terror>{hr}Du bist vor Angst erstarrt!</t-stat-up-terror>]]></target>
+        <target><![CDATA[You swallow a Christmas candy with a smile on your face... but you quickly fall apart. The candy contained a powerful psychotropic poison!<t-stat-up-terror>{hr}You are now terrorized</t-stat-up-terror>]]></target>
       </segment>
     </unit>
   </file>
