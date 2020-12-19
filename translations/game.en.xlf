@@ -9062,7 +9062,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Einige sagen, daß der Tod von &lt;i class="dagger"&gt;†&lt;/i&gt; %cadaver1% nicht dem Glück zu verdanken ist... das einzige Opfer gestern Abend... Könnte jemand unter uns seinen Tod provoziert haben?</source>
-        <target><![CDATA[Some say that the death of <i class="dagger">†</i> %cadaver1% nwas not down to luck... the only victim last night... Could someone among us have provoked their death?]]></target>
+        <target><![CDATA[Some say that the death of <i class="dagger">†</i> %cadaver1% was not down to luck... the only victim last night... Could someone among us have provoked their death?]]></target>
       </segment>
     </unit>
     <unit id="kwKjT1z" name="d9930bb">
