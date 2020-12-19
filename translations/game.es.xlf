@@ -925,7 +925,7 @@
       </notes>
       <segment>
         <source>Verteidigung</source>
-        <target>Defensa</target>
+        <target>Defensas</target>
       </segment>
     </unit>
     <unit id="ESh2aNj" name="durch Haus">
@@ -8830,7 +8830,7 @@
       </notes>
       <segment>
         <source>Keine Opfer</source>
-        <target>Keine Opfer</target>
+        <target>Ningún muerto</target>
       </segment>
     </unit>
     <unit id="Tj4dAlQ" name="Umdrehen">
@@ -10288,7 +10288,7 @@
       </notes>
       <segment>
         <source>Rucksack verstecken</source>
-        <target>Rucksack verstecken</target>
+        <target>Esconder todos mis objetos</target>
       </segment>
     </unit>
     <unit id="HYbv76Z" name="32aff0d">
@@ -10306,7 +10306,7 @@
       </notes>
       <segment>
         <source>Letzter freigeschalteter Heldenvorteil:</source>
-        <target>Último poder ganado :</target>
+        <target>Último poder obtenido:</target>
       </segment>
     </unit>
     <unit id="gwaSbiX" name="Niemand">
@@ -10324,7 +10324,7 @@
       </notes>
       <segment>
         <source>Alle freigeschalteten Vorteile anzeigen</source>
-        <target>Muestre los poderes que he ganado</target>
+        <target>Ver las ventajas que he ganado</target>
       </segment>
     </unit>
     <unit id="vfCiVvC" name="Die letzte Zeitung lesen">
@@ -10333,7 +10333,7 @@
       </notes>
       <segment>
         <source>Die letzte Zeitung lesen</source>
-        <target>Leer la última Boletín</target>
+        <target>Leer el última Boletín</target>
       </segment>
     </unit>
     <unit id="v432R4L" name="Du hast bisher:">
