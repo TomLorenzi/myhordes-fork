@@ -57,6 +57,9 @@ class PublicController extends CustomAbstractController
         $data['zombiesKilled'] = $zombiesKilled;
         $data['canibalismCount'] = $canibalismCount;
 
+        if ($locale) $locale = explode('_', $locale)[0];
+        if (!in_array($locale, ['de','en','es','fr'])) $locale = null;
+
         $facts = $this->entity_manager->getRepository(HordesFact::class)->findBy(['lang' => $locale ?? 'de']);
         shuffle($facts);
 
