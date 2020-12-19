@@ -9,6 +9,7 @@ use App\Entity\ItemPrototype;
 use App\Entity\Picto;
 use App\Entity\PictoPrototype;
 use App\Entity\Town;
+use App\Entity\TownRankingProxy;
 use App\Entity\Zone;
 use App\Response\AjaxResponse;
 use App\Service\ErrorHelper;
@@ -37,6 +38,17 @@ class AdminTownController extends AdminActionController
         return $this->render( 'ajax/admin/towns/list.html.twig', [
             'towns' => $this->entity_manager->getRepository(Town::class)->findAll(),
         ]);      
+    }
+
+    /**
+     * @Route("jx/admin/town/list/old", name="admin_old_town_list")
+     * @return Response
+     */
+    public function old_town_list(): Response
+    {
+        return $this->render( 'ajax/admin/towns/list.html.twig', [
+            'towns' => $this->entity_manager->getRepository(TownRankingProxy::class)->findEndedTowns(),
+        ]);
     }
 
     /**
