@@ -12,7 +12,7 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
  * @ORM\Entity(repositoryClass=RequireConfRepository::class)
  * @UniqueEntity("name")
  * @Table(uniqueConstraints={
- *     @UniqueConstraint(name="require_building_name_unique",columns={"name"})
+ *     @UniqueConstraint(name="require_conf_name_unique",columns={"name"})
  * })
  */
 class RequireConf
