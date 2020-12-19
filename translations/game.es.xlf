@@ -2166,7 +2166,7 @@
       <segment>
         <source>Deine Stadt hat entschieden, dich zu verbannen. Einige Aktionen stehen dir nicht länger zur
                         Verfügung.</source>
-        <target>Ahora eres un <strong>paria</strong>, y no tienes acceso a las herramientas comunitarias en el pueblo: almacén, construcciones, portal, etc.</target>
+        <target><![CDATA[Ahora eres un <strong>paria</strong>, y no tienes acceso a las herramientas comunitarias en el pueblo: almacén, construcciones, portal, etc.]]></target>
       </segment>
     </unit>
     <unit id="Qc.QL70" name="a2b0db7">
