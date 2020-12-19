@@ -396,6 +396,11 @@ class GameFactory
 
         $followers = $town->getPassword() ? [] : $this->user_handler->getAvailableCoalitionMembers( $user );
 
+        if ($this->user_handler->getConsecutiveDeathLock($user)) {
+            $error = ErrorHelper::ErrorPermissionError;
+            return null;
+        }
+
         $active_citizen = $this->entity_manager->getRepository(Citizen::class)->findActiveByUser( $user );
         if ($active_citizen !== null) {
             $error = self::ErrorUserAlreadyInGame;
@@ -407,20 +412,21 @@ class GameFactory
             return null;
         }
 
-        if (($town->getCitizenCount() + count($followers) + 1) > $town->getPopulation()) {
-            $error = self::ErrorTownNoCoaRoom;
-            return null;
-        }
-
-        foreach ($town->getCitizens() as $existing_citizen) {
+        foreach ($town->getCitizens() as $existing_citizen)
             if ($existing_citizen->getUser()->getId() === $user->getId()) {
                 $error = self::ErrorUserAlreadyInTown;
                 return null;
             }
-            if (in_array($existing_citizen->getUser(), $followers)) {
-                $error = self::ErrorMemberBlocked;
-                return null;
-            }
+
+        $followers = array_filter($followers, function (User $follower) use ($town): bool {
+            foreach ($town->getCitizens() as $existing_citizen)
+                if ($existing_citizen->getUser() === $follower) return false;
+            return true;
+        });
+
+        if (($town->getCitizenCount() + count($followers) + 1) > $town->getPopulation()) {
+            $error = self::ErrorTownNoCoaRoom;
+            return null;
         }
 
         foreach ($followers as $follower) {
@@ -458,7 +464,7 @@ class GameFactory
             $home = new CitizenHome();
             $home
                 ->setChest( $chest = new Inventory() )
-                ->setPrototype( $this->entity_manager->getRepository( CitizenHomePrototype::class )->findOneByLevel(0) )
+                ->setPrototype( $this->entity_manager->getRepository( CitizenHomePrototype::class )->findOneBy(['level' => 0]) )
             ;
 
             $citizen = new Citizen();
@@ -466,7 +472,7 @@ class GameFactory
                 ->setTown( $town )
                 ->setInventory( new Inventory() )
                 ->setHome( $home )
-                ->setCauseOfDeath( $this->entity_manager->getRepository( CauseOfDeath::class )->findOneByRef( CauseOfDeath::Unknown ) )
+                ->setCauseOfDeath( $this->entity_manager->getRepository( CauseOfDeath::class )->findOneBy( ['ref' => CauseOfDeath::Unknown] ) )
                 ->setHasSeenGazette( true );
             (new Inventory())->setCitizen( $citizen );
             $this->citizen_handler->inflictStatus( $citizen, 'clean' );

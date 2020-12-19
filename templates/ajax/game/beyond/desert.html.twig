@@ -43,15 +43,15 @@
     {% if not zone.prototype %}
         , {{'irgendwo %location% der Stadt...'|trans({'%location%': dir}, 'game')|raw}}
     {% elseif zone.buryCount > 0 %}
-        {{"allein inmitten eines Labyrinths aus Schutt..."|trans({'%location%': dir}, 'game')|raw}}
+        {{"inmitten eines unentwirrbaren Trümmerhaufens"|trans({'%location%': dir}, 'game')|raw}}
     {% else %}
-        {{"Am Eingang einer beängstigenden Ruine %location%"|trans({'%location%': dir}, 'game')|raw}}
+        {{"in einer unheimlichen Ruine %location%"|trans({'%location%': dir}, 'game')|raw}}
     {% endif %}    
 {% else %}
     {{'an den Toren der Stadt'|trans({}, 'game')|raw}}
 {% endif %}
 {% if zone_blocked %}
-    , {{'eingeschlossen und auf den Tod wartend...'|trans({}, 'game')|raw}}
+    , {{'sitzt in der Falle und wartet auf den Tod...'|trans({}, 'game')|raw}}
 {% endif %}
 {% endblock %}
 {% block menu_text %}
@@ -269,7 +269,7 @@
                     {% endif %}
 
 
-                    {% embed "ajax/game/actions.html.twig" with {'heroic_action_list': heroics, 'item_action_list': actions, 'recipe_list': recipes, 'scout': (zone_blocked and active_scout_mode), 'hidden': citizen_hidden} %}
+                    {% embed "ajax/game/actions.html.twig" with {'heroic_action_list': heroics, 'special_action_list': specials, 'item_action_list': actions, 'recipe_list': recipes, 'scout': (zone_blocked and active_scout_mode), 'hidden': citizen_hidden} %}
                     {% endembed %}
 
                     {% if banished or town_chaos %}
@@ -277,11 +277,9 @@
                     {% endif %}
 
                 {% else %}
-
                     {% if banished or town_chaos %}
                         <button {% if lock_trash %}disabled{% endif%} id="trash_button">{{ 'Müll durchwühlen'|trans({},'game') }} (<div class="ap">1</div>)</button>
                     {% endif %}
-
                 {% endif %}
 
                 {% if allow_enter_town %}
@@ -312,9 +310,9 @@
                 {% if is_shaman %}
                     <button id="fall_rain">
                         {% if zone.x != 0 or zone.y != 0 %}
-                            <img alt="" src="{{ asset('build/images/icons/water.gif') }}">{{'Zone reinigen'|trans({}, 'game')}} ({% if is_shaman_role %}3 <div class="pm">{% else %}1 <div class="ap"></div> + 1 <img style="float: none;vertical-align: baseline;" src="{{ asset('build/images/item/item_soul_blue.gif') }}" alt="" />{% endif %})</div>
+                            <img alt="" src="{{ asset('build/images/icons/water.gif') }}">{{'Zone reinigen'|trans({}, 'game')}} ({% if is_shaman_role %}3 <div class="pm"></div>{% else %}1 <div class="ap"></div> + 1 <img style="float: none;vertical-align: baseline;" src="{{ asset('build/images/item/item_soul_blue.gif') }}" alt="" />{% endif %})
                         {% else %}
-                            <img alt="" src="{{ asset('build/images/icons/water.gif') }}">{{'Regentanz ausführen'|trans({}, 'game')}} ({% if is_shaman_role %}3 <div class="pm">{% else %}1 <div class="ap"></div> + 1 <img style="float: none;vertical-align: baseline;" src="{{ asset('build/images/item/item_soul_blue.gif') }}" alt="" />{% endif %})</div>
+                            <img alt="" src="{{ asset('build/images/icons/water.gif') }}">{{'Regentanz ausführen'|trans({}, 'game')}} ({% if is_shaman_role %}3 <div class="pm"></div>{% else %}1 <div class="ap"></div> + 1 <img style="float: none;vertical-align: baseline;" src="{{ asset('build/images/item/item_soul_blue.gif') }}" alt="" />{% endif %})
                         {% endif %}
                     </button>
                 {% endif %}
@@ -798,6 +796,11 @@
             '{{ path('beyond_desert_heroic_controller') }}', '{{ path('beyond_dashboard') }}'
         );
 
+        handleSpecialActions(
+            document.querySelectorAll('ul.special_actions li[x-action-id]:not([disabled])'),
+            '{{ path('beyond_desert_special_action_controller') }}', '{{ path('beyond_dashboard') }}'
+        );
+
         handleActions(
             document.querySelectorAll('ul.actions li[x-action-id][x-provoking-id]:not([disabled])'),
             '{{ path('beyond_desert_action_controller') }}', '{{ path('beyond_dashboard') }}'
@@ -810,6 +813,7 @@
 
         handleActionPopups( document.querySelectorAll('ul.actions>li[x-target-definition]') );
         handleActionPopups( document.querySelectorAll('ul.heroic_actions>li[x-target-definition]') );
+        handleActionPopups( document.querySelectorAll('ul.special_actions>li[x-target-definition]') );
 
         handleRecipes(
             document.querySelectorAll('ul.actions>li[x-recipe-id]:not([disabled])'),

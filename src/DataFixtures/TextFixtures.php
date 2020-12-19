@@ -500,16 +500,13 @@ class TextFixtures extends Fixture
             'background' => 'notepad',
         ],
         'dv_024' => [
-            'title' => 'Mitteilung',
+            'title' => 'Mitteilung: Diebe',
             'author' => 'DBDevil',
             'content' => [
-                '<br/><br/><br/><b>Mitteilung</b><br /><br />
-                Hiermit werden die Strafen für Diebstahl
-                verschärft. Die Verbrecher werden ab sofort im
-                Kremato-Cue verbrannt. Um weitere Unfälle zu
-                verhindern, bleiben Haustiere als
-                Diebstahlschutz weiterhin verboten und sind beim
-                Metzger abzuliefern.<br/><br/>- Die Bürgerversammlung'
+                '<div class="hr"></div>
+				<h1>Mitteilung</h1>
+				<p>Hiermit werden die Strafen für Diebstahl verschärft. Die Verbrecher werden ab sofort im Kremato-Cue verbrannt. Um weitere Unfälle zu verhindern, bleiben Haustiere als Diebstahlschutz weiterhin verboten und sind beim Metzger abzuliefern.</p>
+				<p>- Die Bürgerversammlung</p>'
             ],
             'lang' => 'de',
             'design' => 'typed',
@@ -653,20 +650,61 @@ class TextFixtures extends Fixture
             'background' => 'carton',
         ],
         'dv_031' => [
-            'title' => 'Schmerzengels Überlebensregeln',
+            'title' => 'Überlebensregeln',
             'author' => 'Schmerzengel',
             'content' => [
-                ''
+                '<h1>Schmerzengels Überlebensregeln</h1>
+                <p>Punkt 1.
+                <br>
+                Stehle niemandem sein Wasser, außer Du hast keines.	
+                </p>
+                <p>Punkt 2.
+                <br>
+                Gehe nur mit Waffen und Proviant in die Außenwelt. Solltest Du beides nicht haben. Nimm jemanden mit, der langsamer läuft als DU.	
+                </p>
+                <p>Punkt 3.
+                <br>
+                Wenn Du Nahrung findest, laß erst Deinen Kameraden davon essen. Er ist bestimmt genau so hungrig wie Du.	
+                </p>',
+                '<p>Punkt 4.
+                <br>
+                Mit einer Fackel in der Hand ist der Verdammte gleich entbrannt.	
+                </p>
+                <p>Punkt 5.
+                <br>
+                Wenn Du meinst es geht nichts mehr kommt von irgendwo ....ach was soll´s. Ich bin ehrlich zu Dir. Du hast verschissen. Punkt.	
+                </p>'
             ],
-            'lang' => 'de'
+            'lang' => 'de',
+            'design' => 'typed',
+            'background' => 'grid',
         ],
         'dv_032' => [
-            'title' => 'Sprinkleranlage im Eigenbau',
+            'title' => 'Seite 134 - Sprinkleranlage im Eigenbau',
             'author' => 'Tycho',
             'content' => [
-                ''
+                    '<p>Eine einfache Bewässerungsanlage für Ihren heimischen Garten selbst zu bauen ist gar nicht kompliziert. Hauptsächlich gehört dazu: Ein Anschluss an einen Wasserhahn, eine Befestigungsmöglichkeit für den Bewässerungskopf, der Bewässerungskopf selber und optional ein Mechanismus zur regelmäßigen Bewegung des Bewässerungskopfes.</p>
+					<p>Zentral wichtig bei einer guten Sprinkleranlage ist die gleichmäßige Verteilung. Eine sehr einfache und effiziente Variante besteht aus einem längeren Stück Rohr (Länge sollte vom verfügbaren Wasserdruck abhängen), in das ein oder zwei Reihen kleiner Löcher gebohrt werden, als Bewässerungskopf. Am Ende des Rohres wird ein druckbelastetes wasserführendes System angeschlossen – beispielsweise der Wasserhahn ihres Gartenhauses.</p>',
+					'<p>Ein Teil des Wassers wird über eine separate Zuleitung abgezweigt und gegen ein kleines Wasserrad mit einer Rückstellfeder geleitet. Dreht nun das einströmende Wasser das Rad, so wird dadurch der Bewässerungskopf entlang seiner Längsachse gedreht. Ab einem gewissen Drehwinkel verschließt ein Teil des Wasserrades die Zuleitung und die Rückstellfeder dreht den Bewässerungskopf in die entgegengesetzte Richtung zurück. Dadurch schwingt der Bewässerungskopf vor und zurück, um somit abwechselnd den Boden auf beiden Seiten der Anlage zu bewässern.</p>
+					<p>Soll die Anlage nur stationär eingesetzt werden, empfiehlt es sich, den Bewässerungskopf an einer Holzkonstruktion über dem Feld aufzuhängen.</p>
+					<p>Exemplarische Konstruktionsskizzen und Berechnungshilfen finden sie auf der beigelegten CD unter dem Menüpunkt "Sprinkleranlage".</p>'
             ],
-            'lang' => 'de'
+            'lang' => 'de',
+            'design' => 'classic',
+            'background' => 'old',
+        ],
+        'death' => [
+            'title' => 'Spruch',
+            'author' => 'Nomad',
+            'content' => [
+                '<div class="hr"></div>
+				<center>
+				<div>Spiele nicht mit dem Tod, sonst spielen die Toten noch mit dir.</div>
+				</center>'
+            ],
+            'lang' => 'de',
+            'design' => 'written',
+            'background' => 'blood',
         ],
         'gbuch' => [
             'title' => 'Seite aus einem alten Gesangsbuch',
@@ -708,20 +746,6 @@ class TextFixtures extends Fixture
             'lang' => 'de',
             'design' => 'typed',
             'background' => 'grid',
-        ],
-        'heimw' => [
-            'title' => 'Seite 134 - Sprinkleranlage im Eigenbau',
-            'author' => 'Tycho',
-            'content' => [
-                    '<p>Eine einfache Bewässerungsanlage für Ihren heimischen Garten selbst zu bauen ist gar nicht kompliziert. Hauptsächlich gehört dazu: Ein Anschluss an einen Wasserhahn, eine Befestigungsmöglichkeit für den Bewässerungskopf, der Bewässerungskopf selber und optional ein Mechanismus zur regelmäßigen Bewegung des Bewässerungskopfes.</p>
-					<p>Zentral wichtig bei einer guten Sprinkleranlage ist die gleichmäßige Verteilung. Eine sehr einfache und effiziente Variante besteht aus einem längeren Stück Rohr (Länge sollte vom verfügbaren Wasserdruck abhängen), in das ein oder zwei Reihen kleiner Löcher gebohrt werden, als Bewässerungskopf. Am Ende des Rohres wird ein druckbelastetes wasserführendes System angeschlossen – beispielsweise der Wasserhahn ihres Gartenhauses.</p>',
-					'<p>Ein Teil des Wassers wird über eine separate Zuleitung abgezweigt und gegen ein kleines Wasserrad mit einer Rückstellfeder geleitet. Dreht nun das einströmende Wasser das Rad, so wird dadurch der Bewässerungskopf entlang seiner Längsachse gedreht. Ab einem gewissen Drehwinkel verschließt ein Teil des Wasserrades die Zuleitung und die Rückstellfeder dreht den Bewässerungskopf in die entgegengesetzte Richtung zurück. Dadurch schwingt der Bewässerungskopf vor und zurück, um somit abwechselnd den Boden auf beiden Seiten der Anlage zu bewässern.</p>
-					<p>Soll die Anlage nur stationär eingesetzt werden, empfiehlt es sich, den Bewässerungskopf an einer Holzkonstruktion über dem Feld aufzuhängen.</p>
-					<p>Exemplarische Konstruktionsskizzen und Berechnungshilfen finden sie auf der beigelegten CD unter dem Menüpunkt "Sprinkleranlage".</p>'
-            ],
-            'lang' => 'de',
-            'design' => 'classic',
-            'background' => 'old',
         ],
         'dv_033' => [
             'title' => 'Seite 62 eines Buches',
@@ -991,36 +1015,6 @@ class TextFixtures extends Fixture
             'lang' => 'de',
             'design' => 'typed',
             'background' => 'printer',
-        ],
-        'uereg' => [
-            'title' => 'Überlebensregeln',
-            'author' => 'Schmerzengel',
-            'content' => [
-                '<h1>Schmerzengels Überlebensregeln</h1>
-                <p>Punkt 1.
-                <br>
-                Stehle niemandem sein Wasser, außer Du hast keines.	
-                </p>
-                <p>Punkt 2.
-                <br>
-                Gehe nur mit Waffen und Proviant in die Außenwelt. Solltest Du beides nicht haben. Nimm jemanden mit, der langsamer läuft als DU.	
-                </p>
-                <p>Punkt 3.
-                <br>
-                Wenn Du Nahrung findest, laß erst Deinen Kameraden davon essen. Er ist bestimmt genau so hungrig wie Du.	
-                </p>',
-                '<p>Punkt 4.
-                <br>
-                Mit einer Fackel in der Hand ist der Verdammte gleich entbrannt.	
-                </p>
-                <p>Punkt 5.
-                <br>
-                Wenn Du meinst es geht nichts mehr kommt von irgendwo ....ach was soll´s. Ich bin ehrlich zu Dir. Du hast verschissen. Punkt.	
-                </p>'
-            ],
-            'lang' => 'de',
-            'design' => 'typed',
-            'background' => 'grid',
         ],
         /**
          * FRENCH ROLE PLAY TEXTS
@@ -5104,6 +5098,25 @@ class TextFixtures extends Fixture
             "background" => "notepad",
             "design" => "poem"
         ],
+        "seven" => [
+            "title" => "Sept jours pour en finir",
+            "author" => "csbilouze",
+            "content" => [
+                '>
+                <p>Au commencement Dieu créa la terre.<br>
+                - Le premier jour, Dieu créa la lumière, séparant ainsi le jour et la nuit.<br>
+                - Le second jour, Dieu créa le ciel<br>
+                - Le troisième jour, Dieu créa la végétation<br>
+                - Le quatrième jour, Dieu créa les animaux<br>
+                - Le cinquième jour, Dieu créa l\'homme à son image.<br>
+                - Le sixième jour, l\'Homme créa les zombies.<br>
+                - Le septième jour, Dieu dit: "débrouillez-vous"<br>
+                </p>'
+            ],
+            "lang" => "fr",
+            "background" => "carton",
+            "design" => "written"
+        ],
         "acorr_es" => [
             "title" => "Acorralado",
             "author" => "GeneralCross",
@@ -5198,6 +5211,18 @@ class TextFixtures extends Fixture
             ],
             "lang" => "es",
             "background" => "old",
+            "design" => "written"
+        ],
+        "dest" => [
+            "title" => "Diario de un desterrado",
+            "author" => "Mellaa",
+            "content" => [
+                '<p>Es el tercer día desde que volví infectado del Ultramundo y los aldeanos decidieron echarme... ¡Malditos desgraciados! (la escritura se vuelve ilegible...)</p>
+				<p>Si alguien lee esto seguramente ya seré uno de esos que arañan las murallas cada noche, o quizás lo que quede de mi cuerpo esté atrapado entre los alambre de púas... si todavía me quedan dedos, dale mi anillo a mi hija Ireth... (las lagrimas emborronan el resto del papel).</p>
+				<p><small>Autor: Mellaa</small></p>'
+            ],
+            "lang" => "es",
+            "background" => "letter",
             "design" => "written"
         ],
         "divv1_es" => [

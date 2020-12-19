@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\AntiSpamDomains;
 use App\Controller\Soul\SoulController;
 use App\Entity\Citizen;
+use App\Entity\HordesFact;
 use App\Entity\Picto;
 use App\Entity\PictoPrototype;
 use App\Entity\RegistrationLog;
@@ -41,16 +42,8 @@ use Symfony\Contracts\Translation\TranslatorInterface;
  */
 class PublicController extends CustomAbstractController
 {
-    protected $entity_manager;
-
-    public function __construct(EntityManagerInterface $em, ConfMaster $conf)
-    {
-        parent::__construct($conf);
-        $this->entity_manager = $em;
-    }
-
-    protected function addDefaultTwigArgs( ?array $data = null ): array {
-        $data = $data ?? [];
+    protected function addDefaultTwigArgs(?string $section = null, ?array $data = null, $locale = null ): array {
+        $data = parent::addDefaultTwigArgs($section, $data);
 
         $deadCitizenCount = count($this->entity_manager->getRepository(Citizen::class)->findBy(['alive' => 0]));
         
@@ -64,6 +57,14 @@ class PublicController extends CustomAbstractController
         $data['zombiesKilled'] = $zombiesKilled;
         $data['canibalismCount'] = $canibalismCount;
 
+        if ($locale) $locale = explode('_', $locale)[0];
+        if (!in_array($locale, ['de','en','es','fr'])) $locale = null;
+
+        $facts = $this->entity_manager->getRepository(HordesFact::class)->findBy(['lang' => $locale ?? 'de']);
+        shuffle($facts);
+
+        $data['fact'] = $facts[0];
+
         return $data;
     }
 
@@ -73,7 +74,7 @@ class PublicController extends CustomAbstractController
      * @param EternalTwinHandler $etwin
      * @return Response
      */
-    public function login(ConfMaster $conf, EternalTwinHandler $etwin): Response
+    public function login(ConfMaster $conf, EternalTwinHandler $etwin, Request $r): Response
     {
         if ($this->isGranted( 'ROLE_REGISTERED' ))
             return $this->redirect($this->generateUrl('initial_landing'));
@@ -81,10 +82,10 @@ class PublicController extends CustomAbstractController
         $global = $conf->getGlobalConf();
         $allow_dual_stack = $global->get(MyHordesConf::CONF_ETWIN_DUAL_STACK, true);
 
-        return $this->render(  $etwin->isReady() ? 'ajax/public/login.html.twig' : 'ajax/public/login_legacy.html.twig', $this->addDefaultTwigArgs([
+        return $this->render(  $etwin->isReady() ? 'ajax/public/login.html.twig' : 'ajax/public/login_legacy.html.twig', $this->addDefaultTwigArgs(null, [
             'etwin' => $etwin->isReady(),
             'myh' => $allow_dual_stack,
-        ]) );
+        ], $r->getLocale()) );
     }
 
     /**
@@ -92,7 +93,7 @@ class PublicController extends CustomAbstractController
      * @param EternalTwinHandler $etwin
      * @return Response
      */
-    public function register(EternalTwinHandler $etwin): Response
+    public function register(EternalTwinHandler $etwin, Request $r): Response
     {
         if ($this->isGranted( 'ROLE_REGISTERED' ))
             return $this->redirect($this->generateUrl('initial_landing'));
@@ -100,7 +101,7 @@ class PublicController extends CustomAbstractController
         if ($etwin->isReady())
             return $this->redirect($this->generateUrl('public_login'));
 
-        return $this->render( 'ajax/public/register.html.twig',  $this->addDefaultTwigArgs() );
+        return $this->render( 'ajax/public/register.html.twig',  $this->addDefaultTwigArgs(null, [], $r->getLocale()) );
     }
 
     /**
@@ -580,9 +581,9 @@ class PublicController extends CustomAbstractController
      * @Route("jx/public/welcome", name="public_welcome")
      * @return Response
      */
-    public function welcome(): Response
+    public function welcome(Request $r): Response
     {
-        return $this->render('ajax/public/intro.html.twig', $this->addDefaultTwigArgs());
+        return $this->render('ajax/public/intro.html.twig', $this->addDefaultTwigArgs(null, [], $r->getLocale()));
     }
 
     /**
@@ -593,5 +594,4 @@ class PublicController extends CustomAbstractController
     {
         return $this->render('ajax/public/privacy.html.twig', $this->addDefaultTwigArgs());
     }
-
 }

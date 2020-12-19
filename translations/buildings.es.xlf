@@ -844,7 +844,7 @@
       </notes>
       <segment>
         <source>Kleiner Friedhof</source>
-        <target>Defensa post-hortem</target>
+        <target>Defensa post-mortem</target>
       </segment>
     </unit>
     <unit id="FN3dAwg" name="Hühnerstall">
@@ -1537,7 +1537,7 @@
       </notes>
       <segment>
         <source>Riesiger KVF</source>
-        <target>COSA gigante</target>
+        <target>Gran COSA</target>
       </segment>
     </unit>
     <unit id="GKI2tai" name="Riesenrad">
@@ -2365,7 +2365,7 @@
       </notes>
       <segment>
         <source>Dass "Hightech" nicht nur auf die Dezimierung von Zombiehorden beschränkt ist, beweist dieses Gebäude... Es fügt +100 Rationen Wasser zum Brunnen hinzu.</source>
-        <target>Dass "Hightech" nicht nur auf die Dezimierung von Zombiehorden beschränkt ist, beweist dieses Gebäude... Es fügt +100 Rationen Wasser zum Brunnen hinzu.</target>
+        <target>Añade +100 raciones de agua al pozo.</target>
       </segment>
     </unit>
     <unit id="gdi0Inc" name="abe7a12">
@@ -2428,7 +2428,7 @@
       </notes>
       <segment>
         <source>Diese improvisierte Railgun funktioniert mit Luftdruck. Sie ist in der Lage, mehrere Ladungen Metallsplitter (verbogene Nägel und rostiges Metall) mit enormer Geschwindigkeit zu verschießen und faustgroße Löcher zu reißen.</source>
-        <target>Un poderoso mecanismo de aire comprimido que dispara bolas clavos torcidos y chatarra puntiaguda. Perfecto para perforar cualquier cosa... o a cualquiera.</target>
+        <target>Un poderoso mecanismo de aire comprimido que dispara bolas de clavos torcidos y chatarra puntiaguda. Perfecto para perforar cualquier cosa... o a cualquiera.</target>
       </segment>
     </unit>
     <unit id="8CKEc8B" name="e894210">
@@ -3094,7 +3094,7 @@
       </notes>
       <segment>
         <source>Ein wirklich riesiger KVF, auf dem die Namen aller Bürger der Stadt eingraviert sind, erhebt sich stolz in den Himmel... äh. Genau, ein KVF. Niemand weiß warum, aber jemand hat am Fuße des Bauwerks "Eigentum der tiefsinnigen Nacht" eingraviert. Dieses Wunderwerk strahlt im Glanze seiner Nutzlosigkeit: Seine Errichtung bringt allen Bürgern der Stadt eine seltene Auszeichnung ein.</source>
-        <target>Ein wirklich riesiger KVF, auf dem die Namen aller Bürger der Stadt eingraviert sind, erhebt sich stolz in den Himmel... äh. Genau, ein KVF. Niemand weiß warum, aber jemand hat am Fuße des Bauwerks "Eigentum der tiefsinnigen Nacht" eingraviert. Dieses Wunderwerk strahlt im Glanze seiner Nutzlosigkeit: Seine Errichtung bringt allen Bürgern der Stadt eine seltene Auszeichnung ein.</target>
+        <target>Una inmensa construcción en la que están grabados todos los nombres de los habitantes del pueblo. Sus iniciales C.O.S.A son un misterio. Tampoco nadie puede explicar la frase que figura en su base: ''Antro de la Noche Profunda''. Esta maravilla brilla por su gran inutilidad, pero su construcción otorga una distinción rarísima a todos los habitantes del pueblo.</target>
       </segment>
     </unit>
     <unit id="qVqfrKN" name="965147a">

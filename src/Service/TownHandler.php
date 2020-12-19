@@ -162,9 +162,10 @@ class TownHandler
                     }
                 break;
             case 'small_cafet_#00':
-                $proto = $this->entity_manager->getRepository(ItemPrototype::class)->findOneByName( 'woodsteak_#00' );
+                $proto = $this->entity_manager->getRepository(ItemPrototype::class)->findOneBy( ['name' => 'woodsteak_#00'] );
                 $this->inventory_handler->forceMoveItem( $town->getBank(), $this->item_factory->createItem( $proto ) );
                 $this->inventory_handler->forceMoveItem( $town->getBank(), $this->item_factory->createItem( $proto ) );
+                $this->entity_manager->persist( $town->getBank() );
                 $this->entity_manager->persist( $this->log->constructionsBuildingCompleteSpawnItems( $building, [ ['item'=>$proto,'count'=>2] ] ) );
                 break;
             case 'r_dhang_#00':case 'small_fleshcage_#00':

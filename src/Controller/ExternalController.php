@@ -35,6 +35,7 @@ class ExternalController extends InventoryAwareController {
     protected DeathHandler $death_handler;
     protected EntityManagerInterface $entity_manager;
     protected Packages $asset;
+    protected $available_langs = ['en', 'fr', 'de', 'es'];
     
     /**
     * BeyondController constructor.
@@ -82,11 +83,12 @@ class ExternalController extends InventoryAwareController {
     * @return Response
     */
     public function disclaimer(int $id): Response {
+        /** @var ExternalApp $app */
         $app = $this->entity_manager->getRepository(ExternalApp::class)->find($id);
         $user = $this->getUser();
-        if(!$app||$app->getTesting()||!$user)
-        return $this->redirect($this->generateUrl('initial_landing'));
-        /** @var User $user */
+        if(!$app || !$user || ($app->getTesting() && $app->getOwner() !== $user) )
+            return $this->redirect($this->generateUrl('initial_landing'));
+
         $key = $user->getExternalId();
         
         return $this->render('ajax/public/disclaimer.html.twig', [

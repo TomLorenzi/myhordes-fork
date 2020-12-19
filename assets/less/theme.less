@@ -215,7 +215,7 @@ x-message {
       background-color: #5c2b20;
       outline: 1px solid black;
       border: 1px solid #f0d79e;
-      z-index: 10;
+      z-index: 9999;
 
       & h1 {
         margin: 0px;
@@ -333,33 +333,19 @@ x-message {
       &:hover #apps-list {
         display: block;
 
-        & p {
-          color: white;
-          font-size: 1.3rem;
-        }
+        & a { text-decoration: none !important;}
+
+        & p { color: white; font-size: 1.3rem; }
 
         & ul {
-          margin: 0;
-          padding: 0;
-          float: left;
-          position: relative;
-          margin-bottom: 8px;
-          list-style: none;
+          padding: 0; position: relative; margin: 0 0 8px; list-style: none;
 
           & li.app-external {
-            margin: 0 0 .5em;
-            padding: 0;
-            font-size: 1.3rem;
-            color: #ddab76;
-            cursor: pointer;
-
-            img {
-              vertical-align: middle;
-              margin-right: 1em;
-            }
-            span {
-              font-weight: normal;
-            }
+            display: inline-block; width: 50%; float: left;
+            margin: 0 0 .5em; padding: 0; font-size: 1.3rem; color: #ddab76; cursor: pointer;
+            img { vertical-align: middle; margin-right: 10px; }
+            span { font-weight: normal; }
+            div.small { margin-left: 26px; font-size: 0.6em; font-variant: small-caps; }
           }
         }
       }
@@ -382,16 +368,44 @@ x-message {
       &.padded-small { padding: 12px + @myhordes-grid-padsize-small; }
       &.padded-none, &:not(.padded):not(.padded-small)  { padding: 12px; }
 
-      background: @myhordes-panel-border, @myhordes-panel-bg; color: @myhordes-panel-color;
+      &:not(.fact):not(.quote) {background: @myhordes-panel-border, @myhordes-panel-bg; color: @myhordes-panel-color;}
+      &.fact {
+        color: white;
+        height: 43px;
+        margin-bottom: -25px;
+        z-index: 1;
+        background: url('../img/background/footer_zombie.gif') 0 0 no-repeat;
+        text-align: right;
+        font-size: 1.2rem;
+        text-shadow: 0px 1px 1px black, 0px -1px 1px black, 1px 0px 1px black, -1px 0px 1px black, 1px 1px 1px black, -1px -1px 1px black, -1px 1px 1px black, 1px -1px 1px black;
+        .author {
+          font-weight: bold;
+          color: #fdcb70;
+        }
+      }
+      &.quote {
+        color: #513c2d;
+        padding: 0 !important;
+        font-size: 1.1rem;
+        width: 200px;
+        background: url('../img/background/flavor_bg.jpg') 0 41px repeat-y;
+        float: right;
+        font-style: italic;
+        font-weight: bold;
+        .quote-head {
+          background: url('../img/background/flavor_header.jpg') left top no-repeat;
+          padding: 12px 8px;
+          min-height: 55px;
+        }
+        .quote-foot {
+          background: url('../img/background/flavor_footer.jpg') left bottom no-repeat;
+        }
+      }
     }
 
     &>.row.external-app>.cell {
-      margin-top: 40px;
-      color: #f0d79e;
-      border: 1px solid #773939;
-      outline: 3px solid #5c2b20;
-      background: none;
-      background-color: #5c2b20;
+      margin-top: 40px; border: 1px solid #773939; outline: 3px solid #5c2b20;
+      background: #5c2b20 none; color: #f0d79e;
 
       & span.critical {
         text-transform: uppercase;
@@ -591,15 +605,14 @@ button, *.button, *.modal-button {
   &.blue { background: url(../img/background/bg_button_blue.gif) 50%/cover no-repeat; }
 }
 
-input[type='text'],input[type='number'],input[type='password'],input[type='email'],textarea {
-  transition: outline-color 0.5s; outline: 1px solid rgba(0,0,0,0);
+input[type='text'],input[type='number'],input[type='password'],input[type='email'],input[type='url'],textarea {
+  transition: outline-color 0.5s; outline: 1px solid rgba(0,0,0,0); color: black;
   &:not(textarea) { background: @myhordes-input-background; }
   &:not(input)    { background: @myhordes-input-text-background; resize: vertical; max-width: 100%; min-height: 250px; }
   border: 1px solid @myhordes-input-border; height: 25px;
   &:not(.inline) { display: block; width: 100%; }
   &:focus { outline-color: @myhordes-input-border; }
   &:invalid,&.invalid { box-shadow: 0 0 4px red; }
-  &[disabled] { color: black; }
 }
 
 a { color: @myhordes-smalltext; font-weight: bold; }
@@ -642,7 +655,12 @@ ul.inventory {
   &.rucksack-escort { background: rgba(0,0,0,0.1); border: 1px solid @myhordes-cell-header-background-color; margin: 0; }
   &.desert, &.desert-escort { background: url("../img/background/inventory/inv_ground.gif") repeat top left;}
   &.desert-escort { border: 1px solid @myhordes-cell-header-background-color; }
-  &.chest { background: url("../img/background/inventory/inv_home.gif") repeat center;}
+  &.chest {
+    background: url("../img/background/inventory/inv_home.gif") repeat center;
+    &.locked li {
+      opacity: 0.50;
+    }
+  }
   &.bank { background: url("../img/background/inventory/inv_bank.gif") repeat center; min-height: 100px;}
 }
 
@@ -1269,15 +1287,18 @@ div.tooltip-dummy {
 
 div.daily-attack {
   margin: 0 auto;
-  width: 442px;
+  max-width: 442px;
   div.content {
     .animation {
-      margin: -10px;
+      margin: 0;
       video {
         max-width: 100%;
       }
     }
-    padding: 10px;
+
+    p {margin: 16px 10px}
+
+    padding: 0;
     background-color: #5c2b20;
     border: 1px solid #ddab76;
     outline: 2px solid #5c2b20;
@@ -1362,4 +1383,39 @@ select {
   outline: 1px solid black;
   cursor: pointer;
   width: 100%;
+}
+
+i.dagger {
+  font-style: normal;
+}
+
+.form {
+  div.note.note-lightest { margin: 5px 0; }
+
+  .mod {
+    font-size: 1.2rem; color: @myhordes-cell-header-text-color;
+    strong { color: white; text-transform: uppercase; }
+  }
+
+  .warning {
+    color: #f86; font-size: 1.2rem; font-variant: small-caps; margin-top: 5px;
+    padding: 5px; background-color: #5c2b20; border: 1px solid #f0d79e; outline: 1px solid #5c2b20;
+    strong { text-transform: uppercase; color: #f8eacb; }
+  }
+}
+
+.mt-1 {
+  margin-top: 1em;
+}
+
+.mt-2 {
+  margin-top: 2em;
+}
+
+.mb-1 {
+  margin-bottom: 1em;
+}
+
+.mb-2 {
+  margin-bottom: 2em;
 }

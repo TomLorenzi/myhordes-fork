@@ -40,7 +40,7 @@ class LogTemplateHandler
         $this->entity_manager = $em;
     }
 
-    private function wrap(?string $obj, ?string $class = null): string {
+    public function wrap(?string $obj, ?string $class = null): string {
         //if (!($obj || $obj != 0)) {var_dump($obj); die;}
         return ($obj === "0" || $obj) ? ("<span" . ($class ? " class='$class'" : '') . ">$obj</span>") : '';
     }
@@ -50,7 +50,7 @@ class LogTemplateHandler
      * @param bool $small
      * @return string
      */
-    private function iconize($obj, bool $small = false, bool $broken = false): string {
+    public function iconize($obj, bool $small = false, bool $broken = false): string {
         if (is_array($obj) && count($obj) === 2) return $this->iconize( $obj['item'], $small) . ' x ' . $obj['count'];
 
         if ($obj instanceof Item) {
@@ -756,6 +756,18 @@ class LogTemplateHandler
             ->setCitizen( $zombie );
     }
 
+    public function nightlyInternalAttackStart(Town $town): TownLogEntry {
+        $variables = array();
+        $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneBy(['name' => 'nightlyInternalAttackStart']);
+
+        return (new TownLogEntry())
+            ->setLogEntryTemplate($template)
+            ->setVariables($variables)
+            ->setTown( $town )
+            ->setDay( $town->getDay() )
+            ->setTimestamp( new DateTime('now') );
+    }
+
     public function nightlyInternalAttackNothing( Citizen $zombie ): TownLogEntry {
         $templateList = [
             'nightlyInternalAttackNothing1',
@@ -773,6 +785,18 @@ class LogTemplateHandler
             ->setDay( $zombie->getTown()->getDay() )
             ->setTimestamp( new DateTime('now') )
             ->setCitizen( $zombie );
+    }
+
+    public function nightlyInternalAttackNothingSummary( Town $town, $useless ): TownLogEntry {
+        $variables = array('count' => $useless);
+        $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneBy(['name' => 'nightlyInternalAttackNothingSummary']);
+
+        return (new TownLogEntry())
+            ->setLogEntryTemplate($template)
+            ->setVariables($variables)
+            ->setTown( $town )
+            ->setDay( $town->getDay() )
+            ->setTimestamp( new DateTime('now') );
     }
 
     public function nightlyAttackCancelled( Town $town ): TownLogEntry {
@@ -1231,6 +1255,21 @@ class LogTemplateHandler
     public function citizenAttack( Citizen $attacker, Citizen $defender, bool $wounded ): TownLogEntry {
         $variables = array('attacker' => $attacker->getId(), 'defender' => $defender->getId());
         $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneBy(['name' => $wounded ? 'citizenAttackWounded' : 'citizenAttack']);
+
+        return (new TownLogEntry())
+            ->setLogEntryTemplate($template)
+            ->setVariables($variables)
+            ->setTown( $attacker->getTown() )
+            ->setDay( $attacker->getTown()->getDay() )
+            ->setZone( $attacker->getZone() )
+            ->setTimestamp( new DateTime('now') )
+            ->setCitizen( $attacker )
+            ->setSecondaryCitizen( $defender );
+    }
+
+    public function sandballAttack( Citizen $attacker, Citizen $defender, bool $wounded ): TownLogEntry {
+        $variables = array('attacker' => $attacker->getId(), 'defender' => $defender->getId());
+        $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneBy(['name' => $wounded ? 'sandballAttackWounded' : 'sandballAttack']);
 
         return (new TownLogEntry())
             ->setLogEntryTemplate($template)

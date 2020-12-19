@@ -16,7 +16,7 @@
       </notes>
       <segment>
         <source>Dein Name kann höchstens {{ limit }} Zeichen umfassen.</source>
-        <target>Tu nombre solo puede tener {{ limit }} caracteres.</target>
+        <target>Tu nombre solo puede tener hasta {{ limit }} caracteres.</target>
       </segment>
     </unit>
     <unit id="WvW8_JI" name="Die eingegebene E-Mail Adresse ist nicht gültig.">
@@ -79,7 +79,7 @@
       </notes>
       <segment>
         <source>Der angegebene Name existiert bereits im Spiel.</source>
-        <target>El nombre ingresado ya existe.</target>
+        <target>El nombre ingresado ya existe dentro del juego.</target>
       </segment>
     </unit>
     <unit id="kVhhGdk" name="Die angegebene E-Mail Adresse wird bereits von einem anderen Profil verwendet.">
@@ -88,7 +88,7 @@
       </notes>
       <segment>
         <source>Die angegebene E-Mail Adresse wird bereits von einem anderen Profil verwendet.</source>
-        <target>El e-mail ingresado ya existe.</target>
+        <target>El e-mail ingresado ya está siendo utilizado por otro jugador.</target>
       </segment>
     </unit>
     <unit id="Qu4FAIf" name="E-Mail Adresse validieren">
@@ -232,7 +232,7 @@
       </notes>
       <segment>
         <source>E-Mail Adresse</source>
-        <target>Dirección de e-mail</target>
+        <target>Dirección e-mail</target>
       </segment>
     </unit>
     <unit id="QNpwRBL" name="wiederholen">
@@ -262,7 +262,7 @@
         <source>Um die Registrierung abzuschließen und deinen Account zu aktivieren, musst du auf einen
                         Aktivierungslink klicken, der dir an die angegebene E-Mail Adresse geschickt wird.</source>
         <target>Para completar el registro y activar tu cuenta, 
-						debes hacer clic en el enlace de activación que se enviará a la dirección de e-mail especificada.</target>
+						debes hacer clic en el enlace de activación que se enviará a la dirección e-mail especificada.</target>
       </segment>
     </unit>
     <unit id="._jFtS_" name="Du hast schon einen Account?">
@@ -379,7 +379,7 @@
       </notes>
       <segment>
         <source>Bitte gib deine E-Mail Adresse ein.</source>
-        <target>Introduce tu dirección de email.</target>
+        <target>Introduce tu dirección e-mail.</target>
       </segment>
     </unit>
     <unit id="9.8ReK8" name="Abbrechen">
@@ -406,7 +406,7 @@
       </notes>
       <segment>
         <source>Wenn deine eingegebene E-Mail Adresse korrekt war, wurde dir soeben ein Link zum Zurücksetzen deines Passwortes geschickt.</source>
-        <target>Si la dirección de correo electrónico que has introducido es correcta, recibirás un enlace para restablecer tu contraseña.</target>
+        <target>Si la dirección e-mail que has introducido era correcta, recibirás un enlace para restablecer tu contraseña.</target>
       </segment>
     </unit>
     <unit id="w6NXTHc" name="0e5133b">
@@ -415,7 +415,7 @@
       </notes>
       <segment>
         <source>Dein Passwort wurde geändert. Du kannst dich nun mit deinem neuen Passwort einloggen.</source>
-        <target>Tu contraseña ha sido cambiada. Ahora puedes iniciar sesión con tu nueva contraseña.</target>
+        <target>Tu contraseña fue cambiada. Ahora puedes iniciar sesión con tu nueva contraseña.</target>
       </segment>
     </unit>
     <unit id="LRrjhiE" name="Angemeldet bleiben">
@@ -433,7 +433,7 @@
       </notes>
       <segment>
         <source>Fehler bei der Datenübertragung.</source>
-        <target>Fehler bei der Datenübertragung.</target>
+        <target>Error de transmisión de datos.</target>
       </segment>
     </unit>
     <unit id="wPXsZnE" name="6842e2e">
@@ -442,7 +442,7 @@
       </notes>
       <segment>
         <source>MyHordes ist ein Teil des EternalTwin-Netzwerks. Wenn du einen EternalTwin-Account hast, kannst du MyHordes ohne zusätzliche Registrierung spielen!</source>
-        <target>MyHordes ist ein Teil des EternalTwin-Netzwerks. Wenn du einen EternalTwin-Account hast, kannst du MyHordes ohne zusätzliche Registrierung spielen!</target>
+        <target>MyHordes forma parte de la red EternalTwin. Si tienes una cuenta de EternalTwin, ¡puedes jugar sin necesidad de registrarte!</target>
       </segment>
     </unit>
     <unit id="qo4M11k" name="Über EternalTwin einloggen">
@@ -451,7 +451,7 @@
       </notes>
       <segment>
         <source>Über EternalTwin einloggen</source>
-        <target>Über EternalTwin einloggen</target>
+        <target>Iniciar sesión a través de EternalTwin</target>
       </segment>
     </unit>
     <unit id="LiGRhEI" name="9a73574">
@@ -460,7 +460,7 @@
       </notes>
       <segment>
         <source>Wenn du noch einen alten MyHordes-Account hast, kannst du dich vorerst auch damit einloggen.</source>
-        <target>Wenn du noch einen alten MyHordes-Account hast, kannst du dich vorerst auch damit einloggen.</target>
+        <target>Si tienes una cuenta antigua de MyHordes, al menos por ahora, también puedes entrar con ella.</target>
       </segment>
     </unit>
     <unit id="ho.WxzI" name="6471614">
@@ -469,7 +469,7 @@
       </notes>
       <segment>
         <source>Dies wird nicht für immer möglich sein. Wir raten dir, deinen alten MyHordes-Account so bald wie möglich mit EternalTwin zu verknüpfen.</source>
-        <target>Dies wird nicht für immer möglich sein. Wir raten dir, deinen alten MyHordes-Account so bald wie möglich mit EternalTwin zu verknüpfen.</target>
+        <target>Esto no será posible para siempre. Te aconsejamos que vincules tu antigua cuenta de MyHordes a EternalTwin lo antes posible.</target>
       </segment>
     </unit>
     <unit id="uT6i9yH" name="bb99aa1">
@@ -478,7 +478,7 @@
       </notes>
       <segment>
         <source>Deine Seele bleibt bei der Verknüpfung mit EternalTwin selbstverständlich vollständig erhalten.</source>
-        <target>Deine Seele bleibt bei der Verknüpfung mit EternalTwin selbstverständlich vollständig erhalten.</target>
+        <target>Por supuesto, tu alma permanece intacta si vinculas tu cuenta con EternalTwin.</target>
       </segment>
     </unit>
     <unit id="RG1kp2m" name="Über MyHordes einloggen">
@@ -487,7 +487,7 @@
       </notes>
       <segment>
         <source>Über MyHordes einloggen</source>
-        <target>Über MyHordes einloggen</target>
+        <target>Ingresar a través de MyHordes</target>
       </segment>
     </unit>
     <unit id="CvfPvDp" name="Verknüpfung mit EternalTwin">
@@ -496,7 +496,7 @@
       </notes>
       <segment>
         <source>Verknüpfung mit EternalTwin</source>
-        <target>Verknüpfung mit EternalTwin</target>
+        <target>Enlace con EternalTwin</target>
       </segment>
     </unit>
     <unit id="sndALWW" name="Gleich kanns losgehen!">
@@ -505,7 +505,7 @@
       </notes>
       <segment>
         <source>Gleich kanns losgehen!</source>
-        <target>Gleich kanns losgehen!</target>
+        <target>¡Ya casi estamos listos para empezar!</target>
       </segment>
     </unit>
     <unit id="NYi.sD7" name="1ba0830">
@@ -514,7 +514,7 @@
       </notes>
       <segment>
         <source>Dank deines EternalTwin-Account kannst du ohne vorherige Registrierung MyHordes spielen!</source>
-        <target>Dank deines EternalTwin-Account kannst du ohne vorherige Registrierung MyHordes spielen!</target>
+        <target>¡Gracias a tu cuenta de EternalTwin puedes jugar a MyHordes sin necesidad de registrarte previamente!</target>
       </segment>
     </unit>
     <unit id="zK1Sfzm" name="696390f">
@@ -527,9 +527,9 @@
         <source>&lt;strong&gt;Achtung:&lt;/strong&gt; Du hast bereits einen MyHordes-Account? Dann solltest du jetzt
                                     &lt;i&gt;abbrechen&lt;/i&gt; und dich zuerst mit deinem alten MyHordes-Account einloggen. Du kannst deinen
                                     EternalTwin-Account in den Einstellungen mit deinem MyHordes-Account verknüpfen.</source>
-        <target><![CDATA[<strong>Achtung:</strong> Du hast bereits einen MyHordes-Account? Dann solltest du jetzt
-                                    <i>abbrechen</i> und dich zuerst mit deinem alten MyHordes-Account einloggen. Du kannst deinen
-                                    EternalTwin-Account in den Einstellungen mit deinem MyHordes-Account verknüpfen.]]></target>
+        <target><![CDATA[<strong>Atención:</strong> ¿Ya tienes una cuenta de MyHordes? Entonces deberías 
+                                    <i>cancelar</i> ahora e iniciar sesión con tu antigua cuenta de MyHordes. Puedes vincular tu 
+                                    cuenta de EternalTwin a tu cuenta de MyHordes en la configuración.]]></target>
       </segment>
     </unit>
     <unit id="zHOj.3O" name="Los geht's!">
@@ -538,7 +538,7 @@
       </notes>
       <segment>
         <source>Los geht's!</source>
-        <target>Los geht's!</target>
+        <target>¡Aquí vamos!</target>
       </segment>
     </unit>
     <unit id="e0idyWf" name="Hallo %username%!">
@@ -547,7 +547,7 @@
       </notes>
       <segment>
         <source>Hallo %username%!</source>
-        <target>Hallo %username%!</target>
+        <target>¡Hola %username%!</target>
       </segment>
     </unit>
     <unit id="2WaNcqR" name="Dein Account wurde erfolgreich verknüpft!">
@@ -556,7 +556,7 @@
       </notes>
       <segment>
         <source>Dein Account wurde erfolgreich verknüpft!</source>
-        <target>Dein Account wurde erfolgreich verknüpft!</target>
+        <target>¡Tu cuenta ha sido enlazada con éxito!</target>
       </segment>
     </unit>
     <unit id="Oi3QrV3" name="Du wirst eingeloggt. Bitte warte eine Sekunde ...">
@@ -565,7 +565,7 @@
       </notes>
       <segment>
         <source>Du wirst eingeloggt. Bitte warte eine Sekunde ...</source>
-        <target>Du wirst eingeloggt. Bitte warte eine Sekunde ...</target>
+        <target>Serás ingresado. Por favor, espera un segundo...</target>
       </segment>
     </unit>
     <unit id="pEAthLZ" name="d621208">
@@ -574,7 +574,7 @@
       </notes>
       <segment>
         <source>Vielen Dank, dass du deinen MyHordes-Account %namecheck_mh% mit deinem EternalTwin-Account %namecheck_et% verknüpfst!</source>
-        <target>Vielen Dank, dass du deinen MyHordes-Account %namecheck_mh% mit deinem EternalTwin-Account %namecheck_et% verknüpfst!</target>
+        <target>¡Muchas gracias por vincular tu cuenta de MyHordes %namecheck_mh% con la de EternalTwin %namecheck_et%!</target>
       </segment>
     </unit>
     <unit id="7JD3pLt" name="7505c04">
@@ -583,7 +583,7 @@
       </notes>
       <segment>
         <source>Nach der Verknüpfung kannst du dich nur noch über EternalTwin in MyHordes anmelden. Deine alten Zugangsdaten werden ungültig.</source>
-        <target>Nach der Verknüpfung kannst du dich nur noch über EternalTwin in MyHordes anmelden. Deine alten Zugangsdaten werden ungültig.</target>
+        <target>Después de vincular tu cuenta sólo podrás entrar a MyHordes a través de EternalTwin. Sus antiguos datos de acceso se volverán inválidos.</target>
       </segment>
     </unit>
     <unit id="r.jGoXw" name="d65799d">
@@ -592,7 +592,7 @@
       </notes>
       <segment>
         <source>Wenn du fortfahren möchtest, gib bitte ein letztes Mal dein MyHordes-Passwort ein und klicke auf "Verknüpfen".</source>
-        <target>Wenn du fortfahren möchtest, gib bitte ein letztes Mal dein MyHordes-Passwort ein und klicke auf "Verknüpfen".</target>
+        <target>Si desea continuar, por favor, introduce tu contraseña de MyHordes por última vez y haz click en "Vincular"</target>
       </segment>
     </unit>
     <unit id="jKP5PMR" name="Verknüpfen">
@@ -601,7 +601,7 @@
       </notes>
       <segment>
         <source>Verknüpfen</source>
-        <target>Verknüpfen</target>
+        <target>Vincular</target>
       </segment>
     </unit>
     <unit id="7Nk4Nxa" name="Willkommen zurück! Dein Account ist nicht länger zur Löschung vorgemerkt.">
@@ -610,7 +610,7 @@
       </notes>
       <segment>
         <source>Willkommen zurück! Dein Account ist nicht länger zur Löschung vorgemerkt.</source>
-        <target>Willkommen zurück! Dein Account ist nicht länger zur Löschung vorgemerkt.</target>
+        <target>¡Bienvenido de nuevo! Tu cuenta ya no está marcada para ser eliminada.</target>
       </segment>
     </unit>
     <unit id="n69_UZl" name="0a8ad23">
@@ -619,7 +619,7 @@
       </notes>
       <segment>
         <source>Es haben sich zu viele Nutzer aus deinem Netzwerk heraus bei MyHordes registriert. Weitere Registrierungen aus deinem Netzwerk sind für eine Weile nicht mehr möglich.</source>
-        <target>Es haben sich zu viele Nutzer aus deinem Netzwerk heraus bei MyHordes registriert. Weitere Registrierungen aus deinem Netzwerk sind für eine Weile nicht mehr möglich.</target>
+        <target>Demasiados usuarios de tu red se han registrado en MyHordes. No se podrán realizar más registros en tu red por un tiempo.</target>
       </segment>
     </unit>
   </file>

@@ -85,6 +85,12 @@
                         {% if town_controls %}
                             <li class="tab" x-tab-id="rp_player"><div class="tab-link"><i class="fa fa-user"></i></div></li>
                         {% endif %}
+                        {% if snippets is not empty %}
+                            {% set langs = ['de','en','fr','es'] %}
+                            {% for lang in langs %}
+                                <li class="tab" x-tab-id="mod-snip-{{ lang }}"><div class="tab-link"><img alt="mod" src="{{ asset('build/images/assets/img/icons/mod.png') }}" /> <span class="small">{{ lang }}</span></div></li>
+                            {% endfor %}
+                        {% endif %}
                     </ul>
                     <div class="lightbox" x-tab-group="forum-classic-editor-toolbox" x-tab-id="emotes" x-tab-target>
                         <div class="forum-button-bar">
@@ -152,6 +158,24 @@
                             </div>
                         </div>
                     {% endif %}
+                    {% if snippets is not empty %}
+                        {% for lang in langs %}
+                            <div class="lightbox" x-tab-group="forum-classic-editor-toolbox" x-tab-id="mod-snip-{{ lang }}" x-tab-target>
+                                {% for snippet in snippets %}
+                                    {# @var snippet \App\Entity\ForumModerationSnippet #}
+                                    {% if snippet.lang == lang %}
+                                        <div class="row">
+                                            {% set current_snippet = lang == app.user.language ? ('%%' ~ snippet.short) : ('%' ~ lang ~ '%' ~ snippet.short) %}
+                                            <div class="cell padded rw-3"><span class="small" style="color: white">
+                                                    <strong class="pointer" x-forum-action="edit" x-text-insert-raw="{{ current_snippet }}">{{ current_snippet }}</strong>
+                                                </span></div>
+                                            <div class="cell padded rw-9"><span class="small pointer" x-forum-action="edit" x-text-insert-raw="{{ current_snippet }}" style="display:block; font-size: 0.55em;">{{ snippet.text }}</span></div>
+                                        </div>
+                                    {% endif %}
+                                {% endfor %}
+                            </div>
+                        {% endfor %}
+                    {% endif %}
                 </div>
             </div>
         </div>
@@ -182,6 +206,16 @@
             let node_transfer_target = document.getElementById('forum-editor-preview');
 
             const transfer_to_preview = function() {
+
+                {% if snippets is not empty %}
+                    {% for snippet in snippets %}
+                        {# @var snippet \App\Entity\ForumModerationSnippet #}
+                        node_transfer_source.value = node_transfer_source.value.replace('%{{ snippet.lang|e('js') }}%{{ snippet.short|e('js') }}','{{ snippet.text|e('js') }}');
+                            {% if snippet.lang == app.user.language %}
+                                node_transfer_source.value = node_transfer_source.value.replace('%%{{ snippet.short|e('js') }}','{{ snippet.text|e('js') }}');
+                            {% endif %}
+                    {% endfor %}
+                {% endif %}
 
                 $.html.twinoParser.parseTo( node_transfer_source.value, node_transfer_target, function(s) {
                     switch (s) {
@@ -371,6 +405,22 @@
                     content.substr( s_start );
 
                 node_transfer_source.setSelectionRange( s_start + tag.length + 3, s_end + tag.length + 3 );
+                node_transfer_source.focus()
+                transfer_to_preview();
+            } );
+            $.html.addEventListenerAll( '[x-forum-action="edit"][x-text-insert-raw]', 'click', function (e,elem) {
+                e.preventDefault();
+                e.stopPropagation();
+
+                let tag = elem.getAttribute('x-text-insert-raw');
+                let content = node_transfer_source.value;
+                let s_start = node_transfer_source.selectionStart;
+                let s_end = node_transfer_source.selectionEnd;
+
+                node_transfer_source.value =
+                    content.substr( 0, s_start ) + tag + content.substr( s_start );
+
+                node_transfer_source.setSelectionRange( s_start + tag.length, s_end + tag.length );
                 node_transfer_source.focus()
                 transfer_to_preview();
             } );

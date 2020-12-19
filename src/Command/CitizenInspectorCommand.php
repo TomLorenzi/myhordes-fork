@@ -7,11 +7,13 @@ namespace App\Command;
 use App\Entity\Citizen;
 use App\Entity\CitizenRole;
 use App\Entity\CitizenStatus;
+use App\Entity\User;
 use App\Service\CitizenHandler;
 use App\Service\CommandHelper;
 use App\Service\InventoryHandler;
 use App\Service\ItemFactory;
 use App\Service\StatusFactory;
+use App\Service\UserHandler;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
@@ -29,9 +31,10 @@ class CitizenInspectorCommand extends Command
     private $itemFactory;
     private $inventoryHandler;
     private $citizenHandler;
+    private $userHandler;
     private $helper;
 
-    public function __construct(EntityManagerInterface $em, StatusFactory $sf, ItemFactory $if, InventoryHandler $ih, CitizenHandler $ch, CommandHelper $comh)
+    public function __construct(EntityManagerInterface $em, StatusFactory $sf, ItemFactory $if, InventoryHandler $ih, CitizenHandler $ch, CommandHelper $comh, UserHandler $uh)
     {
         $this->entityManager = $em;
         $this->statusFactory = $sf;
@@ -39,6 +42,7 @@ class CitizenInspectorCommand extends Command
         $this->itemFactory = $if;
         $this->citizenHandler = $ch;
         $this->helper = $comh;
+        $this->userHandler = $uh;
         parent::__construct();
     }
 
@@ -121,7 +125,7 @@ class CitizenInspectorCommand extends Command
 
         if (($ban = $input->getOption('set-banned')) !== '') {
             $citizen->setBanished($ban);
-            if($ban && $citizen->getProfession()->getHeroic() && $this->citizenHandler->hasSkill($citizen, 'revenge') && $citizen->getTown()->getDay() >= 3) {
+            if($ban && $citizen->getProfession()->getHeroic() && $this->userHandler->hasSkill($citizen->getUser(), 'revenge') && $citizen->getTown()->getDay() >= 3) {
                 $this->inventoryHandler->forceMoveItem( $citizen->getInventory(), $this->itemFactory->createItem( 'poison_#00' ) );
                 $this->inventoryHandler->forceMoveItem( $citizen->getInventory(), $this->itemFactory->createItem( 'poison_#00' ) );
             }

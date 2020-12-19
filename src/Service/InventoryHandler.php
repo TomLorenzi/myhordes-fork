@@ -411,6 +411,7 @@ class InventoryHandler
             //Bank Anti abuse system
             if (!$this->bankAbuseService->allowedToTake($actor))
             {
+                $this->bankAbuseService->increaseBankCount($actor);
                 return InventoryHandler::ErrorBankLimitHit;
             }
 

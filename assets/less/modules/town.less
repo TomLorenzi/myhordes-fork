@@ -82,7 +82,20 @@ div.town-banner {
   &.night>.town-menu-construct>div:first-child { background: url("../../img/background/town/menu_construction_night.gif") center/cover no-repeat }
   &.night>.town-menu-door>div:first-child { background: url("../../img/background/town/menu_door_night.gif") center/cover no-repeat }
 }
-.header-menu-chaos { background: url('../../img/background/town/chaos.gif') center/100% no-repeat; width: 100%; height: 60px; }
+.header-menu {
+  &.chaos {
+    background: url('../../img/background/town/chaos.gif') center/100% no-repeat;
+  }
+  &.insurrect {
+    background: url('../../img/background/town/revolt.gif') center/100% no-repeat;
+  }
+  width: 100%; height: 60px;
+  a.help-button {
+    position: relative;
+    top: 35px;
+    left: 240px;
+  }
+}
 
 .row > .cell.town-addons {
   font-weight: bold; color: @myhordes-cell-header-text-color; font-variant: small-caps; display: flex;
@@ -159,6 +172,10 @@ div.town-banner {
     border: 1px solid #ddab76;
     background-color: #5c2b20;
     position: relative;
+
+    &.small {
+      height: 1em;
+    }
 
     & > * {
       height: 100%;

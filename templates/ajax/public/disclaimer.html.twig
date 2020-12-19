@@ -2,7 +2,13 @@
 {% block ajax %}
     <div class="row external-app">
         <div class="cell padded header rw-6 ro-3 rw-lg-12 ro-lg-0">
-            <h4 class="title"><img src="{{ asset('build/images/apps/' ~ ex.icon ~ '.gif') }}" /><span>{{ ex.name }}</span></h4>
+            <h4 class="title">
+                {% if ex.imageName is not null %}
+                    <img alt="" src="{{ path('app_web_app_icon', { aid: ex.id, name: ex.imageName, ext: ex.imageFormat }) }}" />
+                {% else %}
+                    <img alt="" src="{{ asset('build/images/apps/null.gif') }}" />
+                {% endif %}
+                <span>{{ ex.name }}</span></h4>
             <p>
                 {% trans from 'global' %}
                     Achtung! Der von dir ausgewählte Link, leitet dich auf eine nicht-offizielle Seite weiter (sprich: eine Fan- oder Spielerseite).
@@ -38,4 +44,84 @@
             <button x-ajax-href="{{ path('initial_landing') }}" class="button">{{ 'Schön hier im Warmen bleiben'|trans({}, 'global') }}</button>
         </div>
     </div>
+
+    {% if ex.owner is not null and app.user == ex.owner %}
+        <div class="row external-app">
+            <div class="cell padded header rw-6 ro-3 rw-lg-12 ro-lg-0">
+
+                <h4 class="title">{{ 'Entwickler-Einstellungen'|trans({}, 'global') }}</h4>
+                <p>
+                    {% trans from 'global' %}
+                        Als Entwickler dieser Webseite kannst du hier einige Einstellungen anpassen.
+                    {% endtrans %}
+                </p>
+
+                <div class="form">
+                    <div class="row">
+                        <div class="cell padded rw-4 rw-md-12 note note-lightest">
+                            <label for="app_email">{{ 'Kontakt'|trans({},'admin') }}</label>
+                            <span class="float-right"><a class="help-button float-right">{{ 'Hilfe'|trans({},'global') }}
+                            <div class="tooltip help">{{ 'Diese E-Mail Adresse wird als Kontakt-Adresse angezeigt.'|trans({},'global') }}</div>
+                        </a></span>
+                        </div>
+                        <div class="cell padded rw-8 rw-md-12"><input id="app_email" type="email" value="{{ ex.contact }}" /></div>
+                    </div>
+
+                    <div class="row">
+                        <div class="cell padded rw-4 rw-md-12 note note-lightest">
+                            <label for="app_url">{{ 'URL'|trans({},'admin') }}</label>
+                            <span class="float-right"><a class="help-button float-right">{{ 'Hilfe'|trans({},'global') }}
+                            <div class="tooltip help">{{ 'Dies ist die URL, zu der Spieler weitergeleitet werden, wenn sie auf den Link klicken.'|trans({},'global') }}</div>
+                        </a></span>
+                        </div>
+                        <div class="cell padded rw-8 rw-md-12"><input id="app_url" type="url" value="{{ ex.url }}" /></div>
+                    </div>
+
+                    {% if not ex.linkOnly %}
+                        <div class="row">
+                            <div class="cell padded rw-4 rw-md-12 note note-lightest">
+                                <label for="app_sk">{{ 'Schlüssel'|trans({},'admin') }}</label>
+                                <span class="float-right"><a class="help-button float-right">{{ 'Hilfe'|trans({},'global') }}
+                                <div class="tooltip help">
+                                    {{ 'Mit diesem Schlüssel authentifiziert sich deine Webseite gegenüber MyHordes.'|trans({},'global') }}
+                                    <span class="critical">{{ 'Du darfst ihn keinesfalls weitergeben oder öffentlich verfügbar machen, beispielsweise in einem Code-Repository.'|trans({},'global') }}</span>
+                                    <br /><br />
+                                    {{ 'Wenn du den Verdacht hast, dass dein Schlüssel kompromittiert wurde, kannst du einen neuen Schlüssel anfordern.'|trans({},'global') }}
+                                </div>
+                            </a></span>
+                            </div>
+                            <div class="cell padded rw-8 rw-md-12 right">
+                                <input id="app_sk" type="text" readonly value="{{ ex.secret }}" />
+                                <label><input id="app_regen" type="checkbox" /> {{ 'Schlüssel regenerieren'|trans({},'admin') }}</label>
+                            </div>
+                        </div>
+                    {% endif %}
+
+                    <div class="row">
+                        <div class="padded cell rw-4 ro-8 rw-md-6 ro-md-6 rw-sm-12 ro-sm-0"><button id="save_btn" style="margin-top: 16px;">{{ 'Speichern'|trans({},'global') }}</button></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endif %}
+
+{% endblock %}
+{% block js %}
+    <script>
+        {% if ex.owner is not null and app.user == ex.owner %}
+
+            $.html.addEventListenerAll('#save_btn','click',() => {
+                $.ajax.easySend( '{{ path('soul_own_app_update', {id: ex.id}) }}', {
+                        contact: document.getElementById('app_email').value,
+                        url: document.getElementById('app_url').value,
+                        sk: document.getElementById('app_regen') ? document.getElementById('app_regen').checked : false
+                    },
+                    function () {
+                        $.html.message('notice', '{{ 'Deine Einstellung wurde gespeichert.'|trans({},'soul')|e('js') }}')
+                        $.ajax.load(null, '{{ path('disclaimer', {id: ex.id}) }}', false);
+                    } );
+            });
+
+        {% endif %}
+    </script>
 {% endblock %}

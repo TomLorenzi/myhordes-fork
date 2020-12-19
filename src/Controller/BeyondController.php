@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\ActionCounter;
+use App\Entity\ChatSilenceTimer;
 use App\Entity\Citizen;
 use App\Entity\CitizenEscortSettings;
 use App\Entity\CitizenRole;
@@ -39,6 +40,7 @@ use App\Service\TimeKeeperService;
 use App\Service\TownHandler;
 use App\Service\UserHandler;
 use App\Service\ZoneHandler;
+use App\Structures\EventConf;
 use App\Structures\ItemRequest;
 use App\Structures\TownConf;
 use App\Translation\T;
@@ -46,6 +48,7 @@ use DateTime;
 use Doctrine\ORM\EntityManagerInterface;
 use Exception;
 use Symfony\Component\Asset\Packages;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Contracts\Translation\TranslatorInterface;
@@ -120,7 +123,7 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
         } else return false;
     }
 
-    protected function addDefaultTwigArgs( ?string $section = null, ?array $data = null ): array {
+    protected function addDefaultTwigArgs( ?string $section = null, ?array $data = null, $locale = null ): array {
         $zone = $this->getActiveCitizen()->getZone();
         $blocked = !$this->zone_handler->check_cp($zone, $cp);
         $escape = $this->get_escape_timeout( $this->getActiveCitizen() );
@@ -150,7 +153,7 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
                 $escort_actions[ $escort->getCitizen()->getId() ] = $this->action_handler->getAvailableItemEscortActions( $escort->getCitizen() );
             }
 
-        return parent::addDefaultTwigArgs( $section,array_merge( [
+        return parent::addDefaultTwigArgs( $section, array_merge( [
             'zone_players' => count($zone->getCitizens()),
             'zone_zombies' => max(0,$zone->getZombies()),
             'can_attack_citizen' => !$this->citizen_handler->isTired($this->getActiveCitizen()) && $this->getActiveCitizen()->getAp() >= 5 && !$this->citizen_handler->isWounded($this->getActiveCitizen()),
@@ -164,6 +167,7 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
             'scout_sense' => $scout_sense,
             'scavenger_sense' => $scavenger_sense,
             'heroics' => $this->getHeroicActions(),
+            'specials' => $this->getSpecialActions(),
             'actions' => $this->getItemActions(),
             'camping' => $this->getCampingActions(),
             'recipes' => $this->getItemCombinations(false),
@@ -182,7 +186,7 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
                 'can_drink' => !$this->citizen_handler->hasStatusEffect($this->getActiveCitizen(), 'hasdrunk'),
                 'can_eat' => !$this->citizen_handler->hasStatusEffect($this->getActiveCitizen(), 'haseaten')
             ]
-        ], $data, $this->get_map_blob()) );
+        ], $data, $this->get_map_blob()), $locale );
     }
 
     public function get_escape_timeout(Citizen $c): int {
@@ -203,7 +207,7 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
      * @param TownHandler $th
      * @return Response
      */
-    public function desert(TownHandler $th): Response
+    public function desert(TownHandler $th, Request $r): Response
     {
         if (!$this->getActiveCitizen()->getHasSeenGazette())
             return $this->redirect($this->generateUrl('game_newspaper'));
@@ -358,7 +362,7 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
             'blueprintFound' => $blueprintFound ?? '',
             'camping_debug' => $camping_debug ?? '',
             'zone_tags' => $zone_tags ?? [],
-        ]) );
+        ], $r->getLocale()) );
     }
 
     /**
@@ -778,7 +782,21 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
             $this->citizen_handler->inflictStatus($mover, "tg_chk_movewb");
 
             // This text is a newly added one, but it breaks the "Sneak out of town"
-            if ($others_are_here && !($zone->getX() === 0 && $zone->getY() === 0)) $this->entity_manager->persist( $this->log->outsideMove( $mover, $zone, $new_zone, true  ) );
+            $smokeBombs = $zone->getChatSilenceTimers();
+            $hideMove = false;
+            foreach ($smokeBombs as $smokeBomb) {
+                /** @var ChatSilenceTimer $smokeBomb */
+                if($smokeBomb->getCitizen() == $mover){
+                    if($smokeBomb->getTime() > new \DateTime("-1min")) {
+                        $hideMove = true;
+                    } else {
+                        $zone->removeChatSilenceTimer($smokeBomb);
+                        $this->entity_manager->remove($smokeBomb);
+                    }
+                }
+                
+            }
+            if ($others_are_here && !($zone->getX() === 0 && $zone->getY() === 0) && !$hideMove) $this->entity_manager->persist( $this->log->outsideMove( $mover, $zone, $new_zone, true  ) );
             if (!($new_zone->getX() === 0 && $new_zone->getY() === 0)) $this->entity_manager->persist( $this->log->outsideMove( $mover, $new_zone, $zone, false ) );
 
             // Banished citizen's stash check
@@ -892,6 +910,15 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
     }
 
     /**
+     * @Route("api/beyond/desert/special_action", name="beyond_desert_special_action_controller")
+     * @param JSONRequestParser $parser
+     * @return Response
+     */
+    public function special_action_house_api(JSONRequestParser $parser): Response {
+        return $this->generic_special_action_api( $parser );
+    }
+
+    /**
      * @Route("api/beyond/desert/camping", name="beyond_desert_camping_controller")
      * @param JSONRequestParser $parser
      * @param InventoryHandler $handler
@@ -942,7 +969,6 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
     public function item_desert_api(JSONRequestParser $parser, InventoryHandler $handler): Response {
         $down_inv = $this->getActiveCitizen()->getZone()->getFloor();
         $escort = $parser->get('escort', null);
-        $citizen = $this->getActiveCitizen();
 
         if ($escort !== null) {
             /** @var Citizen $citizen */
@@ -955,7 +981,7 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
 
         if (!$this->zone_handler->check_cp( $this->getActiveCitizen()->getZone() ) && $this->uncoverHunter($this->getActiveCitizen()))
             $this->addFlash( 'notice', $this->translator->trans('Deine Tarnung ist aufgeflogen!',[], 'game') );
-        return $this->generic_item_api( $up_inv, $down_inv, true, $parser, $handler, $citizen);
+        return $this->generic_item_api( $up_inv, $down_inv, true, $parser, $handler, $this->getActiveCitizen());
     }
 
     /**
@@ -1137,7 +1163,20 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
 
         if ($zone->getRuinDigs() > 0) {
             $zone->setRuinDigs( $zone->getRuinDigs() - 1 );
-            $group = $zone->getPrototype()->getDrops();
+
+            $event_conf_list = $this->conf->getCurrentEvent($zone->getTown())->get(EventConf::EVENT_DIG_RUINS, []);
+            $event_conf = null;
+            foreach ($event_conf_list as $e)
+                if ($e['name'] === $zone->getPrototype()->getIcon())
+                    $event_conf = $e;
+
+
+            $group = $event_conf
+                ? ( $this->random_generator->chance($event_conf['chance'])
+                    ? $this->entity_manager->getRepository(ItemGroup::class)->findOneBy(['name' => $event_conf['group']])
+                    : $zone->getPrototype()->getDrops() )
+                : $zone->getPrototype()->getDrops();
+
             $prototype = $group ? $this->random_generator->pickItemPrototypeFromGroup( $group ) : null;
             if ($prototype) {
                 $item = $this->item_factory->createItem( $prototype );

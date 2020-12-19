@@ -6301,13 +6301,13 @@
         <target>Divers</target>
       </segment>
     </unit>
-    <unit id="9VFJt3E" name="9e61209">
+    <unit id="Rjbh1eD" name="a214ff9">
       <notes>
-        <note category="german">&lt;t-bp_ok&gt;Du liest den {item} und stellst fest, dass es sich um einen Plan für {bp_spawn} handelt.&lt;/t-bp_ok&gt;&lt;t-bp_fail&gt;Du versuchst den {item} zu lesen, kannst seinen Inhalt aber nicht verstehen ...&lt;/t-bp_fail&gt;</note>
+        <note category="german">&lt;t-bp_ok&gt;Du liest den {item} und stellst fest, dass es sich um einen Plan für {bp_spawn} handelt.&lt;/t-bp_ok&gt;&lt;t-bp_parent&gt;{hr}Dafür ist das Bauprojekt {bp_parent} nötig.&lt;/t-bp_parent&gt;&lt;t-bp_fail&gt;Du versuchst den {item} zu lesen, kannst seinen Inhalt aber nicht verstehen ...&lt;/t-bp_fail&gt;</note>
       </notes>
       <segment>
-        <source>&lt;t-bp_ok&gt;Du liest den {item} und stellst fest, dass es sich um einen Plan für {bp_spawn} handelt.&lt;/t-bp_ok&gt;&lt;t-bp_fail&gt;Du versuchst den {item} zu lesen, kannst seinen Inhalt aber nicht verstehen ...&lt;/t-bp_fail&gt;</source>
-        <target><![CDATA[<t-bp_ok>Vous lisez le {item} et constatez qu'il s'agit d'un plan pour {bp_spawn}.</t-bp_ok><t-bp_fail>Vous essayez de lire le {item} mais vous ne comprenez pas un mot de ce qui est écrit...</t-bp_fail>]]></target>
+        <source>&lt;t-bp_ok&gt;Du liest den {item} und stellst fest, dass es sich um einen Plan für {bp_spawn} handelt.&lt;/t-bp_ok&gt;&lt;t-bp_parent&gt;{hr}Dafür ist das Bauprojekt {bp_parent} nötig.&lt;/t-bp_parent&gt;&lt;t-bp_fail&gt;Du versuchst den {item} zu lesen, kannst seinen Inhalt aber nicht verstehen ...&lt;/t-bp_fail&gt;</source>
+        <target><![CDATA[<t-bp_ok>Après examen du plan, vous découvrez qu'il décrit précisément la construction de {bp_spawn}.</t-bp_ok><t-bp_parent>{hr}Ce projet nécessite la construction préalable de : {bp_parent}.</t-bp_parent><t-bp_fail>Vous essayez de lire le {item} mais vous ne comprenez pas un mot de ce qui est écrit...</t-bp_fail>]]></target>
       </segment>
     </unit>
     <unit id="77.Cp5H" name="Verteidigung">
@@ -7298,6 +7298,213 @@
       <segment>
         <source>Diese Trümmerstücke waren mal Teil eines Gegenstandes, den du nicht mehr identifizieren kannst. Die Verformung der Teile lassen vermuten, dass dieser Gegenstand mit hoher Geschwindigkeit am Boden aufgeprallt ist...</source>
         <target>Diese Trümmerstücke waren mal Teil eines Gegenstandes, den du nicht mehr identifizieren kannst. Die Verformung der Teile lassen vermuten, dass dieser Gegenstand mit hoher Geschwindigkeit am Boden aufgeprallt ist...</target>
+      </segment>
+    </unit>
+    <unit id="aKn4VEo" name="Munitionsgriff">
+      <notes>
+        <note category="german">Munitionsgriff</note>
+      </notes>
+      <segment>
+        <source>Munitionsgriff</source>
+        <target>Poignée de munitions</target>
+      </segment>
+    </unit>
+    <unit id="oFVqj4C" name="Eine Handvoll Munition. Aber was hat das für einen Sinn?">
+      <notes>
+        <note category="german">Eine Handvoll Munition. Aber was hat das für einen Sinn?</note>
+      </notes>
+      <segment>
+        <source>Eine Handvoll Munition. Aber was hat das für einen Sinn?</source>
+        <target>Une poignée de munitions. Mais à quoi cela peut-il bien servir ?</target>
+      </segment>
+    </unit>
+    <unit id="gN7yVQC" name="Durchgang in Kraft">
+      <notes>
+        <note category="german">Durchgang in Kraft</note>
+      </notes>
+      <segment>
+        <source>Durchgang in Kraft</source>
+        <target>Passage en Force</target>
+      </segment>
+    </unit>
+    <unit id="KXx_GUV" name="Den Shamane wählen">
+      <notes>
+        <note category="german">Den Shamane wählen</note>
+      </notes>
+      <segment>
+        <source>Den Shamane wählen</source>
+        <target>Voter pour le chaman</target>
+      </segment>
+    </unit>
+    <unit id="Rrvjw6U" name="Den Reiseleiter in der Außenwelt wählen">
+      <notes>
+        <note category="german">Den Reiseleiter in der Außenwelt wählen</note>
+      </notes>
+      <segment>
+        <source>Den Reiseleiter in der Außenwelt wählen</source>
+        <target>Voter pour le guide de l'Outre-Monde</target>
+      </segment>
+    </unit>
+    <unit id="jHDRi5S" name="ae104e2">
+      <notes>
+        <note category="german">Schlechte Nachrichten, das hättest du nicht in den Mund nehmen sollen... Du bist infiziert!</note>
+      </notes>
+      <segment>
+        <source>Schlechte Nachrichten, das hättest du nicht in den Mund nehmen sollen... Du bist infiziert!</source>
+        <target>Mauvaise nouvelle, vous n'auriez peut-être pas dû l'avaler... Vous avez été infecté(e) !</target>
+      </segment>
+    </unit>
+    <unit id="UhcYCoM" name="8c7950c">
+      <notes>
+        <note category="german">Ein Opfer der Großen Seuche zu sein hat dir diesmal nicht viel gebracht... und es sieht nicht gut aus...</note>
+      </notes>
+      <segment>
+        <source>Ein Opfer der Großen Seuche zu sein hat dir diesmal nicht viel gebracht... und es sieht nicht gut aus...</source>
+        <target>Avoir été victime de la Grande Contamination ne vous aura pas sauvé cette fois-ci... et ça pique un peu.</target>
+      </segment>
+    </unit>
+    <unit id="OyENKXh" name="379ab50">
+      <notes>
+        <note category="german">Da hast du wohl Glück gehabt... Als Opfer der Großen Seuche bist du diesmal um eine unangenehme Infektion herumgekommen.</note>
+      </notes>
+      <segment>
+        <source>Da hast du wohl Glück gehabt... Als Opfer der Großen Seuche bist du diesmal um eine unangenehme Infektion herumgekommen.</source>
+        <target>On peut dire que vous avez eu de la chance... Avoir été victime de la Grande Contamination vous aura pour le moins sauvé cette fois-ci. Vous évitez une très désagréable infection.</target>
+      </segment>
+    </unit>
+    <unit id="tT6PQwS" name="Deine Waffe ist durch den harten Aufschlag &lt;strong&gt;kaputt&lt;/strong&gt; gegangen...">
+      <notes>
+        <note category="german">Deine Waffe ist durch den harten Aufschlag &lt;strong&gt;kaputt&lt;/strong&gt; gegangen...</note>
+      </notes>
+      <segment>
+        <source>Deine Waffe ist durch den harten Aufschlag &lt;strong&gt;kaputt&lt;/strong&gt; gegangen...</source>
+        <target><![CDATA[Toutefois, votre arme s'est <strong>cassée</strong> sous le choc...]]></target>
+      </segment>
+    </unit>
+    <unit id="uHEMxan" name="430096c">
+      <notes>
+        <note category="german">&lt;t-kill-latest&gt;Du hast alle Zombies in dieser Zone mit dieser Waffe umgebracht: {item} ! Entspann dich mal... oder vielleicht besser nicht?&lt;/t-kill-latest&gt;&lt;t-kills&gt;Vous avez éliminé {kills} zombie en utilisant {item} . Ha ! Ha ! Un peu plus de chair étalée... Ca soulage de supprimer du zombie de temps en temps.&lt;/t-kills&gt;</note>
+      </notes>
+      <segment>
+        <source>&lt;t-kill-latest&gt;Du hast alle Zombies in dieser Zone mit dieser Waffe umgebracht: {item} ! Entspann dich mal... oder vielleicht besser nicht?&lt;/t-kill-latest&gt;&lt;t-kills&gt;Vous avez éliminé {kills} zombie en utilisant {item} . Ha ! Ha ! Un peu plus de chair étalée... Ca soulage de supprimer du zombie de temps en temps.&lt;/t-kills&gt;</source>
+        <target><![CDATA[<t-kill-latest>Tous les zombies de la zone ont été pulvérisés en utilisant {item} ! Vous pouvez vous détendre... Ou pas...</t-kill-latest><t-kills>Vous avez éliminé {kills} zombie en utilisant {item} . Ha ! Ha ! Un peu plus de chair étalée... Ca soulage de supprimer du zombie de temps en temps.</t-kills>]]></target>
+      </segment>
+    </unit>
+    <unit id="Ri.5LgC" name="1376d54">
+      <notes>
+        <note category="german">Du hast das Gebiet mit deinem {item} teilweise geräumt ({bury_count} Punkte geräumt).</note>
+      </notes>
+      <segment>
+        <source>Du hast das Gebiet mit deinem {item} teilweise geräumt ({bury_count} Punkte geräumt).</source>
+        <target>Vous avez partiellement nettoyé la zone grace à votre {item} ({bury_count} points déblayés)...</target>
+      </segment>
+    </unit>
+    <unit id="byQCsY5" name="6ddde30">
+      <notes>
+        <note category="german">Du hast alle Zombies in dieser Zone mit dieser Waffe umgebracht: {item} ! Entspann dich mal... oder vielleicht besser nicht?</note>
+      </notes>
+      <segment>
+        <source>Du hast alle Zombies in dieser Zone mit dieser Waffe umgebracht: {item} ! Entspann dich mal... oder vielleicht besser nicht?</source>
+        <target>Tous les zombies de la zone ont été pulvérisés en utilisant {item} ! Vous pouvez vous détendre... Ou pas...</target>
+      </segment>
+    </unit>
+    <unit id="5DH1uFn" name="b181e5d">
+      <notes>
+        <note category="german">Du schlägst einen Zombie mit aller Kraft, mehrmals, aber er bricht nicht unter deinen Schlägen zusammen!</note>
+      </notes>
+      <segment>
+        <source>Du schlägst einen Zombie mit aller Kraft, mehrmals, aber er bricht nicht unter deinen Schlägen zusammen!</source>
+        <target>Vous frappez un zombie de toutes vos forces, plusieurs fois, mais celui-ci ne s'effrondre pas sous vos coups !</target>
+      </segment>
+    </unit>
+    <unit id="y3qU7qO" name="b9071fe">
+      <notes>
+        <note category="german">Du wirfst eine Rauchbombe in diese Zone und ein Großes Durcheinander bricht aus!{hr}Deine &lt;strong&gt;nächste Bewegungsaktion&lt;/strong&gt; wird night in das Register eingetragen, wenn sie &lt;strong&gt;innerhalb von 1 Minute&lt;/strong&gt; erfolgt.</note>
+      </notes>
+      <segment>
+        <source>Du wirfst eine Rauchbombe in diese Zone und ein Großes Durcheinander bricht aus!{hr}Deine &lt;strong&gt;nächste Bewegungsaktion&lt;/strong&gt; wird night in das Register eingetragen, wenn sie &lt;strong&gt;innerhalb von 1 Minute&lt;/strong&gt; erfolgt.</source>
+        <target><![CDATA[Vous jetez votre fumigène dans la zone, semant la plus grande confusion !{hr}Votre <strong>prochain déplacement</strong> ne sera pas consigné au registre s'il est effectué <strong>d'ici 1 minute au plus tard</strong>.]]></target>
+      </segment>
+    </unit>
+    <unit id="fqH14J." name="Weihnachts-Süßigkeiten">
+      <notes>
+        <note category="german">Weihnachts-Süßigkeiten</note>
+      </notes>
+      <segment>
+        <source>Weihnachts-Süßigkeiten</source>
+        <target>Bonbon de Noël</target>
+      </segment>
+    </unit>
+    <unit id="ijOQByU" name="309fa3e">
+      <notes>
+        <note category="german">Es sieht aus wie eine Art Schokoladenbonbon mit alkoholischem Likör darin. Oder eine andere Füllung...</note>
+      </notes>
+      <segment>
+        <source>Es sieht aus wie eine Art Schokoladenbonbon mit alkoholischem Likör darin. Oder eine andere Füllung...</source>
+        <target>Ça ressemble à un genre de petit bonbon au chocolat, qui contient de la liqueur alcoolisé. Ou un quelconque autre produit...</target>
+      </segment>
+    </unit>
+    <unit id="1cAIp2n" name="Du hast {item} getrunken, aber scheinbar geschieht nichts...">
+      <notes>
+        <note category="german">Du hast {item} getrunken, aber scheinbar geschieht nichts...</note>
+      </notes>
+      <segment>
+        <source>Du hast {item} getrunken, aber scheinbar geschieht nichts...</source>
+        <target>Vous avez bu {item} mais rien ne semble se passer ...</target>
+      </segment>
+    </unit>
+    <unit id="MDcK7Yw" name="Geschenkpaket">
+      <notes>
+        <note category="german">Geschenkpaket</note>
+      </notes>
+      <segment>
+        <source>Geschenkpaket</source>
+        <target>Colis postal</target>
+      </segment>
+    </unit>
+    <unit id="kdGOsHH" name="cfe7609">
+      <notes>
+        <note category="german">Die Adresse ist nicht mehr lesbar. Es scheint etwas drin zu sein... Frohe Weihnachten!</note>
+      </notes>
+      <segment>
+        <source>Die Adresse ist nicht mehr lesbar. Es scheint etwas drin zu sein... Frohe Weihnachten!</source>
+        <target>Un colis dont l'adresse est aujourd'hui illisible. Et on dirait bien qu'il y a quelque chose à l'intérieur... C'est Noël.</target>
+      </segment>
+    </unit>
+    <unit id="YqfUhZc" name="Großes Geschenkpaket">
+      <notes>
+        <note category="german">Großes Geschenkpaket</note>
+      </notes>
+      <segment>
+        <source>Großes Geschenkpaket</source>
+        <target>Gros colis postal</target>
+      </segment>
+    </unit>
+    <unit id="r4cpVVY" name="Du hast einen Sandball in {citizen}s Gesicht geworfen.">
+      <notes>
+        <note category="german">Du hast einen Sandball in {citizen}s Gesicht geworfen.</note>
+      </notes>
+      <segment>
+        <source>Du hast einen Sandball in {citizen}s Gesicht geworfen.</source>
+        <target>Vous avez jeté une boule de sable au visage de {citizen}.</target>
+      </segment>
+    </unit>
+    <unit id="_2J5LX7" name="Du schluckst das Bonbon mit einem Lächeln auf den Lippen herunter.">
+      <notes>
+        <note category="german">Du schluckst das Bonbon mit einem Lächeln auf den Lippen herunter.</note>
+      </notes>
+      <segment>
+        <source>Du schluckst das Bonbon mit einem Lächeln auf den Lippen herunter.</source>
+        <target>Vous avalez un bonbon de Noël en souriant...</target>
+      </segment>
+    </unit>
+    <unit id="n50zH5w" name="59a5c87">
+      <notes>
+        <note category="german">Du schluckst das Bonbon mit einem Lächeln auf den Lippen herunter... das jedoch schnell wieder verschwindet! Die Füllung besteht aus einem starken psychoaktiven Gift!&lt;t-stat-up-terror&gt;{hr}Du bist vor Angst erstarrt!&lt;/t-stat-up-terror&gt;</note>
+      </notes>
+      <segment>
+        <source>Du schluckst das Bonbon mit einem Lächeln auf den Lippen herunter... das jedoch schnell wieder verschwindet! Die Füllung besteht aus einem starken psychoaktiven Gift!&lt;t-stat-up-terror&gt;{hr}Du bist vor Angst erstarrt!&lt;/t-stat-up-terror&gt;</source>
+        <target><![CDATA[Vous avalez un bonbon de Noël en souriant... mais vous déchantez rapidement. Le bonbon contenait un puissant poison psychotrope !<t-stat-up-terror>{hr}Vous êtes maintenant terrorisé(e)</t-stat-up-terror>]]></target>
       </segment>
     </unit>
   </file>

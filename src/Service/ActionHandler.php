@@ -4,11 +4,15 @@
 namespace App\Service;
 
 
+use App\Entity\ActionCounter;
 use App\Entity\BuildingPrototype;
 use App\Entity\CampingActionPrototype;
 use App\Entity\CauseOfDeath;
+use App\Entity\ChatSilenceTimer;
 use App\Entity\Citizen;
 use App\Entity\CitizenHomeUpgrade;
+use App\Entity\CitizenRole;
+use App\Entity\CitizenVote;
 use App\Entity\DigTimer;
 use App\Entity\EscapeTimer;
 use App\Entity\EscortActionGroup;
@@ -18,6 +22,7 @@ use App\Entity\Item;
 use App\Entity\ItemAction;
 use App\Entity\ItemPrototype;
 use App\Entity\ItemTargetDefinition;
+use App\Entity\LogEntryTemplate;
 use App\Entity\PictoPrototype;
 use App\Entity\Recipe;
 use App\Entity\RequireDay;
@@ -26,9 +31,11 @@ use App\Entity\Requirement;
 use App\Entity\Result;
 use App\Entity\RolePlayText;
 use App\Entity\RuinZone;
+use App\Entity\TownLogEntry;
 use App\Entity\Zone;
 use App\Structures\EscortItemActionSet;
 use App\Structures\ItemRequest;
+use App\Structures\MyHordesConf;
 use App\Structures\TownConf;
 use App\Translation\T;
 use DateTime;
@@ -400,6 +407,22 @@ class ActionHandler
     }
 
     /**
+     * @param Citizen $citizen
+     * @param ItemAction[] $available
+     * @param ItemAction[] $crossed
+     */
+    public function getAvailableISpecialActions(Citizen $citizen, ?array &$available, ?array &$crossed ) {
+        $available = $crossed = [];
+
+        foreach ($citizen->getSpecialActions() as $special) {
+            $mode = $this->evaluate( $citizen, null, null, $special->getAction(), $tx );
+            if ($mode >= self::ActionValidityAllow) $available[] = $special;
+            else if ($mode >= self::ActionValidityCrossed) $crossed[] = $special;
+        }
+
+    }
+
+    /**
      * @param Item|ItemPrototype|Citizen $target
      * @param ItemTargetDefinition $definition
      * @return bool
@@ -425,7 +448,10 @@ class ActionHandler
                 if (!$target->getZone() || !$target->getAlive()) return false;
                 if ( round( sqrt(pow($target->getZone()->getX(),2 ) + pow($target->getZone()->getY(),2 )) ) > 2 ) return false;
                 break;
-
+            case ItemTargetDefinition::ItemCitizenType: case ItemTargetDefinition::ItemCitizenOnZoneType: case ItemTargetDefinition::ItemCitizenOnZoneSBType:
+                if (!is_a( $target, Citizen::class )) return false;
+                if (!$target->getAlive()) return false;
+                break;
             default: return false;
         }
 
@@ -459,6 +485,12 @@ class ActionHandler
 
     private function wrap_concat(array $c) {
         return implode(', ', array_map(function(array $e): string {
+            return $this->wrap( $e[1], $e[0] );
+        }, $this->reformat_prototype_list($c)));
+    }
+
+    private function wrap_concat_hierarchy(array $c) {
+        return implode(' > ', array_map(function(array $e): string {
             return $this->wrap( $e[1], $e[0] );
         }, $this->reformat_prototype_list($c)));
     }
@@ -515,6 +547,7 @@ class ActionHandler
             'items_consume' => [],
             'items_spawn' => [],
             'bp_spawn' => [],
+            'bp_parent' => [],
             'rp_text' => '',
             'casino' => '',
             'zone' => null,
@@ -523,6 +556,8 @@ class ActionHandler
             'message' => [
             	$action->getMessage()
             ],
+            'kills' => 0,
+            'bury_count' => 0
         ];
 
         if ($citizen->activeExplorerStats())
@@ -635,12 +670,22 @@ class ActionHandler
                 } );
 
                 if (!empty($filtered)) {
+                    /** @var BuildingPrototype $pick */
                     $pick = $this->random_generator->pick( $filtered );
                     $town = $citizen->getTown();
                     if ($this->town_handler->addBuilding( $town, $pick )) {
                         $tags[] = 'bp_ok';
                         $execute_info_cache['bp_spawn'][] = $pick;
                         $this->entity_manager->persist( $this->log->constructionsNewSite( $citizen, $pick ) );
+                        if($pick->getParent()){
+                            $tags[] = 'bp_parent';
+                            $parent = $pick->getParent();
+                            do {
+                                $execute_info_cache['bp_parent'][] = $parent;
+                                $parent = $parent->getParent();
+                            } while($parent !== null);
+                            $execute_info_cache['bp_parent'] = array_reverse($execute_info_cache['bp_parent']);
+                        }
                     }
 
                 } else $tags[] = 'bp_fail';
@@ -715,10 +760,15 @@ class ActionHandler
                 if ($citizen->getZone() && !$citizen->activeExplorerStats()) {
                     $kills = min($citizen->getZone()->getZombies(), mt_rand( $zombie_kill->getMin(), $zombie_kill->getMax() ));
                     if ($kills > 0) {
-                        $tags[] = 'kills';
                         $citizen->getZone()->setZombies( $citizen->getZone()->getZombies() - $kills );
+                        $execute_info_cache['kills'] = $kills;
                         $this->entity_manager->persist( $this->log->zombieKill( $citizen, $item ? $item->getPrototype() : null, $kills ) );
                         $this->picto_handler->give_picto($citizen, 'r_killz_#00', $kills);
+                        if($citizen->getZone()->getZombies() <= 0){
+                            $tags[] = 'kill-latest';
+                        } else {
+                            $tags[] = 'kills';
+                        }
                     }
                 }
 
@@ -754,7 +804,9 @@ class ActionHandler
                         }
 
                 if ($zoneEffect->getUncoverRuin()) {
-                    $base_zone->setBuryCount( max(0, $base_zone->getBuryCount() - mt_rand(2,3)) );
+                    $count = min(mt_rand(2,5), $base_zone->getBuryCount());
+                    $execute_info_cache['bury_count'] = $count;
+                    $base_zone->setBuryCount( max(0, $base_zone->getBuryCount() - $count ));
                     if ($base_zone->getPrototype())
                         $this->entity_manager->persist( $this->log->outsideUncover( $citizen ) );
                 }
@@ -771,14 +823,26 @@ class ActionHandler
                         $base_zone->addEscapeTimer((new EscapeTimer())->setTime(new DateTime("+{$zoneEffect->getEscape()}sec")));
                         $tags[] = 'escape';
                     }
-
-
                 }
 
+                if ($zoneEffect->getImproveLevel()) {
+                    $base_zone->setImprovementLevel( $base_zone->getImprovementLevel() + $zoneEffect->getImproveLevel() );
+                }
 
-              if ($zoneEffect->getImproveLevel()) {
-                $base_zone->setImprovementLevel( $base_zone->getImprovementLevel() + $zoneEffect->getImproveLevel() );
-              }
+                if($zoneEffect->getChatSilence() !== null && $zoneEffect->getChatSilence() > 0) {
+                    $base_zone->addChatSilenceTimer((new ChatSilenceTimer())->setTime(new DateTime("+{$zoneEffect->getChatSilence()}sec"))->setCitizen($citizen));
+                    $limit = new DateTime("-3min");
+                    $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneBy(['name' => 'smokeBombReplacement']);
+
+                    foreach ($this->entity_manager->getRepository(TownLogEntry::class)->findByFilter( $base_zone->getTown(), null, null, $base_zone, null, null ) as $entry)
+                        /** @var TownLogEntry $entry */
+                        if ($entry->getLogEntryTemplate() !== null){
+                            if($entry->getTimestamp() > $limit) {
+                                $entry->setLogEntryTemplate($template);
+                                $this->entity_manager->persist( $entry );
+                            }
+                        }
+                }
             }
 
             if ($well = $result->getWell()) {
@@ -801,7 +865,7 @@ class ActionHandler
                 elseif ($text) {
                     $tags[] = 'rp_ok';
                     $foundrp = new FoundRolePlayText();
-                    $foundrp->setUser($citizen->getUser())->setText($text);
+                    $foundrp->setUser($citizen->getUser())->setText($text)->setNew(true);
                     $citizen->getUser()->getFoundTexts()->add($foundrp);
 
                     $this->entity_manager->persist($foundrp);
@@ -1030,6 +1094,11 @@ class ActionHandler
                             $this->entity_manager->persist( $dig_timer );
                         }
 
+                        if ($result->getCustom() === 8){
+                            foreach ($citizen->getValidLeadingEscorts() as $escort)
+                                $escort->getCitizen()->getEscortSettings()->setLeader(null);
+                        }
+
                         if ($jumper->getEscortSettings()) {
                             $remove[] = $jumper->getEscortSettings();
                             $jumper->setEscortSettings(null);
@@ -1128,6 +1197,55 @@ class ActionHandler
                         }
                         break;
                     }
+
+                    // Vote for a role
+                    case 18:case 19: {
+                        $role_name = "";
+                        switch($result->getCustom()){
+                            case 18:
+                                $role_name = "shaman";
+                                break;
+                            case 19:
+                                $role_name = "guide";
+                                break;
+                        }
+                        if($role_name == "") break;
+
+                        if (!is_a( $target, Citizen::class )) break;
+
+                        $role = $this->entity_manager->getRepository(CitizenRole::class)->findOneBy(['name' => $role_name]);
+                        if(!$role) break;
+
+                        $last_one = $this->entity_manager->getRepository(Citizen::class)->findLastOneByRoleAndTown($role, $target->getTown());
+                        if($last_one->getAlive()) break;
+                        
+                        // Add our vote !
+                        $citizenVote = new CitizenVote();
+                        $citizenVote->setAutor($citizen)
+                            ->setVotedCitizen($target)
+                            ->setRole($role);
+
+                        $citizen->addVote($citizenVote);
+
+                        // Persist
+                        $this->entity_manager->persist($citizenVote);
+                        $this->entity_manager->persist($citizen);
+                        
+                        break;
+                    }
+
+                    // Sandballs, bitches!
+                    case 20: {
+                        $target->getSpecificActionCounter(ActionCounter::ActionTypeSandballHit)->increment();
+
+                        $hurt = !$this->citizen_handler->isWounded($target) && $this->random_generator->chance( $town_conf->get(TownConf::CONF_MODIFIER_SANDBALL_NASTYNESS, 0.0) );
+                        if ($hurt) $this->citizen_handler->inflictWound($target);
+
+                        $this->entity_manager->persist( $this->log->sandballAttack( $citizen, $target, $hurt ) );
+                        $this->entity_manager->persist($target);
+                        break;
+                    }
+
                 }
 
                 if ($ap) {
@@ -1169,28 +1287,31 @@ class ActionHandler
         if(!empty($execute_info_cache['message'])) {
         	// We order the messages
         	ksort($execute_info_cache['message']);
-
         	// We translate & replace placeholders in each messages
         	$addedContent = [];
         	foreach ($execute_info_cache['message'] as $contentMessage) {
         		$contentMessage = $this->translator->trans( $contentMessage, [
-	                '{ap}'        => $execute_info_cache['ap'],
-	                '{minus_ap}'  => -$execute_info_cache['ap'],
-	                '{well}'      => $execute_info_cache['well'],
-	                '{zombies}'   => $execute_info_cache['zombies'],
-	                '{item}'      => $this->wrap($execute_info_cache['item']),
-	                '{target}'    => $execute_info_cache['target'] ? $this->wrap($execute_info_cache['target']) : "-",
-	                '{citizen}'   => $execute_info_cache['citizen'] ? $this->wrap($execute_info_cache['citizen']) : "-",
-	                '{item_from}' => $execute_info_cache['item_morph'][0] ? ($this->wrap($execute_info_cache['item_morph'][0])) : "-",
-	                '{item_to}'   => $execute_info_cache['item_morph'][1] ? ($this->wrap($execute_info_cache['item_morph'][1])) : "-",
-	                '{target_from}' => $execute_info_cache['item_target_morph'][0] ? ($this->wrap($execute_info_cache['item_target_morph'][0])) : "-",
-	                '{target_to}'   => $execute_info_cache['item_target_morph'][1] ? ($this->wrap($execute_info_cache['item_target_morph'][1])) : "-",
+	                '{ap}'            => $execute_info_cache['ap'],
+	                '{minus_ap}'      => -$execute_info_cache['ap'],
+	                '{well}'          => $execute_info_cache['well'],
+	                '{zombies}'       => $execute_info_cache['zombies'],
+	                '{item}'          => $this->wrap($execute_info_cache['item']),
+	                '{target}'        => $execute_info_cache['target'] ? $this->wrap($execute_info_cache['target']) : "-",
+	                '{citizen}'       => $execute_info_cache['citizen'] ? $this->wrap($execute_info_cache['citizen']) : "-",
+	                '{item_from}'     => $execute_info_cache['item_morph'][0] ? ($this->wrap($execute_info_cache['item_morph'][0])) : "-",
+	                '{item_to}'       => $execute_info_cache['item_morph'][1] ? ($this->wrap($execute_info_cache['item_morph'][1])) : "-",
+	                '{target_from}'   => $execute_info_cache['item_target_morph'][0] ? ($this->wrap($execute_info_cache['item_target_morph'][0])) : "-",
+	                '{target_to}'     => $execute_info_cache['item_target_morph'][1] ? ($this->wrap($execute_info_cache['item_target_morph'][1])) : "-",
 	                '{items_consume}' => $this->wrap_concat($execute_info_cache['items_consume']),
 	                '{items_spawn}'   => $this->wrap_concat($execute_info_cache['items_spawn']),
 	                '{bp_spawn}'      => $this->wrap_concat($execute_info_cache['bp_spawn']),
+	                '{bp_parent}'     => $this->wrap_concat_hierarchy($execute_info_cache['bp_parent']),
 	                '{rp_text}'       => $this->wrap( $execute_info_cache['rp_text'] ),
 	                '{zone}'          => $execute_info_cache['zone'] ? $this->wrap( "{$execute_info_cache['zone']->getX()} / {$execute_info_cache['zone']->getY()}" ) : '',
 	                '{casino}'        => $execute_info_cache['casino'],
+	                '{kills}'         => $execute_info_cache['kills'],
+	                '{bury_count}'    => $execute_info_cache['bury_count'],
+	                '{hr}'            => "<hr />",
 	            ], 'items' );
 	        	do {
 	                $contentMessage = preg_replace_callback( '/<t-(.*?)>(.*?)<\/t-\1>/' , function(array $m) use ($tags): string {
@@ -1202,7 +1323,7 @@ class ActionHandler
 	                    return !in_array( $tag, $tags ) ? $text : '';
 	                }, $contentMessage, -1, $d);
 	            } while ($c > 0 || $d > 0);
-	            $addedContent[] = $contentMessage;
+                $addedContent[] = $contentMessage;
         	}
 
         	// We remove empty elements

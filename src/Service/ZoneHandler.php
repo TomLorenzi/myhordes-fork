@@ -122,10 +122,9 @@ class ZoneHandler
         $event_group = null;
 
         // Get event specific items
-        $event = $this->conf->getCurrentEvent($zone->getTown())->get(EventConf::EVENT_GROUP_DIG, '');
-        if($event !== '') {
-            $event_group = $this->entity_manager->getRepository(ItemGroup::class)->findOneBy(['name' => $event]);
-        }
+        $event = $this->conf->getCurrentEvent($zone->getTown())->get(EventConf::EVENT_DIG_DESERT_GROUP, null);
+        $event_chance = $this->conf->getCurrentEvent($zone->getTown())->get(EventConf::EVENT_DIG_DESERT_CHANCE, 1.0);
+        if ($event && $event_chance > 0) $event_group = $this->entity_manager->getRepository(ItemGroup::class)->findOneBy(['name' => $event]);
 
         $wrap = function(array $a) {
             return implode(', ', array_map(function(ItemPrototype $p) {
@@ -158,9 +157,14 @@ class ZoneHandler
                     if ($this->citizen_handler->hasStatusEffect( $timer->getCitizen(), 'camper' )) $factor += 0.1;
                     if ($this->citizen_handler->hasStatusEffect( $timer->getCitizen(), 'wound5' )) $factor -= 0.3; // Totally arbitrary
                     if ($this->citizen_handler->hasStatusEffect( $timer->getCitizen(), 'drunk'  )) $factor -= 0.3; // Totally arbitrary
-                    $item_prototype = $this->random_generator->chance(max(0.1, $factor * ($zone->getDigs() > 0 ? 0.6 : 0.3 )))
-                        ? $this->random_generator->pickItemPrototypeFromGroup( $zone->getDigs() > 0 ? ($event_group !== null ? ($this->random_generator->chance(0.5) ? $base_group : $event_group) : $base_group) : $empty_group )
-                        : null;
+
+                    $total_dig_chance = max(0.1, $factor * ($zone->getDigs() > 0 ? 0.6 : 0.3 ));
+
+                    $item_prototype = $this->random_generator->chance($total_dig_chance)
+                        ? $this->random_generator->pickItemPrototypeFromGroup( $zone->getDigs() > 0 ? $base_group : $empty_group )
+                        : ($event_group && $zone->getDigs() > 0 && $this->random_generator->chance($total_dig_chance * $event_chance)
+                            ? $this->random_generator->pickItemPrototypeFromGroup( $event_group )
+                            : null);
 
                     if ($active && $current_citizen->getId() === $active->getId()) {
                         $chances_by_player++;
@@ -285,11 +289,11 @@ class ZoneHandler
 
         // Respawn
         $d = $town->getDay();
-        if ($mode === self::RespawnModeForce || ($mode === self::RespawnModeAuto && $d < 3 && count($empty_zones) > (count($zones)* 18/20))) {
+        if ($mode === self::RespawnModeForce || ($mode === self::RespawnModeAuto && $d >= 3 && count($empty_zones) > (count($zones)* 18/20))) {
             $keys = $d == 1 ? [array_rand($empty_zones)] : array_rand($empty_zones, $d);
             foreach ($keys as $spawn_zone_id)
                 /** @var Zone $spawn_zone */
-                $zone_db[ $zones[$spawn_zone_id]->getX() ][ $zones[$spawn_zone_id]->getY() ] = mt_rand(1,6);
+                $zone_db[ $zones[$spawn_zone_id]->getX() ][ $zones[$spawn_zone_id]->getY() ] = mt_rand(1,intval($town->getDay() / 2));
             $cycles += ceil($d/2);
         }
 
@@ -360,6 +364,8 @@ class ZoneHandler
         if (!count($zone->getCitizens())) {
             foreach ($zone->getEscapeTimers() as $et)
                 $this->entity_manager->remove( $et );
+            foreach ($zone->getChatSilenceTimers() as $cst)
+                $this->entity_manager->remove( $cst );
             foreach ($this->entity_manager->getRepository(TownLogEntry::class)->findByFilter( $zone->getTown(), null, null, $zone, null, null ) as $entry)
                 /** @var TownLogEntry $entry */
                 if ($entry->getLogEntryTemplate() === null || $entry->getLogEntryTemplate()->getClass() !== LogEntryTemplate::ClassCritical)

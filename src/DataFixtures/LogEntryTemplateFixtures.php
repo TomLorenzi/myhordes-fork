@@ -59,9 +59,11 @@ class LogEntryTemplateFixtures extends Fixture
         ['text'=>'Der Bürger %citizen% hat ein geheimes Versteck gefunden (vermutlich das eines verbannten Mitbürgers)! Es enthielt %items%.', 'name'=>'outsideFoundHiddenItems', 'type'=>LogEntryTemplate::TypeVarious, 'class'=>LogEntryTemplate::ClassInfo, 'secondaryType'=>null, 'variableTypes'=>array(['type'=>"citizen",'name'=>'citizen'],['type'=>"list",'name'=>'items','listType'=>'item'])],
 
         ['text'=>'Der Bau des Gebäudes Alles oder nichts hat der Stadt %def% vorübergehende Verteidungspunkte eingebracht. Allerdings wurde dabei der gesamte Inhalt der Bank zerstört! Hoffen wir, dass es das wert war...', 'name'=>'constructionsBuildingCompleteAllOrNothing', 'type'=>LogEntryTemplate::TypeNightly, 'class'=>LogEntryTemplate::ClassCritical, 'secondaryType'=>null, 'variableTypes'=>array(['type'=>"num",'name'=>'def'])],
-        ['text'=>'%zombie% ist von den Toten auferstanden und hat %victim% zerfleischt!', 'name'=>'nightlyInternalAttackKill', 'type'=>LogEntryTemplate::TypeNightly, 'class'=>LogEntryTemplate::ClassCritical, 'secondaryType'=>null, 'variableTypes'=>array(['type'=>"citizen",'name'=>'zombie'],['type'=>"citizen",'name'=>'victim'])],
+        ['text'=>'Die in der Stadt liegengebliebenen Körper der ehemaligen Einwohner erwachten in der Zwischenzeit wieder zu Leben...', 'name'=>'nightlyInternalAttackStart', 'type'=>LogEntryTemplate::TypeNightly, 'class'=>LogEntryTemplate::ClassCritical, 'secondaryType'=>null, 'variableTypes'=>array()],
+        ['text'=>'<i class="dagger">†</i> %zombie% ist gestern hungrig zum Haus von %victim% gestapft. Nachdem er die Tür mit voller Wucht eingetreten hatte, packte er sein Opfer am Haar und schleuderte es mit voller Wucht gegen die Wand... Einige Schädelsplitter wurden sogar im Schlafzimmer gefunden. Vergesst nie die Leichen zu recyclen. Nie!!', 'name'=>'nightlyInternalAttackKill', 'type'=>LogEntryTemplate::TypeNightly, 'class'=>LogEntryTemplate::ClassCritical, 'secondaryType'=>null, 'variableTypes'=>array(['type'=>"citizen",'name'=>'zombie'],['type'=>"citizen",'name'=>'victim'])],
         ['text'=>'<i class="dagger">†</i> %zombie% wurde schreiend und sabbernd am Brunnen angetroffen. Er hielt einen großen Felsen in seinen Händen und schickte  sich an, diesen in den Brunnen zu werfen. Leider konnte ihn keiner mehr rechtzeitig hindern, sodass uns jetzt %num% Wasserrationnen fehlen! Was für eine Katastrophe!', 'name'=>'nightlyInternalAttackWell', 'type'=>LogEntryTemplate::TypeNightly, 'class'=>LogEntryTemplate::ClassDanger, 'secondaryType'=>LogEntryTemplate::TypeWell, 'variableTypes'=>array(['type'=>"citizen",'name'=>'zombie'],['type'=>"num",'name'=>'num'])],
         ['text'=>'%zombie% ist von den Toten auferstanden und hat die Baustelle für %building% verwüstet!', 'name'=>'nightlyInternalAttackDestroy', 'type'=>LogEntryTemplate::TypeNightly, 'class'=>LogEntryTemplate::ClassDanger, 'secondaryType'=>LogEntryTemplate::TypeConstruction, 'variableTypes'=>array(['type'=>"citizen",'name'=>'zombie'],['type'=>"plan",'name'=>'building'])],
+        ['text'=>'%count% Zombies wurden in der Stadt gesichtet, aber sie haben niemanden angegriffen: Was für ein Glücksfall...', 'name'=>'nightlyInternalAttackNothingSummary', 'type'=>LogEntryTemplate::TypeNightly, 'class'=>LogEntryTemplate::ClassDanger, 'secondaryType'=>null, 'variableTypes'=>array(['type'=>"num",'name'=>'count'])],
         ['text'=>'%zombie% ist von den Toten auferstanden und hat unanständige Nachrichten auf die Heldentafel geschrieben!', 'name'=>'nightlyInternalAttackNothing1', 'type'=>LogEntryTemplate::TypeNightly, 'class'=>LogEntryTemplate::ClassDanger, 'secondaryType'=>null, 'variableTypes'=>array(['type'=>"citizen",'name'=>'zombie'])],
         ['text'=>'%zombie% ist von den Toten auferstanden und hat sich wieder hingelegt!', 'name'=>'nightlyInternalAttackNothing2', 'type'=>LogEntryTemplate::TypeNightly, 'class'=>LogEntryTemplate::ClassDanger, 'secondaryType'=>null, 'variableTypes'=>array(['type'=>"citizen",'name'=>'zombie'])],
         ['text'=>'%zombie% ist von den Toten auferstanden und verlangt nach einem Kaffee!', 'name'=>'nightlyInternalAttackNothing3', 'type'=>LogEntryTemplate::TypeNightly, 'class'=>LogEntryTemplate::ClassDanger, 'secondaryType'=>null, 'variableTypes'=>array(['type'=>"citizen",'name'=>'zombie'])],
@@ -106,6 +108,7 @@ class LogEntryTemplateFixtures extends Fixture
         ['text'=>'%citizen% hat %target_citizen% aus der Eskorte entlassen.', 'name'=>'beyondEscortReleaseCitizen', 'type'=>LogEntryTemplate::TypeVarious, 'class'=>LogEntryTemplate::ClassInfo, 'secondaryType'=>null, 'variableTypes'=>array(['type'=>"citizen",'name'=>'citizen'],['type'=>"citizen",'name'=>'target_citizen'])],
         ['text'=>'%citizen% starb, als er auf lächerliche Weise von der Mauer fiel!', 'name'=>'citizenDeathOnWatch', 'type'=>LogEntryTemplate::TypeCitizens, 'class'=>LogEntryTemplate::ClassCritical, 'secondaryType'=>null, 'variableTypes'=>array(['type'=>"citizen",'name'=>'citizen'])],
         ['text'=>'Tapfere Bürger haben auf den Stadtmauern Stellung bezogen : %citizens%', 'name'=>'nightlyAttackWatchers', 'type'=>LogEntryTemplate::TypeNightly, 'class'=>LogEntryTemplate::ClassCritical, 'secondaryType'=>null, 'variableTypes'=>array(['type'=>"list",'name'=>'citizens','listType' =>'citizen'])],
+        ['text'=>'[ Es riecht nach Tannenzapfen... ]', 'name'=>'smokeBombReplacement', 'type'=>LogEntryTemplate::TypeVarious, 'class'=>LogEntryTemplate::ClassInfo, 'secondaryType'=>null, 'variableTypes'=>array()],
 
         ['text'=>'%attacker% hat %defender% gewalttätig angegriffen und verwundet!', 'name'=>'citizenAttackWounded', 'type'=>LogEntryTemplate::TypeCitizens, 'class'=>LogEntryTemplate::ClassWarning, 'secondaryType'=>LogEntryTemplate::TypeHome, 'variableTypes'=>array(['type'=>"citizen",'name'=>'attacker'], ['type'=>"citizen",'name'=>'defender'])],
         ['text'=>'%attacker% hat %defender% gewalttätig angegriffen!', 'name'=>'citizenAttack', 'type'=>LogEntryTemplate::TypeCitizens, 'class'=>LogEntryTemplate::ClassWarning, 'secondaryType'=>LogEntryTemplate::TypeHome, 'variableTypes'=>array(['type'=>"citizen",'name'=>'attacker'], ['type'=>"citizen",'name'=>'defender'])],
@@ -122,6 +125,9 @@ class LogEntryTemplateFixtures extends Fixture
 
         ['text'=>'%master% hat %item% nach <strong>[%x%/%y%]</strong> <strong>katapultiert</strong>!', 'name'=>'catapultUsage',  'type'=>LogEntryTemplate::TypeCatapult,'class'=>LogEntryTemplate::ClassInfo, 'secondaryType'=>null,'variableTypes'=>array(['type'=>"citizen",'name'=>'master'],['type'=>'num','name'=>'x'],['type'=>'num','name'=>'y'],['type'=>"item",'name'=>'item'])],
         ['text'=>'Das Katapult der Stadt hat %item% auf diese Zone geschleudert.', 'name'=>'catapultImpact', 'type'=>LogEntryTemplate::TypeVarious, 'class'=>LogEntryTemplate::ClassCritical, 'secondaryType'=>LogEntryTemplate::TypeBank,'variableTypes'=>array(['type'=>"item",'name'=>'item'])],
+
+        ['text'=>'%attacker% hat %defender% mit einem üblen Sandballwurf verwundet. Autsch, das hat sicher weh getan...!', 'name'=>'sandballAttackWounded', 'type'=>LogEntryTemplate::TypeVarious, 'class'=>LogEntryTemplate::ClassWarning, 'secondaryType'=>null, 'variableTypes'=>array(['type'=>"citizen",'name'=>'attacker'], ['type'=>"citizen",'name'=>'defender'])],
+        ['text'=>'%attacker% hat %defender% einen Sandball direkt ins Gesicht geworfen!', 'name'=>'sandballAttack', 'type'=>LogEntryTemplate::TypeVarious, 'class'=>LogEntryTemplate::ClassWarning, 'secondaryType'=>null, 'variableTypes'=>array(['type'=>"citizen",'name'=>'attacker'], ['type'=>"citizen",'name'=>'defender'])],
 
         // Gazette: Fun Texts
         ['text'=>'Gestern war ein unbedeutender Tag. Einem Gerücht zufolge wurden %citizen1% und %citizen2% dabei beobachtet, wie sie zusammen im Brunnen badeten. Wenn morgen alle mit einer Pilzinfektion flach liegen, ist ja wohl klar, an wem das lag.',
@@ -526,12 +532,24 @@ class LogEntryTemplateFixtures extends Fixture
                 ['type'=>"citizen",'name'=>'cadaver1'],
             ],
         ],
-        // Devastated town
-        ['text'=>'Die Stadt ist zerstört! Flieht, irh Narren!',
-            'name'=>'gazetteTownVanished_001',
+
+        // Text that appears the night the town gets Devastated
+        ['text'=>'Die Stadt ist nichts weiter als ein widerwärtiger Friedhof. Es war niemand hier, der den letzten Angriff der Zombies hätte aufhalten können: <strong>das Stadttor wurde aufgebrochen</strong> und <strong>liegt nun in Trümmern</strong>. %town% existiert nicht mehr...',
+            'name'=>'gazetteTownLastAttack',
             'type'=>LogEntryTemplate::TypeGazetteTown,
             'class'=>LogEntryTemplate::ClassGazetteNews,
-            'secondaryType'=>GazetteLogEntry::RequiresDevastated,
+            'secondaryType'=>GazetteLogEntry::RequiresNothing,
+            'variableTypes'=>[
+                ['type'=>"string",'name'=>'town'],
+            ],
+        ],
+
+        // Devastated town
+        ['text'=>'Die Stadt ist zerstört! Flieht, irh Narren!',
+            'name'=>'gazetteTownDevastated',
+            'type'=>LogEntryTemplate::TypeGazetteTown,
+            'class'=>LogEntryTemplate::ClassGazetteNews,
+            'secondaryType'=>GazetteLogEntry::RequiresNothing,
             'variableTypes'=>[],
         ],
 

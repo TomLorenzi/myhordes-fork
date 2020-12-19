@@ -26,7 +26,7 @@ class ExternalApp
     /**
      * @ORM\Column(type="boolean")
      */
-    private $active = 1;
+    private $active = true;
 
     /**
      * @ORM\Column(type="string", length=190)
@@ -40,7 +40,7 @@ class ExternalApp
     private $owner = null;
 
     /**
-     * @ORM\Column(type="string", length=190)
+     * @ORM\Column(type="string", length=190, nullable=true)
      */
     private $secret;
 
@@ -48,11 +48,6 @@ class ExternalApp
      * @ORM\Column(type="string", length=190)
      */
     private $url;
-
-    /**
-     * @ORM\Column(type="string", length=190)
-     */
-    private $icon;
 
     /**
      * @ORM\Column(type="string", length=190)
@@ -68,6 +63,21 @@ class ExternalApp
      * @ORM\Column(type="boolean", nullable=true)
      */
     private $linkOnly = false;
+
+    /**
+     * @ORM\Column(type="blob", nullable=true)
+     */
+    private $image;
+
+    /**
+     * @ORM\Column(type="string", length=32, nullable=true)
+     */
+    private $image_name;
+
+    /**
+     * @ORM\Column(type="string", length=9, nullable=true)
+     */
+    private $image_format;
 
 
     public function getId(): ?int
@@ -116,7 +126,7 @@ class ExternalApp
         return $this->secret;
     }
 
-    public function setSecret(string $secret): self
+    public function setSecret(?string $secret): self
     {
         $this->secret = $secret;
 
@@ -131,18 +141,6 @@ class ExternalApp
     public function setUrl(string $url): self
     {
         $this->url = $url;
-
-        return $this;
-    }
-
-    public function getIcon(): string
-    {
-        return $this->icon;
-    }
-
-    public function setIcon(string $icon): self
-    {
-        $this->icon = $icon;
 
         return $this;
     }
@@ -179,6 +177,42 @@ class ExternalApp
     public function setLinkOnly(?bool $linkOnly): self
     {
         $this->linkOnly = $linkOnly;
+
+        return $this;
+    }
+
+    public function getImage()
+    {
+        return $this->image;
+    }
+
+    public function setImage($image): self
+    {
+        $this->image = $image;
+
+        return $this;
+    }
+
+    public function getImageName(): ?string
+    {
+        return $this->image_name;
+    }
+
+    public function setImageName(?string $image_name): self
+    {
+        $this->image_name = $image_name;
+
+        return $this;
+    }
+
+    public function getImageFormat(): ?string
+    {
+        return $this->image_format;
+    }
+
+    public function setImageFormat(?string $image_format): self
+    {
+        $this->image_format = $image_format;
 
         return $this;
     }

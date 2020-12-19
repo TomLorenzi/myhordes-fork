@@ -4570,5 +4570,307 @@ Der Schamane kann:</source>
         <target>L'heure : Mieux vaut se cacher la nuit que le jour.</target>
       </segment>
     </unit>
+    <unit id="hN_xNWd" name="954e1d7">
+      <notes>
+        <note category="german">Manch innovative oder ambitionierte Bauprojekte sind den Städten nicht sofort bekannt, sondern müssen erst entdeckt werden.</note>
+      </notes>
+      <segment>
+        <source>Manch innovative oder ambitionierte Bauprojekte sind den Städten nicht sofort bekannt, sondern müssen erst entdeckt werden.</source>
+        <target>Certains chantiers particulièrement innovants ou ambitieux ne sont pas connus des villes, aux premiers jours.</target>
+      </segment>
+    </unit>
+    <unit id="BKhfiS_" name="bde43b2">
+      <notes>
+        <note category="german">Um diese Bauprojekte freizuschalten, muss die Stadt in den Besitz der entsprechenden "Blaupausen" gelangen.</note>
+      </notes>
+      <segment>
+        <source>Um diese Bauprojekte freizuschalten, muss die Stadt in den Besitz der entsprechenden "Blaupausen" gelangen.</source>
+        <target>Vous pouvez débloquer ces chantiers pour votre ville en mettant la main sur des plans d'architecte.</target>
+      </segment>
+    </unit>
+    <unit id="BqAO5Ji" name="Wie kriegt man diesen Pläne?">
+      <notes>
+        <note category="german">Wie kriegt man diesen Pläne?</note>
+      </notes>
+      <segment>
+        <source>Wie kriegt man diesen Pläne?</source>
+        <target>Comment obtenir ces plans ?</target>
+      </segment>
+    </unit>
+    <unit id="lxoDYCn" name="9285820">
+      <notes>
+        <note category="german">Man kann einfach in der Wüste danach buddeln. Doch einige Pläne sind schwieriger zu finden als andere.</note>
+      </notes>
+      <segment>
+        <source>Man kann einfach in der Wüste danach buddeln. Doch einige Pläne sind schwieriger zu finden als andere.</source>
+        <target>il est possible d'en trouver en fouillant normalement l'Outre-Monde, mais ils sont réputés difficiles à trouver,</target>
+      </segment>
+    </unit>
+    <unit id="cetj9mW" name="af26da2">
+      <notes>
+        <note category="german">Jede neue Stadt beginnt mit 3 Bauplänen "gratis", die sich irgendwo in der Außenwelt befinden. Diese Blaupausen befinden sich in Truhen, im Gegensatz zu denen, die Sie beim Graben finden können. Alles was Sie tun müssen, ist es zu finden!</note>
+      </notes>
+      <segment>
+        <source>Jede neue Stadt beginnt mit 3 Bauplänen "gratis", die sich irgendwo in der Außenwelt befinden. Diese Blaupausen befinden sich in Truhen, im Gegensatz zu denen, die Sie beim Graben finden können. Alles was Sie tun müssen, ist es zu finden!</source>
+        <target>chaque nouvelle ville commence avec des plans "gratuits" posés dans des coffres quelque part dans l'Outre-Monde. Ces plans diffèrent de ceux trouvés lors des fouilles, car ils sont déjà révélés, posés à même le sol. A vous de les localiser !</target>
+      </segment>
+    </unit>
+    <unit id="ZfnVioE" name="Normale Karte: 3 seltene Pläne + 1 sehr seltener Plan">
+      <notes>
+        <note category="german">Normale Karte: 3 seltene Pläne + 1 sehr seltener Plan</note>
+      </notes>
+      <segment>
+        <source>Normale Karte: 3 seltene Pläne + 1 sehr seltener Plan</source>
+        <target>en région non-éloignée : 3 plans rares + 1 plan très rare</target>
+      </segment>
+    </unit>
+    <unit id="CsvbdA6" name="Entfernte Regionen: 5 seltene Pläne + 2 sehr seltene Pläne">
+      <notes>
+        <note category="german">Entfernte Regionen: 5 seltene Pläne + 2 sehr seltene Pläne</note>
+      </notes>
+      <segment>
+        <source>Entfernte Regionen: 5 seltene Pläne + 2 sehr seltene Pläne</source>
+        <target>en région éloignée : 5 plans rares + 2 plans très rares</target>
+      </segment>
+    </unit>
+    <unit id="Pvai66w" name="161e679">
+      <notes>
+        <note category="german">Durch Campen: Falls du in einem Gebäude die Nacht verbringst und überlebst, erhältst Du automatisch einen Bauplan 
+(ungewöhnliche in Gebäuden nahe der Stadt, seltenere in weit entfernt liegenden Gebäuden). Beachtet, dass man 
+in einem Gebäude nur &lt;strong&gt;einmal pro Partie&lt;/strong&gt; einen Bauplan erhalten kann (mehrfaches Campen im selben Gebäude bringt also nichts).</note>
+      </notes>
+      <segment>
+        <source>Durch Campen: Falls du in einem Gebäude die Nacht verbringst und überlebst, erhältst Du automatisch einen Bauplan 
+(ungewöhnliche in Gebäuden nahe der Stadt, seltenere in weit entfernt liegenden Gebäuden). Beachtet, dass man 
+in einem Gebäude nur &lt;strong&gt;einmal pro Partie&lt;/strong&gt; einen Bauplan erhalten kann (mehrfaches Campen im selben Gebäude bringt also nichts).</source>
+        <target><![CDATA[en camping : si vous survivez à une nuit de camping sur un bâtiment, vous obtiendrez automatiquement un plan ("inhabituel" sur les bâtiments proches de la ville ou "rare" pour les bâtiments lointains). Notez qu'un même bâtiment de l'Outre-Monde ne pourra fournir <strong>qu'un seul plan pour toute la partie</strong> (il n'est pas utile de camper plusieurs fois sur le même bâtiment),]]></target>
+      </segment>
+    </unit>
+    <unit id="64IvvtG" name="Es gibt noch mehr Möglichkeiten, Bauplände zu finden: Findet es heraus!">
+      <notes>
+        <note category="german">Es gibt noch mehr Möglichkeiten, Bauplände zu finden: Findet es heraus!</note>
+      </notes>
+      <segment>
+        <source>Es gibt noch mehr Möglichkeiten, Bauplände zu finden: Findet es heraus!</source>
+        <target>il existe d'autres méthodes pour obtenir ces plans : à vous de les découvrir !</target>
+      </segment>
+    </unit>
+    <unit id="9jsK10O" name="Wie benutzt man Bauplände?">
+      <notes>
+        <note category="german">Wie benutzt man Bauplände?</note>
+      </notes>
+      <segment>
+        <source>Wie benutzt man Bauplände?</source>
+        <target>Comment les utiliser ?</target>
+      </segment>
+    </unit>
+    <unit id="sP_HS28" name="f8980a4">
+      <notes>
+        <note category="german">Sie sind nur in der Stadt benutzbar: Klickt auf den Plan, um ihn genauer zu studieren.</note>
+      </notes>
+      <segment>
+        <source>Sie sind nur in der Stadt benutzbar: Klickt auf den Plan, um ihn genauer zu studieren.</source>
+        <target>Ils sont utilisables en ville uniquement : cliquez sur le plan dans votre maison pour l'étudier.</target>
+      </segment>
+    </unit>
+    <unit id="eaB0Ldc" name="56d967c">
+      <notes>
+        <note category="german">Das freigeschaltete Bauwerk wird zur Liste der verfügbaren Gebäude der Stadt hinzugefügt. Ein Eintrag im Stadtregister verkündet das neue Gebäude.</note>
+      </notes>
+      <segment>
+        <source>Das freigeschaltete Bauwerk wird zur Liste der verfügbaren Gebäude der Stadt hinzugefügt. Ein Eintrag im Stadtregister verkündet das neue Gebäude.</source>
+        <target>Le chantier qu'il débloque sera ajouté à la liste des chantiers possibles en ville et une annonce sera publiée dans le grand registre.</target>
+      </segment>
+    </unit>
+    <unit id="pyjThlW" name="7d8d5ba">
+      <notes>
+        <note category="german">Die Städte in MyHordes sind nicht statisch, in der alles so bleibt wie es vorgefunden wird. Es ist deine Aufgabe deine Stadt auszubauen und ihre Verteidigung zu verbessern. Dazu sind folgende Schritte notwendig:</note>
+      </notes>
+      <segment>
+        <source>Die Städte in MyHordes sind nicht statisch, in der alles so bleibt wie es vorgefunden wird. Es ist deine Aufgabe deine Stadt auszubauen und ihre Verteidigung zu verbessern. Dazu sind folgende Schritte notwendig:</source>
+        <target>La ville n'est pas un endroit statique. Vous devez la faire évoluer. Voilà comment procéder pour obtenir de nouveaux bâtiments en ville :</target>
+      </segment>
+    </unit>
+    <unit id="bKmByuC" name="5a8d545">
+      <notes>
+        <note category="german">Sammle in der Wüste &lt;strong&gt;Rohstoffe&lt;/strong&gt; (Holz, Metall, Batterien...) ein und lege alles in der &lt;strong&gt;Bank&lt;/strong&gt; ab.</note>
+      </notes>
+      <segment>
+        <source>Sammle in der Wüste &lt;strong&gt;Rohstoffe&lt;/strong&gt; (Holz, Metall, Batterien...) ein und lege alles in der &lt;strong&gt;Bank&lt;/strong&gt; ab.</source>
+        <target><![CDATA[collecter des <strong>ressources dans le désert</strong> (bois, métal, blindage...) et les entreposer à la <strong>Banque</strong>]]></target>
+      </segment>
+    </unit>
+    <unit id="Tnym34G" name="Gehe in deiner Stadt in den Abschnitt &lt;strong&gt;Baustelle&lt;/strong&gt;.">
+      <notes>
+        <note category="german">Gehe in deiner Stadt in den Abschnitt &lt;strong&gt;Baustelle&lt;/strong&gt;.</note>
+      </notes>
+      <segment>
+        <source>Gehe in deiner Stadt in den Abschnitt &lt;strong&gt;Baustelle&lt;/strong&gt;.</source>
+        <target><![CDATA[rendez-vous dans la section <strong>Chantiers</strong> de votre ville]]></target>
+      </segment>
+    </unit>
+    <unit id="D.p71_K" name="30a3308">
+      <notes>
+        <note category="german">Suche dir ein Gebäude aus, für dessen Bau genügend Ressourcen zur Verfügung stehen. Daneben, auf der selben Linie, findest du den Knopf &lt;strong&gt;Teilnehmen&lt;/strong&gt;.</note>
+      </notes>
+      <segment>
+        <source>Suche dir ein Gebäude aus, für dessen Bau genügend Ressourcen zur Verfügung stehen. Daneben, auf der selben Linie, findest du den Knopf &lt;strong&gt;Teilnehmen&lt;/strong&gt;.</source>
+        <target><![CDATA[repérez les bâtiments dont les ressources sont disponibles en banque : ils ont un bouton <strong>Participer</strong> sur leur ligne]]></target>
+      </segment>
+    </unit>
+    <unit id="sV3TVhz" name="fde5c11">
+      <notes>
+        <note category="german">Klicke auf den Knopf &lt;strong&gt;Teilnehmen&lt;/strong&gt;. Es wird dir &lt;strong&gt;1 %img_ap%&lt;/strong&gt; abgezogen.</note>
+      </notes>
+      <segment>
+        <source>Klicke auf den Knopf &lt;strong&gt;Teilnehmen&lt;/strong&gt;. Es wird dir &lt;strong&gt;1 %img_ap%&lt;/strong&gt; abgezogen.</source>
+        <target><![CDATA[cliquez une fois sur le bouton <strong>Participer</strong> en face du bâtiment qui vous intéresse, cela dépensera <strong>1 %img_ap%</strong> de votre réserve.]]></target>
+      </segment>
+    </unit>
+    <unit id="SXMlsAY" name="745638b">
+      <notes>
+        <note category="german">Wenn genügend Aktionspunkte (APs) für eine Konstruktion oder ein Gebäude ausgegeben werden, kann es &lt;strong&gt;sofort&lt;/strong&gt; fertig gestellt werden!</note>
+      </notes>
+      <segment>
+        <source>Wenn genügend Aktionspunkte (APs) für eine Konstruktion oder ein Gebäude ausgegeben werden, kann es &lt;strong&gt;sofort&lt;/strong&gt; fertig gestellt werden!</source>
+        <target><![CDATA[Dès qu'un bâtiment a reçu suffisamment de main-d'oeuvres (sous la forme de PA investis), il est construit <strong>immédiatement</strong> !]]></target>
+      </segment>
+    </unit>
+    <unit id="AAwApXd" name="e5b946e">
+      <notes>
+        <note category="german">Der Bau eines Gebäudes oder einer Konstruktion kann sich über mehrere Tage hinziehen. Wenn etwas nicht fertig gestellt wurde, kannst du am nächsten Tag erneut daran arbeiten. Wenn die Zeit drängt, können außerdem mehrere APs auf einmal für ein Gebäude ausgegeben werden...</note>
+      </notes>
+      <segment>
+        <source>Der Bau eines Gebäudes oder einer Konstruktion kann sich über mehrere Tage hinziehen. Wenn etwas nicht fertig gestellt wurde, kannst du am nächsten Tag erneut daran arbeiten. Wenn die Zeit drängt, können außerdem mehrere APs auf einmal für ein Gebäude ausgegeben werden...</source>
+        <target>Les bâtiments peuvent être construits en plusieurs jours. Il vous suffit de revenir le lendemain pour participer à nouveau à un chantier non terminé ! Vous pouvez également investir plus de 1 PA dans un chantier, si vous voulez à tout prix voir une construction s'achever...</target>
+      </segment>
+    </unit>
+    <unit id="2qCroxz" name="Temporäre Konstruktionen">
+      <notes>
+        <note category="german">Temporäre Konstruktionen</note>
+      </notes>
+      <segment>
+        <source>Temporäre Konstruktionen</source>
+        <target>Bâtiments temporaires</target>
+      </segment>
+    </unit>
+    <unit id="tuJeoVX" name="b049ea1">
+      <notes>
+        <note category="german">"Temporäre" Konstruktionen und Gebäude sind für den "einmaligen Gebrauch" gedacht: Nach dem Angriff der Zombiehorde werden sie zerstört oder abgebaut.
+Es handelt sich in aller Regel um sehr effektive Verteidigungsmaßnahmen, die nicht sehr teuer sind, dafür aber jeden Tag neu aufgebaut werden müssen.</note>
+      </notes>
+      <segment>
+        <source>"Temporäre" Konstruktionen und Gebäude sind für den "einmaligen Gebrauch" gedacht: Nach dem Angriff der Zombiehorde werden sie zerstört oder abgebaut.
+Es handelt sich in aller Regel um sehr effektive Verteidigungsmaßnahmen, die nicht sehr teuer sind, dafür aber jeden Tag neu aufgebaut werden müssen.</source>
+        <target>Les bâtiments "temporaires" sont des bâtiments à "usage unique" : après l'attaque de la Horde, ils sont détruits. Ce sont généralement des défenses puissantes et peu coûteuses, mais qui doivent être reconstruites chaque jour.</target>
+      </segment>
+    </unit>
+    <unit id="CdAcNKs" name="ef531b3">
+      <notes>
+        <note category="german">Manche Gebäude und Konstruktionen (z.B. der Große Graben) können nach Fertigstellung verbessert und weiterentwickelt werden. Diese Ausbauten werden auch &lt;strong&gt;Weiterentwicklungen&lt;/strong&gt; genannt.
+Die Stadteinwohner können  &lt;strong&gt;einmal&lt;/strong&gt; pro Tag für eine Weiterentwicklung stimmen.</note>
+      </notes>
+      <segment>
+        <source>Manche Gebäude und Konstruktionen (z.B. der Große Graben) können nach Fertigstellung verbessert und weiterentwickelt werden. Diese Ausbauten werden auch &lt;strong&gt;Weiterentwicklungen&lt;/strong&gt; genannt.
+Die Stadteinwohner können  &lt;strong&gt;einmal&lt;/strong&gt; pro Tag für eine Weiterentwicklung stimmen.</source>
+        <target><![CDATA[Une fois construits, certains chantiers (tel que le Grand Fossé par exemple) débloquent des <strong>Évolutions</strong>. Chaque jour, les citoyens peuvent voter pour <strong>une et une seule</strong> évolution, selon ce qu'ils pensent être utile à leur ville.]]></target>
+      </segment>
+    </unit>
+    <unit id="PQQjbRN" name="c444d23">
+      <notes>
+        <note category="german">Kurz vor Mitternacht wird dann jene &lt;strong&gt;Weiterentwicklung gebaut, die die meisten Stimmen bekommen hat&lt;/strong&gt;.</note>
+      </notes>
+      <segment>
+        <source>Kurz vor Mitternacht wird dann jene &lt;strong&gt;Weiterentwicklung gebaut, die die meisten Stimmen bekommen hat&lt;/strong&gt;.</source>
+        <target><![CDATA[Juste avant l'attaque, à minuit, <strong>l'évolution qui a obtenu le plus de votes est aussitôt validée et mise en place</strong>. S'il y a égalité, le tirage est aléatoire entre les évolutions ayant reçu le plus de votes.]]></target>
+      </segment>
+    </unit>
+    <unit id="lWknzoV" name="8567031">
+      <notes>
+        <note category="german">Der Bau einer Weiterentwicklung ist umsonst. Es werden &lt;strong&gt;weder APs noch Ressourcen verbraucht&lt;/strong&gt;.</note>
+      </notes>
+      <segment>
+        <source>Der Bau einer Weiterentwicklung ist umsonst. Es werden &lt;strong&gt;weder APs noch Ressourcen verbraucht&lt;/strong&gt;.</source>
+        <target><![CDATA[La réalisation d'une évolution est gratuite : <strong>elle ne consomme ni PA, ni ressource</strong>.]]></target>
+      </segment>
+    </unit>
+    <unit id="y0gi2eh" name="45c0a22">
+      <notes>
+        <note category="german">Es gibt bis zu &lt;strong&gt;5&lt;/strong&gt; verschiedene Entwicklungsstufen. Je höher die Stufe, desto effektiver das Gebäude oder die Konstruktion.
+Die Stadt kann in vielerlei Hinsicht von diesen Weiterentwicklungen profitieren:</note>
+      </notes>
+      <segment>
+        <source>Es gibt bis zu &lt;strong&gt;5&lt;/strong&gt; verschiedene Entwicklungsstufen. Je höher die Stufe, desto effektiver das Gebäude oder die Konstruktion.
+Die Stadt kann in vielerlei Hinsicht von diesen Weiterentwicklungen profitieren:</source>
+        <target><![CDATA[Chaque évolution peut être améliorée sur <strong>5 niveaux</strong>, chaque niveau étant de plus en plus puissant. Ces évolutions peuvent avoir de nombreux impacts sur une ville :]]></target>
+      </segment>
+    </unit>
+    <unit id="01pp8mB" name="Eine bessere Verteidigung.">
+      <notes>
+        <note category="german">Eine bessere Verteidigung.</note>
+      </notes>
+      <segment>
+        <source>Eine bessere Verteidigung.</source>
+        <target>amélioration des défenses,</target>
+      </segment>
+    </unit>
+    <unit id="t4YYjIT" name="Eine verbesserte Wasserversorgung.">
+      <notes>
+        <note category="german">Eine verbesserte Wasserversorgung.</note>
+      </notes>
+      <segment>
+        <source>Eine verbesserte Wasserversorgung.</source>
+        <target>apports d'eau,</target>
+      </segment>
+    </unit>
+    <unit id="COncilF" name="Eine Senkung der Baukosten.">
+      <notes>
+        <note category="german">Eine Senkung der Baukosten.</note>
+      </notes>
+      <segment>
+        <source>Eine Senkung der Baukosten.</source>
+        <target>réduction des coûts des chantiers,</target>
+      </segment>
+    </unit>
+    <unit id="I.YvVbm" name="Eine bessere Zombie(früh)erkennung.">
+      <notes>
+        <note category="german">Eine bessere Zombie(früh)erkennung.</note>
+      </notes>
+      <segment>
+        <source>Eine bessere Zombie(früh)erkennung.</source>
+        <target>détection des zombies,</target>
+      </segment>
+    </unit>
+    <unit id="loYBC17" name="... weitere spezielle Fähigkeiten.">
+      <notes>
+        <note category="german">... weitere spezielle Fähigkeiten.</note>
+      </notes>
+      <segment>
+        <source>... weitere spezielle Fähigkeiten.</source>
+        <target>capacités spéciales...</target>
+      </segment>
+    </unit>
+    <unit id="cuq3Fy5" name="92d5771">
+      <notes>
+        <note category="german">Achtung: Die Wahl einer Weiterentwicklung ist sehr wichtig! Da eine Stadt nur eine Weiterentwicklung pro 
+Tag bauen kann, kann eine Stadt, die 10 Tage überlebt, insgesamt nur 10 Weiterentwicklungen bauen. Diese 
+müssen durchdacht geplant werden.</note>
+      </notes>
+      <segment>
+        <source>Achtung: Die Wahl einer Weiterentwicklung ist sehr wichtig! Da eine Stadt nur eine Weiterentwicklung pro 
+Tag bauen kann, kann eine Stadt, die 10 Tage überlebt, insgesamt nur 10 Weiterentwicklungen bauen. Diese 
+müssen durchdacht geplant werden.</source>
+        <target>Attention : le choix de telle ou telle évolution est très important ! En effet, sachant qu'une ville est limitée à 1 évolution par jour, une ville qui durerait 10 jours (par exemple) n'aura droit qu'à 10 évolutions à répartir astucieusement.</target>
+      </segment>
+    </unit>
+    <unit id="EhwEkpO" name="Besprecht das am besten im Forum eurer Stadt!">
+      <notes>
+        <note category="german">Besprecht das am besten im Forum eurer Stadt!</note>
+      </notes>
+      <segment>
+        <source>Besprecht das am besten im Forum eurer Stadt!</source>
+        <target>Parlez-en sur le forum de votre ville !</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

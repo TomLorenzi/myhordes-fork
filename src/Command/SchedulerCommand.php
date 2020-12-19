@@ -167,13 +167,20 @@ class SchedulerCommand extends Command
                             $this->entityManager->persist($town);
 
                             // Enable or disable events
+                            $running_event = $town_event;
                             if ($town_event->name() !== $event->name()) {
                                 $this->entityManager->flush();
                                 $last_op = 'ev_s';
-                                if ($this->townHandler->updateCurrentEvent($town, $event))
+                                if ($this->townHandler->updateCurrentEvent($town, $event)) {
                                     $this->entityManager->persist($town);
-                                else $this->entityManager->clear();
+                                    $running_event = $event;
+                                    $this->entityManager->flush();
+                                } else $this->entityManager->clear();
                             }
+
+                            $running_event->hook_nightly_none( $town );
+                            $this->entityManager->persist($town);
+                            $this->entityManager->flush();
                         }
                         $this->entityManager->flush();
                     }

@@ -1654,7 +1654,331 @@
       </notes>
       <segment>
         <source>Dashboard</source>
-        <target>Dashboard</target>
+        <target>Tableau de bord</target>
+      </segment>
+    </unit>
+    <unit id="KVK60jg" name="Stadt %townname%">
+      <notes>
+        <note category="german">Stadt %townname%</note>
+      </notes>
+      <segment>
+        <source>Stadt %townname%</source>
+        <target>Ville %townname%</target>
+      </segment>
+    </unit>
+    <unit id="Z2xHG8j" name="Bank">
+      <notes>
+        <note category="german">Bank</note>
+      </notes>
+      <segment>
+        <source>Bank</source>
+        <target>Banque</target>
+      </segment>
+    </unit>
+    <unit id="r.FNJtH" name="Einen Gegenstand erzeugen:">
+      <notes>
+        <note category="german">Einen Gegenstand erzeugen:</note>
+      </notes>
+      <segment>
+        <source>Einen Gegenstand erzeugen:</source>
+        <target>Faire apparaître un objet :</target>
+      </segment>
+    </unit>
+    <unit id="pkg069a" name="Nummer des Gegenstandes:">
+      <notes>
+        <note category="german">Nummer des Gegenstandes:</note>
+      </notes>
+      <segment>
+        <source>Nummer des Gegenstandes:</source>
+        <target>Nombre d'objets :</target>
+      </segment>
+    </unit>
+    <unit id="9B3v_rN" name="Vergiftet:">
+      <notes>
+        <note category="german">Vergiftet:</note>
+      </notes>
+      <segment>
+        <source>Vergiftet:</source>
+        <target>Empoisonné :</target>
+      </segment>
+    </unit>
+    <unit id="ba2jGNX" name="Zerstört:">
+      <notes>
+        <note category="german">Zerstört:</note>
+      </notes>
+      <segment>
+        <source>Zerstört:</source>
+        <target>Cassé :</target>
+      </segment>
+    </unit>
+    <unit id="_vIjrdl" name="Essentiell:">
+      <notes>
+        <note category="german">Essentiell:</note>
+      </notes>
+      <segment>
+        <source>Essentiell:</source>
+        <target>Essentiel :</target>
+      </segment>
+    </unit>
+    <unit id="pAhkch3" name="Erzeugen!">
+      <notes>
+        <note category="german">Erzeugen!</note>
+      </notes>
+      <segment>
+        <source>Erzeugen!</source>
+        <target>Créer !</target>
+      </segment>
+    </unit>
+    <unit id="HMtmyP_" name="Rucksack">
+      <notes>
+        <note category="german">Rucksack</note>
+      </notes>
+      <segment>
+        <source>Rucksack</source>
+        <target>Sac</target>
+      </segment>
+    </unit>
+    <unit id="n__v7g9" name="Truhe">
+      <notes>
+        <note category="german">Truhe</note>
+      </notes>
+      <segment>
+        <source>Truhe</source>
+        <target>Coffre</target>
+      </segment>
+    </unit>
+    <unit id="fUbvGiO" name="Leere Truhe">
+      <notes>
+        <note category="german">Leere Truhe</note>
+      </notes>
+      <segment>
+        <source>Leere Truhe</source>
+        <target>Coffre vide</target>
+      </segment>
+    </unit>
+    <unit id="fV5wxwj" name="In der Stadt">
+      <notes>
+        <note category="german">In der Stadt</note>
+      </notes>
+      <segment>
+        <source>In der Stadt</source>
+        <target>En ville</target>
+      </segment>
+    </unit>
+    <unit id="id10hEL" name="Apps">
+      <notes>
+        <note category="german">Apps</note>
+      </notes>
+      <segment>
+        <source>Apps</source>
+        <target>Apps</target>
+      </segment>
+    </unit>
+    <unit id="I5qOX6_" name="Anwendung">
+      <notes>
+        <note category="german">Anwendung</note>
+      </notes>
+      <segment>
+        <source>Anwendung</source>
+        <target>Application</target>
+      </segment>
+    </unit>
+    <unit id="zO1HXOo" name="Besitzer">
+      <notes>
+        <note category="german">Besitzer</note>
+      </notes>
+      <segment>
+        <source>Besitzer</source>
+        <target>Propriétaire</target>
+      </segment>
+    </unit>
+    <unit id="Ml7s_dM" name="Kontakt">
+      <notes>
+        <note category="german">Kontakt</note>
+      </notes>
+      <segment>
+        <source>Kontakt</source>
+        <target>Contact</target>
+      </segment>
+    </unit>
+    <unit id="zYXso4d" name="Name der Anwendung">
+      <notes>
+        <note category="german">Name der Anwendung</note>
+      </notes>
+      <segment>
+        <source>Name der Anwendung</source>
+        <target>Nom de l'application</target>
+      </segment>
+    </unit>
+    <unit id="gwaSbiX" name="Niemand">
+      <notes>
+        <note category="german">Niemand</note>
+      </notes>
+      <segment>
+        <source>Niemand</source>
+        <target>Aucun</target>
+      </segment>
+    </unit>
+    <unit id="56JB3rr" name="URL">
+      <notes>
+        <note category="german">URL</note>
+      </notes>
+      <segment>
+        <source>URL</source>
+        <target>URL</target>
+      </segment>
+    </unit>
+    <unit id="Li9tZI." name="Anzeige">
+      <notes>
+        <note category="german">Anzeige</note>
+      </notes>
+      <segment>
+        <source>Anzeige</source>
+        <target>Afficher</target>
+      </segment>
+    </unit>
+    <unit id="YIZ57UG" name="Anwendungen im Testbetrieb können nur von ihrem Besitzer verwendet werden.">
+      <notes>
+        <note category="german">Anwendungen im Testbetrieb können nur von ihrem Besitzer verwendet werden.</note>
+      </notes>
+      <segment>
+        <source>Anwendungen im Testbetrieb können nur von ihrem Besitzer verwendet werden.</source>
+        <target>Les applications en mode test ne peuvent être utilisées que par leur propriétaire.</target>
+      </segment>
+    </unit>
+    <unit id="pmqhEIB" name="Testbetrieb">
+      <notes>
+        <note category="german">Testbetrieb</note>
+      </notes>
+      <segment>
+        <source>Testbetrieb</source>
+        <target>Test de fonctionnement</target>
+      </segment>
+    </unit>
+    <unit id="o1q81tr" name="Icon">
+      <notes>
+        <note category="german">Icon</note>
+      </notes>
+      <segment>
+        <source>Icon</source>
+        <target>Icône</target>
+      </segment>
+    </unit>
+    <unit id="CgS2hD0" name="Datenzugriff">
+      <notes>
+        <note category="german">Datenzugriff</note>
+      </notes>
+      <segment>
+        <source>Datenzugriff</source>
+        <target>Accès aux données</target>
+      </segment>
+    </unit>
+    <unit id="PgM27MC" name="Anwendungen ohne API-Zugang werden nur als Links eingebunden.">
+      <notes>
+        <note category="german">Anwendungen ohne API-Zugang werden nur als Links eingebunden.</note>
+      </notes>
+      <segment>
+        <source>Anwendungen ohne API-Zugang werden nur als Links eingebunden.</source>
+        <target>Les applications sans accès API ne sont intégrées que sous forme de liens.</target>
+      </segment>
+    </unit>
+    <unit id="ftE4M1T" name="Zugang zur API">
+      <notes>
+        <note category="german">Zugang zur API</note>
+      </notes>
+      <segment>
+        <source>Zugang zur API</source>
+        <target>Accès à l'API</target>
+      </segment>
+    </unit>
+    <unit id="oFJRNSD" name="Wird automatisch generiert">
+      <notes>
+        <note category="german">Wird automatisch generiert</note>
+      </notes>
+      <segment>
+        <source>Wird automatisch generiert</source>
+        <target>Est généré automatiquement</target>
+      </segment>
+    </unit>
+    <unit id="NoNAzwa" name="Schlüssel regenerieren">
+      <notes>
+        <note category="german">Schlüssel regenerieren</note>
+      </notes>
+      <segment>
+        <source>Schlüssel regenerieren</source>
+        <target>Régénérer la clé</target>
+      </segment>
+    </unit>
+    <unit id="i2H25l5" name="Foren-Mod.">
+      <notes>
+        <note category="german">Foren-Mod.</note>
+      </notes>
+      <segment>
+        <source>Foren-Mod.</source>
+        <target>Forum-Mod.</target>
+      </segment>
+    </unit>
+    <unit id="EK4cGZo" name="Kurztexte">
+      <notes>
+        <note category="german">Kurztexte</note>
+      </notes>
+      <segment>
+        <source>Kurztexte</source>
+        <target>Fast-Replace</target>
+      </segment>
+    </unit>
+    <unit id="PMRlWSR" name="Inhalt">
+      <notes>
+        <note category="german">Inhalt</note>
+      </notes>
+      <segment>
+        <source>Inhalt</source>
+        <target>Contenu</target>
+      </segment>
+    </unit>
+    <unit id="yqFNLUk" name="Neuen Kurztext anlegen">
+      <notes>
+        <note category="german">Neuen Kurztext anlegen</note>
+      </notes>
+      <segment>
+        <source>Neuen Kurztext anlegen</source>
+        <target>Créer un nouveau Fast-Replace</target>
+      </segment>
+    </unit>
+    <unit id="EA6TVUx" name="ID eingeben">
+      <notes>
+        <note category="german">ID eingeben</note>
+      </notes>
+      <segment>
+        <source>ID eingeben</source>
+        <target>Entrer l'ID</target>
+      </segment>
+    </unit>
+    <unit id="GYf8Lr5" name="Eine Auszeichnungen auswählen:">
+      <notes>
+        <note category="german">Eine Auszeichnungen auswählen:</note>
+      </notes>
+      <segment>
+        <source>Eine Auszeichnungen auswählen:</source>
+        <target>Donner une distinction :</target>
+      </segment>
+    </unit>
+    <unit id="jm_rhmk" name="Anzahl der Auszeichnungen:">
+      <notes>
+        <note category="german">Anzahl der Auszeichnungen:</note>
+      </notes>
+      <segment>
+        <source>Anzahl der Auszeichnungen:</source>
+        <target>Nombre de distinctions :</target>
+      </segment>
+    </unit>
+    <unit id="XtyN3Vk" name="Vergeben!">
+      <notes>
+        <note category="german">Vergeben!</note>
+      </notes>
+      <segment>
+        <source>Vergeben!</source>
+        <target>Donner !</target>
       </segment>
     </unit>
   </file>

@@ -220,7 +220,7 @@
       </notes>
       <segment>
         <source>Privatstadt gründen</source>
-        <target>Privatstadt gründen</target>
+        <target>Crear un pueblo privado</target>
       </segment>
     </unit>
     <unit id="iita2xJ" name="83fa5e3">
@@ -229,7 +229,7 @@
       </notes>
       <segment>
         <source>In Privatstädten kannst du gemeinsam mit Freunden oder in Städten zu bestimmten "Theen" zu spielen.</source>
-        <target>In Privatstädten kannst du gemeinsam mit Freunden oder in Städten zu bestimmten "Theen" zu spielen.</target>
+        <target>En un pueblo privado puedes jugar entre amigos o crear un pueblo entorno a un "tema". </target>
       </segment>
     </unit>
     <unit id="KAAmbDC" name="Name der Stadt">
@@ -238,7 +238,7 @@
       </notes>
       <segment>
         <source>Name der Stadt</source>
-        <target>Name der Stadt</target>
+        <target>Nombre del pueblo</target>
       </segment>
     </unit>
     <unit id="pUImk8L" name="Zugangscode">
@@ -247,7 +247,7 @@
       </notes>
       <segment>
         <source>Zugangscode</source>
-        <target>Zugangscode</target>
+        <target>Código de acceso</target>
       </segment>
     </unit>
     <unit id=".x7RJF5" name="Stadttyp">
@@ -256,7 +256,7 @@
       </notes>
       <segment>
         <source>Stadttyp</source>
-        <target>Stadttyp</target>
+        <target>Tipo de pueblo</target>
       </segment>
     </unit>
     <unit id="KOB6h9k" name="Ghule">
@@ -265,7 +265,7 @@
       </notes>
       <segment>
         <source>Ghule</source>
-        <target>Ghule</target>
+        <target>Mutante</target>
       </segment>
     </unit>
     <unit id="CVyYW8Q" name="Je nach gewähltem Stadttyp erscheinen Ghule nach den üblichen Regeln.">
@@ -274,7 +274,7 @@
       </notes>
       <segment>
         <source>Je nach gewähltem Stadttyp erscheinen Ghule nach den üblichen Regeln.</source>
-        <target>Je nach gewähltem Stadttyp erscheinen Ghule nach den üblichen Regeln.</target>
+        <target>El mutante aparecerá según las reglas propias del tipo de pueblo elegido.</target>
       </segment>
     </unit>
     <unit id="pySO60X" name="Normal">
@@ -292,7 +292,7 @@
       </notes>
       <segment>
         <source>Das Auftreten von Ghulen wird nicht geändert. Allerdings kann ein Ghul seinen Hunger nur stillen, indem er einen Mitbürger verspeist.</source>
-        <target>Das Auftreten von Ghulen wird nicht geändert. Allerdings kann ein Ghul seinen Hunger nur stillen, indem er einen Mitbürger verspeist.</target>
+        <target>El ritmo de aparición no cambia pero un mutante solo podrá reducir su voracidad devorando un habitante.</target>
       </segment>
     </unit>
     <unit id="aQ_K79K" name="Blutdurst">
@@ -301,7 +301,7 @@
       </notes>
       <segment>
         <source>Blutdurst</source>
-        <target>Blutdurst</target>
+        <target>Voraces</target>
       </segment>
     </unit>
     <unit id="Zj_q.r8" name="f806eb4">
@@ -310,7 +310,7 @@
       </notes>
       <segment>
         <source>Es erscheint zwar kein Ghul um Mitternacht. Dafür können andere Ereignisse das Auftreten von Ghulen auslösen.</source>
-        <target>Es erscheint zwar kein Ghul um Mitternacht. Dafür können andere Ereignisse das Auftreten von Ghulen auslösen.</target>
+        <target>No hay mutantes en la noche. Pero cuidado, los mutantes podrían aparecer por otros medios.</target>
       </segment>
     </unit>
     <unit id="iE_uBzc" name="Stadt der Kuscheltiere">
@@ -319,7 +319,7 @@
       </notes>
       <segment>
         <source>Stadt der Kuscheltiere</source>
-        <target>Stadt der Kuscheltiere</target>
+        <target>Pueblo de los juguetes de peluche</target>
       </segment>
     </unit>
     <unit id="1zFAtcT" name="Wasservorrat">
@@ -328,7 +328,7 @@
       </notes>
       <segment>
         <source>Wasservorrat</source>
-        <target>Wasservorrat</target>
+        <target>Reserva de agua</target>
       </segment>
     </unit>
     <unit id="oix8aY3" name="5d9dd6d">
@@ -337,7 +337,7 @@
       </notes>
       <segment>
         <source>Normale Werte liegen zwischen 100 und 180. Wert ist in Pandämonium-Städten reduziert. Maximum ist 300</source>
-        <target>Normale Werte liegen zwischen 100 und 180. Wert ist in Pandämonium-Städten reduziert. Maximum ist 300</target>
+        <target>(Valor normal entre 100 y 180). Valor reducida en un tercio si es Pandemonio. </target>
       </segment>
     </unit>
     <unit id="9XUKXXI" name="Einstellungen">
@@ -346,7 +346,7 @@
       </notes>
       <segment>
         <source>Einstellungen</source>
-        <target>Einstellungen</target>
+        <target>Configuración</target>
       </segment>
     </unit>
     <unit id="0beSyHH" name="XML Feed für diese Stadt deaktivieren">
@@ -355,7 +355,7 @@
       </notes>
       <segment>
         <source>XML Feed für diese Stadt deaktivieren</source>
-        <target>XML Feed für diese Stadt deaktivieren</target>
+        <target>Desactivar el flujo XML para este pueblo (desactiva complementos).</target>
       </segment>
     </unit>
     <unit id="QI93AMS" name="Event-Stadt">
@@ -364,7 +364,7 @@
       </notes>
       <segment>
         <source>Event-Stadt</source>
-        <target>Event-Stadt</target>
+        <target>Pueblos especiales</target>
       </segment>
     </unit>
     <unit id="_GOkdZm" name="Spezialregeln">
@@ -373,7 +373,7 @@
       </notes>
       <segment>
         <source>Spezialregeln</source>
-        <target>Spezialregeln</target>
+        <target>Reglas especiales</target>
       </segment>
     </unit>
     <unit id="9qD2u0I" name="Keine Spezialregeln">
@@ -382,7 +382,7 @@
       </notes>
       <segment>
         <source>Keine Spezialregeln</source>
-        <target>Keine Spezialregeln</target>
+        <target>Ninguna</target>
       </segment>
     </unit>
     <unit id="ilcgFcS" name="Keine">
@@ -409,7 +409,7 @@
       </notes>
       <segment>
         <source>Keine Startgebäude</source>
-        <target>Keine Startgebäude</target>
+        <target>Sin construcciones al inicio</target>
       </segment>
     </unit>
     <unit id="lU_pn2u" name="528f88a">
@@ -427,7 +427,7 @@
       </notes>
       <segment>
         <source>Kontaminierte Zone</source>
-        <target>Kontaminierte Zone</target>
+        <target>Zona contaminada</target>
       </segment>
     </unit>
     <unit id="w9rtgEq" name="Stadtmodifikationen">
@@ -436,7 +436,7 @@
       </notes>
       <segment>
         <source>Stadtmodifikationen</source>
-        <target>Stadtmodifikationen</target>
+        <target>Personalización del pueblo</target>
       </segment>
     </unit>
     <unit id="dhtPmmZ" name="Exploration:">
@@ -445,7 +445,7 @@
       </notes>
       <segment>
         <source>Exploration:</source>
-        <target>Exploration:</target>
+        <target>Exploración:</target>
       </segment>
     </unit>
     <unit id="i9uL7bg" name="Begehbare Ruinen aktivieren">
@@ -454,7 +454,7 @@
       </notes>
       <segment>
         <source>Begehbare Ruinen aktivieren</source>
-        <target>Begehbare Ruinen aktivieren</target>
+        <target>Activa las exploraciones de las ruinas avanzadas</target>
       </segment>
     </unit>
     <unit id="DxyIzHy" name="Seelen &amp; Schamane:">
@@ -481,7 +481,7 @@
       </notes>
       <segment>
         <source>Eskorte:</source>
-        <target>Eskorte:</target>
+        <target>Escolta:</target>
       </segment>
     </unit>
     <unit id="siVFR7b" name="Eskorten aktivieren">
@@ -490,7 +490,7 @@
       </notes>
       <segment>
         <source>Eskorten aktivieren</source>
-        <target>Eskorten aktivieren</target>
+        <target>Activa las escoltas ciudadanas</target>
       </segment>
     </unit>
     <unit id="M7KjFnf" name="Verbannung:">
@@ -499,7 +499,7 @@
       </notes>
       <segment>
         <source>Verbannung:</source>
-        <target>Verbannung:</target>
+        <target>Destierro:</target>
       </segment>
     </unit>
     <unit id="QosET96" name="Verbannung aktivieren">
@@ -508,7 +508,7 @@
       </notes>
       <segment>
         <source>Verbannung aktivieren</source>
-        <target>Verbannung aktivieren</target>
+        <target>Activa los habitantes desterrados</target>
       </segment>
     </unit>
     <unit id="hR9OXtO" name="Nachtmodus:">
@@ -517,7 +517,7 @@
       </notes>
       <segment>
         <source>Nachtmodus:</source>
-        <target>Nachtmodus:</target>
+        <target>Modo noche:</target>
       </segment>
     </unit>
     <unit id="3lbcc06" name="Nachtmodus aktivieren (schwerer)">
@@ -526,7 +526,7 @@
       </notes>
       <segment>
         <source>Nachtmodus aktivieren (schwerer)</source>
-        <target>Nachtmodus aktivieren (schwerer)</target>
+        <target>Activa el modo noche (más difícil)</target>
       </segment>
     </unit>
     <unit id="Ip2o27i" name="Camping:">
@@ -535,7 +535,7 @@
       </notes>
       <segment>
         <source>Camping:</source>
-        <target>Camping:</target>
+        <target>Acampe:</target>
       </segment>
     </unit>
     <unit id="PWZojkF" name="Camping in der Wildnis aktivieren">
@@ -544,7 +544,7 @@
       </notes>
       <segment>
         <source>Camping in der Wildnis aktivieren</source>
-        <target>Camping in der Wildnis aktivieren</target>
+        <target>Activa el acampe en lo salvaje</target>
       </segment>
     </unit>
     <unit id="8h7b0Dd" name="Ghule:">
@@ -553,7 +553,7 @@
       </notes>
       <segment>
         <source>Ghule:</source>
-        <target>Ghule:</target>
+        <target>Mutantes:</target>
       </segment>
     </unit>
     <unit id="Rsw_o_o" name="Ghule aktivieren">
@@ -562,7 +562,7 @@
       </notes>
       <segment>
         <source>Ghule aktivieren</source>
-        <target>Ghule aktivieren</target>
+        <target>Activa los mutantes</target>
       </segment>
     </unit>
     <unit id="rBxUVmT" name="Gebäudeschaden:">
@@ -571,7 +571,7 @@
       </notes>
       <segment>
         <source>Gebäudeschaden:</source>
-        <target>Gebäudeschaden:</target>
+        <target>Daño en las construcciones:</target>
       </segment>
     </unit>
     <unit id="k.ofzD6" name="Gebäudeschaden aktivieren">
@@ -580,7 +580,7 @@
       </notes>
       <segment>
         <source>Gebäudeschaden aktivieren</source>
-        <target>Gebäudeschaden aktivieren</target>
+        <target>Activa el daño en las construcciones</target>
       </segment>
     </unit>
     <unit id="BZ2yast" name="Nachtwache:">
@@ -589,7 +589,7 @@
       </notes>
       <segment>
         <source>Nachtwache:</source>
-        <target>Nachtwache:</target>
+        <target>Centinelas:</target>
       </segment>
     </unit>
     <unit id="85ixbKa" name="Nachtwache aktivieren">
@@ -598,7 +598,7 @@
       </notes>
       <segment>
         <source>Nachtwache aktivieren</source>
-        <target>Nachtwache aktivieren</target>
+        <target>Activa los centinelas</target>
       </segment>
     </unit>
     <unit id="aOW2H78" name="Verbesserte Müllhalde:">
@@ -607,7 +607,7 @@
       </notes>
       <segment>
         <source>Verbesserte Müllhalde:</source>
-        <target>Verbesserte Müllhalde:</target>
+        <target>Vertedero Mejorado:</target>
       </segment>
     </unit>
     <unit id="ZqzbCRl" name="Verbesserte Müllhalde aktivieren">
@@ -616,7 +616,7 @@
       </notes>
       <segment>
         <source>Verbesserte Müllhalde aktivieren</source>
-        <target>Verbesserte Müllhalde aktivieren</target>
+        <target>Activa el vertedero mejorado</target>
       </segment>
     </unit>
     <unit id="0B82Z13" name="Aktiviere/deaktiviere Spielmodifikationen spezifisch für diese Stadt">
@@ -625,7 +625,7 @@
       </notes>
       <segment>
         <source>Aktiviere/deaktiviere Spielmodifikationen spezifisch für diese Stadt</source>
-        <target>Aktiviere/deaktiviere Spielmodifikationen spezifisch für diese Stadt</target>
+        <target>Activar/desactivar las modificaciones específicamente para este pueblo</target>
       </segment>
     </unit>
     <unit id="BpFg4zU" name="Angriffe">
@@ -634,7 +634,7 @@
       </notes>
       <segment>
         <source>Angriffe</source>
-        <target>Angriffe</target>
+        <target>Ataques</target>
       </segment>
     </unit>
     <unit id="0AcV_6s" name="Stärke der Angriffe">
@@ -643,7 +643,7 @@
       </notes>
       <segment>
         <source>Stärke der Angriffe</source>
-        <target>Stärke der Angriffe</target>
+        <target>Gestión de los ataques</target>
       </segment>
     </unit>
     <unit id="mkXpu2_" name="Leiche Angriffe">
@@ -670,7 +670,7 @@
       </notes>
       <segment>
         <source>Spiel-Optionen</source>
-        <target>Spiel-Optionen</target>
+        <target>Opciones del juego</target>
       </segment>
     </unit>
     <unit id="7L3ndtf" name="Abstimmung aller Piktogramme:">
@@ -715,7 +715,7 @@
       </notes>
       <segment>
         <source>Achtung!</source>
-        <target>Achtung!</target>
+        <target>¡Atención!</target>
       </segment>
     </unit>
     <unit id="VItPxqY" name="Falls die Stadt night in 2 Tagen gefüllt ist, wird sie wieder negiert.">
@@ -724,7 +724,7 @@
       </notes>
       <segment>
         <source>Falls die Stadt night in 2 Tagen gefüllt ist, wird sie wieder negiert.</source>
-        <target>Falls die Stadt night in 2 Tagen gefüllt ist, wird sie wieder negiert.</target>
+        <target>Si el pueblo no se llena en 2 días, será anulado.</target>
       </segment>
     </unit>
     <unit id="qakF4ad" name="Diese Stadt gründen">
@@ -733,7 +733,7 @@
       </notes>
       <segment>
         <source>Diese Stadt gründen</source>
-        <target>Diese Stadt gründen</target>
+        <target>Crear este pueblo</target>
       </segment>
     </unit>
     <unit id="ijucPI." name="Platzreservierung">
@@ -742,7 +742,7 @@
       </notes>
       <segment>
         <source>Platzreservierung</source>
-        <target>Platzreservierung</target>
+        <target>Reservar plazas</target>
       </segment>
     </unit>
     <unit id="JmzKQyu" name="ba95582">
@@ -751,7 +751,8 @@
       </notes>
       <segment>
         <source>Beginne ein neues Leben in der Welt der Verdammten une versuche, so lang wie möglich zu überleben. Wer weiß, ws dich in dieser neuen Stadt erwarten wird?</source>
-        <target>Beginne ein neues Leben in der Welt der Verdammten une versuche, so lang wie möglich zu überleben. Wer weiß, ws dich in dieser neuen Stadt erwarten wird?</target>
+        <target>Reencárnate en otro pueblo de Zombinoia y mejora tu estrategia de supervivencia. Quién sabe lo que te espera en esta nueva vida...
+</target>
       </segment>
     </unit>
     <unit id="Knuuneb" name="Karten-Seed">
@@ -760,7 +761,7 @@
       </notes>
       <segment>
         <source>Karten-Seed</source>
-        <target>Karten-Seed</target>
+        <target>Semilla del mapa</target>
       </segment>
     </unit>
     <unit id="_SibAUY" name="5b4e357">
@@ -773,9 +774,9 @@
         <source>Seed, das eine kontrollierte Kartenerstellung ermöglicht. Erlaubt im Falle von Ereignissen, ähnliche Karten zu generieren.
                                 Gib eine positive ganze Zahl ein, um es zu aktivieren.
                                 DENKT DARÜBER NACH, DIESE GANZE ZAHL VON EINEM EREIGNIS ZUM ANDEREN ZU ÄNDERN !</source>
-        <target>Seed, das eine kontrollierte Kartenerstellung ermöglicht. Erlaubt im Falle von Ereignissen, ähnliche Karten zu generieren.
-                                Gib eine positive ganze Zahl ein, um es zu aktivieren.
-                                DENKT DARÜBER NACH, DIESE GANZE ZAHL VON EINEM EREIGNIS ZUM ANDEREN ZU ÄNDERN !</target>
+        <target>Semilla que permite la generación de mapas personalizados. Permite la creación de mapas similares para eventos.
+                                Coloca un número entero positivo para activarlo.
+                                ¡RECUERDA CAMBIAR EL NÚMERO DE UN EVENTO A OTRO!</target>
       </segment>
     </unit>
     <unit id="EYBH.W." name="Der Schamane wird gewählt und die Seelen werden gequält.">
@@ -784,7 +785,7 @@
       </notes>
       <segment>
         <source>Der Schamane wird gewählt und die Seelen werden gequält.</source>
-        <target>Der Schamane wird gewählt und die Seelen werden gequält.</target>
+        <target>El chamán es un rol y las almas son atormentadas.</target>
       </segment>
     </unit>
     <unit id="YnsFoKy" name="Der Schamane ist ein Beruf, die Seelen werden in der Werkstatt verwandelt.">
@@ -793,7 +794,7 @@
       </notes>
       <segment>
         <source>Der Schamane ist ein Beruf, die Seelen werden in der Werkstatt verwandelt.</source>
-        <target>Der Schamane ist ein Beruf, die Seelen werden in der Werkstatt verwandelt.</target>
+        <target>El chamán es una profesión, las almas son transformadas en el taller.</target>
       </segment>
     </unit>
     <unit id="rWF6D91" name="Job">
@@ -802,7 +803,7 @@
       </notes>
       <segment>
         <source>Job</source>
-        <target>Job</target>
+        <target>Oficio</target>
       </segment>
     </unit>
     <unit id="_kZYbUN" name="Der Schamane und die Seelen werden deaktiviert.">
@@ -811,7 +812,7 @@
       </notes>
       <segment>
         <source>Der Schamane und die Seelen werden deaktiviert.</source>
-        <target>Der Schamane und die Seelen werden deaktiviert.</target>
+        <target>El chamán y las almas están desactivadas.</target>
       </segment>
     </unit>
     <unit id="ifwhezW" name="Deaktiviert">
@@ -820,7 +821,7 @@
       </notes>
       <segment>
         <source>Deaktiviert</source>
-        <target>Deaktiviert</target>
+        <target>Desactivado</target>
       </segment>
     </unit>
     <unit id="TxDkI9W" name="Die Nachtwache ist verfügbar, wenn das Gebäude &quot;Brustwehr&quot; errichtet wurde.">
@@ -829,7 +830,7 @@
       </notes>
       <segment>
         <source>Die Nachtwache ist verfügbar, wenn das Gebäude "Brustwehr" errichtet wurde.</source>
-        <target>Die Nachtwache ist verfügbar, wenn das Gebäude "Brustwehr" errichtet wurde.</target>
+        <target>La guardia de centinelas está disponible cuando se hayan construido las ''Almenas''.</target>
       </segment>
     </unit>
     <unit id="I6A5smr" name="Die Nachtwache ist von Anfang an verfügbar.">
@@ -838,7 +839,7 @@
       </notes>
       <segment>
         <source>Die Nachtwache ist von Anfang an verfügbar.</source>
-        <target>Die Nachtwache ist von Anfang an verfügbar.</target>
+        <target>La guardia de centinelas está disponible desde el comienzo.</target>
       </segment>
     </unit>
     <unit id="AvGVwK2" name="Sofort">
@@ -847,7 +848,7 @@
       </notes>
       <segment>
         <source>Sofort</source>
-        <target>Sofort</target>
+        <target>Inmediatamente</target>
       </segment>
     </unit>
     <unit id="s4VKN2Z" name="Die Nachtwache ist deaktiviert.">
@@ -856,7 +857,7 @@
       </notes>
       <segment>
         <source>Die Nachtwache ist deaktiviert.</source>
-        <target>Die Nachtwache ist deaktiviert.</target>
+        <target>La guardia de centinelas está desactivada.</target>
       </segment>
     </unit>
     <unit id="YY0WZyp" name="Verkörperung in der Stadt:">
@@ -1061,6 +1062,24 @@
       <segment>
         <source>Wenn du eine Stadt betrittst, werden folgende Mitglieder deiner Koalition dir folgen:</source>
         <target>Wenn du eine Stadt betrittst, werden folgende Mitglieder deiner Koalition dir folgen:</target>
+      </segment>
+    </unit>
+    <unit id="U6CJxvc" name="d1dce65">
+      <notes>
+        <note category="german">Da du in mehreren deiner letzten Städte frühzeitig durch Verdursten gestorben bist, bist du für einige Zeit vom Spiel ausgeschlossen. Du kannst aktuell keine neue Stadt betreten.</note>
+      </notes>
+      <segment>
+        <source>Da du in mehreren deiner letzten Städte frühzeitig durch Verdursten gestorben bist, bist du für einige Zeit vom Spiel ausgeschlossen. Du kannst aktuell keine neue Stadt betreten.</source>
+        <target>Da du in mehreren deiner letzten Städte frühzeitig durch Verdursten gestorben bist, bist du für einige Zeit vom Spiel ausgeschlossen. Du kannst aktuell keine neue Stadt betreten.</target>
+      </segment>
+    </unit>
+    <unit id="pOtfy6G" name="5cb7c99">
+      <notes>
+        <note category="german">Du bist in mehreren deiner letzten Städte frühzeitig durch Verdursten gestorben. Sollte dies in deiner nächsten Stadt erneut geschehen, wirst du für einige Wochen vom Spiel ausgeschlossen.</note>
+      </notes>
+      <segment>
+        <source>Du bist in mehreren deiner letzten Städte frühzeitig durch Verdursten gestorben. Sollte dies in deiner nächsten Stadt erneut geschehen, wirst du für einige Wochen vom Spiel ausgeschlossen.</source>
+        <target>Du bist in mehreren deiner letzten Städte frühzeitig durch Verdursten gestorben. Sollte dies in deiner nächsten Stadt erneut geschehen, wirst du für einige Wochen vom Spiel ausgeschlossen.</target>
       </segment>
     </unit>
   </file>

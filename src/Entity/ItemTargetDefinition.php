@@ -12,6 +12,9 @@ class ItemTargetDefinition
     const ItemSelectionType = 0;
     const ItemTypeSelectionType = 1;
     const ItemHeroicRescueType = 2;
+    const ItemCitizenType = 3;
+    const ItemCitizenOnZoneType = 4;
+    const ItemCitizenOnZoneSBType = 5;
 
     /**
      * @ORM\Id()

@@ -318,6 +318,8 @@ class AwardFixtures extends Fixture implements DependentFixtureInterface {
         ['title'=>'Verbrennt ihn! Sieh nach ob seine Asche grün wird!', 'unlockquantity'=>75, 'associatedtag'=>':lepre:', 'associatedpicto'=>'r_lepre_#00'],
         ['title'=>'Ein Wohnwagen ohne Räder???', 'unlockquantity'=>100, 'associatedtag'=>':lepre:', 'associatedpicto'=>'r_lepre_#00'],
         ['title'=>'Ich bin geheilt', 'unlockquantity'=>1, 'associatedtag'=>':gsp:', 'associatedpicto'=>'r_gsp_#00'],
+        ['title'=>'Keine Fehler hi&e%12;r', 'unlockquantity'=>1, 'associatedtag'=>':ripflash:', 'associatedpicto'=>'r_ripflash_#00'],
+        ['title'=>'Patient Null', 'unlockquantity'=>1, 'associatedtag'=>':beta2:', 'associatedpicto'=>'r_beta2_#00'],
     ];
 
     private function insertAwards(ObjectManager $manager, ConsoleOutputInterface $out) {

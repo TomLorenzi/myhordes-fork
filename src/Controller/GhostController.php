@@ -7,9 +7,11 @@ use App\Entity\Town;
 use App\Entity\TownClass;
 use App\Entity\User;
 use App\Response\AjaxResponse;
+use App\Service\CitizenHandler;
 use App\Service\ConfMaster;
 use App\Service\ErrorHelper;
 use App\Service\GameFactory;
+use App\Service\InventoryHandler;
 use App\Service\JSONRequestParser;
 use App\Service\LogTemplateHandler;
 use App\Service\TimeKeeperService;
@@ -27,33 +29,13 @@ use Symfony\Contracts\Translation\TranslatorInterface;
  */
 class GhostController extends CustomAbstractController implements GhostInterfaceController
 {
-    protected $entity_manager;
-    protected $translator;
-    protected $time_keeper;
     private $user_handler;
     const ErrorWrongTownPassword          = ErrorHelper::BaseGhostErrors + 1;
 
-    public function __construct(EntityManagerInterface $em, UserHandler $uh, TimeKeeperService $tk, TranslatorInterface $translator, ConfMaster $conf)
+    public function __construct(EntityManagerInterface $em, UserHandler $uh, TimeKeeperService $tk, TranslatorInterface $translator, ConfMaster $conf, CitizenHandler $ch, InventoryHandler $ih)
     {
-        parent::__construct($conf);
-        $this->translator = $translator;
-        $this->entity_manager = $em;
+        parent::__construct($conf, $em, $tk, $ch, $ih, $translator);
         $this->user_handler = $uh;
-        $this->time_keeper = $tk;
-    }
-
-    protected function addDefaultTwigArgs( ?array $data = null ): array {
-        $data = $data ?? [];
-
-        $data['clock'] = [
-            'desc'      => $this->translator->trans('Worauf warten Sie noch?', [], 'ghost'),
-            'day'       => "",
-            'timestamp' => new \DateTime('now'),
-            'attack'    => $this->time_keeper->secondsUntilNextAttack(null, true),
-            'towntype'  => "",
-        ];
-
-        return $data;
     }
 
     /**
@@ -61,9 +43,8 @@ class GhostController extends CustomAbstractController implements GhostInterface
      * @param EntityManagerInterface $em
      * @return Response
      */
-    public function welcome(EntityManagerInterface $em, ConfMaster $conf, UserHandler $uh): Response
+    public function welcome(EntityManagerInterface $em): Response
     {
-        /** @var User $user */
         $user = $this->getUser();
 
         if ($user->getShadowBan())
@@ -74,15 +55,17 @@ class GhostController extends CustomAbstractController implements GhostInterface
             return $this->redirect($this->generateUrl( 'soul_death' ));
 
         $coa_members = $this->user_handler->getAvailableCoalitionMembers($user, $count, $active);
+        $cdm_lock = $this->user_handler->getConsecutiveDeathLock( $user, $cdm_warn );
 
-        return $this->render( 'ajax/ghost/intro.html.twig', $this->addDefaultTwigArgs([
+        return $this->render( 'ajax/ghost/intro.html.twig', $this->addDefaultTwigArgs(null, [
             'warnCoaInactive'    => $count > 0 && !$active,
             'warnCoaNotComplete' => $count > 0 && (count($coa_members) + 1) < $count,
             'warnCoaEmpty'       => $count > 1 && empty($coa_members),
             'coa'                => $coa_members,
+            'cdm_level'          => $cdm_lock ? 2 : ( $cdm_warn ? 1 : 0 ),
             'townClasses' => $em->getRepository(TownClass::class)->findAll(),
-            'userCanJoin' => $this->getUserTownClassAccess($conf->getGlobalConf()),
-            'canCreateTown' => $uh->hasSkill($user, 'mayor') || $user->getRightsElevation() >= User::ROLE_CROW,
+            'userCanJoin' => $this->getUserTownClassAccess($this->conf->getGlobalConf()),
+            'canCreateTown' => $this->user_handler->hasSkill($user, 'mayor') || $user->getRightsElevation() >= User::ROLE_CROW,
         ] ));
     }
 
@@ -91,7 +74,7 @@ class GhostController extends CustomAbstractController implements GhostInterface
      * @param EntityManagerInterface $em
      * @return Response
      */
-    public function create_town(EntityManagerInterface $em, ConfMaster $conf, UserHandler $uh): Response
+    public function create_town(EntityManagerInterface $em): Response
     {
         /** @var User $user */
         $user = $this->getUser();
@@ -100,11 +83,11 @@ class GhostController extends CustomAbstractController implements GhostInterface
         if ($em->getRepository(CitizenRankingProxy::class)->findNextUnconfirmedDeath($user))
             return $this->redirect($this->generateUrl( 'soul_death' ));
 
-        if(!$uh->hasSkill($user, 'mayor') && $user->getRightsElevation() < User::ROLE_CROW){
+        if(!$this->user_handler->hasSkill($user, 'mayor') && $user->getRightsElevation() < User::ROLE_CROW){
             return $this->redirect($this->generateUrl( 'initial_landing' ));
         }
 
-        return $this->render( 'ajax/ghost/create_town.html.twig', $this->addDefaultTwigArgs([
+        return $this->render( 'ajax/ghost/create_town.html.twig', $this->addDefaultTwigArgs(null, [
             'townClasses' => $em->getRepository(TownClass::class)->findBy(['hasPreset' => true]),
         ]));
     }
@@ -119,8 +102,8 @@ class GhostController extends CustomAbstractController implements GhostInterface
      * @param LogTemplateHandler $log
      * @return Response
      */
-    public function process_create_town(JSONRequestParser $parser, EntityManagerInterface $em, ConfMaster $conf,
-                                        UserHandler $uh, GameFactory $gf, LogTemplateHandler $log,
+    public function process_create_town(JSONRequestParser $parser, EntityManagerInterface $em,
+                                        GameFactory $gf, LogTemplateHandler $log,
                                         TownHandler $townHandler): Response
     {
         $user = $this->getUser();
@@ -129,7 +112,7 @@ class GhostController extends CustomAbstractController implements GhostInterface
         if ($em->getRepository(CitizenRankingProxy::class)->findNextUnconfirmedDeath($user))
             return AjaxResponse::success( true, ['url' => $this->generateUrl('soul_death')] );
 
-        if(!$uh->hasSkill($user, 'mayor') && $user->getRightsElevation() < User::ROLE_CROW){
+        if(!$this->user_handler->hasSkill($user, 'mayor') && $user->getRightsElevation() < User::ROLE_CROW){
             return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable, ['url' => $this->generateUrl('initial_landing')] );
         }
 
