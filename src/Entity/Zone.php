@@ -13,7 +13,7 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
  * @ORM\Entity(repositoryClass="App\Repository\ZoneRepository")
  * @UniqueEntity("gps")
  * @Table(uniqueConstraints={
- *     @UniqueConstraint(name="gps_unique",columns={"x","y","town_id"})
+ *     @UniqueConstraint(name="gps_unique_zone",columns={"x","y","town_id"})
  * })
  */
 class Zone
@@ -166,7 +166,7 @@ class Zone
 
     /**
      * @ORM\OneToMany(targetEntity=ChatSilenceTimer::class, mappedBy="zone", orphanRemoval=true, cascade={"persist","remove"})
-     
+
      */
     private $chatSilenceTimers;
 
