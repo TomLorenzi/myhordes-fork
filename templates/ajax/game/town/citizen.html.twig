@@ -60,9 +60,14 @@
                                 {% else %}
                                     <img alt="" src="{{ asset('build/images/professions/void.gif') }}" />
                                 {% endif %}
-                                <img alt="{{ 'Tot!'|trans({},'game') }}" src="{{ asset('build/images/professions/death.gif') }}" />
+                                    <img alt="{{ 'Tot!'|trans({},'game') }}" src="{{ asset('build/images/professions/death.gif') }}" />
                                 {% if citizen.hasEaten %}
-                                <img alt="" src="{{ asset('build/images/professions/cannib.gif') }}" />
+                                    <span>
+                                        <img alt="" src="{{ asset('build/images/professions/cannib.gif') }}" />
+                                        <div class="tooltip normal">
+                                            {{'%citizen% hat einen Teil seines Heißhungers gestillt, indem er Teile seiner Mitbürger gegessen hat. Um sicherzustellen, dass so etwas nicht noch einmal passiert, übergieße die Verstorbenen das nächste Mal mit Wasser...'|trans({'%citizen%':citizen.user.name}, 'game')}}
+                                        </div>
+                                    </span>
                                 {% endif %}
                             {% endif %}
                             <a class="link" href="{{ path('soul_visit', {id: citizen.user.id}) }}"><b class="citizen-name">{{ citizen.user.name }}</b></a>
@@ -135,11 +140,7 @@
                             <img alt="{{ item.prototype.label|trans({},'items') }}" src="{{ asset('build/images/item/item_' ~ item.prototype.icon ~ '.gif') }}" />
                         {% endfor %}
                         <div class="tooltip normal">
-                        {% if citizen.hasEaten %}
-                            {{'%citizen% hat einen Teil seines Heißhungers gestillt, indem er Teile seiner Mitbürger gegessen hat. Um sicherzustellen, dass so etwas nicht noch einmal passiert, übergieße die Verstorbenen das nächste Mal mit Wasser...'|trans({'%citizen%':citizen.user.name}, 'game')}}
-                        {% else %}
                             <strong class="warning">{{'Todesursache'|trans({}, 'game')}}</strong> : {{ citizen.causeOfDeath.label|trans({}, "game") }}
-                        {% endif %}
                         </div>
                     </div>
                     <div class="padded cell factor-0 small citizen-box hide-lg hide-md hide-sm" x-ajax-href="{{ path('town_visit', {id: citizen.id}) }}" style="flex-basis: 160px;">
