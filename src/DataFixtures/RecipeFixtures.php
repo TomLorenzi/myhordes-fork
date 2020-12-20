@@ -338,7 +338,6 @@ class RecipeFixtures extends Fixture implements DependentFixtureInterface
         'com040' => ['type' => Recipe::ManualAnywhere, 'out' => 'lpoint4_#00',    'provoking' => 'diode_#00',  'in' => ['wire_#00', 'meca_parts_#00', 'tube_#00', 'maglite_2_#00', 'diode_#00'] ],
         'com041' => ['type' => Recipe::ManualAnywhere, 'out' => 'hmbrew_#00',     'provoking' => 'fungus_#00', 'in' => ['fungus_#00', 'vodka_#00', 'oilcan_#00'] ],
         'com042' => ['type' => Recipe::ManualAnywhere, 'out' => 'wood_xmas_#00',  'provoking' => 'food_xmas_#00', 'in' => ['food_xmas_#00', 'can_open_#00'] ],
-        'com043' => ['type' => Recipe::ManualAnywhere, 'out' => 'wood_xmas_#00',  'provoking' => 'food_xmas_#00', 'in' => ['food_xmas_#00', 'can_open_#00'] ],
         'com044' => ['type' => Recipe::ManualAnywhere, 'out' => 'gun_#00',        'provoking' => 'gun_#00', 'in' => ['gun_#00', 'bullets_#00'] ],
         'com045' => ['type' => Recipe::ManualAnywhere, 'out' => 'machine_gun_#00','provoking' => 'machine_gun_#00', 'in' => ['machine_gun_#00', 'bullets_#00'] ],
     ];
@@ -475,13 +474,13 @@ class RecipeFixtures extends Fixture implements DependentFixtureInterface
             };
 
             $in =  $unpack( $recipe_data['in']  );
-            $out = $unpack( $recipe_data['out'] );
+            $out_rc = $unpack( $recipe_data['out'] );
 
             $provoking = null;
             if (isset($recipe_data['provoking'])) $provoking = is_array( $recipe_data['provoking'] ) ? $recipe_data['provoking'] : [$recipe_data['provoking']];
             elseif ( count($in) === 1 ) $provoking = [ array_keys($in)[0] ];
 
-            if ($provoking === null || empty($out) || empty($in))
+            if ($provoking === null || empty($out_rc) || empty($in))
                 throw new Exception("Entry '$name' is incomplete!");
 
             $in_group = (new ItemGroup())->setName("rc_{$name}_in");
@@ -493,7 +492,7 @@ class RecipeFixtures extends Fixture implements DependentFixtureInterface
             $recipe->setSource($in_group);
 
             $out_group = (new ItemGroup())->setName("rc_{$name}_out");
-            foreach ( $out as $id => $count ) {
+            foreach ( $out_rc as $id => $count ) {
                 $proto = $manager->getRepository(ItemPrototype::class)->findOneBy( ['name' => $id] );
                 if (!$proto) throw new Exception("Item prototype not found: '$id'");
                 $out_group->addEntry( (new ItemGroupEntry())->setChance( $count )->setPrototype( $proto ) );
@@ -519,6 +518,11 @@ class RecipeFixtures extends Fixture implements DependentFixtureInterface
             $manager->persist($recipe);
 
             $progress->advance();
+        }
+
+        foreach ($this->entityManager->getRepository(Recipe::class)->findAll() as $rc) if (!isset(static::$recipe_data[$rc->getName()])) {
+            $out->writeln("Removing outdated recipe: <info>{$rc->getName()}</info>" );
+            $this->entityManager->remove($rc);
         }
 
         $manager->flush();
