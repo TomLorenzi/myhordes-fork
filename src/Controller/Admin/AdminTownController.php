@@ -46,7 +46,7 @@ class AdminTownController extends AdminActionController
      */
     public function old_town_list(): Response
     {
-        return $this->render( 'ajax/admin/towns/list.html.twig', $this->addDefaultTwigArgs('old_towns', [
+        return $this->render( 'ajax/admin/towns/old_towns_list.html.twig', $this->addDefaultTwigArgs('old_towns', [
             'towns' => $this->entity_manager->getRepository(TownRankingProxy::class)->findEndedTowns(),
         ]));
     }
