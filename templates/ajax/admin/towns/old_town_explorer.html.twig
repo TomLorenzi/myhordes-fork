@@ -1,0 +1,124 @@
+{% extends "ajax/ajax.html.twig" %}
+{% block title %}{{'Stadt %townname%'|trans({'%townname%': town.name}, 'admin')}}{% endblock %}
+{% block ajax %}
+    {% macro valuelist(prop,val) %}
+        <div class="row">
+            <div class="cell rw-4"><b>{{ prop }}</b></div>
+            <div class="cell rw-8">
+                {% if val is same as(true) %}
+                    {{ 'Ja'|trans({},'admin') }}
+                {% elseif val is same as(false)  %}
+                    {{ 'Nein'|trans({},'admin') }}
+                {% else %}
+                    {{ val }}
+                {% endif %}
+            </div>
+        </div>
+    {% endmacro %}
+
+    <div class="row">
+        <div class="cell padded rw-12">
+            <ul class="tabs plain" x-tab-group="admin-town" x-tab-control x-tab-default="{{ tab }}">
+            	<div class="tab-floater">
+                <li class="tab" x-tab-id="dash"><div class="tab-link">{{ 'Übersicht'|trans({},'admin') }}</div></li>
+                <li class="tab" x-tab-id="citizens"><div class="tab-link">{{ 'Bürger'|trans({},'admin') }}</div></li>
+                </div>
+            </ul>
+            {# @var town \App\Entity\Town #}
+            <div x-tab-group="admin-town" x-tab-id="dash" x-tab-target>
+                <div class="row">
+                    <div class="cell padded rw-6 rw-sm-12">
+                        {{ _self.valuelist('ID'|trans({},'admin'),         town.id) }}
+                        {{ _self.valuelist('Stadtname'|trans({},'admin'),  town.name) }}
+                        {{ _self.valuelist('Sprache'|trans({},'admin'),    town.language) }}
+                        {{ _self.valuelist('Typ'|trans({},'admin'),        town.type.label|trans({},'game')) }}
+                        {{ _self.valuelist('Population'|trans({},'admin'), town.population) }}
+                        {{ _self.valuelist('Saison'|trans({},'admin'),     town.season ? town.season.number : '--') }}
+                        {{ _self.valuelist('Tag'|trans({},'admin'),        town.days) }}
+                    </div>
+                </div>
+            </div>
+            <div x-tab-group="admin-town" x-tab-id="citizens" x-tab-target>
+                <div class="row">
+                    <div class="cell padded rw-5 rw-sm-12">
+                        <div class="row-table citizens-list">
+                            <div class="row header">
+                                <div class="padded cell left rw-12">{{ 'Bürger'|trans({},'game') }}</div>
+                            </div>
+                            {% for citizen in town.citizens|sort((a,b) => b.day <=> a.day) %}
+                                {# @var \App\Entity\Citizen citizen  #}
+                                <div class="row-flex stretch pointer" style="max-height: 100px;">
+                                    <div class="cell factor-0 avatar ua-{{ random(0,9) }}" style="flex-basis: 90px; background: url('{{ citizen.user.avatar ? path('app_web_avatar', {'uid': citizen.user.id, 'name': citizen.user.avatar.smallName, 'ext': citizen.user.avatar.format}) : asset('build/images/forum/empty_avatar.gif') }}') center/cover no-repeat;" x-ajax-href="{{ url('admin_users_citizen_view', {id: citizen.user.id}) }}">&nbsp;</div>
+                                    <div class="cell factor-0 citizen-dead" style="flex-basis: 8px;" x-ajax-href="{{ url('admin_users_citizen_view', {id: citizen.user.id}) }}">&nbsp;</div>
+                                    
+                                    <div class="padded cell rw-4 factor-1 small content-center-vertical citizen-box citizen-box-name">
+                                        <img alt="{{ 'Tot!'|trans({},'game') }}" src="{{ asset('build/images/professions/death.gif') }}" />
+                                        <a class="link" href="{{ url('admin_users_citizen_view', {id: citizen.user.id}) }}">
+                                            <b class="citizen-name">{{ citizen.user.name }}</b>
+                                        </a>&nbsp;
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    <div class="cell rw-7 rw-sm-12 padded">
+                        {% if is_granted("ROLE_ADMIN") %}
+                        <div class="padded cell">
+                            <label for="selectPicto">{{'Eine Auszeichnungen auswählen:'|trans({}, 'admin')}}</label>
+                            <select id="selectPicto">
+                                {% for pictoPrototype in pictoPrototypes %}
+                                    <option value="{{pictoPrototype.id}}">{{ pictoPrototype.label|trans({}, 'game') }}</option>
+                                {% endfor %}
+                            </select>
+                            <label for="numberPicto">
+                                {{'Anzahl der Auszeichnungen:'|trans({}, 'admin')}}
+                            </label>
+                            <input type="number" id="numberPicto" value="1"/>
+                            <br />
+                            <button id="givebtn">{{'Vergeben!'|trans({}, 'admin')}}</button>
+                        </div>
+                        <br />
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            <br />
+            <div class="row">
+                <div class="cell rw-3 ro-9">
+                    <button x-ajax-href="{{ path('admin_old_town_list') }}">{{ 'Stadtübersicht'|trans({},'admin') }}</button>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+
+{% endblock %}
+{% block js %}
+    <script>
+        (function() {
+
+           {% if is_granted("ROLE_ADMIN") %}
+
+            let givebtn = document.getElementById("givebtn");
+            if (givebtn) givebtn.addEventListener('click', function(){
+                let number = document.getElementById("numberPicto").value;
+                if(isNaN(number)) number = 1;
+
+                let picto = document.getElementById('selectPicto').value;
+
+                $.ajax.easySend('{{ path('admin_town_give_picto', {id: town.id}) }}', {
+                        prototype: picto, number: number
+                    },
+                    function () {
+                        $.ajax.load(null, '{{ path('admin_old_town_explorer', {id: town.id, tab: "citizens"}) }}', true);
+                    }
+                );
+            });
+
+            {% endif %}
+        })();
+
+    </script>
+{% endblock %}

@@ -9,6 +9,7 @@ use App\Entity\ItemPrototype;
 use App\Entity\Picto;
 use App\Entity\PictoPrototype;
 use App\Entity\Town;
+use App\Entity\TownRankingProxy;
 use App\Entity\Zone;
 use App\Response\AjaxResponse;
 use App\Service\ErrorHelper;
@@ -34,9 +35,20 @@ class AdminTownController extends AdminActionController
      */
     public function town_list(): Response
     {
-        return $this->render( 'ajax/admin/towns/list.html.twig', [
+        return $this->render( 'ajax/admin/towns/list.html.twig', $this->addDefaultTwigArgs('towns', [
             'towns' => $this->entity_manager->getRepository(Town::class)->findAll(),
-        ]);      
+        ]));
+    }
+
+    /**
+     * @Route("jx/admin/town/list/old", name="admin_old_town_list")
+     * @return Response
+     */
+    public function old_town_list(): Response
+    {
+        return $this->render( 'ajax/admin/towns/old_towns_list.html.twig', $this->addDefaultTwigArgs('old_towns', [
+            'towns' => $this->entity_manager->getRepository(TownRankingProxy::class)->findEndedTowns(),
+        ]));
     }
 
     /**
@@ -82,6 +94,29 @@ class AdminTownController extends AdminActionController
             'pictoPrototypes' => $pictoProtos,
             'tab' => $tab
         ], $this->get_map_blob($town)));
+    }
+
+    /**
+     * @Route("jx/admin/town/old/{id<\d+>}/{tab?}", name="admin_old_town_explorer")
+     * @param int $id
+     * @return Response
+     */
+    public function old_town_explorer(int $id, ?string $tab): Response
+    {
+        $town = $this->entity_manager->getRepository(TownRankingProxy::class)->find($id);
+        if ($town === null) $this->redirect( $this->generateUrl( 'admin_old_town_list' ) );
+
+        $pictoProtos = $this->entity_manager->getRepository(PictoPrototype::class)->findAll();
+        usort($pictoProtos, function($a, $b) {
+            return strcmp($this->translator->trans($a->getLabel(), [], 'game'), $this->translator->trans($b->getLabel(), [], 'game'));
+        });
+
+        return $this->render( 'ajax/admin/towns/old_town_explorer.html.twig', $this->addDefaultTwigArgs('old_explorer', [
+            'town' => $town,
+            'day' => $town->getDays(),
+            'pictoPrototypes' => $pictoProtos,
+            'tab' => $tab
+        ]));
     }
 
     /**
@@ -299,7 +334,7 @@ class AdminTownController extends AdminActionController
     /**
      * @Route("/api/admin/town/{id}/picto/give", name="admin_town_give_picto", requirements={"id"="\d+"})
      * @Security("is_granted('ROLE_ADMIN')")
-     * Add or remove an item from the bank
+     * Give picto to all citizens of a town
      * @param int $id User ID
      * @param JSONRequestParser $parser The Request Parser
      * @return Response
@@ -307,10 +342,14 @@ class AdminTownController extends AdminActionController
     public function town_give_picto($id, JSONRequestParser $parser): Response
     {
         $town = $this->entity_manager->getRepository(Town::class)->find($id);
+        $townRanking = $this->entity_manager->getRepository(TownRankingProxy::class)->find($id);
         /** @var Town $town */
-        if(!$town) {
+        if(!$town && !$townRanking) {
             return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
         }
+
+        if(!$town && $townRanking)
+            $town = $townRanking;
 
         $prototype_id = $parser->get('prototype');
         $number = $parser->get('number', 1);
@@ -327,8 +366,11 @@ class AdminTownController extends AdminActionController
                 $picto = new Picto();
                 $picto->setPrototype($pictoPrototype)
                     ->setPersisted(2)
-                    ->setTown($town)
                     ->setUser($citizen->getUser());
+                if(is_a($town, Town::class))
+                    $picto->setTown($town);
+                else
+                    $picto->setTownEntry($town);
                 $citizen->getUser()->addPicto($picto);
                 $this->entity_manager->persist($citizen->getUser());
             }
