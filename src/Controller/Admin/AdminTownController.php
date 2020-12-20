@@ -35,9 +35,9 @@ class AdminTownController extends AdminActionController
      */
     public function town_list(): Response
     {
-        return $this->render( 'ajax/admin/towns/list.html.twig', [
+        return $this->render( 'ajax/admin/towns/list.html.twig', $this->addDefaultTwigArgs('towns', [
             'towns' => $this->entity_manager->getRepository(Town::class)->findAll(),
-        ]);      
+        ]));
     }
 
     /**
@@ -46,9 +46,9 @@ class AdminTownController extends AdminActionController
      */
     public function old_town_list(): Response
     {
-        return $this->render( 'ajax/admin/towns/list.html.twig', [
+        return $this->render( 'ajax/admin/towns/list.html.twig', $this->addDefaultTwigArgs('old_towns', [
             'towns' => $this->entity_manager->getRepository(TownRankingProxy::class)->findEndedTowns(),
-        ]);
+        ]));
     }
 
     /**
