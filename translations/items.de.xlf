@@ -7561,5 +7561,14 @@
         <target><![CDATA[Du schluckst das Bonbon mit einem Lächeln auf den Lippen herunter... das jedoch schnell wieder verschwindet! Die Füllung besteht aus einem starken psychoaktiven Gift!<t-stat-up-terror>{hr}Du bist vor Angst erstarrt!</t-stat-up-terror>]]></target>
       </segment>
     </unit>
+    <unit id="Mmr6mlb" name="4606897">
+      <notes>
+        <note category="german">&lt;nt-fail&gt;Du hast einen Sandball in {citizen}s Gesicht geworfen.&lt;/nt-fail&gt;&lt;t-fail&gt;Hier ist niemand, auf den du den Sandball werfen könntest...&lt;/t-fail&gt;</note>
+      </notes>
+      <segment>
+        <source>&lt;nt-fail&gt;Du hast einen Sandball in {citizen}s Gesicht geworfen.&lt;/nt-fail&gt;&lt;t-fail&gt;Hier ist niemand, auf den du den Sandball werfen könntest...&lt;/t-fail&gt;</source>
+        <target><![CDATA[<nt-fail>Du hast einen Sandball in {citizen}s Gesicht geworfen.</nt-fail><t-fail>Hier ist niemand, auf den du den Sandball werfen könntest...</t-fail>]]></target>
+      </segment>
+    </unit>
   </file>
 </xliff>
