@@ -1492,7 +1492,7 @@
       </notes>
       <segment>
         <source>Anzeigename</source>
-        <target>Afficher un nom</target>
+        <target>Nom d'affichage</target>
       </segment>
     </unit>
     <unit id="14HKU3b" name="Lokal: %account%">
