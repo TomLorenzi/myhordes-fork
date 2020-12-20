@@ -11629,7 +11629,7 @@
       </notes>
       <segment>
         <source>Deine privaten Nachrichten</source>
-        <target>Deine privaten Nachrichten</target>
+        <target>Tu mensajería privada</target>
       </segment>
     </unit>
     <unit id="C9_MTts" name="91fcb31">
@@ -11638,7 +11638,7 @@
       </notes>
       <segment>
         <source>In diesem Bereich kannst du dir alle möglichen Verbesserungen deines Hauses ansehen.</source>
-        <target>In diesem Bereich kannst du dir alle möglichen Verbesserungen deines Hauses ansehen.</target>
+        <target>Esta sección muestra las extensiones posibles en tu casa.</target>
       </segment>
     </unit>
     <unit id="dQRl.Lz" name="fb2b856">
@@ -11647,7 +11647,7 @@
       </notes>
       <segment>
         <source>In diesem Bereich werden alle bereits eingebauten Einrichtungen und Ausbauten deines Hauses angezeigt (Möbel, Verteidigungsvorrichtungen...).</source>
-        <target>In diesem Bereich werden alle bereits eingebauten Einrichtungen und Ausbauten deines Hauses angezeigt (Möbel, Verteidigungsvorrichtungen...).</target>
+        <target>Esta sección muestra el equipamiento instalado en tu casa (muebles, defensas...).</target>
       </segment>
     </unit>
     <unit id="e_umQ0L" name="37b3bf7">
@@ -11665,7 +11665,7 @@
       </notes>
       <segment>
         <source>Das Passwort ist falsch.</source>
-        <target>Das Passwort ist falsch.</target>
+        <target>La contraseña es incorrecta.</target>
       </segment>
     </unit>
     <unit id="lqbQiYz" name="Pfadfinder">
@@ -11674,7 +11674,7 @@
       </notes>
       <segment>
         <source>Pfadfinder</source>
-        <target>Pfadfinder</target>
+        <target>Furtivo</target>
       </segment>
     </unit>
     <unit id="kFR6HoJ" name="Ninja">
@@ -11683,7 +11683,7 @@
       </notes>
       <segment>
         <source>Ninja</source>
-        <target>Ninja</target>
+        <target>Maestro de la oscuridad</target>
       </segment>
     </unit>
     <unit id="fK.LQlc" name="Green Beret">
@@ -11692,7 +11692,7 @@
       </notes>
       <segment>
         <source>Green Beret</source>
-        <target>Green Beret</target>
+        <target>Amante del riesgo</target>
       </segment>
     </unit>
     <unit id="OaAloKt" name="Schattenmann">
@@ -11728,7 +11728,7 @@
       </notes>
       <segment>
         <source>Sandarbeiter</source>
-        <target>Sandarbeiter</target>
+        <target>Husmeador</target>
       </segment>
     </unit>
     <unit id="IJYuZ5a" name="Wüstenspringmaus">
@@ -11737,7 +11737,7 @@
       </notes>
       <segment>
         <source>Wüstenspringmaus</source>
-        <target>Wüstenspringmaus</target>
+        <target>Descubridor</target>
       </segment>
     </unit>
     <unit id="Vkh5MQX" name="Großer Ameisenbär">
@@ -11746,7 +11746,7 @@
       </notes>
       <segment>
         <source>Großer Ameisenbär</source>
-        <target>Großer Ameisenbär</target>
+        <target>Jefe Excavador</target>
       </segment>
     </unit>
     <unit id="nHhwa89" name="Wüstenfuchs">
@@ -11755,7 +11755,7 @@
       </notes>
       <segment>
         <source>Wüstenfuchs</source>
-        <target>Wüstenfuchs</target>
+        <target>Maestro Excavador</target>
       </segment>
     </unit>
     <unit id="j2g8eu0" name="Ich sehe Alles!">
@@ -11764,7 +11764,7 @@
       </notes>
       <segment>
         <source>Ich sehe Alles!</source>
-        <target>Ich sehe Alles!</target>
+        <target>Nada se me escapa</target>
       </segment>
     </unit>
     <unit id="fgaC7U9" name="Tierliebhaber">
@@ -11773,7 +11773,7 @@
       </notes>
       <segment>
         <source>Tierliebhaber</source>
-        <target>Tierliebhaber</target>
+        <target>Amigo de los Animales</target>
       </segment>
     </unit>
     <unit id="zwq1Nwl" name="Malteserzüchter">
@@ -11782,7 +11782,7 @@
       </notes>
       <segment>
         <source>Malteserzüchter</source>
-        <target>Malteserzüchter</target>
+        <target>Maestro Domador</target>
       </segment>
     </unit>
     <unit id="wNYAdWT" name="Ich bändige Bestien">
@@ -11791,7 +11791,7 @@
       </notes>
       <segment>
         <source>Ich bändige Bestien</source>
-        <target>Ich bändige Bestien</target>
+        <target>Domador de Bestias</target>
       </segment>
     </unit>
     <unit id="uBx6t9G" name="Nie ohne meinen Hund!">
@@ -11800,7 +11800,7 @@
       </notes>
       <segment>
         <source>Nie ohne meinen Hund!</source>
-        <target>Nie ohne meinen Hund!</target>
+        <target>Manimal</target>
       </segment>
     </unit>
     <unit id="NptrmeY" name="Hundewurst schmeckt gar nicht schlecht!">
@@ -11818,7 +11818,7 @@
       </notes>
       <segment>
         <source>Wurmfresser</source>
-        <target>Wurmfresser</target>
+        <target>Comegusanos</target>
       </segment>
     </unit>
     <unit id="LNbZ8tc" name="Meister im Würmerfinden">
@@ -11827,7 +11827,7 @@
       </notes>
       <segment>
         <source>Meister im Würmerfinden</source>
-        <target>Meister im Würmerfinden</target>
+        <target>Degustador</target>
       </segment>
     </unit>
     <unit id="r_g0Zdo" name="Gefräßiger Bürger">
@@ -11836,7 +11836,7 @@
       </notes>
       <segment>
         <source>Gefräßiger Bürger</source>
-        <target>Gefräßiger Bürger</target>
+        <target>Paladar insaciable</target>
       </segment>
     </unit>
     <unit id="YuHCJk9" name="Wüstenwurmzüchter">
@@ -11845,7 +11845,7 @@
       </notes>
       <segment>
         <source>Wüstenwurmzüchter</source>
-        <target>Wüstenwurmzüchter</target>
+        <target>Devorador de insectos</target>
       </segment>
     </unit>
     <unit id="R1l.1Ik" name="Ich brauche niemanden!">
@@ -11854,7 +11854,7 @@
       </notes>
       <segment>
         <source>Ich brauche niemanden!</source>
-        <target>Ich brauche niemanden!</target>
+        <target>Omnívoro</target>
       </segment>
     </unit>
     <unit id="mjnL5N2" name="Heraklit der Außenwelt">
@@ -11872,7 +11872,7 @@
       </notes>
       <segment>
         <source>Diplomierter Scharlatan</source>
-        <target>Diplomierter Scharlatan</target>
+        <target>Aborigen curioso</target>
       </segment>
     </unit>
     <unit id="PoQOcTB" name="Schlimmer Finger">
@@ -11881,7 +11881,7 @@
       </notes>
       <segment>
         <source>Schlimmer Finger</source>
-        <target>Schlimmer Finger</target>
+        <target>Charlatán Amateur</target>
       </segment>
     </unit>
     <unit id="8XXS1ZO" name="Seelenverwerter">
@@ -11890,7 +11890,7 @@
       </notes>
       <segment>
         <source>Seelenverwerter</source>
-        <target>Seelenverwerter</target>
+        <target>Charlatán Profesional</target>
       </segment>
     </unit>
     <unit id="daFQjVZ" name="Mystischer Seher">
@@ -11917,7 +11917,7 @@
       </notes>
       <segment>
         <source>Yo, wir schaffen das!</source>
-        <target>Yo, wir schaffen das!</target>
+        <target>Bricoloco</target>
       </segment>
     </unit>
     <unit id="QAyNZLl" name="Kleiner Schraubendreher">
@@ -11926,7 +11926,7 @@
       </notes>
       <segment>
         <source>Kleiner Schraubendreher</source>
-        <target>Kleiner Schraubendreher</target>
+        <target>Destornillador Humano</target>
       </segment>
     </unit>
     <unit id="lOiwfoy" name="Schweizer Taschenmesser">
@@ -11935,7 +11935,7 @@
       </notes>
       <segment>
         <source>Schweizer Taschenmesser</source>
-        <target>Schweizer Taschenmesser</target>
+        <target>Mascafierros</target>
       </segment>
     </unit>
     <unit id="G7XcSN_" name="Unermüdlicher Schrauber">
@@ -11944,7 +11944,7 @@
       </notes>
       <segment>
         <source>Unermüdlicher Schrauber</source>
-        <target>Unermüdlicher Schrauber</target>
+        <target>Técnico Inagotable</target>
       </segment>
     </unit>
     <unit id="howdSv." name="Seele des Handwerks">
@@ -11962,7 +11962,7 @@
       </notes>
       <segment>
         <source>Die Mauer</source>
-        <target>Die Mauer</target>
+        <target>Defensor</target>
       </segment>
     </unit>
     <unit id="_EUCNVZ" name="Höllenwächter">
@@ -11971,7 +11971,7 @@
       </notes>
       <segment>
         <source>Höllenwächter</source>
-        <target>Höllenwächter</target>
+        <target>Gran Guardián</target>
       </segment>
     </unit>
     <unit id="Q8GaCTs" name="Kerberos">
@@ -11980,7 +11980,7 @@
       </notes>
       <segment>
         <source>Kerberos</source>
-        <target>Kerberos</target>
+        <target>Paladín</target>
       </segment>
     </unit>
     <unit id="9MIZnKw" name="Die letzte Verteidigungslinie">
@@ -11989,7 +11989,7 @@
       </notes>
       <segment>
         <source>Die letzte Verteidigungslinie</source>
-        <target>Die letzte Verteidigungslinie</target>
+        <target>Último escudero</target>
       </segment>
     </unit>
     <unit id="Kn0Gmio" name="Du kommst hier NICHT durch!">
@@ -11998,7 +11998,7 @@
       </notes>
       <segment>
         <source>Du kommst hier NICHT durch!</source>
-        <target>Du kommst hier NICHT durch!</target>
+        <target>¡Usted no entra!</target>
       </segment>
     </unit>
     <unit id="ieyAoEk" name="Hekatoncheir">
@@ -12016,7 +12016,7 @@
       </notes>
       <segment>
         <source>Kantinenkoch</source>
-        <target>Kantinenkoch</target>
+        <target>Ayudante de cocina</target>
       </segment>
     </unit>
     <unit id="XpX9Vur" name="Kleiner Küchenchef">
@@ -12025,7 +12025,7 @@
       </notes>
       <segment>
         <source>Kleiner Küchenchef</source>
-        <target>Kleiner Küchenchef</target>
+        <target>Cocinerillo</target>
       </segment>
     </unit>
     <unit id="rY8Cfrk" name="Meister Eintopf">
@@ -12034,7 +12034,7 @@
       </notes>
       <segment>
         <source>Meister Eintopf</source>
-        <target>Meister Eintopf</target>
+        <target>Cordon bleu del barrio</target>
       </segment>
     </unit>
     <unit id="j.yBGQa" name="Großer Wüstenkonditor">
@@ -12043,7 +12043,7 @@
       </notes>
       <segment>
         <source>Großer Wüstenkonditor</source>
-        <target>Großer Wüstenkonditor</target>
+        <target>Cordon bleu del pueblo</target>
       </segment>
     </unit>
     <unit id="FL.AXi6" name="Begnadeter Wüstenkonditor">
@@ -12052,7 +12052,7 @@
       </notes>
       <segment>
         <source>Begnadeter Wüstenkonditor</source>
-        <target>Begnadeter Wüstenkonditor</target>
+        <target>Cuchara-brava</target>
       </segment>
     </unit>
     <unit id="Ry7M.1L" name="Cooking Mama">
