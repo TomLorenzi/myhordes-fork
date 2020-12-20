@@ -56,7 +56,7 @@ You can also install pgAdmin to access the database.
 Clone the project inside any directory
 
 ```bash
-git clone https://apps.benbehrendt.de/kallithea/Privat/MyHordes
+git clone https://gitlab.com/eternal-twin/myhordes.git
 ```
 
 ## Composer
@@ -93,7 +93,7 @@ For postgresql:
 `DATABASE_URL=postgresql://db_user:db_password@db_ip:db_port/db_name`
 Default `db_port`: 5432
 
-Replace `db_user`, `db_password` with the credentials used for the database user. If your db is hosted on the same computer, you will probably use `127.0.0.1`as the db_ip.
+Replace `db_user`, `db_password` with the credentials used for the database user. If your db is hosted on the same computer, you will probably use `localhost`as the db_ip.
 
 `db_name` can be whatever you need. You can change it during development to test on more databases.
 
@@ -101,26 +101,20 @@ Replace `db_user`, `db_password` with the credentials used for the database user
 
 Create the database:
 ```bash
-bin/console doctrine:database:create
-```
-
-Create the tables:
-```bash
-bin/console doctrine:schema:update --force
-```
-
-Add some data:
-```bash
-bin/console doctrine:fixtures:load --append
+bin/console app:migrate -i
 ```
 
 ## Build
 
 Now you can build the project using yarn
 
+First, install all the dependencies
+
 ```bash
 yarn install
 ```
+
+Then, let's compile the assets
 
 ```
 yarn encore dev
@@ -157,6 +151,11 @@ php composer.phar update
 ```
 
 Update database:
+```bash
+bin/console app:migrate -u
+```
+
+In case the migrations fail, you should try to append `-r` to the previous command:
 ```bash
 bin/console app:migrate -u -r
 ```
@@ -362,7 +361,9 @@ yarn run etwin
 # yarn run etwin &
 ```
 
-### Create the crow account
+# Various commands
+
+## Create the crow account and 79 other test accounts
 It will also create 80 debug accounts in case there are none.
 ```
 bin/console app:debug --add-crow
@@ -372,11 +373,6 @@ bin/console app:debug --add-crow
 Available languages : fr, en, de, es, multi
 ```
 bin/console app:town:create remote 40 <en,fr,de,es,multi>
-```
-
-### Add debug users (password = username)
-```
-bin/console app:debug --add-debug-users
 ```
 
 ### Fill town with citizens
