@@ -4912,7 +4912,7 @@
       </notes>
       <segment>
         <source>Es ist nicht möglich, unsere Situation angesichts des Angriffs von heute Abend genau einzuschätzen.</source>
-        <target>Nuestras defensas <strong>podrían</strong> resistir parcialmente al ataque de esta noche.</target>
+        <target><![CDATA[Nuestras defensas <strong>podrían</strong> resistir parcialmente al ataque de esta noche.]]></target>
       </segment>
     </unit>
     <unit id="aVClbc0" name="Meine täglichen Aufgaben">
@@ -5101,7 +5101,7 @@
       </notes>
       <segment>
         <source>Anmerkung: Verteidigungsgegenstände (Holzplatten etc...) müssen in der Bank abgelegt werden.</source>
-        <target><em>Recuerda: Los objetos de defensa (planchas de madera, etc.) deben ser colocados en el Almacén.</em></target>
+        <target><![CDATA[<em>Recuerda: Los objetos de defensa (planchas de madera, etc.) deben ser colocados en el Almacén.</em>]]></target>
       </segment>
     </unit>
     <unit id="p7WJjEO" name="cabb91e">
@@ -6730,7 +6730,7 @@
       </notes>
       <segment>
         <source>Dieser Bürger ist ernsthaft verletzt.</source>
-        <target>¡Ha sido <strong>gravemente herido</strong>!</target>
+        <target><![CDATA[¡Ha sido <strong>gravemente herido</strong>!]]></target>
       </segment>
     </unit>
     <unit id="w5JoDMX" name="29edb8e">
@@ -6973,7 +6973,7 @@
       </notes>
       <segment>
         <source>Du musst jeden Tag Drogen einnehmen! Wenn du eines morgens aufwachst, ohne am Tag zuvor Drogen genommen zu haben, wirst du sterben!</source>
-        <target><strong>Necesitas</strong> tu dosis de estimulantes cada día. ¡Si te despiertas por la mañana <strong>sin haber consumido tu dosis del día anterior, morirás!</strong>!</target>
+        <target><![CDATA[<strong>Necesitas</strong> tu dosis de estimulantes cada día. ¡Si te despiertas por la mañana <strong>sin haber consumido tu dosis del día anterior, morirás!</strong>!]]></target>
       </segment>
     </unit>
     <unit id="ztykDm4" name="1d4bff7">
@@ -7180,7 +7180,7 @@
       </notes>
       <segment>
         <source>Du erhälst einen Bauplan, wenn Du in diesem Gebäude campst.</source>
-        <target>Obtendrás un <strong>plano de obras</strong> si pasas la noche aquí.</target>
+        <target><![CDATA[Obtendrás un <strong>plano de obras</strong> si pasas la noche aquí.]]></target>
       </segment>
     </unit>
     <unit id="XZI.RVp" name="Hier wurde bereits ein Bauplan gefunden.">
@@ -7189,7 +7189,7 @@
       </notes>
       <segment>
         <source>Hier wurde bereits ein Bauplan gefunden.</source>
-        <target>Este edificio ya fue inspeccionado por otro jugador y no contiene ningún <strong>plano de obras</strong>...</target>
+        <target><![CDATA[Este edificio ya fue inspeccionado por otro jugador y no contiene ningún <strong>plano de obras</strong>...]]></target>
       </segment>
     </unit>
     <unit id="r0eixUa" name="%citizen% will zurück zur Stadt und wird dir nicht in diese Richtung folgen.">
@@ -7198,7 +7198,7 @@
       </notes>
       <segment>
         <source>%citizen% will zurück zur Stadt und wird dir nicht in diese Richtung folgen.</source>
-        <target>¡%citizen% no quiere ir en esa dirección! <strong>Este habitante te pide que lo lleves al pueblo</strong>.</target>
+        <target><![CDATA[¡%citizen% no quiere ir en esa dirección! <strong>Este habitante te pide que lo lleves al pueblo</strong>.]]></target>
       </segment>
     </unit>
     <unit id="KnJXiGc" name="Die Tarnung von %name% ist aufgeflogen!">
@@ -7216,7 +7216,7 @@
       </notes>
       <segment>
         <source>Der Gegenstand, den du soeben gefunden hast, passt nicht in deinen Rucksack, darum bleibt er erstmal am Boden...</source>
-        <target>No puedes cargar este objeto, no te queda más que <strong>abandonarlo en el suelo</strong>...</target>
+        <target><![CDATA[No puedes cargar este objeto, no te queda más que <strong>abandonarlo en el suelo</strong>...]]></target>
       </segment>
     </unit>
     <unit id="2MBbf8L" name="416726b">
@@ -7396,7 +7396,7 @@
       </notes>
       <segment>
         <source>%citizen% hat sich ein paar Minuten Zeit genommen, um sein Versteck zu verbessern.</source>
-        <target>%citizen% se ha <strong>hecho un escondite</strong> con todo lo que tenía a su alcance.</target>
+        <target><![CDATA[%citizen% se ha <strong>hecho un escondite</strong> con todo lo que tenía a su alcance.]]></target>
       </segment>
     </unit>
     <unit id="yqBYbyO" name="%citizen% hat %item% aufgestellt, um das Versteck zu verbessern.">
@@ -7405,7 +7405,7 @@
       </notes>
       <segment>
         <source>%citizen% hat %item% aufgestellt, um das Versteck zu verbessern.</source>
-        <target>%citizen% se ha <strong>hecho un escondite</strong> con %item%.</target>
+        <target><![CDATA[%citizen% se ha <strong>hecho un escondite</strong> con %item%.]]></target>
       </segment>
     </unit>
     <unit id="3cYOuAW" name="%citizen% hat sich für heute Nacht ein Versteck gesucht ...">
@@ -7432,7 +7432,7 @@
       </notes>
       <segment>
         <source>%citizen% hat beschlossen auf einen Eskortenanführer zu warten...</source>
-        <target>%citizen% ha decidido esperar a un <strong>jefe de escolta</strong>....</target>
+        <target><![CDATA[%citizen% ha decidido esperar a un <strong>jefe de escolta</strong>....]]></target>
       </segment>
     </unit>
     <unit id="tZT81ei" name="%citizen% hat beschlossen sich wieder allein fortzubewegen.">
@@ -7576,7 +7576,7 @@
       </notes>
       <segment>
         <source>Unsere Verteidigung ist nicht stark genug, um dem Angriff heute Nacht standzuhalten.</source>
-        <target><strong>¡No tenemos las defensas necesarias para resistir al ataque de esta noche!.</strong></target>
+        <target><![CDATA[<strong>¡No tenemos las defensas necesarias para resistir al ataque de esta noche!.</strong>]]></target>
       </segment>
     </unit>
     <unit id="dGfxw4F" name="2242ddb">
@@ -7585,7 +7585,7 @@
       </notes>
       <segment>
         <source>Unsere Verteidigung ist möglicherweise nicht stark genug, um dem Angriff heute Nacht standzuhalten...</source>
-        <target>Nuestras defensas podrían resistir <strong>parcialmente</strong> al ataque de esta noche.</target>
+        <target><![CDATA[Nuestras defensas podrían resistir <strong>parcialmente</strong> al ataque de esta noche.]]></target>
       </segment>
     </unit>
     <unit id="u_UqXok" name="Hast du schließlich doch Angst Wächter zu sein? Was zögerst du noch:">
