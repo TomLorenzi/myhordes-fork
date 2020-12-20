@@ -16,7 +16,8 @@
                     <div class="cell padded rw-1">{{ 'ID'|trans({},'admin') }}</div>
                     <div class="cell padded rw-5">{{ 'Stadtname'|trans({},'admin') }}</div>
                     <div class="cell padded rw-1">{{ 'Tag'|trans({},'admin') }}</div>
-                    <div class="cell padded rw-2">{{ 'Pop.'|trans({},'admin') }}</div>
+                    <div class="cell padded rw-1">{{ 'Pop.'|trans({},'admin') }}</div>
+                    <div class="cell padded rw-1">{{ 'Importiert'|trans({},'admin') }}</div>
                     <div class="cell padded rw-3 right">{{ 'Aktionen'|trans({},'admin') }}</div>
                 </div>
                 {# @var towns \App\Entity\TownRankingEntry[] #}
@@ -36,9 +37,10 @@
                             {{ town.name }}
                         </div>
                         <div class="cell padded rw-1">{{ town.days }}</div>
-                        <div class="cell padded rw-2">
-                            {{ town.citizens|length }} / {{ town.population }}<br />
+                        <div class="cell padded rw-1">
+                            {{ town.citizens|length }} / {{ town.population }}
                         </div>
+                        <div class="cell padded rw-1">{% if town.imported %}{{ 'Ja'|trans({}, 'admin') }}{% else %}{{ 'Nein'|trans({}, 'admin') }}{% endif %}</div>
                         <div class="cell padded rw-3 right">
                             <button x-ajax-href="{{ path('admin_old_town_explorer', {id: town.id}) }}" class="small inline">{{ 'Details'|trans({},'admin') }}...</button>
                         </div>
