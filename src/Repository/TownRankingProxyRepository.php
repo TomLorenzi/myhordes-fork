@@ -22,6 +22,7 @@ class TownRankingProxyRepository extends ServiceEntityRepository
     public function findEndedTowns(){
         return $this->createQueryBuilder('t')
             ->andWhere('t.end IS NOT NULL')
+            ->orWhere('t.imported = 1')
             ->orderBy('t.id', 'ASC')
             ->getQuery()
             ->getResult()
