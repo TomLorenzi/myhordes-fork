@@ -266,6 +266,13 @@ class TwinoidHandler
             );
 
             $this->em->persist( $entry );
+        } else {
+            /** @var CitizenRankingProxy $entry */
+            $entry = $this->em->getRepository(CitizenRankingProxy::class)->findOneBy( ['user' => $user, 'importID' => $town->getID(), 'importLang' => $lang] );
+            if ($entry) {
+                $entry->setComment( $town->getComment() )->setLastWords( $town->getMessage() )->setDay( $town->getSurvivedDays() )->setPoints( $town->getScore() )->setCod( $town->convertDeath() );
+                $this->em->persist( $entry );
+            }
         }
         //</editor-fold>
 
