@@ -109,6 +109,18 @@ class NightlyHandler
         if ($skip_reanimation) $this->skip_reanimation[] = $citizen->getId();
     }
 
+    private function stage1_prepare(Town $town) {
+        $this->log->info('<info>Checking insurrection status</info> ...');
+
+        if ($town->getInsurrectionProgress() > 0)
+            foreach ($town->getCitizens() as $citizen)
+                if ($citizen->getAlive() && $citizen->getBanished() && !$this->citizen_handler->hasStatusEffect($citizen, 'tg_insurrection')) {
+                    $this->log->info("Shunned citizen <info>{$citizen->getUser()->getName()}</info> did not contribute to the insurrection. Resetting.");
+                    $town->setInsurrectionProgress(0);
+                    break;
+                }
+    }
+
     private function stage1_vanish(Town $town) {
         $this->log->info('<info>Vanishing citizens</info> ...');
         $cod = $this->entity_manager->getRepository(CauseOfDeath::class)->findOneBy(['ref' => CauseOfDeath::Vanished]);
@@ -1326,6 +1338,7 @@ class NightlyHandler
         $this->town_handler->triggerAlways( $town );
 
         $this->log->info('Entering <comment>Phase 1</comment> - Pre-attack processing');
+        $this->stage1_prepare($town);
         $this->stage1_vanish($town);
         $this->stage1_status($town);
 

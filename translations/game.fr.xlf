@@ -15588,12 +15588,12 @@
         <target>Ramener un citoyen:</target>
       </segment>
     </unit>
-    <unit id="mVtk8KY" name="Herzlichen Glückwunsch! Du hast deine Behausung in ein(e) %home%.">
+    <unit id="mVtk8KY" name="Herzlichen Glückwunsch! Du hast deine Behausung in ein(e) %home% verwandelt.">
       <notes>
-        <note category="german">Herzlichen Glückwunsch! Du hast deine Behausung in ein(e) %home%.</note>
+        <note category="german">Herzlichen Glückwunsch! Du hast deine Behausung in ein(e) %home% verwandelt.</note>
       </notes>
       <segment>
-        <source>Herzlichen Glückwunsch! Du hast deine Behausung in ein(e) %home%.</source>
+        <source>Herzlichen Glückwunsch! Du hast deine Behausung in ein(e) %home% verwandelt.</source>
         <target>Félicitations ! Vous avez amélioré votre habitation en %home%.</target>
       </segment>
     </unit>
@@ -15756,7 +15756,7 @@
       </notes>
       <segment>
         <source>%attacker% hat %defender% mit einem üblen Sandballwurf verwundet. Autsch, das hat sicher weh getan...!</source>
-        <target>%attacker% hat %defender% mit einem üblen Sandballwurf verwundet. Autsch, das hat sicher weh getan...!</target>
+        <target>%attacker% a jeté une boule de sable directement dans le visage de %defender% !</target>
       </segment>
     </unit>
     <unit id="BaTN5Rg" name="%attacker% hat %defender% einen Sandball direkt ins Gesicht geworfen!">
@@ -15765,7 +15765,7 @@
       </notes>
       <segment>
         <source>%attacker% hat %defender% einen Sandball direkt ins Gesicht geworfen!</source>
-        <target>%attacker% hat %defender% einen Sandball direkt ins Gesicht geworfen!</target>
+        <target>%attacker% a blessé %defender% avec sa sale boule de sable. Aïe ça fait mal...!</target>
       </segment>
     </unit>
   </file>

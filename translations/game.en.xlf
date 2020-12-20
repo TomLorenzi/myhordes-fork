@@ -15493,13 +15493,13 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
         <target>Du hast am Bauprojekt %plan% mitgeholfen. Du hast dafür %count% Aktionspunkt(e) verbraucht.</target>
       </segment>
     </unit>
-    <unit id="mVtk8KY" name="Herzlichen Glückwunsch! Du hast deine Behausung in ein(e) %home%.">
+    <unit id="mVtk8KY" name="Herzlichen Glückwunsch! Du hast deine Behausung in ein(e) %home% verwandelt.">
       <notes>
-        <note category="german">Herzlichen Glückwunsch! Du hast deine Behausung in ein(e) %home%.</note>
+        <note category="german">Herzlichen Glückwunsch! Du hast deine Behausung in ein(e) %home% verwandelt.</note>
       </notes>
       <segment>
-        <source>Herzlichen Glückwunsch! Du hast deine Behausung in ein(e) %home%.</source>
-        <target>Herzlichen Glückwunsch! Du hast deine Behausung in ein(e) %home%.</target>
+        <source>Herzlichen Glückwunsch! Du hast deine Behausung in ein(e) %home% verwandelt.</source>
+        <target>Herzlichen Glückwunsch! Du hast deine Behausung in ein(e) %home% verwandelt.</target>
       </segment>
     </unit>
     <unit id="CZg55p2" name="Folgenden Dinge wurden dazu gebraucht:">
@@ -15706,7 +15706,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>%attacker% hat %defender% mit einem üblen Sandballwurf verwundet. Autsch, das hat sicher weh getan...!</source>
-        <target>%attacker% hat %defender% mit einem üblen Sandballwurf verwundet. Autsch, das hat sicher weh getan...!</target>
+        <target>%attacker% has wounded %defender% with his nasty sand ball. Ouch, that hurt...!</target>
       </segment>
     </unit>
     <unit id="BaTN5Rg" name="%attacker% hat %defender% einen Sandball direkt ins Gesicht geworfen!">
@@ -15715,7 +15715,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>%attacker% hat %defender% einen Sandball direkt ins Gesicht geworfen!</source>
-        <target>%attacker% hat %defender% einen Sandball direkt ins Gesicht geworfen!</target>
+        <target>%attacker% has thrown a sand ball right into %defender%'s face!</target>
       </segment>
     </unit>
   </file>

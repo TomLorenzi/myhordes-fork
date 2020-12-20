@@ -71,6 +71,8 @@
 {% block js %}
     {{ parent() }}
     <script>
+        {% embed "scripts/log.js.twig" %}{% endembed %}
+
         {% if is_catapult_master %}
             $.html.addEventListenerAll('#cata_do', 'click', function () {
                 const item = parseInt(document.getElementById('cata_what').value);
