@@ -4,6 +4,7 @@
 namespace App\Service;
 
 
+use App\Entity\ActionCounter;
 use App\Entity\BuildingPrototype;
 use App\Entity\CampingActionPrototype;
 use App\Entity\CauseOfDeath;
@@ -15,6 +16,7 @@ use App\Entity\CitizenVote;
 use App\Entity\DigTimer;
 use App\Entity\EscapeTimer;
 use App\Entity\EscortActionGroup;
+use App\Entity\EventActivationMarker;
 use App\Entity\FoundRolePlayText;
 use App\Entity\HomeActionPrototype;
 use App\Entity\Item;
@@ -34,6 +36,7 @@ use App\Entity\TownLogEntry;
 use App\Entity\Zone;
 use App\Structures\EscortItemActionSet;
 use App\Structures\ItemRequest;
+use App\Structures\MyHordesConf;
 use App\Structures\TownConf;
 use App\Translation\T;
 use DateTime;
@@ -446,11 +449,10 @@ class ActionHandler
                 if (!$target->getZone() || !$target->getAlive()) return false;
                 if ( round( sqrt(pow($target->getZone()->getX(),2 ) + pow($target->getZone()->getY(),2 )) ) > 2 ) return false;
                 break;
-            case ItemTargetDefinition::ItemCitizenType:
+            case ItemTargetDefinition::ItemCitizenType: case ItemTargetDefinition::ItemCitizenOnZoneType: case ItemTargetDefinition::ItemCitizenOnZoneSBType:
                 if (!is_a( $target, Citizen::class )) return false;
                 if (!$target->getAlive()) return false;
                 break;
-
             default: return false;
         }
 
@@ -864,7 +866,7 @@ class ActionHandler
                 elseif ($text) {
                     $tags[] = 'rp_ok';
                     $foundrp = new FoundRolePlayText();
-                    $foundrp->setUser($citizen->getUser())->setText($text);
+                    $foundrp->setUser($citizen->getUser())->setText($text)->setNew(true);
                     $citizen->getUser()->getFoundTexts()->add($foundrp);
 
                     $this->entity_manager->persist($foundrp);
@@ -1093,6 +1095,11 @@ class ActionHandler
                             $this->entity_manager->persist( $dig_timer );
                         }
 
+                        if ($result->getCustom() === 8){
+                            foreach ($citizen->getValidLeadingEscorts() as $escort)
+                                $escort->getCitizen()->getEscortSettings()->setLeader(null);
+                        }
+
                         if ($jumper->getEscortSettings()) {
                             $remove[] = $jumper->getEscortSettings();
                             $jumper->setEscortSettings(null);
@@ -1224,10 +1231,47 @@ class ActionHandler
                         // Persist
                         $this->entity_manager->persist($citizenVote);
                         $this->entity_manager->persist($citizen);
-                        $this->entity_manager->flush();
                         
                         break;
                     }
+
+                    // Sandballs, bitches!
+                    case 20: {
+
+                        if ($target === null) {
+                            // Hordes-like - there is no target, there is only ZUUL
+                            $list = $citizen->getZone()->getCitizens()->filter( function(Citizen $c) use ($citizen): bool {
+                                return $c->getAlive() && $c !== $citizen && ($c->getSpecificActionCounter(ActionCounter::ActionTypeSandballHit)->getLast() === null || $c->getSpecificActionCounter(ActionCounter::ActionTypeSandballHit)->getLast()->getTimestamp() < (time() - 1800));
+                            } )->getValues();
+                            $sandball_target = $this->random_generator->pick( $list );
+
+                        } else $sandball_target = $target;
+
+                        /** @var EventActivationMarker $eam */
+                        $eam = $this->entity_manager->getRepository(EventActivationMarker::class)->findOneBy(['citizen' => $citizen]);
+                        if (!$eam || $eam->getEvent() !== 'christmas') $sandball_target = null;
+
+                        if ($sandball_target !== null) {
+                            $this->picto_handler->give_picto($citizen, 'r_sandb_#00');
+
+                            $this->inventory_handler->forceRemoveItem( $item );
+                            $execute_info_cache['items_consume'][] = $item->getPrototype();
+
+                            $execute_info_cache['citizen'] = $sandball_target;
+                            $sandball_target->getSpecificActionCounter(ActionCounter::ActionTypeSandballHit)->increment();
+
+                            $hurt = !$this->citizen_handler->isWounded($sandball_target) && $this->random_generator->chance( $town_conf->get(TownConf::CONF_MODIFIER_SANDBALL_NASTYNESS, 0.0) );
+                            if ($hurt) $this->citizen_handler->inflictWound($sandball_target);
+
+                            $this->entity_manager->persist( $this->log->sandballAttack( $citizen, $sandball_target, $hurt ) );
+                            $this->entity_manager->persist($sandball_target);
+
+
+                        } else $tags[] = 'fail';
+
+                        break;
+                    }
+
                 }
 
                 if ($ap) {

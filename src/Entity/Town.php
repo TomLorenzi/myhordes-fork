@@ -173,6 +173,11 @@ class Town
      */
     private ?string $deriveConfigFrom = null;
 
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $insurrectionProgress = 0;
+
     public function __construct()
     {
         $this->citizens = new ArrayCollection();
@@ -741,5 +746,17 @@ class Town
             $max = max($max, $zone->getX());
         }
         return abs($max) + abs($min) + 1;
+    }
+
+    public function getInsurrectionProgress(): ?int
+    {
+        return $this->insurrectionProgress;
+    }
+
+    public function setInsurrectionProgress(int $insurrectionProgress): self
+    {
+        $this->insurrectionProgress = $insurrectionProgress;
+
+        return $this;
     }
 }

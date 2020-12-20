@@ -43,7 +43,7 @@
                         {% endif %}
                         <span>{{ '%action%: %item%'|trans({'%action%': entry.action.label|trans({},'items')|e('html'), '%item%': '<b>' ~ entry.item.prototype.label|trans({},'items')|e('html') ~ '</b>'},'items')|raw }}</span>
                         {% if entry.targets is not null and not entry.crossed %}
-                            {% if entry.target_mode == 2 %}
+                            {% if entry.target_mode in [2,3,4,5] %}
                                 {{ _self.target_popup( entry.id, entry.item.id, entry.targets, entry.id ~ '--' ~ entry.item.id, 'Bitte wähle einen Bürger:'|trans({},'game'), 'Es ist kein Bürger in der Nähe...'|trans({},'game'), true, true, entry.action.confirm ) }}
                             {% else %}
                                 {{ _self.target_popup( entry.id, entry.item.id, entry.targets, entry.id ~ '--' ~ entry.item.id, 'Bitte wähle einen Gegenstand:'|trans({},'game'), 'Du verfügst über keine geeigneten Gegenstände'|trans({},'game'), true, false, entry.action.confirm ) }}
@@ -133,7 +133,7 @@
                             {{ _self.target_popup( entry.id, null, entry.targets, entry.id ~ '--special', 'Einen Bürger heimbringen:'|trans({},'game'), 'Es ist kein Bürger in der Nähe...'|trans({},'game'), true, true, entry.action.confirm ) }}
                         {% elseif entry.target_mode == 0 or entry.target_mode == 1 %}
                             {{ _self.target_popup( entry.id, null, entry.targets, entry.id ~ '--special', 'Bitte wähle einen Gegenstand:'|trans({},'game'), 'Du verfügst über keine geeigneten Gegenstände'|trans({},'game'), true, false, entry.action.confirm ) }}
-                        {% elseif entry.target_mode == 3 %}
+                        {% elseif entry.target_mode in [3,4,5] %}
                             {{ _self.target_popup( entry.id, null, entry.targets, entry.id ~ '--special', 'Bitte wähle einen Bürger:'|trans({},'game'), 'Es ist kein Bürger in der Nähe...'|trans({},'game'), true, true, entry.action.confirm ) }}
                         {% endif %}
                     {% endif %}
@@ -143,7 +143,7 @@
     {% endif %}
 
     {% if heroic_action_list is defined and heroic_action_list|length > 0 %}
-        <button x-heroic-toggle="1"><img src="{{ asset('build/images/icons/star.gif') }}" alt="">{{ 'Heldentaten'|trans({},'items')  }}</button>
+        <button x-heroic-toggle="1" class="mb-1"><img src="{{ asset('build/images/icons/star.gif') }}" alt="">{{ 'Heldentaten'|trans({},'items')  }}</button>
         <ul class="heroic_actions">
             {% for entry in heroic_action_list %}
                 <li class="heroic_action" {% if entry.crossed %}disabled{% elseif entry.targets is null %}x-action-id="{{ entry.id }}" x-action-confirm="1" {% else %}x-target-definition="{{ entry.id }}--hero"{% endif %}>
@@ -157,7 +157,7 @@
                             {{ _self.target_popup( entry.id, null, entry.targets, entry.id ~ '--hero', 'Einen Bürger heimbringen:'|trans({},'game'), 'Es ist kein Bürger in der Nähe...'|trans({},'game'), true, true, entry.action.confirm ) }}
                         {% elseif entry.target_mode == 0 or entry.target_mode == 1 %}
                             {{ _self.target_popup( entry.id, null, entry.targets, entry.id ~ '--hero', 'Bitte wähle einen Gegenstand:'|trans({},'game'), 'Du verfügst über keine geeigneten Gegenstände'|trans({},'game'), true, false, entry.action.confirm ) }}
-                        {% elseif entry.target_mode == 3 %}
+                        {% elseif entry.target_mode in [3,4,5] %}
                             {{ _self.target_popup( entry.id, null, entry.targets, entry.id ~ '--hero', 'Bitte wähle einen Bürger:'|trans({},'game'), 'Es ist kein Bürger in der Nähe...'|trans({},'game'), true, true, entry.action.confirm ) }}
                         {% endif %}
                     {% endif %}

@@ -1,4 +1,4 @@
-<?php /** @noinspection PhpComposerExtensionStubsInspection */
+<?php
 
 namespace App\Controller\Soul;
 
@@ -6,6 +6,7 @@ use App\Controller\CustomAbstractController;
 use App\Entity\CauseOfDeath;
 use App\Entity\Changelog;
 use App\Entity\CitizenRankingProxy;
+use App\Entity\ExternalApp;
 use App\Entity\FoundRolePlayText;
 use App\Entity\HeroSkillPrototype;
 use App\Entity\Picto;
@@ -22,9 +23,12 @@ use App\Service\ConfMaster;
 use App\Service\ErrorHelper;
 use App\Service\EternalTwinHandler;
 use App\Service\JSONRequestParser;
+use App\Service\RandomGenerator;
 use App\Service\UserFactory;
 use App\Service\UserHandler;
 use App\Service\AdminActionHandler;
+use App\Service\CitizenHandler;
+use App\Service\InventoryHandler;
 use App\Service\TimeKeeperService;
 use App\Structures\MyHordesConf;
 use DateTime;
@@ -37,7 +41,10 @@ use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
+use Symfony\Component\Validator\ConstraintViolationInterface;
 use Symfony\Contracts\Translation\TranslatorInterface;
+use Symfony\Component\Validator\Constraints;
+use Symfony\Component\Validator\Validation;
 
 /**
  * @Route("/",condition="request.isXmlHttpRequest()")
@@ -59,25 +66,21 @@ class SoulController extends CustomAbstractController
     const ErrorCoalitionFull                 = ErrorHelper::BaseSoulErrors + 13;
 
 
-    protected EntityManagerInterface $entity_manager;
-    protected TranslatorInterface $translator;
     protected UserFactory $user_factory;
-    protected TimeKeeperService $time_keeper;
     protected UserHandler $user_handler;
     protected Packages $asset;
 
-    public function __construct(EntityManagerInterface $em, UserFactory $uf, Packages $a, UserHandler $uh, TimeKeeperService $tk, TranslatorInterface $translator, ConfMaster $conf)
+    public function __construct(EntityManagerInterface $em, UserFactory $uf, Packages $a, UserHandler $uh, TimeKeeperService $tk, TranslatorInterface $translator, ConfMaster $conf, CitizenHandler $ch, InventoryHandler $ih)
     {
-        parent::__construct($conf);
-        $this->entity_manager = $em;
+        parent::__construct($conf, $em, $tk, $ch, $ih, $translator);
         $this->user_factory = $uf;
         $this->asset = $a;
-        $this->translator = $translator;
         $this->user_handler = $uh;
-        $this->time_keeper = $tk;
     }
 
-    protected function addDefaultTwigArgs(?string $section = null, ?array $data = null ): array {
+    protected function addDefaultTwigArgs(?string $section = null, ?array $data = null, $locale = null ): array {
+        $data = parent::addDefaultTwigArgs($section, $data);
+
         $user = $this->getUser();
 
         $data = $data ?? [];
@@ -104,14 +107,6 @@ class SoulController extends CustomAbstractController
 
         $data["soul_tab"] = $section;
         $data["new_message"] = !empty($user_invitations) || $messages;
-
-        $data['clock'] = [
-            'desc'      => $user->getActiveCitizen() !== null ? $user->getActiveCitizen()->getTown()->getName() : $this->translator->trans('Worauf warten Sie noch?', [], 'ghost'),
-            'day'       => $user->getActiveCitizen() !== null ? $user->getActiveCitizen()->getTown()->getDay() : "",
-            'timestamp' => new DateTime('now'),
-            'attack'    => $this->time_keeper->secondsUntilNextAttack(null, true),
-            'towntype'  => $user->getActiveCitizen() !== null ? $user->getActiveCitizen()->getTown()->getType()->getName() : "",
-        ];
 
         return $data;
     }
@@ -290,6 +285,13 @@ class SoulController extends CustomAbstractController
             return $this->redirect($this->generateUrl( 'soul_death' ));
 
         $rps = $this->entity_manager->getRepository(FoundRolePlayText::class)->findByUser($user);
+        foreach ($rps as $rp) {
+            // We mark as new RPs found in the last 5 minutes
+            /** @var FoundRolePlayText $rp */
+            $elapsed = $rp->getDateFound()->diff(new \DateTime());
+            if ($elapsed->y == 0 && $elapsed->m == 0 && $elapsed->d == 0 && $elapsed->h == 0 && $elapsed->i <= 5)
+                $rp->setNew(true);
+        }
         return $this->render( 'ajax/soul/rps.html.twig', $this->addDefaultTwigArgs("soul_rps", array(
             'rps' => $rps
         )));
@@ -308,7 +310,7 @@ class SoulController extends CustomAbstractController
         /** @var CitizenRankingProxy $nextDeath */
         if ($this->entity_manager->getRepository(CitizenRankingProxy::class)->findNextUnconfirmedDeath($user))
             return $this->redirect($this->generateUrl( 'soul_death' ));
-
+        /** @var FoundRolePlayText $rp */
         $rp = $this->entity_manager->getRepository(FoundRolePlayText::class)->find($id);
         if($rp === null || !$user->getFoundTexts()->contains($rp)){
             return $this->redirect($this->generateUrl('soul_rps'));
@@ -317,6 +319,9 @@ class SoulController extends CustomAbstractController
         if($page > count($rp->getText()->getPages()))
             return $this->redirect($this->generateUrl('soul_rps'));
 
+        $rp->setNew(false);
+        $this->entity_manager->persist($rp);
+
         $pageContent = $this->entity_manager->getRepository(RolePlayTextPage::class)->findOneByRpAndPageNumber($rp->getText(), $page);
 
         preg_match('/%asset%([a-zA-Z0-9.\/]+)%endasset%/', $pageContent->getContent(), $matches);
@@ -324,6 +329,8 @@ class SoulController extends CustomAbstractController
         if(count($matches) > 0) {
             $pageContent->setContent(preg_replace("={$matches[0]}=", "<img src='" . $this->asset->getUrl($matches[1]) . "' alt='' />", $pageContent->getContent()));
         }
+        
+        $this->entity_manager->flush();
 
         return $this->render( 'ajax/soul/view_rp.html.twig', $this->addDefaultTwigArgs("soul_rps", array(
             'page' => $pageContent,
@@ -837,5 +844,46 @@ class SoulController extends CustomAbstractController
     public function help_me(): Response
     {
         return $this->render( 'ajax/help/shell.html.twig');
+    }
+
+    /**
+     * @Route("api/soul/app/{id<\d+>}", name="soul_own_app_update")
+     * @param int $id
+     * @param JSONRequestParser $parser
+     * @param RandomGenerator $rand
+     * @return Response
+     */
+    public function api_update_own_app(int $id, JSONRequestParser $parser, RandomGenerator $rand) {
+        /** @var ExternalApp $app */
+        $app = $this->entity_manager->getRepository(ExternalApp::class)->find($id);
+
+        if ($app === null) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+        if ($app->getOwner() === null || $app->getOwner() !== $this->getUser()) return AjaxResponse::error(ErrorHelper::ErrorPermissionError);
+
+        if (!$parser->has_all( ['contact','url'], true )) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+        $violations = Validation::createValidator()->validate( $parser->all( true ), new Constraints\Collection([
+            'url' => [ new Constraints\Url( ['relativeProtocol' => false, 'protocols' => ['http', 'https'], 'message' => 'a' ] ) ],
+            'contact' => [ new Constraints\Email( ['message' => 'v']) ],
+            'sk' => [  ]
+        ]) );
+
+        if ($violations->count() > 0) return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
+
+        $app->setUrl( $parser->trimmed('url') )->setContact( $parser->trimmed('contact') );
+        if ( !$app->getLinkOnly() && $parser->get('sk', null) ) {
+            $s = '';
+            for ($i = 0; $i < 32; $i++) $s .= $rand->pick(['0','1','2','3','4','5','6','7','8','9','a','b','c','d','e','f']);
+            $app->setSecret( $s );
+        }
+
+        $this->entity_manager->persist($app);
+        try {
+            $this->entity_manager->flush();
+        } catch (\Exception $e) {
+            AjaxResponse::error( ErrorHelper::ErrorDatabaseException );
+        }
+
+        return AjaxResponse::success();
     }
 }

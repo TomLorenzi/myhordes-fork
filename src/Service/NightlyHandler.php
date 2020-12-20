@@ -109,6 +109,18 @@ class NightlyHandler
         if ($skip_reanimation) $this->skip_reanimation[] = $citizen->getId();
     }
 
+    private function stage1_prepare(Town $town) {
+        $this->log->info('<info>Checking insurrection status</info> ...');
+
+        if ($town->getInsurrectionProgress() > 0)
+            foreach ($town->getCitizens() as $citizen)
+                if ($citizen->getAlive() && $citizen->getBanished() && !$this->citizen_handler->hasStatusEffect($citizen, 'tg_insurrection')) {
+                    $this->log->info("Shunned citizen <info>{$citizen->getUser()->getName()}</info> did not contribute to the insurrection. Resetting.");
+                    $town->setInsurrectionProgress(0);
+                    break;
+                }
+    }
+
     private function stage1_vanish(Town $town) {
         $this->log->info('<info>Vanishing citizens</info> ...');
         $cod = $this->entity_manager->getRepository(CauseOfDeath::class)->findOneBy(['ref' => CauseOfDeath::Vanished]);
@@ -711,7 +723,7 @@ class NightlyHandler
 
         $status_wound_infection = $this->entity_manager->getRepository(CitizenStatus::class)->findOneBy( ['name' => 'tg_meta_winfect'] );
 
-        $status_clear_list = ['hasdrunk','haseaten','immune','hsurvive','drunk','drugged','healed','hungover','tg_dice','tg_cards','tg_clothes','tg_teddy','tg_guitar','tg_sbook','tg_steal','tg_home_upgrade','tg_hero','tg_chk_forum','tg_chk_active', 'tg_chk_workshop', 'tg_chk_build', 'tg_chk_movewb', 'tg_hide','tg_tomb', 'tg_home_clean', 'tg_home_shower', 'tg_home_heal_1', 'tg_home_heal_2', 'tg_home_defbuff', 'tg_rested', 'tg_shaman_heal', 'tg_ghoul_eat', 'tg_no_hangover', 'tg_ghoul_corpse', 'tg_betadrug', 'tg_build_vote'];
+        $status_clear_list = ['hasdrunk','haseaten','immune','hsurvive','drunk','drugged','healed','hungover','tg_dice','tg_cards','tg_clothes','tg_teddy','tg_guitar','tg_sbook','tg_steal','tg_home_upgrade','tg_hero','tg_chk_forum','tg_chk_active', 'tg_chk_workshop', 'tg_chk_build', 'tg_chk_movewb', 'tg_hide','tg_tomb', 'tg_home_clean', 'tg_home_shower', 'tg_home_heal_1', 'tg_home_heal_2', 'tg_home_defbuff', 'tg_rested', 'tg_shaman_heal', 'tg_ghoul_eat', 'tg_no_hangover', 'tg_ghoul_corpse', 'tg_betadrug', 'tg_build_vote', 'tg_insurrection'];
 
         $aliveCitizenInTown = 0;
         $aliveCitizen = 0;
@@ -896,11 +908,17 @@ class NightlyHandler
         $wind_dist = $this->conf->getTownConfiguration($town)->get(TownConf::CONF_MODIFIER_WIND_DISTANCE, 2);
 
         foreach ($town->getZones() as $zone) {
+            /** @var Zone $zone */
 
             if ($zone->getPrototype() && $zone->getPrototype()->getExplorable()) {
                 foreach ($zone->getExplorerStats() as $ex) {
                     $ex->getCitizen()->removeExplorerStat( $ex );
                     $this->entity_manager->remove($ex);
+                }
+
+                foreach ($zone->getChatSilenceTimers() as $timer) {
+                    $zone->removeChatSilenceTimer($timer);
+                    $this->entity_manager->remove($timer);
                 }
                 $this->maze->populateMaze( $zone, $maze_zeds, true, true );
             }
@@ -1139,8 +1157,8 @@ class NightlyHandler
 
         $db = [
             'small_appletree_#00'      => [ 'apple_#00' => mt_rand(3,5) ],
-            'item_vegetable_tasty_#00' => [ 'vegetable_#00' => !$has_fertilizer ? mt_rand(4,8) : mt_rand(8,14), 'vegetable_tasty_#00' => !$has_fertilizer ? mt_rand(0,2) : mt_rand(2,5) ],
-            'item_bgrenade_#01'        => [ 'boomfruit_#00' => !$has_fertilizer ? mt_rand(3,5) : mt_rand(5,8) ],
+            'item_vegetable_tasty_#00' => [ 'vegetable_#00' => !$has_fertilizer ? mt_rand(4,8) : mt_rand(6,8), 'vegetable_tasty_#00' => !$has_fertilizer ? mt_rand(0,2) : mt_rand(3,5) ],
+            'item_bgrenade_#01'        => [ 'boomfruit_#00' => !$has_fertilizer ? mt_rand(3,7) : mt_rand(5,8) ],
             'small_chicken_#00'        => [ 'egg_#00' => 3 ],
         ];
 
@@ -1320,6 +1338,7 @@ class NightlyHandler
         $this->town_handler->triggerAlways( $town );
 
         $this->log->info('Entering <comment>Phase 1</comment> - Pre-attack processing');
+        $this->stage1_prepare($town);
         $this->stage1_vanish($town);
         $this->stage1_status($town);
 

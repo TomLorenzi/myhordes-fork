@@ -87,6 +87,7 @@ parameters:
         red_soul_max_factor: 1.2
         wind_distance: 2
         strict_picto_distribution: false
+        sandball_nastyness: 0.1
 
       features:
         camping: true
@@ -137,6 +138,7 @@ parameters:
           protection: true
         wind_distance: -1
         strict_picto_distribution: true
+        sandball_nastyness: 0.0
 
 
       features:
@@ -160,6 +162,7 @@ parameters:
           default_bonus: -14
           map: 'hard'
         red_soul_max_factor: 666
+        sandball_nastyness: 0.85
 
       features:
         last_death: 'r_suhard_#00'

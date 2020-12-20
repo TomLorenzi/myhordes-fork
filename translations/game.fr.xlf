@@ -3350,7 +3350,7 @@
       </notes>
       <segment>
         <source>%actor% ist bei %victim% eingebrochen und hat %item% hinterlassen...</source>
-        <target>%actor% est entré par effraction chez %victim% et a laissé %item%...</target>
+        <target>%actor% a tenté de déposer %item% chez %victim%... Malheureusement pour ce citoyen, il a été remarqué ! Mais que manigançait-il ?</target>
       </segment>
     </unit>
     <unit id="Lzd32wL" name="Es scheint, jemand ist bei %victim% eingebrochen und hat %item% hinterlassen...">
@@ -3566,7 +3566,7 @@
       </notes>
       <segment>
         <source>Es ist kein Bürger in der Nähe...</source>
-        <target>Il n'y a personne près de la ville (2 cases de distance maximum).</target>
+        <target>Il n'y a pas de citoyen à proximité...</target>
       </segment>
     </unit>
     <unit id="f1TzhOn" name="Gammler">
@@ -4178,7 +4178,7 @@
       </notes>
       <segment>
         <source>Strangulation</source>
-        <target>Étranglement</target>
+        <target>Strangulation</target>
       </segment>
     </unit>
     <unit id="Cp7etpd" name="Kopfschuss">
@@ -15588,12 +15588,12 @@
         <target>Ramener un citoyen:</target>
       </segment>
     </unit>
-    <unit id="mVtk8KY" name="Herzlichen Glückwunsch! Du hast deine Behausung in ein(e) %home%.">
+    <unit id="U9LSFlB" name="Herzlichen Glückwunsch! Du hast deine Behausung in ein(e) %home% verwandelt.">
       <notes>
-        <note category="german">Herzlichen Glückwunsch! Du hast deine Behausung in ein(e) %home%.</note>
+        <note category="german">Herzlichen Glückwunsch! Du hast deine Behausung in ein(e) %home% verwandelt.</note>
       </notes>
       <segment>
-        <source>Herzlichen Glückwunsch! Du hast deine Behausung in ein(e) %home%.</source>
+        <source>Herzlichen Glückwunsch! Du hast deine Behausung in ein(e) %home% verwandelt.</source>
         <target>Félicitations ! Vous avez amélioré votre habitation en %home%.</target>
       </segment>
     </unit>
@@ -15631,6 +15631,141 @@
       <segment>
         <source>[ Es riecht nach Tannenzapfen... ]</source>
         <target>[ Ça sent le sapin... ]</target>
+      </segment>
+    </unit>
+    <unit id="V.GaRUl" name="Sind wir noch in der Alpha?">
+      <notes>
+        <note category="german">Sind wir noch in der Alpha?</note>
+      </notes>
+      <segment>
+        <source>Sind wir noch in der Alpha?</source>
+        <target>Sind wir noch in der Alpha?</target>
+      </segment>
+    </unit>
+    <unit id="OA64trN" name="f4f78aa">
+      <notes>
+        <note category="german">Dies ist eine äußerst seltene Belohnung, die den ersten MyHordes-Spielern vorbehalten ist, die das Finale mit großem F erlebt haben.</note>
+      </notes>
+      <segment>
+        <source>Dies ist eine äußerst seltene Belohnung, die den ersten MyHordes-Spielern vorbehalten ist, die das Finale mit großem F erlebt haben.</source>
+        <target>Dies ist eine äußerst seltene Belohnung, die den ersten MyHordes-Spielern vorbehalten ist, die das Finale mit großem F erlebt haben.</target>
+      </segment>
+    </unit>
+    <unit id="NLrfO4J" name="1ee9e8e">
+      <notes>
+        <note category="german">Wähle den &lt;strong&gt;zu stehlenden Gegenstand&lt;/strong&gt; hier oben aus. &lt;strong&gt;Achtung!&lt;/strong&gt; Es besteht die Gefahr, dass du dabei gesehen wirst. In diesem Fall musst du dich auf unangenehme Konsequenzen gefasst machen.</note>
+      </notes>
+      <segment>
+        <source>Wähle den &lt;strong&gt;zu stehlenden Gegenstand&lt;/strong&gt; hier oben aus. &lt;strong&gt;Achtung!&lt;/strong&gt; Es besteht die Gefahr, dass du dabei gesehen wirst. In diesem Fall musst du dich auf unangenehme Konsequenzen gefasst machen.</source>
+        <target><![CDATA[Choisissez <strong>l'objet à voler</strong> ci-dessus. <strong>Attention !</strong> Vous risquez d'être repéré(e) et vous devrez alors en assumer toutes les conséquences.]]></target>
+      </segment>
+    </unit>
+    <unit id="tVbgO4A" name="Einen Gegenstand stehlen">
+      <notes>
+        <note category="german">Einen Gegenstand stehlen</note>
+      </notes>
+      <segment>
+        <source>Einen Gegenstand stehlen</source>
+        <target>Entrer pour voler un objet</target>
+      </segment>
+    </unit>
+    <unit id="Wq3dzPg" name="Einen Gegenstand hinterlassen">
+      <notes>
+        <note category="german">Einen Gegenstand hinterlassen</note>
+      </notes>
+      <segment>
+        <source>Einen Gegenstand hinterlassen</source>
+        <target>Déposer un objet discrètement</target>
+      </segment>
+    </unit>
+    <unit id="o5dw7G5" name="15ac09f">
+      <notes>
+        <note category="german">Du kannst nichts von %citizen% stehlen, solange &lt;strong&gt;er (sie) in der Stadt ist&lt;/strong&gt;...</note>
+      </notes>
+      <segment>
+        <source>Du kannst nichts von %citizen% stehlen, solange &lt;strong&gt;er (sie) in der Stadt ist&lt;/strong&gt;...</source>
+        <target><![CDATA[Impossible de voler quoique ce soit à %citizen% tant <strong>qu'il(elle) est en ville</strong>...]]></target>
+      </segment>
+    </unit>
+    <unit id="krk9RGq" name="%citizen% ist ausgegangen...">
+      <notes>
+        <note category="german">%citizen% ist ausgegangen...</note>
+      </notes>
+      <segment>
+        <source>%citizen% ist ausgegangen...</source>
+        <target>%citizen% est sorti(e)...</target>
+      </segment>
+    </unit>
+    <unit id="GZZJnSZ" name="Beta-Tester der neuen Zeit">
+      <notes>
+        <note category="german">Beta-Tester der neuen Zeit</note>
+      </notes>
+      <segment>
+        <source>Beta-Tester der neuen Zeit</source>
+        <target>Beta-testeur next gen</target>
+      </segment>
+    </unit>
+    <unit id="OnjQ_HM" name="Keine Fehler hi&amp;e%12;r">
+      <notes>
+        <note category="german">Keine Fehler hi&amp;e%12;r</note>
+      </notes>
+      <segment>
+        <source>Keine Fehler hi&amp;e%12;r</source>
+        <target><![CDATA[Plus d&apos;erreurs ici]]></target>
+      </segment>
+    </unit>
+    <unit id="y013sMW" name="Patient Null">
+      <notes>
+        <note category="german">Patient Null</note>
+      </notes>
+      <segment>
+        <source>Patient Null</source>
+        <target>Patient Zéro</target>
+      </segment>
+    </unit>
+    <unit id="GeJZ7mU" name="Auf den Aufstand hinarbeiten">
+      <notes>
+        <note category="german">Auf den Aufstand hinarbeiten</note>
+      </notes>
+      <segment>
+        <source>Auf den Aufstand hinarbeiten</source>
+        <target>Préparer une insurrection</target>
+      </segment>
+    </unit>
+    <unit id="_40Ez0e" name="076e6dc">
+      <notes>
+        <note category="german">Vom Turm aus hast du eine guten Überblick über die Wüste. Du musterst die Umgebung, versuchst die Zombies zu zählen und ihre Bewegungsrichtung vorauszuberechnen... &lt;br /&gt;Nachdem du einige Minuten die Lage gecheckt hast, schreibst du deine Ergebnisse in das &lt;strong&gt;Wachturmregister&lt;/strong&gt;.&lt;hr /&gt;Zusammen mit den Informationen der anderen Bürger sollten wir eine korrekte Angriffsschätzung bekommen.</note>
+      </notes>
+      <segment>
+        <source>Vom Turm aus hast du eine guten Überblick über die Wüste. Du musterst die Umgebung, versuchst die Zombies zu zählen und ihre Bewegungsrichtung vorauszuberechnen... &lt;br /&gt;Nachdem du einige Minuten die Lage gecheckt hast, schreibst du deine Ergebnisse in das &lt;strong&gt;Wachturmregister&lt;/strong&gt;.&lt;hr /&gt;Zusammen mit den Informationen der anderen Bürger sollten wir eine korrekte Angriffsschätzung bekommen.</source>
+        <target><![CDATA[Du haut de la tour, vous examinez le désert environnant, puis tentez de compter les zombies présents, pour enfin essayer de prévoir leurs déplacements... <br />Après quelques minutes d'intense réflexion, vous consignez ces informations dans le <strong>registre de la Tour de Guet</strong>.<hr />Avec ces informations et celles d'autres citoyens, on devrait pouvoir faire une estimation correcte de l'attaque...]]></target>
+      </segment>
+    </unit>
+    <unit id="uEhXFSv" name="3cb07f6">
+      <notes>
+        <note category="german">Dank %disposing_citizen% wurde aus dem Körper von %citizen% ein leckeres kleines Mahl gekocht.</note>
+      </notes>
+      <segment>
+        <source>Dank %disposing_citizen% wurde aus dem Körper von %citizen% ein leckeres kleines Mahl gekocht.</source>
+        <target>Grâce aux efforts de %disposing_citizen%, le corps de %citizen% a été cuisiné en bon p'tit plat.</target>
+      </segment>
+    </unit>
+    <unit id="GH4aDYM" name="feb2e53">
+      <notes>
+        <note category="german">%attacker% hat %defender% mit einem üblen Sandballwurf verwundet. Autsch, das hat sicher weh getan...!</note>
+      </notes>
+      <segment>
+        <source>%attacker% hat %defender% mit einem üblen Sandballwurf verwundet. Autsch, das hat sicher weh getan...!</source>
+        <target>%attacker% a jeté une boule de sable directement dans le visage de %defender% !</target>
+      </segment>
+    </unit>
+    <unit id="BaTN5Rg" name="%attacker% hat %defender% einen Sandball direkt ins Gesicht geworfen!">
+      <notes>
+        <note category="german">%attacker% hat %defender% einen Sandball direkt ins Gesicht geworfen!</note>
+      </notes>
+      <segment>
+        <source>%attacker% hat %defender% einen Sandball direkt ins Gesicht geworfen!</source>
+        <target>%attacker% a blessé %defender% avec sa sale boule de sable. Aïe ça fait mal...!</target>
       </segment>
     </unit>
   </file>

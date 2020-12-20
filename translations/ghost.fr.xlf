@@ -1047,5 +1047,23 @@
         <target>Lorsque vous rejoignez une ville, le ou les membres de votre coalitions suivants vous accompagneront :</target>
       </segment>
     </unit>
+    <unit id="U6CJxvc" name="d1dce65">
+      <notes>
+        <note category="german">Da du in mehreren deiner letzten Städte frühzeitig durch Verdursten gestorben bist, bist du für einige Zeit vom Spiel ausgeschlossen. Du kannst aktuell keine neue Stadt betreten.</note>
+      </notes>
+      <segment>
+        <source>Da du in mehreren deiner letzten Städte frühzeitig durch Verdursten gestorben bist, bist du für einige Zeit vom Spiel ausgeschlossen. Du kannst aktuell keine neue Stadt betreten.</source>
+        <target>Puisque vous êtes mort prématurément de soif dans plusieurs de vos dernières villes, vous êtes exclu du jeu pendant un certain temps. Vous ne pouvez pas actuellement entrer dans une nouvelle ville.</target>
+      </segment>
+    </unit>
+    <unit id="pOtfy6G" name="5cb7c99">
+      <notes>
+        <note category="german">Du bist in mehreren deiner letzten Städte frühzeitig durch Verdursten gestorben. Sollte dies in deiner nächsten Stadt erneut geschehen, wirst du für einige Wochen vom Spiel ausgeschlossen.</note>
+      </notes>
+      <segment>
+        <source>Du bist in mehreren deiner letzten Städte frühzeitig durch Verdursten gestorben. Sollte dies in deiner nächsten Stadt erneut geschehen, wirst du für einige Wochen vom Spiel ausgeschlossen.</source>
+        <target>Vous êtes mort prématurément de soif dans plusieurs de vos dernières villes. Si cela se reproduit dans votre prochaine ville, vous serez banni du jeu pendant quelques temps.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

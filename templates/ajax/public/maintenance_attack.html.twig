@@ -6,11 +6,11 @@
 {% endblock %}
 {% block ajax %}
     <div class="daily-attack row">
-        <div class="content">
+        <div class="content" id="canvas_container" style="overflow: hidden;">
             <div class="animation">
-                <div id="animation_container" style="background-color:rgba(97, 45, 32, 1.00); width:440px; height:125px">
-                    <canvas id="canvas" width="440" height="125" style="position: absolute; display: block; background-color:rgba(97, 45, 32, 1.00);"></canvas>
-                    <div id="dom_overlay_container" style="pointer-events:none; overflow:hidden; width:440px; height:125px; position: absolute; left: 0px; top: 0px; display: block;">
+                <div id="animation_container" style="background-color:rgba(97, 45, 32, 1.00)">
+                    <canvas id="canvas" style="display: block; width: 100%; background-color:rgba(97, 45, 32, 1.00);"></canvas>
+                    <div id="dom_overlay_container" style="pointer-events:none; overflow:hidden; position: absolute; left: 0; top: 0; right: 0; bottom: 0; display: block;">
                     </div>
                 </div>
             </div>
@@ -24,12 +24,12 @@
                     </p>
                 {% endtrans %}
             </p>
-            <button x-ajax-href="{{ path('initial_landing') }}">{{ displayed_text }}</button>
+            <p><button x-ajax-href="{{ path('initial_landing') }}">{{ displayed_text }}</button></p>
         </div>
 
         <div class="infos">
             <h2>{{'Was hat das zu bedeuten?'|trans({}, 'ghost')}}</h2>
-            <img src="{{ asset('build/images/server.png')}}" alt="" class="art">
+            <img style="max-width: 100%;" src="{{ asset('build/images/server.png')}}" alt="" class="art">
             <p>{{'Die Verdammten wird gerade von den Zombies überfallen! Es ist der tägliche Angriff!'|trans({}, 'ghost')}}</p>
             <p>{{'Registrierung sowie Log-in sind zur Zeit nicht möglich... Die Seite müsste gegen 00.30 wieder erreichbar sein.'|trans({}, 'ghost')}}</p>
             <p><em>{{'Und ja, es wird Tote geben...'|trans({}, 'ghost')}}</em></p>
@@ -83,7 +83,7 @@
                 createjs.Ticker.addEventListener("tick", window.stage);
             }       
             //Code to support hidpi screens and responsive scaling.
-            AdobeAn.makeResponsive(false,'both',false,1,[canvas,anim_container,dom_overlay_container]); 
+            AdobeAn.makeResponsive(true,'width',false,2,[canvas,anim_container,dom_overlay_container],document.getElementById('canvas_container'));
             AdobeAn.compositionLoaded(lib.properties.id);
             fnStartAnimation();
         }

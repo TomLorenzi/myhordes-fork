@@ -1,7 +1,7 @@
 {% block ajax %}
     {% for user in users %}
-        <div class="users-list-entry">
-            <div x-ajax-href="{{ url('admin_users_citizen_view', {id: user.id}) }}" x-ajax-target="#content">
+        <div class="users-list-entry" x-user-id="{{ user.id }}" x-user-name="{{ user.name }}" x-user-username="{{ user.username }}" x-admin-url="{{ url('admin_users_citizen_view', {id: user.id}) }}">
+            <div {% if not nohref %}x-ajax-href="{{ url('admin_users_citizen_view', {id: user.id}) }}" x-ajax-target="#content"{% endif %}>
                 <div class="avatar small"><img alt="" src="{{ user.avatar ? path('app_web_avatar', {'uid': user.id, 'name': user.avatar.smallName, 'ext': user.avatar.format}) : asset('build/images/forum/empty_avatar.gif') }}" style="margin-right: 0;"></div> {{ user.name }}
             </div>
         </div>

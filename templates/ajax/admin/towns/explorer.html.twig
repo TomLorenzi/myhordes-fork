@@ -82,6 +82,12 @@
 
             <div x-tab-group="admin-town" x-tab-id="bank" x-tab-target>
                 <div class="row-flex">
+                    <div class="padded cell rw-6 rw-sm-12">
+                        {% embed "ajax/game/inventory.html.twig" with {'size': 0, 'items': bank, 'bankmode': true} %}
+                            {% block class %}bank{% endblock %}
+                            {% block title %}{% endblock %}
+                        {% endembed %}
+                    </div>
                     {% if is_granted("ROLE_ADMIN") %}
                     <div class="padded cell rw-6 rw-sm-12">
                         <label for="spawnItem">{{'Einen Gegenstand erzeugen:'|trans({}, 'admin')}}</label>
@@ -104,12 +110,6 @@
                         <button id="spawnbtn">{{'Erzeugen!'|trans({}, 'admin')}}</button>
                     </div>
                     {% endif %}
-                    <div class="padded cell rw-6 rw-sm-12">
-                        {% embed "ajax/game/inventory.html.twig" with {'size': 0, 'items': bank, 'bankmode': true} %}
-                            {% block class %}bank{% endblock %}
-                            {% block title %}{% endblock %}
-                        {% endembed %}
-                    </div>
                 </div>
             </div>
 
@@ -151,8 +151,8 @@
                                             {% endfor %}
                                         </div>
                                     </div>
-                                    <div class="cell factor-0 avatar ua-{{ random(0,9) }}" style="flex-basis: 90px; background: url('{{ citizen.user.avatar ? path('app_web_avatar', {'uid': citizen.user.id, 'name': citizen.user.avatar.smallName, 'ext': citizen.user.avatar.format}) : asset('build/images/forum/empty_avatar.gif') }}') center/cover no-repeat;" x-ajax-href="{{ path('town_visit', {id: citizen.id}) }}">&nbsp;</div>
-                                    <div class="cell factor-0 citizen-{{ citizen.alive ? (citizen.online ? 'online' : 'offline') : 'dead' }}" style="flex-basis: 8px;" x-ajax-href="{{ path('town_visit', {id: citizen.id}) }}">&nbsp;</div>
+                                    <div class="cell factor-0 avatar ua-{{ random(0,9) }}" style="flex-basis: 90px; background: url('{{ citizen.user.avatar ? path('app_web_avatar', {'uid': citizen.user.id, 'name': citizen.user.avatar.smallName, 'ext': citizen.user.avatar.format}) : asset('build/images/forum/empty_avatar.gif') }}') center/cover no-repeat;" x-ajax-href="{{ url('admin_users_citizen_view', {id: citizen.user.id}) }}">&nbsp;</div>
+                                    <div class="cell factor-0 citizen-{{ citizen.alive ? (citizen.online ? 'online' : 'offline') : 'dead' }}" style="flex-basis: 8px;" x-ajax-href="{{ url('admin_users_citizen_view', {id: citizen.user.id}) }}">&nbsp;</div>
                                     
                                     <div class="padded cell rw-4 factor-1 small content-center-vertical citizen-box citizen-box-name">
                                         {% if citizen.banished %}
@@ -206,6 +206,19 @@
                             <input type="checkbox" id="essentialcitizen" />
                             <br />
                             <button id="spawnbtncitizen">{{'Erzeugen!'|trans({}, 'admin')}}</button>
+                            <hr />
+                            <label for="selectPicto">{{'Eine Auszeichnungen auswählen:'|trans({}, 'admin')}}</label>
+                            <select id="selectPicto">
+                                {% for pictoPrototype in pictoPrototypes %}
+                                    <option value="{{pictoPrototype.id}}">{{ pictoPrototype.label|trans({}, 'game') }}</option>
+                                {% endfor %}
+                            </select>
+                            <label for="numberPicto">
+                                {{'Anzahl der Auszeichnungen:'|trans({}, 'admin')}}
+                            </label>
+                            <input type="number" id="numberPicto" value="1"/>
+                            <br />
+                            <button id="givebtn">{{'Vergeben!'|trans({}, 'admin')}}</button>
                         </div>
                         <br />
                         {% endif %}
@@ -436,6 +449,22 @@
                 let essential = document.getElementById('essentialcitizen').checked;
                 $.ajax.easySend('{{ path('admin_citizen_spawn_item', {id: town.id}) }}', {
                         prototype: item, number: number, targets: targets.join(','), poison: poison, broken: broken, essential: essential
+                    },
+                    function () {
+                        $.ajax.load(null, '{{ path('admin_town_explorer', {id: town.id, tab: "citizens"}) }}', true);
+                    }
+                );
+            });
+
+            let givebtn = document.getElementById("givebtn");
+            if (givebtn) givebtn.addEventListener('click', function(){
+                let number = document.getElementById("numberPicto").value;
+                if(isNaN(number)) number = 1;
+
+                let picto = document.getElementById('selectPicto').value;
+
+                $.ajax.easySend('{{ path('admin_town_give_picto', {id: town.id}) }}', {
+                        prototype: picto, number: number
                     },
                     function () {
                         $.ajax.load(null, '{{ path('admin_town_explorer', {id: town.id, tab: "citizens"}) }}', true);

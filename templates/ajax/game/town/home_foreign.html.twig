@@ -117,7 +117,7 @@
 	                        <button x-heal-citizen>{{'Nutze deine heilenden Hände'|trans({}, 'game')}} ({% if is_shaman_role %}2 <div class="pm"></div>{% else %}2 <div class="ap"></div>{% endif %})</button>
 	                    {% endif %}
                     {% endif %}
-                    {% if not citizen.banished %}
+                    {% if can_complain %}
                         {% if complaint is null or complaint.severity == 0 %}
                         <button x-show-reason>{{ 'Anzeige erstatten'|trans({},'game') }}</button>
                         <div class="lightbox" id="complain_reason" style="display: none";>
@@ -157,7 +157,7 @@
                     {% elseif owner.disposed == constant('App\\Entity\\Citizen::Watered') %}
                         {{'Dank %disposing_citizen% hat sich der Körper von %citizen% in verfaultes Wasser verwandelt.'|trans({'%disposing_citizen%': "<em>" ~ owner.disposedBy[0].user.name ~ "</em>", '%citizen%': "<em>" ~ owner.user.name ~ "</em>"}, 'game')|raw}}
                     {% elseif owner.disposed == constant('App\\Entity\\Citizen::Cooked') %}
-                        HARDCODED: Grâce aux efforts de <em>{{owner.disposedBy[0].user.name}}</em>, le corps de <em>{{owner.user.name}}</em> a été cuisiné en bon p'tit plat.
+                        {{'Dank %disposing_citizen% wurde aus dem Körper von %citizen% ein leckeres kleines Mahl gekocht.'|trans({'%disposing_citizen%': "<em>" ~ owner.disposedBy[0].user.name ~ "</em>", '%citizen%': "<em>" ~ owner.user.name ~ "</em>"}, 'game')|raw}}
                     {% endif %}
                 </span>
                 {% else %}
@@ -209,18 +209,31 @@
         <div class="padded cell rw-6 citizen-chest">
             <h5>{{ '%citizen%s Truhe'|trans({'%citizen%': owner.user.name}, 'game') }}</h5>
             {% if not hidden %}
-                <p>{{ 'Wenn Sie aus dem Fenster schauen, können Sie die folgenden Dinge im Haus sehen:'|trans({},'game') }}</p>
+                <p>{% if owner.zone %}{{ '%citizen% ist ausgegangen...'|trans({'%citizen%': owner.user.name}, 'game') }} {% endif %}{{ 'Wenn Sie aus dem Fenster schauen, können Sie die folgenden Dinge im Haus sehen:'|trans({},'game') }}</p>
                 {% embed "ajax/game/inventory.html.twig" with {'size': chest_size, 'items': chest.items, 'foreignChestMode': true} %}
-                    {% block class %}chest{% endblock %}
+                    {% block class %}chest {% if owner.alive %}locked{% endif %}{% endblock %}
                     {% block title %}{% endblock %}
                 {% endembed %}
+                <div class="help stealhelp hidden">
+                    {{'Wähle den <strong>zu stehlenden Gegenstand</strong> hier oben aus. <strong>Achtung!</strong> Es besteht die Gefahr, dass du dabei gesehen wirst. In diesem Fall musst du dich auf unangenehme Konsequenzen gefasst machen.'|trans({}, 'game')|raw}}
+                </div>
                 {% if already_stolen %}
                     <div class="notice">{{'Du kannst heute keinen weiteren Gegenstand stehlen.'|trans({},'game')}}</div>
                 {% elseif owner.alive %}
-                    {% embed "ajax/game/inventory.html.twig" with {'size': rucksack_size, 'items': rucksack.items} %}
-                        {% block class %}rucksack{% endblock %}
-                        {% block title %}{% trans from 'game' %}Mein Rucksack{% endtrans %}{% endblock %}
-                    {% endembed %}
+                    <div class="hidden">
+                        {% embed "ajax/game/inventory.html.twig" with {'size': rucksack_size, 'items': rucksack.items} %}
+                            {% block class %}rucksack{% endblock %}
+                            {% block title %}{% trans from 'game' %}Mein Rucksack{% endtrans %}{% endblock %}
+                        {% endembed %}
+                    </div>
+                    {% if owner.zone %}
+                    <button x-action-id="enablesteal"><img src="{{asset('build/images/icons/home.gif')}}" alt="" /> {{'Einen Gegenstand stehlen'|trans({}, 'game')}}</button>
+                    <button x-action-id="enablesneak">{{'Einen Gegenstand hinterlassen'|trans({}, 'game')}}</button>
+                    {% else %}
+                        <div class="notice">{{'Du kannst nichts von %citizen% stehlen, solange <strong>er (sie) in der Stadt ist</strong>... '|trans({'%citizen%': owner.user.name}, 'game')|raw}}</div>
+                    {% endif %}
+                {% else %}
+                    
                 {% endif %}
             {% else %}
                 <p>{{ 'Ein Vorhang blockiert die Sicht ...'|trans({},'game') }}</p>
@@ -242,7 +255,7 @@
         <div class="cell rw-14">
             {% if is_granted('ROLE_ADMIN') %}
                 {% if owner.alive %}
-                        <button x-admin-action="1">{{ 'Headshot'|trans({},'game') }} <div class="kill"></div></button>
+                        <button x-admin-action="1"><img src="{{ asset('build/images/actions/bullets.gif') }}" alt="" /> {{ 'Headshot'|trans({},'game') }} <div class="kill"></div></button>
                 {% endif %}
             {% endif %}
         </div>
@@ -258,20 +271,6 @@
     <script>
         {% embed "scripts/log.js.twig" %}{% endembed %};
         {% embed "scripts/inventory.js.twig" %}{% endembed %};
-
-        handleItems(
-            document.querySelectorAll('.rucksack>.item:not(.locked)[x-item-id]'),
-            '{{ path('town_visit_item_controller', {id: owner.id}) }}',
-            'down', '{{ path('town_visit', {id: owner.id}) }}',
-            '{{ 'Bist du sicher, dass du hier einbrechen und einen Gegenstand hinterlassen willst?'|trans({},'game') }}'
-        );
-
-        handleItems(
-            document.querySelectorAll('.chest>.item:not(.locked)[x-item-id]'),
-            '{{ path('town_visit_item_controller', {id: owner.id}) }}',
-            'up', '{{ path('town_visit', {id: owner.id}) }}',
-            '{{ 'Bist du sicher, dass du hier einbrechen und einen Gegenstand stehlen willst?'|trans({},'game') }}'
-        );
 
         {% if owner.alive %}
             const show_complain = document.querySelectorAll('[x-show-reason]');
@@ -326,7 +325,42 @@
                         } );
                 });
             {% endif %}
+            $.html.addEventListenerAll('button[x-action-id]', 'click', function(ev){
+                let msg = "";
+                if (ev.target.getAttribute('x-action-id') == "enablesteal") {
+                    msg = "{{ 'Bist du sicher, dass du hier einbrechen und einen Gegenstand stehlen willst?'|trans({},'game')|e('js') }}";
+                } else if (ev.target.getAttribute('x-action-id') == "enablesneak") {
+                    msg = "{{ 'Bist du sicher, dass du hier einbrechen und einen Gegenstand hinterlassen willst?'|trans({},'game')|e('js') }}";
+                }
+                if (!confirm(msg))
+                    return;
+                ev.target.classList.add('hidden');
+                switch(ev.target.getAttribute('x-action-id')){
+                    case "enablesteal":
+                        document.querySelector("ul.chest.locked").classList.remove('locked');
+                        document.querySelector('div.stealhelp').classList.remove('hidden');
+                        handleItems(
+                            document.querySelectorAll('.chest>.item:not(.locked)[x-item-id]'),
+                            '{{ path('town_visit_item_controller', {id: owner.id}) }}',
+                            'up', '{{ path('town_visit', {id: owner.id}) }}'
+                        );
+                        break;
+                    case "enablesneak":
+                        document.querySelector(".citizen-chest ul.rucksack").parentElement.classList.remove('hidden');
+                        handleItems(
+                            document.querySelectorAll('.rucksack>.item:not(.locked)[x-item-id]'),
+                            '{{ path('town_visit_item_controller', {id: owner.id}) }}',
+                            'down', '{{ path('town_visit', {id: owner.id}) }}'
+                        );
+                        break;
+                }
+            });
         {% else %}
+            handleItems(
+                document.querySelectorAll('.chest>.item:not(.locked)[x-item-id]'),
+                '{{ path('town_visit_item_controller', {id: owner.id}) }}',
+                'up', '{{ path('town_visit', {id: owner.id}) }}'
+            );
             const recycleBtn = document.querySelectorAll('[x-recycle-home]');
             for (let i = 0; i < recycleBtn.length; i++) {
                 recycleBtn[i].addEventListener('click', function() {

@@ -412,20 +412,21 @@ class GameFactory
             return null;
         }
 
-        if (($town->getCitizenCount() + count($followers) + 1) > $town->getPopulation()) {
-            $error = self::ErrorTownNoCoaRoom;
-            return null;
-        }
-
-        foreach ($town->getCitizens() as $existing_citizen) {
+        foreach ($town->getCitizens() as $existing_citizen)
             if ($existing_citizen->getUser()->getId() === $user->getId()) {
                 $error = self::ErrorUserAlreadyInTown;
                 return null;
             }
-            if (in_array($existing_citizen->getUser(), $followers)) {
-                $error = self::ErrorMemberBlocked;
-                return null;
-            }
+
+        $followers = array_filter($followers, function (User $follower) use ($town): bool {
+            foreach ($town->getCitizens() as $existing_citizen)
+                if ($existing_citizen->getUser() === $follower) return false;
+            return true;
+        });
+
+        if (($town->getCitizenCount() + count($followers) + 1) > $town->getPopulation()) {
+            $error = self::ErrorTownNoCoaRoom;
+            return null;
         }
 
         foreach ($followers as $follower) {

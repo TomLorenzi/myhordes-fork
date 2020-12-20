@@ -11,6 +11,7 @@ use App\Entity\Citizen;
 use App\Entity\Complaint;
 use App\Entity\Emotes;
 use App\Entity\Forum;
+use App\Entity\ForumModerationSnippet;
 use App\Entity\ForumUsagePermissions;
 use App\Entity\Item;
 use App\Entity\ItemPrototype;
@@ -60,36 +61,14 @@ class MessageController extends CustomAbstractController
 
     private RandomGenerator $rand;
     private Packages $asset;
-    private TranslatorInterface $trans;
-    private EntityManagerInterface $entityManager;
-    private InventoryHandler $inventory_handler;
-    private TimeKeeperService $time_keeper;
     private PermissionHandler $perm;
 
-    public function __construct(RandomGenerator $r, TranslatorInterface $t, Packages $a, EntityManagerInterface $em, InventoryHandler $ih, TimeKeeperService $tk, PermissionHandler $p, ConfMaster $conf)
+    public function __construct(RandomGenerator $r, TranslatorInterface $t, Packages $a, EntityManagerInterface $em, InventoryHandler $ih, TimeKeeperService $tk, PermissionHandler $p, ConfMaster $conf, CitizenHandler $ch)
     {
-        parent::__construct($conf);
+        parent::__construct($conf, $em, $tk, $ch, $ih, $t);
         $this->asset = $a;
         $this->rand = $r;
-        $this->trans = $t;
-        $this->time_keeper = $tk;
-        $this->entityManager = $em;
-        $this->inventory_handler = $ih;
         $this->perm = $p;
-    }
-
-    protected function addDefaultTwigArgs( ?array $data = null ): array {
-        $data = $data ?? [];
-
-        $data['clock'] = [
-            'desc'      => $this->getUser()->getActiveCitizen() !== null ? $this->getUser()->getActiveCitizen()->getTown()->getName() : $this->trans->trans('Worauf warten Sie noch?', [], 'ghost'),
-            'day'       => $this->getUser()->getActiveCitizen() !== null ? $this->getUser()->getActiveCitizen()->getTown()->getDay() : "",
-            'timestamp' => new DateTime('now'),
-            'attack'    => $this->time_keeper->secondsUntilNextAttack(null, true),
-            'towntype'  => $this->getUser()->getActiveCitizen() !== null ? $this->getUser()->getActiveCitizen()->getTown()->getType()->getName() : "",
-        ];
-
-        return $data;
     }
 
     private function default_forum_renderer(int $fid, int $tid, int $pid, EntityManagerInterface $em, JSONRequestParser $parser, CitizenHandler $ch): Response {
@@ -159,7 +138,7 @@ class MessageController extends CustomAbstractController
                 $thread->setNew();
         }
 
-        return $this->render( 'ajax/forum/view.html.twig', $this->addDefaultTwigArgs([
+        return $this->render( 'ajax/forum/view.html.twig', $this->addDefaultTwigArgs(null, [
             'forum' => $forum,
             'threads' => $threads,
             'pinned_threads' => $pinned_threads,
@@ -227,7 +206,7 @@ class MessageController extends CustomAbstractController
     public function forum_jump_post(int $pid, EntityManagerInterface $em, JSONRequestParser $p, CitizenHandler $ch): Response
     {
         /** @var Post $post */
-        $post = $this->entityManager->getRepository(Post::class)->find($pid);
+        $post = $this->entity_manager->getRepository(Post::class)->find($pid);
 
         return $this->default_forum_renderer($post ? $post->getThread()->getForum()->getId() : -1,$post ? $post->getThread()->getId() : -1,$post ? $pid : -1,$em,$p,$ch);
     }
@@ -238,7 +217,7 @@ class MessageController extends CustomAbstractController
      */
     public function forums(): Response
     {
-        return $this->render( 'ajax/forum/list.html.twig', $this->addDefaultTwigArgs([
+        return $this->render( 'ajax/forum/list.html.twig', $this->addDefaultTwigArgs(null, [
             'user' => $this->getUser(),
             'forums' => $this->perm->getForumsWithPermission($this->getUser(), ForumUsagePermissions::PermissionRead),
         ] ));
@@ -438,13 +417,13 @@ class MessageController extends CustomAbstractController
             '//div[@class=\'letter-a\']' => function (DOMNode $d) use(&$editable) { $editable = false; $l = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'; $d->nodeValue = $l[mt_rand(0,strlen($l)-1)]; },
             '//div[@class=\'letter-c\']' => function (DOMNode $d) use(&$editable) { $editable = false; $l = 'BCDFGHJKLMNPQRSTVWXZ'; $d->nodeValue = $l[mt_rand(0,strlen($l)-1)]; },
             '//div[@class=\'letter-v\']' => function (DOMNode $d) use(&$editable) { $editable = false; $l = 'AEIOUY'; $d->nodeValue = $l[mt_rand(0,strlen($l)-1)]; },
-            '//div[@class=\'rps\']'      => function (DOMNode $d) use(&$editable) { $editable = false; $d->nodeValue = $this->rand->pick([$this->trans->trans('Schere',[],'global'),$this->trans->trans('Stein',[],'global'),$this->trans->trans('Papier',[],'global')]); },
-            '//div[@class=\'coin\']'     => function (DOMNode $d) use(&$editable) { $editable = false; $d->nodeValue = $this->rand->pick([$this->trans->trans('Kopf',[],'global'),$this->trans->trans('Zahl',[],'global')]); },
+            '//div[@class=\'rps\']'      => function (DOMNode $d) use(&$editable) { $editable = false; $d->nodeValue = $this->rand->pick([$this->translator->trans('Schere',[],'global'),$this->translator->trans('Stein',[],'global'),$this->translator->trans('Papier',[],'global')]); },
+            '//div[@class=\'coin\']'     => function (DOMNode $d) use(&$editable) { $editable = false; $d->nodeValue = $this->rand->pick([$this->translator->trans('Kopf',[],'global'),$this->translator->trans('Zahl',[],'global')]); },
             '//div[@class=\'card\']'     => function (DOMNode $d) use(&$editable) { $editable = false;
-                $s_color = $this->rand->pick([$this->trans->trans('Kreuz',[],'items'),$this->trans->trans('Pik',[],'items'),$this->trans->trans('Herz',[],'items'),$this->trans->trans('Karo',[],'items')]);
+                $s_color = $this->rand->pick([$this->translator->trans('Kreuz',[],'items'),$this->translator->trans('Pik',[],'items'),$this->translator->trans('Herz',[],'items'),$this->translator->trans('Karo',[],'items')]);
                 $value = mt_rand(1,12);
-                $s_value = $value < 9 ? ('' . ($value+2)) : [$this->trans->trans('Bube',[],'items'),$this->trans->trans('Dame',[],'items'),$this->trans->trans('König',[],'items'),$this->trans->trans('Ass',[],'items')][$value-9];
-                $d->nodeValue = $this->trans->trans('{color} {value}', ['{color}' => $s_color, '{value}' => $s_value], 'global');
+                $s_value = $value < 9 ? ('' . ($value+2)) : [$this->translator->trans('Bube',[],'items'),$this->translator->trans('Dame',[],'items'),$this->translator->trans('König',[],'items'),$this->translator->trans('Ass',[],'items')][$value-9];
+                $d->nodeValue = $this->translator->trans('{color} {value}', ['{color}' => $s_color, '{value}' => $s_value], 'global');
             },
             '//div[@class=\'citizen\']'   => function (DOMNode $d) use ($user,$town,&$cache,&$editable) {
                 $editable = false;
@@ -535,13 +514,13 @@ class MessageController extends CustomAbstractController
 
                 if ($citizen->getZone() && ($citizen->getZone()->getX() !== 0 || $citizen->getZone()->getY() !== 0))  {
                     if($citizen->getTown()->getChaos()){
-                        $note = $this->trans->trans('Draußen', [], 'game');
+                        $note = $this->translator->trans('Draußen', [], 'game');
                     } else {
                         $note = "[{$citizen->getZone()->getX()}, {$citizen->getZone()->getY()}]";
                     }
                 }
                 else {
-                    $note = $this->trans->trans('in der Stadt oder am Stadttor', [], 'game');
+                    $note = $this->translator->trans('in der Stadt oder am Stadttor', [], 'game');
                 }
 
                 $post->setNote("<img alt='' src='{$this->asset->getUrl("build/images/professions/{$citizen->getProfession()->getIcon()}.gif")}' /> <img alt='' src='{$this->asset->getUrl('build/images/icons/item_map.gif')}' /> <span>$note</span>");
@@ -558,7 +537,7 @@ class MessageController extends CustomAbstractController
         if ($this->emote_cache !== null) return $this->emote_cache;
 
         $this->emote_cache = [];
-        $repo = $this->entityManager->getRepository(Emotes::class);
+        $repo = $this->entity_manager->getRepository(Emotes::class);
         foreach($repo->findAll() as $value)
             /** @var $value Emotes */
             $this->emote_cache[$value->getTag()] = $url_only ? $value->getPath() : "<img alt='{$value->getTag()}' src='{$this->asset->getUrl( $value->getPath() )}'/>";
@@ -566,9 +545,9 @@ class MessageController extends CustomAbstractController
     }
 
     private function getEmotesByUser(User $user, bool $url_only = false): array {
-        $repo = $this->entityManager->getRepository(Emotes::class);
+        $repo = $this->entity_manager->getRepository(Emotes::class);
         $emotes = $repo->getDefaultEmotes();
-        $awards = $this->entityManager->getRepository(Award::class)->getAwardsByUser($user);
+        $awards = $this->entity_manager->getRepository(Award::class)->getAwardsByUser($user);
         $results = array();
 
         foreach($awards as $entry) {
@@ -600,8 +579,8 @@ class MessageController extends CustomAbstractController
     }
 
     private function getLockedEmoteTags(User $user): array {
-        $emotes = $this->entityManager->getRepository(Emotes::class)->getUnlockableEmotes();
-        $unlocks = $this->entityManager->getRepository(Award::class)->getAwardsByUser($user);
+        $emotes = $this->entity_manager->getRepository(Emotes::class)->getUnlockableEmotes();
+        $unlocks = $this->entity_manager->getRepository(Award::class)->getAwardsByUser($user);
         $results = array();
 
         foreach($emotes as $emote) {
@@ -658,7 +637,7 @@ class MessageController extends CustomAbstractController
         $thread = (new Thread())->setTitle( $title )->setOwner($user);
 
         $post = (new Post())
-            ->setOwner( $type === "CROW" ? $this->entityManager->getRepository(User::class)->find(66) : $user )
+            ->setOwner( $type === "CROW" ? $this->entity_manager->getRepository(User::class)->find(66) : $user )
             ->setText( $text )
             ->setDate( new DateTime('now') )
             ->setType($type)
@@ -721,7 +700,7 @@ class MessageController extends CustomAbstractController
 
         // Check the last 4 threads; if they were all made by the same user, they must wait 4h before they can post again
         if (!$this->perm->isPermitted( $permissions, ForumUsagePermissions::PermissionModerate )) {
-            $last_posts = $this->entityManager->getRepository(Post::class)->findBy(['thread' => $thread], ['date' => 'DESC'], 4);
+            $last_posts = $this->entity_manager->getRepository(Post::class)->findBy(['thread' => $thread], ['date' => 'DESC'], 4);
             if (count($last_posts) === 4) {
                 $all_by_user = true;
                 foreach ($last_posts as $last_post) $all_by_user = $all_by_user && ($last_post->getOwner() === $user);
@@ -743,7 +722,7 @@ class MessageController extends CustomAbstractController
         if (!in_array($type, $valid)) return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
 
         $post = (new Post())
-            ->setOwner( $type === "CROW" ? $this->entityManager->getRepository(User::class)->find(66) : $user )
+            ->setOwner( $type === "CROW" ? $this->entity_manager->getRepository(User::class)->find(66) : $user )
             ->setText( $text )
             ->setDate( new DateTime('now') )
             ->setType($type)
@@ -761,7 +740,7 @@ class MessageController extends CustomAbstractController
         $thread->addPost($post)->setLastPost( $post->getDate() );
         if ($forum->getTown()) {
             /** @var Citizen $current_citizen */
-            $current_citizen = $this->entityManager->getRepository(Citizen::class)->findOneBy(['user' => $user, 'town' => $forum->getTown(), 'alive' => true]);
+            $current_citizen = $this->entity_manager->getRepository(Citizen::class)->findOneBy(['user' => $user, 'town' => $forum->getTown(), 'alive' => true]);
             if ($current_citizen) {
                 // Give picto if the post is in the town forum
                 $ph->give_picto($current_citizen, 'r_forum_#00');
@@ -1005,6 +984,7 @@ class MessageController extends CustomAbstractController
             'pid' => null,
 
             'permission' => $this->getPermissionObject( $permissions ),
+            'snippets' => $this->perm->isPermitted( $permissions, ForumUsagePermissions::PermissionPostAsCrow ) ? $this->entity_manager->getRepository(ForumModerationSnippet::class)->findAll() : [],
 
             'emotes' => $this->getEmotesByUser($this->getUser(),true),
             'username' => $this->getUser()->getName(),
@@ -1055,10 +1035,11 @@ class MessageController extends CustomAbstractController
             'pid' => $pid,
 
             'permission' => $this->getPermissionObject( $permissions ),
+            'snippets' => $this->perm->isPermitted( $permissions, ForumUsagePermissions::PermissionPostAsCrow ) ? $this->entity_manager->getRepository(ForumModerationSnippet::class)->findAll() : [],
 
             'emotes' => $this->getEmotesByUser($this->getUser(),true),
             'forum' => true,
-            'town_controls' => isset($forums[0]) ? $forums[0]->getTown() !== null : null,
+            'town_controls' => $thread->getForum()->getTown() !== null,
         ] );
     }
 
@@ -1076,10 +1057,10 @@ class MessageController extends CustomAbstractController
         $uid = $this->getUser()->getId();
 
         /** @var Forum $forum */
-        $forum = $this->entityManager->getRepository(Forum::class)->find($fid);
+        $forum = $this->entity_manager->getRepository(Forum::class)->find($fid);
 
         /** @var Thread $thread */
-        $thread = $this->entityManager->getRepository(Thread::class)->find($tid);
+        $thread = $this->entity_manager->getRepository(Thread::class)->find($tid);
 
         if ($thread->getForum() !== $forum) return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
 
@@ -1090,8 +1071,8 @@ class MessageController extends CustomAbstractController
 
                 $thread->setLocked(true);
                 try {
-                    $this->entityManager->persist($thread);
-                    $this->entityManager->flush();
+                    $this->entity_manager->persist($thread);
+                    $this->entity_manager->flush();
                     return AjaxResponse::success();
                 } catch (Exception $e) {
                     return AjaxResponse::error( ErrorHelper::ErrorDatabaseException );
@@ -1103,8 +1084,8 @@ class MessageController extends CustomAbstractController
 
                 $thread->setLocked(false);
                 try {
-                    $this->entityManager->persist($thread);
-                    $this->entityManager->flush();
+                    $this->entity_manager->persist($thread);
+                    $this->entity_manager->flush();
                     return AjaxResponse::success();
                 } catch (Exception $e) {
                     return AjaxResponse::error( ErrorHelper::ErrorDatabaseException );
@@ -1116,8 +1097,8 @@ class MessageController extends CustomAbstractController
 
                 $thread->setPinned(true);
                 try {
-                    $this->entityManager->persist($thread);
-                    $this->entityManager->flush();
+                    $this->entity_manager->persist($thread);
+                    $this->entity_manager->flush();
                     return AjaxResponse::success();
                 } catch (Exception $e) {
                     return AjaxResponse::error( ErrorHelper::ErrorDatabaseException );
@@ -1129,8 +1110,8 @@ class MessageController extends CustomAbstractController
 
                 $thread->setPinned(false);
                 try {
-                    $this->entityManager->persist($thread);
-                    $this->entityManager->flush();
+                    $this->entity_manager->persist($thread);
+                    $this->entity_manager->flush();
                     return AjaxResponse::success();
                 } catch (Exception $e) {
                     return AjaxResponse::error( ErrorHelper::ErrorDatabaseException );
@@ -1139,7 +1120,7 @@ class MessageController extends CustomAbstractController
             case 'delete':
 
                 /** @var Post $post */
-                $post = $this->entityManager->getRepository(Post::class)->find((int)$parser->get('postId'));
+                $post = $this->entity_manager->getRepository(Post::class)->find((int)$parser->get('postId'));
                 $reason = $parser->get( 'reason', '' );
                 if (!$post || empty($reason)) return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
 
@@ -1150,22 +1131,22 @@ class MessageController extends CustomAbstractController
 
                 try {
                     $post->setHidden(true);
-                    $this->entityManager->persist( $post );
-                    $this->entityManager->persist( (new AdminDeletion())
+                    $this->entity_manager->persist( $post );
+                    $this->entity_manager->persist( (new AdminDeletion())
                         ->setSourceUser( $this->getUser() )
                         ->setTimestamp( new DateTime('now') )
                         ->setReason( $reason )
                         ->setPost( $post ) );
                     $reports = $post->getAdminReports(true);
                     foreach ($reports as $report)
-                        $this->entityManager->persist($report->setSeen(true));
+                        $this->entity_manager->persist($report->setSeen(true));
 
                     if ($post === $thread->firstPost(true)) {
                         $thread->setHidden(true)->setLocked(true);
-                        $this->entityManager->persist($thread);
+                        $this->entity_manager->persist($thread);
                     }
 
-                    $this->entityManager->flush();
+                    $this->entity_manager->flush();
                     return AjaxResponse::success();
                 }
                 catch (Exception $e) {
@@ -1177,15 +1158,15 @@ class MessageController extends CustomAbstractController
                     return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
 
                 /** @var Post $post */
-                $post = $this->entityManager->getRepository(Post::class)->find((int)$parser->get('postId'));
+                $post = $this->entity_manager->getRepository(Post::class)->find((int)$parser->get('postId'));
                 if (!$post || !$post->getHidden() || $post->getThread() !== $thread) return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
 
                 try {
                     $post->setHidden(false);
-                    if ($ad = $this->entityManager->getRepository(AdminDeletion::class)->findOneBy(['post' => $post]))
-                        $this->entityManager->remove($ad);
-                    $this->entityManager->persist( $post );
-                    $this->entityManager->flush();
+                    if ($ad = $this->entity_manager->getRepository(AdminDeletion::class)->findOneBy(['post' => $post]))
+                        $this->entity_manager->remove($ad);
+                    $this->entity_manager->persist( $post );
+                    $this->entity_manager->flush();
                     return AjaxResponse::success();
                 }
                 catch (Exception $e) {
@@ -1195,7 +1176,7 @@ class MessageController extends CustomAbstractController
             case 'seen':
 
                 /** @var Post $post */
-                $post = $this->entityManager->getRepository(Post::class)->find((int)$parser->get('postId'));
+                $post = $this->entity_manager->getRepository(Post::class)->find((int)$parser->get('postId'));
 
                 if (!$this->perm->checkEffectivePermissions($this->getUser(), $forum, ForumUsagePermissions::PermissionModerate))
                     return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
@@ -1204,9 +1185,9 @@ class MessageController extends CustomAbstractController
 
                 try {
                     foreach ($post->getAdminReports(true) as $report)
-                        $this->entityManager->persist($report->setSeen(true));
-                    $this->entityManager->persist( $post );
-                    $this->entityManager->flush();
+                        $this->entity_manager->persist($report->setSeen(true));
+                    $this->entity_manager->persist( $post );
+                    $this->entity_manager->flush();
                     return AjaxResponse::success();
                 }
                 catch (Exception $e) {
@@ -1502,7 +1483,7 @@ class MessageController extends CustomAbstractController
 
                 case PrivateMessage::TEMPLATE_CROW_COMPLAINT_ON:
                     /** @var Complaint $complaint */
-                    $complaint = $this->entityManager->getRepository(Complaint::class)->find( $post->getForeignID() );
+                    $complaint = $this->entity_manager->getRepository(Complaint::class)->find( $post->getForeignID() );
                     $reason = '';
                     if($complaint){
                         if ($complaint->getLinkedReason() != null)
@@ -1511,12 +1492,12 @@ class MessageController extends CustomAbstractController
                             $reason = $complaint->getReason();
                     }
 
-                    $thread->setTitle( $this->trans->trans('Anonyme Beschwerde', [], 'game') );
-                    $post->setText( $this->prepareEmotes($post->getText()) . $this->trans->trans( 'Es wurde eine neue anonyme Beschwerde gegen dich eingelegt: "%reason%"', ['%reason%' => $this->trans->trans( $reason, [], 'game' )], 'game' ) );
+                    $thread->setTitle( $this->translator->trans('Anonyme Beschwerde', [], 'game') );
+                    $post->setText( $this->prepareEmotes($post->getText()) . $this->translator->trans( 'Es wurde eine neue anonyme Beschwerde gegen dich eingelegt: "%reason%"', ['%reason%' => $this->translator->trans( $reason, [], 'game' )], 'game' ) );
                     break;
                 case PrivateMessage::TEMPLATE_CROW_COMPLAINT_OFF:
                     /** @var Complaint $complaint */
-                    $complaint = $this->entityManager->getRepository(Complaint::class)->find( $post->getForeignID() );
+                    $complaint = $this->entity_manager->getRepository(Complaint::class)->find( $post->getForeignID() );
                     $reason = '';
                     if($complaint){
                         if ($complaint->getLinkedReason() != null)
@@ -1525,25 +1506,25 @@ class MessageController extends CustomAbstractController
                             $reason = $complaint->getReason();
                     }
 
-                    $thread->setTitle( $this->trans->trans('Beschwerde zurückgezogen', [], 'game') );
-                    $post->setText( $this->prepareEmotes($post->getText()) . $this->trans->trans( 'Es gibt gute Nachrichten! Folgende Beschwerde wurde zurückgezogen: "%reason%"', ['%reason%' => $this->trans->trans( $reason, [], 'game' )], 'game' ) );
+                    $thread->setTitle( $this->translator->trans('Beschwerde zurückgezogen', [], 'game') );
+                    $post->setText( $this->prepareEmotes($post->getText()) . $this->translator->trans( 'Es gibt gute Nachrichten! Folgende Beschwerde wurde zurückgezogen: "%reason%"', ['%reason%' => $this->translator->trans( $reason, [], 'game' )], 'game' ) );
                     break;
                 case PrivateMessage::TEMPLATE_CROW_TERROR:
-                    $thread->setTitle( $this->trans->trans('Du bist vor Angst erstarrt!!', [], 'game') );
-                    $post->setText( $this->prepareEmotes($post->getText()) . $this->trans->trans( 'Wir haben zwei Neuigkeiten für dich. Eine gute und eine schlechte. Zuerst die gute: Trotz ihrer hartnäckigen Versuche, ist es den %num% Zombie(s) nicht gelungen, dich aufzufressen. Du hast dich wacker geschlagen. Bravo! Die schlechte: Das Erlebnis war so schlimm, dass du in eine Angststarre verfallen bist. So etwas möchtest du nicht wieder erleben...', ['%num%' => $post->getForeignID()], 'game' ) );
+                    $thread->setTitle( $this->translator->trans('Du bist vor Angst erstarrt!!', [], 'game') );
+                    $post->setText( $this->prepareEmotes($post->getText()) . $this->translator->trans( 'Wir haben zwei Neuigkeiten für dich. Eine gute und eine schlechte. Zuerst die gute: Trotz ihrer hartnäckigen Versuche, ist es den %num% Zombie(s) nicht gelungen, dich aufzufressen. Du hast dich wacker geschlagen. Bravo! Die schlechte: Das Erlebnis war so schlimm, dass du in eine Angststarre verfallen bist. So etwas möchtest du nicht wieder erleben...', ['%num%' => $post->getForeignID()], 'game' ) );
                     break;
                 case PrivateMessage::TEMPLATE_CROW_THEFT:
                     /** @var ItemPrototype $item */
-                    $item = $this->entityManager->getRepository(ItemPrototype::class)->find( $post->getForeignID() );
-                    $thread->setTitle( $this->trans->trans('Haltet den Dieb!', [], 'game') );
+                    $item = $this->entity_manager->getRepository(ItemPrototype::class)->find( $post->getForeignID() );
+                    $thread->setTitle( $this->translator->trans('Haltet den Dieb!', [], 'game') );
 
                     $img = "<img src='{$this->asset->getUrl('build/images/item/item_' . ($item ? $item->getIcon() : 'none') . '.gif')}' alt='' />";
-                    $name = $this->trans->trans( $item ? $item->getLabel() : '', [], 'items' );
-                    $post->setText( $this->prepareEmotes($post->getText()) . $this->trans->trans( 'Es scheint so, als ob ein anderer Bürger Gefallen an deinem Inventar gefunden hätte... Dir wurde folgendes gestohlen: %icon% %item%', ['%icon%' => $img, '%item%' => $name], 'game' ) );
+                    $name = $this->translator->trans( $item ? $item->getLabel() : '', [], 'items' );
+                    $post->setText( $this->prepareEmotes($post->getText()) . $this->translator->trans( 'Es scheint so, als ob ein anderer Bürger Gefallen an deinem Inventar gefunden hätte... Dir wurde folgendes gestohlen: %icon% %item%', ['%icon%' => $img, '%item%' => $name], 'game' ) );
                     break;
                 case PrivateMessage::TEMPLATE_CROW_CATAPULT:
-                    $thread->setTitle( $this->trans->trans('Du bist für das Katapult verantwortlich', [], 'game') );
-                    $post->setText( $this->prepareEmotes($post->getText()) . $this->trans->trans( 'Du bist zum offiziellen Katapult-Bediener der Stadt ernannt worden. Diese Ernennung erfolgte durch Auslosung; Herzlichen Glückwunsch! Finde dich so bald wie Möglich beim städtischen Katapult ein.', [], 'game' ) );
+                    $thread->setTitle( $this->translator->trans('Du bist für das Katapult verantwortlich', [], 'game') );
+                    $post->setText( $this->prepareEmotes($post->getText()) . $this->translator->trans( 'Du bist zum offiziellen Katapult-Bediener der Stadt ernannt worden. Diese Ernennung erfolgte durch Auslosung; Herzlichen Glückwunsch! Finde dich so bald wie Möglich beim städtischen Katapult ein.', [], 'game' ) );
                     break;
                 default:
                     $post->setText($this->prepareEmotes($post->getText()));
@@ -1645,6 +1626,7 @@ class MessageController extends CustomAbstractController
             'pid' => null,
 
             'permission' => $this->getPermissionObject( ForumUsagePermissions::PermissionCreatePost ),
+            'snippets' => [],
             'emotes' => $this->getEmotesByUser($user,true),
 
             'forum' => false,
@@ -1671,6 +1653,7 @@ class MessageController extends CustomAbstractController
             'pid' => null,
 
             'permission' => $this->getPermissionObject( ForumUsagePermissions::PermissionWrite ),
+            'snippets' => [],
 
             'emotes' => $this->getEmotesByUser($user,true),
             'forum' => false,
@@ -1697,6 +1680,7 @@ class MessageController extends CustomAbstractController
             'pid' => null,
 
             'permission' => $this->getPermissionObject( ForumUsagePermissions::PermissionOwn ),
+            'snippets' => [],
 
             'emotes' => $this->getEmotesByUser($user,true),
             'forum' => false,
@@ -1720,6 +1704,7 @@ class MessageController extends CustomAbstractController
             'pid' => null,
 
             'permission' => $this->getPermissionObject( ForumUsagePermissions::PermissionOwn ),
+            'snippets' => [],
             'emotes' => $this->getEmotesByUser($user,true),
 
             'forum' => false,

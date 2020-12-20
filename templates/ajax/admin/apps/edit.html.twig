@@ -1,0 +1,214 @@
+{% extends "ajax/ajax.html.twig" %}
+{% block ajax %}
+    {# @var current_app \App\Entity\ExternalApp #}
+    <div class="row">
+        <div class="padded cell rw-12">
+
+            <div class="form">
+                <h5>{{ 'Kartei'|trans({},'admin') }}</h5>
+                <div class="row">
+                    <div class="cell padded rw-4 note note-lightest"><label for="app_name">{{ 'Name der Anwendung'|trans({},'admin') }}</label></div>
+                    <div class="cell padded rw-4"><input id="app_name" type="text" value="{{ current_app is not null ? current_app.name : '' }}" /></div>
+                </div>
+
+                <div class="row">
+                    <div class="cell padded rw-4 note note-lightest">{{ 'Besitzer'|trans({},'admin') }}</div>
+                    <div class="cell padded rw-4">
+                        <span id="app_owner_label">
+                            {% if current_app is not null and current_app.owner is not null %}
+                                <strong><a href="{{ path('admin_users_account_view', {id: current_app.owner.id}) }}">{{ current_app.owner.name }}</a></strong>
+                            {% else %}
+                                {{ 'Niemand'|trans({},'admin') }}
+                            {% endif %}
+                        </span>
+                        <button id="app_owner_edit" class="small inline float-right"><i class="fa fa-edit"></i></button>
+                        <button id="app_owner_clear" class="small inline float-right {% if current_app is null or current_app.owner is null %}hidden{% endif %}"><i class="fa fa-trash"></i></button>
+                        <input id="app_owner" type="hidden" value="{{ current_app is not null and current_app.owner is not null ? current_app.owner.id : '-1' }}" />
+                    </div>
+                </div>
+                <div class="row hidden" id="app_owner_select">
+                    <div class="cell padded rw-4 ro-4">
+                        <div id="users-list-admin">{% include 'ajax/admin/snippets/user_search.html.twig' %}</div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="cell padded rw-4 note note-lightest"><label for="app_email">{{ 'Kontakt'|trans({},'admin') }}</label></div>
+                    <div class="cell padded rw-4"><input id="app_email" type="email" value="{{ current_app is not null ? current_app.contact : '' }}" /></div>
+                </div>
+
+                <div class="row">
+                    <div class="cell padded rw-4 note note-lightest"><label for="app_url">{{ 'URL'|trans({},'admin') }}</label></div>
+                    <div class="cell padded rw-4"><input id="app_url" type="url" value="{{ current_app is not null ? current_app.url : '' }}" /></div>
+                </div>
+
+                <h5>{{ 'Anzeige'|trans({},'admin') }}</h5>
+                <div class="row">
+                    <div class="cell padded rw-8"><div class="help">{{ 'Anwendungen im Testbetrieb können nur von ihrem Besitzer verwendet werden.'|trans({},'admin') }}</div></div>
+                </div>
+                <div class="row">
+                    <div class="cell padded rw-4 note note-lightest"><label for="app_testing">{{ 'Testbetrieb'|trans({},'admin') }}</label></div>
+                    <div class="cell padded rw-4"><input id="app_testing" type="checkbox" {% if current_app and current_app.testing %}checked{% endif%} /></div>
+                </div>
+
+                <div class="row">
+                    <div class="cell padded rw-4 note note-lightest"><label for="app_icon">{{ 'Icon'|trans({},'admin') }}</label></div>
+                    <div class="cell padded rw-4">
+                        <img id="app_icon" style="height: 16px; width: 16px;" alt="-" src="{{ (current_app is not null and current_app.imageName is not null) ? path('app_web_app_icon', { aid: current_app.id, name: current_app.imageName, ext: current_app.imageFormat }) : '' }}" />
+                        <label for="app_icon_select" id="app_icon_edit" class="small inline float-right button"><i class="fa fa-edit"></i></label>
+                        <button id="app_icon_clear" class="small inline float-right {% if current_app is null or current_app.imageName is null %}hidden{% endif %}"><i class="fa fa-trash"></i></button>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="cell padded ro-4 rw-4">
+                        <input class="hidden" type="file" id="app_icon_select" accept=".gif,.jpg,.jpeg,.jif,.jfif,.png,.webp,.bmp">
+                    </div>
+                </div>
+
+                <h5>{{ 'Datenzugriff'|trans({},'admin') }}</h5>
+                <div class="row">
+                    <div class="cell padded rw-8"><div class="help">{{ 'Anwendungen ohne API-Zugang werden nur als Links eingebunden.'|trans({},'admin') }}</div></div>
+                </div>
+                <div class="row">
+                    <div class="cell padded rw-4 note note-lightest"><label for="app_flux">{{ 'Zugang zur API'|trans({},'admin') }}</label></div>
+                    <div class="cell padded rw-4"><input id="app_flux" type="checkbox" {% if current_app and not current_app.linkOnly %}checked{% endif%} /></div>
+                </div>
+                <div id="flux_fields" {% if current_app is null or current_app.linkOnly %}class="hidden"{% endif %}>
+                    <div class="row">
+                        <div class="cell padded rw-4 note note-lightest"><label for="app_sk">{{ 'Schlüssel'|trans({},'admin') }}</label></div>
+                        <div class="cell padded rw-4"><input id="app_sk" type="text" readonly value="{{ current_app is not null and current_app.secret is not null ? current_app.secret : ('[ ' ~ ('Wird automatisch generiert'|trans({},'admin')) ~ ' ]') }}" /></div>
+                    </div>
+                    <div class="row {% if current_app is null or current_app.secret is null %}hidden{% endif %}">
+                        <div class="cell padded ro-4 rw-4"><label><input id="app_sk_regen" type="checkbox" {% if current_app is null or current_app.secret is null %}checked{% endif%} /> {{ 'Schlüssel regenerieren'|trans({},'admin') }}</label></div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="padded cell rw-4 ro-4">
+                        <button id="save_button">{{ (current_app is null ? 'Neue Anwendung registrieren' : "Änderungen an '%appname%' speichern")|trans({'%appname%': current_app is null ? '' : current_app.name},'admin') }}</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+{% block js %}
+    <script>
+        let typingTimer, doneTypingInterval = 500;
+        let searchBox = document.getElementById('user-search');
+
+        let image_upload = null;
+        let image_change = false;
+        let image_mime = '';
+
+        $.html.addEventListenerAll('#app_owner_edit','click', () => {
+            document.getElementById('app_owner_select').classList.remove('hidden');
+            document.getElementById('app_owner_edit').classList.add('hidden');
+        });
+
+        $.html.addEventListenerAll('#app_owner_clear','click', () => {
+            document.getElementById('app_owner_clear').classList.add('hidden');
+            document.getElementById('app_owner').value = -1;
+            document.getElementById('app_owner_label').innerText = '{{ 'Niemand'|trans({},'admin')|e('js') }}'
+        });
+
+        $.html.addEventListenerAll('#app_icon_clear','click', () => {
+            document.getElementById('app_icon_clear').classList.add('hidden');
+            document.getElementById('app_icon').setAttribute('src','');
+            image_upload = null;
+            image_change = true;
+        });
+
+        const userSearchHandler = function() {
+            $.ajax.background().load(
+                document.getElementById('users-list'),
+                '{{ path('admin_users_fuzzyfind') }}',
+                false,
+                {'name': searchBox.value, 'no-href': true},
+                () => $.html.addEventListenerAll('.users-list-entry', 'click', function(e,elem) {
+                    document.getElementById('app_owner').value = elem.getAttribute('x-user-id');
+                    document.getElementById('app_owner_label').innerHTML = "<strong><a href=\"" + elem.getAttribute('x-admin-url') + "\">" + elem.getAttribute('x-user-name') + "</a></strong>"
+                    document.getElementById('app_owner_select').classList.add('hidden');
+                    document.getElementById('app_owner_edit').classList.remove('hidden');
+                    document.getElementById('app_owner_clear').classList.remove('hidden');
+                    document.getElementById('users-list').innerHTML = "";
+                })
+            );
+        };
+
+        const userSearchHandlerUp = function () {
+            clearTimeout(typingTimer);
+            typingTimer = setTimeout(userSearchHandler, doneTypingInterval);
+        };
+
+        const userSearchHandlerDown = function () {
+            clearTimeout(typingTimer);
+        };
+
+        searchBox.addEventListener('keyup', userSearchHandlerUp);
+        searchBox.addEventListener('keydown', userSearchHandlerDown);
+
+        $.html.addEventListenerAll('#app_flux','change', (e,elem) => {
+            if (elem.checked)
+                document.getElementById('flux_fields').classList.remove('hidden');
+            else document.getElementById('flux_fields').classList.add('hidden');
+        });
+
+        $.html.addEventListenerAll('#save_button','click', () => {
+
+            const payload = {
+                name: document.getElementById('app_name').value,
+                owner: document.getElementById('app_owner').value,
+                contact: document.getElementById('app_email').value,
+                url: document.getElementById('app_url').value,
+
+                test: document.getElementById('app_testing').checked,
+                icon: image_change ? image_upload : false,
+                mime: image_mime,
+
+                flux: document.getElementById('app_flux').checked,
+                rekey: document.getElementById('app_sk_regen').checked,
+            }
+
+            $.ajax.easySend( '{{ path('admin_update_ext_app', {id: current_app is null ? -1 : current_app.id }) }}', payload,
+                function () {
+                    $.ajax.load(null, '{{ path('admin_app_view') }}', true);
+                } );
+
+        });
+
+
+
+        $.html.addEventListenerAll('#app_icon_select','change', (e) => {
+
+            if (e.target.files.length !== 1) {
+                $.html.error('{{ 'Bitte wähle nur eine einzige Datei aus.'|trans({},'soul')|e('js') }}');
+                return;
+            }
+            /** @var file File */
+            const file = e.target.files[0];
+            if (file.size >= 3145728) {
+                $.html.error('{{ 'Die Datei ist zu groß.'|trans({},'soul')|e('js') }}');
+                return;
+            }
+
+            const type_info = file.type.split('/',2);
+            if (type_info.length < 2 || type_info[0] !== 'image') {
+                $.html.error('{{ 'Dieses Dateiformat wird nicht unterstützt.'|trans({},'soul')|e('js') }}');
+                return;
+            }
+
+            let reader = new FileReader();
+            reader.onload = function(e) {
+                image_upload = btoa(e.target.result);
+                image_change = true;
+                image_mime = type_info[1];
+                document.getElementById('app_icon').setAttribute('src','data:' + type_info[0] + '/' + type_info[1] + ';base64,' + image_upload);
+                document.getElementById('app_icon_clear').classList.remove('hidden');
+            };
+            reader.readAsBinaryString(file);
+
+        });
+    </script>
+{% endblock %}

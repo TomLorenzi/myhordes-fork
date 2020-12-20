@@ -42,6 +42,11 @@ class FoundRolePlayText
      */
     private $imported = false;
 
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $new = false;
+
     public function __construct(){
         $this->datefound = new \DateTime(); 
     }
@@ -95,6 +100,18 @@ class FoundRolePlayText
     public function setImported(?bool $imported): self
     {
         $this->imported = $imported;
+
+        return $this;
+    }
+
+    public function getNew(): ?bool
+    {
+        return $this->new;
+    }
+
+    public function setNew(bool $new): self
+    {
+        $this->new = $new;
 
         return $this;
     }

@@ -25,7 +25,6 @@ use Doctrine\ORM\EntityManagerInterface;
 class DeathHandler
 {
     private $entity_manager;
-    private $status_factory;
     private $item_factory;
     private $inventory_handler;
     private $citizen_handler;
@@ -37,12 +36,11 @@ class DeathHandler
     private $perm;
 
     public function __construct(
-        EntityManagerInterface $em, StatusFactory $sf, ZoneHandler $zh, InventoryHandler $ih, CitizenHandler $ch,
+        EntityManagerInterface $em, ZoneHandler $zh, InventoryHandler $ih, CitizenHandler $ch,
         ItemFactory $if, LogTemplateHandler $lt, PictoHandler $ph, RandomGenerator $rg, ConfMaster $conf,
         PermissionHandler $perm)
     {
         $this->entity_manager = $em;
-        $this->status_factory = $sf;
         $this->inventory_handler = $ih;
         $this->item_factory = $if;
         $this->zone_handler = $zh;

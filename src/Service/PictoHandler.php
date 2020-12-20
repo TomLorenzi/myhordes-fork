@@ -38,14 +38,16 @@ class PictoHandler
         if ($pictoPrototype->getName() === 'r_solban_#00' && !$citizen->getBanished())
             return;
 
+        $persistance = $citizen->getTown()->getDay() < 5 ? 0 : 1;
+
         $is_new = false;
-        $picto = $citizen->getUser()->findPicto( 0, $pictoPrototype, $citizen->getTown() );
+        $picto = $citizen->getUser()->findPicto( $persistance, $pictoPrototype, $citizen->getTown() );
         if($picto === null){
             $picto = new Picto();
             $is_new = true;
         }
         $picto->setPrototype($pictoPrototype)
-            ->setPersisted(0)
+            ->setPersisted($persistance)
             ->setTown($citizen->getTown())
             ->setUser($citizen->getUser())
             ->setCount($picto->getCount()+$count);
@@ -104,15 +106,15 @@ class PictoHandler
             if(in_array($picto->getPrototype()->getName(), $pictoAlwaysPersisted)){
                 $persistPicto = true;
             } else if ($this->conf->getTownConfiguration($citizen->getTown())->get(TownConf::CONF_MODIFIER_STRICT_PICTOS, false) && $citizen->getUser()->getAllSoulPoints() >= 100) {
-                if($citizen->getSurvivedDays() < 8 && ($citizen->getCauseOfDeath() === null || $citizen->getCauseOfDeath()->getRef() === CauseOfDeath::Unknown))
+                if($citizen->getSurvivedDays() < 7 && ($citizen->getCauseOfDeath() === null || $citizen->getCauseOfDeath()->getRef() === CauseOfDeath::Unknown))
                     $persistPicto = true;
-                else if($citizen->getSurvivedDays() == 8 && $citizen->getCauseOfDeath() !== null && $citizen->getCauseOfDeath()->getRef() === CauseOfDeath::NightlyAttack)
+                else if($citizen->getSurvivedDays() == 7 && $citizen->getCauseOfDeath() !== null && $citizen->getCauseOfDeath()->getRef() === CauseOfDeath::NightlyAttack)
                     $persistPicto = true;
-                else if ($citizen->getSurvivedDays() > 8)
+                else if ($citizen->getSurvivedDays() > 7)
                     $persistPicto = true;
-            } else if ($citizen->getSurvivedDays() < 5 && ($citizen->getCauseOfDeath() === null || $citizen->getCauseOfDeath()->getRef() === CauseOfDeath::Unknown)) {
+            } else if ($citizen->getSurvivedDays() < 4 && ($citizen->getCauseOfDeath() === null || $citizen->getCauseOfDeath()->getRef() === CauseOfDeath::Unknown)) {
                 $persistPicto = true;
-            } else if ($citizen->getSurvivedDays() >= 5) {
+            } else if ($citizen->getSurvivedDays() >= 4) {
                 $persistPicto = true;
             }
 
@@ -129,6 +131,8 @@ class PictoHandler
                 // And remove the picto from today
                 $previousPicto->setCount($previousPicto->getCount() + $picto->getCount());
                 $this->entity_manager->persist($previousPicto);
+                $picto->setCount(0);
+                $citizen->getUser()->removePicto($picto);
                 $this->entity_manager->remove($picto);
             }
         }

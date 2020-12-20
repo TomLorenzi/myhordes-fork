@@ -167,7 +167,7 @@
       <notes>
         <note category="german">Dein Profil</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Dein Profil</source>
         <target>Tu perfil</target>
       </segment>
@@ -911,7 +911,7 @@
       <notes>
         <note category="german">Das angegebene Profil kann nicht importiert werden, da es bereits einem anderen MyHordes-Spieler zugeordnet ist.</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Das angegebene Profil kann nicht importiert werden, da es bereits einem anderen MyHordes-Spieler zugeordnet ist.</source>
         <target>El perfil especificado no se puede importar porque ya está asignado a otro jugador de MyHordes.</target>
       </segment>
@@ -1748,7 +1748,7 @@
       <notes>
         <note category="german">EternalTwin-Nutzer</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>EternalTwin-Nutzer</source>
         <target>Usuario de EternalTwin</target>
       </segment>
@@ -1856,7 +1856,7 @@
       <notes>
         <note category="german">Spielhilfe: Kleine Koalitionen</note>
       </notes>
-      <segment state="translated">
+      <segment>
         <source>Spielhilfe: Kleine Koalitionen</source>
         <target>Guía: Alianzas</target>
       </segment>

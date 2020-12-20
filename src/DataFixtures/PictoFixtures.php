@@ -597,7 +597,7 @@ class PictoFixtures extends Fixture
             'rare' => true
         ],
         [
-            'label' => 'Ehemaliger Beta-Tester',
+            'label' => 'Beta-Tester der neuen Zeit',
             'description' => 'Dies ist eine äußert seltene Auszeichnung, die den ersten Spielern von \'MyHordes\' vorbehalten ist. Drogen sind nicht gut.',
             'icon' => 'r_beta2',
             'rare' => true
@@ -625,7 +625,13 @@ class PictoFixtures extends Fixture
             'description' => 'Ehrenpreis für die Teilnahme am UFC!',
             'icon' => 'r_ufc',
             'rare' => false
-        ]
+        ],
+        [
+            'label' => 'Sind wir noch in der Alpha?',
+            'description' => 'Dies ist eine äußerst seltene Belohnung, die den ersten MyHordes-Spielern vorbehalten ist, die das Finale mit großem F erlebt haben.',
+            'icon' => 'r_ripflash',
+            'rare' => true
+        ],
     ];
 
     private $entityManager;

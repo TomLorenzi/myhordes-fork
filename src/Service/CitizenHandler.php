@@ -30,7 +30,6 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
 class CitizenHandler
 {
     private EntityManagerInterface $entity_manager;
-    private StatusFactory $status_factory;
     private ItemFactory $item_factory;
     private RandomGenerator $random_generator;
     private InventoryHandler $inventory_handler;
@@ -40,12 +39,11 @@ class CitizenHandler
     private UserHandler $user_handler;
     private ConfMaster $conf;
 
-    public function __construct(EntityManagerInterface $em, StatusFactory $sf, RandomGenerator $g, InventoryHandler $ih,
+    public function __construct(EntityManagerInterface $em, RandomGenerator $g, InventoryHandler $ih,
                                 PictoHandler $ph, ItemFactory $if, LogTemplateHandler $lh, ContainerInterface $c, UserHandler $uh,
                                 ConfMaster $conf )
     {
         $this->entity_manager = $em;
-        $this->status_factory = $sf;
         $this->random_generator = $g;
         $this->inventory_handler = $ih;
         $this->picto_handler = $ph;
@@ -169,11 +167,12 @@ class CitizenHandler
 
         if ($citizen->hasRole('ghoul')) return;
 
-        $lv2 = $this->entity_manager->getRepository(CitizenStatus::class)->findOneByName('thirst2');
-        $lv1 = $this->entity_manager->getRepository(CitizenStatus::class)->findOneByName('thirst1');
+        $lv2 = $this->entity_manager->getRepository(CitizenStatus::class)->findOneBy(['name' => 'thirst2']);
+        $lv1 = $this->entity_manager->getRepository(CitizenStatus::class)->findOneBy(['name' => 'thirst1']);
 
         if ($citizen->getStatus()->contains( $lv2 )) {
             $this->container->get(DeathHandler::class)->kill($citizen, CauseOfDeath::Dehydration);
+            $this->entity_manager->persist( $this->log->citizenDeath( $citizen ) );
         } elseif ($citizen->getStatus()->contains( $lv1 )) {
             $this->removeStatus( $citizen, $lv1 );
             $this->inflictStatus( $citizen, $lv2 );
@@ -186,18 +185,19 @@ class CitizenHandler
         if (!$citizen->getAlive() || $citizen->getTown()->getChaos()) return false;
 
         $action = false; $kill = false;
+        $nbComplaint = $this->entity_manager->getRepository(Complaint::class)->countComplaintsFor($citizen, Complaint::SeverityBanish);
         if (!$citizen->getBanished()) {
-            if ($this->entity_manager->getRepository(Complaint::class)->countComplaintsFor($citizen, Complaint::SeverityBanish) >= 8)
+            if ($nbComplaint >= 8)
                 $action = true;
         }
 
         if ($gallows || $cage) {
             $complaintNeeded = 8;
             // If the citizen is already shunned, we need 6 more complains to hang him
-            if($citizen->getBanished() && $gallows)
-                $complaintNeeded = 6;
+            if($citizen->getBanished())
+                $complaintNeeded += 6;
 
-            if ($this->entity_manager->getRepository(Complaint::class)->countComplaintsFor($citizen, Complaint::SeverityKill) >= $complaintNeeded)
+            if ($nbComplaint >= $complaintNeeded)
                 $action = $kill = true;
         }
 
@@ -230,17 +230,8 @@ class CitizenHandler
                     $items[] = $item;
 
             $bank = $citizen->getTown()->getBank();
-            foreach ($items as $item) {
-                $source = $item->getInventory();
-                if ($this->inventory_handler->transferItem( $citizen, $item, $source, $bank, InventoryHandler::ModalityImpound ) === InventoryHandler::ErrorNone)
-                    $this->entity_manager->persist( $this->log->bankItemLog( $citizen, $item->getPrototype(), true ) );
-            }
-
-            // As he is shunned, we remove all the complaints
-            $complaints = $this->entity_manager->getRepository(Complaint::class)->findByCulprit($citizen);
-            foreach ($complaints as $complaint) {
-                $this->entity_manager->remove($complaint);
-            }
+            foreach ($items as $item)
+                if (!$item->getEssential()) $this->inventory_handler->forceMoveItem( $bank, $item );
         }
 
         if ($kill) {
@@ -248,7 +239,7 @@ class CitizenHandler
             // The gallow is used before the cage
             if ($gallows) {
                 $this->container->get(DeathHandler::class)->kill( $citizen, CauseOfDeath::Hanging, $rem );
-                $pictoPrototype = $this->entity_manager->getRepository(PictoPrototype::class)->findOneByName('r_dhang_#00');
+                $pictoPrototype = $this->entity_manager->getRepository(PictoPrototype::class)->findOneBy(['name' => 'r_dhang_#00']);
                 $this->picto_handler->give_picto($citizen, $pictoPrototype);
 
                 // The gallow gets destroyed
