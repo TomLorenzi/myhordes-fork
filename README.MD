@@ -56,7 +56,7 @@ You can also install pgAdmin to access the database.
 Clone the project inside any directory
 
 ```bash
-git clone https://apps.benbehrendt.de/kallithea/Privat/MyHordes
+git clone https://gitlab.com/eternal-twin/myhordes.git
 ```
 
 ## Composer
