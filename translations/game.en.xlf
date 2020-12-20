@@ -8315,7 +8315,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Ihr hast sie letzte Nacht gehört... die Schreie, das Stöhnen. Um die %attack% Zombies herum griffen an. Diesmal konnten wir uns durchsetzen, aber morgen... morgen wird es noch schlimmer...</source>
-        <target>Ihr hast sie letzte Nacht gehört... die Schreie, das Stöhnen. Um die %attack% Zombies herum griffen an. Diesmal konnten wir uns durchsetzen, aber morgen... morgen wird es noch schlimmer...</target>
+        <target>You heard them last night... the cries, the groans. Around %attack% zombies. We managed to prevail this time, but tomorrow... tomorrow will be even worse...</target>
       </segment>
     </unit>
     <unit id="PZl940e" name="3a8fd01">
