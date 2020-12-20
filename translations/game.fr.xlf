@@ -3566,7 +3566,7 @@
       </notes>
       <segment>
         <source>Es ist kein Bürger in der Nähe...</source>
-        <target>Il n'y a personne près de la ville (2 cases de distance maximum).</target>
+        <target>Il n'y a pas de citoyen à proximité...</target>
       </segment>
     </unit>
     <unit id="f1TzhOn" name="Gammler">
