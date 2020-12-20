@@ -97,6 +97,29 @@ class AdminTownController extends AdminActionController
     }
 
     /**
+     * @Route("jx/admin/town/old/{id<\d+>}/{tab?}", name="admin_old_town_explorer")
+     * @param int $id
+     * @return Response
+     */
+    public function old_town_explorer(int $id, ?string $tab): Response
+    {
+        $town = $this->entity_manager->getRepository(TownRankingProxy::class)->find($id);
+        if ($town === null) $this->redirect( $this->generateUrl( 'admin_old_town_list' ) );
+
+        $pictoProtos = $this->entity_manager->getRepository(PictoPrototype::class)->findAll();
+        usort($pictoProtos, function($a, $b) {
+            return strcmp($this->translator->trans($a->getLabel(), [], 'game'), $this->translator->trans($b->getLabel(), [], 'game'));
+        });
+
+        return $this->render( 'ajax/admin/towns/old_town_explorer.html.twig', $this->addDefaultTwigArgs('old_explorer', [
+            'town' => $town,
+            'day' => $town->getDays(),
+            'pictoPrototypes' => $pictoProtos,
+            'tab' => $tab
+        ]));
+    }
+
+    /**
      * @Route("api/admin/town/{id}/do/{action}", name="admin_town_manage", requirements={"id"="\d+"})
      * @param int $id
      * @param string $action
@@ -311,7 +334,7 @@ class AdminTownController extends AdminActionController
     /**
      * @Route("/api/admin/town/{id}/picto/give", name="admin_town_give_picto", requirements={"id"="\d+"})
      * @Security("is_granted('ROLE_ADMIN')")
-     * Add or remove an item from the bank
+     * Give picto to all citizens of a town
      * @param int $id User ID
      * @param JSONRequestParser $parser The Request Parser
      * @return Response
@@ -319,10 +342,14 @@ class AdminTownController extends AdminActionController
     public function town_give_picto($id, JSONRequestParser $parser): Response
     {
         $town = $this->entity_manager->getRepository(Town::class)->find($id);
+        $townRanking = $this->entity_manager->getRepository(TownRankingProxy::class)->find($id);
         /** @var Town $town */
-        if(!$town) {
+        if(!$town && !$townRanking) {
             return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
         }
+
+        if(!$town && $townRanking)
+            $town = $townRanking;
 
         $prototype_id = $parser->get('prototype');
         $number = $parser->get('number', 1);
@@ -339,8 +366,11 @@ class AdminTownController extends AdminActionController
                 $picto = new Picto();
                 $picto->setPrototype($pictoPrototype)
                     ->setPersisted(2)
-                    ->setTown($town)
                     ->setUser($citizen->getUser());
+                if(is_a($town, Town::class))
+                    $picto->setTown($town);
+                else
+                    $picto->setTownEntry($town);
                 $citizen->getUser()->addPicto($picto);
                 $this->entity_manager->persist($citizen->getUser());
             }
