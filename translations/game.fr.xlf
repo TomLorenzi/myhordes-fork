@@ -15796,9 +15796,7 @@
         <source>Als du durch das Fenster blickst, stellst du fest, dass das Haus von %citizen% keinerlei interessante
                     Gegenstände enthält. Ein paar Tonscherben, viel Staub und eine tote Ratte ist alles, was du erkennen kannst.
                     Nichts, was der Mühe wert wäre.</source>
-        <target>Als du durch das Fenster blickst, stellst du fest, dass das Haus von %citizen% keinerlei interessante
-                    Gegenstände enthält. Ein paar Tonscherben, viel Staub und eine tote Ratte ist alles, was du erkennen kannst.
-                    Nichts, was der Mühe wert wäre.</target>
+        <target>En regardant par la fenêtre, vous constatez que la maison de %citizen% semble être vide de tout objet intéressant. Des bouts de poterie, de la poussière et un rat crevé. Rien qui ne vaille la peine.</target>
       </segment>
     </unit>
   </file>

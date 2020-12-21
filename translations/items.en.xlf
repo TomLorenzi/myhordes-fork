@@ -5965,7 +5965,7 @@
       </notes>
       <segment>
         <source>Scheint nicht viel besser als Heu zu sein, aber es wird sicher für irgendwas verwendbar sein. Außer ziemlich enttäuschenden Zigaretten.</source>
-        <target>Although it appears to be nothing but hay in the making, there must be another use for this herb apart from very disappointing cigarettes.</target>
+        <target>Although it appears to be nothing but hay in the making, there must be another use for this herb apart from very disappointed cigarettes.</target>
       </segment>
     </unit>
     <unit id="j1nAPIq" name="d3c56ff">
@@ -7055,7 +7055,7 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
       </notes>
       <segment>
         <source>Der Text ist überschrieben mit {item}. Du beginnst, ihn zu lesen.&lt;t-bannote_ok&gt;Diese gekritzelte Notiz gehörte früher einem verbanntem Bürger... Das einzige, was du lesen kannst, ist "{zone}"... Seltsam. Du zerstörst die Seite, nur um sicherzugehen, dass niemand die Nachricht liest...&lt;/t-bannote_ok&gt;&lt;t-bannote_fail&gt;Leider ist der Inhalt dieses Manuskripts völlig unleserlich.&lt;/t-bannote_fail&gt;</source>
-        <target><![CDATA[Der Text ist überschrieben mit {item}. Du beginnst, ihn zu lesen.<t-bannote_ok>Diese gekritzelte Notiz gehörte früher einem verbanntem Bürger... Das einzige, was du lesen kannst, ist "{zone}"... Seltsam. Du zerstörst die Seite, nur um sicherzugehen, dass niemand die Nachricht liest...</t-bannote_ok><t-bannote_fail>Leider ist der Inhalt dieses Manuskripts völlig unleserlich.</t-bannote_fail>]]></target>
+        <target><![CDATA[You examine the {item} closely...<t-bannote_ok>This scrawled note used to belong to a shunned citizen... The only thing you can read is "{zone}"... Strange. You destroy the page just to be sure that nobody else reads the message... !</t-bannote_ok><t-bannote_fail>Unlucky, the contents of this manuscript are completely illegible.</t-bannote_fail>]]></target>
       </segment>
     </unit>
     <unit id="NEVAuft" name="0671c26">
@@ -7271,7 +7271,7 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
       </notes>
       <segment>
         <source>Krähenelfe</source>
-        <target>Krähenelfe</target>
+        <target>Crow elf</target>
       </segment>
     </unit>
     <unit id="dxVqvZU" name="fb77d9b">
@@ -7280,7 +7280,7 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
       </notes>
       <segment>
         <source>Das ist eine seltsam aussehende kleine Bestie... Scheint einer Krähe zu ähneln... Aber es ist grün und trägt einen komischen Hut...</source>
-        <target>Das ist eine seltsam aussehende kleine Bestie... Scheint einer Krähe zu ähneln... Aber es ist grün und trägt einen komischen Hut...</target>
+        <target>This is some strange looking little beast... Seems to resemble a crow... But it's green, and is wearing a funny hat...</target>
       </segment>
     </unit>
     <unit id="VVXkyRX" name="Logbuch Schokolade">
@@ -7289,7 +7289,7 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
       </notes>
       <segment>
         <source>Logbuch Schokolade</source>
-        <target>Logbuch Schokolade</target>
+        <target>Chocolate log</target>
       </segment>
     </unit>
     <unit id="WSBb1y." name="66b1acc">
@@ -7298,7 +7298,7 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
       </notes>
       <segment>
         <source>Entweder ein verschrumpelter alter Weihnachtskuchen oder etwas weniger Schmackhaftes, das dennoch am Weihnachtstag gebacken wird! Genießen Sie auf jeden Fall diesen Kuchen... Ding...</source>
-        <target>Entweder ein verschrumpelter alter Weihnachtskuchen oder etwas weniger Schmackhaftes, das dennoch am Weihnachtstag gebacken wird! Genießen Sie auf jeden Fall diesen Kuchen... Ding...</target>
+        <target>Either a shriveled up old Christmas cake, or something a little less palatable, done on Christmas day none the less! Anyway enjoy this cake... Thing...</target>
       </segment>
     </unit>
     <unit id="S17luT0" name="Grüner Kobold-Anzug">
@@ -7307,7 +7307,7 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
       </notes>
       <segment>
         <source>Grüner Kobold-Anzug</source>
-        <target>Grüner Kobold-Anzug</target>
+        <target>Green Imp Suit</target>
       </segment>
     </unit>
     <unit id="0TddDiL" name="7fd5428">
@@ -7316,7 +7316,7 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
       </notes>
       <segment>
         <source>In dieser Aufmachung sind Sie so auffällig, dass Sie niemand bemerkt oder glaubt, sich das eingebildet zu haben! Sie würden es nicht missbrauchen, oder?</source>
-        <target>In dieser Aufmachung sind Sie so auffällig, dass Sie niemand bemerkt oder glaubt, sich das eingebildet zu haben! Sie würden es nicht missbrauchen, oder?</target>
+        <target>With this outfit on, you are so conspicuous no-one will even notice you, or think they imagined it! You wouldn't abuse it, would you?</target>
       </segment>
     </unit>
     <unit id="QcqmVZM" name="Unidentifizierbare Trümmerstücke">
@@ -7325,7 +7325,7 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
       </notes>
       <segment>
         <source>Unidentifizierbare Trümmerstücke</source>
-        <target>Unidentifizierbare Trümmerstücke</target>
+        <target>Unrecognisable Remains</target>
       </segment>
     </unit>
     <unit id="ug9P8X6" name="4b4524c">
@@ -7334,7 +7334,7 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
       </notes>
       <segment>
         <source>Diese Trümmerstücke waren mal Teil eines Gegenstandes, den du nicht mehr identifizieren kannst. Die Verformung der Teile lassen vermuten, dass dieser Gegenstand mit hoher Geschwindigkeit am Boden aufgeprallt ist...</source>
-        <target>Diese Trümmerstücke waren mal Teil eines Gegenstandes, den du nicht mehr identifizieren kannst. Die Verformung der Teile lassen vermuten, dass dieser Gegenstand mit hoher Geschwindigkeit am Boden aufgeprallt ist...</target>
+        <target>This debris is that of an unidentifiable object that appears to have been thrown at high speed against the ground.</target>
       </segment>
     </unit>
     <unit id="sGKanc7" name="Abstimmen">
@@ -7343,7 +7343,7 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
       </notes>
       <segment>
         <source>Abstimmen</source>
-        <target>Abstimmen</target>
+        <target>Vote</target>
       </segment>
     </unit>
     <unit id="Rrf3E_z" name="Vous avez voté pour {citizen} en tant que {role} !">
@@ -7352,7 +7352,7 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
       </notes>
       <segment>
         <source>Vous avez voté pour {citizen} en tant que {role} !</source>
-        <target>Vous avez voté pour {citizen} en tant que {role} !</target>
+        <target>You voted for {citizen} as {role}!</target>
       </segment>
     </unit>
     <unit id="aKn4VEo" name="Munitionsgriff">
@@ -7361,7 +7361,7 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
       </notes>
       <segment>
         <source>Munitionsgriff</source>
-        <target>Munitionsgriff</target>
+        <target>Handful of Bullets</target>
       </segment>
     </unit>
     <unit id="oFVqj4C" name="Eine Handvoll Munition. Aber was hat das für einen Sinn?">
@@ -7370,7 +7370,7 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
       </notes>
       <segment>
         <source>Eine Handvoll Munition. Aber was hat das für einen Sinn?</source>
-        <target>Eine Handvoll Munition. Aber was hat das für einen Sinn?</target>
+        <target>These small cylinders are extremely deadly. If only we knew how to use them...</target>
       </segment>
     </unit>
     <unit id="Ri.5LgC" name="1376d54">
@@ -7451,7 +7451,7 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
       </notes>
       <segment>
         <source>&lt;t-kill-latest&gt;Du hast alle Zombies in dieser Zone mit dieser Waffe umgebracht: {item} ! Entspann dich mal... oder vielleicht besser nicht?&lt;/t-kill-latest&gt;&lt;t-kills&gt;Vous avez éliminé {kills} zombie en utilisant {item} . Ha ! Ha ! Un peu plus de chair étalée... Ca soulage de supprimer du zombie de temps en temps.&lt;/t-kills&gt;</source>
-        <target><![CDATA[<t-kill-latest>Du hast alle Zombies in dieser Zone mit dieser Waffe umgebracht: {item} ! Entspann dich mal... oder vielleicht besser nicht?</t-kill-latest><t-kills>Vous avez éliminé {kills} zombie en utilisant {item} . Ha ! Ha ! Un peu plus de chair étalée... Ca soulage de supprimer du zombie de temps en temps.</t-kills>]]></target>
+        <target><![CDATA[<t-kill-latest>All the zombies in the area have been wiped out using the {item} ! You can relax for a while... Or...</t-kill-latest><t-kills>You have eliminated {kills} using the {item} . Ha! Ha! A little bit more scattered flesh... It feels good to waste a zombie now and again.</t-kills>]]></target>
       </segment>
     </unit>
     <unit id="5DH1uFn" name="b181e5d">
@@ -7460,7 +7460,7 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
       </notes>
       <segment>
         <source>Du schlägst einen Zombie mit aller Kraft, mehrmals, aber er bricht nicht unter deinen Schlägen zusammen!</source>
-        <target>Du schlägst einen Zombie mit aller Kraft, mehrmals, aber er bricht nicht unter deinen Schlägen zusammen!</target>
+        <target>You hit a zombie with all your strength, several times, but your punches turned out to be more Joe Biden than Joe Calzaghe... You couldn't get him to go down !</target>
       </segment>
     </unit>
     <unit id="tT6PQwS" name="Deine Waffe ist durch den harten Aufschlag &lt;strong&gt;kaputt&lt;/strong&gt; gegangen...">
@@ -7559,7 +7559,7 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
       </notes>
       <segment>
         <source>&lt;nt-fail&gt;Du hast einen Sandball in {citizen}s Gesicht geworfen.&lt;/nt-fail&gt;&lt;t-fail&gt;Hier ist niemand, auf den du den Sandball werfen könntest...&lt;/t-fail&gt;</source>
-        <target><![CDATA[<nt-fail>Du hast einen Sandball in {citizen}s Gesicht geworfen.</nt-fail><t-fail>Hier ist niemand, auf den du den Sandball werfen könntest...</t-fail>]]></target>
+        <target><![CDATA[<nt-fail>You threw a sandball in {citizen}'s face.</nt-fail><t-fail>There is no one here to throw the sandball...</t-fail>]]></target>
       </segment>
     </unit>
   </file>
