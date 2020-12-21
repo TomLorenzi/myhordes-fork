@@ -52,7 +52,7 @@
       </notes>
       <segment>
         <source>%citizen% hat %item% in den Brunnen geschüttet und damit %num% Rationen Wasser hinzugefügt.</source>
-        <target><![CDATA[%citizen% ha <strong>tirado %item% al Pozo</strong>, y con ello <strong>obtuvimos %num% Raciones de Agua.</strong>]]></target>
+        <target><![CDATA[%citizen% ha ha añadido <strong>%item%</strong>, y con ello obtuvimos <strong>%num% Raciones de Agua.</strong>]]></target>
       </segment>
     </unit>
     <unit id="uHRiWHu" name="%citizen% hat an dem Bauprojekt %plan% mitgearbeitet und dabei %ap% ausgegeben.">
@@ -7813,7 +7813,7 @@
       </notes>
       <segment>
         <source>Diese Bürger hat hier bereits vor Kurzem gegraben. Die nächste Ausgrabung ist möglich in:</source>
-        <target>Diese Bürger hat hier bereits vor Kurzem gegraben. Die nächste Ausgrabung ist möglich in:</target>
+        <target>Este habitante ya ha escarbado en el Sector recientemente. La siguiente búsqueda estará disponible en:</target>
       </segment>
     </unit>
     <unit id="_s1Oex0" name="Gesamte Eskorte">
@@ -7822,7 +7822,7 @@
       </notes>
       <segment>
         <source>Gesamte Eskorte</source>
-        <target>Gesamte Eskorte</target>
+        <target>Escolta completa</target>
       </segment>
     </unit>
     <unit id="Jh.CarL" name="Bürger in dieser Zone">
@@ -7831,7 +7831,7 @@
       </notes>
       <segment>
         <source>Bürger in dieser Zone</source>
-        <target>Bürger in dieser Zone</target>
+        <target>Habitantes en el sector</target>
       </segment>
     </unit>
     <unit id="wVNJv3." name="Camping">
@@ -7894,7 +7894,7 @@
       </notes>
       <segment>
         <source>Senden</source>
-        <target>Senden</target>
+        <target>Enviar</target>
       </segment>
     </unit>
     <unit id="iF7FJz5" name="Deine letzten Worte:">
@@ -7903,7 +7903,7 @@
       </notes>
       <segment>
         <source>Deine letzten Worte:</source>
-        <target>Deine letzten Worte:</target>
+        <target>Tus últimas palabras:</target>
       </segment>
     </unit>
     <unit id="xbvLcF5" name="Mystic-Punkte">
@@ -7912,7 +7912,7 @@
       </notes>
       <segment>
         <source>Mystic-Punkte</source>
-        <target>Mystic-Punkte</target>
+        <target>Puntos místicos</target>
       </segment>
     </unit>
     <unit id="P4J9Y4E" name="Diese Punkte sind exklusiv für den Schamanen reserviert.">
@@ -7921,7 +7921,7 @@
       </notes>
       <segment>
         <source>Diese Punkte sind exklusiv für den Schamanen reserviert.</source>
-        <target>Diese Punkte sind exklusiv für den Schamanen reserviert.</target>
+        <target>Estos puntos están reservados exclusivamente para los chamanes.</target>
       </segment>
     </unit>
     <unit id="1_CH2K0" name="Du bist der %rolename% dieser Stadt.">
@@ -7930,7 +7930,7 @@
       </notes>
       <segment>
         <source>Du bist der %rolename% dieser Stadt.</source>
-        <target>Du bist der %rolename% dieser Stadt.</target>
+        <target>Eres el %rolename% del pueblo.</target>
       </segment>
     </unit>
     <unit id="63sz5vi" name="Akteneinsicht wird beantragt...">
@@ -7939,7 +7939,7 @@
       </notes>
       <segment>
         <source>Akteneinsicht wird beantragt...</source>
-        <target>Akteneinsicht wird beantragt...</target>
+        <target>Se requiere acceso a los archivos...</target>
       </segment>
     </unit>
     <unit id="wbSNK79" name="Protokolle werden analysiert...">
@@ -7948,7 +7948,7 @@
       </notes>
       <segment>
         <source>Protokolle werden analysiert...</source>
-        <target>Protokolle werden analysiert...</target>
+        <target>Los Logs están siendo analizados...</target>
       </segment>
     </unit>
     <unit id="pNhIfL_" name="Überwachungsapparat wird ausgewertet...">
@@ -7957,7 +7957,7 @@
       </notes>
       <segment>
         <source>Überwachungsapparat wird ausgewertet...</source>
-        <target>Überwachungsapparat wird ausgewertet...</target>
+        <target>Realizando monitoreo del sistema...</target>
       </segment>
     </unit>
     <unit id="fqyccF." name="Belastende Beweise werden übermittelt...">
@@ -7966,7 +7966,7 @@
       </notes>
       <segment>
         <source>Belastende Beweise werden übermittelt...</source>
-        <target>Belastende Beweise werden übermittelt...</target>
+        <target>La evidencia está siendo recolectada...</target>
       </segment>
     </unit>
     <unit id="EKpWan5" name="Was sagst du dazu?">
@@ -7975,7 +7975,7 @@
       </notes>
       <segment>
         <source>Was sagst du dazu?</source>
-        <target>Was sagst du dazu?</target>
+        <target>¿Qué dices?</target>
       </segment>
     </unit>
     <unit id="qNbvdyn" name="Du hast dich in einen Ghul verwandelt!">
@@ -7984,7 +7984,7 @@
       </notes>
       <segment>
         <source>Du hast dich in einen Ghul verwandelt!</source>
-        <target>Du hast dich in einen Ghul verwandelt!</target>
+        <target>¡Te has convertido en un <strong>Mutante</strong>!</target>
       </segment>
     </unit>
     <unit id="I3SgbFv" name="%citizen% hat einen Bauplan für %plan% gefunden.">
@@ -7993,7 +7993,7 @@
       </notes>
       <segment>
         <source>%citizen% hat einen Bauplan für %plan% gefunden.</source>
-        <target>%citizen% hat einen Bauplan für %plan% gefunden.</target>
+        <target>¡%citizen% ha descubierto el plano de %plan%!</target>
       </segment>
     </unit>
     <unit id="2jSPgup" name="c7e40ad">
@@ -8002,7 +8002,7 @@
       </notes>
       <segment>
         <source>%citizen% hat einen Bauplan für %plan% gefunden. Dafür ist das Bauprojekt %parent% nötig.</source>
-        <target>%citizen% hat einen Bauplan für %plan% gefunden. Dafür ist das Bauprojekt %parent% nötig.</target>
+        <target>¡%citizen% ha descubierto el plano de %plan%! Requiere la construcción de %parent%.</target>
       </segment>
     </unit>
     <unit id="_VJJKap" name="%num% Zombies haben vergeblich versucht, in das Haus von %citizen% einzudringen.">
@@ -8011,7 +8011,7 @@
       </notes>
       <segment>
         <source>%num% Zombies haben vergeblich versucht, in das Haus von %citizen% einzudringen.</source>
-        <target>%num% Zombies haben vergeblich versucht, in das Haus von %citizen% einzudringen.</target>
+        <target>%num% Zombies han tratado de ingresar a la casa de %citizen% en vano.</target>
       </segment>
     </unit>
     <unit id="mxKAfZX" name="%citizen% wurde von %num% Zombies zerfleischt!">
@@ -8020,7 +8020,7 @@
       </notes>
       <segment>
         <source>%citizen% wurde von %num% Zombies zerfleischt!</source>
-        <target>%citizen% wurde von %num% Zombies zerfleischt!</target>
+        <target>¡%citizen% ha sido devorado por %num% Zombies!</target>
       </segment>
     </unit>
     <unit id="0OgA2rX" name="0505799">
@@ -8029,7 +8029,7 @@
       </notes>
       <segment>
         <source>%citizen% hat folgendes hergestellt: %list2%; dabei wurden folgende Gegenstände verbraucht: %list1%.</source>
-        <target>%citizen% hat folgendes hergestellt: %list2%; dabei wurden folgende Gegenstände verbraucht: %list1%.</target>
+        <target>%citizen% ha producido: %list2%; para esto ha utilizado los siguientes objetos: %list1%.</target>
       </segment>
     </unit>
     <unit id="1c66H6u" name="85ec328">
@@ -8038,7 +8038,7 @@
       </notes>
       <segment>
         <source>Der Bau des Gebäudes Alles oder nichts hat der Stadt %def% vorübergehende Verteidungspunkte eingebracht. Allerdings wurde dabei der gesamte Inhalt der Bank zerstört! Hoffen wir, dass es das wert war...</source>
-        <target>Der Bau des Gebäudes Alles oder nichts hat der Stadt %def% vorübergehende Verteidungspunkte eingebracht. Allerdings wurde dabei der gesamte Inhalt der Bank zerstört! Hoffen wir, dass es das wert war...</target>
+        <target>La construcción Todo o Nada le ha dado %def% puntos de defensa al Pueblo. ¡Pero todos los objetos del almacén fueron destruidos! Esperemos que haya valido la pena...</target>
       </segment>
     </unit>
     <unit id="vdpIvG7" name="6b9d94e">
@@ -8047,7 +8047,7 @@
       </notes>
       <segment>
         <source>Resigniert und untröstlich sahen die Bürger, wie eine Horde von %num% Zombies sich in Richtung Stadt bewegte... Wie aus dem Nichts stand die Meute auf einmal vor dem Stadttor...</source>
-        <target>Resigniert und untröstlich sahen die Bürger, wie eine Horde von %num% Zombies sich in Richtung Stadt bewegte... Wie aus dem Nichts stand die Meute auf einmal vor dem Stadttor...</target>
+        <target> ¡Alerta, algunos compañeros han visto una turba de %num% zombies dirigiéndose hacia el pueblo! Y de pronto, el horror se acrecienta frente al portal del pueblo...</target>
       </segment>
     </unit>
     <unit id="OVTYzwK" name="%sender%: %message%">
@@ -8065,7 +8065,7 @@
       </notes>
       <segment>
         <source>%citizen% hat %target_citizen% überzeugt, ihm zu folgen.</source>
-        <target>%citizen% hat %target_citizen% überzeugt, ihm zu folgen.</target>
+        <target>%citizen% ha convencido a %target_citizen% de seguirle.</target>
       </segment>
     </unit>
     <unit id="XTPqDbX" name="%citizen% hat %target_citizen% aus der Eskorte entlassen.">
@@ -8074,7 +8074,7 @@
       </notes>
       <segment>
         <source>%citizen% hat %target_citizen% aus der Eskorte entlassen.</source>
-        <target>%citizen% hat %target_citizen% aus der Eskorte entlassen.</target>
+        <target>Finalmente, %citizen% ha decidido dejar a %target_citizen% allí...</target>
       </segment>
     </unit>
     <unit id="Eh4g78_" name="%attacker% hat %defender% gewalttätig angegriffen und verwundet!">
@@ -8083,7 +8083,7 @@
       </notes>
       <segment>
         <source>%attacker% hat %defender% gewalttätig angegriffen und verwundet!</source>
-        <target>%attacker% hat %defender% gewalttätig angegriffen und verwundet!</target>
+        <target>¡%attacker% ha hatacado salvajemente a %defender% y ha logrado herirlo!</target>
       </segment>
     </unit>
     <unit id="HwOTRdd" name="%attacker% hat %defender% gewalttätig angegriffen!">
@@ -8092,7 +8092,7 @@
       </notes>
       <segment>
         <source>%attacker% hat %defender% gewalttätig angegriffen!</source>
-        <target>%attacker% hat %defender% gewalttätig angegriffen!</target>
+        <target>¡%attacker% ha hatacado salvajemente a %defender%!</target>
       </segment>
     </unit>
     <unit id="0Y6YSyp" name="c4b3caa">
@@ -8101,7 +8101,7 @@
       </notes>
       <segment>
         <source>Ein abscheuliches Verbrechen ist geschehen: %attacker% hat %defender% in seinem Haus verschlungen!</source>
-        <target>Ein abscheuliches Verbrechen ist geschehen: %attacker% hat %defender% in seinem Haus verschlungen!</target>
+        <target>¡Un horrible crímen ha sido visto: %attacker% ha devorado a %defender% en su propia casa!</target>
       </segment>
     </unit>
     <unit id="8xZcKzq" name="65218d1">
