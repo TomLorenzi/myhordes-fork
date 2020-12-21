@@ -1279,7 +1279,9 @@ class ActionHandler
                     $execute_info_cache['ap'] += 1;
                 }
 
-                if ($terror)
+                $prevent_terror = $this->inventory_handler->countSpecificItems([$citizen->getInventory(), $citizen->getHome()->getChest()], 'prevent_terror') > 0;
+
+                if ($terror && !$prevent_terror)
                     $this->citizen_handler->inflictStatus( $citizen, 'error' );
             }
 
