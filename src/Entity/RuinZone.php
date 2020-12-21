@@ -119,6 +119,11 @@ class RuinZone
     private $decals = 0;
 
     /**
+     * @ORM\Column(type="integer", options={"unsigned":true})
+     */
+    private $decalVariants = 0;
+
+    /**
      * @ORM\Column(type="integer")
      */
     private $killedZombies = 0;
@@ -332,6 +337,18 @@ class RuinZone
     public function setDecals(int $decals): self
     {
         $this->decals = $decals;
+
+        return $this;
+    }
+
+    public function getDecalVariants(): ?int
+    {
+        return $this->decalVariants;
+    }
+
+    public function setDecalVariants(int $decalVariants): self
+    {
+        $this->decalVariants = $decalVariants;
 
         return $this;
     }

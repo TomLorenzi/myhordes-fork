@@ -238,6 +238,7 @@ class ExplorationController extends InventoryAwareController implements Explorat
             'dp' => $new_zone->getDoorPosition(),
             'l' => $new_zone->getLocked(),
             'd' => $new_zone->getDecals(),
+            'dv' => $new_zone->getDecalVariants(),
         ]);
     }
 
