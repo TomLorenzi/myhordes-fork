@@ -930,7 +930,7 @@ class ItemFixtures extends Fixture
         'rp_sheets_#00'              => [ 'esc_fixed' ],
         'rp_letter_#00'              => [ 'esc_fixed' ],
         'rp_manual_#00'              => [ 'esc_fixed' ],
-        'lilboo_#00'                 => [ 'esc_fixed' ],
+        'lilboo_#00'                 => [ 'esc_fixed', 'prevent_terror' ],
         'rp_twin_#00'                => [ 'esc_fixed' ],
         'home_box_#00'               => [ 'nw_ikea' ],
         'lamp_#00'                   => [ 'nw_ikea' ],
@@ -944,7 +944,7 @@ class ItemFixtures extends Fixture
         'electro_box_#00'            => [ 'hero_find_lucky' ],
         'christmas_candy_#00'        => [ 'can_cook' ],
         'omg_this_will_kill_you_#00' => [ 'can_cook' ],
-        'chidol_#00'                 => ['prevent_terror'],
+        'chidol_#00'                 => [ 'prevent_terror' ],
     ];
 
     public static $item_groups = [
