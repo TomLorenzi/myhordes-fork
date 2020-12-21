@@ -16,19 +16,15 @@ use App\Entity\HomeActionPrototype;
 use App\Entity\Inventory;
 use App\Entity\Item;
 use App\Entity\ItemAction;
-use App\Entity\ItemGroupEntry;
 use App\Entity\ItemPrototype;
 use App\Entity\ItemTargetDefinition;
 use App\Entity\LogEntryTemplate;
 use App\Entity\PictoPrototype;
 use App\Entity\PrivateMessage;
-use App\Entity\Quote;
 use App\Entity\Recipe;
 use App\Entity\SpecialActionPrototype;
 use App\Entity\TownLogEntry;
-use App\Entity\User;
 use App\Entity\Zone;
-use App\Interfaces\RandomGroup;
 use App\Response\AjaxResponse;
 use App\Service\ActionHandler;
 use App\Service\CitizenHandler;
@@ -96,22 +92,6 @@ class InventoryAwareController extends CustomAbstractController
             $this->entity_manager->flush();
         }
         return true;
-    }
-
-    protected function addDefaultTwigArgs( ?string $section = null, ?array $data = null ): array {
-        $data = parent::addDefaultTwigArgs($section, $data);
-        $data['menu_section'] = $section;
-
-        $locale = $this->container->get('request_stack')->getCurrentRequest()->getLocale();
-        if ($locale) $locale = explode('_', $locale)[0];
-        if (!in_array($locale, ['de','en','es','fr'])) $locale = null;
-
-        $quotes = $this->entity_manager->getRepository(Quote::class)->findBy(['lang' => $locale ?? 'de']);
-        shuffle($quotes);
-
-        $data['quote'] = $quotes[0];
-
-        return $data;
     }
 
     protected function renderLog( ?int $day, $citizen = null, $zone = null, ?int $type = null, ?int $max = null ): Response {

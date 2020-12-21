@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Citizen;
+use App\Entity\Quote;
 use App\Entity\User;
 use App\Service\CitizenHandler;
 use App\Service\ConfMaster;
@@ -58,6 +59,15 @@ class CustomAbstractController extends AbstractController {
             'attack'    => $this->time_keeper->secondsUntilNextAttack(null, true),
             'towntype'  => $this->getActiveCitizen() !== null ? $this->getActiveCitizen()->getTown()->getType()->getName() : "",
         ];
+
+        $locale = $this->container->get('request_stack')->getCurrentRequest()->getLocale();
+        if ($locale) $locale = explode('_', $locale)[0];
+        if (!in_array($locale, ['de','en','es','fr'])) $locale = null;
+
+        $quotes = $this->entity_manager->getRepository(Quote::class)->findBy(['lang' => $locale ?? 'de']);
+        shuffle($quotes);
+
+        $data['quote'] = $quotes[0];
 
         if($this->getActiveCitizen() !== null && $this->getActiveCitizen()->getAlive()){
             $is_shaman = $this->citizen_handler->hasRole($this->getActiveCitizen(), 'shaman') || $this->getActiveCitizen()->getProfession()->getName() == 'shaman';
