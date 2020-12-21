@@ -14,6 +14,7 @@ use App\Entity\Complaint;
 use App\Entity\Emotes;
 use App\Entity\ExpeditionRoute;
 use App\Entity\ItemGroupEntry;
+use App\Entity\ItemProperty;
 use App\Entity\ItemPrototype;
 use App\Entity\Picto;
 use App\Entity\PictoPrototype;
@@ -201,7 +202,7 @@ class TownHomeController extends TownController
             'dest_citizen' => $destCitizen,
             'sendable_items' => $sendable_items,
             'can_do_insurrection' => $citizen->getBanished() && !$this->citizen_handler->hasStatusEffect($citizen, "tg_insurrection") && $citizen->getTown()->getInsurrectionProgress() < 100
-        ]) );
+        ], $request->getLocale()) );
     }
 
     /**
@@ -317,7 +318,8 @@ class TownHomeController extends TownController
         $this->picto_handler->give_picto( $citizen, "r_homeup_#00" );
 
         $text = [];
-        $text[] = $this->translator->trans('Herzlichen Glückwunsch! Du hast deine Behausung in ein(e) %home%.', ['%home%' => "<span>" . $this->translator->trans($next->getLabel(), [], 'buildings') . "</span>"], 'game');
+        // Herzlichen Glückwunsch! Du hast deine Behausung in ein(e) %home% verwandelt und hast dafür 2 Aktionspunkt(e) ausgegeben.
+        $text[] = $this->translator->trans('Herzlichen Glückwunsch! Du hast deine Behausung in ein(e) %home% verwandelt.', ['%home%' => "<span>" . $this->translator->trans($next->getLabel(), [], 'buildings') . "</span>"], 'game');
         if($next->getResources()){
             /** @var ItemGroupEntry $r */
             $resText = " " . $this->translator->trans('Folgenden Dinge wurden dazu gebraucht:', [], 'game');
@@ -534,37 +536,36 @@ class TownHomeController extends TownController
         /** @var Town $town */
         $town = $citizen->getTown();
 
-        $progress = 1;
-
-        $alive = $shunned = 0;
+        $non_shunned = 0;
 
         //TODO: This needs huuuuge statistics
 
-        foreach ($town->getCitizens() as $foreinCitizen) {
-            /** @var Citizen $foreinCitizen */
-            if($foreinCitizen->getAlive())
-                $alive++;
-            
-            if($foreinCitizen->getBanished())
-                $shunned++;
-        }
+        foreach ($town->getCitizens() as $foreinCitizen)
+            if ($foreinCitizen->getAlive() && !$foreinCitizen->getBanished()) $non_shunned++;
 
-        $progress = intval($shunned / $alive * 100);
-
-        $town->setInsurrectionProgress($town->getInsurrectionProgress() + $progress);
+        $town->setInsurrectionProgress($town->getInsurrectionProgress() + intval(round(100 / $non_shunned)));
 
         if ($town->getInsurrectionProgress() >= 100) {
+
             // Let's do the insurrection !
             $town->setInsurrectionProgress(100);
+
+            $bank = $citizen->getTown()->getBank();
+            $impound_prop = $this->entity_manager->getRepository(ItemProperty::class)->findOneBy(['name' => 'impoundable' ]);
+
             foreach ($town->getCitizens() as $foreinCitizen) {
-                /** @var Citizen $foreinCitizen */
-                if(!$foreinCitizen->getAlive())
-                    continue;
+                if(!$foreinCitizen->getAlive()) continue;
                 
-                if($foreinCitizen->getBanished())
+                if ($foreinCitizen->getBanished())
                     $foreinCitizen->setBanished(false);
                 else {
                     $foreinCitizen->setBanished(true);
+                    foreach ($foreinCitizen->getInventory()->getItems() as $item)
+                        if (!$item->getEssential() && $item->getPrototype()->getProperties()->contains( $impound_prop ))
+                            $this->inventory_handler->forceMoveItem( $bank, $item );
+                    foreach ($foreinCitizen->getHome()->getChest()->getItems() as $item)
+                        if (!$item->getEssential() && $item->getPrototype()->getProperties()->contains( $impound_prop ))
+                            $this->inventory_handler->forceMoveItem( $bank, $item );
                     $this->picto_handler->give_picto($foreinCitizen, "r_ban_#00");
                 }
                 

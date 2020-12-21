@@ -368,7 +368,39 @@ x-message {
       &.padded-small { padding: 12px + @myhordes-grid-padsize-small; }
       &.padded-none, &:not(.padded):not(.padded-small)  { padding: 12px; }
 
-      background: @myhordes-panel-border, @myhordes-panel-bg; color: @myhordes-panel-color;
+      &:not(.fact):not(.quote) {background: @myhordes-panel-border, @myhordes-panel-bg; color: @myhordes-panel-color;}
+      &.fact {
+        color: white;
+        height: 43px;
+        margin-bottom: -25px;
+        z-index: 1;
+        background: url('../img/background/footer_zombie.gif') 0 0 no-repeat;
+        text-align: right;
+        font-size: 1.2rem;
+        text-shadow: 0px 1px 1px black, 0px -1px 1px black, 1px 0px 1px black, -1px 0px 1px black, 1px 1px 1px black, -1px -1px 1px black, -1px 1px 1px black, 1px -1px 1px black;
+        .author {
+          font-weight: bold;
+          color: #fdcb70;
+        }
+      }
+      &.quote {
+        color: #513c2d;
+        padding: 0 !important;
+        font-size: 1.1rem;
+        width: 200px;
+        background: url('../img/background/flavor_bg.jpg') 0 41px repeat-y;
+        float: right;
+        font-style: italic;
+        font-weight: bold;
+        .quote-head {
+          background: url('../img/background/flavor_header.jpg') left top no-repeat;
+          padding: 12px 8px;
+          min-height: 55px;
+        }
+        .quote-foot {
+          background: url('../img/background/flavor_footer.jpg') left bottom no-repeat;
+        }
+      }
     }
 
     &>.row.external-app>.cell {

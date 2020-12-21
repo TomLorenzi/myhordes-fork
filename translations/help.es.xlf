@@ -4871,5 +4871,218 @@ müssen durchdacht geplant werden.</source>
         <target>¡Habla de tus proyectos en el Foro!</target>
       </segment>
     </unit>
+    <unit id="jdns.Il" name="dae39d1">
+      <notes>
+        <note category="german">Jede Nacht um Mitternacht greifen die Untoten die Stadt an. Die Anzahl der Zombies variiert dabei von Tag zu Tag.</note>
+      </notes>
+      <segment>
+        <source>Jede Nacht um Mitternacht greifen die Untoten die Stadt an. Die Anzahl der Zombies variiert dabei von Tag zu Tag.</source>
+        <target>Cada noche, a la misma hora, las turbas de muertos vivientes embisten contra el pueblo.</target>
+      </segment>
+    </unit>
+    <unit id="D4X9Djo" name="España: 01h00">
+      <notes>
+        <note category="german">España: 01h00</note>
+      </notes>
+      <segment>
+        <source>España: 01h00</source>
+        <target>España: 01h00</target>
+      </segment>
+    </unit>
+    <unit id="cf00bvp" name="México: 18h00">
+      <notes>
+        <note category="german">México: 18h00</note>
+      </notes>
+      <segment>
+        <source>México: 18h00</source>
+        <target>México: 18h00</target>
+      </segment>
+    </unit>
+    <unit id="GBtY4go" name="Argentina, Chile y Uruguay: 20h00">
+      <notes>
+        <note category="german">Argentina, Chile y Uruguay: 20h00</note>
+      </notes>
+      <segment>
+        <source>Argentina, Chile y Uruguay: 20h00</source>
+        <target>Argentina, Chile y Uruguay: 20h00</target>
+      </segment>
+    </unit>
+    <unit id="EQq8xCY" name="Colombia y Perú: 18h00">
+      <notes>
+        <note category="german">Colombia y Perú: 18h00</note>
+      </notes>
+      <segment>
+        <source>Colombia y Perú: 18h00</source>
+        <target>Colombia y Perú: 18h00</target>
+      </segment>
+    </unit>
+    <unit id="xMTq99h" name="Phase 1: Die Rückkehr der lebenden Toten">
+      <notes>
+        <note category="german">Phase 1: Die Rückkehr der lebenden Toten</note>
+      </notes>
+      <segment>
+        <source>Phase 1: Die Rückkehr der lebenden Toten</source>
+        <target>Fase 1: El Retorno de los Muertos Vivientes</target>
+      </segment>
+    </unit>
+    <unit id="NmBvQgU" name="13f79b5">
+      <notes>
+        <note category="german">Alle Einwohner, die am Vortag von Zombies in der Stadt gefressen wurden und deren Körper nicht zerstört oder außerhalb der Stadt entsorgt wurden, stehen auf! Da sie sich bereits in der Stadt befinden, werden sie einen großen Schaden anrichten!</note>
+      </notes>
+      <segment>
+        <source>Alle Einwohner, die am Vortag von Zombies in der Stadt gefressen wurden und deren Körper nicht zerstört oder außerhalb der Stadt entsorgt wurden, stehen auf! Da sie sich bereits in der Stadt befinden, werden sie einen großen Schaden anrichten!</source>
+        <target>Todos los habitantes muertos en el pueblo la noche anterior, y cuyos cuerpos no han sido destruidos o arrojados al desierto... ¡vuelven a levantarse! Dentro del pueblo son fatalmente peligrosos.</target>
+      </segment>
+    </unit>
+    <unit id="6IBUHn1" name="00d40e8">
+      <notes>
+        <note category="german">Alle Toten hingegen, die rechzeitig außerhalb der Stadt entsorgt wurden, greifen mit der großen Zombiemeute an.</note>
+      </notes>
+      <segment>
+        <source>Alle Toten hingegen, die rechzeitig außerhalb der Stadt entsorgt wurden, greifen mit der großen Zombiemeute an.</source>
+        <target>Los cadáveres que hayan sido arrojados al desierto atacarán junto con las turbas de zombies.</target>
+      </segment>
+    </unit>
+    <unit id="VekUsPY" name="Phase 2: Die Stadtverteidigung">
+      <notes>
+        <note category="german">Phase 2: Die Stadtverteidigung</note>
+      </notes>
+      <segment>
+        <source>Phase 2: Die Stadtverteidigung</source>
+        <target>Fase 2: La Defensa del pueblo</target>
+      </segment>
+    </unit>
+    <unit id="qAYbn9F" name="Jeder Verteidigungspunkt der Stadt hält einen Zombie auf.">
+      <notes>
+        <note category="german">Jeder Verteidigungspunkt der Stadt hält einen Zombie auf.</note>
+      </notes>
+      <segment>
+        <source>Jeder Verteidigungspunkt der Stadt hält einen Zombie auf.</source>
+        <target>Cada punto de defensa en el pueblo bloquea a 1 zombie.</target>
+      </segment>
+    </unit>
+    <unit id="TKxOsij" name="Die privaten Häuser der Bürger zählen jeweils die Hälfte.">
+      <notes>
+        <note category="german">Die privaten Häuser der Bürger zählen jeweils die Hälfte.</note>
+      </notes>
+      <segment>
+        <source>Die privaten Häuser der Bürger zählen jeweils die Hälfte.</source>
+        <target>¡Cada casa de habitante cuenta por 50% de su valor de defensa!</target>
+      </segment>
+    </unit>
+    <unit id="813vPJo" name="cfddcc3">
+      <notes>
+        <note category="german">Beispiel: Wenn alle Gebäude und Konstruktionen in einer Stadt zusammengenommen 5 Verteidigungspunkte zählen und ein Bürger ein Haus mit dem Verteidigungswert 2 besitzt, beträgt die Gesamtpunkteanzahl der Stadt 6 Punkte: 5 (Stadt) + 2/2 (Privathaus)..</note>
+      </notes>
+      <segment>
+        <source>Beispiel: Wenn alle Gebäude und Konstruktionen in einer Stadt zusammengenommen 5 Verteidigungspunkte zählen und ein Bürger ein Haus mit dem Verteidigungswert 2 besitzt, beträgt die Gesamtpunkteanzahl der Stadt 6 Punkte: 5 (Stadt) + 2/2 (Privathaus)..</source>
+        <target>Si los edificios del pueblo tienen 5 puntos de defensa y un habitante tiene una casa que tiene 2 puntos de defensa, entonces la cantidad de puntos de defensa será de 5 + 2/2 = 6 puntos en total.</target>
+      </segment>
+    </unit>
+    <unit id="6zbNVlQ" name="325d67e">
+      <notes>
+        <note category="german">Beispiel: Wenn die Stadt 7 Verteidigungspunkte besitzt, ist sie in der Lage, 7 Zombies aufzuhalten.</note>
+      </notes>
+      <segment>
+        <source>Beispiel: Wenn die Stadt 7 Verteidigungspunkte besitzt, ist sie in der Lage, 7 Zombies aufzuhalten.</source>
+        <target>Si el pueblo tiene 6 puntos de defensa, entonces 6 zombies atacantes serán bloqueados cada noche.</target>
+      </segment>
+    </unit>
+    <unit id="f8mJAKI" name="fa7e28c">
+      <notes>
+        <note category="german">Achtung: &lt;strong&gt;Wenn das Stadttor offen steht, werden die Verteidigungspunkte nicht gezählt!&lt;/strong&gt;</note>
+      </notes>
+      <segment>
+        <source>Achtung: &lt;strong&gt;Wenn das Stadttor offen steht, werden die Verteidigungspunkte nicht gezählt!&lt;/strong&gt;</source>
+        <target><![CDATA[Recuerda: <strong>¡Si el Portal está abierto, la defensa del pueblo no valdrá nada!</strong>]]></target>
+      </segment>
+    </unit>
+    <unit id="3rNYOFg" name="Phase 3: Die Bürger werden angegriffen">
+      <notes>
+        <note category="german">Phase 3: Die Bürger werden angegriffen</note>
+      </notes>
+      <segment>
+        <source>Phase 3: Die Bürger werden angegriffen</source>
+        <target>Fase 3: Los habitantes son atacados</target>
+      </segment>
+    </unit>
+    <unit id="0..K0Yb" name="779aaf6">
+      <notes>
+        <note category="german">Jeder nicht neutralisierte Zombie greift jeweils ein Haus an. Wenn die Verteidigungspunkteanzahl des angegriffenen Einwohners kleiner ist als die Anzahl der Zombies, wird er gefressen!</note>
+      </notes>
+      <segment>
+        <source>Jeder nicht neutralisierte Zombie greift jeweils ein Haus an. Wenn die Verteidigungspunkteanzahl des angegriffenen Einwohners kleiner ist als die Anzahl der Zombies, wird er gefressen!</source>
+        <target>Cada zombie no bloqueado ataca la casa de un habitante. Si el habitante tiene menos puntos de defensa que la cantidad de zombies que se lanzan sobre él, ¡terminará siendo devorado vivo!</target>
+      </segment>
+    </unit>
+    <unit id="iqUaN1v" name="91f1551">
+      <notes>
+        <note category="german">Sollte es einem Bürger gelingen sich zu verteidigen, erleidet er einen Schock und verfällt in eine Angststarre, es sei denn, er hat genügend beruhigende Gegenstände, die ihn wieder runterbringen.</note>
+      </notes>
+      <segment>
+        <source>Sollte es einem Bürger gelingen sich zu verteidigen, erleidet er einen Schock und verfällt in eine Angststarre, es sei denn, er hat genügend beruhigende Gegenstände, die ihn wieder runterbringen.</source>
+        <target>Si un habitante logra sobrevivir a los ataques, quedará aterrorizado (a menos que tenga los objetos necesarios para hacerle olvidar esas terribles escenas).</target>
+      </segment>
+    </unit>
+    <unit id="lvRyZKH" name="Der letzte Angriff:">
+      <notes>
+        <note category="german">Der letzte Angriff:</note>
+      </notes>
+      <segment>
+        <source>Der letzte Angriff:</source>
+        <target>Caso del último ataque:</target>
+      </segment>
+    </unit>
+    <unit id="LqUytij" name="dd60477">
+      <notes>
+        <note category="german">Wenn bei einem Angriff alle Einwohner umkommen, bekommt einer von ihnen den Titel des &lt;strong&gt;Letzten Todes!&lt;/strong&gt;
+Lies dir den entsprechenden Abschnitt bitte &lt;span x-ajax-href=%url_lms%&gt;hier&lt;/span&gt; durch.</note>
+      </notes>
+      <segment>
+        <source>Wenn bei einem Angriff alle Einwohner umkommen, bekommt einer von ihnen den Titel des &lt;strong&gt;Letzten Todes!&lt;/strong&gt;
+Lies dir den entsprechenden Abschnitt bitte &lt;span x-ajax-href=%url_lms%&gt;hier&lt;/span&gt; durch.</source>
+        <target><![CDATA[Si el ataque mata a todos los habitantes, uno de ellos será designado ganador del título de <strong>El Último Habitante</strong>. Consulta el tema de El Último Habitante <span x-ajax-href=%url_lms%>aquí</span>.]]></target>
+      </segment>
+    </unit>
+    <unit id="YCjG1h6" name="Phase 4: Gebäudeschäden (Pandämonium)">
+      <notes>
+        <note category="german">Phase 4: Gebäudeschäden (Pandämonium)</note>
+      </notes>
+      <segment>
+        <source>Phase 4: Gebäudeschäden (Pandämonium)</source>
+        <target>Fase 4: Daños en las construcciones (Pandemonio)</target>
+      </segment>
+    </unit>
+    <unit id="ATy2COP" name="efd29a7">
+      <notes>
+        <note category="german">Alle fertiggestellen Gebäude der Stadt können beim Angriff der Zombiehorde beschädigt werden.
+&lt;strong&gt;Es handelt sich dabei um Zombies, die von den Verteitigungsvorrichtungen der Stadt aufgehalten wurden. Sie lassen ihrer Wut freien Lauf und beschädigen so eure Konstruktionen.&lt;/strong&gt;</note>
+      </notes>
+      <segment>
+        <source>Alle fertiggestellen Gebäude der Stadt können beim Angriff der Zombiehorde beschädigt werden.
+&lt;strong&gt;Es handelt sich dabei um Zombies, die von den Verteitigungsvorrichtungen der Stadt aufgehalten wurden. Sie lassen ihrer Wut freien Lauf und beschädigen so eure Konstruktionen.&lt;/strong&gt;</source>
+        <target><![CDATA[Todas las construcciones terminadas en el pueblo pueden sufrir daños durante un ataque. <strong>Son los zombies detenidos por las defensas quienes atacan las construcciones.</strong>]]></target>
+      </segment>
+    </unit>
+    <unit id="hsKmUOh" name="89e396e">
+      <notes>
+        <note category="german">Wenn eine Konstruktion zu stark beschädigt wurde, gilt sie als zerstört und muss am nächsten Tag erneut gebaut werden.
+&lt;strong&gt; Wenn das beschädigte Gebäude die Grundlage für Bauerweiterungen war, müssen die Ausbauten und Gebäudeverbesserungen erneut gebaut werden.&lt;/strong&gt;</note>
+      </notes>
+      <segment>
+        <source>Wenn eine Konstruktion zu stark beschädigt wurde, gilt sie als zerstört und muss am nächsten Tag erneut gebaut werden.
+&lt;strong&gt; Wenn das beschädigte Gebäude die Grundlage für Bauerweiterungen war, müssen die Ausbauten und Gebäudeverbesserungen erneut gebaut werden.&lt;/strong&gt;</source>
+        <target><![CDATA[Si una construcción sufre demasiados daños, será destruida y deberá ser reconstruida el día siguiente. <strong>Si tuviera mejoras en curso, éstas deberán ser iniciadas de nuevo cuando el edificio sera reconstruido.</strong>]]></target>
+      </segment>
+    </unit>
+    <unit id="GcAuzEa" name="7e4f5ef">
+      <notes>
+        <note category="german">Eine nur teilweise beschädigte Konstruktion kann am nächsten Tag repariert werden. Dafür werden jedoch AP benötigt. Ihr könnt diese im Abschnitt "Konstruktion" ausgeben.</note>
+      </notes>
+      <segment>
+        <source>Eine nur teilweise beschädigte Konstruktion kann am nächsten Tag repariert werden. Dafür werden jedoch AP benötigt. Ihr könnt diese im Abschnitt "Konstruktion" ausgeben.</source>
+        <target>Si los daños fueron mínimos, será posible repararlos usando Puntos de Acción en la sección COnstrucciones. Si se trata de una construcción de defensa, su valor defensivo quedará reducido muentras no sea reparado.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

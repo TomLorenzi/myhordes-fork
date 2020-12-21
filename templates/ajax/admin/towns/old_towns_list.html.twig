@@ -1,0 +1,56 @@
+{% extends "ajax/ajax.html.twig" %}
+{% block ajax %}
+    <div class="row">
+        <div class="cell padded rw-12">
+            <ul class="tabs plain">
+                <li class="tab {% if admin_tab =='towns' %}selected{% endif %}">
+                    <div class="tab-link" x-ajax-href="{{ path('admin_town_list') }}"><span class="hide-sm">{{ 'Aktuelle Städte'|trans({}, 'admin') }}</span></div>
+                </li>
+                <li class="tab {% if admin_tab =='old_towns' %}selected{% endif %}">
+                    <div class="tab-link" x-ajax-href="{{ path('admin_old_town_list') }}"><span class="hide-sm">{{ 'Fertige Städte'|trans({}, 'admin') }}</span></div>
+                </li>
+            </ul>
+            <h5>{{ 'Liste aller Städte'|trans({},'admin') }}</h5>
+            <div class="row-table">
+                <div class="row header">
+                    <div class="cell padded rw-1">{{ 'ID'|trans({},'admin') }}</div>
+                    <div class="cell padded rw-5">{{ 'Stadtname'|trans({},'admin') }}</div>
+                    <div class="cell padded rw-1">{{ 'Tag'|trans({},'admin') }}</div>
+                    <div class="cell padded rw-1">{{ 'Pop.'|trans({},'admin') }}</div>
+                    <div class="cell padded rw-1">{{ 'Importiert'|trans({},'admin') }}</div>
+                    <div class="cell padded rw-3 right">{{ 'Aktionen'|trans({},'admin') }}</div>
+                </div>
+                {# @var towns \App\Entity\TownRankingEntry[] #}
+                {% for town in towns %}
+                    <div class="row">
+                        <div class="cell padded rw-1">
+                            {% if town.imported %}
+                                {{ town.baseID }}
+                            {% else %}
+                                {{ town.id }}
+                            {% endif %}<br />
+                            {% if town.language is not empty %}
+                                <span class="language"><img src="{{ asset("build/images/lang/" ~ town.language ~".png") }}" alt="{{ town.language }}" /></span>
+                            {% endif %}
+                        </div>
+                        <div class="cell padded rw-5">
+                            {{ town.name }}
+                        </div>
+                        <div class="cell padded rw-1">{{ town.days }}</div>
+                        <div class="cell padded rw-1">
+                            {{ town.citizens|length }} / {{ town.population }}
+                        </div>
+                        <div class="cell padded rw-1">{% if town.imported %}{{ 'Ja'|trans({}, 'admin') }}{% else %}{{ 'Nein'|trans({}, 'admin') }}{% endif %}</div>
+                        <div class="cell padded rw-3 right">
+                            <button x-ajax-href="{{ path('admin_old_town_explorer', {id: town.id}) }}" class="small inline">{{ 'Details'|trans({},'admin') }}...</button>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block js %}
+    <script>
+    </script>
+{% endblock %}

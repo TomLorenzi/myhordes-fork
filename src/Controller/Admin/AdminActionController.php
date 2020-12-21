@@ -60,7 +60,7 @@ class AdminActionController extends CustomAbstractController
 
     }
 
-    protected function addDefaultTwigArgs(?string $section = null, ?array $data = null): array
+    protected function addDefaultTwigArgs(?string $section = null, ?array $data = null, $locale = null): array
     {
         $data = $data ?? [];
 

@@ -7,7 +7,11 @@ parameters:
         end: 12-05 00:00
       conf:
         css: 'arma'
-        group_dig: ''
+        event_dig:
+          desert:
+            group: ~
+            chance: ~
+          ruins:
         hooks:
           watchtower: 'App\Structures\Hook::watchtower_arma'
           door: 'App\Structures\Hook::door_arma'
@@ -15,9 +19,16 @@ parameters:
     christmas:
       trigger:
         type: datetime
-        begin: 12-23 00:00
-        end: 01-06 00:00
+        begin: 12-20 00:00
+        end: 01-07 00:00
       conf:
         css: 'christmas'
-        group_dig: 'christmas_dig'
+        event_dig:
+          desert:
+            group: 'christmas_dig'
+            chance: 0.4
+          ruins:
+            - {name: 'post', group: 'christmas_dig_post', chance: 0.5}
         hooks:
+          night_after: 'App\Structures\Hook::night_xmas'
+          night_none: 'App\Structures\Hook::night_xmas'

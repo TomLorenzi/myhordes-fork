@@ -78,7 +78,7 @@
                         {% if thread.owner.name == 'Der Rabe' %}
                             {{ 'Der Rabe'|trans({},'global') }}
                         {% else %}
-                            {{ last_post.owner.name }}
+                            {{ thread.owner.name }}
                         {% endif %}
                     {% else %}
                         {{ 'Der Rabe'|trans({},'global') }}

@@ -1,7 +1,7 @@
 {% extends "ajax/game/game.html.twig" %}
 {% block ajax %}
     {{ parent() }}
-    {# @var home \App\Entity\CitizenHome #}
+    {# @var \App\Entity\CitizenHome home #}
     <div class="row">
         <div class="padded-small cell rw-4 rw-sm-12">
             {% if chaos %}
@@ -95,6 +95,13 @@
         <div class="padded cell rw-8 rw-sm-12">
             {% block content %}
             {% endblock %}
+        </div>
+        <div class="cell rw-12 quote">
+            <div class="quote-foot">
+                <div class="quote-head">
+                    « {{ quote.content }} »
+                </div>
+            </div>
         </div>
     </div>
 {% endblock %}

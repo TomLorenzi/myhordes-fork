@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\ActionCounter;
 use App\Entity\CampingActionPrototype;
 use App\Entity\CauseOfDeath;
 use App\Entity\Citizen;
@@ -21,6 +22,7 @@ use App\Entity\ItemTargetDefinition;
 use App\Entity\LogEntryTemplate;
 use App\Entity\PictoPrototype;
 use App\Entity\PrivateMessage;
+use App\Entity\Quote;
 use App\Entity\Recipe;
 use App\Entity\SpecialActionPrototype;
 use App\Entity\TownLogEntry;
@@ -96,38 +98,18 @@ class InventoryAwareController extends CustomAbstractController
         return true;
     }
 
-    protected function addDefaultTwigArgs( ?string $section = null, ?array $data = null ): array {
-        $data = $data ?? [];
+    protected function addDefaultTwigArgs( ?string $section = null, ?array $data = null, $locale = null ): array {
+        $data = parent::addDefaultTwigArgs($section, $data, $locale);
         $data['menu_section'] = $section;
 
-        $data['clock'] = [
-            'desc'      => $this->getActiveCitizen()->getTown()->getName(),
-            'day'       => $this->getActiveCitizen()->getTown()->getDay(),
-            'timestamp' => new DateTime('now'),
-            'attack'    => $this->time_keeper->secondsUntilNextAttack(null, true),
-            'towntype'  => $this->getActiveCitizen()->getTown()->getType()->getName(),
-        ];
-        $is_shaman = $this->citizen_handler->hasRole($this->getActiveCitizen(), 'shaman') || $this->getActiveCitizen()->getProfession()->getName() == 'shaman';
+        if ($locale) $locale = explode('_', $locale)[0];
+        if (!in_array($locale, ['de','en','es','fr'])) $locale = null;
 
-        $data['citizen'] = $this->getActiveCitizen();
-        $data['conf'] = $this->getTownConf();
-        $data['ap'] = $this->getActiveCitizen()->getAp();
-        $data['max_ap'] = $this->citizen_handler->getMaxAP( $this->getActiveCitizen() );
-        $data['banished'] = $this->getActiveCitizen()->getBanished();
-        $data['town_chaos'] = $this->getActiveCitizen()->getTown()->getChaos();
-        $data['bp'] = $this->getActiveCitizen()->getBp();
-        $data['max_bp'] = $this->citizen_handler->getMaxBP( $this->getActiveCitizen() );
-        $data['status'] = $this->getActiveCitizen()->getStatus();
-        $data['roles'] = $this->getActiveCitizen()->getVisibleRoles();
-        $data['rucksack'] = $this->getActiveCitizen()->getInventory();
-        $data['rucksack_size'] = $this->inventory_handler->getSize( $this->getActiveCitizen()->getInventory() );
-        $data['pm'] = $this->getActiveCitizen()->getPm();
-        $data['max_pm'] = $this->citizen_handler->getMaxPM( $this->getActiveCitizen() );
-        $data['username'] = $this->getUser()->getName();
-        $data['is_shaman'] = $is_shaman;
-        $data['is_shaman_job'] = $this->getActiveCitizen()->getProfession()->getName() == 'shaman';
-        $data['is_shaman_role'] = $this->citizen_handler->hasRole($this->getActiveCitizen(), 'shaman');
-        $data['hunger'] = $this->getActiveCitizen()->getGhulHunger();
+        $quotes = $this->entity_manager->getRepository(Quote::class)->findBy(['lang' => $locale ?? 'de']);
+        shuffle($quotes);
+
+        $data['quote'] = $quotes[0];
+
         return $data;
     }
 
@@ -205,6 +187,15 @@ class InventoryAwareController extends CustomAbstractController
                 foreach ($this->getActiveCitizen()->getTown()->getCitizens() as $citizen)
                     if ($citizen->getAlive() && $citizen != $this->getActiveCitizen())
                         $targets[] = [ $citizen->getId(), $citizen->getUser()->getName(), "build/images/professions/{$citizen->getProfession()->getIcon()}.gif" ];
+
+                break;
+            case ItemTargetDefinition::ItemCitizenOnZoneType: case ItemTargetDefinition::ItemCitizenOnZoneSBType:
+
+                foreach ($this->getActiveCitizen()->getTown()->getCitizens() as $citizen)
+                    if ($citizen->getAlive() && $citizen != $this->getActiveCitizen() && $citizen->getZone() === $this->getActiveCitizen()->getZone()) {
+                        if ($definition->getSpawner() !== ItemTargetDefinition::ItemCitizenOnZoneSBType || $citizen->getSpecificActionCounter(ActionCounter::ActionTypeSandballHit)->getLast() === null || $citizen->getSpecificActionCounter(ActionCounter::ActionTypeSandballHit)->getLast()->getTimestamp() < (time() - 1800))
+                            $targets[] = [ $citizen->getId(), $citizen->getUser()->getName(), "build/images/professions/{$citizen->getProfession()->getIcon()}.gif" ];
+                    }
 
                 break;
         }
@@ -591,8 +582,8 @@ class InventoryAwareController extends CustomAbstractController
                     if($target_citizen && !$this->citizen_handler->hasStatusEffect($target_citizen, "tg_shaman_immune")) {
                         $dead = true;
                         // He is not immune, he dies.
-                        $rem = [];
-                        $this->death_handler->kill( $target_citizen, CauseOfDeath::Haunted, $rem );
+                        $null = null;
+                        $this->death_handler->kill( $target_citizen, CauseOfDeath::Haunted, $null );
                         $this->entity_manager->persist( $this->log->citizenDeath( $target_citizen ) );
 
                         // The red soul vanishes too
@@ -826,7 +817,6 @@ class InventoryAwareController extends CustomAbstractController
                     return false;
                 }
                 return true;
-                break;
             case ItemTargetDefinition::ItemCitizenType:
                 $return = $this->entity_manager->getRepository(Citizen::class)->find( $id );
                 if (!$return->getAlive() || $return->getTown()->getId() !== $this->getActiveCitizen()->getTown()->getId()) {
@@ -834,8 +824,16 @@ class InventoryAwareController extends CustomAbstractController
                     return false;
                 }
                 return true;
-                break;
-
+            case ItemTargetDefinition::ItemCitizenOnZoneType: case ItemTargetDefinition::ItemCitizenOnZoneSBType:
+                $return = $this->entity_manager->getRepository(Citizen::class)->find( $id );
+                if (!$return->getAlive() || $return->getZone() !== $this->getActiveCitizen()->getZone()) {
+                    $return = null;
+                    return false;
+                } else if ( $target->getSpawner() === ItemTargetDefinition::ItemCitizenOnZoneSBType && $return->getSpecificActionCounter(ActionCounter::ActionTypeSandballHit)->getLast() !== null && $return->getSpecificActionCounter(ActionCounter::ActionTypeSandballHit)->getLast()->getTimestamp() >= (time() - 1800) ) {
+                    $return = null;
+                    return false;
+                }
+                return true;
             default: return false;
         }
     }

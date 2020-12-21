@@ -148,7 +148,8 @@ class MazeMaker
                     ->setPrototype( null )
                     ->setLocked( false )
                     ->setDoorPosition( 0 )
-                    ->setDecals( mt_rand(0,PHP_INT_MAX === 2147483647 ? 2147483647 : 4294967295) )
+                    ->setDecals( mt_rand(0,0xFFFF) )
+                    ->setDecalVariants( mt_rand(0,0xFFFF) )
                     ->setZombies(0)->setKilledZombies(0);
 
                 if ($ruinZone->getRoomFloor()) {

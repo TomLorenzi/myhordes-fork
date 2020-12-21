@@ -1936,5 +1936,59 @@
         <target>ID eingeben</target>
       </segment>
     </unit>
+    <unit id="GYf8Lr5" name="Eine Auszeichnungen auswählen:">
+      <notes>
+        <note category="german">Eine Auszeichnungen auswählen:</note>
+      </notes>
+      <segment>
+        <source>Eine Auszeichnungen auswählen:</source>
+        <target>Eine Auszeichnungen auswählen:</target>
+      </segment>
+    </unit>
+    <unit id="jm_rhmk" name="Anzahl der Auszeichnungen:">
+      <notes>
+        <note category="german">Anzahl der Auszeichnungen:</note>
+      </notes>
+      <segment>
+        <source>Anzahl der Auszeichnungen:</source>
+        <target>Anzahl der Auszeichnungen:</target>
+      </segment>
+    </unit>
+    <unit id="XtyN3Vk" name="Vergeben!">
+      <notes>
+        <note category="german">Vergeben!</note>
+      </notes>
+      <segment>
+        <source>Vergeben!</source>
+        <target>Vergeben!</target>
+      </segment>
+    </unit>
+    <unit id="BYzHaeg" name="Aktuelle Städte">
+      <notes>
+        <note category="german">Aktuelle Städte</note>
+      </notes>
+      <segment>
+        <source>Aktuelle Städte</source>
+        <target>Aktuelle Städte</target>
+      </segment>
+    </unit>
+    <unit id="7BBdmva" name="Fertige Städte">
+      <notes>
+        <note category="german">Fertige Städte</note>
+      </notes>
+      <segment>
+        <source>Fertige Städte</source>
+        <target>Fertige Städte</target>
+      </segment>
+    </unit>
+    <unit id="zFOkrfz" name="Importiert">
+      <notes>
+        <note category="german">Importiert</note>
+      </notes>
+      <segment>
+        <source>Importiert</source>
+        <target>Importiert</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

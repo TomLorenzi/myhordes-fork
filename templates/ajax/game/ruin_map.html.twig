@@ -12,7 +12,7 @@
                                         {% endif %}
                                         {% for i in 0..15 %}
                                             {% if map.zone.decals b-and (2**i) %}
-                                                <div class="decal-ambient decal-ambient-{{ i+1 }} decal-ambient-variant-{{ (map.zone.decals b-and (2**(16+i))) ? 'b' : 'a' }}"></div>
+                                                <div class="decal-ambient decal-ambient-{{ i+1 }} decal-ambient-variant-{{ (map.zone.decalVariants b-and (2**i)) ? 'b' : 'a' }}"></div>
                                             {% endif %}
                                         {% endfor %}
                                     {% endif %}

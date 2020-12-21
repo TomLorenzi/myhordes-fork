@@ -14,6 +14,7 @@ use App\Entity\LogEntryTemplate;
 use App\Entity\Picto;
 use App\Entity\PictoPrototype;
 use App\Entity\Town;
+use App\Entity\TwinoidImport;
 use App\Entity\User;
 use App\Entity\Zone;
 use App\Entity\ZoneTag;
@@ -131,7 +132,7 @@ class ExternalXML2Controller extends ExternalController {
      * @param $ch CitizenHandler
      * @return Response Return the XML content for the soul of the user
      */
-    public function api_xml_user(ZoneHandler $zh, CitizenHandler $ch): Response {
+    public function api_xml_user(ZoneHandler $zh, CitizenHandler $ch, Request $request): Response {
         $user = $this->check_keys(true);
 
         if($user instanceof Response)
@@ -142,8 +143,6 @@ class ExternalXML2Controller extends ExternalController {
         } catch (Exception $e) {
             $now = date('Y-m-d H:i:s');
         }
-
-        $request = Request::createFromGlobals();
 
         // Try POST data
         $language = $request->query->get('lang');
@@ -249,6 +248,12 @@ class ExternalXML2Controller extends ExternalController {
                     'name' => 'm', 
                     'items' => []
                 ]
+            ],
+            'imported-maps' => [
+                'list' => [
+                    'name' => 'm',
+                    'items' => []
+                ]
             ]
         ];
 
@@ -301,10 +306,35 @@ class ExternalXML2Controller extends ExternalController {
             $data['data']['rewards']['list']['items'][] = $node;
         }
 
+        $mainAccount = null;
+        foreach ($user->getTwinoidImports() as $twinoidImport){
+            /** @var TwinoidImport $twinoidImport */
+            if($twinoidImport->getMain()) {
+                switch($twinoidImport->getScope()){
+                    case "www.hordes.fr":
+                        $mainAccount = 'fr';
+                        break;
+                    case "www.die2nite.com":
+                        $mainAccount = 'en';
+                        break;
+                    case "www.dieverdammten.de":
+                        $mainAccount = 'de';
+                        break;
+                    case "www.zombinoia.com":
+                        $mainAccount = 'es';
+                        break;
+                }
+            }
+        }
+
         foreach($user->getPastLifes() as $pastLife){
             /** @var CitizenRankingProxy $pastLife */
             if($pastLife->getCitizen() && $pastLife->getCitizen()->getAlive()) continue;
-            $data['data']['maps']['list']['items'][] = [
+            $node = "maps";
+            if ($pastLife->getTown()->getImported() && $pastLife->getTown()->getLanguage() != $mainAccount){
+                $node = "imported-maps";
+            }
+            $data['data'][$node]['list']['items'][] = [
                 'attributes' => [
                     'name' => $pastLife->getTown()->getName(),
                     'season' => $pastLife->getTown()->getSeason() ? $pastLife->getTown()->getSeason()->getNumber() : 0,
@@ -315,8 +345,8 @@ class ExternalXML2Controller extends ExternalController {
                     'origin' => ($pastLife->getTown()->getSeason() && $pastLife->getTown()->getSeason()->getNumber() === 0)
                         ? strtolower($pastLife->getTown()->getLanguage()) . "-{$pastLife->getTown()->getSeason()->getSubNumber()}"
                         : '',
-                ], 
-                'cdata_value' => $pastLife->getLastWords()
+                ],
+                'cdata_value' => html_entity_decode($pastLife->getLastWords())
             ];
         }
 
@@ -332,7 +362,7 @@ class ExternalXML2Controller extends ExternalController {
      * @param TownHandler $th
      * @return Response
      */
-    public function api_xml_town(ZoneHandler $zh, CitizenHandler $ch, TownHandler $th): Response {
+    public function api_xml_town(ZoneHandler $zh, CitizenHandler $ch, TownHandler $th, Request $request): Response {
         $user = $this->check_keys(false);
 
         if($user instanceof Response)
@@ -343,8 +373,6 @@ class ExternalXML2Controller extends ExternalController {
         } catch (Exception $e) {
             $now = date('Y-m-d H:i:s');
         }
-
-        $request = Request::createFromGlobals();
 
         // Try POST data
         $language = $request->query->get('lang');

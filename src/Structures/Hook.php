@@ -6,6 +6,10 @@ namespace App\Structures;
 use App\Entity\Citizen;
 use App\Entity\Town;
 use App\Response\AjaxResponse;
+use App\Service\CitizenHandler;
+use App\Service\InventoryHandler;
+use App\Service\ItemFactory;
+use Doctrine\ORM\EntityManagerInterface;
 
 class Hook
 {
@@ -46,10 +50,20 @@ class Hook
      *
      * @param Town $town
      */
-    public static function night_christmas($town) {
-        /** @var Town $town */
-        foreach ($town[0]->getCitizens() as $citizen){
-            /** @var Citizen $citizen */
+    public static function night_xmas(Town $town): void {
+        if ((int)date('m') !== 12 || (int)date('j') !== 25) return;
+
+        global $kernel;
+
+        $citizen_handler   = $kernel->getContainer()->get(CitizenHandler::class);
+        $inventory_handler = $kernel->getContainer()->get(InventoryHandler::class);
+        $item_factory      = $kernel->getContainer()->get(ItemFactory::class);
+
+        foreach ($town->getCitizens() as $citizen) {
+            if (!$citizen->getAlive() || $citizen_handler->hasStatusEffect($citizen, 'tg_got_xmas_gift')) continue;
+
+            $citizen_handler->inflictStatus( $citizen, 'tg_got_xmas_gift' );
+            $inventory_handler->forceMoveItem( $citizen->getHome()->getChest(), $item_factory->createItem( 'chest_christmas_3_#00' ) );
         }
     }
 }

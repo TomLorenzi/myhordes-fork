@@ -31,8 +31,13 @@ class PictoRepository extends ServiceEntityRepository
     public function findByUser(User $user)
     {
         return $this->createQueryBuilder('i')
-            ->andWhere('i.user = :user')->setParameter('user', $user)
-            ->orderBy('i.town', "asc")
+            ->select('SUM(i.count) as c', 'pp.id', 'pp.rare', 'pp.icon', 'pp.label', 'pp.description', 'pp.name')
+            ->andWhere('i.user = :val')->setParameter('val', $user)
+            ->orderBy('pp.rare', 'DESC')
+            ->addOrderBy('c', 'DESC')
+            ->addOrderBy('pp.id', 'DESC')
+            ->leftJoin('i.prototype', 'pp')
+            ->groupBy("i.prototype")
             ->getQuery()->getResult();
     }
 

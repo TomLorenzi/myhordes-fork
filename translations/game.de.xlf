@@ -15528,20 +15528,20 @@
     </unit>
     <unit id="xb8cXJh" name="f44cd76">
       <notes>
-        <note category="german">Du hast am Bauprojekt %plan% mitgeholfen. Du hast dafür %count% Aktionspunkt(e) verbraucht.</note>
+        <note category="german">Du hast am Bauprojekt %plan% mitgeholfen.</note>
       </notes>
       <segment>
-        <source>Du hast am Bauprojekt %plan% mitgeholfen. Du hast dafür %count% Aktionspunkt(e) verbraucht.</source>
-        <target>Du hast am Bauprojekt %plan% mitgeholfen. Du hast dafür %count% Aktionspunkt(e) verbraucht.</target>
+        <source>Du hast am Bauprojekt %plan% mitgeholfen.</source>
+        <target>Du hast am Bauprojekt %plan% mitgeholfen.</target>
       </segment>
     </unit>
-    <unit id="mVtk8KY" name="Herzlichen Glückwunsch! Du hast deine Behausung in ein(e) %home%.">
+    <unit id="U9LSFlB" name="Herzlichen Glückwunsch! Du hast deine Behausung in ein(e) %home% verwandelt.">
       <notes>
-        <note category="german">Herzlichen Glückwunsch! Du hast deine Behausung in ein(e) %home%.</note>
+        <note category="german">Herzlichen Glückwunsch! Du hast deine Behausung in ein(e) %home% verwandelt.</note>
       </notes>
       <segment>
-        <source>Herzlichen Glückwunsch! Du hast deine Behausung in ein(e) %home%.</source>
-        <target>Herzlichen Glückwunsch! Du hast deine Behausung in ein(e) %home%.</target>
+        <source>Herzlichen Glückwunsch! Du hast deine Behausung in ein(e) %home% verwandelt.</source>
+        <target>Herzlichen Glückwunsch! Du hast deine Behausung in ein(e) %home% verwandelt.</target>
       </segment>
     </unit>
     <unit id="CZg55p2" name="Folgenden Dinge wurden dazu gebraucht:">
@@ -15722,6 +15722,24 @@
       <segment>
         <source>Dank %disposing_citizen% wurde aus dem Körper von %citizen% ein leckeres kleines Mahl gekocht.</source>
         <target>Dank %disposing_citizen% wurde aus dem Körper von %citizen% ein leckeres kleines Mahl gekocht.</target>
+      </segment>
+    </unit>
+    <unit id="GH4aDYM" name="feb2e53">
+      <notes>
+        <note category="german">%attacker% hat %defender% mit einem üblen Sandballwurf verwundet. Autsch, das hat sicher weh getan...!</note>
+      </notes>
+      <segment>
+        <source>%attacker% hat %defender% mit einem üblen Sandballwurf verwundet. Autsch, das hat sicher weh getan...!</source>
+        <target>%attacker% hat %defender% mit einem üblen Sandballwurf verwundet. Autsch, das hat sicher weh getan...!</target>
+      </segment>
+    </unit>
+    <unit id="BaTN5Rg" name="%attacker% hat %defender% einen Sandball direkt ins Gesicht geworfen!">
+      <notes>
+        <note category="german">%attacker% hat %defender% einen Sandball direkt ins Gesicht geworfen!</note>
+      </notes>
+      <segment>
+        <source>%attacker% hat %defender% einen Sandball direkt ins Gesicht geworfen!</source>
+        <target>%attacker% hat %defender% einen Sandball direkt ins Gesicht geworfen!</target>
       </segment>
     </unit>
   </file>

@@ -19,6 +19,7 @@ class ActionCounter
     const ActionTypeComplaint   = 5;
     const ActionTypeRemoveLog   = 6;
     const ActionTypeSendPMItem  = 7;
+    const ActionTypeSandballHit = 8;
 
     /**
      * @ORM\Id()
@@ -42,6 +43,11 @@ class ActionCounter
      * @ORM\JoinColumn(nullable=false)
      */
     private $citizen;
+
+    /**
+     * @ORM\Column(type="datetime", nullable=true)
+     */
+    private $last;
 
     public function getId(): ?int
     {
@@ -69,12 +75,12 @@ class ActionCounter
     {
         $this->count = $count;
 
-        return $this;
+        return $this->setLast($count === 0 ? null :new \DateTime());
     }
 
     public function increment(int $by = 1): self {
         $this->count += max(0,$by);
-        return $this;
+        return $this->setLast(new \DateTime());
     }
 
     public function getCitizen(): ?Citizen
@@ -85,6 +91,18 @@ class ActionCounter
     public function setCitizen(?Citizen $citizen): self
     {
         $this->citizen = $citizen;
+
+        return $this;
+    }
+
+    public function getLast(): ?\DateTimeInterface
+    {
+        return $this->last;
+    }
+
+    public function setLast(?\DateTimeInterface $last): self
+    {
+        $this->last = $last;
 
         return $this;
     }

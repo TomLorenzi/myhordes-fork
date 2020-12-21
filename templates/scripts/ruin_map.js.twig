@@ -14,30 +14,40 @@ for (let i = 0; i < ruin_map_areas.length; i++) {
                         x: dx, y: dy
                     },
                     function (data) {
-                        if (data.next) {
-                            let target = map.querySelector('.zone-subplane[x-plane-x="' + dx + '"][x-plane-y="' + dy + '"]');
-                            if (target) {
-                                target.classList.add('plane-type-' + data.next);
-                                target.classList.add('plane-door-' + (data.l ? 'closed' : 'open'))
-                                let decal_layer = target.querySelector('.decals');
-                                if (decal_layer) {
-                                    if (data.dp > 0) {
-                                        let door_decal = document.createElement('div');
-                                        door_decal.classList.add('decal-door', 'decal-door-' + data.dp)
-                                        decal_layer.appendChild(door_decal);
-                                    }
-                                    for (let i = 0; i < 16; i++) {
-                                        if ((data.d >> i) & 1) {
-                                            let ambient_decal = document.createElement('div');
-                                            ambient_decal.classList.add('decal-ambient', 'decal-ambient-' + (i+1), 'decal-ambient-variant-' + (((data.d >> (i+16)) & 1) ? 'b' : 'a') )
-                                            decal_layer.appendChild(ambient_decal);
-                                        }
-                                    }
-                                }
+                        function handle_next(data) {
+                            if (!data.next)
+                                return;
 
+                            let target = map.querySelector('.zone-subplane[x-plane-x="' + dx + '"][x-plane-y="' + dy + '"]');
+                            if (!target)
+                                return;
+
+                            target.classList.add('plane-type-' + data.next);
+                            target.classList.add('plane-door-' + (data.l ? 'closed' : 'open'));
+
+                            let decal_layer = target.querySelector('.decals');
+                            if (!decal_layer)
+                                return;
+
+                            if (data.dp > 0) {
+                                let door_decal = document.createElement('div');
+                                door_decal.classList.add('decal-door', 'decal-door-' + data.dp)
+                                decal_layer.appendChild(door_decal);
+                            }
+
+                            for (let i = 0; i < 16; i++) {
+                                let has_decal = (data.d >> i) & 1;
+                                if (!has_decal)
+                                    continue;
+
+                                let is_variant = (data.dv >> i) & 1;
+                                let ambient_decal = document.createElement('div');
+                                ambient_decal.classList.add('decal-ambient', 'decal-ambient-' + (i+1), 'decal-ambient-variant-' + (is_variant ? 'b' : 'a') );
+                                decal_layer.appendChild(ambient_decal);
                             }
                         }
 
+                        handle_next(data);
                         zone_plane.style.left = (-100 + dx * -100) + '%';
                         zone_plane.style.top =  (-100 + dy *  100) + '%';
                         setTimeout(function() { $.ajax.pop_renderblock(); }, 750)

@@ -1492,7 +1492,7 @@
       </notes>
       <segment>
         <source>Anzeigename</source>
-        <target>Afficher un nom</target>
+        <target>Nom d'affichage</target>
       </segment>
     </unit>
     <unit id="14HKU3b" name="Lokal: %account%">
@@ -1952,6 +1952,60 @@
       <segment>
         <source>ID eingeben</source>
         <target>Entrer l'ID</target>
+      </segment>
+    </unit>
+    <unit id="GYf8Lr5" name="Eine Auszeichnungen auswählen:">
+      <notes>
+        <note category="german">Eine Auszeichnungen auswählen:</note>
+      </notes>
+      <segment>
+        <source>Eine Auszeichnungen auswählen:</source>
+        <target>Donner une distinction :</target>
+      </segment>
+    </unit>
+    <unit id="jm_rhmk" name="Anzahl der Auszeichnungen:">
+      <notes>
+        <note category="german">Anzahl der Auszeichnungen:</note>
+      </notes>
+      <segment>
+        <source>Anzahl der Auszeichnungen:</source>
+        <target>Nombre de distinctions :</target>
+      </segment>
+    </unit>
+    <unit id="XtyN3Vk" name="Vergeben!">
+      <notes>
+        <note category="german">Vergeben!</note>
+      </notes>
+      <segment>
+        <source>Vergeben!</source>
+        <target>Donner !</target>
+      </segment>
+    </unit>
+    <unit id="BYzHaeg" name="Aktuelle Städte">
+      <notes>
+        <note category="german">Aktuelle Städte</note>
+      </notes>
+      <segment>
+        <source>Aktuelle Städte</source>
+        <target>Villes actuelles</target>
+      </segment>
+    </unit>
+    <unit id="7BBdmva" name="Fertige Städte">
+      <notes>
+        <note category="german">Fertige Städte</note>
+      </notes>
+      <segment>
+        <source>Fertige Städte</source>
+        <target>Villes terminées</target>
+      </segment>
+    </unit>
+    <unit id="zFOkrfz" name="Importiert">
+      <notes>
+        <note category="german">Importiert</note>
+      </notes>
+      <segment>
+        <source>Importiert</source>
+        <target>Importée</target>
       </segment>
     </unit>
   </file>

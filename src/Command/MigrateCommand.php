@@ -16,6 +16,7 @@ use App\Entity\ForumUsagePermissions;
 use App\Entity\HeroicActionPrototype;
 use App\Entity\Item;
 use App\Entity\Picto;
+use App\Entity\RuinZone;
 use App\Entity\SpecialActionPrototype;
 use App\Entity\Town;
 use App\Entity\TownLogEntry;
@@ -101,6 +102,7 @@ class MigrateCommand extends Command
             ->addOption('fast', null,InputOption::VALUE_NONE, 'If set, composer and yarn updates will be skipped')
             ->addOption('stay-offline', null,InputOption::VALUE_NONE, 'If set, maintenance mode will be kept active after the update')
 
+            ->addOption('install-db', 'i', InputOption::VALUE_NONE, 'Creates and performs the creation of the database and fixtures.')
             ->addOption('update-db', 'u', InputOption::VALUE_NONE, 'Creates and performs a doctrine migration, updates fixtures.')
             ->addOption('recover', 'r',   InputOption::VALUE_NONE, 'When used together with --update-db, will clear all previous migrations and try again after an error.')
 
@@ -120,6 +122,7 @@ class MigrateCommand extends Command
 
             ->addOption('repair-permissions', null, InputOption::VALUE_NONE, 'Makes sure forum permissions and user groups are set up properly')
             ->addOption('repair-causesofdeath', null, InputOption::VALUE_NONE, 'Change the cause of deaths number to be like Hordes\' one')
+            ->addOption('split-ruin-decals', null, InputOption::VALUE_NONE, 'Updates the way ruin decals are stored in DB')
         ;
     }
 
@@ -222,6 +225,36 @@ class MigrateCommand extends Command
                 if (!$this->capsule( "app:migrate --maintenance off", $output, 'Disable maintenance mode... ', true )) return -1;
             } else $output->writeln("Maintenance is kept active. Disable with '<info>app:migrate --maintenance off</info>'");
 
+        }
+
+        if ($input->getOption('install-db')) {
+
+            if (!$this->capsule( 'doctrine:database:create', $output )) {
+                $output->writeln("<error>Unable to create database.</error>");
+                return 1;
+            }
+
+            if (!$this->capsule( 'doctrine:schema:update --force', $output )) {
+                $output->writeln("<error>Unable to create schema.</error>");
+                return 2;
+            }
+
+            if (!$this->capsule( 'doctrine:fixtures:load --append', $output )) {
+                $output->writeln("<error>Unable to update fixtures.</error>");
+                return 3;
+            }
+
+            if (!$this->capsule( 'app:debug --add-crow', $output )) {
+                $output->writeln("<error>Unable to add users and create crow.</error>");
+                return 4;
+            }
+
+            if (!$this->capsule( 'app:town:create remote 40 en', $output )) {
+                $output->writeln("<error>Unable to create french town.</error>");
+                return 5;
+            }
+
+            return 0;
         }
 
         if ($input->getOption('update-db')) {
@@ -691,6 +724,23 @@ class MigrateCommand extends Command
                 if($deadCitizen->getCod() === null) continue;
                 $deadCitizen->setCod($this->entity_manager->getRepository(CauseOfDeath::class)->findOneBy(['ref' => $mappingRefs[$deadCitizen->getCod()->getRef()]]));
                 $this->entity_manager->persist($deadCitizen);
+            }
+
+            $this->entity_manager->flush();
+        }
+
+        if ($input->getOption('split-ruin-decals')) {
+            /** @var RuinZone[] $ruinZone */
+            $ruinZones = $this->entity_manager->getRepository(RuinZone::class)->findAll();
+            foreach ($ruinZones as $ruinZone) {
+                $decals = $ruinZone->getDecals();
+                if ($decals <= 0xFFFF)
+                    continue;
+
+                $ruinZone->setDecals($decals & 0xFFFF);
+                $ruinZone->setDecalVariants(($decals >> 16) & 0xFFFF);
+
+                $this->entity_manager->persist($ruinZone);
             }
 
             $this->entity_manager->flush();
