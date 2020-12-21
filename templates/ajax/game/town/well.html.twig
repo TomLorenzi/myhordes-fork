@@ -48,9 +48,11 @@
                     <button x-well-confirm="1" x-well-direction="up" {% if not allow_take %}disabled{% endif %}><img alt="" src="{{ asset('build/images/item/item_water.gif') }}" />{% trans from 'game' %}Eine weitere Ration erhalten{% endtrans %}</button>
                 {% endif %}
             </p>
+            {% if pump is not null %}
             <p>
                 <button x-well-confirm="1" x-well-direction="down"><img alt="" src="{{ asset('build/images/icons/small_well.gif') }}" />{% trans from 'game' %}Wasser hinzufügen{% endtrans %}</button>
             </p>
+            {% endif %}
 
             <p class="book">
                 {% trans from 'game' %}

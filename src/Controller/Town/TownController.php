@@ -43,6 +43,7 @@ use App\Structures\CitizenInfo;
 use Doctrine\Common\Collections\Criteria;
 use Doctrine\ORM\EntityManagerInterface;
 use Exception;
+use Monolog\ErrorHandler;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -721,8 +722,10 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
 
             $town = $citizen->getTown();
 
+            $pump = $th->getBuilding($town, 'small_water_#00', true);
+
             $limit = 1;
-            if($th->getBuilding($town, 'small_water_#00', true)) {
+            if($pump) {
                 if($town->getChaos()) {
                     $limit = 3;
                 } else if  (!$this->getActiveCitizen()->getBanished()) {
@@ -769,6 +772,8 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
                     return AjaxResponse::success();
                 } else return AjaxResponse::error($error);
             } else {
+
+                if(!$pump) return AjaxResponse::error(ErrorHelper::ErrorActionNotAvailable);
 
                 $items = $handler->fetchSpecificItems( $citizen->getInventory(), [new ItemRequest('water_#00')] );
                 if (empty($items)) return AjaxResponse::error(self::ErrorWellNoWater);
