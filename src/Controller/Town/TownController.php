@@ -1161,16 +1161,22 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
         // Deduct AP and increase completion of the building
         $this->citizen_handler->deductAPBP( $citizen, $ap );
 
-        // Notice
-        if(!$was_completed) {
-            $this->addFlash('notice', $this->translator->trans("Du hast am Bauprojekt %plan% mitgeholfen. Du hast dafür %count% Aktionspunkt(e) verbraucht.", ["%plan%" => "<span>" . $this->translator->trans($building->getPrototype()->getLabel(), [], 'buildings') . "</span>", "%count%" => $ap], 'game'));
-        }
-
         if($missing_ap <= 0 || $missing_ap - $ap <= 0){
             // Missing ap == 0, the building has been completed by the workshop upgrade.
             $building->setAp($building->getPrototype()->getAp());
         } else {
             $building->setAp($building->getAp() + $ap_effect);
+        }
+
+        $messages[] = "";
+
+        // Notice
+        if(!$was_completed) {
+            if($building->getAp() < $building->getPrototype()->getAp()){
+                $messages[] = $this->translator->trans("Du hast am Bauprojekt %plan% mitgeholfen.", ["%plan%" => "<span>" . $this->translator->trans($building->getPrototype()->getLabel(), [], 'buildings') . "</span>"], 'game');
+            } else {
+                $messages[] = $this->translator->trans("Hurra! Folgendes Gebäude wurde fertiggestellt: %plan%!", ['%plan%' => "<span>" . $this->translator->trans($building->getPrototype()->getLabel(), [], 'buildings') . "</span>"], 'game');
+            }
         }
 
         // If the building was not previously completed but reached 100%, complete the building and trigger the completion handler
@@ -1198,6 +1204,8 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
             }
         }
 
+        $messages[] = $this->translator->trans("Du hast dafür %count% Aktionspunkt(e) verbraucht.", ['%count%' => "<span>$ap</span>"], "game");
+
         // Set the activity status
         $this->citizen_handler->inflictStatus($citizen, 'tg_chk_active');
         $this->citizen_handler->inflictStatus($citizen, 'tg_chk_build');
@@ -1219,6 +1227,11 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
         } catch (Exception $e) {
             return AjaxResponse::error( ErrorHelper::ErrorDatabaseException );
         }
+
+        $messages = array_filter($messages);
+
+        if(!empty($messages))
+            $this->addFlash("notice", implode('<hr />', $messages));
 
         return AjaxResponse::success();
     }
