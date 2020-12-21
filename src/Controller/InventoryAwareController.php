@@ -240,6 +240,8 @@ class InventoryAwareController extends CustomAbstractController
       foreach ($available as $a) $ret[] = [ 'id' => $a->getId(), 'item' => null, 'action' => $a, 'targets' => null, 'crossed' => false ];
       foreach ($crossed as $c)   $ret[] = [ 'id' => $c->getId(), 'item' => null, 'action' => $c, 'targets' => null, 'crossed' => true ];
 
+      usort($ret, fn($a,$b) => $a['id'] <=> $b['id']);
+
       return $ret;
     }
 
@@ -989,15 +991,15 @@ class InventoryAwareController extends CustomAbstractController
       if (($error = $this->action_handler->execute( $citizen, $item, $target, $camping->getAction(), $msg, $remove )) === ActionHandler::ErrorNone) {
 
         switch($camping->getName()){
-            case 'campsite_improve':
+            case 'cm_campsite_improve':
                 $this->entity_manager->persist($this->log->beyondCampingImprovement($citizen));
                 break;
-            case 'campsite_hide':
-            case 'campsite_tomb':
+            case 'cm_campsite_hide':
+            case 'cm_campsite_tomb':
                 $this->entity_manager->persist($this->log->beyondCampingHide($citizen));
                 break;
-            case "campsite_unhide":
-            case "campsite_untomb":
+            case 'cm_campsite_unhide':
+            case 'cm_campsite_untomb':
                 $this->entity_manager->persist($this->log->beyondCampingUnhide($citizen));
                 break;
         }

@@ -6,7 +6,7 @@
     <ul class="camping_actions">
         {% for entry in list %}
             <li class="camping_action" {% if entry.crossed %}disabled="disabled"{% else %}x-action-id="{{ entry.action.id }}"{% endif %}>
-                {% if entry.action.action.name == 'campsite_improve' %}
+                {% if entry.action.action.name == 'cm_campsite_improve' %}
                     <img src="{{ asset('build/images/icons/small_refine.gif') }}" alt="">
                 {% else %}
                     <img src="{{ asset('build/images/status/status_camper.gif') }}" alt="">

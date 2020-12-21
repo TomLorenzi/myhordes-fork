@@ -274,15 +274,16 @@ class GameFactory
 
         $spawn_ruins = $conf->get(TownConf::CONF_NUM_RUINS, 0);
 
-        $ruin_ap_range = [
+        $ruin_km_range = [
             $this->entity_manager->getRepository(ZonePrototype::class)->findMinRuinDistance(false),
             $this->entity_manager->getRepository(ZonePrototype::class)->findMaxRuinDistance(false),
         ];
 
         /** @var Zone[] $zone_list */
-        $zone_list = array_filter($town->getZones()->getValues(), function(Zone $z) use ($ruin_ap_range) {
-            $ap = abs($z->getX()) + abs($z->getY());
-            return $ap !== 0 && $ap >= $ruin_ap_range[0] && $ap <= $ruin_ap_range[1];
+        $zone_list = array_filter($town->getZones()->getValues(), function(Zone $z) use ($ruin_km_range) {
+            $km = sqrt( pow($z->getX(),2) + pow($z->getY(),2) );
+            // $ap = abs($z->getX()) + abs($z->getY());
+            return $km !== 0 && $km >= $ruin_km_range[0] && $km <= $ruin_km_range[1];
         });
         shuffle($zone_list);
 
