@@ -4786,7 +4786,7 @@
       </notes>
       <segment>
         <source>Nach einigen Anstrengungen hast du folgendes gefunden: %item%!</source>
-        <target>Encontraste a %item% removiendo objetos en esa mísera habitación.</target>
+        <target>Luego de cierto esfuerzo, logras encontrar %item%, te preguntas cómo llegó aquí...</target>
       </segment>
     </unit>
     <unit id="1GkRZwk" name="Du gräbst schon seit einiger Zeit und hast mehrere Gegenstände gefunden.">
@@ -10570,7 +10570,7 @@
       </notes>
       <segment>
         <source>Du hast dich soeben in einen Ghul verandelt!</source>
-        <target>Du hast dich soeben in einen Ghul verandelt!</target>
+        <target>¡Te has convertido en un Mutante!</target>
       </segment>
     </unit>
     <unit id="nu14DUW" name="f8cbaf5">
@@ -10583,9 +10583,7 @@
         <source>Du hättest die kleinen bräunlichen Hautverfärbungen etwas ernster nehmen sollen. Nein, das war kein kleiner Sonnenbrand und kein exotischer Hautpilz!
             Jetzt ist es zu spät... Einige wenige Augenblicke später haben sich alle deine Zweifel in Luft aufgelöst und ein unkontrollierbarer Appetit nach
             Menschenfleisch übermannt sich... Hmmm... Du solltest deinen Hunger SCHNELLSTENS stillen, oder willst du krepieren?!</source>
-        <target>Du hättest die kleinen bräunlichen Hautverfärbungen etwas ernster nehmen sollen. Nein, das war kein kleiner Sonnenbrand und kein exotischer Hautpilz!
-            Jetzt ist es zu spät... Einige wenige Augenblicke später haben sich alle deine Zweifel in Luft aufgelöst und ein unkontrollierbarer Appetit nach
-            Menschenfleisch übermannt sich... Hmmm... Du solltest deinen Hunger SCHNELLSTENS stillen, oder willst du krepieren?!</target>
+        <target>La aparición de manchas oscuras en tu cuerpo debieron alarmarte, pero creíste inocentemente que se trataba de una alergia o una quemadura solar. Te preocupaste cuando de pronto sentiste unas ganas incontrolables de probar el sabor de la carne humana... Es una espantosa necesidad que debes satisfacer RÁPIDAMENTE, o morirás.</target>
       </segment>
     </unit>
     <unit id="1VZ526R" name="Du bist ab sofort ein Ghul!">
@@ -10594,7 +10592,7 @@
       </notes>
       <segment>
         <source>Du bist ab sofort ein Ghul!</source>
-        <target>Du bist ab sofort ein Ghul!</target>
+        <target>¡Ahora eres en un Mutante!</target>
       </segment>
     </unit>
     <unit id="kUcqlQB" name="bce0dfd">
@@ -10603,7 +10601,7 @@
       </notes>
       <segment>
         <source>Ab sofort solltest du deine Spielweise ändern: Deine einstigen Nachbarn und Freunde sind jetzt zweibeinige Nahrung, die du durch List und Trug erlegen musst.</source>
-        <target>Ab sofort solltest du deine Spielweise ändern: Deine einstigen Nachbarn und Freunde sind jetzt zweibeinige Nahrung, die du durch List und Trug erlegen musst.</target>
+        <target>Desde hoy todo es distinto, eres un mutante. Tus vecinos y aliados ahora son tus presas que debes cazar mediante astucia y engaños.</target>
       </segment>
     </unit>
     <unit id="Lou1e47" name="Hier noch ein paar wichtige Überlebenstipps:">
@@ -10612,7 +10610,7 @@
       </notes>
       <segment>
         <source>Hier noch ein paar wichtige Überlebenstipps:</source>
-        <target>Hier noch ein paar wichtige Überlebenstipps:</target>
+        <target>Algunos consejos importantes para sobrevivir:</target>
       </segment>
     </unit>
     <unit id="SJd1LN1" name="3fbdb60">
@@ -10621,7 +10619,7 @@
       </notes>
       <segment>
         <source>Sag niemandem, dass du ein Ghul bist! Du würdest von deinen Mitbürgern sehr wahrscheinlich sofort erschlagen.</source>
-        <target>Sag niemandem, dass du ein Ghul bist! Du würdest von deinen Mitbürgern sehr wahrscheinlich sofort erschlagen.</target>
+        <target>¡No le digas a nadie que eres un mutante! Si lo haces, es muy probable que tus compañeros te maten de inmediato.</target>
       </segment>
     </unit>
     <unit id="dIAkbPP" name="c3a93ff">
@@ -10630,7 +10628,7 @@
       </notes>
       <segment>
         <source>Behalte deine Hungerleiste stets im Auge. Sie befindet sich bei deiner Gesundheitsanzeige.</source>
-        <target>Behalte deine Hungerleiste stets im Auge. Sie befindet sich bei deiner Gesundheitsanzeige.</target>
+        <target>Vigila tu nivel de voracidad. Se puede ver junto a tus estados de salud.</target>
       </segment>
     </unit>
     <unit id="baFbBy0" name="ff17216">
@@ -10639,7 +10637,7 @@
       </notes>
       <segment>
         <source>Um deinen Heißhunger zu stillen, solltest du möglichst bald einen Mitbürger verschlingen. Das machst du am besten in der Wüste, da fällt es nicht so auf.</source>
-        <target>Um deinen Heißhunger zu stillen, solltest du möglichst bald einen Mitbürger verschlingen. Das machst du am besten in der Wüste, da fällt es nicht so auf.</target>
+        <target>Devora a un compañero (de preferencia fuera del pueblo) para reducir tu Voracidad.</target>
       </segment>
     </unit>
     <unit id="tUvA6.D" name="9ee8e2e">
@@ -10648,7 +10646,7 @@
       </notes>
       <segment>
         <source>Auch der Verzehr von kaltem Menschenfleisch senkt deinen Hunger, allerdings nicht so stark wie Frischfleisch...</source>
-        <target>Auch der Verzehr von kaltem Menschenfleisch senkt deinen Hunger, allerdings nicht so stark wie Frischfleisch...</target>
+        <target>Comer carne humana fría reduce la voracidad, pero no tanto como la carne fresca...</target>
       </segment>
     </unit>
     <unit id="W3jTpt9" name="Isolierte Zombies">
@@ -10657,7 +10655,7 @@
       </notes>
       <segment>
         <source>Isolierte Zombies</source>
-        <target>Isolierte Zombies</target>
+        <target>Zombies sueltos</target>
       </segment>
     </unit>
     <unit id="Yc0dhV4" name="Die Zombies verstümmeln">
@@ -10666,7 +10664,7 @@
       </notes>
       <segment>
         <source>Die Zombies verstümmeln</source>
-        <target>Die Zombies verstümmeln</target>
+        <target>Banda de Zombies</target>
       </segment>
     </unit>
     <unit id="c8SXj_R" name="Horde der Zombies">
@@ -10675,7 +10673,7 @@
       </notes>
       <segment>
         <source>Horde der Zombies</source>
-        <target>Horde der Zombies</target>
+        <target>Turba de Zombies</target>
       </segment>
     </unit>
     <unit id="BtRmkSS" name="Mark.">
@@ -10684,7 +10682,7 @@
       </notes>
       <segment>
         <source>Mark.</source>
-        <target>Mark.</target>
+        <target>Marca.</target>
       </segment>
     </unit>
     <unit id="00Lc7om" name="73a703f">
@@ -10693,7 +10691,7 @@
       </notes>
       <segment>
         <source>Du bist in einer Privatstadt. Für diese Art von Stadt gelten einige Sonderregeln.</source>
-        <target>Du bist in einer Privatstadt. Für diese Art von Stadt gelten einige Sonderregeln.</target>
+        <target>Estás en un pueblo privado. Algunas reglas especiales se aplican a este tipo de pueblos. </target>
       </segment>
     </unit>
     <unit id="97Bucqq" name="Einrichtung">
@@ -10702,7 +10700,7 @@
       </notes>
       <segment>
         <source>Einrichtung</source>
-        <target>Einrichtung</target>
+        <target>Instalaciones</target>
       </segment>
     </unit>
     <unit id="Ht8hKI." name="Dies ist eine offizielle Nachricht.">
@@ -10729,7 +10727,7 @@
       </notes>
       <segment>
         <source>Das folgende Bauprojekt wurde empfohlen:</source>
-        <target>Das folgende Bauprojekt wurde empfohlen:</target>
+        <target>El pueblo propone construir: </target>
       </segment>
     </unit>
     <unit id="OAGjXFG" name="Alle">
@@ -10756,7 +10754,7 @@
       </notes>
       <segment>
         <source>Ratschlag:</source>
-        <target>Ratschlag:</target>
+        <target>Consejo:</target>
       </segment>
     </unit>
     <unit id="iHdJZPx" name="Iss ODER trink etwas Wasser.">
@@ -10792,7 +10790,7 @@
       </notes>
       <segment>
         <source>Du hast bereits etwas gegessen und getrunken. Dir bleiben nur noch Drogen und Alkohol!</source>
-        <target>Du hast bereits etwas gegessen und getrunken. Dir bleiben nur noch Drogen und Alkohol!</target>
+        <target>Ya has comido y bebido. ¡Todo lo que te queda son las drogas y el alcohol!</target>
       </segment>
     </unit>
     <unit id="N1KK_ks" name="Die Liste der eingeschriebenen Spieler ansehen.">
@@ -10801,7 +10799,7 @@
       </notes>
       <segment>
         <source>Die Liste der eingeschriebenen Spieler ansehen.</source>
-        <target>Die Liste der eingeschriebenen Spieler ansehen.</target>
+        <target>Ver la lista de habitantes inscritos.</target>
       </segment>
     </unit>
     <unit id="VTcxe_c" name="Quarantäne">
@@ -10819,7 +10817,7 @@
       </notes>
       <segment>
         <source>Der letzte Tote in dieser Stadt!</source>
-        <target>Der letzte Tote in dieser Stadt!</target>
+        <target>¡El último habitante del pueblo!</target>
       </segment>
     </unit>
     <unit id="SWca3Zo" name="089f4e0">
@@ -10828,7 +10826,7 @@
       </notes>
       <segment>
         <source>Der letzte Tote erhält nur dann eine Belohnung, wenn er 5 volle Tage überlebt hat.</source>
-        <target>Der letzte Tote erhält nur dann eine Belohnung, wenn er 5 volle Tage überlebt hat.</target>
+        <target>El Último Habitante recibe su recompensa solo si ha sobrevivido 5 días.</target>
       </segment>
     </unit>
     <unit id="CHdbLWu" name="Komm zurück zu meiner Seele">
@@ -10938,8 +10936,8 @@
       <segment>
         <source>Hiermit kannst du den Namen eines zufälligen Bürgers in deinen Post anfügen.
                                                     Bei Bedarf kannst du die Auswahl auf bestimmte Berufe, Helden oder bereits gestorbene Bürger eingrenzen.</source>
-        <target>Hiermit kannst du den Namen eines zufälligen Bürgers in deinen Post anfügen.
-                                                    Bei Bedarf kannst du die Auswahl auf bestimmte Berufe, Helden oder bereits gestorbene Bürger eingrenzen.</target>
+        <target>Puedes utilizar esta opción para agregar el nombre de un ciudadano al azar en tu mensaje.
+                                                    Si es necesario, puedes limitar la selección a ciertas profesiones, héroes o habitantes que ya estén muertos.</target>
       </segment>
     </unit>
     <unit id="GQ3Gt_t" name="Du bist">
@@ -10981,10 +10979,10 @@
                             benötigst du Aktionspunkte. Deine Aktionspunkte werden jede Nacht nach dem Angriff aufgefüllt. Außerdem
                             kannst du sie durch den Einsatz bestimmter Gegenstände sowie einmal pro Tag durch Essen und Trinken neu
                             auffüllen.</source>
-        <target>Für viele Aktionen, wie beispielsweise die Erkundung der Aussenwelt oder der Arbeit auf einer Baustelle,
-                            benötigst du Aktionspunkte. Deine Aktionspunkte werden jede Nacht nach dem Angriff aufgefüllt. Außerdem
-                            kannst du sie durch den Einsatz bestimmter Gegenstände sowie einmal pro Tag durch Essen und Trinken neu
-                            auffüllen.</target>
+        <target>Para muchas acciones, como explorar el Ultramundo o trabajar en construcciones,
+                            necesitas Puntos de Acción. Los Puntos de Acción se regeneran todas las noches después del ataque. Además
+                            puedes recuperarlos una vez al día comiendo y bebiendo, o usando ciertos objetos 
+                            como drogas y alcohol.</target>
       </segment>
     </unit>
     <unit id="NAC.Ln5" name="c85efc4">
@@ -10997,9 +10995,9 @@
         <source>Baupunkte können in der Werkstatt und auf Baustellen verwendet werden, wo sie wie Aktionspunkte
                             zählen. Wenn möglich werden immer zuerst Baupunkte verbraucht, bevor Aktionspunkte eingesetzt
                             werden. Bedenke, dass Baupunkte nicht eingesetzt werden können wenn du erschöpft bist!</source>
-        <target>Baupunkte können in der Werkstatt und auf Baustellen verwendet werden, wo sie wie Aktionspunkte
-                            zählen. Wenn möglich werden immer zuerst Baupunkte verbraucht, bevor Aktionspunkte eingesetzt
-                            werden. Bedenke, dass Baupunkte nicht eingesetzt werden können wenn du erschöpft bist!</target>
+        <target>Los Puntos de Construcción puedes utilizarse en el taller y en las construcciones, donde cuentan como puntos
+                            de acción. Los puntos de construcción siempre se usarán primero que los puntos de
+                            acción. También se pueden usar para abrir contenendores (como cajas) en el Ultramundo ¡Recuerda que los puntos de construcción no se podrán usar si estás cansado!</target>
       </segment>
     </unit>
     <unit id="ANGnefx" name="Stadtrat">
@@ -11017,7 +11015,7 @@
       </notes>
       <segment>
         <source>Anzahl der Tage, die du als Schamane gespielt hast.</source>
-        <target>Anzahl der Tage, die du als Schamane gespielt hast.</target>
+        <target>Días pasados jugando con almas de muertos como Chamán.</target>
       </segment>
     </unit>
     <unit id="BINrrr7" name="Reicher Guru">
@@ -11026,7 +11024,7 @@
       </notes>
       <segment>
         <source>Reicher Guru</source>
-        <target>Rico gurú</target>
+        <target>Gurú Rico</target>
       </segment>
     </unit>
     <unit id="02E6SZ7" name="1639b76">
@@ -11161,7 +11159,7 @@
       </notes>
       <segment>
         <source>Ehrenpreis für die Teilname am Shock of Heroes Event!</source>
-        <target>¡Recompensa honorífica por participar en Clash de Héroes!</target>
+        <target>¡Recompensa honorífica por participar en Choque de Héroes!</target>
       </segment>
     </unit>
     <unit id="3fdrfcN" name="Ultimativer Tod des SoH">
@@ -11188,7 +11186,7 @@
       </notes>
       <segment>
         <source>Triumphator</source>
-        <target>Triumphator</target>
+        <target>Triunfador</target>
       </segment>
     </unit>
     <unit id="Ycwc7kf" name="d8bdf81">
@@ -11296,7 +11294,7 @@
       </notes>
       <segment>
         <source>%dogname%, der stinkende Köter von %citizen%, hat folgendes in die Bank gebracht: %item%</source>
-        <target>%dogname%, der stinkende Köter von %citizen%, hat folgendes in die Bank gebracht: %item%</target>
+        <target>¡%dogname%, el perro maloliente de %citizen% ha traído %item% al pueblo!</target>
       </segment>
     </unit>
     <unit id="Xrxxr_C" name="%citizen% hat seinen Hund mit %count% Gegenständen in die Stadt geschickt.">
@@ -11305,7 +11303,7 @@
       </notes>
       <segment>
         <source>%citizen% hat seinen Hund mit %count% Gegenständen in die Stadt geschickt.</source>
-        <target>%citizen% hat seinen Hund mit %count% Gegenständen in die Stadt geschickt.</target>
+        <target>%citizen% ha enviado a su mascota al pueblo con %count% en su lomo.</target>
       </segment>
     </unit>
     <unit id="ALk3xHN" name="a65f146">
@@ -11314,7 +11312,7 @@
       </notes>
       <segment>
         <source>Du hast heimlich einen Eintrag im Register unkenntlich gemacht... Du kannst das noch %times% mal tun.</source>
-        <target>Du hast heimlich einen Eintrag im Register unkenntlich gemacht... Du kannst das noch %times% mal tun.</target>
+        <target>Discretamente, has adulterado una línea en el Registro...  Aún puedes hacer eso %times%.</target>
       </segment>
     </unit>
     <unit id="FjeaId." name="Du hast %item_list% in der Werkstatt geöffnet und erhälst %item%.">
@@ -11323,7 +11321,7 @@
       </notes>
       <segment>
         <source>Du hast %item_list% in der Werkstatt geöffnet und erhälst %item%.</source>
-        <target>Du hast %item_list% in der Werkstatt geöffnet und erhälst %item%.</target>
+        <target>Has abierto %item% en el taller (usando %item_list%).</target>
       </segment>
     </unit>
     <unit id="lbMpVVT" name="Du hast %item_list% in der Werkstatt zu %item% zerlegt.">
@@ -11332,7 +11330,7 @@
       </notes>
       <segment>
         <source>Du hast %item_list% in der Werkstatt zu %item% zerlegt.</source>
-        <target>Du hast %item_list% in der Werkstatt zu %item% zerlegt.</target>
+        <target>Has producido %item% en el taller (usando %item_list%).</target>
       </segment>
     </unit>
     <unit id="4NEM2QG" name="Du hast %item_list% in der Werkstatt zu %item% umgewandelt.">
@@ -11341,7 +11339,7 @@
       </notes>
       <segment>
         <source>Du hast %item_list% in der Werkstatt zu %item% umgewandelt.</source>
-        <target>Du hast %item_list% in der Werkstatt zu %item% umgewandelt.</target>
+        <target>Has producido %item% en el taller (usando %item_list%).</target>
       </segment>
     </unit>
     <unit id="go91k6z" name="Du hast %item_list% zu %item% umgewandelt.">
@@ -11350,7 +11348,7 @@
       </notes>
       <segment>
         <source>Du hast %item_list% zu %item% umgewandelt.</source>
-        <target>Du hast %item_list% zu %item% umgewandelt.</target>
+        <target>Haz mezclado %item_list% para obtener %item%.</target>
       </segment>
     </unit>
     <unit id="UCMPjGO" name="45fbaf0">
@@ -11359,7 +11357,7 @@
       </notes>
       <segment>
         <source>Niemand weiß, wie ein solches Wunder möglich ist, aber %hero% hat %citizen% (der sich auf %pos% befand), auf seinen Schultern heim getragen. Lang leben unsere Helden!</source>
-        <target>Niemand weiß, wie ein solches Wunder möglich ist, aber %hero% hat %citizen% (der sich auf %pos% befand), auf seinen Schultern heim getragen. Lang leben unsere Helden!</target>
+        <target>Nadie puede explicar este milagro: ¡%hero% ha vuelto con %citizen% (quien se encontraba en %pos%) sobre sus hombros! ¡Es un héroe, viva!</target>
       </segment>
     </unit>
     <unit id="9AyM3bj" name="85e8238">
@@ -11368,7 +11366,7 @@
       </notes>
       <segment>
         <source>Nach einem harten Kampf gelingt es dir schließlich, einen Zombie gegen einen Felsen fallen zu lassen... Sein Kopf explodiert buchstäblich und sein Inhalt spritz auf deine Schuhe! Du taumelst zurück, außer Atem: einer weniger...</source>
-        <target>Nach einem harten Kampf gelingt es dir schließlich, einen Zombie gegen einen Felsen fallen zu lassen... Sein Kopf explodiert buchstäblich und sein Inhalt spritz auf deine Schuhe! Du taumelst zurück, außer Atem: einer weniger...</target>
+        <target>En el enfrentamiento, lograste empujar a un zombie y cayó sobre unas rocas... Su cabeza ha estallado ¡y su contenido ha salpicado sobre tus zapatos! Retrocedes pasmado, agotado. Un zombie menos...</target>
       </segment>
     </unit>
     <unit id="uQ9iqg9" name="21d4990">
@@ -11377,7 +11375,8 @@
       </notes>
       <segment>
         <source>Du schlägst mehrmals mit aller Kraft auf einen Zombie ein, aber es scheint ihm nichts auszumachen!</source>
-        <target>Du schlägst mehrmals mit aller Kraft auf einen Zombie ein, aber es scheint ihm nichts auszumachen!</target>
+        <target>Coges con ambas manos uno de esos horribles muertos vivientes, el contacto con la textura fibrosa y pegajosa de su carne putrefacta es insoportable... Luchas, intentas empujarlo, pero nada... ¡Casi te muerde más de una vez! Decides abandonar tu intento, agotado y desmoralizado...
+</target>
       </segment>
     </unit>
     <unit id="rJtk9d5" name="Die Abschätzung wird durch den Scanner verbessert.">
@@ -11386,7 +11385,7 @@
       </notes>
       <segment>
         <source>Die Abschätzung wird durch den Scanner verbessert.</source>
-        <target>Die Abschätzung wird durch den Scanner verbessert.</target>
+        <target>El radar mejora la calidad del pronóstico</target>
       </segment>
     </unit>
     <unit id="pc7dbFT" name="Dank der Rechenmaschine kannst du den morgigen Angriff abschätzen.">
@@ -11395,7 +11394,7 @@
       </notes>
       <segment>
         <source>Dank der Rechenmaschine kannst du den morgigen Angriff abschätzen.</source>
-        <target>Dank der Rechenmaschine kannst du den morgigen Angriff abschätzen.</target>
+        <target>El pronosticador permite calcular el ataque de la noche siguiente.</target>
       </segment>
     </unit>
     <unit id="BU8ToEO" name="Zuletzt bearbeitet: %date%">
@@ -11404,7 +11403,7 @@
       </notes>
       <segment>
         <source>Zuletzt bearbeitet: %date%</source>
-        <target>Zuletzt bearbeitet: %date%</target>
+        <target>Última edición: %date%</target>
       </segment>
     </unit>
     <unit id="ZN8qU6R" name="Von einem Moderator bearbeitet.">
@@ -11422,7 +11421,7 @@
       </notes>
       <segment>
         <source>Nur altgediente Helden können auf die Wandtafel schreiben</source>
-        <target>Nur altgediente Helden können auf die Wandtafel schreiben</target>
+        <target>Solo los héroes pueden escribir en la Pizarra</target>
       </segment>
     </unit>
     <unit id="TWStSip" name="425f1c1">
@@ -11449,7 +11448,7 @@
       </notes>
       <segment>
         <source>Du hast &lt;strong&gt;keine neue Privatnachricht&lt;/strong&gt; erhalten. Eine Liste aller Bürger findest du im &lt;span class="link" x-ajax-href="%path%"&gt;Verzeichnis der Stadt&lt;/span&gt;.</source>
-        <target><![CDATA[Du hast <strong>keine neue Privatnachricht</strong> erhalten. Eine Liste aller Bürger findest du im <span class="link" x-ajax-href="%path%">Verzeichnis der Stadt</span>.]]></target>
+        <target><![CDATA[<strong>No has recibido mensajes privados</strong>. <strong>No has recibido mensajes privados</strong>. Encontrarás la lista de los habitantes en <span class="link" x-ajax-href="%path%" el Anuario del pueblo</span>.>]]></target>
       </segment>
     </unit>
     <unit id="HeGRH_q" name="11aee93">
@@ -11467,7 +11466,7 @@
       </notes>
       <segment>
         <source>Diese Empfehlung stammt von einem oder mehreren Helden deiner Stadt.</source>
-        <target>Diese Empfehlung stammt von einem oder mehreren Helden deiner Stadt.</target>
+        <target>Esta propuesta proviene de uno o  varios Héroes de tu pueblo.</target>
       </segment>
     </unit>
     <unit id="36CKBMW" name="bc11f9b">
@@ -11476,7 +11475,7 @@
       </notes>
       <segment>
         <source>Diese Mitteilung wird auf &lt;strong&gt;der Bürgerseite bei deinem Namen angezeigt und ist für jeden lesbar&lt;/strong&gt;. Nutze diese Mitteilungsmöglichkeit, um dich vorzustellen, dich zu rechtfertigen oder einen Gruß an deine Mitspieler zu hinterlassen...</source>
-        <target><![CDATA[Diese Mitteilung wird auf <strong>der Bürgerseite bei deinem Namen angezeigt und ist für jeden lesbar</strong>. Nutze diese Mitteilungsmöglichkeit, um dich vorzustellen, dich zu rechtfertigen oder einen Gruß an deine Mitspieler zu hinterlassen...]]></target>
+        <target><![CDATA[Este anuncio es <strong>visible para todos en la página de Habitantes</strong>, cerca de tu nombre. Úsalo para hablar un poco de ti, de tu estado de ánimo, pensamientos, comparte un mensaje con todo el mundo...]]></target>
       </segment>
     </unit>
     <unit id="slcsIov" name="6900dcf">
@@ -11494,7 +11493,7 @@
       </notes>
       <segment>
         <source>Fangt schon mal an zu beten, Bürger - die Zombies werden um Mitternacht angreifen!</source>
-        <target>Fangt schon mal an zu beten, Bürger - die Zombies werden um Mitternacht angreifen!</target>
+        <target>Sálvese quien pueda: ¡los zombies nos atacarán esta noche!</target>
       </segment>
     </unit>
     <unit id="Q8sma_4" name="eceaacb">
