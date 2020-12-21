@@ -47,7 +47,7 @@ class CustomAbstractController extends AbstractController {
      * @param null $locale The request locale, usefull for translation
      * @return array The array of twig arguments with some default data
      */
-    protected function addDefaultTwigArgs( ?string $section = null, ?array $data = null, $locale = null ): array {
+    protected function addDefaultTwigArgs( ?string $section = null, ?array $data = null ): array {
         $data = $data ?? [];
         $data['menu_section'] = $section;
 

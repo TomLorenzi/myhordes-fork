@@ -28,6 +28,7 @@ use DateTime;
 use DateTimeZone;
 use Doctrine\Common\Collections\Criteria;
 use Exception;
+use Symfony\Component\Asset\UrlPackage;
 use Symfony\Component\Config\Util\Exception\InvalidXmlException;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -842,12 +843,12 @@ class ExternalXML2Controller extends ExternalController {
     }
 
     protected function getHeaders($language) {
-
+        file_put_contents("/tmp/dump.txt", print_r($this->container->get('router')->getContext()->getPathInfo(), true));
         return [
             'headers' => [
                 'attributes' => [
                     'link' => "//" . Request::createFromGlobals()->headers->get('host') . Request::createFromGlobals()->getPathInfo(),
-                    'iconurl' => "//" . Request::createFromGlobals()->headers->get('host'), // TODO: Give base path
+                    'iconurl' => "//" . Request::createFromGlobals()->headers->get('host') . dirname(Request::createFromGlobals()->headers->get('document_uri')), // TODO: Give base path
                     'avatarurl' => "//" . Request::createFromGlobals()->headers->get('host') . '/cdn/avatar/', // TODO: Find a way to set this dynamic (see WebController::avatar for reference)
                     'secure' => intval($this->isSecureRequest()),
                     'author' => 'MyHordes',

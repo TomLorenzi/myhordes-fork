@@ -60,13 +60,13 @@ class AdminActionController extends CustomAbstractController
 
     }
 
-    protected function addDefaultTwigArgs(?string $section = null, ?array $data = null, $locale = null): array
+    protected function addDefaultTwigArgs(?string $section = null, ?array $data = null): array
     {
         $data = $data ?? [];
 
         $data["admin_tab"] = $section;
 
-        return $data;
+        return parent::addDefaultTwigArgs($section, $data);
     }
 
     protected function renderLog( ?int $day, $town, $zone = null, ?int $type = null, ?int $max = null ): Response {

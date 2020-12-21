@@ -98,10 +98,11 @@ class InventoryAwareController extends CustomAbstractController
         return true;
     }
 
-    protected function addDefaultTwigArgs( ?string $section = null, ?array $data = null, $locale = null ): array {
-        $data = parent::addDefaultTwigArgs($section, $data, $locale);
+    protected function addDefaultTwigArgs( ?string $section = null, ?array $data = null ): array {
+        $data = parent::addDefaultTwigArgs($section, $data);
         $data['menu_section'] = $section;
 
+        $locale = $this->container->get('request_stack')->getCurrentRequest()->getLocale();
         if ($locale) $locale = explode('_', $locale)[0];
         if (!in_array($locale, ['de','en','es','fr'])) $locale = null;
 

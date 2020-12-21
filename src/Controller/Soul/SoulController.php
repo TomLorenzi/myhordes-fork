@@ -78,7 +78,7 @@ class SoulController extends CustomAbstractController
         $this->user_handler = $uh;
     }
 
-    protected function addDefaultTwigArgs(?string $section = null, ?array $data = null, $locale = null ): array {
+    protected function addDefaultTwigArgs(?string $section = null, ?array $data = null ): array {
         $data = parent::addDefaultTwigArgs($section, $data);
 
         $user = $this->getUser();
