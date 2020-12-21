@@ -122,6 +122,7 @@ class MigrateCommand extends Command
 
             ->addOption('repair-permissions', null, InputOption::VALUE_NONE, 'Makes sure forum permissions and user groups are set up properly')
             ->addOption('repair-causesofdeath', null, InputOption::VALUE_NONE, 'Change the cause of deaths number to be like Hordes\' one')
+            ->addOption('split-ruin-decals', null, InputOption::VALUE_NONE, 'Updates the way ruin decals are stored in DB')
         ;
     }
 
