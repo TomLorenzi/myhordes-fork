@@ -15526,7 +15526,7 @@
         <target>Aggressiver Mitbürger</target>
       </segment>
     </unit>
-    <unit id="xb8cXJh" name="f44cd76">
+    <unit id="Bhi4A01" name="Du hast am Bauprojekt %plan% mitgeholfen.">
       <notes>
         <note category="german">Du hast am Bauprojekt %plan% mitgeholfen.</note>
       </notes>
@@ -15740,6 +15740,39 @@
       <segment>
         <source>%attacker% hat %defender% einen Sandball direkt ins Gesicht geworfen!</source>
         <target>%attacker% hat %defender% einen Sandball direkt ins Gesicht geworfen!</target>
+      </segment>
+    </unit>
+    <unit id="wHDpkBz" name="Hurra! Folgendes Gebäude wurde fertiggestellt: %plan%!">
+      <notes>
+        <note category="german">Hurra! Folgendes Gebäude wurde fertiggestellt: %plan%!</note>
+      </notes>
+      <segment>
+        <source>Hurra! Folgendes Gebäude wurde fertiggestellt: %plan%!</source>
+        <target>Hurra! Folgendes Gebäude wurde fertiggestellt: %plan%!</target>
+      </segment>
+    </unit>
+    <unit id="8UrChKd" name="Du hast dafür %count% Aktionspunkt(e) verbraucht.">
+      <notes>
+        <note category="german">Du hast dafür %count% Aktionspunkt(e) verbraucht.</note>
+      </notes>
+      <segment>
+        <source>Du hast dafür %count% Aktionspunkt(e) verbraucht.</source>
+        <target>Du hast dafür %count% Aktionspunkt(e) verbraucht.</target>
+      </segment>
+    </unit>
+    <unit id="Ltkwrh9" name="1a5e7f5">
+      <notes>
+        <note category="german">Als du durch das Fenster blickst, stellst du fest, dass das Haus von %citizen% keinerlei interessante
+                    Gegenstände enthält. Ein paar Tonscherben, viel Staub und eine tote Ratte ist alles, was du erkennen kannst.
+                    Nichts, was der Mühe wert wäre.</note>
+      </notes>
+      <segment>
+        <source>Als du durch das Fenster blickst, stellst du fest, dass das Haus von %citizen% keinerlei interessante
+                    Gegenstände enthält. Ein paar Tonscherben, viel Staub und eine tote Ratte ist alles, was du erkennen kannst.
+                    Nichts, was der Mühe wert wäre.</source>
+        <target>Als du durch das Fenster blickst, stellst du fest, dass das Haus von %citizen% keinerlei interessante
+                    Gegenstände enthält. Ein paar Tonscherben, viel Staub und eine tote Ratte ist alles, was du erkennen kannst.
+                    Nichts, was der Mühe wert wäre.</target>
       </segment>
     </unit>
   </file>

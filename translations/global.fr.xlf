@@ -1911,5 +1911,14 @@
         <target>Si vous pensez que votre clé a été compromise, vous pouvez demander une nouvelle clé.</target>
       </segment>
     </unit>
+    <unit id="toM7RSy" name="Alle Foren">
+      <notes>
+        <note category="german">Alle Foren</note>
+      </notes>
+      <segment>
+        <source>Alle Foren</source>
+        <target>Accueil</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
