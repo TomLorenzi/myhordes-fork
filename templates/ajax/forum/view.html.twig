@@ -96,7 +96,11 @@
             <div class="row">
                 <div class="cell padded rw-5 rw-md-12">
                     <div class="forum-control">
-                        <b><i class="fa fa-scroll"></i> {{ forum.title }}</b>
+                        <div class="forum-header-bar">
+                            <a href="#" x-ajax-href="{{ url('forum_list') }}">{{ 'Alle Foren'|trans({},'global') }}</a>
+                            <span><i class="fa fa-caret-right"></i></span>
+                            <b><i class="fa fa-scroll"></i> {{ forum.title }}</b>
+                        </div>
                         <div class="forum-button-bar">
                             <div x-ajax-href="{{ url('forum_list') }}" class="forum-button"><img src="{{ asset('build/images/forum/back.png') }}" /><div class="tooltip forum-tooltip">{{ 'Zurück'|trans({},'global') }}</div></div>
                             <div x-ajax-href="{{ url('forum_view', {id: forum.id}) }}" class="forum-button"><img src="{{ asset('build/images/forum/refresh.png') }}" /><div class="tooltip forum-tooltip">{{ 'Liste der Themen aktualisieren'|trans({},'global') }}</div></div>
