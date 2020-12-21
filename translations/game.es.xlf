@@ -4786,7 +4786,7 @@
       </notes>
       <segment>
         <source>Nach einigen Anstrengungen hast du folgendes gefunden: %item%!</source>
-        <target>Encontraste a %item% removiendo objetos en esa mísera habitación.</target>
+        <target>Luego de cierto esfuerzo, logras encontrar %item%, te preguntas cómo llegó aquí...</target>
       </segment>
     </unit>
     <unit id="1GkRZwk" name="Du gräbst schon seit einiger Zeit und hast mehrere Gegenstände gefunden.">
