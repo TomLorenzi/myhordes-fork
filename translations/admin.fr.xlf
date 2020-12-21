@@ -1492,7 +1492,7 @@
       </notes>
       <segment>
         <source>Anzeigename</source>
-        <target>Afficher un nom</target>
+        <target>Nom d'affichage</target>
       </segment>
     </unit>
     <unit id="14HKU3b" name="Lokal: %account%">
@@ -1979,6 +1979,33 @@
       <segment>
         <source>Vergeben!</source>
         <target>Donner !</target>
+      </segment>
+    </unit>
+    <unit id="BYzHaeg" name="Aktuelle Städte">
+      <notes>
+        <note category="german">Aktuelle Städte</note>
+      </notes>
+      <segment>
+        <source>Aktuelle Städte</source>
+        <target>Villes actuelles</target>
+      </segment>
+    </unit>
+    <unit id="7BBdmva" name="Fertige Städte">
+      <notes>
+        <note category="german">Fertige Städte</note>
+      </notes>
+      <segment>
+        <source>Fertige Städte</source>
+        <target>Villes terminées</target>
+      </segment>
+    </unit>
+    <unit id="zFOkrfz" name="Importiert">
+      <notes>
+        <note category="german">Importiert</note>
+      </notes>
+      <segment>
+        <source>Importiert</source>
+        <target>Importée</target>
       </segment>
     </unit>
   </file>

@@ -40,12 +40,12 @@ class TownRankingProxy
     private $population;
 
     /**
-     * @ORM\Column(type="datetime", nullable=true)
+     * @ORM\Column(name="`begin`", type="datetime", nullable=true)
      */
     private $begin;
 
     /**
-     * @ORM\Column(type="datetime", nullable=true)
+     * @ORM\Column(name="`end`", type="datetime", nullable=true)
      */
     private $end;
 

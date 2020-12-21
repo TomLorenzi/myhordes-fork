@@ -91,20 +91,33 @@ class MessageController extends CustomAbstractController
             $em->flush();
         }
 
+        $sel_post = $sel_thread = null;
+        if ($pid > 0) $sel_post = $em->getRepository(Post::class)->find($pid);
+        if ($tid > 0) $sel_thread = $em->getRepository(Thread::class)->find($tid);
+
+        if (($pid > 0 && !$sel_post) || ($tid > 0 && !$sel_thread) || ($sel_thread && $sel_thread->getForum() !== $forum) || ($sel_post && $sel_thread && $sel_post->getThread() !== $sel_thread) )
+            return $this->redirect($this->generateUrl('forum_list'));
+
         $show_hidden_threads = $this->perm->isPermitted( $permissions, ForumUsagePermissions::PermissionModerate );
 
         if ( $this->perm->isPermitted( $permissions, ForumUsagePermissions::PermissionListThreads ) ) {
-            $pages = floor(max(0,$em->getRepository(Thread::class)->countByForum($forum, $show_hidden_threads)-1) / $num_per_page) + 1;
-            if ($parser->has('page'))
+            $pages = floor(max(0,$em->getRepository(Thread::class)->countByForum($forum, $show_hidden_threads, false)-1) / $num_per_page) + 1;
+
+            if ($sel_thread && !$sel_thread->getPinned())
+                $page = 1 + floor(($em->getRepository(Thread::class)->countByForum($forum, $show_hidden_threads, false, $sel_thread)) / $num_per_page);
+            elseif ($parser->has('page'))
                 $page = min(max(1,$parser->get('page', 1)), $pages);
             else $page = 1;
 
             $threads = $em->getRepository(Thread::class)->findByForum($forum, $num_per_page, ($page-1)*$num_per_page, $show_hidden_threads);
         } elseif ( $this->perm->isPermitted( $permissions, ForumUsagePermissions::PermissionModerate ) ) {
 
-            $threads = array_filter( $em->getRepository(Thread::class)->findByForum($forum, null, null, $show_hidden_threads), fn(Thread $t): bool => $t->hasReportedPosts() );
+            $tp = $ttp = 0;
+            $threads = array_filter( $em->getRepository(Thread::class)->findByForum($forum, null, null, $show_hidden_threads), function(Thread $t) use ($tp,$ttp,$sel_thread): bool { $tp++; if ($t === $sel_thread) $ttp = $tp-1; return $t->hasReportedPosts(); } );
             $pages = floor(max(0,count($threads)-1) / $num_per_page) + 1;
-            if ($parser->has('page'))
+            if ($sel_thread && !$sel_thread->getPinned())
+                $page = 1 + ($ttp / $num_per_page);
+            elseif ($parser->has('page'))
                 $page = min(max(1,$parser->get('page', 1)), $pages);
             else $page = 1;
 

@@ -15588,12 +15588,12 @@
         <target>Ramener un citoyen:</target>
       </segment>
     </unit>
-    <unit id="mVtk8KY" name="Herzlichen Glückwunsch! Du hast deine Behausung in ein(e) %home%.">
+    <unit id="U9LSFlB" name="Herzlichen Glückwunsch! Du hast deine Behausung in ein(e) %home% verwandelt.">
       <notes>
-        <note category="german">Herzlichen Glückwunsch! Du hast deine Behausung in ein(e) %home%.</note>
+        <note category="german">Herzlichen Glückwunsch! Du hast deine Behausung in ein(e) %home% verwandelt.</note>
       </notes>
       <segment>
-        <source>Herzlichen Glückwunsch! Du hast deine Behausung in ein(e) %home%.</source>
+        <source>Herzlichen Glückwunsch! Du hast deine Behausung in ein(e) %home% verwandelt.</source>
         <target>Félicitations ! Vous avez amélioré votre habitation en %home%.</target>
       </segment>
     </unit>
@@ -15615,13 +15615,13 @@
         <target>L'évolution %upgrade% est passée niveau %level% avec succès !</target>
       </segment>
     </unit>
-    <unit id="xb8cXJh" name="f44cd76">
+    <unit id="Bhi4A01" name="Du hast am Bauprojekt %plan% mitgeholfen.">
       <notes>
-        <note category="german">Du hast am Bauprojekt %plan% mitgeholfen. Du hast dafür %count% Aktionspunkt(e) verbraucht.</note>
+        <note category="german">Du hast am Bauprojekt %plan% mitgeholfen.</note>
       </notes>
       <segment>
-        <source>Du hast am Bauprojekt %plan% mitgeholfen. Du hast dafür %count% Aktionspunkt(e) verbraucht.</source>
-        <target>Vous avez contribué à la construction du chantier %plan%. Vous avez utilisé %count% point(s) d'action..</target>
+        <source>Du hast am Bauprojekt %plan% mitgeholfen.</source>
+        <target>Vous avez contribué à la construction du chantier %plan%.</target>
       </segment>
     </unit>
     <unit id="b5TnxTe" name="[ Es riecht nach Tannenzapfen... ]">
@@ -15766,6 +15766,39 @@
       <segment>
         <source>%attacker% hat %defender% einen Sandball direkt ins Gesicht geworfen!</source>
         <target>%attacker% a blessé %defender% avec sa sale boule de sable. Aïe ça fait mal...!</target>
+      </segment>
+    </unit>
+    <unit id="wHDpkBz" name="Hurra! Folgendes Gebäude wurde fertiggestellt: %plan%!">
+      <notes>
+        <note category="german">Hurra! Folgendes Gebäude wurde fertiggestellt: %plan%!</note>
+      </notes>
+      <segment>
+        <source>Hurra! Folgendes Gebäude wurde fertiggestellt: %plan%!</source>
+        <target>Hourra ! La construction du chantier %plan% est terminée !</target>
+      </segment>
+    </unit>
+    <unit id="8UrChKd" name="Du hast dafür %count% Aktionspunkt(e) verbraucht.">
+      <notes>
+        <note category="german">Du hast dafür %count% Aktionspunkt(e) verbraucht.</note>
+      </notes>
+      <segment>
+        <source>Du hast dafür %count% Aktionspunkt(e) verbraucht.</source>
+        <target>Vous avez utilisé %count% point(s) d'action.</target>
+      </segment>
+    </unit>
+    <unit id="Ltkwrh9" name="1a5e7f5">
+      <notes>
+        <note category="german">Als du durch das Fenster blickst, stellst du fest, dass das Haus von %citizen% keinerlei interessante
+                    Gegenstände enthält. Ein paar Tonscherben, viel Staub und eine tote Ratte ist alles, was du erkennen kannst.
+                    Nichts, was der Mühe wert wäre.</note>
+      </notes>
+      <segment>
+        <source>Als du durch das Fenster blickst, stellst du fest, dass das Haus von %citizen% keinerlei interessante
+                    Gegenstände enthält. Ein paar Tonscherben, viel Staub und eine tote Ratte ist alles, was du erkennen kannst.
+                    Nichts, was der Mühe wert wäre.</source>
+        <target>Als du durch das Fenster blickst, stellst du fest, dass das Haus von %citizen% keinerlei interessante
+                    Gegenstände enthält. Ein paar Tonscherben, viel Staub und eine tote Ratte ist alles, was du erkennen kannst.
+                    Nichts, was der Mühe wert wäre.</target>
       </segment>
     </unit>
   </file>

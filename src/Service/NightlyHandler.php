@@ -109,6 +109,18 @@ class NightlyHandler
         if ($skip_reanimation) $this->skip_reanimation[] = $citizen->getId();
     }
 
+    private function stage1_prepare(Town $town) {
+        $this->log->info('<info>Checking insurrection status</info> ...');
+
+        if ($town->getInsurrectionProgress() > 0)
+            foreach ($town->getCitizens() as $citizen)
+                if ($citizen->getAlive() && $citizen->getBanished() && !$this->citizen_handler->hasStatusEffect($citizen, 'tg_insurrection')) {
+                    $this->log->info("Shunned citizen <info>{$citizen->getUser()->getName()}</info> did not contribute to the insurrection. Resetting.");
+                    $town->setInsurrectionProgress(0);
+                    break;
+                }
+    }
+
     private function stage1_vanish(Town $town) {
         $this->log->info('<info>Vanishing citizens</info> ...');
         $cod = $this->entity_manager->getRepository(CauseOfDeath::class)->findOneBy(['ref' => CauseOfDeath::Vanished]);
@@ -623,7 +635,8 @@ class NightlyHandler
             }
             else {
                 $this->entity_manager->persist($this->logTemplates->citizenZombieAttackRepelled( $targets[$i], $def, $force));
-                if (!$has_kino && $this->random->chance(0.75 * ($force/max(1,$def))) && !$this->citizen_handler->hasStatusEffect($targets[$i], $status_terror)) {
+                $prevent_terror = $this->inventory_handler->countSpecificItems([$targets[$i]->getInventory(), $targets[$i]->getHome()->getChest()], 'prevent_terror', true) > 0;
+                if (!$has_kino && !$prevent_terror && $this->random->chance(0.75 * ($force/max(1,$def))) && !$this->citizen_handler->hasStatusEffect($targets[$i], $status_terror)) {
                     $this->citizen_handler->inflictStatus( $targets[$i], $status_terror );
                     $this->log->debug("Citizen <info>{$targets[$i]->getUser()->getUsername()}</info> now suffers from <info>{$status_terror->getLabel()}</info>");
 
@@ -1326,6 +1339,7 @@ class NightlyHandler
         $this->town_handler->triggerAlways( $town );
 
         $this->log->info('Entering <comment>Phase 1</comment> - Pre-attack processing');
+        $this->stage1_prepare($town);
         $this->stage1_vanish($town);
         $this->stage1_status($town);
 

@@ -55,7 +55,7 @@ class PostRepository extends ServiceEntityRepository
             $qb = $this->createQueryBuilder('p')
                 ->select('COUNT(p.id)')
                 ->andWhere('p.thread = :thread')->setParameter('thread', $thread)
-                ->andWhere('p.date < :post')->setParameter('post', $post->getDate());
+                ->andWhere('p.date <= :post')->setParameter('post', $post->getDate());
             if (!$include_hidden)
                 $qb->andWhere('p.hidden = false OR p.hidden is NULL');
             return $qb->getQuery()

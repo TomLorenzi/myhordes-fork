@@ -16,6 +16,7 @@ use App\Entity\CitizenVote;
 use App\Entity\DigTimer;
 use App\Entity\EscapeTimer;
 use App\Entity\EscortActionGroup;
+use App\Entity\EventActivationMarker;
 use App\Entity\FoundRolePlayText;
 use App\Entity\HomeActionPrototype;
 use App\Entity\Item;
@@ -1236,13 +1237,38 @@ class ActionHandler
 
                     // Sandballs, bitches!
                     case 20: {
-                        $target->getSpecificActionCounter(ActionCounter::ActionTypeSandballHit)->increment();
 
-                        $hurt = !$this->citizen_handler->isWounded($target) && $this->random_generator->chance( $town_conf->get(TownConf::CONF_MODIFIER_SANDBALL_NASTYNESS, 0.0) );
-                        if ($hurt) $this->citizen_handler->inflictWound($target);
+                        if ($target === null) {
+                            // Hordes-like - there is no target, there is only ZUUL
+                            $list = $citizen->getZone()->getCitizens()->filter( function(Citizen $c) use ($citizen): bool {
+                                return $c->getAlive() && $c !== $citizen && ($c->getSpecificActionCounter(ActionCounter::ActionTypeSandballHit)->getLast() === null || $c->getSpecificActionCounter(ActionCounter::ActionTypeSandballHit)->getLast()->getTimestamp() < (time() - 1800));
+                            } )->getValues();
+                            $sandball_target = $this->random_generator->pick( $list );
 
-                        $this->entity_manager->persist( $this->log->sandballAttack( $citizen, $target, $hurt ) );
-                        $this->entity_manager->persist($target);
+                        } else $sandball_target = $target;
+
+                        /** @var EventActivationMarker $eam */
+                        $eam = $this->entity_manager->getRepository(EventActivationMarker::class)->findOneBy(['citizen' => $citizen]);
+                        if (!$eam || $eam->getEvent() !== 'christmas') $sandball_target = null;
+
+                        if ($sandball_target !== null) {
+                            $this->picto_handler->give_picto($citizen, 'r_sandb_#00');
+
+                            $this->inventory_handler->forceRemoveItem( $item );
+                            $execute_info_cache['items_consume'][] = $item->getPrototype();
+
+                            $execute_info_cache['citizen'] = $sandball_target;
+                            $sandball_target->getSpecificActionCounter(ActionCounter::ActionTypeSandballHit)->increment();
+
+                            $hurt = !$this->citizen_handler->isWounded($sandball_target) && $this->random_generator->chance( $town_conf->get(TownConf::CONF_MODIFIER_SANDBALL_NASTYNESS, 0.0) );
+                            if ($hurt) $this->citizen_handler->inflictWound($sandball_target);
+
+                            $this->entity_manager->persist( $this->log->sandballAttack( $citizen, $sandball_target, $hurt ) );
+                            $this->entity_manager->persist($sandball_target);
+
+
+                        } else $tags[] = 'fail';
+
                         break;
                     }
 
@@ -1253,7 +1279,9 @@ class ActionHandler
                     $execute_info_cache['ap'] += 1;
                 }
 
-                if ($terror)
+                $prevent_terror = $this->inventory_handler->countSpecificItems([$citizen->getInventory(), $citizen->getHome()->getChest()], 'prevent_terror') > 0;
+
+                if ($terror && !$prevent_terror)
                     $this->citizen_handler->inflictStatus( $citizen, 'error' );
             }
 

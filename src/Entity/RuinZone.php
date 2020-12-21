@@ -13,7 +13,7 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
  * @ORM\Entity(repositoryClass="App\Repository\RuinZoneRepository")
  * @UniqueEntity("gps")
  * @Table(uniqueConstraints={
- *     @UniqueConstraint(name="gps_unique",columns={"x","y","zone_id"})
+ *     @UniqueConstraint(name="gps_unique_ruin_zone",columns={"x","y","zone_id"})
  * })
  */
 class RuinZone
@@ -117,6 +117,11 @@ class RuinZone
      * @ORM\Column(type="integer", options={"unsigned":true})
      */
     private $decals = 0;
+
+    /**
+     * @ORM\Column(type="integer", options={"unsigned":true})
+     */
+    private $decalVariants = 0;
 
     /**
      * @ORM\Column(type="integer")
@@ -332,6 +337,18 @@ class RuinZone
     public function setDecals(int $decals): self
     {
         $this->decals = $decals;
+
+        return $this;
+    }
+
+    public function getDecalVariants(): ?int
+    {
+        return $this->decalVariants;
+    }
+
+    public function setDecalVariants(int $decalVariants): self
+    {
+        $this->decalVariants = $decalVariants;
 
         return $this;
     }

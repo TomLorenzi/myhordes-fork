@@ -16,6 +16,7 @@ use App\Entity\ForumUsagePermissions;
 use App\Entity\HeroicActionPrototype;
 use App\Entity\Item;
 use App\Entity\Picto;
+use App\Entity\RuinZone;
 use App\Entity\SpecialActionPrototype;
 use App\Entity\Town;
 use App\Entity\TownLogEntry;
@@ -121,6 +122,7 @@ class MigrateCommand extends Command
 
             ->addOption('repair-permissions', null, InputOption::VALUE_NONE, 'Makes sure forum permissions and user groups are set up properly')
             ->addOption('repair-causesofdeath', null, InputOption::VALUE_NONE, 'Change the cause of deaths number to be like Hordes\' one')
+            ->addOption('split-ruin-decals', null, InputOption::VALUE_NONE, 'Updates the way ruin decals are stored in DB')
         ;
     }
 
@@ -722,6 +724,23 @@ class MigrateCommand extends Command
                 if($deadCitizen->getCod() === null) continue;
                 $deadCitizen->setCod($this->entity_manager->getRepository(CauseOfDeath::class)->findOneBy(['ref' => $mappingRefs[$deadCitizen->getCod()->getRef()]]));
                 $this->entity_manager->persist($deadCitizen);
+            }
+
+            $this->entity_manager->flush();
+        }
+
+        if ($input->getOption('split-ruin-decals')) {
+            /** @var RuinZone[] $ruinZone */
+            $ruinZones = $this->entity_manager->getRepository(RuinZone::class)->findAll();
+            foreach ($ruinZones as $ruinZone) {
+                $decals = $ruinZone->getDecals();
+                if ($decals <= 0xFFFF)
+                    continue;
+
+                $ruinZone->setDecals($decals & 0xFFFF);
+                $ruinZone->setDecalVariants(($decals >> 16) & 0xFFFF);
+
+                $this->entity_manager->persist($ruinZone);
             }
 
             $this->entity_manager->flush();

@@ -230,11 +230,8 @@ class CitizenHandler
                     $items[] = $item;
 
             $bank = $citizen->getTown()->getBank();
-            foreach ($items as $item) {
-                $source = $item->getInventory();
-                if ($this->inventory_handler->transferItem( $citizen, $item, $source, $bank, InventoryHandler::ModalityImpound ) === InventoryHandler::ErrorNone)
-                    $this->entity_manager->persist( $this->log->bankItemLog( $citizen, $item->getPrototype(), true ) );
-            }
+            foreach ($items as $item)
+                if (!$item->getEssential()) $this->inventory_handler->forceMoveItem( $bank, $item );
         }
 
         if ($kill) {

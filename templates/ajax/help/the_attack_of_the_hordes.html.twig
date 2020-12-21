@@ -1,0 +1,63 @@
+{% extends "ajax/help/shell.html.twig" %}
+{% block title %}{{'Hilfe'|trans({}, 'game')}} - {{'Neue Gebäude bauen'|trans({}, 'help')|raw}}{% endblock %}
+{% block helpContent %}
+<div class="helpArt">{{ 'Spielanleitung'|trans({},'help')|raw }}</div>
+<h1>{{ 'Der Angriff der Zombiehorde'|trans({},'help')|raw }}</h1>
+<img class="art" alt="" src="{{ asset('build/images/help/attack.png') }}">
+<p>
+{{ 'Jede Nacht um Mitternacht greifen die Untoten die Stadt an. Die Anzahl der Zombies variiert dabei von Tag zu Tag.'|trans({},'help')|raw }}
+</p>
+<ul style="clear: none;">
+<li>{{ 'España: 01h00'|trans({},'help')|raw }}</li>
+<li>{{ 'México: 18h00'|trans({},'help')|raw }}</li>
+<li>{{ 'Argentina, Chile y Uruguay: 20h00'|trans({},'help')|raw }}</li>
+<li>{{ 'Colombia y Perú: 18h00'|trans({},'help')|raw }}</li>
+</ul>
+<h2>{{ 'Phase 1: Die Rückkehr der lebenden Toten'|trans({},'help')|raw }}</h2>
+<p>
+{{ 'Alle Einwohner, die am Vortag von Zombies in der Stadt gefressen wurden und deren Körper nicht zerstört oder außerhalb der Stadt entsorgt wurden, stehen auf! Da sie sich bereits in der Stadt befinden, werden sie einen großen Schaden anrichten!'|trans({},'help')|raw }}
+</p>
+<p>{{ 'Alle Toten hingegen, die rechzeitig außerhalb der Stadt entsorgt wurden, greifen mit der großen Zombiemeute an.'|trans({},'help')|raw }}</p>
+<h2>{{ 'Phase 2: Die Stadtverteidigung'|trans({},'help')|raw }}</h2>
+<p>
+{{ 'Jeder Verteidigungspunkt der Stadt hält einen Zombie auf.'|trans({},'help')|raw }}
+<br>{{ 'Die privaten Häuser der Bürger zählen jeweils die Hälfte.'|trans({},'help')|raw }}
+</p>
+<p>
+<em>{{ 'Beispiel: Wenn alle Gebäude und Konstruktionen in einer Stadt zusammengenommen 5 Verteidigungspunkte zählen und ein Bürger ein Haus mit dem Verteidigungswert 2 besitzt, beträgt die Gesamtpunkteanzahl der Stadt 6 Punkte: 5 (Stadt) + 2/2 (Privathaus)..'|trans({},'help')|raw }}</em>
+</p>
+<p>
+<em>{{ 'Beispiel: Wenn die Stadt 7 Verteidigungspunkte besitzt, ist sie in der Lage, 7 Zombies aufzuhalten.'|trans({},'help')|raw }}</em>
+</p>
+<p>{{ 'Achtung: <strong>Wenn das Stadttor offen steht, werden die Verteidigungspunkte nicht gezählt!</strong>'|trans({},'help')|raw }}</p>
+<h2>{{ 'Phase 3: Die Bürger werden angegriffen'|trans({},'help')|raw }}</h2>
+<p>
+{{ 'Jeder nicht neutralisierte Zombie greift jeweils ein Haus an. Wenn die Verteidigungspunkteanzahl des angegriffenen Einwohners kleiner ist als die Anzahl der Zombies, wird er gefressen!'|trans({},'help')|raw }}
+</p>
+<p>
+{{ 'Sollte es einem Bürger gelingen sich zu verteidigen, erleidet er einen Schock und verfällt in eine Angststarre, es sei denn, er hat genügend beruhigende Gegenstände, die ihn wieder runterbringen.'|trans({},'help')|raw }}
+</p>
+<h2>{{ 'Der letzte Angriff:'|trans({},'help')|raw }}</h2>
+<p>{{ 'Wenn bei einem Angriff alle Einwohner umkommen, bekommt einer von ihnen den Titel des <strong>Letzten Todes!</strong>
+Lies dir den entsprechenden Abschnitt bitte <span x-ajax-href=%url_lms%>hier</span> durch.'|trans({'%url_lms%': url('help', {'name': 'last_man_standing'})},'help')|raw }}</p>
+<h2>{{ 'Phase 4: Gebäudeschäden (Pandämonium)'|trans({},'help')|raw }}</h2>
+<p>
+{{ 'Alle fertiggestellen Gebäude der Stadt können beim Angriff der Zombiehorde beschädigt werden.
+<strong>Es handelt sich dabei um Zombies, die von den Verteitigungsvorrichtungen der Stadt aufgehalten wurden. Sie lassen ihrer Wut freien Lauf und beschädigen so eure Konstruktionen.</strong>'|trans({},'help')|raw }}
+</p>
+<p>
+{{ 'Wenn eine Konstruktion zu stark beschädigt wurde, gilt sie als zerstört und muss am nächsten Tag erneut gebaut werden.
+<strong> Wenn das beschädigte Gebäude die Grundlage für Bauerweiterungen war, müssen die Ausbauten und Gebäudeverbesserungen erneut gebaut werden.</strong>'|trans({},'help')|raw }}
+</p>
+<p>
+{{ 'Eine nur teilweise beschädigte Konstruktion kann am nächsten Tag repariert werden. Dafür werden jedoch AP benötigt. Ihr könnt diese im Abschnitt "Konstruktion" ausgeben.'|trans({},'help')|raw }}
+</p>
+{# <h2>Sonstige Informationen</h2>
+<ul>
+<li>Wenn du bis zum Ende des <strong>zweiten Tages</strong> deinen Beruf nicht gewählt hast, stirbst du automatisch.</li>
+<li><strong>Wenn du während des Zombieangriffs außerhalb der Stadt bist, stirbst du.</strong></li>
+<li>Die nächtlichen Angriffe nehmen von Tag zu Tag zu, zögere nicht allzu lang, die Stadtverteidigung zu verbessern!</li>
+</ul> #}
+<div class="clear"></div>
+<a class="button" x-ajax-href="{{ url('help', {'name': 'the_watchmen'}) }}"><img src="{{ asset('build/images/icons/small_move.gif') }}" alt="move"> {{'Weiter'|trans({}, 'help')}}:<strong> {{ 'Die Nachtwächter'|trans({},'help') }}</strong></a>
+{% endblock %}

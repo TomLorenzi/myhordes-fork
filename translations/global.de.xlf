@@ -1867,5 +1867,14 @@
         <target>Wenn du den Verdacht hast, dass dein Schlüssel kompromittiert wurde, kannst du einen neuen Schlüssel anfordern.</target>
       </segment>
     </unit>
+    <unit id="toM7RSy" name="Alle Foren">
+      <notes>
+        <note category="german">Alle Foren</note>
+      </notes>
+      <segment>
+        <source>Alle Foren</source>
+        <target>Alle Foren</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

@@ -209,14 +209,21 @@
         <div class="padded cell rw-6 citizen-chest">
             <h5>{{ '%citizen%s Truhe'|trans({'%citizen%': owner.user.name}, 'game') }}</h5>
             {% if not hidden %}
-                <p>{% if owner.zone %}{{ '%citizen% ist ausgegangen...'|trans({'%citizen%': owner.user.name}, 'game') }} {% endif %}{{ 'Wenn Sie aus dem Fenster schauen, können Sie die folgenden Dinge im Haus sehen:'|trans({},'game') }}</p>
-                {% embed "ajax/game/inventory.html.twig" with {'size': chest_size, 'items': chest.items, 'foreignChestMode': true} %}
-                    {% block class %}chest {% if owner.alive %}locked{% endif %}{% endblock %}
-                    {% block title %}{% endblock %}
-                {% endembed %}
-                <div class="help stealhelp hidden">
-                    {{'Wähle den <strong>zu stehlenden Gegenstand</strong> hier oben aus. <strong>Achtung!</strong> Es besteht die Gefahr, dass du dabei gesehen wirst. In diesem Fall musst du dich auf unangenehme Konsequenzen gefasst machen.'|trans({}, 'game')|raw}}
-                </div>
+                <p>{% if owner.zone %}{{ '%citizen% ist ausgegangen...'|trans({'%citizen%': owner.user.name}, 'game') }} {% endif %}
+                {% if chest.items|length > 0 %}
+                    {{ 'Wenn Sie aus dem Fenster schauen, können Sie die folgenden Dinge im Haus sehen:'|trans({},'game') }}</p>
+                    {% embed "ajax/game/inventory.html.twig" with {'size': chest_size, 'items': chest.items, 'foreignChestMode': true} %}
+                        {% block class %}chest {% if owner.alive %}locked{% endif %}{% endblock %}
+                        {% block title %}{% endblock %}
+                    {% endembed %}
+                    <div class="help stealhelp hidden">
+                        {{'Wähle den <strong>zu stehlenden Gegenstand</strong> hier oben aus. <strong>Achtung!</strong> Es besteht die Gefahr, dass du dabei gesehen wirst. In diesem Fall musst du dich auf unangenehme Konsequenzen gefasst machen.'|trans({}, 'game')|raw}}
+                    </div>
+                {% else %}
+                    {{'Als du durch das Fenster blickst, stellst du fest, dass das Haus von %citizen% keinerlei interessante
+                    Gegenstände enthält. Ein paar Tonscherben, viel Staub und eine tote Ratte ist alles, was du erkennen kannst.
+                    Nichts, was der Mühe wert wäre.'|trans({'%citizen%': owner.user.name}, 'game')}}
+                {% endif %}
                 {% if already_stolen %}
                     <div class="notice">{{'Du kannst heute keinen weiteren Gegenstand stehlen.'|trans({},'game')}}</div>
                 {% elseif owner.alive %}
@@ -227,13 +234,13 @@
                         {% endembed %}
                     </div>
                     {% if owner.zone %}
+                        {% if chest.items|length > 0 %}
                     <button x-action-id="enablesteal"><img src="{{asset('build/images/icons/home.gif')}}" alt="" /> {{'Einen Gegenstand stehlen'|trans({}, 'game')}}</button>
+                            {% endif %}
                     <button x-action-id="enablesneak">{{'Einen Gegenstand hinterlassen'|trans({}, 'game')}}</button>
                     {% else %}
                         <div class="notice">{{'Du kannst nichts von %citizen% stehlen, solange <strong>er (sie) in der Stadt ist</strong>... '|trans({'%citizen%': owner.user.name}, 'game')|raw}}</div>
                     {% endif %}
-                {% else %}
-                    
                 {% endif %}
             {% else %}
                 <p>{{ 'Ein Vorhang blockiert die Sicht ...'|trans({},'game') }}</p>

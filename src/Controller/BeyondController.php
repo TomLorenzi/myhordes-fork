@@ -203,11 +203,11 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
     }
 
     /**
-     * @Route("jx/beyond/desert", name="beyond_dashboard")
+     * @Route("jx/beyond/desert/{sect}", name="beyond_dashboard")
      * @param TownHandler $th
      * @return Response
      */
-    public function desert(TownHandler $th, Request $r): Response
+    public function desert(TownHandler $th, Request $r, string $sect = null): Response
     {
         if (!$this->getActiveCitizen()->getHasSeenGazette())
             return $this->redirect($this->generateUrl('game_newspaper'));
@@ -362,6 +362,7 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
             'blueprintFound' => $blueprintFound ?? '',
             'camping_debug' => $camping_debug ?? '',
             'zone_tags' => $zone_tags ?? [],
+            'sect' => $sect,
         ], $r->getLocale()) );
     }
 

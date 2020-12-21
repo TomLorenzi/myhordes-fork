@@ -7553,5 +7553,14 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
         <target><![CDATA[You swallow a Christmas candy with a smile on your face... but you quickly fall apart. The candy contained a powerful psychotropic poison!<t-stat-up-terror>{hr}You are now terrorized</t-stat-up-terror>]]></target>
       </segment>
     </unit>
+    <unit id="Mmr6mlb" name="4606897">
+      <notes>
+        <note category="german">&lt;nt-fail&gt;Du hast einen Sandball in {citizen}s Gesicht geworfen.&lt;/nt-fail&gt;&lt;t-fail&gt;Hier ist niemand, auf den du den Sandball werfen könntest...&lt;/t-fail&gt;</note>
+      </notes>
+      <segment>
+        <source>&lt;nt-fail&gt;Du hast einen Sandball in {citizen}s Gesicht geworfen.&lt;/nt-fail&gt;&lt;t-fail&gt;Hier ist niemand, auf den du den Sandball werfen könntest...&lt;/t-fail&gt;</source>
+        <target><![CDATA[<nt-fail>Du hast einen Sandball in {citizen}s Gesicht geworfen.</nt-fail><t-fail>Hier ist niemand, auf den du den Sandball werfen könntest...</t-fail>]]></target>
+      </segment>
+    </unit>
   </file>
 </xliff>
