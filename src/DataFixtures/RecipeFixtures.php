@@ -338,6 +338,7 @@ class RecipeFixtures extends Fixture implements DependentFixtureInterface
         'com040' => ['type' => Recipe::ManualAnywhere, 'out' => 'lpoint4_#00',    'provoking' => 'diode_#00',  'in' => ['wire_#00', 'meca_parts_#00', 'tube_#00', 'maglite_2_#00', 'diode_#00'] ],
         'com041' => ['type' => Recipe::ManualAnywhere, 'out' => 'hmbrew_#00',     'provoking' => 'fungus_#00', 'in' => ['fungus_#00', 'vodka_#00', 'oilcan_#00'] ],
         'com042' => ['type' => Recipe::ManualAnywhere, 'out' => 'wood_xmas_#00',  'provoking' => 'food_xmas_#00', 'in' => ['food_xmas_#00', 'can_open_#00'] ],
+        'com043' => ['type' => Recipe::ManualAnywhere, 'out' => 'christmas_suit_full_#00',  'provoking' => ['christmas_suit_1_#00','christmas_suit_2_#00','christmas_suit_3_#00'], 'in' => ['christmas_suit_1_#00','christmas_suit_2_#00','christmas_suit_3_#00'] ],
         'com044' => ['type' => Recipe::ManualAnywhere, 'out' => 'gun_#00',        'provoking' => 'gun_#00', 'in' => ['gun_#00', 'bullets_#00'] ],
         'com045' => ['type' => Recipe::ManualAnywhere, 'out' => 'machine_gun_#00','provoking' => 'machine_gun_#00', 'in' => ['machine_gun_#00', 'bullets_#00'] ],
     ];
