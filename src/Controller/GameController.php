@@ -617,10 +617,10 @@ class GameController extends CustomAbstractController implements GameInterfaceCo
                 /** @var Citizen $foreign */
                 if(!$foreign->getProfession()->getHeroic()) continue;
 
-                $vote_shaman = $this->entity_manager->getRepository(SpecialActionPrototype::class)->findOneBy(['name' => "special_generic_shaman"]);
-                $vote_guide = $this->entity_manager->getRepository(SpecialActionPrototype::class)->findOneBy(['name' => "special_generic_guide"]);
-                $foreign->addSpecialAction($vote_shaman);
-                $foreign->addSpecialAction($vote_guide);
+                $vote_shaman = $this->entity_manager->getRepository(SpecialActionPrototype::class)->findOneBy(['name' => "special_vote_shaman"]);
+                $vote_guide = $this->entity_manager->getRepository(SpecialActionPrototype::class)->findOneBy(['name' => "special_vote_guide"]);
+                if ($vote_shaman) $foreign->addSpecialAction($vote_shaman);
+                if ($vote_guide) $foreign->addSpecialAction($vote_guide);
                 $this->entity_manager->persist( $foreign );
             }
             $this->entity_manager->flush();
