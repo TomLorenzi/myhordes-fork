@@ -213,7 +213,7 @@ class QuoteFixtures extends Fixture implements DependentFixtureInterface {
         ['name' => 'de_052', 'content' => 'Wer gut auf sich aufpasst, kann es weit bringen...', 'author' => '', 'lang' => 'de'],
         ['name' => 'de_053', 'content' => 'Wer hat Angst vorm Schwarzen Mann? Die Zombies bestimmt nicht...', 'author' => '', 'lang' => 'de'],
         ['name' => 'de_054', 'content' => 'Wir hatten die Wahl, sie entweder zu bestrafen oder ihr zu verzeihen. Wir haben uns schließlich dafür entschieden, sie im Kremato-Cue zu rösten. Wenigstens haben wir jetzt keinen Hunger mehr.', 'author' => '', 'lang' => 'de'],
-        ['name' => 'de_055', 'content' => 'Wir versuchen uns alle irgendwann mal an einem Zombiestöhnen, aber wer hat schon mal ausprobiert, einen Menschen nachzumachen, dem soeben ein Stück Fleisch aus dem Leib gerissen wurde und der dabei zusehen muss, wie es vor seinen Augen verschlungen wird?', 'author' => '', 'lang' => 'de'],
+        ['name' => 'de_055', 'content' => 'Wir versuchen uns alle irgendwann mal an einem Zombiestöhnen, aber wer hat schon mal ausprobiert, einen Menschen nachzumachen, dem soeben ein Stück Fleisch aus dem Leib gerissen wurde und der dabei zusehen muss, wie es vor seinen Augen verschlungen wird', 'author' => '', 'lang' => 'de'],
 
         // Spanish quotes
         ['name' => 'es_001', 'content' => 'A través de la ventana veo sombras pasar. Me da tanto miedo...', 'author' => '', 'lang' => 'es'],

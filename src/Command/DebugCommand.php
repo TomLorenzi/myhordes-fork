@@ -11,6 +11,7 @@ use App\Entity\ItemPrototype;
 use App\Entity\Picto;
 use App\Entity\Town;
 use App\Entity\TownRankingProxy;
+use App\Entity\TwinoidImport;
 use App\Entity\User;
 use App\Service\CitizenHandler;
 use App\Service\CommandHelper;
@@ -20,10 +21,12 @@ use App\Service\InventoryHandler;
 use App\Service\ItemFactory;
 use App\Service\RandomGenerator;
 use App\Service\TownHandler;
+use App\Service\TwinoidHandler;
 use Doctrine\ORM\EntityManagerInterface;
 use Exception;
 use Symfony\Component\Console\Application;
 use Symfony\Component\Console\Command\Command;
+use Symfony\Component\Console\Helper\ProgressBar;
 use Symfony\Component\Console\Helper\Table;
 use Symfony\Component\Console\Input\ArrayInput;
 use Symfony\Component\Console\Input\InputInterface;
@@ -52,11 +55,12 @@ class DebugCommand extends Command
     private ConfMaster $conf;
     private TownHandler $townHandler;
     private CommandHelper $helper;
+    private TwinoidHandler $twin;
 
     public function __construct(KernelInterface $kernel, GameFactory $gf, EntityManagerInterface $em,
                                 RandomGenerator $rg, CitizenHandler $ch, Translator $translator, InventoryHandler $ih,
                                 ItemFactory $if, UserPasswordEncoderInterface $passwordEncoder, ConfMaster $c,
-                                TownHandler $th, CommandHelper $h)
+                                TownHandler $th, CommandHelper $h, TwinoidHandler $t)
     {
         $this->kernel = $kernel;
 
@@ -71,6 +75,7 @@ class DebugCommand extends Command
         $this->conf = $c;
         $this->townHandler = $th;
         $this->helper = $h;
+        $this->twin = $t;
 
         parent::__construct();
     }
@@ -97,6 +102,7 @@ class DebugCommand extends Command
             ->addOption('chunk-size', null, InputOption::VALUE_REQUIRED, 'When used together with --purge-active-towns or --purge-rankings, determines how many towns are deleted for each flush (default: 1).')
 
             ->addOption('update-events', null, InputOption::VALUE_NONE, 'Will check the current event schedule and process hooks accordingly')
+            ->addOption('reapply-twinoid-data', null, InputOption::VALUE_NONE, 'Re-applies the stored twinoid data for all users')
         ;
     }
 
@@ -304,7 +310,31 @@ class DebugCommand extends Command
                 }
 
             }
+        }
 
+        if ($input->getOption('reapply-twinoid-data')) {
+            /** @var TwinoidImport[] $all_imports */
+            $all_imports = $this->entity_manager->getRepository(TwinoidImport::class)->findAll();
+
+            $progress = new ProgressBar( $output->section() );
+            $progress->start( count($all_imports) );
+
+            $i = 0;
+
+            foreach ($all_imports as $import) {
+                if ($this->twin->importData($import->getUser(), $import->getScope(), $import->getData($this->entity_manager), $import->getMain())) {
+                    $this->entity_manager->persist($import->getUser());
+                    if ($i++ >= 25) {
+                        $this->entity_manager->flush();
+                        $i = 0;
+                    }
+                }
+                $progress->advance();
+
+            }
+
+            $progress->finish();
+            $output->writeln("OK.");
         }
 
         if ($tid = $input->getOption('fill-bank')) {
