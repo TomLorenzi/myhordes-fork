@@ -192,9 +192,9 @@
                                 <img src="{{ asset('build/images/building/small_city_up.gif') }}" alt="upgrades">
                                 <span class="link" x-ajax-href="{{ url('help', {'name': 'daily_upgrades'}) }}">{{ 'Weiterentwicklung des Tages'|trans({},'help') }}</span>
                             </li>
-                            <li class="">
+                            <li class="{% if section == 'the_attack_of_the_hordes' %}active{% endif %}">
                                 <img src="{{ asset('build/images/log/night.gif') }}" alt="attack">
-                                <span class="link">{{ 'Der Angriff der Zombiehorde'|trans({},'help') }}</span>
+                                <span class="link" x-ajax-href="{{ url('help', {'name': 'the_attack_of_the_hordes'}) }}">{{ 'Der Angriff der Zombiehorde'|trans({},'help') }}</span>
                             </li>
                             <li class="">
                                 <img src="{{ asset('build/images/professions/water_soldier.gif') }}" alt="guard">
