@@ -11,21 +11,21 @@
             {% endif %}
             {% if citizen.banished %}
                 <div class="banished-info">
-                    <img alt="" src="{{ asset('build/images/icons/banished.gif') }}" /> You have been shunned ! <a class="help-button"><div class="tooltip help">{{ 'As a <strong>pariah</strong>, you don\'t have access to community tools of the town : bank, buildings, door, etc...'|trans({},'global')|raw }}</div>{{ 'Hilfe'|trans({},'global') }}</a>
+                    <img alt="" src="{{ asset('build/images/icons/banished.gif') }}" /> {{ 'Du wurdest verbannt!'|trans({}, 'game') }} <a class="help-button"><div class="tooltip help">{{ 'Als <strong>Ausgestoßener</strong> stehen dir die Gemeinschaftsaktionen der Stadt nicht länger zur Verfügung: Bank, Baustelle, Tor, etc...'|trans({},'global')|raw }}</div>{{ 'Hilfe'|trans({},'global') }}</a>
                 </div>
                 {% if has_insurrection_part %}
                     <div class="banished-info">
-                        <em>{{ 'Lage:'|trans({}, 'game') }}</em>
+                        <em>{{ 'Status:'|trans({}, 'game') }}</em>
                     {% if town.insurrectionProgress >= 0 and town.insurrectionProgress < 20 %}
-                        L'insurrection n'est pas pour tout de suite...
+                        {{ 'Eine Revolte liegt in weiter Ferne...'|trans({}, 'game') }}
                     {% elseif town.insurrectionProgress >= 20 and town.insurrectionProgress < 40 %}
-                        les premières tensions apparaissent.
+                        {{ 'Erste Spannungen bilden sich.'|trans({}, 'game') }}
                     {% elseif town.insurrectionProgress >= 40 and town.insurrectionProgress < 60 %}
-                        Nous sommes en bonne voie.
+                        {{ 'Wir machen Fortschritte.'|trans({}, 'game') }}
                     {% elseif town.insurrectionProgress >= 60 and town.insurrectionProgress < 80 %}
-                        La fin est proche...
+                        {{ 'Das Ende ist nah.'|trans({}, 'game') }}
                     {% elseif town.insurrectionProgress >= 80 %}
-                        Insurrection imminente !
+                        {{ 'Die Revolte steht bevor!'|trans({}, 'game') }}
                     {% endif %}
                     </div>
                 {% elseif can_do_insurrection %}
