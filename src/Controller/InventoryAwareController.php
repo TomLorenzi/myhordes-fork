@@ -180,6 +180,8 @@ class InventoryAwareController extends CustomAbstractController
                 break;
         }
 
+        // Sort target by display name
+        usort($targets, function($a, $b) { return strcmp($a[1], $b[1]);});
         return $targets;
     }
 
