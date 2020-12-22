@@ -157,7 +157,7 @@ class ZoneHandler
                     if ($this->citizen_handler->hasStatusEffect( $timer->getCitizen(), 'camper' )) $factor += 0.1;
                     if ($this->citizen_handler->hasStatusEffect( $timer->getCitizen(), 'wound5' )) $factor -= 0.3; // Totally arbitrary
                     if ($this->citizen_handler->hasStatusEffect( $timer->getCitizen(), 'drunk'  )) $factor -= 0.3; // Totally arbitrary
-                    if($timer->getCitizen()->getTown()->isNight()) $factor -= 0.2;
+                    if ($conf->get(TownConf::CONF_FEATURE_NIGHTMODE) && $timer->getCitizen()->getTown()->isNight()) $factor -= 0.2;
 
                     $total_dig_chance = max(0.1, $factor * ($zone->getDigs() > 0 ? 0.6 : 0.3 ));
 
