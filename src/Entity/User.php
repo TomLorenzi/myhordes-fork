@@ -212,6 +212,11 @@ class User implements UserInterface, EquatableInterface
      */
     private $deleteAfter;
 
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $checkInt = 0;
+
     public function __construct()
     {
         $this->citizens = new ArrayCollection();
@@ -378,7 +383,8 @@ class User implements UserInterface, EquatableInterface
         $b1 =
             $this->getUsername() === $user->getUsername() &&
             $this->getPassword() === $user->getPassword() &&
-            $this->getRoles() === $user->getRoles();
+            $this->getRoles() === $user->getRoles() &&
+            $this->checkInt === $user->checkInt;
         if ($user instanceof User) {
             return $b1 &&
                 $this->getRightsElevation() === $user->getRightsElevation();
@@ -928,6 +934,18 @@ class User implements UserInterface, EquatableInterface
     public function setDeleteAfter(?\DateTimeInterface $deleteAfter): self
     {
         $this->deleteAfter = $deleteAfter;
+
+        return $this;
+    }
+
+    public function getCheckInt(): ?int
+    {
+        return $this->checkInt;
+    }
+
+    public function setCheckInt(int $checkInt): self
+    {
+        $this->checkInt = $checkInt;
 
         return $this;
     }

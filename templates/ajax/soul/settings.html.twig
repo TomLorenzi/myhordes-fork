@@ -200,6 +200,16 @@
                         </div>
                     </div>
                 </div>
+                <br />
+                <div class="row">
+                    <div class="cell padded rw-4 rw-sm-12">
+                        {% trans from 'soul' %}Überall ausloggen{% endtrans %}
+                    </div>
+                    <div class="cell padded rw-8 rw-sm-12">
+                        <button id="acc_unremember_me">{{ 'Auf allen Browsern & Geräten abmelden'|trans({},'soul') }}</button>
+                        <p class="small">{% trans from 'soul' %}Hiermit kannst du dich von allen Geräten und Browsern abmelden, auf denen du aktuell eingeloggt bist. Die "Login merken" Funktion wird hierdurch ebenfalls auf den betroffenen Geräten deaktiviert.{% endtrans %}</p>
+                    </div>
+                </div>
             {% endif %}
 
             {% if not is_granted('ROLE_SHADOW_BANNED') %}
@@ -285,6 +295,13 @@
             $.ajax.easySend( '{{ path('api_soul_change_password') }}', {'pw': pw_old, 'pw_new': pw_new1},
                 function () {
                     $.ajax.load(null, '{{ path('public_login') }}', true);
+                } )
+        });
+
+        $.html.addEventListenerAll('#acc_unremember_me', 'click', function(e) {
+            $.ajax.easySend( '{{ path('api_soul_unremember_me') }}', {},
+                function () {
+                    window.location.reload()
                 } )
         });
 

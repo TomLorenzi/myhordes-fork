@@ -8243,7 +8243,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Nach dem Angriff sind keine Verluste in den Reihen zu melden (zumindest keine in der Stadt). "Ja, ich denke aber schon, dass wir morgen Nacht alle sterben werden!", so %citizen1%, ein skeptischer Bürger.</source>
-        <target>Nach dem Angriff sind keine Verluste in den Reihen zu melden (zumindest keine in der Stadt). "Ja, ich denke aber schon, dass wir morgen Nacht alle sterben werden!", so %citizen1%, ein skeptischer Bürger.</target>
+        <target>No losses in the ranks to report following the attack (none in town at least). "Yeah, I guess, but we're all going to die tomorrow night!" according to %citizen1%, a sceptical citizen.</target>
       </segment>
     </unit>
     <unit id="i8FSlBg" name="425cdf4">
@@ -14491,7 +14491,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Die Stadt ist zerstört! Flieht, irh Narren!</source>
-        <target>This town id dead... Flee you poor fools!</target>
+        <target>This town is dead... Flee you poor fools!</target>
       </segment>
     </unit>
     <unit id="qjYW_3_" name="Leprechaun wurde gesehen, wie er den %item% von %victim% stahl!">
@@ -14752,7 +14752,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Ein neuer Tag bricht an</source>
-        <target>Ein neuer Tag bricht an</target>
+        <target>A new day is dawning</target>
       </segment>
     </unit>
     <unit id="QA25eiQ" name="An einem kalten Morgen">
@@ -14797,7 +14797,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>... allein</source>
-        <target>... allein</target>
+        <target>... alone</target>
       </segment>
     </unit>
     <unit id="spLHhcB" name="an der Seite von %citizen%">
@@ -14869,7 +14869,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Mysteriöse metereologische Phänomene haben gestern Nacht dafür gesorgt, dass sich bestimmte Zonen &lt;strong&gt;%sector% der Stadt&lt;/strong&gt; regeneriert haben.&lt;p&gt;&lt;em&gt;Es können dort durch Graben wieder Gegenstände gefunden werden, auch wenn die Zone zuvor leergesucht wurde!&lt;/em&gt;&lt;/p&gt;</source>
-        <target><![CDATA[Mysteriöse metereologische Phänomene haben gestern Nacht dafür gesorgt, dass sich bestimmte Zonen <strong>%sector% der Stadt</strong> regeneriert haben.<p><em>Es können dort durch Graben wieder Gegenstände gefunden werden, auch wenn die Zone zuvor leergesucht wurde!</em></p>]]></target>
+        <target><![CDATA[No doubt affected by the mysterious meterological phenomena which occur around midnight, certain zones <strong>in the %sector% not a million miles from the town</strong> could have regenerated.<p><em>So it will again be possible to find objects when searching, even if the zone was previously depleted!</em></p>]]></target>
       </segment>
     </unit>
     <unit id="88_o8Q3" name="Verlorenes Brunnenwasser: %count% Einhet(en)">
@@ -15571,7 +15571,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Mit dem Bau der(s) %upgrade% hat dein Haus Stufe %level% erreicht!</source>
-        <target>Mit dem Bau der(s) %upgrade% hat dein Haus Stufe %level% erreicht!</target>
+        <target>Evolution of the %upgrade% has successfully reached level %level% !</target>
       </segment>
     </unit>
     <unit id="X.vNUqq" name="Einen Bürger heimbringen:">
