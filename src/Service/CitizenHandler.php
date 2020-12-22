@@ -617,7 +617,7 @@ class CitizenHandler
         $camping_datetime = new DateTime();
         if ($citizen->getCampingTimestamp() > 0)
             $camping_datetime->setTimestamp( $citizen->getCampingTimestamp() );
-        if ($camping_datetime->format('G') >= 19 || $camping_datetime->format('G') < 7) {
+        if ($config->get(TownConf::CONF_FEATURE_NIGHTMODE) && $citizen->getTown()->isNight()) {
             $camping_values['night'] = 2;
         }
 
