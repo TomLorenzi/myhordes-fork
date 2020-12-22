@@ -2192,7 +2192,7 @@
       </notes>
       <segment>
         <source>Überall ausloggen</source>
-        <target>Überall ausloggen</target>
+        <target>Se déconnecter de partout</target>
       </segment>
     </unit>
     <unit id="nvlk12L" name="Auf allen Browsern &amp; Geräten abmelden">
@@ -2201,7 +2201,7 @@
       </notes>
       <segment>
         <source>Auf allen Browsern &amp; Geräten abmelden</source>
-        <target><![CDATA[Auf allen Browsern & Geräten abmelden]]></target>
+        <target><![CDATA[Déconnexion de tous les navigateurs et appareils]]></target>
       </segment>
     </unit>
     <unit id="AbYRB3R" name="82c4478">
@@ -2210,7 +2210,7 @@
       </notes>
       <segment>
         <source>Hiermit kannst du dich von allen Geräten und Browsern abmelden, auf denen du aktuell eingeloggt bist. Die "Login merken" Funktion wird hierdurch ebenfalls auf den betroffenen Geräten deaktiviert.</source>
-        <target>Hiermit kannst du dich von allen Geräten und Browsern abmelden, auf denen du aktuell eingeloggt bist. Die "Login merken" Funktion wird hierdurch ebenfalls auf den betroffenen Geräten deaktiviert.</target>
+        <target>Ce bouton vous permet de vous déconnecter de tous les appareils et navigateurs sur lesquels vous êtes actuellement connectés. La fonction "Rester connecté" sera également désactivée sur ces appareils.</target>
       </segment>
     </unit>
   </file>
