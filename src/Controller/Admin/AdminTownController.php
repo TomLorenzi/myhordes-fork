@@ -315,12 +315,13 @@ class AdminTownController extends AdminActionController
             $infos = explode("-", $target);
             /** @var Citizen $citizen */
             $citizen = $this->entity_manager->getRepository(Citizen::class)->find($infos[1]);
-            /** @var Item $item */
-            $item = $itemFactory->createItem($itemPrototype->getName(), $broken, $poison);
-            $item->setEssential($essential);
 
-            for ($i = 0 ; $i < $number ; $i++)
+            for ($i = 0 ; $i < $number ; $i++) {
+                /** @var Item $item */
+                $item = $itemFactory->createItem($itemPrototype->getName(), $broken, $poison);
+                $item->setEssential($essential);
                 $handler->forceMoveItem($infos[0] == "r" ? $citizen->getInventory() : $citizen->getHome()->getChest(), $item);
+            }
             
             $this->entity_manager->persist($citizen);
             $this->entity_manager->persist($citizen->getHome()->getChest());
