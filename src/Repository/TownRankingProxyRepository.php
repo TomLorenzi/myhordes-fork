@@ -19,16 +19,6 @@ class TownRankingProxyRepository extends ServiceEntityRepository
         parent::__construct($registry, TownRankingProxy::class);
     }
 
-    public function findEndedTowns(){
-        return $this->createQueryBuilder('t')
-            ->andWhere('t.end IS NOT NULL')
-            ->orWhere('t.imported = 1')
-            ->orderBy('t.id', 'ASC')
-            ->getQuery()
-            ->getResult()
-        ;
-    }
-
     // /**
     //  * @return TownRankingProxy[] Returns an array of TownRankingProxy objects
     //  */

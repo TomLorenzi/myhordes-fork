@@ -41,13 +41,35 @@ class AdminTownController extends AdminActionController
     }
 
     /**
-     * @Route("jx/admin/town/list/old", name="admin_old_town_list")
+     * @Route("jx/admin/town/list/old/{page}", name="admin_old_town_list", requirements={"page"="\d+"})
      * @return Response
      */
-    public function old_town_list(): Response
+    public function old_town_list($page = 1): Response
     {
+        if ($page <= 0) $page = 1;
+
+        // build the query for the doctrine paginator
+        $query = $this->entity_manager->getRepository(TownRankingProxy::class)->createQueryBuilder('t')
+            ->andWhere('t.end IS NOT NULL')
+            ->orWhere('t.imported = 1')
+            ->orderBy('t.id', 'ASC')
+            ->getQuery();
+
+        // Get the paginator
+        $paginator = new \Doctrine\ORM\Tools\Pagination\Paginator($query);
+
+        $pageSize = 20;
+        $totalItems = count($paginator);
+        $pagesCount = ceil($totalItems / $pageSize);
+
         return $this->render( 'ajax/admin/towns/old_towns_list.html.twig', $this->addDefaultTwigArgs('old_towns', [
-            'towns' => $this->entity_manager->getRepository(TownRankingProxy::class)->findEndedTowns(),
+            'towns' => $paginator
+                ->getQuery()
+                ->setFirstResult($pageSize * ($page-1)) // set the offset
+                ->setMaxResults($pageSize)
+                ->getResult(),
+            'currentPage' => $page,
+            'pagesCount' => $pagesCount
         ]));
     }
 
