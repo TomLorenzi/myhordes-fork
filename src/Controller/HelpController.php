@@ -20,11 +20,10 @@ class HelpController extends CustomAbstractController
 {
     /**
      * @Route("jx/help/{name}", name="help")
-     * @param Request $request
      * @param string $name
      * @return Response
      */
-    public function help(Request $request, string $name = 'welcome'): Response
+    public function help(string $name = 'welcome'): Response
     {
         if ($name === 'shell') return $this->redirect($this->generateUrl('help'));
         try {

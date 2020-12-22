@@ -1214,6 +1214,8 @@ class ActionHandler
 
                         if (!is_a( $target, Citizen::class )) break;
 
+                        if(!$target->getAlive()) break;
+
                         $role = $this->entity_manager->getRepository(CitizenRole::class)->findOneBy(['name' => $role_name]);
                         if(!$role) break;
 

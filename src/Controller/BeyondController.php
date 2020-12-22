@@ -123,7 +123,7 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
         } else return false;
     }
 
-    protected function addDefaultTwigArgs( ?string $section = null, ?array $data = null, $locale = null ): array {
+    protected function addDefaultTwigArgs( ?string $section = null, ?array $data = null ): array {
         $zone = $this->getActiveCitizen()->getZone();
         $blocked = !$this->zone_handler->check_cp($zone, $cp);
         $escape = $this->get_escape_timeout( $this->getActiveCitizen() );
@@ -186,7 +186,7 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
                 'can_drink' => !$this->citizen_handler->hasStatusEffect($this->getActiveCitizen(), 'hasdrunk'),
                 'can_eat' => !$this->citizen_handler->hasStatusEffect($this->getActiveCitizen(), 'haseaten')
             ]
-        ], $data, $this->get_map_blob()), $locale );
+        ], $data, $this->get_map_blob()) );
     }
 
     public function get_escape_timeout(Citizen $c): int {
@@ -207,7 +207,7 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
      * @param TownHandler $th
      * @return Response
      */
-    public function desert(TownHandler $th, Request $r, string $sect = null): Response
+    public function desert(TownHandler $th, string $sect = null): Response
     {
         if (!$this->getActiveCitizen()->getHasSeenGazette())
             return $this->redirect($this->generateUrl('game_newspaper'));
@@ -363,7 +363,7 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
             'camping_debug' => $camping_debug ?? '',
             'zone_tags' => $zone_tags ?? [],
             'sect' => $sect,
-        ], $r->getLocale()) );
+        ]) );
     }
 
     /**

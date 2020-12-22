@@ -635,14 +635,22 @@ class NightlyHandler
             }
             else {
                 $this->entity_manager->persist($this->logTemplates->citizenZombieAttackRepelled( $targets[$i], $def, $force));
-                $prevent_terror = $this->inventory_handler->countSpecificItems([$targets[$i]->getInventory(), $targets[$i]->getHome()->getChest()], 'prevent_terror', true) > 0;
-                if (!$has_kino && !$prevent_terror && $this->random->chance(0.75 * ($force/max(1,$def))) && !$this->citizen_handler->hasStatusEffect($targets[$i], $status_terror)) {
-                    $this->citizen_handler->inflictStatus( $targets[$i], $status_terror );
-                    $this->log->debug("Citizen <info>{$targets[$i]->getUser()->getUsername()}</info> now suffers from <info>{$status_terror->getLabel()}</info>");
+                // Calculate decoration
+                $deco = 0;
+                foreach ($targets[$i]->getHome()->getChest()->getItems() as $item)
+                    $deco += $item->getPrototype()->getDeco();
 
-                    $this->crow->postAsPM($targets[$i], '', '', PrivateMessage::TEMPLATE_CROW_TERROR, $force);
+                if (!$has_kino && !$this->citizen_handler->hasStatusEffect($targets[$i], $status_terror)) {
+                    if ($this->random->chance(1 - ($deco / 100))) {
+                        $this->citizen_handler->inflictStatus( $targets[$i], $status_terror );
+                        $this->log->debug("Citizen <info>{$targets[$i]->getUser()->getUsername()}</info> now suffers from <info>{$status_terror->getLabel()}</info>");
 
-                    $gazette->setTerror($gazette->getTerror() + 1);
+                        $this->crow->postAsPM($targets[$i], '', '', PrivateMessage::TEMPLATE_CROW_TERROR, $force);
+
+                        $gazette->setTerror($gazette->getTerror() + 1);
+                    } else {
+                        $this->crow->postAsPM($targets[$i], '', '', PrivateMessage::TEMPLATE_CROW_AVOID_TERROR, $force);
+                    }
                 }
             }
         }

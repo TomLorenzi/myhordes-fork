@@ -42,7 +42,7 @@ use Symfony\Contracts\Translation\TranslatorInterface;
  */
 class PublicController extends CustomAbstractController
 {
-    protected function addDefaultTwigArgs(?string $section = null, ?array $data = null, $locale = null ): array {
+    protected function addDefaultTwigArgs(?string $section = null, ?array $data = null): array {
         $data = parent::addDefaultTwigArgs($section, $data);
 
         $deadCitizenCount = count($this->entity_manager->getRepository(Citizen::class)->findBy(['alive' => 0]));
@@ -57,6 +57,7 @@ class PublicController extends CustomAbstractController
         $data['zombiesKilled'] = $zombiesKilled;
         $data['canibalismCount'] = $canibalismCount;
 
+        $locale = $this->container->get('request_stack')->getCurrentRequest()->getLocale();
         if ($locale) $locale = explode('_', $locale)[0];
         if (!in_array($locale, ['de','en','es','fr'])) $locale = null;
 
@@ -74,7 +75,7 @@ class PublicController extends CustomAbstractController
      * @param EternalTwinHandler $etwin
      * @return Response
      */
-    public function login(ConfMaster $conf, EternalTwinHandler $etwin, Request $r): Response
+    public function login(ConfMaster $conf, EternalTwinHandler $etwin): Response
     {
         if ($this->isGranted( 'ROLE_REGISTERED' ))
             return $this->redirect($this->generateUrl('initial_landing'));
@@ -85,7 +86,7 @@ class PublicController extends CustomAbstractController
         return $this->render(  $etwin->isReady() ? 'ajax/public/login.html.twig' : 'ajax/public/login_legacy.html.twig', $this->addDefaultTwigArgs(null, [
             'etwin' => $etwin->isReady(),
             'myh' => $allow_dual_stack,
-        ], $r->getLocale()) );
+        ]) );
     }
 
     /**
@@ -93,7 +94,7 @@ class PublicController extends CustomAbstractController
      * @param EternalTwinHandler $etwin
      * @return Response
      */
-    public function register(EternalTwinHandler $etwin, Request $r): Response
+    public function register(EternalTwinHandler $etwin): Response
     {
         if ($this->isGranted( 'ROLE_REGISTERED' ))
             return $this->redirect($this->generateUrl('initial_landing'));
@@ -101,7 +102,7 @@ class PublicController extends CustomAbstractController
         if ($etwin->isReady())
             return $this->redirect($this->generateUrl('public_login'));
 
-        return $this->render( 'ajax/public/register.html.twig',  $this->addDefaultTwigArgs(null, [], $r->getLocale()) );
+        return $this->render( 'ajax/public/register.html.twig',  $this->addDefaultTwigArgs() );
     }
 
     /**
@@ -581,9 +582,9 @@ class PublicController extends CustomAbstractController
      * @Route("jx/public/welcome", name="public_welcome")
      * @return Response
      */
-    public function welcome(Request $r): Response
+    public function welcome(): Response
     {
-        return $this->render('ajax/public/intro.html.twig', $this->addDefaultTwigArgs(null, [], $r->getLocale()));
+        return $this->render('ajax/public/intro.html.twig', $this->addDefaultTwigArgs());
     }
 
     /**
