@@ -648,7 +648,7 @@ class SoulController extends CustomAbstractController
      * @param int $id
      * @return Response
      */
-    public function soul_visit(int $id): Response
+    public function soul_visit(int $id, Request $r): Response
     {
         $current_user = $this->getUser();
 
@@ -664,9 +664,9 @@ class SoulController extends CustomAbstractController
         $pictos = $this->entity_manager->getRepository(Picto::class)->findNotPendingByUser($user);
     	$points = $this->user_handler->getPoints($user);
 
-        $referer = null; // get the referer, it can be empty!
-        $returnUrl = $this->generateUrl('soul_me');
-        //TODO: get referer, generate URL to return to it
+        $returnUrl = null; // TODO: get the referer, it can be empty!
+        if(empty($returnUrl))
+            $returnUrl = $this->generateUrl('soul_me');
 
         $cac = $current_user->getActiveCitizen();
         $uac = $user->getActiveCitizen();

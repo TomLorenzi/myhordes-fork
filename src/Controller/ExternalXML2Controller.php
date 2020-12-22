@@ -43,7 +43,8 @@ class ExternalXML2Controller extends ExternalController {
      * @return Response|User Error or the user linked to the user_key
      */
     private function check_keys($must_be_secure = false) {
-        $request = Request::createFromGlobals();
+        /** @var Request $request */
+        $request = $this->container->get('request_stack')->getCurrentRequest();
 
         // Try POST data
         $app_key = $request->query->get('appkey');
@@ -57,14 +58,8 @@ class ExternalXML2Controller extends ExternalController {
         if (trim($user_key) == '') {
             $user_key = $request->request->get('userkey');
         }
-        // Try POST data
-        $language = $request->query->get('lang');
 
-        if (trim($language) == '') {
-            $language = $request->request->get('lang');
-        }
-
-        $data = $this->getHeaders($language);
+        $data = $this->getHeaders();
 
         if(trim($user_key) == '') {
             $data['error']['attributes'] = ['code' => "missing_key"];
@@ -160,7 +155,7 @@ class ExternalXML2Controller extends ExternalController {
             $this->translator->setLocale($language);
 
         // Base data.
-        $data = $this->getHeaders($language);
+        $data = $this->getHeaders();
 
         /** @var Citizen $citizen */
         $citizen = $user->getActiveCitizen();
@@ -212,7 +207,7 @@ class ExternalXML2Controller extends ExternalController {
                             'count' => 1,
                             'id' => $item->getPrototype()->getId(),
                             'cat' => $item->getPrototype()->getCategory()->getName(),
-                            'img' => $this->asset->getUrl( "build/images/item/item_{$item->getPrototype()->getIcon()}.gif"), // TODO: Fix img name to reflect real generated name
+                            'img' => $this->asset->getUrl( "build/images/item/item_{$item->getPrototype()->getIcon()}.gif"),
                             'broken' => intval($item->getBroken())
                         ]
                     ];
@@ -267,7 +262,7 @@ class ExternalXML2Controller extends ExternalController {
                     'name' => $this->translator->trans($picto['label'], [], 'game'),
                     'rare' => intval($picto['rare']),
                     'n' => $picto['c'],
-                    'img' => $this->asset->getUrl( "build/images/pictos/{$picto['icon']}.gif"), // TODO: Fix img name to reflect real generated name
+                    'img' => $this->asset->getUrl( "build/images/pictos/{$picto['icon']}.gif"),
                 ],
                 'list' => [
                     'name' => 'title',
@@ -393,7 +388,7 @@ class ExternalXML2Controller extends ExternalController {
         }
 
         // Base data.
-        $data = $this->getHeaders($language);
+        $data = $this->getHeaders();
 
         /** @var User $user */
         /** @var Citizen $citizen */
@@ -452,7 +447,7 @@ class ExternalXML2Controller extends ExternalController {
                             'count' => 1,
                             'id' => $item->getPrototype()->getId(),
                             'cat' => $item->getPrototype()->getCategory()->getName(),
-                            'img' => $this->asset->getUrl( "build/images/item/item_{$item->getPrototype()->getIcon()}.gif"), // TODO: Fix img name to reflect real generated name
+                            'img' => $this->asset->getUrl( "build/images/item/item_{$item->getPrototype()->getIcon()}.gif"),
                             'broken' => intval($item->getBroken())
                         ]
                     ];
@@ -842,13 +837,22 @@ class ExternalXML2Controller extends ExternalController {
         return $text;
     }
 
-    protected function getHeaders($language) {
-        file_put_contents("/tmp/dump.txt", print_r($this->container->get('router')->getContext()->getPathInfo(), true));
+    protected function getHeaders() {
+        $request = $this->container->get('request_stack')->getCurrentRequest();
+        $language = $request->query->get('lang');
+
+        if (trim($language) == '') {
+            $language = $request->request->get('lang');
+        }
+
+        if(empty($language))
+            $language = $request->getLocale() ?? 'de';
+
         return [
             'headers' => [
                 'attributes' => [
                     'link' => "//" . Request::createFromGlobals()->headers->get('host') . Request::createFromGlobals()->getPathInfo(),
-                    'iconurl' => "//" . Request::createFromGlobals()->headers->get('host') . dirname(Request::createFromGlobals()->headers->get('document_uri')), // TODO: Give base path
+                    'iconurl' => "//" . Request::createFromGlobals()->headers->get('host'), // TODO: Give base path
                     'avatarurl' => "//" . Request::createFromGlobals()->headers->get('host') . '/cdn/avatar/', // TODO: Find a way to set this dynamic (see WebController::avatar for reference)
                     'secure' => intval($this->isSecureRequest()),
                     'author' => 'MyHordes',
