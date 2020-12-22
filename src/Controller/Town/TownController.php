@@ -16,6 +16,7 @@ use App\Entity\CitizenVote;
 use App\Entity\Complaint;
 use App\Entity\ComplaintReason;
 use App\Entity\ExpeditionRoute;
+use App\Entity\ItemProperty;
 use App\Entity\ItemPrototype;
 use App\Entity\LogEntryTemplate;
 use App\Entity\PictoPrototype;
@@ -23,6 +24,7 @@ use App\Entity\ShoutboxEntry;
 use App\Entity\ShoutboxReadMarker;
 use App\Entity\PrivateMessage;
 use App\Entity\SpecialActionPrototype;
+use App\Entity\Town;
 use App\Entity\User;
 use App\Entity\ZombieEstimation;
 use App\Entity\Zone;
@@ -141,6 +143,8 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
             $data['votesNeeded'] = $this->get_needed_votes();
 
         $data["new_message"] = $this->citizen_handler->hasNewMessage($this->getActiveCitizen());
+        $data['can_do_insurrection'] = $this->getActiveCitizen()->getBanished() && !$this->citizen_handler->hasStatusEffect($this->getActiveCitizen(), "tg_insurrection") && $town->getInsurrectionProgress() < 100;
+        $data['has_insurrection_part'] = $this->citizen_handler->hasStatusEffect($this->getActiveCitizen(), "tg_insurrection");
         return parent::addDefaultTwigArgs( $section, $data );
     }
 
@@ -1813,5 +1817,65 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
         $this->entity_manager->flush();
 
         return AjaxResponse::success();
+    }
+
+    /**
+     * @Route("api/town/insurrect", name="town_insurrect")
+     * @return Response
+     */
+    public function do_insurrection(): Response
+    {
+        /** @var Citizen $citizen */
+        $citizen = $this->getUser()->getActiveCitizen();
+
+        if($this->citizen_handler->hasStatusEffect($citizen, "tg_insurrection"))
+            return AjaxResponse::error(ErrorHelper::ErrorActionNotAvailable);
+
+        /** @var Town $town */
+        $town = $citizen->getTown();
+
+        $non_shunned = 0;
+
+        //TODO: This needs huuuuge statistics
+
+        foreach ($town->getCitizens() as $foreinCitizen)
+            if ($foreinCitizen->getAlive() && !$foreinCitizen->getBanished()) $non_shunned++;
+
+        $town->setInsurrectionProgress($town->getInsurrectionProgress() + intval(round(100 / $non_shunned)));
+
+        if ($town->getInsurrectionProgress() >= 100) {
+
+            // Let's do the insurrection !
+            $town->setInsurrectionProgress(100);
+
+            $bank = $citizen->getTown()->getBank();
+            $impound_prop = $this->entity_manager->getRepository(ItemProperty::class)->findOneBy(['name' => 'impoundable' ]);
+
+            foreach ($town->getCitizens() as $foreinCitizen) {
+                if(!$foreinCitizen->getAlive()) continue;
+
+                if ($foreinCitizen->getBanished())
+                    $foreinCitizen->setBanished(false);
+                else {
+                    $foreinCitizen->setBanished(true);
+                    foreach ($foreinCitizen->getInventory()->getItems() as $item)
+                        if (!$item->getEssential() && $item->getPrototype()->getProperties()->contains( $impound_prop ))
+                            $this->inventory_handler->forceMoveItem( $bank, $item );
+                    foreach ($foreinCitizen->getHome()->getChest()->getItems() as $item)
+                        if (!$item->getEssential() && $item->getPrototype()->getProperties()->contains( $impound_prop ))
+                            $this->inventory_handler->forceMoveItem( $bank, $item );
+                    $this->picto_handler->give_picto($foreinCitizen, "r_ban_#00");
+                }
+
+                $this->entity_manager->persist($foreinCitizen);
+            }
+        }
+
+        $this->citizen_handler->inflictStatus($citizen, "tg_insurrection");
+
+        $this->entity_manager->persist($town);
+        $this->entity_manager->flush();
+
+        return AjaxResponse::success( true, ['url' => $this->generateUrl('town_dashboard')]);
     }
 }
