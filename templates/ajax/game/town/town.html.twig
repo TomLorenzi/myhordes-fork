@@ -9,6 +9,29 @@
             {% elseif town.insurrectionProgress >= 100 %}
 	           <div class="header-menu insurrect"></div>
             {% endif %}
+            {% if citizen.banished %}
+                <div class="banished-info">
+                    <img alt="" src="{{ asset('build/images/icons/banished.gif') }}" /> You have been shunned ! <a class="help-button"><div class="tooltip help">{{ 'As a <strong>pariah</strong>, you don\'t have access to community tools of the town : bank, buildings, door, etc...'|trans({},'global')|raw }}</div>{{ 'Hilfe'|trans({},'global') }}</a>
+                </div>
+                {% if has_insurrection_part %}
+                    <div class="banished-info">
+                        <em>{{ 'Lage:'|trans({}, 'game') }}</em>
+                    {% if town.insurrectionProgress >= 0 and town.insurrectionProgress < 20 %}
+                        L'insurrection n'est pas pour tout de suite...
+                    {% elseif town.insurrectionProgress >= 20 and town.insurrectionProgress < 40 %}
+                        les premières tensions apparaissent.
+                    {% elseif town.insurrectionProgress >= 40 and town.insurrectionProgress < 60 %}
+                        Nous sommes en bonne voie.
+                    {% elseif town.insurrectionProgress >= 60 and town.insurrectionProgress < 80 %}
+                        La fin est proche...
+                    {% elseif town.insurrectionProgress >= 80 %}
+                        Insurrection imminente !
+                    {% endif %}
+                    </div>
+                {% elseif can_do_insurrection %}
+                    <button id="do_insurrection"><img alt="" src="{{ asset('build/images/actions/insurrect.gif') }}" /> {{'Auf den Aufstand hinarbeiten'|trans({}, 'game')}}</button>
+                {% endif %}
+            {% endif %}
             {% set hour = "now"|date("G") %}
             <div class="row town-menu {% if town.isNight %}night{% endif %}">
                 <div class="padded-small cell rw-12 town-overview {% if menu_section == '' %}selected{% endif %}">
@@ -108,5 +131,15 @@
 {% block js %}
     {{ parent() }}
     <script>
+        {% if can_do_insurrection %}
+        let insurrectbtn = document.getElementById('do_insurrection');
+        if(insurrectbtn) insurrectbtn.addEventListener('click', function(){
+            if (confirm('{{ 'Bestätigen?'|trans({},'global') }}'))
+                $.ajax.easySend( '{{ path('town_insurrect') }}', {},
+                    function () {
+                        $.ajax.load(null, '{{ path('town_dashboard') }}', true);
+                    } );
+        });
+        {% endif %}
     </script>
 {% endblock %}

@@ -1,21 +1,28 @@
 @import (once) "../theme";
 
-#users-list-admin {
+#users-list-admin,
+#towns-list-admin {
   position: relative; overflow: visible;
-  #users-list {
+  #users-list,
+  #towns-list {
     position: absolute; margin: 0; display: block; background: @myhordes-cell-header-background-color;
     width:300px; max-height: 200px; overflow: auto; z-index: 1; border: 1px solid @myhordes-smalltext;
     outline: 1px solid black; box-shadow: 0 0 3px black;
     &:empty { visibility: hidden; }
 
-    .users-list-entry {
+    .users-list-entry,
+    .towns-list-entry {
       margin-bottom: 4px; margin-right: 4px; cursor: pointer;
       &:hover { background: rgba(255,255,255,0.2); }
       div { text-overflow: ellipsis; cursor: pointer; font-size: .8em; font-variant: unset; text-transform: none; }
+      &.towns-list-entry span {
+        width: 40px;
+        background: none;
+      }
     }
   }
 
-  input#users-search { width: 20rem; display: inline; }
+  input#users-search, input#town-search { width: 20rem; display: inline; }
 }
 
 .adm-exploration {

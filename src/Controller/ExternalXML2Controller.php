@@ -378,6 +378,9 @@ class ExternalXML2Controller extends ExternalController {
             $language = $request->request->get('lang');
         }
 
+        if(trim($language == ''))
+            $language = $request->getLocale();
+
         if(!in_array($language, ['en', 'fr', 'de', 'es', 'all'])) {
             // Still no data, we use the user lang, or the deutsch as latest fallback
             $language = $user->getLanguage() ?? 'de';

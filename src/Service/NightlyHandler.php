@@ -110,7 +110,7 @@ class NightlyHandler
     }
 
     private function stage1_prepare(Town $town) {
-        $this->log->info('<info>Checking insurrection status</info> ...');
+        /*$this->log->info('<info>Checking insurrection status</info> ...');
 
         if ($town->getInsurrectionProgress() > 0)
             foreach ($town->getCitizens() as $citizen)
@@ -119,6 +119,7 @@ class NightlyHandler
                     $town->setInsurrectionProgress(0);
                     break;
                 }
+        */
     }
 
     private function stage1_vanish(Town $town) {
