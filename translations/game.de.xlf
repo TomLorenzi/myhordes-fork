@@ -15775,5 +15775,86 @@
                     Nichts, was der Mühe wert wäre.</target>
       </segment>
     </unit>
+    <unit id="lo3tdoY" name="Was für eine schreckliche Nacht!">
+      <notes>
+        <note category="german">Was für eine schreckliche Nacht!</note>
+      </notes>
+      <segment>
+        <source>Was für eine schreckliche Nacht!</source>
+        <target>Was für eine schreckliche Nacht!</target>
+      </segment>
+    </unit>
+    <unit id="pPZiySm" name="778f93b">
+      <notes>
+        <note category="german">Heute Nacht ist dir der Arsch so richtig auf Grundeis gegangen! Als du ihr Grunzen und Stöhnen gehört hattest, war dir klar: Sie würden bei dir daheim eindringen. So kam es dann auch: Deine Haustür splitterte unter der Last ihrer Angriffe. Panisch bist du ins Schlafzimmer gerannt, um dich unter deinem Bett zu verstecken. Sie blieben ein paar Minuten, die dir wie eine Ewigkeit vorkamen, und schnüffelten sich durch alle Zimmer. Innerlich zitternd, hast du zu Gott gebetet, dass sie dich verschonen mögen. Dann war plötzlich wieder alles still. Hechelnd und schnaufend bist du aus deinem Versteck hervorgekrochen und heulend auf deinem Bett zusammengesunken.</note>
+      </notes>
+      <segment>
+        <source>Heute Nacht ist dir der Arsch so richtig auf Grundeis gegangen! Als du ihr Grunzen und Stöhnen gehört hattest, war dir klar: Sie würden bei dir daheim eindringen. So kam es dann auch: Deine Haustür splitterte unter der Last ihrer Angriffe. Panisch bist du ins Schlafzimmer gerannt, um dich unter deinem Bett zu verstecken. Sie blieben ein paar Minuten, die dir wie eine Ewigkeit vorkamen, und schnüffelten sich durch alle Zimmer. Innerlich zitternd, hast du zu Gott gebetet, dass sie dich verschonen mögen. Dann war plötzlich wieder alles still. Hechelnd und schnaufend bist du aus deinem Versteck hervorgekrochen und heulend auf deinem Bett zusammengesunken.</source>
+        <target>Heute Nacht ist dir der Arsch so richtig auf Grundeis gegangen! Als du ihr Grunzen und Stöhnen gehört hattest, war dir klar: Sie würden bei dir daheim eindringen. So kam es dann auch: Deine Haustür splitterte unter der Last ihrer Angriffe. Panisch bist du ins Schlafzimmer gerannt, um dich unter deinem Bett zu verstecken. Sie blieben ein paar Minuten, die dir wie eine Ewigkeit vorkamen, und schnüffelten sich durch alle Zimmer. Innerlich zitternd, hast du zu Gott gebetet, dass sie dich verschonen mögen. Dann war plötzlich wieder alles still. Hechelnd und schnaufend bist du aus deinem Versteck hervorgekrochen und heulend auf deinem Bett zusammengesunken.</target>
+      </segment>
+    </unit>
+    <unit id="_2vb9p1" name="Du wurdest verbannt!">
+      <notes>
+        <note category="german">Du wurdest verbannt!</note>
+      </notes>
+      <segment>
+        <source>Du wurdest verbannt!</source>
+        <target>Du wurdest verbannt!</target>
+      </segment>
+    </unit>
+    <unit id="dVyLKp_" name="Status:">
+      <notes>
+        <note category="german">Status:</note>
+      </notes>
+      <segment>
+        <source>Status:</source>
+        <target>Status:</target>
+      </segment>
+    </unit>
+    <unit id="x50DxZR" name="Eine Revolte liegt in weiter Ferne...">
+      <notes>
+        <note category="german">Eine Revolte liegt in weiter Ferne...</note>
+      </notes>
+      <segment>
+        <source>Eine Revolte liegt in weiter Ferne...</source>
+        <target>Eine Revolte liegt in weiter Ferne...</target>
+      </segment>
+    </unit>
+    <unit id="x_WVlWR" name="Erste Spannungen bilden sich.">
+      <notes>
+        <note category="german">Erste Spannungen bilden sich.</note>
+      </notes>
+      <segment>
+        <source>Erste Spannungen bilden sich.</source>
+        <target>Erste Spannungen bilden sich.</target>
+      </segment>
+    </unit>
+    <unit id="LL.dGkI" name="Wir machen Fortschritte.">
+      <notes>
+        <note category="german">Wir machen Fortschritte.</note>
+      </notes>
+      <segment>
+        <source>Wir machen Fortschritte.</source>
+        <target>Wir machen Fortschritte.</target>
+      </segment>
+    </unit>
+    <unit id="id8VuDJ" name="Das Ende ist nah.">
+      <notes>
+        <note category="german">Das Ende ist nah.</note>
+      </notes>
+      <segment>
+        <source>Das Ende ist nah.</source>
+        <target>Das Ende ist nah.</target>
+      </segment>
+    </unit>
+    <unit id="DqJn30N" name="Die Revolte steht bevor!">
+      <notes>
+        <note category="german">Die Revolte steht bevor!</note>
+      </notes>
+      <segment>
+        <source>Die Revolte steht bevor!</source>
+        <target>Die Revolte steht bevor!</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
