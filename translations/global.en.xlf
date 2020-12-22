@@ -1754,7 +1754,7 @@
       </notes>
       <segment>
         <source>Kein</source>
-        <target>Kein</target>
+        <target>None</target>
       </segment>
     </unit>
     <unit id="Yx7n3Xy" name="728d63e">
@@ -1910,7 +1910,7 @@
       </notes>
       <segment>
         <source>Alle Foren</source>
-        <target>Home</target>
+        <target>Global Forums</target>
       </segment>
     </unit>
   </file>

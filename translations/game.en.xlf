@@ -8243,7 +8243,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Nach dem Angriff sind keine Verluste in den Reihen zu melden (zumindest keine in der Stadt). "Ja, ich denke aber schon, dass wir morgen Nacht alle sterben werden!", so %citizen1%, ein skeptischer Bürger.</source>
-        <target>Nach dem Angriff sind keine Verluste in den Reihen zu melden (zumindest keine in der Stadt). "Ja, ich denke aber schon, dass wir morgen Nacht alle sterben werden!", so %citizen1%, ein skeptischer Bürger.</target>
+        <target>No losses in the ranks to report following the attack (none in town at least). "Yeah, I guess, but we're all going to die tomorrow night!" according to %citizen1%, a sceptical citizen.</target>
       </segment>
     </unit>
     <unit id="i8FSlBg" name="425cdf4">
@@ -15571,7 +15571,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Mit dem Bau der(s) %upgrade% hat dein Haus Stufe %level% erreicht!</source>
-        <target>Mit dem Bau der(s) %upgrade% hat dein Haus Stufe %level% erreicht!</target>
+        <target>Evolution of the %upgrade% has successfully reached level %level% !</target>
       </segment>
     </unit>
     <unit id="X.vNUqq" name="Einen Bürger heimbringen:">
