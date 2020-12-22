@@ -144,6 +144,9 @@ class TownHomeController extends TownController
                     case PrivateMessage::TEMPLATE_CROW_TERROR:
                         $thread->setTitle( $trans->trans('Du bist vor Angst erstarrt!!', [], 'game') );
                         break;
+                    case PrivateMessage::TEMPLATE_CROW_AVOID_TERROR:
+                        $thread->setTitle( $trans->trans('Was für eine schreckliche Nacht!', [], 'game') );
+                        break;
                     case PrivateMessage::TEMPLATE_CROW_THEFT:
                         $thread->setTitle( $trans->trans('Haltet den Dieb!', [], 'game') );
                         break;
