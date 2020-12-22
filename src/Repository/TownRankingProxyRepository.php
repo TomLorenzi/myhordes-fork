@@ -19,6 +19,17 @@ class TownRankingProxyRepository extends ServiceEntityRepository
         parent::__construct($registry, TownRankingProxy::class);
     }
 
+    /**
+     * @return TownRankingProxy[] Returns an array of TownRankingProxy objects
+     * @param string $value Value to search for
+     */
+    public function findByNameContains(string $value)
+    {
+        return $this->createQueryBuilder('t')
+            ->andWhere('t.name LIKE :val')->setParameter('val', '%' . $value . '%')
+            ->getQuery()->getResult();
+    }
+
     // /**
     //  * @return TownRankingProxy[] Returns an array of TownRankingProxy objects
     //  */

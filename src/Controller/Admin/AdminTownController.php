@@ -10,6 +10,8 @@ use App\Entity\Picto;
 use App\Entity\PictoPrototype;
 use App\Entity\Town;
 use App\Entity\TownRankingProxy;
+use App\Entity\TwinoidImportPreview;
+use App\Entity\User;
 use App\Entity\Zone;
 use App\Response\AjaxResponse;
 use App\Service\ErrorHelper;
@@ -18,6 +20,7 @@ use App\Service\InventoryHandler;
 use App\Service\ItemFactory;
 use App\Service\JSONRequestParser;
 use App\Service\NightlyHandler;
+use Doctrine\ORM\EntityManagerInterface;
 use Error;
 use Exception;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
@@ -406,5 +409,45 @@ class AdminTownController extends AdminActionController
         $this->entity_manager->flush();
 
         return AjaxResponse::success();
+    }
+
+    /**
+     * @Route("jx/admin/towns/old/fuzzyfind", name="admin_old_towns_fuzzyfind")
+     * @param JSONRequestParser $parser
+     * @param EntityManagerInterface $em
+     * @return Response
+     */
+    public function old_towns_fuzzyfind(JSONRequestParser $parser, EntityManagerInterface $em): Response
+    {
+        if (!$parser->has_all(['name'], true))
+            return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+        $towns = $em->getRepository(TownRankingProxy::class)->findByNameContains($parser->get('name'));
+
+        return $this->render( 'ajax/admin/towns/townlist.html.twig', $this->addDefaultTwigArgs("admin_towns", [
+            'towns' => $towns,
+            'nohref' => $parser->get('no-href',false),
+            'target' => 'admin_old_town_explorer'
+        ]));
+    }
+
+    /**
+     * @Route("jx/admin/towns/fuzzyfind", name="admin_towns_fuzzyfind")
+     * @param JSONRequestParser $parser
+     * @param EntityManagerInterface $em
+     * @return Response
+     */
+    public function towns_fuzzyfind(JSONRequestParser $parser, EntityManagerInterface $em): Response
+    {
+        if (!$parser->has_all(['name'], true))
+            return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+        $towns = $em->getRepository(Town::class)->findByNameContains($parser->get('name'));
+
+        return $this->render( 'ajax/admin/towns/townlist.html.twig', $this->addDefaultTwigArgs("admin_towns", [
+            'towns' => $towns,
+            'nohref' => $parser->get('no-href',false),
+            'target' => 'admin_town_explorer'
+        ]));
     }
 }
