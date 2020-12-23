@@ -107,6 +107,11 @@ class Requirement
      */
     private $day;
 
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $custom;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -306,6 +311,18 @@ class Requirement
     public function setDay(?RequireDay $day): self
     {
         $this->day = $day;
+
+        return $this;
+    }
+
+    public function getCustom(): ?int
+    {
+        return $this->custom;
+    }
+
+    public function setCustom(?int $custom): self
+    {
+        $this->custom = $custom;
 
         return $this;
     }
