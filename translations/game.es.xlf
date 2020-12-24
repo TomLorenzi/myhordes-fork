@@ -5101,7 +5101,7 @@
       </notes>
       <segment>
         <source>Anmerkung: Verteidigungsgegenstände (Holzplatten etc...) müssen in der Bank abgelegt werden.</source>
-        <target><![CDATA[<em>Recuerda: Los objetos de defensa (planchas de madera, etc.) deben ser colocados en el Almacén.</em>]]></target>
+        <target><![CDATA[Recuerda: Los objetos de defensa (planchas de madera, etc.) deben ser colocados en el Almacén.]]></target>
       </segment>
     </unit>
     <unit id="p7WJjEO" name="cabb91e">
@@ -7180,7 +7180,7 @@
       </notes>
       <segment>
         <source>Du erhälst einen Bauplan, wenn Du in diesem Gebäude campst.</source>
-        <target><![CDATA[Obtendrás un <strong>plano de obras</strong> si pasas la noche aquí.]]></target>
+        <target><![CDATA[Obtendrás un plano de obras si pasas la noche aquí.]]></target>
       </segment>
     </unit>
     <unit id="XZI.RVp" name="Hier wurde bereits ein Bauplan gefunden.">
@@ -7189,7 +7189,7 @@
       </notes>
       <segment>
         <source>Hier wurde bereits ein Bauplan gefunden.</source>
-        <target><![CDATA[Este edificio ya fue inspeccionado por otro jugador y no contiene ningún <strong>plano de obras</strong>...]]></target>
+        <target><![CDATA[Este edificio ya fue inspeccionado por otro jugador y no contiene ningún plano de obras...]]></target>
       </segment>
     </unit>
     <unit id="r0eixUa" name="%citizen% will zurück zur Stadt und wird dir nicht in diese Richtung folgen.">
@@ -7198,7 +7198,7 @@
       </notes>
       <segment>
         <source>%citizen% will zurück zur Stadt und wird dir nicht in diese Richtung folgen.</source>
-        <target><![CDATA[¡%citizen% no quiere ir en esa dirección! <strong>Este habitante te pide que lo lleves al pueblo</strong>.]]></target>
+        <target><![CDATA[¡%citizen% no quiere ir en esa dirección! Este habitante te pide que lo lleves al pueblo.]]></target>
       </segment>
     </unit>
     <unit id="KnJXiGc" name="Die Tarnung von %name% ist aufgeflogen!">
@@ -7216,7 +7216,7 @@
       </notes>
       <segment>
         <source>Der Gegenstand, den du soeben gefunden hast, passt nicht in deinen Rucksack, darum bleibt er erstmal am Boden...</source>
-        <target><![CDATA[No puedes cargar este objeto, no te queda más que <strong>abandonarlo en el suelo</strong>...]]></target>
+        <target><![CDATA[No puedes cargar este objeto, no te queda más que abandonarlo en el suelo...]]></target>
       </segment>
     </unit>
     <unit id="2MBbf8L" name="416726b">
