@@ -9001,7 +9001,7 @@
       </notes>
       <segment>
         <source>Zeuge der großen Verseuchung</source>
-        <target>Testido de la Gran Contaminación</target>
+        <target>Testigo de la Gran Contaminación</target>
       </segment>
     </unit>
     <unit id="rcOyjHS" name="9573217">
@@ -15381,7 +15381,7 @@
       </notes>
       <segment>
         <source>Sind wir noch in der Alpha?</source>
-        <target>Sind wir noch in der Alpha?</target>
+        <target>¿Ya salimos de la verisón Alfa?</target>
       </segment>
     </unit>
     <unit id="OA64trN" name="f4f78aa">
@@ -15390,7 +15390,7 @@
       </notes>
       <segment>
         <source>Dies ist eine äußerst seltene Belohnung, die den ersten MyHordes-Spielern vorbehalten ist, die das Finale mit großem F erlebt haben.</source>
-        <target>Dies ist eine äußerst seltene Belohnung, die den ersten MyHordes-Spielern vorbehalten ist, die das Finale mit großem F erlebt haben.</target>
+        <target>Esta es una distinción extremadamente rara reservada a los primeros jugadores de MyHordes, quienes presenciaron el final, uno con F mayúscula.</target>
       </segment>
     </unit>
     <unit id="Oys88cl" name="1a715ee">
@@ -15408,7 +15408,7 @@
       </notes>
       <segment>
         <source>[ Es riecht nach Tannenzapfen... ]</source>
-        <target>[ Es riecht nach Tannenzapfen... ]</target>
+        <target>[ ¿Quién fue el asqueroso...? ]</target>
       </segment>
     </unit>
     <unit id="PgQR75x" name="Zahlreiche Diebstähle begangen">
@@ -15417,7 +15417,7 @@
       </notes>
       <segment>
         <source>Zahlreiche Diebstähle begangen</source>
-        <target>Zahlreiche Diebstähle begangen</target>
+        <target>Demasiados robos cometidos</target>
       </segment>
     </unit>
     <unit id="dD9OHg_" name="Verbraucht zuviel Wasser">
@@ -15426,7 +15426,7 @@
       </notes>
       <segment>
         <source>Verbraucht zuviel Wasser</source>
-        <target>Verbraucht zuviel Wasser</target>
+        <target>Consume demasiada agua</target>
       </segment>
     </unit>
     <unit id="W43lmes" name="Beleidigendes Verhalten">
@@ -15435,7 +15435,7 @@
       </notes>
       <segment>
         <source>Beleidigendes Verhalten</source>
-        <target>Beleidigendes Verhalten</target>
+        <target>Insultos o mal comportamiento</target>
       </segment>
     </unit>
     <unit id="rnxNxyC" name="Blockiert die Baustelle">
@@ -15444,7 +15444,7 @@
       </notes>
       <segment>
         <source>Blockiert die Baustelle</source>
-        <target>Blockiert die Baustelle</target>
+        <target>Bloquea las construcciones</target>
       </segment>
     </unit>
     <unit id="GTtLJm1" name="Expeditionssaboteur">
@@ -15453,7 +15453,7 @@
       </notes>
       <segment>
         <source>Expeditionssaboteur</source>
-        <target>Expeditionssaboteur</target>
+        <target>Sabotaje a la expedición</target>
       </segment>
     </unit>
     <unit id="qSX7vRE" name="Geht kein Risiko ein">
@@ -15462,7 +15462,7 @@
       </notes>
       <segment>
         <source>Geht kein Risiko ein</source>
-        <target>Geht kein Risiko ein</target>
+        <target>Siempre se queda en casa</target>
       </segment>
     </unit>
     <unit id="Dn0tq6e" name="Handelt zu egoistisch">
@@ -15471,7 +15471,7 @@
       </notes>
       <segment>
         <source>Handelt zu egoistisch</source>
-        <target>Handelt zu egoistisch</target>
+        <target>Juega siempre solo</target>
       </segment>
     </unit>
     <unit id="g8qlqWr" name="Gemeinschaftsfreak">
@@ -15480,7 +15480,7 @@
       </notes>
       <segment>
         <source>Gemeinschaftsfreak</source>
-        <target>Gemeinschaftsfreak</target>
+        <target>Extremista comunitario</target>
       </segment>
     </unit>
     <unit id="SuxYV1H" name="Bringt sich nicht genug ein">
@@ -15489,7 +15489,7 @@
       </notes>
       <segment>
         <source>Bringt sich nicht genug ein</source>
-        <target>Bringt sich nicht genug ein</target>
+        <target>No participa casi nunca</target>
       </segment>
     </unit>
     <unit id="NghQlFT" name="Hortet zu viele Gegenstände">
@@ -15498,7 +15498,7 @@
       </notes>
       <segment>
         <source>Hortet zu viele Gegenstände</source>
-        <target>Hortet zu viele Gegenstände</target>
+        <target>Guarda todo para sí mismo</target>
       </segment>
     </unit>
     <unit id="aCap5cU" name="Aggressiver Mitbürger">
@@ -15507,7 +15507,7 @@
       </notes>
       <segment>
         <source>Aggressiver Mitbürger</source>
-        <target>Aggressiver Mitbürger</target>
+        <target>¡Habitante agresivo!</target>
       </segment>
     </unit>
     <unit id="Bhi4A01" name="Du hast am Bauprojekt %plan% mitgeholfen.">
@@ -15516,7 +15516,7 @@
       </notes>
       <segment>
         <source>Du hast am Bauprojekt %plan% mitgeholfen.</source>
-        <target>Du hast am Bauprojekt %plan% mitgeholfen.</target>
+        <target>Has contribuido a la construcción de %plan%.</target>
       </segment>
     </unit>
     <unit id="U9LSFlB" name="Herzlichen Glückwunsch! Du hast deine Behausung in ein(e) %home% verwandelt.">
@@ -15525,7 +15525,7 @@
       </notes>
       <segment>
         <source>Herzlichen Glückwunsch! Du hast deine Behausung in ein(e) %home% verwandelt.</source>
-        <target>Herzlichen Glückwunsch! Du hast deine Behausung in ein(e) %home% verwandelt.</target>
+        <target>¡Felicitaciones! Ahora vives en un %home% verwandelt.</target>
       </segment>
     </unit>
     <unit id="CZg55p2" name="Folgenden Dinge wurden dazu gebraucht:">
@@ -15534,7 +15534,7 @@
       </notes>
       <segment>
         <source>Folgenden Dinge wurden dazu gebraucht:</source>
-        <target>Folgenden Dinge wurden dazu gebraucht:</target>
+        <target>Has utilizado estos objetos:</target>
       </segment>
     </unit>
     <unit id="2VisPD1" name="Mit dem Bau der(s) %upgrade% hat dein Haus Stufe %level% erreicht!">
@@ -15543,7 +15543,7 @@
       </notes>
       <segment>
         <source>Mit dem Bau der(s) %upgrade% hat dein Haus Stufe %level% erreicht!</source>
-        <target>Mit dem Bau der(s) %upgrade% hat dein Haus Stufe %level% erreicht!</target>
+        <target>¡El mejoramiento de %upgrade% ha pasado a nivel %level% con éxito!</target>
       </segment>
     </unit>
     <unit id="X.vNUqq" name="Einen Bürger heimbringen:">
@@ -15552,7 +15552,7 @@
       </notes>
       <segment>
         <source>Einen Bürger heimbringen:</source>
-        <target>Einen Bürger heimbringen:</target>
+        <target>Acompañar a un habitante:</target>
       </segment>
     </unit>
     <unit id="cA3yYGh" name="343918b">
@@ -15561,7 +15561,7 @@
       </notes>
       <segment>
         <source>%citizen% hat einen Teil seines Heißhungers gestillt, indem er Teile seiner Mitbürger gegessen hat. Um sicherzustellen, dass so etwas nicht noch einmal passiert, übergieße die Verstorbenen das nächste Mal mit Wasser...</source>
-        <target>%citizen% hat einen Teil seines Heißhungers gestillt, indem er Teile seiner Mitbürger gegessen hat. Um sicherzustellen, dass so etwas nicht noch einmal passiert, übergieße die Verstorbenen das nächste Mal mit Wasser...</target>
+        <target>%citizen% ha estado tratando de saciar su voracidad animal mordiendo a los habitantes. La próxima vez, rocía bien con agua a los muertos para que no vuelvan a atacar...</target>
       </segment>
     </unit>
     <unit id="zLJ.A.A" name="Anzeigen">
@@ -15579,7 +15579,7 @@
       </notes>
       <segment>
         <source>Du hast %num% anonyme Anzeige(n) erhalten.</source>
-        <target>Du hast %num% anonyme Anzeige(n) erhalten.</target>
+        <target>Has recibido %num% denuncia(s) anónimas.</target>
       </segment>
     </unit>
     <unit id="khbCWBV" name="Sollte diese Zahl auf 8 ansteigen, wirst du verbannt!">
@@ -15588,7 +15588,7 @@
       </notes>
       <segment>
         <source>Sollte diese Zahl auf 8 ansteigen, wirst du verbannt!</source>
-        <target>Sollte diese Zahl auf 8 ansteigen, wirst du verbannt!</target>
+        <target>¡Si acumulas 8 denuncias, serás desterrado!</target>
       </segment>
     </unit>
     <unit id="pFLOI._" name="Grund:">
@@ -15597,7 +15597,7 @@
       </notes>
       <segment>
         <source>Grund:</source>
-        <target>Grund:</target>
+        <target>Motivo:</target>
       </segment>
     </unit>
     <unit id="7aCcCH1" name="Wählen">
@@ -15606,7 +15606,7 @@
       </notes>
       <segment>
         <source>Wählen</source>
-        <target>Wählen</target>
+        <target>Elegir</target>
       </segment>
     </unit>
     <unit id="GZZJnSZ" name="Beta-Tester der neuen Zeit">
@@ -15642,7 +15642,7 @@
       </notes>
       <segment>
         <source>Vom Turm aus hast du eine guten Überblick über die Wüste. Du musterst die Umgebung, versuchst die Zombies zu zählen und ihre Bewegungsrichtung vorauszuberechnen... &lt;br /&gt;Nachdem du einige Minuten die Lage gecheckt hast, schreibst du deine Ergebnisse in das &lt;strong&gt;Wachturmregister&lt;/strong&gt;.&lt;hr /&gt;Zusammen mit den Informationen der anderen Bürger sollten wir eine korrekte Angriffsschätzung bekommen.</source>
-        <target><![CDATA[Vom Turm aus hast du eine guten Überblick über die Wüste. Du musterst die Umgebung, versuchst die Zombies zu zählen und ihre Bewegungsrichtung vorauszuberechnen... <br />Nachdem du einige Minuten die Lage gecheckt hast, schreibst du deine Ergebnisse in das <strong>Wachturmregister</strong>.<hr />Zusammen mit den Informationen der anderen Bürger sollten wir eine korrekte Angriffsschätzung bekommen.]]></target>
+        <target><![CDATA[Desde lo más alto de la torre, examinas el desierto que rodea el pueblo para calcular la cantidad de zombies presentes y su desplazamiento... <br />Después de varias horas de intensa reflexión, escribes esos datos en el <strong>Registro de la Torre de Vigilancia.</strong>.<hr />Esa información, sumada a la de los demás habitantes, debería darte un pronóstico acertado del ataque.]]></target>
       </segment>
     </unit>
     <unit id="GeJZ7mU" name="Auf den Aufstand hinarbeiten">
@@ -15651,7 +15651,7 @@
       </notes>
       <segment>
         <source>Auf den Aufstand hinarbeiten</source>
-        <target>Auf den Aufstand hinarbeiten</target>
+        <target>Organizar una revuelta</target>
       </segment>
     </unit>
     <unit id="krk9RGq" name="%citizen% ist ausgegangen...">
@@ -15669,7 +15669,7 @@
       </notes>
       <segment>
         <source>Wähle den &lt;strong&gt;zu stehlenden Gegenstand&lt;/strong&gt; hier oben aus. &lt;strong&gt;Achtung!&lt;/strong&gt; Es besteht die Gefahr, dass du dabei gesehen wirst. In diesem Fall musst du dich auf unangenehme Konsequenzen gefasst machen.</source>
-        <target><![CDATA[Wähle den <strong>zu stehlenden Gegenstand</strong> hier oben aus. <strong>Achtung!</strong> Es besteht die Gefahr, dass du dabei gesehen wirst. In diesem Fall musst du dich auf unangenehme Konsequenzen gefasst machen.]]></target>
+        <target><![CDATA[Elige <strong>el objeto que deseas robar</strong> aquí. <strong>¡Pero cuidado!</strong> Puedes ser descubierto y deberás asumir todas las consecuencias.]]></target>
       </segment>
     </unit>
     <unit id="tVbgO4A" name="Einen Gegenstand stehlen">
@@ -15678,7 +15678,7 @@
       </notes>
       <segment>
         <source>Einen Gegenstand stehlen</source>
-        <target>Einen Gegenstand stehlen</target>
+        <target>Entrar para robar un objeto</target>
       </segment>
     </unit>
     <unit id="Wq3dzPg" name="Einen Gegenstand hinterlassen">
@@ -15687,7 +15687,7 @@
       </notes>
       <segment>
         <source>Einen Gegenstand hinterlassen</source>
-        <target>Einen Gegenstand hinterlassen</target>
+        <target>Colocar un objeto discretamente</target>
       </segment>
     </unit>
     <unit id="o5dw7G5" name="15ac09f">
@@ -15741,7 +15741,7 @@
       </notes>
       <segment>
         <source>Hurra! Folgendes Gebäude wurde fertiggestellt: %plan%!</source>
-        <target>Hurra! Folgendes Gebäude wurde fertiggestellt: %plan%!</target>
+        <target>¡Hurra! Has terminado la construcción %plan%!</target>
       </segment>
     </unit>
     <unit id="8UrChKd" name="Du hast dafür %count% Aktionspunkt(e) verbraucht.">
@@ -15774,7 +15774,7 @@
       </notes>
       <segment>
         <source>Was für eine schreckliche Nacht!</source>
-        <target>Was für eine schreckliche Nacht!</target>
+        <target>¡Qué noche tan terrible!</target>
       </segment>
     </unit>
     <unit id="pPZiySm" name="778f93b">
@@ -15792,7 +15792,7 @@
       </notes>
       <segment>
         <source>Du wurdest verbannt!</source>
-        <target>Du wurdest verbannt!</target>
+        <target>¡Has sido desterrado!</target>
       </segment>
     </unit>
     <unit id="dVyLKp_" name="Status:">
@@ -15801,7 +15801,7 @@
       </notes>
       <segment>
         <source>Status:</source>
-        <target>Status:</target>
+        <target>Situación:</target>
       </segment>
     </unit>
     <unit id="x50DxZR" name="Eine Revolte liegt in weiter Ferne...">
@@ -15810,7 +15810,7 @@
       </notes>
       <segment>
         <source>Eine Revolte liegt in weiter Ferne...</source>
-        <target>Eine Revolte liegt in weiter Ferne...</target>
+        <target>La insurrección no estpa lista...</target>
       </segment>
     </unit>
     <unit id="x_WVlWR" name="Erste Spannungen bilden sich.">
@@ -15819,7 +15819,7 @@
       </notes>
       <segment>
         <source>Erste Spannungen bilden sich.</source>
-        <target>Erste Spannungen bilden sich.</target>
+        <target>La insurrección es inminente.</target>
       </segment>
     </unit>
     <unit id="LL.dGkI" name="Wir machen Fortschritte.">
@@ -15828,7 +15828,7 @@
       </notes>
       <segment>
         <source>Wir machen Fortschritte.</source>
-        <target>Wir machen Fortschritte.</target>
+        <target>Estamos progresando.</target>
       </segment>
     </unit>
     <unit id="id8VuDJ" name="Das Ende ist nah.">
@@ -15837,7 +15837,7 @@
       </notes>
       <segment>
         <source>Das Ende ist nah.</source>
-        <target>Das Ende ist nah.</target>
+        <target>El Fin se acerca.</target>
       </segment>
     </unit>
     <unit id="DqJn30N" name="Die Revolte steht bevor!">
