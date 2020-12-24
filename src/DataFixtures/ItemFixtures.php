@@ -803,7 +803,7 @@ class ItemFixtures extends Fixture
         'car_door_#00'               => [ 'impoundable', 'defence' ],
         'pet_dog_#00'                => [ 'impoundable', 'defence', 'pet', 'esc_fixed' ],
         'plate_#00'                  => [ 'impoundable', 'defence' ],
-        'torch_#00'                  => [ 'impoundable', 'defence', 'weapon', 'nw_ikea', 'nw_armory' ],
+        'torch_#00'                  => [ 'impoundable', 'defence', 'weapon', 'nw_ikea', 'nw_armory', 'prevent_night' ],
         'tekel_#00'                  => [ 'impoundable', 'defence', 'lock', 'pet' ],
         'trestle_#00'                => [ 'impoundable', 'defence' ],
         'table_#00'                  => [ 'impoundable', 'defence' ],
@@ -934,7 +934,7 @@ class ItemFixtures extends Fixture
         'rp_twin_#00'                => [ 'esc_fixed' ],
         'home_box_#00'               => [ 'nw_ikea' ],
         'lamp_#00'                   => [ 'nw_ikea' ],
-        'lamp_on_#00'                => [ 'nw_ikea' ],
+        'lamp_on_#00'                => [ 'nw_ikea', 'prevent_night' ],
         'music_#00'                  => [ 'nw_ikea' ],
         'distri_#00'                 => [ 'nw_ikea' ],
         'guitar_#00'                 => [ 'nw_ikea' ],
@@ -945,6 +945,8 @@ class ItemFixtures extends Fixture
         'christmas_candy_#00'        => [ 'can_cook' ],
         'omg_this_will_kill_you_#00' => [ 'can_cook' ],
         'chidol_#00'                 => [ 'prevent_terror' ],
+        'maglite_1_#00'              => [ 'prevent_night' ],
+        'maglite_2_#00'              => [ 'prevent_night' ],
     ];
 
     public static $item_groups = [

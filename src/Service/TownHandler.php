@@ -6,6 +6,7 @@ namespace App\Service;
 
 use App\Entity\Building;
 use App\Entity\BuildingPrototype;
+use App\Entity\CauseOfDeath;
 use App\Entity\Citizen;
 use App\Entity\CitizenHome;
 use App\Entity\CitizenHomeUpgrade;
@@ -670,6 +671,35 @@ class TownHandler
                 ->setEvent( $event->name() )
             );
         }
+
+        return true;
+    }
+
+    /**
+     * @param Town $town
+     * @param CitizenRole|string $role
+     * @return bool
+     */
+    public function is_vote_needed(Town $town, $role): bool {
+
+        // No votes needed before the town is full or during chaos
+        if ($town->getChaos() || $town->isOpen()) return false;
+
+        // Resolve the role; if it does not exist or is not votable, no votes are needed
+        if (is_string($role)) $role =  $this->entity_manager->getRepository(CitizenRole::class)->findOneBy(['name' => $role]);
+        if (!$role || !$role->getVotable()) return false;
+
+        // If the role is disabled, no vote is needed
+        if (in_array( $role->getName(), $this->conf->getTownConfiguration($town)->get(TownConf::CONF_DISABLED_ROLES, []) ))
+            return false;
+
+        // Check if the role has already been given
+        foreach ($town->getCitizens() as $citizen)
+            if ($citizen->getRoles()->contains($role)) {
+                if ($citizen->getAlive()) return false;
+                else if ($citizen->getSurvivedDays() >= ($citizen->getTown()->getDay() - 1) && $citizen->getCauseOfDeath()->getRef() !== CauseOfDeath::NightlyAttack)
+                    return false;
+            }
 
         return true;
     }

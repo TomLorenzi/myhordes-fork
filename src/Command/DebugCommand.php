@@ -156,7 +156,7 @@ class DebugCommand extends Command
 
         if ($tid = $input->getOption('everyone-drink')) {
             /** @var Town $town */
-            $town = $this->entity_manager->getRepository(Town::class)->find( $tid );
+            $town = $this->helper->resolve_string($tid, Town::class, 'Town', $this->getHelper('question'), $input, $output);
             $statusHasDrunk = $this->entity_manager->getRepository(CitizenStatus::class)->findOneBy(['name' => "hasdrunk"]);
             $statusThirst = $this->entity_manager->getRepository(CitizenStatus::class)->findOneBy(['name' => "thirst1"]);
             $statusDehydrated = $this->entity_manager->getRepository(CitizenStatus::class)->findOneBy(['name' => "thirst2"]);
@@ -181,7 +181,7 @@ class DebugCommand extends Command
 
         if ($tid = $input->getOption('fill-town')) {
             /** @var Town $town */
-            $town = $this->entity_manager->getRepository(Town::class)->find( $tid );
+            $town = $this->helper->resolve_string($tid, Town::class, 'Town', $this->getHelper('question'), $input, $output);
             if (!$town) {
                 $output->writeln('<error>Town not found!</error>');
                 return 2;
