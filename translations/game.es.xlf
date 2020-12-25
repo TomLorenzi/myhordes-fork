@@ -10333,7 +10333,7 @@
       </notes>
       <segment>
         <source>Die letzte Zeitung lesen</source>
-        <target>Leer el última Boletín</target>
+        <target>Leer el último Boletín</target>
       </segment>
     </unit>
     <unit id="v432R4L" name="Du hast bisher:">
@@ -10342,7 +10342,7 @@
       </notes>
       <segment>
         <source>Du hast bisher:</source>
-        <target>Tú has acumulado:</target>
+        <target>Has acumulado:</target>
       </segment>
     </unit>
     <unit id="4dxmR7l" name="%days% Tage">
