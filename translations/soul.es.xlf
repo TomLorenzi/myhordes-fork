@@ -2137,7 +2137,7 @@
       </notes>
       <segment>
         <source>&lt;b&gt;%u1%&lt;/b&gt; hat &lt;b&gt;%u2%&lt;/b&gt; in die Koalition eingeladen.</source>
-        <target><![CDATA[<b>%u1%</b>ha invitado a <b>%u2%</b> a unirse a nosotros.]]></target>
+        <target><![CDATA[<b>%u1%</b> ha invitado a <b>%u2%</b> a unirse a nosotros.]]></target>
       </segment>
     </unit>
     <unit id="bvTtAAO" name="&lt;b&gt;%u1%&lt;/b&gt; ist der Koalition soeben beigetreten!">
