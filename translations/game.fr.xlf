@@ -15880,5 +15880,14 @@
         <target>Insurrection imminente !</target>
       </segment>
     </unit>
+    <unit id="o66h7gA" name="Diese Aktion ist während der &lt;strong&gt;Chaosperiode&lt;/strong&gt; night erlaubt!">
+      <notes>
+        <note category="german">Diese Aktion ist während der &lt;strong&gt;Chaosperiode&lt;/strong&gt; night erlaubt!</note>
+      </notes>
+      <segment>
+        <source>Diese Aktion ist während der &lt;strong&gt;Chaosperiode&lt;/strong&gt; night erlaubt!</source>
+        <target><![CDATA[Cette action est interdite en <strong>période de chaos</strong> !]]></target>
+      </segment>
+    </unit>
   </file>
 </xliff>
