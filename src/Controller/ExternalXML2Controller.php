@@ -333,13 +333,13 @@ class ExternalXML2Controller extends ExternalController {
             $data['data'][$node]['list']['items'][] = [
                 'attributes' => [
                     'name' => $pastLife->getTown()->getName(),
-                    'season' => $pastLife->getTown()->getSeason() ? $pastLife->getTown()->getSeason()->getNumber() : 0,
+                    'season' => ($pastLife->getTown()->getSeason() && $pastLife->getTown()->getSeason()->getNumber() === 0) ? $pastLife->getTown()->getSeason()->getSubNumber() : $pastLife->getTown()->getSeason()->getNumber(),
                     'score' => $pastLife->getPoints(),
                     'd' => $pastLife->getDay(),
                     'id' => $pastLife->getTown()->getBaseID() !== null ? $pastLife->getTown()->getBaseID() : $pastLife->getTown()->getId(),
                     'v1' => 0,
                     'origin' => ($pastLife->getTown()->getSeason() && $pastLife->getTown()->getSeason()->getNumber() === 0)
-                        ? strtolower($pastLife->getTown()->getLanguage()) . "-{$pastLife->getTown()->getSeason()->getSubNumber()}"
+                        ? strtolower($pastLife->getTown()->getLanguage())
                         : '',
                 ],
                 'cdata_value' => html_entity_decode($pastLife->getLastWords())

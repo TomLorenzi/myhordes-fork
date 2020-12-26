@@ -294,7 +294,7 @@ class TownInspectorCommand extends Command
         }
 
         if ($input->getOption('advance-day')) {
-            if ($this->nighthandler->advance_day($town) && !$input->getOption('dry')) {
+            if ($this->nighthandler->advance_day($town, $this->conf->getCurrentEvent( $town )) && !$input->getOption('dry')) {
                 foreach ($this->nighthandler->get_cleanup_container() as $c) $this->entityManager->remove($c);
                 $town->setAttackFails(0);
                 $this->entityManager->persist( $town );

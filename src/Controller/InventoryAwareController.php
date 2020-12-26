@@ -38,6 +38,7 @@ use App\Service\JSONRequestParser;
 use App\Service\LogTemplateHandler;
 use App\Service\RandomGenerator;
 use App\Service\TimeKeeperService;
+use App\Service\TownHandler;
 use App\Service\UserHandler;
 use App\Service\ZoneHandler;
 use App\Structures\BankItem;
@@ -64,11 +65,12 @@ class InventoryAwareController extends CustomAbstractController
     protected LogTemplateHandler $logTemplateHandler;
     protected UserHandler $user_handler;
     protected CrowService $crow;
+    protected TownHandler $town_handler;
 
     public function __construct(
         EntityManagerInterface $em, InventoryHandler $ih, CitizenHandler $ch, ActionHandler $ah, DeathHandler $dh, PictoHandler $ph,
         TranslatorInterface $translator, LogTemplateHandler $lt, TimeKeeperService $tk, RandomGenerator $rd, ConfMaster $conf,
-        ZoneHandler $zh, UserHandler $uh, CrowService $armbrust)
+        ZoneHandler $zh, UserHandler $uh, CrowService $armbrust, TownHandler $th)
     {
         parent::__construct($conf, $em, $tk, $ch, $ih, $translator);
         $this->action_handler = $ah;
@@ -80,6 +82,7 @@ class InventoryAwareController extends CustomAbstractController
         $this->logTemplateHandler = $lt;
         $this->user_handler = $uh;
         $this->crow = $armbrust;
+        $this->town_handler = $th;
     }
 
     public function before(): bool
@@ -893,7 +896,7 @@ class InventoryAwareController extends CustomAbstractController
 
             $special_action = $special->getAction();
             if ($trigger_after) $trigger_after($special_action);
-            $citizen->removeSpecialAction($special);
+            if ( $special->getConsumable() ) $citizen->removeSpecialAction($special);
 
             $this->entity_manager->persist($citizen);
             foreach ($remove as $remove_entry)

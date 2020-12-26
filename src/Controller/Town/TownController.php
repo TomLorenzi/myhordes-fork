@@ -66,34 +66,16 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
     const ErrorAlreadyUpgraded   = ErrorHelper::BaseTownErrors + 7;
     const ErrorComplaintLimitHit = ErrorHelper::BaseTownErrors + 8;
     const ErrorAlreadyFinished   = ErrorHelper::BaseTownErrors + 9;
+    const ErrorTownChaos         = ErrorHelper::BaseTownErrors + 10;
 
     protected function get_needed_votes(): array {
         $town = $this->getActiveCitizen()->getTown();
+        /** @var CitizenRole[] $roles */
         $roles = $this->entity_manager->getRepository(CitizenRole::class)->findVotable();
-
-        $disabled_roles = $this->conf->getTownConfiguration($town)->get(TownConf::CONF_DISABLED_ROLES, []);
-
-
-        for($i = count($roles) - 1; $i >= 0 ; $i--) {
-            $role = $roles[$i];
-            /** @var CitizenRole $role */
-            if(in_array($role->getName(), $disabled_roles)) {
-                unset($roles[$i]);
-            }
-        }
 
         $votesNeeded = array();
         foreach ($roles as $role)
-            $votesNeeded[$role->getName()] = ($town->getChaos() || $town->isOpen()) ? null : $role;
-
-        if(!$town->isOpen() && !$town->getChaos())
-            foreach ($roles as $role)
-                foreach ($town->getCitizens() as $citizen)
-                    if($citizen->getRoles()->contains($role)) {
-                        if ($citizen->getAlive()) $votesNeeded[$role->getName()] = false;
-                        else if ($citizen->getSurvivedDays() >= ($citizen->getTown()->getDay() - 1) && $citizen->getCauseOfDeath()->getRef() !== CauseOfDeath::NightlyAttack)
-                            $votesNeeded[$role->getName()] = false;
-                    }
+            $votesNeeded[$role->getName()] = $this->town_handler->is_vote_needed($town, $role) ? $role : false;
 
         return $votesNeeded;
     }
@@ -913,7 +895,6 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
      * @Route("jx/town/citizens/vote/{roleId}", name="town_citizen_vote", requirements={"id"="\d+"})
      * Show the citizens eligible to vote for a role
      * @param int $roleId The role we want to vote for
-     * @param Request $r The HTTP Request
      * @return Response
      */
     public function citizens_vote(int $roleId): Response
@@ -925,15 +906,14 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
         $citizen = $this->getActiveCitizen();
         $town = $citizen->getTown();
 
-        if ($town->getChaos()){
+        if ($town->getChaos())
             // No vote possible in chaos
             return $this->redirect($this->generateUrl('town_citizens'));
-        }
 
         $needed_roles = $this->get_needed_votes();
         /** @var CitizenRole $role */
         $role = $this->entity_manager->getRepository(CitizenRole::class)->find($roleId);
-        if($role === null || !isset($needed_roles[$role->getName()]) || !$needed_roles[$role->getName()])
+        if($role === null || !$this->town_handler->is_vote_needed($town,$role))
             return $this->redirect($this->generateUrl('town_citizens'));
 
         $vote = $this->entity_manager->getRepository(CitizenVote::class)->findOneByCitizenAndRole($this->getActiveCitizen(), $role);

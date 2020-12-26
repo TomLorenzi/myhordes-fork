@@ -33,6 +33,11 @@ class SpecialActionPrototype
      */
     private $icon;
 
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $consumable = true;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -70,6 +75,18 @@ class SpecialActionPrototype
     public function setIcon(string $icon): self
     {
         $this->icon = $icon;
+
+        return $this;
+    }
+
+    public function getConsumable(): ?bool
+    {
+        return $this->consumable;
+    }
+
+    public function setConsumable(bool $consumable): self
+    {
+        $this->consumable = $consumable;
 
         return $this;
     }

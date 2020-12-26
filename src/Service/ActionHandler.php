@@ -283,6 +283,30 @@ class ActionHandler
                 }
             }
 
+            if ($meta_requirement->getCustom())
+                switch ($meta_requirement->getCustom()) {
+
+                    // Vote
+                    case 18: case 19:
+                        if (!$citizen->getProfession()->getHeroic()) {
+                            $current_state = min($current_state, Requirement::HideOnFail);
+                            break;
+                        }
+
+                        if (!($role = $this->entity_manager->getRepository(CitizenRole::class)->findOneBy(['name' => $meta_requirement->getCustom() === 18 ? 'shaman' : 'guide']))) {
+                            $current_state = min($current_state, Requirement::HideOnFail);
+                            break;
+                        }
+
+                        if ($this->entity_manager->getRepository(CitizenVote::class)->findOneByCitizenAndRole($citizen, $role))
+                            $current_state = min($current_state, Requirement::CrossOnFail);
+
+                        if (!$this->town_handler->is_vote_needed( $citizen->getTown(), $role ))
+                            $current_state = min($current_state, Requirement::HideOnFail);
+
+                        break;
+                }
+
 
             if ($current_state < $last_state) $message = $this->translator->trans($meta_requirement->getFailureText(), [], 'items');
 
@@ -1210,7 +1234,6 @@ class ActionHandler
                                 $role_name = "guide";
                                 break;
                         }
-                        if($role_name == "") break;
 
                         if (!is_a( $target, Citizen::class )) break;
 
@@ -1219,12 +1242,14 @@ class ActionHandler
                         $role = $this->entity_manager->getRepository(CitizenRole::class)->findOneBy(['name' => $role_name]);
                         if(!$role) break;
 
-                        $last_one = $this->entity_manager->getRepository(Citizen::class)->findLastOneByRoleAndTown($role, $target->getTown());
-                        if($last_one->getAlive()) break;
+                        if ($this->entity_manager->getRepository(CitizenVote::class)->findOneByCitizenAndRole($citizen, $role))
+                            break;
+
+                        if (!$this->town_handler->is_vote_needed($citizen->getTown(), $role)) break;
                         
                         // Add our vote !
-                        $citizenVote = new CitizenVote();
-                        $citizenVote->setAutor($citizen)
+                        $citizenVote = (new CitizenVote())
+                            ->setAutor($citizen)
                             ->setVotedCitizen($target)
                             ->setRole($role);
 

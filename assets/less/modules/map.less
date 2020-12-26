@@ -140,6 +140,7 @@ div.map_area {
 
     &>.scroll-plane {
       position: absolute; display: block; top: 0; left: 0; width: 100%; z-index: 1; padding: 5px;
+      background: url("../../img/game-bar/glass_tl.png") 0 0 no-repeat,url("../../img/game-bar/glass_tr.png") 100% 0 no-repeat,url("../../img/game-bar/glass_bl.png") 0 100% no-repeat,url("../../img/game-bar/glass_br.png") 100% 100% no-repeat,url("../../img/game-bar/glass_t.png") 0 0 repeat-x,url("../../img/game-bar/glass_l.png") 0 0 repeat-y,url("../../img/game-bar/glass_r.png") 100% 0 repeat-y,url("../../img/game-bar/glass_b.png") 0 100% repeat-x;
       &>.svg {
         position: absolute; top: 0; left: 0; width: 100%; height: 100%; padding: 5px; pointer-events: none; z-index: 3;
         &>svg { width: 100%; height: 100%; transform: scale(1,-1); }
@@ -348,7 +349,7 @@ div.map_area {
       &:before {opacity: 0.9; background: radial-gradient(circle, rgba(0,0,0,0.0) 0%, rgba(0,0,0,0.4) 30%, rgba(0,0,0,0.85) 70%, rgba(0,0,0,1.0) 100%);}
       &>.zone-plane, &>.zone-plane-controls { opacity: 1; pointer-events: all; }
       &>.zone-plane { transform: scale(0.5); }
-      &>.zone-plane-controls { transform: scale(1); }
+      &>.zone-plane-controls { transform: scale(1); background: url("../../img/game-bar/glass_tl.png") 0 0 no-repeat,url("../../img/game-bar/glass_tr.png") 100% 0 no-repeat,url("../../img/game-bar/glass_bl.png") 0 100% no-repeat,url("../../img/game-bar/glass_br.png") 100% 100% no-repeat,url("../../img/game-bar/glass_t.png") 0 0 repeat-x,url("../../img/game-bar/glass_l.png") 0 0 repeat-y,url("../../img/game-bar/glass_r.png") 100% 0 repeat-y,url("../../img/game-bar/glass_b.png") 0 100% repeat-x; }
     }
     &>.controls {
       &>div.tilemap_controls {display: none};
