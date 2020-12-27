@@ -336,7 +336,7 @@ class ExternalXML2Controller extends ExternalController {
                     'season' => $pastLife->getTown()->getSeason() ? $pastLife->getTown()->getSeason()->getNumber() : 0,
                     'score' => $pastLife->getPoints(),
                     'd' => $pastLife->getDay(),
-                    'id' => $pastLife->getTown()->getId(),
+                    'id' => $pastLife->getTown()->getBaseID() !== null ? $pastLife->getTown()->getBaseID() : $pastLife->getTown()->getId(),
                     'v1' => 0,
                     'origin' => ($pastLife->getTown()->getSeason() && $pastLife->getTown()->getSeason()->getNumber() === 0)
                         ? strtolower($pastLife->getTown()->getLanguage()) . "-{$pastLife->getTown()->getSeason()->getSubNumber()}"
