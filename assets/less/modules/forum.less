@@ -512,3 +512,26 @@
     font-size: 1.3rem;
   }
 }
+
+#post-office {
+  position: fixed; background: url("../../img/background/mask.png"); width: 100%; height: 100%; z-index: 999;
+  backdrop-filter: blur(2px); padding: 15px 0;
+  transition: opacity 1s ease; opacity: 1;
+
+  #post-office-box {
+    position: absolute; width: 900px; left: 50%; margin-left: -450px;
+    background: url("../../img/background/bg_content2.jpg") repeat-y top center/900px 263px;
+    top: 10px; bottom: 10px; border-radius: 8px; box-shadow: 0 0 10px black;
+    transition: transform 0.5s ease; transform: scale(1) translateY(0);
+
+    #post-office-content {
+      background: @myhordes-panel-border, @myhordes-panel-bg; position: absolute; overflow-x: hidden; overflow-y: auto;
+      left: 18px; top: 0; right: 5px; bottom: 0; border-radius: 12px;
+    }
+  }
+
+  &:not(.visible) {
+    pointer-events: none; opacity: 0;
+    #post-office-box { transform: scale(0) translateY(1000px) }
+  }
+}

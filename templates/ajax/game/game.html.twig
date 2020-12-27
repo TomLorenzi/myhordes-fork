@@ -1,10 +1,15 @@
 {% extends "ajax/ajax.html.twig" %}
 
 {% block menu_bar %}
-    {#<ul class="user">
-        <li>{{ username }}</li>
-        <li><a title="{% trans from 'soul' %}Logout{% endtrans %}" target="_self" href="{{ path('auto_logout') }}">&#10006;</a></li>
-    </ul>#}
+
+    {% if app.user is not empty %}
+        <ul class="postbox">
+            <li><i class="fa fa-envelope-open"></i></li>
+            <li><i class="fa fa-envelope"></i></li>
+            <li id="postbox-new-msg-counter">2</li>
+        </ul>
+    {% endif %}
+
     {% if clock is defined %}
         <ul class="clock">
             <li>{{ clock.desc }}</li>
@@ -149,5 +154,9 @@
 {% block js %}
     {{ parent() }}
     <script>
+        $.html.addEventListenerAll('.postbox','click', function() {
+            let post = document.getElementById('post-office');
+            if (post) post.classList.add('visible');
+        });
     </script>
 {% endblock %}
