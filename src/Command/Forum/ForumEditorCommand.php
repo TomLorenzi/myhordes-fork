@@ -98,7 +98,7 @@ class ForumEditorCommand extends Command
         if ($input->getOption('icon') !== false) {
             if ($input->getOption('icon') === null) {
                 $icons = ['- None -'];
-                foreach (scandir("{$this->kernel->getProjectDir()}/public/build/images/forum/banner") as $f)
+                foreach (scandir("{$this->kernel->getProjectDir()}/assets/img/forum/banner") as $f)
                     if ($f !== '.' && $f !== '..' && $f !== 'bannerForumVoid.gif') $icons[] = $f;
 
                 $str = $helper->ask($input, $output, new ChoiceQuestion('Please select the forum icon:', $icons));

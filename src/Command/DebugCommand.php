@@ -24,6 +24,7 @@ use App\Service\ItemFactory;
 use App\Service\RandomGenerator;
 use App\Service\TownHandler;
 use App\Service\TwinoidHandler;
+use App\Service\UserHandler;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Helper\ProgressBar;
@@ -54,11 +55,12 @@ class DebugCommand extends Command
     private TownHandler $townHandler;
     private CommandHelper $helper;
     private TwinoidHandler $twin;
+    private UserHandler $user_handler;
 
     public function __construct(KernelInterface $kernel, GameFactory $gf, EntityManagerInterface $em,
                                 RandomGenerator $rg, CitizenHandler $ch, Translator $translator, InventoryHandler $ih,
                                 ItemFactory $if, UserPasswordEncoderInterface $passwordEncoder, ConfMaster $c,
-                                TownHandler $th, CommandHelper $h, TwinoidHandler $t)
+                                TownHandler $th, CommandHelper $h, TwinoidHandler $t, UserHandler $uh)
     {
         $this->kernel = $kernel;
 
@@ -74,6 +76,7 @@ class DebugCommand extends Command
         $this->townHandler = $th;
         $this->helper = $h;
         $this->twin = $t;
+        $this->user_handler = $uh;
 
         parent::__construct();
     }
@@ -132,8 +135,18 @@ class DebugCommand extends Command
                 }
                 $crow
                     ->setName("Der Rabe")
-                    ->setEmail("crow");
-                $crow->setPassword( $this->encoder->encodePassword($crow, '5%[9Wqc@"px.&er{thxCt)7Un^-.~K~B;E7b`,#L0"3?3Mcu:x$|8\-h.3JQ*$') );
+                    ->setEmail("crow")
+                    ->setRightsElevation(User::ROLE_CROW);
+
+                $this->user_handler->setUserBaseAvatar($crow, file_get_contents("{$this->kernel->getProjectDir()}/assets/img/forum/crow/crow.png"), UserHandler::ImageProcessingPreferImagick, 'png', 100, 100);
+                $this->user_handler->setUserSmallAvatar($crow, file_get_contents("{$this->kernel->getProjectDir()}/assets/img/forum/crow/crow.small.png"));
+
+                try {
+                    $crow->setPassword($this->encoder->encodePassword($crow, bin2hex(random_bytes(16))));
+                } catch (\Exception $e) {
+                    $output->writeln('<error>Unable to generate a random password.</error>');
+                    return -1;
+                }
                 $this->entity_manager->persist($crow);
                 $this->entity_manager->flush();               
                 
