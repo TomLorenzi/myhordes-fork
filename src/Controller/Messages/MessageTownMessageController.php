@@ -295,6 +295,10 @@ class MessageTownMessageController extends MessageController
                     $thread->setTitle( $this->translator->trans('Du bist vor Angst erstarrt!!', [], 'game') );
                     $post->setText( $this->prepareEmotes($post->getText()) . $this->translator->trans( 'Wir haben zwei Neuigkeiten für dich. Eine gute und eine schlechte. Zuerst die gute: Trotz ihrer hartnäckigen Versuche, ist es den %num% Zombie(s) nicht gelungen, dich aufzufressen. Du hast dich wacker geschlagen. Bravo! Die schlechte: Das Erlebnis war so schlimm, dass du in eine Angststarre verfallen bist. So etwas möchtest du nicht wieder erleben...', ['%num%' => $post->getForeignID()], 'game' ) );
                     break;
+                case PrivateMessage::TEMPLATE_CROW_AVOID_TERROR:
+                    $thread->setTitle( $this->translator->trans('Was für eine schreckliche Nacht!', [], 'game') );
+                    $post->setText( $this->prepareEmotes($post->getText()) . $this->translator->trans( 'Heute Nacht ist dir der Arsch so richtig auf Grundeis gegangen! Als du ihr Grunzen und Stöhnen gehört hattest, war dir klar: Sie würden bei dir daheim eindringen. So kam es dann auch: Deine Haustür splitterte unter der Last ihrer Angriffe. Panisch bist du ins Schlafzimmer gerannt, um dich unter deinem Bett zu verstecken. Sie blieben ein paar Minuten, die dir wie eine Ewigkeit vorkamen, und schnüffelten sich durch alle Zimmer. Innerlich zitternd, hast du zu Gott gebetet, dass sie dich verschonen mögen. Dann war plötzlich wieder alles still. Hechelnd und schnaufend bist du aus deinem Versteck hervorgekrochen und heulend auf deinem Bett zusammengesunken.', [], 'game' ) );
+                    break;
                 case PrivateMessage::TEMPLATE_CROW_THEFT:
                     /** @var ItemPrototype $item */
                     $item = $this->entity_manager->getRepository(ItemPrototype::class)->find( $post->getForeignID() );
