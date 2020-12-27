@@ -107,7 +107,7 @@ class GameFactory
             ],
             [  // Plural mit Suffix
                 ['Ghulgebeine', 'Gesänge', 'Schmerzen', 'Schreie', 'Räume', 'Meute', 'Ghetto', 'Bürger', 'Hinterlassenschaft', 'Revier', 'Folterkeller', 'Alkoholpanscher'],
-                ['des Todes', 'der Verdammnis', 'ohne Zukunft', 'am Abgrund', 'der Verwirrten', 'ohne Ideen', 'der Versager', 'der Ghule', 'der Superhelden', 'der Mutlosen', 'der Fröhlichen', 'der Revolutionäre'],
+                ['des Todes', 'der Verdammnis', 'ohne Zukunft', 'am Abgrund', 'der Verwirrten', 'ohne Ideen', 'der Versager', 'der Ghule', 'der Superhelden', 'der Mutlosen', 'der Fröhlichen', 'der Revolutionäre', 'der Deepnight'],
             ],
         ],
         'en' => [
