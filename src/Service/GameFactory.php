@@ -113,11 +113,11 @@ class GameFactory
         'en' => [
             [   // Prefixed Adjective
                 ['Deadly', 'Mouldy', 'Moldy', 'Icy', 'Red', 'Lonely', 'Ghoulish', 'Zombified', 'Known', 'Gnawed', 'Disturbing', 'Last', 'Eager', 'Crying', 'Silly', 'Authoritarian', 'Lonely', 'Dripping', 'Contaminated', 'Sleepy', 'Masochistic', 'Drunk', 'Musty', 'Slippery', 'Icy', 'Drug addicts', 'Spooky', 'Ghoul-infested', 'Moving', 'Virulent', 'Affected'],
-                ['Waterhole', 'Hospital', 'Training camp', 'Pony', 'No man\'s land', 'Court', 'Empire', 'Shithole', 'Brain', 'Rathole', 'Area', 'Camp', 'Garbage Mountain', 'Soul Catcher', 'Monarch', 'Rock', 'Fall', 'Forest', 'Torture Basement', 'District', 'Bunker', 'Table', 'Cough', 'Truck', 'Butchers', 'Zombie researchers', 'Figures', 'Guardians', 'Death songs', 'Conductor', 'Soldiers', 'Twins', 'Regions', 'Surface', 'Parasites', 'Developers'],
+                ['Waterhole', 'Hospital', 'Training camp', 'Pony', 'No man\'s land', 'Court', 'Empire', 'Shithole', 'Brain', 'Rathole', 'Area', 'Camp', 'Garbage Mountain', 'Soul Catcher', 'Monarch', 'Rock', 'Fall', 'Forest', 'Torture Basement', 'District', 'Bunker', 'Table', 'Cough', 'Truck', 'Butchers', 'Zombie researchers', 'Figures', 'Guardians', 'Death songs', 'Conductor', 'Soldiers', 'Twins', 'Regions', 'Surface', 'Parasites', 'Developers', 'Skool'],
             ],
             [  // Suffixed
                 ['Ghoul bones', 'Songs', 'Pain', 'Screams', 'Rooms', 'Mob', 'Ghetto', 'Citizens', 'Legacy', 'Territory', 'Torture chamber', 'Alcohol adulterator'],
-                ['of Death', 'of Damnation', 'without Future', 'at the Abyss', 'of the Confused', 'without Ideas', 'of the Failures', 'of the Ghouls', 'of the Superheroes', 'of the Discouraged', 'of the Cheerful', 'of the Revolutionaries'],
+                ['of Death', 'of Damnation', 'without Future', 'at the Abyss', 'of the Confused', 'without Ideas', 'of the Failures', 'of the Ghouls', 'of the Superheroes', 'of the Discouraged', 'of the Cheerful', 'of the Revolutionaries', 'of the Deepnight'],
             ],
         ],
         'fr' => [
