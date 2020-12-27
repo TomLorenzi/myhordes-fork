@@ -15756,7 +15756,7 @@
       </notes>
       <segment>
         <source>%attacker% hat %defender% mit einem üblen Sandballwurf verwundet. Autsch, das hat sicher weh getan...!</source>
-        <target>%attacker% a jeté une boule de sable directement dans le visage de %defender% !</target>
+        <target>%attacker% a blessé %defender% avec sa sale boule de sable. Aïe ça fait mal... !</target>
       </segment>
     </unit>
     <unit id="BaTN5Rg" name="%attacker% hat %defender% einen Sandball direkt ins Gesicht geworfen!">
@@ -15765,7 +15765,7 @@
       </notes>
       <segment>
         <source>%attacker% hat %defender% einen Sandball direkt ins Gesicht geworfen!</source>
-        <target>%attacker% a blessé %defender% avec sa sale boule de sable. Aïe ça fait mal...!</target>
+        <target>%attacker% a jeté une boule de sable directement dans le visage de %defender% !</target>
       </segment>
     </unit>
     <unit id="wHDpkBz" name="Hurra! Folgendes Gebäude wurde fertiggestellt: %plan%!">
@@ -15878,6 +15878,15 @@
       <segment>
         <source>Die Revolte steht bevor!</source>
         <target>Insurrection imminente !</target>
+      </segment>
+    </unit>
+    <unit id="o66h7gA" name="Diese Aktion ist während der &lt;strong&gt;Chaosperiode&lt;/strong&gt; night erlaubt!">
+      <notes>
+        <note category="german">Diese Aktion ist während der &lt;strong&gt;Chaosperiode&lt;/strong&gt; night erlaubt!</note>
+      </notes>
+      <segment>
+        <source>Diese Aktion ist während der &lt;strong&gt;Chaosperiode&lt;/strong&gt; night erlaubt!</source>
+        <target><![CDATA[Cette action est interdite en <strong>période de chaos</strong> !]]></target>
       </segment>
     </unit>
   </file>
