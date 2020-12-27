@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Citizen;
+use App\Entity\Quote;
 use App\Entity\User;
 use App\Service\CitizenHandler;
 use App\Service\ConfMaster;
@@ -47,7 +48,7 @@ class CustomAbstractController extends AbstractController {
      * @param null $locale The request locale, usefull for translation
      * @return array The array of twig arguments with some default data
      */
-    protected function addDefaultTwigArgs( ?string $section = null, ?array $data = null, $locale = null ): array {
+    protected function addDefaultTwigArgs( ?string $section = null, ?array $data = null ): array {
         $data = $data ?? [];
         $data['menu_section'] = $section;
 
@@ -58,6 +59,15 @@ class CustomAbstractController extends AbstractController {
             'attack'    => $this->time_keeper->secondsUntilNextAttack(null, true),
             'towntype'  => $this->getActiveCitizen() !== null ? $this->getActiveCitizen()->getTown()->getType()->getName() : "",
         ];
+
+        $locale = $this->container->get('request_stack')->getCurrentRequest()->getLocale();
+        if ($locale) $locale = explode('_', $locale)[0];
+        if (!in_array($locale, ['de','en','es','fr'])) $locale = null;
+
+        $quotes = $this->entity_manager->getRepository(Quote::class)->findBy(['lang' => $locale ?? 'de']);
+        shuffle($quotes);
+
+        $data['quote'] = $quotes[0];
 
         if($this->getActiveCitizen() !== null && $this->getActiveCitizen()->getAlive()){
             $is_shaman = $this->citizen_handler->hasRole($this->getActiveCitizen(), 'shaman') || $this->getActiveCitizen()->getProfession()->getName() == 'shaman';

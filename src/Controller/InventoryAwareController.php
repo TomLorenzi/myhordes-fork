@@ -16,19 +16,15 @@ use App\Entity\HomeActionPrototype;
 use App\Entity\Inventory;
 use App\Entity\Item;
 use App\Entity\ItemAction;
-use App\Entity\ItemGroupEntry;
 use App\Entity\ItemPrototype;
 use App\Entity\ItemTargetDefinition;
 use App\Entity\LogEntryTemplate;
 use App\Entity\PictoPrototype;
 use App\Entity\PrivateMessage;
-use App\Entity\Quote;
 use App\Entity\Recipe;
 use App\Entity\SpecialActionPrototype;
 use App\Entity\TownLogEntry;
-use App\Entity\User;
 use App\Entity\Zone;
-use App\Interfaces\RandomGroup;
 use App\Response\AjaxResponse;
 use App\Service\ActionHandler;
 use App\Service\CitizenHandler;
@@ -42,6 +38,7 @@ use App\Service\JSONRequestParser;
 use App\Service\LogTemplateHandler;
 use App\Service\RandomGenerator;
 use App\Service\TimeKeeperService;
+use App\Service\TownHandler;
 use App\Service\UserHandler;
 use App\Service\ZoneHandler;
 use App\Structures\BankItem;
@@ -53,7 +50,6 @@ use Doctrine\ORM\AbstractQuery;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\Query\Expr\Join;
 use Exception;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
@@ -69,11 +65,12 @@ class InventoryAwareController extends CustomAbstractController
     protected LogTemplateHandler $logTemplateHandler;
     protected UserHandler $user_handler;
     protected CrowService $crow;
+    protected TownHandler $town_handler;
 
     public function __construct(
         EntityManagerInterface $em, InventoryHandler $ih, CitizenHandler $ch, ActionHandler $ah, DeathHandler $dh, PictoHandler $ph,
         TranslatorInterface $translator, LogTemplateHandler $lt, TimeKeeperService $tk, RandomGenerator $rd, ConfMaster $conf,
-        ZoneHandler $zh, UserHandler $uh, CrowService $armbrust)
+        ZoneHandler $zh, UserHandler $uh, CrowService $armbrust, TownHandler $th)
     {
         parent::__construct($conf, $em, $tk, $ch, $ih, $translator);
         $this->action_handler = $ah;
@@ -85,6 +82,7 @@ class InventoryAwareController extends CustomAbstractController
         $this->logTemplateHandler = $lt;
         $this->user_handler = $uh;
         $this->crow = $armbrust;
+        $this->town_handler = $th;
     }
 
     public function before(): bool
@@ -96,21 +94,6 @@ class InventoryAwareController extends CustomAbstractController
             $this->entity_manager->flush();
         }
         return true;
-    }
-
-    protected function addDefaultTwigArgs( ?string $section = null, ?array $data = null, $locale = null ): array {
-        $data = parent::addDefaultTwigArgs($section, $data, $locale);
-        $data['menu_section'] = $section;
-
-        if ($locale) $locale = explode('_', $locale)[0];
-        if (!in_array($locale, ['de','en','es','fr'])) $locale = null;
-
-        $quotes = $this->entity_manager->getRepository(Quote::class)->findBy(['lang' => $locale ?? 'de']);
-        shuffle($quotes);
-
-        $data['quote'] = $quotes[0];
-
-        return $data;
     }
 
     protected function renderLog( ?int $day, $citizen = null, $zone = null, ?int $type = null, ?int $max = null ): Response {
@@ -200,6 +183,8 @@ class InventoryAwareController extends CustomAbstractController
                 break;
         }
 
+        // Sort target by display name
+        usort($targets, function($a, $b) { return strcmp($a[1], $b[1]);});
         return $targets;
     }
 
@@ -911,7 +896,7 @@ class InventoryAwareController extends CustomAbstractController
 
             $special_action = $special->getAction();
             if ($trigger_after) $trigger_after($special_action);
-            $citizen->removeSpecialAction($special);
+            if ( $special->getConsumable() ) $citizen->removeSpecialAction($special);
 
             $this->entity_manager->persist($citizen);
             foreach ($remove as $remove_entry)

@@ -29,12 +29,15 @@ use Doctrine\ORM\EntityManagerInterface;
 use Exception;
 use Symfony\Bundle\FrameworkBundle\Controller\RedirectController;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpKernel\Event\ControllerEvent;
 use Symfony\Component\HttpKernel\Event\ResponseEvent;
 use Symfony\Component\HttpKernel\KernelEvents;
 use Symfony\Component\Lock\LockInterface;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use Symfony\Component\Security\Core\Security;
+use Symfony\Component\Security\Http\Event\LogoutEvent;
+use Symfony\Component\Security\Http\SecurityEvents;
 
 class GateKeeperSubscriber implements EventSubscriberInterface
 {
@@ -148,6 +151,10 @@ class GateKeeperSubscriber implements EventSubscriberInterface
         if ($this->current_lock) $this->current_lock->release();
     }
 
+    public function removeRememberMeToken(LogoutEvent $event) {
+        $event->getResponse()->headers->clearCookie('myhordes_remember_me');
+    }
+
     /**
      * @inheritDoc
      */
@@ -156,6 +163,7 @@ class GateKeeperSubscriber implements EventSubscriberInterface
         return [
             KernelEvents::CONTROLLER => 'holdTheDoor',
             KernelEvents::RESPONSE   => 'releaseTheDoor',
+            LogoutEvent::class => ['removeRememberMeToken',-1],
         ];
     }
 }

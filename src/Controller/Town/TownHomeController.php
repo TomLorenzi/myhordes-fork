@@ -144,6 +144,9 @@ class TownHomeController extends TownController
                     case PrivateMessage::TEMPLATE_CROW_TERROR:
                         $thread->setTitle( $trans->trans('Du bist vor Angst erstarrt!!', [], 'game') );
                         break;
+                    case PrivateMessage::TEMPLATE_CROW_AVOID_TERROR:
+                        $thread->setTitle( $trans->trans('Was für eine schreckliche Nacht!', [], 'game') );
+                        break;
                     case PrivateMessage::TEMPLATE_CROW_THEFT:
                         $thread->setTitle( $trans->trans('Haltet den Dieb!', [], 'game') );
                         break;
@@ -201,8 +204,7 @@ class TownHomeController extends TownController
             'possible_dests' => $possible_dests,
             'dest_citizen' => $destCitizen,
             'sendable_items' => $sendable_items,
-            'can_do_insurrection' => $citizen->getBanished() && !$this->citizen_handler->hasStatusEffect($citizen, "tg_insurrection") && $citizen->getTown()->getInsurrectionProgress() < 100
-        ], $request->getLocale()) );
+        ]) );
     }
 
     /**
@@ -517,67 +519,6 @@ class TownHomeController extends TownController
         }
 
         $em->flush();
-        return AjaxResponse::success( true, ['url' => $this->generateUrl('town_house', ['tab' => 'messages', 'subtab' => 'received'])] );
-    }
-
-    /**
-     * @Route("api/town/house/insurrect", name="town_home_insurect")
-     * @param EntityManagerInterfacce $em
-     * @return Response
-     */
-    public function do_insurrection(EntityManagerInterface $em): Response
-    {
-        /** @var Citizen $citizen */
-        $citizen = $this->getUser()->getActiveCitizen();
-
-        if($this->citizen_handler->hasStatusEffect($citizen, "tg_insurrection"))
-            return AjaxResponse::error(ErrorHelper::ErrorActionNotAvailable);
-
-        /** @var Town $town */
-        $town = $citizen->getTown();
-
-        $non_shunned = 0;
-
-        //TODO: This needs huuuuge statistics
-
-        foreach ($town->getCitizens() as $foreinCitizen)
-            if ($foreinCitizen->getAlive() && !$foreinCitizen->getBanished()) $non_shunned++;
-
-        $town->setInsurrectionProgress($town->getInsurrectionProgress() + intval(round(100 / $non_shunned)));
-
-        if ($town->getInsurrectionProgress() >= 100) {
-
-            // Let's do the insurrection !
-            $town->setInsurrectionProgress(100);
-
-            $bank = $citizen->getTown()->getBank();
-            $impound_prop = $this->entity_manager->getRepository(ItemProperty::class)->findOneBy(['name' => 'impoundable' ]);
-
-            foreach ($town->getCitizens() as $foreinCitizen) {
-                if(!$foreinCitizen->getAlive()) continue;
-                
-                if ($foreinCitizen->getBanished())
-                    $foreinCitizen->setBanished(false);
-                else {
-                    $foreinCitizen->setBanished(true);
-                    foreach ($foreinCitizen->getInventory()->getItems() as $item)
-                        if (!$item->getEssential() && $item->getPrototype()->getProperties()->contains( $impound_prop ))
-                            $this->inventory_handler->forceMoveItem( $bank, $item );
-                    foreach ($foreinCitizen->getHome()->getChest()->getItems() as $item)
-                        if (!$item->getEssential() && $item->getPrototype()->getProperties()->contains( $impound_prop ))
-                            $this->inventory_handler->forceMoveItem( $bank, $item );
-                    $this->picto_handler->give_picto($foreinCitizen, "r_ban_#00");
-                }
-                
-                $this->entity_manager->persist($foreinCitizen);
-            }
-        }
-
-        $this->citizen_handler->inflictStatus($citizen, "tg_insurrection");
-
-        $this->entity_manager->persist($town);
-        $em->flush();
-
         return AjaxResponse::success( true, ['url' => $this->generateUrl('town_house', ['tab' => 'messages', 'subtab' => 'received'])] );
     }
 }

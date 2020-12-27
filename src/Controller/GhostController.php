@@ -2,7 +2,10 @@
 
 namespace App\Controller;
 
+use App\Entity\Citizen;
 use App\Entity\CitizenRankingProxy;
+use App\Entity\CitizenRole;
+use App\Entity\SpecialActionPrototype;
 use App\Entity\Town;
 use App\Entity\TownClass;
 use App\Entity\User;
@@ -273,15 +276,15 @@ class GhostController extends CustomAbstractController implements GhostInterface
 
     /**
      * @Route("api/ghost/join", name="api_join")
+     * Process the user joining a town
      * @param JSONRequestParser $parser
      * @param GameFactory $factory
-     * @param EntityManagerInterface $em
      * @param ConfMaster $conf
      * @param LogTemplateHandler $log
      * @param TownHandler $townHandler
      * @return Response
      */
-    public function join_api(JSONRequestParser $parser, GameFactory $factory, EntityManagerInterface $em,
+    public function join_api(JSONRequestParser $parser, GameFactory $factory,
                              ConfMaster $conf, LogTemplateHandler $log, TownHandler $townHandler) {
         /** @var User $user */
         $user = $this->getUser();
@@ -289,7 +292,7 @@ class GhostController extends CustomAbstractController implements GhostInterface
         if ($user->getShadowBan()) return AjaxResponse::error(ErrorHelper::ErrorPermissionError);
 
         /** @var CitizenRankingProxy $nextDeath */
-        if ($em->getRepository(CitizenRankingProxy::class)->findNextUnconfirmedDeath($user))
+        if ($this->entity_manager->getRepository(CitizenRankingProxy::class)->findNextUnconfirmedDeath($user))
             return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
 
         if (!$parser->has('town')) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
@@ -297,7 +300,7 @@ class GhostController extends CustomAbstractController implements GhostInterface
         if ($town_id <= 0) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
         /** @var Town $town */
-        $town = $em->getRepository(Town::class)->find( $town_id );
+        $town = $this->entity_manager->getRepository(Town::class)->find( $town_id );
         $user = $this->getUser();
 
         if (!$town || !$user) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
@@ -314,17 +317,17 @@ class GhostController extends CustomAbstractController implements GhostInterface
         if (!$citizen) return AjaxResponse::error($error);
 
         try {
-            $em->persist($town);
-            $em->persist($citizen);
-            $em->flush();
+            $this->entity_manager->persist($town);
+            $this->entity_manager->persist($citizen);
+            $this->entity_manager->flush();
         } catch (Exception $e) {
             return AjaxResponse::error(ErrorHelper::ErrorDatabaseException, ['e' => $e->getMessage()]);
         }
 
         try {
             foreach ($all as $new_citizen)
-                $em->persist( $log->citizenJoin( $new_citizen ) );
-            $em->flush();
+                $this->entity_manager->persist( $log->citizenJoin( $new_citizen ) );
+            $this->entity_manager->flush();
         }
         catch (Exception $e) {
             return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
@@ -333,15 +336,34 @@ class GhostController extends CustomAbstractController implements GhostInterface
         $current_town_event = $this->conf->getCurrentEvent($town);
         if ($current_town_event->active()) {
             if (!$townHandler->updateCurrentEvent($town, $current_town_event))
-                $em->clear();
+                $this->entity_manager->clear();
             else {
-                $em->persist($town);
-                $em->flush();
+                $this->entity_manager->persist($town);
+                $this->entity_manager->flush();
+            }
+        }
+
+        if (!$town->isOpen()){
+            // Target town is closed, let's add special voting actions !
+            $roles = $this->entity_manager->getRepository(CitizenRole::class)->findVotable();
+            /** @var CitizenRole $role */
+            foreach ($roles as $role){
+                /** @var SpecialActionPrototype $special_action */
+                $special_action = $this->entity_manager->getRepository(SpecialActionPrototype::class)->findOneBy(['name' => 'special_vote_' . $role->getName()]);
+                /** @var Citizen $citizen */
+                foreach ($town->getCitizens() as $citizen){
+                    if(!$citizen->getProfession()->getHeroic()) continue;
+
+                    if(!$citizen->getSpecialActions()->contains($special_action)) {
+                        $citizen->addSpecialAction($special_action);
+                        $this->entity_manager->persist($citizen);
+                    }
+                }
             }
         }
 
         // Let's check if there is enough opened town
-        $openTowns = $em->getRepository(Town::class)->findOpenTown();
+        $openTowns = $this->entity_manager->getRepository(Town::class)->findOpenTown();
         $count = array(
             "fr" => array(
                 "remote" => 0,
@@ -387,22 +409,23 @@ class GhostController extends CustomAbstractController implements GhostInterface
                     // Create the count we need
                     for($i = 0 ; $i < $minOpenTown[$townClass] - $openCount ; $i++){
                         $newTown = $factory->createTown(null, $townLang, null, $townClass);
-                        $em->persist($newTown);
-                        $em->flush();
+                        $this->entity_manager->persist($newTown);
+                        $this->entity_manager->flush();
 
                         $current_event = $this->conf->getCurrentEvent();
                         if ($current_event->active()) {
                             if (!$townHandler->updateCurrentEvent($newTown, $current_event))
-                                $em->clear();
+                                $this->entity_manager->clear();
                             else {
-                                $em->persist($newTown);
-                                $em->flush();
+                                $this->entity_manager->persist($newTown);
                             }
                         }
                     }
                 }
             }
         }
+
+        $this->entity_manager->flush();
 
         return AjaxResponse::success();
     }

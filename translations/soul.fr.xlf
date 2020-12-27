@@ -2186,5 +2186,32 @@
         <target>Mort non validée</target>
       </segment>
     </unit>
+    <unit id="WLE.7QA" name="Überall ausloggen">
+      <notes>
+        <note category="german">Überall ausloggen</note>
+      </notes>
+      <segment>
+        <source>Überall ausloggen</source>
+        <target>Se déconnecter de partout</target>
+      </segment>
+    </unit>
+    <unit id="nvlk12L" name="Auf allen Browsern &amp; Geräten abmelden">
+      <notes>
+        <note category="german">Auf allen Browsern &amp; Geräten abmelden</note>
+      </notes>
+      <segment>
+        <source>Auf allen Browsern &amp; Geräten abmelden</source>
+        <target>Déconnexion de tous les navigateurs et appareils</target>
+      </segment>
+    </unit>
+    <unit id="AbYRB3R" name="82c4478">
+      <notes>
+        <note category="german">Hiermit kannst du dich von allen Geräten und Browsern abmelden, auf denen du aktuell eingeloggt bist. Die "Login merken" Funktion wird hierdurch ebenfalls auf den betroffenen Geräten deaktiviert.</note>
+      </notes>
+      <segment>
+        <source>Hiermit kannst du dich von allen Geräten und Browsern abmelden, auf denen du aktuell eingeloggt bist. Die "Login merken" Funktion wird hierdurch ebenfalls auf den betroffenen Geräten deaktiviert.</source>
+        <target>Ce bouton vous permet de vous déconnecter de tous les appareils et navigateurs sur lesquels vous êtes actuellement connectés. La fonction "Rester connecté" sera également désactivée sur ces appareils.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

@@ -18,6 +18,7 @@ use App\Service\LogTemplateHandler;
 use App\Service\PictoHandler;
 use App\Service\RandomGenerator;
 use App\Service\TimeKeeperService;
+use App\Service\TownHandler;
 use App\Service\UserHandler;
 use App\Service\ZoneHandler;
 use Doctrine\ORM\EntityManagerInterface;
@@ -36,30 +37,36 @@ class ExternalController extends InventoryAwareController {
     protected EntityManagerInterface $entity_manager;
     protected Packages $asset;
     protected $available_langs = ['en', 'fr', 'de', 'es'];
-    
+
     /**
-    * BeyondController constructor.
-    * @param EntityManagerInterface $em
-    * @param InventoryHandler $ih
-    * @param CitizenHandler $ch
-    * @param ActionHandler $ah
-    * @param TimeKeeperService $tk
-    * @param DeathHandler $dh
-    * @param TranslatorInterface $translator
-    * @param GameFactory $gf
-    * @param RandomGenerator $rg
-    * @param ItemFactory $if
-    * @param ZoneHandler $zh
-    * @param LogTemplateHandler $lh
-    */
+     * BeyondController constructor.
+     * @param EntityManagerInterface $em
+     * @param InventoryHandler $ih
+     * @param CitizenHandler $ch
+     * @param ActionHandler $ah
+     * @param TimeKeeperService $tk
+     * @param DeathHandler $dh
+     * @param PictoHandler $ph
+     * @param TranslatorInterface $translator
+     * @param GameFactory $gf
+     * @param RandomGenerator $rg
+     * @param ItemFactory $if
+     * @param LogTemplateHandler $lh
+     * @param ConfMaster $conf
+     * @param ZoneHandler $zh
+     * @param UserHandler $uh
+     * @param CrowService $armbrust
+     * @param Packages $a
+     * @param TownHandler $th
+     */
     
     public function __construct( EntityManagerInterface $em, InventoryHandler $ih, CitizenHandler $ch,
     ActionHandler $ah, TimeKeeperService $tk, DeathHandler $dh,
     PictoHandler $ph, TranslatorInterface $translator, GameFactory $gf,
     RandomGenerator $rg, ItemFactory $if, LogTemplateHandler $lh,
     ConfMaster $conf, ZoneHandler $zh, UserHandler $uh,
-    CrowService $armbrust, Packages $a ) {
-        parent::__construct($em, $ih, $ch, $ah, $dh, $ph, $translator, $lh, $tk, $rg, $conf, $zh, $uh, $armbrust);
+    CrowService $armbrust, Packages $a, TownHandler $th) {
+        parent::__construct($em, $ih, $ch, $ah, $dh, $ph, $translator, $lh, $tk, $rg, $conf, $zh, $uh, $armbrust, $th);
         $this->game_factory = $gf;
         $this->item_factory = $if;
         $this->zone_handler = $zh;

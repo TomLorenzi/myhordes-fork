@@ -1999,5 +1999,23 @@
         <target>Importiert</target>
       </segment>
     </unit>
+    <unit id="GsetYdP" name="Seite %page%/%total%">
+      <notes>
+        <note category="german">Seite %page%/%total%</note>
+      </notes>
+      <segment>
+        <source>Seite %page%/%total%</source>
+        <target>Seite %page%/%total%</target>
+      </segment>
+    </unit>
+    <unit id="HAvttwf" name="Gib den Namen der Stadt ein.">
+      <notes>
+        <note category="german">Gib den Namen der Stadt ein.</note>
+      </notes>
+      <segment>
+        <source>Gib den Namen der Stadt ein.</source>
+        <target>Gib den Namen der Stadt ein.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

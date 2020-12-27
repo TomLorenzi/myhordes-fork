@@ -6,9 +6,11 @@ namespace App\Command;
 
 use App\Entity\Citizen;
 use App\Entity\CitizenProfession;
+use App\Entity\CitizenRole;
 use App\Entity\CitizenStatus;
 use App\Entity\ItemPrototype;
 use App\Entity\Picto;
+use App\Entity\SpecialActionPrototype;
 use App\Entity\Town;
 use App\Entity\TownRankingProxy;
 use App\Entity\TwinoidImport;
@@ -22,16 +24,13 @@ use App\Service\ItemFactory;
 use App\Service\RandomGenerator;
 use App\Service\TownHandler;
 use App\Service\TwinoidHandler;
+use App\Service\UserHandler;
 use Doctrine\ORM\EntityManagerInterface;
-use Exception;
-use Symfony\Component\Console\Application;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Helper\ProgressBar;
-use Symfony\Component\Console\Helper\Table;
 use Symfony\Component\Console\Input\ArrayInput;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
-use Symfony\Component\Console\Output\BufferedOutput;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\HttpKernel\KernelInterface;
 use Symfony\Bundle\FrameworkBundle\Translation\Translator;
@@ -56,11 +55,12 @@ class DebugCommand extends Command
     private TownHandler $townHandler;
     private CommandHelper $helper;
     private TwinoidHandler $twin;
+    private UserHandler $user_handler;
 
     public function __construct(KernelInterface $kernel, GameFactory $gf, EntityManagerInterface $em,
                                 RandomGenerator $rg, CitizenHandler $ch, Translator $translator, InventoryHandler $ih,
                                 ItemFactory $if, UserPasswordEncoderInterface $passwordEncoder, ConfMaster $c,
-                                TownHandler $th, CommandHelper $h, TwinoidHandler $t)
+                                TownHandler $th, CommandHelper $h, TwinoidHandler $t, UserHandler $uh)
     {
         $this->kernel = $kernel;
 
@@ -76,6 +76,7 @@ class DebugCommand extends Command
         $this->townHandler = $th;
         $this->helper = $h;
         $this->twin = $t;
+        $this->user_handler = $uh;
 
         parent::__construct();
     }
@@ -134,8 +135,18 @@ class DebugCommand extends Command
                 }
                 $crow
                     ->setName("Der Rabe")
-                    ->setEmail("crow");
-                $crow->setPassword( $this->encoder->encodePassword($crow, '5%[9Wqc@"px.&er{thxCt)7Un^-.~K~B;E7b`,#L0"3?3Mcu:x$|8\-h.3JQ*$') );
+                    ->setEmail("crow")
+                    ->setRightsElevation(User::ROLE_CROW);
+
+                $this->user_handler->setUserBaseAvatar($crow, file_get_contents("{$this->kernel->getProjectDir()}/assets/img/forum/crow/crow.png"), UserHandler::ImageProcessingPreferImagick, 'png', 100, 100);
+                $this->user_handler->setUserSmallAvatar($crow, file_get_contents("{$this->kernel->getProjectDir()}/assets/img/forum/crow/crow.small.png"));
+
+                try {
+                    $crow->setPassword($this->encoder->encodePassword($crow, bin2hex(random_bytes(16))));
+                } catch (\Exception $e) {
+                    $output->writeln('<error>Unable to generate a random password.</error>');
+                    return -1;
+                }
                 $this->entity_manager->persist($crow);
                 $this->entity_manager->flush();               
                 
@@ -158,7 +169,7 @@ class DebugCommand extends Command
 
         if ($tid = $input->getOption('everyone-drink')) {
             /** @var Town $town */
-            $town = $this->entity_manager->getRepository(Town::class)->find( $tid );
+            $town = $this->helper->resolve_string($tid, Town::class, 'Town', $this->getHelper('question'), $input, $output);
             $statusHasDrunk = $this->entity_manager->getRepository(CitizenStatus::class)->findOneBy(['name' => "hasdrunk"]);
             $statusThirst = $this->entity_manager->getRepository(CitizenStatus::class)->findOneBy(['name' => "thirst1"]);
             $statusDehydrated = $this->entity_manager->getRepository(CitizenStatus::class)->findOneBy(['name' => "thirst2"]);
@@ -183,7 +194,7 @@ class DebugCommand extends Command
 
         if ($tid = $input->getOption('fill-town')) {
             /** @var Town $town */
-            $town = $this->entity_manager->getRepository(Town::class)->find( $tid );
+            $town = $this->helper->resolve_string($tid, Town::class, 'Town', $this->getHelper('question'), $input, $output);
             if (!$town) {
                 $output->writeln('<error>Town not found!</error>');
                 return 2;
@@ -193,14 +204,14 @@ class DebugCommand extends Command
             $force = $input->getOption('force');
 
             $professions = $this->entity_manager->getRepository( CitizenProfession::class )->findAll();
-            for ($i = 0; $i < $town->getPopulation() - $town->getCitizenCount(); $i++)
+            for ($i = 0; $i < $town->getPopulation() - $town->getCitizenCount(); $i++) {
                 for ($u = 1; $u <= 80; $u++) {
                     $user_name = 'user_' . str_pad($u, 3, '0', STR_PAD_LEFT);
-                    $user = $this->entity_manager->getRepository(User::class)->findOneBy( ['name' => $user_name] );
+                    $user = $this->entity_manager->getRepository(User::class)->findOneBy(['name' => $user_name]);
                     if (!$user) continue;
                     /** @var Citizen $citizen */
 
-                    $citizen = $this->entity_manager->getRepository(Citizen::class)->findActiveByUser( $user );
+                    $citizen = $this->entity_manager->getRepository(Citizen::class)->findActiveByUser($user);
                     if ($citizen && $citizen->getTown() !== $town && (!$citizen->getAlive() || $force)) {
                         $citizen->setActive(false);
 
@@ -210,9 +221,9 @@ class DebugCommand extends Command
                     }
 
                     if (!$citizen) {
-                        $citizen = $this->entity_manager->getRepository(Citizen::class)->findInTown($user,$town);
+                        $citizen = $this->entity_manager->getRepository(Citizen::class)->findInTown($user, $town);
                         if ($citizen) $citizen->setActive(true);
-                        else $citizen = $this->game_factory->createCitizen($town,$user,$error);
+                        else $citizen = $this->game_factory->createCitizen($town, $user, $error);
                     } else continue;
 
                     if (!$citizen) continue;
@@ -221,8 +232,8 @@ class DebugCommand extends Command
                     $this->entity_manager->flush();
 
                     /** @var CitizenProfession $pro */
-                    $pro = $this->randomizer->pick( $professions );
-                    $this->citizen_handler->applyProfession( $citizen, $pro );
+                    $pro = $this->randomizer->pick($professions);
+                    $this->citizen_handler->applyProfession($citizen, $pro);
 
                     $this->entity_manager->persist($town);
                     $this->entity_manager->persist($citizen);
@@ -232,6 +243,27 @@ class DebugCommand extends Command
                     $output->writeln("<comment>{$user_name}</comment> joins <comment>{$town->getName()}</comment> and fills slot {$ii}/{$town->getPopulation()} as a <comment>{$pro->getLabel()}</comment>.");
                     break;
                 }
+            }
+
+            $this->entity_manager->flush();
+            if (!$town->isOpen()){
+                // Target town is closed, let's add special voting actions !
+                $roles = $this->entity_manager->getRepository(CitizenRole::class)->findVotable();
+                /** @var CitizenRole $role */
+                foreach ($roles as $role){
+                    /** @var SpecialActionPrototype $special_action */
+                    $special_action = $this->entity_manager->getRepository(SpecialActionPrototype::class)->findOneBy(['name' => 'special_vote_' . $role->getName()]);
+                    /** @var Citizen $citizen */
+                    foreach ($town->getCitizens() as $citizen){
+                        if(!$citizen->getProfession()->getHeroic()) continue;
+
+                        if(!$citizen->getSpecialActions()->contains($special_action)) {
+                            $citizen->addSpecialAction($special_action);
+                            $this->entity_manager->persist($citizen);
+                        }
+                    }
+                }
+            }
 
             // Ensure we still have an open town after filling it with dumb users
             
@@ -281,12 +313,12 @@ class DebugCommand extends Command
                                 $this->entity_manager->clear();
                             else {
                                 $this->entity_manager->persist($newTown);
-                                $this->entity_manager->flush();
                             }
                         }
                     }
                 }
             }
+            $this->entity_manager->flush();
         }
 
         if ($input->getOption('update-events')) {

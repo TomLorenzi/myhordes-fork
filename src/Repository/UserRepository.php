@@ -2,6 +2,7 @@
 
 namespace App\Repository;
 
+use App\Entity\RememberMeTokens;
 use App\Entity\User;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Common\Persistence\ManagerRegistry;
@@ -166,6 +167,10 @@ class UserRepository extends ServiceEntityRepository implements UserLoaderInterf
                 return $user;
             case 'etwin':
                 return $this->findOneByEternalID( $name );
+            case 'tkn':
+                $token = $this->getEntityManager()->getRepository(RememberMeTokens::class)->findOneBy(['token' => $name]);
+                return $token ? $token->getUser() : null;
+            default: return null;
         }
     }
 }
