@@ -1798,7 +1798,7 @@
       </notes>
       <segment>
         <source>Temporäre Zonenkontrolle</source>
-        <target>Temporäre Zonenkontrolle</target>
+        <target>Zona temporalmente controlada</target>
       </segment>
     </unit>
     <unit id="V566.Sb" name="%z% Zombies kontrollieren diese Zone!">
