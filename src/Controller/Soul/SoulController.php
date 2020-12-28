@@ -11,6 +11,7 @@ use App\Entity\FoundRolePlayText;
 use App\Entity\HeroSkillPrototype;
 use App\Entity\Picto;
 use App\Entity\PictoPrototype;
+use App\Entity\RememberMeTokens;
 use App\Entity\ShoutboxEntry;
 use App\Entity\ShoutboxReadMarker;
 use App\Entity\TownRankingProxy;
@@ -78,7 +79,7 @@ class SoulController extends CustomAbstractController
         $this->user_handler = $uh;
     }
 
-    protected function addDefaultTwigArgs(?string $section = null, ?array $data = null, $locale = null ): array {
+    protected function addDefaultTwigArgs(?string $section = null, ?array $data = null ): array {
         $data = parent::addDefaultTwigArgs($section, $data);
 
         $user = $this->getUser();
@@ -454,6 +455,7 @@ class SoulController extends CustomAbstractController
         $user = $this->getUser();
 
         $user->setPreferSmallAvatars( (bool)$parser->get('sma', false) );
+        $user->setDisableFx( (bool)$parser->get('disablefx', false) );
         $this->entity_manager->persist( $user );
         $this->entity_manager->flush();
 
@@ -605,12 +607,38 @@ class SoulController extends CustomAbstractController
         if (!$passwordEncoder->isPasswordValid( $user, $parser->trimmed('pw') ))
             return AjaxResponse::error(self::ErrorUserEditPasswordIncorrect );
 
-        $user->setPassword( $passwordEncoder->encodePassword($user, $parser->trimmed('pw_new')) );
+        $user
+            ->setPassword( $passwordEncoder->encodePassword($user, $parser->trimmed('pw_new')) )
+            ->setCheckInt($user->getCheckInt() + 1);
+
+        if ($rm_token = $this->entity_manager->getRepository(RememberMeTokens::class)->findOneBy(['user' => $user]))
+            $this->entity_manager->remove($rm_token);
 
         $this->entity_manager->persist($user);
         $this->entity_manager->flush();
 
         $this->addFlash( 'notice', $this->translator->trans('Dein Passwort wurde erfolgreich geändert. Bitte logge dich mit deinem neuen Passwort ein.', [], 'login') );
+        $token->setToken(null);
+        return AjaxResponse::success();
+    }
+
+    /**
+     * @Route("api/soul/settings/unremember_me", name="api_soul_unremember_me")
+     * @param TokenStorageInterface $token
+     * @return Response
+     */
+    public function soul_settings_unremember(TokenStorageInterface $token): Response
+    {
+        $user = $this->getUser();
+        $user->setCheckInt($user->getCheckInt() + 1);
+
+        if ($rm_token = $this->entity_manager->getRepository(RememberMeTokens::class)->findOneBy(['user' => $user]))
+            $this->entity_manager->remove($rm_token);
+
+        $this->entity_manager->persist($user);
+        $this->entity_manager->flush();
+
+        $this->addFlash( 'notice', $this->translator->trans('Du wurdest erfolgreich von allen Geräten abgemeldet.', [], 'login') );
         $token->setToken(null);
         return AjaxResponse::success();
     }
@@ -648,7 +676,7 @@ class SoulController extends CustomAbstractController
      * @param int $id
      * @return Response
      */
-    public function soul_visit(int $id): Response
+    public function soul_visit(int $id, Request $r): Response
     {
         $current_user = $this->getUser();
 
@@ -664,9 +692,9 @@ class SoulController extends CustomAbstractController
         $pictos = $this->entity_manager->getRepository(Picto::class)->findNotPendingByUser($user);
     	$points = $this->user_handler->getPoints($user);
 
-        $referer = null; // get the referer, it can be empty!
-        $returnUrl = $this->generateUrl('soul_me');
-        //TODO: get referer, generate URL to return to it
+        $returnUrl = null; // TODO: get the referer, it can be empty!
+        if(empty($returnUrl))
+            $returnUrl = $this->generateUrl('soul_me');
 
         $cac = $current_user->getActiveCitizen();
         $uac = $user->getActiveCitizen();

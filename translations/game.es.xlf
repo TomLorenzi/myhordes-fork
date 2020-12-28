@@ -52,7 +52,7 @@
       </notes>
       <segment>
         <source>%citizen% hat %item% in den Brunnen geschüttet und damit %num% Rationen Wasser hinzugefügt.</source>
-        <target><![CDATA[%citizen% ha <strong>tirado %item% al Pozo</strong>, y con ello <strong>obtuvimos %num% Raciones de Agua.</strong>]]></target>
+        <target><![CDATA[%citizen% ha ha añadido <strong>%item%</strong>, y con ello obtuvimos <strong>%num% Raciones de Agua.</strong>]]></target>
       </segment>
     </unit>
     <unit id="uHRiWHu" name="%citizen% hat an dem Bauprojekt %plan% mitgearbeitet und dabei %ap% ausgegeben.">
@@ -1969,7 +1969,7 @@
       </notes>
       <segment>
         <source>Zone freiräumen</source>
-        <target>Purificar la zona</target>
+        <target>Despejar la zona</target>
       </segment>
     </unit>
     <unit id="ftAsu0Q" name="Müll durchwühlen">
@@ -2143,9 +2143,9 @@
         <source>Baupunkte können in der Werkstatt und auf Baustellen verwendet werden, wo sie wie Aktionspunkte
                     zählen. Wenn möglich werden immer zuerst Baupunkte verbraucht, bevor Aktionspunkte eingesetzt
                     werden. Bedenke, dass Baupunkte nicht eingesetzt werden können wenn du erschöpft bist!</source>
-        <target>Baupunkte können in der Werkstatt und auf Baustellen verwendet werden, wo sie wie Aktionspunkte
-                    zählen. Wenn möglich werden immer zuerst Baupunkte verbraucht, bevor Aktionspunkte eingesetzt
-                    werden. Bedenke, dass Baupunkte nicht eingesetzt werden können wenn du erschöpft bist!</target>
+        <target>Los Puntos de Construcción puedes utilizarse en el taller y en las construcciones, donde cuentan como puntos
+                            de acción. Los puntos de construcción siempre se usarán primero que los puntos de
+                            acción. También se pueden usar para abrir contenendores (como cajas) en el Ultramundo ¡Recuerda que los puntos de construcción no se podrán usar si estás cansado!</target>
       </segment>
     </unit>
     <unit id="6UFJBEW" name="Verbannt">
@@ -2491,7 +2491,7 @@
       </notes>
       <segment>
         <source>Alte Hydraulikpumpe</source>
-        <target>Vieja Bomba hidráuulica</target>
+        <target>Vieja Bomba hidráulica</target>
       </segment>
     </unit>
     <unit id="S85DdXs" name="Alter Fahrradverleih">
@@ -3706,7 +3706,7 @@
       </notes>
       <segment>
         <source>Der Brunnen ist der Ort, an dem sich die Bürger jeden Tag ihre Ration Wasser holen.</source>
-        <target>El Pozo es el jugar en el que los habitantes pueden recoger diariamente su ración de agua.</target>
+        <target>El Pozo es el lugar en el que los habitantes pueden recoger diariamente su ración de agua.</target>
       </segment>
     </unit>
     <unit id="TSuzaPk" name="Übersicht">
@@ -3868,7 +3868,7 @@
       </notes>
       <segment>
         <source>Dehydratation ist wirklich was Übles. Muskelspasmen, Atemprobleme und unaushaltbare Gliederschmerzen treten in der finalen Phase auf. Du hast nach etwas Trinkbarem gesucht - überall.... Vergeblich. Deine Mitbürger behaupten sogar, dich dabei gesehen zu haben, wie du in den letzten Minuten schaufelweise Sand in dich geschüttet hättest... Herrje...</source>
-        <target>Dehydratation ist wirklich was Übles. Muskelspasmen, Atemprobleme und unaushaltbare Gliederschmerzen treten in der finalen Phase auf. Du hast nach etwas Trinkbarem gesucht - überall.... Vergeblich. Deine Mitbürger behaupten sogar, dich dabei gesehen zu haben, wie du in den letzten Minuten schaufelweise Sand in dich geschüttet hättest... Herrje...</target>
+        <target>Morir de sed es atroz. En las últimas horas, tu piel ha comenzado a secarse y a quebrarse, tu lengua se ha hinchado. Algunos dicen haberte visto tragando arena a manos llenas, hasta atragantarte...</target>
       </segment>
     </unit>
     <unit id="kc3u5NU" name="Verhungert">
@@ -3877,7 +3877,7 @@
       </notes>
       <segment>
         <source>Verhungert</source>
-        <target>Verhungert</target>
+        <target>Inanición</target>
       </segment>
     </unit>
     <unit id="qyPgKPu" name="c255c4f">
@@ -3922,7 +3922,7 @@
       </notes>
       <segment>
         <source>Zyanid</source>
-        <target>Cianuro</target>
+        <target>Suicidio por ingestión de cianuro</target>
       </segment>
     </unit>
     <unit id="25.Fib." name="a5ebe5c">
@@ -3931,7 +3931,7 @@
       </notes>
       <segment>
         <source>Du dachtest dir: "Bevor ich noch eine weitere Minute mit diesen Losern verbringe, kürze ich das Ganze ein wenig ab...". Was soll's? Einen Tag mehr oder weniger, was macht das schon für einen Unterschied...</source>
-        <target>Du dachtest dir: "Bevor ich noch eine weitere Minute mit diesen Losern verbringe, kürze ich das Ganze ein wenig ab...". Was soll's? Einen Tag mehr oder weniger, was macht das schon für einen Unterschied...</target>
+        <target>En vez de seguir viviendo con esa banda de "losers", preferiste simplificarte la vida... acortándola un poco. Al fin y al cabo, un día más, un día menos... </target>
       </segment>
     </unit>
     <unit id="n7kmZ_p" name="Ermordung durch Gift">
@@ -4093,7 +4093,7 @@
       </notes>
       <segment>
         <source>Eine alte Pumpe, die zwar vor sich hin rostet, aber dennoch in der Lage ist, in der Wüste Wasser zu schöpfen... Das einzige Problem ist, dass das Wasser, selbst wenn Sie es zum Funktionieren bringen, im Grunde genommen ungenießbar ist und in der Stadt mit den entsprechenden Geräten gereinigt werden muss.</source>
-        <target>Eine alte Pumpe, die zwar vor sich hin rostet, aber dennoch in der Lage ist, in der Wüste Wasser zu schöpfen... Das einzige Problem ist, dass das Wasser, selbst wenn Sie es zum Funktionieren bringen, im Grunde genommen ungenießbar ist und in der Stadt mit den entsprechenden Geräten gereinigt werden muss.</target>
+        <target><![CDATA[Esta vieja bomba hidráulica está bastante corroída y tiene aún la capacidad de extraer agua en el desierto... Si llegas a hacerla funcionar, el agua <strong>no será potable</strong> y deberá <strong>ser purificada en el pueblo</strong> con los productos necesarios.]]></target>
       </segment>
     </unit>
     <unit id="7y4PXTQ" name="21761df">
@@ -4147,7 +4147,7 @@
       </notes>
       <segment>
         <source>Die Farbe der am Bunkereingang gepinselten Zahl ist fast vollständig abgeblättert, aber es handelt sich wahrscheinlich um den Bunker 14. Im Inneren liegen überall verweste Leichen herum. Scheint so, als ob der Schließmechanismus versagt hätte. Das kommt vor.</source>
-        <target>Die Farbe der am Bunkereingang gepinselten Zahl ist fast vollständig abgeblättert, aber es handelt sich wahrscheinlich um den Bunker 14. Im Inneren liegen überall verweste Leichen herum. Scheint so, als ob der Schließmechanismus versagt hätte. Das kommt vor.</target>
+        <target><![CDATA[El número en la puerta no se distingue bien... Pero se puede notar que se trata del <strong>Refugio 14</strong>. Viendo el estado de los cadáveres en su interior, todo indica que el sistema de cierre del Portal <strong>no funcionó correctamente</strong>. Suele pasar...]]></target>
       </segment>
     </unit>
     <unit id="Jv.wD7x" name="cbe6a86">
@@ -4156,7 +4156,7 @@
       </notes>
       <segment>
         <source>Das Atomic Cafe ist (oder war) der Ort, an dem man sein sollte: Ein verblichenes Plakat lädt Sie zum Sommerfest am 2. Mai 2010 ein: Hawaiianisches Thema, Preis für den bestangezogenen (halbnackten Mädchen + Jungs) DJ Dave ab 13.00 Uhr, kostenloses BBQ, Biergarten mit verbessertem Look, Partyspiele, Live-Fußball, Cocktails, £2 Flaschenbier, £2 Alcopop, £1 Tequila... Beteiligen Sie sich!</source>
-        <target>Das Atomic Cafe ist (oder war) der Ort, an dem man sein sollte: Ein verblichenes Plakat lädt Sie zum Sommerfest am 2. Mai 2010 ein: Hawaiianisches Thema, Preis für den bestangezogenen (halbnackten Mädchen + Jungs) DJ Dave ab 13.00 Uhr, kostenloses BBQ, Biergarten mit verbessertem Look, Partyspiele, Live-Fußball, Cocktails, £2 Flaschenbier, £2 Alcopop, £1 Tequila... Beteiligen Sie sich!</target>
+        <target>El lugar de moda en el desierto, famoso por la Toro-Cola, la especialidad de la casa preparada con hormonas animales.</target>
       </segment>
     </unit>
     <unit id="gINGGfh" name="defa5f9">
@@ -4201,7 +4201,7 @@
       </notes>
       <segment>
         <source>Dieser riesige gelbe Metallcontainer macht einen verlorenen Eindruck. Weit und breit keine Baustelle. Der Gemeinschaftsraum im Inneren ist mit leeren Bierflaschen übersät </source>
-        <target>Dieser riesige gelbe Metallcontainer macht einen verlorenen Eindruck. Weit und breit keine Baustelle. Der Gemeinschaftsraum im Inneren ist mit leeren Bierflaschen übersät </target>
+        <target>Un gran container de metal en medio del desierto. Aquí debió haber hombres tabajando, pero hoy no queda nada más que esta "cabaña".</target>
       </segment>
     </unit>
     <unit id="UezITiX" name="e184eae">
@@ -4219,7 +4219,7 @@
       </notes>
       <segment>
         <source>Das Heim eines gewissen Duke R. Cooke, und wenn man der Gedenktafel an der Tür glauben darf... ein Heim für Helden... dieser Ort ist viel größer als eine Villa, es ist eine voll ausgestattete Festung !</source>
-        <target>Das Heim eines gewissen Duke R. Cooke, und wenn man der Gedenktafel an der Tür glauben darf... ein Heim für Helden... dieser Ort ist viel größer als eine Villa, es ist eine voll ausgestattete Festung !</target>
+        <target>El hogar de un tal Duke R. Cooke, y si puedes creer la placa en la puerta... un hogar para héroes... ¡Este lugar es mucho más grande que una mansión, es una fortaleza completamente equipada!</target>
       </segment>
     </unit>
     <unit id="q5V8SgZ" name="15a1891">
@@ -4228,7 +4228,7 @@
       </notes>
       <segment>
         <source>Die verbrannten Überreste eines kleinen Waldes. Es war wahrscheinlich vorher eine schöne Gegend... Jetzt hoffen Sie nur noch, dass Sie hier nicht übernachten müssen.</source>
-        <target>Die verbrannten Überreste eines kleinen Waldes. Es war wahrscheinlich vorher eine schöne Gegend... Jetzt hoffen Sie nur noch, dass Sie hier nicht übernachten müssen.</target>
+        <target><![CDATA[Los restos <strong>carbonizados</strong> de un bosque. Antes debió ser un lugar agradable... Hoy, sería una pesadilla perderse en él.]]></target>
       </segment>
     </unit>
     <unit id="U.L0F7x" name="8b76b77">
@@ -4237,7 +4237,7 @@
       </notes>
       <segment>
         <source>Diese alte Mine hat es nicht vermocht den Wetterwidrigkeiten Stand zu halten. Nur Gott weiß, was die Menschen damals angetrieben hat, so tief zu graben, um der Erde nützliche Rohstoffe zu entreißen. Dabei reicht es mit den Füßen leicht am Boden zu kratzen und schon kommt eine leckere Kakerlake vorbeigehuscht. Du denkst dir: 'Lecker, die esse ich doch mal gleich'</source>
-        <target>Diese alte Mine hat es nicht vermocht den Wetterwidrigkeiten Stand zu halten. Nur Gott weiß, was die Menschen damals angetrieben hat, so tief zu graben, um der Erde nützliche Rohstoffe zu entreißen. Dabei reicht es mit den Füßen leicht am Boden zu kratzen und schon kommt eine leckere Kakerlake vorbeigehuscht. Du denkst dir: 'Lecker, die esse ich doch mal gleich'</target>
+        <target>Una antigua mina destruida seguramente por la avaricia de sus trabajadores. ¿Pero qué interés tendrían de excavar tan profundo? Sobre todo cuando escarbando en el suelo se encuentran deliciosas cucarachas. "Por cierto, ya es hora de la merienda" te dices...</target>
       </segment>
     </unit>
     <unit id="aR2iiDZ" name="ca3fe4e">
@@ -4264,7 +4264,7 @@
       </notes>
       <segment>
         <source>E-KEA : Diese riesigen Geschäfte gab es früher in jeder Stadt (immer ziemlich ärgerlich am Stadtrand gelegen). Sie spezialisierten sich auf die Herstellung und den Verkauf von Billigmöbeln, denen meist ein Bolzen / Schraube / Verbindungselement fehlte. Es wird gesagt, dass die schlechte Qualität ihrer Produkte einer der Gründe für den Niedergang der Gesellschaft war...</source>
-        <target>E-KEA : Diese riesigen Geschäfte gab es früher in jeder Stadt (immer ziemlich ärgerlich am Stadtrand gelegen). Sie spezialisierten sich auf die Herstellung und den Verkauf von Billigmöbeln, denen meist ein Bolzen / Schraube / Verbindungselement fehlte. Es wird gesagt, dass die schlechte Qualität ihrer Produkte einer der Gründe für den Niedergang der Gesellschaft war...</target>
+        <target>Estas enormes tiendas solían estar en todas las ciudades (siempre a las afueras, en el peor lugar posible). Se especializaron en la fabricación y venta de muebles baratos, que en su mayoría carecían de tornillos. Se dice que la mala calidad de sus productos fue una de las razones del declive de la sociedad...</target>
       </segment>
     </unit>
     <unit id="tcRgABK" name="8fcd3b6">
@@ -4273,7 +4273,7 @@
       </notes>
       <segment>
         <source>Eine verfallene Familiengruft. Man kann den Eingang gerade noch erkennen, da er fast vollständig von verrottender Vegetation verdeckt ist. Anscheinend sind die Leichen vor einiger Zeit aufgestanden und gegangen...</source>
-        <target>Eine verfallene Familiengruft. Man kann den Eingang gerade noch erkennen, da er fast vollständig von verrottender Vegetation verdeckt ist. Anscheinend sind die Leichen vor einiger Zeit aufgestanden und gegangen...</target>
+        <target><![CDATA[Una <strong>cripta familiar</strong> decadente. Apenas se distingue la entrada detrás de la <strong>vegetación descompuesta</strong>. Los <strong>cadáveres</strong> salieron temprano...]]></target>
       </segment>
     </unit>
     <unit id="jfKgTEc" name="ea47251">
@@ -4300,7 +4300,7 @@
       </notes>
       <segment>
         <source>Mitten auf einem völlig verfallenen Platz befindet sich ein großer Gartenschuppen. Die Tür gibt leicht nach und gibt den Blick frei auf einen riesigen Raum voller Regale und allerlei Werkzeug.</source>
-        <target>Mitten auf einem völlig verfallenen Platz befindet sich ein großer Gartenschuppen. Die Tür gibt leicht nach und gibt den Blick frei auf einen riesigen Raum voller Regale und allerlei Werkzeug.</target>
+        <target>En medio de lo que fue un parque encuentras una pequeña cabaña. La puerta se abre fácilmente, revelando estantes con herramientas de todo tipo.</target>
       </segment>
     </unit>
     <unit id="pzQEC77" name="5941d98">
@@ -5101,7 +5101,7 @@
       </notes>
       <segment>
         <source>Anmerkung: Verteidigungsgegenstände (Holzplatten etc...) müssen in der Bank abgelegt werden.</source>
-        <target><![CDATA[<em>Recuerda: Los objetos de defensa (planchas de madera, etc.) deben ser colocados en el Almacén.</em>]]></target>
+        <target>Recuerda: Los objetos de defensa (planchas de madera, etc.) deben ser colocados en el Almacén.</target>
       </segment>
     </unit>
     <unit id="p7WJjEO" name="cabb91e">
@@ -7180,7 +7180,7 @@
       </notes>
       <segment>
         <source>Du erhälst einen Bauplan, wenn Du in diesem Gebäude campst.</source>
-        <target><![CDATA[Obtendrás un <strong>plano de obras</strong> si pasas la noche aquí.]]></target>
+        <target>Obtendrás un plano de obras si pasas la noche aquí.</target>
       </segment>
     </unit>
     <unit id="XZI.RVp" name="Hier wurde bereits ein Bauplan gefunden.">
@@ -7189,7 +7189,7 @@
       </notes>
       <segment>
         <source>Hier wurde bereits ein Bauplan gefunden.</source>
-        <target><![CDATA[Este edificio ya fue inspeccionado por otro jugador y no contiene ningún <strong>plano de obras</strong>...]]></target>
+        <target>Este edificio ya fue inspeccionado por otro jugador y no contiene ningún plano de obras...</target>
       </segment>
     </unit>
     <unit id="r0eixUa" name="%citizen% will zurück zur Stadt und wird dir nicht in diese Richtung folgen.">
@@ -7198,7 +7198,7 @@
       </notes>
       <segment>
         <source>%citizen% will zurück zur Stadt und wird dir nicht in diese Richtung folgen.</source>
-        <target><![CDATA[¡%citizen% no quiere ir en esa dirección! <strong>Este habitante te pide que lo lleves al pueblo</strong>.]]></target>
+        <target>¡%citizen% no quiere ir en esa dirección! Este habitante te pide que lo lleves al pueblo.</target>
       </segment>
     </unit>
     <unit id="KnJXiGc" name="Die Tarnung von %name% ist aufgeflogen!">
@@ -7216,7 +7216,7 @@
       </notes>
       <segment>
         <source>Der Gegenstand, den du soeben gefunden hast, passt nicht in deinen Rucksack, darum bleibt er erstmal am Boden...</source>
-        <target><![CDATA[No puedes cargar este objeto, no te queda más que <strong>abandonarlo en el suelo</strong>...]]></target>
+        <target>No puedes cargar este objeto, no te queda más que abandonarlo en el suelo...</target>
       </segment>
     </unit>
     <unit id="2MBbf8L" name="416726b">
@@ -7813,7 +7813,7 @@
       </notes>
       <segment>
         <source>Diese Bürger hat hier bereits vor Kurzem gegraben. Die nächste Ausgrabung ist möglich in:</source>
-        <target>Diese Bürger hat hier bereits vor Kurzem gegraben. Die nächste Ausgrabung ist möglich in:</target>
+        <target>Este habitante ya ha escarbado en el Sector recientemente. La siguiente búsqueda estará disponible en:</target>
       </segment>
     </unit>
     <unit id="_s1Oex0" name="Gesamte Eskorte">
@@ -7822,7 +7822,7 @@
       </notes>
       <segment>
         <source>Gesamte Eskorte</source>
-        <target>Gesamte Eskorte</target>
+        <target>Escolta completa</target>
       </segment>
     </unit>
     <unit id="Jh.CarL" name="Bürger in dieser Zone">
@@ -7831,7 +7831,7 @@
       </notes>
       <segment>
         <source>Bürger in dieser Zone</source>
-        <target>Bürger in dieser Zone</target>
+        <target>Habitantes en el sector</target>
       </segment>
     </unit>
     <unit id="wVNJv3." name="Camping">
@@ -7894,7 +7894,7 @@
       </notes>
       <segment>
         <source>Senden</source>
-        <target>Senden</target>
+        <target>Enviar</target>
       </segment>
     </unit>
     <unit id="iF7FJz5" name="Deine letzten Worte:">
@@ -7903,7 +7903,7 @@
       </notes>
       <segment>
         <source>Deine letzten Worte:</source>
-        <target>Deine letzten Worte:</target>
+        <target>Tus últimas palabras:</target>
       </segment>
     </unit>
     <unit id="xbvLcF5" name="Mystic-Punkte">
@@ -7912,7 +7912,7 @@
       </notes>
       <segment>
         <source>Mystic-Punkte</source>
-        <target>Mystic-Punkte</target>
+        <target>Puntos místicos</target>
       </segment>
     </unit>
     <unit id="P4J9Y4E" name="Diese Punkte sind exklusiv für den Schamanen reserviert.">
@@ -7921,7 +7921,7 @@
       </notes>
       <segment>
         <source>Diese Punkte sind exklusiv für den Schamanen reserviert.</source>
-        <target>Diese Punkte sind exklusiv für den Schamanen reserviert.</target>
+        <target>Estos puntos están reservados exclusivamente para los chamanes.</target>
       </segment>
     </unit>
     <unit id="1_CH2K0" name="Du bist der %rolename% dieser Stadt.">
@@ -7930,7 +7930,7 @@
       </notes>
       <segment>
         <source>Du bist der %rolename% dieser Stadt.</source>
-        <target>Du bist der %rolename% dieser Stadt.</target>
+        <target>Eres el %rolename% del pueblo.</target>
       </segment>
     </unit>
     <unit id="63sz5vi" name="Akteneinsicht wird beantragt...">
@@ -7939,7 +7939,7 @@
       </notes>
       <segment>
         <source>Akteneinsicht wird beantragt...</source>
-        <target>Akteneinsicht wird beantragt...</target>
+        <target>Se requiere acceso a los archivos...</target>
       </segment>
     </unit>
     <unit id="wbSNK79" name="Protokolle werden analysiert...">
@@ -7948,7 +7948,7 @@
       </notes>
       <segment>
         <source>Protokolle werden analysiert...</source>
-        <target>Protokolle werden analysiert...</target>
+        <target>Los Logs están siendo analizados...</target>
       </segment>
     </unit>
     <unit id="pNhIfL_" name="Überwachungsapparat wird ausgewertet...">
@@ -7957,7 +7957,7 @@
       </notes>
       <segment>
         <source>Überwachungsapparat wird ausgewertet...</source>
-        <target>Überwachungsapparat wird ausgewertet...</target>
+        <target>Realizando monitoreo del sistema...</target>
       </segment>
     </unit>
     <unit id="fqyccF." name="Belastende Beweise werden übermittelt...">
@@ -7966,7 +7966,7 @@
       </notes>
       <segment>
         <source>Belastende Beweise werden übermittelt...</source>
-        <target>Belastende Beweise werden übermittelt...</target>
+        <target>La evidencia está siendo recolectada...</target>
       </segment>
     </unit>
     <unit id="EKpWan5" name="Was sagst du dazu?">
@@ -7975,7 +7975,7 @@
       </notes>
       <segment>
         <source>Was sagst du dazu?</source>
-        <target>Was sagst du dazu?</target>
+        <target>¿Qué dices?</target>
       </segment>
     </unit>
     <unit id="qNbvdyn" name="Du hast dich in einen Ghul verwandelt!">
@@ -7984,7 +7984,7 @@
       </notes>
       <segment>
         <source>Du hast dich in einen Ghul verwandelt!</source>
-        <target>Du hast dich in einen Ghul verwandelt!</target>
+        <target><![CDATA[¡Te has convertido en un <strong>Mutante</strong>!]]></target>
       </segment>
     </unit>
     <unit id="I3SgbFv" name="%citizen% hat einen Bauplan für %plan% gefunden.">
@@ -7993,7 +7993,7 @@
       </notes>
       <segment>
         <source>%citizen% hat einen Bauplan für %plan% gefunden.</source>
-        <target>%citizen% hat einen Bauplan für %plan% gefunden.</target>
+        <target>¡%citizen% ha descubierto el plano de %plan%!</target>
       </segment>
     </unit>
     <unit id="2jSPgup" name="c7e40ad">
@@ -8002,7 +8002,7 @@
       </notes>
       <segment>
         <source>%citizen% hat einen Bauplan für %plan% gefunden. Dafür ist das Bauprojekt %parent% nötig.</source>
-        <target>%citizen% hat einen Bauplan für %plan% gefunden. Dafür ist das Bauprojekt %parent% nötig.</target>
+        <target>¡%citizen% ha descubierto el plano de %plan%! Requiere la construcción de %parent%.</target>
       </segment>
     </unit>
     <unit id="_VJJKap" name="%num% Zombies haben vergeblich versucht, in das Haus von %citizen% einzudringen.">
@@ -8011,7 +8011,7 @@
       </notes>
       <segment>
         <source>%num% Zombies haben vergeblich versucht, in das Haus von %citizen% einzudringen.</source>
-        <target>%num% Zombies haben vergeblich versucht, in das Haus von %citizen% einzudringen.</target>
+        <target>%num% Zombies han tratado de ingresar a la casa de %citizen% en vano.</target>
       </segment>
     </unit>
     <unit id="mxKAfZX" name="%citizen% wurde von %num% Zombies zerfleischt!">
@@ -8020,7 +8020,7 @@
       </notes>
       <segment>
         <source>%citizen% wurde von %num% Zombies zerfleischt!</source>
-        <target>%citizen% wurde von %num% Zombies zerfleischt!</target>
+        <target>¡%citizen% ha sido devorado por %num% Zombies!</target>
       </segment>
     </unit>
     <unit id="0OgA2rX" name="0505799">
@@ -8029,7 +8029,7 @@
       </notes>
       <segment>
         <source>%citizen% hat folgendes hergestellt: %list2%; dabei wurden folgende Gegenstände verbraucht: %list1%.</source>
-        <target>%citizen% hat folgendes hergestellt: %list2%; dabei wurden folgende Gegenstände verbraucht: %list1%.</target>
+        <target>%citizen% ha producido: %list2%; para esto ha utilizado los siguientes objetos: %list1%.</target>
       </segment>
     </unit>
     <unit id="1c66H6u" name="85ec328">
@@ -8038,7 +8038,7 @@
       </notes>
       <segment>
         <source>Der Bau des Gebäudes Alles oder nichts hat der Stadt %def% vorübergehende Verteidungspunkte eingebracht. Allerdings wurde dabei der gesamte Inhalt der Bank zerstört! Hoffen wir, dass es das wert war...</source>
-        <target>Der Bau des Gebäudes Alles oder nichts hat der Stadt %def% vorübergehende Verteidungspunkte eingebracht. Allerdings wurde dabei der gesamte Inhalt der Bank zerstört! Hoffen wir, dass es das wert war...</target>
+        <target>La construcción Todo o Nada le ha dado %def% puntos de defensa al Pueblo. ¡Pero todos los objetos del almacén fueron destruidos! Esperemos que haya valido la pena...</target>
       </segment>
     </unit>
     <unit id="vdpIvG7" name="6b9d94e">
@@ -8047,7 +8047,7 @@
       </notes>
       <segment>
         <source>Resigniert und untröstlich sahen die Bürger, wie eine Horde von %num% Zombies sich in Richtung Stadt bewegte... Wie aus dem Nichts stand die Meute auf einmal vor dem Stadttor...</source>
-        <target>Resigniert und untröstlich sahen die Bürger, wie eine Horde von %num% Zombies sich in Richtung Stadt bewegte... Wie aus dem Nichts stand die Meute auf einmal vor dem Stadttor...</target>
+        <target> ¡Alerta, algunos compañeros han visto una turba de %num% zombies dirigiéndose hacia el pueblo! Y de pronto, el horror se acrecienta frente al portal del pueblo...</target>
       </segment>
     </unit>
     <unit id="OVTYzwK" name="%sender%: %message%">
@@ -8065,7 +8065,7 @@
       </notes>
       <segment>
         <source>%citizen% hat %target_citizen% überzeugt, ihm zu folgen.</source>
-        <target>%citizen% hat %target_citizen% überzeugt, ihm zu folgen.</target>
+        <target>%citizen% ha convencido a %target_citizen% de seguirle.</target>
       </segment>
     </unit>
     <unit id="XTPqDbX" name="%citizen% hat %target_citizen% aus der Eskorte entlassen.">
@@ -8074,7 +8074,7 @@
       </notes>
       <segment>
         <source>%citizen% hat %target_citizen% aus der Eskorte entlassen.</source>
-        <target>%citizen% hat %target_citizen% aus der Eskorte entlassen.</target>
+        <target>Finalmente, %citizen% ha decidido dejar a %target_citizen% allí...</target>
       </segment>
     </unit>
     <unit id="Eh4g78_" name="%attacker% hat %defender% gewalttätig angegriffen und verwundet!">
@@ -8083,7 +8083,7 @@
       </notes>
       <segment>
         <source>%attacker% hat %defender% gewalttätig angegriffen und verwundet!</source>
-        <target>%attacker% hat %defender% gewalttätig angegriffen und verwundet!</target>
+        <target>¡%attacker% ha hatacado salvajemente a %defender% y ha logrado herirlo!</target>
       </segment>
     </unit>
     <unit id="HwOTRdd" name="%attacker% hat %defender% gewalttätig angegriffen!">
@@ -8092,7 +8092,7 @@
       </notes>
       <segment>
         <source>%attacker% hat %defender% gewalttätig angegriffen!</source>
-        <target>%attacker% hat %defender% gewalttätig angegriffen!</target>
+        <target>¡%attacker% ha hatacado salvajemente a %defender%!</target>
       </segment>
     </unit>
     <unit id="0Y6YSyp" name="c4b3caa">
@@ -8101,7 +8101,7 @@
       </notes>
       <segment>
         <source>Ein abscheuliches Verbrechen ist geschehen: %attacker% hat %defender% in seinem Haus verschlungen!</source>
-        <target>Ein abscheuliches Verbrechen ist geschehen: %attacker% hat %defender% in seinem Haus verschlungen!</target>
+        <target>¡Un horrible crímen ha sido visto: %attacker% ha devorado a %defender% en su propia casa!</target>
       </segment>
     </unit>
     <unit id="8xZcKzq" name="65218d1">
@@ -8110,7 +8110,7 @@
       </notes>
       <segment>
         <source>Du erblickst mehrere großflächige getrocknete Blutpfützen. Das ist soviel Blut... Es scheint, als ob hier jemand von irgend etwas oder irgend jemandem zerstückelt wurde... Vielleicht war es ja ein Ghul?</source>
-        <target>Du erblickst mehrere großflächige getrocknete Blutpfützen. Das ist soviel Blut... Es scheint, als ob hier jemand von irgend etwas oder irgend jemandem zerstückelt wurde... Vielleicht war es ja ein Ghul?</target>
+        <target>Ves charcos de sangre seca y tripas colgado por todos lados, es demasiada sangre... Parece como si alguien o algo fuera desmembrado y devorado aquí... Crees que son los restos de la víctima de un Mutante...</target>
       </segment>
     </unit>
     <unit id="o9GCPjs" name="c5c21d9">
@@ -8119,7 +8119,7 @@
       </notes>
       <segment>
         <source>%attacker% ist %defender% an die Gurgel gesprungen und hat ihn ohne mit der Wimper zu zucken verspeist!</source>
-        <target>%attacker% ist %defender% an die Gurgel gesprungen und hat ihn ohne mit der Wimper zu zucken verspeist!</target>
+        <target>¡%attacker% ha atacado y devorado a %defender% sin darle tiempo a reaccionar, sólo un Mutante puede haber hecho algo tan horrible!</target>
       </segment>
     </unit>
     <unit id="Qlh.l61" name="a9b83b9">
@@ -8128,7 +8128,7 @@
       </notes>
       <segment>
         <source>Was ist mit der Leiche passiert? Der leblose Körper ist spurlos verschwunden... Vermutlich liegt er jetzt irgendwo vor der Stadt und verrottet vor sich hin... Vielleicht kommt er euch ja in der Nacht besuchen?</source>
-        <target>Was ist mit der Leiche passiert? Der leblose Körper ist spurlos verschwunden... Vermutlich liegt er jetzt irgendwo vor der Stadt und verrottet vor sich hin... Vielleicht kommt er euch ja in der Nacht besuchen?</target>
+        <target>¿Qué le sucedió al cadáver? Parece haber desaparecido, piensas que tal vez se levantó y se dirigió al desierto... Con un poco de suerte no volverá a comerte durante la noche.</target>
       </segment>
     </unit>
     <unit id=".vM_crK" name="7733da4">
@@ -8488,7 +8488,7 @@
       </notes>
       <segment>
         <source>Horizont</source>
-        <target>Horizont</target>
+        <target>Horizonte</target>
       </segment>
     </unit>
     <unit id="fbPbjvi" name="a7ecbdc">
@@ -8497,7 +8497,7 @@
       </notes>
       <segment>
         <source>Du kannst diesen Bürger nicht angreifen... er riecht nicht wie die anderen. Moment... Dieser Bürger ist ein Ghul, genau wie du!</source>
-        <target>Du kannst diesen Bürger nicht angreifen... er riecht nicht wie die anderen. Moment... Dieser Bürger ist ein Ghul, genau wie du!</target>
+        <target>No puedes atacar a este habitante, encuentras que huele igual que tu... Espera... ¡Él también es un Mutante!</target>
       </segment>
     </unit>
     <unit id="vX7Ir3N" name="4c875cf">
@@ -8506,7 +8506,7 @@
       </notes>
       <segment>
         <source>Mit weit aufgerissenem Maul stürzt du dich auf %citizen%. Unter der Wucht deiner brutalen Schläge und Tritte sackt er ziemlich schnell zusammen.</source>
-        <target>Mit weit aufgerissenem Maul stürzt du dich auf %citizen%. Unter der Wucht deiner brutalen Schläge und Tritte sackt er ziemlich schnell zusammen.</target>
+        <target>A base de puñetazos y moridscos logras acabar con %citizen% a sangre fría, ves como su cadáver da sus últimos temblores y comienzas a devorarlo.</target>
       </segment>
     </unit>
     <unit id="bGpi8xS" name="20f2e47">
@@ -8515,7 +8515,7 @@
       </notes>
       <segment>
         <source>Mit ein paar unschönen Tritten gegen seinen Kopf vergewisserst du dich, dass er garantiert nicht mehr aufstehen wird. Na los! Bring deinen Job zuende und verspeise ihn!</source>
-        <target>Mit ein paar unschönen Tritten gegen seinen Kopf vergewisserst du dich, dass er garantiert nicht mehr aufstehen wird. Na los! Bring deinen Job zuende und verspeise ihn!</target>
+        <target>Con unas cuantas patadas a la cebeza te aseguras de que el pobre desgraciado ha muerto, ya puedes empezar ¡¿Que esperas para comertelo?!</target>
       </segment>
     </unit>
     <unit id="wzmYlE_" name="Gut gemacht!">
@@ -8524,7 +8524,7 @@
       </notes>
       <segment>
         <source>Gut gemacht!</source>
-        <target>Gut gemacht!</target>
+        <target>¡Bien hecho!</target>
       </segment>
     </unit>
     <unit id="RwOIyEr" name="Du wurdest beobachtet! Die anderen Bürger wurden gewarnt!">
@@ -8533,7 +8533,7 @@
       </notes>
       <segment>
         <source>Du wurdest beobachtet! Die anderen Bürger wurden gewarnt!</source>
-        <target>Du wurdest beobachtet! Die anderen Bürger wurden gewarnt!</target>
+        <target>Te han visto ¡Los otros habitantes sabrán lo que hiciste!</target>
       </segment>
     </unit>
     <unit id="YYOxts0" name="ad6045f">
@@ -8542,7 +8542,7 @@
       </notes>
       <segment>
         <source>Nicht so appetitlich wie frisches Menschenfleisch, aber es stillt nichtsdestotrotz deinen Hunger... zumindest ein bisschen. Wenigstens war das Fleisch noch halbwegs zart.</source>
-        <target>Nicht so appetitlich wie frisches Menschenfleisch, aber es stillt nichtsdestotrotz deinen Hunger... zumindest ein bisschen. Wenigstens war das Fleisch noch halbwegs zart.</target>
+        <target>No es tan delicioso como la carne humana fresca, pero te permite calmar tu hambre... al menos un poco. Por lo menos la carne todavía estaba medio tierna.</target>
       </segment>
     </unit>
     <unit id="VMYfBZH" name="c75511e">
@@ -8551,7 +8551,7 @@
       </notes>
       <segment>
         <source>Mit aller Gewalt greifst du %citizen% an! Du hast den Überraschungsmoment auf deiner Seite und am Ende trägt %citizen% eine schwere Verletzung davon.</source>
-        <target>Mit aller Gewalt greifst du %citizen% an! Du hast den Überraschungsmoment auf deiner Seite und am Ende trägt %citizen% eine schwere Verletzung davon.</target>
+        <target>¡Con todas tus fuerzas atacas a %citizen%! Lo agarraste con la guardia baja, al final %citizen% se ha llevado una buena herida, seguro no se va olvidar fácilemnte de ti.</target>
       </segment>
     </unit>
     <unit id="ibp3W.L" name="2c77f85">
@@ -8560,7 +8560,7 @@
       </notes>
       <segment>
         <source>Plötzlich sackt %citizen% in sich zusammen, seine Augen drehen sich nach hinten, und mit einem schauerhaften Gurgeln löst sich sein ganzer Körper vor deinen Augen auf und hinterlässt nur den üblen Geruch von Tod und Verwesung! Es gibt keinen Zweifel mehr: %citizen% war ein Ghul!!</source>
-        <target>Plötzlich sackt %citizen% in sich zusammen, seine Augen drehen sich nach hinten, und mit einem schauerhaften Gurgeln löst sich sein ganzer Körper vor deinen Augen auf und hinterlässt nur den üblen Geruch von Tod und Verwesung! Es gibt keinen Zweifel mehr: %citizen% war ein Ghul!!</target>
+        <target>De repente, %citizen% se derrumba, sus ojos se ponen en blanco y, con un horrible gorgoteo, todo su cuerpo se disuelve ante tus ojos, ¡dejando atrás solo el pestilente olor a muerte y descomposición! Ya no hay ninguna duda: ¡% ciudadano% era un ghoul!!</target>
       </segment>
     </unit>
     <unit id="9goEXWW" name="ba579b2">
@@ -8569,7 +8569,7 @@
       </notes>
       <segment>
         <source>Bleib mal ganz geschmeidig! In dieser Stadt gibt es keine Ghule, also solltest du auch nicht herumlaufen und grundlos Leute verprügeln. M'Kay?</source>
-        <target>Bleib mal ganz geschmeidig! In dieser Stadt gibt es keine Ghule, also solltest du auch nicht herumlaufen und grundlos Leute verprügeln. M'Kay?</target>
+        <target>¡Cálmate un poco! En el pueblo no hay Mutantes aún, por lo que no es necesario andar por ahí hiriendo a la gente.</target>
       </segment>
     </unit>
     <unit id="i2Ptm8n" name="%citizen% ist bereits verletzt; ihn erneut anzugreifen wird dir nichts bringen.">
@@ -8578,7 +8578,7 @@
       </notes>
       <segment>
         <source>%citizen% ist bereits verletzt; ihn erneut anzugreifen wird dir nichts bringen.</source>
-        <target>%citizen% ist bereits verletzt; ihn erneut anzugreifen wird dir nichts bringen.</target>
+        <target>%citizen% ya está herido, no lograrás nada más volviéndolo a atacar.</target>
       </segment>
     </unit>
     <unit id="krglp5j" name="e0a8162">
@@ -8587,7 +8587,7 @@
       </notes>
       <segment>
         <source>Mit aller Gewalt greifst du %citizen% an! Ihr tauscht für eine Weile Schläge aus, bis ihr euch schließlich größtenteils unverletzt voneinander trennt.</source>
-        <target>Mit aller Gewalt greifst du %citizen% an! Ihr tauscht für eine Weile Schläge aus, bis ihr euch schließlich größtenteils unverletzt voneinander trennt.</target>
+        <target>¡Con todas tus fuerzas atacas a %citizen%! Por unos minutos ambos entran en una lucha, pero terminan agotados y lo abandonan, ambos quedan ilesos.</target>
       </segment>
     </unit>
     <unit id="y09QGB5" name="08e53f6">
@@ -8596,7 +8596,7 @@
       </notes>
       <segment>
         <source>Es gibt nichts Besseres als die Furcht, um eine Angststarre zu heilen. Man nimmt die Schamanenmaske ab und bläst dem Patienten ein selbst hergestelltes halluzinogenes Pulver auf das Gesicht, um einen schlafwandelnden Zustand herbeizuführen. Das provoziert schnell "pavor nocturnus". Als %citizen% wieder erwacht, scheint er von seiner Angststarre befreit zu sein.</source>
-        <target>Es gibt nichts Besseres als die Furcht, um eine Angststarre zu heilen. Man nimmt die Schamanenmaske ab und bläst dem Patienten ein selbst hergestelltes halluzinogenes Pulver auf das Gesicht, um einen schlafwandelnden Zustand herbeizuführen. Das provoziert schnell "pavor nocturnus". Als %citizen% wieder erwacht, scheint er von seiner Angststarre befreit zu sein.</target>
+        <target>No hay nada mejor que el miedo para curar el terror. Te quitas la máscara de chamán y soplas unos polvos alucinógenos hechos por tí mismo a la cara del paciente para inducir un estado de sonambulismo. Eso provoca rápidamente un pavor nocturno mientras duerme. Cuando %ciudadano% se despierta de nuevo, parece haber sido liberado de su estado.</target>
       </segment>
     </unit>
     <unit id="RTU8pgm" name="b4a7495">
@@ -8605,7 +8605,7 @@
       </notes>
       <segment>
         <source>Allerdings hat dich der Anblick dieses bis aufs Mark verängstigen Bürgers selbst in eine Angststarre versetzt.</source>
-        <target>Allerdings hat dich der Anblick dieses bis aufs Mark verängstigen Bürgers selbst in eine Angststarre versetzt.</target>
+        <target>De todos modos, el ver tanto terror en tus ojos te ha aterrorizado a ti. ¡Tal vez deberías prácticar un poco más antes de hacer estas cosas!</target>
       </segment>
     </unit>
     <unit id="yKYNmZu" name="356ee99">
@@ -8614,7 +8614,7 @@
       </notes>
       <segment>
         <source>Nichts... du fühlst nichts, keine Energie, kein Fluss auf den du dich verlassen könntest. Das Risiko, %citizen% umzubringen ist zu hoch...</source>
-        <target>Nichts... du fühlst nichts, keine Energie, kein Fluss auf den du dich verlassen könntest. Das Risiko, %citizen% umzubringen ist zu hoch...</target>
+        <target>Nada... no encuentras energías para ayudarlo. El riesgo de acabar con la vida de %citizen% es demasiado alto...</target>
       </segment>
     </unit>
     <unit id="8c5KAcV" name="8760dc7">
@@ -8623,7 +8623,7 @@
       </notes>
       <segment>
         <source>Du hebst dein heiliges Messer aus der Scheide und beginnst, dich nach einer gut eingeübten Abfolge ritueller Bewegungen "vorzubereiten". Der Energiefluss leitet dich, und ohne zu zögern machst du einen Einschnitt an der Basis des infizierten Körperteils. Der Entgiftungsprozess ist im Gange, wenn auch langsam.</source>
-        <target>Du hebst dein heiliges Messer aus der Scheide und beginnst, dich nach einer gut eingeübten Abfolge ritueller Bewegungen "vorzubereiten". Der Energiefluss leitet dich, und ohne zu zögern machst du einen Einschnitt an der Basis des infizierten Körperteils. Der Entgiftungsprozess ist im Gange, wenn auch langsam.</target>
+        <target>Sacas tu cuchillo sagrado de su funda y comienzas a "prepararte" después de una secuencia de movimientos rituales bien practicada. El flujo de energía te guía y sin dudarlo haces una incisión en la base de la parte infectada del cuerpo. El proceso de desintoxicación está en curso. Y, aunque es lento, funcionará.</target>
       </segment>
     </unit>
     <unit id="vU0kRt8" name="38c2470">
@@ -8632,7 +8632,7 @@
       </notes>
       <segment>
         <source>Plötzlich platzt eine infizierte Eiterblase auf. Deine bereits verbrannte Haut bricht schnell in offene Wunden aus, und die infektiösen Keime beschließen, diese zu ihrem Zuhause zu machen.</source>
-        <target>Plötzlich platzt eine infizierte Eiterblase auf. Deine bereits verbrannte Haut bricht schnell in offene Wunden aus, und die infektiösen Keime beschließen, diese zu ihrem Zuhause zu machen.</target>
+        <target>De repente, estalla una ampolla de pus infectada. Tu piel ya quemada rápidamente estalla en heridas abiertas, y los gérmenes infecciosos deciden convertirlas en su hogar.</target>
       </segment>
     </unit>
     <unit id="4ghkz8M" name="625a63d">
@@ -8641,7 +8641,7 @@
       </notes>
       <segment>
         <source>Du hebst dein heiliges Messer aus der Scheide und beginnst, dich nach einer gut eingeübten Abfolge ritueller Bewegungen "vorzubereiten". Der Energiefluss leitet dich, und ohne zu zögern machst du einen Einschnitt nahe der Leber. %citizen% ist aus den Krallen des Alkohols befreit.</source>
-        <target>Du hebst dein heiliges Messer aus der Scheide und beginnst, dich nach einer gut eingeübten Abfolge ritueller Bewegungen "vorzubereiten". Der Energiefluss leitet dich, und ohne zu zögern machst du einen Einschnitt nahe der Leber. %citizen% ist aus den Krallen des Alkohols befreit.</target>
+        <target>Sacas tu cuchillo sagrado de su funda y comienzas a "prepararte" después de una secuencia de movimientos rituales bien practicada. El flujo de energía lo guía y, sin dudarlo, realiza una incisión cerca del hígado. ¡%ciudadano% se ha liberado de las garras del alcohol!</target>
       </segment>
     </unit>
     <unit id="_GYzBvg" name="f2ccdc7">
@@ -8650,7 +8650,7 @@
       </notes>
       <segment>
         <source>Du hebst dein heiliges Messer aus der Scheide und beginnst, dich nach einer gut eingeübten Abfolge ritueller Bewegungen "vorzubereiten". Der Energiefluss leitet dich, und ohne zu zögern machst du einen Einschnitt nahe der rechten Lunge. So sehr du auch versuchst, den Kräften zu widerstehen, die dich führen, kannst du nicht verhindern, dass deine Klinge tief in %citizen% eindringt und eine klare Flüssigkeit aus seinem frisch verstümmelten Körper austritt.</source>
-        <target>Du hebst dein heiliges Messer aus der Scheide und beginnst, dich nach einer gut eingeübten Abfolge ritueller Bewegungen "vorzubereiten". Der Energiefluss leitet dich, und ohne zu zögern machst du einen Einschnitt nahe der rechten Lunge. So sehr du auch versuchst, den Kräften zu widerstehen, die dich führen, kannst du nicht verhindern, dass deine Klinge tief in %citizen% eindringt und eine klare Flüssigkeit aus seinem frisch verstümmelten Körper austritt.</target>
+        <target>Sacas tu cuchillo sagrado de su funda y comienzas a "prepararte" después de una secuencia de movimientos rituales bien practicada. El flujo de energía te guía y sin dudarlo haces una incisión cerca del pulmón derecho. Por mucho que intentes resistir las fuerzas que te dirigen, no puedes evitar que tu cuchillo se adentre profundamente en %citizen% y que un líquido transparente se filtre de su cuerpo recién mutilado.</target>
       </segment>
     </unit>
     <unit id="7K7nTLN" name="In deinem aktuellen Zustand kannst du diese Aktion nicht ausführen.">
@@ -8659,7 +8659,7 @@
       </notes>
       <segment>
         <source>In deinem aktuellen Zustand kannst du diese Aktion nicht ausführen.</source>
-        <target>In deinem aktuellen Zustand kannst du diese Aktion nicht ausführen.</target>
+        <target>No puedes realizar esta acción en tu estado actual.</target>
       </segment>
     </unit>
     <unit id="owwwxrQ" name="4363ae3">
@@ -8668,7 +8668,7 @@
       </notes>
       <segment>
         <source>Du kannst diesen Bürger nicht heilen. Entweder bedarf er keiner Heilung, ist nicht in der Stadt oder hat heute bereits eine mystische Heilung erfahren.</source>
-        <target>Du kannst diesen Bürger nicht heilen. Entweder bedarf er keiner Heilung, ist nicht in der Stadt oder hat heute bereits eine mystische Heilung erfahren.</target>
+        <target>No puedes curar a este habitante. Ya sea porque su estado no requiere tratamiento, o porque no está en el pueblo, o porque ya tuvo un intento de curación hoy..</target>
       </segment>
     </unit>
     <unit id="L0KmARN" name="Deine Verletzung am Auge macht dir die Suche nicht gerade leichter.">
@@ -8677,7 +8677,7 @@
       </notes>
       <segment>
         <source>Deine Verletzung am Auge macht dir die Suche nicht gerade leichter.</source>
-        <target>Deine Verletzung am Auge macht dir die Suche nicht gerade leichter.</target>
+        <target>Tu herida en los ojos no facilita las cosas...</target>
       </segment>
     </unit>
     <unit id="gk3I32J" name="Deine Trunkenheit macht dir die Suche nicht gerade leichter.">
@@ -8686,7 +8686,7 @@
       </notes>
       <segment>
         <source>Deine Trunkenheit macht dir die Suche nicht gerade leichter.</source>
-        <target>Deine Trunkenheit macht dir die Suche nicht gerade leichter.</target>
+        <target>Tu borrachera no te facilita las cosas...</target>
       </segment>
     </unit>
     <unit id="UhCUwjo" name="Du kannst heute keine weiteren Beschwerden vorbringen.">
@@ -8695,7 +8695,7 @@
       </notes>
       <segment>
         <source>Du kannst heute keine weiteren Beschwerden vorbringen.</source>
-        <target>Du kannst heute keine weiteren Beschwerden vorbringen.</target>
+        <target>Ya has hecho eso hoy... Espera a mañana para volver a intentarlo..</target>
       </segment>
     </unit>
     <unit id="JYO69lS" name="Von diesem Gegenstand will sich der Bürger nicht trennen.">
@@ -8704,7 +8704,7 @@
       </notes>
       <segment>
         <source>Von diesem Gegenstand will sich der Bürger nicht trennen.</source>
-        <target>Von diesem Gegenstand will sich der Bürger nicht trennen.</target>
+        <target>El habitante se ha negado a dejar el objeto.</target>
       </segment>
     </unit>
     <unit id="TH1rJgR" name="Das kannst du mit einem Berufsgegenstand nicht tun.">
@@ -8713,7 +8713,7 @@
       </notes>
       <segment>
         <source>Das kannst du mit einem Berufsgegenstand nicht tun.</source>
-        <target>Das kannst du mit einem Berufsgegenstand nicht tun.</target>
+        <target>No puedes hacer eso si tienes un Oficio.</target>
       </segment>
     </unit>
     <unit id="dyUt3up" name="Aus der Stadt schleichen">
@@ -8722,7 +8722,7 @@
       </notes>
       <segment>
         <source>Aus der Stadt schleichen</source>
-        <target>Aus der Stadt schleichen</target>
+        <target>Escabullirse por el portal</target>
       </segment>
     </unit>
     <unit id="GulZlLD" name="Nutze deine heilenden Hände">
@@ -8731,7 +8731,7 @@
       </notes>
       <segment>
         <source>Nutze deine heilenden Hände</source>
-        <target>Nutze deine heilenden Hände</target>
+        <target>¡Intentar una curación!</target>
       </segment>
     </unit>
     <unit id="22n2wdo" name="Diesen Bürger angreifen!">
@@ -8740,7 +8740,7 @@
       </notes>
       <segment>
         <source>Diesen Bürger angreifen!</source>
-        <target>Diesen Bürger angreifen!</target>
+        <target>¡Atacarlo!</target>
       </segment>
     </unit>
     <unit id="sVhAGjc" name="Diesen Bürger verspeisen!">
@@ -8749,7 +8749,7 @@
       </notes>
       <segment>
         <source>Diesen Bürger verspeisen!</source>
-        <target>Diesen Bürger verspeisen!</target>
+        <target>¡Devorarlo!</target>
       </segment>
     </unit>
     <unit id="6IAuVw5" name="Die Leiche verspeisen!">
@@ -8758,7 +8758,7 @@
       </notes>
       <segment>
         <source>Die Leiche verspeisen!</source>
-        <target>Die Leiche verspeisen!</target>
+        <target>¡Devorar su cadáver!</target>
       </segment>
     </unit>
     <unit id="isIvO1g" name="In die Stadt schleichen">
@@ -8767,7 +8767,7 @@
       </notes>
       <segment>
         <source>In die Stadt schleichen</source>
-        <target>In die Stadt schleichen</target>
+        <target>Escabullirse en el pueblo</target>
       </segment>
     </unit>
     <unit id="Ztj0B29" name="e4b05e9">
@@ -8776,7 +8776,7 @@
       </notes>
       <segment>
         <source>Diese Bürger hat hier bereits vor Kurzem gegraben. Die nächste Ausgrabung ist erst morgen wieder möglich.</source>
-        <target>Diese Bürger hat hier bereits vor Kurzem gegraben. Die nächste Ausgrabung ist erst morgen wieder möglich.</target>
+        <target>Este habitante ya ha escarbado aquí. La próxima excavación será posible mañana.</target>
       </segment>
     </unit>
     <unit id="r.ZcCRS" name="Dieser Bürger wird aktuell von %leader% eskortiert.">
@@ -8785,7 +8785,7 @@
       </notes>
       <segment>
         <source>Dieser Bürger wird aktuell von %leader% eskortiert.</source>
-        <target>Dieser Bürger wird aktuell von %leader% eskortiert.</target>
+        <target>Éste habitante está siendo escoltado por %leader%.</target>
       </segment>
     </unit>
     <unit id="8fTcb5D" name="Tote in der Stadt">
@@ -8794,7 +8794,7 @@
       </notes>
       <segment>
         <source>Tote in der Stadt</source>
-        <target>Tote in der Stadt</target>
+        <target>Muertos en el pueblo</target>
       </segment>
     </unit>
     <unit id="wvs954U" name="Niemand!">
@@ -8803,7 +8803,7 @@
       </notes>
       <segment>
         <source>Niemand!</source>
-        <target>Niemand!</target>
+        <target>¡Ninguno!</target>
       </segment>
     </unit>
     <unit id="ooesDbN" name="Sonstige Opfer">
@@ -8812,7 +8812,7 @@
       </notes>
       <segment>
         <source>Sonstige Opfer</source>
-        <target>Sonstige Opfer</target>
+        <target>Otras víctimas</target>
       </segment>
     </unit>
     <unit id="kxeEpoF" name="Opfer">
@@ -8821,7 +8821,7 @@
       </notes>
       <segment>
         <source>Opfer</source>
-        <target>Opfer</target>
+        <target>Vícitma</target>
       </segment>
     </unit>
     <unit id="w60IHjv" name="Keine Opfer">
@@ -8839,7 +8839,7 @@
       </notes>
       <segment>
         <source>Umdrehen</source>
-        <target>Umdrehen</target>
+        <target>Voltear</target>
       </segment>
     </unit>
     <unit id="1tKXRRi" name="Der %rolename% der Stadt ist %username%">
@@ -8848,7 +8848,7 @@
       </notes>
       <segment>
         <source>Der %rolename% der Stadt ist %username%</source>
-        <target>Der %rolename% der Stadt ist %username%</target>
+        <target>%username% ha sido escogido como el %rolename% del pueblo</target>
       </segment>
     </unit>
     <unit id="kg5BPH1" name="Status">
@@ -8860,13 +8860,13 @@
         <target>Estados</target>
       </segment>
     </unit>
-    <unit id="m9ipH9g" name="[nights]">
+    <unit id="rGmg51l" name="[nichts]">
       <notes>
-        <note category="german">[nights]</note>
+        <note category="german">[nichts]</note>
       </notes>
       <segment>
-        <source>[nights]</source>
-        <target>[ ninguno ]</target>
+        <source>[nichts]</source>
+        <target>[ninguno]</target>
       </segment>
     </unit>
     <unit id="r_z_E60" name="Notruf">
@@ -8956,7 +8956,7 @@
       </notes>
       <segment>
         <source>Camping geplant</source>
-        <target>Campamente posible</target>
+        <target>Zona buena para acampar</target>
       </segment>
     </unit>
     <unit id="t2sF_L3" name="Zu untersuchende Ruine">
@@ -8983,7 +8983,7 @@
       </notes>
       <segment>
         <source>Zeuge von Harmagedon</source>
-        <target>Zeuge von Harmagedon</target>
+        <target>Testigo del Armagedón</target>
       </segment>
     </unit>
     <unit id="VdVwoAS" name="76effd8">
@@ -8992,7 +8992,7 @@
       </notes>
       <segment>
         <source>Eine äußerst seltene Auszeichnung, die den Seelen vorbehalten ist, die das große Harmagedon des Universums von Die Verdammten erlebt haben!</source>
-        <target>Eine äußerst seltene Auszeichnung, die den Seelen vorbehalten ist, die das große Harmagedon des Universums von Die Verdammten erlebt haben!</target>
+        <target>¡Un premio extremadamente raro reservado para las almas que presenciaron El Gran Armagedón!</target>
       </segment>
     </unit>
     <unit id="i.fN8wb" name="Zeuge der großen Verseuchung">
@@ -9001,7 +9001,7 @@
       </notes>
       <segment>
         <source>Zeuge der großen Verseuchung</source>
-        <target>Zeuge der großen Verseuchung</target>
+        <target>Testigo de la Gran Contaminación</target>
       </segment>
     </unit>
     <unit id="rcOyjHS" name="9573217">
@@ -9010,7 +9010,7 @@
       </notes>
       <segment>
         <source>Äußerst seltene Marke, die für Seelen reserviert ist, die die Große Kontamination von Die Verdammten erlebt haben!</source>
-        <target>Äußerst seltene Marke, die für Seelen reserviert ist, die die Große Kontamination von Die Verdammten erlebt haben!</target>
+        <target>¡Distinición extremadamente rara reservada para las almas que presenciaron La Gran Contaminación!</target>
       </segment>
     </unit>
     <unit id="d4bvAjk" name="9011ac1">
@@ -9019,7 +9019,7 @@
       </notes>
       <segment>
         <source>&lt;i class="dagger"&gt;†&lt;/i&gt; %cadaver1% hatte gestern Abend kein Glück. Abgesehen davon war es eine ruhige Nacht in der Stadt...</source>
-        <target><![CDATA[<i class="dagger">†</i> %cadaver1% hatte gestern Abend kein Glück. Abgesehen davon war es eine ruhige Nacht in der Stadt...]]></target>
+        <target><![CDATA[<i class="dagger">†</i> %cadaver1% no tuvo suerte anoche. Pero parte de eso, fue una noche tranquila en el pueblo...]]></target>
       </segment>
     </unit>
     <unit id="9Sqg4cw" name="953d15e">
@@ -9091,7 +9091,7 @@
       </notes>
       <segment>
         <source>%citizen% hat das Gebäude %plan% repariert und dabei %ap% ausgegeben.</source>
-        <target>%citizen% hat das Gebäude %plan% repariert und dabei %ap% ausgegeben.</target>
+        <target>%citizen% ha reparado la construcción %plan% gastando %ap% en el proceso.</target>
       </segment>
     </unit>
     <unit id="RrBPp.5" name="743000a">
@@ -9145,7 +9145,7 @@
       </notes>
       <segment>
         <source>Aufgrund deiner Verletzung bist du gestolpert. So ein Ärger...</source>
-        <target>Aufgrund deiner Verletzung bist du gestolpert. So ein Ärger...</target>
+        <target>Haz tropezado debido a tu herida. Qué lástima...</target>
       </segment>
     </unit>
     <unit id="o2TNGvz" name="Deine Nachricht wurde korrekt übermittelt!">
@@ -9154,7 +9154,7 @@
       </notes>
       <segment>
         <source>Deine Nachricht wurde korrekt übermittelt!</source>
-        <target>Deine Nachricht wurde korrekt übermittelt!</target>
+        <target>¡Tu mensaje ha sido enviado!</target>
       </segment>
     </unit>
     <unit id="g3N1gTc" name="Du kannst nicht mehr als eine Seele tragen.">
@@ -9163,7 +9163,7 @@
       </notes>
       <segment>
         <source>Du kannst nicht mehr als eine Seele tragen.</source>
-        <target>Du kannst nicht mehr als eine Seele tragen.</target>
+        <target>No puedes llevar más de un alma.</target>
       </segment>
     </unit>
     <unit id="BjwWH4y" name="Erhaltene Nachrichten">
@@ -9172,7 +9172,7 @@
       </notes>
       <segment>
         <source>Erhaltene Nachrichten</source>
-        <target>Erhaltene Nachrichten</target>
+        <target>Mensajes recibidos</target>
       </segment>
     </unit>
     <unit id="JyB0OZM" name="Archiv">
@@ -9181,7 +9181,7 @@
       </notes>
       <segment>
         <source>Archiv</source>
-        <target>Archiv</target>
+        <target>Archivos</target>
       </segment>
     </unit>
     <unit id="Yy0zB8." name="Eine Nachricht schreiben">
@@ -9190,7 +9190,7 @@
       </notes>
       <segment>
         <source>Eine Nachricht schreiben</source>
-        <target>Eine Nachricht schreiben</target>
+        <target>Escribir un mensaje</target>
       </segment>
     </unit>
     <unit id="kKXLpSQ" name="Schreiben Sie an alle">
@@ -9199,7 +9199,7 @@
       </notes>
       <segment>
         <source>Schreiben Sie an alle</source>
-        <target>Schreiben Sie an alle</target>
+        <target>Escribir a Todos</target>
       </segment>
     </unit>
     <unit id="bYMK_Wv" name="Keine Nachricht gespeichert.">
@@ -9208,7 +9208,7 @@
       </notes>
       <segment>
         <source>Keine Nachricht gespeichert.</source>
-        <target>Keine Nachricht gespeichert.</target>
+        <target>Ningún mensaje archivado.</target>
       </segment>
     </unit>
     <unit id="wo3L_zx" name="Neue Nachright">
@@ -9217,7 +9217,7 @@
       </notes>
       <segment>
         <source>Neue Nachright</source>
-        <target>Neue Nachright</target>
+        <target>Nuevo mensaje</target>
       </segment>
     </unit>
     <unit id="47O8Zzm" name="Empfänger:">
@@ -9226,7 +9226,7 @@
       </notes>
       <segment>
         <source>Empfänger:</source>
-        <target>Empfänger:</target>
+        <target>Escribir a:</target>
       </segment>
     </unit>
     <unit id="Z14T1QO" name="Bürgerverzeichnis anszeigen">
@@ -9235,7 +9235,7 @@
       </notes>
       <segment>
         <source>Bürgerverzeichnis anszeigen</source>
-        <target>Bürgerverzeichnis anszeigen</target>
+        <target>Ver el Registro completo del pueblo</target>
       </segment>
     </unit>
     <unit id="yTzI33f" name="Dieser Nachricht Gegenstände beifügen">
@@ -9244,7 +9244,7 @@
       </notes>
       <segment>
         <source>Dieser Nachricht Gegenstände beifügen</source>
-        <target>Dieser Nachricht Gegenstände beifügen</target>
+        <target>Adjuntar objetos a este mensaje</target>
       </segment>
     </unit>
     <unit id="xcRoAOS" name="Betreff:">
@@ -9262,7 +9262,7 @@
       </notes>
       <segment>
         <source>Ich BESTÄTIGE meine Nachricht</source>
-        <target>Ich BESTÄTIGE meine Nachricht</target>
+        <target>HE REVISADO mi mensaje y deseo enviarlo</target>
       </segment>
     </unit>
     <unit id="iZeG0XJ" name="Neue globale Nachricht">
@@ -9271,7 +9271,7 @@
       </notes>
       <segment>
         <source>Neue globale Nachricht</source>
-        <target>Neue globale Nachricht</target>
+        <target>Escribir a Todos</target>
       </segment>
     </unit>
     <unit id="3oU90MF" name="Beschädigte Verteidigung: %defense% / %max%">
@@ -9280,7 +9280,7 @@
       </notes>
       <segment>
         <source>Beschädigte Verteidigung: %defense% / %max%</source>
-        <target>Beschädigte Verteidigung: %defense% / %max%</target>
+        <target>Defensas dañadas: %defense% / %max%</target>
       </segment>
     </unit>
     <unit id="1EzQJxv" name="Zustand:">
@@ -9289,7 +9289,7 @@
       </notes>
       <segment>
         <source>Zustand:</source>
-        <target>Zustand:</target>
+        <target>Estado:</target>
       </segment>
     </unit>
     <unit id="Ev2Gt9Y" name="4f4737e">
@@ -9298,7 +9298,7 @@
       </notes>
       <segment>
         <source>Jeder %divap%, der in die Reparatur investiert wird, beseitigt %hprepair% Schadenspunkte an einem Bauwerk.</source>
-        <target>Jeder %divap%, der in die Reparatur investiert wird, beseitigt %hprepair% Schadenspunkte an einem Bauwerk.</target>
+        <target>Cada %divap% invertido en las reparaciones, elimina %hprepair% puntos de daño en un edificio.</target>
       </segment>
     </unit>
     <unit id="8atbEzY" name="Die Reparatur verbraucht keine Ressourcen.">
@@ -9307,7 +9307,7 @@
       </notes>
       <segment>
         <source>Die Reparatur verbraucht keine Ressourcen.</source>
-        <target>Die Reparatur verbraucht keine Ressourcen.</target>
+        <target>La reparación no consume recursos.</target>
       </segment>
     </unit>
     <unit id=".JWT0sC" name="Zonenmarkierer">
@@ -9325,7 +9325,7 @@
       </notes>
       <segment>
         <source>Tor ist offen!</source>
-        <target>Tor ist offen!</target>
+        <target>¡El portal está abierto!</target>
       </segment>
     </unit>
     <unit id="1cEye.o" name="Zombies sind eingedrungen.">
@@ -9334,7 +9334,7 @@
       </notes>
       <segment>
         <source>Zombies sind eingedrungen.</source>
-        <target>Zombies sind eingedrungen.</target>
+        <target>Los zombies han entrado...</target>
       </segment>
     </unit>
     <unit id="ojehKlj" name="vor Angst erstarrt">
@@ -9343,7 +9343,7 @@
       </notes>
       <segment>
         <source>vor Angst erstarrt</source>
-        <target>vor Angst erstarrt</target>
+        <target>congelado de miedo</target>
       </segment>
     </unit>
     <unit id="MBMsiX2" name="Du wirst heute Nacht sterben!">
@@ -9352,7 +9352,7 @@
       </notes>
       <segment>
         <source>Du wirst heute Nacht sterben!</source>
-        <target>Du wirst heute Nacht sterben!</target>
+        <target>¡Morirás esta noche!</target>
       </segment>
     </unit>
     <unit id="6jqoEYZ" name="Das Bauwerk %plan% hat %damage% Punkte Schaden genommen.">
@@ -9361,7 +9361,7 @@
       </notes>
       <segment>
         <source>Das Bauwerk %plan% hat %damage% Punkte Schaden genommen.</source>
-        <target>Das Bauwerk %plan% hat %damage% Punkte Schaden genommen.</target>
+        <target>El edificio %plan% ha sufrido %damage% punto(s) de daño</target>
       </segment>
     </unit>
     <unit id="nlQ1fJZ" name="919f19a">
@@ -9370,7 +9370,7 @@
       </notes>
       <segment>
         <source>Das Bauwerk %plan% hat %damage% Punkte Schaden genommen und wurde daraufhin von den Zombies vollständig zerstört.</source>
-        <target>Das Bauwerk %plan% hat %damage% Punkte Schaden genommen und wurde daraufhin von den Zombies vollständig zerstört.</target>
+        <target>El edificio %plan% sufrió %damage% punto(s) de daño y fue completamente destruída por los zombies.</target>
       </segment>
     </unit>
     <unit id="SKbA9D2" name="2a20efa">
@@ -9379,7 +9379,7 @@
       </notes>
       <segment>
         <source>Wenn du anfängst zu gehen, greift ein sehr starker Schmerz in dein Bein. Du fällst stöhnend zu Boden. Man verliert eine Aktion...</source>
-        <target>Wenn du anfängst zu gehen, greift ein sehr starker Schmerz in dein Bein. Du fällst stöhnend zu Boden. Man verliert eine Aktion...</target>
+        <target>Cuando te dispones a caminar, un gran dolor se apodera de tu pierna. Caes al suelo gimiendo de dolor. Pierdes un punto de acción...</target>
       </segment>
     </unit>
     <unit id="BSzCHEk" name="Einige gesundheitliche Askekte deines Opfers sind auf dich übergegangen ...">
@@ -9388,7 +9388,7 @@
       </notes>
       <segment>
         <source>Einige gesundheitliche Askekte deines Opfers sind auf dich übergegangen ...</source>
-        <target>Einige gesundheitliche Askekte deines Opfers sind auf dich übergegangen ...</target>
+        <target>¡Qué mala suerte! Has adquirido algunos de los estados de salud de tu víctima...</target>
       </segment>
     </unit>
     <unit id="4gAjVQX" name="Verlassener Bunker">
@@ -9445,15 +9445,6 @@
         <target>Este edificio en ruinas parece haber sido un hospital. Descubres una entrada al edificio, te golpea un olor a humedad. Haces una mueca, pero es casi seguro que encontrarás algo útil aquí...</target>
       </segment>
     </unit>
-    <unit id="rGmg51l" name="[nichts]">
-      <notes>
-        <note category="german">[nichts]</note>
-      </notes>
-      <segment>
-        <source>[nichts]</source>
-        <target>[ninguno]</target>
-      </segment>
-    </unit>
     <unit id="9cNHWGl" name="Seelenpunkte">
       <notes>
         <note category="german">Seelenpunkte</note>
@@ -9469,7 +9460,7 @@
       </notes>
       <segment>
         <source>Anzahl der Seelenpunkte, die du durch deine Inkarnationen erhalten hast.</source>
-        <target>Anzahl der Seelenpunkte, die du durch deine Inkarnationen erhalten hast.</target>
+        <target>Cantidad de Puntos de Alma que has ganado en tus reencarnaciones.</target>
       </segment>
     </unit>
     <unit id="oeQUUdA" name="Und wieder 'ne Leiche weniger! %citizen% wurde von † %disposed% entsorgt!">
@@ -9478,7 +9469,7 @@
       </notes>
       <segment>
         <source>Und wieder 'ne Leiche weniger! %citizen% wurde von † %disposed% entsorgt!</source>
-        <target>Und wieder 'ne Leiche weniger! %citizen% wurde von † %disposed% entsorgt!</target>
+        <target>¡Uno menos! El cadáver de † %disposed% ha sido echado fuera por %citizen%.</target>
       </segment>
     </unit>
     <unit id="E0yx4Bm" name="%citizen% hat mit etwas Wasser † %disposed% &quot;verbrannt&quot;.">
@@ -9487,7 +9478,7 @@
       </notes>
       <segment>
         <source>%citizen% hat mit etwas Wasser † %disposed% "verbrannt".</source>
-        <target>%citizen% hat mit etwas Wasser † %disposed% "verbrannt".</target>
+        <target>%citizen% ha usado agua para quemar el cuerpo de † %disposed%.</target>
       </segment>
     </unit>
     <unit id="Qvknk8Z" name="%citizen% hat es Regnen lassen und damit %kills% Zombies erledigt.">
@@ -9496,7 +9487,7 @@
       </notes>
       <segment>
         <source>%citizen% hat es Regnen lassen und damit %kills% Zombies erledigt.</source>
-        <target>%citizen% hat es Regnen lassen und damit %kills% Zombies erledigt.</target>
+        <target>El ciudadano %citizen% ha hecho llover y ha matado a %kills% Zombies.</target>
       </segment>
     </unit>
     <unit id="k9H0y76" name="d772640">
@@ -9919,7 +9910,7 @@
       </notes>
       <segment>
         <source>Du brauchst eine Weile, bis du alle Gegenstände versteckt hast, die du bei dir trägst... Ha Ha... Du hast 2 Aktionspunkte verbraucht.</source>
-        <target>Du brauchst eine Weile, bis du alle Gegenstände versteckt hast, die du bei dir trägst... Ha Ha... Du hast 2 Aktionspunkte verbraucht.</target>
+        <target>Dedicas un buen rato a esconder todos los objetos que tienes contigo... Jejeje... La acción te ha costado 2PA</target>
       </segment>
     </unit>
     <unit id="UA1vSp." name="Du nimmst einen Abdruck vom Schloss dieser Tür und erhälst %item%!">
@@ -9928,7 +9919,7 @@
       </notes>
       <segment>
         <source>Du nimmst einen Abdruck vom Schloss dieser Tür und erhälst %item%!</source>
-        <target>Du nimmst einen Abdruck vom Schloss dieser Tür und erhälst %item%!</target>
+        <target>Tomas una impresión de la cerradura de la puerta y obtienes %item%</target>
       </segment>
     </unit>
     <unit id="VBTeiIt" name="Du benötigst %item%, um diese Tür zu öffnen.">
@@ -9946,7 +9937,7 @@
       </notes>
       <segment>
         <source>Mithilfe des %item% hast du die Tür aufgeschlossen!</source>
-        <target>Mithilfe des %item% hast du die Tür aufgeschlossen!</target>
+        <target>¡Has abierto la puerta utilizando %item%!</target>
       </segment>
     </unit>
     <unit id="bYjLN7a" name="Draußen">
@@ -9964,7 +9955,7 @@
       </notes>
       <segment>
         <source>in der Stadt oder am Stadttor</source>
-        <target>in der Stadt oder am Stadttor</target>
+        <target>en el pueblo o en el portal</target>
       </segment>
     </unit>
     <unit id="ZgukXzf" name="Deine Nachricht und deine ausgewählten Gegenstände wurden überbracht.">
@@ -9973,7 +9964,7 @@
       </notes>
       <segment>
         <source>Deine Nachricht und deine ausgewählten Gegenstände wurden überbracht.</source>
-        <target>Deine Nachricht und deine ausgewählten Gegenstände wurden überbracht.</target>
+        <target>Tu mensaje ha sido enviado con los objetos que has elegido.</target>
       </segment>
     </unit>
     <unit id="F71fElc" name="f8178fb">
@@ -9982,7 +9973,7 @@
       </notes>
       <segment>
         <source>Beim Graben bist du auf eine Art... geheimes Versteck mit %items% gestoßen! Es wurde vermutlich von einem verbannten Mitbürger angelegt...</source>
-        <target>Beim Graben bist du auf eine Art... geheimes Versteck mit %items% gestoßen! Es wurde vermutlich von einem verbannten Mitbürger angelegt...</target>
+        <target>¡Cuando comenzabas tu búsqueda, descubriste una espcie de... escondite que contiene: %items%! Hmmm... Seguramente fue hecho por otro desterrado...</target>
       </segment>
     </unit>
     <unit id="ZcFLHOU" name="Sauerstoff">
@@ -10054,7 +10045,7 @@
       </notes>
       <segment>
         <source>Teilnehmen</source>
-        <target>Teilnehmen</target>
+        <target>Participar</target>
       </segment>
     </unit>
     <unit id="A7ZG3D1" name="2d5f077">
@@ -10063,7 +10054,7 @@
       </notes>
       <segment>
         <source>Unsere Verteidigung dürfte ausreichen, zumindest einen Teil des Angriffs heute Nacht abzuwehren.</source>
-        <target>Unsere Verteidigung dürfte ausreichen, zumindest einen Teil des Angriffs heute Nacht abzuwehren.</target>
+        <target>Nuestras defensas deberían ser suficientes para cubrir parcialmente el ataque de esta noche.</target>
       </segment>
     </unit>
     <unit id="YrqIO5c" name="Meine Nachrichten lesen.">
@@ -10072,7 +10063,7 @@
       </notes>
       <segment>
         <source>Meine Nachrichten lesen.</source>
-        <target>Meine Nachrichten lesen.</target>
+        <target>Marcar todo como leído</target>
       </segment>
     </unit>
     <unit id="6KKKVfb" name="Neue Nachricht">
@@ -10081,7 +10072,7 @@
       </notes>
       <segment>
         <source>Neue Nachricht</source>
-        <target>Neue Nachricht</target>
+        <target>Nuevo mensaje</target>
       </segment>
     </unit>
     <unit id="mhOu8ZN" name="Klick auf die Gegenstände, die du dieser Nachricht beifügen möchtest:">
@@ -10090,7 +10081,7 @@
       </notes>
       <segment>
         <source>Klick auf die Gegenstände, die du dieser Nachricht beifügen möchtest:</source>
-        <target>Klick auf die Gegenstände, die du dieser Nachricht beifügen möchtest:</target>
+        <target>Selecciona los objetos que deseas enviar con este mensaje:</target>
       </segment>
     </unit>
     <unit id="yr_pQQL" name="Folgende Gegenstände werden mitgesendet:">
@@ -10099,7 +10090,7 @@
       </notes>
       <segment>
         <source>Folgende Gegenstände werden mitgesendet:</source>
-        <target>Folgende Gegenstände werden mitgesendet:</target>
+        <target>Los siguientes objetos serán enviados:</target>
       </segment>
     </unit>
     <unit id="PyKRkrf" name="Kein Gegenstand beigefügt...">
@@ -10108,7 +10099,7 @@
       </notes>
       <segment>
         <source>Kein Gegenstand beigefügt...</source>
-        <target>Kein Gegenstand beigefügt...</target>
+        <target>Ningun objeto adjunto.</target>
       </segment>
     </unit>
     <unit id="YuJzi8m" name="Basisverteidigung">
@@ -10117,7 +10108,7 @@
       </notes>
       <segment>
         <source>Basisverteidigung</source>
-        <target>Basisverteidigung</target>
+        <target>Defensa base</target>
       </segment>
     </unit>
     <unit id="D3XPl3x" name="Es besteht die Chance das Objekt während des Angriffs zu zerbrechen!">
@@ -10126,7 +10117,7 @@
       </notes>
       <segment>
         <source>Es besteht die Chance das Objekt während des Angriffs zu zerbrechen!</source>
-        <target>Es besteht die Chance das Objekt während des Angriffs zu zerbrechen!</target>
+        <target>¡Existe la posibilidad de que el objeto se rompa durante el ataque!</target>
       </segment>
     </unit>
     <unit id="8qoI_l9" name="Es besteht die Chance das Objekt während des Angriffs zu verlieren!">
@@ -10135,7 +10126,7 @@
       </notes>
       <segment>
         <source>Es besteht die Chance das Objekt während des Angriffs zu verlieren!</source>
-        <target>Es besteht die Chance das Objekt während des Angriffs zu verlieren!</target>
+        <target>¡Existe la posibilidad de que el objeto se pierda durante el ataque!</target>
       </segment>
     </unit>
     <unit id="Qg_Rwo3" name="c7efaf6">
@@ -10153,7 +10144,7 @@
       </notes>
       <segment>
         <source>Seine Seele ansehen</source>
-        <target>Seine Seele ansehen</target>
+        <target>Ver su Alma</target>
       </segment>
     </unit>
     <unit id="ha9MEDo" name="Eine Nachricht hinterlassen">
@@ -10162,7 +10153,7 @@
       </notes>
       <segment>
         <source>Eine Nachricht hinterlassen</source>
-        <target>Eine Nachricht hinterlassen</target>
+        <target>Dejar un mensajito en la puerta</target>
       </segment>
     </unit>
     <unit id="QSPR33z" name="a72b313">
@@ -10171,7 +10162,7 @@
       </notes>
       <segment>
         <source>Nicht ganz ekelfrei hat %disposing_citizen% den leblosen Körper von %citizen% entsorgt.</source>
-        <target>Nicht ganz ekelfrei hat %disposing_citizen% den leblosen Körper von %citizen% entsorgt.</target>
+        <target>Con mucho esfuerzo %citizen% se deshizo del cuerpo %disposing_citizen%.</target>
       </segment>
     </unit>
     <unit id="8xTkhGN" name="3ccf312">
@@ -10180,7 +10171,7 @@
       </notes>
       <segment>
         <source>Dank %disposing_citizen% hat sich der Körper von %citizen% in verfaultes Wasser verwandelt.</source>
-        <target>Dank %disposing_citizen% hat sich der Körper von %citizen% in verfaultes Wasser verwandelt.</target>
+        <target>Gracias a los esfuerzos de %citizen%, el cuerpo de %disposing_citizen% ha sido reducido a un charco putrefacto.</target>
       </segment>
     </unit>
     <unit id="yBmpXGO" name="Behausung wiederverwerten">
@@ -10189,7 +10180,7 @@
       </notes>
       <segment>
         <source>Behausung wiederverwerten</source>
-        <target>Behausung wiederverwerten</target>
+        <target>Reciclar la vivienda</target>
       </segment>
     </unit>
     <unit id="EaUf6Ab" name="%z% Zombies blockieren den Weg!">
@@ -10198,7 +10189,7 @@
       </notes>
       <segment>
         <source>%z% Zombies blockieren den Weg!</source>
-        <target>%z% Zombies blockieren den Weg!</target>
+        <target>¡%z% Zombies están bloqueando tu camino!</target>
       </segment>
     </unit>
     <unit id="M1qRyRo" name="75469b8">
@@ -10207,7 +10198,7 @@
       </notes>
       <segment>
         <source>Du wurdest überrascht und bist jetzt von den Zombies umzingelt! Du kannst flüchten, allerdings wirst du dadurch zusätzlichen Sauerstoff verbrauchen ...</source>
-        <target>Du wurdest überrascht und bist jetzt von den Zombies umzingelt! Du kannst flüchten, allerdings wirst du dadurch zusätzlichen Sauerstoff verbrauchen ...</target>
+        <target>¡Los zombies te han acorralado! Puedes huir, pero te va a costar bastante oxígeno...</target>
       </segment>
     </unit>
     <unit id="RZlip1S" name="Flüchten">
@@ -10261,7 +10252,7 @@
       </notes>
       <segment>
         <source>Abdruck nehmen</source>
-        <target>Abdruck nehmen</target>
+        <target>Hacer un molde</target>
       </segment>
     </unit>
     <unit id="gi1cmP_" name="Tür aufschließen">
@@ -10297,7 +10288,7 @@
       </notes>
       <segment>
         <source>Dieser Registereintrag wurde durchgestrichen und ist nicht mehr lesbar! Wer wollte damit etwas verbergen?</source>
-        <target>Dieser Registereintrag wurde durchgestrichen und ist nicht mehr lesbar! Wer wollte damit etwas verbergen?</target>
+        <target>¡Esta línea del Registro ha sido tachada: ahora es totalmente ilegible! ¿Qué nos habrá querido esconder?</target>
       </segment>
     </unit>
     <unit id="MTYSMU0" name="Letzter freigeschalteter Heldenvorteil:">
@@ -10333,7 +10324,7 @@
       </notes>
       <segment>
         <source>Die letzte Zeitung lesen</source>
-        <target>Leer el última Boletín</target>
+        <target>Leer el último Boletín</target>
       </segment>
     </unit>
     <unit id="v432R4L" name="Du hast bisher:">
@@ -10342,7 +10333,7 @@
       </notes>
       <segment>
         <source>Du hast bisher:</source>
-        <target>Tú has acumulado:</target>
+        <target>Has acumulado:</target>
       </segment>
     </unit>
     <unit id="4dxmR7l" name="%days% Tage">
@@ -10396,7 +10387,7 @@
       </notes>
       <segment>
         <source>Diese Fähigkeit wurde noch nicht freigeschaltet...</source>
-        <target>Habilidad no desbloqueada ...</target>
+        <target>Habilidad no desbloqueada...</target>
       </segment>
     </unit>
     <unit id="Zc9wwO7" name="Verbesserung des Tages (building)">
@@ -10414,7 +10405,7 @@
       </notes>
       <segment>
         <source>Werkstatt (building)</source>
-        <target>Werkstatt (building)</target>
+        <target>Taller (building)</target>
       </segment>
     </unit>
     <unit id="aVkOGIz" name="Von einem Ghul gefressen">
@@ -10423,7 +10414,7 @@
       </notes>
       <segment>
         <source>Von einem Ghul gefressen</source>
-        <target>Von einem Ghul gefressen</target>
+        <target>Devorado por un mutante</target>
       </segment>
     </unit>
     <unit id="2IRYW.2" name="06db8c8">
@@ -10432,7 +10423,7 @@
       </notes>
       <segment>
         <source>%actor% hat bei der Plünderung von † %victim% Haus diesen Gegenstand gestohlen: %item%</source>
-        <target>%actor% hat bei der Plünderung von † %victim% Haus diesen Gegenstand gestohlen: %item%</target>
+        <target>%actor% ha sustraído %item% durante el saqueo a la casa de † %victim%</target>
       </segment>
     </unit>
     <unit id="54fCkFO" name="7a97c74">
@@ -10561,7 +10552,7 @@
       </notes>
       <segment>
         <source>Zum Forum</source>
-        <target>Hacia el Foro</target>
+        <target>Ir al Foro</target>
       </segment>
     </unit>
     <unit id="2fBmxk8" name="Du hast dich soeben in einen Ghul verandelt!">
@@ -10718,7 +10709,7 @@
       </notes>
       <segment>
         <source>Lade Forum...</source>
-        <target>Cargando foro ...</target>
+        <target>Cargando foro...</target>
       </segment>
     </unit>
     <unit id="n19gYuh" name="Das folgende Bauprojekt wurde empfohlen:">
@@ -10763,7 +10754,7 @@
       </notes>
       <segment>
         <source>Iss ODER trink etwas Wasser.</source>
-        <target>Iss ODER trink etwas Wasser.</target>
+        <target>Come algo o bebe una ración de agua para recuperarte.</target>
       </segment>
     </unit>
     <unit id="hhKj9e1" name="Du kannst eine Ration Wasser trinken.">
@@ -10772,7 +10763,7 @@
       </notes>
       <segment>
         <source>Du kannst eine Ration Wasser trinken.</source>
-        <target>Du kannst eine Ration Wasser trinken.</target>
+        <target>Bebe una ración de agua para recuperarte. </target>
       </segment>
     </unit>
     <unit id="uSGlEhQ" name="Du kannst etwas essen, um deine Erschöpfung zu lindern.">
@@ -10781,7 +10772,7 @@
       </notes>
       <segment>
         <source>Du kannst etwas essen, um deine Erschöpfung zu lindern.</source>
-        <target>Du kannst etwas essen, um deine Erschöpfung zu lindern.</target>
+        <target>Come algo para recuperarte.</target>
       </segment>
     </unit>
     <unit id="CjT0_7R" name="4d90a81">
@@ -11321,7 +11312,7 @@
       </notes>
       <segment>
         <source>Du hast %item_list% in der Werkstatt geöffnet und erhälst %item%.</source>
-        <target>Has abierto %item% en el taller (usando %item_list%).</target>
+        <target>Has obtenido %item% en el taller (abriendo %item_list%).</target>
       </segment>
     </unit>
     <unit id="lbMpVVT" name="Du hast %item_list% in der Werkstatt zu %item% zerlegt.">
@@ -15381,7 +15372,7 @@
       </notes>
       <segment>
         <source>Sind wir noch in der Alpha?</source>
-        <target>Sind wir noch in der Alpha?</target>
+        <target>¿Ya salimos de la verisón Alfa?</target>
       </segment>
     </unit>
     <unit id="OA64trN" name="f4f78aa">
@@ -15390,7 +15381,7 @@
       </notes>
       <segment>
         <source>Dies ist eine äußerst seltene Belohnung, die den ersten MyHordes-Spielern vorbehalten ist, die das Finale mit großem F erlebt haben.</source>
-        <target>Dies ist eine äußerst seltene Belohnung, die den ersten MyHordes-Spielern vorbehalten ist, die das Finale mit großem F erlebt haben.</target>
+        <target>Esta es una distinción extremadamente rara reservada a los primeros jugadores de MyHordes, quienes presenciaron el final, uno con F mayúscula.</target>
       </segment>
     </unit>
     <unit id="Oys88cl" name="1a715ee">
@@ -15408,7 +15399,7 @@
       </notes>
       <segment>
         <source>[ Es riecht nach Tannenzapfen... ]</source>
-        <target>[ Es riecht nach Tannenzapfen... ]</target>
+        <target>[ ¿Quién fue el asqueroso...? ]</target>
       </segment>
     </unit>
     <unit id="PgQR75x" name="Zahlreiche Diebstähle begangen">
@@ -15417,7 +15408,7 @@
       </notes>
       <segment>
         <source>Zahlreiche Diebstähle begangen</source>
-        <target>Zahlreiche Diebstähle begangen</target>
+        <target>Demasiados robos cometidos</target>
       </segment>
     </unit>
     <unit id="dD9OHg_" name="Verbraucht zuviel Wasser">
@@ -15426,7 +15417,7 @@
       </notes>
       <segment>
         <source>Verbraucht zuviel Wasser</source>
-        <target>Verbraucht zuviel Wasser</target>
+        <target>Consume demasiada agua</target>
       </segment>
     </unit>
     <unit id="W43lmes" name="Beleidigendes Verhalten">
@@ -15435,7 +15426,7 @@
       </notes>
       <segment>
         <source>Beleidigendes Verhalten</source>
-        <target>Beleidigendes Verhalten</target>
+        <target>Insultos o mal comportamiento</target>
       </segment>
     </unit>
     <unit id="rnxNxyC" name="Blockiert die Baustelle">
@@ -15444,7 +15435,7 @@
       </notes>
       <segment>
         <source>Blockiert die Baustelle</source>
-        <target>Blockiert die Baustelle</target>
+        <target>Bloquea las construcciones</target>
       </segment>
     </unit>
     <unit id="GTtLJm1" name="Expeditionssaboteur">
@@ -15453,7 +15444,7 @@
       </notes>
       <segment>
         <source>Expeditionssaboteur</source>
-        <target>Expeditionssaboteur</target>
+        <target>Sabotaje a la expedición</target>
       </segment>
     </unit>
     <unit id="qSX7vRE" name="Geht kein Risiko ein">
@@ -15462,7 +15453,7 @@
       </notes>
       <segment>
         <source>Geht kein Risiko ein</source>
-        <target>Geht kein Risiko ein</target>
+        <target>Siempre se queda en casa</target>
       </segment>
     </unit>
     <unit id="Dn0tq6e" name="Handelt zu egoistisch">
@@ -15471,7 +15462,7 @@
       </notes>
       <segment>
         <source>Handelt zu egoistisch</source>
-        <target>Handelt zu egoistisch</target>
+        <target>Juega siempre solo</target>
       </segment>
     </unit>
     <unit id="g8qlqWr" name="Gemeinschaftsfreak">
@@ -15480,7 +15471,7 @@
       </notes>
       <segment>
         <source>Gemeinschaftsfreak</source>
-        <target>Gemeinschaftsfreak</target>
+        <target>Extremista comunitario</target>
       </segment>
     </unit>
     <unit id="SuxYV1H" name="Bringt sich nicht genug ein">
@@ -15489,7 +15480,7 @@
       </notes>
       <segment>
         <source>Bringt sich nicht genug ein</source>
-        <target>Bringt sich nicht genug ein</target>
+        <target>No participa casi nunca</target>
       </segment>
     </unit>
     <unit id="NghQlFT" name="Hortet zu viele Gegenstände">
@@ -15498,7 +15489,7 @@
       </notes>
       <segment>
         <source>Hortet zu viele Gegenstände</source>
-        <target>Hortet zu viele Gegenstände</target>
+        <target>Guarda todo para sí mismo</target>
       </segment>
     </unit>
     <unit id="aCap5cU" name="Aggressiver Mitbürger">
@@ -15507,7 +15498,7 @@
       </notes>
       <segment>
         <source>Aggressiver Mitbürger</source>
-        <target>Aggressiver Mitbürger</target>
+        <target>¡Habitante agresivo!</target>
       </segment>
     </unit>
     <unit id="Bhi4A01" name="Du hast am Bauprojekt %plan% mitgeholfen.">
@@ -15516,7 +15507,7 @@
       </notes>
       <segment>
         <source>Du hast am Bauprojekt %plan% mitgeholfen.</source>
-        <target>Du hast am Bauprojekt %plan% mitgeholfen.</target>
+        <target>Has contribuido a la construcción de %plan%.</target>
       </segment>
     </unit>
     <unit id="U9LSFlB" name="Herzlichen Glückwunsch! Du hast deine Behausung in ein(e) %home% verwandelt.">
@@ -15525,7 +15516,7 @@
       </notes>
       <segment>
         <source>Herzlichen Glückwunsch! Du hast deine Behausung in ein(e) %home% verwandelt.</source>
-        <target>Herzlichen Glückwunsch! Du hast deine Behausung in ein(e) %home% verwandelt.</target>
+        <target>¡Felicitaciones! Ahora vives en un %home% verwandelt.</target>
       </segment>
     </unit>
     <unit id="CZg55p2" name="Folgenden Dinge wurden dazu gebraucht:">
@@ -15534,7 +15525,7 @@
       </notes>
       <segment>
         <source>Folgenden Dinge wurden dazu gebraucht:</source>
-        <target>Folgenden Dinge wurden dazu gebraucht:</target>
+        <target>Has utilizado estos objetos:</target>
       </segment>
     </unit>
     <unit id="2VisPD1" name="Mit dem Bau der(s) %upgrade% hat dein Haus Stufe %level% erreicht!">
@@ -15543,7 +15534,7 @@
       </notes>
       <segment>
         <source>Mit dem Bau der(s) %upgrade% hat dein Haus Stufe %level% erreicht!</source>
-        <target>Mit dem Bau der(s) %upgrade% hat dein Haus Stufe %level% erreicht!</target>
+        <target>¡El mejoramiento de %upgrade% ha pasado a nivel %level% con éxito!</target>
       </segment>
     </unit>
     <unit id="X.vNUqq" name="Einen Bürger heimbringen:">
@@ -15552,7 +15543,7 @@
       </notes>
       <segment>
         <source>Einen Bürger heimbringen:</source>
-        <target>Einen Bürger heimbringen:</target>
+        <target>Acompañar a un habitante:</target>
       </segment>
     </unit>
     <unit id="cA3yYGh" name="343918b">
@@ -15561,7 +15552,7 @@
       </notes>
       <segment>
         <source>%citizen% hat einen Teil seines Heißhungers gestillt, indem er Teile seiner Mitbürger gegessen hat. Um sicherzustellen, dass so etwas nicht noch einmal passiert, übergieße die Verstorbenen das nächste Mal mit Wasser...</source>
-        <target>%citizen% hat einen Teil seines Heißhungers gestillt, indem er Teile seiner Mitbürger gegessen hat. Um sicherzustellen, dass so etwas nicht noch einmal passiert, übergieße die Verstorbenen das nächste Mal mit Wasser...</target>
+        <target>%citizen% ha estado tratando de saciar su voracidad animal mordiendo a los habitantes. La próxima vez, rocía bien con agua a los muertos para que no vuelvan a atacar...</target>
       </segment>
     </unit>
     <unit id="zLJ.A.A" name="Anzeigen">
@@ -15579,7 +15570,7 @@
       </notes>
       <segment>
         <source>Du hast %num% anonyme Anzeige(n) erhalten.</source>
-        <target>Du hast %num% anonyme Anzeige(n) erhalten.</target>
+        <target>Has recibido %num% denuncia(s) anónimas.</target>
       </segment>
     </unit>
     <unit id="khbCWBV" name="Sollte diese Zahl auf 8 ansteigen, wirst du verbannt!">
@@ -15588,7 +15579,7 @@
       </notes>
       <segment>
         <source>Sollte diese Zahl auf 8 ansteigen, wirst du verbannt!</source>
-        <target>Sollte diese Zahl auf 8 ansteigen, wirst du verbannt!</target>
+        <target>¡Si acumulas 8 denuncias, serás desterrado!</target>
       </segment>
     </unit>
     <unit id="pFLOI._" name="Grund:">
@@ -15597,7 +15588,7 @@
       </notes>
       <segment>
         <source>Grund:</source>
-        <target>Grund:</target>
+        <target>Motivo:</target>
       </segment>
     </unit>
     <unit id="7aCcCH1" name="Wählen">
@@ -15606,7 +15597,7 @@
       </notes>
       <segment>
         <source>Wählen</source>
-        <target>Wählen</target>
+        <target>Elegir</target>
       </segment>
     </unit>
     <unit id="GZZJnSZ" name="Beta-Tester der neuen Zeit">
@@ -15642,7 +15633,7 @@
       </notes>
       <segment>
         <source>Vom Turm aus hast du eine guten Überblick über die Wüste. Du musterst die Umgebung, versuchst die Zombies zu zählen und ihre Bewegungsrichtung vorauszuberechnen... &lt;br /&gt;Nachdem du einige Minuten die Lage gecheckt hast, schreibst du deine Ergebnisse in das &lt;strong&gt;Wachturmregister&lt;/strong&gt;.&lt;hr /&gt;Zusammen mit den Informationen der anderen Bürger sollten wir eine korrekte Angriffsschätzung bekommen.</source>
-        <target><![CDATA[Vom Turm aus hast du eine guten Überblick über die Wüste. Du musterst die Umgebung, versuchst die Zombies zu zählen und ihre Bewegungsrichtung vorauszuberechnen... <br />Nachdem du einige Minuten die Lage gecheckt hast, schreibst du deine Ergebnisse in das <strong>Wachturmregister</strong>.<hr />Zusammen mit den Informationen der anderen Bürger sollten wir eine korrekte Angriffsschätzung bekommen.]]></target>
+        <target><![CDATA[Desde lo más alto de la torre, examinas el desierto que rodea el pueblo para calcular la cantidad de zombies presentes y su desplazamiento... <br />Después de varias horas de intensa reflexión, escribes esos datos en el <strong>Registro de la Torre de Vigilancia.</strong>.<hr />Esa información, sumada a la de los demás habitantes, debería darte un pronóstico acertado del ataque.]]></target>
       </segment>
     </unit>
     <unit id="GeJZ7mU" name="Auf den Aufstand hinarbeiten">
@@ -15651,7 +15642,7 @@
       </notes>
       <segment>
         <source>Auf den Aufstand hinarbeiten</source>
-        <target>Auf den Aufstand hinarbeiten</target>
+        <target>Organizar una revuelta</target>
       </segment>
     </unit>
     <unit id="krk9RGq" name="%citizen% ist ausgegangen...">
@@ -15669,7 +15660,7 @@
       </notes>
       <segment>
         <source>Wähle den &lt;strong&gt;zu stehlenden Gegenstand&lt;/strong&gt; hier oben aus. &lt;strong&gt;Achtung!&lt;/strong&gt; Es besteht die Gefahr, dass du dabei gesehen wirst. In diesem Fall musst du dich auf unangenehme Konsequenzen gefasst machen.</source>
-        <target><![CDATA[Wähle den <strong>zu stehlenden Gegenstand</strong> hier oben aus. <strong>Achtung!</strong> Es besteht die Gefahr, dass du dabei gesehen wirst. In diesem Fall musst du dich auf unangenehme Konsequenzen gefasst machen.]]></target>
+        <target><![CDATA[Elige <strong>el objeto que deseas robar</strong> aquí. <strong>¡Pero cuidado!</strong> Puedes ser descubierto y deberás asumir todas las consecuencias.]]></target>
       </segment>
     </unit>
     <unit id="tVbgO4A" name="Einen Gegenstand stehlen">
@@ -15678,7 +15669,7 @@
       </notes>
       <segment>
         <source>Einen Gegenstand stehlen</source>
-        <target>Einen Gegenstand stehlen</target>
+        <target>Entrar para robar un objeto</target>
       </segment>
     </unit>
     <unit id="Wq3dzPg" name="Einen Gegenstand hinterlassen">
@@ -15687,7 +15678,7 @@
       </notes>
       <segment>
         <source>Einen Gegenstand hinterlassen</source>
-        <target>Einen Gegenstand hinterlassen</target>
+        <target>Colocar un objeto discretamente</target>
       </segment>
     </unit>
     <unit id="o5dw7G5" name="15ac09f">
@@ -15741,7 +15732,7 @@
       </notes>
       <segment>
         <source>Hurra! Folgendes Gebäude wurde fertiggestellt: %plan%!</source>
-        <target>Hurra! Folgendes Gebäude wurde fertiggestellt: %plan%!</target>
+        <target>¡Hurra! Has terminado la construcción %plan%!</target>
       </segment>
     </unit>
     <unit id="8UrChKd" name="Du hast dafür %count% Aktionspunkt(e) verbraucht.">
@@ -15766,6 +15757,96 @@
         <target>Als du durch das Fenster blickst, stellst du fest, dass das Haus von %citizen% keinerlei interessante
                     Gegenstände enthält. Ein paar Tonscherben, viel Staub und eine tote Ratte ist alles, was du erkennen kannst.
                     Nichts, was der Mühe wert wäre.</target>
+      </segment>
+    </unit>
+    <unit id="lo3tdoY" name="Was für eine schreckliche Nacht!">
+      <notes>
+        <note category="german">Was für eine schreckliche Nacht!</note>
+      </notes>
+      <segment>
+        <source>Was für eine schreckliche Nacht!</source>
+        <target>¡Qué noche tan terrible!</target>
+      </segment>
+    </unit>
+    <unit id="pPZiySm" name="778f93b">
+      <notes>
+        <note category="german">Heute Nacht ist dir der Arsch so richtig auf Grundeis gegangen! Als du ihr Grunzen und Stöhnen gehört hattest, war dir klar: Sie würden bei dir daheim eindringen. So kam es dann auch: Deine Haustür splitterte unter der Last ihrer Angriffe. Panisch bist du ins Schlafzimmer gerannt, um dich unter deinem Bett zu verstecken. Sie blieben ein paar Minuten, die dir wie eine Ewigkeit vorkamen, und schnüffelten sich durch alle Zimmer. Innerlich zitternd, hast du zu Gott gebetet, dass sie dich verschonen mögen. Dann war plötzlich wieder alles still. Hechelnd und schnaufend bist du aus deinem Versteck hervorgekrochen und heulend auf deinem Bett zusammengesunken.</note>
+      </notes>
+      <segment>
+        <source>Heute Nacht ist dir der Arsch so richtig auf Grundeis gegangen! Als du ihr Grunzen und Stöhnen gehört hattest, war dir klar: Sie würden bei dir daheim eindringen. So kam es dann auch: Deine Haustür splitterte unter der Last ihrer Angriffe. Panisch bist du ins Schlafzimmer gerannt, um dich unter deinem Bett zu verstecken. Sie blieben ein paar Minuten, die dir wie eine Ewigkeit vorkamen, und schnüffelten sich durch alle Zimmer. Innerlich zitternd, hast du zu Gott gebetet, dass sie dich verschonen mögen. Dann war plötzlich wieder alles still. Hechelnd und schnaufend bist du aus deinem Versteck hervorgekrochen und heulend auf deinem Bett zusammengesunken.</source>
+        <target>Heute Nacht ist dir der Arsch so richtig auf Grundeis gegangen! Als du ihr Grunzen und Stöhnen gehört hattest, war dir klar: Sie würden bei dir daheim eindringen. So kam es dann auch: Deine Haustür splitterte unter der Last ihrer Angriffe. Panisch bist du ins Schlafzimmer gerannt, um dich unter deinem Bett zu verstecken. Sie blieben ein paar Minuten, die dir wie eine Ewigkeit vorkamen, und schnüffelten sich durch alle Zimmer. Innerlich zitternd, hast du zu Gott gebetet, dass sie dich verschonen mögen. Dann war plötzlich wieder alles still. Hechelnd und schnaufend bist du aus deinem Versteck hervorgekrochen und heulend auf deinem Bett zusammengesunken.</target>
+      </segment>
+    </unit>
+    <unit id="_2vb9p1" name="Du wurdest verbannt!">
+      <notes>
+        <note category="german">Du wurdest verbannt!</note>
+      </notes>
+      <segment>
+        <source>Du wurdest verbannt!</source>
+        <target>¡Has sido desterrado!</target>
+      </segment>
+    </unit>
+    <unit id="dVyLKp_" name="Status:">
+      <notes>
+        <note category="german">Status:</note>
+      </notes>
+      <segment>
+        <source>Status:</source>
+        <target>Situación:</target>
+      </segment>
+    </unit>
+    <unit id="x50DxZR" name="Eine Revolte liegt in weiter Ferne...">
+      <notes>
+        <note category="german">Eine Revolte liegt in weiter Ferne...</note>
+      </notes>
+      <segment>
+        <source>Eine Revolte liegt in weiter Ferne...</source>
+        <target>La insurrección no estpa lista...</target>
+      </segment>
+    </unit>
+    <unit id="x_WVlWR" name="Erste Spannungen bilden sich.">
+      <notes>
+        <note category="german">Erste Spannungen bilden sich.</note>
+      </notes>
+      <segment>
+        <source>Erste Spannungen bilden sich.</source>
+        <target>La insurrección es inminente.</target>
+      </segment>
+    </unit>
+    <unit id="LL.dGkI" name="Wir machen Fortschritte.">
+      <notes>
+        <note category="german">Wir machen Fortschritte.</note>
+      </notes>
+      <segment>
+        <source>Wir machen Fortschritte.</source>
+        <target>Estamos progresando.</target>
+      </segment>
+    </unit>
+    <unit id="id8VuDJ" name="Das Ende ist nah.">
+      <notes>
+        <note category="german">Das Ende ist nah.</note>
+      </notes>
+      <segment>
+        <source>Das Ende ist nah.</source>
+        <target>El Fin se acerca.</target>
+      </segment>
+    </unit>
+    <unit id="DqJn30N" name="Die Revolte steht bevor!">
+      <notes>
+        <note category="german">Die Revolte steht bevor!</note>
+      </notes>
+      <segment>
+        <source>Die Revolte steht bevor!</source>
+        <target>Die Revolte steht bevor!</target>
+      </segment>
+    </unit>
+    <unit id="o66h7gA" name="Diese Aktion ist während der &lt;strong&gt;Chaosperiode&lt;/strong&gt; night erlaubt!">
+      <notes>
+        <note category="german">Diese Aktion ist während der &lt;strong&gt;Chaosperiode&lt;/strong&gt; night erlaubt!</note>
+      </notes>
+      <segment>
+        <source>Diese Aktion ist während der &lt;strong&gt;Chaosperiode&lt;/strong&gt; night erlaubt!</source>
+        <target><![CDATA[Diese Aktion ist während der <strong>Chaosperiode</strong> night erlaubt!]]></target>
       </segment>
     </unit>
   </file>

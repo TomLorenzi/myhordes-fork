@@ -126,6 +126,11 @@
                                 <input x-setting {% if app.user.preferSmallAvatars %}checked{% endif%} type="checkbox" id="setting_prefer_classic_avatars">&nbsp;<label for="setting_prefer_classic_avatars">{{ 'Bevorzugt komprimierte Profilbilder anzeigen'|trans({}, 'soul') }}</label>
                             </div>
                         </div>
+                        <div class="padded cell rw-12">
+                            <div class="note note-lightest">
+                                <input x-setting {% if app.user.disableFx %}checked{% endif%} type="checkbox" id="setting_disable_fx">&nbsp;<label for="setting_disable_fx">{{ 'Animationen verringern'|trans({}, 'soul') }}</label> <a class="help-button"><div class="tooltip help">{{ 'Mache hier einen Haken, wenn die Landkarte nur sehr langsam geladen wird.<br /><em>Mit dieser Option senkst du die Qualität der Spielkartenanimationen.</em>.'|trans({},'soul')|raw }}</div>{{ 'Hilfe'|trans({},'global') }}</a>
+                            </div>
+                        </div>
                     </div>
 
                     <h5>{{ 'Browser-Einstellungen'|trans({},'soul') }}</h5>
@@ -198,6 +203,16 @@
                             <div class="cell padded rw-6"><label><input id="app_pw_change_old" placeholder="{{ 'Aktuelles Passwort'|trans({},'soul') }}" type="password" value="" /></label></div>
                             <div class="cell padded rw-6"><button id="acc_ch_pw">{{ 'Passwort aktualisieren'|trans({},'soul') }}</button></div>
                         </div>
+                    </div>
+                </div>
+                <br />
+                <div class="row">
+                    <div class="cell padded rw-4 rw-sm-12">
+                        {% trans from 'soul' %}Überall ausloggen{% endtrans %}
+                    </div>
+                    <div class="cell padded rw-8 rw-sm-12">
+                        <button id="acc_unremember_me">{{ 'Auf allen Browsern & Geräten abmelden'|trans({},'soul') }}</button>
+                        <p class="small">{% trans from 'soul' %}Hiermit kannst du dich von allen Geräten und Browsern abmelden, auf denen du aktuell eingeloggt bist. Die "Login merken" Funktion wird hierdurch ebenfalls auf den betroffenen Geräten deaktiviert.{% endtrans %}</p>
                     </div>
                 </div>
             {% endif %}
@@ -288,6 +303,13 @@
                 } )
         });
 
+        $.html.addEventListenerAll('#acc_unremember_me', 'click', function(e) {
+            $.ajax.easySend( '{{ path('api_soul_unremember_me') }}', {},
+                function () {
+                    window.location.reload()
+                } )
+        });
+
         $.html.addEventListenerAll('#generate-external-id', 'click', function(e) {
             e.preventDefault();
             $.ajax.easySend( '{{ path('api_soul_settings_generateid') }}', [],
@@ -313,7 +335,8 @@
         });
         $.html.addEventListenerAll('[x-setting]', 'change', function(e,elem) {
             $.ajax.easySend( '{{ path('api_soul_common') }}', {
-                sma: document.getElementById('setting_prefer_classic_avatars').checked
+                    sma: document.getElementById('setting_prefer_classic_avatars').checked,
+                    disablefx: document.getElementById('setting_disable_fx').checked,
                 },
                 function () {
                     $.ajax.load(null, '{{ path('soul_settings') }}', true);

@@ -9,6 +9,29 @@
             {% elseif town.insurrectionProgress >= 100 %}
 	           <div class="header-menu insurrect"></div>
             {% endif %}
+            {% if citizen.banished %}
+                <div class="banished-info">
+                    <img alt="" src="{{ asset('build/images/icons/banished.gif') }}" /> {{ 'Du wurdest verbannt!'|trans({}, 'game') }} <a class="help-button"><div class="tooltip help">{{ 'Als <strong>Ausgestoßener</strong> stehen dir die Gemeinschaftsaktionen der Stadt nicht länger zur Verfügung: Bank, Baustelle, Tor, etc...'|trans({},'global')|raw }}</div>{{ 'Hilfe'|trans({},'global') }}</a>
+                </div>
+                {% if has_insurrection_part %}
+                    <div class="banished-info">
+                        <em>{{ 'Status:'|trans({}, 'game') }}</em>
+                    {% if town.insurrectionProgress >= 0 and town.insurrectionProgress < 20 %}
+                        {{ 'Eine Revolte liegt in weiter Ferne...'|trans({}, 'game') }}
+                    {% elseif town.insurrectionProgress >= 20 and town.insurrectionProgress < 40 %}
+                        {{ 'Erste Spannungen bilden sich.'|trans({}, 'game') }}
+                    {% elseif town.insurrectionProgress >= 40 and town.insurrectionProgress < 60 %}
+                        {{ 'Wir machen Fortschritte.'|trans({}, 'game') }}
+                    {% elseif town.insurrectionProgress >= 60 and town.insurrectionProgress < 80 %}
+                        {{ 'Das Ende ist nah.'|trans({}, 'game') }}
+                    {% elseif town.insurrectionProgress >= 80 %}
+                        {{ 'Die Revolte steht bevor!'|trans({}, 'game') }}
+                    {% endif %}
+                    </div>
+                {% elseif can_do_insurrection %}
+                    <button id="do_insurrection"><img alt="" src="{{ asset('build/images/actions/insurrect.gif') }}" /> {{'Auf den Aufstand hinarbeiten'|trans({}, 'game')}}</button>
+                {% endif %}
+            {% endif %}
             {% set hour = "now"|date("G") %}
             <div class="row town-menu {% if town.isNight %}night{% endif %}">
                 <div class="padded-small cell rw-12 town-overview {% if menu_section == '' %}selected{% endif %}">
@@ -108,5 +131,15 @@
 {% block js %}
     {{ parent() }}
     <script>
+        {% if can_do_insurrection %}
+        let insurrectbtn = document.getElementById('do_insurrection');
+        if(insurrectbtn) insurrectbtn.addEventListener('click', function(){
+            if (confirm('{{ 'Bestätigen?'|trans({},'global') }}'))
+                $.ajax.easySend( '{{ path('town_insurrect') }}', {},
+                    function () {
+                        $.ajax.load(null, '{{ path('town_dashboard') }}', true);
+                    } );
+        });
+        {% endif %}
     </script>
 {% endblock %}

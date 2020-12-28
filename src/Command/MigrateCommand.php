@@ -33,6 +33,7 @@ use App\Service\InventoryHandler;
 use App\Service\MazeMaker;
 use App\Service\PermissionHandler;
 use App\Service\RandomGenerator;
+use App\Service\UserFactory;
 use App\Service\UserHandler;
 use App\Structures\TownConf;
 use Doctrine\ORM\EntityManagerInterface;
@@ -46,6 +47,9 @@ use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\BufferedOutput;
 use Symfony\Component\Console\Output\NullOutput;
 use Symfony\Component\Console\Output\OutputInterface;
+use Symfony\Component\Console\Question\ChoiceQuestion;
+use Symfony\Component\Console\Question\ConfirmationQuestion;
+use Symfony\Component\Console\Question\Question;
 use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
 use Symfony\Component\HttpKernel\KernelInterface;
 
@@ -55,20 +59,22 @@ class MigrateCommand extends Command
 
     private $kernel;
 
-    private $game_factory;
-    private $entity_manager;
-    private $citizen_handler;
-    private $randomizer;
-    private $inventory_handler;
-    private $conf;
-    private $maze;
-    private $param;
-    private $user_handler;
-    private $perm;
+    private GameFactory $game_factory;
+    private EntityManagerInterface $entity_manager;
+    private CitizenHandler $citizen_handler;
+    private RandomGenerator $randomizer;
+    private InventoryHandler $inventory_handler;
+    private ConfMaster $conf;
+    private MazeMaker $maze;
+    private ParameterBagInterface $param;
+    private UserHandler $user_handler;
+    private UserFactory $user_factory;
+    private PermissionHandler $perm;
 
     public function __construct(KernelInterface $kernel, GameFactory $gf, EntityManagerInterface $em,
                                 RandomGenerator $rg, CitizenHandler $ch, InventoryHandler $ih, ConfMaster $conf,
-                                MazeMaker $maze, ParameterBagInterface $params, UserHandler $uh, PermissionHandler $p)
+                                MazeMaker $maze, ParameterBagInterface $params, UserHandler $uh, PermissionHandler $p,
+                                UserFactory $uf)
     {
         $this->kernel = $kernel;
 
@@ -82,6 +88,7 @@ class MigrateCommand extends Command
         $this->param = $params;
         $this->user_handler = $uh;
         $this->perm = $p;
+        $this->user_factory = $uf;
 
         parent::__construct();
     }
@@ -229,6 +236,8 @@ class MigrateCommand extends Command
 
         if ($input->getOption('install-db')) {
 
+            $output->writeln("\n\n=== <info>Creating database and loading static content</info> ===\n");
+
             if (!$this->capsule( 'doctrine:database:create', $output )) {
                 $output->writeln("<error>Unable to create database.</error>");
                 return 1;
@@ -244,14 +253,80 @@ class MigrateCommand extends Command
                 return 3;
             }
 
+            $output->writeln("\n\n=== <info>Creating default user accounts and groups</info> ===\n");
+
+            if (!$this->capsule( 'app:migrate --repair-permissions', $output )) {
+                $output->writeln("<error>Unable to generate default permission set.</error>");
+                return 4;
+            }
+
             if (!$this->capsule( 'app:debug --add-crow', $output )) {
                 $output->writeln("<error>Unable to add users and create crow.</error>");
                 return 4;
             }
 
-            if (!$this->capsule( 'app:town:create remote 40 en', $output )) {
-                $output->writeln("<error>Unable to create french town.</error>");
-                return 5;
+            $output->writeln("\n\n=== <info>Optional setup steps</info> ===\n");
+
+            $result = $this->getHelper('question')->ask($input, $output, new ConfirmationQuestion(
+                "Would you like to create world forums? (y/n) ", true
+            ) );
+            if ($result) {
+                if (!$this->capsule('app:forum:create "Weltforum" 0 --icon bannerForumDiscuss', $output)) {
+                    return 5;
+                }
+                if (!$this->capsule('app:forum:create "Forum Monde" 0 --icon bannerForumDiscuss', $output)) {
+                    return 5;
+                }
+                if (!$this->capsule('app:forum:create "World Forum" 0 --icon bannerForumDiscuss', $output)) {
+                    return 5;
+                }
+                if (!$this->capsule('app:forum:create "Foro Mundial" 0 --icon bannerForumDiscuss', $output)) {
+                    return 5;
+                }
+            }
+
+            $result = $this->getHelper('question')->ask($input, $output, new ConfirmationQuestion(
+                "Would you like to create a town? (y/n) ", true
+            ) );
+            if ($result) {
+                if (!$this->capsule('app:town:create remote 40 en', $output)) {
+                    $output->writeln("<error>Unable to create english town.</error>");
+                    return 5;
+                }
+            }
+
+            $result = $this->getHelper('question')->ask($input, $output, new ConfirmationQuestion(
+                "Would you like to create an administrator account? (y/n) ", true
+            ) );
+            if ($result) {
+                $name = $this->getHelper('question')->ask($input, $output, new Question(
+                    "Please enter the username: ", 'admin'
+                ) );
+                $mail = $this->getHelper('question')->ask($input, $output, new Question(
+                    "Please enter the e-mail address: ", 'admin@localhost'
+                ) );
+
+                $proceed = false;
+                while (!$proceed) {
+                    $q = new Question( "Please enter the account password: ", '' );
+                    $q->setHidden(true);
+                    $password1 = $this->getHelper('question')->ask($input, $output, $q );
+
+                    $q = new Question( "Please repeat the account password: ", '' );
+                    $q->setHidden(true);
+                    $password2 = $this->getHelper('question')->ask($input, $output, $q );
+
+                    $proceed = $password1 === $password2;
+                    if (!$proceed) $output->writeln('<error>The passwords did not match.</error> Please try again.');
+                }
+
+                $new_user = $this->user_factory->createUser( $name, $mail, $password1, true, $error );
+                if ($error !== UserFactory::ErrorNone) return -$error;
+                $new_user->setRightsElevation(User::ROLE_SUPER);
+                $this->entity_manager->persist($new_user);
+                $this->entity_manager->flush();
+
+                $output->writeln('You user account <info>has been created</info>.');
             }
 
             return 0;
@@ -686,6 +761,7 @@ class MigrateCommand extends Command
             }
 
             $this->entity_manager->flush();
+            return 0;
 
         }
 

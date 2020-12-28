@@ -354,7 +354,7 @@ x-message {
 
   &>#content {
     margin: 0 5px 0 @myhordes-left-padding;
-    &>.row>.cell,&>noscript>.row>.cell {
+    &>.row:not(.external-app)>.cell,&>noscript>.row>.cell {
 
       &.header>h4:first-child {
         &+*::before { content: " "; display: block; height: 24px; }

@@ -14491,7 +14491,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Die Stadt ist zerstört! Flieht, irh Narren!</source>
-        <target>This town id dead... Flee you poor fools!</target>
+        <target>This town is dead... Flee you poor fools!</target>
       </segment>
     </unit>
     <unit id="qjYW_3_" name="Leprechaun wurde gesehen, wie er den %item% von %victim% stahl!">
@@ -14752,7 +14752,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Ein neuer Tag bricht an</source>
-        <target>Ein neuer Tag bricht an</target>
+        <target>A new day is dawning</target>
       </segment>
     </unit>
     <unit id="QA25eiQ" name="An einem kalten Morgen">
@@ -14797,7 +14797,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>... allein</source>
-        <target>... allein</target>
+        <target>... alone</target>
       </segment>
     </unit>
     <unit id="spLHhcB" name="an der Seite von %citizen%">
@@ -14869,7 +14869,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Mysteriöse metereologische Phänomene haben gestern Nacht dafür gesorgt, dass sich bestimmte Zonen &lt;strong&gt;%sector% der Stadt&lt;/strong&gt; regeneriert haben.&lt;p&gt;&lt;em&gt;Es können dort durch Graben wieder Gegenstände gefunden werden, auch wenn die Zone zuvor leergesucht wurde!&lt;/em&gt;&lt;/p&gt;</source>
-        <target><![CDATA[Mysteriöse metereologische Phänomene haben gestern Nacht dafür gesorgt, dass sich bestimmte Zonen <strong>%sector% der Stadt</strong> regeneriert haben.<p><em>Es können dort durch Graben wieder Gegenstände gefunden werden, auch wenn die Zone zuvor leergesucht wurde!</em></p>]]></target>
+        <target><![CDATA[No doubt affected by the mysterious meterological phenomena which occur around midnight, certain zones <strong>in the %sector% not a million miles from the town</strong> could have regenerated.<p><em>So it will again be possible to find objects when searching, even if the zone was previously depleted!</em></p>]]></target>
       </segment>
     </unit>
     <unit id="88_o8Q3" name="Verlorenes Brunnenwasser: %count% Einhet(en)">
@@ -15758,6 +15758,87 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
         <target>Als du durch das Fenster blickst, stellst du fest, dass das Haus von %citizen% keinerlei interessante
                     Gegenstände enthält. Ein paar Tonscherben, viel Staub und eine tote Ratte ist alles, was du erkennen kannst.
                     Nichts, was der Mühe wert wäre.</target>
+      </segment>
+    </unit>
+    <unit id="lo3tdoY" name="Was für eine schreckliche Nacht!">
+      <notes>
+        <note category="german">Was für eine schreckliche Nacht!</note>
+      </notes>
+      <segment>
+        <source>Was für eine schreckliche Nacht!</source>
+        <target>Was für eine schreckliche Nacht!</target>
+      </segment>
+    </unit>
+    <unit id="pPZiySm" name="778f93b">
+      <notes>
+        <note category="german">Heute Nacht ist dir der Arsch so richtig auf Grundeis gegangen! Als du ihr Grunzen und Stöhnen gehört hattest, war dir klar: Sie würden bei dir daheim eindringen. So kam es dann auch: Deine Haustür splitterte unter der Last ihrer Angriffe. Panisch bist du ins Schlafzimmer gerannt, um dich unter deinem Bett zu verstecken. Sie blieben ein paar Minuten, die dir wie eine Ewigkeit vorkamen, und schnüffelten sich durch alle Zimmer. Innerlich zitternd, hast du zu Gott gebetet, dass sie dich verschonen mögen. Dann war plötzlich wieder alles still. Hechelnd und schnaufend bist du aus deinem Versteck hervorgekrochen und heulend auf deinem Bett zusammengesunken.</note>
+      </notes>
+      <segment>
+        <source>Heute Nacht ist dir der Arsch so richtig auf Grundeis gegangen! Als du ihr Grunzen und Stöhnen gehört hattest, war dir klar: Sie würden bei dir daheim eindringen. So kam es dann auch: Deine Haustür splitterte unter der Last ihrer Angriffe. Panisch bist du ins Schlafzimmer gerannt, um dich unter deinem Bett zu verstecken. Sie blieben ein paar Minuten, die dir wie eine Ewigkeit vorkamen, und schnüffelten sich durch alle Zimmer. Innerlich zitternd, hast du zu Gott gebetet, dass sie dich verschonen mögen. Dann war plötzlich wieder alles still. Hechelnd und schnaufend bist du aus deinem Versteck hervorgekrochen und heulend auf deinem Bett zusammengesunken.</source>
+        <target>Heute Nacht ist dir der Arsch so richtig auf Grundeis gegangen! Als du ihr Grunzen und Stöhnen gehört hattest, war dir klar: Sie würden bei dir daheim eindringen. So kam es dann auch: Deine Haustür splitterte unter der Last ihrer Angriffe. Panisch bist du ins Schlafzimmer gerannt, um dich unter deinem Bett zu verstecken. Sie blieben ein paar Minuten, die dir wie eine Ewigkeit vorkamen, und schnüffelten sich durch alle Zimmer. Innerlich zitternd, hast du zu Gott gebetet, dass sie dich verschonen mögen. Dann war plötzlich wieder alles still. Hechelnd und schnaufend bist du aus deinem Versteck hervorgekrochen und heulend auf deinem Bett zusammengesunken.</target>
+      </segment>
+    </unit>
+    <unit id="_2vb9p1" name="Du wurdest verbannt!">
+      <notes>
+        <note category="german">Du wurdest verbannt!</note>
+      </notes>
+      <segment>
+        <source>Du wurdest verbannt!</source>
+        <target>Du wurdest verbannt!</target>
+      </segment>
+    </unit>
+    <unit id="dVyLKp_" name="Status:">
+      <notes>
+        <note category="german">Status:</note>
+      </notes>
+      <segment>
+        <source>Status:</source>
+        <target>Status:</target>
+      </segment>
+    </unit>
+    <unit id="x50DxZR" name="Eine Revolte liegt in weiter Ferne...">
+      <notes>
+        <note category="german">Eine Revolte liegt in weiter Ferne...</note>
+      </notes>
+      <segment>
+        <source>Eine Revolte liegt in weiter Ferne...</source>
+        <target>Eine Revolte liegt in weiter Ferne...</target>
+      </segment>
+    </unit>
+    <unit id="x_WVlWR" name="Erste Spannungen bilden sich.">
+      <notes>
+        <note category="german">Erste Spannungen bilden sich.</note>
+      </notes>
+      <segment>
+        <source>Erste Spannungen bilden sich.</source>
+        <target>Erste Spannungen bilden sich.</target>
+      </segment>
+    </unit>
+    <unit id="LL.dGkI" name="Wir machen Fortschritte.">
+      <notes>
+        <note category="german">Wir machen Fortschritte.</note>
+      </notes>
+      <segment>
+        <source>Wir machen Fortschritte.</source>
+        <target>Wir machen Fortschritte.</target>
+      </segment>
+    </unit>
+    <unit id="id8VuDJ" name="Das Ende ist nah.">
+      <notes>
+        <note category="german">Das Ende ist nah.</note>
+      </notes>
+      <segment>
+        <source>Das Ende ist nah.</source>
+        <target>Das Ende ist nah.</target>
+      </segment>
+    </unit>
+    <unit id="DqJn30N" name="Die Revolte steht bevor!">
+      <notes>
+        <note category="german">Die Revolte steht bevor!</note>
+      </notes>
+      <segment>
+        <source>Die Revolte steht bevor!</source>
+        <target>Die Revolte steht bevor!</target>
       </segment>
     </unit>
   </file>
