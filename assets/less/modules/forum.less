@@ -520,9 +520,20 @@
 
   #post-office-box {
     position: absolute; width: 900px; left: 50%; margin-left: -450px;
-    background: url("../../img/background/bg_content2.jpg") repeat-y top center/900px 263px;
+    background: url("../../img/background/bg_content2.jpg") repeat-y top left/900px 263px, url("../../img/background/bg_content2.jpg") repeat-y top right/900px 263px;
     top: 10px; bottom: 10px; border-radius: 8px; box-shadow: 0 0 10px black;
     transition: transform 0.5s ease; transform: scale(1) translateY(0);
+
+    #post-office-button-overlay {
+      position: absolute; top: 9px; right: 12px;
+      ul {
+        margin: 2px; padding: 0;
+        &>li {
+          display: inline-block; list-style: none; cursor: pointer;
+          &:last-child { color: red; filter: drop-shadow(0 0 2px black); }
+        }
+      }
+    }
 
     #post-office-content {
       background: @myhordes-panel-border, @myhordes-panel-bg; position: absolute; overflow-x: hidden; overflow-y: auto;

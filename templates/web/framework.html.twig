@@ -33,7 +33,14 @@
 </head>
 <body class="{% if is_granted('ROLE_USER') %}online_body{% else %}offline_body{% endif %} {% if custom_css is defined and custom_css != '' %}{{ custom_css }}{% endif %}">
 <div id="notifications"></div>
-<div id="post-office"><div id="post-office-box"><div id="post-office-content"></div></div></div>
+<div id="post-office">
+    <div id="post-office-box">
+        <div id="post-office-content"></div>
+        <div id="post-office-button-overlay">
+            <ul><li><i class="fa fa-times-circle"></i></li></ul>
+        </div>
+    </div>
+</div>
 <div id="wrapper">
     <div id="header">
         <div id="header-reload-area"></div>
@@ -172,6 +179,10 @@
         $.html.addEventListenerAll('#post-office','click', function(e,elem) {
             if (e.target !== elem) return;
             elem.classList.remove('visible');
+        });
+        $.html.addEventListenerAll('#post-office-button-overlay>ul>li:last-child','click', function() {
+            let post = document.getElementById('post-office');
+            if (post) post.classList.remove('visible');
         });
     })();
 
