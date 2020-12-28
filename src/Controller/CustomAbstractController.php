@@ -31,7 +31,6 @@ class CustomAbstractController extends AbstractController {
     protected InventoryHandler $inventory_handler;
     protected TranslatorInterface $translator;
 
-
     public function __construct(ConfMaster $conf, EntityManagerInterface $em, TimeKeeperService $tk, CitizenHandler $ch, InventoryHandler $ih, TranslatorInterface $translator) {
         $this->conf = $conf;
         $this->entity_manager = $em;
@@ -92,7 +91,10 @@ class CustomAbstractController extends AbstractController {
         }
         return $data;
     }
-    
+
+    /**
+     * @inheritDoc
+     */
     protected function render(string $view, array $parameters = [], Response $response = null): Response
     {
         if ($this->getUser() && $this->getUser()->getActiveCitizen())
@@ -108,6 +110,9 @@ class CustomAbstractController extends AbstractController {
         return parent::render($view, $parameters, $response);
     }
 
+    /**
+     * @return Citizen|null The current citizen for the current user
+     */
     protected function getActiveCitizen(): ?Citizen {
         /** @var User $user */
         $user = $this->getUser();
@@ -115,6 +120,9 @@ class CustomAbstractController extends AbstractController {
         return $this->cache_active_citizen ?? ($this->cache_active_citizen = $this->entity_manager->getRepository(Citizen::class)->findActiveByUser($user));
     }
 
+    /**
+     * @return TownConf The current town settings
+     */
     protected function getTownConf() {
         return $this->town_conf ?? ($this->town_conf = $this->conf->getTownConfiguration( $this->getActiveCitizen()->getTown() ));
     }
