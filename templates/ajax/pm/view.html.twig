@@ -26,8 +26,10 @@
                 <div class="cell rw-12" style="overflow: auto">
                     <div class="forum-note">
                         <b><i class="fa fa-comments"></i> {{ 'Konversationen'|trans({},'global') }}</b>
-
+                        <ul>{% for i in 1..5 %}<li>{{ i }}</li>{% endfor %}</ul>
                         <!-- CONVERSATION LIST HERE -->
+
+                        <div class="note-bottom"></div>
                     </div>
                 </div>
             </div>
@@ -38,20 +40,25 @@
 
             <div class="row-flex vertical stretch" style="max-height: 100%">
 
-                <div class="cell rw-12" style="overflow: auto">
-                    <div id="pm-forum-content">
-                        <div class="forum-note">
-                            <b>{{ 'Bitte halte dich an die Regeln:'|trans({},'global') }}</b>
-                            <ul>
-                                <li>{{ 'Achte auf deine Rechtschreibung'|trans({},'global') }}</li>
-                                <li>{{ 'Bleibe höflich und freundlich'|trans({},'global') }}</li>
-                                <li>{{ 'Werbung ist verboten (Links etc.)'|trans({},'global') }}</li>
-                            </ul>
+                <div id="pm-forum-content-container" class="cell rw-12" style="overflow: auto">
+                    <div class="forum-note">
+                        <b id="pm-forum-content-header">{{ 'Bitte wähle eine Konversation auf der linken Seite.'|trans({},'global') }}</b>
+
+                        <div id="pm-forum-content">
+                            <ul>{% for i in 1..100 %}<li>{{ i }}</li>{% endfor %}</ul>
                             <!-- CONVERSATION CONTAINER HERE -->
                         </div>
+
                     </div>
-                    <div id="pm-forum-editor"></div>
-                    <div id="pm-forum-editor-anchor"></div>
+                </div>
+
+                <div id="pm-forum-editor-container" class="cell rw-12 hidden" style="padding-top: 10px">
+                    <div class="forum-note">
+                        <b>{{ 'Neue Nachricht'|trans({},'global') }}</b>
+
+                        <div id="pm-forum-editor"></div>
+                        <div id="pm-forum-editor-anchor"></div>
+                    </div>
                 </div>
 
             </div>
@@ -64,6 +71,16 @@
 {% block js %}
     {{ parent() }}
     <script>
+        $.html.addEventListenerAll('[x-pm-action="new-single"]', 'click', function () {
+            document.getElementById('pm-forum-content-container').classList.add('hidden');
+            document.getElementById('pm-forum-content-header').innerText = '{{ 'Vorschau'|trans({},'global')|e('js') }}'
+            document.getElementById('pm-forum-content').innerHTML = '<ul><li class="own"><div class="pm-avatar"></div><div class="pm-message"><div id="pm-editor-preview"></div></div></li></ul>';
 
+            let editor = document.getElementById('pm-forum-editor');
+            if (editor) $.ajax.no_history().load( editor, '{{ url('pm_thread_editor_controller') }}', false, {}, function() {
+                document.getElementById('pm-forum-editor-container').classList.remove('hidden');
+                document.getElementById('pm-forum-content-container').classList.remove('hidden');
+            } );
+        })
     </script>
 {% endblock %}

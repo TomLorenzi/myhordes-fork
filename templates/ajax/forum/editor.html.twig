@@ -2,18 +2,25 @@
 
 {# @var permission \App\Structures\ForumPermissionAccessor #}
 
+{% set preview_name = 'forum-editor-preview' %}
+{% if type == 'global-pm' %}
+    {% set preview_name = 'pm-editor-preview' %}
+{% endif %}
+
 {% block ajax_base %}
-    <div class="forum-editor">
-        <div class="forum-editor-header">
-            {% if tid is null %}
-                <i>{{ 'Neuer Thread'|trans({},'global') }}</i>
-            {% elseif pid is null %}
-                <i>{{ 'Neuer Post'|trans({},'global') }}</i>
-            {% else %}
-                <i>{{ 'Bearbeiten'|trans({},'global') }}</i>
-            {% endif %}
-            <b>{{ app.user.name }}</b>
-        </div>
+    <div class="{% if type != 'global-pm' %}forum-editor{% else %}pm-editor{% endif %}">
+        {% if type != 'global-pm' %}
+            <div class="forum-editor-header">
+                {% if tid is null %}
+                    <i>{{ 'Neuer Thread'|trans({},'global') }}</i>
+                {% elseif pid is null %}
+                    <i>{{ 'Neuer Post'|trans({},'global') }}</i>
+                {% else %}
+                    <i>{{ 'Bearbeiten'|trans({},'global') }}</i>
+                {% endif %}
+                <b>{{ app.user.name }}</b>
+            </div>
+        {% endif %}
         {% if tid is null %}
             <div class="row">
                 <div class="cell rw-4 padded">
@@ -40,10 +47,13 @@
                 {% endif %}
             </div>
         {% endif %}
+
         <div class="row classic-editor">
             <div class="padded cell rw-12">
-                <label>{{ 'Vorschau'|trans({},'global') }}</label>
-                <div id="forum-editor-preview"></div>
+                {% if type != 'global-pm' %}
+                    <label>{{ 'Vorschau'|trans({},'global') }}</label>
+                    <div id="{{ preview_name }}"></div>
+                {% endif %}
                 <br />
                 <label for="forum-editor-text">{{ 'Deine Nachricht'|trans({},'global') }}</label>
                 <div class="forum-button-bar">
@@ -203,18 +213,20 @@
         (function() {
 
             let node_transfer_source = document.getElementById('forum-editor-text');
-            let node_transfer_target = document.getElementById('forum-editor-preview');
+            let node_transfer_target = document.getElementById('{{ preview_name|raw }}');
+
+            console.log(node_transfer_target);
 
             const transfer_to_preview = function() {
 
                 {% if snippets is not empty %}
-                    {% for snippet in snippets %}
-                        {# @var snippet \App\Entity\ForumModerationSnippet #}
-                        node_transfer_source.value = node_transfer_source.value.replace('%{{ snippet.lang|e('js') }}%{{ snippet.short|e('js') }}','{{ snippet.text|e('js') }}');
-                            {% if snippet.lang == app.user.language %}
-                                node_transfer_source.value = node_transfer_source.value.replace('%%{{ snippet.short|e('js') }}','{{ snippet.text|e('js') }}');
-                            {% endif %}
-                    {% endfor %}
+                {% for snippet in snippets %}
+                {# @var snippet \App\Entity\ForumModerationSnippet #}
+                node_transfer_source.value = node_transfer_source.value.replace('%{{ snippet.lang|e('js') }}%{{ snippet.short|e('js') }}','{{ snippet.text|e('js') }}');
+                {% if snippet.lang == app.user.language %}
+                node_transfer_source.value = node_transfer_source.value.replace('%%{{ snippet.short|e('js') }}','{{ snippet.text|e('js') }}');
+                {% endif %}
+                {% endfor %}
                 {% endif %}
 
                 $.html.twinoParser.parseTo( node_transfer_source.value, node_transfer_target, function(s) {
@@ -444,39 +456,39 @@
 
             // Post as crow toggle
             {% if (permission.post_as_dev() or permission.post_as_crow()) and forum and not pid %}
-                function changeHandler(){
-                    switch (document.querySelector("input[name=post-type]:checked").value) {
-                        case "USER":
-                            document.getElementById("radio-user").checked = false;
-                            {% if permission.post_as_crow() %}
-                                document.getElementById("radio-crow").checked = true;
-                                document.getElementById('crow_answer_content').innerHTML = "{{ 'Rabe'|trans({},'global') }}";
-                            {% elseif permission.post_as_dev() %}
-                                document.getElementById("radio-dev").checked = true;
-                                document.getElementById('crow_answer_content').innerHTML = "{{ 'Dev'|trans({},'global') }}";
-                            {% else %}
-                                document.getElementById("radio-user").checked = true;
-                                document.getElementById('crow_answer_content').innerHTML = "{{ app.user.name }}";
-                            {% endif %}
-                            break;
-                        case "CROW":
-                            document.getElementById("radio-crow").checked = false;
-                            {% if permission.post_as_dev() %}
-                                document.getElementById("radio-dev").checked = true;
-                                document.getElementById('crow_answer_content').innerHTML = "{{ 'Dev'|trans({},'global') }}";
-                            {% else %}
-                                document.getElementById("radio-user").checked = true;
-                                document.getElementById('crow_answer_content').innerHTML = "{{ app.user.name }}";
-                            {% endif %}
-                            break;
-                        case "DEV":
-                            document.getElementById("radio-dev").checked = false;
-                            document.getElementById("radio-user").checked = true;
-                            document.getElementById('crow_answer_content').innerHTML = "{{ app.user.name }}";
-                            break;
-                    }
+            function changeHandler(){
+                switch (document.querySelector("input[name=post-type]:checked").value) {
+                    case "USER":
+                        document.getElementById("radio-user").checked = false;
+                    {% if permission.post_as_crow() %}
+                        document.getElementById("radio-crow").checked = true;
+                        document.getElementById('crow_answer_content').innerHTML = "{{ 'Rabe'|trans({},'global') }}";
+                    {% elseif permission.post_as_dev() %}
+                        document.getElementById("radio-dev").checked = true;
+                        document.getElementById('crow_answer_content').innerHTML = "{{ 'Dev'|trans({},'global') }}";
+                    {% else %}
+                        document.getElementById("radio-user").checked = true;
+                        document.getElementById('crow_answer_content').innerHTML = "{{ app.user.name }}";
+                    {% endif %}
+                        break;
+                    case "CROW":
+                        document.getElementById("radio-crow").checked = false;
+                    {% if permission.post_as_dev() %}
+                        document.getElementById("radio-dev").checked = true;
+                        document.getElementById('crow_answer_content').innerHTML = "{{ 'Dev'|trans({},'global') }}";
+                    {% else %}
+                        document.getElementById("radio-user").checked = true;
+                        document.getElementById('crow_answer_content').innerHTML = "{{ app.user.name }}";
+                    {% endif %}
+                        break;
+                    case "DEV":
+                        document.getElementById("radio-dev").checked = false;
+                        document.getElementById("radio-user").checked = true;
+                        document.getElementById('crow_answer_content').innerHTML = "{{ app.user.name }}";
+                        break;
                 }
-                document.getElementById('crowpost').addEventListener('click', changeHandler);
+            }
+            document.getElementById('crowpost').addEventListener('click', changeHandler);
             {% endif %}
 
             let send_buttons = document.querySelectorAll('[x-forum-action=send]');
@@ -484,11 +496,11 @@
                 send_buttons[i].addEventListener('click', function() {
                     let target_url, target_payload;
                     {% if forum %}
-                        let type = document.querySelector("input[name=post-type]:checked") ? document.querySelector("input[name=post-type]:checked").value : null;
+                    let type = document.querySelector("input[name=post-type]:checked") ? document.querySelector("input[name=post-type]:checked").value : null;
                     {% endif %}
 
                     // Replace proxies
-                    let content_node = document.getElementById('forum-editor-preview').cloneNode(true);
+                    let content_node = document.getElementById('{{ preview_name|raw }}').cloneNode(true);
 
                     let proxies = content_node.querySelectorAll('[x-foxy-proxy]');
                     for (let j = 0; j < proxies.length; j++) {
@@ -498,50 +510,50 @@
                     }
 
                     {% if not forum %}
-                        target_url = '{{ path(target_url) }}';
-                        target_payload = {
-                            'content': content_node.innerHTML,
-                            'type': "{{ type }}",
-                        };
-                        {% if tid is not null %}
-                            target_payload.tid = {{ tid }};
-                        {% else %}
-                            target_payload.title = document.getElementById('forum-editor-title').value;
-                            {% if type == 'pm' or type == 'global' %}
-                                const rc = document.getElementById('pmidrecipient');
-                                if (rc) target_payload.recipient = rc.value;
-                                let sent_items = document.querySelectorAll("#sent-items .item");
-                                if(sent_items.length > 0) {
-                                    target_payload.items = [];
-                                    for (let i = 0; i < sent_items.length; i++) {
-                                        target_payload.items.push(sent_items[i].attributes['x-item-id'].value);
-                                    }
-                                }
-                            {% elseif type == "changelog" %}
-                                target_payload.version = document.getElementById('forum-editor-version').value;
-                                target_payload.lang = document.getElementById('forum-editor-lang').value;
-                            {% endif %}
-                        {% endif %}
+                    target_url = '{{ path(target_url) }}';
+                    target_payload = {
+                        'content': content_node.innerHTML,
+                        'type': "{{ type }}",
+                    };
+                    {% if tid is not null %}
+                    target_payload.tid = {{ tid }};
                     {% else %}
-                        {% if tid is null %}
-                            target_url = '{{ path('forum_new_thread_controller', {id: fid}) }}';
-                            target_payload = {
-                                title: document.getElementById('forum-editor-title').value,
-                                text: content_node.innerHTML,
-                                type: type
-                            };
-                        {% elseif (pid is null) %}
-                            target_url = '{{ path('forum_new_post_controller', {fid: fid, tid: tid}) }}';
-                            target_payload = {
-                                text: content_node.innerHTML,
-                                type: type,
-                            };
-                        {% else %}
-                            target_url = '{{ path('forum_edit_post_controller', {fid: fid, tid: tid, pid: pid}) }}';
-                            target_payload = {
-                                text: content_node.innerHTML
-                            };
-                        {% endif %}
+                    target_payload.title = document.getElementById('forum-editor-title').value;
+                    {% if type == 'pm' or type == 'global' %}
+                    const rc = document.getElementById('pmidrecipient');
+                    if (rc) target_payload.recipient = rc.value;
+                    let sent_items = document.querySelectorAll("#sent-items .item");
+                    if(sent_items.length > 0) {
+                        target_payload.items = [];
+                        for (let i = 0; i < sent_items.length; i++) {
+                            target_payload.items.push(sent_items[i].attributes['x-item-id'].value);
+                        }
+                    }
+                    {% elseif type == "changelog" %}
+                    target_payload.version = document.getElementById('forum-editor-version').value;
+                    target_payload.lang = document.getElementById('forum-editor-lang').value;
+                    {% endif %}
+                    {% endif %}
+                    {% else %}
+                    {% if tid is null %}
+                    target_url = '{{ path('forum_new_thread_controller', {id: fid}) }}';
+                    target_payload = {
+                        title: document.getElementById('forum-editor-title').value,
+                        text: content_node.innerHTML,
+                        type: type
+                    };
+                    {% elseif (pid is null) %}
+                    target_url = '{{ path('forum_new_post_controller', {fid: fid, tid: tid}) }}';
+                    target_payload = {
+                        text: content_node.innerHTML,
+                        type: type,
+                    };
+                    {% else %}
+                    target_url = '{{ path('forum_edit_post_controller', {fid: fid, tid: tid, pid: pid}) }}';
+                    target_payload = {
+                        text: content_node.innerHTML
+                    };
+                    {% endif %}
                     {% endif %}
 
                     $.ajax.easySend( target_url, target_payload,
@@ -554,15 +566,15 @@
             }
 
             {% if type is defined and type == "changelog" %}
-                let lang_selector = document.getElementById('forum-editor-lang');
-                if(lang_selector) {
-                    for(let prop in window.c.langs) {
-                        let option = document.createElement("option");
-                        option.text = window.c.langs[prop];
-                        option.value = prop;
-                        lang_selector.add(option);
-                    }
+            let lang_selector = document.getElementById('forum-editor-lang');
+            if(lang_selector) {
+                for(let prop in window.c.langs) {
+                    let option = document.createElement("option");
+                    option.text = window.c.langs[prop];
+                    option.value = prop;
+                    lang_selector.add(option);
                 }
+            }
             {% endif %}
         })();
     </script>
