@@ -217,6 +217,11 @@ class User implements UserInterface, EquatableInterface
      */
     private $checkInt = 0;
 
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $disableFx = false;
+
     public function __construct()
     {
         $this->citizens = new ArrayCollection();
@@ -946,6 +951,18 @@ class User implements UserInterface, EquatableInterface
     public function setCheckInt(int $checkInt): self
     {
         $this->checkInt = $checkInt;
+
+        return $this;
+    }
+
+    public function getDisableFx(): ?bool
+    {
+        return $this->disableFx;
+    }
+
+    public function setDisableFx(bool $disableFx): self
+    {
+        $this->disableFx = $disableFx;
 
         return $this;
     }

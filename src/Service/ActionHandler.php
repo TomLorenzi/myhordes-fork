@@ -1309,7 +1309,7 @@ class ActionHandler
                 $prevent_terror = $this->inventory_handler->countSpecificItems([$citizen->getInventory(), $citizen->getHome()->getChest()], 'prevent_terror') > 0;
 
                 if ($terror && !$prevent_terror)
-                    $this->citizen_handler->inflictStatus( $citizen, 'error' );
+                    $this->citizen_handler->inflictStatus( $citizen, 'terror' );
             }
 
             if ($result_group = $result->getResultGroup()) {

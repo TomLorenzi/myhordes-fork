@@ -136,6 +136,8 @@ class ExternalXML2Controller extends ExternalController {
     public function api_xml_user(ZoneHandler $zh, CitizenHandler $ch, Request $request): Response {
         $user = $this->check_keys(true);
 
+        $icon_asset_path = Request::createFromGlobals()->getBasePath() . '/build/images/';
+
         if($user instanceof Response)
             return $user;
 
@@ -195,7 +197,7 @@ class ExternalXML2Controller extends ExternalController {
                     'name' => $this->translator->trans($picto['label'], [], 'game'),
                     'rare' => intval($picto['rare']),
                     'n' => $picto['c'],
-                    'img' => $this->asset->getUrl( "build/images/pictos/{$picto['icon']}.gif"),
+                    'img' => str_replace($icon_asset_path, '', $this->asset->getUrl( "build/images/pictos/{$picto['icon']}.gif")),
                 ],
                 'list' => [
                     'name' => 'title',
@@ -293,6 +295,8 @@ class ExternalXML2Controller extends ExternalController {
      */
     public function api_xml_town(ZoneHandler $zh, CitizenHandler $ch, TownHandler $th, Request $request): Response {
         $user = $this->check_keys(false);
+
+        $icon_asset_path = Request::createFromGlobals()->getBasePath() . '/build/images/';
 
         if($user instanceof Response)
             return $user;
@@ -455,7 +459,7 @@ class ExternalXML2Controller extends ExternalController {
                         'name' => $this->translator->trans($building->getPrototype()->getLabel(), [], 'buildings'),
                         'temporary' => intval($building->getPrototype()->getTemp()),
                         'id' => $building->getPrototype()->getId(),
-                        'img' => $this->asset->getUrl("build/images/building/{$building->getPrototype()->getIcon()}.gif")
+                        'img' => str_replace($icon_asset_path, '', $this->asset->getUrl("build/images/building/{$building->getPrototype()->getIcon()}.gif"))
                     ], 
                     'cdata_value' => $this->translator->trans($building->getPrototype()->getDescription(), [], 'buildings')
                 ];
@@ -499,19 +503,26 @@ class ExternalXML2Controller extends ExternalController {
             }
 
             // The town bank
-            foreach($town->getBank()->getItems() as $bankItem){
+            foreach($town->getBank()->getItems() as $bankItem) {
                 /** @var Item $bankItem */
-                $data['data']['bank']['list']['items'][] = [
-                    'attributes' => [
-                        'name' => $this->translator->trans($bankItem->getPrototype()->getLabel(), [], 'items'),
-                        'count' => $bankItem->getCount(),
-                        'id' => $bankItem->getPrototype()->getId(),
-                        'cat' => $bankItem->getPrototype()->getCategory()->getName(),
-                        'img' => $this->asset->getUrl( "build/images/item/item_{$bankItem->getPrototype()->getIcon()}.gif"),
-                        'broken' => intval($bankItem->getBroken())
-                    ]
-                ];
+                $str = "{$bankItem->getPrototype()->getId()}-" . intval($bankItem->getBroken());
+                if (!isset($data['data']['bank']['list']['items'][$str])) {
+                    $cat = $bankItem->getPrototype()->getCategory();
+                    while ($cat->getParent()) $cat = $cat->getParent();
+                    $data['data']['bank']['list']['items'][$str] = [
+                        'attributes' => [
+                            'name' => $this->translator->trans($bankItem->getPrototype()->getLabel(), [], 'items'),
+                            'count' => $bankItem->getCount(),
+                            'id' => $bankItem->getPrototype()->getId(),
+                            'cat' => $cat->getName(),
+                            'img' => str_replace($icon_asset_path, '', $this->asset->getUrl("build/images/item/item_{$bankItem->getPrototype()->getIcon()}.gif")),
+                            'broken' => intval($bankItem->getBroken())
+                        ]
+                    ];
+                } else $data['data']['bank']['list']['items'][$str]['attributes']['count'] += $bankItem->getCount();
             }
+            usort( $data['data']['bank']['list']['items'],
+                fn($a,$b) => $a['attributes']['id'] <=> $b['attributes']['id'] ?? $b['attributes']['broken'] <=> $a['attributes']['broken']);
 
             // Expeditions
             $expeditions = $this->entity_manager->getRepository(ExpeditionRoute::class)->findByTown( $town );
@@ -573,6 +584,9 @@ class ExternalXML2Controller extends ExternalController {
                     ];
                 }
             }
+
+            usort( $data['data']['citizens']['list']['items'], fn($a,$b) => $a['attributes']['name'] <=> $b['attributes']['name']);
+            usort( $data['data']['cadavers']['list']['items'], fn($a,$b) => $a['attributes']['day'] <=> $b['attributes']['day'] ?? $a['attributes']['name'] <=> $b['attributes']['name']);
 
             // Map
             foreach($town->getZones() as $zone) {
@@ -721,12 +735,16 @@ class ExternalXML2Controller extends ExternalController {
         if(empty($language))
             $language = $request->getLocale() ?? 'de';
 
+        $base_url = Request::createFromGlobals()->getHost() . Request::createFromGlobals()->getBasePath();
+        $icon_path = $base_url . '/build/images/';
+        $icon_asset_path = Request::createFromGlobals()->getBasePath() . '/build/images/';
+
         $headers = [
             'headers' => [
                 'attributes' => [
-                    'link' => "//" . Request::createFromGlobals()->headers->get('host') . Request::createFromGlobals()->getPathInfo(),
-                    'iconurl' => "//" . Request::createFromGlobals()->headers->get('host'), // TODO: Give base path
-                    'avatarurl' => "//" . Request::createFromGlobals()->headers->get('host') . '/cdn/avatar/', // TODO: Find a way to set this dynamic (see WebController::avatar for reference)
+                    'link' => "//" . $base_url . Request::createFromGlobals()->getPathInfo(),
+                    'iconurl' => "//" . $icon_path,
+                    'avatarurl' => "//" . $base_url . '/cdn/avatar/',
                     'secure' => intval($this->isSecureRequest()),
                     'author' => 'MyHordes',
                     'language' => $language,
@@ -794,7 +812,7 @@ class ExternalXML2Controller extends ExternalController {
                                 'count' => 1,
                                 'id' => $item->getPrototype()->getId(),
                                 'cat' => $item->getPrototype()->getCategory()->getName(),
-                                'img' => $this->asset->getUrl( "build/images/item/item_{$item->getPrototype()->getIcon()}.gif"),
+                                'img' => str_replace($icon_asset_path, '', $this->asset->getUrl( "build/images/item/item_{$item->getPrototype()->getIcon()}.gif")),
                                 'broken' => intval($item->getBroken())
                             ]
                         ];

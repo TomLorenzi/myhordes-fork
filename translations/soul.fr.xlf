@@ -2213,5 +2213,32 @@
         <target>Ce bouton vous permet de vous déconnecter de tous les appareils et navigateurs sur lesquels vous êtes actuellement connectés. La fonction "Rester connecté" sera également désactivée sur ces appareils.</target>
       </segment>
     </unit>
+    <unit id="2CmSXI_" name="Animationen verringern">
+      <notes>
+        <note category="german">Animationen verringern</note>
+      </notes>
+      <segment>
+        <source>Animationen verringern</source>
+        <target>Réduire les animations</target>
+      </segment>
+    </unit>
+    <unit id="3mtyKrM" name="9900005">
+      <notes>
+        <note category="german">Mache hier einen Haken, wenn die Landkarte nur sehr langsam geladen wird.&lt;br /&gt;&lt;em&gt;Mit dieser Option senkst du die Qualität der Spielkartenanimationen.&lt;/em&gt;.</note>
+      </notes>
+      <segment>
+        <source>Mache hier einen Haken, wenn die Landkarte nur sehr langsam geladen wird.&lt;br /&gt;&lt;em&gt;Mit dieser Option senkst du die Qualität der Spielkartenanimationen.&lt;/em&gt;.</source>
+        <target><![CDATA[Cochez cette case si vous rencontrez des ralentissements notables lorsque la carte du jeu est affichée.<br /><em>Cette option réduira la qualité des animations liées à la carte du jeu.</em>]]></target>
+      </segment>
+    </unit>
+    <unit id="uh49WWx" name="cea913a">
+      <notes>
+        <note category="german">Unglücklicherweise ist deine Stadt vollkommen im Wüstensand versunken... Die Gemeinschaft wurde ausgelöscht.</note>
+      </notes>
+      <segment>
+        <source>Unglücklicherweise ist deine Stadt vollkommen im Wüstensand versunken... Die Gemeinschaft wurde ausgelöscht.</source>
+        <target>Unglücklicherweise ist deine Stadt vollkommen im Wüstensand versunken... Die Gemeinschaft wurde ausgelöscht.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

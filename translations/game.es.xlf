@@ -4093,7 +4093,7 @@
       </notes>
       <segment>
         <source>Eine alte Pumpe, die zwar vor sich hin rostet, aber dennoch in der Lage ist, in der Wüste Wasser zu schöpfen... Das einzige Problem ist, dass das Wasser, selbst wenn Sie es zum Funktionieren bringen, im Grunde genommen ungenießbar ist und in der Stadt mit den entsprechenden Geräten gereinigt werden muss.</source>
-        <target>Esta vieja bomba hidráulica está bastante corroída y tiene aún la capacidad de extraer agua en el desierto... Si llegas a hacerla funcionar, el agua <strong>no será potable</strong> y deberá <strong>ser purificada en el pueblo</strong> con los productos necesarios.</target>
+        <target><![CDATA[Esta vieja bomba hidráulica está bastante corroída y tiene aún la capacidad de extraer agua en el desierto... Si llegas a hacerla funcionar, el agua <strong>no será potable</strong> y deberá <strong>ser purificada en el pueblo</strong> con los productos necesarios.]]></target>
       </segment>
     </unit>
     <unit id="7y4PXTQ" name="21761df">
@@ -4147,7 +4147,7 @@
       </notes>
       <segment>
         <source>Die Farbe der am Bunkereingang gepinselten Zahl ist fast vollständig abgeblättert, aber es handelt sich wahrscheinlich um den Bunker 14. Im Inneren liegen überall verweste Leichen herum. Scheint so, als ob der Schließmechanismus versagt hätte. Das kommt vor.</source>
-        <target>El número en la puerta no se distingue bien... Pero se puede notar que se trata del <strong>Refugio 14</strong>. Viendo el estado de los cadáveres en su interior, todo indica que el sistema de cierre del Portal <strong>no funcionó correctamente</strong>. Suele pasar...</target>
+        <target><![CDATA[El número en la puerta no se distingue bien... Pero se puede notar que se trata del <strong>Refugio 14</strong>. Viendo el estado de los cadáveres en su interior, todo indica que el sistema de cierre del Portal <strong>no funcionó correctamente</strong>. Suele pasar...]]></target>
       </segment>
     </unit>
     <unit id="Jv.wD7x" name="cbe6a86">
@@ -4228,7 +4228,7 @@
       </notes>
       <segment>
         <source>Die verbrannten Überreste eines kleinen Waldes. Es war wahrscheinlich vorher eine schöne Gegend... Jetzt hoffen Sie nur noch, dass Sie hier nicht übernachten müssen.</source>
-        <target>Los restos <strong>carbonizados</strong> de un bosque. Antes debió ser un lugar agradable... Hoy, sería una pesadilla perderse en él.</target>
+        <target><![CDATA[Los restos <strong>carbonizados</strong> de un bosque. Antes debió ser un lugar agradable... Hoy, sería una pesadilla perderse en él.]]></target>
       </segment>
     </unit>
     <unit id="U.L0F7x" name="8b76b77">
@@ -4273,7 +4273,7 @@
       </notes>
       <segment>
         <source>Eine verfallene Familiengruft. Man kann den Eingang gerade noch erkennen, da er fast vollständig von verrottender Vegetation verdeckt ist. Anscheinend sind die Leichen vor einiger Zeit aufgestanden und gegangen...</source>
-        <target>Una <strong>cripta familiar</strong> decadente. Apenas se distingue la entrada detrás de la <strong>vegetación descompuesta</strong>. Los <strong>cadáveres</strong> salieron temprano...</target>
+        <target><![CDATA[Una <strong>cripta familiar</strong> decadente. Apenas se distingue la entrada detrás de la <strong>vegetación descompuesta</strong>. Los <strong>cadáveres</strong> salieron temprano...]]></target>
       </segment>
     </unit>
     <unit id="jfKgTEc" name="ea47251">
@@ -5101,7 +5101,7 @@
       </notes>
       <segment>
         <source>Anmerkung: Verteidigungsgegenstände (Holzplatten etc...) müssen in der Bank abgelegt werden.</source>
-        <target><![CDATA[Recuerda: Los objetos de defensa (planchas de madera, etc.) deben ser colocados en el Almacén.]]></target>
+        <target>Recuerda: Los objetos de defensa (planchas de madera, etc.) deben ser colocados en el Almacén.</target>
       </segment>
     </unit>
     <unit id="p7WJjEO" name="cabb91e">
@@ -7180,7 +7180,7 @@
       </notes>
       <segment>
         <source>Du erhälst einen Bauplan, wenn Du in diesem Gebäude campst.</source>
-        <target><![CDATA[Obtendrás un plano de obras si pasas la noche aquí.]]></target>
+        <target>Obtendrás un plano de obras si pasas la noche aquí.</target>
       </segment>
     </unit>
     <unit id="XZI.RVp" name="Hier wurde bereits ein Bauplan gefunden.">
@@ -7189,7 +7189,7 @@
       </notes>
       <segment>
         <source>Hier wurde bereits ein Bauplan gefunden.</source>
-        <target><![CDATA[Este edificio ya fue inspeccionado por otro jugador y no contiene ningún plano de obras...]]></target>
+        <target>Este edificio ya fue inspeccionado por otro jugador y no contiene ningún plano de obras...</target>
       </segment>
     </unit>
     <unit id="r0eixUa" name="%citizen% will zurück zur Stadt und wird dir nicht in diese Richtung folgen.">
@@ -7198,7 +7198,7 @@
       </notes>
       <segment>
         <source>%citizen% will zurück zur Stadt und wird dir nicht in diese Richtung folgen.</source>
-        <target><![CDATA[¡%citizen% no quiere ir en esa dirección! Este habitante te pide que lo lleves al pueblo.]]></target>
+        <target>¡%citizen% no quiere ir en esa dirección! Este habitante te pide que lo lleves al pueblo.</target>
       </segment>
     </unit>
     <unit id="KnJXiGc" name="Die Tarnung von %name% ist aufgeflogen!">
@@ -7216,7 +7216,7 @@
       </notes>
       <segment>
         <source>Der Gegenstand, den du soeben gefunden hast, passt nicht in deinen Rucksack, darum bleibt er erstmal am Boden...</source>
-        <target><![CDATA[No puedes cargar este objeto, no te queda más que abandonarlo en el suelo...]]></target>
+        <target>No puedes cargar este objeto, no te queda más que abandonarlo en el suelo...</target>
       </segment>
     </unit>
     <unit id="2MBbf8L" name="416726b">
@@ -8860,7 +8860,7 @@
         <target>Estados</target>
       </segment>
     </unit>
-    <unit id="m9ipH9g" name="[nights]">
+    <unit id="rGmg51l" name="[nichts]">
       <notes>
         <note category="german">[nichts]</note>
       </notes>
@@ -9443,15 +9443,6 @@
       <segment>
         <source>Diese heruntergekommene Gebäude scheint einmal ein Hospital gewesen zu sein. Du entdeckst einen Einstieg ins Gebäude, modriger Gestank schlägt dir entgegen. Du verziehst das Gesicht, aber hier könntest du mit ziemlicher Sicherheit etwas Nützliches finden...</source>
         <target>Este edificio en ruinas parece haber sido un hospital. Descubres una entrada al edificio, te golpea un olor a humedad. Haces una mueca, pero es casi seguro que encontrarás algo útil aquí...</target>
-      </segment>
-    </unit>
-    <unit id="rGmg51l" name="[nichts]">
-      <notes>
-        <note category="german">[nichts]</note>
-      </notes>
-      <segment>
-        <source>[nichts]</source>
-        <target>[ninguno]</target>
       </segment>
     </unit>
     <unit id="9cNHWGl" name="Seelenpunkte">
@@ -15847,6 +15838,15 @@
       <segment>
         <source>Die Revolte steht bevor!</source>
         <target>Die Revolte steht bevor!</target>
+      </segment>
+    </unit>
+    <unit id="o66h7gA" name="Diese Aktion ist während der &lt;strong&gt;Chaosperiode&lt;/strong&gt; night erlaubt!">
+      <notes>
+        <note category="german">Diese Aktion ist während der &lt;strong&gt;Chaosperiode&lt;/strong&gt; night erlaubt!</note>
+      </notes>
+      <segment>
+        <source>Diese Aktion ist während der &lt;strong&gt;Chaosperiode&lt;/strong&gt; night erlaubt!</source>
+        <target><![CDATA[Diese Aktion ist während der <strong>Chaosperiode</strong> night erlaubt!]]></target>
       </segment>
     </unit>
   </file>
