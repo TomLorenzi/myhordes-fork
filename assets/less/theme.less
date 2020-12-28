@@ -159,6 +159,15 @@ x-message {
 
     div#modal-content {
       min-height: 5rem; padding: 1rem;
+      &>span { 
+          color: white; font-weight: bold; &>img { vertical-align: text-top }
+          &.tool {
+            padding-left: 3px;
+            padding-right: 3px;
+            white-space: nowrap;
+            background-color: #784323;
+          } 
+        }
 
       .modal-form {
         label.error { color: #c00; }
