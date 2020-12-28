@@ -585,6 +585,8 @@ class ExternalXML2Controller extends ExternalController {
                 }
             }
 
+            usort( $data['data']['citizens']['list']['items'], fn($a,$b) => $a['attributes']['name'] <=> $b['attributes']['name']);
+
             // Map
             foreach($town->getZones() as $zone) {
                 /** @var Zone $zone */
