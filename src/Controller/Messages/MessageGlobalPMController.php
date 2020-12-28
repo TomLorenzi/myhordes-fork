@@ -14,6 +14,7 @@ use App\Entity\PrivateMessageThread;
 use App\Entity\Town;
 use App\Entity\User;
 use App\Response\AjaxResponse;
+use App\Service\CitizenHandler;
 use App\Service\ErrorHelper;
 use App\Service\InventoryHandler;
 use App\Service\JSONRequestParser;
@@ -32,13 +33,24 @@ class MessageGlobalPMController extends MessageController
 {
 
     /**
-     * @Route("api/admin/changelogs/new_changelog", name="admin_changelog_new_changelog")
+     * @Route("api/pm/ping", name="api_pm_ping")
      * @return Response
      */
     public function ping_check_new_message(): Response {
-
         return new AjaxResponse(['new' => 0, 'connected' => false]);
+    }
 
+    /**
+     * @Route("jx/pm/view", name="pm_view")
+     * @param EntityManagerInterface $em
+     * @param JSONRequestParser $p
+     * @return Response
+     */
+    public function pm_view(EntityManagerInterface $em, JSONRequestParser $p): Response
+    {
+        return $this->render( 'ajax/pm/view.html.twig', $this->addDefaultTwigArgs(null, [
+
+        ] ));
     }
 
 }

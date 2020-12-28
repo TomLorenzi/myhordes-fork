@@ -1,0 +1,69 @@
+{% extends "ajax/ajax_plain.html.twig" %}
+
+{% block ajax_base %}
+
+    <div class="row-flex stretch wrap">
+        <div class="padded cell rw-5" style="max-height: 100%">
+
+            <div class="row-flex vertical stretch" style="max-height: 100%">
+
+                <div class="cell rw-12" style="padding-bottom: 10px;">
+                    <div class="forum-control">
+                        <div class="forum-header-bar">
+                            <b><i class="fa fa-envelope"></i> {{ 'Aktionen'|trans({},'global') }}</b>
+                        </div>
+                        <div class="forum-button-bar">
+                            {% if is_granted("ROLE_FORUM_BANNED") %}
+                                <div class="forum-button-disabled" id="banned">{{ 'Neues Thema'|trans({},'global') }}</div>
+                            {% else %}
+                                <div x-pm-action="new-single" class="forum-button" id="new-thread-single-button"><span>{{ 'Neue Privatnachricht'|trans({},'global') }}</span></div>
+                                <div x-pm-action="new-group" class="forum-button" id="new-thread-group-button"><span>{{ 'Neuer Gruppenchat'|trans({},'global') }}</span></div>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cell rw-12" style="overflow: auto">
+                    <div class="forum-note">
+                        <b><i class="fa fa-comments"></i> {{ 'Konversationen'|trans({},'global') }}</b>
+
+                        <!-- CONVERSATION LIST HERE -->
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="padded cell rw-7" style="max-height: 100%">
+
+            <div class="row-flex vertical stretch" style="max-height: 100%">
+
+                <div class="cell rw-12" style="overflow: auto">
+                    <div id="pm-forum-content">
+                        <div class="forum-note">
+                            <b>{{ 'Bitte halte dich an die Regeln:'|trans({},'global') }}</b>
+                            <ul>
+                                <li>{{ 'Achte auf deine Rechtschreibung'|trans({},'global') }}</li>
+                                <li>{{ 'Bleibe höflich und freundlich'|trans({},'global') }}</li>
+                                <li>{{ 'Werbung ist verboten (Links etc.)'|trans({},'global') }}</li>
+                            </ul>
+                            <!-- CONVERSATION CONTAINER HERE -->
+                        </div>
+                    </div>
+                    <div id="pm-forum-editor"></div>
+                    <div id="pm-forum-editor-anchor"></div>
+                </div>
+
+            </div>
+
+
+        </div>
+    </div>
+
+{% endblock %}
+{% block js %}
+    {{ parent() }}
+    <script>
+
+    </script>
+{% endblock %}

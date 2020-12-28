@@ -537,7 +537,13 @@
 
     #post-office-content {
       background: @myhordes-panel-border, @myhordes-panel-bg; position: absolute; overflow-x: hidden; overflow-y: auto;
-      left: 18px; top: 0; right: 5px; bottom: 0; border-radius: 12px;
+      left: 18px; top: 0; right: 5px; bottom: 0; border-radius: 12px; padding: 8px; color: white;
+
+      &>.row-flex.stretch { height: 100% };
+      .forum-note > {
+        border-top: 0 solid #704328;
+        b:first-child { position: sticky; top: 0; border-top: 1px solid #704328; }
+      }
     }
   }
 

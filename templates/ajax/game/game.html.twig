@@ -156,7 +156,11 @@
     <script>
         $.html.addEventListenerAll('.postbox','click', function() {
             let post = document.getElementById('post-office');
-            if (post) post.classList.add('visible');
+            if (post) {
+                post.classList.add('visible');
+                document.getElementById('post-office-content').innerText = '';
+                $.ajax.background().load( document.getElementById('post-office-content'),'{{ url('pm_view')|e('js') }}', false )
+            }
         });
     </script>
 {% endblock %}
