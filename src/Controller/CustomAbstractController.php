@@ -45,7 +45,6 @@ class CustomAbstractController extends AbstractController {
      * Adds default arguments passed to the twig templates
      * @param string|null $section The section we are in (town sector, soul tab, etc...)
      * @param array|null $data Array of twig arguments
-     * @param null $locale The request locale, usefull for translation
      * @return array The array of twig arguments with some default data
      */
     protected function addDefaultTwigArgs( ?string $section = null, ?array $data = null ): array {
