@@ -3,11 +3,11 @@
 {% block ajax_base %}
 
     <div class="row-flex stretch wrap">
-        <div class="padded cell rw-5" style="max-height: 100%">
+        <div class="padded cell rw-5 max-height">
 
-            <div class="row-flex vertical stretch" style="max-height: 100%">
+            <div class="row-flex vertical stretch full-height">
 
-                <div class="cell rw-12" style="padding-bottom: 10px;">
+                <div class="cell rw-12 grow-0" style="padding-bottom: 10px;">
                     <div class="forum-control">
                         <div class="forum-header-bar">
                             <b><i class="fa fa-envelope"></i> {{ 'Aktionen'|trans({},'global') }}</b>
@@ -17,30 +17,56 @@
                                 <div class="forum-button-disabled" id="banned">{{ 'Neues Thema'|trans({},'global') }}</div>
                             {% else %}
                                 <div x-pm-action="new-single" class="forum-button" id="new-thread-single-button"><span>{{ 'Neue Privatnachricht'|trans({},'global') }}</span></div>
-                                <div x-pm-action="new-group" class="forum-button" id="new-thread-group-button"><span>{{ 'Neuer Gruppenchat'|trans({},'global') }}</span></div>
                             {% endif %}
                         </div>
                     </div>
                 </div>
 
-                <div class="cell rw-12" style="overflow: auto">
-                    <div class="forum-note">
-                        <b><i class="fa fa-comments"></i> {{ 'Konversationen'|trans({},'global') }}</b>
-                        <ul>{% for i in 1..5 %}<li>{{ i }}</li>{% endfor %}</ul>
-                        <!-- CONVERSATION LIST HERE -->
+                <div class="cell rw-12 grow-0">
+                    <div class="forum-note" style="border-bottom: none;"><b><i class="fa fa-comments"></i> {{ 'Konversationen'|trans({},'global') }}</b></div>
+                </div>
 
-                        <div class="note-bottom"></div>
+                <div class="cell rw-12 grow-1 relative">
+                    <div class="forum-note max-height stretcher" style="border-top: none">
+                        <div class="scroll-area">
+                            <ul>{% for i in 1..100 %}<li>{{ i }}</li>{% endfor %}</ul>
+                            <!-- CONVERSATION LIST HERE -->
+                        </div>
                     </div>
                 </div>
+
             </div>
 
         </div>
 
-        <div class="padded cell rw-7" style="max-height: 100%">
+        <div class="padded cell rw-7 max-height" style="overflow: auto">
 
-            <div class="row-flex vertical stretch" style="max-height: 100%">
+            <div class="row-flex vertical stretch full-height">
 
-                <div id="pm-forum-content-container" class="cell rw-12" style="overflow: auto">
+                <div id="pm-forum-editor-container" class="cell rw-12 hidden" style="padding-bottom: 10px">
+                    <div class="forum-note">
+                        <b>{{ 'Neue Nachricht'|trans({},'global') }}</b>
+
+                        <div id="pm-user-selector" class="hidden">
+                            <h5>&nbsp;{{'Empfänger verwalten'|trans({}, "soul")}}</h5>
+                            <div class="row">
+                                <div class="padded cell rw-4"><label for="pm-users-search">{{'Einen Empfänger hinzufügen'|trans({}, "soul")}}</label></div>
+                                <div class="padded cell rw-8">
+                                    <div id="pm-users-list-container">
+                                        <div><label><input type="text" id="pm-users-search" /></label><div class="tooltip help">{{ 'Gib den Pseudo des Bürgers ein.'|trans({},'soul') }}</div></div>
+                                        <div id="pm-users-list"></div>
+                                    </div>
+                                </div>
+                                <div class="padded cell rw-8 ro-4"><ul id="pm-selected-users"></ul></div>
+                            </div>
+                        </div>
+                        <h5>&nbsp;{{'Nachricht erstellen'|trans({}, "soul")}}</h5>
+                        <div id="pm-forum-editor"></div>
+                        <div id="pm-forum-editor-anchor"></div>
+                    </div>
+                </div>
+
+                <div id="pm-forum-content-container" class="cell rw-12">
                     <div class="forum-note">
                         <b id="pm-forum-content-header">{{ 'Bitte wähle eine Konversation auf der linken Seite.'|trans({},'global') }}</b>
 
@@ -52,15 +78,6 @@
                     </div>
                 </div>
 
-                <div id="pm-forum-editor-container" class="cell rw-12 hidden" style="padding-top: 10px">
-                    <div class="forum-note">
-                        <b>{{ 'Neue Nachricht'|trans({},'global') }}</b>
-
-                        <div id="pm-forum-editor"></div>
-                        <div id="pm-forum-editor-anchor"></div>
-                    </div>
-                </div>
-
             </div>
 
 
@@ -68,19 +85,81 @@
     </div>
 
 {% endblock %}
+
+{% macro pm_preview(user) %}
+    <li class="own">
+        {% if (user.avatar) %}
+            <div class="pm-avatar" style="background: url({{ path('app_web_avatar', {'uid': user.id, 'name': user.avatar.filename, 'ext': user.avatar.format}) }}) center/cover"></div>
+        {% else %}
+            <div class="pm-avatar row-flex v-center"><div class="cell rw-12 center">{{ user.name|slice(0,2) }}</div></div>
+        {% endif %}
+        <div class="pm-message"><div id="pm-editor-preview"></div></div>
+    </li>
+{% endmacro %}
+
 {% block js %}
     {{ parent() }}
     <script>
-        $.html.addEventListenerAll('[x-pm-action="new-single"]', 'click', function () {
-            document.getElementById('pm-forum-content-container').classList.add('hidden');
-            document.getElementById('pm-forum-content-header').innerText = '{{ 'Vorschau'|trans({},'global')|e('js') }}'
-            document.getElementById('pm-forum-content').innerHTML = '<ul><li class="own"><div class="pm-avatar"></div><div class="pm-message"><div id="pm-editor-preview"></div></div></li></ul>';
+        (function() {
+            let typingTimer, doneTypingInterval = 500;
+            let searchBox = document.getElementById('pm-users-search');
 
-            let editor = document.getElementById('pm-forum-editor');
-            if (editor) $.ajax.no_history().load( editor, '{{ url('pm_thread_editor_controller') }}', false, {}, function() {
-                document.getElementById('pm-forum-editor-container').classList.remove('hidden');
-                document.getElementById('pm-forum-content-container').classList.remove('hidden');
-            } );
-        })
+            const userSearchHandler = function() {
+                if (searchBox.value.length >= 3)
+                    $.ajax.background().load(
+                        document.getElementById('pm-users-list'),
+                        '{{ path('users_fuzzyfind', {url: 'pm_manage_users'}) }}',
+                        false,
+                        {'name': searchBox.value},
+                        function () {
+                            $.html.addEventListenerAll('#pm-users-list>.users-list-entry>div', 'click', function (e,elem) {
+                                if (!document.querySelector('#pm-selected-users>li[x-soul-id="' + elem.getAttribute('x-soul-id') + '"]')) {
+                                    let li = document.createElement('li');
+                                    li.setAttribute('x-soul-id', elem.getAttribute('x-soul-id'));
+                                    li.innerHTML = '<b>' + elem.getAttribute('x-soul-name') + '</b><span><i class="fa fa-times-circle"></i></span></li>';
+                                    document.getElementById('pm-selected-users').append(li)
+                                    document.querySelector('#pm-selected-users>li[x-soul-id="' + elem.getAttribute('x-soul-id') + '"]>span').addEventListener('click', () => li.remove());
+                                }
+
+                                searchBox.value = '';
+                            })
+                        }
+                    );
+                else document.getElementById('pm-users-list').innerHTML = '';
+            };
+
+            const userSearchHandlerUp = function () {
+                clearTimeout(typingTimer);
+                typingTimer = setTimeout(userSearchHandler, doneTypingInterval);
+            };
+
+            const userSearchHandlerDown = function () {
+                clearTimeout(typingTimer);
+            };
+
+            if (searchBox) {
+                searchBox.addEventListener('keyup', userSearchHandlerUp);
+                searchBox.addEventListener('keydown', userSearchHandlerDown);
+                searchBox.addEventListener('focus', () => userSearchHandler());
+                searchBox.addEventListener('blur', () => setTimeout( () => document.getElementById('pm-users-list').innerHTML = '', 100));
+            }
+
+            $.html.addEventListenerAll('[x-pm-action="new-single"]', 'click', function () {
+                document.getElementById('pm-forum-content-container').classList.add('hidden');
+                document.getElementById('pm-forum-content-header').innerText = '{{ 'Vorschau'|trans({},'global')|e('js') }}'
+                document.getElementById('pm-user-selector').classList.add('hidden');
+
+                document.getElementById('pm-forum-content').innerHTML = '<ul>{{ _self.pm_preview(app.user)|e('js') }}</ul>';
+
+                let editor = document.getElementById('pm-forum-editor');
+                if (editor) $.ajax.no_history().load( editor, '{{ url('pm_thread_editor_controller') }}', false, {}, function() {
+                    document.getElementById('pm-forum-editor-container').classList.remove('hidden');
+                    document.getElementById('pm-forum-content-container').classList.remove('hidden');
+                    document.getElementById('pm-user-selector').classList.remove('hidden');
+                } );
+            })
+        })();
+
+
     </script>
 {% endblock %}

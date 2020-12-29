@@ -21,6 +21,7 @@ class UserGroup
     const GroupTownInhabitants = 10;
 
     const GroupSmallCoalition = 101;
+    const GroupMessageGroup = 201;
 
     /**
      * @ORM\Id

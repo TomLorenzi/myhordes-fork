@@ -58,6 +58,11 @@ class GlobalPrivateMessage
      */
     private $data = [];
 
+    /**
+     * @ORM\Column(type="text", nullable=true)
+     */
+    private $text;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -155,6 +160,18 @@ class GlobalPrivateMessage
     public function setData(?array $data): self
     {
         $this->data = $data;
+
+        return $this;
+    }
+
+    public function getText(): ?string
+    {
+        return $this->text;
+    }
+
+    public function setText(?string $text): self
+    {
+        $this->text = $text;
 
         return $this;
     }

@@ -543,9 +543,19 @@
       left: 18px; top: 0; right: 5px; bottom: 0; border-radius: 12px; padding: 8px; color: white;
 
       &>.row-flex.stretch { height: 100% };
-      .forum-note > {
-        border-top: 0 solid #704328;
-        &>b:first-child { position: sticky; top: 0; border-top: 1px solid #704328; }
+      .forum-note.stretcher {
+        position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+        div.scroll-area { position: absolute; top: 0; left: 0; right: 0; bottom: 0; overflow: auto }
+      }
+
+      #pm-selected-users {
+        margin: 0; padding: 0;
+        &>li {
+          margin: 2px; padding: 2px; display: inline-block; list-style: none;
+          background: #3b3249; border: 1px solid #25202f; border-radius: 3px;
+          &>b { text-shadow: 0 0 1px black; }
+          &>span { color: @myhordes-smalltext; cursor: pointer; margin-left: 6px; font-size: 0.8em; vertical-align: super; }
+        }
       }
     }
   }
@@ -561,7 +571,10 @@
       margin: 10px;
       &>li {
         position: relative; list-style: none; display: block; min-height: 30px;
-        div.pm-avatar { position: absolute; top: 0; left: -40px; height: 30px; width: 30px; border-radius: 15px; box-shadow: 0 0 4px black}
+        div.pm-avatar {
+          position: absolute; top: 0; left: -40px; height: 30px; width: 30px; border-radius: 15px; box-shadow: 0 0 4px black;
+          background: @myhordes-smalltext; font-size: 16px;
+        }
         div.pm-message { padding: 0; margin: 5px 0; }
       }
     }
