@@ -1,0 +1,9 @@
+{% block ajax %}
+    {% for town in towns %}
+        <div class="towns-list-entry" x-town-id="{{ town.id }}" x-town-name="{{ town.name }}" x-admin-url="{{ url(target, {id: town.id}) }}">
+            <div {% if not nohref %}x-ajax-href="{{ url(target, {id: town.id}) }}" x-ajax-target="#content"{% endif %}>
+                <span class="language"><img src="{{ asset("build/images/lang/" ~ town.language ~".png") }}" alt="{{ town.language }}" /></span> {{ town.name }}
+            </div>
+        </div>
+    {% endfor %}
+{% endblock %}

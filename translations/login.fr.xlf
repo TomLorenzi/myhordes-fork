@@ -619,5 +619,14 @@
         <target>Trop d'utilisateurs de votre réseau se sont enregistrés sur MyHordes. D'autres inscriptions à partir de votre réseau ne seront pas possibles pendant un certain temps.</target>
       </segment>
     </unit>
+    <unit id="jUZA576" name="Du wurdest erfolgreich von allen Geräten abgemeldet.">
+      <notes>
+        <note category="german">Du wurdest erfolgreich von allen Geräten abgemeldet.</note>
+      </notes>
+      <segment>
+        <source>Du wurdest erfolgreich von allen Geräten abgemeldet.</source>
+        <target>Du wurdest erfolgreich von allen Geräten abgemeldet.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

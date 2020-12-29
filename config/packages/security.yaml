@@ -19,14 +19,10 @@ security:
                 target: initial_landing
             guard:
                 authenticators:
-                    - App\Security\AjaxAuthenticator
+                    - App\Security\RememberMeAuthenticator
                     - App\Security\EternalAuthenticator
-                entry_point: App\Security\EternalAuthenticator
-            remember_me:
-                secret: '%kernel.secret%'
-                lifetime: 2629800 # 1 month
-                path: /
-
+                    - App\Security\AjaxAuthenticator
+                entry_point: App\Security\AjaxAuthenticator
             # activate different ways to authenticate
             # https://symfony.com/doc/current/security.html#firewalls-authentication
 

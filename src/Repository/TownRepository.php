@@ -35,6 +35,17 @@ class TownRepository extends ServiceEntityRepository
         ;
     }
 
+    /**
+     * @return Town[] Returns an array of User objects
+     * @param string $value Value to search for
+     */
+    public function findByNameContains(string $value)
+    {
+        return $this->createQueryBuilder('t')
+            ->andWhere('t.name LIKE :val')->setParameter('val', '%' . $value . '%')
+            ->getQuery()->getResult();
+    }
+
     // /**
     //  * @return Town[] Returns an array of Town objects
     //  */

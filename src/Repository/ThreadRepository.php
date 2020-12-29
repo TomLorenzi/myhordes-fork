@@ -22,13 +22,17 @@ class ThreadRepository extends ServiceEntityRepository
         parent::__construct($registry, Thread::class);
     }
 
-    public function countByForum( Forum $forum, bool $include_hidden = false ): int {
+    public function countByForum( Forum $forum, bool $include_hidden = false, ?bool $pinned = null, ?Thread $before = null ): int {
         try {
             $qb = $this->createQueryBuilder('t')
                 ->select('COUNT(t.id)')
                 ->andWhere('t.forum = :forum')->setParameter('forum', $forum);
             if (!$include_hidden)
                 $qb->andWhere('t.hidden = false OR t.hidden is NULL');
+            if ($pinned !== null)
+                $qb->andWhere('t.pinned = :pinned')->setParameter('pinned', $pinned);
+            if ($before)
+                $qb->andWhere('t.lastPost > :deadline')->setParameter('deadline', $before->getLastPost());
 
             return $qb->getQuery()
                 ->getSingleScalarResult();

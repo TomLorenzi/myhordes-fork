@@ -304,9 +304,9 @@ class RecipeFixtures extends Fixture implements DependentFixtureInterface
         'com010' => ['type' => Recipe::ManualAnywhere, 'out' => 'coffee_#00',             'provoking' => 'coffee_machine_#00',     'in' => ['pile_#00', 'pharma_#00', 'wood_bad_#00'] ],
 
         'com011' => ['type' => Recipe::ManualAnywhere, 'out' => 'watergun_opt_empty_#00', 'provoking' => 'watergun_opt_part_#00',  'in' => ['watergun_opt_part_#00', 'tube_#00', 'deto_#00', 'grenade_empty_#00', 'rustine_#00' ], "picto"=> "r_watgun_#00"],
-        'com012' => ['type' => Recipe::ManualAnywhere, 'out' => 'pilegun_up_empty_#00',   'provoking' => 'pilegun_upkit_#00',      'in' => ['pilegun_upkit_#00', 'pilegun_empty_#00', 'meca_parts_#00', 'electro_#00', 'rustine_#00' ], 'picto' => 'r_batgun_#00' ],
+        'com012' => ['type' => Recipe::ManualAnywhere, 'out' => 'pilegun_up_empty_#00',   'provoking' => 'pilegun_upkit_#00',      'in' => ['pilegun_upkit_#00', 'pilegun_empty_#00', 'meca_parts_#00', 'electro_#00', 'rustine_#00' ] ],
         'com013' => ['type' => Recipe::ManualAnywhere, 'out' => 'mixergun_empty_#00',     'provoking' => 'mixergun_part_#00',      'in' => ['mixergun_part_#00', 'meca_parts_#00', 'electro_#00', 'rustine_#00' ] ],
-        'com014' => ['type' => Recipe::ManualAnywhere, 'out' => 'jerrygun_#00',           'provoking' => 'jerrygun_part_#00',      'in' => ['jerrygun_part_#00', 'jerrycan_#00', 'rustine_#00' ], "picto"=> "r_watgun_#00" ],
+        'com014' => ['type' => Recipe::ManualAnywhere, 'out' => 'jerrygun_#00',           'provoking' => 'jerrygun_part_#00',      'in' => ['jerrygun_part_#00', 'jerrycan_#00', 'rustine_#00' ] ],
         'com015' => ['type' => Recipe::ManualAnywhere, 'out' => 'chainsaw_empty_#00',     'provoking' => 'chainsaw_part_#00',      'in' => ['chainsaw_part_#00', 'engine_#00', 'meca_parts_#00', 'courroie_#00', 'rustine_#00' ], 'picto' => 'r_tronco_#00' ],
         'com016' => ['type' => Recipe::ManualAnywhere, 'out' => 'bgrenade_empty_#00',     'provoking' => ['explo_#00','deto_#00'], 'in' => ['explo_#00', 'grenade_empty_#00', 'deto_#00', 'rustine_#00' ] ],
         'com017' => ['type' => Recipe::ManualAnywhere, 'out' => 'lawn_#00',               'provoking' => 'lawn_part_#00',          'in' => ['lawn_part_#00', 'meca_parts_#00', 'metal_#00', 'rustine_#00' ] ],
@@ -324,23 +324,23 @@ class RecipeFixtures extends Fixture implements DependentFixtureInterface
         'com027' => ['type' => Recipe::ManualAnywhere, 'out' => ['drug_#00', 'xanax_#00', 'drug_random_#00', 'drug_water_#00', 'water_cleaner_#00', 'drug_hero_#00'], 'provoking' => 'pharma_#00', 'in' => ['pharma_#00', 'pharma_#00' ] ],
         'com028' => ['type' => Recipe::ManualAnywhere, 'out' => ['drug_#00', 'drug_random_#00', 'drug_water_#00', 'water_cleaner_#00', 'pharma_#00'], 'provoking' => 'pharma_part_#00', 'in' => ['pharma_part_#00', 'pharma_part_#00' ], "picto"=> "r_solban_#00" ],
 
-        'com029' => ['type' => Recipe::ManualAnywhere, 'out' => 'trapma_#00',     'provoking' => ['claymo_#00','door_carpet_#00'],'in' => ['claymo_#00','door_carpet_#00'] ],
-        'com030' => ['type' => Recipe::ManualAnywhere, 'out' => 'claymo_#00',     'provoking' => ['wire_#00','explo_#00'],'in' => ['wire_#00','explo_#00', 'meca_parts_#00', 'rustine_#00'] ],
-        'com031' => ['type' => Recipe::ManualAnywhere, 'out' => 'scope_#00',      'provoking' => 'lens_#00', 'in' => ['tube_#00', 'lens_#00'] ],
-        'com032' => ['type' => Recipe::ManualAnywhere, 'out' => 'fungus_#00',     'provoking' => 'ryebag_#00', 'in' => ['ryebag_#00', 'lens_#00'] ],
-        'com033' => ['type' => Recipe::ManualAnywhere, 'out' => 'lsd_#00',        'provoking' => 'fungus_#00', 'in' => ['fungus_#00', 'poison_part_#00'] ],
-        'com034' => ['type' => Recipe::ManualAnywhere, 'out' => 'chkspk_#00',     'provoking' => 'chudol_#00', 'in' => ['chudol_#00', 'lsd_#00'] ],
-        'com035' => ['type' => Recipe::ManualAnywhere, 'out' => 'fruit_#00',      'provoking' => 'fruit_part_#00', 'in' => ['fruit_sub_part_#00', 'fruit_part_#00'], "picto"=> "r_solban_#00" ],
-        'com036' => ['type' => Recipe::ManualAnywhere, 'out' => 'dfhifi_#00',     'provoking' => 'cdelvi_#00', 'in' => ['cdelvi_#00', 'music_#00'] ],
-        'com037' => ['type' => Recipe::ManualAnywhere, 'out' => 'hifiev_#00',     'provoking' => 'cdphil_#00', 'in' => ['cdphil_#00', 'music_#00'] ],
-        'com038' => ['type' => Recipe::ManualAnywhere, 'out' => 'hifiev_#00',     'provoking' => 'cdbrit_#00', 'in' => ['cdbrit_#00', 'music_#00'] ],
-        'com039' => ['type' => Recipe::ManualAnywhere, 'out' => 'dfhifi_#01',     'provoking' => 'hifiev_#00', 'in' => ['hifiev_#00', 'bquies_#00'] ],
-        'com040' => ['type' => Recipe::ManualAnywhere, 'out' => 'lpoint4_#00',    'provoking' => 'diode_#00',  'in' => ['wire_#00', 'meca_parts_#00', 'tube_#00', 'maglite_2_#00', 'diode_#00'] ],
-        'com041' => ['type' => Recipe::ManualAnywhere, 'out' => 'hmbrew_#00',     'provoking' => 'fungus_#00', 'in' => ['fungus_#00', 'vodka_#00', 'oilcan_#00'] ],
-        'com042' => ['type' => Recipe::ManualAnywhere, 'out' => 'wood_xmas_#00',  'provoking' => 'food_xmas_#00', 'in' => ['food_xmas_#00', 'can_open_#00'] ],
-        'com043' => ['type' => Recipe::ManualAnywhere, 'out' => 'wood_xmas_#00',  'provoking' => 'food_xmas_#00', 'in' => ['food_xmas_#00', 'can_open_#00'] ],
-        'com044' => ['type' => Recipe::ManualAnywhere, 'out' => 'gun_#00',        'provoking' => 'gun_#00', 'in' => ['gun_#00', 'bullets_#00'] ],
-        'com045' => ['type' => Recipe::ManualAnywhere, 'out' => 'machine_gun_#00','provoking' => 'machine_gun_#00', 'in' => ['machine_gun_#00', 'bullets_#00'] ],
+        'com029' => ['type' => Recipe::ManualAnywhere, 'out' => 'trapma_#00',               'provoking' => ['claymo_#00','door_carpet_#00'],'in' => ['claymo_#00','door_carpet_#00'] ],
+        'com030' => ['type' => Recipe::ManualAnywhere, 'out' => 'claymo_#00',               'provoking' => ['wire_#00','explo_#00'],'in' => ['wire_#00','explo_#00', 'meca_parts_#00', 'rustine_#00'] ],
+        'com031' => ['type' => Recipe::ManualAnywhere, 'out' => 'scope_#00',                'provoking' => 'lens_#00', 'in' => ['tube_#00', 'lens_#00'] ],
+        'com032' => ['type' => Recipe::ManualAnywhere, 'out' => 'fungus_#00',               'provoking' => 'ryebag_#00', 'in' => ['ryebag_#00', 'lens_#00'] ],
+        'com033' => ['type' => Recipe::ManualAnywhere, 'out' => 'lsd_#00',                  'provoking' => 'fungus_#00', 'in' => ['fungus_#00', 'poison_part_#00'] ],
+        'com034' => ['type' => Recipe::ManualAnywhere, 'out' => 'chkspk_#00',               'provoking' => 'chudol_#00', 'in' => ['chudol_#00', 'lsd_#00'] ],
+        'com035' => ['type' => Recipe::ManualAnywhere, 'out' => 'fruit_#00',                'provoking' => 'fruit_part_#00', 'in' => ['fruit_sub_part_#00', 'fruit_part_#00'], "picto"=> "r_solban_#00" ],
+        'com036' => ['type' => Recipe::ManualAnywhere, 'out' => 'dfhifi_#00',               'provoking' => 'cdelvi_#00', 'in' => ['cdelvi_#00', 'music_#00'] ],
+        'com037' => ['type' => Recipe::ManualAnywhere, 'out' => 'hifiev_#00',               'provoking' => 'cdphil_#00', 'in' => ['cdphil_#00', 'music_#00'] ],
+        'com038' => ['type' => Recipe::ManualAnywhere, 'out' => 'hifiev_#00',               'provoking' => 'cdbrit_#00', 'in' => ['cdbrit_#00', 'music_#00'] ],
+        'com039' => ['type' => Recipe::ManualAnywhere, 'out' => 'dfhifi_#01',               'provoking' => 'hifiev_#00', 'in' => ['hifiev_#00', 'bquies_#00'] ],
+        'com040' => ['type' => Recipe::ManualAnywhere, 'out' => 'lpoint4_#00',              'provoking' => 'diode_#00',  'in' => ['wire_#00', 'meca_parts_#00', 'tube_#00', 'maglite_2_#00', 'diode_#00'] ],
+        'com041' => ['type' => Recipe::ManualAnywhere, 'out' => 'hmbrew_#00',               'provoking' => 'fungus_#00', 'in' => ['fungus_#00', 'vodka_#00', 'oilcan_#00'] ],
+        'com042' => ['type' => Recipe::ManualAnywhere, 'out' => 'wood_xmas_#00',            'provoking' => 'food_xmas_#00', 'in' => ['food_xmas_#00', 'can_open_#00'] ],
+        'com043' => ['type' => Recipe::ManualAnywhere, 'out' => 'gun_#00',                  'provoking' => 'gun_#00', 'in' => ['gun_#00', 'bullets_#00'] ],
+        'com044' => ['type' => Recipe::ManualAnywhere, 'out' => 'machine_gun_#00',          'provoking' => 'machine_gun_#00', 'in' => ['machine_gun_#00', 'bullets_#00'] ],
+        'com045' => ['type' => Recipe::ManualAnywhere, 'out' => 'christmas_suit_full_#00',  'provoking' => ['christmas_suit_1_#00', 'christmas_suit_2_#00', 'christmas_suit_3_#00'], 'in' => ['christmas_suit_1_#00', 'christmas_suit_2_#00', 'christmas_suit_3_#00'] ],
     ];
 
     private $entityManager;
@@ -475,13 +475,13 @@ class RecipeFixtures extends Fixture implements DependentFixtureInterface
             };
 
             $in =  $unpack( $recipe_data['in']  );
-            $out = $unpack( $recipe_data['out'] );
+            $out_rc = $unpack( $recipe_data['out'] );
 
             $provoking = null;
             if (isset($recipe_data['provoking'])) $provoking = is_array( $recipe_data['provoking'] ) ? $recipe_data['provoking'] : [$recipe_data['provoking']];
             elseif ( count($in) === 1 ) $provoking = [ array_keys($in)[0] ];
 
-            if ($provoking === null || empty($out) || empty($in))
+            if ($provoking === null || empty($out_rc) || empty($in))
                 throw new Exception("Entry '$name' is incomplete!");
 
             $in_group = (new ItemGroup())->setName("rc_{$name}_in");
@@ -493,7 +493,7 @@ class RecipeFixtures extends Fixture implements DependentFixtureInterface
             $recipe->setSource($in_group);
 
             $out_group = (new ItemGroup())->setName("rc_{$name}_out");
-            foreach ( $out as $id => $count ) {
+            foreach ( $out_rc as $id => $count ) {
                 $proto = $manager->getRepository(ItemPrototype::class)->findOneBy( ['name' => $id] );
                 if (!$proto) throw new Exception("Item prototype not found: '$id'");
                 $out_group->addEntry( (new ItemGroupEntry())->setChance( $count )->setPrototype( $proto ) );
@@ -519,6 +519,11 @@ class RecipeFixtures extends Fixture implements DependentFixtureInterface
             $manager->persist($recipe);
 
             $progress->advance();
+        }
+
+        foreach ($this->entityManager->getRepository(Recipe::class)->findAll() as $rc) if (!isset(static::$recipe_data[$rc->getName()])) {
+            $out->writeln("Removing outdated recipe: <info>{$rc->getName()}</info>" );
+            $this->entityManager->remove($rc);
         }
 
         $manager->flush();

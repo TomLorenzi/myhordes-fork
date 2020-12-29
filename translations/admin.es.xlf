@@ -1897,7 +1897,7 @@
       </notes>
       <segment>
         <source>Foren-Mod.</source>
-        <target>Foren-Mod.</target>
+        <target>Mod de Foros.</target>
       </segment>
     </unit>
     <unit id="EK4cGZo" name="Kurztexte">
@@ -1906,7 +1906,7 @@
       </notes>
       <segment>
         <source>Kurztexte</source>
-        <target>Kurztexte</target>
+        <target>Texto Corto</target>
       </segment>
     </unit>
     <unit id="PMRlWSR" name="Inhalt">
@@ -1915,7 +1915,7 @@
       </notes>
       <segment>
         <source>Inhalt</source>
-        <target>Inhalt</target>
+        <target>Contenido</target>
       </segment>
     </unit>
     <unit id="yqFNLUk" name="Neuen Kurztext anlegen">
@@ -1924,7 +1924,7 @@
       </notes>
       <segment>
         <source>Neuen Kurztext anlegen</source>
-        <target>Neuen Kurztext anlegen</target>
+        <target>Crear nuevo Texto Corto</target>
       </segment>
     </unit>
     <unit id="EA6TVUx" name="ID eingeben">
@@ -1933,7 +1933,7 @@
       </notes>
       <segment>
         <source>ID eingeben</source>
-        <target>ID eingeben</target>
+        <target>Ingresar ID</target>
       </segment>
     </unit>
     <unit id="GYf8Lr5" name="Eine Auszeichnungen auswählen:">
@@ -1942,7 +1942,7 @@
       </notes>
       <segment>
         <source>Eine Auszeichnungen auswählen:</source>
-        <target>Eine Auszeichnungen auswählen:</target>
+        <target>Seleccionar una Distinción:</target>
       </segment>
     </unit>
     <unit id="jm_rhmk" name="Anzahl der Auszeichnungen:">
@@ -1951,7 +1951,7 @@
       </notes>
       <segment>
         <source>Anzahl der Auszeichnungen:</source>
-        <target>Anzahl der Auszeichnungen:</target>
+        <target>Número de las Distinciones:</target>
       </segment>
     </unit>
     <unit id="XtyN3Vk" name="Vergeben!">
@@ -1960,7 +1960,7 @@
       </notes>
       <segment>
         <source>Vergeben!</source>
-        <target>Vergeben!</target>
+        <target>¡Perdonar!</target>
       </segment>
     </unit>
     <unit id="BYzHaeg" name="Aktuelle Städte">
@@ -1969,7 +1969,7 @@
       </notes>
       <segment>
         <source>Aktuelle Städte</source>
-        <target>Aktuelle Städte</target>
+        <target>Pueblos actuales</target>
       </segment>
     </unit>
     <unit id="7BBdmva" name="Fertige Städte">
@@ -1978,7 +1978,7 @@
       </notes>
       <segment>
         <source>Fertige Städte</source>
-        <target>Fertige Städte</target>
+        <target>Pueblos terminados</target>
       </segment>
     </unit>
     <unit id="zFOkrfz" name="Importiert">
@@ -1987,7 +1987,25 @@
       </notes>
       <segment>
         <source>Importiert</source>
-        <target>Importiert</target>
+        <target>Importar</target>
+      </segment>
+    </unit>
+    <unit id="GsetYdP" name="Seite %page%/%total%">
+      <notes>
+        <note category="german">Seite %page%/%total%</note>
+      </notes>
+      <segment>
+        <source>Seite %page%/%total%</source>
+        <target>Página %page%/%total%</target>
+      </segment>
+    </unit>
+    <unit id="HAvttwf" name="Gib den Namen der Stadt ein.">
+      <notes>
+        <note category="german">Gib den Namen der Stadt ein.</note>
+      </notes>
+      <segment>
+        <source>Gib den Namen der Stadt ein.</source>
+        <target>Ingresa el nombre del pueblo.</target>
       </segment>
     </unit>
   </file>

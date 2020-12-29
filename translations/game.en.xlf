@@ -8243,7 +8243,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Nach dem Angriff sind keine Verluste in den Reihen zu melden (zumindest keine in der Stadt). "Ja, ich denke aber schon, dass wir morgen Nacht alle sterben werden!", so %citizen1%, ein skeptischer Bürger.</source>
-        <target>Nach dem Angriff sind keine Verluste in den Reihen zu melden (zumindest keine in der Stadt). "Ja, ich denke aber schon, dass wir morgen Nacht alle sterben werden!", so %citizen1%, ein skeptischer Bürger.</target>
+        <target>No losses in the ranks to report following the attack (none in town at least). "Yeah, I guess, but we're all going to die tomorrow night!" according to %citizen1%, a sceptical citizen.</target>
       </segment>
     </unit>
     <unit id="i8FSlBg" name="425cdf4">
@@ -14491,7 +14491,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Die Stadt ist zerstört! Flieht, irh Narren!</source>
-        <target>This town id dead... Flee you poor fools!</target>
+        <target>This town is dead... Flee you poor fools!</target>
       </segment>
     </unit>
     <unit id="qjYW_3_" name="Leprechaun wurde gesehen, wie er den %item% von %victim% stahl!">
@@ -14752,7 +14752,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Ein neuer Tag bricht an</source>
-        <target>Ein neuer Tag bricht an</target>
+        <target>A new day is dawning</target>
       </segment>
     </unit>
     <unit id="QA25eiQ" name="An einem kalten Morgen">
@@ -14797,7 +14797,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>... allein</source>
-        <target>... allein</target>
+        <target>... alone</target>
       </segment>
     </unit>
     <unit id="spLHhcB" name="an der Seite von %citizen%">
@@ -14869,7 +14869,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Mysteriöse metereologische Phänomene haben gestern Nacht dafür gesorgt, dass sich bestimmte Zonen &lt;strong&gt;%sector% der Stadt&lt;/strong&gt; regeneriert haben.&lt;p&gt;&lt;em&gt;Es können dort durch Graben wieder Gegenstände gefunden werden, auch wenn die Zone zuvor leergesucht wurde!&lt;/em&gt;&lt;/p&gt;</source>
-        <target><![CDATA[Mysteriöse metereologische Phänomene haben gestern Nacht dafür gesorgt, dass sich bestimmte Zonen <strong>%sector% der Stadt</strong> regeneriert haben.<p><em>Es können dort durch Graben wieder Gegenstände gefunden werden, auch wenn die Zone zuvor leergesucht wurde!</em></p>]]></target>
+        <target><![CDATA[No doubt affected by the mysterious meterological phenomena which occur around midnight, certain zones <strong>in the %sector% not a million miles from the town</strong> could have regenerated.<p><em>So it will again be possible to find objects when searching, even if the zone was previously depleted!</em></p>]]></target>
       </segment>
     </unit>
     <unit id="88_o8Q3" name="Verlorenes Brunnenwasser: %count% Einhet(en)">
@@ -15538,13 +15538,13 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
         <target><![CDATA[Vom Turm aus hast du eine guten Überblick über die Wüste. Du musterst die Umgebung, versuchst die Zombies zu zählen und ihre Bewegungsrichtung vorauszuberechnen... <br />Nachdem du einige Minuten die Lage gecheckt hast, schreibst du deine Ergebnisse in das <strong>Wachturmregister</strong>.<hr />Zusammen mit den Informationen der anderen Bürger sollten wir eine korrekte Angriffsschätzung bekommen.]]></target>
       </segment>
     </unit>
-    <unit id="xb8cXJh" name="f44cd76">
+    <unit id="Bhi4A01" name="Du hast am Bauprojekt %plan% mitgeholfen.">
       <notes>
-        <note category="german">Du hast am Bauprojekt %plan% mitgeholfen. Du hast dafür %count% Aktionspunkt(e) verbraucht.</note>
+        <note category="german">Du hast am Bauprojekt %plan% mitgeholfen.</note>
       </notes>
       <segment>
-        <source>Du hast am Bauprojekt %plan% mitgeholfen. Du hast dafür %count% Aktionspunkt(e) verbraucht.</source>
-        <target>Du hast am Bauprojekt %plan% mitgeholfen. Du hast dafür %count% Aktionspunkt(e) verbraucht.</target>
+        <source>Du hast am Bauprojekt %plan% mitgeholfen.</source>
+        <target>Du hast am Bauprojekt %plan% mitgeholfen.</target>
       </segment>
     </unit>
     <unit id="U9LSFlB" name="Herzlichen Glückwunsch! Du hast deine Behausung in ein(e) %home% verwandelt.">
@@ -15571,7 +15571,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Mit dem Bau der(s) %upgrade% hat dein Haus Stufe %level% erreicht!</source>
-        <target>Mit dem Bau der(s) %upgrade% hat dein Haus Stufe %level% erreicht!</target>
+        <target>Evolution of the %upgrade% has successfully reached level %level% !</target>
       </segment>
     </unit>
     <unit id="X.vNUqq" name="Einen Bürger heimbringen:">
@@ -15725,6 +15725,120 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       <segment>
         <source>Du kannst nichts von %citizen% stehlen, solange &lt;strong&gt;er (sie) in der Stadt ist&lt;/strong&gt;...</source>
         <target><![CDATA[Du kannst nichts von %citizen% stehlen, solange <strong>er (sie) in der Stadt ist</strong>...]]></target>
+      </segment>
+    </unit>
+    <unit id="wHDpkBz" name="Hurra! Folgendes Gebäude wurde fertiggestellt: %plan%!">
+      <notes>
+        <note category="german">Hurra! Folgendes Gebäude wurde fertiggestellt: %plan%!</note>
+      </notes>
+      <segment>
+        <source>Hurra! Folgendes Gebäude wurde fertiggestellt: %plan%!</source>
+        <target>Hurra! Folgendes Gebäude wurde fertiggestellt: %plan%!</target>
+      </segment>
+    </unit>
+    <unit id="8UrChKd" name="Du hast dafür %count% Aktionspunkt(e) verbraucht.">
+      <notes>
+        <note category="german">Du hast dafür %count% Aktionspunkt(e) verbraucht.</note>
+      </notes>
+      <segment>
+        <source>Du hast dafür %count% Aktionspunkt(e) verbraucht.</source>
+        <target>Du hast dafür %count% Aktionspunkt(e) verbraucht.</target>
+      </segment>
+    </unit>
+    <unit id="Ltkwrh9" name="1a5e7f5">
+      <notes>
+        <note category="german">Als du durch das Fenster blickst, stellst du fest, dass das Haus von %citizen% keinerlei interessante
+                    Gegenstände enthält. Ein paar Tonscherben, viel Staub und eine tote Ratte ist alles, was du erkennen kannst.
+                    Nichts, was der Mühe wert wäre.</note>
+      </notes>
+      <segment>
+        <source>Als du durch das Fenster blickst, stellst du fest, dass das Haus von %citizen% keinerlei interessante
+                    Gegenstände enthält. Ein paar Tonscherben, viel Staub und eine tote Ratte ist alles, was du erkennen kannst.
+                    Nichts, was der Mühe wert wäre.</source>
+        <target>Als du durch das Fenster blickst, stellst du fest, dass das Haus von %citizen% keinerlei interessante
+                    Gegenstände enthält. Ein paar Tonscherben, viel Staub und eine tote Ratte ist alles, was du erkennen kannst.
+                    Nichts, was der Mühe wert wäre.</target>
+      </segment>
+    </unit>
+    <unit id="lo3tdoY" name="Was für eine schreckliche Nacht!">
+      <notes>
+        <note category="german">Was für eine schreckliche Nacht!</note>
+      </notes>
+      <segment>
+        <source>Was für eine schreckliche Nacht!</source>
+        <target>Was für eine schreckliche Nacht!</target>
+      </segment>
+    </unit>
+    <unit id="pPZiySm" name="778f93b">
+      <notes>
+        <note category="german">Heute Nacht ist dir der Arsch so richtig auf Grundeis gegangen! Als du ihr Grunzen und Stöhnen gehört hattest, war dir klar: Sie würden bei dir daheim eindringen. So kam es dann auch: Deine Haustür splitterte unter der Last ihrer Angriffe. Panisch bist du ins Schlafzimmer gerannt, um dich unter deinem Bett zu verstecken. Sie blieben ein paar Minuten, die dir wie eine Ewigkeit vorkamen, und schnüffelten sich durch alle Zimmer. Innerlich zitternd, hast du zu Gott gebetet, dass sie dich verschonen mögen. Dann war plötzlich wieder alles still. Hechelnd und schnaufend bist du aus deinem Versteck hervorgekrochen und heulend auf deinem Bett zusammengesunken.</note>
+      </notes>
+      <segment>
+        <source>Heute Nacht ist dir der Arsch so richtig auf Grundeis gegangen! Als du ihr Grunzen und Stöhnen gehört hattest, war dir klar: Sie würden bei dir daheim eindringen. So kam es dann auch: Deine Haustür splitterte unter der Last ihrer Angriffe. Panisch bist du ins Schlafzimmer gerannt, um dich unter deinem Bett zu verstecken. Sie blieben ein paar Minuten, die dir wie eine Ewigkeit vorkamen, und schnüffelten sich durch alle Zimmer. Innerlich zitternd, hast du zu Gott gebetet, dass sie dich verschonen mögen. Dann war plötzlich wieder alles still. Hechelnd und schnaufend bist du aus deinem Versteck hervorgekrochen und heulend auf deinem Bett zusammengesunken.</source>
+        <target>Heute Nacht ist dir der Arsch so richtig auf Grundeis gegangen! Als du ihr Grunzen und Stöhnen gehört hattest, war dir klar: Sie würden bei dir daheim eindringen. So kam es dann auch: Deine Haustür splitterte unter der Last ihrer Angriffe. Panisch bist du ins Schlafzimmer gerannt, um dich unter deinem Bett zu verstecken. Sie blieben ein paar Minuten, die dir wie eine Ewigkeit vorkamen, und schnüffelten sich durch alle Zimmer. Innerlich zitternd, hast du zu Gott gebetet, dass sie dich verschonen mögen. Dann war plötzlich wieder alles still. Hechelnd und schnaufend bist du aus deinem Versteck hervorgekrochen und heulend auf deinem Bett zusammengesunken.</target>
+      </segment>
+    </unit>
+    <unit id="_2vb9p1" name="Du wurdest verbannt!">
+      <notes>
+        <note category="german">Du wurdest verbannt!</note>
+      </notes>
+      <segment>
+        <source>Du wurdest verbannt!</source>
+        <target>Du wurdest verbannt!</target>
+      </segment>
+    </unit>
+    <unit id="dVyLKp_" name="Status:">
+      <notes>
+        <note category="german">Status:</note>
+      </notes>
+      <segment>
+        <source>Status:</source>
+        <target>Status:</target>
+      </segment>
+    </unit>
+    <unit id="x50DxZR" name="Eine Revolte liegt in weiter Ferne...">
+      <notes>
+        <note category="german">Eine Revolte liegt in weiter Ferne...</note>
+      </notes>
+      <segment>
+        <source>Eine Revolte liegt in weiter Ferne...</source>
+        <target>Eine Revolte liegt in weiter Ferne...</target>
+      </segment>
+    </unit>
+    <unit id="x_WVlWR" name="Erste Spannungen bilden sich.">
+      <notes>
+        <note category="german">Erste Spannungen bilden sich.</note>
+      </notes>
+      <segment>
+        <source>Erste Spannungen bilden sich.</source>
+        <target>Erste Spannungen bilden sich.</target>
+      </segment>
+    </unit>
+    <unit id="LL.dGkI" name="Wir machen Fortschritte.">
+      <notes>
+        <note category="german">Wir machen Fortschritte.</note>
+      </notes>
+      <segment>
+        <source>Wir machen Fortschritte.</source>
+        <target>Wir machen Fortschritte.</target>
+      </segment>
+    </unit>
+    <unit id="id8VuDJ" name="Das Ende ist nah.">
+      <notes>
+        <note category="german">Das Ende ist nah.</note>
+      </notes>
+      <segment>
+        <source>Das Ende ist nah.</source>
+        <target>Das Ende ist nah.</target>
+      </segment>
+    </unit>
+    <unit id="DqJn30N" name="Die Revolte steht bevor!">
+      <notes>
+        <note category="german">Die Revolte steht bevor!</note>
+      </notes>
+      <segment>
+        <source>Die Revolte steht bevor!</source>
+        <target>Die Revolte steht bevor!</target>
       </segment>
     </unit>
   </file>

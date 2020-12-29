@@ -82,10 +82,12 @@ class ExplorationController extends InventoryAwareController implements Explorat
      *
      */
     public function __construct(
-        EntityManagerInterface $em, InventoryHandler $ih, CitizenHandler $ch, ActionHandler $ah, TimeKeeperService $tk, DeathHandler $dh, PictoHandler $ph,
-        TranslatorInterface $translator, GameFactory $gf, RandomGenerator $rg, ItemFactory $if, ZoneHandler $zh, LogTemplateHandler $lh, ConfMaster $conf, Packages $a, UserHandler $uh, CrowService $armbrust)
+        EntityManagerInterface $em, InventoryHandler $ih, CitizenHandler $ch, ActionHandler $ah, TimeKeeperService $tk,
+        DeathHandler $dh, PictoHandler $ph, TranslatorInterface $translator, GameFactory $gf, RandomGenerator $rg,
+        ItemFactory $if, ZoneHandler $zh, LogTemplateHandler $lh, ConfMaster $conf, Packages $a, UserHandler $uh,
+        CrowService $armbrust, TownHandler $th)
     {
-        parent::__construct($em, $ih, $ch, $ah, $dh, $ph, $translator, $lh, $tk, $rg, $conf, $zh, $uh, $armbrust);
+        parent::__construct($em, $ih, $ch, $ah, $dh, $ph, $translator, $lh, $tk, $rg, $conf, $zh, $uh, $armbrust, $th);
         $this->game_factory = $gf;
         $this->item_factory = $if;
         $this->zone_handler = $zh;
@@ -238,6 +240,7 @@ class ExplorationController extends InventoryAwareController implements Explorat
             'dp' => $new_zone->getDoorPosition(),
             'l' => $new_zone->getLocked(),
             'd' => $new_zone->getDecals(),
+            'dv' => $new_zone->getDecalVariants(),
         ]);
     }
 

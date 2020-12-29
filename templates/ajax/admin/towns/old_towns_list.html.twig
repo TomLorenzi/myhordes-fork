@@ -11,6 +11,28 @@
                 </li>
             </ul>
             <h5>{{ 'Liste aller Städte'|trans({},'admin') }}</h5>
+            <div class="rw-2">
+                {{ 'Seite %page%/%total%'|trans({'%page%': currentPage, '%total%': pagesCount}, 'admin') }}
+            </div>
+            <div class="rw-8">
+                {% if currentPage > 1 %}
+                <a class="link" x-ajax-href="{{ path('admin_old_town_list', {page: currentPage - 1}) }}"> « </a>
+                {% endif %}
+                {% for i in currentPage - 3..currentPage - 1 %}
+                    {% if i > 0 %}
+                        <a class="link" x-ajax-href="{{ path('admin_old_town_list', {page: i}) }}">{{ i }}</a>
+                    {% endif %}
+                {% endfor %}
+                {{ currentPage }}
+                {% for i in currentPage + 1..currentPage + 3 %}
+                    {% if i <= pagesCount %}
+                        <a class="link" x-ajax-href="{{ path('admin_old_town_list', {page: i}) }}">{{ i }}</a>
+                    {% endif %}
+                {% endfor %}
+                {% if currentPage < pagesCount %}
+                    <a class="link" x-ajax-href="{{ path('admin_old_town_list', {page: currentPage + 1}) }}"> » </a>
+                {% endif %}
+            </div>
             <div class="row-table">
                 <div class="row header">
                     <div class="cell padded rw-1">{{ 'ID'|trans({},'admin') }}</div>
@@ -49,6 +71,8 @@
             </div>
         </div>
     </div>
+    {% embed "ajax/admin/towns/footer.html.twig" with {'search_controller': 'admin_old_towns_fuzzyfind'} %}{% endembed %}
+
 {% endblock %}
 {% block js %}
     <script>

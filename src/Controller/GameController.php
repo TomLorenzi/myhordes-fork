@@ -597,33 +597,22 @@ class GameController extends CustomAbstractController implements GameInterfaceCo
             $citizen->addSpecialAction($armag);
             $this->inventory_handler->forceMoveItem($citizen->getHome()->getChest(), $if->createItem( 'food_armag_#00' ));
             $doggy = $this->inventory_handler->fetchSpecificItems( $citizen->getHome()->getChest(), [new ItemRequest('food_bag_#00')] );
-            $this->inventory_handler->forceRemoveItem($doggy[0]);
+            if (!empty($doggy)) $this->inventory_handler->forceRemoveItem($doggy[0]);
         }
 
-        if($this->picto_handler->has_picto($citizen, 'r_ginfec_#00')) {
+        $vote_shaman = $this->entity_manager->getRepository(SpecialActionPrototype::class)->findOneBy(['name' => "special_vote_shaman"]);
+        $vote_guide = $this->entity_manager->getRepository(SpecialActionPrototype::class)->findOneBy(['name' => "special_vote_guide"]);
+        if ($vote_shaman) $citizen->addSpecialAction($vote_shaman);
+        if ($vote_guide) $citizen->addSpecialAction($vote_guide);
+
+        if($this->picto_handler->has_picto($citizen, 'r_ginfec_#00'))
             $this->citizen_handler->inflictStatus($citizen, 'tg_infect_wtns');
-        }
 
         try {
             $this->entity_manager->persist( $citizen );
             $this->entity_manager->flush();
         } catch (Exception $e) {
             return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
-        }
-
-        if(!$citizen->getTown()->isOpen()) {
-            // We add voting capability to every heroic citizen
-            foreach ($citizen->getTown()->getCitizens() as $foreign) {
-                /** @var Citizen $foreign */
-                if(!$foreign->getProfession()->getHeroic()) continue;
-
-                $vote_shaman = $this->entity_manager->getRepository(SpecialActionPrototype::class)->findOneBy(['name' => "special_generic_shaman"]);
-                $vote_guide = $this->entity_manager->getRepository(SpecialActionPrototype::class)->findOneBy(['name' => "special_generic_guide"]);
-                $foreign->addSpecialAction($vote_shaman);
-                $foreign->addSpecialAction($vote_guide);
-                $this->entity_manager->persist( $foreign );
-            }
-            $this->entity_manager->flush();
         }
 
         $item_spawns = $cf->getTownConfiguration($citizen->getTown())->get(TownConf::CONF_DEFAULT_CHEST_ITEMS, []);

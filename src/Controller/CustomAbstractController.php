@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Citizen;
+use App\Entity\Quote;
 use App\Entity\User;
 use App\Service\CitizenHandler;
 use App\Service\ConfMaster;
@@ -30,7 +31,6 @@ class CustomAbstractController extends AbstractController {
     protected InventoryHandler $inventory_handler;
     protected TranslatorInterface $translator;
 
-
     public function __construct(ConfMaster $conf, EntityManagerInterface $em, TimeKeeperService $tk, CitizenHandler $ch, InventoryHandler $ih, TranslatorInterface $translator) {
         $this->conf = $conf;
         $this->entity_manager = $em;
@@ -44,10 +44,9 @@ class CustomAbstractController extends AbstractController {
      * Adds default arguments passed to the twig templates
      * @param string|null $section The section we are in (town sector, soul tab, etc...)
      * @param array|null $data Array of twig arguments
-     * @param null $locale The request locale, usefull for translation
      * @return array The array of twig arguments with some default data
      */
-    protected function addDefaultTwigArgs( ?string $section = null, ?array $data = null, $locale = null ): array {
+    protected function addDefaultTwigArgs( ?string $section = null, ?array $data = null ): array {
         $data = $data ?? [];
         $data['menu_section'] = $section;
 
@@ -58,6 +57,15 @@ class CustomAbstractController extends AbstractController {
             'attack'    => $this->time_keeper->secondsUntilNextAttack(null, true),
             'towntype'  => $this->getActiveCitizen() !== null ? $this->getActiveCitizen()->getTown()->getType()->getName() : "",
         ];
+
+        $locale = $this->container->get('request_stack')->getCurrentRequest()->getLocale();
+        if ($locale) $locale = explode('_', $locale)[0];
+        if (!in_array($locale, ['de','en','es','fr'])) $locale = null;
+
+        $quotes = $this->entity_manager->getRepository(Quote::class)->findBy(['lang' => $locale ?? 'de']);
+        shuffle($quotes);
+
+        $data['quote'] = $quotes[0];
 
         if($this->getActiveCitizen() !== null && $this->getActiveCitizen()->getAlive()){
             $is_shaman = $this->citizen_handler->hasRole($this->getActiveCitizen(), 'shaman') || $this->getActiveCitizen()->getProfession()->getName() == 'shaman';
@@ -83,7 +91,10 @@ class CustomAbstractController extends AbstractController {
         }
         return $data;
     }
-    
+
+    /**
+     * @inheritDoc
+     */
     protected function render(string $view, array $parameters = [], Response $response = null): Response
     {
         if ($this->getUser() && $this->getUser()->getActiveCitizen())
@@ -99,6 +110,9 @@ class CustomAbstractController extends AbstractController {
         return parent::render($view, $parameters, $response);
     }
 
+    /**
+     * @return Citizen|null The current citizen for the current user
+     */
     protected function getActiveCitizen(): ?Citizen {
         /** @var User $user */
         $user = $this->getUser();
@@ -106,6 +120,9 @@ class CustomAbstractController extends AbstractController {
         return $this->cache_active_citizen ?? ($this->cache_active_citizen = $this->entity_manager->getRepository(Citizen::class)->findActiveByUser($user));
     }
 
+    /**
+     * @return TownConf The current town settings
+     */
     protected function getTownConf() {
         return $this->town_conf ?? ($this->town_conf = $this->conf->getTownConfiguration( $this->getActiveCitizen()->getTown() ));
     }

@@ -15615,13 +15615,13 @@
         <target>L'évolution %upgrade% est passée niveau %level% avec succès !</target>
       </segment>
     </unit>
-    <unit id="xb8cXJh" name="f44cd76">
+    <unit id="Bhi4A01" name="Du hast am Bauprojekt %plan% mitgeholfen.">
       <notes>
-        <note category="german">Du hast am Bauprojekt %plan% mitgeholfen. Du hast dafür %count% Aktionspunkt(e) verbraucht.</note>
+        <note category="german">Du hast am Bauprojekt %plan% mitgeholfen.</note>
       </notes>
       <segment>
-        <source>Du hast am Bauprojekt %plan% mitgeholfen. Du hast dafür %count% Aktionspunkt(e) verbraucht.</source>
-        <target>Vous avez contribué à la construction du chantier %plan%. Vous avez utilisé %count% point(s) d'action..</target>
+        <source>Du hast am Bauprojekt %plan% mitgeholfen.</source>
+        <target>Vous avez contribué à la construction du chantier %plan%.</target>
       </segment>
     </unit>
     <unit id="b5TnxTe" name="[ Es riecht nach Tannenzapfen... ]">
@@ -15756,7 +15756,7 @@
       </notes>
       <segment>
         <source>%attacker% hat %defender% mit einem üblen Sandballwurf verwundet. Autsch, das hat sicher weh getan...!</source>
-        <target>%attacker% a jeté une boule de sable directement dans le visage de %defender% !</target>
+        <target>%attacker% a blessé %defender% avec sa sale boule de sable. Aïe ça fait mal... !</target>
       </segment>
     </unit>
     <unit id="BaTN5Rg" name="%attacker% hat %defender% einen Sandball direkt ins Gesicht geworfen!">
@@ -15765,7 +15765,128 @@
       </notes>
       <segment>
         <source>%attacker% hat %defender% einen Sandball direkt ins Gesicht geworfen!</source>
-        <target>%attacker% a blessé %defender% avec sa sale boule de sable. Aïe ça fait mal...!</target>
+        <target>%attacker% a jeté une boule de sable directement dans le visage de %defender% !</target>
+      </segment>
+    </unit>
+    <unit id="wHDpkBz" name="Hurra! Folgendes Gebäude wurde fertiggestellt: %plan%!">
+      <notes>
+        <note category="german">Hurra! Folgendes Gebäude wurde fertiggestellt: %plan%!</note>
+      </notes>
+      <segment>
+        <source>Hurra! Folgendes Gebäude wurde fertiggestellt: %plan%!</source>
+        <target>Hourra ! La construction du chantier %plan% est terminée !</target>
+      </segment>
+    </unit>
+    <unit id="8UrChKd" name="Du hast dafür %count% Aktionspunkt(e) verbraucht.">
+      <notes>
+        <note category="german">Du hast dafür %count% Aktionspunkt(e) verbraucht.</note>
+      </notes>
+      <segment>
+        <source>Du hast dafür %count% Aktionspunkt(e) verbraucht.</source>
+        <target>Vous avez utilisé %count% point(s) d'action.</target>
+      </segment>
+    </unit>
+    <unit id="Ltkwrh9" name="1a5e7f5">
+      <notes>
+        <note category="german">Als du durch das Fenster blickst, stellst du fest, dass das Haus von %citizen% keinerlei interessante
+                    Gegenstände enthält. Ein paar Tonscherben, viel Staub und eine tote Ratte ist alles, was du erkennen kannst.
+                    Nichts, was der Mühe wert wäre.</note>
+      </notes>
+      <segment>
+        <source>Als du durch das Fenster blickst, stellst du fest, dass das Haus von %citizen% keinerlei interessante
+                    Gegenstände enthält. Ein paar Tonscherben, viel Staub und eine tote Ratte ist alles, was du erkennen kannst.
+                    Nichts, was der Mühe wert wäre.</source>
+        <target>En regardant par la fenêtre, vous constatez que la maison de %citizen% semble être vide de tout objet intéressant. Des bouts de poterie, de la poussière et un rat crevé. Rien qui ne vaille la peine.</target>
+      </segment>
+    </unit>
+    <unit id="lo3tdoY" name="Was für eine schreckliche Nacht!">
+      <notes>
+        <note category="german">Was für eine schreckliche Nacht!</note>
+      </notes>
+      <segment>
+        <source>Was für eine schreckliche Nacht!</source>
+        <target>Quelle nuit terrible !</target>
+      </segment>
+    </unit>
+    <unit id="pPZiySm" name="778f93b">
+      <notes>
+        <note category="german">Heute Nacht ist dir der Arsch so richtig auf Grundeis gegangen! Als du ihr Grunzen und Stöhnen gehört hattest, war dir klar: Sie würden bei dir daheim eindringen. So kam es dann auch: Deine Haustür splitterte unter der Last ihrer Angriffe. Panisch bist du ins Schlafzimmer gerannt, um dich unter deinem Bett zu verstecken. Sie blieben ein paar Minuten, die dir wie eine Ewigkeit vorkamen, und schnüffelten sich durch alle Zimmer. Innerlich zitternd, hast du zu Gott gebetet, dass sie dich verschonen mögen. Dann war plötzlich wieder alles still. Hechelnd und schnaufend bist du aus deinem Versteck hervorgekrochen und heulend auf deinem Bett zusammengesunken.</note>
+      </notes>
+      <segment>
+        <source>Heute Nacht ist dir der Arsch so richtig auf Grundeis gegangen! Als du ihr Grunzen und Stöhnen gehört hattest, war dir klar: Sie würden bei dir daheim eindringen. So kam es dann auch: Deine Haustür splitterte unter der Last ihrer Angriffe. Panisch bist du ins Schlafzimmer gerannt, um dich unter deinem Bett zu verstecken. Sie blieben ein paar Minuten, die dir wie eine Ewigkeit vorkamen, und schnüffelten sich durch alle Zimmer. Innerlich zitternd, hast du zu Gott gebetet, dass sie dich verschonen mögen. Dann war plötzlich wieder alles still. Hechelnd und schnaufend bist du aus deinem Versteck hervorgekrochen und heulend auf deinem Bett zusammengesunken.</source>
+        <target>Vous avez vraiment eu très très chaud aux fesses cette nuit ! Vous les avez entendu grogner, frapper voire hurler dehors. Votre porte a fini par céder et vous vous êtes réfugié(e) sous votre lit, serrant contre vous vos bibelots, pour ne plus penser à rien. Puis ils sont reparatis... Tremblant(e) de peur, vous avez finalement quitté votre achette, bien heureux(se) d'avoir survécu.</target>
+      </segment>
+    </unit>
+    <unit id="_2vb9p1" name="Du wurdest verbannt!">
+      <notes>
+        <note category="german">Du wurdest verbannt!</note>
+      </notes>
+      <segment>
+        <source>Du wurdest verbannt!</source>
+        <target>Vous avez été banni(e) !</target>
+      </segment>
+    </unit>
+    <unit id="dVyLKp_" name="Status:">
+      <notes>
+        <note category="german">Status:</note>
+      </notes>
+      <segment>
+        <source>Status:</source>
+        <target>Situation :</target>
+      </segment>
+    </unit>
+    <unit id="x50DxZR" name="Eine Revolte liegt in weiter Ferne...">
+      <notes>
+        <note category="german">Eine Revolte liegt in weiter Ferne...</note>
+      </notes>
+      <segment>
+        <source>Eine Revolte liegt in weiter Ferne...</source>
+        <target>L'insurrection n'est pas pour tout de suite...</target>
+      </segment>
+    </unit>
+    <unit id="x_WVlWR" name="Erste Spannungen bilden sich.">
+      <notes>
+        <note category="german">Erste Spannungen bilden sich.</note>
+      </notes>
+      <segment>
+        <source>Erste Spannungen bilden sich.</source>
+        <target>Les premières tensions apparaissent.</target>
+      </segment>
+    </unit>
+    <unit id="LL.dGkI" name="Wir machen Fortschritte.">
+      <notes>
+        <note category="german">Wir machen Fortschritte.</note>
+      </notes>
+      <segment>
+        <source>Wir machen Fortschritte.</source>
+        <target>Nous sommes en bonne voie.</target>
+      </segment>
+    </unit>
+    <unit id="id8VuDJ" name="Das Ende ist nah.">
+      <notes>
+        <note category="german">Das Ende ist nah.</note>
+      </notes>
+      <segment>
+        <source>Das Ende ist nah.</source>
+        <target>La fin est proche...</target>
+      </segment>
+    </unit>
+    <unit id="DqJn30N" name="Die Revolte steht bevor!">
+      <notes>
+        <note category="german">Die Revolte steht bevor!</note>
+      </notes>
+      <segment>
+        <source>Die Revolte steht bevor!</source>
+        <target>Insurrection imminente !</target>
+      </segment>
+    </unit>
+    <unit id="o66h7gA" name="Diese Aktion ist während der &lt;strong&gt;Chaosperiode&lt;/strong&gt; night erlaubt!">
+      <notes>
+        <note category="german">Diese Aktion ist während der &lt;strong&gt;Chaosperiode&lt;/strong&gt; night erlaubt!</note>
+      </notes>
+      <segment>
+        <source>Diese Aktion ist während der &lt;strong&gt;Chaosperiode&lt;/strong&gt; night erlaubt!</source>
+        <target><![CDATA[Cette action est interdite en <strong>période de chaos</strong> !]]></target>
       </segment>
     </unit>
   </file>

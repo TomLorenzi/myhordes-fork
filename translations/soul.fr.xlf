@@ -2186,5 +2186,59 @@
         <target>Mort non validée</target>
       </segment>
     </unit>
+    <unit id="WLE.7QA" name="Überall ausloggen">
+      <notes>
+        <note category="german">Überall ausloggen</note>
+      </notes>
+      <segment>
+        <source>Überall ausloggen</source>
+        <target>Se déconnecter de partout</target>
+      </segment>
+    </unit>
+    <unit id="nvlk12L" name="Auf allen Browsern &amp; Geräten abmelden">
+      <notes>
+        <note category="german">Auf allen Browsern &amp; Geräten abmelden</note>
+      </notes>
+      <segment>
+        <source>Auf allen Browsern &amp; Geräten abmelden</source>
+        <target>Déconnexion de tous les navigateurs et appareils</target>
+      </segment>
+    </unit>
+    <unit id="AbYRB3R" name="82c4478">
+      <notes>
+        <note category="german">Hiermit kannst du dich von allen Geräten und Browsern abmelden, auf denen du aktuell eingeloggt bist. Die "Login merken" Funktion wird hierdurch ebenfalls auf den betroffenen Geräten deaktiviert.</note>
+      </notes>
+      <segment>
+        <source>Hiermit kannst du dich von allen Geräten und Browsern abmelden, auf denen du aktuell eingeloggt bist. Die "Login merken" Funktion wird hierdurch ebenfalls auf den betroffenen Geräten deaktiviert.</source>
+        <target>Ce bouton vous permet de vous déconnecter de tous les appareils et navigateurs sur lesquels vous êtes actuellement connectés. La fonction "Rester connecté" sera également désactivée sur ces appareils.</target>
+      </segment>
+    </unit>
+    <unit id="2CmSXI_" name="Animationen verringern">
+      <notes>
+        <note category="german">Animationen verringern</note>
+      </notes>
+      <segment>
+        <source>Animationen verringern</source>
+        <target>Réduire les animations</target>
+      </segment>
+    </unit>
+    <unit id="3mtyKrM" name="9900005">
+      <notes>
+        <note category="german">Mache hier einen Haken, wenn die Landkarte nur sehr langsam geladen wird.&lt;br /&gt;&lt;em&gt;Mit dieser Option senkst du die Qualität der Spielkartenanimationen.&lt;/em&gt;.</note>
+      </notes>
+      <segment>
+        <source>Mache hier einen Haken, wenn die Landkarte nur sehr langsam geladen wird.&lt;br /&gt;&lt;em&gt;Mit dieser Option senkst du die Qualität der Spielkartenanimationen.&lt;/em&gt;.</source>
+        <target><![CDATA[Cochez cette case si vous rencontrez des ralentissements notables lorsque la carte du jeu est affichée.<br /><em>Cette option réduira la qualité des animations liées à la carte du jeu.</em>]]></target>
+      </segment>
+    </unit>
+    <unit id="uh49WWx" name="cea913a">
+      <notes>
+        <note category="german">Unglücklicherweise ist deine Stadt vollkommen im Wüstensand versunken... Die Gemeinschaft wurde ausgelöscht.</note>
+      </notes>
+      <segment>
+        <source>Unglücklicherweise ist deine Stadt vollkommen im Wüstensand versunken... Die Gemeinschaft wurde ausgelöscht.</source>
+        <target>Unglücklicherweise ist deine Stadt vollkommen im Wüstensand versunken... Die Gemeinschaft wurde ausgelöscht.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

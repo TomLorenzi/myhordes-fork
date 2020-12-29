@@ -1911,5 +1911,32 @@
         <target>Si vous pensez que votre clé a été compromise, vous pouvez demander une nouvelle clé.</target>
       </segment>
     </unit>
+    <unit id="toM7RSy" name="Alle Foren">
+      <notes>
+        <note category="german">Alle Foren</note>
+      </notes>
+      <segment>
+        <source>Alle Foren</source>
+        <target>Forums Globaux</target>
+      </segment>
+    </unit>
+    <unit id="56Kf42Z" name="1d800f8">
+      <notes>
+        <note category="german">Als &lt;strong&gt;Ausgestoßener&lt;/strong&gt; stehen dir die Gemeinschaftsaktionen der Stadt nicht länger zur Verfügung: Bank, Baustelle, Tor, etc...</note>
+      </notes>
+      <segment>
+        <source>Als &lt;strong&gt;Ausgestoßener&lt;/strong&gt; stehen dir die Gemeinschaftsaktionen der Stadt nicht länger zur Verfügung: Bank, Baustelle, Tor, etc...</source>
+        <target><![CDATA[En tant que <strong>paria</strong>, vous n'avez plus accès aux outils communaitaires de la ville : banque, chantiers, porte, etc...]]></target>
+      </segment>
+    </unit>
+    <unit id="M4kyeVr" name="Die Seite wird von Horden von Zombies belagert!">
+      <notes>
+        <note category="german">Die Seite wird von Horden von Zombies belagert!</note>
+      </notes>
+      <segment>
+        <source>Die Seite wird von Horden von Zombies belagert!</source>
+        <target>Die Seite wird von Horden von Zombies belagert!</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

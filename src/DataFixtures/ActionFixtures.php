@@ -226,6 +226,9 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             'must_be_hidden' => [ 'type' => Requirement::HideOnFail, 'collection' => [ 'status' => [ 'enabled' => true, 'status' => 'tg_hide' ] ] ],
             'must_be_tombed' => [ 'type' => Requirement::HideOnFail, 'collection' => [ 'status' => [ 'enabled' => true, 'status' => 'tg_tomb' ] ] ],
             'not_before_day_2' => [ 'type' => Requirement::CrossOnFail, 'collection' => [ 'day' => [ 'min' => 2, 'max' => 99 ] ] ],
+
+            'custom_vote_shaman' => [ 'collection' => [ 'custom' => [18] ] ],
+            'custom_vote_guide'  => [ 'collection' => [ 'custom' => [19] ] ],
         ],
 
         'requirements' => [
@@ -816,16 +819,16 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             'throw_sandball' => [ 'label' => 'Werfen', /* 'target' => ['type' => ItemTargetDefinition::ItemCitizenOnZoneSBType], */ 'meta' => [ 'must_be_outside'], 'result' => [ ['custom' => [20]] ], 'message' => '<nt-fail>Du hast einen Sandball in {citizen}s Gesicht geworfen.</nt-fail><t-fail>Hier ist niemand, auf den du den Sandball werfen könntest...</t-fail>' ],
 
             'special_armag'        => [ 'label' => 'Durchgang in Kraft', 'allow_when_terrorized' => true, 'meta' => [ 'must_be_outside', 'must_have_zombies', 'must_be_blocked'], 'result' => [ ['group' => [ [['do_nothing'], 50], [[ ['zone' => ['escape' => 600] ], ['zombies' => 'kill_1z']], 50]]] ] ],
-            'special_vote_shaman'  => [ 'label' => 'Den Shamane wählen', 'target' => ['type' => ItemTargetDefinition::ItemCitizenType], 'meta' => [ 'must_be_outside' ], 'result' => [ ['custom' => [18]] ] ],
-            'special_vote_guide'   => [ 'label' => 'Den Reiseleiter in der Außenwelt wählen', 'target' => ['type' => ItemTargetDefinition::ItemCitizenType], 'meta' => [ 'must_be_outside' ], 'result' => [ ['custom' => [19]] ] ],
+            'special_vote_shaman'  => [ 'label' => 'Den Shamane wählen', 'target' => ['type' => ItemTargetDefinition::ItemCitizenType], 'meta' => [ 'must_be_outside', 'custom_vote_shaman'] , 'result' => [ ['custom' => [18]] ] ],
+            'special_vote_guide'   => [ 'label' => 'Den Reiseleiter in der Außenwelt wählen', 'target' => ['type' => ItemTargetDefinition::ItemCitizenType], 'meta' => [ 'must_be_outside', 'custom_vote_guide'], 'result' => [ ['custom' => [19]] ] ],
 
             'improve' => [ 'label' => 'Aufbauen', 'meta' => [ 'must_be_outside', 'zone_is_improvable', 'min_1_ap', 'must_be_outside_not_at_doors', 'feature_camping' ], 'result' => [ 'minus_1ap', 'consume_item', [ 'zone' => ['improve' =>  1.8] ] ], 'message' => 'Du befestigst den {item} und bedeckst ihn zur Tarnung mit herumliegendem Müll und vertrockneten Zweigen. Na bitte, das sollte hoffentlich deine Überlebenschancen heute Nacht verbessern. Du hast dafür 1 Aktionspunkt verbraucht.' ],
 
-            'campsite_improve' => [ 'label' => 'Schlafplatz verbessern (schwacher permanenter Bonus, 1AP)', 'meta' => [ 'min_1_ap', 'not_tired', 'must_be_outside', 'must_not_be_hidden', 'must_not_be_tombed', 'zone_is_improvable' ], 'result' => [ 'minus_1ap', [ 'zone' => ['improve' =>  1] ] ], 'message' => 'Du hast das hiesige Versteck verbessert.' ],
-            'campsite_hide'    => [ 'label' => 'Sich verstecken und die Nacht hier schlafen!', 'meta' => [ 'must_be_outside', 'must_not_be_hidden', 'must_not_be_tombed' ], 'result' => [ 'camp_hide', ['custom' => [10]] ], 'message' => 'Du hast Dich notdürftig versteckt.' ],
-            'campsite_tomb'    => [ 'label' => '"Grab" schaufeln (mittelmäßiger vorübergehender Bonus, 1AP)', 'meta' => [ 'min_1_ap', 'not_tired', 'must_be_outside', 'must_not_be_hidden', 'must_not_be_tombed' ], 'result' => [ 'minus_1ap', 'camp_tomb', ['custom' => [10]] ], 'message' => 'Du hast Dir Dein eigenes Grab geschaufelt. Oh welche Ironie!' ],
-            'campsite_unhide'  => [ 'label' => 'Versteck verlassen', 'meta' => [ 'must_be_outside', 'must_be_hidden' ], 'result' => [ 'camp_unhide', ['custom' => [11]] ], 'message' => 'Du hast Dein Versteck verlassen.' ],
-            'campsite_untomb'  => [ 'label' => 'Grab verlassen', 'meta' => [ 'must_be_outside', 'must_be_tombed' ], 'result' => [ 'camp_untomb', ['custom' => [11]] ], 'message' => 'Du hast Dein Grab verlassen. Die schöne Arbeit umsonst!' ],
+            'cm_campsite_hide'    => [ 'label' => 'Sich verstecken und die Nacht hier schlafen!', 'meta' => [ 'must_be_outside', 'must_not_be_hidden', 'must_not_be_tombed' ], 'result' => [ 'camp_hide', ['custom' => [10]] ], 'message' => 'Du hast Dich notdürftig versteckt.' ],
+            'cm_campsite_improve' => [ 'label' => 'Schlafplatz verbessern (schwacher permanenter Bonus, 1AP)', 'meta' => [ 'min_1_ap', 'not_tired', 'must_be_outside', 'must_not_be_hidden', 'must_not_be_tombed', 'zone_is_improvable' ], 'result' => [ 'minus_1ap', [ 'zone' => ['improve' =>  1] ] ], 'message' => 'Du hast das hiesige Versteck verbessert.' ],
+            'cm_campsite_tomb'    => [ 'label' => '"Grab" schaufeln (mittelmäßiger vorübergehender Bonus, 1AP)', 'meta' => [ 'min_1_ap', 'not_tired', 'must_be_outside', 'must_not_be_hidden', 'must_not_be_tombed' ], 'result' => [ 'minus_1ap', 'camp_tomb', ['custom' => [10]] ], 'message' => 'Du hast Dir Dein eigenes Grab geschaufelt. Oh welche Ironie!' ],
+            'cm_campsite_unhide'  => [ 'label' => 'Versteck verlassen', 'meta' => [ 'must_be_outside', 'must_be_hidden' ], 'result' => [ 'camp_unhide', ['custom' => [11]] ], 'message' => 'Du hast Dein Versteck verlassen.' ],
+            'cm_campsite_untomb'  => [ 'label' => 'Grab verlassen', 'meta' => [ 'must_be_outside', 'must_be_tombed' ], 'result' => [ 'camp_untomb', ['custom' => [11]] ], 'message' => 'Du hast Dein Grab verlassen. Die schöne Arbeit umsonst!' ],
 
             'home_clean'     => [ 'label' => 'Haus aufräumen und putzen', 'meta' => [ 'must_be_inside', 'not_yet_home_cleaned' ], 'result' => [ [ 'status' => [ 'from' => null, 'to' => 'tg_home_clean' ] ] ], 'message' => 'Du räumst deinen ganzen Plunder auf und machst ein wenig Ordnung, damit es hier etwas aufgeräumter aussieht. Auch wenn\'s ne Bruchbude ist, es ist DEIN Zuhause...' ],
             'home_shower'    => [ 'label' => 'Duschen', 'meta' => [ 'must_be_inside', 'must_have_shower', 'not_yet_home_showered' ], 'result' => [ [ 'status' => [ 'from' => null, 'to' => 'tg_home_shower' ] ] ], 'message' => 'Du springst unter die hausgemachte Dusche ohne weiter darüber nachzudenken. Das eiskalte Wasser erschreckt dich, aber dennoch bleibst du für einige Augenblicke unter dem schwachen Wasserstrahl stehen. In Ermangelung von Seife reibst du dich mit einem glatten Stein ab und versuchst, den Schlamm und die Blutflecken abzuwaschen. Dabei versuchst du, dir einzureden, dass es sich gut anfühlt.' ],
@@ -898,13 +901,13 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
         ],
 
         'specials' => [
-            ['name' => 'special_armag', 'icon' => 'armag'],
-            ['name' => 'special_vote_shaman', 'icon' => 'sort'],
-            ['name' => 'special_vote_guide', 'icon' => 'sort'],
+            ['name' => 'special_armag', 'icon' => 'armag', 'consumable' => true],
+            ['name' => 'special_vote_shaman', 'icon' => 'hero', 'consumable' => false],
+            ['name' => 'special_vote_guide', 'icon' => 'hero', 'consumable' => false],
         ],
 
         'camping' => [
-            'campsite_improve', 'campsite_hide', 'campsite_tomb', 'campsite_unhide', 'campsite_untomb'
+            'cm_campsite_hide', 'cm_campsite_improve', 'cm_campsite_tomb', 'cm_campsite_unhide', 'cm_campsite_untomb'
         ],
 
         'home' => [
@@ -1311,8 +1314,8 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
 
             $requirement->clear()
                 ->setName( $id )
-                ->setFailureMode( $data['type'] )
-                ->setFailureText( isset($data['text']) ? $data['text'] : null );
+                ->setFailureMode( $data['type'] ?? Requirement::HideOnFail )
+                ->setFailureText( $data['text'] ?? null );
 
             foreach ($data['collection'] as $sub_id => $sub_req) {
                 if (is_array($sub_req)) {
@@ -1370,6 +1373,9 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
                         break;
                     case 'day':
                         $requirement->setDay( $this->process_day_requirement( $manager, $out, $sub_cache[$sub_id], $sub_req, $sub_data ) );
+                        break;
+                    case 'custom':
+                        $requirement->setCustom( $sub_data[0] );
                         break;
                     default:
                         throw new Exception('No handler for requirement type ' . $sub_id);
@@ -2590,7 +2596,9 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
         foreach (static::$item_actions['specials'] as $action) {
             $action_proto = $manager->getRepository(SpecialActionPrototype::class)->findOneBy(['name' => $action['name']]);
             if (!$action_proto) $action_proto = (new SpecialActionPrototype)->setName( $action['name'] );
-            $action_proto->setIcon($action['icon']);
+            $action_proto
+                ->setIcon($action['icon'])
+                ->setConsumable($action['consumable'] ?? true);
 
             $out->writeln( "Compiling action set for special action <info>{$action['name']}</info>...", OutputInterface::VERBOSITY_DEBUG);
             $action_proto->setAction( $this->generate_action( $manager, $out, $action['name'], $set_meta_requirements, $set_sub_requirements, $set_meta_results, $set_sub_results, $set_actions ) );
@@ -2607,6 +2615,11 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
 
             $manager->persist( $action_proto );
         }
+        foreach ($manager->getRepository(CampingActionPrototype::class)->findAll() as $existing_action)
+            if (!in_array( $existing_action->getName(), static::$item_actions['camping'] )) {
+                $out->writeln("Removing obsolete camping action <info>{$existing_action->getName()}</info>.");
+                $manager->remove( $existing_action );
+            }
 
         foreach (static::$item_actions['home'] as $action_group) {
 

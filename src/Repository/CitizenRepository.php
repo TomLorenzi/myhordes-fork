@@ -61,7 +61,7 @@ class CitizenRepository extends ServiceEntityRepository
                 ->innerJoin('c.roles', 'r')
                 ->andWhere('c.town = :town')
                 ->andWhere('r = :role')
-                ->andWhere('c.alive = 1')
+                ->andWhere('c.alive = true')
                 ->setParameter('town', $town)
                 ->setParameter('role', $role)
                 ->getQuery()
@@ -94,7 +94,7 @@ class CitizenRepository extends ServiceEntityRepository
         return $this->createQueryBuilder('c')
             ->innerJoin('c.roles', 'r')
             ->andWhere('c.town = :town')
-            ->andWhere('c.alive = 1')
+            ->andWhere('c.alive = true')
             ->setParameter('town', $town)
             ->getQuery()
             ->getResult();

@@ -4,6 +4,7 @@
 namespace App\Service;
 
 
+use App\Controller\Town\TownController;
 use App\Entity\Citizen;
 use App\Entity\CitizenHome;
 use App\Entity\CitizenHomeUpgrade;
@@ -123,11 +124,11 @@ class InventoryHandler
     }
 
     /**
-     * @param Inventory|Inventory[] $inventory
-     * @param ItemPrototype|ItemPrototype[]|string $prototype
-     * @param bool $is_property
+     * @param Inventory|Inventory[] $inventory Inventory(ies) to search into
+     * @param ItemPrototype|ItemPrototype[]|string $prototype The item prototype or property we're looking for
+     * @param bool $is_property Is the prototype string an item property or an item prototype
      * @param bool|null $broken Filter for broken (true) or unbroken (false) items; disable by setting to null (default)
-     * @return int
+     * @return int Number of item matching the filters
      */
     public function countSpecificItems($inventory, $prototype, bool $is_property = false, ?bool $broken = null): int {
         if (is_string( $prototype )) $prototype = $is_property
@@ -428,7 +429,7 @@ class InventoryHandler
                 return self::ErrorStealLimitHit;
 
             if ($type_to === self::TransferTypeSteal && $actor->getTown()->getChaos() )
-                return self::ErrorStealLimitHit;
+                return TownController::ErrorTownChaos;
 
             $victim = $type_from === self::TransferTypeSteal ? $from->getHome()->getCitizen() : $to->getHome()->getCitizen();
             if ($victim->getAlive()) {

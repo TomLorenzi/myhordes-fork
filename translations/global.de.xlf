@@ -1867,5 +1867,23 @@
         <target>Wenn du den Verdacht hast, dass dein Schlüssel kompromittiert wurde, kannst du einen neuen Schlüssel anfordern.</target>
       </segment>
     </unit>
+    <unit id="toM7RSy" name="Alle Foren">
+      <notes>
+        <note category="german">Alle Foren</note>
+      </notes>
+      <segment>
+        <source>Alle Foren</source>
+        <target>Alle Foren</target>
+      </segment>
+    </unit>
+    <unit id="56Kf42Z" name="1d800f8">
+      <notes>
+        <note category="german">Als &lt;strong&gt;Ausgestoßener&lt;/strong&gt; stehen dir die Gemeinschaftsaktionen der Stadt nicht länger zur Verfügung: Bank, Baustelle, Tor, etc...</note>
+      </notes>
+      <segment>
+        <source>Als &lt;strong&gt;Ausgestoßener&lt;/strong&gt; stehen dir die Gemeinschaftsaktionen der Stadt nicht länger zur Verfügung: Bank, Baustelle, Tor, etc...</source>
+        <target><![CDATA[Als <strong>Ausgestoßener</strong> stehen dir die Gemeinschaftsaktionen der Stadt nicht länger zur Verfügung: Bank, Baustelle, Tor, etc...]]></target>
+      </segment>
+    </unit>
   </file>
 </xliff>

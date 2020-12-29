@@ -135,12 +135,6 @@ class MazeMaker
 
     public function generateMaze( Zone $base ) {
 
-        try {
-            $rand_limit = (PHP_INT_MAX === 2147483647 || $this->entity_manager->getConnection()->getDatabasePlatform()->getName() === 'postgresql')
-                ? 2147483647
-                : 4294967295;
-        } catch (\Exception $e) { $rand_limit = 2147483647; }
-
         /** @var RuinZone[][] $cache */
         $cache = []; $binary = []; $n = 0;
         foreach ($base->getRuinZones() as $ruinZone) {
@@ -154,7 +148,8 @@ class MazeMaker
                     ->setPrototype( null )
                     ->setLocked( false )
                     ->setDoorPosition( 0 )
-                    ->setDecals( mt_rand(0,$rand_limit) )
+                    ->setDecals( mt_rand(0,0xFFFF) )
+                    ->setDecalVariants( mt_rand(0,0xFFFF) )
                     ->setZombies(0)->setKilledZombies(0);
 
                 if ($ruinZone->getRoomFloor()) {

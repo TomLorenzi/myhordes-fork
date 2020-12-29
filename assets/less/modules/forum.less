@@ -197,7 +197,10 @@
 }
 
 .forum-control {
-  &>b:first-child { display: block; background: #321914; padding: 4px; }
+  &>div.forum-header-bar:first-child {
+    display: block; background: #321914; padding: 4px;
+    &>*+* { margin-left: 10px; }
+  }
   font-size: 1.1rem;
   background: #3c2018; box-shadow: 0 0 5px rgba(0,0,0,0.2);  padding: 0 0 5px;
 
