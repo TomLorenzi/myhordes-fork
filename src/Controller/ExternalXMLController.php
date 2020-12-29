@@ -17,7 +17,7 @@ use Symfony\Component\HttpFoundation\Request;
 class ExternalXMLController extends ExternalController {
 
     /**
-     * @Route("/api/x/xml", name="api_x_xml", defaults={"_format"="xml"}, methods={"POST"})
+     * @Route("/api/x/xml", name="api_x_xml", defaults={"_format"="xml"}, methods={"GET","POST"})
      * @return Response
      */
     public function api_xml(): Response {
@@ -68,7 +68,7 @@ class ExternalXMLController extends ExternalController {
 
     private function generateLegacyData(User $user): array {
         try {
-            $now = new DateTime('now', new DateTimeZone('America/New_York'));
+            $now = new DateTime('now', new DateTimeZone('Europe/Paris'));
         } catch (Exception $e) {
             $now = date('Y-m-d H:i:s');
         }

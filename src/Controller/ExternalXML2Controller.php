@@ -355,6 +355,10 @@ class ExternalXML2Controller extends ExternalController {
             $th->calculate_town_def($town, $def);
 
             $data['data'] = [
+                'attributes' => [
+                    'cache-date' => $now->format('Y-m-d H:i:s'),
+                    'cache-fast' => 0,
+                ],
                 'city' => [
                     'attributes' => [
                         'city' => $town->getName(),
@@ -781,7 +785,7 @@ class ExternalXML2Controller extends ExternalController {
                         ],
                         "cdata_value" => $citizen->getHome()->getDescription()
                     ],
-                    "myZone" => []
+                    // "myZone" => []
                 ];
                 /** @var Zone $zone */
                 $zone = $citizen->getZone();
