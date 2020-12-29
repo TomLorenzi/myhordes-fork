@@ -640,10 +640,23 @@ class ActionHandler
                     }
                 }
                 elseif ($status->getResult()) {
-                    if (!$citizen->getStatus()->contains( $status->getResult() ) && $this->citizen_handler->inflictStatus( $citizen, $status->getResult() )) {
-                        $tags[] = 'stat-up';
-                        $tags[] = "stat-up-{$status->getResult()->getName()}";
+                    $inflict = true;
+                    if($status->getResult()->getName() == "infect" && $this->citizen_handler->hasStatusEffect($citizen, "tg_infect_wtns")) {
+                        $inflict = $this->random_generator->chance(0.5);
+                        $this->citizen_handler->removeStatus( $citizen, 'tg_infect_wtns' );
+                        if($inflict){
+                            $execute_info_cache['message'][] = T::__("Ein Opfer der Großen Seuche zu sein hat dir diesmal nicht viel gebracht... und es sieht nicht gut aus...", "items");
+                        } else {
+                            $execute_info_cache['message'][] = T::__("Da hast du wohl Glück gehabt... Als Opfer der Großen Seuche bist du diesmal um eine unangenehme Infektion herumgekommen.", "items");
+                        }
                     }
+                    if ($inflict){
+                        if (!$citizen->getStatus()->contains( $status->getResult() ) && $this->citizen_handler->inflictStatus($citizen, $status->getResult())) {
+                            $tags[] = 'stat-up';
+                            $tags[] = "stat-up-{$status->getResult()->getName()}";
+                        }
+                    }
+
                 }
 
             }
