@@ -112,7 +112,7 @@ class ExternalXMLController extends ExternalController {
                     'game' => [
                         'attributes' => [
                             'days' => $town->getDay(),
-                            'quarantine' => $town->getAttackFails() >= 3,
+                            'quarantine' => intval($town->getQuarantine()),
                             'datetime' => $now->format('Y-m-d H:i:s'),
                             'id' => $town->getId(),
                         ],
