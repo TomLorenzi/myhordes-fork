@@ -245,7 +245,7 @@ class PublicController extends CustomAbstractController
 
         $violations = Validation::createValidator()->validate( $parser->all( true ), new Constraints\Collection([
             'user' => [
-                new Constraints\Regex( ['match' => false, 'pattern' => '/[\s$<>]/', 'message' => $translator->trans('Dein Name kann keine Leerzeichen sowie "$", "<" und ">" enthalten.', [], 'login') ] ),
+                new Constraints\Regex( ['match' => false, 'pattern' => '/[^\w]/', 'message' => $translator->trans('Dein Name kann nur alphanumerische Zeichen enthalten.', [], 'login') ] ),
                 new Constraints\Length(
                     ['min' => 4, 'max' => 16,
                         'minMessage' => $translator->trans('Dein Name muss mindestens {{ limit }} Zeichen umfassen.', [], 'login'),

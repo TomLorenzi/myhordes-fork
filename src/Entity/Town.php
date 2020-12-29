@@ -759,4 +759,9 @@ class Town
 
         return $this;
     }
+
+    public function getQuarantine(): bool
+    {
+        return $this->getAttackFails() >= 3;
+    }
 }
