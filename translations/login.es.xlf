@@ -631,5 +631,14 @@
         <target>Du wurdest erfolgreich von allen Geräten abgemeldet.</target>
       </segment>
     </unit>
+    <unit id="iGunNf8" name="Dein Name kann nur alphanumerische Zeichen enthalten.">
+      <notes>
+        <note category="german">Dein Name kann nur alphanumerische Zeichen enthalten.</note>
+      </notes>
+      <segment>
+        <source>Dein Name kann nur alphanumerische Zeichen enthalten.</source>
+        <target>Dein Name kann nur alphanumerische Zeichen enthalten.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
