@@ -10171,7 +10171,7 @@
       </notes>
       <segment>
         <source>Nicht ganz ekelfrei hat %disposing_citizen% den leblosen Körper von %citizen% entsorgt.</source>
-        <target>Con mucho esfuerzo %citizen% se deshizo del cuerpo %disposing_citizen%.</target>
+        <target>Con mucho esfuerzo %disposing_citizen% se deshizo del cuerpo de %citizen%.</target>
       </segment>
     </unit>
     <unit id="8xTkhGN" name="3ccf312">
@@ -10180,7 +10180,7 @@
       </notes>
       <segment>
         <source>Dank %disposing_citizen% hat sich der Körper von %citizen% in verfaultes Wasser verwandelt.</source>
-        <target>Gracias a los esfuerzos de %citizen%, el cuerpo de %disposing_citizen% ha sido reducido a un charco putrefacto.</target>
+        <target>Gracias a los esfuerzos de %disposing_citizen%, el cuerpo de %citizen% ha sido reducido a un charco putrefacto.</target>
       </segment>
     </unit>
     <unit id="yBmpXGO" name="Behausung wiederverwerten">
