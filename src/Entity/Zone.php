@@ -463,7 +463,6 @@ class Zone
     }
 
     public function getDirection(): int {
-
         if ($this->getX() === 0 && $this->getY() === 0) return self::DirectionCenter;
         elseif ($this->getX() != 0 && $this->getY() != 0 && (abs(abs($this->getX())-abs($this->getY())) < min(abs($this->getX()),abs($this->getY())))) {
             if ($this->getX() < 0 && $this->getY() < 0) return self::DirectionSouthWest;
@@ -476,7 +475,6 @@ class Zone
             if (abs($this->getX()) < abs($this->getY()) && $this->getY() < 0) return self::DirectionSouth;
             if (abs($this->getX()) < abs($this->getY()) && $this->getY() > 0) return self::DirectionNorth;
         }
-
     }
 
     public function getBuryCount(): ?int
