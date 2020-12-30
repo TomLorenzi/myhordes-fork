@@ -1922,5 +1922,14 @@
         <target><![CDATA[Als <strong>Ausgestoßener</strong> stehen dir die Gemeinschaftsaktionen der Stadt nicht länger zur Verfügung: Bank, Baustelle, Tor, etc...]]></target>
       </segment>
     </unit>
+    <unit id="M4kyeVr" name="Die Seite wird von Horden von Zombies belagert!">
+      <notes>
+        <note category="german">Die Seite wird von Horden von Zombies belagert!</note>
+      </notes>
+      <segment>
+        <source>Die Seite wird von Horden von Zombies belagert!</source>
+        <target>Die Seite wird von Horden von Zombies belagert!</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

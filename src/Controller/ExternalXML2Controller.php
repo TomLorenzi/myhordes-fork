@@ -766,6 +766,8 @@ class ExternalXML2Controller extends ExternalController {
                     $now = date('Y-m-d H:i:s');
                 }
 
+                $offset = $citizen->getTown()->getMapOffset();
+
                 /** @var Town $town */
                 $town = $citizen->getTown();
                 $headers['headers']['owner'] = [
@@ -775,8 +777,8 @@ class ExternalXML2Controller extends ExternalController {
                             'hero' => $citizen->getProfession()->getHeroic(),
                             'name' => $user->getUsername(),
                             'avatar' => $user->getAvatar() !== null ? $user->getId() . "/" . $user->getAvatar()->getFilename() . "." . $user->getAvatar()->getFormat() : "",
-                            'x' => $citizen->getZone() !== null ? $citizen->getZone()->getX() : '0',
-                            'y' => $citizen->getZone() !== null ? $citizen->getZone()->getY() : '0',
+                            'x' => $offset['x'] + ($citizen->getZone() !== null ? $citizen->getZone()->getX() : 0),
+                            'y' => $offset['y'] - ($citizen->getZone() !== null ? $citizen->getZone()->getY() : 0),
                             'id' => $user->getId(),
                             'ban' => intval($citizen->getBanished()),
                             'job' => $citizen->getProfession()->getName(),
@@ -811,26 +813,32 @@ class ExternalXML2Controller extends ExternalController {
 
                     /** @var Item $item */
                     foreach($zone->getFloor()->getItems() as $item) {
-                        $node = [
-                            'attributes' => [
-                                'count' => 1,
-                                'id' => $item->getPrototype()->getId(),
-                                'cat' => $item->getPrototype()->getCategory()->getName(),
-                                'img' => str_replace($icon_asset_path, '', $this->asset->getUrl( "build/images/item/item_{$item->getPrototype()->getIcon()}.gif")),
-                                'broken' => intval($item->getBroken())
-                            ]
-                        ];
 
-                        if($language !== "all")
-                            $node['attributes']['name'] = $this->translator->trans($item->getPrototype()->getLabel(), [], 'items');
-                        else {
-                            foreach ($this->available_langs as $lang) {
-                                $node['attributes']["name-$lang"] = $this->translator->trans($item->getPrototype()->getLabel(), [], 'items', $lang);
-                            }
-                        }
-                        $headers['headers']['owner']['myZone']['list']['items'][] = $node;
+                        $str = "{$item->getPrototype()->getId()}-" . intval($item->getBroken());
+                        if (!isset($headers['headers']['owner']['myZone']['list']['items'][$str])) {
+
+                            $headers['headers']['owner']['myZone']['list']['items'][$str] = [
+                                'attributes' => [
+                                    'count' => 1,
+                                    'id' => $item->getPrototype()->getId(),
+                                    'cat' => $item->getPrototype()->getCategory()->getName(),
+                                    'img' => str_replace($icon_asset_path, '', $this->asset->getUrl( "build/images/item/item_{$item->getPrototype()->getIcon()}.gif")),
+                                    'broken' => intval($item->getBroken())
+                                ]
+                            ];
+
+                            if($language !== "all")
+                                $headers['headers']['owner']['myZone']['list']['items'][$str]['attributes']['name'] = $this->translator->trans($item->getPrototype()->getLabel(), [], 'items');
+                            else foreach ($this->available_langs as $lang)
+                                $headers['headers']['owner']['myZone']['list']['items'][$str]['attributes']["name-$lang"] = $this->translator->trans($item->getPrototype()->getLabel(), [], 'items', $lang);
+
+                        } else $headers['headers']['owner']['myZone']['list']['items'][$str]['attributes']['count']++;
                     }
+
+                    usort( $headers['headers']['owner']['myZone']['list']['items'],
+                        fn($a,$b) => $a['attributes']['id'] <=> $b['attributes']['id'] ?? $b['attributes']['broken'] <=> $a['attributes']['broken']);
                 }
+
                 $headers['headers']['game'] = [
                     'attributes' => [
                         'days' => $town->getDay(),
