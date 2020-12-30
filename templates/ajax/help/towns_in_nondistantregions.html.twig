@@ -1,0 +1,26 @@
+{% extends "ajax/help/shell.html.twig" %}
+{% block title %}{{'Hilfe'|trans({}, 'game')}} - {{'Kleine Karten'|trans({}, 'help')|raw}}{% endblock %}
+{% block helpContent %}
+<div class="helpArt">{{ 'Spielanleitung'|trans({},'help')|raw }}</div>
+<h1>{{ 'Kleine Karten'|trans({},'help')|raw }}</h1>
+<p>{{ 'Kleine Städte (Kartentyp "Kleine Karte") sind für die neuen Spieler bei "Die Verdammten" gedacht. Hier geht es vor allem um das Lernen der Grundlagen. 
+Diese Städte sind darum auch weniger schwer und eine Stadt verfügt z.B. bereits über einige Gebäude. Grundsätzlich stehen diese Städte aber allen Spielern offen.'|trans({},'help')|raw }}</p>
+<p><strong>{{ 'Punkte für Auszeichnungen erhalten nur jene Spieler, die mehr als 100 Seelenpunkte haben und die mindestens 8 Tage in der Stadt verbracht haben.'|trans({},'help')|raw }}</strong></p>
+<p>{{ 'Denk daran, im Gegensatz zu den 5-Tage-Regel in Kleinen Städten werden für erfahrene Spieler keine Auszeichnungen vor dem 8. Tag vergeben. Nach dem finalen Angriff (niemand mehr am Leben) werden die Belohnungen verteilt.'|trans({},'help')|raw }}</p>
+<h2>{{ 'Spiritueller Führer'|trans({},'help')|raw }}</h2>
+<p>{{ 'Im Gegenzug kann man sich ab dem ersten Tag Punkte für den Titel <strong>Spiritueller Führer</strong> verdienen.'|trans({},'help')|raw }}</p>
+<p><em>
+{{ 'Versucht, so lange wie möglich in einer kleinen Stadt zu überleben.
+Kleine Städte stehen auch Spielern mit mehr als 100 Seelenpunkten offen, wenn sich mindestens 20 Bürger mit weniger als 100 Seelenpunkten in der Stadt befinden.
+Die Punkte für den Titel "Spiritueller Führer" kumulieren sich mit jedem Tag. Jeder überlebte Tag bringt die jeweilige Menge an Punkten.'|trans({},'help')|raw }}</em>
+<em>{{ 'Beispiel:'|trans({},'help')|raw }}</em>
+</p><ul>
+<li>{{ 'Tag 1: 1 Punkt'|trans({},'help')|raw }}</li>
+<li>{{ 'Tag 2: 2 + 1 Punkte'|trans({},'help')|raw }}</li>
+<li>{{ 'Tag 5: 5 + 4 + 3 + 2 + 1 Punkte'|trans({},'help')|raw }}</li>
+<li>{{ 'etc.'|trans({},'help')|raw }}</li>
+</ul>
+<p></p>
+<div class="clear"></div>
+<a class="button" x-ajax-href="{{ url('help', {'name': 'devastated_town'}) }}"><img src="{{ asset('build/images/icons/small_move.gif') }}" alt="move"> {{'Weiter'|trans({}, 'help')}}:<strong> {{ 'Zerstörte Stadt'|trans({},'help') }}</strong></a>
+{% endblock %}

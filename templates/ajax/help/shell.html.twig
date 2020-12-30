@@ -196,75 +196,75 @@
                                 <img src="{{ asset('build/images/log/night.gif') }}" alt="attack">
                                 <span class="link" x-ajax-href="{{ url('help', {'name': 'the_attack_of_the_hordes'}) }}">{{ 'Der Angriff der Zombiehorde'|trans({},'help') }}</span>
                             </li>
-                            <li class="">
+                            <li class="{% if section == 'the_watchmen' %}active{% endif %}">
                                 <img src="{{ asset('build/images/professions/water_soldier.gif') }}" alt="guard">
-                                <span class="link">{{ 'Die Nachtwächter'|trans({},'help') }}</span>
+                                <span class="link" x-ajax-href="{{ url('help', {'name': 'the_watchmen'}) }}">{{ 'Die Nachtwächter'|trans({},'help') }}</span>
                             </li>
-                            <li class="">
+                            <li class="{% if section == 'crimes_and_punishment' %}active{% endif %}">
                                 <img src="{{ asset('build/images/icons/small_star.gif') }}" alt="justice">
-                                <span class="link">{{ 'Recht und Gesetz'|trans({},'help') }}</span>
+                                <span class="link" x-ajax-href="{{ url('help', {'name': 'crimes_and_punishment'}) }}">{{ 'Recht und Gesetz'|trans({},'help') }}</span>
                             </li>
-                            <li class="">
+                            <li class="{% if section == 'shunned_citizens' %}active{% endif %}">
                                 <img src="{{ asset('build/images/icons/small_ban.gif') }}" alt="banned">
-                                <span class="link">{{ 'Die Verbannten'|trans({},'help') }}</span>
+                                <span class="link" x-ajax-href="{{ url('help', {'name': 'shunned_citizens'}) }}">{{ 'Die Verbannten'|trans({},'help') }}</span>
                             </li>
-                            <li class="">
+                            <li class="{% if section == 'chaos' %}active{% endif %}">
                                 <img src="{{ asset('build/images/professions/death.gif') }}" alt="chaos">
-                                <span class="link">{{ 'Das Chaos'|trans({},'help') }}</span>
+                                <span class="link" x-ajax-href="{{ url('help', {'name': 'chaos'}) }}">{{ 'Das Chaos'|trans({},'help') }}</span>
                             </li>
-                            <li class="">
+                            <li class="{% if section == 'catapult' %}active{% endif %}">
                                 <img src="{{ asset('build/images/item/item_courroie.gif') }}" alt="catapult">
-                                <span class="link">{{ 'Das Katapult'|trans({},'help') }}</span>
+                                <span class="link" x-ajax-href="{{ url('help', {'name': 'catapult'}) }}">{{ 'Das Katapult'|trans({},'help') }}</span>
                             </li>
-                            <li class="">
+                            <li class="{% if section == 'towns_in_nondistantregions' %}active{% endif %}">
                                 <img src="{{ asset('build/images/building/small_falsecity.gif') }}" alt="rne">
-                                <span class="link">{{ 'Kleine Karten'|trans({},'help') }}</span>
+                                <span class="link" x-ajax-href="{{ url('help', {'name': 'towns_in_nondistantregions'}) }}">{{ 'Kleine Karten'|trans({},'help') }}</span>
                             </li>
-                            <li class="">
+                            <li class="{% if section == 'devastated_town' %}active{% endif %}">
                                 <img src="{{ asset('build/images/item/item_out_def_broken.gif') }}" alt="devast">
-                                <span class="link">{{ 'Zerstörte Stadt'|trans({},'help') }}</span>
+                                <span class="link" x-ajax-href="{{ url('help', {'name': 'devastated_town'}) }}">{{ 'Zerstörte Stadt'|trans({},'help') }}</span>
                             </li>
-                            <li class="">
+                            <li class="{% if section == 'hardcore_towns' %}active{% endif %}">
                                 <img src="{{ asset('build/images/icons/small_arma.gif') }}" alt="hardcore">
-                                <span class="link">{{ 'Städte des Pandämoniums'|trans({},'help') }}</span>
+                                <span class="link" x-ajax-href="{{ url('help', {'name': 'hardcore_towns'}) }}">{{ 'Städte des Pandämoniums'|trans({},'help') }}</span>
                             </li>
-                            <li class="">
+                            <li class="{% if section == 'private_towns' %}active{% endif %}">
                                 <img src="{{ asset('build/images/item/item_chair.gif') }}" alt="customMap">
-                                <span class="link">{{ 'Privatstädte'|trans({},'help') }}</span>
+                                <span class="link" x-ajax-href="{{ url('help', {'name': 'private_towns'}) }}">{{ 'Privatstädte'|trans({},'help') }}</span>
                             </li>
-                            <li class="">
+                            <li class="{% if section == 'roleplay_options' %}active{% endif %}">
                                 <img src="{{ asset('build/images/item/item_dice.gif') }}" alt="rp">
-                                <span class="link">{{ 'Rollenspieloptionen'|trans({},'help') }}</span>
+                                <span class="link" x-ajax-href="{{ url('help', {'name': 'roleplay_options'}) }}">{{ 'Rollenspieloptionen'|trans({},'help') }}</span>
                             </li>
-                            <li class="">
+                            <li class="{% if section == 'seasons_and_rankings' %}active{% endif %}">
                                 <img src="{{ asset('build/images/forum/coin.png') }}" alt="seasons">
-                                <span class="link">{{ 'Saisons und Ranglisten'|trans({},'help') }}</span>
+                                <span class="link" x-ajax-href="{{ url('help', {'name': 'seasons_and_rankings'}) }}">{{ 'Saisons und Ranglisten'|trans({},'help') }}</span>
                             </li>
                         </ul>
                     </li>
 
-                    <li class="main">
+                    <li class="main {% if section == 'support' %}active{% endif %}">
                         <img src="{{ asset('build/images/icons/small_middot.gif') }}" alt="st">
-                        <span class="link">{{ 'Support'|trans({},'help') }}</span>
+                        <span class="link" x-ajax-href="{{ url('help', {'name': 'support'}) }}">{{ 'Support'|trans({},'help') }}</span>
                     </li>
 
                     <li class="sublist">
                         <ul>
-                            <li class="">
+                            {# <li class="">
                                 <img src="{{ asset('build/images/icons/small_middot.gif') }}" alt="browser">
                                 <span class="link">{{ '1- Überprüfe deinen Browser'|trans({},'help') }}</span>
                             </li>
                             <li class="">
                                 <img src="{{ asset('build/images/icons/small_middot.gif') }}" alt="parasites">
                                 <span class="link">{{ '2- Überprüfe sonstige installierte Programme'|trans({},'help') }}</span>
-                            </li>
-                            <li class="">
+                            </li> #}
+                            <li class="{% if section == 'getting_help' %}active{% endif %}">
                                 <img src="{{ asset('build/images/icons/small_middot.gif') }}" alt="contact">
-                                <span class="link">{{ 'Hier erhältst du Hilfe'|trans({},'help') }}</span>
+                                <span class="link" x-ajax-href="{{ url('help', {'name': 'getting_help'}) }}">{{ 'Hier erhältst du Hilfe'|trans({},'help') }}</span>
                             </li>
-                            <li class="">
+                            <li class="{% if section == 'choosing_a_good_password' %}active{% endif %}">
                                 <img src="{{ asset('build/images/icons/small_middot.gif') }}" alt="pass">
-                                <span class="link">{{ 'Wie wähle ich ein sicheres Passwort?'|trans({},'help') }}</span>
+                                <span class="link" x-ajax-href="{{ url('help', {'name': 'choosing_a_good_password'}) }}">{{ 'Wie wähle ich ein sicheres Passwort?'|trans({},'help') }}</span>
                             </li>
                             <li class="">
                                 <img src="{{ asset('build/images/icons/small_middot.gif') }}" alt="quarantine">

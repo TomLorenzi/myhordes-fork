@@ -1,0 +1,27 @@
+{% extends "ajax/help/shell.html.twig" %}
+{% block title %}{{'Hilfe'|trans({}, 'game')}} - {{'Rollenspieloptionen'|trans({}, 'help')|raw}}{% endblock %}
+{% block helpContent %}
+<div class="helpArt">{{ 'Spielanleitung'|trans({},'help')|raw }}</div>
+<h1>{{ 'Rollenspieloptionen'|trans({},'help')|raw }}</h1>
+<p>
+{{ 'In den verschiedenen Foren und Chatmöglichkeiten der Außenwelt können bestimmte Rollenspielelemente verwendet werden. Diese dienen allgemein dem Ambiente des Spiels.'|trans({},'help')|raw }}
+</p>
+<p>
+{{ 'Folgende Befehle können verwendet werden:'|trans({},'help')|raw }}
+</p>
+<ul>
+<li><i>[card]</i>: {{ 'Der Name einer zufällig gezogenen Karte (aus einem Spielset mit 54 Karten) wird angezeigt.'|trans({},'help')|raw }}</li>
+<li><i>[resident]</i>: {{ 'Der Name eines zufällig ausgewählten Einwohners deiner Stadt wird angezeigt (funktioniert nur, wenn du einer Stadt beigetreten bist).'|trans({},'help')|raw }}</li>
+<li><i>[ht]</i>: {{ 'Kopf oder Zahl.'|trans({},'help')|raw }}</li>
+<li><i>[rps]</i>: {{ 'Schere, Stein, Papier.'|trans({},'help')|raw }}</li>
+<li><i>[d6]</i>: {{ 'Ein 6-seitiger Würfel wird geworfen und das Ergebnis wird angezeigt (funktioniert mit d4, d6, d8, d10, d12, d20 und d100).'|trans({},'help')|raw }}</li>
+<li><i>[consonant]</i> : {{ 'einen Konsonanten zeichnen,'|trans({},'help')|raw }}</li>
+<li><i>[vowel]</i> : {{ 'einen Vokal zeichnen,'|trans({},'help')|raw }}</li>
+<li><i>[letter]</i> : {{ 'einen Brief zeichnen,'|trans({},'help')|raw }}</li>
+</ul>
+<p>
+{{ 'Du kannst dich ihrer bedienen, um neue (Foren-)Spiele zu erfinden oder bestimmte Entscheidungen nach dem Zufallsprinzip zu treffen. Gehe jedoch sparsam damit um!'|trans({},'help')|raw }}
+</p>
+<div class="clear"></div>
+<a class="button" x-ajax-href="{{ url('help', {'name': 'seasons_and_rankings'}) }}"><img src="{{ asset('build/images/icons/small_move.gif') }}" alt="move"> {{'Weiter'|trans({}, 'help')}}:<strong> {{ 'Saisons und Ranglisten'|trans({},'help') }}</strong></a>
+{% endblock %}

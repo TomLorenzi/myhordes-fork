@@ -1,0 +1,26 @@
+{% extends "ajax/help/shell.html.twig" %}
+{% block title %}{{'Hilfe'|trans({}, 'game')}} - {{'Das Katapult'|trans({}, 'help')|raw}}{% endblock %}
+{% block helpContent %}
+<div class="helpArt">{{ 'Spielanleitung'|trans({},'help')|raw }}</div>
+<h1>{{ 'Das Katapult'|trans({},'help')|raw }}</h1>
+<p>
+{{ '<strong>Das Katapult ist ein äußerst mächtiges Werkzeug, mit dem die Stadt jede Art von Gegenstand in die Wüste schießen kann.</strong> Das ist sehr nützlich, wenn man weit entfernte Bürger versorgen möchte (Lebensmittel, Wasser, Waffen etc...).'|trans({},'help')|raw }}
+</p>
+<p>
+{{ 'Es ist allerdings zu beachten, dass das Katapult <i>manchmal</i> sein Ziel verfehlt und der verschossene Gegenstand in der benachbarten Zone landet. 
+Darüber hinaus besteht die Gefahr, dass manche, <i>seltene</i> Gegenstände den Aufprall nicht unbeschadet überstehen.'|trans({},'help')|raw }}
+</p>
+<p>
+{{ 'Die Aktivierung des Katapults kostet %img_ap%. Diese Kosten können gesenkt werden, wenn das Katapult verbessert wird,'|trans({'%img_ap%' : '<span class="ap"></span>'},'help')|raw }}
+</p>
+<h2>{{ 'Wer ist für das Katapult verantwortlich?'|trans({},'help')|raw }}</h2>
+<p>{{ 'Es wird nach dem Zufallsprinzip ein Bürger bestimmt, der sich um das Katapult kümmert. Der Katapultverantwortliche wird nach folgendem Schema ausgewählt:'|trans({},'help')|raw }}</p>
+<ul>
+<li>{{ 'Es werden zunächst die am gegebenen Tag aktiven Helden der Stadt für diese Aufgabe eingeteilt.'|trans({},'help')|raw }}</li>
+<li>{{ 'Wenn kein Bürger gefunden wurde, werden erneut die Helden der Stadt herangezogen.'|trans({},'help')|raw }}</li>
+<li>{{ 'Wenn danach immer noch kein Verantwortlicher gefunden wurde, übernehmen die aktivsten Spieler des jeweiligen Tages diese Aufgabe.'|trans({},'help')|raw }}</li>
+<li>{{ 'Sollten sich schließlich alle um diese Aufgabe drücken, trifft es einen zufällig ausgewählten Bürger.'|trans({},'help')|raw }}</li>
+</ul>
+<div class="clear"></div>
+<a class="button" x-ajax-href="{{ url('help', {'name': 'towns_in_nondistantregions'}) }}"><img src="{{ asset('build/images/icons/small_move.gif') }}" alt="move"> {{'Weiter'|trans({}, 'help')}}:<strong> {{ 'Kleine Karten'|trans({},'help') }}</strong></a>
+{% endblock %}

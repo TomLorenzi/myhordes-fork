@@ -1,0 +1,58 @@
+{% extends "ajax/help/shell.html.twig" %}
+{% block title %}{{'Hilfe'|trans({}, 'game')}} - {{'Recht und Gesetz'|trans({}, 'help')|raw}}{% endblock %}
+{% block helpContent %}
+<div class="helpArt">{{ 'Spielanleitung'|trans({},'help')|raw }}</div>
+<h1>{{ 'Recht und Gesetz'|trans({},'help')|raw }}</h1>
+<img class="art" alt="" src="{{ asset('build/images/help/justice.gif') }}">
+<p>
+{{ 'Über den Abschnitt "Bürger" gelangst du zum <strong>Haus eines jeden einzelnen Bürgers</strong>. Dort gibt es einen Knopf
+<strong>ANZEIGEN</strong>. Wenn du ihn betätigst kannst du eine Beschwerde gegen jemanden einreichen.'|trans({},'help')|raw }}
+</p>
+<p>
+{{ 'Wenn <strong>8 Anzeigen</strong> gegen einen Bürger eingegangen sind, wird er <strong>aus der Gemeinschaft ausgeschlossen</strong>.'|trans({},'help')|raw }}
+</p>
+<h2>{{ 'Auswirkungen einer Verbannung'|trans({},'help')|raw }}</h2>
+<p>
+{{ 'Alle wichtigen Gegenstände des Verbannten (Holz, Metall, Waffen etc...) werden <strong>der Bank zurückgegeben</strong>.'|trans({},'help')|raw }}
+</p>
+<p>
+{{ 'Darüber hinaus kann ein Verbannter folgende Dinge nicht mehr tun:'|trans({},'help')|raw }}
+</p><ul>
+<li>{{ 'Er kann keine Gegenstände mehr aus der Bank nehmen (er kann allerdings noch welche abliefern).'|trans({},'help')|raw }}</li>
+<li>{{ 'Er kann kein zusätzliches Wasser aus dem Brunnen nehmen (seine tägliche Ration wird ihm aber zugestanden).'|trans({},'help')|raw }}</li>
+<li>{{ 'Er kann nicht mehr auf den Baustellen arbeiten.'|trans({},'help')|raw }}</li>
+<li>{{ 'Er darf die Werkstatt nicht mehr benutzen.'|trans({},'help')|raw }}</li>
+<li>{{ 'Er darf das Stadttor nicht mehr bedienen.'|trans({},'help')|raw }}</li>
+<li>{{ 'Er selbst darf keine Anzeigen mehr erstatten.'|trans({},'help')|raw }}</li>
+</ul>
+<p></p>
+<p>
+{{ 'Allerdings verfügt er über <span x-ajax-href=%url_shun%>neue Fähigkeiten</span>, die ihm zu überleben helfen.'|trans({'%url_shun%': url('help', {'name': 'shunned_citizens'})},'help')|raw }}
+</p>
+{# <h2>Pendaisons</h2>
+<p>
+Si la ville décide de bâtir une <strong>potence</strong> (chantier de ville), les citoyens qui recevront trop de plaintes seront
+tout simplement <strong>pendus, haut et court.</strong> Leur maison sera alors ouverte au
+pillage, comme pour n'importe quel citoyen mort...
+</p> #}
+
+<h2>{{ 'Einen anderen Einwohner bestehlen'|trans({},'help')|raw }}</li></h2>
+<p>
+{{ 'Es ist möglich in das Haus eines anderen Bürgers einzudringen und etwas von ihm zu stehlen. Dazu musst das zukünftige Opfer außer Haus sein, sprich: in der Außenwelt. <strong>Einmal am Tag kann du dein Glück versuchen.</strong>'|trans({},'help')|raw }}</li>
+</p>
+<p>
+{{ '<strong>Die Wahrscheinlichkeit bei einem Diebstahl erwischt zu werden beträgt 50%.</strong> Wenn du ertappt wirst, wird die ganze Stadt darüber informiert und dein Name wird im Bürgerverzeichnis rot markiert! Deine Strafe liegt im freien Ermessen deiner Mitbürger...'|trans({},'help')|raw }}
+</p>
+<h2>{{ 'Hängung'|trans({},'help')|raw }}</h2>
+<p>
+{{ 'Wenn ein Stadteinwohner zu einer ernstzunehmenden Bedrohung für die Gemeinschaft wird, muss manchmal eine drastischere Maßnahme ergriffen werden.'|trans({},'help')|raw }}
+</p>
+<p>
+{{ 'Die Bürger errichten in so einem Fall einen Galgen auf der Baustelle, um den Störer kurz und (fast) schmerzlos los zu werden.'|trans({},'help')|raw }}</p> 
+<p>
+{{ 'Damit ein Spieler gehängt werden kann, muss die gleiche Anzahl an Beschwerden gesammelt werden wie für seine Verbannung. Wie bei der Verbannung werden seine Gegenstände und Habseligkeiten nach seinem Tod wieder der Bank zurückgegeben.'|trans({},'help')|raw }}
+</p>
+<p>{{ 'Hinweis: Es gibt noch weitere Möglichkeiten, unerwünschte Mitbürger loszuwerden (Mord, Fleischkäfig,...).'|trans({},'help')|raw }}</p>
+<div class="clear"></div>
+<a class="button" x-ajax-href="{{ url('help', {'name': 'shunned_citizens'}) }}"><img src="{{ asset('build/images/icons/small_move.gif') }}" alt="move"> {{'Weiter'|trans({}, 'help')}}:<strong> {{ 'Die Verbannten'|trans({},'help') }}</strong></a>
+{% endblock %}

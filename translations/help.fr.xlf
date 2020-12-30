@@ -3808,7 +3808,7 @@ es besteht eine erhöhte Wahrscheinlichkeit sein Opfer zu verletzen. Versucht au
     </unit>
     <unit id="m3f6S65" name="8f8917d">
       <notes>
-        <note category="german">Jeder Spieler startet in "Die Verdammten" als einfacher Bürger. 
+        <note category="german">Jeder Spieler startet in "MyHordes" als einfacher Bürger. 
 Daneben gibt es jedoch noch &lt;strong&gt;7 außergewöhnliche Berufe&lt;/strong&gt;. 
 Diese Berufe sind aber den Spielern vorbehalten sind, die als Held spielen.</note>
       </notes>
@@ -5083,6 +5083,1489 @@ Lies dir den entsprechenden Abschnitt bitte &lt;span x-ajax-href=%url_lms%&gt;hi
       <segment>
         <source>Eine nur teilweise beschädigte Konstruktion kann am nächsten Tag repariert werden. Dafür werden jedoch AP benötigt. Ihr könnt diese im Abschnitt "Konstruktion" ausgeben.</source>
         <target>Une structure partiellement endommagée peut être réparée le lendemain. Cependant, des PAs sont requis pour cela.</target>
+      </segment>
+    </unit>
+    <unit id="0AhhUCy" name="Wer sind Sie?">
+      <notes>
+        <note category="german">Wer sind Sie?</note>
+      </notes>
+      <segment>
+        <source>Wer sind Sie?</source>
+        <target>Qui sont-ils ?</target>
+      </segment>
+    </unit>
+    <unit id="c62rJAq" name="ea5b0ea">
+      <notes>
+        <note category="german">Es gibt verschiedene Möglichkeiten deine Stadt vor den Zombiemeuten zu beschützen.
+Eine davon ist es der &lt;strong&gt;Nachtwache&lt;/strong&gt; beizutreten.</note>
+      </notes>
+      <segment>
+        <source>Es gibt verschiedene Möglichkeiten deine Stadt vor den Zombiemeuten zu beschützen.
+Eine davon ist es der &lt;strong&gt;Nachtwache&lt;/strong&gt; beizutreten.</source>
+        <target><![CDATA[Pour défendre la ville contre l'attaque des Hordes, il existe plusieurs solutions. Une de celle-ci est de faire partie de <strong>l'équipe des Veilleurs</strong>.]]></target>
+      </segment>
+    </unit>
+    <unit id="yMQ8qUg" name="Wenn du dich dazu entscheidest ein Nachtwächter zu werden:">
+      <notes>
+        <note category="german">Wenn du dich dazu entscheidest ein Nachtwächter zu werden:</note>
+      </notes>
+      <segment>
+        <source>Wenn du dich dazu entscheidest ein Nachtwächter zu werden:</source>
+        <target>Quand vous décidez de devenir veilleur :</target>
+      </segment>
+    </unit>
+    <unit id="UqvCHSF" name="Du musst dir Waffen aussuchen und sie in deinem Rucksack platzieren.">
+      <notes>
+        <note category="german">Du musst dir Waffen aussuchen und sie in deinem Rucksack platzieren.</note>
+      </notes>
+      <segment>
+        <source>Du musst dir Waffen aussuchen und sie in deinem Rucksack platzieren.</source>
+        <target>Vous devez choisir des armes et les placer dans votre sac</target>
+      </segment>
+    </unit>
+    <unit id="XJf4afo" name="5388829">
+      <notes>
+        <note category="german">Beachte die Stärken und Schwächen deines Berufs, genau wie deinen Gesundheitszustand!</note>
+      </notes>
+      <segment>
+        <source>Beachte die Stärken und Schwächen deines Berufs, genau wie deinen Gesundheitszustand!</source>
+        <target>Prenez en compte les caractéristiques de votre métier, et votre état de santé</target>
+      </segment>
+    </unit>
+    <unit id="26offDf" name="a740c80">
+      <notes>
+        <note category="german">Alle Waffen oder Verteidigungsgegenstände, die du während der Nachtwache benutzt, werden danach zerstört. Waffen mit mehr als einem Schuss werden eine Ladung verlie</note>
+      </notes>
+      <segment>
+        <source>Alle Waffen oder Verteidigungsgegenstände, die du während der Nachtwache benutzt, werden danach zerstört. Waffen mit mehr als einem Schuss werden eine Ladung verlie</source>
+        <target>Toutes les armes ou protections portées seront détruites ou cassées à la fin d'une veille, les armes ayant plusieurs charges se videront une durant cette nuit.</target>
+      </segment>
+    </unit>
+    <unit id="4yvcfEV" name="Wie funktioniert das?">
+      <notes>
+        <note category="german">Wie funktioniert das?</note>
+      </notes>
+      <segment>
+        <source>Wie funktioniert das?</source>
+        <target>Comment ça marche ?</target>
+      </segment>
+    </unit>
+    <unit id="Ues_yQo" name="ac355fc">
+      <notes>
+        <note category="german">Während des Angriffs greift die Nachtwache ein, wenn Zombies die Stadtmauern überwinden:</note>
+      </notes>
+      <segment>
+        <source>Während des Angriffs greift die Nachtwache ein, wenn Zombies die Stadtmauern überwinden:</source>
+        <target>Pendant l'attaque de la ville, si des zombies franchissent les défenses de la ville, les veilleurs interviennent :</target>
+      </segment>
+    </unit>
+    <unit id="SBOw_Gi" name="Die Zombies verteilen sich zufällig auf die Nachtwächter.">
+      <notes>
+        <note category="german">Die Zombies verteilen sich zufällig auf die Nachtwächter.</note>
+      </notes>
+      <segment>
+        <source>Die Zombies verteilen sich zufällig auf die Nachtwächter.</source>
+        <target>Les zombies attaquent les veilleurs au hasard</target>
+      </segment>
+    </unit>
+    <unit id="hdHpohH" name="Jeder Wächter nutzt seinen gesamten Rucksack.">
+      <notes>
+        <note category="german">Jeder Wächter nutzt seinen gesamten Rucksack.</note>
+      </notes>
+      <segment>
+        <source>Jeder Wächter nutzt seinen gesamten Rucksack.</source>
+        <target>Chaque veilleur utilise les armes présentes dans son sac</target>
+      </segment>
+    </unit>
+    <unit id="TCvh3Fn" name="9fd80f1">
+      <notes>
+        <note category="german">Deine Stati beeinflussen deine Stärke auf der Wacht sowie deine Überlebenschance. &lt;strong&gt;Achtung! Deine Zustände werden vor dem Angriff aktualisiert. Solltest du also zum Beispiel verletzt auf Wacht gehen, wirst du zum Zeitpunkt des Angriffs bereits eine Infektion haben!&lt;/strong&gt;</note>
+      </notes>
+      <segment>
+        <source>Deine Stati beeinflussen deine Stärke auf der Wacht sowie deine Überlebenschance. - &lt;strong&gt;Achtung! Deine Zustände werden vor dem Angriff aktualisiert. Solltest du also zum Beispiel verletzt auf Wacht gehen, wirst du zum Zeitpunkt des Angriffs bereits eine Infektion haben!&lt;/strong&gt;</source>
+        <target><![CDATA[Vos états influencent votre capacité à défendre la ville, mais aussi sur vos chances de survies. <strong>Attention ! Les états évoluent avant l'attaque, ainsi si vous êtes blessé lorsque vous vous mettez Veilleur, au moment de l'attaque, l'infection aura déjà commencé !!</strong>]]></target>
+      </segment>
+    </unit>
+    <unit id="fP9_VRc" name="Welche risiken gibt es?">
+      <notes>
+        <note category="german">Welche risiken gibt es?</note>
+      </notes>
+      <segment>
+        <source>Welche risiken gibt es?</source>
+        <target>Quels sont les risques ?</target>
+      </segment>
+    </unit>
+    <unit id="2Dby_nW" name="9503d09">
+      <notes>
+        <note category="german">Ein Nachtwächter hat eine &lt;strong&gt;10% Chance eine Verletzung oder Angststarre zu erleiden&lt;/strong&gt;. Zudem gibt es eine &lt;strong&gt;5% Chance von den attackierenden Zombies getötet zu werden.&lt;/strong&gt;</note>
+      </notes>
+      <segment>
+        <source>Ein Nachtwächter hat eine &lt;strong&gt;10% Chance eine Verletzung oder Angststarre zu erleiden&lt;/strong&gt;. Zudem gibt es eine &lt;strong&gt;8% Chance von den attackierenden Zombies getötet zu werden.&lt;/strong&gt;</source>
+        <target><![CDATA[Un veilleur a <strong>10% de chance d'être blessé ou terrorisé</strong> et à <strong>5% de chance d'être tué</strong> pendant l'assaut des Hordes...]]></target>
+      </segment>
+    </unit>
+    <unit id="P03SDOS" name="0bd3b10">
+      <notes>
+        <note category="german">Helden mit dem Beruf Wächter haben zusätzliche &lt;strong&gt;5%&lt;/strong&gt; Bonus auf ihre Überlebenschancen.</note>
+      </notes>
+      <segment>
+        <source>Helden mit dem Beruf Wächter haben zusätzliche &lt;strong&gt;5%&lt;/strong&gt; Bonus auf ihre Überlebenschancen.</source>
+        <target><![CDATA[Le Gardien possède un bonus de survie de <strong>5%</strong>. Il peut donc espérer revenir vivant d'une veille.]]></target>
+      </segment>
+    </unit>
+    <unit id="KcwYzN9" name="Was, wenn ich doch nicht will?">
+      <notes>
+        <note category="german">Was, wenn ich doch nicht will?</note>
+      </notes>
+      <segment>
+        <source>Was, wenn ich doch nicht will?</source>
+        <target>Et si j'ai finalement la trouille ?</target>
+      </segment>
+    </unit>
+    <unit id="1lKcmf6" name="Du kannst deinen Posten bis 23:59 verlassen.">
+      <notes>
+        <note category="german">Du kannst deinen Posten bis 23:59 verlassen.</note>
+      </notes>
+      <segment>
+        <source>Du kannst deinen Posten bis 23:59 verlassen.</source>
+        <target>Vous pouvez renoncer à votre poste de veilleur jusqu'à 23h59.</target>
+      </segment>
+    </unit>
+    <unit id="XlKohlV" name="f307fd3">
+      <notes>
+        <note category="german">Das heißt allerdings nicht, dass deine stadtloyalen Mitbürger dein Handeln auch gutheißen würden...</note>
+      </notes>
+      <segment>
+        <source>Das heißt allerdings nicht, dass deine stadtloyalen Mitbürger dein Handeln auch gutheißen würden...</source>
+        <target>Il n'est pas dit cependant que les citoyens apprécient ce geste...</target>
+      </segment>
+    </unit>
+    <unit id="_bckoqm" name="07a7a0c">
+      <notes>
+        <note category="german">Achtung! Wenn die Anzahl der Angreifer höher ist als die Stadtverteidigung sinken die Überlebenschancen der Nachtwächter! In solchen Situationen wird sich zeigen, wer die wahren Helden der Stadt sind.</note>
+      </notes>
+      <segment>
+        <source>Achtung! Wenn die Anzahl der Angreifer höher ist als die Stadtverteidigung sinken die Überlebenschancen der Nachtwächter! In solchen Situationen wird sich zeigen, wer die wahren Helden der Stadt sind.</source>
+        <target>Attention, si le nombre de zombies attaquant pendant la nuit est supérieur aux défenses de la ville, les chances de survie des veilleurs baissent drastiquement ! C'est à ce moment là que vous verrez qui sont les vrais défenseurs de la ville.</target>
+      </segment>
+    </unit>
+    <unit id="SVBBTil" name="81aa835">
+      <notes>
+        <note category="german">Über den Abschnitt "Bürger" gelangst du zum &lt;strong&gt;Haus eines jeden einzelnen Bürgers&lt;/strong&gt;. Dort gibt es einen Knopf
+&lt;strong&gt;ANZEIGEN&lt;/strong&gt;. Wenn du ihn betätigst kannst du eine Beschwerde gegen jemanden einreichen.</note>
+      </notes>
+      <segment>
+        <source>Über den Abschnitt "Bürger" gelangst du zum &lt;strong&gt;Haus eines jeden einzelnen Bürgers&lt;/strong&gt;. Dort gibt es einen Knopf
+&lt;strong&gt;ANZEIGEN&lt;/strong&gt;. Wenn du ihn betätigst kannst du eine Beschwerde gegen jemanden einreichen.</source>
+        <target><![CDATA[Lorsque vous vous rendez <strong>dans la maison d'un joueur</strong>, depuis la section Citoyens, vous pouvez le <strong>DÉNONCER</strong>.]]></target>
+      </segment>
+    </unit>
+    <unit id="7r2rDuw" name="2e4eb5a">
+      <notes>
+        <note category="german">Wenn &lt;strong&gt;8 Anzeigen&lt;/strong&gt; gegen einen Bürger eingegangen sind, wird er &lt;strong&gt;aus der Gemeinschaft ausgeschlossen&lt;/strong&gt;.</note>
+      </notes>
+      <segment>
+        <source>Wenn &lt;strong&gt;8 Anzeigen&lt;/strong&gt; gegen einen Bürger eingegangen sind, wird er &lt;strong&gt;aus der Gemeinschaft ausgeschlossen&lt;/strong&gt;.</source>
+        <target><![CDATA[Cette action comptabilisera une plainte contre ce citoyen. Si <strong>8&nbsp;plaintes</strong> sont déposées à l'encontre de ce citoyen, il sera <strong>banni de la communauté</strong>.]]></target>
+      </segment>
+    </unit>
+    <unit id="fRp9wJc" name="Auswirkungen einer Verbannung">
+      <notes>
+        <note category="german">Auswirkungen einer Verbannung</note>
+      </notes>
+      <segment>
+        <source>Auswirkungen einer Verbannung</source>
+        <target>Effets du bannissement</target>
+      </segment>
+    </unit>
+    <unit id="SBWUlyf" name="c788451">
+      <notes>
+        <note category="german">Alle wichtigen Gegenstände des Verbannten (Holz, Metall, Waffen etc...) werden &lt;strong&gt;der Bank zurückgegeben&lt;/strong&gt;.</note>
+      </notes>
+      <segment>
+        <source>Alle wichtigen Gegenstände des Verbannten (Holz, Metall, Waffen etc...) werden &lt;strong&gt;der Bank zurückgegeben&lt;/strong&gt;.</source>
+        <target><![CDATA[Tous les objets considérés comme primordiaux pour la communauté <strong>sont renvoyés dans la banque de la ville</strong> (bois, métal, défenses...etc).]]></target>
+      </segment>
+    </unit>
+    <unit id="kYx3L.F" name="Darüber hinaus kann ein Verbannter folgende Dinge nicht mehr tun:">
+      <notes>
+        <note category="german">Darüber hinaus kann ein Verbannter folgende Dinge nicht mehr tun:</note>
+      </notes>
+      <segment>
+        <source>Darüber hinaus kann ein Verbannter folgende Dinge nicht mehr tun:</source>
+        <target>Un citoyen banni ne peut plus :</target>
+      </segment>
+    </unit>
+    <unit id="0PsYUsW" name="c05ad4e">
+      <notes>
+        <note category="german">Er kann keine Gegenstände mehr aus der Bank nehmen (er kann allerdings noch welche abliefern).</note>
+      </notes>
+      <segment>
+        <source>Er kann keine Gegenstände mehr aus der Bank nehmen (er kann allerdings noch welche abliefern).</source>
+        <target>prendre des objets de la banque (il peut toutefois toujours déposer des objets),</target>
+      </segment>
+    </unit>
+    <unit id="MKTaYm7" name="c5cc720">
+      <notes>
+        <note category="german">Er kann kein zusätzliches Wasser aus dem Brunnen nehmen (seine tägliche Ration wird ihm aber zugestanden).</note>
+      </notes>
+      <segment>
+        <source>Er kann kein zusätzliches Wasser aus dem Brunnen nehmen (seine tägliche Ration wird ihm aber zugestanden).</source>
+        <target>prendre de l'eau supplémentaire au puits (la ration quotidienne reste autorisée),</target>
+      </segment>
+    </unit>
+    <unit id="v3Wnkkv" name="Er kann nicht mehr auf den Baustellen arbeiten.">
+      <notes>
+        <note category="german">Er kann nicht mehr auf den Baustellen arbeiten.</note>
+      </notes>
+      <segment>
+        <source>Er kann nicht mehr auf den Baustellen arbeiten.</source>
+        <target>participer aux chantiers,</target>
+      </segment>
+    </unit>
+    <unit id="3iLNW3K" name="Er darf die Werkstatt nicht mehr benutzen.">
+      <notes>
+        <note category="german">Er darf die Werkstatt nicht mehr benutzen.</note>
+      </notes>
+      <segment>
+        <source>Er darf die Werkstatt nicht mehr benutzen.</source>
+        <target>utiliser l'atelier,</target>
+      </segment>
+    </unit>
+    <unit id="K7nYZNw" name="Er darf das Stadttor nicht mehr bedienen.">
+      <notes>
+        <note category="german">Er darf das Stadttor nicht mehr bedienen.</note>
+      </notes>
+      <segment>
+        <source>Er darf das Stadttor nicht mehr bedienen.</source>
+        <target>manipuler les portes de la ville,</target>
+      </segment>
+    </unit>
+    <unit id="R9_ggeD" name="Er selbst darf keine Anzeigen mehr erstatten.">
+      <notes>
+        <note category="german">Er selbst darf keine Anzeigen mehr erstatten.</note>
+      </notes>
+      <segment>
+        <source>Er selbst darf keine Anzeigen mehr erstatten.</source>
+        <target>déposer des plaintes.</target>
+      </segment>
+    </unit>
+    <unit id="mIfaDz." name="6b918bd">
+      <notes>
+        <note category="german">Allerdings verfügt er über &lt;span x-ajax-href=%url_shun%&gt;neue Fähigkeiten&lt;/span&gt;, die ihm zu überleben helfen.</note>
+      </notes>
+      <segment>
+        <source>Allerdings verfügt er über &lt;span x-ajax-href=%url_shun%&gt;neue Fähigkeiten&lt;/span&gt;, die ihm zu überleben helfen.</source>
+        <target><![CDATA[Toutefois, il dispose de <span x-ajax-href=%url_shun%>nouvelles capacités</span> pour avoir une chance de survivre seul...]]></target>
+      </segment>
+    </unit>
+    <unit id="gUwGqzo" name="Einen anderen Einwohner bestehlen">
+      <notes>
+        <note category="german">Einen anderen Einwohner bestehlen</note>
+      </notes>
+      <segment>
+        <source>Einen anderen Einwohner bestehlen</source>
+        <target>Voler un citoyen</target>
+      </segment>
+    </unit>
+    <unit id="W3f3LtL" name="6d54b48">
+      <notes>
+        <note category="german">Es ist möglich in das Haus eines anderen Bürgers einzudringen und etwas von ihm zu stehlen. Dazu musst das zukünftige Opfer außer Haus sein, sprich: in der Außenwelt. &lt;strong&gt;Einmal am Tag kann du dein Glück versuchen.&lt;/strong&gt;</note>
+      </notes>
+      <segment>
+        <source>Es ist möglich in das Haus eines anderen Bürgers einzudringen und etwas von ihm zu stehlen. Dazu musst das zukünftige Opfer außer Haus sein, sprich: in der Außenwelt. &lt;strong&gt;Einmal am Tag kann du dein Glück versuchen.&lt;/strong&gt;</source>
+        <target><![CDATA[Il est possible de rentrer dans la maison d'un citoyen pendant son absence, c'est-à-dire lorsqu'il(elle) se trouve dans l'Outre-Monde. <strong>Vous pouvez alors (1 fois par jour) décider de lui voler un objet.</strong>]]></target>
+      </segment>
+    </unit>
+    <unit id="qgbKGp1" name="551a22c">
+      <notes>
+        <note category="german">&lt;strong&gt;Die Wahrscheinlichkeit bei einem Diebstahl erwischt zu werden beträgt 50%.&lt;/strong&gt; Wenn du ertappt wirst, wird die ganze Stadt darüber informiert und dein Name wird im Bürgerverzeichnis rot markiert! Deine Strafe liegt im freien Ermessen deiner Mitbürger...</note>
+      </notes>
+      <segment>
+        <source>&lt;strong&gt;Die Wahrscheinlichkeit bei einem Diebstahl erwischt zu werden beträgt 50%.&lt;/strong&gt; Wenn du ertappt wirst, wird die ganze Stadt darüber informiert und dein Name wird im Bürgerverzeichnis rot markiert! Deine Strafe liegt im freien Ermessen deiner Mitbürger...</source>
+        <target><![CDATA[<strong>Un vol a 50% de chances d'être repéré</strong>, tous les citoyens en seront alors informés (votre nom apparaît en rouge dans les registres de la ville) ! Les conséquences sont laissées à la libre appréciation de vos concitoyens...]]></target>
+      </segment>
+    </unit>
+    <unit id="6uRlyfe" name="Hängung">
+      <notes>
+        <note category="german">Hängung</note>
+      </notes>
+      <segment>
+        <source>Hängung</source>
+        <target>Elimination</target>
+      </segment>
+    </unit>
+    <unit id="asIi2cN" name="1d25d28">
+      <notes>
+        <note category="german">Wenn ein Stadteinwohner zu einer ernstzunehmenden Bedrohung für die Gemeinschaft wird, muss manchmal eine drastischere Maßnahme ergriffen werden.</note>
+      </notes>
+      <segment>
+        <source>Wenn ein Stadteinwohner zu einer ernstzunehmenden Bedrohung für die Gemeinschaft wird, muss manchmal eine drastischere Maßnahme ergriffen werden.</source>
+        <target>Lorsqu'un citoyen devient un réel danger pour la communauté, il est parfois nécessaire d'aller plus loin.</target>
+      </segment>
+    </unit>
+    <unit id="iypc4j5" name="6ca2006">
+      <notes>
+        <note category="german">Die Bürger errichten in so einem Fall einen Galgen auf der Baustelle, um den Störer kurz und (fast) schmerzlos los zu werden.</note>
+      </notes>
+      <segment>
+        <source>Die Bürger errichten in so einem Fall einen Galgen auf der Baustelle, um den Störer kurz und (fast) schmerzlos los zu werden.</source>
+        <target>Les citoyens peuvent alors monter une potence aux chantiers afin d'éliminer définitivement le gêneur. Pour le pendre, il faut accumuler à nouveau le quota de plaintes requises, comme pour un bannissement.</target>
+      </segment>
+    </unit>
+    <unit id="xgO4EsA" name="250e8b8">
+      <notes>
+        <note category="german">Damit ein Spieler gehängt werden kann, muss die gleiche Anzahl an Beschwerden gesammelt werden wie für seine Verbannung. Wie bei der Verbannung werden seine Gegenstände und Habseligkeiten nach seinem Tod wieder der Bank zurückgegeben.</note>
+      </notes>
+      <segment>
+        <source>Damit ein Spieler gehängt werden kann, muss die gleiche Anzahl an Beschwerden gesammelt werden wie für seine Verbannung. Wie bei der Verbannung werden seine Gegenstände und Habseligkeiten nach seinem Tod wieder der Bank zurückgegeben.</source>
+        <target>Comme pour le bannissement, les objets que possèdent le pendu sont tous rendus à la ville (banque).</target>
+      </segment>
+    </unit>
+    <unit id="_LKCr3d" name="6697eaf">
+      <notes>
+        <note category="german">Hinweis: Es gibt noch weitere Möglichkeiten, unerwünschte Mitbürger loszuwerden (Mord, Fleischkäfig,...).</note>
+      </notes>
+      <segment>
+        <source>Hinweis: Es gibt noch weitere Möglichkeiten, unerwünschte Mitbürger loszuwerden (Mord, Fleischkäfig,...).</source>
+        <target>Note : il existe d'autres moyens de se débarasser des indésirables (meurtre, cage à viande, ...).</target>
+      </segment>
+    </unit>
+    <unit id="WEMV.Xr" name="Aufstand der Verbannten">
+      <notes>
+        <note category="german">Aufstand der Verbannten</note>
+      </notes>
+      <segment>
+        <source>Aufstand der Verbannten</source>
+        <target>Insurrection des bannis</target>
+      </segment>
+    </unit>
+    <unit id="NFZoXWz" name="271b25b">
+      <notes>
+        <note category="german">Die Verbannten können jeden Tag einen Aufstand versuchen.
+&lt;strong&gt;Wenn es ihnen gelingt, einen Umsturz zu organisieren, werden alle freien Bürger verbannt und die Verbannten ziehen in die Stadt ein.&lt;/strong&gt;</note>
+      </notes>
+      <segment>
+        <source>Die Verbannten können jeden Tag einen Aufstand versuchen.
+&lt;strong&gt;Wenn es ihnen gelingt, einen Umsturz zu organisieren, werden alle freien Bürger verbannt und die Verbannten ziehen in die Stadt ein.&lt;/strong&gt;</source>
+        <target><![CDATA[Chaque jour, les parias (citoyens bannis) d'une ville ont le droit de contribuer à une insurrection. <strong>S'ils parviennent à la mener à bien, tous les citoyens libres seront bannis tandis que les parias retrouveront leur liberté.</strong>]]></target>
+      </segment>
+    </unit>
+    <unit id="yuCXuFH" name="Die Regeln lauten wie folgt:">
+      <notes>
+        <note category="german">Die Regeln lauten wie folgt:</note>
+      </notes>
+      <segment>
+        <source>Die Regeln lauten wie folgt:</source>
+        <target>Les règles sont les suivantes :</target>
+      </segment>
+    </unit>
+    <unit id="g577mMw" name="Jeder Verbannte kann einmal pro Tag auf den Aufstand hinarbeiten.">
+      <notes>
+        <note category="german">Jeder Verbannte kann einmal pro Tag auf den Aufstand hinarbeiten.</note>
+      </notes>
+      <segment>
+        <source>Jeder Verbannte kann einmal pro Tag auf den Aufstand hinarbeiten.</source>
+        <target>chaque paria peut contribuer à l'insurrection une fois par jour,</target>
+      </segment>
+    </unit>
+    <unit id="XGqpTYW" name="b96ce3f">
+      <notes>
+        <note category="german">Damit der Aufstand gelingen kann, müssen sich alle Verbannten jeden Tag für ihren Umsturzversuch einsetzen.</note>
+      </notes>
+      <segment>
+        <source>Damit der Aufstand gelingen kann, müssen sich alle Verbannten jeden Tag für ihren Umsturzversuch einsetzen.</source>
+        <target>il faut que chaque paria contribue à l'insurrection chaque jour, pour avoir une chance qu'elle se réalise,</target>
+      </segment>
+    </unit>
+    <unit id="J0MQzCj" name="In der gesamten Lebensdauer einer Stadt kann es höchstens einen Aufstand geben.">
+      <notes>
+        <note category="german">In der gesamten Lebensdauer einer Stadt kann es höchstens einen Aufstand geben.</note>
+      </notes>
+      <segment>
+        <source>In der gesamten Lebensdauer einer Stadt kann es höchstens einen Aufstand geben.</source>
+        <target>il ne peut survenir qu'une seule insurrection dans toute l'existence d'une ville.</target>
+      </segment>
+    </unit>
+    <unit id="7xKNw6_" name="94bdd92">
+      <notes>
+        <note category="german">Der Erfolg eines Aufstands bemisst sich unter anderem an folgenden Kriterien: Anzahl der Verbannten, Anzahl der freien Bürger, Anzahl der Überlebenden und das Kräfteverhältnis dieser Gruppen zueinander.</note>
+      </notes>
+      <segment>
+        <source>Der Erfolg eines Aufstands bemisst sich unter anderem an folgenden Kriterien: Anzahl der Verbannten, Anzahl der freien Bürger, Anzahl der Überlebenden und das Kräfteverhältnis dieser Gruppen zueinander.</source>
+        <target>Le système d'insurrection prend en compte (entre autres) le nombre de parias, le nombre de citoyens libres, le nombre de survivants et le rapport des forces.</target>
+      </segment>
+    </unit>
+    <unit id="Sjl24wJ" name="c7a2947">
+      <notes>
+        <note category="german">Beispiel: Zehn Verbannte brauchen wesentlich kürzer für einen Aufstand als drei. Während bei zehn Verbannten nur ein paar Tage reichen können, benötigen drei dazu ungefähr 20 Tage!</note>
+      </notes>
+      <segment>
+        <source>Beispiel: Zehn Verbannte brauchen wesentlich kürzer für einen Aufstand als drei. Während bei zehn Verbannten nur ein paar Tage reichen können, benötigen drei dazu ungefähr 20 Tage!</source>
+        <target>Exemple : si 10 citoyens sont bannis, il leur faudra très peu de jours pour mener une insurrection. Si seulement 3 citoyens sont bannis, il leur faudra compter près d'une vingtaine de jours !</target>
+      </segment>
+    </unit>
+    <unit id="PeNvZiE" name="701edd7">
+      <notes>
+        <note category="german">Die Vorbereitung eines Aufstandes ist eine langwierige Angelegenheit. Jeder Verbannte muss sich jeden Tag darum bemühen!</note>
+      </notes>
+      <segment>
+        <source>Die Vorbereitung eines Aufstandes ist eine langwierige Angelegenheit. Jeder Verbannte muss sich jeden Tag darum bemühen!</source>
+        <target>Préparer une insurrection est une tâche de longue haleine : chaque paria doit y contribuer tous les jours pour accélérer les choses !</target>
+      </segment>
+    </unit>
+    <unit id="gdcRvIb" name="Strategien der Verbannten">
+      <notes>
+        <note category="german">Strategien der Verbannten</note>
+      </notes>
+      <segment>
+        <source>Strategien der Verbannten</source>
+        <target>Stratégie de banni</target>
+      </segment>
+    </unit>
+    <unit id="1g.BYqC" name="be8a971">
+      <notes>
+        <note category="german">Ein verbannter Stadtbürger kann nicht mehr auf die Ressourcen der Stadt zugreifen und muss sich deswegen etwas anderes einfallen lassen, wenn er überleben möchte.</note>
+      </notes>
+      <segment>
+        <source>Ein verbannter Stadtbürger kann nicht mehr auf die Ressourcen der Stadt zugreifen und muss sich deswegen etwas anderes einfallen lassen, wenn er überleben möchte.</source>
+        <target>Une fois banni, un citoyen ne peut plus utiliser les installations de la ville, donc pour obtenir ce dont il a besoin pour survivre, il doit se débrouiller seul en adoptant des méthodes moins orthodoxes.</target>
+      </segment>
+    </unit>
+    <unit id="Dpp2zR0" name="Folgende Möglichkeiten stehen ihm offen:">
+      <notes>
+        <note category="german">Folgende Möglichkeiten stehen ihm offen:</note>
+      </notes>
+      <segment>
+        <source>Folgende Möglichkeiten stehen ihm offen:</source>
+        <target>À partir de ce moment, ils auront deux actions spéciales:</target>
+      </segment>
+    </unit>
+    <unit id="mD2oD1y" name="6391281">
+      <notes>
+        <note category="german">&lt;strong&gt;Er kann in den Abfällen der Stadt graben&lt;/strong&gt;: Diese Aktion geschieht vor dem Stadtor und erlaubt es manchmal, ein paar Kleinigkeiten minderer Qualität abzustauben...</note>
+      </notes>
+      <segment>
+        <source>&lt;strong&gt;Er kann in den Abfällen der Stadt graben&lt;/strong&gt;: Diese Aktion geschieht vor dem Stadtor und erlaubt es manchmal, ein paar Kleinigkeiten minderer Qualität abzustauben...</source>
+        <target><![CDATA[<strong>Fouillez les déchets de la ville</strong>: cette action est réalisée aux portes de la ville (à l'extérieur) et permet de trouver des morceaux de très mauvaise qualité. Cependant, ils pourraient être utiles...]]></target>
+      </segment>
+    </unit>
+    <unit id="3i9s1Wp" name="5fd93ef">
+      <notes>
+        <note category="german">&lt;strong&gt;Seinen Rucksackinhalt verstecken&lt;/strong&gt;: In der Außenwelt ist diese Maßnahme ein probates Mittel, um den Inhalt seines Rucksacks vor den anderen Bürgern zu verstecken. Nur die Verbannten können derart versteckte Gegenstände sehen und aufsammeln. Allerdings besteht die geringe Wahrscheinlichkeit, dass normale Bürger diese Verstecke beim Graben finden.</note>
+      </notes>
+      <segment>
+        <source>&lt;strong&gt;Seinen Rucksackinhalt verstecken&lt;/strong&gt;: In der Außenwelt ist diese Maßnahme ein probates Mittel, um den Inhalt seines Rucksacks vor den anderen Bürgern zu verstecken. Nur die Verbannten können derart versteckte Gegenstände sehen und aufsammeln. Allerdings besteht die geringe Wahrscheinlichkeit, dass normale Bürger diese Verstecke beim Graben finden.</source>
+        <target><![CDATA[<strong>Cachez votre sac à dos</strong>: cette action permet aux bannis de cacher le contenu de leur sac à dos. Seuls les bannis peuvent voir et collecter les objets ainsi dissimulés. Cependant, les citoyens normaux ont une petite chance de découvrir la cache lors de la recherche.]]></target>
+      </segment>
+    </unit>
+    <unit id="fGTGKwo" name="247c014">
+      <notes>
+        <note category="german">Wenn eine Stadt kurz vor dem Untergang steht, wird der Chaoszustand ausgerufen. Dieser Zustand kann nicht aufgehoben werden. Folgende Bedingungen müssen alle erfüllt sein, damit der Chaoszustand ausgerufen wird:</note>
+      </notes>
+      <segment>
+        <source>Wenn eine Stadt kurz vor dem Untergang steht, wird der Chaoszustand ausgerufen. Dieser Zustand kann nicht aufgehoben werden. Folgende Bedingungen müssen alle erfüllt sein, damit der Chaoszustand ausgerufen wird:</source>
+        <target>Lorsqu'une ville se trouve au bord de l'extinction, elle est déclarée en période de Chaos. Il n'est pas possible de sortir de cet état. Ce mode se déclenche si, à la suite d'une attaque, toutes les conditions suivantes sont réunies :</target>
+      </segment>
+    </unit>
+    <unit id="aDtihWN" name="cbbc3ee">
+      <notes>
+        <note category="german">Die Stadt hat weniger als &lt;strong&gt;10 Einwohner&lt;/strong&gt;, die sich in der Stadt aufhalten (Camper zählen nicht dazu).</note>
+      </notes>
+      <segment>
+        <source>Die Stadt hat weniger als &lt;strong&gt;10 Einwohner&lt;/strong&gt;, die sich in der Stadt aufhalten (Camper zählen nicht dazu).</source>
+        <target><![CDATA[la ville compte <strong>10 habitants ou moins (en ville ou dehors)</strong>]]></target>
+      </segment>
+    </unit>
+    <unit id="rFquqwT" name="Die Stadt muss &lt;strong&gt;länger als 3 Tage überlebt haben&lt;/strong&gt;.">
+      <notes>
+        <note category="german">Die Stadt muss &lt;strong&gt;länger als 3 Tage überlebt haben&lt;/strong&gt;.</note>
+      </notes>
+      <segment>
+        <source>Die Stadt muss &lt;strong&gt;länger als 3 Tage überlebt haben&lt;/strong&gt;.</source>
+        <target><![CDATA[la ville a <strong>plus de 3 jours d'existence</strong>.]]></target>
+      </segment>
+    </unit>
+    <unit id="YdlXl5I" name="0f9ec76">
+      <notes>
+        <note category="german">In einer Stadt, in der das Chaos herrscht, gilt kein Gesetz mehr. Gewisse Spielregeln ändern sich in diesem Fall:</note>
+      </notes>
+      <segment>
+        <source>In einer Stadt, in der das Chaos herrscht, gilt kein Gesetz mehr. Gewisse Spielregeln ändern sich in diesem Fall:</source>
+        <target>Une ville sous l'emprise du Chaos n'a plus de loi. Par conséquent, certaines règles changent radicalement :</target>
+      </segment>
+    </unit>
+    <unit id="2TgvYMF" name="Die Verbannungen sind aufgehoben.">
+      <notes>
+        <note category="german">Die Verbannungen sind aufgehoben.</note>
+      </notes>
+      <segment>
+        <source>Die Verbannungen sind aufgehoben.</source>
+        <target>les bannissements sont levés,</target>
+      </segment>
+    </unit>
+    <unit id="VWtGuv0" name="Anzeigen haben keine Wirkungen mehr.">
+      <notes>
+        <note category="german">Anzeigen haben keine Wirkungen mehr.</note>
+      </notes>
+      <segment>
+        <source>Anzeigen haben keine Wirkungen mehr.</source>
+        <target>les plaintes n'ont plus d'effet,</target>
+      </segment>
+    </unit>
+    <unit id="s14hiXU" name="da4969a">
+      <notes>
+        <note category="german">Häuser verstorbener Mitbürger können &lt;strong&gt;unbegrenzt&lt;/strong&gt; geplündert werden (Normalerweise: 1 Gegenstand pro Tag und Spieler).</note>
+      </notes>
+      <segment>
+        <source>Häuser verstorbener Mitbürger können &lt;strong&gt;unbegrenzt&lt;/strong&gt; geplündert werden (Normalerweise: 1 Gegenstand pro Tag und Spieler).</source>
+        <target><![CDATA[les pillages (des morts) et les vols ne sont <strong>plus</strong> limités à 1 objet par personne et par jour,]]></target>
+      </segment>
+    </unit>
+    <unit id="QzJ_aSm" name="Der Diebstahlschutz in den Privathäusern funktioniert nicht mehr.">
+      <notes>
+        <note category="german">Der Diebstahlschutz in den Privathäusern funktioniert nicht mehr.</note>
+      </notes>
+      <segment>
+        <source>Der Diebstahlschutz in den Privathäusern funktioniert nicht mehr.</source>
+        <target>il n'y a plus d'anti-abus sur la construction de sa propre maison,</target>
+      </segment>
+    </unit>
+    <unit id="C6304la" name="25c7f33">
+      <notes>
+        <note category="german">Wenn sich jemand in der Außenwelt befindet, werden seine Koordinaten nicht mehr im Bürgerverzeichnis angezeigt.</note>
+      </notes>
+      <segment>
+        <source>Wenn sich jemand in der Außenwelt befindet, werden seine Koordinaten nicht mehr im Bürgerverzeichnis angezeigt.</source>
+        <target>les coordonnées d'un citoyen sorti dans l'Outre-Monde ne sont plus visibles dans la section Citoyens de la ville,</target>
+      </segment>
+    </unit>
+    <unit id="I40x8LE" name="6cf7fe8">
+      <notes>
+        <note category="german">Es können doppelt so viele Gegenstände aus der Bank entnommen werden wie sonst.</note>
+      </notes>
+      <segment>
+        <source>Es können doppelt so viele Gegenstände aus der Bank entnommen werden wie sonst.</source>
+        <target>le nombre de prises d'objets à la banque est doublé (avant de déclencher l'anti-abus).</target>
+      </segment>
+    </unit>
+    <unit id="wWhWb3E" name="b06e6ef">
+      <notes>
+        <note category="german">&lt;strong&gt;Das Katapult ist ein äußerst mächtiges Werkzeug, mit dem die Stadt jede Art von Gegenstand in die Wüste schießen kann.&lt;/strong&gt; Das ist sehr nützlich, wenn man weit entfernte Bürger versorgen möchte (Lebensmittel, Wasser, Waffen etc...).</note>
+      </notes>
+      <segment>
+        <source>&lt;strong&gt;Das Katapult ist ein äußerst mächtiges Werkzeug, mit dem die Stadt jede Art von Gegenstand in die Wüste schießen kann.&lt;/strong&gt; Das ist sehr nützlich, wenn man weit entfernte Bürger versorgen möchte (Lebensmittel, Wasser, Waffen etc...).</source>
+        <target><![CDATA[<strong>La catapulte est un outil vraiment très puissant permettant d'envoyer dans un secteur du désert n'importe quel objet.</strong> Pratique pour les ravitaillements à distance.]]></target>
+      </segment>
+    </unit>
+    <unit id="L7stCki" name="eb273ac">
+      <notes>
+        <note category="german">Es ist allerdings zu beachten, dass das Katapult &lt;i&gt;manchmal&lt;/i&gt; sein Ziel verfehlt und der verschossene Gegenstand in der benachbarten Zone landet. 
+Darüber hinaus besteht die Gefahr, dass manche, &lt;i&gt;seltene&lt;/i&gt; Gegenstände den Aufprall nicht unbeschadet überstehen.</note>
+      </notes>
+      <segment>
+        <source>Es ist allerdings zu beachten, dass das Katapult &lt;i&gt;manchmal&lt;/i&gt; sein Ziel verfehlt und der verschossene Gegenstand in der benachbarten Zone landet. 
+Darüber hinaus besteht die Gefahr, dass manche, &lt;i&gt;seltene&lt;/i&gt; Gegenstände den Aufprall nicht unbeschadet überstehen.</source>
+        <target><![CDATA[Notez qu'il arrive <i>parfois</i> que la catapulte manque sa cible et envoie l'objet dans une zone voisine... De plus, même si le responsable prendra toujours soin de protéger les colis envoyés, certains <i>rares</i> objets risquent de ne pas aimer le voyage.]]></target>
+      </segment>
+    </unit>
+    <unit id="6IQLOf8" name="518d694">
+      <notes>
+        <note category="german">Die Aktivierung des Katapults kostet %img_ap%. Diese Kosten können gesenkt werden, wenn das Katapult verbessert wird,</note>
+      </notes>
+      <segment>
+        <source>Die Aktivierung des Katapults kostet %img_ap%. Diese Kosten können gesenkt werden, wenn das Katapult verbessert wird,</source>
+        <target>Activer la catapulte coûte des %img_ap%, ce coût peut être réduit en construisant une version améliorée de ce chantier.</target>
+      </segment>
+    </unit>
+    <unit id="WWlZZMn" name="Wer ist für das Katapult verantwortlich?">
+      <notes>
+        <note category="german">Wer ist für das Katapult verantwortlich?</note>
+      </notes>
+      <segment>
+        <source>Wer ist für das Katapult verantwortlich?</source>
+        <target>Qui est le responsable de la catapulte ?</target>
+      </segment>
+    </unit>
+    <unit id="5Ri44at" name="13cf0cf">
+      <notes>
+        <note category="german">Es wird nach dem Zufallsprinzip ein Bürger bestimmt, der sich um das Katapult kümmert. Der Katapultverantwortliche wird nach folgendem Schema ausgewählt:</note>
+      </notes>
+      <segment>
+        <source>Es wird nach dem Zufallsprinzip ein Bürger bestimmt, der sich um das Katapult kümmert. Der Katapultverantwortliche wird nach folgendem Schema ausgewählt:</source>
+        <target>Le responsable est tiré aléatoirement parmi des citoyens préalablement sélectionnés :</target>
+      </segment>
+    </unit>
+    <unit id="c5hgFOA" name="a52ef46">
+      <notes>
+        <note category="german">Es werden zunächst die am gegebenen Tag aktiven Helden der Stadt für diese Aufgabe eingeteilt.</note>
+      </notes>
+      <segment>
+        <source>Es werden zunächst die am gegebenen Tag aktiven Helden der Stadt für diese Aufgabe eingeteilt.</source>
+        <target>dans un premier temps, les héros actifs aujourd'hui,</target>
+      </segment>
+    </unit>
+    <unit id="p4SXTR7" name="4205617">
+      <notes>
+        <note category="german">Wenn kein Bürger gefunden wurde, werden erneut die Helden der Stadt herangezogen.</note>
+      </notes>
+      <segment>
+        <source>Wenn kein Bürger gefunden wurde, werden erneut die Helden der Stadt herangezogen.</source>
+        <target>si aucun nom n'est obtenu, les héros de la ville,</target>
+      </segment>
+    </unit>
+    <unit id="HlXfeOx" name="28aea76">
+      <notes>
+        <note category="german">Wenn danach immer noch kein Verantwortlicher gefunden wurde, übernehmen die aktivsten Spieler des jeweiligen Tages diese Aufgabe.</note>
+      </notes>
+      <segment>
+        <source>Wenn danach immer noch kein Verantwortlicher gefunden wurde, übernehmen die aktivsten Spieler des jeweiligen Tages diese Aufgabe.</source>
+        <target>si toujours aucun nom n'est obtenu, les citoyens actifs aujourd'hui,</target>
+      </segment>
+    </unit>
+    <unit id="NGy2akh" name="23baf39">
+      <notes>
+        <note category="german">Sollten sich schließlich alle um diese Aufgabe drücken, trifft es einen zufällig ausgewählten Bürger.</note>
+      </notes>
+      <segment>
+        <source>Sollten sich schließlich alle um diese Aufgabe drücken, trifft es einen zufällig ausgewählten Bürger.</source>
+        <target>enfin, en désespoir de cause, un citoyen au hasard est sélectionné.</target>
+      </segment>
+    </unit>
+    <unit id="LnJv2UF" name="f155c3b">
+      <notes>
+        <note category="german">Kleine Städte (Kartentyp "Kleine Karte") sind für die neuen Spieler bei "MyHordes" gedacht. Hier geht es vor allem um das Lernen der Grundlagen. 
+Diese Städte sind darum auch weniger schwer und eine Stadt verfügt z.B. bereits über einige Gebäude. Grundsätzlich stehen diese Städte aber allen Spielern offen.</note>
+      </notes>
+      <segment>
+        <source>Kleine Städte (Kartentyp "Kleine Karte") sind für die neuen Spieler bei "Die Verdammten" gedacht. Hier geht es vor allem um das Lernen der Grundlagen. 
+Diese Städte sind darum auch weniger schwer und eine Stadt verfügt z.B. bereits über einige Gebäude. Grundsätzlich stehen diese Städte aber allen Spielern offen.</source>
+        <target>Les régions non éloignées sont des zones pour joueurs débutants dans le monde des hordes. Elles sont accessibles à tous et proposent un challenge moindre.</target>
+      </segment>
+    </unit>
+    <unit id="wo.9gpI" name="411e059">
+      <notes>
+        <note category="german">Punkte für Auszeichnungen erhalten nur jene Spieler, die mehr als 100 Seelenpunkte haben und die mindestens 8 Tage in der Stadt verbracht haben.</note>
+      </notes>
+      <segment>
+        <source>Punkte für Auszeichnungen erhalten nur jene Spieler, die mehr als 100 Seelenpunkte haben und die mindestens 8 Tage in der Stadt verbracht haben.</source>
+        <target>Les récompenses ne sont attribuées qu'au bout du huitième jour pour les joueurs possédant plus de 100 points d'âme (ou les atteignant à leur mort).</target>
+      </segment>
+    </unit>
+    <unit id="i.HjG2E" name="f29e359">
+      <notes>
+        <note category="german">Denk daran, im Gegensatz zu den 5-Tage-Regel in Kleinen Städten werden für erfahrene Spieler keine Auszeichnungen vor dem 8. Tag vergeben. Nach dem finalen Angriff (niemand mehr am Leben) werden die Belohnungen verteilt.</note>
+      </notes>
+      <segment>
+        <source>Denk daran, im Gegensatz zu den 5-Tage-Regel in Kleinen Städten werden für erfahrene Spieler keine Auszeichnungen vor dem 8. Tag vergeben. Nach dem finalen Angriff (niemand mehr am Leben) werden die Belohnungen verteilt.</source>
+        <target>Attention, contrairement à la règle du jour 5 en Région Eloignée, aucune récompense ne sera attribuée avant le jour 8 pour ces joueurs expérimentés. Lors de la dernière attaque (plus de survivants), les récompenses seront attribuées.</target>
+      </segment>
+    </unit>
+    <unit id="yMz03.8" name="Spiritueller Führer">
+      <notes>
+        <note category="german">Spiritueller Führer</note>
+      </notes>
+      <segment>
+        <source>Spiritueller Führer</source>
+        <target>Le Guide Spirituel</target>
+      </segment>
+    </unit>
+    <unit id="oXF7Uuq" name="540b3a7">
+      <notes>
+        <note category="german">Im Gegenzug kann man sich ab dem ersten Tag Punkte für den Titel &lt;strong&gt;Spiritueller Führer&lt;/strong&gt; verdienen.</note>
+      </notes>
+      <segment>
+        <source>Im Gegenzug kann man sich ab dem ersten Tag Punkte für den Titel &lt;strong&gt;Spiritueller Führer&lt;/strong&gt; verdienen.</source>
+        <target>En revanche, un titre est accessible dès le premier jour, le guide spirituel.</target>
+      </segment>
+    </unit>
+    <unit id="mPhdr0f" name="011c180">
+      <notes>
+        <note category="german">Versucht, so lange wie möglich in einer kleinen Stadt zu überleben.
+Kleine Städte stehen auch Spielern mit mehr als 100 Seelenpunkten offen, wenn sich mindestens 20 Bürger mit weniger als 100 Seelenpunkten in der Stadt befinden.
+Die Punkte für den Titel "Spiritueller Führer" kumulieren sich mit jedem Tag. Jeder überlebte Tag bringt die jeweilige Menge an Punkten.</note>
+      </notes>
+      <segment>
+        <source>Versucht, so lange wie möglich in einer kleinen Stadt zu überleben.
+Kleine Städte stehen auch Spielern mit mehr als 100 Seelenpunkten offen, wenn sich mindestens 20 Bürger mit weniger als 100 Seelenpunkten in der Stadt befinden.
+Die Punkte für den Titel "Spiritueller Führer" kumulieren sich mit jedem Tag. Jeder überlebte Tag bringt die jeweilige Menge an Punkten.</source>
+        <target>Chargé de faire durer une ville en RNE le plus longtemps possible. Il sera accessible aux joueurs ayant plus de 100 points d'âme, tant qu'ils parviennent à faire durer une ville contenant au moins 50% d'âmes de moins de 100 points. Les points de ce titre seront cumulatifs au fil des jours. Chaque jour passé offre son équivalent en nombre de point.</target>
+      </segment>
+    </unit>
+    <unit id="xF9YSOR" name="Beispiel:">
+      <notes>
+        <note category="german">Beispiel:</note>
+      </notes>
+      <segment>
+        <source>Beispiel:</source>
+        <target>Exemple :</target>
+      </segment>
+    </unit>
+    <unit id="FqacqHL" name="Tag 1: 1 Punkt">
+      <notes>
+        <note category="german">Tag 1: 1 Punkt</note>
+      </notes>
+      <segment>
+        <source>Tag 1: 1 Punkt</source>
+        <target>jour 1 : 1 point</target>
+      </segment>
+    </unit>
+    <unit id="Id8a.5D" name="Tag 2: 2 + 1 Punkte">
+      <notes>
+        <note category="german">Tag 2: 2 + 1 Punkte</note>
+      </notes>
+      <segment>
+        <source>Tag 2: 2 + 1 Punkte</source>
+        <target>jour 2 : 2 + 1 points</target>
+      </segment>
+    </unit>
+    <unit id="YKOIwEb" name="Tag 5: 5 + 4 + 3 + 2 + 1 Punkte">
+      <notes>
+        <note category="german">Tag 5: 5 + 4 + 3 + 2 + 1 Punkte</note>
+      </notes>
+      <segment>
+        <source>Tag 5: 5 + 4 + 3 + 2 + 1 Punkte</source>
+        <target>jour 5 : 5 + 4 + 3 + 2 + 1 points</target>
+      </segment>
+    </unit>
+    <unit id="QbOHqWF" name="etc.">
+      <notes>
+        <note category="german">etc.</note>
+      </notes>
+      <segment>
+        <source>etc.</source>
+        <target>etc etc</target>
+      </segment>
+    </unit>
+    <unit id="BbrZo2U" name="3670d6e">
+      <notes>
+        <note category="german">Wenn eine Stadt beim Angriff um Mitternacht komplett &lt;strong&gt;verlassen&lt;/strong&gt; ist (z.B.: weil alle Bürger in der Außenwelt campen ODER weil alle in der Stadt gestorben sind), gilt sie als &lt;strong&gt;zerstört&lt;/strong&gt;. Folgende Regeländerungen treten dann in Kraft:</note>
+      </notes>
+      <segment>
+        <source>Wenn eine Stadt beim Angriff um Mitternacht komplett &lt;strong&gt;verlassen&lt;/strong&gt; ist (z.B.: weil alle Bürger in der Außenwelt campen ODER weil alle in der Stadt gestorben sind), gilt sie als &lt;strong&gt;zerstört&lt;/strong&gt;. Folgende Regeländerungen treten dann in Kraft:</source>
+        <target><![CDATA[Si, au moment de l'attaque de minuit, une ville est <strong>désertée</strong> (ie. tous les citoyens survivants campent hors de ses murs OU sont tués en ville), alors <strong>elle sera considérée comme ayant été dévastée par les zombies</strong> :]]></target>
+      </segment>
+    </unit>
+    <unit id="uluYjob" name="216dbbe">
+      <notes>
+        <note category="german">&lt;strong&gt;Das Stadttor ist irreparabel zerstört&lt;/strong&gt;: Die Stadt kann von den Überlebenden nicht mehr  als sicherer Rückzugsort genutzt werden.</note>
+      </notes>
+      <segment>
+        <source>&lt;strong&gt;Das Stadttor ist irreparabel zerstört&lt;/strong&gt;: Die Stadt kann von den Überlebenden nicht mehr  als sicherer Rückzugsort genutzt werden.</source>
+        <target><![CDATA[<strong>ses portes sont détruites irrémédiablement</strong> : la ville ne pourra plus servir de refuge pour les survivants,]]></target>
+      </segment>
+    </unit>
+    <unit id="MBxcEi9" name="Alle Gebäude, die sich im Bau befanden, wurden zerstört.">
+      <notes>
+        <note category="german">Alle Gebäude, die sich im Bau befanden, wurden zerstört.</note>
+      </notes>
+      <segment>
+        <source>Alle Gebäude, die sich im Bau befanden, wurden zerstört.</source>
+        <target>les chantiers en cours de construction sont réduits à néant.</target>
+      </segment>
+    </unit>
+    <unit id="4FoyWoL" name="Die Wasserreserven des Stadtbrunnens sind stark gesunken.">
+      <notes>
+        <note category="german">Die Wasserreserven des Stadtbrunnens sind stark gesunken.</note>
+      </notes>
+      <segment>
+        <source>Die Wasserreserven des Stadtbrunnens sind stark gesunken.</source>
+        <target>les réserves d'eau du puits sont fortement touchées.</target>
+      </segment>
+    </unit>
+    <unit id="1Lk27l0" name="Es können keine &quot;Verbesserungen des Tages&quot; mehr gebaut werden.">
+      <notes>
+        <note category="german">Es können keine "Verbesserungen des Tages" mehr gebaut werden.</note>
+      </notes>
+      <segment>
+        <source>Es können keine "Verbesserungen des Tages" mehr gebaut werden.</source>
+        <target>il n'est plus possible de réaliser des Évolutions,</target>
+      </segment>
+    </unit>
+    <unit id="MTgW2Ew" name="4b9cfe0">
+      <notes>
+        <note category="german">Alle privaten Behausungen sind zerstört (persönliche Einrichtungen, z.B.: Drogenküche, sind davon aber nicht betroffen).</note>
+      </notes>
+      <segment>
+        <source>Alle privaten Behausungen sind zerstört (persönliche Einrichtungen, z.B.: Drogenküche, sind davon aber nicht betroffen).</source>
+        <target>les habitations personnelles sont détruites (les améliorations personnelles ne sont pas touchées),</target>
+      </segment>
+    </unit>
+    <unit id="sXuh7tt" name="dc4ad03">
+      <notes>
+        <note category="german">Der &lt;strong&gt;Chaosmodus&lt;/strong&gt; wurde aktiviert (dies gilt auch dann, wenn die ansonsten dafür benötigten Bedingungen nicht erfüllt wurden).</note>
+      </notes>
+      <segment>
+        <source>Der &lt;strong&gt;Chaosmodus&lt;/strong&gt; wurde aktiviert (dies gilt auch dann, wenn die ansonsten dafür benötigten Bedingungen nicht erfüllt wurden).</source>
+        <target><![CDATA[le mode <strong>chaos</strong> est immédiatement activé (même si les conditions normales ne sont pas réalisées).]]></target>
+      </segment>
+    </unit>
+    <unit id="2C542tA" name="Der Heißhunger der Ghule nimmt um Mitternacht nicht mehr so stark zu.">
+      <notes>
+        <note category="german">Der Heißhunger der Ghule nimmt um Mitternacht nicht mehr so stark zu.</note>
+      </notes>
+      <segment>
+        <source>Der Heißhunger der Ghule nimmt um Mitternacht nicht mehr so stark zu.</source>
+        <target>La voracité des goules augmente moins à minuit.</target>
+      </segment>
+    </unit>
+    <unit id="tGAWHP6" name="Deine Tage sind gezählt... Wir geben dir folgenden Rat:">
+      <notes>
+        <note category="german">Deine Tage sind gezählt... Wir geben dir folgenden Rat:</note>
+      </notes>
+      <segment>
+        <source>Deine Tage sind gezählt... Wir geben dir folgenden Rat:</source>
+        <target>Vos jours sont comptés... Un seul conseil dans pareille situation :</target>
+      </segment>
+    </unit>
+    <unit id="6sJM6P1" name="Meide diesen verfluchten Ort!">
+      <notes>
+        <note category="german">Meide diesen verfluchten Ort!</note>
+      </notes>
+      <segment>
+        <source>Meide diesen verfluchten Ort!</source>
+        <target>fuyez ce lieu maudit !</target>
+      </segment>
+    </unit>
+    <unit id="qPMpXGE" name="Das Pandämonium ist der schwierige Modus in 'Die Verdammten'.">
+      <notes>
+        <note category="german">Das Pandämonium ist der schwierige Modus in 'MyHordes'.</note>
+      </notes>
+      <segment>
+        <source>Das Pandämonium ist der schwierige Modus in 'Die Verdammten'.</source>
+        <target>Le Pandémonium est le mode Difficile de MyHordes.</target>
+      </segment>
+    </unit>
+    <unit id="BkPxtbC" name="cc40ff8">
+      <notes>
+        <note category="german">Im Pandämonium findet ihr ausschießlich Städte, die mit zusätzlichen Problemen zu kämpfen haben und in denen das Überleben außerordentlich schwierig ist.</note>
+      </notes>
+      <segment>
+        <source>Im Pandämonium findet ihr ausschießlich Städte, die mit zusätzlichen Problemen zu kämpfen haben und in denen das Überleben außerordentlich schwierig ist.</source>
+        <target>Le Pandémonium regroupe les villes dans lesquelles la survie est particulièrement ardue : les citoyens doivent faire face à des difficultés supplémentaires !</target>
+      </segment>
+    </unit>
+    <unit id="wv_7RfX" name="In diesen Städten gelten bestimmte Regeln:">
+      <notes>
+        <note category="german">In diesen Städten gelten bestimmte Regeln:</note>
+      </notes>
+      <segment>
+        <source>In diesen Städten gelten bestimmte Regeln:</source>
+        <target>Ces villes sont soumises à diverses règles spécifiques :</target>
+      </segment>
+    </unit>
+    <unit id="DO7RUNU" name="384d8b4">
+      <notes>
+        <note category="german">Die mitternächtlichen Zombieangriffe richten Schäden an den gebauten Gebäuden und Konstruktionen an. Diese Schäden müssen repariert werden.</note>
+      </notes>
+      <segment>
+        <source>Die mitternächtlichen Zombieangriffe richten Schäden an den gebauten Gebäuden und Konstruktionen an. Diese Schäden müssen repariert werden.</source>
+        <target>Les attaques de zombies de minuit endommagent les chantiers et les structures qui ont été construits. Ces dommages doivent être réparés.</target>
+      </segment>
+    </unit>
+    <unit id="XssioYa" name="6b6b343">
+      <notes>
+        <note category="german">Beschädigte Verteidigungsbauten verlieren ihre Wirkung, wenn sie nicht repariert werden.</note>
+      </notes>
+      <segment>
+        <source>Beschädigte Verteidigungsbauten verlieren ihre Wirkung, wenn sie nicht repariert werden.</source>
+        <target>Les structures de défense endommagées perdent leur efficacité si elles ne sont pas réparées.</target>
+      </segment>
+    </unit>
+    <unit id="y9_6DNA" name="Die Überlebenschancen beim Camping sind geringer.">
+      <notes>
+        <note category="german">Die Überlebenschancen beim Camping sind geringer.</note>
+      </notes>
+      <segment>
+        <source>Die Überlebenschancen beim Camping sind geringer.</source>
+        <target>Les chances de survie en camping sont plus faibles.</target>
+      </segment>
+    </unit>
+    <unit id="dIsy9OZ" name="Die Chance, an einer Infektion zu sterben, beträgt 75%,">
+      <notes>
+        <note category="german">Die Chance, an einer Infektion zu sterben, beträgt 75%,</note>
+      </notes>
+      <segment>
+        <source>Die Chance, an einer Infektion zu sterben, beträgt 75%,</source>
+        <target>les chances de périr d'une infection à minuit sont de 75%,</target>
+      </segment>
+    </unit>
+    <unit id="Qiqpk6d" name="Die Wasserreserven zum Beginn einer Stadt sind kleiner als gewöhnlich,">
+      <notes>
+        <note category="german">Die Wasserreserven zum Beginn einer Stadt sind kleiner als gewöhnlich,</note>
+      </notes>
+      <segment>
+        <source>Die Wasserreserven zum Beginn einer Stadt sind kleiner als gewöhnlich,</source>
+        <target>les réserves d'eau initiales sont inférieures à la normale,</target>
+      </segment>
+    </unit>
+    <unit id="0we86d8" name="Der Letzte Tod bringt eine besondere Auszeichnung ein.">
+      <notes>
+        <note category="german">Der Letzte Tod bringt eine besondere Auszeichnung ein.</note>
+      </notes>
+      <segment>
+        <source>Der Letzte Tod bringt eine besondere Auszeichnung ein.</source>
+        <target>la mort ultime rapporte une distinction spéciale supplémentaire !</target>
+      </segment>
+    </unit>
+    <unit id="Dlzg59c" name="1ef4c80">
+      <notes>
+        <note category="german">Die Chance, einen Mitbürger mit der Aktion &lt;strong&gt;Angreifen&lt;/strong&gt; zu verletzten, ist wesentlich höher.</note>
+      </notes>
+      <segment>
+        <source>Die Chance, einen Mitbürger mit der Aktion &lt;strong&gt;Angreifen&lt;/strong&gt; zu verletzten, ist wesentlich höher.</source>
+        <target><![CDATA[les chances de blesser quelqu'un avec l'action <strong>agresser</strong> sont importantes.]]></target>
+      </segment>
+    </unit>
+    <unit id="LEVGJt5" name="2582360">
+      <notes>
+        <note category="german">Verteidigungsgegenstände in der Bank können während des Angriffs zerstört werden.</note>
+      </notes>
+      <segment>
+        <source>Verteidigungsgegenstände in der Bank können während des Angriffs zerstört werden.</source>
+        <target>Les objets de défense dans la Banque peuvent être détruits pendant l'attaque.</target>
+      </segment>
+    </unit>
+    <unit id="ns9cC3z" name="dc8a326">
+      <notes>
+        <note category="german">Privatstädte ermöglichen es dir, gemeinsam mit Freunden oder in Städten zu bestimmten "Themen" zu spielen.</note>
+      </notes>
+      <segment>
+        <source>Privatstädte ermöglichen es dir, gemeinsam mit Freunden oder in Städten zu bestimmten "Themen" zu spielen.</source>
+        <target>Les villes privées vous permettent de jouer facilement entre amis, ou dans le cadre de villes "à thèmes".</target>
+      </segment>
+    </unit>
+    <unit id="s_jrOBP" name="Wie geht das?">
+      <notes>
+        <note category="german">Wie geht das?</note>
+      </notes>
+      <segment>
+        <source>Wie geht das?</source>
+        <target>Comment ça marche ?</target>
+      </segment>
+    </unit>
+    <unit id="61h5rHu" name="Eine Privatstadt funktioniert folgendermaßen:">
+      <notes>
+        <note category="german">Eine Privatstadt funktioniert folgendermaßen:</note>
+      </notes>
+      <segment>
+        <source>Eine Privatstadt funktioniert folgendermaßen:</source>
+        <target>Une ville privée fonctionne comme suit :</target>
+      </segment>
+    </unit>
+    <unit id="94iUyvw" name="91f5280">
+      <notes>
+        <note category="german">Auf der Seite "Spielen" kannst du ein neuen Leben beginnen und hier findest du den Reiter "Privatstadt gründen". Hier kannst du alle Einstellungen für deine Privatstadt festlegen.</note>
+      </notes>
+      <segment>
+        <source>Auf der Seite "Spielen" kannst du ein neuen Leben beginnen und hier findest du den Reiter "Privatstadt gründen". Hier kannst du alle Einstellungen für deine Privatstadt festlegen.</source>
+        <target>rendez-vous sur la page "Jouer" lorsque vous êtes mort(e), puis cliquez sur l'onglet "Villes privées",</target>
+      </segment>
+    </unit>
+    <unit id="Ygu72Ny" name="Vorher musst du die Heldenfähigkeit &quot;Bürgermeister&quot; freigeschaltet haben.">
+      <notes>
+        <note category="german">Vorher musst du die Heldenfähigkeit "Bürgermeister" freigeschaltet haben.</note>
+      </notes>
+      <segment>
+        <source>Vorher musst du die Heldenfähigkeit "Bürgermeister" freigeschaltet haben.</source>
+        <target>vous devez avoir débloqué le pouvoir de Héros "Maire",</target>
+      </segment>
+    </unit>
+    <unit id="mj11F0w" name="8a82d94">
+      <notes>
+        <note category="german">Für die Stadt, die du gründest, musst du einen Zugangscode vergeben und diesen an die eingeladenen Spieler verteilen, damit sie die Stadt betreten können,</note>
+      </notes>
+      <segment>
+        <source>Für die Stadt, die du gründest, musst du einen Zugangscode vergeben und diesen an die eingeladenen Spieler verteilen, damit sie die Stadt betreten können,</source>
+        <target>lorsque vous créez la ville, vous devez choisir un code secret que vous distribuerez aux autres participants afin qu'ils puissent rejoindre votre partie,</target>
+      </segment>
+    </unit>
+    <unit id="1nzuI2P" name="Einige Regeln können frei bestimmt werden (Ghule, Wasser, Kartentyp,...).">
+      <notes>
+        <note category="german">Einige Regeln können frei bestimmt werden (Ghule, Wasser, Kartentyp,...).</note>
+      </notes>
+      <segment>
+        <source>Einige Regeln können frei bestimmt werden (Ghule, Wasser, Kartentyp,...).</source>
+        <target>certaines règles peuvent être modifiées librement (goule, eau, type de carte, ...).</target>
+      </segment>
+    </unit>
+    <unit id="WrjdzG9" name="Besondere Regeln">
+      <notes>
+        <note category="german">Besondere Regeln</note>
+      </notes>
+      <segment>
+        <source>Besondere Regeln</source>
+        <target>Règles spécifiques</target>
+      </segment>
+    </unit>
+    <unit id="RW_iRWA" name="Für Privatstädte gelten die folgenden Regeln:">
+      <notes>
+        <note category="german">Für Privatstädte gelten die folgenden Regeln:</note>
+      </notes>
+      <segment>
+        <source>Für Privatstädte gelten die folgenden Regeln:</source>
+        <target>Les règles suivantes s'appliquent à toutes les villes privées :</target>
+      </segment>
+    </unit>
+    <unit id="Hn.FbEN" name="2511b47">
+      <notes>
+        <note category="german">Verriegelte Tore: Die Stadttore von Privatstädten öffnen sicher erst, wenn sich 40 Bürger dafür eingeschrieben haben.</note>
+      </notes>
+      <segment>
+        <source>Verriegelte Tore: Die Stadttore von Privatstädten öffnen sicher erst, wenn sich 40 Bürger dafür eingeschrieben haben.</source>
+        <target>Portes verrouillées : les portes de la ville ne peuvent pas être ouvertes s'il y a moins de 40 citoyens inscrits.</target>
+      </segment>
+    </unit>
+    <unit id="tkocvEE" name="Seelenpunkte: Der Tod in einer Privatstadt bringt keine Seelenpunkte.">
+      <notes>
+        <note category="german">Seelenpunkte: Der Tod in einer Privatstadt bringt 33% der Seelenpunkte.</note>
+      </notes>
+      <segment>
+        <source>Seelenpunkte: Der Tod in einer Privatstadt bringt keine Seelenpunkte.</source>
+        <target>Points d'âme : mourir dans une ville privée rapporte 33% des points d'âme.</target>
+      </segment>
+    </unit>
+    <unit id="L0SipSu" name="d9e5ee6">
+      <notes>
+        <note category="german">Negierung: Wenn eine Privatstadt nicht bis Mitternacht des übernächsten Tages gefüllt ist, wird sie wieder negiert. Der Stadtgründer erhält dann alle investierten Heldentage zurück. Alle bereits getätigten Einschreibungen werden rückgängig gemacht.</note>
+      </notes>
+      <segment>
+        <source>Negierung: Wenn eine Privatstadt nicht bis Mitternacht des übernächsten Tages gefüllt ist, wird sie wieder negiert. Der Stadtgründer erhält dann alle investierten Heldentage zurück. Alle bereits getätigten Einschreibungen werden rückgängig gemacht.</source>
+        <target>Annulation : une ville privée non remplie après 2 jours est annulée. Son créateur récupère les jours héros investis et tous les citoyens inscrits sont renvoyés.</target>
+      </segment>
+    </unit>
+    <unit id="QvajNih" name="6ebe38c">
+      <notes>
+        <note category="german">Auszeichnungnen: Für seltene Auszeichnungen werden Privatstädte nicht berücksichtigt. Normale Auszeichnungen werden teilweise angerechnet. 33% erworbenen Auszeichnungen wird zufällig ausgewählt und behalten. Bei einer ungeraden Anzahl an erworbenen Auszeichnungen wird vorher abgerundet.</note>
+      </notes>
+      <segment>
+        <source>Auszeichnungnen: Für seltene Auszeichnungen werden Privatstädte nicht berücksichtigt. Normale Auszeichnungen werden teilweise angerechnet. Die Hälfte aller erworbenen Auszeichnungen wird zufällig ausgewählt und behalten. Bei einer ungeraden Anzahl an erworbenen Auszeichnungen wird vorher abgerundet.</source>
+        <target>Distinctions : ces villes privées ne sont pas prises en compte pour les récompenses rares. Les récompenses normales sont partiellement créditées. 33% des récompenses gagnées sont sélectionnées au hasard et conservées. En cas de nombre impair de récompenses acquises, il est préalablement arrondi.</target>
+      </segment>
+    </unit>
+    <unit id="J6AiXBy" name="d97c5fa">
+      <notes>
+        <note category="german">Letzter Tod: Durch Sterben in einer Privatstadt kann man nicht den Titel "letzter Tod" erwerben.</note>
+      </notes>
+      <segment>
+        <source>Letzter Tod: Durch Sterben in einer Privatstadt kann man nicht den Titel "letzter Tod" erwerben.</source>
+        <target>Mort ultime : mourir en ville privée ne donne jamais de mort ultime.</target>
+      </segment>
+    </unit>
+    <unit id="CaiCpvn" name="e9f63ef">
+      <notes>
+        <note category="german">Ranking: Privatstädte nehmen nicht an der im offiziellen Ranking.</note>
+      </notes>
+      <segment>
+        <source>Ranking: Privatstädte haben seit Saison 5 eine eigene Rangliste im offiziellen Ranking.</source>
+        <target>Classement : ces villes ne participent pas au classement officiel.</target>
+      </segment>
+    </unit>
+    <unit id="h.p5No." name="Reservierte Plätze">
+      <notes>
+        <note category="german">Reservierte Plätze</note>
+      </notes>
+      <segment>
+        <source>Reservierte Plätze</source>
+        <target>Places réservées</target>
+      </segment>
+    </unit>
+    <unit id="AsXSh2V" name="9eaeadf">
+      <notes>
+        <note category="german">Du kannst hier eine Liste mit mindestens 39 Spielern anlegen und ihnen damit einen Platz in deiner Stadt reservieren.
+Alle Pseudonyme müssen korrekt geschrieben und mit einem Komma getrennt sein (Leerzeichen werden ignoriert).
+Sobald die Liste einmal erstellt wurde, kann sie nicht mehr geändert werden!</note>
+      </notes>
+      <segment>
+        <source>Du kannst hier eine Liste mit mindestens 39 Spielern anlegen und ihnen damit einen Platz in deiner Stadt reservieren.
+Alle Pseudonyme müssen korrekt geschrieben und mit einem Komma getrennt sein (Leerzeichen werden ignoriert).
+Sobald die Liste einmal erstellt wurde, kann sie nicht mehr geändert werden!</source>
+        <target>Vous pouvez entrer une liste 39 noms de joueurs (minimum) lorsque vous créez une ville privée pour leur réserver à chacun une place. Chaque pseudonyme doit être correctement écrit et séparé par une virgule (les espaces sont ignorés). Vous ne pourrez plus modifier cette liste une fois la ville créée !</target>
+      </segment>
+    </unit>
+    <unit id="lWrXfCk" name="Beispiel: &lt;em&gt;spieler01, spieler02, blafasel_99&lt;/em&gt;">
+      <notes>
+        <note category="german">Beispiel: &lt;em&gt;spieler01, spieler02, blafasel_99&lt;/em&gt;</note>
+      </notes>
+      <segment>
+        <source>Beispiel: &lt;em&gt;spieler01, spieler02, blafasel_99&lt;/em&gt;</source>
+        <target><![CDATA[Exemple : <em>joueur01, joueur02, bidule_du_33</em>]]></target>
+      </segment>
+    </unit>
+    <unit id="NyknCVn" name="4a21474">
+      <notes>
+        <note category="german">Achtung: Ein Spieler, dessen Name nicht auf der Liste steht, kann die Stadt nicht betreten. 
+Falls sich nicht genug Spieler finden, die deine Stadt spielen wollen, wird sie niemals gestartet werden und automatisch wieder negiert.</note>
+      </notes>
+      <segment>
+        <source>Achtung: Ein Spieler, dessen Name nicht auf der Liste steht, kann die Stadt nicht betreten. 
+Falls sich nicht genug Spieler finden, die deine Stadt spielen wollen, wird sie niemals gestartet werden und automatisch wieder negiert.</source>
+        <target>Attention, un joueur ne pourra PAS rejoindre cette ville si son nom n'est pas dans la liste. Donc si trop de joueurs invités se désistent, votre ville ne pourra jamais démarrer et sera annulée automatiquement.</target>
+      </segment>
+    </unit>
+    <unit id="VihGRh8" name="abdd542">
+      <notes>
+        <note category="german">Es ist außerdem empfehlenwert, &lt;strong&gt;mehr als nur 39 Spieler&lt;/strong&gt; anzugeben. Dann hat man eine Reserve, falls ein oder mehrere Spieler nicht teilnehmen können (...denn die Liste lässt sich nachträglich nicht mehr ändern).</note>
+      </notes>
+      <segment>
+        <source>Es ist außerdem empfehlenwert, &lt;strong&gt;mehr als nur 39 Spieler&lt;/strong&gt; anzugeben. Dann hat man eine Reserve, falls ein oder mehrere Spieler nicht teilnehmen können (...denn die Liste lässt sich nachträglich nicht mehr ändern).</source>
+        <target><![CDATA[Ainsi, il est fortement recommandé d'indiquer <strong>plus de 39 noms</strong> pour disposer de joueurs de réserve.]]></target>
+      </segment>
+    </unit>
+    <unit id="GBQf_bR" name="b86786f">
+      <notes>
+        <note category="german">In den verschiedenen Foren und Chatmöglichkeiten der Außenwelt können bestimmte Rollenspielelemente verwendet werden. Diese dienen allgemein dem Ambiente des Spiels.</note>
+      </notes>
+      <segment>
+        <source>In den verschiedenen Foren und Chatmöglichkeiten der Außenwelt können bestimmte Rollenspielelemente verwendet werden. Diese dienen allgemein dem Ambiente des Spiels.</source>
+        <target>Sur les différents forums et dans l'espace de discussion de l'Outre-Monde, vous disposez d'une panoplie complète d'outils orientés "ambiance" et "role-play".</target>
+      </segment>
+    </unit>
+    <unit id="kEw_o7U" name="Folgende Befehle können verwendet werden:">
+      <notes>
+        <note category="german">Folgende Befehle können verwendet werden:</note>
+      </notes>
+      <segment>
+        <source>Folgende Befehle können verwendet werden:</source>
+        <target>Vous pouvez taper l'une des commandes suivantes (attention à bien les écrire en minuscules) :</target>
+      </segment>
+    </unit>
+    <unit id="SWAA4yF" name="b377c9b">
+      <notes>
+        <note category="german">Der Name einer zufällig gezogenen Karte (aus einem Spielset mit 52 Karten) wird angezeigt.</note>
+      </notes>
+      <segment>
+        <source>Der Name einer zufällig gezogenen Karte (aus einem Spielset mit 54 Karten) wird angezeigt.</source>
+        <target>affiche le nom d'une carte au hasard tirée d'un jeu de 52 cartes,</target>
+      </segment>
+    </unit>
+    <unit id="502WVMX" name="f4cae7d">
+      <notes>
+        <note category="german">Der Name eines zufällig ausgewählten Einwohners deiner Stadt wird angezeigt (funktioniert nur, wenn du einer Stadt beigetreten bist).</note>
+      </notes>
+      <segment>
+        <source>Der Name eines zufällig ausgewählten Einwohners deiner Stadt wird angezeigt (funktioniert nur, wenn du einer Stadt beigetreten bist).</source>
+        <target>affiche le nom d'un habitant de votre ville au hasard (ne fonctionnera pas si vous n'avez rejoint aucune ville),</target>
+      </segment>
+    </unit>
+    <unit id="6gHyLJo" name="Kopf oder Zahl.">
+      <notes>
+        <note category="german">Kopf oder Zahl.</note>
+      </notes>
+      <segment>
+        <source>Kopf oder Zahl.</source>
+        <target>tire à pile ou face,</target>
+      </segment>
+    </unit>
+    <unit id="Z4195FS" name="Schere, Stein, Papier.">
+      <notes>
+        <note category="german">Schere, Stein, Papier.</note>
+      </notes>
+      <segment>
+        <source>Schere, Stein, Papier.</source>
+        <target>tire pierre, feuille ou ciseaux,</target>
+      </segment>
+    </unit>
+    <unit id="gySGs2Z" name="66a21e0">
+      <notes>
+        <note category="german">Ein 6-seitiger Würfel wird geworfen und das Ergebnis wird angezeigt (funktioniert mit d4, d6, d8, d10, d12, d20 und d100).</note>
+      </notes>
+      <segment>
+        <source>Ein 6-seitiger Würfel wird geworfen und das Ergebnis wird angezeigt (funktioniert mit d4, d6, d8, d10, d12, d20 und d100).</source>
+        <target>lance un dé à 6 faces et affiche le résultat (fonctionne avec d4, d6, d8, d10, d12, d20 et d100).</target>
+      </segment>
+    </unit>
+    <unit id="sPCwNJ0" name="einen Konsonanten zeichnen,">
+      <notes>
+        <note category="german">einen Konsonanten zeichnen,</note>
+      </notes>
+      <segment>
+        <source>einen Konsonanten zeichnen,</source>
+        <target>tire une consonne,</target>
+      </segment>
+    </unit>
+    <unit id="ZkiGTf8" name="einen Vokal zeichnen,">
+      <notes>
+        <note category="german">einen Vokal zeichnen,</note>
+      </notes>
+      <segment>
+        <source>einen Vokal zeichnen,</source>
+        <target>tire une voyelle,</target>
+      </segment>
+    </unit>
+    <unit id="WWKZKAn" name="einen Brief zeichnen,">
+      <notes>
+        <note category="german">einen Brief zeichnen,</note>
+      </notes>
+      <segment>
+        <source>einen Brief zeichnen,</source>
+        <target>tire une lettre au hasard</target>
+      </segment>
+    </unit>
+    <unit id="CIjyKLi" name="385f89a">
+      <notes>
+        <note category="german">Du kannst dich ihrer bedienen, um neue (Foren-)Spiele zu erfinden oder bestimmte Entscheidungen nach dem Zufallsprinzip zu treffen. Gehe jedoch sparsam damit um!</note>
+      </notes>
+      <segment>
+        <source>Du kannst dich ihrer bedienen, um neue (Foren-)Spiele zu erfinden oder bestimmte Entscheidungen nach dem Zufallsprinzip zu treffen. Gehe jedoch sparsam damit um!</source>
+        <target>N'abusez pas de ces commandes ! Utilisez-les pour inventer de nouveaux jeux entre citoyens, résoudre des situations par le hasard...etc.</target>
+      </segment>
+    </unit>
+    <unit id="WvrIr29" name="Das Spiel wird in &lt;strong&gt;Saisons&lt;/strong&gt; aufgeteilt.">
+      <notes>
+        <note category="german">Das Spiel wird in &lt;strong&gt;Saisons&lt;/strong&gt; aufgeteilt.</note>
+      </notes>
+      <segment>
+        <source>Das Spiel wird in &lt;strong&gt;Saisons&lt;/strong&gt; aufgeteilt.</source>
+        <target><![CDATA[Le jeu est découpé en périodes s'appelant <strong>saisons</strong>.]]></target>
+      </segment>
+    </unit>
+    <unit id="1Np4PiM" name="462e013">
+      <notes>
+        <note category="german">Saisons kommen einer zeitlich begrenzten Liga gleich. Alle in einer Saison gespielten Städte werden in einer Rangliste geführt. 
+Saisons kommen einer zeitlich begrenzten Liga gleich. Alle in einer Saison gespielten Städte werden in einer Rangliste geführt. 
+Je höher die Punkteanzahl, desto ausgeprägter war die Organisations- und Koordinationsfähigkeit der Bürger dieser Stadt.
+&lt;strong&gt;Die Punkteanzahl einer Stadt ist die Summe aller überlebten Tage ihrer Einwohner.&lt;/strong&gt;</note>
+      </notes>
+      <segment>
+        <source>Saisons kommen einer zeitlich begrenzten Liga gleich. Alle in einer Saison gespielten Städte werden in einer Rangliste geführt. 
+Saisons kommen einer zeitlich begrenzten Liga gleich. Alle in einer Saison gespielten Städte werden in einer Rangliste geführt. 
+Je höher die Punkteanzahl, desto ausgeprägter war die Organisations- und Koordinationsfähigkeit der Bürger dieser Stadt.
+&lt;strong&gt;Die Punkteanzahl einer Stadt ist die Summe aller überlebten Tage ihrer Einwohner.&lt;/strong&gt;</source>
+        <target><![CDATA[Durant cette période, les villes sont classées selon un score reflétant la capacité à s'organiser pour survivre en groupe. <strong>Il est calculé en additionnant le nombre de jours survécus de tous les citoyens présents dans cette ville.</strong>]]></target>
+      </segment>
+    </unit>
+    <unit id="5euLoAL" name="b449305">
+      <notes>
+        <note category="german">&lt;strong&gt;Wichtig:&lt;/strong&gt; Es werden nur Städte in Entfernten Regionen oder aus dem Pandemonium in die Rangliste aufgenommen. Kleine Städte oder Privatstädte werden nicht ins offizielle Ranking aufgenommen.</note>
+      </notes>
+      <segment>
+        <source>&lt;strong&gt;Wichtig:&lt;/strong&gt; Es werden nur Städte in Entfernten Regionen
+oder aus dem Pandemonium
+in die Rangliste aufgenommen. Kleine Städte oder Privatstädte werden nicht ins offizielle Ranking aufgenommen. Privatstädte haben seit Saison 5 eine eigene Rangliste.</source>
+        <target><![CDATA[<strong>Important :</strong> seules les villes en Région Éloignée et en Pandémonium sont classées. Les petites cartes ou les villes évènementielles ne sont pas représentées dans le classement de saison.]]></target>
+      </segment>
+    </unit>
+    <unit id="DY62lsA" name="Saisonende">
+      <notes>
+        <note category="german">Saisonende</note>
+      </notes>
+      <segment>
+        <source>Saisonende</source>
+        <target>Fin de saison</target>
+      </segment>
+    </unit>
+    <unit id="oLHn2Ob" name="ecee2c3">
+      <notes>
+        <note category="german">Am Ende einer Saison erhalten die Bürger der erstplatzierten Stadt eine Belohnung. Die Rangliste wird anschließend gelöscht und die nächste Saison beginnt wieder bei Null.</note>
+      </notes>
+      <segment>
+        <source>Am Ende einer Saison erhalten die Bürger der erstplatzierten Stadt eine Belohnung. Die Rangliste wird anschließend gelöscht und die nächste Saison beginnt wieder bei Null.</source>
+        <target>A la fin de chaque saison, les citoyens de la meilleure ville de chaque classement reçoivent diverses récompenses. Ensuite, les classements des villes sont remis à zéro afin de redémarrer une nouvelle période sur des bases équitables.</target>
+      </segment>
+    </unit>
+    <unit id="tp1WcWk" name="36dff26">
+      <notes>
+        <note category="german">&lt;strong&gt;Alle Nachrichten der Siegerbürger werden in allen Foren &lt;/strong&gt; eine Saison lang besonders hervorgehoben</note>
+      </notes>
+      <segment>
+        <source>&lt;strong&gt;Alle Nachrichten der Siegerbürger werden in allen Foren &lt;/strong&gt; eine Saison lang besonders hervorgehoben</source>
+        <target><![CDATA[les <strong>messages des champions sur tous les forums</strong> sont affichés de manière très distincte]]></target>
+      </segment>
+    </unit>
+    <unit id="1Y7fg6s" name="5a3213d">
+      <notes>
+        <note category="german">Die Sieger beginnen zudem jede Stadt mit einem &lt;strong&gt;zusätzlichen Ausrüstungsgegenstand&lt;/strong&gt;</note>
+      </notes>
+      <segment>
+        <source>Die Sieger beginnen zudem jede Stadt mit einem &lt;strong&gt;zusätzlichen Ausrüstungsgegenstand&lt;/strong&gt;</source>
+        <target><![CDATA[ils démarrent toutes leurs parties avec un <strong>équipement spécial supplémentaire</strong>]]></target>
+      </segment>
+    </unit>
+    <unit id="yfHs7WK" name="57b4fa5">
+      <notes>
+        <note category="german">Die Sieger erhalten eine einzigartige &lt;strong&gt;Auszeichung&lt;/strong&gt; und einen dazugehörenden &lt;strong&gt;Titel&lt;/strong&gt;.</note>
+      </notes>
+      <segment>
+        <source>Die Sieger erhalten eine einzigartige &lt;strong&gt;Auszeichung&lt;/strong&gt; und einen dazugehörenden &lt;strong&gt;Titel&lt;/strong&gt;.</source>
+        <target><![CDATA[ils reçoivent une <strong>distinction</strong> rare unique et <strong>un titre</strong> associé,]]></target>
+      </segment>
+    </unit>
+    <unit id="E.TO49m" name="0e986b6">
+      <notes>
+        <note category="german">1: Die gewonnenen Belohnungen verfallen am Ende der nächsten Saison. Der gewonnene Titel bleibt allerdings erhalten.</note>
+      </notes>
+      <segment>
+        <source>1: Die gewonnenen Belohnungen verfallen am Ende der nächsten Saison. Der gewonnene Titel bleibt allerdings erhalten.</source>
+        <target>1 : ces récompenses seront perdues à la fin de la saison suivante, seuls les champions en titre peuvent en bénéficier.</target>
+      </segment>
+    </unit>
+    <unit id="JbYJtDT" name="b4547d7">
+      <notes>
+        <note category="german">Alle Bürger, die in einer Stadt gelebt haben, die es am Ende der Saison in die Rangliste geschafft hat, erhalten eine &lt;strong&gt;andere Auszeichung&lt;/strong&gt; als die Bürger der ersten Stadt. Dabei erhält &lt;strong&gt;jede&lt;/strong&gt; ranglistengeführte Stadt eine Auszeichung.</note>
+      </notes>
+      <segment>
+        <source>Alle Bürger, die in einer Stadt gelebt haben, die es am Ende der Saison in die Rangliste geschafft hat, erhalten eine &lt;strong&gt;andere Auszeichung&lt;/strong&gt; als die Bürger der ersten Stadt. Dabei erhält &lt;strong&gt;jede&lt;/strong&gt; ranglistengeführte Stadt eine Auszeichung.</source>
+        <target><![CDATA[Les citoyens ayant participé à une ville présente dans le classement reçoivent aussi <strong>une autre distinction spéciale</strong> (une pour <strong>chaque</strong> ville présente dans le classement).]]></target>
+      </segment>
+    </unit>
+    <unit id="lqIYe85" name="8bb98c6">
+      <notes>
+        <note category="german">Diese Liste wird am Ende einer Saison nicht zurückgesetzt. Deshalb gibt es für die ersten Plätze hier keine besondere Belohnung.</note>
+      </notes>
+      <segment>
+        <source>Diese Liste wird am Ende einer Saison nicht zurückgesetzt. Deshalb gibt es für die ersten Plätze hier keine besondere Belohnung.</source>
+        <target>Ce classement n'est pas remis à zéro à la fin de saison : il n'y a par conséquent aucune récompense associée.</target>
+      </segment>
+    </unit>
+    <unit id="htkIV7Y" name="Städte haben eine eigene Rangliste pro saison.">
+      <notes>
+        <note category="german">Städte haben eine eigene Rangliste pro saison.</note>
+      </notes>
+      <segment>
+        <source>Städte haben eine eigene Rangliste pro saison.</source>
+        <target>Un classement des âmes par saison est disponible, il permet de connaître sa valeur sur une saison.</target>
+      </segment>
+    </unit>
+    <unit id="t8SGG_x" name="Zusätzliche Regeln">
+      <notes>
+        <note category="german">Zusätzliche Regeln</note>
+      </notes>
+      <segment>
+        <source>Zusätzliche Regeln</source>
+        <target>Règles annexes</target>
+      </segment>
+    </unit>
+    <unit id="dW1IVdZ" name="daab466">
+      <notes>
+        <note category="german">Wenn eine Stadt am Ende einer Saison startet, aber in der darauf folgenden Saison stirbt, wird sie punktemäßig der neuen Saison zugeschlagen.</note>
+      </notes>
+      <segment>
+        <source>Wenn eine Stadt am Ende einer Saison startet, aber in der darauf folgenden Saison stirbt, wird sie punktemäßig der neuen Saison zugeschlagen.</source>
+        <target>Une ville en saison 1 doit être terminée en saison 1 pour compter dans ce classement. Si elle se termine plus tard, elle ne comptera pour aucun classement.</target>
+      </segment>
+    </unit>
+    <unit id="hdmUiOX" name="Alle Ranglisten werden jeden Tag um Mitternacht aktualisiert.">
+      <notes>
+        <note category="german">Alle Ranglisten werden jeden Tag um Mitternacht aktualisiert.</note>
+      </notes>
+      <segment>
+        <source>Alle Ranglisten werden jeden Tag um Mitternacht aktualisiert.</source>
+        <target>Les classements sont mis à jour à minuit.</target>
+      </segment>
+    </unit>
+    <unit id="AnaQqW8" name="550510f">
+      <notes>
+        <note category="german">Eine Stadt taucht erst dann in der Rangliste auf, wenn sie vollkommen zerstört wurde und alle Einwohner gestorben sind.</note>
+      </notes>
+      <segment>
+        <source>Eine Stadt taucht erst dann in der Rangliste auf, wenn sie vollkommen zerstört wurde und alle Einwohner gestorben sind.</source>
+        <target>Seules les villes totalement détruites (plus de survivant) sont classées.</target>
+      </segment>
+    </unit>
+    <unit id="jpEEOjB" name="6a4bf89">
+      <notes>
+        <note category="german">Falls ein Problem mit dem Spiel auftreten sollte, bitten wir dich die nachfolgenden Anweisungen zu lesen und zu befolgen (überprüfe die Version deines Browsers, leere deinen Browsercache, ...).</note>
+      </notes>
+      <segment>
+        <source>Falls ein Problem mit dem Spiel auftreten sollte, bitten wir dich die nachfolgenden Anweisungen zu lesen und zu befolgen (überprüfe die Version deines Browsers, leere deinen Browsercache, ...).</source>
+        <target>Si vous rencontrez un problème en jeu, merci de suivre les instructions disponibles dans les sections suivantes (vérifier la version de votre navigateur internet, vider votre cache, ...).</target>
+      </segment>
+    </unit>
+    <unit id="37V.eeL" name="13523d1">
+      <notes>
+        <note category="german">Nachfolgend findest du eine Liste zu den verschiedenen Seiten und Bereichen, in denen du Hilfe bekommen kannst:</note>
+      </notes>
+      <segment>
+        <source>Nachfolgend findest du eine Liste zu den verschiedenen Seiten und Bereichen, in denen du Hilfe bekommen kannst:</source>
+        <target>Consultez le site officiel du support technique MyHordes en cliquant ci-dessous :</target>
+      </segment>
+    </unit>
+    <unit id="4JTe4YC" name="06ebae8">
+      <notes>
+        <note category="german">&lt;strong&gt;HÄUFIG GESTELLTE FRAGEN:&lt;/strong&gt;
+Lies dir bitte die offizielle &lt;span x-ajax-href=%url_support%&gt;Technische Supportseite von MyHordes&lt;/span&gt; durch!</note>
+      </notes>
+      <segment>
+        <source>&lt;strong&gt;HÄUFIG GESTELLTE FRAGEN:&lt;/strong&gt;
+Lies dir bitte die offizielle &lt;span x-ajax-href=%url_support%&gt;Technische Supportseite von MyHordes&lt;/span&gt; durch!</source>
+        <target><![CDATA[<strong>QUESTIONS COURANTES:</strong> consultez le site officiel de <span x-ajax-href=%url_support%>support technique de Hordes</span> !]]></target>
+      </segment>
+    </unit>
+    <unit id="sY5VBX2" name="f961dcb">
+      <notes>
+        <note category="german">&lt;strong&gt;MIT ANDEREN SPIELERN REDEN:&lt;/strong&gt; Die meisten Spielfragen werden oder wurden meistens schon in den &lt;span x-ajax-href=%url_saloon%&gt;Foren&lt;/span&gt; beantwortet. Du kannst darauf zugreifen, wenn du im Spiel eingeloggt bist.</note>
+      </notes>
+      <segment>
+        <source>&lt;strong&gt;MIT ANDEREN SPIELERN REDEN:&lt;/strong&gt; Die meisten Spielfragen werden oder wurden meistens schon in den &lt;span x-ajax-href=%url_saloon%&gt;Foren&lt;/span&gt; beantwortet. Du kannst darauf zugreifen, wenn du im Spiel eingeloggt bist.</source>
+        <target><![CDATA[<strong>DISCUTER AVEC LES JOUEURS:</strong> vous trouverez souvent la réponse à vos questions directement sur les <span x-ajax-href=%url_saloon%>forums du site</span>, disponibles si vous êtes connecté(e).]]></target>
+      </segment>
+    </unit>
+    <unit id="aa47hQY" name="abed294">
+      <notes>
+        <note category="german">&lt;strong&gt;EINEN REGELVERSTOSS MELDEN:&lt;/strong&gt;
+Wenn sich ein anderer Spieler daneben benommen hat oder ausfällig geworden ist, bitten wir dich den Abschnitt &lt;span x-ajax-href=%url_report%&gt;Fehlverhalten melden&lt;/span&gt; zu lesen.</note>
+      </notes>
+      <segment>
+        <source>&lt;strong&gt;EINEN REGELVERSTOSS MELDEN:&lt;/strong&gt;&lt;strong&gt;&lt;/strong&gt;
+Wenn sich ein anderer Spieler daneben benommen hat oder ausfällig geworden ist, bitten wir dich den Abschnitt &lt;span x-ajax-href=%url_report%&gt;Fehlverhalten melden&lt;/span&gt; zu lesen.</source>
+        <target><![CDATA[<strong>SIGNALER UN COMPORTEMENT:</strong> en cas de problème de <strong>comportement</strong> de la part d'un joueur, merci de lire la section <span x-ajax-href=%url_report%>On m'embête</span>.]]></target>
+      </segment>
+    </unit>
+    <unit id="7NLAbue" name="6a21bfe">
+      <notes>
+        <note category="german">&lt;strong&gt;EINEN BUG MELDEN:&lt;/strong&gt;
+Nutze bitte folgenden Link, wenn du uns einen Bug (technischen Fehler) melden möchtest: &lt;a href=%url_git%&gt;Buglisten auf Gitlab&lt;/a&gt;.</note>
+      </notes>
+      <segment>
+        <source>&lt;strong&gt;EINEN BUG MELDEN:&lt;/strong&gt;
+Nutze bitte folgenden Link, wenn du uns einen Bug (technischen Fehler) melden möchtest: &lt;a href=%url_git%&gt;Buglisten&lt;/a&gt;.</source>
+        <target><![CDATA[<strong>SIGNALER UN BUG:</strong> pour signaler un bug, utilisez l'espace de discussion suivant : <a href=%url_git%>Rapport de bugs sur Gitlab</a>.]]></target>
+      </segment>
+    </unit>
+    <unit id="AgElrGm" name="ba9d1d3">
+      <notes>
+        <note category="german">Zu guter Letzt: Für sämtliche Anregungen und Fragen, die die &lt;strong&gt;MyHordes-Community&lt;/strong&gt; betreffen, kannst dem &lt;span x-ajax-href=%url_oracle%&gt;Orakels&lt;/span&gt; anschreiben.</note>
+      </notes>
+      <segment>
+        <source>Zu guter Letzt: Für sämtliche Anregungen und Fragen, die die &lt;strong&gt;MyHordes-Community&lt;/strong&gt; betreffen, kannst dem &lt;span x-ajax-href=%url_oracle%&gt;Orakels&lt;/span&gt; anschreiben.</source>
+        <target><![CDATA[Enfin, pour toutes questions relatives à la <strong>communauté de MyHordes</strong>, vous pouvez écrire sur la <span x-ajax-href=%url_oracle%>boîte des communautés</span>.]]></target>
+      </segment>
+    </unit>
+    <unit id="jcxOFSe" name="40e10b0">
+      <notes>
+        <note category="german">Um deinen Account effektiv zu schützen, brauchst du ein sicheres Passwort. Dein Passwort ist vertraulich und sollte niemandem mitgeteilt werden. &lt;strong&gt;Ein gutes Passwort ist der beste Schutz gegen Accountdiebstähle.&lt;/strong&gt; Wir raten dir folgende Ratschläge zu beherzigen:</note>
+      </notes>
+      <segment>
+        <source>Um deinen Account effektiv zu schützen, brauchst du ein sicheres Passwort. Dein Passwort ist vertraulich und sollte niemandem mitgeteilt werden. &lt;strong&gt;Ein gutes Passwort ist der beste Schutz gegen Accountdiebstähle.&lt;/strong&gt; Wir raten dir folgende Ratschläge zu beherzigen:</source>
+        <target><![CDATA[MyHordes ne déroge pas à la règle suivante : <strong>un bon mot de passe est la meilleure protection contre les vols de compte.</strong> Aussi, voici quelques conseils importants :]]></target>
+      </segment>
+    </unit>
+    <unit id="kLFxlOm" name="Dein Passwort darf keine Sonderzeichen enthalten.">
+      <notes>
+        <note category="german">Dein Passwort darf keine Sonderzeichen enthalten.</note>
+      </notes>
+      <segment>
+        <source>Dein Passwort darf keine Sonderzeichen enthalten.</source>
+        <target>Choisissez un mot de passe sans caractères spéciaux</target>
+      </segment>
+    </unit>
+    <unit id="Dy_CnNy" name="f20f34c">
+      <notes>
+        <note category="german">Ein Passwort darf Großbuchstaben, Buchstaben und Zahlen enthalten. Nutze diese Möglichkeit!</note>
+      </notes>
+      <segment>
+        <source>Ein Passwort darf Großbuchstaben, Buchstaben und Zahlen enthalten. Nutze diese Möglichkeit!</source>
+        <target>Mélangez des chiffres, des lettres, des minuscules et des majuscules</target>
+      </segment>
+    </unit>
+    <unit id="yfB5oOq" name="2bb4c0b">
+      <notes>
+        <note category="german">Wenn du noch Fragen hast, empfehlen wir dir folgende Seite: &lt;a href=%url_pass%&gt;Password Tester&lt;/a&gt;</note>
+      </notes>
+      <segment>
+        <source>Wenn du noch Fragen hast, empfehlen wir dir folgende Seite: &lt;a href=%url_pass%&gt;Password Tester&lt;/a&gt;</source>
+        <target><![CDATA[En cas de doute, utilisez le site <a href=%url_pass%>Password Tester</a>]]></target>
       </segment>
     </unit>
   </file>
