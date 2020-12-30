@@ -55,6 +55,16 @@ class UserGroupAssociation
      */
     private ?int $associationLevel;
 
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $ref1;
+
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $ref2;
+
 
     public function getId(): ?int
     {
@@ -105,6 +115,30 @@ class UserGroupAssociation
     public function setAssociationLevel(?int $associationLevel): self
     {
         $this->associationLevel = $associationLevel;
+
+        return $this;
+    }
+
+    public function getRef1(): ?int
+    {
+        return $this->ref1;
+    }
+
+    public function setRef1(?int $ref1): self
+    {
+        $this->ref1 = $ref1;
+
+        return $this;
+    }
+
+    public function getRef2(): ?int
+    {
+        return $this->ref2;
+    }
+
+    public function setRef2(?int $ref2): self
+    {
+        $this->ref2 = $ref2;
 
         return $this;
     }

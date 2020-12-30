@@ -1,0 +1,58 @@
+{% extends "ajax/ajax_plain.html.twig" %}
+{% block ajax_base %}
+    <ul class="pm-conversation-list">
+        {% for entry in entries %}
+            <li class="{% if entry.closed %}closed{% endif %} {% if entry.system %}system{% endif %}">
+                <div class="pm-avatar-block">
+                    {% if entry.system %}
+                        <div class="avatarcrow"></div>
+                    {% elseif entry.users|length > 1 %}
+                        {% set i = 0 %}
+                        {% for message_partner in entry.users %}
+                            {% if i < 4 and message_partner != app.user and message_partner != entry.owner and message_partner.avatar %}
+                                <div class="pm-avatar" style="background: url({{ path('app_web_avatar', {'uid': message_partner.id, 'name': message_partner.avatar.filename, 'ext': message_partner.avatar.format}) }}) center/cover"></div>
+                                {% set i = i+1 %}
+                            {% endif %}
+                        {% endfor %}
+                        {% if i < 4 %}
+                            {% for message_partner in entry.users %}
+                                {% if i < 4 and message_partner != app.user and message_partner != entry.owner and message_partner.avatar is empty %}
+                                    <div class="pm-avatar row-flex v-center"><div class="cell rw-12 center">{{ message_partner.name|slice(0,2) }}</div></div>
+                                    {% set i = i+1 %}
+                                {% endif %}
+                            {% endfor %}
+                        {% endif %}
+                        {% if entry.owner is not empty and entry.owner != app.user %}
+                            {% if entry.owner.avatar %}
+                                <div class="pm-avatar owner" style="background: url({{ path('app_web_avatar', {'uid': entry.owner.id, 'name': entry.owner.avatar.filename, 'ext': entry.owner.avatar.format}) }}) center/cover"></div>
+                            {% else %}
+                                <div class="pm-avatar owner row-flex v-center"><div class="cell rw-12 center">{{ entry.owner.name|slice(0,2) }}</div></div>
+                            {% endif %}
+                        {% endif %}
+                    {% endif %}
+                </div>
+
+                <b class="title">{{ entry.title }}</b><br/>
+
+                {% if entry.system %}
+                    <span class="author crow-note">{{ 'Nachricht des Raben'|trans({},'global') }}</span>
+                {% elseif entry.users|length > 2 and entry.owner != app.user %}
+                    <span class="author group-desc"><b class="sender">{{ entry.owner.name }}</b>, {{ '%n% Teilnehmer'|trans({'%n%': entry.users|length},'global') }}</span>
+                {% elseif entry.users|length > 2 %}
+                    <span class="author group-desc">{{ '%n% Teilnehmer'|trans({'%n%': entry.users|length},'global') }}</span>
+                {% elseif entry.users|length == 2 %}
+                    {% for message_partner in entry.users %}
+                        {% if message_partner != app.user %}
+                            <span class="author group-desc"><b class="sender">{{ message_partner.name }}</b></span>
+                        {% endif %}
+                    {% endfor %}
+                {% else %}
+                    <span class="author unknown">{{ 'Chat'|trans({},'global') }}</span>
+                {% endif %}
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}
+{% block js %}
+    {{ parent() }}
+{% endblock %}

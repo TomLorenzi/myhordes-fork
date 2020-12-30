@@ -28,9 +28,8 @@
 
                 <div class="cell rw-12 grow-1 relative">
                     <div class="forum-note max-height stretcher" style="border-top: none">
-                        <div class="scroll-area">
-                            <ul>{% for i in 1..100 %}<li>{{ i }}</li>{% endfor %}</ul>
-                            <!-- CONVERSATION LIST HERE -->
+                        <div class="scroll-area" id="pm-conversation-list">
+                            <div class="center small"><i class="fa fa-spin fa-circle-notch"></i> {{ 'Lade Unterhaltungen ...'|trans({},'global') }}</div>
                         </div>
                     </div>
                 </div>
@@ -101,6 +100,9 @@
     {{ parent() }}
     <script>
         (function() {
+
+            $.ajax.background().load( document.getElementById('pm-conversation-list'), '{{ path('pm_list') }}' );
+
             let typingTimer, doneTypingInterval = 500;
             let searchBox = document.getElementById('pm-users-search');
 

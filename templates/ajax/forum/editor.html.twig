@@ -563,7 +563,11 @@
                     $.ajax.easySend( target_url, target_payload,
                         function (data) {
                             $.client.config.editorCache.set('');
-                            $.ajax.load( null, data.url, true );
+                            {% if type != 'global-pm' %}
+                                $.ajax.load( null, data.url, true );
+                            {% else %}
+                                $.ajax.load( document.getElementById('post-office-content'), data.url );
+                            {% endif %}
                         }
                     );
                 });

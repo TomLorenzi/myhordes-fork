@@ -51,10 +51,55 @@ class MessageGlobalPMController extends MessageController
      * @param JSONRequestParser $p
      * @return Response
      */
-    public function pm_view(EntityManagerInterface $em, JSONRequestParser $p): Response
-    {
+    public function pm_view(EntityManagerInterface $em, JSONRequestParser $p): Response {
         return $this->render( 'ajax/pm/view.html.twig', $this->addDefaultTwigArgs(null, [
 
+        ] ));
+    }
+
+    /**
+     * @Route("jx/pm/list", name="pm_list")
+     * @param EntityManagerInterface $em
+     * @param JSONRequestParser $p
+     * @return Response
+     */
+    public function pm_load_list(EntityManagerInterface $em, JSONRequestParser $p): Response {
+        $entries = [];
+
+        $group_conv_associations = $em->getRepository(UserGroupAssociation::class)->findBy(['user' => $this->getUser(), 'associationType' => [
+            UserGroupAssociation::GroupAssociationTypePrivateMessageMember, UserGroupAssociation::GroupAssociationTypePrivateMessageMemberInactive
+        ]]);
+        foreach ($group_conv_associations as $association) {
+
+            $last_post_date = new DateTime();
+            $last_post_date->setTimestamp($association->getAssociation()->getRef2());
+
+            $owner_assoc = $em->getRepository(UserGroupAssociation::class)->findOneBy([
+                'association' => $association->getAssociation(),
+                'associationLevel' => UserGroupAssociation::GroupAssociationLevelFounder,
+            ]);
+
+            $entries[] = [
+                'obj'    => $association,
+                'date'   => $last_post_date,
+                'system' => false,
+                'title'  => $association->getAssociation()->getName(),
+                'closed' => $association->getAssociationType() === UserGroupAssociation::GroupAssociationTypePrivateMessageMemberInactive,
+                'count'  => $association->getAssociation()->getRef1(),
+                'unread' => $association->getAssociation()->getRef1() - $association->getRef1(),
+                'owner'  => ($owner_assoc && $owner_assoc->getUser()) ? $owner_assoc->getUser() : null,
+                'users'  => array_map(fn(UserGroupAssociation $a) => $a->getUser(), $em->getRepository(UserGroupAssociation::class)->findBy( [
+                    'association' => $association->getAssociation(),
+                    'associationType' =>  UserGroupAssociation::GroupAssociationTypePrivateMessageMember]
+                ))
+            ];
+
+        }
+
+        usort($entries, fn($a,$b) => $b['date'] <=> $a['date']);
+
+        return $this->render( 'ajax/pm/list.html.twig', $this->addDefaultTwigArgs(null, [
+            'entries' => $entries,
         ] ));
     }
 
@@ -138,13 +183,16 @@ class MessageGlobalPMController extends MessageController
         if (mb_strlen($title) < 3 || mb_strlen($title) > 64)  return AjaxResponse::error( self::ErrorPostTitleLength );
         if (mb_strlen($text) < 2 || mb_strlen($text) > 16384) return AjaxResponse::error( self::ErrorPostTextLength );
 
-        $pg = (new UserGroup())->setType(UserGroup::GroupMessageGroup)->setName( $title );
+        $ts = new DateTime();
+
+        $pg = (new UserGroup())->setType(UserGroup::GroupMessageGroup)->setName( $title )->setRef1(1)->setRef2( $ts->getTimestamp() );
         $this->entity_manager->persist($pg);
 
-        $this->entity_manager->persist( (new UserGroupAssociation())
+        $this->entity_manager->persist( $owner_assoc = (new UserGroupAssociation())
             ->setUser($user)->setAssociation($pg)
             ->setAssociationLevel(UserGroupAssociation::GroupAssociationLevelFounder)
             ->setAssociationType(UserGroupAssociation::GroupAssociationTypePrivateMessageMember)
+            ->setRef1(1)
         );
 
         foreach ($users as $chk_user)
@@ -156,7 +204,7 @@ class MessageGlobalPMController extends MessageController
 
 
         $post = (new GlobalPrivateMessage())
-            ->setSender($user)->setTimestamp(new DateTime())->setReceiverGroup($pg)->setText($text);
+            ->setSender($user)->setTimestamp($ts)->setReceiverGroup($pg)->setText($text);
 
         $tx_len = 0;
         if (!$this->preparePost($user,null,$post,$tx_len, null, $edit))
@@ -171,7 +219,7 @@ class MessageGlobalPMController extends MessageController
             return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
         }
 
-        return AjaxResponse::success( true /*, ['url' => $this->generateUrl('forum_thread_view', ['fid' => $id, 'tid' => $thread->getId()])] */ );
+        return AjaxResponse::success( true , ['url' => $this->generateUrl('pm_view')] );
     }
 
 
