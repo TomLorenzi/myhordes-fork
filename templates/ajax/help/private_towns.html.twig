@@ -1,0 +1,63 @@
+{% extends "ajax/help/shell.html.twig" %}
+{% block title %}{{'Hilfe'|trans({}, 'game')}} - {{'Privatstädte'|trans({}, 'help')|raw}}{% endblock %}
+{% block helpContent %}
+<div class="helpArt">{{ 'Spielanleitung'|trans({},'help')|raw }}</div>
+<h1>{{ 'Privatstädte'|trans({},'help')|raw }}</h1>
+<p>{{ 'Privatstädte ermöglichen es dir, gemeinsam mit Freunden oder in Städten zu bestimmten "Themen" zu spielen.'|trans({},'help')|raw }}</p>
+<h2>{{ 'Wie geht das?'|trans({},'help')|raw }}</h2>
+<p>
+{{ 'Eine Privatstadt funktioniert folgendermaßen:'|trans({},'help')|raw }}
+</p>
+<ul>
+<li>
+{{ 'Auf der Seite "Spielen" kannst du ein neuen Leben beginnen und hier findest du den Reiter "Privatstadt gründen". Hier kannst du alle Einstellungen für deine Privatstadt festlegen.'|trans({},'help')|raw }}
+</li>
+<li>
+{{ 'Vorher musst du die Heldenfähigkeit "Bürgermeister" freigeschaltet haben.'|trans({},'help')|raw }}
+</li>
+<li>
+{{ 'Für die Stadt, die du gründest, musst du einen Zugangscode vergeben und diesen an die eingeladenen Spieler verteilen, damit sie die Stadt betreten können,'|trans({},'help')|raw }}
+</li>
+<li>
+{{ 'Einige Regeln können frei bestimmt werden (Ghule, Wasser, Kartentyp,...).'|trans({},'help')|raw }}
+</li>
+</ul>
+<h2>{{ 'Besondere Regeln'|trans({},'help')|raw }}</h2>
+<p>{{ 'Für Privatstädte gelten die folgenden Regeln:'|trans({},'help')|raw }}</p>
+<ul>
+<li>
+{{ 'Verriegelte Tore: Die Stadttore von Privatstädten öffnen sicher erst, wenn sich 40 Bürger dafür eingeschrieben haben.'|trans({},'help')|raw }}		
+</li>
+<li>
+{{ 'Seelenpunkte: Der Tod in einer Privatstadt bringt keine Seelenpunkte.'|trans({},'help')|raw }}
+</li>
+<li>
+{{ 'Negierung: Wenn eine Privatstadt nicht bis Mitternacht des übernächsten Tages gefüllt ist, wird sie wieder negiert. Der Stadtgründer erhält dann alle investierten Heldentage zurück. Alle bereits getätigten Einschreibungen werden rückgängig gemacht.'|trans({},'help')|raw }}
+</li>
+<li>
+{{ 'Auszeichnungnen: Für seltene Auszeichnungen werden Privatstädte nicht berücksichtigt. Normale Auszeichnungen werden teilweise angerechnet. Die Hälfte aller erworbenen Auszeichnungen wird zufällig ausgewählt und behalten. Bei einer ungeraden Anzahl an erworbenen Auszeichnungen wird vorher abgerundet.'|trans({},'help')|raw }}
+</li>		
+<li>
+{{ 'Letzter Tod: Durch Sterben in einer Privatstadt kann man nicht den Titel "letzter Tod" erwerben.'|trans({},'help')|raw }}
+</li>		
+<li>
+{{ 'Ranking: Privatstädte haben seit Saison 5 eine eigene Rangliste im offiziellen Ranking.'|trans({},'help')|raw }}
+</li>
+</ul>
+<h2>{{ 'Reservierte Plätze'|trans({},'help')|raw }}</h2>
+<p>
+{{ 'Du kannst hier eine Liste mit mindestens 39 Spielern anlegen und ihnen damit einen Platz in deiner Stadt reservieren.
+Alle Pseudonyme müssen korrekt geschrieben und mit einem Komma getrennt sein (Leerzeichen werden ignoriert).
+Sobald die Liste einmal erstellt wurde, kann sie nicht mehr geändert werden!'|trans({},'help')|raw }}
+</p>
+<p>{{ 'Beispiel: <em>spieler01, spieler02, blafasel_99</em>'|trans({},'help')|raw }}</p>
+<p>
+{{ 'Achtung: Ein Spieler, dessen Name nicht auf der Liste steht, kann die Stadt nicht betreten. 
+Falls sich nicht genug Spieler finden, die deine Stadt spielen wollen, wird sie niemals gestartet werden und automatisch wieder negiert.'|trans({},'help')|raw }}
+</p>
+<p>
+{{ 'Es ist außerdem empfehlenwert, <strong>mehr als nur 39 Spieler</strong> anzugeben. Dann hat man eine Reserve, falls ein oder mehrere Spieler nicht teilnehmen können (...denn die Liste lässt sich nachträglich nicht mehr ändern).'|trans({},'help')|raw }}
+</p>
+<div class="clear"></div>
+<a class="button" x-ajax-href="{{ url('help', {'name': 'roleplay_options'}) }}"><img src="{{ asset('build/images/icons/small_move.gif') }}" alt="move"> {{'Weiter'|trans({}, 'help')}}:<strong> {{ 'Rollenspieloptionen'|trans({},'help') }}</strong></a>
+{% endblock %}

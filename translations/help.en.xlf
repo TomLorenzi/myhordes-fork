@@ -3792,7 +3792,7 @@ es besteht eine erhöhte Wahrscheinlichkeit sein Opfer zu verletzen. Versucht au
     </unit>
     <unit id="m3f6S65" name="8f8917d">
       <notes>
-        <note category="german">Jeder Spieler startet in "Die Verdammten" als einfacher Bürger. 
+        <note category="german">Jeder Spieler startet in "MyHordes" als einfacher Bürger. 
 Daneben gibt es jedoch noch &lt;strong&gt;7 außergewöhnliche Berufe&lt;/strong&gt;. 
 Diese Berufe sind aber den Spielern vorbehalten sind, die als Held spielen.</note>
       </notes>
@@ -5067,6 +5067,1489 @@ Lies dir den entsprechenden Abschnitt bitte &lt;span x-ajax-href=%url_lms%&gt;hi
       <segment>
         <source>Eine nur teilweise beschädigte Konstruktion kann am nächsten Tag repariert werden. Dafür werden jedoch AP benötigt. Ihr könnt diese im Abschnitt "Konstruktion" ausgeben.</source>
         <target>A structure that is only partially damaged can be repaired the next day. However, AP is required for this. You can output these in the "Construction" section.</target>
+      </segment>
+    </unit>
+    <unit id="0AhhUCy" name="Wer sind Sie?">
+      <notes>
+        <note category="german">Wer sind Sie?</note>
+      </notes>
+      <segment>
+        <source>Wer sind Sie?</source>
+        <target>Who are they?</target>
+      </segment>
+    </unit>
+    <unit id="c62rJAq" name="ea5b0ea">
+      <notes>
+        <note category="german">Es gibt verschiedene Möglichkeiten deine Stadt vor den Zombiemeuten zu beschützen.
+Eine davon ist es der &lt;strong&gt;Nachtwache&lt;/strong&gt; beizutreten.</note>
+      </notes>
+      <segment>
+        <source>Es gibt verschiedene Möglichkeiten deine Stadt vor den Zombiemeuten zu beschützen.
+Eine davon ist es der &lt;strong&gt;Nachtwache&lt;/strong&gt; beizutreten.</source>
+        <target><![CDATA[To defend you town against the Hordes, there are several solutions. One of those is to join the <strong>Watchmen</strong>.]]></target>
+      </segment>
+    </unit>
+    <unit id="yMQ8qUg" name="Wenn du dich dazu entscheidest ein Nachtwächter zu werden:">
+      <notes>
+        <note category="german">Wenn du dich dazu entscheidest ein Nachtwächter zu werden:</note>
+      </notes>
+      <segment>
+        <source>Wenn du dich dazu entscheidest ein Nachtwächter zu werden:</source>
+        <target>When you decide to become a watchman:</target>
+      </segment>
+    </unit>
+    <unit id="UqvCHSF" name="Du musst dir Waffen aussuchen und sie in deinem Rucksack platzieren.">
+      <notes>
+        <note category="german">Du musst dir Waffen aussuchen und sie in deinem Rucksack platzieren.</note>
+      </notes>
+      <segment>
+        <source>Du musst dir Waffen aussuchen und sie in deinem Rucksack platzieren.</source>
+        <target>You have to choose your weapons and place them in your rucksack</target>
+      </segment>
+    </unit>
+    <unit id="XJf4afo" name="5388829">
+      <notes>
+        <note category="german">Beachte die Stärken und Schwächen deines Berufs, genau wie deinen Gesundheitszustand!</note>
+      </notes>
+      <segment>
+        <source>Beachte die Stärken und Schwächen deines Berufs, genau wie deinen Gesundheitszustand!</source>
+        <target>Make sure to take into account the strengths and weaknesses of your profession, and your state of health</target>
+      </segment>
+    </unit>
+    <unit id="26offDf" name="a740c80">
+      <notes>
+        <note category="german">Alle Waffen oder Verteidigungsgegenstände, die du während der Nachtwache benutzt, werden danach zerstört. Waffen mit mehr als einem Schuss werden eine Ladung verlie</note>
+      </notes>
+      <segment>
+        <source>Alle Waffen oder Verteidigungsgegenstände, die du während der Nachtwache benutzt, werden danach zerstört. Waffen mit mehr als einem Schuss werden eine Ladung verlie</source>
+        <target>All weapons or defensive objects used on the watch will be destroyed once it is over, weapons with multiple charges will use one during the watch.</target>
+      </segment>
+    </unit>
+    <unit id="4yvcfEV" name="Wie funktioniert das?">
+      <notes>
+        <note category="german">Wie funktioniert das?</note>
+      </notes>
+      <segment>
+        <source>Wie funktioniert das?</source>
+        <target>How does it work?</target>
+      </segment>
+    </unit>
+    <unit id="Ues_yQo" name="ac355fc">
+      <notes>
+        <note category="german">Während des Angriffs greift die Nachtwache ein, wenn Zombies die Stadtmauern überwinden:</note>
+      </notes>
+      <segment>
+        <source>Während des Angriffs greift die Nachtwache ein, wenn Zombies die Stadtmauern überwinden:</source>
+        <target>During the attack, if the zombies breach the town defences, the watchmen intevene:</target>
+      </segment>
+    </unit>
+    <unit id="SBOw_Gi" name="Die Zombies verteilen sich zufällig auf die Nachtwächter.">
+      <notes>
+        <note category="german">Die Zombies verteilen sich zufällig auf die Nachtwächter.</note>
+      </notes>
+      <segment>
+        <source>Die Zombies verteilen sich zufällig auf die Nachtwächter.</source>
+        <target>The zombies will attack watchmen at random</target>
+      </segment>
+    </unit>
+    <unit id="hdHpohH" name="Jeder Wächter nutzt seinen gesamten Rucksack.">
+      <notes>
+        <note category="german">Jeder Wächter nutzt seinen gesamten Rucksack.</note>
+      </notes>
+      <segment>
+        <source>Jeder Wächter nutzt seinen gesamten Rucksack.</source>
+        <target>Each watchman uses the weapons stored in their rucksack</target>
+      </segment>
+    </unit>
+    <unit id="TCvh3Fn" name="9fd80f1">
+      <notes>
+        <note category="german">Deine Stati beeinflussen deine Stärke auf der Wacht sowie deine Überlebenschance. &lt;strong&gt;Achtung! Deine Zustände werden vor dem Angriff aktualisiert. Solltest du also zum Beispiel verletzt auf Wacht gehen, wirst du zum Zeitpunkt des Angriffs bereits eine Infektion haben!&lt;/strong&gt;</note>
+      </notes>
+      <segment>
+        <source>Deine Stati beeinflussen deine Stärke auf der Wacht sowie deine Überlebenschance. - &lt;strong&gt;Achtung! Deine Zustände werden vor dem Angriff aktualisiert. Solltest du also zum Beispiel verletzt auf Wacht gehen, wirst du zum Zeitpunkt des Angriffs bereits eine Infektion haben!&lt;/strong&gt;</source>
+        <target><![CDATA[Your status affects your capacity to defend the town, along with your chances of survival. <strong>Warning! Your status will evolve before the attack, so if you are injured before you become a Watchman, when the attack comes, you will already be infected!!</strong>]]></target>
+      </segment>
+    </unit>
+    <unit id="fP9_VRc" name="Welche risiken gibt es?">
+      <notes>
+        <note category="german">Welche risiken gibt es?</note>
+      </notes>
+      <segment>
+        <source>Welche risiken gibt es?</source>
+        <target>What are the risks?</target>
+      </segment>
+    </unit>
+    <unit id="2Dby_nW" name="9503d09">
+      <notes>
+        <note category="german">Ein Nachtwächter hat eine &lt;strong&gt;10% Chance eine Verletzung oder Angststarre zu erleiden&lt;/strong&gt;. Zudem gibt es eine &lt;strong&gt;5% Chance von den attackierenden Zombies getötet zu werden.&lt;/strong&gt;</note>
+      </notes>
+      <segment>
+        <source>Ein Nachtwächter hat eine &lt;strong&gt;10% Chance eine Verletzung oder Angststarre zu erleiden&lt;/strong&gt;. Zudem gibt es eine &lt;strong&gt;8% Chance von den attackierenden Zombies getötet zu werden.&lt;/strong&gt;</source>
+        <target><![CDATA[A watchman has a <strong>10% chance of being wounded or terorized</strong> and a <strong>5% chance of being killed</strong> during the attack of the Hordes...]]></target>
+      </segment>
+    </unit>
+    <unit id="P03SDOS" name="0bd3b10">
+      <notes>
+        <note category="german">Helden mit dem Beruf Wächter haben zusätzliche &lt;strong&gt;5%&lt;/strong&gt; Bonus auf ihre Überlebenschancen.</note>
+      </notes>
+      <segment>
+        <source>Helden mit dem Beruf Wächter haben zusätzliche &lt;strong&gt;5%&lt;/strong&gt; Bonus auf ihre Überlebenschancen.</source>
+        <target><![CDATA[Guardians have a survival bonus of <strong>5%</strong>. Therefore they can reasonably expect to return home safe from a night's watch.]]></target>
+      </segment>
+    </unit>
+    <unit id="KcwYzN9" name="Was, wenn ich doch nicht will?">
+      <notes>
+        <note category="german">Was, wenn ich doch nicht will?</note>
+      </notes>
+      <segment>
+        <source>Was, wenn ich doch nicht will?</source>
+        <target>What if my bottle goes?</target>
+      </segment>
+    </unit>
+    <unit id="1lKcmf6" name="Du kannst deinen Posten bis 23:59 verlassen.">
+      <notes>
+        <note category="german">Du kannst deinen Posten bis 23:59 verlassen.</note>
+      </notes>
+      <segment>
+        <source>Du kannst deinen Posten bis 23:59 verlassen.</source>
+        <target>You can abandon your post until 22h59.</target>
+      </segment>
+    </unit>
+    <unit id="XlKohlV" name="f307fd3">
+      <notes>
+        <note category="german">Das heißt allerdings nicht, dass deine stadtloyalen Mitbürger dein Handeln auch gutheißen würden...</note>
+      </notes>
+      <segment>
+        <source>Das heißt allerdings nicht, dass deine stadtloyalen Mitbürger dein Handeln auch gutheißen würden...</source>
+        <target>That doesn't mean to say that your fellow townspeople will appreciate the gesture...</target>
+      </segment>
+    </unit>
+    <unit id="_bckoqm" name="07a7a0c">
+      <notes>
+        <note category="german">Achtung! Wenn die Anzahl der Angreifer höher ist als die Stadtverteidigung sinken die Überlebenschancen der Nachtwächter! In solchen Situationen wird sich zeigen, wer die wahren Helden der Stadt sind.</note>
+      </notes>
+      <segment>
+        <source>Achtung! Wenn die Anzahl der Angreifer höher ist als die Stadtverteidigung sinken die Überlebenschancen der Nachtwächter! In solchen Situationen wird sich zeigen, wer die wahren Helden der Stadt sind.</source>
+        <target>Warning, if the number of attacking zombies is greater than the town's defences, the watchmen's chances of surviving are drastically reduced! This is the moment at which you'll see the true defenders of the town.</target>
+      </segment>
+    </unit>
+    <unit id="SVBBTil" name="81aa835">
+      <notes>
+        <note category="german">Über den Abschnitt "Bürger" gelangst du zum &lt;strong&gt;Haus eines jeden einzelnen Bürgers&lt;/strong&gt;. Dort gibt es einen Knopf
+&lt;strong&gt;ANZEIGEN&lt;/strong&gt;. Wenn du ihn betätigst kannst du eine Beschwerde gegen jemanden einreichen.</note>
+      </notes>
+      <segment>
+        <source>Über den Abschnitt "Bürger" gelangst du zum &lt;strong&gt;Haus eines jeden einzelnen Bürgers&lt;/strong&gt;. Dort gibt es einen Knopf
+&lt;strong&gt;ANZEIGEN&lt;/strong&gt;. Wenn du ihn betätigst kannst du eine Beschwerde gegen jemanden einreichen.</source>
+        <target><![CDATA[When you <strong>go to a citizen's house</strong>, in the Citizens section, you can <strong>REPORT</strong> them.]]></target>
+      </segment>
+    </unit>
+    <unit id="7r2rDuw" name="2e4eb5a">
+      <notes>
+        <note category="german">Wenn &lt;strong&gt;8 Anzeigen&lt;/strong&gt; gegen einen Bürger eingegangen sind, wird er &lt;strong&gt;aus der Gemeinschaft ausgeschlossen&lt;/strong&gt;.</note>
+      </notes>
+      <segment>
+        <source>Wenn &lt;strong&gt;8 Anzeigen&lt;/strong&gt; gegen einen Bürger eingegangen sind, wird er &lt;strong&gt;aus der Gemeinschaft ausgeschlossen&lt;/strong&gt;.</source>
+        <target><![CDATA[This action constitutes a complaint against the citizen. If <strong>8&nbsp;complaints</strong> are registered against the citizen, they will be <strong>shunned by the community</strong>.]]></target>
+      </segment>
+    </unit>
+    <unit id="fRp9wJc" name="Auswirkungen einer Verbannung">
+      <notes>
+        <note category="german">Auswirkungen einer Verbannung</note>
+      </notes>
+      <segment>
+        <source>Auswirkungen einer Verbannung</source>
+        <target>Effects of being shunned</target>
+      </segment>
+    </unit>
+    <unit id="SBWUlyf" name="c788451">
+      <notes>
+        <note category="german">Alle wichtigen Gegenstände des Verbannten (Holz, Metall, Waffen etc...) werden &lt;strong&gt;der Bank zurückgegeben&lt;/strong&gt;.</note>
+      </notes>
+      <segment>
+        <source>Alle wichtigen Gegenstände des Verbannten (Holz, Metall, Waffen etc...) werden &lt;strong&gt;der Bank zurückgegeben&lt;/strong&gt;.</source>
+        <target><![CDATA[All objects which are considered essential for the community <strong>are deposited in the bank</strong> (wood, metal, defensive objects, etc...).]]></target>
+      </segment>
+    </unit>
+    <unit id="kYx3L.F" name="Darüber hinaus kann ein Verbannter folgende Dinge nicht mehr tun:">
+      <notes>
+        <note category="german">Darüber hinaus kann ein Verbannter folgende Dinge nicht mehr tun:</note>
+      </notes>
+      <segment>
+        <source>Darüber hinaus kann ein Verbannter folgende Dinge nicht mehr tun:</source>
+        <target>A shunned citizen is no longer able to :</target>
+      </segment>
+    </unit>
+    <unit id="0PsYUsW" name="c05ad4e">
+      <notes>
+        <note category="german">Er kann keine Gegenstände mehr aus der Bank nehmen (er kann allerdings noch welche abliefern).</note>
+      </notes>
+      <segment>
+        <source>Er kann keine Gegenstände mehr aus der Bank nehmen (er kann allerdings noch welche abliefern).</source>
+        <target>take objects from the bank (they can still deposit objects in the bank for the community though),</target>
+      </segment>
+    </unit>
+    <unit id="MKTaYm7" name="c5cc720">
+      <notes>
+        <note category="german">Er kann kein zusätzliches Wasser aus dem Brunnen nehmen (seine tägliche Ration wird ihm aber zugestanden).</note>
+      </notes>
+      <segment>
+        <source>Er kann kein zusätzliches Wasser aus dem Brunnen nehmen (seine tägliche Ration wird ihm aber zugestanden).</source>
+        <target>take additional water from the well (their daily ration is still permitted),</target>
+      </segment>
+    </unit>
+    <unit id="v3Wnkkv" name="Er kann nicht mehr auf den Baustellen arbeiten.">
+      <notes>
+        <note category="german">Er kann nicht mehr auf den Baustellen arbeiten.</note>
+      </notes>
+      <segment>
+        <source>Er kann nicht mehr auf den Baustellen arbeiten.</source>
+        <target>work at construction sites,</target>
+      </segment>
+    </unit>
+    <unit id="3iLNW3K" name="Er darf die Werkstatt nicht mehr benutzen.">
+      <notes>
+        <note category="german">Er darf die Werkstatt nicht mehr benutzen.</note>
+      </notes>
+      <segment>
+        <source>Er darf die Werkstatt nicht mehr benutzen.</source>
+        <target>use the workshop,</target>
+      </segment>
+    </unit>
+    <unit id="K7nYZNw" name="Er darf das Stadttor nicht mehr bedienen.">
+      <notes>
+        <note category="german">Er darf das Stadttor nicht mehr bedienen.</note>
+      </notes>
+      <segment>
+        <source>Er darf das Stadttor nicht mehr bedienen.</source>
+        <target>open and close the town gates,</target>
+      </segment>
+    </unit>
+    <unit id="R9_ggeD" name="Er selbst darf keine Anzeigen mehr erstatten.">
+      <notes>
+        <note category="german">Er selbst darf keine Anzeigen mehr erstatten.</note>
+      </notes>
+      <segment>
+        <source>Er selbst darf keine Anzeigen mehr erstatten.</source>
+        <target>register complaints against citizens.</target>
+      </segment>
+    </unit>
+    <unit id="mIfaDz." name="6b918bd">
+      <notes>
+        <note category="german">Allerdings verfügt er über &lt;span x-ajax-href=%url_shun%&gt;neue Fähigkeiten&lt;/span&gt;, die ihm zu überleben helfen.</note>
+      </notes>
+      <segment>
+        <source>Allerdings verfügt er über &lt;span x-ajax-href=%url_shun%&gt;neue Fähigkeiten&lt;/span&gt;, die ihm zu überleben helfen.</source>
+        <target><![CDATA[However, a shunned citizen has <span x-ajax-href=%url_shun%>new skills</span> which gives them a chance of surviving alone...]]></target>
+      </segment>
+    </unit>
+    <unit id="gUwGqzo" name="Einen anderen Einwohner bestehlen">
+      <notes>
+        <note category="german">Einen anderen Einwohner bestehlen</note>
+      </notes>
+      <segment>
+        <source>Einen anderen Einwohner bestehlen</source>
+        <target>Rob a citizen</target>
+      </segment>
+    </unit>
+    <unit id="W3f3LtL" name="6d54b48">
+      <notes>
+        <note category="german">Es ist möglich in das Haus eines anderen Bürgers einzudringen und etwas von ihm zu stehlen. Dazu musst das zukünftige Opfer außer Haus sein, sprich: in der Außenwelt. &lt;strong&gt;Einmal am Tag kann du dein Glück versuchen.&lt;/strong&gt;</note>
+      </notes>
+      <segment>
+        <source>Es ist möglich in das Haus eines anderen Bürgers einzudringen und etwas von ihm zu stehlen. Dazu musst das zukünftige Opfer außer Haus sein, sprich: in der Außenwelt. &lt;strong&gt;Einmal am Tag kann du dein Glück versuchen.&lt;/strong&gt;</source>
+        <target><![CDATA[When a citizen is not in their house, i.e., in the World Beyond, you can go into their house. Once inside <strong>you can steal an object (once per day).</strong>]]></target>
+      </segment>
+    </unit>
+    <unit id="qgbKGp1" name="551a22c">
+      <notes>
+        <note category="german">&lt;strong&gt;Die Wahrscheinlichkeit bei einem Diebstahl erwischt zu werden beträgt 50%.&lt;/strong&gt; Wenn du ertappt wirst, wird die ganze Stadt darüber informiert und dein Name wird im Bürgerverzeichnis rot markiert! Deine Strafe liegt im freien Ermessen deiner Mitbürger...</note>
+      </notes>
+      <segment>
+        <source>&lt;strong&gt;Die Wahrscheinlichkeit bei einem Diebstahl erwischt zu werden beträgt 50%.&lt;/strong&gt; Wenn du ertappt wirst, wird die ganze Stadt darüber informiert und dein Name wird im Bürgerverzeichnis rot markiert! Deine Strafe liegt im freien Ermessen deiner Mitbürger...</source>
+        <target><![CDATA[<strong>A theft like this has a 50% chance of being discovered</strong>, in which case, all citizens will be informed (your name will appear in red in the town register)! The consequences of your actions will be decided by your fellow citizens...]]></target>
+      </segment>
+    </unit>
+    <unit id="6uRlyfe" name="Hängung">
+      <notes>
+        <note category="german">Hängung</note>
+      </notes>
+      <segment>
+        <source>Hängung</source>
+        <target>Elimination</target>
+      </segment>
+    </unit>
+    <unit id="asIi2cN" name="1d25d28">
+      <notes>
+        <note category="german">Wenn ein Stadteinwohner zu einer ernstzunehmenden Bedrohung für die Gemeinschaft wird, muss manchmal eine drastischere Maßnahme ergriffen werden.</note>
+      </notes>
+      <segment>
+        <source>Wenn ein Stadteinwohner zu einer ernstzunehmenden Bedrohung für die Gemeinschaft wird, muss manchmal eine drastischere Maßnahme ergriffen werden.</source>
+        <target>When a citizen becomes a real danger to the community, it is sometimes necessary to take things further.</target>
+      </segment>
+    </unit>
+    <unit id="iypc4j5" name="6ca2006">
+      <notes>
+        <note category="german">Die Bürger errichten in so einem Fall einen Galgen auf der Baustelle, um den Störer kurz und (fast) schmerzlos los zu werden.</note>
+      </notes>
+      <segment>
+        <source>Die Bürger errichten in so einem Fall einen Galgen auf der Baustelle, um den Störer kurz und (fast) schmerzlos los zu werden.</source>
+        <target>Citizens can construct a gallows at the construction site to definitively eliminate the wrongdoer. To hang someone, a certain number of complaints must be registered, in much the same way as for a banishment.</target>
+      </segment>
+    </unit>
+    <unit id="xgO4EsA" name="250e8b8">
+      <notes>
+        <note category="german">Damit ein Spieler gehängt werden kann, muss die gleiche Anzahl an Beschwerden gesammelt werden wie für seine Verbannung. Wie bei der Verbannung werden seine Gegenstände und Habseligkeiten nach seinem Tod wieder der Bank zurückgegeben.</note>
+      </notes>
+      <segment>
+        <source>Damit ein Spieler gehängt werden kann, muss die gleiche Anzahl an Beschwerden gesammelt werden wie für seine Verbannung. Wie bei der Verbannung werden seine Gegenstände und Habseligkeiten nach seinem Tod wieder der Bank zurückgegeben.</source>
+        <target>In the case of banishment (shunning), the objects belonging to the hanged citizen will be given to the town (bank). If a citizen in possession of a rusty chain is shunned, the chain will also be returned to the town (bank).</target>
+      </segment>
+    </unit>
+    <unit id="_LKCr3d" name="6697eaf">
+      <notes>
+        <note category="german">Hinweis: Es gibt noch weitere Möglichkeiten, unerwünschte Mitbürger loszuwerden (Mord, Fleischkäfig,...).</note>
+      </notes>
+      <segment>
+        <source>Hinweis: Es gibt noch weitere Möglichkeiten, unerwünschte Mitbürger loszuwerden (Mord, Fleischkäfig,...).</source>
+        <target>Note: there are other ways of getting rid of undesirable types (murder, meat locker, ...).</target>
+      </segment>
+    </unit>
+    <unit id="WEMV.Xr" name="Aufstand der Verbannten">
+      <notes>
+        <note category="german">Aufstand der Verbannten</note>
+      </notes>
+      <segment>
+        <source>Aufstand der Verbannten</source>
+        <target>The Return of the Shunned</target>
+      </segment>
+    </unit>
+    <unit id="NFZoXWz" name="271b25b">
+      <notes>
+        <note category="german">Die Verbannten können jeden Tag einen Aufstand versuchen.
+&lt;strong&gt;Wenn es ihnen gelingt, einen Umsturz zu organisieren, werden alle freien Bürger verbannt und die Verbannten ziehen in die Stadt ein.&lt;/strong&gt;</note>
+      </notes>
+      <segment>
+        <source>Die Verbannten können jeden Tag einen Aufstand versuchen.
+&lt;strong&gt;Wenn es ihnen gelingt, einen Umsturz zu organisieren, werden alle freien Bürger verbannt und die Verbannten ziehen in die Stadt ein.&lt;/strong&gt;</source>
+        <target><![CDATA[Every day, the pariahs (shunned citizens) of a given town can participate in an uprising. <strong>If the insurrection is successful, all free citizens will be shunned and all the pariahs will have their liberty restored.</strong>]]></target>
+      </segment>
+    </unit>
+    <unit id="yuCXuFH" name="Die Regeln lauten wie folgt:">
+      <notes>
+        <note category="german">Die Regeln lauten wie folgt:</note>
+      </notes>
+      <segment>
+        <source>Die Regeln lauten wie folgt:</source>
+        <target>The following rules apply :</target>
+      </segment>
+    </unit>
+    <unit id="g577mMw" name="Jeder Verbannte kann einmal pro Tag auf den Aufstand hinarbeiten.">
+      <notes>
+        <note category="german">Jeder Verbannte kann einmal pro Tag auf den Aufstand hinarbeiten.</note>
+      </notes>
+      <segment>
+        <source>Jeder Verbannte kann einmal pro Tag auf den Aufstand hinarbeiten.</source>
+        <target>each pariah can participate in the uprising once per day,</target>
+      </segment>
+    </unit>
+    <unit id="XGqpTYW" name="b96ce3f">
+      <notes>
+        <note category="german">Damit der Aufstand gelingen kann, müssen sich alle Verbannten jeden Tag für ihren Umsturzversuch einsetzen.</note>
+      </notes>
+      <segment>
+        <source>Damit der Aufstand gelingen kann, müssen sich alle Verbannten jeden Tag für ihren Umsturzversuch einsetzen.</source>
+        <target>each pariah must participate every day in order for the insurrection to have a chance of success,</target>
+      </segment>
+    </unit>
+    <unit id="J0MQzCj" name="In der gesamten Lebensdauer einer Stadt kann es höchstens einen Aufstand geben.">
+      <notes>
+        <note category="german">In der gesamten Lebensdauer einer Stadt kann es höchstens einen Aufstand geben.</note>
+      </notes>
+      <segment>
+        <source>In der gesamten Lebensdauer einer Stadt kann es höchstens einen Aufstand geben.</source>
+        <target>there can be a maximum of one insurrection during the town's existence.</target>
+      </segment>
+    </unit>
+    <unit id="7xKNw6_" name="94bdd92">
+      <notes>
+        <note category="german">Der Erfolg eines Aufstands bemisst sich unter anderem an folgenden Kriterien: Anzahl der Verbannten, Anzahl der freien Bürger, Anzahl der Überlebenden und das Kräfteverhältnis dieser Gruppen zueinander.</note>
+      </notes>
+      <segment>
+        <source>Der Erfolg eines Aufstands bemisst sich unter anderem an folgenden Kriterien: Anzahl der Verbannten, Anzahl der freien Bürger, Anzahl der Überlebenden und das Kräfteverhältnis dieser Gruppen zueinander.</source>
+        <target>Amongst other things, the insurrection system takes into account the number of pariahs, the number of free citizens, the number of survivors and the balance of forces.</target>
+      </segment>
+    </unit>
+    <unit id="Sjl24wJ" name="c7a2947">
+      <notes>
+        <note category="german">Beispiel: Zehn Verbannte brauchen wesentlich kürzer für einen Aufstand als drei. Während bei zehn Verbannten nur ein paar Tage reichen können, benötigen drei dazu ungefähr 20 Tage!</note>
+      </notes>
+      <segment>
+        <source>Beispiel: Zehn Verbannte brauchen wesentlich kürzer für einen Aufstand als drei. Während bei zehn Verbannten nur ein paar Tage reichen können, benötigen drei dazu ungefähr 20 Tage!</source>
+        <target>Example: if 10 citizens are shunned, they will only need a few days to stage an uprising. If there are only 3 shunned citizens, it will take them around 20 days!</target>
+      </segment>
+    </unit>
+    <unit id="PeNvZiE" name="701edd7">
+      <notes>
+        <note category="german">Die Vorbereitung eines Aufstandes ist eine langwierige Angelegenheit. Jeder Verbannte muss sich jeden Tag darum bemühen!</note>
+      </notes>
+      <segment>
+        <source>Die Vorbereitung eines Aufstandes ist eine langwierige Angelegenheit. Jeder Verbannte muss sich jeden Tag darum bemühen!</source>
+        <target>Staging an insurrection is a long-drawn-out task: each pariah must participate every day to make it happen!</target>
+      </segment>
+    </unit>
+    <unit id="gdcRvIb" name="Strategien der Verbannten">
+      <notes>
+        <note category="german">Strategien der Verbannten</note>
+      </notes>
+      <segment>
+        <source>Strategien der Verbannten</source>
+        <target>Strategy of the shunned</target>
+      </segment>
+    </unit>
+    <unit id="1g.BYqC" name="be8a971">
+      <notes>
+        <note category="german">Ein verbannter Stadtbürger kann nicht mehr auf die Ressourcen der Stadt zugreifen und muss sich deswegen etwas anderes einfallen lassen, wenn er überleben möchte.</note>
+      </notes>
+      <segment>
+        <source>Ein verbannter Stadtbürger kann nicht mehr auf die Ressourcen der Stadt zugreifen und muss sich deswegen etwas anderes einfallen lassen, wenn er überleben möchte.</source>
+        <target>Once shunned, a citizen can no longer make use of the town's facilities, so to get what they need to survive, they must fend for themselves by adopting less orthodox methods.</target>
+      </segment>
+    </unit>
+    <unit id="Dpp2zR0" name="Folgende Möglichkeiten stehen ihm offen:">
+      <notes>
+        <note category="german">Folgende Möglichkeiten stehen ihm offen:</note>
+      </notes>
+      <segment>
+        <source>Folgende Möglichkeiten stehen ihm offen:</source>
+        <target>From this point forward, they will have two special actions:</target>
+      </segment>
+    </unit>
+    <unit id="mD2oD1y" name="6391281">
+      <notes>
+        <note category="german">&lt;strong&gt;Er kann in den Abfällen der Stadt graben&lt;/strong&gt;: Diese Aktion geschieht vor dem Stadtor und erlaubt es manchmal, ein paar Kleinigkeiten minderer Qualität abzustauben...</note>
+      </notes>
+      <segment>
+        <source>&lt;strong&gt;Er kann in den Abfällen der Stadt graben&lt;/strong&gt;: Diese Aktion geschieht vor dem Stadtor und erlaubt es manchmal, ein paar Kleinigkeiten minderer Qualität abzustauben...</source>
+        <target><![CDATA[<strong>Search the town's waste</strong>: this action is carried out at the town gates (outside) and allows you to find very poor quality bits and pieces. However, they could be useful...]]></target>
+      </segment>
+    </unit>
+    <unit id="3i9s1Wp" name="5fd93ef">
+      <notes>
+        <note category="german">&lt;strong&gt;Seinen Rucksackinhalt verstecken&lt;/strong&gt;: In der Außenwelt ist diese Maßnahme ein probates Mittel, um den Inhalt seines Rucksacks vor den anderen Bürgern zu verstecken. Nur die Verbannten können derart versteckte Gegenstände sehen und aufsammeln. Allerdings besteht die geringe Wahrscheinlichkeit, dass normale Bürger diese Verstecke beim Graben finden.</note>
+      </notes>
+      <segment>
+        <source>&lt;strong&gt;Seinen Rucksackinhalt verstecken&lt;/strong&gt;: In der Außenwelt ist diese Maßnahme ein probates Mittel, um den Inhalt seines Rucksacks vor den anderen Bürgern zu verstecken. Nur die Verbannten können derart versteckte Gegenstände sehen und aufsammeln. Allerdings besteht die geringe Wahrscheinlichkeit, dass normale Bürger diese Verstecke beim Graben finden.</source>
+        <target><![CDATA[<strong>Hide your rucksack</strong>: this action allows the shunned to conceal the contents of their rucksack. Only the shunned can see and collect objects concealed in this way. However, normal citizens have a small chance of discovering the cache when searching.]]></target>
+      </segment>
+    </unit>
+    <unit id="fGTGKwo" name="247c014">
+      <notes>
+        <note category="german">Wenn eine Stadt kurz vor dem Untergang steht, wird der Chaoszustand ausgerufen. Dieser Zustand kann nicht aufgehoben werden. Folgende Bedingungen müssen alle erfüllt sein, damit der Chaoszustand ausgerufen wird:</note>
+      </notes>
+      <segment>
+        <source>Wenn eine Stadt kurz vor dem Untergang steht, wird der Chaoszustand ausgerufen. Dieser Zustand kann nicht aufgehoben werden. Folgende Bedingungen müssen alle erfüllt sein, damit der Chaoszustand ausgerufen wird:</source>
+        <target>When a town finds itself on the brink of extinction, it falls into the grip of Chaos. It is impossible to get out of this state. This mode is activated if, following an attack, all the following conditions are satisfied :</target>
+      </segment>
+    </unit>
+    <unit id="aDtihWN" name="cbbc3ee">
+      <notes>
+        <note category="german">Die Stadt hat weniger als &lt;strong&gt;10 Einwohner&lt;/strong&gt;, die sich in der Stadt aufhalten (Camper zählen nicht dazu).</note>
+      </notes>
+      <segment>
+        <source>Die Stadt hat weniger als &lt;strong&gt;10 Einwohner&lt;/strong&gt;, die sich in der Stadt aufhalten (Camper zählen nicht dazu).</source>
+        <target><![CDATA[the town has a population of less than <strong>10 citizens</strong>]]></target>
+      </segment>
+    </unit>
+    <unit id="rFquqwT" name="Die Stadt muss &lt;strong&gt;länger als 3 Tage überlebt haben&lt;/strong&gt;.">
+      <notes>
+        <note category="german">Die Stadt muss &lt;strong&gt;länger als 3 Tage überlebt haben&lt;/strong&gt;.</note>
+      </notes>
+      <segment>
+        <source>Die Stadt muss &lt;strong&gt;länger als 3 Tage überlebt haben&lt;/strong&gt;.</source>
+        <target><![CDATA[the town has already survived for<strong> more than 3 days</strong>.]]></target>
+      </segment>
+    </unit>
+    <unit id="YdlXl5I" name="0f9ec76">
+      <notes>
+        <note category="german">In einer Stadt, in der das Chaos herrscht, gilt kein Gesetz mehr. Gewisse Spielregeln ändern sich in diesem Fall:</note>
+      </notes>
+      <segment>
+        <source>In einer Stadt, in der das Chaos herrscht, gilt kein Gesetz mehr. Gewisse Spielregeln ändern sich in diesem Fall:</source>
+        <target>There is no law or order in a town in the grip of chaos. As such, certain rules change dramatically :</target>
+      </segment>
+    </unit>
+    <unit id="2TgvYMF" name="Die Verbannungen sind aufgehoben.">
+      <notes>
+        <note category="german">Die Verbannungen sind aufgehoben.</note>
+      </notes>
+      <segment>
+        <source>Die Verbannungen sind aufgehoben.</source>
+        <target>banishments are lifted</target>
+      </segment>
+    </unit>
+    <unit id="VWtGuv0" name="Anzeigen haben keine Wirkungen mehr.">
+      <notes>
+        <note category="german">Anzeigen haben keine Wirkungen mehr.</note>
+      </notes>
+      <segment>
+        <source>Anzeigen haben keine Wirkungen mehr.</source>
+        <target>complaints no longer have any effect,</target>
+      </segment>
+    </unit>
+    <unit id="s14hiXU" name="da4969a">
+      <notes>
+        <note category="german">Häuser verstorbener Mitbürger können &lt;strong&gt;unbegrenzt&lt;/strong&gt; geplündert werden (Normalerweise: 1 Gegenstand pro Tag und Spieler).</note>
+      </notes>
+      <segment>
+        <source>Häuser verstorbener Mitbürger können &lt;strong&gt;unbegrenzt&lt;/strong&gt; geplündert werden (Normalerweise: 1 Gegenstand pro Tag und Spieler).</source>
+        <target><![CDATA[Robbing (the dead) is <strong>no longer</strong> limited to one object per person per day,]]></target>
+      </segment>
+    </unit>
+    <unit id="QzJ_aSm" name="Der Diebstahlschutz in den Privathäusern funktioniert nicht mehr.">
+      <notes>
+        <note category="german">Der Diebstahlschutz in den Privathäusern funktioniert nicht mehr.</note>
+      </notes>
+      <segment>
+        <source>Der Diebstahlschutz in den Privathäusern funktioniert nicht mehr.</source>
+        <target>there are no longer any anti-abuse restrictions in place as regards building and upgrading houses,</target>
+      </segment>
+    </unit>
+    <unit id="C6304la" name="25c7f33">
+      <notes>
+        <note category="german">Wenn sich jemand in der Außenwelt befindet, werden seine Koordinaten nicht mehr im Bürgerverzeichnis angezeigt.</note>
+      </notes>
+      <segment>
+        <source>Wenn sich jemand in der Außenwelt befindet, werden seine Koordinaten nicht mehr im Bürgerverzeichnis angezeigt.</source>
+        <target>the coordinates of a citizen in the World Beyond are no longer visible in the Citizens tab,</target>
+      </segment>
+    </unit>
+    <unit id="I40x8LE" name="6cf7fe8">
+      <notes>
+        <note category="german">Es können doppelt so viele Gegenstände aus der Bank entnommen werden wie sonst.</note>
+      </notes>
+      <segment>
+        <source>Es können doppelt so viele Gegenstände aus der Bank entnommen werden wie sonst.</source>
+        <target>twice as many objects can now be taken from the bank (before the anti-abuse feature is activated).</target>
+      </segment>
+    </unit>
+    <unit id="wWhWb3E" name="b06e6ef">
+      <notes>
+        <note category="german">&lt;strong&gt;Das Katapult ist ein äußerst mächtiges Werkzeug, mit dem die Stadt jede Art von Gegenstand in die Wüste schießen kann.&lt;/strong&gt; Das ist sehr nützlich, wenn man weit entfernte Bürger versorgen möchte (Lebensmittel, Wasser, Waffen etc...).</note>
+      </notes>
+      <segment>
+        <source>&lt;strong&gt;Das Katapult ist ein äußerst mächtiges Werkzeug, mit dem die Stadt jede Art von Gegenstand in die Wüste schießen kann.&lt;/strong&gt; Das ist sehr nützlich, wenn man weit entfernte Bürger versorgen möchte (Lebensmittel, Wasser, Waffen etc...).</source>
+        <target><![CDATA[<strong>The catapult is an extremely powerful tool which allows any object to be sent to any zone in the desert.</strong> Very useful for long-range refreshment / reinforcement.]]></target>
+      </segment>
+    </unit>
+    <unit id="L7stCki" name="eb273ac">
+      <notes>
+        <note category="german">Es ist allerdings zu beachten, dass das Katapult &lt;i&gt;manchmal&lt;/i&gt; sein Ziel verfehlt und der verschossene Gegenstand in der benachbarten Zone landet. 
+Darüber hinaus besteht die Gefahr, dass manche, &lt;i&gt;seltene&lt;/i&gt; Gegenstände den Aufprall nicht unbeschadet überstehen.</note>
+      </notes>
+      <segment>
+        <source>Es ist allerdings zu beachten, dass das Katapult &lt;i&gt;manchmal&lt;/i&gt; sein Ziel verfehlt und der verschossene Gegenstand in der benachbarten Zone landet. 
+Darüber hinaus besteht die Gefahr, dass manche, &lt;i&gt;seltene&lt;/i&gt; Gegenstände den Aufprall nicht unbeschadet überstehen.</source>
+        <target><![CDATA[Please note that <i>sometimes</i> the catapult misses its target and sends the object to a neighbouring zone... Furthermore, even when due care is taken to protect the package being sent, certain <i>rare</i> objects don't travel well.]]></target>
+      </segment>
+    </unit>
+    <unit id="6IQLOf8" name="518d694">
+      <notes>
+        <note category="german">Die Aktivierung des Katapults kostet %img_ap%. Diese Kosten können gesenkt werden, wenn das Katapult verbessert wird,</note>
+      </notes>
+      <segment>
+        <source>Die Aktivierung des Katapults kostet %img_ap%. Diese Kosten können gesenkt werden, wenn das Katapult verbessert wird,</source>
+        <target>Using the catapult costs %img_ap%. This cost could be reduced by upgrading the construction site.</target>
+      </segment>
+    </unit>
+    <unit id="WWlZZMn" name="Wer ist für das Katapult verantwortlich?">
+      <notes>
+        <note category="german">Wer ist für das Katapult verantwortlich?</note>
+      </notes>
+      <segment>
+        <source>Wer ist für das Katapult verantwortlich?</source>
+        <target>Who controls the catapult?</target>
+      </segment>
+    </unit>
+    <unit id="5Ri44at" name="13cf0cf">
+      <notes>
+        <note category="german">Es wird nach dem Zufallsprinzip ein Bürger bestimmt, der sich um das Katapult kümmert. Der Katapultverantwortliche wird nach folgendem Schema ausgewählt:</note>
+      </notes>
+      <segment>
+        <source>Es wird nach dem Zufallsprinzip ein Bürger bestimmt, der sich um das Katapult kümmert. Der Katapultverantwortliche wird nach folgendem Schema ausgewählt:</source>
+        <target>A citizen will be randomly chosen from a predetermined group :</target>
+      </segment>
+    </unit>
+    <unit id="c5hgFOA" name="a52ef46">
+      <notes>
+        <note category="german">Es werden zunächst die am gegebenen Tag aktiven Helden der Stadt für diese Aufgabe eingeteilt.</note>
+      </notes>
+      <segment>
+        <source>Es werden zunächst die am gegebenen Tag aktiven Helden der Stadt für diese Aufgabe eingeteilt.</source>
+        <target>in the first instance, a citizen will be chosen from the heroes which have been active today,</target>
+      </segment>
+    </unit>
+    <unit id="p4SXTR7" name="4205617">
+      <notes>
+        <note category="german">Wenn kein Bürger gefunden wurde, werden erneut die Helden der Stadt herangezogen.</note>
+      </notes>
+      <segment>
+        <source>Wenn kein Bürger gefunden wurde, werden erneut die Helden der Stadt herangezogen.</source>
+        <target>if none are found, a citizen will be chosen from the heroes in town,</target>
+      </segment>
+    </unit>
+    <unit id="HlXfeOx" name="28aea76">
+      <notes>
+        <note category="german">Wenn danach immer noch kein Verantwortlicher gefunden wurde, übernehmen die aktivsten Spieler des jeweiligen Tages diese Aufgabe.</note>
+      </notes>
+      <segment>
+        <source>Wenn danach immer noch kein Verantwortlicher gefunden wurde, übernehmen die aktivsten Spieler des jeweiligen Tages diese Aufgabe.</source>
+        <target>if still none are found, a citizen will be chosen from the citizens which have been active today,</target>
+      </segment>
+    </unit>
+    <unit id="NGy2akh" name="23baf39">
+      <notes>
+        <note category="german">Sollten sich schließlich alle um diese Aufgabe drücken, trifft es einen zufällig ausgewählten Bürger.</note>
+      </notes>
+      <segment>
+        <source>Sollten sich schließlich alle um diese Aufgabe drücken, trifft es einen zufällig ausgewählten Bürger.</source>
+        <target>finally, in a worst-case scenario, a citizen will be chosen at random.</target>
+      </segment>
+    </unit>
+    <unit id="LnJv2UF" name="f155c3b">
+      <notes>
+        <note category="german">Kleine Städte (Kartentyp "Kleine Karte") sind für die neuen Spieler bei "MyHordes" gedacht. Hier geht es vor allem um das Lernen der Grundlagen. 
+Diese Städte sind darum auch weniger schwer und eine Stadt verfügt z.B. bereits über einige Gebäude. Grundsätzlich stehen diese Städte aber allen Spielern offen.</note>
+      </notes>
+      <segment>
+        <source>Kleine Städte (Kartentyp "Kleine Karte") sind für die neuen Spieler bei "Die Verdammten" gedacht. Hier geht es vor allem um das Lernen der Grundlagen. 
+Diese Städte sind darum auch weniger schwer und eine Stadt verfügt z.B. bereits über einige Gebäude. Grundsätzlich stehen diese Städte aber allen Spielern offen.</source>
+        <target>Towns in Non-Distant Regions are meant to provide a soft landing for new players. These towns are accessible to everyone, however they have smaller maps and are numerous other changes that are designed to make the learning curve less steep for the novice. The idea is that experienced players can still mingle with beginners and help them as they start out. So say hello and smile to the newbies, you never know they might be your new best friend.</target>
+      </segment>
+    </unit>
+    <unit id="wo.9gpI" name="411e059">
+      <notes>
+        <note category="german">Punkte für Auszeichnungen erhalten nur jene Spieler, die mehr als 100 Seelenpunkte haben und die mindestens 8 Tage in der Stadt verbracht haben.</note>
+      </notes>
+      <segment>
+        <source>Punkte für Auszeichnungen erhalten nur jene Spieler, die mehr als 100 Seelenpunkte haben und die mindestens 8 Tage in der Stadt verbracht haben.</source>
+        <target>Experienced players (those with more than 100 Soul Points) will only receive rewards and distinctions if the town makes it to day 8.</target>
+      </segment>
+    </unit>
+    <unit id="i.HjG2E" name="f29e359">
+      <notes>
+        <note category="german">Denk daran, im Gegensatz zu den 5-Tage-Regel in Kleinen Städten werden für erfahrene Spieler keine Auszeichnungen vor dem 8. Tag vergeben. Nach dem finalen Angriff (niemand mehr am Leben) werden die Belohnungen verteilt.</note>
+      </notes>
+      <segment>
+        <source>Denk daran, im Gegensatz zu den 5-Tage-Regel in Kleinen Städten werden für erfahrene Spieler keine Auszeichnungen vor dem 8. Tag vergeben. Nach dem finalen Angriff (niemand mehr am Leben) werden die Belohnungen verteilt.</source>
+        <target>Be careful, in contrast to the rule for the 5th day in the Not-distant regions, no rewards will be distributed before the 8th for these experienced players. Following the final attack (no one left alive), the rewards will be distributed.</target>
+      </segment>
+    </unit>
+    <unit id="yMz03.8" name="Spiritueller Führer">
+      <notes>
+        <note category="german">Spiritueller Führer</note>
+      </notes>
+      <segment>
+        <source>Spiritueller Führer</source>
+        <target>Spiritual Guide</target>
+      </segment>
+    </unit>
+    <unit id="oXF7Uuq" name="540b3a7">
+      <notes>
+        <note category="german">Im Gegenzug kann man sich ab dem ersten Tag Punkte für den Titel &lt;strong&gt;Spiritueller Führer&lt;/strong&gt; verdienen.</note>
+      </notes>
+      <segment>
+        <source>Im Gegenzug kann man sich ab dem ersten Tag Punkte für den Titel &lt;strong&gt;Spiritueller Führer&lt;/strong&gt; verdienen.</source>
+        <target><![CDATA[<strong>One unique title is up for grabs in Non-Distant towns: Spiritual Guide!</strong>]]></target>
+      </segment>
+    </unit>
+    <unit id="mPhdr0f" name="011c180">
+      <notes>
+        <note category="german">Versucht, so lange wie möglich in einer kleinen Stadt zu überleben.
+Kleine Städte stehen auch Spielern mit mehr als 100 Seelenpunkten offen, wenn sich mindestens 20 Bürger mit weniger als 100 Seelenpunkten in der Stadt befinden.
+Die Punkte für den Titel "Spiritueller Führer" kumulieren sich mit jedem Tag. Jeder überlebte Tag bringt die jeweilige Menge an Punkten.</note>
+      </notes>
+      <segment>
+        <source>Versucht, so lange wie möglich in einer kleinen Stadt zu überleben.
+Kleine Städte stehen auch Spielern mit mehr als 100 Seelenpunkten offen, wenn sich mindestens 20 Bürger mit weniger als 100 Seelenpunkten in der Stadt befinden.
+Die Punkte für den Titel "Spiritueller Führer" kumulieren sich mit jedem Tag. Jeder überlebte Tag bringt die jeweilige Menge an Punkten.</source>
+        <target>If you're an experienced player and you're up for a real challenge, then why not try for the Spiritual Guide title? All you have to do is help a town that has at least 50% of its souls with less than 100 points survive past day 8. Basically round up a bunch of noobs and help them make it past day 8. Sounds easy right... The points you can earn for this title are cumulative, but you'll only get them if you make it to day 8. Every day the town survives your points stack up.</target>
+      </segment>
+    </unit>
+    <unit id="xF9YSOR" name="Beispiel:">
+      <notes>
+        <note category="german">Beispiel:</note>
+      </notes>
+      <segment>
+        <source>Beispiel:</source>
+        <target>Example:</target>
+      </segment>
+    </unit>
+    <unit id="FqacqHL" name="Tag 1: 1 Punkt">
+      <notes>
+        <note category="german">Tag 1: 1 Punkt</note>
+      </notes>
+      <segment>
+        <source>Tag 1: 1 Punkt</source>
+        <target>Day 1 : 1 point</target>
+      </segment>
+    </unit>
+    <unit id="Id8a.5D" name="Tag 2: 2 + 1 Punkte">
+      <notes>
+        <note category="german">Tag 2: 2 + 1 Punkte</note>
+      </notes>
+      <segment>
+        <source>Tag 2: 2 + 1 Punkte</source>
+        <target>Day 2 : 2 + 1 points</target>
+      </segment>
+    </unit>
+    <unit id="YKOIwEb" name="Tag 5: 5 + 4 + 3 + 2 + 1 Punkte">
+      <notes>
+        <note category="german">Tag 5: 5 + 4 + 3 + 2 + 1 Punkte</note>
+      </notes>
+      <segment>
+        <source>Tag 5: 5 + 4 + 3 + 2 + 1 Punkte</source>
+        <target>Day 5 : 5 + 4 + 3 + 2 + 1 points</target>
+      </segment>
+    </unit>
+    <unit id="QbOHqWF" name="etc.">
+      <notes>
+        <note category="german">etc.</note>
+      </notes>
+      <segment>
+        <source>etc.</source>
+        <target>Etc etc</target>
+      </segment>
+    </unit>
+    <unit id="BbrZo2U" name="3670d6e">
+      <notes>
+        <note category="german">Wenn eine Stadt beim Angriff um Mitternacht komplett &lt;strong&gt;verlassen&lt;/strong&gt; ist (z.B.: weil alle Bürger in der Außenwelt campen ODER weil alle in der Stadt gestorben sind), gilt sie als &lt;strong&gt;zerstört&lt;/strong&gt;. Folgende Regeländerungen treten dann in Kraft:</note>
+      </notes>
+      <segment>
+        <source>Wenn eine Stadt beim Angriff um Mitternacht komplett &lt;strong&gt;verlassen&lt;/strong&gt; ist (z.B.: weil alle Bürger in der Außenwelt campen ODER weil alle in der Stadt gestorben sind), gilt sie als &lt;strong&gt;zerstört&lt;/strong&gt;. Folgende Regeländerungen treten dann in Kraft:</source>
+        <target><![CDATA[If, when the Horde attack, the town is <strong>deserted</strong> (i.e. all surviving citizens are camping outside the walls OR have been killed in town), it will be considered <strong>devastated by the zombies</strong> :]]></target>
+      </segment>
+    </unit>
+    <unit id="uluYjob" name="216dbbe">
+      <notes>
+        <note category="german">&lt;strong&gt;Das Stadttor ist irreparabel zerstört&lt;/strong&gt;: Die Stadt kann von den Überlebenden nicht mehr  als sicherer Rückzugsort genutzt werden.</note>
+      </notes>
+      <segment>
+        <source>&lt;strong&gt;Das Stadttor ist irreparabel zerstört&lt;/strong&gt;: Die Stadt kann von den Überlebenden nicht mehr  als sicherer Rückzugsort genutzt werden.</source>
+        <target><![CDATA[<strong>the gates are irreparably damaged</strong>: the town will no longer be able to serve as a refuge for the survivors,]]></target>
+      </segment>
+    </unit>
+    <unit id="MBxcEi9" name="Alle Gebäude, die sich im Bau befanden, wurden zerstört.">
+      <notes>
+        <note category="german">Alle Gebäude, die sich im Bau befanden, wurden zerstört.</note>
+      </notes>
+      <segment>
+        <source>Alle Gebäude, die sich im Bau befanden, wurden zerstört.</source>
+        <target>buildings under construction will have to be started again from scratch,</target>
+      </segment>
+    </unit>
+    <unit id="4FoyWoL" name="Die Wasserreserven des Stadtbrunnens sind stark gesunken.">
+      <notes>
+        <note category="german">Die Wasserreserven des Stadtbrunnens sind stark gesunken.</note>
+      </notes>
+      <segment>
+        <source>Die Wasserreserven des Stadtbrunnens sind stark gesunken.</source>
+        <target>the water reserves in the well will be affected,</target>
+      </segment>
+    </unit>
+    <unit id="1Lk27l0" name="Es können keine &quot;Verbesserungen des Tages&quot; mehr gebaut werden.">
+      <notes>
+        <note category="german">Es können keine "Verbesserungen des Tages" mehr gebaut werden.</note>
+      </notes>
+      <segment>
+        <source>Es können keine "Verbesserungen des Tages" mehr gebaut werden.</source>
+        <target>it is no longer possible to carry out upgrades,</target>
+      </segment>
+    </unit>
+    <unit id="MTgW2Ew" name="4b9cfe0">
+      <notes>
+        <note category="german">Alle privaten Behausungen sind zerstört (persönliche Einrichtungen, z.B.: Drogenküche, sind davon aber nicht betroffen).</note>
+      </notes>
+      <segment>
+        <source>Alle privaten Behausungen sind zerstört (persönliche Einrichtungen, z.B.: Drogenküche, sind davon aber nicht betroffen).</source>
+        <target>citizens' houses are destroyed (interior improvements and upgrades are unaffected),</target>
+      </segment>
+    </unit>
+    <unit id="sXuh7tt" name="dc4ad03">
+      <notes>
+        <note category="german">Der &lt;strong&gt;Chaosmodus&lt;/strong&gt; wurde aktiviert (dies gilt auch dann, wenn die ansonsten dafür benötigten Bedingungen nicht erfüllt wurden).</note>
+      </notes>
+      <segment>
+        <source>Der &lt;strong&gt;Chaosmodus&lt;/strong&gt; wurde aktiviert (dies gilt auch dann, wenn die ansonsten dafür benötigten Bedingungen nicht erfüllt wurden).</source>
+        <target><![CDATA[<strong>Chaos</strong> mode is immediately in effect (even if the usual conditions are not satisfied).]]></target>
+      </segment>
+    </unit>
+    <unit id="2C542tA" name="Der Heißhunger der Ghule nimmt um Mitternacht nicht mehr so stark zu.">
+      <notes>
+        <note category="german">Der Heißhunger der Ghule nimmt um Mitternacht nicht mehr so stark zu.</note>
+      </notes>
+      <segment>
+        <source>Der Heißhunger der Ghule nimmt um Mitternacht nicht mehr so stark zu.</source>
+        <target>The ghouls' voracity increases less at midnight.</target>
+      </segment>
+    </unit>
+    <unit id="tGAWHP6" name="Deine Tage sind gezählt... Wir geben dir folgenden Rat:">
+      <notes>
+        <note category="german">Deine Tage sind gezählt... Wir geben dir folgenden Rat:</note>
+      </notes>
+      <segment>
+        <source>Deine Tage sind gezählt... Wir geben dir folgenden Rat:</source>
+        <target>Your days are numbered... A little advice for such a situation :</target>
+      </segment>
+    </unit>
+    <unit id="6sJM6P1" name="Meide diesen verfluchten Ort!">
+      <notes>
+        <note category="german">Meide diesen verfluchten Ort!</note>
+      </notes>
+      <segment>
+        <source>Meide diesen verfluchten Ort!</source>
+        <target>Get the hell outta here!</target>
+      </segment>
+    </unit>
+    <unit id="qPMpXGE" name="Das Pandämonium ist der schwierige Modus in 'Die Verdammten'.">
+      <notes>
+        <note category="german">Das Pandämonium ist der schwierige Modus in 'MyHordes'.</note>
+      </notes>
+      <segment>
+        <source>Das Pandämonium ist der schwierige Modus in 'Die Verdammten'.</source>
+        <target>Hardcore is the MyHordes Expert mode.</target>
+      </segment>
+    </unit>
+    <unit id="BkPxtbC" name="cc40ff8">
+      <notes>
+        <note category="german">Im Pandämonium findet ihr ausschießlich Städte, die mit zusätzlichen Problemen zu kämpfen haben und in denen das Überleben außerordentlich schwierig ist.</note>
+      </notes>
+      <segment>
+        <source>Im Pandämonium findet ihr ausschießlich Städte, die mit zusätzlichen Problemen zu kämpfen haben und in denen das Überleben außerordentlich schwierig ist.</source>
+        <target>Hardcore is the name given to towns where survival is particularly difficult: citizens have to face additional challenges!</target>
+      </segment>
+    </unit>
+    <unit id="wv_7RfX" name="In diesen Städten gelten bestimmte Regeln:">
+      <notes>
+        <note category="german">In diesen Städten gelten bestimmte Regeln:</note>
+      </notes>
+      <segment>
+        <source>In diesen Städten gelten bestimmte Regeln:</source>
+        <target>These towns are subject to various special rules:</target>
+      </segment>
+    </unit>
+    <unit id="DO7RUNU" name="384d8b4">
+      <notes>
+        <note category="german">Die mitternächtlichen Zombieangriffe richten Schäden an den gebauten Gebäuden und Konstruktionen an. Diese Schäden müssen repariert werden.</note>
+      </notes>
+      <segment>
+        <source>Die mitternächtlichen Zombieangriffe richten Schäden an den gebauten Gebäuden und Konstruktionen an. Diese Schäden müssen repariert werden.</source>
+        <target>The midnight zombie attacks cause damage to the buildings and structures that have been built. This damage needs to be repaired.</target>
+      </segment>
+    </unit>
+    <unit id="XssioYa" name="6b6b343">
+      <notes>
+        <note category="german">Beschädigte Verteidigungsbauten verlieren ihre Wirkung, wenn sie nicht repariert werden.</note>
+      </notes>
+      <segment>
+        <source>Beschädigte Verteidigungsbauten verlieren ihre Wirkung, wenn sie nicht repariert werden.</source>
+        <target>Damaged defense structures lose their effectiveness if they are not repaired.</target>
+      </segment>
+    </unit>
+    <unit id="y9_6DNA" name="Die Überlebenschancen beim Camping sind geringer.">
+      <notes>
+        <note category="german">Die Überlebenschancen beim Camping sind geringer.</note>
+      </notes>
+      <segment>
+        <source>Die Überlebenschancen beim Camping sind geringer.</source>
+        <target>The chances of survival when camping are lower.</target>
+      </segment>
+    </unit>
+    <unit id="dIsy9OZ" name="Die Chance, an einer Infektion zu sterben, beträgt 75%,">
+      <notes>
+        <note category="german">Die Chance, an einer Infektion zu sterben, beträgt 75%,</note>
+      </notes>
+      <segment>
+        <source>Die Chance, an einer Infektion zu sterben, beträgt 75%,</source>
+        <target>the chances of dying from an infection at 23h00 (server time) are 75%,</target>
+      </segment>
+    </unit>
+    <unit id="Qiqpk6d" name="Die Wasserreserven zum Beginn einer Stadt sind kleiner als gewöhnlich,">
+      <notes>
+        <note category="german">Die Wasserreserven zum Beginn einer Stadt sind kleiner als gewöhnlich,</note>
+      </notes>
+      <segment>
+        <source>Die Wasserreserven zum Beginn einer Stadt sind kleiner als gewöhnlich,</source>
+        <target>initial water reserves are inferior to those of normal towns,</target>
+      </segment>
+    </unit>
+    <unit id="0we86d8" name="Der Letzte Tod bringt eine besondere Auszeichnung ein.">
+      <notes>
+        <note category="german">Der Letzte Tod bringt eine besondere Auszeichnung ein.</note>
+      </notes>
+      <segment>
+        <source>Der Letzte Tod bringt eine besondere Auszeichnung ein.</source>
+        <target>the Last Man Standing will receive an additional reward!</target>
+      </segment>
+    </unit>
+    <unit id="Dlzg59c" name="1ef4c80">
+      <notes>
+        <note category="german">Die Chance, einen Mitbürger mit der Aktion &lt;strong&gt;Angreifen&lt;/strong&gt; zu verletzten, ist wesentlich höher.</note>
+      </notes>
+      <segment>
+        <source>Die Chance, einen Mitbürger mit der Aktion &lt;strong&gt;Angreifen&lt;/strong&gt; zu verletzten, ist wesentlich höher.</source>
+        <target><![CDATA[the chances of wounding someone with the <strong>assault</strong> action are high.]]></target>
+      </segment>
+    </unit>
+    <unit id="LEVGJt5" name="2582360">
+      <notes>
+        <note category="german">Verteidigungsgegenstände in der Bank können während des Angriffs zerstört werden.</note>
+      </notes>
+      <segment>
+        <source>Verteidigungsgegenstände in der Bank können während des Angriffs zerstört werden.</source>
+        <target>Defense items in the Bank can be destroyed during the attack.</target>
+      </segment>
+    </unit>
+    <unit id="ns9cC3z" name="dc8a326">
+      <notes>
+        <note category="german">Privatstädte ermöglichen es dir, gemeinsam mit Freunden oder in Städten zu bestimmten "Themen" zu spielen.</note>
+      </notes>
+      <segment>
+        <source>Privatstädte ermöglichen es dir, gemeinsam mit Freunden oder in Städten zu bestimmten "Themen" zu spielen.</source>
+        <target>Private towns allow you to easily play with friends, or to create "theme towns".</target>
+      </segment>
+    </unit>
+    <unit id="s_jrOBP" name="Wie geht das?">
+      <notes>
+        <note category="german">Wie geht das?</note>
+      </notes>
+      <segment>
+        <source>Wie geht das?</source>
+        <target>How do they work?</target>
+      </segment>
+    </unit>
+    <unit id="61h5rHu" name="Eine Privatstadt funktioniert folgendermaßen:">
+      <notes>
+        <note category="german">Eine Privatstadt funktioniert folgendermaßen:</note>
+      </notes>
+      <segment>
+        <source>Eine Privatstadt funktioniert folgendermaßen:</source>
+        <target>A private town works as follows:</target>
+      </segment>
+    </unit>
+    <unit id="94iUyvw" name="91f5280">
+      <notes>
+        <note category="german">Auf der Seite "Spielen" kannst du ein neuen Leben beginnen und hier findest du den Reiter "Privatstadt gründen". Hier kannst du alle Einstellungen für deine Privatstadt festlegen.</note>
+      </notes>
+      <segment>
+        <source>Auf der Seite "Spielen" kannst du ein neuen Leben beginnen und hier findest du den Reiter "Privatstadt gründen". Hier kannst du alle Einstellungen für deine Privatstadt festlegen.</source>
+        <target>go to the "play" page when you die, then click on the "private towns" tab,</target>
+      </segment>
+    </unit>
+    <unit id="Ygu72Ny" name="Vorher musst du die Heldenfähigkeit &quot;Bürgermeister&quot; freigeschaltet haben.">
+      <notes>
+        <note category="german">Vorher musst du die Heldenfähigkeit "Bürgermeister" freigeschaltet haben.</note>
+      </notes>
+      <segment>
+        <source>Vorher musst du die Heldenfähigkeit "Bürgermeister" freigeschaltet haben.</source>
+        <target>you have to have unlocked the "Mayor" Hero skill,</target>
+      </segment>
+    </unit>
+    <unit id="mj11F0w" name="8a82d94">
+      <notes>
+        <note category="german">Für die Stadt, die du gründest, musst du einen Zugangscode vergeben und diesen an die eingeladenen Spieler verteilen, damit sie die Stadt betreten können,</note>
+      </notes>
+      <segment>
+        <source>Für die Stadt, die du gründest, musst du einen Zugangscode vergeben und diesen an die eingeladenen Spieler verteilen, damit sie die Stadt betreten können,</source>
+        <target>when you create the town, you will need to choose a secret code which you must give to participating players so that they can join your game,</target>
+      </segment>
+    </unit>
+    <unit id="1nzuI2P" name="Einige Regeln können frei bestimmt werden (Ghule, Wasser, Kartentyp,...).">
+      <notes>
+        <note category="german">Einige Regeln können frei bestimmt werden (Ghule, Wasser, Kartentyp,...).</note>
+      </notes>
+      <segment>
+        <source>Einige Regeln können frei bestimmt werden (Ghule, Wasser, Kartentyp,...).</source>
+        <target>certain features can be freely modified (water stocks, map type, ...).</target>
+      </segment>
+    </unit>
+    <unit id="WrjdzG9" name="Besondere Regeln">
+      <notes>
+        <note category="german">Besondere Regeln</note>
+      </notes>
+      <segment>
+        <source>Besondere Regeln</source>
+        <target>Special Rules</target>
+      </segment>
+    </unit>
+    <unit id="RW_iRWA" name="Für Privatstädte gelten die folgenden Regeln:">
+      <notes>
+        <note category="german">Für Privatstädte gelten die folgenden Regeln:</note>
+      </notes>
+      <segment>
+        <source>Für Privatstädte gelten die folgenden Regeln:</source>
+        <target>The following rules apply to all private towns:</target>
+      </segment>
+    </unit>
+    <unit id="Hn.FbEN" name="2511b47">
+      <notes>
+        <note category="german">Verriegelte Tore: Die Stadttore von Privatstädten öffnen sicher erst, wenn sich 40 Bürger dafür eingeschrieben haben.</note>
+      </notes>
+      <segment>
+        <source>Verriegelte Tore: Die Stadttore von Privatstädten öffnen sicher erst, wenn sich 40 Bürger dafür eingeschrieben haben.</source>
+        <target>Locked Gates: the town gates cannot be opened if less than 40 players have joined the town.</target>
+      </segment>
+    </unit>
+    <unit id="tkocvEE" name="Seelenpunkte: Der Tod in einer Privatstadt bringt keine Seelenpunkte.">
+      <notes>
+        <note category="german">Seelenpunkte: Der Tod in einer Privatstadt bringt 33% der Seelenpunkte.</note>
+      </notes>
+      <segment>
+        <source>Seelenpunkte: Der Tod in einer Privatstadt bringt keine Seelenpunkte.</source>
+        <target>Soul Points: dying in a private town will only earn one third of the normal number of points.</target>
+      </segment>
+    </unit>
+    <unit id="L0SipSu" name="d9e5ee6">
+      <notes>
+        <note category="german">Negierung: Wenn eine Privatstadt nicht bis Mitternacht des übernächsten Tages gefüllt ist, wird sie wieder negiert. Der Stadtgründer erhält dann alle investierten Heldentage zurück. Alle bereits getätigten Einschreibungen werden rückgängig gemacht.</note>
+      </notes>
+      <segment>
+        <source>Negierung: Wenn eine Privatstadt nicht bis Mitternacht des übernächsten Tages gefüllt ist, wird sie wieder negiert. Der Stadtgründer erhält dann alle investierten Heldentage zurück. Alle bereits getätigten Einschreibungen werden rückgängig gemacht.</source>
+        <target>Cancellation: a private town will be cancelled if it has not been filled within 2 days. Its creator will have any Hero days invested returned and any participating players will leave the town.</target>
+      </segment>
+    </unit>
+    <unit id="QvajNih" name="6ebe38c">
+      <notes>
+        <note category="german">Auszeichnungnen: Für seltene Auszeichnungen werden Privatstädte nicht berücksichtigt. Normale Auszeichnungen werden teilweise angerechnet. 33% erworbenen Auszeichnungen wird zufällig ausgewählt und behalten. Bei einer ungeraden Anzahl an erworbenen Auszeichnungen wird vorher abgerundet.</note>
+      </notes>
+      <segment>
+        <source>Auszeichnungnen: Für seltene Auszeichnungen werden Privatstädte nicht berücksichtigt. Normale Auszeichnungen werden teilweise angerechnet. Die Hälfte aller erworbenen Auszeichnungen wird zufällig ausgewählt und behalten. Bei einer ungeraden Anzahl an erworbenen Auszeichnungen wird vorher abgerundet.</source>
+        <target>Distinctions: only a third of distinctions normally given will be awarded in private towns (the rest are lost). Rare distinctions cannot be earned in private towns.</target>
+      </segment>
+    </unit>
+    <unit id="J6AiXBy" name="d97c5fa">
+      <notes>
+        <note category="german">Letzter Tod: Durch Sterben in einer Privatstadt kann man nicht den Titel "letzter Tod" erwerben.</note>
+      </notes>
+      <segment>
+        <source>Letzter Tod: Durch Sterben in einer Privatstadt kann man nicht den Titel "letzter Tod" erwerben.</source>
+        <target>Last man standing: dying in a private town never earns the LMS distinction.</target>
+      </segment>
+    </unit>
+    <unit id="CaiCpvn" name="e9f63ef">
+      <notes>
+        <note category="german">Ranking: Privatstädte nehmen nicht an der im offiziellen Ranking.</note>
+      </notes>
+      <segment>
+        <source>Ranking: Privatstädte haben seit Saison 5 eine eigene Rangliste im offiziellen Ranking.</source>
+        <target>Ranking: these towns will not be counted in the official rankings.</target>
+      </segment>
+    </unit>
+    <unit id="h.p5No." name="Reservierte Plätze">
+      <notes>
+        <note category="german">Reservierte Plätze</note>
+      </notes>
+      <segment>
+        <source>Reservierte Plätze</source>
+        <target>Reserved places</target>
+      </segment>
+    </unit>
+    <unit id="AsXSh2V" name="9eaeadf">
+      <notes>
+        <note category="german">Du kannst hier eine Liste mit mindestens 39 Spielern anlegen und ihnen damit einen Platz in deiner Stadt reservieren.
+Alle Pseudonyme müssen korrekt geschrieben und mit einem Komma getrennt sein (Leerzeichen werden ignoriert).
+Sobald die Liste einmal erstellt wurde, kann sie nicht mehr geändert werden!</note>
+      </notes>
+      <segment>
+        <source>Du kannst hier eine Liste mit mindestens 39 Spielern anlegen und ihnen damit einen Platz in deiner Stadt reservieren.
+Alle Pseudonyme müssen korrekt geschrieben und mit einem Komma getrennt sein (Leerzeichen werden ignoriert).
+Sobald die Liste einmal erstellt wurde, kann sie nicht mehr geändert werden!</source>
+        <target>You can enter a list of 39 players (minimum) when you create a town, so that everyone has a place reserved. Each nickname must be spelt correctly and separated by a comma (spaces are ignored). Once the town has been created, the list can no longer be modified!</target>
+      </segment>
+    </unit>
+    <unit id="lWrXfCk" name="Beispiel: &lt;em&gt;spieler01, spieler02, blafasel_99&lt;/em&gt;">
+      <notes>
+        <note category="german">Beispiel: &lt;em&gt;spieler01, spieler02, blafasel_99&lt;/em&gt;</note>
+      </notes>
+      <segment>
+        <source>Beispiel: &lt;em&gt;spieler01, spieler02, blafasel_99&lt;/em&gt;</source>
+        <target><![CDATA[Example: <em>player01, player02, thingy_from_chicago</em>]]></target>
+      </segment>
+    </unit>
+    <unit id="NyknCVn" name="4a21474">
+      <notes>
+        <note category="german">Achtung: Ein Spieler, dessen Name nicht auf der Liste steht, kann die Stadt nicht betreten. 
+Falls sich nicht genug Spieler finden, die deine Stadt spielen wollen, wird sie niemals gestartet werden und automatisch wieder negiert.</note>
+      </notes>
+      <segment>
+        <source>Achtung: Ein Spieler, dessen Name nicht auf der Liste steht, kann die Stadt nicht betreten. 
+Falls sich nicht genug Spieler finden, die deine Stadt spielen wollen, wird sie niemals gestartet werden und automatisch wieder negiert.</source>
+        <target>Attention! If a player's name is not down, they're not getting in. If too many players decide not to participate, your town will never start and will automatically be cancelled.</target>
+      </segment>
+    </unit>
+    <unit id="VihGRh8" name="abdd542">
+      <notes>
+        <note category="german">Es ist außerdem empfehlenwert, &lt;strong&gt;mehr als nur 39 Spieler&lt;/strong&gt; anzugeben. Dann hat man eine Reserve, falls ein oder mehrere Spieler nicht teilnehmen können (...denn die Liste lässt sich nachträglich nicht mehr ändern).</note>
+      </notes>
+      <segment>
+        <source>Es ist außerdem empfehlenwert, &lt;strong&gt;mehr als nur 39 Spieler&lt;/strong&gt; anzugeben. Dann hat man eine Reserve, falls ein oder mehrere Spieler nicht teilnehmen können (...denn die Liste lässt sich nachträglich nicht mehr ändern).</source>
+        <target><![CDATA[therefore, it is strongly recommended to include <strong>more than 39 names</strong> to have some players in reserve.]]></target>
+      </segment>
+    </unit>
+    <unit id="GBQf_bR" name="b86786f">
+      <notes>
+        <note category="german">In den verschiedenen Foren und Chatmöglichkeiten der Außenwelt können bestimmte Rollenspielelemente verwendet werden. Diese dienen allgemein dem Ambiente des Spiels.</note>
+      </notes>
+      <segment>
+        <source>In den verschiedenen Foren und Chatmöglichkeiten der Außenwelt können bestimmte Rollenspielelemente verwendet werden. Diese dienen allgemein dem Ambiente des Spiels.</source>
+        <target>On the various forums and the World Beyond discussion board, you have access to the complete range of tools governing "atmosphere" and "role-play".</target>
+      </segment>
+    </unit>
+    <unit id="kEw_o7U" name="Folgende Befehle können verwendet werden:">
+      <notes>
+        <note category="german">Folgende Befehle können verwendet werden:</note>
+      </notes>
+      <segment>
+        <source>Folgende Befehle können verwendet werden:</source>
+        <target>You can type one of the following commands :</target>
+      </segment>
+    </unit>
+    <unit id="SWAA4yF" name="b377c9b">
+      <notes>
+        <note category="german">Der Name einer zufällig gezogenen Karte (aus einem Spielset mit 52 Karten) wird angezeigt.</note>
+      </notes>
+      <segment>
+        <source>Der Name einer zufällig gezogenen Karte (aus einem Spielset mit 54 Karten) wird angezeigt.</source>
+        <target>displays the name of a random card drawn from a deck of 52,</target>
+      </segment>
+    </unit>
+    <unit id="502WVMX" name="f4cae7d">
+      <notes>
+        <note category="german">Der Name eines zufällig ausgewählten Einwohners deiner Stadt wird angezeigt (funktioniert nur, wenn du einer Stadt beigetreten bist).</note>
+      </notes>
+      <segment>
+        <source>Der Name eines zufällig ausgewählten Einwohners deiner Stadt wird angezeigt (funktioniert nur, wenn du einer Stadt beigetreten bist).</source>
+        <target>displays the name of a random resident of your town (this will not work if you have not yet joined a town),</target>
+      </segment>
+    </unit>
+    <unit id="6gHyLJo" name="Kopf oder Zahl.">
+      <notes>
+        <note category="german">Kopf oder Zahl.</note>
+      </notes>
+      <segment>
+        <source>Kopf oder Zahl.</source>
+        <target>flip a coin (heads or tails),</target>
+      </segment>
+    </unit>
+    <unit id="Z4195FS" name="Schere, Stein, Papier.">
+      <notes>
+        <note category="german">Schere, Stein, Papier.</note>
+      </notes>
+      <segment>
+        <source>Schere, Stein, Papier.</source>
+        <target>play rock, paper, scissors,</target>
+      </segment>
+    </unit>
+    <unit id="gySGs2Z" name="66a21e0">
+      <notes>
+        <note category="german">Ein 6-seitiger Würfel wird geworfen und das Ergebnis wird angezeigt (funktioniert mit d4, d6, d8, d10, d12, d20 und d100).</note>
+      </notes>
+      <segment>
+        <source>Ein 6-seitiger Würfel wird geworfen und das Ergebnis wird angezeigt (funktioniert mit d4, d6, d8, d10, d12, d20 und d100).</source>
+        <target>throws a 6-sided dice and displays the result (also works with d4, d6, d8, d10, d12, d20 and d100).</target>
+      </segment>
+    </unit>
+    <unit id="sPCwNJ0" name="einen Konsonanten zeichnen,">
+      <notes>
+        <note category="german">einen Konsonanten zeichnen,</note>
+      </notes>
+      <segment>
+        <source>einen Konsonanten zeichnen,</source>
+        <target>draw a consonant,</target>
+      </segment>
+    </unit>
+    <unit id="ZkiGTf8" name="einen Vokal zeichnen,">
+      <notes>
+        <note category="german">einen Vokal zeichnen,</note>
+      </notes>
+      <segment>
+        <source>einen Vokal zeichnen,</source>
+        <target>draw a vowel,</target>
+      </segment>
+    </unit>
+    <unit id="WWKZKAn" name="einen Brief zeichnen,">
+      <notes>
+        <note category="german">einen Brief zeichnen,</note>
+      </notes>
+      <segment>
+        <source>einen Brief zeichnen,</source>
+        <target>draw a letter by chance,</target>
+      </segment>
+    </unit>
+    <unit id="CIjyKLi" name="385f89a">
+      <notes>
+        <note category="german">Du kannst dich ihrer bedienen, um neue (Foren-)Spiele zu erfinden oder bestimmte Entscheidungen nach dem Zufallsprinzip zu treffen. Gehe jedoch sparsam damit um!</note>
+      </notes>
+      <segment>
+        <source>Du kannst dich ihrer bedienen, um neue (Foren-)Spiele zu erfinden oder bestimmte Entscheidungen nach dem Zufallsprinzip zu treffen. Gehe jedoch sparsam damit um!</source>
+        <target>Don't abuse these commands! Use them to invent new games for citizens to play and to resolve situations or disputes with a game of chance, etc...</target>
+      </segment>
+    </unit>
+    <unit id="WvrIr29" name="Das Spiel wird in &lt;strong&gt;Saisons&lt;/strong&gt; aufgeteilt.">
+      <notes>
+        <note category="german">Das Spiel wird in &lt;strong&gt;Saisons&lt;/strong&gt; aufgeteilt.</note>
+      </notes>
+      <segment>
+        <source>Das Spiel wird in &lt;strong&gt;Saisons&lt;/strong&gt; aufgeteilt.</source>
+        <target><![CDATA[The game is split up into <strong>Seasons</strong>.]]></target>
+      </segment>
+    </unit>
+    <unit id="1Np4PiM" name="462e013">
+      <notes>
+        <note category="german">Saisons kommen einer zeitlich begrenzten Liga gleich. Alle in einer Saison gespielten Städte werden in einer Rangliste geführt. 
+Saisons kommen einer zeitlich begrenzten Liga gleich. Alle in einer Saison gespielten Städte werden in einer Rangliste geführt. 
+Je höher die Punkteanzahl, desto ausgeprägter war die Organisations- und Koordinationsfähigkeit der Bürger dieser Stadt.
+&lt;strong&gt;Die Punkteanzahl einer Stadt ist die Summe aller überlebten Tage ihrer Einwohner.&lt;/strong&gt;</note>
+      </notes>
+      <segment>
+        <source>Saisons kommen einer zeitlich begrenzten Liga gleich. Alle in einer Saison gespielten Städte werden in einer Rangliste geführt. 
+Saisons kommen einer zeitlich begrenzten Liga gleich. Alle in einer Saison gespielten Städte werden in einer Rangliste geführt. 
+Je höher die Punkteanzahl, desto ausgeprägter war die Organisations- und Koordinationsfähigkeit der Bürger dieser Stadt.
+&lt;strong&gt;Die Punkteanzahl einer Stadt ist die Summe aller überlebten Tage ihrer Einwohner.&lt;/strong&gt;</source>
+        <target><![CDATA[During this time, towns are ranked according a score which reflects their capacity to survive as a group. <strong>The score is calculated by adding together the total number of days survived in the town by all the citizens.</strong>]]></target>
+      </segment>
+    </unit>
+    <unit id="5euLoAL" name="b449305">
+      <notes>
+        <note category="german">&lt;strong&gt;Wichtig:&lt;/strong&gt; Es werden nur Städte in Entfernten Regionen oder aus dem Pandemonium in die Rangliste aufgenommen. Kleine Städte oder Privatstädte werden nicht ins offizielle Ranking aufgenommen.</note>
+      </notes>
+      <segment>
+        <source>&lt;strong&gt;Wichtig:&lt;/strong&gt; Es werden nur Städte in Entfernten Regionen
+oder aus dem Pandemonium
+in die Rangliste aufgenommen. Kleine Städte oder Privatstädte werden nicht ins offizielle Ranking aufgenommen. Privatstädte haben seit Saison 5 eine eigene Rangliste.</source>
+        <target><![CDATA[<strong>Important :</strong> Only towns in Distant Regions and Hardcore are ranked. Small maps or towns created for special events will not feature in the season's rankings.]]></target>
+      </segment>
+    </unit>
+    <unit id="DY62lsA" name="Saisonende">
+      <notes>
+        <note category="german">Saisonende</note>
+      </notes>
+      <segment>
+        <source>Saisonende</source>
+        <target>End of the season</target>
+      </segment>
+    </unit>
+    <unit id="oLHn2Ob" name="ecee2c3">
+      <notes>
+        <note category="german">Am Ende einer Saison erhalten die Bürger der erstplatzierten Stadt eine Belohnung. Die Rangliste wird anschließend gelöscht und die nächste Saison beginnt wieder bei Null.</note>
+      </notes>
+      <segment>
+        <source>Am Ende einer Saison erhalten die Bürger der erstplatzierten Stadt eine Belohnung. Die Rangliste wird anschließend gelöscht und die nächste Saison beginnt wieder bei Null.</source>
+        <target>At the end of each season, the citizens from the best town from each level of the rankings will receive various rewards. The rankings are then reset to zero in order to start a new period with everyone at the same level.</target>
+      </segment>
+    </unit>
+    <unit id="tp1WcWk" name="36dff26">
+      <notes>
+        <note category="german">&lt;strong&gt;Alle Nachrichten der Siegerbürger werden in allen Foren &lt;/strong&gt; eine Saison lang besonders hervorgehoben</note>
+      </notes>
+      <segment>
+        <source>&lt;strong&gt;Alle Nachrichten der Siegerbürger werden in allen Foren &lt;/strong&gt; eine Saison lang besonders hervorgehoben</source>
+        <target><![CDATA[<strong>messages left on the forums by champions</strong> are displayed in a very distinctive manner]]></target>
+      </segment>
+    </unit>
+    <unit id="1Y7fg6s" name="5a3213d">
+      <notes>
+        <note category="german">Die Sieger beginnen zudem jede Stadt mit einem &lt;strong&gt;zusätzlichen Ausrüstungsgegenstand&lt;/strong&gt;</note>
+      </notes>
+      <segment>
+        <source>Die Sieger beginnen zudem jede Stadt mit einem &lt;strong&gt;zusätzlichen Ausrüstungsgegenstand&lt;/strong&gt;</source>
+        <target><![CDATA[they start every game with <strong>special additional equipment</strong>]]></target>
+      </segment>
+    </unit>
+    <unit id="yfHs7WK" name="57b4fa5">
+      <notes>
+        <note category="german">Die Sieger erhalten eine einzigartige &lt;strong&gt;Auszeichung&lt;/strong&gt; und einen dazugehörenden &lt;strong&gt;Titel&lt;/strong&gt;.</note>
+      </notes>
+      <segment>
+        <source>Die Sieger erhalten eine einzigartige &lt;strong&gt;Auszeichung&lt;/strong&gt; und einen dazugehörenden &lt;strong&gt;Titel&lt;/strong&gt;.</source>
+        <target><![CDATA[they also receive a unique, rare <strong>distinction</strong> and a corresponding <strong>title</strong>]]></target>
+      </segment>
+    </unit>
+    <unit id="E.TO49m" name="0e986b6">
+      <notes>
+        <note category="german">1: Die gewonnenen Belohnungen verfallen am Ende der nächsten Saison. Der gewonnene Titel bleibt allerdings erhalten.</note>
+      </notes>
+      <segment>
+        <source>1: Die gewonnenen Belohnungen verfallen am Ende der nächsten Saison. Der gewonnene Titel bleibt allerdings erhalten.</source>
+        <target>1: These rewards will be lost at the end of the following season, only reigning champions will benefit from these advantages.</target>
+      </segment>
+    </unit>
+    <unit id="JbYJtDT" name="b4547d7">
+      <notes>
+        <note category="german">Alle Bürger, die in einer Stadt gelebt haben, die es am Ende der Saison in die Rangliste geschafft hat, erhalten eine &lt;strong&gt;andere Auszeichung&lt;/strong&gt; als die Bürger der ersten Stadt. Dabei erhält &lt;strong&gt;jede&lt;/strong&gt; ranglistengeführte Stadt eine Auszeichung.</note>
+      </notes>
+      <segment>
+        <source>Alle Bürger, die in einer Stadt gelebt haben, die es am Ende der Saison in die Rangliste geschafft hat, erhalten eine &lt;strong&gt;andere Auszeichung&lt;/strong&gt; als die Bürger der ersten Stadt. Dabei erhält &lt;strong&gt;jede&lt;/strong&gt; ranglistengeführte Stadt eine Auszeichung.</source>
+        <target><![CDATA[Citizens that participated in a town that made it into the rankings also receive <strong>another special distinction</strong> (one for <strong>each</strong> town present in the rankings).]]></target>
+      </segment>
+    </unit>
+    <unit id="lqIYe85" name="8bb98c6">
+      <notes>
+        <note category="german">Diese Liste wird am Ende einer Saison nicht zurückgesetzt. Deshalb gibt es für die ersten Plätze hier keine besondere Belohnung.</note>
+      </notes>
+      <segment>
+        <source>Diese Liste wird am Ende einer Saison nicht zurückgesetzt. Deshalb gibt es für die ersten Plätze hier keine besondere Belohnung.</source>
+        <target>These rankings are not reset to zero at the end of the season: accordingly, there are no bonuses awarded.</target>
+      </segment>
+    </unit>
+    <unit id="htkIV7Y" name="Städte haben eine eigene Rangliste pro saison.">
+      <notes>
+        <note category="german">Städte haben eine eigene Rangliste pro saison.</note>
+      </notes>
+      <segment>
+        <source>Städte haben eine eigene Rangliste pro saison.</source>
+        <target>A soul ranking by season will be available, this allows you to see its value over the season.</target>
+      </segment>
+    </unit>
+    <unit id="t8SGG_x" name="Zusätzliche Regeln">
+      <notes>
+        <note category="german">Zusätzliche Regeln</note>
+      </notes>
+      <segment>
+        <source>Zusätzliche Regeln</source>
+        <target>Further Rules</target>
+      </segment>
+    </unit>
+    <unit id="dW1IVdZ" name="daab466">
+      <notes>
+        <note category="german">Wenn eine Stadt am Ende einer Saison startet, aber in der darauf folgenden Saison stirbt, wird sie punktemäßig der neuen Saison zugeschlagen.</note>
+      </notes>
+      <segment>
+        <source>Wenn eine Stadt am Ende einer Saison startet, aber in der darauf folgenden Saison stirbt, wird sie punktemäßig der neuen Saison zugeschlagen.</source>
+        <target>A town in Season 1 must be destroyed in Season 1 to be counted in the rankings. If it lasts into Season 2, it will not be counted in either ranking.</target>
+      </segment>
+    </unit>
+    <unit id="hdmUiOX" name="Alle Ranglisten werden jeden Tag um Mitternacht aktualisiert.">
+      <notes>
+        <note category="german">Alle Ranglisten werden jeden Tag um Mitternacht aktualisiert.</note>
+      </notes>
+      <segment>
+        <source>Alle Ranglisten werden jeden Tag um Mitternacht aktualisiert.</source>
+        <target>The rankings are updated at 23h00 (server time).</target>
+      </segment>
+    </unit>
+    <unit id="AnaQqW8" name="550510f">
+      <notes>
+        <note category="german">Eine Stadt taucht erst dann in der Rangliste auf, wenn sie vollkommen zerstört wurde und alle Einwohner gestorben sind.</note>
+      </notes>
+      <segment>
+        <source>Eine Stadt taucht erst dann in der Rangliste auf, wenn sie vollkommen zerstört wurde und alle Einwohner gestorben sind.</source>
+        <target>Only towns which are completely destroyed (no survivors) will receive a ranking.</target>
+      </segment>
+    </unit>
+    <unit id="jpEEOjB" name="6a4bf89">
+      <notes>
+        <note category="german">Falls ein Problem mit dem Spiel auftreten sollte, bitten wir dich die nachfolgenden Anweisungen zu lesen und zu befolgen (überprüfe die Version deines Browsers, leere deinen Browsercache, ...).</note>
+      </notes>
+      <segment>
+        <source>Falls ein Problem mit dem Spiel auftreten sollte, bitten wir dich die nachfolgenden Anweisungen zu lesen und zu befolgen (überprüfe die Version deines Browsers, leere deinen Browsercache, ...).</source>
+        <target>If you encounter a problem in MyHordes, please follow the instructions in the following sections (check your browser version, clear your cache, ...).</target>
+      </segment>
+    </unit>
+    <unit id="37V.eeL" name="13523d1">
+      <notes>
+        <note category="german">Nachfolgend findest du eine Liste zu den verschiedenen Seiten und Bereichen, in denen du Hilfe bekommen kannst:</note>
+      </notes>
+      <segment>
+        <source>Nachfolgend findest du eine Liste zu den verschiedenen Seiten und Bereichen, in denen du Hilfe bekommen kannst:</source>
+        <target>Consult the official technical support site for Die2Nite by clicking below :</target>
+      </segment>
+    </unit>
+    <unit id="4JTe4YC" name="06ebae8">
+      <notes>
+        <note category="german">&lt;strong&gt;HÄUFIG GESTELLTE FRAGEN:&lt;/strong&gt;
+Lies dir bitte die offizielle &lt;span x-ajax-href=%url_support%&gt;Technische Supportseite von MyHordes&lt;/span&gt; durch!</note>
+      </notes>
+      <segment>
+        <source>&lt;strong&gt;HÄUFIG GESTELLTE FRAGEN:&lt;/strong&gt;
+Lies dir bitte die offizielle &lt;span x-ajax-href=%url_support%&gt;Technische Supportseite von MyHordes&lt;/span&gt; durch!</source>
+        <target><![CDATA[<strong>FAQ:</strong> consult the official <span x-ajax-href=%url_support%>MyHordes technical support site</span> !]]></target>
+      </segment>
+    </unit>
+    <unit id="sY5VBX2" name="f961dcb">
+      <notes>
+        <note category="german">&lt;strong&gt;MIT ANDEREN SPIELERN REDEN:&lt;/strong&gt; Die meisten Spielfragen werden oder wurden meistens schon in den &lt;span x-ajax-href=%url_saloon%&gt;Foren&lt;/span&gt; beantwortet. Du kannst darauf zugreifen, wenn du im Spiel eingeloggt bist.</note>
+      </notes>
+      <segment>
+        <source>&lt;strong&gt;MIT ANDEREN SPIELERN REDEN:&lt;/strong&gt; Die meisten Spielfragen werden oder wurden meistens schon in den &lt;span x-ajax-href=%url_saloon%&gt;Foren&lt;/span&gt; beantwortet. Du kannst darauf zugreifen, wenn du im Spiel eingeloggt bist.</source>
+        <target><![CDATA[<strong>DISCUSS WITH OTHER PLAYERS:</strong> you will often find the answers to your questions directly on the <span x-ajax-href=%url_saloon%>site forums</span>, which are available as long as you are signed in.]]></target>
+      </segment>
+    </unit>
+    <unit id="aa47hQY" name="abed294">
+      <notes>
+        <note category="german">&lt;strong&gt;EINEN REGELVERSTOSS MELDEN:&lt;/strong&gt;
+Wenn sich ein anderer Spieler daneben benommen hat oder ausfällig geworden ist, bitten wir dich den Abschnitt &lt;span x-ajax-href=%url_report%&gt;Fehlverhalten melden&lt;/span&gt; zu lesen.</note>
+      </notes>
+      <segment>
+        <source>&lt;strong&gt;EINEN REGELVERSTOSS MELDEN:&lt;/strong&gt;&lt;strong&gt;&lt;/strong&gt;
+Wenn sich ein anderer Spieler daneben benommen hat oder ausfällig geworden ist, bitten wir dich den Abschnitt &lt;span x-ajax-href=%url_report%&gt;Fehlverhalten melden&lt;/span&gt; zu lesen.</source>
+        <target><![CDATA[<strong>REPORT BEHAVIOUR:</strong> in the case of a problem relating to another player's behaviour, please read the section entitled <span x-ajax-href=%url_report%>I'm annoyed</span> in the help section below.]]></target>
+      </segment>
+    </unit>
+    <unit id="7NLAbue" name="6a21bfe">
+      <notes>
+        <note category="german">&lt;strong&gt;EINEN BUG MELDEN:&lt;/strong&gt;
+Nutze bitte folgenden Link, wenn du uns einen Bug (technischen Fehler) melden möchtest: &lt;a href=%url_git%&gt;Buglisten auf Gitlab&lt;/a&gt;.</note>
+      </notes>
+      <segment>
+        <source>&lt;strong&gt;EINEN BUG MELDEN:&lt;/strong&gt;
+Nutze bitte folgenden Link, wenn du uns einen Bug (technischen Fehler) melden möchtest: &lt;a href=%url_git%&gt;Buglisten&lt;/a&gt;.</source>
+        <target><![CDATA[<strong>REPORT A BUG:</strong> o report a bug, use the following discussion area: <a href=%url_git%>Bug reports into Gitlab</a>.]]></target>
+      </segment>
+    </unit>
+    <unit id="AgElrGm" name="ba9d1d3">
+      <notes>
+        <note category="german">Zu guter Letzt: Für sämtliche Anregungen und Fragen, die die &lt;strong&gt;MyHordes-Community&lt;/strong&gt; betreffen, kannst dem &lt;span x-ajax-href=%url_oracle%&gt;Orakels&lt;/span&gt; anschreiben.</note>
+      </notes>
+      <segment>
+        <source>Zu guter Letzt: Für sämtliche Anregungen und Fragen, die die &lt;strong&gt;MyHordes-Community&lt;/strong&gt; betreffen, kannst dem &lt;span x-ajax-href=%url_oracle%&gt;Orakels&lt;/span&gt; anschreiben.</source>
+        <target><![CDATA[finally, for all questions relating to the <strong>MyHordes Community</strong>, you can contact <span x-ajax-href=%url_oracle%>the Oracles</span>.]]></target>
+      </segment>
+    </unit>
+    <unit id="jcxOFSe" name="40e10b0">
+      <notes>
+        <note category="german">Um deinen Account effektiv zu schützen, brauchst du ein sicheres Passwort. Dein Passwort ist vertraulich und sollte niemandem mitgeteilt werden. &lt;strong&gt;Ein gutes Passwort ist der beste Schutz gegen Accountdiebstähle.&lt;/strong&gt; Wir raten dir folgende Ratschläge zu beherzigen:</note>
+      </notes>
+      <segment>
+        <source>Um deinen Account effektiv zu schützen, brauchst du ein sicheres Passwort. Dein Passwort ist vertraulich und sollte niemandem mitgeteilt werden. &lt;strong&gt;Ein gutes Passwort ist der beste Schutz gegen Accountdiebstähle.&lt;/strong&gt; Wir raten dir folgende Ratschläge zu beherzigen:</source>
+        <target><![CDATA[MyHordes stand by the following rule: <strong>a good password is the best defence against theft from your account.</strong> Here are some more pieces of good advice :]]></target>
+      </segment>
+    </unit>
+    <unit id="kLFxlOm" name="Dein Passwort darf keine Sonderzeichen enthalten.">
+      <notes>
+        <note category="german">Dein Passwort darf keine Sonderzeichen enthalten.</note>
+      </notes>
+      <segment>
+        <source>Dein Passwort darf keine Sonderzeichen enthalten.</source>
+        <target>Choose a good password without special characters</target>
+      </segment>
+    </unit>
+    <unit id="Dy_CnNy" name="f20f34c">
+      <notes>
+        <note category="german">Ein Passwort darf Großbuchstaben, Buchstaben und Zahlen enthalten. Nutze diese Möglichkeit!</note>
+      </notes>
+      <segment>
+        <source>Ein Passwort darf Großbuchstaben, Buchstaben und Zahlen enthalten. Nutze diese Möglichkeit!</source>
+        <target>Use a combination of letters, numbers, capitals and lower case characters</target>
+      </segment>
+    </unit>
+    <unit id="yfB5oOq" name="2bb4c0b">
+      <notes>
+        <note category="german">Wenn du noch Fragen hast, empfehlen wir dir folgende Seite: &lt;a href=%url_pass%&gt;Password Tester&lt;/a&gt;</note>
+      </notes>
+      <segment>
+        <source>Wenn du noch Fragen hast, empfehlen wir dir folgende Seite: &lt;a href=%url_pass%&gt;Password Tester&lt;/a&gt;</source>
+        <target><![CDATA[If you're in doubt, check your password on this <a href=%url_pass%>Password Tester</a>]]></target>
       </segment>
     </unit>
   </file>

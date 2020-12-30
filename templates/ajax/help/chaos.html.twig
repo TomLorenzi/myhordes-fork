@@ -1,0 +1,28 @@
+{% extends "ajax/help/shell.html.twig" %}
+{% block title %}{{'Hilfe'|trans({}, 'game')}} - {{'Das Chaos'|trans({}, 'help')|raw}}{% endblock %}
+{% block helpContent %}
+<div class="helpArt">{{ 'Spielanleitung'|trans({},'help')|raw }}</div>
+<h1>{{ 'Das Chaos'|trans({},'help')|raw }}</h1>
+<img class="art" alt="" src="{{ asset('build/images/help/chaos.gif') }}">
+<p>
+{{ 'Wenn eine Stadt kurz vor dem Untergang steht, wird der Chaoszustand ausgerufen. Dieser Zustand kann nicht aufgehoben werden. Folgende Bedingungen müssen alle erfüllt sein, damit der Chaoszustand ausgerufen wird:'|trans({},'help')|raw }}
+</p>
+<ul>
+<li>{{ 'Die Stadt hat weniger als <strong>10 Einwohner</strong>, die sich in der Stadt aufhalten (Camper zählen nicht dazu).'|trans({},'help')|raw }}</li>
+<li>{{ 'Die Stadt muss <strong>länger als 3 Tage überlebt haben</strong>.'|trans({},'help')|raw }}</li>
+</ul>
+<p>
+{{ 'In einer Stadt, in der das Chaos herrscht, gilt kein Gesetz mehr. Gewisse Spielregeln ändern sich in diesem Fall:'|trans({},'help')|raw }}
+</p>
+<div class="clear"></div>
+<ul>
+<li>{{ 'Die Verbannungen sind aufgehoben.'|trans({},'help')|raw }}</li>
+<li>{{ 'Anzeigen haben keine Wirkungen mehr.'|trans({},'help')|raw }}</li>
+<li>{{ 'Häuser verstorbener Mitbürger können <strong>unbegrenzt</strong> geplündert werden (Normalerweise: 1 Gegenstand pro Tag und Spieler).'|trans({},'help')|raw }}</li>
+<li>{{ 'Der Diebstahlschutz in den Privathäusern funktioniert nicht mehr.'|trans({},'help')|raw }}</li>
+<li>{{ 'Wenn sich jemand in der Außenwelt befindet, werden seine Koordinaten nicht mehr im Bürgerverzeichnis angezeigt.'|trans({},'help')|raw }}</li>
+<li>{{ 'Es können doppelt so viele Gegenstände aus der Bank entnommen werden wie sonst.'|trans({},'help')|raw }}</li>
+</ul>
+<div class="clear"></div>
+<a class="button" x-ajax-href="{{ url('help', {'name': 'catapult'}) }}"><img src="{{ asset('build/images/icons/small_move.gif') }}" alt="move"> {{'Weiter'|trans({}, 'help')}}:<strong> {{ 'Das Katapult'|trans({},'help') }}</strong></a>
+{% endblock %}

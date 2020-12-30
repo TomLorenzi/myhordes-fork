@@ -1,0 +1,33 @@
+{% extends "ajax/help/shell.html.twig" %}
+{% block title %}{{'Hilfe'|trans({}, 'game')}} - {{'Die Nachtwächter'|trans({}, 'help')|raw}}{% endblock %}
+{% block helpContent %}
+<div class="helpArt">{{ 'Spielanleitung'|trans({},'help')|raw }}</div>
+<h1>{{ 'Die Nachtwächter'|trans({},'help')|raw }}</h1>
+<h2>{{ 'Wer sind Sie?'|trans({},'help')|raw }}</h2>
+<p>
+{{ 'Es gibt verschiedene Möglichkeiten deine Stadt vor den Zombiemeuten zu beschützen.
+Eine davon ist es der <strong>Nachtwache</strong> beizutreten.'|trans({},'help')|raw }}
+</p>
+<p>{{ 'Wenn du dich dazu entscheidest ein Nachtwächter zu werden:'|trans({},'help')|raw }}</p>
+<ul>
+<li>{{ 'Du musst dir Waffen aussuchen und sie in deinem Rucksack platzieren.'|trans({},'help')|raw }}</li>
+<li>{{ 'Beachte die Stärken und Schwächen deines Berufs, genau wie deinen Gesundheitszustand!'|trans({},'help')|raw }}</li>
+<li>{{ 'Alle Waffen oder Verteidigungsgegenstände, die du während der Nachtwache benutzt, werden danach zerstört. Waffen mit mehr als einem Schuss werden eine Ladung verlie'|trans({},'help')|raw }}</li>
+</ul>
+<h2>{{ 'Wie funktioniert das?'|trans({},'help')|raw }}</h2>
+<p>{{ 'Während des Angriffs greift die Nachtwache ein, wenn Zombies die Stadtmauern überwinden:'|trans({},'help')|raw }}</p>
+<ul>
+<li>{{ 'Die Zombies verteilen sich zufällig auf die Nachtwächter.'|trans({},'help')|raw }}</li>
+<li>{{ 'Jeder Wächter nutzt seinen gesamten Rucksack.'|trans({},'help')|raw }}</li>
+<li>{{ 'Deine Stati beeinflussen deine Stärke auf der Wacht sowie deine Überlebenschance. - <strong>Achtung! Deine Zustände werden vor dem Angriff aktualisiert. Solltest du also zum Beispiel verletzt auf Wacht gehen, wirst du zum Zeitpunkt des Angriffs bereits eine Infektion haben!</strong>'|trans({},'help')|raw }}</li>
+</ul>
+<h2>{{ 'Welche risiken gibt es?'|trans({},'help')|raw }}</h2>
+<p>{{ 'Ein Nachtwächter hat eine <strong>10% Chance eine Verletzung oder Angststarre zu erleiden</strong>. Zudem gibt es eine <strong>8% Chance von den attackierenden Zombies getötet zu werden.</strong>'|trans({},'help')|raw }}</p>
+<p>{{ 'Helden mit dem Beruf Wächter haben zusätzliche <strong>5%</strong> Bonus auf ihre Überlebenschancen.'|trans({},'help')|raw }}</p>
+<h2>{{ 'Was, wenn ich doch nicht will?'|trans({},'help')|raw }}</h2>
+<p>{{ 'Du kannst deinen Posten bis 23:59 verlassen.'|trans({},'help')|raw }}</p>
+<p><strong>{{ 'Das heißt allerdings nicht, dass deine stadtloyalen Mitbürger dein Handeln auch gutheißen würden...'|trans({},'help')|raw }}</strong></p>
+<p>{{ 'Achtung! Wenn die Anzahl der Angreifer höher ist als die Stadtverteidigung sinken die Überlebenschancen der Nachtwächter! In solchen Situationen wird sich zeigen, wer die wahren Helden der Stadt sind.'|trans({},'help')|raw }}</p>
+<div class="clear"></div>
+<a class="button" x-ajax-href="{{ url('help', {'name': 'crimes_and_punishment'}) }}"><img src="{{ asset('build/images/icons/small_move.gif') }}" alt="move"> {{'Weiter'|trans({}, 'help')}}:<strong> {{ 'Recht und Gesetz'|trans({},'help') }}</strong></a>
+{% endblock %}
