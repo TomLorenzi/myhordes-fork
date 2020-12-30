@@ -171,6 +171,9 @@
                                         <a class="link" href="{{ url('admin_users_citizen_view', {id: citizen.user.id}) }}">
                                             <b class="citizen-name">{{ citizen.user.name }}</b>
                                         </a>&nbsp;
+                                        {% for role in citizen.roles %}
+                                            <img src="{{ asset('build/images/roles/' ~ role.icon ~ '.gif') }}" alt="{{ role.label|trans({},'game') }}">&nbsp;
+                                        {% endfor %}
                                         {% if citizen.alive %}
                                             <span class="zone">
                                             {% if citizen.zone %}

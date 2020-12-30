@@ -2227,7 +2227,7 @@
       </notes>
       <segment>
         <source>Auf allen Browsern &amp; Geräten abmelden</source>
-        <target><![CDATA[Darse de baja en todos los navegadores y dispositivos]]></target>
+        <target>Darse de baja en todos los navegadores y dispositivos</target>
       </segment>
     </unit>
     <unit id="AbYRB3R" name="82c4478">
@@ -2237,6 +2237,33 @@
       <segment>
         <source>Hiermit kannst du dich von allen Geräten und Browsern abmelden, auf denen du aktuell eingeloggt bist. Die "Login merken" Funktion wird hierdurch ebenfalls auf den betroffenen Geräten deaktiviert.</source>
         <target>Con esto, puedes cerrar sesión en todos los dispositivos y navegadores en los que estás conectado actualmente. La función "recordar inicio de sesión" también será desactivada en los dispositivos afectados.</target>
+      </segment>
+    </unit>
+    <unit id="2CmSXI_" name="Animationen verringern">
+      <notes>
+        <note category="german">Animationen verringern</note>
+      </notes>
+      <segment>
+        <source>Animationen verringern</source>
+        <target>Animationen verringern</target>
+      </segment>
+    </unit>
+    <unit id="3mtyKrM" name="9900005">
+      <notes>
+        <note category="german">Mache hier einen Haken, wenn die Landkarte nur sehr langsam geladen wird.&lt;br /&gt;&lt;em&gt;Mit dieser Option senkst du die Qualität der Spielkartenanimationen.&lt;/em&gt;.</note>
+      </notes>
+      <segment>
+        <source>Mache hier einen Haken, wenn die Landkarte nur sehr langsam geladen wird.&lt;br /&gt;&lt;em&gt;Mit dieser Option senkst du die Qualität der Spielkartenanimationen.&lt;/em&gt;.</source>
+        <target><![CDATA[Mache hier einen Haken, wenn die Landkarte nur sehr langsam geladen wird.<br /><em>Mit dieser Option senkst du die Qualität der Spielkartenanimationen.</em>.]]></target>
+      </segment>
+    </unit>
+    <unit id="uh49WWx" name="cea913a">
+      <notes>
+        <note category="german">Unglücklicherweise ist deine Stadt vollkommen im Wüstensand versunken... Die Gemeinschaft wurde ausgelöscht.</note>
+      </notes>
+      <segment>
+        <source>Unglücklicherweise ist deine Stadt vollkommen im Wüstensand versunken... Die Gemeinschaft wurde ausgelöscht.</source>
+        <target>Unglücklicherweise ist deine Stadt vollkommen im Wüstensand versunken... Die Gemeinschaft wurde ausgelöscht.</target>
       </segment>
     </unit>
   </file>

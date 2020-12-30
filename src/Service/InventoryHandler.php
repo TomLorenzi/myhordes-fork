@@ -4,6 +4,7 @@
 namespace App\Service;
 
 
+use App\Controller\Town\TownController;
 use App\Entity\Citizen;
 use App\Entity\CitizenHome;
 use App\Entity\CitizenHomeUpgrade;
@@ -428,7 +429,7 @@ class InventoryHandler
                 return self::ErrorStealLimitHit;
 
             if ($type_to === self::TransferTypeSteal && $actor->getTown()->getChaos() )
-                return self::ErrorStealLimitHit;
+                return TownController::ErrorTownChaos;
 
             $victim = $type_from === self::TransferTypeSteal ? $from->getHome()->getCitizen() : $to->getHome()->getCitizen();
             if ($victim->getAlive()) {

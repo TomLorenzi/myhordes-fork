@@ -40,7 +40,8 @@ class UserCreateCommand extends Command
             ->addArgument('email',    InputArgument::REQUIRED, 'The user\'s email address.')
             ->addArgument('password', InputArgument::OPTIONAL, 'The user\'s password.')
 
-            ->addOption('validated', null, InputOption::VALUE_NONE, 'Will validate the user automatically.');
+            ->addOption('validated', null, InputOption::VALUE_NONE, 'Will validate the user automatically.')
+            ->addOption('elevated', null, InputOption::VALUE_REQUIRED, 'Will set the elevation level.');
     }
 
     protected function interact(InputInterface $input, OutputInterface $output)
@@ -77,11 +78,13 @@ class UserCreateCommand extends Command
         $username = $input->getArgument('name');
         $usermail = $input->getArgument('email');
         $userpass = $input->getArgument('password');
+        $lv = $input->getOption('elevated');
 
         $new_user = $this->userFactory->createUser( $username, $usermail, $userpass, $input->getOption('validated'), $error );
         switch ($error) {
             case UserFactory::ErrorNone:
                 try {
+                    if ($lv) $new_user->setRightsElevation($lv);
                     $this->entityManager->persist($new_user);
                     $this->entityManager->flush();
                 } catch (Exception $e) {

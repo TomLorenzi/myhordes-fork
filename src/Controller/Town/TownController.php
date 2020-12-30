@@ -66,6 +66,7 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
     const ErrorAlreadyUpgraded   = ErrorHelper::BaseTownErrors + 7;
     const ErrorComplaintLimitHit = ErrorHelper::BaseTownErrors + 8;
     const ErrorAlreadyFinished   = ErrorHelper::BaseTownErrors + 9;
+    const ErrorTownChaos         = ErrorHelper::BaseTownErrors + 10;
 
     protected function get_needed_votes(): array {
         $town = $this->getActiveCitizen()->getTown();

@@ -126,6 +126,11 @@
                                 <input x-setting {% if app.user.preferSmallAvatars %}checked{% endif%} type="checkbox" id="setting_prefer_classic_avatars">&nbsp;<label for="setting_prefer_classic_avatars">{{ 'Bevorzugt komprimierte Profilbilder anzeigen'|trans({}, 'soul') }}</label>
                             </div>
                         </div>
+                        <div class="padded cell rw-12">
+                            <div class="note note-lightest">
+                                <input x-setting {% if app.user.disableFx %}checked{% endif%} type="checkbox" id="setting_disable_fx">&nbsp;<label for="setting_disable_fx">{{ 'Animationen verringern'|trans({}, 'soul') }}</label> <a class="help-button"><div class="tooltip help">{{ 'Mache hier einen Haken, wenn die Landkarte nur sehr langsam geladen wird.<br /><em>Mit dieser Option senkst du die Qualität der Spielkartenanimationen.</em>.'|trans({},'soul')|raw }}</div>{{ 'Hilfe'|trans({},'global') }}</a>
+                            </div>
+                        </div>
                     </div>
 
                     <h5>{{ 'Browser-Einstellungen'|trans({},'soul') }}</h5>
@@ -330,7 +335,8 @@
         });
         $.html.addEventListenerAll('[x-setting]', 'change', function(e,elem) {
             $.ajax.easySend( '{{ path('api_soul_common') }}', {
-                sma: document.getElementById('setting_prefer_classic_avatars').checked
+                    sma: document.getElementById('setting_prefer_classic_avatars').checked,
+                    disablefx: document.getElementById('setting_disable_fx').checked,
                 },
                 function () {
                     $.ajax.load(null, '{{ path('soul_settings') }}', true);

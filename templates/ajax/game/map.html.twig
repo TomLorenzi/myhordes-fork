@@ -105,12 +105,14 @@
         </div>
 
         {% if allow_zone_view %}
-            <div class="zone-plane retro">
+            <div class="zone-plane {% if not app.user.disableFx %}retro{% endif %}">
+                {% if not app.user.disableFx %}
                 <div class="retro-effect hide-lg hide-md hide-sm"></div>
                 <div class="retro-effect hide-lg hide-md hide-sm"></div>
                 <div class="retro-effect hide-lg hide-md hide-sm"></div>
                 <div class="retro-effect hide-lg hide-md hide-sm"></div>
                 <div class="retro-effect hide-lg hide-md hide-sm"></div>
+                {% endif %}
                 <div class="zone-sub-container">
                     {% for plane_y in 2..-2 %}
                         {% for plane_x in -2..2 %}
@@ -169,7 +171,7 @@
                 </div>
             </div>
 
-            <div class="zone-plane-controls">
+            <div class="zone-plane-controls {% if not app.user.disableFx %}retro{% endif %}">
                 <div class="marker-direction"></div>
                 {% if move %}
                     {% if citizen.escortSettings is null or citizen.escortSettings.leader is null %}
