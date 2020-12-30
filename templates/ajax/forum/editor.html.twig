@@ -3,13 +3,13 @@
 {# @var permission \App\Structures\ForumPermissionAccessor #}
 
 {% set preview_name = 'forum-editor-preview' %}
-{% if type == 'global-pm' %}
+{% if type is defined and type == 'global-pm' %}
     {% set preview_name = 'pm-editor-preview' %}
 {% endif %}
 
 {% block ajax_base %}
-    <div class="{% if type != 'global-pm' %}forum-editor{% else %}pm-editor{% endif %}">
-        {% if type != 'global-pm' %}
+    <div class="{% if type is not defined or type != 'global-pm' %}forum-editor{% else %}pm-editor{% endif %}">
+        {% if type is not defined or type != 'global-pm' %}
             <div class="forum-editor-header">
                 {% if tid is null %}
                     <i>{{ 'Neuer Thread'|trans({},'global') }}</i>
@@ -50,7 +50,7 @@
 
         <div class="row classic-editor">
             <div class="padded cell rw-12">
-                {% if type != 'global-pm' %}
+                {% if type is not defined or type != 'global-pm' %}
                     <label>{{ 'Vorschau'|trans({},'global') }}</label>
                     <div id="{{ preview_name }}"></div>
                 {% endif %}
@@ -563,7 +563,7 @@
                     $.ajax.easySend( target_url, target_payload,
                         function (data) {
                             $.client.config.editorCache.set('');
-                            {% if type != 'global-pm' %}
+                            {% if type is not defined or type != 'global-pm' %}
                                 $.ajax.load( null, data.url, true );
                             {% else %}
                                 $.ajax.load( document.getElementById('post-office-content'), data.url );
