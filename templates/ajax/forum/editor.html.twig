@@ -7,9 +7,11 @@
     {% set preview_name = 'pm-editor-preview' %}
 {% endif %}
 
+{% if type is not defined and forum %}{% set type = 'forum' %}{% endif %}
+
 {% block ajax_base %}
-    <div class="{% if type is not defined or type != 'global-pm' %}forum-editor{% else %}pm-editor{% endif %}">
-        {% if type is not defined or type != 'global-pm' %}
+    <div class="{% if type != 'global-pm' %}forum-editor{% else %}pm-editor{% endif %}">
+        {% if type != 'global-pm' %}
             <div class="forum-editor-header">
                 {% if tid is null %}
                     <i>{{ 'Neuer Thread'|trans({},'global') }}</i>
@@ -24,23 +26,23 @@
         {% if tid is null %}
             <div class="row">
                 <div class="cell rw-4 padded">
-                    <label for="forum-editor-title">{{ 'Titel'|trans({},'global') }}</label>
+                    <label for="{{ type }}-forum-editor-title">{{ 'Titel'|trans({},'global') }}</label>
                 </div>
                 <div class="cell rw-8 padded">
-                    <input type="text" id="forum-editor-title" />
+                    <input type="text" id="{{ type }}-forum-editor-title" />
                 </div>
-                {% if type is defined and type == "changelog" %}
+                {% if type == "changelog" %}
                     <div class="cell rw-4 padded">
-                        <label for="forum-editor-version">{{ 'Version'|trans({},'global') }}</label>
+                        <label for="{{ type }}-forum-editor-version">{{ 'Version'|trans({},'global') }}</label>
                     </div>
                     <div class="cell rw-8 padded">
-                        <input type="text" id="forum-editor-version" />
+                        <input type="text" id="{{ type }}-forum-editor-version" />
                     </div>
                     <div class="cell rw-4 padded">
-                        <label for="forum-editor-lang">{{ 'Sprache'|trans({},'global') }}</label>
+                        <label for="{{ type }}-forum-editor-lang">{{ 'Sprache'|trans({},'global') }}</label>
                     </div>
                     <div class="cell rw-8 padded">
-                        <select id="forum-editor-lang">
+                        <select id="{{ type }}-forum-editor-lang">
 
                         </select>
                     </div>
@@ -50,12 +52,12 @@
 
         <div class="row classic-editor">
             <div class="padded cell rw-12">
-                {% if type is not defined or type != 'global-pm' %}
+                {% if type != 'global-pm' %}
                     <label>{{ 'Vorschau'|trans({},'global') }}</label>
                     <div id="{{ preview_name }}"></div>
                 {% endif %}
                 <br />
-                <label for="forum-editor-text">{{ 'Deine Nachricht'|trans({},'global') }}</label>
+                <label for="{{ type }}-forum-editor-text">{{ 'Deine Nachricht'|trans({},'global') }}</label>
                 <div class="forum-button-bar">
                     <div x-forum-action="edit" x-text-wrap-node="b" class="forum-button"><i class="fa fa-bold"></i><span class="forum-button-tooltip">{{ 'Fett'|trans({},'global') }}</span></div>
                     <div x-forum-action="edit" x-text-wrap-node="i" class="forum-button"><i class="fa fa-italic"></i><span class="forum-button-tooltip">{{ 'Kursiv'|trans({},'global') }}</span></div>
@@ -85,7 +87,7 @@
                 </div>
             </div>
 
-            <textarea id="forum-editor-text"></textarea>
+            <textarea id="{{ type }}-forum-editor-text"></textarea>
 
             <div class="row">
                 <div class="padded cell rw-12">
@@ -212,7 +214,7 @@
     <script>
         (function() {
 
-            let node_transfer_source = document.getElementById('forum-editor-text');
+            let node_transfer_source = document.getElementById('{{ type }}-forum-editor-text');
             let node_transfer_target = document.getElementById('{{ preview_name|raw }}');
 
             const transfer_to_preview = function() {
@@ -516,7 +518,7 @@
                         {% if tid is not null %}
                             target_payload.tid = {{ tid }};
                         {% else %}
-                            target_payload.title = document.getElementById('forum-editor-title').value;
+                            target_payload.title = document.getElementById('{{ type }}-forum-editor-title').value;
                             {% if type == 'pm' or type == 'global' %}
                                 const rc = document.getElementById('pmidrecipient');
                                 if (rc) target_payload.recipient = rc.value;
@@ -534,15 +536,15 @@
                                 });
                                 target_payload.users = pm_list;
                             {% elseif type == "changelog" %}
-                                target_payload.version = document.getElementById('forum-editor-version').value;
-                                target_payload.lang = document.getElementById('forum-editor-lang').value;
+                                target_payload.version = document.getElementById('{{ type }}-forum-editor-version').value;
+                                target_payload.lang = document.getElementById('{{ type }}-forum-editor-lang').value;
                             {% endif %}
                         {% endif %}
                     {% else %}
                         {% if tid is null %}
                             target_url = '{{ path('forum_new_thread_controller', {id: fid}) }}';
                             target_payload = {
-                                title: document.getElementById('forum-editor-title').value,
+                                title: document.getElementById('{{ type }}-forum-editor-title').value,
                                 text: content_node.innerHTML,
                                 type: type
                             };
@@ -563,7 +565,7 @@
                     $.ajax.easySend( target_url, target_payload,
                         function (data) {
                             $.client.config.editorCache.set('');
-                            {% if type is not defined or type != 'global-pm' %}
+                            {% if type != 'global-pm' %}
                                 $.ajax.load( null, data.url, true );
                             {% else %}
                                 $.ajax.load( document.getElementById('post-office-content'), data.url );
@@ -573,8 +575,8 @@
                 });
             }
 
-            {% if type is defined and type == "changelog" %}
-            let lang_selector = document.getElementById('forum-editor-lang');
+            {% if type == "changelog" %}
+            let lang_selector = document.getElementById('{{ type }}-forum-editor-lang');
             if(lang_selector) {
                 for(let prop in window.c.langs) {
                     let option = document.createElement("option");

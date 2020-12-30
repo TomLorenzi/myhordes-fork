@@ -271,7 +271,7 @@
         });
 
         $.html.addEventListenerAll('[x-forum-action="quote-post"]', 'click', function(e,elem) {
-            let editor = document.getElementById('forum-editor');
+            let editor = document.getElementById('forum-forum-editor');
 
             let fun_quote = function() {
                 let content = document.querySelector('[x-post-content-id="' + elem.getAttribute('x-post-id') + '"]');
@@ -286,12 +286,12 @@
             };
 
             if (editor && editor.innerHTML === "") {
-                $.ajax.no_history().load( document.getElementById('forum-editor'), '{{ path('forum_post_editor_controller', {fid: fid, tid: tid}) }}', false, {}, fun_quote )
+                $.ajax.no_history().load( document.getElementById('forum-forum-editor'), '{{ path('forum_post_editor_controller', {fid: fid, tid: tid}) }}', false, {}, fun_quote )
             } else fun_quote();
         });
 
         let fun_inline_edit = function(url, postID, twinoOpMode) {
-            let editor = document.getElementById('forum-editor');
+            let editor = document.getElementById('forum-forum-editor');
 
             let fun_edit = function() {
                 let content = document.querySelector('[x-post-content-id="' + postID + '"]');
@@ -310,7 +310,7 @@
             if (editor) {
                 editor.innerHTML = '';
                 $.html.forEach( '[x-post-wrapper-id].hidden-by-editor', e => e.classList.remove('hidden','hidden-by-editor') )
-                $.ajax.no_history().load( document.getElementById('forum-editor'), url, false, {pid: postID},
+                $.ajax.no_history().load( document.getElementById('forum-forum-editor'), url, false, {pid: postID},
                     () => {
                         if (wrapper) wrapper.classList.add('hidden','hidden-by-editor');
                         fun_edit();
@@ -350,15 +350,15 @@
 
         $.html.addEventListenerAll( '[x-forum-action="answer"]', 'click', function(e,elem) {
             $.html.forEach('[x-forum-action="answer"]', e => e.remove());
-            $.ajax.no_history().load( document.getElementById('forum-editor'), '{{ path('forum_post_editor_controller', {fid: fid, tid: tid}) }}', false, {}, function() {
-                document.getElementById("forum-editor").scrollIntoView();
-                document.getElementById("forum-editor-text").focus();
+            $.ajax.no_history().load( document.getElementById('forum-forum-editor'), '{{ path('forum_post_editor_controller', {fid: fid, tid: tid}) }}', false, {}, function() {
+                document.getElementById("forum-forum-editor").scrollIntoView();
+                document.getElementById("forum-forum-editor-text").focus();
             } );
 
         } );
 
         $.html.addEventListenerAll( '[x-forum-action="post-pager"][x-to-page]', 'click', function(e,elem) {
-            let editor = document.getElementById('forum-editor');
+            let editor = document.getElementById('forum-forum-editor');
             {% if editor is defined %}
                 {let c; while ((c = editor.firstChild)) editor.removeChild(c);}
             {% endif %}
