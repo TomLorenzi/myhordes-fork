@@ -1826,13 +1826,13 @@
         <target>Votre coalition est déjà pleine.</target>
       </segment>
     </unit>
-    <unit id="QuFqW4z" name="Spielhilfe: Kleine Koalitionen">
+    <unit id="3Q.JU78" name="Spielhilfe">
       <notes>
-        <note category="german">Spielhilfe: Kleine Koalitionen</note>
+        <note category="german">Spielhilfe</note>
       </notes>
       <segment>
-        <source>Spielhilfe: Kleine Koalitionen</source>
-        <target>Guide: Petites coalitions</target>
+        <source>Spielhilfe</source>
+        <target>Guide</target>
       </segment>
     </unit>
     <unit id="GO1ZJcp" name="3e3b0ae">
@@ -2238,6 +2238,15 @@
       <segment>
         <source>Unglücklicherweise ist deine Stadt vollkommen im Wüstensand versunken... Die Gemeinschaft wurde ausgelöscht.</source>
         <target>Unglücklicherweise ist deine Stadt vollkommen im Wüstensand versunken... Die Gemeinschaft wurde ausgelöscht.</target>
+      </segment>
+    </unit>
+    <unit id="JAkgM4Z" name="Kleine Koalitionen">
+      <notes>
+        <note category="german">Kleine Koalitionen</note>
+      </notes>
+      <segment>
+        <source>Kleine Koalitionen</source>
+        <target>Petites coalitions</target>
       </segment>
     </unit>
   </file>

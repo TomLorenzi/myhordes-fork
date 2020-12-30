@@ -266,24 +266,24 @@
                                 <img src="{{ asset('build/images/icons/small_middot.gif') }}" alt="pass">
                                 <span class="link" x-ajax-href="{{ url('help', {'name': 'choosing_a_good_password'}) }}">{{ 'Wie wähle ich ein sicheres Passwort?'|trans({},'help') }}</span>
                             </li>
-                            <li class="">
+                            <li class="{% if section == 'quarantined_towns' %}active{% endif %}">
                                 <img src="{{ asset('build/images/icons/small_middot.gif') }}" alt="quarantine">
-                                <span class="link">{{ 'Stadt unter Quarantäne'|trans({},'help') }}</span>
+                                <span class="link" x-ajax-href="{{ url('help', {'name': 'quarantined_towns'}) }}">{{ 'Stadt unter Quarantäne'|trans({},'help') }}</span>
                             </li>
-                            <li class="">
+                            <li class="{% if section == 'i_m_annoyed' %}active{% endif %}">
                                 <img src="{{ asset('build/images/icons/small_calim.gif') }}" alt="report">
-                                <span class="link">{{ 'Fehlverhalten melden'|trans({},'help') }}</span>
+                                <span class="link" x-ajax-href="{{ url('help', {'name': 'i_m_annoyed'}) }}">{{ 'Fehlverhalten melden'|trans({},'help') }}</span>
                             </li>
-                            <li class="">
+                            <li class="{% if section == 'about_accountsitting' %}active{% endif %}">
                                 <img src="{{ asset('build/images/icons/small_warning.gif') }}" alt="sitting">
-                                <span class="link">{{ 'Zum Thema \'Sitting\'...'|trans({},'help') }}</span>
+                                <span class="link" x-ajax-href="{{ url('help', {'name': 'about_accountsitting'}) }}">{{ 'Zum Thema \'Sitting\'...'|trans({},'help') }}</span>
                             </li>
                         </ul>
                     </li>
 
-                    <li class="main">
+                    <li class="main {% if section == 'use_of_external_sites' %}active{% endif %}">
                         <img src="{{ asset('build/images/icons/small_archive.gif') }}" alt="extern">
-                        <span class="link">{{ 'Externe Webseiten und Anwendungen'|trans({},'help') }}</span>
+                        <span class="link" x-ajax-href="{{ url('help', {'name': 'use_of_external_sites'}) }}">{{ 'Externe Webseiten und Anwendungen'|trans({},'help') }}</span>
                     </li>
                 </ul>
 			</div>

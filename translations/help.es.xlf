@@ -6567,5 +6567,471 @@ Nutze bitte folgenden Link, wenn du uns einen Bug (technischen Fehler) melden m�
         <target><![CDATA[Si tienes una duda, verifica el nivel de seguridad de tu contraseña en este <a href=%url_pass%>Comprobador de contraseñas</a>]]></target>
       </segment>
     </unit>
+    <unit id="CtzpIg6" name="fb7232d">
+      <notes>
+        <note category="german">Sollte beim nächtlichen Angriff der Zombiehorde ein technischer Fehler auftreten, wird die betroffene Stadt unter Quarantäne gestellt.</note>
+      </notes>
+      <segment>
+        <source>Sollte beim nächtlichen Angriff der Zombiehorde ein technischer Fehler auftreten, wird die betroffene Stadt unter Quarantäne gestellt.</source>
+        <target>Cuando surge un error durante un ataque zombie, el pueblo es puesto automáticamente en cuarentena.</target>
+      </segment>
+    </unit>
+    <unit id="swofcDa" name="Das bedeutet:">
+      <notes>
+        <note category="german">Das bedeutet:</note>
+      </notes>
+      <segment>
+        <source>Das bedeutet:</source>
+        <target>Esto significa que:</target>
+      </segment>
+    </unit>
+    <unit id="2SoqzLJ" name="Der Mitternachtsangriff hat NICHT stattgefunden.">
+      <notes>
+        <note category="german">Der Mitternachtsangriff hat NICHT stattgefunden.</note>
+      </notes>
+      <segment>
+        <source>Der Mitternachtsangriff hat NICHT stattgefunden.</source>
+        <target>El ataque zombie no se realizó.</target>
+      </segment>
+    </unit>
+    <unit id="mm9VzW_" name="96f998a">
+      <notes>
+        <note category="german">Du hast keine neuen %img_ap% bekommen und dein Gesundheitszustand hat sich nicht geändert.</note>
+      </notes>
+      <segment>
+        <source>Du hast keine neuen %img_ap% bekommen und dein Gesundheitszustand hat sich nicht geändert.</source>
+        <target>No has recuperado %img_ap% y tu estado de salud no ha cambiado.</target>
+      </segment>
+    </unit>
+    <unit id="W_Orr5F" name="Der gestrige Tag ist nicht vorbei, sondern wird heute fortgesetzt.">
+      <notes>
+        <note category="german">Der gestrige Tag ist nicht vorbei, sondern wird heute fortgesetzt.</note>
+      </notes>
+      <segment>
+        <source>Der gestrige Tag ist nicht vorbei, sondern wird heute fortgesetzt.</source>
+        <target>Que la jornada del día anterior no ha terminado y que se prolonga al dia actual.</target>
+      </segment>
+    </unit>
+    <unit id="xWlFPqr" name="etc...">
+      <notes>
+        <note category="german">etc...</note>
+      </notes>
+      <segment>
+        <source>etc...</source>
+        <target>etc...</target>
+      </segment>
+    </unit>
+    <unit id="WRQvFxT" name="Sobald das Problem behoben wurde, wird die Quarantäne aufgehoben.">
+      <notes>
+        <note category="german">Sobald das Problem behoben wurde, wird die Quarantäne aufgehoben.</note>
+      </notes>
+      <segment>
+        <source>Sobald das Problem behoben wurde, wird die Quarantäne aufgehoben.</source>
+        <target>Cuando el problema haya sido corregido y todo haya vuelto a la normalidad, el estado de cuarentena será levantado.</target>
+      </segment>
+    </unit>
+    <unit id="gwZP23I" name="ee9576e">
+      <notes>
+        <note category="german">Der nicht stattgefundene Angriff findet in diesem Fall wieder regulär um Mitternacht des folgenden Tags statt.</note>
+      </notes>
+      <segment>
+        <source>Der nicht stattgefundene Angriff findet in diesem Fall wieder regulär um Mitternacht des folgenden Tags statt.</source>
+        <target>El ataque que no se realizó tendrá lugar la noche siguiente.</target>
+      </segment>
+    </unit>
+    <unit id="Y9Uk1gC" name="ff087c8">
+      <notes>
+        <note category="german">Beachte: Das Stadttor wird vor diesem verschobenen Zombieangriff ausnahmsweise automatisch geschlossen.</note>
+      </notes>
+      <segment>
+        <source>Beachte: Das Stadttor wird vor diesem verschobenen Zombieangriff ausnahmsweise automatisch geschlossen.</source>
+        <target>Nota: El Portal del pueblo será excepcional y automáticamente cerrado antes de este ataque retrasado y será reabierto cuando el ataque haya terminado.</target>
+      </segment>
+    </unit>
+    <unit id="GE.0HDW" name="e782fcd">
+      <notes>
+        <note category="german">Wenn du auf einen Spieler stößt, der sich daneben benimmt oder ausfallend wird (Beleidigungen, Regelverstöße...) kannst du uns ganz einfach auf seine Nachricht(en) aufmerksam machen. &lt;strong&gt;Klicke dazu einfach auf den Link "Melden". Es befindet sich unten rechts in der entsprechenden Nachricht.&lt;/strong&gt;</note>
+      </notes>
+      <segment>
+        <source>Wenn du auf einen Spieler stößt, der sich daneben benimmt oder ausfallend wird (Beleidigungen, Regelverstöße...) kannst du uns ganz einfach auf seine Nachricht(en) aufmerksam machen.
+&lt;strong&gt;Klicke dazu einfach auf den Link "Melden". Er befindet sich neben dem Datum der Nachricht.&lt;/strong&gt;</source>
+        <target><![CDATA[Si un jugador de MyHordes se muestra agresivo públicamente en un foro (insultos, comentarios groseros, discrimintatorios, etc...), puedes denunciarlo ante un Cuervo. <strong>Si un jugador te molesta por mensajería privada, colócalo en tu lista negra.</strong>]]></target>
+      </segment>
+    </unit>
+    <unit id="lDNLV39" name="28eb8aa">
+      <notes>
+        <note category="german">Der Rabe wird sich die Nachricht dann ansehen und gegebenenfalls die entsprechenden Maßnahmen einleiten.</note>
+      </notes>
+      <segment>
+        <source>Der Rabe wird sich die Nachricht dann ansehen und gegebenenfalls die entsprechenden Maßnahmen einleiten.</source>
+        <target>El Cuervo examinará el caso y tomará las medidas correspondientes.</target>
+      </segment>
+    </unit>
+    <unit id="vr43YoT" name="Folgendes Verhalten sollte gemeldet werden:">
+      <notes>
+        <note category="german">Folgendes Verhalten sollte gemeldet werden:</note>
+      </notes>
+      <segment>
+        <source>Folgendes Verhalten sollte gemeldet werden:</source>
+        <target>Las siguientes acciones son consideradas como faltas denunciables:</target>
+      </segment>
+    </unit>
+    <unit id="QBeFgaF" name="Flood (schnelles, wiederholtes Absenden der gleichen Nachricht in einem Forum).">
+      <notes>
+        <note category="german">Flood (schnelles, wiederholtes Absenden der gleichen Nachricht in einem Forum).</note>
+      </notes>
+      <segment>
+        <source>Flood (schnelles, wiederholtes Absenden der gleichen Nachricht in einem Forum).</source>
+        <target>Flood (repetición de mensajes idénticos en el foro).</target>
+      </segment>
+    </unit>
+    <unit id="Ww_0E7f" name="Beiträge, deren Inhalt gegen geltende Gesetze oder gute Sitten verstößt.">
+      <notes>
+        <note category="german">Beiträge, deren Inhalt gegen geltende Gesetze oder gute Sitten verstößt.</note>
+      </notes>
+      <segment>
+        <source>Beiträge, deren Inhalt gegen geltende Gesetze oder gute Sitten verstößt.</source>
+        <target>Perturbar el órden público y las buenas costumbres.</target>
+      </segment>
+    </unit>
+    <unit id="DHP2sV9" name="Fremdenfeindliche und homophobe Beiträge.">
+      <notes>
+        <note category="german">Fremdenfeindliche und homophobe Beiträge.</note>
+      </notes>
+      <segment>
+        <source>Fremdenfeindliche und homophobe Beiträge.</source>
+        <target>Mensajes con caracter injurioso, difamatorio, racista, xenófobo, homófobo, o que atenten contra el honor o la reputación de otra persona.</target>
+      </segment>
+    </unit>
+    <unit id="yfI5t0e" name="4ae55d6">
+      <notes>
+        <note category="german">Respektlosigkeiten, Aufhetzungen und jede Art von politisch extremen Äußerungen gegen einzelne Personen bzw. Gruppierungen, ethnische Gruppen oder Nationalitäten und ehrverletzende Beiträge.</note>
+      </notes>
+      <segment>
+        <source>Respektlosigkeiten, Aufhetzungen und jede Art von politisch extremen Äußerungen gegen einzelne Personen bzw. Gruppierungen, ethnische Gruppen oder Nationalitäten und ehrverletzende Beiträge.</source>
+        <target>Mensajes que inciten a la discriminación, al odio a un grupo o a un grupo de personas por su origen, orientación sexual, su pertenencia o no a un grupo étnico, una nación o a una religión determianda.</target>
+      </segment>
+    </unit>
+    <unit id="b4Iy3SV" name="Drohungen oder Einschüchterungsversuche gegen eine oder mehrere Personen.">
+      <notes>
+        <note category="german">Drohungen oder Einschüchterungsversuche gegen eine oder mehrere Personen.</note>
+      </notes>
+      <segment>
+        <source>Drohungen oder Einschüchterungsversuche gegen eine oder mehrere Personen.</source>
+        <target>Amenazar a una persona o grupo de personas.</target>
+      </segment>
+    </unit>
+    <unit id="cyukwHO" name="Zoophile und pädophile Äußerungen.">
+      <notes>
+        <note category="german">Zoophile und pädophile Äußerungen.</note>
+      </notes>
+      <segment>
+        <source>Zoophile und pädophile Äußerungen.</source>
+        <target>Difundir contenidos con caracter pedófilo o zoófilo.</target>
+      </segment>
+    </unit>
+    <unit id="acBYGgo" name="3f68ddc">
+      <notes>
+        <note category="german">Skatologische und koprophile Äußerungen, sowie alle Ausdrücke und Beiträge, die die Absicht haben jemanden herabzusetzen, seine Menschenwürde zu verletzen oder sonstwie sein Ansehen zu beschädigen.</note>
+      </notes>
+      <segment>
+        <source>Skatologische und koprophile Äußerungen, sowie alle Ausdrücke und Beiträge, die die Absicht haben jemanden herabzusetzen, seine Menschenwürde zu verletzen oder sonstwie sein Ansehen zu beschädigen.</source>
+        <target>Difundir contenidos de tipo urológico o escatológico, y de manera general todo contenido que atente contra la persona humana o su integridad.</target>
+      </segment>
+    </unit>
+    <unit id="8bWPEB7" name="bd3c8b5">
+      <notes>
+        <note category="german">Jedweder Beitrag, der zu einem Verbrechen oder zu Terrorismus aufruft oder der Kriegsverbrechen oder Verbrechen gegen die Menschheit verherrlicht.</note>
+      </notes>
+      <segment>
+        <source>Jedweder Beitrag, der zu einem Verbrechen oder zu Terrorismus aufruft oder der Kriegsverbrechen oder Verbrechen gegen die Menschheit verherrlicht.</source>
+        <target>Incitar a cometer un delito, un crimen o un acto de terrorismo o hacer apología de crímenes de guerra o contra la humanidad.</target>
+      </segment>
+    </unit>
+    <unit id="sOdmGjs" name="77b66d5">
+      <notes>
+        <note category="german">Alle Hinweise und Links, die auf gecrackte Programme, Seriennummern, Dateitauschbörsen, Seiten mit pornographischem Inhalt, Cracktools, Warez verweisen.</note>
+      </notes>
+      <segment>
+        <source>Alle Hinweise und Links, die auf gecrackte Programme, Seriennummern, Dateitauschbörsen, Seiten mit pornographischem Inhalt, Cracktools, Warez verweisen.</source>
+        <target>Permitir o difundir directa o indirectamente el uso de programas piratas, números de serie de programas, programas que permitan la piratería, intrusión en sistemas informáticos y de telecomunicaciones, la contaminación con virus y otras bombas lógicas y cualquier otra herramienta que permita atentar contra la seguridad, la privacidad, los derechos y la correspondencia de otras personas.</target>
+      </segment>
+    </unit>
+    <unit id="W44KCbs" name="Diese Liste ist nicht erschöpfend und keineswegs humoristisch gemeint.">
+      <notes>
+        <note category="german">Diese Liste ist nicht erschöpfend und keineswegs humoristisch gemeint.</note>
+      </notes>
+      <segment>
+        <source>Diese Liste ist nicht erschöpfend und keineswegs humoristisch gemeint.</source>
+        <target>Esta lista no es exhaustiva.</target>
+      </segment>
+    </unit>
+    <unit id="sf.96Yd" name="f6dd7a3">
+      <notes>
+        <note category="german">Der Begriff "Sitting" bezeichnet das unerlaubte Verleihen eines Spielaccounts an einen anderen Spieler. Ein anderer Begriff dafür ist 'Accountvertretung'. Ziel des 'Sittings' ist es, sich gegenüber anderen Spielern einen zeitlichen oder spielerischen Vorteil zu verschaffen.</note>
+      </notes>
+      <segment>
+        <source>Der Begriff "Sitting" bezeichnet das unerlaubte Verleihen eines Spielaccounts an einen anderen Spieler. Ein anderer Begriff dafür ist 'Accountvertretung'. Ziel des 'Sittings' ist es, sich gegenüber anderen Spielern einen zeitlichen oder spielerischen Vorteil zu verschaffen.</source>
+        <target>El "sitting", consiste en el préstamo de una cuenta a otra persona para que realice acciones diarias.</target>
+      </segment>
+    </unit>
+    <unit id="p7q_Gwh" name="Accountvertretungen bzw. Sitting sind bei &quot;Die Verdammten&quot; verboten!">
+      <notes>
+        <note category="german">Accountvertretungen bzw. Sitting sind bei "MyHordes" verboten!</note>
+      </notes>
+      <segment>
+        <source>Accountvertretungen bzw. Sitting sind bei "Die Verdammten" verboten!</source>
+        <target>Esta práctica está prohibida en MyHordes.</target>
+      </segment>
+    </unit>
+    <unit id="xW0cLIX" name="Warum sind Accountvertretungen (Sitting) verboten?">
+      <notes>
+        <note category="german">Warum sind Accountvertretungen (Sitting) verboten?</note>
+      </notes>
+      <segment>
+        <source>Warum sind Accountvertretungen (Sitting) verboten?</source>
+        <target>¿Por qué el «sitting» está prohibido?</target>
+      </segment>
+    </unit>
+    <unit id=".jvKxAB" name="d260f78">
+      <notes>
+        <note category="german">Eine hohe Anzahl an Nachrichten, die unseren Technischen Support erreichen, drehen sich um Accountdiebstähle. Diese Diebstähle sind &lt;strong&gt;fast immer &lt;/strong&gt; Folge von Accountvertretungen, die "dumm" gelaufen sind ;)</note>
+      </notes>
+      <segment>
+        <source>Eine hohe Anzahl an Nachrichten, die unseren Technischen Support erreichen, drehen sich um Accountdiebstähle. Diese Diebstähle sind &lt;strong&gt;fast immer &lt;/strong&gt; Folge von Accountvertretungen, die "dumm" gelaufen sind ;)</source>
+        <target><![CDATA[Más del 90% de los mensajes recibidos por el Soporte Técnico conciernen el robo de cuentas, como consecuencia <strong>casi segura</strong> de un préstamo de cuenta.]]></target>
+      </segment>
+    </unit>
+    <unit id="6SzXgNr" name="7cf6cec">
+      <notes>
+        <note category="german">Selbst Freunde, von denen du es am wenigsten erwartet hättest, können deinen Account löschen. Das ist schon öfters vorgekommen. Ein Account wurde an einen "Freund" geliehen, dieser löscht ihn und anschließend spielen sich wahre Dramen ab. Unser Support weiß davon ein Lied zu singen... Einmal gelöschte Accounts sind unwideruflich weg (inkl. aller Seeelenpunkte und eventuell vorhandener Heldentage)!</note>
+      </notes>
+      <segment>
+        <source>Selbst Freunde, von denen du es am wenigsten erwartet hättest, können deinen Account löschen. Das ist schon öfters vorgekommen. Ein Account wurde an einen "Freund" geliehen, dieser löscht ihn und anschließend spielen sich wahre Dramen ab. Unser Support weiß davon ein Lied zu singen... Einmal gelöschte Accounts sind unwideruflich weg (inkl. aller Seeelenpunkte und eventuell vorhandener Heldentage)!</source>
+        <target>Incluso tus amigos pueden borrar tu cuenta, pues no saben la importancia que tiene para ti. Es un caso frecuente: "Me robaron la cuenta", cuando en realidad la cuenta fue compartida y un "amigo" se quedó con ella o la borró. En estos casos el Soporte no interviene ya que la seguridad de cada cuenta depende su dueño.</target>
+      </segment>
+    </unit>
+    <unit id="BXVbhvm" name="Was riskiere ich, wenn ich meinen Account sitten lassen oder selbst sitte?">
+      <notes>
+        <note category="german">Was riskiere ich, wenn ich meinen Account sitten lassen oder selbst sitte?</note>
+      </notes>
+      <segment>
+        <source>Was riskiere ich, wenn ich meinen Account sitten lassen oder selbst sitte?</source>
+        <target>¿Qué riesgo corre un jugador que practica el "sitting"?</target>
+      </segment>
+    </unit>
+    <unit id="MlDZ9CA" name="Dein Account kann gestohlen werden.">
+      <notes>
+        <note category="german">Dein Account kann gestohlen werden.</note>
+      </notes>
+      <segment>
+        <source>Dein Account kann gestohlen werden.</source>
+        <target>El cierre definitivo por parte del administrador.</target>
+      </segment>
+    </unit>
+    <unit id="uUkjPxq" name="Dein Account kann vom Admin gesperrt werden.">
+      <notes>
+        <note category="german">Dein Account kann vom Admin gesperrt werden.</note>
+      </notes>
+      <segment>
+        <source>Dein Account kann vom Admin gesperrt werden.</source>
+        <target>El robo de la cuenta por otro jugador.</target>
+      </segment>
+    </unit>
+    <unit id="XteQJag" name="64757dc">
+      <notes>
+        <note category="german">Du wirst aus dem Städteranking ausgeschlossen. Eine Stadt, die eine große Anzahl an Sittern enthielt, wird am Ende der Saison automatisch vom Ranking ausgeschlossen.</note>
+      </notes>
+      <segment>
+        <source>Du wirst aus dem Städteranking ausgeschlossen. Eine Stadt, die eine große Anzahl an Sittern enthielt, wird am Ende der Saison automatisch vom Ranking ausgeschlossen.</source>
+        <target>La exclusión de la clasificación de pueblos: El pueblo que tenga jugadores haciendo trampa será eliminado.</target>
+      </segment>
+    </unit>
+    <unit id="YnjCtJ7" name="Anmerkungen zum Ausschluss aus dem Städteranking">
+      <notes>
+        <note category="german">Anmerkungen zum Ausschluss aus dem Städteranking</note>
+      </notes>
+      <segment>
+        <source>Anmerkungen zum Ausschluss aus dem Städteranking</source>
+        <target>Sobre la exclusión de la clasificación</target>
+      </segment>
+    </unit>
+    <unit id="w3nwN24" name="90d8025">
+      <notes>
+        <note category="german">Das Städteranking bei "MyHordes" soll zeigen, wie lange eine Gemeinschaft durch Kooperation überleben kann. Der menschliche Faktor und das reale Leben haben selbstverständlich einen Einfluss auf das Abschneiden einer Stadt.
+Profimäßiges Sitting verändert den Grundgedanken unseres Spiels und lässt Bürger zu reinen &lt;i&gt;%img_ap%-Reserven&lt;/i&gt; verkommen. Wir werden dies nicht dulden.
+Aus diesem Grund werden Städte, die verstärkt Sittingmethoden anwenden, ab der 2. Saison aus dem Ranking ausgeschlossen.</note>
+      </notes>
+      <segment>
+        <source>Das Städteranking bei "Die Verdammten" soll zeigen, wie lange eine Gemeinschaft durch Kooperation überleben kann. Der menschliche Faktor und das reale Leben haben selbstverständlich einen Einfluss auf das Abschneiden einer Stadt.
+Profimäßiges Sitting verändert den Grundgedanken unseres Spiels und lässt Bürger zu reinen &lt;i&gt;%img_ap%-Reserven&lt;/i&gt; verkommen. Wir werden dies nicht dulden.
+Aus diesem Grund werden Städte, die verstärkt Sittingmethoden anwenden, ab der 2. Saison aus dem Ranking ausgeschlossen.</source>
+        <target><![CDATA[Las clasificaciones de MyHordes reflejan la habilidad de un pueblo para organizarse frente a dificultades similares en la vida real. El sitting altera profundamente este factor y reduce el rol de los habitantes a simples <i>reservas de %img_ap%</i> por lo tanto es lógico que los pueblos que abusen de este tipo de práctica no formen parte de la clasificación.]]></target>
+      </segment>
+    </unit>
+    <unit id="_8wXD7p" name="973730d">
+      <notes>
+        <note category="german">Wir verstehen natürlich die Enttäuschung, die ehrliche Spieler erleben, wenn sie in einer "ge-sitteten" Stadt gespielt haben und dann aus dem Ranking fallen. Allerdings ist der Organisationsvorteil einiger "ge-sitteten" Stadt so groß, dass es normalen Städten gegenüber ungerecht wäre, sie nicht aus dem Ranking zu nehmen. Der Ausschluss aus der Rangliste ist die einzige ungewollt negative Folge, die ehrliche Spieler hinnehmen müssen. Ansonsten entstehen ihnen keine weiteren Nachteile.</note>
+      </notes>
+      <segment>
+        <source>Wir verstehen natürlich die Enttäuschung, die ehrliche Spieler erleben, wenn sie in einer "ge-sitteten" Stadt gespielt haben und dann aus dem Ranking fallen. Allerdings ist der Organisationsvorteil einiger "ge-sitteten" Stadt so groß, dass es normalen Städten gegenüber ungerecht wäre, sie nicht aus dem Ranking zu nehmen. Der Ausschluss aus der Rangliste ist die einzige ungewollt negative Folge, die ehrliche Spieler hinnehmen müssen. Ansonsten entstehen ihnen keine weiteren Nachteile.</source>
+        <target>Comprendemos la frustración de los jugadores de buena fe que participaron en pueblos donde se realizó el "sitting". Sin embargo estos pueblos tuvieron ventajas importantes respecto a otras.</target>
+      </segment>
+    </unit>
+    <unit id="XBuZpKF" name="ad1cfbd">
+      <notes>
+        <note category="german">Ein Spieler, dessen Stadt wegen Sitting aus dem Ranking gelöscht wurde, kann diese immer noch auf seiner Seelenseite betrachten.</note>
+      </notes>
+      <segment>
+        <source>Ein Spieler, dessen Stadt wegen Sitting aus dem Ranking gelöscht wurde, kann diese immer noch auf seiner Seelenseite betrachten.</source>
+        <target>Un pueblo que haya sido excluido de la clasificación aparecerá siempre en el Alma de sus jugadores.</target>
+      </segment>
+    </unit>
+    <unit id="8h_A3f2" name="045a3c9">
+      <notes>
+        <note category="german">&lt;strong&gt;Der Admin behält sich jedoch das Recht vor, jeglichen Beweis der Teilnahme an einer gerankten (und später ausgeschlossenen) Stadt zu löschen.&lt;/strong&gt;
+Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso verloren.</note>
+      </notes>
+      <segment>
+        <source>&lt;strong&gt;Der Admin behält sich jedoch das Recht vor, jeglichen Beweis der Teilnahme an einer gerankten (und später ausgeschlossenen) Stadt zu löschen.&lt;/strong&gt;
+Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso verloren.</source>
+        <target><![CDATA[Si tu pueblo es excluido de la clasificación <strong>y formaste parte de quienes practicaron el préstamo de cuentas</strong>, tu cuenta podrá ser además cerrada por un Administrador.]]></target>
+      </segment>
+    </unit>
+    <unit id="YQZVdAX" name="Wie entdeckt ihr Sitter?">
+      <notes>
+        <note category="german">Wie entdeckt ihr Sitter?</note>
+      </notes>
+      <segment>
+        <source>Wie entdeckt ihr Sitter?</source>
+        <target>¿Cómo detectamos el "sitting"?</target>
+      </segment>
+    </unit>
+    <unit id="XVKA6fb" name="3dd07b4">
+      <notes>
+        <note category="german">Es dürfte jedem einleuchten, dass wir unsere Tools und Methoden hier nicht bekannt geben können. Dennoch können wir euch sagen, dass :</note>
+      </notes>
+      <segment>
+        <source>Es dürfte jedem einleuchten, dass wir unsere Tools und Methoden hier nicht bekannt geben können. Dennoch können wir euch sagen, dass :</source>
+        <target>Por evidentes razones de seguridad, no daremos detalles más que estos:</target>
+      </segment>
+    </unit>
+    <unit id="xPi9zjc" name="12f9fad">
+      <notes>
+        <note category="german">&lt;strong&gt;Paare&lt;/strong&gt; und &lt;strong&gt;Familien&lt;/strong&gt; nichts zu befürchten haben. Unser System filtert "normale" Fälle von IP-Sharing und "sich einen PC teilen" heraus.</note>
+      </notes>
+      <segment>
+        <source>&lt;strong&gt;Paare&lt;/strong&gt; und &lt;strong&gt;Familien&lt;/strong&gt; nichts zu befürchten haben. Unser System filtert "normale" Fälle von IP-Sharing und "sich einen PC teilen" heraus.</source>
+        <target><![CDATA[<strong>Los familiares</strong> y <strong>parejas</strong> que comparten el mismo PC o conexión no tienen de qué preocuparse.]]></target>
+      </segment>
+    </unit>
+    <unit id="sOq5v5T" name="7b830cf">
+      <notes>
+        <note category="german">das Verleihen von Accounts und Accountpasswörtern strengstens verboten bleibt. Gebt euer Passwort nicht weiter und fragt auch nicht nach einem anderen Passwort (Don't Ask, Don't Tell).</note>
+      </notes>
+      <segment>
+        <source>das Verleihen von Accounts und Accountpasswörtern strengstens verboten bleibt. Gebt euer Passwort nicht weiter und fragt auch nicht nach einem anderen Passwort (Don't Ask, Don't Tell).</source>
+        <target>Nunca prestes tu cuenta y no te conectes a la cuenta de otro jugador que te lo pida (estarías violando el reglamento).</target>
+      </segment>
+    </unit>
+    <unit id="qzft9Kj" name="ihr nichts zu befürchten habt, wenn ihr eine reine Seele habt">
+      <notes>
+        <note category="german">ihr nichts zu befürchten habt, wenn ihr eine reine Seele habt</note>
+      </notes>
+      <segment>
+        <source>ihr nichts zu befürchten habt, wenn ihr eine reine Seele habt</source>
+        <target>Mientras no rompas las reglas, no tendrás nada que temer y disfrutarás del juego con toda tranquilidad.</target>
+      </segment>
+    </unit>
+    <unit id="Ftedefp" name="389ceae">
+      <notes>
+        <note category="german">MyHordes bietet Entwicklern zusätzliche Informationen in Form von JSON- und XML-Feeds, die für die Erstellung zusätzlicher Anwendungen und anderer neuartiger Funktionen auf Basis des Spiels verwendet werden können.</note>
+      </notes>
+      <segment>
+        <source>MyHordes bietet Entwicklern zusätzliche Informationen in Form von JSON- und XML-Feeds, die für die Erstellung zusätzlicher Anwendungen und anderer neuartiger Funktionen auf Basis des Spiels verwendet werden können.</source>
+        <target>MyHordes ofrece a los desarrolladores información adicional en forma de feeds JSON y XML que se pueden utilizar para la creación de aplicaciones adicionales y otros nuevos usos basados ​​en el juego.</target>
+      </segment>
+    </unit>
+    <unit id="ncia324" name="bf79d9a">
+      <notes>
+        <note category="german">Im Folgenden findet ihr weitere Informationen zur Konzeption und Funktion von Externen Anwendungen.</note>
+      </notes>
+      <segment>
+        <source>Im Folgenden findet ihr weitere Informationen zur Konzeption und Funktion von Externen Anwendungen.</source>
+        <target>Puedes encontrar más información relacionada con la creación y función de las aplicaciones más abajo.</target>
+      </segment>
+    </unit>
+    <unit id="BiPoL7F" name="6d1f764">
+      <notes>
+        <note category="german">Wenn ihr eine Anwendung entwickelt, muss diese sich an den APIs orientieren, die durch unser Spiel zur Verfügung gestellt werden. Um dich über alle Elemente zu informieren, zu denen wir dir Zugang geben, kannst du die folgenden Adressen besuchen:</note>
+      </notes>
+      <segment>
+        <source>Wenn ihr eine Anwendung entwickelt, muss diese sich an den APIs orientieren, die durch unser Spiel zur Verfügung gestellt werden. Um dich über alle Elemente zu informieren, zu denen wir dir Zugang geben, kannst du die folgenden Adressen besuchen:</source>
+        <target>Cuando desarrollas una aplicación, necesitas basar tu trabajo en las API que están disponibles a través de nuestro juego. Para conocer todos los elementos a los que te damos acceso puedes visitar las siguientes direcciones:</target>
+      </segment>
+    </unit>
+    <unit id="bhkJhTq" name="e8522ad">
+      <notes>
+        <note category="german">Beide APIs bieten Zugang zu unterschiedlichen Informationen. Du musst für dich selbst entscheiden, welche APIs du benötigst, um die richtigen Informationen zu erhalten. Das ist eigentlich ganz einfach, denn mit jedem Token können Sie auf beide APIs zugreifen.</note>
+      </notes>
+      <segment>
+        <source>Beide APIs bieten Zugang zu unterschiedlichen Informationen. Du musst für dich selbst entscheiden, welche APIs du benötigst, um die richtigen Informationen zu erhalten. Das ist eigentlich ganz einfach, denn mit jedem Token können Sie auf beide APIs zugreifen.</source>
+        <target>Ambos servicios ofrecen acceso a información diferente. Debes averiguar por tí mismo qué servicio necesitas para obtener la información correcta. Lo que es bastante simple, ya que cada token te permitirá acceder a cualquiera de las API con total tranquilidad.</target>
+      </segment>
+    </unit>
+    <unit id="32cAxL4" name="Nutzungsbedingungen">
+      <notes>
+        <note category="german">Nutzungsbedingungen</note>
+      </notes>
+      <segment>
+        <source>Nutzungsbedingungen</source>
+        <target>Condiciones de uso</target>
+      </segment>
+    </unit>
+    <unit id="mwOJdU5" name="390abde">
+      <notes>
+        <note category="german">&lt;strong&gt;Keinesfalls&lt;/strong&gt; darfst du MyHordes-Spieler auf deiner Seite nach ihren MyHordes-Zugangsdaten fragen.</note>
+      </notes>
+      <segment>
+        <source>&lt;strong&gt;Keinesfalls&lt;/strong&gt; darfst du MyHordes-Spieler auf deiner Seite nach ihren MyHordes-Zugangsdaten fragen.</source>
+        <target><![CDATA[<strong>bajo ninguna circunstancia</strong> tienes derecho a solicitar su contraseña a un usuario de MyHordes que visite tu sitio,]]></target>
+      </segment>
+    </unit>
+    <unit id="Uke8a9R" name="dbf4f8a">
+      <notes>
+        <note category="german">Du musst klar erkennbar machen, dass deine Seite nicht offiziell zu MyHordes gehört.</note>
+      </notes>
+      <segment>
+        <source>Du musst klar erkennbar machen, dass deine Seite nicht offiziell zu MyHordes gehört.</source>
+        <target>debes indicar claramente que tu sitio no está oficialmente vinculado a MyHordes,</target>
+      </segment>
+    </unit>
+    <unit id="G_ukbUc" name="f797fbf">
+      <notes>
+        <note category="german">Es muss für Nutzer jederzeit anhand des Seitendesigns klar erkennbar sein, dass sie sich nicht auf einer Unterseite von MyHordes befinden: das Design deiner Seite muss sich also deutlich von MyHordes unterscheiden.</note>
+      </notes>
+      <segment>
+        <source>Es muss für Nutzer jederzeit anhand des Seitendesigns klar erkennbar sein, dass sie sich nicht auf einer Unterseite von MyHordes befinden: das Design deiner Seite muss sich also deutlich von MyHordes unterscheiden.</source>
+        <target>el diseño de tu sitio no puede contribuir a confusión o malentendidos al permitir que los visitantes piensen que tu sitio es una subsidiaria de MyHordes: los diseños de ambas páginas deben ser completamente diferentes.</target>
+      </segment>
+    </unit>
+    <unit id="xgXwbfN" name="8f78322">
+      <notes>
+        <note category="german">Du darfst keine &lt;strong&gt;automatischen Skripte zum regelmäßigen Datenabgleich&lt;/strong&gt; mit der API verwenden (Cron, automatisierte Tasks...),</note>
+      </notes>
+      <segment>
+        <source>Du darfst keine &lt;strong&gt;automatischen Skripte zum regelmäßigen Datenabgleich&lt;/strong&gt; mit der API verwenden (Cron, automatisierte Tasks...),</source>
+        <target><![CDATA[no se te permite utilizar <strong>scripts automatizados para recuperar regularmente información</strong> de un feed (cron, tareas automatizadas ...),]]></target>
+      </segment>
+    </unit>
+    <unit id="pH0Mwkj" name="e717372">
+      <notes>
+        <note category="german">Verwendest du Grafiken oder sonstige Inhalte von MyHordes, musst du auf die Quelle sowie die entsprechenden Rechte des Autors / Künstlers verweisten.</note>
+      </notes>
+      <segment>
+        <source>Verwendest du Grafiken oder sonstige Inhalte von MyHordes, musst du auf die Quelle sowie die entsprechenden Rechte des Autors / Künstlers verweisten.</source>
+        <target>si usas imágenes u otro contenido de MyHordes, debes indicar su fuente e indicar los derechos aplicables del autor / artista.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

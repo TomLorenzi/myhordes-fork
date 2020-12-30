@@ -1,0 +1,35 @@
+{% extends "ajax/help/shell.html.twig" %}
+{% block title %}{{'Hilfe'|trans({}, 'game')}} - {{'Fehlverhalten melden'|trans({}, 'help')|raw}}{% endblock %}
+{% block helpContent %}
+<div class="helpArt">{{ 'Spielanleitung'|trans({},'help')|raw }}</div>
+<h1>{{ 'Fehlverhalten melden'|trans({},'help')|raw }}</h1>
+<div class="help">
+<img class="art artRight" alt="" src="{{ asset('build/images/help/report.' ~ app.request.locale|e('html_attr') ~ '.png') }}">
+<p>
+{{ 'Wenn du auf einen Spieler stößt, der sich daneben benimmt oder ausfallend wird (Beleidigungen, Regelverstöße...) kannst du uns ganz einfach auf seine Nachricht(en) aufmerksam machen.
+<strong>Klicke dazu einfach auf den Link "Melden". Er befindet sich neben dem Datum der Nachricht.</strong>'|trans({},'help')|raw }}
+</p>
+<p>
+<strong>{{ 'Der Rabe wird sich die Nachricht dann ansehen und gegebenenfalls die entsprechenden Maßnahmen einleiten.'|trans({},'help')|raw }}</strong>
+</p>
+<div class="clear"></div>
+</div>
+<p>
+{{ 'Folgendes Verhalten sollte gemeldet werden:'|trans({},'help')|raw }}
+</p>
+<ul>
+<li>{{ 'Flood (schnelles, wiederholtes Absenden der gleichen Nachricht in einem Forum).'|trans({},'help')|raw }}</li>
+<li>{{ 'Beiträge, deren Inhalt gegen geltende Gesetze oder gute Sitten verstößt.'|trans({},'help')|raw }}</li>
+<li>{{ 'Fremdenfeindliche und homophobe Beiträge.'|trans({},'help')|raw }}</li>
+<li>{{ 'Respektlosigkeiten, Aufhetzungen und jede Art von politisch extremen Äußerungen gegen einzelne Personen bzw. Gruppierungen, ethnische Gruppen oder Nationalitäten und ehrverletzende Beiträge.'|trans({},'help')|raw }}</li>
+<li>{{ 'Drohungen oder Einschüchterungsversuche gegen eine oder mehrere Personen.'|trans({},'help')|raw }}</li>
+<li>{{ 'Zoophile und pädophile Äußerungen.'|trans({},'help')|raw }}</li>
+<li>{{ 'Skatologische und koprophile Äußerungen, sowie alle Ausdrücke und Beiträge, die die Absicht haben jemanden herabzusetzen, seine Menschenwürde zu verletzen oder sonstwie sein Ansehen zu beschädigen.'|trans({},'help')|raw }}</li>
+<li>{{ 'Jedweder Beitrag, der zu einem Verbrechen oder zu Terrorismus aufruft oder der Kriegsverbrechen oder Verbrechen gegen die Menschheit verherrlicht.'|trans({},'help')|raw }}</li>
+<li>{{ 'Alle Hinweise und Links, die auf gecrackte Programme, Seriennummern, Dateitauschbörsen, Seiten mit pornographischem Inhalt, Cracktools, Warez verweisen.'|trans({},'help')|raw }}</li>
+<li>...</li>
+</ul>
+<p>{{ 'Diese Liste ist nicht erschöpfend und keineswegs humoristisch gemeint.'|trans({},'help')|raw }}</p>
+<div class="clear"></div>
+<a class="button" x-ajax-href="{{ url('help', {'name': 'about_accountsitting'}) }}"><img src="{{ asset('build/images/icons/small_move.gif') }}" alt="move"> {{'Weiter'|trans({}, 'help')}}:<strong> {{ 'Zum Thema \'Sitting\'...'|trans({},'help') }}</strong></a>
+{% endblock %}

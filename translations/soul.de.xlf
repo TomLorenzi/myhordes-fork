@@ -1852,13 +1852,13 @@
         <target>Deine Koalition ist bereits voll.</target>
       </segment>
     </unit>
-    <unit id="QuFqW4z" name="Spielhilfe: Kleine Koalitionen">
+    <unit id="3Q.JU78" name="Spielhilfe">
       <notes>
-        <note category="german">Spielhilfe: Kleine Koalitionen</note>
+        <note category="german">Spielhilfe</note>
       </notes>
       <segment>
-        <source>Spielhilfe: Kleine Koalitionen</source>
-        <target>Spielhilfe: Kleine Koalitionen</target>
+        <source>Spielhilfe</source>
+        <target>Spielhilfe</target>
       </segment>
     </unit>
     <unit id="GO1ZJcp" name="3e3b0ae">
@@ -2239,6 +2239,18 @@
         <target>Hiermit kannst du dich von allen Geräten und Browsern abmelden, auf denen du aktuell eingeloggt bist. Die "Login merken" Funktion wird hierdurch ebenfalls auf den betroffenen Geräten deaktiviert.</target>
       </segment>
     </unit>
+<<<<<<< HEAD
+=======
+    <unit id="uh49WWx" name="cea913a">
+      <notes>
+        <note category="german">Unglücklicherweise ist deine Stadt vollkommen im Wüstensand versunken... Die Gemeinschaft wurde ausgelöscht.</note>
+      </notes>
+      <segment>
+        <source>Unglücklicherweise ist deine Stadt vollkommen im Wüstensand versunken... Die Gemeinschaft wurde ausgelöscht.</source>
+        <target>Unglücklicherweise ist deine Stadt vollkommen im Wüstensand versunken... Die Gemeinschaft wurde ausgelöscht.</target>
+      </segment>
+    </unit>
+>>>>>>> d5063ae2df070437b52efdd8c31633756afb6a08
     <unit id="2CmSXI_" name="Animationen verringern">
       <notes>
         <note category="german">Animationen verringern</note>
@@ -2264,6 +2276,15 @@
       <segment>
         <source>Unglücklicherweise ist deine Stadt vollkommen im Wüstensand versunken... Die Gemeinschaft wurde ausgelöscht.</source>
         <target>Unglücklicherweise ist deine Stadt vollkommen im Wüstensand versunken... Die Gemeinschaft wurde ausgelöscht.</target>
+      </segment>
+    </unit>
+    <unit id="JAkgM4Z" name="Kleine Koalitionen">
+      <notes>
+        <note category="german">Kleine Koalitionen</note>
+      </notes>
+      <segment>
+        <source>Kleine Koalitionen</source>
+        <target>Kleine Koalitionen</target>
       </segment>
     </unit>
   </file>
