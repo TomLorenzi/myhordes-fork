@@ -122,6 +122,15 @@ x-message {
       &>img { margin-right: 3px; }
       background: rgba(0,0,0,0.15); border: 1px solid rgba(0,0,0,0.15); padding: 0 5px; border-radius: 6px;
       font-variant: small-caps; color: white; display: inline-block;
+      &.tool {
+        padding-left: 3px;
+        padding-right: 3px;
+        white-space: nowrap;
+        background-color: #784323;
+        img {
+          vertical-align: middle;
+        }
+      }
     }
   }
 
@@ -159,13 +168,16 @@ x-message {
 
     div#modal-content {
       min-height: 5rem; padding: 1rem;
-      &>span { 
+      span {
           color: white; font-weight: bold; &>img { vertical-align: text-top }
           &.tool {
             padding-left: 3px;
             padding-right: 3px;
             white-space: nowrap;
             background-color: #784323;
+            img {
+              vertical-align: middle;
+            }
           } 
         }
 
@@ -660,7 +672,12 @@ ul.inventory {
 
     }
   }
-  &.rucksack { background: url("../img/background/inventory/inv_bag.gif") no-repeat top left;}
+  &.rucksack {
+    background: url("../img/background/inventory/inv_bag.gif") no-repeat top left;
+    li {
+      margin: 0;
+    }
+  }
   &.rucksack-escort { background: rgba(0,0,0,0.1); border: 1px solid @myhordes-cell-header-background-color; margin: 0; }
   &.desert, &.desert-escort { background: url("../img/background/inventory/inv_ground.gif") repeat top left;}
   &.desert-escort { border: 1px solid @myhordes-cell-header-background-color; }
@@ -670,7 +687,17 @@ ul.inventory {
       opacity: 0.50;
     }
   }
-  &.bank { background: url("../img/background/inventory/inv_bank.gif") repeat center; min-height: 100px;}
+  &.bank {
+    background: url("../img/background/inventory/inv_bank.gif") repeat center; min-height: 100px;
+    .item {
+      .item-icon {
+        display: inline-block;
+        width: 16px;
+        height: 16px;
+        text-align: center;
+      }
+    }
+  }
 }
 
 ul.actions, ul.special_actions, ul.heroic_actions {

@@ -5,7 +5,7 @@
 {% if item.hidden %}{% set classes = classes|merge(['banished_hidden']) %}{% endif %}
 
 <li class="{{ classes|join(' ') }}" {% if no_id is not defined or not no_id %}x-item-id="{{ item.id }}"{% endif %} {% if escort is defined and escort is not null %}x-escort-id="{{ escort }}"{% endif %}>
-    <img src="{{ asset('build/images/item/item_' ~ item.prototype.icon ~ '.gif') }}" alt="{{ item.prototype.label|trans({},'items') }}">
+    <span class="item-icon"><img src="{{ asset('build/images/item/item_' ~ item.prototype.icon ~ '.gif') }}" alt="{{ item.prototype.label|trans({},'items') }}"></span>
     {% if count is defined and count > 1 %}<span>{{ count }}</span>{% endif %}
     {% if no_tooltip is not defined or not no_tooltip %}
         <div class="tooltip normal">

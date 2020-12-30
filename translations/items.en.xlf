@@ -7217,7 +7217,7 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
       </notes>
       <segment>
         <source>&lt;t-fail&gt;&lt;t-no-room&gt;Du hast nicht genug Platz für diese Gegenstände...&lt;/t-no-room&gt;&lt;t-door-closed&gt;Das Stadttor ist geschlossen...&lt;/t-door-closed&gt;&lt;t-too-heavy&gt;{item} kann keine schweren Gegenstände tragen...&lt;/t-too-heavy&gt;&lt;/t-fail&gt;&lt;nt-fail&gt;Du hast den {item} mit deinen Gegenständen in die Stadt geschickt.&lt;/nt-fail&gt;</source>
-        <target><![CDATA[<t-fail><t-no-room>You don't have enough space for these items ...</t-no-room><t-door-closed>The Town gates are closed ...</t-door-closed><t-too-heavy>{item} cannot carry heavy objects ...</t-too-heavy></t-fail><nt-fail>You send {item} in the direction of the town witht hte tontents of your rucksack.</nt-fail>]]></target>
+        <target><![CDATA[<t-fail><t-no-room>You don't have enough space for these items ...</t-no-room><t-door-closed>The Town gates are closed ...</t-door-closed><t-too-heavy>{item} cannot carry heavy objects ...</t-too-heavy></t-fail><nt-fail>You send {item} in the direction of the town with the contents of your rucksack.</nt-fail>]]></target>
       </segment>
     </unit>
     <unit id="xWENNfP" name="Gequälte Seele">

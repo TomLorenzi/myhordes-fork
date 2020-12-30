@@ -128,7 +128,7 @@ class ZoneHandler
 
         $wrap = function(array $a) {
             return implode(', ', array_map(function(ItemPrototype $p) {
-                return "<span><img alt='' src='{$this->asset->getUrl( "build/images/item/item_{$p->getIcon()}.gif" )}'> {$this->trans->trans($p->getLabel(), [], 'items')}</span>";
+                return "<span class='tool'><img alt='' src='{$this->asset->getUrl( "build/images/item/item_{$p->getIcon()}.gif" )}'> {$this->trans->trans($p->getLabel(), [], 'items')}</span>";
             }, $a));
         };
 
