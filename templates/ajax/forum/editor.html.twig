@@ -25,12 +25,14 @@
         {% endif %}
         {% if tid is null %}
             <div class="row">
-                <div class="cell rw-4 padded">
-                    <label for="{{ type }}-forum-editor-title">{{ 'Titel'|trans({},'global') }}</label>
-                </div>
-                <div class="cell rw-8 padded">
-                    <input type="text" id="{{ type }}-forum-editor-title" />
-                </div>
+                {% if type != 'global-pm' %}
+                    <div class="cell rw-4 padded">
+                        <label for="{{ type }}-forum-editor-title">{{ 'Titel'|trans({},'global') }}</label>
+                    </div>
+                    <div class="cell rw-8 padded">
+                        <input type="text" id="{{ type }}-forum-editor-title" />
+                    </div>
+                {% endif %}
                 {% if type == "changelog" %}
                     <div class="cell rw-4 padded">
                         <label for="{{ type }}-forum-editor-version">{{ 'Version'|trans({},'global') }}</label>
@@ -55,10 +57,11 @@
                 {% if type != 'global-pm' %}
                     <label>{{ 'Vorschau'|trans({},'global') }}</label>
                     <div id="{{ preview_name }}"></div>
+                    <br />
                 {% endif %}
-                <br />
                 <label for="{{ type }}-forum-editor-text">{{ 'Deine Nachricht'|trans({},'global') }}</label>
-                <div class="forum-button-bar">
+                <a class="float-right" x-non-extended id="{{ type }}-forum-editor-extend" href="#">{{ 'Zum erweiterten Editor wechseln'|trans({},'global') }}</a>
+                <div x-extended class="forum-button-bar">
                     <div x-forum-action="edit" x-text-wrap-node="b" class="forum-button"><i class="fa fa-bold"></i><span class="forum-button-tooltip">{{ 'Fett'|trans({},'global') }}</span></div>
                     <div x-forum-action="edit" x-text-wrap-node="i" class="forum-button"><i class="fa fa-italic"></i><span class="forum-button-tooltip">{{ 'Kursiv'|trans({},'global') }}</span></div>
                     <div x-forum-action="edit" x-text-wrap-node="u" class="forum-button"><i class="fa fa-underline"></i><span class="forum-button-tooltip">{{ 'Unterstreichen'|trans({},'global') }}</span></div>
@@ -87,10 +90,10 @@
                 </div>
             </div>
 
-            <textarea id="{{ type }}-forum-editor-text"></textarea>
+            <textarea id="{{ type }}-forum-editor-text" {% if type == 'global-pm' %}style="min-height: 90px; height: 90px;"{% endif %}></textarea>
 
             <div class="row">
-                <div class="padded cell rw-12">
+                <div x-extended class="padded cell rw-12">
                     <ul class="tabs plain" x-tab-group="forum-classic-editor-toolbox" x-tab-control>
                         <li class="tab" x-tab-id="emotes"><div class="tab-link"><i class="fa fa-smile"></i></div></li>
                         <li class="tab" x-tab-id="games"><div class="tab-link"><i class="fa fa-dice"></i></div></li>
@@ -213,6 +216,20 @@
 {% block js %}
     <script>
         (function() {
+
+            {% if type == 'global-pm' %}
+                $.html.forEach('#{{ type }}-forum-editor *[x-extended]', elem => elem.classList.add('hidden') );
+                $.html.forEach('#{{ type }}-forum-editor *[x-non-extended]', elem => elem.classList.remove('hidden') );
+            {% else %}
+                $.html.forEach('#{{ type }}-forum-editor *[x-extended]', elem => elem.classList.remove('hidden') );
+                $.html.forEach('#{{ type }}-forum-editor *[x-non-extended]', elem => elem.classList.add('hidden') );
+            {% endif %}
+
+            $.html.addEventListenerAll('#{{ type }}-forum-editor-extend', 'click', function(e) {
+                e.preventDefault();
+                $.html.forEach('#{{ type }}-forum-editor *[x-extended]', elem => elem.classList.remove('hidden') );
+                $.html.forEach('#{{ type }}-forum-editor *[x-non-extended]', elem => elem.classList.add('hidden') );
+            });
 
             let node_transfer_source = document.getElementById('{{ type }}-forum-editor-text');
             let node_transfer_target = document.getElementById('{{ preview_name|raw }}');
@@ -518,7 +535,8 @@
                         {% if tid is not null %}
                             target_payload.tid = {{ tid }};
                         {% else %}
-                            target_payload.title = document.getElementById('{{ type }}-forum-editor-title').value;
+                            let title_input = document.getElementById('{{ type }}-forum-editor-title');
+                            target_payload.title = title_input ? title_input.value : null;
                             {% if type == 'pm' or type == 'global' %}
                                 const rc = document.getElementById('pmidrecipient');
                                 if (rc) target_payload.recipient = rc.value;
