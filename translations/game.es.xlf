@@ -7729,7 +7729,7 @@
       </notes>
       <segment>
         <source>Klicke hier, um für diesen Bürger zu stimmen.</source>
-        <target>Klicke hier, um für diesen Bürger zu stimmen.</target>
+        <target>Haz click aquí para votar por este ciudadano.</target>
       </segment>
     </unit>
     <unit id="xp8ndxu" name="Du hast für diesen Bürger gestimmt.">
@@ -7738,7 +7738,7 @@
       </notes>
       <segment>
         <source>Du hast für diesen Bürger gestimmt.</source>
-        <target>Du hast für diesen Bürger gestimmt.</target>
+        <target>Haz votado por este ciudadano.</target>
       </segment>
     </unit>
     <unit id="eNpa58G" name="Stadt im %direction% in %km% Entfernung">
@@ -7747,7 +7747,7 @@
       </notes>
       <segment>
         <source>Stadt im %direction% in %km% Entfernung</source>
-        <target>Stadt im %direction% in %km% Entfernung</target>
+        <target>El pueblo está a %km% hacia el %direction% </target>
       </segment>
     </unit>
     <unit id="Q4Q3RlC" name="Du folgst aktuell %citizen%.">
@@ -7756,7 +7756,7 @@
       </notes>
       <segment>
         <source>Du folgst aktuell %citizen%.</source>
-        <target>Du folgst aktuell %citizen%.</target>
+        <target>Actualmente estás siguiendo al habitante %citizen%.</target>
       </segment>
     </unit>
     <unit id="tNPDkbr" name="6eb9def">
@@ -7767,8 +7767,7 @@
       <segment>
         <source>Solange du einem anderen Bürger folgst, sind deine Handlungsmöglichkeiten eingeschränkt.
                     Du kannst weder die Karte benutzen, noch sonst eine Aktion durchführen, die im Freien möglich ist.</source>
-        <target>Solange du einem anderen Bürger folgst, sind deine Handlungsmöglichkeiten eingeschränkt.
-                    Du kannst weder die Karte benutzen, noch sonst eine Aktion durchführen, die im Freien möglich ist.</target>
+        <target>El mapa, así como todas las funciones en el exterior están desactivadas mientras estés siguiendo a un héroe.</target>
       </segment>
     </unit>
     <unit id="jqa.16L" name="da1981d">
@@ -8155,7 +8154,7 @@
       </notes>
       <segment>
         <source>%citizen1% verbrachten die ganze Nacht heulend in ihrem Haus, bis zu dem Punkt, dass jeder dachte, die Zombies würden Bürger-Steaks aus ihm machen. Es stellte sich heraus, dass sie gerade einen massiven Zusammenbruch hatten. Letzte Nacht gab es keine Toten in der Stadt.</source>
-        <target>%citizen1% verbrachten die ganze Nacht heulend in ihrem Haus, bis zu dem Punkt, dass jeder dachte, die Zombies würden Bürger-Steaks aus ihm machen. Es stellte sich heraus, dass sie gerade einen massiven Zusammenbruch hatten. Letzte Nacht gab es keine Toten in der Stadt.</target>
+        <target>Un punto importante: %citizen1% ha pasado la noche chillando en su casa, pensamos que un zombie se estaba comiendo por pedacitos. En realidad tenía una gran crisis de nervios. Fue solo eso, no hubieron muertos anoche.</target>
       </segment>
     </unit>
     <unit id="ZV3brVh" name="7dd2cf8">
@@ -8317,7 +8316,7 @@
       </notes>
       <segment>
         <source>Ihr hast sie letzte Nacht gehört... die Schreie, das Stöhnen. Um die %attack% Zombies herum griffen an. Diesmal konnten wir uns durchsetzen, aber morgen... morgen wird es noch schlimmer...</source>
-        <target>Ihr hast sie letzte Nacht gehört... die Schreie, das Stöhnen. Um die %attack% Zombies herum griffen an. Diesmal konnten wir uns durchsetzen, aber morgen... morgen wird es noch schlimmer...</target>
+        <target>Todos los hemos oído esta noche: chillidos, gruñidos... No menos de %attack% zombies queriendo entrar, pero mañana tal vez no se queden con las ganas...</target>
       </segment>
     </unit>
     <unit id="PZl940e" name="3a8fd01">
@@ -8326,7 +8325,7 @@
       </notes>
       <segment>
         <source>Da gestern Abend rund %attack% Zombies vor den Toren standen, hätten wir das Schlimmste befürchten können, aber kein einziger ist reingekommen: gute Zeiten! Brecht Euch sich aber nicht den Arm, wenn Ihr Euch gegenseitig auf die Schulter klopft!</source>
-        <target>Da gestern Abend rund %attack% Zombies vor den Toren standen, hätten wir das Schlimmste befürchten können, aber kein einziger ist reingekommen: gute Zeiten! Brecht Euch sich aber nicht den Arm, wenn Ihr Euch gegenseitig auf die Schulter klopft!</target>
+        <target>Tuvimos más o menos 3670 zombies en el portal anoche, lo peor pudo suceder, pero muy pocos o ninguno consiguió entrar. ¡Alabadas sean nuestras defensas!</target>
       </segment>
     </unit>
     <unit id="DHLa_0B" name="55f668d">
@@ -10937,7 +10936,7 @@
       </notes>
       <segment>
         <source>Du bist</source>
-        <target>Eres</target>
+        <target>Estás</target>
       </segment>
     </unit>
     <unit id="swizrYC" name="Erschöpft">
@@ -10946,7 +10945,7 @@
       </notes>
       <segment>
         <source>Erschöpft</source>
-        <target>Cansancio</target>
+        <target>Cansa</target>
       </segment>
     </unit>
     <unit id="UEL2oHO" name="Spielzeit">
@@ -15801,7 +15800,7 @@
       </notes>
       <segment>
         <source>Eine Revolte liegt in weiter Ferne...</source>
-        <target>La insurrección no estpa lista...</target>
+        <target>La insurrección no está lista...</target>
       </segment>
     </unit>
     <unit id="x_WVlWR" name="Erste Spannungen bilden sich.">
