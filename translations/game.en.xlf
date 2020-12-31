@@ -13929,7 +13929,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
     </unit>
     <unit id="RtVs3Hp" name="Où est Larchi ?">
       <notes>
-        <note category="german">Où est Larchi ?</note>
+        <note category="german">Wo ist Larchi?</note>
       </notes>
       <segment>
         <source>Où est Larchi ?</source>
@@ -15848,6 +15848,123 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       <segment>
         <source>Diese Aktion ist während der &lt;strong&gt;Chaosperiode&lt;/strong&gt; night erlaubt!</source>
         <target><![CDATA[Diese Aktion ist während der <strong>Chaosperiode</strong> night erlaubt!]]></target>
+      </segment>
+    </unit>
+    <unit id="RtIKPqy" name="Meisterkoch der Sterne">
+      <notes>
+        <note category="german">Meisterkoch der Sterne</note>
+      </notes>
+      <segment>
+        <source>Meisterkoch der Sterne</source>
+        <target>Meisterkoch der Sterne</target>
+      </segment>
+    </unit>
+    <unit id="1HIhGty" name="Ich koste alle meine Produkte">
+      <notes>
+        <note category="german">Ich koste alle meine Produkte</note>
+      </notes>
+      <segment>
+        <source>Ich koste alle meine Produkte</source>
+        <target>Ich koste alle meine Produkte</target>
+      </segment>
+    </unit>
+    <unit id="9gvx8.m" name="Rauchts? Dann ist es meins.">
+      <notes>
+        <note category="german">Rauchts? Dann ist es meins.</note>
+      </notes>
+      <segment>
+        <source>Rauchts? Dann ist es meins.</source>
+        <target>Rauchts? Dann ist es meins.</target>
+      </segment>
+    </unit>
+    <unit id="YmO44_z" name="Mein Name ist Nobody">
+      <notes>
+        <note category="german">Mein Name ist Nobody</note>
+      </notes>
+      <segment>
+        <source>Mein Name ist Nobody</source>
+        <target>Mein Name ist Nobody</target>
+      </segment>
+    </unit>
+    <unit id="EVFOthx" name="Ein Sternbild trägt meinen Namen">
+      <notes>
+        <note category="german">Ein Sternbild trägt meinen Namen</note>
+      </notes>
+      <segment>
+        <source>Ein Sternbild trägt meinen Namen</source>
+        <target>Ein Sternbild trägt meinen Namen</target>
+      </segment>
+    </unit>
+    <unit id="6HxoVzo" name="Autonomer Müll">
+      <notes>
+        <note category="german">Autonomer Müll</note>
+      </notes>
+      <segment>
+        <source>Autonomer Müll</source>
+        <target>Autonomer Müll</target>
+      </segment>
+    </unit>
+    <unit id="7zQXhiW" name="Freier Bürger">
+      <notes>
+        <note category="german">Freier Bürger</note>
+      </notes>
+      <segment>
+        <source>Freier Bürger</source>
+        <target>Freier Bürger</target>
+      </segment>
+    </unit>
+    <unit id="240r2Te" name="Alles für meinen Mund">
+      <notes>
+        <note category="german">Alles für meinen Mund</note>
+      </notes>
+      <segment>
+        <source>Alles für meinen Mund</source>
+        <target>Alles für meinen Mund</target>
+      </segment>
+    </unit>
+    <unit id="rsC4OqV" name="Ich brauche niemanden">
+      <notes>
+        <note category="german">Ich brauche niemanden</note>
+      </notes>
+      <segment>
+        <source>Ich brauche niemanden</source>
+        <target>Ich brauche niemanden</target>
+      </segment>
+    </unit>
+    <unit id="SOiNUAW" name="Unabhängiger Großeinsiedler">
+      <notes>
+        <note category="german">Unabhängiger Großeinsiedler</note>
+      </notes>
+      <segment>
+        <source>Unabhängiger Großeinsiedler</source>
+        <target>Unabhängiger Großeinsiedler</target>
+      </segment>
+    </unit>
+    <unit id="5_5syC2" name="Che Guevara der Wüste">
+      <notes>
+        <note category="german">Che Guevara der Wüste</note>
+      </notes>
+      <segment>
+        <source>Che Guevara der Wüste</source>
+        <target>Che Guevara der Wüste</target>
+      </segment>
+    </unit>
+    <unit id="vmIHgay" name="Ein schöneres Leben">
+      <notes>
+        <note category="german">Ein schöneres Leben</note>
+      </notes>
+      <segment>
+        <source>Ein schöneres Leben</source>
+        <target>Ein schöneres Leben</target>
+      </segment>
+    </unit>
+    <unit id="ba6IXp3" name="Großer E-KEA Katalog">
+      <notes>
+        <note category="german">Großer E-KEA Katalog</note>
+      </notes>
+      <segment>
+        <source>Großer E-KEA Katalog</source>
+        <target>Großer E-KEA Katalog</target>
       </segment>
     </unit>
   </file>

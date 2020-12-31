@@ -11742,7 +11742,7 @@
       </notes>
       <segment>
         <source>Pfadfinder</source>
-        <target>Pfadfinder</target>
+        <target>Furtif</target>
       </segment>
     </unit>
     <unit id="kFR6HoJ" name="Ninja">
@@ -11751,7 +11751,7 @@
       </notes>
       <segment>
         <source>Ninja</source>
-        <target>Ninja</target>
+        <target>Maître des ombres</target>
       </segment>
     </unit>
     <unit id="fK.LQlc" name="Green Beret">
@@ -11760,7 +11760,7 @@
       </notes>
       <segment>
         <source>Green Beret</source>
-        <target>Green Beret</target>
+        <target>Ranger du risque</target>
       </segment>
     </unit>
     <unit id="OaAloKt" name="Schattenmann">
@@ -11769,7 +11769,7 @@
       </notes>
       <segment>
         <source>Schattenmann</source>
-        <target>Schattenmann</target>
+        <target>Fantôme des sables</target>
       </segment>
     </unit>
     <unit id="Gk4T3iI" name="Wüstenphantom">
@@ -11778,7 +11778,7 @@
       </notes>
       <segment>
         <source>Wüstenphantom</source>
-        <target>Wüstenphantom</target>
+        <target>Plus fort que Sam Fisher</target>
       </segment>
     </unit>
     <unit id="0dGXUFA" name="Solid Snake war gestern...">
@@ -11787,7 +11787,7 @@
       </notes>
       <segment>
         <source>Solid Snake war gestern...</source>
-        <target>Solid Snake war gestern...</target>
+        <target>Disciple de Garrett</target>
       </segment>
     </unit>
     <unit id="kHVMitZ" name="Sandarbeiter">
@@ -11796,7 +11796,7 @@
       </notes>
       <segment>
         <source>Sandarbeiter</source>
-        <target>Sandarbeiter</target>
+        <target>Trouveur</target>
       </segment>
     </unit>
     <unit id="IJYuZ5a" name="Wüstenspringmaus">
@@ -11805,7 +11805,7 @@
       </notes>
       <segment>
         <source>Wüstenspringmaus</source>
-        <target>Wüstenspringmaus</target>
+        <target>Maître Dénicheur</target>
       </segment>
     </unit>
     <unit id="Vkh5MQX" name="Großer Ameisenbär">
@@ -11814,7 +11814,7 @@
       </notes>
       <segment>
         <source>Großer Ameisenbär</source>
-        <target>Großer Ameisenbär</target>
+        <target>Exhumeur de babioles</target>
       </segment>
     </unit>
     <unit id="nHhwa89" name="Wüstenfuchs">
@@ -11823,7 +11823,7 @@
       </notes>
       <segment>
         <source>Wüstenfuchs</source>
-        <target>Wüstenfuchs</target>
+        <target>Trouveur en chef</target>
       </segment>
     </unit>
     <unit id="j2g8eu0" name="Ich sehe Alles!">
@@ -11832,7 +11832,7 @@
       </notes>
       <segment>
         <source>Ich sehe Alles!</source>
-        <target>Ich sehe Alles!</target>
+        <target>Rien ne m'échappe.</target>
       </segment>
     </unit>
     <unit id="fgaC7U9" name="Tierliebhaber">
@@ -11841,7 +11841,7 @@
       </notes>
       <segment>
         <source>Tierliebhaber</source>
-        <target>Tierliebhaber</target>
+        <target>Ami des bêtes</target>
       </segment>
     </unit>
     <unit id="zwq1Nwl" name="Malteserzüchter">
@@ -11850,7 +11850,7 @@
       </notes>
       <segment>
         <source>Malteserzüchter</source>
-        <target>Malteserzüchter</target>
+        <target>Maître-bichon</target>
       </segment>
     </unit>
     <unit id="wNYAdWT" name="Ich bändige Bestien">
@@ -11859,7 +11859,7 @@
       </notes>
       <segment>
         <source>Ich bändige Bestien</source>
-        <target>Ich bändige Bestien</target>
+        <target>Dresseur de bêtes sauvages</target>
       </segment>
     </unit>
     <unit id="uBx6t9G" name="Nie ohne meinen Hund!">
@@ -11868,7 +11868,7 @@
       </notes>
       <segment>
         <source>Nie ohne meinen Hund!</source>
-        <target>Nie ohne meinen Hund!</target>
+        <target>Jamais sans mon chien !</target>
       </segment>
     </unit>
     <unit id="NptrmeY" name="Hundewurst schmeckt gar nicht schlecht!">
@@ -11877,7 +11877,7 @@
       </notes>
       <segment>
         <source>Hundewurst schmeckt gar nicht schlecht!</source>
-        <target>Hundewurst schmeckt gar nicht schlecht!</target>
+        <target>La patée, c'est pas si mauvais</target>
       </segment>
     </unit>
     <unit id="7QwnRMJ" name="Wurmfresser">
@@ -11886,7 +11886,7 @@
       </notes>
       <segment>
         <source>Wurmfresser</source>
-        <target>Wurmfresser</target>
+        <target>Dégoteur de vers</target>
       </segment>
     </unit>
     <unit id="LNbZ8tc" name="Meister im Würmerfinden">
@@ -11895,7 +11895,7 @@
       </notes>
       <segment>
         <source>Meister im Würmerfinden</source>
-        <target>Meister im Würmerfinden</target>
+        <target>Maître dégoteur</target>
       </segment>
     </unit>
     <unit id="r_g0Zdo" name="Gefräßiger Bürger">
@@ -11904,7 +11904,7 @@
       </notes>
       <segment>
         <source>Gefräßiger Bürger</source>
-        <target>Gefräßiger Bürger</target>
+        <target>Insatiable citoyen</target>
       </segment>
     </unit>
     <unit id="YuHCJk9" name="Wüstenwurmzüchter">
@@ -11913,7 +11913,7 @@
       </notes>
       <segment>
         <source>Wüstenwurmzüchter</source>
-        <target>Wüstenwurmzüchter</target>
+        <target>Grand Mange-vermines</target>
       </segment>
     </unit>
     <unit id="R1l.1Ik" name="Ich brauche niemanden!">
@@ -11922,7 +11922,7 @@
       </notes>
       <segment>
         <source>Ich brauche niemanden!</source>
-        <target>Ich brauche niemanden!</target>
+        <target>Hermitamor</target>
       </segment>
     </unit>
     <unit id="mjnL5N2" name="Heraklit der Außenwelt">
@@ -11931,7 +11931,7 @@
       </notes>
       <segment>
         <source>Heraklit der Außenwelt</source>
-        <target>Heraklit der Außenwelt</target>
+        <target>I'm a poor lonesome hermit...</target>
       </segment>
     </unit>
     <unit id="W6Yibia" name="Diplomierter Scharlatan">
@@ -11940,7 +11940,7 @@
       </notes>
       <segment>
         <source>Diplomierter Scharlatan</source>
-        <target>Diplomierter Scharlatan</target>
+        <target>Aborigène curieux</target>
       </segment>
     </unit>
     <unit id="PoQOcTB" name="Schlimmer Finger">
@@ -11949,7 +11949,7 @@
       </notes>
       <segment>
         <source>Schlimmer Finger</source>
-        <target>Schlimmer Finger</target>
+        <target>Charlatan diplômé</target>
       </segment>
     </unit>
     <unit id="8XXS1ZO" name="Seelenverwerter">
@@ -11958,7 +11958,7 @@
       </notes>
       <segment>
         <source>Seelenverwerter</source>
-        <target>Seelenverwerter</target>
+        <target>Aruspice maudit</target>
       </segment>
     </unit>
     <unit id="daFQjVZ" name="Mystischer Seher">
@@ -11967,7 +11967,7 @@
       </notes>
       <segment>
         <source>Mystischer Seher</source>
-        <target>Mystischer Seher</target>
+        <target>Recycleur d'âmes</target>
       </segment>
     </unit>
     <unit id="XHBWlNh" name="Voodoo Sorceror">
@@ -11976,7 +11976,7 @@
       </notes>
       <segment>
         <source>Voodoo Sorceror</source>
-        <target>Voodoo Sorceror</target>
+        <target>Sorcier vaudou</target>
       </segment>
     </unit>
     <unit id=".MsSFMC" name="Yo, wir schaffen das!">
@@ -11985,7 +11985,7 @@
       </notes>
       <segment>
         <source>Yo, wir schaffen das!</source>
-        <target>Yo, wir schaffen das!</target>
+        <target>Bricol' girl travesti</target>
       </segment>
     </unit>
     <unit id="QAyNZLl" name="Kleiner Schraubendreher">
@@ -11994,7 +11994,7 @@
       </notes>
       <segment>
         <source>Kleiner Schraubendreher</source>
-        <target>Kleiner Schraubendreher</target>
+        <target>Amateur du PMV tournevis</target>
       </segment>
     </unit>
     <unit id="lOiwfoy" name="Schweizer Taschenmesser">
@@ -12003,7 +12003,7 @@
       </notes>
       <segment>
         <source>Schweizer Taschenmesser</source>
-        <target>Schweizer Taschenmesser</target>
+        <target>Nuchuk à molette</target>
       </segment>
     </unit>
     <unit id="G7XcSN_" name="Unermüdlicher Schrauber">
@@ -12012,7 +12012,7 @@
       </notes>
       <segment>
         <source>Unermüdlicher Schrauber</source>
-        <target>Unermüdlicher Schrauber</target>
+        <target>Constructeur increvable</target>
       </segment>
     </unit>
     <unit id="howdSv." name="Seele des Handwerks">
@@ -12021,7 +12021,7 @@
       </notes>
       <segment>
         <source>Seele des Handwerks</source>
-        <target>Seele des Handwerks</target>
+        <target>TechnicoMecanoMegalo</target>
       </segment>
     </unit>
     <unit id="1nG_get" name="Die Mauer">
@@ -12030,7 +12030,7 @@
       </notes>
       <segment>
         <source>Die Mauer</source>
-        <target>Die Mauer</target>
+        <target>Défenseur</target>
       </segment>
     </unit>
     <unit id="_EUCNVZ" name="Höllenwächter">
@@ -12039,7 +12039,7 @@
       </notes>
       <segment>
         <source>Höllenwächter</source>
-        <target>Höllenwächter</target>
+        <target>Maître gardien</target>
       </segment>
     </unit>
     <unit id="Q8GaCTs" name="Kerberos">
@@ -12048,7 +12048,7 @@
       </notes>
       <segment>
         <source>Kerberos</source>
-        <target>Kerberos</target>
+        <target>Paladin</target>
       </segment>
     </unit>
     <unit id="9MIZnKw" name="Die letzte Verteidigungslinie">
@@ -12057,7 +12057,7 @@
       </notes>
       <segment>
         <source>Die letzte Verteidigungslinie</source>
-        <target>Die letzte Verteidigungslinie</target>
+        <target>Dernier rempart</target>
       </segment>
     </unit>
     <unit id="Kn0Gmio" name="Du kommst hier NICHT durch!">
@@ -12066,7 +12066,7 @@
       </notes>
       <segment>
         <source>Du kommst hier NICHT durch!</source>
-        <target>Du kommst hier NICHT durch!</target>
+        <target>Vous.. ne.. passerez.. PAS !</target>
       </segment>
     </unit>
     <unit id="ieyAoEk" name="Hekatoncheir">
@@ -12075,7 +12075,7 @@
       </notes>
       <segment>
         <source>Hekatoncheir</source>
-        <target>Hekatoncheir</target>
+        <target>Citoyen infranchissable</target>
       </segment>
     </unit>
     <unit id="oBRWtxD" name="Kantinenkoch">
@@ -12084,7 +12084,7 @@
       </notes>
       <segment>
         <source>Kantinenkoch</source>
-        <target>Kantinenkoch</target>
+        <target>Cuistot de cantine</target>
       </segment>
     </unit>
     <unit id="XpX9Vur" name="Kleiner Küchenchef">
@@ -12093,7 +12093,7 @@
       </notes>
       <segment>
         <source>Kleiner Küchenchef</source>
-        <target>Kleiner Küchenchef</target>
+        <target>Petit chef cuistot</target>
       </segment>
     </unit>
     <unit id="rY8Cfrk" name="Meister Eintopf">
@@ -12102,7 +12102,7 @@
       </notes>
       <segment>
         <source>Meister Eintopf</source>
-        <target>Meister Eintopf</target>
+        <target>Cordon bleu du village</target>
       </segment>
     </unit>
     <unit id="j.yBGQa" name="Großer Wüstenkonditor">
@@ -12111,7 +12111,7 @@
       </notes>
       <segment>
         <source>Großer Wüstenkonditor</source>
-        <target>Großer Wüstenkonditor</target>
+        <target>Grand pâtissier du désert</target>
       </segment>
     </unit>
     <unit id="FL.AXi6" name="Begnadeter Wüstenkonditor">
@@ -12120,7 +12120,7 @@
       </notes>
       <segment>
         <source>Begnadeter Wüstenkonditor</source>
-        <target>Begnadeter Wüstenkonditor</target>
+        <target>Maître pâtissier du désert</target>
       </segment>
     </unit>
     <unit id="Ry7M.1L" name="Cooking Mama">
@@ -12129,7 +12129,7 @@
       </notes>
       <segment>
         <source>Cooking Mama</source>
-        <target>Cooking Mama</target>
+        <target>Cooking-mama</target>
       </segment>
     </unit>
     <unit id="pOMrA2Q" name="Meisterhafter Kochlöffelschwinger">
@@ -12138,7 +12138,7 @@
       </notes>
       <segment>
         <source>Meisterhafter Kochlöffelschwinger</source>
-        <target>Meisterhafter Kochlöffelschwinger</target>
+        <target>Expert de la cuillère</target>
       </segment>
     </unit>
     <unit id="N5OsYPz" name="Amateur-Laborratte">
@@ -12147,7 +12147,7 @@
       </notes>
       <segment>
         <source>Amateur-Laborratte</source>
-        <target>Amateur-Laborratte</target>
+        <target>Laborantin amateur</target>
       </segment>
     </unit>
     <unit id="ilBLypr" name="Kleiner Präparator">
@@ -12156,7 +12156,7 @@
       </notes>
       <segment>
         <source>Kleiner Präparator</source>
-        <target>Kleiner Präparator</target>
+        <target>Petit préparateur</target>
       </segment>
     </unit>
     <unit id="qWtv5vs" name="Chemiker von um die Ecke">
@@ -12165,7 +12165,7 @@
       </notes>
       <segment>
         <source>Chemiker von um die Ecke</source>
-        <target>Chemiker von um die Ecke</target>
+        <target>Chimiste du coin</target>
       </segment>
     </unit>
     <unit id="njxFJS2" name="Produkttester">
@@ -12174,7 +12174,7 @@
       </notes>
       <segment>
         <source>Produkttester</source>
-        <target>Produkttester</target>
+        <target>Orfèvre gobeur</target>
       </segment>
     </unit>
     <unit id="lktSNSj" name="Wüstenstadt-Dealer">
@@ -12183,7 +12183,7 @@
       </notes>
       <segment>
         <source>Wüstenstadt-Dealer</source>
-        <target>Wüstenstadt-Dealer</target>
+        <target>Dealer du village</target>
       </segment>
     </unit>
     <unit id="umCGzIQ" name="X-Men Leser">
@@ -12192,7 +12192,7 @@
       </notes>
       <segment>
         <source>X-Men Leser</source>
-        <target>X-Men Leser</target>
+        <target>Fan des X-men</target>
       </segment>
     </unit>
     <unit id="eDmRCP_" name="Aussergewöhnlicher Bürger">
@@ -12201,7 +12201,7 @@
       </notes>
       <segment>
         <source>Aussergewöhnlicher Bürger</source>
-        <target>Aussergewöhnlicher Bürger</target>
+        <target>Citoyen hors-norme</target>
       </segment>
     </unit>
     <unit id="MqVu1hx" name="Wunder">
@@ -12210,7 +12210,7 @@
       </notes>
       <segment>
         <source>Wunder</source>
-        <target>Wunder</target>
+        <target>Prodige</target>
       </segment>
     </unit>
     <unit id="HP.Tq_s" name="Werdender Superheld">
@@ -12219,7 +12219,7 @@
       </notes>
       <segment>
         <source>Werdender Superheld</source>
-        <target>Werdender Superheld</target>
+        <target>Super-Héros en devenir</target>
       </segment>
     </unit>
     <unit id="tndLENl" name="Volksheld">
@@ -12228,7 +12228,7 @@
       </notes>
       <segment>
         <source>Volksheld</source>
-        <target>Volksheld</target>
+        <target>Héros du peuple</target>
       </segment>
     </unit>
     <unit id="7.7oYfN" name="Neo">
@@ -12237,7 +12237,7 @@
       </notes>
       <segment>
         <source>Neo</source>
-        <target>Neo</target>
+        <target>L'incroyable citoyen</target>
       </segment>
     </unit>
     <unit id="ymQSygb" name="Erlöser der Menschheit">
@@ -12246,7 +12246,7 @@
       </notes>
       <segment>
         <source>Erlöser der Menschheit</source>
-        <target>Erlöser der Menschheit</target>
+        <target>Sauveur de l'humanité</target>
       </segment>
     </unit>
     <unit id="arP67gQ" name="Außenweltlegende">
@@ -12255,7 +12255,7 @@
       </notes>
       <segment>
         <source>Außenweltlegende</source>
-        <target>Außenweltlegende</target>
+        <target>Légende de l'Outre-Monde</target>
       </segment>
     </unit>
     <unit id="bKSb1w6" name="Abstauber">
@@ -12264,7 +12264,7 @@
       </notes>
       <segment>
         <source>Abstauber</source>
-        <target>Abstauber</target>
+        <target>Fouineur de décharge</target>
       </segment>
     </unit>
     <unit id="nxVhC8." name="Müllkind">
@@ -12273,7 +12273,7 @@
       </notes>
       <segment>
         <source>Müllkind</source>
-        <target>Müllkind</target>
+        <target>Enquiquineur débrouillard</target>
       </segment>
     </unit>
     <unit id="d9pmB69" name="Maulheld">
@@ -12282,7 +12282,7 @@
       </notes>
       <segment>
         <source>Maulheld</source>
-        <target>Maulheld</target>
+        <target>Petite frappe</target>
       </segment>
     </unit>
     <unit id="Iz1vTMf" name="Lump">
@@ -12291,7 +12291,7 @@
       </notes>
       <segment>
         <source>Lump</source>
-        <target>Lump</target>
+        <target>Fripouille</target>
       </segment>
     </unit>
     <unit id="CVZoBX6" name="Schaumschläger">
@@ -12300,7 +12300,7 @@
       </notes>
       <segment>
         <source>Schaumschläger</source>
-        <target>Schaumschläger</target>
+        <target>Crapule</target>
       </segment>
     </unit>
     <unit id="hR4UiUY" name="Dieb">
@@ -12309,7 +12309,7 @@
       </notes>
       <segment>
         <source>Dieb</source>
-        <target>Dieb</target>
+        <target>Monte-en-l'air</target>
       </segment>
     </unit>
     <unit id="Whz2P01" name="Fantomas">
@@ -12318,7 +12318,7 @@
       </notes>
       <segment>
         <source>Fantomas</source>
-        <target>Fantomas</target>
+        <target>Voleur</target>
       </segment>
     </unit>
     <unit id="hvK5zf_" name="Ali Baba">
@@ -12327,7 +12327,7 @@
       </notes>
       <segment>
         <source>Ali Baba</source>
-        <target>Ali Baba</target>
+        <target>Maître cambrioleur</target>
       </segment>
     </unit>
     <unit id="ZtrOtZO" name="Meisterdieb">
@@ -12336,7 +12336,7 @@
       </notes>
       <segment>
         <source>Meisterdieb</source>
-        <target>Meisterdieb</target>
+        <target>Passe-muraille</target>
       </segment>
     </unit>
     <unit id="uBzfyYA" name="Kleptomane">
@@ -12345,7 +12345,7 @@
       </notes>
       <segment>
         <source>Kleptomane</source>
-        <target>Kleptomane</target>
+        <target>Arsène Lupin du désert</target>
       </segment>
     </unit>
     <unit id="Tyefb1z" name="Dein Haus ist mein Haus">
@@ -12354,7 +12354,7 @@
       </notes>
       <segment>
         <source>Dein Haus ist mein Haus</source>
-        <target>Dein Haus ist mein Haus</target>
+        <target>Ta maison est ma maison</target>
       </segment>
     </unit>
     <unit id="EAUfc_T" name="Ästhet">
@@ -12363,7 +12363,7 @@
       </notes>
       <segment>
         <source>Ästhet</source>
-        <target>Ästhet</target>
+        <target>Coquet</target>
       </segment>
     </unit>
     <unit id="htrqTBX" name="Schaufenstergestalter">
@@ -12372,7 +12372,7 @@
       </notes>
       <segment>
         <source>Schaufenstergestalter</source>
-        <target>Schaufenstergestalter</target>
+        <target>Citoyen de bon goût</target>
       </segment>
     </unit>
     <unit id="nVB8Scb" name="Innenarchitekt">
@@ -12381,7 +12381,7 @@
       </notes>
       <segment>
         <source>Innenarchitekt</source>
-        <target>Innenarchitekt</target>
+        <target>Architecte d'intérieur</target>
       </segment>
     </unit>
     <unit id="34SP50k" name="Möbelgourmet">
@@ -12390,7 +12390,7 @@
       </notes>
       <segment>
         <source>Möbelgourmet</source>
-        <target>Möbelgourmet</target>
+        <target>Maître-décorateur de tentes</target>
       </segment>
     </unit>
     <unit id="mxWnK5O" name="Ordnung muss sein!">
@@ -12399,7 +12399,7 @@
       </notes>
       <segment>
         <source>Ordnung muss sein!</source>
-        <target>Ordnung muss sein!</target>
+        <target>Maître Es-thète</target>
       </segment>
     </unit>
     <unit id="edY8VI9" name="Plünderer">
@@ -13956,7 +13956,7 @@
       </notes>
       <segment>
         <source>Messie der verlorenen Welt</source>
-        <target>Messie der verlorenen Welt</target>
+        <target>Messie du monde perdu</target>
       </segment>
     </unit>
     <unit id="F0CVB9H" name="Ich bin ein Gott! Ich werde ewig leben!">
@@ -13983,7 +13983,7 @@
       </notes>
       <segment>
         <source>Der unsichtbare Mann</source>
-        <target>Der unsichtbare Mann</target>
+        <target>Lady in Red</target>
       </segment>
     </unit>
     <unit id="p6Yx3lE" name="Ein BMW? Kein Problem!">
@@ -13992,12 +13992,12 @@
       </notes>
       <segment>
         <source>Ein BMW? Kein Problem!</source>
-        <target>Ein BMW? Kein Problem!</target>
+        <target>Une BMW ? Pas de p'oblème !</target>
       </segment>
     </unit>
     <unit id="RtVs3Hp" name="Où est Larchi ?">
       <notes>
-        <note category="german">Où est Larchi ?</note>
+        <note category="german">Wo ist Larchi?</note>
       </notes>
       <segment>
         <source>Où est Larchi ?</source>
@@ -14010,7 +14010,7 @@
       </notes>
       <segment>
         <source>Meser (halb Mensch, halb Malteser)</source>
-        <target>Meser (halb Mensch, halb Malteser)</target>
+        <target>Bichon-Garou susceptible</target>
       </segment>
     </unit>
     <unit id="9r9G9Tw" name="Personalisierter Titel - Dompteur (T-ID: 1725642)">
@@ -14019,7 +14019,7 @@
       </notes>
       <segment>
         <source>Personalisierter Titel - Dompteur (T-ID: 1725642)</source>
-        <target>Personalisierter Titel - Dompteur (T-ID: 1725642)</target>
+        <target>Buffy contre les zombies</target>
       </segment>
     </unit>
     <unit id="Bjh4Mcf" name="Gepanzerter Fakir">
@@ -14028,7 +14028,7 @@
       </notes>
       <segment>
         <source>Gepanzerter Fakir</source>
-        <target>Gepanzerter Fakir</target>
+        <target>Cocodile dundee</target>
       </segment>
     </unit>
     <unit id="JtRdwdg" name="Seele eines Profis">
@@ -14037,7 +14037,7 @@
       </notes>
       <segment>
         <source>Seele eines Profis</source>
-        <target>Seele eines Profis</target>
+        <target>Ame du professionnel</target>
       </segment>
     </unit>
     <unit id="W6KG1Kx" name="Personalisierter Titel - Techniker (T-ID: 631944)">
@@ -14046,7 +14046,7 @@
       </notes>
       <segment>
         <source>Personalisierter Titel - Techniker (T-ID: 631944)</source>
-        <target>Personalisierter Titel - Techniker (T-ID: 631944)</target>
+        <target>Se balade jamais sans ses clefs</target>
       </segment>
     </unit>
     <unit id="k._y0h1" name="Holy F***ing Iceberg">
@@ -15887,6 +15887,123 @@
       <segment>
         <source>Diese Aktion ist während der &lt;strong&gt;Chaosperiode&lt;/strong&gt; night erlaubt!</source>
         <target><![CDATA[Cette action est interdite en <strong>période de chaos</strong> !]]></target>
+      </segment>
+    </unit>
+    <unit id="RtIKPqy" name="Meisterkoch der Sterne">
+      <notes>
+        <note category="german">Meisterkoch der Sterne</note>
+      </notes>
+      <segment>
+        <source>Meisterkoch der Sterne</source>
+        <target>Top-Chef de l'outre-monde</target>
+      </segment>
+    </unit>
+    <unit id="1HIhGty" name="Ich koste alle meine Produkte">
+      <notes>
+        <note category="german">Ich koste alle meine Produkte</note>
+      </notes>
+      <segment>
+        <source>Ich koste alle meine Produkte</source>
+        <target>Je goûte tous mes produits</target>
+      </segment>
+    </unit>
+    <unit id="9gvx8.m" name="Rauchts? Dann ist es meins.">
+      <notes>
+        <note category="german">Rauchts? Dann ist es meins.</note>
+      </notes>
+      <segment>
+        <source>Rauchts? Dann ist es meins.</source>
+        <target>Ça se fume ? c'est de moi.</target>
+      </segment>
+    </unit>
+    <unit id="YmO44_z" name="Mein Name ist Nobody">
+      <notes>
+        <note category="german">Mein Name ist Nobody</note>
+      </notes>
+      <segment>
+        <source>Mein Name ist Nobody</source>
+        <target>Mon nom est personne</target>
+      </segment>
+    </unit>
+    <unit id="EVFOthx" name="Ein Sternbild trägt meinen Namen">
+      <notes>
+        <note category="german">Ein Sternbild trägt meinen Namen</note>
+      </notes>
+      <segment>
+        <source>Ein Sternbild trägt meinen Namen</source>
+        <target>J'ai donné mon nom à une constellation</target>
+      </segment>
+    </unit>
+    <unit id="6HxoVzo" name="Autonomer Müll">
+      <notes>
+        <note category="german">Autonomer Müll</note>
+      </notes>
+      <segment>
+        <source>Autonomer Müll</source>
+        <target>Indésirable autonome</target>
+      </segment>
+    </unit>
+    <unit id="7zQXhiW" name="Freier Bürger">
+      <notes>
+        <note category="german">Freier Bürger</note>
+      </notes>
+      <segment>
+        <source>Freier Bürger</source>
+        <target>Citoyen libre !</target>
+      </segment>
+    </unit>
+    <unit id="240r2Te" name="Alles für meinen Mund">
+      <notes>
+        <note category="german">Alles für meinen Mund</note>
+      </notes>
+      <segment>
+        <source>Alles für meinen Mund</source>
+        <target>Tout pour ma gueule</target>
+      </segment>
+    </unit>
+    <unit id="rsC4OqV" name="Ich brauche niemanden">
+      <notes>
+        <note category="german">Ich brauche niemanden</note>
+      </notes>
+      <segment>
+        <source>Ich brauche niemanden</source>
+        <target>Je n'ai besoin de personne</target>
+      </segment>
+    </unit>
+    <unit id="SOiNUAW" name="Unabhängiger Großeinsiedler">
+      <notes>
+        <note category="german">Unabhängiger Großeinsiedler</note>
+      </notes>
+      <segment>
+        <source>Unabhängiger Großeinsiedler</source>
+        <target>Grand Ermite indépendant</target>
+      </segment>
+    </unit>
+    <unit id="5_5syC2" name="Che Guevara der Wüste">
+      <notes>
+        <note category="german">Che Guevara der Wüste</note>
+      </notes>
+      <segment>
+        <source>Che Guevara der Wüste</source>
+        <target>Che Guevara du désert</target>
+      </segment>
+    </unit>
+    <unit id="vmIHgay" name="Ein schöneres Leben">
+      <notes>
+        <note category="german">Ein schöneres Leben</note>
+      </notes>
+      <segment>
+        <source>Ein schöneres Leben</source>
+        <target>Plus belle la vie !</target>
+      </segment>
+    </unit>
+    <unit id="ba6IXp3" name="Großer E-KEA Katalog">
+      <notes>
+        <note category="german">Großer E-KEA Katalog</note>
+      </notes>
+      <segment>
+        <source>Großer E-KEA Katalog</source>
+        <target>Grand Catalogue Kiela</target>
       </segment>
     </unit>
   </file>
