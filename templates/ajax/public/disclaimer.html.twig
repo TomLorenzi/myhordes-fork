@@ -107,6 +107,7 @@
 
 {% endblock %}
 {% block js %}
+    {{ parent() }}
     <script>
         {% if ex.owner is not null and app.user == ex.owner %}
 
