@@ -2,7 +2,12 @@
 {% block ajax_base %}
     <ul class="pm-conversation-list">
         {% for entry in entries %}
-            <li class="{% if entry.closed %}closed{% endif %} {% if entry.system %}system{% endif %}">
+            {% set endpoint = null %}
+            {% if entry.obj|instance_of('App\\Entity\\UserGroupAssociation') %}
+                {% set endpoint = path('pm_conv_group', {'id': entry.obj.association.id}) %}
+            {% endif %}
+
+            <li x-title="{{ entry.title }}" class="{% if entry.closed %}closed{% endif %} {% if entry.system %}system{% endif %}" {% if endpoint is not null %}x-endpoint="{{ endpoint }}"{% endif %}>
                 <div class="pm-avatar-block">
                     {% if entry.system %}
                         <div class="avatarcrow"></div>
@@ -32,7 +37,7 @@
                     {% endif %}
                 </div>
 
-                <b class="title">{{ entry.title }}</b><br/>
+                <b class="title">{{ entry.title }}</b>
 
                 {% if entry.system %}
                     <span class="author crow-note">{{ 'Nachricht des Raben'|trans({},'global') }}</span>
@@ -54,5 +59,21 @@
     </ul>
 {% endblock %}
 {% block js %}
+    <script>
+        (function() {
+            $.html.addEventListenerAll('ul.pm-conversation-list>li[x-title][x-endpoint]', 'click', function(e,elem) {
+                let target = document.getElementById('pm-forum-content');
+                target.innerText = '';
+                document.getElementById('pm-forum-content-header').innerHTML = '<i class="fa fa-spin fa-circle-notch"></i> {{ 'Lade Unterhaltung...'|trans({},'global')|e('js') }}';
+
+                $.html.forEach( 'ul.pm-conversation-list>li[x-title][x-endpoint]', ee => ee.classList.remove('selected') );
+                elem.classList.add('selected');
+
+                $.ajax.background().load( target, elem.getAttribute('x-endpoint'), false, {}, function() {
+                    document.getElementById('pm-forum-content-header').innerText = elem.getAttribute('x-title');
+                } );
+            });
+        })();
+    </script>
     {{ parent() }}
 {% endblock %}

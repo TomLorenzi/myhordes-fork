@@ -212,7 +212,10 @@
 }
 
 .forum-note {
-  &>b:first-child { display: block; background: #965c36; padding: 4px; font-variant: small-caps; }
+  &>b:first-child {
+    display: block; background: #965c36; padding: 4px; font-variant: small-caps; overflow: hidden; white-space: nowrap;
+    text-overflow: ellipsis;
+  }
   font-size: 1.1rem; background: #8a5432; box-shadow: 0 0 5px rgba(0,0,0,0.2);
   border: 1px solid #704328;
 }
@@ -568,13 +571,26 @@
   #pm-conversation-list>ul {
     padding: 0; margin: 0;
     &>li {
-      list-style: none; padding: 8px; transition: background-color 0.5s ease, box-shadow 0.5s ease;
+      list-style: none; padding: 8px 8px 8px 15px; transition: background-color 0.5s ease, box-shadow 0.5s ease; position: relative;
       &::before, &::after {content: " "; clear: both;}
-      &.closed { cursor: default; }
-      &:not(.closed) { cursor: pointer; }
+
+      &.closed, &.selected { cursor: default; }
+      &:not(.closed):not(.selected) { cursor: pointer; }
+
+      &.selected {
+        background-color: rgba(0,0,0,0.2); box-shadow: inset 0 0 5px rgba(0,0,0,0.5);
+        &::before {
+          display: block; content: " "; width: 16px; height: 16px; top: calc(50% - 8px); left: -5px;
+          background-image: url(../../img/forum/selected.png); position: absolute;
+        }
+      }
+
       &+li { border-top: 1px solid fade(@myhordes-smalltext, 50%); }
-      &:hover { background-color: rgba(255,255,255,0.2); box-shadow: 0 0 5px rgba(0,0,0,0.5) }
-      b.title { font-size: 1.6em; font-weight: bold; }
+      &:not(.selected):hover { background-color: rgba(255,255,255,0.2); box-shadow: 0 0 5px rgba(0,0,0,0.5) }
+      b.title {
+        font-size: 1.6em; font-weight: bold; display: block; max-width: calc(100% - 50px); overflow: hidden;
+        white-space: nowrap; text-overflow: " [...]";
+      }
       span.author {
         color: @myhordes-smalltext;
         &.crow-note { color: #3e0000; font-weight: bold; font-variant: small-caps; }

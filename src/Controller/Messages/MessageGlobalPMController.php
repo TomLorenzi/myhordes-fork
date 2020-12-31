@@ -104,6 +104,33 @@ class MessageGlobalPMController extends MessageController
     }
 
     /**
+     * @Route("jx/pm/conversation/group/{id<\d+>}", name="pm_conv_group")
+     * @param int $id
+     * @param EntityManagerInterface $em
+     * @param JSONRequestParser $p
+     * @return Response
+     */
+    public function pm_conversation_group(int $id, EntityManagerInterface $em, JSONRequestParser $p): Response {
+
+        $group = $em->getRepository( UserGroup::class )->find($id);
+        if (!$group || $group->getType() !== UserGroup::GroupMessageGroup) return new Response('not found');
+
+        /** @var UserGroupAssociation $group_association */
+        $group_association = $em->getRepository(UserGroupAssociation::class)->findOneBy(['user' => $this->getUser(), 'associationType' => [
+            UserGroupAssociation::GroupAssociationTypePrivateMessageMember, UserGroupAssociation::GroupAssociationTypePrivateMessageMemberInactive
+        ], 'association' => $group]);
+        if (!$group_association) return new Response('not found');
+
+        $messages = $em->getRepository(GlobalPrivateMessage::class)->findBy(['receiverGroup' => $group], ['timestamp' => 'DESC', 'id' => 'DESC']);
+        if (!$messages) return new Response('no messages');
+
+        return $this->render( 'ajax/pm/conversation_group.html.twig', $this->addDefaultTwigArgs(null, [
+            'last' => $group_association->getRef2(),
+            'messages' => $messages,
+        ] ));
+    }
+
+    /**
      * @Route("jx/pm/create-editor", name="pm_thread_editor_controller")
      * @param EntityManagerInterface $em
      * @return Response

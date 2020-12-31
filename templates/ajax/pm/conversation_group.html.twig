@@ -1,0 +1,19 @@
+{% extends "ajax/ajax_plain.html.twig" %}
+{% block ajax_base %}
+    <ul class="group-conversation">
+        {% for message in messages %}
+            {# @var message App\Entity\GlobalPrivateMessage #}
+            <li class="{% if message.sender == app.user %}own{% endif %}">
+                {% if (message.sender.avatar) %}
+                    <div class="pm-avatar" style="background: url({{ path('app_web_avatar', {'uid': message.sender.id, 'name': message.sender.avatar.filename, 'ext': message.sender.avatar.format}) }}) center/cover"></div>
+                {% else %}
+                    <div class="pm-avatar row-flex v-center"><div class="cell rw-12 center">{{ message.sender.name|slice(0,2) }}</div></div>
+                {% endif %}
+                <div class="pm-message">{{ message.text|raw }}</div>
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}
+{% block js %}
+    {{ parent() }}
+{% endblock %}
