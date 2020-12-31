@@ -15967,5 +15967,14 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
         <target>Großer E-KEA Katalog</target>
       </segment>
     </unit>
+    <unit id="gqk70Zf" name="Maccabees-Vertreiber">
+      <notes>
+        <note category="german">Maccabees-Vertreiber</note>
+      </notes>
+      <segment>
+        <source>Maccabees-Vertreiber</source>
+        <target>Maccabees-Vertreiber</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

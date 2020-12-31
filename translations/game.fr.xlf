@@ -12408,7 +12408,7 @@
       </notes>
       <segment>
         <source>Plünderer</source>
-        <target>Plünderer</target>
+        <target>Pillard</target>
       </segment>
     </unit>
     <unit id="CGvAzP5" name="Aasgeier">
@@ -12417,7 +12417,7 @@
       </notes>
       <segment>
         <source>Aasgeier</source>
-        <target>Aasgeier</target>
+        <target>Vautour</target>
       </segment>
     </unit>
     <unit id="6pQK.d7" name="Hyäne">
@@ -12426,7 +12426,7 @@
       </notes>
       <segment>
         <source>Hyäne</source>
-        <target>Hyäne</target>
+        <target>Charognard</target>
       </segment>
     </unit>
     <unit id="oULxGXv" name="Wegelagerer post mortem">
@@ -12435,7 +12435,7 @@
       </notes>
       <segment>
         <source>Wegelagerer post mortem</source>
-        <target>Wegelagerer post mortem</target>
+        <target>Ecumeur post-mortem</target>
       </segment>
     </unit>
     <unit id="wrk6884" name="Hungriger Schakal">
@@ -12444,7 +12444,7 @@
       </notes>
       <segment>
         <source>Hungriger Schakal</source>
-        <target>Hungriger Schakal</target>
+        <target>Chacal affamé</target>
       </segment>
     </unit>
     <unit id="sH.HjOH" name="Kojote der kargen Steppen">
@@ -12453,7 +12453,7 @@
       </notes>
       <segment>
         <source>Kojote der kargen Steppen</source>
-        <target>Kojote der kargen Steppen</target>
+        <target>Coyote des steppes arides</target>
       </segment>
     </unit>
     <unit id="urPWQsn" name="Fingerschmied">
@@ -12462,7 +12462,7 @@
       </notes>
       <segment>
         <source>Fingerschmied</source>
-        <target>Fingerschmied</target>
+        <target>Notaire de l'outre-monde</target>
       </segment>
     </unit>
     <unit id="YWEYkqM" name="Nein, das Ding fasse ich nicht an.">
@@ -12471,7 +12471,7 @@
       </notes>
       <segment>
         <source>Nein, das Ding fasse ich nicht an.</source>
-        <target>Nein, das Ding fasse ich nicht an.</target>
+        <target>Grand arroseur</target>
       </segment>
     </unit>
     <unit id="r5GkUq2" name="Leichenhygieniker">
@@ -12480,7 +12480,7 @@
       </notes>
       <segment>
         <source>Leichenhygieniker</source>
-        <target>Leichenhygieniker</target>
+        <target>Mouilleur de cadavres</target>
       </segment>
     </unit>
     <unit id="psoFfLg" name="Ich liebe den Geruch von gewaschenen Leichen am Morgen.">
@@ -12489,7 +12489,7 @@
       </notes>
       <segment>
         <source>Ich liebe den Geruch von gewaschenen Leichen am Morgen.</source>
-        <target>Ich liebe den Geruch von gewaschenen Leichen am Morgen.</target>
+        <target>Pasteur du village</target>
       </segment>
     </unit>
     <unit id="LhDxZvT" name="Müllmann">
@@ -12498,7 +12498,7 @@
       </notes>
       <segment>
         <source>Müllmann</source>
-        <target>Müllmann</target>
+        <target>Eboueur</target>
       </segment>
     </unit>
     <unit id="sFQWLgK" name="Erfahrener Müllmann">
@@ -12507,7 +12507,7 @@
       </notes>
       <segment>
         <source>Erfahrener Müllmann</source>
-        <target>Erfahrener Müllmann</target>
+        <target>Sorteur en chef</target>
       </segment>
     </unit>
     <unit id="tsPJ.tn" name="Entsorgungsfachmann">
@@ -12516,7 +12516,7 @@
       </notes>
       <segment>
         <source>Entsorgungsfachmann</source>
-        <target>Entsorgungsfachmann</target>
+        <target>Expulseur de cadavres</target>
       </segment>
     </unit>
     <unit id="B4Wcvgc" name="SM Anhänger">
@@ -12525,7 +12525,7 @@
       </notes>
       <segment>
         <source>SM Anhänger</source>
-        <target>SM Anhänger</target>
+        <target>Adepte SM</target>
       </segment>
     </unit>
     <unit id="U8Ek_Ms" name="SM Spezialist">
@@ -12534,7 +12534,7 @@
       </notes>
       <segment>
         <source>SM Spezialist</source>
-        <target>SM Spezialist</target>
+        <target>Maître du PMV</target>
       </segment>
     </unit>
     <unit id="SpnmnFy" name="Nenn mich Herrin">
@@ -12543,7 +12543,7 @@
       </notes>
       <segment>
         <source>Nenn mich Herrin</source>
-        <target>Nenn mich Herrin</target>
+        <target>Appelez-moi Maîtresse</target>
       </segment>
     </unit>
     <unit id="xCZqHbA" name="Ich möchte dein Objekt sein.">
@@ -12552,7 +12552,7 @@
       </notes>
       <segment>
         <source>Ich möchte dein Objekt sein.</source>
-        <target>Ich möchte dein Objekt sein.</target>
+        <target>Fais de moi ton objet</target>
       </segment>
     </unit>
     <unit id="MFlCpq0" name="Stadtmetzger">
@@ -16004,6 +16004,15 @@
       <segment>
         <source>Großer E-KEA Katalog</source>
         <target>Grand Catalogue Kiela</target>
+      </segment>
+    </unit>
+    <unit id="gqk70Zf" name="Maccabees-Vertreiber">
+      <notes>
+        <note category="german">Maccabees-Vertreiber</note>
+      </notes>
+      <segment>
+        <source>Maccabees-Vertreiber</source>
+        <target>Refouleur de macchabées</target>
       </segment>
     </unit>
   </file>
