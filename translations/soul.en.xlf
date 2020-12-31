@@ -1861,15 +1861,6 @@
         <target>Your coalition is already full.</target>
       </segment>
     </unit>
-    <unit id="3Q.JU78" name="Spielhilfe">
-      <notes>
-        <note category="german">Spielhilfe</note>
-      </notes>
-      <segment>
-        <source>Spielhilfe</source>
-        <target>Guide</target>
-      </segment>
-    </unit>
     <unit id="GO1ZJcp" name="3e3b0ae">
       <notes>
         <note category="german">Du möchtest schon seit langem &lt;strong&gt;mit deinen Freunden zusammen sterben&lt;/strong&gt;? Du möchtest die gleichen schönen und &lt;strong&gt;entsetzlichen&lt;/strong&gt; Momente mit ihnen erleben? Dann sind die &lt;strong&gt;Kleinen Koalitionen&lt;/strong&gt; genau das richtige für dich! Es handelt sich um kleine Mannschaften von &lt;strong&gt;5&lt;/strong&gt; Bürgern, die gemeinsam die Welt der Verdammten entdecken möchten.</note>
@@ -2273,15 +2264,6 @@
       <segment>
         <source>Mache hier einen Haken, wenn die Landkarte nur sehr langsam geladen wird.&lt;br /&gt;&lt;em&gt;Mit dieser Option senkst du die Qualität der Spielkartenanimationen.&lt;/em&gt;.</source>
         <target><![CDATA[Mache hier einen Haken, wenn die Landkarte nur sehr langsam geladen wird.<br /><em>Mit dieser Option senkst du die Qualität der Spielkartenanimationen.</em>.]]></target>
-      </segment>
-    </unit>
-    <unit id="uh49WWx" name="cea913a">
-      <notes>
-        <note category="german">Unglücklicherweise ist deine Stadt vollkommen im Wüstensand versunken... Die Gemeinschaft wurde ausgelöscht.</note>
-      </notes>
-      <segment>
-        <source>Unglücklicherweise ist deine Stadt vollkommen im Wüstensand versunken... Die Gemeinschaft wurde ausgelöscht.</source>
-        <target>Unglücklicherweise ist deine Stadt vollkommen im Wüstensand versunken... Die Gemeinschaft wurde ausgelöscht.</target>
       </segment>
     </unit>
     <unit id="JAkgM4Z" name="Kleine Koalitionen">

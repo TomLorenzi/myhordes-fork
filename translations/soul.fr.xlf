@@ -1826,15 +1826,6 @@
         <target>Votre coalition est déjà pleine.</target>
       </segment>
     </unit>
-    <unit id="3Q.JU78" name="Spielhilfe">
-      <notes>
-        <note category="german">Spielhilfe</note>
-      </notes>
-      <segment>
-        <source>Spielhilfe</source>
-        <target>Guide</target>
-      </segment>
-    </unit>
     <unit id="GO1ZJcp" name="3e3b0ae">
       <notes>
         <note category="german">Du möchtest schon seit langem &lt;strong&gt;mit deinen Freunden zusammen sterben&lt;/strong&gt;? Du möchtest die gleichen schönen und &lt;strong&gt;entsetzlichen&lt;/strong&gt; Momente mit ihnen erleben? Dann sind die &lt;strong&gt;Kleinen Koalitionen&lt;/strong&gt; genau das richtige für dich! Es handelt sich um kleine Mannschaften von &lt;strong&gt;5&lt;/strong&gt; Bürgern, die gemeinsam die Welt der Verdammten entdecken möchten.</note>
