@@ -2239,8 +2239,6 @@
         <target>Hiermit kannst du dich von allen Geräten und Browsern abmelden, auf denen du aktuell eingeloggt bist. Die "Login merken" Funktion wird hierdurch ebenfalls auf den betroffenen Geräten deaktiviert.</target>
       </segment>
     </unit>
-<<<<<<< HEAD
-=======
     <unit id="uh49WWx" name="cea913a">
       <notes>
         <note category="german">Unglücklicherweise ist deine Stadt vollkommen im Wüstensand versunken... Die Gemeinschaft wurde ausgelöscht.</note>
@@ -2250,7 +2248,6 @@
         <target>Unglücklicherweise ist deine Stadt vollkommen im Wüstensand versunken... Die Gemeinschaft wurde ausgelöscht.</target>
       </segment>
     </unit>
->>>>>>> d5063ae2df070437b52efdd8c31633756afb6a08
     <unit id="2CmSXI_" name="Animationen verringern">
       <notes>
         <note category="german">Animationen verringern</note>

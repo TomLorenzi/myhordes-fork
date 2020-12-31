@@ -20,7 +20,7 @@
                 {% if (zeds_today[3] >= wtt) and zeds_today[0] %}
                     {{ zeds_today[1] }} - {{ zeds_today[2] }} <img alt="" src="{{ asset('build/images/icons/small_zombie.gif') }}" />
                 {% else %}
-                    {{ 'Unbekannt'|trans({}, 'game')}} <a class="help-button"><div class="tooltip help">{{ 'Wir müssen den Wachturm benutzen, um eine Schätzung des Angriffs zu erhalten.'|trans({},'global') }}</div>{{ 'Hilfe'|trans({},'global') }}</a>
+                    {{ 'Unbekannt'|trans({}, 'game')}} {{ help_btn(('Wir müssen den Wachturm benutzen, um eine Schätzung des Angriffs zu erhalten.'|trans({},'global'))) }}
                 {% endif %}
                 </span>
                 {% if zeds_tomorrow[0] %}
@@ -67,7 +67,7 @@
 
     <div class="row">
         <div class="padded cell {% if conf.get(constant('App\\Structures\\TownConf::CONF_FEATURE_WORDS_OF_HEROS'),false) %}rw-6{% else %}rw-12{% endif%} rw-lg-12">
-            <h5>{{ 'Meine täglichen Aufgaben'|trans({}, 'game')}} <a class="help-button"><div class="tooltip help">{{ 'Du weißt nicht, was du tun sollst? Folge den Empfehlungen hier unten :)'|trans({},'global') }}</div>{{ 'Hilfe'|trans({},'global') }}</a></h5>
+            <h5>{{ 'Meine täglichen Aufgaben'|trans({}, 'game')}} {{ help_btn(('Du weißt nicht, was du tun sollst? Folge den Empfehlungen hier unten :)'|trans({},'global'))) }}</h5>
             <ul class="overview-checklist">
                 <li x-ajax-href="{{ url('forum_town_redirect') }}" {% if has_visited_forum %} class="checked"{% endif %}>{{ 'Einen Blick ins Forum werfen.'|trans({}, 'game') }}</li>
                 <li x-ajax-href="{{ path('town_well') }}" {% if active_citizen.specificActionCounterValue(constant('App\\Entity\\ActionCounter::ActionTypeWell')) > 0 %} class="checked"{% endif %}>{{ 'Meine Ration Wasser im Brunnen entnehmen (optional).'|trans({}, 'game') }}</li>
@@ -135,11 +135,11 @@
         <div class="padded cell rw-12 defense-detail">
             <ul class="overview-list">
                 <li>{{'Grundbefestigungsmauer'|trans({}, 'game')}} : + {{def_summary.base_defense}} <img src="{{ asset('build/images/icons/small_def.gif') }}" /></li>
-                <li>{{'Verteidigungsgegenstände'|trans({}, 'game')}} : + {{def_summary.item_defense}} <img src="{{ asset('build/images/icons/small_def.gif') }}" /> ({{ item_def_count }} {{'Gegenstände'|trans({}, 'game')}} x {{ item_def_factor }} <img src="{{ asset('build/images/icons/small_def.gif') }}" /> ) <a class="help-button"><div class="tooltip help">{{ '<strong>Wichtig:</strong> Verteidigungsgegenstände können maximal <strong>500</strong> Verteidigungspunkte vergeben!'|trans({},'global')|raw }}</div>{{ 'Hilfe'|trans({},'global')|raw }}</a></li>
+                <li>{{'Verteidigungsgegenstände'|trans({}, 'game')}} : + {{def_summary.item_defense}} <img src="{{ asset('build/images/icons/small_def.gif') }}" /> ({{ item_def_count }} {{'Gegenstände'|trans({}, 'game')}} x {{ item_def_factor }} <img src="{{ asset('build/images/icons/small_def.gif') }}" /> ) {{ help_btn(('<strong>Wichtig:</strong> Verteidigungsgegenstände können maximal <strong>500</strong> Verteidigungspunkte vergeben!'|trans({},'global')|raw)) }}</li>
                 <li>{{'Konstruktionen'|trans({}, 'game')}} : {{def_summary.building_def_base + def_summary.building_def_vote }} <img src="{{ asset('build/images/icons/small_def.gif') }}" /> {% if def_summary.building_def_vote > 0 %}( {{ def_summary.building_def_base }} <img src="{{ asset('build/images/icons/small_def.gif') }}" /> + {{ def_summary.building_def_vote }} <img src="{{ asset('build/images/icons/small_def.gif') }}" /> ){% endif %}</li>
                 <li>{{'Häuser der Bürger'|trans({}, 'game')}} : + {{def_summary.house_defense}} <img src="{{ asset('build/images/icons/small_def.gif') }}" /></li>
                 {% if def_summary.guardian_defense > 0 %}
-                <li>{{'Wächter'|trans({}, 'game')}} : + {{ def_summary.guardian_defense }} <img src="{{ asset('build/images/icons/small_def.gif') }}" /> <a class="help-button"><div class="tooltip help">{{ 'Diesen Bonus gibt es nur dann, wenn sich die Wächter während eines Angriffs in der Stadt befinden.'|trans({},'global') }}</div>{{ 'Hilfe'|trans({},'global') }}</a></li>
+                <li>{{'Wächter'|trans({}, 'game')}} : + {{ def_summary.guardian_defense }} <img src="{{ asset('build/images/icons/small_def.gif') }}" /> {{ help_btn(('Diesen Bonus gibt es nur dann, wenn sich die Wächter während eines Angriffs in der Stadt befinden.'|trans({},'global'))) }}</li>
                 {% endif %}
                 {% if def_summary.temp_defense > 0 %}
                 <li>{{'Temporäre Verteidigung'|trans({}, 'game')}} : + {{def_summary.temp_defense}} <img src="{{ asset('build/images/icons/small_def.gif') }}" /></li>
