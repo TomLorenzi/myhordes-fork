@@ -114,6 +114,9 @@ x-message {
     &:before { content: " "; position: absolute; top: 5px; bottom: 5px; left: 3px; width: 4px; }
     position: relative; margin: 5px 0; box-shadow: 0 0 4px black; cursor: pointer; text-align: justify;
     padding: 5px 5px 5px 12px; background: #5c2b20; border: 1px solid #b37c4a; outline: 1px solid black; color: @myhordes-smalltext;
+    strong {
+      color: white;
+    }
     &.show { top: 0; opacity: 1 }
     &.notice:before { background: #5eb5e0 }
     &.warning:before { background: #e09a4f }
@@ -168,6 +171,9 @@ x-message {
 
     div#modal-content {
       min-height: 5rem; padding: 1rem;
+      strong {
+        color: white;
+      }
       span {
           color: white; font-weight: bold; &>img { vertical-align: text-top }
           &.tool {
