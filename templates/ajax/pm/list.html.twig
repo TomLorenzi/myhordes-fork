@@ -69,12 +69,15 @@
                 $.html.forEach( 'ul.pm-conversation-list>li[x-title][x-endpoint]', ee => ee.classList.remove('selected') );
                 elem.classList.add('selected');
 
+                document.getElementById('pm-forum-actions-container').classList.add('hidden');
                 document.getElementById('pm-forum-editor-container').classList.add('hidden');
+
                 let editor = document.getElementById('global-pm-forum-editor');
                 if (editor) editor.innerText = '';
 
                 $.ajax.background().load( target, elem.getAttribute('x-endpoint'), false, {}, function() {
                     document.getElementById('pm-forum-content-header').innerText = elem.getAttribute('x-title');
+                    document.getElementById('pm-forum-actions-container').classList.remove('hidden');
                 } );
             });
         })();

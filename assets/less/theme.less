@@ -1027,6 +1027,11 @@ span.defense-broken,div.defense-broken { .icon_div("../img/icons/small_def_broke
   }
   &.plain { background: url(../img/background/tabs-header-plain.gif) bottom left no-repeat; }
 
+  &.no-bottom-margin {
+    margin-bottom: 0;
+    &~div.lightbox { margin-top: 0 }
+  }
+
   min-height: 34px;
 
   &>.tab-floater {

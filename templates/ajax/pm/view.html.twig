@@ -3,20 +3,20 @@
 {% block ajax_base %}
 
     <div class="row-flex stretch wrap">
-        <div class="padded cell rw-5 max-height">
+        <div class="padded cell rw-4 max-height">
 
             <div class="row-flex vertical stretch full-height">
 
                 <div class="cell rw-12 grow-0" style="padding-bottom: 10px;">
                     <div class="forum-control">
                         <div class="forum-header-bar">
-                            <b><i class="fa fa-envelope"></i> {{ 'Aktionen'|trans({},'global') }}</b>
+                            <b><i class="fa fa-caret-right"></i> {{ 'Aktionen'|trans({},'global') }}</b>
                         </div>
                         <div class="forum-button-bar">
-                            {% if is_granted("ROLE_FORUM_BANNED") %}
-                                <div class="forum-button-disabled" id="banned">{{ 'Neues Thema'|trans({},'global') }}</div>
-                            {% else %}
-                                <div x-pm-action="new-single" class="forum-button" id="new-thread-single-button"><span>{{ 'Neue Privatnachricht'|trans({},'global') }}</span></div>
+                            {% if not is_granted("ROLE_FORUM_BANNED") %}
+                                <div x-pm-action="new-single" class="pm-button" id="new-thread-single-button">
+                                    <i class="fa fa-pen-alt"></i> {{ 'Schreiben'|trans({},'global') }}
+                                </div>
                             {% endif %}
                         </div>
                     </div>
@@ -38,9 +38,39 @@
 
         </div>
 
-        <div class="padded cell rw-7 max-height" style="overflow: auto">
+        <div class="padded cell rw-8 max-height" style="overflow: auto">
 
             <div class="row-flex vertical stretch full-height">
+
+                <div id="pm-forum-actions-container" class="cell rw-12 grow-0 hidden" style="padding-bottom: 10px;">
+                    <div class="forum-control">
+                        <div class="forum-header-bar">
+                            <b><i class="fa fa-caret-right"></i> {{ 'Diese Konversation'|trans({},'global') }}</b>
+                        </div>
+                        <div class="forum-button-bar" style="font-size: 0.8em">
+                            <div class="row-flex wrap">
+                                {% if not is_granted("ROLE_FORUM_BANNED") %}
+                                    <div class="cell">
+                                        <div x-pm-action="answer-single" class="pm-button" id="new-answer-single-button">
+                                            <i class="fa fa-pen-alt"></i> {{ 'Antworten'|trans({},'global') }}
+                                        </div>
+                                    </div>
+                                {% endif %}
+                                <div class="cell">
+                                    <div x-pm-action="trash-single" class="pm-button" id="trash-single-button">
+                                        <i class="fa fa-times"></i> {{ 'Löschen'|trans({},'global') }}
+                                    </div>
+                                </div>
+                                <div class="cell">
+                                    <div x-pm-action="unread-single" class="pm-button" id="unread-single-button">
+                                        <i class="fa fa-eye-slash"></i> {{ 'Nicht gelesen'|trans({},'global') }}
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
 
                 <div id="pm-forum-editor-container" class="cell rw-12 hidden" style="padding-bottom: 10px">
                     <div class="forum-note">
@@ -153,6 +183,7 @@
 
             $.html.addEventListenerAll('[x-pm-action="new-single"]', 'click', function () {
                 document.getElementById('pm-forum-content-container').classList.add('hidden');
+                document.getElementById('pm-forum-actions-container').classList.add('hidden');
                 document.getElementById('pm-forum-content-header').innerText = '{{ 'Vorschau'|trans({},'global')|e('js') }}'
                 document.getElementById('pm-user-selector').classList.add('hidden');
 
