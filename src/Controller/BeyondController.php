@@ -1197,6 +1197,12 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
                     $this->entity_manager->persist( $zone->getFloor() );
                 }
 
+                // If we get a Chest XL, we earn a picto
+                if ($prototype->getName() == 'chest_xl_#00') {
+                    $pictoPrototype = $this->entity_manager->getRepository(PictoPrototype::class)->findOneBy(['name' => "r_chstxl_#00"]);
+                    $this->picto_handler->give_picto($citizen, $pictoPrototype);
+                }
+
                 $distance = round(sqrt(pow($zone->getX(),2) + pow($zone->getY(),2)));
                 $pictoName = "";
                 if($distance >= 6 && $distance <= 17) {
