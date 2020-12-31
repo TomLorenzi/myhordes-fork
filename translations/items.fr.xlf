@@ -6820,7 +6820,7 @@
       </notes>
       <segment>
         <source>Du versuchst dich ein paar Minuten auszuruhen.&lt;t-ap-up&gt;Nach einer kurzen Pause fühlst du dich nun viel besser. Du hast 2 AP erhalten !&lt;/t-ap-up&gt;&lt;nt-ap-up&gt;Leider bekommst du kein Auge zu: Der Gedanke an heute Abend, deinen Tod, sowie deine geringen Überlebenschancen lassen dir keine Ruhe...&lt;/nt-ap-up&gt;</source>
-        <target><![CDATA[Vous vous allongez un peu pour vous reposer...<t-ap-up> Cette sieste vous a fait le plus grand bien, vous récupérez 2 PA !</t-ap-up><nt-ap-up> La panique environnant ne vous permet pas de vous reposer...</nt-ap-up>]]></target>
+        <target><![CDATA[Vous vous allongez un peu pour vous reposer...<t-ap-up> Cette sieste vous a fait le plus grand bien, vous récupérez 2 PA !</t-ap-up><nt-ap-up> La panique environnante ne vous permet pas de vous reposer...</nt-ap-up>]]></target>
       </segment>
     </unit>
     <unit id="p0SlVNr" name="4ec35c5">
