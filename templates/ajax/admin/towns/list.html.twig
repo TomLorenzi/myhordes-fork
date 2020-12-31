@@ -48,6 +48,7 @@
     {% embed "ajax/admin/towns/footer.html.twig" with {'search_controller': 'admin_towns_fuzzyfind'} %}{% endembed %}
 {% endblock %}
 {% block js %}
+    {{ parent() }}
     <script>
     </script>
 {% endblock %}

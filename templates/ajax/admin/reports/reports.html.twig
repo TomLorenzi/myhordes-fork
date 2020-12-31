@@ -141,6 +141,7 @@
 
 {% endblock %}
 {% block js %}
+    {{ parent() }}
     <script>
         $.html.addEventListenerAll('[x-report-action=clear-reports]', 'click', function(e,elem) {
             $.ajax.easySend( '{{ path('admin_reports_clear') }}', {postId: parseInt( elem.getAttribute('x-post-id'))},

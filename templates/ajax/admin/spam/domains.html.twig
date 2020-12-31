@@ -28,6 +28,7 @@
     </div>
 {% endblock %}
 {% block js %}
+    {{ parent() }}
     <script>
         {% if is_granted("ROLE_ADMIN") %}
             $.html.addEventListenerAll('#domain_add', 'click', function() {

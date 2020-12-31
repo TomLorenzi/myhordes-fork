@@ -42,6 +42,7 @@
 
 {% endblock %}
 {% block js %}
+    {{ parent() }}
     <script>
     let new_changelog = document.getElementById('new_changelog');
     if(new_changelog) new_changelog.addEventListener('click', function(e) {

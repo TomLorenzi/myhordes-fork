@@ -94,6 +94,7 @@
 
 {% endblock %}
 {% block js %}
+    {{ parent() }}
     <script>
         let typingTimer, doneTypingInterval = 500;
         let searchBox = document.getElementById('user-search');
