@@ -141,7 +141,7 @@ class MessageGlobalPMController extends MessageController
             'tid' => null,
             'pid' => null,
 
-            'permission' => $this->getPermissionObject( ForumUsagePermissions::PermissionCreatePost ),
+            'permission' => $this->getPermissionObject( ForumUsagePermissions::PermissionCreateThread ),
             'snippets' => $this->isGranted('ROLE_CROW') ? $this->entity_manager->getRepository(ForumModerationSnippet::class)->findAll() : [],
 
             'emotes' => $this->getEmotesByUser($this->getUser(),true),
@@ -161,7 +161,7 @@ class MessageGlobalPMController extends MessageController
      */
     public function editor_pm_post_api(int $id, EntityManagerInterface $em): Response {
         return $this->render( 'ajax/forum/editor.html.twig', [
-            /*'fid' => null,
+            'fid' => null,
             'tid' => null,
             'pid' => null,
 
@@ -174,7 +174,8 @@ class MessageGlobalPMController extends MessageController
             'town_controls' => null,
 
             'type' => 'global-pm',
-            'target_url' => 'pm_new_thread_controller',*/
+            'target_url'  => 'pm_new_post_controller',
+            'target_data' => ['id' => $id],
         ] );
     }
 
@@ -249,5 +250,54 @@ class MessageGlobalPMController extends MessageController
         return AjaxResponse::success( true , ['url' => $this->generateUrl('pm_view')] );
     }
 
+    /**
+     * @Route("api/pm/answer/{id<\d+>}", name="pm_new_post_controller")
+     * @param int $id
+     * @param JSONRequestParser $parser
+     * @param EntityManagerInterface $em
+     * @param UserHandler $userHandler
+     * @return Response
+     */
+    public function new_post_api(int $id, JSONRequestParser $parser, EntityManagerInterface $em, UserHandler $userHandler): Response {
 
+        $user = $this->getUser();
+        if ($user->getIsBanned())
+            return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
+
+        if (!$parser->has('content', true))
+            return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+        $group = $em->getRepository( UserGroup::class )->find($id);
+        if (!$group || $group->getType() !== UserGroup::GroupMessageGroup) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+        /** @var UserGroupAssociation $group_association */
+        $group_association = $em->getRepository(UserGroupAssociation::class)->findOneBy(['user' => $this->getUser(),
+            'associationType' => UserGroupAssociation::GroupAssociationTypePrivateMessageMember, 'association' => $group]);
+        if (!$group_association) return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
+
+        $text  = $parser->trimmed('content');
+
+        if (mb_strlen($text) < 2 || mb_strlen($text) > 16384) return AjaxResponse::error( self::ErrorPostTextLength );
+        $ts = new DateTime();
+
+        $this->entity_manager->persist( $group->setRef1( $group->getRef1() + 1 )->setRef2( $ts->getTimestamp() ) );
+        $this->entity_manager->persist( $group_association->setRef1($group_association->getRef1() + 1 ));
+
+        $post = (new GlobalPrivateMessage())->setSender($user)->setTimestamp($ts)->setReceiverGroup($group)->setText($text);
+
+        $tx_len = 0;
+        if (!$this->preparePost($user,null,$post,$tx_len, null, $edit))
+            return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest, ['a' => 10] );
+        if ($tx_len < 2) return AjaxResponse::error( self::ErrorPostTextLength );
+
+        $this->entity_manager->persist( $post );
+
+        try {
+            $em->flush();
+        } catch (\Exception $e) {
+            return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
+        }
+
+        return AjaxResponse::success( true , ['url' => $this->generateUrl('pm_view')] );
+    }
 }

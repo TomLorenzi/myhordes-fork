@@ -74,25 +74,27 @@
 
                 <div id="pm-forum-editor-container" class="cell rw-12 hidden" style="padding-bottom: 10px">
                     <div class="forum-note">
-                        <b>{{ 'Neue Nachricht'|trans({},'global') }}</b>
-                        <div class="row">
-                            <div class="cell rw-4 padded">
-                                <label for="global-pm-forum-editor-title">{{ 'Titel'|trans({},'global') }}</label>
-                            </div>
-                            <div class="cell rw-8 padded">
-                                <input type="text" id="global-pm-forum-editor-title" />
-                            </div>
-                        </div>
-                        <div id="pm-user-selector" class="hidden">
+                        <b id="pm-forum-editor-header"></b>
+                        <div id="pm-new-thread-controls" class="hidden">
                             <div class="row">
-                                <div class="padded cell rw-4"><label for="pm-users-search">{{'Einen Empfänger hinzufügen'|trans({}, "soul")}}</label></div>
-                                <div class="padded cell rw-8">
-                                    <div id="pm-users-list-container">
-                                        <div><label><input type="text" id="pm-users-search" /></label><div class="tooltip help">{{ 'Gib den Pseudo des Bürgers ein.'|trans({},'soul') }}</div></div>
-                                        <div id="pm-users-list"></div>
-                                    </div>
+                                <div class="cell rw-4 padded">
+                                    <label for="global-pm-forum-editor-title">{{ 'Titel'|trans({},'global') }}</label>
                                 </div>
-                                <div class="padded cell rw-8 ro-4"><ul id="pm-selected-users"></ul></div>
+                                <div class="cell rw-8 padded">
+                                    <input type="text" id="global-pm-forum-editor-title" />
+                                </div>
+                            </div>
+                            <div id="pm-user-selector">
+                                <div class="row">
+                                    <div class="padded cell rw-4"><label for="pm-users-search">{{'Einen Empfänger hinzufügen'|trans({}, "soul")}}</label></div>
+                                    <div class="padded cell rw-8">
+                                        <div id="pm-users-list-container">
+                                            <div><label><input type="text" id="pm-users-search" /></label><div class="tooltip help">{{ 'Gib den Pseudo des Bürgers ein.'|trans({},'soul') }}</div></div>
+                                            <div id="pm-users-list"></div>
+                                        </div>
+                                    </div>
+                                    <div class="padded cell rw-8 ro-4"><ul id="pm-selected-users"></ul></div>
+                                </div>
                             </div>
                         </div>
                         <div id="global-pm-forum-editor"></div>
@@ -182,20 +184,49 @@
             }
 
             $.html.addEventListenerAll('[x-pm-action="new-single"]', 'click', function () {
+
+                let editor = document.getElementById('global-pm-forum-editor');
+                if (!editor) return;
+
                 document.getElementById('pm-forum-content-container').classList.add('hidden');
                 document.getElementById('pm-forum-actions-container').classList.add('hidden');
                 document.getElementById('pm-forum-content-header').innerText = '{{ 'Vorschau'|trans({},'global')|e('js') }}'
-                document.getElementById('pm-user-selector').classList.add('hidden');
+                document.getElementById('pm-new-thread-controls').classList.add('hidden');
 
-                document.getElementById('pm-forum-content').innerHTML = '<ul>{{ _self.pm_preview(app.user)|e('js') }}</ul>';
+                editor.innerText = '';
+                document.getElementById('pm-forum-editor-container').classList.remove('hidden');
+                document.getElementById('pm-forum-editor-header').innerHTML = '<i class="fa fa-spin fa-circle-notch"></i> {{ 'Wird geladen...'|trans({},'global')|e('js') }}';
 
-                let editor = document.getElementById('global-pm-forum-editor');
-                if (editor) $.ajax.no_history().load( editor, '{{ url('pm_thread_editor_controller') }}', false, {}, function() {
-                    document.getElementById('pm-forum-editor-container').classList.remove('hidden');
+                if (editor) $.ajax.background().load( editor, '{{ url('pm_thread_editor_controller') }}', false, {}, function() {
+                    document.getElementById('pm-forum-editor-header').innerText = '{{ 'Neue Nachricht'|trans({},'global') }}';
+
                     document.getElementById('pm-forum-content-container').classList.remove('hidden');
-                    document.getElementById('pm-user-selector').classList.remove('hidden');
+                    document.getElementById('pm-new-thread-controls').classList.remove('hidden');
+
+                    document.getElementById('pm-forum-content').innerHTML = '<ul>{{ _self.pm_preview(app.user)|e('js') }}</ul>';
                 } );
-            })
+            });
+
+            $.html.addEventListenerAll('[x-pm-action="answer-single"]', 'click', function () {
+
+                const selected_thread = document.querySelector('ul.pm-conversation-list>li[x-editor].selected');
+                let list = document.querySelector('#pm-forum-content>ul');
+                let editor = document.getElementById('global-pm-forum-editor');
+                if (!editor || !selected_thread || !list) return;
+
+                document.getElementById('pm-forum-actions-container').classList.add('hidden');
+                document.getElementById('pm-new-thread-controls').classList.add('hidden');
+
+                editor.innerText = '';
+                document.getElementById('pm-forum-editor-container').classList.remove('hidden');
+                document.getElementById('pm-forum-editor-header').innerHTML = '<i class="fa fa-spin fa-circle-notch"></i> {{ 'Wird geladen...'|trans({},'global')|e('js') }}';
+
+                if (editor) $.ajax.background().load( editor, selected_thread.getAttribute('x-editor'), false, {}, function() {
+                    document.getElementById('pm-forum-editor-header').innerText = '{{ 'Antworten'|trans({},'global')|e('js') }}';
+
+                    list.innerHTML = '{{ _self.pm_preview(app.user)|e('js') }}' + list.innerHTML;
+                } );
+            });
         })();
 
 

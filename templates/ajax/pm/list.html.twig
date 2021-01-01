@@ -2,12 +2,17 @@
 {% block ajax_base %}
     <ul class="pm-conversation-list">
         {% for entry in entries %}
-            {% set endpoint = null %}
+            {% set endpoint_fetch  = null %}
+            {% set endpoint_answer = null %}
             {% if entry.obj|instance_of('App\\Entity\\UserGroupAssociation') %}
-                {% set endpoint = path('pm_conv_group', {'id': entry.obj.association.id}) %}
+                {% set endpoint_fetch  = path('pm_conv_group', {'id': entry.obj.association.id}) %}
+                {% set endpoint_answer = path('pm_post_editor_controller', {'id': entry.obj.association.id}) %}
             {% endif %}
 
-            <li x-title="{{ entry.title }}" class="{% if entry.closed %}closed{% endif %} {% if entry.system %}system{% endif %}" {% if endpoint is not null %}x-endpoint="{{ endpoint }}"{% endif %}>
+            <li x-title="{{ entry.title }}"
+                class="{% if entry.closed %}closed{% endif %} {% if entry.system %}system{% endif %}"
+                {% if endpoint_fetch is not null %}x-endpoint="{{ endpoint_fetch }}"{% endif %}
+                {% if endpoint_answer is not null %}x-editor="{{ endpoint_answer }}"{% endif %}>
                 <div class="pm-avatar-block">
                     {% if entry.system %}
                         <div class="avatarcrow"></div>
@@ -71,6 +76,9 @@
 
                 document.getElementById('pm-forum-actions-container').classList.add('hidden');
                 document.getElementById('pm-forum-editor-container').classList.add('hidden');
+
+                if (elem.getAttribute('x-editor')) $.html.forEach('[x-pm-action="answer-single"]', e => e.classList.remove('disabled'))
+                else $.html.forEach('[x-pm-action="answer-single"]', e => e.classList.add('disabled'))
 
                 let editor = document.getElementById('global-pm-forum-editor');
                 if (editor) editor.innerText = '';

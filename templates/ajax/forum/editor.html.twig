@@ -8,6 +8,7 @@
 {% endif %}
 
 {% if type is not defined and forum %}{% set type = 'forum' %}{% endif %}
+{% if target_data is not defined %}{% set target_data = [] %}{% endif %}
 
 {% block ajax_base %}
     <div class="{% if type != 'global-pm' %}forum-editor{% else %}pm-editor{% endif %}">
@@ -527,7 +528,7 @@
                     }
 
                     {% if not forum %}
-                        target_url = '{{ path(target_url) }}';
+                        target_url = '{{ path(target_url, target_data) }}';
                         target_payload = {
                             'content': content_node.innerHTML,
                             'type': "{{ type }}",
