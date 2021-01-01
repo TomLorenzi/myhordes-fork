@@ -129,7 +129,11 @@
         {% else %}
             <div class="pm-avatar row-flex v-center"><div class="cell rw-12 center">{{ user.name|slice(0,2) }}</div></div>
         {% endif %}
-        <div class="pm-message"><div id="pm-editor-preview"></div></div>
+        <div class="pm-message">
+            <div class="pm-message-header"><i class="fa fa-user"></i> {{ user.name }}</div>
+            <div class="pm-message-content"><div id="pm-editor-preview"></div></div>
+            <div class="pm-message-footer">{{ 'Vorschau'|trans({},'global') }}</div>
+        </div>
     </li>
 {% endmacro %}
 
@@ -197,13 +201,15 @@
                 document.getElementById('pm-forum-editor-container').classList.remove('hidden');
                 document.getElementById('pm-forum-editor-header').innerHTML = '<i class="fa fa-spin fa-circle-notch"></i> {{ 'Wird geladen...'|trans({},'global')|e('js') }}';
 
+                document.getElementById('pm-forum-content').innerHTML = '<ul>{{ _self.pm_preview(app.user)|e('js') }}</ul>';
+
                 if (editor) $.ajax.background().load( editor, '{{ url('pm_thread_editor_controller') }}', false, {}, function() {
                     document.getElementById('pm-forum-editor-header').innerText = '{{ 'Neue Nachricht'|trans({},'global') }}';
 
                     document.getElementById('pm-forum-content-container').classList.remove('hidden');
                     document.getElementById('pm-new-thread-controls').classList.remove('hidden');
 
-                    document.getElementById('pm-forum-content').innerHTML = '<ul>{{ _self.pm_preview(app.user)|e('js') }}</ul>';
+
                 } );
             });
 
@@ -221,10 +227,10 @@
                 document.getElementById('pm-forum-editor-container').classList.remove('hidden');
                 document.getElementById('pm-forum-editor-header').innerHTML = '<i class="fa fa-spin fa-circle-notch"></i> {{ 'Wird geladen...'|trans({},'global')|e('js') }}';
 
+                list.innerHTML = '{{ _self.pm_preview(app.user)|e('js') }}' + list.innerHTML;
+
                 if (editor) $.ajax.background().load( editor, selected_thread.getAttribute('x-editor'), false, {}, function() {
                     document.getElementById('pm-forum-editor-header').innerText = '{{ 'Antworten'|trans({},'global')|e('js') }}';
-
-                    list.innerHTML = '{{ _self.pm_preview(app.user)|e('js') }}' + list.innerHTML;
                 } );
             });
         })();

@@ -1,5 +1,7 @@
 {% extends "ajax/ajax_plain.html.twig" %}
 {% block ajax_base %}
+    {% set today = date() %}
+    {% set yesterday = date('-1days') %}
     <ul class="group-conversation">
         {% for message in messages %}
             {# @var message App\Entity\GlobalPrivateMessage #}
@@ -9,7 +11,19 @@
                 {% else %}
                     <div class="pm-avatar row-flex v-center"><div class="cell rw-12 center">{{ message.sender.name|slice(0,2) }}</div></div>
                 {% endif %}
-                <div class="pm-message">{{ message.text|raw }}</div>
+                <div class="pm-message">
+                    <div class="pm-message-header"><i class="fa fa-user"></i> {{ message.sender.name }}</div>
+                    <div class="pm-message-content">{{ message.text|raw }}</div>
+                    <div class="pm-message-footer">
+                        {% if message.timestamp.format('Ymd') == today|date("Ymd") %}
+                            {{ 'Heute um'|trans({},'global') }} {{ message.timestamp|format_datetime('none', 'short') }}
+                        {% elseif message.timestamp.format('Ymd') == yesterday|date("Ymd") %}
+                            {{ 'Gestern um'|trans({},'global') }} {{ message.timestamp|format_datetime('none', 'short') }}
+                        {% else %}
+                            {{ message.timestamp|format_datetime('medium', 'short') }}
+                        {% endif %}
+                    </div>
+                </div>
             </li>
         {% endfor %}
     </ul>

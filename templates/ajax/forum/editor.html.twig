@@ -587,7 +587,9 @@
                             {% if type != 'global-pm' %}
                                 $.ajax.load( null, data.url, true );
                             {% else %}
-                                $.ajax.load( document.getElementById('post-office-content'), data.url );
+                                let selected = document.querySelector('.pm-conversation-list>li.selected');
+                                if (selected) selected.click();
+                                else $.ajax.load( document.getElementById('post-office-content'), data.url );
                             {% endif %}
                         }
                     );

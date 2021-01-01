@@ -1,5 +1,7 @@
 {% extends "ajax/ajax_plain.html.twig" %}
 {% block ajax_base %}
+    {% set today = date() %}
+    {% set yesterday = date('-1days') %}
     <ul class="pm-conversation-list">
         {% for entry in entries %}
             {% set endpoint_fetch  = null %}
@@ -59,6 +61,16 @@
                 {% else %}
                     <span class="author unknown">{{ 'Chat'|trans({},'global') }}</span>
                 {% endif %}
+
+                <span class="date">
+                        {% if entry.date.format('Ymd') == today|date("Ymd") %}
+                            {{ 'Heute um'|trans({},'global') }} {{ entry.date|format_datetime('none', 'short') }}
+                        {% elseif entry.date.format('Ymd') == yesterday|date("Ymd") %}
+                            {{ 'Gestern um'|trans({},'global') }} {{ entry.date|format_datetime('none', 'short') }}
+                        {% else %}
+                            {{ entry.date|format_datetime('medium', 'short') }}
+                        {% endif %}
+                </span>
             </li>
         {% endfor %}
     </ul>
