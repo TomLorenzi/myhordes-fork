@@ -170,6 +170,11 @@ class Zone
      */
     private $chatSilenceTimers;
 
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $startZombies = 0;
+
     public function __construct()
     {
         $this->citizens = new ArrayCollection();
@@ -679,6 +684,18 @@ class Zone
                 $chatSilenceTimer->setZone(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getStartZombies(): ?int
+    {
+        return $this->startZombies;
+    }
+
+    public function setStartZombies(int $startZombies): self
+    {
+        $this->startZombies = $startZombies;
 
         return $this;
     }
